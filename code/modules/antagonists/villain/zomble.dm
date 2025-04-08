@@ -136,7 +136,7 @@
 	for(var/trait in traits_zombie)
 		REMOVE_TRAIT(zombie, trait, "[type]")
 	zombie.remove_client_colour(/datum/client_colour/monochrome)
-	if(has_turned && become_rotman)
+	if(has_turned && traits_rotman)
 		zombie.change_stat(STATKEY_CON, -5)
 		zombie.change_stat(STATKEY_SPD, -5)
 		zombie.change_stat(STATKEY_INT, -3)

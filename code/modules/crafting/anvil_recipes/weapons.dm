@@ -4,42 +4,6 @@
 	i_type = "Weapons"
 	abstract_type = /datum/anvil_recipe/weapons
 
-// SILVER - Harder to craft, does less damage and has less durability than steel, but banes undead.
-
-/datum/anvil_recipe/weapons/silver/dagger
-	name = "Silver Dagger"
-	recipe_name = "a Silver Dagger"
-	appro_skill = /datum/skill/craft/weaponsmithing
-	req_bar = /obj/item/ingot/silver
-	created_item = /obj/item/weapon/knife/dagger/silver
-	craftdiff = 2
-
-/datum/anvil_recipe/weapons/silver/sword_silver
-	name = "Silver Sword"
-	recipe_name = "a Silver Sword"
-	appro_skill = /datum/skill/craft/weaponsmithing
-	req_bar = /obj/item/ingot/silver
-	created_item = /obj/item/weapon/sword/silver
-	craftdiff = 3
-
-/datum/anvil_recipe/weapons/silver/rapier_silver
-	name = "Silver Rapier"
-	recipe_name = "a Silver Rapier"
-	appro_skill = /datum/skill/craft/weaponsmithing
-	req_bar = /obj/item/ingot/silver
-	created_item = /obj/item/weapon/sword/rapier/silver
-	craftdiff = 3
-
-/datum/anvil_recipe/weapons/silver/forgotten
-	name = "Forgotten Blade (+Steel Bar)"
-	recipe_name = "a Forgotten Blade"
-	appro_skill = /datum/skill/craft/weaponsmithing
-	req_bar = /obj/item/ingot/silver
-	additional_items = list(/obj/item/ingot/steel)
-	created_item = /obj/item/weapon/sword/long/forgotten
-	quench_type = QUENCH_HOLY
-	craftdiff = 4
-
 // COPPER TIER - TODO: Move these to redsmithing in future
 
 /datum/anvil_recipe/weapons/copper/caxe
@@ -552,3 +516,111 @@
 	additional_items = list(/obj/item/ingot/bronze, /obj/item/grown/log/tree/small)
 	created_item = /obj/item/weapon/polearm/spear/bronze
 	craftdiff = 0
+
+// SILVER - Harder to craft, does less damage and has less durability than steel, but banes undead.
+
+/datum/anvil_recipe/weapons/silver/dagger
+	name = "Silver Dagger"
+	recipe_name = "a Silver Dagger"
+	appro_skill = /datum/skill/craft/weaponsmithing
+	req_bar = /obj/item/ingot/silver
+	created_item = /obj/item/weapon/knife/dagger/silver
+	craftdiff = 2
+
+/datum/anvil_recipe/weapons/silver/sword_silver
+	name = "Silver Sword"
+	recipe_name = "a Silver Sword"
+	appro_skill = /datum/skill/craft/weaponsmithing
+	req_bar = /obj/item/ingot/silver
+	created_item = /obj/item/weapon/sword/silver
+	craftdiff = 3
+
+/datum/anvil_recipe/weapons/silver/rapier_silver
+	name = "Silver Rapier"
+	recipe_name = "a Silver Rapier"
+	appro_skill = /datum/skill/craft/weaponsmithing
+	req_bar = /obj/item/ingot/silver
+	created_item = /obj/item/weapon/sword/rapier/silver
+	craftdiff = 3
+
+/datum/anvil_recipe/weapons/silver/forgotten
+	name = "Forgotten Blade (+Steel Bar)"
+	recipe_name = "a Forgotten Blade"
+	appro_skill = /datum/skill/craft/weaponsmithing
+	req_bar = /obj/item/ingot/silver
+	additional_items = list(/obj/item/ingot/steel)
+	created_item = /obj/item/weapon/sword/long/forgotten
+	quench_type = QUENCH_HOLY
+	craftdiff = 4
+
+/datum/anvil_recipe/weapons/silver/axe_steel
+	name = "Silver Axe (+Stick)"
+	recipe_name = "a Silver Axe"
+	appro_skill = /datum/skill/craft/weaponsmithing
+	req_bar = /obj/item/ingot/silver
+	additional_items = list(/obj/item/grown/log/tree/stick)
+	created_item = /obj/item/weapon/axe/steel/silver
+	craftdiff = 2
+/obj/item/weapon/axe/steel/silver
+
+// ELECTRUM - Hard to craft, incredibly expensive and can only be smelted with a crucibel. In exchange its harder then silver while retaining the silver bonus against undead. Used for holy gear.
+
+/datum/anvil_recipe/weapons/electrum/dagger_psydon
+	name = "2x Psydonian Daggers"
+	recipe_name = "a couple Psydonian Daggers"
+	appro_skill = /datum/skill/craft/weaponsmithing
+	req_bar = /obj/item/ingot/electrum
+	created_item = /obj/item/weapon/knife/dagger/steel/psydon
+	createmultiple = TRUE
+	createditem_num = 1
+	craftdiff = 3
+	quench_type = QUENCH_HOLY
+
+/datum/anvil_recipe/weapons/electrum/whip_psydon
+	name = "Psydonian Whip (+Whip)"
+	recipe_name = "a Psydonian Whip"
+	appro_skill = /datum/skill/craft/weaponsmithing
+	req_bar = /obj/item/ingot/electrum
+	additional_items = list(/obj/item/weapon/whip)
+	created_item = /obj/item/weapon/whip/psydon
+	craftdiff = 3
+	quench_type = QUENCH_HOLY
+
+/datum/anvil_recipe/weapons/electrum/flail_psydon
+	name = "Psydonian Flail (+Chain, +Stick)"
+	recipe_name = "a Psydonian Flail"
+	req_bar = /obj/item/ingot/electrum
+	additional_items = list(/obj/item/rope/chain, /obj/item/grown/log/tree/stick)
+	created_item = /obj/item/weapon/flail/sflail/psydon
+	craftdiff = 4
+	quench_type = QUENCH_HOLY
+
+/datum/anvil_recipe/weapons/electrum/axe_psydon
+	name = "Psydonian Axe (+Bar, +Stick)"
+	recipe_name = "a Psydonian Axe"
+	appro_skill = /datum/skill/craft/weaponsmithing
+	req_bar = /obj/item/ingot/electrum
+	additional_items = list(/obj/item/grown/log/tree/stick)
+	created_item = /obj/item/weapon/axe/steel
+	craftdiff = 4
+	quench_type = QUENCH_HOLY
+
+/datum/anvil_recipe/weapons/electrum/longsword_psydon
+	name = "Psydonian Longsword (+Bar)"
+	recipe_name = "a Psydonian Longsword"
+	appro_skill = /datum/skill/craft/weaponsmithing
+	req_bar = /obj/item/ingot/electrum
+	additional_items = list(/obj/item/ingot/electrum)
+	created_item = /obj/item/weapon/sword/long/psydon
+	craftdiff = 4
+	quench_type = QUENCH_HOLY
+
+/datum/anvil_recipe/weapons/electrum/greatsword_psydon
+	name = "Psydonian Greatsword (+Electrum Bar x2, +Steel Bar)"
+	recipe_name = "a Psydonian Greatsword"
+	appro_skill = /datum/skill/craft/weaponsmithing
+	req_bar = /obj/item/ingot/electrum
+	additional_items = list(/obj/item/ingot/electrum, /obj/item/ingot/electrum, /obj/item/ingot/steel)
+	created_item = /obj/item/weapon/sword/long/greatsword/psydon
+	craftdiff = 5
+	quench_type = QUENCH_HOLY

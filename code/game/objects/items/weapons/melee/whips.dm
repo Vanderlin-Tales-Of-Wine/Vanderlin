@@ -87,3 +87,12 @@
 	desc = "A dark whip with segmented, ashen spines for a base. Claimed to be hewn from dendrified prisoners of terror."
 	icon_state = "spiderwhip"
 	minstr = 6
+
+//................ Electrum Whip ............... //
+
+/obj/item/weapon/whip/psydon
+	name = "psydonian whip"
+	desc = "A whip adorned by a polished psycross. A testiment to brutality."
+	icon_state = "psywhip"
+	minstr = 5
+	is_silver = TRUE

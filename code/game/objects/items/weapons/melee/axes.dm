@@ -358,3 +358,29 @@
 			if("onbelt")
 				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
 	return ..()
+
+//................ Silver Axe ............... //
+
+/obj/item/weapon/axe/steel/silver
+	name = "silver axe"
+	desc = "A fine silver axe, shimmering white in the ligth. The blade easily dulling, making it morusefull as an ornemental pice."
+	icon_state = "silveraxe"
+	force = 16
+	force_wielded = DAMAGE_AXE
+	max_blade_int = 240
+	max_integrity = 400
+	melting_material = /datum/material/silver
+	sellprice = 55
+	axe_cut = 5 // Why are you using a silver axe for this?
+	is_silver = TRUE
+
+//................ Electrum Axe ............... //
+
+/obj/item/weapon/axe/steel/psydon
+	name = "psydonian axe"
+	desc = "A decorated axe forged from silver and gold. A once common tool, now only meant to spill blood. "
+	icon_state = "psyaxe"
+	melting_material = /datum/material/electrum
+	minstr = 7
+	sellprice = 70
+	is_silver = TRUE

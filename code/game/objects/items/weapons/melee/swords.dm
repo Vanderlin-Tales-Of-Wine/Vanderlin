@@ -923,3 +923,23 @@
 	max_integrity = 200
 	dropshrink = 0.80
 	wdefense = 2
+
+//................ Electrum Sword ............... //
+
+/obj/item/weapon/sword/long/psydon
+	name = "psydonian long sword"
+	desc = "An old blade meant to slay those long forgotten. May the days where it shines crimson never come."
+	icon_state = "psysword"
+	minstr = 8
+	sellprice = 80
+	is_silver = TRUE
+	smeltresult = /obj/item/ingot/electrum
+
+/obj/item/weapon/sword/long/greatsword/psydon
+	name = "psydonian greatsword"
+	desc = "A giant broad blade, wrapped in thorns to draw the blood of those wielding it without remorse. Brougth from forgotten days, to judge the sins of days coming."
+	icon_state = "psygsword"
+	minstr = 12
+	sellprice = 180
+	is_silver = TRUE
+	smeltresult = /obj/item/ingot/electrum

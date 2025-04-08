@@ -1,6 +1,5 @@
 #define QUENCH_NORMAL 0 //quench reagent isnt changed
 #define QUENCH_HOLY 1 //turns the required quench reagent into blessed water
-#define QUENCH_DAEMON 2 //turns the reaquired quench reagent into blood
 
 /datum/anvil_recipe
 	abstract_type = /datum/anvil_recipe

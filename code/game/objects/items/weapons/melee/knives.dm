@@ -481,3 +481,12 @@
 	sellprice = 65
 	melting_material = /datum/material/silver
 	melt_amount = 50
+
+//................ Electrum Knife ............... //
+
+/obj/item/weapon/knife/dagger/steel/psydon
+	name = "psydonian dagger"
+	desc = "Made from silver and gold, made to slit artery and throat."
+	icon_state = "psydagger"
+	is_silver = TRUE
+	sellprice = 34
