@@ -1,31 +1,56 @@
 #define POPCOUNT_SURVIVORS "survivors"					//Not dead at roundend
 #define POPCOUNT_ESCAPEES "escapees"					//Not dead and on centcom/shuttles marked as escaped
 
+#define STATS_DEATHS "deaths"
+#define STATS_NOBLE_DEATHS "noble_deaths"
+#define STATS_MOAT_FALLERS "moat_fallers"
+#define STATS_ANKLES_BROKEN "ankles_broken"
+#define STATS_PEOPLE_SMITTEN "people_smitten"
+#define STATS_BLOOD_SPILT "blood_spilt"
+#define STATS_PEOPLE_GIBBED "people_gibbed"
+#define STATS_TRIUMPHS_AWARDED "triumphs_awarded"
+#define STATS_TRIUMPHS_STOLEN "triumphs_stolen"
+#define STATS_DRUGS_SNORTED "drugs_snorted"
+#define STATS_BEARDS_SHAVED "beards_shaved"
+#define STATS_TREES_CUT "trees_cut"
+#define STATS_PRAYERS_MADE "prayers_made"
+#define STATS_FISH_CAUGHT "fish_caught"
+#define STATS_ITEMS_PICKPOCKETED "items_pickpocketed"
+#define STATS_MASTERWORKS_FORGED "masterworks_forged"
+#define STATS_TAXES_COLLECTED "taxes_collected"
+#define STATS_ORGANS_EATEN "organs_eaten"
+#define STATS_KISSES_MADE "kisses_made"
+#define STATS_LAUGHS_MADE "laughs_made"
+#define STATS_GRAVES_CONSECRATED "graves_consecrated"
+#define STATS_POTIONS_BREWED "potions_brewed"
+#define STATS_ASTRATA_REVIVALS "astrata_revivals"
+#define STATS_PLANTS_HARVESTED "plants_harvested"
+
 GLOBAL_LIST_INIT(vanderlin_round_stats, list(
-	"deaths" = 0,
-	"noble_deaths" = 0,
-	"moat_fallers" = 0,
-	"ankles_broken" = 0,
-	"people_smitten" = 0,
-	"blood_spilt" = 0,
-	"people_gibbed" = 0,
-	"triumphs_awarded" = 0,
-	"triumphs_stolen" = 0,
-	"drugs_snorted" = 0,
-	"beards_shaved" = 0,
-	"trees_cut" = 0,
-	"prayers_made" = 0,
-	"fish_caught" = 0,
-	"items_pickpocketed" = 0,
-	"masterworks_forged" = 0,
-	"taxes_collected" = 0,
-	"organs_eaten" = 0,
-	"kisses_made" = 0,
-	"laughs_made" = 0,
-	"graves_consecrated" = 0,
-	"potions_brewed" = 0,
-	"astrata_revivals" = 0,
-	"plants_harvested" = 0,
+	STATS_DEATHS = 0,
+	STATS_NOBLE_DEATHS = 0,
+	STATS_MOAT_FALLERS = 0,
+	STATS_ANKLES_BROKEN = 0,
+	STATS_PEOPLE_SMITTEN = 0,
+	STATS_BLOOD_SPILT = 0,
+	STATS_PEOPLE_GIBBED = 0,
+	STATS_TRIUMPHS_AWARDED = 0,
+	STATS_TRIUMPHS_STOLEN = 0,
+	STATS_DRUGS_SNORTED = 0,
+	STATS_BEARDS_SHAVED = 0,
+	STATS_TREES_CUT = 0,
+	STATS_PRAYERS_MADE = 0,
+	STATS_FISH_CAUGHT = 0,
+	STATS_ITEMS_PICKPOCKETED = 0,
+	STATS_MASTERWORKS_FORGED = 0,
+	STATS_TAXES_COLLECTED = 0,
+	STATS_ORGANS_EATEN = 0,
+	STATS_KISSES_MADE = 0,
+	STATS_LAUGHS_MADE = 0,
+	STATS_GRAVES_CONSECRATED = 0,
+	STATS_POTIONS_BREWED = 0,
+	STATS_ASTRATA_REVIVALS = 0,
+	STATS_PLANTS_HARVESTED = 0,
 ))
 
 /datum/controller/subsystem/ticker/proc/gather_roundend_feedback()
