@@ -234,7 +234,7 @@ GLOBAL_VAR_INIT(OOC_COLOR, normal_ooc_colour)//If this is null, use the CSS for 
 	var/confirm = alert(src, "Should I really kill myself?", "Feed the crows", "Yes", "No")
 	if(confirm == "Yes")
 		log_admin("[key_name(usr)] used killself.")
-		message_admins(span_adminnotice("."))
+		message_admins("<span class='adminnotice'>[key_name_admin(usr)] used killself.</span>")
 		mob.death()
 #endif
 

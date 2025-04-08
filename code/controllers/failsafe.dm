@@ -75,7 +75,7 @@ GLOBAL_REAL(Failsafe, /datum/controller/failsafe)
 								defcon = 4
 								master_iteration = 0
 								msg = "MC restarted successfully"
-								to_chat(GLOB.admins, span_adminnotice("]"))
+								to_chat(GLOB.admins, "<span class='adminnotice'>[msg]</span>")
 								SSplexora.mc_alert(msg, defcon)
 							else if(rtn < 0)
 								log_game("FailSafe: Could not restart MC, runtime encountered. Entering defcon 0")
@@ -90,7 +90,7 @@ GLOBAL_REAL(Failsafe, /datum/controller/failsafe)
 								defcon = 4
 								master_iteration = 0
 								var/msg = "MC restarted successfully"
-								to_chat(GLOB.admins, span_adminnotice("]"))
+								to_chat(GLOB.admins, "<span class='adminnotice'>[msg]</span>")
 								SSplexora.mc_alert(msg, defcon)
 				else
 					defcon = min(defcon + 1,5)

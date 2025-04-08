@@ -528,4 +528,4 @@
 		qdel(query_sync_lastadminrank)
 		return
 	qdel(query_sync_lastadminrank)
-	to_chat(usr, span_admin("."))
+	to_chat(usr, "<span class='admin'>Sync of [admin_key] successful.</span>")
