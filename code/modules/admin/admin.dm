@@ -472,14 +472,22 @@
 			var/init_by = "Initiated by Admin."
 			switch(result)
 				if("Regular Restart")
+					SSplexora.restart_requester = usr
+					SSplexora.restart_type = PLEXORA_SHUTDOWN_NORMAL
 					SSticker.Reboot(init_by, "admin reboot - by Admin", 10)
-				if("Hard Restart (No Delay, No Feeback Reason)")
+				if("Hard Restart (No Delay, No Feedback Reason)")
+					SSplexora.restart_type = PLEXORA_SHUTDOWN_HARD
+					SSplexora.restart_requester = usr
 					to_chat(world, "World reboot - [init_by]")
 					world.Reboot()
 				if("Hardest Restart (No actions, just reboot)")
+					SSplexora.restart_type = PLEXORA_SHUTDOWN_HARDEST
+					SSplexora.restart_requester = usr
 					to_chat(world, "Hard world reboot - [init_by]")
 					world.Reboot(fast_track = TRUE)
 				if("Server Restart (Kill and restart DD)")
+					SSplexora.restart_type = PLEXORA_SHUTDOWN_KILLDD // monkestation edit: Plexora
+					SSplexora.restart_requester = usr // monkestation edit: Plexora
 					to_chat(world, "Server restart - [init_by]")
 					world.TgsEndProcess()
 
