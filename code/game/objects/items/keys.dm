@@ -224,7 +224,7 @@
 	name = "Mercenary guild master's key"
 	desc = "\"Humble\" would be a kinder word to use for its current state..."
 	icon_state = "rustkey"
-	lockid = ACCESS_GAFFER
+	lockids = list(ACCESS_GAFFER)
 
 /obj/item/key/warehouse
 	name = "Warehouse key"

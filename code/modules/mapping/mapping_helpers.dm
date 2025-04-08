@@ -202,7 +202,10 @@ INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_lava)
 	icon_state = "door_locker"
 
 /obj/effect/mapping_helpers/access/locker/payload(obj/payload)
-	if(payload.locked)
+	if(!payload.lock_check())
+		log_mapping("[src] at [AREACOORD(src)] tried to lock [payload] but it hasn't got a lock!")
+		return
+	if(payload.locked())
 		log_mapping("[src] at [AREACOORD(src)] tried to lock [payload] but it's already locked!")
 		return
-	payload.locked = TRUE
+	payload.lock()
