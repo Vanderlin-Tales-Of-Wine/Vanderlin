@@ -593,7 +593,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 
 
 //	if(!winexists(src, "asset_cache_browser")) // The client is using a custom skin, tell them.
-//		to_chat(src, "<span class='warning'>Unable to access asset cache browser, if you are using a custom skin file, please allow DS to download the updated version, if you are not, then make a bug report. This is not a critical issue but can cause issues with resource downloading, as it is impossible to know when extra resources arrived to you.</span>")
+//		to_chat(src, span_warning("Unable to access asset cache browser, if you are using a custom skin file, please allow DS to download the updated version, if you are not, then make a bug report. This is not a critical issue but can cause issues with resource downloading, as it is impossible to know when extra resources arrived to you."))
 
 	update_ambience_pref()
 

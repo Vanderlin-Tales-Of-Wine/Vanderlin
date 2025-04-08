@@ -73,7 +73,7 @@
 		if(ishuman(target))
 			var/mob/living/carbon/human/H = target
 
-			user.visible_message("<span class='warning'>[user] points [src] at [target].</span>")
+			user.visible_message(span_warning("[user] points [src] at [target]."))
 
 			if(H == HU)
 				return
@@ -94,7 +94,7 @@
 				return
 
 			if(istype(user.used_intent, /datum/intent/lord_electrocute))
-				HU.visible_message("<span class='warning'>[HU] electrocutes [H] with \the [src].</span>")
+				HU.visible_message(span_warning("[HU] electrocutes [H] with \the [src]."))
 				user.Beam(target, icon_state = "lightning[rand(1, 12)]", time = 0.5 SECONDS) // LIGHTNING
 				playsound(user, 'sound/magic/lightningshock.ogg', 70, TRUE)
 				H.electrocute_act(5, src)
@@ -103,7 +103,7 @@
 				return
 
 			if(istype(user.used_intent, /datum/intent/lord_silence))
-				HU.visible_message("<span class='warning'>[HU] silences [H] with \the [src].</span>")
+				HU.visible_message(span_warning("[HU] silences [H] with \the [src]."))
 				H.set_silence(20 SECONDS)
 				log_message("[HU] has silenced [H] with the master's rod!", LOG_ATTACK)
 				to_chat(H, "<span class='danger'>I'm silenced by the scepter!</span>")
@@ -177,7 +177,7 @@
 		if(charge <= 33)
 			to_chat(user, "<span class='warning'>It's out of mana.</span>")
 			return
-		user.visible_message("<span class='warning'>[user] flicks [src] on.</span>")
+		user.visible_message(span_warning("[user] flicks [src] on."))
 		on = TRUE
 		charge--
 	playsound(user, pick('sound/items/stunmace_toggle (1).ogg','sound/items/stunmace_toggle (2).ogg','sound/items/stunmace_toggle (3).ogg'), 100, TRUE)

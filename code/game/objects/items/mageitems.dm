@@ -431,7 +431,7 @@
 				qdel(P)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put the [src] on a table to work on it.</span>")
+			to_chat(user, span_warning("You need to put the [src] on a table to work on it."))
 	else
 		return ..()
 /obj/item/rope/chain/bindingshackles/t2
@@ -450,7 +450,7 @@
 				qdel(P)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put the [src] on a table to work on it.</span>")
+			to_chat(user, span_warning("You need to put the [src] on a table to work on it."))
 	else
 		return ..()
 /obj/item/rope/chain/bindingshackles/t3
@@ -469,7 +469,7 @@
 				qdel(P)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put the [src] on a table to work on it.</span>")
+			to_chat(user, span_warning("You need to put the [src] on a table to work on it."))
 	else
 		return ..()
 /obj/item/rope/chain/bindingshackles/t4
@@ -488,7 +488,7 @@
 				qdel(P)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put the [src] on a table to work on it.</span>")
+			to_chat(user, span_warning("You need to put the [src] on a table to work on it."))
 	else
 		return ..()
 

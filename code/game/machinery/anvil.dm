@@ -18,7 +18,7 @@
 /obj/machinery/anvil/examine(mob/user)
 	. = ..()
 	if(hingot && hott)
-		. += "<span class='warning'>[hingot] is too hot to touch.</span>"
+		. += span_warning("[hingot] is too hot to touch.")
 
 /obj/machinery/anvil/attackby(obj/item/W, mob/living/user, params)
 	if(istype(W, /obj/item/weapon/tongs))
@@ -67,7 +67,7 @@
 		if(!hingot)
 			return
 		if(!hott)
-			to_chat(user, "<span class='warning'>The bar has gone too cold to continue working on it.</span>")
+			to_chat(user, span_warning("The bar has gone too cold to continue working on it."))
 			return
 		if(!hingot.currecipe)
 			if(!choose_recipe(user))

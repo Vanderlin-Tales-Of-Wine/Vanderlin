@@ -53,7 +53,7 @@
 	. = ..()
 	if(HAS_TRAIT(user, TRAIT_SOUL_EXAMINE))
 		if(lootroll == 1)
-			. += "<span class='warning'>Better let this one sleep.</span>"
+			. += span_warning("Better let this one sleep.")
 
 /obj/structure/closet/dirthole/insertion_allowed(atom/movable/AM)
 	if(istype(AM, /obj/structure/closet/crate/chest) || istype(AM, /obj/structure/closet/burial_shroud) || istype(AM, /obj/structure/closet/crate/coffin))
@@ -176,9 +176,9 @@
 				if(isliving(user))
 					var/mob/living/L = user
 					if(HAS_TRAIT(L, TRAIT_GRAVEROBBER))
-						to_chat(user, "<span class='warning'>Necra turns a blind eye to my deeds.</span>")
+						to_chat(user, span_warning("Necra turns a blind eye to my deeds."))
 					else
-						to_chat(user, "<span class='warning'>Necra shuns my blasphemous deeds, I am cursed!</span>")
+						to_chat(user, span_warning("Necra shuns my blasphemous deeds, I am cursed!"))
 						L.apply_status_effect(/datum/status_effect/debuff/cursed)
 		update_icon()
 		attacking_shovel.heldclod = new(attacking_shovel)

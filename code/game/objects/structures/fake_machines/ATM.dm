@@ -13,7 +13,7 @@
 	var/mob/living/carbon/human/H = user
 
 	if(HAS_TRAIT(user, TRAIT_MATTHIOS_CURSE))
-		to_chat(H, "<span class='warning'>The idea repulses me!</span>")
+		to_chat(H, span_warning("The idea repulses me!"))
 		H.cursed_freak_out()
 		return
 
@@ -56,7 +56,7 @@
 			return
 		budget2change(coin_amt*mod, user, selection)
 	else
-		to_chat(user, "<span class='warning'>The machine bites my finger.</span>")
+		to_chat(user, span_warning("The machine bites my finger."))
 		icon_state = "atm-b"
 		H.flash_fullscreen("redflash3")
 		playsound(H, 'sound/combat/hits/bladed/genstab (1).ogg', 100, FALSE, -1)
@@ -78,7 +78,7 @@
 		if(istype(P, /obj/item/coin))
 			var/mob/living/carbon/human/H = user
 			if(HAS_TRAIT(user, TRAIT_MATTHIOS_CURSE))
-				to_chat(H, "<span class='warning'>The idea repulses me!</span>")
+				to_chat(H, span_warning("The idea repulses me!"))
 				H.cursed_freak_out()
 				return
 

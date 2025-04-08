@@ -45,7 +45,7 @@
 
 	if(left_click)
 		if(!storedarea)
-			to_chat(c, "<span class='warning'>Configure or select the area you want to paint first!</span>")
+			to_chat(c, span_warning("Configure or select the area you want to paint first!"))
 			return
 		var/turf/T = get_turf(object)
 		if(get_area(T) != storedarea)

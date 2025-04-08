@@ -192,7 +192,7 @@ GLOBAL_LIST_EMPTY(biggates)
 /obj/structure/winch/attack_hand(mob/user)
 	. = ..()
 	if(!attached_gate)
-		to_chat(user, "<span class='warning'>The chain is not attached to anything.</span>")
+		to_chat(user, span_warning("The chain is not attached to anything."))
 		return
 	if(attached_gate.isSwitchingStates)
 		return
@@ -200,7 +200,7 @@ GLOBAL_LIST_EMPTY(biggates)
 		var/mob/living/L = user
 		L.changeNext_move(CLICK_CD_MELEE)
 		var/used_time = 10.5 SECONDS - (L.STASTR * 10)
-		user.visible_message("<span class='warning'>[user] cranks the winch.</span>")
+		user.visible_message(span_warning("[user] cranks the winch."))
 		playsound(src, 'sound/foley/winch.ogg', 100, extrarange = 3)
 		if(do_after(user, used_time))
 			attached_gate.toggle()

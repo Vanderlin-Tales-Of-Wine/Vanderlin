@@ -350,7 +350,7 @@ All foods are distributed among various categories. Use common sense.
 			else if(fullness > 500 && fullness < 600)
 				user.visible_message(span_notice("[user] unwillingly [eatverb]s a bit of \the [src]."), span_notice("I unwillingly [eatverb] a bit of \the [src]."))
 			else if(fullness > (600 * (1 + M.overeatduration / 2000)))	// The more you eat - the more you can eat
-				user.visible_message("<span class='warning'>[user] cannot force any more of \the [src] to go down [user.p_their()] throat!</span>", "<span class='warning'>I cannot force any more of \the [src] to go down your throat!</span>")
+				user.visible_message(span_warning("[user] cannot force any more of \the [src] to go down [user.p_their()] throat!"), span_warning("I cannot force any more of \the [src] to go down your throat!"))
 				return FALSE
 			if(HAS_TRAIT(M, TRAIT_VORACIOUS))
 				M.changeNext_move(CLICK_CD_MELEE * 0.5)*/
@@ -375,7 +375,7 @@ All foods are distributed among various categories. Use common sense.
 //				if(fullness <= (600 * (1 + M.overeatduration / 1000)))
 				if(M.nutrition in NUTRITION_LEVEL_FAT to INFINITY)
 					M.visible_message("<span class='warning'>[user] cannot force any more of [src] down [M]'s throat!</span>", \
-										"<span class='warning'>[user] cannot force any more of [src] down your throat!</span>")
+										span_warning("[user] cannot force any more of [src] down your throat!"))
 					return FALSE
 				else
 					M.visible_message("<span class='danger'>[user] tries to feed [M] [src].</span>", \
@@ -532,7 +532,7 @@ All foods are distributed among various categories. Use common sense.
 			!(locate(/obj/structure/table/optable) in src.loc) && \
 			!(locate(/obj/item/plate) in src.loc)) \
 		)
-		to_chat(user, "<span class='warning'>I need to use a table.</span>")
+		to_chat(user, span_warning("I need to use a table."))
 		return FALSE
 
 	if(slice_sound)
@@ -649,15 +649,15 @@ All foods are distributed among various categories. Use common sense.
 		return
 	if(istype(M, /obj/item/reagent_containers/glass))	//you can dunk dunkable snacks into beakers or drinks
 		if(!M.is_drainable())
-			to_chat(user, "<span class='warning'>[M] is unable to be dunked in!</span>")
+			to_chat(user, span_warning("[M] is unable to be dunked in!"))
 			return
 		if(M.reagents.trans_to(src, dunk_amount, transfered_by = user))	//if reagents were transfered, show the message
 			to_chat(user, span_notice("I dunk \the [src] into \the [M]."))
 			return
 		if(!M.reagents.total_volume)
-			to_chat(user, "<span class='warning'>[M] is empty!</span>")
+			to_chat(user, span_warning("[M] is empty!"))
 		else
-			to_chat(user, "<span class='warning'>[src] is full!</span>")
+			to_chat(user, span_warning("[src] is full!"))
 
 // //////////////////////////////////////////////Store////////////////////////////////////////
 /// All the food items that can store an item inside itself, like bread or cake.
@@ -675,7 +675,7 @@ All foods are distributed among various categories. Use common sense.
 		if(!iscarbon(user))
 			return 0
 		if(contents.len >= 20)
-			to_chat(user, "<span class='warning'>[src] is full.</span>")
+			to_chat(user, span_warning("[src] is full."))
 			return 0
 		to_chat(user, span_notice("I slip [W] inside [src]."))
 		user.transferItemToLoc(W, src)

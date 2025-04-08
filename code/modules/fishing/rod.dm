@@ -496,7 +496,7 @@
 	if(user.used_intent.type != ROD_CAST)
 		if(user.used_intent.type == ROD_AUTO && !user.doing())
 			if(target in range(user,5))
-				user.visible_message("<span class='warning'>[user] casts a line!</span>", \
+				user.visible_message(span_warning("[user] casts a line!"), \
 									span_notice("I cast a line."))
 				playsound(src.loc, 'sound/items/fishing_plouf.ogg', 100, TRUE)
 				fishing_time -= (sl * 1 SECONDS) //every skill lvl is -1 seconds
@@ -528,25 +528,25 @@
 								user.mind.adjust_experience(/datum/skill/labor/fishing, round(fisherman.STAINT * boon, 1), FALSE) // Level up!
 								playsound(src.loc, 'sound/items/Fish_out.ogg', 100, TRUE)
 								if(prob(80 - (sl * 10))) // Higher skill levels make you less likely to lose your bait
-									to_chat(user, "<span class='warning'>Damn, it ate my bait.</span>")
+									to_chat(user, span_warning("Damn, it ate my bait."))
 									qdel(baited)
 									baited = null
 							else
 								caught = FALSE
-								to_chat(user, "<span class='warning'>Damn, it got away...</span>")
+								to_chat(user, span_warning("Damn, it got away..."))
 								if(prob(100 - (sl * 10))) // Higher chance for it to flee with your bait.
-									to_chat(user, "<span class='warning'>...And took my bait, too.</span>")
+									to_chat(user, span_warning("...And took my bait, too."))
 									qdel(baited)
 									baited = null
 						else
-							to_chat(user, "<span class='warning'>Not even a nibble...</span>")
+							to_chat(user, span_warning("Not even a nibble..."))
 							afterattack(target, user, proximity, params) //this may work?
 							return
 					else
-						to_chat(user, "<span class='warning'>This seems pointless without a bait.</span>")
+						to_chat(user, span_warning("This seems pointless without a bait."))
 						return
 				else
-					to_chat(user, "<span class='warning'>I must stand still to fish.</span>")
+					to_chat(user, span_warning("I must stand still to fish."))
 					return
 			update_icon()
 		else //where all nonfishing intents end up

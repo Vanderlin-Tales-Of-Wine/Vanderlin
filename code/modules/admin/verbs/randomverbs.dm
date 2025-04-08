@@ -751,27 +751,27 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 		if(ADMIN_PUNISHMENT_CBT)
 			if(!ishuman(target))
-				to_chat(usr,"<span class='warning'>Target must be human!</span>")
+				to_chat(usr,span_warning("Target must be human!"))
 				return
 			var/mob/living/carbon/human/humie = target
 			var/obj/item/bodypart/affecting = humie.get_bodypart(BODY_ZONE_CHEST)
 			if(!affecting)
-				to_chat(usr,"<span class='warning'>Target must have a chest!</span>")
+				to_chat(usr,span_warning("Target must have a chest!"))
 				return
 			affecting.add_wound(/datum/wound/cbt/permanent)
 		if(ADMIN_PUNISHMENT_NECKSNAP)
 			if(!ishuman(target))
-				to_chat(usr,"<span class='warning'>Target must be human!</span>")
+				to_chat(usr,span_warning("Target must be human!"))
 				return
 			var/mob/living/carbon/human/humie = target
 			var/obj/item/bodypart/affecting = humie.get_bodypart(BODY_ZONE_HEAD)
 			if(!affecting)
-				to_chat(usr,"<span class='warning'>Target must have a head!</span>")
+				to_chat(usr,span_warning("Target must have a head!"))
 				return
 			affecting.add_wound(/datum/wound/fracture/neck)
 		if(ADMIN_PUNISHMENT_HUNTED)
 			if(!ishuman(target))
-				to_chat(usr,"<span class='warning'>Target must be human!</span>")
+				to_chat(usr,span_warning("Target must be human!"))
 				return
 			ADD_TRAIT(target, TRAIT_ZIZOID_HUNTED, TRAIT_GENERIC) // Gives the victim a trait to track that they are wanted dead.
 			log_hunted("[key_name(target)] playing as [target] had been hunted by Admin punishment.")
@@ -805,7 +805,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		return
 
 	if(!CONFIG_GET(flag/use_exp_tracking))
-		to_chat(usr, "<span class='warning'>Tracking is disabled in the server configuration file.</span>")
+		to_chat(usr, span_warning("Tracking is disabled in the server configuration file."))
 		return
 
 	var/list/msg = list()
@@ -822,7 +822,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		to_chat(usr, "<span class='danger'>ERROR: Client not found.</span>")
 		return
 	if(!CONFIG_GET(flag/use_exp_tracking))
-		to_chat(usr, "<span class='warning'>Tracking is disabled in the server configuration file.</span>")
+		to_chat(usr, span_warning("Tracking is disabled in the server configuration file."))
 		return
 
 	var/list/body = list()

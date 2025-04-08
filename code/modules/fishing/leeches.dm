@@ -56,7 +56,7 @@
 		if(0.5 to 0.8)
 			. += "<span class='bloody'>[p_theyre(TRUE)] well fed.</span>"
 		if(0.1 to 0.5)
-			. += "<span class='warning'>[p_they(TRUE)] want[p_s()] a meal.</span>"
+			. += span_warning("[p_they(TRUE)] want[p_s()] a meal.")
 		if(-INFINITY to 0.1)
 			. += "<span class='dead'>[p_theyre(TRUE)] starved.</span>"
 	if(!giving)
@@ -73,7 +73,7 @@
 		if(!affecting)
 			return
 		if(!get_location_accessible(H, check_zone(user.zone_selected)))
-			to_chat(user, "<span class='warning'>Something in the way.</span>") //ooooooooooooooo
+			to_chat(user, span_warning("Something in the way.")) //ooooooooooooooo
 			return
 		var/used_time
 		if(completely_silent)

@@ -61,9 +61,9 @@
 	M.buckling = src
 	if(!M.can_buckle() && !force)
 		if(M == usr)
-			to_chat(M, "<span class='warning'>I am unable to [buckleverb] on [src].</span>")
+			to_chat(M, span_warning("I am unable to [buckleverb] on [src]."))
 		else
-			to_chat(usr, "<span class='warning'>I am unable to [buckleverb] [M] on [src].</span>")
+			to_chat(usr, span_warning("I am unable to [buckleverb] [M] on [src]."))
 		M.buckling = null
 		return FALSE
 
@@ -135,8 +135,8 @@
 			M.visible_message(span_notice("[M] [buckleverb]s on [src]."),\
 				span_notice("I [buckleverb] on [src]."))
 		else
-			M.visible_message("<span class='warning'>[user] [buckleverb]s [M] on [src]!</span>",\
-				"<span class='warning'>[user] [buckleverb]s me on [src]!</span>")
+			M.visible_message(span_warning("[user] [buckleverb]s [M] on [src]!"),\
+				span_warning("[user] [buckleverb]s me on [src]!"))
 
 /atom/movable/proc/user_unbuckle_mob(mob/living/buckled_mob, mob/user)
 	var/mob/living/M = unbuckle_mob(buckled_mob)

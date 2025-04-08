@@ -273,7 +273,7 @@
 	status_type = STATUS_EFFECT_UNIQUE
 	duration = 300
 	tick_interval = 10
-	examine_text = "<span class='warning'>SUBJECTPRONOUN seems slow and unfocused.</span>"
+	examine_text = span_warning("SUBJECTPRONOUN seems slow and unfocused.")
 	var/stun = TRUE
 	alert_type = /atom/movable/screen/alert/status_effect/trance
 
@@ -293,7 +293,7 @@
 	RegisterSignal(owner, COMSIG_MOVABLE_HEAR, PROC_REF(hypnotize))
 	ADD_TRAIT(owner, TRAIT_MUTE, "trance")
 	owner.add_client_colour(/datum/client_colour/monochrome/trance)
-	owner.visible_message("[stun ? "<span class='warning'>[owner] stands still as [owner.p_their()] eyes seem to focus on a distant point.</span>" : ""]", \
+	owner.visible_message("[stun ? span_warning("[owner] stands still as [owner.p_their()] eyes seem to focus on a distant point.") : ""]", \
 	"<span class='warning'>[pick("You feel my thoughts slow down...", "You suddenly feel extremely dizzy...", "You feel like you're in the middle of a dream...","You feel incredibly relaxed...")]</span>")
 	return TRUE
 
@@ -307,7 +307,7 @@
 	REMOVE_TRAIT(owner, TRAIT_MUTE, "trance")
 	owner.dizziness = 0
 	owner.remove_client_colour(/datum/client_colour/monochrome/trance)
-	to_chat(owner, "<span class='warning'>I snap out of my trance!</span>")
+	to_chat(owner, span_warning("I snap out of my trance!"))
 
 /datum/status_effect/trance/proc/hypnotize(datum/source, list/hearing_args)
 	if(!owner.can_hear())
@@ -330,14 +330,14 @@
 		switch(rand(1,5))
 			if(1)
 				if((owner.mobility_flags & MOBILITY_MOVE) && isturf(owner.loc))
-					to_chat(owner, "<span class='warning'>My leg spasms!</span>")
+					to_chat(owner, span_warning("My leg spasms!"))
 					step(owner, pick(GLOB.cardinals))
 			if(2)
 				if(owner.incapacitated())
 					return
 				var/obj/item/I = owner.get_active_held_item()
 				if(I)
-					to_chat(owner, "<span class='warning'>My fingers spasm!</span>")
+					to_chat(owner, span_warning("My fingers spasm!"))
 					owner.log_message("used [I] due to a Muscle Spasm", LOG_ATTACK)
 					I.attack_self(owner)
 			if(3)
@@ -353,14 +353,14 @@
 					if(isliving(M))
 						targets += M
 				if(LAZYLEN(targets))
-					to_chat(owner, "<span class='warning'>My arm spasms!</span>")
+					to_chat(owner, span_warning("My arm spasms!"))
 					owner.log_message(" attacked someone due to a Muscle Spasm", LOG_ATTACK) //the following attack will log itself
 					owner.ClickOn(pick(targets))
 				owner.a_intent = prev_intent
 			if(4)
 				var/prev_intent = owner.a_intent
 				owner.a_intent = INTENT_HARM
-				to_chat(owner, "<span class='warning'>My arm spasms!</span>")
+				to_chat(owner, span_warning("My arm spasms!"))
 				owner.log_message("attacked [owner.p_them()]self to a Muscle Spasm", LOG_ATTACK)
 				owner.ClickOn(owner)
 				owner.a_intent = prev_intent
@@ -372,7 +372,7 @@
 				for(var/turf/T in oview(owner, 3))
 					targets += T
 				if(LAZYLEN(targets) && I)
-					to_chat(owner, "<span class='warning'>My arm spasms!</span>")
+					to_chat(owner, span_warning("My arm spasms!"))
 					owner.log_message("threw [I] due to a Muscle Spasm", LOG_ATTACK)
 					owner.throw_item(pick(targets))
 
@@ -425,7 +425,7 @@
 				"<span class='warning'>[pick("Your windpipe feels like a straw.", "Your breathing becomes tremendously difficult.")]</span>",
 				"<span class='warning'>I feel very [pick("dizzy","woozy","faint")].</span>",
 				"<span class='warning'>[pick("You hear a ringing in my ear.", "Your ears pop.")]</span>",
-				"<span class='warning'>I nod off for a moment.</span>")
+				span_warning("I nod off for a moment."))
 		else
 			if(prob(3))
 				if(prob(50))// coin flip to throw a message or an emote

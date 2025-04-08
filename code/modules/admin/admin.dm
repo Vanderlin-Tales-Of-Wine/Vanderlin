@@ -303,7 +303,7 @@
 		return
 
 	if(!M.ckey)
-		to_chat(src, "<span class='warning'>There is no ckey attached to this mob.</span>")
+		to_chat(src, span_warning("There is no ckey attached to this mob."))
 		return
 
 	check_pq_menu(M.ckey)
@@ -317,7 +317,7 @@
 		return
 
 	if(!M.ckey)
-		to_chat(src, "<span class='warning'>There is no ckey attached to this mob.</span>")
+		to_chat(src, span_warning("There is no ckey attached to this mob."))
 		return
 
 	check_triumphs_menu(M.ckey)
@@ -345,7 +345,7 @@
 	set category = "Server"
 
 	if(!check_rights(R_POLL))
-		to_chat(usr, "<span class='warning'>You do not have the rights to start a vote.</span>")
+		to_chat(usr, span_warning("You do not have the rights to start a vote."))
 		return
 
 	var/type = input("What kind of vote?") as null|anything in list("End Round", "Map", "Custom")
@@ -367,7 +367,7 @@
 		return
 
 	if(!M.ckey)
-		to_chat(src, "<span class='warning'>There is no ckey attached to this mob.</span>")
+		to_chat(src, span_warning("There is no ckey attached to this mob."))
 		return
 
 	var/ckey = lowertext(M.ckey)
@@ -395,7 +395,7 @@
 		return
 
 	if(!M.ckey)
-		to_chat(src, "<span class='warning'>There is no ckey attached to this mob.</span>")
+		to_chat(src, span_warning("There is no ckey attached to this mob."))
 		return
 
 	var/ckey = lowertext(M.ckey)

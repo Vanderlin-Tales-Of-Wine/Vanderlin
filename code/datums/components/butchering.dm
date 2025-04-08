@@ -81,7 +81,7 @@
 		for(var/_i in 1 to amount)
 			if(!prob(final_effectiveness))
 				if(butcher)
-					to_chat(butcher, "<span class='warning'>I fail to harvest some of the [initial(bones.name)] from [meat].</span>")
+					to_chat(butcher, span_warning("I fail to harvest some of the [initial(bones.name)] from [meat]."))
 			else if(prob(bonus_chance))
 				if(butcher)
 					to_chat(butcher, "<span class='info'>I harvest some extra [initial(bones.name)] from [meat]!</span>")

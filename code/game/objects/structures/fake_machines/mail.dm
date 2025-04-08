@@ -48,7 +48,7 @@
 	var/t = stripped_multiline_input("Write Your Letter", "VANDERLIN", no_trim=TRUE)
 	if(t)
 		if(length(t) > 2000)
-			to_chat(user, "<span class='warning'>Too long. Try again.</span>")
+			to_chat(user, span_warning("Too long. Try again."))
 			return
 	if(!coin_loaded)
 		return
@@ -73,14 +73,14 @@
 				playsound(X, 'sound/misc/mail.ogg', 100, FALSE, -1)
 				break
 		if(found)
-			visible_message("<span class='warning'>[user] sends something.</span>")
+			visible_message(span_warning("[user] sends something."))
 			playsound(loc, 'sound/misc/disposalflush.ogg', 100, FALSE, -1)
 			SStreasury.give_money_treasury(coin_loaded, "Mail Income")
 			coin_loaded = FALSE
 			update_icon()
 			return
 		else
-			to_chat(user, "<span class='warning'>Failed to send it. Bad number?</span>")
+			to_chat(user, span_warning("Failed to send it. Bad number?"))
 	else
 		if(!send2place)
 			return
@@ -96,9 +96,9 @@
 			X.update_icon()
 			send_ooc_note("New letter from <b>[sentfrom].</b>", name = send2place)
 		else
-			to_chat(user, "<span class='warning'>The master of mails has perished?</span>")
+			to_chat(user, span_warning("The master of mails has perished?"))
 			return
-		visible_message("<span class='warning'>[user] sends something.</span>")
+		visible_message(span_warning("[user] sends something."))
 		playsound(loc, 'sound/misc/disposalflush.ogg', 100, FALSE, -1)
 		SStreasury.give_money_treasury(coin_loaded, "Mail")
 		coin_loaded = FALSE
@@ -182,11 +182,11 @@
 						playsound(src.loc, 'sound/misc/hiss.ogg', 100, FALSE, -1)
 						break
 				if(found)
-					visible_message("<span class='warning'>[user] sends something.</span>")
+					visible_message(span_warning("[user] sends something."))
 					playsound(loc, 'sound/misc/disposalflush.ogg', 100, FALSE, -1)
 					return
 				else
-					to_chat(user, "<span class='warning'>Cannot send it. Bad number?</span>")
+					to_chat(user, span_warning("Cannot send it. Bad number?"))
 			else
 				if(!send2place)
 					return
@@ -204,9 +204,9 @@
 					X.update_icon()
 					playsound(src.loc, 'sound/misc/hiss.ogg', 100, FALSE, -1)
 				if(!findmaster)
-					to_chat(user, "<span class='warning'>The master of mails has perished?</span>")
+					to_chat(user, span_warning("The master of mails has perished?"))
 				else
-					visible_message("<span class='warning'>[user] sends something.</span>")
+					visible_message(span_warning("[user] sends something."))
 					playsound(loc, 'sound/misc/disposalflush.ogg', 100, FALSE, -1)
 					send_ooc_note("<span class='boldnotice'>New letter from <b>[sentfrom].</b></span>", name = send2place)
 					return
@@ -326,7 +326,7 @@
 			PA.cached_mailer = null
 			PA.cached_mailedto = null
 			PA.update_icon()
-			to_chat(user, "<span class='warning'>I carefully re-seal the letter and place it back in the machine, no one will know.</span>")
+			to_chat(user, span_warning("I carefully re-seal the letter and place it back in the machine, no one will know."))
 		P.forceMove(loc)
 		var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 		STR.handle_item_insertion(P, prevent_warning=TRUE)
@@ -359,15 +359,15 @@
 				else
 					GLOB.confessors += "[C.signed] - a [C.antag]"
 		qdel(C)
-		visible_message("<span class='warning'>[user] sends something.</span>")
+		visible_message(span_warning("[user] sends something."))
 		playsound(loc, 'sound/magic/forgotten_bell.ogg', 80, FALSE, -1)
 		playsound(loc, 'sound/misc/disposalflush.ogg', 100, FALSE, -1)
 		for(var/mob/living/carbon/human/I in world) // Find all the living Inquisitors and Adepts and give them a triumph for the confession.
 			if(I.mind && (is_inquisitor_job(I.mind.assigned_role) || is_adept_job(I.mind.assigned_role)) && !(I.stat == DEAD))
 				if(is_inquisitor_job(I.mind.assigned_role))
 					I.confession_points += 5 // Increase the Inquisitor's confession count.
-					to_chat(I, "<span class='warning'>-I have gained more favors.</span>")
-				to_chat(I, "<span class='warning'>A sense of grim satisfaction fills your heart. One confession down, a million remain.</span>")
+					to_chat(I, span_warning("-I have gained more favors."))
+				to_chat(I, span_warning("A sense of grim satisfaction fills your heart. One confession down, a million remain."))
 				I.adjust_triumphs(1)
 
 /obj/structure/fake_machine/mail/proc/show_inquisitor_shop(mob/living/carbon/human/user)
@@ -375,7 +375,7 @@
 
 	// Ensure the user is an Inquisitor
 	if(!user.mind || !is_inquisitor_job(user.mind.assigned_role))
-		to_chat(user, "<span class='warning'>You do not have access to the confession system.</span>")
+		to_chat(user, span_warning("You do not have access to the confession system."))
 		return
 
 	// Ensure purchase_history is initialized
@@ -511,7 +511,7 @@
 	// Check if the item is sold out
 	if(purchase_count >= max_purchases)
 		testing("[selection] is SOLD OUT after selection")
-		to_chat(user, "<span class='warning'>This item is sold out.</span>")
+		to_chat(user, span_warning("This item is sold out."))
 		return
 
 	// Get the current confession points from the user
@@ -519,7 +519,7 @@
 	testing("User confession points: [current_points]")
 	if(current_points < item_cost)
 		testing("User does not have enough confession points: [current_points] < [item_cost]")
-		to_chat(user, "<span class='warning'>You do not have enough favors.</span>")
+		to_chat(user, span_warning("You do not have enough favors."))
 		return
 
 	// Deduct the points and give the items
@@ -541,7 +541,7 @@
 						testing("Failed to place item in hands, dropping at user's location")
 						I.forceMove(get_turf(user)) // If not, drop it at the user's location
 
-	visible_message("<span class='warning'>The mailbox spits out its contents.</span>")
+	visible_message(span_warning("The mailbox spits out its contents."))
 	say("HERE IS THE REQUESTED ITEM. WE HOPE IT SERVES YOU WELL.",language = /datum/language/oldpsydonic)
 	playsound(src, 'sound/misc/machinelong.ogg', 100, FALSE, -1)
 	testing("Finished processing user selection and item dispensing")

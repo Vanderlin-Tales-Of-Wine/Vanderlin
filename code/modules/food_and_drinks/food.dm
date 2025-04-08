@@ -36,7 +36,7 @@
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
 			if(foodtype & H.dna.species.toxic_food)
-				to_chat(H,"<span class='warning'>What the hell was that thing?!</span>")
+				to_chat(H,span_warning("What the hell was that thing?!"))
 				H.adjust_disgust(25 + 30 * fraction)
 				SEND_SIGNAL(H, COMSIG_ADD_MOOD_EVENT, "toxic_food", /datum/mood_event/disgusting_food)
 			else if(foodtype & H.dna.species.disliked_food)

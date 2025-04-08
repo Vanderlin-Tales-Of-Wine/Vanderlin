@@ -116,8 +116,8 @@
 	// Are you trying to break your instrument? Go ahead!
 	if(istype(W, /obj/item/instrument))
 		user.do_attack_animation(src)
-		visible_message("<span class='warning'>[user] slams \the [W] against \the [src]!</span>",
-						"<span class='warning'>I slam \the [W] against \the [src]!</span>",null ,COMBAT_MESSAGE_RANGE)
+		visible_message(span_warning("[user] slams \the [W] against \the [src]!"),
+						span_warning("I slam \the [W] against \the [src]!"),null ,COMBAT_MESSAGE_RANGE)
 		W.take_damage(10, BRUTE, "blunt")
 		return
 

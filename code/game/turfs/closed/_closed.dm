@@ -110,7 +110,7 @@
 				H.apply_damage(15, BRUTE, "head", H.run_armor_check("head", "blunt", damage = 15))
 				H.toggle_rogmove_intent(MOVE_INTENT_WALK, TRUE)
 				playsound(src, "genblunt", 100, TRUE)
-				H.visible_message("<span class='warning'>[H] runs into [src]!</span>", "<span class='warning'>I run into [src]!</span>")
+				H.visible_message(span_warning("[H] runs into [src]!"), span_warning("I run into [src]!"))
 				addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, Knockdown), 10), 10)
 
 /turf/closed/Initialize()
@@ -191,7 +191,7 @@
 				used_time = max(70 - (myskill * 10) - (L.STASPD * 3), 30)
 			if(user.m_intent != MOVE_INTENT_SNEAK)
 				playsound(user, climbsound, 100, TRUE)
-			user.visible_message("<span class='warning'>[user] starts to climb [src].</span>", "<span class='warning'>I start to climb [src]...</span>")
+			user.visible_message(span_warning("[user] starts to climb [src]."), span_warning("I start to climb [src]..."))
 			if(do_after(L, used_time, src))
 				var/pulling = user.pulling
 				if(ismob(pulling))
@@ -216,7 +216,7 @@
 		to_chat(user, "<span class='warning'>I can't go there.</span>")
 		return
 	user.forceMove(target)
-	to_chat(user, "<span class='warning'>I crawl up the wall.</span>")
+	to_chat(user, span_warning("I crawl up the wall."))
 	. = ..()
 
 /turf/closed/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)

@@ -35,7 +35,7 @@
 			return
 		var/datum/alch_grind_recipe/foundrecipe = find_recipe()
 		if(foundrecipe == null)
-			to_chat(user, "<span class='warning'>You dont think that will work!</span>")
+			to_chat(user, span_warning("You dont think that will work!"))
 			return
 		user.visible_message("<span class='info'>[user] begins grinding up [I].</span>")
 		playsound(loc, 'sound/foley/mortarpestle.ogg', 100, FALSE)
@@ -69,10 +69,10 @@
 				user.mind.adjust_experience(/datum/skill/craft/alchemy, user.STAINT * user.mind.get_learning_boon(/datum/skill/craft/alchemy), FALSE)
 		return
 	if(to_grind)
-		to_chat(user, "<span class='warning'>[src] is full!</span>")
+		to_chat(user, span_warning("[src] is full!"))
 		return
 	if(!user.transferItemToLoc(I,src))
-		to_chat(user, "<span class='warning'>[I] is stuck to my hand!</span>")
+		to_chat(user, span_warning("[I] is stuck to my hand!"))
 		return
 	if(!to_grind && user.transferItemToLoc(I,src))
 		to_chat(user, "<span class='info'>I add [I] to [src].</span>")

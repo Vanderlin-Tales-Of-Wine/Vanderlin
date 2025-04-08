@@ -34,7 +34,7 @@
 
 			if(do_after(H, 1.5 SECONDS, src))
 				// var/obj/item/bodypart/affecting = H.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
-				// to_chat(H, "<span class='warning'>HOT!</span>")
+				// to_chat(H, span_warning("HOT!"))
 				// if(affecting && affecting.receive_damage( 0, 5 ))		// 5 burn damage
 				// 	H.update_damage_overlays()
 				H.adjust_bodytemperature(40)
@@ -83,19 +83,19 @@
 		var/mob/living/L = user
 		if(icon_state == "[base_state]over")
 			playsound(src, 'sound/combat/hits/onwood/woodimpact (1).ogg', 100)
-			user.visible_message("<span class='warning'>[user] kicks [src]!</span>", \
-				"<span class='warning'>I kick [src]!</span>")
+			user.visible_message(span_warning("[user] kicks [src]!"), \
+				span_warning("I kick [src]!"))
 			return
 		if(prob(L.STASTR * 8))
 			playsound(src, 'sound/combat/hits/onwood/woodimpact (1).ogg', 100)
-			user.visible_message("<span class='warning'>[user] kicks over [src]!</span>", \
-				"<span class='warning'>I kick over [src]!</span>")
+			user.visible_message(span_warning("[user] kicks over [src]!"), \
+				span_warning("I kick over [src]!"))
 			burn_out()
 			knock_over()
 		else
 			playsound(src, 'sound/combat/hits/onwood/woodimpact (1).ogg', 100)
-			user.visible_message("<span class='warning'>[user] kicks [src]!</span>", \
-				"<span class='warning'>I kick [src]!</span>")
+			user.visible_message(span_warning("[user] kicks [src]!"), \
+				span_warning("I kick [src]!"))
 
 /obj/machinery/light/fueled/wallfire
 	name = "fireplace"
@@ -132,7 +132,7 @@
 
 /obj/machinery/light/fueled/wallfire/candle/attack_hand(mob/user)
 	if(isliving(user) && on)
-		user.visible_message("<span class='warning'>[user] snuffs [src].</span>")
+		user.visible_message(span_warning("[user] snuffs [src]."))
 		burn_out()
 		return TRUE //fires that are on always have this interaction with lmb unless its a torch
 	. = ..()
@@ -271,7 +271,7 @@
 		if(torchy)
 			if(LR.on && !on)
 				if(torchy.fuel <= 0)
-					to_chat(user, "<span class='warning'>The mounted torch is burned out.</span>")
+					to_chat(user, span_warning("The mounted torch is burned out."))
 					return
 				else
 					torchy.spark_act()
@@ -320,7 +320,7 @@
 
 /obj/machinery/light/fueled/chand/attack_hand(mob/user)
 	if(isliving(user) && on)
-		user.visible_message("<span class='warning'>[user] snuffs [src].</span>")
+		user.visible_message(span_warning("[user] snuffs [src]."))
 		burn_out()
 		return TRUE //fires that are on always have this interaction with lmb unless its a torch
 	. = ..()
@@ -447,7 +447,7 @@
 				H.visible_message("<span class='info'>[H] warms \his hand over the embers.</span>")
 				if(do_after(H, 5 SECONDS, src))
 					// var/obj/item/bodypart/affecting = H.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
-					// to_chat(H, "<span class='warning'>HOT!</span>")
+					// to_chat(H, span_warning("HOT!"))
 					// if(affecting && affecting.receive_damage( 0, 5 ))		// 5 burn damage
 					// 	H.update_damage_overlays()
 					H.adjust_bodytemperature(40)
@@ -486,7 +486,7 @@
 
 /obj/machinery/light/fueled/hearth/onkick(mob/user)
 	if(isliving(user) && on)
-		user.visible_message("<span class='warning'>[user] snuffs [src].</span>")
+		user.visible_message(span_warning("[user] snuffs [src]."))
 		burn_out()
 
 /obj/machinery/light/fueled/hearth/Destroy()
@@ -533,7 +533,7 @@
 
 			if(do_after(H, 10 SECONDS, src))
 				// var/obj/item/bodypart/affecting = H.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
-				// to_chat(H, "<span class='warning'>HOT!</span>")
+				// to_chat(H, span_warning("HOT!"))
 				// if(affecting && affecting.receive_damage( 0, 5 ))		// 5 burn damage
 				// 	H.update_damage_overlays()
 				H.adjust_bodytemperature(40)

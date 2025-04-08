@@ -343,7 +343,7 @@
 			return
 		var/obj/item/I = new /obj/item/natural/dirtclod(src)
 		if(L.put_in_active_hand(I))
-			L.visible_message("<span class='warning'>[L] picks up some dirt.</span>")
+			L.visible_message(span_warning("[L] picks up some dirt."))
 			dirt_amt--
 			if(dirt_amt <= 0)
 				src.ChangeTurf(/turf/open/floor/dirt/road, flags = CHANGETURF_INHERIT_AIR)

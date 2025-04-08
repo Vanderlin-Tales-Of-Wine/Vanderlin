@@ -106,7 +106,7 @@
 				to_chat(L, "[X] - <span class='info'>[GLOB.roguetraits[X]]</span>")
 				ht = TRUE
 		if(!ht)
-			to_chat(L, "<span class='warning'>I have no special traits.</span>")
+			to_chat(L, span_warning("I have no special traits."))
 		to_chat(L, "*----*")
 		return
 
@@ -144,7 +144,7 @@
 		return TRUE
 	var/area/A = get_area(usr)
 	if(!A.outdoors)
-		to_chat(usr, "<span class='warning'>There is already a defined structure here.</span>")
+		to_chat(usr, span_warning("There is already a defined structure here."))
 		return TRUE
 	create_area(usr)
 

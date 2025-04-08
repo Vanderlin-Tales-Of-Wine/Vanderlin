@@ -75,8 +75,8 @@
 	var/atom/movable/AM = parent
 	var/mob/AMM = AM
 	if((ride_check_rider_restrained && M.restrained(TRUE)) || (ride_check_rider_incapacitated && M.incapacitated(FALSE, TRUE)) || (ride_check_ridden_incapacitated && istype(AMM) && AMM.incapacitated(FALSE, TRUE)))
-		M.visible_message("<span class='warning'>[M] falls off of [AM]!</span>", \
-						"<span class='warning'>I fall off of [AM]!</span>")
+		M.visible_message(span_warning("[M] falls off of [AM]!"), \
+						span_warning("I fall off of [AM]!"))
 		AM.unbuckle_mob(M)
 	return TRUE
 
@@ -173,7 +173,7 @@
 	if(!istype(next) || !istype(current))
 		return	//not happening.
 	if(!turf_check(next, current))
-		to_chat(user, "<span class='warning'>My \the [AM] can not go onto [next]!</span>")
+		to_chat(user, span_warning("My \the [AM] can not go onto [next]!"))
 		return
 	if(!Process_Spacemove(direction) || !isturf(AM.loc))
 		return

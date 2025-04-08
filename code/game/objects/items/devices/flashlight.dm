@@ -103,10 +103,10 @@
 
 	// Usual checks
 	if(!fuel)
-		to_chat(user, "<span class='warning'>[src] is out of fuel!</span>")
+		to_chat(user, span_warning("[src] is out of fuel!"))
 		return
 	if(on)
-		to_chat(user, "<span class='warning'>[src] is already on!</span>")
+		to_chat(user, span_warning("[src] is already on!"))
 		return
 
 	. = ..()
@@ -237,7 +237,7 @@
 		if (should_self_destruct)  // check if self-destruct
 			times_used += 1
 			if (times_used >= 8) //amount used before burning out
-				user.visible_message("<span class='warning'>[src] has burnt out and falls apart!</span>")
+				user.visible_message(span_warning("[src] has burnt out and falls apart!"))
 				qdel(src)
 
 /obj/item/flashlight/flare/torch/spark_act()
@@ -274,7 +274,7 @@
 		if (should_self_destruct)  // check if self-destruct
 			times_used += 1
 			if (times_used >= 13) //amount used before burning out
-				user.visible_message("<span class='warning'>[src] has burnt out and falls apart!</span>")
+				user.visible_message(span_warning("[src] has burnt out and falls apart!"))
 				qdel(src)
 
 /obj/item/flashlight/flare/torch/lantern

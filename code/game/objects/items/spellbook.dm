@@ -276,7 +276,7 @@
 				qdel(P)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put the [src] on a table to work on it.</span>")
+			to_chat(user, span_warning("You need to put the [src] on a table to work on it."))
 	else
 		return ..()
 
@@ -301,7 +301,7 @@
 					qdel(P)
 					qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put the [src] on a table to work on it.</span>")
+			to_chat(user, span_warning("You need to put the [src] on a table to work on it."))
 	else
 		return ..()
 
@@ -326,7 +326,7 @@
 					to_chat(user, span_notice("I press the gem into the cover of the book. What a pretty design this would make!"))
 					return ..()
 		else
-			to_chat(user, "<span class='warning'>You need to put the [src] on a table to work on it.</span>")
+			to_chat(user, span_warning("You need to put the [src] on a table to work on it."))
 	if(istype(P, /obj/item/gem))
 		if(isturf(loc)&& (found_table))
 			var/crafttime = (100 - ((user.mind?.get_skill_level(/datum/skill/magic/arcane))*5))
@@ -343,7 +343,7 @@
 					to_chat(user, span_notice("I press the gem into the cover of the book. What a pretty design this would make!"))
 					return ..()
 		else
-			to_chat(user, "<span class='warning'>You need to put the [src] on a table to work on it.</span>")
+			to_chat(user, span_warning("You need to put the [src] on a table to work on it."))
 	else if (istype(P, /obj/item/natural/stone))
 		var/obj/item/natural/stone/the_rock = P
 		if (the_rock.magic_power)

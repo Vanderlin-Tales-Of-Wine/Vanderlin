@@ -109,13 +109,13 @@
 /obj/machinery/light/fueled/cauldron/attackby(obj/item/I, mob/user, params)
 	if(istype(I,/obj/item/alch))
 		if(ingredients.len >= maxingredients)
-			to_chat(user, "<span class='warning'>Nothing else can fit.</span>")
+			to_chat(user, span_warning("Nothing else can fit."))
 			return FALSE
 		if(!isnull(locate(I.type) in ingredients))
-			to_chat(user, "<span class='warning'>There is already \a [I] in [src]! That would ruin the mixture!</span>")
+			to_chat(user, span_warning("There is already \a [I] in [src]! That would ruin the mixture!"))
 			return FALSE
 		if(!user.transferItemToLoc(I,src))
-			to_chat(user, "<span class='warning'>[I] is stuck to my hand!</span>")
+			to_chat(user, span_warning("[I] is stuck to my hand!"))
 			return FALSE
 		to_chat(user, "<span class='info'>I add [I] to [src].</span>")
 		ingredients += I

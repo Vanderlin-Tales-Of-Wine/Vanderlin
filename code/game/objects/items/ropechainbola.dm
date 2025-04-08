@@ -273,7 +273,7 @@
 		return FALSE
 
 	if (!M.get_bodypart("head"))
-		to_chat(user, "<span class='warning'>[M] has no head!</span>")
+		to_chat(user, span_warning("[M] has no head!"))
 		return FALSE
 
 	M.visible_message("<span class='danger'>[user] attempts to tie \the [src] over [M]'s neck!</span>")

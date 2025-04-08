@@ -304,9 +304,9 @@
 				closest_dist = total_distance
 				the_dir = get_dir(src, humie)
 	if(!closest_dist)
-		to_chat(src, "<span class='warning'>I failed to smell anything...</span>")
+		to_chat(src, span_warning("I failed to smell anything..."))
 		return FALSE
-	to_chat(src, "<span class='warning'>[closest_dist] meters away, [dir2text(the_dir)]...</span>")
+	to_chat(src, span_warning("[closest_dist] meters away, [dir2text(the_dir)]..."))
 	return TRUE
 
 /**

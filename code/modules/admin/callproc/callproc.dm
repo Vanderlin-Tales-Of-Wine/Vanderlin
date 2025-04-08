@@ -40,12 +40,12 @@
 
 	if(targetselected)
 		if(!hascall(target, procname))
-			to_chat(usr, "<span class='warning'>Error: callproc(): type [target.type] has no [proctype] named [procpath].</span>")
+			to_chat(usr, span_warning("Error: callproc(): type [target.type] has no [proctype] named [procpath]."))
 			return
 	else
 		procpath = "/[proctype]/[procname]"
 		if(!text2path(procpath))
-			to_chat(usr, "<span class='warning'>Error: callproc(): [procpath] does not exist.</span>")
+			to_chat(usr, span_warning("Error: callproc(): [procpath] does not exist."))
 			return
 
 	var/list/lst = get_callproc_args()
@@ -151,7 +151,7 @@ GLOBAL_PROTECT(AdminProcCallSpamPrevention)
 		return
 
 	if(!A || !IsValidSrc(A))
-		to_chat(usr, "<span class='warning'>Error: callproc_datum(): owner of proc no longer exists.</span>")
+		to_chat(usr, span_warning("Error: callproc_datum(): owner of proc no longer exists."))
 		return
 	log_admin("[key_name(src)] called [A]'s [procname]() with [lst.len ? "the arguments [list2params(lst)]":"no arguments"].")
 	var/msg = "[key_name(src)] called [A]'s [procname]() with [lst.len ? "the arguments [list2params(lst)]":"no arguments"]."

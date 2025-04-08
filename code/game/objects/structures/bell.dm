@@ -11,7 +11,7 @@
 
 /obj/structure/warningbell/attack_hand(mob/user)
 	if(world.time < last_ring_time + ring_cooldown)
-		to_chat(user, "<span class='warning'>The bell is still resonating from the last ring.</span>")
+		to_chat(user, span_warning("The bell is still resonating from the last ring."))
 		return
 
 	// Ring the bell
@@ -28,7 +28,7 @@
 	var/list/nearby_players = get_hearers_in_view(ring_range, src)
 	for(var/mob/M in nearby_players)
 		if(ismob(M))
-			to_chat(M, "<span class='warning'>Alert! The warning bell rings ominously, signaling danger nearby!</span>")
+			to_chat(M, span_warning("Alert! The warning bell rings ominously, signaling danger nearby!"))
 
 
 /obj/structure/warningbell/townhall
@@ -38,7 +38,7 @@
 
 /obj/structure/warningbell/townhall/attack_hand(mob/user)
 	if(world.time < last_ring_time + ring_cooldown)
-		to_chat(user, "<span class='warning'>The bell is still resonating from the last ring.</span>")
+		to_chat(user, span_warning("The bell is still resonating from the last ring."))
 		return
 
 	// Ring the bell
@@ -55,4 +55,4 @@
 	var/list/nearby_players = get_hearers_in_view(ring_range, src)
 	for(var/mob/M in nearby_players)
 		if(ismob(M))
-			to_chat(M, "<span class='warning'>The town hall bell chimes, summoning the townsfolk to the tavern for a gathering!</span>")
+			to_chat(M, span_warning("The town hall bell chimes, summoning the townsfolk to the tavern for a gathering!"))

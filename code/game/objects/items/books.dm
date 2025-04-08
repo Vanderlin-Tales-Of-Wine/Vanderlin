@@ -144,7 +144,7 @@
 			if(!override_find_book)
 				pages = SSlibrarian.get_book(bookfile)
 		if(!pages.len)
-			to_chat(user, "<span class='warning'>This book is completely blank.</span>")
+			to_chat(user, span_warning("This book is completely blank."))
 		if(curpage > pages.len)
 			curpage = 1
 //		var/curdat = pages[curpage]
@@ -224,7 +224,7 @@
 			return FALSE
 		var/obj/item/paper/scroll/cargo/C = I
 		if(C.orders.len > 6)
-			to_chat(user, "<span class='warning'>Too much order.</span>")
+			to_chat(user, span_warning("Too much order."))
 			return
 		var/picked_cat = input(user, "Categories", "Shipping Ledger") as null|anything in sortList(SSmerchant.supply_cats)
 		if(!picked_cat)
@@ -251,7 +251,7 @@
 			return FALSE
 		var/obj/item/paper/scroll/P = I
 		if(P.info)
-			to_chat(user, "<span class='warning'>Something is written here already.</span>")
+			to_chat(user, span_warning("Something is written here already."))
 			return
 		var/picked_cat = input(user, "Categories", "Shipping Ledger") as null|anything in sortList(SSmerchant.supply_cats)
 		if(!picked_cat)

@@ -181,7 +181,7 @@
 				user.put_in_hands(Sr)
 				return
 			else
-				user.visible_message("<span class='warning'>[user] tries to tear [src].</span>")
+				user.visible_message(span_warning("[user] tries to tear [src]."))
 				return
 		if(user.zone_selected == l_sleeve_zone)
 			if(l_sleeve_status == SLEEVE_NOMOD)
@@ -472,11 +472,11 @@ BLIND     // can't see anything
 				hood.color = color
 			if(slot_flags == ITEM_SLOT_ARMOR)
 				if(H.wear_armor != src)
-					to_chat(H, "<span class='warning'>I should put that on first.</span>")
+					to_chat(H, span_warning("I should put that on first."))
 					return
 			if(slot_flags == ITEM_SLOT_CLOAK)
 				if(H.cloak != src)
-					to_chat(H, "<span class='warning'>I should put that on first.</span>")
+					to_chat(H, span_warning("I should put that on first."))
 					return
 			if(H.head)
 				to_chat(H, "<span class='warning'>I'm already wearing something on my head.</span>")

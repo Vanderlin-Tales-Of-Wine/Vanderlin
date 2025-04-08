@@ -414,9 +414,9 @@
 				user.put_in_hands(B)
 				user.visible_message(span_notice("[user] finds [B] in [src]."))
 				return
-			user.visible_message("<span class='warning'>[user] searches through [src].</span>")
+			user.visible_message(span_warning("[user] searches through [src]."))
 			if(!res)
-				to_chat(user, "<span class='warning'>Picked clean... I should try later.</span>")
+				to_chat(user, span_warning("Picked clean... I should try later."))
 	..()
 
 /turf/closed/wall/shroud/Initialize()

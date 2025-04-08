@@ -28,7 +28,7 @@
 	COOLDOWN_START(src, bell_ring, 4 SECONDS)
 
 /obj/item/handheld_bell/proc/sound_bell(mob/living/user)
-	user.visible_message("<span class='warning'>[user] rings the bell!</span>")
+	user.visible_message(span_warning("[user] rings the bell!"))
 	playsound(src, 'sound/misc/handbell.ogg', 100, TRUE)
 	var/turf/origin_turf = get_turf(src)
 
@@ -77,7 +77,7 @@
 
 		//sound played for other players
 		player.playsound_local(get_turf(player), 'sound/misc/handbell.ogg', 35, FALSE, pressure_affected = FALSE)
-		to_chat(player, "<span class='warning'>I hear the bell ring somewhere[disttext][dirtext]!</span>")
+		to_chat(player, span_warning("I hear the bell ring somewhere[disttext][dirtext]!"))
 
 /obj/item/handheld_bell/getonmobprop(tag)
 	. = ..()

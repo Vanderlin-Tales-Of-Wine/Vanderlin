@@ -134,7 +134,7 @@
 				qdel(I)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
+			to_chat(user, span_warning("You need to put [src] on a table to work on it."))
 	if(istype(I, /obj/item/reagent_containers/food/snacks/fat) && (!modified))
 		if(isturf(loc)&& (found_table))
 			to_chat(user, span_notice("Stuffing a wiener..."))
@@ -145,7 +145,7 @@
 				qdel(I)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
+			to_chat(user, span_warning("You need to put [src] on a table to work on it."))
 	else
 		return ..()
 

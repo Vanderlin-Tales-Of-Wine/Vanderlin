@@ -70,11 +70,11 @@
 /obj/item/gun/ballistic/revolver/grenadelauncher/pistol/attack_right(mob/user)
 	. = ..()
 	if(!user.is_holding(src))
-		to_chat(user, "<span class='warning'>I need to hold \the [src] to cock it!</span>")
+		to_chat(user, span_warning("I need to hold \the [src] to cock it!"))
 		return
 	if(cocked)
 		cocked = FALSE
-		to_chat(user, "<span class='warning'>I carefully de-cock \the [src].</span>")
+		to_chat(user, span_warning("I carefully de-cock \the [src]."))
 		playsound(src.loc, 'sound/combat/Ranged/muskclick.ogg', 100, FALSE)
 	else
 		playsound(src.loc, 'sound/combat/Ranged/muskclick.ogg', 100, FALSE)
@@ -174,11 +174,11 @@
 			to_chat(user, "<span class='warning'>I don't know how to do this!</span>")
 			return
 		if(!user.is_holding(src))
-			to_chat(user, "<span class='warning'>I need to hold \the [src] to ram it!</span>")
+			to_chat(user, span_warning("I need to hold \the [src] to ram it!"))
 			return
 		if(chambered)
 			if(!powdered)
-				to_chat(user, "<span class='warning'>I need to powder the [src] before I can ram it.</span>")
+				to_chat(user, span_warning("I need to powder the [src] before I can ram it."))
 				return
 			if(!rammed)
 				if(do_after(user, ramtime SECONDS, src))
@@ -192,7 +192,7 @@
 				to_chat(user, "<span class='warning'>I don't know how to do this!</span>")
 				return
 			if(powdered)
-				to_chat(user, "<span class='warning'>\The [src] is already powdered!</span>")
+				to_chat(user, span_warning("\The [src] is already powdered!"))
 				return
 			// Check if the reagent container contains at least 5u of blastpowder
 			if(I.reagents.get_reagent_amount(/datum/reagent/blastpowder) >= 5)
@@ -204,7 +204,7 @@
 				playsound(src.loc, 'sound/foley/gunpowder_fill.ogg', 100, FALSE)
 				return 1
 			else
-				to_chat(user, "<span class='warning'>Not enough blastpowder in [I] to powder the [src].</span>")
+				to_chat(user, span_warning("Not enough blastpowder in [I] to powder the [src]."))
 				return 0
 
 	return ..()

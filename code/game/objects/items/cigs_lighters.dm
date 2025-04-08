@@ -92,7 +92,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/obj/item/clothing/face/cigarette/cig = help_light_cig(M)
 	if(lit && cig && user.used_intent.type == INTENT_HELP)
 		if(cig.lit)
-			to_chat(user, "<span class='warning'>[cig] is already lit!</span>")
+			to_chat(user, span_warning("[cig] is already lit!"))
 		if(M == user)
 			cig.attackby(src, user)
 		else
@@ -187,9 +187,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 //			to_chat(user, span_notice("I dip \the [src] into \the [glass]."))
 //		else			//if not, either the beaker was empty, or the cigarette was full
 //			if(!glass.reagents.total_volume)
-//				to_chat(user, "<span class='warning'>[glass] is empty!</span>")
+//				to_chat(user, span_warning("[glass] is empty!"))
 //			else
-//				to_chat(user, "<span class='warning'>[src] is full!</span>")
+//				to_chat(user, span_warning("[src] is full!"))
 
 
 /obj/item/clothing/face/cigarette/proc/light(flavor_text = null)
@@ -324,7 +324,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/obj/item/clothing/face/cigarette/cig = help_light_cig(M)
 	if(lit && cig && user.used_intent.type == INTENT_HELP)
 		if(cig.lit)
-			to_chat(user, "<span class='warning'>The [cig.name] is already lit!</span>")
+			to_chat(user, span_warning("The [cig.name] is already lit!"))
 		if(M == user)
 			cig.attackby(src, user)
 		else
@@ -475,9 +475,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 				smoketime = highest_metab_time
 				qdel(O)
 			else
-				to_chat(user, "<span class='warning'>It has to be dried first!</span>")
+				to_chat(user, span_warning("It has to be dried first!"))
 		else
-			to_chat(user, "<span class='warning'>It is already packed!</span>")
+			to_chat(user, span_warning("It is already packed!"))
 	else if(istype(O, /obj/item/reagent_containers/powder))
 		var/obj/item/reagent_containers/powder/G = O
 		if(!packeditem)
@@ -491,14 +491,14 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			smoketime = highest_metab_time
 			qdel(O)
 		else
-			to_chat(user, "<span class='warning'>It is already packed!</span>")
+			to_chat(user, span_warning("It is already packed!"))
 	else
 		var/lighting_text = O.ignition_effect(src,user)
 		if(lighting_text)
 			if(smoketime > 0)
 				light(lighting_text)
 			else
-				to_chat(user, "<span class='warning'>There is nothing to smoke!</span>")
+				to_chat(user, span_warning("There is nothing to smoke!"))
 		else
 			return ..()
 
@@ -613,7 +613,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 				else
 					var/hitzone = user.held_index_to_dir(user.active_hand_index) == "r" ? BODY_ZONE_PRECISE_R_HAND : BODY_ZONE_PRECISE_L_HAND
 					user.apply_damage(5, BURN, hitzone)
-					user.visible_message("<span class='warning'>After a few attempts, [user] manages to light [src] - however, [user.p_they()] burn [user.p_their()] finger in the process.</span>", "<span class='warning'>I burn myself while lighting the lighter!</span>")
+					user.visible_message(span_warning("After a few attempts, [user] manages to light [src] - however, [user.p_they()] burn [user.p_their()] finger in the process."), span_warning("I burn myself while lighting the lighter!"))
 					SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "burnt_thumb", /datum/mood_event/burnt_thumb)
 
 		else
@@ -632,7 +632,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/obj/item/clothing/face/cigarette/cig = help_light_cig(M)
 	if(lit && cig && user.used_intent.type == INTENT_HELP)
 		if(cig.lit)
-			to_chat(user, "<span class='warning'>The [cig.name] is already lit!</span>")
+			to_chat(user, span_warning("The [cig.name] is already lit!"))
 		if(M == user)
 			cig.attackby(src, user)
 		else
@@ -725,4 +725,4 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			to_chat(user, span_notice("I roll the [target.name] into a rolling paper."))
 			R.desc = ""
 		else
-			to_chat(user, "<span class='warning'>I need to dry this first!</span>")
+			to_chat(user, span_warning("I need to dry this first!"))

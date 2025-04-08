@@ -161,7 +161,7 @@
 	if(!affecting)
 		return
 	if(affecting.bandage)
-		to_chat(user, "<span class='warning'>There is already a bandage.</span>")
+		to_chat(user, span_warning("There is already a bandage."))
 		return
 	var/used_time = 70
 	if(H.mind)
@@ -192,7 +192,7 @@
 	resistance_flags = FLAMMABLE
 	max_integrity = 20
 /obj/item/natural/thorn/attack_self(mob/living/user)
-	user.visible_message("<span class='warning'>[user] snaps [src].</span>")
+	user.visible_message(span_warning("[user] snaps [src]."))
 	playsound(user,'sound/items/seedextract.ogg', 100, FALSE)
 	qdel(src)
 

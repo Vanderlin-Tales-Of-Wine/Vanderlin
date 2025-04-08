@@ -13,7 +13,7 @@
 /obj/item/painting/attack_turf(turf/T, mob/living/user)
 	if(isclosedturf(T))
 		if(get_dir(T,user) in GLOB.cardinals)
-			to_chat(user, "<span class='warning'>I place [src] on the wall.</span>")
+			to_chat(user, span_warning("I place [src] on the wall."))
 			var/obj/structure/S = new deployed_structure(user.loc)
 			switch(get_dir(T,user))
 				if(NORTH)

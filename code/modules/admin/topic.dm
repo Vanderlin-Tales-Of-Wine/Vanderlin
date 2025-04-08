@@ -1033,7 +1033,7 @@
 	else if(href_list["viewruntime"])
 		var/datum/error_viewer/error_viewer = locate(href_list["viewruntime"])
 		if(!istype(error_viewer))
-			to_chat(usr, "<span class='warning'>That runtime viewer no longer exists.</span>")
+			to_chat(usr, span_warning("That runtime viewer no longer exists."))
 			return
 
 		if(href_list["viewruntime_backto"])

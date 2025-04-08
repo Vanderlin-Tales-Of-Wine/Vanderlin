@@ -14,7 +14,7 @@
 		return
 
 	if(!SSdiscord.enabled)
-		to_chat(usr, "<span class='warning'>TGS is not enabled</span>")
+		to_chat(usr, span_warning("TGS is not enabled"))
 		return
 
 	var/lookup_choice = alert(usr, "Do you wish to lookup account by ID or ckey?", "Lookup Type", "ID", "Ckey", "Cancel")
@@ -27,7 +27,7 @@
 				if(unlink_choice == "Unlink")
 					SSdiscord.unlink_account(returned_ckey)
 			else
-				to_chat(usr, "<span class='warning'>Discord ID <b>[lookup_id]</b> has no associated ckey</span>")
+				to_chat(usr, span_warning("Discord ID <b>[lookup_id]</b> has no associated ckey"))
 		if("Ckey")
 			var/lookup_ckey = input(usr,"Enter Ckey to lookup ID") as text|null
 			var/returned_id = SSdiscord.lookup_id(lookup_ckey)

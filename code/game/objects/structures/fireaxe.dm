@@ -34,7 +34,7 @@
 		if(istype(I, /obj/item/weapon/sword/long/heirloom) && !heirloom)
 			var/obj/item/weapon/sword/long/heirloom/F = I
 			if(F.wielded)
-				to_chat(user, "<span class='warning'>Unwield the [F.name] first.</span>")
+				to_chat(user, span_warning("Unwield the [F.name] first."))
 				return
 			if(!user.transferItemToLoc(F, src))
 				return
@@ -161,7 +161,7 @@
 	if(istype(I, /obj/item/weapon/mace/goden/shillelagh) && !heirloom)
 		var/obj/item/weapon/mace/goden/shillelagh/F = I
 		if(F.wielded)
-			to_chat(user, "<span class='warning'>Unwield the [F.name] first.</span>")
+			to_chat(user, span_warning("Unwield the [F.name] first."))
 			return
 		if(!user.transferItemToLoc(F, src))
 			return

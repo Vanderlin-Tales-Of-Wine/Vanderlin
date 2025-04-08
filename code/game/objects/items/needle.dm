@@ -55,7 +55,7 @@
 /obj/item/needle/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/natural/fibers))
 		if(maxstring - stringamt < 5)
-			to_chat(user, "<span class='warning'>Not enough room for more thread!</span>")
+			to_chat(user, span_warning("Not enough room for more thread!"))
 			return
 		else
 			to_chat(user, "I begin threading the needle with additional fibers...")
@@ -72,7 +72,7 @@
 	var/obj/item/I = O
 	if(istype(I) && can_repair)
 		if(stringamt < 1)
-			to_chat(user, "<span class='warning'>The needle has no thread left!</span>")
+			to_chat(user, span_warning("The needle has no thread left!"))
 			return
 		if(!I.sewrepair || !I.max_integrity)
 			to_chat(user, span_warning("[I] can't be repaired!"))
@@ -121,20 +121,20 @@
 	var/mob/living/carbon/human/patient = target
 	var/boon = doctor?.mind?.get_learning_boon(/datum/skill/misc/medicine)
 	if(stringamt < 1)
-		to_chat(user, "<span class='warning'>The needle has no thread left!</span>")
+		to_chat(user, span_warning("The needle has no thread left!"))
 		return
 	if(!get_location_accessible(patient, check_zone(doctor.zone_selected)))
-		to_chat(doctor, "<span class='warning'>Something in the way.</span>")
+		to_chat(doctor, span_warning("Something in the way."))
 		return FALSE
 	var/list/sewable
 	var/obj/item/bodypart/affecting
 	if(iscarbon(patient))
 		affecting = patient.get_bodypart(check_zone(doctor.zone_selected))
 		if(!affecting)
-			to_chat(doctor, "<span class='warning'>That limb is missing.</span>")
+			to_chat(doctor, span_warning("That limb is missing."))
 			return FALSE
 		if(affecting.bandage)
-			to_chat(doctor, "<span class='warning'>There is a bandage in the way.</span>")
+			to_chat(doctor, span_warning("There is a bandage in the way."))
 			return FALSE
 		sewable = affecting.get_sewable_wounds()
 	else

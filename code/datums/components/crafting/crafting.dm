@@ -169,7 +169,7 @@
 		N = R.result
 		result_name = N.name
 	if(isopenturf(T) && R.wallcraft)
-		to_chat(user, "<span class='warning'>I need to craft this on a wall.</span>")
+		to_chat(user, span_warning("I need to craft this on a wall."))
 		return
 	if(!isopenturf(T) || R.ontile)
 		T = get_turf(user.loc)
@@ -187,22 +187,22 @@
 		for(var/obj/structure/S in T)
 			if(R.buildsame && istype(S, R.result))
 				if(user.dir == S.dir)
-					to_chat(user, "<span class='warning'>[S] is in the way.</span>")
+					to_chat(user, span_warning("[S] is in the way."))
 					return
 				continue
 			if(R.structurecraft && istype(S, R.structurecraft))
 				testing("isstructurecraft")
 				continue
 			if(S.density)
-				to_chat(user, "<span class='warning'>[S] is in the way.</span>")
+				to_chat(user, span_warning("[S] is in the way."))
 				return
 		for(var/obj/machinery/M in T)
 			if(M.density)
-				to_chat(user, "<span class='warning'>[M] is in the way.</span>")
+				to_chat(user, span_warning("[M] is in the way."))
 				return
 	if(R.req_table)
 		if(!(locate(/obj/structure/table) in T))
-			to_chat(user, "<span class='warning'>I need to make this on a table.</span>")
+			to_chat(user, span_warning("I need to make this on a table."))
 			return
 	if(R.structurecraft)
 		if(!(locate(R.structurecraft) in T))
@@ -497,7 +497,7 @@
 			if(!fail_msg)
 				to_chat(usr, span_notice("[TR.name] crafted."))
 			else
-				to_chat(usr, "<span class='warning'>craft failed: [fail_msg]</span>")
+				to_chat(usr, span_warning("craft failed: [fail_msg]"))
 			busy = FALSE
 		if("toggle_recipes")
 			display_craftable_only = TRUE
@@ -592,7 +592,7 @@
 				else
 					catty |= "Other"
 	if(!data.len)
-		to_chat(user, "<span class='warning'>There is nothing I can craft.</span>")
+		to_chat(user, span_warning("There is nothing I can craft."))
 		return
 	if(!catty.len)
 		return

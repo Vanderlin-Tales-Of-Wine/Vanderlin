@@ -176,7 +176,7 @@
 	..()
 
 /obj/item/grown/log/tree/stick/attack_self(mob/living/user)
-	user.visible_message("<span class='warning'>[user] snaps [src].</span>")
+	user.visible_message(span_warning("[user] snaps [src]."))
 	playsound(user,'sound/items/seedextract.ogg', 100, FALSE)
 	qdel(src)
 

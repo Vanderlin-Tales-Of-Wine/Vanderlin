@@ -101,7 +101,7 @@
 				user.visible_message(span_info("[user] repairs [attacked_item]!"))
 			blacksmith_mind.add_sleep_experience(attacked_item.anvilrepair, amt2raise)
 		else
-			user.visible_message("<span class='warning'>[user] damages [attacked_item]!</span>")
+			user.visible_message(span_warning("[user] damages [attacked_item]!"))
 			attacked_item.take_damage(attacked_item.max_integrity * 0.1, BRUTE, "blunt")
 		attacked_item.update_icon()
 		return

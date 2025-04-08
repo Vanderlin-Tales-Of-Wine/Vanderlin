@@ -205,7 +205,7 @@
 		things = typecache_filter_list(things, typecacheof(I.type))
 	var/len = length(things)
 	if(!len)
-		to_chat(M, "<span class='warning'>I failed to pick up anything with [parent]!</span>")
+		to_chat(M, span_warning("I failed to pick up anything with [parent]!"))
 		return
 //	var/datum/progressbar/progress = new(M, len, I.loc)
 //	var/list/rejections = list()
@@ -277,7 +277,7 @@
 	if(!user.canUseStorage() || !A.Adjacent(user) || user.incapacitated()) // Some sanity checks
 		return
 	if(locked)
-//		to_chat(M, "<span class='warning'>[parent] seems to be locked!</span>")
+//		to_chat(M, span_warning("[parent] seems to be locked!"))
 		return FALSE
 	A.add_fingerprint(user)
 //	to_chat(M, span_notice("I start dumping out [parent].")
@@ -297,7 +297,7 @@
 			return
 	for(var/obj/structure/S in T) // Is there a structure in the way that isn't a chest, table, rack, or handcart? Can't dump the sack out on that
 		if(S.density && !istype(S, /obj/structure/table) && !istype(S, /obj/structure/closet/crate) && !istype(S, /obj/structure/rack) && !istype(S, /obj/structure/bars) && !istype(S, /obj/structure/handcart))
-			to_chat(user, "<span class='warning'>Something in the way.</span>")
+			to_chat(user, span_warning("Something in the way."))
 			return
 	for(var/obj/item/I in things) // If the above aren't true, dump the sack onto the tile in front of us
 		things -= I
@@ -513,7 +513,7 @@
 	var/atom/dump_destination = dest_object.get_dumping_location()
 	if(A.Adjacent(M) && dump_destination && M.Adjacent(dump_destination))
 		if(locked)
-//			to_chat(M, "<span class='warning'>[parent] seems to be locked!</span>")
+//			to_chat(M, span_warning("[parent] seems to be locked!"))
 			return FALSE
 		if(dump_destination.storage_contents_dump_act(src, M))
 			if(rustle_sound)
@@ -634,7 +634,7 @@
 		return FALSE
 	A.add_fingerprint(M)
 	if((locked || !allow_look_inside) && !force)
-//		to_chat(M, "<span class='warning'>[parent] seems to be locked!</span>")
+//		to_chat(M, span_warning("[parent] seems to be locked!"))
 		return FALSE
 	if(force || M.CanReach(parent, view_only = TRUE))
 		show_to(M)
@@ -672,24 +672,24 @@
 	if(locked)
 		if(M && !stop_messages)
 			host.add_fingerprint(M)
-//			to_chat(M, "<span class='warning'>[host] seems to be locked!</span>")
+//			to_chat(M, span_warning("[host] seems to be locked!"))
 		return FALSE
 	if(real_location.contents.len >= max_items)
 		if(!stop_messages)
-			to_chat(M, "<span class='warning'>[host] is full, make some space!</span>")
+			to_chat(M, span_warning("[host] is full, make some space!"))
 		return FALSE //Storage item is full
 	if(length(can_hold))
 		if(!is_type_in_typecache(I, can_hold))
 			if(!stop_messages)
-				to_chat(M, "<span class='warning'>[host] cannot hold [I]!</span>")
+				to_chat(M, span_warning("[host] cannot hold [I]!"))
 			return FALSE
 	if(is_type_in_typecache(I, cant_hold)) //Check for specific items which this container can't hold.
 		if(!stop_messages)
-			to_chat(M, "<span class='warning'>[host] cannot hold [I]!</span>")
+			to_chat(M, span_warning("[host] cannot hold [I]!"))
 		return FALSE
 	if(I.w_class > max_w_class && !is_type_in_typecache(I, exception_hold))
 		if(!stop_messages)
-			to_chat(M, "<span class='warning'>[I] is too big for [host]!</span>")
+			to_chat(M, span_warning("[I] is too big for [host]!"))
 		return FALSE
 	var/datum/component/storage/biggerfish = real_location.loc.GetComponent(/datum/component/storage)
 	if(biggerfish && biggerfish.max_w_class < max_w_class)//return false if we are inside of another container, and that container has a smaller max_w_class than us (like if we're a bag in a box)
@@ -847,7 +847,7 @@
 	if(A.Adjacent(user))
 		. = COMPONENT_NO_ATTACK_HAND
 		if(locked || !allow_look_inside)
-//			to_chat(user, "<span class='warning'>[parent] seems to be locked!</span>")
+//			to_chat(user, span_warning("[parent] seems to be locked!"))
 			return
 		else
 			show_to(user)
@@ -893,7 +893,7 @@
 	if(A.loc == user)
 		. = COMPONENT_NO_ATTACK_HAND
 		if(locked)
-//			to_chat(user, "<span class='warning'>[parent] seems to be locked!</span>")
+//			to_chat(user, span_warning("[parent] seems to be locked!"))
 			return
 		else
 			show_to(user)
@@ -919,7 +919,7 @@
 	if(!isliving(user) || !user.CanReach(parent))
 		return
 	if(locked)
-		to_chat(user, "<span class='warning'>[parent] seems to be locked!</span>")
+		to_chat(user, span_warning("[parent] seems to be locked!"))
 		return
 
 	var/atom/A = parent
@@ -939,7 +939,7 @@
 		if(!user.put_in_hands(I))
 			to_chat(user, span_notice("I fumble for [I] and it falls on the floor."))
 			return
-		user.visible_message("<span class='warning'>[user] draws [I] from [parent]!</span>", span_notice("I draw [I] from [parent]."))
+		user.visible_message(span_warning("[user] draws [I] from [parent]!"), span_notice("I draw [I] from [parent]."))
 		return
 
 /datum/component/storage/proc/action_trigger(datum/signal_source, datum/action/source)

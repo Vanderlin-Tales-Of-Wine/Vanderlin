@@ -94,9 +94,9 @@
 		return
 	if(cooldowny)
 		if(world.time < cooldowny + cdtime)
-			to_chat(user, "<span class='warning'>Nothing happens.</span>")
+			to_chat(user, span_warning("Nothing happens."))
 			return
-	user.visible_message("<span class='warning'>[user] twists the [src]!</span>")
+	user.visible_message(span_warning("[user] twists the [src]!"))
 	if(activate_sound)
 		playsound(user, activate_sound, 100, FALSE, -1)
 	cooldowny = world.time
@@ -113,7 +113,7 @@
 	update_icon()
 	if(ismob(loc))
 		var/mob/user = loc
-		user.visible_message("<span class='warning'>The ring settles down.</span>")
+		user.visible_message(span_warning("The ring settles down."))
 		user.update_inv_wear_id()
 
 

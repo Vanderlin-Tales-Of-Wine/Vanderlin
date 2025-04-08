@@ -9,7 +9,7 @@
 	name = "Mutism"
 	desc = ""
 	scan_desc = ""
-	gain_text = "<span class='warning'>I forget how to speak!</span>"
+	gain_text = span_warning("I forget how to speak!")
 	lose_text = span_notice("I suddenly remember how to speak.")
 
 /datum/brain_trauma/severe/mute/on_gain()
@@ -24,7 +24,7 @@
 	name = "Aphasia"
 	desc = ""
 	scan_desc = ""
-	gain_text = "<span class='warning'>I have trouble forming words in my head...</span>"
+	gain_text = span_warning("I have trouble forming words in my head...")
 	lose_text = span_notice("I suddenly remember how languages work.")
 	var/datum/language_holder/prev_language
 	var/datum/language_holder/mob_language
@@ -127,7 +127,7 @@
 	name = "Narcolepsy"
 	desc = ""
 	scan_desc = ""
-	gain_text = "<span class='warning'>I have a constant feeling of drowsiness...</span>"
+	gain_text = span_warning("I have a constant feeling of drowsiness...")
 	lose_text = span_notice("I feel awake and aware again.")
 
 /datum/brain_trauma/severe/narcolepsy/on_life()
@@ -140,10 +140,10 @@
 	if(owner.drowsyness)
 		sleep_chance += 3
 	if(prob(sleep_chance))
-		to_chat(owner, "<span class='warning'>I fall asleep.</span>")
+		to_chat(owner, span_warning("I fall asleep."))
 		owner.Sleeping(60)
 	else if(!owner.drowsyness && prob(sleep_chance * 2))
-		to_chat(owner, "<span class='warning'>I feel tired...</span>")
+		to_chat(owner, span_warning("I feel tired..."))
 		owner.drowsyness += 10
 
 /datum/brain_trauma/severe/monophobia
@@ -157,7 +157,7 @@
 /datum/brain_trauma/severe/monophobia/on_gain()
 	..()
 	if(check_alone())
-		to_chat(owner, "<span class='warning'>I feel really lonely...</span>")
+		to_chat(owner, span_warning("I feel really lonely..."))
 	else
 		to_chat(owner, span_notice("I feel safe, as long as you have people around you."))
 
@@ -188,9 +188,9 @@
 	switch(rand(1,6))
 		if(1)
 			if(!high_stress)
-				to_chat(owner, "<span class='warning'>I feel sick...</span>")
+				to_chat(owner, span_warning("I feel sick..."))
 			else
-				to_chat(owner, "<span class='warning'>I feel really sick at the thought of being alone!</span>")
+				to_chat(owner, span_warning("I feel really sick at the thought of being alone!"))
 			addtimer(CALLBACK(owner, TYPE_PROC_REF(/mob/living/carbon, vomit), high_stress), 50) //blood vomit if high stress
 		if(2)
 			if(!high_stress)
@@ -206,13 +206,13 @@
 
 		if(3, 4)
 			if(!high_stress)
-				to_chat(owner, "<span class='warning'>I feel really lonely...</span>")
+				to_chat(owner, span_warning("I feel really lonely..."))
 			else
 				to_chat(owner, "<span class='warning'>You're going mad with loneliness!</span>")
 
 		if(5)
 			if(!high_stress)
-				to_chat(owner, "<span class='warning'>My heart skips a beat.</span>")
+				to_chat(owner, span_warning("My heart skips a beat."))
 				owner.adjustOxyLoss(8)
 			else
 				if(prob(15) && ishuman(owner))
@@ -229,7 +229,7 @@
 	name = "Discoordination"
 	desc = ""
 	scan_desc = ""
-	gain_text = "<span class='warning'>I can barely control my hands!</span>"
+	gain_text = span_warning("I can barely control my hands!")
 	lose_text = span_notice("I feel in control of my hands again.")
 
 /datum/brain_trauma/severe/discoordination/on_gain()
@@ -259,7 +259,7 @@
 	name = "Hypnotic Stupor"
 	desc = ""
 	scan_desc = ""
-	gain_text = "<span class='warning'>I feel somewhat dazed.</span>"
+	gain_text = span_warning("I feel somewhat dazed.")
 	lose_text = span_notice("I feel like a fog was lifted from my mind.")
 
 /datum/brain_trauma/severe/hypnotic_stupor/on_lose() //hypnosis must be cleared separately, but brain surgery should get rid of both anyway

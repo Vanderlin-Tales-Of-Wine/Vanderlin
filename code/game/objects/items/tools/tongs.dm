@@ -19,7 +19,7 @@
 /obj/item/weapon/tongs/examine(mob/user)
 	. = ..()
 	if(hott)
-		. += "<span class='warning'>The tip is hot to the touch.</span>"
+		. += span_warning("The tip is hot to the touch.")
 
 /obj/item/weapon/tongs/get_temperature()
 	if(hott)
@@ -62,7 +62,7 @@
 		hott = 0
 		update_icon()
 	else if(held_item)
-		to_chat(user, "<span class='warning'>Cannot place [held_item] here!</span>")
+		to_chat(user, span_warning("Cannot place [held_item] here!"))
 
 /obj/item/weapon/tongs/attack_self(mob/user)
 	place_item_to_atom(get_turf(user), user)

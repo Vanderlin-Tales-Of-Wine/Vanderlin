@@ -631,7 +631,7 @@
 			return
 		if(((user.used_intent.blade_class == BCLASS_STAB) || (user.used_intent.blade_class == BCLASS_CUT)) && (W.wlength == WLENGTH_SHORT))
 			if(wrotesign)
-				to_chat(user, "<span class='warning'>Something is already carved here.</span>")
+				to_chat(user, span_warning("Something is already carved here."))
 			else
 				var/inputty = stripped_input(user, "What would you like to carve here?", "", null, 200)
 				if(inputty && !wrotesign)
@@ -813,7 +813,7 @@
 	if(random_message == 2)
 		if(do_after(H, 2.5 SECONDS, src))
 			var/obj/item/bodypart/affecting = H.get_bodypart("head")
-			to_chat(H, "<span class='warning'>The blinding light causes you intense pain!</span>")
+			to_chat(H, span_warning("The blinding light causes you intense pain!"))
 			if(affecting && affecting.receive_damage(0, 5))
 				H.update_damage_overlays()
 
@@ -1085,7 +1085,7 @@
 
 			if(istype(W, /obj/item/reagent_containers/food/snacks/produce/apple))
 				if(!istype(get_area(user), /area/rogue/indoors/town/church/chapel))
-					to_chat(user, "<span class='warning'>I need to do this in the chapel.</span>")
+					to_chat(user, span_warning("I need to do this in the chapel."))
 					return FALSE
 				var/marriage
 				var/obj/item/reagent_containers/food/snacks/produce/apple/A = W

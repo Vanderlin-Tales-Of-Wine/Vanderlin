@@ -58,7 +58,7 @@
 	if(istype(I, /obj/item/reagent_containers/glass/bucket))
 		var/obj/item/reagent_containers/glass/bucket/W = I
 		if(W.reagents.holder_full())
-			to_chat(user, "<span class='warning'>[W] is full.</span>")
+			to_chat(user, span_warning("[W] is full."))
 			return
 		if(do_after(user, 6 SECONDS, src))
 			var/list/waterl = list(/datum/reagent/water = 100)

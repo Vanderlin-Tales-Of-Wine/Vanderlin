@@ -42,7 +42,7 @@
 
 /datum/wound/facial/eyes
 	name = "eye evisceration"
-	check_name = "<span class='warning'>EYE</span>"
+	check_name = span_warning("EYE")
 	crit_message = list(
 		"The eye is poked!",
 		"The eye is gouged!",
@@ -163,7 +163,7 @@
 
 /datum/wound/facial/disfigurement
 	name = "disfigurement"
-	check_name = "<span class='warning'>FACE</span>"
+	check_name = span_warning("FACE")
 	severity = 0
 	crit_message = "The face is mangled beyond recognition!"
 	whp = null
@@ -180,10 +180,10 @@
 /datum/wound/facial/disfigurement/on_mob_loss(mob/living/affected)
 	. = ..()
 	REMOVE_TRAIT(affected, TRAIT_DISFIGURED, "[type]")
-	
+
 /datum/wound/facial/disfigurement/nose
 	name = "rhinotomy"
-	check_name = "<span class='warning'>NOSE</span>"
+	check_name = span_warning("NOSE")
 	crit_message = list(
 		"The nose is mangled beyond recognition!",
 		"The nose is destroyed!",

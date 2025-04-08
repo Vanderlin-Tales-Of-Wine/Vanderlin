@@ -291,7 +291,7 @@
 	if(prob(23) && istype(crosser) && !isvineimmune(crosser))
 		var/mob/living/M = crosser
 		M.adjustBruteLoss(5)
-		to_chat(M, "<span class='warning'>I nick myself on the thorny vines.</span>")
+		to_chat(M, span_warning("I nick myself on the thorny vines."))
 
 //ATTACK HAND IGNORING PARENT RETURN VALUE
 /obj/structure/vine/attack_hand(mob/user)

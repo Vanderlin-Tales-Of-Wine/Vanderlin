@@ -202,7 +202,7 @@ SUBSYSTEM_DEF(vote)
 		if(started_time && initiator_key)
 			var/next_allowed_time = (started_time + CONFIG_GET(number/vote_delay))
 			if(mode)
-				to_chat(usr, "<span class='warning'>There is already a vote in progress! please wait for it to finish.</span>")
+				to_chat(usr, span_warning("There is already a vote in progress! please wait for it to finish."))
 				return 0
 
 			var/admin = FALSE
@@ -211,7 +211,7 @@ SUBSYSTEM_DEF(vote)
 				admin = TRUE
 
 			if(next_allowed_time > world.time && !admin)
-				to_chat(usr, "<span class='warning'>A vote was initiated recently, you must wait [DisplayTimeText(next_allowed_time-world.time)] before a new vote can be started!</span>")
+				to_chat(usr, span_warning("A vote was initiated recently, you must wait [DisplayTimeText(next_allowed_time-world.time)] before a new vote can be started!"))
 				return 0
 
 		reset()

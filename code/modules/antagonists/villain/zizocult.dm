@@ -376,10 +376,10 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	var/turf/T = get_turf(M.loc)
 	for(var/obj/A in T)
 		if(istype(A, /obj/effect/decal/cleanable/sigil))
-			to_chat(M, "<span class='warning'>There is already a sigil here.</span>")
+			to_chat(M, span_warning("There is already a sigil here."))
 			return
 		if(A.density && !(A.flags_1 & ON_BORDER_1))
-			to_chat(M, "<span class='warning'>There is already something here!</span>")
+			to_chat(M, span_warning("There is already something here!"))
 			return
 	if(do_after(M, 5 SECONDS))
 		M.bloody_hands--
@@ -546,7 +546,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 			if(HL.real_name == P.info)
 				if(HL.has_status_effect(/datum/status_effect/debuff/sleepytime))
 					if(HL.mind.assigned_role.title in GLOB.church_positions)
-						to_chat(HL.mind, "<span class='warning'>I sense an unholy presence loom near my soul.</span>")
+						to_chat(HL.mind, span_warning("I sense an unholy presence loom near my soul."))
 						return
 					if(HL == SSticker.rulermob)
 						return
@@ -649,13 +649,13 @@ GLOBAL_LIST_EMPTY(ritualslist)
 					ADD_TRAIT(HL, TRAIT_ZIZOID_HUNTED, TRAIT_GENERIC) // Gives the victim a trait to track that they are wanted dead.
 					log_hunted("[key_name(HL)] playing as [HL] had the hunted flaw by Zizoid curse.")
 					to_chat(HL, "<span class='danger'>My hair stands on end. Has someone just said my name? I should watch my back.</span>")
-					to_chat(user, "<span class='warning'>Your target has been marked, your profane call answered by the Dark Sun. [HL.real_name] will surely perish!</span>")
+					to_chat(user, span_warning("Your target has been marked, your profane call answered by the Dark Sun. [HL.real_name] will surely perish!"))
 					for(var/obj/item/weapon/knife/dagger/D in C.contents) // Get rid of the dagger used as a sacrifice.
 						qdel(D)
 					qdel(P) // Get rid of the paper with the name on it too.
 					HL.playsound_local(HL.loc, 'sound/magic/marked.ogg', 100)
 				else
-					to_chat(user, "<span class='warning'>There has been no answer to your call to the Dark Sun. It seems his servants are far from here...</span>")
+					to_chat(user, span_warning("There has been no answer to your call to the Dark Sun. It seems his servants are far from here..."))
 				return
 
 // TRANSMUTATION

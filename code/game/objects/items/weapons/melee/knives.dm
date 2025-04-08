@@ -384,9 +384,9 @@
 	for(var/mob/dead/observer/profane/A in src) // for every trapped soul in the dagger, whether they have left the game or not
 		to_chat(A, "<b>I have been freed from my vile prison, I await Necra's cold grasp. Salvation!</b>")
 		A.returntolobby() //Send the trapped soul back to the lobby
-		user.visible_message("<span class='warning'>The [A.name] flows out from the profane dagger, finally free of its grasp.</span>")
+		user.visible_message(span_warning("The [A.name] flows out from the profane dagger, finally free of its grasp."))
 		freed_souls += 1
-	user.visible_message("<span class='warning'>The profane dagger shatters into putrid smoke!</span>")
+	user.visible_message(span_warning("The profane dagger shatters into putrid smoke!"))
 	qdel(src) // Delete the dagger. Forevermore.
 	return freed_souls
 

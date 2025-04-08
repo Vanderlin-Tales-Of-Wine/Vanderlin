@@ -291,11 +291,11 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 //Reopen a closed ticket
 /datum/admin_help/proc/Reopen()
 	if(state == AHELP_ACTIVE)
-		to_chat(usr, "<span class='warning'>This ticket is already open.</span>")
+		to_chat(usr, span_warning("This ticket is already open."))
 		return
 
 	if(GLOB.ahelp_tickets.CKey2ActiveTicket(initiator_ckey))
-		to_chat(usr, "<span class='warning'>This user already has an active ticket, cannot reopen this one.</span>")
+		to_chat(usr, span_warning("This user already has an active ticket, cannot reopen this one."))
 		return
 
 	statclick = new(null, src)
@@ -579,7 +579,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 				current_ticket.TimeoutVerb()
 				return
 			else
-				to_chat(usr, "<span class='warning'>Ticket not found, creating new one...</span>")
+				to_chat(usr, span_warning("Ticket not found, creating new one..."))
 		else
 			current_ticket.AddInteraction("[key_name_admin(usr)] opened a new ticket.", player_message = "opened a new ticket.")
 			current_ticket.Close()

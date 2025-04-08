@@ -90,8 +90,8 @@
 			return
 		if (GUILLOTINE_BLADE_RAISED)
 			if (LAZYLEN(buckled_mobs))
-				user.visible_message("<span class='warning'>[user] begins to pull the lever!</span>",
-									"<span class='warning'>I begin to pull the lever!</span>")
+				user.visible_message(span_warning("[user] begins to pull the lever!"),
+									span_warning("I begin to pull the lever!"))
 				current_action = GUILLOTINE_ACTION_INUSE
 
 				if (do_after(user, GUILLOTINE_ACTIVATE_DELAY, src) && blade_status == GUILLOTINE_BLADE_RAISED)
@@ -195,10 +195,10 @@
 					blade_status = GUILLOTINE_BLADE_RAISED
 					return
 			else
-				to_chat(user, "<span class='warning'>The blade is sharp enough!</span>")
+				to_chat(user, span_warning("The blade is sharp enough!"))
 				return
 		else
-			to_chat(user, "<span class='warning'>I need to raise the blade in order to sharpen it!</span>")
+			to_chat(user, span_warning("I need to raise the blade in order to sharpen it!"))
 			return
 	else
 		return ..()
@@ -212,7 +212,7 @@
 		return FALSE // Can't decapitate non-humans
 
 	if (blade_status != GUILLOTINE_BLADE_RAISED)
-		to_chat(usr, "<span class='warning'>I need to raise the blade before placing someone!</span>")
+		to_chat(usr, span_warning("I need to raise the blade before placing someone!"))
 		return FALSE
 
 	if(iscarbon(M))

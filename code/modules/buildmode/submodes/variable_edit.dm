@@ -40,12 +40,12 @@
 	var/right_click = pa.Find("right")
 
 	if(isnull(varholder))
-		to_chat(c, "<span class='warning'>Choose a variable to modify first.</span>")
+		to_chat(c, span_warning("Choose a variable to modify first."))
 		return
 	if(left_click)
 		if(object.vars.Find(varholder))
 			if(object.vv_edit_var(varholder, valueholder) == FALSE)
-				to_chat(c, "<span class='warning'>My edit was rejected by the object.</span>")
+				to_chat(c, span_warning("My edit was rejected by the object."))
 				return
 			log_admin("Build Mode: [key_name(c)] modified [object.name]'s [varholder] to [valueholder]")
 		else
@@ -54,7 +54,7 @@
 		if(object.vars.Find(varholder))
 			var/reset_value = initial(object.vars[varholder])
 			if(object.vv_edit_var(varholder, reset_value) == FALSE)
-				to_chat(c, "<span class='warning'>My edit was rejected by the object.</span>")
+				to_chat(c, span_warning("My edit was rejected by the object."))
 				return
 			log_admin("Build Mode: [key_name(c)] modified [object.name]'s [varholder] to [reset_value]")
 		else

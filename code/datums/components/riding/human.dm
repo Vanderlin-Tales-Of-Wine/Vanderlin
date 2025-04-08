@@ -58,5 +58,5 @@
 	var/atom/movable/AM = parent
 	AM.unbuckle_mob(user)
 	user.Paralyze(60)
-	user.visible_message("<span class='warning'>[AM] pushes [user] off of [AM.p_them()]!</span>", \
-						"<span class='warning'>[AM] pushes me off of [AM.p_them()]!</span>")
+	user.visible_message(span_warning("[AM] pushes [user] off of [AM.p_them()]!"), \
+						span_warning("[AM] pushes me off of [AM.p_them()]!"))

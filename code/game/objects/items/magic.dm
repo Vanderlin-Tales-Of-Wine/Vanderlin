@@ -31,7 +31,7 @@
 /obj/item/scrying/attack_self(mob/user)
 	. = ..()
 	if(world.time < last_scry + cooldown)
-		to_chat(user, "<span class='warning'>I look into the ball but only see inky smoke. Maybe I should wait.</span>")
+		to_chat(user, span_warning("I look into the ball but only see inky smoke. Maybe I should wait."))
 		return
 	var/input = stripped_input(user, "Who are you looking for?", "Scrying Orb")
 	if(!input)
@@ -39,7 +39,7 @@
 	if(!user.key)
 		return
 	if(world.time < last_scry + cooldown)
-		to_chat(user, "<span class='warning'>I look into the ball but only see inky smoke. Maybe I should wait.</span>")
+		to_chat(user, span_warning("I look into the ball but only see inky smoke. Maybe I should wait."))
 		return
 	if(!user.mind || !user.mind.do_i_know(name=input))
 		to_chat(user, "<span class='warning'>I don't know anyone by that name.</span>")
@@ -66,12 +66,12 @@
 				if(HL.STAPER >= 15)
 					if(HL.mind)
 						if(HL.mind.do_i_know(name=user.real_name))
-							to_chat(HL, "<span class='warning'>I can clearly see the face of [user.real_name] staring at me!.</span>")
+							to_chat(HL, span_warning("I can clearly see the face of [user.real_name] staring at me!."))
 							return
 					to_chat(HL, "<span class='warning'>I can clearly see the face of an unknown [user.gender == FEMALE ? "woman" : "man"] staring at me!</span>")
 					return
 				if(HL.STAPER >= 11)
-					to_chat(HL, "<span class='warning'>I feel a pair of unknown eyes on me.</span>")
+					to_chat(HL, span_warning("I feel a pair of unknown eyes on me."))
 			return
 	to_chat(user, "<span class='warning'>I peer into the ball, but can't find [input].</span>")
 	return

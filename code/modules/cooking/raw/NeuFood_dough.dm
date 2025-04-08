@@ -219,7 +219,7 @@
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 		if(I.get_sharpness())
 			if(!isdwarf(user))
-				to_chat(user, "<span class='warning'>You lack knowledge of dwarven pastries!</span>")
+				to_chat(user, span_warning("You lack knowledge of dwarven pastries!"))
 				return
 			else
 				playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)

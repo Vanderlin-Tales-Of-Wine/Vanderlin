@@ -58,7 +58,7 @@
 		var/mob/dead/observer/C = pick_n_take(candidates)
 		var/mob/living/body = pick_n_take(bodies)
 
-		to_chat(body, "<span class='warning'>My mob has been taken over by a ghost!</span>")
+		to_chat(body, span_warning("My mob has been taken over by a ghost!"))
 		message_admins("[key_name_admin(C)] has taken control of ([key_name_admin(body)])")
 		body.ghostize(0)
 		body.key = C.key

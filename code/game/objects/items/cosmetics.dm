@@ -56,7 +56,7 @@
 			to_chat(user, "<span class='warning'>Remove [ H == user ? "your" : "[H.p_their()]" ] mask!</span>")
 			return
 		if(H.lip_style)	//if they already have lipstick on
-			to_chat(user, "<span class='warning'>I need to wipe off the old lipstick first!</span>")
+			to_chat(user, span_warning("I need to wipe off the old lipstick first!"))
 			return
 		if(H == user)
 			user.visible_message(span_notice("[user] does [user.p_their()] lips with \the [src]."), \
@@ -74,7 +74,7 @@
 				H.lip_color = colour
 				H.update_body()
 	else
-		to_chat(user, "<span class='warning'>Where are the lips on that?</span>")
+		to_chat(user, span_warning("Where are the lips on that?"))
 
 //you can wipe off lipstick with paper!
 /obj/item/paper/attack(mob/M, mob/user)
@@ -136,13 +136,13 @@
 			if(user.used_intent.type == INTENT_HELP)
 				if(H.gender == MALE)
 					if (H == user)
-						to_chat(user, "<span class='warning'>I need a mirror to properly style your own facial hair!</span>")
+						to_chat(user, span_warning("I need a mirror to properly style your own facial hair!"))
 						return
 					if(!user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
 						return
 					var/new_style = input(user, "Select a facial hairstyle", "Grooming")  as null|anything in GLOB.facial_hairstyles_list
 					if(!get_location_accessible(H, location))
-						to_chat(user, "<span class='warning'>The mask is in the way!</span>")
+						to_chat(user, span_warning("The mask is in the way!"))
 						return
 					user.visible_message("<span class='notice'>[user] tries to change [H]'s facial hairstyle using [src].</span>", "<span class='notice'>I try to change [H]'s facial hairstyle using [src].</span>")
 					if(new_style && do_after(user, 6 SECONDS, H))
@@ -155,13 +155,13 @@
 
 			else
 				if(!(FACEHAIR in H.dna.species.species_traits))
-					to_chat(user, "<span class='warning'>There is no facial hair to shave!</span>")
+					to_chat(user, span_warning("There is no facial hair to shave!"))
 					return
 				if(!get_location_accessible(H, location))
-					to_chat(user, "<span class='warning'>The mask is in the way!</span>")
+					to_chat(user, span_warning("The mask is in the way!"))
 					return
 				if(H.facial_hairstyle == "Shaved")
-					to_chat(user, "<span class='warning'>Already clean-shaven!</span>")
+					to_chat(user, span_warning("Already clean-shaven!"))
 					return
 
 				if(H == user) //shaving yourself
@@ -182,13 +182,13 @@
 		else if(location == BODY_ZONE_HEAD)
 			if(user.used_intent.type == INTENT_HELP)
 				if (H == user)
-					to_chat(user, "<span class='warning'>I need a mirror to properly style your own hair!</span>")
+					to_chat(user, span_warning("I need a mirror to properly style your own hair!"))
 					return
 				if(!user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
 					return
 				var/new_style = input(user, "Select a hairstyle", "Grooming")  as null|anything in GLOB.hairstyles_list
 				if(!get_location_accessible(H, location))
-					to_chat(user, "<span class='warning'>The headgear is in the way!</span>")
+					to_chat(user, span_warning("The headgear is in the way!"))
 					return
 				user.visible_message("<span class='notice'>[user] tries to change [H]'s hairstyle using [src].</span>", "<span class='notice'>I try to change [H]'s hairstyle using [src].</span>")
 				if(new_style && do_after(user, 6 SECONDS, H))
@@ -199,13 +199,13 @@
 
 			else
 				if(!(HAIR in H.dna.species.species_traits))
-					to_chat(user, "<span class='warning'>There is no hair to shave!</span>")
+					to_chat(user, span_warning("There is no hair to shave!"))
 					return
 				if(!get_location_accessible(H, location))
-					to_chat(user, "<span class='warning'>The headgear is in the way!</span>")
+					to_chat(user, span_warning("The headgear is in the way!"))
 					return
 				if(H.hairstyle == "Bald" || H.hairstyle == "Balding Hair" || H.hairstyle == "Skinhead")
-					to_chat(user, "<span class='warning'>There is not enough hair left to shave!</span>")
+					to_chat(user, span_warning("There is not enough hair left to shave!"))
 					return
 
 				if(H == user) //shaving yourself

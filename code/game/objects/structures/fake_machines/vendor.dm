@@ -27,7 +27,7 @@
 			return attack_hand(user)
 		else
 			playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
-			to_chat(user, "<span class='warning'>Wrong key.</span>")
+			to_chat(user, span_warning("Wrong key."))
 			return
 	if(istype(P, /obj/item/storage/keyring))
 		var/obj/item/storage/keyring/K = P
@@ -54,7 +54,7 @@
 				playsound(loc, 'sound/misc/machinevomit.ogg', 100, TRUE, -1)
 				return attack_hand(user)
 			else
-				to_chat(user, "<span class='warning'>Full.</span>")
+				to_chat(user, span_warning("Full."))
 				return
 	..()
 

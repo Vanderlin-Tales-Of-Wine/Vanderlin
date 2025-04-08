@@ -238,10 +238,10 @@ GLOBAL_LIST_EMPTY(anonymize)
 	if(get_playerquality(client.ckey) <= -5)
 		client.prefs.anonymize = FALSE
 		client.prefs.save_preferences()
-		to_chat(src, "<span class='warning'>Your PQ is too low!</span>")
+		to_chat(src, span_warning("Your PQ is too low!"))
 		return
 //	if(!check_whitelist(client.ckey))
-//		to_chat(src, "<span class='warning'>Whitelisted players only.</span>")
+//		to_chat(src, span_warning("Whitelisted players only."))
 //		return
 	if(client.prefs.anonymize == TRUE)
 	else
@@ -249,7 +249,7 @@ GLOBAL_LIST_EMPTY(anonymize)
 		Dungeon Masters while playing here, useful for dealing with negative OOC bias or \
 		maintaining privacy from other BYOND users.", "VANDERLIN", "YES", "NO") == "YES")
 			if(GLOB.respawncounts[client.ckey])
-				to_chat(src, "<span class='warning'>You have already spawned.</span>")
+				to_chat(src, span_warning("You have already spawned."))
 				return
 			client.prefs.anonymize = TRUE
 			client.prefs.save_preferences()

@@ -171,7 +171,7 @@
 		if(S.can_saddle && !S.ssaddle)
 			testing("yea2")
 			if(!target.has_buckled_mobs())
-				user.visible_message("<span class='warning'>[user] tries to saddle [target]...</span>")
+				user.visible_message(span_warning("[user] tries to saddle [target]..."))
 				if(do_after(user, 4 SECONDS, target))
 					playsound(loc, 'sound/foley/saddledismount.ogg', 100, FALSE)
 					user.dropItemToGround(src)

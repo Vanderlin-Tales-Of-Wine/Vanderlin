@@ -81,7 +81,7 @@
 
 /obj/item/restraints/legcuffs/beartrap/attackby(obj/item/W, mob/user)
 	if(W.force && armed)
-		user.visible_message("<span class='warning'>[user] triggers \the [src] with [W].</span>", \
+		user.visible_message(span_warning("[user] triggers \the [src] with [W]."), \
 				"<span class='danger'>I trigger \the [src] with [W]!</span>")
 		W.take_damage(20)
 		close_trap()
@@ -130,7 +130,7 @@
 				to_chat(user, span_notice("I arm |the [src]."))
 			else
 				if(old)
-					user.visible_message("<span class='warning'>The old [src.name] breaks under stress!</span>")
+					user.visible_message(span_warning("The old [src.name] breaks under stress!"))
 					playsound(src.loc, 'sound/foley/breaksound.ogg', 100, TRUE, -1)
 					qdel(src)
 				else

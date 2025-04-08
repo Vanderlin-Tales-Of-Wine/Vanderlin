@@ -36,7 +36,7 @@
 	else
 		if(isturf(user.loc))
 			src.forceMove(user.loc)
-		to_chat(user, "<span class='warning'>Too slippery!</span>")
+		to_chat(user, span_warning("Too slippery!"))
 		return
 
 /obj/item/reagent_containers/food/snacks/fish/process()

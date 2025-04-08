@@ -562,7 +562,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 
 	if(twohands_required)
 		if(user.get_num_arms() < 2)
-			to_chat(user, "<span class='warning'>[src] is too bulky to carry in one hand!</span>")
+			to_chat(user, span_warning("[src] is too bulky to carry in one hand!"))
 			return
 		if(get_dist(src,user) > 1)
 			return
@@ -582,9 +582,9 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 
 		if(can_handle_hot)
 			extinguish()
-			user.visible_message("<span class='warning'>[user] puts out the fire on [src].</span>")
+			user.visible_message(span_warning("[user] puts out the fire on [src]."))
 		else
-			user.visible_message("<span class='warning'>[user] burns [user.p_their()] hand putting out the fire on [src]!</span>")
+			user.visible_message(span_warning("[user] burns [user.p_their()] hand putting out the fire on [src]!"))
 			extinguish()
 			var/obj/item/bodypart/affecting = C.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
 			if(affecting && affecting.receive_damage( 0, 5 ))		// 5 burn damage
@@ -595,7 +595,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		var/mob/living/carbon/C = user
 		if(istype(C))
 			if(!C.gloves || (!(C.gloves.resistance_flags & (UNACIDABLE|ACID_PROOF))))
-				to_chat(user, "<span class='warning'>The acid on [src] burns my hand!</span>")
+				to_chat(user, span_warning("The acid on [src] burns my hand!"))
 				var/obj/item/bodypart/affecting = C.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
 				if(affecting && affecting.receive_damage( 0, 5 ))		// 5 burn damage
 					C.update_damage_overlays()
@@ -783,7 +783,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 /obj/item/proc/mob_can_equip(mob/living/M, mob/living/equipper, slot, disable_warning = FALSE, bypass_equip_delay_self = FALSE)
 	if(twohands_required)
 		if(!disable_warning)
-			to_chat(M, "<span class='warning'>[src] is too bulky to carry with anything but my hands!</span>")
+			to_chat(M, span_warning("[src] is too bulky to carry with anything but my hands!"))
 		return 0
 
 	if(!M)
@@ -831,7 +831,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		return
 
 	if(isbrain(M))
-		to_chat(user, "<span class='warning'>I cannot locate any organic eyes on this brain!</span>")
+		to_chat(user, span_warning("I cannot locate any organic eyes on this brain!"))
 		return
 
 	src.add_fingerprint(user)
@@ -1269,7 +1269,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	if(wielded)
 		return
 	if(user.get_inactive_held_item())
-		to_chat(user, "<span class='warning'>I need a free hand first.</span>")
+		to_chat(user, span_warning("I need a free hand first."))
 		return
 	if(user.get_num_arms() < 2)
 		to_chat(user, "<span class='warning'>I don't have enough hands.</span>")

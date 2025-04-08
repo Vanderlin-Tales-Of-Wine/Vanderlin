@@ -200,14 +200,14 @@
 /obj/item/chair/proc/plant(mob/user)
 	var/turf/T = get_turf(loc)
 	if(!isfloorturf(T))
-		to_chat(user, "<span class='warning'>I need ground to plant this on!</span>")
+		to_chat(user, span_warning("I need ground to plant this on!"))
 		return
 	for(var/obj/A in T)
 		if(istype(A, /obj/structure/chair))
-			to_chat(user, "<span class='warning'>There is already a chair here!</span>")
+			to_chat(user, span_warning("There is already a chair here!"))
 			return
 		if(A.density && !(A.flags_1 & ON_BORDER_1))
-			to_chat(user, "<span class='warning'>There is already something here!</span>")
+			to_chat(user, span_warning("There is already something here!"))
 			return
 
 	user.visible_message(span_notice("[user] rights \the [src.name]."), span_notice("I right \the [name]."))
@@ -224,7 +224,7 @@
 	if(!proximity)
 		return
 	if(prob(break_chance))
-		user.visible_message("<span class='warning'>[src] is smashed to pieces!</span>")
+		user.visible_message(span_warning("[src] is smashed to pieces!"))
 		if(iscarbon(target))
 			var/mob/living/carbon/C = target
 			if(C.health < C.maxHealth*0.5)

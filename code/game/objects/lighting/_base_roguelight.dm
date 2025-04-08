@@ -41,7 +41,7 @@
 			. += "<span class='info'>The fire will last for [minsleft].</span>"
 		else
 			if(initial(fueluse) > 0)
-				. += "<span class='warning'>The fire is burned out and hungry...</span>"
+				. += span_warning("The fire is burned out and hungry...")
 
 
 /obj/machinery/light/fueled/extinguish()
@@ -121,9 +121,9 @@
 							var/obj/item/reagent_containers/food/snacks/S = W
 							var/obj/item/C
 							if(prob(prob2spoil))
-								user.visible_message("<span class='warning'>[user] burns [S].</span>")
+								user.visible_message(span_warning("[user] burns [S]."))
 								if(user.client?.prefs.showrolls)
-									to_chat(user, "<span class='warning'>Critfail... [prob2spoil]%.</span>")
+									to_chat(user, span_warning("Critfail... [prob2spoil]%."))
 								C = S.cooking(1000, null)
 							else
 								C = S.cooking(S.cooktime/4, src)
@@ -139,7 +139,7 @@
 	if(W.firefuel)
 		if(initial(fueluse))
 			if(fueluse > initial(fueluse) - 5 SECONDS)
-				to_chat(user, "<span class='warning'>[src] is fully fueled.</span>")
+				to_chat(user, span_warning("[src] is fully fueled."))
 				return
 		else
 			if(!on)
@@ -149,7 +149,7 @@
 		if(!(W in user.held_items)|| !user.temporarilyRemoveItemFromInventory(W))
 			return
 		qdel(W)
-		user.visible_message("<span class='warning'>[user] feeds [W] to [src].</span>")
+		user.visible_message(span_warning("[user] feeds [W] to [src]."))
 		if(initial(fueluse))
 			fueluse = fueluse + W.firefuel
 			if(fueluse > initial(fueluse)) //keep it at the max
@@ -164,7 +164,7 @@
 				set_light(0)
 				update_icon()
 				qdel(W)
-				src.visible_message("<span class='warning'>[user] snuffs the fire.</span>")
+				src.visible_message(span_warning("[user] snuffs the fire."))
 				return
 			if(user.used_intent?.type != INTENT_SPLASH)
 				W.spark_act()

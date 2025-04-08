@@ -308,8 +308,8 @@
 						else
 							playsound(get_turf(src), used_intent.miss_sound, 100, FALSE)
 							if(used_intent.miss_text)
-								visible_message("<span class='warning'>[src] [used_intent.miss_text]</span>", \
-												"<span class='warning'>I [used_intent.miss_text]</span>")
+								visible_message(span_warning("[src] [used_intent.miss_text]"), \
+												span_warning("I [used_intent.miss_text]"))
 					aftermiss()
 					atkswinging = null
 					//update_warning()
@@ -560,7 +560,7 @@
 		return
 //	A.AltClick(src)
 //	else
-//		to_chat(src, "<span class='warning'>I need an empty hand to sort through the items here.</span>")
+//		to_chat(src, span_warning("I need an empty hand to sort through the items here."))
 
 
 /*

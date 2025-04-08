@@ -53,7 +53,7 @@
 			to_chat(L, span_danger("I fall for [user]'s feint attack!"))
 	else
 		if(user.client?.prefs.showrolls)
-			to_chat(user, "<span class='warning'>[L] did not fall for my feint... [perc]%</span>")
+			to_chat(user, span_warning("[L] did not fall for my feint... [perc]%"))
 
 /datum/rmb_intent/aimed
 	name = "aimed"

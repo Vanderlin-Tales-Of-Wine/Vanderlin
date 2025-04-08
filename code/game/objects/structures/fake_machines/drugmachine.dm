@@ -91,7 +91,7 @@
 				if(prize >= 1)
 					play_sound=TRUE
 					budgie += prize
-					I.visible_message("<span class='warning'>[I] is sucked into the tube!</span>")
+					I.visible_message(span_warning("[I] is sucked into the tube!"))
 					qdel(I)
 			budgie = round(budgie)
 			if(budgie > 0)
@@ -145,7 +145,7 @@
 			return attack_hand(user)
 		else
 			playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
-			to_chat(user, "<span class='warning'>Wrong key.</span>")
+			to_chat(user, span_warning("Wrong key."))
 			return
 	if(istype(P, /obj/item/storage/keyring))
 		var/obj/item/storage/keyring/K = P

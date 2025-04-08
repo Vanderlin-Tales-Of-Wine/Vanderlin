@@ -61,13 +61,13 @@
 		var/mob/living/L = user
 		if(kover)
 			playsound(src, 'sound/combat/hits/onwood/woodimpact (1).ogg', 100)
-			user.visible_message("<span class='warning'>[user] kicks [src]!</span>", \
-				"<span class='warning'>I kick [src]!</span>")
+			user.visible_message(span_warning("[user] kicks [src]!"), \
+				span_warning("I kick [src]!"))
 			return
 		if(prob(L.STASTR * 8))
 			playsound(src, 'sound/combat/hits/onwood/woodimpact (1).ogg', 100)
-			user.visible_message("<span class='warning'>[user] kicks over [src]!</span>", \
-				"<span class='warning'>I kick over [src]!</span>")
+			user.visible_message(span_warning("[user] kicks over [src]!"), \
+				span_warning("I kick over [src]!"))
 			kover = TRUE
 			chem_splash(loc, 2, list(reagents))
 			var/datum/component/storage/STR = GetComponent(/datum/component/storage)
@@ -78,8 +78,8 @@
 			update_icon()
 		else
 			playsound(src, 'sound/combat/hits/onwood/woodimpact (1).ogg', 100)
-			user.visible_message("<span class='warning'>[user] kicks [src]!</span>", \
-				"<span class='warning'>I kick [src]!</span>")
+			user.visible_message(span_warning("[user] kicks [src]!"), \
+				span_warning("I kick [src]!"))
 
 /obj/item/bin/attack_hand(mob/user)
 	var/datum/component/storage/CP = GetComponent(/datum/component/storage)
@@ -110,7 +110,7 @@
 			if(!reagents.has_reagent(/datum/reagent/water, 5))
 				removereg = /datum/reagent/water/gross
 				if(!reagents.has_reagent(/datum/reagent/water/gross, 5))
-					to_chat(user, "<span class='warning'>No water to wash these stains.</span>")
+					to_chat(user, span_warning("No water to wash these stains."))
 					return
 			reagents.remove_reagent(removereg, 5)
 			var/list/wash = list('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg')
@@ -166,16 +166,16 @@
 			if(!reagents.has_reagent(/datum/reagent/water, 5))
 				removereg = /datum/reagent/water/gross
 				if(!reagents.has_reagent(/datum/reagent/water/gross, 5))
-					to_chat(user, "<span class='warning'>Need more water to quench in.</span>")
+					to_chat(user, span_warning("Need more water to quench in."))
 					return
 			if(!T.held_item:currecipe)
-				to_chat(user, "<span class='warning'>Huh?</span>")
+				to_chat(user, span_warning("Huh?"))
 				return
 			if(ingot.currecipe.progress != 100)
 				to_chat(user, "<span class='warning'>It's not finished yet.</span>")
 				return
 			if(!T.hott)
-				to_chat(user, "<span class='warning'>I need to heat it to temper the metal.</span>")
+				to_chat(user, span_warning("I need to heat it to temper the metal."))
 				return
 			var/used_turf = user.loc
 			if(!isturf(used_turf))

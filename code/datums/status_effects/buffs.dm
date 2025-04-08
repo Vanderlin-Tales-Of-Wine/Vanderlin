@@ -20,7 +20,7 @@
 	owner.adjustFireLoss(-15)
 
 /datum/status_effect/shadow_mend/on_remove()
-	owner.visible_message("<span class='warning'>The violet light around [owner] glows black!</span>", "<span class='warning'>The tendrils around you cinch tightly and reap their toll...</span>")
+	owner.visible_message(span_warning("The violet light around [owner] glows black!"), span_warning("The tendrils around you cinch tightly and reap their toll..."))
 	playsound(owner, 'sound/blank.ogg', 50, TRUE)
 	owner.apply_status_effect(STATUS_EFFECT_VOID_PRICE)
 
@@ -69,7 +69,7 @@
 
 /datum/status_effect/wish_granters_gift/on_remove()
 	owner.revive(full_heal = TRUE, admin_revive = TRUE)
-	owner.visible_message("<span class='warning'>[owner] appears to wake from the dead, having healed all wounds!</span>", span_notice("I have regenerated."))
+	owner.visible_message(span_warning("[owner] appears to wake from the dead, having healed all wounds!"), span_notice("I have regenerated."))
 	owner.update_mobility()
 
 /atom/movable/screen/alert/status_effect/wish_granters_gift

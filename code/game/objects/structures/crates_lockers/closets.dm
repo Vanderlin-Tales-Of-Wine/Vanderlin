@@ -108,7 +108,7 @@
 /obj/structure/closet/proc/can_open(mob/living/user)
 	if(welded || locked)
 		if(user)
-			to_chat(user, "<span class='warning'>Locked.</span>" )
+			to_chat(user, span_warning("Locked.") )
 		return FALSE
 //	var/turf/T = get_turf(src)
 //	for(var/mob/living/L in T)
@@ -257,7 +257,7 @@
 		to_chat(user, "<span class='warning'>There's no lock on this.</span>")
 		return
 	if(broken)
-		to_chat(user, "<span class='warning'>The lock is broken.</span>")
+		to_chat(user, span_warning("The lock is broken."))
 		return
 	if(istype(I,/obj/item/storage/keyring))
 		var/obj/item/storage/keyring/R = I
@@ -289,13 +289,13 @@
 
 /obj/structure/closet/proc/trypicklock(obj/item/I, mob/user)
 	if(opened)
-		to_chat(user, "<span class='warning'>This cannot be picked while it is open.</span>")
+		to_chat(user, span_warning("This cannot be picked while it is open."))
 		return
 	if(!keylock)
 		to_chat(user, "<span class='warning'>There's no lock on this.</span>")
 		return
 	if(broken)
-		to_chat(user, "<span class='warning'>The lock is broken.</span>")
+		to_chat(user, span_warning("The lock is broken."))
 		return
 	else
 		var/lockprogress = 0
@@ -329,7 +329,7 @@
 			if(prob(pickchance))
 				lockprogress += moveup
 				playsound(src.loc, pick('sound/items/pickgood1.ogg','sound/items/pickgood2.ogg'), 5, TRUE)
-				to_chat(user, "<span class='warning'>Click...</span>")
+				to_chat(user, span_warning("Click..."))
 				if(L.mind)
 					var/amt2raise = L.STAINT
 					var/boon = L.mind.get_learning_boon(/datum/skill/misc/lockpicking)
@@ -343,7 +343,7 @@
 			else
 				playsound(loc, 'sound/items/pickbad.ogg', 40, TRUE)
 				I.take_damage(1, BRUTE, "blunt")
-				to_chat(user, "<span class='warning'>Clack.</span>")
+				to_chat(user, span_warning("Clack."))
 				continue
 
 /obj/structure/closet/proc/tool_interact(obj/item/W, mob/user)//returns TRUE if attackBy call shouldnt be continued (because tool was used/closet was of wrong type), FALSE if otherwise
@@ -452,7 +452,7 @@
 	//okay, so the closet is either welded or locked... resist!!!
 	user.changeNext_move(CLICK_CD_BREAKOUT)
 	user.last_special = world.time + CLICK_CD_BREAKOUT
-	user.visible_message("<span class='warning'>[src] shakes violently!</span>")
+	user.visible_message(span_warning("[src] shakes violently!"))
 
 /obj/structure/closet/proc/bust_open()
 	welded = FALSE //applies to all lockers
@@ -465,12 +465,12 @@
 		return
 	user.changeNext_move(CLICK_CD_MELEE)
 	if(locked)
-		user.visible_message("<span class='warning'>[user] unlocks [src].</span>", \
+		user.visible_message(span_warning("[user] unlocks [src]."), \
 			span_notice("I unlock [src]."))
 		playsound(src, 'sound/foley/doors/lock.ogg', 100)
 		locked = FALSE
 	else
-		user.visible_message("<span class='warning'>[user] locks [src].</span>", \
+		user.visible_message(span_warning("[user] locks [src]."), \
 			span_notice("I lock [src]."))
 		playsound(src, 'sound/foley/doors/lock.ogg', 100)
 		locked = TRUE

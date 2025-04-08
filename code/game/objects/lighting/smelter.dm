@@ -57,7 +57,7 @@
 				to_chat(user, "<span class='info'>Nothing to retrieve from inside.</span>")
 				return // Safety for not smelting our tongs
 		else
-			to_chat(user, "<span class='warning'>\The [src] is currently smelting. Wait for it to finish, or douse it with water to retrieve items from it.</span>")
+			to_chat(user, span_warning("\The [src] is currently smelting. Wait for it to finish, or douse it with water to retrieve items from it."))
 			return
 
 	if(istype(W, /obj/item/ore/coal))
@@ -101,14 +101,14 @@
 					2 = NORMAL
 					3 = GOOD
 				*/
-			user.visible_message("<span class='warning'>[user] puts something in \the [src].</span>")
+			user.visible_message(span_warning("[user] puts something in \the [src]."))
 			cooking = 0
 			return
 		else
 			to_chat(user, "<span class='warning'>\The [W.name] [W.smeltresult? "can" : "can't"] be smelted, but \the [src] is full.</span>")
 	else
 		if(!W.firefuel && !istype(W, /obj/item/flint) && !istype(W, /obj/item/flashlight/flare/torch) && !istype(W, /obj/item/ore/coal))
-			to_chat(user, "<span class='warning'>\The [W.name] cannot be smelted.</span>")
+			to_chat(user, span_warning("\The [W.name] cannot be smelted."))
 	return ..()
 
 // Gaining experience from just retrieving bars with your hands would be a hard-to-patch exploit.

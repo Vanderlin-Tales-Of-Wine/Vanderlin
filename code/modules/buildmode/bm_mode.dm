@@ -34,7 +34,7 @@
 	CRASH("No help defined, yell at a coder")
 
 /datum/buildmode_mode/proc/change_settings(client/c)
-	to_chat(c, "<span class='warning'>There is no configuration available for this mode</span>")
+	to_chat(c, span_warning("There is no configuration available for this mode"))
 	return
 
 /datum/buildmode_mode/proc/Reset()

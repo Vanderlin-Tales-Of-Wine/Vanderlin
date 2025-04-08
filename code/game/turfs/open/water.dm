@@ -335,7 +335,7 @@
 	if(user.used_intent.type == /datum/intent/fill)
 		if(C.reagents)
 			if(C.reagents.holder_full())
-				to_chat(user, "<span class='warning'>[C] is full.</span>")
+				to_chat(user, span_warning("[C] is full."))
 				return
 			if(notake)
 				return
@@ -356,7 +356,7 @@
 			return
 		if(C.reagents)
 			if(water_volume >= water_maximum)
-				to_chat(user, "<span class='warning'>\The [src] is full.</span>")
+				to_chat(user, span_warning("\The [src] is full."))
 				return
 			if(do_after(user, 8 DECISECONDS, src))
 				user.changeNext_move(CLICK_CD_MELEE)

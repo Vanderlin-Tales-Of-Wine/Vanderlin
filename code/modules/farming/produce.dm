@@ -22,7 +22,7 @@
 	if(prob(20))
 		if(istype(H))
 			if(eat_effect == /datum/status_effect/debuff/rotfood)
-				visible_message("<span class='warning'>[H] crushes [src] underfoot.</span>")
+				visible_message(span_warning("[H] crushes [src] underfoot."))
 				qdel(src)
 
 /obj/item/reagent_containers/food/snacks/produce/attackby(obj/item/weapon, mob/user, params)

@@ -410,10 +410,10 @@
 		if(user.adjust_stamina(5))
 			user.visible_message("<span class='danger'>[user] [verbu] [src] with [I]!</span>")
 		else
-			user.visible_message("<span class='warning'>[user] [verbu] [src] with [I]!</span>")
+			user.visible_message(span_warning("[user] [verbu] [src] with [I]!"))
 			newforce = 1
 	else
-		user.visible_message("<span class='warning'>[user] [verbu] [src] with [I]!</span>")
+		user.visible_message(span_warning("[user] [verbu] [src] with [I]!"))
 	take_damage(newforce, I.damtype, I.damage_type, 1)
 	if(newforce > 1)
 		I.take_damage(1, BRUTE, "blunt")
@@ -437,10 +437,10 @@
 		if(user.adjust_stamina(5))
 			user.visible_message("<span class='danger'>[user] [verbu] [src] with [I]!</span>")
 		else
-			user.visible_message("<span class='warning'>[user] [verbu] [src] with [I]!</span>")
+			user.visible_message(span_warning("[user] [verbu] [src] with [I]!"))
 			newforce = 1
 	else
-		user.visible_message("<span class='warning'>[user] [verbu] [src] with [I]!</span>")
+		user.visible_message(span_warning("[user] [verbu] [src] with [I]!"))
 
 	take_damage(newforce, I.damtype, I.damage_type, 1)
 	if(newforce > 1)

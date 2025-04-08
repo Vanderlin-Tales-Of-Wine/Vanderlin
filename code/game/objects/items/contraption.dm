@@ -109,7 +109,7 @@
 		shake_camera(user, 1, 1)
 		S.set_up(1, 1, front)
 		S.start()
-		to_chat(user, "<span class='warning'>I use [cog] to modify [src]!</span>")
+		to_chat(user, span_warning("I use [cog] to modify [src]!"))
 		return
 	if(istype(I, accepted_power_source))
 		user.changeNext_move(CLICK_CD_FAST)

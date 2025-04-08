@@ -83,12 +83,12 @@
 			if(prob(time2mount))
 				..()
 			else
-				user.visible_message("<span class='warning'>[user] tries to pull [M] free of [src]!</span>")
+				user.visible_message(span_warning("[user] tries to pull [M] free of [src]!"))
 			return
 		if(prob(time2mount))
 			..()
 		else
-			user.visible_message("<span class='warning'>[user] tries to break free of [src]!</span>")
+			user.visible_message(span_warning("[user] tries to break free of [src]!"))
 
 /obj/structure/flora/grass/tangler/real/user_buckle_mob(mob/living/M, mob/living/user)
 	return

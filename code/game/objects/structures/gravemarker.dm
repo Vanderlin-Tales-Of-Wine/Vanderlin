@@ -11,14 +11,14 @@
 
 /datum/crafting_recipe/gravemarker/TurfCheck(mob/user, turf/T)
 	if(!(locate(/obj/structure/closet/dirthole) in T))
-		to_chat(user, "<span class='warning'>There is no grave here.</span>")
+		to_chat(user, span_warning("There is no grave here."))
 		return FALSE
 	for(var/obj/structure/closet/dirthole/D in T)
 		if(D.stage != 4)
 			to_chat(user, "<span class='warning'>I can't tie a grave marker on an open grave.</span>")
 			return FALSE
 	if(locate(/obj/structure/gravemarker) in T)
-		to_chat(user, "<span class='warning'>This grave is already hallowed.</span>")
+		to_chat(user, span_warning("This grave is already hallowed."))
 		return FALSE
 	return TRUE
 

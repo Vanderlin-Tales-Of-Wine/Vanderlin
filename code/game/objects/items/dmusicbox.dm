@@ -92,10 +92,10 @@
 	var/file_size = length(infile)
 
 	if(file_ext != ".ogg")
-		to_chat(user, "<span class='warning'>SONG MUST BE AN OGG.</span>")
+		to_chat(user, span_warning("SONG MUST BE AN OGG."))
 		return
 	if(file_size > 6485760)
-		to_chat(user, "<span class='warning'>TOO BIG. 6 MEGS OR LESS.</span>")
+		to_chat(user, span_warning("TOO BIG. 6 MEGS OR LESS."))
 		return
 	lastfilechange = world.time
 	fcopy(infile,"data/jukeboxuploads/[user.ckey]/[filename]")

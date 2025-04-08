@@ -335,13 +335,13 @@
 					user.put_in_hands(B)
 					user.visible_message(span_notice("[user] finds [B] in [src]."))
 					return
-			user.visible_message("<span class='warning'>[user] searches through [src].</span>")
+			user.visible_message(span_warning("[user] searches through [src]."))
 #ifdef MATURESERVER
 			if(!looty.len)
-				to_chat(user, "<span class='warning'>Picked clean.</span>")
+				to_chat(user, span_warning("Picked clean."))
 #else
 			if(!looty.len)
-				to_chat(user, "<span class='warning'>Picked clean... I should try later.</span>")
+				to_chat(user, span_warning("Picked clean... I should try later."))
 #endif
 
 /obj/structure/flora/grass/bush/CanPass(atom/movable/mover, turf/target)
@@ -569,13 +569,13 @@
 					user.put_in_hands(B)
 					user.visible_message(span_notice("[user] finds [B] in [src]."))
 					return
-			user.visible_message("<span class='warning'>[user] searches through [src].</span>")
+			user.visible_message(span_warning("[user] searches through [src]."))
 #ifdef MATURESERVER
 			if(!looty2.len)
-				to_chat(user, "<span class='warning'>Picked clean.</span>")
+				to_chat(user, span_warning("Picked clean."))
 #else
 			if(!looty2.len)
-				to_chat(user, "<span class='warning'>Picked clean... I should try later.</span>")
+				to_chat(user, span_warning("Picked clean... I should try later."))
 #endif
 
 // swarmweed looting
@@ -598,13 +598,13 @@
 					user.put_in_hands(B)
 					user.visible_message(span_notice("[user] finds [B] in [src]."))
 					return
-			user.visible_message("<span class='warning'>[user] searches through [src].</span>")
+			user.visible_message(span_warning("[user] searches through [src]."))
 #ifdef MATURESERVER
 			if(!looty3.len)
-				to_chat(user, "<span class='warning'>Picked clean.</span>")
+				to_chat(user, span_warning("Picked clean."))
 #else
 			if(!looty3.len)
-				to_chat(user, "<span class='warning'>Picked clean... I should try later.</span>")
+				to_chat(user, span_warning("Picked clean... I should try later."))
 #endif
 
 // varients

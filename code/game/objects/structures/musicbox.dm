@@ -227,7 +227,7 @@
 				return
 			else
 				playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
-				to_chat(user, "<span class='warning'>Wrong key.</span>")
+				to_chat(user, span_warning("Wrong key."))
 				return
 		if(istype(useitem, /obj/item/storage/keyring))
 			var/obj/item/storage/keyring/K = useitem

@@ -59,7 +59,7 @@
 	icon_state = "spellbookpower1_0" //temporary sprite
 
 /obj/item/rune/spell/on_start(mob/user)
-	user.visible_message("<span class='warning'>[user] begins siphoning the rune.</span>")
+	user.visible_message(span_warning("[user] begins siphoning the rune."))
 
 /obj/item/rune/spell/on_finished(mob/user)
 	for(var/obj/effect/proc_holder/spell/knownspell in user.mind.spell_list)
@@ -74,7 +74,7 @@
 	else if(user.mind.get_skill_level(/datum/skill/magic/arcane) <= 5)
 		to_chat(user, span_notice("Arcane power is emblazened in your mind!"))
 		user.mind.adjust_experience(/datum/skill/magic/arcane, 150, FALSE)
-	user.visible_message("<span class='warning'>[src] glows dark, and then crumbles!</span>")
+	user.visible_message(span_warning("[src] glows dark, and then crumbles!"))
 	qdel(src)
 
 /obj/item/rune/spell/fire_rune

@@ -282,7 +282,7 @@
 	if(locked)
 		if( user.used_intent.type == /datum/intent/unarmed/claw )
 			user.changeNext_move(CLICK_CD_MELEE)
-			to_chat(user, "<span class='warning'>The deadite claws at the door!!</span>")
+			to_chat(user, span_warning("The deadite claws at the door!!"))
 			take_damage(40, "brute", "slash", 1)
 			return
 		if(isliving(user))
@@ -469,7 +469,7 @@
 	if(!keylock)
 		return
 	if(lockbroken)
-		to_chat(user, "<span class='warning'>The lock to this door is broken.</span>")
+		to_chat(user, span_warning("The lock to this door is broken."))
 	user.changeNext_move(CLICK_CD_MELEE)
 	if(istype(I, /obj/item/storage/keyring))
 		var/obj/item/storage/keyring/R = I
@@ -846,7 +846,7 @@
 
 
 /obj/structure/mineral_door/bars/onkick(mob/user)
-	user.visible_message("<span class='warning'>[user] kicks [src]!</span>")
+	user.visible_message(span_warning("[user] kicks [src]!"))
 	return
 
 

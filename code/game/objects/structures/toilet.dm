@@ -56,13 +56,13 @@
 	else if(cistern)
 		if(user.used_intent.type != INTENT_HARM)
 			if(I.w_class > WEIGHT_CLASS_NORMAL)
-				to_chat(user, "<span class='warning'>[I] does not fit!</span>")
+				to_chat(user, span_warning("[I] does not fit!"))
 				return
 			if(w_items + I.w_class > WEIGHT_CLASS_HUGE)
-				to_chat(user, "<span class='warning'>The toilet is full!</span>")
+				to_chat(user, span_warning("The toilet is full!"))
 				return
 			if(!user.transferItemToLoc(I, src))
-				to_chat(user, "<span class='warning'>\The [I] is stuck to your hand, you cannot put it in the cistern!</span>")
+				to_chat(user, span_warning("\The [I] is stuck to your hand, you cannot put it in the cistern!"))
 				return
 			w_items += I.w_class
 			to_chat(user, span_notice("I carefully place [I] into the toilet."))

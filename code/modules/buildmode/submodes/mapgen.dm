@@ -25,7 +25,7 @@
 
 /datum/buildmode_mode/mapgen/handle_click(client/c, params, obj/object)
 	if(isnull(generator_path))
-		to_chat(c, "<span class='warning'>Select generator type first.</span>")
+		to_chat(c, span_warning("Select generator type first."))
 		deselect_region()
 		return
 	..()

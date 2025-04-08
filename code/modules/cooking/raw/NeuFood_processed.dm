@@ -26,7 +26,7 @@
 				qdel(I)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
+			to_chat(user, span_warning("You need to put [src] on a table to work on it."))
 	else
 		return ..()
 
@@ -217,7 +217,7 @@
 		long_cooktime = (200 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*22))
 	if(istype(I, /obj/item/kitchen/spoon))
 		if(!reagents.has_reagent(/datum/reagent/consumable/milk/salted, 15) && !reagents.has_reagent(/datum/reagent/consumable/milk/salted_gote, 15))
-			to_chat(user, "<span class='warning'>Not enough salted milk.</span>")
+			to_chat(user, span_warning("Not enough salted milk."))
 			return
 		user.adjust_stamina(40) // forgot stamina is our lovely stamloss proc here
 		user.visible_message("<span class='info'>[user] churns butter...</span>")
@@ -309,7 +309,7 @@
 			if(!reagents.has_reagent(/datum/reagent/water, 5))
 				removereg = /datum/reagent/water/gross
 				if(!reagents.has_reagent(/datum/reagent/water/gross, 5))
-					to_chat(user, "<span class='warning'>No water to soak in.</span>")
+					to_chat(user, span_warning("No water to soak in."))
 					return
 			wash_atom(T)
 			playsound(src, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 100, FALSE)
@@ -332,7 +332,7 @@
 				qdel(src)
 			return
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
+			to_chat(user, span_warning("You need to put [src] on a table to work on it."))
 	..()
 
 /obj/item/reagent_containers/food/snacks/foodbase/cheesewheel_start
@@ -353,7 +353,7 @@
 				qdel(I)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
+			to_chat(user, span_warning("You need to put [src] on a table to work on it."))
 	else
 		return ..()
 
@@ -377,7 +377,7 @@
 				qdel(I)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
+			to_chat(user, span_warning("You need to put [src] on a table to work on it."))
 	else
 		return ..()
 
@@ -405,7 +405,7 @@
 				desc = "Slowly solidifying, best left alone a bit longer."
 				addtimer(CALLBACK(src, mature_proc), 5 MINUTES)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
+			to_chat(user, span_warning("You need to put [src] on a table to work on it."))
 	else
 		return ..()
 

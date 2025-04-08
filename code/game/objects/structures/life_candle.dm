@@ -31,10 +31,10 @@
 	if(!user.mind)
 		return
 	if(user.mind in linked_minds)
-		user.visible_message(span_notice("[user] reaches out and pinches the flame of [src]."), "<span class='warning'>I sever the connection between myself and [src].</span>")
+		user.visible_message(span_notice("[user] reaches out and pinches the flame of [src]."), span_warning("I sever the connection between myself and [src]."))
 		linked_minds -= user.mind
 	else
-		user.visible_message(span_notice("[user] touches [src]. It seems to respond to [user.p_their()] presence!"), "<span class='warning'>I create a connection between you and [src].</span>")
+		user.visible_message(span_notice("[user] touches [src]. It seems to respond to [user.p_their()] presence!"), span_warning("I create a connection between you and [src]."))
 		linked_minds |= user.mind
 
 	update_icon()

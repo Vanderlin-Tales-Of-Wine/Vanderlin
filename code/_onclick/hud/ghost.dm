@@ -42,7 +42,7 @@
 			"I'm not ready to leave...", "I'm not ready to travel with Charon.",\
 			"Don't make me leave!", "No... Not yet!", "Please, don't make me go yet...",\
 			"The shores are calling me but I cannot go...","My soul isn't ready yet...")
-			to_chat(G, "<span class='warning'>[pick(thingsz)] ([ttime])</span>")
+			to_chat(G, span_warning("[pick(thingsz)] ([ttime])"))
 			return */ //Disabling this since the underworld will exist
 
 /datum/hud/ghost/New(mob/owner)

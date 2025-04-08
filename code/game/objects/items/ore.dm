@@ -103,7 +103,7 @@
 /obj/item/ingot/examine()
 	. += ..()
 	if(currecipe)
-		. += "<span class='warning'>It is currently being worked on to become [currecipe.recipe_name].</span>"
+		. += span_warning("It is currently being worked on to become [currecipe.recipe_name].")
 
 /obj/item/ingot/Initialize(mapload, smelt_quality)
 	. = ..()

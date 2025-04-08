@@ -258,7 +258,7 @@ SUBSYSTEM_DEF(ticker)
 				if(player.ready == PLAYER_READY_TO_PLAY)
 					if(player.client.prefs.lastclass == V)
 						if(player.IsJobUnavailable(V) != JOB_AVAILABLE)
-							to_chat(player, "<span class='warning'>You cannot be [V] and thus are not considered.</span>")
+							to_chat(player, span_warning("You cannot be [V] and thus are not considered."))
 							continue
 					readied_jobs.Add(V)
 

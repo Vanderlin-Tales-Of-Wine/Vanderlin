@@ -55,11 +55,11 @@
 		if(isliving(user.pulling))
 			var/mob/living/pushed_mob = user.pulling
 			if(pushed_mob.buckled)
-				to_chat(user, "<span class='warning'>[pushed_mob] is on [pushed_mob.buckled]!</span>")
+				to_chat(user, span_warning("[pushed_mob] is on [pushed_mob.buckled]!"))
 				return
 			if(user.used_intent.type == INTENT_GRAB)
 				if(user.grab_state < GRAB_AGGRESSIVE)
-					to_chat(user, "<span class='warning'>I need a better grip to do that!</span>")
+					to_chat(user, span_warning("I need a better grip to do that!"))
 					return
 				if(user.grab_state >= GRAB_NECK)
 					tableheadsmash(user, pushed_mob)

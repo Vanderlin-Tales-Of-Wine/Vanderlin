@@ -244,7 +244,7 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 	var/datum/antagonist/prebel/rebel_datum = user.mind?.has_antag_datum(/datum/antagonist/prebel)
 	if(rebel_datum)
 		if(rebel_datum.rev_team?.members.len < 3)
-			to_chat(user, "<span class='warning'>I need more folk on my side to declare victory.</span>")
+			to_chat(user, span_warning("I need more folk on my side to declare victory."))
 		else
 			for(var/datum/objective/prebel/obj in user.mind.get_all_objectives())
 				obj.completed = TRUE

@@ -84,7 +84,7 @@
 					myskill += 1
 			used_time = max(7 SECONDS - (myskill * 1 SECONDS) - (L.STASPD * 3), 3 SECONDS)
 		playsound(user, 'sound/foley/climb.ogg', 100, TRUE)
-		user.visible_message("<span class='warning'>[user] starts to climb [src].</span>", "<span class='warning'>I start to climb [src]...</span>")
+		user.visible_message(span_warning("[user] starts to climb [src]."), span_warning("I start to climb [src]..."))
 		if(do_after(L, used_time, src))
 			var/pulling = user.pulling
 			if(ismob(pulling))

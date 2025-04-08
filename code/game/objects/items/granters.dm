@@ -79,7 +79,7 @@
 		return TRUE
 	for(var/datum/action/A in user.actions)
 		if(A.type == granted_action)
-			to_chat(user, "<span class='warning'>I already know all about [actionname]!</span>")
+			to_chat(user, span_warning("I already know all about [actionname]!"))
 			return TRUE
 	return FALSE
 
@@ -136,12 +136,12 @@
 	onlearned(user)
 
 /obj/item/book/granter/spell/recoil(mob/user)
-	user.visible_message("<span class='warning'>[src] glows in a black light!</span>")
+	user.visible_message(span_warning("[src] glows in a black light!"))
 
 /obj/item/book/granter/spell/onlearned(mob/user)
 	..()
 	if(oneuse)
-		user.visible_message("<span class='warning'>[src] glows dark for a second!</span>")
+		user.visible_message(span_warning("[src] glows dark for a second!"))
 
 /obj/item/book/granter/spell/magick/
 	desc = "A scroll of potential known only to those that can decipher its secrets."

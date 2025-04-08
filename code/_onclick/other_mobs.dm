@@ -15,7 +15,7 @@
 		return
 
 	if(check_arm_grabbed(used_hand))
-		to_chat(src, "<span class='warning'>Someone is grabbing my arm!</span>")
+		to_chat(src, span_warning("Someone is grabbing my arm!"))
 		resist_grab()
 		return
 

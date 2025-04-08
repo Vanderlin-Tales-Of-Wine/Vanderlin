@@ -84,7 +84,7 @@
 		if(torchy)
 			if(LR.on && !on)
 				if(torchy.fuel <= 0)
-					to_chat(user, "<span class='warning'>The mounted lantern is burned out.</span>")
+					to_chat(user, span_warning("The mounted lantern is burned out."))
 					return
 				else
 					torchy.spark_act()

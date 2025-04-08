@@ -312,7 +312,7 @@
 		log_combat(src, M, "grabbed", addition="passive grab")
 		M.stop_all_doing()
 		if(!supress_message)
-			M.visible_message("<span class='warning'>[src] grabs [M].</span>", \
+			M.visible_message(span_warning("[src] grabs [M]."), \
 				"<span class='danger'>[src] grabs you.</span>")
 	return TRUE
 
@@ -872,7 +872,7 @@
 /atom/movable/proc/force_push(atom/movable/AM, force = move_force, direction, silent = FALSE)
 	. = AM.force_pushed(src, force, direction)
 	if(!silent && .)
-		visible_message("<span class='warning'>[src] forcefully pushes against [AM]!</span>", "<span class='warning'>I forcefully push against [AM]!</span>")
+		visible_message(span_warning("[src] forcefully pushes against [AM]!"), span_warning("I forcefully push against [AM]!"))
 
 /atom/movable/proc/move_crush(atom/movable/AM, force = move_force, direction, silent = FALSE)
 	. = AM.move_crushed(src, force, direction)

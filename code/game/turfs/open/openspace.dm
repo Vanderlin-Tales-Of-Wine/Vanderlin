@@ -119,7 +119,7 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 			return
 		if(user.m_intent != MOVE_INTENT_SNEAK)
 			playsound(user, 'sound/foley/climb.ogg', 100, TRUE)
-		user.visible_message("<span class='warning'>[user] starts to climb down.</span>", "<span class='warning'>I start to climb down.</span>")
+		user.visible_message(span_warning("[user] starts to climb down."), span_warning("I start to climb down."))
 		if(do_after(L, 3 SECONDS, src))
 			if(user.m_intent != MOVE_INTENT_SNEAK)
 				playsound(user, 'sound/foley/climb.ogg', 100, TRUE)
@@ -137,7 +137,7 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 		to_chat(user, "<span class='warning'>I can't go there.</span>")
 		return
 	user.forceMove(target)
-	to_chat(user, "<span class='warning'>I glide down.</span>")
+	to_chat(user, span_warning("I glide down."))
 	. = ..()
 
 /turf/open/transparent/openspace/attackby(obj/item/C, mob/user, params)

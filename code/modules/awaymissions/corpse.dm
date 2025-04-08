@@ -33,10 +33,10 @@
 	if(!SSticker.HasRoundStarted() || !loc || !ghost_usable)
 		return
 	if(!uses)
-		to_chat(user, "<span class='warning'>This spawner is out of charges!</span>")
+		to_chat(user, span_warning("This spawner is out of charges!"))
 		return
 	if(is_banned_from(user.key, banType))
-		to_chat(user, "<span class='warning'>I are jobanned!</span>")
+		to_chat(user, span_warning("I are jobanned!"))
 		return
 	if(QDELETED(src) || QDELETED(user))
 		return

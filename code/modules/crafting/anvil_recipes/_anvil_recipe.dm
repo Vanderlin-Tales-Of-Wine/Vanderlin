@@ -32,11 +32,11 @@
 	var/skill_level	= user.mind.get_skill_level(appro_skill)
 	if(progress == 100)
 		to_chat(user, "<span class='info'>It's ready.</span>")
-		user.visible_message("<span class='warning'>[user] strikes the bar!</span>")
+		user.visible_message(span_warning("[user] strikes the bar!"))
 		return FALSE
 	if(needed_item)
 		to_chat(user, "<span class='info'>Now it's time to add a [needed_item_text].</span>")
-		user.visible_message("<span class='warning'>[user] strikes the bar!</span>")
+		user.visible_message(span_warning("[user] strikes the bar!"))
 		return FALSE
 	// Calculate probability of fucking up, based on smith's skill level
 	if(!skill_level)
@@ -67,7 +67,7 @@
 
 	if(!moveup)
 		if(!prob(proab)) // Roll again, this time negatively, for consequences.
-			user.visible_message("<span class='warning'>[user] ruins the bar!</span>")
+			user.visible_message(span_warning("[user] ruins the bar!"))
 			skill_quality -= 1 // The more you fuck up, the less quality the end result will be.
 			bar_health -= craftdiff // Difficulty of the recipe adds to how critical the failure is
 			if(parent)
@@ -88,7 +88,7 @@
 					qdel(P)
 			return FALSE
 		else
-			user.visible_message("<span class='warning'>[user] fumbles the bar!</span>")
+			user.visible_message(span_warning("[user] fumbles the bar!"))
 			return FALSE
 
 	else

@@ -2149,9 +2149,9 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 				if("schizo_voice")
 					toggles ^= SCHIZO_VOICE
 					if(toggles & SCHIZO_VOICE)
-						to_chat(user, "<span class='warning'>You are now a voice.\n\
+						to_chat(user, span_warning("You are now a voice.\n\
 										As a voice, you will receive meditations from players asking about game mechanics!\n\
-										Good voices could be rewarded with PQ by staff for answering meditations, while bad ones are punished.</span>")
+										Good voices could be rewarded with PQ by staff for answering meditations, while bad ones are punished."))
 					else
 						to_chat(user, span_warning("You are no longer a voice."))
 
@@ -2379,7 +2379,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	// Ensure link starts with "https://"
 	if(findtext(value, "https://") != 1)
 		if(!silent)
-			to_chat(user, "<span class='warning'>Your link must be https!</span>")
+			to_chat(user, span_warning("Your link must be https!"))
 		return FALSE
 
 	// Extract domain from the URL
@@ -2390,7 +2390,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	// Check if domain is in the allowed list
 	if(!(domain in allowed_hosts))
 		if(!silent)
-			to_chat(user, "<span class='warning'>The image must be hosted on an approved site.</span>")
+			to_chat(user, span_warning("The image must be hosted on an approved site."))
 		return FALSE
 
 	// Extract the filename and extension

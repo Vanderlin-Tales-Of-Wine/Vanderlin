@@ -175,7 +175,7 @@
 		return
 	if(world.time < VD.last_transform + 30 SECONDS)
 		var/timet2 = (VD.last_transform + 30 SECONDS) - world.time
-		to_chat(src, "<span class='warning'>No.. not yet. [round(timet2/10)]s</span>")
+		to_chat(src, span_warning("No.. not yet. [round(timet2/10)]s"))
 		return
 	if(VD.disguised)
 		VD.last_transform = world.time
@@ -277,13 +277,13 @@
 	if(!VD)
 		return
 	if(VD.disguised)
-		to_chat(src, "<span class='warning'>My curse is hidden.</span>")
+		to_chat(src, span_warning("My curse is hidden."))
 		return
 	if(VD.vitae < 500)
-		to_chat(src, "<span class='warning'>Not enough vitae.</span>")
+		to_chat(src, span_warning("Not enough vitae."))
 		return
 	if(has_status_effect(/datum/status_effect/buff/celerity))
-		to_chat(src, "<span class='warning'>Already active.</span>")
+		to_chat(src, span_warning("Already active."))
 		return
 	if(cooldown)
 		to_chat(src, "<span class='warning'>I can't cast it yet!</span>")
@@ -325,13 +325,13 @@
 	if(!VD)
 		return
 	if(VD.disguised)
-		to_chat(src, "<span class='warning'>My curse is hidden.</span>")
+		to_chat(src, span_warning("My curse is hidden."))
 		return
 	if(VD.vitae < 500)
-		to_chat(src, "<span class='warning'>Not enough vitae.</span>")
+		to_chat(src, span_warning("Not enough vitae."))
 		return
 	if(has_status_effect(/datum/status_effect/buff/fortitude))
-		to_chat(src, "<span class='warning'>Already active.</span>")
+		to_chat(src, span_warning("Already active."))
 		return
 	if(cooldown)
 		to_chat(src, "<span class='warning'>I can't cast it yet!</span>")
@@ -402,13 +402,13 @@
 	if(!VD)
 		return
 	if(VD.disguised)
-		to_chat(src, "<span class='warning'>My curse is hidden.</span>")
+		to_chat(src, span_warning("My curse is hidden."))
 		return
 	if(silver_curse_status)
-		to_chat(src, "<span class='warning'>My BANE is not letting me REGENERATE!.</span>")
+		to_chat(src, span_warning("My BANE is not letting me REGENERATE!."))
 		return
 	if(VD.vitae < 500)
-		to_chat(src, "<span class='warning'>Not enough vitae.</span>")
+		to_chat(src, span_warning("Not enough vitae."))
 		return
 	if(cooldown)
 		to_chat(src, "<span class='warning'>I can't cast it yet!</span>")

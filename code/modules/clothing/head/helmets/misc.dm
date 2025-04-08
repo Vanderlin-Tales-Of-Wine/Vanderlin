@@ -234,7 +234,7 @@
 					H.update_inv_head()
 		user.update_fov_angles()
 	else // Failsafe.
-		to_chat(user, "<span class='warning'>Wear the helmet on your head to open and close the visor.</span>")
+		to_chat(user, span_warning("Wear the helmet on your head to open and close the visor."))
 		return
 
 //............... Visored Sallet ............... //

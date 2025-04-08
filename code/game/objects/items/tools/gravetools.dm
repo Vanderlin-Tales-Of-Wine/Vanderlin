@@ -158,7 +158,7 @@
 			update_icon()
 			return
 		if(istype(T, /turf/open/floor/grass))
-			to_chat(user, "<span class='warning'>There is grass in the way.</span>")
+			to_chat(user, span_warning("There is grass in the way."))
 			return
 		return
 	. = ..()
@@ -318,7 +318,7 @@
 		if(!ishuman(usr))
 			return
 		if(contents.len)
-			to_chat(usr, "<span class='warning'>There are too many things inside of [src] to fold it up!</span>")
+			to_chat(usr, span_warning("There are too many things inside of [src] to fold it up!"))
 			return
 		visible_message(span_notice("[usr] folds up [src]."))
 		var/obj/item/bodybag/B = foldedbag_instance || new foldedbag_path
@@ -406,7 +406,7 @@
 			to_chat(usr, "<span class='warning'>I wrestle with [src], but it won't fold while unzipped.</span>")
 			return
 		if(contents.len)
-			to_chat(usr, "<span class='warning'>There are too many things inside of [src] to fold it up!</span>")
+			to_chat(usr, span_warning("There are too many things inside of [src] to fold it up!"))
 			return
 		visible_message(span_notice("[usr] folds up [src]."))
 		var/obj/item/bodybag/B = foldedbag_instance || new foldedbag_path

@@ -371,11 +371,11 @@
 	..()
 	var/turf/T = get_turf(loc)
 	if(!isfloorturf(T))
-		to_chat(user, "<span class='warning'>I need ground to plant this on!</span>")
+		to_chat(user, span_warning("I need ground to plant this on!"))
 		return
 	for(var/obj/A in T)
 		if(A.density && !(A.flags_1 & ON_BORDER_1))
-			to_chat(user, "<span class='warning'>There is already something here!</span>")
+			to_chat(user, span_warning("There is already something here!"))
 			return
 	user.visible_message(span_notice("[user] begins placing \the [src] down on the ground."))
 	if(do_after(user, 2 SECONDS, src, (IGNORE_HELD_ITEM)))

@@ -472,7 +472,7 @@
 /atom/proc/relaymove(mob/user)
 	if(buckle_message_cooldown <= world.time)
 		buckle_message_cooldown = world.time + 50
-		to_chat(user, "<span class='warning'>I should try resisting.</span>")
+		to_chat(user, span_warning("I should try resisting."))
 	return
 
 /// Handle what happens when your contents are exploded by a bomb
@@ -929,7 +929,7 @@
 /atom/proc/multitool_check_buffer(user, obj/item/I, silent = FALSE)
 	if(!istype(I, /obj/item/multitool))
 		if(user && !silent)
-			to_chat(user, "<span class='warning'>[I] has no data buffer!</span>")
+			to_chat(user, span_warning("[I] has no data buffer!"))
 		return FALSE
 	return TRUE
 

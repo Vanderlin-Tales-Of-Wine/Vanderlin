@@ -58,7 +58,7 @@
 		if(stunning)
 			L.Paralyze(20) //splat!
 		L.adjust_blurriness(1)
-		L.visible_message("<span class='warning'>[L] is hit by [src]!</span>", "<span class='danger'>I'm hit by [src]!</span>")
+		L.visible_message(span_warning("[L] is hit by [src]!"), "<span class='danger'>I'm hit by [src]!</span>")
 	qdel(src)
 
 /obj/item/reagent_containers/food/snacks/pie/CheckParts(list/parts_list)

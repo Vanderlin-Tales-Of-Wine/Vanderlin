@@ -189,7 +189,7 @@
 
 /obj/item/clothing/head/sack/attack(mob/living/target, mob/living/user)
 	if(target.get_item_by_slot(SLOT_HEAD))
-		to_chat(user, "<span class='warning'>Remove [target.p_their()] headgear first!</span>")
+		to_chat(user, span_warning("Remove [target.p_their()] headgear first!"))
 		return
 	target.visible_message("<span class='warning'>[user] forces [src] onto [target]'s head!</span>", \
 	"<span class='danger'>[target] forces [src] onto your head!</span>", "<i>I cant see anything.</i>")

@@ -34,7 +34,7 @@
 			if(!spillable)
 				return
 			if(!reagents || !reagents.total_volume)
-				to_chat(user, "<span class='warning'>[src] is empty!</span>")
+				to_chat(user, span_warning("[src] is empty!"))
 				return
 			if(user.used_intent.type == INTENT_SPLASH)
 				var/R
@@ -79,10 +79,10 @@
 	if(target.is_refillable() && (user.used_intent.type == INTENT_POUR)) //Something like a glass. Player probably wants to transfer TO it.
 		testing("attackobj2")
 		if(!reagents.total_volume)
-			to_chat(user, "<span class='warning'>[src] is empty!</span>")
+			to_chat(user, span_warning("[src] is empty!"))
 			return
 		if(target.reagents.holder_full())
-			to_chat(user, "<span class='warning'>[target] is full.</span>")
+			to_chat(user, span_warning("[target] is full."))
 			return
 		user.visible_message(span_notice("[user] pours [src] into [target]."), \
 						span_notice("I pour [src] into [target]."))
@@ -103,10 +103,10 @@
 	if(target.is_drainable() && (user.used_intent.type == /datum/intent/fill)) //A dispenser. Transfer FROM it TO us.
 		testing("attackobj3")
 		if(!target.reagents.total_volume)
-			to_chat(user, "<span class='warning'>[target] is empty!</span>")
+			to_chat(user, span_warning("[target] is empty!"))
 			return
 		if(reagents.holder_full())
-			to_chat(user, "<span class='warning'>[src] is full.</span>")
+			to_chat(user, span_warning("[src] is full."))
 			return
 		if(user.m_intent != MOVE_INTENT_SNEAK)
 			if(fillsounds)
