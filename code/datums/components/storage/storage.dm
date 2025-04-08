@@ -226,7 +226,7 @@
 //				progress.update(progress.goal - things.len)
 //				return TRUE
 //	progress.end_progress()
-//	to_chat(M, "<span class='notice'>I put everything I could [insert_preposition] [parent].</span>")
+//	to_chat(M, span_notice("I put everything I could [insert_preposition] [parent].")
 
 /datum/component/storage/proc/handle_mass_item_insertion(list/things, datum/component/storage/src_object, mob/user, datum/progressbar/progress)
 	var/atom/source_real_location = src_object.real_location()
@@ -280,7 +280,7 @@
 //		to_chat(M, "<span class='warning'>[parent] seems to be locked!</span>")
 		return FALSE
 	A.add_fingerprint(user)
-//	to_chat(M, "<span class='notice'>I start dumping out [parent].</span>")
+//	to_chat(M, span_notice("I start dumping out [parent].")
 //	var/turf/T = get_turf(A)
 	var/list/things = contents()
 	if(rustle_sound)
@@ -573,7 +573,7 @@
 		handle_show_valid_items(source, user)
 
 /datum/component/storage/proc/handle_show_valid_items(datum/source, user)
-	to_chat(user, "<span class='notice'>[source] can hold: [can_hold_description]</span>")
+	to_chat(user, span_notice("[source] can hold: [can_hold_description]"))
 
 /datum/component/storage/proc/mousedrop_onto(datum/source, atom/over_object, mob/M)
 	set waitfor = FALSE
@@ -745,11 +745,11 @@
 		playsound(parent, rustle_sound, 50, TRUE, -5)
 	for(var/mob/viewing in viewers(user, null))
 		if(M == viewing)
-			to_chat(usr, "<span class='notice'>I [insert_verb] [I] [insert_preposition]to [parent].</span>")
+			to_chat(usr, span_notice("I [insert_verb] [I] [insert_preposition]to [parent]."))
 		else if(in_range(M, viewing)) //If someone is standing close enough, they can tell what it is...
-			viewing.show_message("<span class='notice'>[M] [insert_verb]s [I] [insert_preposition]to [parent].</span>", MSG_VISUAL)
+			viewing.show_message(span_notice("[M] [insert_verb]s [I] [insert_preposition]to [parent]."), MSG_VISUAL)
 		else
-			viewing.show_message("<span class='notice'>[M] [insert_verb]s something [insert_preposition]to [parent].</span>", MSG_VISUAL)
+			viewing.show_message(span_notice("[M] [insert_verb]s something [insert_preposition]to [parent]."), MSG_VISUAL)
 
 /datum/component/storage/proc/update_icon()
 	if(isobj(parent))
@@ -937,9 +937,9 @@
 		A.add_fingerprint(user)
 		remove_from_storage(I, get_turf(user))
 		if(!user.put_in_hands(I))
-			to_chat(user, "<span class='notice'>I fumble for [I] and it falls on the floor.</span>")
+			to_chat(user, span_notice("I fumble for [I] and it falls on the floor."))
 			return
-		user.visible_message("<span class='warning'>[user] draws [I] from [parent]!</span>", "<span class='notice'>I draw [I] from [parent].</span>")
+		user.visible_message("<span class='warning'>[user] draws [I] from [parent]!</span>", span_notice("I draw [I] from [parent]."))
 		return
 
 /datum/component/storage/proc/action_trigger(datum/signal_source, datum/action/source)
@@ -950,8 +950,8 @@
 	collection_mode = (collection_mode+1)%3
 	switch(collection_mode)
 		if(COLLECT_SAME)
-			to_chat(user, "<span class='notice'>[parent] now picks up all items of a single type at once.</span>")
+			to_chat(user, span_notice("[parent] now picks up all items of a single type at once.")
 		if(COLLECT_EVERYTHING)
-			to_chat(user, "<span class='notice'>[parent] now picks up all items in a tile at once.</span>")
+			to_chat(user, span_notice("[parent] now picks up all items in a tile at once."))
 		if(COLLECT_ONE)
-			to_chat(user, "<span class='notice'>[parent] now picks up one item at a time.</span>")
+			to_chat(user, span_notice("[parent] now picks up one item at a time."))

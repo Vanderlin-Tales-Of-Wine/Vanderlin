@@ -11,7 +11,7 @@
 	icon_state = "shadow_mend"
 
 /datum/status_effect/shadow_mend/on_apply()
-	owner.visible_message("<span class='notice'>Violet light wraps around [owner]'s body!</span>", "<span class='notice'>Violet light wraps around my body!</span>")
+	owner.visible_message("<span class='notice'>Violet light wraps around [owner]'s body!</span>", span_notice("Violet light wraps around my body!"))
 	playsound(owner, 'sound/blank.ogg', 50, TRUE)
 	return ..()
 
@@ -69,7 +69,7 @@
 
 /datum/status_effect/wish_granters_gift/on_remove()
 	owner.revive(full_heal = TRUE, admin_revive = TRUE)
-	owner.visible_message("<span class='warning'>[owner] appears to wake from the dead, having healed all wounds!</span>", "<span class='notice'>I have regenerated.</span>")
+	owner.visible_message("<span class='warning'>[owner] appears to wake from the dead, having healed all wounds!</span>", span_notice("I have regenerated."))
 	owner.update_mobility()
 
 /atom/movable/screen/alert/status_effect/wish_granters_gift
@@ -183,7 +183,7 @@
 /datum/status_effect/antimagic
 	id = "antimagic"
 	duration = 10 SECONDS
-	examine_text = "<span class='notice'>They seem to be covered in a dull, grey aura.</span>"
+	examine_text = span_notice("They seem to be covered in a dull, grey aura.")
 
 /datum/status_effect/antimagic/on_apply()
 	owner.visible_message("<span class='notice'>[owner] is coated with a dull aura!</span>")

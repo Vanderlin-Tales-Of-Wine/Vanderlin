@@ -270,8 +270,8 @@
 							var/atom/movable/I = new R.result (T)
 							I.CheckParts(parts, R)
 							I.OnCrafted(user.dir, user)
-					user.visible_message("<span class='notice'>[user] [R.verbage_tp] \the [result_name]!</span>", \
-										"<span class='notice'>I [R.verbage] \the [result_name]!</span>")
+					user.visible_message(span_notice("[user] [R.verbage_tp] \the [result_name]!"), \
+										span_notice("I [R.verbage] \the [result_name]!"))
 					if(user.mind && R.skillcraft)
 						if(isliving(user))
 							var/mob/living/L = user
@@ -495,7 +495,7 @@
 			ui_interact(usr)
 			var/fail_msg = construct_item(usr, TR)
 			if(!fail_msg)
-				to_chat(usr, "<span class='notice'>[TR.name] crafted.</span>")
+				to_chat(usr, span_notice("[TR.name] crafted."))
 			else
 				to_chat(usr, "<span class='warning'>craft failed: [fail_msg]</span>")
 			busy = FALSE
