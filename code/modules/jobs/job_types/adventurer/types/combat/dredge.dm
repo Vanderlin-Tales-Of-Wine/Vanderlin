@@ -4,7 +4,6 @@
 	Cast from your home for what is undoubtedly a heinous act of violence, your travels have washed you up upon this \
 	shiteheap. All you have are your possessions from your former life. Make some coin for yourself, lest you end up dead and gone."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
 	outfit = /datum/outfit/job/roguetown/adventurer/dredge
 	category_tags = list(CTAG_ADVENTURER)
 	maximum_possible_slots = 7
@@ -217,7 +216,7 @@
 			pants = /obj/item/clothing/pants/tights/black
 			neck = /obj/item/clothing/neck/chaincoif/iron
 			head = /obj/item/clothing/head/fancyhat
-			id = /obj/item/clothing/ring/silver
+			ring = /obj/item/clothing/ring/silver
 			H.mind?.adjust_skillrank(/datum/skill/misc/reading, pick(2,3), TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/misc/music, 2, TRUE)
 			H.change_stat(STATKEY_INT, 2)

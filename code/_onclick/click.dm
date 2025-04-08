@@ -289,6 +289,8 @@
 								atkswinging = null
 								//update_warning()
 								return
+					if(cmode)
+						resolveAdjacentClick(T,W,params,used_hand) //hit the turf
 					if(!used_intent.noaa)
 						changeNext_move(CLICK_CD_MELEE)
 						if(get_dist(get_turf(src), T) <= used_intent.reach)

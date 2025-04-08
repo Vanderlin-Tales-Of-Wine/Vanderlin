@@ -42,3 +42,6 @@
 	"red - autumn" = "a34332"
 	))
 
+/datum/species/dwarf/get_native_language()
+	return "Dwarfish"
+

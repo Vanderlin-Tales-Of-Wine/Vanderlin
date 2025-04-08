@@ -213,12 +213,6 @@
 	gender = MALE
 	specuse = list("human")
 
-/datum/sprite_accessory/hair/helmet
-	name = "Helmet hair"
-	icon_state = "helmet"
-	gender = MALE
-	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
-
 /datum/sprite_accessory/hair/heroic
 	name = "Heroic"
 	icon_state = "heroic"
@@ -407,7 +401,18 @@
 	gender = MALE
 	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
 
+/datum/sprite_accessory/hair/vagabond
+	name = "Vagabond"
+	icon_state = "vagabond"
+	gender = MALE
+	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
 
+
+/datum/sprite_accessory/hair/steward
+	name = "Steward"
+	icon_state = "steward"
+	gender = MALE
+	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
 
 /////////////////////////////
 // GIRLY Hair Definitions  //
@@ -747,12 +752,6 @@
 /datum/sprite_accessory/hair/head/mediumbraid
 	name = "Medium Braid"
 	icon_state = "mediumbraid"
-	gender = FEMALE
-	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
-
-/datum/sprite_accessory/hair/head/countryponytailalt
-	name = "Ponytail (Country Alt)"
-	icon_state = "countryalt"
 	gender = FEMALE
 	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
 
@@ -1147,6 +1146,12 @@
 	gender = NEUTER
 	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
 
+/datum/sprite_accessory/hair/head/countryponytailalt
+	name = "Ponytail (Country Alt)"
+	icon_state = "countryalt"
+	gender = NEUTER
+	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
+
 /datum/sprite_accessory/hair/head/kusanagi_alt
 	name = "Kusanagi (Alt)"
 	icon_state = "kusanagi_alt"
@@ -1156,6 +1161,12 @@
 /datum/sprite_accessory/hair/head/shorthair6
 	name = "Short Hair (Alt)"
 	icon_state = "shorthair_alt"
+	gender = NEUTER
+	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
+
+/datum/sprite_accessory/hair/helmet
+	name = "Helmet Hair"
+	icon_state = "helmet"
 	gender = NEUTER
 	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
 

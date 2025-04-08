@@ -68,6 +68,12 @@
 
 /obj/structure/LateInitialize()
 	. = ..()
+	if(redstone_id)
+		for(var/obj/structure/S in GLOB.redstone_objs)
+			if(S.redstone_id == redstone_id)
+				redstone_attached |= S
+				S.redstone_attached |= src
+
 	if(rotation_structure && !QDELETED(src))
 		find_rotation_network()
 	if(accepts_water_input)
@@ -375,8 +381,8 @@
 		if(istype(structure, placed_type))
 			return
 
-	visible_message("[user] starts placing down [src]", "You start to place [src]")
-	if(!do_after(user, 1 SECONDS, T))
+	visible_message("[user] starts placing down [src].", "You start to place [src].")
+	if(!do_after(user, 2 SECONDS, T))
 		return
 	var/obj/structure/structure = new placed_type(T)
 	if(directional)

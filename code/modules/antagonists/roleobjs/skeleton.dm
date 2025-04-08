@@ -4,8 +4,8 @@
 	increase_votepwr = FALSE
 
 /datum/antagonist/skeleton/examine_friendorfoe(datum/antagonist/examined_datum,mob/examiner,mob/examined)
-	if(istype(examined_datum, /datum/antagonist/vampirelord))
-		var/datum/antagonist/vampirelord/V = examined_datum
+	if(istype(examined_datum, /datum/antagonist/vampire))
+		var/datum/antagonist/vampire/V = examined_datum
 		if(!V.disguised)
 			return "<span class='boldnotice'>Another deadite.</span>"
 	if(istype(examined_datum, /datum/antagonist/zombie))

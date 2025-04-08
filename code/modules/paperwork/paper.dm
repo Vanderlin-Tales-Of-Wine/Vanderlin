@@ -136,7 +136,7 @@
 	else
 		. += "It's from [mailer], addressed to [mailedto].</a>"
 
-/obj/item/paper/proc/read(mob/user)
+/obj/item/paper/proc/read(mob/user, ignore_distance = FALSE)
 	if(!user.client || !user.hud_used)
 		return
 	if(!user.hud_used.reads)
@@ -147,7 +147,7 @@
 		return
 	if(mailer)
 		return
-	if(in_range(user, src) || isobserver(user))
+	if(ignore_distance || in_range(user, src) || isobserver(user))
 //		var/obj/screen/read/R = user.hud_used.reads
 		var/dat = {"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">
 			<html><head><style type=\"text/css\">

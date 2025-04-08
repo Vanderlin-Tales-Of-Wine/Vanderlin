@@ -162,6 +162,7 @@
 #define MATRON 		(1<<6)
 #define PHYSICKER	(1<<7)
 #define SCRIBE		(1<<8)
+#define GAFFER		(1<<9)
 
 #define PEASANTS		(1<<4)
 
@@ -278,6 +279,7 @@
 #define JDO_CHIEF 32
 
 #define JDO_ADVENTURER 33
+#define JDO_GAFFER 33.1
 #define JDO_PILGRIM 34.2
 #define JDO_MIGRANT  34.3
 #define JDO_BANDIT 34.3

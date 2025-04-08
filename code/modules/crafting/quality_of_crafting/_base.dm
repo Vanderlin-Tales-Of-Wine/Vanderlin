@@ -67,8 +67,7 @@
 		if(!ispath(bundle_path, attacked_atom))
 			return FALSE
 
-
-	if(required_intent && user.used_intent != required_intent)
+	if(required_intent && user.used_intent.type != required_intent)
 		return FALSE
 
 	var/obj/structure/table/table = locate(/obj/structure/table) in get_turf(attacked_atom)
@@ -320,7 +319,7 @@
 							usable_contents -= item
 							qdel(item)
 						user.visible_message(span_small("[user] starts grabbing \a [sub_item] from [item]."), span_small("I start grabbing \a [sub_item] from [item]."))
-						if(do_after(user, ground_use_time, sub_item))
+						if(do_after(user, ground_use_time, sub_item, extra_checks = CALLBACK(user, TYPE_PROC_REF(/atom/movable, CanReach), sub_item)))
 							if(put_items_in_hand)
 								user.put_in_active_hand(sub_item)
 							for(var/requirement in copied_requirements)
@@ -340,7 +339,7 @@
 				continue
 
 			user.visible_message(span_small("[user] starts picking up [item]."), span_small("I start picking up [item]."))
-			if(do_after(user, ground_use_time, item))
+			if(do_after(user, ground_use_time, item, extra_checks = CALLBACK(user, TYPE_PROC_REF(/atom/movable, CanReach), item)))
 				if(put_items_in_hand)
 					user.put_in_active_hand(item)
 				for(var/requirement in copied_requirements)
@@ -392,14 +391,14 @@
 							continue
 						user.visible_message(span_small("[user] starts to incorporate some liquid into [name]."), span_small("You start to pour some liquid into [name]."))
 						if(put_items_in_hand)
-							if(!do_after(user, storage_use_time, container))
+							if(!do_after(user, storage_use_time, container, extra_checks = CALLBACK(user, TYPE_PROC_REF(/atom/movable, CanReach), container)))
 								continue
 							user.put_in_active_hand(container)
 						if(istype(container, /obj/item/reagent_containers/glass/bottle))
 							var/obj/item/reagent_containers/glass/bottle/bottle = container
 							if(bottle.closed)
 								bottle.rmb_self(user)
-						if(!do_after(user, reagent_use_time, container))
+						if(!do_after(user, reagent_use_time, container, extra_checks = CALLBACK(user, TYPE_PROC_REF(/atom/movable, CanReach), container)))
 							continue
 						playsound(get_turf(user), pick(container.poursounds), 100, TRUE)
 						if(reagent_value < copied_reagent_requirements[required_path]) //reagents are lost regardless as you kinda already poured them in no unpouring.
@@ -428,14 +427,14 @@
 						var/stored_pixel_y = container.pixel_y
 						user.visible_message(span_small("[user] starts to incorporate some liquid into [name]."), span_small("You start to pour some liquid into [name]."))
 						if(put_items_in_hand)
-							if(!do_after(user, ground_use_time, container))
+							if(!do_after(user, ground_use_time, container, extra_checks = CALLBACK(user, TYPE_PROC_REF(/atom/movable, CanReach), container)))
 								continue
 							user.put_in_active_hand(container)
 						if(istype(container, /obj/item/reagent_containers/glass/bottle))
 							var/obj/item/reagent_containers/glass/bottle/bottle = container
 							if(bottle.closed)
 								bottle.rmb_self(user)
-						if(!do_after(user, reagent_use_time, container))
+						if(!do_after(user, reagent_use_time, container, extra_checks = CALLBACK(user, TYPE_PROC_REF(/atom/movable, CanReach), container)))
 							continue
 						playsound(get_turf(user), pick(container.poursounds), 100, TRUE)
 						if(reagent_value < copied_reagent_requirements[required_path]) //reagents are lost regardless as you kinda already poured them in no unpouring.
@@ -458,13 +457,13 @@
 						continue
 					var/list/tool_path_extra = copied_tool_usage[tool_path]
 					if(put_items_in_hand)
-						if(!do_after(user, storage_use_time, potential_tool))
+						if(!do_after(user, storage_use_time, potential_tool, extra_checks = CALLBACK(user, TYPE_PROC_REF(/atom/movable, CanReach), potential_tool)))
 							continue
 						user.put_in_active_hand(potential_tool)
 					user.visible_message(span_small("[user] [tool_path_extra[1]]."), span_small("You [tool_path_extra[2]]."))
 					if(length(tool_path_extra) >= 2)
 						playsound(get_turf(user), tool_path_extra[3], 100, FALSE)
-					if(!do_after(user, tool_use_time, potential_tool))
+					if(!do_after(user, tool_use_time, potential_tool, extra_checks = CALLBACK(user, TYPE_PROC_REF(/atom/movable, CanReach), potential_tool)))
 						continue
 					copied_tool_usage -= tool_path
 					if(put_items_in_hand)
@@ -480,13 +479,13 @@
 					var/stored_pixel_x = potential_tool.pixel_x
 					var/stored_pixel_y = potential_tool.pixel_y
 					if(put_items_in_hand)
-						if(!do_after(user, storage_use_time, potential_tool))
+						if(!do_after(user, storage_use_time, potential_tool, extra_checks = CALLBACK(user, TYPE_PROC_REF(/atom/movable, CanReach), potential_tool)))
 							continue
 						user.put_in_active_hand(potential_tool)
 					user.visible_message(span_small("[user] [tool_path_extra[1]]."), span_small("You [tool_path_extra[2]]."))
 					if(length(tool_path_extra) >= 3)
 						playsound(get_turf(user), tool_path_extra[3], 100, FALSE)
-					if(!do_after(user, tool_use_time, potential_tool))
+					if(!do_after(user, tool_use_time, potential_tool, extra_checks = CALLBACK(user, TYPE_PROC_REF(/atom/movable, CanReach), potential_tool)))
 						continue
 					copied_tool_usage -= tool_path
 					if(put_items_in_hand)

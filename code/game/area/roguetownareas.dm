@@ -110,7 +110,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound_night = null
 
 /area/rogue/outdoors/rtfield
-	name = "rockhill basin"
+	name = "town basin"
 	icon_state = "rtfield"
 	soundenv = 19
 	ambush_times = list("night","dawn","dusk","day")
@@ -557,7 +557,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	icon_state = "orphanage"
 
 /area/rogue/indoors/town/clinic_large
-	first_time_text = "Physickers Clinic"
+	first_time_text = "The Clinic"
 	icon_state = "clinic_large"
 
 /area/rogue/indoors/town/thieves_guild

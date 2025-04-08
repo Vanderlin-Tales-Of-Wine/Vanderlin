@@ -111,8 +111,8 @@
 /obj/item/bodypart/head/goblin/skeletonize()
 	. = ..()
 	icon_state = "goblin_skel_head"
-	if(sellprice)
-		sellprice = 2
+	if(headprice)
+		headprice = 2
 
 /obj/item/bodypart/head/goblin/drop_organs(mob/user, violent_removal)
 	. = ..()
@@ -214,11 +214,11 @@
 	if(src.dna && src.dna.species)
 		src.dna.species.soundpack_m = new /datum/voicepack/goblin()
 		src.dna.species.soundpack_f = new /datum/voicepack/goblin()
-		var/obj/item/headdy = get_bodypart("head")
+		var/obj/item/bodypart/head/headdy = get_bodypart("head")
 		if(headdy)
 			headdy.icon = 'icons/roguetown/mob/monster/goblins.dmi'
 			headdy.icon_state = "[src.dna.species.id]_head"
-			headdy.sellprice = rand(7,20)
+			headdy.headprice = rand(7,20)
 	var/obj/item/organ/eyes/eyes = src.getorganslot(ORGAN_SLOT_EYES)
 	if(eyes)
 		eyes.Remove(src,1)

@@ -120,6 +120,20 @@
 	craft_time = 5 SECONDS
 	uses_attacked_atom = FALSE
 
+/datum/repeatable_crafting_recipe/crafting/stake
+	name = "wooden stake"
+	requirements = list(
+		/obj/item/grown/log/tree/stick= 1,
+	)
+	tool_usage = list(
+		/obj/item/weapon/knife = list(span_notice("starts to whittle"), span_notice("start to whittle"), 'sound/items/wood_sharpen.ogg'),
+	)
+	attacked_atom = /obj/item/grown/log/tree/stick
+	starting_atom  = /obj/item/weapon/knife
+	output = /obj/item/grown/log/tree/stake
+	craftdiff = 0
+	uses_attacked_atom = FALSE
+
 /datum/repeatable_crafting_recipe/crafting/spoon
 	name = "wooden spoon"
 	requirements = list(
@@ -272,20 +286,6 @@
 	attacked_atom = /obj/item/grown/log/tree/stick
 	starting_atom  = /obj/item/weapon/knife
 	output = /obj/item/clothing/face/cigarette/pipe/crafted
-	uses_attacked_atom = FALSE
-
-/datum/repeatable_crafting_recipe/crafting/stake
-	name = "wooden stake"
-	requirements = list(
-		/obj/item/grown/log/tree/stick= 1,
-	)
-	tool_usage = list(
-		/obj/item/weapon/knife = list(span_notice("starts to whittle"), span_notice("start to whittle"), 'sound/items/wood_sharpen.ogg'),
-	)
-	attacked_atom = /obj/item/grown/log/tree/stick
-	starting_atom  = /obj/item/weapon/knife
-	output = /obj/item/grown/log/tree/stake
-	craftdiff = 0
 	uses_attacked_atom = FALSE
 
 /datum/repeatable_crafting_recipe/crafting/broom
@@ -453,3 +453,61 @@
 	output = /obj/item/flint
 	craftdiff = 0
 	skillcraft = /datum/skill/craft/engineering
+
+
+/datum/repeatable_crafting_recipe/crafting/normalbait
+	name = "bait (wheat)"
+	output = /obj/item/bait
+	requirements = list(
+		/obj/item/natural/cloth = 1,
+		/obj/item/reagent_containers/food/snacks/produce/wheat = 2,
+	)
+	starting_atom = /obj/item/reagent_containers/food/snacks/produce/wheat
+	attacked_atom = /obj/item/natural/cloth
+	uses_attacked_atom = TRUE
+
+/datum/repeatable_crafting_recipe/crafting/normalbait
+	name = "bait (oat)"
+	output = /obj/item/bait
+	requirements = list(
+		/obj/item/natural/cloth = 1,
+		/obj/item/reagent_containers/food/snacks/produce/oat = 2,
+	)
+	starting_atom = /obj/item/reagent_containers/food/snacks/produce/oat
+	attacked_atom = /obj/item/natural/cloth
+	uses_attacked_atom = TRUE
+
+/datum/repeatable_crafting_recipe/crafting/sweetbait
+	name = "sweet bait (apple)"
+	output = /obj/item/bait/sweet
+	requirements = list(
+		/obj/item/natural/cloth = 1,
+		/obj/item/reagent_containers/food/snacks/produce/apple = 2,
+	)
+	starting_atom = /obj/item/reagent_containers/food/snacks/produce/apple
+	attacked_atom = /obj/item/natural/cloth
+	uses_attacked_atom = TRUE
+
+/datum/repeatable_crafting_recipe/crafting/berrybait
+	name = "sweet bait (berry)"
+	output = /obj/item/bait/sweet
+	requirements = list(
+		/obj/item/natural/cloth = 1,
+		/obj/item/reagent_containers/food/snacks/produce/jacksberry = 2,
+	)
+	starting_atom = /obj/item/reagent_containers/food/snacks/produce/jacksberry
+	attacked_atom = /obj/item/natural/cloth
+	uses_attacked_atom = TRUE
+	subtypes_allowed = TRUE
+
+/datum/repeatable_crafting_recipe/crafting/bloodbait
+	name = "blood bait"
+	output = /obj/item/bait/bloody
+	requirements = list(
+		/obj/item/natural/cloth = 1,
+		/obj/item/reagent_containers/food/snacks/meat = 2,
+	)
+	starting_atom = /obj/item/reagent_containers/food/snacks/meat
+	attacked_atom = /obj/item/natural/cloth
+	uses_attacked_atom = TRUE
+	subtypes_allowed = TRUE

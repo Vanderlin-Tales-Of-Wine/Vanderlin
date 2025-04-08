@@ -1211,6 +1211,10 @@
 	icon_state = "horzw"
 	},
 /area/rogue/indoors)
+"VB" = (
+/obj/structure/fake_machine/hailerboard/r,
+/turf/open/floor/grass,
+/area/rogue/outdoors/woods)
 "VW" = (
 /obj/structure/chair/stool,
 /turf/open/floor/dirt/road,
@@ -40862,7 +40866,7 @@ UM
 UR
 wV
 wV
-UR
+VB
 Jg
 zg
 Qd

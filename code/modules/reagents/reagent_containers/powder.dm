@@ -50,7 +50,7 @@
 
 	if(reagents.total_volume)
 		reagents.trans_to(M, reagents.total_volume, transfered_by = user, method = "swallow")
-		SSticker.snort++
+		GLOB.vanderlin_round_stats["drugs_snorted"]++
 	qdel(src)
 	return TRUE
 

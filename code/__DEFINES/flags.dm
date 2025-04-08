@@ -69,6 +69,8 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 #define NO_LAVA_GEN_1				(1<<6)
 /// Blocks ruins spawning on the turf
 #define NO_RUINS_1					(1<<10)
+/// If a turf can be damaged when attacked by items
+#define CAN_BE_ATTACKED_1			(1<<11)
 
 /*
 	These defines are used specifically with the atom/pass_flags bitmask
@@ -136,10 +138,8 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 #define MOBILITY_STORAGE		(1<<5)
 /// can pull things
 #define MOBILITY_PULL			(1<<6)
-/// can stand, not affected by whether they are standing or not. Mostly used for AI. Revisit this bitflag
-#define MOBILITY_CANSTAND		(1<<7)
 
-#define MOBILITY_FLAGS_DEFAULT (MOBILITY_MOVE | MOBILITY_STAND | MOBILITY_PICKUP | MOBILITY_USE | MOBILITY_UI | MOBILITY_STORAGE | MOBILITY_PULL | MOBILITY_CANSTAND)
+#define MOBILITY_FLAGS_DEFAULT (MOBILITY_MOVE | MOBILITY_STAND | MOBILITY_PICKUP | MOBILITY_USE | MOBILITY_UI | MOBILITY_STORAGE | MOBILITY_PULL)
 #define MOBILITY_FLAGS_INTERACTION (MOBILITY_USE | MOBILITY_PICKUP | MOBILITY_UI | MOBILITY_STORAGE)
 
 //alternate appearance flags

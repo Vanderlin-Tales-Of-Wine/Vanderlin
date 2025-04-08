@@ -448,6 +448,7 @@
 								put_in_active_hand(picked)
 								to_chat(src, span_green("I stole [picked]!"))
 								exp_to_gain *= src.mind.get_learning_boon(thiefskill)
+								GLOB.vanderlin_round_stats["items_pickpocketed"]++
 								if(has_flaw(/datum/charflaw/addiction/kleptomaniac))
 									sate_addiction()
 							else
