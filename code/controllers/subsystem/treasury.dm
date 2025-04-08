@@ -39,7 +39,7 @@ SUBSYSTEM_DEF(treasury)
 	var/list/bank_accounts = list()
 	var/list/noble_incomes = list()
 	var/list/stockpile_datums = list()
-	var/multiple_item_penalty = 0.80
+	var/multiple_item_penalty = 0.70
 	var/interest_rate = 0.15
 	var/next_treasury_check = 0
 	var/list/log_entries = list()
