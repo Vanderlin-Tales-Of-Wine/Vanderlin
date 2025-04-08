@@ -170,7 +170,7 @@
 					if(!M.dead)
 						walk_towards(src, M, 1)
 						sleep(3)
-						visible_message("<span class='notice'>\The [src] kills the rat!</span>")
+						visible_message(span_notice("\The [src] kills the rat!"))
 						M.obj_destruction()
 						stop_automated_movement = 0
 						break
@@ -197,7 +197,7 @@
 	. = ..()
 	if(stat != DEAD) // Don't do this if they're dead!!! Jeez!!
 		if(M.mind && M.mind.has_antag_datum(/datum/antagonist/vampire)) // Cats always hiss at vampires
-			visible_message("<span class='notice'>\The [src] hisses at [M] and recoils in disgust.</span>")
+			visible_message(span_notice("\The [src] hisses at [M] and recoils in disgust."))
 			icon_state = "[icon_living]"
 			set_resting(FALSE)
 			update_mobility()
@@ -207,7 +207,7 @@
 			personal_space()
 		if(isracist) // But only judgemental ones hiss at dark elves.
 			if((isdarkelf(M)) || ishalforc(M) || istiefling(M))  // l´cursed bonbonbon
-				visible_message("<span class='notice'>\The [src] hisses at [M] and recoils in disgust.</span>")
+				visible_message(span_notice("\The [src] hisses at [M] and recoils in disgust."))
 				icon_state = "[icon_living]"
 				set_resting(FALSE)
 				update_mobility()

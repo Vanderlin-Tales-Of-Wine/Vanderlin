@@ -65,7 +65,7 @@
 								"<span class='danger'>[user] feeds you something.</span>")
 					log_combat(user, M, "fed", reagents.log_list())
 				else
-					to_chat(user, "<span class='notice'>I swallow a gulp of [src].</span>")
+					to_chat(user, span_notice("I swallow a gulp of [src]."))
 				addtimer(CALLBACK(reagents, TYPE_PROC_REF(/datum/reagents, trans_to), M, amount_per_transfer_from_this, TRUE, TRUE, FALSE, user, FALSE, INGEST), 5)
 				playsound(M.loc,pick(drinksounds), 100, TRUE)
 				return
@@ -84,8 +84,8 @@
 		if(target.reagents.holder_full())
 			to_chat(user, "<span class='warning'>[target] is full.</span>")
 			return
-		user.visible_message("<span class='notice'>[user] pours [src] into [target].</span>", \
-						"<span class='notice'>I pour [src] into [target].</span>")
+		user.visible_message(span_notice("[user] pours [src] into [target]."), \
+						span_notice("I pour [src] into [target]."))
 		if(user.m_intent != MOVE_INTENT_SNEAK)
 			if(poursounds)
 				playsound(user.loc,pick(poursounds), 100, TRUE)
@@ -111,8 +111,8 @@
 		if(user.m_intent != MOVE_INTENT_SNEAK)
 			if(fillsounds)
 				playsound(user.loc,pick(fillsounds), 100, TRUE)
-		user.visible_message("<span class='notice'>[user] fills [src] with [target].</span>", \
-							"<span class='notice'>I fill [src] with [target].</span>")
+		user.visible_message(span_notice("[user] fills [src] with [target]."), \
+							span_notice("I fill [src] with [target]."))
 		for(var/i in 1 to 10)
 			if(do_after(user, 8 DECISECONDS, target))
 				if(reagents.holder_full())
@@ -125,7 +125,7 @@
 		return
 	if(reagents.total_volume && user.used_intent.type == INTENT_SPLASH)
 		user.visible_message("<span class='danger'>[user] splashes the contents of [src] onto [target]!</span>", \
-							"<span class='notice'>I splash the contents of [src] onto [target].</span>")
+							span_notice("I splash the contents of [src] onto [target]."))
 		reagents.reaction(target, TOUCH)
 		reagents.clear_reagents()
 		return

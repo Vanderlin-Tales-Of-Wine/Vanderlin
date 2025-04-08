@@ -225,8 +225,8 @@
 						"<span class='hear'>I hear clanging.</span>")
 	if(actuallyismob)
 		if(do_after(user, 4 SECONDS, O))
-			user.visible_message("<span class='notice'>[user] stuffs [O] into [src].</span>", \
-								"<span class='notice'>I stuff [O] into [src].</span>", \
+			user.visible_message(span_notice("[user] stuffs [O] into [src]."), \
+								span_notice("I stuff [O] into [src]."), \
 								"<span class='hear'>I hear a loud bang.</span>")
 			O.forceMove(T)
 			user_buckle_mob(O, user)

@@ -44,7 +44,7 @@
 				H.adjust_disgust(11 + 15 * fraction)
 				SEND_SIGNAL(H, COMSIG_ADD_MOOD_EVENT, "gross_food", /datum/mood_event/gross_food)
 			else if(foodtype & H.dna.species.liked_food)
-				to_chat(H,"<span class='notice'>I love this taste!</span>")
+				to_chat(H,span_notice("I love this taste!"))
 				H.adjust_disgust(-5 + -2.5 * fraction)
 				SEND_SIGNAL(H, COMSIG_ADD_MOOD_EVENT, "fav_food", /datum/mood_event/favorite_food)
 			if((foodtype & BREAKFAST) && world.time - SSticker.round_start_time < STOP_SERVING_BREAKFAST)

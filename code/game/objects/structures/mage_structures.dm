@@ -188,7 +188,7 @@ s
 			mana_pool.adjust_mana(-mana_amount * 25)
 			var/list/waterl = list(/datum/reagent/medicine/manapot/weak = mana_amount)
 			W.reagents.add_reagent_list(waterl)
-			to_chat(user, "<span class='notice'>I fill [W] from [src].</span>")
+			to_chat(user, span_notice("I fill [W] from [src]."))
 			playsound(user, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 80, FALSE)
 			return
 	if(istype(I, /obj/item/grabbing))

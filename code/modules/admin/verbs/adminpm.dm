@@ -75,7 +75,7 @@
 
 	if(!holder && !current_ticket)	//no ticket? https://www.youtube.com/watch?v=iHSPf6x1Fdo
 		to_chat(src, "<span class='danger'>I can no longer reply to this ticket, please open another one by using the Adminhelp verb if need be.</span>")
-		to_chat(src, "<span class='notice'>Message: [msg]</span>")
+		to_chat(src, span_notice("Message: [msg]"))
 		return
 
 	var/client/recipient
@@ -208,14 +208,14 @@
 	if(irc)
 		log_admin_private("PM: [key_name(src)]->IRC: [rawmsg]")
 		for(var/client/X in GLOB.admins)
-			to_chat(X, "<span class='notice'><B>PM: [key_name(src, X, 0)]-&gt;IRC:</B> [keywordparsedmsg]</span>")
+			to_chat(X, span_notice("<B>PM: [key_name(src, X, 0)]-&gt;IRC:</B> [keywordparsedmsg]"))
 	else
 		window_flash(recipient, ignorepref = TRUE)
 		log_admin_private("PM: [key_name(src)]->[key_name(recipient)]: [rawmsg]")
 		//we don't use message_admins here because the sender/receiver might get it too
 		for(var/client/X in GLOB.admins)
 			if(X.key!=key && X.key!=recipient.key)	//check client/X is an admin and isn't the sender or recipient
-				to_chat(X, "<span class='notice'><B>PM: [key_name(src, X, 0)]-&gt;[key_name(recipient, X, 0)]:</B> [keywordparsedmsg]</span>" )
+				to_chat(X, span_notice("<B>PM: [key_name(src, X, 0)]-&gt;[key_name(recipient, X, 0)]:</B> [keywordparsedmsg]") )
 
 /client/proc/popup_admin_pm(client/recipient, msg)
 	var/sender = src

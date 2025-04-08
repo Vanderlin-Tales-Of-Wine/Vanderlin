@@ -99,7 +99,7 @@
 		target.emote("breathgasp")
 		target.Jitter(100)
 		target.update_body()
-		target.visible_message("<span class='notice'>[target] is revived by holy light!</span>", "<span class='green'>I awake from the void.</span>")
+		target.visible_message(span_notice("[target] is revived by holy light!"), "<span class='green'>I awake from the void.</span>")
 		target.apply_status_effect(/datum/status_effect/debuff/revive)
 		if(target.mind && !HAS_TRAIT(target, TRAIT_IWASREVIVED))
 			ADD_TRAIT(target, TRAIT_IWASREVIVED, "[type]")

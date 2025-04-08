@@ -41,7 +41,7 @@
 	if(desired_transfer > liquids.liquid_group.reagents_per_turf)
 		desired_transfer = liquids.liquid_group.reagents_per_turf
 	liquids.liquid_group.trans_to_seperate_group(my_beaker.reagents, desired_transfer, liquids)
-	to_chat(user, "<span class='notice'>You scoop up around [round(desired_transfer) / 3] oz of liquids with [my_beaker].</span>")
+	to_chat(user, span_notice("You scoop up around [round(desired_transfer) / 3] oz of liquids with [my_beaker]."))
 	user.changeNext_move(CLICK_CD_MELEE)
 	return TRUE
 
@@ -142,8 +142,8 @@
 		if(target.reagents.holder_full())
 			to_chat(user, "<span class='warning'>[target] is full.</span>")
 			return
-		user.visible_message("<span class='notice'>[user] pours [src] into [target].</span>", \
-						"<span class='notice'>I pour [src] into [target].</span>")
+		user.visible_message(span_notice("[user] pours [src] into [target]."), \
+						span_notice("I pour [src] into [target]."))
 		if(user.m_intent != MOVE_INTENT_SNEAK)
 			if(poursounds)
 				playsound(user.loc,pick(poursounds), 100, TRUE)
@@ -171,8 +171,8 @@
 		if(user.m_intent != MOVE_INTENT_SNEAK)
 			if(fillsounds)
 				playsound(user.loc,pick(fillsounds), 100, TRUE)
-		user.visible_message("<span class='notice'>[user] fills [src] with [target].</span>", \
-							"<span class='notice'>I fill [src] with [target].</span>")
+		user.visible_message(span_notice("[user] fills [src] with [target]."), \
+							span_notice("I fill [src] with [target]."))
 		for(var/i in 1 to 22)
 			if(do_after(user, 8 DECISECONDS, target))
 				if(reagents.holder_full())
@@ -188,7 +188,7 @@
 
 	if(reagents.total_volume && user.used_intent.type == INTENT_SPLASH)
 		user.visible_message("<span class='danger'>[user] splashes the contents of [src] onto [target]!</span>", \
-							"<span class='notice'>I splash the contents of [src] onto [target].</span>")
+							span_notice("I splash the contents of [src] onto [target]."))
 		reagents.reaction(target, TOUCH)
 		reagents.clear_reagents()
 		return
@@ -207,7 +207,7 @@
 	if(isturf(target))
 		if(reagents.total_volume && user.used_intent.type == INTENT_SPLASH)
 			user.visible_message("<span class='danger'>[user] splashes the contents of [src] onto [target]!</span>", \
-								"<span class='notice'>I splash the contents of [src] onto [target].</span>")
+								span_notice("I splash the contents of [src] onto [target]."))
 			reagents.reaction(target, TOUCH)
 			reagents.clear_reagents()
 			return
@@ -216,15 +216,15 @@
 	var/hotness = I.get_temperature()
 	if(hotness && reagents)
 		reagents.expose_temperature(hotness)
-		to_chat(user, "<span class='notice'>I heat [name] with [I]!</span>")
+		to_chat(user, span_notice("I heat [name] with [I]!"))
 
 	if(istype(I, /obj/item/reagent_containers/food/snacks/egg)) //breaking eggs
 		var/obj/item/reagent_containers/food/snacks/egg/E = I
 		if(reagents)
 			if(reagents.total_volume >= reagents.maximum_volume)
-				to_chat(user, "<span class='notice'>[src] is full.</span>")
+				to_chat(user, span_notice("[src] is full."))
 			else
-				to_chat(user, "<span class='notice'>I break [E] in [src].</span>")
+				to_chat(user, span_notice("I break [E] in [src]."))
 				E.reagents.trans_to(src, E.reagents.total_volume, transfered_by = user)
 				qdel(E)
 			return
@@ -380,26 +380,26 @@
 	if(grinded)
 		grinded.forceMove(drop_location())
 		grinded = null
-		to_chat(user, "<span class='notice'>I eject the item inside.</span>")
+		to_chat(user, span_notice("I eject the item inside."))
 
 //VANDERLIN TODO: add a stamina check for the system we actually use.
 /obj/item/reagent_containers/glass/mortar/attackby(obj/item/I, mob/living/carbon/human/user)
 	..()
 	if(istype(I,/obj/item/pestle))
 		if(grinded)
-			to_chat(user, "<span class='notice'>I start grinding...</span>")
+			to_chat(user, span_notice("I start grinding..."))
 			if((do_after(user, 2.5 SECONDS, src)) && grinded)
 				if(grinded.juice_results) //prioritize juicing
 					grinded.on_juice()
 					reagents.add_reagent_list(grinded.juice_results)
-					to_chat(user, "<span class='notice'>I juice [grinded] into a fine liquid.</span>")
+					to_chat(user, span_notice("I juice [grinded] into a fine liquid."))
 					if(grinded.reagents) //food and pills
 						grinded.reagents.trans_to(src, grinded.reagents.total_volume, transfered_by = user)
 					QDEL_NULL(grinded)
 					return
 				grinded.on_grind()
 				reagents.add_reagent_list(grinded.grind_results)
-				to_chat(user, "<span class='notice'>I break [grinded] into powder.</span>")
+				to_chat(user, span_notice("I break [grinded] into powder."))
 				QDEL_NULL(grinded)
 				return
 			return

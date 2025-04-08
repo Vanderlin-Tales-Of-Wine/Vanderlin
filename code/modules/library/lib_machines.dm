@@ -144,7 +144,7 @@
 		var/obj/item/recipe_book/path = print_type
 		var/obj/item/recipe_book/book = new path()
 		output_item = book
-		visible_message("<span class='notice'>The printing press hums as it produces [book.name].</span>")
+		visible_message(span_notice("The printing press hums as it produces [book.name]."))
 
 	// Printing is done
 	printing = FALSE
@@ -162,13 +162,13 @@
 	// Creates a static book (Bibble)
 	var/obj/item/book/bibble/B = new()
 	output_item = B
-	visible_message("<span class='notice'>The printing press hums as it produces [B.name].</span>")
+	visible_message(span_notice("The printing press hums as it produces [B.name]."))
 
 /obj/machinery/printingpress/proc/print_justice(mob/user)
 	// Creates a static book (Tome of Justice)
 	var/obj/item/book/law/B = new()
 	output_item = B
-	visible_message("<span class='notice'>[src] hums as it produces [B.name].</span>")
+	visible_message(span_notice("[src] hums as it produces [B.name]."))
 
 /obj/machinery/printingpress/proc/print_manuscript(mob/user, id)
 	output_item = new /obj/item/book/playerbook(src, null, null, null, id)

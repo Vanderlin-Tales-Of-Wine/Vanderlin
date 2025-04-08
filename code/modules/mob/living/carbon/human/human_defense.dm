@@ -430,7 +430,7 @@
 				update_inv_neck()
 				update_inv_head()
 			else
-				to_chat(src, "<span class='notice'>My [head_clothes.name] protects my head and face from the acid!</span>")
+				to_chat(src, span_notice("My [head_clothes.name] protects my head and face from the acid!"))
 		else
 			. = get_bodypart(BODY_ZONE_HEAD)
 			if(.)
@@ -451,7 +451,7 @@
 				update_inv_w_uniform()
 				update_inv_wear_suit()
 			else
-				to_chat(src, "<span class='notice'>My [chest_clothes.name] protects my body from the acid!</span>")
+				to_chat(src, span_notice("My [chest_clothes.name] protects my body from the acid!"))
 		else
 			. = get_bodypart(BODY_ZONE_CHEST)
 			if(.)
@@ -483,7 +483,7 @@
 				update_inv_w_uniform()
 				update_inv_wear_suit()
 			else
-				to_chat(src, "<span class='notice'>My [arm_clothes.name] protects my arms and hands from the acid!</span>")
+				to_chat(src, span_notice("My [arm_clothes.name] protects my arms and hands from the acid!"))
 		else
 			. = get_bodypart(BODY_ZONE_R_ARM)
 			if(.)
@@ -509,7 +509,7 @@
 				update_inv_w_uniform()
 				update_inv_wear_suit()
 			else
-				to_chat(src, "<span class='notice'>My [leg_clothes.name] protects my legs and feet from the acid!</span>")
+				to_chat(src, span_notice("My [leg_clothes.name] protects my legs and feet from the acid!"))
 		else
 			. = get_bodypart(BODY_ZONE_R_LEG)
 			if(.)
@@ -554,9 +554,9 @@
 
 	if(src == M)
 		if(has_status_effect(STATUS_EFFECT_CHOKINGSTRAND))
-			to_chat(src, "<span class='notice'>I attempt to remove the durathread strand from around my neck.</span>")
+			to_chat(src, span_notice("I attempt to remove the durathread strand from around my neck."))
 			if(do_after(src, 3.5 SECONDS, src))
-				to_chat(src, "<span class='notice'>I succesfuly remove the durathread strand.</span>")
+				to_chat(src, span_notice("I succesfuly remove the durathread strand."))
 				remove_status_effect(STATUS_EFFECT_CHOKINGSTRAND)
 			return
 		check_for_injuries(M)
@@ -577,16 +577,16 @@
 		m1 = "I am"
 		examination += "<span class='notice'>Let's see how I am doing.</span>"
 		if(!stat && !silent)
-			visible_message("<span class='notice'>[src] examines [p_them()]self.</span>", \
-				"<span class='notice'>I check myself for injuries.</span>")
+			visible_message(span_notice("[src] examines [p_them()]self."), \
+				span_notice("I check myself for injuries."))
 	else if(user)
 		m1 = "[p_they(TRUE)] [p_are()]"
 		if(!deep_examination)
 			deep_examination = HAS_TRAIT(user, TRAIT_EMPATH)
 		examination += "<span class='notice'>Let's see how [src] is doing.</span>"
 		if(!user.stat && !silent)
-			user.visible_message("<span class='notice'>[user] examines [src].</span>", \
-				"<span class='notice'>I check [src] for injuries.</span>")
+			user.visible_message(span_notice("[user] examines [src]."), \
+				span_notice("I check [src] for injuries."))
 
 	if(stat < DEAD)
 		examination += "[m1] still alive."
@@ -642,7 +642,7 @@
 	if(user == src)
 		examination += "<span class='notice'>Let's see how my [parse_zone(choice)] is doing.</span>"
 		if(!stat && !silent)
-			visible_message("<span class='notice'>[src] examines [p_their()] [parse_zone(choice)].</span>")
+			visible_message(span_notice("[src] examines [p_their()] [parse_zone(choice)]."))
 	else if(user)
 		if(!deep_examination)
 			deep_examination = HAS_TRAIT(user, TRAIT_EMPATH)

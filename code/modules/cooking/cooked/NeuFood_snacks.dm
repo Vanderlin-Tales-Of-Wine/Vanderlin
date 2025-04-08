@@ -54,7 +54,7 @@
 
 	if(istype(I, /obj/item/reagent_containers/food/snacks/onion_fried) && (!modified))
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-		to_chat(user, "<span class='notice'>Adding onions...</span>")
+		to_chat(user, span_notice("Adding onions..."))
 		if(do_after(user, short_cooktime, src))
 			tastes = list("roasted meat" = 1, "caramelized onions" = 1)
 			name = "[name] and onions"
@@ -70,7 +70,7 @@
 
 	if(istype(I, /obj/item/reagent_containers/food/snacks/potato) && (!modified))
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-		to_chat(user, "<span class='notice'>Adding potato...</span>")
+		to_chat(user, span_notice("Adding potato..."))
 		if(do_after(user, short_cooktime, src))
 			tastes = list("roasted meat" = 2, "potato" = 1)
 			name = "[name] and potato"

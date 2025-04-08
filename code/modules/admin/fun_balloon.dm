@@ -27,7 +27,7 @@
 	return
 
 /obj/effect/fun_balloon/proc/pop()
-	visible_message("<span class='notice'>[src] pops!</span>")
+	visible_message(span_notice("[src] pops!"))
 	playsound(get_turf(src), 'sound/blank.ogg', 50, TRUE, -1)
 	qdel(src)
 
@@ -74,4 +74,4 @@
 		var/turf/T = find_safe_turf()
 		new /obj/effect/temp_visual/gravpush(get_turf(M))
 		M.forceMove(T)
-		to_chat(M, "<span class='notice'>Pop!</span>")
+		to_chat(M, span_notice("Pop!"))

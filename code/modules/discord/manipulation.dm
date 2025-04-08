@@ -6,7 +6,7 @@
 	if(!check_rights(R_ADMIN))
 		return
 
-	holder.discord_manipulation() 
+	holder.discord_manipulation()
 
 
 /datum/admins/proc/discord_manipulation()
@@ -32,5 +32,5 @@
 			var/lookup_ckey = input(usr,"Enter Ckey to lookup ID") as text|null
 			var/returned_id = SSdiscord.lookup_id(lookup_ckey)
 			if(returned_id)
-				to_chat(usr, "<span class='notice'>Ckey <b>[lookup_ckey]</b> is assigned to Discord ID <b>[returned_id]</b></span>")
-				to_chat(usr, "<span class='notice'>Discord mention format: <b>&lt;@[returned_id]&gt;</b></span>") // &lt; and &gt; print < > in HTML without using them as tags	
+				to_chat(usr, span_notice("Ckey <b>[lookup_ckey]</b> is assigned to Discord ID <b>[returned_id]</b>"))
+				to_chat(usr, span_notice("Discord mention format: <b>&lt;@[returned_id]&gt;</b>")) // &lt; and &gt; print < > in HTML without using them as tags

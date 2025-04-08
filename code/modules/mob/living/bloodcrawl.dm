@@ -70,11 +70,11 @@
 	var/kidnapped = FALSE
 
 	if(victim.stat == CONSCIOUS)
-		visible_message("<span class='warning'>[victim] kicks free of the blood pool just before entering it!</span>", null, "<span class='notice'>I hear splashing and struggling.</span>")
+		visible_message("<span class='warning'>[victim] kicks free of the blood pool just before entering it!</span>", null, span_notice("I hear splashing and struggling."))
 	else
 		victim.forceMove(src)
 		victim.emote("scream")
-		visible_message("<span class='warning'><b>[src] drags [victim] into the pool of blood!</b></span>", null, "<span class='notice'>I hear a splash.</span>")
+		visible_message("<span class='warning'><b>[src] drags [victim] into the pool of blood!</b></span>", null, span_notice("I hear a splash."))
 		kidnapped = TRUE
 
 	if(kidnapped)

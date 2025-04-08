@@ -342,13 +342,13 @@ All foods are distributed among various categories. Use common sense.
 				to_chat(M, "<span class='warning'>I don't feel like eating any more junk food at the moment!</span>")
 				return FALSE
 			else if(fullness <= 50)
-				user.visible_message("<span class='notice'>[user] hungrily [eatverb]s \the [src], gobbling it down!</span>", "<span class='notice'>I hungrily [eatverb] \the [src], gobbling it down!</span>")
+				user.visible_message(span_notice("[user] hungrily [eatverb]s \the [src], gobbling it down!"), span_notice("I hungrily [eatverb] \the [src], gobbling it down!"))
 			else if(fullness > 50 && fullness < 150)
-				user.visible_message("<span class='notice'>[user] hungrily [eatverb]s \the [src].</span>", "<span class='notice'>I hungrily [eatverb] \the [src].</span>")
+				user.visible_message(span_notice("[user] hungrily [eatverb]s \the [src]."), span_notice("I hungrily [eatverb] \the [src]."))
 			else if(fullness > 150 && fullness < 500)
-				user.visible_message("<span class='notice'>[user] [eatverb]s \the [src].</span>", "<span class='notice'>I [eatverb] \the [src].</span>")
+				user.visible_message(span_notice("[user] [eatverb]s \the [src]."), span_notice("I [eatverb] \the [src]."))
 			else if(fullness > 500 && fullness < 600)
-				user.visible_message("<span class='notice'>[user] unwillingly [eatverb]s a bit of \the [src].</span>", "<span class='notice'>I unwillingly [eatverb] a bit of \the [src].</span>")
+				user.visible_message(span_notice("[user] unwillingly [eatverb]s a bit of \the [src]."), span_notice("I unwillingly [eatverb] a bit of \the [src]."))
 			else if(fullness > (600 * (1 + M.overeatduration / 2000)))	// The more you eat - the more you can eat
 				user.visible_message("<span class='warning'>[user] cannot force any more of \the [src] to go down [user.p_their()] throat!</span>", "<span class='warning'>I cannot force any more of \the [src] to go down your throat!</span>")
 				return FALSE
@@ -356,18 +356,18 @@ All foods are distributed among various categories. Use common sense.
 				M.changeNext_move(CLICK_CD_MELEE * 0.5)*/
 			switch(M.nutrition)
 				if(NUTRITION_LEVEL_FAT to INFINITY)
-					user.visible_message("<span class='notice'>[user] forces [M.p_them()]self to eat \the [src].</span>", "<span class='notice'>I force myself to eat \the [src].</span>")
+					user.visible_message(span_notice("[user] forces [M.p_them()]self to eat \the [src]."), span_notice("I force myself to eat \the [src]."))
 				if(NUTRITION_LEVEL_STARVING to NUTRITION_LEVEL_FAT)
-					user.visible_message("<span class='notice'>[user] [eatverb]s \the [src].</span>", "<span class='notice'>I [eatverb] \the [src].</span>")
+					user.visible_message(span_notice("[user] [eatverb]s \the [src]."), span_notice("I [eatverb] \the [src]."))
 				if(0 to NUTRITION_LEVEL_STARVING)
-					user.visible_message("<span class='notice'>[user] hungrily [eatverb]s \the [src], gobbling it down!</span>", "<span class='notice'>I hungrily [eatverb] \the [src], gobbling it down!</span>")
+					user.visible_message(span_notice("[user] hungrily [eatverb]s \the [src], gobbling it down!"), span_notice("I hungrily [eatverb] \the [src], gobbling it down!"))
 					M.changeNext_move(CLICK_CD_MELEE * 0.5)
 /*			if(M.energy <= 50)
-				user.visible_message("<span class='notice'>[user] hungrily [eatverb]s \the [src], gobbling it down!</span>", "<span class='notice'>I hungrily [eatverb] \the [src], gobbling it down!</span>")
+				user.visible_message(span_notice("[user] hungrily [eatverb]s \the [src], gobbling it down!"), span_notice("I hungrily [eatverb] \the [src], gobbling it down!"))
 			else if(M.energy > 50 && M.energy < 500)
-				user.visible_message("<span class='notice'>[user] hungrily [eatverb]s \the [src].</span>", "<span class='notice'>I hungrily [eatverb] \the [src].</span>")
+				user.visible_message(span_notice("[user] hungrily [eatverb]s \the [src]."), span_notice("I hungrily [eatverb] \the [src]."))
 			else if(M.energy > 500 && M.energy < 1000)
-				user.visible_message("<span class='notice'>[user] [eatverb]s \the [src].</span>", "<span class='notice'>I [eatverb] \the [src].</span>")
+				user.visible_message(span_notice("[user] [eatverb]s \the [src]."), span_notice("I [eatverb] \the [src]."))
 			if(HAS_TRAIT(M, TRAIT_VORACIOUS))
 			M.changeNext_move(CLICK_CD_MELEE * 0.5) nom nom nom*/
 		else
@@ -442,11 +442,11 @@ All foods are distributed among various categories. Use common sense.
 		if((slices_num <= 0 || !slices_num) || !slice_path) //is the food sliceable?
 			return FALSE
 		if(slice_bclass == BCLASS_CHOP)
-			user.visible_message("<span class='notice'>[user] chops [src]!</span>")
+			user.visible_message(span_notice("[user] chops [src]!"))
 			slice(W, user)
 			return TRUE
 		if(slice_bclass == BCLASS_CUT)
-			user.visible_message("<span class='notice'>[user] slices [src]!</span>")
+			user.visible_message(span_notice("[user] slices [src]!"))
 			slice(W, user)
 			return TRUE
 		else if(slice(W, user))
@@ -652,7 +652,7 @@ All foods are distributed among various categories. Use common sense.
 			to_chat(user, "<span class='warning'>[M] is unable to be dunked in!</span>")
 			return
 		if(M.reagents.trans_to(src, dunk_amount, transfered_by = user))	//if reagents were transfered, show the message
-			to_chat(user, "<span class='notice'>I dunk \the [src] into \the [M].</span>")
+			to_chat(user, span_notice("I dunk \the [src] into \the [M]."))
 			return
 		if(!M.reagents.total_volume)
 			to_chat(user, "<span class='warning'>[M] is empty!</span>")
@@ -677,7 +677,7 @@ All foods are distributed among various categories. Use common sense.
 		if(contents.len >= 20)
 			to_chat(user, "<span class='warning'>[src] is full.</span>")
 			return 0
-		to_chat(user, "<span class='notice'>I slip [W] inside [src].</span>")
+		to_chat(user, span_notice("I slip [W] inside [src]."))
 		user.transferItemToLoc(W, src)
 		add_fingerprint(user)
 		contents += W

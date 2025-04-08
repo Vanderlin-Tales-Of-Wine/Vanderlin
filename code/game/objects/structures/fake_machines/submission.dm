@@ -111,14 +111,14 @@ GLOBAL_VAR(feeding_hole_reset_timer)
 		GLOB.feeding_hole_wheat_count++
 */
 		playsound(src, 'sound/misc/beep.ogg', 100, FALSE, -1)
-		user.visible_message("<span class='notice'>[user] feeds [P] into the [src].</span>",
-			"<span class='notice'>You feed the [P] into the [src].</span>")
+		user.visible_message(span_notice("[user] feeds [P] into the [src]."),
+			span_notice("You feed the [P] into the [src]."))
 	else if(istype(P, /obj/item/reagent_containers/food/snacks/meat/steak))
 		// Handle the steak item and spawn bigrat
 		qdel(P)
 		playsound(src, 'sound/vo/mobs/rat/rat_death.ogg', 100, FALSE, -1)
 		new /mob/living/simple_animal/hostile/retaliate/bigrat(loc)
-		user.visible_message("<span class='notice'>[user] feeds [P] into the [src], and something emerges!</span>",
+		user.visible_message(span_notice("[user] feeds [P] into the [src], and something emerges!"),
 			"<span class='danger'>You feed the [P] into the [src], and something emerges!</span>")
 	else
 

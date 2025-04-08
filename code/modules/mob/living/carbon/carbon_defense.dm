@@ -363,10 +363,10 @@
 //		if(buckled)
 //			to_chat(M, "<span class='warning'>I need to unbuckle [src] first to do that!</span>")
 //			return
-//		M.visible_message("<span class='notice'>[M] shakes [src] trying to get [p_them()] up!</span>", "<span class='notice'>I shake [src] trying to get [p_them()] up!</span>")
+//		M.visible_message(span_notice("[M] shakes [src] trying to get [p_them()] up!"), span_notice("I shake [src] trying to get [p_them()] up!"))
 //	else
-	M.visible_message("<span class='notice'>[M] shakes [src].</span>", \
-				"<span class='notice'>I shake [src] to get [p_their()] attention.</span>")
+	M.visible_message(span_notice("[M] shakes [src]."), \
+				span_notice("I shake [src] to get [p_their()] attention."))
 	shake_camera(src, 2, 1)
 	SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "hug", /datum/mood_event/hug)
 	for(var/datum/brain_trauma/trauma in M.get_traumas())
@@ -427,7 +427,7 @@
 		return 1
 	else if(damage == 0) // just enough protection
 		if(prob(20))
-			to_chat(src, "<span class='notice'>Something bright flashes in the corner of my vision!</span>")
+			to_chat(src, span_notice("Something bright flashes in the corner of my vision!"))
 
 
 /mob/living/carbon/soundbang_act(intensity = 1, stun_pwr = 20, damage_pwr = 5, deafen_pwr = 15)

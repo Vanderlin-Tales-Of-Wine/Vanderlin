@@ -540,9 +540,9 @@
 	if(I.tool_behaviour != TOOL_MINING)
 		return
 	. = TRUE
-	to_chat(user, "<span class='notice'>I start digging [src]...</span>")
+	to_chat(user, span_notice("I start digging [src]..."))
 	if(I.use_tool(src, user, 40, volume=50))
-		to_chat(user, "<span class='notice'>I finish digging.</span>")
+		to_chat(user, span_notice("I finish digging."))
 		deconstruct(TRUE)*/
 
 /obj/structure/mineral_door/welder_act(mob/living/user, obj/item/I) //override if the door is supposed to be flammable.

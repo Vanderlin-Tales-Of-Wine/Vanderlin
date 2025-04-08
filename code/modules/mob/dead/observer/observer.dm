@@ -984,11 +984,11 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		return
 	if(data_huds_on) //remove old huds
 		remove_data_huds()
-		to_chat(src, "<span class='notice'>Data HUDs disabled.</span>")
+		to_chat(src, span_notice("Data HUDs disabled."))
 		data_huds_on = 0
 	else
 		show_data_huds()
-		to_chat(src, "<span class='notice'>Data HUDs enabled.</span>")
+		to_chat(src, span_notice("Data HUDs enabled."))
 		data_huds_on = 1
 
 /mob/dead/observer/verb/toggle_health_scan()
@@ -999,10 +999,10 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if(!check_rights(0))
 		return
 	if(health_scan) //remove old huds
-		to_chat(src, "<span class='notice'>Health scan disabled.</span>")
+		to_chat(src, span_notice("Health scan disabled."))
 		health_scan = FALSE
 	else
-		to_chat(src, "<span class='notice'>Health scan enabled.</span>")
+		to_chat(src, span_notice("Health scan enabled."))
 		health_scan = TRUE
 
 /mob/dead/observer/verb/toggle_gas_scan()
@@ -1013,10 +1013,10 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if(!check_rights(0))
 		return
 	if(gas_scan)
-		to_chat(src, "<span class='notice'>Gas scan disabled.</span>")
+		to_chat(src, span_notice("Gas scan disabled."))
 		gas_scan = FALSE
 	else
-		to_chat(src, "<span class='notice'>Gas scan enabled.</span>")
+		to_chat(src, span_notice("Gas scan enabled."))
 		gas_scan = TRUE
 
 /mob/dead/observer/verb/restore_ghost_appearance()

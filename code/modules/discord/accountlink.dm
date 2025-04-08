@@ -12,7 +12,7 @@
 		return
 
 	if(!SSdiscord) // SS is still starting
-		to_chat(src, "<span class='notice'>The server is still starting up. Please wait before attempting to link your account!</span>")
+		to_chat(src, span_notice("The server is still starting up. Please wait before attempting to link your account!"))
 		return
 
 	if(!SSdiscord.enabled)

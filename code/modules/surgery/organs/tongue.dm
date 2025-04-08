@@ -99,20 +99,20 @@
 		return
 
 	if(T.mothership == mothership)
-		to_chat(H, "<span class='notice'>[src] is already attuned to the same channel as my own.</span>")
+		to_chat(H, span_notice("[src] is already attuned to the same channel as my own."))
 
-	H.visible_message("<span class='notice'>[H] holds [src] in their hands, and concentrates for a moment.</span>", "<span class='notice'>I attempt to modify the attunation of [src].</span>")
+	H.visible_message(span_notice("[H] holds [src] in their hands, and concentrates for a moment."), span_notice("I attempt to modify the attunation of [src]."))
 	if(do_after(H, 1.5 SECONDS, src))
-		to_chat(H, "<span class='notice'>I attune [src] to my own channel.</span>")
+		to_chat(H, span_notice("I attune [src] to my own channel."))
 		mothership = T.mothership
 
 /obj/item/organ/tongue/abductor/examine(mob/M)
 	. = ..()
 	if(HAS_TRAIT(M, TRAIT_ABDUCTOR_TRAINING) || HAS_TRAIT(M.mind, TRAIT_ABDUCTOR_TRAINING) || isobserver(M))
 		if(!mothership)
-			. += "<span class='notice'>It is not attuned to a specific mothership.</span>"
+			. += span_notice("It is not attuned to a specific mothership.")
 		else
-			. += "<span class='notice'>It is attuned to [mothership].</span>"
+			. += span_notice("It is attuned to [mothership].")
 
 /obj/item/organ/tongue/abductor/handle_speech(datum/source, list/speech_args)
 	//Hacks

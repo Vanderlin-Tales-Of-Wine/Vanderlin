@@ -23,11 +23,11 @@
 //		to_chat(src, "<B>If this is your first time here,</B> <a href='byond://?src=[REF(src)];rpprompt=1'>read this lore primer.</a>", handle_whitespace=FALSE)
 
 	if(GLOB.admin_notice)
-		to_chat(src, "<span class='notice'><b>Admin Notice:</b>\n \t [GLOB.admin_notice]</span>")
+		to_chat(src, span_notice("<b>Admin Notice:</b>\n \t [GLOB.admin_notice]"))
 
 	var/spc = CONFIG_GET(number/soft_popcap)
 	if(spc && living_player_count() >= spc)
-		to_chat(src, "<span class='notice'><b>Server Notice:</b>\n \t [CONFIG_GET(string/soft_popcap_message)]</span>")
+		to_chat(src, span_notice("<b>Server Notice:</b>\n \t [CONFIG_GET(string/soft_popcap_message)]"))
 
 	sight |= SEE_TURFS
 
@@ -45,7 +45,7 @@
 		if(client)
 			var/usedkey = get_display_ckey(ckey)
 			var/list/thinz = list("takes [client.p_their()] seat.", "settles in.", "joins the session", "joins the table.", "becomes a player.")
-			SEND_TEXT(world, "<span class='notice'>[usedkey] [pick(thinz)]</span>")
+			SEND_TEXT(world, span_notice("[usedkey] [pick(thinz)]"))
 
 	client.change_view(8)
 	sleep(1 SECONDS)

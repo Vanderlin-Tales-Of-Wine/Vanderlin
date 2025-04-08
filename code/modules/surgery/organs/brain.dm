@@ -96,12 +96,12 @@
 			to_chat(user, "<span class='warning'>[src] is far too damaged, there's nothing else we can do for it!</span>")
 			return
 
-		user.visible_message("<span class='notice'>[user] starts to pour the contents of [O] onto [src].</span>", "<span class='notice'>I start to slowly pour the contents of [O] onto [src].</span>")
+		user.visible_message(span_notice("[user] starts to pour the contents of [O] onto [src]."), span_notice("I start to slowly pour the contents of [O] onto [src]."))
 		if(!do_after(user, 6 SECONDS, src, (IGNORE_HELD_ITEM)))
 			to_chat(user, "<span class='warning'>I failed to pour [O] onto [src]!</span>")
 			return
 
-		user.visible_message("<span class='notice'>[user] pours the contents of [O] onto [src], causing it to reform its original shape and turn a slightly brighter shade of pink.</span>", "<span class='notice'>I pour the contents of [O] onto [src], causing it to reform its original shape and turn a slightly brighter shade of pink.</span>")
+		user.visible_message(span_notice("[user] pours the contents of [O] onto [src], causing it to reform its original shape and turn a slightly brighter shade of pink."), span_notice("I pour the contents of [O] onto [src], causing it to reform its original shape and turn a slightly brighter shade of pink."))
 		setOrganDamage(damage - (0.05 * maxHealth))	//heals a small amount, and by using "setorgandamage", we clear the failing variable if that was up
 		O.reagents.clear_reagents()
 		return
@@ -166,10 +166,10 @@
 						"<span class='danger'>[msg]</span>")
 
 		if(C != user)
-			to_chat(C, "<span class='notice'>[user] inserts [src] into your head.</span>")
+			to_chat(C, span_notice("[user] inserts [src] into your head."))
 			to_chat(user, "<span class='notice'>I insert [src] into [C]'s head.</span>")
 		else
-			to_chat(user, "<span class='notice'>I insert [src] into your head.</span>"	)
+			to_chat(user, span_notice("I insert [src] into your head.")	)
 
 		Insert(C)
 	else

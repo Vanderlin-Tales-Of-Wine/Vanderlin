@@ -63,7 +63,7 @@
 		if(do_after(user, 6 SECONDS, src))
 			var/list/waterl = list(/datum/reagent/water = 100)
 			W.reagents.add_reagent_list(waterl)
-			to_chat(user, "<span class='notice'>I fill [W] from [src].</span>")
+			to_chat(user, span_notice("I fill [W] from [src]."))
 			playsound(user, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 80, FALSE)
 			return
 	else ..()
@@ -78,7 +78,7 @@
 	playsound(src, 'sound/foley/ladder.ogg', 100, FALSE)
 	if(!do_after(user, 3 SECONDS, src))
 		return
-	user.visible_message("<span class='notice'>[user] climbs down [src].</span>", "<span class='notice'>I climb down [src].</span>")
+	user.visible_message(span_notice("[user] climbs down [src]."), span_notice("I climb down [src]."))
 	src.add_fingerprint(user)
 	var/turf/well = get_turf(src)
 	var/turf/destination = locate(well.x, well.y, well.z)

@@ -349,7 +349,7 @@
 
 				else
 					C.reagents.add_reagent(water_reagent, 100)
-				to_chat(user, "<span class='notice'>I fill [C] from [src].</span>")
+				to_chat(user, span_notice("I fill [C] from [src]."))
 			return
 	if(user.used_intent.type == /datum/intent/food)
 		if(mapped)
@@ -364,7 +364,7 @@
 				var/water_count = C.reagents.get_reagent_amount(water_reagent.type)
 				if(!mapped && C.reagents.remove_reagent(water_reagent,  C.reagents.total_volume))
 					set_watervolume(clamp(water_volume + water_count, 1, water_maximum))
-				to_chat(user, "<span class='notice'>I pour the contents of [C] into [src].</span>")
+				to_chat(user, span_notice("I pour the contents of [C] into [src]."))
 			return
 	. = ..()
 

@@ -17,9 +17,9 @@
 	. = ..()
 	if(key_type)
 		if(!inserted_key)
-			. += "<span class='notice'>Put a key inside it by clicking it with the key.</span>"
+			. += span_notice("Put a key inside it by clicking it with the key.")
 		else
-			. += "<span class='notice'>Alt-click [src] to remove the key.</span>"
+			. += span_notice("Alt-click [src] to remove the key.")
 
 /obj/vehicle/ridden/post_unbuckle_mob(mob/living/M)
 	remove_occupant(M)
@@ -32,7 +32,7 @@
 /obj/vehicle/ridden/attackby(obj/item/I, mob/user, params)
 	if(key_type && !is_key(inserted_key) && is_key(I))
 		if(user.transferItemToLoc(I, src))
-			to_chat(user, "<span class='notice'>I insert \the [I] into \the [src].</span>")
+			to_chat(user, span_notice("I insert \the [I] into \the [src]."))
 			if(inserted_key)	//just in case there's an invalid key
 				inserted_key.forceMove(drop_location())
 			inserted_key = I
@@ -46,7 +46,7 @@
 		if(!is_occupant(user))
 			to_chat(user, "<span class='warning'>I must be riding the [src] to remove [src]'s key!</span>")
 			return
-		to_chat(user, "<span class='notice'>I remove \the [inserted_key] from \the [src].</span>")
+		to_chat(user, span_notice("I remove \the [inserted_key] from \the [src]."))
 		inserted_key.forceMove(drop_location())
 		user.put_in_hands(inserted_key)
 		inserted_key = null

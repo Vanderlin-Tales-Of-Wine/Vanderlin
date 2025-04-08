@@ -167,9 +167,9 @@
 	if(!bypass_timer && (!do_after(user, 12 SECONDS, target) || user.zone_selected != BODY_ZONE_PRECISE_MOUTH))
 		if(user)
 			if(user == target)
-				user.visible_message("<span class='notice'>[user] decided not to shoot.</span>")
+				user.visible_message(span_notice("[user] decided not to shoot."))
 			else if(target && target.Adjacent(user))
-				target.visible_message("<span class='notice'>[user] has decided to spare [target]</span>", "<span class='notice'>[user] has decided to spare your life!</span>")
+				target.visible_message(span_notice("[user] has decided to spare [target]"), span_notice("[user] has decided to spare your life!"))
 		return
 
 	target.visible_message("<span class='warning'>[user] pulls the trigger!</span>", "<span class='danger'>[(user == target) ? "You pull" : "[user] pulls"] the trigger!</span>")

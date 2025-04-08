@@ -30,7 +30,7 @@
 					L.grab_ghost(force = TRUE) // even suicides
 					to_chat(L, "<span class='notice'>I rise with a start, I'm undead!!!</span>")
 				else if(L.stat != DEAD)
-					to_chat(L, "<span class='notice'>I feel great!</span>")
+					to_chat(L, span_notice("I feel great!"))
 			else
 				L.death(0)
 		else
@@ -58,7 +58,7 @@
 				target.grab_ghost(force = TRUE) // even suicides
 				to_chat(target, "<span class='notice'>I rise with a start, you're alive!!!</span>")
 			else if(target.stat != DEAD)
-				to_chat(target, "<span class='notice'>I feel great!</span>")
+				to_chat(target, span_notice("I feel great!"))
 
 /obj/projectile/magic/teleport
 	name = "bolt of teleportation"

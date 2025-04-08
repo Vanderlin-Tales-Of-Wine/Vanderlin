@@ -90,7 +90,7 @@
 		if(completely_silent)
 			return
 		if(M == user)
-			user.visible_message("<span class='notice'>[user] places [src] on [user.p_their()] [affecting].</span>", "<span class='notice'>I place a leech on my [affecting].</span>")
+			user.visible_message(span_notice("[user] places [src] on [user.p_their()] [affecting]."), span_notice("I place a leech on my [affecting]."))
 		else
 			user.visible_message("<span class='notice'>[user] places [src] on [M]'s [affecting].</span>", "<span class='notice'>I place a leech on [M]'s [affecting].</span>")
 		return
@@ -221,11 +221,11 @@
 	. = ..()
 	giving = !giving
 	if(giving)
-		user.visible_message("<span class='notice'>[user] squeezes [src].</span>",\
-							"<span class='notice'>I squeeze [src]. It will now infuse blood.</span>")
+		user.visible_message(span_notice("[user] squeezes [src]."),\
+							span_notice("I squeeze [src]. It will now infuse blood."))
 	else
-		user.visible_message("<span class='notice'>[user] squeezes [src].</span>",\
-							"<span class='notice'>I squeeze [src]. It will now extract blood.</span>")
+		user.visible_message(span_notice("[user] squeezes [src]."),\
+							span_notice("I squeeze [src]. It will now extract blood."))
 
 /obj/item/natural/worms/leech/propaganda
 	name = "accursed leech"

@@ -22,14 +22,14 @@
 
 	if(cistern && user.CanReach(src))
 		if(!contents.len)
-			to_chat(user, "<span class='notice'>The toilet is empty.</span>")
+			to_chat(user, span_notice("The toilet is empty."))
 		else
 			var/obj/item/I = pick(contents)
 			if(ishuman(user))
 				user.put_in_hands(I)
 			else
 				I.forceMove(drop_location())
-			to_chat(user, "<span class='notice'>I find [I] in the toilet.</span>")
+			to_chat(user, span_notice("I find [I] in the toilet."))
 			w_items -= I.w_class
 
 /obj/structure/toilet/update_icon_state()
@@ -65,13 +65,13 @@
 				to_chat(user, "<span class='warning'>\The [I] is stuck to your hand, you cannot put it in the cistern!</span>")
 				return
 			w_items += I.w_class
-			to_chat(user, "<span class='notice'>I carefully place [I] into the toilet.</span>")
+			to_chat(user, span_notice("I carefully place [I] into the toilet."))
 
 	else if(istype(I, /obj/item/reagent_containers))
 		if (!open)
 			return
 		var/obj/item/reagent_containers/RG = I
 		RG.reagents.add_reagent(/datum/reagent/water/gross, min(RG.volume - RG.reagents.total_volume, RG.amount_per_transfer_from_this))
-		to_chat(user, "<span class='notice'>I fill [RG] from [src].</span>")
+		to_chat(user, span_notice("I fill [RG] from [src]."))
 	else
 		return ..()

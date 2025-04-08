@@ -412,7 +412,7 @@
 					res_replenish = world.time + 8 MINUTES
 				var/obj/item/B = new /obj/item/grown/log/tree/stick(user.loc)
 				user.put_in_hands(B)
-				user.visible_message("<span class='notice'>[user] finds [B] in [src].</span>")
+				user.visible_message(span_notice("[user] finds [B] in [src]."))
 				return
 			user.visible_message("<span class='warning'>[user] searches through [src].</span>")
 			if(!res)

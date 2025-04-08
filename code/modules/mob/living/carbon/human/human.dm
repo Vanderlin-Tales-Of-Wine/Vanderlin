@@ -342,8 +342,8 @@
 		return 0
 
 	if(C.cpr_time < world.time + 30)
-		visible_message("<span class='notice'>[src] is trying to perform CPR on [C.name]!</span>", \
-						"<span class='notice'>I try to perform CPR on [C.name]... Hold still!</span>")
+		visible_message(span_notice("[src] is trying to perform CPR on [C.name]!"), \
+						span_notice("I try to perform CPR on [C.name]... Hold still!"))
 		if(!do_after(src, 3 SECONDS, C))
 			to_chat(src, "<span class='warning'>I fail to perform CPR on [C]!</span>")
 			return 0
@@ -354,7 +354,7 @@
 		if(C.health > C.crit_threshold)
 			return
 
-		src.visible_message("<span class='notice'>[src] performs CPR on [C.name]!</span>", "<span class='notice'>I perform CPR on [C.name].</span>")
+		src.visible_message(span_notice("[src] performs CPR on [C.name]!"), span_notice("I perform CPR on [C.name]."))
 		SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "perform_cpr", /datum/mood_event/perform_cpr)
 		C.cpr_time = world.time
 		log_combat(src, C, "CPRed")
@@ -631,9 +631,9 @@
 
 	if(can_be_firemanned(target) && !incapacitated(FALSE, TRUE))
 		if(backnotshoulder)
-			visible_message("<span class='notice'>[src] starts lifting [target] onto their back..</span>")
+			visible_message(span_notice("[src] starts lifting [target] onto their back.."))
 		else
-			visible_message("<span class='notice'>[src] starts lifting [target] onto their shoulder..</span>")
+			visible_message(span_notice("[src] starts lifting [target] onto their shoulder.."))
 		if(do_after(src, carrydelay, target))
 			//Second check to make sure they're still valid to be carried
 			if(can_be_firemanned(target) && !incapacitated(FALSE, TRUE))
@@ -643,7 +643,7 @@
 
 /mob/living/carbon/human/proc/piggyback(mob/living/carbon/target)
 	if(can_piggyback(target))
-		visible_message("<span class='notice'>[target] starts to climb onto [src]...</span>")
+		visible_message(span_notice("[target] starts to climb onto [src]..."))
 		if(do_after(target, 1.5 SECONDS, src))
 			if(can_piggyback(target))
 				if(target.incapacitated(FALSE, TRUE) || incapacitated(FALSE, TRUE))

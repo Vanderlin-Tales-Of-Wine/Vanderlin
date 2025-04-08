@@ -205,34 +205,34 @@ GLOBAL_PROTECT(exp_to_update)
 			var/rolefound = FALSE
 			play_records[EXP_TYPE_LIVING] += minutes
 			if(announce_changes)
-				to_chat(src,"<span class='notice'>I got: [minutes] Living EXP!</span>")
+				to_chat(src,span_notice("I got: [minutes] Living EXP!"))
 			if(!is_unassigned_job(mob.mind.assigned_role))
 				for(var/job in SSjob.name_occupations)
 					if(mob.mind.assigned_role.title == job)
 						rolefound = TRUE
 						play_records[job] += minutes
 						if(announce_changes)
-							to_chat(src,"<span class='notice'>I got: [minutes] [job] EXP!</span>")
+							to_chat(src,span_notice("I got: [minutes] [job] EXP!"))
 				if(mob.mind.special_role && !(mob.mind.datum_flags & DF_VAR_EDITED))
 					var/trackedrole = mob.mind.special_role
 					play_records[trackedrole] += minutes
 					if(announce_changes)
-						to_chat(src,"<span class='notice'>I got: [minutes] [trackedrole] EXP!</span>")
+						to_chat(src,span_notice("I got: [minutes] [trackedrole] EXP!"))
 			if(!rolefound)
 				play_records["Unknown"] += minutes
 		else
 			if(holder && !holder.deadmined)
 				play_records[EXP_TYPE_ADMIN] += minutes
 				if(announce_changes)
-					to_chat(src,"<span class='notice'>I got: [minutes] Admin EXP!</span>")
+					to_chat(src,span_notice("I got: [minutes] Admin EXP!"))
 			else
 				play_records[EXP_TYPE_GHOST] += minutes
 				if(announce_changes)
-					to_chat(src,"<span class='notice'>I got: [minutes] Ghost EXP!</span>")
+					to_chat(src,span_notice("I got: [minutes] Ghost EXP!"))
 	else if(isobserver(mob))
 		play_records[EXP_TYPE_GHOST] += minutes
 		if(announce_changes)
-			to_chat(src,"<span class='notice'>I got: [minutes] Ghost EXP!</span>")
+			to_chat(src,span_notice("I got: [minutes] Ghost EXP!"))
 	else if(minutes)	//Let "refresh" checks go through
 		return
 

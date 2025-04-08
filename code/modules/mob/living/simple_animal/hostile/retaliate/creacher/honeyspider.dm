@@ -113,7 +113,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/spider/try_tame(obj/item/O, mob/user)
 	if(!stat)
-		user.visible_message("<span class='info'>[user] hand-feeds [O] to [src].</span>", "<span class='notice'>I hand-feed [O] to [src].</span>")
+		user.visible_message("<span class='info'>[user] hand-feeds [O] to [src].</span>", span_notice("I hand-feed [O] to [src]."))
 		playsound(loc,'sound/misc/eat.ogg', rand(30,60), TRUE)
 		qdel(O)
 		food = min(food + 30, 100)

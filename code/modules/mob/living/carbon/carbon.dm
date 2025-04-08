@@ -212,7 +212,7 @@
 						if(G.grab_state < GRAB_AGGRESSIVE)
 							return
 						if(HAS_TRAIT(src, TRAIT_PACIFISM))
-							to_chat(src, "<span class='notice'>I gently let go of [throwable_mob].</span>")
+							to_chat(src, span_notice("I gently let go of [throwable_mob]."))
 							return
 						thrown_thing = throwable_mob
 						thrown_speed = 1
@@ -243,7 +243,7 @@
 				dropItemToGround(I, silent = TRUE)
 
 			if(HAS_TRAIT(src, TRAIT_PACIFISM) && I.throwforce)
-				to_chat(src, "<span class='notice'>I set [I] down gently on the ground.</span>")
+				to_chat(src, span_notice("I set [I] down gently on the ground."))
 				return
 
 
@@ -334,7 +334,7 @@
 		if(STASTR > 15)
 			buckle_cd = 3 SECONDS
 		visible_message("<span class='warning'>[src] attempts to struggle free!</span>", \
-					"<span class='notice'>I attempt to struggle free...</span>")
+					span_notice("I attempt to struggle free..."))
 		if(do_after(src, buckle_cd, timed_action_flags = (IGNORE_HELD_ITEM)))
 			if(!buckled)
 				return
@@ -355,7 +355,7 @@
 		divine_fire_stacks = max(0, divine_fire_stacks - 5)
 		visible_message("<span class='warning'>[src] rolls on the ground, trying to put [p_them()]self out!</span>")
 	else
-		visible_message("<span class='notice'>[src] pats the flames to extinguish them.</span>")
+		visible_message(span_notice("[src] pats the flames to extinguish them."))
 	sleep(30)
 	if(fire_stacks + divine_fire_stacks <= 0)
 		ExtinguishMob(TRUE)
@@ -1183,7 +1183,7 @@
 			var/datum/martial_art/MA = new chosenart
 			MA.teach(src)
 			log_admin("[key_name(usr)] has taught [MA] to [key_name(src)].")
-			message_admins("<span class='notice'>[key_name_admin(usr)] has taught [MA] to [key_name_admin(src)].</span>")
+			message_admins(span_notice("[key_name_admin(usr)] has taught [MA] to [key_name_admin(src)]."))
 	if(href_list[VV_HK_GIVE_TRAUMA])
 		if(!check_rights(NONE))
 			return
@@ -1199,13 +1199,13 @@
 		var/datum/brain_trauma/BT = gain_trauma(result)
 		if(BT)
 			log_admin("[key_name(usr)] has traumatized [key_name(src)] with [BT.name]")
-			message_admins("<span class='notice'>[key_name_admin(usr)] has traumatized [key_name_admin(src)] with [BT.name].</span>")
+			message_admins(span_notice("[key_name_admin(usr)] has traumatized [key_name_admin(src)] with [BT.name]."))
 	if(href_list[VV_HK_CURE_TRAUMA])
 		if(!check_rights(NONE))
 			return
 		cure_all_traumas(TRAUMA_RESILIENCE_ABSOLUTE)
 		log_admin("[key_name(usr)] has cured all traumas from [key_name(src)].")
-		message_admins("<span class='notice'>[key_name_admin(usr)] has cured all traumas from [key_name_admin(src)].</span>")
+		message_admins(span_notice("[key_name_admin(usr)] has cured all traumas from [key_name_admin(src)]."))
 
 /mob/living/carbon/can_resist()
 	return bodyparts.len > 2 && ..()

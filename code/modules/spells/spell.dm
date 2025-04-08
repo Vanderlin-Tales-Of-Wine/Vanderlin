@@ -139,7 +139,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 
 	var/recharge_time = 50 //recharge time in deciseconds if charge_type = "recharge" or starting charges if charge_type = "charges"
 	var/charge_counter = 0 //can only cast spells if it equals recharge, ++ each decisecond if charge_type = "recharge" or -- each cast if charge_type = "charges"
-	var/still_recharging_msg = "<span class='notice'>The spell is still recharging.</span>"
+	var/still_recharging_msg = span_notice("The spell is still recharging.")
 	var/recharging = TRUE
 
 	var/cast_without_targets = FALSE
@@ -263,7 +263,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 		var/antimagic = user.anti_magic_check(TRUE, FALSE, FALSE, 0, TRUE)
 		if(antimagic)
 			if(isitem(antimagic))
-				to_chat(user, "<span class='notice'>[antimagic] is interfering with your magic.</span>")
+				to_chat(user, span_notice("[antimagic] is interfering with your magic."))
 			else
 				to_chat(user, "<span class='warning'>Magic seems to flee from you, you can't gather enough power to cast this spell.</span>")
 			return FALSE
@@ -664,6 +664,6 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 
 /obj/effect/proc_holder/spell/self/basic_heal/cast(mob/living/carbon/human/user) //Note the lack of "list/targets" here. Instead, use a "user" var depending on mob requirements.
 	//Also, notice the lack of a "for()" statement that looks through the targets. This is, again, because the spell can only have a single target.
-	user.visible_message("<span class='warning'>A wreath of gentle light passes over [user]!</span>", "<span class='notice'>I wreath myself in healing light!</span>")
+	user.visible_message("<span class='warning'>A wreath of gentle light passes over [user]!</span>", span_notice("I wreath myself in healing light!"))
 	user.adjustBruteLoss(-10)
 	user.adjustFireLoss(-10)

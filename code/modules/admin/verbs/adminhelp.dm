@@ -212,7 +212,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 		var/admin_number_present = send2irc_adminless_only(initiator_ckey, "Ticket #[id]: [name]")
 		log_admin_private("Ticket #[id]: [key_name(initiator)]: [name] - heard by [admin_number_present] non-AFK admins who have +BAN.")
 		if(admin_number_present <= 0)
-			to_chat(C, "<span class='notice'>No active admins are online, my adminhelp was sent to the admins via Plexora.</span>")
+			to_chat(C, span_notice("No active admins are online, my adminhelp was sent to the admins via Plexora."))
 			heard_by_no_admins = TRUE
 
 	GLOB.ahelp_tickets.active_tickets += src

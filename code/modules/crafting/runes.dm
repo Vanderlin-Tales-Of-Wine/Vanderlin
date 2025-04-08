@@ -15,13 +15,13 @@
 	return FALSE
 
 /obj/item/rune/proc/on_start(mob/user)
-	to_chat(user, "<span class='notice'>I start reading [name]...</span>")
+	to_chat(user, span_notice("I start reading [name]..."))
 
 /obj/item/rune/proc/on_stopped(mob/user)
-	to_chat(user, "<span class='notice'>I stop reading...</span>")
+	to_chat(user, span_notice("I stop reading..."))
 
 /obj/item/rune/proc/on_finished(mob/user)
-	to_chat(user, "<span class='notice'>I finish reading [name]!</span>")
+	to_chat(user, span_notice("I finish reading [name]!"))
 
 /obj/item/rune/proc/onlearned(mob/user)
 	qdel(src)
@@ -31,7 +31,7 @@
 		//to_chat(user, "<span class='warning'>You're already reading this!</span>")
 		return FALSE
 	if(already_known(user))
-		to_chat(user, "<span class='notice'>I already know this spell.</span>")
+		to_chat(user, span_notice("I already know this spell."))
 		return FALSE
 	if(!user.mind?.get_skill_level(/datum/skill/magic/arcane))
 		to_chat(user, "<span class='warning'>I don't have the knowledge to learn this spell.</span>")
@@ -39,7 +39,7 @@
 	on_start(user)
 	reading = TRUE
 	if(remarks.len)
-		to_chat(user, "<span class='notice'>[pick(remarks)]</span>")
+		to_chat(user, span_notice("[pick(remarks)]"))
 	for(var/i=1, i<=pages_to_mastery, i++)
 		if(!turn_page(user))
 			on_stopped()
@@ -66,13 +66,13 @@
 		if(knownspell.type == spell)
 			spell = null
 	if(spell)
-		to_chat(user, "<span class='notice'>The power of [spellname] is emblazened in your mind!</span>")
+		to_chat(user, span_notice("The power of [spellname] is emblazened in your mind!"))
 		var/obj/effect/proc_holder/spell/S = new spell
 		user.mind.AddSpell(S)
 		if(user.mind.get_skill_level(/datum/skill/magic/arcane) <= 5)
 			user.mind.adjust_experience(/datum/skill/magic/arcane, 100, FALSE)
 	else if(user.mind.get_skill_level(/datum/skill/magic/arcane) <= 5)
-		to_chat(user, "<span class='notice'>Arcane power is emblazened in your mind!</span>")
+		to_chat(user, span_notice("Arcane power is emblazened in your mind!"))
 		user.mind.adjust_experience(/datum/skill/magic/arcane, 150, FALSE)
 	user.visible_message("<span class='warning'>[src] glows dark, and then crumbles!</span>")
 	qdel(src)

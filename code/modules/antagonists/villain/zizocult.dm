@@ -607,7 +607,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 		var/mob/living/carbon/human/H = M
 		if(iszizocultist(H) || iszizolackey(H))
 			H.blood_volume = BLOOD_VOLUME_MAXIMUM
-			to_chat(H, "<span class='notice'>My elixir of life is stagnant once again.</span>")
+			to_chat(H, span_notice("My elixir of life is stagnant once again."))
 			qdel(src)
 		else
 			if(!do_after(user, 2 SECONDS, H))
@@ -797,7 +797,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 /proc/bunnylegs(mob/user, turf/C)
 	for(var/mob/living/carbon/human/H in C.contents)
 		ADD_TRAIT(H, TRAIT_ZJUMP, TRAIT_GENERIC)
-		to_chat(H.mind, "<span class='notice'>I feel like my legs have become stronger.</span>")
+		to_chat(H.mind, span_notice("I feel like my legs have become stronger."))
 		break
 
 /datum/ritual/fleshmend
@@ -812,7 +812,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	for(var/mob/living/carbon/human/H in C.contents)
 		H.playsound_local(C, 'sound/misc/vampirespell.ogg', 100, FALSE, pressure_affected = FALSE)
 		H.fully_heal()
-		to_chat(H.mind, "<span class='notice'>ZIZO EMPOWERS ME!</span>")
+		to_chat(H.mind, span_notice("ZIZO EMPOWERS ME!"))
 		break
 
 /datum/ritual/darkeyes
@@ -834,7 +834,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 			QDEL_NULL(eyes)
 		eyes = new /obj/item/organ/eyes/night_vision/zombie
 		eyes.Insert(H)
-		to_chat(H.mind, "<span class='notice'>I no longer fear the dark.</span>")
+		to_chat(H.mind, span_notice("I no longer fear the dark."))
 		break
 
 /datum/ritual/nopain
@@ -851,7 +851,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 /proc/nopain(mob/user, turf/C)
 	for(var/mob/living/carbon/human/H in C.contents)
 		ADD_TRAIT(user, TRAIT_NOPAIN, TRAIT_GENERIC)
-		to_chat(H.mind, "<span class='notice'>I no longer feel pain, but it has come at a terrible cost.</span>")
+		to_chat(H.mind, span_notice("I no longer feel pain, but it has come at a terrible cost."))
 		H.change_stat(STATKEY_STR, -2)
 		H.change_stat(STATKEY_CON, -3)
 		break

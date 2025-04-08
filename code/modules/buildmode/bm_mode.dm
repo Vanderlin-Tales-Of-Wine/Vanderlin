@@ -84,7 +84,7 @@
 			handle_selected_area(c, params)
 			deselect_region()
 		else
-			to_chat(c, "<span class='notice'>Region selection canceled!</span>")
+			to_chat(c, span_notice("Region selection canceled!"))
 			deselect_region()
 	return
 

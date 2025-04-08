@@ -66,7 +66,7 @@
 				else
 					tablepush(user, pushed_mob)
 			if(user.used_intent.type == INTENT_HELP)
-				pushed_mob.visible_message("<span class='notice'>[user] begins to place [pushed_mob] onto [src]...</span>", \
+				pushed_mob.visible_message(span_notice("[user] begins to place [pushed_mob] onto [src]..."), \
 									"<span class='danger'>[user] begins to place [pushed_mob] onto [src]...</span>")
 				if(do_after(user, 3.5 SECONDS, pushed_mob))
 					tableplace(user, pushed_mob)
@@ -76,8 +76,8 @@
 		else if(user.pulling.pass_flags & PASSTABLE)
 			user.Move_Pulled(src)
 			if (user.pulling.loc == loc)
-				user.visible_message("<span class='notice'>[user] places [user.pulling] onto [src].</span>",
-					"<span class='notice'>I place [user.pulling] onto [src].</span>")
+				user.visible_message(span_notice("[user] places [user.pulling] onto [src]."),
+					span_notice("I place [user.pulling] onto [src]."))
 				user.stop_pulling()
 	return ..()
 
@@ -102,8 +102,8 @@
 /obj/structure/table/proc/tableplace(mob/living/user, mob/living/pushed_mob)
 	pushed_mob.forceMove(loc)
 	pushed_mob.set_resting(TRUE, TRUE)
-	pushed_mob.visible_message("<span class='notice'>[user] places [pushed_mob] onto [src].</span>", \
-								"<span class='notice'>[user] places [pushed_mob] onto [src].</span>")
+	pushed_mob.visible_message(span_notice("[user] places [pushed_mob] onto [src]."), \
+								span_notice("[user] places [pushed_mob] onto [src]."))
 	log_combat(user, pushed_mob, "places", null, "onto [src]")
 
 /obj/structure/table/proc/tablepush(mob/living/user, mob/living/pushed_mob)
@@ -145,13 +145,13 @@
 /obj/structure/table/attackby(obj/item/I, mob/user, params)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(I.tool_behaviour == TOOL_SCREWDRIVER && deconstruction_ready)
-			to_chat(user, "<span class='notice'>I start disassembling [src]...</span>")
+			to_chat(user, span_notice("I start disassembling [src]..."))
 			if(I.use_tool(src, user, 20, volume=50))
 				deconstruct(TRUE)
 			return
 
 		if(I.tool_behaviour == TOOL_WRENCH && deconstruction_ready)
-			to_chat(user, "<span class='notice'>I start deconstructing [src]...</span>")
+			to_chat(user, span_notice("I start deconstructing [src]..."))
 			if(I.use_tool(src, user, 40, volume=50))
 				playsound(src.loc, 'sound/blank.ogg', 50, TRUE)
 				deconstruct(TRUE, 1)
@@ -567,7 +567,7 @@
 /obj/structure/table/optable/tablepush(mob/living/user, mob/living/pushed_mob)
 	pushed_mob.forceMove(loc)
 	pushed_mob.set_resting(TRUE, TRUE)
-	visible_message("<span class='notice'>[user] has laid [pushed_mob] on [src].</span>")
+	visible_message(span_notice("[user] has laid [pushed_mob] on [src]."))
 	check_patient()
 
 /obj/structure/table/optable/proc/check_patient()

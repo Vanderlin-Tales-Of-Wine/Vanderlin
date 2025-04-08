@@ -186,8 +186,8 @@
 				blade_status = GUILLOTINE_BLADE_SHARPENING
 				if(do_after(user, 7 DECISECONDS, src))
 					blade_status = GUILLOTINE_BLADE_RAISED
-					user.visible_message("<span class='notice'>[user] sharpens the large blade of the guillotine.</span>",
-						              "<span class='notice'>I sharpen the large blade of the guillotine.</span>")
+					user.visible_message(span_notice("[user] sharpens the large blade of the guillotine."),
+						              span_notice("I sharpen the large blade of the guillotine."))
 					blade_sharpness += 1
 					playsound(src, 'sound/items/sharpen_long1.ogg', 100, TRUE)
 					return

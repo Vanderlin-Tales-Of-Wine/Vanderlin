@@ -130,7 +130,7 @@
 /obj/item/organ/ears/penguin/Remove(mob/living/carbon/human/H,  special = 0)
 	. = ..()
 	if(istype(H))
-		to_chat(H, "<span class='notice'>My sense of balance comes back to you.</span>")
+		to_chat(H, span_notice("My sense of balance comes back to you."))
 		QDEL_NULL(waddle)
 
 /obj/item/organ/ears/bronze

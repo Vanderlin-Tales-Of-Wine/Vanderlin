@@ -5,9 +5,9 @@
 	switch(M.used_intent.type)
 		if(INTENT_HELP)
 			if (health > 0)
-				visible_message("<span class='notice'>[M] [response_help_continuous] [src].</span>", \
-								"<span class='notice'>[M] [response_help_continuous] you.</span>", null, null, M)
-				to_chat(M, "<span class='notice'>I [response_help_simple] [src].</span>")
+				visible_message(span_notice("[M] [response_help_continuous] [src]."), \
+								span_notice("[M] [response_help_continuous] you."), null, null, M)
+				to_chat(M, span_notice("I [response_help_simple] [src]."))
 				playsound(loc, 'sound/blank.ogg', 50, TRUE, -1)
 			return TRUE
 
@@ -134,9 +134,9 @@
 			return 1
 	if (M.used_intent.type == INTENT_HELP)
 		if (health > 0)
-			visible_message("<span class='notice'>[M.name] [response_help_continuous] [src].</span>", \
-							"<span class='notice'>[M.name] [response_help_continuous] you.</span>", null, COMBAT_MESSAGE_RANGE, M)
-			to_chat(M, "<span class='notice'>I [response_help_simple] [src].</span>")
+			visible_message(span_notice("[M.name] [response_help_continuous] [src]."), \
+							span_notice("[M.name] [response_help_continuous] you."), null, COMBAT_MESSAGE_RANGE, M)
+			to_chat(M, span_notice("I [response_help_simple] [src]."))
 			playsound(loc, 'sound/blank.ogg', 50, TRUE, -1)
 
 

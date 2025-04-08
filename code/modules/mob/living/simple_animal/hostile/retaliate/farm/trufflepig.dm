@@ -200,7 +200,7 @@
 			if(Adjacent(M))
 				walk_towards(src, M, 1)
 				sleep(3)
-				visible_message("<span class='notice'>The pig devours the vulnerable truffles!</span>")
+				visible_message(span_notice("The pig devours the vulnerable truffles!"))
 				stop_automated_movement = 0
 				hangry_meter = 0
 				playsound(src,'sound/misc/eat.ogg', rand(30,60), TRUE)
@@ -211,7 +211,7 @@
 	. = ..()
 	hangry_meter += 1
 	if(hangry_meter > 9)
-		to_chat(M, "<span class='notice'>The pig squeals in anger. Its sulking and refusing to work until it gets delicious truffles.</span>")
+		to_chat(M, span_notice("The pig squeals in anger. Its sulking and refusing to work until it gets delicious truffles."))
 		playsound(get_turf(src), 'sound/vo/mobs/pig/hangry.ogg', 120, TRUE, -1)
 		return
 	if(M.used_intent.type == INTENT_HELP)
@@ -231,19 +231,19 @@
 
 /mob/living/simple_animal/hostile/retaliate/trufflepig/attackby(obj/item/O, mob/user, params)
 	if(istype(O, /obj/item/reagent_containers/food/snacks/truffles))
-		visible_message("<span class='notice'>The pig munches the truffles, looking happy.</span>")
+		visible_message(span_notice("The pig munches the truffles, looking happy."))
 		hangry_meter = 0
 		playsound(src,'sound/misc/eat.ogg', rand(30,60), TRUE)
 		qdel(O)
 
 	if(istype(O, /obj/item/reagent_containers/food/snacks/toxicshrooms))
-		visible_message("<span class='notice'>The pig munches the truffles reluctantly.</span>")
+		visible_message(span_notice("The pig munches the truffles reluctantly."))
 		playsound(src,'sound/misc/eat.ogg', rand(30,60), TRUE)
 		qdel(O)
 		playsound(get_turf(src), 'sound/vo/mobs/pig/hangry.ogg', 100, TRUE, -1)
 		sleep(20)
 		playsound(get_turf(src), 'sound/vo/mobs/pig/hangry.ogg', 100, TRUE, -1)
-		visible_message("<span class='notice'>The pig shivers.</span>")
+		visible_message(span_notice("The pig shivers."))
 		sleep(10)
 		death()
 	else

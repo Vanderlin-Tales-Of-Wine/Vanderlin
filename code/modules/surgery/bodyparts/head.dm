@@ -101,7 +101,7 @@
 	for(var/obj/item/I in src)
 		if(I == brain)
 			if(user)
-				user.visible_message("<span class='warning'>[user] saws [src] open and pulls out a brain!</span>", "<span class='notice'>I saw [src] open and pull out a brain.</span>")
+				user.visible_message("<span class='warning'>[user] saws [src] open and pulls out a brain!</span>", span_notice("I saw [src] open and pull out a brain."))
 			if(brainmob)
 				brainmob.forceMove(brain)
 				brain.brainmob = brainmob

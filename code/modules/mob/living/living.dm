@@ -78,7 +78,7 @@
 
 /mob/living/proc/ZImpactDamage(turf/T, levels)
 	if(!density) //lets cats and similar avoid death by falling
-		visible_message("<span class='notice'>The creature lands unharmed...</span>")
+		visible_message(span_notice("The creature lands unharmed..."))
 		return
 	adjustBruteLoss((levels * 10) ** 1.5)
 	AdjustStun(levels * 20)
@@ -990,7 +990,7 @@
 		flaggy.pixel_y = 12
 		flick_overlay_view(flaggy, src, 150)
 		Stun(150)
-		src.visible_message("<span class='notice'>[src] yields!</span>")
+		src.visible_message(span_notice("[src] yields!"))
 		playsound(src, 'sound/misc/surrender.ogg', 100, FALSE, -1)
 		toggle_cmode()
 		sleep(150)
@@ -1218,9 +1218,9 @@
 			to_chat(src, "<span class='warning'>\The [what.name] doesn't fit in that place!</span>")
 			return
 
-		who.visible_message("<span class='notice'>[src] tries to put [what] on [who].</span>", \
-						"<span class='notice'>[src] tries to put [what] on you.</span>", null, null, src)
-		to_chat(src, "<span class='notice'>I try to put [what] on [who]...</span>")
+		who.visible_message(span_notice("[src] tries to put [what] on [who]."), \
+						span_notice("[src] tries to put [what] on you."), null, null, src)
+		to_chat(src, span_notice("I try to put [what] on [who]..."))
 		if(do_after(src, what.equip_delay_other, who))
 			if(what && Adjacent(who) && what.mob_can_equip(who, src, final_where, TRUE, TRUE))
 				if(temporarilyRemoveItemFromInventory(what))
@@ -1866,7 +1866,7 @@
 					to_chat(src, "<span class='warning'>A wet wind blows.</span>")
 					return
 				if("rainbow")
-					to_chat(src, "<span class='notice'>A beautiful rainbow!</span>")
+					to_chat(src, span_notice("A beautiful rainbow!"))
 					return
 				if("fog")
 					to_chat(src, "<span class='warning'>I can't see anything, the fog has set in.</span>")

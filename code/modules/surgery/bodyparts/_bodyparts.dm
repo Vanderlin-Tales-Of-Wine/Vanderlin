@@ -137,7 +137,7 @@
 			return
 		if(do_after(user, 5 SECONDS, src))
 			user.visible_message("<span class='warning'>[user] consumes [src]!</span>",\
-							"<span class='notice'>I consume [src]!</span>")
+							span_notice("I consume [src]!"))
 			playsound(get_turf(user), pick(dismemsound), 100, FALSE, -1)
 			new /obj/effect/gibspawner/generic(get_turf(src), user)
 			user.fully_heal()
@@ -187,10 +187,10 @@
 			if(!H.get_bodypart(body_zone) && !animal_origin)
 				if(H == user)
 					H.visible_message("<span class='warning'>[H] jams [src] into [H.p_their()] empty socket!</span>",\
-					"<span class='notice'>I force [src] into my empty socket, and it locks into place!</span>")
+					span_notice("I force [src] into my empty socket, and it locks into place!"))
 				else
 					H.visible_message("<span class='warning'>[user] jams [src] into [H]'s empty socket!</span>",\
-					"<span class='notice'>[user] forces [src] into my empty socket, and it locks into place!</span>")
+					span_notice("[user] forces [src] into my empty socket, and it locks into place!"))
 				user.temporarilyRemoveItemFromInventory(src, TRUE)
 				attach_limb(C)
 				return
@@ -201,11 +201,11 @@
 		add_fingerprint(user)
 		playsound(loc, 'sound/combat/hits/bladed/genstab (1).ogg', 60, vary = FALSE)
 		user.visible_message("<span class='warning'>[user] begins to cut open [src].</span>",\
-			"<span class='notice'>You begin to cut open [src]...</span>")
+			span_notice("You begin to cut open [src]..."))
 		if(do_after(user, 5 SECONDS, src))
 			drop_organs(user)
 			user.visible_message("<span class='danger'>[user] cuts [src] open!</span>",\
-				"<span class='notice'>You finish cutting [src] open.</span>")
+				span_notice("You finish cutting [src] open."))
 		return
 	return ..()
 

@@ -121,7 +121,7 @@
 	if(flags & SHOCK_ILLUSION)
 		return
 	adjust_charge(shock_damage * siemens_coeff * 2)
-	to_chat(owner, "<span class='notice'>I absorb some of the shock into my body!</span>")
+	to_chat(owner, span_notice("I absorb some of the shock into my body!"))
 
 /obj/item/organ/stomach/ethereal/proc/adjust_charge(amount)
 	crystal_charge = CLAMP(crystal_charge + amount, ETHEREAL_CHARGE_NONE, ETHEREAL_CHARGE_FULL)

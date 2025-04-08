@@ -222,7 +222,7 @@ GLOBAL_VAR_INIT(OOC_COLOR, normal_ooc_colour)//If this is null, use the CSS for 
 	if(GLOB.admin_notice)
 		to_chat(src, "<span class='boldnotice'>Admin Notice:</span>\n \t [GLOB.admin_notice]")
 	else
-		to_chat(src, "<span class='notice'>There are no admin notices at the moment.</span>")
+		to_chat(src, span_notice("There are no admin notices at the moment."))
 #ifdef TESTSERVER
 /client/verb/smiteselfverily()
 	set name = "KillSelf"
@@ -386,7 +386,7 @@ GLOBAL_VAR_INIT(OOC_COLOR, normal_ooc_colour)//If this is null, use the CSS for 
 	if(motd)
 		to_chat(src, "<div class=\"motd\">[motd]</div>", handle_whitespace=FALSE)
 	else
-		to_chat(src, "<span class='notice'>The Message of the Day has not been set.</span>")
+		to_chat(src, span_notice("The Message of the Day has not been set."))
 
 /client/proc/self_notes()
 	set name = "View Admin Remarks"
@@ -398,7 +398,7 @@ GLOBAL_VAR_INIT(OOC_COLOR, normal_ooc_colour)//If this is null, use the CSS for 
 	if(!check_rights(0))
 		return
 	if(!CONFIG_GET(flag/see_own_notes))
-		to_chat(usr, "<span class='notice'>Sorry, that function is not enabled on this server.</span>")
+		to_chat(usr, span_notice("Sorry, that function is not enabled on this server."))
 		return
 
 	browse_messages(null, usr.ckey, null, TRUE)
@@ -409,7 +409,7 @@ GLOBAL_VAR_INIT(OOC_COLOR, normal_ooc_colour)//If this is null, use the CSS for 
 	set desc = ""
 
 	if(!CONFIG_GET(flag/use_exp_tracking))
-		to_chat(usr, "<span class='notice'>Sorry, tracking is currently disabled.</span>")
+		to_chat(usr, span_notice("Sorry, tracking is currently disabled."))
 		return
 
 	var/list/body = list()

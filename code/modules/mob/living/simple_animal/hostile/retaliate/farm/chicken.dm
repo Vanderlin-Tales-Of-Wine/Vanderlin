@@ -141,7 +141,7 @@
 			//if no nests, look for chaff and build one
 			if(!foundnests.len)
 				new /obj/structure/fluff/nest(loc)
-				visible_message("<span class='notice'>[src] builds a nest.</span>")
+				visible_message(span_notice("[src] builds a nest."))
 
 /mob/living/simple_animal/hostile/retaliate/chicken/proc/hatch_eggs()
 	for(var/obj/item/reagent_containers/food/snacks/egg/egg in loc)

@@ -15,7 +15,7 @@
 	set instant = TRUE
 	set name = ".display_ping"
 	var/thingy = round(pingfromtime(time)/2,1)
-	to_chat(src, "<span class='notice'>[thingy]ms</span>")
+	to_chat(src, span_notice("[thingy]ms"))
 
 /client/verb/ping()
 	set name = "Ping"

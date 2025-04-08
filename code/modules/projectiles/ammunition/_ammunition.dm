@@ -64,7 +64,7 @@
 					continue
 			if (boolets > 0)
 				box.update_icon()
-				to_chat(user, "<span class='notice'>I collect [boolets] shell\s. [box] now contains [box.stored_ammo.len] shell\s.</span>")
+				to_chat(user, span_notice("I collect [boolets] shell\s. [box] now contains [box.stored_ammo.len] shell\s."))
 			else
 				to_chat(user, "<span class='warning'>I fail to collect anything!</span>")
 	else

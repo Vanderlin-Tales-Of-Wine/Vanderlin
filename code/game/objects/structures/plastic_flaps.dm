@@ -20,9 +20,9 @@
 /obj/structure/plasticflaps/examine(mob/user)
 	. = ..()
 	if(anchored)
-		. += "<span class='notice'>[src] are <b>screwed</b> to the floor.</span>"
+		. += span_notice("[src] are <b>screwed</b> to the floor.")
 	else
-		. += "<span class='notice'>[src] are no longer <i>screwed</i> to the floor, and the flaps can be <b>cut</b> apart.</span>"
+		. += span_notice("[src] are no longer <i>screwed</i> to the floor, and the flaps can be <b>cut</b> apart.")
 
 /obj/structure/plasticflaps/screwdriver_act(mob/living/user, obj/item/W)
 	if(..())
@@ -30,7 +30,7 @@
 	add_fingerprint(user)
 	var/action = anchored ? "unscrews [src] from" : "screws [src] to"
 	var/uraction = anchored ? "unscrew [src] from " : "screw [src] to"
-	user.visible_message("<span class='warning'>[user] [action] the floor.</span>", "<span class='notice'>I start to [uraction] the floor...</span>", "<span class='hear'>I hear rustling noises.</span>")
+	user.visible_message("<span class='warning'>[user] [action] the floor.</span>", span_notice("I start to [uraction] the floor..."), "<span class='hear'>I hear rustling noises.</span>")
 	if(W.use_tool(src, user, 100, volume=100, extra_checks = CALLBACK(src, PROC_REF(check_anchored_state), anchored)))
 		setAnchored(!anchored)
 		to_chat(user, "<span class='notice'>I [anchored ? "unscrew" : "screw"] [src] from the floor.</span>")

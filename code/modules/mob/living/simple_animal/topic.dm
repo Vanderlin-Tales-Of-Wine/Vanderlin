@@ -22,6 +22,6 @@
 		usr.put_in_hands(I)
 		playsound(loc, 'sound/foley/flesh_rem.ogg', 100, TRUE, -2)
 		if(usr == src)
-			usr.visible_message("<span class='notice'>[usr] rips [I] out of [usr.p_them()]self!</span>", "<span class='notice'>I remove [I] from myself.</span>")
+			usr.visible_message(span_notice("[usr] rips [I] out of [usr.p_them()]self!"), span_notice("I remove [I] from myself."))
 		else
-			usr.visible_message("<span class='notice'>[usr] rips [I] out of [src]!</span>", "<span class='notice'>I rip [I] from [src].</span>")
+			usr.visible_message(span_notice("[usr] rips [I] out of [src]!"), span_notice("I rip [I] from [src]."))

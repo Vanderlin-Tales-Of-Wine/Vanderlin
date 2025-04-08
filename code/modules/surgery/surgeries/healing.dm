@@ -88,7 +88,7 @@
 		umsg += " as best as you can while they have clothing on"
 		tmsg += " as best as they can while [target] has clothing on"
 	target.heal_bodypart_damage(urhealedamt_brute,urhealedamt_burn, required_status = BODYPART_ORGANIC)
-	display_results(user, target, "<span class='notice'>[umsg].</span>",
+	display_results(user, target, span_notice("[umsg]."),
 		"[tmsg].",
 		"[tmsg].")
 	return TRUE

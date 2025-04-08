@@ -30,7 +30,7 @@
 				return
 			notices++
 			icon_state = "nboard0[notices]"
-			to_chat(user, "<span class='notice'>I pin the [O] to the noticeboard.</span>")
+			to_chat(user, span_notice("I pin the [O] to the noticeboard."))
 		else
 			to_chat(user, "<span class='warning'>The notice board is full!</span>")
 	else

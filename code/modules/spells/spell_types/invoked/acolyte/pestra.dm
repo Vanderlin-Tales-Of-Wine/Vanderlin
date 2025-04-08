@@ -116,12 +116,12 @@
 			if(!limb?.attach_limb(human_target))
 				continue
 			human_target.visible_message("<span class='info'>\The [limb] attaches itself to [human_target]!</span>", \
-								"<span class='notice'>\The [limb] attaches itself to me!</span>")
+								span_notice("\The [limb] attaches itself to me!"))
 		for(var/obj/item/organ/organ as anything in get_organs(human_target, user))
 			if(!organ?.Insert(human_target))
 				continue
 			human_target.visible_message("<span class='info'>\The [organ] attaches itself to [human_target]!</span>", \
-								"<span class='notice'>\The [organ] attaches itself to me!</span>")
+								span_notice("\The [organ] attaches itself to me!"))
 		// if(!(human_target.mob_biotypes & MOB_UNDEAD))
 		// 	for(var/obj/item/bodypart/limb as anything in human_target.bodyparts)
 		// 		limb.rotted = FALSE

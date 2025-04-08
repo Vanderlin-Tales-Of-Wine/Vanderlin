@@ -138,7 +138,7 @@
 		SSblackbox.record_feedback("tally", "ore_mined", mineralAmt, mineralType)
 	else if(user?.stat_roll(STATKEY_LCK,2,10))
 		var/newthing = pickweight(list(/obj/item/natural/rock/salt = 2, /obj/item/natural/rock/iron = 1, /obj/item/natural/rock/coal = 2))
-//		to_chat(user, "<span class='notice'>Bonus ducks!</span>")
+//		to_chat(user, span_notice("Bonus ducks!"))
 		new newthing(src)
 	var/flags = NONE
 	if(defer_change) // TODO: make the defer change var a var for any changeturf flag

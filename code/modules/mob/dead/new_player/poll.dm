@@ -281,7 +281,7 @@
 	if(vote_success)
 		if(!vote_id)
 			poll.poll_votes++
-		to_chat(usr, "<span class='notice'>Vote successful.</span>")
+		to_chat(usr, span_notice("Vote successful."))
 
 /**
  * Processes vote form data and saves results to the database for an option type poll.

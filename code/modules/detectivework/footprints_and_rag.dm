@@ -35,11 +35,11 @@
 		else
 			reagents.reaction(C, TOUCH)
 			reagents.clear_reagents()
-			C.visible_message("<span class='notice'>[user] has touched \the [C] with \the [src].</span>")
+			C.visible_message(span_notice("[user] has touched \the [C] with \the [src]."))
 			log_combat(user, C, "touched", src, log_object)
 
 	else if(istype(A) && (src in user))
-		user.visible_message("<span class='notice'>[user] starts to wipe down [A] with [src]!</span>", "<span class='notice'>I start to wipe down [A] with [src]...</span>")
+		user.visible_message(span_notice("[user] starts to wipe down [A] with [src]!"), span_notice("I start to wipe down [A] with [src]..."))
 		if(do_after(user, 3 SECONDS, A))
-			user.visible_message("<span class='notice'>[user] finishes wiping off [A]!</span>", "<span class='notice'>I finish wiping off [A].</span>")
+			user.visible_message(span_notice("[user] finishes wiping off [A]!"), span_notice("I finish wiping off [A]."))
 			SEND_SIGNAL(A, COMSIG_COMPONENT_CLEAN_ACT, CLEAN_MEDIUM)

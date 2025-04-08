@@ -207,7 +207,7 @@
 
 /obj/item/paper/attack_self(mob/user)
 	if(mailer)
-		user.visible_message("<span class='notice'>[user] opens the letter from [mailer].</span>")
+		user.visible_message(span_notice("[user] opens the letter from [mailer]."))
 		cached_mailer = mailer
 		cached_mailedto = mailedto
 		mailer = null

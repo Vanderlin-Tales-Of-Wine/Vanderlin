@@ -136,7 +136,7 @@
 				return
 
 			if(user && notifyAttach)
-				to_chat(user, "<span class='notice'>I attach [I] to [src].</span>")
+				to_chat(user, span_notice("I attach [I] to [src]."))
 
 			var/accessory_color = attached_accessory.icon_state
 			accessory_overlay = mutable_appearance('icons/mob/clothing/accessories.dmi', "[accessory_color]")
@@ -160,9 +160,9 @@
 		var/obj/item/clothing/accessory/A = attached_accessory
 		attached_accessory.detach(src, user)
 		if(user.put_in_hands(A))
-			to_chat(user, "<span class='notice'>I detach [A] from [src].</span>")
+			to_chat(user, span_notice("I detach [A] from [src]."))
 		else
-			to_chat(user, "<span class='notice'>I detach [A] from [src] and it falls on the floor.</span>")
+			to_chat(user, span_notice("I detach [A] from [src] and it falls on the floor."))
 
 		if(ishuman(loc))
 			var/mob/living/carbon/human/H = loc
@@ -184,9 +184,9 @@
 		to_chat(usr, "<span class='warning'>I cannot wear this suit any differently!</span>")
 		return
 	if(toggle_jumpsuit_adjust())
-		to_chat(usr, "<span class='notice'>I adjust the suit to wear it more casually.</span>")
+		to_chat(usr, span_notice("I adjust the suit to wear it more casually."))
 	else
-		to_chat(usr, "<span class='notice'>I adjust the suit back to normal.</span>")
+		to_chat(usr, span_notice("I adjust the suit back to normal."))
 	if(ishuman(usr))
 		var/mob/living/carbon/human/H = usr
 		H.update_inv_w_uniform()

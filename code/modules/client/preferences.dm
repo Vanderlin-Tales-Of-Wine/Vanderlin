@@ -1698,7 +1698,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 
 					to_chat(user, "<span class='notice'>Please use an image of the head and shoulder area to maintain immersion level. Lastly, ["<span class='bold'>do not use a real life photo or use any image that is less than serious.</span>"]</span>")
 					to_chat(user, "<span class='notice'>If the photo doesn't show up properly in-game, ensure that it's a direct image link that opens properly in a browser.</span>")
-					to_chat(user, "<span class='notice'>Keep in mind that the photo will be downsized to 325x325 pixels, so the more square the photo, the better it will look.</span>")
+					to_chat(user, span_notice("Keep in mind that the photo will be downsized to 325x325 pixels, so the more square the photo, the better it will look."))
 					var/new_headshot_link = input(user, "Input the headshot link (https, hosts: gyazo, lensdump, imgbox, catbox):", "Headshot", headshot_link) as text|null
 					if(!new_headshot_link)
 						return
@@ -1707,7 +1707,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 						to_chat(user, span_notice("Failed to update headshot"))
 						return
 					headshot_link = new_headshot_link
-					to_chat(user, "<span class='notice'>Successfully updated headshot picture</span>")
+					to_chat(user, span_notice("Successfully updated headshot picture"))
 					log_game("[user] has set their Headshot image to '[headshot_link]'.")
 
 				if("species")
@@ -1762,7 +1762,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 						ShowChoices(user)
 						return
 					flavortext = new_flavortext
-					to_chat(user, "<span class='notice'>Successfully updated flavortext</span>")
+					to_chat(user, span_notice("Successfully updated flavortext"))
 					log_game("[user] has set their flavortext'.")
 
 				if("mutant_color")

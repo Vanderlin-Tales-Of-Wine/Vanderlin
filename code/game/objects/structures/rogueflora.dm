@@ -164,8 +164,8 @@
 		to_chat(user, "I start unearthing the stump...")
 		playsound(loc,'sound/items/dig_shovel.ogg', 100, TRUE)
 		if(do_after(user, 5 SECONDS))
-			user.visible_message("<span class='notice'>[user] unearths \the [src].</span>", \
-								"<span class='notice'>I unearth \the [src].</span>")
+			user.visible_message(span_notice("[user] unearths \the [src]."), \
+								span_notice("I unearth \the [src]."))
 			if(isunburnt)
 				new stump_loot(loc) // Rewarded with an extra small log if done the right way.return
 			obj_destruction("brute")
@@ -333,7 +333,7 @@
 				if(B)
 					B = new B(user.loc)
 					user.put_in_hands(B)
-					user.visible_message("<span class='notice'>[user] finds [B] in [src].</span>")
+					user.visible_message(span_notice("[user] finds [B] in [src]."))
 					return
 			user.visible_message("<span class='warning'>[user] searches through [src].</span>")
 #ifdef MATURESERVER
@@ -567,7 +567,7 @@
 				if(B)
 					B = new B(user.loc)
 					user.put_in_hands(B)
-					user.visible_message("<span class='notice'>[user] finds [B] in [src].</span>")
+					user.visible_message(span_notice("[user] finds [B] in [src]."))
 					return
 			user.visible_message("<span class='warning'>[user] searches through [src].</span>")
 #ifdef MATURESERVER
@@ -596,7 +596,7 @@
 				if(B)
 					B = new B(user.loc)
 					user.put_in_hands(B)
-					user.visible_message("<span class='notice'>[user] finds [B] in [src].</span>")
+					user.visible_message(span_notice("[user] finds [B] in [src]."))
 					return
 			user.visible_message("<span class='warning'>[user] searches through [src].</span>")
 #ifdef MATURESERVER

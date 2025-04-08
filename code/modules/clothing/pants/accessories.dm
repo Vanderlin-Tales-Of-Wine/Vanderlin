@@ -80,6 +80,6 @@
 
 /obj/item/clothing/accessory/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>\The [src] can be attached to a uniform. Alt-click to remove it once attached.</span>"
+	. += span_notice("\The [src] can be attached to a uniform. Alt-click to remove it once attached.")
 	if(initial(above_suit))
-		. += "<span class='notice'>\The [src] can be worn above or below my suit. Alt-click to toggle.</span>"
+		. += span_notice("\The [src] can be worn above or below my suit. Alt-click to toggle.")

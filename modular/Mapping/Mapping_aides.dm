@@ -142,8 +142,8 @@
 	var/breakout_time = 1 MINUTES
 	user.changeNext_move(CLICK_CD_BREAKOUT)
 	user.last_special = world.time + CLICK_CD_BREAKOUT
-	to_chat(user, "<span class='notice'>I struggle against the tight bonds... (This will take about [DisplayTimeText(breakout_time)].)</span>")
-	visible_message("<span class='notice'>I see something struggling and writhing in \the [src]!</span>")
+	to_chat(user, span_notice("I struggle against the tight bonds... (This will take about [DisplayTimeText(breakout_time)].)"))
+	visible_message(span_notice("I see something struggling and writhing in \the [src]!"))
 	if(do_after(user, breakout_time, src))
 		if(!user || user.stat != CONSCIOUS || user.loc != src)
 			return
@@ -207,7 +207,7 @@
 	. = ..()
 	var/mob/living/carbon/human/H = user
 	if(depleted)
-		to_chat(user, "<span class='notice'>The salt circle has been damaged...</span>")
+		to_chat(user, span_notice("The salt circle has been damaged..."))
 		return
 	if(H.virginity)
 		playsound(get_turf(user), 'sound/magic/timestop.ogg', 100, TRUE, -1)
@@ -224,10 +224,10 @@
 		depleted = TRUE
 		alpha = 90
 	else
-		to_chat(user, "<span class='notice'>The magick forces are beyond your control.</span>")
+		to_chat(user, span_notice("The magick forces are beyond your control."))
 /obj/structure/circle_protection/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/reagent_containers/powder/salt))
-		to_chat(user, "<span class='notice'>Restoring the salt lines...</span>")
+		to_chat(user, span_notice("Restoring the salt lines..."))
 		if(do_after(user, 10 SECONDS, src))
 			depleted = FALSE
 			alpha = 180
@@ -305,7 +305,7 @@
 		to_chat(user, "<span class='warning'>I peer into the viewpiece, but Noc does not reveal where [input] is.</span>")
 		return
 	else
-		to_chat(user, "<span class='notice'>Noc looks angry with me...</span>")
+		to_chat(user, span_notice("Noc looks angry with me..."))
 
 
 /*	..................   Floor decoration   ................... */

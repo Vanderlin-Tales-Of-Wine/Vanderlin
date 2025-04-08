@@ -37,7 +37,7 @@
 
 /obj/item/paper/scroll/attack_self(mob/user)
 	if(mailer)
-		user.visible_message("<span class='notice'>[user] opens the missive from [mailer].</span>")
+		user.visible_message(span_notice("[user] opens the missive from [mailer]."))
 		mailer = null
 		mailedto = null
 		update_icon()

@@ -64,11 +64,11 @@
 		clothing_flags |= visor_flags
 		flags_inv |= visor_flags_inv
 		flags_cover |= visor_flags_cover
-		to_chat(user, "<span class='notice'>I push \the [src] back into place.</span>")
+		to_chat(user, span_notice("I push \the [src] back into place."))
 		slot_flags = initial(slot_flags)
 	else
 		icon_state += "_up"
-		to_chat(user, "<span class='notice'>I push \the [src] out of the way.</span>")
+		to_chat(user, span_notice("I push \the [src] out of the way."))
 		gas_transfer_coefficient = null
 		permeability_coefficient = null
 		clothing_flags &= ~visor_flags

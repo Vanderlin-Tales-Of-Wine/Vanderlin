@@ -33,7 +33,7 @@
 	return TRUE
 
 /turf/closed/wall/turf_destruction()
-	visible_message("<span class='notice'>\The [src] crumbles!</span>")
+	visible_message(span_notice("\The [src] crumbles!"))
 	dismantle_wall(1,0)
 
 /turf/closed/wall/proc/dismantle_wall(devastated=0, explode=0)
@@ -131,10 +131,10 @@
 		if(!W.tool_start_check(user, amount=0))
 			return FALSE
 
-		to_chat(user, "<span class='notice'>I begin fixing dents on the wall...</span>")
+		to_chat(user, span_notice("I begin fixing dents on the wall..."))
 		if(W.use_tool(src, user, 0, volume=100))
 			if(iswallturf(src) && LAZYLEN(dent_decals))
-				to_chat(user, "<span class='notice'>I fix some dents on the wall.</span>")
+				to_chat(user, span_notice("I fix some dents on the wall."))
 				cut_overlay(dent_decals)
 				dent_decals.Cut()
 			return TRUE
@@ -149,10 +149,10 @@
 		if(!I.tool_start_check(user, amount=0))
 			return FALSE
 
-		to_chat(user, "<span class='notice'>I begin slicing through the outer plating...</span>")
+		to_chat(user, span_notice("I begin slicing through the outer plating..."))
 		if(I.use_tool(src, user, slicing_duration, volume=100))
 			if(iswallturf(src))
-				to_chat(user, "<span class='notice'>I remove the outer plating.</span>")
+				to_chat(user, span_notice("I remove the outer plating."))
 				dismantle_wall()
 			return TRUE
 

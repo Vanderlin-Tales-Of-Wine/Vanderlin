@@ -517,7 +517,7 @@
 
 					if(selected_reaction.mix_message)
 						for(var/mob/M in seen)
-							to_chat(M, "<span class='notice'>[iconhtml] [selected_reaction.mix_message]</span>")
+							to_chat(M, span_notice("[iconhtml] [selected_reaction.mix_message]"))
 
 			my_atom?.on_reagent_change(REACT_REAGENTS)
 			selected_reaction.on_reaction(src, multiplier)

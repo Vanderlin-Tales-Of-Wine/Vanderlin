@@ -50,11 +50,11 @@
 	set name = "Move Up"
 
 	if(zMove(UP, TRUE))
-		to_chat(src, "<span class='notice'>I fly upwards.</span>")
+		to_chat(src, span_notice("I fly upwards."))
 
 /mob/living/simple_animal/hostile/retaliate/bat/proc/bat_down()
 	set category = "Bat Form"
 	set name = "Move Down"
 
 	if(zMove(DOWN, TRUE))
-		to_chat(src, "<span class='notice'>I fly down.</span>")
+		to_chat(src, span_notice("I fly down."))

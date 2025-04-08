@@ -129,7 +129,7 @@
 	//Theres a issue with projectiles that are arcing reaching the end of their range and also dropping because on_hit was called.
 	if(P.arcshot)
 		return BULLET_ACT_BLOCK
-	visible_message("<span class='notice'>[P] passes through [src].</span>")
+	visible_message(span_notice("[P] passes through [src]."))
 	return BULLET_ACT_FORCE_PIERCE
 
 //I hate this proc because its only used for flavor and is SO BIG.

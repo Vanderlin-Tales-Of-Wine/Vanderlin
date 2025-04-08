@@ -28,7 +28,7 @@
 /obj/structure/bookcase/examine(mob/user)
 	. = ..()
 //	if(!anchored)
-//		. += "<span class='notice'>The <i>bolts</i> on the bottom are unsecured.</span>"
+//		. += span_notice("The <i>bolts</i> on the bottom are unsecured.")
 //	else
 //		. += "<span class='notice'>It's secured in place with <b>bolts</b>.</span>"
 //	switch(state)

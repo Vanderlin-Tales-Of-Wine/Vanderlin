@@ -18,7 +18,7 @@
 		long_cooktime = (90 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*15))
 	if(istype(I, /obj/item/reagent_containers/food/snacks/meat/mince))
 		if(isturf(loc)&& (found_table))
-			to_chat(user, "<span class='notice'>Stuffing a wiener...</span>")
+			to_chat(user, span_notice("Stuffing a wiener..."))
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
 			if(do_after(user, long_cooktime, src))
 				new /obj/item/reagent_containers/food/snacks/meat/sausage(loc)

@@ -94,7 +94,7 @@
 			if(!baited)
 				I.forceMove(src)
 				baited = I
-				user.visible_message("<span class='notice'>[user] hooks something to [src].</span>", "<span class='notice'>I hook [I] to [src].</span>")
+				user.visible_message(span_notice("[user] hooks something to [src]."), span_notice("I hook [I] to [src]."))
 				playsound(src.loc, 'sound/foley/pierce.ogg', 50, FALSE)
 		else if(istype(I, /obj/item/natural/bundle/worms))
 			if(!baited)
@@ -104,7 +104,7 @@
 				if(W.amount == 1)
 					new W.stacktype(get_turf(user))
 					qdel(W)
-				user.visible_message("<span class='notice'>[user] hooks something to [src].</span>", "<span class='notice'>I hook [W.stacktype] to [src].</span>")
+				user.visible_message(span_notice("[user] hooks something to [src]."), span_notice("I hook [W.stacktype] to [src]."))
 				playsound(src.loc, 'sound/foley/pierce.ogg', 50, FALSE)
 		else
 			if(!baited)
@@ -112,7 +112,7 @@
 				if(S.fishloot)
 					I.forceMove(src)
 					baited = I
-					user.visible_message("<span class='notice'>[user] hooks something to the line.</span>", "<span class='notice'>I hook [I] to my line.</span>")
+					user.visible_message(span_notice("[user] hooks something to the line."), span_notice("I hook [I] to my line."))
 					playsound(src.loc, 'sound/foley/pierce.ogg', 50, FALSE)
 
 	else if(istype(I, /obj/item/fishing)) //bait has a null attachtype and is accounted for in the previous check so i don't have to worry about it
@@ -122,17 +122,17 @@
 				if(!line)
 					I.forceMove(src)
 					line = I
-					to_chat(user, "<span class='notice'>I add [I] to [src]...</span>")
+					to_chat(user, span_notice("I add [I] to [src]..."))
 			if("hook")
 				if(!hook)
 					I.forceMove(src)
 					hook = I
-					to_chat(user, "<span class='notice'>I add [I] to [src]...</span>")
+					to_chat(user, span_notice("I add [I] to [src]..."))
 			if("reel")
 				if(!reel)
 					I.forceMove(src)
 					reel = I
-					to_chat(user, "<span class='notice'>I add [I] to [src]...</span>")
+					to_chat(user, span_notice("I add [I] to [src]..."))
 	update_icon()
 	return
 
@@ -164,7 +164,7 @@
 		else if(totake == line)
 			line = null
 		user.put_in_hands(totake)
-		to_chat(user, "<span class='notice'>I take [totake] off of [src].</span>")
+		to_chat(user, span_notice("I take [totake] off of [src]."))
 		update_icon()
 		return
 
@@ -497,7 +497,7 @@
 		if(user.used_intent.type == ROD_AUTO && !user.doing())
 			if(target in range(user,5))
 				user.visible_message("<span class='warning'>[user] casts a line!</span>", \
-									"<span class='notice'>I cast a line.</span>")
+									span_notice("I cast a line."))
 				playsound(src.loc, 'sound/items/fishing_plouf.ogg', 100, TRUE)
 				fishing_time -= (sl * 1 SECONDS) //every skill lvl is -1 seconds
 				if(do_after(user, fishing_time, target))
@@ -518,7 +518,7 @@
 								fishchance -= fpp // Deduct a penalty the lower our fishing level is (-0 at legendary)
 						if(prob(fishchance)) // Finally, roll the dice to see if we fish.
 							var/opportunity_window = 3 SECONDS + (sl * 10) // Opportunity window, in ticks. Longer means you get more time to cancel your bait
-							to_chat(user, "<span class='notice'>Something tugs the line!</span>")
+							to_chat(user, span_notice("Something tugs the line!"))
 							playsound(src.loc, 'sound/items/fishing_plouf.ogg', 100, TRUE)
 							if(!do_after(user, opportunity_window, target))
 								var/mob/living/fisherman = user
@@ -608,7 +608,7 @@
 						currentstate = "hooked"
 						targetdif = 0
 						fishtarget = (-currentmouse + 270)
-						to_chat(fisher, "<span class='notice'>Something tugs the line!</span>")
+						to_chat(fisher, span_notice("Something tugs the line!"))
 						playsound(loc, 'sound/items/fishing_plouf.ogg', 100, TRUE)
 						directionstate = 1
 					hookwindow -= 1

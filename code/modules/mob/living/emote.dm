@@ -1237,7 +1237,7 @@
 	. = ..()
 	var/obj/item/circlegame/N = new(user)
 	if(user.put_in_hands(N))
-		to_chat(user, "<span class='notice'>I make a circle with your hand.</span>")
+		to_chat(user, span_notice("I make a circle with your hand."))
 	else
 		qdel(N)
 		to_chat(user, "<span class='warning'>I don't have any free hands to make a circle with.</span>")
@@ -1253,7 +1253,7 @@
 		return
 	var/obj/item/slapper/N = new(user)
 	if(user.put_in_hands(N))
-		to_chat(user, "<span class='notice'>I ready your slapping hand.</span>")
+		to_chat(user, span_notice("I ready your slapping hand."))
 	else
 		to_chat(user, "<span class='warning'>You're incapable of slapping in your current state.</span>")
 */

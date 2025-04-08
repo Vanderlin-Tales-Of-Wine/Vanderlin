@@ -374,7 +374,7 @@
 				if(!parrot_perch || parrot_interest.loc != parrot_perch.loc)
 					held_item = parrot_interest
 					parrot_interest.forceMove(src)
-					visible_message("<span class='notice'>[src] grabs [held_item]!</span>", "<span class='notice'>I grab [held_item]!</span>", "<span class='hear'>I hear the sounds of wings flapping furiously.</span>")
+					visible_message(span_notice("[src] grabs [held_item]!"), span_notice("I grab [held_item]!"), "<span class='hear'>I hear the sounds of wings flapping furiously.</span>")
 
 			parrot_interest = null
 			parrot_state = PARROT_SWOOP | PARROT_RETURN
@@ -567,7 +567,7 @@
 
 			held_item = I
 			I.forceMove(src)
-			visible_message("<span class='notice'>[src] grabs [held_item]!</span>", "<span class='notice'>I grab [held_item]!</span>", "<span class='hear'>I hear the sounds of wings flapping furiously.</span>")
+			visible_message(span_notice("[src] grabs [held_item]!"), span_notice("I grab [held_item]!"), "<span class='hear'>I hear the sounds of wings flapping furiously.</span>")
 			return held_item
 
 	to_chat(src, "<span class='warning'>There is nothing of interest to take!</span>")
@@ -627,7 +627,7 @@
 			to_chat(src, "<span class='warning'>I have nothing to drop!</span>")
 		return 0
 
-	to_chat(src, "<span class='notice'>I drop [held_item].</span>")
+	to_chat(src, span_notice("I drop [held_item]."))
 
 	held_item.forceMove(drop_location())
 	held_item = null
@@ -713,7 +713,7 @@
 	else
 		melee_damage_upper = parrot_damage_upper
 		a_intent = INTENT_HARM
-	to_chat(src, "<span class='notice'>I will now [a_intent] others.</span>")
+	to_chat(src, span_notice("I will now [a_intent] others."))
 	return
 
 /*

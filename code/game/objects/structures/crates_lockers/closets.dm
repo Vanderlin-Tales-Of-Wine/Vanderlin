@@ -90,15 +90,15 @@
 /*	if(welded)
 		. += "<span class='notice'>It's welded shut.</span>"
 	if(anchored)
-		. += "<span class='notice'>It is <b>bolted</b> to the ground.</span>"
+		. += span_notice("It is <b>bolted</b> to the ground.")
 	if(opened)
-		. += "<span class='notice'>The parts are <b>welded</b> together.</span>"
+		. += span_notice("The parts are <b>welded</b> together.")
 	else if(secure && !opened)
 		. += "<span class='notice'>Alt-click to [locked ? "unlock" : "lock"].</span>"
 	if(isliving(user))
 		var/mob/living/L = user
 		if(HAS_TRAIT(L, TRAIT_SKITTISH))
-			. += "<span class='notice'>Ctrl-Shift-click [src] to jump inside.</span>"*/
+			. += span_notice("Ctrl-Shift-click [src] to jump inside.")*/
 
 /obj/structure/closet/CanPass(atom/movable/mover, turf/target)
 	if(wall_mounted)
@@ -466,12 +466,12 @@
 	user.changeNext_move(CLICK_CD_MELEE)
 	if(locked)
 		user.visible_message("<span class='warning'>[user] unlocks [src].</span>", \
-			"<span class='notice'>I unlock [src].</span>")
+			span_notice("I unlock [src]."))
 		playsound(src, 'sound/foley/doors/lock.ogg', 100)
 		locked = FALSE
 	else
 		user.visible_message("<span class='warning'>[user] locks [src].</span>", \
-			"<span class='notice'>I lock [src].</span>")
+			span_notice("I lock [src]."))
 		playsound(src, 'sound/foley/doors/lock.ogg', 100)
 		locked = TRUE
 

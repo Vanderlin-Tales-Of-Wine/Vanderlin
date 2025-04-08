@@ -170,7 +170,7 @@
 			return
 		bolt_locked = FALSE
 	if (user)
-		to_chat(user, "<span class='notice'>I rack the [bolt_wording] of \the [src].</span>")
+		to_chat(user, span_notice("I rack the [bolt_wording] of \the [src]."))
 	process_chamber(!chambered, FALSE)
 	if (bolt_type == BOLT_TYPE_LOCKING && !chambered)
 		bolt_locked = TRUE
@@ -183,7 +183,7 @@
 /obj/item/gun/ballistic/proc/drop_bolt(mob/user = null)
 	playsound(src, bolt_drop_sound, bolt_drop_sound_volume, FALSE)
 	if (user)
-		to_chat(user, "<span class='notice'>I drop the [bolt_wording] of \the [src].</span>")
+		to_chat(user, span_notice("I drop the [bolt_wording] of \the [src]."))
 	chamber_round()
 	bolt_locked = FALSE
 	update_icon()
@@ -196,7 +196,7 @@
 	if(user.transferItemToLoc(AM, src))
 		magazine = AM
 		if (display_message)
-			to_chat(user, "<span class='notice'>I load a new [magazine_wording] into \the [src].</span>")
+			to_chat(user, span_notice("I load a new [magazine_wording] into \the [src]."))
 		playsound(src, load_empty_sound, load_sound_volume, load_sound_vary)
 		if (bolt_type == BOLT_TYPE_OPEN && !bolt_locked)
 			chamber_round(TRUE)
@@ -218,7 +218,7 @@
 	var/obj/item/ammo_box/magazine/old_mag = magazine
 	if (tac_load)
 		if (insert_magazine(user, tac_load, FALSE))
-			to_chat(user, "<span class='notice'>I perform a tactical reload on \the [src].</span>")
+			to_chat(user, span_notice("I perform a tactical reload on \the [src]."))
 		else
 			to_chat(user, "<span class='warning'>I dropped the old [magazine_wording], but the new one doesn't fit. How embarassing.</span>")
 			magazine = null
@@ -227,7 +227,7 @@
 	user.put_in_hands(old_mag)
 	old_mag.update_icon()
 	if (display_message)
-		to_chat(user, "<span class='notice'>I pull the [magazine_wording] out of \the [src].</span>")
+		to_chat(user, span_notice("I pull the [magazine_wording] out of \the [src]."))
 	update_icon()
 
 /obj/item/gun/ballistic/can_shoot()
@@ -254,7 +254,7 @@
 				chambered = null
 			var/num_loaded = magazine.attackby(A, user, params, TRUE)
 			if (num_loaded)
-				to_chat(user, "<span class='notice'>I [verbage] \a [cartridge_wording]\s on \the [src].</span>")
+				to_chat(user, span_notice("I [verbage] \a [cartridge_wording]\s on \the [src]."))
 				playsound(src, load_sound, load_sound_volume, load_sound_vary)
 				if (chambered == null && bolt_type == BOLT_TYPE_NO_BOLT)
 					chamber_round()

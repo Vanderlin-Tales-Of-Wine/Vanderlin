@@ -1707,7 +1707,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	//The fucking TRAIT_FAT mutation is the dumbest shit ever. It makes the code so difficult to work with
 //	if(HAS_TRAIT_FROM(H, TRAIT_FAT, OBESITY))//I share my pain, past coder.
 //		if(H.overeatduration < 100)
-//			to_chat(H, "<span class='notice'>I feel fit again!</span>")
+//			to_chat(H, span_notice("I feel fit again!"))
 //			REMOVE_TRAIT(H, TRAIT_FAT, OBESITY)
 //			H.remove_movespeed_modifier(MOVESPEED_ID_FAT)
 //			H.update_inv_w_uniform()
@@ -1758,15 +1758,15 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 //		H.metabolism_efficiency = 1
 //	else if(H.nutrition > NUTRITION_LEVEL_FED && H.satiety > 80)
 //		if(H.metabolism_efficiency != 1.25 && !HAS_TRAIT(H, TRAIT_NOHUNGER))
-//			to_chat(H, "<span class='notice'>I feel vigorous.</span>")
+//			to_chat(H, span_notice("I feel vigorous."))
 //			H.metabolism_efficiency = 1.25
 //	else if(H.nutrition < NUTRITION_LEVEL_STARVING + 50)
 //		if(H.metabolism_efficiency != 0.8)
-//			to_chat(H, "<span class='notice'>I feel sluggish.</span>")
+//			to_chat(H, span_notice("I feel sluggish."))
 //		H.metabolism_efficiency = 0.8
 //	else
 //		if(H.metabolism_efficiency == 1.25)
-//			to_chat(H, "<span class='notice'>I no longer feel vigorous.</span>")
+//			to_chat(H, span_notice("I no longer feel vigorous."))
 //		H.metabolism_efficiency = 1
 
 	//Hunger slowdown for if mood isn't enabled
@@ -2361,7 +2361,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	if(user.used_intent?.penfactor)
 		pen = I.armor_penetration + user.used_intent.penfactor
 
-//	var/armor_block = H.run_armor_check(affecting, "melee", "<span class='notice'>My armor has protected my [hit_area]!</span>", "<span class='warning'>My armor has softened a hit to my [hit_area]!</span>",pen)
+//	var/armor_block = H.run_armor_check(affecting, "melee", span_notice("My armor has protected my [hit_area]!"), "<span class='warning'>My armor has softened a hit to my [hit_area]!</span>",pen)
 
 	var/Iforce = get_complex_damage(I, user) //to avoid runtimes on the forcesay checks at the bottom. Some items might delete themselves if you drop them. (stunning yourself, ninja swords)
 	var/armor_block = H.run_armor_check(selzone, I.damage_type, "", "",pen, damage = Iforce, blade_dulling=user.used_intent.blade_class)

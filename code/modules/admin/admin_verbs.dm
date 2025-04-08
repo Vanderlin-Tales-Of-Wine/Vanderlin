@@ -786,7 +786,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 		return
 	var/book = input(src, "What is the book file you want to delete?") in SSlibrarian.books
 	if(SSlibrarian.del_player_book(book))
-		to_chat(src, "<span class='notice'>Book has been successfully deleted</span>")
+		to_chat(src, span_notice("Book has been successfully deleted"))
 	else
 		to_chat(src, "<span class='notice'> Either the book file doesn't exist or you have failed to type it in properly (remember characters have been url encoded for the file name)</span>")
 

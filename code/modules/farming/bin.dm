@@ -93,8 +93,8 @@
 		return
 	if(kover)
 		if(kover)
-			user.visible_message("<span class='notice'>[user] starts to pick up [src]...</span>", \
-				"<span class='notice'>I start to pick up [src]...</span>")
+			user.visible_message(span_notice("[user] starts to pick up [src]..."), \
+				span_notice("I start to pick up [src]..."))
 			if(do_after(user, 3 SECONDS, src))
 				kover = FALSE
 				update_icon()

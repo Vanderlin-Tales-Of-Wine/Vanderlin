@@ -11,9 +11,9 @@
 			to_chat(src, "<span class='danger'>My armor was penetrated!</span>")
 	else if(armor >= 130)
 		if(absorb_text)
-			to_chat(src, "<span class='notice'>[absorb_text]</span>")
+			to_chat(src, span_notice("[absorb_text]"))
 		else
-			to_chat(src, "<span class='notice'>My armor absorbs the blow!</span>")
+			to_chat(src, span_notice("My armor absorbs the blow!"))
 	else if(armor > 0)
 		if(soften_text)
 			to_chat(src, "<span class='warning'>[soften_text]</span>")
@@ -302,8 +302,8 @@
 	M.swinging = TRUE
 	M.face_atom(src)
 	if(M.melee_damage_upper == 0)
-		visible_message("<span class='notice'>\The [M] [pick(M.a_intent.attack_verb)] [src].</span>", \
-						"<span class='notice'>\The [M] [pick(M.a_intent.attack_verb)] me!</span>", null, COMBAT_MESSAGE_RANGE)
+		visible_message(span_notice("\The [M] [pick(M.a_intent.attack_verb)] [src]."), \
+						span_notice("\The [M] [pick(M.a_intent.attack_verb)] me!"), null, COMBAT_MESSAGE_RANGE)
 		return FALSE
 	if(HAS_TRAIT(M, TRAIT_PACIFISM))
 		to_chat(M, "<span class='warning'>I don't want to hurt anyone!</span>")

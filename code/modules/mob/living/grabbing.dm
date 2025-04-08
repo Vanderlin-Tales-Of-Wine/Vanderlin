@@ -391,7 +391,7 @@
 		C.emote("paincrit", TRUE)
 		playsound(C, 'sound/foley/flesh_rem.ogg', 100, TRUE, -2)
 		if(usr == src)
-			user.visible_message("<span class='notice'>[user] rips [I] out of [user.p_their()] [L.name]!</span>", "<span class='notice'>I rip [I] from my [L.name].</span>")
+			user.visible_message(span_notice("[user] rips [I] out of [user.p_their()] [L.name]!"), span_notice("I rip [I] from my [L.name]."))
 		else
 			user.visible_message("<span class='notice'>[user] rips [I] out of [C]'s [L.name]!</span>", "<span class='notice'>I rip [I] from [C]'s [L.name].</span>")
 		sublimb_grabbed = limb_grabbed.body_zone
@@ -405,9 +405,9 @@
 		M.emote("paincrit", TRUE)
 		playsound(M, 'sound/foley/flesh_rem.ogg', 100, TRUE, -2)
 		if(user == M)
-			user.visible_message("<span class='notice'>[user] rips [I] out of [user.p_them()]self!</span>", "<span class='notice'>I remove [I] from myself.</span>")
+			user.visible_message(span_notice("[user] rips [I] out of [user.p_them()]self!"), span_notice("I remove [I] from myself."))
 		else
-			user.visible_message("<span class='notice'>[user] rips [I] out of [M]!</span>", "<span class='notice'>I rip [I] from [src].</span>")
+			user.visible_message(span_notice("[user] rips [I] out of [M]!"), span_notice("I rip [I] from [src]."))
 		sublimb_grabbed = M.simple_limb_hit(user.zone_selected)
 	user.update_grab_intents(grabbed)
 	return TRUE

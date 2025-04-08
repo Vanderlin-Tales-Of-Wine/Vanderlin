@@ -143,7 +143,7 @@ GLOBAL_LIST_INIT(name2reagent, build_name2reagent())
 /datum/reagent/proc/addiction_act_stage1(mob/living/M)
 	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "[type]_overdose", /datum/mood_event/withdrawal_light, name)
 	if(prob(30))
-		to_chat(M, "<span class='notice'>I feel like having some [name] right about now.</span>")
+		to_chat(M, span_notice("I feel like having some [name] right about now."))
 	return
 
 /datum/reagent/proc/addiction_act_stage2(mob/living/M)

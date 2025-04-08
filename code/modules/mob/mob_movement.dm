@@ -728,7 +728,7 @@
 	prefs.chat_toggles ^= CHAT_GHOSTWHISPER
 	prefs.save_preferences()
 	if(prefs.chat_toggles & CHAT_GHOSTEARS)
-		to_chat(src, "<span class='notice'>I will hear all now.</span>")
+		to_chat(src, span_notice("I will hear all now."))
 	else
 		to_chat(src, "<span class='info'>I will hear like a mortal.</span>")
 
@@ -754,12 +754,12 @@
 ///Moves a mob upwards in z level
 /mob/proc/ghost_up()
 	if(zMove(UP, TRUE))
-		to_chat(src, "<span class='notice'>I move upwards.</span>")
+		to_chat(src, span_notice("I move upwards."))
 
 ///Moves a mob down a z level
 /mob/proc/ghost_down()
 	if(zMove(DOWN, TRUE))
-		to_chat(src, "<span class='notice'>I move down.</span>")
+		to_chat(src, span_notice("I move down."))
 
 ///Move a mob between z levels, if it's valid to move z's on this turf
 /mob/proc/zMove(dir, feedback = FALSE)

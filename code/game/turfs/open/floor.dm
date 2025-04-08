@@ -147,10 +147,10 @@
 		broken = 0
 		burnt = 0
 		if(user && !silent)
-			to_chat(user, "<span class='notice'>I remove the broken plating.</span>")
+			to_chat(user, span_notice("I remove the broken plating."))
 	else
 		if(user && !silent)
-			to_chat(user, "<span class='notice'>I remove the floor tile.</span>")
+			to_chat(user, span_notice("I remove the floor tile."))
 		if(floor_tile && make_tile)
 			new floor_tile(src)
 	return make_plating()

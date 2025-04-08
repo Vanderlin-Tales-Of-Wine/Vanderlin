@@ -39,7 +39,7 @@
 			if(!user.transferItemToLoc(F, src))
 				return
 			heirloom = F
-			to_chat(user, "<span class='notice'>I place the [F.name] back in the [name].</span>")
+			to_chat(user, span_notice("I place the [F.name] back in the [name]."))
 			update_icon()
 			return
 		else if(!broken)
@@ -79,7 +79,7 @@
 		if(heirloom)
 			user.put_in_hands(heirloom)
 			heirloom = null
-			to_chat(user, "<span class='notice'>I take the sword from the [name].</span>")
+			to_chat(user, span_notice("I take the sword from the [name]."))
 			src.add_fingerprint(user)
 			update_icon()
 			return
@@ -108,7 +108,7 @@
 		add_overlay("glass_raised")
 
 /obj/structure/fireaxecabinet/proc/toggle_lock(mob/user)
-	to_chat(user, "<span class='notice'>Resetting circuitry...</span>")
+	to_chat(user, span_notice("Resetting circuitry..."))
 	playsound(src, 'sound/blank.ogg', 50, TRUE)
 	if(do_after(user, 2 SECONDS, src))
 		to_chat(user, "<span class='notice'>I [locked ? "disable" : "re-enable"] the locking modules.</span>")
@@ -166,7 +166,7 @@
 		if(!user.transferItemToLoc(F, src))
 			return
 		heirloom = F
-		to_chat(user, "<span class='notice'>I place the [F.name] back in the [name].</span>")
+		to_chat(user, span_notice("I place the [F.name] back in the [name]."))
 		update_icon()
 		return
 	else
@@ -194,7 +194,7 @@
 	if(heirloom)
 		user.put_in_hands(heirloom)
 		heirloom = null
-		to_chat(user, "<span class='notice'>I take the club from the [name].</span>")
+		to_chat(user, span_notice("I take the club from the [name]."))
 		src.add_fingerprint(user)
 		update_icon()
 		return

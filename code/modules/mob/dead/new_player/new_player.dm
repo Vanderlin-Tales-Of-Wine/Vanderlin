@@ -149,12 +149,12 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 
 				var/queue_position = SSticker.queued_players.Find(usr)
 				if(queue_position == 1)
-					to_chat(usr, "<span class='notice'>Thou art next in line to join the game. You will be notified when a slot opens up.</span>")
+					to_chat(usr, span_notice("Thou art next in line to join the game. You will be notified when a slot opens up."))
 				else if(queue_position)
-					to_chat(usr, "<span class='notice'>Thou art [queue_position-1] players in front of you in the queue to join the game.</span>")
+					to_chat(usr, span_notice("Thou art [queue_position-1] players in front of you in the queue to join the game."))
 				else
 					SSticker.queued_players += usr
-					to_chat(usr, "<span class='notice'>Thou have been added to the queue to join the game. Your position in queue is [SSticker.queued_players.len].</span>")
+					to_chat(usr, span_notice("Thou have been added to the queue to join the game. Your position in queue is [SSticker.queued_players.len]."))
 				return
 		LateChoices()
 
@@ -164,7 +164,7 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 			return
 
 		if(!GLOB.enter_allowed)
-			to_chat(usr, "<span class='notice'>There is a lock on entering the game!</span>")
+			to_chat(usr, span_notice("There is a lock on entering the game!"))
 			return
 
 		if(SSticker.queued_players.len && !(ckey(key) in GLOB.admin_datums))
@@ -229,11 +229,11 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 	observer.started_as_observer = TRUE
 	close_spawn_windows()
 	var/obj/effect/landmark/observer_start/O = locate(/obj/effect/landmark/observer_start) in GLOB.landmarks_list
-	to_chat(src, "<span class='notice'>Now teleporting.</span>")
+	to_chat(src, span_notice("Now teleporting."))
 	if (O)
 		observer.forceMove(O.loc)
 	else
-		to_chat(src, "<span class='notice'>Teleporting failed. Ahelp an admin please</span>")
+		to_chat(src, span_notice("Teleporting failed. Ahelp an admin please"))
 		stack_trace("There's no freaking observer landmark available on this map or you're making observers before the map is initialised")
 	observer.key = key
 	observer.client = client

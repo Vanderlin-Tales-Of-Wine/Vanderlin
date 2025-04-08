@@ -80,8 +80,8 @@
 /obj/item/organ/heart/attack_self(mob/user)
 	..()
 	if(!beating)
-		user.visible_message("<span class='notice'>[user] squeezes [src] to \
-			make it beat again!</span>","<span class='notice'>I squeeze [src] to make it beat again!</span>")
+		user.visible_message(span_notice("[user] squeezes [src] to \
+			make it beat again!"),span_notice("I squeeze [src] to make it beat again!"))
 		Restart()
 		addtimer(CALLBACK(src, PROC_REF(stop_if_unowned)), 80)
 
@@ -124,7 +124,7 @@
 		if(H.health <= H.crit_threshold && beat != BEAT_SLOW)
 			beat = BEAT_SLOW
 			H.playsound_local(get_turf(H), slowbeat,40,0, channel = CHANNEL_HEARTBEAT)
-//			to_chat(owner, "<span class='notice'>I feel my heart slow down...</span>")
+//			to_chat(owner, span_notice("I feel my heart slow down..."))
 		if(beat == BEAT_SLOW && H.health > H.crit_threshold)
 			H.stop_sound_channel(CHANNEL_HEARTBEAT)
 			beat = BEAT_NONE
@@ -207,7 +207,7 @@
 
 		cursed_heart.last_pump = world.time
 		playsound(owner,'sound/blank.ogg',40,TRUE)
-		to_chat(owner, "<span class='notice'>My heart beats.</span>")
+		to_chat(owner, span_notice("My heart beats."))
 
 		var/mob/living/carbon/human/H = owner
 		if(istype(H))

@@ -24,7 +24,7 @@
 
 /obj/structure/fake_machine/hailer/attackby(obj/item/H, mob/user, params)
 	if((!HAS_TRAIT(user, TRAIT_BURDEN)))
-		to_chat(user, "<span class='notice'>stranger danger! the [src] closes its teeth as you extend your hand to it</span>")
+		to_chat(user, span_notice("stranger danger! the [src] closes its teeth as you extend your hand to it"))
 		return
 	if(istype(H, /obj/item/reagent_containers/powder/salt)) //mmmm, salt.
 		to_chat(user, "<span class='notice'>the [src]'s tongue slips between its bronze teeth to lap at the salt in [user]'s hand, finishing with effectionate licks across their palm... gross </span>")
@@ -32,13 +32,13 @@
 		qdel(H)
 		return
 	if(!istype(H, /obj/item/paper))
-		to_chat(user, "<span class='notice'>the [src] only accepts paper</span>")
+		to_chat(user, span_notice("the [src] only accepts paper"))
 		say("GRRRRHHH!!...GRAAAAGH")
 		return
 	if(istype(H, /obj/item/paper) && (HAS_TRAIT(user, TRAIT_BURDEN)))
 		if(!user.transferItemToLoc(H, src))
 			return
-		to_chat(user, "<span class='notice'>I feed the [H] to the [src].</span>")
+		to_chat(user, span_notice("I feed the [H] to the [src]."))
 		say("Bbbllrrr... fffrrrtt... brrrhh...")
 	return ..()
 

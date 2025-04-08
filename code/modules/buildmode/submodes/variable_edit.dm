@@ -10,11 +10,11 @@
 	return ..()
 
 /datum/buildmode_mode/varedit/show_help(client/c)
-	to_chat(c, "<span class='notice'>***********************************************************</span>")
-	to_chat(c, "<span class='notice'>Right Mouse Button on buildmode button = Select var(type) & value</span>")
-	to_chat(c, "<span class='notice'>Left Mouse Button on turf/obj/mob      = Set var(type) & value</span>")
+	to_chat(c, span_notice("***********************************************************"))
+	to_chat(c, span_notice("Right Mouse Button on buildmode button = Select var(type) & value"))
+	to_chat(c, span_notice("Left Mouse Button on turf/obj/mob      = Set var(type) & value"))
 	to_chat(c, "<span class='notice'>Right Mouse Button on turf/obj/mob     = Reset var's value</span>")
-	to_chat(c, "<span class='notice'>***********************************************************</span>")
+	to_chat(c, span_notice("***********************************************************"))
 
 /datum/buildmode_mode/varedit/Reset()
 	. = ..()
@@ -30,7 +30,7 @@
 	var/temp_value = c.vv_get_value()
 	if(isnull(temp_value["class"]))
 		Reset()
-		to_chat(c, "<span class='notice'>Variable unset.</span>")
+		to_chat(c, span_notice("Variable unset."))
 		return
 	valueholder = temp_value["value"]
 
