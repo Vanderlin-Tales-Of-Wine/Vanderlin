@@ -136,6 +136,10 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		show_round_stats()
 		return
 
+	if(href_list["viewinfluences"])
+		show_influences()
+		return
+
 	switch(href_list["_src_"])
 		if("holder")
 			hsrc = holder
@@ -171,10 +175,39 @@ GLOBAL_LIST_EMPTY(respawncounts)
 
 /// Shows round end popup with all kind of statistics
 /client/proc/show_round_stats()
-	if(SSticker.current_state != GAME_STATE_FINISHED)
+	if(SSticker.current_state != GAME_STATE_FINISHED && !check_rights(R_ADMIN))
 		return
 
 	var/list/data = list()
+
+	// Navigation buttons container
+	data += "<div style='width: 100%; padding: 20px 0 10px 0; text-align: center;'>"
+	data += "<div style='display: inline-block; margin: 0 auto;'>"
+	data += "<a href='byond://?src=[REF(src)];viewstats=1' style='\
+		display: inline-block;\
+		width: 120px;\
+		padding: 8px 12px;\
+		margin: 0 10px;\
+		background: #2a2a2a;\
+		border: 1px solid #444;\
+		color: #ddd;\
+		font-weight: bold;\
+		text-decoration: none;\
+		border-radius: 3px;\
+		font-size: 0.9em;'>STATISTICS</a>"
+	data += "<a href='byond://?src=[REF(src)];viewinfluences=1' style='\
+		display: inline-block;\
+		width: 120px;\
+		padding: 8px 12px;\
+		margin: 0 10px;\
+		background: #2a2a2a;\
+		border: 1px solid #444;\
+		color: #ddd;\
+		font-weight: bold;\
+		text-decoration: none;\
+		border-radius: 3px;\
+		font-size: 0.9em;'>INFLUENCES</a>"
+	data += "</div></div>"
 
 	data += "<div style='text-align: center;'>"
 	data += "<table style='width: 80%; margin: 0 auto; border-collapse: collapse;'><tr>"
@@ -226,9 +259,85 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		data += "<font color='#93cac7'><span class='bold'>No confessions!</span></font>"
 	data += "</div>"
 
-	var/datum/browser/popup = new(src.mob, "vanderlin_stats", "<center>End Round Statistics</center>", 450, 560)
+	src.mob << browse(null, "window=vanderlin_influences")
+	var/datum/browser/popup = new(src.mob, "vanderlin_stats", "<center>End Round Statistics</center>", 460, 640)
 	popup.set_content(data.Join())
 	popup.open()
+
+/// Shows God's influences menu
+/client/proc/show_influences()
+	if(SSticker.current_state != GAME_STATE_FINISHED && !check_rights(R_ADMIN))
+		return
+
+	var/list/data = list()
+
+	// Navigation buttons
+	data += "<div style='width: 90%; margin: 0 auto 30px; display: flex; justify-content: center; gap: 20px;'>"
+	data += "<a href='byond://?src=[REF(src)];viewstats=1' style='padding: 12px 24px; background: #282828; border: 2px solid #404040; color: #d0d0d0; font-weight: bold; text-decoration: none; border-radius: 4px;'>STATISTICS</a>"
+	data += "<a href='byond://?src=[REF(src)];viewinfluences=1' style='padding: 12px 24px; background: #282828; border: 2px solid #404040; color: #d0d0d0; font-weight: bold; text-decoration: none; border-radius: 4px;'>INFLUENCES</a>"
+	data += "</div>"
+
+	// Psydon Section (matches 2 rows height)
+	data += "<div style='width: 90%; margin: 0 auto 30px; border: 2px solid #2f6c7a; background: #1d4a54; color: #b3e0ff; max-height: 420px;'>" // Adjusted height
+	data += "<div style='text-align: center; font-size: 1.3em; padding: 12px;'><b>PSYDON</b></div>"
+	data += "<div style='padding: 0 15px 15px 15px;'>"
+	data += "<div style='background: #0a2a33; border-radius: 4px; padding: 12px;'>"
+	data += "Influence: Number of confessions: 0<br>"
+	data += "Status: DEAD: 0"
+	data += "<div style='border-top: 1px solid #444; margin: 12px 0 8px 0;'></div>"
+	data += "Total Influence: 0"
+	data += "</div></div></div>"
+
+	// The Ten Section
+	data += "<div style='text-align: center; font-size: 1.3em; color: #c0a828; margin: 20px 0 10px 0;'><b>THE TEN</b></div>"
+	data += "<div style='border-top: 3px solid #404040; margin: 0 auto 30px; width: 90%;'></div>" // Original divider
+
+	data += "<div style='width: 90%; margin: 0 auto 40px;'>"
+	// First Row with increased bottom margin
+	data += "<div style='display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; margin-bottom: 30px;'>"
+	data += god_block("ASTRATA", "#ffd700", "#333300", "Laws made: 0<br>Alive nobles: 0<br>Noble deaths: 0<br>Astrata revivals: 0<br>People smitten: 0<br>Zizo worshippers killed: 0<br>People burned alive: 0")
+	data += god_block("NOC", "#e0e0e0", "#404040", "Books printed: 0<br>Literacy taught: 0<br>Number of illiterates: 0<br>Skills learned: 0<br>Spells cast: 0<br>Mana overloaded: 0")
+	data += god_block("RAVOX", "#004400", "#aaffaa", "Combat skills learned: 0<br>Parries made: 0<br>Warcries made: 0<br>Yields made: 0<br>Wrestling moves: 0")
+	data += god_block("PESTRA", "#88cc88", "#224422", "Potions brewed: 0<br>Wounds healed: 0<br>Souls reincarnated: 0<br>Animals bred: 0")
+	data += god_block("NECRA", "#666666", "#dddddd", "Graves consecrated: 0<br>Graves robbed: 0<br>Deadites killed: 0<br>Vampires killed: 0")
+	data += "</div>"
+
+	// Second Row with normal spacing
+	data += "<div style='display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px;'>"
+	data += god_block("DENDOR", "#442200", "#ccaa88", "Trees cut: 0<br>Plants harvested: 0<br>Number of werevolves: 0<br>Briar stuff: 0")
+	data += god_block("XYLIX", "#202020", "#aaaaaa", "Games rigged: 0<br>Laughs had: 0<br>People mocked: 0<br>Crits made: 0")
+	data += god_block("MALUM", "#a08060", "#332211", "Masterworks forged: 0<br>Ores mined: 0<br>Craft skills obtained: 0<br>Items crafted: 0")
+	data += god_block("ABYSSOR", "#000066", "#6699ff", "Fish caught: 0<br>Abyssor's name remembered: 0<br>Blood spilt: 0<br>Leeches embedded: 0")
+	data += god_block("EORA", "#663366", "#ddaaff", "Marriages made: 0<br>Kisses made: 0<br>Hugs made: 0<br>Number of clingy people: 0")
+	data += "</div></div>"
+
+	// Inhuman Gods Section
+	data += "<div style='text-align: center; font-size: 1.3em; color: #AA0000; margin: 20px 0 10px 0;'><b>INHUMEN GODS</b></div>"
+	data += "<div style='border-top: 3px solid #404040; margin: 0 auto 30px; width: 90%;'></div>"
+
+	data += "<div style='width: 90%; margin: 0 auto;'>"
+	data += "<div style='display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 1fr; gap: 20px; margin-bottom: 20px;'>"
+	data += god_block("ZIZO", "#660000", "#ffcccc", "Zizo praised: 0<br>Deadites alive: 0<br>Noble deaths: 0<br>Maniac stuff: 0<br>Priest died: 0")
+	data += god_block("GRAGGAR", "#4a1a1a", "#ffaaaa", "Successful assasinations: 0<br>Organs eaten: 0<br>Total deaths: 0<br>People gibbed: 0")
+	data += god_block("BAOTHA", "#4a0044", "#ffbbff", "Drugs snorted: 0<br>Alcohol consumed: 0<br>Number of alcoholics/junkies: 0")
+	data += god_block("MATTHIOS", "#3a1100", "#ddbb99", "Items pickpocketed: 0<br>Value offered to totem: 0<br>Deaths in his tomb: 0<br>Number of greedy people/kleptomaniacs: 0")
+	data += "</div></div>"
+
+	src.mob << browse(null, "window=vanderlin_stats")
+	var/datum/browser/popup = new(src.mob, "vanderlin_influences", "<center>Gods influences</center>", 1200, 800)
+	popup.set_content(data.Join())
+	popup.open()
+
+/proc/god_block(name, bg_color, title_color, content)
+	return {"
+	<div style='border:2px solid [bg_color]; background:[bg_color]; border-radius:6px; height:100%;'>
+		<div style='font-weight:bold; font-size:1.1em; padding:8px; color:[title_color]'>[name]</div>
+		<div style='padding:8px; background:#111; border-radius:0 0 4px 4px;'>
+			<div style='margin-bottom:8px;'>[content]</div>
+			<div style='border-top:1px solid #444; padding-top:6px;'>Total Influence: 0</div>
+		</div>
+	</div>
+	"}
 
 /client/proc/commendation_popup(intentional = FALSE)
 	if(SSticker.current_state != GAME_STATE_FINISHED)
