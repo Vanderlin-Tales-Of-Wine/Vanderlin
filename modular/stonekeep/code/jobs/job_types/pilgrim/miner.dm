@@ -50,7 +50,7 @@
 
 	if(H.dna.species.id == "dwarf")
 		head = /obj/item/clothing/head/helmet/leather/minershelm
-		id = /obj/item/key/guildring
+		ring = /obj/item/key/guildring
 		H.cmode_music = 'sound/music/cmode/combat_dwarf.ogg'
 	else
 		beltr = /obj/item/flashlight/flare/torch/lantern

@@ -37,7 +37,7 @@
 			H.mind.adjust_skillrank(/datum/skill/craft/blacksmithing, pick(0,1), TRUE)
 			H.mind.adjust_skillrank(/datum/skill/craft/weaponsmithing, pick(0,1), TRUE)
 			H.mind.adjust_skillrank(/datum/skill/craft/armorsmithing, pick(0,1), TRUE)
-	id = /obj/item/key/guildring
+	ring = /obj/item/key/guildring
 	head = /obj/item/clothing/head/headband/makers
 	pants = /obj/item/clothing/pants/tights/makers
 	shoes = /obj/item/clothing/shoes/shortboots

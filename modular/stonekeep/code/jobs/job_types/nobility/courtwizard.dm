@@ -36,7 +36,7 @@
 	backr = /obj/item/storage/backpack/satchel
 	cloak = /obj/item/clothing/cloak/black_cloak
 	armor = /obj/item/clothing/shirt/robe/black
-	id = /obj/item/clothing/ring/gold
+	ring = /obj/item/clothing/ring/gold
 	belt = /obj/item/storage/belt/leather/plaquesilver
 	beltr = /obj/item/storage/keyring/mage
 	shoes = /obj/item/clothing/shoes/shortboots

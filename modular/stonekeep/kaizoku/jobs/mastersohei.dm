@@ -34,7 +34,7 @@
 	shoes = /obj/item/clothing/shoes/sandals/geta
 	belt = /obj/item/storage/belt/kaizoku/leather/daisho/random
 	beltl = /obj/item/storage/belt/pouch/coins/mid
-	id = /obj/item/clothing/ring/silver
+	ring = /obj/item/clothing/ring/silver
 	cloak = /obj/item/clothing/cloak/odoshisohei
 	neck = /obj/item/clothing/neck/chaincoif/karuta_zukin/random
 	gloves = /obj/item/clothing/gloves/chain/kikko

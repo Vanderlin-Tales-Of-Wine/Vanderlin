@@ -44,7 +44,7 @@
 	beltl = /obj/item/storage/keyring/merchant_hamlet
 	armor = /obj/item/clothing/shirt/robe/merchant
 	head = /obj/item/clothing/head/chaperon
-	id = /obj/item/clothing/ring/gold/guild_mercator
+	ring = /obj/item/clothing/ring/gold/guild_mercator
 	shoes = /obj/item/clothing/shoes/boots/leather
 
 	if(H.gender == MALE)

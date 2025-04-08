@@ -31,7 +31,7 @@
 	backl = /obj/item/storage/backpack/backpack
 	backpack_contents = list(/obj/item/weapon/knife/dagger/steel)
 	neck = /obj/item/storage/belt/pouch/coins/rich
-	id = /obj/item/clothing/ring/silver
+	ring = /obj/item/clothing/ring/silver
 	if(H.gender == FEMALE)
 		armor = /obj/item/clothing/shirt/dress/gen/green
 		head = /obj/item/clothing/head/hatblu

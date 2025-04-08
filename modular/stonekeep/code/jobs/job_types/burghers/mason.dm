@@ -48,7 +48,7 @@
 	beltr = /obj/item/storage/belt/pouch/coins/poor
 	beltl = /obj/item/key/mason
 	backl = /obj/item/storage/backpack/backpack
-	id = /obj/item/key/guildring
+	ring = /obj/item/key/guildring
 	backpack_contents = list(/obj/item/weapon/hammer/steel = 1, /obj/item/weapon/chisel = 1, /obj/item/flashlight/flare/torch/lantern, /obj/item/weapon/knife/villager)
 
 	H.change_stat(STATKEY_STR, 1)
