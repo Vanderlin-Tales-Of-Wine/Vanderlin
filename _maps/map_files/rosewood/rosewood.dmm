@@ -3824,6 +3824,12 @@
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/cobble,
 /area/rogue/indoors/town)
+"cci" = (
+/obj/effect/landmark/start/archivist{
+	dir = 1
+	},
+/turf/open/floor/cobblerock/alt,
+/area/rogue/under/town/basement)
 "ccF" = (
 /obj/item/storage/sack,
 /turf/open/floor/dirt,
@@ -22871,6 +22877,11 @@
 	},
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town)
+"mNY" = (
+/obj/structure/chair/stool,
+/obj/effect/landmark/start/archivist,
+/turf/open/floor/wood/nosmooth/saiga,
+/area/rogue/under/town/basement)
 "mOf" = (
 /obj/structure/table/wood{
 	dir = 8;
@@ -34451,6 +34462,7 @@
 	},
 /obj/item/weapon/hammer/iron,
 /obj/item/weapon/chisel,
+/obj/item/key/tower,
 /turf/open/floor/wood/nosmooth/saiga,
 /area/rogue/under/town/basement)
 "tfU" = (
@@ -37737,9 +37749,7 @@
 /area/rogue/under/town/basement)
 "uWj" = (
 /obj/structure/mineral_door/wood/violet{
-	locked = 1;
-	lockid = "tower";
-	name = "Archivist's Basement"
+	name = "Archivist's Chambers"
 	},
 /turf/open/floor/blocks,
 /area/rogue/under/town/basement)
@@ -90612,7 +90622,7 @@ ehP
 ehP
 lHI
 dsj
-sHF
+mNY
 tza
 ddh
 jEv
@@ -90622,7 +90632,7 @@ dYs
 sVE
 dkb
 ueY
-ueY
+cci
 ePt
 ieX
 qJl
