@@ -132,6 +132,10 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		commendation_popup(TRUE)
 		return
 
+	if(href_list["viewstats"])
+		show_round_stats()
+		return
+
 	switch(href_list["_src_"])
 		if("holder")
 			hsrc = holder
@@ -164,6 +168,67 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		return
 
 	..()	//redirect to hsrc.Topic()
+
+/// Shows round end popup with all kind of statistics
+/client/proc/show_round_stats()
+	if(SSticker.current_state != GAME_STATE_FINISHED)
+		return
+
+	var/list/data = list()
+
+	data += "<div style='text-align: center;'>"
+	data += "<table style='width: 80%; margin: 0 auto; border-collapse: collapse;'><tr>"
+
+	// Left Column
+	data += "<td style='vertical-align: top; width: 50%; text-align: left; padding-right: 20px;'>"
+	data += "<br><font color='#9b6937'><span class='bold'>Total Deaths:</span></font> [GLOB.vanderlin_round_stats["deaths"]]"
+	data += "<br><font color='#6b5ba1'><span class='bold'>Noble Deaths:</span></font> [GLOB.vanderlin_round_stats["noble_deaths"]]"
+	data += "<br><font color='#e6b327'><span class='bold'>Holy Revivals:</span></font> [GLOB.vanderlin_round_stats["astrata_revivals"]]"
+	data += "<br><font color='#825b1c'><span class='bold'>Moat Fallers:</span></font> [GLOB.vanderlin_round_stats["moat_fallers"]]"
+	data += "<br><font color='#ac5d5d'><span class='bold'>Ankles Broken:</span></font> [GLOB.vanderlin_round_stats["ankles_broken"]]"
+	data += "<br><font color='#a73f02'><span class='bold'>People Gibbed:</span></font> [GLOB.vanderlin_round_stats["people_gibbed"]]"
+	data += "<br><font color='#be2727'><span class='bold'>Blood Spilt:</span></font> [round(GLOB.vanderlin_round_stats["blood_spilt"] / 100, 1)]L"
+	data += "<br><font color='#e6d927'><span class='bold'>People Smitten:</span></font> [GLOB.vanderlin_round_stats["people_smitten"]]"
+	data += "<br><font color='#a027e6'><span class='bold'>Potions Brewed:</span></font> [GLOB.vanderlin_round_stats["potions_brewed"]]"
+	data += "<br><font color='#8f816b'><span class='bold'>Items Pickpocketed:</span></font> [GLOB.vanderlin_round_stats["items_pickpocketed"]]"
+	data += "<br><font color='#f5c02e'><span class='bold'>Taxes Collected:</span></font> [GLOB.vanderlin_round_stats["taxes_collected"]]"
+	data += "<br><font color='#90a037'><span class='bold'>Laughs Had:</span></font> [GLOB.vanderlin_round_stats["laughs_made"]]"
+	data += "</td>"
+
+	// Right Column
+	data += "<td style='vertical-align: top; width: 50%; text-align: left; padding-left: 20px;'>"
+	data += "<br><font color='#36959c'><span class='bold'>Triumphs Awarded:</span></font> [GLOB.vanderlin_round_stats["triumphs_awarded"]]"
+	data += "<br><font color='#a02fa4'><span class='bold'>Triumphs Stolen:</span></font> [GLOB.vanderlin_round_stats["triumphs_stolen"] * -1]"
+	data += "<br><font color='#d7da2f'><span class='bold'>Prayers Made:</span></font> [GLOB.vanderlin_round_stats["prayers_made"]]"
+	data += "<br><font color='#6e7c81'><span class='bold'>Graves Consecrated:</span></font> [GLOB.vanderlin_round_stats["graves_consecrated"]]"
+	data += "<br><font color='#ff00bf'><span class='bold'>Drugs Snorted:</span></font> [GLOB.vanderlin_round_stats["drugs_snorted"]]"
+	data += "<br><font color='#0f555c'><span class='bold'>Beards Shaved:</span></font> [GLOB.vanderlin_round_stats["beards_shaved"]]"
+	data += "<br><font color='#836033'><span class='bold'>Trees Cut:</span></font> [GLOB.vanderlin_round_stats["trees_cut"]]"
+	data += "<br><font color='#63a15b'><span class='bold'>Plants Harvested:</span></font> [GLOB.vanderlin_round_stats["plants_harvested"]]"
+	data += "<br><font color='#4492a5'><span class='bold'>Fish Caught:</span></font> [GLOB.vanderlin_round_stats["fish_caught"]]"
+	data += "<br><font color='#6f7448'><span class='bold'>Masterworks Forged:</span></font> [GLOB.vanderlin_round_stats["masterworks_forged"]]"
+	data += "<br><font color='#af2323'><span class='bold'>Organs Eaten:</span></font> [GLOB.vanderlin_round_stats["organs_eaten"]]"
+	data += "<br><font color='#af2379'><span class='bold'>Kisses Made:</span></font> [GLOB.vanderlin_round_stats["kisses_made"]]"
+	data += "</td>"
+
+	data += "</tr></table></div>"
+
+	data += "<div style='text-align: center;'>"
+	data += "<br><span class='bold'>--------------------------------------------------------------------------</span><br>"
+	data += "</div>"
+
+	data += "<div style='text-align: center; margin-top: 10px; padding-right: 20px; padding-left: 20px;'>"
+	if(GLOB.confessors.len)
+		data += "<font color='#93cac7'><span class='bold'>Confessions:</span></font> "
+		for(var/x in GLOB.confessors)
+			data += "[x]"
+	else
+		data += "<font color='#93cac7'><span class='bold'>No confessions!</span></font>"
+	data += "</div>"
+
+	var/datum/browser/popup = new(src.mob, "vanderlin_stats", "<center>End Round Statistics</center>", 450, 560)
+	popup.set_content(data.Join())
+	popup.open()
 
 /client/proc/commendation_popup(intentional = FALSE)
 	if(SSticker.current_state != GAME_STATE_FINISHED)
@@ -484,7 +549,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	var/nnpa = CONFIG_GET(number/notify_new_player_age)
 	if (isnum(cached_player_age) && cached_player_age == -1) //first connection
 		if (nnpa >= 0)
-			message_admins("New user: [key_name_admin(src)] is connecting here for the first time.")
+			message_admins("New user: [key_name_admin(src)] [ADMIN_PP(mob)] is connecting here for the first time.")
 			if (CONFIG_GET(flag/irc_first_connection_alert))
 				send2irc_adminless_only("New-user", "[key_name(src)] is connecting for the first time!")
 	else if (isnum(cached_player_age) && cached_player_age < nnpa)
@@ -943,7 +1008,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 			string += "Mobile Hostspot IP"
 
 	if(failed && !(is_admin(src)))
-		message_admins(span_adminnotice("Proxy Detection: [key_name_admin(src)] Overwatch detected this is a [string]"))
+		message_admins(span_adminnotice("Proxy Detection: [key_name_admin(src)] [ADMIN_PP(mob)] Overwatch detected this is a [string]"))
 
 	return failed
 

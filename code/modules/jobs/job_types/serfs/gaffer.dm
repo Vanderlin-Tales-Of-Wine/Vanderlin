@@ -40,7 +40,7 @@
 	shirt = /obj/item/clothing/shirt/tunic/black
 	wrists = /obj/item/clothing/wrists/bracers/leather/advanced
 	armor = /obj/item/clothing/armor/leather/hide
-	id = /obj/item/clothing/ring/gold/burden
+	ring = /obj/item/clothing/ring/gold/burden
 	pants = /obj/item/clothing/pants/trou/leather/advanced
 	shoes = /obj/item/clothing/shoes/nobleboot
 	cloak = /obj/item/clothing/cloak/raincloak/furcloak/black
