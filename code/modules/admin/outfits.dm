@@ -51,6 +51,7 @@ GLOBAL_LIST_EMPTY(custom_outfits) //Admin created outfits
 		to_chat(admin,"<span class='warning'>Malformed/Outdated file.</span>")
 		return
 	GLOB.custom_outfits += O
+	message_admins("[key_name(usr)] loaded an outfit! Name: \"[O.name]\"")
 	outfit_manager(admin)
 
 /datum/admins/proc/create_outfit(mob/admin)
