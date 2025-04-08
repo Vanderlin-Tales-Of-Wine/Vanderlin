@@ -81,7 +81,7 @@
 	if(trash)
 		generate_trash(T)
 
-	visible_message(span_warning("."),span_hear("."))
+	visible_message(span_warning("."),"<span class='hear'>I hear a smack.</span>")
 
 	reagents.reaction(T)
 	for(var/A in T)

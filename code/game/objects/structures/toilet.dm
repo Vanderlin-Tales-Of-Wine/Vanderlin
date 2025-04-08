@@ -47,7 +47,7 @@
 		to_chat(user, "<span class='notice'>I start to [cistern ? "replace the lid on the cistern" : "lift the lid off the cistern"]...</span>")
 		playsound(loc, 'sound/blank.ogg', 50, TRUE)
 		if(I.use_tool(src, user, 30))
-			user.visible_message("<span class='notice'>[user] [cistern ? "replaces the lid on the cistern" : "lifts the lid off the cistern"]!</span>", "<span class='notice'>I [cistern ? "replace the lid on the cistern" : "lift the lid off the cistern"]!</span>", span_hear("."))
+			user.visible_message("<span class='notice'>[user] [cistern ? "replaces the lid on the cistern" : "lifts the lid off the cistern"]!</span>", "<span class='notice'>I [cistern ? "replace the lid on the cistern" : "lift the lid off the cistern"]!</span>", "<span class='hear'>I hear grinding porcelain.</span>")
 			cistern = !cistern
 			update_icon()
 	else if(I.tool_behaviour == TOOL_WRENCH && !(flags_1&NODECONSTRUCT_1))

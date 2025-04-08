@@ -380,7 +380,7 @@
 	add_fingerprint(user)
 	user.visible_message("<span class='warning'>[user] [actuallyismob ? "tries to ":""]stuff [O] into [src].</span>", \
 						"<span class='warning'>I [actuallyismob ? "try to ":""]stuff [O] into [src].</span>", \
-						span_hear("."))
+						"<span class='hear'>I hear clanging.</span>")
 	if(actuallyismob)
 		if(do_after(user, 4 SECONDS, O))
 			user.visible_message(span_notice("[user] stuffs [O] into [src]."), \

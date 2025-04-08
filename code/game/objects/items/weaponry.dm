@@ -24,9 +24,9 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 */
 /obj/item/banhammer/attack(mob/M, mob/user)
 	if(user.zone_selected == BODY_ZONE_HEAD)
-		M.visible_message("<span class='danger'>[user] is stroking the head of [M] with a banhammer.</span>", "<span class='danger'>[user] is stroking my head with a banhammer.</span>", span_hear("."))
+		M.visible_message("<span class='danger'>[user] is stroking the head of [M] with a banhammer.</span>", "<span class='danger'>[user] is stroking my head with a banhammer.</span>", "<span class='hear'>I hear a banhammer stroking a head.</span>")
 	else
-		M.visible_message("<span class='danger'>[M] has been banned FOR NO REISIN by [user]!</span>", "<span class='danger'>I have been banned FOR NO REISIN by [user]!</span>", span_hear("."))
+		M.visible_message("<span class='danger'>[M] has been banned FOR NO REISIN by [user]!</span>", "<span class='danger'>I have been banned FOR NO REISIN by [user]!</span>", "<span class='hear'>I hear a banhammer banning someone.</span>")
 	playsound(loc, 'sound/blank.ogg', 15) //keep it at 15% volume so people don't jump out of their skin too much
 	if(user.used_intent.type != INTENT_HELP)
 		return ..(M, user)
