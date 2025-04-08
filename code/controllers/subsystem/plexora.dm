@@ -146,8 +146,8 @@ SUBSYSTEM_DEF(plexora)
 		"map" = SSmapping.config?.map_name,
 		"playercount" = length(GLOB.clients),
 		"restart_type" = restart_type,
-		"requestedby" = usr.ckey,
-		"requestedby_stealthed" = usr.client.holder.fakekey,
+		"requestedby" = usr?.ckey,
+		"requestedby_stealthed" = usr?.client?.holder?.fakekey,
 	))
 	server_restart_sent = TRUE
 
