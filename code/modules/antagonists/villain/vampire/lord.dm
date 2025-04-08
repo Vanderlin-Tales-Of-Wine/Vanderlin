@@ -111,13 +111,6 @@
 	shoes = /obj/item/clothing/shoes/boots
 	backl = /obj/item/storage/backpack/satchel/black
 
-	H.swap_rmb_intent(num=1)
-	H.possible_rmb_intents = list(/datum/rmb_intent/feint,\
-	/datum/rmb_intent/aimed,\
-	/datum/rmb_intent/strong,\
-	/datum/rmb_intent/riposte,\
-	/datum/rmb_intent/weak)
-	H.ambushable = FALSE
 
 /*------VERBS-----*/
 
@@ -126,13 +119,13 @@
 	set name = "Demand Submission"
 	set category = "VAMPIRE"
 	if(SSmapping.retainer.king_submitted)
-		to_chat(src, span_warning("I am already the Master of Vanderlin."))
+		to_chat(src, span_warning("I am already the Master of these lands."))
 		return
 
 	var/mob/living/carbon/ruler = SSticker.rulermob
 
 	if(!ruler || (get_dist(src, ruler) > 1))
-		to_chat(src, span_warning("The Master of Vanderlin is not beside me."))
+		to_chat(src, span_warning("The Master of these lands is not beside me."))
 		return
 
 	if(ruler.stat <= CONSCIOUS)

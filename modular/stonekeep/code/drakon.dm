@@ -45,3 +45,13 @@
 	color = CLOTHING_BLOOD_RED
 
 // shadowpants & belt
+
+/datum/outfit/job/vamplord/pre_equip(mob/living/carbon/human/H)
+	..()
+	H.swap_rmb_intent(num=1)
+	H.possible_rmb_intents = list(/datum/rmb_intent/feint,\
+	/datum/rmb_intent/aimed,\
+	/datum/rmb_intent/strong,\
+	/datum/rmb_intent/riposte,\
+	/datum/rmb_intent/weak)
+	H.ambushable = FALSE

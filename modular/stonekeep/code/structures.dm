@@ -47,7 +47,7 @@
 	bulb_power = 1.1
 
 /obj/machinery/light/fueled/hearth/big_fireplace
-	brightness = 11
+	brightness = 10
 	bulb_power = 1.4
 
 /obj/machinery/light/fueled/torchholder
@@ -709,7 +709,7 @@
 
 /obj/structure/flora/shroom_tree_neu/Initialize()
 	. = ..()
-	icon_state = "[base_icon_state]_[rand(1,4)]"
+	icon_state = "[base_icon_state]_[rand(1,5)]"
 	dir = pick(GLOB.cardinals)
 	pixel_x += rand(2,-2)
 	pixel_y += rand(0,1)

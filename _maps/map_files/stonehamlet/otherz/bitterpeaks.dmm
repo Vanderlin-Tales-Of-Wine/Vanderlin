@@ -673,6 +673,7 @@
 /area/rogue/under/mountains)
 "tQ" = (
 /obj/structure/dye_bin/luxury,
+/obj/machinery/light/fueled/wallfire/candle/l,
 /turf/open/floor/metal/barograte,
 /area/rogue/indoors/vampire_manor)
 "ue" = (
@@ -987,16 +988,16 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
 "BN" = (
+/obj/structure/closet/crate/chest/neu_iron,
+/turf/open/floor/cobble,
+/area/rogue/indoors/vampire_manor)
+"BO" = (
 /obj/item/rope/chain,
 /obj/item/rope/chain,
 /obj/item/rope/chain,
 /obj/item/rope/chain,
 /obj/structure/closet/crate/chest/neu_iron,
 /turf/open/floor/cobble,
-/area/rogue/indoors/vampire_manor)
-"BO" = (
-/obj/machinery/light/fueled/wallfire/candle/r,
-/turf/open/floor/metal/barograte,
 /area/rogue/indoors/vampire_manor)
 "BS" = (
 /obj/item/bin/water/gross,
@@ -1133,6 +1134,7 @@
 	pixel_x = 1;
 	pixel_y = -5
 	},
+/obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/floor/metal/barograte,
 /area/rogue/indoors/vampire_manor)
 "Hn" = (
@@ -1160,7 +1162,9 @@
 /turf/open/floor/cobblemoss,
 /area/rogue/under/lavamonastery)
 "HT" = (
-/obj/machinery/light/fueled/hearth/big_fireplace,
+/obj/machinery/light/fueled/hearth/big_fireplace{
+	bulb_power = 1.2
+	},
 /obj/structure/fluff/wallclock/vampire,
 /turf/open/floor/hexstone,
 /area/rogue/indoors/vampire_manor)
@@ -1176,7 +1180,6 @@
 /turf/open/floor/naturalstone,
 /area/rogue/indoors/cave/bear)
 "Io" = (
-/obj/machinery/light/fueled/wallfire/candle/l,
 /obj/structure/table/wood/plain_alt,
 /turf/open/floor/metal/barograte,
 /area/rogue/indoors/vampire_manor)
@@ -1236,7 +1239,6 @@
 /area/rogue/under/cavelava)
 "Kb" = (
 /obj/structure/mineral_door/wood/donjon/stone{
-	locked = 1;
 	lockid = "mansionvampire";
 	name = "lords room"
 	},
@@ -47390,10 +47392,10 @@ ds
 ds
 Xf
 Et
+YO
+YO
 BN
-YO
-YO
-ZP
+BO
 YB
 ZP
 OZ
@@ -47532,7 +47534,7 @@ OZ
 OZ
 OZ
 ZP
-YB
+ZP
 ZP
 ZP
 ZP
@@ -48044,7 +48046,7 @@ YX
 YX
 iN
 TL
-xJ
+TL
 OE
 OE
 OE
@@ -48564,7 +48566,7 @@ YX
 YX
 Vf
 TL
-xJ
+TL
 rd
 rd
 rd
@@ -49358,7 +49360,7 @@ Xf
 ZP
 ZP
 qK
-BO
+Su
 Hj
 Su
 kD
@@ -49478,7 +49480,7 @@ WA
 Su
 Su
 wk
-BO
+Su
 AG
 AD
 do
