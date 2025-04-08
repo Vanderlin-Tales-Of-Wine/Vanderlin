@@ -171,13 +171,14 @@
 //****** RMB Intents ******
 
 /datum/keybinding/carbon/rmb_intent_1
-	hotkey_keys = list("Shift1")
+	hotkey_keys = list("Ctrl1")
 	name = "rmb_intent_1"
 	full_name = "Select Feint Intent"
 	description = "Selects the Feint RMB intent."
 	category = CATEGORY_CARBON
 
 /datum/keybinding/carbon/rmb_intent_1/down(client/user)
+	. = ..()
 	if(!iscarbon(user.mob))
 		return FALSE
 	var/mob/living/carbon/C = user.mob
@@ -185,13 +186,14 @@
 	return TRUE
 
 /datum/keybinding/carbon/rmb_intent_2
-	hotkey_keys = list("Shift2")
+	hotkey_keys = list("Ctrl2")
 	name = "rmb_intent_2"
 	full_name = "Select Aimed Intent"
 	description = "Selects the Aimed RMB intent."
 	category = CATEGORY_CARBON
 
 /datum/keybinding/carbon/rmb_intent_2/down(client/user)
+	. = ..()
 	if(!iscarbon(user.mob))
 		return FALSE
 	var/mob/living/carbon/C = user.mob
@@ -199,13 +201,14 @@
 	return TRUE
 
 /datum/keybinding/carbon/rmb_intent_3
-	hotkey_keys = list("Shift3")
+	hotkey_keys = list("Ctrl3")
 	name = "rmb_intent_3"
 	full_name = "Select Strong Intent"
 	description = "Selects the Strong RMB intent."
 	category = CATEGORY_CARBON
 
 /datum/keybinding/carbon/rmb_intent_3/down(client/user)
+	. = ..()
 	if(!iscarbon(user.mob))
 		return FALSE
 	var/mob/living/carbon/C = user.mob
@@ -213,13 +216,14 @@
 	return TRUE
 
 /datum/keybinding/carbon/rmb_intent_4
-	hotkey_keys = list("Shift4")
+	hotkey_keys = list("Ctrl4")
 	name = "rmb_intent_4"
 	full_name = "Select Swift Intent"
 	description = "Selects the Swift RMB intent."
 	category = CATEGORY_CARBON
 
 /datum/keybinding/carbon/rmb_intent_4/down(client/user)
+	. = ..()
 	if(!iscarbon(user.mob))
 		return FALSE
 	var/mob/living/carbon/C = user.mob
@@ -227,13 +231,14 @@
 	return TRUE
 
 /datum/keybinding/carbon/rmb_intent_5
-	hotkey_keys = list("Shift5")
+	hotkey_keys = list("Ctrl5")
 	name = "rmb_intent_5"
 	full_name = "Select Defend Intent"
 	description = "Selects the Defend RMB intent."
 	category = CATEGORY_CARBON
 
 /datum/keybinding/carbon/rmb_intent_5/down(client/user)
+	. = ..()
 	if(!iscarbon(user.mob))
 		return FALSE
 	var/mob/living/carbon/C = user.mob
@@ -241,13 +246,14 @@
 	return TRUE
 
 /datum/keybinding/carbon/rmb_intent_6
-	hotkey_keys = list("Shift6")
+	hotkey_keys = list("Ctrl6")
 	name = "rmb_intent_6"
 	full_name = "Select Weak Intent"
 	description = "Selects the Weak RMB intent."
 	category = CATEGORY_CARBON
 
 /datum/keybinding/carbon/rmb_intent_6/down(client/user)
+	. = ..()
 	if(!iscarbon(user.mob))
 		return FALSE
 	var/mob/living/carbon/C = user.mob
@@ -262,6 +268,7 @@
 	category = CATEGORY_CARBON
 
 /datum/keybinding/carbon/cycle_rmb_intent/down(client/user)
+	. = ..()
 	if(!iscarbon(user.mob))
 		return FALSE
 	var/mob/living/carbon/C = user.mob
