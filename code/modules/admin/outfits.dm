@@ -83,7 +83,7 @@ GLOBAL_LIST_EMPTY(custom_outfits) //Admin created outfits
 		necks_select += "<option value=\"[path]\">[path]</option>"
 	necks_select += "</select>"
 
-	var/cloaks_select = "<select name=\"outfit_cloaks\"><option value=\"\">None</option>"
+	var/cloaks_select = "<select name=\"outfit_cloak\"><option value=\"\">None</option>"
 	for(var/path in cloaks)
 		cloaks_select += "<option value=\"[path]\">[path]</option>"
 	cloaks_select += "</select>"
@@ -118,7 +118,7 @@ GLOBAL_LIST_EMPTY(custom_outfits) //Admin created outfits
 		shirts_select += "<option value=\"[path]\">[path]</option>"
 	shirts_select += "</select>"
 
-	var/armors_select = "<select name=\"outfit_armors\"><option value=\"\">None</option>"
+	var/armors_select = "<select name=\"outfit_armor\"><option value=\"\">None</option>"
 	for(var/path in armors)
 		armors_select += "<option value=\"[path]\">[path]</option>"
 	armors_select += "</select>"
