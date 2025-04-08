@@ -25,6 +25,7 @@
 
 /datum/outfit/job/magician
 	job_bitflag = BITFLAG_ROYALTY
+	allowed_patrons = list(/datum/patron/divine/noc, /datum/patron/inhumen/zizo)
 
 /datum/outfit/job/magician/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -33,7 +34,7 @@
 	armor = /obj/item/clothing/shirt/robe/black
 	cloak = /obj/item/clothing/cloak/black_cloak
 	neck = /obj/item/clothing/neck/mana_star
-	id = /obj/item/clothing/ring/gold
+	ring = /obj/item/clothing/ring/gold
 	belt = /obj/item/storage/belt/leather/plaquesilver
 	beltr = /obj/item/storage/magebag
 	backl = /obj/item/weapon/polearm/woodstaff

@@ -48,35 +48,38 @@ GLOBAL_LIST_EMPTY(antagonist_teams)
 	var/list/report = list()
 
 	report += span_header(" * [name] * ")
-	//report += "\The [member_name]s were:"
 	report += printplayerlist(members)
 
 	if(length(objectives))
-		report += span_header("Team had following objectives:")
+		report += span_header("They had the following objectives:")
 		var/win = TRUE
-		var/objective_count = 1
+		var/objective_count = 0
+		var/triumph_count = 0
 		for(var/datum/objective/objective as anything in objectives)
-			if(objective.check_completion())
-				report += "<B>Goal #[objective_count]</B>: [objective.explanation_text] [span_greentext("TRIUMPH!")]"
-			else
-				report += "<B>Goal #[objective_count]</B>: [objective.explanation_text] [span_redtext("FAIL.")]"
-				win = FALSE
 			objective_count++
+			triumph_count++
+			if(objective.check_completion())
+				report += "<B>[objective.flavor] #[objective_count]</B>: [objective.explanation_text] [span_greentext("TRIUMPH!")]"
+			else
+				report += "<B>[objective.flavor] #[objective_count]</B>: [objective.explanation_text] [span_redtext("FAIL.")]"
+				win = FALSE
 
 		var/result_sound
 		if(win)
-			report += span_greentext("\The [name] was TRIUMPHED!")
+			report += span_greentext("\The [name] TRIUMPHED!")
 			result_sound = 'sound/misc/triumph.ogg'
 			roundend_success()
 		else
-			report += span_redtext("\The [name] has FAILED!")
+			report += span_redtext("\The [name] FAILED!")
 			result_sound = 'sound/misc/fail.ogg'
 			roundend_failure()
+			triumph_count = 0
 
 		for(var/datum/mind/member as anything in members)
 			if(!member.current)
 				continue
 			member.current.playsound_local(get_turf(member.current), result_sound, 100, FALSE, pressure_affected = FALSE)
+			member.adjust_triumphs(triumph_count, TRUE)
 
 	return report.Join("<br>")
 
@@ -108,6 +111,4 @@ GLOBAL_LIST_EMPTY(antagonist_teams)
 
 /datum/team/proc/roundend_success()
 
-
 /datum/team/proc/roundend_failure()
-

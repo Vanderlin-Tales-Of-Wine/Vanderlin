@@ -271,7 +271,7 @@
 						held_confession.bad_type = "A SCION OF KAINE"
 						held_confession.antag = antag_type
 					if("Vampire Lord")
-						held_confession.bad_type = "THE BLOOD-LORD OF ENIGMA"
+						held_confession.bad_type = "THE BLOOD-LORD OF VANDERLIN"
 						held_confession.antag = antag_type
 					if("Vampire Spawn")
 						held_confession.bad_type = "AN UNDERLING OF THE BLOOD-LORD"

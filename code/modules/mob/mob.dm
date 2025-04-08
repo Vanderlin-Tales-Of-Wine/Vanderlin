@@ -1025,13 +1025,14 @@ GLOBAL_VAR_INIT(mobids, 1)
  *
  * Calling this proc without an oldname will only update the mob and skip updating the pda, id and records ~Carn
  */
-/mob/proc/fully_replace_character_name(oldname,newname)
+/mob/proc/fully_replace_character_name(oldname, newname)
 	log_message("[src] name changed from [oldname] to [newname]", LOG_OWNERSHIP)
 	if(!newname)
-		return 0
+		return FALSE
 
 	log_played_names(ckey,newname)
 
+	GLOB.chosen_names += newname
 	real_name = newname
 	name = newname
 	if(mind)
@@ -1039,21 +1040,25 @@ GLOBAL_VAR_INIT(mobids, 1)
 		if(mind.key)
 			log_played_names(mind.key,newname) //Just in case the mind is unsynced at the moment.
 
+	GLOB.character_ckey_list[real_name] = ckey
+
 	if(oldname)
-		//update the datacore records! This is goig to be a bit costly.
+		GLOB.chosen_names -= oldname
+		//update the datacore records! This is going to be a bit costly.
 		replace_records_name(oldname,newname)
+		if(GLOB.character_ckey_list[oldname])
+			GLOB.character_ckey_list -= oldname
 
 		for(var/datum/mind/T in SSticker.minds)
 			for(var/datum/objective/obj in T.get_all_objectives())
 				// Only update if this player is a target
-				if(obj.target && obj.target.current && obj.target.current.real_name == name)
+				if(obj.target?.current?.real_name == name)
 					obj.update_explanation_text()
-	return 1
+	return TRUE
 
 ///Updates GLOB.data_core records with new name , see mob/living/carbon/human
 /mob/proc/replace_records_name(oldname,newname)
 	return
-
 
 /mob/proc/update_stat()
 	return

@@ -24,10 +24,12 @@
 	for(var/obj/structure/closet/crate/coffin/coffin in target_turf)
 		if(pacify_coffin(coffin, user))
 			user.visible_message(span_rose("[user] consecrates [coffin]."), span_rose("My funeral rites have been performed on [coffin]."))
+			GLOB.vanderlin_round_stats["graves_consecrated"]++
 			return
 	for(var/obj/structure/closet/dirthole/hole in target_turf)
 		if(pacify_coffin(hole, user))
 			user.visible_message(span_rose("[user] consecrates [hole]."), span_rose("My funeral rites have been performed on [hole]."))
+			GLOB.vanderlin_round_stats["graves_consecrated"]++
 			return
 	to_chat(user, span_warning("I failed to perform the rites."))
 
@@ -140,13 +142,13 @@
 		if(L.stat == DEAD)
 			continue
 		if(L.mind)
-			var/datum/antagonist/vampirelord/lesser/V = L.mind.has_antag_datum(/datum/antagonist/vampirelord/lesser)
+			var/datum/antagonist/vampire/V = L.mind.has_antag_datum(/datum/antagonist/vampire)
 			if(V)
 				if(!V.disguised)
 					isvampire = TRUE
 			if(L.mind.has_antag_datum(/datum/antagonist/zombie))
 				iszombie = TRUE
-			if(L.mind.special_role == "Vampire Lord")
+			if(istype(V, /datum/antagonist/vampire/lord))
 				user.visible_message("<span class='warning'>[L] overpowers being churned!</span>", "<span class='userdanger'>[L] is too strong, I am churned!</span>")
 				user.Stun(50)
 				user.throw_at(get_ranged_target_turf(user, get_dir(user,L), 7), 7, 1, L, spin = FALSE)

@@ -644,7 +644,7 @@
 		guts.throw_at(throw_target, power, 4, src)
 
 
-/mob/living/carbon/fully_replace_character_name(oldname,newname)
+/mob/living/carbon/fully_replace_character_name(oldname, newname)
 	..()
 	if(dna)
 		dna.real_name = real_name
