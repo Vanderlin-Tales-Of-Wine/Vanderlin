@@ -298,22 +298,20 @@
 	. = list()
 	.["outfit_type"] = type
 	.["name"] = name
-	.["suit"] = suit
-	.["toggle_helmet"] = toggle_helmet
-	.["belt"] = belt
-	.["gloves"] = gloves
-	.["shoes"] = shoes
 	.["head"] = head
 	.["mask"] = mask
 	.["neck"] = neck
-	.["glasses"] = glasses
+	.["cloak"] = cloak
+	.["backl"] = backl
+	.["backr"] = backr
 	.["ring"] = ring
-	.["l_pocket"] = l_pocket
-	.["r_pocket"] = r_pocket
-	.["r_hand"] = r_hand
-	.["l_hand"] = l_hand
-	.["backpack_contents"] = backpack_contents
-	.["accessory"] = accessory
+	.["wrists"] = wrists
+	.["gloves"] = gloves
+	.["shirt"] = shirt
+	.["armor"] = armor
+	.["pants"] = pants
+	.["belt"] = belt
+	.["shoes"] = shoes
 
 /// Prompt the passed in mob client to download this outfit as a json blob
 /datum/outfit/proc/save_to_file(mob/admin)
@@ -328,26 +326,20 @@
 /// Create an outfit datum from a list of json data
 /datum/outfit/proc/load_from(list/outfit_data)
 	//This could probably use more strict validation
+
 	name = outfit_data["name"]
-	suit = text2path(outfit_data["suit"])
-	toggle_helmet = outfit_data["toggle_helmet"]
-	belt = text2path(outfit_data["belt"])
-	gloves = text2path(outfit_data["gloves"])
-	shoes = text2path(outfit_data["shoes"])
 	head = text2path(outfit_data["head"])
 	mask = text2path(outfit_data["mask"])
 	neck = text2path(outfit_data["neck"])
-	glasses = text2path(outfit_data["glasses"])
+	cloak = text2path(outfit_data["cloak"])
+	backl = text2path(outfit_data["backl"])
+	backr = text2path(outfit_data["backr"])
 	ring = text2path(outfit_data["ring"])
-	l_pocket = text2path(outfit_data["l_pocket"])
-	r_pocket = text2path(outfit_data["r_pocket"])
-	r_hand = text2path(outfit_data["r_hand"])
-	l_hand = text2path(outfit_data["l_hand"])
-	var/list/backpack = outfit_data["backpack_contents"]
-	backpack_contents = list()
-	for(var/item in backpack)
-		var/itype = text2path(item)
-		if(itype)
-			backpack_contents[itype] = backpack[item]
-	accessory = text2path(outfit_data["accessory"])
+	wrists = text2path(outfit_data["wrists"])
+	gloves = text2path(outfit_data["gloves"])
+	shirt = text2path(outfit_data["shirt"])
+	armor = text2path(outfit_data["armor"])
+	pants = text2path(outfit_data["pants"])
+	belt = text2path(outfit_data["belt"])
+	shoes = text2path(outfit_data["shoes"])
 	return TRUE
