@@ -581,7 +581,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 			else
 				to_chat(usr, "<span class='warning'>Ticket not found, creating new one...</span>")
 		else
-			current_ticket.AddInteraction("[key_name_admin(usr)] opened a new ticket.")
+			current_ticket.AddInteraction("[key_name_admin(usr)] opened a new ticket.", player_message = "opened a new ticket.")
 			current_ticket.Close()
 
 	new /datum/admin_help(msg, src, FALSE)

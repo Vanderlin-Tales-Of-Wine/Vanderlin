@@ -150,7 +150,7 @@
 		msg = emoji_parse(msg)
 
 	var/keywordparsedmsg = keywords_lookup(msg)
-	// Stores a bit of html with our ckey, name, and a linkified string to click and rely to us with
+	/// Stores a bit of html with our ckey, name, and a linkified string to click and rely to us with
 	var/name_key_with_link = key_name(src, TRUE, TRUE)
 
 	if(irc)
@@ -176,7 +176,7 @@
 			else		//recipient is an admin but sender is not
 				var/replymsg = "Reply PM from-<b>[key_name(src, recipient, 1)]</b>: <span class='linkify'>[keywordparsedmsg]</span>"
 				SSplexora.aticket_pm(current_ticket, msg)
-				admin_ticket_log(src, "<font color='red'>[replymsg]</font>")
+				admin_ticket_log(src, "<font color='red'>[replymsg]</font>", "<font color='red'>[replymsg]</font>")
 				to_chat(recipient, "<span class='danger'>[replymsg]</span>")
 				to_chat(src, "<span class='notice'>PM to-<b>Admins</b>: <span class='linkify'>[msg]</span></span>")
 
@@ -192,7 +192,7 @@
 				to_chat(recipient, "<span class='adminsay'><i>Click on the administrator's name to reply.</i></span>")
 				to_chat(src, "<span class='notice'>Admin PM to-<b>[key_name(recipient, src, 1)]</b>: <span class='linkify'>[msg]</span></span>")
 
-				admin_ticket_log(recipient, "<font color='purple'>PM From [key_name_admin(src)]: [keywordparsedmsg]</font>")
+				admin_ticket_log(recipient, "<font color='purple'>PM From [key_name_admin(src)]: [keywordparsedmsg]</font>", "<font color='purple'>PM From [key_name_admin(src)]: [keywordparsedmsg]</font>")
 				SSplexora.aticket_pm(recipient.current_ticket, msg, src)
 				//always play non-admin recipients the adminhelp sound
 				SEND_SOUND(recipient, sound('sound/misc/adminhelp.ogg'))
@@ -313,7 +313,7 @@
 	to_chat(C, "<span class='adminsay'>Admin PM from-<b><a href='?priv_msg=[stealthkey]'>[adminname]</A></b>: [msg]</span>")
 	to_chat(C, "<span class='adminsay'><i>Click on the administrator's name to reply.</i></span>")
 
-	admin_ticket_log(C, "<font color='purple'>PM From [irc_tagged]: [msg]</font>")
+	admin_ticket_log(C, "<font color='purple'>PM From [irc_tagged]: [msg]</font>", "<font color='purple'>PM From [irc_tagged]: [msg]</font>")
 
 	window_flash(C, ignorepref = TRUE)
 	//always play non-admin recipients the adminhelp sound
