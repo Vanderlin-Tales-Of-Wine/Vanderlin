@@ -2,15 +2,7 @@
 	name = "Assassin"
 	tutorial = "From a young age you have been drawn to blood, to hurting others. Eventually you found others like you, and a god who would bless your actions. Your cursed dagger has never led you astray, and with every stab you feel a little less empty."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Kobold",
-		"Dark Elf"
-	)
+
 	outfit = /datum/outfit/job/adventurer/assassin
 	category_tags = list(CTAG_PILGRIM)
 	maximum_possible_slots = 2
@@ -154,7 +146,7 @@
 			backl = /obj/item/storage/backpack/satchel
 			neck = /obj/item/storage/belt/pouch/coins/poor //Spent all their money on expensive clothing.
 			belt = /obj/item/storage/belt/leather/assassin
-			id = /obj/item/clothing/ring/silver
+			ring = /obj/item/clothing/ring/silver
 			if(H.gender == MALE)
 				H.mind?.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE) //The male noble's sword is less useful than the female noble's bow, so no downside.
 				pants = /obj/item/clothing/pants/tights/black

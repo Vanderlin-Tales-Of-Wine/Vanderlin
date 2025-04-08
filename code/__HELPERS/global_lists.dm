@@ -87,13 +87,12 @@
 	// Patron Gods
 	for(var/path in subtypesof(/datum/patron))
 		var/datum/patron/patron = new path()
-		if(patron.non_faith)
-			continue
 		GLOB.patronlist[path] = patron
+		if(!patron.preference_accessible)
+			continue
 		LAZYINITLIST(GLOB.patrons_by_faith[patron.associated_faith])
 		GLOB.patrons_by_faith[patron.associated_faith][path] = patron
-		if(patron.preference_accessible)
-			GLOB.preference_patrons[path] = patron
+		GLOB.preference_patrons[path] = patron
 
 //creates every subtype of prototype (excluding prototype) and adds it to list L.
 //if no list/L is provided, one is created.

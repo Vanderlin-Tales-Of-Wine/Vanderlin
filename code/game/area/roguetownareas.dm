@@ -557,7 +557,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	icon_state = "orphanage"
 
 /area/rogue/indoors/town/clinic_large
-	first_time_text = "Physickers Clinic"
+	first_time_text = "The Clinic"
 	icon_state = "clinic_large"
 
 /area/rogue/indoors/town/thieves_guild

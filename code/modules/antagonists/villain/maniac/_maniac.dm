@@ -8,7 +8,7 @@
 	roundend_category = "maniacs"
 	antagpanel_category = "Maniac"
 	antag_memory = "<b>Recently I've been visited by a lot of VISIONS. They're all about another WORLD, ANOTHER life. I will do EVERYTHING to know the TRUTH, and return to the REAL world.</b>"
-	job_rank = ROLE_VILLAIN
+	job_rank = ROLE_MANIAC
 	antag_hud_type = ANTAG_HUD_TRAITOR
 	antag_hud_name = "villain"
 	confess_lines = list(
@@ -83,7 +83,7 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 /datum/antagonist/maniac/on_gain()
 	. = ..()
 	SSfake_world.should_bother = TRUE
-	owner.special_role = ROLE_VILLAIN
+	owner.special_role = ROLE_MANIAC
 	owner.special_items["Maniac"] = pick(possible_weapons)
 	owner.special_items["Surgical Kit"] = /obj/item/storage/backpack/satchel/surgbag
 	if(owner.current)
@@ -94,14 +94,16 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 			owner.adjust_skillrank(/datum/skill/combat/knives, 6, TRUE)
 			owner.adjust_skillrank(/datum/skill/combat/wrestling, 5, TRUE)
 			owner.adjust_skillrank(/datum/skill/combat/unarmed, 5, TRUE)
-			//owner.adjust_skillrank(/datum/skill/misc/treatment, 3, TRUE)
+			owner.adjust_skillrank(/datum/skill/misc/medicine, 4, TRUE)
 			var/obj/item/organ/heart/heart = dreamer.getorganslot(ORGAN_SLOT_HEART)
+			for(var/datum/status_effect/effect in dreamer.status_effects) //necessary to prevent exploits
+				dreamer.remove_status_effect(effect)
 			STASTR = dreamer.STASTR
 			STACON = dreamer.STACON
 			STAEND = dreamer.STAEND
-			dreamer.STASTR = 16
-			dreamer.STACON = 16
-			dreamer.STAEND = 16
+			dreamer.change_stat(STATKEY_STR, 16, set_stat = TRUE)
+			dreamer.change_stat(STATKEY_CON, 16, set_stat = TRUE)
+			dreamer.change_stat(STATKEY_END, 16, set_stat = TRUE)
 			if(heart) // clear any inscryptions, in case of being made maniac midround
 				heart.inscryptions = list()
 				heart.inscryption_keys = list()
@@ -130,9 +132,9 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 		if(ishuman(owner.current))
 			var/mob/living/carbon/human/dreamer = owner.current
 			dreamer.set_patron(/datum/patron/inhumen/zizo)
-			dreamer.STASTR = STASTR
-			dreamer.STACON = STACON
-			dreamer.STAEND = STAEND
+			dreamer.change_stat(STATKEY_STR, STASTR - 16)
+			dreamer.change_stat(STATKEY_CON, STACON - 16)
+			dreamer.change_stat(STATKEY_END, STAEND - 16)
 			var/client/clinet = dreamer?.client
 			if(clinet) //clear screenshake animation
 				animate(clinet, dreamer.pixel_y)
@@ -217,8 +219,8 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 	triumphed = TRUE
 	waking_up = FALSE
 	var/mob/living/carbon/dreamer = owner.current
-	dreamer.log_message("prayed their sum ([sum_keys]), beginning the Maniac TRIUMPH sequence and the end of the round.", LOG_GAME)
-	message_admins("[ADMIN_LOOKUPFLW(dreamer)] as Maniac TRIUMPHED[sum_keys ? " with sum [sum_keys]" : ""]. The round will end shortly.")
+	dreamer.log_message("prayed their sum ([sum_keys]), beginning the Maniac TRIUMPH sequence.", LOG_GAME)
+	message_admins("[ADMIN_LOOKUPFLW(dreamer)] as Maniac TRIUMPHED[sum_keys ? " with sum [sum_keys]" : ""].")
 	// var/client/dreamer_client = dreamer.client // Trust me, we need it later
 	to_chat(dreamer, "...It couldn't be.")
 	dreamer.clear_fullscreen("dream")
@@ -228,13 +230,14 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 		animate(clinet, dreamer.pixel_y)
 	for(var/datum/objective/objective in objectives)
 		objective.completed = TRUE
-	for(var/mob/connected_player in GLOB.player_list)
-		if(!connected_player.client)
-			continue
-		SEND_SOUND(connected_player, sound(null))
-		SEND_SOUND(connected_player, 'sound/villain/dreamer_win.ogg')
+	// for(var/mob/connected_player in GLOB.player_list)
+	// 	if(!connected_player.client)
+	// 		continue
+	// 	SEND_SOUND(connected_player, sound(null))
+	// 	SEND_SOUND(connected_player, 'sound/villain/dreamer_win.ogg')
 	var/mob/living/carbon/human/trey_liam = spawn_trey_liam()
 	if(trey_liam)
+		owner.adjust_triumphs(4) // Adjust triumphs here instead of at roundend
 		owner.transfer_to(trey_liam)
 		//Explodie all our wonders
 		for(var/obj/structure/wonder/wondie as anything in wonders_made)
@@ -249,29 +252,31 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 		if(brain)
 			qdel(brain)
 		cull_competitors(trey_liam)
+		SEND_SOUND(trey_liam, 'sound/villain/dreamer_win.ogg')
 		trey_liam.SetSleeping(25 SECONDS)
 		trey_liam.add_stress(/datum/stressevent/maniac_woke_up)
 		sleep(1.5 SECONDS)
 		to_chat(trey_liam, span_deadsay("<span class='reallybig'>... WHERE AM I? ...</span>"))
 		sleep(1.5 SECONDS)
 		var/static/list/slop_lore = list(
-			span_deadsay("... Rockhill? Vanderlin? No ... They doesn't exist ..."),
+			span_deadsay("... Rockhill? Vanderlin? No ... They don't exist ..."),
 			span_deadsay("... My name is Trey. Trey Liam, Scientific Overseer ..."),
 			span_deadsay("... I'm on the Aeon, a self sustaining ship, used to preserve what remains of humanity ..."),
 			span_deadsay("... Launched into the stars, preserving their memories ... Their personalities ..."),
-			span_deadsay("... Keeps them alive in cyberspace, oblivious to the catastrophe ..."),
-			span_deadsay("... There is no hope left. Only the cyberspace deck lets me live in the forgery ..."),
-			span_deadsay("... What have I done!? ..."),
+			span_deadsay("... Keeps them alive in vessels, oblivious to the catastrophe ..."),
+			span_deadsay("... There is no hope left. Only the program lets me live through the avatars ..."),
+			span_deadsay("... What have I done?! ..."),
 		)
 		for(var/slop in slop_lore)
 			to_chat(trey_liam, slop)
 			sleep(3 SECONDS)
+		to_chat(trey_liam, span_big(span_deadsay("I have to go back, I have to go back, I have to go back to Vanderlin.")))
 	else
 		INVOKE_ASYNC(src, PROC_REF(cant_wake_up), dreamer)
 		cull_competitors(dreamer)
-	sleep(15 SECONDS)
-	to_chat(world, span_deadsay("<span class='reallybig'>The Maniac has TRIUMPHED!</span>"))
-	SSticker.declare_completion()
+	// sleep(15 SECONDS)
+	// to_chat(world, span_deadsay("<span class='reallybig'>The Maniac has TRIUMPHED!</span>"))
+	// SSticker.declare_completion()
 
 /datum/antagonist/maniac/proc/cant_wake_up(mob/living/dreamer)
 	if(!iscarbon(dreamer))
@@ -333,13 +338,13 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 			count += objective.triumph_count
 
 	var/special_role_text = lowertext(name)
-	if(!considered_alive(owner))
-		traitorwin = FALSE
+	// if(!considered_alive(owner))
+	// 	traitorwin = FALSE
 
 	if(traitorwin)
-		if(count)
-			if(owner)
-				owner.adjust_triumphs(count)
+		// if(count)
+		// 	if(owner)
+		// 		owner.adjust_triumphs(count)
 		to_chat(world, span_greentext("The [special_role_text] has TRIUMPHED!"))
 		if(owner?.current)
 			owner.current.playsound_local(get_turf(owner.current), 'sound/misc/triumph.ogg', 100, FALSE, pressure_affected = FALSE)
@@ -347,3 +352,27 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 		to_chat(world, span_redtext("The [special_role_text] has FAILED!"))
 		if(owner?.current)
 			owner.current.playsound_local(get_turf(owner.current), 'sound/misc/fail.ogg', 100, FALSE, pressure_affected = FALSE)
+
+/obj/structure/maniac_return_machine
+	name = "Vanderlin Program"
+	desc = "The Vanderlin Program was created by ██████████ in the year ████, allowing humans to explore hostile worlds and environments through remote-controlled bodies without danger to the user's life."
+	icon_state = "pylon"
+	icon = 'icons/roguetown/misc/mana_pylon.dmi'
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
+	plane = GAME_PLANE_UPPER
+	layer = ABOVE_MOB_LAYER
+	light_outer_range = MINIMUM_USEFUL_LIGHT_RANGE
+	light_color = COLOR_CYAN
+	density = TRUE
+
+/obj/structure/maniac_return_machine/attack_hand(mob/user)
+	if(user.mind?.has_antag_datum(/datum/antagonist/maniac))
+		to_chat(user, span_notice("I begin plugging myself back into [src]."))
+		if(do_after(user, 10 SECONDS, src))
+			SEND_SOUND(user, sound(null))
+			var/mob/living/carbon/spirit/O = new /mob/living/carbon/spirit(get_turf(src))
+			O.ckey = user.ckey
+			O.returntolobby()
+			user.status_flags |= GODMODE // To prevent Trey Liam from dying
+		return TRUE
+	. = ..()

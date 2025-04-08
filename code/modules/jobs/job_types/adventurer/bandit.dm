@@ -13,8 +13,6 @@
 	min_pq = 4
 	antag_job = TRUE
 
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
-
 	outfit = null
 	outfit_female = null
 
