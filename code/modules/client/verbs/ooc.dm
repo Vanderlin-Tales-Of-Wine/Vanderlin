@@ -388,13 +388,6 @@ GLOBAL_VAR_INIT(OOC_COLOR, normal_ooc_colour)//If this is null, use the CSS for 
 	else
 		to_chat(src, "<span class='notice'>The Message of the Day has not been set.</span>")
 
-/client/proc/self_notes()
-	set name = "View Admin Remarks"
-	set category = "OOC"
-	set desc = "View the notes that admins have written about you"
-
-	browse_messages(null, usr.ckey, null, TRUE)
-
 /client/proc/self_playtime()
 	set name = "View tracked playtime"
 	set category = "OOC"
