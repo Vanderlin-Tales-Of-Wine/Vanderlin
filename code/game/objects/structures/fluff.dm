@@ -184,8 +184,10 @@
 	smooth_fences()
 
 /obj/structure/fluff/railing/fence/Destroy()
-	..()
-	smooth_fences()
+	for(var/obj/structure/fluff/railing/fence/F in orange(1))
+		if(F.dir == dir)
+			F.smooth_fences(TRUE)
+	return ..()
 
 /obj/structure/fluff/railing/fence/OnCrafted(dirin, mob/user)
 	. = ..()

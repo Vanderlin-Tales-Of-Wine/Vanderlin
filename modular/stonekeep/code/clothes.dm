@@ -505,7 +505,7 @@
 
 /obj/item/clothing/head/helmet/heavy/necked/varyag
 	name = "varyag helmet"
-	desc = ""
+	desc = "Cold iron protecting the skull of a son of the North as he reaves."
 	icon = 'modular/stonekeep/icons/clothing.dmi'
 	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
 	icon_state = "varyag"
@@ -559,6 +559,10 @@
 /obj/item/clothing/head/helmet/feld
 	name = "pestran cage-helmet"
 	mob_overlay_icon = 'modular/stonekeep/icons/onmob/64x64.dmi'
+
+/obj/item/clothing/head/helmet/leather/hood_ominous // a leather coif locked to headslot since you cannot pull it back. Crit prevent between armor items a little weird, this is leather coif, compare to helmet
+	name = "ominous hood"
+	clothing_flags = NONE
 
 // =============================================================================
 // ==============================	CLOAKS	====================================

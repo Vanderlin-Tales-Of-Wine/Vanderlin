@@ -12,6 +12,7 @@
 	)
 	outfit = /datum/outfit/job/stonekeep/bandit/knave
 	category_tags = list(CTAG_BANDIT)
+	cmode_music = 'sound/music/cmode/combat_hellish.ogg'
 
 /datum/outfit/job/stonekeep/bandit/knave/pre_equip(mob/living/carbon/human/H)
 	..()

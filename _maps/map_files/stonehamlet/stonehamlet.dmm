@@ -2002,9 +2002,11 @@
 /turf/open/floor/blocks,
 /area/rogue/outdoors/exposed/under/basement)
 "daQ" = (
-/obj/effect/spawner/map_spawner/rockies,
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors/rtfield/hamlet)
+/obj/structure/fluff/walldeco/trolltrophy{
+	pixel_y = 34
+	},
+/turf/open/floor/cobblerock/alt,
+/area/rogue/indoors/town/hamlet/advguild)
 "dbF" = (
 /obj/structure/chair/bench/ancientlog,
 /turf/open/water/swamp,
@@ -10860,11 +10862,9 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield/plague_district)
 "pgv" = (
-/obj/structure/fluff/walldeco/trolltrophy{
-	pixel_y = 34
-	},
-/turf/open/floor/cobblerock/alt,
-/area/rogue/indoors/town/hamlet/advguild)
+/obj/structure/flora/tree/neu/bush,
+/turf/open/floor/grass,
+/area/rogue/outdoors/rtfield/outlaw)
 "pgC" = (
 /obj/structure/bookcase,
 /obj/item/book/magicaltheory,
@@ -13558,9 +13558,9 @@
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/indoors/town/bath/redhouse)
 "sJq" = (
-/obj/effect/spawner/map_spawner/rockies,
+/obj/structure/flora/tree/neu/bush,
 /turf/open/floor/grass,
-/area/rogue/outdoors/rtfield/hamlet)
+/area/rogue/outdoors/exposed/townhamlet)
 "sJQ" = (
 /turf/closed/wall/mineral/wooddark,
 /area/rogue/under/cave/abandoned_mine)
@@ -39373,7 +39373,7 @@ ykK
 jnp
 ykK
 eKW
-ykK
+daQ
 ykK
 awR
 vnZ
@@ -39981,7 +39981,7 @@ eKW
 eKW
 eKW
 eKW
-pgv
+ykK
 ykK
 ykK
 eKW
@@ -58407,7 +58407,7 @@ kTh
 kTh
 bWX
 kTh
-sJq
+kTh
 shr
 shr
 shr
@@ -59816,7 +59816,7 @@ kTh
 kTh
 kTh
 kTh
-daQ
+kTh
 kTh
 bWX
 kTh
@@ -59991,7 +59991,7 @@ ckV
 ckV
 kTh
 kTh
-brc
+nKu
 kTh
 brc
 kTh
@@ -60827,7 +60827,7 @@ kTh
 kTh
 bWX
 bWX
-sJq
+kTh
 shr
 shr
 shr
@@ -60994,7 +60994,7 @@ bWX
 kTh
 kTh
 kTh
-kTh
+nKu
 kTh
 ckV
 ckV
@@ -61027,7 +61027,7 @@ kTh
 kTh
 kTh
 kTh
-kTh
+nKu
 bWX
 kTh
 shr
@@ -61368,7 +61368,7 @@ nCK
 nCK
 nCK
 kTh
-kTh
+nKu
 kTh
 kTh
 kTh
@@ -62211,7 +62211,7 @@ kTh
 ckV
 ckV
 kTh
-kTh
+nKu
 kTh
 kTh
 kTh
@@ -62374,7 +62374,7 @@ shr
 xzw
 mwW
 xzw
-kTh
+nKu
 kTh
 kTh
 bWX
@@ -63793,7 +63793,7 @@ mwW
 xzw
 xzw
 xzw
-xzw
+pgv
 bWX
 nCK
 bWX
@@ -64000,7 +64000,7 @@ kTh
 nCK
 bWX
 kTh
-kTh
+nKu
 kTh
 kTh
 kTh
@@ -64861,7 +64861,7 @@ kTh
 ekS
 kTh
 kTh
-kTh
+nKu
 kTh
 kTh
 kTh
@@ -65032,7 +65032,7 @@ ekS
 kTh
 kTh
 kTh
-kTh
+nKu
 kTh
 aNL
 kTh
@@ -65817,7 +65817,7 @@ kTh
 nCK
 nCK
 bWX
-kTh
+nKu
 kTh
 bWX
 kTh
@@ -66015,7 +66015,7 @@ xzw
 xzw
 xzw
 kTh
-kTh
+nKu
 uXT
 nCK
 bWX
@@ -66417,7 +66417,7 @@ eeJ
 xzw
 oMm
 xzw
-xzw
+pgv
 kTh
 kTh
 nCK
@@ -66444,7 +66444,7 @@ kTh
 kTh
 kTh
 kTh
-wiK
+nKu
 kTh
 bWX
 kTh
@@ -68679,7 +68679,7 @@ kTh
 kTh
 kTh
 kTh
-wiK
+nKu
 kTh
 kTh
 kTh
@@ -70518,7 +70518,7 @@ kTh
 aNL
 kTh
 kTh
-kTh
+nKu
 kTh
 ckV
 ckV
@@ -70727,7 +70727,7 @@ ckV
 ckV
 kTh
 kTh
-kTh
+nKu
 kTh
 kTh
 kTh
@@ -70928,7 +70928,7 @@ ckV
 ckV
 ckV
 kTh
-brc
+kTh
 kTh
 kTh
 kTh
@@ -71130,7 +71130,7 @@ kTh
 ckV
 ckV
 kTh
-kTh
+nKu
 kTh
 kTh
 kTh
@@ -72136,7 +72136,7 @@ aNL
 xdV
 rsH
 kTh
-wiK
+nKu
 ckV
 ckV
 kTh
@@ -72453,8 +72453,8 @@ ckV
 ckV
 ckV
 ckV
-brc
-brc
+kTh
+nKu
 kTh
 brc
 bWX
@@ -73052,7 +73052,7 @@ kTh
 kTh
 kTh
 kTh
-brc
+nKu
 kTh
 brc
 kTh
@@ -75173,7 +75173,7 @@ ahK
 ahK
 ahK
 ahK
-ahK
+sJq
 kTh
 kTh
 kTh
@@ -75372,7 +75372,7 @@ ahK
 qoZ
 ozH
 ahK
-uzL
+sJq
 ahK
 ahK
 ahK
@@ -78424,7 +78424,7 @@ kTh
 kTh
 kTh
 kTh
-kTh
+nKu
 kTh
 kTh
 oVL
@@ -84141,7 +84141,7 @@ kTh
 kTh
 kTh
 kTh
-kTh
+nKu
 ckV
 ckV
 ckV

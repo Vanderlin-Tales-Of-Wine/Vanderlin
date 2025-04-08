@@ -104,7 +104,7 @@
 
 /turf/open/floor/cobblerock/alt/Initialize()
 	. = ..()
-	dir = pick(GLOB.cardinals)
+	dir = pick(GLOB.alldirs)
 
 /turf/open/floor/cobblerock/red
 	icon = 'modular/stonekeep/icons/turfs.dmi'

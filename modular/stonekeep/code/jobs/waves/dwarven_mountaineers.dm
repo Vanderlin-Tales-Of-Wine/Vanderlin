@@ -47,7 +47,7 @@ Spawn in the mountain area.
 	pants = /obj/item/clothing/pants/trou
 	shoes = /obj/item/clothing/shoes/boots/leather
 	shirt = /obj/item/clothing/shirt/shortshirt
-	r_hand = /obj/item/weapon/pick/paxe
+	l_hand = /obj/item/weapon/pick/paxe
 	belt = /obj/item/storage/belt/leather
 	beltl = /obj/item/storage/belt/pouch/coins/poor
 	cloak = /obj/item/clothing/cloak/raincloak/furcloak/brown

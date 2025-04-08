@@ -7,6 +7,12 @@
 /obj/structure/fluff/walldeco/vinez/blue,
 /turf/closed/mineral/bedrock,
 /area/rogue/under/mountains)
+"al" = (
+/obj/structure/lever{
+	redstone_id = "vampirecell"
+	},
+/turf/open/floor/cobble,
+/area/rogue/indoors/vampire_manor)
 "at" = (
 /obj/structure/flora/rock/pebbles/gray,
 /turf/open/floor/snow,
@@ -21,7 +27,7 @@
 /area/rogue/outdoors/mountains/decap)
 "aD" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/light/fueled/firebowl/standing,
+/obj/machinery/light/fueled/firebowl/standing/blue,
 /turf/open/floor/metal/barograte,
 /area/rogue/indoors/vampire_manor)
 "aH" = (
@@ -112,6 +118,11 @@
 /obj/effect/spawner/map_spawner/enemy_fifty/volf,
 /turf/open/floor/snow/patchy,
 /area/rogue/outdoors/mountains/decap)
+"cK" = (
+/obj/machinery/light/fueled/wallfire/candle/l,
+/obj/structure/rack,
+/turf/open/floor/blocks,
+/area/rogue/indoors/vampire_manor)
 "cO" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/bookcase,
@@ -315,6 +326,10 @@
 /obj/effect/decal/cleanable/blood,
 /obj/structure/fluff/railing/border,
 /turf/open/floor/blocks/paving,
+/area/rogue/indoors/vampire_manor)
+"jO" = (
+/obj/machinery/light/fueled/hearth,
+/turf/open/floor/blocks,
 /area/rogue/indoors/vampire_manor)
 "kn" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -602,6 +617,10 @@
 /obj/effect/spawner/map_spawner/loot/potion_vitals,
 /turf/open/floor/hexstone,
 /area/rogue/indoors/towerofwise)
+"rk" = (
+/obj/structure/fermentation_keg/water,
+/turf/open/floor/blocks,
+/area/rogue/indoors/vampire_manor)
 "rG" = (
 /obj/structure/stairs/stone{
 	dir = 4
@@ -882,6 +901,10 @@
 /obj/machinery/light/fueled/torchholder/c,
 /turf/open/floor/hexstone,
 /area/rogue/indoors/vampire_manor)
+"yJ" = (
+/obj/machinery/light/fueled/campfire/longlived,
+/turf/open/floor/naturalstone,
+/area/rogue/under/mountains)
 "zf" = (
 /turf/open/water/cleanshallow,
 /area/rogue/indoors/vampire_manor)
@@ -1164,10 +1187,10 @@
 /turf/open/floor/hexstone,
 /area/rogue/indoors/towerofwise)
 "IA" = (
-/obj/structure/fluff/walldeco/church/line{
-	dir = 8
-	},
-/turf/open/floor/cobble,
+/obj/structure/table/wood/plain,
+/obj/effect/decal/cleanable/dirt/cobweb,
+/obj/item/weapon/knife/villager,
+/turf/open/floor/blocks,
 /area/rogue/indoors/vampire_manor)
 "IC" = (
 /turf/open/transparent/openspace,
@@ -1230,6 +1253,13 @@
 /obj/item/natural/bundle/stick,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains)
+"KR" = (
+/obj/structure/rack,
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 4
+	},
+/turf/open/floor/blocks,
+/area/rogue/indoors/vampire_manor)
 "Lc" = (
 /obj/structure/table/wood{
 	icon_state = "map4"
@@ -1356,6 +1386,11 @@
 	},
 /turf/open/floor/hexstone,
 /area/rogue/indoors/vampire_manor)
+"Pv" = (
+/obj/structure/closet/crate/chest/neu,
+/obj/item/reagent_containers/food/snacks/hardtack,
+/turf/open/floor/blocks,
+/area/rogue/indoors/vampire_manor)
 "PC" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/closed/wall/mineral/stonebrick/sandstone,
@@ -1407,6 +1442,12 @@
 /obj/structure/remains/generic,
 /turf/open/floor/naturalstone,
 /area/rogue/indoors/cave/bear)
+"QA" = (
+/obj/machinery/light/fueled/wallfire/candle{
+	pixel_y = -32
+	},
+/turf/open/floor/herringbone,
+/area/rogue/indoors/vampire_manor)
 "Rb" = (
 /obj/structure/stairs/stone{
 	dir = 1
@@ -1439,6 +1480,10 @@
 /obj/structure/flora/rock/pebbles/bogmix,
 /turf/open/floor/grass/yel,
 /area/rogue/under/cavelava)
+"RC" = (
+/obj/item/reagent_containers/glass/bucket/pot/copper,
+/turf/open/floor/blocks,
+/area/rogue/indoors/vampire_manor)
 "RN" = (
 /obj/effect/spawner/map_spawner/mountain_tree,
 /turf/open/floor/snow,
@@ -1544,7 +1589,9 @@
 /turf/closed/mineral/random,
 /area/rogue/under/mountains)
 "Ve" = (
-/obj/structure/bars/passage,
+/obj/structure/bars/passage{
+	redstone_id = "vampirecell"
+	},
 /turf/open/floor/blocks,
 /area/rogue/indoors/vampire_manor)
 "Vf" = (
@@ -45920,7 +45967,7 @@ gp
 gp
 gp
 gp
-hG
+gp
 hG
 hG
 hG
@@ -46044,13 +46091,13 @@ ZY
 gp
 gp
 gp
-gp
-gp
-gp
-gp
-gp
-gp
-gp
+Xf
+Xf
+Xf
+Xf
+Xf
+Xf
+Xf
 gp
 gp
 gp
@@ -46174,12 +46221,12 @@ ZF
 di
 di
 gp
-gp
-gp
-gp
-gp
-gp
-gp
+Xf
+IA
+rk
+Pv
+cK
+KR
 Xf
 Xf
 Xf
@@ -46304,12 +46351,12 @@ ds
 gp
 di
 gp
-gp
-gp
-gp
-gp
-gp
-gp
+Xf
+RC
+YO
+YO
+YO
+YO
 Xf
 Si
 bK
@@ -46434,12 +46481,12 @@ ds
 gp
 di
 gp
-gp
-gp
-gp
-gp
-gp
-gp
+Xf
+jO
+YO
+YO
+YO
+YO
 Xf
 Si
 VP
@@ -46569,7 +46616,7 @@ Xf
 Xf
 Xf
 Xf
-Xf
+YO
 Xf
 vE
 vE
@@ -46699,7 +46746,7 @@ nU
 YO
 ok
 Et
-BN
+ZP
 ZP
 ZP
 ZP
@@ -46831,8 +46878,8 @@ Ve
 YO
 ZP
 ZP
-ZP
-ZP
+OZ
+OZ
 ZP
 ZP
 Xf
@@ -46958,7 +47005,7 @@ YO
 sC
 YO
 ok
-ZP
+al
 ZP
 OZ
 OZ
@@ -47089,12 +47136,12 @@ aS
 YO
 ok
 ZP
-ZP
+OZ
 Zj
 Lc
 PR
 Nh
-ZP
+OZ
 Xf
 YO
 YO
@@ -47219,12 +47266,12 @@ ok
 ok
 Xf
 ZP
-ZP
+OZ
 Zj
 Zs
 xB
 Nh
-ZP
+QA
 Xf
 Qj
 YO
@@ -47343,18 +47390,18 @@ ds
 ds
 Xf
 Et
-ZP
+BN
 YO
 YO
 ZP
 YB
 ZP
-ZP
+OZ
 Zj
 IT
 uC
 Nh
-ZP
+OZ
 Xf
 Xf
 Xf
@@ -49038,14 +49085,14 @@ jc
 ZP
 ZP
 ZP
+Su
+Su
 ZP
 ZP
-ZP
-ZP
-ZP
-ZP
-ZP
-IA
+Su
+Su
+Su
+Su
 ZP
 ZP
 ZP
@@ -52209,7 +52256,7 @@ sw
 Ak
 sw
 sw
-bB
+yJ
 ZZ
 ZZ
 ZZ

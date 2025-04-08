@@ -65,8 +65,7 @@
 			wrists = /obj/item/clothing/wrists/bracers/leather
 		if("Spear")
 			backr = /obj/item/weapon/shield/wood
-			var/obj/item/weapon/polearm/spear/P = new()
-			H.put_in_hands(P, forced = TRUE)
+			l_hand = /obj/item/weapon/polearm/spear
 
 /datum/migrant_wave/varyag_raiders
 	name = "The Varyag Raiders"

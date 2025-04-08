@@ -1063,6 +1063,10 @@
 	},
 /turf/open/floor/ruinedwood/decayed,
 /area/rogue/outdoors/bog/wetlands)
+"xm" = (
+/obj/structure/roguerock,
+/turf/open/floor/grass,
+/area/rogue/outdoors/bog/wetlands)
 "xo" = (
 /turf/closed/wall/mineral/roofwall/outercorner{
 	dir = 2
@@ -1262,6 +1266,10 @@
 "Gb" = (
 /turf/open/floor/twig,
 /area/rogue/outdoors/bog/wetlands)
+"Gh" = (
+/obj/structure/roguerock,
+/turf/open/floor/grass/red,
+/area/rogue/outdoors/bog/wetlands)
 "Gu" = (
 /obj/structure/bars/passage{
 	redstone_id = "xylixbadgate"
@@ -1340,6 +1348,10 @@
 "Iy" = (
 /turf/open/water/swamp/deep,
 /area/rogue/outdoors/bog/wetlands)
+"IB" = (
+/obj/structure/roguerock,
+/turf/open/floor/dirt,
+/area/rogue/outdoors/bog)
 "IL" = (
 /obj/effect/spawner/map_spawner/enemy_fifty/honey_spider,
 /turf/open/water/swamp,
@@ -1561,6 +1573,10 @@
 /obj/structure/fluff/walldeco/vinez/blue,
 /turf/closed/wall/mineral/decostone/moss/blue,
 /area/rogue/under/xylix)
+"TM" = (
+/obj/structure/roguerock,
+/turf/open/floor/dirt,
+/area/rogue/outdoors/bog/wetlands)
 "TP" = (
 /obj/effect/spawner/map_spawner/tree,
 /turf/open/floor/grass,
@@ -44844,7 +44860,7 @@ wP
 at
 WH
 wP
-gN
+wP
 wP
 wP
 WH
@@ -45270,7 +45286,7 @@ wJ
 WH
 wP
 wP
-gN
+wP
 wP
 WH
 WH
@@ -46510,7 +46526,7 @@ wJ
 WH
 WH
 wP
-gN
+wP
 wP
 WH
 wJ
@@ -46600,7 +46616,7 @@ WH
 WH
 WH
 wP
-gN
+wP
 wP
 wP
 wP
@@ -46623,7 +46639,7 @@ WH
 WH
 wP
 wP
-gN
+wP
 wP
 wP
 WH
@@ -46695,7 +46711,7 @@ wJ
 wJ
 WH
 WH
-gN
+wP
 wP
 gN
 WH
@@ -46825,7 +46841,7 @@ WH
 wP
 wP
 wP
-gN
+wP
 wP
 wP
 WH
@@ -47066,7 +47082,7 @@ Hs
 at
 wP
 wP
-gN
+wP
 wP
 WH
 WH
@@ -47230,7 +47246,7 @@ WH
 WH
 WH
 wP
-gN
+wP
 WH
 wJ
 wJ
@@ -47514,7 +47530,7 @@ WH
 WH
 wP
 wP
-gN
+wP
 WH
 wJ
 wJ
@@ -47912,7 +47928,7 @@ wJ
 WH
 WH
 wP
-gN
+wP
 wP
 WH
 WH
@@ -48008,7 +48024,7 @@ WH
 WH
 WH
 wP
-gN
+wP
 wP
 WH
 WH
@@ -48241,7 +48257,7 @@ WH
 WH
 WH
 wP
-gN
+wP
 wP
 WH
 WH
@@ -48265,7 +48281,7 @@ WH
 wP
 WH
 wP
-gN
+wP
 wP
 wP
 wP
@@ -48483,7 +48499,7 @@ WH
 wJ
 WH
 wP
-gN
+wP
 wP
 WH
 WH
@@ -48836,7 +48852,7 @@ WH
 wP
 wP
 wP
-gN
+wP
 wP
 WH
 WH
@@ -49452,7 +49468,7 @@ WH
 WH
 WH
 WH
-gN
+wP
 WH
 wJ
 WH
@@ -49473,7 +49489,7 @@ uY
 wP
 WH
 wP
-gN
+wP
 wP
 wP
 WH
@@ -49686,7 +49702,7 @@ wP
 at
 at
 wP
-gN
+wP
 wP
 wP
 WH
@@ -49907,7 +49923,7 @@ wP
 WH
 WH
 WH
-gN
+wP
 wP
 WH
 wJ
@@ -50067,7 +50083,7 @@ WH
 WH
 wP
 wP
-gN
+wP
 wP
 wP
 wP
@@ -50086,7 +50102,7 @@ WH
 wP
 wP
 wP
-gN
+wP
 wP
 wP
 WH
@@ -50330,7 +50346,7 @@ wJ
 wJ
 WH
 wP
-gN
+wP
 wP
 wP
 WH
@@ -51096,7 +51112,7 @@ pY
 eC
 wP
 wP
-gN
+wP
 gN
 wP
 wP
@@ -51305,7 +51321,7 @@ wP
 wP
 wP
 WH
-gN
+wP
 wP
 wP
 wP
@@ -51438,7 +51454,7 @@ PM
 wP
 wP
 wP
-gN
+wP
 wP
 WH
 wJ
@@ -51669,9 +51685,9 @@ WH
 WH
 wP
 wP
-gN
 wP
-gN
+wP
+wP
 wP
 wP
 WH
@@ -52108,7 +52124,7 @@ WH
 WH
 WH
 wP
-gN
+wP
 wP
 wP
 wP
@@ -52135,7 +52151,7 @@ uY
 WH
 wP
 wP
-gN
+wP
 wP
 wJ
 wJ
@@ -52252,7 +52268,7 @@ wJ
 wJ
 WH
 wP
-gN
+wP
 wP
 gN
 wP
@@ -52295,7 +52311,7 @@ at
 at
 at
 WH
-gN
+wP
 at
 WH
 wP
@@ -52311,7 +52327,7 @@ WH
 WH
 wP
 wP
-gN
+wP
 wP
 WH
 WH
@@ -52337,7 +52353,7 @@ kW
 WH
 wP
 WH
-WH
+wP
 gN
 wP
 wJ
@@ -52455,7 +52471,7 @@ wJ
 wP
 gN
 wP
-gN
+wP
 wP
 kW
 Hs
@@ -53099,7 +53115,7 @@ wP
 WH
 WH
 WH
-gN
+wP
 WH
 WH
 at
@@ -53310,7 +53326,7 @@ at
 at
 at
 wP
-gN
+wP
 wP
 WH
 wP
@@ -53482,7 +53498,7 @@ WH
 WH
 WH
 WH
-gN
+wP
 wP
 at
 at
@@ -53684,7 +53700,7 @@ WH
 WH
 WH
 WH
-gN
+wP
 wP
 wP
 at
@@ -53749,7 +53765,7 @@ Fq
 kW
 wP
 wP
-gN
+wP
 WH
 wJ
 wJ
@@ -53859,7 +53875,7 @@ WH
 WH
 WH
 wP
-gN
+wP
 wP
 wP
 WH
@@ -53889,7 +53905,7 @@ wP
 wP
 gN
 wP
-gN
+wP
 wP
 wP
 WH
@@ -54154,7 +54170,7 @@ kW
 at
 at
 wP
-gN
+wP
 WH
 WH
 wJ
@@ -55085,7 +55101,7 @@ WH
 WH
 gN
 WH
-gN
+wP
 WH
 gN
 WH
@@ -55286,7 +55302,7 @@ wJ
 WH
 WH
 WH
-gN
+wP
 WH
 wP
 wP
@@ -55302,7 +55318,7 @@ wJ
 WH
 WH
 wP
-gN
+wP
 wP
 wP
 WH
@@ -55521,7 +55537,7 @@ WH
 WH
 WH
 WH
-gN
+wP
 gN
 WH
 WH
@@ -55921,7 +55937,7 @@ wP
 at
 at
 wP
-gN
+wP
 wP
 wP
 at
@@ -56314,7 +56330,7 @@ wJ
 WH
 WH
 wP
-gN
+wP
 wP
 WH
 wP
@@ -56333,7 +56349,7 @@ at
 at
 at
 WH
-gN
+wP
 WH
 WH
 WH
@@ -56900,7 +56916,7 @@ wJ
 WH
 WH
 WH
-gN
+wP
 wP
 wP
 at
@@ -57143,7 +57159,7 @@ wP
 at
 WH
 WH
-gN
+wP
 WH
 WH
 WH
@@ -57513,7 +57529,7 @@ gN
 WH
 gN
 WH
-gN
+wP
 gN
 WH
 wJ
@@ -58116,7 +58132,7 @@ WH
 WH
 WH
 gN
-gN
+wP
 WH
 WH
 gN
@@ -58133,7 +58149,7 @@ wJ
 WH
 wP
 wP
-gN
+wP
 wP
 wP
 WH
@@ -58352,7 +58368,7 @@ uY
 at
 WH
 WH
-gN
+wP
 WH
 WH
 wP
@@ -58397,7 +58413,7 @@ kW
 at
 wP
 wP
-gN
+wP
 wP
 wP
 WH
@@ -58523,7 +58539,7 @@ WH
 WH
 WH
 gN
-gN
+wP
 WH
 wJ
 wJ
@@ -58535,12 +58551,12 @@ wJ
 wJ
 wJ
 wJ
+WH
+wP
+wP
 WH
 wP
 wP
-WH
-wP
-gN
 wP
 wP
 WH
@@ -59164,7 +59180,7 @@ WH
 WH
 WH
 WH
-gN
+wP
 WH
 WH
 WH
@@ -59173,13 +59189,13 @@ WH
 WH
 WH
 wP
-gN
+wP
 at
 WH
 WH
 wP
 wP
-gN
+wP
 at
 at
 Hs
@@ -59578,7 +59594,7 @@ WH
 WH
 wP
 wP
-gN
+wP
 wP
 at
 at
@@ -59740,7 +59756,7 @@ wJ
 WH
 WH
 WH
-gN
+wP
 wP
 wP
 wP
@@ -59943,7 +59959,7 @@ wJ
 WH
 WH
 wP
-gN
+wP
 wP
 wP
 wP
@@ -60012,7 +60028,7 @@ at
 at
 WH
 wP
-gN
+wP
 wP
 wP
 wP
@@ -60390,7 +60406,7 @@ wP
 wP
 wP
 wP
-gN
+wP
 wP
 at
 at
@@ -61557,7 +61573,7 @@ wJ
 wJ
 WH
 WH
-gN
+wP
 wP
 wP
 at
@@ -61624,7 +61640,7 @@ kW
 kW
 at
 wP
-gN
+wP
 wP
 wP
 WH
@@ -61826,7 +61842,7 @@ at
 at
 wP
 wP
-gN
+wP
 gN
 wP
 WH
@@ -62170,7 +62186,7 @@ wP
 WH
 gN
 WH
-gN
+wP
 gN
 WH
 wJ
@@ -62773,7 +62789,7 @@ WH
 WH
 WH
 gN
-gN
+wP
 WH
 WH
 wP
@@ -63179,7 +63195,7 @@ wJ
 WH
 WH
 WH
-gN
+wP
 gN
 WH
 WH
@@ -63386,7 +63402,7 @@ wJ
 WH
 WH
 wP
-gN
+wP
 wP
 WH
 wJ
@@ -63789,16 +63805,16 @@ wJ
 WH
 WH
 WH
-gN
 wP
 wP
+wP
 WH
 WH
 WH
 WH
 WH
 wP
-gN
+wP
 wP
 WH
 wJ
@@ -63992,7 +64008,7 @@ wJ
 WH
 WH
 gN
-gN
+wP
 wP
 WH
 WH
@@ -64199,7 +64215,7 @@ gN
 WH
 WH
 WH
-gN
+wP
 wP
 WH
 wP
@@ -64404,7 +64420,7 @@ gN
 wP
 WH
 WH
-gN
+wP
 wP
 WH
 wJ
@@ -64602,7 +64618,7 @@ wJ
 WH
 WH
 WH
-gN
+wP
 wP
 wP
 WH
@@ -69229,10 +69245,10 @@ kW
 wP
 WH
 WH
-nP
+wP
 WH
 gN
-gN
+wP
 wP
 wJ
 wJ
@@ -71624,7 +71640,7 @@ Qy
 Qy
 pS
 pS
-oz
+IB
 oz
 pZ
 HW
@@ -73510,7 +73526,7 @@ kW
 Kq
 WH
 wP
-gN
+wP
 wP
 WH
 WH
@@ -73821,12 +73837,12 @@ uY
 kW
 wP
 wJ
+xm
 wJ
 wJ
 wJ
 wJ
-wJ
-wJ
+xm
 wJ
 wJ
 wJ
@@ -74329,7 +74345,7 @@ wJ
 wJ
 wP
 wJ
-gN
+wP
 gN
 wP
 WH
@@ -74930,7 +74946,7 @@ WH
 wP
 gN
 wP
-gN
+wP
 wP
 WH
 WH
@@ -75077,7 +75093,7 @@ HW
 HW
 HW
 wJ
-WH
+Gh
 WH
 WH
 wJ
@@ -75130,7 +75146,7 @@ WH
 WH
 WH
 wJ
-gN
+wP
 wP
 gN
 wP
@@ -75540,7 +75556,7 @@ WH
 wP
 gN
 wP
-gN
+wP
 wP
 gN
 WH
@@ -75733,7 +75749,7 @@ WH
 wP
 WH
 wP
-gN
+wP
 wP
 gN
 wP
@@ -76282,7 +76298,7 @@ HW
 HW
 HW
 wP
-wP
+TM
 wP
 WH
 WH
@@ -76546,7 +76562,7 @@ wP
 wP
 gN
 WH
-gN
+wP
 wP
 wP
 WH
@@ -76733,7 +76749,7 @@ wP
 WH
 WH
 wP
-gN
+wP
 wP
 WH
 WH
@@ -77093,7 +77109,7 @@ HW
 HW
 WH
 wJ
-wJ
+xm
 wJ
 wJ
 WH
@@ -78099,7 +78115,7 @@ HW
 HW
 HW
 wJ
-WH
+Gh
 wP
 wP
 wP
@@ -78170,7 +78186,7 @@ wJ
 wJ
 WH
 wP
-gN
+wP
 wP
 WH
 wP
@@ -78342,11 +78358,11 @@ uY
 wP
 WH
 wP
-gN
 wP
 wP
 wP
-gN
+wP
+wP
 wP
 WH
 wJ
@@ -79174,7 +79190,7 @@ wJ
 wP
 wP
 wP
-gN
+wP
 wP
 wP
 wP
@@ -79906,7 +79922,7 @@ wJ
 wJ
 wJ
 wJ
-wJ
+xm
 wJ
 wJ
 wJ
@@ -80504,7 +80520,7 @@ uY
 wP
 wP
 wP
-WH
+Gh
 WH
 WH
 wP

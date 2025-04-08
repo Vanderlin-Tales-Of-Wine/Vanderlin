@@ -4,10 +4,14 @@
 /turf/open/floor/dirt/muddie,
 /area/rogue/outdoors/woods/stone)
 "aK" = (
-/obj/structure/stairs/stone{
+/obj/structure/stairs{
 	dir = 1
 	},
 /turf/open/floor/dirt,
+/area/rogue/outdoors/woods/stone)
+"bc" = (
+/obj/machinery/light/fueled/firebowl/stump,
+/turf/open/floor/grass/transition,
 /area/rogue/outdoors/woods/stone)
 "bi" = (
 /obj/structure/flora/grass/water/reeds,
@@ -130,7 +134,7 @@
 	dir = 4
 	},
 /turf/open/floor/grass,
-/area/rogue/outdoors/river)
+/area/rogue/outdoors/woods/stone)
 "en" = (
 /turf/open/floor/grass/transition,
 /area/rogue/outdoors/woods/stone)
@@ -276,7 +280,7 @@
 /turf/open/floor/dirt,
 /area/rogue/indoors)
 "iv" = (
-/obj/item/reagent_containers/glass/bucket/pot/copper,
+/obj/item/reagent_containers/glass/bucket/pot/stone,
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors)
 "iA" = (
@@ -289,9 +293,11 @@
 /turf/open/floor/naturalstone,
 /area/rogue/indoors/cave/volf)
 "jj" = (
-/obj/structure/flora/tree,
-/turf/open/floor/grass,
-/area/rogue/outdoors/river)
+/obj/structure/fluff/railing/fence{
+	max_integrity = 600
+	},
+/turf/open/floor/grass/transition,
+/area/rogue/outdoors/woods/stone)
 "ju" = (
 /turf/closed/wall/mineral/tent{
 	dir = 8
@@ -904,6 +910,14 @@
 "CE" = (
 /turf/open/floor/cobblerock/red,
 /area/rogue/outdoors/river)
+"CH" = (
+/obj/structure/rack,
+/obj/item/rope,
+/obj/item/rope,
+/obj/item/rope,
+/obj/item/rope,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/bandit_lair)
 "Di" = (
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/cobblerock/red,
@@ -1254,7 +1268,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/woods/stone)
 "Mf" = (
-/obj/structure/stairs/stone/d{
+/obj/structure/stairs/d{
 	dir = 1
 	},
 /turf/open/floor/dirt/road,
@@ -1561,7 +1575,7 @@
 	dir = 4;
 	max_integrity = 600
 	},
-/turf/open/floor/dirt/road,
+/turf/open/floor/grass/transition,
 /area/rogue/outdoors/woods/stone)
 "Wc" = (
 /obj/structure/stairs/stone{
@@ -1606,6 +1620,10 @@
 "Xy" = (
 /turf/closed/wall/mineral/tent,
 /area/rogue/indoors/bandit_lair)
+"XC" = (
+/obj/structure/fluff/walldeco/fakeshelf,
+/turf/open/floor/ruinedwood/turned,
+/area/rogue/indoors)
 "Yd" = (
 /obj/machinery/light/fueled/firebowl/standing,
 /turf/open/floor/blocks/moss,
@@ -1627,16 +1645,9 @@
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors)
 "Yp" = (
-/obj/structure/fluff/railing/fence{
-	layer = 2.92;
-	max_integrity = 600
-	},
-/obj/structure/fluff/railing/fence{
-	dir = 4;
-	max_integrity = 600
-	},
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors/woods/stone)
+/obj/structure/flora/rogueflower/fallenleaves,
+/turf/open/floor/shroud,
+/area/rogue/indoors/shelter/woods/spider)
 "Yr" = (
 /obj/structure/remains/human,
 /obj/effect/decal/cleanable/blood_neu/random,
@@ -11143,7 +11154,7 @@ so
 so
 en
 xt
-yX
+xt
 xt
 xt
 xt
@@ -11350,7 +11361,7 @@ xt
 xt
 xt
 my
-jj
+my
 Py
 Py
 Py
@@ -11553,7 +11564,7 @@ xt
 xt
 xt
 xt
-jj
+my
 my
 my
 Py
@@ -15921,8 +15932,8 @@ so
 en
 en
 cR
-Wy
-Wy
+so
+so
 so
 cR
 VW
@@ -16114,7 +16125,7 @@ xt
 xt
 en
 so
-Wy
+so
 DA
 so
 en
@@ -17123,9 +17134,9 @@ so
 en
 so
 so
-Wy
-Wy
-Wy
+so
+so
+so
 so
 en
 VW
@@ -17512,7 +17523,7 @@ so
 so
 Wy
 Wy
-Wy
+so
 kr
 kr
 kr
@@ -17714,7 +17725,7 @@ so
 so
 VW
 Wy
-Wy
+so
 kr
 PD
 kr
@@ -20577,12 +20588,12 @@ NH
 AL
 AL
 AL
-bE
-bX
-bX
 RC
-bX
-bE
+RC
+RC
+RC
+RC
+RC
 AL
 AL
 Fc
@@ -23059,7 +23070,7 @@ cR
 xt
 xt
 en
-so
+en
 so
 en
 xt
@@ -23575,7 +23586,7 @@ en
 kr
 kr
 kr
-VW
+cM
 cM
 rt
 Py
@@ -24866,7 +24877,7 @@ en
 DA
 xt
 en
-so
+en
 kr
 en
 en
@@ -25070,7 +25081,7 @@ xt
 en
 cM
 kr
-so
+en
 so
 en
 en
@@ -25193,7 +25204,7 @@ kr
 kr
 kr
 kr
-Wy
+so
 so
 en
 so
@@ -25270,7 +25281,7 @@ xt
 xt
 xt
 VW
-so
+en
 kr
 so
 so
@@ -25597,7 +25608,7 @@ so
 kr
 kr
 kr
-Wy
+so
 Wy
 cM
 cM
@@ -25795,7 +25806,7 @@ en
 xt
 en
 so
-Wy
+so
 kr
 kr
 kr
@@ -26881,7 +26892,7 @@ en
 xt
 en
 so
-Wy
+so
 kr
 kr
 en
@@ -27009,7 +27020,7 @@ Pk
 so
 so
 Wy
-Wy
+so
 kr
 kr
 so
@@ -27211,7 +27222,7 @@ VW
 so
 Wy
 Wy
-Wy
+so
 kr
 kr
 so
@@ -27413,7 +27424,7 @@ VW
 vV
 VW
 en
-Wy
+so
 kr
 kr
 kr
@@ -27998,7 +28009,7 @@ QX
 xt
 zW
 hu
-gy
+XC
 gy
 jJ
 jJ
@@ -28303,7 +28314,7 @@ kr
 kr
 kr
 kr
-so
+en
 so
 so
 so
@@ -28502,7 +28513,7 @@ xt
 xt
 en
 so
-so
+en
 kr
 kr
 kr
@@ -28710,9 +28721,9 @@ so
 VW
 VW
 kr
-Wy
-Wy
-Wy
+en
+so
+so
 Wy
 Wy
 cM
@@ -28915,7 +28926,7 @@ kr
 kr
 kr
 kr
-Wy
+so
 Wy
 Wy
 so
@@ -29115,11 +29126,11 @@ xt
 xt
 en
 so
-Wy
+en
 kr
+en
 so
 so
-Wy
 Wy
 so
 so
@@ -29322,7 +29333,7 @@ kr
 kr
 kr
 kr
-Wy
+so
 so
 en
 en
@@ -29524,8 +29535,8 @@ cR
 en
 kr
 kr
-so
-so
+en
+en
 so
 en
 xt
@@ -29728,8 +29739,8 @@ en
 kr
 kr
 kr
-so
-so
+en
+en
 en
 xt
 xt
@@ -30132,7 +30143,7 @@ xt
 xt
 en
 en
-Wy
+en
 kr
 en
 xt
@@ -30334,7 +30345,7 @@ xt
 xt
 xt
 en
-so
+en
 kr
 kr
 kr
@@ -30537,7 +30548,7 @@ xt
 xt
 en
 so
-so
+en
 en
 xt
 kr
@@ -31259,7 +31270,7 @@ so
 en
 kr
 kr
-Wy
+so
 so
 en
 xt
@@ -31461,7 +31472,7 @@ en
 DA
 kr
 kr
-Wy
+so
 so
 so
 en
@@ -31664,7 +31675,7 @@ DA
 kr
 kr
 kr
-Wy
+so
 so
 so
 en
@@ -33560,7 +33571,7 @@ cR
 cR
 DA
 xt
-xt
+en
 xt
 xt
 xt
@@ -34101,8 +34112,8 @@ xt
 xt
 en
 so
-Wy
-Wy
+so
+so
 so
 so
 so
@@ -34754,7 +34765,7 @@ xt
 xt
 xt
 cR
-xt
+en
 cR
 xt
 xt
@@ -34762,8 +34773,8 @@ xt
 kr
 kr
 kr
-xt
-xt
+en
+en
 xt
 xt
 xt
@@ -34962,11 +34973,11 @@ kr
 kr
 kr
 kr
-xt
-xt
+en
+en
+VW
 cR
-cR
-xt
+en
 xt
 zW
 zW
@@ -35165,7 +35176,7 @@ xt
 xt
 xt
 xt
-xt
+en
 en
 cR
 cR
@@ -35560,7 +35571,7 @@ kr
 kr
 xt
 xt
-xt
+en
 en
 en
 en
@@ -35757,8 +35768,8 @@ PD
 kr
 kr
 xt
-xt
-xt
+en
+en
 xt
 en
 en
@@ -35958,8 +35969,8 @@ kr
 PD
 kr
 xt
-xt
-xt
+en
+en
 en
 en
 cM
@@ -37367,7 +37378,7 @@ en
 so
 cM
 xt
-xt
+en
 xt
 kr
 PD
@@ -37568,9 +37579,9 @@ en
 so
 so
 en
-xt
-xt
-xt
+en
+so
+en
 kr
 kr
 kr
@@ -37770,9 +37781,9 @@ en
 so
 en
 xt
-xt
+so
 cM
-xt
+en
 kr
 PD
 kr
@@ -38377,7 +38388,7 @@ so
 en
 en
 cM
-xt
+en
 xt
 kr
 PD
@@ -38579,7 +38590,7 @@ en
 en
 en
 en
-zc
+bc
 xt
 kr
 kr
@@ -38771,7 +38782,7 @@ en
 xt
 xt
 xt
-xt
+en
 so
 so
 so
@@ -38781,13 +38792,13 @@ en
 xt
 xt
 en
-xt
+en
 eT
 kr
 kr
 PD
 kr
-xt
+en
 en
 so
 cM
@@ -40398,8 +40409,8 @@ en
 so
 en
 en
-xt
-xt
+en
+en
 xt
 kr
 kr
@@ -40601,8 +40612,8 @@ cM
 cM
 xt
 en
-xt
-xt
+en
+en
 kr
 kr
 kr
@@ -40803,7 +40814,7 @@ en
 xt
 cM
 cM
-xt
+en
 xt
 kr
 PD
@@ -41005,7 +41016,7 @@ xt
 xt
 en
 cM
-xt
+en
 xt
 kr
 PD
@@ -47203,7 +47214,7 @@ Ri
 Ri
 hl
 Il
-Il
+Yp
 Il
 Il
 Ri
@@ -48018,7 +48029,7 @@ JW
 Ri
 hl
 Il
-Il
+Yp
 Il
 Cx
 Ri
@@ -48211,10 +48222,10 @@ Ri
 Ri
 Ri
 By
+Yp
 Il
 Il
-Il
-Il
+Yp
 Ri
 zQ
 Il
@@ -48617,12 +48628,12 @@ Ri
 hl
 Il
 Il
-Il
+Yp
 QR
 JW
 Il
 Il
-Il
+Yp
 Il
 JW
 JW
@@ -49224,13 +49235,13 @@ Il
 Ri
 Ri
 Yg
-Il
+Yp
 Il
 Il
 Ri
 Il
 Il
-Il
+Yp
 Il
 Il
 Il
@@ -49421,7 +49432,7 @@ Ri
 Il
 Il
 Il
-Il
+Yp
 KN
 Ri
 Ri
@@ -49434,7 +49445,7 @@ zQ
 Ri
 Yg
 Il
-Il
+Yp
 Il
 Ri
 Ri
@@ -49830,7 +49841,7 @@ Ri
 Ri
 Ri
 hl
-Il
+Yp
 Il
 Il
 Ri
@@ -50638,7 +50649,7 @@ fZ
 Ri
 Ri
 Il
-Il
+Yp
 Ri
 fZ
 fZ
@@ -55448,7 +55459,7 @@ Ip
 Ip
 Ip
 Xy
-xt
+en
 Ip
 yv
 Ip
@@ -55650,11 +55661,11 @@ zi
 Ip
 Ip
 Xy
-xt
+en
 Ip
 yv
 Ip
-yv
+CH
 Ip
 Lr
 Lr
@@ -55852,7 +55863,7 @@ dK
 Ip
 Ip
 Xy
-xt
+en
 Ip
 yv
 Ip
@@ -56254,7 +56265,7 @@ xt
 xt
 xt
 kr
-xt
+en
 Fr
 xt
 oy
@@ -56456,14 +56467,14 @@ kr
 xt
 xt
 kr
-kr
-xt
-xt
-kr
-xt
+en
+en
 xt
 xt
 xt
+xt
+xt
+en
 en
 Vc
 Xe
@@ -56656,16 +56667,16 @@ bU
 pP
 kr
 kr
+kr
+kr
+kr
+kr
+kr
+kr
+kr
+kr
 xt
-kr
-kr
-kr
-kr
-kr
-kr
-kr
-xt
-xt
+en
 en
 en
 To
@@ -57059,7 +57070,7 @@ Xy
 Xy
 fn
 oX
-kr
+xt
 kr
 kr
 wb
@@ -57072,7 +57083,7 @@ kr
 xt
 en
 xt
-YM
+jj
 xt
 en
 TG
@@ -57260,9 +57271,9 @@ en
 en
 xt
 xt
+en
 xt
 xt
-kr
 kr
 EH
 Ma
@@ -57274,7 +57285,7 @@ kr
 xt
 xt
 xt
-YM
+jj
 xt
 en
 TG
@@ -57456,14 +57467,14 @@ lH
 xt
 xt
 xt
-xt
-xt
+en
+en
 en
 en
 xt
 xt
-xt
-xt
+en
+en
 xt
 kr
 wb
@@ -57476,7 +57487,7 @@ kr
 xt
 xt
 TI
-Yp
+So
 xt
 en
 TG
@@ -57657,11 +57668,11 @@ TG
 lH
 xt
 xt
-xt
+en
 gc
 gc
-xt
-xt
+en
+en
 en
 xt
 xt
@@ -57676,7 +57687,7 @@ yr
 kr
 kr
 xt
-YM
+To
 xt
 xt
 xt
@@ -57863,11 +57874,11 @@ gc
 gc
 gc
 gc
-kr
-kr
-kr
-kr
-kr
+en
+en
+en
+en
+en
 kr
 kr
 kr
@@ -58060,7 +58071,7 @@ TG
 TG
 lH
 xt
-xt
+en
 gc
 gc
 id
@@ -58262,15 +58273,15 @@ TG
 TG
 my
 en
-xt
-xt
+en
+en
 gc
 gc
 gc
-kr
-kr
-kr
-kr
+en
+en
+en
+en
 kr
 kr
 kr
@@ -58278,8 +58289,8 @@ kr
 xt
 xt
 xt
-xt
-xt
+en
+en
 xt
 xt
 lA
@@ -58466,25 +58477,25 @@ my
 xt
 en
 en
+en
+en
+en
+en
+en
+xt
+xt
+xt
+kr
+kr
+kr
 xt
 xt
 xt
 en
 en
+en
 xt
-xt
-xt
-kr
-kr
-kr
-xt
-xt
-xt
-xt
-xt
-xt
-xt
-YM
+jj
 xt
 xt
 xt
@@ -58671,7 +58682,7 @@ en
 xt
 xt
 en
-xt
+en
 xt
 en
 xt
@@ -58683,10 +58694,10 @@ xt
 vg
 vg
 vg
-xt
 en
 en
-xt
+en
+en
 Vc
 Xe
 xt
@@ -58887,7 +58898,7 @@ IY
 vg
 xt
 en
-xt
+en
 xt
 xt
 To
@@ -59091,7 +59102,7 @@ xt
 xt
 en
 en
-kr
+en
 YM
 xt
 en
@@ -59285,8 +59296,8 @@ xt
 kr
 kr
 xt
-xt
-xt
+en
+en
 xt
 xt
 oX

@@ -378,10 +378,19 @@
 	icon = 'modular/stonekeep/icons/structure.dmi'
 
 
+/obj/structure/fluff/railing/fence/palisade_alt
+	icon_state = "fence_alt"
+	pass_flags = LETPASSTHROW
+
+/obj/structure/fluff/railing/border
+	icon = 'modular/stonekeep/icons/railing.dmi'
+
+
 /obj/structure/fluff/railing/stonehedge
 	icon = 'modular/stonekeep/icons/railing.dmi'
 	passcrawl = FALSE
-	pass_flags = LETPASSTHROW
+	pass_flags = LETPASSTHROW | PASSTABLE
+	climbable = TRUE
 
 /obj/effect/decal/stonehedge_corner
 	name = "stone hedge"
@@ -517,11 +526,6 @@
 /obj/structure/trap/spike/hidden
 	alpha = 5
 
-/obj/structure/fluff/railing/fence/palisade_alt
-	icon_state = "fence_alt"
-
-/obj/structure/fluff/railing/border
-	icon = 'modular/stonekeep/icons/railing.dmi'
 
 
 
@@ -543,6 +547,7 @@
 
 /obj/structure/flora/grass/thorn_bush
 	alpha = 200
+	max_integrity = 12
 
 /obj/structure/flora/grass/update_icon()
 	. = ..()
@@ -695,6 +700,7 @@
 	max_integrity = 120
 	blade_dulling = DULLING_CUT
 	pixel_x = -16
+	plane = -4
 	layer = 4.81
 	attacked_sound = 'sound/misc/woodhit.ogg'
 	destroy_sound = 'sound/misc/woodhit.ogg'
@@ -706,7 +712,7 @@
 	icon_state = "[base_icon_state]_[rand(1,4)]"
 	dir = pick(GLOB.cardinals)
 	pixel_x += rand(2,-2)
-	pixel_y += rand(2,-2)
+	pixel_y += rand(0,1)
 
 /obj/structure/flora/shroom_tree_neu/fire_act(added, maxstacks)
 	if(added > 5)
@@ -736,7 +742,8 @@
 
 // =========================================================================
 // =========================	MATTHIOS IDOL	============================
-
+/obj/structure/fluff/statue/evil
+	max_integrity = 600
 /obj/structure/fluff/statue/evil/attackby(obj/item/W, mob/user, params)
 	if(user.mind)
 		var/datum/antagonist/bandit/B = user.mind.has_antag_datum(/datum/antagonist/bandit)
