@@ -81,7 +81,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 		else
 			var/mob/dead/observer/ghost = new/mob/dead/observer(M,1)
 			ghost.ckey = M.ckey
-	message_admins("<span class='adminnotice'>[key_name_admin(usr)] assumed direct control of [M].</span>")
+	message_admins(span_adminnotice("."))
 	log_admin("[key_name(usr)] assumed direct control of [M].")
 	var/mob/adminmob = src.mob
 	M.ckey = src.ckey
@@ -135,7 +135,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	else
 		log_message = "all z-levels"
 
-	message_admins("<span class='adminnotice'>[key_name_admin(usr)] used the Test Areas debug command checking [log_message].</span>")
+	message_admins(span_adminnotice("."))
 	log_admin("[key_name(usr)] used the Test Areas debug command checking [log_message].")
 
 	for(var/area/A in world)
@@ -262,7 +262,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	H.regenerate_icons()
 
 	log_admin("[key_name(usr)] changed the equipment of [key_name(H)] to [dresscode].")
-	message_admins("<span class='adminnotice'>[key_name_admin(usr)] changed the equipment of [ADMIN_LOOKUPFLW(H)] to [dresscode].</span>")
+	message_admins(span_adminnotice("."))
 
 /client/proc/robust_dress_shop()
 
@@ -447,7 +447,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 
 	SSevents.scheduled = world.time
 
-	message_admins("<span class='adminnotice'>[key_name_admin(src)] pumped a random event.</span>")
+	message_admins(span_adminnotice("."))
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Pump Random Event")
 	log_admin("[key_name(src)] pumped a random event.")
 
@@ -458,7 +458,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 
 	LINE_PROFILE_START
 
-	message_admins("<span class='adminnotice'>[key_name_admin(src)] started line by line profiling.</span>")
+	message_admins(span_adminnotice("."))
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Start Line Profiling")
 	log_admin("[key_name(src)] started line by line profiling.")
 
@@ -469,7 +469,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 
 	LINE_PROFILE_STOP
 
-	message_admins("<span class='adminnotice'>[key_name_admin(src)] stopped line by line profiling.</span>")
+	message_admins(span_adminnotice("."))
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Stop Line Profiling")
 	log_admin("[key_name(src)] stopped line by line profiling.")
 

@@ -244,7 +244,7 @@
 		running += query
 		var/msg = "Starting query #[query.id] - [query.get_query_text()]."
 		if(usr)
-			to_chat(usr, "<span class='admin'>[msg]</span>")
+			to_chat(usr, span_admin("]"))
 		log_admin(msg)
 		query.ARun()
 	else //Start all
@@ -252,7 +252,7 @@
 			running += query
 			var/msg = "Starting query #[query.id] - [query.get_query_text()]."
 			if(usr)
-				to_chat(usr, "<span class='admin'>[msg]</span>")
+				to_chat(usr, span_admin("]"))
 			log_admin(msg)
 			query.ARun()
 
@@ -273,7 +273,7 @@
 				finished = FALSE
 				if(query.state == SDQL2_STATE_ERROR)
 					if(usr)
-						to_chat(usr, "<span class='admin'>SDQL query [query.get_query_text()] errored. It will NOT be automatically garbage collected. Please remove manually.</span>")
+						to_chat(usr, span_admin("."))
 					running -= query
 			else
 				if(query.finished)
@@ -290,19 +290,19 @@
 						running += next_query
 						var/msg = "Starting query #[next_query.id] - [next_query.get_query_text()]."
 						if(usr)
-							to_chat(usr, "<span class='admin'>[msg]</span>")
+							to_chat(usr, span_admin("]"))
 						log_admin(msg)
 						next_query.ARun()
 				else
 					if(usr)
-						to_chat(usr, "<span class='admin'>SDQL query [query.get_query_text()] was halted. It will NOT be automatically garbage collected. Please remove manually.</span>")
+						to_chat(usr, span_admin("."))
 					running -= query
 	while(!finished)
 
 	var/end_time_total = REALTIMEOFDAY - start_time_total
-	return list("<span class='admin'>SDQL query combined results: [query_text]</span>",\
-		"<span class='admin'>SDQL query completed: [objs_all] objects selected by path, and [selectors_used ? objs_eligible : objs_all] objects executed on after WHERE filtering/MAPping if applicable.</span>",\
-		"<span class='admin'>SDQL combined querys took [DisplayTimeText(end_time_total)] to complete.</span>") + combined_refs
+	return list(span_admin("]"),\
+		span_admin("."),\
+		span_admin(".")) + combined_refs
 
 GLOBAL_LIST_INIT(sdql2_queries, GLOB.sdql2_queries || list())
 GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/SDQL2_VV_all, new(null, "VIEW VARIABLES (all)", null))

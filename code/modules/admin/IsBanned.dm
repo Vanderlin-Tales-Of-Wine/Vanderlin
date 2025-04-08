@@ -206,8 +206,8 @@ GLOBAL_VAR(last_connection)
 		if (admin)
 			log_admin("The admin [key] has been allowed to bypass a matching host/sticky ban on [bannedckey]")
 			if (message)
-				message_admins("<span class='adminnotice'>The admin [key] has been allowed to bypass a matching host/sticky ban on [bannedckey]</span>")
-				addclientmessage(ckey,"<span class='adminnotice'>I have been allowed to bypass a matching host/sticky ban on [bannedckey]</span>")
+				message_admins(span_adminnotice("]"))
+				addclientmessage(ckey,span_adminnotice("]"))
 			return null
 
 		if (C) //user is already connected!.
