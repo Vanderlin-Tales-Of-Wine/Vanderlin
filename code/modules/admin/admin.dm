@@ -486,8 +486,8 @@
 					to_chat(world, "Hard world reboot - [init_by]")
 					world.Reboot(fast_track = TRUE)
 				if("Server Restart (Kill and restart DD)")
-					SSplexora.restart_type = PLEXORA_SHUTDOWN_KILLDD // monkestation edit: Plexora
-					SSplexora.restart_requester = usr // monkestation edit: Plexora
+					SSplexora.restart_type = PLEXORA_SHUTDOWN_KILLDD
+					SSplexora.restart_requester = usr
 					to_chat(world, "Server restart - [init_by]")
 					world.TgsEndProcess()
 
