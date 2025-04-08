@@ -1,30 +1,87 @@
 #define POPCOUNT_SURVIVORS "survivors"					//Not dead at roundend
 #define POPCOUNT_ESCAPEES "escapees"					//Not dead and on centcom/shuttles marked as escaped
 
-#define STATS_DEATHS "deaths"
-#define STATS_NOBLE_DEATHS "noble_deaths"
+// General statistics
+
 #define STATS_MOAT_FALLERS "moat_fallers"
 #define STATS_ANKLES_BROKEN "ankles_broken"
 #define STATS_PEOPLE_SMITTEN "people_smitten"
-#define STATS_BLOOD_SPILT "blood_spilt"
-#define STATS_PEOPLE_GIBBED "people_gibbed"
 #define STATS_TRIUMPHS_AWARDED "triumphs_awarded"
 #define STATS_TRIUMPHS_STOLEN "triumphs_stolen"
-#define STATS_DRUGS_SNORTED "drugs_snorted"
 #define STATS_BEARDS_SHAVED "beards_shaved"
-#define STATS_TREES_CUT "trees_cut"
 #define STATS_PRAYERS_MADE "prayers_made"
-#define STATS_FISH_CAUGHT "fish_caught"
-#define STATS_ITEMS_PICKPOCKETED "items_pickpocketed"
-#define STATS_MASTERWORKS_FORGED "masterworks_forged"
 #define STATS_TAXES_COLLECTED "taxes_collected"
-#define STATS_ORGANS_EATEN "organs_eaten"
-#define STATS_KISSES_MADE "kisses_made"
-#define STATS_LAUGHS_MADE "laughs_made"
-#define STATS_GRAVES_CONSECRATED "graves_consecrated"
-#define STATS_POTIONS_BREWED "potions_brewed"
+
+// Influence related statistics
+
+#define STATS_LAWS_MADE "laws_made"
+#define STATS_ALIVE_NOBLES "alive_nobles"
+#define STATS_NOBLE_DEATHS "noble_deaths"
 #define STATS_ASTRATA_REVIVALS "astrata_revivals"
+
+#define STATS_BOOKS_PRINTED "books_printed"
+#define STATS_LITERACY_TAUGHT "literacy_taught"
+#define STATS_ILLITERATES "illiterates"
+#define STATS_SKILLS_LEARNED "skills_learned"
+
+#define STATS_GRAVES_CONSECRATED "graves_consecrated"
+#define STATS_GRAVES_ROBBED "graves_robbed"
+#define STATS_DEADITES_KILLED "deadites_killed"
+#define STATS_VAMPIRES_KILLED "vampires_killed"
+
+#define STATS_POTIONS_BREWED "potions_brewed"
+#define STATS_WOUNDS_HEALED "wounds_healed"
+#define STATS_SOULS_REINCARNATED "souls_reincarnated"
+#define STATS_ANIMALS_BRED "animals_bred"
+
+#define STATS_TREES_CUT "trees_cut"
 #define STATS_PLANTS_HARVESTED "plants_harvested"
+#define STATS_WEREVOLVES "werevolves"
+#define STATS_BRIAR_STUFF "briar_stuff"
+
+#define STATS_COMBAT_SKILLS "combat_skills"
+#define STATS_PARRIES "parries"
+#define STATS_WARCRIES "warcries"
+#define STATS_YIELDS "yields"
+
+#define STATS_LAUGHS_MADE "laughs_made"
+#define STATS_GAMES_RIGGED "games_rigged"
+#define STATS_PEOPLE_MOCKED "people_mocked"
+#define STATS_CRITS_MADE "crits_made"
+
+#define STATS_MASTERWORKS_FORGED "masterworks_forged"
+#define STATS_ORES_MINED "ores_mined"
+#define STATS_CRAFT_SKILLS "craft_skills"
+#define STATS_ITEMS_CRAFTED "items_crafted"
+
+#define STATS_BLOOD_SPILT "blood_spilt"
+#define STATS_FISH_CAUGHT "fish_caught"
+#define STATS_ABYSSOR_REMEMBERED "abyssor_remembered"
+#define STATS_LEECHES_EMBEDDED "leeches_embedded"
+
+#define STATS_KISSES_MADE "kisses_made"
+#define STATS_MARRIAGES "marriages"
+#define STATS_HUGS_MADE "hugs_made"
+#define STATS_CLINGY_PEOPLE "clingy_people"
+
+#define STATS_ZIZO_PRAISED "zizo_praised"
+#define STATS_DEADITES_ALIVE "deadites_alive"
+#define STATS_PRIEST_DEATHS "priest_deaths"
+
+#define STATS_ORGANS_EATEN "organs_eaten"
+#define STATS_DEATHS "deaths"
+#define STATS_PEOPLE_GIBBED "people_gibbed"
+#define STATS_ASSASSINATIONS "assassinations"
+
+#define STATS_DRUGS_SNORTED "drugs_snorted"
+#define STATS_ALCOHOL_CONSUMED "alcohol_consumed"
+#define STATS_ALCOHOLICS "alcoholics"
+#define STATS_JUNKIES "junkies"
+
+#define STATS_ITEMS_PICKPOCKETED "items_pickpocketed"
+#define STATS_SHRINE_VALUE "shrine_value"
+#define STATS_TOMB_DEATHS "tomb_deaths"
+#define STATS_KLEPTOMANIACS "kleptomaniacs"
 
 GLOBAL_LIST_INIT(vanderlin_round_stats, list(
 	STATS_DEATHS = 0,
@@ -51,6 +108,45 @@ GLOBAL_LIST_INIT(vanderlin_round_stats, list(
 	STATS_POTIONS_BREWED = 0,
 	STATS_ASTRATA_REVIVALS = 0,
 	STATS_PLANTS_HARVESTED = 0,
+	STATS_LAWS_MADE = 0,
+	STATS_ALIVE_NOBLES = 0,
+	STATS_BOOKS_PRINTED = 0,
+	STATS_LITERACY_TAUGHT = 0,
+	STATS_ILLITERATES = 0,
+	STATS_SKILLS_LEARNED = 0,
+	STATS_GRAVES_ROBBED = 0,
+	STATS_DEADITES_KILLED = 0,
+	STATS_VAMPIRES_KILLED = 0,
+	STATS_WOUNDS_HEALED = 0,
+	STATS_SOULS_REINCARNATED = 0,
+	STATS_ANIMALS_BRED = 0,
+	STATS_WEREVOLVES = 0,
+	STATS_BRIAR_STUFF = 0,
+	STATS_COMBAT_SKILLS = 0,
+	STATS_PARRIES = 0,
+	STATS_WARCRIES = 0,
+	STATS_YIELDS = 0,
+	STATS_GAMES_RIGGED = 0,
+	STATS_PEOPLE_MOCKED = 0,
+	STATS_CRITS_MADE = 0,
+	STATS_ORES_MINED = 0,
+	STATS_CRAFT_SKILLS = 0,
+	STATS_ITEMS_CRAFTED = 0,
+	STATS_ABYSSOR_REMEMBERED = 0,
+	STATS_LEECHES_EMBEDDED = 0,
+	STATS_MARRIAGES = 0,
+	STATS_HUGS_MADE = 0,
+	STATS_CLINGY_PEOPLE = 0,
+	STATS_ZIZO_PRAISED = 0,
+	STATS_DEADITES_ALIVE = 0,
+	STATS_PRIEST_DEATHS = 0,
+	STATS_ASSASSINATIONS = 0,
+	STATS_ALCOHOL_CONSUMED = 0,
+	STATS_ALCOHOLICS = 0,
+	STATS_JUNKIES = 0,
+	STATS_SHRINE_VALUE = 0,
+	STATS_TOMB_DEATHS = 0,
+	STATS_KLEPTOMANIACS = 0
 ))
 
 /datum/controller/subsystem/ticker/proc/gather_roundend_feedback()

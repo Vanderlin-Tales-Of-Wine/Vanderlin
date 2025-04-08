@@ -217,6 +217,7 @@ SUBSYSTEM_DEF(gamemode)
 
 /datum/controller/subsystem/gamemode/fire(resumed = FALSE)
 	if(last_devotion_check < world.time)
+		refresh_alive_stats()
 		pick_most_devoted()
 		last_devotion_check = world.time + 2 MINUTES
 
@@ -1079,6 +1080,53 @@ SUBSYSTEM_DEF(gamemode)
 	if(!highest)
 		return
 	set_storyteller(highest)
+
+/// Refreshes statistics regarding alive statuses of certain professions or antags, like nobles
+/datum/controller/subsystem/gamemode/proc/refresh_alive_stats()
+	GLOB.vanderlin_round_stats[STATS_ALIVE_NOBLES] = 0
+	for(var/client/client in GLOB.clients)
+		var/mob/living/living = client.mob
+		if(!istype(living))
+			continue
+		if(!living.mind)
+			continue
+		if(living.stat == DEAD)
+			continue
+		if(ishuman(living))
+			var/mob/living/carbon/human/human_mob= client.mob
+			if(human_mob.is_noble())
+				GLOB.vanderlin_round_stats[STATS_ALIVE_NOBLES]++
+
+/// Returns influence value for a given storyteller for his given statistic
+/datum/controller/subsystem/gamemode/proc/calculate_specific_influence(datum/storyteller/chosen_storyteller, statistic)
+	var/datum/storyteller/initalized_storyteller = storytellers[chosen_storyteller]
+	if(!initalized_storyteller)
+		return
+
+	if(!(statistic in initalized_storyteller.influence_factors))
+		return
+
+	var/influence = 0
+	var/stat_value = GLOB.vanderlin_round_stats[statistic]
+	var/list/factors = initalized_storyteller.influence_factors[statistic]
+	var/modifier = factors["points"]
+	var/capacity = factors["capacity"]
+
+	var/raw_contribution = stat_value * modifier
+	influence = (modifier < 0) ? max(raw_contribution, capacity) : min(raw_contribution, capacity)
+
+	return influence
+
+/// Return total influence of the storyteller, which includes all his statistics and number of their followers
+/datum/controller/subsystem/gamemode/proc/calculate_storyteller_influence(datum/storyteller/chosen_storyteller)
+	var/datum/storyteller/initalized_storyteller = storytellers[chosen_storyteller]
+	if(!initalized_storyteller)
+		return
+
+	var/total_influence = get_patron_followers_numbers(initalized_storyteller.name) * 10
+	for(var/influence_factor in initalized_storyteller.influence_factors)
+		total_influence += calculate_specific_influence(chosen_storyteller, influence_factor)
+	return total_influence
 
 #undef DEFAULT_STORYTELLER_VOTE_OPTIONS
 #undef MAX_POP_FOR_STORYTELLER_VOTE
