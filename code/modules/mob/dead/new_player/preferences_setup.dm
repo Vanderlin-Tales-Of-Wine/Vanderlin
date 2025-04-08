@@ -146,7 +146,8 @@
 			chosen_outfit = (gender == FEMALE && previewJob.outfit_female) ? previewJob.outfit_female : previewJob.outfit
 		mannequin.equipOutfit(chosen_outfit, visualsOnly = TRUE)
 
-	parent.show_character_previews(new /mutable_appearance(mannequin))
+	if(parent)
+		parent.show_character_previews(new /mutable_appearance(mannequin))
 	unset_busy_human_dummy(DUMMY_HUMAN_SLOT_PREFERENCES)
 
 
