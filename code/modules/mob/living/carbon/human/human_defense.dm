@@ -611,7 +611,7 @@
 		else
 			examination += "<span class='danger'>[m1] TETRAPLEGIC!</span>"
 	else if(HAS_TRAIT(src, TRAIT_PARALYSIS_R_LEG) && HAS_TRAIT(src, TRAIT_PARALYSIS_L_LEG))
-		examination += span_warning("!")
+		examination += "<span class='warning'>[m1] PARAPLEGIC!</span>"
 
 	var/static/list/body_zones = list(
 		BODY_ZONE_HEAD,

@@ -19,26 +19,26 @@
 	var/obj/item/bodypart/affecting
 	if(prob(66))
 		affecting = get_bodypart("[pick("r","l")]_leg")
-		to_chat(src, span_warning("!"))
+		to_chat(src, "<span class='warning'>I land on my leg!</span>")
 		if(affecting && apply_damage((levels * 10), BRUTE, affecting))		// 100 brute damage
 			update_damage_overlays()
 	else
 		switch(rand(1,3))
 			if(1)
 				affecting = get_bodypart("[pick("r","l")]_arm")
-				to_chat(src, span_warning("!"))
+				to_chat(src, "<span class='warning'>I land on my arm!</span>")
 				if(affecting && apply_damage((levels * 10), BRUTE, affecting))		// 100 brute damage
 					update_damage_overlays()
 			if(2)
 				affecting = get_bodypart("chest")
-				to_chat(src, span_warning("!"))
+				to_chat(src, "<span class='warning'>I land on my chest!</span>")
 				adjustOxyLoss(50)
 				emote("breathgasp")
 				if(affecting && apply_damage((levels * 10), BRUTE, affecting))		// 100 brute damage
 					update_damage_overlays()
 			if(3)
 				affecting = get_bodypart("head")
-				to_chat(src, span_warning("!"))
+				to_chat(src, "<span class='warning'>I land on my head!</span>")
 				if(levels > 2)
 					AdjustUnconscious(levels * 100)
 					if(affecting && apply_damage((levels * 10), BRUTE, affecting))		// 100 brute damage
@@ -58,7 +58,7 @@
 	if(item_in_hand) //this segment checks if the item in your hand is twohanded.
 		if(istype(item_in_hand))
 			if(item_in_hand.wielded == 1)
-				to_chat(usr, span_warning("."))
+				to_chat(usr, "<span class='warning'>My other hand is too busy holding [item_in_hand].</span>")
 				return FALSE
 	if(atkswinging || atkreleasing)
 		stop_attack(FALSE)
@@ -333,7 +333,7 @@
 			buckle_cd += S.breakoutextra
 		if(STASTR > 15)
 			buckle_cd = 3 SECONDS
-		visible_message(span_warning("!"), \
+		visible_message("<span class='warning'>[src] attempts to struggle free!</span>", \
 					span_notice("I attempt to struggle free..."))
 		if(do_after(src, buckle_cd, timed_action_flags = (IGNORE_HELD_ITEM)))
 			if(!buckled)
@@ -341,7 +341,7 @@
 			buckled.user_unbuckle_mob(src,src)
 		else
 			if(src && buckled)
-				to_chat(src, span_warning("!"))
+				to_chat(src, "<span class='warning'>I fail to struggle free!</span>")
 	else
 		buckled.user_unbuckle_mob(src,src)
 
@@ -353,7 +353,7 @@
 		spin(32,2)
 		fire_stacks = max(0, fire_stacks - 5)
 		divine_fire_stacks = max(0, divine_fire_stacks - 5)
-		visible_message(span_warning("!"))
+		visible_message("<span class='warning'>[src] rolls on the ground, trying to put [p_them()]self out!</span>")
 	else
 		visible_message(span_notice("[src] pats the flames to extinguish them."))
 	sleep(30)
@@ -559,7 +559,7 @@
 				addtimer(CALLBACK(src, PROC_REF(vomit), 50), rand(8 SECONDS, 15 SECONDS))
 		else
 			if(prob(3))
-				to_chat(src, span_warning("."))
+				to_chat(src, "<span class='warning'>I feel sick...</span>")
 
 	add_nausea(-1)
 

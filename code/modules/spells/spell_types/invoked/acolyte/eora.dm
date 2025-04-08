@@ -158,7 +158,7 @@
 	if(!isclosedturf(T))
 		new /obj/item/clothing/head/peaceflower(T)
 		return ..()
-	to_chat(user, span_warning("."))
+	to_chat(user, "<span class='warning'>The targeted location is blocked. The flowers of Eora refuse to bloom.</span>")
 	return FALSE
 
 /obj/effect/proc_holder/spell/invoked/projectile/eoracurse

@@ -136,7 +136,7 @@
 			to_chat(user, span_notice("My power is weakened, I cannot heal!"))
 			return
 		if(do_after(user, 5 SECONDS, src))
-			user.visible_message(span_warning("!"),\
+			user.visible_message("<span class='warning'>[user] consumes [src]!</span>",\
 							span_notice("I consume [src]!"))
 			playsound(get_turf(user), pick(dismemsound), 100, FALSE, -1)
 			new /obj/effect/gibspawner/generic(get_turf(src), user)
@@ -186,7 +186,7 @@
 		if(HAS_TRAIT(C, TRAIT_LIMBATTACHMENT))
 			if(!H.get_bodypart(body_zone) && !animal_origin)
 				if(H == user)
-					H.visible_message(span_warning("!"),\
+					H.visible_message("<span class='warning'>[H] jams [src] into [H.p_their()] empty socket!</span>",\
 					span_notice("I force [src] into my empty socket, and it locks into place!"))
 				else
 					H.visible_message("<span class='warning'>[user] jams [src] into [H]'s empty socket!</span>",\
@@ -200,7 +200,7 @@
 	if(length(contents) && I.get_sharpness() && !user.cmode)
 		add_fingerprint(user)
 		playsound(loc, 'sound/combat/hits/bladed/genstab (1).ogg', 60, vary = FALSE)
-		user.visible_message(span_warning("."),\
+		user.visible_message("<span class='warning'>[user] begins to cut open [src].</span>",\
 			span_notice("You begin to cut open [src]..."))
 		if(do_after(user, 5 SECONDS, src))
 			drop_organs(user)
@@ -618,7 +618,7 @@
 		return
 	if(disabled == BODYPART_DISABLED_DAMAGE || disabled == BODYPART_DISABLED_WOUND)
 		if(owner.stat < DEAD)
-			to_chat(owner, span_warning("!"))
+			to_chat(owner, "<span class='warning'>I feel a sharp pain in my back!</span>")
 
 /obj/item/bodypart/chest/Destroy()
 	QDEL_NULL(cavity_item)

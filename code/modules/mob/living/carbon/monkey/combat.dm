@@ -149,7 +149,7 @@
 						var/mob/M = pickupTarget.loc
 						if(!pickpocketing)
 							pickpocketing = TRUE
-							M.visible_message(span_warning("!"), "<span class='danger'>[src] tries to take [pickupTarget]!</span>")
+							M.visible_message("<span class='warning'>[src] starts trying to take [pickupTarget] from [M]!</span>", "<span class='danger'>[src] tries to take [pickupTarget]!</span>")
 							INVOKE_ASYNC(src, PROC_REF(pickpocket), M)
 			return TRUE
 

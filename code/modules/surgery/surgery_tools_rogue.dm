@@ -123,7 +123,7 @@
 /obj/item/weapon/surgery/cautery/examine(mob/user)
 	. = ..()
 	if(heated)
-		. += span_warning(".")
+		. += "<span class='warning'>The tip is hot to the touch.</span>"
 
 /obj/item/weapon/surgery/cautery/update_icon_state()
 	. = ..()

@@ -199,7 +199,7 @@
 		temp_damage *= damage_coeff[damagetype]
 
 	if(temp_damage >= 0 && temp_damage <= force_threshold)
-		visible_message(span_warning("!"))
+		visible_message("<span class='warning'>[src] looks unharmed!</span>")
 		return FALSE
 	else
 		apply_damage(damage, damagetype, null, getarmor(null, armorcheck))

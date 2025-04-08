@@ -69,12 +69,12 @@
 		if(isturf(eater.loc))
 			if(C.mobility_flags & MOBILITY_STAND)
 				if(get_dir(eater, user) != eater.dir)
-					to_chat(user, span_warning("."))
+					to_chat(user, "<span class='warning'>I must stand in front of [C.p_them()].</span>")
 					return 0
 	if(covered)
 		if(!silent)
 			var/who = (isnull(user) || eater == user) ? "your" : "[eater.p_their()]"
-			to_chat(user, span_warning("!"))
+			to_chat(user, "<span class='warning'>I have to remove [who] [covered] first!</span>")
 		return 0
 	return 1
 

@@ -94,8 +94,8 @@
 	return TRUE
 
 /datum/surgery_step/heal/failure(mob/user, mob/living/target, target_zone, obj/item/tool, datum/intent/intent, success_prob)
-	display_results(user, target, span_warning("!"),
-		span_warning("!"),
+	display_results(user, target, "<span class='warning'>I screwed up!</span>",
+		"<span class='warning'>[user] screws up!</span>",
 		"<span class='notice'>[user] fixes some of [target]'s wounds.</span>", TRUE)
 	var/urdamageamt_burn = brutehealing * 0.8
 	var/urdamageamt_brute = burnhealing * 0.8
@@ -176,8 +176,8 @@
 	replaced_by = null
 
 /datum/surgery_step/heal/combo/upgraded/femto/failure(mob/user, mob/living/target, target_zone, obj/item/tool, datum/intent/intent, success_prob)
-	display_results(user, target, span_warning("!"),
-		span_warning("!"),
+	display_results(user, target, "<span class='warning'>I screwed up!</span>",
+		"<span class='warning'>[user] screws up!</span>",
 		"<span class='notice'>[user] fixes some of [target]'s wounds.</span>", TRUE)
 	target.take_bodypart_damage(5,5)
 	return TRUE

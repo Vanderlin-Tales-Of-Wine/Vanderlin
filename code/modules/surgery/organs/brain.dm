@@ -98,7 +98,7 @@
 
 		user.visible_message(span_notice("[user] starts to pour the contents of [O] onto [src]."), span_notice("I start to slowly pour the contents of [O] onto [src]."))
 		if(!do_after(user, 6 SECONDS, src, (IGNORE_HELD_ITEM)))
-			to_chat(user, span_warning("!"))
+			to_chat(user, "<span class='warning'>I failed to pour [O] onto [src]!</span>")
 			return
 
 		user.visible_message(span_notice("[user] pours the contents of [O] onto [src], causing it to reform its original shape and turn a slightly brighter shade of pink."), span_notice("I pour the contents of [O] onto [src], causing it to reform its original shape and turn a slightly brighter shade of pink."))
@@ -207,11 +207,11 @@
 		if(owner.stat < UNCONSCIOUS) //conscious or soft-crit
 			var/brain_message
 			if(prev_damage < BRAIN_DAMAGE_MILD && damage >= BRAIN_DAMAGE_MILD)
-				brain_message = span_warning(".")
+				brain_message = "<span class='warning'>I feel lightheaded.</span>"
 			else if(prev_damage < BRAIN_DAMAGE_SEVERE && damage >= BRAIN_DAMAGE_SEVERE)
-				brain_message = span_warning(".")
+				brain_message = "<span class='warning'>I feel less in control of your thoughts.</span>"
 			else if(prev_damage < (BRAIN_DAMAGE_DEATH - 20) && damage >= (BRAIN_DAMAGE_DEATH - 20))
-				brain_message = span_warning(".")
+				brain_message = "<span class='warning'>I can feel your mind flickering on and off...</span>"
 
 			if(.)
 				. += "\n[brain_message]"

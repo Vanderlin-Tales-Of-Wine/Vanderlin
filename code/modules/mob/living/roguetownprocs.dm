@@ -52,11 +52,11 @@
 				return zone
 			else
 				if(user.client?.prefs.showrolls)
-					to_chat(user, span_warning("%"))
+					to_chat(user, "<span class='warning'>Accuracy fail! [chance2hit]%</span>")
 				return check_zone(zone)
 		else
 			if(user.client?.prefs.showrolls)
-				to_chat(user, span_warning("%"))
+				to_chat(user, "<span class='warning'>Ultra accuracy fail! [chance2hit]%</span>")
 			return BODY_ZONE_CHEST
 
 /mob/proc/get_generic_parry_drain()
@@ -200,7 +200,7 @@
 					if(intenty.masteritem.wbalance < 0 && user.STASTR > src.STASTR) //enemy weapon is heavy, so get a bonus scaling on strdiff
 						drained = drained + ( intenty.masteritem.wbalance * ((user.STASTR - src.STASTR) * -5) )
 			else
-				to_chat(src, span_warning("!"))
+				to_chat(src, "<span class='warning'>The enemy defeated my parry!</span>")
 				return FALSE
 
 			drained = max(drained, 5)
@@ -360,7 +360,7 @@
 		var/mob/living/carbon/human/H = src
 		if(H.adjust_stamina(parrydrain))
 			playsound(get_turf(src), pick(parry_sound), 100, FALSE)
-			src.visible_message(span_warning("!"))
+			src.visible_message("<span class='warning'><b>[src]</b> parries [user] with their hands!</span>")
 			if(!(!src.mind || !user.mind)) // don't need to log if at least one of the mobs is without an initialized mind because this is used for escalation
 				log_defense(src, user, "parried", "hands", attacking_item, "INTENT:[uppertext(user.used_intent.name)]")
 			return TRUE

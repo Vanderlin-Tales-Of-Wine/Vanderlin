@@ -200,19 +200,19 @@
 				mob.setDir(turn(mob.dir, 180))
 	if(mob.used_intent?.movement_interrupt && mob.atkswinging == "left" && charging)
 		if(mob.cast_move < mob.used_intent?.move_limit)
-			to_chat(src, span_warning("!"))
+			to_chat(src, "<span class='warning'>I am starting to lose focus!</span>")
 			mob.cast_move++
 		else
-			to_chat(src, span_warning("!"))
+			to_chat(src, "<span class='warning'>I lost my concentration!</span>")
 			mob.stop_attack(FALSE)
 			mob.changeNext_move(CLICK_CD_MELEE)
 			mob.cast_move = 0
 	if(mob.mmb_intent?.movement_interrupt && mob.atkswinging == "middle" && charging)
 		if(mob.cast_move < mob.used_intent?.move_limit)
-			to_chat(src, span_warning("!"))
+			to_chat(src, "<span class='warning'>I am starting to lose focus!</span>")
 			mob.cast_move++
 		else
-			to_chat(src, span_warning("!"))
+			to_chat(src, "<span class='warning'>I lost my concentration!</span>")
 			mob.stop_attack(FALSE)
 			mob.changeNext_move(CLICK_CD_MELEE)
 			mob.cast_move = 0
@@ -320,13 +320,13 @@
 			var/turf/open/floor/stepTurf = get_step(L, direct)
 			if(stepTurf)
 				for(var/obj/effect/decal/cleanable/food/salt/S in stepTurf)
-					to_chat(L, span_warning("!"))
+					to_chat(L, "<span class='warning'>[S] bars your passage!</span>")
 					return
 				if(stepTurf.flags_1 & NOJAUNT_1)
-					to_chat(L, span_warning("."))
+					to_chat(L, "<span class='warning'>Some strange aura is blocking the way.</span>")
 					return
 				if (locate(/obj/effect/blessing, stepTurf))
-					to_chat(L, span_warning("!"))
+					to_chat(L, "<span class='warning'>Holy energies block your path!</span>")
 					return
 
 				L.forceMove(stepTurf)

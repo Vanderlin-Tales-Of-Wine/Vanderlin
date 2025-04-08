@@ -66,7 +66,7 @@
 				box.update_icon()
 				to_chat(user, span_notice("I collect [boolets] shell\s. [box] now contains [box.stored_ammo.len] shell\s."))
 			else
-				to_chat(user, span_warning("!"))
+				to_chat(user, "<span class='warning'>I fail to collect anything!</span>")
 	else
 		return ..()
 

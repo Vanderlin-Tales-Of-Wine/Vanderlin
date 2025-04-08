@@ -75,7 +75,7 @@
 
 	var/obj/item/grabbing/I = get_active_held_item()
 	if(!I)
-		to_chat(src, span_warning("!"))
+		to_chat(src, "<span class='warning'>I need to be holding or grabbing something!</span>")
 		return
 	var/message = input(usr, "What do you want to ventriloquate?", "Ventriloquism!") as text | null
 	if(!message)
@@ -103,7 +103,7 @@
 		to_chat(src, "<span class='warning'>I know what's behind my own ears!</span>")
 		return
 	if(!MOBTIMER_FINISHED(src, MT_LASTTRICK, 20 SECONDS))
-		to_chat(src, span_warning("!"))
+		to_chat(src, "<span class='warning'>I need a moment before I can do another trick!</span>")
 		return
 	qdel(I)
 	src.put_in_hands(J)

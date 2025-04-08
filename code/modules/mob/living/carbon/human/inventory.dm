@@ -370,7 +370,7 @@
 	var/obj/item/equipped_back = get_item_by_slot(SLOT_BACK)
 	if(!equipped_back) // We also let you equip a backpack like this
 		if(!thing)
-			to_chat(src, span_warning("!"))
+			to_chat(src, "<span class='warning'>I have no backpack to take something out of!</span>")
 			return
 		if(equip_to_slot_if_possible(thing, SLOT_BACK))
 			update_inv_hands()
@@ -401,7 +401,7 @@
 	var/obj/item/equipped_belt = get_item_by_slot(SLOT_BELT)
 	if(!equipped_belt) // We also let you equip a belt like this
 		if(!thing)
-			to_chat(src, span_warning("!"))
+			to_chat(src, "<span class='warning'>I have no belt to take something out of!</span>")
 			return
 		if(equip_to_slot_if_possible(thing, SLOT_BELT))
 			update_inv_hands()

@@ -10,7 +10,7 @@
 	decay_factor = STANDARD_ORGAN_DECAY
 
 	low_threshold_passed = "<span class='info'>My ears begin to resonate with an internal ring sometimes.</span>"
-	now_failing = span_warning("!")
+	now_failing = "<span class='warning'>I are unable to hear at all!</span>"
 	now_fixed = "<span class='info'>Noise slowly begins filling my ears once more.</span>"
 	low_threshold_cleared = "<span class='info'>The ringing in my ears has died down.</span>"
 
@@ -47,7 +47,7 @@
 		if(prob(damage / 20) && (damage > low_threshold))
 			adjustEarDamage(0, 4)
 			SEND_SOUND(C, sound('sound/blank.ogg'))
-			to_chat(C, span_warning("."))
+			to_chat(C, "<span class='warning'>The ringing in my ears grows louder, blocking out any external noises for a moment.</span>")
 	else if((organ_flags & ORGAN_FAILING) && (deaf == 0))
 		deaf = 1	//stop being not deaf you deaf idiot
 

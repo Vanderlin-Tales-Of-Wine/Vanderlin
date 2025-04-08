@@ -110,7 +110,7 @@
 	return TRUE
 
 /obj/structure/spider/stickyweb/fire_act(added, maxstacks)
-	visible_message(span_warning("!"))
+	visible_message("<span class='warning'>[src] catches fire!</span>")
 	var/turf/T = get_turf(src)
 	qdel(src)
 	new /obj/effect/hotspot(T)
@@ -151,7 +151,7 @@
 
 /obj/structure/spider/cocoon/Destroy()
 	var/turf/T = get_turf(src)
-	src.visible_message(span_warning("."))
+	src.visible_message("<span class='warning'>\The [src] splits open.</span>")
 	for(var/atom/movable/A in contents)
 		A.forceMove(T)
 	return ..()
@@ -266,7 +266,7 @@
 	var/mob/living/carbon/human/H = user
 	if(H.virginity)
 		if(world.time < last_scry + 30 SECONDS)
-			to_chat(user, span_warning("."))
+			to_chat(user, "<span class='warning'>I peer into the sky but cannot focus the lens on the face of Noc. Maybe I should wait.</span>")
 			return
 		var/input = stripped_input(user, "Who are you looking for?", "Scrying Orb")
 		if(!input)
@@ -274,7 +274,7 @@
 		if(!user.key)
 			return
 		if(world.time < last_scry + 30 SECONDS)
-			to_chat(user, span_warning("."))
+			to_chat(user, "<span class='warning'>I peer into the sky but cannot focus the lens on the face of Noc. Maybe I should wait.</span>")
 			return
 		if(!user.mind || !user.mind.do_i_know(name=input))
 			to_chat(user, "<span class='warning'>I don't know anyone by that name.</span>")
@@ -295,14 +295,14 @@
 					if(HL.STAPER >= 15)
 						if(HL.mind)
 							if(HL.mind.do_i_know(name=user.real_name))
-								to_chat(HL, span_warning("."))
+								to_chat(HL, "<span class='warning'>I can clearly see the face of [user.real_name] staring at me!.</span>")
 								return
 						to_chat(HL, "<span class='warning'>I can clearly see the face of an unknown [user.gender == FEMALE ? "woman" : "man"] staring at me!</span>")
 						return
 					if(HL.STAPER >= 11)
-						to_chat(HL, span_warning("."))
+						to_chat(HL, "<span class='warning'>I feel a pair of unknown eyes on me.</span>")
 				return
-		to_chat(user, span_warning("."))
+		to_chat(user, "<span class='warning'>I peer into the viewpiece, but Noc does not reveal where [input] is.</span>")
 		return
 	else
 		to_chat(user, span_notice("Noc looks angry with me..."))

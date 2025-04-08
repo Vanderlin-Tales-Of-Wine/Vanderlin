@@ -89,7 +89,7 @@
 	if(hand_proc == 1)
 		switch(bodypart.name)
 			if(BODY_ZONE_HEAD) //choke
-				to_chat(host, span_warning("!"))
+				to_chat(host, "<span class='warning'>[host] is choked by a skeletal hand!</span>")
 				playsound(get_turf(host), pick('sound/combat/shove.ogg'), 100, FALSE, -1)
 				host.emote("choke")
 

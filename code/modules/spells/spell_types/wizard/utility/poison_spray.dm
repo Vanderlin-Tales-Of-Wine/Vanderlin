@@ -45,13 +45,13 @@
 					con.reagents.clear_reagents() //empty the container
 					playsound(user, 'sound/magic/webspin.ogg', 100)
 				else
-					to_chat(user, span_warning("!"))
+					to_chat(user, "<span class='warning'>The [held_item] is empty!</span>")
 					return FALSE
 			else
 				to_chat(user, "<span class='warning'>I can't get access to the contents of this [held_item]!</span>")
 				return FALSE
 		else
-			to_chat(user, span_warning("!"))
+			to_chat(user, "<span class='warning'>I need to hold a container to cast this!</span>")
 			return FALSE
 	else
 		to_chat(user, "<span class='warning'>I couldn't find a good place for this!</span>")

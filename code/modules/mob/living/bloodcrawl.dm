@@ -24,7 +24,7 @@
 			//TODO make it toggleable to either forcedrop the items, or deny
 			//entry when holding them
 			// literally only an option for carbons though
-			to_chat(C, span_warning("!"))
+			to_chat(C, "<span class='warning'>I may not hold items while blood crawling!</span>")
 			return FALSE
 		var/obj/item/bloodcrawl/B1 = new(C)
 		var/obj/item/bloodcrawl/B2 = new(C)
@@ -42,7 +42,7 @@
 /mob/living/proc/bloodpool_sink(obj/effect/decal/cleanable/B)
 	var/turf/mobloc = get_turf(loc)
 
-	visible_message(span_warning("!"))
+	visible_message("<span class='warning'>[src] sinks into the pool of blood!</span>")
 	playsound(get_turf(src), 'sound/blank.ogg', 50, TRUE, -1)
 	// Extinguish, unbuckle, stop being pulled, set our location into the
 	// dummy object
@@ -70,11 +70,11 @@
 	var/kidnapped = FALSE
 
 	if(victim.stat == CONSCIOUS)
-		visible_message(span_warning("!"), null, span_notice("I hear splashing and struggling."))
+		visible_message("<span class='warning'>[victim] kicks free of the blood pool just before entering it!</span>", null, span_notice("I hear splashing and struggling."))
 	else
 		victim.forceMove(src)
 		victim.emote("scream")
-		visible_message(span_warning(">"), null, span_notice("I hear a splash."))
+		visible_message("<span class='warning'><b>[src] drags [victim] into the pool of blood!</b></span>", null, span_notice("I hear a splash."))
 		kidnapped = TRUE
 
 	if(kidnapped)
@@ -131,9 +131,9 @@
 
 /mob/living/proc/phasein(obj/effect/decal/cleanable/B)
 	if(notransform)
-		to_chat(src, span_warning("!"))
+		to_chat(src, "<span class='warning'>Finish eating first!</span>")
 		return FALSE
-	B.visible_message(span_warning("."))
+	B.visible_message("<span class='warning'>[B] starts to bubble...</span>")
 	if(!do_after(src, 2 SECONDS, B))
 		return
 	if(!B)

@@ -19,7 +19,7 @@
 		m3 = "I have"
 
 	if (handcuffed)
-		. += span_warning("!")
+		. += "<span class='warning'>[m1] tied up with \a [handcuffed]!</span>"
 	if (head)
 		. += "[m3] [head.get_examine_string(user)] on [m2] head. "
 	if(wear_mask && !(SLOT_WEAR_MASK in obscured))
@@ -40,7 +40,7 @@
 		if(t==BODY_ZONE_HEAD)
 			. += "<span class='dead'><B>[capitalize(m2)] [parse_zone(t)] is gone.</B></span>"
 			continue
-		. += span_warning(">")
+		. += "<span class='warning'><B>[capitalize(m2)] [parse_zone(t)] is gone.</B></span>"
 
 	var/list/msg = list("<span class='warning'>")
 	var/temp = getBruteLoss()
@@ -88,12 +88,12 @@
 
 	if(!appears_dead)
 		if(stat == UNCONSCIOUS)
-			. += span_warning(".")
+			. += "<span class='warning'>[m1] unconscious.</span>"
 		else if(InCritical())
-			. += span_warning(".")
+			. += "<span class='warning'>[m1] barely conscious.</span>"
 	if (stat == DEAD)
 		appears_dead = 1
-		. += span_warning(".")
+		. += "<span class='warning'>[m1] unconscious.</span>"
 	var/trait_exam = common_trait_examine()
 	if (!isnull(trait_exam))
 		. += trait_exam
@@ -102,9 +102,9 @@
 		var/mob/living/L = user
 		if(STASTR > L.STASTR)
 			if(STASTR > 15)
-				. += span_warning(".")
+				. += "<span class='warning'>[t_He] look[p_s()] stronger than I.</span>"
 			else
-				. += span_warning(">")
+				. += "<span class='warning'><B>[t_He] look[p_s()] stronger than I.</B></span>"
 
 		if(maniac)
 			var/obj/item/organ/heart/heart = getorganslot(ORGAN_SLOT_HEART)

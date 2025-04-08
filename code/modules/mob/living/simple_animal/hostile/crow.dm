@@ -64,7 +64,7 @@
 				..()
 			else
 				if(isturf(loc))
-					to_chat(user, span_warning("!"))
+					to_chat(user, "<span class='warning'>I fail to snatch [src]!</span>")
 					playsound(src, 'sound/vo/mobs/bird/birdfly.ogg', 100, TRUE, -1)
 					qdel(src)
 					return
@@ -103,7 +103,7 @@
 			if(prob(L.STASPD * 2))
 				..()
 			else
-				to_chat(user, span_warning("!"))
+				to_chat(user, "<span class='warning'>[src] gets away!</span>")
 				playsound(src, 'sound/vo/mobs/bird/birdfly.ogg', 100, TRUE, -1)
 				qdel(src)
 				return

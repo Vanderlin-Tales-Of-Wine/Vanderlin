@@ -84,15 +84,15 @@
 		var/strength_diff = final_str - L.STASTR
 		switch(strength_diff)
 			if(5 to INFINITY)
-				. += span_warning(">")
+				. += "<span class='warning'><B>[t_He] look[p_s()] much stronger than I.</B></span>"
 			if(1 to 5)
-				. += span_warning(".")
+				. += "<span class='warning'>[t_He] look[p_s()] stronger than I.</span>"
 			if(0)
 				. += "[t_He] look[p_s()] about as strong as I."
 			if(-5 to -1)
-				. += span_warning(".")
+				. += "<span class='warning'>[t_He] look[p_s()] weaker than I.</span>"
 			if(-INFINITY to -5)
-				. += span_warning(">")
+				. += "<span class='warning'><B>[t_He] look[p_s()] much weaker than I.</B></span>"
 
 	if(Adjacent(user) && HAS_TRAIT(src, TRAIT_SIMPLE_WOUNDS))
 		. += "<a href='byond://?src=[REF(src)];inspect_animal=1'>Inspect Wounds</a>"

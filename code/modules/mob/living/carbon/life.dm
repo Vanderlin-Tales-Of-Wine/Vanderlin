@@ -404,12 +404,12 @@ GLOBAL_LIST_INIT(ballmer_windows_me_msg, list("Yo man, what if, we like, uh, put
 		if(drunkenness >= 81)
 			adjustToxLoss(3)
 			if(prob(5) && !stat)
-				to_chat(src, span_warning("."))
+				to_chat(src, "<span class='warning'>Maybe I should lie down for a bit...</span>")
 
 		if(drunkenness >= 91)
 			adjustToxLoss(5)
 			if(prob(20) && !stat)
-				to_chat(src, span_warning("."))
+				to_chat(src, "<span class='warning'>Just a quick nap...</span>")
 				Sleeping(900)
 
 		if(drunkenness >= 101)
@@ -452,7 +452,7 @@ GLOBAL_LIST_INIT(ballmer_windows_me_msg, list("Yo man, what if, we like, uh, put
 		return
 	adjustToxLoss(4, TRUE,  TRUE)
 //	if(prob(30))
-//		to_chat(src, span_warning("!"))
+//		to_chat(src, "<span class='warning'>I feel a stabbing pain in your abdomen!</span>")
 
 /////////////
 //CREMATION//

@@ -625,7 +625,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 		var/turf/target = get_turf(loc)
 		if(target)
 			return new childspawn(target)
-//			visible_message(span_warning("."))
+//			visible_message("<span class='warning'>[src] finally gives birth.</span>")
 //			playsound(src, 'sound/foley/gross.ogg', 100, FALSE)
 //			breedchildren--
 
@@ -634,7 +634,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 		to_chat(src, "<span class='warning'>I can't do that right now!</span>")
 		return FALSE
 	if(be_close && !in_range(M, src))
-		to_chat(src, span_warning("!"))
+		to_chat(src, "<span class='warning'>I are too far away!</span>")
 		return FALSE
 	if(!(no_dexterity || dextrous))
 		to_chat(src, "<span class='warning'>I don't have the dexterity to do this!</span>")

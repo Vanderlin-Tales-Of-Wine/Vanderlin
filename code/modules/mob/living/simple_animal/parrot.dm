@@ -554,7 +554,7 @@
 		return -1
 
 	if(held_item)
-		to_chat(src, span_warning("!"))
+		to_chat(src, "<span class='warning'>I are already holding [held_item]!</span>")
 		return 1
 
 	for(var/obj/item/I in view(1,src))
@@ -570,7 +570,7 @@
 			visible_message(span_notice("[src] grabs [held_item]!"), span_notice("I grab [held_item]!"), "<span class='hear'>I hear the sounds of wings flapping furiously.</span>")
 			return held_item
 
-	to_chat(src, span_warning("!"))
+	to_chat(src, "<span class='warning'>There is nothing of interest to take!</span>")
 	return 0
 
 /mob/living/simple_animal/parrot/proc/steal_from_mob()
@@ -582,7 +582,7 @@
 		return -1
 
 	if(held_item)
-		to_chat(src, span_warning("!"))
+		to_chat(src, "<span class='warning'>I are already holding [held_item]!</span>")
 		return 1
 
 	var/obj/item/stolen_item = null
@@ -599,7 +599,7 @@
 			visible_message("<span class='notice'>[src] grabs [held_item] out of [C]'s hand!</span>", "<span class='notice'>I snag [held_item] out of [C]'s hand!</span>", "<span class='hear'>I hear the sounds of wings flapping furiously.</span>")
 			return held_item
 
-	to_chat(src, span_warning("!"))
+	to_chat(src, "<span class='warning'>There is nothing of interest to take!</span>")
 	return 0
 
 /mob/living/simple_animal/parrot/verb/drop_held_item_player()
@@ -624,7 +624,7 @@
 
 	if(!held_item)
 		if(src == usr) //So that other mobs wont make this message appear when they're bludgeoning you.
-			to_chat(src, span_warning("!"))
+			to_chat(src, "<span class='warning'>I have nothing to drop!</span>")
 		return 0
 
 	to_chat(src, span_notice("I drop [held_item]."))
@@ -649,7 +649,7 @@
 					icon_state = icon_sit
 					parrot_state = PARROT_PERCH
 					return
-	to_chat(src, span_warning("!"))
+	to_chat(src, "<span class='warning'>There is no perch nearby to sit on!</span>")
 	return
 
 /mob/living/simple_animal/parrot/Moved(oldLoc, dir)
@@ -674,7 +674,7 @@
 				continue
 			perch_on_human(H)
 			return
-		to_chat(src, span_warning("!"))
+		to_chat(src, "<span class='warning'>There is nobody nearby that you can sit on!</span>")
 	else
 		icon_state = icon_living
 		parrot_state = PARROT_WANDER

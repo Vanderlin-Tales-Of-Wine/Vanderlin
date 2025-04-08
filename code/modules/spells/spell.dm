@@ -269,7 +269,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 			return FALSE
 
 	if(!phase_allowed && istype(user.loc, /obj/effect/dummy))
-		to_chat(user, span_warning("!"))
+		to_chat(user, "<span class='warning'>[name] cannot be cast unless you are completely manifested in the material plane!</span>")
 		return FALSE
 
 	if(ishuman(user))
@@ -287,7 +287,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 				return FALSE
 	else
 		if(nonabstract_req && (isbrain(user)))
-			to_chat(user, span_warning("!"))
+			to_chat(user, "<span class='warning'>This spell can only be cast by physical beings!</span>")
 			return FALSE
 
 	if(req_items.len)
@@ -348,7 +348,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 	. = ..()
 	START_PROCESSING(SSfastprocess, src)
 
-	still_recharging_msg = span_warning("!")
+	still_recharging_msg = "<span class='warning'>[name] is still recharging!</span>"
 	charge_counter = recharge_time
 
 /obj/effect/proc_holder/spell/Destroy()
@@ -664,6 +664,6 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 
 /obj/effect/proc_holder/spell/self/basic_heal/cast(mob/living/carbon/human/user) //Note the lack of "list/targets" here. Instead, use a "user" var depending on mob requirements.
 	//Also, notice the lack of a "for()" statement that looks through the targets. This is, again, because the spell can only have a single target.
-	user.visible_message(span_warning("!"), span_notice("I wreath myself in healing light!"))
+	user.visible_message("<span class='warning'>A wreath of gentle light passes over [user]!</span>", span_notice("I wreath myself in healing light!"))
 	user.adjustBruteLoss(-10)
 	user.adjustFireLoss(-10)
