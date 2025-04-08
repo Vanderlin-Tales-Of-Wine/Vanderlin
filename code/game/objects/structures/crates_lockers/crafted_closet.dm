@@ -33,8 +33,6 @@
 	icon_state = "closetdark"
 
 /obj/structure/closet/crate/crafted_closet/lord
-	keylock = TRUE
-	lockids = list(ACCESS_LORD)
-	locked = TRUE
+	lock = /datum/lock/key/lord
 	base_icon_state = "closetlord"
 	icon_state = "closetlord"

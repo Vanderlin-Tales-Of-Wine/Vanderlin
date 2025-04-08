@@ -5,97 +5,67 @@
 /obj
 	//check if object is being picked if can be picked
 	var/being_picked = FALSE
-	//check if lock can be picked
-	var/can_be_picked = TRUE
-	//check if obj has lock and can be picked
-	var/lock_tampered = FALSE //for doors this gets reset
-
-/datum/element/lockpickable
-	///Difficulty of the lock. Smaller is harder.
-	var/difficulty
-	///picks able to be used
-	var/list/lockpicks = list(/obj/item/lockpick)
-	///wedges able to be used
-	var/list/wedges = list(/obj/item/weapon/knife/dagger, /obj/item/lockpick) //whem we add more thieves tools check this
-	///shows the lock difficulty level on examine, like fallout
-	var/shown_difficulty
-
-/datum/element/lockpickable/Attach(datum/target, list/lockpicks, list/wedges, difficulty, shown_difficulty)
-	. = ..()
-	if(!isatom(target))
-		return ELEMENT_INCOMPATIBLE
-
-	switch(difficulty)
-		if(1 to 3)
-			shown_difficulty = "LEGENDARY"
-		if(4 to 6)
-			shown_difficulty = "MASTER"
-		if(7 to 9)
-			shown_difficulty = "EXPERT"
-		if(10 to 15)
-			shown_difficulty = "SKILLED"
-		if(16 to 20)
-			shown_difficulty = "NOVICE"
-		if(20 to 100)
-			shown_difficulty = "BASIC"
-
-	if(!src.lockpicks)
-		src.lockpicks = lockpicks.Copy()
-	if(!src.wedges)
-		src.wedges = wedges.Copy()
-	src.difficulty = difficulty
-	src.shown_difficulty = shown_difficulty
-
-	RegisterSignal(target, COMSIG_PARENT_ATTACKBY, PROC_REF(check_pick))
-	RegisterSignal(target, COMSIG_PARENT_EXAMINE, PROC_REF(examine))
-
-
-/datum/element/lockpickable/Detach(datum/target)
-	. = ..()
-	UnregisterSignal(target, list(COMSIG_PARENT_ATTACKBY, COMSIG_PARENT_EXAMINE))
 
 /datum/element/lockpickable/proc/examine(obj/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
 	if(source.lock_tampered)
 		examine_list += span_notice("[source] has been tampered with.")
 
-/datum/element/lockpickable/proc/pick_info(datum/source, list/mutable_lockpicks, list/mutable_wedges, mutable_difficulty)
-	SIGNAL_HANDLER
-
-	mutable_lockpicks += list(lockpicks)
-	mutable_wedges += list(wedges)
-	mutable_difficulty += difficulty
-
-/datum/element/lockpickable/proc/check_pick(obj/source, obj/item/L, mob/living/user)
-	SIGNAL_HANDLER
-	if(!source.can_be_picked)
-		return NONE
-	if(user.try_pick(source, L, lockpicks, wedges, user, difficulty, shown_difficulty))
-		return COMPONENT_NO_AFTERATTACK
-	return NONE
 //user is told its picking
-
-/mob/living/proc/try_pick(obj/P, obj/item/L, list/obj/lockpicks, list/obj/wedges, mob/living/user, difficulty, shown_difficulty)
-
+/mob/living/proc/try_pick(obj/P, obj/item/L, list/obj/lockpicks, list/obj/wedges, difficulty)
 	if(isobj(P))
 		if(P.being_picked)
-			return
+			return FALSE
 
-	var/obj/item/the_wedge = user.get_inactive_held_item()
+	if(!P.lock || !istype(P.lock, /datum/lock/keylock))
+		return FALSE
+
+	var/datum/lock/key/KL = P.lock
+	var/obj/item/the_wedge = get_inactive_held_item()
 
 	if(!is_type_in_list(L, lockpicks))
-		return
+		return FALSE
 	if(!is_type_in_list(the_wedge, wedges))
-		to_chat(user, "<span class='notice'>You need a wedge in order to lockpick the [P]!</span>")
-		return
+		to_chat(src, span_notice("You need a wedge in order to lockpick the [P]!"))
+		return FALSE
 
-	user.client.spawn_lockpicking_UI(P, user, L, the_wedge, difficulty, shown_difficulty, user.mind.get_skill_level(/datum/skill/misc/lockpicking))
-	to_chat(P, span_notice("[user.name] starts picking the [P.name]'s lock..."))
-	user.visible_message(span_notice("[user.name] starts picking the [name]s lock."))
+	client.spawn_lockpicking_UI(P, src, L, the_wedge, difficulty, KL.get_string_difficulty(), mind?.get_skill_level(/datum/skill/misc/lockpicking))
+	visible_message(span_warning("[src] starts to pick the lock of [P]!"), span_notice("I start to pick the lock of [P]..."))
 	return TRUE
 
-//ui is spawned, users screen is updated
+//obj is told its picked, theoretically can be used for any objects
+/obj/proc/picked(mob/living/user, obj/lockpick_used, skill_level, difficulty)
+	finish_lockpicking(user)
 
+	if(prob(60 - (skill_level * 10)))
+		to_chat(user, "<span class='notice'>Your [lockpick_used.name] broke!</span>")
+		playsound(loc, 'sound/items/LPBreak.ogg', 100 - (15 * skill_level))
+		qdel(lockpick_used)
+
+	if(lock)
+		lock.locked = FALSE
+		lock.tampered = TRUE
+	playsound(loc, 'sound/items/LPWin.ogg', 150 - (15 * skill_level))
+
+	var/amt2raise = user.STAINT + (50 / difficulty)
+	var/boon = user.mind?.get_learning_boon(/datum/skill/misc/lockpicking)
+	user.mind?.adjust_experience(/datum/skill/misc/lockpicking, amt2raise * boon)
+	return TRUE
+
+/obj/proc/finish_lockpicking(mob/living/user)
+	if(!user)
+		return FALSE
+	user.visible_message(span_warning("[user] picks the lock of [src]!"), span_notice("I finish picking the lock of [src]."))
+	being_picked = FALSE
+	return TRUE
+
+/obj/proc/can_be_picked()
+	if(!lock_check(TRUE))
+		return FALSE
+	var/datum/lock/key/KL = lock
+	return KL.pickable
+
+//ui is spawned, users screen is updated
 /client/proc/spawn_lockpicking_UI(obj/lock, mob/living/user, obj/lockpick, obj/wedge, difficulty, shown_d, skill_level) //potentially different sprites for locks and picks, put here
 	switch(shown_d) //for UI capitilsation
 		if("master")
@@ -380,41 +350,3 @@
 
 /atom/movable/screen/movable/snap/lockpicking/proc/turn_sound_reset()
 	playing_lock_sound = FALSE
-
-//obj is told its picked, theoretically can be used for any objects
-
-/obj/proc/picked(mob/living/user, obj/lockpick_used, skill_level, difficulty)
-
-	finish_lockpicking(user)
-
-	if(prob(60 - (skill_level * 10)))
-		to_chat(user, "<span class='notice'>Your [lockpick_used.name] broke!</span>")
-		playsound(loc, 'sound/items/LPBreak.ogg', 100 - (15 * skill_level))
-		qdel(lockpick_used)
-
-	//special cases that need telling what to do due to others shartcode
-	var/obj/structure/mineral_door/A = src
-	if(istype(A))
-		A.locked = FALSE
-	lock_tampered = TRUE
-	playsound(loc, 'sound/items/LPWin.ogg', 150 - (15 * skill_level))
-
-	var/amt2raise = user.STAINT + (50 / difficulty)
-	var/boon = user.mind?.get_learning_boon(/datum/skill/misc/lockpicking)
-	user.mind?.adjust_experience(/datum/skill/misc/lockpicking, amt2raise * boon)
-	return TRUE
-
-/obj/proc/finish_lockpicking(mob/living/user)
-
-	if(!user)
-		return FALSE
-
-	to_chat(user, "<span class='notice'>You pick [name]s lock.</span>")
-	user.visible_message(span_notice("[user.name] picks [name]s lock."), span_notice("You pick the [name]s lock."))
-
-	being_picked = FALSE
-
-	return TRUE
-
-/obj/proc/can_be_picked()
-	return TRUE

@@ -7,8 +7,6 @@
 	drag_slowdown = 2
 	open_sound = 'sound/misc/chestopen.ogg'
 	close_sound = 'sound/misc/chestclose.ogg'
-	keylock = TRUE
-	locked = FALSE
 	sellprice = 1
 	max_integrity = 200
 	blade_dulling = DULLING_BASHCHOP
@@ -30,9 +28,7 @@
 	base_icon_state = "chestweird1"
 
 /obj/structure/closet/crate/chest/merchant
-	lockids = list("shop")
-	locked = TRUE
-	master_unlockable = TRUE
+	lock = /datum/lock/key/merchant
 
 /obj/structure/closet/crate/chest/lootbox/PopulateContents()
 	var/list/loot = list(
