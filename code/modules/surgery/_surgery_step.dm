@@ -298,9 +298,9 @@
 		play_failure_sound(user, target, target_zone, tool)
 		if(user.client?.prefs.showrolls)
 			if(try_to_fail)
-				to_chat(user, "<span class='warning'>Intentional surgery fail... [success_prob]%</span>")
+				to_chat(user, span_warning("%"))
 			else
-				to_chat(user, "<span class='warning'>Surgery fail... [success_prob]%</span>")
+				to_chat(user, span_warning("%"))
 				initiate(user, target, target_zone, tool, intent, try_to_fail)
 		return FALSE
 
@@ -337,8 +337,8 @@
 	playsound(get_turf(target), success_sound, 75, TRUE, -2)
 
 /datum/surgery_step/proc/failure(mob/user, mob/living/target, target_zone, obj/item/tool, datum/intent/intent, success_prob)
-	display_results(user, target, "<span class='warning'>I screw up!</span>",
-		"<span class='warning'>[user] screws up!</span>",
+	display_results(user, target, span_warning("!"),
+		span_warning("!"),
 		span_notice("[user] finishes."), TRUE) //By default the patient will notice if the wrong thing has been cut
 	return TRUE
 

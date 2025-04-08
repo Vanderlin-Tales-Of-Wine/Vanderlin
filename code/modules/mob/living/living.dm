@@ -126,14 +126,14 @@
 		//Should stop you pushing a restrained person out of the way
 		if(L.pulledby && L.pulledby != src && L.pulledby != L && L.restrained())
 			if(!(world.time % 5))
-				to_chat(src, "<span class='warning'>[L] is restrained, you cannot push past.</span>")
+				to_chat(src, span_warning("."))
 			return TRUE
 
 		if(L.pulling)
 			if(ismob(L.pulling) && L.pulling != L)
 				var/mob/P = L.pulling
 				if(!(world.time % 5))
-					to_chat(src, "<span class='warning'>[L] is grabbing [P], you cannot push past.</span>")
+					to_chat(src, span_warning("."))
 				return TRUE
 
 	if(moving_diagonally)//no mob swap during diagonal moves.
@@ -264,7 +264,7 @@
 			if(prob(statchance))
 				visible_message("<span class='info'>[src] pushes [M].</span>")
 			else
-				visible_message("<span class='warning'>[src] pushes [M].</span>")
+				visible_message(span_warning("."))
 				return TRUE
 
 	//anti-riot equipment is also anti-push
@@ -311,7 +311,7 @@
 	if(isliving(user))
 		var/mob/living/L = user
 		if(!get_bodypart(check_zone(L.zone_selected)))
-			to_chat(L, "<span class='warning'>[src] is missing that.</span>")
+			to_chat(L, span_warning("."))
 			return FALSE
 		if(!lying_attack_check(L))
 			return FALSE
@@ -461,8 +461,8 @@
 		update_grab_intents()
 
 /mob/living/proc/send_pull_message(mob/living/target)
-	target.visible_message("<span class='warning'>[src] grabs [target].</span>", \
-					"<span class='warning'>[src] grabs me.</span>", "<span class='hear'>I hear shuffling.</span>", null, src)
+	target.visible_message(span_warning("."), \
+					span_warning("."), "<span class='hear'>I hear shuffling.</span>", null, src)
 	to_chat(src, "<span class='info'>I grab [target].</span>")
 
 /mob/living/proc/set_pull_offsets(mob/living/M, grab_state = GRAB_PASSIVE)
@@ -586,7 +586,7 @@
 	set category = "IC"
 	set hidden = 1
 	if(IsSleeping())
-		to_chat(src, "<span class='warning'>I am already sleeping!</span>")
+		to_chat(src, span_warning("!"))
 		return
 	else
 		if(alert(src, "You sure you want to sleep for a while?", "Sleep", "Yes", "No") == "Yes")
@@ -657,7 +657,7 @@
 			else
 				playsound(src, 'sound/foley/toggleup.ogg', 100, FALSE)
 		else
-			to_chat(src, "<span class='warning'>I fail to get up.</span>")
+			to_chat(src, span_warning("."))
 	update_cone_show()
 	SEND_SIGNAL(src, COMSIG_LIVING_SET_RESTING, rest)
 
@@ -745,7 +745,7 @@
 	if(isliving(AM))
 		var/mob/living/L = AM
 		if(L.m_intent == MOVE_INTENT_RUN && lying && !buckle_lying)
-			L.visible_message("<span class='warning'>[L] trips over [src]!</span>","<span class='warning'>I trip over [src]!</span>")
+			L.visible_message(span_warning("!"),span_warning("!"))
 			L.Knockdown(10)
 			L.Immobilize(20)
 
@@ -1001,7 +1001,7 @@
 	if(atkswinging)
 		atkswinging = FALSE
 		if(message)
-			to_chat(src, "<span class='warning'>Attack stopped.</span>")
+			to_chat(src, span_warning("."))
 	if(client)
 		client.charging = 0
 		client.chargedprog = 0
@@ -1082,7 +1082,7 @@
 			shitte = " ([resist_chance]%)"
 		visible_message("<span class='warning'>[src] struggles to break free from [pulledby]'s grip!</span>", \
 						"<span class='warning'>I struggle against [pulledby]'s grip![shitte]</span>", null, null, pulledby)
-		to_chat(pulledby, "<span class='warning'>[src] struggles against my grip!</span>")
+		to_chat(pulledby, span_warning("!"))
 
 		return TRUE
 
@@ -1100,7 +1100,7 @@
 						if(G.sublimb_grabbed == BODY_ZONE_PRECISE_NOSE)
 							visible_message("<span class='warning'>[src] struggles to break free from [pulledby]'s grip!</span>", \
 											"<span class='warning'>I struggle against [pulledby]'s grip!</span>", null, null, pulledby)
-							to_chat(pulledby, "<span class='warning'>[src] struggles against my grip!</span>")
+							to_chat(pulledby, span_warning("!"))
 							return FALSE
 	return ..()
 
@@ -1157,7 +1157,7 @@
 		return
 
 	if(!has_active_hand()) //can't attack without a hand.
-		to_chat(src, "<span class='warning'>I lack working hands.</span>")
+		to_chat(src, span_warning("."))
 		return
 
 	if(!has_hand_for_held_index(active_hand_index)) //can't attack without a hand.
@@ -1165,7 +1165,7 @@
 		return
 
 	if(check_arm_grabbed(active_hand_index))
-		to_chat(src, "<span class='warning'>Someone is grabbing my arm!</span>")
+		to_chat(src, span_warning("!"))
 		return
 
 	var/surrender_mod = 1
@@ -1294,7 +1294,7 @@
 		to_chat(src, "<span class='warning'>I can't do that right now!</span>")
 		return FALSE
 	if(be_close && !in_range(M, src))
-		to_chat(src, "<span class='warning'>I am too far away!</span>")
+		to_chat(src, span_warning("!"))
 		return FALSE
 	if(!no_dexterity)
 		to_chat(src, "<span class='warning'>I don't have the dexterity to do this!</span>")
@@ -1303,7 +1303,7 @@
 
 /mob/living/proc/can_use_guns(obj/item/G)//actually used for more than guns!
 	if(G.trigger_guard == TRIGGER_GUARD_NONE)
-		to_chat(src, "<span class='warning'>I are unable to fire this!</span>")
+		to_chat(src, span_warning("!"))
 		return FALSE
 	if(G.trigger_guard != TRIGGER_GUARD_ALLOW_ALL && !IsAdvancedToolUser())
 		to_chat(src, "<span class='warning'>I try to fire [G], but can't use the trigger!</span>")
@@ -1358,7 +1358,7 @@
 	if((fire_stacks > 0 || divine_fire_stacks > 0) && !on_fire)
 		testing("ignis")
 		on_fire = TRUE
-		src.visible_message("<span class='warning'>[src] catches fire!</span>", \
+		src.visible_message(span_warning("!"), \
 						"<span class='danger'>I'm set on fire!</span>")
 		new/obj/effect/dummy/lighting_obj/moblight/fire(src)
 		throw_alert("fire", /atom/movable/screen/alert/fire)
@@ -1678,12 +1678,12 @@
 	if(!ishuman(user))
 		return
 	if(user.get_active_held_item())
-		to_chat(user, "<span class='warning'>My hands are full!</span>")
+		to_chat(user, span_warning("!"))
 		return FALSE
 	if(buckled)
-		to_chat(user, "<span class='warning'>[src] is buckled to something!</span>")
+		to_chat(user, span_warning("!"))
 		return FALSE
-	user.visible_message("<span class='warning'>[user] starts trying to scoop up [src]!</span>", \
+	user.visible_message(span_warning("!"), \
 					"<span class='danger'>I start trying to scoop up [src]...</span>", null, null, src)
 	to_chat(src, "<span class='danger'>[user] starts trying to scoop you up!</span>")
 	if(!do_after(user, 2 SECONDS, src))
@@ -1860,10 +1860,10 @@
 		if(T.can_see_sky())
 			switch(GLOB.forecast)
 				if("prerain")
-					to_chat(src, "<span class='warning'>Dark clouds gather...</span>")
+					to_chat(src, span_warning("."))
 					return
 				if("rain")
-					to_chat(src, "<span class='warning'>A wet wind blows.</span>")
+					to_chat(src, span_warning("."))
 					return
 				if("rainbow")
 					to_chat(src, span_notice("A beautiful rainbow!"))
@@ -1871,11 +1871,11 @@
 				if("fog")
 					to_chat(src, "<span class='warning'>I can't see anything, the fog has set in.</span>")
 					return
-			to_chat(src, "<span class='warning'>There is nothing special to say about this weather.</span>")
+			to_chat(src, span_warning("."))
 			do_time_change()
 		return
 	else if(!istransparentturf(ceiling)) //There is no turf we can look through above us
-		to_chat(src, "<span class='warning'>A ceiling above my head.</span>")
+		to_chat(src, span_warning("."))
 		return
 
 	if(T.can_see_sky())

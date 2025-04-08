@@ -44,7 +44,7 @@
 			C.reagents.metabolize(C, can_overdose=TRUE)
 
 			if(provide_pain_message && damage > 10 && prob(damage/3))//the higher the damage the higher the probability
-				to_chat(C, "<span class='warning'>I feel a dull pain in my abdomen.</span>")
+				to_chat(C, span_warning("."))
 
 		else	//for when our liver's failing
 			C.liver_failure()

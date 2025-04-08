@@ -135,7 +135,7 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 			if(world.time < SSticker.round_start_time + timetojoin)
 				var/ttime = round((SSticker.round_start_time + timetojoin - world.time) / 10)
 				var/list/choicez = list("Not yet.", "You cannot join yet.", "It won't work yet.", "Please be patient.", "Try again later.", "Late-joining is not yet possible.")
-				to_chat(usr, "<span class='warning'>[pick(choicez)] ([ttime]).</span>")
+				to_chat(usr, span_warning("."))
 				return
 
 		var/plevel = 0
@@ -169,7 +169,7 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 
 		if(SSticker.queued_players.len && !(ckey(key) in GLOB.admin_datums))
 			if((living_player_count() >= relevant_cap) || (src != SSticker.queued_players[1]))
-				to_chat(usr, "<span class='warning'>Server is full.</span>")
+				to_chat(usr, span_warning("."))
 				return
 
 		if(client && client.prefs.is_active_migrant())

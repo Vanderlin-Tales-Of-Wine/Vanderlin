@@ -16,9 +16,9 @@
 			to_chat(src, span_notice("My armor absorbs the blow!"))
 	else if(armor > 0)
 		if(soften_text)
-			to_chat(src, "<span class='warning'>[soften_text]</span>")
+			to_chat(src, span_warning("]"))
 		else
-			to_chat(src, "<span class='warning'>My armor softens the blow!</span>")
+			to_chat(src, span_warning("!"))
 	return armor
 
 
@@ -363,7 +363,7 @@
 		else
 			visible_message("<span class='danger'>[M.name]'s bite misses [src]!</span>", \
 							"<span class='danger'>I avoid [M.name]'s bite!</span>", "<span class='hear'>I hear the sound of jaws snapping shut!</span>", COMBAT_MESSAGE_RANGE, M)
-			to_chat(M, "<span class='warning'>My bite misses [src]!</span>")
+			to_chat(M, span_warning("!"))
 	return FALSE
 
 /mob/living/ex_act(severity, target)
@@ -393,7 +393,7 @@
 		else
 			visible_message("<span class='danger'>[M.name]'s bite misses [src]!</span>", \
 							"<span class='danger'>I avoid [M.name]'s bite!</span>", "<span class='hear'>I hear the sound of jaws snapping shut!</span>", COMBAT_MESSAGE_RANGE, M)
-			to_chat(M, "<span class='warning'>My bite misses [src]!</span>")
+			to_chat(M, span_warning("!"))
 	return FALSE
 
 /mob/living/acid_act(acidpwr, acid_volume)

@@ -34,7 +34,7 @@
 		var/cap = CONFIG_GET(number/monkeycap)
 		if (LAZYLEN(SSmobs.cubemonkeys) > cap)
 			if (spawner)
-				to_chat(spawner, "<span class='warning'>Bluespace harmonics prevent the spawning of more than [cap] monkeys on the station at one time!</span>")
+				to_chat(spawner, span_warning("!"))
 			return INITIALIZE_HINT_QDEL
 		SSmobs.cubemonkeys += src
 
@@ -96,7 +96,7 @@
 
 /mob/living/carbon/monkey/can_use_guns(obj/item/G)
 	if(G.trigger_guard == TRIGGER_GUARD_NONE)
-		to_chat(src, "<span class='warning'>I are unable to fire this!</span>")
+		to_chat(src, span_warning("!"))
 		return FALSE
 	return TRUE
 

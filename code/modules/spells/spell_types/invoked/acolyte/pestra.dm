@@ -166,7 +166,7 @@
 					has_rot = TRUE
 					break
 		if(!has_rot)
-			to_chat(user, "<span class='warning'>Nothing happens.</span>")
+			to_chat(user, span_warning("."))
 			return FALSE
 		testing("curerot2")
 		if(was_zombie)
@@ -192,7 +192,7 @@
 		if(!HAS_TRAIT(target, TRAIT_ROTMAN))
 			target.visible_message("<span class='notice'>The rot leaves [target]'s body!</span>", "<span class='green'>I feel the rot leave my body!</span>")
 		else
-			target.visible_message("<span class='warning'>The rot fails to leave [target]'s body!</span>", "<span class='warning'>I feel no different...</span>")
+			target.visible_message("<span class='warning'>The rot fails to leave [target]'s body!</span>", span_warning("."))
 		if(ishuman(target))
 			var/mob/living/carbon/human/human = target
 			if(human.funeral)

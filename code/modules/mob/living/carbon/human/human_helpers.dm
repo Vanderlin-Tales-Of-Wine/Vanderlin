@@ -86,7 +86,7 @@
 	. = ..()
 	if(G.trigger_guard == TRIGGER_GUARD_NORMAL)
 		if(HAS_TRAIT(src, TRAIT_CHUNKYFINGERS))
-			to_chat(src, "<span class='warning'>My meaty finger is much too large for the trigger guard!</span>")
+			to_chat(src, span_warning("!"))
 			return FALSE
 	if(HAS_TRAIT(src, TRAIT_NOGUNS))
 		to_chat(src, "<span class='warning'>I can't bring myself to use a ranged weapon!</span>")

@@ -901,7 +901,7 @@
 			"<span class='notice'>I fix some of the [dam ? "dents on" : "burnt wires in"] [H == user ? "your" : "[H]'s"] [affecting.name].</span>")
 			return 1 //successful heal
 		else
-			to_chat(user, "<span class='warning'>[affecting] is already in good condition!</span>")
+			to_chat(user, span_warning("!"))
 
 ///Is the passed in mob an admin ghost
 /proc/IsAdminGhost(mob/user)

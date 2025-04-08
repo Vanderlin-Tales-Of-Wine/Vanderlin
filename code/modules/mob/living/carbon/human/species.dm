@@ -195,7 +195,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 			if(findtextEx(message,key))
 				if(H)
-					to_chat(H, "<span class='warning'>[key] -> [value]</span>")
+					to_chat(H, span_warning("]"))
 				amtfail++
 
 			message = replacetextEx(message, "[key]", "[value]")
@@ -1582,7 +1582,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 			if(!H.wear_pants && !nojumpsuit && (!O || O.status != BODYPART_ROBOTIC))
 				if(!disable_warning)
-					to_chat(H, "<span class='warning'>I need a jumpsuit before you can attach this [I.name]!</span>")
+					to_chat(H, span_warning("!"))
 				return FALSE
 			if(I.slot_flags & ITEM_SLOT_DENYPOCKET)
 				return FALSE
@@ -1598,7 +1598,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 			if(!H.wear_pants && !nojumpsuit && (!O || O.status != BODYPART_ROBOTIC))
 				if(!disable_warning)
-					to_chat(H, "<span class='warning'>I need a jumpsuit before you can attach this [I.name]!</span>")
+					to_chat(H, span_warning("!"))
 				return FALSE
 			if(I.slot_flags & ITEM_SLOT_DENYPOCKET)
 				return FALSE
@@ -1612,15 +1612,15 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 				return FALSE
 			if(!H.wear_armor)
 				if(!disable_warning)
-					to_chat(H, "<span class='warning'>I need a suit before you can attach this [I.name]!</span>")
+					to_chat(H, span_warning("!"))
 				return FALSE
 			if(!H.wear_armor.allowed)
 				if(!disable_warning)
-					to_chat(H, "<span class='warning'>I somehow have a suit with no defined allowed items for suit storage, stop that.</span>")
+					to_chat(H, span_warning("."))
 				return FALSE
 			if(I.w_class > WEIGHT_CLASS_BULKY)
 				if(!disable_warning)
-					to_chat(H, "<span class='warning'>The [I.name] is too big to attach!</span>") //should be src?
+					to_chat(H, span_warning("!")) //should be src?
 				return FALSE
 			return FALSE
 		if(SLOT_HANDCUFFED)
@@ -1855,15 +1855,15 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		if(we_breathe && we_lung)
 			user.do_cpr(target)
 		else if(we_breathe && !we_lung)
-			to_chat(user, "<span class='warning'>I have no lungs to breathe with, so you cannot perform CPR!</span>")
+			to_chat(user, span_warning("!"))
 		else
-			to_chat(user, "<span class='warning'>I do not breathe, so you cannot perform CPR!</span>")*/
+			to_chat(user, span_warning("!"))*/
 
 /datum/species/proc/grab(mob/living/carbon/human/user, mob/living/carbon/human/target, datum/martial_art/attacker_style)
 	if(target.check_block())
 		target.visible_message("<span class='warning'>[target] blocks [user]'s grab!</span>", \
 						"<span class='danger'>I block [user]'s grab!</span>", "<span class='hear'>I hear a swoosh!</span>", COMBAT_MESSAGE_RANGE, user)
-		to_chat(user, "<span class='warning'>My grab at [target] was blocked!</span>")
+		to_chat(user, span_warning("!"))
 		return FALSE
 
 	if(attacker_style && attacker_style.grab_act(user,target))
@@ -1898,7 +1898,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	if(target.check_block())
 		target.visible_message("<span class='warning'>[target] blocks [user]'s attack!</span>", \
 						"<span class='danger'>I block [user]'s attack!</span>", "<span class='hear'>I hear a swoosh!</span>", COMBAT_MESSAGE_RANGE, user)
-		to_chat(user, "<span class='warning'>My attack at [target] was blocked!</span>")
+		to_chat(user, span_warning("!"))
 		return FALSE
 	if(attacker_style && attacker_style.harm_act(user,target))
 		return TRUE
@@ -1940,7 +1940,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			playsound(target.loc, user.dna.species.miss_sound, 25, TRUE, -1)
 			target.visible_message("<span class='danger'>[user]'s [atk_verb] misses [target]!</span>", \
 							"<span class='danger'>I avoid [user]'s [atk_verb]!</span>", "<span class='hear'>I hear a swoosh!</span>", COMBAT_MESSAGE_RANGE, user)
-			to_chat(user, "<span class='warning'>My [atk_verb] misses [target]!</span>")
+			to_chat(user, span_warning("!"))
 			log_combat(user, target, "attempted to punch")
 			return FALSE
 */
@@ -2025,7 +2025,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	if(target.check_block())
 		target.visible_message("<span class='warning'>[user]'s shove is blocked by [target]!</span>", \
 						"<span class='danger'>I block [user]'s shove!</span>", "<span class='hear'>I hear a swoosh!</span>", COMBAT_MESSAGE_RANGE, user)
-		to_chat(user, "<span class='warning'>My shove at [target] was blocked!</span>")
+		to_chat(user, span_warning("!"))
 		return FALSE
 	if(attacker_style && attacker_style.disarm_act(user,target))
 		return TRUE
@@ -2117,13 +2117,13 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 				target.add_movespeed_modifier(MOVESPEED_ID_SHOVE, multiplicative_slowdown = SHOVE_SLOWDOWN_STRENGTH)
 				if(target_held_item)
 					target.visible_message("<span class='danger'>[target.name]'s grip on \the [target_held_item] loosens!</span>",
-						"<span class='warning'>My grip on \the [target_held_item] loosens!</span>", null, COMBAT_MESSAGE_RANGE)
+						span_warning("!"), null, COMBAT_MESSAGE_RANGE)
 				addtimer(CALLBACK(target, TYPE_PROC_REF(/mob/living/carbon/human, clear_shove_slowdown)), SHOVE_SLOWDOWN_LENGTH)
 			else if(target_held_item)
 				target.dropItemToGround(target_held_item)
 				knocked_item = TRUE
 				target.visible_message("<span class='danger'>[target.name] drops \the [target_held_item]!</span>",
-					"<span class='warning'>I drop \the [target_held_item]!</span>", null, COMBAT_MESSAGE_RANGE)
+					span_warning("!"), null, COMBAT_MESSAGE_RANGE)
 			var/append_message = ""
 			if(target_held_item)
 				if(knocked_item)
@@ -2312,9 +2312,9 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		attacker_style = M.mind.martial_art
 	if((M != H) && M.used_intent.type != INTENT_HELP && H.check_shields(M, 0, M.name, attack_type = UNARMED_ATTACK))
 		log_combat(M, H, "attempted to touch")
-		H.visible_message("<span class='warning'>[M] attempts to touch [H]!</span>", \
+		H.visible_message(span_warning("!"), \
 						"<span class='danger'>[M] attempts to touch you!</span>", "<span class='hear'>I hear a swoosh!</span>", COMBAT_MESSAGE_RANGE, M)
-		to_chat(M, "<span class='warning'>I attempt to touch [H]!</span>")
+		to_chat(M, span_warning("!"))
 		return 0
 	SEND_SIGNAL(M, COMSIG_MOB_ATTACK_HAND, M, H, attacker_style)
 	switch(M.used_intent.type)
@@ -2342,7 +2342,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			if(H.check_shields(I, I.force, "the [I.name]", MELEE_ATTACK, I.armor_penetration))
 				return 0
 	if(H.check_block())
-		H.visible_message("<span class='warning'>[H] blocks [I]!</span>", \
+		H.visible_message(span_warning("!"), \
 						"<span class='danger'>I block [I]!</span>")
 		return 0
 
@@ -2361,7 +2361,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	if(user.used_intent?.penfactor)
 		pen = I.armor_penetration + user.used_intent.penfactor
 
-//	var/armor_block = H.run_armor_check(affecting, "melee", span_notice("My armor has protected my [hit_area]!"), "<span class='warning'>My armor has softened a hit to my [hit_area]!</span>",pen)
+//	var/armor_block = H.run_armor_check(affecting, "melee", span_notice("My armor has protected my [hit_area]!"), span_warning("!"),pen)
 
 	var/Iforce = get_complex_damage(I, user) //to avoid runtimes on the forcesay checks at the bottom. Some items might delete themselves if you drop them. (stunning yourself, ninja swords)
 	var/armor_block = H.run_armor_check(selzone, I.damage_type, "", "",pen, damage = Iforce, blade_dulling=user.used_intent.blade_class)

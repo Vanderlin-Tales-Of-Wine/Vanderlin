@@ -22,7 +22,7 @@
 		return
 	var/msg
 	if(!can_cast(user))
-		msg = "<span class='warning'>I can no longer cast [name]!</span>"
+		msg = span_warning("!")
 		remove_ranged_ability(msg)
 		return
 	if(active)

@@ -59,7 +59,7 @@
 				playsound(loc, 'sound/blank.ogg', 25, TRUE, -1)
 				visible_message("<span class='danger'>[M]'s punch misses [name]!</span>", \
 								"<span class='danger'>I avoid [M]'s punch!</span>", "<span class='hear'>I hear a swoosh!</span>", COMBAT_MESSAGE_RANGE, M)
-				to_chat(M, "<span class='warning'>My punch misses [name]!</span>")
+				to_chat(M, span_warning("!"))
 		if(INTENT_DISARM)
 			if(HAS_TRAIT(M, TRAIT_PACIFISM))
 				playsound(loc, 'sound/combat/shove.ogg', 100, TRUE, -1)
@@ -101,13 +101,13 @@
 			if(!(wear_mask.resistance_flags & UNACIDABLE))
 				wear_mask.acid_act(acidpwr, acid_volume)
 			else
-				to_chat(src, "<span class='warning'>My mask protects you from the acid.</span>")
+				to_chat(src, span_warning("."))
 			return
 		if(head)
 			if(!(head.resistance_flags & UNACIDABLE))
 				head.acid_act(acidpwr, acid_volume)
 			else
-				to_chat(src, "<span class='warning'>My hat protects you from the acid.</span>")
+				to_chat(src, span_warning("."))
 			return
 	take_bodypart_damage(acidpwr * min(0.6, acid_volume*0.1))
 

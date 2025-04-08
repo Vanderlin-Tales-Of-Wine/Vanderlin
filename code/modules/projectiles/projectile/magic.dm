@@ -19,7 +19,7 @@
 	if(ismob(target))
 		var/mob/M = target
 		if(M.anti_magic_check())
-			M.visible_message("<span class='warning'>[src] vanishes on contact with [target]!</span>")
+			M.visible_message(span_warning("!"))
 			return BULLET_ACT_BLOCK
 		if(isliving(M))
 			var/mob/living/L = M
@@ -47,7 +47,7 @@
 	. = ..()
 	if(isliving(target))
 		if(target.anti_magic_check())
-			target.visible_message("<span class='warning'>[src] vanishes on contact with [target]!</span>")
+			target.visible_message(span_warning("!"))
 			return BULLET_ACT_BLOCK
 		if(target.mob_biotypes & MOB_UNDEAD) //positive energy harms the undead
 			target.death(0)
@@ -74,7 +74,7 @@
 	if(ismob(target))
 		var/mob/M = target
 		if(M.anti_magic_check())
-			M.visible_message("<span class='warning'>[src] fizzles on contact with [target]!</span>")
+			M.visible_message(span_warning("!"))
 			return BULLET_ACT_BLOCK
 	var/teleammount = 0
 	var/teleloc = target
@@ -100,7 +100,7 @@
 	if(ismob(target))
 		var/mob/M = target
 		if(M.anti_magic_check())
-			M.visible_message("<span class='warning'>[src] fizzles on contact with [target]!</span>")
+			M.visible_message(span_warning("!"))
 			return BULLET_ACT_BLOCK
 	if(isturf(target))
 		return BULLET_ACT_HIT
@@ -127,7 +127,7 @@
 	if(ismob(target))
 		var/mob/M = target
 		if(M.anti_magic_check())
-			M.visible_message("<span class='warning'>[src] vanishes on contact with [target]!</span>")
+			M.visible_message(span_warning("!"))
 			qdel(src)
 			return BULLET_ACT_BLOCK
 	. = ..()
@@ -146,7 +146,7 @@
 	if(ismob(target))
 		var/mob/M = target
 		if(M.anti_magic_check())
-			M.visible_message("<span class='warning'>[src] vanishes on contact with [target]!</span>")
+			M.visible_message(span_warning("!"))
 			qdel(src)
 			return BULLET_ACT_BLOCK
 	. = ..()
@@ -170,7 +170,7 @@
 	if(isliving(A) && locker_suck)
 		var/mob/living/M = A
 		if(M.anti_magic_check())
-			M.visible_message("<span class='warning'>[src] vanishes on contact with [A]!</span>")
+			M.visible_message(span_warning("!"))
 			qdel(src)
 			return
 		if(!locker_temp_instance.insertion_allowed(M))
@@ -246,7 +246,7 @@
 	if(isliving(target))
 		var/mob/living/L = target
 		if(L.anti_magic_check())
-			L.visible_message("<span class='warning'>[src] vanishes on contact with [target]!</span>")
+			L.visible_message(span_warning("!"))
 			return BULLET_ACT_BLOCK
 		var/atom/throw_target = get_edge_target_turf(L, angle2dir(Angle))
 		L.throw_at(throw_target, 200, 4)
@@ -260,7 +260,7 @@
 	if(isliving(target))
 		var/mob/living/L = target
 		if(L.anti_magic_check() || !firer)
-			L.visible_message("<span class='warning'>[src] vanishes on contact with [target]!</span>")
+			L.visible_message(span_warning("!"))
 			return BULLET_ACT_BLOCK
 		L.apply_status_effect(STATUS_EFFECT_BOUNTY, firer)
 
@@ -273,7 +273,7 @@
 	if(isliving(target))
 		var/mob/living/L = target
 		if(L.anti_magic_check())
-			L.visible_message("<span class='warning'>[src] vanishes on contact with [target]!</span>")
+			L.visible_message(span_warning("!"))
 			return BULLET_ACT_BLOCK
 		L.apply_status_effect(STATUS_EFFECT_ANTIMAGIC)
 
@@ -288,7 +288,7 @@
 	if(isliving(target))
 		var/mob/living/L = target
 		if(L.anti_magic_check() || !firer)
-			L.visible_message("<span class='warning'>[src] vanishes on contact with [target]!</span>")
+			L.visible_message(span_warning("!"))
 			return BULLET_ACT_BLOCK
 		L.throw_at(throw_target, 200, 3) //4 is the default threshold speed to embed
 	else
@@ -310,7 +310,7 @@
 	if(ismob(target))
 		var/mob/M = target
 		if(M.anti_magic_check())
-			M.visible_message("<span class='warning'>[src] vanishes on contact with [target]!</span>")
+			M.visible_message(span_warning("!"))
 			return BULLET_ACT_BLOCK
 		SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, src, /datum/mood_event/sapped)
 
@@ -323,7 +323,7 @@
 	if(isliving(target))
 		var/mob/living/L = target
 		if(L.anti_magic_check() || !L.mind || !L.mind.hasSoul)
-			L.visible_message("<span class='warning'>[src] vanishes on contact with [target]!</span>")
+			L.visible_message(span_warning("!"))
 			return BULLET_ACT_BLOCK
 		to_chat(L, "<span class='danger'>My body feels drained and there is a burning pain in my chest.</span>")
 		L.setMaxHealth(L.maxHealth - 20)
@@ -373,7 +373,7 @@
 	if(ismob(target))
 		var/mob/living/M = target
 		if(M.anti_magic_check())
-			visible_message("<span class='warning'>[src] vanishes into smoke on contact with [target]!</span>")
+			visible_message(span_warning("!"))
 			return BULLET_ACT_BLOCK
 		M.adjust_fire_stacks(6)
 //		M.take_overall_damage(0,10) //between this 10 burn, the 10 brute, the explosion brute, and the onfire burn, my at about 65 damage if you stop drop and roll immediately

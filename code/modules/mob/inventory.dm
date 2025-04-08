@@ -426,7 +426,7 @@
 
 /obj/item/proc/equip_to_best_slot(mob/M)
 	if(src != M.get_active_held_item())
-		to_chat(M, "<span class='warning'>I are not holding anything to equip!</span>")
+		to_chat(M, span_warning("!"))
 		return FALSE
 
 	if(M.equip_to_appropriate_slot(src))

@@ -46,7 +46,7 @@
 	if(prob(33))
 		if(istype(H))
 			if(eat_effect == /datum/status_effect/debuff/rotfood)
-				visible_message("<span class='warning'>[H] crushes [src] underfoot.</span>")
+				visible_message(span_warning("."))
 				qdel(src)
 
 /obj/item/reagent_containers/food/snacks/grown/Initialize(mapload, obj/item/neuFarm/seed/new_seed)
@@ -81,7 +81,7 @@
 	if(trash)
 		generate_trash(T)
 
-	visible_message("<span class='warning'>[src] has been squashed.</span>","<span class='hear'>I hear a smack.</span>")
+	visible_message(span_warning("."),"<span class='hear'>I hear a smack.</span>")
 
 	reagents.reaction(T)
 	for(var/A in T)
@@ -98,7 +98,7 @@
 
 /obj/item/reagent_containers/food/snacks/grown/grind_requirements()
 	if(dry_grind && !dry)
-		to_chat(usr, "<span class='warning'>[src] needs to be dry before it can be ground up!</span>")
+		to_chat(usr, span_warning("!"))
 		return
 	return TRUE
 

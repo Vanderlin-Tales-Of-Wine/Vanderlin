@@ -24,8 +24,8 @@
 				return
 			var/datum/antagonist/vampire/VD = user.mind.has_antag_datum(/datum/antagonist/vampire)
 			if(do_after(user, 3 DECISECONDS, src))
-				user.visible_message("<span class='warning'>[user] drinks from [src]!</span>",\
-				"<span class='warning'>I drink from [src].</span>")
+				user.visible_message(span_warning("!"),\
+				span_warning("."))
 				playsound(user.loc, 'sound/misc/drink_blood.ogg', 100, FALSE, -4)
 				VD.adjust_vitae(50)
 				dead = TRUE
@@ -100,7 +100,7 @@
 					else
 						dir = pick(GLOB.cardinals)
 						step(src, dir)
-						to_chat(user, "<span class='warning'>I fail to snatch it by the tail!</span>")
+						to_chat(user, span_warning("!"))
 						playsound(src, pick('sound/vo/mobs/rat/rat_life.ogg','sound/vo/mobs/rat/rat_life2.ogg','sound/vo/mobs/rat/rat_life3.ogg'), 100, TRUE, -1)
 						return
 	..()
@@ -152,7 +152,7 @@
 				if(isturf(loc))
 					dir = pick(GLOB.cardinals)
 					step(src, dir)
-					to_chat(user, "<span class='warning'>The vermin dodges my attack.</span>")
+					to_chat(user, span_warning("."))
 					playsound(src, pick('sound/vo/mobs/rat/rat_life.ogg','sound/vo/mobs/rat/rat_life2.ogg','sound/vo/mobs/rat/rat_life3.ogg'), 100, TRUE, -1)
 					return
 	..()

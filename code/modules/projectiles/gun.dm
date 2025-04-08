@@ -158,7 +158,7 @@
 		return
 
 	if(user == target)
-		target.visible_message("<span class='warning'>[user] sticks [src] in [user.p_their()] mouth, ready to pull the trigger...</span>", \
+		target.visible_message(span_warning("."), \
 			"<span class='danger'>I stick [src] in your mouth, ready to pull the trigger...</span>")
 	else
 		target.visible_message("<span class='warning'>[user] points [src] at [target]'s head, ready to pull the trigger...</span>", \
@@ -172,7 +172,7 @@
 				target.visible_message(span_notice("[user] has decided to spare [target]"), span_notice("[user] has decided to spare your life!"))
 		return
 
-	target.visible_message("<span class='warning'>[user] pulls the trigger!</span>", "<span class='danger'>[(user == target) ? "You pull" : "[user] pulls"] the trigger!</span>")
+	target.visible_message(span_warning("!"), "<span class='danger'>[(user == target) ? "You pull" : "[user] pulls"] the trigger!</span>")
 
 	if(chambered && chambered.BB)
 		chambered.BB.damage *= 5

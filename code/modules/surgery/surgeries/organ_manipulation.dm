@@ -84,7 +84,7 @@
 			to_chat(user, "<span class='warning'>[organ_tool] does not belong in [target]'s [parse_zone(target_zone)]!</span>")
 			return FALSE
 		else if(target.getorganslot(organ_tool.slot))
-			to_chat(user, "<span class='warning'>[target] already has [parse_organ_slot(organ_tool.slot)]!</span>")
+			to_chat(user, span_warning("!"))
 			return FALSE
 
 		user.select_organ_slot(organ_tool.slot)

@@ -332,20 +332,20 @@
 	CHECK_DNA_AND_SPECIES(C)
 
 	if(C.stat == DEAD || (HAS_TRAIT(C, TRAIT_FAKEDEATH)))
-		to_chat(src, "<span class='warning'>[C.name] is dead!</span>")
+		to_chat(src, span_warning("!"))
 		return
 	if(is_mouth_covered())
-		to_chat(src, "<span class='warning'>Remove your mask first!</span>")
+		to_chat(src, span_warning("!"))
 		return 0
 	if(C.is_mouth_covered())
-		to_chat(src, "<span class='warning'>Remove [p_their()] mask first!</span>")
+		to_chat(src, span_warning("!"))
 		return 0
 
 	if(C.cpr_time < world.time + 30)
 		visible_message(span_notice("[src] is trying to perform CPR on [C.name]!"), \
 						span_notice("I try to perform CPR on [C.name]... Hold still!"))
 		if(!do_after(src, 3 SECONDS, C))
-			to_chat(src, "<span class='warning'>I fail to perform CPR on [C]!</span>")
+			to_chat(src, span_warning("!"))
 			return 0
 
 		var/they_breathe = !HAS_TRAIT(C, TRAIT_NOBREATH)
@@ -563,7 +563,7 @@
 /mob/living/carbon/human/vomit(lost_nutrition = 10, blood = 0, stun = 1, distance = 0, message = 1, toxic = 0)
 	if(blood && (NOBLOOD in dna.species.species_traits) && !HAS_TRAIT(src, TRAIT_TOXINLOVER))
 		if(message)
-			visible_message("<span class='warning'>[src] dry heaves!</span>", \
+			visible_message(span_warning("!"), \
 							"<span class='danger'>I try to throw up, but there's nothing in your stomach!</span>")
 		if(stun)
 			Immobilize(200)
@@ -639,7 +639,7 @@
 			if(can_be_firemanned(target) && !incapacitated(FALSE, TRUE))
 				buckle_mob(target, TRUE, TRUE, 90, 0, 0)
 				return
-	to_chat(src, "<span class='warning'>I fail to carry [target].</span>")
+	to_chat(src, span_warning("."))
 
 /mob/living/carbon/human/proc/piggyback(mob/living/carbon/target)
 	if(can_piggyback(target))
@@ -699,7 +699,7 @@
 	remove_movespeed_modifier(MOVESPEED_ID_SHOVE)
 	var/active_item = get_active_held_item()
 	if(is_type_in_typecache(active_item, GLOB.shove_disarming_types))
-		visible_message("<span class='warning'>[src.name] regains their grip on \the [active_item]!</span>", "<span class='warning'>I regain your grip on \the [active_item]</span>", null, COMBAT_MESSAGE_RANGE)
+		visible_message(span_warning("!"), span_warning("]"), null, COMBAT_MESSAGE_RANGE)
 
 /mob/living/carbon/human/do_after_coefficent()
 	. = ..()

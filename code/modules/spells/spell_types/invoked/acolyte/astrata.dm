@@ -40,7 +40,7 @@
 			D.update_devotion(25)
 			return ..()
 		else
-			to_chat(user, "<span class='warning'>You point at [O], but it fails to catch fire.</span>")
+			to_chat(user, span_warning("."))
 	return FALSE
 
 /obj/effect/proc_holder/spell/invoked/revive
@@ -70,13 +70,13 @@
 		if(target == user)
 			return FALSE
 		if(target.stat < DEAD)
-			to_chat(user, "<span class='warning'>Nothing happens.</span>")
+			to_chat(user, span_warning("."))
 			return FALSE
 		if(HAS_TRAIT(target, TRAIT_NECRA_CURSE))
 			to_chat(user, span_warning("Necra's grasp prevents revival."))
 			return FALSE
 		if(GLOB.tod == "night")
-			to_chat(user, "<span class='warning'>Let there be light.</span>")
+			to_chat(user, span_warning("."))
 		for(var/obj/structure/fluff/psycross/S in oview(5, user))
 			S.AOE_flash(user, range = 7)
 		if(target.mob_biotypes & MOB_UNDEAD) //positive energy harms the undead
@@ -113,6 +113,6 @@
 	for(var/obj/structure/fluff/psycross/S in oview(5, user))
 		found = S
 	if(!found)
-		to_chat(user, "<span class='warning'>I need a holy cross.</span>")
+		to_chat(user, span_warning("."))
 		return FALSE
 	return TRUE

@@ -57,5 +57,5 @@
 	else if(bodypart)
 		to_chat(user, "<span class='warning'>I find no objects embedded in [target]'s [bodypart]!</span>")
 	else
-		to_chat(user, "<span class='warning'>I find no objects embedded in [target]!</span>")
+		to_chat(user, span_warning("!"))
 	return TRUE

@@ -263,7 +263,7 @@
 		. += "[m3] [wear_neck.get_examine_string(user)] around [m2] neck."
 
 	if(eye_color == BLOODCULT_EYE)
-		. += "<span class='warning'><B>[capitalize(m2)] eyes are glowing an unnatural red!</B></span>"
+		. += span_warning(">")
 
 	//ears
 	if(ears && !(SLOT_HEAD in obscured))
@@ -484,7 +484,7 @@
 				msg += "[m1] twitching ever so slightly."
 
 		if(InCritical())
-			msg += "<span class='warning'>[m1] barely conscious.</span>"
+			msg += span_warning(".")
 		else
 			if(stat >= UNCONSCIOUS)
 				msg += "[m1] [IsSleeping() ? "sleeping" : "unconscious"]."
@@ -516,15 +516,15 @@
 		var/strength_diff = final_str - L.STASTR
 		switch(strength_diff)
 			if(5 to INFINITY)
-				. += "<span class='warning'><B>[t_He] look[p_s()] much stronger than I.</B></span>"
+				. += span_warning(">")
 			if(1 to 5)
-				. += "<span class='warning'>[t_He] look[p_s()] stronger than I.</span>"
+				. += span_warning(".")
 			if(0)
 				. += "[t_He] look[p_s()] about as strong as I."
 			if(-5 to -1)
-				. += "<span class='warning'>[t_He] look[p_s()] weaker than I.</span>"
+				. += span_warning(".")
 			if(-INFINITY to -5)
-				. += "<span class='warning'><B>[t_He] look[p_s()] much weaker than I.</B></span>"
+				. += span_warning(">")
 
 	if(Adjacent(user))
 		if(isobserver(user))

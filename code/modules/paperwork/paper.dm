@@ -370,7 +370,7 @@
 
 		if(t != null)	//No input from the user means nothing needs to be added
 			if((length(info) + length(t)) > maxlen)
-				to_chat(usr, "<span class='warning'>Too long. Try again.</span>")
+				to_chat(usr, span_warning("."))
 				return
 			if(id!="end")
 				addtofield(text2num(id), t) // He wants to edit a field, let him.
@@ -418,7 +418,7 @@
 			return
 
 		if(length(info) > maxlen)
-			to_chat(user, "<span class='warning'>[src] is full of verba.</span>")
+			to_chat(user, span_warning("."))
 			return
 		if(user.can_read(src))
 			format_browse(info_links, user)

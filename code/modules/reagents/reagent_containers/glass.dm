@@ -29,7 +29,7 @@
 		to_chat(user, "<span class='warning'>You can't scoop up anything while it's on fire!</span>")
 		return TRUE
 	if(liquids.liquid_group.expected_turf_height == 1)
-		to_chat(user, "<span class='warning'>The puddle is too shallow to scoop anything up!</span>")
+		to_chat(user, span_warning("!"))
 		return TRUE
 	var/free_space = my_beaker.reagents.maximum_volume - my_beaker.reagents.total_volume
 	if(free_space <= 0)
@@ -81,7 +81,7 @@
 				return
 
 			if(!reagents || !reagents.total_volume)
-				to_chat(user, "<span class='warning'>[src] is empty!</span>")
+				to_chat(user, span_warning("!"))
 				return
 			if(user.used_intent.type == INTENT_SPLASH)
 				var/R
@@ -136,11 +136,11 @@
 	if(target.is_refillable() && (user.used_intent.type == INTENT_POUR)) //Something like a glass. Player probably wants to transfer TO it.
 		testing("attackobj2")
 		if(!reagents.total_volume)
-			to_chat(user, "<span class='warning'>[src] is empty!</span>")
+			to_chat(user, span_warning("!"))
 			return
 
 		if(target.reagents.holder_full())
-			to_chat(user, "<span class='warning'>[target] is full.</span>")
+			to_chat(user, span_warning("."))
 			return
 		user.visible_message(span_notice("[user] pours [src] into [target]."), \
 						span_notice("I pour [src] into [target]."))
@@ -162,11 +162,11 @@
 	if(target.is_drainable() && (user.used_intent.type == /datum/intent/fill)) //A dispenser. Transfer FROM it TO us.
 		testing("attackobj3")
 		if(!target.reagents.total_volume)
-			to_chat(user, "<span class='warning'>[target] is empty!</span>")
+			to_chat(user, span_warning("!"))
 			return
 
 		if(reagents.holder_full())
-			to_chat(user, "<span class='warning'>[src] is full.</span>")
+			to_chat(user, span_warning("."))
 			return
 		if(user.m_intent != MOVE_INTENT_SNEAK)
 			if(fillsounds)
@@ -287,9 +287,9 @@
 	..()
 	if(istype(I, /obj/item/reagent_containers/powder/salt))
 		if(!reagents.has_reagent(/datum/reagent/consumable/milk, 15) && !reagents.has_reagent(/datum/reagent/consumable/milk/gote, 15))
-			to_chat(user, "<span class='warning'>Not enough milk.</span>")
+			to_chat(user, span_warning("."))
 			return
-		to_chat(user, "<span class='warning'>Adding salt to the milk.</span>")
+		to_chat(user, span_warning("."))
 		playsound(src, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 100, FALSE)
 		if(do_after(user,2 SECONDS, src))
 			if(reagents.has_reagent(/datum/reagent/consumable/milk, 15))
@@ -404,10 +404,10 @@
 				return
 			return
 		else
-			to_chat(user, "<span class='warning'>There is nothing to grind!</span>")
+			to_chat(user, span_warning("!"))
 			return
 	if(grinded)
-		to_chat(user, "<span class='warning'>There is something inside already!</span>")
+		to_chat(user, span_warning("!"))
 		return
 	if(I.juice_results || I.grind_results)
 		I.forceMove(src)

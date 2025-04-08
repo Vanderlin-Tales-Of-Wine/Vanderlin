@@ -102,7 +102,7 @@
 		MOBTIMER_SET(src, MT_PAINSTUN)
 		Immobilize(10)
 		emote("painscream")
-		visible_message("<span class='warning'>[src] freezes in pain!</span>",
+		visible_message(span_warning("!"),
 					"<span class='warning'>I'm frozen in pain!</span>")
 		sleep(10)
 		Stun(110)

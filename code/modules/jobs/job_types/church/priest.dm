@@ -177,7 +177,7 @@
 	var/inputty = input("Curse someone as a heretic. (curse them again to remove it)", "Sinner Name") as text|null
 	if(inputty)
 		if(!istype(get_area(src), /area/rogue/indoors/town/church/chapel))
-			to_chat(src, "<span class='warning'>I need to do this from the chapel.</span>")
+			to_chat(src, span_warning("."))
 			return FALSE
 		if(inputty in GLOB.heretical_players)
 			GLOB.heretical_players -= inputty
@@ -204,7 +204,7 @@
 	var/inputty = input("Make an announcement", "VANDERLIN") as text|null
 	if(inputty)
 		if(!istype(get_area(src), /area/rogue/indoors/town/church/chapel))
-			to_chat(src, "<span class='warning'>I need to do this from the chapel.</span>")
+			to_chat(src, span_warning("."))
 			return FALSE
 		priority_announce("[inputty]", title = "The [get_role_title()] Speaks", sound = 'sound/misc/bell.ogg')
 		src.log_talk("[TIMETOTEXT4LOGS] [inputty]", LOG_SAY, tag="Priest announcement")

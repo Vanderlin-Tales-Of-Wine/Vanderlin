@@ -203,7 +203,7 @@
 		update_icon()
 		return TRUE
 	else
-		to_chat(user, "<span class='warning'>I cannot seem to get \the [src] out of your hands!</span>")
+		to_chat(user, span_warning("!"))
 		return FALSE
 
 ///Handles all the logic of magazine ejection, if tac_load is set that magazine will be tacloaded in the place of the old eject
@@ -320,7 +320,7 @@
 			playsound(user, eject_sound, eject_sound_volume, eject_sound_vary)
 			update_icon()
 		else
-			to_chat(user, "<span class='warning'>[src] is empty!</span>")
+			to_chat(user, span_warning("!"))
 		return
 	if(bolt_type == BOLT_TYPE_LOCKING && bolt_locked)
 		drop_bolt(user)

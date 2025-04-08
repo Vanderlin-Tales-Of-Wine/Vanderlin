@@ -26,13 +26,13 @@
 	*/
 
 	if(!eyes)
-		head_status += "<span class='warning'>The eyes appear are missing.</span>"
+		head_status += span_warning(".")
 
 	if(!ears)
-		head_status += "<span class='warning'>The ears are missing.</span>"
+		head_status += span_warning(".")
 
 	if(!tongue)
-		head_status += "<span class='warning'>The tongue is missing.</span>"
+		head_status += span_warning(".")
 
 	if(length(head_status))
 		. += "<B>Organs:</B>"
@@ -144,7 +144,7 @@
 				if(0.25 to 0.5)
 					status += "<span class='danger'>[medium_brute_msg]</span>"
 				else
-					status += "<span class='warning'>[light_brute_msg]</span>"
+					status += span_warning("]")
 
 		if(burn >= DAMAGE_PRECISION)
 			switch(burn/max_damage)
@@ -155,7 +155,7 @@
 				if(0.25 to 0.5)
 					status += "<span class='danger'>[medium_burn_msg]</span>"
 				else
-					status += "<span class='warning'>[light_burn_msg]</span>"
+					status += span_warning("]")
 
 	var/bleed_rate = get_bleed_rate()
 	if(bleed_rate)

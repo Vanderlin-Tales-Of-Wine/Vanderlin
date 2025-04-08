@@ -59,13 +59,13 @@
 					if(isturf(I.loc))
 						I.attack_hand(src)
 						if(get_active_held_item() == I) //if our attack_hand() picks up the item...
-							visible_message("<span class='warning'>[src] catches [I]!</span>", \
+							visible_message(span_warning("!"), \
 											"<span class='danger'>I catch [I] in mid-air!</span>")
 							throw_mode_off()
 							return 1
 				else
 					var/obj/item/net/N
-					visible_message("<span class='warning'>[src] tries to catch \the [N] but gets snared by it!</span>", \
+					visible_message(span_warning("!"), \
 									"<span class='danger'>Why did I even try to do this...?</span>") // Hahaha dumbass!!!
 					throw_mode_off()
 					N.ensnare(src)
@@ -105,11 +105,11 @@
 
 	if(used_limb)
 		target.visible_message("<span class='warning'>[src] grabs [target]'s [used_limb].</span>", \
-						"<span class='warning'>[src] grabs my [used_limb].</span>", "<span class='hear'>I hear shuffling.</span>", null, src)
+						span_warning("."), "<span class='hear'>I hear shuffling.</span>", null, src)
 		to_chat(src, "<span class='info'>I grab [target]'s [used_limb].</span>")
 	else
-		target.visible_message("<span class='warning'>[src] grabs [target].</span>", \
-						"<span class='warning'>[src] grabs me.</span>", "<span class='hear'>I hear shuffling.</span>", null, src)
+		target.visible_message(span_warning("."), \
+						span_warning("."), "<span class='hear'>I hear shuffling.</span>", null, src)
 		to_chat(src, "<span class='info'>I grab [target].</span>")
 
 /mob/living/carbon/send_grabbed_message(mob/living/carbon/user)
@@ -244,7 +244,7 @@
 		return FALSE
 
 	if(!get_bodypart(check_zone(user.zone_selected)))
-		to_chat(user, "<span class='warning'>[src] is missing that.</span>")
+		to_chat(user, span_warning("."))
 		return FALSE
 
 	if(!user.cmode && (istype(user.rmb_intent, /datum/rmb_intent/weak) || istype(user.rmb_intent, /datum/rmb_intent/strong)))
@@ -361,7 +361,7 @@
 
 //	if(!(mobility_flags & MOBILITY_STAND))
 //		if(buckled)
-//			to_chat(M, "<span class='warning'>I need to unbuckle [src] first to do that!</span>")
+//			to_chat(M, span_warning("!"))
 //			return
 //		M.visible_message(span_notice("[M] shakes [src] trying to get [p_them()] up!"), span_notice("I shake [src] trying to get [p_them()] up!"))
 //	else
@@ -395,16 +395,16 @@
 			return
 
 		if (damage == 1)
-			to_chat(src, "<span class='warning'>My eyes sting a little.</span>")
+			to_chat(src, span_warning("."))
 			if(prob(40))
 				eyes.applyOrganDamage(1)
 
 		else if (damage == 2)
-			to_chat(src, "<span class='warning'>My eyes burn.</span>")
+			to_chat(src, span_warning("."))
 			eyes.applyOrganDamage(rand(2, 4))
 
 		else if( damage >= 3)
-			to_chat(src, "<span class='warning'>My eyes itch and burn severely!</span>")
+			to_chat(src, span_warning("!"))
 			eyes.applyOrganDamage(rand(12, 16))
 
 		if(eyes.damage > 10)
@@ -414,7 +414,7 @@
 			if(eyes.damage > 20)
 				if(prob(eyes.damage - 20))
 					if(!HAS_TRAIT(src, TRAIT_NEARSIGHT))
-						to_chat(src, "<span class='warning'>My eyes start to burn badly!</span>")
+						to_chat(src, span_warning("!"))
 					become_nearsighted(EYE_DAMAGE)
 
 				else if(prob(eyes.damage - 25))
@@ -448,13 +448,13 @@
 			adjustEarDamage(ear_damage,deaf)
 
 			if(ears.damage >= 15)
-				to_chat(src, "<span class='warning'>My ears start to ring badly!</span>")
+				to_chat(src, span_warning("!"))
 				if(prob(ears.damage - 5))
 					to_chat(src, "<span class='danger'>I can't hear anything!</span>")
 					ears.damage = min(ears.damage, ears.maxHealth)
 					// you need earmuffs, inacusiate, or replacement
 			else if(ears.damage >= 5)
-				to_chat(src, "<span class='warning'>My ears start to ring!</span>")
+				to_chat(src, span_warning("!"))
 			SEND_SOUND(src, sound('sound/blank.ogg',0,1,0,250))
 		return effect_amount //how soundbanged we are
 

@@ -221,9 +221,9 @@
 					var/mob/living/carbon/human/U = user
 					if(U.cmode)
 						if(H.cmode)
-							to_chat(U, "<span class='warning'>[H] is too prepared for combat to be taken hostage.</span>")
+							to_chat(U, span_warning("."))
 							return
-						to_chat(U, "<span class='warning'>I take [H] hostage.</span>")
+						to_chat(U, span_warning("."))
 						to_chat(H, "<span class='danger'>[U] takes us hostage!</span>")
 
 						U.swap_hand() // Swaps hand to weapon so you can attack instantly if hostage decides to resist
@@ -248,11 +248,11 @@
 				user.stop_pulling()
 		if(/datum/intent/grab/shove)
 			if(!(user.mobility_flags & MOBILITY_STAND))
-				to_chat(user, "<span class='warning'>I must stand up first.</span>")
+				to_chat(user, span_warning("."))
 				return
 			if(!(M.mobility_flags & MOBILITY_STAND))
 				if(user.loc != M.loc)
-					to_chat(user, "<span class='warning'>I must be on top of them.</span>")
+					to_chat(user, span_warning("."))
 					return
 				if(src == user.r_grab)
 					if(!user.l_grab || user.l_grab.grabbed != M)
@@ -422,7 +422,7 @@
 				user.Move_Pulled(T)
 		if(/datum/intent/grab/smash)
 			if(!(user.mobility_flags & MOBILITY_STAND))
-				to_chat(user, "<span class='warning'>I must stand..</span>")
+				to_chat(user, span_warning("."))
 				return
 			if(limb_grabbed && grab_state > 0) //this implies a carbon victim
 				if(isopenturf(T))
@@ -451,7 +451,7 @@
 	if(user.used_intent.type == /datum/intent/grab/smash)
 		if(isstructure(O) && O.blade_dulling != DULLING_CUT)
 			if(!(user.mobility_flags & MOBILITY_STAND))
-				to_chat(user, "<span class='warning'>I must stand..</span>")
+				to_chat(user, span_warning("."))
 				return
 			if(limb_grabbed && grab_state > 0) //this implies a carbon victim
 				if(iscarbon(grabbed))
@@ -637,10 +637,10 @@
 		return
 	var/mob/living/carbon/C = grabbed
 	if(C.dna?.species && (NOBLOOD in C.dna.species.species_traits))
-		to_chat(user, "<span class='warning'>Sigh. No blood.</span>")
+		to_chat(user, span_warning("."))
 		return
 	if(C.blood_volume <= 0)
-		to_chat(user, "<span class='warning'>Sigh. No blood.</span>")
+		to_chat(user, span_warning("."))
 		return
 	if(ishuman(C))
 		var/mob/living/carbon/human/H = C
@@ -663,7 +663,7 @@
 				addtimer(CALLBACK(user, TYPE_PROC_REF(/mob/living/carbon, vomit), 0, TRUE), rand(8 SECONDS, 15 SECONDS))
 			else
 				if(VVictim)
-					to_chat(user, "<span class='warning'>I cannot drain vitae from a fellow nitewalker.</span>")
+					to_chat(user, span_warning("."))
 					return
 				else if(C.vitae_pool > 500)
 					C.blood_volume = max(C.blood_volume-45, 0)
@@ -679,7 +679,7 @@
 								to_chat(user, "<span class='love'>...And empowering!</span>")
 							else
 								used_vitae = C.vitae_pool // We assume they're left with 250 vitae or less, so we take it all
-								to_chat(user, "<span class='warning'>...But alas, only leftovers...</span>")
+								to_chat(user, span_warning("."))
 							VDrinker.adjust_vitae(used_vitae, used_vitae)
 							C.vitae_pool -= used_vitae
 
@@ -699,7 +699,7 @@
 				if(C.vitae_pool >= 250)
 					VDrinker.adjust_vitae(250, 250)
 				else
-					to_chat(user, "<span class='warning'>And yet, not enough vitae can be extracted from them... Tsk.</span>")
+					to_chat(user, span_warning("."))
 
 	C.blood_volume = max(C.blood_volume-5, 0)
 	C.handle_blood()

@@ -149,7 +149,7 @@
 			if(L.mind.has_antag_datum(/datum/antagonist/zombie))
 				iszombie = TRUE
 			if(istype(V, /datum/antagonist/vampire/lord))
-				user.visible_message("<span class='warning'>[L] overpowers being churned!</span>", "<span class='userdanger'>[L] is too strong, I am churned!</span>")
+				user.visible_message(span_warning("!"), "<span class='userdanger'>[L] is too strong, I am churned!</span>")
 				user.Stun(50)
 				user.throw_at(get_ranged_target_turf(user, get_dir(user,L), 7), 7, 1, L, spin = FALSE)
 				return
@@ -162,5 +162,5 @@
 				explosion(get_turf(L), light_impact_range = 1, flame_range = 1, smoke = FALSE)
 				L.Stun(50)
 			else
-				L.visible_message("<span class='warning'>[L] resists being churned!</span>", "<span class='userdanger'>I resist being churned!</span>")
+				L.visible_message(span_warning("!"), "<span class='userdanger'>I resist being churned!</span>")
 	return ..()

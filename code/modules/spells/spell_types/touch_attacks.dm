@@ -49,9 +49,9 @@
 	if(!user.put_in_hands(attached_hand))
 		remove_hand(TRUE)
 		if (user.get_num_arms() <= 0)
-			to_chat(user, "<span class='warning'>I dont have any usable hands!</span>")
+			to_chat(user, span_warning("!"))
 		else
-			to_chat(user, "<span class='warning'>My hands are full!</span>")
+			to_chat(user, span_warning("!"))
 		return FALSE
 	to_chat(user, span_notice("[drawmessage]"))
 	adjust_hand_charges()

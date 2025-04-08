@@ -95,10 +95,10 @@
 	movedelay = world.time + movespeed
 
 	if(newLoc.flags_1 & NOJAUNT_1)
-		to_chat(user, "<span class='warning'>Some strange aura is blocking the way.</span>")
+		to_chat(user, span_warning("."))
 		return
 	if (locate(/obj/effect/blessing, newLoc))
-		to_chat(user, "<span class='warning'>Holy energies block your path!</span>")
+		to_chat(user, span_warning("!"))
 		return
 
 	forceMove(newLoc)

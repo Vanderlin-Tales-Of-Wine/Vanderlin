@@ -49,5 +49,5 @@
 			"<span class='notice'>[user] successfully augments [target]'s [parse_zone(target_zone)]!</span>")
 		log_combat(user, target, "augmented", addition="by giving him new [parse_zone(target_zone)] INTENT: [uppertext(user.a_intent?.name)]")
 	else
-		to_chat(user, "<span class='warning'>[target] has no organic [parse_zone(target_zone)] there!</span>")
+		to_chat(user, span_warning("!"))
 	return TRUE

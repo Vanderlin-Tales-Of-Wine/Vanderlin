@@ -496,16 +496,16 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if(!client)
 		return
 	if(!mind || QDELETED(mind.current))
-		to_chat(src, "<span class='warning'>I have no body.</span>")
+		to_chat(src, span_warning("."))
 		return
 	if(!forced && !can_reenter_corpse)
-		to_chat(src, "<span class='warning'>I cannot re-enter my body.</span>")
+		to_chat(src, span_warning("."))
 		return
 	if(istype(src, /mob/dead/observer/profane))
-		to_chat(src, "<span class='warning'>My spirit has been snatched away by Graggar!</span>")
+		to_chat(src, span_warning("!"))
 		return
 	if(mind.current.key && copytext(mind.current.key,1,2)!="@")	//makes sure we don't accidentally kick any clients
-		to_chat(usr, "<span class='warning'>Another consciousness is in your body...It is resisting you.</span>")
+		to_chat(usr, span_warning("."))
 		return
 //	stop_all_loops()
 	SSdroning.kill_rain(src.client)
@@ -528,7 +528,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		return
 
 //	if(mind?.current && (world.time < mind.current.timeofdeath + RESPAWNTIME))
-//		to_chat(usr, "<span class='warning'>I can return in [mind.current.timeofdeath + RESPAWNTIME - world.time].</span>")
+//		to_chat(usr, span_warning("."))
 //		return
 
 	if(key)
@@ -868,7 +868,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	SEND_SOUND(src, sound('sound/misc/notice (2).ogg'))
 	if(alert(src, "You have been summoned to destroy Vanderlin!", "Join the Horde", "Yes", "No") == "Yes")
 		if(world.time > bt + 5 MINUTES)
-			to_chat(src, "<span class='warning'>Too late.</span>")
+			to_chat(src, span_warning("."))
 			return FALSE
 		returntolobby(RESPAWNTIME*-1)
 
@@ -914,7 +914,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		if(alert(src, "Your soul is still tied to your former life as [mind.current.name], if you go forward there is no going back to that life. Are you sure you wish to continue?", "Move On", "Yes", "No") == "No")
 			return FALSE
 	if(target.key)
-		to_chat(src, "<span class='warning'>Someone has taken this body while you were choosing!</span>")
+		to_chat(src, span_warning("!"))
 		return FALSE
 
 	target.key = key

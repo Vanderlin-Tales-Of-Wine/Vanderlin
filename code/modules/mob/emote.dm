@@ -31,7 +31,7 @@
 		if(intentional)
 			if(client)
 				if(get_playerquality(client.ckey) <= -10)
-					to_chat(src, "<span class='warning'>Unrecognized emote.</span>")
+					to_chat(src, span_warning("."))
 					return
 			var/list/custom_emote = GLOB.emote_list["me"]
 			for(var/datum/emote/P in custom_emote)

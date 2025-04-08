@@ -11,7 +11,7 @@
 	decay_factor = STANDARD_ORGAN_DECAY
 
 	low_threshold_passed = "<span class='info'>My stomach flashes with pain before subsiding. Food doesn't seem like a good idea right now.</span>"
-	high_threshold_passed = "<span class='warning'>My stomach flares up with constant pain- you can hardly stomach the idea of food right now!</span>"
+	high_threshold_passed = span_warning("!")
 	high_threshold_cleared = "<span class='info'>The pain in my stomach dies down for now, but food still seems unappealing.</span>"
 	low_threshold_cleared = "<span class='info'>The last bouts of pain in my stomach have died out.</span>"
 
@@ -50,7 +50,7 @@
 				H.stuttering += 1
 				H.confused += 2
 			if(prob(10) && !H.stat)
-				to_chat(H, "<span class='warning'>I feel kind of iffy...</span>")
+				to_chat(H, span_warning("."))
 			H.jitteriness = max(H.jitteriness - 3, 0)
 		if(H.disgust >= DISGUST_LEVEL_VERYGROSS)
 			if(prob(pukeprob)) //iT hAndLeS mOrE ThaN PukInG
@@ -139,6 +139,6 @@
 	decay_factor = STANDARD_ORGAN_DECAY
 
 	low_threshold_passed = "<span class='info'>My guts flashes with pain before subsiding.</span>"
-	high_threshold_passed = "<span class='warning'>My guts flares up with constant pain.</span>"
+	high_threshold_passed = span_warning(".")
 	high_threshold_cleared = "<span class='info'>The pain in my guts die down for now.</span>"
 	low_threshold_cleared = "<span class='info'>The last bouts of pain in my guts have died out.</span>"

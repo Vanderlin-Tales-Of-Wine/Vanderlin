@@ -592,7 +592,7 @@
 	. = ..()
 	if(HAS_TRAIT(user, TRAIT_EORA_CURSE))
 		var/mob/living/carbon/human/H = user
-		to_chat(H, "<span class='warning'>The idea repulses me!</span>")
+		to_chat(H, span_warning("!"))
 		H.cursed_freak_out()
 		return FALSE
 
@@ -604,7 +604,7 @@
 		var/mob/living/carbon/human/H = target
 		// cursed is the one being hugged
 		if(HAS_TRAIT(H, TRAIT_EORA_CURSE))
-			to_chat(H, "<span class='warning'>I feel unexplicably repelled!</span>")
+			to_chat(H, span_warning("!"))
 			H.cursed_freak_out()
 			return
 
@@ -647,7 +647,7 @@
 	. = ..()
 	if(HAS_TRAIT(user, TRAIT_EORA_CURSE))
 		var/mob/living/carbon/human/H = user
-		to_chat(H, "<span class='warning'>The idea repulses me!</span>")
+		to_chat(H, span_warning("!"))
 		H.cursed_freak_out()
 		return FALSE
 
@@ -667,7 +667,7 @@
 
 		// cursed is the one being kissed
 		if(HAS_TRAIT(E, TRAIT_EORA_CURSE))
-			to_chat(E, "<span class='warning'>I feel unexplicably repelled!</span>")
+			to_chat(E, span_warning("!"))
 			E.cursed_freak_out()
 
 		var/do_change
@@ -927,7 +927,7 @@
 	if(ishuman(user))
 		if(H.mouth)
 			if(H.mouth.spitoutmouth)
-				H.visible_message("<span class='warning'>[H] spits out [H.mouth].</span>")
+				H.visible_message(span_warning("."))
 				H.dropItemToGround(H.mouth, silent = FALSE)
 			return
 	..()
@@ -989,7 +989,7 @@
 		var/mob/living/carbon/C = user
 		if(intentional)
 			if(!C.adjust_stamina(3)) // I guess this is here to reduce spamming? Or some other concept? Reduced from 10
-				to_chat(C, "<span class='warning'>I try to scream but my voice fails me.</span>")
+				to_chat(C, span_warning("."))
 				. = FALSE
 
 /datum/emote/living/scowl
