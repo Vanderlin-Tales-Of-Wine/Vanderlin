@@ -30,7 +30,7 @@
 	add_fingerprint(user)
 	var/action = anchored ? "unscrews [src] from" : "screws [src] to"
 	var/uraction = anchored ? "unscrew [src] from " : "screw [src] to"
-	user.visible_message(span_warning("[user] [action] the floor."), span_notice("I start to [uraction] the floor..."), "<span class='hear'>I hear rustling noises.</span>")
+	user.visible_message(span_warning("[user] [action] the floor."), span_notice("I start to [uraction] the floor..."), span_hear("."))
 	if(W.use_tool(src, user, 100, volume=100, extra_checks = CALLBACK(src, PROC_REF(check_anchored_state), anchored)))
 		setAnchored(!anchored)
 		to_chat(user, "<span class='notice'>I [anchored ? "unscrew" : "screw"] [src] from the floor.</span>")

@@ -52,7 +52,7 @@
 /datum/component/butchering/proc/startNeckSlice(obj/item/source, mob/living/carbon/human/H, mob/living/user)
 	user.visible_message("<span class='danger'>[user] is slitting [H]'s throat!</span>", \
 					"<span class='danger'>I start slicing [H]'s throat!</span>", \
-					"<span class='hear'>I hear a cutting noise!</span>", ignored_mobs = H)
+					span_hear("!"), ignored_mobs = H)
 	H.show_message("<span class='danger'>My throat is being slit by [user]!</span>", MSG_VISUAL, \
 					"<span class = 'danger'>Something is cutting into my neck!</span>", NONE)
 	log_combat(user, H, "starts slicing the throat of")

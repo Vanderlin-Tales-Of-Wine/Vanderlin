@@ -462,7 +462,7 @@
 
 /mob/living/proc/send_pull_message(mob/living/target)
 	target.visible_message(span_warning("."), \
-					span_warning("."), "<span class='hear'>I hear shuffling.</span>", null, src)
+					span_warning("."), span_hear("."), null, src)
 	to_chat(src, "<span class='info'>I grab [target].</span>")
 
 /mob/living/proc/set_pull_offsets(mob/living/M, grab_state = GRAB_PASSIVE)

@@ -260,7 +260,7 @@
 		if(I && dropItemToGround(I, silent = FALSE))
 			playsound(loc, 'sound/blank.ogg', 25, TRUE, -1)
 			visible_message("<span class='danger'>[M] disarmed [src]!</span>", \
-							"<span class='danger'>[M] disarmed you!</span>", "<span class='hear'>I hear aggressive shuffling!</span>", null, M)
+							"<span class='danger'>[M] disarmed you!</span>", span_hear("!"), null, M)
 			to_chat(M, "<span class='danger'>I disarm [src]!</span>")
 		else if(!M.client || prob(5)) // only natural monkeys get to stun reliably, (they only do it occasionaly)
 			playsound(loc, 'sound/blank.ogg', 25, TRUE, -1)
@@ -268,13 +268,13 @@
 				Paralyze(40)
 				log_combat(M, src, "pinned")
 				visible_message("<span class='danger'>[M] pins [src] down!</span>", \
-								"<span class='danger'>[M] pins you down!</span>", "<span class='hear'>I hear shuffling and a muffled groan!</span>", null, M)
+								"<span class='danger'>[M] pins you down!</span>", span_hear("!"), null, M)
 				to_chat(M, "<span class='danger'>I pin [src] down!</span>")
 			else
 				Knockdown(30)
 				log_combat(M, src, "tackled")
 				visible_message("<span class='danger'>[M] tackles [src] down!</span>", \
-								"<span class='danger'>[M] tackles you down!</span>", "<span class='hear'>I hear aggressive shuffling followed by a loud thud!</span>", null, M)
+								"<span class='danger'>[M] tackles you down!</span>", span_hear("!"), null, M)
 				to_chat(M, "<span class='danger'>I tackle [src] down!</span>")
 
 	if(M.limb_destroyer)

@@ -30,7 +30,7 @@
 			M.do_attack_animation(src, ATTACK_EFFECT_PUNCH)
 			if (prob(75))
 				visible_message("<span class='danger'>[M] punches [name]!</span>", \
-								"<span class='danger'>[M] punches you!</span>", "<span class='hear'>I hear a sickening sound of flesh hitting flesh!</span>", COMBAT_MESSAGE_RANGE, M)
+								"<span class='danger'>[M] punches you!</span>", span_hear("!"), COMBAT_MESSAGE_RANGE, M)
 				to_chat(M, "<span class='danger'>I punch [name]!</span>")
 
 				playsound(loc, "punch", 25, TRUE, -1)
@@ -40,7 +40,7 @@
 					if(AmountUnconscious() < 100 && health > 0)
 						Unconscious(rand(200, 300))
 						visible_message("<span class='danger'>[M] knocks [name] out!</span>", \
-										"<span class='danger'>[M] knocks you out!</span>", "<span class='hear'>I hear a sickening sound of flesh hitting flesh!</span>", 5, M)
+										"<span class='danger'>[M] knocks you out!</span>", span_hear("!"), 5, M)
 						to_chat(M, "<span class='danger'>I knock [name] out!</span>")
 				var/obj/item/bodypart/affecting = get_bodypart(ran_zone(M.zone_selected))
 				if(!affecting)
@@ -51,7 +51,7 @@
 			else
 				playsound(loc, 'sound/blank.ogg', 25, TRUE, -1)
 				visible_message("<span class='danger'>[M]'s punch misses [name]!</span>", \
-								"<span class='danger'>I avoid [M]'s punch!</span>", "<span class='hear'>I hear a swoosh!</span>", COMBAT_MESSAGE_RANGE, M)
+								"<span class='danger'>I avoid [M]'s punch!</span>", span_hear("!"), COMBAT_MESSAGE_RANGE, M)
 				to_chat(M, span_warning("!"))
 		if(INTENT_DISARM)
 			if(stat < UNCONSCIOUS)
@@ -61,12 +61,12 @@
 					playsound(loc, 'sound/blank.ogg', 50, TRUE, -1)
 					log_combat(M, src, "pushed")
 					visible_message("<span class='danger'>[M] pushes [src] down!</span>", \
-									"<span class='danger'>[M] pushes you down!</span>", "<span class='hear'>I hear aggressive shuffling followed by a loud thud!</span>", null, M)
+									"<span class='danger'>[M] pushes you down!</span>", span_hear("!"), null, M)
 					to_chat(M, "<span class='danger'>I push [src] down!</span>")
 				else if(dropItemToGround(get_active_held_item()))
 					playsound(src, 'sound/blank.ogg', 50, TRUE, -1)
 					visible_message("<span class='danger'>[M] disarms [src]!</span>", \
-									"<span class='danger'>[M] disarms you!</span>", "<span class='hear'>I hear aggressive shuffling!</span>", COMBAT_MESSAGE_RANGE, M)
+									"<span class='danger'>[M] disarms you!</span>", span_hear("!"), COMBAT_MESSAGE_RANGE, M)
 					to_chat(M, "<span class='danger'>I disarm [src]!</span>")
 
 

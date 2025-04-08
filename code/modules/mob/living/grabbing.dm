@@ -336,7 +336,7 @@
 	C.apply_damage(damage, BRUTE, limb_grabbed, armor_block)
 	limb_grabbed.bodypart_attacked_by(BCLASS_TWIST, damage, user, sublimb_grabbed, crit_message = TRUE)
 	C.visible_message("<span class='danger'>[user] twists [C]'s [parse_zone(sublimb_grabbed)]![C.next_attack_msg.Join()]</span>", \
-					"<span class='userdanger'>[user] twists my [parse_zone(sublimb_grabbed)]![C.next_attack_msg.Join()]</span>", "<span class='hear'>I hear a sickening sound of pugilism!</span>", COMBAT_MESSAGE_RANGE, user)
+					"<span class='userdanger'>[user] twists my [parse_zone(sublimb_grabbed)]![C.next_attack_msg.Join()]</span>", span_hear("!"), COMBAT_MESSAGE_RANGE, user)
 	to_chat(user, "<span class='warning'>I twist [C]'s [parse_zone(sublimb_grabbed)].[C.next_attack_msg.Join()]</span>")
 	C.next_attack_msg.Cut()
 	log_combat(user, C, "limbtwisted [sublimb_grabbed] ")
@@ -360,7 +360,7 @@
 	H.Immobilize(5)
 
 	C.visible_message("<span class='danger'>[H] headbutts [C]'s [parse_zone(sublimb_grabbed)]![C.next_attack_msg.Join()]</span>", \
-					"<span class='userdanger'>[H] headbutts my [parse_zone(sublimb_grabbed)]![C.next_attack_msg.Join()]</span>", "<span class='hear'>I hear a sickening sound of pugilism!</span>", COMBAT_MESSAGE_RANGE, H)
+					"<span class='userdanger'>[H] headbutts my [parse_zone(sublimb_grabbed)]![C.next_attack_msg.Join()]</span>", span_hear("!"), COMBAT_MESSAGE_RANGE, H)
 	to_chat(H, "<span class='warning'>I headbutt [C]'s [parse_zone(sublimb_grabbed)].[C.next_attack_msg.Join()]</span>")
 	C.next_attack_msg.Cut()
 	log_combat(H, C, "headbutted ")
@@ -372,7 +372,7 @@
 	playsound(M.loc, "genblunt", 100, FALSE, -1)
 	M.apply_damage(damage, BRUTE, limb_grabbed)
 	M.visible_message("<span class='danger'>[user] twists [I] in [M]'s wound!</span>", \
-					"<span class='userdanger'>[user] twists [I] in my wound!</span>", "<span class='hear'>I hear a sickening sound of pugilism!</span>", COMBAT_MESSAGE_RANGE)
+					"<span class='userdanger'>[user] twists [I] in my wound!</span>", span_hear("!"), COMBAT_MESSAGE_RANGE)
 	log_combat(user, M, "itemtwisted [sublimb_grabbed] ")
 
 /obj/item/grabbing/proc/removeembeddeditem(mob/living/user) //implies limb_grabbed and sublimb are things
@@ -473,7 +473,7 @@
 	else
 		C.next_attack_msg += " <span class='warning'>Armor stops the damage.</span>"
 	C.visible_message("<span class='danger'>[user] smashes [C]'s [limb_grabbed.name] into [A]![C.next_attack_msg.Join()]</span>", \
-					"<span class='userdanger'>[user] smashes my [limb_grabbed.name] into [A]![C.next_attack_msg.Join()]</span>", "<span class='hear'>I hear a sickening sound of pugilism!</span>", COMBAT_MESSAGE_RANGE, user)
+					"<span class='userdanger'>[user] smashes my [limb_grabbed.name] into [A]![C.next_attack_msg.Join()]</span>", span_hear("!"), COMBAT_MESSAGE_RANGE, user)
 	to_chat(user, "<span class='warning'>I smash [C]'s [limb_grabbed.name] against [A].[C.next_attack_msg.Join()]</span>")
 	C.next_attack_msg.Cut()
 	log_combat(user, C, "limbsmashed [limb_grabbed] ")
@@ -602,7 +602,7 @@
 						if(HE.brain)
 							QDEL_NULL(HE.brain)
 							C.visible_message("<span class='danger'>[user] consumes [C]'s brain!</span>", \
-								"<span class='userdanger'>[user] consumes my brain!</span>", "<span class='hear'>I hear a sickening sound of chewing!</span>", COMBAT_MESSAGE_RANGE, user)
+								"<span class='userdanger'>[user] consumes my brain!</span>", span_hear("!"), COMBAT_MESSAGE_RANGE, user)
 							to_chat(user, "<span class='boldnotice'>Braaaaaains!</span>")
 							if(!MOBTIMER_EXISTS(user, MT_ZOMBIETRIUMPH))
 								user.adjust_triumphs(1)
@@ -618,7 +618,7 @@
 	else
 		C.next_attack_msg += " <span class='warning'>Armor stops the damage.</span>"
 	C.visible_message("<span class='danger'>[user] bites [C]'s [parse_zone(sublimb_grabbed)]![C.next_attack_msg.Join()]</span>", \
-					"<span class='userdanger'>[user] bites my [parse_zone(sublimb_grabbed)]![C.next_attack_msg.Join()]</span>", "<span class='hear'>I hear a sickening sound of chewing!</span>", COMBAT_MESSAGE_RANGE, user)
+					"<span class='userdanger'>[user] bites my [parse_zone(sublimb_grabbed)]![C.next_attack_msg.Join()]</span>", span_hear("!"), COMBAT_MESSAGE_RANGE, user)
 	to_chat(user, "<span class='danger'>I bite [C]'s [parse_zone(sublimb_grabbed)].[C.next_attack_msg.Join()]</span>")
 	C.next_attack_msg.Cut()
 	log_combat(user, C, "limb chewed [sublimb_grabbed] ")
@@ -707,7 +707,7 @@
 	playsound(user.loc, 'sound/misc/drink_blood.ogg', 100, FALSE, -4)
 
 	C.visible_message("<span class='danger'>[user] drinks from [C]'s [parse_zone(sublimb_grabbed)]!</span>", \
-					"<span class='userdanger'>[user] drinks from my [parse_zone(sublimb_grabbed)]!</span>", "<span class='hear'>...</span>", COMBAT_MESSAGE_RANGE, user)
+					"<span class='userdanger'>[user] drinks from my [parse_zone(sublimb_grabbed)]!</span>", span_hear("."), COMBAT_MESSAGE_RANGE, user)
 	to_chat(user, "<span class='warning'>I drink from [C]'s [parse_zone(sublimb_grabbed)].</span>")
 	log_combat(user, C, "drank blood from ")
 

@@ -144,11 +144,11 @@
 		if(M != user)
 			M.visible_message(span_notice("[user] pulls [M] from [src]."),\
 				span_notice("[user] pulls me from [src]."),\
-				"<span class='hear'>I hear metal clanking.</span>")
+				span_hear("."))
 		else
 			M.visible_message(span_notice("[M] gets off of [src]."),\
 				span_notice("I get off of [src]."),\
-				"<span class='hear'>I hear metal clanking.</span>")
+				span_hear("."))
 		add_fingerprint(user)
 		if(isliving(M.pulledby))
 			var/mob/living/L = M.pulledby

@@ -289,11 +289,11 @@
 /mob/living/proc/send_grabbed_message(mob/living/carbon/user)
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
 		visible_message("<span class='danger'>[user] firmly grips [src]!</span>",
-						"<span class='danger'>[user] firmly grips me!</span>", "<span class='hear'>I hear aggressive shuffling!</span>", null, user)
+						"<span class='danger'>[user] firmly grips me!</span>", span_hear("!"), null, user)
 		to_chat(user, "<span class='danger'>I firmly grip [src]!</span>")
 	else
 		visible_message("<span class='danger'>[user] tightens [user.p_their()] grip on [src]!</span>", \
-						"<span class='danger'>[user] tightens [user.p_their()] grip on me!</span>", "<span class='hear'>I hear aggressive shuffling!</span>", null, user)
+						"<span class='danger'>[user] tightens [user.p_their()] grip on me!</span>", span_hear("!"), null, user)
 		to_chat(user, "<span class='danger'>I tighten my grip on [src]!</span>")
 
 /mob/living/attack_animal(mob/living/simple_animal/M)
@@ -357,12 +357,12 @@
 			log_combat(M, src, "attacked")
 			playsound(loc, 'sound/blank.ogg', 50, TRUE, -1)
 			visible_message("<span class='danger'>[M.name] bites [src]!</span>", \
-							"<span class='danger'>[M.name] bites you!</span>", "<span class='hear'>I hear a chomp!</span>", COMBAT_MESSAGE_RANGE, M)
+							"<span class='danger'>[M.name] bites you!</span>", span_hear("!"), COMBAT_MESSAGE_RANGE, M)
 			to_chat(M, "<span class='danger'>I bite [src]!</span>")
 			return TRUE
 		else
 			visible_message("<span class='danger'>[M.name]'s bite misses [src]!</span>", \
-							"<span class='danger'>I avoid [M.name]'s bite!</span>", "<span class='hear'>I hear the sound of jaws snapping shut!</span>", COMBAT_MESSAGE_RANGE, M)
+							"<span class='danger'>I avoid [M.name]'s bite!</span>", span_hear("!"), COMBAT_MESSAGE_RANGE, M)
 			to_chat(M, span_warning("!"))
 	return FALSE
 
@@ -387,12 +387,12 @@
 			log_combat(M, src, "attacked")
 			playsound(loc, 'sound/blank.ogg', 50, TRUE, -1)
 			visible_message("<span class='danger'>[M.name] bites [src]!</span>", \
-							"<span class='danger'>[M.name] bites you!</span>", "<span class='hear'>I hear a chomp!</span>", COMBAT_MESSAGE_RANGE, M)
+							"<span class='danger'>[M.name] bites you!</span>", span_hear("!"), COMBAT_MESSAGE_RANGE, M)
 			to_chat(M, "<span class='danger'>I bite [src]!</span>")
 			return TRUE
 		else
 			visible_message("<span class='danger'>[M.name]'s bite misses [src]!</span>", \
-							"<span class='danger'>I avoid [M.name]'s bite!</span>", "<span class='hear'>I hear the sound of jaws snapping shut!</span>", COMBAT_MESSAGE_RANGE, M)
+							"<span class='danger'>I avoid [M.name]'s bite!</span>", span_hear("!"), COMBAT_MESSAGE_RANGE, M)
 			to_chat(M, span_warning("!"))
 	return FALSE
 
@@ -415,7 +415,7 @@
 	visible_message(
 		"<span class='danger'>[src] was shocked by \the [source]!</span>", \
 		"<span class='danger'>I feel a powerful shock coursing through my body!</span>", \
-		"<span class='hear'>I hear a heavy electrical crack.</span>" \
+		span_hear(".") \
 	)
 	playsound(get_turf(src), pick('sound/misc/elec (1).ogg', 'sound/misc/elec (2).ogg', 'sound/misc/elec (3).ogg'), 100, FALSE)
 	return shock_damage

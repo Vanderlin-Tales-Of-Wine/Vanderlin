@@ -105,11 +105,11 @@
 
 	if(used_limb)
 		target.visible_message("<span class='warning'>[src] grabs [target]'s [used_limb].</span>", \
-						span_warning("."), "<span class='hear'>I hear shuffling.</span>", null, src)
+						span_warning("."), span_hear("."), null, src)
 		to_chat(src, "<span class='info'>I grab [target]'s [used_limb].</span>")
 	else
 		target.visible_message(span_warning("."), \
-						span_warning("."), "<span class='hear'>I hear shuffling.</span>", null, src)
+						span_warning("."), span_hear("."), null, src)
 		to_chat(src, "<span class='info'>I grab [target].</span>")
 
 /mob/living/carbon/send_grabbed_message(mob/living/carbon/user)
@@ -124,11 +124,11 @@
 
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
 		visible_message("<span class='danger'>[user] firmly grips [src]'s [used_limb]!</span>",
-						"<span class='danger'>[user] firmly grips my [used_limb]!</span>", "<span class='hear'>I hear aggressive shuffling!</span>", null, user)
+						"<span class='danger'>[user] firmly grips my [used_limb]!</span>", span_hear("!"), null, user)
 		to_chat(user, "<span class='danger'>I firmly grip [src]'s [used_limb]!</span>")
 	else
 		visible_message("<span class='danger'>[user] tightens [user.p_their()] grip on [src]'s [used_limb]!</span>", \
-						"<span class='danger'>[user] tightens [user.p_their()] grip on my [used_limb]!</span>", "<span class='hear'>I hear aggressive shuffling!</span>", null, user)
+						"<span class='danger'>[user] tightens [user.p_their()] grip on my [used_limb]!</span>", span_hear("!"), null, user)
 		to_chat(user, "<span class='danger'>I tighten my grip on [src]'s [used_limb]!</span>")
 
 /mob/living/carbon/proc/precise_attack_check(zone, obj/item/bodypart/affecting) //for striking eyes, throat, etc
