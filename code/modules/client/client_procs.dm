@@ -219,7 +219,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 
 	data += "<div style='text-align: center; margin-top: 10px; padding-right: 20px; padding-left: 20px;'>"
 	if(GLOB.confessors.len)
-		data += "<font color='#93cac7'><span class='bold'>Confessions:</span></font>"
+		data += "<font color='#93cac7'><span class='bold'>Confessions:</span></font> "
 		for(var/x in GLOB.confessors)
 			data += "[x]"
 	else
