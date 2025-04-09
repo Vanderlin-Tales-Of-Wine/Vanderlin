@@ -179,7 +179,7 @@
 	)
 
 	influence_factors = list(
-		STATS_KISSES_MADE = list("points" = 1, "capacity" = 50),
+		STATS_PARENTS = list("points" = 5, "capacity" = 80),
 		STATS_MARRIAGES = list("points" = 10, "capacity" = 100),
 		STATS_HUGS_MADE = list("points" = 1, "capacity" = 50),
 		STATS_CLINGY_PEOPLE = list("points" = 4, "capacity" = 40),

@@ -10,6 +10,7 @@
 #define STATS_TRIUMPHS_STOLEN "triumphs_stolen"
 #define STATS_PRAYERS_MADE "prayers_made"
 #define STATS_TAXES_COLLECTED "taxes_collected"
+#define STATS_KISSES_MADE "kisses_made"
 
 // Influence related statistics
 
@@ -60,7 +61,7 @@
 #define STATS_ABYSSOR_REMEMBERED "abyssor_remembered"
 #define STATS_LEECHES_EMBEDDED "leeches_embedded"
 
-#define STATS_KISSES_MADE "kisses_made"
+#define STATS_PARENTS "parents"
 #define STATS_MARRIAGES "marriages"
 #define STATS_HUGS_MADE "hugs_made"
 #define STATS_CLINGY_PEOPLE "clingy_people"
@@ -148,6 +149,7 @@ GLOBAL_LIST_INIT(vanderlin_round_stats, list(
 	STATS_GREEDY_PEOPLE = 0,
 	STATS_KLEPTOMANIACS = 0,
 	STATS_HUMEN_DEATHS = 0,
+	STATS_PARENTS = 0,
 ))
 
 /datum/controller/subsystem/ticker/proc/gather_roundend_feedback()

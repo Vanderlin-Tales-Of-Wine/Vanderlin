@@ -541,6 +541,7 @@ SUBSYSTEM_DEF(gamemode)
 			delay = (4 MINUTES) //default to 4 minutes if the delay isn't defined.
 		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(reopen_roundstart_suicide_roles)), delay)
 
+	refresh_alive_stats()
 	handle_post_setup_roundstart_events()
 	handle_post_setup_points()
 	roundstart_event_view = FALSE
@@ -1092,6 +1093,8 @@ SUBSYSTEM_DEF(gamemode)
 	GLOB.vanderlin_round_stats[STATS_JUNKIES] = 0
 	GLOB.vanderlin_round_stats[STATS_KLEPTOMANIACS] = 0
 	GLOB.vanderlin_round_stats[STATS_GREEDY_PEOPLE] = 0
+	GLOB.vanderlin_round_stats[STATS_PARENTS] = 0
+
 	for(var/client/client in GLOB.clients)
 		var/mob/living/living = client.mob
 		if(!istype(living))
@@ -1120,6 +1123,10 @@ SUBSYSTEM_DEF(gamemode)
 				GLOB.vanderlin_round_stats[STATS_KLEPTOMANIACS]++
 			if(human_mob.has_flaw(/datum/charflaw/greedy))
 				GLOB.vanderlin_round_stats[STATS_GREEDY_PEOPLE]++
+			if(human_mob.family_datum)
+				var/family_role = human_mob.family_datum.family[human_mob]
+				if(family_role in list(FAMILY_FATHER, FAMILY_MOTHER))
+					GLOB.vanderlin_round_stats[STATS_PARENTS]++
 
 /// Returns influence value for a given storyteller for his given statistic
 /datum/controller/subsystem/gamemode/proc/calculate_specific_influence(datum/storyteller/chosen_storyteller, statistic)

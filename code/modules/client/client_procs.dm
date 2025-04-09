@@ -409,7 +409,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	data += god_ui_block("EORA", "#663366", "#ddaaff", "\
 		Number of followers: [eora_followers] ([get_colored_influence_value(eora_followers * 10)])<br>\
 		Marriages made: [GLOB.vanderlin_round_stats[STATS_MARRIAGES]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(/datum/storyteller/eora, STATS_MARRIAGES))])<br>\
-		Kisses made: [GLOB.vanderlin_round_stats[STATS_KISSES_MADE]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(/datum/storyteller/eora, STATS_KISSES_MADE))])<br>\
+		Number of parents: [GLOB.vanderlin_round_stats[STATS_PARENTS]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(/datum/storyteller/eora, STATS_PARENTS))])<br>\
 		Hugs made: [GLOB.vanderlin_round_stats[STATS_HUGS_MADE]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(/datum/storyteller/eora, STATS_HUGS_MADE))])<br>\
 		Clingy people: [GLOB.vanderlin_round_stats[STATS_CLINGY_PEOPLE]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(/datum/storyteller/eora, STATS_CLINGY_PEOPLE))])", /datum/storyteller/eora)
 

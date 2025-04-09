@@ -228,7 +228,7 @@
 
 	influence_factors = list(
 		STATS_LAWS_MADE = list("points" = 3,"capacity" = 30),
-		STATS_ALIVE_NOBLES = list("points" = 10,"capacity" = 100),
-		STATS_NOBLE_DEATHS = list("points" = -10,"capacity" = -100),
-		STATS_ASTRATA_REVIVALS = list("points" = 5, "capacity" = 50),
+		STATS_ALIVE_NOBLES = list("points" = 5,"capacity" = 125),
+		STATS_NOBLE_DEATHS = list("points" = -10,"capacity" = -125),
+		STATS_ASTRATA_REVIVALS = list("points" = 5, "capacity" = 75),
 	)
