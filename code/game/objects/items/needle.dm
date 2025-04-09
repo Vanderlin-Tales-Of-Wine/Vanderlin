@@ -81,7 +81,7 @@
 		if(I.obj_integrity == I.max_integrity)
 			return ..()
 		if(stringamt < 1)
-			to_chat(user, span_warning("The needle has no thread left!"))
+			to_chat(user, span_warning("[src] has no thread left!"))
 			return TRUE
 		var/armor_value = 0
 		var/skill_level = user.mind.get_skill_level(/datum/skill/misc/sewing)
