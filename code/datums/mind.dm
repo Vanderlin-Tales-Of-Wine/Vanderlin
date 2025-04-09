@@ -381,9 +381,9 @@
 			to_chat(current, span_nicegreen("My proficiency in [skill_ref.name] grows to [SSskills.level_names[known_skills[skill_ref]]]!"))
 			skill_ref.skill_level_effect(src, known_skills[skill_ref])
 			GLOB.vanderlin_round_stats[STATS_SKILLS_LEARNED]++
-			if(skill == /datum/skill/combat)
+			if(istype(skill, /datum/skill/combat))
 				GLOB.vanderlin_round_stats[STATS_COMBAT_SKILLS]++
-			if(skill == /datum/skill/craft)
+			if(istype(skill, /datum/skill/craft))
 				GLOB.vanderlin_round_stats[STATS_CRAFT_SKILLS]++
 			if(skill == /datum/skill/misc/reading && old_level == SKILL_LEVEL_NONE && current.is_literate())
 				GLOB.vanderlin_round_stats[STATS_LITERACY_TAUGHT]++

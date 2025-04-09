@@ -13,6 +13,8 @@
 
 // Influence related statistics
 
+#define STATS_HUMEN_DEATHS "humen_deaths"
+
 #define STATS_LAWS_MADE "laws_made"
 #define STATS_ALIVE_NOBLES "alive_nobles"
 #define STATS_NOBLE_DEATHS "noble_deaths"
@@ -144,7 +146,8 @@ GLOBAL_LIST_INIT(vanderlin_round_stats, list(
 	STATS_JUNKIES = 0,
 	STATS_SHRINE_VALUE = 0,
 	STATS_GREEDY_PEOPLE = 0,
-	STATS_KLEPTOMANIACS = 0
+	STATS_KLEPTOMANIACS = 0,
+	STATS_HUMEN_DEATHS = 0,
 ))
 
 /datum/controller/subsystem/ticker/proc/gather_roundend_feedback()

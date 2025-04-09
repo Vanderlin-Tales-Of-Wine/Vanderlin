@@ -269,8 +269,8 @@
 	)
 
 	influence_factors = list(
-		STATS_DRUGS_SNORTED = list("points" = 2, "capacity" = 60),
-		STATS_ALCOHOL_CONSUMED = list("points" = 0.1, "capacity" = 90),
+		STATS_DRUGS_SNORTED = list("points" = 2, "capacity" = 70),
+		STATS_ALCOHOL_CONSUMED = list("points" = 0.05, "capacity" = 90),
 		STATS_ALCOHOLICS = list("points" = 2, "capacity" = 60),
 		STATS_JUNKIES = list("points" = 3, "capacity" = 90),
 	)

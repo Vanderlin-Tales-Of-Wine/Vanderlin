@@ -1102,7 +1102,7 @@ SUBSYSTEM_DEF(gamemode)
 			continue
 		if(living.mind.has_antag_datum(/datum/antagonist/werewolf))
 			GLOB.vanderlin_round_stats[STATS_WEREVOLVES]++
-		if(living.mind.has_antag_datum(/datum/antagonist/zombie) || living.mind.has_antag_datum(/datum/antagonist/skeleton) || living.mind.has_antag_datum(/datum/antagonist/lich) )
+		if(living.mind.has_antag_datum(/datum/antagonist/zombie) || living.mind.has_antag_datum(/datum/antagonist/skeleton) || living.mind.has_antag_datum(/datum/antagonist/lich))
 			GLOB.vanderlin_round_stats[STATS_DEADITES_ALIVE]++
 		if(ishuman(living))
 			var/mob/living/carbon/human/human_mob = client.mob

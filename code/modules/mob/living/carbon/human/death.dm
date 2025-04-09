@@ -67,10 +67,15 @@
 		GLOB.vanderlin_round_stats[STATS_DEATHS]++
 		if(is_noble())
 			GLOB.vanderlin_round_stats[STATS_NOBLE_DEATHS]++
-		if(mind.assigned_role.title in GLOB.church_positions)
-			GLOB.vanderlin_round_stats[STATS_CLERGY_DEATHS]++
-		if(mind.has_antag_datum(/datum/antagonist/vampire))
-			GLOB.vanderlin_round_stats[STATS_VAMPIRES_KILLED]++
+		if(ishumannorthern(src))
+			GLOB.vanderlin_round_stats[STATS_HUMEN_DEATHS]++
+		if(mind)
+			if(mind.assigned_role.title in GLOB.church_positions)
+				GLOB.vanderlin_round_stats[STATS_CLERGY_DEATHS]++
+			if(mind.has_antag_datum(/datum/antagonist/vampire))
+				GLOB.vanderlin_round_stats[STATS_VAMPIRES_KILLED]++
+			if(mind.has_antag_datum(/datum/antagonist/zombie) || mind.has_antag_datum(/datum/antagonist/skeleton) || mind.has_antag_datum(/datum/antagonist/lich))
+				GLOB.vanderlin_round_stats[STATS_DEADITES_KILLED]++
 
 	stop_sound_channel(CHANNEL_HEARTBEAT)
 	var/obj/item/organ/heart/H = getorganslot(ORGAN_SLOT_HEART)

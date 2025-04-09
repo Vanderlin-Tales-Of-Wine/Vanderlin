@@ -419,7 +419,7 @@
 		return FALSE
 	if(owner && ((owner.status_flags & GODMODE) || HAS_TRAIT(owner, TRAIT_PIERCEIMMUNE)))
 		return FALSE
-	if(embedder == /obj/item/natural/worms/leech)
+	if(istype(embedder, /obj/item/natural/worms/leech))
 		GLOB.vanderlin_round_stats[STATS_LEECHES_EMBEDDED]++
 	LAZYADD(embedded_objects, embedder)
 	embedder.is_embedded = TRUE
