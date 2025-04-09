@@ -4265,6 +4265,11 @@
 	pixel_y = 5
 	},
 /obj/structure/table/wood/plain_alt,
+/obj/item/paper/scroll,
+/obj/item/paper/scroll,
+/obj/item/paper/scroll,
+/obj/item/paper/scroll,
+/obj/item/paper/scroll,
 /turf/open/floor/carpet/red,
 /area/rogue/under/town/basement)
 "cqv" = (
@@ -8333,12 +8338,6 @@
 	},
 /turf/open/floor/tile/tilerg,
 /area/rogue/indoors/town)
-"eHH" = (
-/obj/structure/lever/hidden{
-	redstone_id = "MageTower"
-	},
-/turf/closed/wall/mineral/decostone,
-/area/rogue/indoors/town/magician)
 "eHY" = (
 /obj/structure/stairs{
 	dir = 8;
@@ -8614,6 +8613,26 @@
 /obj/item/paper,
 /obj/item/paper,
 /obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper/scroll,
+/obj/item/paper/scroll,
+/obj/item/paper/scroll,
+/obj/item/paper/scroll,
+/obj/item/paper/scroll,
+/obj/item/paper/scroll,
+/obj/item/paper/scroll,
+/obj/item/paper/scroll,
+/obj/item/paper/scroll,
+/obj/item/paper/scroll,
+/obj/item/paper/scroll,
+/obj/item/paper/scroll,
 /turf/open/floor/cobblerock/alt,
 /area/rogue/under/town/basement)
 "ePD" = (
@@ -9209,6 +9228,10 @@
 	},
 /turf/open/floor/ruinedwood/turned,
 /area/rogue/indoors/town/tavern)
+"fgY" = (
+/obj/structure/stairs/stone/church,
+/turf/open/floor/cobble,
+/area/rogue/indoors/town/magician)
 "fhi" = (
 /obj/structure/chair/wood/alt{
 	icon_state = "chair2";
@@ -15411,10 +15434,6 @@
 /obj/machinery/light/fueled/wallfire/candle/blue/r,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/magician)
-"iIU" = (
-/obj/machinery/light/fueled/wallfire/candle/weak/l,
-/turf/open/floor/cobble,
-/area/rogue/indoors/town/magician)
 "iIV" = (
 /obj/structure/chair/wood/alt/chair_noble/red,
 /obj/effect/landmark/start/watchman,
@@ -20084,6 +20103,11 @@
 	icon_state = "longtable_mid"
 	},
 /obj/item/key/warehouse,
+/obj/item/key/houses/house1,
+/obj/item/key/houses/house2,
+/obj/item/key/houses/house3,
+/obj/item/key/houses/house4,
+/obj/item/key/houses/house5,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/steward)
 "lsc" = (
@@ -23773,6 +23797,19 @@
 	pixel_x = -2;
 	pixel_y = 4
 	},
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
 /turf/open/floor/wood/nosmooth/saiga,
 /area/rogue/under/town/basement)
 "nuV" = (
@@ -26242,6 +26279,8 @@
 /obj/item/natural/feather,
 /obj/item/natural/feather,
 /obj/item/natural/feather,
+/obj/item/paper/scroll/keep_plans,
+/obj/item/paper/scroll/keep_plans,
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/under/town/basement)
 "oJI" = (
@@ -37386,6 +37425,7 @@
 /obj/structure/mineral_door/wood/violet{
 	name = "Archivist's Chambers"
 	},
+/obj/effect/mapping_helpers/door/access/manor/archive,
 /turf/open/floor/blocks,
 /area/rogue/under/town/basement)
 "uWl" = (
@@ -39466,6 +39506,8 @@
 /obj/structure/mineral_door/wood/violet{
 	name = "Archivist's Chambers"
 	},
+/obj/effect/mapping_helpers/door/access/manor/archive,
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/woodturned/nosmooth/saiga,
 /area/rogue/under/town/basement)
 "wat" = (
@@ -42945,11 +42987,12 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/orphanage)
 "ybV" = (
-/obj/effect/mapping_helpers/secret_door_creator{
-	redstone_id = "MageTower";
-	name = "Mage Tower"
+/obj/structure/mineral_door/wood/donjon/stone{
+	name = "Mana Basement"
 	},
-/turf/closed/wall/mineral/decostone,
+/obj/effect/mapping_helpers/door/access/town/tower,
+/obj/effect/mapping_helpers/door/locker,
+/turf/open/floor/cobble,
 /area/rogue/indoors/town/magician)
 "ych" = (
 /obj/machinery/light/fueled/campfire,
@@ -43004,7 +43047,6 @@
 /turf/open/floor/tile/bfloorz,
 /area/rogue/indoors/town/bath)
 "ydD" = (
-/obj/structure/stairs/stone/church,
 /obj/machinery/light/fueled/wallfire/candle/blue/l,
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/magician)
@@ -50981,8 +51023,8 @@ qJl
 qJl
 qJl
 qJl
-qJl
-xyj
+chH
+isX
 sOf
 txo
 cCa
@@ -50990,8 +51032,8 @@ evx
 txo
 aVF
 efi
-xyj
-qJl
+isX
+chH
 qJl
 qJl
 qJl
@@ -51184,7 +51226,7 @@ qJl
 qJl
 qJl
 qJl
-xyj
+isX
 aVF
 aVF
 idp
@@ -51192,7 +51234,7 @@ fti
 dyN
 txo
 txo
-xyj
+isX
 qJl
 qJl
 qJl
@@ -51386,7 +51428,7 @@ qJl
 qJl
 qJl
 qJl
-xyj
+isX
 txo
 dyN
 dyN
@@ -51394,7 +51436,7 @@ fti
 dyN
 dyN
 txo
-xyj
+isX
 qJl
 qJl
 qJl
@@ -51588,7 +51630,7 @@ qJl
 qJl
 qJl
 qJl
-xyj
+isX
 txo
 dyN
 dyN
@@ -51596,7 +51638,7 @@ sDS
 dyN
 dyN
 txo
-xyj
+isX
 qJl
 qJl
 qJl
@@ -51790,7 +51832,7 @@ qJl
 qJl
 qJl
 qJl
-xyj
+isX
 txo
 dyN
 dyN
@@ -51798,7 +51840,7 @@ dyN
 dyN
 dyN
 ozX
-xyj
+isX
 qJl
 qJl
 qJl
@@ -51992,7 +52034,7 @@ qJl
 qJl
 qJl
 qJl
-xyj
+isX
 txo
 txo
 dyN
@@ -52000,7 +52042,7 @@ dyN
 dyN
 txo
 ozX
-xyj
+isX
 qJl
 qJl
 qJl
@@ -52194,7 +52236,7 @@ qJl
 qJl
 qJl
 qJl
-xyj
+isX
 hkW
 txo
 txo
@@ -52202,7 +52244,7 @@ txo
 txo
 txo
 hHh
-xyj
+isX
 qJl
 qJl
 qJl
@@ -52399,11 +52441,11 @@ qJl
 udo
 jeP
 eRs
-ldh
+xer
 sMX
-ldh
-ldh
-ldh
+sMX
+xer
+xer
 xer
 xer
 xer
@@ -52601,9 +52643,9 @@ qJl
 xer
 kRc
 rYb
-sMX
-sMX
 gvl
+sMX
+sMX
 oRT
 xer
 xer
@@ -52840,8 +52882,8 @@ bMF
 jyq
 bMF
 jyq
-bMF
 bMt
+dkb
 dkb
 gKX
 qJl
@@ -93241,8 +93283,8 @@ xBV
 oUm
 kBt
 uoc
-uoc
 cmQ
+fgY
 ydD
 uoc
 uoc
@@ -93444,7 +93486,7 @@ xBV
 fQP
 uoc
 uoc
-eHH
+uoc
 ybV
 uoc
 uoc
@@ -93646,7 +93688,7 @@ xBV
 kBt
 wgm
 kBt
-iIU
+oUm
 oUm
 pRV
 kZF
