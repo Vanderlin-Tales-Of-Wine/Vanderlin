@@ -87,14 +87,17 @@
 	popup.open()
 
 /obj/structure/fake_machine/stockpile/proc/attemptsell(obj/item/I, mob/H, message = TRUE, sound = TRUE)
-	for(var/datum/stock/stockpile/R in SStreasury.stockpile_datums)
+	for(var/datum/stock/R in SStreasury.stockpile_datums)
 		if(istype(I, /obj/item/natural/bundle))
 			var/obj/item/natural/bundle/B = I
 			if(B.stacktype == R.item_type)
 				var/amt = 0
-				for(var/i in 1 to B.amount)
-					amt += R.get_payout_price(I)
-					R.held_items++
+				if(istype(R, /datum/stock/stockpile))
+					for(var/i in 1 to B.amount)
+						amt += R.get_payout_price(I)
+						R.held_items++
+				else
+					amt = R.get_payout_price(I)
 				qdel(B)
 				if(message == TRUE)
 					stock_announce("[B.amount] units of [R.name] has been stockpiled.")
