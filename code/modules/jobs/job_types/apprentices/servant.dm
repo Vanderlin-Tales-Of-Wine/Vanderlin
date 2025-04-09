@@ -14,19 +14,13 @@
 	bypass_lastclass = TRUE
 
 	allowed_ages = list(AGE_CHILD, AGE_ADULT, AGE_IMMORTAL)
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
+	allowed_races = RACES_PLAYER_ALL
 
 	give_bank_account = TRUE
 
 	can_have_apprentices = FALSE
 
 	advclass_cat_rolls = list(CTAG_SERVANT = 20)
-
-/datum/job/servant/after_spawn(mob/living/carbon/spawned, client/player_client)
-	..()
-	spawned.advsetup = TRUE
-	spawned.invisibility = INVISIBILITY_MAXIMUM
-	spawned.become_blind("advsetup")
 
 /datum/outfit/job/servant/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -59,7 +53,6 @@
 	tutorial = "You are the faceless, nameless labor that keeps the royal court fed, washed, and attended to."
 	outfit = /datum/outfit/job/servant/keep
 	maximum_possible_slots = 5
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
 
 	category_tags = list(CTAG_SERVANT)
 
@@ -73,7 +66,6 @@
 	tutorial = "The Innkeeper needed waiters and here am I, serving the food, drinks and ensuring the rooms are clean."
 	outfit = /datum/outfit/job/servant/inn
 	maximum_possible_slots = 2
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
 
 	category_tags = list(CTAG_SERVANT)
 
@@ -88,7 +80,6 @@
 	That orphanage, those who were like me need guidance, I shall assist the matron in her tasks."
 	outfit = /datum/outfit/job/servant/matron_assistant
 	maximum_possible_slots = 2
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
 
 	category_tags = list(CTAG_SERVANT)
 

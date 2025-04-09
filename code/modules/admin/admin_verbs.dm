@@ -394,7 +394,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 		if(istype(ghost.mind.current, /mob/living))
 			var/mob/living/M = ghost.mind.current
 			var/datum/status_effect/incapacitating/sleeping/S = M.IsSleeping()
-			if(S && !M.IsKnockdown() && !M.IsStun() && !M.IsParalyzed()) // Wake them up unless they're asleep for another reason
+			if(S && !HAS_TRAIT(M, TRAIT_FLOORED)) // Wake them up unless they're asleep for another reason
 				M.remove_status_effect(S)
 				M.set_resting(FALSE, TRUE)
 			M.density = initial(M.density)

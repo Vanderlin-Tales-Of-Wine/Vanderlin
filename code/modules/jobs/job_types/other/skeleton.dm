@@ -16,19 +16,7 @@
 	antag_job = TRUE
 
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Rakshari",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc",
-		"Kobold",
-	)
-
+	allowed_races = RACES_PLAYER_ALL
 	cmode_music = 'sound/music/cmode/antag/combatskeleton.ogg'
 
 	outfit = /datum/outfit/job/skeleton

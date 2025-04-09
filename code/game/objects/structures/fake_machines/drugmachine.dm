@@ -138,7 +138,7 @@
 /obj/structure/fake_machine/drugmachine/attackby(obj/item/P, mob/user, params)
 	if(istype(P, /obj/item/key))
 		var/obj/item/key/K = P
-		if(K.lockid == "nightman")
+		if(K.lockid == ACCESS_APOTHECARY)
 			locked = !locked
 			playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
 			update_icon()
@@ -150,7 +150,7 @@
 	if(istype(P, /obj/item/storage/keyring))
 		var/obj/item/storage/keyring/K = P
 		for(var/obj/item/key/KE in K.contents)
-			if(KE.lockid == "nightman")
+			if(KE.lockid == ACCESS_APOTHECARY)
 				locked = !locked
 				playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
 				update_icon()
@@ -185,6 +185,7 @@
 			budget -= cost
 			if(!(upgrade_flags & UPGRADE_NOTAX))
 				SStreasury.give_money_treasury(tax_amt, "goldface import tax")
+				GLOB.vanderlin_round_stats["taxes_collected"] += tax_amt
 		else
 			say("Not enough!")
 			return

@@ -95,7 +95,7 @@
 	var/denomination = quantity == 1 ? name : plural_name
 	var/intelligence = user.mind?.current.STAINT
 
-	if(quantity > 1)  // Just so you don't count single coins
+	if(quantity > 1 || isobserver(user))  // Just so you don't count single coins, observers don't need to count.
 		var/list/skill_data = coin_skill(user, quantity)
 		var/fuzzy_quantity = CLAMP(quantity + skill_data["error"], 1,  (quantity > 20) ? INFINITY : 20) // Cap at 20 only for small stacks)
 		var/uncertainty_phrases = list("maybe","you think","roughly","perhaps","around","probably")

@@ -17,16 +17,11 @@
 
 	allowed_ages = list(AGE_OLD, AGE_IMMORTAL) // He's a wierd elderly man that is fucking jacked- this will make for a memorable character I think.
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list( // They're from Crimson Valley Asylum- only a select of houses are in position of guard there.
-		"Humen",
-		"Dwarf",
-		"Elf",
-		"Half-Elf"
-	)
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 
 	outfit = /datum/outfit/job/jailor
 	give_bank_account = 25
-	cmode_music = 'sound/music/cmode/garrison/CombatJailor.ogg'
+	cmode_music = 'sound/music/cmode/nobility/CombatDungeoneer.ogg'
 
 /datum/outfit/job/jailor
 	job_bitflag = BITFLAG_GARRISON

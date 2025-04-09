@@ -196,7 +196,7 @@
 /mob/living/simple_animal/pet/cat/attack_hand(mob/living/carbon/human/M) // Gato Basado - not all pets are welcome
 	. = ..()
 	if(stat != DEAD) // Don't do this if they're dead!!! Jeez!!
-		if(M.mind && M.mind.has_antag_datum(/datum/antagonist/vampirelord)) // Cats always hiss at vampires
+		if(M.mind && M.mind.has_antag_datum(/datum/antagonist/vampire)) // Cats always hiss at vampires
 			visible_message("<span class='notice'>\The [src] hisses at [M] and recoils in disgust.</span>")
 			icon_state = "[icon_living]"
 			set_resting(FALSE)
