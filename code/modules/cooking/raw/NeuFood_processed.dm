@@ -683,7 +683,7 @@
 				qdel(src)
 		if(istype(I, /obj/item/reagent_containers/food/snacks/produce/plum) || istype(I, /obj/item/reagent_containers/food/snacks/plum_dried))
 			playsound(get_turf(user), 'sound/foley/kneading_alt.ogg', 90, TRUE, -1)
-			to_chat(user, span_notice("notice'>Mixing plum into the gelatine..."))
+			to_chat(user, span_notice("Mixing plum into the gelatine..."))
 			if(do_after(user,long_cooktime, src))
 				new /obj/item/reagent_containers/food/snacks/jellycake_plum(loc)
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT))
