@@ -444,9 +444,6 @@
 	usr << browse(dat, "window=admin2;size=240x280")
 	return
 
-/////////////////////////////////////////////////////////////////////////////////////////////////admins2.dm merge
-//i.e. buttons/verbs
-
 #define REGULAR_RESTART "Regular Restart"
 #define REGULAR_RESTART_DELAYED "Regular Restart (with delay)"
 #define HARD_RESTART "Hard Restart (No Delay/Feedback Reason)"
@@ -472,15 +469,15 @@
 		return
 
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Reboot World") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-	var/init_by = "Initiated by Admin."
+	var/init_by = "Initiated by [get_display_ckey(usr.ckey)]."
 	switch(result)
-		if(REGULAR_RESTART)
-			SSticker.Reboot(init_by, "admin reboot - by [usr.key]", 1 SECONDS)
-		if(REGULAR_RESTART_DELAYED)
-			var/delay = input("What delay should the restart have (in seconds)?", "Restart Delay", 5) as num|null
-			if(!delay)
-				return FALSE
-			SSticker.Reboot(init_by, "admin reboot - by [usr.key]", delay SECONDS)
+		if(REGULAR_RESTART, REGULAR_RESTART_DELAYED)
+			var/delay = 1
+			if(result == REGULAR_RESTART_DELAYED)
+				delay = input("What delay should the restart have (in seconds)?", "Restart Delay", 5) as num|null
+				if(!delay)
+					return FALSE
+			SSticker.Reboot(init_by, "admin reboot - by [usr.key][usr.client.holder.fakekey ? " (stealth)" : ""]", delay SECONDS)
 		if(HARD_RESTART)
 			to_chat(world, "World reboot - [init_by]")
 			world.Reboot()
