@@ -53,13 +53,13 @@
 	)
 	output = /obj/item/clothing/cloak/apron
 
-/datum/repeatable_crafting_recipe/sewing/roguehood
+/datum/repeatable_crafting_recipe/sewing/roguehood/uncolored
 	name = "hood"
 	requirements = list(
 		/obj/item/natural/cloth = 1,
 		/obj/item/natural/fibers = 1,
 	)
-	output = /obj/item/clothing/head/roguehood
+	output = /obj/item/clothing/head/roguehood/uncolored
 
 /datum/repeatable_crafting_recipe/sewing/clothgloves
 	name = "cloth gloves"
