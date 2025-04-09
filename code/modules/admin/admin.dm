@@ -83,7 +83,7 @@
 		body += " \[<A href='?_src_=holder;[HrefToken()];revive=[REF(M)]'>Heal</A>\] "
 
 	if(M.client)
-		body += "<br>\[<b>First Seen:</b> [M.client.player_join_date]\]\[<b>Byond account registered on:</b> [M.client.account_join_date]\]"
+		body += "<br>\[<b>First Seen:</b> [M.client.player_join_date]\]\[<b>Byond account registered on:</b> [M.client.account_join_date]\] IP: [M.client.address]"
 		body += "<br><br><b>CentCom Ban DB: </b> "
 		if(CONFIG_GET(string/centcom_ban_db))
 			body += "<a href='byond://?_src_=holder;[HrefToken()];centcomlookup=[M.client.ckey]'>Search</a>"
@@ -1008,3 +1008,16 @@
 	set name="Fix Death Arena"
 	SSdeath_arena.admin_reset()
 	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Toggle LOOC", "[GLOB.ooc_allowed ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+/datum/admins/proc/toggle_debug_pathfinding()
+	set category = "GameMaster"
+	set desc="Pathfinding Debug"
+	set name="Pathfinding Debug"
+	var/mob/user = usr
+	if(!user.client.holder)
+		return
+
+	if(!user.client.holder.path_debug)
+		user.client.holder.path_debug = new(user.client.holder)
+	else
+		QDEL_NULL(user.client.holder.path_debug)

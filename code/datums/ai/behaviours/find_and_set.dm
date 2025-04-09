@@ -94,3 +94,72 @@
 	. = ..()
 	if(succeeded)
 		controller.pawn.icon_state = "mimicopen"
+
+/**
+ * Variant of find and set which returns the nearest wall which isn't invulnerable
+ */
+/datum/ai_behavior/find_and_set/nearest_wall
+
+/datum/ai_behavior/find_and_set/nearest_wall/search_tactic(datum/ai_controller/controller, locate_path, search_range)
+	var/mob/living/living_pawn = controller.pawn
+
+	var/list/nearby_walls = list()
+	for (var/turf/closed/new_wall in oview(search_range, controller.pawn))
+		if (isindestructiblewall(new_wall))
+			continue
+		nearby_walls += new_wall
+
+	if(nearby_walls.len)
+		return get_closest_atom(/turf/closed/, nearby_walls, living_pawn)
+
+/**
+ * A variant that looks for a human who is not dead or incapacitated, and has a mind
+ */
+/datum/ai_behavior/find_and_set/conscious_person
+
+/datum/ai_behavior/find_and_set/conscious_person/search_tactic(datum/ai_controller/controller, locate_path, search_range)
+	var/list/customers = list()
+	for(var/mob/living/carbon/human/target in oview(search_range, controller.pawn))
+		if(IS_DEAD_OR_INCAP(target) || !target.mind)
+			continue
+		customers += target
+
+	if(customers.len)
+		return pick(customers)
+
+	return null
+
+/datum/ai_behavior/find_and_set/nearby_friends
+	action_cooldown = 2 SECONDS
+
+/datum/ai_behavior/find_and_set/nearby_friends/search_tactic(datum/ai_controller/controller, locate_path, search_range)
+	var/atom/friend = locate(/mob/living/carbon/human) in oview(search_range, controller.pawn)
+
+	if(isnull(friend))
+		return null
+
+	var/mob/living/living_pawn = controller.pawn
+	var/potential_friend = living_pawn.faction.Find(REF(friend)) ? friend : null
+	return potential_friend
+
+
+/datum/ai_behavior/find_and_set/in_list/turf_types
+
+/datum/ai_behavior/find_and_set/in_list/turf_types/search_tactic(datum/ai_controller/controller, locate_paths, search_range)
+	var/list/found = RANGE_TURFS(search_range, controller.pawn)
+	shuffle_inplace(found)
+	for(var/turf/possible_turf as anything in found)
+		if(!is_type_in_typecache(possible_turf, locate_paths))
+			continue
+		if(can_see(controller.pawn, possible_turf, search_range))
+			return possible_turf
+	return null
+
+/datum/ai_behavior/find_and_set/in_list/closest_turf
+
+/datum/ai_behavior/find_and_set/in_list/closest_turf/search_tactic(datum/ai_controller/controller, locate_paths, search_range)
+	var/list/found = RANGE_TURFS(search_range, controller.pawn)
+	for(var/turf/possible_turf as anything in found)
+		if(!is_type_in_typecache(possible_turf, locate_paths) || !can_see(controller.pawn, possible_turf, search_range))
+			found -= possible_turf
+	return (length(found)) ? get_closest_atom(/turf, found, controller.pawn) : null

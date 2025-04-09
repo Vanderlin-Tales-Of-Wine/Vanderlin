@@ -15,14 +15,16 @@
 	vitae_pool = 1000 // Not as much vitae from them as humans to avoid vampires cheesing mobs
 
 /mob/living/carbon/human/species/orc/npc
-	aggressive=1
-	mode = AI_IDLE
+	ai_controller = /datum/ai_controller/human_npc
 	dodgetime = 15 //they can dodge easily, but have a cooldown on it
 	canparry = TRUE
 	flee_in_pain = FALSE
 
 	wander = FALSE
 
+/mob/living/carbon/human/species/orc/npc/Initialize()
+	. = ..()
+	AddComponent(/datum/component/combat_noise, list("aggro" = 2))
 
 /mob/living/carbon/human/species/orc/ambush/after_creation()
 	..()
@@ -30,8 +32,6 @@
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
 	equipOutfit(new /datum/outfit/job/npc/orc/ambush)
-	aggressive=1
-	mode = AI_IDLE
 	dodgetime = 15
 	canparry = TRUE
 	flee_in_pain = FALSE
@@ -57,7 +57,7 @@
 /obj/item/bodypart/head/orc/skeletonize()
 	. = ..()
 	icon_state = "orc_skel_head"
-	sellprice = 2
+	headprice = 2
 
 /mob/living/carbon/human/species/orc/update_body()
 	remove_overlay(BODY_LAYER)
@@ -99,12 +99,6 @@
 	. = ..()
 	addtimer(CALLBACK(src, PROC_REF(after_creation)), 1 SECONDS)
 
-/mob/living/carbon/human/species/orc/handle_combat()
-	if(mode == AI_HUNT)
-		if(prob(2))
-			emote("aggro")
-	. = ..()
-
 /mob/living/carbon/human/species/orc/proc/configure_mind()
 	if(!mind)
 		mind = new /datum/mind(src)
@@ -117,22 +111,16 @@
 	mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 	mind.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
 
-/mob/living/carbon/human/species/orc/handle_combat()
-	if(mode == AI_HUNT)
-		if(prob(2))
-			emote("aggro")
-	. = ..()
-
 /mob/living/carbon/human/species/orc/after_creation()
 	..()
 	gender = MALE
 	if(src.dna && src.dna.species)
 		src.dna.species.soundpack_m = new /datum/voicepack/orc()
-		var/obj/item/headdy = get_bodypart("head")
+		var/obj/item/bodypart/head/headdy = get_bodypart("head")
 		if(headdy)
 			headdy.icon = 'icons/roguetown/mob/monster/Orc.dmi'
 			headdy.icon_state = "[src.dna.species.id]_head"
-			headdy.sellprice = rand(15,40)
+			headdy.headprice = rand(15,40)
 	src.grant_language(/datum/language/common)
 	var/obj/item/organ/eyes/eyes = src.getorganslot(ORGAN_SLOT_EYES)
 	if(eyes)
@@ -320,8 +308,6 @@
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
 	equipOutfit(new /datum/outfit/job/npc/orc/tribal)
-	aggressive=1
-	mode = AI_IDLE
 	dodgetime = 15
 	canparry = TRUE
 	flee_in_pain = FALSE
@@ -371,8 +357,6 @@
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
 	equipOutfit(new /datum/outfit/job/npc/orc/warrior)
-	aggressive=1
-	mode = AI_IDLE
 	dodgetime = 15
 	canparry = TRUE
 	flee_in_pain = FALSE
@@ -443,8 +427,6 @@
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
 	equipOutfit(new /datum/outfit/job/npc/orc/marauder)
-	aggressive=1
-	mode = AI_IDLE
 	dodgetime = 15
 	canparry = TRUE
 	flee_in_pain = FALSE
@@ -498,8 +480,6 @@
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
 	equipOutfit(new /datum/outfit/job/npc/orc/warlord)
-	aggressive=1
-	mode = AI_IDLE
 	dodgetime = 15
 	canparry = TRUE
 	flee_in_pain = FALSE
@@ -541,8 +521,6 @@
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
 	equipOutfit(new /datum/outfit/job/npc/orc/warlord)
-	aggressive=1
-	mode = AI_IDLE
 	dodgetime = 15
 	canparry = TRUE
 	flee_in_pain = FALSE

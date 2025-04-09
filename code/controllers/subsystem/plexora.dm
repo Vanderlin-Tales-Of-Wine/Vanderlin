@@ -658,7 +658,7 @@ SUBSYSTEM_DEF(plexora)
 		message = span_adminsay("<i>Click on the administrator's name to reply.</i>"),)
 
 
-	admin_ticket_log(recipient, "<font color='purple'>PM From [adminname]: [message]</font>")
+	admin_ticket_log(recipient, "<font color='purple'>PM From [adminname]: [message]</font>", player_message = "<font color='purple'>PM From [adminname]: [message]</font>")
 
 	window_flash(recipient, ignorepref = TRUE)
 	// Nullcheck because we run a winset in window flash and I do not trust byond

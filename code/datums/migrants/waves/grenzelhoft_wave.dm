@@ -2,10 +2,7 @@
 	name = "Grenzelhoft Count"
 	greet_text = "A Count hailing from the Grenzelhoft Imperiate, here on an official visit to the Peninsula of Vanderlin alongside his beloved convoy and spouse."
 	allowed_sexes = list(MALE)
-	allowed_races = list(
-		"Humen",
-		"Dwarf"
-	)
+	allowed_races = RACES_PLAYER_GRENZ
 	outfit = /datum/outfit/job/grenzelhoft_migration/count
 	grant_lit_torch = TRUE
 	is_foreigner = FALSE
@@ -21,7 +18,7 @@
 	beltl = /obj/item/weapon/sword/sabre/dec
 	beltr = /obj/item/flashlight/flare/torch/lantern
 	backr = /obj/item/storage/backpack/satchel
-	id = /obj/item/clothing/ring/gold
+	ring = /obj/item/clothing/ring/gold
 	shirt = /obj/item/clothing/shirt/grenzelhoft
 	pants = /obj/item/clothing/pants/grenzelpants
 	neck = /obj/item/clothing/neck/gorget
@@ -78,7 +75,7 @@
 	beltl = /obj/item/weapon/sword/rapier/dec
 	beltr = /obj/item/flashlight/flare/torch/lantern
 	backr = /obj/item/storage/backpack/satchel
-	id = /obj/item/clothing/ring/gold
+	ring = /obj/item/clothing/ring/gold
 	shirt = /obj/item/clothing/shirt/grenzelhoft
 	pants = /obj/item/clothing/pants/grenzelpants
 	neck = /obj/item/clothing/neck/gorget

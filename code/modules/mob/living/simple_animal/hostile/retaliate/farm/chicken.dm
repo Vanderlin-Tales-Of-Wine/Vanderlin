@@ -59,7 +59,7 @@
 	TOTALSPD = 5
 	tame = TRUE
 
-	AIStatus = AI_STATUS_OFF
+	AIStatus = AI_OFF
 	can_have_ai = FALSE
 	ai_controller = /datum/ai_controller/basic_controller/chicken
 

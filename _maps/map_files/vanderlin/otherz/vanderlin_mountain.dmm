@@ -1496,6 +1496,10 @@
 /obj/effect/spawner/map_spawner/loot/weapon,
 /turf/open/floor/blocks,
 /area/rogue/under/mountains/anvil/lower/building)
+"xo" = (
+/obj/structure/fake_machine/hailerboard,
+/turf/open/floor/naturalstone,
+/area/rogue/under/mountains/anvil/lower/building)
 "xs" = (
 /obj/structure/chair/wood/alt/chair3{
 	dir = 4
@@ -4886,8 +4890,8 @@ cB
 cB
 vV
 vV
-vV
-Ly
+VB
+xo
 Ly
 Ly
 Ly

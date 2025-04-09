@@ -277,7 +277,7 @@
 	RegisterSignal(my_turf, COMSIG_ATOM_ENTERED, PROC_REF(movable_entered))
 
 /**
- * Handles COMSIG_ATOM_EXAMINE for the turf.
+ * Handles COMSIG_PARENT_EXAMINE for the turf.
  *
  * Adds reagent info to examine text.
  * Arguments:

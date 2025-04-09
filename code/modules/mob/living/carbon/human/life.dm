@@ -31,9 +31,6 @@
 	if (QDELETED(src))
 		return 0
 
-	if(. && (mode != AI_OFF))
-		handle_ai()
-
 	if(advsetup)
 		Stun(50)
 
@@ -76,7 +73,7 @@
 		charflaw.flaw_on_life(src)
 	if(health <= 0)
 		apply_damage(1, OXY)
-	if(mode == AI_OFF && !client && !HAS_TRAIT(src, TRAIT_NOSLEEP))
+	if(!client && !HAS_TRAIT(src, TRAIT_NOSLEEP) && !ai_controller)
 		if(MOBTIMER_EXISTS(src, MT_SLO))
 			if(MOBTIMER_FINISHED(src, MT_SLO, 90 SECONDS)) //?????
 				Sleeping(100)

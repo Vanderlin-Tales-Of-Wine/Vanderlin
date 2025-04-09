@@ -416,7 +416,7 @@ All foods are distributed among various categories. Use common sense.
 		qdel(src)
 		return FALSE
 
-	return 0
+	return ..()
 
 /obj/item/reagent_containers/food/snacks/examine(mob/user)
 	. = ..()

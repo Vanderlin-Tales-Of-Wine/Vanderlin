@@ -652,6 +652,10 @@
 /obj/structure/chair/stool,
 /turf/open/floor/naturalstone,
 /area/rogue/indoors/cave)
+"ym" = (
+/obj/structure/fake_machine/hailerboard/r,
+/turf/open/floor/grass,
+/area/rogue/outdoors/woods)
 "yL" = (
 /obj/structure/mineral_door/wood/deadbolt{
 	dir = 1
@@ -40862,7 +40866,7 @@ UM
 UR
 wV
 wV
-UR
+ym
 Jg
 zg
 Qd

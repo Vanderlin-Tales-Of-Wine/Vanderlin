@@ -16,16 +16,7 @@
 	min_pq = 10
 
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc"
-	)
+	allowed_races = RACES_PLAYER_NONEXOTIC
 
 	outfit = /datum/outfit/job/dungeoneer
 	give_bank_account = 50

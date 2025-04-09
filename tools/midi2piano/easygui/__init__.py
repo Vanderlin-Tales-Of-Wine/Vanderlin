@@ -1314,7 +1314,7 @@ def exceptionbox(msg=None, title=None):
     Display a box that gives information about
     an exception that has just been raised.
 
-    The caller may optionally pass in a title for the window, or a
+    The requester may optionally pass in a title for the window, or a
     msg to accompany the error information.
 
     Note that you do not need to (and cannot) pass an exception object

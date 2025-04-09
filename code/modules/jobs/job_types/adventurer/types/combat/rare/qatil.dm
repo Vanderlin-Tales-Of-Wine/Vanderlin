@@ -8,6 +8,7 @@
 		"Half-Elf",
 		"Tiefling",
 		"Dark Elf",
+		"Rakshari"
 	)
 	outfit = /datum/outfit/job/adventurer/qatil
 	maximum_possible_slots = 1

@@ -4353,6 +4353,10 @@
 /obj/item/natural/rock,
 /turf/open/floor/grass/red,
 /area/rogue/outdoors/woods_safe)
+"PM" = (
+/obj/structure/maniac_return_machine,
+/turf/open/floor/plasteel/maniac/damaged,
+/area/rogue)
 "PN" = (
 /obj/structure/table/wood/reinforced,
 /obj/item/clothing/neck/coif,
@@ -10780,7 +10784,7 @@ Fz
 YI
 Sr
 kB
-AV
+PM
 Sr
 AV
 YI

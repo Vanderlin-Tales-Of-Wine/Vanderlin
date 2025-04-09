@@ -289,6 +289,8 @@
 								atkswinging = null
 								//update_warning()
 								return
+					if(cmode)
+						resolveAdjacentClick(T,W,params,used_hand) //hit the turf
 					if(!used_intent.noaa)
 						changeNext_move(CLICK_CD_MELEE)
 						if(get_dist(get_turf(src), T) <= used_intent.reach)
@@ -485,7 +487,8 @@
 	animals lunging, etc.
 */
 /mob/proc/RangedAttack(atom/A, params)
-	SEND_SIGNAL(src, COMSIG_MOB_ATTACK_RANGED, A, params)
+	if(SEND_SIGNAL(src, COMSIG_MOB_ATTACK_RANGED, A, params) & COMPONENT_CANCEL_ATTACK_CHAIN)
+		return TRUE
 /*
 	Restrained ClickOn
 

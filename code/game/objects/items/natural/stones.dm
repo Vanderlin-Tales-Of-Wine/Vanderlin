@@ -130,13 +130,17 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 	name = "stone"
 	desc = "A piece of rough ground stone."
 	icon_state = "stone1"
+	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
+	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
+	item_state = "stone"
+	experimental_inhand = FALSE
 	gripped_intents = null
 	dropshrink = 0.75
 	possible_item_intents = list(INTENT_GENERIC)
 	force = 10
 	throwforce = 15
 	slot_flags = ITEM_SLOT_MOUTH
-	w_class = WEIGHT_CLASS_TINY
+	w_class = WEIGHT_CLASS_SMALL
 	/// If our stone is magical, this lets us know -how- magical. Maximum is 15.
 	var/magic_power = 0
 	var/magicstone = FALSE
@@ -250,9 +254,9 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 			extra_intent_list -= cock // Remove it from the prev list
 
 	//Now that we have built the history and lore of this stone, we apply it to the main vars.
-	name = stone_title
+	name = lowertext(stone_title)
 	desc = stone_desc
-	force += bonus_force // This will result in a stone that has only 40 max at a extremely low chance damage at this time of this PR.
+	// force += bonus_force // This will result in a stone that has only 40 max at a extremely low chance damage at this time of this PR.
 	throwforce += bonus_force // It gets added to throw damage too
 	possible_item_intents = given_intent_list // And heres ur new extra intents too
 
@@ -282,6 +286,30 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 			S.set_up(1, 1, front)
 			S.start()
 		return
+	. = ..()
+
+/obj/item/natural/stone/attackby(obj/item/W, mob/living/user, params)
+	user.changeNext_move(CLICK_CD_MELEE)
+	var/list/offhand_types = typecacheof(list(/obj/item/weapon/hammer, /obj/item/natural/stone, /obj/item/natural/stoneblock))
+	var/item = user.get_inactive_held_item()
+	if(user.used_intent.type == /datum/intent/chisel && is_type_in_typecache(item, offhand_types))
+		var/skill_level = user.mind.get_skill_level(/datum/skill/craft/masonry)
+		var/work_time = (4 SECONDS - (skill_level * 5))
+		if(istype(W, /obj/item/weapon/chisel))
+			var/obj/item/weapon/chisel/chisel = W
+			work_time *= chisel.time_multiplier
+		playsound(src.loc, pick('sound/combat/hits/onrock/onrock (1).ogg', 'sound/combat/hits/onrock/onrock (2).ogg', 'sound/combat/hits/onrock/onrock (3).ogg', 'sound/combat/hits/onrock/onrock (4).ogg'), 100)
+		user.visible_message("<span class='info'>[user] begins chiseling [src] into blocks.</span>")
+		var/stone_amount = rand(1, max(round(skill_level)/2, 1))
+		if(do_after(user, work_time))
+			for(var/i in 1 to stone_amount)
+				new /obj/item/natural/stoneblock(get_turf(src.loc))
+			if(prob(10))
+				new /obj/effect/decal/cleanable/debris/stone(get_turf(src))
+			playsound(src.loc, 'sound/foley/smash_rock.ogg', 100)
+			qdel(src)
+			user.mind.add_sleep_experience(/datum/skill/craft/masonry, (user.STAINT*0.2))
+		return TRUE
 	. = ..()
 
 /obj/item/natural/rock
@@ -355,6 +383,25 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 		return
 	. = ..()
 
+/obj/item/natural/rock/attackby(obj/item/W, mob/living/user, params)
+	user.changeNext_move(CLICK_CD_MELEE)
+	var/list/offhand_types = typecacheof(list(/obj/item/weapon/hammer, /obj/item/natural/stone, /obj/item/natural/stoneblock))
+	var/item = user.get_inactive_held_item()
+	if(user.used_intent.type == /datum/intent/chisel && is_type_in_typecache(item, offhand_types))
+		var/skill_level = user.mind.get_skill_level(/datum/skill/craft/masonry)
+		var/work_time = (10 SECONDS - (skill_level * 5))
+		if(istype(W, /obj/item/weapon/chisel))
+			var/obj/item/weapon/chisel/chisel = W
+			work_time *= chisel.time_multiplier
+		playsound(src.loc, pick('sound/combat/hits/onrock/onrock (1).ogg', 'sound/combat/hits/onrock/onrock (2).ogg', 'sound/combat/hits/onrock/onrock (3).ogg', 'sound/combat/hits/onrock/onrock (4).ogg'), 100)
+		user.visible_message("<span class='info'>[user] begins chiseling a part of [src] off.</span>")
+		if(do_after(user, work_time))
+			new /obj/item/natural/stoneblock(get_turf(src.loc))
+			take_damage(max_integrity/2)
+			user.mind.add_sleep_experience(/datum/skill/craft/masonry, (user.STAINT*0.2))
+		return TRUE
+	. = ..()
+
 //begin ore loot rocks
 /obj/item/natural/rock/gold
 	mineralType = /obj/item/ore/gold
@@ -399,3 +446,51 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 	))
 	new theboi(get_turf(src))
 	return INITIALIZE_HINT_QDEL
+
+//................	Stone blocks	............... //
+/obj/item/natural/stoneblock
+	name = "stone block"
+	desc = "A rectangular stone block for building."
+	icon = 'icons/roguetown/items/natural.dmi'
+	icon_state = "stoneblock"
+	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
+	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
+	item_state = "block"
+	experimental_inhand = FALSE
+	drop_sound = 'sound/foley/dropsound/brick_drop.ogg'
+	hitsound = 'sound/foley/dropsound/brick_drop.ogg'
+	possible_item_intents = list(INTENT_GENERIC)
+	force = 10
+	throwforce = 18 //brick is valid weapon
+	w_class = WEIGHT_CLASS_SMALL
+	bundletype = /obj/item/natural/bundle/stoneblock
+	sellprice = 2
+
+//................ Stone block stack	............... //
+/obj/item/natural/bundle/stoneblock
+	name = "stack of stone blocks"
+	desc = "A stack of stone blocks."
+	icon_state = "stoneblockbundle1"
+	icon = 'icons/roguetown/items/natural.dmi'
+	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
+	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
+	item_state = "block"
+	experimental_inhand = FALSE
+	grid_width = 64
+	grid_height = 64
+	base_width = 64
+	base_height = 64
+	drop_sound = 'sound/foley/dropsound/brick_drop.ogg'
+	pickup_sound = 'sound/foley/dropsound/brick_drop.ogg'
+	possible_item_intents = list(/datum/intent/use)
+	force = 2
+	throwforce = 0	// useless for throwing unless solo
+	throw_range = 2
+	w_class = WEIGHT_CLASS_NORMAL
+	stackname = "stone blocks"
+	stacktype = /obj/item/natural/stoneblock
+	maxamount = 4
+	icon1 = "stoneblockbundle2"
+	icon1step = 3
+	icon2 = "stoneblockbundle3"
+	icon2step = 4
