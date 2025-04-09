@@ -14,7 +14,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/under/cavelava)
 "f" = (
-/mob/living/carbon/human/species/goblin/hell,
+/mob/living/carbon/human/species/goblin/npc/hell,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/item/clothing/pants/trou/leather/advanced,
 /obj/item/clothing/wrists/bracers/leather,
@@ -84,7 +84,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/cavelava)
 "w" = (
-/mob/living/carbon/human/species/goblin/hell,
+/mob/living/carbon/human/species/goblin/npc/hell,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/item/clothing/pants/trou/leather/advanced,
 /obj/item/clothing/wrists/bracers/leather,

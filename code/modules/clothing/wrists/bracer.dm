@@ -28,8 +28,7 @@
 	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
 	anvilrepair = null
 	sewrepair = TRUE
-	salvage_amount = 1
-	salvage_result = /obj/item/natural/hide/cured
+	salvage_result = null
 
 /obj/item/clothing/wrists/bracers/leather/advanced
 	name = "hardened leather bracers"

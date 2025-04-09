@@ -17,6 +17,7 @@
 		/datum/job/consort,
 		/datum/job/priest,
 		/datum/job/captain,
+		/datum/job/gaffer //opening up the slot will break the gaffer ring code
 	)
 
 /obj/structure/train/MouseDrop_T(atom/dropping, mob/user)

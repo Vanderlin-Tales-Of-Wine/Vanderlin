@@ -2372,6 +2372,10 @@
 /obj/item/weapon/mace/woodclub/train_sword,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/mountains/anvil/lower/building)
+"Lq" = (
+/obj/structure/fake_machine/hailerboard,
+/turf/open/floor/naturalstone,
+/area/rogue/under/mountains/anvil/lower/building)
 "Ly" = (
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower/building)
@@ -4886,8 +4890,8 @@ cB
 cB
 vV
 vV
-vV
-Ly
+VB
+Lq
 Ly
 Ly
 Ly

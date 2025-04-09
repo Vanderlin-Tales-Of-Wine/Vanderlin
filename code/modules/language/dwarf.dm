@@ -5,11 +5,15 @@
 	ask_verb = "asks"
 	exclaim_verb = "shouts"
 	key = "d"
-	flags = LANGUAGE_HIDE_ICON_IF_UNDERSTOOD | LANGUAGE_HIDE_ICON_IF_NOT_UNDERSTOOD
-	space_chance = 73
+	flags = LANGUAGE_HIDE_ICON_IF_UNDERSTOOD
+	space_chance = 0
+	between_word_sentence_chance = 0
+	between_word_space_chance = 75
+	additional_syllable_low = -2
+	additional_syllable_high = -1
 	default_priority = 90
 	spans = list(SPAN_DWARF)
-	icon_state = "ass"
+	icon_state = "dwarf"
 	syllables = list(
 "AA",
 "AL",
@@ -167,3 +171,7 @@
 "HAA",
 "UIT",
 "ELĲ")
+
+	mutual_understanding = list(
+		/datum/language/elvish = 33,
+	)

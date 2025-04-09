@@ -73,8 +73,8 @@
 	if(.)
 		to_chat(usr, .)
 
-GLOBAL_VAR(AdminProcCaller)
-GLOBAL_PROTECT(AdminProcCaller)
+GLOBAL_VAR(AdminProcrequester)
+GLOBAL_PROTECT(AdminProcrequester)
 GLOBAL_VAR_INIT(AdminProcCallCount, 0)
 GLOBAL_PROTECT(AdminProcCallCount)
 GLOBAL_VAR(LastAdminCalledTargetRef)
@@ -94,27 +94,27 @@ GLOBAL_PROTECT(AdminProcCallSpamPrevention)
 	if(target != GLOBAL_PROC && !target.CanProcCall(procname))
 		to_chat(usr, "Proccall on [target.type]/proc/[procname] is disallowed!")
 		return
-	var/current_caller = GLOB.AdminProcCaller
-	var/ckey = usr ? usr.client.ckey : GLOB.AdminProcCaller
+	var/current_requester = GLOB.AdminProcrequester
+	var/ckey = usr ? usr.client.ckey : GLOB.AdminProcrequester
 	if(!ckey)
 		CRASH("WrapAdminProcCall with no ckey: [target] [procname] [english_list(arguments)]")
-	if(current_caller && current_caller != ckey)
+	if(current_requester && current_requester != ckey)
 		if(!GLOB.AdminProcCallSpamPrevention[ckey])
 			to_chat(usr, "<span class='adminnotice'>Another set of admin called procs are still running, your proc will be run after theirs finish.</span>")
 			GLOB.AdminProcCallSpamPrevention[ckey] = TRUE
-			UNTIL(!GLOB.AdminProcCaller)
+			UNTIL(!GLOB.AdminProcrequester)
 			to_chat(usr, "<span class='adminnotice'>Running your proc</span>")
 			GLOB.AdminProcCallSpamPrevention -= ckey
 		else
-			UNTIL(!GLOB.AdminProcCaller)
+			UNTIL(!GLOB.AdminProcrequester)
 	GLOB.LastAdminCalledProc = procname
 	if(target != GLOBAL_PROC)
 		GLOB.LastAdminCalledTargetRef = REF(target)
-	GLOB.AdminProcCaller = ckey	//if this runtimes, too bad for you
+	GLOB.AdminProcrequester = ckey	//if this runtimes, too bad for you
 	++GLOB.AdminProcCallCount
 	. = world.WrapAdminProcCall(target, procname, arguments)
 	if(--GLOB.AdminProcCallCount == 0)
-		GLOB.AdminProcCaller = null
+		GLOB.AdminProcrequester = null
 
 //adv proc call this, ya nerds
 /world/proc/WrapAdminProcCall(datum/target, procname, list/arguments)
@@ -129,7 +129,7 @@ GLOBAL_PROTECT(AdminProcCallSpamPrevention)
 #ifdef TESTING
 	return FALSE
 #else
-	return usr && usr.client && GLOB.AdminProcCaller == usr.client.ckey
+	return usr && usr.client && GLOB.AdminProcrequester == usr.client.ckey
 #endif
 
 /client/proc/callproc_datum(datum/A as null|area|mob|obj|turf)

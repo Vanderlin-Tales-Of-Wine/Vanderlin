@@ -13,7 +13,7 @@
 	spawn_positions = 0
 
 	allowed_sexes = list(FEMALE)
-	allowed_races =  ALL_PLAYER_RACES_BY_NAME
+	allowed_races =  RACES_PLAYER_ALL
 	allowed_ages = ALL_AGES_LIST
 
 	outfit = /datum/outfit/job/nitemaiden
@@ -26,7 +26,7 @@
 	armor = /obj/item/clothing/shirt/dress/gen/sexy
 	//neck = /obj/item/storage/belt/pouch/nitemaiden
 	belt = /obj/item/storage/belt/leather/rope
-	beltr = /obj/item/key/nitemaiden
+	beltr = /obj/item/key/bathhouse
 	//ADD_TRAIT(H, TRAIT_GOODLOVER, TRAIT_GENERIC)
 
 	if(H.mind)

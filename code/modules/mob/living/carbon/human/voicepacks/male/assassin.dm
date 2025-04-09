@@ -2,7 +2,7 @@
 	var/used
 	switch(soundin)
 		if("laugh")
-			used = list('sound/vo/assassin/mlaugh.ogg', 'sound/vo/assassin/mlaugh1.ogg', 'sound/vo/assassin/mlaugh2.ogg')
+			used = list('sound/vo/assassin/mlaugh.ogg')
 		if("whistle")
 			used = list('sound/vo/assassin/whistle1.ogg', 'sound/vo/assassin/whistle2.ogg')
 	if(!used)

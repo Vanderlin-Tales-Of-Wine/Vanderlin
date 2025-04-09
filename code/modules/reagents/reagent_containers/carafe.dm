@@ -66,7 +66,7 @@
 		if(H.dna && H.dna.species)
 			if(istype(H.dna.species, /datum/species/werewolf))
 				return FALSE
-	if(M.mind && M.mind.has_antag_datum(/datum/antagonist/vampirelord))
+	if(M.mind && M.mind.has_antag_datum(/datum/antagonist/vampire))
 		return FALSE
 
 /obj/item/reagent_containers/glass/carafe/gold

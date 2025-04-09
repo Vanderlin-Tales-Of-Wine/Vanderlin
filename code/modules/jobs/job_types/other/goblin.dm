@@ -9,19 +9,7 @@
 	spawn_positions = 0
 
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Rakshari",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc",
-		"Kobold",
-	)
-
+	allowed_races = RACES_PLAYER_ALL
 	outfit = /datum/outfit/job/npc/goblin
 	give_bank_account = FALSE
 
@@ -41,11 +29,11 @@
 		H.dna.species.species_traits |= NOBLOOD
 		H.dna.species.soundpack_m = new /datum/voicepack/goblin()
 		H.dna.species.soundpack_f = new /datum/voicepack/goblin()
-	var/obj/item/headdy = H.get_bodypart("head")
+	var/obj/item/bodypart/head/headdy = H.get_bodypart("head")
 	if(headdy)
 		headdy.icon = 'icons/roguetown/mob/monster/goblins.dmi'
 		headdy.icon_state = "[H.dna.species.id]_head"
-		headdy.sellprice = rand(7,20)
+		headdy.headprice = rand(7,20)
 	H.regenerate_limb(BODY_ZONE_R_ARM)
 	H.regenerate_limb(BODY_ZONE_L_ARM)
 	H.remove_all_languages()

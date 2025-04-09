@@ -129,3 +129,12 @@
 
 /turf/open/proc/ClearWet()//Nuclear option of immediately removing slipperyness from the tile instead of the natural drying over time
 	qdel(GetComponent(/datum/component/wet_floor))
+
+/turf/open/attacked_by(obj/item/I, mob/living/user)
+	if(!(flags_1 & CAN_BE_ATTACKED_1))
+		return TRUE
+	. = ..()
+
+/turf/open/OnCrafted(dirin, mob/user)
+	. = ..()
+	flags_1 |= CAN_BE_ATTACKED_1

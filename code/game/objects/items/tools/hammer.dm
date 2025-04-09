@@ -159,7 +159,7 @@
 	force = 4
 	smeltresult = null
 	can_smith = FALSE
-	time_multiplier = 1.5
+	time_multiplier = 1.2
 
 /obj/item/weapon/hammer/wood/getonmobprop(tag)
 	. = ..()

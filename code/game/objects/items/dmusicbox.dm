@@ -7,6 +7,7 @@
 	extra_range = 5
 	var/stress2give = /datum/stressevent/music
 	persistent_loop = TRUE
+	sound_group = /datum/sound_group/instruments
 
 /datum/looping_sound/dmusloop/on_hear_sound(mob/M)
 	. = ..()

@@ -675,6 +675,9 @@ will handle it, but:
 
 			if(H.belt && wash_obj(H.belt,clean))
 				H.update_inv_belt()
+
+			if(H.cloak && wash_obj(H.cloak,clean))
+				H.update_inv_cloak()
 		else
 			SEND_SIGNAL(M, COMSIG_COMPONENT_CLEAN_ACT, CLEAN_STRENGTH_BLOOD)
 	else
@@ -1063,39 +1066,6 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 		D.vv_edit_var(var_name, var_value)	//same result generally, unless badmemes
 	else
 		D.vars[var_name] = var_value
-
-#define	TRAIT_CALLBACK_ADD(target, trait, source) CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(___TraitAdd), ##target, ##trait, ##source)
-#define	TRAIT_CALLBACK_REMOVE(target, trait, source) CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(___TraitRemove), ##target, ##trait, ##source)
-
-///DO NOT USE ___TraitAdd OR ___TraitRemove as a replacement for ADD_TRAIT / REMOVE_TRAIT defines. To be used explicitly for callback.
-/proc/___TraitAdd(target,trait,source)
-	if(!target || !trait || !source)
-		return
-	if(islist(target))
-		for(var/i in target)
-			if(!isatom(i))
-				continue
-			var/atom/the_atom = i
-			ADD_TRAIT(the_atom,trait,source)
-	else if(isatom(target))
-		var/atom/the_atom2 = target
-		ADD_TRAIT(the_atom2,trait,source)
-	SEND_GLOBAL_SIGNAL(COMSIG_ATOM_ADD_TRAIT, target, trait)
-
-///DO NOT USE ___TraitAdd OR ___TraitRemove as a replacement for ADD_TRAIT / REMOVE_TRAIT defines. To be used explicitly for callback.
-/proc/___TraitRemove(target,trait,source)
-	if(!target || !trait || !source)
-		return
-	if(islist(target))
-		for(var/i in target)
-			if(!isatom(i))
-				continue
-			var/atom/the_atom = i
-			REMOVE_TRAIT(the_atom,trait,source)
-	else if(isatom(target))
-		var/atom/the_atom2 = target
-		REMOVE_TRAIT(the_atom2,trait,source)
-	SEND_GLOBAL_SIGNAL(COMSIG_ATOM_REMOVE_TRAIT, target, trait)
 
 /proc/get_random_food()
 	var/list/blocked = list(

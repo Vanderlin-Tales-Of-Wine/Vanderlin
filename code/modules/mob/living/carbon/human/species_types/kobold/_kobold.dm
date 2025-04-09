@@ -63,8 +63,18 @@
 /datum/species/kobold/on_species_gain(mob/living/carbon/C, datum/species/old_species, datum/preferences/pref_load)
 	. = ..()
 	C.AddComponent(/datum/component/abberant_eater, list(/obj/item/natural/dirtclod, /obj/item/natural/stone, /obj/item/coin, /obj/item/gem))
-	C.grant_language(/datum/language/common)
 	ADD_TRAIT(C, TRAIT_DARKVISION, SPECIES_TRAIT)
+
+
+/datum/species/kobold/on_species_gain(mob/living/carbon/C, datum/species/old_species)
+	..()
+	RegisterSignal(C, COMSIG_MOB_SAY, PROC_REF(handle_speech))
+	C.grant_language(/datum/language/common)
+
+/datum/species/kobold/on_species_loss(mob/living/carbon/C)
+	. = ..()
+	UnregisterSignal(C, COMSIG_MOB_SAY)
+	C.remove_language(/datum/language/common)
 
 /datum/species/kobold/check_roundstart_eligible()
 	return TRUE

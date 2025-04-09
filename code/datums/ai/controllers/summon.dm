@@ -2,6 +2,7 @@
 	movement_delay = 0.4 SECONDS
 
 	ai_movement = /datum/ai_movement/hybrid_pathing
+	can_idle = FALSE
 
 	blackboard = list(
 		BB_TARGETTING_DATUM = new /datum/targetting_datum/basic(),

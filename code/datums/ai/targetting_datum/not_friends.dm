@@ -7,6 +7,8 @@
 
 ///Returns true or false depending on if the target can be attacked by the mob
 /datum/targetting_datum/basic/not_friends/can_attack(mob/living/living_mob, atom/target, vision_range)
+	if(!target) // bail out on invalids
+		return FALSE
 	if(attack_closed_turf && isclosedturf(target))
 		return TRUE
 
@@ -20,6 +22,9 @@
 	if (!isturf(target.loc)) // z check will always fail if target is in a mech
 		return FALSE
 	if (!living_mob.ai_controller) // How did you get here?
+		return FALSE
+
+	if((living_mob in SSmobs.matthios_mobs) && (target in SSmobs.matthios_mobs))
 		return FALSE
 
 	if (!(target in living_mob.ai_controller.blackboard[BB_FRIENDS_LIST]))

@@ -10,6 +10,7 @@
 #define TRAIT_NOBLE					"Noble Blooded"
 #define TRAIT_EMPATH					"Empath"
 #define TRAIT_BREADY					"Battleready"
+#define TRAIT_HEARING_SENSITIVE 		"hearing_sensitive"
 #define TRAIT_MEDIUMARMOR				"Mail Training"
 #define TRAIT_HEAVYARMOR				"Plate Training"
 #define TRAIT_DODGEEXPERT              "Fast Reflexes"
@@ -94,6 +95,7 @@
 
 #define TRAIT_MALUMFIRE "Professional Smith"
 #define TRAIT_CRATEMOVER "Crate Mover"
+#define TRAIT_BURDEN "Burdened" //Gaffer stuff
 
 // PATRON CURSE TRAITS
 #define TRAIT_CURSE "Curse" //source
@@ -122,7 +124,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_HATEWOMEN = "Double damage against female mobs.",
 	TRAIT_SEEDKNOW = span_info("I know which seeds grow which crops."),
 	TRAIT_NOBLE = span_blue("I'm of noble blood."),
-	TRAIT_EMPATH = "I can notice when people are in pain.",
+	TRAIT_EMPATH = "I can notice when people are stressed.",
 	TRAIT_BREADY = "Defensive stance does not passively fatigue me.",
 	TRAIT_MEDIUMARMOR = "I can move freely in medium armor.",
 	TRAIT_HEAVYARMOR = "I can move freely in heavy armor.",
@@ -179,7 +181,11 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_SEE_LEYLINES = "I can see the lines that make up this world.",
 	TRAIT_TINY = "I am small, its hard to look people in the eyes.",
 	TRAIT_FOREIGNER = span_notice("I'm not from around here."),
+	TRAIT_BURDEN = "I carry the Burden of HEAD EATER's hunger..."
 	))
+
+#define SIGNAL_ADDTRAIT(trait_ref) ("addtrait " + trait_ref)
+#define SIGNAL_REMOVETRAIT(trait_ref) ("removetrait " + trait_ref)
 
 // trait accessor defines
 #define ADD_TRAIT(target, trait, source) \
@@ -189,6 +195,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 			target.status_traits = list(); \
 			_L = target.status_traits; \
 			_L[trait] = list(source); \
+			SEND_SIGNAL(target, SIGNAL_ADDTRAIT(trait)); \
 			SEND_GLOBAL_SIGNAL(COMSIG_ATOM_ADD_TRAIT, target, trait); \
 		} else { \
 			_L = target.status_traits; \
@@ -196,8 +203,9 @@ GLOBAL_LIST_INIT(roguetraits, list(
 				_L[trait] |= list(source); \
 			} else { \
 				_L[trait] = list(source); \
-			} \
-			SEND_GLOBAL_SIGNAL(COMSIG_ATOM_ADD_TRAIT, target, trait);\
+				SEND_SIGNAL(target, SIGNAL_ADDTRAIT(trait)); \
+				SEND_GLOBAL_SIGNAL(COMSIG_ATOM_ADD_TRAIT, target, trait); \
+			}; \
 		} \
 	} while (0)
 #define REMOVE_TRAIT(target, trait, sources) \
@@ -207,20 +215,21 @@ GLOBAL_LIST_INIT(roguetraits, list(
 		if (sources && !islist(sources)) { \
 			_S = list(sources); \
 		} else { \
-			_S = sources\
+			_S = sources; \
 		}; \
 		if (_L && _L[trait]) { \
 			for (var/_T in _L[trait]) { \
 				if ((!_S && (_T != ROUNDSTART_TRAIT)) || (_T in _S)) { \
-					_L[trait] -= _T \
-				} \
+					_L[trait] -= _T; \
+				}; \
 			};\
 			if (!length(_L[trait])) { \
 				_L -= trait; \
+				SEND_SIGNAL(target, SIGNAL_REMOVETRAIT(trait)); \
 				SEND_GLOBAL_SIGNAL(COMSIG_ATOM_REMOVE_TRAIT, target, trait); \
 			}; \
 			if (!length(_L)) { \
-				target.status_traits = null \
+				target.status_traits = null; \
 			}; \
 		} \
 	} while (0)
@@ -230,13 +239,16 @@ GLOBAL_LIST_INIT(roguetraits, list(
 		var/list/_S = sources; \
 		if (_L) { \
 			for (var/_T in _L) { \
-				_L[_T] &= _S;\
+				_L[_T] &= _S; \
 				if (!length(_L[_T])) { \
-					_L -= _T } \
-				};\
-				if (!length(_L)) { \
-					target.status_traits = null\
-				};\
+					_L -= _T; \
+					SEND_SIGNAL(target, SIGNAL_REMOVETRAIT(_T)); \
+					SEND_GLOBAL_SIGNAL(COMSIG_ATOM_REMOVE_TRAIT, target, trait); \
+				}; \
+			};\
+			if (!length(_L)) { \
+				target.status_traits = null\
+			};\
 		}\
 	} while (0)
 
@@ -250,6 +262,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 
 //mob traits
 #define TRAIT_IMMOBILIZED		"immobilized" //! Prevents voluntary movement.
+#define TRAIT_KNOCKEDOUT		"knockedout" //! Forces the user to stay unconscious.
+#define TRAIT_FLOORED 			"floored" //! Prevents standing or staying up on its own.
 #define TRAIT_INCAPACITATED		"incapacitated"
 #define TRAIT_BLIND 			"blind"
 #define TRAIT_MUTE				"mute"
@@ -335,10 +349,11 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_NO_BITE "no_bite" //prevents biting
 #define TRAIT_HARDDISMEMBER		"hard_dismember"
 #define TRAIT_FOREIGNER "foreigner" // is this guy a foreigner?
+#define TRAIT_NOAMBUSH "no_ambush" //! mob cannot be ambushed for any reason
+
 ///trait determines if this mob can breed given by /datum/component/breeding
 #define TRAIT_MOB_BREEDER "mob_breeder"
-#define TRAIT_UNTARGETTABLE "untargettable" //can't be targetted by basic mobs
-#define TRAIT_IMPERCEPTIBLE "imperceptible" //! can't be percieved in any way
+#define TRAIT_IMPERCEPTIBLE "imperceptible" // can't be perceived in any way, likely due to invisibility
 
 //bodypart traits
 #define TRAIT_PARALYSIS	"paralysis" //Used for limb-based paralysis and full body paralysis
@@ -352,7 +367,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 
 // common trait sources
 #define TRAIT_GENERIC "generic"
-#define UNCONSCIOUS_BLIND "unconscious_blind"
+#define UNCONSCIOUS_TRAIT "unconscious"
 #define EYE_DAMAGE "eye_damage"
 #define GENETIC_MUTATION "genetic"
 #define OBESITY "obesity"
@@ -376,9 +391,14 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define GLASSES_TRAIT "glasses"
 #define VEHICLE_TRAIT "vehicle" // inherited from riding vehicles
 #define INNATE_TRAIT "innate"
-#define BUCKLED_TRAIT "buckled" //trait associated to being buckled
-#define CHOKEHOLD_TRAIT "chokehold" //trait associated to being held in a chokehold
-#define RESTING_TRAIT "resting" //trait associated to resting
+#define CRIT_HEALTH_TRAIT "crit_health"
+#define OXYLOSS_TRAIT "oxyloss"
+#define BLOODLOSS_TRAIT "bloodloss"
+#define BUCKLED_TRAIT "buckled" //! trait associated to being buckled
+#define CHOKEHOLD_TRAIT "chokehold" //! trait associated to being held in a chokehold
+#define RESTING_TRAIT "resting" //! trait associated to resting
+/// trait associated to a stat value or range of
+#define STAT_TRAIT "stat"
 
 // unique trait sources, still defines
 #define TRAIT_BESTIALSENSE "bestial-sense"
