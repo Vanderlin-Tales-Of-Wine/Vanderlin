@@ -26,11 +26,11 @@
 			say("Your balance is NEGATIVE.")
 			return
 		var/list/choicez = list()
-		if(amt > 10)
+		if(amt >= 10)
 			choicez += "GOLD"
-		if(amt > 5)
+		if(amt >= 5)
 			choicez += "SILVER"
-		if(amt > 1) choicez += "BRONZE"
+		if(amt >= 1) choicez += "BRONZE"
 		var/selection = input(user, "Make a Selection", src) as null|anything in choicez
 		if(!selection)
 			return
