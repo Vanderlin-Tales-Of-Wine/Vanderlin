@@ -10,7 +10,6 @@
 	sellprice = VALUE_STEEL_ARMOR
 	clothing_flags = CANT_SLEEP_IN
 	//Plate doesn't protect a lot against blunt
-    
 	armor_class = AC_HEAVY
 	armor = ARMOR_PLATE
 	body_parts_covered = COVERAGE_ALL_BUT_ARMS
