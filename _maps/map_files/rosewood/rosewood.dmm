@@ -1652,11 +1652,6 @@
 /obj/item/clothing/face/cigarette/pipe,
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/magician)
-"aWm" = (
-/obj/structure/closet/crate/coffin,
-/obj/effect/spawner/map_spawner/loot,
-/turf/open/floor/cobble,
-/area/rogue/under/town/sewer)
 "aWp" = (
 /obj/structure/bars/cemetery,
 /turf/open/floor/snow/patchy,
@@ -4138,6 +4133,12 @@
 /obj/structure/table/wood/reinforced,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/church/chapel)
+"cnX" = (
+/obj/structure/mineral_door/wood/green,
+/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/door/access/town/gaffer,
+/turf/open/floor/wood/nosmooth,
+/area/rogue/indoors/town/merc_guild)
 "cos" = (
 /obj/structure/table/wood/plain,
 /obj/item/paper{
@@ -6928,7 +6929,7 @@
 /turf/closed/wall/mineral/wooddark/horizontal,
 /area/rogue/indoors/town/garrison)
 "dOD" = (
-/obj/effect/spawner/map_spawner/loot,
+/obj/effect/spawner/map_spawner/loot/common,
 /turf/open/water/cleanshallow,
 /area/rogue/under/town/sewer)
 "dOP" = (
@@ -7706,12 +7707,6 @@
 	},
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town/manor)
-"elX" = (
-/obj/structure/closet/crate/coffin,
-/obj/effect/decal/remains/human,
-/obj/effect/spawner/map_spawner/loot,
-/turf/open/floor/cobblerock,
-/area/rogue/under/town/sewer)
 "eme" = (
 /turf/closed/wall/mineral/decostone/long,
 /area/rogue/indoors/town/manor)
@@ -8137,6 +8132,7 @@
 /obj/structure/chair/wood/alt/fancy{
 	dir = 8
 	},
+/obj/structure/giantfur/small,
 /turf/open/floor/blocks/newstone/alt,
 /area/rogue/indoors/town/merc_guild)
 "eBz" = (
@@ -13899,7 +13895,13 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/town)
 "hML" = (
-/obj/structure/closet/crate/chest/neu_iron,
+/obj/structure/closet/crate/crafted_closet/dark,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
 /obj/item/reagent_containers/glass/bottle/wine/sourwine,
 /turf/open/floor/blocks/newstone/alt,
 /area/rogue/indoors/town/merc_guild)
@@ -16071,7 +16073,7 @@
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /obj/effect/spawner/map_spawner/loot/common,
 /obj/effect/spawner/map_spawner/loot/armor,
-/obj/effect/spawner/map_spawner/loot,
+/obj/effect/spawner/map_spawner/loot/common,
 /turf/open/floor/cobblerock,
 /area/rogue/under/town/sewer)
 "jco" = (
@@ -19019,6 +19021,16 @@
 /obj/structure/fluff/railing/border,
 /turf/open/floor/metal,
 /area/rogue/outdoors/town)
+"kNn" = (
+/obj/structure/table/wood/plain,
+/obj/item/reagent_containers/glass/bowl{
+	pixel_y = -4
+	},
+/obj/item/reagent_containers/glass/bowl{
+	pixel_y = 2
+	},
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/indoors/town/merc_guild)
 "kNt" = (
 /obj/effect/decal/cobbleedge{
 	icon_state = "borderfall";
@@ -22598,6 +22610,12 @@
 "mMQ" = (
 /obj/structure/closet/crate/chest/neu,
 /obj/item/reagent_containers/glass/bucket/pot,
+/obj/item/reagent_containers/glass/bowl,
+/obj/item/reagent_containers/glass/bowl,
+/obj/item/kitchen/spoon,
+/obj/item/kitchen/spoon,
+/obj/item/kitchen/spoon,
+/obj/item/kitchen/spoon,
 /turf/open/floor/cobble/alt,
 /area/rogue/indoors/town/merc_guild)
 "mNr" = (
@@ -23961,6 +23979,10 @@
 /obj/structure/flora/grass/bush_meagre/tundra,
 /turf/open/floor/grass/cold,
 /area/rogue/outdoors/town/roofs)
+"nBw" = (
+/obj/structure/chair/stool,
+/turf/open/floor/wood/nosmooth/saiga,
+/area/rogue/indoors/town/merc_guild)
 "nBD" = (
 /obj/structure/bars/passage/shutter/open{
 	redstone_id = "nite_shutter"
@@ -32400,6 +32422,12 @@
 	},
 /turf/open/floor/cobble,
 /area/rogue/outdoors/town)
+"sku" = (
+/obj/structure/bearpelt{
+	pixel_x = -16
+	},
+/turf/open/floor/wood/nosmooth/saiga,
+/area/rogue/indoors/town/merc_guild)
 "skz" = (
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /turf/open/floor/naturalstone,
@@ -33385,6 +33413,13 @@
 	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/theatre)
+"sME" = (
+/obj/structure/fluff/railing/wood{
+	dir = 4
+	},
+/obj/structure/rack/shelf/biggest,
+/turf/open/floor/wood/nosmooth/saiga,
+/area/rogue/indoors/town/merc_guild)
 "sMI" = (
 /obj/structure/mineral_door/wood/donjon{
 	dir = 1;
@@ -36128,7 +36163,7 @@
 /turf/open/floor/woodturned/nosmooth,
 /area/rogue/outdoors/exposed/church)
 "urO" = (
-/obj/effect/spawner/map_spawner/loot,
+/obj/effect/spawner/map_spawner/loot/common,
 /turf/open/floor/naturalstone,
 /area/rogue/under/town/sewer)
 "urR" = (
@@ -36173,6 +36208,10 @@
 /area/rogue/indoors/town/smithy)
 "usp" = (
 /obj/structure/trophy/deer,
+/obj/structure/rack/shelf/big,
+/obj/item/ammo_casing/caseless/arrow{
+	pixel_y = 8
+	},
 /turf/open/floor/wood/nosmooth/saiga,
 /area/rogue/indoors/town/merc_guild)
 "usx" = (
@@ -37657,6 +37696,19 @@
 /obj/structure/table/wood/large/corner{
 	dir = 1
 	},
+/obj/item/paper/scroll{
+	pixel_x = -1;
+	pixel_y = 3
+	},
+/obj/item/paper/scroll{
+	pixel_x = -2;
+	pixel_y = 0
+	},
+/obj/item/paper/scroll{
+	pixel_y = 2;
+	pixel_x = 4
+	},
+/obj/item/natural/feather,
 /turf/open/floor/blocks/newstone/alt,
 /area/rogue/indoors/town/merc_guild)
 "vdA" = (
@@ -41173,12 +41225,6 @@
 /obj/item/reagent_containers/glass/bottle/wine/sourwine,
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/under/town/basement)
-"xaN" = (
-/obj/structure/closet/crate/coffin,
-/obj/effect/decal/remains/human,
-/obj/effect/spawner/map_spawner/loot,
-/turf/open/floor/cobble,
-/area/rogue/under/town/sewer)
 "xbb" = (
 /obj/structure/rack/shelf/biggest,
 /obj/item/reagent_containers/glass/bottle/wine/sourwine,
@@ -54301,7 +54347,7 @@ hJO
 sCU
 sRL
 mDY
-elX
+qHV
 nID
 qJl
 qJl
@@ -55299,7 +55345,7 @@ qJl
 nID
 sCU
 nID
-elX
+qHV
 sCU
 nID
 qLI
@@ -55713,7 +55759,7 @@ qLI
 szS
 nID
 wpG
-aWm
+brr
 nID
 sCU
 nID
@@ -56118,7 +56164,7 @@ jck
 nID
 mDY
 nID
-xaN
+uKq
 fTm
 nID
 qJl
@@ -109858,7 +109904,7 @@ gzt
 uIh
 lIG
 maC
-maC
+sku
 maC
 tdh
 fQo
@@ -110066,7 +110112,7 @@ tdh
 iAl
 iAl
 tdh
-nvc
+cnX
 tdh
 tdh
 nvc
@@ -149452,8 +149498,8 @@ jSq
 uIh
 usp
 maC
-maC
-maC
+nBw
+nBw
 maC
 csB
 uUy
@@ -150266,7 +150312,7 @@ hML
 ygc
 eQR
 hmr
-nZs
+kNn
 bKB
 uUy
 kRi
@@ -150460,7 +150506,7 @@ laJ
 grI
 jSq
 uIh
-xxj
+sME
 xxj
 pKB
 tdh
@@ -150885,7 +150931,7 @@ tqm
 uaL
 juW
 vjB
-mDq
+phG
 vjB
 vjB
 grI
@@ -151087,8 +151133,8 @@ tqm
 uIh
 juW
 vjB
-mDq
-mDq
+phG
+phG
 qJl
 qJl
 grI
@@ -151492,7 +151538,7 @@ uIh
 qJl
 qJl
 qJl
-phG
+mvN
 qJl
 qJl
 qJl
