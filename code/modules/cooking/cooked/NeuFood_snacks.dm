@@ -54,7 +54,7 @@
 
 	if(istype(I, /obj/item/reagent_containers/food/snacks/onion_fried) && (!modified))
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-		to_chat(user, "<span class='notice'>Adding onions...</span>")
+		to_chat(user, span_notice("Adding onions..."))
 		if(do_after(user, short_cooktime, src))
 			tastes = list("roasted meat" = 1, "caramelized onions" = 1)
 			name = "[name] and onions"
@@ -70,7 +70,7 @@
 
 	if(istype(I, /obj/item/reagent_containers/food/snacks/potato) && (!modified))
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-		to_chat(user, "<span class='notice'>Adding potato...</span>")
+		to_chat(user, span_notice("Adding potato..."))
 		if(do_after(user, short_cooktime, src))
 			tastes = list("roasted meat" = 2, "potato" = 1)
 			name = "[name] and potato"
@@ -307,7 +307,7 @@
 		var/found_table = locate(/obj/structure/table) in (loc)
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 50, TRUE, -1)
-			to_chat(user, "<span class='notice'>Skewering the sausage...</span>")
+			to_chat(user, span_notice("Skewering the sausage..."))
 			if(do_after(user, short_cooktime, src))
 				new /obj/item/reagent_containers/food/snacks/cooked/sausage_sticked(loc)
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
@@ -320,12 +320,11 @@
 
 	return ..()
 
-
 /obj/item/reagent_containers/food/snacks/cooked/sausage/wiener // wiener meant to be made from beef or maybe mince + bacon, luxury sausage, not implemented yet
 	name = "wiener"
 /*	.............   Sausages on sticks   ................ */
 /obj/item/reagent_containers/food/snacks/cooked/sausage_sticked
-	name = "sausage ona stick"
+	name = "sausage onna stick"
 	desc = "A sausage skewered for convenience and cleanliness, classic Grenzlehoftian street food."
 	list_reagents = list(/datum/reagent/consumable/nutriment = SAUSAGE_NUTRITION+1)
 	icon_state = "sausageonastick"
@@ -342,7 +341,7 @@
 	if(isturf(loc)&& (found_table))
 		if(istype(I, /obj/item/reagent_containers/food/snacks/butterdough_slice))
 			playsound(get_turf(user), 'sound/foley/kneading_alt.ogg', 90, TRUE, -1)
-			to_chat(user, "<span class='notice'>Covering sausage with dough...</span>")
+			to_chat(user, span_notice("Covering sausage with dough..."))
 			if(do_after(user, short_cooktime, src))
 				new /obj/item/reagent_containers/food/snacks/foodbase/griddledog_raw(loc)
 				qdel(I)

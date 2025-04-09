@@ -19,7 +19,7 @@
 		long_cooktime = (90 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*15))
 	if(isturf(loc)&& (found_table))
 		if(istype(I, /obj/item/reagent_containers/food/snacks/meat/mince))
-			to_chat(user, "<span class='notice'>Stuffing a wiener...</span>")
+			to_chat(user, span_notice("Stuffing a wiener..."))
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
 			if(do_after(user, long_cooktime, src))
 				new /obj/item/reagent_containers/food/snacks/meat/sausage(loc)
@@ -31,7 +31,7 @@
 		if(!R.reagents.has_reagent(/datum/reagent/consumable/sugar, 33))
 			to_chat(user, span_notice("Needs more sugar to work it."))
 			return TRUE
-		if(user.mind.get_skill_level(/datum/skill/craft/cooking) <= 2) // cooks with less than 2 skill don´t know this recipe
+		if(user.mind.get_skill_level(/datum/skill/craft/cooking) <= 3) // cooks with less than 3 skill don´t know this recipe
 			to_chat(user, span_warning("Gelatine is much too strange for you."))
 			return
 		to_chat(user, span_notice("Congealing the sugar..."))
@@ -42,7 +42,7 @@
 			qdel(src)
 			R.reagents.remove_reagent(/datum/reagent/consumable/sugar, 33)
 	else
-		to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
+		to_chat(user, span_warning("You need to put [src] on a table to work on it."))
 
 // -------------- SPIDER HONEY -----------------
 /obj/item/reagent_containers/food/snacks/spiderhoney
@@ -309,7 +309,7 @@
 		long_cooktime = (200 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*22))
 	if(istype(I, /obj/item/kitchen/spoon))
 		if(!reagents.has_reagent(/datum/reagent/consumable/milk/salted, 15) && !reagents.has_reagent(/datum/reagent/consumable/milk/salted_gote, 15))
-			to_chat(user, "<span class='warning'>Not enough salted milk.</span>")
+			to_chat(user, span_warning(">Not enough salted milk."))
 			return
 		user.adjust_stamina(40) // forgot stamina is our lovely stamloss proc here
 		user.visible_message("<span class='info'>[user] churns butter...</span>")
@@ -451,7 +451,7 @@
 				qdel(src)
 			return
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
+			to_chat(user, span_warning("You need to put [src] on a table to work on it."))
 	..()
 
 /obj/item/reagent_containers/food/snacks/foodbase/cheesewheel_start
@@ -472,7 +472,7 @@
 				qdel(I)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
+			to_chat(user, span_warning("You need to put [src] on a table to work on it."))
 	else
 		return ..()
 
@@ -496,7 +496,7 @@
 				qdel(I)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
+			to_chat(user, span_warning("You need to put [src] on a table to work on it."))
 	else
 		return ..()
 
@@ -524,7 +524,7 @@
 				desc = "Slowly solidifying, best left alone a bit longer."
 				addtimer(CALLBACK(src, mature_proc), 5 MINUTES)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
+			to_chat(user, span_warning("You need to put [src] on a table to work on it."))
 	else
 		return ..()
 
@@ -667,7 +667,7 @@
 	if(isturf(loc)&& (found_table))
 		if(istype(I, /obj/item/reagent_containers/food/snacks/produce/apple) || istype(I, /obj/item/reagent_containers/food/snacks/apple_dried))
 			playsound(get_turf(user), 'sound/foley/kneading_alt.ogg', 90, TRUE, -1)
-			to_chat(user, "<span class='notice'>Mixing apple into the gelatine...</span>")
+			to_chat(user, span_notice("Mixing apple into the gelatine..."))
 			if(do_after(user,long_cooktime, src))
 				new /obj/item/reagent_containers/food/snacks/jellycake_apple(loc)
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT))
@@ -675,7 +675,7 @@
 				qdel(src)
 		if(istype(I, /obj/item/reagent_containers/food/snacks/produce/tangerine) || istype(I, /obj/item/reagent_containers/food/snacks/tangerine_dried))
 			playsound(get_turf(user), 'sound/foley/kneading_alt.ogg', 90, TRUE, -1)
-			to_chat(user, "<span class='notice'>Mixing tangerine into the gelatine...</span>")
+			to_chat(user, span_notice("Mixing tangerine into the gelatine..."))
 			if(do_after(user,long_cooktime, src))
 				new /obj/item/reagent_containers/food/snacks/jellycake_tangerine(loc)
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT))
@@ -683,7 +683,7 @@
 				qdel(src)
 		if(istype(I, /obj/item/reagent_containers/food/snacks/produce/plum) || istype(I, /obj/item/reagent_containers/food/snacks/plum_dried))
 			playsound(get_turf(user), 'sound/foley/kneading_alt.ogg', 90, TRUE, -1)
-			to_chat(user, "<span class='notice'>Mixing plum into the gelatine...</span>")
+			to_chat(user, span_notice("notice'>Mixing plum into the gelatine..."))
 			if(do_after(user,long_cooktime, src))
 				new /obj/item/reagent_containers/food/snacks/jellycake_plum(loc)
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT))
@@ -691,7 +691,7 @@
 				qdel(src)
 		if(istype(I, /obj/item/reagent_containers/food/snacks/produce/lime))
 			playsound(get_turf(user), 'sound/foley/kneading_alt.ogg', 90, TRUE, -1)
-			to_chat(user, "<span class='notice'>Mixing lime into the gelatine...</span>")
+			to_chat(user, span_notice("Mixing lime into the gelatine..."))
 			if(do_after(user,long_cooktime, src))
 				new /obj/item/reagent_containers/food/snacks/jellycake_lime(loc)
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT))
@@ -699,7 +699,7 @@
 				qdel(src)
 		if(istype(I, /obj/item/reagent_containers/food/snacks/produce/pear) || istype(I, /obj/item/reagent_containers/food/snacks/pear_dried))
 			playsound(get_turf(user), 'sound/foley/kneading_alt.ogg', 90, TRUE, -1)
-			to_chat(user, "<span class='notice'>Mixing pear into the gelatine...</span>")
+			to_chat(user, span_warning("Mixing pear into the gelatine..."))
 			if(do_after(user,long_cooktime, src))
 				new /obj/item/reagent_containers/food/snacks/jellycake_pear(loc)
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT))
