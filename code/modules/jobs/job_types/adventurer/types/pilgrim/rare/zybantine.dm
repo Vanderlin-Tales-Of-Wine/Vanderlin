@@ -7,12 +7,7 @@
 		"Rakshari",
 		"Elf",
 		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc",
-		"Kobold",
+		"Dwarf"
 	)
 	outfit = /datum/outfit/job/adventurer/zybantine
 	category_tags = list(CTAG_PILGRIM)
@@ -20,7 +15,7 @@
 	pickprob = 30
 	min_pq = 0
 
-	cmode_music = 'sound/music/cmode/towner/combat_desertrider.ogg'
+	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander.ogg'
 
 /datum/outfit/job/adventurer/zybantine/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -33,7 +28,7 @@
 	beltl = /obj/item/weapon/sword/sabre/shalal
 	beltr = /obj/item/flashlight/flare/torch/lantern
 	backr = /obj/item/storage/backpack/satchel
-	id = /obj/item/clothing/ring/gold/guild_mercator
+	ring = /obj/item/clothing/ring/gold/guild_mercator
 	shirt = /obj/item/clothing/shirt/tunic/purple
 	pants = /obj/item/clothing/pants/trou/leather
 	neck = /obj/item/clothing/neck/shalal/emir

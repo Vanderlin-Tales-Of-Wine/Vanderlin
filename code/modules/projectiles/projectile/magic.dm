@@ -326,9 +326,9 @@
 			L.visible_message("<span class='warning'>[src] vanishes on contact with [target]!</span>")
 			return BULLET_ACT_BLOCK
 		to_chat(L, "<span class='danger'>My body feels drained and there is a burning pain in my chest.</span>")
-		L.maxHealth -= 20
-		L.health = min(L.health, L.maxHealth)
-		if(L.maxHealth <= 0)
+		L.setMaxHealth(L.maxHealth - 20)
+		L.set_health(L.health)
+		if(L.getMaxHealth() <= 0)
 			to_chat(L, "<span class='danger'>My weakened soul is completely consumed by the [src]!</span>")
 			L.mind.hasSoul = FALSE
 		for(var/obj/effect/proc_holder/spell/spell in L.mind.spell_list)

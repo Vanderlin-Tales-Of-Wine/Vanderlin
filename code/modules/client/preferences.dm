@@ -1554,12 +1554,12 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 						var/datum/faith/faith = faiths_named[faith_input]
 						to_chat(user, "<font color='purple'>Faith: [faith.name]</font>")
 						to_chat(user, "<font color='purple'>Background: [faith.desc]</font>")
-						selected_patron = GLOB.patronlist[faith.godhead] || GLOB.patronlist[pick(GLOB.patrons_by_faith[faith_input])]
+						selected_patron = GLOB.preference_patrons[faith.godhead] || GLOB.preference_patrons[pick(GLOB.patrons_by_faith[faith_input])]
 
 				if("patron")
 					var/list/patrons_named = list()
 					for(var/path as anything in GLOB.patrons_by_faith[selected_patron?.associated_faith || initial(default_patron.associated_faith)])
-						var/datum/patron/patron = GLOB.patronlist[path]
+						var/datum/patron/patron = GLOB.preference_patrons[path]
 						if(!patron.name)
 							continue
 						var/pref_name = patron.display_name ? patron.display_name : patron.name

@@ -9,8 +9,8 @@
 	spawn_positions = 0
 	min_pq = -999
 
+	allowed_races = RACES_PLAYER_ALL
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
 
 	outfit = null
 	outfit_female = null

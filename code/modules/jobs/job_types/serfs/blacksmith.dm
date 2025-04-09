@@ -12,7 +12,7 @@
 	min_pq = 0
 	bypass_lastclass = TRUE
 
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
+	allowed_races = RACES_PLAYER_ALL
 
 	outfit = /datum/outfit/job/armorsmith
 	display_order = JDO_ARMORER
@@ -20,7 +20,7 @@
 
 /datum/outfit/job/armorsmith/pre_equip(mob/living/carbon/human/H)
 	..()
-	id = /obj/item/clothing/ring/silver/makers_guild
+	ring = /obj/item/clothing/ring/silver/makers_guild
 	head = /obj/item/clothing/head/hatfur
 	if(prob(50))
 		head = /obj/item/clothing/head/hatblu
@@ -79,8 +79,8 @@
 	total_positions = 1
 	spawn_positions = 1
 
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
-	
+	allowed_races = RACES_PLAYER_ALL
+
 	outfit = /datum/outfit/job/weaponsmith
 	display_order = JDO_WSMITH
 	give_bank_account = 30
@@ -88,7 +88,7 @@
 
 /datum/outfit/job/weaponsmith/pre_equip(mob/living/carbon/human/H)
 	..()
-	id = /obj/item/clothing/ring/silver/makers_guild
+	ring = /obj/item/clothing/ring/silver/makers_guild
 	head = /obj/item/clothing/head/hatfur
 	if(prob(50))
 		head = /obj/item/clothing/head/hatblu
