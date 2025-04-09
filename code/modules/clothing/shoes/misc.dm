@@ -143,8 +143,7 @@
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
 	blocksound = SOFTHIT
 	max_integrity = 200
-	armor = list("blunt" = 90, "slash" = 100, "stab" = 80, "piercing" = 100, "fire" = 0, "acid" = 0)
-	// allowed_race = RACES_PLAYER_GRENZ
+	armor = ARMOR_LEATHER_GOOD
 
 /obj/item/clothing/shoes/otavan/inqboots
 	name = "inquisitorial boots"

@@ -102,9 +102,6 @@
 		)
 	H.mind?.teach_crafting_recipe(/datum/repeatable_crafting_recipe/reading/confessional)
 
-/mob/living/carbon/human
-	var/innocents_tortured = 0
-
 /mob/living/carbon/human/proc/torture_victim()
 	set name = "Extract Confession"
 	set category = "Inquisition"
@@ -128,7 +125,7 @@
 	if(painpercent < 100)
 		to_chat(src, span_warning("Not ready to speak yet."))
 		return
-	if(!do_after(src, 3.5 SECONDS, H))
+	if(!do_after(src, 4 SECONDS, H))
 		return
 	if(!H.restrained() && !H.buckled)
 		to_chat(src, span_warning("[H] needs to be restrained or buckled first!"))
@@ -172,7 +169,7 @@
 	if(painpercent < 100)
 		to_chat(src, span_warning("Not ready to speak yet."))
 		return
-	if(!do_after(src, 3.5 SECONDS, H))
+	if(!do_after(src, 4 SECONDS, H))
 		return
 	if(!H.restrained() && !H.buckled)
 		to_chat(src, span_warning("[H] needs to be restrained or buckled first!"))
@@ -216,7 +213,7 @@
 		"I DON'T KNOW!",
 		"STOP THIS MADNESS!!",
 		"I DON'T DESERVE THIS!",
-		// "THE PAIN!",
+		"THE PAIN!",
 		"I HAVE NOTHING TO SAY...!",
 		"WHY ME?!",
 		"I'M INNOCENT!",
@@ -235,7 +232,6 @@
 	if(!prob(resist_chance))
 		var/list/confessions = list()
 		var/antag_type = null
-		var/evil_doer = FALSE
 		testing("User is [interrogator]. confess_sins")
 		switch(confession_type)
 			if("antag")
@@ -245,7 +241,6 @@
 							continue
 						confessions += antag.confess_lines
 						antag_type = antag.name
-						evil_doer = TRUE
 						break // Only need one antag type
 				testing("Antag type: [antag_type]")
 			if("patron")
@@ -260,20 +255,25 @@
 						confessions += patron.confess_lines
 						testing("Patron type: [patron.name]")
 						antag_type = patron.name
-						if(patron.associated_faith == /datum/faith/godless || patron.associated_faith == /datum/faith/inhumen_pantheon)
-							evil_doer = TRUE
+
+		if(torture && interrogator && confession_type == "patron")
+			var/datum/patron/interrogator_patron = interrogator.patron
+			var/datum/patron/victim_patron = patron
+			testing("interrogator [interrogator_patron], victim [victim_patron]")
+			switch(interrogator_patron.associated_faith.type)
+				if(/datum/faith/psydon)
+					if(ispath(victim_patron.type, /datum/patron/divine) && victim_patron.type != /datum/patron/divine/necra) //lore
+						interrogator.add_stress(/datum/stressevent/torture_small_penalty)
+					else if(victim_patron.type == /datum/patron/psydon/progressive)
+						interrogator.add_stress(/datum/stressevent/torture_small_penalty)
+					else if(victim_patron.type == /datum/patron/psydon)
+						interrogator.add_stress(/datum/stressevent/torture_large_penalty)
 
 		if(length(confessions))
 			if(torture) // Only scream your confession if it's due to torture.
 				say(pick(confessions), spans = list("torture"), forced = TRUE)
 			else
 				say(pick(confessions), forced = TRUE)
-			if(torture && !evil_doer && interrogator)
-				testing("[interrogator] tortured innocent")
-				interrogator.innocents_tortured++
-				if(prob(CLAMP((interrogator.innocents_tortured-1)*40, 5, 95)))
-					interrogator.add_stress(/datum/stressevent/innocenttortured)
-					interrogator.innocents_tortured = 0
 			if(has_confessed) // This is to check if the victim has already confessed, if so just inform the torturer and return. This is so that the Inquisitor cannot get infinite confession points and get all of the things upon getting thier first heretic.
 				visible_message(span_warning("[name] has already signed a confession!"), "I have already signed a confession!")
 				return
@@ -348,12 +348,6 @@
 		else
 			if(torture) // Only scream your confession if it's due to torture.
 				say(pick(innocent_lines), spans = list("torture"), forced = TRUE)
-				if(interrogator)
-					testing("[interrogator] tortured innocent")
-					interrogator.innocents_tortured++
-					if(prob(CLAMP((interrogator.innocents_tortured-1)*40, 5, 95)))
-						interrogator.add_stress(/datum/stressevent/innocenttortured)
-						interrogator.innocents_tortured = 0
 			else
 				say(pick(innocent_lines), forced = TRUE)
 			return

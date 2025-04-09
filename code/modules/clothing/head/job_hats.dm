@@ -102,4 +102,3 @@
 	icon_state = "inqhat"
 	item_state = "inqhat"
 	sewrepair = TRUE
-	// allowed_race = RACES_PLAYER_GRENZ

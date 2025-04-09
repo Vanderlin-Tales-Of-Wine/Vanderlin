@@ -59,7 +59,7 @@
 
 /datum/migrant_role/crusader
 	name = "Crusader"
-	greet_text = "Crusader of the true faith, you came from Grenzelhoft under the command of the Inquisitor. Obey them as they lead you to smite the heatens."
+	greet_text = "Crusader of the true faith, you came from Grenzelhoft under the command of the Inquisitor. Obey them as they lead you to smite the heathens."
 	outfit = /datum/outfit/job/adventurer/crusader
 	allowed_races = RACES_PLAYER_GRENZ
 /datum/migrant_wave/crusade
@@ -71,7 +71,7 @@
 	roles = list(
 		/datum/migrant_role/inquisitor = 1,
 		/datum/migrant_role/crusader = 4)
-	greet_text = "These heatens, they have forsaken the teaching of everything that is good. We shan't let them insults the true Gods no more. The Inquisitor will lead us to make sure of that."
+	greet_text = "These heathens, they have forsaken the teaching of everything that is good. We shan't let them insults the true Gods no more. The Inquisitor will lead us to make sure of that."
 
 /datum/migrant_wave/crusade_down_one
 	name = "The Holy Crusade"
@@ -81,7 +81,7 @@
 	roles = list(
 		/datum/migrant_role/inquisitor = 1,
 		/datum/migrant_role/crusader = 3)
-	greet_text = "These heatens, they have forsaken the teaching of everything that is good. We shan't let them insults the true Gods no more. The Inquisitor will lead us to make sure of that."
+	greet_text = "These heathens, they have forsaken the teaching of everything that is good. We shan't let them insults the true Gods no more. The Inquisitor will lead us to make sure of that."
 
 /datum/migrant_wave/crusade_down_two
 	name = "The Holy Crusade"
@@ -91,7 +91,7 @@
 	roles = list(
 		/datum/migrant_role/inquisitor = 1,
 		/datum/migrant_role/crusader = 2)
-	greet_text = "These heatens, they have forsaken the teaching of everything that is good. We shan't let them insults the true Gods no more. The Inquisitor will lead us to make sure of that."
+	greet_text = "These heathens, they have forsaken the teaching of everything that is good. We shan't let them insults the true Gods no more. The Inquisitor will lead us to make sure of that."
 
 /datum/migrant_wave/crusade_down_three
 	name = "The Holy Crusade"
@@ -101,7 +101,7 @@
 	roles = list(
 		/datum/migrant_role/inquisitor = 1,
 		/datum/migrant_role/crusader = 1)
-	greet_text = "These heatens, they have forsaken the teaching of everything that is good. We shan't let them insults the true Gods no more. The Inquisitor will lead us to make sure of that."
+	greet_text = "These heathens, they have forsaken the teaching of everything that is good. We shan't let them insults the true Gods no more. The Inquisitor will lead us to make sure of that."
 
 /datum/migrant_wave/crusade_down_four
 	name = "The One-Man Crusade"
@@ -109,4 +109,4 @@
 	can_roll = FALSE
 	roles = list(
 		/datum/migrant_role/inquisitor = 1)
-	greet_text = "These heatens, they have forsaken the teaching of everything that is good. I shan't let them insults the true Gods no more. I will make sure of that."
+	greet_text = "These heathens, they have forsaken the teaching of everything that is good. I shan't let them insult the true Gods no more. I will make sure of that."
