@@ -446,6 +446,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	popup.set_content(data.Join())
 	popup.open()
 
+/// UI block to format information about storyteller god and his influences
 /proc/god_ui_block(name, bg_color, title_color, content, datum/storyteller/storyteller)
 	var/total_influence = SSgamemode.calculate_storyteller_influence(storyteller)
 	return {"
@@ -458,20 +459,22 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	</div>
 	"}
 
+/// Colors resulting number depending on its value, with the operator attached
 /proc/get_colored_influence_value(num)
-    var/color
-    var/display_num
-    if(num > 0)
-        color = "#00ff00"
-        display_num = "+[num]"
-    else if(num < 0)
-        color = "#ff0000"
-        display_num = "[num]"
-    else
-        color = "#ffff00"
-        display_num = "+0"
-    return "<font color='[color]'>[display_num]</font>"
+	var/color
+	var/display_num
+	if(num > 0)
+		color = "#00ff00"
+		display_num = "+[num]"
+	else if(num < 0)
+		color = "#ff0000"
+		display_num = "[num]"
+	else
+		color = "#ffff00"
+		display_num = "+0"
+	return "<font color='[color]'>[display_num]</font>"
 
+/// Return number of followers for the given patron, uses patron name, like "Astrata"
 /proc/get_patron_followers_numbers(selected_patron)
 	var/number_of_followers = 0
 	for(var/client/client in GLOB.clients)
