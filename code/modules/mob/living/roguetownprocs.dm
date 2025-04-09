@@ -343,6 +343,7 @@
 				src.visible_message("<span class='boldwarning'><b>[src]</b> parries [user] with [W]!</span>")
 			if(!(!src.mind || !user.mind)) // don't need to log if at least one of the mobs is without an initialized mind because this is used for escalation
 				log_defense(src, user, "parried", defending_item, attacking_item, "INTENT:[uppertext(user.used_intent.name)]")
+			GLOB.vanderlin_round_stats[STATS_PARRIES]++
 			return TRUE
 		else
 			to_chat(src, "<span class='warning'>I'm too tired to parry!</span>")
@@ -352,6 +353,7 @@
 			playsound(get_turf(src), pick(W.parrysound), 100, FALSE)
 		if(!(!src.mind || !user.mind)) // don't need to log if at least one of the mobs is without an initialized mind because this is used for escalation
 			log_defense(src, user, "parried", defending_item, attacking_item, "INTENT:[uppertext(user.used_intent.name)]")
+		GLOB.vanderlin_round_stats[STATS_PARRIES]++
 		return TRUE
 
 /mob/proc/do_unarmed_parry(parrydrain as num, mob/living/user)
@@ -363,6 +365,7 @@
 			src.visible_message("<span class='warning'><b>[src]</b> parries [user] with their hands!</span>")
 			if(!(!src.mind || !user.mind)) // don't need to log if at least one of the mobs is without an initialized mind because this is used for escalation
 				log_defense(src, user, "parried", "hands", attacking_item, "INTENT:[uppertext(user.used_intent.name)]")
+			GLOB.vanderlin_round_stats[STATS_PARRIES]++
 			return TRUE
 		else
 			to_chat(src, "<span class='boldwarning'>I'm too tired to parry!</span>")
@@ -371,6 +374,7 @@
 		playsound(get_turf(src), pick(parry_sound), 100, FALSE)
 		if(!(!src.mind || !user.mind)) // don't need to log if at least one of the mobs is without an initialized mind because this is used for escalation
 			log_defense(src, user, "unarmed parried", "hands", attacking_item, "INTENT:[uppertext(user.used_intent.name)]")
+		GLOB.vanderlin_round_stats[STATS_PARRIES]++
 		return TRUE
 
 

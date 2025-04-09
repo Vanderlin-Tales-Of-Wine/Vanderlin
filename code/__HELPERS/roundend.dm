@@ -8,7 +8,6 @@
 #define STATS_PEOPLE_SMITTEN "people_smitten"
 #define STATS_TRIUMPHS_AWARDED "triumphs_awarded"
 #define STATS_TRIUMPHS_STOLEN "triumphs_stolen"
-#define STATS_BEARDS_SHAVED "beards_shaved"
 #define STATS_PRAYERS_MADE "prayers_made"
 #define STATS_TAXES_COLLECTED "taxes_collected"
 
@@ -30,14 +29,14 @@
 #define STATS_VAMPIRES_KILLED "vampires_killed"
 
 #define STATS_POTIONS_BREWED "potions_brewed"
-#define STATS_WOUNDS_HEALED "wounds_healed"
+#define STATS_WOUNDS_SEWED "wounds_healed"
 #define STATS_SOULS_REINCARNATED "souls_reincarnated"
 #define STATS_ANIMALS_BRED "animals_bred"
 
 #define STATS_TREES_CUT "trees_cut"
 #define STATS_PLANTS_HARVESTED "plants_harvested"
 #define STATS_WEREVOLVES "werevolves"
-#define STATS_BRIAR_STUFF "briar_stuff"
+#define STATS_DENDOR_SACRIFICES "dendor_sacrifices"
 
 #define STATS_COMBAT_SKILLS "combat_skills"
 #define STATS_PARRIES "parries"
@@ -50,9 +49,9 @@
 #define STATS_CRITS_MADE "crits_made"
 
 #define STATS_MASTERWORKS_FORGED "masterworks_forged"
-#define STATS_ORES_MINED "ores_mined"
+#define STATS_ROCKS_MINED "ores_mined"
 #define STATS_CRAFT_SKILLS "craft_skills"
-#define STATS_ITEMS_CRAFTED "items_crafted"
+#define STATS_BEARDS_SHAVED "beards_shaved"
 
 #define STATS_BLOOD_SPILT "blood_spilt"
 #define STATS_FISH_CAUGHT "fish_caught"
@@ -66,7 +65,7 @@
 
 #define STATS_ZIZO_PRAISED "zizo_praised"
 #define STATS_DEADITES_ALIVE "deadites_alive"
-#define STATS_PRIEST_DEATHS "priest_deaths"
+#define STATS_CLERGY_DEATHS "priest_deaths"
 
 #define STATS_ORGANS_EATEN "organs_eaten"
 #define STATS_DEATHS "deaths"
@@ -80,7 +79,7 @@
 
 #define STATS_ITEMS_PICKPOCKETED "items_pickpocketed"
 #define STATS_SHRINE_VALUE "shrine_value"
-#define STATS_TOMB_DEATHS "tomb_deaths"
+#define STATS_GREEDY_PEOPLE "tomb_deaths"
 #define STATS_KLEPTOMANIACS "kleptomaniacs"
 
 GLOBAL_LIST_INIT(vanderlin_round_stats, list(
@@ -117,11 +116,11 @@ GLOBAL_LIST_INIT(vanderlin_round_stats, list(
 	STATS_GRAVES_ROBBED = 0,
 	STATS_DEADITES_KILLED = 0,
 	STATS_VAMPIRES_KILLED = 0,
-	STATS_WOUNDS_HEALED = 0,
+	STATS_WOUNDS_SEWED = 0,
 	STATS_SOULS_REINCARNATED = 0,
 	STATS_ANIMALS_BRED = 0,
 	STATS_WEREVOLVES = 0,
-	STATS_BRIAR_STUFF = 0,
+	STATS_DENDOR_SACRIFICES = 0,
 	STATS_COMBAT_SKILLS = 0,
 	STATS_PARRIES = 0,
 	STATS_WARCRIES = 0,
@@ -129,9 +128,8 @@ GLOBAL_LIST_INIT(vanderlin_round_stats, list(
 	STATS_GAMES_RIGGED = 0,
 	STATS_PEOPLE_MOCKED = 0,
 	STATS_CRITS_MADE = 0,
-	STATS_ORES_MINED = 0,
+	STATS_ROCKS_MINED = 0,
 	STATS_CRAFT_SKILLS = 0,
-	STATS_ITEMS_CRAFTED = 0,
 	STATS_ABYSSOR_REMEMBERED = 0,
 	STATS_LEECHES_EMBEDDED = 0,
 	STATS_MARRIAGES = 0,
@@ -139,13 +137,13 @@ GLOBAL_LIST_INIT(vanderlin_round_stats, list(
 	STATS_CLINGY_PEOPLE = 0,
 	STATS_ZIZO_PRAISED = 0,
 	STATS_DEADITES_ALIVE = 0,
-	STATS_PRIEST_DEATHS = 0,
+	STATS_CLERGY_DEATHS = 0,
 	STATS_ASSASSINATIONS = 0,
 	STATS_ALCOHOL_CONSUMED = 0,
 	STATS_ALCOHOLICS = 0,
 	STATS_JUNKIES = 0,
 	STATS_SHRINE_VALUE = 0,
-	STATS_TOMB_DEATHS = 0,
+	STATS_GREEDY_PEOPLE = 0,
 	STATS_KLEPTOMANIACS = 0
 ))
 

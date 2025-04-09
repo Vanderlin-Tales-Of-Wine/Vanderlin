@@ -617,6 +617,9 @@
 		H.add_stress(/datum/stressevent/hug)
 		playsound(target.loc, pick('sound/vo/hug.ogg'), 100, FALSE, -1)
 
+		if(user.mind)
+			GLOB.vanderlin_round_stats[STATS_HUGS_MADE]++
+
 // ............... I ..................
 /datum/emote/living/idle
 	key = "idle"
@@ -905,6 +908,12 @@
 	key = "rage"
 	message = "screams in rage!"
 	emote_type = EMOTE_AUDIBLE
+
+/datum/emote/living/rage/run_emote(mob/user, params, type_override, intentional, targetted)
+	. = ..()
+	if(. && user.mind)
+		GLOB.vanderlin_round_stats[STATS_WARCRIES]++
+
 /mob/living/carbon/human/verb/emote_rage()
 	set name = "Rage"
 	set category = "Noises"

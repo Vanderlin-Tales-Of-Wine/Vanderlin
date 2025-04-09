@@ -1084,6 +1084,14 @@ SUBSYSTEM_DEF(gamemode)
 /// Refreshes statistics regarding alive statuses of certain professions or antags, like nobles
 /datum/controller/subsystem/gamemode/proc/refresh_alive_stats()
 	GLOB.vanderlin_round_stats[STATS_ALIVE_NOBLES] = 0
+	GLOB.vanderlin_round_stats[STATS_ILLITERATES] = 0
+	GLOB.vanderlin_round_stats[STATS_WEREVOLVES] = 0
+	GLOB.vanderlin_round_stats[STATS_DEADITES_ALIVE] = 0
+	GLOB.vanderlin_round_stats[STATS_CLINGY_PEOPLE] = 0
+	GLOB.vanderlin_round_stats[STATS_ALCOHOLICS] = 0
+	GLOB.vanderlin_round_stats[STATS_JUNKIES] = 0
+	GLOB.vanderlin_round_stats[STATS_KLEPTOMANIACS] = 0
+	GLOB.vanderlin_round_stats[STATS_GREEDY_PEOPLE] = 0
 	for(var/client/client in GLOB.clients)
 		var/mob/living/living = client.mob
 		if(!istype(living))
@@ -1092,10 +1100,26 @@ SUBSYSTEM_DEF(gamemode)
 			continue
 		if(living.stat == DEAD)
 			continue
+		if(living.mind.has_antag_datum(/datum/antagonist/werewolf))
+			GLOB.vanderlin_round_stats[STATS_WEREVOLVES]++
+		if(living.mind.has_antag_datum(/datum/antagonist/zombie) || living.mind.has_antag_datum(/datum/antagonist/skeleton) || living.mind.has_antag_datum(/datum/antagonist/lich) )
+			GLOB.vanderlin_round_stats[STATS_DEADITES_ALIVE]++
 		if(ishuman(living))
-			var/mob/living/carbon/human/human_mob= client.mob
+			var/mob/living/carbon/human/human_mob = client.mob
 			if(human_mob.is_noble())
 				GLOB.vanderlin_round_stats[STATS_ALIVE_NOBLES]++
+			if(!human_mob.is_literate())
+				GLOB.vanderlin_round_stats[STATS_ILLITERATES]++
+			if(human_mob.has_flaw(/datum/charflaw/clingy))
+				GLOB.vanderlin_round_stats[STATS_CLINGY_PEOPLE]++
+			if(human_mob.has_flaw(/datum/charflaw/addiction/alcoholic))
+				GLOB.vanderlin_round_stats[STATS_ALCOHOLICS]++
+			if(human_mob.has_flaw(/datum/charflaw/addiction/junkie))
+				GLOB.vanderlin_round_stats[STATS_JUNKIES]++
+			if(human_mob.has_flaw(/datum/charflaw/addiction/kleptomaniac))
+				GLOB.vanderlin_round_stats[STATS_KLEPTOMANIACS]++
+			if(human_mob.has_flaw(/datum/charflaw/greedy))
+				GLOB.vanderlin_round_stats[STATS_GREEDY_PEOPLE]++
 
 /// Returns influence value for a given storyteller for his given statistic
 /datum/controller/subsystem/gamemode/proc/calculate_specific_influence(datum/storyteller/chosen_storyteller, statistic)
