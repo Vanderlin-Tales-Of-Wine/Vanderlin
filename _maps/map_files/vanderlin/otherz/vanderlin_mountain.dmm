@@ -1496,10 +1496,6 @@
 /obj/effect/spawner/map_spawner/loot/weapon,
 /turf/open/floor/blocks,
 /area/rogue/under/mountains/anvil/lower/building)
-"xo" = (
-/obj/structure/fake_machine/hailerboard,
-/turf/open/floor/naturalstone,
-/area/rogue/under/mountains/anvil/lower/building)
 "xs" = (
 /obj/structure/chair/wood/alt/chair3{
 	dir = 4
@@ -2981,6 +2977,10 @@
 "Ur" = (
 /obj/effect/decal/cleanable/blood/gibs/core,
 /turf/open/floor/blocks,
+/area/rogue/under/mountains/anvil/lower/building)
+"Us" = (
+/obj/structure/fake_machine/hailerboard,
+/turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower/building)
 "Uw" = (
 /obj/structure/roguetent/preopen,
@@ -4891,7 +4891,7 @@ cB
 vV
 vV
 VB
-xo
+Us
 Ly
 Ly
 Ly

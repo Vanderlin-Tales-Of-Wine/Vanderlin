@@ -513,6 +513,10 @@
 /obj/structure/flora/newtree,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/woods)
+"ur" = (
+/obj/structure/fake_machine/hailerboard/r,
+/turf/open/floor/grass,
+/area/rogue/outdoors/woods)
 "ut" = (
 /turf/closed/wall/mineral/tent,
 /area/rogue/indoors/cave)
@@ -652,10 +656,6 @@
 /obj/structure/chair/stool,
 /turf/open/floor/naturalstone,
 /area/rogue/indoors/cave)
-"ym" = (
-/obj/structure/fake_machine/hailerboard/r,
-/turf/open/floor/grass,
-/area/rogue/outdoors/woods)
 "yL" = (
 /obj/structure/mineral_door/wood/deadbolt{
 	dir = 1
@@ -40866,7 +40866,7 @@ UM
 UR
 wV
 wV
-ym
+ur
 Jg
 zg
 Qd

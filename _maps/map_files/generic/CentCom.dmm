@@ -3459,6 +3459,10 @@
 /obj/item/clothing/armor/plate/full,
 /turf/open/floor/carpet,
 /area/rogue)
+"Er" = (
+/obj/structure/maniac_return_machine,
+/turf/open/floor/plasteel/maniac/damaged,
+/area/rogue)
 "Eu" = (
 /obj/structure/fluff/railing/fence,
 /turf/open/floor/dirt,
@@ -4353,10 +4357,6 @@
 /obj/item/natural/rock,
 /turf/open/floor/grass/red,
 /area/rogue/outdoors/woods_safe)
-"PM" = (
-/obj/structure/maniac_return_machine,
-/turf/open/floor/plasteel/maniac/damaged,
-/area/rogue)
 "PN" = (
 /obj/structure/table/wood/reinforced,
 /obj/item/clothing/neck/coif,
@@ -10784,7 +10784,7 @@ Fz
 YI
 Sr
 kB
-PM
+Er
 Sr
 AV
 YI

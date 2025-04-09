@@ -1258,6 +1258,15 @@
 /obj/item/book/nitebeast,
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/church)
+"bvS" = (
+/obj/structure/closet/crate/crafted_closet/inn/south,
+/obj/item/key/feldsher{
+	pixel_y = 9
+	},
+/turf/open/floor/ruinedwood{
+	icon_state = "weird1"
+	},
+/area/rogue/indoors/town)
 "bwc" = (
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_y = -32
@@ -1625,14 +1634,6 @@
 /obj/structure/fluff/statue/gargoyle/moss,
 /turf/open/floor/blocks,
 /area/rogue/outdoors/town/roofs)
-"bPx" = (
-/obj/structure/closet/crate/chest/neu_fancy,
-/obj/item/key/bathhouse,
-/obj/item/key/bathhouse,
-/obj/item/key/bathhouse,
-/obj/item/key/bathhouse,
-/turf/open/floor/wood/nosmooth,
-/area/rogue/indoors/town/bath)
 "bPG" = (
 /obj/structure/window/openclose{
 	dir = 8
@@ -3534,10 +3535,6 @@
 	icon_state = "weird1"
 	},
 /area/rogue/indoors/town/shop)
-"dSc" = (
-/obj/effect/decal/cleanable/debris/glass,
-/turf/open/floor/grass,
-/area/rogue/outdoors/town)
 "dSj" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood/spiral,
@@ -6187,22 +6184,6 @@
 "gLE" = (
 /turf/open/floor/dirt,
 /area/rogue/outdoors/rtfield)
-"gMj" = (
-/obj/structure/closet/crate/chest/neu_iron,
-/obj/item/key/manor,
-/obj/item/key/walls,
-/obj/item/key/blacksmith,
-/obj/item/key/steward,
-/obj/item/key/church,
-/obj/item/key/dungeon,
-/obj/item/key/graveyard,
-/obj/item/key/garrison,
-/obj/item/key/artificer,
-/obj/item/key/mercenary,
-/obj/item/key/tavern,
-/obj/item/key/feldsher,
-/turf/open/floor/tile/tilerg,
-/area/rogue/indoors/town)
 "gMl" = (
 /obj/structure/chair/wood/alt{
 	dir = 8
@@ -8825,6 +8806,22 @@
 	icon_state = "weird1"
 	},
 /area/rogue/indoors/town/church)
+"jQm" = (
+/obj/structure/closet/crate/chest/neu_iron,
+/obj/item/key/manor,
+/obj/item/key/walls,
+/obj/item/key/blacksmith,
+/obj/item/key/steward,
+/obj/item/key/church,
+/obj/item/key/dungeon,
+/obj/item/key/graveyard,
+/obj/item/key/garrison,
+/obj/item/key/artificer,
+/obj/item/key/mercenary,
+/obj/item/key/tavern,
+/obj/item/key/feldsher,
+/turf/open/floor/tile/tilerg,
+/area/rogue/indoors/town)
 "jQo" = (
 /obj/structure/stairs{
 	dir = 1
@@ -9655,6 +9652,10 @@
 	icon_state = "greenstone"
 	},
 /area/rogue/indoors/town/magician)
+"kFl" = (
+/obj/effect/decal/cleanable/debris/glass,
+/turf/open/floor/grass,
+/area/rogue/outdoors/town)
 "kFs" = (
 /obj/structure/mineral_door/wood{
 	name = "Bell Tower"
@@ -13974,15 +13975,6 @@
 	},
 /turf/open/water/river,
 /area/rogue/under/cave)
-"pmn" = (
-/obj/structure/closet/crate/crafted_closet/inn/south,
-/obj/item/key/feldsher{
-	pixel_y = 9
-	},
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
-/area/rogue/indoors/town)
 "pmv" = (
 /obj/machinery/light/fueled/firebowl,
 /turf/open/floor/woodturned,
@@ -18006,6 +17998,14 @@
 /obj/structure/table/wood,
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/garrison)
+"tVB" = (
+/obj/structure/closet/crate/chest/neu_fancy,
+/obj/item/key/bathhouse,
+/obj/item/key/bathhouse,
+/obj/item/key/bathhouse,
+/obj/item/key/bathhouse,
+/turf/open/floor/wood/nosmooth,
+/area/rogue/indoors/town/bath)
 "tVQ" = (
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
 /turf/open/floor/cobble,
@@ -60111,7 +60111,7 @@ kOQ
 sSM
 iUq
 gwA
-gMj
+jQm
 mHs
 oOl
 gwA
@@ -65175,7 +65175,7 @@ bbf
 iUq
 tDt
 uGU
-dSc
+kFl
 tdH
 oli
 hnz
@@ -89756,7 +89756,7 @@ doW
 doW
 doW
 whI
-bPx
+tVB
 eqA
 eqA
 eqA
@@ -105827,7 +105827,7 @@ oiP
 sjf
 vTw
 tgV
-pmn
+bvS
 pSc
 tvr
 mWk
