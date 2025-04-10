@@ -93,7 +93,7 @@
 	name = "wooden door"
 	desc = "A door that can open and close."
 	icon = 'icons/roguetown/misc/doors.dmi'
-	icon_state = "wcg"
+	icon_state = "woodhandle"
 	density = TRUE
 	anchored = TRUE
 	opacity = TRUE

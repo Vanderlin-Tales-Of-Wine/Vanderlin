@@ -2676,8 +2676,7 @@
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/manor)
 "cVr" = (
-/obj/structure/door{
-	icon_state = "wcr";
+/obj/structure/door/red{
 	lockid = "garrison"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -8138,8 +8137,7 @@
 /turf/open/floor/tile,
 /area/rogue/indoors/town/manor)
 "iYB" = (
-/obj/structure/door{
-	icon_state = "wcr";
+/obj/structure/door/red{
 	lockid = "captain";
 	name = "captain's room door"
 	},
@@ -8904,8 +8902,7 @@
 /turf/open/floor/grass,
 /area/rogue/outdoors/river)
 "jVe" = (
-/obj/structure/door{
-	icon_state = "wcr";
+/obj/structure/door/red{
 	lockid = "garrison"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -9662,8 +9659,7 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/town/manor)
 "kGu" = (
-/obj/structure/door{
-	icon_state = "wcr";
+/obj/structure/door/red{
 	lockid = "captain"
 	},
 /turf/open/floor/blocks,

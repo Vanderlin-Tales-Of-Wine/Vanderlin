@@ -1,4 +1,5 @@
 /obj/structure/mineral_door/wood{icon_state="wcv"} : /obj/structure/mineral_door/violet{@OLD;icon_state=@SKIP}
+/obj/structure/mineral_door/wood{icon_state="wcr"} : /obj/structure/mineral_door/red{@OLD;icon_state=@SKIP}
 /obj/structure/mineral_door/@SUBTYPES{locked=1} : /obj/structure/mineral_door/@SUBTYPES{@OLD;locked=@SKIP}, /obj/effect/mapping_helpers/door/locker
 /obj/structure/mineral_door/wood/donjon/stone : /obj/structure/door/stone{@OLD}
 /obj/structure/mineral_door/bars : /obj/structure/door/iron/bars{@OLD}
