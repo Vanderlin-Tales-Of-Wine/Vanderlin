@@ -8,5 +8,5 @@
 /obj/structure/mineral_door/swing_door : /obj/structure/door/swing{@OLD}
 /obj/structure/mineral_door/wood/donjon : /obj/structure/door/viewport{@OLD}
 /obj/structure/mineral_door/wood/deadbolt : /obj/structure/door/weak/bolt/shutter{@OLD}
-/obj/structure/door/deadbolt/arcyne/@SUBTYPES : /obj/structure/door/arcyne/bolt/@SUBTYPES{@OLD}
+/obj/structure/mineral_door/deadbolt/arcyne/@SUBTYPES : /obj/structure/door/arcyne/bolt/@SUBTYPES{@OLD}
 /obj/structure/mineral_door/wood/@SUBTYPES : /obj/structure/door/@SUBTYPES{@OLD}
