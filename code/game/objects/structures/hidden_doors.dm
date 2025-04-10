@@ -3,26 +3,25 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 
 /obj/structure/mineral_door/secret
 	hover_color = "#607d65"
-
 	name = "wall"
-	desc = ""
+	desc = null
 	icon_state = "woodhandle" //change me
-	openSound = 'sound/foley/doors/creak.ogg'
-	closeSound = 'sound/foley/doors/shut.ogg'
-	resistance_flags = FLAMMABLE
+	resistance_flags = NONE
 	max_integrity = 9999
 	damage_deflection = 30
 	layer = ABOVE_MOB_LAYER
 	keylock = FALSE
 	locked = TRUE
-	icon = 'icons/roguetown/misc/doors.dmi'
-	blade_dulling = DULLING_BASHCHOP
-	break_sound = 'sound/combat/hits/onwood/destroywalldoor.ogg'
-	attacked_sound = list('sound/combat/hits/onwood/woodimpact (1).ogg','sound/combat/hits/onwood/woodimpact (2).ogg')
 
 	can_add_lock = FALSE
 	can_knock = FALSE
 	redstone_structure = TRUE
+
+	repairable = FALSE
+	repair_cost_first = null
+	repair_cost_second = null
+	repair_skill = null
+	metalizer_result = null
 
 	var/open_phrase = "open sesame"
 
@@ -59,10 +58,6 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 		/datum/job/wapprentice,
 		/datum/job/archivist,
 	)
-	//make me look like an arcane door
-	//icon = 'icons/turf/walls/stonebrick.dmi'
-	//icon_state = "stonebrick" //change me
-
 
 /obj/structure/mineral_door/secret/Initialize()
 	become_hearing_sensitive()
@@ -120,9 +115,9 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 
 
 /obj/structure/mineral_door/secret/Open(silent = FALSE)
-	isSwitchingStates = TRUE
+	switching_states = TRUE
 	if(!silent)
-		playsound(src, openSound, 90)
+		playsound(src, open_sound, 90)
 	if(!windowed)
 		set_opacity(FALSE)
 	animate(src, pixel_x = -22, alpha = 50, time = animate_time)
@@ -132,13 +127,13 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	layer = OPEN_DOOR_LAYER
 	air_update_turf(1)
 	update_icon()
-	isSwitchingStates = FALSE
+	switching_states = FALSE
 
-	if(close_delay >= 0)
+	if(close_delay > 0)
 		addtimer(CALLBACK(src, PROC_REF(Close), silent), close_delay)
 
 /obj/structure/mineral_door/secret/force_open()
-	isSwitchingStates = TRUE
+	switching_states = TRUE
 	if(!windowed)
 		set_opacity(FALSE)
 	animate(src, pixel_x = -22, alpha = 50, time = animate_time)
@@ -148,34 +143,20 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	layer = OPEN_DOOR_LAYER
 	air_update_turf(1)
 	update_icon()
-	isSwitchingStates = FALSE
+	switching_states = FALSE
 
-	if(close_delay >= 0)
+	if(close_delay > 0)
 		addtimer(CALLBACK(src, PROC_REF(Close)), close_delay)
 
-
-/obj/structure/mineral_door/secret/force_closed()
-	isSwitchingStates = TRUE
-	if(!windowed)
-		set_opacity(TRUE)
-	animate(src, pixel_x = 0, alpha = 255, time = animate_time)
-	sleep(animate_time)
-	density = TRUE
-	door_opened = FALSE
-	layer = CLOSED_DOOR_LAYER
-	air_update_turf(1)
-	update_icon()
-	isSwitchingStates = FALSE
-
 /obj/structure/mineral_door/secret/Close(silent = FALSE)
-	if(isSwitchingStates || !door_opened)
+	if(switching_states || !door_opened)
 		return
 	var/turf/T = get_turf(src)
 	for(var/mob/living/L in T)
 		return
-	isSwitchingStates = TRUE
+	switching_states = TRUE
 	if(!silent)
-		playsound(src, closeSound, 90)
+		playsound(src, close_sound, 90)
 	animate(src, pixel_x = 0, alpha = 255, time = animate_time)
 	sleep(animate_time)
 	density = TRUE
@@ -185,8 +166,21 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	layer = initial(layer)
 	air_update_turf(1)
 	update_icon()
-	isSwitchingStates = FALSE
+	switching_states = FALSE
 	locked = TRUE
+
+/obj/structure/mineral_door/secret/force_closed()
+	switching_states = TRUE
+	if(!windowed)
+		set_opacity(TRUE)
+	animate(src, pixel_x = 0, alpha = 255, time = animate_time)
+	sleep(animate_time)
+	density = TRUE
+	door_opened = FALSE
+	layer = CLOSED_DOOR_LAYER
+	air_update_turf(1)
+	update_icon()
+	switching_states = FALSE
 
 /proc/open_word()
 	var/list/open_word = list(
