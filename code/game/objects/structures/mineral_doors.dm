@@ -190,7 +190,7 @@
 	density = FALSE
 	door_opened = TRUE
 	layer = OPEN_DOOR_LAYER
-	air_update_turf(1)
+	air_update_turf(TRUE)
 	update_icon()
 	isSwitchingStates = FALSE
 
@@ -204,7 +204,7 @@
 	density = TRUE
 	door_opened = FALSE
 	layer = CLOSED_DOOR_LAYER
-	air_update_turf(1)
+	air_update_turf(TRUE)
 	update_icon()
 	isSwitchingStates = FALSE
 
@@ -339,11 +339,11 @@
 		set_opacity(FALSE)
 	flick("[initial(icon_state)]opening", src)
 	sleep(animate_time)
-	air_update_turf(1)
-	update_icon()
 	density = FALSE
 	door_opened = TRUE
 	layer = OPEN_DOOR_LAYER
+	air_update_turf(TRUE)
+	update_icon()
 	isSwitchingStates = FALSE
 
 	if(close_delay >= 0)
@@ -362,11 +362,11 @@
 	sleep(animate_time)
 	if(!windowed)
 		set_opacity(TRUE)
-	air_update_turf(1)
-	update_icon()
 	density = TRUE
 	door_opened = FALSE
 	layer = initial(layer)
+	air_update_turf(TRUE)
+	update_icon()
 	isSwitchingStates = FALSE
 
 /obj/structure/mineral_door/update_icon()
