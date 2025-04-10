@@ -561,7 +561,6 @@
 	additional_items = list(/obj/item/grown/log/tree/stick)
 	created_item = /obj/item/weapon/axe/steel/silver
 	craftdiff = 2
-/obj/item/weapon/axe/steel/silver
 
 // ELECTRUM - Hard to craft, incredibly expensive and can only be smelted with a crucibel. In exchange its harder then silver while retaining the silver bonus against undead. Used for holy gear.
 
@@ -606,21 +605,51 @@
 	quench_type = QUENCH_HOLY
 
 /datum/anvil_recipe/weapons/electrum/longsword_psydon
-	name = "Psydonian Longsword (+Bar)"
+	name = "Psydonian Longsword (+ Steel Bar)"
 	recipe_name = "a Psydonian Longsword"
 	appro_skill = /datum/skill/craft/weaponsmithing
 	req_bar = /obj/item/ingot/electrum
-	additional_items = list(/obj/item/ingot/electrum)
+	additional_items = list(/obj/item/ingot/steel)
 	created_item = /obj/item/weapon/sword/long/psydon
 	craftdiff = 4
 	quench_type = QUENCH_HOLY
 
+/datum/anvil_recipe/weapons/electrum/spear_psydon
+	name = "Psydonian Spear (+Small Log)"
+	recipe_name = "a Psydonian Spear"
+	appro_skill = /datum/skill/craft/weaponsmithing
+	req_bar = /obj/item/ingot/electrum
+	additional_items = list(/obj/item/grown/log/tree/small)
+	created_item = /obj/item/weapon/polearm/spear/psydon
+	craftdiff = 4
+	quench_type = QUENCH_HOLY
+
+/datum/anvil_recipe/weapons/electrum/grandmace_psydon
+	name = "Psydonian Grand Mace (+Electrum Bar, +Steel Bar)"
+	recipe_name = "a Psydonian Grand Mace"
+	appro_skill = /datum/skill/craft/weaponsmithing
+	req_bar = /obj/item/ingot/electrum
+	additional_items = list(/obj/item/ingot/electrum, /obj/item/ingot/steel)
+	created_item = /obj/item/weapon/mace/goden/psydon
+	craftdiff = 5
+	quench_type = QUENCH_HOLY
+
 /datum/anvil_recipe/weapons/electrum/greatsword_psydon
-	name = "Psydonian Greatsword (+Electrum Bar x2, +Steel Bar)"
+	name = "Psydonian Greatsword (+Electrum Bar, +Steel Bar)"
 	recipe_name = "a Psydonian Greatsword"
 	appro_skill = /datum/skill/craft/weaponsmithing
 	req_bar = /obj/item/ingot/electrum
-	additional_items = list(/obj/item/ingot/electrum, /obj/item/ingot/electrum, /obj/item/ingot/steel)
+	additional_items = list(/obj/item/ingot/electrum, /obj/item/ingot/steel)
 	created_item = /obj/item/weapon/sword/long/greatsword/psydon
+	craftdiff = 5
+	quench_type = QUENCH_HOLY
+
+/datum/anvil_recipe/weapons/electrum/halberd
+	name = "Psydonian Halberd (+Bar, +Small Log)"
+	recipe_name = "a Psydonian Halberd"
+	appro_skill = /datum/skill/craft/weaponsmithing
+	req_bar = /obj/item/ingot/electrum
+	additional_items = list(/obj/item/ingot/steel,/obj/item/grown/log/tree/small)
+	created_item = /obj/item/weapon/polearm/halberd/psydon
 	craftdiff = 5
 	quench_type = QUENCH_HOLY

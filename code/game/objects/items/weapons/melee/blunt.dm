@@ -453,3 +453,35 @@
 	penfactor = 80
 	damfactor = 0.9
 	item_damage_type = "stab"
+
+//................ Electrum mace ............... //
+/obj/item/weapon/mace/goden/psydon
+	name = "psydonian grand mace"
+	desc = "A hefty mace formed after the broken god. Forged to break apart the enemys of old under its immense weigth, even if the short handel makes it harder to wield"
+	gripped_intents = list(/datum/intent/mace/smash/heavy)
+	icon_state = "psymace"
+	wlength = WLENGTH_NORMAL //You know how thors mace was made too short? Like that.
+	swingsound = BLUNTWOOSH_HUGE
+	slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_HIP
+	resistance_flags = FIRE_PROOF
+	melting_material = /datum/material/electrum
+	melt_amount = 75
+	max_integrity = INTEGRITY_STRONGEST
+//	slowdown = 1
+	sellprice = 120
+	wbalance = DODGE_CHANCE_NORMAL
+	gripped_intents = list(/datum/intent/mace/smash/heavy)
+	minstr = 11
+	is_silver = TRUE
+
+/obj/item/weapon/mace/goden/psydon/getonmobprop(tag)
+	. = ..()
+	if(tag)
+		switch(tag)
+			if("gen")
+				return list("shrink" = 0.6,"sx" = -7,"sy" = 2,"nx" = 7,"ny" = 3,"wx" = -2,"wy" = 1,"ex" = 1,"ey" = 1,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = -38,"sturn" = 37,"wturn" = 30,"eturn" = -30,"nflip" = 0,"sflip" = 8,"wflip" = 8,"eflip" = 0)
+			if("wielded")
+				return list("shrink" = 0.6,"sx" = 5,"sy" = -3,"nx" = -5,"ny" = -2,"wx" = -5,"wy" = -1,"ex" = 3,"ey" = -2,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 7,"sturn" = -7,"wturn" = 16,"eturn" = -22,"nflip" = 8,"sflip" = 0,"wflip" = 8,"eflip" = 0)
+			if("onbelt")
+				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
+
