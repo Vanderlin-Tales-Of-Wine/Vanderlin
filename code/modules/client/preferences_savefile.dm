@@ -193,9 +193,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	// Custom hotkeys
 	S["key_bindings"]		>> key_bindings
-	S["selected_accent"]	>> selected_accent
-	if (!selected_accent)
-		selected_accent = ACCENT_DEFAULT
 
 
 	//try to fix any outdated data if necessary
@@ -296,7 +293,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["pda_style"], pda_style)
 	WRITE_FILE(S["pda_color"], pda_color)
 	WRITE_FILE(S["key_bindings"], key_bindings)
-	WRITE_FILE(S["selected_accent"] , selected_accent)
 	return TRUE
 
 /datum/preferences/proc/_load_species(S)
@@ -336,7 +332,21 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["accessory"]			>> accessory
 	S["detail"]			>> detail
 	S["socks"]				>> socks
-	S["randomise"]	>>  randomise
+	S["randomise"] >> randomise
+	// We load our list, but override everything to FALSE to stop a "tainted" save from making it random again.
+	randomise[RANDOM_BODY] = FALSE
+	randomise[RANDOM_BODY_ANTAG] = FALSE
+	randomise[RANDOM_UNDERWEAR] = FALSE
+	randomise[RANDOM_UNDERWEAR_COLOR] = FALSE
+	randomise[RANDOM_UNDERSHIRT] = FALSE
+	randomise[RANDOM_SOCKS] = FALSE
+	randomise[RANDOM_HAIRSTYLE] = FALSE
+	randomise[RANDOM_HAIR_COLOR] = FALSE
+	randomise[RANDOM_FACIAL_HAIRSTYLE] = FALSE
+	randomise[RANDOM_FACIAL_HAIR_COLOR] = FALSE
+	randomise[RANDOM_SKIN_TONE] = FALSE
+	randomise[RANDOM_EYE_COLOR] = FALSE
+
 	S["family"]			>> family
 	S["setspouse"]			>> setspouse
 	S["feature_mcolor"]					>> features["mcolor"]
@@ -352,6 +362,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["feature_moth_markings"]			>> features["moth_markings"]
 	S["feature_human_tail"]				>> features["tail_human"]
 	S["feature_human_ears"]				>> features["ears"]
+	S["selected_accent"]	>> selected_accent
 
 /datum/preferences/proc/load_character(slot)
 	if(!path)
@@ -473,6 +484,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	skin_tone		= skin_tone
 	family = family
 	setspouse = setspouse
+	selected_accent ||= ACCENT_DEFAULT
 	features["mcolor2"]	= sanitize_hexcolor(features["mcolor2"], 6, 0)
 	features["mcolor3"]	= sanitize_hexcolor(features["mcolor3"], 6, 0)
 	features["ethcolor"]	= copytext(features["ethcolor"],1,7)
@@ -550,6 +562,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["feature_lizard_legs"]			, features["legs"])
 	WRITE_FILE(S["feature_moth_wings"]			, features["moth_wings"])
 	WRITE_FILE(S["feature_moth_markings"]		, features["moth_markings"])
+	WRITE_FILE(S["selected_accent"], selected_accent)
 
 
 	//Custom names
