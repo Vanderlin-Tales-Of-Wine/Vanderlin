@@ -89,6 +89,12 @@
 	. = ..()
 	caster = summoner
 
+/obj/structure/door/arcyne/bolt/caster/attack_right(mob/user)
+	. = ..()
+	if(user != caster)
+		to_chat(user, span_warning("A magical force prevents me from interacting with [src]."))
+		return
+
 /atom/movable
 	var/list/mana_beams
 
