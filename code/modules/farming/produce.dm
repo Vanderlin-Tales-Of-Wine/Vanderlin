@@ -143,7 +143,7 @@
 /obj/item/reagent_containers/food/snacks/produce/strawberry
 	seed = /obj/item/neuFarm/seed/strawberry
 	name = "strawberry"
-	desc = "A delectable strawberry."
+	desc = "A beloved fruit found natively only within the Kingdom of Rosewood."
 	icon_state = "strawberry"
 	tastes = list("strawberry" = 1)
 	faretype = FARE_NEUTRAL
@@ -157,7 +157,7 @@
 /obj/item/reagent_containers/food/snacks/produce/raspberry
 	seed = /obj/item/neuFarm/seed/raspberry
 	name = "raspberry"
-	desc = "A delectable raspberry."
+	desc = "Previously common in the Vanderlin peninsula, these berries have been nearly completely extincted by the invasive Jacksberry."
 	icon_state = "raspberry"
 	tastes = list("raspberry" = 1)
 	faretype = FARE_NEUTRAL
@@ -171,7 +171,7 @@
 /obj/item/reagent_containers/food/snacks/produce/blackberry
 	seed = /obj/item/neuFarm/seed/blackberry
 	name = "blackberry"
-	desc = "A delectable blackberry."
+	desc = "Previously common in the Vanderlin peninsula, these berries have been nearly completely extincted by the invasive Jacksberry."
 	icon_state = "blackberry"
 	tastes = list("blackberry" = 1)
 	faretype = FARE_NEUTRAL
@@ -389,8 +389,9 @@
 /obj/item/reagent_containers/food/snacks/produce/lemon
 	name = "lemon"
 	seed = /obj/item/neuFarm/seed/lemon
-	desc = "Too sweet for many, a favored treat for little ones. Dwarves do love them."
+	desc = "Many Physikers swear by its ability to reduce fatigue."
 	icon_state = "lemon"
+	dropshrink = 0.8
 	bitesize = 2
 	foodtype = FRUIT
 	tastes = list("lemon" = 1)
@@ -399,8 +400,9 @@
 /obj/item/reagent_containers/food/snacks/produce/lime
 	name = "lime"
 	seed = /obj/item/neuFarm/seed/lime
-	desc = "Too sweet for many, a favored treat for little ones. Dwarves do love them."
+	desc = "In recent years, Grenzlehoft's inquisitorial lodges have begun importing these en-masse for some mysterious cruel purpose."
 	icon_state = "lime"
+	dropshrink = 0.8
 	bitesize = 2
 	foodtype = FRUIT
 	tastes = list("lime" = 1)
@@ -409,8 +411,9 @@
 /obj/item/reagent_containers/food/snacks/produce/tangerine
 	name = "tangerine"
 	seed = /obj/item/neuFarm/seed/tangerine
-	desc = "Too sweet for many, a favored treat for little ones. Dwarves do love them."
+	desc = "Originally from Zybantu, this fruit has seen mass appeal from sailors due to its mystical ability to ward off Red Tooth Plague"
 	icon_state = "tangerine"
+	dropshrink = 0.8
 	bitesize = 2
 	foodtype = FRUIT
 	tastes = list("tangerine" = 1)
@@ -419,8 +422,9 @@
 /obj/item/reagent_containers/food/snacks/produce/plum
 	name = "plum"
 	seed = /obj/item/neuFarm/seed/plum
-	desc = "Too sweet for many, a favored treat for little ones. Dwarves do love them."
+	desc = "A fruit native to the Vanderlinian peninsula, known to bear fruit during the winter months."
 	icon_state = "plum"
+	dropshrink = 0.8
 	bitesize = 2
 	foodtype = FRUIT
 	tastes = list("plum" = 1)
@@ -446,7 +450,7 @@
 /obj/item/reagent_containers/food/snacks/produce/sunflower
 	seed = /obj/item/neuFarm/seed/sunflower
 	name = "sunflower"
-	desc = ""
+	desc = "For their unshakable devotion to her light, these flowers are considered a symbol of Astrata."
 	icon_state = "sunflower"
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/head_items.dmi'
 	seed = /obj/item/neuFarm/seed/sunflower
@@ -465,7 +469,7 @@
 /obj/item/reagent_containers/food/snacks/produce/sugarcane
 	seed = /obj/item/neuFarm/seed/sugarcane
 	name = "sugarcane"
-	desc = ""
+	desc = "A highly sought after plant, its seeds have been blocked from export by the Mercator Guild, though with little effect."
 	icon_state = "sugarcane"
 	seed = /obj/item/neuFarm/seed/sugarcane
 	throwforce = 0
@@ -479,7 +483,7 @@
 
 /obj/item/reagent_containers/food/snacks/sugar
 	name = "sugar"
-	desc ="<illed sugarcane, sweet as can be."
+	desc ="Milled sugarcane, sweet as can be."
 	icon = 'icons/roguetown/items/produce.dmi'
 	icon_state = "salt"
 	tastes = list("sweet" = 1)

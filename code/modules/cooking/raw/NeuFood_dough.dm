@@ -141,7 +141,7 @@
 			playsound(get_turf(user), 'sound/foley/eggbreak.ogg', 100, TRUE, -1)
 			if(do_after(user, short_cooktime, src))
 				if(user.mind.get_skill_level(/datum/skill/craft/cooking) >= 2)
-					new /obj/item/reagent_containers/food/snacks/foodbase/griddlecake_raw(loc)
+					new /obj/item/reagent_containers/food/snacks/foodbase/griddlecake_raw/good(loc)
 				else
 					new /obj/item/reagent_containers/food/snacks/foodbase/griddlecake_raw(loc)
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
