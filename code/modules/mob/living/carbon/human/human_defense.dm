@@ -43,7 +43,7 @@
 							protection = val
 							used = armorworn // ...force us to use it above all!
 				// If we don't have armor equipped or the one we have is broken...
-				else if(bp == shirtworn && (armorworn == null || (armorworn.max_integrity && armorworn.obj_integrity <= 0) || !zone2covered(def_zone, armorworn.body_parts_covered)))
+				else if(bp == shirtworn && (!armorworn || (armorworn.max_integrity && armorworn.obj_integrity <= 0) || !zone2covered(def_zone, armorworn.body_parts_covered)))
 					if(val > 0) // ...and it's not just a linen shirt...
 						if(val > protection)
 							protection = val
