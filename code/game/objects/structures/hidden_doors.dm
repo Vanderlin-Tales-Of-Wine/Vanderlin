@@ -1,7 +1,7 @@
 GLOBAL_LIST_EMPTY(keep_doors)
 GLOBAL_LIST_EMPTY(thieves_guild_doors)
 
-/obj/structure/mineral_door/secret
+/obj/structure/door/secret
 	hover_color = "#607d65"
 	name = "wall"
 	desc = null
@@ -30,16 +30,16 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	var/list/vip
 	var/vipmessage
 
-/obj/structure/mineral_door/secret/redstone_triggered(mob/user)
+/obj/structure/door/secret/redstone_triggered(mob/user)
 	if(!door_opened)
 		force_open()
 	else
 		force_closed()
 
-/obj/structure/mineral_door/secret/update_icon()
+/obj/structure/door/secret/update_icon()
 
 ///// DOOR TYPES //////
-/obj/structure/mineral_door/secret/vault
+/obj/structure/door/secret/vault
 	vip = list(
 	/datum/job/lord,
 	/datum/job/consort,
@@ -47,34 +47,34 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	/datum/job/hand,
 	)
 
-/obj/structure/mineral_door/secret/merchant
+/obj/structure/door/secret/merchant
 	vip = list(
 		/datum/job/merchant,
 	)
 
-/obj/structure/mineral_door/secret/wizard //for wizard tower
+/obj/structure/door/secret/wizard //for wizard tower
 	vip = list(
 		/datum/job/magician,
 		/datum/job/wapprentice,
 		/datum/job/archivist,
 	)
 
-/obj/structure/mineral_door/secret/Initialize()
+/obj/structure/door/secret/Initialize()
 	become_hearing_sensitive()
 	open_phrase = open_word() + " " + magic_word()
 	. = ..()
 
-/obj/structure/mineral_door/secret/door_rattle()
+/obj/structure/door/secret/door_rattle()
 	return
 
 //can't kick it open, but you can kick it closed
-/obj/structure/mineral_door/secret/onkick(mob/user)
+/obj/structure/door/secret/onkick(mob/user)
 	if(locked)
 		return
 	else
 		..()
 
-/obj/structure/mineral_door/secret/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode, original_message)
+/obj/structure/door/secret/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode, original_message)
 	var/mob/living/carbon/human/H = speaker
 	if(speaker == src) //door speaking to itself
 		return FALSE
@@ -114,7 +114,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 		return TRUE
 
 
-/obj/structure/mineral_door/secret/Open(silent = FALSE)
+/obj/structure/door/secret/Open(silent = FALSE)
 	switching_states = TRUE
 	if(!silent)
 		playsound(src, open_sound, 90)
@@ -132,7 +132,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	if(close_delay > 0)
 		addtimer(CALLBACK(src, PROC_REF(Close), silent), close_delay)
 
-/obj/structure/mineral_door/secret/force_open()
+/obj/structure/door/secret/force_open()
 	switching_states = TRUE
 	if(!windowed)
 		set_opacity(FALSE)
@@ -148,7 +148,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	if(close_delay > 0)
 		addtimer(CALLBACK(src, PROC_REF(Close)), close_delay)
 
-/obj/structure/mineral_door/secret/Close(silent = FALSE)
+/obj/structure/door/secret/Close(silent = FALSE)
 	if(switching_states || !door_opened)
 		return
 	var/turf/T = get_turf(src)
@@ -169,7 +169,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	switching_states = FALSE
 	locked = TRUE
 
-/obj/structure/mineral_door/secret/force_closed()
+/obj/structure/door/secret/force_closed()
 	switching_states = TRUE
 	if(!windowed)
 		set_opacity(TRUE)
@@ -272,11 +272,11 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 		)
 	return pick(flavor_name)
 
-/obj/structure/mineral_door/secret/proc/set_phrase(new_phrase)
+/obj/structure/door/secret/proc/set_phrase(new_phrase)
 	open_phrase = new_phrase
 
 ///// KEEP DOORS /////
-/obj/structure/mineral_door/secret/keep
+/obj/structure/door/secret/keep
 	vip = list(
 		/datum/job/lord,
 		/datum/job/consort,
@@ -287,25 +287,25 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	icon = 'icons/turf/walls/stonebrick.dmi'
 	icon_state = "stonebrick"
 
-/obj/structure/mineral_door/secret/keep/Initialize()
+/obj/structure/door/secret/keep/Initialize()
 	. = ..()
 	if(GLOB.keep_doors.len > 0)
-		var/obj/structure/mineral_door/secret/D = GLOB.keep_doors[1]
+		var/obj/structure/door/secret/D = GLOB.keep_doors[1]
 		open_phrase = D.open_phrase
 	GLOB.keep_doors += src
 
-/obj/structure/mineral_door/secret/keep/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode)
+/obj/structure/door/secret/keep/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode)
 	if(!..())
 		return FALSE
 	var/mob/living/carbon/human/H = speaker
 
 	var/message2recognize = sanitize_hear_message(raw_message)
 	if(vip.Find(H?.mind.assigned_role) && findtext(message2recognize, "set phrase"))
-		for(var/obj/structure/mineral_door/secret/D in GLOB.keep_doors)
+		for(var/obj/structure/door/secret/D in GLOB.keep_doors)
 			D.set_phrase(open_phrase)
 	return TRUE
 
-/obj/structure/mineral_door/secret/keep/examine(mob/user)
+/obj/structure/door/secret/keep/examine(mob/user)
 	. = ..()
 	if(HAS_TRAIT(user, TRAIT_KNOWKEEPPLANS))
 		. += span_purple("There's a hidden wall here...")
@@ -315,11 +315,11 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 		..()
 
 /proc/know_keep_door_password(mob/living/carbon/human/H)
-	var/obj/structure/mineral_door/secret/D = GLOB.keep_doors[1]
+	var/obj/structure/door/secret/D = GLOB.keep_doors[1]
 	to_chat(H, span_notice("The keep's secret doors answer to: '[D.open_phrase]'"))
 
 ///// THIEVES GUILD DOORS /////
-/obj/structure/mineral_door/secret/thieves_guild
+/obj/structure/door/secret/thieves_guild
 	vip = list(
 		///datum/job/thief,
 		/datum/job/matron,
@@ -328,21 +328,21 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	icon = 'icons/turf/walls/stonebrick.dmi'
 	icon_state = "stonebrick"
 
-/obj/structure/mineral_door/secret/thieves_guild/Initialize()
+/obj/structure/door/secret/thieves_guild/Initialize()
 	. = ..()
 	if(GLOB.thieves_guild_doors.len > 0)
-		var/obj/structure/mineral_door/secret/D = GLOB.thieves_guild_doors[1]
+		var/obj/structure/door/secret/D = GLOB.thieves_guild_doors[1]
 		open_phrase = D.open_phrase
 	GLOB.thieves_guild_doors += src
 
-/obj/structure/mineral_door/secret/thieves_guild/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode)
+/obj/structure/door/secret/thieves_guild/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode)
 	if(!..())
 		return FALSE
 	var/mob/living/carbon/human/H = speaker
 
 	var/message2recognize = sanitize_hear_message(raw_message)
 	if((vip.Find(H?.mind.assigned_role)) && findtext(message2recognize, "set phrase"))
-		for(var/obj/structure/mineral_door/secret/D in GLOB.keep_doors)
+		for(var/obj/structure/door/secret/D in GLOB.keep_doors)
 			D.set_phrase(open_phrase)
 	return TRUE
 
@@ -355,7 +355,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 
 	var/redstone_id
 
-	var/obj/structure/mineral_door/secret/door_type = /obj/structure/mineral_door/secret
+	var/obj/structure/door/secret/door_type = /obj/structure/door/secret
 	var/datum/language/given_lang = /datum/language/thievescant //DEPRECATED
 	var/list/vips = list("Thief", "Matron") //DEPRECATED
 	var/vip_message = "Thief and Matron" //DEPRECATED
@@ -367,7 +367,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	if(!isclosedturf(get_turf(src)))
 		return ..()
 	var/turf/closed/source_turf = get_turf(src)
-	var/obj/structure/mineral_door/secret/new_door = new door_type(source_turf)
+	var/obj/structure/door/secret/new_door = new door_type(source_turf)
 
 	new_door.icon = source_turf.icon
 	new_door.icon_state = source_turf.icon_state
@@ -392,11 +392,11 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 		for(var/smoothType in T.canSmoothWith)
 			if(istype(source_turf, smoothType))
 				smoothCompatible = TRUE
-			if(ispath(smoothType, /obj/structure/mineral_door/secret))
+			if(ispath(smoothType, /obj/structure/door/secret))
 				alreadyAdded = TRUE
 				break
 		if(smoothCompatible && !alreadyAdded)
-			T.canSmoothWith += /obj/structure/mineral_door/secret
+			T.canSmoothWith += /obj/structure/door/secret
 
 	if(redstone_id)
 		new_door.redstone_id = redstone_id
@@ -413,5 +413,5 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 
 /obj/effect/mapping_helpers/secret_door_creator/keep
 	name = "Keep Secret Door Creator"
-	door_type = /obj/structure/mineral_door/secret/keep
+	door_type = /obj/structure/door/secret/keep
 	override_floor = FALSE

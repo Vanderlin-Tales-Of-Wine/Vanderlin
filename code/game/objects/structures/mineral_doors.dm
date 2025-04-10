@@ -89,7 +89,7 @@
 		else
 			return 5
 
-/obj/structure/mineral_door
+/obj/structure/door
 	name = "wooden door"
 	desc = "A door that can open and close."
 	icon = 'icons/roguetown/misc/doors.dmi'
@@ -147,13 +147,13 @@
 	var/obj/item/repair_cost_first = /obj/item/grown/log/tree/small
 	var/obj/item/repair_cost_second = /obj/item/grown/log/tree/small
 	var/repair_skill = /datum/skill/craft/carpentry
-	metalizer_result = /obj/structure/mineral_door/iron
+	metalizer_result = /obj/structure/door/iron
 	/// Handle bolting on right click
 	var/has_bolt = FALSE
 	/// Handle viewport toggle
 	var/has_viewport = FALSE
 
-/obj/structure/mineral_door/Initialize()
+/obj/structure/door/Initialize()
 	. = ..()
 	if(has_bolt && has_viewport)
 		warning("[src] at [AREACOORD(src)] has both a deadbolt and a viewport, these will conflict as they both use attack_right.")
@@ -164,10 +164,10 @@
 	if(keylock)
 		AddElement(/datum/element/lockpickable, list(/obj/item/lockpick), list(/obj/item/lockpick), lockid_to_lockpick_difficulty(lockid))
 
-/obj/structure/mineral_door/update_icon()
+/obj/structure/door/update_icon()
 	icon_state = "[initial(icon_state)][door_opened ? "open":""]"
 
-/obj/structure/mineral_door/examine(mob/user)
+/obj/structure/door/examine(mob/user)
 	. = ..()
 	if(has_viewport)
 		. += span_notice("It has a built-in viewport.")
@@ -185,7 +185,7 @@
 		if(obj_broken || repair_state == 1)
 			. += span_notice("An additional [repair_cost_second] is needed to finish repairs.")
 
-/obj/structure/mineral_door/onkick(mob/user)
+/obj/structure/door/onkick(mob/user)
 	if(switching_states)
 		return
 	if(door_opened)
@@ -218,7 +218,7 @@
 		user.visible_message(span_warning("[user] kicks [src]!"), \
 			span_notice("I kick [src]!"))
 
-/obj/structure/mineral_door/proc/force_open()
+/obj/structure/door/proc/force_open()
 	switching_states = TRUE
 	if(!windowed)
 		set_opacity(FALSE)
@@ -232,7 +232,7 @@
 	if(close_delay > 0)
 		addtimer(CALLBACK(src, PROC_REF(Close)), close_delay)
 
-/obj/structure/mineral_door/proc/force_closed()
+/obj/structure/door/proc/force_closed()
 	switching_states = TRUE
 	if(!windowed)
 		set_opacity(TRUE)
@@ -243,24 +243,24 @@
 	layer = CLOSED_DOOR_LAYER
 	switching_states = FALSE
 
-/obj/structure/mineral_door/proc/set_init_layer()
+/obj/structure/door/proc/set_init_layer()
 	if(density)
 		layer = CLOSED_DOOR_LAYER
 	else
 		layer = initial(layer)
 
-/obj/structure/mineral_door/Move()
+/obj/structure/door/Move()
 	. = ..()
 	var/turf/T = loc
 	move_update_air(T)
 
-/obj/structure/mineral_door/attack_ghost(mob/dead/observer/user)	// lets ghosts click on windows to transport across
+/obj/structure/door/attack_ghost(mob/dead/observer/user)	// lets ghosts click on windows to transport across
 	if(!ghostproof)
 		density = FALSE
 		. = step(user, get_dir(user, loc))
 		density = TRUE
 
-/obj/structure/mineral_door/Bumped(atom/movable/AM)
+/obj/structure/door/Bumped(atom/movable/AM)
 	..()
 	if(door_opened)
 		return
@@ -302,10 +302,10 @@
 					addtimer(CALLBACK(src, PROC_REF(Close), FALSE), delay)
 
 
-/obj/structure/mineral_door/attack_paw(mob/user)
+/obj/structure/door/attack_paw(mob/user)
 	return attack_hand(user)
 
-/obj/structure/mineral_door/attack_hand(mob/user)
+/obj/structure/door/attack_hand(mob/user)
 	. = ..()
 	if(.)
 		return
@@ -329,14 +329,14 @@
 		user.visible_message(span_warning("[user] knocks on [src]."), \
 			span_notice("I knock on [src]."))
 
-/obj/structure/mineral_door/CanPass(atom/movable/mover, turf/target)
+/obj/structure/door/CanPass(atom/movable/mover, turf/target)
 	if(istype(mover, /mob/camera))
 		return TRUE
 	if(istype(mover, /obj/effect/beam))
 		return !opacity
 	return !density
 
-/obj/structure/mineral_door/proc/TryToSwitchState(atom/user)
+/obj/structure/door/proc/TryToSwitchState(atom/user)
 	if(switching_states || !anchored)
 		return FALSE
 	if(!isliving(user))
@@ -355,13 +355,13 @@
 			SwitchState()
 		return TRUE
 
-/obj/structure/mineral_door/proc/SwitchState(silent = FALSE)
+/obj/structure/door/proc/SwitchState(silent = FALSE)
 	if(door_opened)
 		Close(silent)
 		return
 	Open(silent)
 
-/obj/structure/mineral_door/proc/Open(silent = FALSE)
+/obj/structure/door/proc/Open(silent = FALSE)
 	switching_states = TRUE
 	if(!silent)
 		playsound(get_turf(src), open_sound, 90)
@@ -379,7 +379,7 @@
 	if(close_delay > 0)
 		addtimer(CALLBACK(src, PROC_REF(Close), silent), close_delay)
 
-/obj/structure/mineral_door/proc/Close(silent = FALSE)
+/obj/structure/door/proc/Close(silent = FALSE)
 	if(switching_states || !door_opened)
 		return
 	for(var/mob/living/L in get_turf(src))
@@ -399,14 +399,14 @@
 	switching_states = FALSE
 
 
-/obj/structure/mineral_door/proc/door_rattle()
+/obj/structure/door/proc/door_rattle()
 	playsound(src, rattle_sound, 100)
 	var/oldx = pixel_x
 	animate(src, pixel_x = oldx+1, time = 0.5)
 	animate(pixel_x = oldx-1, time = 0.5)
 	animate(pixel_x = oldx, time = 0.5)
 
-/obj/structure/mineral_door/attackby(obj/item/I, mob/user)
+/obj/structure/door/attackby(obj/item/I, mob/user)
 	user.changeNext_move(CLICK_CD_FAST)
 	if(keylock && (istype(I, /obj/item/key) || istype(I, /obj/item/storage/keyring)))
 		if(!locked)
@@ -419,7 +419,7 @@
 		return
 	return ..()
 
-/obj/structure/mineral_door/attack_right(mob/user)
+/obj/structure/door/attack_right(mob/user)
 	user.changeNext_move(CLICK_CD_FAST)
 	var/obj/item = user.get_active_held_item()
 	if(keylock && (istype(item, /obj/item/key) || istype(item, /obj/item/storage/keyring)))
@@ -443,7 +443,7 @@
 		return
 	return ..()
 
-/obj/structure/mineral_door/proc/repairdoor(obj/item/I, mob/user)
+/obj/structure/door/proc/repairdoor(obj/item/I, mob/user)
 	if(!obj_broken)
 		if(obj_integrity < max_integrity)
 			user.visible_message(span_notice("[user] starts repairing [src]."), span_notice("I start repairing [src]."))
@@ -484,7 +484,7 @@
 			repair_state = 0
 			user.visible_message(span_notice("[user] finishes repairing [src]."), span_notice("I finished repairing [src]."))
 
-/obj/structure/mineral_door/proc/trykeylock(obj/item/I, mob/user)
+/obj/structure/door/proc/trykeylock(obj/item/I, mob/user)
 	if(door_opened || switching_states)
 		return
 	if(!keylock)
@@ -512,7 +512,7 @@
 		return
 	lock_toggle(user)
 
-/obj/structure/mineral_door/proc/lock_toggle(mob/user)
+/obj/structure/door/proc/lock_toggle(mob/user)
 	if(switching_states || door_opened)
 		return
 	if(locked)
@@ -526,7 +526,7 @@
 	playsound(src, lock_sound, 100)
 	locked = TRUE
 
-/obj/structure/mineral_door/proc/viewport_toggle(mob/user)
+/obj/structure/door/proc/viewport_toggle(mob/user)
 	if(switching_states || door_opened)
 		return
 	if(!windowed)
@@ -538,40 +538,40 @@
 	windowed = FALSE
 	playsound(src, 'sound/foley/doors/windowup.ogg', 100)
 
-/obj/structure/mineral_door/setAnchored(anchorvalue) //called in default_unfasten_wrench() chain
+/obj/structure/door/setAnchored(anchorvalue) //called in default_unfasten_wrench() chain
 	. = ..()
 	set_opacity(anchored ? !door_opened : FALSE)
 	air_update_turf(TRUE)
 
-/obj/structure/mineral_door/obj_break(damage_flag, mapload)
+/obj/structure/door/obj_break(damage_flag, mapload)
 	. = ..()
 	if(!obj_broken)
 		icon_state = "[initial(icon_state)]br"
 		density = FALSE
 		set_opacity(FALSE)
 
-/obj/structure/mineral_door/OnCrafted(dirin, user)
+/obj/structure/door/OnCrafted(dirin, user)
 	. = ..()
 	keylock = FALSE
 
-/obj/structure/mineral_door/green
+/obj/structure/door/green
 	icon_state = "wcg"
 
-/obj/structure/mineral_door/red
+/obj/structure/door/red
 	icon_state = "wcr"
 
-/obj/structure/mineral_door/violet
+/obj/structure/door/violet
 	icon_state = "wcv"
 
-/obj/structure/mineral_door/fancy
+/obj/structure/door/fancy
 	icon_state = "fancy_wood"
 
-/obj/structure/mineral_door/window
+/obj/structure/door/window
 	icon_state = "woodwindow"
 	opacity = FALSE
 	windowed = TRUE
 
-/obj/structure/mineral_door/viewport
+/obj/structure/door/viewport
 	icon_state = "donjondir"
 	max_integrity = 2000
 	has_viewport = TRUE
@@ -582,11 +582,11 @@
 	repair_cost_second = /obj/item/ingot/iron
 	metalizer_result = null
 
-/obj/structure/mineral_door/viewport/Initialize()
+/obj/structure/door/viewport/Initialize()
 	. = ..()
 	icon_state = "donjon"
 
-/obj/structure/mineral_door/swing
+/obj/structure/door/swing
 	name = "swing door"
 	desc = "A door that swings."
 	icon_state = "swing"
@@ -594,11 +594,11 @@
 	windowed = TRUE
 	opacity = FALSE
 	keylock = FALSE
-	metalizer_result = /obj/structure/mineral_door/iron/bars
+	metalizer_result = /obj/structure/door/iron/bars
 	close_delay = 1 SECONDS
 	animate_time = 4
 
-/obj/structure/mineral_door/weak
+/obj/structure/door/weak
 	icon_state = "wood"
 	max_integrity = 500
 	kickthresh = 10
@@ -606,16 +606,16 @@
 	close_sound = 'sound/foley/doors/shittyclose.ogg'
 	metalizer_result = null
 
-/obj/structure/mineral_door/weak/bolt
+/obj/structure/door/weak/bolt
 	icon_state = "woodir"
 	has_bolt = TRUE
 	keylock = FALSE
 
-/obj/structure/mineral_door/weak/bolt/Initialize()
+/obj/structure/door/weak/bolt/Initialize()
 	. = ..()
 	icon_state = "wood"
 
-/obj/structure/mineral_door/weak/bolt/shutter
+/obj/structure/door/weak/bolt/shutter
 	name = "serving hatch"
 	desc = "Can be locked from the inside."
 	icon_state = "serving"
@@ -626,7 +626,7 @@
 	locked = TRUE
 	animate_time = 21
 
-/obj/structure/mineral_door/iron
+/obj/structure/door/iron
 	name = "iron door"
 	icon_state = "donjon"
 	armor = list("blunt" = 15, "slash" = 30, "stab" = 30,  "piercing" = 0, "fire" = 50, "acid" = 50)
@@ -645,7 +645,7 @@
 	repair_skill = /datum/skill/craft/blacksmithing
 	metalizer_result = null
 
-/obj/structure/mineral_door/iron/bars
+/obj/structure/door/iron/bars
 	icon_state = "bars"
 	max_integrity = 1000
 	blade_dulling = DULLING_BASHCHOP
@@ -655,11 +655,11 @@
 	bump_closed = FALSE
 	animate_time = 6
 
-/obj/structure/mineral_door/iron/bars/cell
+/obj/structure/door/iron/bars/cell
 	name = "cell door"
 	kickthresh = 20
 
-/obj/structure/mineral_door/wood/fire_act(added, maxstacks)
+/obj/structure/door/wood/fire_act(added, maxstacks)
 	testing("added [added]")
 	if(!added)
 		return FALSE
@@ -667,7 +667,7 @@
 		return FALSE
 	..()
 
-/obj/structure/mineral_door/stone
+/obj/structure/door/stone
 	name = "stone door"
 	icon_state = "stone"
 	armor = list("blunt" = 15, "slash" = 30, "stab" = 30,  "piercing" = 0, "fire" = 50, "acid" = 50)

@@ -69,7 +69,7 @@
 			return TRUE
 	return FALSE
 
-/obj/structure/mineral_door/arcyne
+/obj/structure/door/arcyne
 	name = "arcyne door"
 	icon_state = "arcyne"
 	blade_dulling = DULLING_BASH
@@ -79,13 +79,13 @@
 	max_integrity = 2000
 	integrity_failure = 0
 
-/obj/structure/mineral_door/arcyne/bolt
+/obj/structure/door/arcyne/bolt
 	has_bolt = TRUE
 
-/obj/structure/mineral_door/arcyne/bolt/caster
+/obj/structure/door/arcyne/bolt/caster
 	var/mob/caster
 
-/obj/structure/mineral_door/arcyne/bolt/caster/Initialize(mapload, mob/summoner)
+/obj/structure/door/arcyne/bolt/caster/Initialize(mapload, mob/summoner)
 	. = ..()
 	caster = summoner
 

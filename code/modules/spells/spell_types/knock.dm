@@ -18,7 +18,7 @@
 //	SEND_SOUND(user, sound('sound/blank.ogg'))
 	playsound(get_turf(user), 'sound/misc/chestopen.ogg', 100, TRUE, -1)
 	for(var/turf/T in targets)
-		for(var/obj/structure/mineral_door/door in T.contents)
+		for(var/obj/structure/door/door in T.contents)
 			INVOKE_ASYNC(src, PROC_REF(open_door), door)
 		for(var/obj/structure/closet/C in T.contents)
 			INVOKE_ASYNC(src, PROC_REF(open_closet), C)

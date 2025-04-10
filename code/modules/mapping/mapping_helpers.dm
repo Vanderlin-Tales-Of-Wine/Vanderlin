@@ -183,7 +183,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_lava)
 		log_mapping("[src] spawned outside of mapload!")
 		return
 
-	var/obj/structure/mineral_door/door = locate(/obj/structure/mineral_door) in loc
+	var/obj/structure/door/door = locate(/obj/structure/door) in loc
 	if(!door)
 		log_mapping("[src] failed to find a door at [AREACOORD(src)]")
 		return
