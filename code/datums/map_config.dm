@@ -21,7 +21,8 @@
 	var/traits = null
 	var/space_ruin_levels = 7
 	var/space_empty_levels = 1
-	var/other_z = list()
+
+	var/list/other_z
 
 /proc/load_map_config(filename = "data/next_map.json", default_to_van, delete_after, error_if_missing = TRUE)
 	var/datum/map_config/config = new
