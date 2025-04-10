@@ -99,6 +99,8 @@
 
 	var/dream_dust = retained_dust
 	dream_dust += BASE_DREAM_DUST
+	if(HAS_TRAIT(mind.current, TRAIT_TUTELAGE))
+		dream_dust += BASE_DREAM_DUST / 2
 
 	var/int = mind.current.STAINT
 	dream_dust += mind.current.STAINT * DREAM_DUST_PER_INT //25% dream points for each int

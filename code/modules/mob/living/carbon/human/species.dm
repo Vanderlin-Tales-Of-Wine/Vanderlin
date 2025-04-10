@@ -176,11 +176,11 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	return
 
 /datum/species/proc/get_native_language()
-	return   
+	return
 
 /datum/species/proc/handle_speech(datum/source, list/speech_args)
 	var/message = speech_args[SPEECH_MESSAGE]
-	var/language = speech_args[SPEECH_LANGUAGE] 
+	var/language = speech_args[SPEECH_LANGUAGE]
 
 	if(message)
 		var/list/accent_words = strings("spellcheck.json", "spellcheck")
@@ -226,7 +226,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		if(ismob(source))
 			var/nativelang = get_native_language()
 			var/language_check
-			
+
 			var/list/language_map = list(
 				/datum/language/common = "Imperial",
 				/datum/language/elvish = "Elfish",
@@ -236,7 +236,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 				/datum/language/celestial = "Celestial",
 				/datum/language/zybantine = "Zybean"
 			)
-			
+
 			if (language in language_map)
 				language_check = language_map[language]
 			if(nativelang != language_check || special_accent)
@@ -2029,11 +2029,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		return FALSE
 	if(attacker_style && attacker_style.disarm_act(user,target))
 		return TRUE
-	if(!(user.mobility_flags & MOBILITY_STAND) || user.IsKnockdown())
+	if(HAS_TRAIT(user, TRAIT_FLOORED))
 		return FALSE
-//	if(!(target.mobility_flags & MOBILITY_STAND))
-//		to_chat(user, "<span class='warning'>.</span>")
-//		return FALSE
 	if(user == target)
 		return FALSE
 	if(user.loc == target.loc)
@@ -2140,7 +2137,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
 		to_chat(user, "<span class='warning'>I don't want to harm [target]!</span>")
 		return FALSE
-	if(user.IsKnockdown())
+	if(HAS_TRAIT(user, TRAIT_FLOORED))
 		return FALSE
 	if(user == target)
 		return FALSE

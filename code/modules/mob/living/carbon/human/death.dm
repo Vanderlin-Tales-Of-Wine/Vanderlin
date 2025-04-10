@@ -40,7 +40,7 @@
 
 	if(mind)
 		if(!gibbed)
-			var/datum/antagonist/vampirelord/VD = mind.has_antag_datum(/datum/antagonist/vampirelord)
+			var/datum/antagonist/vampire/VD = mind.has_antag_datum(/datum/antagonist/vampire)
 			if(VD)
 				dust(just_ash=TRUE,drop_items=TRUE)
 				return
@@ -64,7 +64,9 @@
 			zombie_check()
 
 	if(client || mind)
-		SSticker.deaths++
+		GLOB.vanderlin_round_stats["deaths"]++
+		if(is_noble())
+			GLOB.vanderlin_round_stats["noble_deaths"]++
 
 	stop_sound_channel(CHANNEL_HEARTBEAT)
 	var/obj/item/organ/heart/H = getorganslot(ORGAN_SLOT_HEART)
@@ -139,7 +141,7 @@
 /mob/living/carbon/human/proc/zombie_check()
 	if(!mind)
 		return
-	if(mind.has_antag_datum(/datum/antagonist/vampirelord))
+	if(mind.has_antag_datum(/datum/antagonist/vampire))
 		return
 	if(mind.has_antag_datum(/datum/antagonist/werewolf))
 		return
@@ -152,7 +154,7 @@
 	return mind.add_antag_datum(/datum/antagonist/zombie)
 
 /mob/living/carbon/human/gib(no_brain, no_organs, no_bodyparts, safe_gib = FALSE)
-	SSticker.gibbs++
+	GLOB.vanderlin_round_stats["people_gibbed"]++
 	for(var/mob/living/carbon/human/CA in viewers(7, src))
 		if(CA != src && !HAS_TRAIT(CA, TRAIT_BLIND))
 			if(HAS_TRAIT(CA, TRAIT_STEELHEARTED))
@@ -172,8 +174,9 @@
 	if(!.)
 		return
 	var/datum/job/human_job = SSjob.GetJob(job)
-	switch(human_job.type)
-		if(/datum/job/lord)
-			removeomen(OMEN_NOLORD)
-		if(/datum/job/priest)
-			removeomen(OMEN_NOPRIEST)
+	if(human_job)
+		switch(human_job.type)
+			if(/datum/job/lord)
+				removeomen(OMEN_NOLORD)
+			if(/datum/job/priest)
+				removeomen(OMEN_NOPRIEST)

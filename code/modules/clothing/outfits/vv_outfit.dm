@@ -26,7 +26,7 @@
 		if(SLOT_NECK)
 			neck = item_path
 		if(SLOT_RING)
-			id = item_path
+			ring = item_path
 		if(SLOT_L_STORE)
 			l_pocket = item_path
 		if(SLOT_R_STORE)
