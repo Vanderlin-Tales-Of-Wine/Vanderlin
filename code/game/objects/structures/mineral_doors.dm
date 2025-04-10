@@ -110,6 +110,8 @@
 
 	/// Can people riding go through without falling off their mount
 	var/ridethrough = FALSE
+	/// If TRUE when bumped open we callback close
+	var/bump_closed = FALSE
 	var/door_opened = FALSE
 	/// If we are switching states
 	var/switching_states = FALSE
@@ -341,7 +343,14 @@
 		if(locked)
 			door_rattle()
 			return
-		TryToSwitchState(AM)
+		if(TryToSwitchState(AM))
+			if(isliving(AM) && bump_closed)
+				var/mob/living/M = AM
+				var/delay = (close_delay >= 0) ? close_delay : 2.5 SECONDS
+				if(M.m_intent == MOVE_INTENT_SNEAK)
+					addtimer(CALLBACK(src, PROC_REF(Close), TRUE), delay)
+				else
+					addtimer(CALLBACK(src, PROC_REF(Close), FALSE), delay)
 
 /obj/structure/door/CanPass(atom/movable/mover, turf/target)
 	if(istype(mover, /mob/camera))
@@ -598,7 +607,8 @@
 	opacity = FALSE
 	keylock = FALSE
 	metalizer_result = /obj/structure/door/iron/bars
-	close_delay = 1 SECONDS
+	bump_closed = TRUE
+	close_delay =  SECONDS
 	animate_time = 0.4 SECONDS
 
 /obj/structure/door/weak
