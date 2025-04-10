@@ -75,7 +75,7 @@
 #define JOB_ID_FELDSHER "Feldsher"
 // Apprentices
 #define JOB_ID_APPRENTICE_SMITH "Smithy Apprentice"
-#define JOB_ID_APPRENTICE_MAGIC "Magician's Apprentice"
+#define JOB_ID_APPRENTICE_MAGIC "Magician Apprentice"
 #define JOB_ID_SQUIRE "Squire"
 // Church
 #define JOB_ID_ADEPT "Adept"

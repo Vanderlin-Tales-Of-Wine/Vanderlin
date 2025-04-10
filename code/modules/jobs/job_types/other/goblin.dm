@@ -23,7 +23,7 @@
 	var/mob/living/carbon/human/H = spawned
 	H.set_species(/datum/species/goblin/cave)
 	if(spawned.mind)
-		spawned.mind.special_role = "goblin"
+		spawned.mind.special_role = ROLE_GOBLIN
 		spawned.mind.current.job = null
 	if(H.dna && H.dna.species)
 		H.dna.species.species_traits |= NOBLOOD
