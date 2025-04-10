@@ -608,7 +608,7 @@
 	keylock = FALSE
 	metalizer_result = /obj/structure/door/iron/bars
 	bump_closed = TRUE
-	close_delay =  SECONDS
+	close_delay =  1 SECONDS
 	animate_time = 0.4 SECONDS
 
 /obj/structure/door/weak
