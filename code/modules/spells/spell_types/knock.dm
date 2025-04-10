@@ -23,7 +23,7 @@
 		for(var/obj/structure/closet/C in T.contents)
 			INVOKE_ASYNC(src, PROC_REF(open_closet), C)
 
-/obj/effect/proc_holder/spell/aoe_turf/knock/proc/open_door(obj/structure/mineral_door/door)
+/obj/effect/proc_holder/spell/aoe_turf/knock/proc/open_door(obj/structure/door/door)
 	if(istype(door))
 		door.force_open()
 		door.locked = FALSE
