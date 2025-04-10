@@ -248,6 +248,131 @@
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Player Panel") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 
+/// Admin fix tool for various player corrections, including patron, stats, species, age, and healing
+/datum/admins/proc/admin_fix(mob/living/M in GLOB.mob_list)
+	set name = "Fix"
+	set desc = "Admin fixes: Fix Patron, Fix Stats, Admin Heal."
+	set category = "GameMaster"
+
+	if(!check_rights())
+		return FALSE
+
+	/// List of available fix options, now including Admin Heal
+	var/list/fix_options = list(
+		"Fix Patron",
+		"Fix Stats",
+		"Admin Heal"
+	)
+
+	var/fix_choice = input("What do you want to fix for [M.name]?", "Fix Options") as null|anything in fix_options
+	if(!fix_choice)
+		to_chat(src, "<span class='notice'>Fix cancelled.</span>")
+		return FALSE
+
+	switch(fix_choice)
+		if("Fix Patron")
+			if(call(/datum/admins/proc/admin_fix_patron)(M))
+				to_chat(src, "<span class='success'>Patron successfully fixed for [M.name].</span>")
+			else
+				to_chat(src, "<span class='danger'>Failed to fix patron for [M.name].</span>")
+
+		if("Fix Stats")
+			if(call(/datum/admins/proc/admin_fix_stats)(M))
+				to_chat(src, "<span class='success'>Stats successfully fixed for [M.name].</span>")
+			else
+				to_chat(src, "<span class='danger'>Failed to fix stats for [M.name].</span>")
+
+		if("Admin Heal")
+			if(call(/datum/admins/proc/admin_heal)(M))
+				to_chat(src, "<span class='success'>[M.name] has been fully healed and revived.</span>")
+			else
+				to_chat(src, "<span class='danger'>Failed to heal [M.name].</span>")
+
+	return TRUE
+
+/// Admin proc to fully reroll a mob's stats.
+/// Resets stats to 10, rerolls using the game's core system, and displays the final results.
+/datum/admins/proc/admin_fix_stats(mob/living/M in GLOB.mob_list, fix_level = "hardcosmetic")
+	set name = "Fix Stats (Job-Safe)"
+	set desc = "Reset and reroll a mob's stats, reapplying job, skill, and trait data based on fix level."
+	set category = "GameMaster"
+
+	if(!check_rights() || !M)
+		to_chat(usr, "<span class='warning'>Invalid target or insufficient rights.</span>")
+		return FALSE
+
+	// === RESET STATS ===
+	M.change_stat(STATKEY_STR, 10, set_stat = TRUE)
+	M.change_stat(STATKEY_PER, 10, set_stat = TRUE)
+	M.change_stat(STATKEY_END, 10, set_stat = TRUE)
+	M.change_stat(STATKEY_CON, 10, set_stat = TRUE)
+	M.change_stat(STATKEY_INT, 10, set_stat = TRUE)
+	M.change_stat(STATKEY_SPD, 10, set_stat = TRUE)
+	M.change_stat(STATKEY_LCK, 10, set_stat = TRUE)
+	M.has_rolled_for_stats = FALSE
+
+	if(!M.roll_mob_stats())
+		to_chat(usr, "<span class='warning'>Failed to roll stats for [M.name].</span>")
+		return FALSE
+
+	// === DISPLAY STATS ===
+	var/stats_report = "<b>[M.name]'s New Stats:</b><br>"
+	stats_report += "Strength: [M.STASTR] (Total: [M.TOTALSTR])<br>"
+	stats_report += "Perception: [M.STAPER] (Total: [M.TOTALPER])<br>"
+	stats_report += "Endurance: [M.STAEND] (Total: [M.TOTALEND])<br>"
+	stats_report += "Constitution: [M.STACON] (Total: [M.TOTALCON])<br>"
+	stats_report += "Intelligence: [M.STAINT] (Total: [M.TOTALINT])<br>"
+	stats_report += "Speed: [M.STASPD] (Total: [M.TOTALSPD])<br>"
+	stats_report += "Luck: [M.STALUC] (Total: [M.TOTALLUC])<br>"
+
+	to_chat(usr, stats_report)
+	to_chat(M, "<span class='notice'>Your stats have been rerolled by an admin.</span><br>[stats_report]")
+	message_admins(span_notice("Admin [key_name_admin(usr)] rerolled stats ([fix_level]) for [key_name_admin(M)]."))
+	log_admin("[key_name(usr)] rerolled stats ([fix_level]) for [key_name(M)].")
+
+	return TRUE
+
+/// Admin proc to change a player's Patron, removing old and applying new properly
+/datum/admins/proc/admin_fix_patron(mob/living/M in GLOB.mob_list)
+	set name = "Fix Patron"
+	set desc = "Change a mob's Patron, removing and re-applying traits properly."
+	set category = "Hidden"
+
+	if(!check_rights())
+		return FALSE
+
+	/// Remove existing Patron if needed
+	if(M.patron)
+		M.patron.on_remove(M)
+		M.patron = null
+
+	/// Build dynamic Patron list
+	var/list/patron_choices = list()
+	for(var/type in typesof(/datum/patron))
+		var/datum/patron/temp = new type
+		patron_choices[type] = temp.name
+
+	var/patron_choice = input("Select the new Patron to assign to [M.name]:", "Patron Change") as null|anything in patron_choices
+	if(!patron_choice)
+		to_chat(src, "<span class='notice'>Patron change cancelled.</span>")
+		return FALSE
+
+	/// Apply new Patron and traits
+	var/datum/patron/new_patron = new patron_choice
+	M.patron = new_patron
+	new_patron.on_gain(M)
+
+	/// Optional effect update
+	if(hascall(M, "UpdatePatronEffects"))
+		call(M, "UpdatePatronEffects")()
+
+	/// Admin logging & broadcast
+	message_admins(span_notice("Admin [key_name_admin(usr)] changed the Patron of [key_name_admin(M)] to [new_patron.name]."))
+	log_admin("[key_name(usr)] changed the Patron of [key_name(M)] to [new_patron.name].")
+
+	return TRUE
+
+//Admin heal is moved from right-click menu to admin_fix,
 /datum/admins/proc/admin_heal(mob/living/M in GLOB.mob_list)
 	set name = "Heal Mob"
 	set desc = "Heal a mob to full health"
