@@ -1,47 +1,3 @@
-
-#define ENGSEC			(1<<0)
-
-//#define CAPTAIN	(1<<0)
-#define HOS				(1<<1)
-#define WARDEN			(1<<2)
-#define DETECTIVE		(1<<3)
-#define OFFICER			(1<<4)
-#define CHIEF			(1<<5)
-#define ENGINEER		(1<<6)
-#define ATMOSTECH		(1<<7)
-#define ROBOTICIST		(1<<8)
-#define AI_JF			(1<<9)
-#define CYBORG			(1<<10)
-
-
-#define MEDSCI			(1<<1)
-
-#define RD_JF			(1<<0)
-#define SCIENTIST		(1<<1)
-#define CHEMIST			(1<<2)
-#define CMO_JF			(1<<3)
-#define DOCTOR			(1<<4)
-#define GENETICIST		(1<<5)
-#define VIROLOGIST		(1<<6)
-
-
-#define CIVILIAN		(1<<2)
-
-#define HOP				(1<<0)
-#define BARTENDER		(1<<1)
-#define BOTANIST		(1<<2)
-//#define COOK			(1<<3) //This is redefined below, and is a ss13 leftover.
-#define JANITOR			(1<<4)
-#define CURATOR			(1<<5)
-#define QUARTERMASTER	(1<<6)
-#define CARGOTECH		(1<<7)
-//#define MINER			(1<<8) //This is redefined below, and is a ss13 leftover.
-#define LAWYER			(1<<9)
-#define CHAPLAIN		(1<<10)
-#define CLOWN			(1<<11)
-#define MIME			(1<<12)
-#define ASSISTANT		(1<<13)
-
 #define JOB_AVAILABLE 0
 #define JOB_UNAVAILABLE_GENERIC 1
 #define JOB_UNAVAILABLE_BANNED 2
@@ -60,153 +16,102 @@
 #define DEFAULT_RELIGION "Christianity"
 #define DEFAULT_DEITY "Space Jesus"
 
+/*
+ * =======================
+ * WARNING WARNING WARNING
+ * WARNING WARNING WARNING
+ * WARNING WARNING WARNING
+ * =======================
+ * These names are used as keys in many locations in the database
+ * you cannot change them trivially without breaking job bans and
+ * role time tracking, if you do this and get it wrong you will die
+ * and it will hurt the entire time
+ */
+
+// Youngfolk
+#define JOB_ID_CHURCHLING "Churchling"
+#define JOB_ID_INNKEEPCHILD "Innkeeper's Son"
+#define JOB_ID_ORPHAN "Orphan"
+// Vagrants
+#define JOB_ID_ADVENTURER "Adventurer"
+#define JOB_ID_MIGRANT "Migrant"
+#define JOB_ID_BANDIT "Bandit"
+#define JOB_ID_MERCENARY "Mercenary"
+#define JOB_ID_COURT_AGENT "Court Agent"
+#define JOB_ID_PILGRIM "Pilgrim"
+// Peasants
+#define JOB_ID_BEGGAR "Beggar"
+#define JOB_ID_BARD "Bard"
+#define JOB_ID_PRISONER "Prisoner"
+
+#define JOB_ID_VILLAGER "Villager"
+#define JOB_ID_CHEESEMAKER "Cheesemaker"
+#define JOB_ID_BUTCHER "Butcher"
+#define JOB_ID_MINER "Miner"
+#define JOB_ID_COOK "Cook"
+#define JOB_ID_FISHER "Fisher"
+#define JOB_ID_HUNTER "Hunter"
+#define JOB_ID_FARMER "Farmer"
+
+#define JOB_ID_SERVANT "Servant"
+#define JOB_ID_BUTLER "Butler"
+// Townfolk
+#define JOB_ID_TAILOR "Tailor"
+#define JOB_ID_INNOVATOR "Innovator"
+#define JOB_ID_INNKEEPER "Innkeeper"
+#define JOB_ID_CARPENTER "Carpenter"
+#define JOB_ID_SMITH_WEAPONS "Weaponsmith"
+#define JOB_ID_SMITH_ARMOR "Armorsmith"
+#define JOB_ID_MAYOR "Mayor"
+
+#define JOB_ID_GRABBER "Grabber"
+#define JOB_ID_MERCHANT "Merchant"
+
+#define JOB_ID_GAFFER "Gaffer"
+#define JOB_ID_MATRON "Matron"
+
+#define JOB_ID_DOCTOR "Doctor"
+#define JOB_ID_ALCHEMIST "Alchemist"
+#define JOB_ID_FELDSHER "Feldsher"
+// Apprentices
+#define JOB_ID_APPRENTICE_SMITH "Smithy Apprentice"
+#define JOB_ID_APPRENTICE_MAGIC "Magician's Apprentice"
+#define JOB_ID_SQUIRE "Squire"
+// Church
+#define JOB_ID_ADEPT "Adept"
+#define JOB_ID_INQUISITOR "Inquisitor"
+
+#define JOB_ID_MONK "Acolyte"
+#define JOB_ID_GRAVETENDER "Gravetender"
+#define JOB_ID_TEMPLAR "Templar"
+#define JOB_ID_PRIEST "Priest"
+// Garrison
+#define JOB_ID_DUNGEONEER "Dungeoneer"
+#define JOB_ID_JAILOR "Jailor"
+#define JOB_ID_VETERAN "Veteran"
+
+#define JOB_ID_KEEPGUARD "Keep Guard"
+#define JOB_ID_ROYALGUARD "Royal Knight"
+
+#define JOB_ID_CITYGUARD "City Guard"
+#define JOB_ID_CITYCAPTAIN "City Captain"
+
+#define JOB_ID_FORESTGUARD "Forest Guard"
+#define JOB_ID_FORESTCAPTAIN "Forest Captain"
+// Nobility
+#define JOB_ID_NOBLE "Minor Noble"
+#define JOB_ID_CURATOR "Curator"
+#define JOB_ID_COURTWIZARD "Court Wizard"
+#define JOB_ID_JESTER "Jester"
+#define JOB_ID_STEWARD "Steward"
+
+#define JOB_ID_HAND "Hand"
+#define JOB_ID_PRINCE "Prince"
+#define JOB_ID_LADY "Consort"
+#define JOB_ID_LORD "Monarch"
+
+/* Job Display Order */
 #define JOB_DISPLAY_ORDER_DEFAULT 0
-
-#define JOB_DISPLAY_ORDER_ASSISTANT 1
-#define JOB_DISPLAY_ORDER_CAPTAIN 2
-#define JOB_DISPLAY_ORDER_HEAD_OF_PERSONNEL 3
-#define JOB_DISPLAY_ORDER_QUARTERMASTER 4
-#define JOB_DISPLAY_ORDER_CARGO_TECHNICIAN 5
-#define JOB_DISPLAY_ORDER_SHAFT_MINER 6
-#define JOB_DISPLAY_ORDER_BARTENDER 7
-#define JOB_DISPLAY_ORDER_COOK 8
-#define JOB_DISPLAY_ORDER_BOTANIST 9
-#define JOB_DISPLAY_ORDER_JANITOR 10
-#define JOB_DISPLAY_ORDER_CLOWN 11
-#define JOB_DISPLAY_ORDER_MIME 12
-#define JOB_DISPLAY_ORDER_CURATOR 13
-#define JOB_DISPLAY_ORDER_LAWYER 14
-#define JOB_DISPLAY_ORDER_CHAPLAIN 15
-#define JOB_DISPLAY_ORDER_CHIEF_ENGINEER 16
-#define JOB_DISPLAY_ORDER_STATION_ENGINEER 17
-#define JOB_DISPLAY_ORDER_ATMOSPHERIC_TECHNICIAN 18
-#define JOB_DISPLAY_ORDER_CHIEF_MEDICAL_OFFICER 19
-#define JOB_DISPLAY_ORDER_MEDICAL_DOCTOR 20
-#define JOB_DISPLAY_ORDER_CHEMIST 21
-#define JOB_DISPLAY_ORDER_GENETICIST 22
-#define JOB_DISPLAY_ORDER_VIROLOGIST 23
-#define JOB_DISPLAY_ORDER_RESEARCH_DIRECTOR 24
-#define JOB_DISPLAY_ORDER_SCIENTIST 25
-#define JOB_DISPLAY_ORDER_ROBOTICIST 26
-#define JOB_DISPLAY_ORDER_HEAD_OF_SECURITY 27
-#define JOB_DISPLAY_ORDER_WARDEN 28
-#define JOB_DISPLAY_ORDER_DETECTIVE 29
-#define JOB_DISPLAY_ORDER_SECURITY_OFFICER 30
-#define JOB_DISPLAY_ORDER_AI 31
-#define JOB_DISPLAY_ORDER_CYBORG 32
-
-/* Job datum job_flags */
-/// Whether the mob is announced on arrival.
-#define JOB_ANNOUNCE_ARRIVAL (1<<0)
-/// Whether the mob is added to the crew manifest.
-#define JOB_SHOW_IN_CREDITS (1<<1)
-/// Whether the mob is equipped through SSjob.EquipRank() on spawn.
-#define JOB_EQUIP_RANK (1<<2)
-/// Whether the job is considered a regular crew member of the station. Equipment such as AI and cyborgs not included.
-#define JOB_CREW_MEMBER (1<<3)
-/// Whether this job can be joined through the new_player menu.
-#define JOB_NEW_PLAYER_JOINABLE (1<<4)
-
-#define FACTION_NONE "None"
-#define FACTION_NEUTRAL "Neutral"
-#define FACTION_STATION "Station" //V: Station means the main city
-#define FACTION_UNDEAD "Undead"
-#define FACTION_PLANTS "Plants"
-#define FACTION_VINES "Vines" //Seemingly unused
-#define FACTION_CABAL "Cabal"
-#define FACTION_RATS "Rats"
-#define FACTION_ORCS "Orcs"
-#define FACTION_BUMS "Bums"
-#define FACTION_MATTHIOS "Matthios"
-
-#define NOBLEMEN		(1<<0)
-
-#define LORD		(1<<0)
-#define CONSORT		(1<<1)
-#define HAND		(1<<2)
-#define STEWARD		(1<<3)
-#define WIZARD		(1<<4)
-#define CAPTAIN		(1<<5)
-#define ARCHIVIST   (1<<6)
-#define MERCHANT	(1<<7)
-#define FELDSHER    (1<<8)
-#define NIGHTMAN    (1<<9)
-#define MINOR_NOBLE	(1<<10)
-
-#define GARRISON		(1<<1)
-
-#define GUARDSMAN	(1<<0)
-#define WATCHMAN	(1<<1)
-#define JAILOR	    (1<<2)
-#define DUNGEONEER	(1<<3)
-#define MAYOR       (1<<4)
-#define FORWARDEN   (1<<5)
-#define FORGUARD    (1<<6)
-
-#define CHURCHMEN		(1<<2)
-
-#define PRIEST		(1<<0)
-#define CLERIC		(1<<1)
-#define PURITAN		(1<<2)
-#define MONK		(1<<3)
-#define GRAVETENDER	(1<<4)
-
-#define SERFS			(1<<3)
-
-#define INNKEEP		(1<<0)
-#define BLACKSMITH	(1<<1)
-#define ALCHEMIST	(1<<2)
-#define MASON		(1<<3)
-#define TAILOR		(1<<4)
-#define ARTIFICER	(1<<5)
-#define MATRON 		(1<<6)
-#define PHYSICKER	(1<<7)
-#define SCRIBE		(1<<8)
-#define GAFFER		(1<<9)
-
-#define PEASANTS		(1<<4)
-
-#define HUNTER		(1<<0)
-#define FARMER		(1<<1)
-#define BEASTMASTER	(1<<2)
-#define FISHER		(1<<4)
-#define LUMBERJACK	(1<<5)
-#define MINER		(1<<6)
-#define BUTLER		(1<<7)
-#define JESTER		(1<<8)
-#define ADVENTURER	(1<<9)
-#define COOK		(1<<10)
-#define GRABBER		(1<<11)
-#define BARD		(1<<12)
-#define CHEESEMAKER (1<<13)
-#define MIGRANT		(1<<16)
-#define BANDIT		(1<<17)
-
-#define APPRENTICES		(1<<5)
-
-#define APPRENTICE	(1<<0)
-#define SQUIRE		(1<<1)
-#define SERVANT		(1<<2)
-#define PRINCE		(1<<3)
-
-#define YOUNGFOLK           (1<<6)
-#define INNKEEPCHILD    (1<<1)
-#define CHURCHLING      (1<<2)
-#define ORPHAN		    (1<<3)
-
-#define UNDEAD		(1<<10)
-
-#define DEATHKNIGHT (1<<0)
-#define SKELETON	(1<<1)
-
-#define JCOLOR_NOBLE "#9c40bf"
-#define JCOLOR_MERCHANT "#c2b449"
-#define JCOLOR_SOLDIER "#b64949"
-#define JCOLOR_SERF "#669968"
-#define JCOLOR_PEASANT "#936d6c"
-
-
-// job display orders //
 
 #define JDO_LORD 1
 #define JDO_CONSORT 1.1
@@ -289,6 +194,45 @@
 #define JDO_VAGRANT 36
 #define JDO_ORPHAN 37
 
+/* Departments */
+#define NOBLEMEN (1<<0)
+#define GARRISON (1<<1)
+#define CHURCHMEN (1<<2)
+#define SERFS (1<<3)
+#define PEASANTS (1<<4)
+#define APPRENTICES	(1<<5)
+#define YOUNGFOLK (1<<6)
+#define UNDEAD (1<<10)
+
+/* Job datum job_flags */
+/// Whether the mob is announced on arrival.
+#define JOB_ANNOUNCE_ARRIVAL (1<<0)
+/// Whether the mob is added to the crew manifest.
+#define JOB_SHOW_IN_CREDITS (1<<1)
+/// Whether the mob is equipped through SSjob.EquipRank() on spawn.
+#define JOB_EQUIP_RANK (1<<2)
+/// Whether the job is considered a regular crew member of the station. Equipment such as AI and cyborgs not included.
+#define JOB_CREW_MEMBER (1<<3)
+/// Whether this job can be joined through the new_player menu.
+#define JOB_NEW_PLAYER_JOINABLE (1<<4)
+
+#define FACTION_NONE "None"
+#define FACTION_NEUTRAL "Neutral"
+#define FACTION_STATION "Station" //V: Station means the main city
+#define FACTION_UNDEAD "Undead"
+#define FACTION_PLANTS "Plants"
+#define FACTION_VINES "Vines" //Seemingly unused
+#define FACTION_CABAL "Cabal"
+#define FACTION_RATS "Rats"
+#define FACTION_ORCS "Orcs"
+#define FACTION_BUMS "Bums"
+#define FACTION_MATTHIOS "Matthios"
+
+#define JCOLOR_NOBLE "#9c40bf"
+#define JCOLOR_MERCHANT "#c2b449"
+#define JCOLOR_SOLDIER "#b64949"
+#define JCOLOR_SERF "#669968"
+#define JCOLOR_PEASANT "#936d6c"
 
 #define BITFLAG_CHURCH (1<<0)
 #define BITFLAG_ROYALTY (1<<1)

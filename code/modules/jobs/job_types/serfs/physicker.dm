@@ -4,7 +4,7 @@
 				residence as feldshers in, often end up becoming wandering physickers. \
 				Capable doctors nonetheless, they journey from place to place offering \
 				their services."
-	flag = PHYSICKER
+	id = JOB_ID_DOCTOR
 	department_flag = SERFS
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_PHYSICKER

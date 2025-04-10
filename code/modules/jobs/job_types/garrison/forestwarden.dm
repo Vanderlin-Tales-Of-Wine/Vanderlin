@@ -5,7 +5,7 @@
 	and for your service in the short-lived Goblin War, the king has granted you nobility. \
 	In turn, you've been entrusted to keep his lands clear of \
 	the foul creechers that taint his land. Alone, you will die in these woods."
-	flag = FORWARDEN
+	id = JOB_ID_FORESTCAPTAIN
 	department_flag = GARRISON
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	faction = FACTION_STATION

@@ -6,7 +6,7 @@
 	You are as free as any bird in the sky, \
 	and you may revel in your debauchery for as long as your parents remain upon the throne: \
 	But someday you’ll have to grow up, and that will be the day your carelessness will cost you more than a few mammons."
-	flag = PRINCE
+	id = JOB_ID_PRINCE
 	department_flag = APPRENTICES
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE )
 	faction = FACTION_STATION

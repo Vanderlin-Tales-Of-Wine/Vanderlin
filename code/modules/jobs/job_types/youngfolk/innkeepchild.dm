@@ -1,9 +1,9 @@
 /datum/job/innkeep_son
-	title = "Innkeepers Son"
-	f_title = "Innkeepers Daughter"
+	title = "Innkeeper's Son"
+	f_title = "Innkeeper's Daughter"
 	tutorial = "One nite the Innkeeper took you in during a harsh winter, \
 	you've been thankful ever since." //rewrite probably?
-	flag = INNKEEPCHILD
+	id = JOB_ID_INNKEEPCHILD
 	department_flag = YOUNGFOLK
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_INNKEEP_CHILD

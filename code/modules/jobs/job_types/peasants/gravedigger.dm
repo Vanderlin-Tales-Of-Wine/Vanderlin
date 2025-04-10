@@ -5,7 +5,7 @@
 	You are the bane of grave robbers and necromancers, \
 	and your holy magic brings undead back into Necra's embrace: \
 	the only rightful place for lost souls."
-	flag = GRAVETENDER
+	id = JOB_ID_GRAVETENDER
 	department_flag = CHURCHMEN
 	display_order = JDO_GRAVETENDER
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)

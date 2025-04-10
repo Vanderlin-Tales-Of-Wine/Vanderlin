@@ -4,7 +4,7 @@
 	Now the days of adventure are gone, replaced by dusty tomes and whispered prophecies. The ruler's coin funds your studies,\
 	but debt's both magical and mortal are never so easily repaid. With age comes wisdom, but also the creeping dread that your greatest spell work\
 	may already be behind you."
-	flag = WIZARD
+	id = JOB_ID_COURTWIZARD
 	department_flag = NOBLEMEN
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_MAGICIAN

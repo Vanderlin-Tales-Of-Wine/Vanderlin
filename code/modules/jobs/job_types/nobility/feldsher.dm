@@ -4,7 +4,7 @@
 	Stitched the sores of blades, sealed honey over the bubous of plague. \
 	A thousand deaths stolen from the Carriagemen, yet these people will still call you a charlatan. \
 	At least the Apothecary understands you."
-	flag = FELDSHER
+	id = JOB_ID_FELDSHER
 	department_flag = NOBLEMEN
 	display_order = JDO_FELDSHER
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)

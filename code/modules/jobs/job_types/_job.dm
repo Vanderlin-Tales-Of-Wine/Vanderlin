@@ -13,7 +13,7 @@
 	var/list/head_announce = null
 
 	//Bitflags for the job
-	var/flag = NONE
+	var/id = NONE
 	var/department_flag = NONE
 	var/auto_deadmin_role_flags = NONE
 
@@ -61,7 +61,7 @@
 
 	var/list/mind_traits // Traits added to the mind of the mob assigned this job
 
-	var/display_order = JOB_DISPLAY_ORDER_CAPTAIN
+	var/display_order = JOB_DISPLAY_ORDER_DEFAULT
 
 	/// All values = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK)
 	var/job_flags = NONE

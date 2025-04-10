@@ -4,7 +4,7 @@
 	You are tasked with mixing tinctures and supplying the town and Feldsher with medicine for pain... or pleasure. \
 	For a price, of course. \
 	You have been known to kill men who cross you or your work-partner."
-	flag = NIGHTMAN
+	id = JOB_ID_ALCHEMIST
 	department_flag = NOBLEMEN
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_APOTHECARY

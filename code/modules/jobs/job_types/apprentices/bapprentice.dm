@@ -3,7 +3,7 @@
 	tutorial = "Long hours and back-breaking work wouldnt even describe a quarter of what you do in a day for your Master. \
 	Its exhausting, filthy and you dont get much freetime: \
 	but someday youll get your own smithy, and youll have TWICE as many apprentices as your master does."
-	flag = APPRENTICE
+	id = JOB_ID_APPRENTICE_SMITH
 	department_flag = APPRENTICES
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	faction = FACTION_STATION

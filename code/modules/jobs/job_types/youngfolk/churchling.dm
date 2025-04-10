@@ -4,7 +4,7 @@
 	They scolded you with a studded belt and prayed like sinners \
 	every waking hour of the day they weren’t toiling in the fields. \
 	You escaped them by becoming a churchling-- and a guaranteed education isn't so bad."
-	flag = CHURCHLING
+	id = JOB_ID_CHURCHLING
 	department_flag = YOUNGFOLK
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_CHURCHLING

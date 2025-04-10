@@ -3,7 +3,7 @@
 	tutorial = "Yours was a marriage of political convenience rather than love, \
 	yet you have remained the ruling monarch's good friend and confidant throughout your marriage. \
 	But your love and loyalty will be tested, for daggers are equally pointed at your throat."
-	flag = CONSORT
+	id = JOB_ID_LADY
 	department_flag = NOBLEMEN
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_CONSORT
@@ -183,15 +183,6 @@
 
 	category_tags = list(CTAG_CONSORT)
 
-/datum/job/exlady //just used to change the consort title
-	title = "Ex-Consort"
-	flag = CONSORT
-	department_flag = NOBLEMEN
-	faction = FACTION_STATION
-	total_positions = 0
-	spawn_positions = 0
-	display_order = JDO_CONSORT
-
 /datum/outfit/job/consort/courtesan/spy/pre_equip(mob/living/carbon/human/H)
 	. = ..()
 	H.grant_language(/datum/language/thievescant)
@@ -208,3 +199,12 @@
 	accept_message = "I serve the Crown!"
 	refuse_message = "I refuse."
 	recharge_time = 100
+
+/datum/job/exlady //just used to change the consort title
+	title = "Ex-Consort"
+	id = NONE
+	department_flag = NOBLEMEN
+	faction = FACTION_STATION
+	total_positions = 0
+	spawn_positions = 0
+	display_order = JDO_CONSORT

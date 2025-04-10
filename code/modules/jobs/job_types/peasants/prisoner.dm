@@ -7,7 +7,7 @@
 	Maybe your old associates conspire now to release you in a daring rescue. \
 	Yet it is far surer that your tears will rust this cursed mask \
 	than the sun shine upon your face a freed soul once more." // changed to reduce dictation of character. Nikov.
-	flag = GRAVETENDER
+	id = JOB_ID_PRISONER
 	department_flag = PEASANTS
 	display_order = JDO_PRISONER
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)

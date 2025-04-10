@@ -8,7 +8,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	you sit at the center of every plot, and every whisper of ambition. Every man, woman, and child may envy your power and\
 	would replace you in the blink of an eye. But remember, its not envy that keeps you in place, it is your will. Show them\
 	the error of their ways."
-	flag = LORD
+	id = JOB_ID_LORD
 	department_flag = NOBLEMEN
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_LORD
@@ -123,7 +123,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 
 /datum/job/exlord //just used to change the lords title
 	title = "Ex-Monarch"
-	flag = LORD
+	id = NONE
 	department_flag = NOBLEMEN
 	faction = FACTION_STATION
 	total_positions = 0

@@ -6,7 +6,7 @@
 	gold is the great hypocritical lubricant in life, founding empires, driving brothers to kill one another. \
 	\n\n\
 	You care not. Another day, another mammon."
-	flag = GRAVETENDER
+	id = JOB_ID_MERCENARY
 	department_flag = PEASANTS
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_MERCENARY
