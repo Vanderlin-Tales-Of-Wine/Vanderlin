@@ -40,9 +40,9 @@
 		return
 
 	/* admin stuff */
-	var/follower_ident = "[follower.key]/([follower.real_name]) (follower of [patron])"
+	var/follower_ident = "(follower of [patron])"
 	message_admins("[follower_ident] [ADMIN_SM(follower)] [ADMIN_JMP(follower)] prays: [span_info(prayer)]")
-	log_prayer(span_info("[follower_ident] prays: [prayer]"))
+	user.log_message(span_info("[follower_ident] prays: [prayer]"))
 
 	follower.whisper(prayer)
 
@@ -689,6 +689,8 @@
 			else
 				message_param = "kisses %t on \the [parse_zone(H.zone_selected)]."
 	playsound(target.loc, pick('sound/vo/kiss (1).ogg','sound/vo/kiss (2).ogg'), 100, FALSE, -1)
+	if(user.mind)
+		GLOB.vanderlin_round_stats["kisses_made"]++
 
 // ............... L ..................
 /datum/emote/living/laugh
@@ -704,6 +706,11 @@
 	if(. && iscarbon(user))
 		var/mob/living/carbon/C = user
 		return !C.silent
+
+/datum/emote/living/laugh/run_emote(mob/user, params, type_override, intentional, targetted)
+	. = ..()
+	if(. && user.mind)
+		GLOB.vanderlin_round_stats["laughs_made"]++
 
 /mob/living/carbon/human/verb/emote_laugh()
 	set name = "Laugh"

@@ -8087,6 +8087,9 @@
 /obj/effect/decal/cobbleedge/alt,
 /turf/open/floor/dirt/road,
 /area/rogue/under/town/sewer)
+"fqF" = (
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/indoors/town/manor)
 "frI" = (
 /obj/structure/fake_machine/atm,
 /turf/open/floor/carpet/royalblack,
@@ -11213,6 +11216,9 @@
 /obj/item/coin/silver/pile,
 /obj/item/coin/copper/pile,
 /obj/item/clothing/face/cigarette/rollie/cannabis,
+/obj/machinery/light/fueled/wallfire/candle/l{
+	pixel_x = 32
+	},
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/manor)
 "hCn" = (
@@ -34198,6 +34204,9 @@
 /turf/closed/wall/mineral/stone,
 /area/rogue/indoors/town/magician)
 "xly" = (
+/obj/machinery/light/fueled/wallfire/candle/l{
+	pixel_x = 32
+	},
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/manor)
 "xlH" = (
@@ -176729,13 +176738,13 @@ jPA
 jPA
 jPA
 jPA
-xly
-xly
-xly
+fqF
+fqF
+fqF
 jHV
-xly
-xly
-xly
+fqF
+fqF
+fqF
 jPA
 jPA
 jPA
@@ -176931,13 +176940,13 @@ jPA
 jPA
 jPA
 jPA
-xly
-xly
-xly
-xly
-xly
-xly
-xly
+fqF
+fqF
+fqF
+fqF
+fqF
+fqF
+fqF
 jPA
 jPA
 jPA
@@ -177133,13 +177142,13 @@ jPA
 jPA
 jPA
 jPA
-xly
-xly
-xly
+fqF
+fqF
+fqF
 jHV
-xly
-xly
-xly
+fqF
+fqF
+fqF
 jPA
 jPA
 jPA
