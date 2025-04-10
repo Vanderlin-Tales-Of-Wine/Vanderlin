@@ -1,9 +1,9 @@
-/datum/job/bandit //pysdon above there's like THREE bandit.dms now I'm so sorry. This one is latejoin bandits, the one in villain is the antag datum, and the one in the 'antag' folder is an old adventurer class we don't use. Good luck!
+/datum/job/bandit
 	title = "Bandit"
 	tutorial = "Long ago you did a crime \
 	worthy of your bounty being hung on the wall outside of the local inn. \
 	You now live with your fellow free men in the bog, and generally get up to no good."
-	id = JOB_ID_BANDIT
+	id = ROLE_BANDIT
 	department_flag = PEASANTS
 	job_flags = (JOB_EQUIP_RANK)
 	display_order = JDO_BANDIT
@@ -30,7 +30,7 @@
 	var/mob/living/carbon/human/H = spawned
 	if(!H.mind)
 		return
-	H.ambushable = FALSE
+	ADD_TRAIT(H, TRAIT_NOAMBUSH, INNATE_TRAIT)
 
 /datum/outfit/job/bandit/post_equip(mob/living/carbon/human/H)
 	..()

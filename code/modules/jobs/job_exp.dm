@@ -125,13 +125,13 @@ GLOBAL_PROTECT(exp_to_update)
 	else
 		return "0h"
 
-/datum/controller/subsystem/blackbox/proc/update_exp(mins, ann = FALSE)
+/datum/controller/subsystem/blackbox/proc/update_exp(mins)
 	if(!SSdbcore.Connect())
 		return -1
 	for(var/client/L in GLOB.clients)
 		if(L.is_afk())
 			continue
-		L.update_exp_list(mins,ann)
+		L.update_exp_list(mins)
 
 /datum/controller/subsystem/blackbox/proc/update_exp_db()
 	set waitfor = FALSE
@@ -190,51 +190,49 @@ GLOBAL_PROTECT(exp_to_update)
 		return -1
 	qdel(flag_update)
 
-
-/client/proc/update_exp_list(minutes, announce_changes = FALSE)
+/**
+ * Tallies up the exp for the playtime tracking and adds it to the global update list.
+ *
+ * For a client mob of [/mob/dead/observer], it adds EXP_TYPE_GHOST.
+ *
+ * For a client mob of [/mob/living], it grabs the exp list from a mob proc call.
+ * Being dead but still in your body will tally time towards your /mob/living roles instead of ghost roles.
+ * If /mob/living returns an empty list, uses "Unknown" instead.
+ *
+ * For anything else, it doesn't update anything.
+ *
+ * Arguments:
+ * * minutes - The number of minutes to add to the playtime tally.
+ */
+/client/proc/update_exp_list(minutes)
 	if(!CONFIG_GET(flag/use_exp_tracking))
 		return -1
 	if(!SSdbcore.Connect())
 		return -1
 	if (!isnum(minutes))
 		return -1
+
 	var/list/play_records = list()
 
-	if(isliving(mob))
-		if(mob.stat != DEAD)
-			var/rolefound = FALSE
-			play_records[EXP_TYPE_LIVING] += minutes
-			if(announce_changes)
-				to_chat(src,"<span class='notice'>I got: [minutes] Living EXP!</span>")
-			if(!is_unassigned_job(mob.mind.assigned_role))
-				for(var/job in SSjob.name_occupations)
-					if(mob.mind.assigned_role.title == job)
-						rolefound = TRUE
-						play_records[job] += minutes
-						if(announce_changes)
-							to_chat(src,"<span class='notice'>I got: [minutes] [job] EXP!</span>")
-				if(mob.mind.special_role && !(mob.mind.datum_flags & DF_VAR_EDITED))
-					var/trackedrole = mob.mind.special_role
-					play_records[trackedrole] += minutes
-					if(announce_changes)
-						to_chat(src,"<span class='notice'>I got: [minutes] [trackedrole] EXP!</span>")
-			if(!rolefound)
-				play_records["Unknown"] += minutes
-		else
-			if(holder && !holder.deadmined)
-				play_records[EXP_TYPE_ADMIN] += minutes
-				if(announce_changes)
-					to_chat(src,"<span class='notice'>I got: [minutes] Admin EXP!</span>")
-			else
-				play_records[EXP_TYPE_GHOST] += minutes
-				if(announce_changes)
-					to_chat(src,"<span class='notice'>I got: [minutes] Ghost EXP!</span>")
-	else if(isobserver(mob))
+	if(isobserver(mob))
 		play_records[EXP_TYPE_GHOST] += minutes
-		if(announce_changes)
-			to_chat(src,"<span class='notice'>I got: [minutes] Ghost EXP!</span>")
-	else if(minutes)	//Let "refresh" checks go through
+	else if(isliving(mob))
+		var/mob/living/living_mob = mob
+		var/list/mob_exp_list = living_mob.get_exp_list(minutes)
+		if(!length(mob_exp_list))
+			if(mob.mind.special_role && !(mob.mind.datum_flags & DF_VAR_EDITED))
+				var/trackedrole = mob.mind.special_role
+				play_records[trackedrole] += minutes
+		else
+			play_records["Unknown"] += minutes
+
+		play_records[EXP_TYPE_LIVING] += minutes
+	// Lobby surfing? /mob/dead/new_player? Not worth any exp!
+	else
 		return
+
+	if(holder && !holder.deadmined && holder.check_for_rights(R_BAN))
+		play_records[EXP_TYPE_ADMIN] += minutes
 
 	for(var/jtype in play_records)
 		var/jvalue = play_records[jtype]
@@ -244,8 +242,8 @@ GLOBAL_PROTECT(exp_to_update)
 			CRASH("invalid job value [jtype]:[jvalue]")
 		LAZYINITLIST(GLOB.exp_to_update)
 		GLOB.exp_to_update.Add(list(list(
-			"job" = "'[jtype]'",
-			"ckey" = "'[ckey]'",
+			"job" = jtype,
+			"ckey" = ckey,
 			"minutes" = jvalue)))
 		prefs.exp[jtype] += jvalue
 	addtimer(CALLBACK(SSblackbox,TYPE_PROC_REF(/datum/controller/subsystem/blackbox, update_exp_db)),20,TIMER_OVERRIDE|TIMER_UNIQUE)

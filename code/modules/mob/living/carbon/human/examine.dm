@@ -148,9 +148,9 @@
 				. += "<span class='userdanger'>VIRGIN!</span>"
 
 		if(mind && mind.special_role)
-			if(mind && mind.special_role == "Bandit" && HAS_TRAIT(user, TRAIT_KNOWBANDITS))
+			if(mind && mind.special_role == ROLE_BANDIT && HAS_TRAIT(user, TRAIT_KNOWBANDITS))
 				. += "<span class='userdanger'>BANDIT!</span>"
-			if(mind && mind.special_role == "Vampire Lord")
+			if(mind && mind.special_role == ROLE_NBEAST)
 				. += "<span class='userdanger'>A MONSTER!</span>"
 
 		var/list/known_frumentarii = user.mind?.cached_frumentarii

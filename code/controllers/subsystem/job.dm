@@ -4,18 +4,24 @@ SUBSYSTEM_DEF(job)
 	flags = SS_NO_FIRE
 
 	/// List of all jobs.
-	var/list/all_occupations = list()
+	var/list/datum/job/all_occupations = list()
 	/// List of jobs that can be joined through the starting menu.
-	var/list/joinable_occupations = list()
-	var/list/datum/job/name_occupations = list()	//Dict of all jobs, keys are titles
-	var/list/type_occupations = list()	//Dict of all jobs, keys are types
-	var/list/unassigned = list()		//Players who need jobs
+	var/list/datum/job/joinable_occupations = list()
+
+	/// Dict of all jobs, keys are titles
+	var/list/datum/job/name_occupations = list()
+	/// Dict of all jobs, keys are types
+	var/list/datum/job/type_occupations = list()
+	/// Dict of all jobs, keys are ids
+	var/list/datum/job/id_occupations = list()
+
+	var/list/mob/dead/new_player/unassigned = list()		//Players who need jobs
 	var/initial_players_to_assign = 0 	//used for checking against population caps
 
 	var/list/prioritized_jobs = list()
 	var/list/latejoin_trackers = list()
 
-	var/list/level_order = list(JP_HIGH,JP_MEDIUM,JP_LOW)
+	var/list/level_order = list(JP_HIGH, JP_MEDIUM, JP_LOW)
 
 /datum/controller/subsystem/job/Initialize(timeofday)
 	if(!length(all_occupations))
@@ -37,6 +43,8 @@ SUBSYSTEM_DEF(job)
 		all_occupations += job
 		name_occupations[job.title] = job
 		type_occupations[job_type] = job
+		if(job.id)
+			id_occupations[job.id] = job
 		if(job.job_flags & JOB_NEW_PLAYER_JOINABLE)
 			joinable_occupations += job
 

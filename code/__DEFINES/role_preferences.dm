@@ -12,6 +12,7 @@
 #define ROLE_WEREWOLF "Werewolf"
 #define ROLE_VAMPIRE "Vampire"
 #define ROLE_NBEAST "Vampire Lord"
+#define ROLE_ZIZO_ELF "Dark Elf"
 #define ROLE_BANDIT "Bandit"
 #define ROLE_PREBEL "Peasant Rebel"
 #define ROLE_ZIZOIDCULTIST "Zizoid Cultist"

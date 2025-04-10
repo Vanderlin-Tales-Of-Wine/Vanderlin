@@ -2032,6 +2032,27 @@
 	else if(. && stat == SOFT_CRIT)
 		REMOVE_TRAIT(src, TRAIT_IMMOBILIZED, PULLED_WHILE_SOFTCRIT_TRAIT)
 
+/**
+ * Returns an assoc list of assignments and minutes for updating a client's exp time in the databse.
+ *
+ * Arguments:
+ * * minutes - The number of minutes to allocate to each valid role.
+ **/
+/mob/living/proc/get_exp_list(minutes)
+	var/list/exp_list = list()
+
+	if(mind?.special_role && !(mind.datum_flags & DF_VAR_EDITED))
+		exp_list[mind.special_role] = minutes
+
+	/* //this is disabled while we continue to clean up antag/special role code
+	if(mind?.assigned_role.id in GLOB.exp_specialmap[EXP_TYPE_SPECIAL])
+		exp_list[mind.assigned_role] = minutes
+	*/
+
+	return exp_list
+
+/* -------------------- ROGUE -------------------- */
+
 /// Proc for giving a mob a new 'friend', generally used for AI control and targeting. Returns false if already friends.
 /mob/living/proc/befriend(mob/living/new_friend)
 	SHOULD_CALL_PARENT(TRUE)

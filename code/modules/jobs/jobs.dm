@@ -42,7 +42,6 @@ GLOBAL_LIST_INIT(serf_positions, list(
 	/datum/job/armorsmith::title,
 	/datum/job/weaponsmith::title,
 	/datum/job/tailor::title,
-	/datum/job/alchemist::title,
 	/datum/job/artificer::title,
 	/datum/job/matron::title,
 	/datum/job/physicker::title,

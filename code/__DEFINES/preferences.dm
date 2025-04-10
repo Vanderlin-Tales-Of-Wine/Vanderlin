@@ -53,17 +53,18 @@
 #define PARALLAX_DELAY_LOW     2
 
 // Playtime tracking system, see jobs_exp.dm
-#define EXP_TYPE_LIVING			"Living"
-#define EXP_TYPE_GHOST			"Ghost"
-#define EXP_TYPE_ADMIN			"Admin"
+#define EXP_TYPE_LIVING "Living"
+#define EXP_TYPE_GHOST "Ghost"
+#define EXP_TYPE_ADMIN "Admin"
 
-#define EXP_TYPE_ANTAG			"Antag"
+#define EXP_TYPE_ANTAG "Antag"
+#define EXP_TYPE_SPECIAL "Special"
 
-#define EXP_TYPE_TOWNER			"Towner"
-#define EXP_TYPE_NOBLE			"Noble"
-#define EXP_TYPE_ADVENTURER		"Adventurer"
-#define EXP_TYPE_CHURCH			"Church"
-#define EXP_TYPE_GUARDS			"Guards"
+#define EXP_TYPE_TOWNER "Towner"
+#define EXP_TYPE_NOBLE "Noble"
+#define EXP_TYPE_ADVENTURER "Adventurer"
+#define EXP_TYPE_CHURCH "Church"
+#define EXP_TYPE_GUARDS "Guards"
 
 //Flags in the players table in the db
 #define DB_FLAG_EXEMPT 1

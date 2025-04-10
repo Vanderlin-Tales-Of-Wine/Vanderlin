@@ -13,6 +13,7 @@
 	var/list/head_announce = null
 
 	//Bitflags for the job
+	/// Identifier for this job. **NEEDS** to be unique, as it interfaces with the SQL database.
 	var/id = NONE
 	var/department_flag = NONE
 	var/auto_deadmin_role_flags = NONE

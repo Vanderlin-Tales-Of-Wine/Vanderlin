@@ -15,7 +15,7 @@
 		return "<span class='boldnotice'>Another free man. My ally.</span>"
 
 /datum/antagonist/bandit/on_gain()
-	owner.special_role = "Bandit"
+	owner.special_role = ROLE_BANDIT
 	owner.purge_combat_knowledge()
 	move_to_spawnpoint()
 	forge_objectives()

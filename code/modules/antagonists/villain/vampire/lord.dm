@@ -144,7 +144,7 @@
 
 	var/list/possible = list()
 	for(var/datum/mind/V in SSmapping.retainer.vampires)
-		if(V.special_role == "Vampire Spawn")
+		if(V.special_role == ROLE_VAMPIRE)
 			possible[V.current.real_name] = V.current
 	for(var/datum/mind/D in SSmapping.retainer.death_knights)
 		possible[D.current.real_name] = D.current

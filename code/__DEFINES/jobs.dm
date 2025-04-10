@@ -35,7 +35,6 @@
 // Vagrants
 #define JOB_ID_ADVENTURER "Adventurer"
 #define JOB_ID_MIGRANT "Migrant"
-#define JOB_ID_BANDIT "Bandit"
 #define JOB_ID_MERCENARY "Mercenary"
 #define JOB_ID_COURT_AGENT "Court Agent"
 #define JOB_ID_PILGRIM "Pilgrim"

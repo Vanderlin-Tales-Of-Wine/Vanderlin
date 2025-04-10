@@ -173,9 +173,8 @@
 			is_role = FALSE
 			if(M.special_role == role)
 				is_role = TRUE
-			else
-				if(M.assigned_role.title == role)
-					is_role = TRUE
+			else if(M.assigned_role.title == role)
+				is_role = TRUE
 		if(is_role)
 			. += M
 
