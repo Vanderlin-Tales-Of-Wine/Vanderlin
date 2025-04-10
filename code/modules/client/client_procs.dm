@@ -284,31 +284,51 @@ GLOBAL_LIST_EMPTY(respawncounts)
 			var/mob/living/living_user_mob = src.mob
 			if(istype(living_user_mob.patron, /datum/patron/psydon))
 				psydonite_user = TRUE
+
 	var/psydon_followers = get_patron_followers_numbers("Psydon")
+	var/apostasy_followers = get_patron_followers_numbers("Godless")
+	var/psycross_users = 0
 	var/psydonite_monarch = FALSE
 
 	for(var/mob/living/carbon/human/current_human in GLOB.human_list)
 		if(!current_human.mind)
 			continue
+		if(current_human.stat == DEAD)
+			continue
+		for(var/obj/item/clothing/neck/current_item in current_human.get_equipped_items(TRUE))
+			if(current_item.type in list(/obj/item/clothing/neck/psycross, /obj/item/clothing/neck/psycross/silver, /obj/item/clothing/neck/psycross/g))
+				psycross_users++
+				break
 		if(current_human.job == "Monarch")
-			if(current_human.stat == DEAD)
-				continue
 			if(istype(current_human.patron, /datum/patron/psydon))
 				psydonite_monarch = TRUE
 
-	var/psydon_influence = (psydon_followers * 10) + (GLOB.confessors.len * 10) + (GLOB.vanderlin_round_stats[STATS_HUMEN_DEATHS] * -20) + (psydonite_monarch ? (psydonite_monarch * 250) : -100) + (psydonite_user ? 10000 : -10000)
+	var/psydon_influence = (psydon_followers * 10) + (GLOB.confessors.len * 10) + (GLOB.vanderlin_round_stats[STATS_HUMEN_DEATHS] * -20) + (psydonite_monarch ? (psydonite_monarch * 250) : -100) + (psycross_users * 10) + (apostasy_followers * -30) + (psydonite_user ? 10000 : -10000)
 
-	data += "<div style='width: 45%; margin: 0 auto 30px; border: 2px solid #2f6c7a; background: #1d4a54; color: #d0d0d0; max-height: 420px;'>"
+	data += "<div style='width: 40%; margin: 0 auto 30px; border: 2px solid #2f6c7a; background: #1d4a54; color: #d0d0d0; max-height: 420px;'>"
 	data += "<div style='text-align: center; font-size: 1.3em; padding: 12px;'><b>PSYDON</b></div>"
 	data += "<div style='padding: 0 15px 15px 15px;'>"
 	data += "<div style='background: #0a2a33; border-radius: 4px; padding: 12px;'>"
-	data += "Number of followers: [psydon_followers] ([get_colored_influence_value(psydon_followers * 10)])<br>"
-	data += "Number of confessions: [GLOB.confessors.len] ([get_colored_influence_value(GLOB.confessors.len * 10)])<br>"
-	data += "Psydonite monarch: [psydonite_monarch ? "YES" : "NO"] ([get_colored_influence_value((psydonite_monarch ? (psydonite_monarch * 250) : -100))])<br>"
+	data += "<div style='display: flex;'>"
+
+	data += "<div style='flex: 1; padding-right: 10px;'>"
+	data += "Number of followers: [psydon_followers] ([get_colored_influence_value(psydon_followers * 20)])<br>"
+	data += "People wearing psycross: [psycross_users] ([get_colored_influence_value(psycross_users * 10)])<br>"
+	data += "Number of confessions: [GLOB.confessors.len] ([get_colored_influence_value(GLOB.confessors.len * 20)])<br>"
+	data += "Psydonite monarch: [psydonite_monarch ? "YES" : "NO"] ([get_colored_influence_value((psydonite_monarch ? (psydonite_monarch * 500) : -250))])<br>"
+	data += "</div>"
+
+	data += "<div style='flex: 1; padding-left: 60px;'>"
+	data += "Number of apostates: [apostasy_followers] ([get_colored_influence_value(apostasy_followers * -25)])<br>"
 	data += "Humen deaths: [GLOB.vanderlin_round_stats[STATS_HUMEN_DEATHS]] ([get_colored_influence_value(GLOB.vanderlin_round_stats[STATS_HUMEN_DEATHS] * -20)])<br>"
-	data += "God's status: [psydonite_user ? "ALIVE" : "DEAD"] ([get_colored_influence_value(psydonite_user ? 10000 : -10000)])"
+	data += "Lux harvested: 0 ([get_colored_influence_value(0 * -100)])<br>"
+	data += "God's status: [psydonite_user ? "ALIVE" : "DEAD"] ([get_colored_influence_value(psydonite_user ? 10000 : -10000)])<br>"
+	data += "</div>"
+
+	data += "</div>"
+
 	data += "<div style='border-top: 1px solid #444; margin: 12px 0 8px 0;'></div>"
-	data += "Total Influence: [get_colored_influence_value(psydon_influence)]"
+	data += "<div style='text-align: center;'>Total Influence: [get_colored_influence_value(psydon_influence)]</div>"
 	data += "</div></div></div>"
 
 	// The Ten Section
@@ -452,7 +472,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		Number of junkies: [GLOB.vanderlin_round_stats[STATS_JUNKIES]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(/datum/storyteller/baotha, STATS_JUNKIES))])", /datum/storyteller/baotha)
 
 	// Matthios
-	data += god_ui_block("MATTHIOS", "#491600", "#ddbb99", "\
+	data += god_ui_block("MATTHIOS", "#3d1301", "#ddbb99", "\
 		Number of followers: [matthios_followers] ([get_colored_influence_value(matthios_followers * 10)])<br>\
 		Items pickpocketed: [GLOB.vanderlin_round_stats[STATS_ITEMS_PICKPOCKETED]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(/datum/storyteller/matthios, STATS_ITEMS_PICKPOCKETED))])<br>\
 		Value offered to his idol: [GLOB.vanderlin_round_stats[STATS_SHRINE_VALUE]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(/datum/storyteller/matthios, STATS_SHRINE_VALUE))])<br>\
