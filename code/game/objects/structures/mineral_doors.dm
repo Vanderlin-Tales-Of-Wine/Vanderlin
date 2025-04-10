@@ -115,8 +115,6 @@
 	var/openSound = 'sound/blank.ogg'
 	var/closeSound = 'sound/blank.ogg'
 
-	var/sheetAmount = 7 //how much we drop when deconstructed
-
 	var/windowed = FALSE
 
 	var/locked = FALSE
@@ -128,13 +126,15 @@
 	var/locksound = 'sound/foley/doors/woodlock.ogg'
 	var/unlocksound = 'sound/foley/doors/woodlock.ogg'
 	var/rattlesound = 'sound/foley/doors/lockrattle.ogg'
-	var/masterkey = TRUE //if masterkey can open this regardless
+	/// if masterkey can open this regardless
+	var/masterkey = TRUE
 	var/kickthresh = 15
 	var/bump_closed = TRUE
 	var/can_add_lock = TRUE
 	var/can_knock = TRUE
 
-	var/ghostproof = FALSE	// Set to true to stop dead players passing through closed ones. Only use this for special areas, not generally
+	/// Set to true to stop dead players passing through closed ones. Only use this for special areas, not generally
+	var/ghostproof = FALSE
 
 	damage_deflection = 10
 
@@ -216,8 +216,7 @@
 
 /obj/structure/mineral_door/Move()
 	. = ..()
-	var/turf/T = get_turf(src)
-	move_update_air(T)
+	move_update_air(get_turf(src))
 
 /obj/structure/mineral_door/attack_ghost(mob/dead/observer/user)	// lets ghosts click on windows to transport across
 	if(!ghostproof)
@@ -599,11 +598,11 @@
 	return crowbar_door(user, I)
 
 /obj/structure/mineral_door/wood/fire_act(added, maxstacks)
-	. = ..()
 	if(!added)
 		return FALSE
 	if(added < 10)
 		return FALSE
+	..()
 
 /obj/structure/mineral_door/swing_door
 	name = "swing door"
