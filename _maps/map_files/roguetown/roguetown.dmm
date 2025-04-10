@@ -21896,7 +21896,7 @@
 	dir = 1;
 	icon_state = "tablewood_alt2"
 	},
-/obj/structure/door/deadbolt/shutter,
+/obj/structure/door/weak/bolt/shutter,
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/town/tavern)
 "yfB" = (
