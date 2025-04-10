@@ -697,13 +697,11 @@ SUBSYSTEM_DEF(ticker)
 
 	var/skip_delay = check_rights()
 	if(delay_end && !skip_delay)
-		to_chat(world, "<span class='boldannounce'>A game master has delayed the round end.</span>")
+		to_chat(world, span_boldannounce("A game master has delayed the round end."))
 		return
 
 	SStriumphs.end_triumph_saving_time()
-	to_chat(world, "<span class='boldannounce'>Rebooting World in [DisplayTimeText(delay)]. [reason]</span>")
-
-	to_chat(world, "<span class='boldannounce'>Rebooting World in [DisplayTimeText(delay)].</span>")
+	to_chat(world, span_boldannounce("Rebooting World in [DisplayTimeText(delay)]. [reason]"))
 
 	round_end = TRUE
 	var/start_wait = world.time
@@ -711,7 +709,7 @@ SUBSYSTEM_DEF(ticker)
 	sleep(delay - (world.time - start_wait))
 
 	if(delay_end && !skip_delay)
-		to_chat(world, "<span class='boldannounce'>Reboot was cancelled by an admin.</span>")
+		to_chat(world, span_boldannounce("Reboot was cancelled by an admin."))
 		round_end = FALSE
 		return
 	if(end_string)
@@ -720,14 +718,14 @@ SUBSYSTEM_DEF(ticker)
 	var/statspage = CONFIG_GET(string/roundstatsurl)
 	var/gamelogloc = CONFIG_GET(string/gamelogurl)
 	if(statspage)
-		to_chat(world, "<span class='info'>Round statistics and logs can be viewed <a href=\"[statspage][GLOB.round_id]\">at this website!</a></span>")
+		to_chat(world, span_info("Round statistics and logs can be viewed <a href=\"[statspage][GLOB.round_id]\">at this website!</a>"))
 	else if(gamelogloc)
-		to_chat(world, "<span class='info'>Round logs can be located <a href=\"[gamelogloc]\">at this website!</a></span>")
+		to_chat(world, span_info("Round logs can be located <a href=\"[gamelogloc]\">at this website!</a>"))
 
-	log_game("<span class='boldannounce'>Rebooting World. [reason]</span>")
+	log_game("Rebooting World. [reason]")
 
 	if(end_party)
-		to_chat(world, "<span class='boldannounce'>It's over!</span>")
+		to_chat(world, span_boldannounce("It's over!"))
 		world.Del()
 	else
 		world.Reboot()
