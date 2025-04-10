@@ -72,12 +72,19 @@
 /obj/structure/door/arcyne
 	name = "arcyne door"
 	icon_state = "arcyne"
+	base_state = "arcyne"
 	blade_dulling = DULLING_BASH
 	resistance_flags = FIRE_PROOF
 	keylock = FALSE
 	can_add_lock = FALSE
 	max_integrity = 2000
 	integrity_failure = 0
+
+	repairable = FALSE
+	repair_cost_first = null
+	repair_cost_second = null
+	repair_skill = null
+	metalizer_result = null
 
 /obj/structure/door/arcyne/bolt
 	has_bolt = TRUE
@@ -90,10 +97,10 @@
 	caster = summoner
 
 /obj/structure/door/arcyne/bolt/caster/attack_right(mob/user)
-	. = ..()
 	if(user != caster)
-		to_chat(user, span_warning("A magical force prevents me from interacting with [src]."))
+		to_chat(user, span_warning("A magical force prevents me from interacting with [src]!"))
 		return
+	..()
 
 /atom/movable
 	var/list/mana_beams

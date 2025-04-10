@@ -5,7 +5,9 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	hover_color = "#607d65"
 	name = "wall"
 	desc = null
-	icon_state = "woodhandle" //change me
+	icon = 'icons/turf/walls/stonebrick.dmi'
+	icon_state = "stonebrick"
+	base_state = null
 	resistance_flags = NONE
 	max_integrity = 9999
 	damage_deflection = 30
@@ -71,8 +73,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 /obj/structure/door/secret/onkick(mob/user)
 	if(locked)
 		return
-	else
-		..()
+	..()
 
 /obj/structure/door/secret/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode, original_message)
 	var/mob/living/carbon/human/H = speaker
@@ -122,7 +123,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	density = FALSE
 	door_opened = TRUE
 	layer = OPEN_DOOR_LAYER
-	air_update_turf(1)
+	air_update_turf(TRUE)
 	update_icon()
 	switching_states = FALSE
 
@@ -138,7 +139,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	density = FALSE
 	door_opened = TRUE
 	layer = OPEN_DOOR_LAYER
-	air_update_turf(1)
+	air_update_turf(TRUE)
 	update_icon()
 	switching_states = FALSE
 
@@ -160,8 +161,8 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	if(!windowed)
 		set_opacity(TRUE)
 	door_opened = FALSE
-	layer = initial(layer)
-	air_update_turf(1)
+	layer = CLOSED_DOOR_LAYER
+	air_update_turf(TRUE)
 	update_icon()
 	switching_states = FALSE
 	locked = TRUE
@@ -175,7 +176,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	density = TRUE
 	door_opened = FALSE
 	layer = CLOSED_DOOR_LAYER
-	air_update_turf(1)
+	air_update_turf(TRUE)
 	update_icon()
 	switching_states = FALSE
 
@@ -281,12 +282,10 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 		/datum/job/hand,
 		/datum/job/butler,
 	)
-	icon = 'icons/turf/walls/stonebrick.dmi'
-	icon_state = "stonebrick"
 
 /obj/structure/door/secret/keep/Initialize()
 	. = ..()
-	if(GLOB.keep_doors.len > 0)
+	if(length(GLOB.keep_doors) > 0)
 		var/obj/structure/door/secret/D = GLOB.keep_doors[1]
 		open_phrase = D.open_phrase
 	GLOB.keep_doors += src
@@ -321,8 +320,6 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 		/datum/job/matron,
 	)
 	lang = /datum/language/thievescant
-	icon = 'icons/turf/walls/stonebrick.dmi'
-	icon_state = "stonebrick"
 
 /obj/structure/door/secret/thieves_guild/Initialize()
 	. = ..()

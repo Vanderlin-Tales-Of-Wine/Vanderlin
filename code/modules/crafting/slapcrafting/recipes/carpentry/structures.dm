@@ -13,7 +13,7 @@
 		/datum/slapcraft_step/item/small_log/second,
 		/datum/slapcraft_step/use_item/carpentry/hammer
 		)
-	result_type = /obj/structure/door/wood
+	result_type = /obj/structure/door
 
 /datum/slapcraft_recipe/carpentry/structure/swingdoor
 	name = "swing door"
