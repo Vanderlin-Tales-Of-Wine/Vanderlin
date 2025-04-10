@@ -222,10 +222,10 @@
 /turf/open/floor/woodturned/nosmooth,
 /area/rogue/indoors/shelter/bog)
 "cN" = (
-/obj/structure/mineral_door/wood/donjon{
-	dir = 1;
-	locked = 1
+/obj/structure/mineral_door/viewport{
+	dir = 1
 	},
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/naturalstone,
 /area/rogue/indoors/cave)
 "cP" = (
@@ -630,7 +630,7 @@
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/shelter/bog)
 "hH" = (
-/obj/structure/mineral_door/wood/green,
+/obj/structure/mineral_door/green,
 /obj/effect/mapping_helpers/door/access/garrison/forest,
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/ruinedwood/spiral,
@@ -849,7 +849,7 @@
 /turf/open/floor/wood/nosmooth,
 /area/rogue/indoors/shelter/bog)
 "kU" = (
-/obj/structure/mineral_door/wood/green,
+/obj/structure/mineral_door/green,
 /obj/effect/mapping_helpers/door/access/garrison/forest,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter/bog)
@@ -1024,7 +1024,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/bog)
 "nl" = (
-/obj/structure/mineral_door/wood/green,
+/obj/structure/mineral_door/green,
 /turf/open/floor/dirt,
 /area/rogue/indoors/shelter/bog)
 "np" = (
@@ -1182,7 +1182,7 @@
 /turf/open/floor/wood/nosmooth,
 /area/rogue/indoors/shelter/bog)
 "ps" = (
-/obj/structure/mineral_door/wood/window,
+/obj/structure/mineral_door/window,
 /turf/open/floor/wood/nosmooth,
 /area/rogue/indoors/shelter/bog)
 "pt" = (
@@ -1592,7 +1592,7 @@
 /turf/open/floor/churchmarble,
 /area/rogue/outdoors/mountains)
 "uT" = (
-/obj/structure/mineral_door/wood/donjon,
+/obj/structure/mineral_door/viewport,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/mapping_helpers/door/access/garrison/forest,
 /turf/open/floor/ruinedwood/spiral,
@@ -1724,7 +1724,7 @@
 /turf/open/floor/churchmarble,
 /area/rogue/outdoors/mountains)
 "wv" = (
-/obj/structure/mineral_door/wood/donjon,
+/obj/structure/mineral_door/viewport,
 /obj/effect/mapping_helpers/door/access/garrison/forest,
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/ruinedwood/spiral,
@@ -2129,7 +2129,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter/bog)
 "Cy" = (
-/obj/structure/mineral_door/wood/green,
+/obj/structure/mineral_door/green,
 /turf/open/floor/dirt/road,
 /area/rogue/indoors/shelter/bog)
 "CB" = (
@@ -2328,7 +2328,7 @@
 /turf/open/floor/woodturned/nosmooth,
 /area/rogue/indoors/shelter/bog)
 "Fo" = (
-/obj/structure/mineral_door/wood/donjon{
+/obj/structure/mineral_door/viewport{
 	dir = 1
 	},
 /turf/open/floor/ruinedwood/turned,
@@ -2542,7 +2542,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/bog)
 "Ik" = (
-/obj/structure/mineral_door/wood,
+/obj/structure/mineral_door,
 /turf/open/floor/dirt,
 /area/rogue/indoors/shelter/bog)
 "Iw" = (
@@ -2552,7 +2552,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/mountains)
 "IA" = (
-/obj/structure/mineral_door/wood/red,
+/obj/structure/mineral_door/red,
 /turf/open/floor/dirt,
 /area/rogue/indoors/shelter/bog)
 "IB" = (
@@ -2762,7 +2762,7 @@
 /turf/open/floor/dirt,
 /area/rogue/indoors/shelter/bog)
 "LD" = (
-/obj/structure/mineral_door/wood/donjon{
+/obj/structure/mineral_door/viewport{
 	dir = 4
 	},
 /turf/open/floor/ruinedwood/turned,
@@ -2826,7 +2826,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/indoors/shelter/bog)
 "MY" = (
-/obj/structure/mineral_door/wood/violet,
+/obj/structure/mineral_door/violet,
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/shelter/bog)
 "Na" = (
@@ -2881,7 +2881,7 @@
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/shelter/bog)
 "Nx" = (
-/obj/structure/mineral_door/wood/red,
+/obj/structure/mineral_door/red,
 /turf/open/floor/wood/nosmooth,
 /area/rogue/indoors/shelter/bog)
 "Ny" = (
@@ -3051,7 +3051,7 @@
 /turf/open/floor/wood/nosmooth,
 /area/rogue/indoors/shelter/bog)
 "PM" = (
-/obj/structure/mineral_door/wood/donjon{
+/obj/structure/mineral_door/viewport{
 	dir = 8
 	},
 /turf/open/floor/wood/nosmooth,
@@ -3064,7 +3064,7 @@
 /turf/open/floor/concrete,
 /area/rogue/outdoors/bog)
 "PS" = (
-/obj/structure/mineral_door/wood,
+/obj/structure/mineral_door,
 /turf/open/floor/ruinedwood/turned,
 /area/rogue/indoors/shelter/bog)
 "PU" = (
@@ -3727,7 +3727,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter/bog)
 "Yb" = (
-/obj/structure/mineral_door/wood/deadbolt{
+/obj/structure/mineral_door/weak/bolt{
 	dir = 4
 	},
 /turf/open/floor/woodturned/nosmooth,
@@ -3770,7 +3770,7 @@
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/shelter/bog)
 "Zm" = (
-/obj/structure/mineral_door/wood/donjon{
+/obj/structure/mineral_door/viewport{
 	dir = 8
 	},
 /turf/open/floor/ruinedwood/turned,

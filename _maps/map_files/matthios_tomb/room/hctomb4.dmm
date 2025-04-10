@@ -73,7 +73,7 @@
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/indoors/shelter)
 "cD" = (
-/obj/structure/mineral_door/wood/window,
+/obj/structure/mineral_door/window,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/shelter)
 "cU" = (
@@ -396,7 +396,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/indoors/shelter)
 "qf" = (
-/obj/structure/mineral_door/wood/green,
+/obj/structure/mineral_door/green,
 /turf/open/floor/twig,
 /area/rogue/indoors/shelter)
 "qB" = (
@@ -452,7 +452,7 @@
 	},
 /area/rogue/indoors/shelter)
 "sK" = (
-/obj/structure/mineral_door/wood/fancywood{
+/obj/structure/mineral_door/fancy{
 	name = "Room 6"
 	},
 /turf/open/floor/carpet,
@@ -541,7 +541,7 @@
 /turf/open/floor/carpet,
 /area/rogue/indoors/shelter)
 "wS" = (
-/obj/structure/mineral_door/swing_door,
+/obj/structure/mineral_door/swing,
 /obj/structure/fluff/wallclock/l,
 /turf/open/floor/twig,
 /area/rogue/indoors/shelter)
@@ -591,7 +591,7 @@
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/indoors/shelter)
 "yZ" = (
-/obj/structure/mineral_door/wood/fancywood{
+/obj/structure/mineral_door/fancy{
 	name = "Room 1"
 	},
 /turf/open/floor/carpet,
@@ -688,10 +688,10 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter)
 "Eq" = (
-/obj/structure/mineral_door/wood/green{
-	name = "Room 4 - HAUNTED";
-	locked = 1
+/obj/structure/mineral_door/green{
+	name = "Room 4 - HAUNTED"
 	},
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/indoors/shelter)
 "EV" = (
@@ -743,10 +743,10 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave)
 "Hu" = (
-/obj/structure/mineral_door/wood/green{
-	name = "Room 3 - DO NOT ENTER";
-	locked = 1
+/obj/structure/mineral_door/green{
+	name = "Room 3 - DO NOT ENTER"
 	},
+/obj/effect/mapping_helpers/door/locker,
 /obj/structure/barricade/crude,
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/indoors/shelter)
@@ -801,10 +801,10 @@
 /turf/open/floor/carpet,
 /area/rogue/indoors/shelter)
 "JQ" = (
-/obj/structure/mineral_door/wood/fancywood{
-	name = "Room 2 - VERY HAUNTED!!!";
-	locked = 1
+/obj/structure/mineral_door/fancy{
+	name = "Room 2 - VERY HAUNTED!!!"
 	},
+/obj/effect/mapping_helpers/door/locker,
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/carpet,
 /area/rogue/indoors/shelter)
@@ -1234,7 +1234,7 @@
 /turf/open/floor/tile/checker,
 /area/rogue/indoors/shelter)
 "Ye" = (
-/obj/structure/mineral_door/wood/green{
+/obj/structure/mineral_door/green{
 	name = "Room 5"
 	},
 /turf/open/floor/ruinedwood/chevron,

@@ -334,9 +334,6 @@
 	},
 /turf/closed/mineral/bedrock,
 /area/rogue)
-"bD" = (
-/turf/closed/mineral/random/high,
-/area/rogue/under/cavelava)
 "bE" = (
 /turf/open/floor/dirt,
 /area/rogue/under/cavewet)
@@ -65452,7 +65449,7 @@ av
 av
 av
 av
-bD
+av
 ay
 av
 av

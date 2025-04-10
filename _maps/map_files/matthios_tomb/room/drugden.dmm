@@ -19,9 +19,8 @@
 /obj/item/bath/soap{
 	pixel_y = -5
 	},
-/obj/structure/mineral_door/wood/fancywood{
-	locked = 1
-	},
+/obj/structure/mineral_door/fancy,
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter)
 "cO" = (
@@ -94,7 +93,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter)
 "oY" = (
-/obj/structure/mineral_door/swing_door,
+/obj/structure/mineral_door/swing,
 /obj/item/bath/soap{
 	pixel_y = -5
 	},
@@ -125,7 +124,7 @@
 	pixel_x = -3;
 	pixel_y = -5
 	},
-/obj/structure/mineral_door/swing_door,
+/obj/structure/mineral_door/swing,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter)
 "sm" = (
@@ -237,9 +236,8 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter)
 "Gb" = (
-/obj/structure/mineral_door/wood/fancywood{
-	locked = 1
-	},
+/obj/structure/mineral_door/fancy,
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter)
 "Gp" = (
@@ -247,7 +245,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter)
 "Hv" = (
-/obj/structure/mineral_door/swing_door,
+/obj/structure/mineral_door/swing,
 /turf/open/floor/tile,
 /area/rogue/under/cavewet)
 "JI" = (

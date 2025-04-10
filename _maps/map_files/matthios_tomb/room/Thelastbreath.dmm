@@ -187,10 +187,10 @@
 /turf/open/floor/cobble,
 /area/rogue/indoors)
 "dm" = (
-/obj/structure/mineral_door/wood/donjon/stone{
-	locked = 1;
+/obj/structure/mineral_door/stone{
 	lockid = "Dungeon1"
 	},
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/church,
 /area/rogue/indoors)
 "dr" = (
@@ -370,7 +370,7 @@
 /turf/open/floor/dirt,
 /area/rogue/indoors)
 "fY" = (
-/obj/structure/mineral_door/wood/donjon/stone,
+/obj/structure/mineral_door/stone,
 /obj/structure/barricade/rogue,
 /obj/structure/barricade/rogue/crude,
 /turf/open/floor/church,
@@ -426,13 +426,6 @@
 /mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/cobblerock,
 /area/rogue/indoors)
-"gN" = (
-/obj/structure/mineral_door/wood/donjon/stone{
-	lockid = "Dungeon1";
-	locked = 1
-	},
-/turf/open/floor/church,
-/area/rogue/indoors)
 "gT" = (
 /obj/structure/table/wood/fancy/blue,
 /obj/effect/spawner/map_spawner/loot/common,
@@ -457,7 +450,7 @@
 /turf/open/floor/hexstone,
 /area/rogue/indoors)
 "hj" = (
-/obj/structure/mineral_door/wood/donjon/stone,
+/obj/structure/mineral_door/stone,
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/church,
 /area/rogue/indoors)
@@ -643,7 +636,7 @@
 /turf/closed/wall/mineral/decostone,
 /area/rogue/indoors)
 "kB" = (
-/obj/structure/mineral_door/wood/donjon/stone,
+/obj/structure/mineral_door/stone,
 /turf/open/floor/churchbrick,
 /area/rogue/indoors)
 "kG" = (
@@ -786,10 +779,10 @@
 /turf/closed/wall/mineral/decostone,
 /area/rogue/indoors)
 "lE" = (
-/obj/structure/mineral_door/wood/donjon/stone{
-	locked = 1;
+/obj/structure/mineral_door/stone{
 	lockid = "Dungeon1"
 	},
+/obj/effect/mapping_helpers/door/locker,
 /obj/structure/fluff/walldeco/vinez,
 /turf/open/floor/hexstone,
 /area/rogue/indoors)
@@ -820,7 +813,7 @@
 /turf/open/floor/tile,
 /area/rogue/indoors)
 "mt" = (
-/obj/structure/mineral_door/wood/donjon/stone,
+/obj/structure/mineral_door/stone,
 /turf/open/floor/dirt,
 /area/rogue/indoors)
 "mv" = (
@@ -945,10 +938,10 @@
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/indoors)
 "ox" = (
-/obj/structure/mineral_door/wood/donjon/stone{
-	locked = 1;
+/obj/structure/mineral_door/stone{
 	lockid = "Dungeon1"
 	},
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/churchmarble,
 /area/rogue/indoors)
 "oI" = (
@@ -1299,7 +1292,7 @@
 /turf/open/floor/churchbrick,
 /area/rogue/indoors)
 "tM" = (
-/obj/structure/mineral_door/wood/donjon/stone,
+/obj/structure/mineral_door/stone,
 /obj/structure/barricade/rogue,
 /obj/structure/barricade/rogue/crude,
 /turf/open/floor/dirt,
@@ -1461,7 +1454,7 @@
 /area/rogue/indoors)
 "wn" = (
 /obj/machinery/light/fueled/wallfire/candle/l,
-/obj/structure/mineral_door/wood/donjon/stone,
+/obj/structure/mineral_door/stone,
 /turf/open/floor/church,
 /area/rogue/indoors)
 "ww" = (
@@ -1638,7 +1631,7 @@
 /area/rogue/indoors)
 "yF" = (
 /obj/machinery/light/fueled/wallfire/candle/r,
-/obj/structure/mineral_door/wood/donjon/stone,
+/obj/structure/mineral_door/stone,
 /turf/open/floor/church,
 /area/rogue/indoors)
 "yQ" = (
@@ -1732,7 +1725,7 @@
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/indoors)
 "zB" = (
-/obj/structure/mineral_door/wood/donjon/stone,
+/obj/structure/mineral_door/stone,
 /obj/structure/fluff/walldeco/feldshersign,
 /obj/structure/fluff/walldeco/vinez,
 /turf/open/floor/cobble,
@@ -1980,10 +1973,10 @@
 /turf/closed/wall/mineral/decostone,
 /area/rogue/indoors)
 "DR" = (
-/obj/structure/mineral_door/wood/donjon/stone{
-	locked = 1;
+/obj/structure/mineral_door/stone{
 	lockid = "Dungeon1"
 	},
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/cobble,
 /area/rogue/indoors)
 "DX" = (
@@ -2472,7 +2465,7 @@
 /turf/open/floor/blocks,
 /area/rogue/indoors)
 "Lk" = (
-/obj/structure/mineral_door/wood/donjon/stone,
+/obj/structure/mineral_door/stone,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/church,
 /area/rogue/indoors)
@@ -2544,7 +2537,7 @@
 /turf/open/floor/church,
 /area/rogue/indoors)
 "MK" = (
-/obj/structure/mineral_door/wood/donjon/stone,
+/obj/structure/mineral_door/stone,
 /turf/open/floor/church,
 /area/rogue/indoors)
 "MR" = (
@@ -2661,10 +2654,10 @@
 /turf/open/floor/hexstone,
 /area/rogue/indoors)
 "Ow" = (
-/obj/structure/mineral_door/wood/donjon/stone{
-	locked = 1;
+/obj/structure/mineral_door/stone{
 	lockid = "Dungeon1"
 	},
+/obj/effect/mapping_helpers/door/locker,
 /obj/structure/pressure_plate{
 	redstone_id = "W3"
 	},
@@ -3187,10 +3180,10 @@
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/indoors)
 "VF" = (
-/obj/structure/mineral_door/wood/donjon/stone{
-	locked = 1;
+/obj/structure/mineral_door/stone{
 	lockid = "Dungeon1"
 	},
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/hexstone,
 /area/rogue/indoors)
 "VL" = (
@@ -3235,7 +3228,7 @@
 /turf/open/floor/dirt,
 /area/rogue/indoors)
 "Wo" = (
-/obj/structure/mineral_door/wood/donjon/stone,
+/obj/structure/mineral_door/stone,
 /turf/open/floor/hexstone,
 /area/rogue/indoors)
 "Wr" = (
@@ -3275,7 +3268,7 @@
 /turf/open/floor/cobble,
 /area/rogue/indoors)
 "WY" = (
-/obj/structure/mineral_door/wood/donjon/stone,
+/obj/structure/mineral_door/stone,
 /turf/open/floor/cobble,
 /area/rogue/indoors)
 "Xc" = (
@@ -3431,7 +3424,7 @@
 /turf/closed/wall/mineral/decostone/cand,
 /area/rogue/indoors)
 "Zo" = (
-/obj/structure/mineral_door/wood/donjon/stone,
+/obj/structure/mineral_door/stone,
 /obj/effect/decal/cleanable/blood/tracks,
 /obj/effect/decal/cleanable/blood/tracks,
 /turf/open/floor/church,
@@ -4634,7 +4627,7 @@ fm
 fm
 pb
 dm
-gN
+dm
 pb
 fm
 fm

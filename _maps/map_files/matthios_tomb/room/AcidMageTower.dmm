@@ -140,7 +140,7 @@
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/indoors)
 "fS" = (
-/obj/structure/mineral_door/wood/donjon,
+/obj/structure/mineral_door/viewport,
 /turf/open/floor/blocks,
 /area/rogue/indoors)
 "fU" = (
@@ -334,7 +334,7 @@
 /obj/structure/trap/wall_projectile/fireball{
 	dir = 4
 	},
-/obj/structure/mineral_door/wood/donjon,
+/obj/structure/mineral_door/viewport,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors)
 "mB" = (
@@ -685,10 +685,10 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors)
 "zh" = (
-/obj/structure/mineral_door/wood/red{
-	locked = 1;
+/obj/structure/mineral_door/red{
 	lockid = "Acid1"
 	},
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/churchrough,
 /area/rogue/indoors)
 "zD" = (
@@ -823,7 +823,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors)
 "EG" = (
-/obj/structure/mineral_door/wood/donjon/stone,
+/obj/structure/mineral_door/stone,
 /obj/structure/barricade/rogue,
 /obj/structure/barricade/rogue/crude,
 /turf/open/floor/churchrough,
@@ -1161,7 +1161,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors)
 "Qs" = (
-/obj/structure/mineral_door/wood/red,
+/obj/structure/mineral_door/red,
 /turf/open/floor/churchrough,
 /area/rogue/indoors)
 "QC" = (
@@ -1400,7 +1400,7 @@
 /obj/structure/trap/wall_projectile/fireball{
 	dir = 4
 	},
-/obj/structure/mineral_door/wood/donjon,
+/obj/structure/mineral_door/viewport,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors)
 "Zi" = (
@@ -1417,7 +1417,7 @@
 /area/rogue/indoors)
 "Zo" = (
 /obj/structure/trap/saw_blades,
-/obj/structure/mineral_door/wood/donjon,
+/obj/structure/mineral_door/viewport,
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/indoors)
 "ZG" = (

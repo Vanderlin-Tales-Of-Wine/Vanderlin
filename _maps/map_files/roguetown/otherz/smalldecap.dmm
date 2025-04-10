@@ -83,10 +83,10 @@
 /obj/structure/barricade/rogue,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/blood/tracks,
-/obj/structure/mineral_door/wood/green{
-	name = "Old Door";
-	locked = 1
+/obj/structure/mineral_door/green{
+	name = "Old Door"
 	},
+/obj/effect/mapping_helpers/door/locker,
 /obj/structure/bars/passage{
 	redstone_id = "sewerruin1"
 	},
@@ -227,10 +227,10 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/cavelava)
 "fh" = (
-/obj/structure/mineral_door/wood/green{
-	name = "Old Door";
-	locked = 1
+/obj/structure/mineral_door/green{
+	name = "Old Door"
 	},
+/obj/effect/mapping_helpers/door/locker,
 /obj/item/restraints/legcuffs/beartrap/armed/camouflage,
 /turf/open/floor/cobble,
 /area/rogue/under/cavelava)
@@ -245,10 +245,10 @@
 "fv" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/mineral_door/wood/green{
-	name = "Old Door";
-	locked = 1
+/obj/structure/mineral_door/green{
+	name = "Old Door"
 	},
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/concrete,
 /area/rogue/under/cavelava)
 "fG" = (
@@ -372,10 +372,10 @@
 /area/rogue/outdoors/caves)
 "hF" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/mineral_door/wood/green{
-	name = "Old Door";
-	locked = 1
+/obj/structure/mineral_door/green{
+	name = "Old Door"
 	},
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/concrete,
 /area/rogue/under/cavelava)
 "hJ" = (
@@ -689,10 +689,10 @@
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/mountains/deception)
 "oH" = (
-/obj/structure/mineral_door/wood/green{
-	name = "Old Door";
-	locked = 1
+/obj/structure/mineral_door/green{
+	name = "Old Door"
 	},
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/concrete,
 /area/rogue/under/cavelava)
 "oI" = (
@@ -1032,10 +1032,10 @@
 /area/rogue/under/cavelava)
 "yg" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/mineral_door/wood/green{
-	name = "Old Door";
-	locked = 1
+/obj/structure/mineral_door/green{
+	name = "Old Door"
 	},
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/blocks,
 /area/rogue/under/cavelava)
 "yl" = (
@@ -1116,10 +1116,10 @@
 "Az" = (
 /obj/structure/barricade/rogue,
 /obj/structure/barricade/rogue/crude,
-/obj/structure/mineral_door/wood/green{
-	name = "Old Door";
-	locked = 1
+/obj/structure/mineral_door/green{
+	name = "Old Door"
 	},
+/obj/effect/mapping_helpers/door/locker,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/restraints/legcuffs/beartrap/armed/camouflage,
 /turf/open/floor/cobble,
@@ -1303,10 +1303,10 @@
 /turf/open/floor/cobble,
 /area/rogue/under/cavelava)
 "FZ" = (
-/obj/structure/mineral_door/wood/green{
-	name = "Old Door";
-	locked = 1
+/obj/structure/mineral_door/green{
+	name = "Old Door"
 	},
+/obj/effect/mapping_helpers/door/locker,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/herringbone,
 /area/rogue/under/cavelava)

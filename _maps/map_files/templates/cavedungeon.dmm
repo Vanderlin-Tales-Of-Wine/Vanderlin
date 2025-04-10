@@ -138,9 +138,8 @@
 /turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "vq" = (
-/obj/structure/mineral_door/bars{
-	locked = 1
-	},
+/obj/structure/mineral_door/iron/bars,
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "vZ" = (
