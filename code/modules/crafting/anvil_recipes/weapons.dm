@@ -560,7 +560,7 @@
 	req_bar = /obj/item/ingot/silver
 	additional_items = list(/obj/item/grown/log/tree/stick)
 	created_item = /obj/item/weapon/axe/steel/silver
-	craftdiff = 2
+	craftdiff = 3
 
 // ELECTRUM - Hard to craft, incredibly expensive and can only be smelted with a crucibel. In exchange its harder then silver while retaining the silver bonus against undead. Used for holy gear.
 
@@ -595,12 +595,12 @@
 	quench_type = QUENCH_HOLY
 
 /datum/anvil_recipe/weapons/electrum/axe_psydon
-	name = "Psydonian Axe (+Bar, +Stick)"
+	name = "Psydonian Axe (+Stick)"
 	recipe_name = "a Psydonian Axe"
 	appro_skill = /datum/skill/craft/weaponsmithing
 	req_bar = /obj/item/ingot/electrum
 	additional_items = list(/obj/item/grown/log/tree/stick)
-	created_item = /obj/item/weapon/axe/steel
+	created_item = /obj/item/weapon/axe/steel/psydon
 	craftdiff = 4
 	quench_type = QUENCH_HOLY
 
@@ -645,7 +645,7 @@
 	quench_type = QUENCH_HOLY
 
 /datum/anvil_recipe/weapons/electrum/halberd
-	name = "Psydonian Halberd (+Bar, +Small Log)"
+	name = "Psydonian Halberd (+Steel Bar, +Small Log)"
 	recipe_name = "a Psydonian Halberd"
 	appro_skill = /datum/skill/craft/weaponsmithing
 	req_bar = /obj/item/ingot/electrum

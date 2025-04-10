@@ -378,9 +378,9 @@
 
 /obj/item/weapon/axe/steel/psydon
 	name = "psydonian axe"
-	desc = "A decorated axe forged from silver and gold. A once common tool, now only meant to spill blood. "
+	desc = "A decorated axe forged from polished electrum. A once common tool, now only meant to spill blood. "
 	icon_state = "psyaxe"
 	melting_material = /datum/material/electrum
 	minstr = 7
-	sellprice = 70
+	sellprice = 55
 	is_silver = TRUE

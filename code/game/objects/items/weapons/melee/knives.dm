@@ -489,4 +489,4 @@
 	desc = "Made from silver and gold, made to slit artery and throat."
 	icon_state = "psydagger"
 	is_silver = TRUE
-	sellprice = 34
+	sellprice = 28

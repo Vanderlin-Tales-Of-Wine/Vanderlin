@@ -206,5 +206,5 @@
 	desc = "Sacret alloy created from silver and gold. Moldabel like gold, sacret as silver, harder then both."
 	icon_state = "ingotelectrum"
 	smeltresult = /obj/item/ingot/electrum
-	sellprice = 80
+	sellprice = 60
 	melting_material = /datum/material/electrum
