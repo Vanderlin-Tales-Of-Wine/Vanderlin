@@ -302,7 +302,7 @@
 /turf/open/floor/dirt,
 /area/rogue/outdoors/woods)
 "re" = (
-/obj/structure/mineral_door/weak/bolt{
+/obj/structure/door/weak/bolt{
 	dir = 1
 	},
 /turf/open/floor/ruinedwood{

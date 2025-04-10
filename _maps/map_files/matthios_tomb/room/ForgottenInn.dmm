@@ -75,7 +75,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/indoors/shelter)
 "jV" = (
-/obj/structure/mineral_door,
+/obj/structure/door,
 /obj/item/restraints/legcuffs/beartrap/armed,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/shelter)
@@ -211,7 +211,7 @@
 /area/rogue/indoors/shelter)
 "Ae" = (
 /obj/item/bath/soap,
-/obj/structure/mineral_door/weak/bolt{
+/obj/structure/door/weak/bolt{
 	dir = 1
 	},
 /turf/open/floor/ruinedwood/spiralfade,
@@ -287,7 +287,7 @@
 /turf/open/floor/rooftop/green,
 /area/rogue/under/cave)
 "Ij" = (
-/obj/structure/mineral_door,
+/obj/structure/door,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/shelter)
 "Iy" = (
@@ -460,7 +460,7 @@
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/shelter)
 "WZ" = (
-/obj/structure/mineral_door/window,
+/obj/structure/door/window,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/shelter)
 "Xw" = (

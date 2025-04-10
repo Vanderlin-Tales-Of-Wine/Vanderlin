@@ -31,7 +31,7 @@
 /turf/open/floor/wood,
 /area/rogue/under/cave)
 "hZ" = (
-/obj/structure/mineral_door/weak/bolt{
+/obj/structure/door/weak/bolt{
 	dir = 8
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -47,7 +47,7 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "ms" = (
-/obj/structure/mineral_door/weak/bolt,
+/obj/structure/door/weak/bolt,
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
@@ -61,7 +61,7 @@
 	},
 /area/rogue/under/cave)
 "rp" = (
-/obj/structure/mineral_door/weak/bolt{
+/obj/structure/door/weak/bolt{
 	dir = 4
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -91,7 +91,7 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "vj" = (
-/obj/structure/mineral_door/weak/bolt{
+/obj/structure/door/weak/bolt{
 	dir = 1
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -198,7 +198,7 @@
 /turf/open/floor/wood,
 /area/rogue/under/cave)
 "KU" = (
-/obj/structure/mineral_door/weak/bolt{
+/obj/structure/door/weak/bolt{
 	dir = 1
 	},
 /obj/effect/mapping_helpers/door/locker,

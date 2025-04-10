@@ -193,7 +193,7 @@
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/under/cave)
 "eU" = (
-/obj/structure/mineral_door/swing,
+/obj/structure/door/swing,
 /turf/open/floor/tile,
 /area/rogue/under/cave)
 "eX" = (
@@ -286,7 +286,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave)
 "gY" = (
-/obj/structure/mineral_door/fancy,
+/obj/structure/door/fancy,
 /turf/open/floor/ruinedwood,
 /area/rogue/under/cave)
 "ha" = (
@@ -771,7 +771,7 @@
 /turf/open/floor/ruinedwood,
 /area/rogue/under/cave)
 "sG" = (
-/obj/structure/mineral_door/green,
+/obj/structure/door/green,
 /turf/open/floor/wood/nosmooth,
 /area/rogue/under/cave)
 "sJ" = (
@@ -798,7 +798,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/cave)
 "tx" = (
-/obj/structure/mineral_door/stone,
+/obj/structure/door/stone,
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "tM" = (
@@ -811,7 +811,7 @@
 /turf/open/floor/tile,
 /area/rogue/under/cave)
 "tR" = (
-/obj/structure/mineral_door/fancy,
+/obj/structure/door/fancy,
 /turf/open/floor/carpet,
 /area/rogue/under/cave)
 "tV" = (
@@ -1184,7 +1184,7 @@
 /turf/open/floor/grass,
 /area/rogue/under/cave)
 "Bp" = (
-/obj/structure/mineral_door/stone,
+/obj/structure/door/stone,
 /turf/open/floor/churchbrick,
 /area/rogue/under/cave)
 "Br" = (
@@ -1281,7 +1281,7 @@
 /turf/closed/wall/mineral/decostone/cand,
 /area/rogue/under/cave)
 "Dt" = (
-/obj/structure/mineral_door,
+/obj/structure/door,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/cave)
 "DA" = (
@@ -1290,7 +1290,7 @@
 /area/rogue/under/cave)
 "DD" = (
 /obj/effect/decal/cleanable/debris/glass,
-/obj/structure/mineral_door/fancy,
+/obj/structure/door/fancy,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/carpet,
 /area/rogue/under/cave)
@@ -1374,7 +1374,7 @@
 /turf/open/floor/churchbrick,
 /area/rogue/under/cave)
 "Fm" = (
-/obj/structure/mineral_door,
+/obj/structure/door,
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/under/cave)
 "Fr" = (
@@ -1407,7 +1407,7 @@
 /turf/open/floor/wood/nosmooth,
 /area/rogue/under/cave)
 "Gc" = (
-/obj/structure/mineral_door,
+/obj/structure/door,
 /turf/open/floor/wood/nosmooth,
 /area/rogue/under/cave)
 "Ge" = (
@@ -1604,7 +1604,7 @@
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/cave)
 "KM" = (
-/obj/structure/mineral_door,
+/obj/structure/door,
 /turf/open/floor/ruinedwood,
 /area/rogue/under/cave)
 "KZ" = (
@@ -1629,7 +1629,7 @@
 /area/rogue/under/cave)
 "Lu" = (
 /obj/effect/decal/cleanable/debris/glass,
-/obj/structure/mineral_door/fancy,
+/obj/structure/door/fancy,
 /turf/open/floor/carpet,
 /area/rogue/under/cave)
 "Ly" = (
@@ -1673,7 +1673,7 @@
 /turf/open/floor/wood/nosmooth,
 /area/rogue/under/cave)
 "Me" = (
-/obj/structure/mineral_door,
+/obj/structure/door,
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "Mj" = (
@@ -1799,7 +1799,7 @@
 /turf/open/floor/ruinedwood,
 /area/rogue/under/cave)
 "Pq" = (
-/obj/structure/mineral_door,
+/obj/structure/door,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/cave)
 "Py" = (
@@ -1871,7 +1871,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/cave)
 "Qj" = (
-/obj/structure/mineral_door/fancy,
+/obj/structure/door/fancy,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/carpet,
 /area/rogue/under/cave)

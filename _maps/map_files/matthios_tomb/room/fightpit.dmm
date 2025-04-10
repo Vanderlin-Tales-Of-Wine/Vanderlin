@@ -109,7 +109,7 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cave)
 "kU" = (
-/obj/structure/mineral_door/viewport{
+/obj/structure/door/viewport{
 	dir = 8
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -139,7 +139,7 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "mL" = (
-/obj/structure/mineral_door/viewport{
+/obj/structure/door/viewport{
 	dir = 8
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -281,7 +281,7 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cave)
 "xO" = (
-/obj/structure/mineral_door/viewport{
+/obj/structure/door/viewport{
 	dir = 4
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -313,7 +313,7 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "Ci" = (
-/obj/structure/mineral_door,
+/obj/structure/door,
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
@@ -562,7 +562,7 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cave)
 "Xx" = (
-/obj/structure/mineral_door/viewport{
+/obj/structure/door/viewport{
 	dir = 4
 	},
 /obj/effect/mapping_helpers/door/locker,

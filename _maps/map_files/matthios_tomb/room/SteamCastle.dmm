@@ -269,7 +269,7 @@
 /turf/open/floor/carpet/red,
 /area/rogue/under/cave)
 "cs" = (
-/obj/structure/mineral_door/violet,
+/obj/structure/door/violet,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/cave)
 "ct" = (
@@ -339,7 +339,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/cave)
 "dc" = (
-/obj/structure/mineral_door/violet,
+/obj/structure/door/violet,
 /obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/cave)
@@ -1006,7 +1006,7 @@
 /turf/open/floor/blocks,
 /area/rogue/under/cave)
 "kV" = (
-/obj/structure/mineral_door/stone,
+/obj/structure/door/stone,
 /turf/open/floor/herringbone,
 /area/rogue/under/cave)
 "kW" = (
@@ -1130,7 +1130,7 @@
 /turf/open/floor/blocks,
 /area/rogue/under/cave)
 "md" = (
-/obj/structure/mineral_door/stone,
+/obj/structure/door/stone,
 /turf/open/floor/blocks,
 /area/rogue/under/cave)
 "mp" = (
@@ -1157,7 +1157,7 @@
 /turf/open/floor/wood/nosmooth,
 /area/rogue/under/cave)
 "mD" = (
-/obj/structure/mineral_door/violet{
+/obj/structure/door/violet{
 	lockid = "CastleGate1"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -1255,7 +1255,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/cave)
 "nH" = (
-/obj/structure/mineral_door/violet{
+/obj/structure/door/violet{
 	lockid = "CastleArti"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -1369,7 +1369,7 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "oQ" = (
-/obj/structure/mineral_door/violet{
+/obj/structure/door/violet{
 	lockid = "CastleMage1"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -1420,7 +1420,7 @@
 /turf/closed/wall/mineral/decostone,
 /area/rogue/under/cave)
 "pv" = (
-/obj/structure/mineral_door/stone,
+/obj/structure/door/stone,
 /turf/open/floor/wood/nosmooth,
 /area/rogue/under/cave)
 "pz" = (
@@ -1634,7 +1634,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/cave)
 "rZ" = (
-/obj/structure/mineral_door/stone{
+/obj/structure/door/stone{
 	lockid = "CastleNoble"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -2460,7 +2460,7 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "Bw" = (
-/obj/structure/mineral_door/stone{
+/obj/structure/door/stone{
 	lockid = "CastlePrison1"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -2491,7 +2491,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/cave)
 "BG" = (
-/obj/structure/mineral_door/stone{
+/obj/structure/door/stone{
 	lockid = "CastleNoble2"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -2747,7 +2747,7 @@
 /turf/open/floor/tile/masonic/single,
 /area/rogue/under/cave)
 "Ec" = (
-/obj/structure/mineral_door/swing,
+/obj/structure/door/swing,
 /turf/open/floor/wood/nosmooth/saiga,
 /area/rogue/under/cave)
 "Ed" = (
@@ -2812,7 +2812,7 @@
 /turf/open/floor/carpet/red,
 /area/rogue/under/cave)
 "EV" = (
-/obj/structure/mineral_door/violet,
+/obj/structure/door/violet,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cave)
 "EW" = (
@@ -3095,7 +3095,7 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cave)
 "Ib" = (
-/obj/structure/mineral_door/violet,
+/obj/structure/door/violet,
 /turf/open/floor/tile/bath,
 /area/rogue/under/cave)
 "Ic" = (
@@ -3121,7 +3121,7 @@
 /turf/open/floor/carpet/red,
 /area/rogue/under/cave)
 "IB" = (
-/obj/structure/mineral_door/stone,
+/obj/structure/door/stone,
 /turf/open/floor/cobble,
 /area/rogue/under/cave)
 "ID" = (
@@ -3426,7 +3426,7 @@
 /turf/open/floor/carpet/lord/left,
 /area/rogue/under/cave)
 "Ls" = (
-/obj/structure/mineral_door/stone{
+/obj/structure/door/stone{
 	lockid = "CastleGuard1"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -4277,7 +4277,7 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "VG" = (
-/obj/structure/mineral_door/stone,
+/obj/structure/door/stone,
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/under/cave)
 "VH" = (
@@ -4330,7 +4330,7 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "Wi" = (
-/obj/structure/mineral_door/iron/bars,
+/obj/structure/door/iron/bars,
 /turf/open/floor/cobble,
 /area/rogue/under/cave)
 "Wl" = (
@@ -4419,7 +4419,7 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "WL" = (
-/obj/structure/mineral_door/iron/bars{
+/obj/structure/door/iron/bars{
 	lockid = "CastleArmor1"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -4503,7 +4503,7 @@
 /turf/open/floor/twig,
 /area/rogue/under/cave)
 "Yd" = (
-/obj/structure/mineral_door/stone,
+/obj/structure/door/stone,
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "Ye" = (
@@ -4640,7 +4640,7 @@
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/under/cave)
 "Zd" = (
-/obj/structure/mineral_door/stone,
+/obj/structure/door/stone,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/cave)
 "Zf" = (

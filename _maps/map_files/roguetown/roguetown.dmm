@@ -89,7 +89,7 @@
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/manor)
 "aga" = (
-/obj/structure/mineral_door/iron/bars,
+/obj/structure/door/iron/bars,
 /turf/open/floor/herringbone,
 /area/rogue/under/town/basement)
 "age" = (
@@ -130,7 +130,7 @@
 /turf/open/floor/cobble,
 /area/rogue/outdoors/town)
 "ain" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "doctor"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -502,7 +502,7 @@
 	},
 /area/rogue/outdoors/town/roofs)
 "aCv" = (
-/obj/structure/mineral_door/fancy{
+/obj/structure/door/fancy{
 	dir = 1;
 	lockid = "soilson"
 	},
@@ -854,7 +854,7 @@
 /turf/open/floor/dirt,
 /area/rogue/outdoors/town)
 "aWb" = (
-/obj/structure/mineral_door/weak/bolt{
+/obj/structure/door/weak/bolt{
 	dir = 1
 	},
 /turf/open/floor/dirt,
@@ -1187,13 +1187,13 @@
 /turf/closed/wall/mineral/wooddark/slitted,
 /area/rogue/under/cave)
 "bsa" = (
-/obj/structure/mineral_door/violet{
+/obj/structure/door/violet{
 	lockid = "shop"
 	},
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/shop)
 "bsi" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "merchant"
 	},
 /turf/open/floor/ruinedwood{
@@ -1562,7 +1562,7 @@
 /turf/open/floor/dirt,
 /area/rogue/outdoors/rtfield)
 "bMm" = (
-/obj/structure/mineral_door/violet{
+/obj/structure/door/violet{
 	lockid = "manor"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -1752,7 +1752,7 @@
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/dwarfin)
 "bWi" = (
-/obj/structure/mineral_door/weak/bolt{
+/obj/structure/door/weak/bolt{
 	dir = 8
 	},
 /turf/open/floor/wood,
@@ -1827,7 +1827,7 @@
 	},
 /area/rogue/indoors/town/manor)
 "cbt" = (
-/obj/structure/mineral_door/violet{
+/obj/structure/door/violet{
 	lockid = "mage"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -2102,7 +2102,7 @@
 /turf/open/floor/blocks,
 /area/rogue/under/town/basement)
 "cnP" = (
-/obj/structure/mineral_door/fancy{
+/obj/structure/door/fancy{
 	lockid = "woodsm"
 	},
 /turf/open/floor/tile,
@@ -2240,7 +2240,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/town)
 "csH" = (
-/obj/structure/mineral_door/viewport{
+/obj/structure/door/viewport{
 	lockid = "tavern"
 	},
 /turf/open/floor/cobble,
@@ -2464,7 +2464,7 @@
 	},
 /area/rogue/indoors/town)
 "cJo" = (
-/obj/structure/mineral_door/weak/bolt{
+/obj/structure/door/weak/bolt{
 	dir = 1
 	},
 /turf/open/floor/ruinedwood/turned/darker,
@@ -2663,7 +2663,7 @@
 /turf/open/floor/twig,
 /area/rogue/indoors/town)
 "cUU" = (
-/obj/structure/mineral_door/viewport{
+/obj/structure/door/viewport{
 	dir = 1;
 	lockid = "manor"
 	},
@@ -2676,7 +2676,7 @@
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/manor)
 "cVr" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	icon_state = "wcr";
 	lockid = "garrison"
 	},
@@ -2684,7 +2684,7 @@
 /turf/open/floor/blocks,
 /area/rogue/under/town/basement)
 "cVR" = (
-/obj/structure/mineral_door/iron/bars{
+/obj/structure/door/iron/bars{
 	lockid = "manor"
 	},
 /turf/open/floor/blocks,
@@ -2881,7 +2881,7 @@
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/indoors/town/bath)
 "did" = (
-/obj/structure/mineral_door,
+/obj/structure/door,
 /turf/open/floor/twig,
 /area/rogue/indoors/town)
 "dis" = (
@@ -2925,7 +2925,7 @@
 /turf/open/floor/cobble,
 /area/rogue/indoors)
 "djD" = (
-/obj/structure/mineral_door/iron/bars,
+/obj/structure/door/iron/bars,
 /turf/open/water/sewer,
 /area/rogue/under/town/sewer)
 "dlj" = (
@@ -2974,7 +2974,7 @@
 /turf/open/floor/cobble/mossy,
 /area/rogue/outdoors/town)
 "doe" = (
-/obj/structure/mineral_door/stone{
+/obj/structure/door/stone{
 	lockid = "priest";
 	name = "Church Kitchen"
 	},
@@ -2987,7 +2987,7 @@
 	},
 /area/rogue/indoors/town/manor)
 "doG" = (
-/obj/structure/mineral_door/viewport{
+/obj/structure/door/viewport{
 	dir = 4;
 	lockid = "dungeon"
 	},
@@ -3022,7 +3022,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/cave)
 "dqV" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "apartment5";
 	name = "Apartment V"
 	},
@@ -3133,7 +3133,7 @@
 /turf/open/floor/cobble/mossy,
 /area/rogue/outdoors/town)
 "dvo" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "priest";
 	name = "Garderobe"
 	},
@@ -3244,7 +3244,7 @@
 	},
 /area/rogue/outdoors/town/roofs)
 "dBV" = (
-/obj/structure/mineral_door,
+/obj/structure/door,
 /turf/open/floor/ruinedwood{
 	icon_state = "weird1"
 	},
@@ -3349,7 +3349,7 @@
 /turf/closed/wall/mineral/wooddark,
 /area/rogue/outdoors/town)
 "dHw" = (
-/obj/structure/mineral_door/fancy{
+/obj/structure/door/fancy{
 	lockid = "manor";
 	name = "Outer Balcony"
 	},
@@ -3565,7 +3565,7 @@
 /turf/open/floor/wood/nosmooth,
 /area/rogue/indoors/town/bath)
 "dVG" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "artificer"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -3623,7 +3623,7 @@
 	},
 /area/rogue/indoors/town)
 "dZl" = (
-/obj/structure/mineral_door/window{
+/obj/structure/door/window{
 	lockid = "tavern"
 	},
 /turf/open/floor/wood,
@@ -3633,7 +3633,7 @@
 /turf/open/floor/cobble,
 /area/rogue/indoors/town)
 "dZI" = (
-/obj/structure/mineral_door/violet{
+/obj/structure/door/violet{
 	lockid = "manor";
 	name = "Alchemical Lab"
 	},
@@ -3733,7 +3733,7 @@
 	},
 /area/rogue/under/town/basement)
 "eeV" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "manor";
 	name = "Wine Cellar"
 	},
@@ -3813,7 +3813,7 @@
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/town)
 "ejj" = (
-/obj/structure/mineral_door/fancy{
+/obj/structure/door/fancy{
 	lockid = "manor"
 	},
 /turf/open/floor/woodturned,
@@ -3851,7 +3851,7 @@
 /turf/open/floor/cobble,
 /area/rogue/outdoors/town)
 "emx" = (
-/obj/structure/mineral_door/weak/bolt{
+/obj/structure/door/weak/bolt{
 	dir = 1
 	},
 /turf/open/floor/wood,
@@ -3900,7 +3900,7 @@
 	},
 /area/rogue/indoors/town)
 "eoP" = (
-/obj/structure/mineral_door/weak/bolt,
+/obj/structure/door/weak/bolt,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town)
 "eoU" = (
@@ -4062,7 +4062,7 @@
 /turf/open/floor/cobble,
 /area/rogue/outdoors/exposed/dwarf)
 "exA" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "merchant"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -4128,7 +4128,7 @@
 /turf/open/floor/dirt,
 /area/rogue/under/town/sewer)
 "eCq" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "Oubliette";
 	name = "Cells"
 	},
@@ -4174,7 +4174,7 @@
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town)
 "eDG" = (
-/obj/structure/mineral_door/iron/bars{
+/obj/structure/door/iron/bars{
 	lockid = "dungeon";
 	name = "Cell II"
 	},
@@ -4275,7 +4275,7 @@
 /turf/open/floor/cobble,
 /area/rogue/indoors)
 "eIl" = (
-/obj/structure/mineral_door/weak/bolt{
+/obj/structure/door/weak/bolt{
 	dir = 8
 	},
 /turf/open/floor/ruinedwood{
@@ -4304,7 +4304,7 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/town/shop)
 "eIM" = (
-/obj/structure/mineral_door/fancy{
+/obj/structure/door/fancy{
 	lockid = "manor"
 	},
 /turf/open/floor/carpet,
@@ -4480,7 +4480,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/town)
 "eSC" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "nightmaiden"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -4864,7 +4864,7 @@
 	},
 /area/rogue/indoors/town)
 "fqC" = (
-/obj/structure/mineral_door/stone{
+/obj/structure/door/stone{
 	lockid = "priest";
 	name = "Confession"
 	},
@@ -5083,7 +5083,7 @@
 /turf/open/floor/dirt,
 /area/rogue/under/cave)
 "fDa" = (
-/obj/structure/mineral_door/viewport{
+/obj/structure/door/viewport{
 	dir = 4;
 	lockid = "garrison";
 	name = "confession room"
@@ -5133,7 +5133,7 @@
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town)
 "fEA" = (
-/obj/structure/mineral_door/fancy{
+/obj/structure/door/fancy{
 	lockid = "hand";
 	name = "Hand's Chambers"
 	},
@@ -5151,7 +5151,7 @@
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/manor)
 "fFr" = (
-/obj/structure/mineral_door/weak/bolt{
+/obj/structure/door/weak/bolt{
 	dir = 8;
 	name = "Tool Storage"
 	},
@@ -5228,7 +5228,7 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/town/manor)
 "fJz" = (
-/obj/structure/mineral_door/viewport{
+/obj/structure/door/viewport{
 	lockid = "garrison"
 	},
 /turf/open/floor/cobble,
@@ -5321,7 +5321,7 @@
 /turf/closed/wall/mineral/roofwall/center,
 /area/rogue/indoors/town/dwarfin)
 "fPW" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "nightmaiden"
 	},
 /turf/open/floor/woodturned/nosmooth,
@@ -5466,7 +5466,7 @@
 	},
 /area/rogue/outdoors/rtfield)
 "fZR" = (
-/obj/structure/mineral_door/window,
+/obj/structure/door/window,
 /turf/open/floor/ruinedwood{
 	icon_state = "weird1"
 	},
@@ -5570,7 +5570,7 @@
 /turf/closed/wall/mineral/stone/moss,
 /area/rogue/indoors/town/manor)
 "ggp" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "graveyard"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -5643,7 +5643,7 @@
 /turf/open/floor/cobble,
 /area/rogue/outdoors/town)
 "gmx" = (
-/obj/structure/mineral_door/iron/bars,
+/obj/structure/door/iron/bars,
 /turf/open/floor/blocks,
 /area/rogue/under/town/basement)
 "gmS" = (
@@ -5675,7 +5675,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement)
 "gop" = (
-/obj/structure/mineral_door/weak/bolt,
+/obj/structure/door/weak/bolt,
 /turf/open/floor/tile{
 	icon_state = "greenstone"
 	},
@@ -5816,7 +5816,7 @@
 /turf/open/floor/carpet,
 /area/rogue/indoors/town/tavern)
 "gsX" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "garrison"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -5842,7 +5842,7 @@
 /turf/open/floor/twig,
 /area/rogue/outdoors/town/roofs)
 "gvq" = (
-/obj/structure/mineral_door/weak/bolt{
+/obj/structure/door/weak/bolt{
 	dir = 4
 	},
 /turf/open/floor/cobble,
@@ -6054,7 +6054,7 @@
 /turf/closed/wall/mineral/stone,
 /area/rogue/indoors/town)
 "gDv" = (
-/obj/structure/mineral_door/stone{
+/obj/structure/door/stone{
 	locked = 0;
 	lockid = "priest";
 	name = "Sick Ward"
@@ -6104,7 +6104,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/under/town/basement)
 "gHo" = (
-/obj/structure/mineral_door/viewport{
+/obj/structure/door/viewport{
 	dir = 8;
 	lockid = "steward"
 	},
@@ -6194,7 +6194,7 @@
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/tavern)
 "gMx" = (
-/obj/structure/mineral_door/iron/bars{
+/obj/structure/door/iron/bars{
 	lockid = "manor"
 	},
 /turf/open/floor/grass,
@@ -6213,7 +6213,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/town/basement)
 "gNr" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "roomiv";
 	name = "ROOM IV"
 	},
@@ -6224,7 +6224,7 @@
 /turf/open/floor/wood/nosmooth,
 /area/rogue/indoors/town/bath)
 "gNA" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "manor";
 	name = "Cellar"
 	},
@@ -6501,7 +6501,7 @@
 	},
 /area/rogue/indoors)
 "hgl" = (
-/obj/structure/mineral_door/weak/bolt{
+/obj/structure/door/weak/bolt{
 	dir = 4
 	},
 /turf/open/floor/wood/nosmooth,
@@ -6539,7 +6539,7 @@
 /turf/open/floor/carpet,
 /area/rogue/indoors/town/manor)
 "hiS" = (
-/obj/structure/mineral_door/swing,
+/obj/structure/door/swing,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/tavern)
 "hiY" = (
@@ -6598,7 +6598,7 @@
 /turf/open/water/sewer,
 /area/rogue/under/town/basement)
 "hnc" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "merchant";
 	name = "Spare Room"
 	},
@@ -6649,7 +6649,7 @@
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/dwarfin)
 "hpu" = (
-/obj/structure/mineral_door/fancy{
+/obj/structure/door/fancy{
 	lockid = "manor";
 	name = "War Room"
 	},
@@ -7128,7 +7128,7 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/town/tavern)
 "hQe" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "priest";
 	name = "Bunks"
 	},
@@ -7167,7 +7167,7 @@
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/dwarfin)
 "hRM" = (
-/obj/structure/mineral_door/weak/bolt,
+/obj/structure/door/weak/bolt,
 /turf/open/floor/cobblerock,
 /area/rogue/indoors/town)
 "hSh" = (
@@ -7245,7 +7245,7 @@
 /turf/open/floor/blocks,
 /area/rogue/outdoors/town)
 "hUJ" = (
-/obj/structure/mineral_door/violet{
+/obj/structure/door/violet{
 	lockid = "tower"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -7259,7 +7259,7 @@
 /turf/open/floor/tile,
 /area/rogue/indoors/town/vault)
 "hVa" = (
-/obj/structure/mineral_door/weak/bolt{
+/obj/structure/door/weak/bolt{
 	dir = 1
 	},
 /turf/open/floor/cobblerock,
@@ -7273,7 +7273,7 @@
 /turf/open/floor/blocks,
 /area/rogue/indoors/town)
 "hWb" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "manor"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -7287,7 +7287,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/under/town/sewer)
 "hXE" = (
-/obj/structure/mineral_door/fancy{
+/obj/structure/door/fancy{
 	dir = 1;
 	lockid = "mercenary";
 	name = "Mercenary Guild"
@@ -7296,7 +7296,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter/town/sargoth)
 "hYd" = (
-/obj/structure/mineral_door/fancy{
+/obj/structure/door/fancy{
 	lockid = "butcher"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -7316,7 +7316,7 @@
 /turf/open/floor/woodturned,
 /area/rogue/under/town/basement)
 "iah" = (
-/obj/structure/mineral_door/violet{
+/obj/structure/door/violet{
 	lockid = "mage"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -7435,7 +7435,7 @@
 /turf/open/floor/dirt,
 /area/rogue/outdoors/town)
 "ifj" = (
-/obj/structure/mineral_door/violet{
+/obj/structure/door/violet{
 	lockid = "tower"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -7468,7 +7468,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/mountains)
 "ihp" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "merchant";
 	name = "Shipping"
 	},
@@ -7590,7 +7590,7 @@
 /turf/open/floor/grass,
 /area/rogue/indoors/town/church)
 "iqh" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "apartment1";
 	name = "Apartment I"
 	},
@@ -7735,7 +7735,7 @@
 	},
 /area/rogue/indoors)
 "iyJ" = (
-/obj/structure/mineral_door/fancy{
+/obj/structure/door/fancy{
 	lockid = "manor";
 	name = "Heir's Chambers"
 	},
@@ -8138,7 +8138,7 @@
 /turf/open/floor/tile,
 /area/rogue/indoors/town/manor)
 "iYB" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	icon_state = "wcr";
 	lockid = "captain";
 	name = "captain's room door"
@@ -8168,7 +8168,7 @@
 /turf/open/floor/tile,
 /area/rogue/indoors/town/bath)
 "iZb" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "roomhunt";
 	name = "HUNT ROOM"
 	},
@@ -8180,7 +8180,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield)
 "jak" = (
-/obj/structure/mineral_door/window{
+/obj/structure/door/window{
 	lockid = "garrison"
 	},
 /turf/open/floor/woodturned,
@@ -8484,11 +8484,11 @@
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/town)
 "jvr" = (
-/obj/structure/mineral_door/weak/bolt,
+/obj/structure/door/weak/bolt,
 /turf/open/floor/blocks/green,
 /area/rogue/under/town/sewer)
 "jvw" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "nightmaiden"
 	},
 /turf/open/floor/wood/nosmooth,
@@ -8539,7 +8539,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement)
 "jAq" = (
-/obj/structure/mineral_door/weak/bolt,
+/obj/structure/door/weak/bolt,
 /turf/open/floor/twig,
 /area/rogue/indoors/town)
 "jAr" = (
@@ -8640,7 +8640,7 @@
 /turf/open/floor/dirt,
 /area/rogue/under/cave)
 "jEm" = (
-/obj/structure/mineral_door/viewport{
+/obj/structure/door/viewport{
 	lockid = "steward"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -8766,7 +8766,7 @@
 /turf/open/floor/concrete,
 /area/rogue/indoors/town/shop)
 "jLT" = (
-/obj/structure/mineral_door/weak/bolt,
+/obj/structure/door/weak/bolt,
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/dwarfin)
 "jLZ" = (
@@ -8893,7 +8893,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement)
 "jUB" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "apartment4";
 	name = "Apartment IV"
 	},
@@ -8904,7 +8904,7 @@
 /turf/open/floor/grass,
 /area/rogue/outdoors/river)
 "jVe" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	icon_state = "wcr";
 	lockid = "garrison"
 	},
@@ -8957,7 +8957,7 @@
 /turf/open/floor/blocks,
 /area/rogue/under/town/basement)
 "jXM" = (
-/obj/structure/mineral_door/iron/bars{
+/obj/structure/door/iron/bars{
 	lockid = "graveyard"
 	},
 /turf/open/floor/cobblerock,
@@ -9065,7 +9065,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/town)
 "kcT" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "manor";
 	name = "Servant's Quarters"
 	},
@@ -9105,7 +9105,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/rtfield)
 "kes" = (
-/obj/structure/mineral_door/window{
+/obj/structure/door/window{
 	lockid = "tavern"
 	},
 /turf/open/floor/woodturned,
@@ -9140,11 +9140,11 @@
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/town)
 "kfz" = (
-/obj/structure/mineral_door/iron/bars,
+/obj/structure/door/iron/bars,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/town)
 "kfU" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "manor"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -9509,7 +9509,7 @@
 	},
 /area/rogue/indoors/town/magician)
 "kyN" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "manor";
 	name = "jesters chambers"
 	},
@@ -9537,7 +9537,7 @@
 	},
 /area/rogue/indoors)
 "kAc" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "tavern";
 	name = "MEETING ROOM"
 	},
@@ -9649,7 +9649,7 @@
 	},
 /area/rogue/indoors/town/magician)
 "kFs" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	name = "Bell Tower"
 	},
 /turf/open/floor/woodturned,
@@ -9662,7 +9662,7 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/town/manor)
 "kGu" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	icon_state = "wcr";
 	lockid = "captain"
 	},
@@ -9828,7 +9828,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/rtfield)
 "kPa" = (
-/obj/structure/mineral_door/window{
+/obj/structure/door/window{
 	lockid = "garrison";
 	name = "garrison bunkroom door"
 	},
@@ -10070,7 +10070,7 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/town/shop)
 "lgY" = (
-/obj/structure/mineral_door/green{
+/obj/structure/door/green{
 	lockid = "shop2";
 	name = "Shop II"
 	},
@@ -10096,7 +10096,7 @@
 	},
 /area/rogue/indoors/town/tavern)
 "lhH" = (
-/obj/structure/mineral_door/iron/bars{
+/obj/structure/door/iron/bars{
 	lockid = "nightmaiden"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -10327,7 +10327,7 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/town/manor)
 "luF" = (
-/obj/structure/mineral_door/weak/bolt,
+/obj/structure/door/weak/bolt,
 /turf/open/floor/ruinedwood{
 	dir = 1;
 	icon_state = "vertw"
@@ -10337,7 +10337,7 @@
 /turf/closed/wall/mineral/wooddark/vertical,
 /area/rogue/indoors/town/garrison)
 "lvx" = (
-/obj/structure/mineral_door,
+/obj/structure/door,
 /turf/open/floor/ruinedwood{
 	icon_state = "horzw"
 	},
@@ -10587,7 +10587,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/town)
 "lHc" = (
-/obj/structure/mineral_door/violet{
+/obj/structure/door/violet{
 	lockid = "manor";
 	name = "Archivist's Chambers"
 	},
@@ -10631,7 +10631,7 @@
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/dwarfin)
 "lKa" = (
-/obj/structure/mineral_door/violet{
+/obj/structure/door/violet{
 	lockid = "tower"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -10752,7 +10752,7 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/town/church)
 "lRc" = (
-/obj/structure/mineral_door/iron/bars{
+/obj/structure/door/iron/bars{
 	lockid = "garrison"
 	},
 /turf/open/floor/cobble,
@@ -10784,7 +10784,7 @@
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/manor)
 "lSj" = (
-/obj/structure/mineral_door/viewport{
+/obj/structure/door/viewport{
 	lockid = "blacksmith"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -10933,7 +10933,7 @@
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town)
 "mfM" = (
-/obj/structure/mineral_door/violet{
+/obj/structure/door/violet{
 	lockid = "shop"
 	},
 /turf/open/floor/ruinedwood{
@@ -10948,7 +10948,7 @@
 /turf/open/floor/blocks,
 /area/rogue/under/town/basement)
 "mgA" = (
-/obj/structure/mineral_door/weak/bolt{
+/obj/structure/door/weak/bolt{
 	dir = 4;
 	name = "Bunkroom"
 	},
@@ -11020,7 +11020,7 @@
 /turf/open/floor/cobble,
 /area/rogue/outdoors/mountains)
 "mkv" = (
-/obj/structure/mineral_door/red{
+/obj/structure/door/red{
 	lockid = "woodsm"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -11170,7 +11170,7 @@
 /turf/open/floor/woodturned/nosmooth,
 /area/rogue/indoors/town/bath)
 "mrQ" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "manor";
 	name = "Pantry"
 	},
@@ -11341,7 +11341,7 @@
 /turf/open/floor/ruinedwood/turned,
 /area/rogue/indoors/town)
 "mzn" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "roomv";
 	name = "ROOM V"
 	},
@@ -11389,7 +11389,7 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/town/tavern)
 "mBv" = (
-/obj/structure/mineral_door/fancy{
+/obj/structure/door/fancy{
 	lockid = "butcher"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -11610,7 +11610,7 @@
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/shelter/town/sargoth)
 "mNF" = (
-/obj/structure/mineral_door/fancy{
+/obj/structure/door/fancy{
 	dir = 1;
 	lockid = "soilson"
 	},
@@ -11706,7 +11706,7 @@
 /turf/open/water/river,
 /area/rogue/under/cave)
 "mTM" = (
-/obj/structure/mineral_door/violet{
+/obj/structure/door/violet{
 	lockid = "tavern"
 	},
 /turf/open/floor/woodturned,
@@ -11750,7 +11750,7 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/town)
 "mUO" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "artificer";
 	name = "Mason's Quarters"
 	},
@@ -12034,14 +12034,14 @@
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/indoors/town/bath)
 "nlg" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "Inquisitor's Apartment"
 	},
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town/church)
 "nly" = (
-/obj/structure/mineral_door/violet{
+/obj/structure/door/violet{
 	lockid = "tower"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -12161,7 +12161,7 @@
 	},
 /area/rogue/indoors/town/tavern)
 "nsa" = (
-/obj/structure/mineral_door/fancy{
+/obj/structure/door/fancy{
 	lockid = "manor";
 	name = "Kitchen"
 	},
@@ -12179,7 +12179,7 @@
 /turf/closed/mineral,
 /area/rogue/under/town/basement)
 "ntl" = (
-/obj/structure/mineral_door/fancy{
+/obj/structure/door/fancy{
 	lockid = "butcher"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -12341,7 +12341,7 @@
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town/church)
 "nCX" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "tower"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -12388,7 +12388,7 @@
 /turf/open/floor/wood,
 /area/rogue/under/town/basement)
 "nGc" = (
-/obj/structure/mineral_door/viewport{
+/obj/structure/door/viewport{
 	dir = 4;
 	lockid = "garrison";
 	name = "permanent hold door"
@@ -12484,7 +12484,7 @@
 	},
 /area/rogue/outdoors/town/roofs)
 "nLb" = (
-/obj/structure/mineral_door/iron/bars{
+/obj/structure/door/iron/bars{
 	lockid = "manor"
 	},
 /turf/open/floor/cobble,
@@ -13208,7 +13208,7 @@
 /turf/open/floor/churchrough,
 /area/rogue/indoors/town/church/chapel)
 "owe" = (
-/obj/structure/mineral_door/fancy{
+/obj/structure/door/fancy{
 	lockid = "lord";
 	name = "Lord's Apartment"
 	},
@@ -13464,7 +13464,7 @@
 /area/rogue/indoors/town/church/chapel)
 "oHS" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/mineral_door/iron/bars{
+/obj/structure/door/iron/bars{
 	lockid = "graveyard"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -13717,7 +13717,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town)
 "oUW" = (
-/obj/structure/mineral_door/stone{
+/obj/structure/door/stone{
 	lockid = "priest"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -13775,7 +13775,7 @@
 /turf/closed/wall/mineral/stone/moss,
 /area/rogue/indoors/town/garrison)
 "oZf" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "priest"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -14162,7 +14162,7 @@
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors)
 "pwl" = (
-/obj/structure/mineral_door/iron/bars{
+/obj/structure/door/iron/bars{
 	lockid = "dungeon"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -14175,7 +14175,7 @@
 /turf/open/floor/twig,
 /area/rogue/indoors/town)
 "pxb" = (
-/obj/structure/mineral_door/window{
+/obj/structure/door/window{
 	lockid = "tavern"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -14226,7 +14226,7 @@
 /turf/open/floor/grass,
 /area/rogue/outdoors/town)
 "pzs" = (
-/obj/structure/mineral_door/weak/bolt{
+/obj/structure/door/weak/bolt{
 	dir = 4
 	},
 /turf/open/floor/blocks,
@@ -14298,7 +14298,7 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/town/garrison)
 "pDR" = (
-/obj/structure/mineral_door/fancy{
+/obj/structure/door/fancy{
 	dir = 1;
 	lockid = "soilson"
 	},
@@ -14478,7 +14478,7 @@
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/indoors/town/bath)
 "pQp" = (
-/obj/structure/mineral_door/iron/bars{
+/obj/structure/door/iron/bars{
 	lockid = "graveyard"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -14504,7 +14504,7 @@
 	},
 /area/rogue/indoors/town/tavern)
 "pRP" = (
-/obj/structure/mineral_door/weak/bolt{
+/obj/structure/door/weak/bolt{
 	dir = 8
 	},
 /turf/open/floor/blocks,
@@ -14568,7 +14568,7 @@
 	},
 /area/rogue/under/cave)
 "pUw" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "nightman"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -14597,7 +14597,7 @@
 	},
 /area/rogue/indoors)
 "pWI" = (
-/obj/structure/mineral_door/window{
+/obj/structure/door/window{
 	lockid = "veteran";
 	name = "Veteran's Quarters"
 	},
@@ -14681,7 +14681,7 @@
 	},
 /area/rogue/indoors/town/garrison)
 "qcA" = (
-/obj/structure/mineral_door/violet{
+/obj/structure/door/violet{
 	lockid = "tower"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -15092,7 +15092,7 @@
 /turf/open/floor/blocks/newstone/alt,
 /area/rogue/indoors/town/dwarfin)
 "qBZ" = (
-/obj/structure/mineral_door/iron/bars,
+/obj/structure/door/iron/bars,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement)
@@ -15183,7 +15183,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield)
 "qFq" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "doctor"
 	},
 /turf/open/floor/twig,
@@ -15361,7 +15361,7 @@
 	},
 /area/rogue/indoors/town/manor)
 "qRp" = (
-/obj/structure/mineral_door/weak/bolt{
+/obj/structure/door/weak/bolt{
 	dir = 1
 	},
 /turf/open/floor/woodturned,
@@ -15576,7 +15576,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/indoors/town/shop)
 "rkr" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "apartment3";
 	name = "Apartment III"
 	},
@@ -15592,13 +15592,13 @@
 /turf/open/floor/dirt,
 /area/rogue/outdoors/town)
 "rkA" = (
-/obj/structure/mineral_door/fancy{
+/obj/structure/door/fancy{
 	lockid = "woodsm"
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/indoors)
 "rlS" = (
-/obj/structure/mineral_door/viewport{
+/obj/structure/door/viewport{
 	dir = 4;
 	lockid = "warehouse"
 	},
@@ -15972,7 +15972,7 @@
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town)
 "rEg" = (
-/obj/structure/mineral_door/weak/bolt{
+/obj/structure/door/weak/bolt{
 	dir = 1
 	},
 /turf/open/floor/blocks/green,
@@ -16039,7 +16039,7 @@
 /turf/open/floor/tile,
 /area/rogue/under/town/basement)
 "rIf" = (
-/obj/structure/mineral_door/weak/bolt{
+/obj/structure/door/weak/bolt{
 	dir = 8;
 	name = "Sewage Access"
 	},
@@ -16080,7 +16080,7 @@
 /turf/open/floor/blocks,
 /area/rogue/indoors/town)
 "rKP" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "roomi";
 	name = "ROOM I"
 	},
@@ -16122,7 +16122,7 @@
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town/church)
 "rNP" = (
-/obj/structure/mineral_door/viewport{
+/obj/structure/door/viewport{
 	dir = 4;
 	lockid = "garrison";
 	name = "squireroom door"
@@ -16154,7 +16154,7 @@
 /turf/open/floor/dirt,
 /area/rogue/outdoors/town)
 "rPI" = (
-/obj/structure/mineral_door/iron/bars{
+/obj/structure/door/iron/bars{
 	lockid = "graveyard"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -16171,7 +16171,7 @@
 	},
 /area/rogue/indoors)
 "rQm" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "nightmaiden"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -16369,7 +16369,7 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/town/manor)
 "scx" = (
-/obj/structure/mineral_door/violet{
+/obj/structure/door/violet{
 	lockid = "manor";
 	name = "Guard's Chambers"
 	},
@@ -16607,7 +16607,7 @@
 	},
 /area/rogue/indoors/town)
 "ssH" = (
-/obj/structure/mineral_door/fancy{
+/obj/structure/door/fancy{
 	lockid = "butcher"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -16656,7 +16656,7 @@
 /turf/open/floor/cobble,
 /area/rogue/outdoors/town)
 "swG" = (
-/obj/structure/mineral_door/iron/bars,
+/obj/structure/door/iron/bars,
 /turf/open/floor/blocks/green,
 /area/rogue/under/town/sewer)
 "swI" = (
@@ -16701,7 +16701,7 @@
 /turf/closed/wall/mineral/roofwall/center,
 /area/rogue/outdoors/town/roofs)
 "syl" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "roomii";
 	name = "ROOM II"
 	},
@@ -16729,7 +16729,7 @@
 /turf/open/floor/wood,
 /area/rogue/outdoors/town/roofs)
 "szB" = (
-/obj/structure/mineral_door/stone{
+/obj/structure/door/stone{
 	lockid = "puritan";
 	name = "Inquisition Offices"
 	},
@@ -16862,7 +16862,7 @@
 /turf/open/floor/churchrough,
 /area/rogue/indoors/town/church/chapel)
 "sIs" = (
-/obj/structure/mineral_door/fancy{
+/obj/structure/door/fancy{
 	dir = 1;
 	lockid = "mercenary"
 	},
@@ -16872,7 +16872,7 @@
 /turf/closed/wall/mineral/wooddark/vertical,
 /area/rogue/under/town/basement)
 "sIJ" = (
-/obj/structure/mineral_door/viewport{
+/obj/structure/door/viewport{
 	dir = 4;
 	lockid = "priest"
 	},
@@ -17082,7 +17082,7 @@
 /turf/closed/mineral/bedrock,
 /area/rogue/under/cave)
 "sYu" = (
-/obj/structure/mineral_door/swing,
+/obj/structure/door/swing,
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/town/tavern)
 "sYv" = (
@@ -17121,7 +17121,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/indoors/town)
 "tah" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	name = "Confession"
 	},
 /turf/open/floor/ruinedwood{
@@ -17477,7 +17477,7 @@
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/indoors/town/bath)
 "ttF" = (
-/obj/structure/mineral_door/fancy{
+/obj/structure/door/fancy{
 	lockid = "manor"
 	},
 /turf/open/floor/carpet/royalblack,
@@ -17523,7 +17523,7 @@
 	},
 /area/rogue/indoors/town)
 "tvG" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "nightmaiden"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -17543,7 +17543,7 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/town/tavern)
 "twY" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "merchant"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -17619,7 +17619,7 @@
 /turf/open/floor/tile,
 /area/rogue/indoors/town/manor)
 "tBd" = (
-/obj/structure/mineral_door/weak/bolt{
+/obj/structure/door/weak/bolt{
 	dir = 1;
 	name = "Sewers"
 	},
@@ -17661,7 +17661,7 @@
 /turf/open/floor/cobble,
 /area/rogue/outdoors/town)
 "tCB" = (
-/obj/structure/mineral_door/iron/bars{
+/obj/structure/door/iron/bars{
 	lockid = "dungeon";
 	name = "Cell I"
 	},
@@ -17706,7 +17706,7 @@
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/town/magician)
 "tEg" = (
-/obj/structure/mineral_door/viewport{
+/obj/structure/door/viewport{
 	dir = 4;
 	lockid = "nightmaiden";
 	name = "Bathhouse"
@@ -17723,7 +17723,7 @@
 /turf/open/floor/blocks,
 /area/rogue/indoors/town)
 "tFe" = (
-/obj/structure/mineral_door/violet{
+/obj/structure/door/violet{
 	lockid = "manor"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -17959,7 +17959,7 @@
 /turf/open/floor/blocks,
 /area/rogue/indoors/town)
 "tUt" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "garrison";
 	name = "armory door"
 	},
@@ -18104,7 +18104,7 @@
 /turf/open/floor/blocks/stonered,
 /area/rogue/indoors/town/dwarfin)
 "uat" = (
-/obj/structure/mineral_door/violet{
+/obj/structure/door/violet{
 	lockid = "tower";
 	name = "Wizard's Tower"
 	},
@@ -18460,7 +18460,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/indoors/town)
 "usL" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "manor";
 	name = "Keep Baths"
 	},
@@ -18520,7 +18520,7 @@
 /turf/open/floor/cobble,
 /area/rogue/outdoors/town)
 "uwa" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "hpriest";
 	name = "Priest's Quarters"
 	},
@@ -18539,7 +18539,7 @@
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/dwarfin)
 "uxI" = (
-/obj/structure/mineral_door/viewport{
+/obj/structure/door/viewport{
 	dir = 8;
 	lockid = "steward"
 	},
@@ -18621,7 +18621,7 @@
 /turf/closed/wall/mineral/stone,
 /area/rogue/outdoors/exposed/dwarf)
 "uCx" = (
-/obj/structure/mineral_door/stone{
+/obj/structure/door/stone{
 	lockid = "priest"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -18681,7 +18681,7 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/town/tavern)
 "uFn" = (
-/obj/structure/mineral_door/iron/bars{
+/obj/structure/door/iron/bars{
 	lockid = "graveyard"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -18740,7 +18740,7 @@
 /turf/open/floor/hexstone,
 /area/rogue/indoors/town)
 "uHQ" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "manor"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -18754,7 +18754,7 @@
 /turf/open/floor/twig,
 /area/rogue/indoors/town)
 "uIc" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "nightman"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -18792,7 +18792,7 @@
 /turf/open/floor/tile,
 /area/rogue/indoors/town/manor)
 "uID" = (
-/obj/structure/mineral_door/weak/bolt{
+/obj/structure/door/weak/bolt{
 	dir = 1
 	},
 /turf/open/floor/cobble,
@@ -18813,7 +18813,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/town/basement)
 "uKh" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "vault";
 	name = "Vault"
 	},
@@ -18866,7 +18866,7 @@
 /turf/open/floor/cobble,
 /area/rogue/outdoors/town)
 "uOC" = (
-/obj/structure/mineral_door/stone{
+/obj/structure/door/stone{
 	lockid = "hpriest";
 	name = "Church Vault"
 	},
@@ -18969,7 +18969,7 @@
 	},
 /area/rogue/indoors/town/bath)
 "uUc" = (
-/obj/structure/mineral_door/window{
+/obj/structure/door/window{
 	lockid = "tavern"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -19002,7 +19002,7 @@
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/garrison)
 "uVF" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "blacksmith"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -19046,7 +19046,7 @@
 /turf/open/floor/grass,
 /area/rogue/outdoors/town)
 "uZC" = (
-/obj/structure/mineral_door/window{
+/obj/structure/door/window{
 	lockid = "tavern"
 	},
 /turf/open/floor/blocks,
@@ -19107,7 +19107,7 @@
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/manor)
 "vdk" = (
-/obj/structure/mineral_door/stone{
+/obj/structure/door/stone{
 	lockid = "priest";
 	name = "Inner Sanctum"
 	},
@@ -19280,7 +19280,7 @@
 	},
 /area/rogue/indoors/town/manor)
 "vkx" = (
-/obj/structure/mineral_door/fancy{
+/obj/structure/door/fancy{
 	lockid = "butcher";
 	name = "Butcher's House"
 	},
@@ -19521,7 +19521,7 @@
 /turf/open/water/river,
 /area/rogue/under/cave)
 "vzv" = (
-/obj/structure/mineral_door/iron/bars{
+/obj/structure/door/iron/bars{
 	lockid = "garrison"
 	},
 /turf/open/floor/cobble,
@@ -19806,7 +19806,7 @@
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/town/tavern)
 "vQT" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "apartment2";
 	name = "Apartment II"
 	},
@@ -19848,7 +19848,7 @@
 /turf/open/floor/twig,
 /area/rogue/outdoors/river)
 "vSg" = (
-/obj/structure/mineral_door/iron/bars,
+/obj/structure/door/iron/bars,
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement)
 "vSj" = (
@@ -19980,7 +19980,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/town)
 "vVN" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "roomvi";
 	name = "ROOM VI"
 	},
@@ -20082,7 +20082,7 @@
 /turf/open/floor/tile,
 /area/rogue/indoors)
 "wcE" = (
-/obj/structure/mineral_door/green{
+/obj/structure/door/green{
 	lockid = "shop3";
 	name = "Shop III"
 	},
@@ -20110,7 +20110,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/under/cave)
 "wdO" = (
-/obj/structure/mineral_door/violet{
+/obj/structure/door/violet{
 	lockid = "dungeon";
 	name = "Dungeoneer's Chambers"
 	},
@@ -20232,7 +20232,7 @@
 /turf/open/floor/blocks/paving,
 /area/rogue/indoors/town/dwarfin)
 "wma" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "merchant"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -20260,7 +20260,7 @@
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/manor)
 "wmT" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "manor";
 	name = "Garderobe"
 	},
@@ -20319,7 +20319,7 @@
 /turf/closed/wall/mineral/wooddark,
 /area/rogue/indoors/town/magician)
 "wqj" = (
-/obj/structure/mineral_door/violet{
+/obj/structure/door/violet{
 	lockid = "manor"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -20392,14 +20392,14 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/town/basement)
 "wuh" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "graveyard"
 	},
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town)
 "wuA" = (
-/obj/structure/mineral_door/fancy{
+/obj/structure/door/fancy{
 	lockid = "manor";
 	name = "Kitchen"
 	},
@@ -20412,7 +20412,7 @@
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/tavern)
 "wuN" = (
-/obj/structure/mineral_door/violet{
+/obj/structure/door/violet{
 	lockid = "manor";
 	name = "Housekeeper's Chambers"
 	},
@@ -20478,7 +20478,7 @@
 	},
 /area/rogue/under/town/basement)
 "wAn" = (
-/obj/structure/mineral_door/weak/bolt{
+/obj/structure/door/weak/bolt{
 	dir = 8
 	},
 /turf/open/floor/ruinedwood{
@@ -20609,7 +20609,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter/town/sargoth)
 "wIA" = (
-/obj/structure/mineral_door/iron/bars{
+/obj/structure/door/iron/bars{
 	lockid = "mage";
 	max_integrity = 100000
 	},
@@ -20775,7 +20775,7 @@
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/tavern)
 "wSU" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "priest";
 	name = "Storage"
 	},
@@ -20852,7 +20852,7 @@
 /turf/open/floor/grass,
 /area/rogue/outdoors/town)
 "wXM" = (
-/obj/structure/mineral_door/iron/bars{
+/obj/structure/door/iron/bars{
 	lockid = "hpriest"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -21070,7 +21070,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement)
 "xgO" = (
-/obj/structure/mineral_door/fancy{
+/obj/structure/door/fancy{
 	lockid = "manor";
 	name = "Guest Room"
 	},
@@ -21124,7 +21124,7 @@
 	},
 /area/rogue/indoors)
 "xkq" = (
-/obj/structure/mineral_door/green{
+/obj/structure/door/green{
 	lockid = "shop1";
 	name = "Shop I"
 	},
@@ -21157,7 +21157,7 @@
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors)
 "xmv" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "roomiii";
 	name = "ROOM III"
 	},
@@ -21374,7 +21374,7 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/garrison)
 "xxM" = (
-/obj/structure/mineral_door/stone{
+/obj/structure/door/stone{
 	lockid = "priest";
 	name = "Church"
 	},
@@ -21387,7 +21387,7 @@
 	},
 /area/rogue/under/town/sewer)
 "xzr" = (
-/obj/structure/mineral_door/stone{
+/obj/structure/door/stone{
 	lockid = "priest"
 	},
 /turf/open/floor/herringbone,
@@ -21435,7 +21435,7 @@
 /turf/open/floor/blocks/green,
 /area/rogue/under/town/basement)
 "xBL" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "merchant"
 	},
 /obj/effect/decal/cleanable/dirt/dust,
@@ -21675,7 +21675,7 @@
 	},
 /area/rogue/outdoors/town/roofs)
 "xRZ" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "manor"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -21896,7 +21896,7 @@
 	dir = 1;
 	icon_state = "tablewood_alt2"
 	},
-/obj/structure/mineral_door/deadbolt/shutter,
+/obj/structure/door/deadbolt/shutter,
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/town/tavern)
 "yfB" = (
@@ -21973,7 +21973,7 @@
 /turf/open/floor/wood,
 /area/rogue/outdoors/town)
 "yjc" = (
-/obj/structure/mineral_door/viewport{
+/obj/structure/door/viewport{
 	dir = 4;
 	lockid = "garrison"
 	},
@@ -22015,7 +22015,7 @@
 /turf/open/floor/concrete,
 /area/rogue/indoors/town/garrison)
 "ykO" = (
-/obj/structure/mineral_door/window{
+/obj/structure/door/window{
 	lockid = "captain";
 	name = "captain's office door"
 	},

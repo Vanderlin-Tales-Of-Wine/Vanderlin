@@ -159,7 +159,7 @@
 	},
 /area/rogue/indoors/shelter)
 "gB" = (
-/obj/structure/mineral_door/violet{
+/obj/structure/door/violet{
 	name = "Reading Room";
 	lockid = "manor"
 	},
@@ -426,7 +426,7 @@
 /turf/open/floor/cobble/mossy,
 /area/rogue/under/cave)
 "tF" = (
-/obj/structure/mineral_door/violet{
+/obj/structure/door/violet{
 	name = "Hall";
 	lockid = "manor"
 	},
@@ -440,7 +440,7 @@
 /turf/open/floor/dirt,
 /area/rogue/under/cave)
 "tH" = (
-/obj/structure/mineral_door/violet{
+/obj/structure/door/violet{
 	name = "Kitchen";
 	lockid = "manor"
 	},
@@ -984,7 +984,7 @@
 	},
 /area/rogue/indoors/shelter)
 "Ow" = (
-/obj/structure/mineral_door/violet{
+/obj/structure/door/violet{
 	name = "Bedroom";
 	lockid = "merchant"
 	},
@@ -1027,7 +1027,7 @@
 /turf/open/floor/tile/bath,
 /area/rogue/indoors/shelter)
 "QP" = (
-/obj/structure/mineral_door/violet{
+/obj/structure/door/violet{
 	lockid = "nightmaiden";
 	name = "Storage"
 	},
@@ -1068,7 +1068,7 @@
 	},
 /area/rogue/indoors/shelter)
 "RL" = (
-/obj/structure/mineral_door/violet{
+/obj/structure/door/violet{
 	name = "Bath";
 	lockid = "manor"
 	},
@@ -1220,7 +1220,7 @@
 	},
 /area/rogue/indoors/shelter)
 "Zt" = (
-/obj/structure/mineral_door/violet{
+/obj/structure/door/violet{
 	name = "Queens Retreat";
 	lockid = "manor"
 	},

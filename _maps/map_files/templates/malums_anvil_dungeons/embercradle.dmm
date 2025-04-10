@@ -310,7 +310,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon)
 "fi" = (
-/obj/structure/mineral_door/weak/bolt{
+/obj/structure/door/weak/bolt{
 	dir = 1
 	},
 /turf/open/floor/cobble,
@@ -342,7 +342,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon)
 "fQ" = (
-/obj/structure/mineral_door/window,
+/obj/structure/door/window,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon)
 "fS" = (
@@ -571,7 +571,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon)
 "jn" = (
-/obj/structure/mineral_door/red,
+/obj/structure/door/red,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "jr" = (
@@ -661,7 +661,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon)
 "ki" = (
-/obj/structure/mineral_door,
+/obj/structure/door,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
@@ -963,7 +963,7 @@
 /turf/open/floor/grass,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "ny" = (
-/obj/structure/mineral_door/stone,
+/obj/structure/door/stone,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "nM" = (
@@ -1297,7 +1297,7 @@
 /turf/open/floor/carpet,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "rH" = (
-/obj/structure/mineral_door/fancy{
+/obj/structure/door/fancy{
 	lockid = "manor";
 	name = "Manor"
 	},
@@ -1705,7 +1705,7 @@
 /turf/open/floor/twig,
 /area/rogue/under/mountains/anvil/dungeon)
 "wJ" = (
-/obj/structure/mineral_door,
+/obj/structure/door,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon)
 "wL" = (
@@ -1943,7 +1943,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Az" = (
-/obj/structure/mineral_door/viewport,
+/obj/structure/door/viewport,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "AA" = (
@@ -2254,7 +2254,7 @@
 /turf/open/floor/carpet,
 /area/rogue/under/mountains/anvil/dungeon)
 "EM" = (
-/obj/structure/mineral_door/weak/bolt,
+/obj/structure/door/weak/bolt,
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon)
 "EP" = (
@@ -2327,7 +2327,7 @@
 /turf/closed/wall/mineral/stonebrick,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "FP" = (
-/obj/structure/mineral_door/window,
+/obj/structure/door/window,
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon)
 "FQ" = (
@@ -2871,7 +2871,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon)
 "LZ" = (
-/obj/structure/mineral_door/fancy{
+/obj/structure/door/fancy{
 	lockid = "manor";
 	name = "Manor"
 	},
@@ -3177,7 +3177,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Qj" = (
-/obj/structure/mineral_door/fancy{
+/obj/structure/door/fancy{
 	lockid = "manor";
 	name = "Manor"
 	},
@@ -3624,7 +3624,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon)
 "Wp" = (
-/obj/structure/mineral_door/swing,
+/obj/structure/door/swing,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon)
 "Wq" = (
@@ -3690,7 +3690,7 @@
 /turf/open/floor/carpet,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Xa" = (
-/obj/structure/mineral_door/fancy{
+/obj/structure/door/fancy{
 	lockid = "manor";
 	name = "Manor"
 	},
@@ -3727,7 +3727,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "XF" = (
-/obj/structure/mineral_door/window,
+/obj/structure/door/window,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "XJ" = (
@@ -3915,7 +3915,7 @@
 /turf/closed/wall/mineral/stonebrick,
 /area/rogue/under/mountains/anvil/dungeon)
 "ZP" = (
-/obj/structure/mineral_door,
+/obj/structure/door,
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon)
 "ZR" = (

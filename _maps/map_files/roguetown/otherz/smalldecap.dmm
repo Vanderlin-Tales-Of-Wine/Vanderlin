@@ -83,7 +83,7 @@
 /obj/structure/barricade/rogue,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/blood/tracks,
-/obj/structure/mineral_door/green{
+/obj/structure/door/green{
 	name = "Old Door"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -227,7 +227,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/cavelava)
 "fh" = (
-/obj/structure/mineral_door/green{
+/obj/structure/door/green{
 	name = "Old Door"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -245,7 +245,7 @@
 "fv" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/mineral_door/green{
+/obj/structure/door/green{
 	name = "Old Door"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -372,7 +372,7 @@
 /area/rogue/outdoors/caves)
 "hF" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/mineral_door/green{
+/obj/structure/door/green{
 	name = "Old Door"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -689,7 +689,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/mountains/deception)
 "oH" = (
-/obj/structure/mineral_door/green{
+/obj/structure/door/green{
 	name = "Old Door"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -1032,7 +1032,7 @@
 /area/rogue/under/cavelava)
 "yg" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/mineral_door/green{
+/obj/structure/door/green{
 	name = "Old Door"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -1116,7 +1116,7 @@
 "Az" = (
 /obj/structure/barricade/rogue,
 /obj/structure/barricade/rogue/crude,
-/obj/structure/mineral_door/green{
+/obj/structure/door/green{
 	name = "Old Door"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -1303,7 +1303,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/cavelava)
 "FZ" = (
-/obj/structure/mineral_door/green{
+/obj/structure/door/green{
 	name = "Old Door"
 	},
 /obj/effect/mapping_helpers/door/locker,

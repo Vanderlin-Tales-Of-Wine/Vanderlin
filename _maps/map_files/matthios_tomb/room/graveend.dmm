@@ -14,13 +14,13 @@
 /turf/open/floor/dirt,
 /area/rogue/under/cave)
 "h" = (
-/obj/structure/mineral_door/viewport{
+/obj/structure/door/viewport{
 	dir = 4
 	},
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "i" = (
-/obj/structure/mineral_door/viewport{
+/obj/structure/door/viewport{
 	dir = 4
 	},
 /obj/effect/mapping_helpers/door/locker,

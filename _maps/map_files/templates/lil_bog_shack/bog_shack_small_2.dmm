@@ -55,7 +55,7 @@
 	},
 /area/rogue/indoors/shelter/bog)
 "l" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "artificer"
 	},
 /obj/effect/mapping_helpers/door/locker,

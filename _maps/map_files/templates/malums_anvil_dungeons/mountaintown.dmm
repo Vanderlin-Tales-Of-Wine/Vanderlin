@@ -24,7 +24,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "ax" = (
-/obj/structure/mineral_door/violet,
+/obj/structure/door/violet,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "aF" = (
@@ -524,7 +524,7 @@
 /turf/open/floor/churchrough,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "fE" = (
-/obj/structure/mineral_door,
+/obj/structure/door,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "fK" = (
@@ -565,7 +565,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "gc" = (
-/obj/structure/mineral_door/iron/bars,
+/obj/structure/door/iron/bars,
 /turf/open/floor/ruinedwood,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "ge" = (
@@ -661,11 +661,11 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "hr" = (
-/obj/structure/mineral_door/stone,
+/obj/structure/door/stone,
 /turf/open/floor/church,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "hA" = (
-/obj/structure/mineral_door,
+/obj/structure/door,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/mountains/anvil/dungeon)
 "hD" = (
@@ -1086,11 +1086,11 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "oJ" = (
-/obj/structure/mineral_door,
+/obj/structure/door,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "oN" = (
-/obj/structure/mineral_door/fancy,
+/obj/structure/door/fancy,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/mountains/anvil/dungeon)
 "oP" = (
@@ -1533,7 +1533,7 @@
 /turf/open/floor/churchrough,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "vb" = (
-/obj/structure/mineral_door,
+/obj/structure/door,
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/mountains/anvil/dungeon)
@@ -1556,7 +1556,7 @@
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "vM" = (
-/obj/structure/mineral_door/swing{
+/obj/structure/door/swing{
 	door_opened = 1
 	},
 /turf/open/floor/ruinedwood/spiralfade,
@@ -1892,7 +1892,7 @@
 /turf/open/floor/tile/kitchen,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "AT" = (
-/obj/structure/mineral_door/violet,
+/obj/structure/door/violet,
 /turf/open/floor/churchrough,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Ba" = (
@@ -1929,7 +1929,7 @@
 /turf/open/water,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Bf" = (
-/obj/structure/mineral_door/stone{
+/obj/structure/door/stone{
 	lockid = "tomb";
 	max_integrity = 10000
 	},
@@ -2359,7 +2359,7 @@
 /turf/open/floor/churchrough,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Hm" = (
-/obj/structure/mineral_door,
+/obj/structure/door,
 /turf/open/floor/wood/nosmooth,
 /area/rogue/under/mountains/anvil/dungeon)
 "Hn" = (
@@ -2530,7 +2530,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon)
 "Jw" = (
-/obj/structure/mineral_door{
+/obj/structure/door{
 	lockid = "dormroom";
 	max_integrity = 3000;
 	name = "Dormitories"
@@ -2759,7 +2759,7 @@
 	},
 /area/rogue/under/mountains/anvil/dungeon)
 "Mu" = (
-/obj/structure/mineral_door/iron/bars,
+/obj/structure/door/iron/bars,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "ME" = (
@@ -2778,7 +2778,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "MO" = (
-/obj/structure/mineral_door/iron/bars{
+/obj/structure/door/iron/bars{
 	max_integrity = 10000;
 	lockid = "pitentrance"
 	},
@@ -2831,7 +2831,7 @@
 /turf/open/floor/blocks,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "NY" = (
-/obj/structure/mineral_door/stone,
+/obj/structure/door/stone,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Od" = (
@@ -2929,7 +2929,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon)
 "PB" = (
-/obj/structure/mineral_door/violet,
+/obj/structure/door/violet,
 /turf/open/floor/ruinedwood,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "PC" = (
@@ -2939,7 +2939,7 @@
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "PG" = (
-/obj/structure/mineral_door/violet,
+/obj/structure/door/violet,
 /turf/open/floor/church,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "PI" = (
@@ -3338,7 +3338,7 @@
 /turf/open/floor/churchmarble,
 /area/rogue/under/mountains/anvil/dungeon)
 "Vz" = (
-/obj/structure/mineral_door/iron/bars{
+/obj/structure/door/iron/bars{
 	lockid = "armory"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -3626,7 +3626,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/under/mountains/anvil/dungeon)
 "YG" = (
-/obj/structure/mineral_door,
+/obj/structure/door,
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 8
 	},
