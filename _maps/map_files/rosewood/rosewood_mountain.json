@@ -1,0 +1,9 @@
+{
+    "map_name": "Howling Mountains",
+    "map_path": "map_files/rosewood",
+    "map_file": "rosewood_mountain.dmm",
+	"traits": [
+        {"Up": true, "Leylines": true},
+        {"Down": true, "Leylines": true}
+    ]
+}

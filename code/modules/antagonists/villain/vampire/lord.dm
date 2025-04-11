@@ -124,13 +124,13 @@
 	set name = "Demand Submission"
 	set category = "VAMPIRE"
 	if(SSmapping.retainer.king_submitted)
-		to_chat(src, span_warning("I am already the Master of Vanderlin."))
+		to_chat(src, span_warning("I am already the Master of [SSmapping.config.map_name]."))
 		return
 
 	var/mob/living/carbon/ruler = SSticker.rulermob
 
 	if(!ruler || (get_dist(src, ruler) > 1))
-		to_chat(src, span_warning("The Master of Vanderlin is not beside me."))
+		to_chat(src, span_warning("The Master of [SSmapping.config.map_name] is not beside me."))
 		return
 
 	if(ruler.stat <= CONSCIOUS)

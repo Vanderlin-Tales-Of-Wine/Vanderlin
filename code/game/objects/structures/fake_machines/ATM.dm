@@ -1,6 +1,6 @@
 /obj/structure/fake_machine/atm
 	name = "MEISTER"
-	desc = "Stores and withdraws currency for accounts managed by the Kingdom of Vanderlin."
+	desc = "Stores and withdraws currency for accounts managed by the Kingdom."
 	icon = 'icons/roguetown/misc/machines.dmi'
 	icon_state = "atm"
 	density = FALSE

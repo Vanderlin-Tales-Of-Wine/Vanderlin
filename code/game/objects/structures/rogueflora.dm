@@ -238,6 +238,13 @@
 /obj/structure/flora/grass/update_icon()
 	icon_state = "grass[rand(1, 6)]"
 
+/obj/structure/flora/grass/tundra
+	name = "tundra grass"
+	icon_state = "tundragrass1"
+
+/obj/structure/flora/grass/tundra/update_icon()
+	icon_state = "tundragrass[rand(1, 6)]"
+
 /obj/structure/flora/grass/water
 	name = "grass"
 	desc = "This grass is sodden and muddy."
