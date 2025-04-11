@@ -53,13 +53,6 @@
 	)
 	output = /obj/item/clothing/cloak/apron
 
-/datum/repeatable_crafting_recipe/sewing/roguehood/uncolored
-	name = "hood"
-	requirements = list(
-		/obj/item/natural/cloth = 1,
-		/obj/item/natural/fibers = 1,
-	)
-	output = /obj/item/clothing/head/roguehood/uncolored
 
 /datum/repeatable_crafting_recipe/sewing/clothgloves
 	name = "cloth gloves"
@@ -191,6 +184,12 @@
 	name = "cloth coif"
 	output = /obj/item/clothing/neck/coif/cloth
 	requirements = list(/obj/item/natural/fibers = 1, /obj/item/natural/cloth = 2)
+	craftdiff = 1
+
+/datum/repeatable_crafting_recipe/sewing/roguehood/uncolored
+	name = "cloth hood"
+	requirements = list(/obj/item/natural/cloth = 1, /obj/item/natural/fibers = 1,)
+	output = /obj/item/clothing/head/roguehood/uncolored
 	craftdiff = 1
 
 /datum/repeatable_crafting_recipe/sewing/clothtrou
