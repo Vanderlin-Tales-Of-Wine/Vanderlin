@@ -57,12 +57,6 @@
 				gib()
 				return
 
-
-
-	if(!gibbed)
-		if(!is_in_roguetown(src))
-			zombie_check()
-
 	if(client || mind)
 		GLOB.vanderlin_round_stats[STATS_DEATHS]++
 		if(is_noble())
@@ -76,6 +70,10 @@
 				GLOB.vanderlin_round_stats[STATS_VAMPIRES_KILLED]++
 			if(mind.has_antag_datum(/datum/antagonist/zombie) || mind.has_antag_datum(/datum/antagonist/skeleton) || mind.has_antag_datum(/datum/antagonist/lich))
 				GLOB.vanderlin_round_stats[STATS_DEADITES_KILLED]++
+
+	if(!gibbed)
+		if(!is_in_roguetown(src))
+			zombie_check()
 
 	stop_sound_channel(CHANNEL_HEARTBEAT)
 	var/obj/item/organ/heart/H = getorganslot(ORGAN_SLOT_HEART)

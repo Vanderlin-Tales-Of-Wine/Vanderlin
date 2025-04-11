@@ -58,7 +58,7 @@
 	)
 
 	influence_factors = list(
-		STATS_BLOOD_SPILT = list("points" = 0.000025, "capacity" = 100),
+		STATS_BLOOD_SPILT = list("points" = 0.00025, "capacity" = 100),
 		STATS_FISH_CAUGHT = list("points" = 2, "capacity" = 100),
 		STATS_ABYSSOR_REMEMBERED = list("points" = 1, "capacity" = 40),
 		STATS_LEECHES_EMBEDDED = list("points" = 0.5, "capacity" = 60),

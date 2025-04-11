@@ -327,7 +327,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	data += "</div>"
 
 	data += "<div style='border-top: 1px solid #444; margin: 12px 0 8px 0;'></div>"
-	data += "<div style='text-align: center;'>Total Influence: [get_colored_influence_value(psydon_influence)]</div>"
+	data += "<div style='text-align: center;'>Total Influence: [get_colored_influence_value(round(psydon_influence, 0.1))]</div>"
 	data += "</div></div></div>"
 
 	// The Ten Section
@@ -421,7 +421,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		Number of followers: [abyssor_followers] ([get_colored_influence_value(abyssor_followers * 10)])<br>\
 		Fish caught: [GLOB.vanderlin_round_stats[STATS_FISH_CAUGHT]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(/datum/storyteller/abyssor, STATS_FISH_CAUGHT))])<br>\
 		Abyssor remembered: [GLOB.vanderlin_round_stats[STATS_ABYSSOR_REMEMBERED]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(/datum/storyteller/abyssor, STATS_ABYSSOR_REMEMBERED))])<br>\
-		Blood spilt: [GLOB.vanderlin_round_stats[STATS_BLOOD_SPILT]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(/datum/storyteller/abyssor, STATS_BLOOD_SPILT))])<br>\
+		Blood spilt: [round(GLOB.vanderlin_round_stats[STATS_BLOOD_SPILT] / 100, 1)] ([get_colored_influence_value(round(SSgamemode.calculate_specific_influence(/datum/storyteller/abyssor, STATS_BLOOD_SPILT)), 0.1)])<br>\
 		Leeches embedded: [GLOB.vanderlin_round_stats[STATS_LEECHES_EMBEDDED]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(/datum/storyteller/abyssor, STATS_LEECHES_EMBEDDED))])", /datum/storyteller/abyssor)
 
 	// Eora
@@ -493,7 +493,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		<div style='font-weight:bold; font-size:1.2em; padding:8px; color:[title_color]'>[name]</div>
 		<div style='padding:8px; background:#111; border-radius:0 0 4px 4px;'>
 			<div style='margin-bottom:8px;'>[content]</div>
-			<div style='border-top:1px solid #444; padding-top:6px;'>Total Influence: [get_colored_influence_value(total_influence)]</div>
+			<div style='border-top:1px solid #444; padding-top:6px;'>Total Influence: [get_colored_influence_value(round(total_influence, 0.1))]</div>
 		</div>
 	</div>
 	"}
