@@ -18,6 +18,7 @@
 	outfit = /datum/outfit/job/noble
 	apprentice_name = "Servant"
 	give_bank_account = 60
+	noble_income = 16
 
 /datum/outfit/job/noble
 	job_bitflag = BITFLAG_ROYALTY
