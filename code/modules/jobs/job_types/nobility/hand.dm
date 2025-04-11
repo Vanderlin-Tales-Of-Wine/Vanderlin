@@ -182,3 +182,49 @@
 
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	H.verbs |= /mob/living/carbon/human/proc/torture_victim
+
+// Punches stuff, the big guy. The right-back hand of the king.
+/datum/advclass/hand/bruiser
+	name = "Bruiser"
+	tutorial = "In your youth you had crept out of the court grounds to watch fights in the arena. The sights, the sounds, \
+	the art of war.  As adulthood reared its head, the way you treated \
+	the peasantry made you take up penance - traveling between churches around the continent, taking up an oath to Ravox. \
+	To whom do your bonds lie - to your family, or to god?"
+	outfit = /datum/outfit/job/hand/bruiser
+
+	category_tags = list(CTAG_HAND)
+	cmode_music = 'sound/music/cmode/adventurer/CombatBruiser.ogg'
+
+/datum/outfit/job/hand/bruiser/pre_equip(mob/living/carbon/human/H)
+	backr = /obj/item/storage/backpack/satchel/black
+	backpack_contents = list(/obj/item/weapon/knife/dagger/steel = 1, /obj/item/storage/keyring/hand = 1, /obj/item/paper/scroll/frumentarii/roundstart = 1)
+	pants = /obj/item/clothing/pants/tights/black
+	head = /obj/item/clothing/head/helmet/leather/inquisitor
+	armor = /obj/item/clothing/armor/leather/jacket // Temporary, yell at Cannibal to finish this.
+	cloak = /obj/item/clothing/cloak/raincloak/mortus
+	gloves = /obj/item/clothing/gloves/angle
+	wrists = /obj/item/clothing/wrists/bracers
+	neck = /obj/item/clothing/neck/psycross/silver/ravox
+	if(H.mind)
+		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/lockpicking, 2, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 1, TRUE)
+		H.change_stat(STATKEY_STR, 4)
+		H.change_stat(STATKEY_CON, 2)
+		H.change_stat(STATKEY_INT, -2)
+		H.change_stat(STATKEY_SPD, -2) // He's NOT a dodger. Parry, parry, parry.
+		if(H.patron != /datum/patron/divine/ravox)
+			H.set_patron(/datum/patron/divine/ravox)
+
+	if(H.dna.species.id == "dwarf")
+		H.change_stat(STATKEY_STR, -1) // Get fucked.
+
+	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
+	H.verbs |= /mob/living/carbon/human/proc/torture_victim
