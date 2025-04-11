@@ -171,3 +171,8 @@
 	name = "Honey"
 	cost = 15
 	contains = /obj/item/reagent_containers/food/snacks/spiderhoney
+
+/datum/supply_pack/food/chocolate
+	name = "Chocolate"
+	cost = 80
+	contains = /obj/item/reagent_containers/food/snacks/chocolate
