@@ -79,7 +79,7 @@
 		return FALSE
 
 	if(length(allowed_races) && !(H.dna.species.name in allowed_races))
-		if(!(H.client.triumph_ids.Find("race_all")))
+		if(!(H.client?.triumph_ids.Find("race_all")))
 			return FALSE
 
 	if(length(allowed_ages) && !(H.age in allowed_ages))
@@ -89,13 +89,35 @@
 		if(total_slots_occupied >= maximum_possible_slots)
 			return FALSE
 
-	if(min_pq != -100) // If someone sets this we actually do the check.
-		if(!(get_playerquality(H.client.ckey) >= min_pq))
+	if(H.client) //cant do pq checks if no client
+		if(min_pq != -100) // If someone sets this we actually do the check.
+			if(!(get_playerquality(H.client.ckey) >= min_pq))
+				return FALSE
+
+		var/pq_prob = pickprob + max((get_playerquality(H.client.ckey))/2, 0) // Takes the base pick rate of the rare class and adds the client's pq divided by 2 or 0, whichever is higher. Allows a maximum of 65 pick probability at 100 pq
+		if(!prob(pq_prob))
 			return FALSE
 
-	var/pq_prob = pickprob + max((get_playerquality(H.client.ckey))/2, 0) // Takes the base pick rate of the rare class and adds the client's pq divided by 2 or 0, whichever is higher. Allows a maximum of 65 pick probability at 100 pq
-	if(prob(pq_prob))
-		return TRUE
+	return TRUE
+
+/*
+	Like check_requirements but we check a client's preference settings instead of a spawned mob
+	No pq chance since we are just checking, not being used for actual roll
+*/
+/datum/advclass/proc/check_client_requirements(client/the_client)
+
+	if(length(allowed_sexes) && !(the_client.prefs.gender in allowed_sexes))
+		return FALSE
+
+	if(length(allowed_races) && !(the_client.prefs.pref_species.name in allowed_races))
+		return FALSE
+
+	if(length(allowed_ages) && !(the_client.prefs.age in allowed_ages))
+		return FALSE
+
+	return TRUE
+
+
 
 // Basically the handler has a chance to plus up a class, heres a generic proc you can override to handle behavior related to it.
 // For now you just get an extra stat in everything depending on how many plusses you managed to get.
