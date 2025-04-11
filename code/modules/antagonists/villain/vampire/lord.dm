@@ -39,6 +39,10 @@
 		owner.current.RemoveSpell(batform)
 		QDEL_NULL(batform)
 
+	if(!isnull(portal))
+		owner.current.RemoveSpell(portal)
+		QDEL_NULL(portal)
+
 	owner.current.verbs -= /mob/living/carbon/human/proc/demand_submission
 	owner.current.verbs -= /mob/living/carbon/human/proc/punish_spawn
 
