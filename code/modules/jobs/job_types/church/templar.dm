@@ -89,7 +89,7 @@
 	backr = /obj/item/weapon/shield/tower/metal
 	belt = /obj/item/storage/belt/leather/black
 	beltl = /obj/item/storage/belt/pouch/coins/poor
-	id = /obj/item/clothing/ring/silver
+	ring = /obj/item/clothing/ring/silver
 	gloves = /obj/item/clothing/gloves/chain
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)

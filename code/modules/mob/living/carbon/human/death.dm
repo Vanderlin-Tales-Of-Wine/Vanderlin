@@ -64,7 +64,9 @@
 			zombie_check()
 
 	if(client || mind)
-		SSticker.deaths++
+		GLOB.vanderlin_round_stats["deaths"]++
+		if(is_noble())
+			GLOB.vanderlin_round_stats["noble_deaths"]++
 
 	stop_sound_channel(CHANNEL_HEARTBEAT)
 	var/obj/item/organ/heart/H = getorganslot(ORGAN_SLOT_HEART)
@@ -152,7 +154,7 @@
 	return mind.add_antag_datum(/datum/antagonist/zombie)
 
 /mob/living/carbon/human/gib(no_brain, no_organs, no_bodyparts, safe_gib = FALSE)
-	SSticker.gibbs++
+	GLOB.vanderlin_round_stats["people_gibbed"]++
 	for(var/mob/living/carbon/human/CA in viewers(7, src))
 		if(CA != src && !HAS_TRAIT(CA, TRAIT_BLIND))
 			if(HAS_TRAIT(CA, TRAIT_STEELHEARTED))

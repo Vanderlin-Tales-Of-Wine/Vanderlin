@@ -171,7 +171,7 @@
 			return
 	if(blood_volume)
 		blood_volume = max(blood_volume - amt, 0)
-		SSticker.blood_lost += amt
+		GLOB.vanderlin_round_stats["blood_spilt"] += amt
 		if(isturf(src.loc)) //Blood loss still happens in locker, floor stays clean
 			add_drip_floor(get_turf(src), amt)
 		var/vol2use
