@@ -21,6 +21,7 @@
 	body_parts_covered = COVERAGE_FULL
 	prevent_crits = ALL_EXCEPT_STAB
 	max_integrity = INTEGRITY_STRONGEST
+	item_weight = 25 * BRONZE_MULTIPLIER
 
 	do_sound_plate = TRUE
 

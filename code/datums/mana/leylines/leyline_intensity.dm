@@ -23,41 +23,41 @@ GLOBAL_LIST_INIT(leyline_intensities, list(
 	thickness = 0
 
 /datum/leyline_variable/leyline_intensity/minimal
-	overall_mult = 0.05
+	overall_mult = 0.1
 	name = "Minimal"
 	thickness = 0
 
 /datum/leyline_variable/leyline_intensity/extremely_low
-	overall_mult = 0.1
+	overall_mult = 0.2
 	name = "Extremely Low"
 	thickness = 1
 
 /datum/leyline_variable/leyline_intensity/low
-	overall_mult = 0.5
+	overall_mult = 1
 	name = "Low"
 	thickness = 1
 
 /datum/leyline_variable/leyline_intensity/below_average
-	overall_mult = 0.7
+	overall_mult = 1.4
 	name = "Below average"
 	thickness = 1
 
 /datum/leyline_variable/leyline_intensity/average
-	overall_mult = 1
+	overall_mult = 2
 	name = "Average"
 	thickness = 2
 
 /datum/leyline_variable/leyline_intensity/above_average
-	overall_mult = 1.3
+	overall_mult = 2.6
 	name = "Above average"
 	thickness = 2
 
 /datum/leyline_variable/leyline_intensity/high
-	overall_mult = 2
+	overall_mult = 4
 	name = "High"
 	thickness = 2
 
 /datum/leyline_variable/leyline_intensity/extreme
-	overall_mult = 5
+	overall_mult = 10
 	name = "Extreme"
 	thickness = 3

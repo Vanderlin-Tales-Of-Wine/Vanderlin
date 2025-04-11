@@ -1,5 +1,4 @@
 /datum/ai_behavior/find_and_set/better_weapon
-	action_cooldown = 3 MINUTES
 
 /datum/ai_behavior/find_and_set/better_weapon/search_tactic(datum/ai_controller/controller, locate_path, search_range)
 	var/mob/living/carbon/living_pawn = controller.pawn

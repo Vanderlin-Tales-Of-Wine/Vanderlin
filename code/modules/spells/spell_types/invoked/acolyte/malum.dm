@@ -19,6 +19,7 @@
 	recharge_time = 3 MINUTES
 	chargetime = 2 SECONDS
 	devotion_cost = 30
+	healing_miracle = TRUE
 
 /obj/effect/proc_holder/spell/invoked/vigorouscraft/cast(list/targets, mob/living/carbon/user = usr)
 	var/const/starminatoregen = 50 // How much energy should the spell give

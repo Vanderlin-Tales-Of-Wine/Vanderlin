@@ -681,7 +681,18 @@ GLOBAL_LIST_EMPTY(active_lifts_by_type)
 					modifier = 1.5
 			if(total_coin_value >= FLOOR(requested.cost * modifier, 1))
 				total_coin_value -= FLOOR(requested.cost * modifier, 1)
-				SSmerchant.requestlist |= requested.contains
+				if(islist(requested.contains))
+					for(var/item in requested.contains)
+						if(!(item in SSmerchant.requestlist))
+							SSmerchant.requestlist |= item
+							SSmerchant.requestlist[item] = 0
+						SSmerchant.requestlist[item]++
+				else
+					if(!(requested.contains in SSmerchant.requestlist))
+						SSmerchant.requestlist |= requested.contains
+						SSmerchant.requestlist[requested.contains] = 0
+					SSmerchant.requestlist[requested.contains]++
+
 				add_abstract_elastic_data(ELASCAT_ECONOMY, ELASDATA_MAMMONS_SPENT, FLOOR(requested.cost * modifier, 1))
 
 		spawn_coins(total_coin_value, platform)

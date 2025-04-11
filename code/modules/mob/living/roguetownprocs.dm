@@ -403,6 +403,7 @@
 	if(!(defending_mob.mobility_flags & MOBILITY_STAND))							//Can't dodge when knocked down
 		return FALSE
 	if(defending_mob)
+
 		if(defending_mob?.check_dodge_skill())
 			dodge_score += (defending_mob.STASPD * 12)
 		else

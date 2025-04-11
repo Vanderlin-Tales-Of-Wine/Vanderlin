@@ -180,7 +180,7 @@ s
 		if(W.reagents.holder_full())
 			to_chat(user, span_warning("[W] is full."))
 			return
-		var/mana_amount = max(round(mana_pool.amount / 25, 1), 40)
+		var/mana_amount = min(round(mana_pool.amount / 25, 1), 40)
 		if(!mana_amount)
 			to_chat(user, span_warning("[src] is dry."))
 			return

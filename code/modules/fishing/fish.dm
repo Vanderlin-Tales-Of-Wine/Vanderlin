@@ -57,8 +57,6 @@
 		STOP_PROCESSING(SSobj, src)
 		return 1
 
-
-
 /obj/item/reagent_containers/food/snacks/fish/carp
 	name = "carp"
 	icon_state = "carp"

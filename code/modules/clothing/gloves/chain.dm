@@ -19,6 +19,7 @@
 	prevent_crits = ALL_EXCEPT_BLUNT
 	max_integrity = INTEGRITY_STRONGEST
 	sewrepair = FALSE
+	item_weight = 7 * IRON_MULTIPLIER
 
 /obj/item/clothing/gloves/chain/iron
 	name = "iron chain gauntlets"
@@ -26,14 +27,17 @@
 	desc = "Gauntlets made out of interwoven iron chains. Decent melee protection, but are better suited to stop arrows than blades."
 	armor = ARMOR_MAILLE_IRON
 	max_integrity = INTEGRITY_STRONG
+	item_weight = 7 * IRON_MULTIPLIER
 
 /obj/item/clothing/gloves/chain/iron/shadowgauntlets
 	name = "darkplate gauntlets"
 	desc = "Gauntlets with gilded fingers fashioned into talons. The tips are all too dull to be of harm."
 	icon_state = "shadowgauntlets"
 	allowed_race = list("elf", "dark elf")
+	item_weight = 9 * STEEL_MULTIPLIER
 
 /obj/item/clothing/gloves/chain/vampire
 	name = "ancient ceremonial gloves"
 	icon_state = "vgloves"
 	smeltresult = /obj/item/ingot/steel
+	item_weight = 9 * STEEL_MULTIPLIER

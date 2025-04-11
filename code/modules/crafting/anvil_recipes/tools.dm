@@ -240,6 +240,13 @@
 	created_item = /obj/item/weapon/tongs
 	i_type = "Tools"
 
+/datum/anvil_recipe/tools/surgery/surgerytools
+	name = "Surgeon's Bag (+1 iron +1 hide)"
+	req_bar = /obj/item/ingot/iron
+	additional_items = list(/obj/item/ingot/iron, /obj/item/natural/hide)
+	created_item = /obj/item/storage/backpack/satchel/surgbag
+	i_type = "Tools"
+
 /datum/anvil_recipe/tools/torch
 	name = "5x Iron Torches (+Coal)"
 	recipe_name = "five Torches"

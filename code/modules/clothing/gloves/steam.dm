@@ -11,6 +11,7 @@
 
 	anvilrepair = /datum/skill/craft/engineering
 	smeltresult = null
+	item_weight = 11 * BRONZE_MULTIPLIER
 
 /obj/item/clothing/gloves/plate/steam/equipped(mob/living/user, slot)
 	if(!(slotdefine2slotbit(slot) & slot_flags))

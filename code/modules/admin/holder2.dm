@@ -79,7 +79,7 @@ GLOBAL_PROTECT(href_token)
 	deadmined = FALSE
 	if (GLOB.directory[target])
 		associate(GLOB.directory[target])	//find the client for a ckey if they are connected and associate them with us
-		owner.toggled_leylines = TRUE
+		owner?.toggled_leylines = TRUE
 
 /datum/admins/proc/deactivate()
 	if(IsAdminAdvancedProcCall())
@@ -95,7 +95,7 @@ GLOBAL_PROTECT(href_token)
 		disassociate()
 		C.verbs += /client/proc/readmin
 	QDEL_NULL(path_debug)
-	owner.toggled_leylines = FALSE
+	owner?.toggled_leylines = FALSE
 
 /datum/admins/proc/associate(client/C)
 	if(IsAdminAdvancedProcCall())

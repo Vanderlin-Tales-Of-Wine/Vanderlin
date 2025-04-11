@@ -26,18 +26,7 @@
 
 		if(end_turf?.z == movable_pawn?.z && !length(controller.movement_path) && !cliented)
 			advanced = FALSE
-			var/can_move = TRUE
-
-			if(controller.ai_traits & STOP_MOVING_WHEN_PULLED && movable_pawn.pulledby)
-				can_move = FALSE
-
-			if(!isturf(movable_pawn.loc)) //No moving if not on a turf
-				can_move = FALSE
-
-			if(isliving(movable_pawn))
-				var/mob/living/living_pawn = movable_pawn
-				if(!(living_pawn.mobility_flags & MOBILITY_MOVE))
-					can_move = FALSE
+			var/can_move = controller.can_move()
 
 			var/current_loc = get_turf(movable_pawn)
 

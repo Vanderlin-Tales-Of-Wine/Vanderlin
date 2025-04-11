@@ -11,6 +11,7 @@
 	chargetime = 0
 	releasedrain = 5
 	miracle = TRUE
+	healing_miracle = TRUE
 	devotion_cost = 5
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/holy

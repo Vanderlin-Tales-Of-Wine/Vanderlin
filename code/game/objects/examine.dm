@@ -7,7 +7,6 @@
 /obj/item/examine(mob/user) //This might be spammy. Remove?
 	. = ..()
 	var/price_text = get_displayed_price(user)
-
 	if(max_integrity)
 		if(obj_integrity < max_integrity)
 			var/meme = round(((obj_integrity / max_integrity) * 100), 1)
@@ -29,20 +28,6 @@
 	if(price_text)
 		. += price_text
 
-//	. += "[gender == PLURAL ? "They are" : "It is"] a [weightclass2text(w_class)] item."
-
-/*	if(resistance_flags & INDESTRUCTIBLE)
-		. += "[src] seems extremely robust! It'll probably withstand anything that could happen to it!"
-	else
-		if(resistance_flags & LAVA_PROOF)
-			. += "[src] is made of an extremely heat-resistant material, it'd probably be able to withstand lava!"
-		if(resistance_flags & (ACID_PROOF | UNACIDABLE))
-			. += "[src] looks pretty robust! It'd probably be able to withstand acid!"
-		if(resistance_flags & FREEZE_PROOF)
-			. += "[src] is made of cold-resistant materials."
-		if(resistance_flags & FIRE_PROOF)
-			. += "[src] is made of fire-retardant materials."
-*/
 // Only show if it's actually useable as bait, so that it doesn't show up on every single item of the game.
 	if(isbait)
 		var/baitquality = ""
@@ -57,3 +42,6 @@
 
 	for(var/datum/examine_effect/E in examine_effects)
 		E.trigger(user)
+
+	if(item_weight || get_stored_weight())
+		. += "It weighs around [round(item_weight + get_stored_weight(), 0.1)]KG."

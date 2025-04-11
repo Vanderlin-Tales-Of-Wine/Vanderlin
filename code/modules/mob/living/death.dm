@@ -65,6 +65,8 @@
 	unset_machine()
 	timeofdeath = world.time
 	tod = station_time_timestamp()
+
+	new /obj/item/soul(get_turf(src))
 //	var/turf/T = get_turf(src)
 	for(var/obj/item/I in contents)
 		I.on_mob_death(src, gibbed)

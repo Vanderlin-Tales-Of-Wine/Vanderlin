@@ -314,6 +314,8 @@
 	if(bclass in GLOB.artery_bclasses)
 		crit_classes += "artery"
 
+	if(!length(crit_classes))
+		return FALSE
 	switch(pick(crit_classes))
 		if("dislocation")
 			if(damage_dividend >= 1)

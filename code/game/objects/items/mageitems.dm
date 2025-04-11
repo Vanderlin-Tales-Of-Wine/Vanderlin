@@ -651,6 +651,7 @@
 	icon_state = "soul"
 
 	plane = PLANE_LEYLINES
+	invisibility = INVISIBILITY_LEYLINES
 	anchored = TRUE
 
 	var/mana_amount = 75
@@ -663,6 +664,7 @@
 		drainer = WEAKREF(dead_person)
 	animate(src, pixel_y = 4, time = 1 SECONDS, loop = -1, flags = ANIMATION_RELATIVE)
 	animate(pixel_y = -4, time = 1 SECONDS, flags = ANIMATION_RELATIVE)
+	QDEL_IN(src, 10 MINUTES)
 
 /obj/item/soul/attack_hand(mob/living/user)
 	. = ..()

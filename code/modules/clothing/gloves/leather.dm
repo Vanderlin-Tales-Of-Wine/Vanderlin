@@ -12,6 +12,7 @@
 	prevent_crits = CUT_AND_MINOR_CRITS
 	max_integrity = INTEGRITY_POOR
 	salvage_result = null
+	item_weight = 6
 
 /obj/item/clothing/gloves/leather/black
 	color = CLOTHING_SOOT_BLACK

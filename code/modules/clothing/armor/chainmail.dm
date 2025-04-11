@@ -16,7 +16,7 @@
 	body_parts_covered = COVERAGE_ALL_BUT_LEGS
 	prevent_crits = ALL_EXCEPT_BLUNT
 	max_integrity = INTEGRITY_STRONG
-
+	item_weight = 9 * STEEL_MULTIPLIER
 
 //................ Iron Maille ............... //
 /obj/item/clothing/armor/chainmail/iron
@@ -29,6 +29,7 @@
 	armor = ARMOR_MAILLE_IRON
 	body_parts_covered = COVERAGE_TORSO
 	max_integrity = INTEGRITY_STANDARD
+	item_weight = 9 * IRON_MULTIPLIER
 
 //................ Hauberk ............... //
 /obj/item/clothing/armor/chainmail/hauberk
@@ -40,3 +41,4 @@
 
 	body_parts_covered = COVERAGE_FULL
 	do_sound_chain = TRUE
+	item_weight = 9 * IRON_MULTIPLIER

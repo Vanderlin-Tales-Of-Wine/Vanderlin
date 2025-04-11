@@ -2059,3 +2059,17 @@
 
 	SEND_SIGNAL(src, COMSIG_LIVING_UNFRIENDED, old_friend)
 	return TRUE
+/mob/living/proc/get_carry_capacity()
+	return max(60, STASTR * 15)
+
+///this is returned as decimal value between 0 and 1
+/mob/living/proc/get_encumberance()
+	return 0
+
+/mob/living/proc/get_total_weight()
+	return 0
+
+/mob/living/proc/encumbrance_to_dodge()
+	return 100
+
+/mob/living/proc/encumbrance_to_speed()

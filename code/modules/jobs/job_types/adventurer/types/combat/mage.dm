@@ -14,7 +14,7 @@
 
 /datum/outfit/job/adventurer/mage/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.mana_pool.set_intrinsic_recharge(MANA_ALL_LEYLINES)
+	H.mana_pool?.set_intrinsic_recharge(MANA_ALL_LEYLINES)
 	head = /obj/item/clothing/head/roguehood/mage
 	shoes = /obj/item/clothing/shoes/simpleshoes
 	armor = /obj/item/clothing/shirt/robe/mage

@@ -91,9 +91,16 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 
 	if(!brewing && (!selected_recipe || ready_to_bottle))
 		if(!shopping_run(user))
-			if(!brewing && ready_to_bottle)
-				if(try_tapping(user))
-					return
+			return
+
+/obj/structure/fermentation_keg/AltClick(mob/user)
+	. = ..()
+	if(!user.Adjacent(src))
+		return
+
+	if(!brewing && ready_to_bottle)
+		if(try_tapping(user))
+			return
 
 /obj/structure/fermentation_keg/attack_hand(mob/user)
 	if((user.used_intent == /datum/intent/grab) || user.cmode)
@@ -177,7 +184,7 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 		if(beer_left)
 			. += "[((beer_left / FLOOR((selected_recipe.brewed_amount * selected_recipe.per_brew_amount) , 1))) * 100]% Full"
 		if(!tapped)
-			. += span_blue("Right-Click on the Barrel to Tap it.")
+			. += span_blue("Alt-Click on the Barrel to Tap it.")
 
 	else if(selected_recipe)
 		var/message = "Currently making: [selected_recipe.name].\n"
