@@ -14,7 +14,7 @@
 	armor_class = AC_HEAVY
 	armor = ARMOR_PLATE_GOOD
 	body_parts_covered = COVERAGE_ALL_BUT_LEGS
-	prevent_crits = ALL_EXCEPT_STAB
+	prevent_crits = ALL_EXCEPT_BLUNT
 	max_integrity = INTEGRITY_STRONGEST
 
 /obj/item/clothing/armor/rare/Initialize()

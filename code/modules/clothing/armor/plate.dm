@@ -9,11 +9,11 @@
 	equip_sound = 'sound/foley/equip/equip_armor_plate.ogg'
 	sellprice = VALUE_STEEL_ARMOR
 	clothing_flags = CANT_SLEEP_IN
-
+	//Plate doesn't protect a lot against blunt
 	armor_class = AC_HEAVY
 	armor = ARMOR_PLATE
 	body_parts_covered = COVERAGE_ALL_BUT_ARMS
-	prevent_crits = ALL_EXCEPT_STAB
+	prevent_crits = ALL_EXCEPT_BLUNT 
 	max_integrity = INTEGRITY_STRONGEST
 	do_sound_plate = TRUE
 
@@ -29,7 +29,6 @@
 
 	armor = ARMOR_PLATE
 	body_parts_covered = COVERAGE_FULL
-
 
 //................ Iron Plate Armor ............... //
 /obj/item/clothing/armor/plate/iron

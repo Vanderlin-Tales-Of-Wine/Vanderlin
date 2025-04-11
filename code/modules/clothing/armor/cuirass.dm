@@ -12,7 +12,7 @@
 	armor_class = AC_MEDIUM
 	armor = ARMOR_PLATE
 	body_parts_covered = COVERAGE_TORSO
-	prevent_crits = ALL_EXCEPT_STAB
+	prevent_crits = ALL_EXCEPT_BLUNT
 	max_integrity = INTEGRITY_STRONG
 
 //................ Grenzelhoft Cuirass ............... //

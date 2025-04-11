@@ -25,7 +25,7 @@
 	armor_class = AC_HEAVY
 	armor = ARMOR_PLATE
 	max_integrity = INTEGRITY_STRONGEST
-	prevent_crits = ALL_EXCEPT_STAB
+	prevent_crits = ALL_EXCEPT_BLUNT
 	do_sound_plate = TRUE
 
 /obj/item/clothing/pants/platelegs/captain
