@@ -26,11 +26,11 @@
 	. = ..()
 	if(!infinite)
 		if(stringamt > 0)
-			. += "<span class='bold'>It has [stringamt] uses left.</span>"
+			. += span_bold("It has [stringamt] uses left.")
 		else
-			. += "<span class='bold'>It has no uses left.</span>"
+			. += span_bold("It has no uses left.")
 	else
-		. += "<span class='bold'>Can be used indefinitely.</span>"
+		. += span_bold("Can be used indefinitely.")
 
 /obj/item/needle/Initialize()
 	. = ..()
@@ -46,6 +46,7 @@
 	if(infinite)
 		return TRUE
 	stringamt = stringamt - used
+	update_icon()
 //	if(stringamt <= 0)
 //		qdel(src)
 
@@ -55,7 +56,7 @@
 /obj/item/needle/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/natural/fibers))
 		if(maxstring - stringamt < 5)
-			to_chat(user, "<span class='warning'>Not enough room for more thread!</span>")
+			to_chat(user, span_warning("Not enough room for more thread!"))
 			return
 		else
 			to_chat(user, "I begin threading the needle with additional fibers...")
@@ -63,26 +64,25 @@
 				stringamt += 5
 				to_chat(user, "I replenish the needle's thread!")
 				qdel(I)
+				update_icon()
 			return
 	return ..()
 
-
-
-/obj/item/needle/attack_obj(obj/O, mob/living/user)
-	var/obj/item/I = O
-	if(istype(I) && can_repair)
-		if(stringamt < 1)
-			to_chat(user, "<span class='warning'>The needle has no thread left!</span>")
-			return
-		if(!I.sewrepair || !I.max_integrity)
+/obj/item/needle/pre_attack(atom/A, mob/living/user, params)
+	if(isitem(A) && can_repair)
+		var/obj/item/I = A
+		if(!(I.obj_flags & CAN_BE_HIT) && !istype(A, /obj/item/storage)) // to preserve old attack_obj behavior
+			return ..()
+		if(!I.ontable() || !I.sewrepair)
+			return ..()
+		if(!I.max_integrity || I.obj_broken)
 			to_chat(user, span_warning("[I] can't be repaired!"))
-			return
+			return ..()
 		if(I.obj_integrity == I.max_integrity)
-			to_chat(user, span_warning("[I] is not damaged!"))
-			return
-		if(!I.ontable())
-			to_chat(user, span_warning("I should put this on a table first."))
-			return
+			return ..()
+		if(stringamt < 1)
+			to_chat(user, span_warning("[src] has no thread left!"))
+			return TRUE
 		var/armor_value = 0
 		var/skill_level = user.mind.get_skill_level(/datum/skill/misc/sewing)
 		for(var/key in I.armor.getList()) // Here we are checking if the armor value of the item is 0 so we can know if the item is armor without having to make a snowflake var
@@ -93,7 +93,7 @@
 		var/skill_multiplied = (skill_level * 10)
 		var/sewtime = (6 SECONDS - skill_multiplied)
 		if(!do_after(user, sewtime, I))
-			return
+			return TRUE
 		if((armor_value == 0 && skill_level > 0) || (armor_value > 0 && skill_level > 1)) //If not armor but skill level at least 1 or Armor and skill level at least 2
 			user.visible_message(span_info("[user] repairs [I]!"))
 			I.obj_integrity = min(I.obj_integrity + skill_multiplied, I.max_integrity)
@@ -111,7 +111,7 @@
 				user.visible_message(span_warning("[user] damaged [I] due to a lack of skill!"))
 				playsound(src, 'sound/foley/cloth_rip.ogg', 50, TRUE)
 			user.mind.add_sleep_experience(/datum/skill/misc/sewing, (user.STAINT) / 2) // Only failing if we have no idea what we're doing
-		return
+		return TRUE
 	return ..()
 
 /obj/item/needle/proc/sew(mob/living/target, mob/living/user)
@@ -160,7 +160,7 @@
 		if(target_wound.sew_progress < target_wound.sew_threshold)
 			continue
 		if(doctor.mind)
-			var/amt2raise = doctor.STAINT *5
+			var/amt2raise = doctor.STAINT * 2
 			doctor.mind.adjust_experience(/datum/skill/misc/medicine, amt2raise * boon)
 		use(1)
 		target_wound.sew_wound()
