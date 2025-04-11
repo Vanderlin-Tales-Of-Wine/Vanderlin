@@ -199,6 +199,12 @@
 	icon_state = "brownkey"
 	lockid = ACCESS_ARTIFICER
 
+/obj/item/key/miner
+	name = "miner's key"
+	desc = "This bronze key should open the Miner's quarters."
+	icon_state = "brownkey"
+	lockid = ACCESS_MINER
+
 // Residents
 
 /obj/item/key/matron
