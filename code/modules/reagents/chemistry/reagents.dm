@@ -88,6 +88,8 @@ GLOBAL_LIST_INIT(name2reagent, build_name2reagent())
 	current_cycle++
 	if(holder)
 		holder.remove_reagent(type, metabolization_rate) //By default it slowly disappears.
+		if(istype(src, /datum/reagent/consumable/ethanol))
+			GLOB.vanderlin_round_stats[STATS_ALCOHOL_CONSUMED] += metabolization_rate
 	return TRUE
 
 /datum/reagent/proc/on_transfer(atom/A, method=TOUCH, trans_volume) //Called after a reagent is transfered

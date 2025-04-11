@@ -249,6 +249,7 @@
 	if(iscarbon(user))
 		var/mob/living/carbon/V = user
 		if(prob(5))
+			GLOB.vanderlin_round_stats[STATS_ZIZO_PRAISED]++
 			V.say(pick("PRAISE ZIZO!", "DEATH TO THE TEN..."))
 		V.add_stress(/datum/stressevent/leechcult)
 

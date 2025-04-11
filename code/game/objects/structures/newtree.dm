@@ -181,7 +181,7 @@
 	if(!istype(NT, /turf/open/transparent/openspace) && !(locate(/obj/structure/table/wood/treestump) in NT))//if i don't add the stump check it spawns however many zlevels it goes up because of src recursion
 		new /obj/structure/table/wood/treestump(NT)
 	playsound(src, 'sound/misc/treefall.ogg', 100, FALSE)
-	GLOB.vanderlin_round_stats["trees_cut"]++
+	GLOB.vanderlin_round_stats[STATS_TREES_CUT]++
 
 /obj/structure/flora/newtree/proc/build_trees()
 	var/turf/target = get_step_multiz(src, UP)

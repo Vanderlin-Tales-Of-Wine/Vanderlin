@@ -151,7 +151,7 @@
 	if(HAS_TRAIT(eater, TRAIT_ORGAN_EATER) && eat_effect != /datum/status_effect/debuff/rotfood)
 		eat_effect = null // food buff handled in /datum/reagent/organpoison
 	if(bitecount >= bitesize)
-		GLOB.vanderlin_round_stats["organs_eaten"]++
+		GLOB.vanderlin_round_stats[STATS_ORGANS_EATEN]++
 	. = ..()
 	eat_effect = initial(eat_effect)
 

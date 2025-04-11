@@ -88,7 +88,7 @@
 					var/T = round(P.get_real_price() * SStreasury.tax_value)
 					if(T != 0)
 						say("Your deposit was taxed [T] mammon.")
-						GLOB.vanderlin_round_stats["taxes_collected"] += T
+						GLOB.vanderlin_round_stats[STATS_TAXES_COLLECTED] += T
 				qdel(P)
 				playsound(src, 'sound/misc/coininsert.ogg', 100, FALSE, -1)
 				return

@@ -78,7 +78,7 @@ GLOBAL_LIST_EMPTY(preference_patrons) // Does not include patrons with preferenc
 		return FALSE
 
 	. = TRUE //the prayer has succeeded by this point forward
-	GLOB.vanderlin_round_stats["prayers_made"]++
+	GLOB.vanderlin_round_stats[STATS_PRAYERS_MADE]++
 
 	if(findtext(prayer, name))
 		reward_prayer(follower)
@@ -87,7 +87,7 @@ GLOBAL_LIST_EMPTY(preference_patrons) // Does not include patrons with preferenc
 /datum/patron/proc/punish_prayer(mob/living/follower)
 	follower.adjust_divine_fire_stacks(100)
 	follower.IgniteMob()
-	GLOB.vanderlin_round_stats["people_smitten"]++
+	GLOB.vanderlin_round_stats[STATS_PEOPLE_SMITTEN]++
 	follower.add_stress(/datum/stressevent/psycurse)
 
 /// The follower has prayed in a special way to the patron and is being rewarded.

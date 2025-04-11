@@ -166,6 +166,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 
 	if(stat >= UNCONSCIOUS || !can_speak_vocal())
 		return
+	GLOB.vanderlin_round_stats[STATS_ZIZO_PRAISED]++
 	audible_message("\The [src] praises <span class='bold'>Zizo</span>!")
 	playsound(src.loc, 'sound/vo/cult/praise.ogg', 45, 1)
 	log_say("[src] has praised zizo! (zizo cultist verb)")

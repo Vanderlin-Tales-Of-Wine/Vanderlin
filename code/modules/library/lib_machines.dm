@@ -147,6 +147,7 @@
 		visible_message("<span class='notice'>The printing press hums as it produces [book.name].</span>")
 
 	// Printing is done
+	GLOB.vanderlin_round_stats[STATS_BOOKS_PRINTED]++
 	printing = FALSE
 	src.icon_state = "Ppress_Done"
 	cooldown = world.time + PRINTER_COOLDOWN

@@ -126,6 +126,7 @@ GLOBAL_LIST_INIT(primordial_wounds, init_primordial_wounds())
 		final_message = replacetext(final_message, "%BODYPART", parse_zone(BODY_ZONE_CHEST))
 	if(critical)
 		final_message = "<span class='crit'><b>Critical hit!</b> [final_message]</span>"
+		GLOB.vanderlin_round_stats[STATS_CRITS_MADE]++
 	return final_message
 
 /// Sound that plays when this wound is applied to a mob
@@ -300,6 +301,7 @@ GLOBAL_LIST_INIT(primordial_wounds, init_primordial_wounds())
 	passive_healing = max(passive_healing, 1)
 	if(mob_overlay != old_overlay)
 		owner?.update_damage_overlays()
+	GLOB.vanderlin_round_stats[STATS_WOUNDS_SEWED]++
 	return TRUE
 
 /// Checks if this wound has a special infection (zombie or werewolf)

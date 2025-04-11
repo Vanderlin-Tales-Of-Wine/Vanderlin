@@ -351,6 +351,7 @@
 				init_profane_soul(target, user) //If they are still in their body, send them to the dagger!
 
 /obj/item/weapon/knife/dagger/steel/profane/proc/init_profane_soul(mob/living/carbon/human/target, mob/user)
+	GLOB.vanderlin_round_stats[STATS_ASSASSINATIONS]++
 	var/mob/dead/observer/profane/S = new /mob/dead/observer/profane(src)
 	S.AddComponent(/datum/component/profaned, src)
 	S.name = "soul of [target.real_name]"
