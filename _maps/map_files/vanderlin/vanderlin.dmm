@@ -9434,6 +9434,10 @@
 	},
 /turf/open/floor/church,
 /area/rogue/indoors/town/church)
+"gqd" = (
+/obj/structure/flora/grass/water,
+/turf/open/transparent/openspace,
+/area/rogue/outdoors/river)
 "gqo" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 4
@@ -29771,6 +29775,9 @@
 /obj/structure/fake_machine/scomm/l,
 /turf/open/floor/greenstone,
 /area/rogue/indoors/town/shop)
+"uqi" = (
+/turf/closed/wall/mineral/stone/moss,
+/area/rogue/indoors/town/manorgate)
 "uqq" = (
 /obj/structure/table/wood/large/corner,
 /turf/open/floor/church,
@@ -98904,11 +98911,11 @@ rya
 gDo
 cNH
 gDo
-rsP
-nYn
-nYn
-nYn
-lwU
+uqi
+xYa
+xYa
+xYa
+xYa
 jfw
 mgj
 dsu
@@ -99106,11 +99113,11 @@ gDo
 awF
 lCI
 fSW
-gFA
-nYn
-nYn
-nYn
-nYn
+gDo
+xYa
+xYa
+xYa
+xYa
 xYa
 xYa
 ptT
@@ -99308,11 +99315,11 @@ gDo
 mAr
 fSW
 fSW
-xfD
-nYn
-nYn
+gDo
+xYa
+xYa
 mgj
-nYn
+xYa
 xYa
 xYa
 xYa
@@ -99510,11 +99517,11 @@ suG
 fSW
 fSW
 ulo
-nYn
-lwU
-nYn
-nYn
-nYn
+cYY
+xYa
+xYa
+xYa
+xYa
 xYa
 xYa
 xYa
@@ -99712,11 +99719,11 @@ cYY
 cYY
 cuB
 qRf
-nYn
-nYn
-nYn
-nYn
-nYn
+cYY
+xYa
+xYa
+xYa
+xYa
 xYa
 xYa
 xYa
@@ -99914,11 +99921,11 @@ cYY
 mls
 oJQ
 mIt
-nYn
-nYn
-nYn
-xfD
-nYn
+cYY
+xYa
+xYa
+gqd
+xYa
 xYa
 xYa
 xYa
@@ -100116,11 +100123,11 @@ cYY
 cGr
 nNL
 kdk
-nYn
-xfD
-lwU
+cYY
+gqd
+xYa
 mgj
-nYn
+xYa
 xYa
 xYa
 xYa
@@ -100318,11 +100325,11 @@ cYY
 cYY
 cYY
 cYY
-nYn
-vMb
-xfD
-nYn
-xfD
+cYY
+xYa
+gqd
+xYa
+gqd
 xYa
 xYa
 xYa
