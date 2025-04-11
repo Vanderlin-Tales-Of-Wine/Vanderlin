@@ -170,6 +170,13 @@
 	stressadd_per_extra_stack = 2
 	desc = "<span class='red'>I puked on myself!</span>"
 
+/datum/stressevent/mouthsoap
+	timer = 3 MINUTES
+	stressadd = 2
+	max_stacks = 2
+	stressadd_per_extra_stack = 2
+	desc = "<span class='red'>I taste soap...</span>"
+
 /datum/stressevent/leechcult
 	timer = 1 MINUTES
 	stressadd = 3

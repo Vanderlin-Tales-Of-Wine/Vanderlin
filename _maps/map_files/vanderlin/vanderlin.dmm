@@ -300,6 +300,21 @@
 	},
 /turf/open/floor/dirt,
 /area/rogue/outdoors/town)
+"ajB" = (
+/obj/item/natural/cloth{
+	pixel_x = 8;
+	pixel_y = 12
+	},
+/obj/item/reagent_containers/glass/bucket/wooden{
+	pixel_y = 1
+	},
+/obj/structure/table/wood/plain_alt,
+/obj/item/soap{
+	pixel_x = -8;
+	pixel_y = 6
+	},
+/turf/open/floor/tile,
+/area/rogue/under/town/basement)
 "ajJ" = (
 /obj/structure/bars/cemetery,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -530,14 +545,6 @@
 	dir = 8
 	},
 /area/rogue/outdoors/river)
-"arF" = (
-/obj/structure/table/wood/plain_alt,
-/obj/item/bath/soap{
-	pixel_x = -8;
-	pixel_y = 7
-	},
-/turf/open/floor/tile,
-/area/rogue/under/town/basement)
 "arT" = (
 /obj/structure/rack/shelf/biggest,
 /obj/item/clothing/face/cigarette/rollie/cannabis{
@@ -811,6 +818,16 @@
 /obj/item/bedsheet/cloth,
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement)
+"aAu" = (
+/obj/structure/closet/crate/chest/old_crate,
+/obj/item/soap/bath,
+/obj/structure/fake_machine/mail,
+/obj/merge_conflict_marker{
+	name = "---Merge Conflict Marker---";
+	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
+	},
+/turf/open/transparent/openspace,
+/area/rogue/outdoors/town)
 "aAH" = (
 /turf/open/transparent/openspace,
 /area/rogue/indoors/town/shop)
@@ -3111,6 +3128,14 @@
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/tavern)
+"bUs" = (
+/obj/structure/table/wood/plain_alt,
+/obj/item/soap{
+	pixel_x = -8;
+	pixel_y = 6
+	},
+/turf/open/floor/tile,
+/area/rogue/under/town/basement)
 "bUu" = (
 /obj/structure/kneestingers{
 	pixel_x = 1;
@@ -3841,6 +3866,14 @@
 /obj/structure/fluff/wallclock,
 /turf/open/floor/concrete,
 /area/rogue/indoors/town/clocktower)
+"cur" = (
+/obj/structure/table/wood/reinf_long,
+/obj/item/soap{
+	pixel_x = 5;
+	pixel_y = 4
+	},
+/turf/open/floor/tile/bfloorz,
+/area/rogue/indoors/town/bath)
 "cuB" = (
 /obj/structure/fluff/wallclock,
 /turf/open/floor/metal{
@@ -3984,6 +4017,11 @@
 "czU" = (
 /turf/closed/wall/mineral/stone/moss,
 /area/rogue/indoors/town/clocktower)
+"czW" = (
+/obj/structure/table/wood/plain_alt,
+/obj/item/soap/bath,
+/turf/open/floor/blocks/newstone,
+/area/rogue/under/town/basement)
 "cAb" = (
 /obj/effect/decal/cleanable/generic,
 /turf/open/floor/wood,
@@ -4205,11 +4243,6 @@
 	},
 /turf/open/floor/carpet/stellar,
 /area/rogue/indoors/town/magician)
-"cGc" = (
-/obj/structure/table/wood/plain_alt,
-/obj/item/soap,
-/turf/open/floor/blocks/newstone,
-/area/rogue/under/town/basement)
 "cGo" = (
 /obj/machinery/light/fueled/wallfire/candle/blue/r,
 /turf/open/floor/tile,
@@ -5933,6 +5966,18 @@
 	},
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/church)
+"dSQ" = (
+/obj/structure/closet/crate/drawer{
+	pixel_y = 6
+	},
+/obj/item/coin/silver/pile,
+/obj/item/coin/copper/pile,
+/obj/item/clothing/face/cigarette/rollie/cannabis,
+/obj/machinery/light/fueled/wallfire/candle/l{
+	pixel_x = 32
+	},
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/indoors/town/manor)
 "dSR" = (
 /obj/structure/flora/grass/water,
 /turf/open/water/river{
@@ -8087,9 +8132,6 @@
 /obj/effect/decal/cobbleedge/alt,
 /turf/open/floor/dirt/road,
 /area/rogue/under/town/sewer)
-"fqF" = (
-/turf/open/floor/ruinedwood/darker,
-/area/rogue/indoors/town/manor)
 "frI" = (
 /obj/structure/fake_machine/atm,
 /turf/open/floor/carpet/royalblack,
@@ -10093,6 +10135,15 @@
 /obj/structure/fermentation_keg/random/water,
 /turf/open/floor/dirt/road,
 /area/rogue/under/town/basement)
+"gKc" = (
+/obj/structure/table/wood/plain_alt,
+/obj/item/natural/cloth,
+/obj/item/natural/cloth,
+/obj/item/soap,
+/turf/open/floor/blocks{
+	icon_state = "paving"
+	},
+/area/rogue/indoors/town/orphanage)
 "gKs" = (
 /obj/structure/mineral_door/wood/donjon,
 /obj/effect/mapping_helpers/door/access/garrison/garrison,
@@ -11209,18 +11260,6 @@
 /obj/structure/fake_machine/scomm/r,
 /turf/open/floor/carpet/stellar,
 /area/rogue/indoors/town/merc_guild)
-"hCi" = (
-/obj/structure/closet/crate/drawer{
-	pixel_y = 6
-	},
-/obj/item/coin/silver/pile,
-/obj/item/coin/copper/pile,
-/obj/item/clothing/face/cigarette/rollie/cannabis,
-/obj/machinery/light/fueled/wallfire/candle/l{
-	pixel_x = 32
-	},
-/turf/open/floor/ruinedwood/darker,
-/area/rogue/indoors/town/manor)
 "hCn" = (
 /obj/structure/closet/crate/chest/old_crate,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -11544,21 +11583,6 @@
 /obj/structure/flora/newtree,
 /turf/open/floor/grass,
 /area/rogue/outdoors/town)
-"hMA" = (
-/obj/item/natural/cloth{
-	pixel_x = 8;
-	pixel_y = 12
-	},
-/obj/item/reagent_containers/glass/bucket/wooden{
-	pixel_y = 1
-	},
-/obj/structure/table/wood/plain_alt,
-/obj/item/bath/soap{
-	pixel_x = -8;
-	pixel_y = 7
-	},
-/turf/open/floor/tile,
-/area/rogue/under/town/basement)
 "hMC" = (
 /obj/structure/rack/shelf/biggest,
 /obj/item/flint,
@@ -13059,6 +13083,24 @@
 "iNv" = (
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/town/manor)
+"iNx" = (
+/obj/structure/rack/shelf/biggest,
+/obj/item/soap,
+/obj/item/natural/bundle/cloth{
+	amount = 10;
+	pixel_y = -5
+	},
+/obj/item/natural/bundle/cloth{
+	amount = 10;
+	pixel_x = 0;
+	pixel_y = 7
+	},
+/obj/merge_conflict_marker{
+	name = "---Merge Conflict Marker---";
+	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
+	},
+/turf/closed/wall/mineral/decostone/long,
+/area/rogue/indoors/town/church)
 "iNG" = (
 /turf/open/floor/churchbrick,
 /area/rogue/indoors/town/church)
@@ -17358,15 +17400,6 @@
 /obj/structure/flora/grass/herb/valeriana,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/rtfield)
-"lIB" = (
-/obj/structure/table/wood/plain_alt,
-/obj/item/natural/cloth,
-/obj/item/natural/cloth,
-/obj/item/bath/soap,
-/turf/open/floor/blocks{
-	icon_state = "paving"
-	},
-/area/rogue/indoors/town/orphanage)
 "lIF" = (
 /turf/closed/wall/mineral/stone/moss,
 /area/rogue/outdoors/town)
@@ -28141,6 +28174,26 @@
 /obj/structure/water_pipe,
 /turf/closed/wall/mineral/stonebrick,
 /area/rogue/under/town/basement)
+"tjE" = (
+/obj/structure/table/wood/plain_alt,
+/obj/item/reagent_containers/glass/bucket/wooden{
+	pixel_x = 1;
+	pixel_y = -1
+	},
+/obj/item/natural/cloth{
+	pixel_x = 8;
+	pixel_y = 12
+	},
+/obj/item/soap{
+	pixel_x = -8;
+	pixel_y = 8
+	},
+/obj/merge_conflict_marker{
+	name = "---Merge Conflict Marker---";
+	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
+	},
+/turf/open/floor/woodturned,
+/area/rogue/indoors/town/manor)
 "tjO" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4
@@ -28752,6 +28805,12 @@
 /obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/floor/carpet/green,
 /area/rogue/indoors/town/merc_guild)
+"tFT" = (
+/obj/machinery/light/fueled/wallfire/candle/l{
+	pixel_x = 32
+	},
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/indoors/town/manor)
 "tGk" = (
 /obj/machinery/light/fueled/lanternpost/fixed{
 	pixel_x = -2
@@ -34204,9 +34263,6 @@
 /turf/closed/wall/mineral/stone,
 /area/rogue/indoors/town/magician)
 "xly" = (
-/obj/machinery/light/fueled/wallfire/candle/l{
-	pixel_x = 32
-	},
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/manor)
 "xlH" = (
@@ -51284,7 +51340,7 @@ xhj
 tHe
 tHe
 rsP
-hMA
+ajB
 gWj
 iCB
 wjz
@@ -51484,7 +51540,7 @@ jTX
 sEZ
 jTX
 jTX
-arF
+bUs
 tHe
 bUM
 bUM
@@ -52956,7 +53012,7 @@ mQV
 mQV
 rQh
 obH
-uwq
+cur
 rQh
 kwV
 kwV
@@ -57155,7 +57211,7 @@ iRT
 tHe
 oli
 ekK
-cGc
+czW
 vlI
 bUM
 vgJ
@@ -85892,7 +85948,7 @@ vgJ
 fKD
 pvl
 nuh
-lIB
+gKc
 fKD
 vgJ
 vgJ
@@ -93104,7 +93160,7 @@ kQy
 acs
 acs
 acs
-acs
+tjE
 nzK
 acs
 ecJ
@@ -94977,7 +95033,7 @@ iSk
 tJI
 elp
 sUP
-iSk
+aAu
 kGO
 rVO
 kbf
@@ -101172,9 +101228,9 @@ rDr
 bET
 rDr
 bJN
-hCi
+dSQ
 wNb
-xly
+tFT
 bJN
 lrg
 pMt
@@ -153759,7 +153815,7 @@ swo
 swo
 mJO
 swo
-swo
+iNx
 swo
 mJO
 vgJ
@@ -176738,13 +176794,13 @@ jPA
 jPA
 jPA
 jPA
-fqF
-fqF
-fqF
+xly
+xly
+xly
 jHV
-fqF
-fqF
-fqF
+xly
+xly
+xly
 jPA
 jPA
 jPA
@@ -176940,13 +176996,13 @@ jPA
 jPA
 jPA
 jPA
-fqF
-fqF
-fqF
-fqF
-fqF
-fqF
-fqF
+xly
+xly
+xly
+xly
+xly
+xly
+xly
 jPA
 jPA
 jPA
@@ -177142,13 +177198,13 @@ jPA
 jPA
 jPA
 jPA
-fqF
-fqF
-fqF
+xly
+xly
+xly
 jHV
-fqF
-fqF
-fqF
+xly
+xly
+xly
 jPA
 jPA
 jPA

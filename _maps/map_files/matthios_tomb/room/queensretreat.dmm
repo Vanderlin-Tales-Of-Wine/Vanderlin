@@ -50,7 +50,7 @@
 /area/rogue/indoors/shelter)
 "cA" = (
 /obj/item/bin/water,
-/obj/item/bath/soap,
+/obj/item/soap/bath,
 /turf/open/floor/tile/bath,
 /area/rogue/indoors/shelter)
 "cV" = (
