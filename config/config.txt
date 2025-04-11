@@ -5,6 +5,7 @@ $include dbconfig.txt
 $include comms.txt
 $include antag_rep.txt
 $include resources.txt
+$include plexora.txt
 
 # You can use the @ character at the beginning of a config option to lock it from being edited in-game
 # Example usage:
@@ -264,7 +265,7 @@ GITHUBURL https://github.com/Vanderlin-Tales-Of-Wine/Vanderlin
 # GITHUBREPOID 3234987
 
 ## Ban appeals URL - usually for a forum or wherever people should go to contact your admins.
- BANAPPEALS https://discord.gg/monkestation
+ BANAPPEALS https://discord.monkestation.com
 
 ## System command that invokes youtube-dl, used by Play Internet Sound.
 ## You can install youtube-dl with
