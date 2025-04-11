@@ -29,9 +29,9 @@
 	environment_smash = ENVIRONMENT_SMASH_STRUCTURES
 	retreat_distance = 6
 	minimum_distance = 4
-	TOTALCON = 5
-	TOTALSTR = 5
-	TOTALSPD = 20
+	base_constitution = 5
+	base_strength = 5
+	base_speed = 20
 	deaggroprob = 0
 	defprob = 95
 	defdrain = 10

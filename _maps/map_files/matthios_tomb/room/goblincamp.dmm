@@ -407,12 +407,12 @@
 /obj/effect/spawner/map_spawner/loot/potion_vitals,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /mob/living/carbon/human/species/goblin/npc{
-	TOTALCON = 20;
-	TOTALEND = 20;
-	TOTALINT = 20;
-	TOTALLUC = 20;
-	TOTALPER = 20;
-	TOTALSPD = 20;
+	base_constitution = 20;
+	base_endurance = 20;
+	base_intelligence = 20;
+	base_fortune = 20;
+	base_perception = 20;
+	base_speed = 20;
 	name = "Level 1 Goblin"
 	},
 /turf/open/floor/dirt,

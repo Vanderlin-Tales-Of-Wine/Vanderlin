@@ -39,9 +39,9 @@
 	food = 0
 	pooptype = null
 
-	TOTALCON = 6
-	TOTALSTR = 6
-	TOTALSPD = 5
+	base_constitution = 6
+	base_strength = 6
+	base_speed = 5
 
 	ai_controller = /datum/ai_controller/mimic
 	AIStatus = AI_OFF

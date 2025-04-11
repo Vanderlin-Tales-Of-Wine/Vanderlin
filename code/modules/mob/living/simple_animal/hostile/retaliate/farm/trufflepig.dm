@@ -132,9 +132,9 @@
 	melee_damage_lower = 8
 	melee_damage_upper = 14
 	minimum_distance = 1
-	TOTALSPD = 2
-	TOTALCON = 8
-	TOTALSTR = 12
+	base_speed = 2
+	base_constitution = 8
+	base_strength = 12
 	can_buckle = TRUE
 	buckle_lying = FALSE
 	can_saddle = TRUE

@@ -74,10 +74,10 @@
 /datum/outfit/job/skeleton/pre_equip(mob/living/carbon/human/H)
 	..()
 
-	H.TOTALSTR = rand(8,10)
-	H.TOTALSPD = rand(7,10)
-	H.TOTALINT = 1
-	H.TOTALCON = 3
+	H.base_strength = rand(8,10)
+	H.base_speed = rand(7,10)
+	H.base_intelligence = 1
+	H.base_constitution = 3
 
 /* RAIDER SKELETONS */
 /datum/job/skeleton/raider
@@ -179,10 +179,10 @@
 
 /datum/outfit/job/skeleton/zizoid/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.TOTALSTR = rand(8,17)
-	H.TOTALSPD = rand(7,10)
-	H.TOTALINT = 1
-	H.TOTALCON = 3
+	H.base_strength = rand(8,17)
+	H.base_speed = rand(7,10)
+	H.base_intelligence = 1
+	H.base_constitution = 3
 
 	H.verbs |= /mob/living/carbon/human/proc/praise
 	H.verbs |= /mob/living/carbon/human/proc/communicate

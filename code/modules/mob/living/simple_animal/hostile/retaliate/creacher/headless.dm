@@ -31,9 +31,9 @@
 	food_type = list()
 	footstep_type = null
 	pooptype = null
-	TOTALCON = 6
-	TOTALSTR = 13
-	TOTALSPD = 10
+	base_constitution = 6
+	base_strength = 13
+	base_speed = 10
 	deaggroprob = 0
 	defprob = 10
 	defdrain = 5

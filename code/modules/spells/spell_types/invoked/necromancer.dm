@@ -194,13 +194,13 @@
 	dna.species.soundpack_m = new /datum/voicepack/skeleton()
 	dna.species.soundpack_f = new /datum/voicepack/skeleton()
 
-	src.TOTALSTR = 6
-	src.TOTALPER = 8
-	src.TOTALEND = 8
-	src.TOTALCON = 8
-	src.TOTALINT = 4
-	src.TOTALSPD = 9
-	src.TOTALLUC = 6
+	src.base_strength = 6
+	src.base_perception = 8
+	src.base_endurance = 8
+	src.base_constitution = 8
+	src.base_intelligence = 4
+	src.base_speed = 9
+	src.base_fortune = 6
 
 
 	cmode_music = 'sound/music/cmode/antag/combat_cult.ogg'

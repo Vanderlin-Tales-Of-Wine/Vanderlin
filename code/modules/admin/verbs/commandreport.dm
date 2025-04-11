@@ -151,5 +151,3 @@
 	command_report_content = initial(command_report_content)
 
 #undef DEFAULT_ANNOUNCEMENT_SOUND
-
-#undef NULLABLE
