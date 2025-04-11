@@ -9,6 +9,7 @@
 	category_tags = list(CTAG_ADVENTURER)
 	min_pq = 0
 	maximum_possible_slots = 4
+	cmode_music = 'sound/music/cmode/church/CombatAstrata.ogg'
 
 /datum/outfit/job/adventurer/cleric
 	allowed_patrons = ALL_CLERIC_PATRONS
