@@ -58,6 +58,6 @@
 		H.change_stat(STATKEY_SPD, -1)
 		H.change_stat(STATKEY_PER, -1)
 	if(H.dna?.species)
-		if(H.dna.species.id == "human")
+		if(H.dna.species.id == SPECIES_HUMAN)
 			H.dna.species.soundpack_m = new /datum/voicepack/male/warrior()
 	H.verbs |= /mob/living/carbon/human/proc/torture_victim

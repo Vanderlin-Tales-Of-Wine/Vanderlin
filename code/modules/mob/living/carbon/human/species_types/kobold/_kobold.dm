@@ -11,7 +11,7 @@
 
 /datum/species/kobold
 	name = "Kobold"
-	id = "kobold"
+	id = SPECIES_KOBOLD
 	desc = "Speculated to have originated from the dank depths of Subterra, \
 	Kobolds are a species of stout sea-faring and mountain-dwelling lizardfolk infamous for their skills in trap-making, \
 	their habit of hoarding grandiose amounts of trinkets and artifacts, and their opportunism.\
@@ -39,7 +39,7 @@
 	soundpack_m = /datum/voicepack/male/dwarf
 	soundpack_f = /datum/voicepack/female/dwarf
 
-	custom_id = "dwarf"
+	custom_id = SPECIES_DWARF
 	custom_clothes = TRUE
 
 	use_m = FALSE
