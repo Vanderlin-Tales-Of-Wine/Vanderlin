@@ -119,6 +119,7 @@ SUBSYSTEM_DEF(elastic)
 	round_data["tomb_deaths"] = GLOB.vanderlin_round_stats[STATS_GREEDY_PEOPLE]
 	round_data["kleptomaniacs"] = GLOB.vanderlin_round_stats[STATS_KLEPTOMANIACS]
 	round_data["parents"] = GLOB.vanderlin_round_stats[STATS_PARENTS]
+	round_data["skills_dreamed"] = GLOB.vanderlin_round_stats[STATS_SKILLS_DREAMED]
 
 	return round_data
 

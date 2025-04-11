@@ -1082,6 +1082,24 @@ SUBSYSTEM_DEF(gamemode)
 		return
 	set_storyteller(highest)
 
+/// Compares influence of all storytellers and sets a new storyteller with a highest influence
+/datum/controller/subsystem/gamemode/proc/pick_most_influential(roundstart = FALSE)
+	var/list/storytellers_with_influence = list()
+	var/datum/storyteller/highest
+	for(var/datum/storyteller/initalized_storyteller as anything in storytellers)
+		storytellers_with_influence[initalized_storyteller] = calculate_storyteller_influence(initalized_storyteller.type, roundstart)
+		if(!highest)
+			highest = initalized_storyteller
+			continue
+		if(storytellers_with_influence[initalized_storyteller] < storytellers_with_influence[highest])
+			continue
+		if(storytellers_with_influence[initalized_storyteller] == storytellers_with_influence[highest] && prob(50))
+			continue
+		highest = initalized_storyteller
+	if(!highest)
+		return
+	set_storyteller(highest)
+
 /// Refreshes statistics regarding alive statuses of certain professions or antags, like nobles
 /datum/controller/subsystem/gamemode/proc/refresh_alive_stats()
 	GLOB.vanderlin_round_stats[STATS_ALIVE_NOBLES] = 0
@@ -1149,12 +1167,12 @@ SUBSYSTEM_DEF(gamemode)
 	return influence
 
 /// Return total influence of the storyteller, which includes all his statistics and number of their followers
-/datum/controller/subsystem/gamemode/proc/calculate_storyteller_influence(datum/storyteller/chosen_storyteller)
+/datum/controller/subsystem/gamemode/proc/calculate_storyteller_influence(datum/storyteller/chosen_storyteller, roundstart = FALSE)
 	var/datum/storyteller/initalized_storyteller = storytellers[chosen_storyteller]
 	if(!initalized_storyteller)
 		return
 
-	var/total_influence = get_patron_followers_numbers(initalized_storyteller.name) * 10
+	var/total_influence = get_patron_followers_numbers(initalized_storyteller.name, roundstart) * 10
 	for(var/influence_factor in initalized_storyteller.influence_factors)
 		total_influence += calculate_specific_influence(chosen_storyteller, influence_factor)
 	return total_influence

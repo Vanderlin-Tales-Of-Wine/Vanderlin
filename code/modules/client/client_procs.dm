@@ -216,7 +216,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	data += "<div style='display: table-row;'>"
 
 	// Left Column
-	data += "<div style='display: table-cell; width: 47.5%; padding-left: 25px; word-break: break-word; text-align: left;'>"
+	data += "<div style='display: table-cell; width: 47.5%; padding-left: 20px; word-break: break-word; text-align: left;'>"
 	data += "<font color='#9b6937'><span class='bold'>Total Deaths:</span></font> [GLOB.vanderlin_round_stats[STATS_DEATHS]]<br>"
 	data += "<font color='#6b5ba1'><span class='bold'>Noble Deaths:</span></font> [GLOB.vanderlin_round_stats[STATS_NOBLE_DEATHS]]<br>"
 	data += "<font color='#e6b327'><span class='bold'>Holy Revivals:</span></font> [GLOB.vanderlin_round_stats[STATS_ASTRATA_REVIVALS]]<br>"
@@ -236,7 +236,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	data += "<font color='#36959c'><span class='bold'>Triumphs Awarded:</span></font> [GLOB.vanderlin_round_stats[STATS_TRIUMPHS_AWARDED]]<br>"
 	data += "<font color='#a02fa4'><span class='bold'>Triumphs Stolen:</span></font> [GLOB.vanderlin_round_stats[STATS_TRIUMPHS_STOLEN] * -1]<br>"
 	data += "<font color='#d7da2f'><span class='bold'>Prayers Made:</span></font> [GLOB.vanderlin_round_stats[STATS_PRAYERS_MADE]]<br>"
-	data += "<font color='#6e7c81'><span class='bold'>Graves Consecrated:</span></font> [GLOB.vanderlin_round_stats[STATS_GRAVES_CONSECRATED]]<br>"
+	data += "<font color='#6e7c81'><span class='bold'>Skills learned:</span></font> [GLOB.vanderlin_round_stats[STATS_SKILLS_LEARNED]]<br>"
 	data += "<font color='#ff00bf'><span class='bold'>Drugs Snorted:</span></font> [GLOB.vanderlin_round_stats[STATS_DRUGS_SNORTED]]<br>"
 	data += "<font color='#0f555c'><span class='bold'>Beards Shaved:</span></font> [GLOB.vanderlin_round_stats[STATS_BEARDS_SHAVED]]<br>"
 	data += "<font color='#836033'><span class='bold'>Trees Cut:</span></font> [GLOB.vanderlin_round_stats[STATS_TREES_CUT]]<br>"
@@ -321,7 +321,6 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	data += "<div style='flex: 1; padding-left: 60px;'>"
 	data += "Number of apostates: [apostasy_followers] ([get_colored_influence_value(apostasy_followers * -25)])<br>"
 	data += "Humen deaths: [GLOB.vanderlin_round_stats[STATS_HUMEN_DEATHS]] ([get_colored_influence_value(GLOB.vanderlin_round_stats[STATS_HUMEN_DEATHS] * -20)])<br>"
-	data += "Lux harvested: 0 ([get_colored_influence_value(0 * -100)])<br>"
 	data += "God's status: [psydonite_user ? "ALIVE" : "DEAD"] ([get_colored_influence_value(psydonite_user ? 10000 : -10000)])<br>"
 	data += "</div>"
 
@@ -363,7 +362,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		Books printed: [GLOB.vanderlin_round_stats[STATS_BOOKS_PRINTED]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(/datum/storyteller/noc, STATS_BOOKS_PRINTED))])<br>\
 		Literacy taught: [GLOB.vanderlin_round_stats[STATS_LITERACY_TAUGHT]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(/datum/storyteller/noc, STATS_LITERACY_TAUGHT))])<br>\
 		Number of illiterates: [GLOB.vanderlin_round_stats[STATS_ILLITERATES]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(/datum/storyteller/noc, STATS_ILLITERATES))])<br>\
-		Skills learned: [GLOB.vanderlin_round_stats[STATS_SKILLS_LEARNED]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(/datum/storyteller/noc, STATS_SKILLS_LEARNED))])", /datum/storyteller/noc)
+		Skills dreamed: [GLOB.vanderlin_round_stats[STATS_SKILLS_DREAMED]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(/datum/storyteller/noc, STATS_SKILLS_DREAMED))])", /datum/storyteller/noc)
 
 	// Necra
 	data += god_ui_block("NECRA", "#666666", "#dddddd", "\
@@ -377,7 +376,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	data += god_ui_block("PESTRA", "#88cc88", "#224422", "\
 		Number of followers: [pestra_followers] ([get_colored_influence_value(pestra_followers * 10)])<br>\
 		Potions brewed: [GLOB.vanderlin_round_stats[STATS_POTIONS_BREWED]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(/datum/storyteller/pestra, STATS_POTIONS_BREWED))])<br>\
-		Wounds sewed: [GLOB.vanderlin_round_stats[STATS_WOUNDS_SEWED]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(/datum/storyteller/pestra, STATS_WOUNDS_SEWED))])<br>\
+		Wounds sewed up: [GLOB.vanderlin_round_stats[STATS_WOUNDS_SEWED]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(/datum/storyteller/pestra, STATS_WOUNDS_SEWED))])<br>\
 		Souls reincarnated: [GLOB.vanderlin_round_stats[STATS_SOULS_REINCARNATED]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(/datum/storyteller/pestra, STATS_SOULS_REINCARNATED))])<br>\
 		Animals bred: [GLOB.vanderlin_round_stats[STATS_ANIMALS_BRED]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(/datum/storyteller/pestra, STATS_ANIMALS_BRED))])", /datum/storyteller/pestra)
 
@@ -482,7 +481,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	data += "</div></div>"
 
 	src.mob << browse(null, "window=vanderlin_stats")
-	var/datum/browser/popup = new(src.mob, "vanderlin_influences", "<center>Gods influences</center>", 1250, 850)
+	var/datum/browser/popup = new(src.mob, "vanderlin_influences", "<center>Gods influences</center>", 1250, 900)
 	popup.set_content(data.Join())
 	popup.open()
 
@@ -515,20 +514,24 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	return "<font color='[color]'>[display_num]</font>"
 
 /// Return number of followers for the given patron, uses patron name, like "Astrata"
-/proc/get_patron_followers_numbers(selected_patron)
+/proc/get_patron_followers_numbers(given_patron_name, roundstart = FALSE)
 	var/number_of_followers = 0
 	for(var/client/client in GLOB.clients)
 		var/mob/living/living = client.mob
 		if(!istype(living))
 			continue
-		if(!living.mind)
-			continue
-		if(living.stat == DEAD)
-			continue
-		if(!living.patron)
-			continue
-		if(living.patron.name == selected_patron)
-			number_of_followers++
+		if(!roundstart)
+			if(!living.mind)
+				continue
+			if(living.stat == DEAD)
+				continue
+			if(!living.patron)
+				continue
+			if(living.patron.name == given_patron_name)
+				number_of_followers++
+		else
+			if(client.prefs.selected_patron.name == given_patron_name)
+				number_of_followers++
 	return number_of_followers
 
 /client/proc/commendation_popup(intentional = FALSE)
