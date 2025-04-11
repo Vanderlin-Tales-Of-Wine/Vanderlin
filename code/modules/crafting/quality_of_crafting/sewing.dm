@@ -102,6 +102,18 @@
 	requirements = list(/obj/item/natural/cloth = 2,
 				/obj/item/natural/fibers = 1)
 
+/datum/repeatable_crafting_recipe/sewing/stockings
+	name = "cloth stockings"
+	output = /obj/item/clothing/pants/tights/stockings/uncolored
+	requirements = list(/obj/item/natural/cloth = 1,
+				/obj/item/natural/fibers = 1)
+
+/datum/repeatable_crafting_recipe/sewing/stockings
+	name = "cloth stockings"
+	output = /obj/item/clothing/pants/tights/stockings/silk/white
+	requirements = list(/obj/item/natural/silk = 1,
+				/obj/item/natural/fibers = 1)
+
 /datum/repeatable_crafting_recipe/sewing/headband
 	name = "headband"
 	output = /obj/item/clothing/head/headband
