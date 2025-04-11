@@ -56,5 +56,5 @@
 		/obj/item/reagent_containers/powder/mandrake_flour = 1,
 		/obj/item/reagent_containers/powder/manabloom = 1
 	)
-	craftdiff = 2
-	sellprice = 12
+	craftdiff = 1
+	sellprice = 8
