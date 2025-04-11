@@ -53,7 +53,7 @@
 /turf/open/floor/blocks,
 /area/rogue/indoors/shelter)
 "hf" = (
-/obj/structure/mineral_door,
+/obj/structure/door,
 /turf/open/floor/blocks,
 /area/rogue/indoors/shelter)
 "hG" = (

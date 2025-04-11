@@ -215,7 +215,7 @@
 /turf/open/floor/blocks,
 /area/rogue/under/cave)
 "KM" = (
-/obj/structure/mineral_door/wood,
+/obj/structure/door,
 /turf/open/floor/cobblerock,
 /area/rogue/under/cave)
 "KV" = (

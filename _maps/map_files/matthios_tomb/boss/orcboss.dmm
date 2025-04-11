@@ -16,7 +16,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/under/cave)
 "da" = (
-/obj/structure/mineral_door/wood/donjon/stone,
+/obj/structure/door/stone,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter)
 "di" = (

@@ -38,7 +38,7 @@
 /turf/open/floor/dirt,
 /area/rogue/under)
 "df" = (
-/obj/structure/mineral_door/bars,
+/obj/structure/door/iron/bars,
 /turf/open/floor/metal{
 	icon_state = "plating2"
 	},
@@ -177,7 +177,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/under)
 "jT" = (
-/obj/structure/mineral_door/wood,
+/obj/structure/door,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter)
 "kn" = (
@@ -214,7 +214,7 @@
 /turf/open/floor/ruinedwood/turned,
 /area/rogue/indoors/shelter)
 "nx" = (
-/obj/structure/mineral_door/wood/green,
+/obj/structure/door/green,
 /obj/item/restraints/legcuffs/beartrap/armed/camouflage,
 /turf/open/floor/hexstone,
 /area/rogue/indoors/shelter)
@@ -237,7 +237,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/indoors/shelter)
 "nY" = (
-/obj/structure/mineral_door/wood,
+/obj/structure/door,
 /turf/open/floor/metal{
 	icon_state = "plating2"
 	},
@@ -401,7 +401,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/indoors/shelter)
 "wY" = (
-/obj/structure/mineral_door/wood/donjon,
+/obj/structure/door/viewport,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter)
@@ -489,7 +489,7 @@
 /turf/open/floor/cobble,
 /area/rogue/indoors/shelter)
 "Ef" = (
-/obj/structure/mineral_door/wood/donjon{
+/obj/structure/door/viewport{
 	door_opened = 1
 	},
 /turf/open/floor/ruinedwood/spiralfade,
@@ -895,9 +895,8 @@
 /turf/open/floor/dirt/road,
 /area/rogue/under)
 "Yh" = (
-/obj/structure/mineral_door/wood/green{
-	locked = 1
-	},
+/obj/structure/door/green,
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/hexstone,
 /area/rogue/indoors/shelter)
 "Ys" = (

@@ -14,16 +14,16 @@
 /turf/open/floor/dirt,
 /area/rogue/under/cave)
 "h" = (
-/obj/structure/mineral_door/wood/donjon{
+/obj/structure/door/viewport{
 	dir = 4
 	},
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "i" = (
-/obj/structure/mineral_door/wood/donjon{
-	dir = 4;
-	locked = 1
+/obj/structure/door/viewport{
+	dir = 4
 	},
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "j" = (

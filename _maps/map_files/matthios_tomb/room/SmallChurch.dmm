@@ -134,7 +134,7 @@
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/under/cavewet)
 "eY" = (
-/obj/structure/mineral_door/wood/violet,
+/obj/structure/door/violet,
 /turf/open/floor/churchrough,
 /area/rogue/under/cavewet)
 "fu" = (
@@ -164,10 +164,10 @@
 /turf/open/floor/concrete,
 /area/rogue/under/cavewet)
 "gr" = (
-/obj/structure/mineral_door/wood/donjon/stone{
-	can_add_lock = 0;
-	locked = 1
+/obj/structure/door/stone{
+	can_add_lock = 0
 	},
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/churchmarble,
 /area/rogue/under/cavewet)
 "gH" = (
@@ -435,7 +435,7 @@
 /turf/open/floor/blocks,
 /area/rogue/under/cavewet)
 "td" = (
-/obj/structure/mineral_door/wood/violet,
+/obj/structure/door/violet,
 /turf/open/floor/churchmarble,
 /area/rogue/under/cavewet)
 "tr" = (
@@ -646,7 +646,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/under/cavewet)
 "CV" = (
-/obj/structure/mineral_door/wood/donjon/stone,
+/obj/structure/door/stone,
 /turf/open/floor/churchmarble,
 /area/rogue/under/cavewet)
 "DB" = (
@@ -1045,7 +1045,7 @@
 /turf/open/floor/blocks,
 /area/rogue/under/cavewet)
 "RQ" = (
-/obj/structure/mineral_door/bars,
+/obj/structure/door/iron/bars,
 /turf/open/floor/metal{
 	dir = 1
 	},

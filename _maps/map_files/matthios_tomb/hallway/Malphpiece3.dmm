@@ -23,7 +23,7 @@
 "i" = (
 /obj/structure/fluff/walldeco/vinez/l,
 /obj/structure/fluff/walldeco/vinez/r,
-/obj/structure/mineral_door/wood/violet,
+/obj/structure/door/violet,
 /turf/open/floor/cobblerock/alt,
 /area/rogue/outdoors/caves)
 "l" = (
@@ -33,7 +33,7 @@
 "m" = (
 /obj/structure/fluff/walldeco/vinez/r,
 /obj/structure/fluff/walldeco/vinez/l,
-/obj/structure/mineral_door/wood/violet,
+/obj/structure/door/violet,
 /turf/open/floor/cobblerock/alt,
 /area/rogue/outdoors/caves)
 "n" = (
@@ -50,7 +50,7 @@
 /turf/open/floor/churchmarble,
 /area/rogue/outdoors/caves)
 "q" = (
-/obj/structure/mineral_door/wood/violet,
+/obj/structure/door/violet,
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/cobblerock/alt,
 /area/rogue/outdoors/caves)
@@ -100,12 +100,12 @@
 /turf/open/floor/churchmarble,
 /area/rogue/outdoors/caves)
 "B" = (
-/obj/structure/mineral_door/wood/violet,
+/obj/structure/door/violet,
 /obj/structure/spider/stickyweb,
 /turf/open/floor/churchmarble,
 /area/rogue/outdoors/caves)
 "C" = (
-/obj/structure/mineral_door/wood/violet,
+/obj/structure/door/violet,
 /obj/effect/dungeon_directional_helper/east,
 /turf/open/floor/cobblerock/alt,
 /area/rogue/outdoors/caves)

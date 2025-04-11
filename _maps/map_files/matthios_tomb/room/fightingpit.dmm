@@ -11,7 +11,7 @@
 /turf/closed/mineral/bedrock,
 /area/rogue/under/cavewet)
 "es" = (
-/obj/structure/mineral_door/wood/donjon{
+/obj/structure/door/viewport{
 	dir = 8
 	},
 /turf/open/floor/metal,
@@ -205,7 +205,7 @@
 /turf/open/floor/metal,
 /area/rogue/under/cavewet)
 "MC" = (
-/obj/structure/mineral_door/wood,
+/obj/structure/door,
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/under/cavewet)
 "Nb" = (
@@ -220,7 +220,7 @@
 /turf/open/floor/dirt,
 /area/rogue/under/cavewet)
 "OI" = (
-/obj/structure/mineral_door/wood/donjon{
+/obj/structure/door/viewport{
 	dir = 4
 	},
 /turf/open/floor/metal,

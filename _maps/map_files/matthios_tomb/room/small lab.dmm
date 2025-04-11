@@ -45,7 +45,7 @@
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/under/cave)
 "cz" = (
-/obj/structure/mineral_door/swing_door,
+/obj/structure/door/swing,
 /turf/open/floor/cobblerock,
 /area/rogue/under/cave)
 "cD" = (
@@ -353,9 +353,8 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/cave)
 "MK" = (
-/obj/structure/mineral_door/bars{
-	locked = 1
-	},
+/obj/structure/door/iron/bars,
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/under/cave)
 "Qb" = (
@@ -419,9 +418,8 @@
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/under/cave)
 "ZJ" = (
-/obj/structure/mineral_door/wood/violet{
-	locked = 1
-	},
+/obj/structure/door/violet,
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/cobblerock,
 /area/rogue/under/cave)
 "ZL" = (

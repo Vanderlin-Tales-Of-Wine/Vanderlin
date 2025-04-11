@@ -201,9 +201,6 @@
 	dir = 4
 	},
 /area/rogue/outdoors/rtfield)
-"Ha" = (
-/turf/closed/mineral/bedrock,
-/area/rogue/outdoors/rtfield)
 "Hp" = (
 /obj/structure/fluff/traveltile{
 	aportalid = "rwfielddecap";
@@ -33710,7 +33707,7 @@ rY
 rY
 rY
 rY
-Ha
+rY
 "}
 (2,1,3) = {"
 rY

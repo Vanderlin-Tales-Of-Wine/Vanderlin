@@ -370,7 +370,7 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cavewet)
 "it" = (
-/obj/structure/mineral_door/wood{
+/obj/structure/door{
 	lockid = "Ship3"
 	},
 /turf/open/floor/ruinedwood/darker,
@@ -594,7 +594,7 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cavewet)
 "nw" = (
-/obj/structure/mineral_door/wood,
+/obj/structure/door,
 /obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/ruinedwood,
 /area/rogue/under/cavewet)
@@ -702,7 +702,7 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cavewet)
 "qT" = (
-/obj/structure/mineral_door/wood,
+/obj/structure/door,
 /turf/open/floor/ruinedwood,
 /area/rogue/under/cavewet)
 "rh" = (
@@ -1830,7 +1830,7 @@
 	},
 /area/rogue/under/cavewet)
 "TN" = (
-/obj/structure/mineral_door/wood,
+/obj/structure/door,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cavewet)
 "TW" = (
@@ -2001,7 +2001,7 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cavewet)
 "Yb" = (
-/obj/structure/mineral_door/wood{
+/obj/structure/door{
 	lockid = "Ship3"
 	},
 /turf/open/floor/ruinedwood,

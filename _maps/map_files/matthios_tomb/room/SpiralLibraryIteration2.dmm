@@ -124,7 +124,7 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/shelter)
 "oO" = (
-/obj/structure/mineral_door/wood/violet,
+/obj/structure/door/violet,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/shelter)
 "ps" = (
@@ -132,7 +132,7 @@
 /turf/closed/wall/mineral/underbrick,
 /area/rogue/indoors/shelter)
 "qk" = (
-/obj/structure/mineral_door/wood/violet,
+/obj/structure/door/violet,
 /turf/open/floor/churchrough,
 /area/rogue/indoors/shelter)
 "rq" = (

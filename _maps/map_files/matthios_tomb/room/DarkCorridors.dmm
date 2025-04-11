@@ -40,7 +40,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/cave)
 "dc" = (
-/obj/structure/mineral_door/wood/violet,
+/obj/structure/door/violet,
 /turf/open/floor/cobble,
 /area/rogue/under/cave)
 "dw" = (
@@ -272,7 +272,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/cave)
 "wH" = (
-/obj/structure/mineral_door/wood/deadbolt,
+/obj/structure/door/weak/bolt,
 /turf/open/floor/cobble,
 /area/rogue/under/cave)
 "wJ" = (
@@ -506,7 +506,7 @@
 /turf/open/transparent/openspace,
 /area/rogue)
 "Rn" = (
-/obj/structure/mineral_door/bars,
+/obj/structure/door/iron/bars,
 /turf/open/floor/grass,
 /area/rogue)
 "RF" = (
@@ -535,7 +535,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue)
 "UW" = (
-/obj/structure/mineral_door/wood/donjon/stone,
+/obj/structure/door/stone,
 /turf/open/floor/cobble,
 /area/rogue)
 "Vk" = (

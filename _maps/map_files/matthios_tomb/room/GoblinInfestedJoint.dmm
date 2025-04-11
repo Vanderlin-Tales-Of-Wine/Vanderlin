@@ -283,7 +283,7 @@
 /turf/open/floor/cobble/alt,
 /area/rogue/indoors/shelter)
 "lh" = (
-/obj/structure/mineral_door/wood,
+/obj/structure/door,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cave/spider)
 "lp" = (
@@ -293,7 +293,7 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "lx" = (
-/obj/structure/mineral_door/bars,
+/obj/structure/door/iron/bars,
 /turf/open/floor/cobblerock,
 /area/rogue/under/cave)
 "lJ" = (
@@ -411,11 +411,11 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave/spider)
 "qz" = (
-/obj/structure/mineral_door/wood/donjon{
-	locked = 1;
+/obj/structure/door/viewport{
 	lockid = "forrestgarrison";
 	dir = 4
 	},
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/cobble,
 /area/rogue/indoors/shelter)
 "rm" = (
@@ -545,7 +545,7 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "uL" = (
-/obj/structure/mineral_door/wood,
+/obj/structure/door,
 /turf/open/floor/ruinedwood/turned,
 /area/rogue/indoors/shelter)
 "uS" = (
@@ -875,7 +875,7 @@
 /turf/open/floor/blocks,
 /area/rogue/under/cave)
 "ID" = (
-/obj/structure/mineral_door/bars,
+/obj/structure/door/iron/bars,
 /turf/open/floor/dirt,
 /area/rogue/under/cave)
 "IH" = (
@@ -1099,7 +1099,7 @@
 /turf/open/floor/cobble/alt,
 /area/rogue/indoors/shelter)
 "Qn" = (
-/obj/structure/mineral_door/wood/violet,
+/obj/structure/door/violet,
 /obj/effect/decal/cleanable/food/flour,
 /obj/item/candle/yellow{
 	pixel_x = -3;
@@ -1183,7 +1183,7 @@
 /turf/open/floor/ruinedwood/turned,
 /area/rogue/indoors/shelter)
 "SB" = (
-/obj/structure/mineral_door/bars,
+/obj/structure/door/iron/bars,
 /turf/open/floor/grass,
 /area/rogue/under/cave)
 "SL" = (
@@ -1317,7 +1317,7 @@
 /turf/closed/wall/mineral/decostone/cand,
 /area/rogue/indoors/shelter)
 "Yj" = (
-/obj/structure/mineral_door/bars,
+/obj/structure/door/iron/bars,
 /turf/open/floor/blocks,
 /area/rogue/under/cave)
 "Yq" = (
@@ -1325,7 +1325,7 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "Yy" = (
-/obj/structure/mineral_door/wood/violet,
+/obj/structure/door/violet,
 /turf/open/floor/blocks,
 /area/rogue/indoors/shelter)
 "YF" = (

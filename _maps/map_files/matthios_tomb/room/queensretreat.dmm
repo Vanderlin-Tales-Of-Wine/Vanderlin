@@ -159,11 +159,11 @@
 	},
 /area/rogue/indoors/shelter)
 "gB" = (
-/obj/structure/mineral_door/wood/violet{
+/obj/structure/door/violet{
 	name = "Reading Room";
-	lockid = "manor";
-	locked = 1
+	lockid = "manor"
 	},
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/carpet/lord/center,
 /area/rogue/indoors/shelter)
 "gK" = (
@@ -426,11 +426,11 @@
 /turf/open/floor/cobble/mossy,
 /area/rogue/under/cave)
 "tF" = (
-/obj/structure/mineral_door/wood/violet{
+/obj/structure/door/violet{
 	name = "Hall";
-	lockid = "manor";
-	locked = 1
+	lockid = "manor"
 	},
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/hexstone,
 /area/rogue/indoors/shelter)
 "tG" = (
@@ -440,11 +440,11 @@
 /turf/open/floor/dirt,
 /area/rogue/under/cave)
 "tH" = (
-/obj/structure/mineral_door/wood/violet{
+/obj/structure/door/violet{
 	name = "Kitchen";
-	lockid = "manor";
-	locked = 1
+	lockid = "manor"
 	},
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/tile,
 /area/rogue/indoors/shelter)
 "tX" = (
@@ -984,11 +984,11 @@
 	},
 /area/rogue/indoors/shelter)
 "Ow" = (
-/obj/structure/mineral_door/wood/violet{
+/obj/structure/door/violet{
 	name = "Bedroom";
-	lockid = "merchant";
-	locked = 1
+	lockid = "merchant"
 	},
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/shelter)
 "OE" = (
@@ -1027,11 +1027,11 @@
 /turf/open/floor/tile/bath,
 /area/rogue/indoors/shelter)
 "QP" = (
-/obj/structure/mineral_door/wood/violet{
-	locked = 1;
+/obj/structure/door/violet{
 	lockid = "nightmaiden";
 	name = "Storage"
 	},
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/tile,
 /area/rogue/indoors/shelter)
 "QQ" = (
@@ -1068,11 +1068,11 @@
 	},
 /area/rogue/indoors/shelter)
 "RL" = (
-/obj/structure/mineral_door/wood/violet{
+/obj/structure/door/violet{
 	name = "Bath";
-	lockid = "manor";
-	locked = 1
+	lockid = "manor"
 	},
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/tile/bath,
 /area/rogue/indoors/shelter)
 "Su" = (
@@ -1220,11 +1220,11 @@
 	},
 /area/rogue/indoors/shelter)
 "Zt" = (
-/obj/structure/mineral_door/wood/violet{
+/obj/structure/door/violet{
 	name = "Queens Retreat";
-	lockid = "manor";
-	locked = 1
+	lockid = "manor"
 	},
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/carpet/lord/center,
 /area/rogue/indoors/shelter)
 "Zu" = (

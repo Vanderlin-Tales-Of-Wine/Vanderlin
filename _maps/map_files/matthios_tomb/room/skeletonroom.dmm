@@ -31,10 +31,10 @@
 /turf/open/floor/wood,
 /area/rogue/under/cave)
 "hZ" = (
-/obj/structure/mineral_door/wood/deadbolt{
-	dir = 8;
-	locked = 1
+/obj/structure/door/weak/bolt{
+	dir = 8
 	},
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "kB" = (
@@ -47,9 +47,8 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "ms" = (
-/obj/structure/mineral_door/wood/deadbolt{
-	locked = 1
-	},
+/obj/structure/door/weak/bolt,
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "oQ" = (
@@ -62,10 +61,10 @@
 	},
 /area/rogue/under/cave)
 "rp" = (
-/obj/structure/mineral_door/wood/deadbolt{
-	dir = 4;
-	locked = 1
+/obj/structure/door/weak/bolt{
+	dir = 4
 	},
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "sE" = (
@@ -92,10 +91,10 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "vj" = (
-/obj/structure/mineral_door/wood/deadbolt{
-	dir = 1;
-	locked = 1
+/obj/structure/door/weak/bolt{
+	dir = 1
 	},
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "vv" = (
@@ -199,10 +198,10 @@
 /turf/open/floor/wood,
 /area/rogue/under/cave)
 "KU" = (
-/obj/structure/mineral_door/wood/deadbolt{
-	dir = 1;
-	locked = 1
+/obj/structure/door/weak/bolt{
+	dir = 1
 	},
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/hexstone{
 	dir = 1
 	},

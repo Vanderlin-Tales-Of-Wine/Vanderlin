@@ -57,7 +57,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave)
 "L" = (
-/obj/structure/mineral_door/wood/donjon/stone,
+/obj/structure/door/stone,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/shelter)
 "M" = (

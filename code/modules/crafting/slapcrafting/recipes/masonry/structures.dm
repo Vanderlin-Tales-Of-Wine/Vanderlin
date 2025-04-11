@@ -65,7 +65,7 @@
 		/datum/slapcraft_step/item/stone/second,
 		/datum/slapcraft_step/use_item/masonry/hammer
 	)
-	result_type = /obj/structure/mineral_door/wood/donjon/stone
+	result_type = /obj/structure/door/stone
 
 /datum/slapcraft_recipe/masonry/structure/stonetable_small
 	name = "stone table"
