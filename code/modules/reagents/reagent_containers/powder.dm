@@ -273,5 +273,3 @@
 	volume = 20
 	sellprice = 0
 	color = COLOR_PALE_GREEN_GRAY
-
-/obj/item/reagent_containers/powder/manabloom
