@@ -8,7 +8,7 @@
 	wallclimb = TRUE
 	explosion_block = 10
 	damage_deflection = 0
-	icon = 'icons/turf/roguewall.dmi'
+	icon = 'icons/turf/walls.dmi'
 
 	var/smooth_icon = null
 	var/last_event = 0

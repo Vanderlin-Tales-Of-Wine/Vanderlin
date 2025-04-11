@@ -246,7 +246,7 @@
 /turf/closed/indestructible/wooddark
 	name = "wall"
 	desc = ""
-	icon = 'icons/turf/roguewall.dmi'
+	icon = 'icons/turf/walls.dmi'
 	icon_state = "corner"
 
 /turf/closed/indestructible/roguewindow
