@@ -9434,10 +9434,6 @@
 	},
 /turf/open/floor/church,
 /area/rogue/indoors/town/church)
-"gqd" = (
-/obj/structure/flora/grass/water,
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/river)
 "gqo" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 4
@@ -99924,7 +99920,7 @@ mIt
 cYY
 xYa
 xYa
-gqd
+xYa
 xYa
 xYa
 xYa
@@ -100124,7 +100120,7 @@ cGr
 nNL
 kdk
 cYY
-gqd
+xYa
 xYa
 mgj
 xYa
@@ -100327,9 +100323,9 @@ cYY
 cYY
 cYY
 xYa
-gqd
 xYa
-gqd
+xYa
+xYa
 xYa
 xYa
 xYa
