@@ -50,7 +50,7 @@
 
 /datum/repeatable_crafting_recipe/narcotics/mandrake_paste	//not really a narcotic but it uses alchemy skill so /me shrugs
 	name = "Mandrake Paste"
-	output = /obj/item/reagent_containers/powder/spice
+	output = /obj/item/natural/paste/mandrake
 	requirements = list(
 		/obj/item/ash = 1,
 		/obj/item/reagent_containers/powder/mandrake_flour = 1,

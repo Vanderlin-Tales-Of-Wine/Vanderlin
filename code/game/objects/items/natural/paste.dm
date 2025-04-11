@@ -40,3 +40,14 @@
 		user.visible_message("<span class='notice'>[user] smears paste onto [user.p_their()] [affecting].</span>", "<span class='notice'>I smear paste onto my [affecting].</span>")
 	else
 		user.visible_message("<span class='notice'>[user] smears paste onto [M]'s [affecting].</span>", "<span class='notice'>I smear paste onto [M]'s [affecting].</span>")
+
+/obj/item/natural/paste/mandrake
+	name = "mandrake paste"
+	desc = "Paste made from mandrake and manabloom, known for its restorative properties, especially for burns."
+	possible_item_intents = list(/datum/intent/use)
+	force = 0
+	throwforce = 0
+	resistance_flags = FLAMMABLE
+	body_parts_covered = null
+	max_integrity = 10
+	w_class = WEIGHT_CLASS_TINY
