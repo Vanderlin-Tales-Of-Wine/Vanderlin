@@ -15,13 +15,7 @@
 
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_IMMORTAL)
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Aasimar"
-	)
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 
 	outfit = /datum/outfit/job/guardsman	//Default outfit.
 	advclass_cat_rolls = list(CTAG_GARRISON = 20)	//Handles class selection.
@@ -44,7 +38,7 @@
 /datum/outfit/job/guardsman/pre_equip(mob/living/carbon/human/H)
 	. = ..()
 	cloak = pick(/obj/item/clothing/cloak/half/guard, /obj/item/clothing/cloak/half/guardsecond)
-	head = pick(/obj/item/clothing/head/helmet/townwatch, /obj/item/clothing/head/helmet/townwatch/alt)
+	head = /obj/item/clothing/head/helmet/townwatch
 	pants = /obj/item/clothing/pants/trou/leather/guard
 	wrists = /obj/item/rope/chain
 	shoes = /obj/item/clothing/shoes/boots

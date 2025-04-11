@@ -13,17 +13,7 @@
 	min_pq = 1
 
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Half-Orc",
-		"Aasimar",
-		"Rakshari"
-	)
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 
 	outfit = /datum/outfit/job/noble
 	apprentice_name = "Servant"
@@ -55,7 +45,7 @@
 	backl = /obj/item/storage/backpack/satchel
 	neck = /obj/item/storage/belt/pouch/coins/veryrich
 	belt = /obj/item/storage/belt/leather
-	id = /obj/item/clothing/ring/silver
+	ring = /obj/item/clothing/ring/silver
 	if(H.gender == FEMALE)
 		H.change_stat(STATKEY_SPD, 1)
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)

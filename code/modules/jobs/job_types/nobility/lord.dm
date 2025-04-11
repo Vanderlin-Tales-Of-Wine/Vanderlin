@@ -25,7 +25,8 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	allowed_races = list(
 		"Humen",
 		"Elf",
-		"Half-Elf"
+		"Half-Elf",
+		"Dwarf"
 	)
 	outfit = /datum/outfit/job/lord
 	bypass_lastclass = TRUE
@@ -67,7 +68,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	backr = /obj/item/storage/backpack/satchel
 	belt = /obj/item/storage/belt/leather/plaquegold
 	backpack_contents = list(/obj/item/weapon/knife/dagger/steel/special = 1)
-	id = /obj/item/clothing/ring/active/nomag
+	ring = /obj/item/clothing/ring/active/nomag
 	l_hand = /obj/item/weapon/lordscepter
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)

@@ -24,7 +24,6 @@ GLOBAL_LIST_EMPTY(admin_warp)
 GLOBAL_LIST_EMPTY(vlord_starts)
 GLOBAL_LIST_EMPTY(vspawn_starts)
 GLOBAL_LIST_EMPTY(dknight_starts)
-GLOBAL_LIST_EMPTY(vlordspawn_starts)
 GLOBAL_LIST_EMPTY(delf_starts)
 GLOBAL_LIST_EMPTY(newplayer_start)
 GLOBAL_LIST_EMPTY(prisonwarp)	//admin prisoners go to these
@@ -37,6 +36,9 @@ GLOBAL_LIST_EMPTY(testportals)
 GLOBAL_LIST_EMPTY(traveltiles)
 GLOBAL_LIST_EMPTY(emergencyresponseteamspawn)
 GLOBAL_LIST_EMPTY(ruin_landmarks)
+
+/// List of all the maps that have been cached for /proc/load_map
+GLOBAL_LIST_EMPTY(cached_maps)
 
 	//used by jump-to-area etc. Updated by area/updateName()
 GLOBAL_LIST_EMPTY(sortedAreas)

@@ -3,7 +3,7 @@
 	greet_text = "You are the Lord of Heartfelt, ruler of a once-prosperous barony now in ruin. Guided by your Magos, you journey to Vanderlin, seeking aid to restore your domain to its former glory, or perhaps claim a new throne."
 	outfit = /datum/outfit/job/heartfelt/lord
 	allowed_sexes = list(MALE)
-	allowed_races = list("Humen")
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	grant_lit_torch = TRUE
 
 /datum/outfit/job/heartfelt/lord/pre_equip(mob/living/carbon/human/H)
@@ -51,7 +51,7 @@
 	greet_text = "You are the Lady of Heartfelt, once a respected noblewoman now struggling to survive in a desolate landscape. With your home in ruins, you look to Vanderlin, hoping to find new purpose or refuge amidst the chaos."
 	outfit = /datum/outfit/job/heartfelt/lady
 	allowed_sexes = list(FEMALE)
-	allowed_races = list("Humen")
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	grant_lit_torch = TRUE
 
 /datum/outfit/job/heartfelt/lady/pre_equip(mob/living/carbon/human/H)
@@ -68,7 +68,7 @@
 			armor = /obj/item/clothing/armor/gambeson/heavy/dress
 	beltl = /obj/item/flashlight/flare/torch/lantern
 	beltr =  /obj/item/storage/belt/pouch
-	id = /obj/item/clothing/ring/silver
+	ring = /obj/item/clothing/ring/silver
 	shoes = /obj/item/clothing/shoes/shortboots
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/misc/stealing, 4, TRUE)
@@ -93,7 +93,7 @@
 	name = "Hand of Heartfelt"
 	greet_text = "You are the Hand of Heartfelt, burdened by the perception of failure in protecting your Lord's domain. Despite doubts from others, your loyalty remains steadfast as you journey to Vanderlin, determined to fulfill your duties."
 	outfit = /datum/outfit/job/heartfelt/hand
-	allowed_races = list("Humen")
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	grant_lit_torch = TRUE
 
 /datum/outfit/job/heartfelt/hand/pre_equip(mob/living/carbon/human/H)
@@ -134,7 +134,7 @@
 	name = "Knight of Heartfelt"
 	greet_text = "You are a Knight of Heartfelt, once part of a brotherhood in service to your Lord. Now, alone and committed to safeguarding what remains of your court, you ride to Vanderlin, resolved to ensure their safe arrival."
 	outfit = /datum/outfit/job/heartfelt/knight
-	allowed_races = list("Humen")
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	grant_lit_torch = TRUE
 /datum/outfit/job/heartfelt/knight/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -217,7 +217,7 @@
 	belt = /obj/item/storage/belt/leather/plaquesilver
 	beltl = /obj/item/flashlight/flare/torch/lantern
 	beltr = /obj/item/book/granter/spellbook/expert
-	id = /obj/item/clothing/ring/gold
+	ring = /obj/item/clothing/ring/gold
 	r_hand = /obj/item/weapon/polearm/woodstaff
 	backl = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/reagent_containers/glass/bottle/poison,/obj/item/reagent_containers/glass/bottle/healthpot)
@@ -257,7 +257,7 @@
 	name = "Prior of Heartfelt"
 	greet_text = "The Prior of Heartfelt, you were destined for ascension within the Church, but fate intervened with the barony's downfall, delaying it indefinitely. Still guided by the blessings of Astrata, you journey to Vanderlin, determined to offer what aid and solace you can."
 	outfit = /datum/outfit/job/heartfelt/prior
-	allowed_races = list("Humen")
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	grant_lit_torch = TRUE
 /datum/outfit/job/heartfelt/prior
 	allowed_patrons = list(/datum/patron/divine/astrata)
