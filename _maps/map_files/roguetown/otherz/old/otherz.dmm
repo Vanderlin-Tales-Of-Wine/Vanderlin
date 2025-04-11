@@ -334,9 +334,6 @@
 	},
 /turf/closed/mineral/bedrock,
 /area/rogue)
-"bD" = (
-/turf/closed/mineral/random/high,
-/area/rogue/under/cavelava)
 "bE" = (
 /turf/open/floor/dirt,
 /area/rogue/under/cavewet)
@@ -369,7 +366,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/woods)
 "cp" = (
-/turf/closed/wall/shroud,
+/turf/closed/mineral,
 /area/rogue/outdoors/woods)
 "cP" = (
 /turf/open/lava,
@@ -396,7 +393,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/bog)
 "Dk" = (
-/turf/closed/wall/shroud,
+/turf/closed/mineral,
 /area/rogue/outdoors/bog)
 
 (1,1,1) = {"
@@ -65452,7 +65449,7 @@ av
 av
 av
 av
-bD
+av
 ay
 av
 av

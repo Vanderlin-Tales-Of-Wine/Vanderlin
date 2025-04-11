@@ -1,15 +1,12 @@
 /turf/closed/wall/mineral
-	canSmoothWith = null
-	desc = ""
-	smooth = SMOOTH_FALSE
-	smooth_diag = FALSE
-	sheet_type = null
+	icon = 'icons/turf/roguewall.dmi'
 	baseturfs = list(/turf/open/floor/dirt/road)
 	wallclimb = TRUE
 	explosion_block = 10
 	damage_deflection = 0
-	icon = 'icons/turf/roguewall.dmi'
-
+	smoothing_flags = NONE
+	smoothing_groups = null
+	canSmoothWith = null
 	var/smooth_icon = null
 	var/last_event = 0
 	var/active = null

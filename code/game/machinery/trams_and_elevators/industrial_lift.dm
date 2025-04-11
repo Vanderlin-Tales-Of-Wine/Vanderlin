@@ -711,7 +711,6 @@ GLOBAL_LIST_INIT(all_radial_directions, list(
 
 // A subtype intended for "public use"
 /obj/structure/industrial_lift/public
-	canSmoothWith = null
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	warns_on_down_movement = TRUE
 	violent_landing = FALSE
@@ -767,7 +766,6 @@ GLOBAL_LIST_INIT(all_radial_directions, list(
 /obj/structure/industrial_lift/tram
 	name = "tram"
 	desc = "A tram for tramversing the station."
-	canSmoothWith = null
 	obj_flags = BLOCK_Z_OUT_DOWN
 	//kind of a centerpiece of the station, so pretty tough to destroy
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF

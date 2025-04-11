@@ -17,7 +17,7 @@
 	barefootstep = FOOTSTEP_LAVA
 	clawfootstep = FOOTSTEP_LAVA
 	heavyfootstep = FOOTSTEP_LAVA
-	smooth = SMOOTH_TRUE
+	smoothing_flags = SMOOTH_CORNERS
 	canSmoothWith = list(/turf/closed, /turf/open/floor/volcanic, /turf/open/floor/dirt, /turf/open/floor/dirt/road,/turf/open/floor/naturalstone)
 	neighborlay_override = "lavedge"
 	turf_flags = NONE
@@ -159,12 +159,13 @@
 				L.IgniteMob()
 				if(L.health <= 0)
 					L.dust(drop_items = TRUE)
+
 /turf/open/lava/smooth
 	name = "lava"
 	baseturfs = /turf/open/lava/smooth
 	icon = 'icons/turf/floors/lava.dmi'
 	icon_state = "unsmooth"
-	smooth = SMOOTH_MORE | SMOOTH_BORDER
+	smoothing_flags = SMOOTH_CORNERS | SMOOTH_BORDER
 	canSmoothWith = list(/turf/open/lava/smooth)
 
 /turf/open/lava/acid

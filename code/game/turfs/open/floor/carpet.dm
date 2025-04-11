@@ -1,10 +1,10 @@
 /turf/open/floor/carpet
 	name = "carpet"
-	desc = ""
 	icon = 'icons/turf/floors/inn.dmi'
 	icon_state = "carpet"
 	broken_states = list("damaged")
-	smooth = SMOOTH_FALSE
+	smoothing_flags = NONE
+	smoothing_groups = null
 	canSmoothWith = null
 	flags_1 = NONE
 	bullet_bounce_sound = null
@@ -16,10 +16,6 @@
 
 	spread_chance = 15
 
-/turf/open/floor/carpet/examine(mob/user)
-	. = ..()
-//	. += "<span class='notice'>There's a <b>small crack</b> on the edge of it.</span>"
-
 /turf/open/floor/carpet/Initialize()
 	. = ..()
 	update_icon()
@@ -28,33 +24,36 @@
 	if(!..())
 		return 0
 	if(!broken && !burnt)
-		if(smooth)
-			queue_smooth(src)
+		if(smoothing_flags)
+			QUEUE_SMOOTH(src)
 	else
 		make_plating()
-		if(smooth)
-			queue_smooth_neighbors(src)
+		if(smoothing_flags)
+			QUEUE_SMOOTH_NEIGHBORS(src)
 
 /turf/open/floor/carpet/purple
 	icon = 'icons/turf/floors/carpet_purple.dmi'
-	canSmoothWith = list(/turf/open/floor/carpet/purple)
-	smooth = SMOOTH_TRUE
+	smoothing_flags = SMOOTH_CORNERS
+	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN, SMOOTH_GROUP_CARPET_PURPLE)
+	canSmoothWith = list(SMOOTH_GROUP_CARPET_PURPLE)
 
 /turf/open/floor/carpet/stellar
 	icon = 'icons/turf/floors/carpet_stellar.dmi'
-	canSmoothWith = list(/turf/open/floor/carpet/stellar)
-	smooth = SMOOTH_TRUE
+	smoothing_flags = SMOOTH_CORNERS
+	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN, SMOOTH_GROUP_CARPET_STELLAR)
+	canSmoothWith = list(SMOOTH_GROUP_CARPET_PURPLE)
 
 /turf/open/floor/carpet/red
 	icon = 'icons/turf/floors/carpet_red.dmi'
-	canSmoothWith = list(/turf/open/floor/carpet/red)
-	smooth = SMOOTH_TRUE
+	smoothing_flags = SMOOTH_CORNERS
+	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN, SMOOTH_GROUP_CARPET_RED)
+	canSmoothWith = list(SMOOTH_GROUP_CARPET_RED)
 
 /turf/open/floor/carpet/royalblack
 	icon = 'icons/turf/floors/carpet_royalblack.dmi'
-	canSmoothWith = list(/turf/open/floor/carpet/royalblack)
-	smooth = SMOOTH_TRUE
-
+	smoothing_flags = SMOOTH_CORNERS
+	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN, SMOOTH_GROUP_CARPET_ROYAL_BLACK)
+	canSmoothWith = list(SMOOTH_GROUP_CARPET_ROYAL_BLACK)
 
 /turf/open/floor/carpet/break_tile()
 	broken = TRUE

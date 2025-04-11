@@ -377,7 +377,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 
 	new_door.icon = source_turf.icon
 	new_door.icon_state = source_turf.icon_state
-	new_door.smooth = source_turf.smooth
+	new_door.smoothing_flags = source_turf.smoothing_flags
 	new_door.canSmoothWith = source_turf.canSmoothWith
 	new_door.name = source_turf.name
 	new_door.desc = source_turf.desc

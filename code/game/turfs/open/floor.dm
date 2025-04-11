@@ -6,9 +6,8 @@
 	desc = ""
 	icon = 'icons/turf/roguefloor.dmi'
 	baseturfs = /turf/open/transparent/openspace
-	smooth = SMOOTH_FALSE
+	smoothing_flags = NONE
 	neighborlay = ""
-	canSmoothWith = null
 	footstep = FOOTSTEP_FLOOR
 	barefootstep = FOOTSTEP_HARD_BAREFOOT
 	clawfootstep = FOOTSTEP_HARD_CLAW

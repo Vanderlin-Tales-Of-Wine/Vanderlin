@@ -18,9 +18,9 @@
 	if (!armor)
 		armor = list("blunt" = 0, "slash" = 0, "stab" = 0,  "piercing" = 0, "fire" = 50, "acid" = 50)
 	. = ..()
-	if(smooth)
-		queue_smooth(src)
-		queue_smooth_neighbors(src)
+	if(smoothing_flags)
+		QUEUE_SMOOTH(src)
+		QUEUE_SMOOTH_NEIGHBORS(src)
 		icon_state = ""
 	if(redstone_id)
 		GLOB.redstone_objs += src
@@ -50,8 +50,6 @@
 			O.redstone_attached -= src
 			redstone_attached -= O
 		GLOB.redstone_objs -= src
-//	if(smooth)
-//		queue_smooth_neighbors(src)
 	return ..()
 
 /obj/structure/attack_hand(mob/user)

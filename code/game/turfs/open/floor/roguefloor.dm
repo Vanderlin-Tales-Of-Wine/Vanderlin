@@ -7,7 +7,7 @@
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	tiled_dirt = FALSE
 	landsound = 'sound/foley/jumpland/woodland.wav'
-//	smooth = SMOOTH_MORE
+//	smoothing_flags = SMOOTH_CORNERS
 //	canSmoothWith = list(/turf/closed/mineral, /turf/closed/mineral, /turf/closed/wall/mineral/stonebrick, /turf/closed/wall/mineral/wood, /turf/closed/wall/mineral/wooddark, /turf/closed/wall/mineral/decowood, /turf/closed/wall/mineral/decostone, /turf/closed/wall/mineral/stone, /turf/closed/wall/mineral/stone/moss, /turf/open/floor/cobble, /turf/open/floor/dirt, /turf/open/floor/grass)
 	neighborlay = "dirtedge"
 	damage_deflection = 8
@@ -72,7 +72,7 @@
 	clawfootstep = FOOTSTEP_WOOD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	tiled_dirt = FALSE
-	smooth = SMOOTH_MORE
+	smoothing_flags = SMOOTH_CORNERS
 	landsound = 'sound/foley/jumpland/woodland.wav'
 	canSmoothWith = list(/turf/open/floor/wood,
 						/turf/open/floor/woodturned,
@@ -82,7 +82,7 @@
 
 /turf/open/floor/wood/nosmooth //these are here so we can put wood floors next to each other but not have them smooth
 	icon_state = "woodsmooth"
-	smooth = SMOOTH_MORE
+	smoothing_flags = SMOOTH_CORNERS
 	canSmoothWith = list(/turf/open/floor/wood/nosmooth,
 						/turf/open/floor/woodturned/nosmooth,
 						/turf/open/floor/carpet)
@@ -103,7 +103,7 @@
 	icon = 'icons/turf/floors/wood_turned.dmi'
 	smooth_icon = 'icons/turf/floors/wood_turned.dmi'
 	icon_state = "wood"
-	smooth = SMOOTH_MORE
+	smoothing_flags = SMOOTH_CORNERS
 	canSmoothWith = list(/turf/open/floor/woodturned,
 						/turf/open/floor/wood,
 						/turf/open/floor/carpet)
@@ -120,7 +120,7 @@
 
 /turf/open/floor/woodturned/nosmooth
 	icon_state = "woodsmooth"
-	smooth = SMOOTH_MORE
+	smoothing_flags = SMOOTH_CORNERS
 	canSmoothWith = list(/turf/open/floor/woodturned/nosmooth,
 						/turf/open/floor/wood/nosmooth,
 						/turf/open/floor/carpet)
@@ -171,7 +171,7 @@
 	landsound = 'sound/foley/jumpland/grassland.wav'
 	slowdown = 0
 	neighborlay = "grassedge"
-	smooth = SMOOTH_TRUE
+	smoothing_flags = SMOOTH_TRUE
 	canSmoothWith = list(
 						/turf/open/floor/snow,
 						/turf/open/floor/snow/patchy,
@@ -262,7 +262,7 @@
 	tiled_dirt = FALSE
 	landsound = 'sound/foley/jumpland/grassland.wav'
 	slowdown = 0
-	smooth = SMOOTH_TRUE
+	smoothing_flags = SMOOTH_TRUE
 	canSmoothWith = list(/turf/open/floor/snow,
 						/turf/open/floor/snow/rough)
 	neighborlay = "snowedge"
@@ -279,7 +279,7 @@
 	name = "rough snow"
 	desc = "A rugged blanket of snow."
 	icon_state = "snowrough"
-	smooth = SMOOTH_TRUE
+	smoothing_flags = SMOOTH_TRUE
 	canSmoothWith = list(/turf/open/floor/snow,
 						/turf/open/floor/snow/rough)
 	neighborlay = "snowroughedge"
@@ -304,7 +304,7 @@
 	tiled_dirt = FALSE
 	landsound = 'sound/foley/jumpland/grassland.wav'
 	slowdown = 0
-	smooth = SMOOTH_TRUE
+	smoothing_flags = SMOOTH_TRUE
 	canSmoothWith = list(/turf/open/floor/snow,
 						/turf/open/floor/snow/rough)
 	neighborlay = "snowpatchy_grassedge"
@@ -324,7 +324,7 @@
 	tiled_dirt = FALSE
 	landsound = 'sound/foley/jumpland/dirtland.wav'
 	slowdown = 2
-	smooth = SMOOTH_MORE
+	smoothing_flags = SMOOTH_CORNERS
 	canSmoothWith = list(/turf/open/floor/grass,
 						/turf/open/floor/snow)
 
@@ -439,7 +439,7 @@
 	desc = "The dirt is pocked with the scars of countless steps."
 	icon_state = "road"
 	footstep = FOOTSTEP_SAND
-	smooth = SMOOTH_TRUE
+	smoothing_flags = SMOOTH_TRUE
 	canSmoothWith = list(/turf/open/floor,
 						/turf/closed/mineral,
 						/turf/closed/wall/mineral)
@@ -523,7 +523,7 @@
 		if(P == /turf/open/floor/dirt/road)
 			continue
 		canSmoothWith += P
-//	queue_smooth(src)
+//	QUEUE_SMOOTH(src)
 	. = ..()
 
 /turf/open/floor/dirt/turf_destruction(damage_flag)
@@ -540,7 +540,7 @@
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	tiled_dirt = FALSE
 	landsound = 'sound/foley/jumpland/dirtland.wav'
-	smooth = SMOOTH_TRUE
+	smoothing_flags = SMOOTH_TRUE
 	canSmoothWith = list(/turf/open/floor,
 						/turf/closed/mineral,
 						/turf/closed/wall/mineral)
@@ -560,7 +560,7 @@
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	tiled_dirt = FALSE
 	landsound = 'sound/foley/jumpland/dirtland.wav'
-	smooth = SMOOTH_TRUE
+	smoothing_flags = SMOOTH_TRUE
 	canSmoothWith = list(/turf/open/floor,
 						/turf/closed/mineral,
 						/turf/closed/wall/mineral)
@@ -580,7 +580,7 @@
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	tiled_dirt = FALSE
 	landsound = 'sound/foley/jumpland/dirtland.wav'
-	smooth = SMOOTH_FALSE
+	smoothing_flags = NONE
 	slowdown = 50
 
 /turf/open/floor/underworld/space/sparkle_quiet
@@ -604,7 +604,7 @@
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	tiled_dirt = FALSE
 	landsound = 'sound/foley/jumpland/dirtland.wav'
-	smooth = SMOOTH_TRUE
+	smoothing_flags = SMOOTH_TRUE
 	canSmoothWith = list(/turf/open/floor/dirt/road,
 						/turf/open/floor/dirt)
 	neighborlay = "lavedge"
@@ -621,7 +621,7 @@
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	landsound = 'sound/foley/jumpland/stoneland.wav'
-	smooth = SMOOTH_MORE
+	smoothing_flags = SMOOTH_CORNERS
 	canSmoothWith = list(/turf/closed/mineral,
 						/turf/open/floor/cobble,
 						/turf/open/floor/cobblerock,
@@ -686,7 +686,7 @@
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	landsound = 'sound/foley/jumpland/stoneland.wav'
-	smooth = SMOOTH_MORE
+	smoothing_flags = SMOOTH_CORNERS
 	canSmoothWith = list(/turf/closed/mineral,
 						/turf/open/floor/herringbone,
 						/turf/open/floor/dirt,
@@ -717,7 +717,7 @@
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	landsound = 'sound/foley/jumpland/stoneland.wav'
-	smooth = SMOOTH_MORE
+	smoothing_flags = SMOOTH_CORNERS
 	canSmoothWith = list(/turf/closed/mineral,
 						/turf/open/floor/herringbone,
 						/turf/open/floor/dirt,
@@ -747,7 +747,7 @@
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	landsound = 'sound/foley/jumpland/stoneland.wav'
-	smooth = SMOOTH_MORE
+	smoothing_flags = SMOOTH_CORNERS
 	canSmoothWith = list(/turf/closed/mineral,
 						/turf/open/floor/herringbone,
 						/turf/open/floor/dirt,
@@ -776,7 +776,7 @@
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	landsound = 'sound/foley/jumpland/stoneland.wav'
-	smooth = SMOOTH_MORE
+	smoothing_flags = SMOOTH_CORNERS
 	canSmoothWith = list(/turf/closed/mineral,
 						/turf/open/floor/herringbone,
 						/turf/open/floor/dirt,
@@ -805,7 +805,7 @@
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	landsound = 'sound/foley/jumpland/stoneland.wav'
-	smooth = SMOOTH_MORE
+	smoothing_flags = SMOOTH_CORNERS
 	canSmoothWith = list(/turf/closed/mineral,
 						/turf/open/floor/herringbone,
 						/turf/open/floor/dirt,
@@ -835,7 +835,7 @@
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	landsound = 'sound/foley/jumpland/stoneland.wav'
 	neighborlay = "herringedge"
-	smooth = SMOOTH_TRUE
+	smoothing_flags = SMOOTH_TRUE
 	canSmoothWith = list(/turf/open/floor/herringbone,
 						/turf/open/floor/dirt,
 						/turf/open/floor/grass,
@@ -873,7 +873,7 @@
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	landsound = 'sound/foley/jumpland/stoneland.wav'
 	neighborlay = "cobbleedge"
-	smooth = SMOOTH_TRUE
+	smoothing_flags = SMOOTH_TRUE
 	canSmoothWith = list(/turf/open/floor/dirt,
 						/turf/open/floor/grass,
 						/turf/open/floor/grass/cold,
@@ -939,7 +939,7 @@
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	landsound = 'sound/foley/jumpland/stoneland.wav'
 	neighborlay = "cobblerock"
-	smooth = SMOOTH_TRUE
+	smoothing_flags = SMOOTH_TRUE
 	canSmoothWith = list(/turf/open/floor/dirt,
 						/turf/open/floor/grass,
 						/turf/open/floor/grass/cold,
@@ -1002,7 +1002,7 @@
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	footstepstealth = TRUE
-	smooth = SMOOTH_MORE
+	smoothing_flags = SMOOTH_CORNERS
 	canSmoothWith = list(/turf/closed/mineral,
 						/turf/open/floor/cobble,
 						/turf/open/floor/cobblerock,
@@ -1044,7 +1044,7 @@
 	barefootstep = FOOTSTEP_HARD_BAREFOOT
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
-	smooth = SMOOTH_MORE
+	smoothing_flags = SMOOTH_CORNERS
 	canSmoothWith = list(/turf/closed/mineral,
 						/turf/open/floor/cobble,
 						/turf/open/floor/cobblerock,
@@ -1075,7 +1075,7 @@
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	footstepstealth = TRUE
-	smooth = SMOOTH_MORE
+	smoothing_flags = SMOOTH_CORNERS
 	canSmoothWith = list(/turf/closed/mineral,
 						/turf/open/floor/cobble,
 						/turf/open/floor/cobblerock,
@@ -1107,7 +1107,7 @@
 	barefootstep = FOOTSTEP_SOFT_BAREFOOT
 	clawfootstep = FOOTSTEP_SOFT_BAREFOOT
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
-	smooth = SMOOTH_MORE
+	smoothing_flags = SMOOTH_CORNERS
 	canSmoothWith = list(/turf/closed/mineral,
 						/turf/open/floor/cobble,
 						/turf/open/floor/cobblerock,

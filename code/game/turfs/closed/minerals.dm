@@ -6,9 +6,10 @@
 	icon = 'icons/turf/roguewall.dmi'
 	icon_state = "rockyash"
 	var/smooth_icon = 'icons/turf/walls/cwall.dmi'
-	smooth = SMOOTH_TRUE | SMOOTH_MORE
+	smoothing_flags = SMOOTH_CORNERS
+	smoothing_groups = list(SMOOTH_GROUP_CLOSED, SMOOTH_GROUP_MINERAL_WALLS)
+	canSmoothWith = list(SMOOTH_GROUP_MINERAL_WALLS)
 	wallclimb = TRUE
-	canSmoothWith = list(/turf/closed/mineral/random, /turf/closed/mineral)
 	baseturfs = /turf/open/floor/naturalstone
 	above_floor = /turf/open/floor/naturalstone
 	opacity = 1
@@ -33,11 +34,6 @@
 	neighborlay = "dirtedge"
 
 /turf/closed/mineral/Initialize()
-	if (!canSmoothWith)
-		canSmoothWith = list(/turf/closed/mineral, /turf/closed/indestructible)
-//	var/matrix/M = new
-//	M.Translate(-4, -4)
-//	transform = M
 	icon = smooth_icon
 	. = ..()
 
@@ -103,7 +99,7 @@
 		var/obj/item/natural/rock/explo_rock = rockType
 		ScrapeAway()
 		GLOB.mined_resource_loc |= get_turf(src)
-		queue_smooth_neighbors(src)
+		QUEUE_SMOOTH_NEIGHBORS(src)
 		new /obj/item/natural/stone(src)
 		if(prob(30))
 			new /obj/item/natural/stone(src)
@@ -121,7 +117,7 @@
 	//		to_chat(lastminer, span_notice("Bonus ducks!"))
 			new mineralType(src)
 		gets_drilled(lastminer, give_exp = FALSE)
-		queue_smooth_neighbors(src)
+		QUEUE_SMOOTH_NEIGHBORS(src)
 	..()
 
 /turf/closed/mineral/proc/gets_drilled(mob/living/user, triggered_by_explosion = FALSE, give_exp = TRUE)
@@ -198,13 +194,14 @@
 	desc = "Seems barren."
 	icon = 'icons/turf/roguewall.dmi'
 	icon_state = "minrandbad"
-	smooth = SMOOTH_TRUE | SMOOTH_MORE
 	smooth_icon = 'icons/turf/walls/cwall.dmi'
-	wallclimb = TRUE
-	canSmoothWith = list(/turf/closed/mineral/random, /turf/closed/mineral)
+	smoothing_flags = SMOOTH_CORNERS
+	smoothing_groups = list(SMOOTH_GROUP_CLOSED, SMOOTH_GROUP_MINERAL_WALLS)
+	canSmoothWith = list(SMOOTH_GROUP_MINERAL_WALLS)
 	turf_type = /turf/open/floor/naturalstone
 	above_floor = /turf/open/floor/naturalstone
 	baseturfs = list(/turf/open/floor/naturalstone)
+	wallclimb = TRUE
 	max_integrity = 400
 	///if this isn't empty, swaps to one of them via pickweight
 	var/list/mineralSpawnChanceList = list(/turf/closed/mineral/salt = 20, /turf/closed/mineral/copper = 15, ,/turf/closed/mineral/tin = 12, /turf/closed/mineral/iron = 5, /turf/closed/mineral/coal = 5)

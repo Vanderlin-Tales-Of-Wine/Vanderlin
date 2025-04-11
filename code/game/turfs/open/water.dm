@@ -25,7 +25,7 @@
 	var/obj/effect/overlay/water/top/water_top_overlay
 	bullet_sizzle = TRUE
 	bullet_bounce_sound = null //needs a splashing sound one day.
-	smooth = SMOOTH_MORE
+	smoothing_flags = SMOOTH_CORNERS
 	canSmoothWith = list(/turf/closed/mineral,/turf/closed/wall/mineral, /turf/open/floor)
 	footstep = null
 	barefootstep = null
@@ -142,7 +142,7 @@
 			water_overlay = new(src)
 		if(!water_top_overlay)
 			water_top_overlay = new(src)
-			queue_smooth(src)
+			QUEUE_SMOOTH(src)
 
 	if(!river_processes)
 		icon_state = "together"
@@ -243,7 +243,7 @@
 			water_overlay = new()
 		if(!water_top_overlay)
 			water_top_overlay = new()
-			queue_smooth(src)
+			QUEUE_SMOOTH(src)
 
 	if(water_overlay)
 		water_overlay.color = water_reagent.color
@@ -696,7 +696,7 @@
 			water_overlay = new(src)
 		if(!water_top_overlay)
 			water_top_overlay = new(src)
-			queue_smooth(src)
+			QUEUE_SMOOTH(src)
 
 	if(water_overlay)
 		water_overlay.color = water_reagent.color

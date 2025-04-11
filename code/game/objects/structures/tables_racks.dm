@@ -31,16 +31,17 @@
 	var/deconstruction_ready = 1
 	max_integrity = 100
 	integrity_failure = 0.33
-	smooth = SMOOTH_TRUE
-	canSmoothWith = list(/obj/structure/table)
+	smoothing_flags = NONE
+	smoothing_groups = null
+	canSmoothWith = null
 	destroy_sound = 'sound/combat/hits/onwood/destroyfurniture.ogg'
 	attacked_sound = list('sound/combat/hits/onwood/woodimpact (1).ogg','sound/combat/hits/onwood/woodimpact (2).ogg')
 	blade_dulling = DULLING_BASHCHOP
 
 /obj/structure/table/update_icon()
-	if(smooth)
-		queue_smooth(src)
-		queue_smooth_neighbors(src)
+	if(smoothing_flags)
+		QUEUE_SMOOTH(src)
+		QUEUE_SMOOTH_NEIGHBORS(src)
 
 /obj/structure/table/narsie_act()
 	var/atom/A = loc
@@ -211,15 +212,12 @@
  * Wooden tables
  */
 
-
 /obj/structure/table/wood
 	name = "wooden table"
-	desc = ""
 	icon = 'icons/roguetown/misc/tables.dmi'
 	icon_state = "tablewood"
 	resistance_flags = FLAMMABLE
 	max_integrity = 70
-	smooth = 0
 	debris = list(/obj/item/grown/log/tree/small = 1)
 	climb_offset = 10
 
@@ -236,24 +234,11 @@
 	if(!total_override)
 		..()
 
-/obj/structure/table/wood
-	name = "wooden table"
-	desc = ""
-	icon = 'icons/roguetown/misc/tables.dmi'
-	icon_state = "tablewood"
-	resistance_flags = FLAMMABLE
-	max_integrity = 70
-	smooth = 0
-	debris = list(/obj/item/grown/log/tree/small = 1)
-	climb_offset = 10
-
 /obj/structure/table/church
 	name = "stone table"
-	desc = ""
 	icon = 'icons/roguetown/misc/tables.dmi'
 	icon_state = "churchtable"
 	max_integrity = 300
-	smooth = 0
 	climb_offset = 10
 	debris = list(/obj/item/natural/stone = 1)
 
@@ -263,21 +248,17 @@
 
 /obj/structure/table/stone_small
 	name = "stone table"
-	desc = ""
 	icon = 'icons/roguetown/misc/tables.dmi'
 	icon_state = "stonetable_small"
 	max_integrity = 300
-	smooth = 0
 	climb_offset = 10
 	debris = list(/obj/item/natural/stone = 1)
 
 /obj/structure/table/vtable
 	name = "ancient wooden table"
-	desc = ""
 	icon = 'icons/roguetown/misc/tables.dmi'
 	icon_state = "vtable"
 	max_integrity = 300
-	smooth = 0
 	climb_offset = 10
 	debris = list(/obj/item/grown/log/tree/small = 1)
 
@@ -328,46 +309,24 @@
 	icon_state = "largetable_alt2"
 
 /obj/structure/table/wood/fine
-	name = "wooden table"
-	desc = ""
 	icon = 'icons/roguetown/misc/tables.dmi'
 	icon_state = "tablefine"
 	resistance_flags = FLAMMABLE
 	max_integrity = 40
-	smooth = 0
 	debris = list(/obj/item/grown/log/tree/small = 2)
 	climb_offset = 10
 
 /obj/structure/table/wood/nice
-	name = "wooden table"
-	desc = ""
 	icon = 'icons/roguetown/misc/tables.dmi'
 	icon_state = "tablefine2"
 
-/obj/structure/table/wood/poker //No specialties, Just a mapping object.
-	name = "gambling table"
-	desc = ""
-	icon = 'icons/obj/smooth_structures/poker_table.dmi'
-	icon_state = "poker_table"
-
-/obj/structure/table/wood/poker/narsie_act()
-	..(FALSE)
-
 /obj/structure/table/wood/fancy
 	name = "fancy table"
-	desc = ""
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "fancy_table"
-	canSmoothWith = list(/obj/structure/table/wood/fancy,
-		/obj/structure/table/wood/fancy/black,
-		/obj/structure/table/wood/fancy/blue,
-		/obj/structure/table/wood/fancy/cyan,
-		/obj/structure/table/wood/fancy/green,
-		/obj/structure/table/wood/fancy/orange,
-		/obj/structure/table/wood/fancy/purple,
-		/obj/structure/table/wood/fancy/red,
-		/obj/structure/table/wood/fancy/royalblack,
-		/obj/structure/table/wood/fancy/royalblue)
+	smoothing_flags = SMOOTH_CORNERS
+	smoothing_groups = list(SMOOTH_GROUP_FANCY_WOOD_TABLES)
+	canSmoothWith = list(SMOOTH_GROUP_FANCY_WOOD_TABLES)
 	var/smooth_icon = 'icons/obj/smooth_structures/fancy_table.dmi' // see Initialize()
 
 /obj/structure/table/wood/fancy/Initialize()
@@ -555,7 +514,6 @@
 	desc = ""
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "optable"
-	smooth = SMOOTH_FALSE
 	can_buckle = 1
 	buckle_lying = -1
 	buckle_requires_restraints = 1
