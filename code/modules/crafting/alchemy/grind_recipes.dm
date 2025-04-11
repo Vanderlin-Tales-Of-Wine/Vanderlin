@@ -140,6 +140,14 @@
 	bonus_chance_outputs = list(/obj/item/alch/irondust = 33)
 
 //Herb -> Herbseed
+/datum/alch_grind_recipe/mandrake_seed
+	valid_input = /obj/item/reagent_containers/food/snacks/produce/mandrake
+	valid_outputs = list(/obj/item/herbseed/mandrake = 1)
+
+/datum/alch_grind_recipe/mandrake_flour
+	valid_input = /obj/item/reagent_containers/food/snacks/veg/mandrake_sliced
+	valid_outputs = list(/obj/item/herbseed/mandrake = 1)
+
 /datum/alch_grind_recipe/atropa_seed
 	valid_input = /obj/item/alch/atropa
 	valid_outputs = list(/obj/item/herbseed/atropa = 1)
