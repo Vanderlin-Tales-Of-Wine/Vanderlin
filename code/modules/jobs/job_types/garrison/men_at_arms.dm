@@ -35,9 +35,19 @@
 	shoes = /obj/item/clothing/shoes/boots
 	belt = /obj/item/storage/belt/leather
 	beltl = /obj/item/storage/keyring/manorguard
+	cloak = /obj/item/clothing/cloak/stabard/guard
 
 /datum/job/men_at_arms/after_spawn(mob/living/carbon/spawned, client/player_client)
 	..()
+	var/mob/living/carbon/human/H = spawned
+	if(istype(H.cloak, /obj/item/clothing/cloak/stabard/guard))
+		var/obj/item/clothing/S = H.cloak
+		var/index = findtext(H.real_name, " ")
+		if(index)
+			index = copytext(H.real_name, 1, index)
+		if(!index)
+			index = H.real_name
+		S.name = "[S.name] ([index])"
 
 /datum/advclass/menatarms/watchman_pikeman
 	name = "Pikeman Men-At-Arms"
@@ -51,11 +61,10 @@
 
 /datum/outfit/job/watchman/pikeman/pre_equip(mob/living/carbon/human/H)
 	..()
-	head = /obj/item/clothing/head/helmet/kettle
-	cloak = /obj/item/clothing/cloak/stabard/guard
+	head = /obj/item/clothing/head/helmet/kettle/slit
 	armor = /obj/item/clothing/armor/cuirass
 	shirt = /obj/item/clothing/armor/chainmail
-	neck = /obj/item/clothing/neck/chaincoif/iron
+	neck = /obj/item/clothing/neck/bevor
 	gloves = /obj/item/clothing/gloves/chain
 	beltr = /obj/item/weapon/sword/arming
 	backr = /obj/item/weapon/polearm/spear/billhook
@@ -94,7 +103,6 @@
 /datum/outfit/job/watchman/swordsmen/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = pick(/obj/item/clothing/head/roguehood/guard, /obj/item/clothing/head/roguehood/guardsecond)
-	cloak = /obj/item/clothing/cloak/stabard/guard
 	armor = /obj/item/clothing/armor/leather/advanced
 	shirt = /obj/item/clothing/armor/gambeson
 	neck = /obj/item/clothing/neck/gorget
@@ -132,11 +140,10 @@
 /datum/outfit/job/watchman/ranger/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/helmet/kettle
-	cloak = /obj/item/clothing/cloak/stabard/guard
 	armor = /obj/item/clothing/armor/leather/hide
 	shirt = /obj/item/clothing/armor/gambeson/heavy
 	beltr = /obj/item/weapon/mace/cudgel
-	neck = /obj/item/clothing/neck/chaincoif/iron
+	neck = /obj/item/clothing/neck/bevor
 	gloves = /obj/item/clothing/gloves/leather
 	backpack_contents = list(/obj/item/weapon/knife/dagger/steel/special)
 	if(H.mind)
