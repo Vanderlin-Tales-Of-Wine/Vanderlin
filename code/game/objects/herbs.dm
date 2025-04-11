@@ -170,4 +170,4 @@
 /obj/structure/flora/grass/herb/mandrake
 	name = "mandrake"
 	icon_state = "mandrake"
-	herbtype = /obj/item/alch/mandrake
+	herbtype = /obj/item/reagent_containers/food/snacks/produce/mandrake
