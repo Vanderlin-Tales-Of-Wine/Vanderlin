@@ -7,7 +7,7 @@
 	name = "amethyst transmutation"
 	output = /obj/item/gem/amethyst
 	reagent_requirements = list(
-		/datum/reagent/medicine/manapot/weak = 15
+		/datum/reagent/medicine/manapot = 15
 	)
 	requirements = list(
 		/obj/item/natural/stone = TRUE
