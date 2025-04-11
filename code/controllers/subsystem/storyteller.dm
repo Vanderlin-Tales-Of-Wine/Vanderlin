@@ -1146,6 +1146,14 @@ SUBSYSTEM_DEF(gamemode)
 				if(family_role in list(FAMILY_FATHER, FAMILY_MOTHER))
 					GLOB.vanderlin_round_stats[STATS_PARENTS]++
 
+/// Returns follower modifier for the given storyteller
+/datum/controller/subsystem/gamemode/proc/get_storyteller_follower_modifier(datum/storyteller/chosen_storyteller)
+	var/datum/storyteller/initalized_storyteller = storytellers[chosen_storyteller]
+	if(!initalized_storyteller)
+		return
+
+	return initalized_storyteller.follower_modifier
+
 /// Returns influence value for a given storyteller for his given statistic
 /datum/controller/subsystem/gamemode/proc/calculate_specific_influence(datum/storyteller/chosen_storyteller, statistic)
 	var/datum/storyteller/initalized_storyteller = storytellers[chosen_storyteller]
@@ -1172,7 +1180,7 @@ SUBSYSTEM_DEF(gamemode)
 	if(!initalized_storyteller)
 		return
 
-	var/total_influence = get_patron_followers_numbers(initalized_storyteller.name, roundstart) * 10
+	var/total_influence = get_patron_followers_numbers(initalized_storyteller.name, roundstart) * initalized_storyteller.follower_modifier
 	for(var/influence_factor in initalized_storyteller.influence_factors)
 		total_influence += calculate_specific_influence(chosen_storyteller, influence_factor)
 	return total_influence

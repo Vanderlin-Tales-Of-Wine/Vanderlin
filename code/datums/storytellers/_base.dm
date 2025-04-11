@@ -1,3 +1,4 @@
+#define STANDARD_FOLLOWER_MODIFIER 15
 
 ///The storyteller datum. He operates with the SSgamemode data to run events
 /datum/storyteller
@@ -64,6 +65,8 @@
 	var/weight = 0
 	/// Influence factors, which are used to calculate storyteller influence. List of lists, which looks like RELEVANT_STATS = list(point gain, max capacity)
 	var/influence_factors = list()
+	/// How many influence points storyteller gets for each follower
+	var/follower_modifier = STANDARD_FOLLOWER_MODIFIER
 
 /datum/storyteller/process()
 	if(!round_started || disable_distribution) // we are differing roundstarted ones until base roundstart so we can get cooler stuff
