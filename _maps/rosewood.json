@@ -11,7 +11,7 @@
 	],
 	"other_z": [
 		"_maps/map_files/rosewood/rosewood_forest.json",
-		"_maps/map_files/rosewood/rosewood_mountains.json",
+		"_maps/map_files/rosewood/rosewood_mountain.json",
 		"_maps/map_files/vanderlin/vanderlin_bog.json"
 	],
 	"minetype": null,
