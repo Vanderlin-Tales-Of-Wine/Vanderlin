@@ -30,7 +30,7 @@
 			choicez += "GOLD"
 		if(amt >= 5)
 			choicez += "SILVER"
-		if(amt >= 1) choicez += "BRONZE"
+		if(amt > 1) choicez += "BRONZE"
 		var/selection = input(user, "Make a Selection", src) as null|anything in choicez
 		if(!selection)
 			return
