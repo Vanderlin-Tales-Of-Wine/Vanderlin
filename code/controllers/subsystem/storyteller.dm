@@ -1112,6 +1112,7 @@ SUBSYSTEM_DEF(gamemode)
 	GLOB.vanderlin_round_stats[STATS_KLEPTOMANIACS] = 0
 	GLOB.vanderlin_round_stats[STATS_GREEDY_PEOPLE] = 0
 	GLOB.vanderlin_round_stats[STATS_PARENTS] = 0
+	GLOB.vanderlin_round_stats[STATS_ALIVE_TIEFLINGS] = 0
 
 	for(var/client/client in GLOB.clients)
 		var/mob/living/living = client.mob
@@ -1141,6 +1142,8 @@ SUBSYSTEM_DEF(gamemode)
 				GLOB.vanderlin_round_stats[STATS_KLEPTOMANIACS]++
 			if(human_mob.has_flaw(/datum/charflaw/greedy))
 				GLOB.vanderlin_round_stats[STATS_GREEDY_PEOPLE]++
+			if(istiefling(human_mob))
+				GLOB.vanderlin_round_stats[STATS_ALIVE_TIEFLINGS]++
 			if(human_mob.family_datum)
 				var/family_role = human_mob.family_datum.family[human_mob]
 				if(family_role in list(FAMILY_FATHER, FAMILY_MOTHER))

@@ -61,7 +61,7 @@
 		STATS_BLOOD_SPILT = list("points" = 0.00025, "capacity" = 100),
 		STATS_FISH_CAUGHT = list("points" = 2, "capacity" = 100),
 		STATS_ABYSSOR_REMEMBERED = list("points" = 1, "capacity" = 40),
-		STATS_LEECHES_EMBEDDED = list("points" = 0.5, "capacity" = 60),
+		STATS_LEECHES_EMBEDDED = list("points" = 0.25, "capacity" = 60),
 	)
 
 /datum/storyteller/xylix

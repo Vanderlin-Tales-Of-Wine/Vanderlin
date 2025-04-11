@@ -272,7 +272,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	var/list/data = list()
 
 	// Navigation buttons
-	data += "<div style='width: 90%; margin: 0 auto 30px; display: flex; justify-content: center; gap: 20px;'>"
+	data += "<div style='width: 91.5%; margin: 0 auto 30px; display: flex; justify-content: center; gap: 20px;'>"
 	data += "<a href='byond://?src=[REF(src)];viewstats=1' style='padding: 12px 24px; background: #282828; border: 2px solid #404040; color: #d0d0d0; font-weight: bold; text-decoration: none; border-radius: 4px;'>STATISTICS</a>"
 	data += "<a href='byond://?src=[REF(src)];viewinfluences=1' style='padding: 12px 24px; background: #282828; border: 2px solid #404040; color: #d0d0d0; font-weight: bold; text-decoration: none; border-radius: 4px;'>INFLUENCES</a>"
 	data += "</div>"
@@ -303,7 +303,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 			if(istype(current_human.patron, /datum/patron/psydon))
 				psydonite_monarch = TRUE
 
-	var/psydon_influence = (psydon_followers * 20) + (GLOB.confessors.len * 20) + (GLOB.vanderlin_round_stats[STATS_HUMEN_DEATHS] * -20) + (psydonite_monarch ? (psydonite_monarch * 500) : -250) + (psycross_users * 10) + (apostasy_followers * -25) + (psydonite_user ? 10000 : -10000)
+	var/psydon_influence = (psydon_followers * 20) + (GLOB.confessors.len * 20) + (GLOB.vanderlin_round_stats[STATS_HUMEN_DEATHS] * -20) + (GLOB.vanderlin_round_stats[STATS_ALIVE_TIEFLINGS] * -15) + (psydonite_monarch ? (psydonite_monarch * 500) : -250) + (psycross_users * 10) + (apostasy_followers * -25) + (psydonite_user ? 10000 : -10000)
 
 	data += "<div style='width: 42.5%; margin: 0 auto 30px; border: 2px solid #2f6c7a; background: #1d4a54; color: #d0d0d0; max-height: 420px;'>"
 	data += "<div style='text-align: center; font-size: 1.3em; padding: 12px;'><b>PSYDON</b></div>"
@@ -321,6 +321,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	data += "<div style='flex: 1; padding-left: 60px;'>"
 	data += "Number of apostates: [apostasy_followers] ([get_colored_influence_value(apostasy_followers * -25)])<br>"
 	data += "Humen deaths: [GLOB.vanderlin_round_stats[STATS_HUMEN_DEATHS]] ([get_colored_influence_value(GLOB.vanderlin_round_stats[STATS_HUMEN_DEATHS] * -20)])<br>"
+	data += "Number of demonspawns: [GLOB.vanderlin_round_stats[STATS_ALIVE_TIEFLINGS]] ([get_colored_influence_value(GLOB.vanderlin_round_stats[STATS_ALIVE_TIEFLINGS] * -15)])<br>"
 	data += "God's status: [psydonite_user ? "ALIVE" : "DEAD"] ([get_colored_influence_value(psydonite_user ? 10000 : -10000)])<br>"
 	data += "</div>"
 
@@ -354,9 +355,9 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	var/eora_storyteller = /datum/storyteller/eora
 
 	data += "<div style='text-align: center; font-size: 1.3em; color: #c0a828; margin: 20px 0 10px 0;'><b>THE TEN</b></div>"
-	data += "<div style='border-top: 3px solid #404040; margin: 0 auto 30px; width: 90%;'></div>"
+	data += "<div style='border-top: 3px solid #404040; margin: 0 auto 30px; width: 91.5%;'></div>"
 
-	data += "<div style='width: 90%; margin: 0 auto 40px;'>"
+	data += "<div style='width: 91.5%; margin: 0 auto 40px;'>"
 	data += "<div style='display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; margin-bottom: 30px;'>"
 
 	// Astrata
@@ -396,7 +397,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		Number of followers: [dendor_followers] ([get_colored_influence_value(dendor_followers * SSgamemode.get_storyteller_follower_modifier(dendor_storyteller))])<br>\
 		Trees cut: [GLOB.vanderlin_round_stats[STATS_TREES_CUT]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(dendor_storyteller, STATS_TREES_CUT))])<br>\
 		Plants harvested: [GLOB.vanderlin_round_stats[STATS_PLANTS_HARVESTED]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(dendor_storyteller, STATS_PLANTS_HARVESTED))])<br>\
-		Number of werevolves: [GLOB.vanderlin_round_stats[STATS_WEREVOLVES]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(dendor_storyteller, STATS_WEREVOLVES))])<br>\
+		Number of verevolves: [GLOB.vanderlin_round_stats[STATS_WEREVOLVES]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(dendor_storyteller, STATS_WEREVOLVES))])<br>\
 		Sacrifices to Dendor: [GLOB.vanderlin_round_stats[STATS_DENDOR_SACRIFICES]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(dendor_storyteller, STATS_DENDOR_SACRIFICES))])", dendor_storyteller)
 
 	data += "</div>"
@@ -457,9 +458,9 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	var/matthios_storyteller = /datum/storyteller/matthios
 
 	data += "<div style='text-align: center; font-size: 1.3em; color: #AA0000; margin: 20px 0 10px 0;'><b>INHUMEN GODS</b></div>"
-	data += "<div style='border-top: 3px solid #404040; margin: 0 auto 30px; width: 90%;'></div>"
+	data += "<div style='border-top: 3px solid #404040; margin: 0 auto 30px; width: 91.5%;'></div>"
 
-	data += "<div style='width: 90%; margin: 0 auto;'>"
+	data += "<div style='width: 91.5%; margin: 0 auto;'>"
 	data += "<div style='display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 1fr; gap: 20px; margin-bottom: 20px;'>"
 
 	// Zizo
@@ -497,7 +498,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	data += "</div></div>"
 
 	src.mob << browse(null, "window=vanderlin_stats")
-	var/datum/browser/popup = new(src.mob, "vanderlin_influences", "<center>Gods influences</center>", 1250, 900)
+	var/datum/browser/popup = new(src.mob, "vanderlin_influences", "<center>Gods influences</center>", 1325, 875)
 	popup.set_content(data.Join())
 	popup.open()
 
