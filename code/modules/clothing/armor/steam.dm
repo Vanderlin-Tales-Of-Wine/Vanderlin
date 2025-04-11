@@ -22,6 +22,8 @@
 	prevent_crits = ALL_EXCEPT_STAB
 	max_integrity = INTEGRITY_STRONGEST
 
+	do_sound_plate = TRUE
+
 /obj/item/clothing/armor/steam/equipped(mob/living/user, slot)
 	if(!(slotdefine2slotbit(slot) & slot_flags))
 		return
