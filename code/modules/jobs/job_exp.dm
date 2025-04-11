@@ -220,11 +220,9 @@ GLOBAL_PROTECT(exp_to_update)
 		var/mob/living/living_mob = mob
 		var/list/mob_exp_list = living_mob.get_exp_list(minutes)
 		if(!length(mob_exp_list))
-			if(mob.mind.special_role && !(mob.mind.datum_flags & DF_VAR_EDITED))
-				var/trackedrole = mob.mind.special_role
-				play_records[trackedrole] += minutes
-		else
 			play_records["Unknown"] += minutes
+		else
+			play_records |= mob_exp_list
 
 		play_records[EXP_TYPE_LIVING] += minutes
 	// Lobby surfing? /mob/dead/new_player? Not worth any exp!
