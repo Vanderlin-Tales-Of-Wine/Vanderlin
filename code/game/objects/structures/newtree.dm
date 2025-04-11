@@ -409,6 +409,11 @@
 	density = FALSE
 	max_integrity = 10
 
+/obj/structure/flora/newleaf/attack_hand(mob/user)
+	if(isopenspace(loc))
+		user.attack_hand(loc) // so clicking leaves with an empty hand lets you climb down.
+	. = ..()
+
 /obj/structure/flora/newleaf/Initialize()
 	. = ..()
 	if(isnull(icon_state))

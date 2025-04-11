@@ -28,6 +28,8 @@ GLOBAL_LIST_INIT(turfs_without_ground, typecacheof(list(
 
 #define isopenturf(A) (istype(A, /turf/open))
 
+#define isopenspace(A) (istype(A, /turf/open/transparent/openspace))
+
 #define isindestructiblefloor(A) (istype(A, /turf/open/indestructible))
 
 #define isfloorturf(A) (istype(A, /turf/open/floor))
