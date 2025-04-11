@@ -435,6 +435,43 @@
 			qdel(I)
 	return ..()
 
+
+/*	.............   Fried mandrake   ................ */
+/obj/item/reagent_containers/food/snacks/mandrake_fried
+	name = "fried onion"
+	desc = "Roasted mandrake root. Not ideal, but better than starving."
+	icon_state = "mandrake_fried"
+	base_icon_state = "mandrake_fried"
+	biting = TRUE
+	list_reagents = list(/datum/reagent/consumable/nutriment = FRYVEGGIE_NUTRITION)
+	tastes = list("rich root" = 1)
+	rotprocess = SHELFLIFE_EXTREME
+	faretype = FARE_POOR
+	portable = FALSE
+
+/obj/item/reagent_containers/food/snacks/onion_fried/attackby(obj/item/I, mob/living/user, params)
+	if(user.mind)
+		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
+	if(modified)
+		return TRUE
+	if(bitecount >0)
+		to_chat(user, span_warning("Leftovers aren´t suitable for this."))
+		return TRUE
+	if(istype(I, /obj/item/reagent_containers/food/snacks/cooked/sausage) && (!modified))
+		if(do_after(user, short_cooktime, src))
+			name = "wiener and onions"
+			desc = "Stout and flavourful."
+			icon_state = "wieneronion"
+			base_icon_state = "wieneronion"
+			list_reagents = list(/datum/reagent/consumable/nutriment = SAUSAGE_NUTRITION+FRYVEGGIE_NUTRITION+1)
+			tastes = list("savory sausage" = 1, "fried onions" = 1)
+			foodtype = VEGETABLES | MEAT
+			faretype = FARE_NEUTRAL
+			meal_properties()
+			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
+			qdel(I)
+	return ..()
+
 /*	.............   Fried potato   ................ */
 /obj/item/reagent_containers/food/snacks/potato/fried
 	name = "fried potato"

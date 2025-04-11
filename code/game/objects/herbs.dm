@@ -166,3 +166,8 @@
 
 	herbtype = /obj/item/alch/artemisia
 
+/obj/structure/flora/grass/herb/mandrake
+	name = "mandrake"
+	icon_state = "mandrake"
+
+	herbtype = /obj/item/alch/mandrake

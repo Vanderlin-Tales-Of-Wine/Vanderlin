@@ -132,6 +132,10 @@
 	name = "fried onion"
 	scent = "fried onion"
 
+/datum/pollutant/food/fried_mandrake
+	name = "fried mandrake"
+	scent = "fried mandrake"
+
 /datum/pollutant/food/roasted_seeds
 	name = "roasted seeds"
 	scent = "roasted seeds"

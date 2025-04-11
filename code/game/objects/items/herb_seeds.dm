@@ -121,3 +121,7 @@
 /obj/item/herbseed/artemisia
 	makes_herb = /obj/structure/flora/grass/herb/artemisia
 	seed_identity = "artemisia seeds"
+
+/obj/item/herbseed/mandrake
+	makes_herb = /obj/structure/flora/grass/herb/mandrake
+	seed_identity = "mandrake seeds"
