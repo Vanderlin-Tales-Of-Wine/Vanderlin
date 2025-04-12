@@ -109,6 +109,13 @@
 /obj/machinery/light/fueled/torchholder/l,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon)
+"co" = (
+/obj/structure/mineral_door/wood/fancywood{
+	lockid = "manor";
+	name = "Manor"
+	},
+/turf/open/floor/cobble,
+/area/rogue/under/mountains/anvil/dungeon)
 "cr" = (
 /obj/machinery/light/fueled/torchholder/l,
 /obj/structure/handcart{
@@ -3238,6 +3245,11 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
+"Rf" = (
+/obj/item/reagent_containers/food/snacks/potato/baked,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/cobblerock,
+/area/rogue/under/mountains/anvil/dungeon/lower)
 "Rq" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/reagent_containers/food/snacks/smallrat,
@@ -3381,6 +3393,9 @@
 /obj/item/storage/belt/leather/plaquegold,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon)
+"Tp" = (
+/turf/closed/basic,
+/area/rogue/under/mountains/anvil/dungeon/lower)
 "Tx" = (
 /obj/structure/fluff/walldeco/moon,
 /obj/machinery/light/fueled/torchholder,
@@ -3689,13 +3704,6 @@
 "WZ" = (
 /turf/open/floor/carpet,
 /area/rogue/under/mountains/anvil/dungeon/lower)
-"Xa" = (
-/obj/structure/mineral_door/wood/fancywood{
-	lockid = "manor";
-	name = "Manor"
-	},
-/turf/open/floor/cobble,
-/area/rogue/under/mountains/anvil/dungeon)
 "Xc" = (
 /turf/closed/mineral/bedrock,
 /area/rogue/under/mountains/anvil/dungeon/lower)
@@ -5171,7 +5179,7 @@ FM
 Xc
 Xc
 Xc
-Xc
+Tp
 Xc
 Xc
 Xc
@@ -5306,7 +5314,7 @@ Xc
 Xc
 Xc
 FM
-xL
+Rf
 lJ
 eq
 Ds
@@ -10263,7 +10271,7 @@ gh
 eC
 vf
 im
-Xa
+co
 mA
 oR
 mA

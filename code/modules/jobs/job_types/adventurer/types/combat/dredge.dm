@@ -29,10 +29,32 @@
 	belt = /obj/item/storage/belt/leather
 	pants = /obj/item/clothing/pants/tights/black
 	backl = /obj/item/storage/backpack/satchel
+
+	if(H.dna.species.id == "human") // This statblock serves to smooth out racial stat-bonuses slightly. Makes room for the RNG to do its shitty work.
+		H.change_stat(STATKEY_END, -1)
+	if(H.dna.species.id == "dwarf")
+		H.change_stat(STATKEY_CON, -1)
+		H.change_stat(STATKEY_END, -1)
+	if(H.dna.species.id == "elf")
+		H.change_stat(STATKEY_SPD, -1)
+	if(H.dna.species.id == "aasimar")
+		H.change_stat(STATKEY_INT, -1)
+	if(H.dna.species.id == "tiefling")
+		H.change_stat(STATKEY_PER, -1)
+	if(H.dna.species.id == "halforc") // Get Fucked.
+		H.change_stat(STATKEY_STR, -1)
+		H.change_stat(STATKEY_CON, -1)
+	if(H.dna.species.id == "rakshari")
+		H.change_stat(STATKEY_SPD, -1)
+	if(H.dna.species.id == "kobold") // They have it bad enough as is... Oh my sweet lord do they have it bad.
+		H.change_stat(STATKEY_CON, 1)
+		H.change_stat(STATKEY_STR, 1)
+
 	var/armortype = pickweight(list("Warrior" = 4, "Splint" = 4, "HeavyG" = 4, "Hide" = 3, "Jacket" = 3, "Sailor" = 3, "Peon" = 3, "Ironplate" = 2, "Freak" = 3, "Psy" = 2, "Destitute" = 2, "Berserker" = 2, "Copper" = 1, "Noble" = 1, "BKnight" = 1)) // Armor / Armortype roll. It varies heavily. The more gimmicky / best stuff is generally the rarest
 	var/weapontype = pickweight(list("Axe" = 4, "BigAxe" = 3, "Mace" = 4, "Mage" = 1, "Shield" = 2, "BigMace" = 3, "Spear" = 3, "Messer" = 3, "LSword" = 3, "GSword" = 1, "Shovel" = 3, "Scythe" = 2, "Cutlass" = 3, "Falx" = 3, "Rapier" = 2, "Sword" = 4, "Sword2" = 3, "Flail" = 2, "Bow" = 1, "Fist" = 2, "Daggers" = 3, "MFlail" = 3, "Gun" = 1,)) // Weapon roll
 	var/randomjob = pickweight (list("Farmer" = 3, "Sailor" = 2, "Pickpocket" = 2, "Smith" = 2, "Fisher" = 3, "Doctor" = 2, "Steppes" = 2, "Smart" = 1, "Grappler" = 1, "Lumber" = 2, "Guard" = 2, "Bard" = 2, "Paranoiac" = 1, "Alch" = 2, "Torturer" = 1,)) // 'Job' roll, gives small skill benefits
 	var/randomperk = pickweight (list("Fat" = 3, "Normal" = 3, "Smartish" = 3, "Speedy" = 3, "Lucky" = 3, "Abyssor" = 2, "Packrat" = 2, "Strong" = 1, "Zizo" = 2, "Atheist" = 1, "Graggar" = 1, "Stupid" = 1, "Lockpicks" = 2, "Traps" = 2, "Ring" = 2, "Knives" = 2, "Heel" = 1, "Meek" = 2, "Invisible" = 2, "Zigs" = 2, "Ozium" = 2, "Bomb" = 1,)) // A random trait or a couple of items
+	var/randomtarot = pickweight (list("TFool" = 2, "TMagician" = 2, "THP" = 2, "TEmpress" = 2, "TEmperor" = 2, "THiero" = 2, "TLovers" = 2, "TChariot" = 2, "TStrength" = 2, "THermit" = 2, "JUSTICE" = 2, "THang" = 2, "TDeath" = 2, "TTemperance" = 2, "TDevil" = 2, "TTower" = 2, "TStar" = 2, "TMoon" = 2, "TSun" = 2, "TJudge" = 2, "TWorld" = 2,))
 	switch(armortype)
 		if("Warrior")
 			armor = /obj/item/clothing/armor/chainmail/iron
@@ -54,7 +76,6 @@
 			H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
 			H.change_stat(STATKEY_END, -1)
-			H.change_stat(STATKEY_STR, -1)
 			ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 			to_chat(H,span_info("\
 			I am a sellsword by trade. I've held a weapon in my hand for longer than I can remember.")
@@ -80,7 +101,6 @@
 			pants = /obj/item/clothing/pants/trou/leather
 			H.change_stat(STATKEY_LCK, 1)
 			H.change_stat(STATKEY_SPD, 1)
-			H.change_stat(STATKEY_CON, -1)
 			H.change_stat(STATKEY_STR, -1)
 			ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
@@ -95,7 +115,6 @@
 			pants = /obj/item/clothing/pants/tights/sailor
 			H.change_stat(STATKEY_LCK, 1)
 			H.change_stat(STATKEY_SPD, 2)
-			H.change_stat(STATKEY_CON, -1)
 			H.change_stat(STATKEY_STR, -2)
 			ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 			to_chat(H,span_info("\
@@ -121,7 +140,6 @@
 			pants = /obj/item/clothing/pants/trou/leather
 			H.change_stat(STATKEY_STR, 1)
 			H.change_stat(STATKEY_END, 1)
-			H.change_stat(STATKEY_SPD, -1)
 			ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 			to_chat(H,span_info("\
 			I'm just a humble peasant. My upbringing has left me ill-equipped for the journey ahead, but sturdier than most.")
@@ -131,7 +149,7 @@
 			gloves = /obj/item/clothing/gloves/leather/advanced
 			wrists = /obj/item/clothing/wrists/bracers/leather
 			pants = /obj/item/clothing/pants/tights/black
-			H.change_stat(STATKEY_STR, -2)
+			H.change_stat(STATKEY_STR, -1)
 			H.change_stat(STATKEY_END, 1)
 			H.change_stat(STATKEY_SPD, 1)
 			ADD_TRAIT(H, TRAIT_CRITICAL_RESISTANCE, TRAIT_GENERIC)
@@ -181,7 +199,7 @@
 			ADD_TRAIT(H, TRAIT_NOPAINSTUN, TRAIT_GENERIC)
 			H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/labor/butchering, 3, TRUE)
-			H.change_stat(STATKEY_CON, 1)
+			H.change_stat(STATKEY_CON, 2)
 			H.change_stat(STATKEY_INT, -2)
 			H.change_stat(STATKEY_SPD, -2)
 			to_chat(H,span_info("\
@@ -220,7 +238,7 @@
 			H.mind?.adjust_skillrank(/datum/skill/misc/reading, pick(2,3), TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/misc/music, 2, TRUE)
 			H.change_stat(STATKEY_INT, 2)
-			H.change_stat(STATKEY_END, -2)
+			H.change_stat(STATKEY_END, -1)
 			H.change_stat(STATKEY_CON, -1)
 			H.change_stat(STATKEY_SPD, 1)
 			ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
@@ -242,8 +260,8 @@
 			H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 2, TRUE) // fat
 			H.change_stat(STATKEY_CON, 1)
 			H.change_stat(STATKEY_STR, 1)
-			H.change_stat(STATKEY_PER, -3)
-			H.change_stat(STATKEY_SPD, -4)
+			H.change_stat(STATKEY_PER, -2)
+			H.change_stat(STATKEY_SPD, -3)
 			to_chat(H,span_info("\
 			I'm a champion amongst my people. Grab me, see what happens.")
 			)
@@ -258,11 +276,11 @@
 			H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE) // heavy armor user
 			ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC) // Keep this rare. Only a handful of armor users get this.
 			ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
-			H.change_stat(STATKEY_CON, 1)
-			H.change_stat(STATKEY_PER, -4)
-			H.change_stat(STATKEY_STR, 1)
-			H.change_stat(STATKEY_END, 1)
-			H.change_stat(STATKEY_SPD, -6)
+			H.change_stat(STATKEY_CON, 3)
+			H.change_stat(STATKEY_PER, -3)
+			H.change_stat(STATKEY_STR, 2)
+			H.change_stat(STATKEY_END, 2)
+			H.change_stat(STATKEY_SPD, -5)
 			var/prev_real_name = H.real_name
 			var/prev_name = H.name
 			var/honorary = "Black Knight"
@@ -509,7 +527,7 @@
 			)
 		if("Gun")
 			beltl = /obj/item/gun/ballistic/revolver/grenadelauncher/pistol
-			beltr = /obj/item/ammo_holder/bullet
+			beltr = /obj/item/storage/belt/pouch/bullets
 			r_hand = /obj/item/reagent_containers/glass/bottle/aflask
 			backpack_contents = list(/obj/item/reagent_containers/glass/bottle/aflask = 2)
 			H.mind?.adjust_skillrank(/datum/skill/combat/firearms, 3, TRUE)
@@ -704,7 +722,7 @@
 			H.change_stat(STATKEY_SPD, -3)
 			H.change_stat(STATKEY_INT, -2)
 			to_chat(H,span_info("\
-			YOU ARE UP AGAINST THE WALL, AND I AM THE FUCKING WALL! I'm more muscle than man!")
+			YOU ARE UP AGAINST THE WALL, AND I AM THE FUCKING WALL!")
 			)
 		if("Zizo")
 			H.change_stat(STATKEY_INT, 1)
@@ -794,4 +812,137 @@
 			backpack_contents = list(/obj/item/reagent_containers/powder/ozium = 2, /datum/supply_pack/tools/wpipe = 1, /obj/item/flint = 1)
 			to_chat(H,span_info("\
 			I smoke ozium.")
+			)
+	switch(randomtarot)
+		if("TFool")
+			H.change_stat(STATKEY_SPD, 1)
+			to_chat(H,span_info("\
+			THE FOOL: This is a chance for a new beginning. Starry-eyed, you are willing to brave the road of life.")
+			)
+		if("TMagician")
+			H.change_stat(STATKEY_INT, 1)
+			to_chat(H,span_info("\
+			THE MAGICIAN: Nothing in this life will hold you back. You have all the tools you need for victory, all you must do is reach out and grasp it.")
+			)
+		if("THP")
+			H.change_stat(STATKEY_PER, 1)
+			to_chat(H,span_info("\
+			THE HIGH PRIESTESS: Look inside, listen to yourself. The answers you seek already lie within. Seek not others, for they shall seek you.")
+			)
+		if("TEmpress")
+			H.change_stat(STATKEY_SPD, -1)
+			to_chat(H,span_info("\
+			THE EMPRESS: Around and within, you see and understand everything. Breathe, intake, exhale - you are one, and one is all.")
+			)
+		if("TEmperor")
+			H.change_stat(STATKEY_END, -1)
+			H.change_stat(STATKEY_CON, -1)
+			H.change_stat(STATKEY_STR, -1)
+			H.change_stat(STATKEY_INT, 1)
+			to_chat(H,span_info("\
+			THE EMPEROR: You know how much a life may cost, and thusly, you are the judge of it. Other men trust the little voice that chimes in your head.")
+			)
+		if("THiero")
+			H.change_stat(STATKEY_PER, -1)
+			to_chat(H,span_info("\
+			THE HIEROPHANT: From one source all things depend. And as such, you raise your head to the heavens, and soon know your next steps. One after the other.")
+			)
+		if("TLovers")
+			H.change_stat(STATKEY_END, -1)
+			to_chat(H,span_info("\
+			THE LOVERS: You are in a new place, you are a stranger in a strange land - you are at a crossroads, consider your destiny. Life is strengthened by the bonds we make.")
+			)
+		if("TChariot")
+			H.change_stat(STATKEY_SPD, 1)
+			H.change_stat(STATKEY_CON, -1)
+			to_chat(H,span_info("\
+			THE CHARIOT: Knowledge and mind, spirit and heart. Victory does not come only from meticulous planning, only through wisdom and purpose may you cleave a path forward.")
+			)
+		if("TStrength")
+			H.change_stat(STATKEY_STR, -1)
+			H.change_stat(STATKEY_CON, 1)
+			to_chat(H,span_info("\
+			STRENGTH: Two is one, and one is none. Even if you are alone, you will always have yourself. Whatever life throws at you, know that you will weather the storm.")
+			)
+		if("THermit")
+			H.change_stat(STATKEY_INT, 2)
+			H.change_stat(STATKEY_END, -2)
+			to_chat(H,span_info("\
+			THE HERMIT: Decisions must age like wine. Sometimes it is best to seal yourself away, and allow yourself to ruminate upon your thoughts. Your mind is your library.")
+			)
+		if("TWOF")
+			H.change_stat(STATKEY_LCK, 1)
+			to_chat(H,span_info("\
+			THE WHEEL OF FORTUNE: All castles made of sand fall into the sea. The only thing that matters is what is in the now. Heed the call of the game of life.")
+			)
+		if("JUSTICE")
+			H.change_stat(STATKEY_END, -2)
+			H.change_stat(STATKEY_SPD, 1)
+			to_chat(H,span_info("\
+			JUSTICE: Everything is a linear consequence, nothing is a momentary lapse of reason. Take heed and remember that every foul act is a dagger poised behind your back.")
+			)
+		if("THang")
+			H.change_stat(STATKEY_END, 1)
+			H.change_stat(STATKEY_LCK, -1)
+			to_chat(H,span_info("\
+			THE HANGED MAN: Sometimes great feats require small sacrifices.")
+			)
+		if("TDeath")
+			H.change_stat(STATKEY_CON, 1)
+			H.change_stat(STATKEY_STR, -1)
+			to_chat(H,span_info("\
+			DEATH: Leaving this world is not as scary as it sounds. Every ending is a new beginning. Leave not a cliffhanger.")
+			)
+		if("TTemperance")
+			H.change_stat(STATKEY_CON, -1)
+			H.change_stat(STATKEY_END, -1)
+			to_chat(H,span_info("\
+			TEMPERANCE: To live is to be in a raging current. Stay calm, await the branch that is encroaching. Not all are lucky enough to end up in this moment.")
+			)
+		if("TDevil")
+			H.change_stat(STATKEY_SPD, -1)
+			H.change_stat(STATKEY_LCK, -1)
+			H.change_stat(STATKEY_INT, 1)
+			to_chat(H,span_info("\
+			THE DEVIL: You are locked in the box of your own heart. Unbeknownst to you, the key lies in your own hands. All you need to do is open the door.")
+			)
+		if("TTower")
+			H.change_stat(STATKEY_CON, 1)
+			H.change_stat(STATKEY_STR, 1)
+			H.change_stat(STATKEY_INT, -2)
+			H.change_stat(STATKEY_SPD, -1)
+			to_chat(H,span_info("\
+			THE TOWER: To make a strong man, muscles must be broken, time must be made to allow the body to reform. The man dies, the idea does not.")
+			)
+		if("TStar")
+			H.change_stat(STATKEY_CON, 1)
+			H.change_stat(STATKEY_END, -1)
+			to_chat(H,span_info("\
+			THE STAR: Something out there is looking at your journey with hope. If your adventure truly was hopeless, you would be given a sign. Journey forward.")
+			)
+		if("TMoon")
+			H.change_stat(STATKEY_STR, 1)
+			H.change_stat(STATKEY_INT, -1)
+			to_chat(H,span_info("\
+			THE MOON: Inside is the doubt in your gut. Scream, let the world hear it - stoke the fire forth, and let your worries melt away.")
+			)
+		if("TSun")
+			H.change_stat(STATKEY_CON, -1)
+			H.change_stat(STATKEY_SPD, 1)
+			to_chat(H,span_info("\
+			THE SUN: Things will be good, now and forever. Wipe the dirt from your eyes and realize how good life truly is.")
+			)
+		if("TJudge")
+			H.change_stat(STATKEY_CON, 1)
+			H.change_stat(STATKEY_SPD, -1)
+			to_chat(H,span_info("\
+			JUDGEMENT: Infront of you are two roads, one leads to hell, and the other worse - nothing stops you from stepping off of it, and changing the direction of your life.")
+			)
+		if("TWorld")
+			H.change_stat(STATKEY_LCK, 1) // Used to be 3, probably unwise. Blame me for writing all of these while I was listening to someone ramble in a VC.
+			H.change_stat(STATKEY_PER, 1)
+			H.change_stat(STATKEY_INT, 1)
+			H.change_stat(STATKEY_SPD, -1)
+			to_chat(H,span_info("\
+			THE WORLD: This is where you are meant to be, what you are meant to do. Whatever happens, happens. You have lived an entire life, and yet you are hungry for the next chapter.")
 			)

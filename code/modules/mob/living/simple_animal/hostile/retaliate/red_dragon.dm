@@ -31,3 +31,10 @@
 	pixel_y = -32
 	deathmessage = "collapses to the floor with a final roar, the impact rocking the ground."
 	footstep_type = FOOTSTEP_MOB_HEAVY
+
+/mob/living/simple_animal/hostile/retaliate/voiddragon/red/tsere
+	name = "Tsere the Insurmountable"
+	desc = "Her scales shimmer in the blue light, her form is death, her gaze is wisdom, her wings cut all. This is Tsere... The Insurmountable."
+	faction = list("abberant")
+	health = 4000
+	maxHealth = 4000
