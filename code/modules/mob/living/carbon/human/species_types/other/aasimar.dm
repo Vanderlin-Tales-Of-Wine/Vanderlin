@@ -97,7 +97,7 @@
 		if(message[1])
 			if(message[1] != "*")
 				message = " [message]"
-				var/list/accent_words = strings("accents/aaccent_universal.json", "universal")
+				var/list/accent_words = strings("accents/accent_universal.json", "universal")
 
 				for(var/key in accent_words)
 					var/value = accent_words[key]
