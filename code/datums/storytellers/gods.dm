@@ -16,6 +16,7 @@
 		STATS_LITERACY_TAUGHT = list("points" = 10, "capacity" = 150),
 		STATS_ILLITERATES = list("points" = -4, "capacity" = -100),
 		STATS_SKILLS_DREAMED = list("points" = 3, "capacity" = 100),
+		STATS_MANA_SPENT = list("points" = 0.1, "capacity" = 75),
 	)
 
 /datum/storyteller/ravox
@@ -62,6 +63,7 @@
 		STATS_FISH_CAUGHT = list("points" = 2, "capacity" = 100),
 		STATS_ABYSSOR_REMEMBERED = list("points" = 1, "capacity" = 40),
 		STATS_LEECHES_EMBEDDED = list("points" = 0.2, "capacity" = 60),
+		STATS_PEOPLE_DROWNED = list("points" = 5, "capacity" = 50),
 	)
 
 /datum/storyteller/xylix

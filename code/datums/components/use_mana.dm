@@ -138,6 +138,7 @@
 			if (pool.amount < attuned_cost)
 				attuned_cost = (pool.amount)
 			mana_consumed -= SAFE_DIVIDE(pool.adjust_mana((attuned_cost)), mult)
+			GLOB.vanderlin_round_stats[STATS_MANA_SPENT] += mana_consumed
 			if (available_pools.Find(pool) == available_pools.len && mana_consumed <= -0.05) // if we're at the end of the list and mana_consumed is not 0 or near 0 (floating points grrr)
 				stack_trace("cost: [mana_consumed] was not 0 after drain_mana on [src]! This could've been an infinite loop!")
 				mana_consumed = 0 // lets terminate the loop to be safe
