@@ -267,7 +267,7 @@
 	name = "mandrake flour"
 	desc = "Ground up mandrake root. If not for the unnatural colour, it would be hard to distinguish from the one you consume every dae."
 	gender = PLURAL
-	icon_state = "flour"
+	icon_state = "salt"
 	list_reagents = list(/datum/reagent/berrypoison = 5,
 	/datum/reagent/drug/space_drugs = 15)//why are you consuming this?!
 	volume = 20

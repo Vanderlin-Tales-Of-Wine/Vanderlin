@@ -4,6 +4,8 @@
 /obj/item/natural/paste
 	name = "paste"
 	desc = "Paste. Ointment. Whatever. You shouldn't be seeing this"
+	icon = 'icons/roguetown/items/paste.dmi'
+	icon_state = "pasteparent"
 	possible_item_intents = list(/datum/intent/use)
 	force = 0
 	throwforce = 0
@@ -11,6 +13,9 @@
 	body_parts_covered = null
 	max_integrity = 10
 	w_class = WEIGHT_CLASS_TINY
+	drop_sound = 'sound/foley/dropsound/paper_drop.ogg'
+	pickup_sound =  'sound/blank.ogg'
+
 	var/brute_heal = 0	//this is how much brute damage the paste should heal
 	var/burn_heal = 0	//this is how much burn damage the paste should heal
 	var/blood_heal = 0	//this is how much blood the paste should restore
@@ -64,3 +69,5 @@
 	blood_heal = 10
 	toxicity = -5
 	painful = TRUE
+	icon_state = "mandrake_paste"
+
