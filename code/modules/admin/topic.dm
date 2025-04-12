@@ -773,6 +773,14 @@
 		var/mob/M = locate(href_list["sendmob"])
 		usr.client.sendmob(M)
 
+	else if(href_list["sendmob"])
+		if(!check_rights(R_ADMIN))
+			return
+
+		var/mob/M = locate(href_list["sendmob"])
+		var/message_to_admin = cryo_mob(M)
+		to_chat(usr, span_notice(message_to_admin))
+
 	else if(href_list["narrateto"])
 		if(!check_rights(R_ADMIN))
 			return
