@@ -227,6 +227,8 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 
 /mob/living/simple_animal/attackby(obj/item/O, mob/user, params)
 	if(!stat && istype(O, /obj/item/reagent_containers/glass))
+		if(stat == DEAD)
+			return
 		if(udder)
 			changeNext_move(20) // milking sound length
 			udder.milkAnimal(O, user)
