@@ -259,6 +259,7 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 	if(!SScommunications.can_announce(user))
 		return
 	GLOB.laws_of_the_land += message
+	GLOB.vanderlin_round_stats[STATS_LAWS_MADE]++
 	priority_announce("[length(GLOB.laws_of_the_land)]. [message]", "A LAW IS DECLARED", 'sound/misc/lawdeclaration.ogg', "Captain")
 	reset_mode()
 
@@ -409,13 +410,13 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 		if(MODE_NONE)
 			recognize_command(speaker, sanitized_message)
 		if(MODE_MAKE_ANNOUNCEMENT)
-			make_announcement(speaker, sanitized_message)
+			make_announcement(speaker, raw_message)
 		if(MODE_MAKE_LAW)
-			make_law(speaker, sanitized_message)
+			make_law(speaker, raw_message)
 		if(MODE_DECLARE_OUTLAW)
-			declare_outlaw(speaker, sanitized_message)
+			declare_outlaw(speaker, raw_message)
 		if(MODE_MAKE_DECREE)
-			make_decree(speaker, sanitized_message)
+			make_decree(speaker, raw_message)
 
 #undef MODE_NONE
 #undef MODE_MAKE_ANNOUNCEMENT

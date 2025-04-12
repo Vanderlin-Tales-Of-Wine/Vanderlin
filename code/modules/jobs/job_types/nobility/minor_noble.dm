@@ -1,7 +1,7 @@
 /datum/job/minor_noble
 	title = "Noble"
 	tutorial = "The blood of a noble family runs through your veins. You are the living proof that the minor houses \
-	of Vanderlin still exist in spite of the Monarch. You have many mammons to your name, but with wealth comes \
+	still exist in spite of the Monarch. You have many mammons to your name, but with wealth comes \
 	danger, so keep your wits and tread lightly..."
 	display_order = JDO_MINOR_NOBLE
 	flag = MINOR_NOBLE

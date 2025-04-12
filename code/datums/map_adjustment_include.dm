@@ -8,3 +8,4 @@
 
 //#include "..\..\_maps\map_files\roguetest\map_adjustment_template.dm"
 #include "..\..\_maps\map_files\stonehamlet\map_adjustment_stonehamlet.dm"
+#include "..\..\_maps\map_files\rosewood\map_adjustment_rosewood.dm"

@@ -35,29 +35,36 @@
 	shoes = /obj/item/clothing/shoes/boots
 	belt = /obj/item/storage/belt/leather
 	beltl = /obj/item/storage/keyring/manorguard
+	cloak = /obj/item/clothing/cloak/stabard/guard
 
 /datum/job/men_at_arms/after_spawn(mob/living/carbon/spawned, client/player_client)
 	..()
+	var/mob/living/carbon/human/H = spawned
+	if(istype(H.cloak, /obj/item/clothing/cloak/stabard/guard))
+		var/obj/item/clothing/S = H.cloak
+		var/index = findtext(H.real_name, " ")
+		if(index)
+			index = copytext(H.real_name, 1, index)
+		if(!index)
+			index = H.real_name
+		S.name = "[S.name] ([index])"
 
 /datum/advclass/menatarms/watchman_pikeman
 	name = "Pikeman Men-At-Arms"
 	tutorial = "You once warded the town, beating the poor and killing the senseless. \
 	Now you get to stare at them in the eyes, watching as they bleed, \
 	exanguinated personally by one of the Monarch's best. \
-	You are poor, and your belly is yet full. \
-	\n\
-	<i>TALK WITH YOUR BRETHREN, TAKE SHIFTS MANNING THE GATE!</i>"
+	You are poor, and your belly is yet full."
 	outfit = /datum/outfit/job/watchman/pikeman
 
 	category_tags = list(CTAG_MENATARMS)
 
 /datum/outfit/job/watchman/pikeman/pre_equip(mob/living/carbon/human/H)
 	..()
-	head = /obj/item/clothing/head/helmet/kettle
-	cloak = /obj/item/clothing/cloak/stabard/guard
+	head = /obj/item/clothing/head/helmet/kettle/slit
 	armor = /obj/item/clothing/armor/cuirass
 	shirt = /obj/item/clothing/armor/chainmail
-	neck = /obj/item/clothing/neck/chaincoif/iron
+	neck = /obj/item/clothing/neck/bevor
 	gloves = /obj/item/clothing/gloves/chain
 	beltr = /obj/item/weapon/sword/arming
 	backr = /obj/item/weapon/polearm/spear/billhook
@@ -89,16 +96,13 @@
 	tutorial = "You once warded the town, beating the poor and killing the senseless. \
 	You were quite a good dancer, you've blended that skill with your blade- \
 	exanguinated personally by one of the Monarch's best. \
-	You are poor, and your belly is yet full. \
-	\n\
-	<i>TALK WITH YOUR BRETHREN, TAKE SHIFTS MANNING THE GATE!</i>"
+	You are poor, and your belly is yet full."
 	outfit = /datum/outfit/job/watchman/swordsmen
 	category_tags = list(CTAG_MENATARMS)
 
 /datum/outfit/job/watchman/swordsmen/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = pick(/obj/item/clothing/head/roguehood/guard, /obj/item/clothing/head/roguehood/guardsecond)
-	cloak = /obj/item/clothing/cloak/stabard/guard
 	armor = /obj/item/clothing/armor/leather/advanced
 	shirt = /obj/item/clothing/armor/gambeson
 	neck = /obj/item/clothing/neck/gorget
@@ -128,9 +132,7 @@
 	name = "Archer Men-At-Arms"
 	tutorial = "You once warded the town, beating the poor and killing the senseless. \
 	Now you stare at them from above, raining hell down upon the knaves and the curs that see you a traitor. \
-	You are poor, and your belly is yet full. \
-	\n\
-	<i>TALK WITH YOUR BRETHREN, TAKE SHIFTS MANNING THE GATE!</i>"
+	You are poor, and your belly is yet full."
 	outfit = /datum/outfit/job/watchman/ranger
 
 	category_tags = list(CTAG_MENATARMS)
@@ -138,11 +140,10 @@
 /datum/outfit/job/watchman/ranger/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/helmet/kettle
-	cloak = /obj/item/clothing/cloak/stabard/guard
 	armor = /obj/item/clothing/armor/leather/hide
 	shirt = /obj/item/clothing/armor/gambeson/heavy
 	beltr = /obj/item/weapon/mace/cudgel
-	neck = /obj/item/clothing/neck/chaincoif/iron
+	neck = /obj/item/clothing/neck/bevor
 	gloves = /obj/item/clothing/gloves/leather
 	backpack_contents = list(/obj/item/weapon/knife/dagger/steel/special)
 	if(H.mind)

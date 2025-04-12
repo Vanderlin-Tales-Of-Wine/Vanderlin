@@ -48,14 +48,23 @@
 				icon_state = "[base_state]0"
 			return
 
+/obj/machinery/light/fueled/firebowl/firebowlb
+	icon_state = "stonefireb1"
+	base_state = "stonefireb"
+	bulb_colour = "#6cfdff"
+
 /obj/machinery/light/fueled/firebowl/stump
 	icon_state = "stumpfire1"
 	base_state = "stumpfire"
 
+/obj/machinery/light/fueled/firebowl/stumpb
+	icon_state = "stumpfireb1"
+	base_state = "stumpfireb"
+	bulb_colour = "#6cfdff"
+
 /obj/machinery/light/fueled/firebowl/church
 	icon_state = "churchfire1"
 	base_state = "churchfire"
-
 
 /obj/machinery/light/fueled/firebowl/standing
 	name = "standing fire"
@@ -353,41 +362,50 @@
 	if(!attachment)
 		if(istype(W, /obj/item/cooking/pan) || istype(W, /obj/item/reagent_containers/glass/bucket/pot))
 			playsound(get_turf(user), 'sound/foley/dropsound/shovel_drop.ogg', 40, TRUE, -1)
-			attachment = W
-			W.forceMove(src)
-			update_icon()
+
+			if(user.transferItemToLoc(W, src, silent = TRUE))
+				attachment = W
+				update_icon()
 			return
+
 	else
 		if(istype(W, /obj/item/reagent_containers/glass/bowl))
 			to_chat(user, "<span class='notice'>Remove the pot from the hearth first.</span>")
 			return
+
 		if(istype(attachment, /obj/item/cooking/pan))
 			if(W.type in subtypesof(/obj/item/reagent_containers/food/snacks))
 				var/obj/item/reagent_containers/food/snacks/S = W
-				if(istype(W, /obj/item/reagent_containers/food/snacks/egg)) // added
+
+				if(istype(W, /obj/item/reagent_containers/food/snacks/egg))
 					if(W.icon_state != "rawegg")
 						playsound(get_turf(user), 'sound/foley/eggbreak.ogg', 100, TRUE, -1)
 						if(!do_after(user, 25))
 							return
-						W.icon_state = "rawegg" // added
+						W.icon_state = "rawegg"
 					rawegg = TRUE
+
 				if(!food)
-					S.forceMove(src)
-					food = S
-					update_icon()
-					if(on)
-						playsound(src.loc, 'sound/misc/frying.ogg', 80, FALSE, extrarange = 5)
+					if(user.transferItemToLoc(S, src, silent = TRUE))
+						food = S
+						update_icon()
+						if(on)
+							playsound(src.loc, 'sound/misc/frying.ogg', 80, FALSE, extrarange = 5)
 					return
-// New concept = boil at least 33 water, add item, it turns into food reagent volume 33 of the appropriate type
+
 		else if(istype(attachment, /obj/item/reagent_containers/glass/bucket/pot))
 			var/obj/item/reagent_containers/glass/bucket/pot/pot = attachment
+
 			if(!pot.reagents.has_reagent(/datum/reagent/water, 33))
 				to_chat(user, "<span class='notice'>Not enough water.</span>")
 				return TRUE
+
 			if(pot.reagents.chem_temp < 374)
 				to_chat(user, "<span class='warning'>[pot] isn't boiling!</span>")
 				return
+
 			pot.attempt_pot_recipes(W, user)
+
 	. = ..()
 
 //////////////////////////////////
