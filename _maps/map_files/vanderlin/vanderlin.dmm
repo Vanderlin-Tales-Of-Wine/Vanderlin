@@ -4354,7 +4354,10 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/outdoors/river)
 "cNc" = (
-/obj/structure/dungeon_entry/center,
+/obj/structure/dungeon_entry/center{
+	can_enter = 0;
+	icon_state = "portal_noenter"
+	},
 /turf/open/floor/cobble/mossy,
 /area/rogue/under/cavewet)
 "cNu" = (
