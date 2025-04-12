@@ -152,5 +152,5 @@
 	melting_material = /datum/material/electrum
 	melt_amount = 75
 	minstr = 5
-	sellprice = 55
+	sellprice = 90
 	is_silver = TRUE

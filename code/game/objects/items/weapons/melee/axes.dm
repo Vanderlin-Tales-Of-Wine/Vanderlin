@@ -381,7 +381,7 @@
 	max_integrity = 400
 	melting_material = /datum/material/silver
 	sellprice = 55
-	axe_cut = 5 // Why are you using a silver axe for this?
+	axe_cut = 1 // Why are you using a silver axe for this?
 	is_silver = TRUE
 
 //................ Electrum Axe ............... //
@@ -392,5 +392,5 @@
 	icon_state = "psyaxe"
 	melting_material = /datum/material/electrum
 	minstr = 7
-	sellprice = 55
+	sellprice = 75
 	is_silver = TRUE

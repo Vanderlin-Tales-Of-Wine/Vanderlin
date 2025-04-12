@@ -119,4 +119,4 @@
 	icon_state = "psywhip"
 	minstr = 5
 	is_silver = TRUE
-	sellprice = 75
+	sellprice = 90

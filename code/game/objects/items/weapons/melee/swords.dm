@@ -956,7 +956,7 @@
 	desc = "An old blade meant to slay those long forgotten. May the days where it shines crimson never come."
 	icon_state = "psysword"
 	minstr = 8
-	sellprice = 95
+	sellprice = 115
 	is_silver = TRUE
 	smeltresult = /obj/item/ingot/electrum
 
@@ -965,6 +965,6 @@
 	desc = "A giant broad blade, wrapped in thorns to draw the blood of those wielding it without remorse. Brougth from forgotten days, to judge the sins of days coming."
 	icon_state = "psygsword"
 	minstr = 12
-	sellprice = 155
+	sellprice = 190
 	is_silver = TRUE
 	smeltresult = /obj/item/ingot/electrum

@@ -473,7 +473,7 @@
 	melt_amount = 75
 	resistance_flags = FIRE_PROOF
 	max_integrity = INTEGRITY_STRONG
-	sellprice = 50
+	sellprice = 75
 	minstr = 9
 	is_silver = TRUE
 
@@ -484,5 +484,6 @@
 	icon_state = "psyhalberd"
 	melting_material = /datum/material/electrum
 	resistance_flags = FIRE_PROOF
-	minstr = 95
+	minstr = 9
+	sellprice = 115
 	is_silver = TRUE
