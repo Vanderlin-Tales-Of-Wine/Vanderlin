@@ -26,7 +26,7 @@
 	use_skintones = 1
 	default_color = "FFFFFF"
 	default_features = list("mcolor" = "FFF",, "wings" = "None")
-	specstats = list(STATKEY_STR = -2, STATKEY_PER = 2, STATKEY_INT = 0, STATKEY_CON = -2, STATKEY_END = 0, STATKEY_SPD = 2, STATKEY_LCK = 0)
+	specstats_m = list(STATKEY_STR = -2, STATKEY_PER = 2, STATKEY_INT = 0, STATKEY_CON = -2, STATKEY_END = 0, STATKEY_SPD = 2, STATKEY_LCK = 0)
 	specstats_f = list(STATKEY_STR = -2, STATKEY_PER = 2, STATKEY_INT = 0, STATKEY_CON = -2, STATKEY_END = 0, STATKEY_SPD = 2, STATKEY_LCK = 0)
 
 	limbs_icon_m = 'icons/roguetown/mob/bodies/m/rakshari.dmi'

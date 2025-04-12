@@ -23,7 +23,7 @@
 	skin_tone_wording = "Fur Color"
 	default_color = "FFFFFF"
 	default_features = list("mcolor" = "FFF",, "wings" = "None")
-	specstats = list(STATKEY_STR = -4, STATKEY_PER = -2, STATKEY_INT = -2, STATKEY_CON = -4, STATKEY_END = 2, STATKEY_SPD = 2, STATKEY_LCK = 0)
+	specstats_m = list(STATKEY_STR = -4, STATKEY_PER = -2, STATKEY_INT = -2, STATKEY_CON = -4, STATKEY_END = 2, STATKEY_SPD = 2, STATKEY_LCK = 0)
 	specstats_f = list(STATKEY_STR = -4, STATKEY_PER = -2, STATKEY_INT = -2, STATKEY_CON = -4, STATKEY_END = 2, STATKEY_SPD = 2, STATKEY_LCK = 0)
 
 	possible_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD)

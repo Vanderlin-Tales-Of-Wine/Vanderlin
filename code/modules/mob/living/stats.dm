@@ -53,8 +53,8 @@
 				for(var/S in H.dna.species.specstats_f)
 					change_stat(S, H.dna.species.specstats_f[S])
 			else
-				for(var/S in H.dna.species.specstats)
-					change_stat(S, H.dna.species.specstats[S])
+				for(var/S in H.dna.species.specstats_m)
+					change_stat(S, H.dna.species.specstats_m[S])
 		switch(H.age)
 			if(AGE_CHILD)
 				change_stat(STATKEY_STR, -2)
