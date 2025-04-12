@@ -49,6 +49,8 @@
 		M.emote("painscream")
 		M.Stun(80)
 
+	affecting.try_bandage(/obj/item/paper)
+
 	if(M == user)
 		user.visible_message("<span class='notice'>[user] smears paste onto [user.p_their()] [affecting].</span>", "<span class='notice'>I smear paste onto my [affecting].</span>")
 	else
