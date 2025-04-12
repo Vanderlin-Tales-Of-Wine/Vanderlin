@@ -41,8 +41,8 @@
 
 	influence_factors = list(
 		STATS_COMBAT_SKILLS = list("points" = 2.5, "capacity" = 100),
-		STATS_PARRIES = list("points" = 0.1, "capacity" = 100),
-		STATS_WARCRIES = list("points" = 0.75, "capacity" = 60),
+		STATS_PARRIES = list("points" = 0.08, "capacity" = 100),
+		STATS_WARCRIES = list("points" = 0.5, "capacity" = 50),
 		STATS_YIELDS = list("points" = -4, "capacity" = -40),
 		STATS_UNDERWORLD_DUELS = list("points" = 3, "capacity" = 60),
 	)
@@ -247,11 +247,11 @@
 	)
 
 	influence_factors = list(
-		STATS_ZIZO_PRAISED = list("points" = 3, "capacity" = 60),
+		STATS_ZIZO_PRAISED = list("points" = 4, "capacity" = 60),
 		STATS_NOBLE_DEATHS = list("points" = 7.5, "capacity" = 80),
 		STATS_DEADITES_ALIVE = list("points" = 10, "capacity" = 100),
 		STATS_CLERGY_DEATHS = list("points" = 10, "capacity" = 100),
-		STATS_TORTURES = list("points" = 2.5, "capacity" = 100),
+		STATS_TORTURES = list("points" = 3, "capacity" = 100),
 	)
 
 	cost_variance = 50  // Events will be highly variable in cost
