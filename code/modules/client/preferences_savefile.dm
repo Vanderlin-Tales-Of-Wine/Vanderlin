@@ -347,10 +347,10 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	randomise[RANDOM_SKIN_TONE] = FALSE
 	randomise[RANDOM_EYE_COLOR] = FALSE
 
-	S["family"]			>> family
-	S["setspouse"]			>> setspouse
+	S["family"]							>> family
+	S["setspouse"]						>> setspouse
 	S["feature_mcolor"]					>> features["mcolor"]
-	S["feature_ethcolor"]					>> features["ethcolor"]
+	S["feature_ethcolor"]				>> features["ethcolor"]
 	S["feature_lizard_tail"]			>> features["tail_lizard"]
 	S["feature_lizard_snout"]			>> features["snout"]
 	S["feature_lizard_horns"]			>> features["horns"]
@@ -362,7 +362,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["feature_moth_markings"]			>> features["moth_markings"]
 	S["feature_human_tail"]				>> features["tail_human"]
 	S["feature_human_ears"]				>> features["ears"]
-	S["selected_accent"]	>> selected_accent
+	S["selected_accent"]				>> selected_accent
 
 /datum/preferences/proc/load_character(slot)
 	if(!path)
