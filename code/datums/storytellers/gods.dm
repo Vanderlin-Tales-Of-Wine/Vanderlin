@@ -15,7 +15,7 @@
 		STATS_BOOKS_PRINTED = list("points" = 2, "capacity" = 40),
 		STATS_LITERACY_TAUGHT = list("points" = 10, "capacity" = 150),
 		STATS_ILLITERATES = list("points" = -4, "capacity" = -100),
-		STATS_SKILLS_DREAMED = list("points" = 3, "capacity" = 100),
+		STATS_SKILLS_DREAMED = list("points" = 0.5, "capacity" = 100),
 		STATS_MANA_SPENT = list("points" = 0.1, "capacity" = 75),
 	)
 
@@ -40,9 +40,9 @@
 	)
 
 	influence_factors = list(
-		STATS_COMBAT_SKILLS = list("points" = 3, "capacity" = 100),
-		STATS_PARRIES = list("points" = 0.15, "capacity" = 100),
-		STATS_WARCRIES = list("points" = 1, "capacity" = 60),
+		STATS_COMBAT_SKILLS = list("points" = 2.5, "capacity" = 100),
+		STATS_PARRIES = list("points" = 0.1, "capacity" = 100),
+		STATS_WARCRIES = list("points" = 0.75, "capacity" = 60),
 		STATS_YIELDS = list("points" = -4, "capacity" = -40),
 	)
 
@@ -88,7 +88,7 @@
 		STATS_LAUGHS_MADE = list("points" = 0.25, "capacity" = 100),
 		STATS_GAMES_RIGGED = list("points" = 1.5, "capacity" = 30),
 		STATS_PEOPLE_MOCKED = list("points" = 4, "capacity" = 60),
-		STATS_CRITS_MADE = list("points" = 0.3, "capacity" = 80),
+		STATS_CRITS_MADE = list("points" = 0.25, "capacity" = 80),
 	)
 
 /datum/storyteller/necra
@@ -130,10 +130,10 @@
 	)
 
 	influence_factors = list(
-		STATS_POTIONS_BREWED = list("points" = 3, "capacity" = 60),
+		STATS_POTIONS_BREWED = list("points" = 4.5, "capacity" = 60),
 		STATS_WOUNDS_SEWED = list("points" = 0.5, "capacity" = 100),
 		STATS_SOULS_REINCARNATED = list("points" = 2.5, "capacity" = 50),
-		STATS_ANIMALS_BRED = list("points" = 5, "capacity" = 50),
+		STATS_ANIMALS_BRED = list("points" = 7.5, "capacity" = 50),
 	)
 
 /datum/storyteller/malum
@@ -157,7 +157,7 @@
 	influence_factors = list(
 		STATS_MASTERWORKS_FORGED = list("points" = 4, "capacity" = 80),
 		STATS_ROCKS_MINED = list("points" = 0.25, "capacity" = 100),
-		STATS_CRAFT_SKILLS = list("points" = 3, "capacity" = 100),
+		STATS_CRAFT_SKILLS = list("points" = 2.5, "capacity" = 100),
 		STATS_BEARDS_SHAVED = list("points" = -5, "capacity" = -50),
 	)
 
@@ -333,10 +333,10 @@
 	)
 
 	influence_factors = list(
-		STATS_ITEMS_PICKPOCKETED = list("points" = 4, "capacity" = 100),
+		STATS_ITEMS_PICKPOCKETED = list("points" = 5, "capacity" = 100),
 		STATS_SHRINE_VALUE = list("points" = 0.25, "capacity" = 100),
-		STATS_GREEDY_PEOPLE = list("points" = 4, "capacity" = 60),
-		STATS_KLEPTOMANIACS = list("points" = 6, "capacity" = 60),
+		STATS_GREEDY_PEOPLE = list("points" = 5, "capacity" = 60),
+		STATS_KLEPTOMANIACS = list("points" = 7, "capacity" = 60),
 	)
 
 	cost_variance = 15  // Keeps a balance between predictability and randomness
