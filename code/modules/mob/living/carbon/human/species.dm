@@ -893,7 +893,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 				//List of all valid dynamic_hair_suffixes
 				var/static/list/extensions
 				if(!extensions)
-					var/icon/hair_extensions = icon('icons/roguetown/mob/hair_extensions.dmi') //hehe
+					var/icon/hair_extensions = icon('modular/stonekeep/icons/mobs/hair_extensions.dmi') // STONEKEEP EDIT
 					extensions = list()
 					for(var/s in hair_extensions.IconStates(1))
 						extensions[s] = TRUE
@@ -904,7 +904,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 				var/hair_file = S.icon
 				if(extensions[hair_state+dynamic_hair_suffix])
 					hair_state += dynamic_hair_suffix
-					hair_file = 'icons/roguetown/mob/hair_extensions.dmi'
+					hair_file = 'modular/stonekeep/icons/mobs/hair_extensions.dmi' // STONEKEEP EDIT
 
 				hair_overlay.icon = hair_file
 				hair_overlay.icon_state = hair_state

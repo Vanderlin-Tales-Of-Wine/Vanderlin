@@ -71,7 +71,7 @@
 // Hair Definitions //
 //////////////////////
 /datum/sprite_accessory/hair
-	icon = 'icons/roguetown/mob/hair.dmi'	  // default icon for all hairs
+	icon = 'modular/stonekeep/icons/mobs/hair.dmi'  // STONEKEEP EDIT
 
 	// please make sure they're sorted alphabetically and, where needed, categorized
 	// try to capitalize the names please~
@@ -477,7 +477,7 @@
 	name = "Damsel"
 	icon_state = "damsel"
 	gender = FEMALE
-	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
+	specuse = list("human", "aasimar", "tiefling", "halforc")
 
 /datum/sprite_accessory/hair/emma
 	name = "Emma"
@@ -802,12 +802,6 @@
 /datum/sprite_accessory/hair/inari
 	name = "Inari"
 	icon_state = "inari"
-	gender = NEUTER
-	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
-
-/datum/sprite_accessory/hair/ziegler
-	name = "Ziegler"
-	icon_state = "ziegler"
 	gender = NEUTER
 	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
 

@@ -469,7 +469,7 @@
 			return pick('modular/stonekeep/sound/vo/mobs/gnome/idle (1).ogg','modular/stonekeep/sound/vo/mobs/gnome/idle (2).ogg','modular/stonekeep/sound/vo/mobs/gnome/idle (3).ogg','modular/stonekeep/sound/vo/mobs/gnome/idle (4).ogg','modular/stonekeep/sound/vo/mobs/gnome/idle (5).ogg')
 		if("pain")
 			return pick('modular/stonekeep/sound/vo/mobs/gnome/pain (1).ogg','modular/stonekeep/sound/vo/mobs/gnome/pain (2).ogg','modular/stonekeep/sound/vo/mobs/gnome/pain (3).ogg')
-
+/*
 /datum/sprite_accessory/hair/beartails
 	icon = 'modular/stonekeep/icons/mobs/hair.dmi'
 
@@ -502,14 +502,14 @@
 
 /datum/sprite_accessory/hair/lover_tief
 	icon = 'modular/stonekeep/icons/mobs/hair.dmi'
-
+*/
 /datum/sprite_accessory/hair/maid
 	name = "Maid"
-	icon = 'modular/stonekeep/icons/mobs/hair.dmi'
+//	icon = 'modular/stonekeep/icons/mobs/hair.dmi'
 	icon_state = "maid_f"
 	gender = FEMALE
 	specuse = list("human", "dwarf", "aasimar", "tiefling")
-
+/*
 /datum/sprite_accessory/hair/merc
 	icon = 'modular/stonekeep/icons/mobs/hair.dmi'
 
@@ -536,3 +536,4 @@
 
 /datum/sprite_accessory/hair/updo
 	icon = 'modular/stonekeep/icons/mobs/hair.dmi'
+*/
