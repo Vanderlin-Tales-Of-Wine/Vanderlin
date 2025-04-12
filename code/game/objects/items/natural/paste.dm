@@ -19,7 +19,7 @@
 	var/brute_heal = 0	//this is how much brute damage the paste should heal
 	var/burn_heal = 0	//this is how much burn damage the paste should heal
 	var/blood_heal = 0	//this is how much blood the paste should restore
-	var/toxicity = 0	//this is how much tox damage the paste should apply, in negatives
+	var/toxicity = 0	//this is how much tox damage the paste should apply
 
 // code copied from cloth bandaging, but changed obviously
 /obj/item/natural/paste/attack(mob/living/M, mob/user)
@@ -35,7 +35,7 @@
 	var/obj/item/bodypart/affecting = H.get_bodypart(check_zone(user.zone_selected))
 	if(!affecting)
 		return
-	var/used_time = 60
+	var/used_time = 10 SECONDS
 	if(H.mind)
 		used_time -= (H.mind.get_skill_level(/datum/skill/misc/medicine) * 10)
 	playsound(loc, 'sound/items/soaping.ogg', 100, FALSE)
@@ -43,7 +43,6 @@
 		return
 	playsound(loc, 'sound/items/soaping.ogg', 100, FALSE)
 
-	user.dropItemToGround(src)
 	H.update_damage_overlays()
 
 	M.blood_volume = min(M.blood_volume+blood_heal, BLOOD_VOLUME_MAXIMUM)//restores blood
@@ -62,6 +61,6 @@
 	desc = "Paste made from mandrake and manabloom, known for its restorative properties, especially for burns."
 	burn_heal = 20
 	blood_heal = 10
-	toxicity = -5
+	toxicity = 5
 	icon_state = "mandrake_paste"
 
