@@ -139,11 +139,6 @@ GLOBAL_VAR_INIT(mobids, 1)
 				type = alt_type
 				if(type & MSG_VISUAL && eye_blind)
 					return
-	// voice muffling
-	if(stat == UNCONSCIOUS)
-		if(type & MSG_AUDIBLE) //audio
-			to_chat(src, "<I>... You can almost hear something ...</I>")
-		return
 	to_chat(src, msg)
 
 /**

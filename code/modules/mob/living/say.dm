@@ -271,6 +271,12 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 		create_chat_message(speaker, message_language, raw_message, spans, message_mode)
 	// Recompose message for AI hrefs, language incomprehension.
 	message = compose_message(speaker, message_language, raw_message, radio_freq, spans, message_mode)
+	// voice muffling
+	if(stat == UNCONSCIOUS)
+		if(type & MSG_AUDIBLE) //audio
+			message = "<I>... You can almost hear something ...</I>"
+	else
+		log_message("heard [speaker] say: [message]", LOG_SAY, color="orange", FALSE)
 	show_message(message, MSG_AUDIBLE, deaf_message, deaf_type)
 	return message
 
