@@ -75,7 +75,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "aN" = (
-/obj/structure/mineral_door/wood/fancywood{
+/obj/structure/door/fancy{
 	name = "Artificer's Outpost"
 	},
 /obj/effect/decal/cleanable/blood/tracks,
@@ -598,7 +598,7 @@
 /turf/closed,
 /area/rogue/under/mountains/anvil/upper)
 "eW" = (
-/obj/structure/mineral_door/swing_door,
+/obj/structure/door/swing,
 /obj/structure/fluff/walldeco/vinez/blue,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/mountains/anvil/surface/building)
@@ -711,7 +711,7 @@
 /turf/open/floor/carpet/red,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "fI" = (
-/obj/structure/mineral_door/wood/donjon/stone,
+/obj/structure/door/stone,
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/mountains/anvil/lower)
@@ -744,7 +744,7 @@
 /turf/open/floor/dirt/ambush,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "fU" = (
-/obj/structure/mineral_door/wood/fancywood{
+/obj/structure/door/fancy{
 	name = "Artificer's Outpost"
 	},
 /obj/structure/fluff/walldeco/vinez/blue,
@@ -910,7 +910,7 @@
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/mountains/anvil/surface/building)
 "hb" = (
-/obj/structure/mineral_door/wood/fancywood{
+/obj/structure/door/fancy{
 	name = "Ancient Library"
 	},
 /obj/structure/fluff/walldeco/vinez/blue,
@@ -975,7 +975,7 @@
 /turf/open/floor/herringbone,
 /area/rogue/under/mountains/anvil/dungeon)
 "hn" = (
-/obj/structure/mineral_door/wood/fancywood,
+/obj/structure/door/fancy,
 /turf/open/floor/herringbone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "hp" = (
@@ -1138,7 +1138,7 @@
 /turf/open/floor/carpet/purple,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "iG" = (
-/obj/structure/mineral_door/wood/window,
+/obj/structure/door/window,
 /turf/open/floor/herringbone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "iI" = (
@@ -1339,7 +1339,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon)
 "kh" = (
-/obj/structure/mineral_door/wood/donjon/stone,
+/obj/structure/door/stone,
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/under/mountains/anvil/lower)
@@ -1738,7 +1738,7 @@
 /turf/open/floor/herringbone,
 /area/rogue/under/mountains/anvil/dungeon)
 "nH" = (
-/obj/structure/mineral_door/wood/fancywood,
+/obj/structure/door/fancy,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/lower)
 "nL" = (
@@ -1820,7 +1820,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon)
 "oq" = (
-/obj/structure/mineral_door/wood/fancywood,
+/obj/structure/door/fancy,
 /obj/structure/fluff/walldeco/vinez/red,
 /turf/open/floor/herringbone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
@@ -2579,7 +2579,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/upper)
 "uL" = (
-/obj/structure/mineral_door/wood/fancywood,
+/obj/structure/door/fancy,
 /obj/structure/spider/stickyweb{
 	dir = 4
 	},
@@ -2688,7 +2688,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "vD" = (
-/obj/structure/mineral_door/wood/fancywood,
+/obj/structure/door/fancy,
 /turf/open/floor/carpet/purple,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "vE" = (
@@ -2854,7 +2854,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon)
 "xn" = (
-/obj/structure/mineral_door/wood/fancywood,
+/obj/structure/door/fancy,
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/under/mountains/anvil/dungeon/lower)
@@ -3117,7 +3117,7 @@
 /turf/open/floor/herringbone,
 /area/rogue/under/mountains/anvil/dungeon)
 "zj" = (
-/obj/structure/mineral_door/wood/fancywood,
+/obj/structure/door/fancy,
 /obj/structure/fluff/walldeco/vinez/red,
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/cobble,
@@ -3160,7 +3160,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/mountains/anvil/lower)
 "zw" = (
-/obj/structure/mineral_door/wood/fancywood,
+/obj/structure/door/fancy,
 /obj/structure/fluff/walldeco/vinez/red,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
@@ -3288,7 +3288,7 @@
 /turf/open/floor/herringbone,
 /area/rogue/under/mountains/anvil/dungeon)
 "AD" = (
-/obj/structure/mineral_door/wood/fancywood,
+/obj/structure/door/fancy,
 /turf/open/floor/herringbone,
 /area/rogue/under/mountains/anvil/dungeon)
 "AE" = (
@@ -3314,7 +3314,7 @@
 /turf/open/floor/grass/cold,
 /area/rogue/under/mountains/anvil/upper)
 "AL" = (
-/obj/structure/mineral_door/wood/fancywood,
+/obj/structure/door/fancy,
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/under/mountains/anvil/dungeon/lower)
@@ -3423,7 +3423,7 @@
 /turf/open/floor/herringbone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "BE" = (
-/obj/structure/mineral_door/wood/fancywood,
+/obj/structure/door/fancy,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "BF" = (
@@ -3882,7 +3882,7 @@
 /turf/open/floor/volcanic,
 /area/rogue/under/mountains/anvil/dungeon)
 "FD" = (
-/obj/structure/mineral_door/wood/fancywood,
+/obj/structure/door/fancy,
 /obj/structure/fluff/walldeco/vinez/blue,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/mountains/anvil/upper)
@@ -4130,7 +4130,7 @@
 /turf/open/floor/dirt,
 /area/rogue/outdoors/mountains/anvil/snowyforest)
 "HF" = (
-/obj/structure/mineral_door/wood/fancywood,
+/obj/structure/door/fancy,
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "HG" = (
@@ -4252,7 +4252,7 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "IF" = (
-/obj/structure/mineral_door/wood/fancywood,
+/obj/structure/door/fancy,
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/mountains/anvil/dungeon/lower)
@@ -4460,7 +4460,7 @@
 /turf/closed/wall/mineral/craftstone,
 /area/rogue/indoors/mountains/anvil/surface/building)
 "Kj" = (
-/obj/structure/mineral_door/wood/fancywood{
+/obj/structure/door/fancy{
 	name = "Artificer's Outpost"
 	},
 /turf/open/floor/ruinedwood/chevron,
@@ -4717,7 +4717,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "LV" = (
-/obj/structure/mineral_door/wood/fancywood,
+/obj/structure/door/fancy,
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
@@ -4726,7 +4726,7 @@
 /turf/closed/wall/mineral/craftstone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "LX" = (
-/obj/structure/mineral_door/swing_door,
+/obj/structure/door/swing,
 /turf/open/floor/herringbone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Mb" = (
@@ -4877,7 +4877,7 @@
 /turf/closed/wall/mineral/decostone,
 /area/rogue/under/mountains/anvil/lower)
 "MW" = (
-/obj/structure/mineral_door/wood/donjon/stone,
+/obj/structure/door/stone,
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/church,
 /area/rogue/under/mountains/anvil/lower)
@@ -5124,7 +5124,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon)
 "OQ" = (
-/obj/structure/mineral_door/wood/window,
+/obj/structure/door/window,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "OU" = (
@@ -5668,7 +5668,7 @@
 /turf/open/floor/herringbone,
 /area/rogue/under/mountains/anvil/upper)
 "Td" = (
-/obj/structure/mineral_door/wood/fancywood,
+/obj/structure/door/fancy,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/mountains/anvil/upper)
 "Te" = (
@@ -5776,7 +5776,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/mountains/anvil/snowyforest)
 "TX" = (
-/obj/structure/mineral_door/wood/fancywood,
+/obj/structure/door/fancy,
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/herringbone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
@@ -5955,7 +5955,7 @@
 /turf/open/floor/twig,
 /area/rogue/under/mountains/anvil/lower)
 "VA" = (
-/obj/structure/mineral_door/wood/donjon/stone,
+/obj/structure/door/stone,
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/herringbone,
 /area/rogue/under/mountains/anvil/lower)
@@ -6074,7 +6074,7 @@
 /turf/open/floor/volcanic,
 /area/rogue/under/mountains/anvil/dungeon)
 "Wo" = (
-/obj/structure/mineral_door/wood/fancywood,
+/obj/structure/door/fancy,
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/herringbone,
 /area/rogue/under/mountains/anvil/dungeon)
@@ -6110,7 +6110,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/cavelava)
 "WA" = (
-/obj/structure/mineral_door/wood/fancywood,
+/obj/structure/door/fancy,
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/carpet/purple,
 /area/rogue/under/mountains/anvil/dungeon/lower)
@@ -6151,7 +6151,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "WW" = (
-/obj/structure/mineral_door/wood/donjon/stone,
+/obj/structure/door/stone,
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/hexstone,
 /area/rogue/under/mountains/anvil/lower)

@@ -66,7 +66,7 @@
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors)
 "cJ" = (
-/obj/structure/mineral_door/wood/deadbolt{
+/obj/structure/door/weak/bolt{
 	dir = 4
 	},
 /turf/open/floor/ruinedwood,
@@ -180,7 +180,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/woods)
 "fJ" = (
-/obj/structure/mineral_door/wood/deadbolt{
+/obj/structure/door/weak/bolt{
 	dir = 1
 	},
 /turf/open/floor/wood/nosmooth/saiga,
@@ -389,7 +389,7 @@
 	},
 /area/rogue/outdoors/mountains)
 "py" = (
-/obj/structure/mineral_door/wood/deadbolt{
+/obj/structure/door/weak/bolt{
 	dir = 1
 	},
 /turf/open/floor/wood/nosmooth,
@@ -521,7 +521,7 @@
 /turf/closed/wall/mineral/craftstone,
 /area/rogue/outdoors/mountains)
 "vG" = (
-/obj/structure/mineral_door/wood/deadbolt{
+/obj/structure/door/weak/bolt{
 	dir = 1
 	},
 /turf/open/floor/ruinedwood,
@@ -835,7 +835,7 @@
 	},
 /area/rogue/outdoors/mountains)
 "HR" = (
-/obj/structure/mineral_door/wood/deadbolt{
+/obj/structure/door/weak/bolt{
 	dir = 8
 	},
 /turf/open/floor/herringbone,
@@ -857,7 +857,7 @@
 /turf/open/water/cleanshallow,
 /area/rogue/outdoors/woods)
 "Ja" = (
-/obj/structure/mineral_door/wood/deadbolt,
+/obj/structure/door/weak/bolt,
 /turf/open/floor/wood/nosmooth,
 /area/rogue/indoors)
 "Ji" = (
@@ -1182,7 +1182,7 @@
 /turf/closed/basic,
 /area/rogue/indoors)
 "Vp" = (
-/obj/structure/mineral_door/wood/deadbolt{
+/obj/structure/door/weak/bolt{
 	dir = 4
 	},
 /turf/open/floor/woodturned/nosmooth/saiga,
@@ -1206,7 +1206,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/woods)
 "Wj" = (
-/obj/structure/mineral_door/wood/deadbolt{
+/obj/structure/door/weak/bolt{
 	dir = 1
 	},
 /turf/open/floor/dirt/road,
@@ -1221,7 +1221,7 @@
 /turf/open/floor/grass/cold,
 /area/rogue/outdoors/woods)
 "WW" = (
-/obj/structure/mineral_door/wood/deadbolt,
+/obj/structure/door/weak/bolt,
 /turf/open/floor/wood/nosmooth/saiga,
 /area/rogue/indoors)
 "Xw" = (
