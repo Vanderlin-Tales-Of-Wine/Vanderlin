@@ -64,7 +64,7 @@ GLOBAL_LIST_INIT(dungeon_exit, list())
 	return ..()
 
 /obj/structure/dungeon_entry/proc/use(mob/user, is_ghost)
-	if(!can_enter)
+	if(!is_ghost && !can_enter)
 		return
 	if(!length(dungeon_exits))
 		return
