@@ -54,7 +54,8 @@
 	requirements = list(
 		/obj/item/ash = 1,
 		/obj/item/reagent_containers/powder/mandrake_flour = 1,
-		/obj/item/reagent_containers/powder/manabloom = 1
+		/obj/item/reagent_containers/powder/manabloom = 1,
+		/obj/item/paper = 1
 	)
 	craftdiff = 1
 	sellprice = 8
