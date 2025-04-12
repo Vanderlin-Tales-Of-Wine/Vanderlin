@@ -1935,8 +1935,10 @@
 /turf/open/floor/herringbone,
 /area/rogue/under/town/basement)
 "cWd" = (
-/obj/structure/table/wood/plain_alt,
-/obj/structure/bars/alt,
+/obj/structure/table/wood/long{
+	dir = 8
+	},
+/obj/structure/bars/bent,
 /turf/open/floor/twig,
 /area/rogue/indoors/town/shop)
 "cWp" = (
@@ -5156,6 +5158,11 @@
 /obj/effect/decal/shadow_floor,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/tavern/saiga)
+"hxN" = (
+/obj/structure/table/wood/long,
+/obj/structure/bars/bent,
+/turf/open/floor/twig,
+/area/rogue/indoors/town/shop)
 "hxY" = (
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield/outlaw)
@@ -7593,6 +7600,13 @@
 "kNE" = (
 /turf/open/floor/ruinedwood/decayed,
 /area/rogue/outdoors/exposed/townhamlet)
+"kOo" = (
+/obj/structure/table/wood/long{
+	dir = 1
+	},
+/obj/structure/bars/bent,
+/turf/open/floor/twig,
+/area/rogue/indoors/town/shop)
 "kOz" = (
 /obj/structure/table/wood/reinf_long{
 	dir = 8
@@ -10591,10 +10605,10 @@
 /turf/open/floor/dirt,
 /area/rogue/outdoors/rtfield/outlaw)
 "oMH" = (
-/obj/structure/fluff/railing/border{
-	dir = 1;
-	icon_state = "border"
+/obj/structure/table/wood/long{
+	dir = 9
 	},
+/obj/structure/bars/bent,
 /turf/open/floor/twig,
 /area/rogue/indoors/town/shop)
 "oNP" = (
@@ -11951,9 +11965,7 @@
 /turf/open/floor/grass,
 /area/rogue/outdoors/mountains)
 "qAE" = (
-/obj/structure/mineral_door/swing_door{
-	name = "stevedore quarters"
-	},
+/obj/structure/mineral_door/swing_door/horizontal,
 /turf/open/floor/twig,
 /area/rogue/indoors/town/shop)
 "qAN" = (
@@ -13991,6 +14003,13 @@
 /obj/structure/rack,
 /turf/open/floor/blocks,
 /area/rogue/outdoors/exposed/under/basement)
+"too" = (
+/obj/structure/table/wood/long{
+	dir = 6
+	},
+/obj/structure/bars/bent,
+/turf/open/floor/twig,
+/area/rogue/indoors/town/shop)
 "tph" = (
 /obj/item/reagent_containers/glass/cup/golden{
 	pixel_x = 8;
@@ -116320,12 +116339,12 @@ sNs
 qyk
 qBo
 kHD
-oMH
+kHD
 cWd
 qAE
-cWd
-cWd
-cWd
+kOo
+too
+hxN
 vic
 jAW
 jtB
@@ -116523,7 +116542,7 @@ qyk
 bNf
 kHD
 kHD
-cWd
+oMH
 iAp
 iAp
 dQC
