@@ -20,7 +20,6 @@
 	var/burn_heal = 0	//this is how much burn damage the paste should heal
 	var/blood_heal = 0	//this is how much blood the paste should restore
 	var/toxicity = 0	//this is how much tox damage the paste should apply, in negatives
-	var/painful = FALSE	//if true, applying the paste will cause the target to scream in pain and be stunned for a moment
 
 // code copied from cloth bandaging, but changed obviously
 /obj/item/natural/paste/attack(mob/living/M, mob/user)
@@ -50,14 +49,10 @@
 	M.blood_volume = min(M.blood_volume+blood_heal, BLOOD_VOLUME_MAXIMUM)//restores blood
 	M.adjustToxLoss(toxicity)//applies tox damage
 	affecting.heal_damage(brute_heal, burn_heal)//heals damage
-	if(painful)
-		M.emote("painscream")
-		M.Stun(80)
-
-	affecting.try_bandage(/obj/item/paper)
+	qdel(src)
 
 	if(M == user)
-		user.visible_message("<span class='notice'>[user] smears paste onto [user.p_their()] [affecting].</span>", "<span class='notice'>I smear paste onto my [affecting].</span>")
+		user.visible_message("<span class='notice'>[user] smears paste onto [user.p_their()] [affecting].</span>", "<span class='notice'>I smear paste onto [affecting].</span>")
 	else
 		user.visible_message("<span class='notice'>[user] smears paste onto [M]'s [affecting].</span>", "<span class='notice'>I smear paste onto [M]'s [affecting].</span>")
 
@@ -68,6 +63,5 @@
 	burn_heal = 20
 	blood_heal = 10
 	toxicity = -5
-	painful = TRUE
 	icon_state = "mandrake_paste"
 

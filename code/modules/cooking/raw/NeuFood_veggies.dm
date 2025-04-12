@@ -52,6 +52,6 @@
 /*	..................   Mandrake slice   ................... */
 /obj/item/reagent_containers/food/snacks/veg/mandrake_sliced
 	name = "sliced mandrake"
-	icon_state = "mandrake_slice"
+	icon_state = "mandrake_sliced"
 	fried_type = /obj/item/reagent_containers/food/snacks/mandrake_fried
 	cooked_smell = /datum/pollutant/food/fried_mandrake
