@@ -128,6 +128,7 @@
 				"THE PAIN HAS ONLY BEGUN, CONFESS!",
 			)
 			say(pick(torture_lines), spans = list("torture"))
+			GLOB.vanderlin_round_stats[STATS_TORTURES]++
 			testing(painpercent)
 			if(painpercent >= 100)
 				H.emote("painscream")

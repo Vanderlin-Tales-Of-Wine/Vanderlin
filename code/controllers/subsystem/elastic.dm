@@ -123,6 +123,17 @@ SUBSYSTEM_DEF(elastic)
 	round_data["alive_tieflings"] = GLOB.vanderlin_round_stats[STATS_ALIVE_TIEFLINGS]
 	round_data["people_drowned"] = GLOB.vanderlin_round_stats[STATS_PEOPLE_DROWNED]
 	round_data["mana_spent"] = GLOB.vanderlin_round_stats[STATS_MANA_SPENT]
+	round_data["water_consumed"] = GLOB.vanderlin_round_stats[STATS_WATER_CONSUMED]
+	round_data["limbs_bitten"] = GLOB.vanderlin_round_stats[STATS_LIMBS_BITTEN]
+	round_data["underworld_duels"] = GLOB.vanderlin_round_stats[STATS_UNDERWORLD_DUELS]
+	round_data["locks_picked"] = GLOB.vanderlin_round_stats[STATS_LOCKS_PICKED]
+	round_data["songs_played"] = GLOB.vanderlin_round_stats[STATS_SONGS_PLAYED]
+	round_data["food_rotten"] = GLOB.vanderlin_round_stats[STATS_FOOD_ROTTEN]
+	round_data["blacksteel_smelted"] = GLOB.vanderlin_round_stats[STATS_BLACKSTEEL_SMELTED]
+	round_data["pacifists"] = GLOB.vanderlin_round_stats[STATS_PACIFISTS]
+	round_data["forest_deaths"] = GLOB.vanderlin_round_stats[STATS_FOREST_DEATHS]
+	round_data["tortures"] = GLOB.vanderlin_round_stats[STATS_TORTURES]
+	round_data["luxurious_food_eaten"] = GLOB.vanderlin_round_stats[STATS_LUXURIOUS_FOOD_EATEN]
 
 	return round_data
 

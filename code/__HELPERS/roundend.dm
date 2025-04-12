@@ -33,6 +33,7 @@
 #define STATS_MANA_SPENT "mana_spent"
 
 // Necra
+#define STATS_DEATHS "deaths"
 #define STATS_GRAVES_CONSECRATED "graves_consecrated"
 #define STATS_GRAVES_ROBBED "graves_robbed"
 #define STATS_DEADITES_KILLED "deadites_killed"
@@ -43,33 +44,38 @@
 #define STATS_WOUNDS_SEWED "wounds_healed"
 #define STATS_SOULS_REINCARNATED "souls_reincarnated"
 #define STATS_ANIMALS_BRED "animals_bred"
+#define STATS_FOOD_ROTTEN "food_rotten"
 
 // Dendor
 #define STATS_TREES_CUT "trees_cut"
 #define STATS_PLANTS_HARVESTED "plants_harvested"
 #define STATS_WEREVOLVES "werevolves"
 #define STATS_DENDOR_SACRIFICES "dendor_sacrifices"
+#define STATS_FOREST_DEATHS "forest_deaths"
 
 // Ravox
 #define STATS_COMBAT_SKILLS "combat_skills"
 #define STATS_PARRIES "parries"
 #define STATS_WARCRIES "warcries"
 #define STATS_YIELDS "yields"
+#define STATS_UNDERWORLD_DUELS "underworld_duels"
 
 // Xylix
 #define STATS_LAUGHS_MADE "laughs_made"
 #define STATS_GAMES_RIGGED "games_rigged"
 #define STATS_PEOPLE_MOCKED "people_mocked"
 #define STATS_CRITS_MADE "crits_made"
+#define STATS_SONGS_PLAYED "songs_played"
 
 // Malum
 #define STATS_MASTERWORKS_FORGED "masterworks_forged"
 #define STATS_ROCKS_MINED "ores_mined"
 #define STATS_CRAFT_SKILLS "craft_skills"
 #define STATS_BEARDS_SHAVED "beards_shaved"
+#define STATS_BLACKSTEEL_SMELTED "blacksteel_smelted"
 
 // Abyssor
-#define STATS_BLOOD_SPILT "blood_spilt"
+#define STATS_WATER_CONSUMED "water_consumed"
 #define STATS_FISH_CAUGHT "fish_caught"
 #define STATS_ABYSSOR_REMEMBERED "abyssor_remembered"
 #define STATS_LEECHES_EMBEDDED "leeches_embedded"
@@ -80,29 +86,34 @@
 #define STATS_MARRIAGES "marriages"
 #define STATS_HUGS_MADE "hugs_made"
 #define STATS_CLINGY_PEOPLE "clingy_people"
+#define STATS_PACIFISTS "pacifists"
 
 // Zizo
 #define STATS_ZIZO_PRAISED "zizo_praised"
 #define STATS_DEADITES_ALIVE "deadites_alive"
 #define STATS_CLERGY_DEATHS "priest_deaths"
+#define STATS_TORTURES "tortures"
 
 // Graggar
+#define STATS_BLOOD_SPILT "blood_spilt"
 #define STATS_ORGANS_EATEN "organs_eaten"
-#define STATS_DEATHS "deaths"
 #define STATS_PEOPLE_GIBBED "people_gibbed"
 #define STATS_ASSASSINATIONS "assassinations"
+#define STATS_LIMBS_BITTEN "limbs_bitten"
 
 // Baotha
 #define STATS_DRUGS_SNORTED "drugs_snorted"
 #define STATS_ALCOHOL_CONSUMED "alcohol_consumed"
 #define STATS_ALCOHOLICS "alcoholics"
 #define STATS_JUNKIES "junkies"
+#define STATS_LUXURIOUS_FOOD_EATEN "luxurious_food_eaten"
 
 // Matthios
 #define STATS_ITEMS_PICKPOCKETED "items_pickpocketed"
 #define STATS_SHRINE_VALUE "shrine_value"
 #define STATS_GREEDY_PEOPLE "tomb_deaths"
 #define STATS_KLEPTOMANIACS "kleptomaniacs"
+#define STATS_LOCKS_PICKED "locks_picked"
 
 GLOBAL_LIST_INIT(vanderlin_round_stats, list(
 	STATS_DEATHS = 0,
@@ -173,6 +184,17 @@ GLOBAL_LIST_INIT(vanderlin_round_stats, list(
 	STATS_ALIVE_TIEFLINGS = 0,
 	STATS_PEOPLE_DROWNED = 0,
 	STATS_MANA_SPENT = 0,
+	STATS_WATER_CONSUMED  = 0,
+	STATS_LIMBS_BITTEN = 0,
+	STATS_UNDERWORLD_DUELS = 0,
+	STATS_LOCKS_PICKED = 0,
+	STATS_SONGS_PLAYED = 0,
+	STATS_FOOD_ROTTEN = 0,
+	STATS_BLACKSTEEL_SMELTED = 0,
+	STATS_PACIFISTS = 0,
+	STATS_FOREST_DEATHS = 0,
+	STATS_TORTURES = 0,
+	STATS_LUXURIOUS_FOOD_EATEN = 0,
 ))
 
 /datum/controller/subsystem/ticker/proc/gather_roundend_feedback()
