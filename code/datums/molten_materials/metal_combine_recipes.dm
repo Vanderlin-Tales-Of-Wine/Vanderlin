@@ -132,3 +132,15 @@ GLOBAL_LIST_INIT(molten_recipes, list())
 	output = list(
 		/datum/material/blacksteel = 10,
 	)
+
+/datum/molten_recipe/electrum
+	name = "Electrum"
+	materials_required = list(
+		/datum/material/gold = 5,
+		/datum/material/silver = 4,
+		/datum/material/copper = 1,
+	)
+	temperature_required = 1596.15
+	output = list(
+		/datum/material/electrum = 10,
+	)

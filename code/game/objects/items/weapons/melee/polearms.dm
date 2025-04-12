@@ -461,3 +461,28 @@
 	wdefense = 4
 	max_integrity = 60
 	throwforce = 20
+
+//................ Electrum Spear ............... //
+
+/obj/item/weapon/polearm/spear/psydon
+	name = "psydonian spear"
+	desc = "A psydonian spear of twisted electrum. Three blades at the tipp deformed and emanating hatred, resembling the sign of the old god."
+	icon_state = "psyspear"
+	drop_sound = 'sound/foley/dropsound/blade_drop.ogg'
+	melting_material = /datum/material/electrum
+	melt_amount = 75
+	resistance_flags = FIRE_PROOF
+	max_integrity = INTEGRITY_STRONG
+	sellprice = 50
+	minstr = 9
+	is_silver = TRUE
+
+
+/obj/item/weapon/polearm/halberd/psydon
+	name = "psydonian halberd"
+	desc = "A large halberd of old. The curved blade polished to perfection, reflecting the fear of those struck by it even in dim ligth."
+	icon_state = "psyhalberd"
+	melting_material = /datum/material/electrum
+	resistance_flags = FIRE_PROOF
+	minstr = 95
+	is_silver = TRUE

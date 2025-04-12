@@ -1,3 +1,6 @@
+#define QUENCH_NORMAL 0 //quench reagent isnt changed
+#define QUENCH_HOLY 1 //turns the required quench reagent into blessed water
+
 /datum/anvil_recipe
 	abstract_type = /datum/anvil_recipe
 	var/name
@@ -21,6 +24,7 @@
 	var/numberofbreakthroughs = 0 // How many good hits we got on the metal, advances recipes 50% faster, reduces number of hits total, and restores bar_health
 	var/datum/parent // The ingot we're currently working on.
 	var/rotations_required = 1
+	var/quench_type = QUENCH_NORMAL // Changes what type of reagent is needed to quench
 
 /datum/anvil_recipe/New(datum/P, ...)
 	parent = P

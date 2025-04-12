@@ -110,3 +110,13 @@
 
 /datum/intent/whip/crack/metal
 	penfactor = 20
+
+//................ Electrum Whip ............... //
+
+/obj/item/weapon/whip/psydon
+	name = "psydonian whip"
+	desc = "A whip adorned by a polished psycross. A testiment to brutality."
+	icon_state = "psywhip"
+	minstr = 5
+	is_silver = TRUE
+	sellprice = 75
