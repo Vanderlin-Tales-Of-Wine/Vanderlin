@@ -40,7 +40,7 @@
 
 	influence_factors = list(
 		STATS_COMBAT_SKILLS = list("points" = 3, "capacity" = 100),
-		STATS_PARRIES = list("points" = 0.05, "capacity" = 100),
+		STATS_PARRIES = list("points" = 0.2, "capacity" = 100),
 		STATS_WARCRIES = list("points" = 1, "capacity" = 60),
 		STATS_YIELDS = list("points" = -3, "capacity" = -40),
 	)
@@ -61,7 +61,7 @@
 		STATS_BLOOD_SPILT = list("points" = 0.00025, "capacity" = 100),
 		STATS_FISH_CAUGHT = list("points" = 2, "capacity" = 100),
 		STATS_ABYSSOR_REMEMBERED = list("points" = 1, "capacity" = 40),
-		STATS_LEECHES_EMBEDDED = list("points" = 0.25, "capacity" = 60),
+		STATS_LEECHES_EMBEDDED = list("points" = 0.2, "capacity" = 60),
 	)
 
 /datum/storyteller/xylix
@@ -84,9 +84,9 @@
 
 	influence_factors = list(
 		STATS_LAUGHS_MADE = list("points" = 0.25, "capacity" = 100),
-		STATS_GAMES_RIGGED = list("points" = 1, "capacity" = 30),
+		STATS_GAMES_RIGGED = list("points" = 1.5, "capacity" = 30),
 		STATS_PEOPLE_MOCKED = list("points" = 4, "capacity" = 60),
-		STATS_CRITS_MADE = list("points" = 0.2, "capacity" = 80),
+		STATS_CRITS_MADE = list("points" = 0.4, "capacity" = 80),
 	)
 
 /datum/storyteller/necra
@@ -238,9 +238,9 @@
 	)
 
 	influence_factors = list(
-		STATS_ZIZO_PRAISED = list("points" = 2.5, "capacity" = 60),
-		STATS_NOBLE_DEATHS = list("points" = 5, "capacity" = 80),
-		STATS_DEADITES_ALIVE = list("points" = 5, "capacity" = 100),
+		STATS_ZIZO_PRAISED = list("points" = 3, "capacity" = 60),
+		STATS_NOBLE_DEATHS = list("points" = 7.5, "capacity" = 80),
+		STATS_DEADITES_ALIVE = list("points" = 10, "capacity" = 100),
 		STATS_CLERGY_DEATHS = list("points" = 10, "capacity" = 100),
 	)
 

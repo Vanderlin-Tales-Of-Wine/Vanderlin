@@ -227,6 +227,8 @@
 	for(var/wound_type in shuffle(attempted_wounds))
 		var/datum/wound/applied = add_wound(wound_type, silent, crit_message)
 		if(applied)
+			if(user.client)
+				GLOB.vanderlin_round_stats[STATS_CRITS_MADE]++
 			return applied
 	return FALSE
 
@@ -286,6 +288,8 @@
 	for(var/wound_type in shuffle(attempted_wounds))
 		var/datum/wound/applied = add_wound(wound_type, silent, crit_message)
 		if(applied)
+			if(user.client)
+				GLOB.vanderlin_round_stats[STATS_CRITS_MADE]++
 			return applied
 	return FALSE
 
@@ -410,6 +414,8 @@
 	for(var/wound_type in shuffle(attempted_wounds))
 		var/datum/wound/applied = add_wound(wound_type, silent, crit_message)
 		if(applied)
+			if(user.client)
+				GLOB.vanderlin_round_stats[STATS_CRITS_MADE]++
 			return applied
 	return FALSE
 
