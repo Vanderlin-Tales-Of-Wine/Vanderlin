@@ -53,7 +53,6 @@
 	)
 	output = /obj/item/clothing/cloak/apron
 
-
 /datum/repeatable_crafting_recipe/sewing/clothgloves
 	name = "cloth gloves"
 	requirements = list(
