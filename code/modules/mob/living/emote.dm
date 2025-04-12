@@ -40,9 +40,9 @@
 		return
 
 	/* admin stuff */
-	var/follower_ident = "(follower of [patron])"
-	message_admins("[follower_ident] [ADMIN_SM(follower)] [ADMIN_JMP(follower)] prays: [span_info(prayer)]")
-	user.log_message(span_info("[follower_ident] prays: [prayer]"))
+	var/follower_ident = "[follower.key]/([follower.real_name]) (follower of [patron])"
+	message_admins("[follower_ident] [ADMIN_SM(follower)] [ADMIN_FLW(follower)] prays: [span_info(prayer)]")
+	user.log_message(span_info("(follower of [patron]) prays: [prayer]"))
 
 	follower.whisper(prayer)
 
