@@ -218,7 +218,7 @@ SUBSYSTEM_DEF(gamemode)
 /datum/controller/subsystem/gamemode/fire(resumed = FALSE)
 	if(last_devotion_check < world.time)
 		refresh_alive_stats()
-		pick_most_devoted()
+		pick_most_influential()
 		last_devotion_check = world.time + 2 MINUTES
 
 	if(SSticker.HasRoundStarted() && (world.time - SSticker.round_start_time) >= ROUNDSTART_VALID_TIMEFRAME)
@@ -661,7 +661,7 @@ SUBSYSTEM_DEF(gamemode)
 		secret_storyteller = TRUE
 		selected_storyteller = pickweight(get_valid_storytellers(TRUE))
 		return
-	pick_most_devoted(TRUE)
+	pick_most_influential(TRUE)
 
 /datum/controller/subsystem/gamemode/proc/storyteller_vote_choices()
 	var/list/final_choices = list()
@@ -1045,42 +1045,6 @@ SUBSYSTEM_DEF(gamemode)
 				continue
 			listed.occurrences++
 			listed.occurrences++
-
-/datum/controller/subsystem/gamemode/proc/pick_most_devoted(roundstart = FALSE)
-	var/list/storytellers_with_votes = list()
-	for(var/client/client in GLOB.clients)
-		var/mob/living/living = client.mob
-		if(!istype(living))
-			continue
-		if(!roundstart)
-			if(!living.mind)
-				continue
-			if(living.stat == DEAD)
-				continue
-			if(!living.patron)
-				continue
-			if(!initial(living.patron.storyteller))
-				continue
-			storytellers_with_votes |= initial(living.patron.storyteller)
-			storytellers_with_votes[initial(living.patron.storyteller)]++
-		else
-			storytellers_with_votes |= initial(client.prefs.selected_patron.storyteller)
-			storytellers_with_votes[initial(client.prefs.selected_patron.storyteller)]++
-
-	var/datum/storyteller/highest
-	for(var/datum/storyteller/listed as anything in storytellers_with_votes)
-		if(!highest)
-			highest = listed
-			continue
-		if(storytellers_with_votes[listed] < storytellers_with_votes[highest])
-			continue
-
-		if(storytellers_with_votes[listed] == storytellers_with_votes[highest] && prob(50))
-			continue
-		highest = listed
-	if(!highest)
-		return
-	set_storyteller(highest)
 
 /// Compares influence of all storytellers and sets a new storyteller with a highest influence
 /datum/controller/subsystem/gamemode/proc/pick_most_influential(roundstart = FALSE)
