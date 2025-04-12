@@ -4,7 +4,8 @@
 	var/unique_enzymes
 	var/uni_identity
 	var/datum/blood_type/human/human_blood_type
-	var/datum/species/species = new /datum/species/human //The type of mutant race the player is if applicable (i.e. potato-man)
+	/// The type of mutant race the player is if applicable (i.e. potato-man)
+	var/datum/species/species = new /datum/species/human
 	var/list/features = MANDATORY_FEATURE_LIST
 	var/real_name //Stores the real name of the person who originally got this dna datum. Used primarely for changelings,
 	var/mob/living/holder
