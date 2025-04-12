@@ -324,6 +324,7 @@
 	name = "footprints"
 	desc = ""
 	icon = 'icons/effects/footprints.dmi'
+	// No icon on compile because appearance is made by overlays
 	icon_state = MAP_SWITCH("", "blood1")
 	random_icon_states = null
 	blood_state = BLOOD_STATE_HUMAN //the icon state to load images from
