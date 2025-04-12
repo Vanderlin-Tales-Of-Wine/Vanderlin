@@ -1241,7 +1241,7 @@
 	dropshrink = 0.8
 	slices_num = 6
 	slice_path = /obj/item/reagent_containers/food/snacks/crimsoncake_slice
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS*6)
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS*6, /datum/reagent/consumable/ethanol/plum_wine = SNACK_DECENT*6)
 	tastes = list("cake"=1, "chocolate" = 1, "plum"=1)
 	foodtype = GRAIN | FRUIT | SUGAR
 	slice_batch = TRUE
@@ -1256,7 +1256,7 @@
 	dropshrink = 0.8
 	slices_num = 0
 	bitesize = 2
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS)
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS, /datum/reagent/consumable/ethanol/plum_wine = SNACK_DECENT)
 	tastes = list("cake"=1, "chocolate" = 1, "plum"=1)
 	w_class = WEIGHT_CLASS_NORMAL
 	foodtype = GRAIN | FRUIT | SUGAR
