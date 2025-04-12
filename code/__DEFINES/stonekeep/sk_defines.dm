@@ -1,11 +1,13 @@
 #define ALL_STONEKEEP_PLAYER_RACES		list("Humen", "Half-Elf", "Dark Elf", "Elf", "Dwarf","Tiefling", "Aasimar", "Half-orc", "Changeling","Skylancer","Ogrun","Undine")	// the normal lineup sans Rakshari who are not generally available
 #define ALL_STONEKEEP_RACES_NORMALSPRITE		list("Humen", "Half-Elf", "Dark Elf", "Elf", "Tiefling", "Aasimar", "Changeling","Skylancer","Ogrun")	// for clothes without dwarf sprites
 #define ALL_RACES_FOR_REAL			list("human", "rakshari", "dwarf", "elf", "tiefling", "aasimar", "halforc", "orc", "zizombie", "kobold",  "abyssariad")
+#define ALL_RACES_WITH_FACIALHAIR		list("human", "rakshari", "dwarf", "elf", "tiefling", "halforc", "orc", "zizombie", "kobold",  "abyssariad")
 
 #define NORMAL_TOWNER_RACES 	list("Humen","Elf","Half-Elf","Dwarf")
 #define PEASANT_RACES 			list("Humen","Aasimar","Half-Elf","Dwarf")
 
 #define CTAG_SKMERCENARY 	"CAT_SKMERCENART"  		// Mercenary classes
+#define CTAG_SKGARRISON		"CAT_SKGARRISON"
 
 #define isgoblin(A) (is_species(A, /datum/species/goblin))
 

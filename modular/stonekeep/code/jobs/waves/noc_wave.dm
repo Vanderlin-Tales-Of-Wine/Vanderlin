@@ -16,7 +16,7 @@
 		if(H.patron != /datum/patron/divine/noc) // For some stupid reason this was checking for Dendor before.
 			H.set_patron(/datum/patron/divine/noc)
 
-	head = /obj/item/clothing/head/roguehood/nochood/priest
+	head = /obj/item/clothing/head/helmet/nocpriest
 	neck = /obj/item/clothing/neck/psycross/noc
 	wrists = /obj/item/clothing/wrists/nocwrappings
 	shoes = /obj/item/clothing/shoes/sandals

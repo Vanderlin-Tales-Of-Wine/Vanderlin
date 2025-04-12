@@ -24,7 +24,7 @@ the like.
 	display_order = GARRISON_ORDER
 
 	outfit = /datum/outfit/job/stonekeep/garrison	//Default outfit.
-	advclass_cat_rolls = list(CTAG_GARRISON = 20)	//Handles class selection.
+	advclass_cat_rolls = list(CTAG_SKGARRISON = 20)	//Handles class selection.
 	give_bank_account = 20
 	min_pq = -10
 
@@ -84,7 +84,7 @@ Design philosphy:
 	tutorial = "You are a footman in the garrison levy. You are well versed in holding the line with a shield while wielding a trusty sword, axe, or mace in the other hand."
 	outfit = /datum/outfit/job/stonekeep/garrison/footman
 
-	category_tags = list(CTAG_GARRISON)
+	category_tags = list(CTAG_SKGARRISON)
 	allowed_races = list(
 		"Humen",
 		"Changeling",
@@ -124,7 +124,7 @@ Design philosphy:
 	tutorial = "Chosen for size and brawn, wielding polearms. You are less fleet of foot compared to the rest, but you are burly and well practiced with spears, pikes, billhooks - all the various polearms for striking enemies from a distance."
 	outfit = /datum/outfit/job/stonekeep/garrison/spearman
 
-	category_tags = list(CTAG_GARRISON)
+	category_tags = list(CTAG_SKGARRISON)
 
 /datum/outfit/job/stonekeep/garrison/spearman/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -212,7 +212,7 @@ Design philosphy:
 	tutorial = "You are a fencer in the garrison levy. If nothing else you know a simple truth, there are few problems that cannot be resolved with quick feet and the precise application of a deft blade."
 	outfit = /datum/outfit/job/stonekeep/garrison/scout
 
-	category_tags = list(CTAG_GARRISON)
+	category_tags = list(CTAG_SKGARRISON)
 	allowed_races = list(
 		"Humen",
 		"Changeling",
