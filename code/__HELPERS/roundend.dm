@@ -111,7 +111,7 @@
 // Matthios
 #define STATS_ITEMS_PICKPOCKETED "items_pickpocketed"
 #define STATS_SHRINE_VALUE "shrine_value"
-#define STATS_GREEDY_PEOPLE "tomb_deaths"
+#define STATS_GREEDY_PEOPLE "greedy_people"
 #define STATS_KLEPTOMANIACS "kleptomaniacs"
 #define STATS_LOCKS_PICKED "locks_picked"
 
