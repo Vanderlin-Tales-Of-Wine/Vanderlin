@@ -142,6 +142,7 @@
 #define MAYOR       (1<<4)
 #define FORWARDEN   (1<<5)
 #define FORGUARD    (1<<6)
+#define GATEMASTER  (1<<7)
 
 #define CHURCHMEN		(1<<2)
 
@@ -162,6 +163,7 @@
 #define MATRON 		(1<<6)
 #define PHYSICKER	(1<<7)
 #define SCRIBE		(1<<8)
+#define GAFFER		(1<<9)
 
 #define PEASANTS		(1<<4)
 
@@ -225,6 +227,7 @@
 #define JDO_ROYALGUARD 7.2
 #define JDO_MENATARMS 8
 #define JDO_CITYWATCHMEN 8.1
+#define JDO_GATEMASTER 8.2
 #define JDO_DUNGEONEER 9
 #define JDO_JAILOR 9.1
 #define JDO_SQUIRE 10
@@ -278,6 +281,7 @@
 #define JDO_CHIEF 32
 
 #define JDO_ADVENTURER 33
+#define JDO_GAFFER 33.1
 #define JDO_PILGRIM 34.2
 #define JDO_MIGRANT  34.3
 #define JDO_BANDIT 34.3

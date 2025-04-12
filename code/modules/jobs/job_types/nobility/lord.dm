@@ -25,7 +25,8 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	allowed_races = list(
 		"Humen",
 		"Elf",
-		"Half-Elf"
+		"Half-Elf",
+		"Dwarf"
 	)
 	outfit = /datum/outfit/job/lord
 	bypass_lastclass = TRUE
@@ -53,7 +54,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	else
 		SSfamilytree.AddRoyal(spawned, FAMILY_MOTHER)
 		ruler_title = "Queen"
-	to_chat(world, "<b>[span_notice(span_big("[spawned.real_name] is [ruler_title] of Vanderlin."))]</b>")
+	to_chat(world, "<b>[span_notice(span_big("[spawned.real_name] is [ruler_title] of [SSmapping.config.map_name]."))]</b>")
 	to_chat(world, "<br>")
 	if(GLOB.keep_doors.len > 0)
 		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(know_keep_door_password), spawned), 70)
@@ -67,7 +68,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	backr = /obj/item/storage/backpack/satchel
 	belt = /obj/item/storage/belt/leather/plaquegold
 	backpack_contents = list(/obj/item/weapon/knife/dagger/steel/special = 1)
-	id = /obj/item/clothing/ring/active/nomag
+	ring = /obj/item/clothing/ring/active/nomag
 	l_hand = /obj/item/weapon/lordscepter
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)

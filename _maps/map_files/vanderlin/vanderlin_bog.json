@@ -1,0 +1,6 @@
+{
+    "map_name": "Vanderlin Bog",
+    "map_path": "map_files/vanderlin",
+    "map_file": "vanderlin_bog.dmm",
+	"traits": [{"Up": true, "Leylines": true}, {"Down": true, "Leylines": true}]
+}

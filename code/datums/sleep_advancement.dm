@@ -99,6 +99,8 @@
 
 	var/dream_dust = retained_dust
 	dream_dust += BASE_DREAM_DUST
+	if(HAS_TRAIT(mind.current, TRAIT_TUTELAGE))
+		dream_dust += BASE_DREAM_DUST / 2
 
 	var/int = mind.current.STAINT
 	dream_dust += mind.current.STAINT * DREAM_DUST_PER_INT //25% dream points for each int
@@ -244,6 +246,7 @@
 	sleep_adv_points -= get_skill_cost(skill_type)
 	adjust_sleep_xp(skill_type, -get_requried_sleep_xp_for_skill(skill_type, 1))
 	mind.adjust_skillrank(skill_type, 1, FALSE)
+	GLOB.vanderlin_round_stats[STATS_SKILLS_DREAMED]++
 
 /datum/sleep_adv/proc/grant_inspiration_xp(skill_amt)
 	var/list/viable_skills = list()

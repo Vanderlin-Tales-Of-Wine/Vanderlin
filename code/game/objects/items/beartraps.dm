@@ -121,6 +121,7 @@
 		if(do_after(user, (5 SECONDS) - (L.STASTR*2), user))
 			if(prob(50 + (L.mind.get_skill_level(/datum/skill/craft/traps) * 10))) // 100% chance to set traps properly at Master trapping
 				armed = TRUE // Impossible to use in hand if it's armed
+				L.log_message("has armed the [src]!", LOG_ATTACK)
 				L.dropItemToGround(src) // We drop it instantly on the floor beneath us
 				anchored = TRUE // And anchor it so that it can't be carried inside chests (prevents exploit)
 				update_icon()
@@ -137,12 +138,13 @@
 					playsound(src.loc, 'sound/items/beartrap.ogg', 300, TRUE, -1)
 					return
 
-/obj/item/restraints/legcuffs/beartrap/proc/close_trap()
+/obj/item/restraints/legcuffs/beartrap/proc/close_trap(atom/triggerer)
 	armed = FALSE
 	anchored = FALSE // Take it off the ground
 	alpha = 255
 	update_icon()
 	playsound(src.loc, 'sound/items/beartrap.ogg', 300, TRUE, -1)
+	triggerer.log_message("has stepped into the [src]!", LOG_ATTACK)
 
 /obj/item/restraints/legcuffs/beartrap/Crossed(AM as mob|obj)
 	if(armed && isturf(loc))
@@ -152,7 +154,7 @@
 			if(istype(L.buckled, /obj/vehicle))
 				var/obj/vehicle/ridden_vehicle = L.buckled
 				if(!ridden_vehicle.are_legs_exposed) //close the trap without injuring/trapping the rider if their legs are inside the vehicle at all times.
-					close_trap()
+					close_trap(L)
 					ridden_vehicle.visible_message("<span class='danger'>[ridden_vehicle] triggers \the [src].</span>")
 					return ..()
 			if(L.throwing)
@@ -179,7 +181,7 @@
 				if(SA.mob_size <= MOB_SIZE_TINY) //don't close the trap if they're as small as a mouse.
 					snap = FALSE
 			if(snap)
-				close_trap()
+				close_trap(L)
 				L.visible_message("<span class='danger'>[L] triggers \the [src].</span>", \
 						"<span class='danger'>I trigger \the [src]!</span>")
 				if(L.apply_damage(trap_damage, BRUTE, def_zone, L.run_armor_check(def_zone, "stab", damage = trap_damage)))

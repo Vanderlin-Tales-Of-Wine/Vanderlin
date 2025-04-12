@@ -7,11 +7,7 @@
 		"Rakshari",
 		"Elf",
 		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc",
+		"Dwarf"
 	)
 	outfit = /datum/outfit/job/zybantine_migration/emir
 	grant_lit_torch = TRUE
@@ -27,7 +23,7 @@
 	beltl = /obj/item/weapon/sword/sabre/shalal
 	beltr = /obj/item/flashlight/flare/torch/lantern
 	backr = /obj/item/storage/backpack/satchel
-	id = /obj/item/clothing/ring/gold/guild_mercator
+	ring = /obj/item/clothing/ring/gold/guild_mercator
 	shirt = /obj/item/clothing/shirt/tunic/purple
 	pants = /obj/item/clothing/pants/trou/leather
 	neck = /obj/item/clothing/neck/shalal/emir
@@ -75,12 +71,7 @@
 		"Rakshari",
 		"Elf",
 		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc",
-		"Kobold",
+		"Dwarf"
 	)
 	outfit = /datum/outfit/job/zybantine_migration/amirah
 	grant_lit_torch = TRUE
@@ -96,7 +87,7 @@
 	beltl = /obj/item/weapon/sword/sabre/shalal
 	beltr = /obj/item/flashlight/flare/torch/lantern
 	backr = /obj/item/storage/backpack/satchel
-	id = /obj/item/clothing/ring/gold/guild_mercator
+	ring = /obj/item/clothing/ring/gold/guild_mercator
 	shirt = /obj/item/clothing/shirt/dress/silkdress/black
 	pants = /obj/item/clothing/pants/trou/leather
 	neck = /obj/item/clothing/neck/shalal/emir
@@ -134,7 +125,13 @@
 	name = "Furusiyya"
 	greet_text = "You are a furusiyya, pledged to the Emir and the Amirah. Make sure they come out alive of that place."
 	allowed_sexes = list(MALE)
-	allowed_races = list("Humen")
+	allowed_races = list(
+	"Humen",
+	"Elf",
+	"Half-Elf",
+	"Dwarf",
+	"Rakshari"
+	)
 	outfit = /datum/outfit/job/zybantine_migration/furusiyya
 	grant_lit_torch = TRUE
 
@@ -196,16 +193,7 @@
 	name = "Zybantine Soldier"
 	greet_text = "You are a slave soldier from the Ziggurat sent as an escort to the emirs on a foreign land, do not fail them."
 	allowed_sexes = list(MALE,FEMALE)
-	allowed_races = list("Humen",
-		"Elf",
-		"Half-Elf",
-		"Rakshari",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc"
-	)
+	allowed_races = RACES_PLAYER_ALL
 	outfit = /datum/outfit/job/zybantine_migration/zybantine_guard
 	grant_lit_torch = TRUE
 
@@ -258,7 +246,6 @@
 		"Half-Elf",
 		"Tiefling",
 		"Dark Elf",
-		"Half-Orc"
 	)
 	outfit = /datum/outfit/job/zybantine_migration/qatil
 

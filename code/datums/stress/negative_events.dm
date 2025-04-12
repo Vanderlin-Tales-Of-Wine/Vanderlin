@@ -355,3 +355,13 @@
 	stressadd = 1
 	desc = span_red("Eating such a meal without a table? Churlish.")
 	timer = 2 MINUTES
+
+/datum/stressevent/destroyed_past //gaffer destroying their trophies
+	stressadd = 4
+	desc = span_red("A piece of my history is destroyed, how will they know my great past?")
+	timer = 10 MINUTES
+
+/datum/stressevent/ring_madness // ring bearer examines at HEAD EATER related thing
+	stressadd = 1
+	desc = span_red("It mocks me, toys with my mind!")
+	timer = 1 MINUTES

@@ -213,7 +213,7 @@
 	#define SPEECH_SPANS 3
 	#define SPEECH_LANGUAGE 5
 	/* #define SPEECH_SANITIZE 4
-	
+
 	#define SPEECH_IGNORE_SPAM 6
 	#define SPEECH_FORCED 7 */
 #define COMSIG_MOB_DEADSAY "mob_deadsay" // from /mob/say_dead(): (mob/speaker, message)
@@ -310,6 +310,10 @@
 #define COMSIG_ITEM_HIT_REACT "item_hit_react"					//from base of obj/item/hit_reaction(): (list/args)
 #define COMSIG_ITEM_HIT_RESPONSE "item_hit_response"
 #define COMSIG_ITEM_WEARERCROSSED "wearer_crossed"                //called on item when crossed by something (): (/atom/movable, mob/living/crossed)
+
+//signal for gaffer ring destroyed, if you dont like my location send me rod directly into my
+
+#define COMSIG_GAFFER_RING_DESTROYED "gaffer_ring_destroyed"
 
 // /obj/item/clothing signals
 #define COMSIG_CLOTHING_STEP_ACTION "clothing_step_action"			//from base of obj/item/clothing/shoes/proc/step_action(): ()

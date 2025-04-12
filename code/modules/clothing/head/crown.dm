@@ -30,6 +30,7 @@
 
 /obj/item/clothing/head/crown/serpcrown/Initialize()
 	. = ..()
+	name = "crown of [SSmapping.config.map_name]"
 	if(type == /obj/item/clothing/head/crown/serpcrown && !istype(loc, /mob/living/carbon/human/dummy)) //dummies spawn this in character setup
 		SSroguemachine.crown = src
 
