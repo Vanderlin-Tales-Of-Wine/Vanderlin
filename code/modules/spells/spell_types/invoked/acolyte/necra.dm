@@ -24,12 +24,12 @@
 	for(var/obj/structure/closet/crate/coffin/coffin in target_turf)
 		if(pacify_coffin(coffin, user))
 			user.visible_message(span_rose("[user] consecrates [coffin]."), span_rose("My funeral rites have been performed on [coffin]."))
-			GLOB.vanderlin_round_stats["graves_consecrated"]++
+			GLOB.vanderlin_round_stats[STATS_GRAVES_CONSECRATED]++
 			return
 	for(var/obj/structure/closet/dirthole/hole in target_turf)
 		if(pacify_coffin(hole, user))
 			user.visible_message(span_rose("[user] consecrates [hole]."), span_rose("My funeral rites have been performed on [hole]."))
-			GLOB.vanderlin_round_stats["graves_consecrated"]++
+			GLOB.vanderlin_round_stats[STATS_GRAVES_CONSECRATED]++
 			return
 	to_chat(user, span_warning("I failed to perform the rites."))
 

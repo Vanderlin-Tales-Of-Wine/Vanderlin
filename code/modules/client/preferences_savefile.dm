@@ -332,7 +332,21 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["accessory"]			>> accessory
 	S["detail"]			>> detail
 	S["socks"]				>> socks
-	S["randomise"]	>>  randomise
+	S["randomise"] >> randomise
+	// We load our list, but override everything to FALSE to stop a "tainted" save from making it random again.
+	randomise[RANDOM_BODY] = FALSE
+	randomise[RANDOM_BODY_ANTAG] = FALSE
+	randomise[RANDOM_UNDERWEAR] = FALSE
+	randomise[RANDOM_UNDERWEAR_COLOR] = FALSE
+	randomise[RANDOM_UNDERSHIRT] = FALSE
+	randomise[RANDOM_SOCKS] = FALSE
+	randomise[RANDOM_HAIRSTYLE] = FALSE
+	randomise[RANDOM_HAIR_COLOR] = FALSE
+	randomise[RANDOM_FACIAL_HAIRSTYLE] = FALSE
+	randomise[RANDOM_FACIAL_HAIR_COLOR] = FALSE
+	randomise[RANDOM_SKIN_TONE] = FALSE
+	randomise[RANDOM_EYE_COLOR] = FALSE
+
 	S["family"]			>> family
 	S["setspouse"]			>> setspouse
 	S["feature_mcolor"]					>> features["mcolor"]
