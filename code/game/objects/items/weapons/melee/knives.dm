@@ -475,7 +475,7 @@
 	throw_speed = 4
 	max_integrity = 150
 	wdefense = 3
-	icon_state = "throw_knifes"
+	icon_state = "psythrow_knifes"
 	embedding = list("embedded_pain_multiplier" = 4, "embed_chance" = 50, "embedded_fall_chance" = 0)
 	is_silver = TRUE
 	sellprice = 65
