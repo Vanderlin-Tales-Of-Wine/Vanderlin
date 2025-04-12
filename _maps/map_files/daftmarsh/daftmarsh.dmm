@@ -2177,6 +2177,13 @@
 	},
 /turf/open/floor/hexstone,
 /area/rogue/indoors/town/steward)
+"jM" = (
+/obj/structure/closet/crate/crafted_closet,
+/obj/structure/fluff/walldeco/painting/queen{
+	pixel_y = 32
+	},
+/turf/open/floor/blocks/newstone,
+/area/rogue/indoors/town/manor)
 "jN" = (
 /turf/open/floor/blocks/stonered,
 /area/rogue/indoors/town/manor)
@@ -3873,6 +3880,14 @@
 /obj/item/candle/yellow,
 /turf/open/floor/tile/masonic,
 /area/rogue/indoors/town/manor)
+"qG" = (
+/obj/structure/mineral_door/wood/fancywood{
+	name = "Hand's Chambers"
+	},
+/obj/effect/mapping_helpers/door/access/manor/hand,
+/obj/effect/mapping_helpers/door/locker,
+/turf/open/floor/wood,
+/area/rogue/indoors/town/manor)
 "qH" = (
 /obj/structure/mineral_door/wood/donjon{
 	dir = 1;
@@ -4339,7 +4354,7 @@
 "st" = (
 /obj/structure/bed/inn/double,
 /obj/item/bedsheet/fabric_double,
-/turf/open/floor/ruinedwood/darker,
+/turf/open/floor/wood,
 /area/rogue/indoors/town/manor)
 "su" = (
 /obj/structure/table/wood{
@@ -5071,6 +5086,13 @@
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/indoors/town/dwarfin)
 "uW" = (
+/turf/open/floor/blocks/newstone,
+/area/rogue/indoors/town/manor)
+"uX" = (
+/obj/structure/closet/crate/crafted_closet,
+/obj/item/weapon/sword/rapier/dec,
+/obj/item/gun/ballistic/revolver/grenadelauncher/crossbow,
+/obj/item/ammo_holder/quiver/bolts,
 /turf/open/floor/blocks/newstone,
 /area/rogue/indoors/town/manor)
 "uZ" = (
@@ -6000,7 +6022,9 @@
 /obj/structure/mineral_door/wood/fancywood{
 	name = "Hand's Chambers"
 	},
-/turf/open/floor/wood,
+/obj/effect/mapping_helpers/door/access/manor/hand,
+/obj/effect/mapping_helpers/door/locker,
+/turf/open/floor/blocks/newstone,
 /area/rogue/indoors/town/manor)
 "yS" = (
 /obj/structure/table/wood{
@@ -6223,6 +6247,12 @@
 "zM" = (
 /obj/structure/chair/wood/alt/chair_noble,
 /turf/open/floor/carpet/lord/center,
+/area/rogue/indoors/town/manor)
+"zN" = (
+/obj/effect/mapping_helpers/secret_door_creator/keep{
+	redstone_id = "HandPassage"
+	},
+/turf/closed/wall/mineral/decostone/long,
 /area/rogue/indoors/town/manor)
 "zO" = (
 /turf/open/water/marsh/deep,
@@ -6948,6 +6978,10 @@
 /obj/item/storage/keyring,
 /turf/open/floor/carpet/stellar,
 /area/rogue/indoors/town/shop)
+"CV" = (
+/obj/structure/window/openclose,
+/turf/open/floor/blocks/newstone,
+/area/rogue/indoors/town/manor)
 "CW" = (
 /obj/structure/table/wood{
 	icon_state = "largetable";
@@ -7746,6 +7780,12 @@
 /obj/item/flashlight/flare/torch/lantern,
 /turf/open/floor/churchrough,
 /area/rogue/indoors/town/church/inquisition)
+"FY" = (
+/obj/machinery/light/fueled/wallfire/candle{
+	pixel_y = -32
+	},
+/turf/open/floor/blocks/newstone,
+/area/rogue/indoors/town/manor)
 "FZ" = (
 /obj/structure/mineral_door/wood{
 	name = "squires' quarters"
@@ -7975,6 +8015,10 @@
 /obj/machinery/light/fueled/wallfire/candle/blue/l,
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/magician)
+"GY" = (
+/obj/machinery/light/fueled/wallfire/candle/l,
+/turf/open/floor/blocks/newstone,
+/area/rogue/indoors/town/manor)
 "GZ" = (
 /turf/closed/wall/mineral/decostone/end{
 	dir = 4
@@ -8255,7 +8299,13 @@
 /obj/item/coin/silver/pile,
 /obj/item/coin/copper/pile,
 /obj/item/clothing/face/cigarette/rollie/cannabis,
-/turf/open/floor/ruinedwood/darker,
+/obj/machinery/light/fueled/wallfire/candle/l{
+	pixel_x = 32
+	},
+/obj/structure/fluff/walldeco/painting/seraphina{
+	pixel_y = 32
+	},
+/turf/open/floor/wood,
 /area/rogue/indoors/town/manor)
 "Ii" = (
 /obj/structure/table/wood/plain_alt,
@@ -9287,6 +9337,10 @@
 /obj/structure/stairs,
 /turf/open/floor/metal/barograte,
 /area/rogue/indoors/town/clocktower)
+"Mk" = (
+/obj/machinery/light/fueled/wallfire/candle,
+/turf/open/floor/blocks/newstone,
+/area/rogue/indoors/town/manor)
 "Mm" = (
 /obj/structure/rack/shelf/biggest,
 /obj/item/weapon/tongs,
@@ -9676,6 +9730,12 @@
 /obj/effect/landmark/start/cook,
 /turf/open/floor/tile/kitchen,
 /area/rogue/indoors/town/tavern)
+"NX" = (
+/obj/machinery/light/fueled/wallfire/candle/l{
+	pixel_x = 32
+	},
+/turf/open/floor/wood,
+/area/rogue/indoors/town/manor)
 "NZ" = (
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/church/inquisition)
@@ -10337,6 +10397,18 @@
 /obj/machinery/light/fueled/wallfire/candle/l,
 /turf/open/floor/twig,
 /area/rogue/under/town/basement)
+"QL" = (
+/obj/item/paper/scroll,
+/obj/item/paper/scroll,
+/obj/item/paper/scroll,
+/obj/item/paper/scroll,
+/obj/item/paper/scroll,
+/obj/item/paper/scroll,
+/obj/item/paper/scroll,
+/obj/structure/closet/crate/chest/neu,
+/obj/machinery/light/fueled/wallfire/candle/l,
+/turf/open/floor/blocks/newstone,
+/area/rogue/indoors/town/manor)
 "QM" = (
 /turf/open/floor/carpet/stellar,
 /area/rogue/indoors/town/shop)
@@ -11153,6 +11225,14 @@
 "TR" = (
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/town/manorgate)
+"TS" = (
+/obj/structure/lever/hidden/keep{
+	redstone_id = "HandPassage"
+	},
+/turf/closed/wall/mineral/decostone/end{
+	dir = 1
+	},
+/area/rogue/indoors/town/manor)
 "TT" = (
 /obj/structure/fake_machine/atm{
 	pixel_y = 0;
@@ -11627,6 +11707,12 @@
 	},
 /turf/open/floor/wood,
 /area/rogue/outdoors/town)
+"VG" = (
+/obj/machinery/light/fueled/wallfire/candle/l{
+	pixel_x = 32
+	},
+/turf/open/floor/blocks/newstone,
+/area/rogue/indoors/town/manor)
 "VI" = (
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /obj/item/coin/gold/pile,
@@ -116193,12 +116279,12 @@ MB
 MB
 MB
 MB
-GZ
+CV
 JO
+GY
 uW
-uW
-uW
-uW
+QL
+uX
 GZ
 bh
 bh
@@ -116394,13 +116480,13 @@ MB
 MB
 MB
 MB
-or
-Sy
-JO
+GZ
+GZ
+jM
 uW
 cf
 cf
-uW
+FY
 Sy
 bh
 bh
@@ -116596,7 +116682,7 @@ MB
 MB
 MB
 MB
-or
+Sy
 XH
 cZ
 uW
@@ -116798,10 +116884,10 @@ MB
 MB
 MB
 MB
+XH
 or
 or
-or
-uW
+Mk
 cf
 VO
 uf
@@ -117001,7 +117087,7 @@ MB
 MB
 or
 or
-aa
+iN
 or
 uW
 cf
@@ -117204,11 +117290,11 @@ MB
 GZ
 aa
 aa
-yR
-uW
+qG
+VG
 cf
 cf
-uW
+FY
 Sy
 bh
 bh
@@ -117410,7 +117496,7 @@ or
 or
 uW
 uW
-uW
+VG
 XH
 bh
 bh
@@ -117810,8 +117896,8 @@ MB
 XH
 Ih
 st
-aa
-or
+NX
+Sy
 bh
 bh
 bh
@@ -118011,8 +118097,8 @@ MB
 MB
 or
 Cc
-of
-Ku
+zN
+TS
 or
 bh
 bh
