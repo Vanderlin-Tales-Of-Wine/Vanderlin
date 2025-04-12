@@ -201,10 +201,10 @@
 			if(!B.rotted)
 				B.rotted = TRUE
 				should_update = TRUE
-			if(B.rotted && amount < 16 MINUTES)
+			if(B.rotted && amount < 16 MINUTES && !(FACTION_MATTHIOS in C.faction))
 				var/turf/open/T = C.loc
 				if(istype(T))
-					T.pollute_turf(/datum/pollutant/rot, 10)
+					T.pollute_turf(/datum/pollutant/rot, 4)
 	if(should_update)
 		if(amount > 20 MINUTES)
 			C.update_body()

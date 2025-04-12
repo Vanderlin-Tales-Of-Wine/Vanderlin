@@ -22,7 +22,7 @@ Store the maps in properly labeled folders:
 
 ```dm
 /datum/map_template/dungeon/room/Sewers2
-    mappath = "_maps/map_files/matthios_tomb/room/Sewers2.dmm"
+    mappath = "_maps/matthios_tomb/room/Sewers2.dmm"
 ```
 
 ---
@@ -33,7 +33,7 @@ Use the map name as the ID:
 
 ```dm
 /datum/map_template/dungeon/room/Sewers2
-    mappath = "_maps/map_files/matthios_tomb/room/Sewers2.dmm"
+    mappath = "_maps/matthios_tomb/room/Sewers2.dmm"
     id = "Sewers2"
 ```
 
@@ -46,7 +46,7 @@ Set the **width** and **height** based on the topmost corner of the map.
 
 ```dm
 /datum/map_template/dungeon/room/Sewers2
-    mappath = "_maps/map_files/matthios_tomb/room/Sewers2.dmm"
+    mappath = "_maps/matthios_tomb/room/Sewers2.dmm"
     id = "Sewers2"
     width = 14
     height = 14
@@ -78,7 +78,7 @@ Offsets are determined by the tile **beside** the node (not on it).
 
 ```dm
 /datum/map_template/dungeon/room/Sewers2
-    mappath = "_maps/map_files/matthios_tomb/room/Sewers2.dmm"
+    mappath = "_maps/matthios_tomb/room/Sewers2.dmm"
     id = "Sewers2"
     width = 14
     height = 14
@@ -95,7 +95,7 @@ Example of a map with only a **west offset**:
 
 ```dm
 /datum/map_template/dungeon/room/graveend
-    mappath = "_maps/map_files/matthios_tomb/room/graveend.dmm"
+    mappath = "_maps/matthios_tomb/room/graveend.dmm"
     id = "graveend"
     width = 24
     height = 7
