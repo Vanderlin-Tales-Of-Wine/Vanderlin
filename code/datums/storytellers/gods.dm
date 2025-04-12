@@ -11,6 +11,13 @@
 	)
 	cost_variance = 25
 
+	influence_factors = list(
+		STATS_BOOKS_PRINTED = list("points" = 2, "capacity" = 40),
+		STATS_LITERACY_TAUGHT = list("points" = 10, "capacity" = 150),
+		STATS_ILLITERATES = list("points" = -4, "capacity" = -100),
+		STATS_SKILLS_DREAMED = list("points" = 3, "capacity" = 100),
+	)
+
 /datum/storyteller/ravox
 	name = "Ravox"
 	desc = "Ravox will cause raids to happen naturally instead of only when people are dying a lot."
@@ -31,6 +38,13 @@
 		EVENT_TRACK_RAIDS = 2,
 	)
 
+	influence_factors = list(
+		STATS_COMBAT_SKILLS = list("points" = 3, "capacity" = 100),
+		STATS_PARRIES = list("points" = 0.15, "capacity" = 100),
+		STATS_WARCRIES = list("points" = 1, "capacity" = 60),
+		STATS_YIELDS = list("points" = -4, "capacity" = -40),
+	)
+
 /datum/storyteller/abyssor
 	name = "Abyssor"
 	desc = "Abyssor likes to send water and trade-related events."
@@ -41,6 +55,13 @@
 	tag_multipliers = list(
 		TAG_WATER = 1.3,
 		TAG_TRADE = 1.2,
+	)
+
+	influence_factors = list(
+		STATS_BLOOD_SPILT = list("points" = 0.00025, "capacity" = 100),
+		STATS_FISH_CAUGHT = list("points" = 2, "capacity" = 100),
+		STATS_ABYSSOR_REMEMBERED = list("points" = 1, "capacity" = 40),
+		STATS_LEECHES_EMBEDDED = list("points" = 0.2, "capacity" = 60),
 	)
 
 /datum/storyteller/xylix
@@ -59,6 +80,13 @@
 		EVENT_TRACK_CHARACTER_INJECTION = 0,
 		EVENT_TRACK_OMENS = 0,
 		EVENT_TRACK_RAIDS = 0,
+	)
+
+	influence_factors = list(
+		STATS_LAUGHS_MADE = list("points" = 0.25, "capacity" = 100),
+		STATS_GAMES_RIGGED = list("points" = 1.5, "capacity" = 30),
+		STATS_PEOPLE_MOCKED = list("points" = 4, "capacity" = 60),
+		STATS_CRITS_MADE = list("points" = 0.3, "capacity" = 80),
 	)
 
 /datum/storyteller/necra
@@ -81,6 +109,13 @@
 		EVENT_TRACK_RAIDS = 0.5,
 	)
 
+	influence_factors = list(
+		STATS_GRAVES_CONSECRATED = list("points" = 5, "capacity" = 90),
+		STATS_GRAVES_ROBBED = list("points" = -5, "capacity" = -90),
+		STATS_DEADITES_KILLED = list("points" = 4, "capacity" = 100),
+		STATS_VAMPIRES_KILLED = list("points" = 10, "capacity" = 60),
+	)
+
 /datum/storyteller/pestra
 	name = "Pestra"
 	desc = "Pestra keeps things simple, with a slight bias towards alchemy."
@@ -90,6 +125,13 @@
 		TAG_ALCHEMY = 1.2,
 		TAG_MEDICAL = 1.2,
 		TAG_NATURE = 1.1,
+	)
+
+	influence_factors = list(
+		STATS_POTIONS_BREWED = list("points" = 3, "capacity" = 60),
+		STATS_WOUNDS_SEWED = list("points" = 0.5, "capacity" = 100),
+		STATS_SOULS_REINCARNATED = list("points" = 2.5, "capacity" = 50),
+		STATS_ANIMALS_BRED = list("points" = 5, "capacity" = 50),
 	)
 
 /datum/storyteller/malum
@@ -108,6 +150,13 @@
 		EVENT_TRACK_CHARACTER_INJECTION = 1,
 		EVENT_TRACK_OMENS = 1,
 		EVENT_TRACK_RAIDS = 1,
+	)
+
+	influence_factors = list(
+		STATS_MASTERWORKS_FORGED = list("points" = 4, "capacity" = 80),
+		STATS_ROCKS_MINED = list("points" = 0.25, "capacity" = 100),
+		STATS_CRAFT_SKILLS = list("points" = 3, "capacity" = 100),
+		STATS_BEARDS_SHAVED = list("points" = -5, "capacity" = -50),
 	)
 
 /datum/storyteller/eora
@@ -129,6 +178,13 @@
 		EVENT_TRACK_RAIDS = 0,
 	)
 
+	influence_factors = list(
+		STATS_PARENTS = list("points" = 7.5, "capacity" = 80),
+		STATS_MARRIAGES = list("points" = 20, "capacity" = 100),
+		STATS_HUGS_MADE = list("points" = 1.5, "capacity" = 50),
+		STATS_CLINGY_PEOPLE = list("points" = 5, "capacity" = 70),
+	)
+
 /datum/storyteller/dendor
 	name = "Dendor"
 	desc = "Dendor likes to send nature-themed events."
@@ -147,6 +203,13 @@
 		EVENT_TRACK_CHARACTER_INJECTION = 1,
 		EVENT_TRACK_OMENS = 1,
 		EVENT_TRACK_RAIDS = 1,
+	)
+
+	influence_factors = list(
+		STATS_TREES_CUT = list("points" = -0.2, "capacity" = -80),
+		STATS_PLANTS_HARVESTED = list("points" = 0.75, "capacity" = 125),
+		STATS_WEREVOLVES = list("points" = 10, "capacity" = 100),
+		STATS_DENDOR_SACRIFICES = list("points" = 10, "capacity" = 100),
 	)
 
 // INHUMEN
@@ -174,6 +237,13 @@
 		EVENT_TRACK_RAIDS = 0.8,
 	)
 
+	influence_factors = list(
+		STATS_ZIZO_PRAISED = list("points" = 3, "capacity" = 60),
+		STATS_NOBLE_DEATHS = list("points" = 7.5, "capacity" = 80),
+		STATS_DEADITES_ALIVE = list("points" = 10, "capacity" = 100),
+		STATS_CLERGY_DEATHS = list("points" = 10, "capacity" = 100),
+	)
+
 	cost_variance = 50  // Events will be highly variable in cost
 
 /datum/storyteller/baotha
@@ -196,6 +266,13 @@
 		EVENT_TRACK_CHARACTER_INJECTION = 0.7,
 		EVENT_TRACK_OMENS = 1.5,
 		EVENT_TRACK_RAIDS = 1.2,
+	)
+
+	influence_factors = list(
+		STATS_DRUGS_SNORTED = list("points" = 3.5, "capacity" = 80),
+		STATS_ALCOHOL_CONSUMED = list("points" = 0.05, "capacity" = 90),
+		STATS_ALCOHOLICS = list("points" = 4, "capacity" = 60),
+		STATS_JUNKIES = list("points" = 5, "capacity" = 90),
 	)
 
 	cost_variance = 30  // Makes events more erratic in timing
@@ -222,6 +299,13 @@
 		EVENT_TRACK_RAIDS = 2.5,
 	)
 
+	influence_factors = list(
+		STATS_ORGANS_EATEN = list("points" = 4, "capacity" = 70),
+		STATS_DEATHS = list("points" = 1, "capacity" = 115),
+		STATS_PEOPLE_GIBBED = list("points" = 3, "capacity" = 50),
+		STATS_ASSASSINATIONS = list("points" = 10, "capacity" = 100),
+	)
+
 	cost_variance = 10  // Less randomness, more direct
 
 /datum/storyteller/matthios
@@ -244,6 +328,13 @@
 		EVENT_TRACK_CHARACTER_INJECTION = 1.5,
 		EVENT_TRACK_OMENS = 1.1,
 		EVENT_TRACK_RAIDS = 0.6,
+	)
+
+	influence_factors = list(
+		STATS_ITEMS_PICKPOCKETED = list("points" = 4, "capacity" = 100),
+		STATS_SHRINE_VALUE = list("points" = 0.25, "capacity" = 100),
+		STATS_GREEDY_PEOPLE = list("points" = 4, "capacity" = 60),
+		STATS_KLEPTOMANIACS = list("points" = 6, "capacity" = 60),
 	)
 
 	cost_variance = 15  // Keeps a balance between predictability and randomness

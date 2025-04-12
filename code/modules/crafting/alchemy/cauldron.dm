@@ -91,7 +91,7 @@
 							new itempath(get_turf(src))
 					//handle player perception and reset for next time
 					src.visible_message("<span class='info'>The cauldron finishes boiling with a faint [found_recipe.smells_like] smell.</span>")
-					GLOB.vanderlin_round_stats["potions_brewed"]++
+					GLOB.vanderlin_round_stats[STATS_POTIONS_BREWED]++
 					//give xp for /datum/skill/craft/alchemy
 					var/boon = lastuser.mind?.get_learning_boon(/datum/skill/craft/alchemy)
 					var/amt2raise = lastuser.STAINT*2
