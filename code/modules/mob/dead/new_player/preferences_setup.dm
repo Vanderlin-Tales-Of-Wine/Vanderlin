@@ -142,7 +142,6 @@
 				var/datum/advclass/chosen_class = pick(possible_classes)
 				chosen_outfit = chosen_class.outfit
 		else
-			pref_species.pre_equip_species_outfit(mannequin.job, mannequin, visual_only = TRUE)
 			chosen_outfit = (gender == FEMALE && previewJob.outfit_female) ? previewJob.outfit_female : previewJob.outfit
 		mannequin.equipOutfit(chosen_outfit, visualsOnly = TRUE)
 
