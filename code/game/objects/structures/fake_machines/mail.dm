@@ -460,6 +460,16 @@
 			cost = 2,
 			max_purchases = 1
 		),
+		"Inquisitorial Hat (2)" = list(
+			list(type = /obj/item/clothing/head/inqhat, count = 1),
+			cost = 2,
+			max_purchases = 1
+		),
+		"Inquisitorial Duster (3)" = list(
+			list(type = /obj/item/clothing/armor/medium/scale/inqcoat, count = 1),
+			cost = 3,
+			max_purchases = 1
+		),
 		"Plate Vambraces (2)" = list(
 			list(type = /obj/item/clothing/wrists/bracers, count = 1),
 			cost = 2,
