@@ -30,7 +30,7 @@
 
 // Youngfolk
 #define JOB_ID_CHURCHLING "Churchling"
-#define JOB_ID_INNKEEPCHILD "Innkeeper's Son"
+#define JOB_ID_INNKEEPCHILD "Innkeep Child"
 #define JOB_ID_ORPHAN "Orphan"
 // Vagrants
 #define JOB_ID_ADVENTURER "Adventurer"
@@ -87,10 +87,10 @@
 // Garrison
 #define JOB_ID_DUNGEONEER "Dungeoneer"
 #define JOB_ID_JAILOR "Jailor"
-#define JOB_ID_KEEP_GATEMASTER "Keep Gatemaster"
 #define JOB_ID_VETERAN "Veteran"
 
 #define JOB_ID_KEEPGUARD "Keep Guard"
+#define JOB_ID_KEEP_GATEMASTER "Keep Gatemaster"
 #define JOB_ID_ROYALGUARD "Royal Knight"
 
 #define JOB_ID_CITYGUARD "City Guard"
@@ -100,13 +100,13 @@
 #define JOB_ID_FORESTCAPTAIN "Forest Captain"
 // Nobility
 #define JOB_ID_NOBLE "Minor Noble"
-#define JOB_ID_CURATOR "Curator"
+#define JOB_ID_CURATOR "Court Archivist"
 #define JOB_ID_COURTWIZARD "Court Wizard"
 #define JOB_ID_JESTER "Jester"
 #define JOB_ID_STEWARD "Steward"
 
-#define JOB_ID_HAND "Hand"
-#define JOB_ID_PRINCE "Prince"
+#define JOB_ID_HAND "Royal Hand"
+#define JOB_ID_HEIR "Royal Heir"
 #define JOB_ID_LADY "Consort"
 #define JOB_ID_LORD "Monarch"
 
