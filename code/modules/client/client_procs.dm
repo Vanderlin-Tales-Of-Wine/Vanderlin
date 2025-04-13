@@ -328,7 +328,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	data += "</div>"
 
 	data += "<div style='border-top: 1px solid #444; margin: 12px 0 8px 0;'></div>"
-	data += "<div style='text-align: center;'>Total Influence: [get_colored_influence_value(round(psydon_influence, 0.1))]</div>"
+	data += "<div style='text-align: center;'>Total Influence: [get_colored_influence_value(psydon_influence)]</div>"
 	data += "</div></div></div>"
 
 	// The Ten Section
@@ -440,7 +440,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	data += god_ui_block("ABYSSOR", "#000066", "#6699ff", "\
 		Number of followers: [abyssor_followers] ([get_colored_influence_value(abyssor_followers * SSgamemode.get_storyteller_follower_modifier(abyssor_storyteller))])<br>\
 		Fish caught: [GLOB.vanderlin_round_stats[STATS_FISH_CAUGHT]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(abyssor_storyteller, STATS_FISH_CAUGHT))])<br>\
-		Water consumed: [round(GLOB.vanderlin_round_stats[STATS_WATER_CONSUMED], 0.1)] ([get_colored_influence_value(round(SSgamemode.calculate_specific_influence(abyssor_storyteller, STATS_WATER_CONSUMED)), 0.1)])<br>\
+		Water consumed: [round(GLOB.vanderlin_round_stats[STATS_WATER_CONSUMED], 0.1)] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(abyssor_storyteller, STATS_WATER_CONSUMED))])<br>\
 		People drowned: [GLOB.vanderlin_round_stats[STATS_PEOPLE_DROWNED]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(abyssor_storyteller, STATS_PEOPLE_DROWNED))])<br>\
 		Abyssor remembered: [GLOB.vanderlin_round_stats[STATS_ABYSSOR_REMEMBERED]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(abyssor_storyteller, STATS_ABYSSOR_REMEMBERED))])<br>\
 		Leeches embedded: [GLOB.vanderlin_round_stats[STATS_LEECHES_EMBEDDED]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(abyssor_storyteller, STATS_LEECHES_EMBEDDED))])", abyssor_storyteller)
@@ -486,7 +486,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	data += god_ui_block("GRAGGAR", "#531e1e", "#ffaaaa", "\
 		Number of followers: [graggar_followers] ([get_colored_influence_value(graggar_followers * SSgamemode.get_storyteller_follower_modifier(graggar_storyteller))])<br>\
 		Successful assasinations: [GLOB.vanderlin_round_stats[STATS_ASSASSINATIONS]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(graggar_storyteller, STATS_ASSASSINATIONS))])<br>\
-		Blood spilt: [round(GLOB.vanderlin_round_stats[STATS_BLOOD_SPILT] / 100, 1)] ([get_colored_influence_value(round(SSgamemode.calculate_specific_influence(graggar_storyteller, STATS_BLOOD_SPILT)), 0.1)])<br>\
+		Blood spilt: [round(GLOB.vanderlin_round_stats[STATS_BLOOD_SPILT] / 100, 1)] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(graggar_storyteller, STATS_BLOOD_SPILT))])<br>\
 		Limbs bitten: [GLOB.vanderlin_round_stats[STATS_LIMBS_BITTEN]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(graggar_storyteller, STATS_LIMBS_BITTEN))])<br>\
 		Organs eaten: [GLOB.vanderlin_round_stats[STATS_ORGANS_EATEN]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(graggar_storyteller, STATS_ORGANS_EATEN))])<br>\
 		People gibbed: [GLOB.vanderlin_round_stats[STATS_PEOPLE_GIBBED]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(graggar_storyteller, STATS_PEOPLE_GIBBED))])", graggar_storyteller)
@@ -494,7 +494,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	// Baotha
 	data += god_ui_block("BAOTHA", "#4a0044", "#ffbbff", "\
 		Number of followers: [baotha_followers] ([get_colored_influence_value(baotha_followers * SSgamemode.get_storyteller_follower_modifier(baotha_storyteller))])<br>\
-		Alcohol consumed: [round(GLOB.vanderlin_round_stats[STATS_ALCOHOL_CONSUMED], 0.1)] ([get_colored_influence_value(round(SSgamemode.calculate_specific_influence(baotha_storyteller, STATS_ALCOHOL_CONSUMED)), 0.1)])<br>\
+		Alcohol consumed: [round(GLOB.vanderlin_round_stats[STATS_ALCOHOL_CONSUMED], 0.1)] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(baotha_storyteller, STATS_ALCOHOL_CONSUMED))])<br>\
 		Drugs snorted: [GLOB.vanderlin_round_stats[STATS_DRUGS_SNORTED]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(baotha_storyteller, STATS_DRUGS_SNORTED))])<br>\
 		Luxurious food eaten: [GLOB.vanderlin_round_stats[STATS_LUXURIOUS_FOOD_EATEN]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(baotha_storyteller, STATS_LUXURIOUS_FOOD_EATEN))])<br>\
 		Number of alcoholics: [GLOB.vanderlin_round_stats[STATS_ALCOHOLICS]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(baotha_storyteller, STATS_ALCOHOLICS))])<br>\
@@ -524,7 +524,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		<div style='font-weight:bold; font-size:1.2em; padding:8px; color:[title_color]'>[name]</div>
 		<div style='padding:8px; background:#111; border-radius:0 0 4px 4px;'>
 			<div style='margin-bottom:8px;'>[content]</div>
-			<div style='border-top:1px solid #444; padding-top:6px;'>Total Influence: [get_colored_influence_value(round(total_influence, 0.1))]</div>
+			<div style='border-top:1px solid #444; padding-top:6px;'>Total Influence: [get_colored_influence_value(total_influence)]</div>
 		</div>
 	</div>
 	"}
@@ -535,10 +535,10 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	var/display_num
 	if(num > 0)
 		color = "#00ff00"
-		display_num = "+[num]"
+		display_num = "+[round(num, 0.1)]"
 	else if(num < 0)
 		color = "#ff0000"
-		display_num = "[num]"
+		display_num = "[round(num, 0.1)]"
 	else
 		color = "#ffff00"
 		display_num = "+0"
