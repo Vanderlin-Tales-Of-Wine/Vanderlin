@@ -29,7 +29,8 @@
 						/obj/item/alch/horn = 2)
 	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange= 2,
 						/obj/item/natural/hide = 3,
-						/obj/item/alch/horn = 2)
+						/obj/item/alch/horn = 2,
+						/obj/item/natural/head/troll = 1)
 
 	health = TROLL_HEALTH
 	maxHealth = TROLL_HEALTH
@@ -105,7 +106,6 @@
 	if(fire_stacks + divine_fire_stacks <= 0)
 		adjustHealth(-rand(20,35))
 
-
 /mob/living/simple_animal/hostile/retaliate/troll/simple_limb_hit(zone)
 	if(!zone)
 		return ""
@@ -153,6 +153,17 @@
 	gender = PLURAL
 	icon_state = "Trolld"
 
+//for keep use
+/mob/living/simple_animal/hostile/retaliate/troll/keep/get_sound(input)
+	switch(input)
+		if("aggro")
+			return pick('sound/vo/mobs/troll/aggro1.ogg','sound/vo/mobs/troll/aggro2.ogg')
+		if("pain")
+			return pick('sound/vo/mobs/troll/pain1.ogg','sound/vo/mobs/troll/pain2.ogg')
+		if("death")
+			return pick('sound/vo/mobs/troll/death.ogg')
+		if("cidle")
+			return pick('sound/vo/mobs/troll/cidle1.ogg','sound/vo/mobs/troll/aggro2.ogg')
 
 // You know I had to. Hostile, killer cabbit. Strong. Fast. But not as durable.
 // The most foul, cruel and bad tempered feline-rodent you ever set eyes on.

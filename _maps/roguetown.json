@@ -1,7 +1,7 @@
 {
-    "map_name": "Roguetown",
-    "map_path": "map_files/roguetown",
-    "map_file": "roguetown.dmm",
+	"map_name": "Roguetown",
+	"map_path": "map_files/roguetown",
+	"map_file": "roguetown.dmm",
 	"traits": [
 		{"Up": true},
 		{"Up": true, "Down": true, "Baseturf": "/turf/open/transparent/openspace"},

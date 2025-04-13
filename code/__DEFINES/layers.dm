@@ -37,6 +37,10 @@
 #define LOWER_LEYLINE_LAYER 1
 #define BLACKNESS_PLANE 0 //To keep from conflicts with SEE_BLACKNESS internals
 
+#define RADIAL_BACKGROUND_LAYER 0
+///1000 is an unimportant number, it's just to normalize copied layers
+#define RADIAL_CONTENT_LAYER 1000
+
 #define SPACE_LAYER 1.8
 //#define TURF_LAYER 2 //For easy recordkeeping; this is a byond define
 #define MID_TURF_LAYER 2.02

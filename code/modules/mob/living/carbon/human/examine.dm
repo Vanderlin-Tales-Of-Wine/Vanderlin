@@ -178,7 +178,7 @@
 					var/shit = bD.examine_friendorfoe(aD,user,src)
 					if(shit)
 						. += shit
-		if(user.mind?.has_antag_datum(/datum/antagonist/vampirelord) || user.mind?.has_antag_datum(/datum/antagonist/vampire))
+		if(user.mind?.has_antag_datum(/datum/antagonist/vampire))
 			. += "<span class='userdanger'>Blood Volume: [blood_volume]</span>"
 		if(HAS_TRAIT(user, TRAIT_MATTHIOS_EYES))
 			var/atom/item = get_most_expensive()
@@ -525,6 +525,23 @@
 				. += "<span class='warning'>[t_He] look[p_s()] weaker than I.</span>"
 			if(-INFINITY to -5)
 				. += "<span class='warning'><B>[t_He] look[p_s()] much weaker than I.</B></span>"
+
+		var/datum/antagonist/maniac/maniac = user.mind?.has_antag_datum(/datum/antagonist/maniac)
+		if(maniac)
+			var/obj/item/organ/heart/heart = getorganslot(ORGAN_SLOT_HEART)
+			if(heart)
+				var/inscryption_key = LAZYACCESS(heart.inscryption_keys, maniac) // SPECIFICALLY the key that WE wrote
+				if(inscryption_key && (inscryption_key in maniac.key_nums))
+					. += span_danger("[t_He] know[p_s()] [inscryption_key], I AM SURE OF IT!")
+
+	if(IsAdminGhost(user))
+		var/obj/item/organ/heart/heart = getorganslot(ORGAN_SLOT_HEART)
+		if(heart && heart.maniacs)
+			for(var/datum/antagonist/maniac/M in heart.maniacs)
+				var/K = LAZYACCESS(heart.inscryptions, M)
+				var/W = LAZYACCESS(heart.maniacs2wonder_ids, M)
+				var/N = M.owner?.name
+				. += span_notice("Inscryption[N ? " by [N]'s " : ""][W ? "Wonder #[W]" : ""]: [K ? K : ""]")
 
 	if(Adjacent(user))
 		if(isobserver(user))

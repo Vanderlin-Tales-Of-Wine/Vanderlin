@@ -8,11 +8,6 @@ SUBSYSTEM_DEF(idlenpcpool)
 	var/list/currentrun = list()
 	var/static/list/idle_mobs_by_zlevel[][]
 
-/datum/controller/subsystem/idlenpcpool/stat_entry()
-	var/list/idlelist = GLOB.simple_animals[AI_IDLE]
-	var/list/zlist = GLOB.simple_animals[AI_Z_OFF]
-	..("IdleNPCS:[idlelist.len]|Z:[zlist.len]")
-
 /datum/controller/subsystem/idlenpcpool/proc/MaxZChanged()
 	if (!islist(idle_mobs_by_zlevel))
 		idle_mobs_by_zlevel = new /list(world.maxz,0)
@@ -28,7 +23,9 @@ SUBSYSTEM_DEF(idlenpcpool)
 
 /datum/controller/subsystem/idlenpcpool/fire(resumed = FALSE)
 	if (!resumed || !currentrun.len)
-		var/list/idlelist = GLOB.simple_animals[AI_IDLE]
+		var/list/idlelist = GLOB.simple_animals["[AI_IDLE]"]
+		if(!idlelist)
+			idlelist = list()
 		src.currentrun = idlelist.Copy()
 
 	//cache for sanic speed (lists are references anyways)
@@ -38,7 +35,7 @@ SUBSYSTEM_DEF(idlenpcpool)
 		var/mob/living/simple_animal/SA = current[current.len]
 		--current.len
 		if (!SA)
-			GLOB.simple_animals[AI_IDLE] -= SA
+			GLOB.simple_animals["[AI_IDLE]"] -= SA
 			continue
 
 		if(!SA.ckey)

@@ -7,6 +7,9 @@
  *			Text modification
  *			Misc
  */
+/// BYOND's string procs don't support being used on datum references (as in it doesn't look for a name for stringification)
+/// We just use this macro to ensure that we will only pass strings to this BYOND-level function without developers needing to really worry about it.
+#define LOWER_TEXT(thing) lowertext(UNLINT("[thing]"))
 
 /proc/format_table_name(table as text)
 	return CONFIG_GET(string/feedback_tableprefix) + table
@@ -39,17 +42,6 @@
 		text_parts += copytext_char(t, last_pos)
 
 	return jointext(text_parts, "")
-
-// Removes punctuation
-/proc/strip_punctuation(t,limit=MAX_MESSAGE_LEN)
-	var/list/strip_chars = list(",",".","!","?")
-	t = copytext_char(t,1,limit)
-	for(var/char in strip_chars)
-		var/index = findtext(t, char)
-		while(index)
-			t = copytext_char(t, 1, index) + copytext_char(t, index+1)
-			index = findtext(t, char)
-	return t
 
 //Removes a few problematic characters
 /proc/sanitize_simple(t,list/repl_chars = list("\n"="#","\t"="#"))
@@ -877,6 +869,10 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 
 #define is_alpha(X) ((text2ascii(X) <= 122) && (text2ascii(X) >= 97))
 #define is_digit(X) ((length(X) == 1) && (length(text2num(X)) == 1))
+/// Checks if the char is lowercase
+#define is_lowercase_character(X) ((text2ascii(X) <= 122) && (text2ascii(X) >= 97))
+/// Checks if the char is uppercase
+#define is_uppercase_character(X) ((text2ascii(X) <= 90) && (text2ascii(X) >= 65))
 
 //json decode that will return null on parse error instead of runtiming.
 /proc/safe_json_decode(data)
@@ -887,3 +883,51 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 
 /proc/remove_all_spaces(text)
 	return replacetext_char(text, " ", "")
+
+
+/// Goes through the input and removes any punctuation from the start and end of the string.
+/proc/strip_punctuation(input)
+	// Makes sure " hey - " properly drops the hyphen
+	input = trim(input)
+
+	var/static/list/bad_punctuation = list("!", "?", ".", "~", ";", ":", "-", "|", "+", "_", ",")
+	var/last_char = copytext_char(input, -1)
+	while(last_char in bad_punctuation)
+		input = copytext(input, 1, -1)
+		last_char = copytext_char(input, -1)
+
+	var/first_char = copytext_char(input, 1, 2)
+	while(first_char in bad_punctuation)
+		input = copytext(input, 2)
+		first_char = copytext_char(input, 1, 2)
+
+	// one last trim so we wend up with "hey"
+	input = trim(input)
+	return input
+
+/// Find what punctuation is at the end of the input, returns it.
+/proc/find_last_punctuation(input)
+	// make sure we're not checking "hey - " for a hyphen
+	input = trim_right(input)
+
+	var/last_three = copytext_char(input, -3)
+	if(last_three == "...")
+		return last_three
+	var/last_two = copytext_char(input, -2)
+	switch(last_two)
+		if("!!", "??", "..", "?!", "!?")
+			return last_two
+	var/last_one = copytext_char(input, -1)
+	switch(last_one)
+		if("!", "?" ,".", "~", ";", ":", "-")
+			return last_one
+
+	return ""
+
+/// Checks if the passed string is all uppercase, ignoring punctuation and numbers and symbols
+/proc/is_uppercase(input)
+	for(var/i in 1 to length_char(input))
+		var/i_char = copytext_char(input, i, i + 1)
+		if(is_lowercase_character(i_char))
+			return FALSE
+	return TRUE

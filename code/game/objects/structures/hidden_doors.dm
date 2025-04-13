@@ -19,7 +19,6 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	blade_dulling = DULLING_BASHCHOP
 	break_sound = 'sound/combat/hits/onwood/destroywalldoor.ogg'
 	attacked_sound = list('sound/combat/hits/onwood/woodimpact (1).ogg','sound/combat/hits/onwood/woodimpact (2).ogg')
-	flags_1 = HEAR_1
 
 	can_add_lock = FALSE
 	can_knock = FALSE
@@ -42,22 +41,31 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 
 ///// DOOR TYPES //////
 /obj/structure/mineral_door/secret/vault
-	vip = list("Monarch", "Consort", "Steward", "Hand")
-	vipmessage = "Monarch, Consort, Steward and Hand"
+	vip = list(
+	/datum/job/lord,
+	/datum/job/consort,
+	/datum/job/steward,
+	/datum/job/hand,
+	)
 
 /obj/structure/mineral_door/secret/merchant
-	vip = list("Merchant", "Shop Hand")
-	vipmessage = "Merchant and Shop Hand"
+	vip = list(
+		/datum/job/merchant,
+	)
 
 /obj/structure/mineral_door/secret/wizard //for wizard tower
-	vip = list("Court Magician", "Magicians Apprentice", "Archivist")
-	vipmessage = "Court Magician, Magicians Apprentice and Archivist"
+	vip = list(
+		/datum/job/magician,
+		/datum/job/wapprentice,
+		/datum/job/archivist,
+	)
 	//make me look like an arcane door
 	//icon = 'icons/turf/walls/stonebrick.dmi'
 	//icon_state = "stonebrick" //change me
 
 
 /obj/structure/mineral_door/secret/Initialize()
+	become_hearing_sensitive()
 	open_phrase = open_word() + " " + magic_word()
 	. = ..()
 
@@ -84,11 +92,8 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 		return FALSE
 
 	var/message2recognize = sanitize_hear_message(original_message)
-	var/isvip = FALSE
-	if (vip.Find(H.job) || vip.Find(H.get_role_title()))
-		isvip = TRUE
 
-	if(isvip)
+	if(is_type_in_list(H.mind?.assigned_role, vip)) //are they a VIP?
 		if(findtext(message2recognize, "help"))
 			send_speech(span_purple("'say phrase'... 'set phrase'..."), 2, src, message_language = lang)
 			return TRUE
@@ -275,8 +280,13 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 
 ///// KEEP DOORS /////
 /obj/structure/mineral_door/secret/keep
-	vip = list("Monarch", "Consort", "Prince", "Princess", "Hand", "Butler") // do i even need to add princess?
-	vipmessage = "Monarch, Consort, Royal Heir, Hand and Butler"
+	vip = list(
+		/datum/job/lord,
+		/datum/job/consort,
+		/datum/job/prince,
+		/datum/job/hand,
+		/datum/job/butler,
+	)
 	icon = 'icons/turf/walls/stonebrick.dmi'
 	icon_state = "stonebrick"
 
@@ -293,7 +303,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	var/mob/living/carbon/human/H = speaker
 
 	var/message2recognize = sanitize_hear_message(raw_message)
-	if((vip.Find(H.job) || vip.Find(H.get_role_title())) && findtext(message2recognize, "set phrase"))
+	if(is_type_in_list(H.mind?.assigned_role, vip) && findtext(message2recognize, "set phrase"))
 		for(var/obj/structure/mineral_door/secret/D in GLOB.keep_doors)
 			D.set_phrase(open_phrase)
 	return TRUE
@@ -313,8 +323,9 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 
 ///// THIEVES GUILD DOORS /////
 /obj/structure/mineral_door/secret/thieves_guild
-	vip = list("Thief", "Matron")
-	vipmessage = "Thief and Matron"
+	vip = list(
+		/datum/job/matron,
+	)
 	lang = /datum/language/thievescant
 	icon = 'icons/turf/walls/stonebrick.dmi'
 	icon_state = "stonebrick"
@@ -332,7 +343,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	var/mob/living/carbon/human/H = speaker
 
 	var/message2recognize = sanitize_hear_message(raw_message)
-	if((vip.Find(H.job) || vip.Find(H.get_role_title())) && findtext(message2recognize, "set phrase"))
+	if((is_type_in_list(H.mind?.assigned_role, vip)) && findtext(message2recognize, "set phrase"))
 		for(var/obj/structure/mineral_door/secret/D in GLOB.keep_doors)
 			D.set_phrase(open_phrase)
 	return TRUE

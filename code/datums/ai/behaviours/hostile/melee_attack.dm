@@ -14,6 +14,7 @@
 	if(QDELETED(target))
 		return FALSE
 	set_movement_target(controller, (target))
+	SEND_SIGNAL(controller.pawn, COMSIG_COMBAT_TARGET_SET, TRUE)
 
 /datum/ai_behavior/basic_melee_attack/perform(delta_time, datum/ai_controller/controller, target_key, targetting_datum_key, hiding_location_key)
 	. = ..()
@@ -26,16 +27,34 @@
 		finish_action(controller, FALSE, target_key)
 		return
 
+	if(ismob(target))
+		if(target:stat == DEAD)
+			finish_action(controller, FALSE, target_key)
+			return
+
 	var/hiding_target = targetting_datum.find_hidden_mobs(basic_mob, target) //If this is valid, theyre hidden in something!
 
 	controller.set_blackboard_key(hiding_location_key, hiding_target)
 
 	basic_mob.face_atom()
-	basic_mob.a_intent = pick(basic_mob.possible_a_intents)
+	var/list/possible_intents = list()
+	for(var/datum/intent/intent as anything in basic_mob.possible_a_intents)
+		if(istype(intent, /datum/intent/unarmed/help) || istype(intent, /datum/intent/unarmed/shove) || istype(intent, /datum/intent/unarmed/grab))
+			continue
+		possible_intents |= intent
+
+	if(length(possible_intents))
+		basic_mob.a_intent = pick(possible_intents)
+		basic_mob.used_intent = basic_mob.a_intent
+
+	if(!basic_mob.CanReach(target))
+		finish_action(controller, FALSE, target_key)
+		return
+
 	if(hiding_target) //Slap it!
-		basic_mob.ClickOn(hiding_target, list())
+		controller.ai_interact(hiding_target, TRUE)
 	else
-		basic_mob.ClickOn(target, list())
+		controller.ai_interact(target, TRUE)
 
 	if(sidesteps_after && prob(33)) //this is so fucking hacky, but going off og code this is exactly how it goes ignoring movetimers
 		if(!target || !isturf(target.loc) || !isturf(basic_mob.loc) || basic_mob.stat == DEAD)
@@ -58,6 +77,9 @@
 	. = ..()
 	if(!succeeded)
 		controller.clear_blackboard_key(target_key)
+	var/mob/living/simple_animal/basic_mob = controller.pawn
+	basic_mob.cmode = FALSE
+	SEND_SIGNAL(controller.pawn, COMSIG_COMBAT_TARGET_SET, FALSE)
 
 /datum/ai_behavior/basic_ranged_attack
 	action_cooldown = 0.6 SECONDS

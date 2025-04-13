@@ -253,7 +253,7 @@ SUBSYSTEM_DEF(mapping)
 	if(config.map_path == "custom")
 		fdel("_maps/custom/[config.map_file]")
 		// And as the file is now removed set the next map to default.
-		next_map_config = load_map_config(default_to_box = TRUE)
+		next_map_config = load_map_config(default_to_van = TRUE)
 
 
 /datum/controller/subsystem/mapping/proc/maprotate()
@@ -312,7 +312,7 @@ SUBSYSTEM_DEF(mapping)
 
 /datum/controller/subsystem/mapping/proc/changemap(datum/map_config/VM)
 	if(!VM.MakeNextMap())
-		next_map_config = load_map_config(default_to_box = TRUE)
+		next_map_config = load_map_config(default_to_van = TRUE)
 		message_admins("Failed to set new map with next_map.json for [VM.map_name]! Using default as backup!")
 		return
 

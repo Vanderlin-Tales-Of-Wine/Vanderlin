@@ -7,6 +7,7 @@
 	description = "Local OOC Chat."
 
 /datum/keybinding/looc/down(client/user)
+	. = ..()
 	user.get_looc()
 	return TRUE
 

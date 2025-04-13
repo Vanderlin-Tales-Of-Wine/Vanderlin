@@ -781,10 +781,14 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 //If you are making custom procs but would like to retain partial or complete functionality of this one, include a 'return ..()' to where you want this to happen.
 //Set disable_warning to TRUE if you wish it to not give you outputs.
 /obj/item/proc/mob_can_equip(mob/living/M, mob/living/equipper, slot, disable_warning = FALSE, bypass_equip_delay_self = FALSE)
+	// pretty sure this isn't needed, the reason this is disabled is so harpoon guns can be equipped to hips.
+	// if it causes issues - reenable it and seek a different fix.
+	/*
 	if(twohands_required)
 		if(!disable_warning)
 			to_chat(M, "<span class='warning'>[src] is too bulky to carry with anything but my hands!</span>")
 		return 0
+	*/
 
 	if(!M)
 		return FALSE
@@ -1111,19 +1115,6 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		openToolTip(user,src,params,title = name,content = "[desc]<br>[force ? "<b>Force:</b> [force_string]" : ""]",theme = "")
 	else
 		openToolTip(user,src,params,title = name,content = "[desc]<br><b>Force:</b> [force_string]",theme = "")
-
-/obj/item/MouseEntered(location, control, params)
-	. = ..()
-	if((item_flags & IN_INVENTORY || item_flags & IN_STORAGE) && usr.client.prefs.enable_tips && !QDELETED(src))
-		var/timedelay = usr.client.prefs.tip_delay/100
-		var/user = usr
-		tip_timer = addtimer(CALLBACK(src, PROC_REF(openTip), location, control, params, user), timedelay, TIMER_STOPPABLE)//timer takes delay in deciseconds, but the pref is in milliseconds. dividing by 100 converts it.
-
-/obj/item/MouseExited()
-	. = ..()
-	deltimer(tip_timer)//delete any in-progress timer if the mouse is moved off the item before it finishes
-	close_tooltip(usr)
-
 
 // Called when a mob tries to use the item as a tool.
 // Handles most checks.

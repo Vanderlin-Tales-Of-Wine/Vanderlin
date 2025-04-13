@@ -21,7 +21,8 @@
 						/obj/item/natural/fur/rous = 1,/obj/item/alch/bone = 2)
 	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/steak = 1,
 						/obj/item/alch/sinew = 1,
-						/obj/item/natural/fur/rous = 1, /obj/item/alch/bone = 4)
+						/obj/item/natural/fur/rous = 1, /obj/item/alch/bone = 4,
+						/obj/item/natural/head/rous = 1)
 
 	health = ROUS_HEALTH
 	maxHealth = ROUS_HEALTH
@@ -67,9 +68,9 @@
 		/datum/pet_command/idle,
 		/datum/pet_command/free,
 		/datum/pet_command/good_boy,
-		/datum/pet_command/follow/wolf,
-		/datum/pet_command/point_targeting/attack,
-		/datum/pet_command/point_targeting/fetch,
+		/datum/pet_command/follow,
+		/datum/pet_command/attack,
+		/datum/pet_command/fetch,
 		/datum/pet_command/play_dead,
 		/datum/pet_command/protect_owner,
 		/datum/pet_command/aggressive,

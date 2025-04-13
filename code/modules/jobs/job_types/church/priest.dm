@@ -18,13 +18,7 @@
 	cmode_music = 'sound/music/cmode/church/CombatAstrata.ogg'
 
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Aasimar"
-	)
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 
 	outfit = /datum/outfit/job/priest
 	spells = list(
@@ -139,12 +133,12 @@
 			consort_job?.remove_spells(HL)
 
 	coronated.mind.set_assigned_role(/datum/job/lord)
-	coronated.job = lord_job.get_informed_title(coronated)
+	coronated.job = "Monarch" //Monarch is used when checking if the ruler is alive, not "King" or "Queen". Can also pass it on and have the title change properly later.
 	lord_job?.add_spells(coronated)
 	SSticker.rulermob = coronated
 	GLOB.badomens -= OMEN_NOLORD
-	say("By the authority of the Gods, I pronounce you Ruler of all Vanderlin!")
-	priority_announce("[real_name] the [mind.assigned_role.get_informed_title(src)] has named [coronated.real_name] the inheritor of Vanderlin!", \
+	say("By the authority of the Gods, I pronounce you Ruler of all [SSmapping.config.map_name]!")
+	priority_announce("[real_name] the [mind.assigned_role.get_informed_title(src)] has named [coronated.real_name] the inheritor of [SSmapping.config.map_name]!", \
 	title = "Long Live [lord_job.get_informed_title(coronated)] [coronated.real_name]!", sound = 'sound/misc/bell.ogg')
 
 /mob/living/carbon/human/proc/churchexcommunicate()

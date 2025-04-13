@@ -117,8 +117,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	name = "Monarch"
 	icon_state = "arrow"
 
-
-/obj/effect/landmark/start/sheriff
+/obj/effect/landmark/start/captain
 	name = "Captain"
 	icon_state = "arrow"
 
@@ -152,6 +151,10 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 
 /obj/effect/landmark/start/watchman
 	name = "Men-at-arms"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/gatemaster
+	name = "Gatemaster"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/forestwarden
@@ -341,6 +344,9 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	name = "Feldsher"
 	icon_state = "arrow"
 
+/obj/effect/landmark/start/gaffer
+	name = "Gaffer"
+	icon_state = "arrow"
 //yrf
 
 /obj/effect/landmark/start/squire

@@ -4,16 +4,7 @@
 	tutorial = "Grave robbers sell themselves as treasure hunters, but be sure to wipe that \
 	necrotic flesh off of that trinket you found."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Kobold",
-		"Aasimar"
-	)
+
 	outfit = /datum/outfit/job/adventurer/gravedigger
 	min_pq = 0
 	category_tags = list(CTAG_ADVENTURER)

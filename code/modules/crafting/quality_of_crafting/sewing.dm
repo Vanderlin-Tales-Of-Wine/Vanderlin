@@ -160,6 +160,13 @@
 				/obj/item/natural/fibers = 1)
 	craftdiff = 1
 
+/datum/repeatable_crafting_recipe/sewing/fakeeyepatch
+	name = "see through eyepatch"
+	output = /obj/item/clothing/face/eyepatch/fake
+	requirements = list(/obj/item/natural/cloth = 1,
+				/obj/item/natural/fibers = 1)
+	craftdiff = 2
+
 /datum/repeatable_crafting_recipe/sewing/fisherhat
 	name = "straw fisher hat"
 	output = /obj/item/clothing/head/fisherhat
@@ -176,6 +183,12 @@
 	name = "cloth coif"
 	output = /obj/item/clothing/neck/coif/cloth
 	requirements = list(/obj/item/natural/fibers = 1, /obj/item/natural/cloth = 2)
+	craftdiff = 1
+
+/datum/repeatable_crafting_recipe/sewing/roguehood/uncolored
+	name = "cloth hood"
+	requirements = list(/obj/item/natural/cloth = 1, /obj/item/natural/fibers = 1,)
+	output = /obj/item/clothing/head/roguehood/uncolored
 	craftdiff = 1
 
 /datum/repeatable_crafting_recipe/sewing/clothtrou

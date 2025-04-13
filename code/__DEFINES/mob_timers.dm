@@ -8,13 +8,13 @@
 #define MOBTIMER_EXISTS(target, ident) (!!target.mob_timers[ident])
 #define MOBTIMER_FINISHED(target, ident, mt_time) (world.time >= (target.mob_timers[ident] + (mt_time)))
 
+// DEPRECIATED SYSTEM, DO NOT ADD MORE
 /* STATUS */
 	#define MT_FREAKOUT "freakout"
 
 	#define MT_LASTDIED "lastdied"
 	#define MT_DEATHDIED "deathdied" //! flag
 
-	#define MT_LASTOXYDAM "lastoxydam"
 	#define MT_PUKE "puke"
 
 /* CURSES */
@@ -47,4 +47,3 @@
 	// I've separated then here for clarity's sake.
 
 	#define MT_PAINSTUN "painstun"
-	#define MT_INVISIBILITY "invisible"

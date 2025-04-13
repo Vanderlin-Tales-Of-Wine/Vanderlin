@@ -49,7 +49,7 @@ let's break it down. First, we override the ui_interact proc on our object. This
 will be called by `interact` for you, which is in turn called by `attack_hand`
 (or `attack_self` for items). `ui_interact` is also called to update a UI (hence
 the `try_update_ui`), so we accept an existing UI to update. The `state` is a
-default argument so that a caller can overload it with named arguments
+default argument so that a requester can overload it with named arguments
 (`ui_interact(state = overloaded_state)`) if needed.
 
 Inside the `if(!ui)` block (which means we are creating a new UI), we choose our

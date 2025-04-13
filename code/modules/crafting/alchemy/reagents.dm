@@ -478,7 +478,7 @@ If you want to expand on poisons theres tons of fun effects TG chemistry has tha
 	metabolization_rate = 0.5
 
 /datum/reagent/toxin/fyritiusnectar/on_mob_life(mob/living/carbon/M)
-	if(volume > 0.49)
+	if(volume > 0.49 && prob(33))
 		M.add_nausea(9)
 		M.adjustFireLoss(2, 0)
 		M.adjust_fire_stacks(1)

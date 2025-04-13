@@ -14,8 +14,9 @@
 		return
 
 	var/mob/living/simple_animal/wanderer = controller.pawn
-	if(wanderer.binded)
-		return
+	if(istype(wanderer))
+		if(wanderer.binded)
+			return
 
 	next_time = world.time + cooldown
 	var/mob/living/living_pawn = controller.pawn

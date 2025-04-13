@@ -197,7 +197,7 @@
 	info += "<br/></font>"
 
 	if(signedname)
-		info += "<font size=\"2\" face=\"[FOUNTAIN_PEN_FONT]\" color=#27293f>[signedname] the [signedjob] of Vanderlin</font>"
+		info += "<font size=\"2\" face=\"[FOUNTAIN_PEN_FONT]\" color=#27293f>[signedname] the [signedjob] of [SSmapping.config.map_name]</font>"
 
 	info += "</div>"
 
@@ -326,7 +326,7 @@
 		if(signee)
 			to_chat(user, span_warning("This token has already been signed."))
 			return
-		if(!is_merchant_job(user.mind.assigned_role))
+		if(!is_gaffer_job(user.mind.assigned_role))
 			if(is_mercenary_job(user.mind.assigned_role))
 				to_chat(user, span_warning("I can not sign my own commendation."))
 			else

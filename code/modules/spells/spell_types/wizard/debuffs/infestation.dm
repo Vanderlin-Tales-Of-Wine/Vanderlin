@@ -80,7 +80,7 @@
 		"Lice suck my blood!",
 		"Crickets chirp in my ears!",
 		"Earwigs crawl into my ears!")
-	if(prompt == 1)
+	if(prompt == 1 && iscarbon(M))
 		M.add_nausea(pick(10,20))
 		to_chat(target, span_warning(message))
 		//owner.playsound_local(get_turf(owner), 'sound/surgery/organ2.ogg', 35, FALSE, pressure_affected = FALSE)

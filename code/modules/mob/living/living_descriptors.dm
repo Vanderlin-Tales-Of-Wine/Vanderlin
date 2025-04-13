@@ -125,4 +125,5 @@
 	string = replacetext(string, "%MAN%", man_replace)
 	string = replacetext(string, "%HIM%", him_replace)
 	string = capitalize(string)
+	string += "."
 	return string

@@ -13,7 +13,7 @@
 
 	S.status_flags |= GODMODE
 	S.mobility_flags = NONE
-	S.health = S.maxHealth
+	S.set_health(S.maxHealth)
 	S.bruteloss = 0
 
 	RegisterSignal(S, COMSIG_MOVABLE_MOVED, PROC_REF(free_prisoner))

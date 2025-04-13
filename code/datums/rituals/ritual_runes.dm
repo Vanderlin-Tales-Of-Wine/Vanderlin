@@ -328,7 +328,7 @@ GLOBAL_LIST(teleport_runes)
 	return TRUE
 
 /obj/effect/decal/cleanable/roguerune/arcyne	//arcane
-	name = "Arcane ritual rune"
+	name = "arcane ritual rune"
 	desc = "subtype used for arcane rituals- you should not be seeing this."
 	magictype = "arcyne"
 	can_be_scribed = FALSE
@@ -377,7 +377,7 @@ GLOBAL_LIST(teleport_runes)
 
 
 /obj/effect/decal/cleanable/roguerune/arcyne/empowerment	//used for better quality of learning, grants temporary 2 minute INT bonus.
-	name = "Empowerment Array"
+	name = "empowerment array"
 	desc = "arcane symbols pulse upon the ground..."
 	icon = 'icons/effects/96x96.dmi'
 	icon_state = "empowerment"

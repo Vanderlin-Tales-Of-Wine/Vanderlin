@@ -34,8 +34,9 @@
 /obj/effect/particle_effect/smoke/Initialize()
 	. = ..()
 	create_reagents(500)
+	var/turf/T = get_turf(src)
+	T.ImmediateCalculateAdjacentTurfs()
 	START_PROCESSING(SSobj, src)
-
 
 /obj/effect/particle_effect/smoke/Destroy()
 	STOP_PROCESSING(SSobj, src)

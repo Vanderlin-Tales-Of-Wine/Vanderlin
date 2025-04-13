@@ -1,7 +1,7 @@
 GLOBAL_LIST_EMPTY(antagonists)
 
 /datum/antagonist
-	var/name = "Antagonist"
+	var/name = "\improper Antagonist"
 	var/roundend_category = "other antagonists"				//Section of roundend report, datums with same category will be displayed together, also default header for the section
 	var/show_in_roundend = TRUE								//Set to false to hide the antagonists from roundend report
 	var/prevent_roundtype_conversion = TRUE		//If false, the roundtype will still convert with this antag active
@@ -89,8 +89,8 @@ GLOBAL_LIST_EMPTY(antagonists)
 //Proc called when the datum is given to a mind.
 /datum/antagonist/proc/on_gain()
 	if(owner && owner.current)
-//		if(!silent)
-//			greet()
+		if(!silent)
+			greet()
 		apply_innate_effects()
 		give_antag_moodies()
 		if(is_banned(owner.current) && replace_banned)

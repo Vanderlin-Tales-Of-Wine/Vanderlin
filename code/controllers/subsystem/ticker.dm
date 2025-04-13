@@ -76,21 +76,10 @@ SUBSYSTEM_DEF(ticker)
 	var/list/royals_readied = list()
 	var/rulertype = "Monarch" // reports whether king or queen rules
 	var/rulermob = null // reports what the ruling mob is.
+	/// The appointed regent mob
+	var/regent_mob = null
 	var/failedstarts = 0
 	var/list/manualmodes = list()
-
-	//**ROUNDEND STATS**
-	var/deaths = 0			//total deaths in the round
-	var/blood_lost = 0
-	var/tri_gained = 0
-	var/tri_lost = 0
-	var/holefall = 0 // ankles broken
-	var/pplsmited = 0 // people sm
-	var/moatfallers = 0 // moat fall
-	var/gibbs = 0 // gibs been
-	var/snort = 0 // drugs snorted
-	var/beardshavers = 0 // beards shaven, includes  more than dwarves
-	// var/list/cuckers = list()
 
 	var/end_party = FALSE
 	var/last_lobby = 0
@@ -212,7 +201,7 @@ SUBSYSTEM_DEF(ticker)
 					timeLeft = null
 					Master.SetRunLevel(RUNLEVEL_LOBBY)
 				else
-					send2chat(new /datum/tgs_message_content("New round starting on [SSmapping.config.map_name]!"), CONFIG_GET(string/chat_announce_new_game))
+					send2chat(new /datum/tgs_message_content("New round starting on Vanderlin!"), CONFIG_GET(string/chat_announce_new_game))
 					current_state = GAME_STATE_SETTING_UP
 					Master.SetRunLevel(RUNLEVEL_SETUP)
 					if(start_immediately)

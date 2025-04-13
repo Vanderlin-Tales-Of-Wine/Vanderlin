@@ -34,7 +34,7 @@
 	worker.controller_mind.update_stat_panel()
 
 /datum/work_order/proc/set_movement_target(atom/target)
-	if(!length(get_path_to(worker, get_turf(target), /turf/proc/Distance, 32 + 1, 250,1)))
+	if(!length(get_path_to(worker, get_turf(target), /turf/proc/Distance3D, 32 + 1, 250,1)))
 		stop_work()
 		return
 	worker.controller_mind.set_movement_target(target)

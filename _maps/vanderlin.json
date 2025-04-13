@@ -1,7 +1,7 @@
 {
-    "map_name": "Vanderlin",
-    "map_path": "map_files/vanderlin",
-    "map_file": "vanderlin.dmm",
+	"map_name": "Vanderlin",
+	"map_path": "map_files/vanderlin",
+	"map_file": "vanderlin.dmm",
 	"traits": [
 		{"Up": true, "Turf Weather Effects": true},
 		{"Up": true, "Down": true, "Turf Weather Effects": true, "Leylines": true},

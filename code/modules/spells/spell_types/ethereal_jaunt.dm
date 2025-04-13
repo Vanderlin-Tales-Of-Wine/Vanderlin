@@ -35,7 +35,7 @@
 	target.reset_perspective(holder)
 	target.notransform=0 //mob is safely inside holder now, no need for protection.
 	jaunt_steam(mobloc)
-	ADD_TRAIT(target, TRAIT_UNTARGETTABLE, MAGIC_TRAIT)
+	ADD_TRAIT(target, TRAIT_IMPERCEPTIBLE, MAGIC_TRAIT)
 
 	sleep(jaunt_duration)
 
@@ -51,7 +51,7 @@
 	new jaunt_in_type(mobloc, holder.dir)
 	target.setDir(holder.dir)
 	sleep(jaunt_in_time)
-	REMOVE_TRAIT(target, TRAIT_UNTARGETTABLE, MAGIC_TRAIT)
+	REMOVE_TRAIT(target, TRAIT_IMPERCEPTIBLE, MAGIC_TRAIT)
 	qdel(holder)
 	if(!QDELETED(target))
 		if(mobloc.density)
@@ -78,6 +78,7 @@
 	anchored = TRUE
 	invisibility = 60
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
+	flags_1 = PREVENT_CONTENTS_EXPLOSION_1
 
 /obj/effect/dummy/phased_mob/spell_jaunt/Destroy()
 	// Eject contents if deleted somehow
