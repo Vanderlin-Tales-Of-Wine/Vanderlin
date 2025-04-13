@@ -145,7 +145,7 @@
 	sellprice = VALUE_IRON_ARMOR/2
 
 	armor_class = AC_MEDIUM
-	armor = ARMOR_SCALE
+	armor = ARMOR_MAILLE_GOOD
 	max_integrity = INTEGRITY_STRONG
 	prevent_crits = ALL_EXCEPT_STAB
 
