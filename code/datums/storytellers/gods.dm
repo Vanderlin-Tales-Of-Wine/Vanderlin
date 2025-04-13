@@ -12,7 +12,7 @@
 	cost_variance = 25
 
 	influence_factors = list(
-		STATS_BOOKS_PRINTED = list("points" = 2, "capacity" = 40),
+		STATS_BOOKS_PRINTED = list("points" = 2.5, "capacity" = 40),
 		STATS_LITERACY_TAUGHT = list("points" = 10, "capacity" = 150),
 		STATS_ILLITERATES = list("points" = -4, "capacity" = -100),
 		STATS_SKILLS_DREAMED = list("points" = 0.5, "capacity" = 100),
@@ -41,10 +41,10 @@
 
 	influence_factors = list(
 		STATS_COMBAT_SKILLS = list("points" = 1.5, "capacity" = 100),
-		STATS_PARRIES = list("points" = 0.08, "capacity" = 100),
-		STATS_WARCRIES = list("points" = 0.5, "capacity" = 50),
+		STATS_PARRIES = list("points" = 0.07, "capacity" = 90),
+		STATS_WARCRIES = list("points" = 0.4, "capacity" = 60),
 		STATS_YIELDS = list("points" = -4, "capacity" = -40),
-		STATS_UNDERWORLD_DUELS = list("points" = 3, "capacity" = 60),
+		STATS_UNDERWORLD_DUELS = list("points" = 4, "capacity" = 60),
 	)
 
 /datum/storyteller/abyssor
@@ -88,7 +88,7 @@
 	influence_factors = list(
 		STATS_LAUGHS_MADE = list("points" = 0.25, "capacity" = 100),
 		STATS_GAMES_RIGGED = list("points" = 1.5, "capacity" = 30),
-		STATS_PEOPLE_MOCKED = list("points" = 4, "capacity" = 60),
+		STATS_PEOPLE_MOCKED = list("points" = 4.5, "capacity" = 60),
 		STATS_CRITS_MADE = list("points" = 0.25, "capacity" = 80),
 		STATS_SONGS_PLAYED = list("points" = 1.25, "capacity" = 75),
 	)
