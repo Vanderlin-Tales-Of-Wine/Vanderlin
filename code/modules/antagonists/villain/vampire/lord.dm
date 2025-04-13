@@ -11,6 +11,7 @@
 	var/ascended = FALSE
 	var/obj/effect/proc_holder/spell/targeted/shapeshift/bat/batform //attached to the datum itself to avoid cloning memes, and other duplicates
 	var/obj/effect/proc_holder/spell/targeted/shapeshift/gaseousform/gas
+	var/obj/effect/proc_holder/spell/targeted/mansion_portal/portal
 
 /datum/antagonist/vampire/lord/apply_innate_effects(mob/living/mob_override)
 	. = ..()
@@ -25,7 +26,8 @@
 /datum/antagonist/vampire/lord/on_gain()
 	owner.purge_combat_knowledge()
 	. = ..()
-
+	portal = new()
+	owner.current.AddSpell(portal)
 	addtimer(CALLBACK(owner.current, TYPE_PROC_REF(/mob/living/carbon/human, choose_name_popup), "[name]"), 5 SECONDS)
 
 /datum/antagonist/vampire/lord/after_gain()
@@ -36,6 +38,10 @@
 	if(!isnull(batform))
 		owner.current.RemoveSpell(batform)
 		QDEL_NULL(batform)
+
+	if(!isnull(portal))
+		owner.current.RemoveSpell(portal)
+		QDEL_NULL(portal)
 
 	owner.current.verbs -= /mob/living/carbon/human/proc/demand_submission
 	owner.current.verbs -= /mob/living/carbon/human/proc/punish_spawn
@@ -118,13 +124,13 @@
 	set name = "Demand Submission"
 	set category = "VAMPIRE"
 	if(SSmapping.retainer.king_submitted)
-		to_chat(src, span_warning("I am already the Master of Vanderlin."))
+		to_chat(src, span_warning("I am already the Master of [SSmapping.config.map_name]."))
 		return
 
 	var/mob/living/carbon/ruler = SSticker.rulermob
 
 	if(!ruler || (get_dist(src, ruler) > 1))
-		to_chat(src, span_warning("The Master of Vanderlin is not beside me."))
+		to_chat(src, span_warning("The Master of [SSmapping.config.map_name] is not beside me."))
 		return
 
 	if(ruler.stat <= CONSCIOUS)

@@ -781,10 +781,14 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 //If you are making custom procs but would like to retain partial or complete functionality of this one, include a 'return ..()' to where you want this to happen.
 //Set disable_warning to TRUE if you wish it to not give you outputs.
 /obj/item/proc/mob_can_equip(mob/living/M, mob/living/equipper, slot, disable_warning = FALSE, bypass_equip_delay_self = FALSE)
+	// pretty sure this isn't needed, the reason this is disabled is so harpoon guns can be equipped to hips.
+	// if it causes issues - reenable it and seek a different fix.
+	/*
 	if(twohands_required)
 		if(!disable_warning)
 			to_chat(M, "<span class='warning'>[src] is too bulky to carry with anything but my hands!</span>")
 		return 0
+	*/
 
 	if(!M)
 		return FALSE
