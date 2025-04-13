@@ -137,6 +137,17 @@
 	armor = ARMOR_LEATHER_GOOD
 	max_integrity = INTEGRITY_POOR
 
+/obj/item/clothing/neck/bevor/iron
+	name = "iron bevor"
+	desc = "Iron plates designed to protect the throat and neck of its wearer against decapitation."
+	icon_state = "bervor"
+	smeltresult = /obj/item/ingot/iron
+	sellprice = VALUE_IRON_ARMOR/2
+
+	armor_class = AC_MEDIUM
+	armor = ARMOR_SCALE
+	max_integrity = INTEGRITY_STRONG
+	prevent_crits = ALL_EXCEPT_STAB
 
 //..................................................................................................................................
 /*---------------\

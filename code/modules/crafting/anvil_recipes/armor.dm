@@ -119,6 +119,13 @@
 	created_item = /obj/item/clothing/neck/gorget
 	craftdiff = 0
 
+/datum/anvil_recipe/armor/iron/bevor
+	name = "Iron Bevor"
+	recipe_name = "a Bevor"
+	req_bar = /obj/item/ingot/iron
+	created_item = /obj/item/clothing/neck/bevor/iron
+	craftdiff = 1
+
 /datum/anvil_recipe/armor/iron/platebootlight
 	name = "Light Plate Boots"
 	recipe_name = "a pair of Light Plate Boots"
