@@ -4,6 +4,7 @@
 	welcome_text = "The veil between realms shimmers in your presence."
 	weight = 4
 	always_votable = TRUE
+	color_theme = "#F0F0F0"
 
 	tag_multipliers = list(
 		TAG_MAGICAL = 1.2,
@@ -25,6 +26,7 @@
 	welcome_text = "The drums of war grow louder."
 	weight = 4
 	always_votable = TRUE
+	color_theme = "#228822"
 
 	tag_multipliers = list(
 		TAG_RAID = 1.3,
@@ -53,6 +55,7 @@
 	welcome_text = "The tides of fate shift in your favor."
 	weight = 4
 	always_votable = TRUE
+	color_theme = "#3366CC"
 
 	tag_multipliers = list(
 		TAG_WATER = 1.3,
@@ -73,6 +76,7 @@
 	welcome_text = "The dice have been cast, let chaos reign."
 	weight = 4
 	always_votable = TRUE
+	color_theme = "#AA8888"
 	event_repetition_multiplier = 0
 	forced = TRUE
 
@@ -99,6 +103,7 @@
 	welcome_text = "The grave whispers, patience is virtue."
 	weight = 4
 	always_votable = TRUE
+	color_theme = "#888888"
 
 	tag_multipliers = list(
 		TAG_HAUNTED = 1.3,
@@ -114,7 +119,7 @@
 	)
 
 	influence_factors = list(
-		STATS_DEATHS = list("points" = 1, "capacity" = 115),
+		STATS_DEATHS = list("points" = 1.25, "capacity" = 115),
 		STATS_GRAVES_CONSECRATED = list("points" = 5, "capacity" = 90),
 		STATS_GRAVES_ROBBED = list("points" = -5, "capacity" = -90),
 		STATS_DEADITES_KILLED = list("points" = 5, "capacity" = 100),
@@ -125,6 +130,7 @@
 	name = "Pestra"
 	desc = "Pestra keeps things simple, with a slight bias towards alchemy."
 	welcome_text = "The balance of life and craft tilts in your favor."
+	color_theme = "#AADDAA"
 
 	tag_multipliers = list(
 		TAG_ALCHEMY = 1.2,
@@ -144,6 +150,7 @@
 	name = "Malum"
 	desc = "Malum believes in hard work, intervening more often than others."
 	welcome_text = "Toil and perseverance shall shape your destiny."
+	color_theme = "#D4A56C"
 
 	tag_multipliers = list(
 		TAG_WORK = 1.5,
@@ -170,6 +177,7 @@
 	name = "Eora"
 	desc = "Eora hates death and promotes love. Raids will never naturally progress, only death will bring them."
 	welcome_text = "Life shall flourish under my watchful gaze."
+	color_theme = "#9966CC"
 
 	tag_multipliers = list(
 		TAG_WIDESPREAD = 1.5,
@@ -188,7 +196,7 @@
 	influence_factors = list(
 		STATS_PARENTS = list("points" = 7.5, "capacity" = 80),
 		STATS_MARRIAGES = list("points" = 20, "capacity" = 100),
-		STATS_HUGS_MADE = list("points" = 1.5, "capacity" = 50),
+		STATS_HUGS_MADE = list("points" = 1.5, "capacity" = 60),
 		STATS_CLINGY_PEOPLE = list("points" = 5, "capacity" = 70),
 		STATS_PACIFISTS = list("points" = 7, "capacity" = 80),
 	)
@@ -199,6 +207,7 @@
 	welcome_text = "The wilds whisper your name."
 	weight = 4
 	always_votable = TRUE
+	color_theme = "#664422"
 
 	tag_multipliers = list(
 		TAG_NATURE = 1.5,
@@ -229,6 +238,7 @@
 	welcome_text = "You will kneel."
 	weight = 4
 	always_votable = TRUE
+	color_theme = "#CC4444"
 
 	tag_multipliers = list(
 		TAG_MAGICAL = 1.2,
@@ -262,6 +272,7 @@
 	welcome_text = "The world bends to my whims."
 	weight = 4
 	always_votable = TRUE
+	color_theme = "#9933FF"
 
 	tag_multipliers = list(
 		TAG_INSANITY = 1.4,
@@ -294,6 +305,7 @@
 	welcome_text = "Victory or death!"
 	weight = 4
 	always_votable = TRUE
+	color_theme = "#8B3A3A"
 
 	tag_multipliers = list(
 		TAG_BATTLE = 1.6,
@@ -326,6 +338,7 @@
 	welcome_text = "Fortune favors the cunning."
 	weight = 4
 	always_votable = TRUE
+	color_theme = "#8B4513"
 
 	tag_multipliers = list(
 		TAG_TRADE = 1.4,

@@ -67,6 +67,8 @@
 	var/influence_factors = list()
 	/// How many influence points storyteller gets for each follower
 	var/follower_modifier = STANDARD_FOLLOWER_MODIFIER
+	/// Thematic color of the storyteller, used in statistics menu
+	var/color_theme
 
 /datum/storyteller/process()
 	if(!round_started || disable_distribution) // we are differing roundstarted ones until base roundstart so we can get cooler stuff
@@ -228,6 +230,7 @@
 	desc = "Astrata will provide a balanced and varied experience. Consider this the default experience."
 	weight = 6
 	always_votable = TRUE
+	color_theme = "#FFD700"
 
 	influence_factors = list(
 		STATS_LAWS_MADE = list("points" = 3,"capacity" = 30),

@@ -208,6 +208,32 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		font-size: 0.9em;'>INFLUENCES</a>"
 	data += "</div>"
 
+	// Most influential deity section
+	var/max_influence = -INFINITY
+	var/datum/storyteller/most_influential
+	for(var/storyteller_name in SSgamemode.storytellers)
+		var/datum/storyteller/initalized_storyteller = SSgamemode.storytellers[storyteller_name]
+		if(!initalized_storyteller)
+			continue
+		var/influence = SSgamemode.calculate_storyteller_influence(initalized_storyteller.type)
+		if(influence > max_influence)
+			max_influence = influence
+			most_influential = initalized_storyteller
+
+	data += "<div style='text-align: center; margin: 25px 0 20px 0;'>"
+
+	if(most_influential && max_influence > 0)
+		data += "<div style='font-size: 1.2em; font-weight: bold; margin-bottom: 12px;'>"
+		data += "The most influential deity is <span style='color: [most_influential.color_theme];'>[most_influential.name]</span>"
+		data += "</div>"
+	else
+		data += "<div style='font-size: 1.2em; font-weight: bold; margin-bottom: 12px;'>"
+		data += "No <span style='color: #bd1717;'>Gods</span>, No <span style='color: #bd1717;'>Masters</span>"
+		data += "</div>"
+
+	data += "<div style='border-top: 1.5px solid #444; margin: 15px auto 25px auto; width: 80%;'></div>"
+	data += "</div>"
+
 	// Main content container
 	data += "<div style='width: 100%; margin: 25px auto 0; padding: 0 5%; box-sizing: border-box;'>"
 
@@ -250,7 +276,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	data += "</div></div></div>"
 
 	// Confessions section
-	data += "<div style='text-align: center; margin: 20px auto; padding: 15px 0; border-top: 1px solid #444; width: 90%; max-width: 800px;'>"
+	data += "<div style='text-align: center; margin: 20px auto; padding: 15px 0; border-top: 1.5px solid #444; width: 80%; max-width: 800px;'>"
 	if(GLOB.confessors.len)
 		data += "<font color='#93cac7'><span class='bold'>Confessions:</span></font> "
 		for(var/x in GLOB.confessors)
@@ -260,7 +286,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	data += "</div>"
 
 	src.mob << browse(null, "window=vanderlin_influences")
-	var/datum/browser/popup = new(src.mob, "vanderlin_stats", "<center>End Round Statistics</center>", 460, 620)
+	var/datum/browser/popup = new(src.mob, "vanderlin_stats", "<center>End Round Statistics</center>", 460, 680)
 	popup.set_content(data.Join())
 	popup.open()
 
