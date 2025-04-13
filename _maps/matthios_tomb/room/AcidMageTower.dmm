@@ -148,7 +148,7 @@
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/indoors)
 "gd" = (
-/obj/item/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket/wooden,
 /turf/open/floor/tile/bath,
 /area/rogue/indoors)
 "ge" = (
@@ -424,7 +424,7 @@
 /area/rogue/indoors)
 "ow" = (
 /obj/structure/rack/shelf/biggest,
-/obj/item/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket/wooden,
 /obj/item/natural/cloth,
 /turf/open/floor/churchbrick,
 /area/rogue/indoors)
