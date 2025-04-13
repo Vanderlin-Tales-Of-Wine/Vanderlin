@@ -214,15 +214,14 @@ SUBSYSTEM_DEF(mapping)
 		for(var/json_path in config.other_z)
 			otherZ += load_map_config("_maps/[json_path]")
 	#endif
+
 	//For all maps
 	if(config.underworld_z) //Should always load, but can be disabled for testing environments.
 		otherZ += load_map_config("_maps/[config.underworld_z]")
 	if(config.dungeon_z) //It may be disabled.
 		otherZ += load_map_config("_maps/[config.dungeon_z]")
 
-//	otherZ += load_map_config("_maps/map_files/roguetown/otherz/special.json")
 	if(otherZ.len)
-
 		for(var/datum/map_config/OtherZ in otherZ)
 			LoadGroup(FailedZs, OtherZ.map_name, OtherZ.map_path, OtherZ.map_file, OtherZ.traits, ZTRAITS_STATION)
 

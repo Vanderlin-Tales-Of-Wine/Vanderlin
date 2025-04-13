@@ -4,11 +4,11 @@
 //  -Cyberboss
 
 ///Default travel maps loaded if no travel maps are specified. If other maps are specified, should be a list of paths in .json. Turned off with "disabled"
-#define OTHER_Z_DEFAULT_LIST list("map_files/roguetown/otherz/smallforest.json", "map_files/roguetown/otherz/smalldecap.json", "map_files/roguetown/otherz/smallswamp.json")
+#define OTHER_Z_DEFAULT_LIST list("map_files/roguetown/smallforest.json", "map_files/roguetown/smalldecap.json", "map_files/roguetown/smallswamp.json")
 ///Default underworld loaded in. Other maps can be specified in .json with a path or turned off with "disabled"
-#define UNDERWORLD_DEFAULT_PATH "map_files/roguetown/otherz/underworld.json"
+#define UNDERWORLD_DEFAULT_PATH "map_files/shared/underworld.json"
 ///Default dungeon loaded in. Other maps can be specified in .json with a path or turned off with "disabled"
-#define DUNGEON_DEFAULT_PATH "map_files/vanderlin/otherz/dungeon.json"
+#define DUNGEON_DEFAULT_PATH "map_files/shared/dungeon.json"
 
 /datum/map_config
 	// Metadata
@@ -24,6 +24,7 @@
 	var/map_name = "Vanderlin"
 	var/map_path = "map_files/vanderlin"
 	var/map_file = "vanderlin.dmm"
+	var/custom_area_sound = null
 	var/list/other_z = null //We do not want to initialize the list here. No reason to keep it in memory.
 	var/underworld_z = UNDERWORLD_DEFAULT_PATH
 	var/dungeon_z = DUNGEON_DEFAULT_PATH
@@ -32,7 +33,7 @@
 	var/space_ruin_levels = 7
 	var/space_empty_levels = 1
 
-/proc/load_map_config(filename = "data/next_map.json", default_to_box, delete_after, error_if_missing = TRUE)
+/proc/load_map_config(filename = "data/next_map.json", default_to_van, delete_after, error_if_missing = TRUE)
 	testing("loading map config [filename]")
 	var/datum/map_config/config = new
 	if (default_to_van)
