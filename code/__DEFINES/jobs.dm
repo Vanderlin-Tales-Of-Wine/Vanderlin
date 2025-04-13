@@ -87,6 +87,7 @@
 // Garrison
 #define JOB_ID_DUNGEONEER "Dungeoneer"
 #define JOB_ID_JAILOR "Jailor"
+#define JOB_ID_KEEP_GATEMASTER "Keep Gatemaster"
 #define JOB_ID_VETERAN "Veteran"
 
 #define JOB_ID_KEEPGUARD "Keep Guard"
