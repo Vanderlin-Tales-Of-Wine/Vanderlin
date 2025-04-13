@@ -388,6 +388,7 @@
 	if(AM != src)
 		pulling = AM
 		AM.pulledby = src
+		SEND_SIGNAL(src, COMSIG_LIVING_START_PULL, AM, state, force)
 	update_pull_hud_icon()
 
 	if(isliving(AM))
