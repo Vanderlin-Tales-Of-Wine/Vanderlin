@@ -142,7 +142,7 @@
 	message_admins("<span class='adminnotice'>[key_name_admin(usr)] Sent a global narrate</span>")
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Global Narrate") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/client/proc/send_to_cryo(mob/M)
+/client/proc/send_to_cryo(mob/M in GLOB.mob_list)
 	set category = "Admin"
 	set name = "Send To Cryo"
 
@@ -155,7 +155,7 @@
 	if(!M)
 		return
 	var/message_to_admins = span_adminnotice("<b> [key_name(usr)] has sent ([M.name]/[M.key]):</b> to cryo. <BR>")
-	var/message_to_admin_user = cryo_mob(M)
+	var/message_to_admin_user = span_notice(cryo_mob(M))
 
 	to_chat(src, message_to_admin_user)
 	log_admin(message_to_admins)
