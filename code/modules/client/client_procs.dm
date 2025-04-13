@@ -231,7 +231,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		data += "No <span style='color: #bd1717;'>Gods</span>, No <span style='color: #bd1717;'>Masters</span>"
 		data += "</div>"
 
-	data += "<div style='border-top: 1.5px solid #444; margin: 15px auto 25px auto; width: 80%;'></div>"
+	data += "<div style='border-top: 1.5px solid #444; margin: 12.5px auto 22.5px auto; width: 80%;'></div>"
 	data += "</div>"
 
 	// Main content container
@@ -249,9 +249,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	data += "<font color='#825b1c'><span class='bold'>Moat Fallers:</span></font> [GLOB.vanderlin_round_stats[STATS_MOAT_FALLERS]]<br>"
 	data += "<font color='#ac5d5d'><span class='bold'>Ankles Broken:</span></font> [GLOB.vanderlin_round_stats[STATS_ANKLES_BROKEN]]<br>"
 	data += "<font color='#a73f02'><span class='bold'>People Gibbed:</span></font> [GLOB.vanderlin_round_stats[STATS_PEOPLE_GIBBED]]<br>"
-	data += "<font color='#be2727'><span class='bold'>Blood Spilt:</span></font> [round(GLOB.vanderlin_round_stats[STATS_BLOOD_SPILT] / 100, 1)]L<br>"
 	data += "<font color='#e6d927'><span class='bold'>People Smitten:</span></font> [GLOB.vanderlin_round_stats[STATS_PEOPLE_SMITTEN]]<br>"
-	data += "<font color='#a027e6'><span class='bold'>Potions Brewed:</span></font> [GLOB.vanderlin_round_stats[STATS_POTIONS_BREWED]]<br>"
 	data += "<font color='#8f816b'><span class='bold'>Items Pickpocketed:</span></font> [GLOB.vanderlin_round_stats[STATS_ITEMS_PICKPOCKETED]]<br>"
 	data += "<font color='#f5c02e'><span class='bold'>Taxes Collected:</span></font> [GLOB.vanderlin_round_stats[STATS_TAXES_COLLECTED]]<br>"
 	data += "<font color='#90a037'><span class='bold'>Laughs Had:</span></font> [GLOB.vanderlin_round_stats[STATS_LAUGHS_MADE]]"
@@ -266,9 +264,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	data += "<font color='#ff00bf'><span class='bold'>Drugs Snorted:</span></font> [GLOB.vanderlin_round_stats[STATS_DRUGS_SNORTED]]<br>"
 	data += "<font color='#0f555c'><span class='bold'>Beards Shaved:</span></font> [GLOB.vanderlin_round_stats[STATS_BEARDS_SHAVED]]<br>"
 	data += "<font color='#836033'><span class='bold'>Trees Cut:</span></font> [GLOB.vanderlin_round_stats[STATS_TREES_CUT]]<br>"
-	data += "<font color='#63a15b'><span class='bold'>Plants Harvested:</span></font> [GLOB.vanderlin_round_stats[STATS_PLANTS_HARVESTED]]<br>"
 	data += "<font color='#4492a5'><span class='bold'>Fish Caught:</span></font> [GLOB.vanderlin_round_stats[STATS_FISH_CAUGHT]]<br>"
-	data += "<font color='#6f7448'><span class='bold'>Masterworks Forged:</span></font> [GLOB.vanderlin_round_stats[STATS_MASTERWORKS_FORGED]]<br>"
 	data += "<font color='#af2323'><span class='bold'>Organs Eaten:</span></font> [GLOB.vanderlin_round_stats[STATS_ORGANS_EATEN]]<br>"
 	data += "<font color='#af2379'><span class='bold'>Kisses Made:</span></font> [GLOB.vanderlin_round_stats[STATS_KISSES_MADE]]"
 	data += "</div>"
@@ -276,7 +272,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	data += "</div></div></div>"
 
 	// Confessions section
-	data += "<div style='text-align: center; margin: 20px auto; padding: 15px 0; border-top: 1.5px solid #444; width: 80%; max-width: 800px;'>"
+	data += "<div style='text-align: center; margin: 22.5px auto 17.5px auto; padding: 15px 0; border-top: 1.5px solid #444; width: 80%; max-width: 800px;'>"
 	if(GLOB.confessors.len)
 		data += "<font color='#93cac7'><span class='bold'>Confessions:</span></font> "
 		for(var/x in GLOB.confessors)
@@ -286,7 +282,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	data += "</div>"
 
 	src.mob << browse(null, "window=vanderlin_influences")
-	var/datum/browser/popup = new(src.mob, "vanderlin_stats", "<center>End Round Statistics</center>", 460, 680)
+	var/datum/browser/popup = new(src.mob, "vanderlin_stats", "<center>End Round Statistics</center>", 460, 630)
 	popup.set_content(data.Join())
 	popup.open()
 
