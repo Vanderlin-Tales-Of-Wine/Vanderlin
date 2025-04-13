@@ -18,7 +18,8 @@
 
 	attacked_atom = /obj/item/natural/stone
 	starting_atom = /obj/item/weapon/knife
-	subtypes_allowed = TRUE // so you can use any subtype of fur
+	subtypes_allowed = TRUE // so you can use any subtype of knife
+	reagent_subtypes_allowed = TRUE // so normal mana potions can be used as well as weak ones.
 
 /datum/repeatable_crafting_recipe/arcyne/manabloom_powder
 	name = "manabloom powder"
