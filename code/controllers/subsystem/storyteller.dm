@@ -217,7 +217,6 @@ SUBSYSTEM_DEF(gamemode)
 
 /datum/controller/subsystem/gamemode/fire(resumed = FALSE)
 	if(last_devotion_check < world.time)
-		refresh_alive_stats()
 		pick_most_influential()
 		last_devotion_check = world.time + 2 MINUTES
 
@@ -1048,10 +1047,11 @@ SUBSYSTEM_DEF(gamemode)
 
 /// Compares influence of all storytellers and sets a new storyteller with a highest influence
 /datum/controller/subsystem/gamemode/proc/pick_most_influential(roundstart = FALSE)
+	refresh_alive_stats(roundstart)
 	var/list/storytellers_with_influence = list()
 	var/datum/storyteller/highest
 	for(var/datum/storyteller/initalized_storyteller as anything in storytellers)
-		storytellers_with_influence[initalized_storyteller] = calculate_storyteller_influence(initalized_storyteller.type, roundstart)
+		storytellers_with_influence[initalized_storyteller] = calculate_storyteller_influence(initalized_storyteller.type)
 		if(!highest)
 			highest = initalized_storyteller
 			continue
@@ -1065,7 +1065,8 @@ SUBSYSTEM_DEF(gamemode)
 	set_storyteller(highest)
 
 /// Refreshes statistics regarding alive statuses of certain professions or antags, like nobles
-/datum/controller/subsystem/gamemode/proc/refresh_alive_stats()
+/datum/controller/subsystem/gamemode/proc/refresh_alive_stats(roundstart = FALSE)
+	GLOB.patron_follower_counts.Cut()
 	GLOB.vanderlin_round_stats[STATS_ALIVE_NOBLES] = 0
 	GLOB.vanderlin_round_stats[STATS_ILLITERATES] = 0
 	GLOB.vanderlin_round_stats[STATS_WEREVOLVES] = 0
@@ -1080,6 +1081,8 @@ SUBSYSTEM_DEF(gamemode)
 	GLOB.vanderlin_round_stats[STATS_PACIFISTS] = 0
 
 	for(var/client/client in GLOB.clients)
+		if(roundstart)
+			GLOB.patron_follower_counts[client.prefs.selected_patron.name]++
 		var/mob/living/living = client.mob
 		if(!istype(living))
 			continue
@@ -1087,6 +1090,9 @@ SUBSYSTEM_DEF(gamemode)
 			continue
 		if(living.stat == DEAD)
 			continue
+		if(!roundstart)
+			if(living.patron)
+				GLOB.patron_follower_counts[living.patron.name]++
 		if(living.mind.has_antag_datum(/datum/antagonist/werewolf))
 			GLOB.vanderlin_round_stats[STATS_WEREVOLVES]++
 		if(living.mind.has_antag_datum(/datum/antagonist/zombie) || living.mind.has_antag_datum(/datum/antagonist/skeleton) || living.mind.has_antag_datum(/datum/antagonist/lich))
@@ -1145,12 +1151,12 @@ SUBSYSTEM_DEF(gamemode)
 	return influence
 
 /// Return total influence of the storyteller, which includes all his statistics and number of their followers
-/datum/controller/subsystem/gamemode/proc/calculate_storyteller_influence(datum/storyteller/chosen_storyteller, roundstart = FALSE)
+/datum/controller/subsystem/gamemode/proc/calculate_storyteller_influence(datum/storyteller/chosen_storyteller)
 	var/datum/storyteller/initalized_storyteller = storytellers[chosen_storyteller]
 	if(!initalized_storyteller)
 		return
 
-	var/total_influence = get_patron_followers_numbers(initalized_storyteller.name, roundstart) * initalized_storyteller.follower_modifier
+	var/total_influence = GLOB.patron_follower_counts[initalized_storyteller.name] * initalized_storyteller.follower_modifier
 	for(var/influence_factor in initalized_storyteller.influence_factors)
 		total_influence += calculate_specific_influence(chosen_storyteller, influence_factor)
 	return total_influence

@@ -197,6 +197,8 @@ GLOBAL_LIST_INIT(vanderlin_round_stats, list(
 	STATS_LUXURIOUS_FOOD_EATEN = 0,
 ))
 
+GLOBAL_LIST_EMPTY(patron_follower_counts)
+
 /datum/controller/subsystem/ticker/proc/gather_roundend_feedback()
 	gather_antag_data()
 	var/json_file = file("[GLOB.log_directory]/round_end_data.json")

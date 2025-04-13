@@ -55,6 +55,9 @@ SUBSYSTEM_DEF(elastic)
 /datum/controller/subsystem/elastic/proc/get_round_data()
 	var/list/round_data = list()
 
+	for(var/patron_name in GLOB.patron_follower_counts)
+		round_data["[patron_name]_followers"] = GLOB.patron_follower_counts[patron_name]
+
 	round_data["blood_lost"] = round(GLOB.vanderlin_round_stats[STATS_BLOOD_SPILT] / 100, 1)
 	round_data["ankles_broken"] = GLOB.vanderlin_round_stats[STATS_ANKLES_BROKEN]
 	round_data["deaths"] = GLOB.vanderlin_round_stats[STATS_DEATHS]

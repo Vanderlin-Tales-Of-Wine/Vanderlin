@@ -285,8 +285,8 @@ GLOBAL_LIST_EMPTY(respawncounts)
 			if(istype(living_user_mob.patron, /datum/patron/psydon))
 				psydonite_user = TRUE
 
-	var/psydon_followers = get_patron_followers_numbers("Psydon")
-	var/apostasy_followers = get_patron_followers_numbers("Godless")
+	var/psydon_followers = GLOB.patron_follower_counts["Psydon"]
+	var/apostasy_followers = GLOB.patron_follower_counts["Godless"]
 	var/psycross_users = 0
 	var/psydonite_monarch = FALSE
 
@@ -332,16 +332,16 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	data += "</div></div></div>"
 
 	// The Ten Section
-	var/astrata_followers = get_patron_followers_numbers("Astrata")
-	var/noc_followers = get_patron_followers_numbers("Noc")
-	var/necra_followers = get_patron_followers_numbers("Necra")
-	var/pestra_followers = get_patron_followers_numbers("Pestra")
-	var/dendor_followers = get_patron_followers_numbers("Dendor")
-	var/ravox_followers = get_patron_followers_numbers("Ravox")
-	var/xylix_followers = get_patron_followers_numbers("Xylix")
-	var/malum_followers = get_patron_followers_numbers("Malum")
-	var/abyssor_followers = get_patron_followers_numbers("Abyssor")
-	var/eora_followers = get_patron_followers_numbers("Eora")
+	var/astrata_followers = GLOB.patron_follower_counts["Astrata"]
+	var/noc_followers = GLOB.patron_follower_counts["Noc"]
+	var/necra_followers = GLOB.patron_follower_counts["Necra"]
+	var/pestra_followers = GLOB.patron_follower_counts["Pestra"]
+	var/dendor_followers = GLOB.patron_follower_counts["Dendor"]
+	var/ravox_followers = GLOB.patron_follower_counts["Ravox"]
+	var/xylix_followers = GLOB.patron_follower_counts["Xylix"]
+	var/malum_followers = GLOB.patron_follower_counts["Malum"]
+	var/abyssor_followers = GLOB.patron_follower_counts["Abyssor"]
+	var/eora_followers = GLOB.patron_follower_counts["Eora"]
 
 	var/astrata_storyteller = /datum/storyteller/astrata
 	var/noc_storyteller = /datum/storyteller/noc
@@ -457,10 +457,10 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	data += "</div></div>"
 
 	// Inhumen Gods Section
-	var/zizo_followers = get_patron_followers_numbers("Zizo")
-	var/graggar_followers = get_patron_followers_numbers("Graggar")
-	var/baotha_followers = get_patron_followers_numbers("Baotha")
-	var/matthios_followers = get_patron_followers_numbers("Matthios")
+	var/zizo_followers = GLOB.patron_follower_counts["Zizo"]
+	var/graggar_followers = GLOB.patron_follower_counts["Graggar"]
+	var/baotha_followers = GLOB.patron_follower_counts["Baotha"]
+	var/matthios_followers = GLOB.patron_follower_counts["Matthios"]
 
 	var/zizo_storyteller = /datum/storyteller/zizo
 	var/graggar_storyteller = /datum/storyteller/graggar
@@ -543,27 +543,6 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		color = "#ffff00"
 		display_num = "+0"
 	return "<font color='[color]'>[display_num]</font>"
-
-/// Return number of followers for the given patron, uses patron name, like "Astrata"
-/proc/get_patron_followers_numbers(given_patron_name, roundstart = FALSE)
-	var/number_of_followers = 0
-	for(var/client/client in GLOB.clients)
-		var/mob/living/living = client.mob
-		if(!istype(living))
-			continue
-		if(!roundstart)
-			if(!living.mind)
-				continue
-			if(living.stat == DEAD)
-				continue
-			if(!living.patron)
-				continue
-			if(living.patron.name == given_patron_name)
-				number_of_followers++
-		else
-			if(client.prefs.selected_patron.name == given_patron_name)
-				number_of_followers++
-	return number_of_followers
 
 /client/proc/commendation_popup(intentional = FALSE)
 	if(SSticker.current_state != GAME_STATE_FINISHED)
