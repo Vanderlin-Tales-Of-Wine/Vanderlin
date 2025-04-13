@@ -3,20 +3,26 @@
 		emote(copytext(message, 2), intentional = !forced)
 		return 1
 
+//Modified version of get_message_mods, removes the trimming, the only thing we care about here is admin channels
+/mob/dead/observer/get_message_mods(message, list/mods)
+	var/key = message[1]
+	if((key in GLOB.department_radio_prefixes) && length(message) > length(key) + 1 && !mods[RADIO_EXTENSION])
+		mods[RADIO_KEY] = lowertext(message[1 + length(key)])
+		mods[RADIO_EXTENSION] = GLOB.department_radio_keys[mods[RADIO_KEY]]
+	return message
+
 /mob/dead/observer/say(message, bubble_type, list/spans = list(), sanitize = TRUE, datum/language/language = null, ignore_spam = FALSE, forced = null)
 	message = trim(copytext(sanitize(message), 1, MAX_MESSAGE_LEN))
 	if (!message)
 		return
 
-	var/message_mode = get_message_mode(message)
-	if(client && (message_mode == MODE_ADMIN || message_mode == MODE_DEADMIN))
-		message = copytext(message, 3)
-		if(findtext(message, " ", 1, 2))
-			message = copytext(message, 2)
-
-		if(message_mode == MODE_ADMIN)
+	var/list/message_mods = list()
+	message = get_message_mods(message, message_mods)
+	if(client && (message_mods[RADIO_EXTENSION] == MODE_ADMIN || message_mods[RADIO_EXTENSION] == MODE_DEADMIN))
+		message = trim_left(copytext_char(message, length(message_mods[RADIO_KEY]) + 2))
+		if(message_mods[RADIO_EXTENSION] == MODE_ADMIN)
 			client.cmd_admin_say(message)
-		else if(message_mode == MODE_DEADMIN)
+		else if(message_mods[RADIO_EXTENSION] == MODE_DEADMIN)
 			client.dsay(message)
 		return
 
@@ -76,16 +82,16 @@
 	message = compose_message(speaker, message_language, raw_message, radio_freq, spans, message_mode)
 	to_chat(src, "[link] [message]")*/
 
-/mob/dead/observer/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode, original_message)
+/mob/dead/observer/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods = list(), original_message)
 	. = ..()
 	var/atom/movable/to_follow = speaker
 	var/link = FOLLOW_LINK(src, to_follow)
 	// Create map text prior to modifying message for goonchat
 	if(client?.prefs)
 		if (client?.prefs.chat_on_map && (client.prefs.see_chat_non_mob || ismob(speaker)))
-			create_chat_message(speaker, message_language, raw_message, spans, message_mode)
+			create_chat_message(speaker, message_language, raw_message, spans)
 	// Recompose the message, because it's scrambled by default
-	message = compose_message(speaker, message_language, raw_message, radio_freq, spans, message_mode)
+	message = compose_message(speaker, message_language, raw_message, radio_freq, spans, message_mods)
 	if(IsAdminGhost(src))
 		to_chat(src, "[link] [message]")
 	else

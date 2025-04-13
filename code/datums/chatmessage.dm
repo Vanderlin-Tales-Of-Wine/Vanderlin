@@ -221,7 +221,7 @@
  * * spans - Additional classes to be added to the message
  * * message_mode - Bitflags relating to the mode of the message
  */
-/mob/proc/create_chat_message(atom/movable/speaker, datum/language/message_language, raw_message, list/spans, message_mode)
+/mob/proc/create_chat_message(atom/movable/speaker, datum/language/message_language, raw_message, list/spans)
 	// Ensure the list we are using, if present, is a copy so we don't modify the list provided to us
 	spans = spans?.Copy()
 

@@ -76,15 +76,6 @@
 /datum/species/elf/snow/check_roundstart_eligible()
 	return TRUE
 
-/datum/species/elf/snow/get_span_language(datum/language/message_language)
-	if(!message_language)
-		return
-//	if(message_language.type == /datum/language/elvish)
-//		return list(SPAN_SELF)
-//	if(message_language.type == /datum/language/common)
-//		return list(SPAN_SELF)
-	return message_language.spans
-
 /datum/species/elf/snow/get_skin_list()
 	return sortList(list(
 		"Plain Elf" = SKIN_COLOR_PLAIN_ELF, // - (White 2)

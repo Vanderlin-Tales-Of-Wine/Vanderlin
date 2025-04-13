@@ -15,6 +15,8 @@
 	var/verb_say = "says"
 	var/verb_ask = "asks"
 	var/verb_exclaim = "exclaims"
+	var/verb_whisper = "whispers"
+	var/verb_sing = "sings" //! https://github.com/tgstation/tgstation/pull/49063
 	var/verb_yell = "yells"
 	var/speech_span
 	var/inertia_dir = 0

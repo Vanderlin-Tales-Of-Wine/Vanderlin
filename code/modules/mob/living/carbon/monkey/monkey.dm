@@ -106,10 +106,5 @@
 /mob/living/carbon/monkey/canBeHandcuffed()
 	return TRUE
 
-/mob/living/carbon/monkey/IsVocal()
-	if(!getorganslot(ORGAN_SLOT_LUNGS))
-		return 0
-	return 1
-
 /mob/living/carbon/monkey/angry
 	aggressive = TRUE

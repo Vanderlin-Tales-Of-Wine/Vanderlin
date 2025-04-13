@@ -79,13 +79,6 @@
 /datum/species/kobold/check_roundstart_eligible()
 	return TRUE
 
-/datum/species/kobold/get_span_language(datum/language/message_language)
-	if(!message_language)
-		return
-	if(message_language.type == /datum/language/dwarvish)
-		return list(SPAN_DWARF)
-	return message_language.spans
-
 /datum/species/kobold/get_skin_list()
 	return sortList(list(
 		"Moonshade" = SKIN_COLOR_MOONSHADE,

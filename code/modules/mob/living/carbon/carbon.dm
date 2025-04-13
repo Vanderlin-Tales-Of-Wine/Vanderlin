@@ -315,7 +315,7 @@
 	loc.handle_fall(src, forced)//it's loc so it doesn't call the mob's handle_fall which does nothing
 
 /mob/living/carbon/is_muzzled()
-	return FALSE
+	return mouth?.muteinmouth
 
 /obj/structure
 	var/breakoutextra = 30 SECONDS
@@ -1226,18 +1226,6 @@
 	if(mood)
 		if(mood.sanity < SANITY_UNSTABLE)
 			return TRUE
-
-/mob/living/carbon/can_speak_vocal()
-	. = ..()
-	if(!.)
-		return
-	if(mouth?.muteinmouth)
-		return FALSE
-	for(var/obj/item/grabbing/grab in grabbedby)
-		if(grab.sublimb_grabbed == BODY_ZONE_PRECISE_MOUTH)
-			return FALSE
-	if(istype(loc, /turf/open/water) && !(mobility_flags & MOBILITY_STAND))
-		return FALSE
 
 ///Returns a list of all body_zones covered by clothing
 /mob/living/carbon/proc/get_covered_body_zones()

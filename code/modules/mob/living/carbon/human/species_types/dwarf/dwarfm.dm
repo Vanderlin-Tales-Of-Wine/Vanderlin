@@ -72,13 +72,6 @@
 /datum/species/dwarf/mountain/check_roundstart_eligible()
 	return TRUE
 
-/datum/species/dwarf/mountain/get_span_language(datum/language/message_language)
-	if(!message_language)
-		return
-	if(message_language.type == /datum/language/dwarvish)
-		return list(SPAN_DWARF)
-	return message_language.spans
-
 /datum/species/dwarf/mountain/get_skin_list()
 	return sortList(list(
 		"Platinum" = SKIN_COLOR_PLATINUM, // - (White 1)

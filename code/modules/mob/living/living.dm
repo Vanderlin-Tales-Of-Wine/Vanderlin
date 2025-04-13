@@ -554,8 +554,6 @@
 		log_message("Has [whispered ? "whispered his final words" : "succumbed to death"] while in [InFullCritical() ? "hard":"soft"] critical with [round(health, 0.1)] points of health!", LOG_ATTACK)
 		adjustOxyLoss(201)
 		updatehealth()
-//		if(!whispered)
-//			to_chat(src, "<span class='userdanger'>I have given up life and succumbed to death.</span>")
 		death()
 
 /mob/living/incapacitated(ignore_restraints = FALSE, ignore_grab = TRUE, ignore_stasis = FALSE)

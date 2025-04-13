@@ -276,7 +276,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 
 		var/mob/living/carbon/human/H = user
 
-		if((invocation_type == "whisper" || invocation_type == "shout") && !H.can_speak_vocal())
+		if((invocation_type == "whisper" || invocation_type == "shout") && !H.can_speak())
 			to_chat(user, "<span class='warning'>I can't get the words out!</span>")
 			return FALSE
 
@@ -639,7 +639,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 			return FALSE
 	if((invocation_type == "whisper" || invocation_type == "shout") && isliving(user))
 		var/mob/living/living_user = user
-		if(!living_user.can_speak_vocal())
+		if(!living_user.can_speak())
 			return FALSE
 
 	return TRUE

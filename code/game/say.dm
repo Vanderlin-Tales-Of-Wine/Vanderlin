@@ -19,7 +19,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	))
 
 /atom/movable/proc/say(message, bubble_type, list/spans = list(), sanitize = TRUE, datum/language/language = null, ignore_spam = FALSE, forced = null)
-	if(!can_speak())
+	if(!try_speak(message, ignore_spam, forced))
 		return
 	if(message == "" || !message)
 		return
@@ -28,21 +28,51 @@ GLOBAL_LIST_INIT(freqtospan, list(
 		language = get_default_language()
 	send_speech(message, 7, src, , spans, message_language=language)
 
-/atom/movable/proc/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode, original_message)
+/atom/movable/proc/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods = list(), original_message)
 	SEND_SIGNAL(src, COMSIG_MOVABLE_HEAR, args)
 
-/atom/movable/proc/can_speak()
+/**
+ * Checks if our movable can speak the provided message, passing it through filters
+ * and spam detection. CAN include feedback messages about why someone can or can't speak.
+ *
+ * Used in [proc/say] and other methods of speech (radios) after a movable has inputted some message.
+ * If you just want to check if the movable is able to speak in character, use [proc/can_speak] instead.
+ *
+ * Parameters:
+ * - message (string): the original message
+ * - ignore_spam (bool): should we ignore spam?
+ * - forced (null|string): what was it forced by? null if voluntary
+ *
+ * Returns:
+ * 	TRUE of FALSE depending on if our movable can speak
+ */
+/atom/movable/proc/try_speak(message, ignore_spam = FALSE, forced = null)
+	return can_speak()
+
+/**
+ * Checks if our movable can currently speak, vocally, in general.
+ * Should NOT include feedback messages about why someone can or can't speak
+
+ * Used in various places to check if a movable is simply able to speak in general,
+ * regardless of OOC status (being muted) and regardless of what they're actually saying.
+ *
+ * allow_mimes - Determines if this check should skip over mimes. (Only matters for living mobs and up.)
+ * If FALSE, this check will always fail if the movable has a mind and is miming.
+ * if TRUE, we will check if the movable can speak REGARDLESS of if they have an active mime vow.
+ */
+/atom/movable/proc/can_speak(allow_mimes = FALSE)
+	SHOULD_BE_PURE(TRUE)
 	return TRUE
 
-/atom/movable/proc/send_speech(message, range = 7, obj/source = src, bubble_type, list/spans, datum/language/message_language = null, message_mode, original_message)
-	var/rendered = compose_message(src, message_language, message, , spans, message_mode)
+/atom/movable/proc/send_speech(message, range = 7, obj/source = src, bubble_type, list/spans, datum/language/message_language = null, list/message_mods = list(), original_message)
+	var/rendered = compose_message(src, message_language, message, , spans, message_mods)
 	for(var/atom/movable/hearing_movable as anything in get_hearers_in_view(range, source))
 		if(!hearing_movable)//theoretically this should use as anything because it shouldnt be able to get nulls but there are reports that it does.
 			stack_trace("somehow theres a null returned from get_hearers_in_view() in send_speech!")
 			continue
-		hearing_movable.Hear(rendered, src, message_language, message, , spans, message_mode, original_message)
+		hearing_movable.Hear(rendered, src, message_language, message, , spans, message_mods, original_message)
 
-/atom/movable/proc/compose_message(atom/movable/speaker, datum/language/message_language, raw_message, radio_freq, list/spans, message_mode, face_name = FALSE)
+/atom/movable/proc/compose_message(atom/movable/speaker, datum/language/message_language, raw_message, radio_freq, list/spans, list/message_mods = list(), face_name = FALSE)
 	//This proc uses text() because it is faster than appending strings. Thanks BYOND.
 	//Basic span
 	var/spanpart1 = "<span class='[radio_freq ? get_radio_span(radio_freq) : "say"]' target-ref='[REF(speaker)]' visible-flags='[get_admin_flags()]' data-options='[get_message_flags()]'>"
@@ -67,7 +97,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	var/endspanpart = "</span></span>"
 
 	//Message
-	var/messagepart = "[lang_treat(speaker, message_language, raw_message, spans, message_mode)]"
+	var/messagepart = "[lang_treat(speaker, message_language, raw_message, spans, message_mods)]"
 	messagepart = " <span class='message'>[messagepart]</span></span>"
 
 	//Arrow
@@ -98,7 +128,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 				arrowpart += " ⇈"
 			if(speakturf.z < sourceturf.z)
 				arrowpart += " ⇊"
-			if(istype(speaker, /mob/living))
+			if(isliving(speaker))
 				var/mob/living/L = speaker
 				namepart = "Unknown [(L.gender == FEMALE) ? "Woman" : "Man"]"
 			else
@@ -118,10 +148,12 @@ GLOBAL_LIST_INIT(freqtospan, list(
 /atom/movable/proc/compose_job(atom/movable/speaker, message_langs, raw_message, radio_freq)
 	return ""
 
-/atom/movable/proc/say_mod(input, message_mode)
+/atom/movable/proc/say_mod(input, list/message_mods = list())
 	var/ending = copytext(input, length(input))
 	if(copytext(input, length(input) - 1) == "!!")
 		return verb_yell
+	else if (message_mods[MODE_SING])
+		return verb_sing
 	else if(ending == "?")
 		return verb_ask
 	else if(ending == "!")
@@ -129,7 +161,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	else
 		return verb_say
 
-/atom/movable/proc/say_quote(input, list/spans=list(speech_span), message_mode)
+/atom/movable/proc/say_quote(input, list/spans=list(speech_span), list/message_mods = list())
 	if(!input)
 		input = "..."
 
@@ -139,7 +171,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	if(istype(living_speaker) && living_speaker.cmode)
 		say_mod = "—"
 	else
-		say_mod = say_mod(input, message_mode)
+		say_mod = say_mod(input, message_mods)
 		say_mod = "[say_mod]," //acknowledge the comma
 
 	if(copytext(input, length(input) - 1) == "!!")
@@ -154,7 +186,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 
 	return "[processed_say_mod] \"[processed_input]\""
 
-/atom/movable/proc/quoteless_say_quote(input, list/spans = list(speech_span), message_mode) //what the fuck.
+/atom/movable/proc/quoteless_say_quote(input, list/spans = list(speech_span), list/message_mods = list()) //what the fuck.
 	var/pos = findtext(input, "*")
 	var/final_quoteless = pos ? copytext(input, pos + 1) : input
 	return say_emphasis(final_quoteless)
@@ -179,14 +211,14 @@ GLOBAL_LIST_INIT(freqtospan, list(
 #undef ENCODE_HTML_EMPHASIS
 
 // tg#69799 please i beg
-/atom/movable/proc/lang_treat(atom/movable/speaker, datum/language/language, raw_message, list/spans, message_mode, no_quote = FALSE)
+/atom/movable/proc/lang_treat(atom/movable/speaker, datum/language/language, raw_message, list/spans, list/message_mods = list(), no_quote = FALSE)
 	var/atom/movable/source = speaker.GetSource() || speaker //is the speaker virtual
 	if(has_language(language) || check_language_hear(language))
-		return no_quote ? source.quoteless_say_quote(raw_message, spans, message_mode) : source.say_quote(raw_message, spans, message_mode)
+		return no_quote ? source.quoteless_say_quote(raw_message, spans, message_mods) : source.say_quote(raw_message, spans, message_mods)
 	else if(language)
 		var/datum/language/D = GLOB.language_datum_instances[language]
 		raw_message = D.scramble_sentence(raw_message, get_partially_understood_languages())
-		return no_quote ? source.quoteless_say_quote(raw_message, spans, message_mode) : source.say_quote(raw_message, spans, message_mode)
+		return no_quote ? source.quoteless_say_quote(raw_message, spans, message_mods) : source.say_quote(raw_message, spans, message_mods)
 	else
 		return "makes a strange sound."
 
@@ -225,9 +257,6 @@ GLOBAL_LIST_INIT(freqtospan, list(
 
 /atom/movable/proc/GetVoice()
 	return "[src]"	//Returns the atom's name, prepended with 'The' if it's not a proper noun
-
-/atom/movable/proc/IsVocal()
-	return 1
 
 /atom/movable/proc/get_alt_name()
 

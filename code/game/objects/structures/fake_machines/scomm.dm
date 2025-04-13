@@ -113,7 +113,7 @@
 		say(message, language = message_language)
 	voicecolor_override = null
 
-/obj/structure/fake_machine/scomm/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode)
+/obj/structure/fake_machine/scomm/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods = list())
 	if(speaker == src)
 		return
 	if(speaker.loc != loc)
@@ -174,13 +174,13 @@
 	slot_flags = ITEM_SLOT_MOUTH|ITEM_SLOT_HIP|ITEM_SLOT_NECK|ITEM_SLOT_RING
 
 	w_class = WEIGHT_CLASS_SMALL
-	muteinmouth = TRUE
 	var/listening = TRUE
 	var/speaking = TRUE
 	sellprice = 35
 
 /obj/item/scomstone/Initialize()
 	. = ..()
+	AddElement(/datum/element/muffles_speech)
 	become_hearing_sensitive()
 
 //wip
@@ -239,7 +239,7 @@
 	else
 		send_speech(message, 1, src, , spans, message_language=language)
 
-/obj/item/scomstone/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode)
+/obj/item/scomstone/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods = list())
 	if(speaker == src)
 		return
 	if(loc != speaker)

@@ -10,10 +10,13 @@
 	resistance_flags = FLAMMABLE
 	slot_flags = ITEM_SLOT_MOUTH
 	max_integrity = 20
-	muteinmouth = TRUE
 	w_class = WEIGHT_CLASS_TINY
 	spitoutmouth = FALSE
 	bundletype = /obj/item/natural/bundle/fibers
+
+/obj/item/natural/fibers/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/muffles_speech)
 
 /obj/item/natural/silk
 	name = "silk"
@@ -27,10 +30,13 @@
 	resistance_flags = FLAMMABLE
 	slot_flags = ITEM_SLOT_MOUTH
 	max_integrity = 20
-	muteinmouth = TRUE
 	w_class = WEIGHT_CLASS_TINY
 	spitoutmouth = FALSE
 	bundletype = /obj/item/natural/bundle/silk
+
+/obj/item/natural/silk/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/muffles_speech)
 
 #ifdef TESTSERVER
 
@@ -62,7 +68,6 @@
 	body_parts_covered = null
 	experimental_onhip = TRUE
 	max_integrity = 20
-	muteinmouth = TRUE
 	w_class = WEIGHT_CLASS_TINY
 	spitoutmouth = FALSE
 	bundletype = /obj/item/natural/bundle/cloth
@@ -70,6 +75,10 @@
 	/// Effectiveness when used as a bandage, how much bloodloss we can tampon
 	var/bandage_effectiveness = 0.9
 	obj_flags = CAN_BE_HIT //enables splashing on by containers
+
+/obj/item/natural/cloth/Initialize(mapload, ...)
+	. = ..()
+	AddElement(/datum/element/muffles_speech)
 
 /obj/item/natural/cloth/mob_can_equip(mob/living/M, mob/living/equipper, slot, disable_warning, bypass_equip_delay_self)
 	. = ..()
@@ -224,12 +233,15 @@
 	resistance_flags = FLAMMABLE
 	slot_flags = ITEM_SLOT_MOUTH
 	max_integrity = 20
-	muteinmouth = TRUE
 	w_class = WEIGHT_CLASS_TINY
 	spitoutmouth = FALSE
 	stacktype = /obj/item/natural/fibers
 	icon1step = 3
 	icon2step = 6
+
+/obj/item/natural/bundle/fibers/Initialize(mapload, ...)
+	. = ..()
+	AddElement(/datum/element/muffles_speech)
 
 /obj/item/natural/bundle/fibers/full
 	icon_state = "fibersroll2"
@@ -249,12 +261,15 @@
 	resistance_flags = FLAMMABLE
 	slot_flags = ITEM_SLOT_MOUTH
 	max_integrity = 20
-	muteinmouth = TRUE
 	w_class = WEIGHT_CLASS_TINY
 	spitoutmouth = FALSE
 	stacktype = /obj/item/natural/silk
 	icon1step = 3
 	icon2step = 6
+
+/obj/item/natural/bundle/silk/Initialize(mapload, ...)
+	. = ..()
+	AddElement(/datum/element/muffles_speech)
 
 /obj/item/natural/bundle/cloth
 	name = "bundle of cloth"
@@ -307,9 +322,12 @@
 	resistance_flags = FLAMMABLE
 	slot_flags = ITEM_SLOT_MOUTH
 	max_integrity = 20
-	muteinmouth = TRUE
 	w_class = WEIGHT_CLASS_TINY
 	spitoutmouth = FALSE
+
+/obj/item/natural/bowstring/Initialize(mapload, ...)
+	. = ..()
+	AddElement(/datum/element/muffles_speech)
 
 /obj/item/natural/bundle/worms
 	name = "worms"
@@ -338,7 +356,6 @@
 	resistance_flags = FLAMMABLE
 	slot_flags = ITEM_SLOT_MOUTH
 	max_integrity = 20
-	muteinmouth = TRUE
 	w_class = WEIGHT_CLASS_TINY
 	spitoutmouth = FALSE
 	stacktype = /obj/item/alch/bone
@@ -347,6 +364,10 @@
 	icon1step = 2
 	icon2 = "bonestack2"
 	icon2step = 4
+
+/obj/item/natural/bundle/bone/Initialize(mapload, ...)
+	. = ..()
+	AddElement(/datum/element/muffles_speech)
 
 /obj/item/natural/bundle/bone/full
 	amount = 6

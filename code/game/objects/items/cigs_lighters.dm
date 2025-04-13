@@ -355,7 +355,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	smoketime = 120 // four minutes
 	chem_volume = 60
 	list_reagents = null
-	muteinmouth = FALSE
 
 /obj/item/clothing/face/cigarette/rollie/Initialize()
 	. = ..()
@@ -376,7 +375,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	name = "roach"
 	desc = ""
 	icon_state = "roach"
-	muteinmouth = FALSE
 
 /obj/item/cigbutt/Initialize()
 	. = ..()
@@ -410,7 +408,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	slot_flags = ITEM_SLOT_MOUTH
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/mouth_items.dmi'
 	icon = 'icons/roguetown/items/lighting.dmi'
-	muteinmouth = FALSE
 
 /obj/item/clothing/face/cigarette/pipe/westman
 	name = "westman pipe"
