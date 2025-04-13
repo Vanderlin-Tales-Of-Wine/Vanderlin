@@ -19,7 +19,7 @@
 	H.virginity = TRUE
 
 	armor = /obj/item/clothing/armor/cuirass // Halfplate has been made heavy armor, billions must make due.
-	shirt = /obj/item/clothing/shirt/shortshirt/random
+	shirt = /obj/item/clothing/armor/gambeson
 	pants = /obj/item/clothing/pants/trou/leather
 	shoes = /obj/item/clothing/shoes/boots/leather
 	belt = /obj/item/storage/belt/leather
@@ -28,53 +28,52 @@
 
 	switch(H.patron?.type)
 		if(/datum/patron/divine/astrata)
-			wrists = /obj/item/clothing/neck/psycross/silver/astrata
+			neck = /obj/item/clothing/neck/psycross/silver/astrata
+			head = /obj/item/clothing/head/helmet/heavy/necked/astrata
 			cloak = /obj/item/clothing/cloak/stabard/templar/astrata
-			neck = /obj/item/clothing/neck/chaincoif
-		if(/datum/patron/divine/dendor)	// good helmet but no money
+		if(/datum/patron/divine/noc)
+			neck = /obj/item/clothing/neck/psycross/noc
+			head = /obj/item/clothing/head/helmet/heavy/necked/noc
+			cloak = /obj/item/clothing/cloak/stabard/templar/noc
+		if(/datum/patron/divine/dendor)
+			neck = /obj/item/clothing/neck/psycross/silver/dendor
 			head = /obj/item/clothing/head/helmet/heavy/necked/dendorhelm
-			neck = /obj/item/clothing/neck/coif
-			wrists = /obj/item/clothing/neck/psycross/silver/dendor
-			cloak = /obj/item/clothing/cloak/raincloak/furcloak
-			beltr = /obj/item/weapon/knife/stone
+			cloak = /obj/item/clothing/cloak/stabard/templar/dendor
 		if(/datum/patron/divine/necra)
-			wrists = /obj/item/clothing/neck/psycross/silver/necra
+			neck = /obj/item/clothing/neck/psycross/silver/necra
+			head = /obj/item/clothing/head/helmet/heavy/necked/necra
 			cloak = /obj/item/clothing/cloak/stabard/templar/necra
-			neck = /obj/item/clothing/neck/gorget
 		if(/datum/patron/divine/eora)
+			head = /obj/item/clothing/head/helmet/sallet/eoran
 			wrists = /obj/item/clothing/neck/psycross/silver/eora
+			neck = /obj/item/clothing/neck/chaincoif
 			cloak = /obj/item/clothing/cloak/stabard/templar/eora
-			neck = /obj/item/clothing/neck/chaincoif/iron
 			H.virginity = FALSE
 			ADD_TRAIT(H, TRAIT_BEAUTIFUL, TRAIT_GENERIC)
 		if(/datum/patron/divine/ravox)
-			wrists = /obj/item/clothing/neck/psycross/silver/ravox
-			cloak =  /obj/item/clothing/cloak/stabard/templar/ravox
-			neck = /obj/item/clothing/neck/gorget
-		if(/datum/patron/divine/noc)
-			wrists = /obj/item/clothing/neck/psycross/noc
-			cloak = /obj/item/clothing/cloak/stabard/templar/noc
-			neck = /obj/item/clothing/neck/chaincoif
+			neck = /obj/item/clothing/neck/psycross/silver/ravox
+			head = /obj/item/clothing/head/helmet/heavy/necked/ravox
+			cloak = /obj/item/clothing/cloak/stabard/templar/ravox
 		if(/datum/patron/divine/pestra)
-			wrists = /obj/item/clothing/neck/psycross/silver/pestra
+			neck = /obj/item/clothing/neck/psycross/silver/pestra
+			head = /obj/item/clothing/head/helmet/heavy/necked/pestrahelm
 			cloak = /obj/item/clothing/cloak/stabard/templar/pestra
-			neck = /obj/item/clothing/neck/chaincoif/iron
 		if(/datum/patron/divine/abyssor)
-			wrists = /obj/item/clothing/neck/psycross/silver/abyssor
+			neck = /obj/item/clothing/neck/psycross/silver/abyssor
 			cloak = /obj/item/clothing/cloak/tabard/crusader
-			neck = /obj/item/clothing/neck/chaincoif/iron
+			head = /obj/item/clothing/head/helmet/heavy/necked
 		if(/datum/patron/divine/malum)
-			wrists = /obj/item/clothing/neck/psycross/silver/malum
+			neck = /obj/item/clothing/neck/psycross/silver/malum
+			head = /obj/item/clothing/head/helmet/heavy/necked/malumhelm
 			cloak = /obj/item/clothing/cloak/stabard/templar/malum
-			neck = /obj/item/clothing/neck/gorget
 		if(/datum/patron/divine/xylix)
-			wrists = /obj/item/clothing/neck/psycross/silver/xylix
+			neck = /obj/item/clothing/neck/psycross/silver/xylix
 			cloak = /obj/item/clothing/cloak/tabard/crusader
-			neck = /obj/item/clothing/neck/chaincoif/iron
+			head = /obj/item/clothing/head/helmet/heavy/necked
 		else // Failsafe
 			cloak = /obj/item/clothing/cloak/tabard/crusader // Give us a generic crusade tabard
 			wrists = /obj/item/clothing/neck/psycross/silver // Give us a silver psycross for protection against lickers
-			neck = /obj/item/clothing/neck/chaincoif/iron
+			head = /obj/item/clothing/head/helmet/heavy/necked
 
 
 	if(H.mind)
