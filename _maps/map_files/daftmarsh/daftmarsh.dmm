@@ -5640,6 +5640,12 @@
 /obj/machinery/light/fueled/torchholder/c,
 /turf/open/floor/hexstone,
 /area/rogue/indoors/town/manor)
+"vz" = (
+/obj/structure/rack/shelf/biggest,
+/obj/machinery/light/fueled/wallfire/candle/r,
+/obj/item/broom,
+/turf/open/floor/wood,
+/area/rogue/indoors/town/manor)
 "vA" = (
 /obj/structure/table/wood{
 	icon_state = "map1"
@@ -10214,6 +10220,7 @@
 	pixel_y = 0
 	},
 /obj/structure/rack/shelf/biggest,
+/obj/item/broom,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/manor)
 "MY" = (
@@ -112957,7 +112964,7 @@ or
 nl
 aa
 aa
-nl
+vz
 XH
 as
 as
