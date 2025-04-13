@@ -26462,9 +26462,7 @@
 /turf/open/floor/blocks/newstone/alt,
 /area/rogue/indoors/town)
 "oOV" = (
-/obj/structure/fake_machine/vendor{
-	keycontrol = "nightmaiden"
-	},
+/obj/structure/fake_machine/vendor/apothecary,
 /turf/closed/wall/mineral/craftstone{
 	climbdiff = 3;
 	name = "Grooved Wall";
