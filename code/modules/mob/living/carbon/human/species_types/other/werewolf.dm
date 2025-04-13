@@ -11,6 +11,9 @@
 /mob/living/carbon/human/species/werewolf/female
 	gender = FEMALE
 
+/mob/living/carbon/human/species/werewolf/child
+	age = AGE_CHILD
+
 /datum/species/werewolf
 	name = "werewolf"
 	id = "werewolf"
