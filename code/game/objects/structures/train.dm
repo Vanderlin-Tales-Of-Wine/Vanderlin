@@ -65,6 +65,8 @@
 	cryo_mob(departing_mob)
 
 /proc/cryo_mob(mob/departing_mob)
+	var/mob/dead/new_player/newguy = new()
+	newguy.ckey = departing_mob.ckey
 	var/mob_name = departing_mob.real_name
 	if(!ishuman(departing_mob))
 		qdel(departing_mob)

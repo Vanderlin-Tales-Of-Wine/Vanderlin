@@ -777,7 +777,7 @@
 		if(!check_rights(R_ADMIN))
 			return
 
-		var/mob/M = locate(href_list["sendmob"])
+		var/mob/M = locate(href_list["cryomob"])
 		usr.client.send_to_cryo(M)
 
 	else if(href_list["narrateto"])
