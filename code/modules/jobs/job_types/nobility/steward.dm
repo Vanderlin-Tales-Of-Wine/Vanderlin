@@ -53,7 +53,6 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, 6, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 5, TRUE)
 		H.change_stat(STATKEY_STR, -2)
-		H.change_stat(STATKEY_INT, 8)
+		H.change_stat(STATKEY_INT, 5)
 		H.change_stat(STATKEY_CON, -2)
-		H.change_stat(STATKEY_SPD, -2)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)

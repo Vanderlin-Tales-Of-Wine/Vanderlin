@@ -41,7 +41,7 @@
 
 	body_parts_covered = NECK
 	salvage_amount = 1
-	salvage_result = /obj/item/natural/hide
+	salvage_result = /obj/item/natural/cloth
 
 /obj/item/clothing/head/roguehood/uncolored
 	color = CLOTHING_LINEN

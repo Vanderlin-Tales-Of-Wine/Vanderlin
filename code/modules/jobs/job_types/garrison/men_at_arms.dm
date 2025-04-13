@@ -44,9 +44,7 @@
 	tutorial = "You once warded the town, beating the poor and killing the senseless. \
 	Now you get to stare at them in the eyes, watching as they bleed, \
 	exanguinated personally by one of the Monarch's best. \
-	You are poor, and your belly is yet full. \
-	\n\
-	<i>TALK WITH YOUR BRETHREN, TAKE SHIFTS MANNING THE GATE!</i>"
+	You are poor, and your belly is yet full."
 	outfit = /datum/outfit/job/watchman/pikeman
 
 	category_tags = list(CTAG_MENATARMS)
@@ -89,9 +87,7 @@
 	tutorial = "You once warded the town, beating the poor and killing the senseless. \
 	You were quite a good dancer, you've blended that skill with your blade- \
 	exanguinated personally by one of the Monarch's best. \
-	You are poor, and your belly is yet full. \
-	\n\
-	<i>TALK WITH YOUR BRETHREN, TAKE SHIFTS MANNING THE GATE!</i>"
+	You are poor, and your belly is yet full."
 	outfit = /datum/outfit/job/watchman/swordsmen
 	category_tags = list(CTAG_MENATARMS)
 
@@ -128,9 +124,7 @@
 	name = "Archer Men-At-Arms"
 	tutorial = "You once warded the town, beating the poor and killing the senseless. \
 	Now you stare at them from above, raining hell down upon the knaves and the curs that see you a traitor. \
-	You are poor, and your belly is yet full. \
-	\n\
-	<i>TALK WITH YOUR BRETHREN, TAKE SHIFTS MANNING THE GATE!</i>"
+	You are poor, and your belly is yet full."
 	outfit = /datum/outfit/job/watchman/ranger
 
 	category_tags = list(CTAG_MENATARMS)

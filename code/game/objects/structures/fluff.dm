@@ -951,8 +951,10 @@
 					return
 				if(!istype(W, /obj/item/coin))
 					B.contrib += (W.get_real_price() / 2) //sell jewerly and other fineries, though at a lesser price compared to fencing them first
+					GLOB.vanderlin_round_stats[STATS_SHRINE_VALUE] += (W.get_real_price() / 2)
 				else
 					B.contrib += W.get_real_price()
+					GLOB.vanderlin_round_stats[STATS_SHRINE_VALUE] += W.get_real_price()
 				if(B.contrib >= 100)
 					B.tri_amt++
 					user.mind.adjust_triumphs(1)
@@ -1171,6 +1173,7 @@
 						thebride.adjust_triumphs(1)
 						//Bite the apple first if you want to be the groom.
 						priority_announce("[thegroom.real_name] has married [bridefirst]!", title = "Holy Union!", sound = 'sound/misc/bell.ogg')
+						GLOB.vanderlin_round_stats[STATS_MARRIAGES]++
 						marriage = TRUE
 						qdel(A)
 

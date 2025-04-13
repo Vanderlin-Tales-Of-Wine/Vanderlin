@@ -40,9 +40,9 @@
 		return
 
 	/* admin stuff */
-	var/follower_ident = "(follower of [patron])"
-	message_admins("[follower_ident] [ADMIN_SM(follower)] [ADMIN_JMP(follower)] prays: [span_info(prayer)]")
-	user.log_message(span_info("[follower_ident] prays: [prayer]"))
+	var/follower_ident = "[follower.key]/([follower.real_name]) (follower of [patron])"
+	message_admins("[follower_ident] [ADMIN_SM(follower)] [ADMIN_FLW(follower)] prays: [span_info(prayer)]")
+	user.log_message(span_info("(follower of [patron]) prays: [prayer]"))
 
 	follower.whisper(prayer)
 
@@ -617,6 +617,9 @@
 		H.add_stress(/datum/stressevent/hug)
 		playsound(target.loc, pick('sound/vo/hug.ogg'), 100, FALSE, -1)
 
+		if(user.mind)
+			GLOB.vanderlin_round_stats[STATS_HUGS_MADE]++
+
 // ............... I ..................
 /datum/emote/living/idle
 	key = "idle"
@@ -690,7 +693,7 @@
 				message_param = "kisses %t on \the [parse_zone(H.zone_selected)]."
 	playsound(target.loc, pick('sound/vo/kiss (1).ogg','sound/vo/kiss (2).ogg'), 100, FALSE, -1)
 	if(user.mind)
-		GLOB.vanderlin_round_stats["kisses_made"]++
+		GLOB.vanderlin_round_stats[STATS_KISSES_MADE]++
 
 // ............... L ..................
 /datum/emote/living/laugh
@@ -710,7 +713,7 @@
 /datum/emote/living/laugh/run_emote(mob/user, params, type_override, intentional, targetted)
 	. = ..()
 	if(. && user.mind)
-		GLOB.vanderlin_round_stats["laughs_made"]++
+		GLOB.vanderlin_round_stats[STATS_LAUGHS_MADE]++
 
 /mob/living/carbon/human/verb/emote_laugh()
 	set name = "Laugh"
@@ -905,6 +908,12 @@
 	key = "rage"
 	message = "screams in rage!"
 	emote_type = EMOTE_AUDIBLE
+
+/datum/emote/living/rage/run_emote(mob/user, params, type_override, intentional, targetted)
+	. = ..()
+	if(. && user.mind)
+		GLOB.vanderlin_round_stats[STATS_WARCRIES]++
+
 /mob/living/carbon/human/verb/emote_rage()
 	set name = "Rage"
 	set category = "Noises"

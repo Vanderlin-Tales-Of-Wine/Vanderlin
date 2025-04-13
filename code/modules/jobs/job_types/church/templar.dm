@@ -27,7 +27,7 @@
 
 /datum/outfit/job/templar/pre_equip(mob/living/carbon/human/H)
 	..()
-	head = /obj/item/clothing/head/helmet/heavy/bucket
+	head = /obj/item/clothing/head/helmet/heavy/necked
 	cloak = /obj/item/clothing/cloak/tabard/crusader/tief
 	switch(H.patron?.type)
 		if(/datum/patron/divine/astrata)
@@ -112,7 +112,6 @@
 		if(/datum/patron/divine/abyssor)
 			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
 			backl = /obj/item/weapon/polearm/spear/billhook
-			beltr = /obj/item/storage/belt/pouch/coins/poor
 		if(/datum/patron/divine/malum)
 			H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 4, TRUE)
 			beltr = /obj/item/weapon/mace/warhammer/steel

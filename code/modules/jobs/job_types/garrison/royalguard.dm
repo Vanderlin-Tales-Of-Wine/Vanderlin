@@ -58,10 +58,8 @@
 	backr = /obj/item/storage/backpack/satchel
 	backl = /obj/item/weapon/shield/tower/metal
 	r_hand = /obj/item/weapon/polearm/halberd
-	if(prob(30))
-		head = /obj/item/clothing/head/helmet/visored/knight
-	else
-		head = /obj/item/clothing/head/helmet/sallet
+	gloves = /obj/item/clothing/gloves/chain
+	head = /obj/item/clothing/head/helmet/visored/knight
 
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)

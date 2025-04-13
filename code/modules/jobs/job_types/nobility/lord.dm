@@ -54,7 +54,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	else
 		SSfamilytree.AddRoyal(spawned, FAMILY_MOTHER)
 		ruler_title = "Queen"
-	to_chat(world, "<b>[span_notice(span_big("[spawned.real_name] is [ruler_title] of Vanderlin."))]</b>")
+	to_chat(world, "<b>[span_notice(span_big("[spawned.real_name] is [ruler_title] of [SSmapping.config.map_name]."))]</b>")
 	to_chat(world, "<br>")
 	if(GLOB.keep_doors.len > 0)
 		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(know_keep_door_password), spawned), 70)
