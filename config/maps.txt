@@ -23,7 +23,11 @@ map vanderlin
 	votable
 endmap
 
-#until vanderlin is working roguetown should be default
+map daftmarsh
+	maxplayers 75
+	votable
+endmap
+
 map roguetown
 	disabled
 endmap
