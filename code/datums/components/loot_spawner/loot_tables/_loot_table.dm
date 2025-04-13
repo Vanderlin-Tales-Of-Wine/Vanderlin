@@ -19,7 +19,7 @@
 
 /datum/loot_table/proc/spawn_loot(mob/living/looter)
 	var/list/weighted_list = return_list(looter)
-	var/mob_stat_level = looter.return_stat_level(STATKEY_LCK)
+	var/mob_stat_level = looter.get_stat_level(STATKEY_LCK)
 
 	var/adjusted_min = base_min + round(mob_stat_level * scaling_factor, 1)
 	var/adjusted_max = base_max + round(mob_stat_level * scaling_factor, 1)
@@ -48,7 +48,7 @@
 	var/list/weighted_list = list()
 	var/list/pre_weight_list = loot_table[stat_key]
 
-	var/mob_stat_level = looter.return_stat_level(stat_key)
+	var/mob_stat_level = looter.get_stat_level(stat_key)
 	var/minimum_stat_level = 0
 	var/growth_factor = 1.02
 	if(stat_key in growth_factor_list)

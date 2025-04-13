@@ -1,14 +1,13 @@
+#define UPDATE_STRENGTH(...) STASTR = clamp(base_strength + modified_strength, 1, 20)
+#define UPDATE_PERCEPTION(...) STAPER = clamp(base_perception + modified_perception, 1, 20)
+#define UPDATE_ENDURANCE(...) STAEND = clamp(base_endurance + modified_endurance, 1, 20)
+#define UPDATE_CONSTITUTION(...) STACON = clamp(base_constitution + modified_constitution, 1, 20)
+#define UPDATE_INTELLIGENCE(...) STAINT = clamp(base_intelligence + modified_intelligence, 1, 20)
+#define UPDATE_SPEED(...) STASPD = clamp(base_speed + modified_speed, 1, 20)
+#define UPDATE_FORTUNE(...) STALUC = clamp(base_fortune + modified_fortune, 1, 20)
 
 /mob/living
 	var/datum/patron/patron = null
-	///Stats are clamped 1-20, and should be used for most caculations
-	var/STASTR = 10
-	var/STAPER = 10
-	var/STAEND = 10
-	var/STACON = 10
-	var/STAINT = 10
-	var/STASPD = 10
-	var/STALUC = 10
 
 	/* Base stat values */
 	var/base_strength = 10
@@ -20,15 +19,24 @@
 	var/base_fortune = 10
 
 	/* Cached modifier values, calculated when needed */
-	var/modified_strength
-	var/modified_perception
-	var/modified_endurance
-	var/modified_constitution
-	var/modified_intelligence
-	var/modified_speed
-	var/modified_fortune
+	VAR_PRIVATE/final/modified_strength
+	VAR_PRIVATE/final/modified_perception
+	VAR_PRIVATE/final/modified_endurance
+	VAR_PRIVATE/final/modified_constitution
+	VAR_PRIVATE/final/modified_intelligence
+	VAR_PRIVATE/final/modified_speed
+	VAR_PRIVATE/final/modified_fortune
 	/// Lazy-list of stat modifiers keyed with sources.
 	var/list/stat_modifiers = null
+
+	/* Calculated stat values, these are what you want to use. */
+	var/final/STASTR = 10
+	var/final/STAPER = 10
+	var/final/STAEND = 10
+	var/final/STACON = 10
+	var/final/STAINT = 10
+	var/final/STASPD = 10
+	var/final/STALUC = 10
 
 	var/has_rolled_for_stats = FALSE
 
@@ -134,25 +142,25 @@
 		switch(stat_key) //I am sorry for this
 			if(STATKEY_STR)
 				modified_strength = new_total
-				STASTR = clamp(base_strength + modified_strength, 1, 20)
+				UPDATE_STRENGTH()
 			if(STATKEY_PER)
 				modified_perception = new_total
-				STAPER = clamp(base_perception + modified_perception, 1, 20)
+				UPDATE_PERCEPTION()
 			if(STATKEY_END)
 				modified_endurance = new_total
-				STAEND = clamp(base_endurance + modified_endurance, 1, 20)
+				UPDATE_ENDURANCE()
 			if(STATKEY_CON)
 				modified_constitution = new_total
-				STACON = clamp(base_constitution + modified_constitution, 1, 20)
+				UPDATE_CONSTITUTION()
 			if(STATKEY_INT)
 				modified_intelligence = new_total
-				STAINT = clamp(base_intelligence + modified_intelligence, 1, 20)
+				UPDATE_INTELLIGENCE()
 			if(STATKEY_SPD)
 				modified_speed = new_total
-				STASPD = clamp(base_speed + modified_speed, 1, 20)
+				UPDATE_SPEED()
 			if(STATKEY_LCK)
 				modified_fortune = new_total
-				STALUC = clamp(base_fortune + modified_fortune, 1, 20)
+				UPDATE_FORTUNE()
 
 /mob/living/proc/adjust_stat_modifier(source, stat_key, amount)
 	if(!source || !(stat_key in MOBSTATS) || !amount)
@@ -169,25 +177,25 @@
 	switch(stat_key) //I am sorry for this
 		if(STATKEY_STR)
 			modified_strength = new_total
-			STASTR = clamp(base_strength + modified_strength, 1, 20)
+			UPDATE_STRENGTH()
 		if(STATKEY_PER)
 			modified_perception = new_total
-			STAPER = clamp(base_perception + modified_perception, 1, 20)
+			UPDATE_PERCEPTION()
 		if(STATKEY_END)
 			modified_endurance = new_total
-			STAEND = clamp(base_endurance + modified_endurance, 1, 20)
+			UPDATE_ENDURANCE()
 		if(STATKEY_CON)
 			modified_constitution = new_total
-			STACON = clamp(base_constitution + modified_constitution, 1, 20)
+			UPDATE_CONSTITUTION()
 		if(STATKEY_INT)
 			modified_intelligence = new_total
-			STAINT = clamp(base_intelligence + modified_intelligence, 1, 20)
+			UPDATE_INTELLIGENCE()
 		if(STATKEY_SPD)
 			modified_speed = new_total
-			STASPD = clamp(base_speed + modified_speed, 1, 20)
+			UPDATE_SPEED()
 		if(STATKEY_LCK)
 			modified_fortune = new_total
-			STALUC = clamp(base_fortune + modified_fortune, 1, 20)
+			UPDATE_FORTUNE()
 
 /mob/living/proc/remove_stat_modifier(source)
 	if(!source)
@@ -202,28 +210,28 @@
 		switch(stat_key) //I am sorry for this
 			if(STATKEY_STR)
 				modified_strength -= adjustment
-				STASTR = clamp(base_strength + modified_strength, 1, 20)
+				UPDATE_STRENGTH()
 			if(STATKEY_PER)
 				modified_perception -= adjustment
-				STAPER = clamp(base_perception + modified_perception, 1, 20)
+				UPDATE_PERCEPTION()
 			if(STATKEY_END)
 				modified_endurance -= adjustment
-				STAEND = clamp(base_endurance + modified_endurance, 1, 20)
+				UPDATE_ENDURANCE()
 			if(STATKEY_CON)
 				modified_constitution -= adjustment
-				STACON = clamp(base_constitution + modified_constitution, 1, 20)
+				UPDATE_CONSTITUTION()
 			if(STATKEY_INT)
 				modified_intelligence -= adjustment
-				STAINT = clamp(base_intelligence + modified_intelligence, 1, 20)
+				UPDATE_INTELLIGENCE()
 			if(STATKEY_SPD)
 				modified_speed -= adjustment
-				STASPD = clamp(base_speed + modified_speed, 1, 20)
+				UPDATE_SPEED()
 			if(STATKEY_LCK)
 				modified_fortune -= adjustment
-				STALUC = clamp(base_fortune + modified_fortune, 1, 20)
+				UPDATE_FORTUNE()
 
 ///Returns the mob's stats in an associated list
-/mob/living/proc/get_stats() as /list
+/mob/living/proc/get_all_stats() as /list
 	RETURN_TYPE(/list)
 
 	return list(
@@ -324,7 +332,7 @@
 	else
 		return isnull(dee_cee) ? prob(tocheck * chance_per_point) : prob(clamp((tocheck - dee_cee) * chance_per_point,0,100))
 
-/mob/living/proc/return_stat_level(stat_key)
+/mob/living/proc/get_stat_level(stat_key)
 	switch(stat_key)
 		if(STATKEY_STR)
 			return STASTR
@@ -351,7 +359,7 @@
 
 #define LEGACY_SOURCE "do not fucking edit or remove this admins i swear to god"
 
-/// Adjusts stat values of mobs. set_stat == true to set directly.
+/// ~~Adjusts stat values of mobs. set_stat == true to set directly.~~
 /mob/living/proc/change_stat(stat_key, adjust_amount, set_stat = FALSE)
 	//! DEPRECATED PROC
 	if(!stat_key || !adjust_amount)
@@ -362,3 +370,11 @@
 		adjust_stat_modifier(LEGACY_SOURCE, stat_key, adjust_amount)
 
 #undef LEGACY_SOURCE
+
+#undef UPDATE_STRENGTH
+#undef UPDATE_PERCEPTION
+#undef UPDATE_ENDURANCE
+#undef UPDATE_CONSTITUTION
+#undef UPDATE_INTELLIGENCE
+#undef UPDATE_SPEED
+#undef UPDATE_FORTUNE

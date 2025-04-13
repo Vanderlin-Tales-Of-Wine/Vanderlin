@@ -35427,10 +35427,10 @@
 /area/rogue/indoors/town/church)
 "tPj" = (
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	TOTALSPD = 15;
-	TOTALPER = 13;
-	TOTALLUC = 12;
-	TOTALEND = 14
+	base_speed = 15;
+	base_perception = 13;
+	base_fortune = 12;
+	base_endurance = 14
 	},
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/item/weapon/sword/rapier/dec,
