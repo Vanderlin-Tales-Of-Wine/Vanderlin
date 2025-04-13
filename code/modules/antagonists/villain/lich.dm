@@ -139,7 +139,8 @@
 	addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, choose_name_popup), "LICH"), 5 SECONDS)
 
 /datum/outfit/job/lich/post_equip(mob/living/carbon/human/H)
-	..()
+	if(!..())
+		return
 	var/datum/antagonist/lich/lichman = H.mind.has_antag_datum(/datum/antagonist/lich)
 	for(var/i in 1 to 3)
 		var/obj/item/phylactery/new_phylactery = new(H.loc)

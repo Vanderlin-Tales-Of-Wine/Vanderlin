@@ -47,5 +47,6 @@
 	var/tutorial = "<br><br><font color='#855b14'><span class='bold'>Your sponsor, the Merchant, representing the MGE guild, might have work for you todae, go find out.</span></font><br><br>"
 
 /datum/outfit/job/mercenary/post_equip(mob/living/carbon/human/H)
-	..()
+	if(!..())
+		return
 	to_chat(H, tutorial)

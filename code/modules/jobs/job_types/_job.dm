@@ -331,7 +331,7 @@
 
 /datum/outfit/job/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(visualsOnly)
-		return
+		return FALSE
 
 	var/datum/job/J = SSjob.GetJobType(jobtype)
 	if(!J)
@@ -348,7 +348,7 @@
 	for(var/list_key in SStriumphs.post_equip_calls)
 		var/datum/triumph_buy/thing = SStriumphs.post_equip_calls[list_key]
 		thing.on_activate(H)
-	return
+	return TRUE
 
 /// Returns an atom where the mob should spawn in.
 /datum/job/proc/get_roundstart_spawn_point()
