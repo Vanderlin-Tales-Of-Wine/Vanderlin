@@ -157,8 +157,10 @@
 /mob/living/simple_animal/hostile/werewolf/regenerate_icons()
 	if(gender == MALE)
 		icon_state = "wwolf_m"
-	else
+	if(gender == FEMALE)
 		icon_state = "wwolf_f"
+	if(age == AGE_CHILD)
+		icon_state = "wwolf_c"
 	update_inv_hands()
 	update_damage_overlays()
 

@@ -39,8 +39,10 @@
 	H.base_intents = list(INTENT_HELP, INTENT_DISARM, INTENT_GRAB, /datum/intent/simple/wereclaw, /datum/intent/simple/werebite)
 	if(H.gender == MALE)
 		H.icon_state = "wwolf_m"
-	else
+	if(H.gender == FEMALE)
 		H.icon_state = "wwolf_f"
+	if(H.age == AGE_CHILD)
+		H.icon_state = "wwolf_c"
 	H.update_damage_overlays()
 	return TRUE
 
