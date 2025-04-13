@@ -28,6 +28,15 @@
 /mob/living/proc/on_deathcoma_trait_loss(datum/source)
 	REMOVE_TRAIT(src, TRAIT_KNOCKEDOUT, TRAIT_DEATHCOMA)
 
+///Called when TRAIT_DEATHCOMA is added to the mob.
+/mob/living/proc/on_cratemover_trait_gain(datum/source)
+	AddComponent(/datum/component/strong_pull)
+
+///Called when TRAIT_DEATHCOMA is removed from the mob.
+/mob/living/proc/on_cratemover_trait_loss(datum/source)
+	var/datum/component/strongpull = GetComponent(/datum/component/strong_pull)
+	if(strongpull)
+		strongpull.RemoveComponent()
 /* ROGUE */
 
 ///Called when TRAIT_LEPROSY is added to the mob.

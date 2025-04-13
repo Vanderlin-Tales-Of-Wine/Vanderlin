@@ -42,6 +42,8 @@
 	throw_speed = 1
 	throw_range = 1
 	anchored = FALSE
+	/// true whenever someone with the strong pull component is dragging this, preventing opening
+	// var/strong_grab = FALSE
 
 /obj/structure/closet/pre_sell()
 	open()
@@ -110,6 +112,9 @@
 		if(user)
 			to_chat(user, "<span class='warning'>Locked.</span>" )
 		return FALSE
+	// if(strong_grab && pulledby != user)
+	// 	to_chat(user, span_danger("[pulledby] has an incredibly strong grip on [src], preventing it from opening."))
+	// 	return FALSE
 //	var/turf/T = get_turf(src)
 //	for(var/mob/living/L in T)
 //		if(L.anchored || horizontal && L.mob_size > MOB_SIZE_TINY && L.density)

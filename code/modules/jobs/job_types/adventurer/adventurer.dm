@@ -11,7 +11,7 @@ GLOBAL_VAR_INIT(adventurer_hugbox_duration_still, 3 MINUTES)
 	Someday your pride is going to catch up to you, \
 	and you're going to find out why most men don't end up in the annals of history."
 	flag = ADVENTURER
-	department_flag = PEASANTS
+	department_flag = OUTSIDERS
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_NEW_PLAYER_JOINABLE | JOB_EQUIP_RANK)
 	display_order = JDO_ADVENTURER
 	faction = FACTION_STATION

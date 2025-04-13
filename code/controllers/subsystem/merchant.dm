@@ -53,13 +53,19 @@ SUBSYSTEM_DEF(merchant)
 	for(var/obj/structure/industrial_lift/lift in cargo_boat.lift_platforms)
 		boat_spaces |= lift.locs
 		boat_spaces -= get_turf(lift)
-	for(var/atom/movable/request as anything in requestlist)
-		for(var/i = 1 to requestlist[request])
-			var/turf/boat_turf = pick_n_take(boat_spaces)
-			var/atom/movable/new_item = new request
-			new_item.forceMove(boat_turf)
-			for(var/obj/structure/industrial_lift/lift in cargo_boat.lift_platforms)
-				lift.held_cargo |= new_item
+
+	for(var/datum/supply_pack/requested as anything in requestlist)
+		if(!requestlist[requested])
+			continue
+		var/turf/boat_turf = pick_n_take(boat_spaces)
+		var/obj/structure/closet/crate/crate_to_use
+		for(var/i in 1 to requestlist[requested])
+			if(i == 1)
+				crate_to_use = requested.generate(boat_turf)
+			else
+				requested.fill(crate_to_use)
+		for(var/obj/structure/industrial_lift/lift in cargo_boat.lift_platforms)
+			lift.held_cargo |= crate_to_use
 
 	for(var/atom/movable/item as anything in sending_stuff)
 		var/turf/boat_turf = pick(boat_spaces)

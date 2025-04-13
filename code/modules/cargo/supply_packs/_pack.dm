@@ -34,6 +34,8 @@
 			var/na = max(round(cost * randomprice_factor, 1), 1)
 			cost = max(rand(cost-na, cost+na), 1)
 #endif
+	if(contains && !islist(contains))
+		contains = list(contains)
 
 /datum/supply_pack/proc/generate(atom/A, datum/bank_account/paying_account)
 	var/obj/structure/closet/crate/C
@@ -42,7 +44,7 @@
 		C.name = "[crate_name] - Purchased by [paying_account.account_holder]"
 	else
 		C = new crate_type(A)
-		C.name = crate_name
+		C.name = "[crate_name] of [lowertext(name)]"
 
 	fill(C)
 	return C
