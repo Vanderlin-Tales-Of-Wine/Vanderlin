@@ -44,7 +44,7 @@
 #define STATS_WOUNDS_SEWED "wounds_healed"
 #define STATS_SOULS_REINCARNATED "souls_reincarnated"
 #define STATS_ANIMALS_BRED "animals_bred"
-#define STATS_FOOD_ROTTEN "food_rotten"
+#define STATS_FOOD_ROTTED "food_rotted"
 
 // Dendor
 #define STATS_TREES_CUT "trees_cut"
@@ -189,7 +189,7 @@ GLOBAL_LIST_INIT(vanderlin_round_stats, list(
 	STATS_UNDERWORLD_DUELS = 0,
 	STATS_LOCKS_PICKED = 0,
 	STATS_SONGS_PLAYED = 0,
-	STATS_FOOD_ROTTEN = 0,
+	STATS_FOOD_ROTTED = 0,
 	STATS_BLACKSTEEL_SMELTED = 0,
 	STATS_PACIFISTS = 0,
 	STATS_FOREST_DEATHS = 0,

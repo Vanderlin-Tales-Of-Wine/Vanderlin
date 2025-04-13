@@ -128,7 +128,7 @@ SUBSYSTEM_DEF(elastic)
 	round_data["underworld_duels"] = GLOB.vanderlin_round_stats[STATS_UNDERWORLD_DUELS]
 	round_data["locks_picked"] = GLOB.vanderlin_round_stats[STATS_LOCKS_PICKED]
 	round_data["songs_played"] = GLOB.vanderlin_round_stats[STATS_SONGS_PLAYED]
-	round_data["food_rotten"] = GLOB.vanderlin_round_stats[STATS_FOOD_ROTTEN]
+	round_data["food_rotted"] = GLOB.vanderlin_round_stats[STATS_FOOD_ROTTED]
 	round_data["blacksteel_smelted"] = GLOB.vanderlin_round_stats[STATS_BLACKSTEEL_SMELTED]
 	round_data["pacifists"] = GLOB.vanderlin_round_stats[STATS_PACIFISTS]
 	round_data["forest_deaths"] = GLOB.vanderlin_round_stats[STATS_FOREST_DEATHS]

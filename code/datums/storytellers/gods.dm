@@ -136,8 +136,8 @@
 		STATS_POTIONS_BREWED = list("points" = 4.5, "capacity" = 60),
 		STATS_WOUNDS_SEWED = list("points" = 0.5, "capacity" = 100),
 		STATS_SOULS_REINCARNATED = list("points" = 2.5, "capacity" = 50),
-		STATS_ANIMALS_BRED = list("points" = 7.5, "capacity" = 50),
-		STATS_FOOD_ROTTEN = list("points" = 1, "capacity" = 80),
+		STATS_ANIMALS_BRED = list("points" = 6.5, "capacity" = 50),
+		STATS_FOOD_ROTTED = list("points" = 0.5, "capacity" = 80),
 	)
 
 /datum/storyteller/malum
