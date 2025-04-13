@@ -5470,7 +5470,10 @@
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town/clocktower)
 "cXA" = (
-/obj/structure/dungeon_entry/center,
+/obj/structure/dungeon_entry/center{
+	can_enter = 0;
+	icon_state = "portal_noenter"
+	},
 /turf/open/floor/snow,
 /area/rogue/outdoors/mountains)
 "cXO" = (
@@ -8006,7 +8009,10 @@
 /turf/open/floor/metal/barograte,
 /area/rogue/under/town/sewer)
 "evT" = (
-/obj/structure/dungeon_entry/center,
+/obj/structure/dungeon_entry/center{
+	can_enter = 0;
+	icon_state = "portal_noenter"
+	},
 /turf/open/floor/cobble,
 /area/rogue/under/cavewet)
 "evU" = (
