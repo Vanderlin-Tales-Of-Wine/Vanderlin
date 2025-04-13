@@ -272,8 +272,8 @@
 /datum/slapcraft_recipe/carpentry/structure/chest
 	name = "chest"
 	steps = list(
-		/datum/slapcraft_step/item/small_log,
 		/datum/slapcraft_step/item/stake,
+		/datum/slapcraft_step/item/small_log,
 		/datum/slapcraft_step/item/small_log/second,
 		/datum/slapcraft_step/use_item/carpentry/hammer,
 		)

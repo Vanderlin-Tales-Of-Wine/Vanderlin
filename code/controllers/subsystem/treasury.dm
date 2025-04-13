@@ -218,7 +218,7 @@ SUBSYSTEM_DEF(treasury)
 	var/original_amt = amt
 	treasury_value += amt
 	if(character in bank_accounts)
-		if(HAS_TRAIT(character, TRAIT_NOBLE) && (H.job in GLOB.noble_positions)) // Kingdom nobles only
+		if(HAS_TRAIT(character, TRAIT_NOBLE))
 			bank_accounts[character] += amt
 		else
 			taxed_amount = round(amt * tax_value)
