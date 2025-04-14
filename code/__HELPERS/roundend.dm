@@ -11,6 +11,7 @@
 #define STATS_PRAYERS_MADE "prayers_made"
 #define STATS_KISSES_MADE "kisses_made"
 #define STATS_SKILLS_LEARNED "skills_learned"
+#define STATS_DEADITES_ALIVE "deadites_alive"
 
 // Influence related statistics
 
@@ -19,7 +20,7 @@
 #define STATS_ALIVE_TIEFLINGS "alive_tieflings"
 
 // Astrata
-#define STATS_LAWS_MADE "laws_made"
+#define STATS_LAWS_AND_DECREES_MADE "laws_and_decrees_made"
 #define STATS_ALIVE_NOBLES "alive_nobles"
 #define STATS_NOBLE_DEATHS "noble_deaths"
 #define STATS_ASTRATA_REVIVALS "astrata_revivals"
@@ -90,7 +91,7 @@
 
 // Zizo
 #define STATS_ZIZO_PRAISED "zizo_praised"
-#define STATS_DEADITES_ALIVE "deadites_alive"
+#define STATS_DEADITES_WOKEN_UP "deadites_woken_up"
 #define STATS_CLERGY_DEATHS "priest_deaths"
 #define STATS_TORTURES "tortures"
 
@@ -140,7 +141,7 @@ GLOBAL_LIST_INIT(vanderlin_round_stats, list(
 	STATS_POTIONS_BREWED = 0,
 	STATS_ASTRATA_REVIVALS = 0,
 	STATS_PLANTS_HARVESTED = 0,
-	STATS_LAWS_MADE = 0,
+	STATS_LAWS_AND_DECREES_MADE = 0,
 	STATS_ALIVE_NOBLES = 0,
 	STATS_BOOKS_PRINTED = 0,
 	STATS_LITERACY_TAUGHT = 0,
@@ -195,6 +196,7 @@ GLOBAL_LIST_INIT(vanderlin_round_stats, list(
 	STATS_FOREST_DEATHS = 0,
 	STATS_TORTURES = 0,
 	STATS_LUXURIOUS_FOOD_EATEN = 0,
+	STATS_DEADITES_WOKEN_UP = 0,
 ))
 
 GLOBAL_LIST_EMPTY(patron_follower_counts)

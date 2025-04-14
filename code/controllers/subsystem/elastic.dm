@@ -83,7 +83,7 @@ SUBSYSTEM_DEF(elastic)
 	round_data["astrata_revivals"] = GLOB.vanderlin_round_stats[STATS_ASTRATA_REVIVALS]
 	round_data["plants_harvested"] = GLOB.vanderlin_round_stats[STATS_PLANTS_HARVESTED]
 	round_data["humen_deaths"] = GLOB.vanderlin_round_stats[STATS_HUMEN_DEATHS]
-	round_data["laws_made"] = GLOB.vanderlin_round_stats[STATS_LAWS_MADE]
+	round_data["laws_and_decrees_made"] = GLOB.vanderlin_round_stats[STATS_LAWS_AND_DECREES_MADE]
 	round_data["alive_nobles"] = GLOB.vanderlin_round_stats[STATS_ALIVE_NOBLES]
 	round_data["books_printed"] = GLOB.vanderlin_round_stats[STATS_BOOKS_PRINTED]
 	round_data["literacy_taught"] = GLOB.vanderlin_round_stats[STATS_LITERACY_TAUGHT]
@@ -137,6 +137,7 @@ SUBSYSTEM_DEF(elastic)
 	round_data["forest_deaths"] = GLOB.vanderlin_round_stats[STATS_FOREST_DEATHS]
 	round_data["tortures"] = GLOB.vanderlin_round_stats[STATS_TORTURES]
 	round_data["luxurious_food_eaten"] = GLOB.vanderlin_round_stats[STATS_LUXURIOUS_FOOD_EATEN]
+	round_data["deadites_woken_up"] = GLOB.vanderlin_round_stats[STATS_DEADITES_WOKEN_UP]
 
 	return round_data
 
