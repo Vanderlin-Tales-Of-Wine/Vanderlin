@@ -1,4 +1,4 @@
-#define STANDARD_FOLLOWER_MODIFIER 17
+#define STANDARD_FOLLOWER_MODIFIER 20
 
 ///The storyteller datum. He operates with the SSgamemode data to run events
 /datum/storyteller
@@ -234,8 +234,8 @@
 
 	influence_factors = list(
 		STATS_LAWS_MADE = list("points" = 3,"capacity" = 35),
-		STATS_ALIVE_NOBLES = list("points" = 5,"capacity" = 125),
+		STATS_ALIVE_NOBLES = list("points" = 6,"capacity" = 125),
 		STATS_NOBLE_DEATHS = list("points" = -10,"capacity" = -125),
-		STATS_ASTRATA_REVIVALS = list("points" = 5, "capacity" = 75),
+		STATS_ASTRATA_REVIVALS = list("points" = 6, "capacity" = 75),
 		STATS_TAXES_COLLECTED = list("points" = 0.15,"capacity" = 75),
 	)

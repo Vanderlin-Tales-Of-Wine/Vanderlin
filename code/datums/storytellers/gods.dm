@@ -91,9 +91,9 @@
 
 	influence_factors = list(
 		STATS_LAUGHS_MADE = list("points" = 0.25, "capacity" = 100),
-		STATS_GAMES_RIGGED = list("points" = 2, "capacity" = 30),
+		STATS_GAMES_RIGGED = list("points" = 2.5, "capacity" = 30),
 		STATS_PEOPLE_MOCKED = list("points" = 4.5, "capacity" = 60),
-		STATS_CRITS_MADE = list("points" = 0.25, "capacity" = 80),
+		STATS_CRITS_MADE = list("points" = 0.275, "capacity" = 80),
 		STATS_SONGS_PLAYED = list("points" = 1.25, "capacity" = 75),
 	)
 
