@@ -951,14 +951,6 @@
 "Cv" = (
 /turf/closed/wall/mineral/stone/window,
 /area/rogue/indoors)
-"CC" = (
-/obj/structure/bridge{
-	dir = 8
-	},
-/turf/open/water/river{
-	dir = 8
-	},
-/area/rogue/outdoors/woods)
 "CH" = (
 /obj/structure/fluff/signage{
 	dir = 1;
@@ -983,14 +975,6 @@
 	dir = 1
 	},
 /turf/open/floor/snow/patchy,
-/area/rogue/outdoors/woods)
-"Dd" = (
-/obj/structure/bridge{
-	dir = 8
-	},
-/turf/open/water/river{
-	dir = 4
-	},
 /area/rogue/outdoors/woods)
 "Df" = (
 /obj/structure/fluff/signage{
@@ -1020,12 +1004,6 @@
 /obj/structure/hotspring,
 /obj/structure/flora/hotspring_rocks/small,
 /turf/open/floor/grass/cold,
-/area/rogue/outdoors/woods)
-"DY" = (
-/obj/structure/bridge_stakes{
-	dir = 8
-	},
-/turf/open/floor/snow,
 /area/rogue/outdoors/woods)
 "Ei" = (
 /obj/structure/fluff/signage{
@@ -1340,14 +1318,6 @@
 	},
 /turf/open/floor/snow,
 /area/rogue/outdoors/woods)
-"MA" = (
-/obj/structure/bridge{
-	dir = 8
-	},
-/turf/open/water/river{
-	dir = 1
-	},
-/area/rogue/outdoors/woods)
 "MD" = (
 /obj/structure/rack,
 /turf/open/floor/herringbone,
@@ -1420,12 +1390,6 @@
 	dir = 4
 	},
 /turf/open/floor/grass,
-/area/rogue/outdoors/woods)
-"Pj" = (
-/obj/structure/bridge_stakes{
-	dir = 4
-	},
-/turf/open/floor/snow,
 /area/rogue/outdoors/woods)
 "Pq" = (
 /obj/structure/hotspring/border/nine,
@@ -1647,12 +1611,6 @@
 /obj/structure/mineral_door/wood/deadbolt,
 /turf/open/floor/wood/nosmooth/saiga,
 /area/rogue/indoors)
-"Xl" = (
-/obj/structure/bridge{
-	dir = 8
-	},
-/turf/open/water/cleanshallow,
-/area/rogue/outdoors/woods)
 "Xu" = (
 /obj/structure/hotspring,
 /obj/structure/flora/hotspring_rocks/small/two,
@@ -26477,7 +26435,7 @@ YW
 YW
 YW
 jV
-Pj
+jV
 jV
 jV
 IZ
@@ -26679,7 +26637,7 @@ Rz
 Rz
 Rz
 jV
-Xl
+IZ
 IZ
 IZ
 KC
@@ -26881,7 +26839,7 @@ zt
 IZ
 IZ
 IZ
-Dd
+KC
 KC
 zt
 zt
@@ -27083,7 +27041,7 @@ zt
 zt
 zt
 zt
-MA
+zt
 zt
 zt
 zt
@@ -27285,7 +27243,7 @@ zt
 zt
 zt
 zt
-MA
+zt
 zt
 zt
 zt
@@ -27487,7 +27445,7 @@ Rz
 zT
 Rz
 zT
-MA
+zt
 zt
 zt
 zt
@@ -27689,7 +27647,7 @@ zt
 zt
 zt
 zt
-MA
+zt
 zt
 zt
 zt
@@ -27891,7 +27849,7 @@ zt
 IZ
 IZ
 zT
-CC
+zT
 zt
 IZ
 IZ
@@ -28093,7 +28051,7 @@ IZ
 jV
 jV
 IZ
-Xl
+IZ
 IZ
 jV
 jV
@@ -28295,7 +28253,7 @@ Rz
 Rz
 Rz
 jV
-DY
+jV
 jV
 jV
 Le
