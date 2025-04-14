@@ -1,4 +1,4 @@
-#define STANDARD_FOLLOWER_MODIFIER 20
+#define STANDARD_FOLLOWER_MODIFIER 17
 
 ///The storyteller datum. He operates with the SSgamemode data to run events
 /datum/storyteller
