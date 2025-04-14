@@ -1861,6 +1861,10 @@
 /obj/structure/hotspring/border/five,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
+"oz" = (
+/obj/structure/door,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/indoors)
 "oH" = (
 /obj/structure/table/wood/fancy/red,
 /obj/item/clothing/armor/plate/orc/warlord,
@@ -2177,6 +2181,10 @@
 /obj/structure/mannequin/male/female,
 /turf/open/floor/wood,
 /area/rogue)
+"rg" = (
+/obj/structure/door/swing,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/indoors)
 "rl" = (
 /obj/structure/closet/crate/chest/old_crate,
 /obj/item/rope/chain,
@@ -2981,6 +2989,10 @@
 "zH" = (
 /obj/machinery/light/fueled/torchholder/r,
 /turf/open/floor/wood,
+/area/rogue/indoors)
+"zK" = (
+/obj/structure/door/window,
+/turf/open/floor/blocks,
 /area/rogue/indoors)
 "zS" = (
 /obj/structure/chair/bench/couchablack/r,
@@ -4379,7 +4391,7 @@
 /turf/open/floor/wood,
 /area/rogue/indoors)
 "Mi" = (
-/obj/structure/fake_machine/camera/right,
+/obj/structure/door/window,
 /turf/open/floor/cobble,
 /area/rogue/indoors)
 "Mk" = (
@@ -5869,6 +5881,10 @@
 	name = "Guild Jacket"
 	},
 /turf/open/floor/carpet,
+/area/rogue/indoors)
+"YR" = (
+/obj/structure/door,
+/turf/open/floor/tile,
 /area/rogue/indoors)
 "YS" = (
 /obj/structure/table/wood{
@@ -16928,8 +16944,8 @@ Pr
 wt
 wt
 wt
-QM
-QM
+Mi
+Mi
 wt
 wt
 wt
@@ -19523,7 +19539,7 @@ ZM
 ZM
 rz
 ZM
-ZM
+zK
 Ph
 Ph
 Kl
@@ -20320,7 +20336,7 @@ uY
 ix
 ix
 Cj
-Ou
+YR
 ix
 Cj
 Pr
@@ -20446,7 +20462,7 @@ ii
 Gj
 Gj
 Gj
-jM
+rg
 jM
 jM
 ix
@@ -21487,10 +21503,10 @@ hi
 Pt
 Pt
 se
-jM
+oz
 Cj
 Cj
-Ou
+YR
 ix
 Cj
 Pr
