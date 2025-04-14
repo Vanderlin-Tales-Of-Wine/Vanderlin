@@ -1094,6 +1094,7 @@
 #include "code\game\objects\items\natural\dirtclod.dm"
 #include "code\game\objects\items\natural\feather.dm"
 #include "code\game\objects\items\natural\glass.dm"
+#include "code\game\objects\items\natural\paste.dm"
 #include "code\game\objects\items\natural\poo.dm"
 #include "code\game\objects\items\natural\stones.dm"
 #include "code\game\objects\items\natural\wood.dm"

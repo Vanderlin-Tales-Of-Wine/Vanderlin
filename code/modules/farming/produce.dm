@@ -442,6 +442,24 @@
 	dropshrink = 0.9
 	rotprocess = SHELFLIFE_EXTREME
 
+/*	..................   Mandrake   ................... */
+/obj/item/reagent_containers/food/snacks/produce/mandrake
+	name = "mandrake"
+	desc = "A mandrake, it really does look like a man up close."
+	seed = /obj/item/herbseed/mandrake
+	icon_state = "mandrake"
+	bitesize = 1
+	slices_num = 1
+	list_reagents = list(/datum/reagent/consumable/nutriment = 1,
+	/datum/reagent/berrypoison = 2,
+	/datum/reagent/drug/space_drugs = 10)//worse than smoking smokeweed, but better than eating it raw
+	tastes = list("dirt" = 1,"bitterness" = 1)
+	eat_effect = /datum/status_effect/debuff/badmeal
+	slice_path = /obj/item/reagent_containers/food/snacks/veg/mandrake_sliced
+	foodtype = VEGETABLES
+	chopping_sound = TRUE
+	rotprocess = SHELFLIFE_EXTREME
+
 /*	..................   Sunflower   ................... */
 /obj/item/reagent_containers/food/snacks/produce/sunflower
 	seed = /obj/item/neuFarm/seed/sunflower

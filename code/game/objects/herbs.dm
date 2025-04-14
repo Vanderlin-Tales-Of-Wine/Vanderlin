@@ -72,7 +72,8 @@
 	/obj/structure/flora/grass/herb/calendula,/obj/structure/flora/grass/herb/mentha,
 	/obj/structure/flora/grass/herb/urtica,/obj/structure/flora/grass/herb/salvia,
 	/obj/structure/flora/grass/herb/hypericum,/obj/structure/flora/grass/herb/benedictus,
-	/obj/structure/flora/grass/herb/valeriana,/obj/structure/flora/grass/herb/artemisia))
+	/obj/structure/flora/grass/herb/valeriana,/obj/structure/flora/grass/herb/artemisia,
+	/obj/structure/flora/grass/herb/mandrake))
 
 	var/obj/structure/flora/grass/herb/boi = new type
 	boi.forceMove(get_turf(src))
@@ -166,3 +167,7 @@
 
 	herbtype = /obj/item/alch/artemisia
 
+/obj/structure/flora/grass/herb/mandrake
+	name = "mandrake"
+	icon_state = "mandrake"
+	herbtype = /obj/item/reagent_containers/food/snacks/produce/mandrake

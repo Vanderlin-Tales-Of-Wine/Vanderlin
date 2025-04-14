@@ -435,6 +435,23 @@
 			qdel(I)
 	return ..()
 
+
+/*	.............   Fried mandrake   ................ */
+/obj/item/reagent_containers/food/snacks/mandrake_fried
+	name = "fried mandrake"
+	desc = "Roasted mandrake root. Not ideal, but better than starving."
+	icon_state = "mandrake_fried"
+	base_icon_state = "mandrake_fried"
+	biting = TRUE
+	list_reagents = list(/datum/reagent/consumable/nutriment = FRYVEGGIE_NUTRITION,
+	/datum/reagent/consumable/nutriment/vitamin = 1,//most of the poisons are turned into vitamins
+	/datum/reagent/drug/space_drugs = 1//during the frying process... or something. Suspension of disbelief
+	)
+	tastes = list("rich root" = 1)
+	rotprocess = SHELFLIFE_EXTREME
+	faretype = FARE_POOR
+	portable = FALSE
+
 /*	.............   Fried potato   ................ */
 /obj/item/reagent_containers/food/snacks/potato/fried
 	name = "fried potato"
