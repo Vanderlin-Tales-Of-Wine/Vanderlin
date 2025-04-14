@@ -104,7 +104,7 @@
 /datum/repeatable_crafting_recipe/sewing/weaving/puritancape
 
 	name = "puritan cape"
-	output = list(/obj/item/clothing/cloak/cape/puritan)
+	output = /obj/item/clothing/cloak/cape/puritan
 	requirements = list(/obj/item/natural/silk = 4)
 	craftdiff = 3
 	sellprice = 35
