@@ -41,7 +41,6 @@ GLOBAL_PROTECT(tracy_init_reason)
 /world/proc/Genesis(tracy_initialized = FALSE)
 	RETURN_TYPE(/datum/controller/master)
 
-	// monkestation edit: some tracy refactoring
 	if(!tracy_initialized)
 		GLOB.tracy_initialized = FALSE
 #ifndef OPENDREAM
@@ -347,9 +346,7 @@ GLOBAL_PROTECT(tracy_init_reason)
 			log_admin("[key_name(usr)] Has requested an immediate world restart via client side debugging tools")
 			message_admins("[key_name_admin(usr)] Has requested an immediate world restart via client side debugging tools")
 		to_chat(world, span_boldannounce("Rebooting World immediately due to host request."))
-		SSplexora._Shutdown(PLEXORA_SHUTDOWN_HARDEST, usr ? key_name(usr) : null)
 	else
-		SSplexora._Shutdown(PLEXORA_SHUTDOWN_HARD, usr ? key_name(usr) : null)
 		to_chat(world, "Please be patient as the server restarts. You will be automatically reconnected in about 60 seconds.")
 		Master.Shutdown() //run SS shutdowns
 
@@ -381,10 +378,12 @@ GLOBAL_PROTECT(tracy_init_reason)
 			log_world("World hard rebooted at [time_stamp()]")
 			shutdown_logging() // See comment below.
 			shutdown_byond_tracy()
+			SSplexora._Shutdown()
 			TgsEndProcess()
 	else
 		testing("tgsavailable [TgsAvailable()]")
 
+	SSplexora._Shutdown()
 	log_world("World rebooted at [time_stamp()]")
 	shutdown_logging() // Past this point, no logging procs can be used, at risk of data loss.
 
@@ -565,7 +564,7 @@ GLOBAL_PROTECT(tracy_init_reason)
 		GLOB.tracy_initialized = TRUE
 		SEND_TEXT(world.log, "byond-tracy already initialized ([GLOB.tracy_log ? "logfile: [GLOB.tracy_log]" : "no logfile"])")
 	else if(init_result != "0")
-		GLOB.tracy_init_error = init_result // monkestation edit: log tracy errors
+		GLOB.tracy_init_error = init_result
 		SEND_TEXT(world.log, "Error initializing byond-tracy: [init_result]")
 		CRASH("Error initializing byond-tracy: [init_result]")
 	else
