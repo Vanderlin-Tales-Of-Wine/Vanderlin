@@ -11169,6 +11169,23 @@
 	dir = 4
 	},
 /area/rogue/indoors/town/manor)
+"gni" = (
+/obj/machinery/light/fueled/wallfire/candle/blue/l,
+/obj/structure/table/wood/reinf_long,
+/obj/item/natural/cloth{
+	pixel_y = 11;
+	pixel_x = 8
+	},
+/obj/item/natural/cloth{
+	pixel_y = 7;
+	pixel_x = 4
+	},
+/obj/item/reagent_containers/glass/bottle/water{
+	pixel_y = 6;
+	pixel_x = -8
+	},
+/turf/open/floor/churchmarble,
+/area/rogue/indoors/town/clinic_large)
 "gno" = (
 /obj/structure/fluff/walldeco/customflag{
 	pixel_x = -32;
@@ -40122,10 +40139,6 @@
 /obj/item/key/feldsher{
 	pixel_y = 3;
 	pixel_x = -3
-	},
-/obj/item/reagent_containers/glass/bottle/water{
-	pixel_y = 9;
-	pixel_x = 14
 	},
 /turf/open/floor/church,
 /area/rogue/indoors/town/clinic_large)
@@ -135406,7 +135419,7 @@ huA
 huA
 huA
 iNo
-sRp
+gni
 dHO
 dHO
 cBi
