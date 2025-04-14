@@ -19,6 +19,7 @@
 	max_integrity = INTEGRITY_STANDARD
 	salvage_amount = 1
 	salvage_result = /obj/item/natural/hide/cured
+	item_weight = 1.6
 
 
 /obj/item/clothing/head/helmet/leather/advanced
@@ -52,6 +53,8 @@
 	prevent_crits =  MINOR_CRITICALS
 	max_integrity = INTEGRITY_POOR
 	clothing_flags = NONE
+	item_weight = 0.5
+
 //............... Buckled Hat ............... //
 /obj/item/clothing/head/helmet/leather/inquisitor
 	name = "buckled hat"
@@ -95,6 +98,7 @@
 
 	armor = ARMOR_PADDED
 	prevent_crits = list(BCLASS_LASHING, BCLASS_BITE, BCLASS_TWIST, BCLASS_BLUNT)
+	item_weight = 3 * IRON_MULTIPLIER
 
 	var/brightness_on = 4 //less than a torch; basically good for one person.
 	var/on = FALSE

@@ -467,7 +467,7 @@
 			Like a wounded bird, I endure the rain with grace. With my sword I take fate into my own hands and strangle it.")
 			)
 		if("Mage")
-			H.mana_pool.set_intrinsic_recharge(MANA_ALL_LEYLINES)
+			H.mana_pool?.set_intrinsic_recharge(MANA_ALL_LEYLINES)
 			r_hand = /obj/item/weapon/polearm/woodstaff
 			head = /obj/item/clothing/head/roguehood/mage
 			armor = /obj/item/clothing/shirt/robe/mage
