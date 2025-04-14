@@ -14,7 +14,7 @@
 
 	influence_factors = list(
 		STATS_BOOKS_PRINTED = list("points" = 2.5, "capacity" = 40),
-		STATS_LITERACY_TAUGHT = list("points" = 10, "capacity" = 120),
+		STATS_LITERACY_TAUGHT = list("points" = 12.5, "capacity" = 120),
 		STATS_ILLITERATES = list("points" = -4, "capacity" = -100),
 		STATS_SKILLS_DREAMED = list("points" = 0.4, "capacity" = 110),
 		STATS_MANA_SPENT = list("points" = 0.075, "capacity" = 90),
@@ -43,8 +43,8 @@
 
 	influence_factors = list(
 		STATS_COMBAT_SKILLS = list("points" = 0.75, "capacity" = 100),
-		STATS_PARRIES = list("points" = 0.07, "capacity" = 90),
-		STATS_WARCRIES = list("points" = 0.4, "capacity" = 60),
+		STATS_PARRIES = list("points" = 0.065, "capacity" = 90),
+		STATS_WARCRIES = list("points" = 0.35, "capacity" = 60),
 		STATS_YIELDS = list("points" = -4, "capacity" = -40),
 		STATS_UNDERWORLD_DUELS = list("points" = 4, "capacity" = 60),
 	)
@@ -223,7 +223,7 @@
 	)
 
 	influence_factors = list(
-		STATS_TREES_CUT = list("points" = -0.2, "capacity" = -80),
+		STATS_TREES_CUT = list("points" = -0.175, "capacity" = -80),
 		STATS_PLANTS_HARVESTED = list("points" = 0.75, "capacity" = 125),
 		STATS_WEREVOLVES = list("points" = 12.5, "capacity" = 100),
 		STATS_DENDOR_SACRIFICES = list("points" = 10, "capacity" = 100),
