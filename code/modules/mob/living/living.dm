@@ -73,7 +73,7 @@
 		playsound(src.loc, 'sound/foley/zfall.ogg', 100, FALSE)
 	if(!isgroundlessturf(T))
 		ZImpactDamage(T, levels)
-		SSticker.moatfallers++
+		GLOB.vanderlin_round_stats[STATS_MOAT_FALLERS]++
 	return ..()
 
 /mob/living/proc/ZImpactDamage(turf/T, levels)
@@ -983,6 +983,7 @@
 		return
 	surrendering = 1
 	if(alert(src, "Yield in surrender?",,"YES","NO") == "YES")
+		GLOB.vanderlin_round_stats[STATS_YIELDS]++
 		changeNext_move(CLICK_CD_EXHAUSTED)
 		var/image/flaggy = image('icons/effects/effects.dmi',src,"surrender",ABOVE_MOB_LAYER)
 		flaggy.appearance_flags = RESET_TRANSFORM|KEEP_APART
@@ -2059,3 +2060,17 @@
 
 	SEND_SIGNAL(src, COMSIG_LIVING_UNFRIENDED, old_friend)
 	return TRUE
+/mob/living/proc/get_carry_capacity()
+	return max(45, STASTR * 12)
+
+///this is returned as decimal value between 0 and 1
+/mob/living/proc/get_encumbrance()
+	return 0
+
+/mob/living/proc/get_total_weight()
+	return 0
+
+/mob/living/proc/encumbrance_to_dodge()
+	return 1
+
+/mob/living/proc/encumbrance_to_speed()

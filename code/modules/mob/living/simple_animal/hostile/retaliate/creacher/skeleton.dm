@@ -153,6 +153,9 @@
 	cut_overlay("peace_overlay")
 	. = ..()
 
+/mob/living/simple_animal/hostile/skeleton/get_blood_dna_list() //We do not want skeletons bleeding.
+//Could be a more global bitflag or something, but it's only relevant for this subtype.
+	return null
 
 /datum/intent/simple/claw/skeleton_unarmed
 	attack_verb = list("claws", "strikes", "punches")
