@@ -69,7 +69,7 @@
 /datum/anvil_recipe/armor/iron/highcollier
 	name = "Iron High Collier"
 	recipe_name = "a High Collier"
-	created_item = /obj/item/clothing/neck/chaincoif/highcollier/iron
+	created_item = /obj/item/clothing/neck/highcollier/iron
 	craftdiff = 1
 
 /datum/anvil_recipe/armor/iron/chainglove
@@ -192,7 +192,7 @@
 	name = "High Collier"
 	recipe_name = "a High Collier"
 	req_bar = /obj/item/ingot/steel
-	created_item = /obj/item/clothing/neck/chaincoif/highcollier
+	created_item = /obj/item/clothing/neck/highcollier
 	craftdiff = 3
 
 /datum/anvil_recipe/armor/steel/chainglove

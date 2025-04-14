@@ -192,7 +192,7 @@
 	smeltresult = /obj/item/ingot/bronze
 	armor = ARMOR_MAILLE_GOOD
 
-/obj/item/clothing/neck/chaincoif/highcollier
+/obj/item/clothing/neck/highcollier
 	name = "high collier"
 	desc = "A more durable, thicker, piece of chain neck protection, though, this one only covers the neck and mouth when pulled up."
 	icon_state = "high_collier"
@@ -202,6 +202,17 @@
 	slot_flags = ITEM_SLOT_NECK
 	flags_inv = HIDEFACE|HIDEFACIALHAIR
 	armor = ARMOR_MAILLE_GOOD
+	resistance_flags = FIRE_PROOF
+	pickup_sound = 'sound/foley/equip/equip_armor_chain.ogg'
+	drop_sound = 'sound/foley/dropsound/chain_drop.ogg'
+	break_sound = 'sound/foley/breaksound.ogg'
+	adjustable = CAN_CADJUST
+	toggle_icon_state = TRUE
+	blocksound = CHAINHIT
+	smeltresult = null
+	clothing_flags = CANT_SLEEP_IN
+	max_integrity = INTEGRITY_STRONGEST
+	prevent_crits = ALL_EXCEPT_BLUNT
 
 /obj/item/clothing/neck/highcollier/AdjustClothes(mob/user)
 	if(loc == user)
@@ -217,13 +228,13 @@
 				H.update_inv_head()
 		else if(adjustable == CADJUSTED)
 			ResetAdjust(user)
-			flags_inv = HIDEFACIALHAIR|HIDEFACE
+			flags_inv = HIDEFACE|HIDEFACIALHAIR
 			if(user)
 				if(ishuman(user))
 					var/mob/living/carbon/H = user
 					H.update_inv_neck()
 
-/obj/item/clothing/neck/chaincoif/highcollier/iron
+/obj/item/clothing/neck/highcollier/iron
 	name = "iron high collier"
 	desc = "A thicker piece of chain neck protection made from iron, though, this one only covers the neck and mouth when pulled up."
 	icon_state = "ihigh_collier"
