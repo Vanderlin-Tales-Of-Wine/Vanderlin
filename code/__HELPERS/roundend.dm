@@ -12,6 +12,7 @@
 #define STATS_KISSES_MADE "kisses_made"
 #define STATS_SKILLS_LEARNED "skills_learned"
 #define STATS_DEADITES_ALIVE "deadites_alive"
+#define STATS_KLEPTOMANIACS "kleptomaniacs"
 
 // Influence related statistics
 
@@ -113,7 +114,7 @@
 #define STATS_ITEMS_PICKPOCKETED "items_pickpocketed"
 #define STATS_SHRINE_VALUE "shrine_value"
 #define STATS_GREEDY_PEOPLE "greedy_people"
-#define STATS_KLEPTOMANIACS "kleptomaniacs"
+#define STATS_DODGES "dodges"
 #define STATS_LOCKS_PICKED "locks_picked"
 
 GLOBAL_LIST_INIT(vanderlin_round_stats, list(
@@ -197,6 +198,7 @@ GLOBAL_LIST_INIT(vanderlin_round_stats, list(
 	STATS_TORTURES = 0,
 	STATS_LUXURIOUS_FOOD_EATEN = 0,
 	STATS_DEADITES_WOKEN_UP = 0,
+	STATS_DODGES = 0,
 ))
 
 GLOBAL_LIST_EMPTY(patron_follower_counts)
