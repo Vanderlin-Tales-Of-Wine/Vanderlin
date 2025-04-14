@@ -13,6 +13,8 @@ GLOBAL_LIST_EMPTY(weather_act_upon_list)
 #define TRAIT_SNOWSTORM_IMMUNE "snowstorm_immune"
 #define TRAIT_WEATHER_IMMUNE "weather_immune" //Immune to ALL weather effects.
 #define TRAIT_RAINSTORM_IMMUNE "rainstorm_immune"
+#define TRAIT_LAVA_IMMUNE "lava_immune" //Used by lava turfs and The Floor Is Lava.
+#define TRAIT_ACID_IMMUNE "acid_immune"
 
 #define SUNLIGHT_DARK_MATRIX \
 	list                     \
