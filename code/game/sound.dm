@@ -7,7 +7,7 @@
 
 	var/turf/turf_source = get_turf(source)
 	if(!turf_source)
-  		return
+		return
 
 	//allocate a channel if necessary now so its the same for everyone
 	channel = channel || SSsounds.random_available_channel()
