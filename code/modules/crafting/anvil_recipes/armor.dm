@@ -367,6 +367,22 @@
 	created_item = /obj/item/clothing/head/helmet/heavy/decorated/bascinet
 	craftdiff = 2
 
+/datum/anvil_recipe/armor/steel/halfplate_decrorated
+	name = "Decorated Half-plate (+Steel Bar x2, + Gold Bar)"
+	recipe_name = "a decorated Half-Plate Armor"
+	req_bar = /obj/item/ingot/steel
+	additional_items = list(/obj/item/ingot/steel,/obj/item/ingot/steel, /obj/item/ingot/gold)
+	created_item = /obj/item/clothing/armor/plate/decorated
+	craftdiff = 4
+
+/datum/anvil_recipe/armor/steel/halfplate_decrorated_corset
+	name = "Decorated Half-plate With Corset (+Steel Bar x2, + Gold Bar, + Silk x3)"
+	recipe_name = "a decorated Half-Plate Armor with Corset"
+	req_bar = /obj/item/ingot/steel
+	additional_items = list(/obj/item/ingot/steel,/obj/item/ingot/steel, /obj/item/ingot/gold, /obj/item/natural/silk, /obj/item/natural/silk, /obj/item/natural/silk)
+	created_item = /obj/item/clothing/armor/plate/decorated/corset
+	craftdiff = 4
+
 // --------- GOLD -----------
 /datum/anvil_recipe/armor/gold/mask
 	name = "Gold Mask"
