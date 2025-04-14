@@ -105,6 +105,7 @@
 					playsound(loc, 'sound/misc/hiss.ogg', 100, FALSE, -1)
 				if(!SStreasury.give_money_account(amt, H, "+[amt] from [R.name] bounty") && message == TRUE)
 					say("No account found. Submit your fingers to a Meister for inspection.")
+				return amt
 			continue
 		else if(I.type == R.item_type)
 			if(!R.check_item(I))
@@ -133,7 +134,7 @@
 			if(amt)
 				if(!SStreasury.give_money_account(amt, H, "+[amt] from [R.name] bounty") && message == TRUE)
 					say("No account found. Submit your fingers to a Meister for inspection.")
-			return
+			return amt
 
 /obj/structure/fake_machine/stockpile/attackby(obj/item/P, mob/user, params)
 	if(ishuman(user))
@@ -145,13 +146,15 @@
 
 /obj/structure/fake_machine/stockpile/attack_right(mob/user)
 	if(ishuman(user))
+		var/total_value = 0
 		for(var/obj/I in get_turf(src))
-			attemptsell(I, user, FALSE, FALSE)
-		say("Bulk selling in progress...")
+			total_value += attemptsell(I, user, FALSE, FALSE)
 		playsound(loc, 'sound/misc/hiss.ogg', 100, FALSE, -1)
 		playsound(loc, 'sound/misc/disposalflush.ogg', 100, FALSE, -1)
 		if(!SStreasury.find_account(user))
 			say("No account found. Submit your fingers to a Meister for inspection.")
+		else
+			say("Bulk sold for [total_value] mammon...")
 
 /datum/withdraw_tab
 	var/stockpile_index = -1
