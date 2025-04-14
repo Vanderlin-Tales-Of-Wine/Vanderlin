@@ -5,14 +5,9 @@
 	if(isarea(source))
 		CRASH("playsound(): source is an area")
 
-	var/turf/turf_source
-	if(isturf(source))
-		turf_source = source
-	else
-		turf_source = get_turf(source)
-
+	var/turf/turf_source = get_turf(source)
 	if(!turf_source)
-		return
+  		return
 
 	//allocate a channel if necessary now so its the same for everyone
 	channel = channel || SSsounds.random_available_channel()
