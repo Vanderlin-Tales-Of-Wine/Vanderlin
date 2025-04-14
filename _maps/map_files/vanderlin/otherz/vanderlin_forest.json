@@ -1,6 +1,0 @@
-{
-    "map_name": "Vanderlin Forest",
-    "map_path": "map_files/vanderlin/otherz",
-    "map_file": "vanderlin_forest.dmm",
-	"traits": [{"Up": true, "Leylines": true}, {"Up": true, "Down": true, "Leylines": true}, {"Down": true}]
-}

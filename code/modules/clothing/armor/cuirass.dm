@@ -12,8 +12,9 @@
 	armor_class = AC_MEDIUM
 	armor = ARMOR_PLATE
 	body_parts_covered = COVERAGE_TORSO
-	prevent_crits = ALL_EXCEPT_STAB
+	prevent_crits = ALL_EXCEPT_BLUNT
 	max_integrity = INTEGRITY_STRONG
+	item_weight = 7 * STEEL_MULTIPLIER
 
 //................ Grenzelhoft Cuirass ............... //
 /obj/item/clothing/armor/cuirass/grenzelhoft
@@ -49,6 +50,7 @@
 	armor = ARMOR_PLATE_BAD
 	body_parts_covered = COVERAGE_VEST
 	max_integrity = INTEGRITY_STANDARD
+	item_weight = 7 * IRON_MULTIPLIER
 
 //................ Rusted Breastplate ............... //
 /obj/item/clothing/armor/cuirass/iron/rust
@@ -84,6 +86,7 @@
 	body_parts_covered = CHEST
 	prevent_crits = ONLY_VITAL_ORGANS
 	max_integrity = INTEGRITY_POOR
+	item_weight = 5.5 * COPPER_MULTIPLIER
 
 /obj/item/clothing/armor/cuirass/vampire
 	name = "ancient plate"
@@ -94,3 +97,4 @@
 	armor = ARMOR_PLATE_GOOD
 	body_parts_covered = COVERAGE_TORSO
 	prevent_crits = ALL_CRITICAL_HITS_VAMP
+	item_weight = 5.5 * IRON_MULTIPLIER
