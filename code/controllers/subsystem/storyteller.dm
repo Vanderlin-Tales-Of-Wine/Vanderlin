@@ -1066,6 +1066,9 @@ SUBSYSTEM_DEF(gamemode)
 
 /// Refreshes statistics regarding alive statuses of certain professions or antags, like nobles
 /datum/controller/subsystem/gamemode/proc/refresh_alive_stats(roundstart = FALSE)
+	if(SSticker.current_state == GAME_STATE_FINISHED)
+		return
+
 	GLOB.patron_follower_counts.Cut()
 	GLOB.vanderlin_round_stats[STATS_ALIVE_NOBLES] = 0
 	GLOB.vanderlin_round_stats[STATS_ILLITERATES] = 0
