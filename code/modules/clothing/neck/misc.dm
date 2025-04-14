@@ -194,7 +194,7 @@
 
 /obj/item/clothing/neck/highcollier
 	name = "high collier"
-	desc = "A more durable, thicker, piece of chain neck protection, though, this one only covers the neck and mouth when pulled up."
+	desc = "A more durable, thicker, piece of chain neck protection, though, this one only covers the neck, ears and mouth when pulled up."
 	icon_state = "high_collier"
 	icon = 'icons/roguetown/clothing/special/coif.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/coif.dmi'
