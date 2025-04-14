@@ -89,6 +89,21 @@
 #define DEVIL_BODYPART "devil"
 /*see __DEFINES/inventory.dm for bodypart bitflag defines*/
 
+/// used in various places
+#define ALL_RACES_LIST list(SPECIES_HUMAN, SPECIES_RAKSHARI, SPECIES_DWARF, SPECIES_ELF, SPECIES_TIEFLING, SPECIES_AASIMAR, SPECIES_HALFORC, SPECIES_ORC, SPECIES_ZIZOMBIE, SPECIES_KOBOLD)
+
+#define SPECIES_AASIMAR "aasimar"
+#define SPECIES_DWARF "dwarf"
+#define SPECIES_ELF "elf"
+#define SPECIES_HALFORC "halforc"
+#define SPECIES_HUMAN "human"
+#define SPECIES_KOBOLD "kobold"
+#define SPECIES_ORC "orc"
+#define SPECIES_RAKSHARI "rakshari"
+#define SPECIES_TIEFLING "tiefling"
+#define SPECIES_WEREWOLF "werewolf"
+#define SPECIES_ZIZOMBIE "zizombie"
+
 // Health/damage defines for carbon mobs
 #define HUMAN_MAX_OXYLOSS 3
 #define HUMAN_CRIT_MAX_OXYLOSS (SSmobs.wait/30)

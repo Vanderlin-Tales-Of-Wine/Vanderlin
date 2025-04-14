@@ -13,7 +13,7 @@
 
 /datum/species/werewolf
 	name = "werewolf"
-	id = "werewolf"
+	id = SPECIES_WEREWOLF
 	species_traits = list(NO_UNDERWEAR,NOEYESPRITES)
 	inherent_traits = list(TRAIT_NOSTAMINA, TRAIT_RESISTHEAT,TRAIT_RESISTCOLD,TRAIT_RESISTHIGHPRESSURE,TRAIT_RESISTLOWPRESSURE,TRAIT_RADIMMUNE,TRAIT_NODISMEMBER)
 	inherent_biotypes = MOB_HUMANOID

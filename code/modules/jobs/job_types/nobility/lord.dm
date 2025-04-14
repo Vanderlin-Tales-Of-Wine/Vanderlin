@@ -99,7 +99,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 		shoes = /obj/item/clothing/shoes/boots
 		cloak = /obj/item/clothing/cloak/lordcloak
 		if(H.dna?.species)
-			if(H.dna.species.id == "human")
+			if(H.dna.species.id == SPECIES_HUMAN)
 				H.dna.species.soundpack_m = new /datum/voicepack/male/evil()
 	else
 		pants = /obj/item/clothing/pants/tights/random

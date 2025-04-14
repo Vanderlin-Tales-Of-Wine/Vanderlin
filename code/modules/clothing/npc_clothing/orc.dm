@@ -10,7 +10,7 @@
 	name = "crude breastplate"
 	icon_state = "marauder_armor"
 	item_state = "marauder_armor"
-	allowed_race = list("orc")
+	allowed_race = list(SPECIES_ORC)
 	smeltresult = /obj/item/ingot/iron
 	sellprice = NO_MARKET_VALUE
 
@@ -23,7 +23,7 @@
 	name = "crude maille"
 	icon_state = "orc_chainvest"
 	item_state = "orc_chainvest"
-	allowed_race = list("orc")
+	allowed_race = list(SPECIES_ORC)
 	sellprice = NO_MARKET_VALUE
 
 	armor_class = AC_MEDIUM
@@ -37,7 +37,7 @@
 	icon_state = "marauder_helm_item"
 	item_state = "marauder_helm"
 	icon = 'icons/roguetown/mob/monster/orc.dmi'
-	allowed_race = list("orc")
+	allowed_race = list(SPECIES_ORC)
 	smeltresult = /obj/item/ingot/iron
 	armor = list("blunt" = 60, "slash" = 60, "stab" = 60,  "piercing" = 0, "fire" = 0, "acid" = 0)
 	body_parts_covered = HEAD|EARS|HAIR|EYES|NECK
@@ -73,7 +73,7 @@
 	icon_state = "orc_leather"
 	item_state = "orc_leather"
 	icon = 'icons/roguetown/clothing/armor.dmi'
-	allowed_race = list("orc")
+	allowed_race = list(SPECIES_ORC)
 	armor = list("blunt" = 30, "slash" = 30, "stab" = 30,  "piercing" = 0, "fire" = 0, "acid" = 0)
 	body_parts_covered = CHEST|GROIN
 	sellprice = 0

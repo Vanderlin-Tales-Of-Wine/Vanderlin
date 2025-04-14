@@ -1,6 +1,6 @@
 /datum/species/human
 	name = "Humanb"
-	id = "human"
+	id = SPECIES_HUMAN
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | RACE_SWAP | SLIME_EXTRACT
 
 /datum/species/human/check_roundstart_eligible()
@@ -32,5 +32,6 @@
 	"blonde - moonlight" = "dfc999",
 	"red - autumn" = "a34332"
 	))
+
 /datum/species/human/get_native_language()
 	return "Imperial"
