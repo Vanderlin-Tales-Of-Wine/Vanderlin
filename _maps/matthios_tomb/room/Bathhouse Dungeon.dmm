@@ -110,7 +110,7 @@
 /area/rogue/indoors)
 "cx" = (
 /obj/structure/rack/shelf/biggest,
-/obj/item/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket/wooden,
 /turf/open/floor/herringbone,
 /area/rogue/indoors)
 "cB" = (
@@ -805,7 +805,7 @@
 /turf/open/water/bath,
 /area/rogue/indoors)
 "sr" = (
-/obj/item/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket/wooden,
 /mob/living/carbon/human/species/rousman/ambush,
 /turf/open/floor/hexstone,
 /area/rogue/indoors)

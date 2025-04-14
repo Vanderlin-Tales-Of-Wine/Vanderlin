@@ -203,6 +203,7 @@
 	antimagic_allowed = TRUE
 	recharge_time = 20 SECONDS
 	miracle = TRUE
+	healing_miracle = TRUE
 	devotion_cost = 50
 
 /obj/effect/proc_holder/spell/invoked/ocean_embrace/cast(list/targets, mob/living/user)
