@@ -54,11 +54,6 @@
 /obj/effect/spawner/map_spawner/loot,
 /turf/open/floor/grass,
 /area/rogue/indoors)
-"bB" = (
-/obj/structure/door/stone,
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor/blocks,
-/area/rogue/indoors)
 "bC" = (
 /obj/structure/bars/pipe{
 	dir = 8
@@ -107,11 +102,6 @@
 "cl" = (
 /obj/effect/waterfall,
 /turf/closed/wall/mineral/decostone,
-/area/rogue/indoors)
-"cx" = (
-/obj/structure/rack/shelf/biggest,
-/obj/item/reagent_containers/glass/bucket,
-/turf/open/floor/herringbone,
 /area/rogue/indoors)
 "cB" = (
 /obj/structure/mirror,
@@ -193,6 +183,11 @@
 "dN" = (
 /obj/effect/decal/cleanable/food/egg_smudge,
 /turf/open/floor/tile/kitchen,
+/area/rogue/indoors)
+"dR" = (
+/obj/structure/door/stone,
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/blocks,
 /area/rogue/indoors)
 "dW" = (
 /obj/structure/rack/shelf/biggest,
@@ -566,11 +561,6 @@
 /obj/effect/decal/cleanable/blood/gibs/up,
 /turf/open/floor/metal/barograte,
 /area/rogue/indoors)
-"ne" = (
-/obj/structure/door/stone,
-/obj/effect/decal/cleanable/blood/footprints,
-/turf/open/floor/churchmarble,
-/area/rogue/indoors)
 "ni" = (
 /turf/closed/wall/mineral/stone,
 /area/rogue/indoors)
@@ -765,6 +755,11 @@
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors)
+"rD" = (
+/obj/structure/rack/shelf/biggest,
+/obj/item/reagent_containers/glass/bucket/wooden,
+/turf/open/floor/herringbone,
+/area/rogue/indoors)
 "rU" = (
 /obj/item/mortar,
 /turf/open/floor/metal/barograte,
@@ -803,11 +798,6 @@
 /obj/structure/flora/grass/water/reeds,
 /obj/structure/trap/shock,
 /turf/open/water/bath,
-/area/rogue/indoors)
-"sr" = (
-/obj/item/reagent_containers/glass/bucket,
-/mob/living/carbon/human/species/rousman/ambush,
-/turf/open/floor/hexstone,
 /area/rogue/indoors)
 "sw" = (
 /obj/effect/spawner/map_spawner/loot/weapon,
@@ -911,12 +901,6 @@
 /area/rogue/indoors)
 "uy" = (
 /turf/open/floor/tile/masonic/single,
-/area/rogue/indoors)
-"uJ" = (
-/obj/structure/door/stone,
-/obj/machinery/light/fueled/wallfire/candle/weak,
-/obj/structure/trap/saw_blades,
-/turf/open/floor/hexstone,
 /area/rogue/indoors)
 "uK" = (
 /mob/living/simple_animal/hostile/retaliate/bigrat,
@@ -1096,6 +1080,14 @@
 /obj/effect/spawner/map_spawner/loot/armor,
 /turf/open/floor/blocks,
 /area/rogue/indoors)
+"zl" = (
+/obj/structure/door/stone,
+/turf/open/floor/blocks/green,
+/area/rogue/indoors)
+"zm" = (
+/obj/structure/door/stone,
+/turf/open/floor/blocks,
+/area/rogue/indoors)
 "zo" = (
 /obj/structure/mirror,
 /turf/closed/wall/mineral/stone,
@@ -1104,6 +1096,11 @@
 /obj/structure/closet/crate/crafted_closet/inn,
 /obj/item/clothing/cloak/raincloak/furcloak,
 /turf/open/floor/hexstone,
+/area/rogue/indoors)
+"zv" = (
+/obj/structure/door/stone,
+/obj/effect/decal/cleanable/blood/footprints,
+/turf/open/floor/churchmarble,
 /area/rogue/indoors)
 "zw" = (
 /obj/item/natural/cloth,
@@ -1160,6 +1157,12 @@
 "AE" = (
 /obj/effect/waterfall,
 /turf/closed/wall/mineral/stone,
+/area/rogue/indoors)
+"AI" = (
+/obj/structure/door/stone,
+/obj/machinery/light/fueled/wallfire/candle/weak,
+/obj/structure/trap/saw_blades,
+/turf/open/floor/hexstone,
 /area/rogue/indoors)
 "AJ" = (
 /obj/structure/flora/grass/water,
@@ -1258,10 +1261,6 @@
 /obj/structure/flora/grass/pyroclasticflowers,
 /turf/open/floor/grass,
 /area/rogue/indoors)
-"DR" = (
-/obj/structure/door/stone,
-/turf/open/floor/hexstone,
-/area/rogue/indoors)
 "DY" = (
 /obj/item/natural/poo/horse,
 /turf/open/floor/blocks/newstone/alt,
@@ -1272,6 +1271,10 @@
 /turf/open/water/river{
 	dir = 4
 	},
+/area/rogue/indoors)
+"Ef" = (
+/obj/structure/door/stone,
+/turf/open/floor/churchmarble,
 /area/rogue/indoors)
 "Ej" = (
 /obj/structure/stairs/stone/church,
@@ -1385,6 +1388,11 @@
 /obj/effect/decal/cleanable/blood/gibs/down,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors)
+"Gq" = (
+/obj/item/reagent_containers/glass/bucket/wooden,
+/mob/living/carbon/human/species/rousman/ambush,
+/turf/open/floor/hexstone,
+/area/rogue/indoors)
 "Gu" = (
 /obj/structure/stairs/stone/church{
 	dir = 8
@@ -1449,6 +1457,10 @@
 "HF" = (
 /obj/effect/landmark/chest_or_mimic,
 /turf/open/floor/carpet,
+/area/rogue/indoors)
+"HV" = (
+/obj/structure/door,
+/turf/open/floor/herringbone,
 /area/rogue/indoors)
 "HX" = (
 /obj/structure/fluff/walldeco/vinez,
@@ -1550,6 +1562,10 @@
 /obj/item/bath/soap,
 /turf/open/floor/metal/barograte,
 /area/rogue/indoors)
+"Kx" = (
+/obj/structure/door/stone,
+/turf/open/floor/hexstone,
+/area/rogue/indoors)
 "KA" = (
 /obj/structure/rack/shelf/biggest,
 /obj/effect/spawner/map_spawner/loot/potion_ingredient/herb,
@@ -1561,10 +1577,6 @@
 "KB" = (
 /obj/item/natural/poo,
 /turf/open/water/sewer,
-/area/rogue/indoors)
-"KF" = (
-/obj/structure/door/stone,
-/turf/open/floor/churchmarble,
 /area/rogue/indoors)
 "KO" = (
 /obj/structure/bed/hay,
@@ -1630,10 +1642,6 @@
 "Ml" = (
 /obj/structure/rack/shelf/biggest,
 /obj/item/natural/cloth,
-/turf/open/floor/blocks,
-/area/rogue/indoors)
-"Mx" = (
-/obj/structure/door/stone,
 /turf/open/floor/blocks,
 /area/rogue/indoors)
 "MC" = (
@@ -1753,11 +1761,6 @@
 /obj/machinery/light/fueled/wallfire/candle/weak,
 /turf/open/water/bath,
 /area/rogue/indoors)
-"Pn" = (
-/obj/structure/door/stone,
-/obj/effect/decal/cleanable/blood/splatter,
-/turf/open/floor/blocks,
-/area/rogue/indoors)
 "Pu" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/item/restraints/legcuffs/beartrap/armed/camouflage,
@@ -1829,10 +1832,6 @@
 /obj/item/reagent_containers/glass/bottle,
 /turf/open/floor/metal/barograte,
 /area/rogue/indoors)
-"QZ" = (
-/obj/structure/door/swing,
-/turf/open/floor/herringbone,
-/area/rogue/indoors)
 "Ra" = (
 /obj/structure/flora/ausbushes/brflowers,
 /turf/open/floor/grass,
@@ -1867,13 +1866,13 @@
 /obj/effect/waterfall,
 /turf/open/water/bath,
 /area/rogue/indoors)
-"Sd" = (
-/obj/structure/door/stone,
-/turf/open/floor/blocks/green,
-/area/rogue/indoors)
 "Si" = (
 /mob/living/carbon/human/species/zizombie/npc/ambush,
 /turf/open/floor/hexstone,
+/area/rogue/indoors)
+"Sn" = (
+/obj/structure/door/swing,
+/turf/open/floor/herringbone,
 /area/rogue/indoors)
 "Ss" = (
 /obj/structure/fluff/statue/small,
@@ -1997,10 +1996,6 @@
 /obj/structure/table/wood,
 /obj/item/reagent_containers/glass/bowl,
 /turf/open/floor/tile/kitchen,
-/area/rogue/indoors)
-"UK" = (
-/obj/structure/door,
-/turf/open/floor/herringbone,
 /area/rogue/indoors)
 "UP" = (
 /obj/structure/flora/ausbushes/reedbush,
@@ -2158,6 +2153,11 @@
 /obj/item/restraints/legcuffs/beartrap/armed/camouflage,
 /turf/open/floor/grass,
 /area/rogue/indoors)
+"Zx" = (
+/obj/structure/door/stone,
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/open/floor/blocks,
+/area/rogue/indoors)
 "ZC" = (
 /obj/structure/fluff/statue/knight/interior/r,
 /turf/open/water/bath,
@@ -2263,7 +2263,7 @@ YK
 Nh
 tH
 qo
-cx
+rD
 Ap
 SR
 rW
@@ -2408,7 +2408,7 @@ ni
 XZ
 zd
 Fn
-QZ
+Sn
 Hc
 bu
 "}
@@ -2422,15 +2422,15 @@ gw
 ZL
 Ap
 Ap
-UK
+HV
 ni
 ni
 Ap
-Sd
+zl
 Ap
 Ap
 es
-Sd
+zl
 ni
 Kb
 xG
@@ -2456,7 +2456,7 @@ ni
 wJ
 wJ
 wJ
-Sd
+zl
 wJ
 wJ
 wJ
@@ -2464,7 +2464,7 @@ wJ
 wJ
 wJ
 wJ
-Sd
+zl
 wJ
 wJ
 wJ
@@ -2488,7 +2488,7 @@ ni
 wJ
 wJ
 wJ
-Sd
+zl
 wJ
 wJ
 wJ
@@ -2496,11 +2496,11 @@ wJ
 wJ
 wJ
 wJ
-Sd
+zl
 wJ
 wJ
 wJ
-UK
+HV
 tH
 au
 oz
@@ -2549,7 +2549,7 @@ ni
 ni
 Ap
 Ap
-Sd
+zl
 ni
 Ap
 Ap
@@ -2562,8 +2562,8 @@ db
 yR
 ni
 gX
-Sd
-Sd
+zl
+zl
 gX
 gX
 GF
@@ -2628,7 +2628,7 @@ Bz
 gX
 wJ
 wJ
-Sd
+zl
 rW
 rW
 rW
@@ -2756,7 +2756,7 @@ Cy
 ni
 wJ
 wJ
-Sd
+zl
 rW
 rW
 rW
@@ -2799,8 +2799,8 @@ pa
 (20,1,1) = {"
 pa
 Hc
-Sd
-Sd
+zl
+zl
 Ap
 oE
 Ap
@@ -2818,8 +2818,8 @@ db
 yR
 Ap
 Ap
-Sd
-Sd
+zl
+zl
 gX
 gX
 qx
@@ -2998,7 +2998,7 @@ Kb
 id
 Kb
 Kb
-uJ
+AI
 Kb
 lu
 Ap
@@ -3032,7 +3032,7 @@ wJ
 wJ
 wJ
 wJ
-Sd
+zl
 wJ
 wJ
 wJ
@@ -3064,7 +3064,7 @@ wJ
 wJ
 wJ
 wJ
-Sd
+zl
 wJ
 wJ
 wJ
@@ -3231,7 +3231,7 @@ xM
 ke
 ke
 av
-ne
+zv
 Ui
 Xy
 av
@@ -3263,7 +3263,7 @@ yR
 ke
 ke
 av
-ne
+zv
 DF
 xI
 av
@@ -3301,7 +3301,7 @@ yR
 xM
 tx
 xM
-Mx
+zm
 xM
 yR
 cd
@@ -3315,14 +3315,14 @@ yR
 Ix
 Ix
 Ix
-sr
+Gq
 DY
 xC
 yR
 gM
 yR
 VG
-Mx
+zm
 yR
 xM
 tx
@@ -3344,8 +3344,8 @@ pa
 (7,1,2) = {"
 pa
 yR
-DR
-DR
+Kx
+Kx
 yR
 yR
 tx
@@ -3356,7 +3356,7 @@ gl
 Ml
 nr
 nr
-Mx
+zm
 gw
 Fg
 yR
@@ -3367,7 +3367,7 @@ jN
 JI
 jN
 ez
-Mx
+zm
 ke
 ke
 yR
@@ -3592,8 +3592,8 @@ CP
 vg
 yR
 yR
-KF
-KF
+Ef
+Ef
 xM
 tx
 "}
@@ -3638,7 +3638,7 @@ to
 yR
 ej
 XY
-Mx
+zm
 nr
 nr
 Ap
@@ -3720,8 +3720,8 @@ hc
 tF
 yR
 yR
-KF
-KF
+Ef
+Ef
 xM
 tx
 "}
@@ -3801,7 +3801,7 @@ SG
 bf
 Ft
 yR
-DR
+Kx
 ni
 Ap
 Ap
@@ -3834,7 +3834,7 @@ lZ
 WQ
 xM
 xv
-DR
+Kx
 Ix
 vd
 Xe
@@ -3911,7 +3911,7 @@ lE
 jN
 gC
 JK
-Pn
+Zx
 ke
 HD
 yR
@@ -3961,7 +3961,7 @@ EW
 Ft
 Ft
 xM
-DR
+Kx
 xM
 yR
 xM
@@ -3973,7 +3973,7 @@ yR
 xM
 yR
 ar
-bB
+dR
 xM
 yR
 cd
@@ -3986,13 +3986,13 @@ pa
 yR
 ke
 ke
-KF
+Ef
 qy
 kR
 lC
 JJ
 aC
-KF
+Ef
 ke
 ke
 ke

@@ -124,6 +124,10 @@
 /obj/structure/flora/grass/bush_meagre,
 /turf/open/floor/dirt/road,
 /area/rogue/under/cavewet)
+"em" = (
+/obj/structure/door/stone,
+/turf/open/floor/churchmarble,
+/area/rogue/under/cavewet)
 "ep" = (
 /obj/machinery/light/fueled/torchholder/c,
 /turf/open/floor/dirt/road,
@@ -132,10 +136,6 @@
 /obj/structure/closet/crate/coffin,
 /obj/item/clothing/ring/gold/rontz,
 /turf/open/floor/tile/masonic/spiral,
-/area/rogue/under/cavewet)
-"eY" = (
-/obj/structure/door/violet,
-/turf/open/floor/churchrough,
 /area/rogue/under/cavewet)
 "fu" = (
 /obj/structure/flora/grass,
@@ -162,13 +162,6 @@
 /obj/effect/decal/cleanable/blood/gibs/up,
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/concrete,
-/area/rogue/under/cavewet)
-"gr" = (
-/obj/structure/door/stone{
-	can_add_lock = 0
-	},
-/obj/effect/mapping_helpers/door/locker,
-/turf/open/floor/churchmarble,
 /area/rogue/under/cavewet)
 "gH" = (
 /obj/structure/chair/bench/church/mid,
@@ -276,6 +269,13 @@
 "mW" = (
 /turf/closed,
 /area/rogue/under/cavewet)
+"mZ" = (
+/obj/structure/door/stone{
+	can_add_lock = 0
+	},
+/obj/effect/mapping_helpers/door/locker,
+/turf/open/floor/churchmarble,
+/area/rogue/under/cavewet)
 "nb" = (
 /obj/machinery/light/fueled/oven/south,
 /turf/open/floor/churchmarble,
@@ -327,6 +327,12 @@
 /obj/effect/decal/cleanable/blood,
 /obj/effect/spawner/map_spawner/loot/rare,
 /turf/open/floor/plasteel/maniac/damaged,
+/area/rogue/under/cavewet)
+"pa" = (
+/obj/structure/door/iron/bars,
+/turf/open/floor/metal{
+	dir = 1
+	},
 /area/rogue/under/cavewet)
 "pi" = (
 /obj/structure/fluff/railing/wood,
@@ -433,10 +439,6 @@
 	pixel_y = -1
 	},
 /turf/open/floor/blocks,
-/area/rogue/under/cavewet)
-"td" = (
-/obj/structure/door/violet,
-/turf/open/floor/churchmarble,
 /area/rogue/under/cavewet)
 "tr" = (
 /obj/structure/roguetent,
@@ -645,10 +647,6 @@
 /obj/structure/spider/stickyweb,
 /turf/open/floor/dirt/road,
 /area/rogue/under/cavewet)
-"CV" = (
-/obj/structure/door/stone,
-/turf/open/floor/churchmarble,
-/area/rogue/under/cavewet)
 "DB" = (
 /obj/structure/rack,
 /obj/item/natural/bundle/cloth,
@@ -659,10 +657,6 @@
 	},
 /obj/item/needle/blessed,
 /obj/effect/decal/cleanable/dirt/cobweb,
-/turf/open/floor/churchmarble,
-/area/rogue/under/cavewet)
-"DN" = (
-/obj/item/reagent_containers/glass/bucket,
 /turf/open/floor/churchmarble,
 /area/rogue/under/cavewet)
 "Ed" = (
@@ -767,6 +761,10 @@
 /area/rogue/under/cavewet)
 "GV" = (
 /obj/structure/chair/bench/church/mid,
+/turf/open/floor/churchmarble,
+/area/rogue/under/cavewet)
+"Hj" = (
+/obj/structure/door/violet,
 /turf/open/floor/churchmarble,
 /area/rogue/under/cavewet)
 "HY" = (
@@ -904,6 +902,10 @@
 "Ns" = (
 /mob/living/carbon/human/species/rousman/npc,
 /turf/open/floor/herringbone,
+/area/rogue/under/cavewet)
+"Nt" = (
+/obj/structure/door/violet,
+/turf/open/floor/churchrough,
 /area/rogue/under/cavewet)
 "Nw" = (
 /obj/structure/closet/crate/chest,
@@ -1044,12 +1046,6 @@
 /obj/structure/fluff/psycross/copper,
 /turf/open/floor/blocks,
 /area/rogue/under/cavewet)
-"RQ" = (
-/obj/structure/door/iron/bars,
-/turf/open/floor/metal{
-	dir = 1
-	},
-/area/rogue/under/cavewet)
 "RR" = (
 /turf/open/floor/metal{
 	dir = 1
@@ -1154,6 +1150,10 @@
 /area/rogue/under/cavewet)
 "VB" = (
 /turf/open/water,
+/area/rogue/under/cavewet)
+"VL" = (
+/obj/item/reagent_containers/glass/bucket/wooden,
+/turf/open/floor/churchmarble,
 /area/rogue/under/cavewet)
 "VM" = (
 /obj/structure/closet/dirthole/closed/loot,
@@ -1891,7 +1891,7 @@ VB
 VB
 MO
 SK
-DN
+VL
 SK
 qt
 lM
@@ -1926,9 +1926,9 @@ DB
 lM
 SK
 cV
-CV
+em
 MO
-CV
+em
 cV
 cV
 dY
@@ -2002,7 +2002,7 @@ MO
 cV
 cV
 cV
-gr
+mZ
 MO
 Mv
 bi
@@ -2030,7 +2030,7 @@ SK
 Kc
 pN
 pN
-gr
+mZ
 AS
 lr
 cb
@@ -2058,7 +2058,7 @@ lM
 lM
 lM
 pN
-gr
+mZ
 lM
 lM
 lM
@@ -2084,13 +2084,13 @@ SK
 GA
 lM
 lM
-CV
+em
 jl
 Zs
 bh
 ON
 Ed
-gr
+mZ
 lM
 lM
 lM
@@ -2639,7 +2639,7 @@ qe
 qe
 qe
 qe
-eY
+Nt
 qe
 qe
 qe
@@ -2805,7 +2805,7 @@ ZF
 qK
 KB
 lM
-CV
+em
 MB
 MB
 rK
@@ -2837,7 +2837,7 @@ qK
 sx
 lM
 lM
-CV
+em
 MB
 MB
 rK
@@ -2895,13 +2895,13 @@ SK
 lM
 lM
 lM
-gr
+mZ
 lM
 QB
 KB
 lM
 lM
-CV
+em
 MB
 MB
 rK
@@ -2923,7 +2923,7 @@ Fi
 Fi
 rU
 rU
-td
+Hj
 NQ
 aC
 Mu
@@ -2933,7 +2933,7 @@ Rx
 hf
 lM
 lM
-CV
+em
 MB
 MB
 rK
@@ -3023,7 +3023,7 @@ SK
 YC
 lM
 sb
-gr
+mZ
 lM
 KB
 lM
@@ -3183,12 +3183,12 @@ MB
 MB
 MB
 MB
-RQ
+pa
 MB
 MB
 MB
 MB
-RQ
+pa
 MB
 MB
 MB

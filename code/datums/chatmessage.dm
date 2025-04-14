@@ -113,10 +113,6 @@
 		extra_classes |= "small"
 
 	var/list/prefixes
-	// Append radio icon if from a virtual speaker
-	if (extra_classes.Find("virtual-speaker"))
-		var/image/r_icon = image('icons/UI_Icons/chat/chat_icons.dmi', icon_state = "radio")
-		LAZYADD(prefixes, "\icon[r_icon]")
 
 	// Append language icon if the language uses one
 	var/datum/language/language_instance = GLOB.language_datum_instances[language]

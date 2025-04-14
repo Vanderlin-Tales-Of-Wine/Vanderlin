@@ -14,6 +14,15 @@
 "aj" = (
 /turf/open/transparent/openspace,
 /area/rogue/under/cavelava)
+"aZ" = (
+/obj/structure/rack/shelf/biggest,
+/obj/item/reagent_containers/glass/bucket/wooden,
+/obj/item/natural/bundle/stick,
+/obj/structure/fluff/walldeco/church/line{
+	dir = 4
+	},
+/turf/open/floor/hexstone,
+/area/rogue/under/cavelava)
 "bz" = (
 /obj/structure/closet/crate/chest/wicker,
 /obj/item/reagent_containers/glass/bottle/vial,
@@ -89,15 +98,6 @@
 	dir = 4
 	},
 /turf/open/transparent/openspace,
-/area/rogue/under/cavelava)
-"fz" = (
-/obj/structure/rack/shelf/biggest,
-/obj/item/reagent_containers/glass/bucket,
-/obj/item/natural/bundle/stick,
-/obj/structure/fluff/walldeco/church/line{
-	dir = 4
-	},
-/turf/open/floor/hexstone,
 /area/rogue/under/cavelava)
 "fL" = (
 /obj/structure/fluff/railing/border{
@@ -242,10 +242,6 @@
 /obj/item/alch/tobaccodust,
 /turf/open/floor/hexstone,
 /area/rogue/under/cavelava)
-"sc" = (
-/obj/structure/door/stone,
-/turf/open/floor/cobble,
-/area/rogue/under/cavelava)
 "sv" = (
 /obj/structure/fluff/railing/border{
 	dir = 5
@@ -359,10 +355,6 @@
 /mob/living/carbon/human/species/skeleton/npc/warrior,
 /turf/open/floor/hexstone,
 /area/rogue/under/cavelava)
-"yN" = (
-/obj/structure/door/stone,
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/under/cavelava)
 "yW" = (
 /obj/structure/table/wood/treestump/burnt,
 /turf/open/floor/grass/red,
@@ -442,6 +434,10 @@
 "Gc" = (
 /obj/structure/table/wood/treestump/burnt,
 /turf/open/floor/dirt,
+/area/rogue/under/cavelava)
+"Gd" = (
+/obj/structure/door/stone,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/cavelava)
 "Ha" = (
 /obj/effect/dungeon_directional_helper/south,
@@ -630,6 +626,10 @@
 	dir = 1
 	},
 /turf/open/floor/metal,
+/area/rogue/under/cavelava)
+"TS" = (
+/obj/structure/door/stone,
+/turf/open/floor/cobble,
 /area/rogue/under/cavelava)
 "Uo" = (
 /obj/structure/fluff/railing/border{
@@ -1064,9 +1064,9 @@ lS
 HT
 dd
 lS
-sc
+TS
 cr
-sc
+TS
 lS
 qh
 mY
@@ -1157,7 +1157,7 @@ JG
 NO
 NO
 JG
-sc
+TS
 jk
 CQ
 Uz
@@ -1165,7 +1165,7 @@ Hh
 Hh
 jk
 jk
-sc
+TS
 JG
 NO
 JG
@@ -1221,7 +1221,7 @@ JG
 NO
 JG
 JG
-sc
+TS
 jk
 CQ
 Uz
@@ -1229,7 +1229,7 @@ Hh
 Hh
 jk
 jk
-sc
+TS
 JG
 NO
 JG
@@ -1320,9 +1320,9 @@ lS
 HT
 Tc
 lS
-sc
+TS
 cr
-sc
+TS
 lS
 kU
 Fa
@@ -2054,7 +2054,7 @@ aj
 aj
 aj
 lS
-fz
+aZ
 yI
 Ga
 jk
@@ -2158,7 +2158,7 @@ OY
 aj
 jk
 hi
-yN
+Gd
 qh
 jk
 mF

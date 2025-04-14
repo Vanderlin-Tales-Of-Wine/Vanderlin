@@ -78,6 +78,10 @@
 /obj/structure/forcefield_weak,
 /turf/open/floor/naturalstone,
 /area/rogue/indoors/cave)
+"df" = (
+/obj/structure/door/red,
+/turf/open/floor/churchrough,
+/area/rogue/indoors)
 "dm" = (
 /mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/blocks,
@@ -88,6 +92,10 @@
 "dt" = (
 /obj/structure/fluff/walldeco/painting/castle,
 /turf/closed/wall/mineral/stonebrick,
+/area/rogue/indoors)
+"dN" = (
+/obj/structure/door/viewport,
+/turf/open/floor/blocks,
 /area/rogue/indoors)
 "dO" = (
 /obj/structure/toilet,
@@ -139,17 +147,9 @@
 /obj/effect/decal/cleanable/sigil/E,
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/indoors)
-"fS" = (
-/obj/structure/door/viewport,
-/turf/open/floor/blocks,
-/area/rogue/indoors)
 "fU" = (
 /obj/item/natural/wood/plank,
 /turf/open/floor/ruinedwood/chevron,
-/area/rogue/indoors)
-"gd" = (
-/obj/item/reagent_containers/glass/bucket,
-/turf/open/floor/tile/bath,
 /area/rogue/indoors)
 "ge" = (
 /obj/structure/barricade/rogue,
@@ -321,6 +321,12 @@
 /obj/item/natural/rock/random_ore,
 /turf/open/floor/naturalstone,
 /area/rogue/indoors/cave)
+"lQ" = (
+/obj/structure/door/stone,
+/obj/structure/barricade/rogue,
+/obj/structure/barricade/rogue/crude,
+/turf/open/floor/churchrough,
+/area/rogue/indoors)
 "lY" = (
 /obj/machinery/light/fueled/wallfire/big_fireplace,
 /turf/closed/wall/mineral/stonebrick,
@@ -328,14 +334,6 @@
 "mc" = (
 /obj/structure/fluff/walldeco/painting/skull,
 /turf/closed/wall/mineral/stonebrick,
-/area/rogue/indoors)
-"mo" = (
-/obj/machinery/light/fueled/wallfire/candle/blue,
-/obj/structure/trap/wall_projectile/fireball{
-	dir = 4
-	},
-/obj/structure/door/viewport,
-/turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors)
 "mB" = (
 /obj/structure/spider/stickyweb,
@@ -422,12 +420,6 @@
 /obj/effect/landmark/chest_or_mimic,
 /turf/open/floor/carpet,
 /area/rogue/indoors)
-"ow" = (
-/obj/structure/rack/shelf/biggest,
-/obj/item/reagent_containers/glass/bucket,
-/obj/item/natural/cloth,
-/turf/open/floor/churchbrick,
-/area/rogue/indoors)
 "oy" = (
 /obj/structure/forcefield_weak,
 /turf/open/lava/acid,
@@ -466,6 +458,11 @@
 /obj/structure/trap/chill,
 /turf/open/floor/carpet/red,
 /area/rogue/indoors)
+"qa" = (
+/obj/structure/trap/saw_blades,
+/obj/structure/door/viewport,
+/turf/open/floor/ruinedwood/chevron,
+/area/rogue/indoors)
 "ql" = (
 /obj/structure/rack/shelf/biggest,
 /obj/item/clothing/pants/skirt,
@@ -503,6 +500,14 @@
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/cobble/alt,
 /area/rogue/indoors/cave)
+"sd" = (
+/obj/machinery/light/fueled/wallfire/candle/blue,
+/obj/structure/trap/wall_projectile/fireball{
+	dir = 4
+	},
+/obj/structure/door/viewport,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/indoors)
 "sp" = (
 /turf/closed/wall/mineral/stonebrick,
 /area/rogue/indoors)
@@ -539,6 +544,12 @@
 	pixel_y = 10
 	},
 /turf/open/floor/carpet/royalblack,
+/area/rogue/indoors)
+"sR" = (
+/obj/structure/rack/shelf/biggest,
+/obj/item/reagent_containers/glass/bucket/wooden,
+/obj/item/natural/cloth,
+/turf/open/floor/churchbrick,
 /area/rogue/indoors)
 "sT" = (
 /obj/effect/decal/cleanable/vomit,
@@ -586,6 +597,13 @@
 /obj/structure/fluff/statue,
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/indoors)
+"vK" = (
+/obj/structure/door/red{
+	lockid = "Acid1"
+	},
+/obj/effect/mapping_helpers/door/locker,
+/turf/open/floor/churchrough,
+/area/rogue/indoors)
 "vO" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
@@ -611,6 +629,10 @@
 	redstone_id = 882
 	},
 /turf/closed/wall/mineral/stonebrick,
+/area/rogue/indoors)
+"we" = (
+/obj/item/reagent_containers/glass/bucket/wooden,
+/turf/open/floor/tile/bath,
 /area/rogue/indoors)
 "wf" = (
 /obj/structure/toilet,
@@ -683,13 +705,6 @@
 /area/rogue/indoors/cave)
 "ze" = (
 /turf/open/floor/carpet/royalblack,
-/area/rogue/indoors)
-"zh" = (
-/obj/structure/door/red{
-	lockid = "Acid1"
-	},
-/obj/effect/mapping_helpers/door/locker,
-/turf/open/floor/churchrough,
 /area/rogue/indoors)
 "zD" = (
 /obj/item/alch/coaldust,
@@ -821,12 +836,6 @@
 /obj/structure/table/church,
 /obj/effect/spawner/map_spawner/loot/common,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors)
-"EG" = (
-/obj/structure/door/stone,
-/obj/structure/barricade/rogue,
-/obj/structure/barricade/rogue/crude,
-/turf/open/floor/churchrough,
 /area/rogue/indoors)
 "EU" = (
 /obj/structure/spider/stickyweb{
@@ -1160,10 +1169,6 @@
 	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors)
-"Qs" = (
-/obj/structure/door/red,
-/turf/open/floor/churchrough,
-/area/rogue/indoors)
 "QC" = (
 /obj/structure/table/stone_small,
 /obj/effect/spawner/map_spawner/loot/potion_poisons{
@@ -1325,6 +1330,13 @@
 	},
 /turf/open/floor/tile,
 /area/rogue/indoors)
+"Wq" = (
+/obj/structure/trap/wall_projectile/fireball{
+	dir = 4
+	},
+/obj/structure/door/viewport,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/indoors)
 "Wx" = (
 /obj/structure/fluff/railing/border{
 	dir = 10
@@ -1396,13 +1408,6 @@
 /obj/effect/waterfall/acid,
 /turf/closed/mineral/bedrock,
 /area/rogue/indoors/cave)
-"Zg" = (
-/obj/structure/trap/wall_projectile/fireball{
-	dir = 4
-	},
-/obj/structure/door/viewport,
-/turf/open/floor/ruinedwood/darker,
-/area/rogue/indoors)
 "Zi" = (
 /obj/item/chair/chair_nobles/red,
 /obj/effect/decal/cleanable/sigil/S,
@@ -1414,11 +1419,6 @@
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/tile/masonic/spiral,
-/area/rogue/indoors)
-"Zo" = (
-/obj/structure/trap/saw_blades,
-/obj/structure/door/viewport,
-/turf/open/floor/ruinedwood/chevron,
 /area/rogue/indoors)
 "ZG" = (
 /turf/open/floor/cobble/alt,
@@ -1724,7 +1724,7 @@ GZ
 uk
 oy
 sp
-ow
+sR
 BU
 sp
 ny
@@ -1899,7 +1899,7 @@ QP
 QP
 QP
 QP
-EG
+lQ
 eJ
 ZG
 uk
@@ -1918,7 +1918,7 @@ oy
 sp
 He
 QG
-zh
+vK
 EU
 rR
 tQ
@@ -1931,7 +1931,7 @@ KO
 KO
 jG
 mX
-EG
+lQ
 eJ
 ZG
 Dc
@@ -1951,18 +1951,18 @@ sp
 sp
 sp
 sp
-zh
+vK
 sp
 ai
 eQ
 sp
 sp
-zh
+vK
 sp
 sp
 ta
 sp
-Qs
+df
 sp
 HP
 MQ
@@ -2114,11 +2114,11 @@ BH
 DL
 Ff
 RN
-Qs
+df
 XD
 vW
 fr
-Qs
+df
 pa
 pa
 Jr
@@ -2626,8 +2626,8 @@ sp
 sp
 sp
 sp
-mo
-Zg
+sd
+Wq
 sp
 cE
 cn
@@ -2699,7 +2699,7 @@ Pz
 Rp
 sp
 kg
-Qs
+df
 sp
 OG
 dr
@@ -2757,7 +2757,7 @@ sp
 fF
 sE
 Ld
-fS
+dN
 TB
 YO
 VQ
@@ -2789,7 +2789,7 @@ sp
 lt
 OF
 Ld
-fS
+dN
 TB
 YO
 lh
@@ -2848,7 +2848,7 @@ sp
 sp
 sp
 sp
-zh
+vK
 sp
 sp
 Ld
@@ -2922,7 +2922,7 @@ eQ
 sp
 ai
 sp
-zh
+vK
 sp
 sp
 Nd
@@ -2983,10 +2983,10 @@ Ng
 dZ
 nr
 KF
-Qs
+df
 CF
 CF
-gd
+we
 sz
 cn
 OG
@@ -3109,8 +3109,8 @@ sp
 sp
 sp
 sp
-Zo
-Zo
+qa
+qa
 sp
 sp
 cn

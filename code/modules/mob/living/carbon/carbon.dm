@@ -1267,3 +1267,55 @@
 			bodypart.acid_damage_intensity++
 
 	update_body_parts(TRUE)
+
+/mob/living/carbon/get_encumbrance()
+	return round(get_total_weight() / get_carry_capacity(), 0.01)
+
+/mob/living/carbon/human/dummy/get_total_weight()
+	return 0
+
+/mob/living/carbon/get_total_weight()
+	var/held_weight = 0
+
+	for(var/obj/item/worn_item as anything in (get_equipped_items(TRUE) + held_items))
+		if(isnull(worn_item))
+			continue
+		if(isclothing(worn_item))
+			switch(worn_item:armor_class)
+				if(AC_HEAVY)
+					if(!HAS_TRAIT(src, TRAIT_HEAVYARMOR))
+						held_weight += worn_item.item_weight * 2
+					else
+						held_weight += worn_item.item_weight
+				if(AC_MEDIUM)
+					if(!HAS_TRAIT(src, TRAIT_MEDIUMARMOR))
+						held_weight += worn_item.item_weight * 2
+					else
+						held_weight += worn_item.item_weight
+				if(AC_LIGHT)
+					held_weight += worn_item.item_weight
+				else
+					held_weight += worn_item.item_weight
+		else
+			held_weight += worn_item.item_weight
+		held_weight += worn_item.get_stored_weight()
+
+	return held_weight
+
+/mob/living/carbon/encumbrance_to_dodge()
+	var/encumbrance = get_encumbrance()
+	if(!HAS_TRAIT(src, TRAIT_DODGEEXPERT))
+		encumbrance *= 1.5
+	if(encumbrance <= 0.3 && HAS_TRAIT(src, TRAIT_DODGEEXPERT))
+		return 1
+	if(encumbrance >= 1)
+		return 0
+	return 1 - (encumbrance * 1)
+
+/mob/living/carbon/encumbrance_to_speed()
+	var/exponential = (2.71 ** -(get_encumbrance() - 0.6)) * 10
+	var/speed_factor = 1 / (1 + exponential)
+	var/precentage =  CLAMP(speed_factor * (1 - (STAEND / 20)), 0, 1)
+
+	add_movespeed_modifier("encumbrance", override = TRUE, multiplicative_slowdown = 5 * precentage)
+
