@@ -66,8 +66,8 @@
 		STATS_WATER_CONSUMED = list("points" = 0.01, "capacity" = 100),
 		STATS_FISH_CAUGHT = list("points" = 1.75, "capacity" = 100),
 		STATS_ABYSSOR_REMEMBERED = list("points" = 1, "capacity" = 40),
-		STATS_LEECHES_EMBEDDED = list("points" = 0.2, "capacity" = 60),
-		STATS_PEOPLE_DROWNED = list("points" = 5, "capacity" = 50),
+		STATS_LEECHES_EMBEDDED = list("points" = 0.175, "capacity" = 60),
+		STATS_PEOPLE_DROWNED = list("points" = 5, "capacity" = 60),
 	)
 
 /datum/storyteller/xylix
@@ -120,10 +120,10 @@
 
 	influence_factors = list(
 		STATS_DEATHS = list("points" = 1.25, "capacity" = 115),
-		STATS_GRAVES_CONSECRATED = list("points" = 6, "capacity" = 90),
+		STATS_GRAVES_CONSECRATED = list("points" = 6.5, "capacity" = 100),
 		STATS_GRAVES_ROBBED = list("points" = -4, "capacity" = -60),
 		STATS_DEADITES_KILLED = list("points" = 6.5, "capacity" = 120),
-		STATS_VAMPIRES_KILLED = list("points" = 12.5, "capacity" = 60),
+		STATS_VAMPIRES_KILLED = list("points" = 15, "capacity" = 60),
 	)
 
 /datum/storyteller/pestra
@@ -194,11 +194,11 @@
 	)
 
 	influence_factors = list(
-		STATS_PARENTS = list("points" = 7.5, "capacity" = 80),
-		STATS_MARRIAGES = list("points" = 20, "capacity" = 100),
-		STATS_HUGS_MADE = list("points" = 1.5, "capacity" = 60),
+		STATS_PARENTS = list("points" = 7.5, "capacity" = 85),
+		STATS_MARRIAGES = list("points" = 20, "capacity" = 95),
+		STATS_HUGS_MADE = list("points" = 1.5, "capacity" = 70),
 		STATS_CLINGY_PEOPLE = list("points" = 5, "capacity" = 70),
-		STATS_PACIFISTS = list("points" = 7.5, "capacity" = 80),
+		STATS_PACIFISTS = list("points" = 10, "capacity" = 80),
 	)
 
 /datum/storyteller/dendor
@@ -224,9 +224,9 @@
 
 	influence_factors = list(
 		STATS_TREES_CUT = list("points" = -0.175, "capacity" = -80),
-		STATS_PLANTS_HARVESTED = list("points" = 0.75, "capacity" = 125),
-		STATS_WEREVOLVES = list("points" = 12.5, "capacity" = 100),
-		STATS_DENDOR_SACRIFICES = list("points" = 10, "capacity" = 100),
+		STATS_PLANTS_HARVESTED = list("points" = 0.8, "capacity" = 125),
+		STATS_WEREVOLVES = list("points" = 15, "capacity" = 85),
+		STATS_DENDOR_SACRIFICES = list("points" = 12.5, "capacity" = 100),
 		STATS_FOREST_DEATHS = list("points" = 3, "capacity" = 100),
 	)
 
@@ -293,7 +293,7 @@
 		STATS_DRUGS_SNORTED = list("points" = 4.5, "capacity" = 90),
 		STATS_ALCOHOL_CONSUMED = list("points" = 0.05, "capacity" = 100),
 		STATS_ALCOHOLICS = list("points" = 4, "capacity" = 60),
-		STATS_JUNKIES = list("points" = 7, "capacity" = 70),
+		STATS_JUNKIES = list("points" = 8, "capacity" = 70),
 		STATS_LUXURIOUS_FOOD_EATEN = list("points" = 1.5, "capacity" = 90),
 	)
 
@@ -327,7 +327,7 @@
 		STATS_ORGANS_EATEN = list("points" = 4, "capacity" = 70),
 		STATS_LIMBS_BITTEN = list("points" = 2, "capacity" = 70),
 		STATS_PEOPLE_GIBBED = list("points" = 3, "capacity" = 50),
-		STATS_ASSASSINATIONS = list("points" = 12.5, "capacity" = 100),
+		STATS_ASSASSINATIONS = list("points" = 15, "capacity" = 90),
 	)
 
 	cost_variance = 10  // Less randomness, more direct
