@@ -161,17 +161,6 @@
 	gender = PLURAL
 	icon_state = "Trolld"
 
-//for keep use
-/mob/living/simple_animal/hostile/retaliate/troll/keep/get_sound(input)
-	switch(input)
-		if("aggro")
-			return pick('sound/vo/mobs/troll/aggro1.ogg','sound/vo/mobs/troll/aggro2.ogg')
-		if("pain")
-			return pick('sound/vo/mobs/troll/pain1.ogg','sound/vo/mobs/troll/pain2.ogg')
-		if("death")
-			return pick('sound/vo/mobs/troll/death.ogg')
-		if("cidle")
-			return pick('sound/vo/mobs/troll/cidle1.ogg','sound/vo/mobs/troll/aggro2.ogg')
 /mob/living/simple_animal/hostile/retaliate/troll/LoseTarget()
 	..()
 	if(!is_hidey)
