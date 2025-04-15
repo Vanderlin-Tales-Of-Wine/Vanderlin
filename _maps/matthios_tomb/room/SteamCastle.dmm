@@ -3363,6 +3363,10 @@
 /obj/structure/flora/grass/bush,
 /turf/open/floor/grass/red,
 /area/rogue/under/cave)
+"Lu" = (
+/obj/item/soap,
+/turf/open/transparent/openspace,
+/area/rogue/under/cave)
 "Lx" = (
 /obj/structure/fluff/walldeco/painting{
 	pixel_x = -32;
@@ -3670,7 +3674,7 @@
 /area/rogue/under/cave)
 "OY" = (
 /obj/structure/rack/shelf/biggest,
-/obj/item/soap/bath,
+/obj/item/soap,
 /turf/open/floor/tile/bath,
 /area/rogue/under/cave)
 "Pe" = (
@@ -9427,7 +9431,7 @@ xm
 ek
 Iu
 Ct
-QF
+Lu
 QF
 fA
 iD

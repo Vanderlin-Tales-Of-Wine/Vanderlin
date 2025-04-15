@@ -155,10 +155,10 @@
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/shelter)
 "tC" = (
-/obj/item/soap/bath,
 /obj/structure/mineral_door/wood/deadbolt{
 	dir = 1
 	},
+/obj/item/soap,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/shelter)
 "ug" = (

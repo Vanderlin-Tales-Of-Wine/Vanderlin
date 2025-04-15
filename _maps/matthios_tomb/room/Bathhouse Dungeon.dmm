@@ -760,9 +760,8 @@
 /area/rogue/indoors)
 "rz" = (
 /obj/structure/rack/shelf/biggest,
-/obj/item/soap/bath,
-/obj/item/soap/bath,
-/obj/item/soap/bath,
+/obj/item/soap,
+/obj/item/soap,
 /turf/open/floor/metal/barograte,
 /area/rogue/indoors)
 "rU" = (
@@ -910,7 +909,7 @@
 "uz" = (
 /obj/structure/rack/shelf/biggest,
 /obj/item/soap/bath,
-/obj/item/soap/bath,
+/obj/item/soap,
 /turf/open/floor/metal/barograte,
 /area/rogue/indoors)
 "uJ" = (
@@ -961,6 +960,7 @@
 /area/rogue/indoors)
 "wc" = (
 /obj/structure/rack/shelf/biggest,
+/obj/item/soap,
 /turf/open/floor/herringbone,
 /area/rogue/indoors)
 "wy" = (
@@ -1831,6 +1831,13 @@
 "Ra" = (
 /obj/structure/flora/ausbushes/brflowers,
 /turf/open/floor/grass,
+/area/rogue/indoors)
+"Rp" = (
+/obj/structure/rack/shelf/biggest,
+/obj/item/soap,
+/obj/item/soap/bath,
+/obj/effect/spawner/map_spawner/loot/potion_ingredient/herb,
+/turf/open/floor/metal/barograte,
 /area/rogue/indoors)
 "Rs" = (
 /obj/effect/dungeon_directional_helper/west,
@@ -2937,7 +2944,7 @@ SR
 SR
 As
 ni
-Ki
+Rp
 IG
 qz
 dX
