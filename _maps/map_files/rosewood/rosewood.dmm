@@ -29210,6 +29210,10 @@
 	},
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/manor)
+"pSX" = (
+/obj/effect/landmark/start/shophand,
+/turf/open/floor/churchbrick,
+/area/rogue/indoors/town/shop)
 "pSY" = (
 /obj/machinery/light/fueled/smelter,
 /turf/open/floor/metal,
@@ -107050,7 +107054,7 @@ xup
 vWA
 jsR
 tIc
-mIz
+pSX
 tIc
 mIz
 qkH

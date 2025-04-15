@@ -27276,6 +27276,10 @@
 	icon_state = "weird1"
 	},
 /area/rogue/indoors/town/theatre)
+"sGi" = (
+/obj/effect/landmark/start/shophand,
+/turf/open/floor/churchmarble,
+/area/rogue/indoors/town/shop)
 "sGB" = (
 /obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/dirt,
@@ -101477,7 +101481,7 @@ nnM
 nnM
 nnM
 nnM
-nnM
+sGi
 nnM
 nnM
 nnM
