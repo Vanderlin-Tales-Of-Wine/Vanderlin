@@ -22,14 +22,14 @@
 	vision_range = 6
 	aggro_vision_range = 6
 
-	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange = 1,
+	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange = 1, \
 						/obj/item/alch/horn = 1)
 	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange = 1,
-						/obj/item/natural/hide = 2,
+						/obj/item/natural/hide = 2, \
 						/obj/item/alch/horn = 2)
-	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange= 2,
-						/obj/item/natural/hide = 3,
-						/obj/item/alch/horn = 2,
+	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange= 2, \
+						/obj/item/natural/hide = 3, \
+						/obj/item/alch/horn = 2, \
 						/obj/item/natural/head/troll = 1)
 
 	health = TROLL_HEALTH
@@ -191,12 +191,12 @@
 	melee_damage_upper = 40
 	footstep_type = FOOTSTEP_MOB_BAREFOOT
 	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/steak = 1)
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/steak = 1,
-							/obj/item/alch/sinew = 1,
+	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/steak = 1, \
+							/obj/item/alch/sinew = 1, \
 							/obj/item/alch/bone = 1)
-	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/steak = 1,
-							/obj/item/alch/sinew = 2,
-							/obj/item/alch/bone = 1,
+	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/steak = 1, \
+							/obj/item/alch/sinew = 2, \
+							/obj/item/alch/bone = 1, \
 							/obj/item/natural/fur/cabbit = 1)
 
 /mob/living/simple_animal/hostile/retaliate/troll/caerbannog/get_sound(input)
@@ -214,3 +214,33 @@
 	icon = 'icons/roguetown/mob/cabbit.dmi'
 	icon_state = "cabbit_remains"
 
+/mob/living/simple_animal/hostile/retaliate/troll/axe
+	name = "Troll Skull-Splitter"
+	desc = "This one seems smarter than the rest... And it's axe could cut a man in two."
+	icon = 'icons/mob/axetroll.dmi'
+	icon_state = "troll"
+	icon_dead = "troll_dead"
+	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange = 2, \
+					/obj/item/natural/hide = 3, \
+					/obj/item/alch/horn = 2, \
+					/obj/item/natural/head/troll/axe = 1)
+	base_intents = list(/datum/intent/simple/troll_axe)
+	attack_sound = list('sound/combat/wooshes/blunt/wooshhuge (1).ogg','sound/combat/wooshes/blunt/wooshhuge (2).ogg','sound/combat/wooshes/blunt/wooshhuge (3).ogg')
+	melee_damage_lower = 45
+	melee_damage_upper = 70
+	loot = list(/obj/item/weapon/axe/iron/troll)
+	deathmessage = "As the creacher tumbles, it falls upon it's axe, snapping the handle."
+
+/datum/intent/simple/troll_axe
+	name = "troll axe"
+	icon_state = "instrike"
+	attack_verb = list("hacks at", "slashes", "chops", "crushes")
+	animname = "blank22"
+	hitsound = "genchop"
+	blade_class = BCLASS_CHOP
+	chargetime = 20
+	penfactor = 10
+	swingdelay = 3
+	candodge = TRUE
+	canparry = TRUE
+	item_damage_type = "slash"

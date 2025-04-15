@@ -103,6 +103,13 @@
 	headpricemin = 80
 	headpricemax = 230
 
+/obj/item/natural/head/troll/axe
+	name = "troll head"
+	desc = "The head of a once mighty warrior troll."
+	icon_state = "trollhead_axe"
+	headpricemin = 90
+	headpricemax = 250
+
 /obj/item/natural/head/rous
 	name = "rous head"
 	desc = "the head of an unusually large rat."
