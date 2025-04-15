@@ -52,6 +52,8 @@
 		H.grant_language(/datum/language/thievescant)
 		to_chat(H, "<span class='info'>I can gesture in thieves' cant with ,t before my speech.</span>")
 		ADD_TRAIT(H, TRAIT_THIEVESGUILD, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC) //The Matron was a legendary thief, give her a break.
+		ADD_TRAIT(H, TRAIT_LIGHTSTEP, TRAIT_GENERIC)
 		shirt = /obj/item/clothing/shirt/dress/gen/black
 		armor = /obj/item/clothing/armor/leather/vest/black
 		pants = /obj/item/clothing/pants/trou/beltpants
