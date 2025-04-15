@@ -10,32 +10,16 @@
 
 	restricted_roles = list(
 		"Monarch",
-		"Jester",
 		"Consort",
-		"Prince",
-		"Princess",
 		"Hand",
-		"Steward",
-		"Feldsher",
-		"Town Elder",
 		"Captain",
-		"Archivist",
-		"Merchant",
+		"Prince",
 		"Priest",
-		"Templar",
-		"Acolytes",
-		"Royal Knight",
-		"Garrison Guard",
-		"Jailor",
-		"Court Magician",
-		"Men-at-arms",
-		"Dungeoneer",
+		"Merchant",
 		"Forest Warden",
 		"Inquisitor",
-		"Adepts",
-		"Forest Guard",
-		"Squire",
-		"Veteran"
+		"Adept",
+		"Royal Knight",
 	)
 
 	base_antags = 4
