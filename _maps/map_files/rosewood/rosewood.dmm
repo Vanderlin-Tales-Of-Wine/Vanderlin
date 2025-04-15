@@ -21707,7 +21707,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town)
 "mmA" = (
-/obj/item/bath/soap,
+/obj/item/soap/bath,
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /turf/open/floor/tile/bath,
 /area/rogue/indoors/town)
@@ -30022,6 +30022,15 @@
 "qQn" = (
 /obj/structure/closet/crate/crafted_closet/crafted,
 /obj/item/broom,
+/obj/item/reagent_containers/glass/bucket/wooden/alter{
+	pixel_x = 5;
+	pixel_y = 0
+	},
+/obj/item/reagent_containers/glass/bucket/wooden{
+	pixel_x = -5;
+	pixel_y = 1
+	},
+/obj/item/soap,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/town/tavern)
 "qQo" = (
@@ -30901,7 +30910,7 @@
 /area/rogue/outdoors/town/roofs)
 "rrD" = (
 /obj/structure/table/wood/plain_alt,
-/obj/item/bath/soap,
+/obj/item/soap/bath,
 /turf/open/floor/tile/bath,
 /area/rogue/indoors/town/manor)
 "rrI" = (
@@ -35203,7 +35212,16 @@
 /obj/structure/rack/shelf/big,
 /obj/structure/rack/shelf,
 /obj/item/broom{
+	pixel_y = 11;
+	pixel_x = -2
+	},
+/obj/item/reagent_containers/glass/bucket/wooden{
+	pixel_x = 9;
 	pixel_y = 11
+	},
+/obj/item/soap{
+	pixel_x = 4;
+	pixel_y = 9
 	},
 /turf/open/floor/wood,
 /area/rogue/indoors/town/tavern)
@@ -39953,8 +39971,8 @@
 /area/rogue/outdoors/rtfield/safe)
 "wmk" = (
 /obj/structure/rack/shelf/biggest,
-/obj/item/bath/soap,
-/obj/item/bath/soap{
+/obj/item/soap/bath,
+/obj/item/soap/bath{
 	pixel_y = 7;
 	pixel_x = 5
 	},
