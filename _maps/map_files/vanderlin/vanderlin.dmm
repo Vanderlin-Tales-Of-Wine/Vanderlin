@@ -818,16 +818,6 @@
 /obj/item/bedsheet/cloth,
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement)
-"aAu" = (
-/obj/structure/closet/crate/chest/old_crate,
-/obj/item/soap/bath,
-/obj/structure/fake_machine/mail,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/town)
 "aAH" = (
 /turf/open/transparent/openspace,
 /area/rogue/indoors/town/shop)
@@ -2426,22 +2416,9 @@
 /area/rogue/indoors/town/church)
 "bxa" = (
 /obj/structure/rack/shelf/biggest,
-/obj/item/needle/thorn{
-	pixel_x = 5;
-	pixel_y = -7
-	},
-/obj/item/needle/thorn{
-	pixel_x = 9;
-	pixel_y = 2
-	},
-/obj/item/needle/thorn{
-	pixel_x = -1;
-	pixel_y = 6
-	},
-/obj/item/needle/thorn{
-	pixel_x = -5;
-	pixel_y = -6
-	},
+/obj/item/reagent_containers/glass/bucket/wooden,
+/obj/item/soap,
+/obj/item/natural/cloth,
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town/church)
 "bxb" = (
@@ -6305,9 +6282,9 @@
 	pixel_x = 8;
 	pixel_y = 12
 	},
-/obj/item/bath/soap{
-	pixel_x = -9;
-	pixel_y = 8
+/obj/item/soap{
+	pixel_x = -8;
+	pixel_y = 6
 	},
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/indoors/town/manor)
@@ -13083,24 +13060,6 @@
 "iNv" = (
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/town/manor)
-"iNx" = (
-/obj/structure/rack/shelf/biggest,
-/obj/item/soap,
-/obj/item/natural/bundle/cloth{
-	amount = 10;
-	pixel_y = -5
-	},
-/obj/item/natural/bundle/cloth{
-	amount = 10;
-	pixel_x = 0;
-	pixel_y = 7
-	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/turf/closed/wall/mineral/decostone/long,
-/area/rogue/indoors/town/church)
 "iNG" = (
 /turf/open/floor/churchbrick,
 /area/rogue/indoors/town/church)
@@ -16812,7 +16771,7 @@
 /obj/structure/rack/shelf/biggest,
 /obj/effect/spawner/map_spawner/loot/potion_vitals,
 /obj/item/reagent_containers/food/snacks/produce/dry_westleach,
-/obj/item/bath/soap,
+/obj/item/soap/bath,
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/indoors/town/bath)
 "lka" = (
@@ -21729,6 +21688,22 @@
 	amount = 10;
 	pixel_x = 1;
 	pixel_y = 6
+	},
+/obj/item/needle/thorn{
+	pixel_x = 9;
+	pixel_y = 2
+	},
+/obj/item/needle/thorn{
+	pixel_x = -1;
+	pixel_y = 6
+	},
+/obj/item/needle/thorn{
+	pixel_x = -5;
+	pixel_y = -6
+	},
+/obj/item/needle/thorn{
+	pixel_x = 5;
+	pixel_y = -7
 	},
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town/church)
@@ -28174,26 +28149,6 @@
 /obj/structure/water_pipe,
 /turf/closed/wall/mineral/stonebrick,
 /area/rogue/under/town/basement)
-"tjE" = (
-/obj/structure/table/wood/plain_alt,
-/obj/item/reagent_containers/glass/bucket/wooden{
-	pixel_x = 1;
-	pixel_y = -1
-	},
-/obj/item/natural/cloth{
-	pixel_x = 8;
-	pixel_y = 12
-	},
-/obj/item/soap{
-	pixel_x = -8;
-	pixel_y = 8
-	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/turf/open/floor/woodturned,
-/area/rogue/indoors/town/manor)
 "tjO" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4
@@ -32006,6 +31961,7 @@
 /obj/item/natural/cloth,
 /obj/item/natural/cloth,
 /obj/item/reagent_containers/glass/bucket/wooden,
+/obj/item/soap,
 /turf/open/floor/ruinedwood{
 	icon_state = "weird1"
 	},
@@ -93160,7 +93116,7 @@ kQy
 acs
 acs
 acs
-tjE
+acs
 nzK
 acs
 ecJ
@@ -95033,7 +94989,7 @@ iSk
 tJI
 elp
 sUP
-aAu
+iSk
 kGO
 rVO
 kbf
@@ -153815,7 +153771,7 @@ swo
 swo
 mJO
 swo
-iNx
+swo
 swo
 mJO
 vgJ
