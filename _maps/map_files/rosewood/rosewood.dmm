@@ -34355,16 +34355,6 @@
 	},
 /turf/open/floor/cobble/snow,
 /area/rogue/outdoors/town)
-"thM" = (
-/obj/structure/door{
-	name = "Apothecary"
-	},
-/obj/effect/mapping_helpers/door/access/town/apothecary,
-/obj/effect/mapping_helpers/door/locker,
-/obj/effect/mapping_helpers/door/locker,
-/obj/effect/mapping_helpers/door/access/town/bathhouse,
-/turf/open/floor/blocks/stonered/tiny,
-/area/rogue/indoors/town/bath)
 "thQ" = (
 /turf/closed/wall/mineral/wooddark/end{
 	icon_state = "endwooddark";
@@ -132188,7 +132178,7 @@ wsz
 dQT
 dQT
 dQT
-thM
+hef
 dQT
 dQT
 dQT
