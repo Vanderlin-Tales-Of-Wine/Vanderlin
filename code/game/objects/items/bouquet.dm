@@ -30,7 +30,7 @@
 	desc = "A bouqet of calendula, a flower used in herbal medicine, said to have healing properties"
 	icon_state = "bouquet_calendula"
 
-/obj/item/flowercrown
+/obj/item/head/flowercrown
 	name = ""
 	desc = ""
 	icon = 'icons/roguetown/clothing/head.dmi'
@@ -44,13 +44,13 @@
 	grid_width = 64
 	grid_height = 32
 
-/obj/item/flowercrown/rosa
+/obj/item/head/flowercrown/rosa
 	name = "rosa crown"
 	desc = "A crown of roses, often worn during weddings officated by Eoran priests."
 	item_state = "rosa_crown"
 	icon_state = "rosa_crown"
 
-/obj/item/flowercrown/salvia
+/obj/item/head/flowercrown/salvia
 	name = "salvia crown"
 	desc = "A crown of salvia, often worn by consorts and princesses of particularly joyful royal courts"
 	item_state = "salvia_crown"
