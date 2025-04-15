@@ -91,6 +91,7 @@
 				if(islist(deposit_results))
 					if(deposit_results[2] != 0)
 						say("Your deposit was taxed [deposit_results[2]] mammon.")
+						GLOB.vanderlin_round_stats[STATS_TAXES_COLLECTED] += deposit_results[2]
 				qdel(P)
 				playsound(src, 'sound/misc/coininsert.ogg', 100, FALSE, -1)
 				return
