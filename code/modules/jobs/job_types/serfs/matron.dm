@@ -45,6 +45,7 @@
 			H.mind?.adjust_skillrank(/datum/skill/misc/stealing, 2, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, 1, TRUE)
+			H.change_stat(STATKEY_SPD, 1) // You get -2 speed from being old, Matron supposed to be good at her job.
 		H.change_stat(STATKEY_STR, -1)
 		H.change_stat(STATKEY_INT, 2)
 		H.change_stat(STATKEY_PER, 1)
@@ -53,7 +54,6 @@
 		to_chat(H, "<span class='info'>I can gesture in thieves' cant with ,t before my speech.</span>")
 		ADD_TRAIT(H, TRAIT_THIEVESGUILD, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC) //The Matron was a legendary thief, give her a break.
-		ADD_TRAIT(H, TRAIT_LIGHTSTEP, TRAIT_GENERIC)
 		shirt = /obj/item/clothing/shirt/dress/gen/black
 		armor = /obj/item/clothing/armor/leather/vest/black
 		pants = /obj/item/clothing/pants/trou/beltpants
