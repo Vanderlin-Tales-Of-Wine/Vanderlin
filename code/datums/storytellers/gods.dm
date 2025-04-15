@@ -16,7 +16,7 @@
 		STATS_BOOKS_PRINTED = list("points" = 2.5, "capacity" = 40),
 		STATS_LITERACY_TAUGHT = list("points" = 12.5, "capacity" = 120),
 		STATS_ILLITERATES = list("points" = -4, "capacity" = -100),
-		STATS_SKILLS_DREAMED = list("points" = 0.4, "capacity" = 110),
+		STATS_SKILLS_DREAMED = list("points" = 0.3, "capacity" = 100),
 		STATS_MANA_SPENT = list("points" = 0.075, "capacity" = 90),
 	)
 
@@ -42,7 +42,7 @@
 	)
 
 	influence_factors = list(
-		STATS_COMBAT_SKILLS = list("points" = 0.75, "capacity" = 100),
+		STATS_COMBAT_SKILLS = list("points" = 0.65, "capacity" = 100),
 		STATS_PARRIES = list("points" = 0.065, "capacity" = 90),
 		STATS_WARCRIES = list("points" = 0.35, "capacity" = 60),
 		STATS_YIELDS = list("points" = -4, "capacity" = -40),
@@ -166,11 +166,11 @@
 	)
 
 	influence_factors = list(
-		STATS_MASTERWORKS_FORGED = list("points" = 3.5, "capacity" = 80),
+		STATS_MASTERWORKS_FORGED = list("points" = 3.25, "capacity" = 80),
 		STATS_ROCKS_MINED = list("points" = 0.25, "capacity" = 100),
-		STATS_CRAFT_SKILLS = list("points" = 0.75, "capacity" = 100),
+		STATS_CRAFT_SKILLS = list("points" = 0.65, "capacity" = 100),
 		STATS_BEARDS_SHAVED = list("points" = -5, "capacity" = -50),
-		STATS_BLACKSTEEL_SMELTED = list("points" = 7.5, "capacity" = 75),
+		STATS_BLACKSTEEL_SMELTED = list("points" = 7, "capacity" = 75),
 	)
 
 /datum/storyteller/eora
@@ -294,7 +294,7 @@
 		STATS_ALCOHOL_CONSUMED = list("points" = 0.05, "capacity" = 100),
 		STATS_ALCOHOLICS = list("points" = 4, "capacity" = 60),
 		STATS_JUNKIES = list("points" = 8, "capacity" = 70),
-		STATS_LUXURIOUS_FOOD_EATEN = list("points" = 1.5, "capacity" = 90),
+		STATS_LUXURIOUS_FOOD_EATEN = list("points" = 1, "capacity" = 90),
 	)
 
 	cost_variance = 30  // Makes events more erratic in timing
@@ -356,9 +356,9 @@
 	)
 
 	influence_factors = list(
-		STATS_ITEMS_PICKPOCKETED = list("points" = 6, "capacity" = 100),
+		STATS_ITEMS_PICKPOCKETED = list("points" = 6.5, "capacity" = 100),
 		STATS_SHRINE_VALUE = list("points" = 0.25, "capacity" = 90),
-		STATS_GREEDY_PEOPLE = list("points" = 6, "capacity" = 70),
+		STATS_GREEDY_PEOPLE = list("points" = 7, "capacity" = 70),
 		STATS_DODGES = list("points" = 0.1, "capacity" = 80),
 		STATS_LOCKS_PICKED = list("points" = 5, "capacity" = 90),
 	)
