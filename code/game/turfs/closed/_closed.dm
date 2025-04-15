@@ -265,6 +265,3 @@
 /turf/closed/indestructible/wooddark/mast
 	name = "mast"
 	color = "#a6a68b"
-
-/turf/closed
-
