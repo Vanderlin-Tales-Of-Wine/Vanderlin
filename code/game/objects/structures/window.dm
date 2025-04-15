@@ -28,83 +28,14 @@
 	var/repair_skill = /datum/skill/craft/masonry // i copypasted this code from the repairable doors and now it's got defines in the base
 
 /obj/structure/window/Initialize()
-	. = ..()
 	update_icon()
+	..()
 
 /obj/structure/window/update_icon()
 	if(brokenstate)
-		icon_state = "[icon_state]br"
+		icon_state = "[initial(icon_state)]br"
 		return
-	icon_state = initial(icon_state)
-
-/obj/structure/window/attack_paw(mob/living/user)
-	attack_hand(user)
-
-/obj/structure/window/attack_hand(mob/living/user)
-	. = ..()
-	if(.)
-		return
-	if(brokenstate)
-		return
-	if(user.used_intent.type == /datum/intent/unarmed/claw)
-		to_chat(user, "<span class='warning'>The deadite smashes the window!!</span>")
-		obj_break()
-		return
-	user.changeNext_move(CLICK_CD_MELEE)
-	visible_message("<span class='info'>[user] knocks on [src].</span>")
-	add_fingerprint(user)
-	playsound(src, 'sound/misc/glassknock.ogg', 100)
-
-/obj/structure/window/attack_ghost(mob/dead/observer/user)	// lets ghosts click on windows to transport across
-	density = FALSE
-	. = step(user, get_dir(user, loc))
-	density = TRUE
-
-/obj/structure/window/obj_break(damage_flag)
-	. = ..()
-	if(!brokenstate)
-		attacked_sound = list('sound/combat/hits/onwood/woodimpact (1).ogg','sound/combat/hits/onwood/woodimpact (2).ogg')
-		new /obj/item/natural/glass/shard (get_turf(src))
-		climbable = TRUE
-		brokenstate = TRUE
-		update_icon()
-
-/obj/structure/window/CanPass(atom/movable/mover, turf/target)
-	if(istype(mover) && climbable && ((mover.pass_flags & PASSTABLE) || (mover.pass_flags & PASSGRILLE)))
-		return 1
-	if(isliving(mover))
-		if(mover.throwing)
-			if(!climbable)
-				take_damage(10)
-			if(brokenstate)
-				return 1
-	else if(isitem(mover))
-		var/obj/item/I = mover
-		if(I.throwforce >= 10)
-			take_damage(10)
-			if(brokenstate)
-				return 1
-		else
-			return !density
-	return ..()
-
-/obj/structure/window/proc/open_up(mob/user)
-	visible_message("<span class='info'>[user] opens [src].</span>")
-	playsound(src, 'sound/foley/doors/windowup.ogg', 100, FALSE)
-	climbable = TRUE
-	update_icon()
-
-/obj/structure/window/proc/close_up(mob/user)
-	visible_message("<span class='info'>[user] closes [src].</span>")
-	playsound(src, 'sound/foley/doors/windowdown.ogg', 100, FALSE)
-	climbable = FALSE
-	update_icon()
-
-/obj/structure/window/proc/force_open()
-	playsound(src, 'sound/foley/doors/windowup.ogg', 100, FALSE)
-	climbable = TRUE
-	opacity = FALSE
-	update_icon()
+	icon_state = "[initial(icon_state)]"
 
 /obj/structure/window/proc/repairwindow(obj/item/I, mob/user)
 	if(brokenstate)
@@ -128,7 +59,7 @@
 					if(do_after(user, (30 SECONDS / user.mind.get_skill_level(repair_skill)), src)) // 1 skill = 30 secs, 2 skill = 15 secs etc.
 						qdel(I)
 						playsound(user, 'sound/misc/wood_saw.ogg', 100, TRUE)
-						icon_state = initial(icon_state)
+						icon_state = "[initial(icon_state)]"
 						density = TRUE
 						opacity = TRUE
 						brokenstate = FALSE
@@ -151,6 +82,11 @@
 					obj_integrity = max_integrity
 				user.visible_message(span_notice("[user] repaired [src]."), \
 				span_notice("I repaired [src]."))
+
+/obj/structure/window/attack_ghost(mob/dead/observer/user)	// lets ghosts click on windows to transport across
+	density = FALSE
+	. = step(user,get_dir(user,src.loc))
+	density = TRUE
 
 /obj/structure/window/solid
 	desc = "A window of simple paned glass."
@@ -229,7 +165,7 @@
 		to_chat(user, span_notice("I start trying to pry the window open..."))
 		if(do_after(user, 6 SECONDS, src))
 			playsound(src, 'sound/foley/doors/windowup.ogg', 100, FALSE)
-			force_open()
+			src.force_open()
 	else
 		return ..()
 
@@ -240,3 +176,71 @@
 	integrity_failure = 0.1
 	metalizer_result = null
 	smeltresult = /obj/item/ingot/iron
+
+/obj/structure/window/proc/open_up(mob/user)
+	visible_message("<span class='info'>[user] opens [src].</span>")
+	playsound(src, 'sound/foley/doors/windowup.ogg', 100, FALSE)
+	climbable = TRUE
+	update_icon()
+
+/obj/structure/window/proc/close_up(mob/user)
+	visible_message("<span class='info'>[user] closes [src].</span>")
+	playsound(src, 'sound/foley/doors/windowdown.ogg', 100, FALSE)
+	climbable = FALSE
+	update_icon()
+
+/obj/structure/window/CanPass(atom/movable/mover, turf/target)
+	if(istype(mover) && climbable && ((mover.pass_flags & PASSTABLE) || (mover.pass_flags & PASSGRILLE)))
+		return 1
+	if(isliving(mover))
+		if(mover.throwing)
+			if(!climbable)
+				take_damage(10)
+			if(brokenstate)
+				return 1
+	else if(isitem(mover))
+		var/obj/item/I = mover
+		if(I.throwforce >= 10)
+			take_damage(10)
+			if(brokenstate)
+				return 1
+		else
+			return !density
+	return ..()
+
+/obj/structure/window/proc/force_open()
+	playsound(src, 'sound/foley/doors/windowup.ogg', 100, FALSE)
+	climbable = TRUE
+	opacity = FALSE
+	update_icon()
+
+/obj/structure/window/attackby(obj/item/W, mob/user, params)
+	return ..()
+
+/obj/structure/window/attack_paw(mob/living/user)
+	attack_hand(user)
+
+/obj/structure/window/attack_hand(mob/living/user)
+	. = ..()
+	if(.)
+		return
+	if(brokenstate)
+		return
+	if( user.used_intent.type == /datum/intent/unarmed/claw )
+		to_chat(user, "<span class='warning'>The deadite smashes the window!!</span>")
+		obj_break()
+		return
+	user.changeNext_move(CLICK_CD_MELEE)
+	src.visible_message("<span class='info'>[user] knocks on [src].</span>")
+	add_fingerprint(user)
+	playsound(src, 'sound/misc/glassknock.ogg', 100)
+
+
+/obj/structure/window/obj_break(damage_flag)
+	if(!brokenstate)
+		attacked_sound = list('sound/combat/hits/onwood/woodimpact (1).ogg','sound/combat/hits/onwood/woodimpact (2).ogg')
+		new /obj/item/natural/glass/shard (get_turf(src))
+		climbable = TRUE
+		brokenstate = TRUE
+	update_icon()
+	..()
