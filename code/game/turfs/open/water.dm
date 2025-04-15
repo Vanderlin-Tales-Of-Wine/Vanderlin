@@ -209,7 +209,7 @@
 					adjust_originate_watervolume(water_count)
 
 /turf/open/water/Initialize()
-	.  = ..()
+	. = ..()
 	if(!mapped)
 		START_PROCESSING(SSobj, src)
 	else
@@ -453,7 +453,7 @@
 /turf/open/water/bath
 	name = "water"
 	desc = "Faintly yellow colored. Suspicious."
-	icon = 'icons/turf/floor.dmi'
+	icon = 'icons/turf/floors.dmi'
 	icon_state = MAP_SWITCH("bathtile", "bathtileW")
 	water_level = 2
 	slowdown = 15
@@ -462,7 +462,7 @@
 /turf/open/water/sewer
 	name = "sewage"
 	desc = "This dark water smells of dead rats."
-	icon = 'icons/turf/floor.dmi'
+	icon = 'icons/turf/floors.dmi'
 	icon_state = MAP_SWITCH("paving", "pavingW")
 	water_level = 1
 	slowdown = 1
@@ -507,7 +507,7 @@
 /turf/open/water/swamp
 	name = "murk"
 	desc = "Weeds and algae cover the surface of the water."
-	icon = 'icons/turf/floor.dmi'
+	icon = 'icons/turf/floors.dmi'
 	icon_state = MAP_SWITCH("dirt", "dirtW2")
 	water_level = 2
 	slowdown = 20
@@ -585,7 +585,7 @@
 /turf/open/water/marsh
 	name = "marshwater"
 	desc = "A heavy layer of weeds and algae cover the surface of the water."
-	icon = 'icons/turf/floor.dmi'
+	icon = 'icons/turf/floors.dmi'
 	icon_state = MAP_SWITCH("dirt", "dirtW3")
 	water_level = 2
 	slowdown = 15
@@ -593,13 +593,13 @@
 	water_reagent = /datum/reagent/water/gross/marshy
 
 /turf/open/water/marsh/Initialize()
-	. = ..()
 	dir = pick(GLOB.cardinals)
+	. = ..()
 
 /turf/open/water/marsh/deep
 	name = "marshwater"
 	desc = "A heavy layer of weeds and algae cover the surface of the deep water."
-	icon = 'icons/turf/floor.dmi'
+	icon = 'icons/turf/floors.dmi'
 	icon_state = MAP_SWITCH("dirt", "dirtW4")
 	water_level = 3
 	slowdown = 20
@@ -608,15 +608,15 @@
 /turf/open/water/cleanshallow
 	name = "water"
 	desc = "Clear and shallow water, what a blessing!"
-	icon = 'icons/turf/floor.dmi'
+	icon = 'icons/turf/floors.dmi'
 	icon_state = MAP_SWITCH("rock", "rockw2")
 	water_level = 2
 	slowdown = 15
 	water_reagent = /datum/reagent/water
 
 /turf/open/water/cleanshallow/Initialize()
-	. = ..()
 	dir = pick(GLOB.cardinals)
+	. = ..()
 
 /turf/open/water/cleanshallow/dirt
 	name = "water"
@@ -624,21 +624,21 @@
 	icon_state = MAP_SWITCH("dirt", "dirtW5")
 
 /turf/open/water/cleanshallow/Initialize()
-	. = ..()
 	dir = pick(GLOB.cardinals)
+	. = ..()
 
 /turf/open/water/blood
 	name = "blood"
 	desc = "A pool of sanguine liquid."
-	icon = 'icons/turf/floor.dmi'
+	icon = 'icons/turf/floors.dmi'
 	icon_state = MAP_SWITCH("rock", "rockb")
 	water_level = 2
 	slowdown = 15
 	water_reagent = /datum/reagent/blood
 
 /turf/open/water/blood/Initialize()
-	. = ..()
 	dir = pick(GLOB.cardinals)
+	. = ..()
 
 /turf/open/water/river
 	name = "water"
