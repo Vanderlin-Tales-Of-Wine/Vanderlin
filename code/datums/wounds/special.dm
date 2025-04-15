@@ -161,6 +161,20 @@
 		tongue_up_my_asshole.Remove(affected)
 		tongue_up_my_asshole.forceMove(affected.drop_location())
 
+/datum/wound/facial/tongue/permanent
+	whp = null
+	woundpain = 0
+	bleed_rate = 0
+	can_sew = FALSE
+
+/datum/wound/facial/tongue/permanent/on_mob_gain(mob/living/affected)
+	. = ..()
+	affected.Stun(10)
+	var/obj/item/organ/tongue/tongue_up_my_asshole = affected.getorganslot(ORGAN_SLOT_TONGUE)
+	if(tongue_up_my_asshole)
+		tongue_up_my_asshole.Remove(affected)
+		qdel(affected)
+
 /datum/wound/facial/disfigurement
 	name = "disfigurement"
 	check_name = "<span class='warning'>FACE</span>"
@@ -180,7 +194,7 @@
 /datum/wound/facial/disfigurement/on_mob_loss(mob/living/affected)
 	. = ..()
 	REMOVE_TRAIT(affected, TRAIT_DISFIGURED, "[type]")
-	
+
 /datum/wound/facial/disfigurement/nose
 	name = "rhinotomy"
 	check_name = "<span class='warning'>NOSE</span>"
