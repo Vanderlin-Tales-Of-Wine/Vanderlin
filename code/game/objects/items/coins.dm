@@ -98,13 +98,13 @@
 
 		switch(intelligence)						// Intelligence-based messaging
 			if(0 to 6)
-				user.visible_message(span_notice("[user] clumsily starts to count [src]."),span_notice("You clumsily start counting [src]..."), vision_distance = 2)
+				user.visible_message(span_notice("[user] clumsily starts to count [src]."),span_notice("I clumsily start counting [src]..."), vision_distance = 2)
 			if(7 to 9)
-				user.visible_message(span_notice("[user] begins counting [src]."),span_notice("You begin counting [src]."), vision_distance = 2)
+				user.visible_message(span_notice("[user] begins counting [src]."),span_notice("I begin counting [src]."), vision_distance = 2)
 			if(10 to 13)
-				user.visible_message(span_notice("[user] counts [src]."),span_notice("You count [src]."), vision_distance = 2)
+				user.visible_message(span_notice("[user] counts [src]."),span_notice("I count [src]."), vision_distance = 2)
 			if(14 to INFINITY)
-				user.visible_message(span_info("[user] effortlessly tallies [src]."),span_notice("You effortlessly tally [src]."), vision_distance = 2)
+				user.visible_message(span_info("[user] effortlessly tallies [src]."),span_notice("I effortlessly tally [src]."), vision_distance = 2)
 
 		if(!do_after(user, skill_data["delay"]))
 			return
