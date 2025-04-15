@@ -57,7 +57,7 @@
 	food_type = list(/obj/item/reagent_containers/food/snacks/meat,
 					/obj/item/bodypart,
 					/obj/item/organ)
-	tame_chance = 25
+	tame_chance = 15
 	bonus_tame_chance = 15
 
 	base_intents = list(/datum/intent/simple/claw)
@@ -182,3 +182,11 @@
 			return "foreleg"
 	return ..()
 
+/mob/living/simple_animal/hostile/retaliate/mole/briars
+	TOTALEND = 16
+	TOTALCON = 18
+	food_type = list(/obj/item/reagent_containers/food/snacks/meat,
+					/obj/item/bodypart,
+					/obj/item/organ)
+	tame_chance = 25
+	bonus_tame_chance = 15

@@ -116,3 +116,9 @@
 						/mob/living/simple_animal/hostile/retaliate/troll = 5,
 						/mob/living/simple_animal/hostile/retaliate/trollbog = 5,
 						/mob/living/simple_animal/hostile/retaliate/troll/caerbannog = 2.5)
+
+/obj/item/bait/forestdelight
+	name = "meat wrapped in strange herbs"
+	icon_state = "briarbait"
+	desc = "a piece of rotten and rancid meat wrapped in several herbs. The aroma induces both vomit and a nice herbal odor"
+	attracted_types = /mob/living/simple_animal/hostile/retaliate/mole/briars
