@@ -1,5 +1,6 @@
 /turf/closed
 	name = ""
+	icon_state = "black"
 	layer = CLOSED_TURF_LAYER
 	opacity = 1
 	density = TRUE
@@ -264,3 +265,6 @@
 /turf/closed/indestructible/wooddark/mast
 	name = "mast"
 	color = "#a6a68b"
+
+/turf/closed
+
