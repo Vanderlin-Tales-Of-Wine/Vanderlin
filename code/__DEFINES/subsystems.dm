@@ -115,8 +115,8 @@
 #define INIT_ORDER_TRIUMPHS			67
 #define INIT_ORDER_AI_MOVEMENT 		56 //We need the movement setup
 #define INIT_ORDER_AI_CONTROLLERS 	55 //So the controller can get the ref
-#define INIT_ORDER_TICKER			55
-#define INIT_ORDER_MAPPING			50
+#define INIT_ORDER_TICKER			54
+#define INIT_ORDER_MAPPING			51
 #define INIT_ORDER_AI_IDLE_CONTROLLERS 50
 #define INIT_ORDER_DUNGEON			49
 #define INIT_ORDER_NETWORKS			45

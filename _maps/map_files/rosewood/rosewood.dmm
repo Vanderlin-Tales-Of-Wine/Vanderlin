@@ -4607,6 +4607,11 @@
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/warehouse)
+"cBi" = (
+/obj/machinery/light/fueled/wallfire/candle/blue/l,
+/obj/structure/fermentation_keg/random/water,
+/turf/open/floor/churchmarble,
+/area/rogue/indoors/town/clinic_large)
 "cBr" = (
 /obj/structure/table/wood{
 	icon_state = "largetable";
@@ -7688,12 +7693,10 @@
 /turf/open/floor/church,
 /area/rogue/indoors/town/church/chapel)
 "ekm" = (
-/obj/structure/table/wood/reinf_long,
-/obj/structure/bars/bent,
 /obj/structure/fake_machine/atm{
 	pixel_y = 0
 	},
-/turf/open/floor/grass/cold,
+/turf/closed/wall/mineral/stone/moss,
 /area/rogue/outdoors/town)
 "ekx" = (
 /obj/structure/chair/bench/throne,
@@ -8831,9 +8834,7 @@
 /turf/open/floor/carpet,
 /area/rogue/indoors/town/tavern)
 "eWb" = (
-/obj/structure/fake_machine/vendor{
-	keycontrol = "tavern"
-	},
+/obj/structure/fake_machine/vendor/inn,
 /turf/closed/wall/mineral/wooddark,
 /area/rogue/indoors/town/tavern)
 "eWf" = (
@@ -10062,8 +10063,8 @@
 /obj/structure/mineral_door/wood{
 	name = "Apothecary"
 	},
-/obj/effect/mapping_helpers/door/access/town/apothecary,
 /obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/door/access/town/bathhouse,
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/indoors/town/bath)
 "fFP" = (
@@ -11168,6 +11169,23 @@
 	dir = 4
 	},
 /area/rogue/indoors/town/manor)
+"gni" = (
+/obj/machinery/light/fueled/wallfire/candle/blue/l,
+/obj/structure/table/wood/reinf_long,
+/obj/item/natural/cloth{
+	pixel_y = 11;
+	pixel_x = 8
+	},
+/obj/item/natural/cloth{
+	pixel_y = 7;
+	pixel_x = 4
+	},
+/obj/item/reagent_containers/glass/bottle/water{
+	pixel_y = 6;
+	pixel_x = -8
+	},
+/turf/open/floor/churchmarble,
+/area/rogue/indoors/town/clinic_large)
 "gno" = (
 /obj/structure/fluff/walldeco/customflag{
 	pixel_x = -32;
@@ -11905,6 +11923,11 @@
 	desc = "You think you can climb this durable wall"
 	},
 /area/rogue/indoors/town/shop)
+"gJT" = (
+/obj/structure/mineral_door/wood,
+/obj/effect/mapping_helpers/door/access/town/bathhouse,
+/turf/open/floor/tile/bath,
+/area/rogue/indoors/town/bath)
 "gKl" = (
 /obj/structure/mineral_door/wood{
 	lockid = "roomhunt";
@@ -15637,7 +15660,7 @@
 /obj/structure/mineral_door/wood/window{
 	name = "Bathhouse"
 	},
-/obj/effect/mapping_helpers/door/access/town/apothecary,
+/obj/effect/mapping_helpers/door/access/town/bathhouse,
 /turf/open/floor/tile/bfloorz,
 /area/rogue/indoors/town/bath)
 "iOL" = (
@@ -17817,8 +17840,8 @@
 /area/rogue/outdoors/rtfield/safe)
 "kbu" = (
 /obj/structure/mineral_door/wood,
-/obj/effect/mapping_helpers/door/access/town/apothecary,
 /obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/door/access/town/bathhouse,
 /turf/open/floor/tile/bath,
 /area/rogue/indoors/town/bath)
 "kby" = (
@@ -19026,8 +19049,6 @@
 /obj/structure/mineral_door/swing_door{
 	keylock = 1
 	},
-/obj/effect/mapping_helpers/door/access/town/butcher,
-/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/soilsons)
 "kNi" = (
@@ -26462,9 +26483,7 @@
 /turf/open/floor/blocks/newstone/alt,
 /area/rogue/indoors/town)
 "oOV" = (
-/obj/structure/fake_machine/vendor{
-	keycontrol = "nightmaiden"
-	},
+/obj/structure/fake_machine/vendor/apothecary,
 /turf/closed/wall/mineral/craftstone{
 	climbdiff = 3;
 	name = "Grooved Wall";
@@ -26682,14 +26701,8 @@
 	},
 /area/rogue/under/town/basement)
 "oTP" = (
-/obj/structure/table/wood/reinf_long{
-	dir = 1
-	},
-/obj/structure/fake_machine/vendor{
-	keycontrol = "soilson"
-	},
-/obj/structure/bars/bent,
-/turf/open/floor/dirt/road,
+/obj/structure/fake_machine/vendor/soilson,
+/turf/closed/wall/mineral/stone/moss,
 /area/rogue/outdoors/town)
 "oTR" = (
 /obj/structure/mineral_door/wood/donjon{
@@ -28233,6 +28246,14 @@
 /obj/structure/table/wood/reinf_long{
 	dir = 4
 	},
+/obj/item/reagent_containers/glass/cup/wooden{
+	pixel_y = 1;
+	pixel_x = 5
+	},
+/obj/item/toy/cards/deck{
+	pixel_y = 6;
+	pixel_x = -10
+	},
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/town/clinic_large)
 "pMW" = (
@@ -28536,6 +28557,14 @@
 "pVV" = (
 /turf/open/floor/blocks/stonered,
 /area/rogue/indoors/town/shop)
+"pVW" = (
+/obj/structure/fake_machine/vendor/blacksmith,
+/turf/closed/wall/mineral/craftstone{
+	climbdiff = 3;
+	name = "Grooved Wall";
+	desc = "You think you can climb this durable wall"
+	},
+/area/rogue/indoors/town/smithy)
 "pWq" = (
 /obj/effect/landmark/start/fisher{
 	dir = 4
@@ -31190,6 +31219,10 @@
 "rzR" = (
 /obj/structure/table/wood/reinf_long{
 	dir = 8
+	},
+/obj/item/reagent_containers/glass/cup/wooden{
+	pixel_y = 5;
+	pixel_x = -4
 	},
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/town/clinic_large)
@@ -36123,6 +36156,9 @@
 /area/rogue/indoors/town)
 "upI" = (
 /obj/structure/closet/crate/chest/neu_fancy,
+/obj/item/key/apothecary,
+/obj/item/key/bathhouse,
+/obj/item/key/bathhouse,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/town/bath)
 "upU" = (
@@ -37384,6 +37420,18 @@
 "uVj" = (
 /obj/structure/bed/inn,
 /obj/structure/closet/crate/crafted_closet/inn,
+/obj/item/key/clinic{
+	pixel_y = 3;
+	pixel_x = 6
+	},
+/obj/item/key/clinic{
+	pixel_x = -6
+	},
+/obj/item/key/clinic{
+	pixel_y = -3;
+	pixel_x = 5
+	},
+/obj/item/broom,
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/town/clinic_large)
 "uVk" = (
@@ -37635,8 +37683,8 @@
 /obj/structure/mineral_door/wood{
 	name = "Apothecary"
 	},
-/obj/effect/mapping_helpers/door/access/town/apothecary,
 /obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/door/access/town/bathhouse,
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/bath)
 "vci" = (
@@ -38121,8 +38169,10 @@
 /obj/structure/table/wood/reinf_long{
 	dir = 4
 	},
-/obj/item/weapon/surgery/hammer,
-/obj/item/weapon/surgery/scalpel,
+/obj/item/reagent_containers/glass/cup/wooden{
+	pixel_y = 2;
+	pixel_x = 5
+	},
 /turf/open/floor/church,
 /area/rogue/indoors/town/clinic_large)
 "vnP" = (
@@ -38571,8 +38621,6 @@
 /obj/structure/mineral_door/swing_door{
 	keylock = 1
 	},
-/obj/effect/mapping_helpers/door/access/town/butcher,
-/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/dirt,
 /area/rogue/indoors/soilsons)
 "vAf" = (
@@ -39208,8 +39256,8 @@
 /obj/structure/mineral_door/wood/donjon/stone{
 	name = "Feldsher's office"
 	},
-/obj/effect/mapping_helpers/door/access/town/clinic,
 /obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/door/access/town/doctor,
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/town/clinic_large)
 "vSt" = (
@@ -40088,7 +40136,10 @@
 /obj/structure/table/wood/reinf_long{
 	dir = 8
 	},
-/obj/item/weapon/surgery/hemostat,
+/obj/item/key/feldsher{
+	pixel_y = 3;
+	pixel_x = -3
+	},
 /turf/open/floor/church,
 /area/rogue/indoors/town/clinic_large)
 "wrG" = (
@@ -41656,6 +41707,17 @@
 	},
 /turf/open/floor/blocks/bluestone,
 /area/rogue/indoors/town)
+"xnO" = (
+/obj/structure/rack/shelf/biggest,
+/obj/item/weapon/surgery/retractor,
+/obj/item/weapon/surgery/saw,
+/obj/item/weapon/surgery/scalpel,
+/obj/item/weapon/surgery/hammer,
+/obj/item/weapon/surgery/bonesetter,
+/obj/item/reagent_containers/glass/bottle/healthpot,
+/obj/item/reagent_containers/glass/bottle/diseasecure,
+/turf/open/floor/churchmarble,
+/area/rogue/indoors/town/clinic_large)
 "xnX" = (
 /obj/item/clothing/head/peaceflower{
 	pixel_x = 3;
@@ -42013,12 +42075,8 @@
 /turf/open/floor/cobble,
 /area/rogue/indoors)
 "xAk" = (
-/obj/structure/table/wood/reinf_long,
-/obj/structure/bars/bent,
-/obj/structure/fake_machine/vendor{
-	keycontrol = "butcher"
-	},
-/turf/open/floor/snow/patchy,
+/obj/structure/fake_machine/vendor/butcher,
+/turf/closed/wall/mineral/stone/moss,
 /area/rogue/outdoors/town)
 "xAs" = (
 /obj/structure/toilet,
@@ -51729,7 +51787,7 @@ qJl
 dQT
 dQT
 dQT
-cgZ
+gJT
 dQT
 dQT
 dQT
@@ -103662,7 +103720,7 @@ cXg
 cXg
 vlA
 iWf
-gqW
+pVW
 pmI
 buO
 cwC
@@ -104478,7 +104536,7 @@ nkN
 jnM
 jnM
 qMg
-nxh
+pVW
 iWf
 uHZ
 iWf
@@ -134995,7 +135053,7 @@ ksA
 wFC
 gdN
 kRW
-lNu
+kRW
 uSy
 wFC
 sjR
@@ -135361,10 +135419,10 @@ huA
 huA
 huA
 iNo
-sRp
+gni
 dHO
 dHO
-sRp
+cBi
 iNo
 grI
 grI
@@ -135967,7 +136025,7 @@ huA
 huA
 huA
 iNo
-ngP
+xnO
 cLY
 vnH
 fEd

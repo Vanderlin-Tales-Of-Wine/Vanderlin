@@ -13,8 +13,11 @@
 		STATKEY_LCK = 0.99
 	)
 
+	///this is at bare minimum spawn at base
 	var/base_min = 1
+	///this is at bare minimum our maximum spawn count. Luck and the scaling factor is added to this
 	var/base_max = 3
+	///how much each point of luck affects the max and minimum
 	var/scaling_factor = 0.4
 
 /datum/loot_table/proc/spawn_loot(mob/living/looter)

@@ -220,7 +220,7 @@
 /datum/mana_pool/mana_fountain
 	maximum_mana_capacity = 1000
 	softcap = 1000
-	amount = 0
-	ethereal_recharge_rate = 0
+	amount = 400
+	ethereal_recharge_rate = 0.2
 	intrinsic_recharge_sources = MANA_ALL_PYLONS
 	draws_beams = TRUE

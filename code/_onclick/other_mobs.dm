@@ -365,7 +365,7 @@
 				if(ishuman(src))
 					var/mob/living/carbon/human/H = src
 					jadded += H.get_complex_pain()/50
-					if(!H.check_armor_skill())
+					if(H.get_encumbrance() >= 0.7)
 						jadded += 50
 						jrange = 1
 				if(adjust_stamina(min(jadded,100)))

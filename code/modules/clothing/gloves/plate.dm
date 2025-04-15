@@ -23,6 +23,7 @@
 
 	grid_width = 64
 	grid_height = 32
+	item_weight = 7 * IRON_MULTIPLIER
 
 /obj/item/clothing/gloves/plate/rust
 	name = "rusted riveted gauntlets"
