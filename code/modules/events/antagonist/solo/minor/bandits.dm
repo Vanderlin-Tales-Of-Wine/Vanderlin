@@ -20,6 +20,7 @@
 		"Inquisitor",
 		"Adept",
 		"Royal Knight",
+		"Templar",
 	)
 
 	base_antags = 4

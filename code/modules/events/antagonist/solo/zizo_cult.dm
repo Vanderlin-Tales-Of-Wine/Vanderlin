@@ -30,6 +30,7 @@
 		"Inquisitor",
 		"Adept",
 		"Royal Knight",
+		"Templar",
 	)
 
 /datum/round_event/antagonist/solo/zizo_cultist

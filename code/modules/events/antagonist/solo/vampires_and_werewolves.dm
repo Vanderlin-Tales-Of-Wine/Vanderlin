@@ -31,6 +31,7 @@
 		"Inquisitor",
 		"Adept",
 		"Royal Knight",
+		"Templar",
 	)
 
 /datum/round_event/antagonist/solo/vampires_and_werewolves

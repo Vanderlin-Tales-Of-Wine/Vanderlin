@@ -33,6 +33,7 @@
 		"Inquisitor",
 		"Adept",
 		"Royal Knight",
+		"Templar",
 	)
 
 /datum/round_event/antagonist/solo/vampire

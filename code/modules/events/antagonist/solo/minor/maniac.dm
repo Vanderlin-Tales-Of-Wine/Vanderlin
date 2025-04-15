@@ -13,6 +13,7 @@
 	restricted_roles = list(
 		"Monarch",
 		"Consort",
+		"Priest",
 		"Orphan",
 		"Churchling",
 		"Innkeepers Son"
