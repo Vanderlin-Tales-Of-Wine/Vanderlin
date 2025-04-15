@@ -17,8 +17,7 @@
 	RegisterSignal(parent, COMSIG_ITEM_WEARERCROSSED, PROC_REF(Slip_on_wearer))
 
 /datum/component/slippery/UnregisterFromParent()
-	UnregisterSignal(parent, list(COMSIG_MOVABLE_CROSSED, COMSIG_ATOM_ENTERED))
-	UnregisterSignal(parent, COMSIG_ITEM_WEARERCROSSED)
+	UnregisterSignal(parent, list(COMSIG_MOVABLE_CROSSED, COMSIG_ATOM_ENTERED, COMSIG_ITEM_WEARERCROSSED))
 	return ..()
 
 /datum/component/slippery/proc/Slip(datum/source, atom/movable/AM)

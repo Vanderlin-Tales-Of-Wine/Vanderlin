@@ -99,7 +99,7 @@
 	if(istype(atom_to_clean, /turf/open/water) || istype(atom_to_clean, /turf/open/transparent))
 		return DO_NOT_CLEAN
 	if(cleaner.client && ((atom_to_clean in cleaner.client.screen) && !cleaner.is_holding(atom_to_clean)))
-		to_chat(cleaner, span_warning("I need to take that [atom_to_clean.name] off before cleaning it!"))
+		to_chat(cleaner, span_warning("I need to take \the [atom_to_clean] off before cleaning it!"))
 		return DO_NOT_CLEAN
 
 	// overly complicated effectiveness calculations
@@ -112,7 +112,6 @@
 
 	cleaner_component.cleaning_effectiveness = (effectiveness * 100) % 100
 	cleaner_component.cleaning_strength = CLAMP(CLEAN_WEAK + ceil(effectiveness), CLEAN_WEAK, CLEAN_IMPRESSIVE)
-	//message_admins("\n[pWater]\n[pDirtyWater]\n[pSoap]\n[effectiveness]\n\t[cleaner_component.cleaning_effectiveness]\n\t[cleaner_component.cleaning_strength]")
 	playsound(cleaner, pick('sound/foley/cloth_wipe (1).ogg','sound/foley/cloth_wipe (2).ogg', 'sound/foley/cloth_wipe (3).ogg'), 100, FALSE)
 	return TRUE
 
@@ -142,10 +141,6 @@
 /obj/item/natural/cloth/dropped(mob/living/carbon/human/user)
 	..()
 	user.cure_blind("blindfold_[REF(src)]")
-
-/obj/item/natural/cloth/examine(mob/user)
-	. = ..()
-
 
 
 // CLEANING
@@ -182,7 +177,7 @@
 
 /obj/item/natural/cloth/proc/soak_cloth(atom/target, mob/living/user)
 	if(reagents.total_volume == reagents.maximum_volume)
-		to_chat(user, span_warning("The [src.name] is already soaked."))
+		to_chat(user, span_warning("\The [src] is already soaked."))
 		return
 	if(isobj(target))
 		var/obj/O = target
@@ -193,7 +188,7 @@
 			return
 		if(do_after(user, clean_speed, O))
 			O.reagents.trans_to(src, reagents.maximum_volume, 1, transfered_by = user)
-			user.visible_message(span_small("[user] soaks the [src.name] in the [O.name]."), span_small("I soak the [src.name] in the [O.name]."), vision_distance = 2)
+			user.visible_message(span_small("[user] soaks \the [src] in \the [O]."), span_small("I soak \the [src] in \the [O]."), vision_distance = 2)
 			playsound(O, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 25, FALSE)
 	else if(isturf(target))
 		var/turf/T = target
@@ -201,7 +196,7 @@
 			var/turf/open/water/W = T
 			if(do_after(user, clean_speed, T))
 				reagents.add_reagent(W.water_reagent, reagents.maximum_volume)
-				user.visible_message(span_small("[user] soaks the [src.name] in the [T.name]."), span_small("I soak the [src.name] in the [T.name]."), vision_distance = 2)
+				user.visible_message(span_small("[user] soaks \the [src] in \the [T]."), span_small("I soak \the [src] in \the [T]."), vision_distance = 2)
 				playsound(T, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 25, FALSE)
 		else
 			var/datum/liquid_group/lg = T.liquids?.liquid_group
@@ -210,7 +205,7 @@
 				return
 			if(do_after(user, clean_speed * 2, T))
 				lg.transfer_to_atom(null, reagents.maximum_volume, src)
-				user.visible_message(span_small("[user] soaks the [src.name]."), span_small("I soak the [src.name]."), vision_distance = 2)
+				user.visible_message(span_small("[user] soaks \the [src]."), span_small("I soak \the [src]."), vision_distance = 2)
 				playsound(T, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 25, FALSE)
 
 /obj/item/natural/cloth/proc/wring_cloth(atom/target, mob/living/user)
@@ -226,20 +221,20 @@
 			return
 		if(do_after(user, clean_speed * 2.5, O))
 			reagents.trans_to(O, reagents.total_volume, 1, transfered_by = user)
-			user.visible_message(span_small("[user] wrings out the [src.name] in the [O.name]."), span_small("I wring out the [src.name] in the [O.name]."), vision_distance = 2)
+			user.visible_message(span_small("[user] wrings out \the [src] in \the [O]."), span_small("I wring out \the [src] in \the [O]."), vision_distance = 2)
 			playsound(O, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 25, FALSE)
 	else if(isturf(target))
 		var/turf/T = target
 		if(istype(T, /turf/open/water))
 			if(do_after(user, clean_speed * 2.5, T))
 				reagents.clear_reagents()
-				user.visible_message(span_small("[user] wrings out the [src.name] in the [T.name]."), span_small("I wring out the [src.name] in the [T.name]."), vision_distance = 2)
+				user.visible_message(span_small("[user] wrings out \the [src] in \the [T]."), span_small("I wring out \the [src] in \the [T]."), vision_distance = 2)
 				playsound(T, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 25, FALSE)
 		else
 			if(do_after(user, clean_speed * 2.5, T))
 				T.add_liquid_from_reagents(reagents, amount = reagents.maximum_volume)
 				reagents.clear_reagents()
-				user.visible_message(span_small("[user] wrings out the [src.name]."), span_small("I wring out the [src.name]."), vision_distance = 2)
+				user.visible_message(span_small("[user] wrings out \the [src]."), span_small("I wring out \the [src]."), vision_distance = 2)
 				playsound(T, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 25, FALSE)
 
 

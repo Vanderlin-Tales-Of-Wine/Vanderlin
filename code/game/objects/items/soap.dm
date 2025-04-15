@@ -76,7 +76,7 @@
 		noUses(user)
 
 /obj/item/soap/proc/noUses(mob/user)
-	to_chat(user, span_warning("[src] crumbles into tiny bits!"))
+	to_chat(user, span_warning("\The [src] crumbles into tiny bits!"))
 	qdel(src)
 
 
@@ -85,7 +85,7 @@
 
 	if(ishuman(target) && user.zone_selected == BODY_ZONE_PRECISE_MOUTH)
 		if(target.is_mouth_covered())
-			to_chat(user, span_warning("Their mouth is blocked!"))
+			to_chat(user, span_warning("[target.p_their(TRUE)] mouth is blocked!"))
 			return FALSE
 
 		if(user != target)
@@ -93,10 +93,10 @@
 			if(!istype(G) || !ishuman(G.grabbed) || G.grabbed != target) // gotta have the target in your offhand
 				to_chat(user, span_warning("I can't hold them still if I don't grab them!"))
 				return FALSE
-		user.visible_message("<span class='warning'>\the [user] starts to wash \the [target]'s mouth out with [src.name]...</span>", "<span class='notice'>I start to wash \the [target]'s mouth out with [src.name]...</span>") //washes mouth out with soap sounds better than 'the soap' here			if(user.zone_selected == "mouth")
+		user.visible_message(span_warning("<[user] starts to wash \the [target]'s mouth out with [src]..."), span_notice("I start to wash \the [target]'s mouth out with [src]...")) //washes mouth out with soap sounds better than 'the soap' here
 		// how this looks vvv https://www.desmos.com/calculator/55fpadxol5
 		if(do_after(user, (20 / user.STASPD + 2) SECONDS, target))
-			user.visible_message("<span class='warning'>\the [user] washes \the [target]'s mouth out with [src.name]!</span>", "<span class='notice'>I wash \the [target]'s mouth out with [src.name]!</span>") //washes mouth out with soap sounds better than 'the soap' here			if(user.zone_selected == "mouth")
+			user.visible_message(span_warning("[user] washes \the [target]'s mouth out with [src]!"), span_notice("I wash \the [target]'s mouth out with [src]!")) //washes mouth out with soap sounds better than 'the soap' here
 			target.emote("drown")
 			target.adjustOxyLoss(20)
 			var/datum/reagents/reagents = new()
@@ -139,7 +139,7 @@
 		to_chat(user, span_warning("Can't get a proper bath with shoes on."))
 		return FALSE
 
-	user.visible_message("<span class='info'>[user] begins scrubbing [target] with the [src].</span>")
+	user.visible_message(span_info("\The [user] begins scrubbing \the [target] with [src]."))
 	playsound(T, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 100, FALSE)
 	if(do_after(user, 5 SECONDS, target))
 		playsound(T, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 100, FALSE)
@@ -152,25 +152,25 @@
 	if(!r)
 		return
 	if(!O.is_open_container())
-		to_chat(user, span_warning("It's not open."))
+		to_chat(user, span_warning("\The [O] is not open."))
 		return
 	if(r.total_volume >= r.maximum_volume)
 		to_chat(user, span_warning("There's no room to add it."))
 		return
 	var/datum/reagent/wawa = r.get_reagent_amount(/datum/reagent/water)
 	if(!wawa)
-		to_chat(user, span_warning("This needs clean water to dissolve."))
+		to_chat(user, span_warning("This needs water to dissolve."))
 		return
 	var/amt2Add = min(10, wawa, r.maximum_volume - r.total_volume)
 	if(do_after(user, 2 SECONDS, O))
 		var/datum/reagents/reagents = new()
 		reagents.add_reagent(/datum/reagent/soap, amt2Add)
 		reagents.trans_to(O, reagents.total_volume, transfered_by = user, method = TOUCH)
-		to_chat(user, span_info("I dissolve some of the [name] in the water."))
+		to_chat(user, span_info("I dissolve some of \the [name] in the water."))
 
 /obj/item/soap/proc/scrub_scrub(mob/living/carbon/human/target, mob/living/carbon/user)
 	wash_atom(target, CLEAN_STRONG)
-	user.visible_message(span_info("[user] scrubs [target] with the [src]."))
+	user.visible_message(span_info("[user] scrubs [target] with [src]."), span_info("I scrub [target] with [src]."))
 	decreaseUses(5)
 
 /obj/item/soap/bath

@@ -205,8 +205,8 @@
 		return
 
 	if(reagents.total_volume && user.used_intent.type == INTENT_SPLASH)
-		user.visible_message("<span class='danger'>[user] splashes the contents of [src] onto [target]!</span>", \
-							"<span class='notice'>I splash the contents of [src] onto [target].</span>")
+		user.visible_message(span_danger("[user] splashes the contents of [src] onto [target]"), \
+							span_notice("I splash the contents of [src] onto [target]"))
 		reagents.reaction(target, TOUCH)
 		playsound(target.loc, pick('sound/foley/water_land1.ogg','sound/foley/water_land2.ogg', 'sound/foley/water_land3.ogg'), 100, FALSE)
 		chem_splash(target.loc, 2, list(reagents))
@@ -221,8 +221,8 @@
 		reagents.reaction(T, TOUCH)
 		chem_splash(newT, 2, list(reagents))
 		playsound(newT, pick('sound/foley/water_land1.ogg','sound/foley/water_land2.ogg', 'sound/foley/water_land3.ogg'), 100, FALSE)
-		user.visible_message("<span class='danger'>[user] splashes the contents of [src] onto [T]!</span>", \
-								"<span class='danger'>[user] splashes the contents of [src] onto [T]!</span>")
+		user.visible_message(span_notice("[user] splashes the contents of [src] onto \the [T]!"), \
+								span_notice("I splash the contents of [src] onto \the [T]."))
 
 /obj/item/reagent_containers/glass/afterattack(obj/target, mob/user, proximity)
 	SEND_SIGNAL(src, COMSIG_ITEM_AFTERATTACK, target, user)

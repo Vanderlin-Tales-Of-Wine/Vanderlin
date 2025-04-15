@@ -30,7 +30,7 @@
 		if(downcheck)
 			epicenter = downcheck
 		else
-			return
+			break
 
 	var/datum/reagents/splash_holder = new/datum/reagents(total_reagents*threatscale)
 	splash_holder.my_atom = epicenter // For some reason this is setting my_atom to null, and causing runtime errors.
