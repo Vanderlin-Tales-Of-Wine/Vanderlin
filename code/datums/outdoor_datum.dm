@@ -20,6 +20,7 @@ Sunlight System
 
 */
 /obj
+	var/object_slowdown = 0
 	var/weatherproof = FALSE
 	var/weather = FALSE
 

@@ -47,6 +47,7 @@
 	invocation = "Undermaiden brooks thee respite, be heard, wanderer."
 	invocation_type = "whisper" //can be none, whisper, emote and shout
 	miracle = TRUE
+	healing_miracle = TRUE
 	devotion_cost = 40
 
 /obj/effect/proc_holder/spell/targeted/soulspeak/cast(list/targets,mob/user = usr)
