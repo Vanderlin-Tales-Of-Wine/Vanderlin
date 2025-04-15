@@ -64,9 +64,9 @@ GLOBAL_LIST_EMPTY(created_sound_groups)
 	var/starttime // A world.time snapshot of when the loop was started.
 
 /datum/looping_sound/New(_parent, start_immediately=FALSE, _direct=FALSE, _channel = 0)
-/*	if(!mid_sounds)
- 		WARNING("A looping sound datum was created without sounds to play.")//Obsolete now, instruments don't start with sounds
- 		return*/
+	// if(!mid_sounds)
+	// 	WARNING("A looping sound datum was created without sounds to play.")//Obsolete now, instruments don't start with sounds
+	// 	return
 	if(islist(_parent))
 		WARNING("A looping sound datum was created using a list, this is no longer allowed please change to a parent")
 		return
