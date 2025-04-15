@@ -13,9 +13,9 @@
 	cost_variance = 25
 
 	influence_factors = list(
-		STATS_BOOKS_PRINTED = list("points" = 2.5, "capacity" = 40),
+		STATS_BOOKS_PRINTED = list("points" = 3, "capacity" = 40),
 		STATS_LITERACY_TAUGHT = list("points" = 12.5, "capacity" = 120),
-		STATS_ILLITERATES = list("points" = -4, "capacity" = -100),
+		STATS_ILLITERATES = list("points" = -4, "capacity" = -80),
 		STATS_SKILLS_DREAMED = list("points" = 0.3, "capacity" = 100),
 		STATS_MANA_SPENT = list("points" = 0.075, "capacity" = 90),
 	)
@@ -42,10 +42,10 @@
 	)
 
 	influence_factors = list(
-		STATS_COMBAT_SKILLS = list("points" = 0.65, "capacity" = 100),
-		STATS_PARRIES = list("points" = 0.065, "capacity" = 90),
-		STATS_WARCRIES = list("points" = 0.35, "capacity" = 60),
-		STATS_YIELDS = list("points" = -4, "capacity" = -40),
+		STATS_COMBAT_SKILLS = list("points" = 0.6, "capacity" = 90),
+		STATS_PARRIES = list("points" = 0.060, "capacity" = 90),
+		STATS_WARCRIES = list("points" = 0.35, "capacity" = 50),
+		STATS_YIELDS = list("points" = -5, "capacity" = -40),
 		STATS_UNDERWORLD_DUELS = list("points" = 4, "capacity" = 60),
 	)
 
@@ -91,9 +91,9 @@
 
 	influence_factors = list(
 		STATS_LAUGHS_MADE = list("points" = 0.25, "capacity" = 100),
-		STATS_GAMES_RIGGED = list("points" = 2.5, "capacity" = 30),
+		STATS_GAMES_RIGGED = list("points" = 3, "capacity" = 30),
 		STATS_PEOPLE_MOCKED = list("points" = 4.5, "capacity" = 60),
-		STATS_CRITS_MADE = list("points" = 0.275, "capacity" = 80),
+		STATS_CRITS_MADE = list("points" = 0.275, "capacity" = 85),
 		STATS_SONGS_PLAYED = list("points" = 1.25, "capacity" = 75),
 	)
 
@@ -119,10 +119,10 @@
 	)
 
 	influence_factors = list(
-		STATS_DEATHS = list("points" = 1.25, "capacity" = 115),
-		STATS_GRAVES_CONSECRATED = list("points" = 6.5, "capacity" = 100),
+		STATS_DEATHS = list("points" = 1.4, "capacity" = 115),
+		STATS_GRAVES_CONSECRATED = list("points" = 7, "capacity" = 100),
 		STATS_GRAVES_ROBBED = list("points" = -4, "capacity" = -60),
-		STATS_DEADITES_KILLED = list("points" = 6.5, "capacity" = 120),
+		STATS_DEADITES_KILLED = list("points" = 7, "capacity" = 120),
 		STATS_VAMPIRES_KILLED = list("points" = 15, "capacity" = 60),
 	)
 
@@ -140,7 +140,7 @@
 
 	influence_factors = list(
 		STATS_POTIONS_BREWED = list("points" = 5, "capacity" = 70),
-		STATS_WOUNDS_SEWED = list("points" = 0.5, "capacity" = 100),
+		STATS_WOUNDS_SEWED = list("points" = 0.6, "capacity" = 100),
 		STATS_SOULS_REINCARNATED = list("points" = 2.5, "capacity" = 60),
 		STATS_ANIMALS_BRED = list("points" = 6.5, "capacity" = 60),
 		STATS_FOOD_ROTTED = list("points" = 0.5, "capacity" = 80),
@@ -168,7 +168,7 @@
 	influence_factors = list(
 		STATS_MASTERWORKS_FORGED = list("points" = 3.25, "capacity" = 80),
 		STATS_ROCKS_MINED = list("points" = 0.25, "capacity" = 100),
-		STATS_CRAFT_SKILLS = list("points" = 0.65, "capacity" = 100),
+		STATS_CRAFT_SKILLS = list("points" = 0.6, "capacity" = 90),
 		STATS_BEARDS_SHAVED = list("points" = -5, "capacity" = -50),
 		STATS_BLACKSTEEL_SMELTED = list("points" = 7, "capacity" = 75),
 	)
@@ -324,8 +324,8 @@
 
 	influence_factors = list(
 		STATS_BLOOD_SPILT = list("points" = 0.00025, "capacity" = 100),
-		STATS_ORGANS_EATEN = list("points" = 4, "capacity" = 70),
-		STATS_LIMBS_BITTEN = list("points" = 2, "capacity" = 70),
+		STATS_ORGANS_EATEN = list("points" = 4, "capacity" = 80),
+		STATS_LIMBS_BITTEN = list("points" = 1.5, "capacity" = 70),
 		STATS_PEOPLE_GIBBED = list("points" = 3, "capacity" = 50),
 		STATS_ASSASSINATIONS = list("points" = 15, "capacity" = 90),
 	)
@@ -357,7 +357,7 @@
 
 	influence_factors = list(
 		STATS_ITEMS_PICKPOCKETED = list("points" = 6.5, "capacity" = 100),
-		STATS_SHRINE_VALUE = list("points" = 0.25, "capacity" = 90),
+		STATS_SHRINE_VALUE = list("points" = 0.2, "capacity" = 90),
 		STATS_GREEDY_PEOPLE = list("points" = 7, "capacity" = 70),
 		STATS_DODGES = list("points" = 0.1, "capacity" = 80),
 		STATS_LOCKS_PICKED = list("points" = 5, "capacity" = 90),
