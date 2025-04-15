@@ -135,18 +135,6 @@
 				new /obj/item/reagent_containers/food/snacks/dough(loc)
 				qdel(I)
 				qdel(src)
-		if(istype(I, /obj/item/reagent_containers/food/snacks/egg))
-			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			to_chat(user, span_notice("Working egg into the dough..."))
-			playsound(get_turf(user), 'sound/foley/eggbreak.ogg', 100, TRUE, -1)
-			if(do_after(user, short_cooktime, src))
-				if(user.mind.get_skill_level(/datum/skill/craft/cooking) >= 2)
-					new /obj/item/reagent_containers/food/snacks/foodbase/griddlecake_raw/good(loc)
-				else
-					new /obj/item/reagent_containers/food/snacks/foodbase/griddlecake_raw(loc)
-				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
-				qdel(I)
-				qdel(src)
 		else if(istype(I, /obj/item/reagent_containers/food/snacks/cheese))
 			playsound(get_turf(user), 'sound/foley/kneading_alt.ogg', 90, TRUE, -1)
 			to_chat(user, span_notice("Adding fresh cheese..."))
@@ -233,7 +221,7 @@
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
 			to_chat(user, span_notice("Cutting the dough in strips and making a prezzel..."))
 			if(do_after(user, short_cooktime, src))
-				if(user.mind.get_skill_level(/datum/skill/craft/cooking) >= 2)
+				if(user.mind.get_skill_level(/datum/skill/craft/cooking) >= 2 || isdwarf(user))
 					new /obj/item/reagent_containers/food/snacks/foodbase/prezzel_raw/good(loc)
 				else
 					new /obj/item/reagent_containers/food/snacks/foodbase/prezzel_raw(loc)
@@ -266,6 +254,19 @@
 			to_chat(user, span_notice("Covering sausage with dough..."))
 			if(do_after(user, short_cooktime, src))
 				new /obj/item/reagent_containers/food/snacks/foodbase/griddledog_raw(loc)
+				qdel(I)
+				qdel(src)
+
+		if(istype(I, /obj/item/reagent_containers/food/snacks/egg))
+			if(user.mind.get_skill_level(/datum/skill/craft/cooking) <= 1) // cooks with less than 1 skill don´t know this recipe
+				to_chat(user, span_warning("Griddle cakes are not for the likes of you."))
+				return
+			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
+			to_chat(user, span_notice("Working egg into the dough..."))
+			playsound(get_turf(user), 'sound/foley/eggbreak.ogg', 100, TRUE, -1)
+			if(do_after(user, short_cooktime, src))
+				new /obj/item/reagent_containers/food/snacks/foodbase/griddlecake_raw(loc)
+				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 				qdel(I)
 				qdel(src)
 		else if(istype(I, /obj/item/reagent_containers/food/snacks/raisins))
@@ -1227,7 +1228,6 @@
 /obj/item/reagent_containers/food/snacks/crimsoncake_ready
 	name = "unbaked crimson pine cake"
 	icon_state = "crimsonpinecakeraw"
-	dropshrink = 0.8
 	slices_num = 0
 	cooked_type = /obj/item/reagent_containers/food/snacks/crimsoncake_cooked
 	cooked_smell = /datum/pollutant/food/crimson_cake
@@ -1238,7 +1238,6 @@
 	name = "crimson pine cake"
 	desc = "A fusion of Crimson Elf and Grenzlehoftian cuisines, the cake originates from the Valorian Republics. Rumor has it that one of the many casus belli in the Republics was based upon a disagreement on the cakes exact recipe."
 	icon_state = "crimsonpinecake"
-	dropshrink = 0.8
 	slices_num = 6
 	slice_path = /obj/item/reagent_containers/food/snacks/crimsoncake_slice
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS*6, /datum/reagent/consumable/ethanol/plum_wine = SNACK_DECENT*6)
@@ -1294,7 +1293,7 @@
 /obj/item/reagent_containers/food/snacks/tangerinecake_ready
 	name = "unbaked scarletharp cake"
 	icon_state = "tangerinecakeraw"
-	dropshrink = 0.8
+	dropshrink = 0.9
 	slices_num = 0
 	cooked_type = /obj/item/reagent_containers/food/snacks/tangerinecake_cooked
 	cooked_smell = /datum/pollutant/food/strawberry_cake
@@ -1305,7 +1304,7 @@
 	name = "scarletharp cake"
 	desc = "The Scarletharp cake, named not so aptly for its town of origin, is a twist on the traditional lunch cake substituting the dried fruit bits for a center filling of tangerine jam."
 	icon_state = "tangerinecake"
-	dropshrink = 0.8
+	dropshrink = 0.9
 	slices_num = 6
 	slice_path = /obj/item/reagent_containers/food/snacks/tangerinecake_slice
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT*6)
@@ -1421,7 +1420,7 @@
 | Griddlecakes |
 \-------------*/
 
-/*	.................   Griddlecakes   ................... */
+/*	.................   Plain Griddlecake   ................... */
 
 /obj/item/reagent_containers/food/snacks/foodbase/griddlecake_raw
 	name = "raw griddlecake"
@@ -1431,55 +1430,182 @@
 	rotprocess = SHELFLIFE_LONG
 	eat_effect = null
 
-/obj/item/reagent_containers/food/snacks/foodbase/griddlecake_raw/good
-	fried_type = /obj/item/reagent_containers/food/snacks/griddlecake/good
-
-/obj/item/reagent_containers/food/snacks/griddlecake
-	name = "griddlecake"
-	desc = "Enjoyed by soldiers of fortune all throughout Psydonia, though despite its prevelance no one quite knows its origin. This one looks a bit charred."
-	icon_state = "griddlecake"
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT+SNACK_POOR)
-	tastes = list("fluffy dough" = 1, "sweet" = 1)
-	rotprocess = SHELFLIFE_LONG
-	faretype = FARE_NEUTRAL
-
-/obj/item/reagent_containers/food/snacks/griddlecake/good
-	name = "griddlecake"
-	desc = "Enjoyed by soldiers of fortune all throughout Psydonia, though despite its prevelance no one quite knows its origin."
-	faretype = FARE_FINE
-	eat_effect = /datum/status_effect/buff/foodbuff
-/obj/item/reagent_containers/food/snacks/griddlecake/good/New()
-	. = ..()
-	good_quality_descriptors()
-
-/obj/item/reagent_containers/food/snacks/griddlecake/good/attackby(obj/item/I, mob/living/user, params)
+/obj/item/reagent_containers/food/snacks/foodbase/griddlecake_raw/attackby(obj/item/I, mob/living/user, params)
 	..()
 	if(user.mind)
 		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(isturf(loc)&& (found_table))
-		if(istype(I, /obj/item/reagent_containers/food/snacks/butterslice))
-			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			to_chat(user, span_notice("Buttering the griddlecake..."))
+		if(istype(I, /obj/item/reagent_containers/food/snacks/produce/lemon))
+			playsound(get_turf(user), 'sound/foley/kneading.ogg', 100, TRUE, -1)
+			to_chat(user, span_notice("Adding lemon to the griddlecake..."))
 			if(do_after(user, short_cooktime, src))
-				new /obj/item/reagent_containers/food/snacks/griddlecake_buttered(loc)
+				new /obj/item/reagent_containers/food/snacks/foodbase/lemongriddlecake_raw(loc)
+				qdel(I)
+				qdel(src)
+				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
+		if(istype(I, /obj/item/reagent_containers/food/snacks/produce/apple) || istype(I, /obj/item/reagent_containers/food/snacks/apple_dried))
+			playsound(get_turf(user), 'sound/foley/kneading.ogg', 100, TRUE, -1)
+			to_chat(user, span_notice("Adding apple to the griddlecake..."))
+			if(do_after(user, short_cooktime, src))
+				new /obj/item/reagent_containers/food/snacks/foodbase/applegriddlecake_raw(loc)
+				qdel(I)
+				qdel(src)
+				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
+		if(istype(I, /obj/item/reagent_containers/food/snacks/produce/jacksberry) || istype(I, /obj/item/reagent_containers/food/snacks/raisins))
+			playsound(get_turf(user), 'sound/foley/kneading.ogg', 100, TRUE, -1)
+			to_chat(user, span_notice("Adding jacksberry to the griddlecake..."))
+			if(do_after(user, short_cooktime, src))
+				new /obj/item/reagent_containers/food/snacks/foodbase/berrygriddlecake_raw(loc)
+				qdel(I)
+				qdel(src)
+				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
+		else if(istype(I, /obj/item/reagent_containers/food/snacks/produce/jacksberry/poison) || istype(I, /obj/item/reagent_containers/food/snacks/raisins/poison))
+			playsound(get_turf(user), 'sound/foley/kneading.ogg', 100, TRUE, -1)
+			to_chat(user, span_notice("Adding jacksberry to the griddlecake..."))
+			if(do_after(user, short_cooktime, src))
+				new /obj/item/reagent_containers/food/snacks/foodbase/poisonberrygriddlecake_raw(loc)
 				qdel(I)
 				qdel(src)
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 	else
 		to_chat(user, span_warning("Put [src] on a table before working it!"))
 
-/*	.................   Buttered Griddlecake   ................... */
-
-/obj/item/reagent_containers/food/snacks/griddlecake_buttered
-	name = "buttered griddlecake"
-	desc = "Enjoyed by soldiers of fortune all throughout Psydonia, though despite its prevelance no one quite knows its origin. It has a pat of butter melting over the top."
-	icon_state = "griddlecakebutter"
+/obj/item/reagent_containers/food/snacks/griddlecake
+	name = "griddlecake"
+	desc = "Enjoyed by mercenaries throughout Psydonia, though despite its prevelance no one quite knows its origin."
+	bitesize = 6
+	icon_state = "griddlecake"
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT+SNACK_POOR)
-	tastes = list("fluffy dough" = 1, "sweet" = 1, "butter" = 1)
+	tastes = list("fluffy butterdough" = 1, "sweet" = 1)
+	rotprocess = SHELFLIFE_LONG
+	faretype = FARE_NEUTRAL
+
+/*	.................   Lemon Griddlecake   ................... */
+
+/obj/item/reagent_containers/food/snacks/foodbase/lemongriddlecake_raw
+	name = "raw lemon griddlecake"
+	icon_state = "rawgriddlecakelemon"
+	fried_type = /obj/item/reagent_containers/food/snacks/griddlecake/lemon
+	cooked_smell = /datum/pollutant/food/griddlecake
+	rotprocess = SHELFLIFE_LONG
+	eat_effect = null
+
+/obj/item/reagent_containers/food/snacks/griddlecake/lemon
+	name = "lemon griddlecake"
+	desc = "Enjoyed by mercenaries throughout Psydonia, though despite its prevelance no one quite knows its origin."
+	bitesize = 6
+	icon_state = "griddlecakelemon"
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT+SNACK_POOR)
+	tastes = list("fluffy butterdough" = 1, "sweet" = 1, "lemon" = 1)
 	rotprocess = SHELFLIFE_LONG
 	faretype = FARE_FINE
 	eat_effect = /datum/status_effect/buff/foodbuff
 
+/*	.................   Apple Griddlecake   ................... */
 
+/obj/item/reagent_containers/food/snacks/foodbase/applegriddlecake_raw
+	name = "raw apple griddlecake"
+	icon_state = "rawgriddlecakeapple"
+	fried_type = /obj/item/reagent_containers/food/snacks/griddlecake/apple
+	cooked_smell = /datum/pollutant/food/griddlecake
+	rotprocess = SHELFLIFE_LONG
+	eat_effect = null
 
+/obj/item/reagent_containers/food/snacks/griddlecake/apple
+	name = "apple griddlecake"
+	desc = "Enjoyed by mercenaries throughout Psydonia, though despite its prevelance no one quite knows its origin."
+	bitesize = 6
+	icon_state = "griddlecakeapple"
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT+SNACK_POOR)
+	tastes = list("fluffy butterdough" = 1, "sweet" = 1, "apple" = 1)
+	rotprocess = SHELFLIFE_LONG
+	faretype = FARE_FINE
+	eat_effect = /datum/status_effect/buff/foodbuff
+
+/*	.................   Berry Griddlecake   ................... */
+
+/obj/item/reagent_containers/food/snacks/foodbase/berrygriddlecake_raw
+	name = "raw jacksberry griddlecake"
+	icon_state = "rawgriddlecakeberry"
+	fried_type = /obj/item/reagent_containers/food/snacks/griddlecake/berry
+	cooked_smell = /datum/pollutant/food/griddlecake
+	rotprocess = SHELFLIFE_LONG
+	eat_effect = null
+
+/obj/item/reagent_containers/food/snacks/griddlecake/berry
+	name = "jacksberry griddlecake"
+	desc = "Enjoyed by mercenaries throughout Psydonia, though despite its prevelance no one quite knows its origin."
+	bitesize = 6
+	icon_state = "griddlecakeberry"
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT+SNACK_POOR)
+	tastes = list("fluffy butterdough" = 1, "sweet" = 1, "sweet berry" = 1)
+	rotprocess = SHELFLIFE_LONG
+	faretype = FARE_FINE
+	eat_effect = /datum/status_effect/buff/foodbuff
+
+/obj/item/reagent_containers/food/snacks/foodbase/poisonberrygriddlecake_raw
+	name = "raw jacksberry griddlecake"
+	icon_state = "rawgriddlecakeberry"
+	fried_type = /obj/item/reagent_containers/food/snacks/griddlecake/berry_poison
+	cooked_smell = /datum/pollutant/food/griddlecake
+	rotprocess = SHELFLIFE_LONG
+	eat_effect = null
+
+/obj/item/reagent_containers/food/snacks/griddlecake/berry_poison
+	name = "jacksberry griddlecake"
+	desc = "Enjoyed by mercenaries throughout Psydonia, though despite its prevelance no one quite knows its origin."
+	bitesize = 6
+	icon_state = "griddlecakeberry"
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT+SNACK_POOR, /datum/reagent/berrypoison = 12)
+	tastes = list("fluffy butterdough" = 1, "sweet" = 1, "bitter berry" = 1)
+	rotprocess = SHELFLIFE_LONG
+	faretype = FARE_NEUTRAL
+	eat_effect = /datum/status_effect/buff/foodbuff
+
+/*	.................   Griddlecake Condiments   ................... */
+
+/obj/item/reagent_containers/food/snacks/griddlecake/attackby(obj/item/I, mob/living/user, params)
+	if(user.mind)
+		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
+	if(modified)
+		return TRUE
+	if(istype(I, /obj/item/reagent_containers/food/snacks/butterslice))
+		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 50, TRUE, -1)
+		if(do_after(user, short_cooktime, src))
+			name = "buttered [name]"
+			desc = "[desc] A melting pat of butter has been added."
+			add_overlay("griddlebutter")
+			tastes = list("butter" = 1)
+			bonus_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT*2)
+			modified = TRUE
+			faretype = FARE_FINE
+			eat_effect = /datum/status_effect/buff/foodbuff
+			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.2))
+			qdel(I)
+	if(istype(I, /obj/item/reagent_containers/food/snacks/spiderhoney))
+		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 50, TRUE, -1)
+		if(do_after(user, short_cooktime, src))
+			name = "honey syruped [name]"
+			desc = "[desc] A generous serving of honey has been poured on top."
+			add_overlay("griddlehoney")
+			tastes = list("honey" = 1)
+			bonus_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT*2)
+			modified = TRUE
+			faretype = FARE_FINE
+			eat_effect = /datum/status_effect/buff/foodbuff
+			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.2))
+			qdel(I)
+	else if(istype(I, /obj/item/reagent_containers/food/snacks/chocolate))
+		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 50, TRUE, -1)
+		if(do_after(user, short_cooktime, src))
+			name = "chocolate drizzled [name]"
+			desc = "[desc] Luxurious chocolate has been drizzled on top."
+			add_overlay("griddlechocolate")
+			tastes = list("chocolate" = 1)
+			bonus_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT*3)
+			modified = TRUE
+			faretype = FARE_LAVISH
+			eat_effect = /datum/status_effect/buff/foodbuff
+			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.2))
+			qdel(I)
