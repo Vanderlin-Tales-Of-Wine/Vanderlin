@@ -34361,9 +34361,6 @@
 	},
 /obj/effect/mapping_helpers/door/access/town/apothecary,
 /obj/effect/mapping_helpers/door/locker,
-/obj/structure/door{
-	name = "Apothecary"
-	},
 /obj/effect/mapping_helpers/door/locker,
 /obj/effect/mapping_helpers/door/access/town/bathhouse,
 /turf/open/floor/blocks/stonered/tiny,
