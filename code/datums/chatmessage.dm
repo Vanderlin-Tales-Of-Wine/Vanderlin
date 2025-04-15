@@ -12,8 +12,6 @@
 		var/_measurement = measurement; \
 		return_var = text2num(copytext(_measurement, findtextEx(_measurement, "x") + 1)); \
 	} while(FALSE);
-#define LAZYREMOVEASSOC(L, K, V) if(L) { if(L[K]) { L[K] -= V; if(!length(L[K])) L -= K; } if(!length(L)) L = null; }
-#define LAZYADDASSOC(L, K, V) if(!L) { L = list(); } L[K] += list(V);
 /**
  * # Chat Message Overlay
  *
@@ -183,7 +181,7 @@
 	message.maptext = complete_text
 
 	// View the message
-	LAZYADDASSOC(owned_by.seen_messages, message_loc, src)
+	LAZYADDASSOCLIST(owned_by.seen_messages, message_loc, src)
 	owned_by.images |= message
 	animate(message, alpha = 150, time = CHAT_MESSAGE_SPAWN_TIME)
 

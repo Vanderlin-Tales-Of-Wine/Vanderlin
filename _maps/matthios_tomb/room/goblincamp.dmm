@@ -19,11 +19,6 @@
 /mob/living/carbon/human/species/goblin/npc/cave,
 /turf/open/floor/grass/cold,
 /area/rogue/under/cavewet)
-"bW" = (
-/obj/structure/door/stone,
-/obj/effect/dungeon_directional_helper/north,
-/turf/open/floor/dirt,
-/area/rogue/under/cavewet)
 "cW" = (
 /obj/machinery/light/fueled/hearth,
 /obj/machinery/light/fueled/oven/east,
@@ -79,6 +74,11 @@
 /obj/item/reagent_containers/food/snacks/meat/salami,
 /turf/open/floor/grass/cold,
 /area/rogue/under/mountains)
+"mG" = (
+/obj/structure/door/stone,
+/obj/effect/dungeon_directional_helper/south,
+/turf/open/floor/dirt,
+/area/rogue/under/cavewet)
 "mV" = (
 /obj/structure/flora/newtree/snow,
 /turf/open/floor/grass/cold,
@@ -112,6 +112,11 @@
 "oN" = (
 /turf/open/floor/snow/patchy,
 /area/rogue/under/mountains)
+"oS" = (
+/obj/structure/door/stone,
+/obj/effect/dungeon_directional_helper/north,
+/turf/open/floor/dirt,
+/area/rogue/under/cavewet)
 "pE" = (
 /obj/machinery/light/fueled/firebowl,
 /turf/open/floor/dirt,
@@ -137,6 +142,10 @@
 /area/rogue/under/cavewet)
 "tl" = (
 /obj/effect/spawner/map_spawner/loot/magic,
+/turf/open/floor/dirt,
+/area/rogue/under/cavewet)
+"tB" = (
+/obj/structure/door/stone,
 /turf/open/floor/dirt,
 /area/rogue/under/cavewet)
 "tH" = (
@@ -203,10 +212,6 @@
 /turf/open/water/river{
 	dir = 8
 	},
-/area/rogue/under/cavewet)
-"Aq" = (
-/obj/structure/door/stone,
-/turf/open/floor/dirt,
 /area/rogue/under/cavewet)
 "AB" = (
 /mob/living/simple_animal/hostile/orc/spear2,
@@ -283,11 +288,6 @@
 	},
 /turf/open/floor/metal,
 /area/rogue/under/cavewet)
-"Mz" = (
-/obj/structure/door/stone,
-/obj/effect/dungeon_directional_helper/east,
-/turf/open/floor/dirt,
-/area/rogue/under/cavewet)
 "NI" = (
 /obj/structure/fluff/railing/wood,
 /obj/structure/fluff/railing/wood{
@@ -316,6 +316,24 @@
 "QA" = (
 /turf/closed/mineral/bedrock,
 /area/rogue/under/cavewet)
+"RP" = (
+/obj/effect/decal/cleanable/blood/drip,
+/obj/item/weapon/polearm/spear/billhook,
+/obj/item/clothing/head/crown/circlet/sleepless,
+/obj/effect/spawner/map_spawner/loot/coin/absurd,
+/obj/effect/spawner/map_spawner/loot/potion_vitals,
+/obj/effect/mapping_helpers/floor_clothing_equipper,
+/mob/living/carbon/human/species/goblin/npc{
+	base_constitution = 20;
+	base_endurance = 20;
+	base_intelligence = 20;
+	base_fortune = 20;
+	base_perception = 20;
+	base_speed = 20;
+	name = "Level 1 Goblin"
+	},
+/turf/open/floor/dirt,
+/area/rogue/under/cavewet)
 "RS" = (
 /obj/structure/closet/crate/chest/crate,
 /obj/item/reagent_containers/glass/bottle/waterskin,
@@ -329,6 +347,11 @@
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/snow,
 /area/rogue/under/mountains)
+"Sy" = (
+/obj/structure/door/stone,
+/obj/effect/dungeon_directional_helper/east,
+/turf/open/floor/dirt,
+/area/rogue/under/cavewet)
 "SA" = (
 /obj/structure/fluff/railing/wood{
 	dir = 8
@@ -364,11 +387,6 @@
 	},
 /turf/open/floor/snow,
 /area/rogue/under/mountains)
-"Vc" = (
-/obj/structure/door/stone,
-/obj/effect/dungeon_directional_helper/south,
-/turf/open/floor/dirt,
-/area/rogue/under/cavewet)
 "Vr" = (
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/grass/cold,
@@ -399,24 +417,6 @@
 /obj/machinery/light/fueled/firebowl,
 /turf/open/floor/snow,
 /area/rogue/under/mountains)
-"Yp" = (
-/obj/effect/decal/cleanable/blood/drip,
-/obj/item/weapon/polearm/spear/billhook,
-/obj/item/clothing/head/crown/circlet/sleepless,
-/obj/effect/spawner/map_spawner/loot/coin/absurd,
-/obj/effect/spawner/map_spawner/loot/potion_vitals,
-/obj/effect/mapping_helpers/floor_clothing_equipper,
-/mob/living/carbon/human/species/goblin/npc{
-	TOTALCON = 20;
-	TOTALEND = 20;
-	TOTALINT = 20;
-	TOTALLUC = 20;
-	TOTALPER = 20;
-	TOTALSPD = 20;
-	name = "Level 1 Goblin"
-	},
-/turf/open/floor/dirt,
-/area/rogue/under/cavewet)
 "YL" = (
 /obj/structure/stairs/stone{
 	dir = 1
@@ -848,7 +848,7 @@ xC
 QA
 "}
 (14,1,1) = {"
-bW
+oS
 Xp
 pE
 QA
@@ -877,7 +877,7 @@ QA
 QA
 xC
 Xp
-Vc
+mG
 "}
 (15,1,1) = {"
 QA
@@ -912,7 +912,7 @@ Xp
 QA
 "}
 (16,1,1) = {"
-Aq
+tB
 Xp
 Xp
 Xp
@@ -941,7 +941,7 @@ Xp
 Xp
 Xp
 Xp
-Aq
+tB
 "}
 (17,1,1) = {"
 QA
@@ -1214,7 +1214,7 @@ NX
 Hl
 Xp
 Xp
-Yp
+RP
 Xp
 xC
 Vr
@@ -1374,9 +1374,9 @@ QA
 QA
 QA
 QA
-Mz
+Sy
 QA
-Aq
+tB
 QA
 QA
 QA
