@@ -73,7 +73,7 @@
 		playsound(src.loc, 'sound/foley/zfall.ogg', 100, FALSE)
 	if(!isgroundlessturf(T))
 		ZImpactDamage(T, levels)
-		GLOB.vanderlin_round_stats["moat_fallers"]++
+		GLOB.vanderlin_round_stats[STATS_MOAT_FALLERS]++
 	return ..()
 
 /mob/living/proc/ZImpactDamage(turf/T, levels)
@@ -983,6 +983,7 @@
 		return
 	surrendering = 1
 	if(alert(src, "Yield in surrender?",,"YES","NO") == "YES")
+		GLOB.vanderlin_round_stats[STATS_YIELDS]++
 		changeNext_move(CLICK_CD_EXHAUSTED)
 		var/image/flaggy = image('icons/effects/effects.dmi',src,"surrender",ABOVE_MOB_LAYER)
 		flaggy.appearance_flags = RESET_TRANSFORM|KEEP_APART
@@ -1705,6 +1706,39 @@
 	if (client && ranged_ability && ranged_ability.ranged_mousepointer)
 		client.mouse_pointer_icon = ranged_ability.ranged_mousepointer
 
+/mob/living/vv_get_dropdown()
+	. = ..()
+	VV_DROPDOWN_OPTION("", "---------")
+	VV_DROPDOWN_OPTION(VV_HK_MODIFY_STATS, "Modify Stats")
+
+/mob/living/vv_do_topic(list/href_list)
+	. = ..()
+	if(href_list[VV_HK_MODIFY_STATS])
+		if(!check_rights(R_ADMIN))
+			return
+
+		switch(browser_alert(usr, "Add or remove?", "MODIFY STATS", list("ADD", "REMOVE")))
+			if("REMOVE")
+				if(!LAZYLEN(stat_modifiers))
+					return
+
+				var/source = browser_input_list(usr, "Source to Remove", "MODIFY STATS", stat_modifiers)
+				if(!source)
+					return
+
+				remove_stat_modifier(source)
+			if("ADD")
+				var/stat_key = browser_input_list(usr, "Stat to Add", "MODIFY STATS", MOBSTATS)
+				if(!stat_key)
+					return
+
+				var/amount = input(usr, "Stat amount", "MODIFY_STATS") as num|null
+				if(!amount)
+					return
+
+				set_stat_modifier(ADMIN_TRAIT, stat_key, amount)
+		return
+
 /mob/living/vv_edit_var(var_name, var_value)
 	switch(var_name)
 		if ("maxHealth")
@@ -2059,3 +2093,17 @@
 
 	SEND_SIGNAL(src, COMSIG_LIVING_UNFRIENDED, old_friend)
 	return TRUE
+/mob/living/proc/get_carry_capacity()
+	return max(45, STASTR * 12)
+
+///this is returned as decimal value between 0 and 1
+/mob/living/proc/get_encumbrance()
+	return 0
+
+/mob/living/proc/get_total_weight()
+	return 0
+
+/mob/living/proc/encumbrance_to_dodge()
+	return 1
+
+/mob/living/proc/encumbrance_to_speed()

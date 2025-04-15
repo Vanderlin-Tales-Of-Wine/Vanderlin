@@ -26,7 +26,7 @@
 				if(do_after(user, 5 SECONDS, src))
 					facial_hairstyle = "None"
 					update_hair()
-					GLOB.vanderlin_round_stats["beards_shaved"]++
+					GLOB.vanderlin_round_stats[STATS_BEARDS_SHAVED]++
 					if(dna?.species)
 						if(dna.species.id == "dwarf")
 							var/mob/living/carbon/V = src
@@ -88,8 +88,8 @@
 	var/obj/item/bodypart/affecting
 	var/dam = levels * rand(10,50)
 	V.add_stress(/datum/stressevent/felldown)
-	GLOB.vanderlin_round_stats["moat_fallers"]-- // If you get your ankles broken you fall. This makes sure only those that DIDN'T get damage get counted.
-	GLOB.vanderlin_round_stats["ankles_broken"]++
+	GLOB.vanderlin_round_stats[STATS_MOAT_FALLERS]-- // If you get your ankles broken you fall. This makes sure only those that DIDN'T get damage get counted.
+	GLOB.vanderlin_round_stats[STATS_ANKLES_BROKEN]++
 	var/chat_message
 	switch(rand(1,4))
 		if(1)

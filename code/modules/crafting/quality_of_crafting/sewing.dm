@@ -185,6 +185,12 @@
 	requirements = list(/obj/item/natural/fibers = 1, /obj/item/natural/cloth = 2)
 	craftdiff = 1
 
+/datum/repeatable_crafting_recipe/sewing/roguehood
+	name = "cloth hood"
+	requirements = list(/obj/item/natural/cloth = 1, /obj/item/natural/fibers = 1,)
+	output = /obj/item/clothing/head/roguehood/uncolored
+	craftdiff = 1
+
 /datum/repeatable_crafting_recipe/sewing/clothtrou
 	name = "cloth trousers"
 	output = /obj/item/clothing/pants/trou

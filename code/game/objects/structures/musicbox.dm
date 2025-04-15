@@ -58,7 +58,7 @@
 	mid_sounds = list()
 	mid_length = 18000 // This is 30 minutes- just in case something wierd happens.
 	volume = 50
-	extra_range = 6
+	extra_range = 12
 	falloff = 0
 	persistent_loop = TRUE
 	var/stress2give = /datum/stressevent/music

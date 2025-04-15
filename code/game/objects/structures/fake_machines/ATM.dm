@@ -1,6 +1,6 @@
 /obj/structure/fake_machine/atm
 	name = "MEISTER"
-	desc = "Stores and withdraws currency for accounts managed by the Kingdom of Vanderlin."
+	desc = "Stores and withdraws currency for accounts managed by the Kingdom."
 	icon = 'icons/roguetown/misc/machines.dmi'
 	icon_state = "atm"
 	density = FALSE
@@ -26,11 +26,11 @@
 			say("Your balance is NEGATIVE.")
 			return
 		var/list/choicez = list()
-		if(amt > 10)
+		if(amt >= 10)
 			choicez += "GOLD"
-		if(amt > 5)
+		if(amt >= 5)
 			choicez += "SILVER"
-		if(amt > 1) choicez += "BRONZE"
+		if(amt >= 1) choicez += "BRONZE"
 		var/selection = input(user, "Make a Selection", src) as null|anything in choicez
 		if(!selection)
 			return
@@ -88,7 +88,7 @@
 					var/T = round(P.get_real_price() * SStreasury.tax_value)
 					if(T != 0)
 						say("Your deposit was taxed [T] mammon.")
-						GLOB.vanderlin_round_stats["taxes_collected"] += T
+						GLOB.vanderlin_round_stats[STATS_TAXES_COLLECTED] += T
 				qdel(P)
 				playsound(src, 'sound/misc/coininsert.ogg', 100, FALSE, -1)
 				return
