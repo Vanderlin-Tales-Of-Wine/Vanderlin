@@ -515,8 +515,8 @@
 	water_reagent = /datum/reagent/water/gross/sewer
 
 /turf/open/water/swamp/Initialize()
-	.  = ..()
 	dir = pick(GLOB.cardinals)
+	. = ..()
 
 /turf/open/water/swamp/Entered(atom/movable/AM, atom/oldLoc)
 	. = ..()
