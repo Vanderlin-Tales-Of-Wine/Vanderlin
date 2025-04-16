@@ -48,33 +48,6 @@
 		H.change_stat(STATKEY_SPD, 1)
 		H.change_stat(STATKEY_END, 1)
 
-/datum/outfit/job/servant/pre_equip(mob/living/carbon/human/H)
-	..()
-	shoes = /obj/item/clothing/shoes/simpleshoes
-	pants = /obj/item/clothing/pants/tights/uncolored
-	shirt = /obj/item/clothing/shirt/undershirt/uncolored
-	belt = /obj/item/storage/belt/leather/rope
-	beltl = /obj/item/storage/belt/pouch/coins/poor
-	neck = /obj/item/key/manor
-	if(H.gender == MALE)
-		armor = /obj/item/clothing/armor/leather/vest/black
-	else
-		cloak = /obj/item/clothing/cloak/apron
-	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/butchering, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/farming, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/stealing, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/music, pick(0,1,1), TRUE)
-		H.change_stat(STATKEY_SPD, 1)
-		H.change_stat(STATKEY_END, 1)
-
 /datum/job/tapster
 	title = "Tapster"
 	f_title = "Alemaid"
