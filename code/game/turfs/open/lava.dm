@@ -216,6 +216,7 @@
 	light_power = 1
 	light_color = "#56ff0d"
 	immunity_resistance_flags = ACID_PROOF
+	immunity_trait = TRAIT_ACID_IMMUNE
 
 /turf/open/lava/acid/do_burn(atom/movable/burn_target, seconds_per_tick = 1)
 	if(QDELETED(burn_target))
