@@ -519,6 +519,6 @@
 		/obj/item/ash = 1,
 		/obj/item/reagent_containers/food/snacks/produce/jacksberry = 2,
 	)
-	starting_atom = /obj/item/ash
-	attacked_atom = /obj/item/reagent_containers/food/snacks/produce/jacksberry
+	starting_atom = /obj/item/reagent_containers/food/snacks/produce/jacksberry
+	attacked_atom = /obj/item/ash
 	uses_attacked_atom = TRUE
