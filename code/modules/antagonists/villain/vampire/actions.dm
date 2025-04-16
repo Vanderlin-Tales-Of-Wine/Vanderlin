@@ -88,11 +88,11 @@
 				break
 			L.drowsyness = min(L.drowsyness + 50, 150)
 			switch(L.drowsyness)
-				if(0 to 40)
+				if(0 to 45)
 					to_chat(L, "You feel like a curtain is coming over your mind.")
 					to_chat(user, "Their mind gives way slightly.")
 					L.Slowdown(20)
-				if(41 to 80)
+				if(45 to 90)
 					to_chat(L, "Your eyelids force themselves shut as you feel intense lethargy.")
 					to_chat(user, "They will not be able to resist much more.")
 					L.eyesclosed = TRUE
@@ -101,7 +101,7 @@
 						for(var/atom/movable/screen/eye_intent/eyet in L.hud_used.static_inventory)
 							eyet.update_icon(L)
 					L.Slowdown(50)
-				if(81 to INFINITY)
+				if(91 to INFINITY)
 					to_chat(L, span_userdanger("You can't take it anymore. Your legs give out as you fall into the dreamworld."))
 					to_chat(user, "They're mine now.")
 					L.eyesclosed = TRUE
