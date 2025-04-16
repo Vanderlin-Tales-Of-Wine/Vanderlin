@@ -66,6 +66,8 @@
 		var/datum/antagonist/vampire/VD = L.mind.has_antag_datum(/datum/antagonist/vampire)
 		if(VD)
 			return
+		if(L.cmode)
+			will_dice++
 		var/willpower = round(L.STAINT / int_divisor, 1)
 		var/willroll = roll(willpower, will_dice)
 		// If the vampire failed badly
@@ -127,7 +129,6 @@
 	releasedrain = 150
 	max_targets = 0
 	powerful = TRUE
-	blood_dice = 11
 
 /mob/living/carbon/human/proc/disguise_button()
 	set name = "Disguise"
