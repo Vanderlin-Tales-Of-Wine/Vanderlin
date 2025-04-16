@@ -92,8 +92,8 @@
 	influence_factors = list(
 		STATS_LAUGHS_MADE = list("points" = 0.275, "capacity" = 100),
 		STATS_GAMES_RIGGED = list("points" = 3, "capacity" = 30),
-		STATS_PEOPLE_MOCKED = list("points" = 4.5, "capacity" = 60),
-		STATS_CRITS_MADE = list("points" = 0.275, "capacity" = 85),
+		STATS_PEOPLE_MOCKED = list("points" = 5, "capacity" = 60),
+		STATS_CRITS_MADE = list("points" = 0.3, "capacity" = 85),
 		STATS_SONGS_PLAYED = list("points" = 1.25, "capacity" = 75),
 	)
 
@@ -119,7 +119,7 @@
 	)
 
 	influence_factors = list(
-		STATS_DEATHS = list("points" = 1.5, "capacity" = 115),
+		STATS_DEATHS = list("points" = 1.6, "capacity" = 115),
 		STATS_GRAVES_CONSECRATED = list("points" = 7, "capacity" = 100),
 		STATS_GRAVES_ROBBED = list("points" = -4, "capacity" = -60),
 		STATS_DEADITES_KILLED = list("points" = 7, "capacity" = 120),
@@ -143,7 +143,7 @@
 		STATS_WOUNDS_SEWED = list("points" = 0.6, "capacity" = 100),
 		STATS_SOULS_REINCARNATED = list("points" = 3, "capacity" = 60),
 		STATS_ANIMALS_BRED = list("points" = 6.5, "capacity" = 60),
-		STATS_FOOD_ROTTED = list("points" = 0.5, "capacity" = 80),
+		STATS_FOOD_ROTTED = list("points" = 0.4, "capacity" = 80),
 	)
 
 /datum/storyteller/malum
@@ -170,7 +170,7 @@
 		STATS_ROCKS_MINED = list("points" = 0.25, "capacity" = 100),
 		STATS_CRAFT_SKILLS = list("points" = 0.6, "capacity" = 90),
 		STATS_BEARDS_SHAVED = list("points" = -5, "capacity" = -50),
-		STATS_BLACKSTEEL_SMELTED = list("points" = 7, "capacity" = 75),
+		STATS_BLACKSTEEL_SMELTED = list("points" = 6, "capacity" = 70),
 	)
 
 /datum/storyteller/eora
@@ -194,8 +194,8 @@
 	)
 
 	influence_factors = list(
-		STATS_PARENTS = list("points" = 7.5, "capacity" = 85),
-		STATS_MARRIAGES = list("points" = 20, "capacity" = 95),
+		STATS_PARENTS = list("points" = 7.5, "capacity" = 90),
+		STATS_MARRIAGES = list("points" = 20, "capacity" = 90),
 		STATS_HUGS_MADE = list("points" = 1.5, "capacity" = 70),
 		STATS_CLINGY_PEOPLE = list("points" = 5, "capacity" = 70),
 		STATS_PACIFISTS = list("points" = 10, "capacity" = 80),
@@ -290,11 +290,11 @@
 	)
 
 	influence_factors = list(
-		STATS_DRUGS_SNORTED = list("points" = 4.5, "capacity" = 90),
-		STATS_ALCOHOL_CONSUMED = list("points" = 0.05, "capacity" = 100),
+		STATS_DRUGS_SNORTED = list("points" = 4.5, "capacity" = 80),
+		STATS_ALCOHOL_CONSUMED = list("points" = 0.045, "capacity" = 90),
 		STATS_ALCOHOLICS = list("points" = 4, "capacity" = 60),
-		STATS_JUNKIES = list("points" = 8, "capacity" = 70),
-		STATS_LUXURIOUS_FOOD_EATEN = list("points" = 0.75, "capacity" = 80),
+		STATS_JUNKIES = list("points" = 7, "capacity" = 70),
+		STATS_LUXURIOUS_FOOD_EATEN = list("points" = 0.65, "capacity" = 80),
 	)
 
 	cost_variance = 30  // Makes events more erratic in timing
@@ -323,7 +323,7 @@
 	)
 
 	influence_factors = list(
-		STATS_BLOOD_SPILT = list("points" = 0.00025, "capacity" = 100),
+		STATS_BLOOD_SPILT = list("points" = 0.0003, "capacity" = 90),
 		STATS_ORGANS_EATEN = list("points" = 4, "capacity" = 80),
 		STATS_LIMBS_BITTEN = list("points" = 1.5, "capacity" = 70),
 		STATS_PEOPLE_GIBBED = list("points" = 3, "capacity" = 50),
