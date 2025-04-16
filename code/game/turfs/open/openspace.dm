@@ -28,16 +28,7 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 	var/can_cover_up = TRUE
 	var/can_build_on = TRUE
 	dynamic_lighting = 1
-	smoothing_flags = NONE
 	turf_flags = NONE
-
-/turf/open/transparent/openspace/edge_cardinal_smooth(adjacencies)
-	var/list/Yeah = ..()
-	for(var/O in Yeah)
-		var/mutable_appearance/M = mutable_appearance(icon, O)
-		M.layer = SPLASHSCREEN_LAYER + 0.01
-		M.plane = OPENSPACE_BACKDROP_PLANE + 0.01
-		add_overlay(M)
 
 /turf/open/transparent/openspace/debug/update_multiz()
 	..()
