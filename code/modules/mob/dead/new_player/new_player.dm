@@ -454,7 +454,7 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 				if (GARRISON)
 					cat_name = "Garrison"
 				if (SERFS)
-					cat_name = "Tradesmen"
+					cat_name = "Yeomanry"
 				if (CHURCHMEN)
 					cat_name = "Churchmen"
 				if (COMPANY)
