@@ -116,7 +116,7 @@
 		if(headdy)
 			headdy.icon = 'icons/roguetown/mob/monster/zizombie.dmi'
 			headdy.icon_state = "[src.dna.species.id]_head"
-			headdy.headprice = 10
+			headdy.headprice = 7
 	src.grant_language(/datum/language/common)
 	var/obj/item/organ/eyes/eyes = src.getorganslot(ORGAN_SLOT_EYES)
 	if(eyes)
