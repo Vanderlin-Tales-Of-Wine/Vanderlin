@@ -71,6 +71,8 @@
 	var/color_theme
 	/// How many times has this storyteller been chosen to lead the round
 	var/times_chosen = 0
+	/// Bonus points to the storyteller total influence
+	var/bonus_points = 0
 
 /datum/storyteller/process()
 	if(!round_started || disable_distribution) // we are differing roundstarted ones until base roundstart so we can get cooler stuff

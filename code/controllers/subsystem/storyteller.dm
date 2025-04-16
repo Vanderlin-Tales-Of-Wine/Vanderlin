@@ -1051,19 +1051,37 @@ SUBSYSTEM_DEF(gamemode)
 	refresh_alive_stats(roundstart)
 	var/list/storytellers_with_influence = list()
 	var/datum/storyteller/highest
-	for(var/datum/storyteller/initalized_storyteller as anything in storytellers)
-		storytellers_with_influence[initalized_storyteller] = calculate_storyteller_influence(initalized_storyteller.type)
+	var/datum/storyteller/lowest
+
+	for(var/storyteller_type in storytellers)
+		var/datum/storyteller/initialized_storyteller = storytellers[storyteller_type]
+		var/influence = calculate_storyteller_influence(storyteller_type)
+		storytellers_with_influence[initialized_storyteller] = influence
+
 		if(!highest)
-			highest = initalized_storyteller
+			highest = initialized_storyteller
+			lowest = initialized_storyteller
 			continue
-		if(storytellers_with_influence[initalized_storyteller] < storytellers_with_influence[highest])
-			continue
-		if(storytellers_with_influence[initalized_storyteller] == storytellers_with_influence[highest] && prob(50))
-			continue
-		highest = initalized_storyteller
+
+		if(influence > storytellers_with_influence[highest])
+			highest = initialized_storyteller
+		else if(influence == storytellers_with_influence[highest] && prob(50))
+			highest = initialized_storyteller
+
+		if(influence < storytellers_with_influence[lowest])
+			lowest = initialized_storyteller
+		else if(influence == storytellers_with_influence[lowest] && prob(50))
+			lowest = initialized_storyteller
+
 	if(!highest)
 		return
-	set_storyteller(highest)
+
+	if(storytellers_with_influence[highest] > 1)
+		highest.bonus_points -= 1
+
+	lowest.bonus_points += 1
+
+	set_storyteller(highest.type)
 
 /// Refreshes statistics regarding alive statuses of certain professions or antags, like nobles
 /datum/controller/subsystem/gamemode/proc/refresh_alive_stats(roundstart = FALSE)
@@ -1156,13 +1174,16 @@ SUBSYSTEM_DEF(gamemode)
 
 /// Return total influence of the storyteller, which includes all his statistics and number of their followers
 /datum/controller/subsystem/gamemode/proc/calculate_storyteller_influence(datum/storyteller/chosen_storyteller)
-	var/datum/storyteller/initalized_storyteller = storytellers[chosen_storyteller]
-	if(!initalized_storyteller)
+	var/datum/storyteller/initialized_storyteller = storytellers[chosen_storyteller]
+	if(!initialized_storyteller)
 		return
 
-	var/total_influence = GLOB.patron_follower_counts[initalized_storyteller.name] * initalized_storyteller.follower_modifier
-	for(var/influence_factor in initalized_storyteller.influence_factors)
+	var/total_influence = GLOB.patron_follower_counts[initialized_storyteller.name] * initialized_storyteller.follower_modifier
+	for(var/influence_factor in initialized_storyteller.influence_factors)
 		total_influence += calculate_specific_influence(chosen_storyteller, influence_factor)
+
+	total_influence += initialized_storyteller.bonus_points
+
 	return total_influence
 
 #undef DEFAULT_STORYTELLER_VOTE_OPTIONS

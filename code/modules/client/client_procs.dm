@@ -564,12 +564,20 @@ GLOBAL_LIST_EMPTY(respawncounts)
 /// UI block to format information about storyteller god and his influences
 /proc/god_ui_block(name, bg_color, title_color, content, datum/storyteller/storyteller)
 	var/total_influence = SSgamemode.calculate_storyteller_influence(storyteller)
+	var/datum/storyteller/initialized_storyteller = SSgamemode.storytellers[storyteller]
+
+	var/suffix = initialized_storyteller.bonus_points >= 0 ? "from short reign" : "from long reign"
+	var/bonus_display = "<div>([get_colored_influence_value(initialized_storyteller.bonus_points)] [suffix])</div>"
+
 	return {"
-	<div style='border:6px solid [bg_color]; background:[bg_color]; border-radius:6px; height:100%;'>
+	<div style='border:6px solid [bg_color]; background:[bg_color]; border-radius:6px; height:100%';>
 		<div style='font-weight:bold; font-size:1.2em; padding:8px; color:[title_color]'>[name]</div>
 		<div style='padding:8px; background:#111; border-radius:0 0 4px 4px;'>
 			<div style='margin-bottom:8px;'>[content]</div>
-			<div style='border-top:1px solid #444; padding-top:6px;'>Total Influence: [get_colored_influence_value(total_influence)]</div>
+			<div style='border-top:1px solid #444; padding-top:6px;'>
+				<div>Total Influence: [get_colored_influence_value(total_influence)]</div>
+				[bonus_display]
+			</div>
 		</div>
 	</div>
 	"}
