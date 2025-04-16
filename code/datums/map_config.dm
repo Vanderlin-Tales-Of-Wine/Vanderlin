@@ -3,6 +3,13 @@
 //defaults to box
 //  -Cyberboss
 
+///Default travel maps loaded if no travel maps are specified. If other maps are specified, should be a list of paths in .json. Turned off with "disabled"
+#define OTHER_Z_DEFAULT_LIST list("map_files/roguetown/smallforest.json", "map_files/roguetown/smalldecap.json", "map_files/roguetown/smallswamp.json")
+///Default underworld loaded in. Other maps can be specified in .json with a path or turned off with "disabled"
+#define UNDERWORLD_DEFAULT_PATH "map_files/shared/underworld.json"
+///Default dungeon loaded in. Other maps can be specified in .json with a path or turned off with "disabled"
+#define DUNGEON_DEFAULT_PATH "map_files/shared/dungeon.json"
+
 /datum/map_config
 	// Metadata
 	var/config_filename = "_maps/vanderlin.json"
@@ -17,15 +24,17 @@
 	var/map_name = "Vanderlin"
 	var/map_path = "map_files/vanderlin"
 	var/map_file = "vanderlin.dmm"
+	var/custom_area_sound = null
+	var/list/other_z = null //We do not want to initialize the list here. No reason to keep it in memory.
+	var/underworld_z = UNDERWORLD_DEFAULT_PATH
+	var/dungeon_z = DUNGEON_DEFAULT_PATH
 
 	var/traits = null
 	var/space_ruin_levels = 7
 	var/space_empty_levels = 1
 
-	var/custom_area_sound = null
-	var/list/other_z
-
 /proc/load_map_config(filename = "data/next_map.json", default_to_van, delete_after, error_if_missing = TRUE)
+	testing("loading map config [filename]")
 	var/datum/map_config/config = new
 	if (default_to_van)
 		return config
@@ -83,6 +92,42 @@
 		log_world("map_file missing from json!")
 		return
 
+	var/temp = json["other_z"]
+	if(islist(temp))
+		var/list/final_z
+		for(var/map_path in temp)
+			if(!fexists("_maps/[map_path]")) //fexists might be better here since the file is not being manipulated/outputted.
+				stack_trace("Tried to add [map_path] z-level that does not exist. Skipping.")
+				continue
+			if(map_path in final_z)
+				stack_trace("Tried to add [map_path] z-level, which is already added. Skipping.")
+				continue
+			LAZYOR(final_z, map_path)
+		other_z = final_z //It should be either a populated list or null. nulled entries should not be possible.
+	else //Not a list. It either doesn't exist as a definition or is disabled.
+		if(temp != "disabled") //If we didn't manually disable this, defaults to Roguetown travel maps.
+			other_z = OTHER_Z_DEFAULT_LIST
+
+	temp = json["underworld_z"]
+	if(istext(temp)) //We only care about this if it changed.
+		if(temp != "disabled")
+			if(!fexists("_maps/[temp]"))
+				stack_trace("The underworld [temp] z-level does not exist. Running default.")
+			else
+				underworld_z = temp
+		else //If we disabled it.
+			underworld_z = null
+
+	temp = json["dungeon_z"]
+	if(istext(temp))
+		if(temp != "disabled")
+			if(!fexists("_maps/[temp]"))
+				stack_trace("The dungeon [temp] z-level does not exist. Running default.")
+			else
+				dungeon_z = temp
+		else //If we disabled it.
+			dungeon_z = null
+
 	traits = json["traits"]
 	// "traits": [{"Linkage": "Cross"}, {"Space Ruins": true}]
 	if (islist(traits))
@@ -96,7 +141,7 @@
 		log_world("map_config traits is not a list!")
 		return
 
-	var/temp = json["space_ruin_levels"]
+	temp = json["space_ruin_levels"]
 	if (isnum(temp))
 		space_ruin_levels = temp
 	else if (!isnull(temp))
@@ -123,20 +168,6 @@
 	else if (!isnull(soundTemp))
 		log_world("map_config custom_area_sound is not a string!")
 		return
-
-	var/list/other_z = json["other_z"]
-	var/list/final_z
-	for(var/map_path in other_z)
-		var/map_file = file(map_path)
-		if(!map_file)
-			stack_trace("tried to load another z-level that didn't exist")
-			continue
-		if(map_path in final_z)
-			stack_trace("tried to add two of the same z-level")
-			continue
-		LAZYOR(final_z, map_path)
-
-	src.other_z = final_z
 	defaulted = FALSE
 	return TRUE
 #undef CHECK_EXISTS
@@ -150,3 +181,7 @@
 
 /datum/map_config/proc/MakeNextMap()
 	return config_filename == "data/next_map.json" || fcopy(config_filename, "data/next_map.json")
+
+#undef OTHER_Z_DEFAULT_LIST
+#undef UNDERWORLD_DEFAULT_PATH
+#undef DUNGEON_DEFAULT_PATH
