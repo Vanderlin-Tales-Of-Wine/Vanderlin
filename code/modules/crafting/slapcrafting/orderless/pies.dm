@@ -161,19 +161,3 @@
 	finished_cooked_smell = /datum/pollutant/food/meat_pie
 	finished_filling_color = "#b44f44"
 	superior_cooked_type = /obj/item/reagent_containers/food/snacks/pie/cooked/meat/meat/good
-
-
-
-/*	.................   Cheap dye crafting   ................... */
-/datum/orderless_slapcraft/cheapdye
-	recipe_name = "Cheap dyes"
-	starting_item = /obj/item/ash
-	related_skill = /datum/skill/misc/sewing
-	skill_xp_gained = 2
-	requirements = list(
-		list(
-			/obj/item/reagent_containers/food/snacks/produce/jacksberry/poison,
-			/obj/item/reagent_containers/food/snacks/produce/jacksberry,
-			/obj/item/reagent_containers/food/snacks/produce/swampweed) = 2
-	)
-	output_item = /obj/item/dye_pack/cheap

@@ -511,3 +511,14 @@
 	attacked_atom = /obj/item/natural/cloth
 	uses_attacked_atom = TRUE
 	subtypes_allowed = TRUE
+
+/datum/repeatable_crafting_recipe/crafting/cheapdye
+	name = "cheap dyes"
+	output = /obj/item/dye_pack/cheap
+	requirements = list(
+		/obj/item/ash = 1,
+		/obj/item/reagent_containers/food/snacks/produce/jacksberry = 2,
+	)
+	starting_atom = /obj/item/ash
+	attacked_atom = /obj/item/reagent_containers/food/snacks/produce/jacksberry
+	uses_attacked_atom = TRUE
