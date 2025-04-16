@@ -97,9 +97,9 @@
 	attack_verb_simple = "headbutt"
 	melee_damage_lower = 8
 	melee_damage_upper = 12
-	TOTALSPD = 4
-	TOTALCON = 4
-	TOTALSTR = 4
+	base_speed = 4
+	base_constitution = 4
+	base_strength = 4
 	buckle_lying = FALSE
 	childtype = list(/mob/living/simple_animal/hostile/retaliate/goat/goatlet = 90, /mob/living/simple_animal/hostile/retaliate/goat/goatlet/boy = 10)
 	can_buckle = TRUE
@@ -212,9 +212,9 @@
 	melee_damage_upper = 22
 	retreat_distance = 0
 	minimum_distance = 0
-	TOTALCON = 7
-	TOTALSTR = 12
-	TOTALSPD = 2
+	base_constitution = 7
+	base_strength = 12
+	base_speed = 2
 
 	can_buckle = TRUE
 	buckle_lying = FALSE
@@ -359,9 +359,9 @@
 	base_intents = list(/datum/intent/simple/headbutt)
 	melee_damage_lower = 1
 	melee_damage_upper = 6
-	TOTALCON = 5
-	TOTALSTR = 5
-	TOTALSPD = 5
+	base_constitution = 5
+	base_strength = 5
+	base_speed = 5
 	defprob = 50
 
 	adult_growth = /mob/living/simple_animal/hostile/retaliate/goat

@@ -742,6 +742,7 @@
 #include "code\datums\gods\patrons\divine_pantheon.dm"
 #include "code\datums\gods\patrons\forgotten.dm"
 #include "code\datums\gods\patrons\inhumen_pantheon.dm"
+#include "code\datums\gods\patrons\patrons_blessings.dm"
 #include "code\datums\helper_datums\events.dm"
 #include "code\datums\helper_datums\getrev.dm"
 #include "code\datums\helper_datums\icon_snapshot.dm"

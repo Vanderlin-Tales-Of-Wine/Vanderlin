@@ -652,7 +652,7 @@
 			final_y = coordinate_y+current_y
 			calculated_coordinates = "[final_x],[final_y]"
 			testing("handle_item_insertion SUCCESS calculated_coordinates: ([calculated_coordinates])")
-			LAZYADDASSOC(grid_coordinates_to_item, calculated_coordinates, storing)
+			LAZYADDASSOCLIST(grid_coordinates_to_item, calculated_coordinates, storing)
 			LAZYINITLIST(item_to_grid_coordinates)
 			LAZYINITLIST(item_to_grid_coordinates[storing])
 			LAZYADD(item_to_grid_coordinates[storing], calculated_coordinates)
