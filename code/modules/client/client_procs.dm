@@ -565,6 +565,8 @@ GLOBAL_LIST_EMPTY(respawncounts)
 /proc/god_ui_block(name, bg_color, title_color, content, datum/storyteller/storyteller)
 	var/total_influence = SSgamemode.calculate_storyteller_influence(storyteller)
 	var/datum/storyteller/initialized_storyteller = SSgamemode.storytellers[storyteller]
+	if(!initialized_storyteller)
+		return
 
 	var/suffix = initialized_storyteller.bonus_points >= 0 ? "from short reign" : "from long reign"
 	var/bonus_display = "<div>([get_colored_influence_value(initialized_storyteller.bonus_points)] [suffix])</div>"

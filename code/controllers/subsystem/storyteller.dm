@@ -1055,6 +1055,8 @@ SUBSYSTEM_DEF(gamemode)
 
 	for(var/storyteller_type in storytellers)
 		var/datum/storyteller/initialized_storyteller = storytellers[storyteller_type]
+		if(!initialized_storyteller)
+			continue
 		var/influence = calculate_storyteller_influence(storyteller_type)
 		storytellers_with_influence[initialized_storyteller] = influence
 
