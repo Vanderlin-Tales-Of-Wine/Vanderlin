@@ -387,6 +387,8 @@
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "pestle"
 	force = 7
+	grid_height = 64
+	grid_width = 32
 
 /obj/item/reagent_containers/glass/mortar
 	name = "mortar"
