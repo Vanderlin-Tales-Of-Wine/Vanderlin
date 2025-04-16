@@ -69,6 +69,8 @@
 	var/follower_modifier = STANDARD_FOLLOWER_MODIFIER
 	/// Thematic color of the storyteller, used in statistics menu
 	var/color_theme
+	/// How many times has this storyteller been chosen to lead the round
+	var/times_chosen = 0
 
 /datum/storyteller/process()
 	if(!round_started || disable_distribution) // we are differing roundstarted ones until base roundstart so we can get cooler stuff

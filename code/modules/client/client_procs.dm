@@ -208,34 +208,57 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		font-size: 0.9em;'>INFLUENCES</a>"
 	data += "</div>"
 
-	// Most influential deity section
+	// Influential deities section
 	var/max_influence = -INFINITY
+	var/max_chosen = 0
 	var/datum/storyteller/most_influential
+	var/datum/storyteller/most_frequent
+
 	for(var/storyteller_name in SSgamemode.storytellers)
-		var/datum/storyteller/initalized_storyteller = SSgamemode.storytellers[storyteller_name]
-		if(!initalized_storyteller)
+		var/datum/storyteller/initialized_storyteller = SSgamemode.storytellers[storyteller_name]
+		if(!initialized_storyteller)
 			continue
-		var/influence = SSgamemode.calculate_storyteller_influence(initalized_storyteller.type)
+
+		var/influence = SSgamemode.calculate_storyteller_influence(initialized_storyteller.type)
 		if(influence > max_influence)
 			max_influence = influence
-			most_influential = initalized_storyteller
+			most_influential = initialized_storyteller
+
+		if(initialized_storyteller.times_chosen > max_chosen)
+			max_chosen = initialized_storyteller.times_chosen
+			most_frequent = initialized_storyteller
+		else if(initialized_storyteller.times_chosen == max_chosen)
+			if(!most_frequent || influence > SSgamemode.calculate_storyteller_influence(most_frequent.type))
+				most_frequent = initialized_storyteller
+			else if(influence == SSgamemode.calculate_storyteller_influence(most_frequent.type) && prob(50))
+				most_frequent = initialized_storyteller
 
 	data += "<div style='text-align: center; margin: 25px 0 20px 0;'>"
 
-	if(most_influential && max_influence > 0)
-		data += "<div style='font-size: 1.2em; font-weight: bold; margin-bottom: 12px;'>"
-		data += "The most influential deity is <span style='color: [most_influential.color_theme];'>[most_influential.name]</span>"
-		data += "</div>"
-	else
+	if(max_influence <= 0 && max_chosen <= 0)
 		data += "<div style='font-size: 1.2em; font-weight: bold; margin-bottom: 12px;'>"
 		data += "No <span style='color: #bd1717;'>Gods</span>, No <span style='color: #bd1717;'>Masters</span>"
 		data += "</div>"
+	else
+		if(most_influential == most_frequent && max_influence > 0)
+			data += "<div style='font-size: 1.2em; font-weight: bold; margin-bottom: 12px;'>"
+			data += "The most dominant God was <span style='color:[most_influential.color_theme];'>[most_influential.name]</span>"
+			data += "</div>"
+		else
+			if(max_influence > 0)
+				data += "<div style='font-size: 1.2em; font-weight: bold; margin-bottom: 12px;'>"
+				data += "The most influential God is <span style='color:[most_influential.color_theme];'>[most_influential.name]</span>"
+				data += "</div>"
+			if(max_chosen > 0)
+				data += "<div style='font-size: 1.2em; font-weight: bold; margin-bottom: 12px;'>"
+				data += "The longest reigning God was <span style='color:[most_frequent.color_theme];'>[most_frequent.name]</span>"
+				data += "</div>"
 
-	data += "<div style='border-top: 1.5px solid #444; margin: 12.5px auto 22.5px auto; width: 80%;'></div>"
+	data += "<div style='border-top: 1.5px solid #444; margin: 15px auto 20px auto; width: 80%;'></div>"
 	data += "</div>"
 
 	// Main content container
-	data += "<div style='width: 100%; margin: 25px auto 0; padding: 0 5%; box-sizing: border-box;'>"
+	data += "<div style='width: 100%; margin: 22.5px auto 0; padding: 0 5%; box-sizing: border-box;'>"
 
 	// Columns container
 	data += "<div style='display: table; margin: 0 auto;'>"
@@ -272,7 +295,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	data += "</div></div></div>"
 
 	// Confessions section
-	data += "<div style='text-align: center; margin: 22.5px auto 17.5px auto; padding: 15px 0; border-top: 1.5px solid #444; width: 80%; max-width: 800px;'>"
+	data += "<div style='text-align: center; margin: 17.5px auto 17.5px auto; padding: 15px 0; border-top: 1.5px solid #444; width: 80%; max-width: 800px;'>"
 	if(GLOB.confessors.len)
 		data += "<font color='#93cac7'><span class='bold'>Confessions:</span></font> "
 		for(var/x in GLOB.confessors)
@@ -282,7 +305,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	data += "</div>"
 
 	src.mob << browse(null, "window=vanderlin_influences")
-	var/datum/browser/popup = new(src.mob, "vanderlin_stats", "<center>End Round Statistics</center>", 460, 630)
+	var/datum/browser/popup = new(src.mob, "vanderlin_stats", "<center>End Round Statistics</center>", 465, 650)
 	popup.set_content(data.Join())
 	popup.open()
 

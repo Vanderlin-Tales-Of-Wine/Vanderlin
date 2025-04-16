@@ -42,8 +42,8 @@
 	)
 
 	influence_factors = list(
-		STATS_COMBAT_SKILLS = list("points" = 0.6, "capacity" = 90),
-		STATS_PARRIES = list("points" = 0.060, "capacity" = 90),
+		STATS_COMBAT_SKILLS = list("points" = 0.5, "capacity" = 90),
+		STATS_PARRIES = list("points" = 0.055, "capacity" = 90),
 		STATS_WARCRIES = list("points" = 0.35, "capacity" = 50),
 		STATS_YIELDS = list("points" = -5, "capacity" = -40),
 		STATS_UNDERWORLD_DUELS = list("points" = 4, "capacity" = 60),
@@ -141,7 +141,7 @@
 	influence_factors = list(
 		STATS_POTIONS_BREWED = list("points" = 5, "capacity" = 70),
 		STATS_WOUNDS_SEWED = list("points" = 0.6, "capacity" = 100),
-		STATS_SOULS_REINCARNATED = list("points" = 2.5, "capacity" = 60),
+		STATS_SOULS_REINCARNATED = list("points" = 3, "capacity" = 60),
 		STATS_ANIMALS_BRED = list("points" = 6.5, "capacity" = 60),
 		STATS_FOOD_ROTTED = list("points" = 0.5, "capacity" = 80),
 	)
@@ -359,7 +359,7 @@
 		STATS_ITEMS_PICKPOCKETED = list("points" = 6.5, "capacity" = 100),
 		STATS_SHRINE_VALUE = list("points" = 0.2, "capacity" = 90),
 		STATS_GREEDY_PEOPLE = list("points" = 7, "capacity" = 70),
-		STATS_DODGES = list("points" = 0.1, "capacity" = 80),
+		STATS_DODGES = list("points" = 0.09, "capacity" = 80),
 		STATS_LOCKS_PICKED = list("points" = 5, "capacity" = 90),
 	)
 
