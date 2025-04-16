@@ -47,8 +47,8 @@ GLOBAL_LIST_INIT(serf_positions, list(
 	/datum/job/artificer::title,
 	/datum/job/matron::title,
 	/datum/job/physicker::title,
-	/datum/job/scribe::title,
 	/datum/job/gaffer::title,
+	/datum/job/butler::title,
 	))
 GLOBAL_PROTECT(serf_positions)
 
@@ -62,7 +62,6 @@ GLOBAL_LIST_INIT(peasant_positions, list(
 	/datum/job/hunter::title,
 	/datum/job/fisher::title,
 	/datum/job/cheesemaker::title,
-	/datum/job/butler::title,
 	/datum/job/bard::title,
 	/datum/job/prisoner::title,
 	/datum/job/vagrant::title,
