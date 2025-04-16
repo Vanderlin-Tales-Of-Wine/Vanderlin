@@ -92,8 +92,8 @@
 
 
 /atom/movable/calculate_adjacencies()
-	if(can_be_unanchored && !anchored)
-		return NONE
+	// if(can_be_unanchored && !anchored)
+	// 	return NONE
 	return ..()
 
 
@@ -107,6 +107,9 @@
 			corners_diagonal_smooth(calculate_adjacencies())
 		else
 			corners_cardinal_smooth(calculate_adjacencies())
+
+/turf/smooth_icon()
+	. = ..()
 	if(smoothing_flags & SMOOTH_EDGE)
 		edge_cardinal_smooth(calculate_adjacencies())
 
@@ -249,16 +252,17 @@
 
 /turf/proc/edge_cardinal_smooth(adjacencies)
 	var/list/New
+	var/turf/used
 	var/holder
 
 	for(var/A in neighborlay_list)
 		cut_overlay("[A]")
 		neighborlay_list -= A
-	var/usedturf
+
 	if(adjacencies & N_NORTH)
-		usedturf = get_step(src, NORTH)
-		if(isturf(usedturf))
-			var/turf/T = usedturf
+		used = get_step(src, NORTH)
+		if(isturf(used) && (type != used.type))
+			var/turf/T = used
 			if(neighborlay_override)
 				holder = "[neighborlay_override]-n"
 				LAZYADD(New, holder)
@@ -268,9 +272,9 @@
 				LAZYADD(New, holder)
 				neighborlay_list += holder
 	if(adjacencies & N_SOUTH)
-		usedturf = get_step(src, SOUTH)
-		if(isturf(usedturf))
-			var/turf/T = usedturf
+		used = get_step(src, SOUTH)
+		if(isturf(used) && (type != used.type))
+			var/turf/T = used
 			if(neighborlay_override)
 				holder = "[neighborlay_override]-s"
 				LAZYADD(New, holder)
@@ -280,9 +284,9 @@
 				LAZYADD(New, holder)
 				neighborlay_list += holder
 	if(adjacencies & N_WEST)
-		usedturf = get_step(src, WEST)
-		if(isturf(usedturf))
-			var/turf/T = usedturf
+		used = get_step(src, WEST)
+		if(isturf(used) && (type != used.type))
+			var/turf/T = used
 			if(neighborlay_override)
 				holder = "[neighborlay_override]-w"
 				LAZYADD(New, holder)
@@ -292,9 +296,9 @@
 				LAZYADD(New, holder)
 				neighborlay_list += holder
 	if(adjacencies & N_EAST)
-		usedturf = get_step(src, EAST)
-		if(isturf(usedturf))
-			var/turf/T = usedturf
+		used = get_step(src, EAST)
+		if(isturf(used) && (type != used.type))
+			var/turf/T = used
 			if(neighborlay_override)
 				holder = "[neighborlay_override]-e"
 				LAZYADD(New, holder)

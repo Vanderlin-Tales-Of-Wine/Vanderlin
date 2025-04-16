@@ -30,8 +30,6 @@
 	var/bullet_sizzle = FALSE //used by ammo_casing/bounce_away() to determine if the shell casing should make a sizzle sound when it's ejected over the turf
 							//IE if the turf is supposed to be water, set TRUE.
 
-	var/tiled_dirt = FALSE // use smooth tiled dirt decal
-
 	var/turf_integrity	//defaults to max_integrity
 	var/max_integrity = 500
 	var/integrity_failure = 0 //0 if we have no special broken behavior, otherwise is a percentage of at what point the obj breaks. 0.5 being 50%

@@ -26,8 +26,8 @@
 	bullet_sizzle = TRUE
 	bullet_bounce_sound = null //needs a splashing sound one day.
 	smoothing_flags = SMOOTH_EDGE | SMOOTH_BORDER
-	smoothing_groups = list(SMOOTH_GROUP_OPEN, SMOOTHGROUP_CLOSED)
-	canSmoothWith = list(SMOOTH_GROUP_OPEN, SMOOTHGROUP_CLOSED)
+	smoothing_groups = list(SMOOTH_GROUP_OPEN_FLOOR, SMOOTH_GROUP_CLOSED)
+	canSmoothWith = list(SMOOTH_GROUP_OPEN_FLOOR, SMOOTH_GROUP_CLOSED)
 	neighborlay_override = "edge"
 	footstep = null
 	barefootstep = null

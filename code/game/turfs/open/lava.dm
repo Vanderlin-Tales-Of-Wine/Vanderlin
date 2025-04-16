@@ -18,7 +18,8 @@
 	clawfootstep = FOOTSTEP_LAVA
 	heavyfootstep = FOOTSTEP_LAVA
 	smoothing_flags = SMOOTH_EDGE
-	canSmoothWith = list(/turf/closed, /turf/open/floor/volcanic, /turf/open/floor/dirt, /turf/open/floor/dirt/road,/turf/open/floor/naturalstone)
+	smoothing_groups = list(SMOOTH_GROUP_OPEN_FLOOR, SMOOTH_GROUP_DIRT, SMOOTH_GROUP_STONE_FLOOR)
+	canSmoothWith = list(SMOOTH_GROUP_DIRT, SMOOTH_GROUP_STONE_FLOOR)
 	neighborlay_override = "lavedge"
 	turf_flags = NONE
 	var/flow = FALSE
@@ -162,7 +163,7 @@
 	icon = 'icons/turf/floors/lava.dmi'
 	icon_state = "unsmooth"
 	smoothing_flags = SMOOTH_CORNERS | SMOOTH_BORDER
-	canSmoothWith = list(/turf/open/lava/smooth)
+	canSmoothWith = list(SMOOTH_GROUP_FLOOR_LAVA)
 
 /turf/open/lava/acid
 	name = "acid"

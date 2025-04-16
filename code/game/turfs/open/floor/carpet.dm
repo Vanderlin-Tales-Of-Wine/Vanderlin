@@ -3,16 +3,12 @@
 	landsound = 'sound/foley/jumpland/carpetland.wav'
 	icon = 'icons/turf/floors/inn.dmi'
 	icon_state = "carpet"
-	smoothing_flags = NONE
-	smoothing_groups = null
-	canSmoothWith = null
 	flags_1 = NONE
 	bullet_bounce_sound = null
 	footstep = FOOTSTEP_CARPET
 	barefootstep = FOOTSTEP_SOFT_BAREFOOT
 	clawfootstep = FOOTSTEP_SOFT_BAREFOOT
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
-	tiled_dirt = FALSE
 
 	spread_chance = 15
 
@@ -41,7 +37,7 @@
 	icon = 'icons/turf/floors/carpet_stellar.dmi'
 	smoothing_flags = SMOOTH_CORNERS
 	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN, SMOOTH_GROUP_CARPET_STELLAR)
-	canSmoothWith = list(SMOOTH_GROUP_CARPET_PURPLE)
+	canSmoothWith = list(SMOOTH_GROUP_CARPET_STELLAR)
 
 /turf/open/floor/carpet/red
 	icon = 'icons/turf/floors/carpet_red.dmi'

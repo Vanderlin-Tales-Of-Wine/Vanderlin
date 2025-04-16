@@ -48,7 +48,6 @@
 	name = "dirt"
 	desc = ""
 	icon_state = "dirt"
-	smoothing_flags = NONE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	beauty = -75
 

@@ -31,9 +31,6 @@
 	var/deconstruction_ready = 1
 	max_integrity = 100
 	integrity_failure = 0.33
-	smoothing_flags = NONE
-	smoothing_groups = null
-	canSmoothWith = null
 	destroy_sound = 'sound/combat/hits/onwood/destroyfurniture.ogg'
 	attacked_sound = list('sound/combat/hits/onwood/woodimpact (1).ogg','sound/combat/hits/onwood/woodimpact (2).ogg')
 	blade_dulling = DULLING_BASHCHOP

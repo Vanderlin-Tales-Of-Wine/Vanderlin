@@ -6,8 +6,6 @@
 	desc = ""
 	icon = 'icons/turf/floors.dmi'
 	baseturfs = /turf/open/transparent/openspace
-	smoothing_flags = NONE
-	neighborlay = ""
 	footstep = FOOTSTEP_FLOOR
 	barefootstep = FOOTSTEP_HARD_BAREFOOT
 	clawfootstep = FOOTSTEP_HARD_CLAW
@@ -27,8 +25,6 @@
 	spread_chance = 1.75
 	///means fires last at base 9 seconds
 	burn_power = 9
-
-	tiled_dirt = TRUE
 
 	var/smooth_icon = null
 	var/prettifyturf = FALSE
