@@ -50,9 +50,6 @@
 	var/will_dice = 6
 
 /obj/effect/proc_holder/spell/targeted/transfix/cast(list/targets, mob/user = usr)
-	if(!length(targets))
-		to_chat(user, span_userdanger("There are no souls to hear my voice."))
-		return FALSE
 	var/msg = input("Soothe them. Dominate them. Speak and they will succumb.", "Transfix") as text|null
 	if(length(msg) < 10)
 		to_chat(user, span_userdanger("This not enough to ensnare their mind!"))
@@ -63,9 +60,11 @@
 	if(powerful)
 		user.visible_message("<font color='red'>[user]'s eyes glow a ghastly red as they project their will outwards!</font>")
 	for(var/mob/living/carbon/human/L in targets)
-		var/datum/antagonist/vampire/VD = L.mind.has_antag_datum(/datum/antagonist/vampire)
+		if(L.stat)
+			continue
+		var/datum/antagonist/vampire/VD = L.mind?.has_antag_datum(/datum/antagonist/vampire)
 		if(VD)
-			return
+			continue
 		if(L.cmode)
 			will_dice++
 		var/willpower = round(L.STAINT / int_divisor, 1)
@@ -86,7 +85,7 @@
 					extra = ", I sense the caster was [user]!"
 				to_chat(L, "<font color='white'>The silver psycross shines and protect me from unholy magic[extra]</font>")
 				to_chat(user, span_userdanger("[L] has my BANE! It causes me to fail to ensnare their mind!"))
-				return
+				break
 			L.drowsyness = min(L.drowsyness + 50, 150)
 			switch(L.drowsyness)
 				if(0 to 40)
@@ -98,21 +97,23 @@
 					to_chat(user, "They will not be able to resist much more.")
 					L.eyesclosed = TRUE
 					L.become_blind("eyelids")
-					for(var/atom/movable/screen/eye_intent/eyet in L.hud_used.static_inventory)
-						eyet.update_icon(L)
+					if(L.hud_used)
+						for(var/atom/movable/screen/eye_intent/eyet in L.hud_used.static_inventory)
+							eyet.update_icon(L)
 					L.Slowdown(50)
 				if(81 to INFINITY)
 					to_chat(L, span_userdanger("You can't take it anymore. Your legs give out as you fall into the dreamworld."))
 					to_chat(user, "They're mine now.")
 					L.eyesclosed = TRUE
 					L.become_blind("eyelids")
-					for(var/atom/movable/screen/eye_intent/eyet in L.hud_used.static_inventory)
-						eyet.update_icon(L)
+					if(L.hud_used)
+						for(var/atom/movable/screen/eye_intent/eyet in L.hud_used.static_inventory)
+							eyet.update_icon(L)
 					L.Slowdown(50)
 					sleep(5 SECONDS)
 					if(!QDELETED(L))
 						L.Sleeping(1 MINUTES)
-			return
+			continue
 
 		to_chat(user, span_userdanger("I fail to ensnare their mind!"))
 
@@ -122,6 +123,8 @@
 			var/roll = roll(1 + holypower + magicpower, 5)
 			if(roll > bloodroll)
 				to_chat(L, "I feel like the unholy magic came from [user]. I should use my magic or miracles on them.")
+
+	return TRUE
 
 /obj/effect/proc_holder/spell/targeted/transfix/master
 	name = "Subjugate"
