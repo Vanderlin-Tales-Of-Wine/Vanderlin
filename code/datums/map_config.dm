@@ -152,7 +152,7 @@
 	return config_filename == "data/next_map.json" || fcopy(config_filename, "data/next_map.json")
 
 /// Checks config parameters to see if this map can be voted for. Returns TRUE or FALSE accordingly.
-/datum/map_config/proc/votable()
+/datum/map_config/proc/available_for_vote()
 	if(!votable)
 		return FALSE
 
