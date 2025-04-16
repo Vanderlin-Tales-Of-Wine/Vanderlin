@@ -7,9 +7,20 @@
 		message = tongueless_upper.Replace(message, pick("AA","OO","'"))
 		speech_args[SPEECH_MESSAGE] = message
 
-/mob/living/carbon/can_speak_vocal(message)
+/mob/living/carbon/can_speak(allow_mimes = FALSE)
+	for(var/obj/item/grabbing/grab in grabbedby)
+		if(grab.sublimb_grabbed == BODY_ZONE_PRECISE_MOUTH)
+			return FALSE
+
+	if(istype(loc, /turf/open/water) && !(mobility_flags & MOBILITY_STAND))
+		return FALSE
+
+	if(!HAS_TRAIT_FROM(src, TRAIT_NOBREATH, SPECIES_TRAIT) && !getorganslot(ORGAN_SLOT_LUNGS))
+		return FALSE
+
 	if(silent)
 		return FALSE
+
 	return ..()
 
 /mob/living/carbon/could_speak_in_language(datum/language/dt)

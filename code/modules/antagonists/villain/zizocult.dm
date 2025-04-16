@@ -164,7 +164,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	set name = "Praise the Dark Lady!"
 	set category = "ZIZO"
 
-	if(stat >= UNCONSCIOUS || !can_speak_vocal())
+	if(stat >= UNCONSCIOUS || !can_speak())
 		return
 	GLOB.vanderlin_round_stats[STATS_ZIZO_PRAISED]++
 	audible_message("\The [src] praises <span class='bold'>Zizo</span>!")
@@ -175,7 +175,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	set name = "Communicate with Cult"
 	set category = "ZIZO"
 
-	if(stat >= UNCONSCIOUS || !can_speak_vocal())
+	if(stat >= UNCONSCIOUS || !can_speak())
 		return
 
 	var/mob/living/carbon/human/H = src
@@ -184,7 +184,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 		return
 	whisper("O schlet'a ty'schkotot ty'skvoro...")
 	sleep(5)
-	if(stat >= UNCONSCIOUS || !can_speak_vocal())
+	if(stat >= UNCONSCIOUS || !can_speak())
 		return
 	whisper("[speak]")
 

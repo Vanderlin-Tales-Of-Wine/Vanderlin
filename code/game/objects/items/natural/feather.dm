@@ -12,9 +12,12 @@
 	body_parts_covered = null
 	experimental_onhip = TRUE
 	max_integrity = 20
-	muteinmouth = TRUE
 	spitoutmouth = FALSE
 	w_class = WEIGHT_CLASS_TINY
+
+/obj/item/natural/feather/Initialize(mapload, ...)
+	. = ..()
+	AddElement(/datum/element/muffles_speech)
 
 /obj/item/natural/feather/pre_attack_right(atom/A, mob/living/carbon/human/user, params)
 	if(istype(A, /obj/item/paper/confession))

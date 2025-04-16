@@ -199,7 +199,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	var/icon/experimental_onback = FALSE
 
 	// Trying to emote or talk with this in our mouth makes us muffled
-	var/muteinmouth = TRUE
+	VAR_FINAL/muteinmouth = FALSE
 	// Using spit emote spits the item out of our mouth and falls out after some time
 	var/spitoutmouth = TRUE
 
@@ -342,7 +342,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 				B.generate_appearance()
 				B.apply()
 
-/obj/item/Initialize()
+/obj/item/Initialize(mapload, ...)
 	if (attack_verb)
 		attack_verb = typelist("attack_verb", attack_verb)
 
@@ -691,7 +691,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 /obj/item/proc/hit_response(mob/living/carbon/human/owner, mob/living/carbon/human/attacker)
 	SEND_SIGNAL(src, COMSIG_ITEM_HIT_RESPONSE, owner, attacker)		//sends signal for Magic_items. Used to call enchantments effects for worn items
 
-/obj/item/proc/talk_into(mob/M, input, channel, spans, datum/language/language)
+/obj/item/proc/talk_into(mob/M, input, channel, spans, datum/language/language, list/message_mods)
 	return ITALICS | REDUCE_RANGE
 
 /obj/item/proc/dropped(mob/user, silent = FALSE)

@@ -91,8 +91,8 @@
 
 	spawned.remove_all_languages()
 	spawned.grant_language(/datum/language/hellspeak)
-	spawned.silent = TRUE	// makes them unable to audible emote or speak, no more sexy moan zombies
 
+	ADD_TRAIT(spawned, TRAIT_MUTE, TRAIT_GENERIC) // no more sexy moan zombies
 	ADD_TRAIT(spawned, TRAIT_CRITICAL_WEAKNESS, TRAIT_GENERIC)
 	ADD_TRAIT(spawned, TRAIT_EASYDISMEMBER, TRAIT_GENERIC)
 

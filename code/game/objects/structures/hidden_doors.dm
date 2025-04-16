@@ -79,7 +79,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	else
 		..()
 
-/obj/structure/mineral_door/secret/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode, original_message)
+/obj/structure/mineral_door/secret/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods = list(), original_message)
 	var/mob/living/carbon/human/H = speaker
 	if(speaker == src) //door speaking to itself
 		return FALSE
@@ -297,7 +297,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 		open_phrase = D.open_phrase
 	GLOB.keep_doors += src
 
-/obj/structure/mineral_door/secret/keep/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode)
+/obj/structure/mineral_door/secret/keep/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods = list())
 	if(!..())
 		return FALSE
 	var/mob/living/carbon/human/H = speaker
@@ -337,7 +337,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 		open_phrase = D.open_phrase
 	GLOB.thieves_guild_doors += src
 
-/obj/structure/mineral_door/secret/thieves_guild/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode)
+/obj/structure/mineral_door/secret/thieves_guild/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, list/message_mods = list())
 	if(!..())
 		return FALSE
 	var/mob/living/carbon/human/H = speaker

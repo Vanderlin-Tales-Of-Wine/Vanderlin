@@ -164,7 +164,7 @@
 	. = ..()
 	if(. && iscarbon(user))
 		var/mob/living/carbon/C = user
-		if(C.silent || !C.can_speak_vocal())
+		if(!C.can_speak())
 			message = "makes a muffled noise."
 
 /datum/emote/living/scream/agony
@@ -332,7 +332,7 @@
 	if(. && user.deathsound)
 		if(isliving(user))
 			var/mob/living/L = user
-			if(!L.can_speak_vocal() || L.oxyloss >= 50)
+			if(!L.can_speak() || L.oxyloss >= 50)
 				return //stop the sound if oxyloss too high/cant speak
 		playsound(user, user.deathsound, 200, TRUE, TRUE)
 
@@ -458,7 +458,7 @@
 	. = ..()
 	if(. && iscarbon(user))
 		var/mob/living/carbon/C = user
-		if(C.silent || !C.can_speak_vocal())
+		if(!C.can_speak())
 			message = "makes a muffled noise."
 
 /datum/emote/living/giggle
@@ -475,7 +475,7 @@
 	. = ..()
 	if(. && iscarbon(user))
 		var/mob/living/carbon/C = user
-		if(C.silent || !C.can_speak_vocal())
+		if(!C.can_speak())
 			message = "makes a muffled laugh."
 
 /datum/emote/living/glare
@@ -548,7 +548,7 @@
 	. = ..()
 	if(. && iscarbon(user))
 		var/mob/living/carbon/C = user
-		if(C.silent || !C.can_speak_vocal())
+		if(!C.can_speak())
 			message = "makes a muffled hmm."
 
 /datum/emote/living/huh
@@ -705,10 +705,7 @@
 	emote_type = EMOTE_AUDIBLE
 
 /datum/emote/living/laugh/can_run_emote(mob/living/user, status_check = TRUE , intentional)
-	. = ..()
-	if(. && iscarbon(user))
-		var/mob/living/carbon/C = user
-		return !C.silent
+	return ..() && user.can_speak(allow_mimes = TRUE)
 
 /datum/emote/living/laugh/run_emote(mob/user, params, type_override, intentional, targetted)
 	. = ..()
