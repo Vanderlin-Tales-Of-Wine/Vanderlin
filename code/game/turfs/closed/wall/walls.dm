@@ -296,7 +296,7 @@
 	desc = "The mason did an excellent job etching details into this wall."
 	icon = 'icons/turf/roguewall.dmi'
 	icon_state = "decostone-b"
-	smoothing_flags = SMOOTH_CORNERS
+	smoothing_flags = NONE
 	wallclimb = FALSE
 	blade_dulling = DULLING_BASH
 	max_integrity = 2200
@@ -401,7 +401,7 @@
 	desc = "The toils of hard-working shades."
 	icon = 'icons/turf/underbrick.dmi'
 	icon_state = "box"
-	smoothing_flags = SMOOTH_CORNERS
+	smoothing_flags = NONE
 	wallclimb = FALSE
 	blade_dulling = DULLING_BASH
 	max_integrity = 99999

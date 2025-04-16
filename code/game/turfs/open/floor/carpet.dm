@@ -1,8 +1,8 @@
 /turf/open/floor/carpet
 	name = "carpet"
+	landsound = 'sound/foley/jumpland/carpetland.wav'
 	icon = 'icons/turf/floors/inn.dmi'
 	icon_state = "carpet"
-	broken_states = list("damaged")
 	smoothing_flags = NONE
 	smoothing_groups = null
 	canSmoothWith = null

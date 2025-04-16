@@ -48,23 +48,11 @@
 	name = "dirt"
 	desc = ""
 	icon_state = "dirt"
-	canSmoothWith = list(/obj/effect/decal/cleanable/dirt, /turf/closed/wall)
 	smoothing_flags = NONE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	beauty = -75
 
-/obj/effect/decal/cleanable/dirt/Initialize()
-	. = ..()
-	var/turf/T = get_turf(src)
-	if(T.tiled_dirt)
-		smoothing_flags = SMOOTH_CORNERS
-		icon = 'icons/effects/dirt.dmi'
-		icon_state = ""
-		QUEUE_SMOOTH(src)
-	QUEUE_SMOOTH_NEIGHBORS(src)
-
 /obj/effect/decal/cleanable/dirt/Destroy()
-	QUEUE_SMOOTH_NEIGHBORS(src)
 	return ..()
 
 /obj/effect/decal/cleanable/dirt/dust

@@ -5,7 +5,10 @@
 #define SMOOTH_DIAGONAL	(1<<2)
 /// atom will smooth with the borders of the map
 #define SMOOTH_BORDER	(1<<3)
-/// atom will overlay adjacent tiles with edges
+/**
+ * turf only, will smooth via overlaying adjacent turfs
+ * Uses var/neighborlay
+ */
 #define SMOOTH_EDGE		(1<<4)
 /// smooths with objects, and will thus need to scan turfs for contents.
 #define SMOOTH_OBJ		(1<<5)
@@ -42,10 +45,15 @@
 #define SMOOTH_GROUP_CARPET_GREEN S_TURF(9)				///turf/open/floor/carpet/green
 #define SMOOTH_GROUP_CARPET_LORD S_TURF(10)				///turf/open/floor/carpet/lord
 
-
-
-
-
+#define SMOOTH_GROUP_GRASS S_TURF(11)
+#define SMOOTH_GROUP_DIRT S_TURF(12)
+#define SMOOTH_GROUP_SNOW S_TURF(13)
+#define SMOOTH_GROUP_STONE_FLOOR S_TURF(14)
+#define SMOOTH_GROUP_WOOD S_TURF(15)
+#define SMOOTH_GROUP_WOOD_ALT S_TURF(16)
+#define SMOOTH_GROUP_WOOD_SAIGA S_TURF(17)
+#define SMOOTH_GROUP_WOODTURNED S_TURF(18)
+#define SMOOTH_GROUP_WOODTURNED_ALT S_TURF(19)
 
 
 #define SMOOTH_GROUP_CLOSED S_TURF(24)					///turf/closed
@@ -53,10 +61,10 @@
 #define SMOOTH_GROUP_MINERAL_WALLS S_TURF(28)			///turf/closed/mineral, /turf/closed/mineral/turf/random, /closed/indestructible
 
 #define SMOOTH_GROUP_WALLS_STONE S_TURF(29)				///turf/closed/wall/mineral/stone
-#define SMOOTH_GROUP_WALLS_STONE_CRAFT S_TURF(30)			///turf/closed/wall/mineral/craftstone
-#define SMOOTH_GROUP_WALLS_STONE_BRICK S_TURF(31)			///turf/closed/wall/mineral/stonebrick
+#define SMOOTH_GROUP_WALLS_STONE_CRAFT S_TURF(30)		///turf/closed/wall/mineral/craftstone
+#define SMOOTH_GROUP_WALLS_STONE_BRICK S_TURF(31)		///turf/closed/wall/mineral/stonebrick
 #define SMOOTH_GROUP_WALLS_PIPE S_TURF(32)				///turf/closed/wall/mineral/pipe
-#define SMOOTH_GROUP_WALLS_EREBUS S_TURF(33)				///turf/closed/wall/mineral/underbrick
+#define SMOOTH_GROUP_WALLS_EREBUS S_TURF(33)			///turf/closed/wall/mineral/underbrick
 #define SMOOTH_GROUP_WALLS_WOOD S_TURF(34)				///turf/closed/wall/mineral/wood
 
 #define MAX_S_TURF SMOOTH_GROUP_WALLS_WOOD //Always match this value with the one above it.

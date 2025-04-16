@@ -107,7 +107,8 @@
 			corners_diagonal_smooth(calculate_adjacencies())
 		else
 			corners_cardinal_smooth(calculate_adjacencies())
-
+	if(smoothing_flags & SMOOTH_EDGE)
+		edge_cardinal_smooth(calculate_adjacencies())
 
 /atom/proc/corners_diagonal_smooth(adjacencies)
 	switch(adjacencies)
@@ -246,6 +247,66 @@
 	if(new_overlays)
 		add_overlay(new_overlays)
 
+/turf/proc/edge_cardinal_smooth(adjacencies)
+	var/list/New
+	var/holder
+
+	for(var/A in neighborlay_list)
+		cut_overlay("[A]")
+		neighborlay_list -= A
+	var/usedturf
+	if(adjacencies & N_NORTH)
+		usedturf = get_step(src, NORTH)
+		if(isturf(usedturf))
+			var/turf/T = usedturf
+			if(neighborlay_override)
+				holder = "[neighborlay_override]-n"
+				LAZYADD(New, holder)
+				neighborlay_list += holder
+			else if(T.neighborlay)
+				holder = "[T.neighborlay]-n"
+				LAZYADD(New, holder)
+				neighborlay_list += holder
+	if(adjacencies & N_SOUTH)
+		usedturf = get_step(src, SOUTH)
+		if(isturf(usedturf))
+			var/turf/T = usedturf
+			if(neighborlay_override)
+				holder = "[neighborlay_override]-s"
+				LAZYADD(New, holder)
+				neighborlay_list += holder
+			else if(T.neighborlay)
+				holder = "[T.neighborlay]-s"
+				LAZYADD(New, holder)
+				neighborlay_list += holder
+	if(adjacencies & N_WEST)
+		usedturf = get_step(src, WEST)
+		if(isturf(usedturf))
+			var/turf/T = usedturf
+			if(neighborlay_override)
+				holder = "[neighborlay_override]-w"
+				LAZYADD(New, holder)
+				neighborlay_list += holder
+			else if(T.neighborlay)
+				holder = "[T.neighborlay]-w"
+				LAZYADD(New, holder)
+				neighborlay_list += holder
+	if(adjacencies & N_EAST)
+		usedturf = get_step(src, EAST)
+		if(isturf(usedturf))
+			var/turf/T = usedturf
+			if(neighborlay_override)
+				holder = "[neighborlay_override]-e"
+				LAZYADD(New, holder)
+				neighborlay_list += holder
+			else if(T.neighborlay)
+				holder = "[T.neighborlay]-e"
+				LAZYADD(New, holder)
+				neighborlay_list += holder
+
+	if(New)
+		add_overlay(New)
+	return New
 
 ///Scans direction to find targets to smooth with.
 /atom/proc/find_type_in_direction(direction)
@@ -306,7 +367,6 @@
 	bottom_right_corner = null
 	cut_overlay(bottom_left_corner)
 	bottom_left_corner = null
-
 
 /atom/proc/replace_smooth_overlays(nw, ne, sw, se)
 	clear_smooth_overlays()

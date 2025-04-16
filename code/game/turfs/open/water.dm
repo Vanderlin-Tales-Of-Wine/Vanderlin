@@ -25,14 +25,15 @@
 	var/obj/effect/overlay/water/top/water_top_overlay
 	bullet_sizzle = TRUE
 	bullet_bounce_sound = null //needs a splashing sound one day.
-	smoothing_flags = SMOOTH_CORNERS
-	canSmoothWith = list(/turf/closed/mineral,/turf/closed/wall/mineral, /turf/open/floor)
+	smoothing_flags = SMOOTH_EDGE | SMOOTH_BORDER
+	smoothing_groups = list(SMOOTH_GROUP_OPEN, SMOOTHGROUP_CLOSED)
+	canSmoothWith = list(SMOOTH_GROUP_OPEN, SMOOTHGROUP_CLOSED)
+	neighborlay_override = "edge"
 	footstep = null
 	barefootstep = null
 	clawfootstep = null
 	heavyfootstep = null
 	landsound = 'sound/foley/jumpland/waterland.wav'
-	neighborlay_override = "edge"
 	path_weight = 90
 	var/datum/reagent/water_reagent = /datum/reagent/water
 	var/mapped = TRUE // infinite source of water
@@ -288,11 +289,7 @@
 	..()
 	playsound(src, pick('sound/foley/water_land1.ogg','sound/foley/water_land2.ogg','sound/foley/water_land3.ogg'), 100, FALSE)
 
-
-/turf/open/water/cardinal_smooth(adjacencies)
-	smooth(adjacencies)
-
-/turf/open/water/smooth(adjacencies)
+/turf/open/water/edge_cardinal_smooth(adjacencies)
 	var/list/Yeah = ..()
 	if(water_overlay)
 		water_overlay.cut_overlays(TRUE)

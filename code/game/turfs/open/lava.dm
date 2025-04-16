@@ -17,7 +17,7 @@
 	barefootstep = FOOTSTEP_LAVA
 	clawfootstep = FOOTSTEP_LAVA
 	heavyfootstep = FOOTSTEP_LAVA
-	smoothing_flags = SMOOTH_CORNERS
+	smoothing_flags = SMOOTH_EDGE
 	canSmoothWith = list(/turf/closed, /turf/open/floor/volcanic, /turf/open/floor/dirt, /turf/open/floor/dirt/road,/turf/open/floor/naturalstone)
 	neighborlay_override = "lavedge"
 	turf_flags = NONE
@@ -33,10 +33,6 @@
 	if(flow)
 		return
 	dir = pick(GLOB.cardinals)
-
-/turf/open/lava/cardinal_smooth(adjacencies)
-	smooth(adjacencies)
-
 
 /turf/open/lava/ex_act(severity, target)
 	contents_explosion(severity, target)
