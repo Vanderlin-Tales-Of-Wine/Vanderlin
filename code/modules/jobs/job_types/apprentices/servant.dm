@@ -172,7 +172,7 @@
 		H.change_stat(STATKEY_SPD, 1)
 		H.change_stat(STATKEY_END, 1)
 
-/datum/outfit/job/gaffer_assistant
+/datum/job/gaffer_assistant
 	title = "Ring's Servant"
 	tutorial = "I never had what it took to be a mercenary, but I offered my service to the guild regardless. \
 	my vow is to serve whomever has the ring of burden, but I know to avoid its curse my self"
