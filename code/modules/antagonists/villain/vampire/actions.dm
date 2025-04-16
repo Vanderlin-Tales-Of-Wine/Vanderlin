@@ -111,7 +111,7 @@
 					L.Slowdown(50)
 					sleep(5 SECONDS)
 					if(!QDELETED(L))
-						L.Sleeping(1 MINUTE)
+						L.Sleeping(1 MINUTES)
 			return
 
 		to_chat(user, span_userdanger("I fail to ensnare their mind!"))
