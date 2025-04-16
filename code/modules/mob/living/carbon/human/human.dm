@@ -79,8 +79,9 @@
 	RegisterSignal(src, COMSIG_COMPONENT_CLEAN_ACT, PROC_REF(clean_blood))
 	AddComponent(/datum/component/personal_crafting)
 	AddComponent(/datum/component/footstep, footstep_type, 1, 2)
-	GLOB.human_list += src
-	if(flee_in_pain)
+	if(mind)
+		GLOB.human_list += src
+	if(ai_controller && flee_in_pain)
 		AddElement(/datum/element/ai_flee_while_in_pain)
 
 /mob/living/carbon/human/ZImpactDamage(turf/T, levels)
