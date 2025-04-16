@@ -160,6 +160,14 @@
 					added_wound = /datum/wound/puncture
 				if(1 to 10)
 					added_wound = /datum/wound/puncture/small
+		if(BCLASS_LASHING)
+			switch(dam)
+				if(20 to INFINITY)
+					added_wound = /datum/wound/lashing/large
+				if(10 to 20)
+					added_wound = /datum/wound/lashing
+				if(1 to 10)
+					added_wound = /datum/wound/lashing/small
 		if(BCLASS_BITE)
 			switch(dam)
 				if(20 to INFINITY)
@@ -194,6 +202,8 @@
 		crit_classes += "fracture"
 	if(bclass in GLOB.artery_bclasses)
 		crit_classes += "artery"
+	if(bclass in GLOB.whipping_bclasses)
+		crit_classes += "scarring"
 
 	switch(pick(crit_classes))
 		if("dislocation")
@@ -223,6 +233,12 @@
 			used = round(damage_dividend * 20 + (dam / 6), 1)
 			if(prob(used))
 				attempted_wounds += /datum/wound/artery
+		if("scarring")
+			if(user && istype(user.rmb_intent, /datum/rmb_intent/strong))
+				dam += 10
+			used = round(damage_dividend * 20 + (dam / 6), 1)
+			if(prob(used))
+				attempted_wounds += /datum/wound/scarring
 
 	for(var/wound_type in shuffle(attempted_wounds))
 		var/datum/wound/applied = add_wound(wound_type, silent, crit_message)
@@ -250,6 +266,8 @@
 		crit_classes += "fracture"
 	if(bclass in GLOB.artery_bclasses)
 		crit_classes += "artery"
+	if(bclass in GLOB.whipping_bclasses)
+		crit_classes += "scarring"
 
 	switch(pick(crit_classes))
 		if("cbt")
@@ -284,6 +302,12 @@
 				if((zone_precise == BODY_ZONE_PRECISE_STOMACH) && !resistance)
 					attempted_wounds += /datum/wound/slash/disembowel
 				attempted_wounds += /datum/wound/artery/chest
+		if("scarring")
+			if(user && istype(user.rmb_intent, /datum/rmb_intent/strong))
+				dam += 10
+			used = round(damage_dividend * 20 + (dam / 6), 1)
+			if(prob(used))
+				attempted_wounds += /datum/wound/scarring
 
 	for(var/wound_type in shuffle(attempted_wounds))
 		var/datum/wound/applied = add_wound(wound_type, silent, crit_message)
