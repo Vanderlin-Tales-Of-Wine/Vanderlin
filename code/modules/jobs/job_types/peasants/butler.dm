@@ -1,6 +1,6 @@
 /datum/job/butler
 	title = "Butler"
-	f_title = "Head Housekeeper"
+	f_title = "Housekeeper"
 	tutorial = "You are elevated to near nobility, as you hold the distinguished position of master of the royal household staff. \
 	Your blade is a charcuterie of artisanal cheeses and meat, your armor wit and classical training. \
 	By your word the meals are served, the chambers kept, and the floors polished clean. \
