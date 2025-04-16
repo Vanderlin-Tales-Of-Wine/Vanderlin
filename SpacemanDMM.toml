@@ -53,4 +53,4 @@ macro_undefined_no_definition = "error"
 
 [map_renderer.render_passes]
 icon-smoothing = false
-icon-smoothing-2016 = true
+icon-smoothing-2016 = false

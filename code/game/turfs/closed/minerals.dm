@@ -3,7 +3,7 @@
 /turf/closed/mineral //wall piece
 	name = "rock"
 	desc = "Seems barren."
-	icon = 'icons/turf/roguewall.dmi'
+	icon = 'icons/turf/walls.dmi'
 	icon_state = "rockyash"
 	var/smooth_icon = 'icons/turf/walls/cwall.dmi'
 	smoothing_flags = SMOOTH_CORNERS
@@ -192,7 +192,7 @@
 /turf/closed/mineral/random
 	name = "rock"
 	desc = "Seems barren."
-	icon = 'icons/turf/roguewall.dmi'
+	icon = 'icons/turf/walls.dmi'
 	icon_state = "minrandbad"
 	smooth_icon = 'icons/turf/walls/cwall.dmi'
 	smoothing_flags = SMOOTH_CORNERS

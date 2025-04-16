@@ -19,11 +19,11 @@
 	if(amount > 0)
 		adjustment_verb = "awarded"
 		if(counted)
-			SSticker.tri_gained += amount
+			GLOB.vanderlin_round_stats[STATS_TRIUMPHS_AWARDED] += amount
 	else
 		adjustment_verb = "lost"
 		if(counted)
-			SSticker.tri_lost += amount
+			GLOB.vanderlin_round_stats[STATS_TRIUMPHS_STOLEN] += amount
 
 	var/final_text = "[abs(amount)] TRIUMPH\s [adjustment_verb]."
 	if(reason)

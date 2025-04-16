@@ -5,7 +5,7 @@
 
 /datum/map_config
 	// Metadata
-	var/config_filename = "_maps/dun_manor.json"
+	var/config_filename = "_maps/vanderlin.json"
 	var/defaulted = TRUE  // set to FALSE by LoadConfig() succeeding
 	// Config from maps.txt
 	var/config_max_users = 0
@@ -13,26 +13,26 @@
 	var/voteweight = 1
 	var/votable = FALSE
 
-	// Config actually from the JSON - should default to Dun Manor
-	var/map_name = "Dun Manor"
-	var/map_path = "map_files/dun_manor"
-	var/map_file = "dun_manor.dmm"
+	// Config actually from the JSON - should default to Vanderlin
+	var/map_name = "Vanderlin"
+	var/map_path = "map_files/vanderlin"
+	var/map_file = "vanderlin.dmm"
 
 	var/traits = null
 	var/space_ruin_levels = 7
 	var/space_empty_levels = 1
 
+	var/custom_area_sound = null
 	var/list/other_z
 
-/proc/load_map_config(filename = "data/next_map.json", default_to_box, delete_after, error_if_missing = TRUE)
-	testing("loading map config [filename]")
+/proc/load_map_config(filename = "data/next_map.json", default_to_van, delete_after, error_if_missing = TRUE)
 	var/datum/map_config/config = new
-	if (default_to_box)
+	if (default_to_van)
 		return config
 	if (!config.LoadConfig(filename, error_if_missing))
 		qdel(config)
-		if(default_to_box)
-			config = new /datum/map_config  // Fall back to Dun Manor
+		if(default_to_van)
+			config = new /datum/map_config
 	if (delete_after)
 		fdel(filename)
 	if(config)
@@ -68,7 +68,6 @@
 	map_path = json["map_path"]
 
 	map_file = json["map_file"]
-	// "map_file": "dun_manor.dmm"
 	if (istext(map_file))
 		if (!fexists("_maps/[map_path]/[map_file]"))
 			log_world("Map file ([map_path]/[map_file]) does not exist!")
@@ -109,6 +108,20 @@
 		space_empty_levels = temp
 	else if (!isnull(temp))
 		log_world("map_config space_empty_levels is not a number!")
+		return
+
+	var/soundTemp = json["custom_area_sound"]
+	if (istext(soundTemp))
+		if(!findtextEx(soundTemp, new /regex("\\.ogg$"))) //makes sure this is an ogg file
+			log_world("map_config [soundTemp] is not a valid .ogg file!")
+			return
+		var/soundFile = file(soundTemp)
+		if(!soundFile)
+			log_world("map_config custom_area_sound not found at [soundTemp]!")
+			return
+		custom_area_sound = soundFile
+	else if (!isnull(soundTemp))
+		log_world("map_config custom_area_sound is not a string!")
 		return
 
 	var/list/other_z = json["other_z"]

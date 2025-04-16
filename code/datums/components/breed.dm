@@ -86,6 +86,7 @@
 
 	var/picked_baby_path = pickweight(baby_path)
 	var/mob/living/baby = new picked_baby_path(delivery_destination)
+	GLOB.vanderlin_round_stats[STATS_ANIMALS_BRED]++
 	new /obj/effect/temp_visual/heart(delivery_destination)
 	toggle_status(source)
 

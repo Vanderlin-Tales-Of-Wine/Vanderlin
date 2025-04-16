@@ -44,10 +44,10 @@
 	melee_damage_upper = 60
 	environment_smash = ENVIRONMENT_SMASH_STRUCTURES
 
-	TOTALCON = 16
-	TOTALSTR = 16
-	TOTALSPD = 2
-	TOTALEND = 17
+	base_constitution = 16
+	base_strength = 16
+	base_speed = 2
+	base_endurance = 17
 
 	retreat_distance = 0
 	minimum_distance = 0
@@ -106,7 +106,6 @@
 	if(fire_stacks + divine_fire_stacks <= 0)
 		adjustHealth(-rand(20,35))
 
-
 /mob/living/simple_animal/hostile/retaliate/troll/simple_limb_hit(zone)
 	if(!zone)
 		return ""
@@ -154,6 +153,17 @@
 	gender = PLURAL
 	icon_state = "Trolld"
 
+//for keep use
+/mob/living/simple_animal/hostile/retaliate/troll/keep/get_sound(input)
+	switch(input)
+		if("aggro")
+			return pick('sound/vo/mobs/troll/aggro1.ogg','sound/vo/mobs/troll/aggro2.ogg')
+		if("pain")
+			return pick('sound/vo/mobs/troll/pain1.ogg','sound/vo/mobs/troll/pain2.ogg')
+		if("death")
+			return pick('sound/vo/mobs/troll/death.ogg')
+		if("cidle")
+			return pick('sound/vo/mobs/troll/cidle1.ogg','sound/vo/mobs/troll/aggro2.ogg')
 
 // You know I had to. Hostile, killer cabbit. Strong. Fast. But not as durable.
 // The most foul, cruel and bad tempered feline-rodent you ever set eyes on.
@@ -172,10 +182,10 @@
 	maxHealth = 160
 	move_to_delay = 3 // FAST.
 	attack_sound = list('sound/vo/mobs/rat/aggro (1).ogg', 'sound/vo/mobs/rat/aggro (2).ogg', 'sound/vo/mobs/rat/aggro (3).ogg')
-	TOTALCON = 5
-	TOTALSTR = 5
-	TOTALSPD = 10
-	TOTALEND = 5
+	base_constitution = 5
+	base_strength = 5
+	base_speed = 10
+	base_endurance = 5
 	remains_type = /obj/effect/decal/remains/cabbit
 	melee_damage_lower = 20
 	melee_damage_upper = 40

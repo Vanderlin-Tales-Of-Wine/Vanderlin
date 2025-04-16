@@ -803,3 +803,33 @@
 	name = "Powered Steam Armor"
 	desc = "The armor is powered. I feel unstoppable."
 	icon_state = "buff"
+
+/datum/status_effect/buff/lux_drained
+	id = "lux_drained"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/lux_drained
+	effectedstats = list(STATKEY_LCK = -3, STATKEY_CON = -1, STATKEY_END = -1, STATKEY_INT = -1, STATKEY_PER = -1, STATKEY_SPD = -1, STATKEY_STR = -1)
+	duration = -1
+
+/atom/movable/screen/alert/status_effect/buff/lux_drained
+	name = "Lux Drained"
+	desc = span_danger("I can't feel my soul, WHY CAN'T I FEEL MY SOUL!")
+	icon_state = "buff"
+
+/datum/status_effect/buff/lux_drank
+	id = "lux_drank"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/lux_drank
+	effectedstats = list("fortune" = 2)
+	duration = 10 SECONDS
+
+/datum/status_effect/buff/lux_drank/on_apply()
+	. = ..()
+	owner.add_stress(/datum/stressevent/high)
+
+/datum/status_effect/buff/lux_drank/on_remove()
+	owner.remove_stress(/datum/stressevent/high)
+
+	. = ..()
+
+/atom/movable/screen/alert/status_effect/buff/lux_drank
+	name = "Invigorated"
+	desc = "I have supped on the finest of delicacies: life!"

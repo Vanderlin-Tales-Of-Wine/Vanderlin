@@ -92,11 +92,8 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 		return FALSE
 
 	var/message2recognize = sanitize_hear_message(original_message)
-	var/isvip = FALSE
-	if(H?.mind.assigned_role in vip)
-		isvip = TRUE
 
-	if(isvip)
+	if(is_type_in_list(H.mind?.assigned_role, vip)) //are they a VIP?
 		if(findtext(message2recognize, "help"))
 			send_speech(span_purple("'say phrase'... 'set phrase'..."), 2, src, message_language = lang)
 			return TRUE
@@ -306,7 +303,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	var/mob/living/carbon/human/H = speaker
 
 	var/message2recognize = sanitize_hear_message(raw_message)
-	if(vip.Find(H?.mind.assigned_role) && findtext(message2recognize, "set phrase"))
+	if(is_type_in_list(H.mind?.assigned_role, vip) && findtext(message2recognize, "set phrase"))
 		for(var/obj/structure/mineral_door/secret/D in GLOB.keep_doors)
 			D.set_phrase(open_phrase)
 	return TRUE
@@ -327,7 +324,6 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 ///// THIEVES GUILD DOORS /////
 /obj/structure/mineral_door/secret/thieves_guild
 	vip = list(
-		///datum/job/thief,
 		/datum/job/matron,
 	)
 	lang = /datum/language/thievescant
@@ -347,7 +343,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	var/mob/living/carbon/human/H = speaker
 
 	var/message2recognize = sanitize_hear_message(raw_message)
-	if((vip.Find(H?.mind.assigned_role)) && findtext(message2recognize, "set phrase"))
+	if((is_type_in_list(H.mind?.assigned_role, vip)) && findtext(message2recognize, "set phrase"))
 		for(var/obj/structure/mineral_door/secret/D in GLOB.keep_doors)
 			D.set_phrase(open_phrase)
 	return TRUE

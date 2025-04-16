@@ -716,6 +716,8 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	if(!silent)
 		playsound(src, drop_sound, DROP_SOUND_VOLUME, TRUE, ignore_walls = FALSE)
 	user.update_equipment_speed_mods()
+	if(isliving(user))
+		user:encumbrance_to_speed()
 	update_transform()
 
 // called just as an item is picked up (loc is not yet changed)
@@ -726,9 +728,11 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 
 // called just as an item is picked up (loc is not yet changed)
 /obj/item/proc/afterpickup(mob/user)
+	SHOULD_CALL_PARENT(TRUE)
+	if(isliving(user))
+		user:encumbrance_to_speed()
 
 /obj/item/proc/afterdrop(mob/user)
-
 
 // called when "found" in pockets and storage items. Returns 1 if the search should end.
 /obj/item/proc/on_found(mob/finder)
@@ -781,10 +785,14 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 //If you are making custom procs but would like to retain partial or complete functionality of this one, include a 'return ..()' to where you want this to happen.
 //Set disable_warning to TRUE if you wish it to not give you outputs.
 /obj/item/proc/mob_can_equip(mob/living/M, mob/living/equipper, slot, disable_warning = FALSE, bypass_equip_delay_self = FALSE)
+	// pretty sure this isn't needed, the reason this is disabled is so harpoon guns can be equipped to hips.
+	// if it causes issues - reenable it and seek a different fix.
+	/*
 	if(twohands_required)
 		if(!disable_warning)
 			to_chat(M, "<span class='warning'>[src] is too bulky to carry with anything but my hands!</span>")
 		return 0
+	*/
 
 	if(!M)
 		return FALSE
@@ -1312,3 +1320,10 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	if(get_real_price() > 0 && (HAS_TRAIT(user, TRAIT_SEEPRICES) || simpleton_price))
 		return span_info("Value: [get_real_price()] mammon")
 	return FALSE
+
+/obj/item/proc/get_stored_weight()
+	var/held_weight = 0
+	for(var/obj/item/stored_item in contents)
+		held_weight += stored_item.item_weight * carry_multiplier
+
+	return held_weight

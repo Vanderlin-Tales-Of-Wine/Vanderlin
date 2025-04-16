@@ -90,18 +90,18 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	var/static/datum/patron/default_patron = /datum/patron/divine/astrata
 	var/list/features = MANDATORY_FEATURE_LIST
 	var/list/randomise = list(
-		(RANDOM_BODY) = TRUE,
-		(RANDOM_BODY_ANTAG) = TRUE,
-		(RANDOM_UNDERWEAR) = TRUE,
-		(RANDOM_UNDERWEAR_COLOR) = TRUE,
-		(RANDOM_UNDERSHIRT) = TRUE,
-		(RANDOM_SOCKS) = TRUE,
-		(RANDOM_HAIRSTYLE) = TRUE,
-		(RANDOM_HAIR_COLOR) = TRUE,
-		(RANDOM_FACIAL_HAIRSTYLE) = TRUE,
-		(RANDOM_FACIAL_HAIR_COLOR) = TRUE,
-		(RANDOM_SKIN_TONE) = TRUE,
-		(RANDOM_EYE_COLOR) = TRUE
+		(RANDOM_BODY) = FALSE,
+		(RANDOM_BODY_ANTAG) = FALSE,
+		(RANDOM_UNDERWEAR) = FALSE,
+		(RANDOM_UNDERWEAR_COLOR) = FALSE,
+		(RANDOM_UNDERSHIRT) = FALSE,
+		(RANDOM_SOCKS) = FALSE,
+		(RANDOM_HAIRSTYLE) = FALSE,
+		(RANDOM_HAIR_COLOR) = FALSE,
+		(RANDOM_FACIAL_HAIRSTYLE) = FALSE,
+		(RANDOM_FACIAL_HAIR_COLOR) = FALSE,
+		(RANDOM_SKIN_TONE) = FALSE,
+		(RANDOM_EYE_COLOR) = FALSE
 	)
 	var/phobia = "spiders"
 
@@ -2269,6 +2269,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	character.socks = socks
 
 	/* V: */
+	
 	character.headshot_link = headshot_link
 	character.flavortext = flavortext
 
@@ -2313,7 +2314,10 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	if(is_misc_banned(parent.ckey, BAN_MISC_PUNISHMENT_CURSE))
 		ADD_TRAIT(character, TRAIT_PUNISHMENT_CURSE, TRAIT_BAN_PUNISHMENT)
 
-	/* V */
+	if(parent?.patreon?.has_access(ACCESS_ASSISTANT_RANK))
+		character.accent = selected_accent
+
+	/* :V */
 
 	if("tail_lizard" in pref_species.default_features)
 		character.dna.species.mutant_bodyparts |= "tail_lizard"
@@ -2322,9 +2326,6 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		character.update_body()
 		character.update_hair()
 		character.update_body_parts(redraw = TRUE)
-
-	if(parent?.patreon?.has_access(ACCESS_ASSISTANT_RANK))
-		character.accent = selected_accent
 
 /datum/preferences/proc/get_default_name(name_id)
 	switch(name_id)
