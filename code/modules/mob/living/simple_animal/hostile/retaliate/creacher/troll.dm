@@ -209,10 +209,10 @@
 	melee_damage_lower = 30
 	melee_damage_upper = 50
 
-	TOTALCON = 16
-	TOTALSTR = 16
-	TOTALSPD = 3
-	TOTALEND = 15
+	base_constitution = 16
+	base_strength = 16
+	base_speed = 3
+	base_endurance = 15
 
 	defprob = 30
 	defdrain = 13
