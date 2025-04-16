@@ -400,6 +400,8 @@
 	reagent_flags = OPENCONTAINER
 	spillable = TRUE
 	var/obj/item/grinded
+	grid_height = 32
+	grid_width = 64
 
 /obj/item/reagent_containers/glass/mortar/AltClick(mob/user)
 	if(grinded)
