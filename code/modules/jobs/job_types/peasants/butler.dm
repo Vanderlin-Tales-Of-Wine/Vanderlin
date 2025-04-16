@@ -7,7 +7,7 @@
 	You wear the royal colors and hold their semblance of dignity, \
 	for without you and the servants under your command, the court would have all starved to death."
 	flag = BUTLER
-	department_flag = PEASANTS
+	department_flag = SERFS
 	display_order = JDO_BUTLER
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	faction = FACTION_STATION
