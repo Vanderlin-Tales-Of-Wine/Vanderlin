@@ -97,11 +97,11 @@
 /datum/outfit/job/npc/skeleton/random/pre_equip(mob/living/carbon/human/H)
 	..()
 
-	H.TOTALSTR = 6
-	H.TOTALSPD = 10
-	H.TOTALCON = 8
-	H.TOTALEND = 8
-	H.TOTALINT = 1
+	H.base_strength = 6
+	H.base_speed = 10
+	H.base_constitution = 8
+	H.base_endurance = 8
+	H.base_intelligence = 1
 
 
 /datum/outfit/job/greater_skeleton/pre_equip(mob/living/carbon/human/H) //equipped onto Summon Greater Undead player skeletons only after the mind is added
@@ -116,11 +116,11 @@
 	head = /obj/item/clothing/head/helmet/leather
 	shoes = /obj/item/clothing/shoes/boots
 
-	H.TOTALSTR = rand(14,16)
-	H.TOTALSPD = 8
-	H.TOTALCON = 9
-	H.TOTALEND = 15
-	H.TOTALINT = 1
+	H.base_strength = rand(14,16)
+	H.base_speed = 8
+	H.base_constitution = 9
+	H.base_endurance = 15
+	H.base_intelligence = 1
 
 	//light labor skills for skeleton manual labor and some warrior-adventurer skills, equipment is still bad probably
 	H.mind?.adjust_skillrank(/datum/skill/craft/carpentry, 1, TRUE)
@@ -170,10 +170,10 @@
 
 /datum/outfit/job/species/skeleton/npc/peasant/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.TOTALSTR = 6
-	H.TOTALSPD = 8
-	H.TOTALCON = 8
-	H.TOTALEND = 8
+	H.base_strength = 6
+	H.base_speed = 8
+	H.base_constitution = 8
+	H.base_endurance = 8
 	var/loadout = rand(1,7)
 	head = /obj/item/clothing/head/roguehood/random
 	pants = /obj/item/clothing/pants/tights/vagrant
@@ -256,10 +256,10 @@
 
 /datum/outfit/job/species/skeleton/npc/warrior/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.TOTALSTR = 10
-	H.TOTALSPD = 7
-	H.TOTALCON = 10
-	H.TOTALEND = 10
+	H.base_strength = 10
+	H.base_speed = 7
+	H.base_constitution = 10
+	H.base_endurance = 10
 	var/loadout = rand(1,6)
 	switch(loadout)
 		if(1) //Skeleton Warrior
@@ -350,8 +350,8 @@
 	ADD_TRAIT(src, TRAIT_CRITICAL_WEAKNESS, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOLIMBDISABLE, TRAIT_GENERIC)
 
-	TOTALSTR = 20
-	TOTALSPD = 10
-	TOTALCON = 8
-	TOTALEND = 8
-	TOTALINT = 1
+	base_strength = 20
+	base_speed = 10
+	base_constitution = 8
+	base_endurance = 8
+	base_intelligence = 1

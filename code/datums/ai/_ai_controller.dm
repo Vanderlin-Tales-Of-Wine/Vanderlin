@@ -460,14 +460,14 @@ have ways of interacting with a specific atom and control it. They posses a blac
 	arguments[1] = src
 
 	if(LAZYACCESS(current_behaviors, behavior)) ///It's still in the plan, don't add it again to current_behaviors but do keep it in the planned behavior list so its not cancelled
-		LAZYADDASSOC(planned_behaviors, behavior, TRUE)
+		LAZYADDASSOCLIST(planned_behaviors, behavior, TRUE)
 		return
 
 	if(!behavior.setup(arglist(arguments)))
 		return
 
-	LAZYADDASSOC(current_behaviors, behavior, TRUE)
-	LAZYADDASSOC(planned_behaviors, behavior, TRUE)
+	LAZYADDASSOCLIST(current_behaviors, behavior, TRUE)
+	LAZYADDASSOCLIST(planned_behaviors, behavior, TRUE)
 
 	arguments.Cut(1, 2)
 	if(length(arguments))

@@ -22,7 +22,7 @@
 	melee_damage_upper = 40
 	retreat_distance = 0
 	minimum_distance = 0
-	STASTR = 20
+	base_strength = 20
 	aggressive = 1
 	speed = 5
 	move_to_delay = 7

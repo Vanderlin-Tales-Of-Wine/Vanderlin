@@ -152,6 +152,7 @@
 	invocation_type = "whisper"
 	recharge_time = 50 SECONDS
 	devotion_cost = 15
+	miracle = TRUE
 
 /obj/effect/proc_holder/spell/invoked/entangler/cast(list/targets, mob/living/user)
 	. = ..()
@@ -256,6 +257,7 @@
 	attunements = list(
 		/datum/attunement/earth = 0.6,
 	)
+	miracle = TRUE
 
 /obj/effect/proc_holder/spell/targeted/conjure_kneestingers/cast(list/targets,mob/user = usr)
 	playsound(get_turf(user), 'sound/vo/smokedrag.ogg', 100, TRUE)
