@@ -12,6 +12,7 @@
 	var/max_storage
 	var/list/ammo_list = list()
 	sewrepair = TRUE
+	item_weight = 4
 	var/list/ammo_type
 
 /obj/item/ammo_holder/attackby(obj/A, loc, params)

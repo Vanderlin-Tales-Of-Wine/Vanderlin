@@ -59,6 +59,9 @@
 	if(user in takers)
 		if(takers[user] >= spawns_per_person)
 			return NONE
+	if(length(takers) >= max_spawns)
+		SEND_SIGNAL(parent, COMSIG_LOOT_SPAWNER_EMPTY)
+		return NONE
 	INVOKE_ASYNC(src, PROC_REF(start_loot), source, user)
 	return COMPONENT_NO_ATTACK_HAND
 
@@ -80,6 +83,10 @@
 		needs_reset = TRUE
 	takers |= user
 	takers[user]++
+
+	if(length(takers) >= max_spawns)
+		SEND_SIGNAL(parent, COMSIG_LOOT_SPAWNER_EMPTY)
+
 	SEND_SIGNAL(parent, COMSIG_PARENT_TRAP_TRIGGERED, user)
 
 /datum/component/loot_spawner/proc/start_reset(atom/source, obj/item/L, mob/living/user)

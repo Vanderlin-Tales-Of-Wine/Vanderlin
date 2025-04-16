@@ -51,10 +51,10 @@
 	attack_sound = list('sound/combat/hits/onstone/wallhit.ogg')
 	melee_damage_lower = 30
 	melee_damage_upper = 30
-	STAEND = 20
-	STACON = 20
-	STASTR = 12
-	STASPD = 8
+	base_endurance = 20
+	base_constitution = 20
+	base_strength = 12
+	base_speed = 8
 
 	simple_detect_bonus = 60
 	retreat_distance = 0

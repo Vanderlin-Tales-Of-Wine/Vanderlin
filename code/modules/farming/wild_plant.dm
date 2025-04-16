@@ -70,7 +70,7 @@
 		feedback = "Praise Dendor for our harvest is bountiful."
 		modifier += 3
 
-	GLOB.vanderlin_round_stats["plants_harvested"]++
+	GLOB.vanderlin_round_stats[STATS_PLANTS_HARVESTED]++
 	to_chat(user, span_notice(feedback))
 	yield_produce(modifier)
 

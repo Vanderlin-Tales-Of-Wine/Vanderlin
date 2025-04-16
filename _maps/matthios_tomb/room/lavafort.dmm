@@ -92,7 +92,7 @@
 /area/rogue/under/cavelava)
 "fz" = (
 /obj/structure/rack/shelf/biggest,
-/obj/item/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket/wooden,
 /obj/item/natural/bundle/stick,
 /obj/structure/fluff/walldeco/church/line{
 	dir = 4

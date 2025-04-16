@@ -128,8 +128,10 @@
 /datum/species/human/halfelf/get_possible_surnames(gender = MALE)
 	return null
 
-/datum/species/human/halfelf/after_creation(mob/living/carbon/C)
+/datum/species/human/halfelf/after_creation(mob/living/carbon/human/C)
 	..()
+	if(C.skin_tone == SKIN_COLOR_ZIZO_CURSED)
+		exotic_bloodtype = /datum/blood_type/human/cursed_elf
 	C.grant_language(/datum/language/elvish)
 	to_chat(C, "<span class='info'>I can speak Elfish with ,e before my speech.</span>")
 

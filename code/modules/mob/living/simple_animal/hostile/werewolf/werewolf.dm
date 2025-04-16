@@ -12,9 +12,9 @@
 	health = 220
 	melee_damage_lower = 15
 	melee_damage_upper = 18
-	TOTALSTR = 15
-	TOTALEND = 15
-	TOTALSPD = 15
+	base_strength = 15
+	base_endurance = 15
+	base_speed = 15
 	obj_damage = 20
 	environment_smash = ENVIRONMENT_SMASH_WALLS
 	attack_sound = BLADEWOOSH_LARGE
