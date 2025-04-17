@@ -6,6 +6,7 @@
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/steamknight_onmob.dmi'
 	anvilrepair = /datum/skill/craft/engineering
 	block2add = null // no fov block.
+	item_weight = 9 * BRONZE_MULTIPLIER
 
 /obj/item/clothing/head/helmet/heavy/steam/equipped(mob/living/user, slot)
 	if(!(slotdefine2slotbit(slot) & slot_flags))

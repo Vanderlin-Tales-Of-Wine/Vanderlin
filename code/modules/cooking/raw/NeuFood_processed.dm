@@ -285,36 +285,25 @@
 /obj/item/reagent_containers/glass/bucket/wooden/attackby(obj/item/I, mob/living/user, params)
 	if(user.mind)
 		long_cooktime = (100 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*12))
-	if(istype(I, /obj/item/natural/cloth))
+	if(istype(I, /obj/item/natural/cloth) && (user.used_intent.type == INTENT_USE || user.used_intent.type == INTENT_SOAK))
+		var/milk = null
+		var/cheese = null
 		if(reagents.has_reagent(/datum/reagent/consumable/milk/salted, 5))
-			user.visible_message("<span class='info'>[user] strains fresh cheese...</span>")
-			playsound(src, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 100, FALSE)
-			if(do_after(user, long_cooktime, src))
-				reagents.remove_reagent(/datum/reagent/consumable/milk/salted, 5)
-				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT))
-				new /obj/item/reagent_containers/food/snacks/cheese(drop_location())
-		else if(reagents.has_reagent(/datum/reagent/consumable/milk/salted_gote, 5))
-			user.visible_message("<span class='info'>[user] strains fresh cheese...</span>")
-			playsound(src, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 100, FALSE)
-			if(do_after(user, long_cooktime, src))
-				reagents.remove_reagent(/datum/reagent/consumable/milk/salted_gote, 5)
-				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT))
-				new /obj/item/reagent_containers/food/snacks/cheese/gote(drop_location())
-
-		var/obj/item/natural/cloth/T = I
-		if(T.wet && !T.return_blood_DNA())
-			return
-		else
-			var/removereg = /datum/reagent/water
-			if(!reagents.has_reagent(/datum/reagent/water, 5))
-				removereg = /datum/reagent/water/gross
-				if(!reagents.has_reagent(/datum/reagent/water/gross, 5))
-					to_chat(user, "<span class='warning'>No water to soak in.</span>")
-					return
-			wash_atom(T)
-			playsound(src, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 100, FALSE)
-			reagents.remove_reagent(removereg, 5)
-			user.visible_message("<span class='info'>[user] soaks [T] in [src].</span>")
+			milk = /datum/reagent/consumable/milk
+			cheese = /obj/item/reagent_containers/food/snacks/cheese
+		if(reagents.has_reagent(/datum/reagent/consumable/milk/salted_gote, 5))
+			milk = /datum/reagent/consumable/milk/salted_gote
+			cheese = /obj/item/reagent_containers/food/snacks/cheese
+		if(milk)
+			if(I.reagents.total_volume > 0)
+				to_chat(user, span_warning("The [I.name] is still soaked with something."))
+			else
+				user.visible_message("<span class='info'>[user] strains fresh cheese...</span>")
+				playsound(src, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 100, FALSE)
+				if(do_after(user, long_cooktime, src))
+					reagents.remove_reagent(milk, 5)
+					new cheese(drop_location())
+					user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT))
 			return
 	..()
 

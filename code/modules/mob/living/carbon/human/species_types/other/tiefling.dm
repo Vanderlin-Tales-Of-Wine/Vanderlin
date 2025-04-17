@@ -102,7 +102,7 @@
 		if(message[1])
 			if(message[1] != "*")
 				message = " [message]"
-				var/list/accent_words = strings("accent_universal.json", "universal")
+				var/list/accent_words = strings("accents/accent_universal.json", "universal")
 
 				for(var/key in accent_words)
 					var/value = accent_words[key]
@@ -170,7 +170,7 @@
 	return last_names
 
 /datum/species/tieberian/get_accent_list()
-	return strings("spanish_replacement.json", "spanish")
+	return strings("accents/spanish_replacement.json", "spanish")
 
 /datum/species/tieberian/get_native_language()
 	return "Infernal"

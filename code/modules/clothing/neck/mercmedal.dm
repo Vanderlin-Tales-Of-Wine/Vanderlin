@@ -2,7 +2,7 @@
 
 /obj/item/clothing/neck/mercmedal
 	name = "mercenary medal"
-	desc = "A medal commemorating one's diligent work under the MGE."
+	desc = "A medal commemorating one's diligent work under the Mercenary guild."
 	icon_state = "shalal"
 	//dropshrink = 0.75
 	resistance_flags = FIRE_PROOF

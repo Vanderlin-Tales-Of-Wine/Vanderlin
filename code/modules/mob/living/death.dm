@@ -65,6 +65,8 @@
 	unset_machine()
 	timeofdeath = world.time
 	tod = station_time_timestamp()
+
+	new /obj/item/soul(get_turf(src))
 //	var/turf/T = get_turf(src)
 	for(var/obj/item/I in contents)
 		I.on_mob_death(src, gibbed)
@@ -157,9 +159,9 @@
 		if ("coast", "coastforest", "river")
 			locale = "somewhere betwixt Abyssor's realm and Dendor's bounty"
 		if ("indoors", "shop", "physician", "outdoors", "roofs", "manor", "wizard's tower", "garrison","village garrison", "dungeon cell", "baths", "tavern", "basement")
-			locale = "the city of Vanderlin and all its bustling souls"
+			locale = "the city of [SSmapping.config.map_name] and all its bustling souls"
 		if ("sewers")
-			locale = "somwhere under the city of vanderlin and all its bustling souls"
+			locale = "somwhere under the city of [SSmapping.config.map_name] and all its bustling souls"
 		if ("church")
 			locale = "a hallowed place, sworn to the Ten" // special bit for the church since it's sacred ground
 

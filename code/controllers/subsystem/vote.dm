@@ -221,9 +221,9 @@ SUBSYSTEM_DEF(vote)
 			if("gamemode")
 				choices.Add(config.votable_modes)
 			if("map")
-				for(var/map in global.config.maplist)
+				for(var/map in config.maplist)
 					var/datum/map_config/VM = config.maplist[map]
-					if(!VM.votable)
+					if(!VM.available_for_vote())
 						continue
 					choices.Add(VM.map_name)
 			if("custom")

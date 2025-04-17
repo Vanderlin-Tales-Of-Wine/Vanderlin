@@ -39,7 +39,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	)
 
 	var/vitae = 1000
-	var/vmax = 2000
+	var/vmax = 3000
 
 	COOLDOWN_DECLARE(last_transform)
 	var/disguised = FALSE //! spawn

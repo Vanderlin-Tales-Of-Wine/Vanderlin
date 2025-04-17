@@ -31,6 +31,7 @@
 #define POLLUTANT_SMELL (1<<1) //Pollutant has a smell and calls smell_act() on people smelling it
 #define POLLUTANT_TOUCH_ACT (1<<2) //Pollutant calls touch_act() on unprotected people touched by it
 #define POLLUTANT_BREATHE_ACT (1<<3) //Pollutant calls breathe_act() on people breathing it in
+#define POLLUTION_DO_NOT_SPREAD (1<<4) //Pollution will not spread to nearby turfs
 
 #define POLLUTANT_APPEARANCE_THICKNESS_THRESHOLD 30
 #define THICKNESS_ALPHA_COEFFICIENT 0.0025
