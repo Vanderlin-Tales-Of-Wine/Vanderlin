@@ -37,7 +37,7 @@ SUBSYSTEM_DEF(soundloopers)
 				continue
 
 		if(check_clients && thing.persistent_loop)
-			for(var/client/C in GLOB.clients)
+			for(var/client/C as anything in GLOB.clients)
 				if(C.mob) //Not in the lobby
 					C.update_sounds()
 
