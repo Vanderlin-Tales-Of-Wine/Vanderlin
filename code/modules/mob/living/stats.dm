@@ -360,16 +360,54 @@
 #define LEGACY_SOURCE "do not fucking edit or remove this admins i swear to god"
 
 /// ~~Adjusts stat values of mobs. set_stat == true to set directly.~~
-/mob/living/proc/change_stat(stat_key, adjust_amount, set_stat = FALSE)
+/mob/living/proc/change_stat(stat_key, adjust_amount)
 	//! DEPRECATED PROC
 	if(!stat_key || !adjust_amount)
 		return
-	if(set_stat)
-		set_stat_modifier(LEGACY_SOURCE, stat_key, adjust_amount)
-	else
-		adjust_stat_modifier(LEGACY_SOURCE, stat_key, adjust_amount)
+		
+	adjust_stat_modifier(LEGACY_SOURCE, stat_key, adjust_amount)
 
 #undef LEGACY_SOURCE
+
+/// Recalculates all of a mob's stats and stat modifiers. Don't use this more than you **need** to.
+/mob/living/proc/recalculate_stats(including_modifiers = TRUE)
+	if(including_modifiers)
+		// we discard all of our mods and compile them again
+		modified_strength = 0
+		modified_perception = 0
+		modified_endurance = 0
+		modified_constitution = 0
+		modified_intelligence = 0
+		modified_speed = 0
+		modified_fortune = 0
+
+		for(var/source in stat_modifiers)
+			var/sourced_modifiers = LAZYACCESS(stat_modifiers, source)
+			for(var/stat_key in sourced_modifiers)
+				var/adjustment = LAZYACCESS(sourced_modifiers, stat_key)
+				switch(stat_key) //I am sorry for this
+					if(STATKEY_STR)
+						modified_strength += adjustment
+					if(STATKEY_PER)
+						modified_perception += adjustment
+					if(STATKEY_END)
+						modified_endurance += adjustment
+					if(STATKEY_CON)
+						modified_constitution += adjustment
+					if(STATKEY_INT)
+						modified_intelligence += adjustment
+					if(STATKEY_SPD)
+						modified_speed += adjustment
+					if(STATKEY_LCK)
+						modified_fortune += adjustment
+
+	UPDATE_STRENGTH()
+	UPDATE_PERCEPTION()
+	UPDATE_ENDURANCE()
+	UPDATE_CONSTITUTION()
+	UPDATE_INTELLIGENCE()
+	UPDATE_SPEED()
+	UPDATE_FORTUNE()
 
 #undef UPDATE_STRENGTH
 #undef UPDATE_PERCEPTION

@@ -53,7 +53,7 @@
 	name = "cloth"
 	desc = "A square of cloth mended from fibers."
 	icon_state = "cloth"
-	possible_item_intents = list(/datum/intent/use)
+	possible_item_intents = list(/datum/intent/use, /datum/intent/soak, /datum/intent/wring)
 	force = 0
 	throwforce = 0
 	firefuel = 5 MINUTES
@@ -66,10 +66,61 @@
 	w_class = WEIGHT_CLASS_TINY
 	spitoutmouth = FALSE
 	bundletype = /obj/item/natural/bundle/cloth
-	var/wet = 0
+
+	var/datum/component/cleaner/cleaner_component = null
+	var/clean_speed = 0.4 SECONDS
+	var/volume = 9
+
 	/// Effectiveness when used as a bandage, how much bloodloss we can tampon
 	var/bandage_effectiveness = 0.9
 	obj_flags = CAN_BE_HIT //enables splashing on by containers
+
+/obj/item/natural/cloth/Initialize(mapload, vol)
+	. = ..()
+	if(isnum(vol) && vol > 0)
+		volume = vol
+	create_reagents(volume, TRANSPARENT)
+
+
+/obj/item/natural/cloth/ComponentInitialize()
+	. = ..()
+	cleaner_component = AddComponent(/datum/component/cleaner,
+									clean_speed,
+									CLEAN_MEDIUM,
+									100,
+									TRUE,
+									CALLBACK(src, PROC_REF(on_pre_clean)),
+									CALLBACK(src, PROC_REF(on_clean_success)),
+									)
+
+/obj/item/natural/cloth/proc/on_pre_clean(datum/cleaning_source, atom/atom_to_clean, mob/living/cleaner)
+	if(cleaner?.used_intent?.type != INTENT_USE || ismob(atom_to_clean) || !check_allowed_items(atom_to_clean))
+		return DO_NOT_CLEAN
+	if(istype(atom_to_clean, /turf/open/water) || istype(atom_to_clean, /turf/open/transparent))
+		return DO_NOT_CLEAN
+	if(cleaner.client && ((atom_to_clean in cleaner.client.screen) && !cleaner.is_holding(atom_to_clean)))
+		to_chat(cleaner, span_warning("I need to take \the [atom_to_clean] off before cleaning it!"))
+		return DO_NOT_CLEAN
+
+	// overly complicated effectiveness calculations
+	// explanation/graph https://www.desmos.com/calculator/sjzjfkeupd
+	var/pWater = reagents.get_reagent_amount(/datum/reagent/water) / reagents.total_volume
+	var/pDirtyWater = reagents.get_reagent_amount(/datum/reagent/water/gross) / reagents.total_volume
+	var/pSoap = reagents.get_reagent_amount(/datum/reagent/soap) / reagents.total_volume
+	var/effectiveness = 0.1 + pWater * CLEAN_EFFECTIVENESS_WATER + pDirtyWater * CLEAN_EFFECTIVENESS_DIRTY_WATER
+	effectiveness *= LERP(1, CLEAN_EFFECTIVENESS_SOAP, pSoap)
+
+	cleaner_component.cleaning_effectiveness = (effectiveness * 100) % 100
+	cleaner_component.cleaning_strength = CLAMP(CLEAN_WEAK + ceil(effectiveness), CLEAN_WEAK, CLEAN_IMPRESSIVE)
+	playsound(cleaner, pick('sound/foley/cloth_wipe (1).ogg','sound/foley/cloth_wipe (2).ogg', 'sound/foley/cloth_wipe (3).ogg'), 100, FALSE)
+	return TRUE
+
+/obj/item/natural/cloth/proc/on_clean_success(datum/source, atom/target, mob/living/user, clean_succeeded)
+	if(clean_succeeded)
+		if(isturf(target))
+			var/turf/T = target
+			T.add_liquid_from_reagents(reagents, amount = 1)
+		reagents.remove_all(1)
 
 /obj/item/natural/cloth/mob_can_equip(mob/living/M, mob/living/equipper, slot, disable_warning, bypass_equip_delay_self)
 	. = ..()
@@ -91,65 +142,106 @@
 	..()
 	user.cure_blind("blindfold_[REF(src)]")
 
-/obj/item/natural/cloth/examine(mob/user)
-	. = ..()
-	if(wet)
-		. += span_notice("It's wet!")
 
 // CLEANING
 
 /obj/item/natural/cloth/attack_obj(obj/O, mob/living/user)
-	testing("attackobj")
-	if(user.client && ((O in user.client.screen) && !user.is_holding(O)))
-		to_chat(user, span_warning("I need to take that [O.name] off before cleaning it!"))
-		return
-	if(istype(O, /obj/effect/decal/cleanable))
-		var/cleanme = TRUE
-		if(istype(O, /obj/effect/decal/cleanable/blood))
-			if(!wet)
-				to_chat(user, span_warning("[src] is too dry to clean [O]!"))
-				cleanme = FALSE
-			add_blood_DNA(O.return_blood_DNA())
-		if(prob(40 + (wet*10)) && cleanme)
-			wet = max(wet-0.50, 0)
-			user.visible_message(span_info("[user] wipes \the [O.name] with [src]."), span_info("I wipe \the [O.name] with [src]."))
-			qdel(O)
-		playsound(user, "clothwipe", 100, TRUE)
-	else
-		if(prob(40 + (wet*10)))
-			user.visible_message(span_info("[user] wipes \the [O.name] with [src]."), span_info("I wipe \the [O.name] with [src]."))
-
-			if(O.return_blood_DNA())
-				add_blood_DNA(O.return_blood_DNA())
-			for(var/obj/effect/decal/cleanable/C in O)
-				qdel(C)
-			if(!wet)
-				SEND_SIGNAL(O, COMSIG_COMPONENT_CLEAN_ACT, CLEAN_WEAK)
-			else
-				SEND_SIGNAL(O, COMSIG_COMPONENT_CLEAN_ACT, CLEAN_STRONG)
-			wet = max(wet-0.50, 0)
-		playsound(user, "clothwipe", 100, TRUE)
+	switch(user.used_intent.type)
+		if(INTENT_SOAK)
+			soak_cloth(O, user)
+		if(INTENT_WRING)
+			wring_cloth(O, user)
+		else
+			return ..()
 
 /obj/item/natural/cloth/attack_turf(turf/T, mob/living/user)
-	if(istype(T, /turf/open/water))
-		return ..()
-	if(prob(40 + (wet*10)))
-		if(wet)
-			user.visible_message(span_info("[user] wipes \the [T.name] with [src]."), span_info("I wipe \the [T.name] with [src]."))
-			for(var/obj/effect/decal/cleanable/C in T)
-				qdel(C)
-			wet = max(wet-0.50, 0)
-	playsound(user, "clothwipe", 100, TRUE)
+	switch(user.used_intent.type)
+		if(INTENT_SOAK)
+			soak_cloth(T, user)
+		if(INTENT_WRING)
+			wring_cloth(T, user)
+		else
+			return ..()
+
+/obj/item/natural/cloth/attack_self(mob/user)
+	attack_right(user)
+	return
+
+/obj/item/natural/cloth/rmb_self(mob/user)
+	attack_right(user)
+	return
+
+/obj/item/natural/cloth/attack_right(mob/user)
+	wring_cloth(user.loc, user)
+	return
+
+/obj/item/natural/cloth/proc/soak_cloth(atom/target, mob/living/user)
+	if(reagents.total_volume == reagents.maximum_volume)
+		to_chat(user, span_warning("\The [src] is already soaked."))
+		return
+	if(isobj(target))
+		var/obj/O = target
+		if(!O.reagents || !O.is_open_container())
+			return
+		if(O.reagents.total_volume == 0)
+			to_chat(user, span_warning("It's empty."))
+			return
+		if(do_after(user, clean_speed, O))
+			O.reagents.trans_to(src, reagents.maximum_volume, 1, transfered_by = user)
+			user.visible_message(span_small("[user] soaks \the [src] in \the [O]."), span_small("I soak \the [src] in \the [O]."), vision_distance = 2)
+			playsound(O, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 25, FALSE)
+	else if(isturf(target))
+		var/turf/T = target
+		if(istype(T, /turf/open/water))
+			var/turf/open/water/W = T
+			if(do_after(user, clean_speed, T))
+				reagents.add_reagent(W.water_reagent, reagents.maximum_volume)
+				user.visible_message(span_small("[user] soaks \the [src] in \the [T]."), span_small("I soak \the [src] in \the [T]."), vision_distance = 2)
+				playsound(T, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 25, FALSE)
+		else
+			var/datum/liquid_group/lg = T.liquids?.liquid_group
+			if(!lg)
+				to_chat(user, span_warning("Nothing there to soak."))
+				return
+			if(do_after(user, clean_speed * 2, T))
+				lg.transfer_to_atom(null, reagents.maximum_volume, src)
+				user.visible_message(span_small("[user] soaks \the [src]."), span_small("I soak \the [src]."), vision_distance = 2)
+				playsound(T, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 25, FALSE)
+
+/obj/item/natural/cloth/proc/wring_cloth(atom/target, mob/living/user)
+	if(reagents.total_volume == 0)
+		to_chat(user, span_warning("Nothing to wring out."))
+		return
+	if(isobj(target))
+		var/obj/O = target
+		if(!O.reagents || !O.is_open_container())
+			return
+		if(O.reagents.total_volume == O.reagents.maximum_volume)
+			to_chat(user, span_warning("It's full."))
+			return
+		if(do_after(user, clean_speed * 2.5, O))
+			reagents.trans_to(O, reagents.total_volume, 1, transfered_by = user)
+			user.visible_message(span_small("[user] wrings out \the [src] in \the [O]."), span_small("I wring out \the [src] in \the [O]."), vision_distance = 2)
+			playsound(O, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 25, FALSE)
+	else if(isturf(target))
+		var/turf/T = target
+		if(istype(T, /turf/open/water))
+			if(do_after(user, clean_speed * 2.5, T))
+				reagents.clear_reagents()
+				user.visible_message(span_small("[user] wrings out \the [src] in \the [T]."), span_small("I wring out \the [src] in \the [T]."), vision_distance = 2)
+				playsound(T, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 25, FALSE)
+		else
+			if(do_after(user, clean_speed * 2.5, T))
+				T.add_liquid_from_reagents(reagents, amount = reagents.maximum_volume)
+				reagents.clear_reagents()
+				user.visible_message(span_small("[user] wrings out \the [src]."), span_small("I wring out \the [src]."), vision_distance = 2)
+				playsound(T, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 25, FALSE)
 
 
 // BANDAGING
 /obj/item/natural/cloth/attack(mob/living/M, mob/user)
 	testing("attack")
 	bandage(M, user)
-
-/obj/item/natural/cloth/wash_act()
-	. = ..()
-	wet = 6
 
 /obj/item/natural/cloth/proc/bandage(mob/living/M, mob/user)
 	if(!M.can_inject(user, TRUE))
