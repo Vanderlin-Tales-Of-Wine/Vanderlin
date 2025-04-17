@@ -166,3 +166,9 @@
 
 	herbtype = /obj/item/alch/artemisia
 
+/obj/structure/flora/grass/herb/rosa
+	name = "rosa"
+	icon_state = "rosa"
+
+	herbtype = /obj/item/alch/rosa
+
