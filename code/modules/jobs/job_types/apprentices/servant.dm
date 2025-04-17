@@ -99,7 +99,7 @@
 
 
 /datum/job/matron_assistant
-	title = "Matron's Assistant"
+	title = "Matron Assistant"
 	tutorial = "I once was an orphan, the matron took me in and now I am forever in her debt. \
 	That orphanage, those who were like me need guidance, I shall assist the matron in her tasks."
 	flag = SERVANT
@@ -147,7 +147,7 @@
 		H.change_stat(STATKEY_END, 1)
 
 /datum/job/gaffer_assistant
-	title = "Ring's Servant"
+	title = "Ring Servant"
 	tutorial = "I never had what it took to be a mercenary, but I offered my service to the guild regardless. \
 	my vow is to serve whomever has the ring of burden, but I know to avoid its curse my self"
 	flag = SERVANT
