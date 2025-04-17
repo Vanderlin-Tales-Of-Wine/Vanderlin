@@ -324,8 +324,7 @@
 		var/mob/living/carbon/C = owner
 		C.apply_status_effect(/datum/status_effect/debuff/barbfalter)
 
-/datum/status_effect/buff/barbrage/permanent
-	duration = -1
+
 
 //============================================================================
 /*--------------\
