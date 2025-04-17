@@ -14,10 +14,10 @@
 
 	influence_factors = list(
 		STATS_BOOKS_PRINTED = list("points" = 3, "capacity" = 40),
-		STATS_LITERACY_TAUGHT = list("points" = 12.5, "capacity" = 120),
+		STATS_LITERACY_TAUGHT = list("points" = 12.5, "capacity" = 110),
 		STATS_ILLITERATES = list("points" = -3, "capacity" = -60),
 		STATS_SKILLS_DREAMED = list("points" = 0.3, "capacity" = 100),
-		STATS_MANA_SPENT = list("points" = 0.075, "capacity" = 90),
+		STATS_MANA_SPENT = list("points" = 0.075, "capacity" = 100),
 	)
 
 /datum/storyteller/ravox
@@ -43,7 +43,7 @@
 
 	influence_factors = list(
 		STATS_COMBAT_SKILLS = list("points" = 0.5, "capacity" = 90),
-		STATS_PARRIES = list("points" = 0.055, "capacity" = 90),
+		STATS_PARRIES = list("points" = 0.05, "capacity" = 90),
 		STATS_WARCRIES = list("points" = 0.35, "capacity" = 50),
 		STATS_YIELDS = list("points" = -5, "capacity" = -40),
 		STATS_UNDERWORLD_DUELS = list("points" = 4, "capacity" = 60),
@@ -67,7 +67,7 @@
 		STATS_FISH_CAUGHT = list("points" = 1.5, "capacity" = 85),
 		STATS_ABYSSOR_REMEMBERED = list("points" = 1, "capacity" = 40),
 		STATS_LEECHES_EMBEDDED = list("points" = 0.175, "capacity" = 60),
-		STATS_PEOPLE_DROWNED = list("points" = 5, "capacity" = 60),
+		STATS_PEOPLE_DROWNED = list("points" = 4, "capacity" = 60),
 	)
 
 /datum/storyteller/xylix
@@ -122,7 +122,7 @@
 		STATS_DEATHS = list("points" = 1.6, "capacity" = 115),
 		STATS_GRAVES_CONSECRATED = list("points" = 7, "capacity" = 100),
 		STATS_GRAVES_ROBBED = list("points" = -4, "capacity" = -60),
-		STATS_DEADITES_KILLED = list("points" = 7, "capacity" = 120),
+		STATS_DEADITES_KILLED = list("points" = 7.5, "capacity" = 120),
 		STATS_VAMPIRES_KILLED = list("points" = 15, "capacity" = 60),
 	)
 
@@ -224,7 +224,7 @@
 
 	influence_factors = list(
 		STATS_TREES_CUT = list("points" = -0.175, "capacity" = -80),
-		STATS_PLANTS_HARVESTED = list("points" = 0.8, "capacity" = 125),
+		STATS_PLANTS_HARVESTED = list("points" = 0.75, "capacity" = 125),
 		STATS_WEREVOLVES = list("points" = 15, "capacity" = 85),
 		STATS_DENDOR_SACRIFICES = list("points" = 12.5, "capacity" = 100),
 		STATS_FOREST_DEATHS = list("points" = 3, "capacity" = 100),
@@ -290,9 +290,9 @@
 	)
 
 	influence_factors = list(
-		STATS_DRUGS_SNORTED = list("points" = 4.5, "capacity" = 80),
+		STATS_DRUGS_SNORTED = list("points" = 4, "capacity" = 80),
 		STATS_ALCOHOL_CONSUMED = list("points" = 0.045, "capacity" = 90),
-		STATS_ALCOHOLICS = list("points" = 4, "capacity" = 60),
+		STATS_ALCOHOLICS = list("points" = 3.5, "capacity" = 60),
 		STATS_JUNKIES = list("points" = 7, "capacity" = 70),
 		STATS_LUXURIOUS_FOOD_EATEN = list("points" = 0.65, "capacity" = 80),
 	)
@@ -325,7 +325,7 @@
 	influence_factors = list(
 		STATS_BLOOD_SPILT = list("points" = 0.0003, "capacity" = 90),
 		STATS_ORGANS_EATEN = list("points" = 4, "capacity" = 80),
-		STATS_LIMBS_BITTEN = list("points" = 1.5, "capacity" = 70),
+		STATS_LIMBS_BITTEN = list("points" = 1.25, "capacity" = 70),
 		STATS_PEOPLE_GIBBED = list("points" = 3, "capacity" = 50),
 		STATS_ASSASSINATIONS = list("points" = 15, "capacity" = 90),
 	)
@@ -359,7 +359,7 @@
 		STATS_ITEMS_PICKPOCKETED = list("points" = 6.5, "capacity" = 100),
 		STATS_SHRINE_VALUE = list("points" = 0.2, "capacity" = 90),
 		STATS_GREEDY_PEOPLE = list("points" = 7, "capacity" = 70),
-		STATS_DODGES = list("points" = 0.09, "capacity" = 80),
+		STATS_DODGES = list("points" = 0.08, "capacity" = 80),
 		STATS_LOCKS_PICKED = list("points" = 5, "capacity" = 90),
 	)
 
