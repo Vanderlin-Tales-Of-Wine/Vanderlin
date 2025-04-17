@@ -81,7 +81,7 @@
 
 	H.update_icons()
 
-/datum/job/priest/demoted //just used to change the priest title
+/datum/job/expriest //just used to change the priest title
 	title = "Ex-Priest"
 	f_title = "Ex-Priestess"
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK)
