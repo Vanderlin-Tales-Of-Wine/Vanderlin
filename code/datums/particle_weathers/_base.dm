@@ -143,8 +143,8 @@
 	return
 
 /datum/particle_weather/Destroy()
-	for(var/S in currentSounds)
-		var/datum/looping_sound/looping_sound = currentSounds[S]
+	for(var/mob/living/M as anything in currentSounds)
+		var/datum/looping_sound/looping_sound = currentSounds[M]
 		if(istype(looping_sound))
 			looping_sound.stop()
 			qdel(looping_sound)
@@ -225,7 +225,7 @@
  */
 /datum/particle_weather/proc/end()
 	running = FALSE
-	for(var/mob/living/M in currentSounds)
+	for(var/mob/living/M as anything in currentSounds)
 		if(M.client)
 			stop_weather_sound_effect(M)
 	SSParticleWeather.stopWeather()
