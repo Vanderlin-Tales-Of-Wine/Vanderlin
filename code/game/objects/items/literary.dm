@@ -98,13 +98,16 @@
 		var/mob/living/carbon/human/H = user
 		var/userskill = H.mind.get_skill_level(skilltoteach)
 		var/intbonus = H.STAINT - 10
+		var/true_experience = exppercycle + intbonus
+		if(true_experience <= 0)
+			to_chat(user, span_warning("Your intellect is too low to understand anything from this!"))
 		if(userskill < minskill)
 			to_chat(user, span_warning("This textbook is too advanced for me to study!"))
 			return
 		if(userskill < maxskill)
 			to_chat(user, span_info("You begin to study the [src.name]."))
 			if(do_after(H, 5 SECONDS))
-				user.mind.adjust_experience(skilltoteach, exppercycle + intbonus)
+				user.mind.adjust_experience(skilltoteach, true_experience)
 				attemptlearn(user)
 		else
 			to_chat(user, span_warning("This textbook is too simple for me to learn any more from!"))
