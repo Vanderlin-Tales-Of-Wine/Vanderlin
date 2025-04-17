@@ -28,6 +28,10 @@
 	},
 /turf/open/floor/cobble,
 /area/rogue/under/cave)
+"ai" = (
+/obj/structure/door/violet,
+/turf/open/floor/tile/bath,
+/area/rogue/under/cave)
 "ak" = (
 /obj/effect/decal/cleanable/blood/gibs/torso,
 /turf/open/floor/naturalstone,
@@ -63,6 +67,25 @@
 	},
 /obj/structure/trap/spike,
 /turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/cave)
+"aO" = (
+/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+	base_strength = 15;
+	base_speed = 15;
+	base_constitution = 14;
+	base_endurance = 14;
+	base_fortune = 12;
+	candodge = 0
+	},
+/obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/item/clothing/armor/plate/rust,
+/obj/item/clothing/gloves/plate/rust,
+/obj/item/clothing/pants/platelegs/rust,
+/obj/item/clothing/shoes/boots/armor/light/rust,
+/obj/item/clothing/neck/chaincoif,
+/obj/item/weapon/sword/rapier,
+/obj/item/weapon/shield/tower/buckleriron,
+/turf/open/floor/metal/barograte,
 /area/rogue/under/cave)
 "aQ" = (
 /obj/effect/decal/cobbleedge{
@@ -106,10 +129,35 @@
 	},
 /turf/open/floor/tile/masonic/inverted,
 /area/rogue/under/cave)
+"bg" = (
+/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+	base_strength = 15;
+	base_speed = 15;
+	base_constitution = 14;
+	base_endurance = 14;
+	base_fortune = 12;
+	candodge = 0
+	},
+/obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/item/clothing/gloves/plate/rust,
+/obj/item/clothing/head/helmet/heavy/rust,
+/obj/item/clothing/pants/platelegs/rust,
+/obj/item/clothing/shoes/boots/armor/light/rust,
+/obj/item/clothing/neck/chaincoif,
+/obj/item/clothing/armor/cuirass/iron/rust,
+/obj/item/weapon/sword/scimitar,
+/obj/item/weapon/shield/heater,
+/obj/item/clothing/cloak/half/guard,
+/turf/open/floor/cobblerock,
+/area/rogue/under/cave)
 "bi" = (
 /obj/item/ammo_holder/quiver/arrows,
 /obj/item/natural/rock,
 /turf/open/floor/ruinedwood/darker,
+/area/rogue/under/cave)
+"bk" = (
+/obj/structure/door/stone,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/cave)
 "bp" = (
 /mob/living/carbon/human/species/skeleton/npc/peasant,
@@ -122,6 +170,26 @@
 "br" = (
 /obj/item/ammo_casing/caseless/arrow,
 /turf/open/floor/cobblerock,
+/area/rogue/under/cave)
+"by" = (
+/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+	base_strength = 15;
+	base_speed = 15;
+	base_constitution = 14;
+	base_endurance = 14;
+	base_fortune = 12;
+	candodge = 0
+	},
+/obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/item/weapon/shield/tower/hoplite,
+/obj/item/weapon/sword/khopesh,
+/obj/item/clothing/shoes/boots/armor/light/rust,
+/obj/item/clothing/pants/platelegs/rust,
+/obj/item/clothing/head/helmet/heavy/rust,
+/obj/item/clothing/gloves/plate/rust,
+/obj/item/clothing/armor/cuirass/iron/rust,
+/obj/item/clothing/neck/chaincoif,
+/turf/open/floor/cobble,
 /area/rogue/under/cave)
 "bB" = (
 /obj/item/reagent_containers/glass/cup,
@@ -140,9 +208,24 @@
 /mob/living/carbon/human/species/skeleton/npc/warrior,
 /turf/open/floor/carpet/red,
 /area/rogue/under/cave)
-"bV" = (
-/obj/structure/door/swing,
-/turf/open/floor/wood/nosmooth/saiga,
+"bU" = (
+/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+	base_strength = 15;
+	base_speed = 15;
+	base_constitution = 14;
+	base_endurance = 14;
+	base_fortune = 12;
+	candodge = 0
+	},
+/obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/item/clothing/armor/plate/rust,
+/obj/item/clothing/gloves/plate/rust,
+/obj/item/clothing/head/helmet/heavy/rust,
+/obj/item/clothing/pants/platelegs/rust,
+/obj/item/clothing/shoes/boots/armor/light/rust,
+/obj/item/clothing/neck/chaincoif,
+/obj/item/weapon/polearm/spear/billhook,
+/turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cave)
 "bW" = (
 /mob/living/carbon/human/species/skeleton/npc/peasant,
@@ -169,30 +252,6 @@
 /obj/structure/fermentation_keg,
 /obj/structure/spider/stickyweb,
 /turf/open/floor/cobble,
-/area/rogue/under/cave)
-"ch" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	base_strength = 15;
-	base_speed = 15;
-	base_constitution = 14;
-	base_endurance = 14;
-	base_fortune = 12;
-	candodge = 0
-	},
-/obj/effect/mapping_helpers/floor_clothing_equipper,
-/obj/item/clothing/gloves/plate/rust,
-/obj/item/clothing/head/helmet/heavy/rust,
-/obj/item/clothing/pants/platelegs/rust,
-/obj/item/clothing/shoes/boots/armor/light/rust,
-/obj/item/clothing/neck/chaincoif,
-/obj/item/clothing/armor/cuirass/iron/rust,
-/obj/item/weapon/sword/long/exe,
-/obj/item/clothing/cloak/half/guard,
-/turf/open/floor/cobblerock,
-/area/rogue/under/cave)
-"cj" = (
-/obj/structure/door/violet,
-/turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cave)
 "ck" = (
 /obj/structure/fermentation_keg,
@@ -345,6 +404,10 @@
 	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/cave)
+"dG" = (
+/obj/structure/door/violet,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/cave)
 "dI" = (
 /obj/structure/table/wood/fancy/black,
 /turf/open/floor/ruinedwood/chevron,
@@ -382,6 +445,26 @@
 	},
 /obj/structure/fluff/railing/fence,
 /turf/open/floor/naturalstone,
+/area/rogue/under/cave)
+"eb" = (
+/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+	base_strength = 15;
+	base_speed = 15;
+	base_constitution = 14;
+	base_endurance = 14;
+	base_fortune = 12;
+	candodge = 0
+	},
+/obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/item/clothing/ring/silver/gemerald,
+/obj/item/weapon/polearm/spear/hoplite,
+/obj/item/weapon/shield/tower/hoplite,
+/obj/item/clothing/armor/plate/rust,
+/obj/item/clothing/gloves/plate/rust,
+/obj/item/clothing/pants/platelegs/rust,
+/obj/item/clothing/shoes/boots/armor/light/rust,
+/obj/item/clothing/neck/chaincoif,
+/turf/open/floor/carpet/red,
 /area/rogue/under/cave)
 "ei" = (
 /obj/item/chair/chair3,
@@ -544,6 +627,25 @@
 	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/cave)
+"fC" = (
+/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+	base_strength = 15;
+	base_speed = 15;
+	base_constitution = 14;
+	base_endurance = 14;
+	base_fortune = 12;
+	candodge = 0
+	},
+/obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/item/clothing/armor/plate/rust,
+/obj/item/clothing/gloves/plate/rust,
+/obj/item/clothing/pants/platelegs/rust,
+/obj/item/clothing/shoes/boots/armor/light/rust,
+/obj/item/clothing/neck/chaincoif,
+/obj/item/weapon/sword/long/death,
+/obj/item/clothing/cloak/half/guard,
+/turf/open/floor/cobblerock,
+/area/rogue/under/cave)
 "fF" = (
 /obj/structure/gate{
 	gid = "FireGate1";
@@ -620,10 +722,6 @@
 "gM" = (
 /obj/structure/trap/wall_projectile/fireball,
 /turf/open/floor/herringbone,
-/area/rogue/under/cave)
-"gO" = (
-/obj/structure/door/violet,
-/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/cave)
 "gS" = (
 /obj/structure/rack/shelf/biggest,
@@ -820,9 +918,35 @@
 /obj/structure/spider/stickyweb,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/cave)
+"jE" = (
+/obj/item/soap,
+/turf/open/transparent/openspace,
+/area/rogue/under/cave)
 "jJ" = (
 /obj/effect/decal/remains/human,
 /turf/open/floor/hexstone,
+/area/rogue/under/cave)
+"jK" = (
+/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+	base_strength = 15;
+	base_speed = 15;
+	base_constitution = 14;
+	base_endurance = 14;
+	base_fortune = 12;
+	candodge = 0;
+	real_name = "Undead Knight"
+	},
+/obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/structure/fluff/railing/border,
+/obj/item/clothing/ring/silver/toper,
+/obj/item/clothing/cloak/half/vet,
+/obj/item/clothing/armor/plate/full,
+/obj/item/clothing/gloves/plate,
+/obj/item/clothing/pants/platelegs,
+/obj/item/clothing/shoes/boots/armor,
+/obj/item/clothing/head/helmet/heavy/decorated/knight,
+/obj/item/weapon/hammer/sledgehammer/war,
+/turf/open/floor/churchbrick,
 /area/rogue/under/cave)
 "jN" = (
 /obj/structure/chair/bench/couch/redright,
@@ -835,6 +959,11 @@
 "jR" = (
 /obj/item/natural/rock,
 /turf/open/floor/cobblerock,
+/area/rogue/under/cave)
+"jV" = (
+/obj/structure/door/violet,
+/obj/machinery/light/fueled/wallfire/candle,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/cave)
 "jW" = (
 /obj/item/natural/cloth,
@@ -865,6 +994,19 @@
 /obj/structure/bars,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/blocks,
+/area/rogue/under/cave)
+"ku" = (
+/obj/effect/waterfall,
+/obj/item/soap/bath,
+/obj/structure/trap/shock,
+/turf/open/water/bath,
+/area/rogue/under/cave)
+"kC" = (
+/obj/structure/door/stone{
+	lockid = "CastlePrison1"
+	},
+/obj/effect/mapping_helpers/door/locker,
+/turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "kE" = (
 /obj/structure/fluff/railing/border{
@@ -914,6 +1056,27 @@
 /obj/effect/decal/cleanable/blood/tracks,
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/under/cave)
+"lr" = (
+/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+	real_name = "Forgotten King";
+	base_speed = 20;
+	base_perception = 12;
+	base_intelligence = 18;
+	base_fortune = 20;
+	base_strength = 12;
+	base_endurance = 12;
+	base_constitution = 12
+	},
+/obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/item/clothing/shirt/tunic/noblecoat,
+/obj/item/clothing/shoes/nobleboot/thighboots,
+/obj/item/clothing/gloves/leather/masterwork,
+/obj/item/clothing/head/crown/circlet/sleepless,
+/obj/item/weapon/polearm/woodstaff/quarterstaff/steel,
+/obj/item/clothing/ring/gold/dorpel,
+/obj/item/clothing/cloak/lordcloak/ladycloak,
+/turf/open/floor/carpet/lord/center,
+/area/rogue/under/cave)
 "lt" = (
 /obj/structure/bars/pipe{
 	dir = 4
@@ -925,12 +1088,28 @@
 /obj/item/reagent_containers/glass/cup/wooden,
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
-"ly" = (
-/obj/structure/door/violet{
-	lockid = "CastleArti"
+"lv" = (
+/obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/item/clothing/ring/silver/dorpel,
+/obj/item/clothing/cloak/half/guardsecond,
+/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+	base_strength = 15;
+	base_speed = 15;
+	base_constitution = 14;
+	base_endurance = 14;
+	base_fortune = 12;
+	candodge = 0;
+	real_name = "Undead Knight"
 	},
-/obj/effect/mapping_helpers/door/locker,
-/turf/open/floor/ruinedwood/spiral,
+/obj/item/clothing/neck/mercmedal/grenzelhoft,
+/obj/item/clothing/armor/plate/full,
+/obj/item/clothing/gloves/plate,
+/obj/item/clothing/pants/platelegs,
+/obj/item/clothing/shoes/boots/armor,
+/obj/item/clothing/head/helmet/heavy/decorated/hounskull,
+/obj/item/weapon/mace/warhammer/steel,
+/obj/item/weapon/shield/tower/buckleriron,
+/turf/open/floor/churchmarble,
 /area/rogue/under/cave)
 "lE" = (
 /turf/open/floor/hexstone,
@@ -971,10 +1150,6 @@
 	},
 /turf/open/floor/blocks,
 /area/rogue/under/cave)
-"mi" = (
-/obj/structure/door/stone,
-/turf/open/floor/blocks,
-/area/rogue/under/cave)
 "mp" = (
 /obj/structure/fluff/railing/border,
 /obj/structure/fluff/railing/border{
@@ -997,27 +1172,6 @@
 "mB" = (
 /obj/item/natural/glass/shard,
 /turf/open/floor/wood/nosmooth,
-/area/rogue/under/cave)
-"mE" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	base_strength = 15;
-	base_speed = 15;
-	base_constitution = 14;
-	base_endurance = 14;
-	base_fortune = 12;
-	candodge = 0
-	},
-/obj/effect/mapping_helpers/floor_clothing_equipper,
-/obj/item/clothing/cloak/half/guard,
-/obj/item/weapon/shield/tower/hoplite,
-/obj/item/weapon/polearm/spear/hoplite,
-/obj/item/clothing/armor/plate/rust,
-/obj/item/clothing/gloves/plate/rust,
-/obj/item/clothing/head/helmet/heavy/rust,
-/obj/item/clothing/pants/platelegs/rust,
-/obj/item/clothing/shoes/boots/armor/light/rust,
-/obj/item/clothing/neck/chaincoif,
-/turf/open/floor/grass/red,
 /area/rogue/under/cave)
 "mF" = (
 /mob/living/carbon/human/species/skeleton/npc/ambush,
@@ -1091,6 +1245,25 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
+"ny" = (
+/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+	base_strength = 15;
+	base_speed = 15;
+	base_constitution = 14;
+	base_endurance = 14;
+	base_fortune = 12;
+	candodge = 0
+	},
+/obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/item/clothing/armor/cuirass/iron/rust,
+/obj/item/weapon/shield/tower/hoplite,
+/obj/item/weapon/polearm/spear/hoplite/winged,
+/obj/item/clothing/gloves/plate/rust,
+/obj/item/clothing/pants/platelegs/rust,
+/obj/item/clothing/shoes/boots/armor/light/rust,
+/obj/item/clothing/neck/chaincoif,
+/turf/open/floor/cobblerock,
+/area/rogue/under/cave)
 "nQ" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
@@ -1141,6 +1314,25 @@
 "os" = (
 /obj/structure/bookcase,
 /turf/open/floor/ruinedwood/chevron,
+/area/rogue/under/cave)
+"ot" = (
+/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+	base_strength = 15;
+	base_speed = 15;
+	base_constitution = 14;
+	base_endurance = 14;
+	base_fortune = 12;
+	candodge = 0
+	},
+/obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/item/clothing/gloves/plate/rust,
+/obj/item/clothing/pants/platelegs/rust,
+/obj/item/clothing/shoes/boots/armor/light/rust,
+/obj/item/clothing/neck/chaincoif,
+/obj/item/clothing/armor/cuirass/iron/rust,
+/obj/item/weapon/sword/decorated,
+/obj/item/weapon/shield/heater,
+/turf/open/floor/cobblerock,
 /area/rogue/under/cave)
 "ou" = (
 /obj/item/ammo_casing/caseless/arrow,
@@ -1222,6 +1414,30 @@
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /turf/closed/wall/mineral/decostone,
 /area/rogue/under/cave)
+"pk" = (
+/obj/structure/door/swing,
+/turf/open/floor/wood/nosmooth/saiga,
+/area/rogue/under/cave)
+"pz" = (
+/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+	base_strength = 15;
+	base_speed = 15;
+	base_constitution = 14;
+	base_endurance = 14;
+	base_fortune = 12;
+	candodge = 0
+	},
+/obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/item/clothing/armor/plate/rust,
+/obj/item/clothing/gloves/plate/rust,
+/obj/item/clothing/pants/platelegs/rust,
+/obj/item/clothing/shoes/boots/armor/light/rust,
+/obj/item/clothing/neck/chaincoif,
+/obj/item/weapon/axe/steel,
+/obj/item/weapon/shield/tower/buckleriron,
+/obj/item/clothing/cloak/half/guard,
+/turf/open/floor/cobblerock,
+/area/rogue/under/cave)
 "pB" = (
 /turf/closed/wall/mineral/tent,
 /area/rogue/under/cave)
@@ -1239,29 +1455,6 @@
 /obj/structure/rack/shelf/biggest,
 /obj/effect/spawner/map_spawner/loot/armor,
 /turf/open/floor/cobble,
-/area/rogue/under/cave)
-"pM" = (
-/obj/effect/mapping_helpers/floor_clothing_equipper,
-/obj/item/clothing/ring/silver/dorpel,
-/obj/item/clothing/cloak/half/guardsecond,
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	base_strength = 15;
-	base_speed = 15;
-	base_constitution = 14;
-	base_endurance = 14;
-	base_fortune = 12;
-	candodge = 0;
-	real_name = "Undead Knight"
-	},
-/obj/item/clothing/neck/mercmedal/grenzelhoft,
-/obj/item/clothing/armor/plate/full,
-/obj/item/clothing/gloves/plate,
-/obj/item/clothing/pants/platelegs,
-/obj/item/clothing/shoes/boots/armor,
-/obj/item/clothing/head/helmet/heavy/decorated/hounskull,
-/obj/item/weapon/mace/warhammer/steel,
-/obj/item/weapon/shield/tower/buckleriron,
-/turf/open/floor/churchmarble,
 /area/rogue/under/cave)
 "pN" = (
 /obj/structure/chair/bench/couchablack/r,
@@ -1281,25 +1474,6 @@
 /obj/effect/decal/remains/human,
 /turf/open/floor/blocks,
 /area/rogue/under/cave)
-"pZ" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	base_strength = 15;
-	base_speed = 15;
-	base_constitution = 14;
-	base_endurance = 14;
-	base_fortune = 12;
-	candodge = 0
-	},
-/obj/effect/mapping_helpers/floor_clothing_equipper,
-/obj/item/clothing/armor/plate/rust,
-/obj/item/clothing/gloves/plate/rust,
-/obj/item/clothing/pants/platelegs/rust,
-/obj/item/clothing/shoes/boots/armor/light/rust,
-/obj/item/clothing/neck/chaincoif,
-/obj/item/weapon/sword/long/death,
-/obj/item/clothing/cloak/half/guard,
-/turf/open/floor/cobblerock,
-/area/rogue/under/cave)
 "qe" = (
 /obj/structure/spider/stickyweb,
 /turf/open/floor/wood/nosmooth,
@@ -1315,28 +1489,6 @@
 	dir = 8
 	},
 /turf/open/floor/cobble,
-/area/rogue/under/cave)
-"qq" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	base_strength = 15;
-	base_speed = 15;
-	base_constitution = 14;
-	base_endurance = 14;
-	base_fortune = 12;
-	candodge = 0;
-	real_name = "Undead Knight"
-	},
-/obj/effect/mapping_helpers/floor_clothing_equipper,
-/obj/item/clothing/ring/gold,
-/obj/item/clothing/cloak/half/guardsecond,
-/obj/item/clothing/neck/mercmedal/grenzelhoft,
-/obj/item/clothing/armor/plate/full,
-/obj/item/clothing/gloves/plate,
-/obj/item/clothing/pants/platelegs,
-/obj/item/clothing/shoes/boots/armor,
-/obj/item/clothing/head/helmet/heavy/decorated/bucket,
-/obj/item/weapon/sword/long/judgement,
-/turf/open/floor/churchmarble,
 /area/rogue/under/cave)
 "qt" = (
 /obj/structure/lever/hidden{
@@ -1403,6 +1555,10 @@
 /obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/grass/red,
 /area/rogue/under/cave)
+"qY" = (
+/obj/structure/door/stone,
+/turf/open/floor/hexstone,
+/area/rogue/under/cave)
 "ra" = (
 /obj/structure/fluff/railing/border,
 /obj/structure/fluff/railing/border{
@@ -1412,6 +1568,14 @@
 	dir = 10
 	},
 /turf/open/floor/ruinedwood/chevron,
+/area/rogue/under/cave)
+"rb" = (
+/obj/structure/door/violet{
+	lockid = "CastleMage1"
+	},
+/obj/effect/mapping_helpers/door/locker,
+/obj/effect/decal/cleanable/blood/tracks,
+/turf/open/floor/tile/masonic/single,
 /area/rogue/under/cave)
 "rd" = (
 /obj/structure/chair/wood/alt/chair_noble{
@@ -1510,25 +1674,6 @@
 "su" = (
 /mob/living/carbon/human/species/orc/ambush,
 /turf/open/floor/carpet/red,
-/area/rogue/under/cave)
-"sw" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	base_strength = 15;
-	base_speed = 15;
-	base_constitution = 14;
-	base_endurance = 14;
-	base_fortune = 12;
-	candodge = 0
-	},
-/obj/effect/mapping_helpers/floor_clothing_equipper,
-/obj/item/clothing/armor/cuirass/iron/rust,
-/obj/item/weapon/shield/tower/hoplite,
-/obj/item/weapon/polearm/spear/hoplite/winged,
-/obj/item/clothing/gloves/plate/rust,
-/obj/item/clothing/pants/platelegs/rust,
-/obj/item/clothing/shoes/boots/armor/light/rust,
-/obj/item/clothing/neck/chaincoif,
-/turf/open/floor/cobblerock,
 /area/rogue/under/cave)
 "sz" = (
 /obj/machinery/light/fueled/wallfire/candle,
@@ -1635,10 +1780,6 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/cobble,
 /area/rogue/under/cave)
-"tO" = (
-/obj/structure/door/violet,
-/turf/open/floor/tile/bath,
-/area/rogue/under/cave)
 "tR" = (
 /obj/item/ammo_casing/caseless/arrow,
 /turf/open/floor/ruinedwood/darker,
@@ -1652,6 +1793,10 @@
 "tV" = (
 /obj/item/ingot/gold,
 /turf/open/floor/blocks,
+/area/rogue/under/cave)
+"ub" = (
+/obj/structure/door/stone,
+/turf/open/floor/herringbone,
 /area/rogue/under/cave)
 "uc" = (
 /obj/structure/table/wood/plain_alt,
@@ -1717,25 +1862,6 @@
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /turf/open/floor/cobblerock,
 /area/rogue/under/cave)
-"uz" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	base_strength = 15;
-	base_speed = 15;
-	base_constitution = 14;
-	base_endurance = 14;
-	base_fortune = 12;
-	candodge = 0
-	},
-/obj/effect/mapping_helpers/floor_clothing_equipper,
-/obj/item/clothing/armor/plate/rust,
-/obj/item/clothing/gloves/plate/rust,
-/obj/item/clothing/pants/platelegs/rust,
-/obj/item/clothing/shoes/boots/armor/light/rust,
-/obj/item/clothing/neck/chaincoif,
-/obj/item/weapon/sword/rapier,
-/obj/item/weapon/shield/tower/buckleriron,
-/turf/open/floor/metal/barograte,
-/area/rogue/under/cave)
 "uE" = (
 /obj/structure/fluff/nest,
 /turf/open/floor/wood/nosmooth/saiga,
@@ -1775,6 +1901,26 @@
 "vb" = (
 /mob/living/carbon/human/species/skeleton/npc/warrior,
 /turf/open/floor/tile/masonic/spiral,
+/area/rogue/under/cave)
+"vd" = (
+/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+	base_strength = 15;
+	base_speed = 15;
+	base_constitution = 14;
+	base_endurance = 14;
+	base_fortune = 12;
+	candodge = 0
+	},
+/obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/item/weapon/sword/khopesh,
+/obj/item/clothing/cloak/half/guard,
+/obj/item/weapon/shield/tower/hoplite,
+/obj/item/clothing/gloves/plate/rust,
+/obj/item/clothing/armor/cuirass/iron/rust,
+/obj/item/clothing/pants/platelegs/rust,
+/obj/item/clothing/shoes/boots/armor/light/rust,
+/obj/item/clothing/neck/chaincoif,
+/turf/open/floor/grass/red,
 /area/rogue/under/cave)
 "ve" = (
 /obj/effect/decal/cleanable/sigil/N,
@@ -1819,6 +1965,10 @@
 "vv" = (
 /obj/item/natural/glass/shard,
 /turf/open/floor/cobblerock,
+/area/rogue/under/cave)
+"vE" = (
+/obj/structure/door/iron/bars,
+/turf/open/floor/cobble,
 /area/rogue/under/cave)
 "vF" = (
 /obj/structure/closet/crate/chest/gold,
@@ -1865,6 +2015,10 @@
 /obj/structure/closet/crate/chest,
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/under/cave)
+"wu" = (
+/obj/item/soap/bath,
+/turf/open/floor/tile/bath,
+/area/rogue/under/cave)
 "wy" = (
 /obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/cobblerock,
@@ -1873,18 +2027,6 @@
 /obj/structure/stairs/stone,
 /mob/living/carbon/human/species/goblin/npc/ambush/cave,
 /turf/open/floor/herringbone,
-/area/rogue/under/cave)
-"wB" = (
-/mob/living/carbon/human/species/orc/warlord/skilled{
-	base_strength = 20;
-	base_constitution = 15;
-	base_endurance = 15;
-	base_speed = 15;
-	base_intelligence = 5;
-	base_perception = 8;
-	base_fortune = 9
-	},
-/turf/open/floor/cobble,
 /area/rogue/under/cave)
 "wE" = (
 /obj/structure/fermentation_keg,
@@ -1939,14 +2081,6 @@
 /obj/item/natural/rock,
 /turf/open/floor/wood/nosmooth/saiga,
 /area/rogue/under/cave)
-"xj" = (
-/obj/structure/door/violet{
-	lockid = "CastleMage1"
-	},
-/obj/effect/mapping_helpers/door/locker,
-/obj/effect/decal/cleanable/blood/tracks,
-/turf/open/floor/tile/masonic/single,
-/area/rogue/under/cave)
 "xk" = (
 /obj/item/ammo_holder/quiver/arrows,
 /turf/open/floor/ruinedwood/darker,
@@ -1967,10 +2101,6 @@
 	dir = 8
 	},
 /turf/open/floor/blocks,
-/area/rogue/under/cave)
-"xv" = (
-/obj/structure/door/stone,
-/turf/open/floor/cobble,
 /area/rogue/under/cave)
 "xy" = (
 /obj/item/clothing/ring/gold/rontz,
@@ -2004,26 +2134,6 @@
 /obj/item/chair/stool/bar,
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave)
-"xN" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	base_strength = 15;
-	base_speed = 15;
-	base_constitution = 14;
-	base_endurance = 14;
-	base_fortune = 12;
-	candodge = 0
-	},
-/obj/effect/mapping_helpers/floor_clothing_equipper,
-/obj/item/weapon/shield/tower/hoplite,
-/obj/item/weapon/sword/khopesh,
-/obj/item/clothing/shoes/boots/armor/light/rust,
-/obj/item/clothing/pants/platelegs/rust,
-/obj/item/clothing/head/helmet/heavy/rust,
-/obj/item/clothing/gloves/plate/rust,
-/obj/item/clothing/armor/cuirass/iron/rust,
-/obj/item/clothing/neck/chaincoif,
-/turf/open/floor/cobble,
-/area/rogue/under/cave)
 "xP" = (
 /turf/closed/wall/mineral/pipe{
 	icon_state = "iron_end"
@@ -2044,6 +2154,40 @@
 	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/cave)
+"yd" = (
+/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+	base_strength = 15;
+	base_speed = 15;
+	base_constitution = 14;
+	base_endurance = 14;
+	base_fortune = 12;
+	candodge = 0;
+	real_name = "Undead Knight"
+	},
+/obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/item/clothing/ring/gold,
+/obj/item/clothing/cloak/half/guardsecond,
+/obj/item/clothing/neck/mercmedal/grenzelhoft,
+/obj/item/clothing/armor/plate/full,
+/obj/item/clothing/gloves/plate,
+/obj/item/clothing/pants/platelegs,
+/obj/item/clothing/shoes/boots/armor,
+/obj/item/clothing/head/helmet/heavy/decorated/bucket,
+/obj/item/weapon/sword/long/judgement,
+/turf/open/floor/churchmarble,
+/area/rogue/under/cave)
+"yf" = (
+/mob/living/carbon/human/species/orc/warlord/skilled{
+	base_strength = 20;
+	base_constitution = 15;
+	base_endurance = 15;
+	base_speed = 15;
+	base_intelligence = 5;
+	base_perception = 8;
+	base_fortune = 9
+	},
+/turf/open/floor/cobble,
+/area/rogue/under/cave)
 "yl" = (
 /obj/structure/fermentation_keg/random/water,
 /turf/open/floor/twig,
@@ -2058,14 +2202,6 @@
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/blood/gibs/torso,
 /turf/open/floor/metal/barograte,
-/area/rogue/under/cave)
-"yw" = (
-/obj/structure/door/iron/bars{
-	lockid = "CastleArmor1"
-	},
-/obj/effect/mapping_helpers/door/locker,
-/obj/structure/spider/stickyweb,
-/turf/open/floor/cobble,
 /area/rogue/under/cave)
 "yz" = (
 /obj/effect/decal/remains/human,
@@ -2327,48 +2463,9 @@
 /mob/living/carbon/human/species/goblin/npc/ambush/cave,
 /turf/open/floor/cobble,
 /area/rogue/under/cave)
-"Bm" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	base_strength = 15;
-	base_speed = 15;
-	base_constitution = 14;
-	base_endurance = 14;
-	base_fortune = 12;
-	candodge = 0
-	},
-/obj/effect/mapping_helpers/floor_clothing_equipper,
-/obj/item/clothing/armor/plate/rust,
-/obj/item/clothing/gloves/plate/rust,
-/obj/item/clothing/head/helmet/heavy/rust,
-/obj/item/clothing/pants/platelegs/rust,
-/obj/item/clothing/shoes/boots/armor/light/rust,
-/obj/item/clothing/neck/chaincoif,
-/obj/item/weapon/polearm/spear/billhook,
-/turf/open/floor/ruinedwood/darker,
-/area/rogue/under/cave)
 "Bs" = (
 /mob/living/carbon/human/species/goblin/npc/ambush,
 /turf/open/floor/cobblerock,
-/area/rogue/under/cave)
-"Bt" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	base_strength = 15;
-	base_speed = 15;
-	base_constitution = 14;
-	base_endurance = 14;
-	base_fortune = 12;
-	candodge = 0
-	},
-/obj/effect/mapping_helpers/floor_clothing_equipper,
-/obj/item/clothing/armor/plate/rust,
-/obj/item/clothing/gloves/plate/rust,
-/obj/item/clothing/head/helmet/heavy/rust,
-/obj/item/clothing/pants/platelegs/rust,
-/obj/item/clothing/shoes/boots/armor/light/rust,
-/obj/item/clothing/neck/chaincoif,
-/obj/item/weapon/mace/warhammer/steel,
-/obj/item/weapon/shield/tower/metal,
-/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/cave)
 "Bv" = (
 /obj/effect/decal/cleanable/blood,
@@ -2380,6 +2477,13 @@
 	},
 /obj/item/instrument/vocals,
 /turf/open/floor/ruinedwood/chevron,
+/area/rogue/under/cave)
+"Bz" = (
+/obj/structure/door/stone{
+	lockid = "CastleNoble"
+	},
+/obj/effect/mapping_helpers/door/locker,
+/turf/open/floor/tile/masonic/inverted,
 /area/rogue/under/cave)
 "BA" = (
 /obj/structure/fluff/railing/border{
@@ -2398,10 +2502,6 @@
 /obj/item/natural/stone,
 /turf/open/floor/cobblerock,
 /area/rogue/under/cave)
-"BM" = (
-/obj/structure/door/stone,
-/turf/open/floor/ruinedwood/chevron,
-/area/rogue/under/cave)
 "BO" = (
 /obj/effect/spawner/map_spawner/loot/food,
 /turf/open/floor/tile/kitchen,
@@ -2409,10 +2509,6 @@
 "BP" = (
 /obj/item/ammo_casing/caseless/arrow,
 /turf/open/floor/metal/barograte,
-/area/rogue/under/cave)
-"BQ" = (
-/obj/structure/door/stone,
-/turf/open/floor/herringbone,
 /area/rogue/under/cave)
 "BR" = (
 /obj/structure/fluff/walldeco/bigpainting/lake{
@@ -2426,16 +2522,17 @@
 /obj/effect/spawner/map_spawner/loot/common,
 /turf/open/floor/tile/masonic/single,
 /area/rogue/under/cave)
+"BZ" = (
+/obj/structure/door/violet{
+	lockid = "CastleArti"
+	},
+/obj/effect/mapping_helpers/door/locker,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/cave)
 "Ce" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/blood/gibs/up,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
-"Ch" = (
-/obj/effect/waterfall,
-/obj/item/bath/soap,
-/obj/structure/trap/shock,
-/turf/open/water/bath,
 /area/rogue/under/cave)
 "Ci" = (
 /obj/machinery/light/fueled/wallfire{
@@ -2482,6 +2579,13 @@
 "CF" = (
 /turf/open/floor/tile/kitchen,
 /area/rogue/under/cave)
+"CG" = (
+/obj/structure/door/stone{
+	lockid = "CastleGuard1"
+	},
+/obj/effect/mapping_helpers/door/locker,
+/turf/open/floor/herringbone,
+/area/rogue/under/cave)
 "CH" = (
 /obj/structure/bookcase,
 /obj/structure/spider/stickyweb,
@@ -2521,28 +2625,6 @@
 	},
 /turf/open/floor/herringbone,
 /area/rogue/under/cave)
-"Di" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	base_strength = 15;
-	base_speed = 15;
-	base_constitution = 14;
-	base_endurance = 14;
-	base_fortune = 12;
-	candodge = 0;
-	real_name = "Undead Knight"
-	},
-/obj/effect/mapping_helpers/floor_clothing_equipper,
-/obj/item/weapon/shield/tower/buckleriron,
-/obj/item/clothing/ring/silver/gemerald,
-/obj/item/clothing/cloak/half/guardsecond,
-/obj/item/weapon/sword/sabre/cutlass,
-/obj/item/clothing/gloves/plate,
-/obj/item/clothing/armor/plate,
-/obj/item/clothing/pants/platelegs,
-/obj/item/clothing/shoes/boots/armor,
-/obj/item/clothing/head/helmet/visored/hounskull,
-/turf/open/floor/churchmarble,
-/area/rogue/under/cave)
 "Dl" = (
 /obj/item/chair/chair_nobles,
 /turf/open/floor/churchmarble,
@@ -2563,6 +2645,28 @@
 /obj/item/alch/bonemeal,
 /turf/open/floor/metal/barograte,
 /area/rogue/under/cave)
+"Ds" = (
+/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+	base_strength = 15;
+	base_speed = 15;
+	base_constitution = 14;
+	base_endurance = 14;
+	base_fortune = 12;
+	candodge = 0;
+	real_name = "Undead Knight"
+	},
+/obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/structure/fluff/railing/border,
+/obj/item/weapon/polearm/halberd/bardiche,
+/obj/item/clothing/ring/silver,
+/obj/item/clothing/cloak/half/red,
+/obj/item/clothing/armor/plate/full,
+/obj/item/clothing/gloves/plate,
+/obj/item/clothing/pants/platelegs,
+/obj/item/clothing/shoes/boots/armor,
+/obj/item/clothing/head/helmet/heavy/decorated/bascinet,
+/turf/open/floor/churchbrick,
+/area/rogue/under/cave)
 "Dt" = (
 /obj/item/paper{
 	pixel_x = 7;
@@ -2573,6 +2677,10 @@
 	pixel_y = 4
 	},
 /turf/open/floor/tile/masonic/spiral,
+/area/rogue/under/cave)
+"Dv" = (
+/obj/structure/door/stone,
+/turf/open/floor/ruinedwood/chevron,
 /area/rogue/under/cave)
 "Dw" = (
 /obj/structure/bars/pipe{
@@ -2599,50 +2707,6 @@
 	dir = 1
 	},
 /turf/open/floor/carpet/lord/left,
-/area/rogue/under/cave)
-"DC" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	base_strength = 15;
-	base_speed = 15;
-	base_constitution = 14;
-	base_endurance = 14;
-	base_fortune = 12;
-	candodge = 0;
-	real_name = "Undead Knight"
-	},
-/obj/effect/mapping_helpers/floor_clothing_equipper,
-/obj/item/weapon/shield/tower/buckleriron,
-/obj/item/weapon/sword/rapier/dec,
-/obj/item/clothing/ring/gold,
-/obj/item/clothing/cloak/half/guardsecond,
-/obj/item/clothing/gloves/plate,
-/obj/item/clothing/armor/plate,
-/obj/item/clothing/pants/platelegs,
-/obj/item/clothing/shoes/boots/armor,
-/obj/item/clothing/head/helmet/visored/hounskull,
-/turf/open/floor/churchmarble,
-/area/rogue/under/cave)
-"DF" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	base_strength = 15;
-	base_speed = 15;
-	base_constitution = 14;
-	base_endurance = 14;
-	base_fortune = 12;
-	candodge = 0;
-	real_name = "Undead Knight"
-	},
-/obj/effect/mapping_helpers/floor_clothing_equipper,
-/obj/structure/fluff/railing/border,
-/obj/item/weapon/polearm/halberd/bardiche,
-/obj/item/clothing/ring/silver,
-/obj/item/clothing/cloak/half/red,
-/obj/item/clothing/armor/plate/full,
-/obj/item/clothing/gloves/plate,
-/obj/item/clothing/pants/platelegs,
-/obj/item/clothing/shoes/boots/armor,
-/obj/item/clothing/head/helmet/heavy/decorated/bascinet,
-/turf/open/floor/churchbrick,
 /area/rogue/under/cave)
 "DI" = (
 /obj/effect/decal/cleanable/blood,
@@ -2711,30 +2775,17 @@
 /obj/item/statue/silver,
 /turf/open/floor/cobble,
 /area/rogue/under/cave)
-"Em" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	base_strength = 15;
-	base_speed = 15;
-	base_constitution = 14;
-	base_endurance = 14;
-	base_fortune = 12;
-	candodge = 0
-	},
-/obj/effect/mapping_helpers/floor_clothing_equipper,
-/obj/item/weapon/sword/khopesh,
-/obj/item/clothing/cloak/half/guard,
-/obj/item/weapon/shield/tower/hoplite,
-/obj/item/clothing/gloves/plate/rust,
-/obj/item/clothing/armor/cuirass/iron/rust,
-/obj/item/clothing/pants/platelegs/rust,
-/obj/item/clothing/shoes/boots/armor/light/rust,
-/obj/item/clothing/neck/chaincoif,
-/turf/open/floor/grass/red,
-/area/rogue/under/cave)
 "Ep" = (
 /obj/structure/closet/crate/crafted_closet/dark,
 /obj/effect/spawner/map_spawner/loot/common,
 /turf/open/floor/tile/masonic/spiral,
+/area/rogue/under/cave)
+"Eq" = (
+/obj/structure/door/violet{
+	lockid = "CastleGate1"
+	},
+/obj/effect/mapping_helpers/door/locker,
+/turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cave)
 "Es" = (
 /obj/structure/fluff/railing/border{
@@ -2750,10 +2801,6 @@
 "Ez" = (
 /obj/item/chair/stool/bar,
 /turf/open/floor/cobble,
-/area/rogue/under/cave)
-"EA" = (
-/obj/item/bath/soap,
-/turf/open/floor/tile/bath,
 /area/rogue/under/cave)
 "EC" = (
 /obj/structure/rack/shelf/biggest,
@@ -2908,26 +2955,6 @@
 /obj/structure/table/vtable,
 /turf/open/floor/churchmarble,
 /area/rogue/under/cave)
-"Gh" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	base_strength = 15;
-	base_speed = 15;
-	base_constitution = 14;
-	base_endurance = 14;
-	base_fortune = 12;
-	candodge = 0
-	},
-/obj/effect/mapping_helpers/floor_clothing_equipper,
-/obj/item/clothing/armor/plate/rust,
-/obj/item/clothing/gloves/plate/rust,
-/obj/item/clothing/pants/platelegs/rust,
-/obj/item/clothing/shoes/boots/armor/light/rust,
-/obj/item/clothing/neck/chaincoif,
-/obj/item/weapon/axe/steel,
-/obj/item/weapon/shield/tower/buckleriron,
-/obj/item/clothing/cloak/half/guard,
-/turf/open/floor/cobblerock,
-/area/rogue/under/cave)
 "Gi" = (
 /obj/structure/fluff/railing/border{
 	dir = 4
@@ -3015,13 +3042,6 @@
 /obj/structure/bookcase/random,
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/under/cave)
-"Hb" = (
-/obj/structure/door/stone{
-	lockid = "CastlePrison1"
-	},
-/obj/effect/mapping_helpers/door/locker,
-/turf/open/floor/hexstone,
-/area/rogue/under/cave)
 "Hd" = (
 /obj/effect/landmark/chest_or_mimic,
 /turf/open/floor/tile,
@@ -3095,26 +3115,6 @@
 /obj/structure/trap/chill,
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
-"Ih" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	base_strength = 18;
-	base_speed = 15;
-	base_constitution = 16;
-	base_endurance = 16;
-	base_fortune = 14;
-	candodge = 0
-	},
-/obj/effect/mapping_helpers/floor_clothing_equipper,
-/obj/item/clothing/cloak/captain,
-/obj/item/clothing/head/helmet/visored/captain,
-/obj/item/clothing/pants/platelegs/captain,
-/obj/item/clothing/armor/captain,
-/obj/item/clothing/shoes/boots/armor,
-/obj/item/clothing/gloves/plate,
-/obj/item/weapon/sword/long/exe/cloth,
-/obj/item/clothing/neck/chaincoif,
-/turf/open/floor/cobblerock,
-/area/rogue/under/cave)
 "Io" = (
 /obj/item/natural/rock,
 /turf/open/floor/grass/red,
@@ -3160,27 +3160,6 @@
 /obj/structure/table/wood/plain_alt,
 /obj/item/kitchen/platter,
 /turf/open/floor/tile/kitchen,
-/area/rogue/under/cave)
-"IZ" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	base_strength = 15;
-	base_speed = 15;
-	base_constitution = 14;
-	base_endurance = 14;
-	base_fortune = 12;
-	candodge = 0
-	},
-/obj/effect/mapping_helpers/floor_clothing_equipper,
-/obj/item/clothing/gloves/plate/rust,
-/obj/item/clothing/head/helmet/heavy/rust,
-/obj/item/clothing/pants/platelegs/rust,
-/obj/item/clothing/shoes/boots/armor/light/rust,
-/obj/item/clothing/neck/chaincoif,
-/obj/item/clothing/armor/cuirass/iron/rust,
-/obj/item/weapon/sword/scimitar,
-/obj/item/weapon/shield/heater,
-/obj/item/clothing/cloak/half/guard,
-/turf/open/floor/cobblerock,
 /area/rogue/under/cave)
 "Ja" = (
 /obj/structure/closet/crate/crafted_closet/inn/south,
@@ -3321,6 +3300,11 @@
 	},
 /turf/open/floor/metal,
 /area/rogue/under/cave)
+"Kk" = (
+/obj/structure/rack/shelf/biggest,
+/obj/item/soap,
+/turf/open/floor/tile/bath,
+/area/rogue/under/cave)
 "Km" = (
 /obj/item/reagent_containers/glass/cup/wooden,
 /turf/open/floor/tile/kitchen,
@@ -3364,6 +3348,26 @@
 /obj/item/scomstone,
 /turf/open/floor/carpet/red,
 /area/rogue/under/cave)
+"KH" = (
+/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+	base_strength = 15;
+	base_speed = 15;
+	base_constitution = 14;
+	base_endurance = 14;
+	base_fortune = 12;
+	candodge = 0
+	},
+/obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/item/clothing/gloves/plate/rust,
+/obj/item/clothing/head/helmet/heavy/rust,
+/obj/item/clothing/pants/platelegs/rust,
+/obj/item/clothing/shoes/boots/armor/light/rust,
+/obj/item/clothing/neck/chaincoif,
+/obj/item/clothing/armor/cuirass/iron/rust,
+/obj/item/weapon/sword/long/exe,
+/obj/item/clothing/cloak/half/guard,
+/turf/open/floor/cobblerock,
+/area/rogue/under/cave)
 "KL" = (
 /obj/item/chair/wood,
 /turf/open/floor/carpet/red,
@@ -3372,9 +3376,35 @@
 /obj/item/alch/bone,
 /turf/open/floor/metal/barograte,
 /area/rogue/under/cave)
+"KP" = (
+/obj/structure/door/stone,
+/turf/open/floor/cobble,
+/area/rogue/under/cave)
 "KV" = (
 /obj/structure/bookcase,
 /turf/open/floor/tile/masonic/spiral,
+/area/rogue/under/cave)
+"KW" = (
+/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+	base_strength = 15;
+	base_speed = 15;
+	base_constitution = 14;
+	base_endurance = 14;
+	base_fortune = 12;
+	candodge = 0;
+	real_name = "Undead Knight"
+	},
+/obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/item/weapon/shield/tower/buckleriron,
+/obj/item/clothing/ring/silver/gemerald,
+/obj/item/clothing/cloak/half/guardsecond,
+/obj/item/weapon/sword/sabre/cutlass,
+/obj/item/clothing/gloves/plate,
+/obj/item/clothing/armor/plate,
+/obj/item/clothing/pants/platelegs,
+/obj/item/clothing/shoes/boots/armor,
+/obj/item/clothing/head/helmet/visored/hounskull,
+/turf/open/floor/churchmarble,
 /area/rogue/under/cave)
 "KY" = (
 /obj/structure/well/fountain,
@@ -3382,6 +3412,26 @@
 /area/rogue/under/cave)
 "Lf" = (
 /obj/structure/fluff/walldeco/bigpainting,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/cave)
+"Lo" = (
+/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+	base_strength = 15;
+	base_speed = 15;
+	base_constitution = 14;
+	base_endurance = 14;
+	base_fortune = 12;
+	candodge = 0
+	},
+/obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/item/clothing/armor/plate/rust,
+/obj/item/clothing/gloves/plate/rust,
+/obj/item/clothing/head/helmet/heavy/rust,
+/obj/item/clothing/pants/platelegs/rust,
+/obj/item/clothing/shoes/boots/armor/light/rust,
+/obj/item/clothing/neck/chaincoif,
+/obj/item/weapon/mace/warhammer/steel,
+/obj/item/weapon/shield/tower/metal,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/cave)
 "Lp" = (
@@ -3585,11 +3635,6 @@
 /mob/living/carbon/human/species/orc/marauder,
 /turf/open/floor/cobblerock,
 /area/rogue/under/cave)
-"NX" = (
-/obj/structure/rack/shelf/biggest,
-/obj/item/bath/soap,
-/turf/open/floor/tile/bath,
-/area/rogue/under/cave)
 "Oc" = (
 /mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/floor/cobblerock,
@@ -3701,25 +3746,9 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/cobble,
 /area/rogue/under/cave)
-"Pz" = (
-/obj/machinery/light/fueled/chand,
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	real_name = "Forgotten King";
-	base_speed = 20;
-	base_perception = 12;
-	base_intelligence = 8;
-	base_fortune = 8;
-	base_strength = 12;
-	base_endurance = 8;
-	base_constitution = 12
-	},
-/obj/effect/mapping_helpers/floor_clothing_equipper,
-/obj/item/weapon/knife/dagger/steel,
-/obj/item/clothing/shirt/jester,
-/obj/item/clothing/shoes/jester,
-/obj/item/clothing/head/jester,
-/obj/item/clothing/pants/tights/jester,
-/turf/open/transparent/openspace,
+"Px" = (
+/obj/structure/door/stone,
+/turf/open/floor/wood/nosmooth,
 /area/rogue/under/cave)
 "PA" = (
 /obj/item/flashlight/flare/torch,
@@ -3876,20 +3905,11 @@
 "Rl" = (
 /turf/open/floor/carpet/red,
 /area/rogue/under/cave)
-"Rm" = (
-/obj/structure/door/iron/bars,
-/turf/open/floor/cobble,
-/area/rogue/under/cave)
 "Rn" = (
 /obj/effect/decal/remains/human,
 /obj/effect/decal/cleanable/blood,
 /mob/living/carbon/human/species/skeleton/npc/peasant,
 /turf/open/floor/herringbone,
-/area/rogue/under/cave)
-"Ro" = (
-/obj/structure/door/violet,
-/obj/machinery/light/fueled/wallfire/candle,
-/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/cave)
 "Rr" = (
 /obj/structure/stairs/stone{
@@ -3920,10 +3940,6 @@
 	dir = 10
 	},
 /turf/open/floor/cobble,
-/area/rogue/under/cave)
-"RI" = (
-/obj/structure/door/stone,
-/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/cave)
 "RJ" = (
 /obj/effect/decal/cleanable/blood,
@@ -4090,34 +4106,12 @@
 /turf/open/floor/carpet/purple,
 /area/rogue/under/cave)
 "Tz" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	base_strength = 15;
-	base_speed = 15;
-	base_constitution = 14;
-	base_endurance = 14;
-	base_fortune = 12;
-	candodge = 0;
-	real_name = "Undead Knight"
-	},
-/obj/effect/mapping_helpers/floor_clothing_equipper,
-/obj/structure/fluff/railing/border,
-/obj/item/clothing/ring/silver/toper,
-/obj/item/clothing/cloak/half/vet,
-/obj/item/clothing/armor/plate/full,
-/obj/item/clothing/gloves/plate,
-/obj/item/clothing/pants/platelegs,
-/obj/item/clothing/shoes/boots/armor,
-/obj/item/clothing/head/helmet/heavy/decorated/knight,
-/obj/item/weapon/hammer/sledgehammer/war,
-/turf/open/floor/churchbrick,
+/obj/structure/door/violet,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/cave)
 "TA" = (
 /obj/structure/fermentation_keg/random/beer,
 /obj/item/reagent_containers/glass/cup/wooden,
-/turf/open/floor/hexstone,
-/area/rogue/under/cave)
-"TF" = (
-/obj/structure/door/stone,
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "TP" = (
@@ -4183,14 +4177,6 @@
 /obj/item/natural/rock,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/under/cave)
-"Uu" = (
-/obj/structure/door/stone{
-	lockid = "CastleNoble2"
-	},
-/obj/effect/mapping_helpers/door/locker,
-/obj/structure/trap/saw_blades,
-/turf/open/floor/blocks,
-/area/rogue/under/cave)
 "Uy" = (
 /obj/structure/fluff/railing/fence{
 	dir = 8
@@ -4252,38 +4238,12 @@
 	},
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave)
-"UW" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	base_strength = 15;
-	base_speed = 15;
-	base_constitution = 14;
-	base_endurance = 14;
-	base_fortune = 12;
-	candodge = 0
-	},
-/obj/effect/mapping_helpers/floor_clothing_equipper,
-/obj/item/clothing/gloves/plate/rust,
-/obj/item/clothing/pants/platelegs/rust,
-/obj/item/clothing/shoes/boots/armor/light/rust,
-/obj/item/clothing/neck/chaincoif,
-/obj/item/clothing/armor/cuirass/iron/rust,
-/obj/item/weapon/sword/decorated,
-/obj/item/weapon/shield/heater,
-/turf/open/floor/cobblerock,
-/area/rogue/under/cave)
 "UY" = (
 /obj/structure/bars/pipe/left{
 	pixel_x = 7;
 	pixel_y = -8
 	},
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
-"Vb" = (
-/obj/structure/door/stone{
-	lockid = "CastleNoble"
-	},
-/obj/effect/mapping_helpers/door/locker,
-/turf/open/floor/tile/masonic/inverted,
 /area/rogue/under/cave)
 "Ve" = (
 /obj/structure/bars/pipe{
@@ -4315,20 +4275,6 @@
 "Vj" = (
 /obj/effect/decal/cleanable/blood/gibs/old,
 /turf/open/floor/metal/barograte,
-/area/rogue/under/cave)
-"Vk" = (
-/obj/structure/door/stone{
-	lockid = "CastleGuard1"
-	},
-/obj/effect/mapping_helpers/door/locker,
-/turf/open/floor/herringbone,
-/area/rogue/under/cave)
-"Vl" = (
-/obj/structure/door/violet{
-	lockid = "CastleGate1"
-	},
-/obj/effect/mapping_helpers/door/locker,
-/turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cave)
 "Vv" = (
 /obj/structure/rack/shelf/biggest,
@@ -4419,6 +4365,49 @@
 /obj/structure/chair/bench/coucha/r,
 /turf/open/floor/churchmarble,
 /area/rogue/under/cave)
+"WE" = (
+/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+	base_strength = 15;
+	base_speed = 15;
+	base_constitution = 14;
+	base_endurance = 14;
+	base_fortune = 12;
+	candodge = 0
+	},
+/obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/item/clothing/cloak/half/guard,
+/obj/item/weapon/shield/tower/hoplite,
+/obj/item/weapon/polearm/spear/hoplite,
+/obj/item/clothing/armor/plate/rust,
+/obj/item/clothing/gloves/plate/rust,
+/obj/item/clothing/head/helmet/heavy/rust,
+/obj/item/clothing/pants/platelegs/rust,
+/obj/item/clothing/shoes/boots/armor/light/rust,
+/obj/item/clothing/neck/chaincoif,
+/turf/open/floor/grass/red,
+/area/rogue/under/cave)
+"WG" = (
+/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+	base_strength = 15;
+	base_speed = 15;
+	base_constitution = 14;
+	base_endurance = 14;
+	base_fortune = 12;
+	candodge = 0;
+	real_name = "Undead Knight"
+	},
+/obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/item/weapon/shield/tower/buckleriron,
+/obj/item/weapon/sword/rapier/dec,
+/obj/item/clothing/ring/gold,
+/obj/item/clothing/cloak/half/guardsecond,
+/obj/item/clothing/gloves/plate,
+/obj/item/clothing/armor/plate,
+/obj/item/clothing/pants/platelegs,
+/obj/item/clothing/shoes/boots/armor,
+/obj/item/clothing/head/helmet/visored/hounskull,
+/turf/open/floor/churchmarble,
+/area/rogue/under/cave)
 "WI" = (
 /obj/structure/lever/hidden{
 	redstone_id = "CastleSecret1"
@@ -4429,9 +4418,33 @@
 /mob/living/carbon/human/species/goblin/npc/ambush/cave,
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
+"WK" = (
+/obj/structure/door/stone,
+/turf/open/floor/blocks,
+/area/rogue/under/cave)
 "WN" = (
 /obj/structure/fluff/railing/border,
 /turf/open/floor/tile/masonic/inverted,
+/area/rogue/under/cave)
+"WO" = (
+/obj/machinery/light/fueled/chand,
+/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+	real_name = "Forgotten King";
+	base_speed = 20;
+	base_perception = 12;
+	base_intelligence = 8;
+	base_fortune = 8;
+	base_strength = 12;
+	base_endurance = 8;
+	base_constitution = 12
+	},
+/obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/item/weapon/knife/dagger/steel,
+/obj/item/clothing/shirt/jester,
+/obj/item/clothing/shoes/jester,
+/obj/item/clothing/head/jester,
+/obj/item/clothing/pants/tights/jester,
+/turf/open/transparent/openspace,
 /area/rogue/under/cave)
 "WP" = (
 /obj/structure/trap/spike,
@@ -4476,33 +4489,9 @@
 "Xp" = (
 /turf/closed/wall/mineral/pipe,
 /area/rogue/under/cave)
-"Xr" = (
-/obj/structure/door/stone,
-/turf/open/floor/wood/nosmooth,
-/area/rogue/under/cave)
 "XG" = (
 /obj/item/kitchen/platter,
 /turf/open/floor/hexstone,
-/area/rogue/under/cave)
-"XQ" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	base_strength = 15;
-	base_speed = 15;
-	base_constitution = 14;
-	base_endurance = 14;
-	base_fortune = 12;
-	candodge = 0
-	},
-/obj/effect/mapping_helpers/floor_clothing_equipper,
-/obj/item/clothing/ring/silver/gemerald,
-/obj/item/weapon/polearm/spear/hoplite,
-/obj/item/weapon/shield/tower/hoplite,
-/obj/item/clothing/armor/plate/rust,
-/obj/item/clothing/gloves/plate/rust,
-/obj/item/clothing/pants/platelegs/rust,
-/obj/item/clothing/shoes/boots/armor/light/rust,
-/obj/item/clothing/neck/chaincoif,
-/turf/open/floor/carpet/red,
 /area/rogue/under/cave)
 "XW" = (
 /obj/structure/rack/shelf/biggest,
@@ -4579,6 +4568,14 @@
 /obj/structure/spider/stickyweb,
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/under/cave)
+"YB" = (
+/obj/structure/door/stone{
+	lockid = "CastleNoble2"
+	},
+/obj/effect/mapping_helpers/door/locker,
+/obj/structure/trap/saw_blades,
+/turf/open/floor/blocks,
+/area/rogue/under/cave)
 "YC" = (
 /obj/structure/bars/pipe{
 	dir = 5;
@@ -4602,27 +4599,6 @@
 	},
 /turf/open/floor/carpet/red,
 /area/rogue/under/cave)
-"YL" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	real_name = "Forgotten King";
-	base_speed = 20;
-	base_perception = 12;
-	base_intelligence = 18;
-	base_fortune = 20;
-	base_strength = 12;
-	base_endurance = 12;
-	base_constitution = 12
-	},
-/obj/effect/mapping_helpers/floor_clothing_equipper,
-/obj/item/clothing/shirt/tunic/noblecoat,
-/obj/item/clothing/shoes/nobleboot/thighboots,
-/obj/item/clothing/gloves/leather/masterwork,
-/obj/item/clothing/head/crown/circlet/sleepless,
-/obj/item/weapon/polearm/woodstaff/quarterstaff/steel,
-/obj/item/clothing/ring/gold/dorpel,
-/obj/item/clothing/cloak/lordcloak/ladycloak,
-/turf/open/floor/carpet/lord/center,
-/area/rogue/under/cave)
 "YN" = (
 /obj/item/natural/rock,
 /turf/open/floor/blocks,
@@ -4631,6 +4607,26 @@
 /obj/structure/rack/shelf/biggest,
 /obj/effect/spawner/map_spawner/loot/weapon,
 /turf/open/floor/cobble,
+/area/rogue/under/cave)
+"YP" = (
+/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+	base_strength = 18;
+	base_speed = 15;
+	base_constitution = 16;
+	base_endurance = 16;
+	base_fortune = 14;
+	candodge = 0
+	},
+/obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/item/clothing/cloak/captain,
+/obj/item/clothing/head/helmet/visored/captain,
+/obj/item/clothing/pants/platelegs/captain,
+/obj/item/clothing/armor/captain,
+/obj/item/clothing/shoes/boots/armor,
+/obj/item/clothing/gloves/plate,
+/obj/item/weapon/sword/long/exe/cloth,
+/obj/item/clothing/neck/chaincoif,
+/turf/open/floor/cobblerock,
 /area/rogue/under/cave)
 "YS" = (
 /obj/effect/spawner/map_spawner/loot,
@@ -4693,6 +4689,14 @@
 "ZC" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/metal/barograte,
+/area/rogue/under/cave)
+"ZF" = (
+/obj/structure/door/iron/bars{
+	lockid = "CastleArmor1"
+	},
+/obj/effect/mapping_helpers/door/locker,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/cobble,
 /area/rogue/under/cave)
 "ZI" = (
 /obj/structure/fluff/railing/border{
@@ -4881,7 +4885,7 @@ Xp
 Xp
 zP
 dE
-TF
+qY
 lE
 lu
 lu
@@ -4953,7 +4957,7 @@ zP
 Xp
 zP
 dE
-TF
+qY
 lE
 lE
 lE
@@ -4967,7 +4971,7 @@ hD
 zP
 zP
 Hh
-UW
+ot
 zP
 MY
 hD
@@ -5030,7 +5034,7 @@ Ig
 PQ
 wQ
 lE
-xv
+KP
 Ng
 Ng
 Ng
@@ -5043,7 +5047,7 @@ Ng
 Ng
 Ng
 Ng
-BQ
+ub
 mZ
 ep
 gM
@@ -5102,7 +5106,7 @@ bB
 lE
 lE
 lE
-xv
+KP
 Ng
 Ng
 Ng
@@ -5115,14 +5119,14 @@ Ng
 Ng
 Ng
 Ng
-BQ
+ub
 ep
 Qk
 gM
 mZ
 Rt
 mZ
-BQ
+ub
 Ng
 Ng
 rg
@@ -5199,7 +5203,7 @@ YG
 rg
 rg
 Ng
-xv
+KP
 sP
 Th
 Xp
@@ -5267,7 +5271,7 @@ ZO
 Wx
 SO
 zP
-yw
+ZF
 yX
 yX
 rQ
@@ -5322,7 +5326,7 @@ xm
 Sj
 ZO
 Mc
-sw
+ny
 Hh
 Ng
 Hh
@@ -5400,7 +5404,7 @@ Hh
 Ng
 Hh
 Hh
-xN
+by
 nq
 Wx
 UY
@@ -5528,8 +5532,8 @@ Xp
 JC
 JC
 xX
-xv
-xv
+KP
+KP
 zP
 zP
 zP
@@ -5960,8 +5964,8 @@ ns
 zP
 zP
 RQ
-xv
-xv
+KP
+KP
 Bf
 zP
 zP
@@ -6050,10 +6054,10 @@ xP
 zP
 zP
 zP
-RI
+bk
 zP
 zP
-RI
+bk
 zP
 Gc
 Gc
@@ -6197,7 +6201,7 @@ oz
 Ng
 Ng
 Hh
-ch
+KH
 Hh
 oz
 ZO
@@ -6207,7 +6211,7 @@ FE
 Qr
 hk
 Ng
-xv
+KP
 sP
 Th
 xm
@@ -6266,7 +6270,7 @@ Gk
 oz
 ZO
 ZO
-Em
+vd
 Hh
 Ng
 Hh
@@ -6469,14 +6473,14 @@ gS
 JX
 CE
 jy
-DF
+Ds
 wg
 ts
-pM
+lv
 wg
 ts
 wg
-DC
+WG
 Th
 Gy
 nQ
@@ -6613,7 +6617,7 @@ Tg
 JX
 Mk
 RL
-YL
+lr
 Jz
 Mk
 Mk
@@ -6622,16 +6626,16 @@ Mk
 Mk
 Mk
 Ng
-Gh
+pz
 Ng
 Ng
 or
-IZ
+bg
 Ng
 Hh
 or
 Ng
-Ih
+YP
 Ng
 Ng
 Ng
@@ -6639,7 +6643,7 @@ Ng
 Ng
 br
 Pu
-wB
+yf
 Hh
 Hh
 fg
@@ -6647,7 +6651,7 @@ fg
 KN
 Dr
 ZC
-uz
+aO
 FD
 Zp
 Uz
@@ -6757,14 +6761,14 @@ lL
 JX
 cn
 jy
-Tz
+jK
 wg
 zz
-qq
+yd
 wg
 zz
 wg
-Di
+KW
 Th
 uw
 Hh
@@ -6776,7 +6780,7 @@ SF
 Ed
 Hh
 Ng
-pZ
+fC
 Hh
 Th
 Th
@@ -6843,7 +6847,7 @@ PX
 fo
 cH
 Wx
-mE
+WE
 ZO
 ZO
 br
@@ -7071,7 +7075,7 @@ wE
 Ef
 Ng
 Ng
-BQ
+ub
 Nt
 xm
 Th
@@ -7255,7 +7259,7 @@ ns
 ns
 zP
 zP
-bV
+pk
 wW
 zP
 yq
@@ -7419,7 +7423,7 @@ vJ
 Ix
 Rl
 aa
-Vk
+CG
 ep
 ep
 LB
@@ -7781,10 +7785,10 @@ MY
 hD
 zP
 sz
-BQ
+ub
 zP
 sz
-BQ
+ub
 zP
 zP
 YH
@@ -7838,7 +7842,7 @@ Jm
 lE
 lE
 Wg
-xv
+KP
 Pu
 Qi
 Ng
@@ -7851,19 +7855,19 @@ Ng
 Ef
 Qi
 sN
-xv
+KP
 Ng
 Ng
 Ng
 Ng
 Ef
 Ng
-Rm
+vE
 Pu
 Ng
 Ef
 Ng
-BQ
+ub
 wA
 Th
 Th
@@ -7910,7 +7914,7 @@ mS
 lE
 lE
 lE
-xv
+KP
 Ef
 Ng
 Ng
@@ -7923,14 +7927,14 @@ Qi
 Jk
 Qi
 Ng
-xv
+KP
 Ng
 Ng
 Ng
 Ng
 Ng
 Pu
-Rm
+vE
 Ng
 Ef
 Ng
@@ -7997,7 +8001,7 @@ MY
 hD
 zP
 sz
-Hb
+kC
 zP
 uf
 km
@@ -8559,7 +8563,7 @@ Rl
 Rl
 Rl
 Tc
-Uu
+YB
 si
 si
 bp
@@ -8644,7 +8648,7 @@ AJ
 EW
 VP
 Gu
-xj
+rb
 lq
 Zo
 Zo
@@ -8779,12 +8783,12 @@ xm
 zP
 Ct
 zP
-Ro
+jV
 zP
 zP
 zP
 zP
-gO
+Tz
 zP
 zP
 zP
@@ -8989,7 +8993,7 @@ cp
 Rl
 Rl
 Rl
-XQ
+eb
 Tc
 Ct
 Zw
@@ -9086,8 +9090,8 @@ QF
 yq
 Xp
 Th
-cj
-cj
+dG
+dG
 Th
 QF
 QF
@@ -9129,8 +9133,8 @@ ns
 zP
 zP
 zP
-mi
-mi
+WK
+WK
 zP
 zP
 Ct
@@ -9227,7 +9231,7 @@ Tc
 Tc
 Tc
 Tc
-gO
+Tz
 Ly
 ao
 tR
@@ -9290,7 +9294,7 @@ zP
 xm
 xB
 xB
-Bt
+Lo
 Tc
 Tc
 Tc
@@ -9299,7 +9303,7 @@ Tc
 eq
 Tc
 Tc
-gO
+Tz
 ao
 ao
 ao
@@ -9420,7 +9424,7 @@ xm
 ek
 Iu
 Ct
-QF
+jE
 QF
 fA
 iD
@@ -9518,8 +9522,8 @@ QF
 Th
 Th
 Th
-Vl
-Vl
+Eq
+Eq
 Th
 QF
 QF
@@ -9567,8 +9571,8 @@ HQ
 zP
 zP
 zP
-Ro
-gO
+jV
+Tz
 zP
 sz
 zP
@@ -9642,7 +9646,7 @@ aa
 aa
 tr
 tr
-tO
+ai
 jW
 SI
 SI
@@ -9708,7 +9712,7 @@ Cu
 QF
 QF
 eO
-Vb
+Bz
 aa
 aa
 jh
@@ -9780,7 +9784,7 @@ nn
 Wl
 Wl
 eO
-Vb
+Bz
 aa
 aa
 aa
@@ -9789,7 +9793,7 @@ aa
 zP
 kj
 mH
-Ch
+ku
 zP
 QF
 QF
@@ -9858,7 +9862,7 @@ aa
 QT
 gs
 jx
-tO
+ai
 LI
 SI
 SI
@@ -9879,7 +9883,7 @@ Th
 Th
 to
 Ly
-Bm
+bU
 ab
 pH
 FW
@@ -9921,8 +9925,8 @@ ns
 zP
 zP
 zP
-Xr
-Xr
+Px
+Px
 zP
 zP
 zP
@@ -10218,7 +10222,7 @@ Ol
 QF
 Dw
 QF
-Pz
+WO
 QF
 Pp
 QF
@@ -10496,8 +10500,8 @@ ns
 ns
 zP
 zP
-Xr
-Xr
+Px
+Px
 zP
 zP
 Ru
@@ -10789,7 +10793,7 @@ Ru
 Ru
 Kg
 Kg
-BM
+Dv
 YY
 YY
 YY
@@ -10867,16 +10871,16 @@ Ct
 Ct
 zP
 zP
-Ro
-gO
+jV
+Tz
 zP
 zP
 QE
 SI
-EA
+wu
 LI
 LI
-tO
+ai
 Tc
 Rl
 Rl
@@ -11019,7 +11023,7 @@ SI
 ut
 mH
 LI
-NX
+Kk
 zP
 Tc
 jN
@@ -11092,7 +11096,7 @@ SI
 rf
 jW
 LI
-tO
+ai
 Tc
 Rl
 YI
@@ -11238,9 +11242,9 @@ QF
 QF
 zP
 zP
-ly
+BZ
 zP
-ly
+BZ
 zP
 zP
 Xp
@@ -11439,7 +11443,7 @@ aa
 aa
 zr
 aa
-mi
+WK
 Iu
 pX
 YN
@@ -11452,7 +11456,7 @@ Iu
 QF
 QF
 Iu
-mi
+WK
 Tc
 Tc
 Tc
@@ -11511,7 +11515,7 @@ ra
 uu
 dz
 Ud
-mi
+WK
 YN
 tg
 Iu
@@ -11524,7 +11528,7 @@ Iu
 Iu
 YN
 Iu
-mi
+WK
 Tc
 Tc
 Tc

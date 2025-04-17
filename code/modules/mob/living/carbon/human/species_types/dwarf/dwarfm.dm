@@ -130,7 +130,7 @@
 	return last_names
 
 /datum/species/dwarf/mountain/get_accent_list()
-	return strings("dwarf_replacement.json", "dwarf")
+	return strings("accents/dwarf_replacement.json", "dwarf")
 
 /*------------------\
 | Poison Resistance |

@@ -142,4 +142,4 @@
 	return last_names
 
 /datum/species/elf/snow/get_accent_list()
-	return strings("russian_replacement.json", "russian")
+	return strings("accents/russian_replacement.json", "russian")

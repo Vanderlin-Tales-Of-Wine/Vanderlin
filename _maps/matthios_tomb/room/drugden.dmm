@@ -15,14 +15,6 @@
 	dir = 4
 	},
 /area/rogue/under/cave)
-"bO" = (
-/obj/item/bath/soap{
-	pixel_y = -5
-	},
-/obj/structure/door/fancy,
-/obj/effect/mapping_helpers/door/locker,
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors/shelter)
 "cO" = (
 /obj/item/statue/steel,
 /turf/open/floor/tile,
@@ -42,6 +34,11 @@
 /obj/structure/stairs,
 /turf/open/floor/tile,
 /area/rogue/under/cavewet)
+"hi" = (
+/obj/structure/door/fancy,
+/obj/effect/mapping_helpers/door/locker,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/indoors/shelter)
 "hR" = (
 /obj/machinery/light/fueled/wallfire/candle/blue/r,
 /turf/open/floor/ruinedwood/spiral,
@@ -50,15 +47,28 @@
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/dirt,
 /area/rogue/under/cave)
-"kc" = (
-/obj/item/bath/soap{
+"kt" = (
+/obj/structure/door/fancy,
+/obj/effect/mapping_helpers/door/locker,
+/obj/merge_conflict_marker{
+	name = "---Merge Conflict Marker---";
+	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
+	},
+/obj/item/soap/bath{
 	pixel_y = -5
 	},
-/turf/open/water/bath,
-/area/rogue/under/cavewet)
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/indoors/shelter)
 "kJ" = (
 /mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/water/bath,
+/area/rogue/under/cavewet)
+"lf" = (
+/obj/structure/door/swing,
+/obj/item/soap/bath{
+	pixel_y = -5
+	},
+/turf/open/floor/tile,
 /area/rogue/under/cavewet)
 "mh" = (
 /obj/structure/closet/crate/crafted_closet/inn,
@@ -92,13 +102,6 @@
 	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter)
-"oY" = (
-/obj/structure/door/swing,
-/obj/item/bath/soap{
-	pixel_y = -5
-	},
-/turf/open/floor/tile,
-/area/rogue/under/cavewet)
 "pA" = (
 /obj/structure/rack/shelf/big,
 /obj/item/perfume/random{
@@ -119,18 +122,16 @@
 /mob/living/carbon/human/species/skeleton/npc/peasant,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter)
-"rS" = (
-/obj/item/soap{
-	pixel_x = -3;
-	pixel_y = -5
-	},
-/obj/structure/door/swing,
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors/shelter)
 "sm" = (
 /mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter)
+"tB" = (
+/obj/item/soap/bath{
+	pixel_y = -5
+	},
+/turf/open/water/bath,
+/area/rogue/under/cavewet)
 "tE" = (
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/dirt,
@@ -173,6 +174,13 @@
 "xY" = (
 /mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/floor/tile,
+/area/rogue/under/cavewet)
+"ze" = (
+/obj/item/soap/bath{
+	pixel_y = -5
+	},
+/mob/living/carbon/human/species/skeleton/npc/ambush,
+/turf/open/water/bath,
 /area/rogue/under/cavewet)
 "zi" = (
 /obj/structure/bed/shit,
@@ -235,16 +243,11 @@
 /obj/effect/decal/cleanable/sigil/NE,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter)
-"Gb" = (
-/obj/structure/door/fancy,
-/obj/effect/mapping_helpers/door/locker,
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors/shelter)
 "Gp" = (
 /mob/living/carbon/human/species/skeleton/npc/warrior,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter)
-"Hv" = (
+"Ja" = (
 /obj/structure/door/swing,
 /turf/open/floor/tile,
 /area/rogue/under/cavewet)
@@ -333,16 +336,17 @@
 "RG" = (
 /turf/closed/mineral/bedrock,
 /area/rogue/under/cave)
+"Ta" = (
+/obj/item/soap{
+	pixel_x = -3;
+	pixel_y = -5
+	},
+/obj/structure/door/swing,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/indoors/shelter)
 "TQ" = (
 /turf/open/transparent/openspace,
 /area/rogue/under/cave)
-"UB" = (
-/obj/item/bath/soap{
-	pixel_y = -5
-	},
-/mob/living/carbon/human/species/skeleton/npc/ambush,
-/turf/open/water/bath,
-/area/rogue/under/cavewet)
 "UT" = (
 /turf/open/water/bath,
 /area/rogue/under/cavewet)
@@ -465,14 +469,14 @@ JI
 YZ
 UT
 UT
-kc
+tB
 vx
-Hv
+Ja
 cV
 cV
-Hv
+Ja
 vx
-kc
+tB
 UT
 UT
 YZ
@@ -485,7 +489,7 @@ RG
 mF
 JI
 YZ
-UB
+ze
 UT
 UT
 vx
@@ -517,7 +521,7 @@ cV
 YZ
 vx
 UT
-UB
+ze
 UT
 YZ
 JI
@@ -551,7 +555,7 @@ RG
 mF
 JI
 YZ
-oY
+lf
 YZ
 YZ
 YZ
@@ -562,7 +566,7 @@ vx
 YZ
 YZ
 YZ
-oY
+lf
 YZ
 JI
 mF
@@ -617,7 +621,7 @@ RG
 mF
 JI
 YZ
-Hv
+Ja
 YZ
 YZ
 YZ
@@ -628,7 +632,7 @@ vx
 YZ
 YZ
 YZ
-Hv
+Ja
 YZ
 JI
 mF
@@ -663,7 +667,7 @@ JI
 YZ
 Mj
 UT
-kc
+tB
 vx
 YZ
 cV
@@ -672,7 +676,7 @@ YZ
 Yy
 UT
 UT
-kc
+tB
 YZ
 JI
 mF
@@ -692,7 +696,7 @@ cV
 cV
 YZ
 vx
-kc
+tB
 UT
 kJ
 YZ
@@ -709,10 +713,10 @@ UT
 UT
 UT
 vx
-oY
+lf
 cV
 cV
-oY
+lf
 vx
 UT
 kJ
@@ -993,7 +997,7 @@ TQ
 uR
 Ey
 Ey
-rS
+Ta
 Ey
 Ey
 nn
@@ -1002,7 +1006,7 @@ nn
 nn
 Ey
 Ey
-bO
+kt
 Ey
 Ey
 Yr
@@ -1059,7 +1063,7 @@ TQ
 uR
 Ey
 Ey
-Gb
+hi
 Ey
 Ey
 nn
@@ -1068,7 +1072,7 @@ nn
 nn
 Ey
 Ey
-Gb
+hi
 Ey
 Ey
 Yr

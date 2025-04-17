@@ -14,15 +14,6 @@
 "aj" = (
 /turf/open/transparent/openspace,
 /area/rogue/under/cavelava)
-"aZ" = (
-/obj/structure/rack/shelf/biggest,
-/obj/item/reagent_containers/glass/bucket/wooden,
-/obj/item/natural/bundle/stick,
-/obj/structure/fluff/walldeco/church/line{
-	dir = 4
-	},
-/turf/open/floor/hexstone,
-/area/rogue/under/cavelava)
 "bz" = (
 /obj/structure/closet/crate/chest/wicker,
 /obj/item/reagent_containers/glass/bottle/vial,
@@ -58,13 +49,6 @@
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/cobble,
 /area/rogue/under/cavelava)
-"dd" = (
-/obj/structure/table/wood{
-	icon_state = "tablewood1"
-	},
-/obj/item/bath/soap,
-/turf/open/floor/hexstone,
-/area/rogue/under/cavelava)
 "dx" = (
 /obj/structure/flora/grass,
 /obj/item/alch/waterdust,
@@ -98,6 +82,15 @@
 	dir = 4
 	},
 /turf/open/transparent/openspace,
+/area/rogue/under/cavelava)
+"fz" = (
+/obj/structure/rack/shelf/biggest,
+/obj/item/reagent_containers/glass/bucket/wooden,
+/obj/item/natural/bundle/stick,
+/obj/structure/fluff/walldeco/church/line{
+	dir = 4
+	},
+/turf/open/floor/hexstone,
 /area/rogue/under/cavelava)
 "fL" = (
 /obj/structure/fluff/railing/border{
@@ -359,6 +352,13 @@
 /obj/structure/table/wood/treestump/burnt,
 /turf/open/floor/grass/red,
 /area/rogue/under/cavelava)
+"zP" = (
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
+/obj/item/soap/bath,
+/turf/open/floor/hexstone,
+/area/rogue/under/cavelava)
 "AD" = (
 /obj/structure/fluff/railing/border,
 /obj/effect/decal/cleanable/sigil/S,
@@ -434,10 +434,6 @@
 "Gc" = (
 /obj/structure/table/wood/treestump/burnt,
 /turf/open/floor/dirt,
-/area/rogue/under/cavelava)
-"Gd" = (
-/obj/structure/door/stone,
-/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/cavelava)
 "Ha" = (
 /obj/effect/dungeon_directional_helper/south,
@@ -573,6 +569,10 @@
 /mob/living/simple_animal/hostile/skeleton/bow,
 /turf/open/floor/hexstone,
 /area/rogue/under/cavelava)
+"Qz" = (
+/obj/structure/door/stone,
+/turf/open/floor/cobble,
+/area/rogue/under/cavelava)
 "QB" = (
 /obj/structure/fluff/railing/border{
 	dir = 4
@@ -585,6 +585,10 @@
 	dir = 1
 	},
 /turf/open/transparent/openspace,
+/area/rogue/under/cavelava)
+"QX" = (
+/obj/structure/door/stone,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/cavelava)
 "RH" = (
 /obj/structure/fluff/railing/border{
@@ -626,10 +630,6 @@
 	dir = 1
 	},
 /turf/open/floor/metal,
-/area/rogue/under/cavelava)
-"TS" = (
-/obj/structure/door/stone,
-/turf/open/floor/cobble,
 /area/rogue/under/cavelava)
 "Uo" = (
 /obj/structure/fluff/railing/border{
@@ -1062,11 +1062,11 @@ NO
 NO
 lS
 HT
-dd
+zP
 lS
-TS
+Qz
 cr
-TS
+Qz
 lS
 qh
 mY
@@ -1157,7 +1157,7 @@ JG
 NO
 NO
 JG
-TS
+Qz
 jk
 CQ
 Uz
@@ -1165,7 +1165,7 @@ Hh
 Hh
 jk
 jk
-TS
+Qz
 JG
 NO
 JG
@@ -1221,7 +1221,7 @@ JG
 NO
 JG
 JG
-TS
+Qz
 jk
 CQ
 Uz
@@ -1229,7 +1229,7 @@ Hh
 Hh
 jk
 jk
-TS
+Qz
 JG
 NO
 JG
@@ -1320,9 +1320,9 @@ lS
 HT
 Tc
 lS
-TS
+Qz
 cr
-TS
+Qz
 lS
 kU
 Fa
@@ -2054,7 +2054,7 @@ aj
 aj
 aj
 lS
-aZ
+fz
 yI
 Ga
 jk
@@ -2158,7 +2158,7 @@ OY
 aj
 jk
 hi
-Gd
+QX
 qh
 jk
 mF

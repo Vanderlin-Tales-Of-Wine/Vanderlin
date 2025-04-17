@@ -72,11 +72,11 @@
 /obj/structure/door/arcyne
 	name = "arcyne door"
 	icon_state = "arcyne"
-	base_state = "arcyne"
 	blade_dulling = DULLING_BASH
 	resistance_flags = FIRE_PROOF
 	keylock = FALSE
 	can_add_lock = FALSE
+
 	max_integrity = 2000
 	integrity_failure = 0
 
