@@ -10,8 +10,11 @@
 			// Spawnable jobs must have a unique, valid ID //
 			if(!this_job.id)
 				TEST_FAIL("job [this_job.type] can be joined as but has no id")
-			else if(SSjob.id_occupations[this_job.id] != this_job)
+				continue
+			if(SSjob.id_occupations[this_job.id] != this_job)
 				TEST_FAIL("job [this_job.type] is using an id that is already taken by [SSjob.id_occupations[this_job.id].type]")
+				continue
 			var/static/regex/forbidden_sql_characters = regex("\[\\\\\\'\\\"\\;\]", "")
-			else if(forbidden_sql_characters.Find(this_job.id))
+			if(forbidden_sql_characters.Find(this_job.id))
 				TEST_FAIL("job [this_job.type] has invalid characters for SQL")
+				continue
