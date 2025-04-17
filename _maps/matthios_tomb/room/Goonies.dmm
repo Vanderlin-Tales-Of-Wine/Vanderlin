@@ -28,8 +28,8 @@
 /area/rogue/under/cavewet)
 "bD" = (
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	TOTALCON = 15;
-	TOTALEND = 15;
+	base_constitution = 15;
+	base_endurance = 15;
 	candodge = 0
 	},
 /obj/item/clothing/head/padded/deathface,
@@ -1005,8 +1005,8 @@
 /obj/item/weapon/sword/long/death,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	TOTALCON = 15;
-	TOTALEND = 15;
+	base_constitution = 15;
+	base_endurance = 15;
 	candodge = 0
 	},
 /turf/open/floor/ruinedwood/darker,
