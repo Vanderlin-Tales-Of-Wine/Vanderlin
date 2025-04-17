@@ -2,10 +2,8 @@
 	if(!length(SSjob.all_occupations))
 		SSjob.SetupOccupations()
 	for(var/datum/job/this_job as anything in SSjob.all_occupations)
-		if( \
-			(this_job.job_flags & JOB_NEW_PLAYER_JOINABLE) || \
-			(this_job.spawn_positions) || \
-			((this_job.total_positions > 0) || (this_job.total_positions == -1)) \
+		if((this_job.spawn_positions > 0) || \
+		((this_job.job_flags & JOB_NEW_PLAYER_JOINABLE) && ((this_job.total_positions > 0) || (this_job.total_positions == -1))) \
 		)
 			// Spawnable jobs must have a unique, valid ID //
 			if(!this_job.id)

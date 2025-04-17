@@ -24,7 +24,7 @@
 	/// How many players can be this job
 	var/total_positions = 0
 
-	/// How many players can spawn in as this job rondstart
+	/// How many players can spawn in as this job roundstart
 	var/spawn_positions = 0
 
 	/// How many players currently have this job
