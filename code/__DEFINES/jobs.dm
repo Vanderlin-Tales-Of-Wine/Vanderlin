@@ -63,7 +63,7 @@
 #define JOB_ID_SMITH_ARMOR "Armorsmith"
 #define JOB_ID_MAYOR "Mayor"
 
-#define JOB_ID_GRABBER "Grabber"
+#define JOB_ID_STEVEDORE "Stevedore"
 #define JOB_ID_MERCHANT "Merchant"
 
 #define JOB_ID_GAFFER "Gaffer"
@@ -107,8 +107,8 @@
 
 #define JOB_ID_HAND "Royal Hand"
 #define JOB_ID_HEIR "Royal Heir"
-#define JOB_ID_LADY "Consort"
-#define JOB_ID_LORD "Monarch"
+#define JOB_ID_CONSORT "Consort"
+#define JOB_ID_RULER "Ruler"
 
 /* Job Display Order */
 #define JOB_DISPLAY_ORDER_DEFAULT 0

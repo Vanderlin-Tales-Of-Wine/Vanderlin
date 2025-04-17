@@ -4,7 +4,7 @@
 	as they are expected to aid the Merchant, Steward, Masons, and Blacksmiths \
 	in hauling materials and goods while keeping a guarding eye on the town's warehouses \
 	for the safety of the items stashed within."
-	id = JOB_ID_GRABBER
+	id = JOB_ID_STEVEDORE
 	department_flag = PEASANTS
 	display_order = JDO_GRABBER
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
