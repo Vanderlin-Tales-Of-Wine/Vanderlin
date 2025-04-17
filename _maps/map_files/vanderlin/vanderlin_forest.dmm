@@ -2249,6 +2249,8 @@
 	pixel_x = -6;
 	desc = "an old key with signs of rust"
 	},
+/obj/item/paper,
+/obj/item/natural/feather,
 /turf/open/floor/ruinedwood{
 	icon_state = "vertw"
 	},
