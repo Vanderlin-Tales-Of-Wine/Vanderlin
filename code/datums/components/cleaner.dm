@@ -90,7 +90,7 @@
 		clean_succeeded = TRUE
 		var/was_effective = prob(cleaning_effectiveness)
 		if(was_effective || downgrade_on_ineffective)
-			user.visible_message(span_notice("[user] cleans [target]."), span_notice("I clean [target]."))
+			user.visible_message(span_small("[user] cleans [target]."), span_small("I clean [target]."))
 			if(clean_target)
 				wash_atom(target, was_effective ? cleaning_strength : cleaning_strength - 1)
 		if(!was_effective)
