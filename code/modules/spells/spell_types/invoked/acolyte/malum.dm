@@ -19,6 +19,7 @@
 	recharge_time = 3 MINUTES
 	chargetime = 2 SECONDS
 	devotion_cost = 30
+	healing_miracle = TRUE
 
 /obj/effect/proc_holder/spell/invoked/vigorouscraft/cast(list/targets, mob/living/carbon/user = usr)
 	var/const/starminatoregen = 50 // How much energy should the spell give
@@ -120,7 +121,7 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		jadded += H.get_complex_pain()/50
-		if(!H.check_armor_skill())
+		if(H.get_encumbrance() > 0.6)
 			jadded += 50
 			jrange = 1
 	if(user.adjust_stamina(min(jadded,100)))

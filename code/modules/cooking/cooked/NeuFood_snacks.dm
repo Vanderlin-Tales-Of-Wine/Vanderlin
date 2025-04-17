@@ -50,6 +50,7 @@
 			overlays += spice
 			tastes = list("spicy red meat" = 2)
 			meal_properties()
+			bitesize = initial(bitesize)
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 
 	if(istype(I, /obj/item/reagent_containers/food/snacks/onion_fried) && (!modified))

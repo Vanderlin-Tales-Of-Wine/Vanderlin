@@ -22,12 +22,12 @@
 	id = "bog_dungeon_1"
 	//Mapppath is a direct pointer to the DMM file of your mini map, make sure no typos! The map file can be anywhere as long as this is set properly.
 	//Do NOT include (checkmark) the .dmm file! Just stick it in a folder and you're done with it.
-	mappath = "_maps/map_files/templates/sk_dungeon/bog_dungeon_1.dmm"
+	mappath = "_maps/templates/sk_dungeon/bog_dungeon_1.dmm"
 
 /datum/map_template/bog_dungeon_2
 	name = "Bog Dungeon 2"
 	id = "bog_dungeon_2"
-	mappath = "_maps/map_files/templates/sk_dungeon/bog_dungeon_2.dmm"
+	mappath = "_maps/templates/sk_dungeon/bog_dungeon_2.dmm"
 
 /obj/effect/landmark/map_load_mark/stonekeep_dungeon/roguetown_bog
 
@@ -39,24 +39,24 @@
 /datum/map_template/small_bog_dungeon_1
 	name = "Small Bog Dungeon 1"
 	id = "small_bog_dungeon_1"
-	mappath = "_maps/map_files/templates/sk_dungeon/small_bog_dungeon_1.dmm"
+	mappath = "_maps/templates/sk_dungeon/small_bog_dungeon_1.dmm"
 
 /datum/map_template/small_bog_dungeon_2
 	name = "Small Bog Dungeon 2"
 	id = "small_bog_dungeon_2"
-	mappath = "_maps/map_files/templates/sk_dungeon/small_bog_dungeon_2.dmm"
+	mappath = "_maps/templates/sk_dungeon/small_bog_dungeon_2.dmm"
 
 /datum/map_template/small_bog_dungeon_3
 	name = "Small Bog Dungeon 3"
 	id = "small_bog_dungeon_3"
-	mappath = "_maps/map_files/templates/sk_dungeon/small_bog_dungeon_3.dmm"
+	mappath = "_maps/templates/sk_dungeon/small_bog_dungeon_3.dmm"
 
 /datum/map_template/small_bog_dungeon_4
 	name = "Small Bog Dungeon 4"
 	id = "small_bog_dungeon_4"
-	mappath = "_maps/map_files/templates/sk_dungeon/small_bog_dungeon_4.dmm"
+	mappath = "_maps/templates/sk_dungeon/small_bog_dungeon_4.dmm"
 
 /datum/map_template/small_bog_dungeon_5
 	name = "Small Bog Dungeon 5"
 	id = "small_bog_dungeon_5"
-	mappath = "_maps/map_files/templates/sk_dungeon/small_bog_dungeon_5.dmm"
+	mappath = "_maps/templates/sk_dungeon/small_bog_dungeon_5.dmm"

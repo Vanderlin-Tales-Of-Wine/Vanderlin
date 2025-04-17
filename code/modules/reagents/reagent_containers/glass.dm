@@ -66,6 +66,23 @@
 	icon_state = "insplash"
 	chargetime = 0
 	noaa = TRUE
+	candodge = TRUE
+	misscost = 0
+	reach = 2
+
+/datum/intent/soak
+	name = "soak"
+	icon_state = "insoak"
+	chargetime = 0
+	noaa = TRUE
+	candodge = FALSE
+	misscost = 0
+
+/datum/intent/wring
+	name = "wring"
+	icon_state = "inwring"
+	chargetime = 0
+	noaa = TRUE
 	candodge = FALSE
 	misscost = 0
 
@@ -95,8 +112,9 @@
 					log_combat(thrownby, target, "splashed (thrown) [english_list(reagents.reagent_list)]")
 					message_admins("[ADMIN_LOOKUPFLW(thrownby)] splashed (thrown) [english_list(reagents.reagent_list)] on [target] at [ADMIN_VERBOSEJMP(target)].")
 				reagents.reaction(M, TOUCH)
+				chem_splash(M.loc, 2, list(reagents))
+				playsound(M.loc, pick('sound/foley/water_land1.ogg','sound/foley/water_land2.ogg', 'sound/foley/water_land3.ogg'), 100, FALSE)
 				log_combat(user, M, "splashed", R)
-				reagents.clear_reagents()
 				return
 			else if(user.used_intent.type == INTENT_POUR)
 				if(!canconsume(M, user))
@@ -187,11 +205,24 @@
 		return
 
 	if(reagents.total_volume && user.used_intent.type == INTENT_SPLASH)
-		user.visible_message("<span class='danger'>[user] splashes the contents of [src] onto [target]!</span>", \
-							"<span class='notice'>I splash the contents of [src] onto [target].</span>")
+		user.visible_message(span_danger("[user] splashes the contents of [src] onto [target]"), \
+							span_notice("I splash the contents of [src] onto [target]"))
 		reagents.reaction(target, TOUCH)
-		reagents.clear_reagents()
+		playsound(target.loc, pick('sound/foley/water_land1.ogg','sound/foley/water_land2.ogg', 'sound/foley/water_land3.ogg'), 100, FALSE)
+		chem_splash(target.loc, 2, list(reagents))
 		return
+
+/obj/item/reagent_containers/glass/attack_turf(turf/T, mob/living/user)
+	if(spillable && reagents.total_volume && user.used_intent.type == INTENT_SPLASH)
+		//catch for walls
+		var/turf/newT = T
+		while(istype(T, /turf/closed) && newT != user.loc)
+			newT = get_step(newT, get_dir(newT, user.loc))
+		reagents.reaction(T, TOUCH)
+		chem_splash(newT, 2, list(reagents))
+		playsound(newT, pick('sound/foley/water_land1.ogg','sound/foley/water_land2.ogg', 'sound/foley/water_land3.ogg'), 100, FALSE)
+		user.visible_message(span_notice("[user] splashes the contents of [src] onto \the [T]!"), \
+								span_notice("I splash the contents of [src] onto \the [T]."))
 
 /obj/item/reagent_containers/glass/afterattack(obj/target, mob/user, proximity)
 	SEND_SIGNAL(src, COMSIG_ITEM_AFTERATTACK, target, user)
@@ -203,14 +234,6 @@
 
 	if(!spillable)
 		return
-
-	if(isturf(target))
-		if(reagents.total_volume && user.used_intent.type == INTENT_SPLASH)
-			user.visible_message("<span class='danger'>[user] splashes the contents of [src] onto [target]!</span>", \
-								"<span class='notice'>I splash the contents of [src] onto [target].</span>")
-			reagents.reaction(target, TOUCH)
-			reagents.clear_reagents()
-			return
 
 /obj/item/reagent_containers/glass/attackby(obj/item/I, mob/user, params)
 	var/hotness = I.get_temperature()

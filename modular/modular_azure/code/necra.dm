@@ -10,6 +10,7 @@
 	req_items = list(/obj/item/clothing/neck/psycross/silver/necra)
 	associated_skill = /datum/skill/magic/holy
 	miracle = TRUE
+	healing_miracle = TRUE
 	devotion_cost = 10
 	var/list/near_death_lines = list(
 		"A haze begins to envelop me, but then suddenly recedes, as if warded back by some great light...",

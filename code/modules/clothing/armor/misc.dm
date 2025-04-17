@@ -32,6 +32,7 @@
 	armor = ARMOR_LEATHER_GOOD
 	body_parts_covered = COVERAGE_TORSO
 	prevent_crits = ALL_EXCEPT_BLUNT
+	item_weight = 7 * IRON_MULTIPLIER
 
 //................ Brigandine ............... //
 /obj/item/clothing/armor/brigandine
@@ -50,8 +51,9 @@
 	armor = ARMOR_BRIGANDINE
 	body_parts_covered = COVERAGE_ALL_BUT_LEGS
 	max_integrity = INTEGRITY_STRONGEST
-	prevent_crits = ALL_EXCEPT_STAB
+	prevent_crits = ALL_EXCEPT_BLUNT
 	do_sound_plate = TRUE
+	item_weight = 3.2 * IRON_MULTIPLIER
 
 /obj/item/clothing/armor/brigandine/update_icon()
 	cut_overlays()
@@ -82,8 +84,9 @@
 	armor = ARMOR_PLATE_BAD
 	body_parts_covered = COVERAGE_ALL_BUT_LEGS
 	max_integrity = INTEGRITY_STRONGEST
-	prevent_crits = ALL_EXCEPT_STAB
+	prevent_crits = ALL_EXCEPT_BLUNT
 	do_sound_plate = TRUE
+	item_weight = 7 * STEEL_MULTIPLIER
 
 /obj/item/clothing/armor/captain/update_icon()
 	cut_overlays()
@@ -140,6 +143,7 @@
 	armor = ARMOR_SCALE
 	body_parts_covered = COVERAGE_ALL_BUT_LEGS
 	prevent_crits = ALL_EXCEPT_BLUNT
+	item_weight = 7 * IRON_MULTIPLIER
 
 // VAMPIRE ARMORS BELOW
 
@@ -158,6 +162,7 @@
 	smeltresult = /obj/item/ingot/steel
 	r_sleeve_status = SLEEVE_NOMOD
 	l_sleeve_status = SLEEVE_NOMOD
+	item_weight = 5.5 * STEEL_MULTIPLIER
 
 /obj/item/clothing/shirt/vampire
 	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR

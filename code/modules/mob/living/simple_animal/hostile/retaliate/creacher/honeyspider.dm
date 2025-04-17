@@ -35,9 +35,9 @@
 
 	tame_chance = 25
 
-	TOTALCON = 6
-	TOTALSTR = 10
-	TOTALSPD = 10
+	base_constitution = 6
+	base_strength = 10
+	base_speed = 10
 
 	retreat_distance = 0
 	minimum_distance = 0

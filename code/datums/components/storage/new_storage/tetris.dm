@@ -652,7 +652,7 @@
 			final_y = coordinate_y+current_y
 			calculated_coordinates = "[final_x],[final_y]"
 			testing("handle_item_insertion SUCCESS calculated_coordinates: ([calculated_coordinates])")
-			LAZYADDASSOC(grid_coordinates_to_item, calculated_coordinates, storing)
+			LAZYADDASSOCLIST(grid_coordinates_to_item, calculated_coordinates, storing)
 			LAZYINITLIST(item_to_grid_coordinates)
 			LAZYINITLIST(item_to_grid_coordinates[storing])
 			LAZYADD(item_to_grid_coordinates[storing], calculated_coordinates)
@@ -752,6 +752,9 @@
 	storing.on_enter_storage(master)
 	storing.item_flags |= IN_STORAGE
 	storing.mouse_opacity = MOUSE_OPACITY_OPAQUE //So you can click on the area around the item to equip it, instead of having to pixel hunt
+	if(ismovable(parent))
+		if(ismob(parent:loc))
+			parent:loc:encumbrance_to_speed()
 	if(user)
 		if(user.client && (user.active_storage != src))
 			user.client.screen -= storing

@@ -49,6 +49,7 @@
 
 	L.mana_pool.intrinsic_recharge_sources &= ~MANA_ALL_LEYLINES
 	L.mana_pool.set_intrinsic_recharge(MANA_SOULS)
+	L.mana_pool.ethereal_recharge_rate += 0.2
 
 	ADD_TRAIT(L, TRAIT_NOSTAMINA, "[type]")
 	ADD_TRAIT(L, TRAIT_NOHUNGER, "[type]")
