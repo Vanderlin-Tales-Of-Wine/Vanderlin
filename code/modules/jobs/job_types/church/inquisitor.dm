@@ -117,7 +117,6 @@
 	var/painpercent = H.get_complex_pain() / (H.STAEND * 10)
 	painpercent = painpercent * 100
 	var/mob/living/carbon/C = H
-	GLOB.vanderlin_round_stats[STATS_TORTURES]++
 	if(C.add_stress(/datum/stressevent/tortured))
 		if(!H.stat)
 			var/static/list/torture_lines = list(
@@ -150,7 +149,6 @@
 		to_chat(src, span_warning("I won't torture myself!"))
 		return
 	var/painpercent = (H.get_complex_pain() / (H.STAEND * 10)) * 100
-	GLOB.vanderlin_round_stats[STATS_TORTURES]++
 	if(H.add_stress(/datum/stressevent/tortured))
 		if(!H.stat)
 			var/static/list/faith_lines = list(

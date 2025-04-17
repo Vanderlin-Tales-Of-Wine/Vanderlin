@@ -136,6 +136,7 @@
 				if(N.stressadd > D.stressadd)
 					D.stressadd = N.stressadd
 				adjust_stress(post_stack-pre_stack)
+				D.on_apply(src)
 	else
 		for(var/datum/stressevent/D in positive_stressors)
 			if(D.type == event)
@@ -149,6 +150,7 @@
 				if(N.stressadd < D.stressadd)
 					D.stressadd = N.stressadd
 				adjust_stress(post_stack-pre_stack)
+				D.on_apply(src)
 	if(found)
 		return TRUE
 	N.time_added = world.time
@@ -158,6 +160,7 @@
 	else
 		positive_stressors += N
 	adjust_stress(N.get_stress())
+	N.on_apply(src)
 	return TRUE
 
 // Pass typepaths into this proc

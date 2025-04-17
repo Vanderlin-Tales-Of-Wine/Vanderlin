@@ -266,6 +266,11 @@
 	desc = "<span class='red'>I'm broken.</span>"
 	timer = 60 SECONDS
 
+/datum/stressevent/tortured/on_apply(mob/living/user)
+	. = ..()
+	if(user.client)
+		GLOB.vanderlin_round_stats[STATS_TORTURES]++
+
 /datum/stressevent/confessed
 	stressadd = 3
 	desc = "<span class='red'>I've confessed to sin.</span>"
