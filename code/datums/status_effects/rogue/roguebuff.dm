@@ -506,13 +506,13 @@
 	if(owner.mind?.has_antag_datum(/datum/antagonist)) // Check if antag datum present
 		if(owner.mind?.isactuallygood()) // Then check if they're actually a "good" antag (purishep, prisoner)
 			for(var/stat in effectedstats)
-				owner.set_stat_modifier(src, stat, effectedstats[stat])
+				owner.set_stat_modifier("[id]", stat, effectedstats[stat])
 			return TRUE
 		else // Otherwise, no buff
 			return FALSE
 	else // All non antags get the buffs
 		for(var/stat in effectedstats)
-			owner.set_stat_modifier(src, stat, effectedstats[stat])
+			owner.set_stat_modifier("[id]", stat, effectedstats[stat])
 		return TRUE
 
 // SKELETON BARD BUFF ALERT
