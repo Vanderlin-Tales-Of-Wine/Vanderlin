@@ -94,7 +94,7 @@
 		if(!D)
 			return
 		if(!D.percent_bounty)
-			var/newamount = input(usr, "Set a oversupply amount for [D.name]", src, D.oversupply_amount) as null|num
+			var/newamount = input(usr, "Set a new oversupply amount for [D.name]", src, D.oversupply_amount) as null|num
 			if(!usr.canUseTopic(src, BE_CLOSE) || locked)
 				return
 			if(!isnum(newamount))
