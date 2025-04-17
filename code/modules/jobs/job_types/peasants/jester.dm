@@ -57,7 +57,7 @@
 	H.base_speed = rand(1, 20)
 	H.base_endurance = rand(1, 20)
 
-	H.recalculate_stats()
+	H.recalculate_stats(FALSE)
 
 	if(H.base_strength > 16) //all natural, baby
 		H.cmode_music = 'sound/music/cmode/nobility/CombatJesterSTR.ogg'
