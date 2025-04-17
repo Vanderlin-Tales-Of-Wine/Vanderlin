@@ -50,9 +50,6 @@
 	in_use = FALSE
 	update_icon() //the section below handles roles and admin logging
 	var/dat = "[key_name(user)] has despawned [departing_mob == user ? "themselves" : departing_mob], job [departing_mob.job], at [AREACOORD(src)]. Contents despawned along:"
-	if(departing_mob.mind)
-		var/datum/job/mob_job = departing_mob.mind.assigned_role
-		mob_job.adjust_current_positions(-1)
 	if(!length(departing_mob.contents))
 		dat += " none."
 	else
@@ -65,6 +62,23 @@
 	message_admins(dat)
 	log_admin(dat)
 	say(span_notice("[departing_mob == user ? "Out of their own volition, " : "Ushered by [user], "][departing_mob] is departing from [SSmapping.config.map_name]."))
+	cryo_mob(departing_mob)
+
+/proc/cryo_mob(mob/departing_mob)
 	var/mob/dead/new_player/newguy = new()
 	newguy.ckey = departing_mob.ckey
+	var/mob_name = departing_mob.real_name
+	if(!ishuman(departing_mob))
+		qdel(departing_mob)
+		return "Cannot cryo [mob_name], must be human! Deleting instead!"
+	if(!departing_mob.mind)
+		qdel(departing_mob)
+		return "[mob_name] has no mind! Deleting instead!"
+	if(!departing_mob.mind.assigned_role || istype(departing_mob.mind.assigned_role, /datum/job/unassigned))
+		qdel(departing_mob)
+		return "[mob_name] has no assigned job! Deleting instead!"
+	if(departing_mob.mind)
+		var/datum/job/mob_job = departing_mob.mind.assigned_role
+		mob_job.adjust_current_positions(-1)
 	qdel(departing_mob)
+	return "[mob_name] successfully cryo'd!"

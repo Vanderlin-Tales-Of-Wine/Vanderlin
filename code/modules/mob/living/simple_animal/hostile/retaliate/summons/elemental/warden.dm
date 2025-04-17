@@ -31,10 +31,6 @@
 	food_type = list()
 	footstep_type = FOOTSTEP_MOB_BAREFOOT
 	pooptype = null
-	STACON = 15
-	STAEND = 15
-	STASTR = 10
-	STASPD = 6
 	simple_detect_bonus = 20
 	deaggroprob = 0
 	defprob = 40
@@ -46,7 +42,11 @@
 	attack_sound = 'sound/combat/hits/onstone/wallhit.ogg'
 	dodgetime = 30
 	aggressive = 1
-//	stat_attack = UNCONSCIOUS
+
+	base_constitution = 15
+	base_endurance = 15
+	base_strength = 10
+	base_speed = 6
 
 /mob/living/simple_animal/hostile/retaliate/elemental/warden/Initialize()
 	. = ..()
