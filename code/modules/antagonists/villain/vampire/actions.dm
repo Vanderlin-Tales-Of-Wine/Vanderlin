@@ -54,7 +54,7 @@
 	if(length(msg) < 10)
 		to_chat(user, span_userdanger("This not enough to ensnare their mind!"))
 		return FALSE
-	var/bloodskill = user.mind.get_skill_level(/datum/skill/magic/blood)
+	var/bloodskill = user.mind?.get_skill_level(/datum/skill/magic/blood)
 	var/bloodroll = roll(bloodskill, blood_dice)
 	user.say(msg)
 	if(powerful)
@@ -118,8 +118,8 @@
 		to_chat(user, span_userdanger("I fail to ensnare their mind!"))
 
 		if(!powerful && knowledgable)
-			var/holypower = L.mind.get_skill_level(/datum/skill/magic/holy)
-			var/magicpower = round(L.mind.get_skill_level(/datum/skill/magic/arcane) * 0.6, 1)
+			var/holypower = L.mind?.get_skill_level(/datum/skill/magic/holy)
+			var/magicpower = round(L.mind?.get_skill_level(/datum/skill/magic/arcane) * 0.6, 1)
 			var/roll = roll(1 + holypower + magicpower, 5)
 			if(roll > bloodroll)
 				to_chat(L, "I feel like the unholy magic came from [user]. I should use my magic or miracles on them.")
