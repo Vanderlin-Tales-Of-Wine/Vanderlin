@@ -151,10 +151,10 @@
 			total_value += attemptsell(I, user, FALSE, FALSE)
 		playsound(loc, 'sound/misc/hiss.ogg', 100, FALSE, -1)
 		playsound(loc, 'sound/misc/disposalflush.ogg', 100, FALSE, -1)
-		if(!SStreasury.find_account(user))
-			say("No account found. Submit your fingers to a Meister for inspection.")
-		else
+		if(user in SStreasury.bank_accounts)
 			say("Bulk sold for [total_value] mammon...")
+		else
+			say("No account found. Submit your fingers to a Meister for inspection.")
 
 /datum/withdraw_tab
 	var/stockpile_index = -1
