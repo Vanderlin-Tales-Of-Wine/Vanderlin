@@ -62,6 +62,11 @@ SUBSYSTEM_DEF(job)
 		SetupOccupations()
 	return type_occupations[jobtype]
 
+/datum/controller/subsystem/job/proc/GetJobID(jobid)
+	if(!length(all_occupations))
+		SetupOccupations()
+	return id_occupations[jobid]
+
 /datum/controller/subsystem/job/proc/AssignRole(mob/dead/new_player/player, datum/job/job, latejoin = FALSE)
 	JobDebug("Running AR, Player: [player], Rank: [job?.type || "null"], LJ: [latejoin]")
 	if(!player || !player.mind || !job)
