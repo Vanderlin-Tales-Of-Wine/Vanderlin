@@ -324,7 +324,8 @@
 		var/mob/living/carbon/C = owner
 		C.apply_status_effect(/datum/status_effect/debuff/barbfalter)
 
-
+/datum/status_effect/buff/barbrage/permanent
+	duration = -1
 
 //============================================================================
 /*--------------\
@@ -505,14 +506,14 @@
 /datum/status_effect/bardicbuff/on_apply()
 	if(owner.mind?.has_antag_datum(/datum/antagonist)) // Check if antag datum present
 		if(owner.mind?.isactuallygood()) // Then check if they're actually a "good" antag (purishep, prisoner)
-			for(var/S in effectedstats)
-				owner.change_stat(S, effectedstats[S])
+			for(var/stat in effectedstats)
+				owner.set_stat_modifier(src, stat, effectedstats[stat])
 			return TRUE
 		else // Otherwise, no buff
 			return FALSE
 	else // All non antags get the buffs
-		for(var/S in effectedstats)
-			owner.change_stat(S, effectedstats[S])
+		for(var/stat in effectedstats)
+			owner.set_stat_modifier(src, stat, effectedstats[stat])
 		return TRUE
 
 // SKELETON BARD BUFF ALERT
