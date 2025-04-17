@@ -234,7 +234,7 @@
 	pixel_y = 32;
 	name = "thatchwood flag"
 	},
-/obj/machinery/light/fueledstreet/midlamp,
+/obj/machinery/light/fueled/firebowl/stump,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/woods_safe)
 "eF" = (
