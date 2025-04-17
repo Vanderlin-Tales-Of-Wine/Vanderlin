@@ -15781,7 +15781,7 @@
 /obj/structure/table/wood/large/corner_new{
 	dir = 6
 	},
-/obj/item/textbook,
+/obj/item/textbook/novice,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/orphanage)
 "kBa" = (
@@ -17048,7 +17048,7 @@
 /obj/structure/closet/crate/crafted_closet,
 /obj/item/candle/yellow,
 /obj/item/natural/feather,
-/obj/item/textbook,
+/obj/item/textbook/novice,
 /obj/item/textbook/apprentice,
 /obj/item/textbook/expert,
 /turf/open/floor/carpet/red,
