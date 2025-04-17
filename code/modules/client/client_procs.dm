@@ -330,8 +330,8 @@ GLOBAL_LIST_EMPTY(respawncounts)
 			if(istype(living_user_mob.patron, /datum/patron/psydon))
 				psydonite_user = TRUE
 
-	var/psydon_followers = GLOB.patron_follower_counts["Psydon"]
-	var/apostasy_followers = GLOB.patron_follower_counts["Godless"]
+	var/psydon_followers = GLOB.patron_follower_counts["Psydon"] || 0
+	var/apostasy_followers = GLOB.patron_follower_counts["Godless"] || 0
 	var/psycross_users = 0
 	var/psydonite_monarch = FALSE
 
@@ -377,16 +377,16 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	data += "</div></div></div>"
 
 	// The Ten Section
-	var/astrata_followers = GLOB.patron_follower_counts["Astrata"]
-	var/noc_followers = GLOB.patron_follower_counts["Noc"]
-	var/necra_followers = GLOB.patron_follower_counts["Necra"]
-	var/pestra_followers = GLOB.patron_follower_counts["Pestra"]
-	var/dendor_followers = GLOB.patron_follower_counts["Dendor"]
-	var/ravox_followers = GLOB.patron_follower_counts["Ravox"]
-	var/xylix_followers = GLOB.patron_follower_counts["Xylix"]
-	var/malum_followers = GLOB.patron_follower_counts["Malum"]
-	var/abyssor_followers = GLOB.patron_follower_counts["Abyssor"]
-	var/eora_followers = GLOB.patron_follower_counts["Eora"]
+	var/astrata_followers = GLOB.patron_follower_counts["Astrata"] || 0
+	var/noc_followers = GLOB.patron_follower_counts["Noc"] || 0
+	var/necra_followers = GLOB.patron_follower_counts["Necra"] || 0
+	var/pestra_followers = GLOB.patron_follower_counts["Pestra"] || 0
+	var/dendor_followers = GLOB.patron_follower_counts["Dendor"] || 0
+	var/ravox_followers = GLOB.patron_follower_counts["Ravox"] || 0
+	var/xylix_followers = GLOB.patron_follower_counts["Xylix"] || 0
+	var/malum_followers = GLOB.patron_follower_counts["Malum"] || 0
+	var/abyssor_followers = GLOB.patron_follower_counts["Abyssor"] || 0
+	var/eora_followers = GLOB.patron_follower_counts["Eora"] || 0
 
 	var/astrata_storyteller = /datum/storyteller/astrata
 	var/noc_storyteller = /datum/storyteller/noc
@@ -502,10 +502,10 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	data += "</div></div>"
 
 	// Inhumen Gods Section
-	var/zizo_followers = GLOB.patron_follower_counts["Zizo"]
-	var/graggar_followers = GLOB.patron_follower_counts["Graggar"]
-	var/baotha_followers = GLOB.patron_follower_counts["Baotha"]
-	var/matthios_followers = GLOB.patron_follower_counts["Matthios"]
+	var/zizo_followers = GLOB.patron_follower_counts["Zizo"] || 0
+	var/graggar_followers = GLOB.patron_follower_counts["Graggar"] || 0
+	var/baotha_followers = GLOB.patron_follower_counts["Baotha"] || 0
+	var/matthios_followers = GLOB.patron_follower_counts["Matthios"] || 0
 
 	var/zizo_storyteller = /datum/storyteller/zizo
 	var/graggar_storyteller = /datum/storyteller/graggar
@@ -568,7 +568,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	if(!initialized_storyteller)
 		return
 
-	var/suffix = initialized_storyteller.bonus_points >= 0 ? "from short reign" : "from long reign"
+	var/suffix = initialized_storyteller.bonus_points >= 0 ? "from wanting to rule" : "from long reign exhaustion"
 	var/bonus_display = "<div>([get_colored_influence_value(initialized_storyteller.bonus_points)] [suffix])</div>"
 
 	return {"
