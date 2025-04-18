@@ -183,10 +183,11 @@
 	return ..()
 
 /mob/living/simple_animal/hostile/retaliate/mole/briars
+	name = "Moss Crawler Mole"
+	desc = "One of many miracles of Dendor, they hide in deep forests only able to be summoned by wise briars who dedicate themselves to call for spirits of forest in time of need"
+
 	TOTALEND = 16
 	TOTALCON = 18
-	food_type = list(/obj/item/reagent_containers/food/snacks/meat,
-					/obj/item/bodypart,
-					/obj/item/organ)
+	food_type = list (/obj/item/bait/forestdelight)
 	tame_chance = 25
 	bonus_tame_chance = 15

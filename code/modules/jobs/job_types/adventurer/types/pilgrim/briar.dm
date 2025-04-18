@@ -105,6 +105,14 @@
 				/obj/item/reagent_containers/food/snacks/fat =1 )
 	craftdiff = 1
 
+/datum/crafting_recipe/dendor/shillelagh
+	name = "forest guardian offering (unique)"
+	result = /obj/item/weapon/mace/goden/shillelagh
+	reqs = list(/obj/item/reagent_containers/food/snacks/meat/steak = 1,
+				/obj/item/reagent_containers/food/snacks/produce/swampweed_dried = 1,
+				/obj/item/reagent_containers/food/snacks/raisins = 1 )
+	craftdiff = 0
+
 /datum/crafting_recipe/dendor/shrine/saiga
 	name = "stinging shrine to Dendor (unique)"
 	reqs = list(/obj/item/grown/log/tree/small = 1,
