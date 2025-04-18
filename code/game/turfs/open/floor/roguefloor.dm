@@ -135,7 +135,7 @@
 
 /turf/open/floor/rooftop
 	name = "roof"
-	icon_state = "roof-arw"
+	icon_state = MAP_SWITCH("roof", "roof-arw")
 	footstep = FOOTSTEP_WOOD
 	barefootstep = FOOTSTEP_HARD_BAREFOOT
 	clawfootstep = FOOTSTEP_WOOD_CLAW
@@ -144,20 +144,13 @@
 	damage_deflection = 8
 	max_integrity = 800
 
-/turf/open/floor/rooftop/Initialize()
-	. = ..()
-	icon_state = "roof"
-
 /turf/open/floor/rooftop/turf_destruction(damage_flag)
 	. = ..()
 	ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
 
 /turf/open/floor/rooftop/green
-	icon_state = "roofg-arw"
+	icon_state = MAP_SWITCH("roofg", "roofg-arw")
 
-/turf/open/floor/rooftop/green/Initialize()
-	. = ..()
-	icon_state = "roofg"
 /*	..................   Grasses   ................... */
 /turf/open/floor/grass
 	name = "grass"

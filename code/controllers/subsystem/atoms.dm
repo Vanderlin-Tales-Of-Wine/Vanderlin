@@ -33,10 +33,9 @@ SUBSYSTEM_DEF(atoms)
 		#ifdef TESTING
 		count = atoms.len
 		#endif
-		for(var/I in atoms.len)
-			var/atom/A = I
+		for(var/atom/A as anything in atoms)
 			if(!(A.flags_1 & INITIALIZED_1))
-				InitAtom(I, mapload_arg)
+				InitAtom(A, mapload_arg)
 				CHECK_TICK
 	else
 		#ifdef TESTING
