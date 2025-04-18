@@ -185,9 +185,32 @@
 /mob/living/simple_animal/hostile/retaliate/mole/briars
 	name = "Moss Crawler Mole"
 	desc = "One of many miracles of Dendor, they hide in deep forests only able to be summoned by wise briars who dedicate themselves to call for spirits of forest in time of need"
-
+	icon = 'icons/roguetown/mob/monster/mole.dmi'
+	icon_state = "mole_briars"
+	icon_living = "mole_briars"
+	icon_dead = "mole_dead_briars"
 	TOTALEND = 16
 	TOTALCON = 18
 	food_type = list (/obj/item/bait/forestdelight)
 	tame_chance = 25
 	bonus_tame_chance = 15
+
+/mob/living/simple_animal/hostile/retaliate/mole/briars/update_icon()
+	cut_overlays()
+	..()
+	if(stat != DEAD)
+		if(has_buckled_mobs())
+			var/mutable_appearance/mounted = mutable_appearance(icon, "mole_mounted_briars", 4.3)
+			add_overlay(mounted)
+
+/mob/living/simple_animal/hostile/retaliate/mole/briars/tamed(mob/user)
+	..()
+	deaggroprob = 30
+	if(can_buckle)
+		AddComponent(/datum/component/riding/mole)
+
+/mob/living/simple_animal/hostile/retaliate/mole/briars/Initialize()
+	. = ..()
+	if(tame)
+		tamed(owner)
+	ADD_TRAIT(src, TRAIT_IGNOREDAMAGESLOWDOWN, TRAIT_GENERIC)
