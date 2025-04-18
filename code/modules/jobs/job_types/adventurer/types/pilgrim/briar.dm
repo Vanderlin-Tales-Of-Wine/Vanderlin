@@ -107,7 +107,7 @@
 
 /datum/crafting_recipe/dendor/shillelagh
 	name = "forest guardian offering (unique)"
-	result = /obj/item/weapon/mace/goden/shillelagh
+	result = /obj/item/bait/forestdelight
 	reqs = list(/obj/item/reagent_containers/food/snacks/meat/steak = 1,
 				/obj/item/reagent_containers/food/snacks/produce/swampweed_dried = 1,
 				/obj/item/reagent_containers/food/snacks/raisins = 1 )
