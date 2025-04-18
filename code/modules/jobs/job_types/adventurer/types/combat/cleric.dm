@@ -28,6 +28,7 @@
 	belt = /obj/item/storage/belt/leather
 	beltl = /obj/item/weapon/mace
 	beltr = /obj/item/storage/belt/pouch/coins/poor
+	backpack_contents = list(/obj/item/storage/keyring/priest = 1)
 
 	switch(H.patron?.type)
 		if(/datum/patron/divine/astrata)
