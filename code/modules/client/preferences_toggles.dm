@@ -510,6 +510,18 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 	prefs.asaycolor = initial(prefs.asaycolor)
 	prefs.save_preferences()
 
+/client/proc/set_ghost_sprite()
+	set name = "Set ghost icon state"
+	set desc = "This is the ghost icon state you will use when ghosted"
+	set category = "Prefs - Admin"
+	if(!holder)
+		return
+	var/new_icon = input(src, "Input the typepath.", "GHOST ICON", prefs.admin_ghost_icon) as text|null
+	prefs.admin_ghost_icon = new_icon
+	prefs.save_preferences()
+	if(isobserver(mob))
+		mob.icon_state = new_icon
+
 /client/proc/set_personal_admin_ooc_color()
 	set name = "Set Personal Admin OOC Color"
 	set category = "Prefs - Admin"
