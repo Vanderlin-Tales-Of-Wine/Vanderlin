@@ -2,11 +2,27 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "type": "dreammaker",
-            "dme": "stonekeep.dme",
-            "problemMatcher": ["$dreammaker"],
-            "group": "build",
-            "label": "dm: build - stonekeep.dme"
+            "type": "process",
+            "command": "tools/build/build",
+            "windows": {
+                "command": ".\\tools\\build\\build.bat"
+            },
+            "options": {
+                "env": {
+                    "DM_EXE": "${config:dreammaker.byondPath}"
+                }
+            },
+            "problemMatcher": [
+                "$dreammaker",
+                "$tsc",
+                "$eslint-stylish"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn": "dm: reparse",
+            "label": "Build All"
         },
 
         {
@@ -58,6 +74,7 @@
             "dependsOn": "dm: reparse",
             "label": "Build All (low memory mode) no dungeons"
         },
+
         {
             "type": "process",
             "command": "tools/build/build",
@@ -82,6 +99,7 @@
             "dependsOn": "dm: reparse",
             "label": "Build All (unit tests)"
         },
+
         {
             "command": "${command:dreammaker.reparse}",
             "group": "build",
