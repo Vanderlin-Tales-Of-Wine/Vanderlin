@@ -18,63 +18,54 @@
 	..()
 	H.virginity = TRUE
 
-	armor = /obj/item/clothing/armor/cuirass // Halfplate has been made heavy armor, billions must make due.
-	shirt = /obj/item/clothing/shirt/shortshirt/random
+	armor = /obj/item/clothing/armor/cuirass/iron // Adventurers don't get steel anymore
+	shirt = /obj/item/clothing/armor/gambeson
+	neck = /obj/item/clothing/neck/chaincoif/iron
+	head = /obj/item/clothing/head/helmet/ironpot
 	pants = /obj/item/clothing/pants/trou/leather
 	shoes = /obj/item/clothing/shoes/boots/leather
+	gloves = /obj/item/clothing/gloves/leather
 	belt = /obj/item/storage/belt/leather
 	beltl = /obj/item/weapon/mace
 	beltr = /obj/item/storage/belt/pouch/coins/poor
+	backpack_contents = list(/obj/item/storage/keyring/priest = 1)
 
 	switch(H.patron?.type)
 		if(/datum/patron/divine/astrata)
 			wrists = /obj/item/clothing/neck/psycross/silver/astrata
 			cloak = /obj/item/clothing/cloak/stabard/templar/astrata
-			neck = /obj/item/clothing/neck/chaincoif
-		if(/datum/patron/divine/dendor)	// good helmet but no money
-			head = /obj/item/clothing/head/helmet/heavy/necked/dendorhelm
-			neck = /obj/item/clothing/neck/coif
+		if(/datum/patron/divine/noc)
+			wrists = /obj/item/clothing/neck/psycross/noc
+			cloak = /obj/item/clothing/cloak/stabard/templar/noc
+		if(/datum/patron/divine/dendor)
 			wrists = /obj/item/clothing/neck/psycross/silver/dendor
-			cloak = /obj/item/clothing/cloak/raincloak/furcloak
-			beltr = /obj/item/weapon/knife/stone
+			cloak = /obj/item/clothing/cloak/stabard/templar/dendor
 		if(/datum/patron/divine/necra)
 			wrists = /obj/item/clothing/neck/psycross/silver/necra
 			cloak = /obj/item/clothing/cloak/stabard/templar/necra
-			neck = /obj/item/clothing/neck/gorget
 		if(/datum/patron/divine/eora)
 			wrists = /obj/item/clothing/neck/psycross/silver/eora
 			cloak = /obj/item/clothing/cloak/stabard/templar/eora
-			neck = /obj/item/clothing/neck/chaincoif/iron
 			H.virginity = FALSE
 			ADD_TRAIT(H, TRAIT_BEAUTIFUL, TRAIT_GENERIC)
 		if(/datum/patron/divine/ravox)
 			wrists = /obj/item/clothing/neck/psycross/silver/ravox
-			cloak =  /obj/item/clothing/cloak/stabard/templar/ravox
-			neck = /obj/item/clothing/neck/gorget
-		if(/datum/patron/divine/noc)
-			wrists = /obj/item/clothing/neck/psycross/noc
-			cloak = /obj/item/clothing/cloak/stabard/templar/noc
-			neck = /obj/item/clothing/neck/chaincoif
+			cloak = /obj/item/clothing/cloak/stabard/templar/ravox
 		if(/datum/patron/divine/pestra)
 			wrists = /obj/item/clothing/neck/psycross/silver/pestra
 			cloak = /obj/item/clothing/cloak/stabard/templar/pestra
-			neck = /obj/item/clothing/neck/chaincoif/iron
 		if(/datum/patron/divine/abyssor)
 			wrists = /obj/item/clothing/neck/psycross/silver/abyssor
 			cloak = /obj/item/clothing/cloak/tabard/crusader
-			neck = /obj/item/clothing/neck/chaincoif/iron
 		if(/datum/patron/divine/malum)
 			wrists = /obj/item/clothing/neck/psycross/silver/malum
 			cloak = /obj/item/clothing/cloak/stabard/templar/malum
-			neck = /obj/item/clothing/neck/gorget
 		if(/datum/patron/divine/xylix)
 			wrists = /obj/item/clothing/neck/psycross/silver/xylix
 			cloak = /obj/item/clothing/cloak/tabard/crusader
-			neck = /obj/item/clothing/neck/chaincoif/iron
 		else // Failsafe
 			cloak = /obj/item/clothing/cloak/tabard/crusader // Give us a generic crusade tabard
 			wrists = /obj/item/clothing/neck/psycross/silver // Give us a silver psycross for protection against lickers
-			neck = /obj/item/clothing/neck/chaincoif/iron
 
 
 	if(H.mind)
