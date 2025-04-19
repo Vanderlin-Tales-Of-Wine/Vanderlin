@@ -136,7 +136,7 @@
 	flags_1 = null
 	possible_item_intents = list(/datum/intent/use, /datum/intent/hit)
 	slot_flags = ITEM_SLOT_HIP
-	var/datum/looping_sound/torchloop/soundloop
+	var/datum/looping_sound/torchloop/soundloop = null         //remove the = null to re-add the torch crackle sounds.
 	var/should_self_destruct = TRUE //added for torch burnout
 	max_integrity = 40
 	fuel = 30 MINUTES
@@ -159,7 +159,8 @@
 
 /obj/item/flashlight/flare/torch/Initialize()
 	. = ..()
-	//soundloop = new(src, FALSE)
+	if(soundloop)
+		soundloop = new(src, FALSE)
 
 /obj/item/flashlight/flare/torch/process()
 	open_flame(heat)
@@ -217,7 +218,7 @@
 			damtype = BURN
 			update_brightness()
 			force = on_damage
-			//soundloop.start()
+			soundloop?.start()
 			if(ismob(loc))
 				var/mob/M = loc
 				M.update_inv_hands()

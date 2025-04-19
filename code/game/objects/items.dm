@@ -223,7 +223,8 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 
 	var/list/blocksound //played when an item that is equipped blocks a hit
 
-	var/list/onprop = list()
+	/// A lazylist to store inhands data.
+	var/list/onprop
 	var/damage_type = "blunt"
 	var/force_reupdate_inhand = TRUE
 

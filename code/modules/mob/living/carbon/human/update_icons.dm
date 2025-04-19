@@ -653,8 +653,8 @@ There are several things that need to be remembered:
 				if(beltr.force_reupdate_inhand)
 					prop = beltr.onprop?["onbelt"]
 					if(!prop)
-						beltr.onprop["onbelt"] = beltr.getonmobprop("onbelt")
-						prop = beltr.onprop["onbelt"]
+						prop = beltr.getonmobprop("onbelt")
+						LAZYSET(beltr.onprop, "onbelt", prop)
 				else
 					prop = beltr.getonmobprop("onbelt")
 				if(prop)
@@ -918,7 +918,7 @@ There are several things that need to be remembered:
 					prop = backl.onprop?["onback"]
 					if(!prop)
 						prop = backl.getonmobprop("onback")
-						LAZYSET(backl.onprop, "onback", backl.getonmobprop("onback"))
+						LAZYSET(backl.onprop, "onback", prop)
 				else
 					prop = backl.getonmobprop("onback")
 				if(prop)

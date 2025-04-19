@@ -143,10 +143,10 @@
 				used_prop = "gen"
 				prop = I.getonmobprop(used_prop)
 			if(I.force_reupdate_inhand)
-				if(I.onprop[used_prop])
+				if(I.onprop?[used_prop])
 					prop = I.onprop[used_prop]
 				else
-					I.onprop[used_prop] = prop
+					LAZYSET(I.onprop, used_prop, prop)
 			if(!prop)
 				continue
 			var/flipsprite = FALSE

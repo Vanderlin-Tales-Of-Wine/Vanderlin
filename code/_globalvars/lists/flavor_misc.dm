@@ -200,6 +200,7 @@ GLOBAL_LIST_INIT(station_numerals, greek_letters + phonetic_alphabet + numbers_a
 
 GLOBAL_LIST_INIT(admiral_messages, list("Do you know how expensive these stations are?","Stop wasting my time.","I was sleeping, thanks a lot.","Stand and fight you cowards!","You knew the risks coming in.","Stop being paranoid.","Whatever's broken just build a new one.","No.", "<i>null</i>","<i>Error: No comment given.</i>", "It's a good day to die!"))
 
+GLOBAL_LIST_EMPTY(persistent_sound_loops) //Used in sound subsystem to keep track of persistent sounds (musicboxes and instruments mostly)
 
 /// 1000 element long list containing the 1000 most common words in the English language.
 /// Indexed by word, value is the rank of the word in the list. So accessing it is fasta.

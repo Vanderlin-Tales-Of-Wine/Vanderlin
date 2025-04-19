@@ -150,7 +150,7 @@ SUBSYSTEM_DEF(garbage)
 		if (length(L) < 2)
 			count++
 			if (MC_TICK_CHECK)
-				return
+				break
 			continue
 
 		var/GCd_at_time = L[1]
@@ -169,7 +169,7 @@ SUBSYSTEM_DEF(garbage)
 			reference_find_on_fail -= refID	//It's deleted we don't care anymore.
 			#endif
 			if (MC_TICK_CHECK)
-				return
+				break
 			continue
 
 		// Something's still referring to the qdel'd object.
@@ -207,13 +207,13 @@ SUBSYSTEM_DEF(garbage)
 				if(!HardDelete(D))
 					D = null
 				if (MC_TICK_CHECK)
-					return
+					break
 				continue
 
 		Queue(D, level+1)
 
 		if (MC_TICK_CHECK)
-			return
+			break
 	if (count)
 		queue.Cut(1,count+1)
 		count = 0

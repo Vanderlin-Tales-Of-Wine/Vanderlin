@@ -32,8 +32,7 @@
 	var/icon_prefix
 
 /datum/looping_sound/instrument
-	mid_sounds = list()
-	mid_length = 60
+	mid_length = 2400
 	volume = 100
 	falloff = 2
 	extra_range = 5
@@ -69,6 +68,7 @@
 
 /obj/item/instrument/Destroy()
 	terminate_playing(loc)
+	qdel(soundloop)
 	. = ..()
 
 /obj/item/instrument/process()
