@@ -31,10 +31,6 @@
 	. = ..()
 	if(coin_amount >= 1)
 		set_quantity(floor(coin_amount))
-		setup_denomination()
-
-/obj/item/coin/proc/setup_denomination()
-	return
 
 /obj/item/coin/getonmobprop(tag)
 	. = ..()
@@ -102,13 +98,13 @@
 
 		switch(intelligence)						// Intelligence-based messaging
 			if(0 to 6)
-				user.visible_message(span_notice("[user] clumsily starts to count [src]."),span_notice("You clumsily start counting [src]..."), vision_distance = 2)
+				user.visible_message(span_notice("[user] clumsily starts to count [src]."),span_notice("I clumsily start counting [src]..."), vision_distance = 2)
 			if(7 to 9)
-				user.visible_message(span_notice("[user] begins counting [src]."),span_notice("You begin counting [src]."), vision_distance = 2)
+				user.visible_message(span_notice("[user] begins counting [src]."),span_notice("I begin counting [src]."), vision_distance = 2)
 			if(10 to 13)
-				user.visible_message(span_notice("[user] counts [src]."),span_notice("You count [src]."), vision_distance = 2)
+				user.visible_message(span_notice("[user] counts [src]."),span_notice("I count [src]."), vision_distance = 2)
 			if(14 to INFINITY)
-				user.visible_message(span_info("[user] effortlessly tallies [src]."),span_notice("You effortlessly tally [src]."), vision_distance = 2)
+				user.visible_message(span_info("[user] effortlessly tallies [src]."),span_notice("I effortlessly tally [src]."), vision_distance = 2)
 
 		if(!do_after(user, skill_data["delay"]))
 			return
@@ -137,42 +133,40 @@
 			return
 		intended = clamp(intended, 0, quantity)
 		intended = round(intended, 1)
-		if(!intended || intended >= quantity)
+		if(!intended)
 			return
 
 		var/list/skill_data = coin_skill(user, intended)		// Get skill-based parameters
 		var/delay_time = skill_data["delay"]
-		var/error = skill_data["error"]
 
 		if(delay_time > 5 SECONDS)			// Chat feedback
 			user.visible_message(span_notice("[user] fumbles through [src]."),span_warning("You struggle to count while separating [src]!"), vision_distance = 2)
 		else if(delay_time >= 1 SECONDS)
-			user.visible_message(span_notice("[user] carefully counts out [src]."),span_notice("You concentrate on separating [src]"), vision_distance = 2)
+			user.visible_message(span_notice("[user] carefully counts out [src]."),span_notice("You concentrate on separating [src]."), vision_distance = 2)
 		else if(delay_time == 0)
-			user.visible_message(span_notice("[user] splits [src]."),span_notice("You effortlessly divide [src]."), vision_distance = 2)
+			user.visible_message(span_notice("[user] quickly splits [src]."),span_notice("You effortlessly divide [src]."), vision_distance = 2)
 
 		if(delay_time > 0 && !do_after(user, delay_time))	// Make sure people don't move to cancel the delay
 			return
 
-		var/actual = intended + error		// Apply error safely
-		actual = clamp(actual, 1, quantity - 1)
-
+		if(intended >= quantity)
+			return ..()
 		var/obj/item/coin/new_coins = new type()	// Split coins
-		new_coins.set_quantity(actual)
+		new_coins.set_quantity(intended)
 		new_coins.heads_tails = last_merged_heads_tails
-		set_quantity(quantity - actual)
+		set_quantity(quantity - intended)
 
 		user.put_in_hands(new_coins)
 		playsound(loc, 'sound/foley/coins1.ogg', 100, TRUE, -2)
 		return
-	..()
+	. = ..()
 
 /obj/item/coin/proc/coin_skill(mob/user, intended)		// Coin counting and splitting
 	var/intelligence = user.mind?.current.STAINT
 	var/perception = user.mind?.current.STAPER
 	var/speed = user.mind?.current.STASPD
 	var/mathematics_skill = user.mind?.get_skill_level(/datum/skill/labor/mathematics) || 0
-	var/list/skill_data = list("delay" = 1 SECONDS,"error" = 0)
+	var/list/skill_data = list("delay" = 1.2 SECONDS,"error" = 0)
 
 	var/base_tier	// Base intelligence tiers
 	switch(intelligence)
@@ -193,7 +187,7 @@
 	switch(effective_tier)	// Set values based on effective tier
 		if(1) // Very low INT
 			skill_data["error"] = rand(-3,3)
-			skill_data["delay"] = 3 SECONDS
+			skill_data["delay"] = 3.5 SECONDS
 		if(2) // Below Average INT
 			skill_data["error"] = rand(-1,1)
 			if(prob(10))
@@ -207,7 +201,10 @@
 	if(perception < 7 && mathematics_skill == 0)	// Secondary stat modifiers
 		skill_data["error"] += rand(-1,1)
 	if(speed < 5)
-		skill_data["delay"] += 0.5 SECONDS
+		skill_data["delay"] += 1 SECONDS
+
+	if(intended > 10 && mathematics_skill == 0) // can't count beyond your fingers
+		skill_data["delay"] += 0.25 SECONDS
 
 	return skill_data
 
