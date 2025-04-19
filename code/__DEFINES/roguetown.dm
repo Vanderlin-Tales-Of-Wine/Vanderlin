@@ -565,3 +565,9 @@ BCLASS_TWIST)
 		"volf"="skullmet_volf",\
 		"bear"="skullmet_bear",\
 		"gote"="skullmet_goat")
+
+#define DENDOR_TAME_PROB_NONE 0
+#define DENDOR_TAME_PROB_LOW 25
+#define DENDOR_TAME_PROB_MEDIUM 50
+#define DENDOR_TAME_PROB_HIGH 75
+#define DENDOR_TAME_PROB_GURANTEED 100

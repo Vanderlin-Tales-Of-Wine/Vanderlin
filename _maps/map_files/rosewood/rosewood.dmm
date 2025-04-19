@@ -6050,6 +6050,11 @@
 	},
 /turf/open/floor/grass/cold,
 /area/rogue/outdoors/rtfield)
+"dnf" = (
+/obj/structure/soil,
+/obj/machinery/light/fueled/torchholder/l,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors/town)
 "dnh" = (
 /obj/structure/fluff/railing/border{
 	dir = 4;
@@ -134864,12 +134869,12 @@ gxv
 huA
 huA
 uiv
-uiv
+dnf
 uiv
 huA
 lWN
 uiv
-uiv
+dnf
 uiv
 huA
 vzP
