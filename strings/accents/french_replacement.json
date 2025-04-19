@@ -32,7 +32,7 @@
 	    	"hello": ["allo", 
 			"bonjour",
 			"salut"
-	], 
+	 ], 
 	    	"mom": "mama", 
 		"shit": "merde",
 	    	"spaghetti": "macaroni", 
@@ -51,6 +51,6 @@
 	    	"pardon": "perdone",
 	    	"butt": "derriere",
 	    	"ass": "derriere", 
-    					}
+		}
 
 }
