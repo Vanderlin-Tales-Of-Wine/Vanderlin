@@ -466,6 +466,10 @@
 		return 0
 	return 1
 
+/obj/structure/fluff/clock/zizoclock
+	desc = "It tells the time... in morbid fashion!"
+	icon_state = "zizoclock"
+
 // Version thats dense. Should honestly be standard?
 /obj/structure/fluff/clock/dense
 	density = TRUE
@@ -789,6 +793,14 @@
 	icon_state = "telescope"
 	density = TRUE
 	anchored = FALSE
+
+/obj/structure/fluff/stonecoffin
+	name = "stone coffin"
+	desc = "A damaged stone coffin..."
+	icon = 'icons/roguetown/misc/structure.dmi'
+	icon_state = "stonecoffin"
+	density = TRUE
+	anchored = TRUE
 
 /obj/structure/fluff/telescope/attack_hand(mob/user)
 	if(!ishuman(user))

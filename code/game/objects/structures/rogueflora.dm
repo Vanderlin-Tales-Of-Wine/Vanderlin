@@ -305,6 +305,10 @@
 /obj/structure/flora/grass/bush/tundra/update_icon()
 	icon_state = "bush_tundra"
 
+/obj/structure/flora/grass/bush/bog
+	name = "bog bush"
+	icon_state = "bush_bog"
+
 /obj/structure/flora/grass/bush/Initialize()
 	if(prob(88))
 		bushtype = pickweight(list(/obj/item/reagent_containers/food/snacks/produce/jacksberry=5,
@@ -461,6 +465,11 @@
 /obj/structure/flora/grass/bush/wall/tall/tundra
 	name = "tundra great bush"
 	icon_state = "tallbush1_tundra"
+
+/obj/structure/flora/grass/bush/wall/tall/bog
+	desc = "A tall bush that has grown into a hedge...but this one seems diseased."
+	name = "bog great bush"
+	icon_state = "tallbush1_bog"
 
 /obj/structure/flora/grass/bush/wall/tall/tundra/Initialize()
 	. = ..()
