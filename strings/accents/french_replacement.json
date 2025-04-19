@@ -24,13 +24,15 @@
 		" I ": " j' ",
 		" I'm ": " j' ",
         	" bye ": [" adieu ",
-			" au revoir "], 
+			" au revoir "
+		], 
 		" cake ": " gateau ",
 	    	" captain ": " capitaine ", 
   	   	" dad ": " papa ", 
 	    	" hello ": [" allo ", 
 			" bonjour ",
-			" salut "], 
+			" salut "
+		], 
 	    	" mom ": " mama ", 
 		" shit ": " merde ",
 	    	" spaghetti ": " macaroni ", 
@@ -50,3 +52,5 @@
 	    	" butt ": " derriere ",
 	    	" ass ": " derriere ", 
     					}
+
+}
