@@ -74,7 +74,8 @@
 	if(!target)
 		return
 	yeet(target)
-	return target.attack_animal(src)
+	if(!QDELETED(target))
+		return target.attack_animal(src)
 
 /mob/living/simple_animal/hostile/retaliate/elemental/warden/proc/yeet(target)
 	var/atom/throw_target = get_edge_target_turf(src, get_dir(src, target)) //ill be real I got no idea why this worked.

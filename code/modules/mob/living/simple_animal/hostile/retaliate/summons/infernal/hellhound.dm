@@ -79,4 +79,5 @@
 		targetted.IgniteMob()
 		targetted.visible_message(span_danger("[src] sets [target] on fire!"))
 		src.flame_cd = world.time
-	return target.attack_animal(src)
+	if(!QDELETED(target))
+		return target.attack_animal(src)

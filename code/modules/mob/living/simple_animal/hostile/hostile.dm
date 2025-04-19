@@ -362,7 +362,8 @@
 	var/mob/living/actual_target = passed_target
 	if(!actual_target)
 		actual_target = target
-	return actual_target?.attack_animal(src)
+	if(!QDELETED(actual_target))
+		return actual_target.attack_animal(src)
 
 /mob/living/simple_animal/hostile/proc/Aggro()
 	vision_range = aggro_vision_range
