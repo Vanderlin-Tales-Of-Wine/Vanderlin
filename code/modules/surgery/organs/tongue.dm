@@ -34,7 +34,7 @@
 	if (modifies_speech)
 		RegisterSignal(M, COMSIG_MOB_SAY, PROC_REF(handle_speech))
 	M.UnregisterSignal(M, COMSIG_MOB_SAY)
-	for(var/datum/wound/facial/ears/tongue_wound as anything in M.get_wounds())
+	for(var/datum/wound/facial/tongue/tongue_wound in M.get_wounds())
 		qdel(tongue_wound)
 
 /obj/item/organ/tongue/Remove(mob/living/carbon/M, special = FALSE, drop_if_replaced = TRUE)
