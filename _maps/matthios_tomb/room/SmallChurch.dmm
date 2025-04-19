@@ -181,7 +181,7 @@
 	},
 /area/rogue/under/cavewet)
 "gO" = (
-/obj/structure/barricade/rogue,
+/obj/structure/barricade/wooden,
 /obj/machinery/light/fueled/torchholder/l,
 /turf/open/floor/churchmarble,
 /area/rogue/under/cavewet)
@@ -383,7 +383,7 @@
 	},
 /area/rogue/under/cavewet)
 "qK" = (
-/obj/structure/barricade/rogue,
+/obj/structure/barricade/wooden,
 /turf/open/floor/churchmarble,
 /area/rogue/under/cavewet)
 "ra" = (
@@ -1024,7 +1024,7 @@
 /area/rogue/under/cavewet)
 "Re" = (
 /obj/structure/closet/crate/chest/crate,
-/obj/structure/barricade/rogue/crude,
+/obj/structure/barricade/wooden/crude,
 /turf/open/floor/churchmarble,
 /area/rogue/under/cavewet)
 "Rl" = (
@@ -1160,7 +1160,7 @@
 /turf/open/floor/grass/cold,
 /area/rogue/under/cavewet)
 "VQ" = (
-/obj/structure/barricade/rogue/crude,
+/obj/structure/barricade/wooden/crude,
 /turf/open/floor/churchmarble,
 /area/rogue/under/cavewet)
 "Wk" = (

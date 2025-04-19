@@ -36,8 +36,8 @@
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/ywflowers,
-/obj/structure/barricade/rogue,
-/obj/structure/barricade/rogue/crude,
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
 /turf/open/floor/grass,
 /area/rogue/under/cave)
 "cN" = (
@@ -101,8 +101,8 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/effect/decal/cleanable/blood/tracks,
-/obj/structure/barricade/rogue,
-/obj/structure/barricade/rogue/crude,
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
 /turf/open/floor/grass,
 /area/rogue/under/cave)
 "kv" = (
@@ -478,8 +478,8 @@
 /area/rogue/under/cave)
 "YJ" = (
 /obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/barricade/rogue,
-/obj/structure/barricade/rogue/crude,
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
 /turf/open/floor/dirt,
 /area/rogue/under/cave)
 "Zv" = (

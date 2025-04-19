@@ -173,7 +173,7 @@
 /turf/open/floor/cobble/alt,
 /area/rogue/indoors/shelter)
 "jt" = (
-/obj/structure/barricade/rogue,
+/obj/structure/barricade/wooden,
 /turf/open/floor/dirt/road,
 /area/rogue/under)
 "jT" = (
@@ -871,7 +871,7 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/shelter)
 "Wg" = (
-/obj/structure/barricade/rogue,
+/obj/structure/barricade/wooden,
 /turf/open/floor/dirt,
 /area/rogue/under)
 "Wr" = (

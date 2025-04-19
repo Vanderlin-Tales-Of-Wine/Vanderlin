@@ -1,0 +1,2 @@
+/obj/structure/barricade/rogue/@SUBTYPES : /obj/structure/barricade/wooden/@SUBTYPES
+/obj/structure/barricade/crude : /obj/structure/barricade/wooden/crude

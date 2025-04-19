@@ -542,7 +542,7 @@
 /turf/open/floor/church,
 /area/rogue/under/cavewet)
 "rk" = (
-/obj/structure/barricade/rogue,
+/obj/structure/barricade/wooden,
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/under/cavewet)
 "rm" = (
@@ -1213,7 +1213,7 @@
 /turf/open/floor/churchrough,
 /area/rogue/under/cavewet)
 "SW" = (
-/obj/structure/barricade/rogue,
+/obj/structure/barricade/wooden,
 /turf/open/floor/cobblerock,
 /area/rogue/under/cavewet)
 "Tc" = (

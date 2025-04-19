@@ -106,8 +106,8 @@
 /turf/open/floor/grass/cold,
 /area/rogue/indoors)
 "eJ" = (
-/obj/structure/barricade/rogue,
-/obj/structure/barricade/rogue/crude,
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
 /turf/open/floor/churchrough,
 /area/rogue/indoors/cave)
 "eQ" = (
@@ -152,8 +152,8 @@
 /turf/open/floor/tile/bath,
 /area/rogue/indoors)
 "ge" = (
-/obj/structure/barricade/rogue,
-/obj/structure/barricade/rogue/crude,
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
 /turf/open/floor/churchrough,
 /area/rogue/indoors)
 "gj" = (
@@ -824,8 +824,8 @@
 /area/rogue/indoors)
 "EG" = (
 /obj/structure/mineral_door/wood/donjon/stone,
-/obj/structure/barricade/rogue,
-/obj/structure/barricade/rogue/crude,
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
 /turf/open/floor/churchrough,
 /area/rogue/indoors)
 "EU" = (
@@ -1219,8 +1219,8 @@
 /turf/open/floor/churchmarble,
 /area/rogue/indoors)
 "Tu" = (
-/obj/structure/barricade/rogue,
-/obj/structure/barricade/rogue/crude,
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
 /turf/open/floor/churchbrick,
 /area/rogue/indoors)
 "Tv" = (

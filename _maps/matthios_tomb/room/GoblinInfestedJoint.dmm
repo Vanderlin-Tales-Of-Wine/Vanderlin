@@ -432,7 +432,7 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "ru" = (
-/obj/structure/barricade/rogue/crude,
+/obj/structure/barricade/wooden/crude,
 /turf/open/floor/cobblerock/alt,
 /area/rogue/indoors/shelter)
 "rP" = (
@@ -1165,7 +1165,7 @@
 /turf/closed/wall/mineral/decostone/long,
 /area/rogue/under/cave/spider)
 "RN" = (
-/obj/structure/barricade/rogue/crude,
+/obj/structure/barricade/wooden/crude,
 /turf/open/floor/naturalstone,
 /area/rogue/indoors/shelter)
 "Sf" = (
@@ -1281,7 +1281,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave/spider)
 "VX" = (
-/obj/structure/barricade/rogue,
+/obj/structure/barricade/wooden,
 /turf/open/floor/naturalstone,
 /area/rogue/indoors/shelter)
 "Wo" = (

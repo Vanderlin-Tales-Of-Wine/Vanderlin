@@ -747,7 +747,7 @@
 	name = "Room 3 - DO NOT ENTER";
 	locked = 1
 	},
-/obj/structure/barricade/crude,
+/obj/structure/barricade/wooden/crude,
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/indoors/shelter)
 "Ia" = (

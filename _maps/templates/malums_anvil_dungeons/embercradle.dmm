@@ -1165,8 +1165,8 @@
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "pS" = (
-/obj/structure/barricade/rogue,
-/obj/structure/barricade/rogue/crude,
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon)
 "qk" = (
