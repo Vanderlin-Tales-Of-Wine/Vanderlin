@@ -227,7 +227,8 @@
 
 	types = list(
 		/datum/repeatable_crafting_recipe/survival,
-		/datum/repeatable_crafting_recipe/soap,
+		/datum/repeatable_crafting_recipe/cooking/soap,
+		/datum/repeatable_crafting_recipe/cooking/soap/bath,
 		/datum/repeatable_crafting_recipe/fishing,
 		/datum/repeatable_crafting_recipe/sigsweet,
 		/datum/repeatable_crafting_recipe/sigdry,

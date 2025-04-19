@@ -16,7 +16,7 @@ cp tools/ci/ci_config.txt ci_test/config/config.txt
 cp _maps/$MAP.json ci_test/data/next_map.json
 
 cd ci_test
-DreamDaemon stonekeep.dmb -close -trusted -verbose -params "log-directory=ci"
+DreamDaemon vanderlin.dmb -close -trusted -verbose -params "log-directory=ci"
 
 cd ..
 

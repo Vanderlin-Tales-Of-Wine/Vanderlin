@@ -142,6 +142,7 @@
 #define MAYOR       (1<<4)
 #define FORWARDEN   (1<<5)
 #define FORGUARD    (1<<6)
+#define GATEMASTER  (1<<7)
 
 #define CHURCHMEN		(1<<2)
 
@@ -226,6 +227,7 @@
 #define JDO_ROYALGUARD 7.2
 #define JDO_MENATARMS 8
 #define JDO_CITYWATCHMEN 8.1
+#define JDO_GATEMASTER 8.2
 #define JDO_DUNGEONEER 9
 #define JDO_JAILOR 9.1
 #define JDO_SQUIRE 10

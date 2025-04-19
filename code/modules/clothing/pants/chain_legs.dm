@@ -26,6 +26,7 @@
 	max_integrity = INTEGRITY_STRONGEST
 	prevent_crits = ALL_EXCEPT_BLUNT
 	do_sound_chain = TRUE
+	item_weight = 6 * STEEL_MULTIPLIER
 
 
 /obj/item/clothing/pants/chainlegs/iron
@@ -35,6 +36,7 @@
 	smeltresult = /obj/item/ingot/iron
 	armor = ARMOR_MAILLE_IRON
 	max_integrity = INTEGRITY_STRONG
+	item_weight = 6 * IRON_MULTIPLIER
 
 /obj/item/clothing/pants/chainlegs/kilt
 	name = "steel chain kilt"

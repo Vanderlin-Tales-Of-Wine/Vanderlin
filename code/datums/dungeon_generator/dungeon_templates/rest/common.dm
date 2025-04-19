@@ -4,7 +4,7 @@
 	type_weight = 1
 
 /datum/map_template/dungeon/rest/snackplatter
-	mappath = "_maps/map_files/matthios_tomb/rest/snackplatter.dmm"
+	mappath = "_maps/matthios_tomb/rest/snackplatter.dmm"
 	id = "snackplatter"
 	width = 9
 	height = 9
@@ -15,7 +15,7 @@
 	west_offset = 4
 
 /datum/map_template/dungeon/rest/stingerpatch
-	mappath = "_maps/map_files/matthios_tomb/rest/stingerpatch.dmm"
+	mappath = "_maps/matthios_tomb/rest/stingerpatch.dmm"
 	id = "stingerpatch"
 	width = 10
 	height = 10
@@ -26,7 +26,7 @@
 	west_offset = 4
 
 /datum/map_template/dungeon/rest/Malphpiece1
-	mappath = "_maps/map_files/matthios_tomb/rest/Malphpiece1.dmm"
+	mappath = "_maps/matthios_tomb/rest/Malphpiece1.dmm"
 	id = "Malphpiece1"
 	width = 8
 	height = 8
@@ -37,7 +37,7 @@
 	west_offset = 5
 
 /datum/map_template/dungeon/rest/largehallway
-	mappath = "_maps/map_files/matthios_tomb/rest/largehallway.dmm"
+	mappath = "_maps/matthios_tomb/rest/largehallway.dmm"
 	id = "largehallway"
 	width = 15
 	height = 15
@@ -47,7 +47,7 @@
 	west_offset = 7
 
 /datum/map_template/dungeon/rest/farm
-	mappath = "_maps/map_files/matthios_tomb/rest/farm.dmm"
+	mappath = "_maps/matthios_tomb/rest/farm.dmm"
 	id = "farm"
 	width = 15
 	height = 15

@@ -240,6 +240,13 @@
 	created_item = /obj/item/weapon/tongs
 	i_type = "Tools"
 
+/datum/anvil_recipe/tools/surgery/surgerytools
+	name = "Surgeon's Bag (+1 iron +1 hide)"
+	req_bar = /obj/item/ingot/iron
+	additional_items = list(/obj/item/ingot/iron, /obj/item/natural/hide)
+	created_item = /obj/item/storage/backpack/satchel/surgbag
+	i_type = "Tools"
+
 /datum/anvil_recipe/tools/torch
 	name = "5x Iron Torches (+Coal)"
 	recipe_name = "five Torches"
@@ -270,6 +277,21 @@
 	craftdiff = 1
 	createmultiple = TRUE
 	createditem_num = 1
+
+/datum/anvil_recipe/tools/platter/tin
+	name = "2x Platters (tin)"
+	req_bar = /obj/item/ingot/tin
+	created_item = /obj/item/plate/pewter
+
+/datum/anvil_recipe/tools/platter/silver
+	name = "2x Platters (silver)"
+	req_bar = /obj/item/ingot/silver
+	created_item = /obj/item/plate/silver
+
+/datum/anvil_recipe/tools/platter/gold
+	name = "2x Platters (gold)"
+	req_bar = /obj/item/ingot/gold
+	created_item = /obj/item/plate/gold
 
 /datum/anvil_recipe/tools/hoe/copper
 	name = "Copper Hoe (+Stick x2)"
@@ -341,3 +363,31 @@
 	name = "Bronze Chisel"
 	req_bar = /obj/item/ingot/bronze
 	created_item = /obj/item/weapon/chisel/bronze
+
+/datum/anvil_recipe/tools/spoon
+	name = "2x Spoons (iron)"
+	recipe_name = "a Spoon"
+	req_bar = /obj/item/ingot/iron
+	created_item = /obj/item/kitchen/spoon/iron
+	craftdiff = 1
+	createmultiple = TRUE
+	createditem_num = 1
+
+/datum/anvil_recipe/tools/spoon/tin
+	name = "2x Spoons (tin)"
+	req_bar = /obj/item/ingot/tin
+	created_item = /obj/item/kitchen/spoon/pewter
+
+/datum/anvil_recipe/tools/fork
+	name = "2x Forks (iron)"
+	recipe_name = "a Fork"
+	req_bar = /obj/item/ingot/iron
+	created_item = /obj/item/kitchen/fork/iron
+	craftdiff = 1
+	createmultiple = TRUE
+	createditem_num = 1
+
+/datum/anvil_recipe/tools/fork/tin
+	name = "2x Forks (tin)"
+	req_bar = /obj/item/ingot/tin
+	created_item = /obj/item/kitchen/fork/pewter
