@@ -904,7 +904,7 @@
 /turf/open/floor/cobble,
 /area/rogue/indoors)
 "cm" = (
-/obj/structure/mineral_door,
+/obj/structure/door,
 /turf/open/floor/blocks,
 /area/rogue/indoors)
 "cn" = (
@@ -1788,7 +1788,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors)
 "CZ" = (
-/obj/structure/mineral_door,
+/obj/structure/door,
 /turf/open/floor/wood,
 /area/rogue/indoors)
 "Di" = (

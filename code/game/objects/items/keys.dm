@@ -122,8 +122,8 @@
 		var/obj/structure/closet/C = target
 		if(C.masterkey)
 			lockid = C.lockid
-	if(istype(target, /obj/structure/mineral_door))
-		var/obj/structure/mineral_door/D = target
+	if(istype(target, /obj/structure/door))
+		var/obj/structure/door/D = target
 		if(D.masterkey)
 			lockid = D.lockid
 
@@ -133,8 +133,8 @@
 		var/obj/structure/closet/C = target
 		if(C.masterkey)
 			lockid = C.lockid
-	if(istype(target, /obj/structure/mineral_door))
-		var/obj/structure/mineral_door/D = target
+	if(istype(target, /obj/structure/door))
+		var/obj/structure/door/D = target
 		if(D.masterkey)
 			lockid = D.lockid
 

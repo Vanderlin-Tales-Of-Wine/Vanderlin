@@ -26,21 +26,6 @@
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/ruinedwood,
 /area/rogue/under/cavewet)
-"bD" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	base_constitution = 15;
-	base_endurance = 15;
-	candodge = 0
-	},
-/obj/item/clothing/head/padded/deathface,
-/obj/item/clothing/gloves/plate/blk/death,
-/obj/item/clothing/armor/plate/blkknight/death,
-/obj/item/clothing/pants/platelegs/blk/death,
-/obj/item/clothing/shoes/boots/armor/blkknight/death,
-/obj/item/weapon/sword/long/death,
-/obj/effect/mapping_helpers/floor_clothing_equipper,
-/turf/open/floor/ruinedwood/chevron,
-/area/rogue/under/cavewet)
 "bH" = (
 /obj/structure/fluff/railing/border,
 /obj/structure/closet/crate/chest/old_crate,
@@ -323,6 +308,10 @@
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/cobblerock,
 /area/rogue/under/cavewet)
+"gK" = (
+/obj/structure/door,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/cavewet)
 "gX" = (
 /obj/effect/decal/cleanable/blood/gibs/core,
 /turf/open/floor/ruinedwood,
@@ -367,12 +356,6 @@
 /obj/structure/closet/crate/chest/old_crate,
 /obj/structure/spider/stickyweb,
 /obj/structure/spider/stickyweb,
-/turf/open/floor/ruinedwood/darker,
-/area/rogue/under/cavewet)
-"it" = (
-/obj/structure/mineral_door/wood{
-	lockid = "Ship3"
-	},
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cavewet)
 "iz" = (
@@ -515,6 +498,21 @@
 /obj/effect/decal/cleanable/blood/tracks,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cavewet)
+"lp" = (
+/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+	base_constitution = 15;
+	base_endurance = 15;
+	candodge = 0
+	},
+/obj/item/clothing/head/padded/deathface,
+/obj/item/clothing/gloves/plate/blk/death,
+/obj/item/clothing/armor/plate/blkknight/death,
+/obj/item/clothing/pants/platelegs/blk/death,
+/obj/item/clothing/shoes/boots/armor/blkknight/death,
+/obj/item/weapon/sword/long/death,
+/obj/effect/mapping_helpers/floor_clothing_equipper,
+/turf/open/floor/ruinedwood/chevron,
+/area/rogue/under/cavewet)
 "lw" = (
 /obj/structure/fluff/railing/border,
 /obj/structure/fermentation_keg,
@@ -592,11 +590,6 @@
 "ns" = (
 /obj/structure/closet/crate/chest/old_crate,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue/under/cavewet)
-"nw" = (
-/obj/structure/mineral_door/wood,
-/obj/machinery/light/fueled/wallfire/candle,
-/turf/open/floor/ruinedwood,
 /area/rogue/under/cavewet)
 "nz" = (
 /obj/structure/fluff/railing/border{
@@ -700,10 +693,6 @@
 /obj/structure/spider/stickyweb,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue/under/cavewet)
-"qT" = (
-/obj/structure/mineral_door/wood,
-/turf/open/floor/ruinedwood,
 /area/rogue/under/cavewet)
 "rh" = (
 /obj/structure/closet/crate/chest/old_crate,
@@ -901,6 +890,11 @@
 /obj/item/reagent_containers/glass/bucket/wooden,
 /turf/open/floor/ruinedwood,
 /area/rogue/under/cavewet)
+"vE" = (
+/obj/structure/door,
+/obj/machinery/light/fueled/wallfire/candle,
+/turf/open/floor/ruinedwood,
+/area/rogue/under/cavewet)
 "vS" = (
 /obj/structure/fluff/railing/border{
 	dir = 9
@@ -987,27 +981,18 @@
 /obj/structure/spider/stickyweb,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cavewet)
+"yG" = (
+/obj/structure/door{
+	lockid = "Ship3"
+	},
+/turf/open/floor/ruinedwood,
+/area/rogue/under/cavewet)
 "yK" = (
 /obj/structure/fluff/railing/border,
 /obj/structure/fermentation_keg,
 /obj/structure/spider/stickyweb,
 /obj/structure/spider/stickyweb{
 	dir = 8
-	},
-/turf/open/floor/ruinedwood/darker,
-/area/rogue/under/cavewet)
-"yQ" = (
-/obj/item/clothing/head/padded/deathface,
-/obj/item/clothing/gloves/plate/blk/death,
-/obj/item/clothing/armor/plate/blkknight/death,
-/obj/item/clothing/pants/platelegs/blk/death,
-/obj/item/clothing/shoes/boots/armor/blkknight/death,
-/obj/item/weapon/sword/long/death,
-/obj/effect/mapping_helpers/floor_clothing_equipper,
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	base_constitution = 15;
-	base_endurance = 15;
-	candodge = 0
 	},
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cavewet)
@@ -1030,6 +1015,10 @@
 /obj/structure/spider/stickyweb,
 /obj/structure/spider/stickyweb/solo,
 /turf/open/floor/ruinedwood/darker,
+/area/rogue/under/cavewet)
+"zF" = (
+/obj/structure/door,
+/turf/open/floor/ruinedwood,
 /area/rogue/under/cavewet)
 "zL" = (
 /obj/item/natural/poo/cow,
@@ -1205,6 +1194,12 @@
 /obj/structure/closet/crate/crafted_closet/lord,
 /obj/effect/spawner/map_spawner/loot/medium,
 /obj/machinery/light/fueled/wallfire/candle,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/cavewet)
+"Er" = (
+/obj/structure/door{
+	lockid = "Ship3"
+	},
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cavewet)
 "ET" = (
@@ -1829,10 +1824,6 @@
 	dir = 1
 	},
 /area/rogue/under/cavewet)
-"TN" = (
-/obj/structure/mineral_door/wood,
-/turf/open/floor/ruinedwood/darker,
-/area/rogue/under/cavewet)
 "TW" = (
 /obj/item/reagent_containers/glass/cup,
 /obj/structure/chair/stool,
@@ -1988,6 +1979,21 @@
 /obj/structure/spider/stickyweb,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cavewet)
+"Xs" = (
+/obj/item/clothing/head/padded/deathface,
+/obj/item/clothing/gloves/plate/blk/death,
+/obj/item/clothing/armor/plate/blkknight/death,
+/obj/item/clothing/pants/platelegs/blk/death,
+/obj/item/clothing/shoes/boots/armor/blkknight/death,
+/obj/item/weapon/sword/long/death,
+/obj/effect/mapping_helpers/floor_clothing_equipper,
+/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+	base_constitution = 15;
+	base_endurance = 15;
+	candodge = 0
+	},
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/cavewet)
 "Xt" = (
 /obj/structure/spider/stickyweb,
 /mob/living/simple_animal/hostile/retaliate/spider,
@@ -1999,12 +2005,6 @@
 /obj/effect/spawner/map_spawner/loot/common,
 /obj/effect/spawner/map_spawner/loot/common,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue/under/cavewet)
-"Yb" = (
-/obj/structure/mineral_door/wood{
-	lockid = "Ship3"
-	},
-/turf/open/floor/ruinedwood,
 /area/rogue/under/cavewet)
 "Ym" = (
 /obj/item/bin/water,
@@ -2812,7 +2812,7 @@ cF
 Ky
 Ky
 Ky
-it
+Er
 Ky
 Ky
 Ky
@@ -3320,7 +3320,7 @@ Ky
 Ky
 Ky
 KY
-qT
+zF
 cF
 mL
 mL
@@ -3398,11 +3398,11 @@ mL
 cF
 Te
 Ky
-nw
+vE
 Ky
 Ky
 Ky
-qT
+zF
 Ky
 hs
 cF
@@ -3571,7 +3571,7 @@ iL
 Ky
 cz
 Zl
-TN
+gK
 Zl
 cF
 mL
@@ -3648,7 +3648,7 @@ ro
 eN
 mL
 cF
-TN
+gK
 Ky
 Ky
 Ky
@@ -3656,7 +3656,7 @@ Ky
 Ky
 Ky
 Ky
-TN
+gK
 cF
 mL
 mL
@@ -3776,10 +3776,10 @@ mL
 cF
 Zl
 Ky
-it
+Er
 Ky
 Ky
-Yb
+yG
 Ky
 Ky
 Te
@@ -3861,10 +3861,10 @@ cF
 cF
 Ky
 KY
-Yb
+yG
 Ky
 Ky
-Yb
+yG
 Ky
 pe
 cF
@@ -3948,7 +3948,7 @@ UR
 xa
 HT
 Ky
-yQ
+Xs
 ga
 cF
 ro
@@ -6470,7 +6470,7 @@ BE
 zm
 cd
 cd
-bD
+lp
 dc
 Ox
 Ox

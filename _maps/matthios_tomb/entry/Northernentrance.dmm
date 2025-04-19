@@ -115,7 +115,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter)
 "kN" = (
-/obj/structure/mineral_door/wood/deadbolt{
+/obj/structure/door/weak/bolt{
 	dir = 4
 	},
 /turf/open/floor/ruinedwood/spiral,
@@ -170,7 +170,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave)
 "qX" = (
-/obj/structure/mineral_door/wood/donjon/stone,
+/obj/structure/door/stone,
 /turf/open/floor/hexstone,
 /area/rogue/indoors/shelter)
 "sQ" = (
@@ -336,7 +336,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave)
 "RI" = (
-/obj/structure/mineral_door/wood/deadbolt,
+/obj/structure/door/weak/bolt,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter)
 "RR" = (

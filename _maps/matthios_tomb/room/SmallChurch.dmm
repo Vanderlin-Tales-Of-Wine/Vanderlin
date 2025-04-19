@@ -128,14 +128,20 @@
 /obj/machinery/light/fueled/torchholder/c,
 /turf/open/floor/dirt/road,
 /area/rogue/under/cavewet)
+"eu" = (
+/obj/structure/door/iron/bars,
+/turf/open/floor/metal{
+	dir = 1
+	},
+/area/rogue/under/cavewet)
 "eC" = (
 /obj/structure/closet/crate/coffin,
 /obj/item/clothing/ring/gold/rontz,
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/under/cavewet)
-"eY" = (
-/obj/structure/mineral_door/wood/violet,
-/turf/open/floor/churchrough,
+"eP" = (
+/obj/structure/door/violet,
+/turf/open/floor/churchmarble,
 /area/rogue/under/cavewet)
 "fu" = (
 /obj/structure/flora/grass,
@@ -162,13 +168,6 @@
 /obj/effect/decal/cleanable/blood/gibs/up,
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/concrete,
-/area/rogue/under/cavewet)
-"gr" = (
-/obj/structure/mineral_door/wood/donjon/stone{
-	can_add_lock = 0;
-	locked = 1
-	},
-/turf/open/floor/churchmarble,
 /area/rogue/under/cavewet)
 "gH" = (
 /obj/structure/chair/bench/church/mid,
@@ -240,6 +239,10 @@
 "kq" = (
 /obj/effect/decal/cleanable/sigil/SW,
 /turf/open/floor/plasteel/maniac/damaged,
+/area/rogue/under/cavewet)
+"ky" = (
+/obj/structure/door/violet,
+/turf/open/floor/churchrough,
 /area/rogue/under/cavewet)
 "kA" = (
 /obj/item/natural/stone{
@@ -386,6 +389,13 @@
 /obj/structure/barricade/rogue,
 /turf/open/floor/churchmarble,
 /area/rogue/under/cavewet)
+"qU" = (
+/obj/structure/door/stone{
+	can_add_lock = 0
+	},
+/obj/effect/mapping_helpers/door/locker,
+/turf/open/floor/churchmarble,
+/area/rogue/under/cavewet)
 "ra" = (
 /obj/structure/table/church{
 	dir = 1
@@ -433,10 +443,6 @@
 	pixel_y = -1
 	},
 /turf/open/floor/blocks,
-/area/rogue/under/cavewet)
-"td" = (
-/obj/structure/mineral_door/wood/violet,
-/turf/open/floor/churchmarble,
 /area/rogue/under/cavewet)
 "tr" = (
 /obj/structure/roguetent,
@@ -558,6 +564,30 @@
 "xK" = (
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/under/cavewet)
+"xN" = (
+/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+	base_speed = 15;
+	base_intelligence = 15;
+	base_constitution = 15;
+	base_endurance = 15;
+	base_fortune = 15;
+	base_perception = 15;
+	base_strength = 15
+	},
+/obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/item/clothing/head/helmet/skullcap/cult{
+	pixel_y = 10
+	},
+/obj/item/clothing/cloak/half/shadowcloak/cult,
+/obj/item/weapon/mace/goden/steel/warhammer,
+/obj/item/clothing/armor/gambeson,
+/obj/item/clothing/gloves/chain,
+/obj/item/clothing/pants/chainlegs,
+/obj/item/clothing/wrists/bracers/copper,
+/obj/item/clothing/shoes/boots,
+/obj/item/clothing/face/facemask,
+/turf/open/floor/concrete,
+/area/rogue/under/cavewet)
 "xR" = (
 /turf/open/floor/plank,
 /area/rogue/under/cavewet)
@@ -589,6 +619,31 @@
 "zr" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/open/floor/grass,
+/area/rogue/under/cavewet)
+"Ar" = (
+/obj/effect/decal/cleanable/blood/old,
+/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+	base_constitution = 15;
+	base_endurance = 15;
+	base_intelligence = 15;
+	base_fortune = 15;
+	base_perception = 15;
+	base_speed = 15;
+	base_strength = 15
+	},
+/obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/item/clothing/head/helmet/skullcap/cult{
+	pixel_y = 10
+	},
+/obj/item/clothing/cloak/half/shadowcloak/cult,
+/obj/item/weapon/sword/long/greatsword/zwei,
+/obj/item/clothing/armor/gambeson,
+/obj/item/clothing/gloves/chain,
+/obj/item/clothing/pants/chainlegs,
+/obj/item/clothing/wrists/bracers/copper,
+/obj/item/clothing/shoes/boots,
+/obj/item/clothing/face/facemask,
+/turf/open/floor/concrete,
 /area/rogue/under/cavewet)
 "As" = (
 /obj/structure/chair/bench/church/r,
@@ -645,10 +700,6 @@
 /obj/structure/spider/stickyweb,
 /turf/open/floor/dirt/road,
 /area/rogue/under/cavewet)
-"CV" = (
-/obj/structure/mineral_door/wood/donjon/stone,
-/turf/open/floor/churchmarble,
-/area/rogue/under/cavewet)
 "DB" = (
 /obj/structure/rack,
 /obj/item/natural/bundle/cloth,
@@ -684,30 +735,6 @@
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/open/floor/dirt,
 /area/rogue/under/cavewet)
-"EJ" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	base_speed = 15;
-	base_intelligence = 15;
-	base_constitution = 15;
-	base_endurance = 15;
-	base_fortune = 15;
-	base_perception = 15;
-	base_strength = 15
-	},
-/obj/effect/mapping_helpers/floor_clothing_equipper,
-/obj/item/clothing/head/helmet/skullcap/cult{
-	pixel_y = 10
-	},
-/obj/item/clothing/cloak/half/shadowcloak/cult,
-/obj/item/weapon/mace/goden/steel/warhammer,
-/obj/item/clothing/armor/gambeson,
-/obj/item/clothing/gloves/chain,
-/obj/item/clothing/pants/chainlegs,
-/obj/item/clothing/wrists/bracers/copper,
-/obj/item/clothing/shoes/boots,
-/obj/item/clothing/face/facemask,
-/turf/open/floor/concrete,
-/area/rogue/under/cavewet)
 "EQ" = (
 /turf/closed/mineral/random,
 /area/rogue/under/cavewet)
@@ -721,6 +748,10 @@
 "Fi" = (
 /obj/structure/closet/crate/coffin,
 /turf/open/floor/blocks,
+/area/rogue/under/cavewet)
+"Fn" = (
+/obj/structure/door/stone,
+/turf/open/floor/churchmarble,
 /area/rogue/under/cavewet)
 "FM" = (
 /obj/structure/closet/crate/chest/crate,
@@ -977,31 +1008,6 @@
 /obj/structure/flora/grass/bush_meagre,
 /turf/open/floor/dirt,
 /area/rogue/under/cavewet)
-"Qy" = (
-/obj/effect/decal/cleanable/blood/old,
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	base_constitution = 15;
-	base_endurance = 15;
-	base_intelligence = 15;
-	base_fortune = 15;
-	base_perception = 15;
-	base_speed = 15;
-	base_strength = 15
-	},
-/obj/effect/mapping_helpers/floor_clothing_equipper,
-/obj/item/clothing/head/helmet/skullcap/cult{
-	pixel_y = 10
-	},
-/obj/item/clothing/cloak/half/shadowcloak/cult,
-/obj/item/weapon/sword/long/greatsword/zwei,
-/obj/item/clothing/armor/gambeson,
-/obj/item/clothing/gloves/chain,
-/obj/item/clothing/pants/chainlegs,
-/obj/item/clothing/wrists/bracers/copper,
-/obj/item/clothing/shoes/boots,
-/obj/item/clothing/face/facemask,
-/turf/open/floor/concrete,
-/area/rogue/under/cavewet)
 "QB" = (
 /obj/structure/chair/stool,
 /obj/item/grown/log/tree/stake,
@@ -1043,12 +1049,6 @@
 	},
 /obj/structure/fluff/psycross/copper,
 /turf/open/floor/blocks,
-/area/rogue/under/cavewet)
-"RQ" = (
-/obj/structure/mineral_door/bars,
-/turf/open/floor/metal{
-	dir = 1
-	},
 /area/rogue/under/cavewet)
 "RR" = (
 /turf/open/floor/metal{
@@ -1776,7 +1776,7 @@ lM
 cH
 SK
 XR
-Qy
+Ar
 XR
 nz
 SK
@@ -1926,9 +1926,9 @@ DB
 lM
 SK
 cV
-CV
+Fn
 MO
-CV
+Fn
 cV
 cV
 dY
@@ -1967,7 +1967,7 @@ UO
 lM
 pG
 SK
-EJ
+xN
 Tl
 mt
 cd
@@ -2002,7 +2002,7 @@ MO
 cV
 cV
 cV
-gr
+qU
 MO
 Mv
 bi
@@ -2030,7 +2030,7 @@ SK
 Kc
 pN
 pN
-gr
+qU
 AS
 lr
 cb
@@ -2058,7 +2058,7 @@ lM
 lM
 lM
 pN
-gr
+qU
 lM
 lM
 lM
@@ -2084,13 +2084,13 @@ SK
 GA
 lM
 lM
-CV
+Fn
 jl
 Zs
 bh
 ON
 Ed
-gr
+qU
 lM
 lM
 lM
@@ -2639,7 +2639,7 @@ qe
 qe
 qe
 qe
-eY
+ky
 qe
 qe
 qe
@@ -2805,7 +2805,7 @@ ZF
 qK
 KB
 lM
-CV
+Fn
 MB
 MB
 rK
@@ -2837,7 +2837,7 @@ qK
 sx
 lM
 lM
-CV
+Fn
 MB
 MB
 rK
@@ -2895,13 +2895,13 @@ SK
 lM
 lM
 lM
-gr
+qU
 lM
 QB
 KB
 lM
 lM
-CV
+Fn
 MB
 MB
 rK
@@ -2923,7 +2923,7 @@ Fi
 Fi
 rU
 rU
-td
+eP
 NQ
 aC
 Mu
@@ -2933,7 +2933,7 @@ Rx
 hf
 lM
 lM
-CV
+Fn
 MB
 MB
 rK
@@ -3023,7 +3023,7 @@ SK
 YC
 lM
 sb
-gr
+qU
 lM
 KB
 lM
@@ -3183,12 +3183,12 @@ MB
 MB
 MB
 MB
-RQ
+eu
 MB
 MB
 MB
 MB
-RQ
+eu
 MB
 MB
 MB

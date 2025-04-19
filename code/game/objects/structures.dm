@@ -39,7 +39,6 @@
 				H.visible_message("<span class='warning'>[H] runs into [src]!</span>", "<span class='warning'>I run into [src]!</span>")
 				addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, Knockdown), 10), 10)
 
-
 /obj/structure/Destroy()
 	if(isturf(loc))
 		for(var/mob/living/user in loc)

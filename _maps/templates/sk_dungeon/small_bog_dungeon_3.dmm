@@ -55,7 +55,7 @@
 /turf/open/floor/blocks,
 /area/rogue/outdoors/bog)
 "t" = (
-/obj/structure/mineral_door/wood/violet,
+/obj/structure/door/violet,
 /turf/open/floor/blocks{
 	icon_state = "paving-t"
 	},
@@ -167,7 +167,7 @@
 /turf/open/floor/blocks,
 /area/rogue/outdoors/bog)
 "X" = (
-/obj/structure/mineral_door/bars,
+/obj/structure/door/iron/bars,
 /turf/open/floor/blocks{
 	icon_state = "paving-t"
 	},

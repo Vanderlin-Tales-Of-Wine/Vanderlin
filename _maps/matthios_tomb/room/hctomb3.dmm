@@ -87,7 +87,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/cavewet)
 "dY" = (
-/obj/structure/mineral_door/wood/donjon{
+/obj/structure/door/viewport{
 	dir = 1
 	},
 /turf/open/floor/blocks/stonered/tiny,
@@ -1184,7 +1184,7 @@
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/under/cavewet)
 "RP" = (
-/obj/structure/mineral_door/wood/donjon/stone,
+/obj/structure/door/stone,
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/under/cavewet)
 "Sx" = (
@@ -1311,7 +1311,7 @@
 	},
 /area/rogue/under/cavewet)
 "UQ" = (
-/obj/structure/mineral_door/wood/donjon/stone,
+/obj/structure/door/stone,
 /turf/open/floor/churchrough,
 /area/rogue/under/cavewet)
 "UR" = (
