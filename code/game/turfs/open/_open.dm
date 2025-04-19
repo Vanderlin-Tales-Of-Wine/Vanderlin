@@ -137,7 +137,7 @@
 
 /turf/open/attacked_by(obj/item/I, mob/living/user)
 	if(!(flags_1 & CAN_BE_ATTACKED_1))
-		return TRUE
+		return FALSE
 	. = ..()
 
 /turf/open/OnCrafted(dirin, mob/user)

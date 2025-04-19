@@ -382,15 +382,15 @@ GLOBAL_VAR_INIT(liquid_debug_colors, FALSE)
 
 /datum/liquid_group/proc/remove_specific(obj/effect/abstract/liquid_turf/remover, amount, datum/reagent/reagent_type, deferred_removal = FALSE)
 	reagents.remove_reagent(reagent_type.type, amount)
+	process_removal(amount)
 	if(!QDELETED(remover) && !deferred_removal)
 		check_liquid_removal(remover, amount)
-	total_reagent_volume = reagents.total_volume
 
 /datum/liquid_group/proc/transfer_to_atom(obj/effect/abstract/liquid_turf/remover, amount, atom/transfer_target, transfer_method = INGEST)
 	reagents.trans_to(transfer_target, amount, no_react = TRUE)
+	process_removal(amount)
 	if(!QDELETED(remover))
 		check_liquid_removal(remover, amount)
-	total_reagent_volume = reagents.total_volume
 
 /datum/liquid_group/proc/move_liquid_group(obj/effect/abstract/liquid_turf/member)
 	remove_from_group(member.my_turf)

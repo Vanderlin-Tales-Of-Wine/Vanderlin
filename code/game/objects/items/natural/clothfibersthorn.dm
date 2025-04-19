@@ -112,12 +112,12 @@
 
 	cleaner_component.cleaning_effectiveness = (effectiveness * 100) % 100
 	cleaner_component.cleaning_strength = CLAMP(CLEAN_WEAK + ceil(effectiveness), CLEAN_WEAK, CLEAN_IMPRESSIVE)
-	playsound(cleaner, pick('sound/foley/cloth_wipe (1).ogg','sound/foley/cloth_wipe (2).ogg', 'sound/foley/cloth_wipe (3).ogg'), 100, FALSE)
+	playsound(cleaner, pick('sound/foley/cloth_wipe (1).ogg','sound/foley/cloth_wipe (2).ogg', 'sound/foley/cloth_wipe (3).ogg'), 25, FALSE)
 	return TRUE
 
 /obj/item/natural/cloth/proc/on_clean_success(datum/source, atom/target, mob/living/user, clean_succeeded)
 	if(clean_succeeded)
-		if(isturf(target))
+		if(prob(50) && isturf(target)) // to prevent infinitely renewable water
 			var/turf/T = target
 			T.add_liquid_from_reagents(reagents, amount = 1)
 		reagents.remove_all(1)
