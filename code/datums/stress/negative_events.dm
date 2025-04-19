@@ -260,11 +260,6 @@
 	stressadd = 1
 	desc = "<span class='red'>My muscles ache.</span>"
 
-/datum/stressevent/tortured/on_apply(mob/living/user)
-	. = ..()
-	if(user.client)
-		GLOB.vanderlin_round_stats[STATS_TORTURES]++
-
 /datum/stressevent/tortured
 	stressadd = 3
 	max_stacks = 5
@@ -350,6 +345,11 @@
 	stressadd = 2
 	desc = span_red("This fare is really beneath me. I deserve better than this...")
 	timer = 5 MINUTES
+
+/datum/stressevent/tortured/on_apply(mob/living/user)
+	. = ..()
+	if(user.client)
+		GLOB.vanderlin_round_stats[STATS_TORTURES]++
 
 /datum/stressevent/noble_bad_manners
 	stressadd = 1
