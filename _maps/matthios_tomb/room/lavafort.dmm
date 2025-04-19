@@ -49,13 +49,6 @@
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/cobble,
 /area/rogue/under/cavelava)
-"dd" = (
-/obj/structure/table/wood{
-	icon_state = "tablewood1"
-	},
-/obj/item/bath/soap,
-/turf/open/floor/hexstone,
-/area/rogue/under/cavelava)
 "dx" = (
 /obj/structure/flora/grass,
 /obj/item/alch/waterdust,
@@ -89,15 +82,6 @@
 	dir = 4
 	},
 /turf/open/transparent/openspace,
-/area/rogue/under/cavelava)
-"fz" = (
-/obj/structure/rack/shelf/biggest,
-/obj/item/reagent_containers/glass/bucket/wooden,
-/obj/item/natural/bundle/stick,
-/obj/structure/fluff/walldeco/church/line{
-	dir = 4
-	},
-/turf/open/floor/hexstone,
 /area/rogue/under/cavelava)
 "fL" = (
 /obj/structure/fluff/railing/border{
@@ -376,6 +360,13 @@
 /obj/structure/bookcase/random/myths,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/cavelava)
+"Cv" = (
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
+/obj/item/soap/bath,
+/turf/open/floor/hexstone,
+/area/rogue/under/cavelava)
 "CP" = (
 /mob/living/simple_animal/hostile/skeleton/bow,
 /turf/open/floor/carpet/royalblack,
@@ -595,6 +586,15 @@
 	dir = 9
 	},
 /turf/open/transparent/openspace,
+/area/rogue/under/cavelava)
+"Sv" = (
+/obj/structure/rack/shelf/biggest,
+/obj/item/reagent_containers/glass/bucket/wooden,
+/obj/item/natural/bundle/stick,
+/obj/structure/fluff/walldeco/church/line{
+	dir = 4
+	},
+/turf/open/floor/hexstone,
 /area/rogue/under/cavelava)
 "SI" = (
 /obj/structure/fluff/railing/border{
@@ -1062,7 +1062,7 @@ NO
 NO
 lS
 HT
-dd
+Cv
 lS
 sc
 cr
@@ -2054,7 +2054,7 @@ aj
 aj
 aj
 lS
-fz
+Sv
 yI
 Ga
 jk

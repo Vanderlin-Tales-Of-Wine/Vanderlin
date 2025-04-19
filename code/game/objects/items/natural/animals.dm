@@ -110,6 +110,12 @@
 	headpricemin = 90
 	headpricemax = 250
 
+/obj/item/natural/head/troll/cave
+	name = "cave troll head"
+	icon_state = "cavetrollhead"
+	headpricemin = 120
+	headpricemax = 280
+
 /obj/item/natural/head/rous
 	name = "rous head"
 	desc = "the head of an unusually large rat."
