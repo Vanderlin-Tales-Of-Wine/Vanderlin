@@ -18,6 +18,9 @@
 
 	outfit = /datum/outfit/job/tailor
 
+/datum/outfit/job/tailor
+	job_bitflag = BITFLAG_CONSTRUCTOR
+
 /datum/outfit/job/tailor/pre_equip(mob/living/carbon/human/H)
 	..()
 

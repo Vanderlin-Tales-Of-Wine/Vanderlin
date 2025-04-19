@@ -22,6 +22,9 @@
 
 	can_have_apprentices = FALSE
 
+/datum/outfit/job/bapprentice
+	job_bitflag = BITFLAG_CONSTRUCTOR
+
 /datum/outfit/job/bapprentice/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
