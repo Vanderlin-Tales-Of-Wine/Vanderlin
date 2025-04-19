@@ -13,7 +13,7 @@
 	attacked_atom = /obj/item/grown/log/tree/small
 	starting_atom= /obj/item/weapon/knife
 	output = /obj/item/rotation_contraption/shaft
-	output_amount = 6
+	output_amount = 12
 	craft_time = 5 SECONDS
 	uses_attacked_atom = FALSE
 
@@ -29,7 +29,7 @@
 	attacked_atom = /obj/item/grown/log/tree/small
 	starting_atom= /obj/item/weapon/knife
 	output = /obj/item/rotation_contraption/cog
-	output_amount = 2
+	output_amount = 4
 	craft_time = 5 SECONDS
 	uses_attacked_atom = FALSE
 
@@ -60,6 +60,7 @@
 	attacked_atom = /obj/item/grown/log/tree/small
 	starting_atom= /obj/item/weapon/knife
 	output = /obj/item/rotation_contraption/large_cog
+	output = 2
 	craft_time = 5 SECONDS
 	uses_attacked_atom = FALSE
 
@@ -105,7 +106,7 @@
 	attacked_atom = /obj/item/ingot/iron
 	starting_atom= /obj/item/weapon/hammer
 	output = /obj/item/rotation_contraption/minecart_rail
-	output_amount = 3
+	output_amount = 6
 	craft_time = 5 SECONDS
 	uses_attacked_atom = FALSE
 
@@ -120,7 +121,7 @@
 	attacked_atom = /obj/item/ingot/bronze
 	starting_atom= /obj/item/weapon/hammer
 	output = /obj/item/rotation_contraption/water_pipe
-	output_amount = 12
+	output_amount = 18
 	craft_time = 5 SECONDS
 	uses_attacked_atom = FALSE
 

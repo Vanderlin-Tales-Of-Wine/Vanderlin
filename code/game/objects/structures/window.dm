@@ -18,6 +18,7 @@
 	break_sound = "glassbreak"
 	destroy_sound = 'sound/combat/hits/onwood/destroywalldoor.ogg'
 
+	var/base_state = "window-solid"
 	var/lockdir = 0
 	var/brokenstate = 0
 
@@ -33,9 +34,9 @@
 
 /obj/structure/window/update_icon()
 	if(brokenstate)
-		icon_state = "[initial(icon_state)]br"
+		icon_state = "[base_state]br"
 		return
-	icon_state = "[initial(icon_state)]"
+	icon_state = "[base_state]"
 
 /obj/structure/window/proc/repairwindow(obj/item/I, mob/user)
 	if(brokenstate)
@@ -59,7 +60,7 @@
 					if(do_after(user, (30 SECONDS / user.mind.get_skill_level(repair_skill)), src)) // 1 skill = 30 secs, 2 skill = 15 secs etc.
 						qdel(I)
 						playsound(user, 'sound/misc/wood_saw.ogg', 100, TRUE)
-						icon_state = "[initial(icon_state)]"
+						icon_state = "[base_state]"
 						density = TRUE
 						opacity = TRUE
 						brokenstate = FALSE
@@ -95,6 +96,7 @@
 
 /obj/structure/window/stained
 	icon_state = "stained-silver"
+	base_state = "stained-silver"
 	max_integrity = 100
 	integrity_failure = 0.75
 	repair_cost_first = /obj/item/natural/glass
@@ -103,28 +105,34 @@
 /obj/structure/window/stained/silver
 	desc = "A stained-glass window filigreed in silver."
 	icon_state = "stained-silver"
+	base_state = "stained-silver"
 	max_integrity = 100
 	integrity_failure = 0.75
 
 /obj/structure/window/stained/silver/alt
 	icon_state = "stained-silver1"
+	base_state = "stained-silver1"
 
 /obj/structure/window/stained/zizo
 	desc = "A stained-glass window filigreed in deep crimson."
 	icon_state = "stained-zizo"
+	base_state = "stained-zizo"
 
 /obj/structure/window/stained/yellow
 	desc = "A stained-glass window filigreed in gold."
 	icon_state = "stained-yellow"
+	base_state = "stained-yellow"
 
 /obj/structure/window/openclose
 	desc = "It opens and closes."
-	icon_state = MAP_SWITCH("woodwindow", "woodwindowdir")
+	icon_state = "woodwindowdir"
+	base_state = "woodwindow"
 	max_integrity = 100
 	integrity_failure = 0.5
 
 /obj/structure/window/openclose/Initialize()
 	lockdir = dir
+	icon_state = base_state
 	GLOB.TodUpdate += src
 	..()
 
@@ -136,17 +144,25 @@
 	update_icon()
 
 /obj/structure/window/openclose/update_icon()
-	var/icon
+	var/isnight = FALSE
 	if(GLOB.tod == "night")
-		icon += "w-"
-	icon += initial(icon_state)
+		isnight = TRUE
 	if(brokenstate)
-		icon_state = "[icon]br"
+		if(isnight)
+			icon_state = "[base_state]br"
+		else
+			icon_state = "w-[base_state]br"
 		return
 	if(climbable)
-		icon_state = "[icon]op"
-		return
-	icon_state = "[icon]"
+		if(isnight)
+			icon_state = "[base_state]op"
+		else
+			icon_state = "w-[base_state]op"
+	else
+		if(isnight)
+			icon_state = "[base_state]"
+		else
+			icon_state = "w-[base_state]"
 
 /obj/structure/window/openclose/attack_right(mob/user)
 	if(get_dir(src,user) == lockdir)
@@ -171,7 +187,8 @@
 
 /obj/structure/window/openclose/reinforced
 	desc = "A glass window. This one looks reinforced with a metal mesh."
-	icon_state = MAP_SWITCH("reinforcedwindow", "reinforcedwindowdir")
+	icon_state = "reinforcedwindowdir"
+	base_state = "reinforcedwindow"
 	max_integrity = 800
 	integrity_failure = 0.1
 	metalizer_result = null

@@ -92,8 +92,40 @@ SUBSYSTEM_DEF(outdoor_effects)
 		init_z_turfs(z)
 
 /datum/controller/subsystem/outdoor_effects/proc/init_z_turfs(z)
+	var/list/ceiling_cache = list()
+	var/list/skyvisible_flags = list()
 	for (var/turf/T in block(locate(1,1,z), locate(world.maxx,world.maxy,z)))
-		GLOB.SUNLIGHT_QUEUE_WORK += T
+		ceiling_cache[T] = T.get_ceiling_status()
+
+	for (var/turf/T in ceiling_cache)
+		var/roofStat = ceiling_cache[T]
+		skyvisible_flags[T] = roofStat["SKYVISIBLE"]
+
+	for (var/turf/T in ceiling_cache)
+		var/sky = skyvisible_flags[T]
+		var/state = SKY_BLOCKED
+		var/roofStat = ceiling_cache[T]
+
+		if (sky)
+			state = SKY_VISIBLE
+			for (var/turf/CT in RANGE_TURFS(1, T))
+				if (!skyvisible_flags[CT])
+					state = SKY_VISIBLE_BORDER
+					break
+
+		if (!T.outdoor_effect && (state != SKY_BLOCKED || !roofStat["WEATHERPROOF"]))
+			T.outdoor_effect = new /atom/movable/outdoor_effect(T)
+
+		if (T.outdoor_effect)
+			var/atom/movable/outdoor_effect/OE = T.outdoor_effect //least obvious ragebait
+			OE.state = state
+			OE.weatherproof = roofStat["WEATHERPROOF"]
+			if (OE.weatherproof)
+				SSParticleWeather.weathered_turfs -= T
+			else
+				if ((T.turf_flags & TURF_EFFECT_AFFECTABLE) && (z in SSoutdoor_effects.turf_weather_affectable_z_levels))
+					SSParticleWeather.weathered_turfs |= T
+			update_outdoor_effect_overlays(OE)
 
 
 /datum/controller/subsystem/outdoor_effects/proc/check_cycle()

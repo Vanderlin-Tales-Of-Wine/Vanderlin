@@ -100,6 +100,7 @@
 	zombie.remove_all_languages()
 	zombie.grant_language(/datum/language/hellspeak)
 
+	zombie.ai_controller = new /datum/ai_controller/zombie(zombie)
 	return ..()
 
 /datum/antagonist/zombie/on_removal()
@@ -185,7 +186,7 @@
 	zombie.base_intents = list(INTENT_HELP, INTENT_DISARM, INTENT_GRAB, /datum/intent/unarmed/claw)
 	zombie.update_a_intents()
 	if(!zombie.client)
-		zombie.ai_controller = new /datum/ai_controller/human_npc(zombie)
+		zombie.ai_controller = new /datum/ai_controller/zombie(zombie)
 
 	var/obj/item/organ/eyes/eyes = new /obj/item/organ/eyes/night_vision/zombie
 	eyes.Insert(zombie, drop_if_replaced = FALSE)

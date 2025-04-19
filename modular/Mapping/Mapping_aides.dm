@@ -51,7 +51,6 @@
 		if(istype(NewLocTurf, /turf/closed/wall)) // gas can go through doors/windows but not walls
 			return
 		forceMove(NewLoc)
-		update_parallax_contents()
 	else
 		forceMove(get_turf(src))  //Get out of closets and such as a ghost
 		if((direct & NORTH) && y < world.maxy)

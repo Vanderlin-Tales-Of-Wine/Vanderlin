@@ -89,6 +89,12 @@
 	///AI controller that controls this atom. type on init, then turned into an instance during runtime
 	var/datum/ai_controller/ai_controller
 
+	///how shiny we are
+	var/mutable_appearance/reflection
+	var/mutable_appearance/reflection_displacement
+	var/mutable_appearance/total_reflection_mask
+	var/shine = SHINE_MATTE
+
 /**
  * Called when an atom is created in byond (built in engine proc)
  *
@@ -252,6 +258,42 @@
 	//Check for centcom itself
 	if(istype(T.loc, /area/centcom))
 		return TRUE
+
+
+/atom/proc/make_shiny(_shine = SHINE_REFLECTIVE, _reflection_plane = REFLECTIVE_PLANE)
+	if(reflection || reflection_displacement)
+		if(shine != _shine)
+			cut_overlay(reflection)
+			cut_overlay(reflection_displacement)
+		else
+			return
+	var/r_overlay
+	switch(_shine)
+		if(SHINE_MATTE)
+			return
+		if(SHINE_REFLECTIVE)
+			r_overlay = "partialOverlay"
+		if(SHINE_SHINY)
+			r_overlay = "whiteOverlay"
+	reflection = mutable_appearance('icons/turf/overlays.dmi', r_overlay, plane = _reflection_plane)
+	reflection.blend_mode = BLEND_INSET_OVERLAY
+	reflection_displacement = mutable_appearance('icons/turf/overlays.dmi', "flip", plane = REFLECTIVE_DISPLACEMENT_PLANE)
+	reflection_displacement.appearance_flags = 0 //Have to do this to make map work. Why? IDK, displacements are special like that
+	var/masking_plane = _reflection_plane == REFLECTIVE_PLANE ? REFLECTIVE_ALL_PLANE : REFLECTIVE_ALL_ABOVE_PLANE
+	total_reflection_mask = mutable_appearance('icons/turf/overlays.dmi', "whiteFull", plane = masking_plane)
+	reflection.pixel_y -= 32
+	total_reflection_mask.pixel_y -= 32
+	reflection_displacement.pixel_y -= 32
+	add_overlay(reflection)
+	add_overlay(reflection_displacement)
+	add_overlay(total_reflection_mask)
+	shine = _shine
+
+/atom/proc/make_unshiny()
+	cut_overlay(reflection)
+	cut_overlay(reflection_displacement)
+	cut_overlay(total_reflection_mask)
+	shine = SHINE_MATTE
 
 /**
  * Ensure a list of atoms/reagents exists inside this atom

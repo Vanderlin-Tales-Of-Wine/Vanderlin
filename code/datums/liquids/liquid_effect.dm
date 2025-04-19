@@ -12,6 +12,7 @@
 	light_color = LIGHT_COLOR_FIRE
 
 	mouse_opacity = FALSE
+	shine = SHINE_REFLECTIVE
 
 	var/datum/liquid_group/liquid_group
 	var/turf/my_turf
@@ -49,6 +50,7 @@
 
 /obj/effect/abstract/liquid_turf/update_icon()
 	. = ..()
+	make_unshiny()
 	var/new_overlay = ""
 	for(var/i in connected)
 		if(connected[i])
@@ -56,7 +58,7 @@
 	icon_state = "[new_overlay]"
 	if(!new_overlay)
 		icon_state = "puddle"
-
+	make_shiny(initial(shine))
 
 /obj/effect/abstract/liquid_turf/Initialize(mapload, datum/liquid_group/group_to_add)
 	. = ..()

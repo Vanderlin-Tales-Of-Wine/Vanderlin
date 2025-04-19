@@ -214,6 +214,7 @@
 
 /obj/structure/table/wood
 	name = "wooden table"
+	desc = ""
 	icon = 'icons/roguetown/misc/tables.dmi'
 	icon_state = "tablewood"
 	resistance_flags = FLAMMABLE
@@ -227,8 +228,24 @@
 	flags_1 = NODECONSTRUCT_1
 	max_integrity = 1000
 
-/obj/structure/table/wood/crafted
+/obj/structure/table/wood/crafted/Initialize()
+	. = ..()
 	icon_state = "tablewood1"
+
+/obj/structure/table/wood/narsie_act(total_override = TRUE)
+	if(!total_override)
+		..()
+
+/obj/structure/table/wood
+	name = "wooden table"
+	desc = ""
+	icon = 'icons/roguetown/misc/tables.dmi'
+	icon_state = "tablewood"
+	resistance_flags = FLAMMABLE
+	max_integrity = 70
+	smooth = 0
+	debris = list(/obj/item/grown/log/tree/small = 1)
+	climb_offset = 10
 
 /obj/structure/table/church
 	name = "stone table"

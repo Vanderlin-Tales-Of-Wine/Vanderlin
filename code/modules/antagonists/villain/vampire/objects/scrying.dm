@@ -48,7 +48,6 @@
 		return
 
 	usr.forceMove(pick(L))
-	update_parallax_contents()
 
 /mob/dead/observer/rogue/arcaneeye/Initialize()
 	. = ..()
@@ -131,7 +130,6 @@
 		if(istype(NewLocTurf, /turf/closed/mineral/bedrock)) // prevent going out of bounds.
 			return
 		forceMove(NewLoc)
-		update_parallax_contents()
 	else
 		forceMove(get_turf(src))  //Get out of closets and such as a ghost
 		if((direct & NORTH) && y < world.maxy)

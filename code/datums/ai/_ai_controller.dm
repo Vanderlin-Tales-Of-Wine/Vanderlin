@@ -279,6 +279,8 @@ have ways of interacting with a specific atom and control it. They posses a blac
 		return FALSE
 	if(!(living_pawn.mobility_flags & MOBILITY_MOVE))
 		return FALSE
+	if(living_pawn.pulledby?.grab_state > GRAB_PASSIVE)
+		return FALSE
 
 	return TRUE
 

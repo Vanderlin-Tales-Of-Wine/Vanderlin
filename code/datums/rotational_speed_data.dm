@@ -36,9 +36,9 @@
 			start_deconstruct(user, item)
 			return
 
-/obj/structure/proc/start_deconstruct(mob/user, obj/item/rotation_contraption/type)
+/obj/structure/proc/start_deconstruct(mob/living/user, obj/item/rotation_contraption/type)
 	user.visible_message(span_notice("[user] starts to disassemble [src]."), span_notice("You start to disassemble [src]."))
-	if(!do_after(user, 3 SECONDS, src))
+	if(!do_after(user, 1.5 SECONDS  - (user.mind?.get_skill_level(/datum/skill/craft/engineering) * 2), src))
 		return
 	new type(get_turf(src))
 	qdel(src)
@@ -321,6 +321,8 @@
 		set_type(placed_type)
 	if(can_stack)
 		for(var/obj/item/rotation_contraption/contraption in loc)
+			if(QDELETED(contraption))
+				continue
 			if(contraption == src)
 				continue
 			if(!istype(contraption, src.type))
@@ -378,7 +380,7 @@
 			return
 
 	visible_message("[user] starts placing down [src].", "You start to place [src].")
-	if(!do_after(user, 2 SECONDS, T))
+	if(!do_after(user, 1.2 SECONDS - user.mind?.get_skill_level(/datum/skill/craft/engineering), T))
 		return
 	var/obj/structure/structure = new placed_type(T)
 	if(directional)

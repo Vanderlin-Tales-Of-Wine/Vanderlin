@@ -1,3 +1,11 @@
+GLOBAL_LIST_INIT(contributors, load_contributors())
+
+/proc/load_contributors()
+	var/contribs = file("data/contributors.json")
+	if(!fexists(contribs))
+		return list()
+	return json_decode(file2text(contribs))
+
 /datum/patreon_data
 	/// The details of the linked player.
 	var/client/owner
@@ -50,6 +58,8 @@
 /datum/patreon_data/proc/has_access(rank)
 	if(!access_rank)
 		assign_access_rank()
+	if(owner.ckey in GLOB.contributors)
+		return TRUE
 	if(owner.holder || (owner.ckey in GLOB.deadmins))
 		return TRUE
 	if(rank <= access_rank)

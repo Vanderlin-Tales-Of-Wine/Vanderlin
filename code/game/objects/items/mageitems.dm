@@ -643,7 +643,7 @@
 	desc = "A melding of arcane fusion and voidstone. It pulses erratically, power coiled tightly within and dangerous. Many would be afraid of going near this, let alone holding it."
 
 
-/obj/item/soul
+/obj/structure/soul
 	name = "soul"
 	desc = "The soul of the dead"
 
@@ -658,7 +658,7 @@
 
 	var/datum/weakref/drainer
 
-/obj/item/soul/New(loc, mob/living/dead_person)
+/obj/structure/soul/New(loc, mob/living/dead_person)
 	if(dead_person?.mana_pool)
 		mana_amount = dead_person.mana_pool.amount
 		drainer = WEAKREF(dead_person)
@@ -666,13 +666,13 @@
 	animate(pixel_y = -4, time = 1 SECONDS, flags = ANIMATION_RELATIVE)
 	QDEL_IN(src, 10 MINUTES)
 
-/obj/item/soul/attack_hand(mob/living/user)
+/obj/structure/soul/attack_hand(mob/living/user)
 	. = ..()
 	if(user.mana_pool)
 		if(user.mana_pool.intrinsic_recharge_sources & MANA_SOULS)
 			drain_mana(user)
 
-/obj/item/soul/proc/drain_mana(mob/living/user)
+/obj/structure/soul/proc/drain_mana(mob/living/user)
 	var/datum/beam/transfer_beam = user.Beam(src, icon_state = "drain_life", time = INFINITY)
 
 	var/failed = FALSE

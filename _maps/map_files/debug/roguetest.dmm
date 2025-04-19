@@ -1211,6 +1211,11 @@
 	dir = 8
 	},
 /area/rogue/outdoors/mountains/decap)
+"ia" = (
+/obj/structure/flora/grass,
+/obj/effect/fog_parter,
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
 "iE" = (
 /obj/machinery/light/fueled/torchholder/hotspring/standing{
 	pixel_x = 15
@@ -75253,7 +75258,7 @@ QN
 ky
 QN
 jC
-qc
+ia
 ky
 qc
 QN

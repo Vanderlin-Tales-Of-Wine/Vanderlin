@@ -52,8 +52,6 @@
 	var/list/played = list()
 	var/list/nextspooky = 0
 
-	var/patreonlevel = -1
-
 		////////////
 		//SECURITY//
 		////////////

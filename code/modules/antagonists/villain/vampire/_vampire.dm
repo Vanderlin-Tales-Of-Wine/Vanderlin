@@ -70,6 +70,10 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 		REMOVE_TRAIT(M, trait, "[type]")
 
 /datum/antagonist/vampire/on_gain()
+	owner.current.has_reflection = FALSE
+	owner.current.vis_contents -= owner.current.basic_reflection
+	owner.current.cut_overlay(owner.current.reflective_icon)
+	QDEL_NULL(owner.current.basic_reflection)
 	SSmapping.retainer.vampires |= owner
 	move_to_spawnpoint()
 	owner.special_role = name
@@ -91,6 +95,9 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	owner.current.verbs |= /mob/living/carbon/human/proc/disguise_button
 
 /datum/antagonist/vampire/on_removal()
+	owner.current.has_reflection = TRUE
+	owner.current.create_reflection()
+	owner.current.update_reflection()
 	if(!silent && owner.current)
 		to_chat(owner.current, span_danger("I am no longer a [job_rank]!"))
 	owner.special_role = null

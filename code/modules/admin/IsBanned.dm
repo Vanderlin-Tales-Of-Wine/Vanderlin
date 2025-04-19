@@ -50,9 +50,8 @@ GLOBAL_VAR(last_connection)
 	if(!real_bans_only && !C && extreme_popcap && !admin)
 		var/popcap_value = GLOB.clients.len
 		if(popcap_value >= extreme_popcap && !GLOB.joined_player_list.Find(ckey))
-			if(!IsPatreon(ckey))
-				log_access("Failed Login: [key] - Population cap reached")
-				return list("reason"="popcap", "desc"= "\nReason: [CONFIG_GET(string/extreme_popcap_message)]")
+			log_access("Failed Login: [key] - Population cap reached")
+			return list("reason"="popcap", "desc"= "\nReason: [CONFIG_GET(string/extreme_popcap_message)]")
 
 	if(CONFIG_GET(flag/sql_enabled))
 		if(!SSdbcore.Connect())
@@ -221,12 +220,6 @@ GLOBAL_VAR(last_connection)
 		GLOB.last_connection = world.time
 
 	return .
-
-/proc/IsPatreon(ckey)
-	if(ckey in GLOB.allpatreons)
-		return TRUE
-	else
-		return FALSE
 
 /proc/restore_stickybans()
 	for (var/banned_ckey in GLOB.stickybanadmintexts)

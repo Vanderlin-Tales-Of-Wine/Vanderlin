@@ -389,6 +389,10 @@
 /atom/movable/proc/set_glide_size(target = 0)
 	SEND_SIGNAL(src, COMSIG_MOVABLE_UPDATE_GLIDE_SIZE, target)
 	glide_size = target
+	if(isliving(src))
+		var/mob/living/living =  src
+		if(living.basic_reflection)
+			living.basic_reflection.glide_size = target
 
 	for(var/atom/movable/AM in buckled_mobs)
 		AM.set_glide_size(target)
@@ -561,8 +565,6 @@
 	if (!inertia_moving)
 		inertia_next_move = world.time + inertia_move_delay
 		newtonian_move(Dir)
-	if (client_mobs_in_contents)
-		update_parallax_contents()
 
 	var/turf/old_turf = get_turf(OldLoc)
 	var/turf/new_turf = get_turf(src)

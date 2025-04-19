@@ -187,21 +187,26 @@ Sunlight System
 /* turf won't initialize an outdoor_effect if sky_blocked*/
 /turf/proc/get_sky_and_weather_states()
 	var/TempState
-
 	var/roofStat = get_ceiling_status()
-	var/tempRoofStat
+
 	if(roofStat["SKYVISIBLE"])
-		TempState = SKY_VISIBLE
-		for(var/turf/CT in RANGE_TURFS(1, src))
-			tempRoofStat = CT.get_ceiling_status()
-			if(!tempRoofStat["SKYVISIBLE"]) /* if we have a single roofed/indoor neighbour, we are a border */
-				TempState = SKY_VISIBLE_BORDER
-				break
-	else /* roofed, so turn off the lights */
+		var/has_roofed_neighbor = FALSE
+		for (var/dx in -1 to 1)
+			for (var/dy in -1 to 1)
+				if (dx == 0 && dy == 0) continue
+				var/turf/CT = locate(x + dx, y + dy, z)
+				if (CT)
+					var/tempRoofStat = CT.get_ceiling_status()
+					if (!tempRoofStat["SKYVISIBLE"])
+						has_roofed_neighbor = TRUE
+						break
+			if (has_roofed_neighbor) break
+
+		TempState = has_roofed_neighbor ? SKY_VISIBLE_BORDER : SKY_VISIBLE
+	else
 		TempState = SKY_BLOCKED
 
-	/* if border or indoor, initialize. Set sunlight state if valid */
-	if(!outdoor_effect && (TempState <> SKY_BLOCKED || !roofStat["WEATHERPROOF"]))
+	if(!outdoor_effect && (TempState != SKY_BLOCKED || !roofStat["WEATHERPROOF"]))
 		outdoor_effect = new /atom/movable/outdoor_effect(src)
 	if(outdoor_effect)
 		outdoor_effect.state = TempState
