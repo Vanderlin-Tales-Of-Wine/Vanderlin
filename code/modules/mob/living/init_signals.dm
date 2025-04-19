@@ -10,6 +10,9 @@
 	RegisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_LEPROSY), PROC_REF(on_leprosy_trait_gain))
 	RegisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_LEPROSY), PROC_REF(on_leprosy_trait_loss))
 
+	RegisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_CRATEMOVER), PROC_REF(on_cratemover_trait_gain))
+	RegisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_CRATEMOVER), PROC_REF(on_cratemover_trait_loss))
+
 ///Called when TRAIT_KNOCKEDOUT is added to the mob.
 /mob/living/proc/on_knockedout_trait_gain(datum/source)
 	if(stat < UNCONSCIOUS)
@@ -28,6 +31,15 @@
 /mob/living/proc/on_deathcoma_trait_loss(datum/source)
 	REMOVE_TRAIT(src, TRAIT_KNOCKEDOUT, TRAIT_DEATHCOMA)
 
+///Called when TRAIT_DEATHCOMA is added to the mob.
+/mob/living/proc/on_cratemover_trait_gain(datum/source)
+	AddComponent(/datum/component/strong_pull)
+
+///Called when TRAIT_DEATHCOMA is removed from the mob.
+/mob/living/proc/on_cratemover_trait_loss(datum/source)
+	var/datum/component/strongpull = GetComponent(/datum/component/strong_pull)
+	if(strongpull)
+		strongpull.RemoveComponent()
 /* ROGUE */
 
 ///Called when TRAIT_LEPROSY is added to the mob.

@@ -23,6 +23,9 @@
 	desc = ""
 	color = CLOTHING_BERRY_BLUE
 
+/obj/item/clothing/shirt/undershirt/blue
+	color = CLOTHING_SKY_BLUE
+
 /obj/item/clothing/shirt/undershirt/red
 	color = CLOTHING_RED_OCHRE
 

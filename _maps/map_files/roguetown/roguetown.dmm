@@ -1204,7 +1204,7 @@
 "bsa" = (
 /obj/structure/mineral_door/wood{
 	icon_state = "wcv";
-	lockid = "shop"
+	lockid = "merchant"
 	},
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/shop)
@@ -10950,7 +10950,7 @@
 "mfM" = (
 /obj/structure/mineral_door/wood{
 	icon_state = "wcv";
-	lockid = "shop"
+	lockid = "merchant"
 	},
 /turf/open/floor/ruinedwood{
 	icon_state = "horzw"

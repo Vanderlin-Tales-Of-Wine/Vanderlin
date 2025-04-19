@@ -83,6 +83,8 @@ SUBSYSTEM_DEF(paintings)
 
 /datum/controller/subsystem/paintings/proc/get_random_painting(canvas_size)
 	var/list/painting_titles = pull_player_painting_titles()
+	if(!length(painting_titles))
+		return
 	var/list/paint_list = file2playerpainting(pick_n_take(painting_titles))
 
 	while((paint_list["canvas_size"] != canvas_size) && length(painting_titles))

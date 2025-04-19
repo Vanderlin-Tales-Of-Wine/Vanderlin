@@ -155,7 +155,7 @@
 /// Falls back to generic patron text or a default generic divine message
 /// Returns the immersive flavor text based on both the target's patron and the specific blessing applied
 /// Fully extended for Abyssor, Astrata, Baotha, Dendor, Eora, Graggar, Malum, Matthios, Necra, Noc, Pestra, Ravox, Xylix, Zizo
-proc/get_patron_blessing_text(mob/living/carbon/human/M, var/blessing_path)
+/proc/get_patron_blessing_text(mob/living/carbon/human/M, blessing_path)
 	var/patron_type = M.patron?.type
 	if(!patron_type)
 		return "A divine force surges through you, wrapping your soul in unseen power."
