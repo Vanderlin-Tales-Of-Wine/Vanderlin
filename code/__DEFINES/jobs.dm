@@ -129,9 +129,7 @@
 #define CAPTAIN		(1<<5)
 #define ARCHIVIST   (1<<6)
 #define MERCHANT	(1<<7)
-#define FELDSHER    (1<<8)
-#define NIGHTMAN    (1<<9)
-#define MINOR_NOBLE	(1<<10)
+#define MINOR_NOBLE	(1<<8)
 
 #define GARRISON		(1<<1)
 
@@ -161,9 +159,11 @@
 #define TAILOR		(1<<4)
 #define ARTIFICER	(1<<5)
 #define MATRON 		(1<<6)
-#define PHYSICKER	(1<<7)
-#define SCRIBE		(1<<8)
-#define GAFFER		(1<<9)
+#define FELDSHER    (1<<7)
+#define NIGHTMAN    (1<<8)
+#define PHYSICKER	(1<<9)
+#define SCRIBE		(1<<10)
+#define GAFFER		(1<<11)
 
 #define PEASANTS		(1<<4)
 
@@ -219,8 +219,9 @@
 #define JDO_MAGICIAN 4
 #define JDO_WAPP 5
 
-#define JDO_FELDSHER 6
-#define JDO_PHYSICKER 6.1
+#define JDO_APOTHECARY 6
+#define JDO_FELDSHER 6.1
+#define JDO_PHYSICKER 6.2
 
 #define JDO_CAPTAIN 7
 #define JDO_VET 7.1
@@ -272,7 +273,6 @@
 #define JDO_MATRON 28.9
 #define JDO_GRAVEMAN 29
 
-#define JDO_APOTHECARY 29.1
 
 #define JDO_JESTER 30
 #define JDO_BARD 30.1
