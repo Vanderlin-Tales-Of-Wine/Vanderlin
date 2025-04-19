@@ -44,7 +44,7 @@
 	beltr = /obj/item/book/granter/spellbook/apprentice
 	backl = /obj/item/storage/backpack/satchel
 	neck = /obj/item/clothing/neck/psycross/noc
-	backpack_contents = list(/obj/item/literary/apprentice = 1)
+	backpack_contents = list(/obj/item/textbook = 1, /obj/item/natural/feather)
 
 	if(H.mind)
 		if(H.patron != /datum/patron/divine/noc)

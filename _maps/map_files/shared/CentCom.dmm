@@ -1236,7 +1236,7 @@
 	dir = 1
 	},
 /obj/structure/fluff/walldeco/bigpainting/lake,
-/obj/item/literary,
+/obj/item/textbook/novice,
 /turf/open/floor/herringbone,
 /area/rogue/indoors/vampire_manor)
 "dR" = (
@@ -1740,8 +1740,8 @@
 /obj/item/neuFarm/seed/onion,
 /obj/item/neuFarm/seed/pear,
 /obj/item/neuFarm/seed/pear,
-/obj/item/neuFarm/seed/berryrogue,
-/obj/item/neuFarm/seed/berryrogue,
+/obj/item/neuFarm/seed/berry,
+/obj/item/neuFarm/seed/berry,
 /obj/item/neuFarm/seed/potato,
 /obj/item/neuFarm/seed/potato,
 /obj/item/neuFarm/seed/wheat,
