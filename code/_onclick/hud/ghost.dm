@@ -35,7 +35,6 @@
 
 		if(has_world_trait(/datum/world_trait/skeleton_siege) || has_world_trait(/datum/world_trait/rousman_siege) || has_world_trait(/datum/world_trait/goblin_siege))
 			G.returntolobby()
-		G.client.descend()
 		if(world.time < G.ghostize_time + RESPAWNTIME)
 			var/ttime = round((G.ghostize_time + RESPAWNTIME - world.time) / 10)
 			var/list/thingsz = list("My connection to the world is still too strong.",\
@@ -44,6 +43,7 @@
 			"The shores are calling me but I cannot go...","My soul isn't ready yet...")
 			to_chat(G, "<span class='warning'>[pick(thingsz)] ([ttime])</span>")
 			return
+		G.client.descend()
 
 /datum/hud/ghost/New(mob/owner)
 	..()
