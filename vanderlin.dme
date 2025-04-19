@@ -30,6 +30,7 @@
 #include "code\__DEFINES\atom_flags.dm"
 #include "code\__DEFINES\atom_hud.dm"
 #include "code\__DEFINES\attunement.dm"
+#include "code\__DEFINES\bitfields.dm"
 #include "code\__DEFINES\bodytemperature.dm"
 #include "code\__DEFINES\browser.dm"
 #include "code\__DEFINES\callbacks.dm"

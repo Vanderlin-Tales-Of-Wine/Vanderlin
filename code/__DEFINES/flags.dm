@@ -56,7 +56,9 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 /// Is the thing currently spinning?
 #define IS_SPINNING_1 (1<<15)
 /// Is this atom on top of another atom, and as such has click priority?
-#define IS_ONTOP_1 (1<<13)
+#define IS_ONTOP_1 (1<<16)
+/// Are we in the overlay queue
+#define OVERLAY_QUEUED_1 (1<<17)
 
 //turf-only flags
 #define NOJAUNT_1					(1<<0)
@@ -107,16 +109,6 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 #define INDESTRUCTIBLE	(1<<6)
 /// can't be frozen
 #define FREEZE_PROOF	(1<<7)
-
-//tesla_zap
-#define TESLA_MACHINE_EXPLOSIVE		(1<<0)
-#define TESLA_ALLOW_DUPLICATES		(1<<1)
-#define TESLA_OBJ_DAMAGE			(1<<2)
-#define TESLA_MOB_DAMAGE			(1<<3)
-#define TESLA_MOB_STUN				(1<<4)
-
-#define TESLA_DEFAULT_FLAGS ALL
-#define TESLA_FUSION_FLAGS TESLA_OBJ_DAMAGE | TESLA_MOB_DAMAGE | TESLA_MOB_STUN
 
 //EMP protection
 #define EMP_PROTECT_SELF (1<<0)
