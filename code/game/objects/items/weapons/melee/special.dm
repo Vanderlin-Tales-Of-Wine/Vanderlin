@@ -12,7 +12,7 @@
 	wlength = WLENGTH_NORMAL
 	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = ITEM_SLOT_HIP
-	resistance_flags = FIRE_PROOF|LAVA_PROOF // Nigh indestructible due to how important it is
+	resistance_flags = FIRE_PROOF|LAVA_PROOF|ACID_PROOF // Nigh indestructible due to how important it is
 	associated_skill = /datum/skill/combat/axesmaces
 	smeltresult = null // No
 	melting_material = null
