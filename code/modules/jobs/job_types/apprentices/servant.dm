@@ -3,7 +3,7 @@
 	tutorial = "You work your fingers to the bone nearly every dae, \
 	and have naught to show for it but boney fingers. \
 	Perhaps this week you will finally be recognized, or allowed some respite?"
-	flag = SERVANT
+	id = JOB_ID_SERVANT
 	department_flag = APPRENTICES
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_SERVANT

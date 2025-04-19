@@ -6,7 +6,7 @@
 	You know a good day's work, the sweat on your brow is yours: \
 	Famines and plague may take its toll, but you know how to celebrate life well. \
 	Till the soil and produce fresh food for those around you, and maybe you'll be more than an unsung hero someday."
-	flag = FARMER
+	id = JOB_ID_FARMER
 	department_flag = PEASANTS
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_SOILSON

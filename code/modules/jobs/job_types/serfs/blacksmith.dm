@@ -3,7 +3,7 @@
 	tutorial = "You studied for many decades under your master with a few other apprentices to become an Armorer, \
 	a trade that certainly has seen a boom in revenue in recent times with many a bannerlord\
 	seeing the importance in maintaining a well-equipped army."
-	flag = BLACKSMITH
+	id = JOB_ID_SMITH_ARMOR
 	department_flag = SERFS
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	faction = FACTION_STATION
@@ -72,7 +72,7 @@
 	tutorial = "You studied for many decades under your master with a few other apprentices to become a Weaponsmith, \
 	a trade that is as ancient as the secrets of steel itself! \
 	You've repaired the blades of cooks, the cracked hoes of peasants and greased the spears of many soldiers into war."
-	flag = BLACKSMITH
+	id = JOB_ID_SMITH_WEAPONS
 	department_flag = SERFS
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	faction = FACTION_STATION

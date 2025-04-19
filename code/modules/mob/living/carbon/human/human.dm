@@ -740,6 +740,12 @@
 		return FALSE
 	return ..()
 
+/mob/living/carbon/get_exp_list(minutes)
+	. = ..()
+
+	if(mind.assigned_role.id in SSjob.id_occupations)
+		.[mind.assigned_role.id] = minutes
+
 /mob/living/carbon/human/species
 	var/race = null
 

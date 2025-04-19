@@ -3,7 +3,7 @@
 	tutorial = "You are a knight of the royal garrison, elevated by your skill and steadfast devotion. \
 	Sworn to protect the royal family, you stand as their shield, upholding their rule with steel and sacrifice. \
 	Yet loyalty is not without its trials, and faith is tested in ways both seen and unseen. In the end, duty is a path one must walk carefully."
-	flag = GUARDSMAN
+	id = JOB_ID_ROYALGUARD
 	department_flag = GARRISON
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_ROYALGUARD

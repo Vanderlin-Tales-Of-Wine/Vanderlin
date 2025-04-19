@@ -1,6 +1,6 @@
 /datum/job/skeleton/knight
 	title = "Death Knight"
-	flag = DEATHKNIGHT
+	id = ROLE_DEATHKNIGHT
 
 	outfit = /datum/outfit/job/deathknight
 	cmode_music = 'sound/music/cmode/combat_weird.ogg'

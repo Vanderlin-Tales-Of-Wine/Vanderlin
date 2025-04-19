@@ -1,6 +1,6 @@
 /datum/job/migrant
 	title = "Migrant"
-	flag = MIGRANT
+	id = JOB_ID_MIGRANT
 	department_flag = PEASANTS
 	job_flags = NONE
 	display_order = JDO_MIGRANT

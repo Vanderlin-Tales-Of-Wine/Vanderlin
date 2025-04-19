@@ -4,7 +4,7 @@
 	mostly because they are the last ones in a party to die. \
 	Their wish is to experience the greatest adventures of the age and write amazing songs \
 	about them. This is not your story, for you are the storyteller."
-	flag = BARD
+	id = JOB_ID_BARD
 	department_flag = PEASANTS
 	display_order = JDO_BARD
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)

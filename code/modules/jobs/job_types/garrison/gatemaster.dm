@@ -4,7 +4,7 @@
 	Some may mock you as lazy sitting on your comfy chair all day, \
 	but the lord themself entrusted you with who is and isn't allowed behind those gates. \
 	You could almost say you're the lord's most trusted person. At least you yourself like to say that."
-	flag = GATEMASTER
+	id = JOB_ID_KEEP_GATEMASTER
 	department_flag = GARRISON
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_GATEMASTER

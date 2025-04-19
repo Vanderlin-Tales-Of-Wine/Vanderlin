@@ -1,6 +1,5 @@
 /datum/job/scribe
 	title = "Scribe"
-	flag = SCRIBE
 	department_flag = SERFS
 	faction = FACTION_STATION
 	total_positions = 0

@@ -3,7 +3,7 @@
 	tutorial = "Abyssor is angry. Neglected and shunned, his boons yet shy from your hook. \
 	Alone, in the stillness of nature, your bag is empty, and yet you fish. Pluck the children of god from their trance, \
 	and stare into the water to see the reflection of a drowned body in the making."
-	flag = FISHER
+	id = JOB_ID_FISHER
 	department_flag = PEASANTS
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_FISHER

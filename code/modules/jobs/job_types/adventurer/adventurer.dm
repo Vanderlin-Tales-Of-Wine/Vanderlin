@@ -10,7 +10,7 @@ GLOBAL_VAR_INIT(adventurer_hugbox_duration_still, 3 MINUTES)
 	and you've never fancied yourself for much other than the thrill. \
 	Someday your pride is going to catch up to you, \
 	and you're going to find out why most men don't end up in the annals of history."
-	flag = ADVENTURER
+	id = JOB_ID_ADVENTURER
 	department_flag = PEASANTS
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_NEW_PLAYER_JOINABLE | JOB_EQUIP_RANK)
 	display_order = JDO_ADVENTURER

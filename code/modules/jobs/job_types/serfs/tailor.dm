@@ -4,7 +4,7 @@
 	tutorial = "Cloth, linen, silk and leather. \
 	You've tirelessly studied and poured your life into \
 	sewing articles of protection, padding, and fashion for serf and noble alike."
-	flag = TAILOR
+	id = JOB_ID_TAILOR
 	department_flag = SERFS
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_TAILOR

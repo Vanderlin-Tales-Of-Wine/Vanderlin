@@ -68,7 +68,7 @@
 		var/datum/objective/aspirant/coup/three/G = new
 		objectives += G
 		for(var/datum/mind/aspirant in SSmapping.retainer.aspirants)
-			if(aspirant.special_role == "Aspirant")
+			if(aspirant.special_role == ROLE_ASPIRANT)
 				G.aspirant = aspirant.current
 		return
 	else

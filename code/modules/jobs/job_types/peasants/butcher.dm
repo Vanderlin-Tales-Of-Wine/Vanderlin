@@ -4,7 +4,7 @@
 	some say youre a cheat while some claim you are a savant in the art of sausage making. \
 	Without your skilled hands and knifework most of the livestock around the town would be wasted. "
 	display_order = JDO_BUTCHER
-	flag = BEASTMASTER
+	id = JOB_ID_BUTCHER
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	department_flag = PEASANTS
 	faction = FACTION_STATION

@@ -924,7 +924,7 @@
 /obj/structure/fluff/statue/spider/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/reagent_containers/food/snacks/spiderhoney))
 		if(user.mind)
-			if(user.mind.special_role == "Dark Elf")
+			if(user.mind.special_role == ROLE_ZIZO_ELF)
 				playsound(loc,'sound/misc/eat.ogg', rand(30,60), TRUE)
 				SSmapping.retainer.delf_contribute += 1
 				if(SSmapping.retainer.delf_contribute >= SSmapping.retainer.delf_goal)

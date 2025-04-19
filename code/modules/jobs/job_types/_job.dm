@@ -13,7 +13,8 @@
 	var/list/head_announce = null
 
 	//Bitflags for the job
-	var/flag = NONE
+	/// Identifier for this job. **NEEDS** to be unique, as it interfaces with the SQL database.
+	var/id = NONE
 	var/department_flag = NONE
 	var/auto_deadmin_role_flags = NONE
 
@@ -23,7 +24,7 @@
 	/// How many players can be this job
 	var/total_positions = 0
 
-	/// How many players can spawn in as this job rondstart
+	/// How many players can spawn in as this job roundstart
 	var/spawn_positions = 0
 
 	/// How many players currently have this job
@@ -61,7 +62,7 @@
 
 	var/list/mind_traits // Traits added to the mind of the mob assigned this job
 
-	var/display_order = JOB_DISPLAY_ORDER_CAPTAIN
+	var/display_order = JOB_DISPLAY_ORDER_DEFAULT
 
 	/// All values = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK)
 	var/job_flags = NONE

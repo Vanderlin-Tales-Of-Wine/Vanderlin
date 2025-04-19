@@ -5,7 +5,7 @@
 	The path to using magic is something treacherous and untamed, \
 	and you are still decades away from calling yourself even a journeyman in the field. \
 	Listen and serve, and someday you will earn your hat."
-	flag = APPRENTICE
+	id = JOB_ID_APPRENTICE_MAGIC
 	department_flag = APPRENTICES
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	faction = FACTION_STATION

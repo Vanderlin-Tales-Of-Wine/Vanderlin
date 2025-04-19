@@ -23,7 +23,7 @@
 		new_name = possible_new_name
 	while(FALSE)
 
-	if(mind.special_role == "Vampire Lord")
+	if(mind.special_role == ROLE_NBEAST)
 		new_name = "[(gender == FEMALE ? "Lady" : "Lord")] [new_name]"
 
 	fully_replace_character_name(old_name, new_name)

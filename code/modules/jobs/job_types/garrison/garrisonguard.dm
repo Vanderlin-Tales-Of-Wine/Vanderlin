@@ -3,7 +3,7 @@
 	tutorial = "You are a member of the City Watch. \
 	You've proven yourself worthy to the Captain and now you've got yourself a salary... \
 	as long as you keep the peace that is."
-	flag = GUARDSMAN
+	id = JOB_ID_CITYGUARD
 	department_flag = GARRISON
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_CITYWATCHMEN

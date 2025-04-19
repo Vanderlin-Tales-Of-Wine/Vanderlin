@@ -6,7 +6,7 @@
 	By your word the meals are served, the chambers kept, and the floors polished clean. \
 	You wear the royal colors and hold their semblance of dignity, \
 	for without you and the servants under your command, the court would have all starved to death."
-	flag = BUTLER
+	id = JOB_ID_BUTLER
 	department_flag = PEASANTS
 	display_order = JDO_BUTLER
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)

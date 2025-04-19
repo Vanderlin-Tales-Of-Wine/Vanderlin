@@ -1,31 +1,29 @@
 /datum/job/gaffer
 	title = "Gaffer"
-	flag = GAFFER
+	tutorial = "Forced out of your old adventuring party, \
+	you applied to the Mercenaries Guild, eventually becoming the next Guild Master. \
+	Gone are the excitements of your past, for these daes, your life is engrossed with two things: \
+	administrative work, and feeding the monstrous HEAD EATER. \n\n\
+	Act as the Mercenary Guild's master in town, and make sure your members \
+	bring back the heads of any slain creatures, man or beast, for the HEAD EATER hungers..."
+	id = JOB_ID_GAFFER
 	department_flag = SERFS
-	faction = "Station"
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE )
+	display_order = JDO_GAFFER
+	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
+	min_pq = 8
 
 	allowed_races = RACES_PLAYER_ALL
-	//I say we let all races be the gaffer, this is job concerns the adventurers and mercs, and those come in all types and sizes,
-	//so it fits better with the wild cards that is this demographic of people
-	//having said that I am gate keeping the moment felinids are in the damn game
-	allowed_ages = list(AGE_MIDDLEAGED,AGE_OLD, AGE_IMMORTAL) //AGE_OLD with the ring on? I say unlikely - clown
-	tutorial = "Forced out of your old adventure party, you applied to the Mercenary guild. Eventually becoming\
-	the next Guild Master. Gone are the excitements of your past, today your life is engrossed with two \
-	things: administrative work, and feeding the monstrous Head Eater. Act as the\
-	Mercenary Guild's master in town, and make sure your members bring back the heads of any slain monsters\
-	or bandits. For the Head Eater hungers..."
+	allowed_ages = list(AGE_MIDDLEAGED,AGE_OLD, AGE_IMMORTAL)
 
-	display_order = JDO_GAFFER
-	cmode_music = 'sound/music/cmode/towner/CombatGaffer.ogg'
 	outfit = /datum/outfit/job/gaffer
 	give_bank_account = 20
-	min_pq = 8
 	selection_color = "#3b150e"
 
 	spells = list(/obj/effect/proc_holder/spell/self/convertrole/mercenary)
+	cmode_music = 'sound/music/cmode/towner/CombatGaffer.ogg'
 
 /datum/outfit/job/gaffer/pre_equip(mob/living/carbon/human/H)
 	..()
