@@ -61,6 +61,13 @@
 	created_item = /obj/item/clothing/pants/chainlegs/iron
 	craftdiff = 0
 
+/datum/anvil_recipe/armor/iron/chainkilt
+	name = "Iron Chain Kilt"
+	recipe_name = "a short Chain Kilt"
+	req_bar = /obj/item/ingot/iron
+	created_item = /obj/item/clothing/pants/chainlegs/kilt/iron
+	craftdiff = 0
+
 /datum/anvil_recipe/armor/iron/chaincoif
 	name = "Iron Chain Coif"
 	recipe_name = "a Chain Coif"
@@ -86,7 +93,6 @@
 	recipe_name = "maille shirt"
 	req_bar = /obj/item/ingot/iron
 	created_item = /obj/item/clothing/armor/chainmail/iron
-
 
 /datum/anvil_recipe/armor/iron/plate
 	name = "Iron Plate Armor (+Bar x2)"
@@ -179,6 +185,13 @@
 	recipe_name = "a pair of Chain Chausses"
 	req_bar = /obj/item/ingot/steel
 	created_item = /obj/item/clothing/pants/chainlegs
+	craftdiff = 2
+
+/datum/anvil_recipe/armor/steel/chainkilt_steel
+	name = "Chain Kilt"
+	recipe_name = "a long Chain Kilt"
+	req_bar = /obj/item/ingot/steel
+	created_item = /obj/item/clothing/pants/chainlegs/kilt
 	craftdiff = 2
 
 /datum/anvil_recipe/armor/steel/chaincoif
