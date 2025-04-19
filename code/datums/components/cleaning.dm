@@ -9,25 +9,39 @@
 	var/base_cleaning_duration
 	/// Determines what this cleaner can wash off, [the available options are found here](code/__DEFINES/cleaning.html).
 	var/cleaning_strength
+	/// How probable is this to actually clean what you want it to? Percent.
+	var/cleaning_effectiveness
+	/// Downgrade the cleaning strength instead of outright failing?
+	var/downgrade_on_ineffective
 	/// Gets called before you start cleaning, returns TRUE/FALSE whether the clean should actually wash tiles, or DO_NOT_CLEAN to not clean at all.
 	var/datum/callback/pre_clean_callback
 	/// Gets called when something is successfully cleaned.
 	var/datum/callback/on_cleaned_callback
+	/// Gets called if cleaning was a success but ineffective.
+	var/datum/callback/on_cleaned_ineffective_callback
+
 
 /datum/component/cleaner/Initialize(
 	base_cleaning_duration = 3 SECONDS,
 	cleaning_strength = CLEAN_MEDIUM,
+	cleaning_effectiveness = 100,
+	downgrade_on_ineffective = TRUE,
 	datum/callback/pre_clean_callback = null,
 	datum/callback/on_cleaned_callback = null,
+	datum/callback/on_cleaned_ineffective_callback = null
 )
 	src.base_cleaning_duration = base_cleaning_duration
 	src.cleaning_strength = cleaning_strength
+	src.cleaning_effectiveness = cleaning_effectiveness
+	src.downgrade_on_ineffective = downgrade_on_ineffective
 	src.pre_clean_callback = pre_clean_callback
 	src.on_cleaned_callback = on_cleaned_callback
+	src.on_cleaned_ineffective_callback = on_cleaned_ineffective_callback
 
 /datum/component/cleaner/Destroy(force)
 	pre_clean_callback = null
 	on_cleaned_callback = null
+	on_cleaned_ineffective_callback = null
 	return ..()
 
 /datum/component/cleaner/RegisterWithParent()
@@ -71,12 +85,15 @@
 /datum/component/cleaner/proc/clean(datum/source, atom/target, mob/living/user, clean_target = TRUE)
 	//do the cleaning
 	user.changeNext_move(base_cleaning_duration)
-	user.visible_message(span_small("[user] starts to clean [target]!"), span_small("You start to clean [target]..."))
 	var/clean_succeeded = FALSE
 	if(do_after(user, base_cleaning_duration, target = target))
 		clean_succeeded = TRUE
-		user.visible_message(span_small("[user] finishes cleaning [target]!"), span_small("You finish cleaning [target]."))
-		if(clean_target)
-			wash_atom(target, cleaning_strength)
+		var/was_effective = prob(cleaning_effectiveness)
+		if(was_effective || downgrade_on_ineffective)
+			user.visible_message(span_notice("[user] cleans [target]."), span_notice("I clean [target]."))
+			if(clean_target)
+				wash_atom(target, was_effective ? cleaning_strength : cleaning_strength - 1)
+		if(!was_effective)
+			on_cleaned_ineffective_callback?.InvokeAsync(target, user)
 
 	on_cleaned_callback?.Invoke(source, target, user, clean_succeeded)

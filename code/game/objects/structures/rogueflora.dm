@@ -947,7 +947,7 @@
 
 /obj/structure/flora/grass/bush_meagre/bog
 	desc = "These large bushes are known to be well-liked by silkworms who make their nests in their dark depths."
-	icon = 'icons/roguetown/mob/monster/Trolls.dmi'
+	icon = 'icons/roguetown/mob/monster/trolls/default_troll.dmi'
 	icon_state = "Trolls"
 	pixel_x = -16
 	pixel_y = -1

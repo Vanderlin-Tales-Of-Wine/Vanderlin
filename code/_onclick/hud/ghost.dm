@@ -49,19 +49,20 @@
 	..()
 	var/atom/movable/screen/using
 
-	if(!GLOB.admin_datums[owner.ckey]) // If you are adminned, you will not get any of the dead hud obstructions.
+	if(!GLOB.admin_datums[owner.ckey]) // If you are adminned, you will not get the dead hud obstruction.
 		using =  new /atom/movable/screen/backhudl/ghost()
 		using.hud = src
-
-		scannies = new /atom/movable/screen/scannies
-		scannies.hud = src
-		static_inventory += scannies
-
-		using = new /atom/movable/screen/ghost/orbit/rogue()
-		using.hud = src
 		static_inventory += using
+
+	scannies = new /atom/movable/screen/scannies
+	scannies.hud = src
+	static_inventory += scannies
 	if(owner.client?.prefs?.crt == TRUE)
 		scannies.alpha = 70
+
+	using = new /atom/movable/screen/ghost/orbit/rogue()
+	using.hud = src
+	static_inventory += using
 
 /datum/hud/ghost/show_hud(version = 0, mob/viewmob)
 	// don't show this HUD if observing; show the HUD of the observee
