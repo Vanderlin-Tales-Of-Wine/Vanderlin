@@ -217,8 +217,7 @@ SUBSYSTEM_DEF(gamemode)
 
 /datum/controller/subsystem/gamemode/fire(resumed = FALSE)
 	if(last_devotion_check < world.time)
-		refresh_alive_stats()
-		pick_most_devoted()
+		pick_most_influential()
 		last_devotion_check = world.time + 2 MINUTES
 
 	if(SSticker.HasRoundStarted() && (world.time - SSticker.round_start_time) >= ROUNDSTART_VALID_TIMEFRAME)
@@ -661,7 +660,7 @@ SUBSYSTEM_DEF(gamemode)
 		secret_storyteller = TRUE
 		selected_storyteller = pickweight(get_valid_storytellers(TRUE))
 		return
-	pick_most_devoted(TRUE)
+	pick_most_influential(TRUE)
 
 /datum/controller/subsystem/gamemode/proc/storyteller_vote_choices()
 	var/list/final_choices = list()
@@ -715,6 +714,8 @@ SUBSYSTEM_DEF(gamemode)
 		message_admins("Attempted to set an invalid storyteller type: [passed_type], force setting to guide instead.")
 		current_storyteller = storytellers[/datum/storyteller/astrata] //if we dont have any then we brick, lets not do that
 		CRASH("Attempted to set an invalid storyteller type: [passed_type].")
+	var/datum/storyteller/chosen_storyteller = storytellers[passed_type]
+	chosen_storyteller.times_chosen++
 	current_storyteller = storytellers[passed_type]
 	if(!secret_storyteller)
 		send_to_playing_players(span_notice("<b>Storyteller is [current_storyteller.name]!</b>"))
@@ -1046,62 +1047,51 @@ SUBSYSTEM_DEF(gamemode)
 			listed.occurrences++
 			listed.occurrences++
 
-/datum/controller/subsystem/gamemode/proc/pick_most_devoted(roundstart = FALSE)
-	var/list/storytellers_with_votes = list()
-	for(var/client/client in GLOB.clients)
-		var/mob/living/living = client.mob
-		if(!istype(living))
-			continue
-		if(!roundstart)
-			if(!living.mind)
-				continue
-			if(living.stat == DEAD)
-				continue
-			if(!living.patron)
-				continue
-			if(!initial(living.patron.storyteller))
-				continue
-			storytellers_with_votes |= initial(living.patron.storyteller)
-			storytellers_with_votes[initial(living.patron.storyteller)]++
-		else
-			storytellers_with_votes |= initial(client.prefs.selected_patron.storyteller)
-			storytellers_with_votes[initial(client.prefs.selected_patron.storyteller)]++
-
-	var/datum/storyteller/highest
-	for(var/datum/storyteller/listed as anything in storytellers_with_votes)
-		if(!highest)
-			highest = listed
-			continue
-		if(storytellers_with_votes[listed] < storytellers_with_votes[highest])
-			continue
-
-		if(storytellers_with_votes[listed] == storytellers_with_votes[highest] && prob(50))
-			continue
-		highest = listed
-	if(!highest)
-		return
-	set_storyteller(highest)
-
 /// Compares influence of all storytellers and sets a new storyteller with a highest influence
 /datum/controller/subsystem/gamemode/proc/pick_most_influential(roundstart = FALSE)
+	refresh_alive_stats(roundstart)
 	var/list/storytellers_with_influence = list()
 	var/datum/storyteller/highest
-	for(var/datum/storyteller/initalized_storyteller as anything in storytellers)
-		storytellers_with_influence[initalized_storyteller] = calculate_storyteller_influence(initalized_storyteller.type, roundstart)
+	var/datum/storyteller/lowest
+
+	for(var/storyteller_type in storytellers)
+		var/datum/storyteller/initialized_storyteller = storytellers[storyteller_type]
+		if(!initialized_storyteller)
+			continue
+		var/influence = calculate_storyteller_influence(storyteller_type)
+		storytellers_with_influence[initialized_storyteller] = influence
+
 		if(!highest)
-			highest = initalized_storyteller
+			highest = initialized_storyteller
+			lowest = initialized_storyteller
 			continue
-		if(storytellers_with_influence[initalized_storyteller] < storytellers_with_influence[highest])
-			continue
-		if(storytellers_with_influence[initalized_storyteller] == storytellers_with_influence[highest] && prob(50))
-			continue
-		highest = initalized_storyteller
+
+		if(influence > storytellers_with_influence[highest])
+			highest = initialized_storyteller
+		else if(influence == storytellers_with_influence[highest] && prob(50))
+			highest = initialized_storyteller
+
+		if(influence < storytellers_with_influence[lowest])
+			lowest = initialized_storyteller
+		else if(influence == storytellers_with_influence[lowest] && prob(50))
+			lowest = initialized_storyteller
+
 	if(!highest)
 		return
-	set_storyteller(highest)
+
+	if(storytellers_with_influence[highest] > 1)
+		highest.bonus_points -= 1
+
+	lowest.bonus_points += 1
+
+	set_storyteller(highest.type)
 
 /// Refreshes statistics regarding alive statuses of certain professions or antags, like nobles
-/datum/controller/subsystem/gamemode/proc/refresh_alive_stats()
+/datum/controller/subsystem/gamemode/proc/refresh_alive_stats(roundstart = FALSE)
+	if(SSticker.current_state == GAME_STATE_FINISHED)
+		return
+
+	GLOB.patron_follower_counts.Cut()
 	GLOB.vanderlin_round_stats[STATS_ALIVE_NOBLES] = 0
 	GLOB.vanderlin_round_stats[STATS_ILLITERATES] = 0
 	GLOB.vanderlin_round_stats[STATS_WEREVOLVES] = 0
@@ -1113,8 +1103,11 @@ SUBSYSTEM_DEF(gamemode)
 	GLOB.vanderlin_round_stats[STATS_GREEDY_PEOPLE] = 0
 	GLOB.vanderlin_round_stats[STATS_PARENTS] = 0
 	GLOB.vanderlin_round_stats[STATS_ALIVE_TIEFLINGS] = 0
+	GLOB.vanderlin_round_stats[STATS_PACIFISTS] = 0
 
 	for(var/client/client in GLOB.clients)
+		if(roundstart)
+			GLOB.patron_follower_counts[client.prefs.selected_patron.name]++
 		var/mob/living/living = client.mob
 		if(!istype(living))
 			continue
@@ -1122,6 +1115,9 @@ SUBSYSTEM_DEF(gamemode)
 			continue
 		if(living.stat == DEAD)
 			continue
+		if(!roundstart)
+			if(living.patron)
+				GLOB.patron_follower_counts[living.patron.name]++
 		if(living.mind.has_antag_datum(/datum/antagonist/werewolf))
 			GLOB.vanderlin_round_stats[STATS_WEREVOLVES]++
 		if(living.mind.has_antag_datum(/datum/antagonist/zombie) || living.mind.has_antag_datum(/datum/antagonist/skeleton) || living.mind.has_antag_datum(/datum/antagonist/lich))
@@ -1142,6 +1138,8 @@ SUBSYSTEM_DEF(gamemode)
 				GLOB.vanderlin_round_stats[STATS_KLEPTOMANIACS]++
 			if(human_mob.has_flaw(/datum/charflaw/greedy))
 				GLOB.vanderlin_round_stats[STATS_GREEDY_PEOPLE]++
+			if(HAS_TRAIT_NOT_FROM(src, TRAIT_PACIFISM, "hugbox"))
+				GLOB.vanderlin_round_stats[STATS_PACIFISTS]++
 			if(istiefling(human_mob))
 				GLOB.vanderlin_round_stats[STATS_ALIVE_TIEFLINGS]++
 			if(human_mob.family_datum)
@@ -1178,14 +1176,17 @@ SUBSYSTEM_DEF(gamemode)
 	return influence
 
 /// Return total influence of the storyteller, which includes all his statistics and number of their followers
-/datum/controller/subsystem/gamemode/proc/calculate_storyteller_influence(datum/storyteller/chosen_storyteller, roundstart = FALSE)
-	var/datum/storyteller/initalized_storyteller = storytellers[chosen_storyteller]
-	if(!initalized_storyteller)
+/datum/controller/subsystem/gamemode/proc/calculate_storyteller_influence(datum/storyteller/chosen_storyteller)
+	var/datum/storyteller/initialized_storyteller = storytellers[chosen_storyteller]
+	if(!initialized_storyteller)
 		return
 
-	var/total_influence = get_patron_followers_numbers(initalized_storyteller.name, roundstart) * initalized_storyteller.follower_modifier
-	for(var/influence_factor in initalized_storyteller.influence_factors)
+	var/total_influence = GLOB.patron_follower_counts[initialized_storyteller.name] * initialized_storyteller.follower_modifier
+	for(var/influence_factor in initialized_storyteller.influence_factors)
 		total_influence += calculate_specific_influence(chosen_storyteller, influence_factor)
+
+	total_influence += initialized_storyteller.bonus_points
+
 	return total_influence
 
 #undef DEFAULT_STORYTELLER_VOTE_OPTIONS

@@ -55,6 +55,9 @@ SUBSYSTEM_DEF(elastic)
 /datum/controller/subsystem/elastic/proc/get_round_data()
 	var/list/round_data = list()
 
+	for(var/patron_name in GLOB.patron_follower_counts)
+		round_data["[patron_name]_followers"] = GLOB.patron_follower_counts[patron_name]
+
 	round_data["blood_lost"] = round(GLOB.vanderlin_round_stats[STATS_BLOOD_SPILT] / 100, 1)
 	round_data["ankles_broken"] = GLOB.vanderlin_round_stats[STATS_ANKLES_BROKEN]
 	round_data["deaths"] = GLOB.vanderlin_round_stats[STATS_DEATHS]
@@ -80,7 +83,7 @@ SUBSYSTEM_DEF(elastic)
 	round_data["astrata_revivals"] = GLOB.vanderlin_round_stats[STATS_ASTRATA_REVIVALS]
 	round_data["plants_harvested"] = GLOB.vanderlin_round_stats[STATS_PLANTS_HARVESTED]
 	round_data["humen_deaths"] = GLOB.vanderlin_round_stats[STATS_HUMEN_DEATHS]
-	round_data["laws_made"] = GLOB.vanderlin_round_stats[STATS_LAWS_MADE]
+	round_data["laws_and_decrees_made"] = GLOB.vanderlin_round_stats[STATS_LAWS_AND_DECREES_MADE]
 	round_data["alive_nobles"] = GLOB.vanderlin_round_stats[STATS_ALIVE_NOBLES]
 	round_data["books_printed"] = GLOB.vanderlin_round_stats[STATS_BOOKS_PRINTED]
 	round_data["literacy_taught"] = GLOB.vanderlin_round_stats[STATS_LITERACY_TAUGHT]
@@ -116,11 +119,26 @@ SUBSYSTEM_DEF(elastic)
 	round_data["alcoholics"] = GLOB.vanderlin_round_stats[STATS_ALCOHOLICS]
 	round_data["junkies"] = GLOB.vanderlin_round_stats[STATS_JUNKIES]
 	round_data["shrine_value"] = GLOB.vanderlin_round_stats[STATS_SHRINE_VALUE]
-	round_data["tomb_deaths"] = GLOB.vanderlin_round_stats[STATS_GREEDY_PEOPLE]
+	round_data["greedy_people"] = GLOB.vanderlin_round_stats[STATS_GREEDY_PEOPLE]
 	round_data["kleptomaniacs"] = GLOB.vanderlin_round_stats[STATS_KLEPTOMANIACS]
 	round_data["parents"] = GLOB.vanderlin_round_stats[STATS_PARENTS]
 	round_data["skills_dreamed"] = GLOB.vanderlin_round_stats[STATS_SKILLS_DREAMED]
 	round_data["alive_tieflings"] = GLOB.vanderlin_round_stats[STATS_ALIVE_TIEFLINGS]
+	round_data["people_drowned"] = GLOB.vanderlin_round_stats[STATS_PEOPLE_DROWNED]
+	round_data["mana_spent"] = GLOB.vanderlin_round_stats[STATS_MANA_SPENT]
+	round_data["water_consumed"] = GLOB.vanderlin_round_stats[STATS_WATER_CONSUMED]
+	round_data["limbs_bitten"] = GLOB.vanderlin_round_stats[STATS_LIMBS_BITTEN]
+	round_data["underworld_duels"] = GLOB.vanderlin_round_stats[STATS_UNDERWORLD_DUELS]
+	round_data["locks_picked"] = GLOB.vanderlin_round_stats[STATS_LOCKS_PICKED]
+	round_data["songs_played"] = GLOB.vanderlin_round_stats[STATS_SONGS_PLAYED]
+	round_data["food_rotted"] = GLOB.vanderlin_round_stats[STATS_FOOD_ROTTED]
+	round_data["blacksteel_smelted"] = GLOB.vanderlin_round_stats[STATS_BLACKSTEEL_SMELTED]
+	round_data["pacifists"] = GLOB.vanderlin_round_stats[STATS_PACIFISTS]
+	round_data["forest_deaths"] = GLOB.vanderlin_round_stats[STATS_FOREST_DEATHS]
+	round_data["tortures"] = GLOB.vanderlin_round_stats[STATS_TORTURES]
+	round_data["luxurious_food_eaten"] = GLOB.vanderlin_round_stats[STATS_LUXURIOUS_FOOD_EATEN]
+	round_data["deadites_woken_up"] = GLOB.vanderlin_round_stats[STATS_DEADITES_WOKEN_UP]
+	round_data["dodges"] = GLOB.vanderlin_round_stats[STATS_DODGES]
 
 	return round_data
 

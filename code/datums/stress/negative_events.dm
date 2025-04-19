@@ -267,6 +267,11 @@
 	stressadd = 1
 	desc = "<span class='red'>My muscles ache.</span>"
 
+/datum/stressevent/tortured/on_apply(mob/living/user)
+	. = ..()
+	if(user.client)
+		GLOB.vanderlin_round_stats[STATS_TORTURES]++
+
 /datum/stressevent/tortured
 	stressadd = 3
 	max_stacks = 5

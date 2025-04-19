@@ -59,6 +59,9 @@
 
 	if(client || mind)
 		GLOB.vanderlin_round_stats[STATS_DEATHS]++
+		var/area_of_death = lowertext(get_area_name(src))
+		if(area_of_death == "wilderness")
+			GLOB.vanderlin_round_stats[STATS_FOREST_DEATHS]++
 		if(is_noble())
 			GLOB.vanderlin_round_stats[STATS_NOBLE_DEATHS]++
 		if(ishumannorthern(src))

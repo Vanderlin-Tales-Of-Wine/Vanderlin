@@ -252,6 +252,7 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 				user.mind.adjust_triumphs(1)
 			SSmapping.retainer.head_rebel_decree = TRUE
 	GLOB.lord_decrees += message
+	GLOB.vanderlin_round_stats[STATS_LAWS_AND_DECREES_MADE]++
 	SScommunications.make_announcement(user, TRUE, message)
 	reset_mode()
 
@@ -259,7 +260,7 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 	if(!SScommunications.can_announce(user))
 		return
 	GLOB.laws_of_the_land += message
-	GLOB.vanderlin_round_stats[STATS_LAWS_MADE]++
+	GLOB.vanderlin_round_stats[STATS_LAWS_AND_DECREES_MADE]++
 	priority_announce("[length(GLOB.laws_of_the_land)]. [message]", "A LAW IS DECLARED", 'sound/misc/lawdeclaration.ogg', "Captain")
 	reset_mode()
 

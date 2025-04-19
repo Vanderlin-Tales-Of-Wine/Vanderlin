@@ -624,6 +624,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 		var/childspawn = pickweight(childtype)
 		var/turf/target = get_turf(loc)
 		if(target)
+			GLOB.vanderlin_round_stats[STATS_ANIMALS_BRED]++
 			return new childspawn(target)
 //			visible_message("<span class='warning'>[src] finally gives birth.</span>")
 //			playsound(src, 'sound/foley/gross.ogg', 100, FALSE)

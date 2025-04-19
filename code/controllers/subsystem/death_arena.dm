@@ -197,6 +197,7 @@ SUBSYSTEM_DEF(death_arena)
 	if(!istype(item, /obj/item/bodypart/head))
 		return
 	add_abstract_elastic_data(ELASCAT_COMBAT, ELASDATA_FIGHT_REVIVES, 1)
+	GLOB.vanderlin_round_stats[STATS_UNDERWORLD_DUELS]++
 	SSdeath_arena.process_fight_end(item, user)
 
 /obj/structure/underworld/ravox

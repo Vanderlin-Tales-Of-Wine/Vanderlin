@@ -80,6 +80,7 @@
 /datum/component/breed/proc/birth_baby(mob/living/source, mob/living/target)
 	var/turf/delivery_destination = get_turf(source)
 	if(override_baby)
+		GLOB.vanderlin_round_stats[STATS_ANIMALS_BRED]++
 		new /obj/effect/temp_visual/heart(delivery_destination)
 		override_baby.Invoke()
 		return COMPONENT_HOSTILE_NO_PREATTACK
