@@ -17,7 +17,7 @@
 		STATS_LITERACY_TAUGHT = list("points" = 12.5, "capacity" = 110),
 		STATS_ILLITERATES = list("points" = -3, "capacity" = -60),
 		STATS_SKILLS_DREAMED = list("points" = 0.3, "capacity" = 100),
-		STATS_MANA_SPENT = list("points" = 0.009, "capacity" = 100),
+		STATS_MANA_SPENT = list("points" = 0.0125, "capacity" = 100),
 	)
 
 /datum/storyteller/ravox
@@ -44,7 +44,7 @@
 	influence_factors = list(
 		STATS_COMBAT_SKILLS = list("points" = 0.85, "capacity" = 90),
 		STATS_PARRIES = list("points" = 0.05, "capacity" = 90),
-		STATS_WARCRIES = list("points" = 0.35, "capacity" = 50),
+		STATS_WARCRIES = list("points" = 0.375, "capacity" = 50),
 		STATS_YIELDS = list("points" = -5, "capacity" = -40),
 		STATS_UNDERWORLD_DUELS = list("points" = 4.5, "capacity" = 60),
 	)
@@ -139,10 +139,10 @@
 	)
 
 	influence_factors = list(
-		STATS_POTIONS_BREWED = list("points" = 5, "capacity" = 70),
-		STATS_WOUNDS_SEWED = list("points" = 0.6, "capacity" = 100),
-		STATS_SOULS_REINCARNATED = list("points" = 3, "capacity" = 60),
-		STATS_ANIMALS_BRED = list("points" = 6.5, "capacity" = 60),
+		STATS_POTIONS_BREWED = list("points" = 4.5, "capacity" = 70),
+		STATS_WOUNDS_SEWED = list("points" = 0.5, "capacity" = 100),
+		STATS_SOULS_REINCARNATED = list("points" = 2.75, "capacity" = 60),
+		STATS_ANIMALS_BRED = list("points" = 6, "capacity" = 60),
 		STATS_FOOD_ROTTED = list("points" = 0.4, "capacity" = 80),
 	)
 
