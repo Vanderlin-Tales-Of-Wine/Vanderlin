@@ -104,7 +104,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 /obj/effect/landmark/start/villagerlate
 	name = "Townerlate"
 	icon_state = "arrow"
-	jobspawn_override = list("Towner")
+	jobspawn_override = list("Towner", "Ring's Servant")
 	delete_after_roundstart = FALSE
 
 /obj/effect/landmark/start/combatlate
@@ -359,6 +359,14 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 
 /obj/effect/landmark/start/servant
 	name = "Servant"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/tapster
+	name = "Tapster"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/matron_assistant
+	name = "Matron's Assistant"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/churchling
