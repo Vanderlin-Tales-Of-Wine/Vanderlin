@@ -49,3 +49,26 @@
 	name = "apothecary gloves"
 	desc = "Thick leather gloves for pulling thorny plants... or cracking skulls."
 	icon_state = "apothgloves"
+
+
+/obj/item/clothing/gloves/otavan
+	name = "otavan leather gloves"
+	desc = "A pair of heavy Otavan leather gloves, commonly used by fencers, renowned for their quality."
+	icon_state = "fencergloves"
+	item_state = "fencergloves"
+	armor = ARMOR_LEATHER_GOOD
+	prevent_crits = list(BCLASS_CHOP, BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)
+	resistance_flags = FIRE_PROOF
+	blocksound = SOFTHIT
+	max_integrity = 250
+	blade_dulling = DULLING_BASHCHOP
+	break_sound = 'sound/foley/cloth_rip.ogg'
+	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
+	anvilrepair = null
+	sewrepair = TRUE
+
+/obj/item/clothing/gloves/otavan/inqgloves
+	name = "inquisitorial leather gloves"
+	desc = "Gloves of worn leather. Alas, the psydonian fetish wrapped around one is but a powerless replica."
+	icon_state = "inqgloves"
+	item_state = "inqgloves"

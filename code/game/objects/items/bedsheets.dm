@@ -39,7 +39,7 @@ LINEN BINS
 
 /obj/item/bedsheet/proc/coverup(mob/living/sleeper)
 	layer = ABOVE_MOB_LAYER
-	plane = -2
+	plane = GAME_PLANE_UPPER
 	pixel_x = 0
 	pixel_y = 0
 	to_chat(sleeper, "<span class='notice'>I cover myself with [src].</span>")

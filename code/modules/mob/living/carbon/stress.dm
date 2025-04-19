@@ -127,9 +127,9 @@
 		for(var/datum/stressevent/D in negative_stressors)
 			if(D.type == event)
 				found = TRUE
+				D.time_added = world.time
 				if(D.stacks >= D.max_stacks)
 					continue
-				D.time_added = world.time
 				var/pre_stack = D.get_stress()
 				D.stacks++
 				var/post_stack = D.get_stress()
@@ -140,9 +140,9 @@
 		for(var/datum/stressevent/D in positive_stressors)
 			if(D.type == event)
 				found = TRUE
+				D.time_added = world.time
 				if(D.stacks >= D.max_stacks)
 					continue
-				D.time_added = world.time
 				var/pre_stack = D.get_stress()
 				D.stacks++
 				var/post_stack = D.get_stress()

@@ -40,11 +40,11 @@
 	..()
 	shirt = /obj/item/clothing/armor/gambeson/heavy/dark
 	belt = /obj/item/storage/belt/leather/black
-	shoes = /obj/item/clothing/shoes/nobleboot
+	shoes = /obj/item/clothing/shoes/otavan/inqboots
 	pants = /obj/item/clothing/pants/trou/leather
 	cloak = /obj/item/clothing/cloak/cape/puritan
 	head = /obj/item/clothing/head/helmet/leather/inquisitor
-	gloves = /obj/item/clothing/gloves/angle
+	gloves = /obj/item/clothing/gloves/otavan/inqgloves
 	wrists = /obj/item/clothing/neck/psycross/silver
 	backr = /obj/item/storage/backpack/satchel
 	backl = /obj/item/weapon/sword/long/forgotten
@@ -114,27 +114,37 @@
 	if(H == src)
 		to_chat(src, span_warning("I won't torture myself!"))
 		return
-	var/painpercent = H.get_complex_pain() / (H.STAEND * 10)
-	painpercent = painpercent * 100
-	var/mob/living/carbon/C = H
-	if(C.add_stress(/datum/stressevent/tortured))
-		if(!H.stat)
-			var/static/list/torture_lines = list(
-				"CONFESS YOUR WRONGDOINGS!",
-				"TELL ME YOUR SECRETS!",
-				"SPEAK THE TRUTH!",
-				"YOU WILL SPEAK!",
-				"TELL ME!",
-				"THE PAIN HAS ONLY BEGUN, CONFESS!",
-			)
-			say(pick(torture_lines), spans = list("torture"))
-			testing(painpercent)
-			if(painpercent >= 100)
-				H.emote("painscream")
-				testing("Confession time, [painpercent] pain.")
-				H.confession_time("antag", src)
-				return
-	to_chat(src, span_warning("Not ready to speak yet."))
+	if(!H.restrained() && !H.buckled)
+		to_chat(src, span_warning("[H] needs to be restrained or buckled first!"))
+		return
+	if(H.stat == DEAD)
+		to_chat(src, span_warning("[H] is dead already..."))
+		return
+	var/painpercent = (H.get_complex_pain() / (H.STAEND * 12)) * 100
+	testing("Confession time, [painpercent] pain.")
+	if(painpercent < 100)
+		to_chat(src, span_warning("Not ready to speak yet."))
+		return
+	if(!do_after(src, 4 SECONDS, H))
+		return
+	if(!H.restrained() && !H.buckled)
+		to_chat(src, span_warning("[H] needs to be restrained or buckled first!"))
+		return
+	if(H.stat == DEAD)
+		to_chat(src, span_warning("[H] is dead already..."))
+		return
+	if(H.add_stress(/datum/stressevent/tortured))
+		var/static/list/torture_lines = list(
+			"CONFESS YOUR WRONGDOINGS!",
+			"TELL ME YOUR SECRETS!",
+			"SPEAK THE TRUTH!",
+			"YOU WILL SPEAK!",
+			"TELL ME!",
+			"THE PAIN HAS ONLY BEGUN, CONFESS!",
+		)
+		say(pick(torture_lines), spans = list("torture"))
+		H.emote("painscream")
+		H.confession_time("antag", src)
 
 /mob/living/carbon/human/proc/faith_test()
 	set name = "Test Faith"
@@ -148,27 +158,38 @@
 	if(H == src)
 		to_chat(src, span_warning("I won't torture myself!"))
 		return
-	var/painpercent = (H.get_complex_pain() / (H.STAEND * 10)) * 100
+	if(!H.restrained() && !H.buckled)
+		to_chat(src, span_warning("[H] needs to be restrained or buckled first!"))
+		return
+	if(H.stat == DEAD)
+		to_chat(src, span_warning("[H] is dead already..."))
+		return
+	var/painpercent = (H.get_complex_pain() / (H.STAEND * 12)) * 100
+	testing("Confession time, [painpercent] pain.")
+	if(painpercent < 100)
+		to_chat(src, span_warning("Not ready to speak yet."))
+		return
+	if(!do_after(src, 4 SECONDS, H))
+		return
+	if(!H.restrained() && !H.buckled)
+		to_chat(src, span_warning("[H] needs to be restrained or buckled first!"))
+		return
+	if(H.stat == DEAD)
+		to_chat(src, span_warning("[H] is dead already..."))
+		return
 	if(H.add_stress(/datum/stressevent/tortured))
-		if(!H.stat)
-			var/static/list/faith_lines = list(
-				"DO YOU DENY PSYDON AND THE TEN?",
-				"WHO IS YOUR GOD?",
-				"ARE YOU FAITHFUL?",
-				"TO WHICH SHEPHERD DO YOU FLOCK TO?",
-			)
-			say(pick(faith_lines), spans = list("torture"))
-			if(painpercent >= 100)
-				H.emote("painscream")
-				H.confession_time("patron", src)
-				return
-	to_chat(src, span_warning("Not ready to speak yet."))
+		var/static/list/faith_lines = list(
+			"DO YOU DENY PSYDON AND THE TEN?",
+			"WHO IS YOUR GOD?",
+			"ARE YOU FAITHFUL?",
+			"TO WHICH SHEPHERD DO YOU FLOCK TO?",
+		)
+		say(pick(faith_lines), spans = list("torture"))
+		H.emote("painscream")
+		H.confession_time("patron", src)
 
 /mob/living/carbon/human/proc/confession_time(confession_type = "antag", mob/living/carbon/human/user)
-	if(istype(src.buckled, /obj/structure/fluff/walldeco/chains)) // If the victim is on hanging chains, they cannot resist.
-		confess_sins(confession_type, resist=FALSE, user=user)
-		return
-	var/timerid = addtimer(CALLBACK(src, PROC_REF(confess_sins), confession_type, FALSE, user), 6 SECONDS, TIMER_STOPPABLE)
+	var/timerid = addtimer(CALLBACK(src, PROC_REF(confess_sins), confession_type, FALSE, user), 3 SECONDS, TIMER_STOPPABLE)
 	var/responsey = alert(src, "Resist torture?","TEST OF PAIN","Yes","No")
 	testing("Sent resist request to [src].")
 	testing(" User is [user]. confession_time")
@@ -180,60 +201,90 @@
 		return
 	if(responsey == "Yes")
 		testing("[src] resisted torture.")
-		confess_sins(confession_type, resist=TRUE, user=user)
+		confess_sins(confession_type, resist=TRUE, interrogator=user)
 	else
 		testing("[src] gave into torture.")
-		confess_sins(confession_type, resist=FALSE, user=user)
+		confess_sins(confession_type, resist=FALSE, interrogator=user)
 
-/mob/living/carbon/human/proc/confess_sins(confession_type = "antag", resist, mob/living/carbon/human/user, torture=TRUE, obj/item/paper/confession/confession_paper)
+/mob/living/carbon/human/proc/confess_sins(confession_type = "antag", resist, mob/living/carbon/human/interrogator, torture=TRUE, obj/item/paper/confession/confession_paper, false_result)
+	if(stat == DEAD)
+		return
 	var/static/list/innocent_lines = list(
 		"I DON'T KNOW!",
-		"STOP THE PAIN!!",
+		"STOP THIS MADNESS!!",
 		"I DON'T DESERVE THIS!",
 		"THE PAIN!",
 		"I HAVE NOTHING TO SAY...!",
 		"WHY ME?!",
+		"I'M INNOCENT!",
+		"I AM NO SINNER!",
 	)
-	var/resist_chance
+	var/resist_chance = 0
 	if(resist)
 		to_chat(src, span_boldwarning("I attempt to resist the torture!"))
 		resist_chance = (STAINT + STAEND) + 10
+		if(istype(buckled, /obj/structure/fluff/walldeco/chains)) // If the victim is on hanging chains, apply a resist penalty
+			resist_chance -= 15
 		if(confession_type == "antag")
 			resist_chance += 25
-	if(!resist || (resist_chance && !prob(resist_chance)))
+
+	testing("Resist chance: [resist_chance]")
+	if(!prob(resist_chance))
 		var/list/confessions = list()
 		var/antag_type = null
-		testing(" User is [user]. confess_sins")
+		testing("User is [interrogator]. confess_sins")
 		switch(confession_type)
 			if("antag")
-				for(var/datum/antagonist/antag in mind?.antag_datums)
-					if(!length(antag.confess_lines))
-						continue
-					confessions += antag.confess_lines
-					antag_type = antag.name
-					testing("Antag type: [antag_type]")
-					break // Only need one antag type
+				if(!false_result)
+					for(var/datum/antagonist/antag in mind?.antag_datums)
+						if(!length(antag.confess_lines))
+							continue
+						confessions += antag.confess_lines
+						antag_type = antag.name
+						break // Only need one antag type
+				testing("Antag type: [antag_type]")
 			if("patron")
-				if(length(patron?.confess_lines))
-					confessions += patron.confess_lines
-					testing("Patron type: [patron.name]")
-					antag_type = patron.name
+				if(ispath(false_result, /datum/patron))
+					var/datum/patron/fake_patron = new false_result()
+					if(length(fake_patron.confess_lines))
+						confessions += fake_patron.confess_lines
+						antag_type = fake_patron.name
+						testing("Patron type: [fake_patron.name]")
+				else
+					if(length(patron?.confess_lines))
+						confessions += patron.confess_lines
+						testing("Patron type: [patron.name]")
+						antag_type = patron.name
+
+		if(torture && interrogator && confession_type == "patron")
+			var/datum/patron/interrogator_patron = interrogator.patron
+			var/datum/patron/victim_patron = patron
+			testing("interrogator [interrogator_patron], victim [victim_patron]")
+			switch(interrogator_patron.associated_faith.type)
+				if(/datum/faith/psydon)
+					if(ispath(victim_patron.type, /datum/patron/divine) && victim_patron.type != /datum/patron/divine/necra) //lore
+						interrogator.add_stress(/datum/stressevent/torture_small_penalty)
+					else if(victim_patron.type == /datum/patron/psydon/progressive)
+						interrogator.add_stress(/datum/stressevent/torture_small_penalty)
+					else if(victim_patron.type == /datum/patron/psydon)
+						interrogator.add_stress(/datum/stressevent/torture_large_penalty)
+
 		if(length(confessions))
-			if(torture == TRUE) // Only scream your confession if it's due to torture.
-				say(pick(confessions), spans = list("torture"))
+			if(torture) // Only scream your confession if it's due to torture.
+				say(pick(confessions), spans = list("torture"), forced = TRUE)
 			else
-				say(pick(confessions))
-			if(has_confessed==TRUE) // This is to check if the victim has already confessed, if so just inform the torturer and return. This is so that the Inquisitor cannot get infinite confession points and get all of the things upon getting thier first heretic.
-				visible_message(span_warning("[src.name] has already signed a confession!"), "I have already signed a confession!")
+				say(pick(confessions), forced = TRUE)
+			if(has_confessed) // This is to check if the victim has already confessed, if so just inform the torturer and return. This is so that the Inquisitor cannot get infinite confession points and get all of the things upon getting thier first heretic.
+				visible_message(span_warning("[name] has already signed a confession!"), "I have already signed a confession!")
 				return
 			var/obj/item/paper/confession/held_confession
 			testing("confession paper: [confession_paper]")
 			if(istype(confession_paper))
 				held_confession = confession_paper
-			else if(user.is_holding_item_of_type(/obj/item/paper/confession)) // This code is to process gettin a signed confession through torture.
+			else if(interrogator?.is_holding_item_of_type(/obj/item/paper/confession)) // This code is to process gettin a signed confession through torture.
 				testing("User is holding a confession.")
-				held_confession = user.is_holding_item_of_type(/obj/item/paper/confession)
-			if(!held_confession?.signed && held_confession) // Check to see if the confession is already signed.
+				held_confession = interrogator.is_holding_item_of_type(/obj/item/paper/confession)
+			if(held_confession && !held_confession.signed) // Check to see if the confession is already signed.
 				// held_confession.bad_type = "AN EVILDOER" // In case new antags are added with confession lines but have yet to be added here.
 				//this is no longer reliable as all patrons have confess lines now
 				switch(antag_type)
@@ -296,10 +347,10 @@
 			return
 		else
 			if(torture) // Only scream your confession if it's due to torture.
-				say(pick(innocent_lines), spans = list("torture"))
+				say(pick(innocent_lines), spans = list("torture"), forced = TRUE)
 			else
-				say(pick(innocent_lines))
+				say(pick(innocent_lines), forced = TRUE)
 			return
 	to_chat(src, span_good("I resist the torture!"))
-	say(pick(innocent_lines), spans = list("torture"))
+	say(pick(innocent_lines), spans = list("torture"), forced = TRUE)
 	return
