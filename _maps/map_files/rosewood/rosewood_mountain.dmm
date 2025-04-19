@@ -3419,7 +3419,7 @@
 /turf/open/floor/herringbone,
 /area/rogue/under/mountains/anvil/dungeon)
 "BD" = (
-/obj/item/bath/soap,
+/obj/item/soap/bath,
 /turf/open/floor/herringbone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "BE" = (

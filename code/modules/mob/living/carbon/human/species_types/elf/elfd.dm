@@ -125,4 +125,4 @@
 	return last_names
 
 /datum/species/elf/dark/get_accent_list()
-	return strings("french_replacement.json", "french")
+	return strings("accents/french_replacement.json", "french")

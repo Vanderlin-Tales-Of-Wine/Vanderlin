@@ -19,7 +19,7 @@
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 
 	outfit = /datum/outfit/job/mayor
-	spells = list(/obj/effect/proc_holder/spell/self/convertrole/town_militia)
+	spells = list(/obj/effect/proc_holder/spell/self/convertrole/town_militia, /obj/effect/proc_holder/spell/invoked/mockery)
 	give_bank_account = 80
 	cmode_music = 'sound/music/cmode/towner/CombatMayor.ogg'
 	can_have_apprentices = FALSE
@@ -54,9 +54,12 @@
 		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/music, 5, TRUE)
+		ADD_TRAIT(H, TRAIT_BARDIC_TRAINING, TRAIT_GENERIC)
 		if(H.age == AGE_OLD)
 			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 1, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/misc/music, 1, TRUE)
 			H.change_stat(STATKEY_STR, 1)
 			H.change_stat(STATKEY_PER, 1)
 			H.change_stat(STATKEY_INT, 2)

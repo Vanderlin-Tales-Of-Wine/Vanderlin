@@ -74,7 +74,7 @@
 	id = "cleanplus"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/clean_plus
 	effectedstats = list(STATKEY_LCK = 1)
-	duration = 20 MINUTES
+	duration = 15 MINUTES
 
 /datum/status_effect/buff/clean_plus/on_apply()
 	. = ..()
@@ -505,14 +505,14 @@
 /datum/status_effect/bardicbuff/on_apply()
 	if(owner.mind?.has_antag_datum(/datum/antagonist)) // Check if antag datum present
 		if(owner.mind?.isactuallygood()) // Then check if they're actually a "good" antag (purishep, prisoner)
-			for(var/S in effectedstats)
-				owner.change_stat(S, effectedstats[S])
+			for(var/stat in effectedstats)
+				owner.set_stat_modifier("[id]", stat, effectedstats[stat])
 			return TRUE
 		else // Otherwise, no buff
 			return FALSE
 	else // All non antags get the buffs
-		for(var/S in effectedstats)
-			owner.change_stat(S, effectedstats[S])
+		for(var/stat in effectedstats)
+			owner.set_stat_modifier("[id]", stat, effectedstats[stat])
 		return TRUE
 
 // SKELETON BARD BUFF ALERT
