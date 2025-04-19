@@ -44,6 +44,8 @@
 			return 2
 		if(ACCESS_ARTIFICER)
 			return 4
+		if(ACCESS_MINER)
+			return 3
 		if(ACCESS_HAND)
 			return 1
 		if(ACCESS_STEWARD)
