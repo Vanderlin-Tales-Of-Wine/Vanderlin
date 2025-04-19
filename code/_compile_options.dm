@@ -7,7 +7,7 @@
 //#define TESTSERVER
 #define ALLOWPLAY
 
-#define RESPAWNTIME 0
+#define RESPAWNTIME 30 MINUTES
 //0 test
 //12 minutes norma
 //#define ROUNDTIMERBOAT (300 MINUTES)

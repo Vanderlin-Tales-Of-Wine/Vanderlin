@@ -36,14 +36,14 @@
 		if(has_world_trait(/datum/world_trait/skeleton_siege) || has_world_trait(/datum/world_trait/rousman_siege) || has_world_trait(/datum/world_trait/goblin_siege))
 			G.returntolobby()
 		G.client.descend()
-/*		if(world.time < G.ghostize_time + RESPAWNTIME)
+		if(world.time < G.ghostize_time + RESPAWNTIME)
 			var/ttime = round((G.ghostize_time + RESPAWNTIME - world.time) / 10)
 			var/list/thingsz = list("My connection to the world is still too strong.",\
-			"I'm not ready to leave...", "I'm not ready to travel with Charon.",\
+			"I'm not ready to leave...", "I'm not ready to travel with Necra.",\
 			"Don't make me leave!", "No... Not yet!", "Please, don't make me go yet...",\
 			"The shores are calling me but I cannot go...","My soul isn't ready yet...")
 			to_chat(G, "<span class='warning'>[pick(thingsz)] ([ttime])</span>")
-			return */ //Disabling this since the underworld will exist
+			return
 
 /datum/hud/ghost/New(mob/owner)
 	..()
