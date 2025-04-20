@@ -387,6 +387,8 @@
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "pestle"
 	force = 7
+	grid_height = 64
+	grid_width = 32
 
 /obj/item/reagent_containers/glass/mortar
 	name = "mortar"
@@ -398,6 +400,8 @@
 	reagent_flags = OPENCONTAINER
 	spillable = TRUE
 	var/obj/item/grinded
+	grid_height = 32
+	grid_width = 64
 
 /obj/item/reagent_containers/glass/mortar/AltClick(mob/user)
 	if(grinded)

@@ -26800,6 +26800,7 @@
 	name = "Miners Quarters"
 	},
 /obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/door/access/town/artificer,
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/indoors/town/dwarfin)
 "svi" = (

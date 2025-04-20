@@ -26,7 +26,7 @@
 	outfit = /datum/outfit/job/gatemaster	//Default outfit.
 	advclass_cat_rolls = list(CTAG_GATEMASTER = 20)	//Handles class selection.
 	give_bank_account = 30
-	cmode_music = 'sound/music/cmode/garrison/CombatManAtArms.ogg'
+	cmode_music = 'sound/music/cmode/garrison/CombatGatekeeper.ogg'
 	give_bank_account = 15
 
 /datum/outfit/job/gatemaster
@@ -99,7 +99,7 @@
 
 /datum/advclass/gatemaster/gatemaster_mace
 	name = "Bruiser Gatemaster"
-	tutorial = "Years of work let your body grow acustome to the job. Gorwing large, fitting to your chair. \
+	tutorial = "Years of work let your body grow acustome to the job. Growing large, fitting to your chair. \
 	Even if you may be slower, but you dont need to be fast. \
 	They are the ones that need to get past you after all. \
 	Let them try to break through your armor, and let them learn how easy skulls break under cold hard steel."

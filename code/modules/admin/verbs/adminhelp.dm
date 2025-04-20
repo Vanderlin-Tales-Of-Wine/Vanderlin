@@ -586,9 +586,6 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 
 	new /datum/admin_help(msg, src, FALSE)
 
-/client/verb/view_latest_ticket()
-	set category = "Admin"
-	set name = "View Latest Ticket"
 
 /client/proc/self_notes()
 	set name = "View Admin Remarks"
@@ -596,6 +593,11 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	set desc = "View the notes that admins have written about you"
 
 	browse_messages(null, usr.ckey, null, TRUE)
+
+/client/verb/view_latest_ticket()
+	set category = "Admin"
+	set name = "View Latest Ticket"
+
 
 	if(!current_ticket)
 		// Check if the client had previous tickets, and show the latest one
