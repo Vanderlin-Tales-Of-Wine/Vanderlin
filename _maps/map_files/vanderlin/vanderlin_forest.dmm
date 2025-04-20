@@ -15,6 +15,7 @@
 /area/rogue/indoors)
 "aJ" = (
 /obj/machinery/anvil/crafted,
+/obj/effect/decal/cleanable/dirt/cobweb,
 /turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "aK" = (
@@ -560,6 +561,9 @@
 "jZ" = (
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_y = -32
+	},
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 4
 	},
 /turf/open/floor/cobble,
 /area/rogue/indoors)
@@ -1287,6 +1291,11 @@
 /obj/structure/flora/grass/bush_meagre,
 /turf/open/floor/grass,
 /area/rogue/outdoors/woods)
+"wo" = (
+/obj/structure/bed/hay,
+/obj/effect/decal/cleanable/dirt/cobweb,
+/turf/open/floor/twig,
+/area/rogue/indoors)
 "wq" = (
 /obj/structure/innocent_bush,
 /turf/open/floor/grass,
@@ -2491,7 +2500,7 @@
 /area/rogue/outdoors/woods_safe)
 "Ru" = (
 /obj/structure/window/solid,
-/turf/closed/basic,
+/turf/open/floor/blocks,
 /area/rogue/indoors)
 "Ry" = (
 /obj/machinery/light/fueled/campfire/longlived,
@@ -2675,6 +2684,9 @@
 /area/rogue/outdoors/woods)
 "US" = (
 /obj/item/bin/water/gross,
+/obj/effect/decal/cleanable/dirt/cobweb{
+	icon_state = "cobweb2"
+	},
 /turf/open/floor/cobble,
 /area/rogue/indoors)
 "Vd" = (
@@ -2717,6 +2729,9 @@
 /area/rogue/outdoors/woods_safe)
 "Wb" = (
 /obj/structure/bed/hay,
+/obj/effect/decal/cleanable/dirt/cobweb{
+	icon_state = "cobweb2"
+	},
 /turf/open/floor/twig{
 	dir = 8
 	},
@@ -28795,7 +28810,7 @@ AI
 Rs
 Rs
 VE
-OI
+wo
 YE
 Og
 mH
