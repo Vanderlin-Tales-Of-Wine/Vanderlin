@@ -25,8 +25,9 @@
 	var/stored_experience
 	/// Whether or not we have been turned
 	var/has_turned = FALSE
+	// we don't use innate_traits here because zombies aren't meant to get their traits on_gain.
 	/// Traits applied to the owner mob when we turn into a zombie
-	innate_traits = list(
+	var/static/list/traits_zombie = list(
 		TRAIT_NOSTAMINA,
 		TRAIT_NOMOOD,
 		TRAIT_NOLIMBDISABLE,
@@ -57,14 +58,6 @@
 		TRAIT_ROTMAN,
 	)
 	var/mutable_appearance/rotflies
-
-// special handling for zombies
-/datum/antagonist/zombie/apply_innate_effects(mob/living/mob_override)
-	return
-
-// special handling for zombies
-/datum/antagonist/zombie/remove_innate_effects()
-	return
 
 /datum/antagonist/zombie/examine_friendorfoe(datum/antagonist/examined_datum,mob/examiner,mob/examined)
 	if(istype(examined_datum, /datum/antagonist/vampire))
@@ -132,7 +125,7 @@
 	zombie.set_patron(patron)
 	owner.known_skills = stored_skills
 	owner.skill_experience = stored_experience
-	for(var/trait in innate_traits)
+	for(var/trait in traits_zombie)
 		REMOVE_TRAIT(zombie, trait, "[type]")
 	zombie.remove_client_colour(/datum/client_colour/monochrome)
 	if(has_turned && become_rotman)
@@ -177,7 +170,7 @@
 		return
 	revived = TRUE //so we can die for real later
 	zombie.add_client_colour(/datum/client_colour/monochrome)
-	for(var/trait_applied in innate_traits)
+	for(var/trait_applied in traits_zombie)
 		ADD_TRAIT(zombie, trait_applied, "[type]")
 	if(HAS_TRAIT(zombie, TRAIT_DODGEEXPERT))
 		REMOVE_TRAIT(zombie, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
