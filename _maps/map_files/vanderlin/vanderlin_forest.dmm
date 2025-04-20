@@ -526,7 +526,7 @@
 /obj/structure/table/wood/large/corner_new{
 	dir = 4
 	},
-/turf/open/floor/twig,
+/turf/open/floor/wood,
 /area/rogue/indoors)
 "jJ" = (
 /turf/closed/wall/mineral/craftstone,
@@ -832,10 +832,11 @@
 /turf/open/floor/wood,
 /area/rogue/indoors)
 "nP" = (
-/obj/structure/chair/wood/alt{
-	dir = 8
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/light/fueled/wallfire/candle{
+	pixel_y = -32
 	},
-/turf/open/floor/twig,
+/turf/open/floor/wood,
 /area/rogue/indoors)
 "nR" = (
 /obj/structure/flora/grass/bush_meagre,
@@ -874,11 +875,11 @@
 /obj/item/reagent_containers/food/snacks/produce/wheat,
 /obj/item/reagent_containers/food/snacks/produce/turnip,
 /obj/item/reagent_containers/food/snacks/produce/turnip,
-/obj/item/reagent_containers/food/snacks/meat/poultry,
 /obj/machinery/light/fueled/wallfire/candle,
 /obj/item/reagent_containers/food/snacks/fish/eel,
 /obj/item/reagent_containers/food/snacks/butter,
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
+/obj/item/reagent_containers/food/snacks/rotten/poultry,
 /turf/open/floor/cobble,
 /area/rogue/indoors)
 "ok" = (
@@ -1038,6 +1039,9 @@
 	pixel_x = 0
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/item/rope,
+/obj/item/rope,
+/obj/item/rope,
 /turf/open/floor/cobble,
 /area/rogue/indoors)
 "rb" = (
@@ -1050,6 +1054,7 @@
 /area/rogue/indoors)
 "ro" = (
 /obj/structure/closet/crate/chest,
+/obj/item/rope/chain,
 /turf/open/floor/cobble,
 /area/rogue/indoors)
 "rt" = (
@@ -1209,7 +1214,7 @@
 	pixel_x = 13;
 	pixel_y = -2
 	},
-/turf/open/floor/twig,
+/turf/open/floor/wood,
 /area/rogue/indoors)
 "ut" = (
 /turf/closed/wall/mineral/tent,
@@ -1352,7 +1357,7 @@
 /obj/item/reagent_containers/glass/bucket/wooden/alter{
 	pixel_y = 16
 	},
-/turf/open/floor/twig,
+/turf/open/floor/wood,
 /area/rogue/indoors)
 "xh" = (
 /obj/structure/fluff/railing/border{
@@ -1671,7 +1676,7 @@
 	pixel_x = -32;
 	pixel_y = 0
 	},
-/turf/open/floor/twig,
+/turf/open/floor/wood,
 /area/rogue/indoors)
 "Cd" = (
 /obj/machinery/light/fueled/firebowl/stump,
@@ -1805,6 +1810,9 @@
 	pixel_y = 6;
 	pixel_x = -12
 	},
+/obj/item/flint{
+	pixel_x = 5
+	},
 /turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "DZ" = (
@@ -1866,7 +1874,7 @@
 	dir = 6
 	},
 /obj/item/reagent_containers/glass/cup/wooden,
-/turf/open/floor/twig,
+/turf/open/floor/wood,
 /area/rogue/indoors)
 "FA" = (
 /obj/structure/fluff/railing/border{
@@ -1944,7 +1952,7 @@
 /obj/structure/table/wood/large/corner{
 	dir = 9
 	},
-/turf/open/floor/twig,
+/turf/open/floor/wood,
 /area/rogue/indoors)
 "Ht" = (
 /obj/structure/fluff/railing/fence{
@@ -2117,6 +2125,12 @@
 "JX" = (
 /turf/open/floor/grass,
 /area/rogue/outdoors/woods_safe)
+"Km" = (
+/obj/structure/rack,
+/obj/item/clothing/shoes/boots/armor/light/rust,
+/obj/item/clothing/pants/platelegs/rust,
+/turf/open/floor/wood,
+/area/rogue/indoors)
 "Ko" = (
 /obj/structure/mineral_door/wood{
 	lockid = "oldfarm"
@@ -2358,7 +2372,7 @@
 /obj/item/paper,
 /obj/item/paper,
 /obj/item/natural/feather,
-/turf/open/floor/twig,
+/turf/open/floor/wood,
 /area/rogue/indoors)
 "OI" = (
 /obj/structure/bed/hay,
@@ -2378,6 +2392,14 @@
 	},
 /turf/open/floor/grass,
 /area/rogue/outdoors/woods)
+"Pd" = (
+/obj/machinery/light/fueled/wallfire/candle{
+	pixel_y = -32
+	},
+/obj/structure/rack,
+/obj/item/clothing/gloves/plate/rust,
+/turf/open/floor/wood,
+/area/rogue/indoors)
 "Ps" = (
 /turf/open/floor/rooftop{
 	icon_state = "roofg"
@@ -2386,7 +2408,7 @@
 "PI" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/cobweb,
-/turf/open/floor/twig,
+/turf/open/floor/wood,
 /area/rogue/indoors)
 "PK" = (
 /obj/machinery/light/fueled/firebowl/stump,
@@ -2699,7 +2721,7 @@
 /area/rogue/indoors)
 "Vk" = (
 /obj/structure/fluff/customsign{
-	name = "Thatchwood Smithy"
+	name = "The Fermented Egg Inn"
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/woods_safe)
@@ -29430,7 +29452,7 @@ iX
 yB
 DY
 Ru
-Rs
+tS
 JX
 VY
 pn
@@ -29632,7 +29654,7 @@ US
 jW
 cn
 aP
-tS
+GR
 Wf
 JX
 Ic
@@ -34276,7 +34298,7 @@ PI
 Nu
 BB
 Nu
-Ti
+Pd
 VE
 Ic
 iP
@@ -34477,8 +34499,8 @@ aP
 nN
 MN
 MN
-YE
-SA
+MN
+Km
 VE
 JX
 JX
@@ -34881,7 +34903,7 @@ aP
 MK
 MN
 MN
-Bu
+hJ
 dE
 VE
 Ic
@@ -75684,7 +75706,7 @@ Rh
 Rh
 nF
 MN
-nP
+iT
 iT
 iT
 nF
@@ -75885,10 +75907,10 @@ Rh
 Rh
 Rh
 VE
-SA
-SA
+nN
+Nu
 MN
-YE
+nP
 VE
 Rh
 Rh
@@ -76088,9 +76110,9 @@ Rh
 Rh
 VE
 gL
-YE
+MN
 Nu
-SA
+Nu
 aP
 Rh
 Rh
