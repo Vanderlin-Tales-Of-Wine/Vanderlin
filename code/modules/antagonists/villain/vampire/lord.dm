@@ -1,6 +1,7 @@
 /datum/antagonist/vampire/lord
 	name = "Vampire Lord"
-	antag_hud_name = "vampire"
+	antag_hud_type = ANTAG_HUD_VAMPLORD
+	antag_hud_name = "vamplord"
 	autojoin_team = TRUE
 	confess_lines = list(
 		"I AM ANCIENT!",
