@@ -1,8 +1,10 @@
 /* smoothing_flags */
 /// Smoothing system in where adjacencies are calculated and used to build an image by mounting each corner at runtime.
 #define SMOOTH_CORNERS	(1<<0)
-/// if atom should smooth diagonally, this should be present in 'smoothing_flags' var
-#define SMOOTH_DIAGONAL	(1<<2)
+/// Smoothing system in where adjacencies are calculated and used to select a pre-baked icon_state, encoded by bitmasking.
+#define SMOOTH_BITMASK		(1<<1)
+/// Atom has diagonal corners, with underlays under them.
+#define SMOOTH_DIAGONAL_CORNERS	(1<<2)
 /// atom will smooth with the borders of the map
 #define SMOOTH_BORDER	(1<<3)
 /**
