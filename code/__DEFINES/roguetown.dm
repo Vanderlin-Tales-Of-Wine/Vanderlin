@@ -10,6 +10,8 @@
 #define RACES_PLAYER_NONHERETICAL		list("Humen", "Rakshari", "Half-Elf", "Elf", "Dwarf", "Aasimar", "Kobold")
 /// Races who are non-exotic to Vanderlin. These are races from foreign lands with no local pull or uncommon races. Used in miscellaneous cases, when they would not be that role.
 #define RACES_PLAYER_NONEXOTIC			list("Humen", "Half-Elf", "Dark Elf", "Elf", "Dwarf", "Tiefling", "Half-Orc", "Aasimar")
+///Races that lack lux
+#define RACES_PLAYER_LUXLESS			list("Kobold", "Rakshari", "Dark Elf", "Tiefling", "Half-Orc", "Dark Elf")
 
 /// Races who are affiliated with Grenzelhoft or Psydon specifically.
 #define RACES_PLAYER_GRENZ				list("Humen", "Dwarf", "Aasimar")
@@ -171,6 +173,7 @@ GLOBAL_LIST_EMPTY(job_respawn_delays)
 #define CTAG_VETERAN		"CAT_VETERAN"		// Veteran class - Handles Veteran class selector
 #define CTAG_MENATARMS		"CAT_MENATARMS"
 #define CTAG_SERVANT		"CAT_SERVANT" 		// Servant class - 4 type of servant to fill in someplace.
+#define CTAG_GATEMASTER		"CAT_GATEMASTER"
 
 /*
 	Defines for the triumph buy datum categories
@@ -562,3 +565,9 @@ BCLASS_TWIST)
 		"volf"="skullmet_volf",\
 		"bear"="skullmet_bear",\
 		"gote"="skullmet_goat")
+
+#define DENDOR_TAME_PROB_NONE 0
+#define DENDOR_TAME_PROB_LOW 25
+#define DENDOR_TAME_PROB_MEDIUM 50
+#define DENDOR_TAME_PROB_HIGH 75
+#define DENDOR_TAME_PROB_GURANTEED 100

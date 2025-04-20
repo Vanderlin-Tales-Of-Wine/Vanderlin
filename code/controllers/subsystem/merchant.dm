@@ -54,11 +54,12 @@ SUBSYSTEM_DEF(merchant)
 		boat_spaces |= lift.locs
 		boat_spaces -= get_turf(lift)
 	for(var/atom/movable/request as anything in requestlist)
-		var/turf/boat_turf = pick_n_take(boat_spaces)
-		var/atom/movable/new_item = new request
-		new_item.forceMove(boat_turf)
-		for(var/obj/structure/industrial_lift/lift in cargo_boat.lift_platforms)
-			lift.held_cargo |= new_item
+		for(var/i = 1 to requestlist[request])
+			var/turf/boat_turf = pick_n_take(boat_spaces)
+			var/atom/movable/new_item = new request
+			new_item.forceMove(boat_turf)
+			for(var/obj/structure/industrial_lift/lift in cargo_boat.lift_platforms)
+				lift.held_cargo |= new_item
 
 	for(var/atom/movable/item as anything in sending_stuff)
 		var/turf/boat_turf = pick(boat_spaces)
@@ -102,11 +103,12 @@ SUBSYSTEM_DEF(merchant)
 		boat_spaces |= lift.locs
 		boat_spaces -= get_turf(lift)
 	for(var/atom/movable/request as anything in fencerequestlist)
-		var/turf/boat_turf = pick_n_take(boat_spaces)
-		var/atom/movable/new_item = new request
-		new_item.forceMove(boat_turf)
-		for(var/obj/structure/industrial_lift/lift in fence_boat.lift_platforms)
-			lift.held_cargo |= new_item
+		for(var/i = 1 to fencerequestlist[request])
+			var/turf/boat_turf = pick_n_take(boat_spaces)
+			var/atom/movable/new_item = new request
+			new_item.forceMove(boat_turf)
+			for(var/obj/structure/industrial_lift/lift in fence_boat.lift_platforms)
+				lift.held_cargo |= new_item
 
 	fencerequestlist = list()
 	fence_docked = FALSE

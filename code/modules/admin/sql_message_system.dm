@@ -580,7 +580,7 @@
 		if(messagedata)
 			output += "<h2>Messages</h2>"
 			output += messagedata
-		if(watchdata)
+		if(watchdata && usr.client.holder)
 			output += "<h2>Watchlist</h2>"
 			output += watchdata
 		if(notedata)
@@ -631,7 +631,7 @@
 	else if(!type && !target_ckey && !index)
 		output += "<center><a href='?_src_=holder;[HrefToken()];addmessageempty=1'>Add message</a><a href='?_src_=holder;[HrefToken()];addwatchempty=1'>Add watchlist entry</a><a href='?_src_=holder;[HrefToken()];addnoteempty=1'>Add note</a></center>"
 		output += ruler
-	var/datum/browser/browser = new(usr, "Note panel", "Manage player notes", 1000, 500)
+	var/datum/browser/browser = new(usr, "Note panel", "Player notes", 1000, 500)
 	var/datum/asset/notes_assets = get_asset_datum(/datum/asset/simple/notes)
 	notes_assets.send(usr.client)
 	browser.set_content(jointext(output, ""))
@@ -680,7 +680,7 @@
 					return
 				qdel(query_message_read)
 			if("watchlist entry")
-				message_admins("<font color='red'><B>Notice: </B></font><font color='blue'>[key_name_admin(target_ckey)] has been on the watchlist since [timestamp] and has just connected - Reason: [text]</font>")
+				message_admins("<font color='red'><B>Notice: </B></font><font color='blue'>[key_name_admin(target_ckey)] [ADMIN_PP(get_mob_by_key(target_ckey))] has been on the watchlist since [timestamp] and has just connected - Reason: [text]</font>")
 //				send2tgs_adminless_only("Watchlist", "[key_name(target_ckey)] is on the watchlist and has just connected - Reason: [text]")
 			if("memo")
 				output += "<span class='memo'>Memo by <span class='prefix'>[admin_key]</span> on [timestamp]"

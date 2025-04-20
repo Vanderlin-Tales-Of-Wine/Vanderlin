@@ -11,6 +11,8 @@
 	maximum_possible_slots = 2
 	apprentice_name = "Physicker Apprentice"
 
+	cmode_music = 'sound/music/cmode/nobility/combat_physician.ogg'
+
 /datum/outfit/job/adventurer/physicker/pre_equip(mob/living/carbon/human/H)
 	..()
 	mask = /obj/item/clothing/face/phys

@@ -47,7 +47,8 @@
 		L.apply_damage(damage, BRUTE, def_zone)
 		if(prob(33))
 			var/obj/item/bodypart/BP = L.get_bodypart(def_zone)
-			BP.add_wound(/datum/wound/fracture)
+			if(BP)
+				BP?.add_wound(/datum/wound/fracture)
 		play_cleave = TRUE
 		L.adjustBruteLoss(damage)
 		playsound(T, "genslash", 80, TRUE)

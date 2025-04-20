@@ -50,11 +50,12 @@
 			overlays += spice
 			tastes = list("spicy red meat" = 2)
 			meal_properties()
+			bitesize = initial(bitesize)
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 
 	if(istype(I, /obj/item/reagent_containers/food/snacks/onion_fried) && (!modified))
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-		to_chat(user, "<span class='notice'>Adding onions...</span>")
+		to_chat(user, span_notice("Adding onions..."))
 		if(do_after(user, short_cooktime, src))
 			tastes = list("roasted meat" = 1, "caramelized onions" = 1)
 			name = "[name] and onions"
@@ -70,7 +71,7 @@
 
 	if(istype(I, /obj/item/reagent_containers/food/snacks/potato) && (!modified))
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-		to_chat(user, "<span class='notice'>Adding potato...</span>")
+		to_chat(user, span_notice("Adding potato..."))
 		if(do_after(user, short_cooktime, src))
 			tastes = list("roasted meat" = 2, "potato" = 1)
 			name = "[name] and potato"
@@ -286,6 +287,7 @@
 			meal_properties()
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 			qdel(I)
+
 	if(istype(I, /obj/item/reagent_containers/food/snacks/bun) && (!modified))
 		playsound(get_turf(user), 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE, -1)
 		if(do_after(user, short_cooktime, src))
@@ -302,12 +304,75 @@
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 			qdel(I)
 
+	if(istype(I, /obj/item/grown/log/tree/stick) && (!modified))
+		var/found_table = locate(/obj/structure/table) in (loc)
+		if(isturf(loc)&& (found_table))
+			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 50, TRUE, -1)
+			to_chat(user, span_notice("Skewering the sausage..."))
+			if(do_after(user, short_cooktime, src))
+				new /obj/item/reagent_containers/food/snacks/cooked/sausage_sticked(loc)
+				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
+				del(I)
+				qdel(src)
+				return TRUE
+		else
+			to_chat(user, span_warning("Put [src] on a table before working it!"))
+			return TRUE
+
 	return ..()
 
 /obj/item/reagent_containers/food/snacks/cooked/sausage/wiener // wiener meant to be made from beef or maybe mince + bacon, luxury sausage, not implemented yet
 	name = "wiener"
+/*	.............   Sausages on sticks   ................ */
+/obj/item/reagent_containers/food/snacks/cooked/sausage_sticked
+	name = "sausage onna stick"
+	desc = "A sausage skewered for convenience and cleanliness, classic Grenzlehoftian street food."
+	list_reagents = list(/datum/reagent/consumable/nutriment = SAUSAGE_NUTRITION+1)
+	icon_state = "sausageonastick"
+	tastes = list("savory sausage" = 2)
+	trash = /obj/item/grown/log/tree/stick
+	rotprocess = SHELFLIFE_EXTREME
+	faretype = FARE_NEUTRAL
+	foodtype = MEAT
+/obj/item/reagent_containers/food/snacks/cooked/sausage_sticked/attackby(obj/item/I, mob/living/user, params)
+	..()
+	if(user.mind)
+		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
+	var/found_table = locate(/obj/structure/table) in (loc)
+	if(isturf(loc)&& (found_table))
+		if(istype(I, /obj/item/reagent_containers/food/snacks/butterdough_slice))
+			playsound(get_turf(user), 'sound/foley/kneading_alt.ogg', 90, TRUE, -1)
+			to_chat(user, span_notice("Covering sausage with dough..."))
+			if(do_after(user, short_cooktime, src))
+				new /obj/item/reagent_containers/food/snacks/foodbase/griddledog_raw(loc)
+				qdel(I)
+				qdel(src)
+	else
+		to_chat(user, span_warning("Put [src] on a table before working it!"))
 
+/obj/item/reagent_containers/food/snacks/foodbase/griddledog_raw
+	name = "uncooked griddledog"
+	desc = "A sausage covered with dough, begging to be fried."
+	fried_type = /obj/item/reagent_containers/food/snacks/cooked/griddledog
+	list_reagents = list(/datum/reagent/consumable/nutriment = SAUSAGE_NUTRITION+BUTTERDOUGHSLICE_NUTRITION)
+	icon_state = "rawgriddledog"
+	tastes = list("savory sausage" = 2, "butterdough" = 1)
+	trash = /obj/item/grown/log/tree/stick
+	rotprocess = SHELFLIFE_EXTREME
+	faretype = FARE_POOR
+	foodtype = GRAIN | MEAT
 
+/obj/item/reagent_containers/food/snacks/cooked/griddledog
+	name = "griddledog"
+	desc = "A classic piece of Grenzlehoftian street food, the fried butterdough is a Vanderlinian adulteration."
+	list_reagents = list(/datum/reagent/consumable/nutriment = SAUSAGE_NUTRITION+BUTTERDOUGHSLICE_NUTRITION+2)
+	icon_state = "griddledog"
+	tastes = list("savory sausage" = 2, "crispy butterdough" = 1)
+	trash = /obj/item/grown/log/tree/stick
+	rotprocess = SHELFLIFE_EXTREME
+	faretype = FARE_FINE
+	eat_effect = /datum/status_effect/buff/foodbuff
+	foodtype = GRAIN | MEAT
 
 /*---------------\
 | Cooked veggies |

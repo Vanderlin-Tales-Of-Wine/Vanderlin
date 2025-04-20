@@ -68,7 +68,7 @@
 
 	var/armor = null
 
-	var/id = null
+	var/ring = null
 
 	///Type path of item to go in the right hand
 	var/r_hand = null
@@ -145,8 +145,6 @@
 /datum/outfit/proc/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	pre_equip(H, visualsOnly)
 
-	if(suit)
-		H.equip_to_slot_or_del(new suit(H),SLOT_ARMOR, TRUE)
 	if(belt)
 		H.equip_to_slot_or_del(new belt(H),SLOT_BELT, TRUE)
 	if(gloves)
@@ -159,8 +157,8 @@
 		H.equip_to_slot_or_del(new mask(H),SLOT_WEAR_MASK, TRUE)
 	if(neck)
 		H.equip_to_slot_or_del(new neck(H),SLOT_NECK, TRUE)
-	if(id)
-		H.equip_to_slot_or_del(new id(H),SLOT_RING, TRUE)
+	if(ring)
+		H.equip_to_slot_or_del(new ring(H),SLOT_RING, TRUE)
 	if(wrists)
 		H.equip_to_slot_or_del(new wrists(H),SLOT_WRISTS, TRUE)
 	if(cloak)
@@ -290,7 +288,7 @@
 
 /// Return a list of all the types that are required to disguise as this outfit type
 /datum/outfit/proc/get_chameleon_disguise_info()
-	var/list/types = list(suit, belt, gloves, shoes, head, mask, neck, glasses, id, l_pocket, r_pocket, r_hand, l_hand)
+	var/list/types = list(suit, belt, gloves, shoes, head, mask, neck, glasses, ring, l_pocket, r_pocket, r_hand, l_hand)
 	types += chameleon_extras
 	listclearnulls(types)
 	return types
@@ -300,22 +298,20 @@
 	. = list()
 	.["outfit_type"] = type
 	.["name"] = name
-	.["suit"] = suit
-	.["toggle_helmet"] = toggle_helmet
-	.["belt"] = belt
-	.["gloves"] = gloves
-	.["shoes"] = shoes
 	.["head"] = head
 	.["mask"] = mask
 	.["neck"] = neck
-	.["glasses"] = glasses
-	.["id"] = id
-	.["l_pocket"] = l_pocket
-	.["r_pocket"] = r_pocket
-	.["r_hand"] = r_hand
-	.["l_hand"] = l_hand
-	.["backpack_contents"] = backpack_contents
-	.["accessory"] = accessory
+	.["cloak"] = cloak
+	.["backl"] = backl
+	.["backr"] = backr
+	.["ring"] = ring
+	.["wrists"] = wrists
+	.["gloves"] = gloves
+	.["shirt"] = shirt
+	.["armor"] = armor
+	.["pants"] = pants
+	.["belt"] = belt
+	.["shoes"] = shoes
 
 /// Prompt the passed in mob client to download this outfit as a json blob
 /datum/outfit/proc/save_to_file(mob/admin)
@@ -330,26 +326,20 @@
 /// Create an outfit datum from a list of json data
 /datum/outfit/proc/load_from(list/outfit_data)
 	//This could probably use more strict validation
+
 	name = outfit_data["name"]
-	suit = text2path(outfit_data["suit"])
-	toggle_helmet = outfit_data["toggle_helmet"]
-	belt = text2path(outfit_data["belt"])
-	gloves = text2path(outfit_data["gloves"])
-	shoes = text2path(outfit_data["shoes"])
 	head = text2path(outfit_data["head"])
 	mask = text2path(outfit_data["mask"])
 	neck = text2path(outfit_data["neck"])
-	glasses = text2path(outfit_data["glasses"])
-	id = text2path(outfit_data["id"])
-	l_pocket = text2path(outfit_data["l_pocket"])
-	r_pocket = text2path(outfit_data["r_pocket"])
-	r_hand = text2path(outfit_data["r_hand"])
-	l_hand = text2path(outfit_data["l_hand"])
-	var/list/backpack = outfit_data["backpack_contents"]
-	backpack_contents = list()
-	for(var/item in backpack)
-		var/itype = text2path(item)
-		if(itype)
-			backpack_contents[itype] = backpack[item]
-	accessory = text2path(outfit_data["accessory"])
+	cloak = text2path(outfit_data["cloak"])
+	backl = text2path(outfit_data["backl"])
+	backr = text2path(outfit_data["backr"])
+	ring = text2path(outfit_data["ring"])
+	wrists = text2path(outfit_data["wrists"])
+	gloves = text2path(outfit_data["gloves"])
+	shirt = text2path(outfit_data["shirt"])
+	armor = text2path(outfit_data["armor"])
+	pants = text2path(outfit_data["pants"])
+	belt = text2path(outfit_data["belt"])
+	shoes = text2path(outfit_data["shoes"])
 	return TRUE

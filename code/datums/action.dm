@@ -16,7 +16,7 @@
 	var/button_icon = 'icons/mob/actions/roguespells.dmi' //This is the file for the BACKGROUND icon
 	var/background_icon_state = "spell" //And this is the state for the background icon
 
-	var/icon_icon = 'icons/mob/actions.dmi' //This is the file for the ACTION icon
+	var/icon_icon = 'icons/mob/actions/actions_spells.dmi' //This is the file for the ACTION icon
 	var/button_icon_state = "default" //And this is the state for the action icon
 	var/overlay_state = null
 	var/mob/owner

@@ -27,16 +27,16 @@
 			head = /obj/item/clothing/head/helmet/heavy/necked/dendorhelm
 			wrists = /obj/item/clothing/neck/psycross/silver/dendor
 		if(/datum/patron/divine/abyssor)
-			head = /obj/item/clothing/head/helmet/heavy/bucket // Placeholder
+			head = /obj/item/clothing/head/helmet/heavy/necked // Placeholder
 			wrists = /obj/item/clothing/neck/psycross/silver/abyssor
 		if(/datum/patron/divine/necra)
 			head = /obj/item/clothing/head/helmet/heavy/necked/necra
 			wrists = /obj/item/clothing/neck/psycross/silver/necra
 		if(/datum/patron/divine/ravox)
-			head = /obj/item/clothing/head/helmet/heavy/bucket // Placeholder
+			head = /obj/item/clothing/head/helmet/heavy/necked/ravox
 			wrists = /obj/item/clothing/neck/psycross/silver/ravox
 		if(/datum/patron/divine/xylix)
-			head = /obj/item/clothing/head/helmet/heavy/bucket // Placeholder
+			head = /obj/item/clothing/head/helmet/heavy/necked // Placeholder
 			wrists = /obj/item/clothing/neck/psycross/silver/xylix
 		if(/datum/patron/divine/pestra)
 			head = /obj/item/clothing/head/helmet/heavy/necked/pestrahelm
@@ -63,7 +63,7 @@
 	shoes = /obj/item/clothing/shoes/boots/armor
 	belt = /obj/item/storage/belt/leather/steel
 	beltl = /obj/item/storage/belt/pouch/coins/mid
-	id = /obj/item/clothing/ring/silver/toper
+	ring = /obj/item/clothing/ring/silver/toper
 	cloak = /obj/item/clothing/cloak/tabard/crusader
 	neck = /obj/item/clothing/neck/chaincoif
 	gloves = /obj/item/clothing/gloves/plate
