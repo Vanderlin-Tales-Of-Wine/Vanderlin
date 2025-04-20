@@ -325,7 +325,7 @@
 	icon_state = "spangenhelm"
 	icon = 'icons/roguetown/clothing/special/spangenhelm_item'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmod/spangenhelm_worn'
-	body_parts_covered = HEAD|SKULL|NOSE|EYES
+	body_parts_covered = HEAD|NOSE|EYES
 	slot_flags = ITEM_SLOT_HEAD
 	flags_inv = HIDEFACE|HIDEHAIR
 	armor = ARMOR_PLATE
