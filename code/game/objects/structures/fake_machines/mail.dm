@@ -461,7 +461,7 @@
 			max_purchases = 1
 		),
 		"Inquisitorial Hat (2)" = list(
-			list(type = /obj/item/clothing/head/inqhat, count = 1),
+			list(type = /obj/item/clothing/head/leather/inqhat, count = 1),
 			cost = 2,
 			max_purchases = 1
 		),
