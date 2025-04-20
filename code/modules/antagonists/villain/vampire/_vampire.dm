@@ -58,14 +58,12 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 		return span_boldnotice("Another deadite.")
 
 /datum/antagonist/vampire/apply_innate_effects(mob/living/mob_override)
-	var/mob/living/M = mob_override || owner.current
-	add_antag_hud(antag_hud_type, antag_hud_name, M)
+	. = ..()
 	for(var/trait as anything in innate_traits)
 		ADD_TRAIT(M, trait, "[type]")
 
 /datum/antagonist/vampire/remove_innate_effects(mob/living/mob_override)
-	var/mob/living/M = mob_override || owner.current
-	remove_antag_hud(antag_hud_type, M)
+	. = ..()
 	for(var/trait as anything in innate_traits)
 		REMOVE_TRAIT(M, trait, "[type]")
 

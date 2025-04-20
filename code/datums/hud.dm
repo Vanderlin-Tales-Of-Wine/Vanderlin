@@ -19,21 +19,6 @@ GLOBAL_LIST_INIT(huds, list(
 	ANTAG_HUD_BANDIT = new/datum/atom_hud/antag(),
 	))
 
-#define ROGUE_HUD_MARRIED			0
-#define ANTAG_HUD_HIDDEN			1
-#define ANTAG_HUD_REV				2
-#define ANTAG_HUD_REV_HEAD			3
-#define ANTAG_HUD_NECROMANCER		4
-#define ANTAG_HUD_SKELETON			5
-#define ANTAG_HUD_VAMPLORD			6
-#define ANTAG_HUD_VAMP				7
-#define ANTAG_HUD_WEREWOLF			8
-#define ANTAG_HUD_WEREWOLF_LESSER	9
-#define ANTAG_HUD_ZIZOID			10
-#define ANTAG_HUD_ZIZOID_LACKEY		11
-#define ANTAG_HUD_BANDIT			12
-
-
 /datum/atom_hud
 	var/list/atom/hudatoms = list() //list of all atoms which display this hud
 	var/list/hudusers = list() //list with all mobs who can see the hud
