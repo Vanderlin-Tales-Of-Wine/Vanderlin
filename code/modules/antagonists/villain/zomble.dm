@@ -58,6 +58,14 @@
 	)
 	var/mutable_appearance/rotflies
 
+// special handling for zombies
+/datum/antagonist/zombie/apply_innate_effects(mob/living/mob_override)
+	return
+
+// special handling for zombies
+/datun/antagonist/zombie/remove_innate_effects()
+	return
+
 /datum/antagonist/zombie/examine_friendorfoe(datum/antagonist/examined_datum,mob/examiner,mob/examined)
 	if(istype(examined_datum, /datum/antagonist/vampire))
 		var/datum/antagonist/vampire/V = examined_datum
@@ -124,6 +132,8 @@
 	zombie.set_patron(patron)
 	owner.known_skills = stored_skills
 	owner.skill_experience = stored_experience
+	for(var/trait in innate_traits)
+		REMOVE_TRAIT(zombie, trait, "[type]")
 	zombie.remove_client_colour(/datum/client_colour/monochrome)
 	if(has_turned && become_rotman)
 		zombie.set_stat_modifier(TRAIT_ROTMAN, STATKEY_CON, -5)
@@ -167,6 +177,8 @@
 		return
 	revived = TRUE //so we can die for real later
 	zombie.add_client_colour(/datum/client_colour/monochrome)
+	for(var/trait_applied in innate_traits)
+		ADD_TRAIT(zombie, trait_applied, "[type]")
 	if(HAS_TRAIT(zombie, TRAIT_DODGEEXPERT))
 		REMOVE_TRAIT(zombie, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 	if(zombie.mind)
