@@ -65,7 +65,7 @@ SUBSYSTEM_DEF(treasury)
 /datum/controller/subsystem/treasury/fire(resumed = 0)
 	if(world.time > next_treasury_check)
 		//I dont know why the treasury check is randomized
-		next_treasury_check = world.time + rand(5 MINUTES, 8 MINUTES)
+		next_treasury_check = world.time + rand(8 MINUTES, 12 MINUTES)
 		if(SSticker.current_state == GAME_STATE_PLAYING)
 			//Stock price updated based on demand variable.
 			for(var/datum/stock/X in stockpile_datums)
@@ -118,19 +118,22 @@ SUBSYSTEM_DEF(treasury)
 	return passive_income
 
 /datum/controller/subsystem/treasury/proc/add_to_vault(obj/item/item)
-	var/list/objects_to_search = list(src)
+	var/list/objects_to_search = list(item)
 	var/datum/component/storage/storage = item.GetComponent(/datum/component/storage)
 	if(storage)
 		objects_to_search |= storage.contents()
 	var/total_value = 0
-	for(var/atom/movable/atom in objects_to_search)
-		if(is_type_in_typecache(atom, GLOB.ITEM_DOES_NOT_GENERATE_VAULT_RENT))
+	for(var/atom/movable/movable_atom in objects_to_search)
+		if(is_type_in_typecache(movable_atom, GLOB.ITEM_DOES_NOT_GENERATE_VAULT_RENT))
 			continue
-		if(atom.get_real_price() <= 0)
+		if(movable_atom.get_real_price() <= 0)
 			continue
-		vault_accounting[atom.type] += 1
 		//Passive income is 15% of the items worth.
-		total_value += atom.get_real_price() * interest_rate * (max(vault_accounting[atom.type]-1,0) * multiple_item_penalty)
+		var/item_value = movable_atom.get_real_price() * interest_rate
+		vault_accounting[movable_atom.type] += 1
+		if(vault_accounting[movable_atom.type] > 1)
+			item_value *= (vault_accounting[movable_atom.type]-1) * multiple_item_penalty
+		total_value += item_value
 	return total_value
 
 /*
@@ -179,7 +182,7 @@ SUBSYSTEM_DEF(treasury)
 				bank_accounts[X] += amt  // Add funds into the player's account
 			else
 				// Check if the amount to be fined exceeds the player's account balance
-				amt = min(amt, bank_accounts[X])
+				amt = min(max(amt, -1 * bank_accounts[X]), 0)  // amt should be a negative number
 				bank_accounts[X] -= abs(amt)  // Deduct the fine amount from the player's account
 			found_account = TRUE
 			break
@@ -194,13 +197,13 @@ SUBSYSTEM_DEF(treasury)
 		else
 			send_ooc_note("<b>MEISTER:</b> Your account has received [amt] mammon.", name = target_name)
 			log_to_steward("+[amt] from treasury to [target_name]")
-	else
+	else if (amt < 0)
 		// Player was fined
 		if(source)
-			send_ooc_note("<b>MEISTER:</b> Your account was fined [amt] mammon. ([source])", name = target_name)
+			send_ooc_note("<b>MEISTER:</b> Your account was fined [abs(amt)] mammon. ([source])", name = target_name)
 			log_to_steward("[name] was fined [target_name] ([source])")
 		else
-			send_ooc_note("<b>MEISTER:</b> Your account was fined [amt] mammon.", name = target_name)
+			send_ooc_note("<b>MEISTER:</b> Your account was fined [abs(amt)] mammon.", name = target_name)
 			log_to_steward("[name] was fined [target_name]")
 
 	return TRUE
@@ -243,7 +246,7 @@ SUBSYSTEM_DEF(treasury)
 	for(var/X in bank_accounts)
 		if(X == target)
 			if(bank_accounts[X] < amt)  // Check if the withdrawal amount exceeds the player's account balance
-				send_ooc_note("<b>MEISTER:</b> Error: Insufficient funds in the player's account to complete the withdrawal.", name = target_name)
+				send_ooc_note("<b>MEISTER:</b> Error: Insufficient funds in the account to complete the withdrawal.", name = target_name)
 				return  // Return without processing the transaction
 			if(treasury_value < amt)  // Check if the amount exceeds the treasury balance
 				send_ooc_note("<b>MEISTER:</b> Error: Insufficient funds in the treasury to complete the transaction.", name = target_name)

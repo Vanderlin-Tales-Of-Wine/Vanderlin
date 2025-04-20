@@ -15,7 +15,7 @@
 	max_integrity = 0
 	anchored = TRUE
 	layer = BELOW_OBJ_LAYER
-	var/locked = FALSE
+	var/locked = TRUE
 	var/current_tab = TAB_MAIN
 	var/compact = FALSE
 
