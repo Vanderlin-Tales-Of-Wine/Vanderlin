@@ -237,9 +237,9 @@
 	color_theme = "#FFD700"
 
 	influence_factors = list(
-		STATS_LAWS_AND_DECREES_MADE = list("points" = 3,"capacity" = 35),
-		STATS_ALIVE_NOBLES = list("points" = 5,"capacity" = 110),
-		STATS_NOBLE_DEATHS = list("points" = -7.5,"capacity" = -100),
+		STATS_LAWS_AND_DECREES_MADE = list("points" = 3,"capacity" = 40),
+		STATS_ALIVE_NOBLES = list("points" = 5,"capacity" = 115),
+		STATS_NOBLE_DEATHS = list("points" = -7.5,"capacity" = -105),
 		STATS_ASTRATA_REVIVALS = list("points" = 6, "capacity" = 70),
-		STATS_TAXES_COLLECTED = list("points" = 0.17,"capacity" = 85),
+		STATS_TAXES_COLLECTED = list("points" = 0.15,"capacity" = 85),
 	)
