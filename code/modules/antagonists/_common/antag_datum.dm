@@ -18,6 +18,9 @@ GLOBAL_LIST_EMPTY(antagonists)
 	var/antag_hud_name
 	var/list/confess_lines
 
+	/// traits applied to the mob at on_gain() and removed at on_removal()
+	var/list/innate_traits = list()
+
 	//Antag panel properties
 	var/show_in_antagpanel = TRUE	//This will hide adding this antag type in antag panel, use only for internal subtypes that shouldn't be added directly but still show if possessed by mind
 	var/antagpanel_category = "Uncategorized"	//Antagpanel will display these together, REQUIRED
@@ -63,10 +66,16 @@ GLOBAL_LIST_EMPTY(antagonists)
 
 /// This handles the application of special abilities
 /datum/antagonist/proc/apply_innate_effects(mob/living/mob_override)
+	var/mob/living/M = mob_override || owner.current
+	for(var/trait as anything in innate_traits)
+		ADD_TRAIT(M, trait, "[type]")
 	return
 
 /// This handles the removal of special abilities
 /datum/antagonist/proc/remove_innate_effects(mob/living/mob_override)
+	var/mob/living/M = mob_override || owner.current
+	for(var/trait as anything in innate_traits)
+		REMOVE_TRAIT(M, trait, "[type]")
 	return
 
 /// Adds the specified antag hud to the player. Usually called in an antag datum file

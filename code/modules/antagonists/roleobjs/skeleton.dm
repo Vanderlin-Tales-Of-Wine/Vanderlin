@@ -15,14 +15,6 @@
 	if(istype(examined_datum, /datum/antagonist/skeleton))
 		return "<span class='boldnotice'>Another deadite. My ally.</span>"
 
-/datum/antagonist/skeleton/on_gain()
-
-	return ..()
-
-/datum/antagonist/skeleton/on_removal()
-	return ..()
-
-
 /datum/antagonist/skeleton/greet()
 	owner.announce_objectives()
 	..()

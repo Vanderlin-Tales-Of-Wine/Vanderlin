@@ -22,8 +22,8 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	/// If the vampire will autojoin on spawn.
 	var/autojoin_team = FALSE //! shouldn't exist, need to find a better method
 
-	/// TRAITs that the datum will grant. Static, should not be modified.
-	var/static/list/innate_traits = list(
+	/// TRAITs that the datum will grant.
+	innate_traits = list(
 		TRAIT_STRONGBITE,
 		TRAIT_NOSTAMINA,
 		TRAIT_NOHUNGER,
@@ -56,16 +56,6 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 		return span_boldnotice("Another deadite.")
 	if(istype(examined_datum, /datum/antagonist/skeleton))
 		return span_boldnotice("Another deadite.")
-
-/datum/antagonist/vampire/apply_innate_effects(mob/living/mob_override)
-	. = ..()
-	for(var/trait as anything in innate_traits)
-		ADD_TRAIT(M, trait, "[type]")
-
-/datum/antagonist/vampire/remove_innate_effects(mob/living/mob_override)
-	. = ..()
-	for(var/trait as anything in innate_traits)
-		REMOVE_TRAIT(M, trait, "[type]")
 
 /datum/antagonist/vampire/on_gain()
 	SSmapping.retainer.vampires |= owner

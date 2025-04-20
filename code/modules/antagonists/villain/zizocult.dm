@@ -15,6 +15,11 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	)
 	var/islesser = TRUE
 
+	innate_traits = list(
+		TRAIT_STEELHEARTED,
+		TRAIT_VILLAIN,
+	)
+
 /datum/antagonist/zizocultist/leader
 	name = "Zizoid Cultist"
 	antag_hud_type = ANTAG_HUD_ZIZOID
@@ -44,8 +49,6 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	owner.current.playsound_local(get_turf(owner.current), 'sound/music/maniac.ogg', 80, FALSE, pressure_affected = FALSE)
 	owner.current.verbs |= /mob/living/carbon/human/proc/praise
 	owner.current.verbs |= /mob/living/carbon/human/proc/communicate
-	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_VILLAIN, TRAIT_GENERIC)
 
 	H.change_stat(STATKEY_STR, 2)
 
@@ -650,7 +653,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 								// carbon.visible_message("profane dagger whispers, <span class='danger'>\"The terrible Zizo has called for our aid. Hunt and strike down our common foe, [HL.real_name]!\"</span>")
 								to_chat(carbon, "profane dagger whispers, <span class='danger'>\"The terrible Zizo has called for our aid. Hunt and strike down our common foe, [HL.real_name]!\"</span>")
 				if(found_assassin == TRUE)
-					ADD_TRAIT(HL, TRAIT_ZIZOID_HUNTED, TRAIT_GENERIC) // Gives the victim a trait to track that they are wanted dead.
+					ADD_TRAIT(HL, TRAIT_ZIZOID_HUNTED, [type]) // Gives the victim a trait to track that they are wanted dead.
 					log_hunted("[key_name(HL)] playing as [HL] had the hunted flaw by Zizoid curse.")
 					to_chat(HL, "<span class='danger'>My hair stands on end. Has someone just said my name? I should watch my back.</span>")
 					to_chat(user, "<span class='warning'>Your target has been marked, your profane call answered by the Dark Sun. [HL.real_name] will surely perish!</span>")

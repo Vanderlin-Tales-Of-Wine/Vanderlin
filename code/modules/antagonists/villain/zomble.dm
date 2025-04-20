@@ -26,7 +26,7 @@
 	/// Whether or not we have been turned
 	var/has_turned = FALSE
 	/// Traits applied to the owner mob when we turn into a zombie
-	var/static/list/traits_zombie = list(
+	innate_traits = list(
 		TRAIT_NOSTAMINA,
 		TRAIT_NOMOOD,
 		TRAIT_NOLIMBDISABLE,
@@ -124,8 +124,6 @@
 	zombie.set_patron(patron)
 	owner.known_skills = stored_skills
 	owner.skill_experience = stored_experience
-	for(var/trait in traits_zombie)
-		REMOVE_TRAIT(zombie, trait, "[type]")
 	zombie.remove_client_colour(/datum/client_colour/monochrome)
 	if(has_turned && become_rotman)
 		zombie.set_stat_modifier(TRAIT_ROTMAN, STATKEY_CON, -5)
@@ -169,8 +167,6 @@
 		return
 	revived = TRUE //so we can die for real later
 	zombie.add_client_colour(/datum/client_colour/monochrome)
-	for(var/trait_applied in traits_zombie)
-		ADD_TRAIT(zombie, trait_applied, "[type]")
 	if(HAS_TRAIT(zombie, TRAIT_DODGEEXPERT))
 		REMOVE_TRAIT(zombie, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 	if(zombie.mind)
