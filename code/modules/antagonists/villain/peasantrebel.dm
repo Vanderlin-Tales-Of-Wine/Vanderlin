@@ -102,6 +102,7 @@
 	antag_hud_type = ANTAG_HUD_REV_HEAD
 	antag_hud_name = "rev_head"
 	increase_votepwr = TRUE
+
 /datum/antagonist/prebel/head/on_gain()
 	. = ..()
 	owner.AddSpell(new /obj/effect/proc_holder/spell/self/rebelconvert)
