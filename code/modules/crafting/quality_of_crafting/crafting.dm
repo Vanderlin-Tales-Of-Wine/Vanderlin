@@ -321,6 +321,7 @@
 	output = /obj/item/weapon/hammer/wood
 	craft_time = 5 SECONDS
 	uses_attacked_atom = FALSE
+	craftdiff = 0
 
 /datum/repeatable_crafting_recipe/crafting/wpsycross
 	name = "wooden psycross"

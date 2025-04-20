@@ -175,6 +175,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 	var/base_icon_state = "spell"
 	var/associated_skill = /datum/skill/magic/arcane
 	var/miracle = FALSE
+	var/healing_miracle = FALSE
 	var/devotion_cost = 0
 	var/ignore_cockblock = FALSE //whether or not to ignore TRAIT_SPELLBLOCK
 	var/uses_mana = TRUE
@@ -218,7 +219,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 			var/diffy = 10 - ranged_ability_user.STAINT
 			newdrain = newdrain + (releasedrain * (diffy * 0.02))
 //		newdrain = newdrain + (ranged_ability_user.checkwornweight() * 10)
-		if(!ranged_ability_user.check_armor_skill())
+		if(ranged_ability_user.get_encumbrance() > 0.4)
 			newdrain += 40
 		testing("[releasedrain] newdrain [newdrain]")
 		if(newdrain > 0)
@@ -391,6 +392,13 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 	return
 
 /obj/effect/proc_holder/spell/proc/perform(list/targets, recharge = TRUE, mob/user = usr) //if recharge is started is important for the trigger spells
+	if(length(targets) && miracle && healing_miracle)
+		var/mob/living/target = targets[1]
+		if(istype(target))
+			var/lux_state = target.get_lux_status()
+			if(lux_state != LUX_HAS_LUX)
+				target.visible_message(span_danger("[target] recoils in disgust!"))
+
 	before_cast(targets)
 	invocation(user)
 

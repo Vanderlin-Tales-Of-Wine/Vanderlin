@@ -1,9 +1,11 @@
 /datum/job/butler
 	title = "Butler"
-	f_title = "Maid"
-	tutorial = "You are the master of the household staff, ensuring that meals are served, chambers are kept, and the court is kept clean.\
-	Though you wear the royal colors, you hold no true authority. A servant among servants,\
-	yet without your guidance chaos would reign in the kitchen and halls."
+	f_title = "Head Housekeeper"
+	tutorial = "You are elevated to near nobility, as you hold the distinguished position of master of the royal household staff. \
+	Your blade is a charcuterie of artisanal cheeses and meat, your armor wit and classical training. \
+	By your word the meals are served, the chambers kept, and the floors polished clean. \
+	You wear the royal colors and hold their semblance of dignity, \
+	for without you and the servants under your command, the court would have all starved to death."
 	flag = BUTLER
 	department_flag = PEASANTS
 	display_order = JDO_BUTLER

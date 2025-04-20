@@ -68,7 +68,7 @@
 			armor = /obj/item/clothing/armor/gambeson/heavy/dress
 	beltl = /obj/item/flashlight/flare/torch/lantern
 	beltr =  /obj/item/storage/belt/pouch
-	id = /obj/item/clothing/ring/silver
+	ring = /obj/item/clothing/ring/silver
 	shoes = /obj/item/clothing/shoes/shortboots
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/misc/stealing, 4, TRUE)
@@ -217,7 +217,7 @@
 	belt = /obj/item/storage/belt/leather/plaquesilver
 	beltl = /obj/item/flashlight/flare/torch/lantern
 	beltr = /obj/item/book/granter/spellbook/expert
-	id = /obj/item/clothing/ring/gold
+	ring = /obj/item/clothing/ring/gold
 	r_hand = /obj/item/weapon/polearm/woodstaff
 	backl = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/reagent_containers/glass/bottle/poison,/obj/item/reagent_containers/glass/bottle/healthpot)

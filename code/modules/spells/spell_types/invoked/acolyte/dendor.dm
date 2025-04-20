@@ -118,6 +118,9 @@
 	for(var/mob/living/simple_animal/hostile/retaliate/B in oview(2))
 		if((B.mob_biotypes & MOB_UNDEAD))
 			continue
+		if(!prob(B.dendor_taming_chance))
+			to_chat(user, span_warning("The [B.name] resists your soothing!"))
+			continue
 		var/datum/component/obeys_commands/commands = B.GetComponent(/datum/component/obeys_commands)
 		if(!commands)
 			B.AddComponent(/datum/component/obeys_commands, pet_commands)
@@ -149,6 +152,7 @@
 	invocation_type = "whisper"
 	recharge_time = 50 SECONDS
 	devotion_cost = 15
+	miracle = TRUE
 
 /obj/effect/proc_holder/spell/invoked/entangler/cast(list/targets, mob/living/user)
 	. = ..()
@@ -253,6 +257,7 @@
 	attunements = list(
 		/datum/attunement/earth = 0.6,
 	)
+	miracle = TRUE
 
 /obj/effect/proc_holder/spell/targeted/conjure_kneestingers/cast(list/targets,mob/user = usr)
 	playsound(get_turf(user), 'sound/vo/smokedrag.ogg', 100, TRUE)

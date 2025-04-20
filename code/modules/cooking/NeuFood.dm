@@ -122,6 +122,10 @@
 	name = "iron spoon"
 	icon_state = "spoon_iron"
 
+/obj/item/kitchen/spoon/pewter
+	name = "pewter spoon"
+	icon_state = "spoon_iron"
+
 /obj/item/kitchen/fork
 	name = "wooden fork"
 	desc = "Traditional utensil for stabbing your food in order to shove it into your mouth."
@@ -129,6 +133,10 @@
 
 /obj/item/kitchen/fork/iron
 	name = "iron fork"
+	icon_state = "fork_iron"
+
+/obj/item/kitchen/fork/pewter
+	name = "pewter fork"
 	icon_state = "fork_iron"
 
 /// DEPRECIATED. USE /obj/item/plate instead.
@@ -192,6 +200,10 @@
 	metalizer_result = /obj/item/coin/copper
 
 /obj/item/reagent_containers/glass/bowl/iron
+	icon_state = "bowl_iron"
+	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
+
+/obj/item/reagent_containers/glass/bowl/pewter
 	icon_state = "bowl_iron"
 	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
 

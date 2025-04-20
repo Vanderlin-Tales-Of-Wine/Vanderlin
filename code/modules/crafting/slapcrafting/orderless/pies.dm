@@ -166,6 +166,7 @@
 
 /*	.................   Cheap dye crafting   ................... */
 /datum/orderless_slapcraft/cheapdye
+	name = "cheap dyes"
 	recipe_name = "Cheap dyes"
 	starting_item = /obj/item/ash
 	related_skill = /datum/skill/misc/sewing

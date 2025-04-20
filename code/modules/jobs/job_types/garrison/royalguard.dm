@@ -1,8 +1,7 @@
 /datum/job/royalguard
 	title = "Royal Knight"
-	tutorial = "You are a knight of the royal garrison, elevated by your skill and steadfast devotion.\
-	Sworn to protect the royal family, you stand as their shield, upholding their rule with steel and sacrifice.\
-	You are bound to serve them, but should the monarch forget their place with the gods and the land,\
+	tutorial = "You are a knight of the royal garrison, elevated by your skill and steadfast devotion. \
+	Sworn to protect the royal family, you stand as their shield, upholding their rule with steel and sacrifice. \
 	Yet loyalty is not without its trials, and faith is tested in ways both seen and unseen. In the end, duty is a path one must walk carefully."
 	flag = GUARDSMAN
 	department_flag = GARRISON
@@ -58,10 +57,8 @@
 	backr = /obj/item/storage/backpack/satchel
 	backl = /obj/item/weapon/shield/tower/metal
 	r_hand = /obj/item/weapon/polearm/halberd
-	if(prob(30))
-		head = /obj/item/clothing/head/helmet/visored/knight
-	else
-		head = /obj/item/clothing/head/helmet/sallet
+	gloves = /obj/item/clothing/gloves/chain
+	head = /obj/item/clothing/head/helmet/visored/knight
 
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)

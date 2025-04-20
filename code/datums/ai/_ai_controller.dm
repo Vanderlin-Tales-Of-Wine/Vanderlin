@@ -156,7 +156,7 @@ have ways of interacting with a specific atom and control it. They posses a blac
 	return !QDELETED(pawn)
 
 ///Interact with objects
-/datum/ai_controller/proc/ai_interact(target, combat_mode, list/modifiers)
+/datum/ai_controller/proc/ai_interact(target, combat_mode, list/modifiers, nextmove = FALSE)
 	if(!ai_can_interact())
 		return FALSE
 
@@ -166,6 +166,9 @@ have ways of interacting with a specific atom and control it. They posses a blac
 		return FALSE
 	var/params = list2params(modifiers)
 	var/mob/living/living_pawn = pawn
+	if(nextmove && living_pawn.next_move > world.time)
+		return FALSE
+
 	if(isnull(combat_mode))
 		living_pawn.ClickOn(final_target, params)
 		return TRUE
@@ -265,6 +268,19 @@ have ways of interacting with a specific atom and control it. They posses a blac
 /// Sets the AI on or off based on current conditions, call to reset after you've manually disabled it somewhere
 /datum/ai_controller/proc/reset_ai_status()
 	set_ai_status(get_expected_ai_status())
+
+/datum/ai_controller/proc/can_move()
+	var/mob/living/living_pawn = pawn
+	if(living_pawn.IsStun() || living_pawn.IsParalyzed())
+		return FALSE
+	if(ai_traits & STOP_MOVING_WHEN_PULLED && living_pawn.pulledby)
+		return FALSE
+	if(!isturf(living_pawn.loc)) //No moving if not on a turf
+		return FALSE
+	if(!(living_pawn.mobility_flags & MOBILITY_MOVE))
+		return FALSE
+
+	return TRUE
 
 /**
  * Gets the AI status we expect the AI controller to be on at this current moment.
@@ -444,14 +460,14 @@ have ways of interacting with a specific atom and control it. They posses a blac
 	arguments[1] = src
 
 	if(LAZYACCESS(current_behaviors, behavior)) ///It's still in the plan, don't add it again to current_behaviors but do keep it in the planned behavior list so its not cancelled
-		LAZYADDASSOC(planned_behaviors, behavior, TRUE)
+		LAZYADDASSOCLIST(planned_behaviors, behavior, TRUE)
 		return
 
 	if(!behavior.setup(arglist(arguments)))
 		return
 
-	LAZYADDASSOC(current_behaviors, behavior, TRUE)
-	LAZYADDASSOC(planned_behaviors, behavior, TRUE)
+	LAZYADDASSOCLIST(current_behaviors, behavior, TRUE)
+	LAZYADDASSOCLIST(planned_behaviors, behavior, TRUE)
 
 	arguments.Cut(1, 2)
 	if(length(arguments))

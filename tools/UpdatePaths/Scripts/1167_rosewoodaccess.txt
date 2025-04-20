@@ -1,0 +1,36 @@
+/obj/structure/mineral_door/@SUBTYPES{locked=1} : /obj/structure/mineral_door/@SUBTYPES{@OLD;locked=@SKIP}, /obj/effect/mapping_helpers/door/locker
+/obj/structure/mineral_door/@SUBTYPES{lockid="nightmaiden"} : /obj/structure/mineral_door/@SUBTYPES{@OLD;lockid=@SKIP}, /obj/effect/mapping_helpers/door/access/town/apothecary
+/obj/structure/mineral_door/@SUBTYPES{lockid="blacksmith"} : /obj/structure/mineral_door/@SUBTYPES{@OLD;lockid=@SKIP}, /obj/effect/mapping_helpers/door/access/town/smith
+/obj/structure/mineral_door/@SUBTYPES{lockid="artificer"} : /obj/structure/mineral_door/@SUBTYPES{@OLD;lockid=@SKIP}, /obj/effect/mapping_helpers/door/access/town/artificer
+/obj/structure/mineral_door/@SUBTYPES{lockid="orphanage"} : /obj/structure/mineral_door/@SUBTYPES{@OLD;lockid=@SKIP}, /obj/effect/mapping_helpers/door/access/town/matron
+/obj/structure/mineral_door/@SUBTYPES{lockid="clinic"} : /obj/structure/mineral_door/@SUBTYPES{@OLD;lockid=@SKIP}, /obj/effect/mapping_helpers/door/access/town/clinic
+
+/obj/structure/mineral_door/@SUBTYPES{lockid="tailor"} : /obj/structure/mineral_door/@SUBTYPES{@OLD;lockid=@SKIP}, /obj/effect/mapping_helpers/door/access/town/tailor
+/obj/structure/mineral_door/@SUBTYPES{lockid="tavern"} : /obj/structure/mineral_door/@SUBTYPES{@OLD;lockid=@SKIP}, /obj/effect/mapping_helpers/door/access/town/inn
+/obj/structure/mineral_door/@SUBTYPES{lockid="shop"} : /obj/structure/mineral_door/@SUBTYPES{@OLD;lockid=@SKIP}, /obj/effect/mapping_helpers/door/access/town/merchant
+/obj/structure/mineral_door/@SUBTYPES{lockid="merchant"} : /obj/structure/mineral_door/@SUBTYPES{@OLD;lockid=@SKIP}, /obj/effect/mapping_helpers/door/access/town/merchant
+/obj/structure/mineral_door/@SUBTYPES{lockid="soilson"} : /obj/structure/mineral_door/@SUBTYPES{@OLD;lockid=@SKIP}, /obj/effect/mapping_helpers/door/access/town/soilson
+/obj/structure/mineral_door/@SUBTYPES{lockid="butcher"} : /obj/structure/mineral_door/@SUBTYPES{@OLD;lockid=@SKIP}, /obj/effect/mapping_helpers/door/access/town/butcher
+/obj/structure/mineral_door/@SUBTYPES{lockid="elder"} : /obj/structure/mineral_door/@SUBTYPES{@OLD;lockid=@SKIP}, /obj/effect/mapping_helpers/door/access/town/elder
+/obj/structure/mineral_door/@SUBTYPES{lockid="veteran"} : /obj/structure/mineral_door/@SUBTYPES{@OLD;lockid=@SKIP}, /obj/effect/mapping_helpers/door/access/town/veteran
+/obj/structure/mineral_door/@SUBTYPES{lockid="mercenary"} : /obj/structure/mineral_door/@SUBTYPES{@OLD;lockid=@SKIP}, /obj/effect/mapping_helpers/door/access/town/mercenary
+/obj/structure/mineral_door/@SUBTYPES{lockid="tower"} : /obj/structure/mineral_door/@SUBTYPES{@OLD;lockid=@SKIP}, /obj/effect/mapping_helpers/door/access/town/tower
+/obj/structure/mineral_door/@SUBTYPES{lockid="warehouse"} : /obj/structure/mineral_door/@SUBTYPES{@OLD;lockid=@SKIP}, /obj/effect/mapping_helpers/door/access/town/warehouse
+
+/obj/structure/mineral_door/@SUBTYPES{lockid="garrison"} : /obj/structure/mineral_door/@SUBTYPES{@OLD;lockid=@SKIP}, /obj/effect/mapping_helpers/door/access/garrison/garrison
+/obj/structure/mineral_door/@SUBTYPES{lockid="sheriff"} : /obj/structure/mineral_door/@SUBTYPES{@OLD;lockid=@SKIP}, /obj/effect/mapping_helpers/door/access/garrison/captain
+/obj/structure/mineral_door/@SUBTYPES{lockid="forrestgarrison"} : /obj/structure/mineral_door/@SUBTYPES{@OLD;lockid=@SKIP}, /obj/effect/mapping_helpers/door/access/garrison/forest
+
+/obj/structure/mineral_door/@SUBTYPES{lockid="priest"} : /obj/structure/mineral_door/@SUBTYPES{@OLD;lockid=@SKIP}, /obj/effect/mapping_helpers/door/access/church/church
+/obj/structure/mineral_door/@SUBTYPES{lockid="hpriest"} : /obj/structure/mineral_door/@SUBTYPES{@OLD;lockid=@SKIP}, /obj/effect/mapping_helpers/door/access/church/priest
+/obj/structure/mineral_door/@SUBTYPES{lockid="puritan"} : /obj/structure/mineral_door/@SUBTYPES{@OLD;lockid=@SKIP}, /obj/effect/mapping_helpers/door/access/church/inquisition
+/obj/structure/mineral_door/@SUBTYPES{lockid="graveyard"} : /obj/structure/mineral_door/@SUBTYPES{@OLD;lockid=@SKIP}, /obj/effect/mapping_helpers/door/access/church/grave
+
+/obj/structure/mineral_door/@SUBTYPES{lockid="manor"} : /obj/structure/mineral_door/@SUBTYPES{@OLD;lockid=@SKIP}, /obj/effect/mapping_helpers/door/access/manor/manor
+/obj/structure/mineral_door/@SUBTYPES{lockid="walls"} : /obj/structure/mineral_door/@SUBTYPES{@OLD;lockid=@SKIP}, /obj/effect/mapping_helpers/door/access/manor/gate
+/obj/structure/mineral_door/@SUBTYPES{lockid="steward"} : /obj/structure/mineral_door/@SUBTYPES{@OLD;lockid=@SKIP}, /obj/effect/mapping_helpers/door/access/manor/steward
+/obj/structure/mineral_door/@SUBTYPES{lockid="dungeon"} : /obj/structure/mineral_door/@SUBTYPES{@OLD;lockid=@SKIP}, /obj/effect/mapping_helpers/door/access/manor/dungeon
+/obj/structure/mineral_door/@SUBTYPES{lockid="hand"} : /obj/structure/mineral_door/@SUBTYPES{@OLD;lockid=@SKIP}, /obj/effect/mapping_helpers/door/access/manor/hand
+/obj/structure/mineral_door/@SUBTYPES{lockid="lord"} : /obj/structure/mineral_door/@SUBTYPES{@OLD;lockid=@SKIP}, /obj/effect/mapping_helpers/door/access/manor/lord
+/obj/structure/mineral_door/@SUBTYPES{lockid="vault"} : /obj/structure/mineral_door/@SUBTYPES{@OLD;lockid=@SKIP}, /obj/effect/mapping_helpers/door/access/manor/vault
+/obj/structure/mineral_door/@SUBTYPES{lockid="mage"} : /obj/structure/mineral_door/@SUBTYPES{@OLD;lockid=@SKIP}, /obj/effect/mapping_helpers/door/access/manor/mage
