@@ -14,7 +14,7 @@
 
 	influence_factors = list(
 		STATS_BOOKS_PRINTED = list("points" = 4, "capacity" = 40),
-		STATS_LITERACY_TAUGHT = list("points" = 12.5, "capacity" = 110),
+		STATS_LITERACY_TAUGHT = list("points" = 15, "capacity" = 100),
 		STATS_ILLITERATES = list("points" = -3.5, "capacity" = -60),
 		STATS_SKILLS_DREAMED = list("points" = 0.3, "capacity" = 100),
 		STATS_MANA_SPENT = list("points" = 0.0125, "capacity" = 100),
@@ -42,7 +42,7 @@
 	)
 
 	influence_factors = list(
-		STATS_COMBAT_SKILLS = list("points" = 1.3, "capacity" = 100),
+		STATS_COMBAT_SKILLS = list("points" = 1.4, "capacity" = 100),
 		STATS_PARRIES = list("points" = 0.05, "capacity" = 100),
 		STATS_WARCRIES = list("points" = 0.375, "capacity" = 50),
 		STATS_YIELDS = list("points" = -5, "capacity" = -40),
@@ -66,7 +66,7 @@
 		STATS_WATER_CONSUMED = list("points" = 0.0095, "capacity" = 90),
 		STATS_FISH_CAUGHT = list("points" = 1.75, "capacity" = 90),
 		STATS_ABYSSOR_REMEMBERED = list("points" = 1, "capacity" = 45),
-		STATS_LEECHES_EMBEDDED = list("points" = 0.175, "capacity" = 70),
+		STATS_LEECHES_EMBEDDED = list("points" = 0.165, "capacity" = 70),
 		STATS_PEOPLE_DROWNED = list("points" = 7.5, "capacity" = 70),
 	)
 
@@ -143,7 +143,7 @@
 		STATS_WOUNDS_SEWED = list("points" = 0.5, "capacity" = 100),
 		STATS_SOULS_REINCARNATED = list("points" = 2.65, "capacity" = 65),
 		STATS_ANIMALS_BRED = list("points" = 6, "capacity" = 65),
-		STATS_FOOD_ROTTED = list("points" = 0.35, "capacity" = 80),
+		STATS_FOOD_ROTTED = list("points" = 0.3, "capacity" = 80),
 	)
 
 /datum/storyteller/malum
@@ -293,7 +293,7 @@
 		STATS_DRUGS_SNORTED = list("points" = 3.75, "capacity" = 85),
 		STATS_ALCOHOL_CONSUMED = list("points" = 0.0425, "capacity" = 90),
 		STATS_ALCOHOLICS = list("points" = 3.5, "capacity" = 60),
-		STATS_JUNKIES = list("points" = 7, "capacity" = 70),
+		STATS_JUNKIES = list("points" = 8, "capacity" = 70),
 		STATS_LUXURIOUS_FOOD_EATEN = list("points" = 0.7, "capacity" = 85),
 	)
 
@@ -358,7 +358,7 @@
 	influence_factors = list(
 		STATS_ITEMS_PICKPOCKETED = list("points" = 6.5, "capacity" = 110),
 		STATS_SHRINE_VALUE = list("points" = 0.225, "capacity" = 90),
-		STATS_GREEDY_PEOPLE = list("points" = 7, "capacity" = 70),
+		STATS_GREEDY_PEOPLE = list("points" = 8, "capacity" = 70),
 		STATS_DODGES = list("points" = 0.09, "capacity" = 100),
 		STATS_LOCKS_PICKED = list("points" = 4.75, "capacity" = 110),
 	)

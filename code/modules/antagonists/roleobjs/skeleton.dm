@@ -14,6 +14,7 @@
 		return "<span class='boldnotice'>Another deadite. My ally.</span>"
 
 /datum/antagonist/skeleton/on_gain()
+
 	return ..()
 
 /datum/antagonist/skeleton/on_removal()
