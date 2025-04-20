@@ -76,7 +76,7 @@ SUBSYSTEM_DEF(triumphs)
 	TRIUMPH BUY DATUM THINGS
 */
 
-	var/current_refund_percentage = 0.50 // Current refund percentage is 50%
+	var/current_refund_percentage = 1.00 // Current refund percentage is 100%
 	//this is basically the total list of triumph buy datums on init
 	var/list/triumph_buy_datums = list()
 
@@ -152,7 +152,7 @@ SUBSYSTEM_DEF(triumphs)
 			to_chat(C, span_redtext("You don't have enough triumphs to unbuy that."))
 			return FALSE
 		triumph_adjust(-pull_it_out.triumph_cost, C.ckey)
-	// Give the person who originally bought it a 50% refund
+	// Give the person who originally bought it a 100% refund
 	var/ckey_prev_owna = pull_it_out.ckey_of_buyer
 	var/refund_amount = round(pull_it_out.triumph_cost * current_refund_percentage)
 	triumph_adjust(refund_amount, ckey_prev_owna)
