@@ -120,10 +120,12 @@
 	random_icon_states = list("vomit_1", "vomit_2", "vomit_3", "vomit_4")
 	beauty = -150
 	alpha = 160
+	minimum_clean_strength = CLEAN_MEDIUM
 
 /obj/effect/decal/cleanable/vomit/old
 	name = "dried vomit"
 	desc = ""
+	minimum_clean_strength = CLEAN_STRONG
 
 /obj/effect/decal/cleanable/vomit/old/Initialize(mapload)
 	. = ..()
@@ -190,6 +192,7 @@
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "xfloor1"
 	random_icon_states = list("xfloor1", "xfloor2", "xfloor3", "xfloor4", "xfloor5", "xfloor6", "xfloor7")
+	minimum_clean_strength = CLEAN_STRENGTH_BLOOD
 
 /*	.................   Dye spill   ................... */
 /obj/effect/decal/cleanable/dyes
@@ -198,6 +201,7 @@
 	icon_state = "flour"
 	random_icon_states = list("flour", "smashed_plant")
 	beauty = -100
+	minimum_clean_strength = CLEAN_MEDIUM
 /obj/effect/decal/cleanable/dyes/Initialize()
 	color = pick(CLOTHING_ROYAL_TEAL, CLOTHING_BOG_GREEN, CLOTHING_ROYAL_PURPLE	)
 	..()

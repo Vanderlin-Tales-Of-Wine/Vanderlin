@@ -16,7 +16,7 @@
 	},
 /area/rogue/under/cave)
 "bO" = (
-/obj/item/bath/soap{
+/obj/item/soap/bath{
 	pixel_y = -5
 	},
 /obj/structure/mineral_door/wood/fancywood{
@@ -52,7 +52,7 @@
 /turf/open/floor/dirt,
 /area/rogue/under/cave)
 "kc" = (
-/obj/item/bath/soap{
+/obj/item/soap/bath{
 	pixel_y = -5
 	},
 /turf/open/water/bath,
@@ -95,7 +95,7 @@
 /area/rogue/indoors/shelter)
 "oY" = (
 /obj/structure/mineral_door/swing_door,
-/obj/item/bath/soap{
+/obj/item/soap/bath{
 	pixel_y = -5
 	},
 /turf/open/floor/tile,
@@ -339,7 +339,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/under/cave)
 "UB" = (
-/obj/item/bath/soap{
+/obj/item/soap/bath{
 	pixel_y = -5
 	},
 /mob/living/carbon/human/species/skeleton/npc/ambush,
