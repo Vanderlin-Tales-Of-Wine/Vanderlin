@@ -63,7 +63,7 @@
 	return
 
 // special handling for zombies
-/datun/antagonist/zombie/remove_innate_effects()
+/datum/antagonist/zombie/remove_innate_effects()
 	return
 
 /datum/antagonist/zombie/examine_friendorfoe(datum/antagonist/examined_datum,mob/examiner,mob/examined)
