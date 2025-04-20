@@ -1,23 +1,23 @@
 /datum/job/templar
 	title = "Templar"
+	tutorial = "Templars are warriors who have forsaken wealth and station in the service of the church, either from fervent zeal or remorse for past sins.\
+	They are vigilant sentinels, guarding priest and altar, steadfast against heresy and shadow-beasts that creep in darkness. \
+	But in the quiet of troubled sleep, there is a question left. Does the blood they spill sanctify them, or stain them forever? If service ever demanded it, whose blood would be the price?"
+	flag = 0 //unset!!
 	department_flag = CHURCHMEN
-	faction = "Station"
-	tutorial = "Templars are warriors who have forsaken wealth and title in lieu of service to the church, due to either zealotry or a past shame. They guard the church and its priest, while keeping a watchful eye against heresy and nite-creechers. Within troubled dreams, they wonder if the blood they shed makes them holy or stained."
-	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Dwarf",
-		"Aasimar",
-		"Half-Elf",
-	)
-	allowed_patrons = ALL_TEMPLAR_PATRONS
-	outfit = /datum/outfit/job/templar
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_TEMPLAR
+	faction = FACTION_STATION
 	total_positions = 2
 	spawn_positions = 2
-	display_order = JDO_TEMPLAR
-	give_bank_account = 0
 	min_pq = 8
+
+	allowed_sexes = list(MALE, FEMALE)
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
+	allowed_patrons = ALL_TEMPLAR_PATRONS
+
+	outfit = /datum/outfit/job/templar
+	give_bank_account = 0
 
 /datum/outfit/job/templar
 	name = "Templar"
@@ -27,7 +27,7 @@
 
 /datum/outfit/job/templar/pre_equip(mob/living/carbon/human/H)
 	..()
-	head = /obj/item/clothing/head/helmet/heavy/bucket
+	head = /obj/item/clothing/head/helmet/heavy/necked
 	cloak = /obj/item/clothing/cloak/tabard/crusader/tief
 	switch(H.patron?.type)
 		if(/datum/patron/divine/astrata)
@@ -89,7 +89,7 @@
 	backr = /obj/item/weapon/shield/tower/metal
 	belt = /obj/item/storage/belt/leather/black
 	beltl = /obj/item/storage/belt/pouch/coins/poor
-	id = /obj/item/clothing/ring/silver
+	ring = /obj/item/clothing/ring/silver
 	gloves = /obj/item/clothing/gloves/chain
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
@@ -100,16 +100,18 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/magic/holy, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
 		H.change_stat(STATKEY_STR, 2)
 		H.change_stat(STATKEY_CON, 2)
 		H.change_stat(STATKEY_END, 2)
 		H.change_stat(STATKEY_SPD, -1)
-		H.mind.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
+		if(!H.has_language(/datum/language/celestial)) // For discussing church matters with the other Clergy
+			H.grant_language(/datum/language/celestial)
+			to_chat(H, "<span class='info'>I can speak Celestial with ,c before my speech.</span>")
 	switch(H.patron?.type)
 		if(/datum/patron/divine/abyssor)
 			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
 			backl = /obj/item/weapon/polearm/spear/billhook
-			beltr = /obj/item/storage/belt/pouch/coins/poor
 		if(/datum/patron/divine/malum)
 			H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 4, TRUE)
 			beltr = /obj/item/weapon/mace/warhammer/steel
@@ -125,5 +127,5 @@
 	C.grant_spells_templar(H)
 	H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
 	if(H.dna?.species)
-		if(H.dna.species.id == "humen")
+		if(H.dna.species.id == "human")
 			H.dna.species.soundpack_m = new /datum/voicepack/male/knight()

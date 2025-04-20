@@ -36,6 +36,7 @@ GLOBAL_LIST_INIT(available_ui_styles, sortList(list(
 	var/atom/movable/screen/module_store_icon
 	var/atom/movable/screen/backhudl
 	var/atom/movable/screen/hsover
+	var/atom/movable/screen/mana_over
 	var/atom/movable/screen/quad_intents/quad_intents
 	var/atom/movable/screen/give_intent/give_intent
 	var/atom/movable/screen/def_intent/def_intent
@@ -61,7 +62,7 @@ GLOBAL_LIST_INIT(available_ui_styles, sortList(list(
 	var/atom/movable/screen/healths
 	var/atom/movable/screen/bloods
 	var/atom/movable/screen/healthdoll
-	var/atom/movable/screen/internals
+	var/atom/movable/screen/mana
 
 	var/atom/movable/screen/stamina/stamina
 	var/atom/movable/screen/energy/energy
@@ -127,7 +128,6 @@ GLOBAL_LIST_INIT(available_ui_styles, sortList(list(
 
 	healths = null
 	healthdoll = null
-	internals = null
 	devilsouldisplay = null
 	blobpwrdisplay = null
 

@@ -4,7 +4,7 @@
 	overlay_state = "comedy"
 	antimagic_allowed = TRUE
 	invocation_type = "shout"
-	charge_max = 1 MINUTES
+	recharge_time = 1 MINUTES
 
 /obj/effect/proc_holder/spell/self/telljoke/cast(list/targets,mob/user = usr)
 	..()
@@ -30,7 +30,7 @@
 	overlay_state = "tragedy"
 	antimagic_allowed = TRUE
 	invocation_type = "shout"
-	charge_max = 1 MINUTES
+	recharge_time = 1 MINUTES
 
 /obj/effect/proc_holder/spell/self/telltragedy/cast(list/targets,mob/user = usr)
 	..()
@@ -56,7 +56,7 @@
 	overlay_state = "orison"
 	antimagic_allowed = TRUE
 	invocation_type = "shout"
-	charge_max = 1 MINUTES
+	recharge_time = 1 MINUTES
 
 /obj/effect/proc_holder/spell/self/fart/cast(list/targets, mob/user = usr)
 	..()

@@ -2,10 +2,7 @@
 	name = "Paladin"
 	tutorial = "Paladins are former noblemen and clerics who have dedicated themselves to great combat prowess. Often, they were promised redemption for past sins if they crusaded in the name of the gods."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Aasimar"
-	)
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	outfit = /datum/outfit/job/adventurer/paladin
 	maximum_possible_slots = 1
 	min_pq = 2
@@ -17,7 +14,7 @@
 	H.virginity = TRUE
 
 	switch(H.patron?.type)
-		if(/datum/patron/psydon)
+		if(/datum/patron/psydon, /datum/patron/psydon/progressive)
 			head = /obj/item/clothing/head/helmet/heavy/bucket/gold
 			wrists = /obj/item/clothing/neck/psycross/g
 		if(/datum/patron/divine/astrata)
@@ -30,16 +27,16 @@
 			head = /obj/item/clothing/head/helmet/heavy/necked/dendorhelm
 			wrists = /obj/item/clothing/neck/psycross/silver/dendor
 		if(/datum/patron/divine/abyssor)
-			head = /obj/item/clothing/head/helmet/heavy/bucket // Placeholder
+			head = /obj/item/clothing/head/helmet/heavy/necked // Placeholder
 			wrists = /obj/item/clothing/neck/psycross/silver/abyssor
 		if(/datum/patron/divine/necra)
 			head = /obj/item/clothing/head/helmet/heavy/necked/necra
 			wrists = /obj/item/clothing/neck/psycross/silver/necra
 		if(/datum/patron/divine/ravox)
-			head = /obj/item/clothing/head/helmet/heavy/bucket // Placeholder
+			head = /obj/item/clothing/head/helmet/heavy/necked/ravox
 			wrists = /obj/item/clothing/neck/psycross/silver/ravox
 		if(/datum/patron/divine/xylix)
-			head = /obj/item/clothing/head/helmet/heavy/bucket // Placeholder
+			head = /obj/item/clothing/head/helmet/heavy/necked // Placeholder
 			wrists = /obj/item/clothing/neck/psycross/silver/xylix
 		if(/datum/patron/divine/pestra)
 			head = /obj/item/clothing/head/helmet/heavy/necked/pestrahelm
@@ -66,7 +63,7 @@
 	shoes = /obj/item/clothing/shoes/boots/armor
 	belt = /obj/item/storage/belt/leather/steel
 	beltl = /obj/item/storage/belt/pouch/coins/mid
-	id = /obj/item/clothing/ring/silver/toper
+	ring = /obj/item/clothing/ring/silver/toper
 	cloak = /obj/item/clothing/cloak/tabard/crusader
 	neck = /obj/item/clothing/neck/chaincoif
 	gloves = /obj/item/clothing/gloves/plate
@@ -82,6 +79,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/magic/holy, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE)
 		H.change_stat(STATKEY_STR, 2)
 		H.change_stat(STATKEY_PER, 2)
 		H.change_stat(STATKEY_INT, 2)
@@ -89,6 +87,9 @@
 		H.change_stat(STATKEY_END, 1)
 		H.change_stat(STATKEY_SPD, -2)
 		H.change_stat(STATKEY_LCK, 1)
+		if(!H.has_language(/datum/language/celestial)) // For discussing church matters with the other Clergy
+			H.grant_language(/datum/language/celestial)
+			to_chat(H, "<span class='info'>I can speak Celestial with ,c before my speech.</span>")
 	if(H.dna?.species)
 		if(H.dna.species.id == "human")
 			H.dna.species.soundpack_m = new /datum/voicepack/male/knight()

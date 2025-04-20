@@ -35,15 +35,15 @@
 						continue
 				var/val = C.armor.getRating(d_type)
 				// The code below finally fixes the targetting order of armor > shirt > flesh. - Foxtrot (#gundamtanaka)
-				var/armorworn = src.get_item_by_slot(SLOT_ARMOR) // The armor we're wearing
-				var/shirtworn = src.get_item_by_slot(SLOT_SHIRT) // The shirt we're wearing
+				var/obj/item/armorworn = src.get_item_by_slot(SLOT_ARMOR) // The armor we're wearing
+				var/obj/item/shirtworn = src.get_item_by_slot(SLOT_SHIRT) // The shirt we're wearing
 				if(bp == armorworn) // If the targeted bodypart has an armor...
 					if(val > 0) // ...and it's an actual armor with armor values...
 						if(val > protection)
 							protection = val
 							used = armorworn // ...force us to use it above all!
 				// If we don't have armor equipped or the one we have is broken...
-				else if(bp == shirtworn && src.wear_armor?.obj_integrity <= 0 || armorworn == null)
+				else if(bp == shirtworn && (!armorworn || (armorworn.max_integrity && armorworn.obj_integrity <= 0) || !zone2covered(def_zone, armorworn.body_parts_covered)))
 					if(val > 0) // ...and it's not just a linen shirt...
 						if(val > protection)
 							protection = val
@@ -83,33 +83,13 @@
 				if(C.obj_integrity > 1)
 					if(d_type in C.prevent_crits)
 						return TRUE
-/*
-/mob/proc/checkwornweight()
-	return 0
 
-/mob/living/carbon/human/checkwornweight()
-	var/weight = 0
-	var/list/body_parts = list(head, wear_mask, wear_wrists, wear_shirt, wear_neck, wear_armor, wear_pants, back, gloves, shoes, belt, s_store, glasses, ears, wear_ring) //Everything but pockets. Pockets are l_store and r_store. (if pockets were allowed, putting something armored, gloves or hats for example, would double up on the armor)
-	for(var/bp in body_parts)
-		if(!bp)
-			continue
-		if(bp && istype(bp , /obj/item/clothing))
-			var/obj/item/clothing/C = bp
-			if(C.eweight)
-				weight +=  C.eweight
-	return max(weight, 0)
-*/
 /mob/living/carbon/human/on_hit(obj/projectile/P)
 	if(dna && dna.species)
 		dna.species.on_hit(P, src)
 
 
 /mob/living/carbon/human/bullet_act(obj/projectile/P, def_zone = BODY_ZONE_CHEST)
-	if(istype(P, /obj/projectile/bullet))
-		if((P.damage_type == BURN) || (P.damage_type == BRUTE))
-			if(!P.nodamage && P.damage < src.health && isliving(P.firer))
-				retaliate(P.firer)
-
 	if(dna && dna.species)
 		var/spec_return = dna.species.bullet_act(P, src, def_zone)
 		if(spec_return)
@@ -123,7 +103,6 @@
 				return martial_art_result
 
 	if(!(P.original == src && P.firer == src)) //can't block or reflect when shooting yourself
-		retaliate(P.firer)
 		if(P.reflectable & REFLECT_NORMAL)
 			if(check_reflect(def_zone)) // Checks if you've passed a reflection% check
 				visible_message("<span class='danger'>The [P.name] gets reflected by [src]!</span>", \
@@ -209,9 +188,6 @@
 		throwpower = I.throwforce
 		if(I.thrownby == src) //No throwing stuff at myself to trigger hit reactions
 			return ..()
-		else
-			if(ismob(I.thrownby))
-				retaliate(I.thrownby)
 	if(check_shields(AM, throwpower, "\the [AM.name]", THROWN_PROJECTILE_ATTACK))
 		hitpush = FALSE
 		skipcatch = TRUE
@@ -234,7 +210,6 @@
 /mob/living/carbon/human/grippedby(mob/living/user, instant = FALSE)
 	if(wear_pants)
 		wear_pants.add_fingerprint(user)
-	retaliate(user)
 	. = ..()
 
 
@@ -261,16 +236,12 @@
 	SSblackbox.record_feedback("nested tally", "item_used_for_combat", 1, list("[I.force]", "[I.type]"))
 	SSblackbox.record_feedback("tally", "zone_targeted", 1, useder)
 
-	if(I.force)
-		retaliate(user)
-
 	// the attacked_by code varies among species
 	return dna.species.spec_attacked_by(I, user, affecting, used_intent, src, useder)
 
 /mob/living/carbon/human/attack_hand(mob/user)
 	if(..())	//to allow surgery to return properly.
 		return
-	retaliate(user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		dna.species.spec_attack_hand(H, src)
@@ -284,8 +255,6 @@
 		..() //shaking
 		return 0
 
-	retaliate(M)
-
 	if(M.used_intent.type == INTENT_DISARM) //Always drop item in hand, if no item, get stunned instead.
 		var/obj/item/I = get_active_held_item()
 		if(I && dropItemToGround(I, silent = FALSE))
@@ -295,7 +264,7 @@
 			to_chat(M, "<span class='danger'>I disarm [src]!</span>")
 		else if(!M.client || prob(5)) // only natural monkeys get to stun reliably, (they only do it occasionaly)
 			playsound(loc, 'sound/blank.ogg', 25, TRUE, -1)
-			if (src.IsKnockdown() && !src.IsParalyzed())
+			if(HAS_TRAIT(src, TRAIT_FLOORED) && !IsParalyzed())
 				Paralyze(40)
 				log_combat(M, src, "pinned")
 				visible_message("<span class='danger'>[M] pins [src] down!</span>", \
@@ -351,8 +320,6 @@
 		next_attack_msg.Cut()
 		if(nodmg)
 			return FALSE
-		else
-			retaliate(M)
 
 /mob/living/carbon/human/ex_act(severity, target, epicenter, devastation_range, heavy_impact_range, light_impact_range, flame_range)
 	..()

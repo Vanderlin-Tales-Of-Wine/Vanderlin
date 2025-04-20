@@ -54,5 +54,11 @@
 		return
 	output.make_provider(/datum/reagent/steam, stored_steam, src)
 
+/obj/structure/boiler/use_water_pressure(pressure)
+	stored_steam -= pressure
+	if(!output)
+		return
+	output.make_provider(/datum/reagent/steam, stored_steam, src)
+
 /datum/reagent/steam
 	name = "Steam"

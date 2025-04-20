@@ -1,11 +1,10 @@
 /datum/advclass/pilgrim/rare/preacher
 	name = "Preacher"
-	tutorial = "A devout follower of Psydon, you came to this land with nothing more than the clothes on your back and the faith in your heart. Sway these nonbelievers to the right path!"
+	tutorial = "A devout follower of Psydon, you came to this land with nothing more than \
+	the clothes on your back and the faith in your heart. \n\
+	Sway these nonbelievers to the right path!"
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Dwarf"
-	)
+	allowed_races = RACES_PLAYER_GRENZ
 	outfit = /datum/outfit/job/adventurer/preacher
 	category_tags = list(CTAG_PILGRIM)
 	maximum_possible_slots = 1

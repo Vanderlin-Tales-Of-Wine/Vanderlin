@@ -1,33 +1,26 @@
 /datum/job/grabber
 	title = "Stevedore"
+	tutorial = "Being a stevedore is one of the lowest yet most needed positions in town, \
+	as they are expected to aid the Merchant, Steward, Masons, and Blacksmiths \
+	in hauling materials and goods while keeping a guarding eye on the town's warehouses \
+	for the safety of the items stashed within."
 	flag = GRABBER
 	department_flag = PEASANTS
-	faction = "Station"
+	display_order = JDO_GRABBER
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	faction = FACTION_STATION
 	total_positions = 6
 	spawn_positions = 6
+	min_pq = -50
+	bypass_lastclass = TRUE
 
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc"
-	)
-
-	tutorial = "Being a stevedore is one of the lowest yet most needed positions in town, as they are expected to aid the Merchant, Steward, Masons, and Blacksmiths in hauling materials and goods while keeping a guarding eye on the town's warehouses for the safety of the items stashed within."
+	allowed_sexes = list(MALE, FEMALE)
+	allowed_races = RACES_PLAYER_ALL
 
 	outfit = /datum/outfit/job/grabber
 	give_bank_account = TRUE
-	min_pq = -50
-	display_order = JDO_GRABBER
-	bypass_lastclass = TRUE
 	cmode_music = 'sound/music/cmode/towner/CombatTowner.ogg'
 
-/datum/job/grabber/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
-	..()
 /datum/outfit/job/grabber/pre_equip(mob/living/carbon/human/H)
 	..()
 

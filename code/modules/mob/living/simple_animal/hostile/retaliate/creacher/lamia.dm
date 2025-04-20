@@ -16,7 +16,7 @@
 						/obj/item/reagent_containers/food/snacks/fat = 1,
 						/obj/item/alch/sinew = 2,
 						/obj/item/alch/bone = 1)
-	faction = list("orcs")
+	faction = list(FACTION_ORCS)
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST|MOB_REPTILE
 	health = 200
 	maxHealth = 200
@@ -30,9 +30,9 @@
 	food_type = list(/obj/item/reagent_containers/food/snacks/meat, /obj/item/bodypart, /obj/item/organ)
 	footstep_type = null
 	pooptype = null
-	TOTALCON = 6
-	TOTALSTR = 11
-	TOTALSPD = 12
+	base_constitution = 6
+	base_strength = 11
+	base_speed = 12
 	deaggroprob = 0
 	defprob = 35
 	defdrain = 5

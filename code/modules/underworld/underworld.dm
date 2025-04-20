@@ -121,6 +121,7 @@
 			if("Yes")
 				playsound(user, 'sound/misc/deadbell.ogg', 50, TRUE, -2, ignore_walls = TRUE)
 				add_abstract_elastic_data(ELASCAT_COMBAT, ELASDATA_COIN_REVIVES, 1)
+				GLOB.vanderlin_round_stats[STATS_SOULS_REINCARNATED]++
 				user.returntolobby()
 			if("No")
 				to_chat(user,span_notice("You delay fate."))
@@ -234,15 +235,16 @@
 	speak_emote = list("growls")
 	limb_destroyer = 1
 	del_on_death = TRUE
-	TOTALLUC = 11
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 0
-	faction = list("undead")
+	faction = list(FACTION_UNDEAD)
 	footstep_type = null
 	defprob = 50 //decently skilled
 	defdrain = 20
 	canparry = TRUE
 	retreat_health = null
+
+	base_fortune = 11
 
 /mob/living/simple_animal/hostile/dragger/electrocute_act(shock_damage, source, siemens_coeff = 1, flags = NONE)
 	return FALSE

@@ -45,10 +45,15 @@
 /obj/item/clothing/head/equipped(mob/user, slot)
 	. = ..()
 	user.update_fov_angles()
+	if(slot != SLOT_HEAD)
+		flags_inv = null
+	else
+		flags_inv = initial(flags_inv)
 
 /obj/item/clothing/head/dropped(mob/user)
 	. = ..()
 	user.update_fov_angles()
+	flags_inv = initial(flags_inv)
 
 /obj/item/clothing/head/worn_overlays(isinhands = FALSE)
 	. = list()

@@ -1,3 +1,5 @@
+/atom/movable
+	var/list/extra_directions
 /*
 	Adjacency proc for determining touch range
 
@@ -70,7 +72,12 @@
 		return TRUE
 	var/turf/T = loc
 	if(!istype(T))
-		return FALSE
+		return
+	if(length(extra_directions))
+		for(var/direction in extra_directions)
+			var/turf/dir_step = get_step(src, direction)
+			if(dir_step.Adjacent(neighbor,target = neighbor, mover = src))
+				return TRUE
 	if(T.Adjacent(neighbor,target = neighbor, mover = src))
 		return TRUE
 	return FALSE

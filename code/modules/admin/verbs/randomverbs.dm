@@ -142,6 +142,27 @@
 	message_admins("<span class='adminnotice'>[key_name_admin(usr)] Sent a global narrate</span>")
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Global Narrate") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
+/client/proc/send_to_cryo(mob/M in GLOB.mob_list)
+	set category = "Admin"
+	set name = "Send To Cryo"
+
+	if(!check_rights(R_ADMIN))
+		return
+
+	if(!M)
+		M = input("Send who?", "Active Players") as null|anything in GLOB.player_list
+
+	if(!M)
+		return
+	var/message_to_admins = span_adminnotice("<b> [key_name(usr)] has sent ([M.name]/[M.key]):</b> to cryo. <BR>")
+	var/message_to_admin_user = span_notice(cryo_mob(M))
+
+	to_chat(src, message_to_admin_user)
+	log_admin(message_to_admins)
+	message_admins(message_to_admins)
+	admin_ticket_log(M, message_to_admins)
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Send To Cryo") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
 /client/proc/cmd_admin_direct_narrate(mob/M)
 	set category = "Special Verbs"
 	set name = "Direct Narrate"
@@ -335,7 +356,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(G_found.mind && !G_found.mind.active)	//mind isn't currently in use by someone/something
 		/*Try and locate a record for the person being respawned through GLOB.data_core.
 		This isn't an exact science but it does the trick more often than not.*/
-		var/id = md5("[G_found.real_name][G_found.mind.assigned_role]")
+		var/id = md5("[G_found.real_name][G_found.mind.assigned_role.title]")
 
 		record_found = find_record("id", id, GLOB.data_core.locked)
 
@@ -346,7 +367,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		new_character.hardset_dna(record_found.fields["identity"], record_found.fields["enzymes"], record_found.fields["name"], record_found.fields["blood_type"], new record_found.fields["species"], record_found.fields["features"])
 	else
 		var/datum/preferences/A = new()
-		A.copy_to(new_character)
+		A.safe_transfer_prefs_to(new_character)
 		A.real_name = G_found.real_name
 		new_character.dna.update_dna_identity()
 
@@ -356,8 +377,8 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		G_found.mind.transfer_to(new_character)	//be careful when doing stuff like this! I've already checked the mind isn't in use
 	else
 		new_character.mind_initialize()
-	if(!new_character.mind.assigned_role)
-		new_character.mind.assigned_role = "Adventurer"//If they somehow got a null assigned role.
+	if(is_unassigned_job(new_character.mind.assigned_role))
+		new_character.mind.set_assigned_role(/datum/job/adventurer)
 
 	new_character.key = G_found.key
 
@@ -371,7 +392,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	var/admin = key_name_admin(src)
 	var/player_key = G_found.key
 
-	SSjob.EquipRank(new_character, new_character.mind.assigned_role, 1)//Or we simply equip them.
+	SSjob.EquipRank(new_character, new_character.mind.assigned_role, src)//Or we simply equip them.
 
 	var/msg = "<span class='adminnotice'>[admin] has respawned [player_key] as [new_character.real_name].</span>"
 	message_admins(msg)
@@ -695,6 +716,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		ADMIN_PUNISHMENT_CBT,
 		ADMIN_PUNISHMENT_NECKSNAP,
 		ADMIN_PUNISHMENT_HUNTED,
+		ADMIN_PUNISHMENT_MEATPIE,
 	)
 
 	var/punishment = input("Choose a punishment", "DIVINE SMITING") as null|anything in sortList(punishment_list)
@@ -780,6 +802,15 @@ Traitors and the like can also be revived with the previous role mostly intact.
 					// 	if(istype(I, /obj/item/weapon/knife/dagger/steel/profane)) // Checks to see if the assassin has their dagger on them.
 					to_chat(carbon, "<span class='danger'>\"The Dark Sun Graggar himself has ordered us to punish [target.real_name] for their transgressions!\"</span>")
 			to_chat(target.mind, "<span class='danger'>My hair stands on end. Has someone just said my name? I should watch my back.</span>")
+		if(ADMIN_PUNISHMENT_MEATPIE)
+			if(!ishuman(target))
+				to_chat(usr, span_warning("Target must be human!"))
+				return
+			var/mutable_appearance/meatpie_appearance = mutable_appearance('icons/roguetown/items/food.dmi', "meatpie")
+			var/mutable_appearance/transform_scanline = mutable_appearance('icons/effects/effects.dmi', "smoke")
+			target.notransform = TRUE
+			target.transformation_animation(meatpie_appearance, 5 SECONDS, transform_scanline.appearance)
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(pieify), target), 5 SECONDS)
 	punish_log(target, punishment)
 
 /client/proc/punish_log(whom, punishment)

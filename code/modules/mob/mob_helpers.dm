@@ -512,6 +512,7 @@
 		if(a_intent)
 			a_intent.afterchange()
 		used_intent = a_intent
+		cast_move = 0
 	if(hud_used?.action_intent)
 		hud_used.action_intent.switch_intent(r_index,l_index,oactive)
 
@@ -632,14 +633,20 @@
 			mmb_intent.chargetime = ranged_ability.get_chargetime()
 			mmb_intent.warnie = ranged_ability.warnie
 			mmb_intent.charge_invocation = ranged_ability.charge_invocation
-			mmb_intent.no_early_release = ranged_ability.no_early_release
+			mmb_intent.no_early_release = FALSE
 			mmb_intent.movement_interrupt = ranged_ability.movement_interrupt
 			mmb_intent.charging_slowdown = ranged_ability.charging_slowdown
 			mmb_intent.chargedloop = ranged_ability.chargedloop
 			mmb_intent.update_chargeloop()
 
-	hud_used.quad_intents?.switch_intent(input)
-	hud_used.give_intent?.switch_intent(input)
+			if(istype(ranged_ability, /obj/effect/proc_holder/spell))
+				var/obj/effect/proc_holder/spell/ability = ranged_ability
+				if(!ability.miracle && ability.uses_mana)
+					mmb_intent.AddComponent(/datum/component/uses_mana/spell,CALLBACK(mmb_intent, TYPE_PROC_REF(/datum/intent, spell_cannot_activate)),CALLBACK(mmb_intent, TYPE_PROC_REF(/datum/intent, get_owner)),COMSIG_SPELL_BEFORE_CAST,null,COMSIG_SPELL_AFTER_CAST,CALLBACK(ranged_ability, TYPE_PROC_REF(/obj/effect/proc_holder, get_fatigue_drain)),ranged_ability.attunements)
+
+
+	hud_used.quad_intents.switch_intent(input)
+	hud_used.give_intent.switch_intent(input)
 	givingto = null
 
 /mob/verb/def_intent_change(input as num)
@@ -921,9 +928,9 @@
 		log_admin("[key_name(usr)] has offered control of ([key_name(M)]) to ghosts.")
 		message_admins("[key_name_admin(usr)] has offered control of ([ADMIN_LOOKUPFLW(M)]) to ghosts")
 	var/poll_message = "Do you want to play as [M.real_name]?"
-	if(M.mind && M.mind.assigned_role)
-		poll_message = "[poll_message] Job:[M.mind.assigned_role]."
-	if(M.mind && M.mind.special_role)
+	if(M.mind?.assigned_role)
+		poll_message = "[poll_message] Job:[M.mind.assigned_role.title]."
+	if(M.mind?.special_role)
 		poll_message = "[poll_message] Status:[M.mind.special_role]."
 	else if(M.mind)
 		var/datum/antagonist/A = M.mind.has_antag_datum(/datum/antagonist/)
@@ -1022,7 +1029,7 @@
 	. = list()
 	. += "[type]"
 	if(mind)
-		. += mind.assigned_role
+		. += mind.assigned_role.title
 		. += mind.special_role //In case there's something special leftover, try to avoid
 		for(var/datum/antagonist/A in mind.antag_datums)
 			. += "[A.type]"
@@ -1042,15 +1049,7 @@
 		var/datum/job/J = SSjob.GetJob(job)
 		if(!J)
 			return "Unknown"
-		used_title = J.title
-		if((gender == FEMALE) && J.f_title)
-			used_title = J.f_title
-
-		if(J.title == "Monarch")
-			if(gender == FEMALE)
-				used_title = "Queen"
-			else
-				used_title = "King"
+		used_title = J.get_informed_title(src)
 	if(mind?.apprentice)
 		used_title = mind.our_apprentice_name
 	return used_title

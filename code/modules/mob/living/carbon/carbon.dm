@@ -119,6 +119,7 @@
 			if(done_step?.try_op(user, src, user.zone_selected, I, user.used_intent, try_to_fail))
 				return TRUE
 		if(I.item_flags & SURGICAL_TOOL)
+			to_chat(user, span_warning("You're unable to perform surgery!"))
 			return TRUE
 	/*
 	for(var/datum/surgery/S in surgeries)
@@ -207,18 +208,23 @@
 				if(isliving(pulling))
 					var/mob/living/throwable_mob = pulling
 					if(!throwable_mob.buckled)
-						thrown_thing = throwable_mob
-						thrown_speed = 1
-						thrown_range = max(round((STASTR/throwable_mob.STACON)*2), 1)
 						stop_pulling()
 						if(G.grab_state < GRAB_AGGRESSIVE)
 							return
 						if(HAS_TRAIT(src, TRAIT_PACIFISM))
 							to_chat(src, "<span class='notice'>I gently let go of [throwable_mob].</span>")
 							return
+						thrown_thing = throwable_mob
+						thrown_speed = 1
+						thrown_range = round((STASTR/throwable_mob.STACON)*2)
 						var/turf/start_T = get_turf(loc) //Get the start and target tile for the descriptors
 						var/turf/end_T = get_turf(target)
-						if(start_T.z != end_T.z && (throwable_mob.cmode && throwable_mob.mobility_flags & MOBILITY_STAND))
+						if(!HAS_TRAIT(thrown_thing, TRAIT_TINY) || !(mobility_flags & MOBILITY_STAND) || (throwable_mob.cmode && throwable_mob.mobility_flags & MOBILITY_STAND))
+							while(end_T.z > start_T.z)
+								end_T = GET_TURF_BELOW(end_T)
+						if((end_T.z > start_T.z) && throwable_mob.cmode)
+							thrown_range -= 1
+						if(thrown_range <= 0)
 							return
 						if(start_T && end_T)
 							log_combat(src, throwable_mob, "thrown", addition="grab from tile in [AREACOORD(start_T)] towards tile at [AREACOORD(end_T)]")
@@ -228,9 +234,13 @@
 
 		else if(!CHECK_BITFIELD(I.item_flags, ABSTRACT) && !HAS_TRAIT(I, TRAIT_NODROP))
 			thrown_thing = I
-			if(I.swingsound)
+			if(istype(thrown_thing, /obj/item/clothing/head/mob_holder))
+				var/obj/item/clothing/head/mob_holder/old = thrown_thing
+				thrown_thing = thrown_thing:held_mob
+				old.release()
 				used_sound = pick(I.swingsound)
-			dropItemToGround(I, silent = TRUE)
+			else
+				dropItemToGround(I, silent = TRUE)
 
 			if(HAS_TRAIT(src, TRAIT_PACIFISM) && I.throwforce)
 				to_chat(src, "<span class='notice'>I set [I] down gently on the ground.</span>")
@@ -512,13 +522,13 @@
 	if(!client)
 		return
 	if(statpanel("Stats"))
-		stat("STR: \Roman [STASTR]")
-		stat("PER: \Roman [STAPER]")
-		stat("INT: \Roman [STAINT]")
-		stat("CON: \Roman [STACON]")
-		stat("END: \Roman [STAEND]")
-		stat("SPD: \Roman [STASPD]")
-		stat("PATRON: [patron]")
+		stat("STR: \Roman[STASTR]")
+		stat("PER: \Roman[STAPER]")
+		stat("INT: \Roman[STAINT]")
+		stat("CON: \Roman[STACON]")
+		stat("END: \Roman[STAEND]")
+		stat("SPD: \Roman[STASPD]")
+		stat("PATRON: [uppertext(patron)]")
 
 /mob/living/carbon/Stat()
 	..()
@@ -531,8 +541,7 @@
 		return 0
 	return ..()
 
-/mob/living/carbon
-	var/nausea = 0
+/mob/living/carbon/var/nausea = 0
 
 /mob/living/carbon/proc/add_nausea(amt)
 	nausea = clamp(nausea + amt, 0, 300)
@@ -542,15 +551,20 @@
 		return TRUE
 	if(stat == DEAD)
 		return TRUE
+	if(nausea <= 50 && MOBTIMER_EXISTS(src, MT_PUKE))
+		MOBTIMER_UNSET(src, MT_PUKE)
 	if(nausea >= 100)
+		if(!MOBTIMER_EXISTS(src, MT_PUKE))
+			MOBTIMER_SET(src, MT_PUKE)
+			to_chat(src, span_warning("I feel sick..."))
 		if(MOBTIMER_FINISHED(src, MT_PUKE, 16 SECONDS))
 			if(getorgan(/obj/item/organ/stomach))
 				MOBTIMER_SET(src, MT_PUKE)
-				to_chat(src, "<span class='warning'>I'm going to puke...</span>")
+				to_chat(src, span_warning("I'm going to puke..."))
 				addtimer(CALLBACK(src, PROC_REF(vomit), 50), rand(8 SECONDS, 15 SECONDS))
 		else
 			if(prob(3))
-				to_chat(src, "<span class='warning'>I feel sick...</span>")
+				to_chat(src, span_warning("I feel sick..."))
 
 	add_nausea(-1)
 
@@ -635,7 +649,7 @@
 		guts.throw_at(throw_target, power, 4, src)
 
 
-/mob/living/carbon/fully_replace_character_name(oldname,newname)
+/mob/living/carbon/fully_replace_character_name(oldname, newname)
 	..()
 	if(dna)
 		dna.real_name = real_name
@@ -670,7 +684,7 @@
 		used_damage = total_tox
 	if(used_damage < total_oxy)
 		used_damage = total_oxy
-	health = round(maxHealth - used_damage, DAMAGE_PRECISION)
+	set_health(round(maxHealth - used_damage, DAMAGE_PRECISION))
 	update_stat()
 	update_mobility()
 
@@ -680,8 +694,7 @@
 		remove_movespeed_modifier(MOVESPEED_ID_CARBON_SOFTCRIT, TRUE)
 	SEND_SIGNAL(src, COMSIG_LIVING_HEALTH_UPDATE)
 
-/mob/living/carbon
-	var/lightning_flashing = FALSE
+/mob/living/carbon/var/lightning_flashing = FALSE
 
 /mob/living/carbon/update_sight()
 	if(!client)
@@ -693,7 +706,10 @@
 	if(!E)
 		update_tint()
 	else
-		see_invisible = E.see_invisible
+		if(HAS_TRAIT(src, TRAIT_SEE_LEYLINES))
+			see_invisible = SEE_INVISIBLE_LEYLINES
+		else
+			see_invisible = E.see_invisible
 		see_in_dark = E.see_in_dark
 		sight |= E.sight_flags
 		if(!isnull(E.lighting_alpha))
@@ -936,9 +952,19 @@
 		else
 			hud_used.healths.icon_state = "health7"
 
-/mob/living/carbon/proc/update_internals_hud_icon(internal_state = 0)
-	if(hud_used && hud_used.internals)
-		hud_used.internals.icon_state = "internal[internal_state]"
+/mob/living/carbon/set_health(new_value)
+	. = ..()
+	if(. > hardcrit_threshold)
+		if(health <= hardcrit_threshold && !HAS_TRAIT(src, TRAIT_NOHARDCRIT))
+			ADD_TRAIT(src, TRAIT_KNOCKEDOUT, CRIT_HEALTH_TRAIT)
+	else if(health > hardcrit_threshold)
+		REMOVE_TRAIT(src, TRAIT_KNOCKEDOUT, CRIT_HEALTH_TRAIT)
+	if(CONFIG_GET(flag/near_death_experience))
+		if(. > HEALTH_THRESHOLD_NEARDEATH)
+			if(health <= HEALTH_THRESHOLD_NEARDEATH && !HAS_TRAIT(src, TRAIT_NODEATH))
+				ADD_TRAIT(src, TRAIT_SIXTHSENSE, "near-death")
+		else if(health > HEALTH_THRESHOLD_NEARDEATH)
+			REMOVE_TRAIT(src, TRAIT_SIXTHSENSE, "near-death")
 
 /mob/living/carbon/update_stat()
 	if(status_flags & GODMODE)
@@ -947,32 +973,22 @@
 		if(health <= HEALTH_THRESHOLD_DEAD && !HAS_TRAIT(src, TRAIT_NODEATH))
 			INVOKE_ASYNC(src, PROC_REF(emote), "deathgurgle")
 			death()
-			cure_blind(UNCONSCIOUS_BLIND)
 			return
-		if(((blood_volume in -INFINITY to BLOOD_VOLUME_SURVIVE) && !HAS_TRAIT(src, TRAIT_BLOODLOSS_IMMUNE)) || IsUnconscious() || IsSleeping() || getOxyLoss() > 75 || (HAS_TRAIT(src, TRAIT_DEATHCOMA)) || (health <= HEALTH_THRESHOLD_FULLCRIT && !HAS_TRAIT(src, TRAIT_NOHARDCRIT)))
-			stat = UNCONSCIOUS
-			become_blind(UNCONSCIOUS_BLIND)
-			if(CONFIG_GET(flag/near_death_experience) && health <= HEALTH_THRESHOLD_NEARDEATH && !HAS_TRAIT(src, TRAIT_NODEATH))
-				ADD_TRAIT(src, TRAIT_SIXTHSENSE, "near-death")
-			else
-				REMOVE_TRAIT(src, TRAIT_SIXTHSENSE, "near-death")
+		if(HAS_TRAIT(src, TRAIT_KNOCKEDOUT))
+			set_stat(UNCONSCIOUS)
 		else
 			if(health <= crit_threshold && !HAS_TRAIT(src, TRAIT_NOSOFTCRIT))
-				stat = SOFT_CRIT
+				set_stat(SOFT_CRIT)
 			else
-				stat = CONSCIOUS
-			cure_blind(UNCONSCIOUS_BLIND)
-			REMOVE_TRAIT(src, TRAIT_SIXTHSENSE, "near-death")
+				set_stat(CONSCIOUS)
 		update_mobility()
 	update_damage_hud()
 	update_health_hud()
-//	update_tod_hud()
 	update_spd()
 
 //called when we get cuffed/uncuffed
 /mob/living/carbon/proc/update_handcuffed()
 	if(handcuffed)
-//		drop_all_held_items()
 		stop_pulling()
 		throw_alert("handcuffed", /atom/movable/screen/alert/restrained/handcuffed, new_master = src.handcuffed)
 		SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "handcuffed", /datum/mood_event/handcuffed)
@@ -1251,3 +1267,55 @@
 			bodypart.acid_damage_intensity++
 
 	update_body_parts(TRUE)
+
+/mob/living/carbon/get_encumbrance()
+	return round(get_total_weight() / get_carry_capacity(), 0.01)
+
+/mob/living/carbon/human/dummy/get_total_weight()
+	return 0
+
+/mob/living/carbon/get_total_weight()
+	var/held_weight = 0
+
+	for(var/obj/item/worn_item as anything in (get_equipped_items(TRUE) + held_items))
+		if(isnull(worn_item))
+			continue
+		if(isclothing(worn_item))
+			switch(worn_item:armor_class)
+				if(AC_HEAVY)
+					if(!HAS_TRAIT(src, TRAIT_HEAVYARMOR))
+						held_weight += worn_item.item_weight * 2
+					else
+						held_weight += worn_item.item_weight
+				if(AC_MEDIUM)
+					if(!HAS_TRAIT(src, TRAIT_MEDIUMARMOR))
+						held_weight += worn_item.item_weight * 2
+					else
+						held_weight += worn_item.item_weight
+				if(AC_LIGHT)
+					held_weight += worn_item.item_weight
+				else
+					held_weight += worn_item.item_weight
+		else
+			held_weight += worn_item.item_weight
+		held_weight += worn_item.get_stored_weight()
+
+	return held_weight
+
+/mob/living/carbon/encumbrance_to_dodge()
+	var/encumbrance = get_encumbrance()
+	if(!HAS_TRAIT(src, TRAIT_DODGEEXPERT))
+		encumbrance *= 1.5
+	if(encumbrance <= 0.3 && HAS_TRAIT(src, TRAIT_DODGEEXPERT))
+		return 1
+	if(encumbrance >= 1)
+		return 0
+	return 1 - (encumbrance * 1)
+
+/mob/living/carbon/encumbrance_to_speed()
+	var/exponential = (2.71 ** -(get_encumbrance() - 0.6)) * 10
+	var/speed_factor = 1 / (1 + exponential)
+	var/precentage =  CLAMP(speed_factor * (1 - (STAEND / 20)), 0, 1)
+
+	add_movespeed_modifier("encumbrance", override = TRUE, multiplicative_slowdown = 5 * precentage)
+

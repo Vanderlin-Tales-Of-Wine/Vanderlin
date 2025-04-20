@@ -4,12 +4,13 @@
 	name = "Instill Perfection"
 	desc = "Grants target a super-natural beauty for a time, increasing their mood."
 	overlay_state = "perfume"
-	charge_max = 2 MINUTES
+	recharge_time = 2 MINUTES
 	req_items = list(/obj/item/clothing/neck/psycross/silver/eora)
 	invocation = "Eora, lend some of your devine beauty!"
 	invocation_type = "shout"
 	releasedrain = 30
 	miracle = TRUE
+	healing_miracle = TRUE
 	devotion_cost = 25
 
 /obj/effect/proc_holder/spell/invoked/instill_perfection/cast(list/targets,mob/living/user = usr)
@@ -127,7 +128,6 @@
 /obj/effect/proc_holder/spell/invoked/bud
 	name = "Eoran Bloom"
 	desc = ""
-	clothes_req = FALSE
 	range = 2
 	overlay_state = "pflower"
 	sound = list('sound/magic/magnet.ogg')
@@ -139,7 +139,7 @@
 	charging_slowdown = 1
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/holy
-	charge_max = 60 SECONDS
+	recharge_time = 60 SECONDS
 	miracle = TRUE
 	devotion_cost = 75
 
@@ -178,7 +178,7 @@
 	invocation_type = "shout"
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
-	charge_max = 30 SECONDS
+	recharge_time = 30 SECONDS
 	miracle = TRUE
 	devotion_cost = 60
 
@@ -271,7 +271,7 @@
 	invocation_type = "shout"
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
-	charge_max = 45 SECONDS
+	recharge_time = 45 SECONDS
 	miracle = TRUE
 	devotion_cost = 100
 

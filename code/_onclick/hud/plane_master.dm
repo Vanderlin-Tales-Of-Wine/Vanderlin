@@ -303,3 +303,38 @@
 	blend_mode = BLEND_MULTIPLY
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	render_target = SUNLIGHTING_RENDER_TARGET
+
+/atom/movable/screen/plane_master/leylines
+	name = "leyline plane master"
+//	screen_loc = "CENTER-2"
+	plane = PLANE_LEYLINES
+	appearance_flags = PLANE_MASTER //should use client colorSTRATEGY_PLANE
+	blend_mode = BLEND_OVERLAY
+	//render_target = GAME_PLANE_RENDER_TARGET
+
+/atom/movable/screen/plane_master/leylines/backdrop(mob/mymob)
+	. = ..()
+	if(!isliving(mymob) && mymob.client?.toggled_leylines)
+		alpha = 255
+	else if(!HAS_TRAIT(mymob, TRAIT_SEE_LEYLINES))
+		alpha = 0
+	else
+		alpha = 255
+
+
+/atom/movable/screen/plane_master/stategy_plane
+	name = "stategy plane master"
+//	screen_loc = "CENTER-2"
+	plane = STRATEGY_PLANE
+	appearance_flags = PLANE_MASTER //should use client color
+	blend_mode = BLEND_OVERLAY
+	//render_target = GAME_PLANE_RENDER_TARGET
+
+/atom/movable/screen/plane_master/stategy_plane/backdrop(mob/mymob)
+	. = ..()
+	if(!isliving(mymob))
+		alpha = 255
+	else if(!iscameramob(mymob))
+		alpha = 0
+	else
+		alpha = 255

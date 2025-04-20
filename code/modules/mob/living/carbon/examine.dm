@@ -138,3 +138,4 @@
 			if(MOOD_LEVEL_HAPPY4 to INFINITY)
 				. += "[t_He] look[p_s()] ecstatic."
 	. += "ᛉ ------------ ᛉ</span>"
+	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, .)

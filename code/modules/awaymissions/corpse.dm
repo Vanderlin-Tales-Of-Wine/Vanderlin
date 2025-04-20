@@ -23,7 +23,7 @@
 	var/oxy_damage = 0
 	var/burn_damage = 0
 	var/mob_color //Change the mob's color
-	var/assignedrole
+	var/datum/job/assignedrole
 	var/show_flavour = TRUE
 	var/banType = ROLE_NECRO_SKELETON
 	var/ghost_usable = TRUE
@@ -105,7 +105,7 @@
 				O.owner = MM
 				A.objectives += O
 		if(assignedrole)
-			M.mind.assigned_role = assignedrole
+			M.mind.set_assigned_role(assignedrole)
 		special(M)
 		MM.name = M.real_name
 	if(uses > 0)
@@ -126,7 +126,6 @@
 	var/id_job = null			//Such as "Clown" or "Chef." This just determines what the ID reads as, not their access
 	var/id_access = null		//This is for access. See access.dm for which jobs give what access. Use "Captain" if you want it to be all access.
 	var/id_access_list = null	//Allows you to manually add access to an ID card.
-	assignedrole = "Ghost Role"
 
 	var/husk = null
 	//these vars are for lazy mappers to override parts of the outfit

@@ -1,1 +1,0 @@
-/obj/machinery/recycler : /obj/machinery/recycler {@OLD;dir=8}

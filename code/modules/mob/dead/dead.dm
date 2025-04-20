@@ -50,7 +50,6 @@ INITIALIZE_IMMEDIATE(/mob/dead)
 
 /mob/dead/new_player/proc/lobby_refresh()
 	set waitfor = 0
-//	src << browse(null, "window=lobby_window")
 
 	if(!client)
 		return
@@ -77,32 +76,35 @@ INITIALIZE_IMMEDIATE(/mob/dead)
 
 	dat += "</center>"
 
-	for(var/datum/job/job in SSjob.occupations)
+	for(var/datum/job/job in SSjob.joinable_occupations)
 		if(!job)
 			continue
 		if(!job.shows_in_list)
 			continue
-		var/readiedas = 0
+		var/readied_as = 0
 		var/list/PL = list()
 		for(var/mob/dead/new_player/player in GLOB.player_list)
+			// Are we ready?
 			if(!player)
 				continue
-			if(job.title == "Adventurer")
-				if(player.client.prefs.job_preferences["Court Agent"] == JP_HIGH)
-					if(player.ready == PLAYER_READY_TO_PLAY)
-						readiedas++
-						if(!(player.client.ckey in GLOB.hiderole))
-							if(player.client.prefs.real_name)
-								var/thing = "[player.client.prefs.real_name]"
-								PL += thing
+			if(player.client.prefs.job_preferences[job.title] != JP_HIGH)
+				//i'm sorry for doing this
+				if(!is_adventurer_job(job) || player.client.prefs.job_preferences["Court Agent"] != JP_HIGH)
+					continue
+			if(player.ready != PLAYER_READY_TO_PLAY)
+				continue
 
-			if(player.client.prefs.job_preferences[job.title] == JP_HIGH)
-				if(player.ready == PLAYER_READY_TO_PLAY)
-					readiedas++
-					if(!(player.client.ckey in GLOB.hiderole))
-						if(player.client.prefs.real_name)
-							var/thing = "[player.client.prefs.real_name]"
-							PL += thing
+			// We are ready
+			readied_as++
+			// But do we show them?
+
+			if((player.client.ckey in GLOB.hiderole))
+				continue
+
+			// We will show them
+			if(player.client.prefs.real_name)
+				var/thing = "[player.client.prefs.real_name]"
+				PL += thing
 
 		var/list/PL2 = list()
 		for(var/i in 1 to PL.len)
@@ -112,11 +114,11 @@ INITIALIZE_IMMEDIATE(/mob/dead)
 				PL2 += "[PL[i]], "
 
 		var/str_job = job.title
-		if(readiedas)
+		if(readied_as)
 			if(PL2.len)
-				dat += "<B>[str_job]</B> ([readiedas]) - [PL2.Join()]<br>"
+				dat += "<B>[str_job]</B> ([readied_as]) - [PL2.Join()]<br>"
 			else
-				dat += "<B>[str_job]</B> ([readiedas])<br>"
+				dat += "<B>[str_job]</B> ([readied_as])<br>"
 
 	var/datum/browser/popup = new(src, "lobby_window", "<div align='center'>LOBBY</div>", 330, 430)
 	popup.set_window_options(can_minimize = FALSE, can_maximize = FALSE, can_resize = TRUE)

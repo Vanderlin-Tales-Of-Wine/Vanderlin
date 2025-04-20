@@ -1,9 +1,0 @@
-{
-    "map_name": "roguewar",
-    "map_path": "map_files/roguewar",
-    "map_file": "roguewar.dmm",
-	"traits": [{"Up": true}, {"Up": true, "Down": true}, {"Down": true}],
-	"minetype": null,
-	"space_empty_levels": 0,
-	"space_ruin_levels": 0
-}

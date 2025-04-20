@@ -24,7 +24,7 @@
 /atom/movable/screen/movable/action_button/MouseDrop(over_object)
 	if(!can_use(usr))
 		return
-	if((istype(over_object, /atom/movable/screen/movable/action_button) && !istype(over_object, /atom/movable/screen/movable/action_button/hide_toggle)))
+	if((istype(over_object, /atom/movable/screen/movable/action_button)))
 		if(locked)
 //			to_chat(usr, "<span class='warning'>Action button \"[name]\" is locked, unlock it first.</span>")
 			return
@@ -42,21 +42,7 @@
 /atom/movable/screen/movable/action_button/Click(location,control,params)
 	if (!can_use(usr))
 		return
-/*
-	var/list/modifiers = params2list(params)
-	if(modifiers["shift"])
-		if(locked)
-			to_chat(usr, "<span class='warning'>Action button \"[name]\" is locked, unlock it first.</span>")
-			return TRUE
-		moved = 0
-		usr.update_action_buttons() //redraw buttons that are no longer considered "moved"
-		return TRUE
-	if(modifiers["ctrl"])
-		locked = !locked
-		to_chat(usr, "<span class='notice'>Action button \"[name]\" [locked ? "" : "un"]locked.</span>")
-		if(id && usr.client) //try to (un)remember position
-			usr.client.prefs.action_buttons_screen_locs["[name]_[id]"] = locked ? moved : null
-		return TRUE*/
+
 	if(usr.next_click > world.time)
 		return
 	usr.next_click = world.time + 1
@@ -66,123 +52,19 @@
 	linked_action.Trigger()
 	return TRUE
 
-//Hide/Show Action Buttons ... Button
-/atom/movable/screen/movable/action_button/hide_toggle
-	name = "Hide Buttons"
-	desc = ""
-	icon = 'icons/mob/actions.dmi'
-	icon_state = "bg_default"
-	locked = TRUE
-	var/hidden = 0
-	var/hide_icon = 'icons/mob/actions.dmi'
-	var/hide_state = "hide"
-	var/show_state = "show"
-	var/mutable_appearance/hide_appearance
-	var/mutable_appearance/show_appearance
-
-/atom/movable/screen/movable/action_button/hide_toggle/Initialize()
-	. = ..()
-	var/static/list/icon_cache = list()
-
-	var/cache_key = "[hide_icon][hide_state]"
-	hide_appearance = icon_cache[cache_key]
-	if(!hide_appearance)
-		hide_appearance = icon_cache[cache_key] = mutable_appearance(hide_icon, hide_state)
-
-	cache_key = "[hide_icon][show_state]"
-	show_appearance = icon_cache[cache_key]
-	if(!show_appearance)
-		show_appearance = icon_cache[cache_key] = mutable_appearance(hide_icon, show_state)
-
-
-/atom/movable/screen/movable/action_button/hide_toggle/Click(location,control,params)
-	if (!can_use(usr))
-		return
-
-	var/list/modifiers = params2list(params)
-	if(modifiers["shift"])
-		if(locked)
-			to_chat(usr, "<span class='warning'>Action button \"[name]\" is locked, unlock it first.</span>")
-			return TRUE
-		moved = FALSE
-		usr.update_action_buttons(TRUE)
-		return TRUE
-	if(modifiers["ctrl"])
-		locked = !locked
-		to_chat(usr, "<span class='notice'>Action button \"[name]\" [locked ? "" : "un"]locked.</span>")
-		if(id && usr.client) //try to (un)remember position
-			usr.client.prefs.action_buttons_screen_locs["[name]_[id]"] = locked ? moved : null
-		return TRUE
-	if(modifiers["alt"])
-		for(var/V in usr.actions)
-			var/datum/action/A = V
-			var/atom/movable/screen/movable/action_button/B = A.button
-			B.moved = FALSE
-			if(B.id && usr.client)
-				usr.client.prefs.action_buttons_screen_locs["[B.name]_[B.id]"] = null
-			B.locked = usr.client.prefs.buttons_locked
-		locked = usr.client.prefs.buttons_locked
-		moved = FALSE
-		if(id && usr.client)
-			usr.client.prefs.action_buttons_screen_locs["[name]_[id]"] = null
-		usr.update_action_buttons(TRUE)
-		to_chat(usr, "<span class='notice'>Action button positions have been reset.</span>")
-		return TRUE
-	usr.hud_used.action_buttons_hidden = !usr.hud_used.action_buttons_hidden
-
-	hidden = usr.hud_used.action_buttons_hidden
-	if(hidden)
-		name = "Show Buttons"
-	else
-		name = "Hide Buttons"
-	update_icon()
-	usr.update_action_buttons()
-
-/atom/movable/screen/movable/action_button/hide_toggle/AltClick(mob/user)
-	for(var/V in user.actions)
-		var/datum/action/A = V
-		var/atom/movable/screen/movable/action_button/B = A.button
-		B.moved = FALSE
-	if(moved)
-		moved = FALSE
-	user.update_action_buttons(TRUE)
-	to_chat(user, "<span class='notice'>Action button positions have been reset.</span>")
-
-
-/atom/movable/screen/movable/action_button/hide_toggle/proc/InitialiseIcon(datum/hud/owner_hud)
-	var/settings = owner_hud.get_action_buttons_icons()
-	icon = settings["bg_icon"]
-	icon_state = settings["bg_state"]
-	hide_icon = settings["toggle_icon"]
-	hide_state = settings["toggle_hide"]
-	show_state = settings["toggle_show"]
-	update_icon()
-
-/atom/movable/screen/movable/action_button/hide_toggle/update_overlays()
-	. = ..()
-	if(hidden)
-		. += show_appearance
-	else
-		. += hide_appearance
-
 /atom/movable/screen/movable/action_button/MouseEntered(location,control,params)
 	if(!QDELETED(src))
 		openToolTip(usr,src,params,title = name,content = desc,theme = actiontooltipstyle)
 	..()
 
 /atom/movable/screen/movable/action_button/MouseExited()
-	close_tooltip(usr)
+	closeToolTip(usr)
 	..()
 
 /datum/hud/proc/get_action_buttons_icons()
 	. = list()
 	.["bg_icon"] = ui_style
 	.["bg_state"] = "template"
-
-	//TODO : Make these fit theme
-	.["toggle_icon"] = 'icons/mob/actions.dmi'
-	.["toggle_hide"] = "hide"
-	.["toggle_show"] = "show"
 
 //see human and alien hud for specific implementations.
 
@@ -219,17 +101,6 @@
 			if(reload_screen)
 				client.screen += B
 
-//		if(!button_number)
-//			hud_used.hide_actions_toggle.screen_loc = null
-//			return
-
-//	if(!hud_used.hide_actions_toggle.moved)
-//		hud_used.hide_actions_toggle.screen_loc = hud_used.ButtonNumberToScreenCoords(button_number+1)
-//	else
-//		hud_used.hide_actions_toggle.screen_loc = hud_used.hide_actions_toggle.moved
-//	if(reload_screen)
-//		client.screen += hud_used.hide_actions_toggle
-
 
 
 #define AB_MAX_COLUMNS 12
@@ -241,7 +112,7 @@
 	var/coord_col = "+[col-1]"
 	var/coord_col_offset = 4 + 2 * col
 
-	var/coord_row = "[row ? -row : "+0"]"
+	var/coord_row = "[row ? "+[row]" : "+0"]"
 
 	return "WEST[coord_col]:[coord_col_offset],SOUTH[coord_row]:3"
 
@@ -249,7 +120,7 @@
 	var/row = round((number-1)/AB_MAX_COLUMNS)
 	var/col = ((number - 1)%(AB_MAX_COLUMNS)) + 1
 	var/x_offset = 32*(col-1) + 4 + 2*col
-	var/y_offset = -32*(row+1) + 26
+	var/y_offset = 32*(row+1) + 26
 
 	var/matrix/M = matrix()
 	M.Translate(x_offset,y_offset)

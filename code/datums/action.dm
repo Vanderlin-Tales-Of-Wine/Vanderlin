@@ -16,7 +16,7 @@
 	var/button_icon = 'icons/mob/actions/roguespells.dmi' //This is the file for the BACKGROUND icon
 	var/background_icon_state = "spell" //And this is the state for the background icon
 
-	var/icon_icon = 'icons/mob/actions.dmi' //This is the file for the ACTION icon
+	var/icon_icon = 'icons/mob/actions/actions_spells.dmi' //This is the file for the ACTION icon
 	var/button_icon_state = "default" //And this is the state for the action icon
 	var/overlay_state = null
 	var/mob/owner
@@ -29,6 +29,9 @@
 	button.actiontooltipstyle = buttontooltipstyle
 	if(desc)
 		button.desc = desc
+
+/datum/action/proc/get_owner()
+	return owner
 
 /datum/action/proc/link_to(Target)
 	target = Target
@@ -84,7 +87,7 @@
 	button.locked = FALSE
 	button.id = null
 
-/datum/action/proc/Trigger()
+/datum/action/proc/Trigger(atom/target)
 	if(!IsAvailable())
 		return FALSE
 	if(SEND_SIGNAL(src, COMSIG_ACTION_TRIGGER, src) & COMPONENT_ACTION_BLOCK_TRIGGER)
@@ -300,6 +303,12 @@
 	check_flags = NONE
 	background_icon_state = "bg_spell"
 
+/datum/action/spell_action/proc/Activate()
+	return
+
+/datum/action/spell_action/proc/Deactivate()
+	return
+
 /datum/action/spell_action/New(Target)
 	..()
 	var/obj/effect/proc_holder/S = target
@@ -321,6 +330,8 @@
 		return FALSE
 	if(target)
 		var/obj/effect/proc_holder/S = target
+		if(owner.ranged_ability && S != owner.ranged_ability)
+			owner.ranged_ability.deactivate(owner)
 		S.Click()
 		return TRUE
 
@@ -405,17 +416,15 @@
 		if(next_use_time > world.time)
 			START_PROCESSING(SSfastprocess, src)
 
-
-/datum/action/language_menu
-	name = "Language Menu"
-	desc = ""
-	button_icon_state = "language_menu"
-	check_flags = NONE
-
-/datum/action/language_menu/Trigger()
-	if(!..())
+/// Intercepts client owner clicks to activate the ability
+/datum/action/cooldown/proc/InterceptClickOn(mob/living/user, params, atom/target)
+	if(!IsAvailable())
 		return FALSE
-	if(ismob(owner))
-		var/mob/M = owner
-		var/datum/language_holder/H = M.get_language_holder()
-		H.open_language_menu(usr)
+	if(!target)
+		return FALSE
+
+	return TRUE
+
+/// To be implemented by subtypes (if not generic)
+/datum/action/cooldown/proc/Activate(atom/target)
+	StartCooldown()

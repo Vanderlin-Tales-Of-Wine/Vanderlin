@@ -5,43 +5,68 @@
 
 /datum/supply_pack/weapons/shortsword
 	name = "Iron Short Sword"
-	cost = 15
+	cost = 25
 	contains = /obj/item/weapon/sword/short
 
-/datum/supply_pack/weapons/sword
-	name = "Iron Sword"
-	cost = 18
+/datum/supply_pack/weapons/sword_iron
+	name = "Iron Arming Sword"
+	cost = 27
 	contains = /obj/item/weapon/sword/iron
 
+/datum/supply_pack/weapons/sword
+	name = "Steel Arming Sword"
+	cost = 30
+	contains = /obj/item/weapon/sword
+
 /datum/supply_pack/weapons/greatsword
-	name = "Iron Greatsword"
-	cost = 54
+	name = "Iron Zweihander"
+	cost = 55
 	contains = /obj/item/weapon/sword/long/greatsword/zwei
 
 /datum/supply_pack/weapons/mace
 	name = "Iron Mace"
-	cost = 20
+	cost = 28
 	contains = /obj/item/weapon/mace
+
+/datum/supply_pack/weapons/smace
+	name = "Flanged Steel Mace"
+	cost = 28
+	contains = /obj/item/weapon/mace/steel
 
 /datum/supply_pack/weapons/greatmace
 	name = "Iron Warclub"
-	cost = 28
+	cost = 26
 	contains = /obj/item/weapon/mace/goden
 
 /datum/supply_pack/weapons/axe
 	name = "Iron Axe"
-	cost = 20
-	contains = /obj/item/weapon/axe/iron
+	cost = 26
+	contains = /obj/item/weapon/axe
+
+/datum/supply_pack/weapons/saxe
+	name = "Steel Axe"
+	cost = 29
+	contains = /obj/item/weapon/axe/steel
+
+/datum/supply_pack/weapons/halberd
+	name = "Halberd"
+	cost = 51
+	contains = /obj/item/weapon/polearm/halberd
 
 /datum/supply_pack/weapons/huntingknife
 	name = "Iron Hunting Knife"
-	cost = 10
+	cost = 17
 	contains = /obj/item/weapon/knife/hunting
 
 /datum/supply_pack/weapons/dagger
 	name = "Iron Dagger"
-	cost = 12
+	cost = 22
 	contains = /obj/item/weapon/knife/dagger
+
+/datum/supply_pack/weapons/sdagger
+	name = "Steel Dagger"
+	cost = 26
+	contains = /obj/item/weapon/knife/dagger/steel
 
 /datum/supply_pack/weapons/spear
 	name = "Iron Spear"
@@ -49,9 +74,14 @@
 	contains = /obj/item/weapon/polearm/spear
 
 /datum/supply_pack/weapons/flail
-	name = "Iron Flail"
-	cost = 20
+	name = "Military Flail"
+	cost = 29
 	contains = /obj/item/weapon/flail
+
+/datum/supply_pack/weapons/sflail
+	name = "Steel Flail"
+	cost = 32
+	contains = /obj/item/weapon/flail/sflail
 
 /datum/supply_pack/weapons/whip
 	name = "Leather Whip"
@@ -84,22 +114,27 @@
 
 /datum/supply_pack/weapons/crossbow
 	name = "Crossbow"
-	cost = 40
+	cost = 45
 	contains = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
 
 /datum/supply_pack/weapons/bow
-	name = "Bow"
+	name = "Hunting Bow"
 	cost = 30
 	contains = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
 
+/datum/supply_pack/weapons/bow2
+	name = "Longbow"
+	cost = 35
+	contains = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/long
+
 /datum/supply_pack/weapons/rbow
 	name = "Imported Recurve Bow"
-	cost = 20
+	cost = 30
 	contains = list(/obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve)
 
 /datum/supply_pack/weapons/quivers
 	name = "Empty Quiver"
-	cost = 8
+	cost = 5
 	contains = /obj/item/ammo_holder/quiver
 
 /datum/supply_pack/weapons/arrowquiver
@@ -109,15 +144,15 @@
 
 /datum/supply_pack/weapons/boltquiver
 	name = "Quiver of Bolts"
-	cost = 60
+	cost = 35
 	contains = /obj/item/ammo_holder/quiver/bolts
 
 /datum/supply_pack/weapons/arrows
 	name = "Arrow"
-	cost = 2
+	cost = 3
 	contains = /obj/item/ammo_casing/caseless/arrow
 
 /datum/supply_pack/weapons/bolts
 	name = "Crossbow Bolt"
-	cost = 3
+	cost = 2
 	contains = /obj/item/ammo_casing/caseless/bolt

@@ -82,6 +82,10 @@
 
 	prevent_crits =  MINOR_CRITICALS
 
+/obj/item/clothing/head/wizhat/Initialize()
+	. = ..()
+	AddComponent(/datum/component/storage/concrete/grid/kobold_storage)
+
 /obj/item/clothing/head/wizhat/witch
 	name = "witch hat"
 	desc = ""

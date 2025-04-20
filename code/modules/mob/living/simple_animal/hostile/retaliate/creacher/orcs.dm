@@ -11,9 +11,9 @@
 	speak_chance = 5
 	turns_per_move = 1
 	move_to_delay = 1
-	TOTALCON = 9
-	TOTALSTR = 14
-	TOTALSPD = 13
+	base_constitution = 9
+	base_strength = 14
+	base_speed = 13
 	maxHealth = 200
 	health = 200
 	harm_intent_damage = 15
@@ -35,7 +35,7 @@
 	loot = list(/obj/effect/mob_spawn/human/orc/corpse/savageorc,
 			/obj/item/weapon/axe/boneaxe,
 			/obj/effect/decal/cleanable/blood)
-	faction = list("orcs")
+	faction = list(FACTION_ORCS)
 	footstep_type = FOOTSTEP_MOB_BAREFOOT
 	del_on_death = TRUE
 

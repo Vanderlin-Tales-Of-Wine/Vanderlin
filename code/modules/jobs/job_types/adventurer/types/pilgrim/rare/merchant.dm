@@ -7,7 +7,11 @@
 		"Humen",
 		"Elf",
 		"Half-Elf",
-		"Aasimar"
+		"Dwarf",
+		"Tiefling",
+		"Dark Elf",
+		"Aasimar",
+		"Rakshari",
 	)
 	outfit = /datum/outfit/job/adventurer/merchant
 	category_tags = list(CTAG_PILGRIM)
@@ -25,6 +29,7 @@
 	H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/craft/alchemy, 1, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 5, TRUE)
 	H.change_stat(STATKEY_INT, 2)
 	H.change_stat(STATKEY_SPD, 1)
 	shoes = /obj/item/clothing/shoes/boots
@@ -33,7 +38,7 @@
 	backl = /obj/item/storage/backpack/backpack
 	backpack_contents = list(/obj/item/weapon/knife/dagger/steel)
 	neck = /obj/item/storage/belt/pouch/coins/rich
-	id = /obj/item/clothing/ring/silver
+	ring = /obj/item/clothing/ring/silver
 	if(H.gender == FEMALE)
 		armor = /obj/item/clothing/shirt/dress/gen/green
 		head = /obj/item/clothing/head/hatblu

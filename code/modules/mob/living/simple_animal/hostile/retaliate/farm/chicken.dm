@@ -54,12 +54,12 @@
 	var/list/validColors = list("brown","black","white")
 	var/static/chicken_count = 0
 
-	TOTALCON = 1
-	TOTALSTR = 1
-	TOTALSPD = 5
+	base_constitution = 1
+	base_strength = 1
+	base_speed = 5
 	tame = TRUE
 
-	AIStatus = AI_STATUS_OFF
+	AIStatus = AI_OFF
 	can_have_ai = FALSE
 	ai_controller = /datum/ai_controller/basic_controller/chicken
 

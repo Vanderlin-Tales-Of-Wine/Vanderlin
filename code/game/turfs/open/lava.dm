@@ -3,7 +3,7 @@
 /turf/open/lava
 	name = "lava"
 	icon_state = "lava"
-	icon = 'icons/turf/roguefloor.dmi'
+	icon = 'icons/turf/floors.dmi'
 	gender = PLURAL //"That's some lava."
 	baseturfs = /turf/open/lava //lava all the way down
 	slowdown = 2
@@ -115,7 +115,7 @@
 				O.resistance_flags |= FLAMMABLE //Even fireproof things burn up in lava
 			if(O.resistance_flags & FIRE_PROOF)
 				O.resistance_flags &= ~FIRE_PROOF
-			if(O.armor.fire > 50) //obj with 100% fire armor still get slowly burned away.
+			if(O.armor?.fire > 50) //obj with 100% fire armor still get slowly burned away.
 				O.armor = O.armor.setRating(fire = 50)
 			qdel(O)
 
@@ -154,8 +154,8 @@
 				continue
 
 			if(L) //mobs turning into object corpses could get deleted here.
-				L.adjustFireLoss(10)
-				L.adjust_fire_stacks(100)
+				L.adjustFireLoss(50)
+				L.adjust_fire_stacks(10)
 				L.IgniteMob()
 				if(L.health <= 0)
 					L.dust(drop_items = TRUE)

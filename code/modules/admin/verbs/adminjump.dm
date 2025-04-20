@@ -173,5 +173,5 @@
 	var/datum/outfit/outfit = new /datum/outfit/job/tailor
 	outfit.equip(new_human)
 
-	prefs.copy_to(new_human, TRUE, FALSE)
+	prefs.safe_transfer_prefs_to(new_human)
 	new_human.ckey = ckey

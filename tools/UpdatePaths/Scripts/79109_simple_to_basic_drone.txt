@@ -1,1 +1,0 @@
-/mob/living/simple_animal/drone/@SUBTYPES : /mob/living/basic/drone/@SUBTYPES{@OLD}

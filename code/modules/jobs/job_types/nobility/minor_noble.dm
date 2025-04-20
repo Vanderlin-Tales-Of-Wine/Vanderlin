@@ -1,29 +1,22 @@
 /datum/job/minor_noble
 	title = "Noble"
 	tutorial = "The blood of a noble family runs through your veins. You are the living proof that the minor houses \
-	of Vanderlin still exist in spite of the Monarch. You have many mammons to your name, but with wealth comes \
+	still exist in spite of the Monarch. You have many mammons to your name, but with wealth comes \
 	danger, so keep your wits and tread lightly..."
-	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Half-Orc",
-		"Aasimar",
-		"Rakshari"
-	)
-	outfit = /datum/outfit/job/noble
-	faction = "Station"
 	display_order = JDO_MINOR_NOBLE
 	flag = MINOR_NOBLE
 	department_flag = NOBLEMEN
-	apprentice_name = "Servant"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	faction = FACTION_STATION
 	total_positions = 2
 	spawn_positions = 2
 	min_pq = 1
+
+	allowed_sexes = list(MALE, FEMALE)
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
+
+	outfit = /datum/outfit/job/noble
+	apprentice_name = "Servant"
 	give_bank_account = 60
 
 /datum/outfit/job/noble
@@ -46,12 +39,13 @@
 	H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/music, rand(1,2), TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE)
 	H.change_stat(STATKEY_INT, 1)
 	shoes = /obj/item/clothing/shoes/boots
 	backl = /obj/item/storage/backpack/satchel
 	neck = /obj/item/storage/belt/pouch/coins/veryrich
 	belt = /obj/item/storage/belt/leather
-	id = /obj/item/clothing/ring/silver
+	ring = /obj/item/clothing/ring/silver
 	if(H.gender == FEMALE)
 		H.change_stat(STATKEY_SPD, 1)
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)

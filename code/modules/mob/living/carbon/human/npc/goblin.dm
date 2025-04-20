@@ -19,12 +19,15 @@
 	vitae_pool = 250 // Small, frail creechers with not so much vitality to gain from.
 
 /mob/living/carbon/human/species/goblin/npc
-	aggressive=1
-	mode = AI_IDLE
+	ai_controller = /datum/ai_controller/human_npc
 	dodgetime = 30 //they can dodge easily, but have a cooldown on it
 	flee_in_pain = TRUE
 
 	wander = FALSE
+
+/mob/living/carbon/human/species/rousman/npc/Initialize()
+	. = ..()
+	AddComponent(/datum/component/combat_noise, list("laugh" = 2))
 
 /mob/living/carbon/human/species/goblin/npc/ambush
 	simpmob_attack = 35
@@ -32,7 +35,7 @@
 	wander = TRUE
 	attack_speed = 2
 
-/mob/living/carbon/human/species/goblin/hell
+/mob/living/carbon/human/species/goblin/npc/hell
 	name = "hell goblin"
 	race = /datum/species/goblin/hell
 
@@ -108,8 +111,8 @@
 /obj/item/bodypart/head/goblin/skeletonize()
 	. = ..()
 	icon_state = "goblin_skel_head"
-	if(sellprice)
-		sellprice = 2
+	if(headprice)
+		headprice = 2
 
 /obj/item/bodypart/head/goblin/drop_organs(mob/user, violent_removal)
 	. = ..()
@@ -205,23 +208,17 @@
 	. = ..()
 	addtimer(CALLBACK(src, PROC_REF(after_creation)), 1 SECONDS)
 
-/mob/living/carbon/human/species/goblin/handle_combat()
-	if(mode == AI_HUNT)
-		if(prob(2))
-			emote("laugh")
-	. = ..()
-
 /mob/living/carbon/human/species/goblin/after_creation()
 	..()
 	gender = MALE
 	if(src.dna && src.dna.species)
 		src.dna.species.soundpack_m = new /datum/voicepack/goblin()
 		src.dna.species.soundpack_f = new /datum/voicepack/goblin()
-		var/obj/item/headdy = get_bodypart("head")
+		var/obj/item/bodypart/head/headdy = get_bodypart("head")
 		if(headdy)
 			headdy.icon = 'icons/roguetown/mob/monster/goblins.dmi'
 			headdy.icon_state = "[src.dna.species.id]_head"
-			headdy.sellprice = rand(7,20)
+			headdy.headprice = rand(7,20)
 	var/obj/item/organ/eyes/eyes = src.getorganslot(ORGAN_SLOT_EYES)
 	if(eyes)
 		eyes.Remove(src,1)
@@ -235,7 +232,7 @@
 	if(src.charflaw)
 		QDEL_NULL(src.charflaw)
 	update_body()
-	faction = list("orcs")
+	faction = list(FACTION_ORCS)
 	name = "goblin"
 	real_name = "goblin"
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
@@ -273,10 +270,10 @@
 			if(!B.rotted)
 				B.rotted = TRUE
 				should_update = TRUE
-			if(B.rotted && amount < 16 MINUTES)
+			if(B.rotted && amount < 16 MINUTES && !(FACTION_MATTHIOS in C.faction))
 				var/turf/open/T = C.loc
 				if(istype(T))
-					T.pollute_turf(/datum/pollutant/rot, 10)
+					T.pollute_turf(/datum/pollutant/rot, 4)
 	if(should_update)
 		if(amount > 20 MINUTES)
 			C.update_body()
@@ -294,12 +291,12 @@
 
 /datum/outfit/job/npc/goblin/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.TOTALSTR = rand(6, 10)
-	H.TOTALPER = rand(5, 10)
-	H.TOTALINT = rand(1, 4)
-	H.TOTALCON = rand(4, 8)
-	H.TOTALEND = rand(8, 12)
-	H.TOTALSPD = rand(8, 14)
+	H.base_strength = rand(6, 10)
+	H.base_perception = rand(5, 10)
+	H.base_intelligence = rand(1, 4)
+	H.base_constitution = rand(4, 8)
+	H.base_endurance = rand(8, 12)
+	H.base_speed = rand(8, 14)
 	if(is_species(H, /datum/species/goblin/hell))
 		H.STASTR += 6
 		H.STACON += 6

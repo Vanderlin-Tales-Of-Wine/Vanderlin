@@ -102,6 +102,7 @@ All foods are distributed among various categories. Use common sense.
 	var/plated_iconstate // used in afterattack to switch the above on or off
 	var/base_icon_state // used for procs manipulating icons when sliced and the like
 	var/biting // if TRUE changes the icon state to the bitecount, for stuff like handpies. Will break unless you also set a base_icon_state
+	var/rot_away_timer
 
 /datum/intent/food
 	name = "feed"
@@ -139,7 +140,7 @@ All foods are distributed among various categories. Use common sense.
 	if(rotprocess)
 		var/obj/structure/closet/crate/chest/chest = locate(/obj/structure/closet/crate/chest) in get_turf(src)
 		var/obj/structure/fake_machine/vendor = locate(/obj/structure/fake_machine/vendor) in get_turf(src)
-		if(!chest && !vendor)
+		if(!chest && !vendor && !istype(loc, /obj/item/storage/backpack/backpack/artibackpack))
 			var/obj/structure/table/located = locate(/obj/structure/table) in loc
 			if(located)
 				warming -= 5
@@ -177,6 +178,7 @@ All foods are distributed among various categories. Use common sense.
 		slice_path = null
 		cooktime = 0
 		modified = TRUE
+		rot_away_timer = QDEL_IN(src, 10 MINUTES)
 		return TRUE
 
 
@@ -251,7 +253,7 @@ All foods are distributed among various categories. Use common sense.
 	else
 		..()
 
-/obj/item/reagent_containers/food/snacks/proc/On_Consume(mob/living/eater)
+/obj/item/reagent_containers/food/snacks/on_consume(mob/living/eater)
 	if(!eater)
 		return
 
@@ -310,11 +312,14 @@ All foods are distributed among various categories. Use common sense.
 	eater.taste(reagents)
 
 	if(!reagents.total_volume)
-		var/mob/living/location = loc
-		var/obj/item/trash_item = generate_trash(location)
+		var/atom/current_loc = loc
 		qdel(src)
-		if(istype(location))
-			location.put_in_hands(trash_item)
+		if(isliving(current_loc))
+			var/mob/living/mob_location = current_loc
+			mob_location.put_in_hands(generate_trash(mob_location))
+		else
+			generate_trash(current_loc.drop_location())
+	update_icon()
 
 /obj/item/reagent_containers/food/snacks/attack_self(mob/user)
 	return
@@ -402,16 +407,16 @@ All foods are distributed among various categories. Use common sense.
 					amt2take = reagents.total_volume
 				reagents.trans_to(M, amt2take, transfered_by = user, method = INGEST)
 				bitecount++
-				On_Consume(M)
+				on_consume(M)
 				checkLiked(fraction, M)
-				if(bitecount >= bitesize)
+				if(bitecount >= bitesize && !QDELETED(src))
 					qdel(src)
 				return TRUE
 		playsound(M.loc,'sound/misc/eat.ogg', rand(30,60), TRUE)
 		qdel(src)
 		return FALSE
 
-	return 0
+	return ..()
 
 /obj/item/reagent_containers/food/snacks/examine(mob/user)
 	. = ..()
@@ -614,13 +619,14 @@ All foods are distributed among various categories. Use common sense.
 	if(eater.dropItemToGround(src))
 		qdel(src)
 	var/obj/item/I = new path(T)
-	eater.put_in_active_hand(I)
+	eater.put_in_active_hand(I, ignore_animation = TRUE)
 
 /obj/item/reagent_containers/food/snacks/Destroy()
 	STOP_PROCESSING(SSobj, src)
 	if(contents)
 		for(var/atom/movable/something in contents)
 			something.forceMove(drop_location())
+	deltimer(rot_away_timer)
 	return ..()
 
 /obj/item/reagent_containers/food/snacks/attack_animal(mob/M)
@@ -686,9 +692,9 @@ All foods are distributed among various categories. Use common sense.
 	else
 		return ..()
 
-/obj/item/reagent_containers/food/snacks/On_Consume(mob/living/eater)
-	..()
-	if(biting)
+/obj/item/reagent_containers/food/snacks/update_icon()
+	. = ..()
+	if(biting && bitecount)
 		icon_state = "[base_icon_state][bitecount]"
 
 

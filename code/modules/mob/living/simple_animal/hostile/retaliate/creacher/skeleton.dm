@@ -10,9 +10,9 @@
 	robust_searching = 1
 	turns_per_move = 1
 	move_to_delay = 3
-	TOTALCON = 9
-	TOTALSTR = 9
-	TOTALSPD = 8
+	base_constitution = 9
+	base_strength = 9
+	base_speed = 8
 	maxHealth = 100
 	health = 100
 	harm_intent_damage = 10
@@ -33,7 +33,7 @@
 	defdrain = 20
 	speak_emote = list("grunts")
 	loot = list(/obj/item/alch/bone,	/obj/item/alch/bone, /obj/item/alch/bone,	/obj/item/skull)
-	faction = list("undead")
+	faction = list(FACTION_UNDEAD)
 	footstep_type = FOOTSTEP_MOB_BAREFOOT
 	del_on_death = TRUE
 
@@ -114,7 +114,7 @@
 	if(user)
 		friends += user.name
 		if (cabal_affine)
-			faction |= "cabal"
+			faction |= FACTION_CABAL
 
 /mob/living/simple_animal/hostile/skeleton/Life()
 	. = ..()
@@ -153,6 +153,9 @@
 	cut_overlay("peace_overlay")
 	. = ..()
 
+/mob/living/simple_animal/hostile/skeleton/get_blood_dna_list() //We do not want skeletons bleeding.
+//Could be a more global bitflag or something, but it's only relevant for this subtype.
+	return null
 
 /datum/intent/simple/claw/skeleton_unarmed
 	attack_verb = list("claws", "strikes", "punches")

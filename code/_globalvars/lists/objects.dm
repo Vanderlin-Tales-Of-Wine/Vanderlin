@@ -19,34 +19,6 @@ GLOBAL_LIST_INIT(reverse_dir, list(2, 1, 3, 8, 10, 9, 11, 4, 6, 5, 7, 12, 14, 13
 
 GLOBAL_LIST_EMPTY(mob_spawners) 		    // All mob_spawn objects
 
-GLOBAL_LIST_INIT(rod_jobs, list(
-	"City Watchmen",
-	"Captain",
-	"Dungeoneer",
-	"Royal Guard",
-	"Veteran",
-	"Squire",
-	"Town Elder",
-	"Servant",
-	"Steward",
-	"Consort",
-	"Monarch",
-	"Prince",
-	"Hand",
-	"Court Magician",
-	"Butler",
-	"Archivist",
-	"Stevedore",
-	"Jester",
-	"Prisoner",
-	"Feldsher",
-	"Apothecary",
-	"Champion of Rockhill",
-	"Warden of the Terrorbog",
-	"Huntmaster of the Murderwoods",
-	"Hetman of Mount Decapitation",
-))
-
 /* COLORS */
 GLOBAL_LIST_INIT(peasant_dyes, list(
 	"Linen" = CLOTHING_LINEN,
@@ -94,3 +66,11 @@ GLOBAL_LIST_INIT(royal_dyes, list(
 	"Chalk White" = CLOTHING_CHALK_WHITE,
 ))
 GLOBAL_PROTECT(royal_dyes)
+
+GLOBAL_LIST_INIT(steam_armor, list(
+	/obj/item/clothing/armor/steam,
+	/obj/item/clothing/gloves/plate/steam,
+	/obj/item/clothing/head/helmet/heavy/steam,
+	/obj/item/clothing/shoes/boots/armor/steam,
+	/obj/item/clothing/cloak/boiler,
+))

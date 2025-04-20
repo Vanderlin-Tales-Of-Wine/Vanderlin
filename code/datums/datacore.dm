@@ -106,38 +106,3 @@
 			var/list/crimes = R.fields["ma_crim"]
 			crimes |= crime
 			return
-
-GLOBAL_LIST_EMPTY(fake_ckeys)
-
-/client
-	var/fake_key
-
-/proc/get_fake_key(ckey)
-	if(!ckey)
-		return
-	var/client/CL
-	for (var/client/C in GLOB.clients)
-		if(C.ckey == ckey)
-			CL = C
-	if(CL)
-		if(CL.fake_key)
-			return CL.fake_key
-	for(var/X in GLOB.fake_ckeys)
-		if(GLOB.fake_ckeys[X] == ckey)
-			if(CL)
-				CL.fake_key = X
-			return X
-	var/foundname
-	while(!foundname)
-		var/looker = "[capitalize(pick(GLOB.first_names))] [pick(GLOB.ooctitle)]"
-		var/found
-		for(var/X in GLOB.fake_ckeys)
-			if(X == looker)
-				found = TRUE
-		if(!found)
-			foundname = looker
-	if(foundname)
-		if(CL)
-			CL.fake_key = foundname
-		GLOB.fake_ckeys[foundname] = ckey
-		return foundname

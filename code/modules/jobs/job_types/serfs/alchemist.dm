@@ -1,25 +1,19 @@
 /datum/job/alchemist
 	title = "Alchemist"
+	tutorial = "You came to Vanderlin either to seek knowledge or riches."
 	flag = ALCHEMIST
 	department_flag = SERFS
-	faction = "Station"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = 6
+	faction = FACTION_STATION
 	total_positions = 0
 	spawn_positions = 0
+	bypass_lastclass = TRUE
 
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Aasimar"
-	)
-
-	tutorial = "You came to Vanderlin either to seek knowledge or riches."
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 
 	outfit = /datum/outfit/job/alchemist
-	display_order = 6
 	give_bank_account = 12
-	bypass_lastclass = TRUE
 
 /datum/outfit/job/alchemist
 	name = "Alchemist"

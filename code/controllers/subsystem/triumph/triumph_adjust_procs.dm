@@ -1,62 +1,45 @@
-/*
-	Keep in mind the thing stored on the mind is a key
-	Thus we mus convert it to a ckey
-*/
-/datum/mind/proc/adjust_triumphs(amt, counted = TRUE)
+/proc/adjust_triumphs(datum/key_holder, amount, counted = TRUE, reason)
+	if(!key_holder)
+		return
+
+	if(!amount)
+		return
+
+	if(!ismob(key_holder) && !ismind(key_holder) && !isclient(key_holder))
+		return
+	var/key = key_holder:key //sorry
+	var/ckey = ckey(key)
 	if(!key)
 		return
-	var/ckeey = ckey(key)
-	SStriumphs.triumph_adjust(amt, ckeey)
+
+	SStriumphs.triumph_adjust(amount, ckey)
 	SStriumphs.adjust_leaderboard(key)
 
-	if(amt > 0)
+	var/adjustment_verb
+	if(amount > 0)
+		adjustment_verb = "awarded"
 		if(counted)
-			SSticker.tri_gained += amt
-		if(current)
-			to_chat(current, "\n<font color='purple'>[amt] TRIUMPH(S) awarded.</font>")
-	else if(amt < 0)
-		if(counted)
-			SSticker.tri_lost += amt
-		if(current)
-			to_chat(current, "\n<font color='purple'>[amt*-1] TRIUMPH(S) lost.</font>")
-
-
-
-/*
-	A client will only exist when a client is live
-	So we can always get a ckey.
-*/
-/client/proc/adjust_triumphs(amt, counted = TRUE)
-	if(!amt)
-		return
-
-	SStriumphs.triumph_adjust(amt, ckey)
-	SStriumphs.adjust_leaderboard(key)
-
-	if(amt > 0)
-		if(counted)
-			SSticker.tri_gained += amt
-		to_chat(src, "\n<font color='purple'>[amt] TRIUMPH(S) awarded.</font>")
-	else if(amt < 0)
-		if(counted)
-			SSticker.tri_lost += amt
-		to_chat(src, "\n<font color='purple'>[amt*-1] TRIUMPH(S) lost.</font>")
-
-/*
-	mobs also got ckeys p simple
-*/
-/mob/proc/adjust_triumphs(amt, counted = TRUE, reason)
-	if(!ckey)
-		return
+			GLOB.vanderlin_round_stats[STATS_TRIUMPHS_AWARDED] += amount
 	else
-		SStriumphs.triumph_adjust(amt, ckey)
-		SStriumphs.adjust_leaderboard(key)
+		adjustment_verb = "lost"
+		if(counted)
+			GLOB.vanderlin_round_stats[STATS_TRIUMPHS_STOLEN] += amount
 
-	if(amt > 0)
-		if(counted)
-			SSticker.tri_gained += amt
-		to_chat(src, "\n<font color='purple'>[amt] TRIUMPH(S) awarded.[reason ? " REASON: [reason]" : ""]</font>")
-	else if(amt < 0)
-		if(counted)
-			SSticker.tri_lost += amt
-		to_chat(src, "\n<font color='purple'>[amt*-1] TRIUMPH(S) lost.[reason ? " REASON: [reason]" : ""]</font>")
+	var/final_text = "[abs(amount)] TRIUMPH\s [adjustment_verb]."
+	if(reason)
+		final_text += " REASON: [reason]"
+
+	to_chat(key_holder, span_purple("[final_text]"))
+
+/datum/mind/proc/adjust_triumphs(amt, counted = TRUE, reason)
+	if(!key)
+		return
+	global.adjust_triumphs(src, amt, counted, reason) //sorry
+
+/client/proc/adjust_triumphs(amt, counted = TRUE, reason)
+	global.adjust_triumphs(src, amt, counted, reason) //sorry
+
+/mob/proc/adjust_triumphs(amt, counted = TRUE, reason)
+	if(!key)
+		return
+	global.adjust_triumphs(src, amt, counted, reason) //sorry

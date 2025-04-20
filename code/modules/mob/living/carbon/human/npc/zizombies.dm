@@ -13,23 +13,27 @@
 	possible_rmb_intents = list()
 
 /mob/living/carbon/human/species/zizombie/npc
-	aggressive=1
-	mode = AI_IDLE
+	ai_controller = /datum/ai_controller/human_npc
 	dodgetime = 15 //they can dodge easily, but have a cooldown on it
 	canparry = TRUE
 	flee_in_pain = FALSE
 	wander = FALSE
 
+/mob/living/carbon/human/species/zizombie/npc/Initialize()
+	. = ..()
+	AddComponent(/datum/component/combat_noise, list("rage" = 1, "scream" = 1))
+
+/mob/living/carbon/human/species/zizombie/ambush
+	ai_controller = /datum/ai_controller/human_npc
 
 /mob/living/carbon/human/species/zizombie/ambush/after_creation()
 	..()
 	job = "Ambush zizombie"
+	AddComponent(/datum/component/combat_noise, list("rage" = 1, "scream" = 1))
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOSTAMINA, TRAIT_GENERIC)
 	equipOutfit(new /datum/outfit/job/species/zizombie/npc/random)
-	aggressive=1
-	mode = AI_IDLE
 	dodgetime = 15
 	canparry = TRUE
 	flee_in_pain = FALSE
@@ -55,7 +59,7 @@
 /obj/item/bodypart/head/zizombie/skeletonize()
 	. = ..()
 	icon_state = "zizombie_head_s"
-	sellprice = 2
+	headprice = 2
 
 /mob/living/carbon/human/species/zizombie/update_body()
 	remove_overlay(BODY_LAYER)
@@ -92,12 +96,6 @@
 	. = ..()
 	addtimer(CALLBACK(src, PROC_REF(after_creation)), 1 SECONDS)
 
-/mob/living/carbon/human/species/zizombie/handle_combat()
-	if(mode == AI_HUNT)
-		if(prob(1))
-			emote("rage")
-	. = ..()
-
 /mob/living/carbon/human/species/zizombie/proc/configure_mind()
 	if(!mind)
 		mind = new /datum/mind(src)
@@ -109,22 +107,16 @@
 	mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 	mind.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
 
-/mob/living/carbon/human/species/zizombie/handle_combat()
-	if(mode == AI_HUNT)
-		if(prob(1))
-			emote("scream")
-	. = ..()
-
 /mob/living/carbon/human/species/zizombie/after_creation()
 	..()
 	gender = MALE
 	if(src.dna && src.dna.species)
 		src.dna.species.soundpack_m = new /datum/voicepack/zombie/m()
-		var/obj/item/headdy = get_bodypart("head")
+		var/obj/item/bodypart/head/headdy = get_bodypart("head")
 		if(headdy)
 			headdy.icon = 'icons/roguetown/mob/monster/zizombie.dmi'
 			headdy.icon_state = "[src.dna.species.id]_head"
-			headdy.sellprice = rand(5)
+			headdy.headprice = rand(15,40)
 	src.grant_language(/datum/language/common)
 	var/obj/item/organ/eyes/eyes = src.getorganslot(ORGAN_SLOT_EYES)
 	if(eyes)
@@ -136,7 +128,7 @@
 	if(src.charflaw)
 		QDEL_NULL(src.charflaw)
 	update_body()
-	faction = list("undead")
+	faction = list(FACTION_UNDEAD)
 	name = "zizombie"
 	real_name = "zizombie"
 	mob_biotypes |= MOB_UNDEAD
@@ -205,10 +197,10 @@
 			if(!B.rotted)
 				B.rotted = TRUE
 				should_update = TRUE
-			if(B.rotted && amount < 16 MINUTES)
+			if(B.rotted && amount < 16 MINUTES && !(FACTION_MATTHIOS in C.faction))
 				var/turf/open/T = C.loc
 				if(istype(T))
-					T.pollute_turf(/datum/pollutant/rot, 10)
+					T.pollute_turf(/datum/pollutant/rot, 4)
 	if(should_update)
 		if(amount > 20 MINUTES)
 			C.update_body()
@@ -225,8 +217,6 @@
 	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOSTAMINA, TRAIT_GENERIC)
 	equipOutfit(new /datum/outfit/job/species/zizombie/npc/peasant)
-	aggressive=1
-	mode = AI_IDLE
 	dodgetime = 15
 	canparry = TRUE
 	flee_in_pain = FALSE
@@ -234,10 +224,10 @@
 
 /datum/outfit/job/species/zizombie/npc/peasant/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.TOTALSTR = 9
-	H.TOTALSPD = 7
-	H.TOTALCON = 10
-	H.TOTALEND = 16//the zombies shouldn't get tired after all
+	H.base_strength = 9
+	H.base_speed = 7
+	H.base_constitution = 10
+	H.base_endurance = 16//the zombies shouldn't get tired after all
 	shirt = /obj/item/clothing/shirt/undershirt/vagrant
 	pants = /obj/item/clothing/pants/tights/vagrant
 	shoes = /obj/item/clothing/shoes/simpleshoes
@@ -267,8 +257,6 @@
 	ADD_TRAIT(src, TRAIT_NOSTAMINA, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	equipOutfit(new /datum/outfit/job/species/zizombie/npc/random)
-	aggressive=1
-	mode = AI_IDLE
 	dodgetime = 15
 	canparry = TRUE
 	flee_in_pain = FALSE
@@ -308,8 +296,6 @@
 	ADD_TRAIT(src, TRAIT_NOSTAMINA, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	equipOutfit(new /datum/outfit/job/species/zizombie/npc/warrior)
-	aggressive=1
-	mode = AI_IDLE
 	dodgetime = 15
 	canparry = TRUE
 	flee_in_pain = FALSE
@@ -317,10 +303,10 @@
 
 /datum/outfit/job/species/zizombie/npc/warrior/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.TOTALSTR = 10
-	H.TOTALSPD = 7
-	H.TOTALCON = 10
-	H.TOTALEND = 16//the zizombies shouldn't get tired after all
+	H.base_strength = 10
+	H.base_speed = 7
+	H.base_constitution = 10
+	H.base_endurance = 16//the zizombies shouldn't get tired after all
 	var/loadout = rand(1,6)
 	switch(loadout)
 		if(1) //zizombie Warrior
@@ -394,8 +380,6 @@
 	ADD_TRAIT(src, TRAIT_NOSTAMINA, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	equipOutfit(new /datum/outfit/job/species/zizombie/npc/militiamen)
-	aggressive=1
-	mode = AI_IDLE
 	dodgetime = 15
 	canparry = TRUE
 	flee_in_pain = FALSE
@@ -403,10 +387,10 @@
 
 /datum/outfit/job/species/zizombie/npc/militiamen/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.TOTALSTR = 10
-	H.TOTALSPD = 7
-	H.TOTALCON = 10
-	H.TOTALEND = 16//the zizombies shouldn't get tired after all
+	H.base_strength = 10
+	H.base_speed = 7
+	H.base_constitution = 10
+	H.base_endurance = 16//the zizombies shouldn't get tired after all
 	var/loadout = rand(1,5)
 	switch(loadout)
 		if(1) //zizombie Warrior
@@ -473,8 +457,6 @@
 	ADD_TRAIT(src, TRAIT_NOSTAMINA, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	equipOutfit(new /datum/outfit/job/species/zizombie/npc/GRENZEL)
-	aggressive=1
-	mode = AI_IDLE
 	dodgetime = 15
 	canparry = TRUE
 	flee_in_pain = FALSE
@@ -485,10 +467,10 @@
 
 /datum/outfit/job/species/zizombie/npc/GRENZEL/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.TOTALSTR = 12
-	H.TOTALSPD = 7
-	H.TOTALCON = 10
-	H.TOTALEND = 20//the zizombies shouldn't get tired after all
+	H.base_strength = 12
+	H.base_speed = 7
+	H.base_constitution = 10
+	H.base_endurance = 20//the zizombies shouldn't get tired after all
 	var/loadout = rand(1,5)
 	switch(loadout)
 		if(1) //zizombie Warrior

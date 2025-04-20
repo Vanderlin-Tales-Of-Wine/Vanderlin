@@ -24,7 +24,7 @@
 	leading most dark elves to remain within their safe underground strongholds. Those who breach the surface \
 	rarely receive fair treatment. \
 	\n\n\
-	THIS IS A DISCRIMINATED SPECIES. EXPECT A MORE DIFFICULT EXPERIENCE. PLAY AT YOUR OWN RISK."
+	THIS IS A DISCRIMINATED SPECIES. EXPECT A MORE DIFFICULT EXPERIENCE. <B>NOBLES EVEN MORE SO.</B> PLAY AT YOUR OWN RISK."
 
 	skin_tone_wording = "Parent House"
 
@@ -42,6 +42,7 @@
 	dam_icon_f = 'icons/roguetown/mob/bodies/dam/dam_female.dmi'
 	hairyness = "t3"
 	mutant_bodyparts = list("ears")
+	exotic_bloodtype = /datum/blood_type/human/delf
 	mutanteyes = /obj/item/organ/eyes/elf
 	use_f = TRUE
 	soundpack_m = /datum/voicepack/male/elf
@@ -124,4 +125,4 @@
 	return last_names
 
 /datum/species/elf/dark/get_accent_list()
-	return strings("french_replacement.json", "french")
+	return strings("accents/french_replacement.json", "french")

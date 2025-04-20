@@ -688,6 +688,9 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		return 1
 	return 0
 
+/obj/item/proc/hit_response(mob/living/carbon/human/owner, mob/living/carbon/human/attacker)
+	SEND_SIGNAL(src, COMSIG_ITEM_HIT_RESPONSE, owner, attacker)		//sends signal for Magic_items. Used to call enchantments effects for worn items
+
 /obj/item/proc/talk_into(mob/M, input, channel, spans, datum/language/language)
 	return ITALICS | REDUCE_RANGE
 
@@ -713,6 +716,8 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	if(!silent)
 		playsound(src, drop_sound, DROP_SOUND_VOLUME, TRUE, ignore_walls = FALSE)
 	user.update_equipment_speed_mods()
+	if(isliving(user))
+		user:encumbrance_to_speed()
 	update_transform()
 
 // called just as an item is picked up (loc is not yet changed)
@@ -723,9 +728,11 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 
 // called just as an item is picked up (loc is not yet changed)
 /obj/item/proc/afterpickup(mob/user)
+	SHOULD_CALL_PARENT(TRUE)
+	if(isliving(user))
+		user:encumbrance_to_speed()
 
 /obj/item/proc/afterdrop(mob/user)
-
 
 // called when "found" in pockets and storage items. Returns 1 if the search should end.
 /obj/item/proc/on_found(mob/finder)
@@ -778,10 +785,14 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 //If you are making custom procs but would like to retain partial or complete functionality of this one, include a 'return ..()' to where you want this to happen.
 //Set disable_warning to TRUE if you wish it to not give you outputs.
 /obj/item/proc/mob_can_equip(mob/living/M, mob/living/equipper, slot, disable_warning = FALSE, bypass_equip_delay_self = FALSE)
+	// pretty sure this isn't needed, the reason this is disabled is so harpoon guns can be equipped to hips.
+	// if it causes issues - reenable it and seek a different fix.
+	/*
 	if(twohands_required)
 		if(!disable_warning)
 			to_chat(M, "<span class='warning'>[src] is too bulky to carry with anything but my hands!</span>")
 		return 0
+	*/
 
 	if(!M)
 		return FALSE
@@ -1109,19 +1120,6 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	else
 		openToolTip(user,src,params,title = name,content = "[desc]<br><b>Force:</b> [force_string]",theme = "")
 
-/obj/item/MouseEntered(location, control, params)
-	. = ..()
-	if((item_flags & IN_INVENTORY || item_flags & IN_STORAGE) && usr.client.prefs.enable_tips && !QDELETED(src))
-		var/timedelay = usr.client.prefs.tip_delay/100
-		var/user = usr
-		tip_timer = addtimer(CALLBACK(src, PROC_REF(openTip), location, control, params, user), timedelay, TIMER_STOPPABLE)//timer takes delay in deciseconds, but the pref is in milliseconds. dividing by 100 converts it.
-
-/obj/item/MouseExited()
-	. = ..()
-	deltimer(tip_timer)//delete any in-progress timer if the mouse is moved off the item before it finishes
-	close_tooltip(usr)
-
-
 // Called when a mob tries to use the item as a tool.
 // Handles most checks.
 /obj/item/proc/use_tool(atom/target, mob/living/user, delay, amount=0, volume=0, datum/callback/extra_checks)
@@ -1315,4 +1313,17 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		if(altgripped || wielded)
 			ungrip(M, FALSE)
 
+/obj/item/proc/on_consume(mob/living/eater)
+	return
 
+/obj/item/proc/get_displayed_price(mob/user)
+	if(get_real_price() > 0 && (HAS_TRAIT(user, TRAIT_SEEPRICES) || simpleton_price))
+		return span_info("Value: [get_real_price()] mammon")
+	return FALSE
+
+/obj/item/proc/get_stored_weight()
+	var/held_weight = 0
+	for(var/obj/item/stored_item in contents)
+		held_weight += stored_item.item_weight * carry_multiplier
+
+	return held_weight

@@ -63,3 +63,10 @@
 	dreams = list(
 		"...splinters fly off as a tree falls down on the ground, sending a thundering boom throughout the forest..."
 	)
+
+/datum/skill/labor/mathematics
+	name = "Mathematics"
+	desc = "Mathematics is a skill that represents your character's ability to do math. The higher your skill in Mathematics, the more complex math you can do and the faster you can do it."
+	dreams = list(
+		"...the hydra, a mathematically perfect beast... you lop one head off, two sprout, then four, eight, sixteen, thirty-two, sixty-four... there is a symmetry to this... the trees are like blood, vascular like the erosion of the canyons... the beat of the music marches to your heart..."
+	)

@@ -30,7 +30,7 @@
 		return 0
 
 	if(myPath.len <= 0)
-		myPath = get_path_to(src, get_turf(target), /turf/proc/Distance, MAX_RANGE_FIND + 1, 250,1)
+		myPath = get_path_to(src, get_turf(target), /turf/proc/Distance3D, MAX_RANGE_FIND + 1, 250,1)
 
 	if(myPath)
 		if(myPath.len > 0)
@@ -53,8 +53,6 @@
 	if(!(mobility_flags & MOBILITY_FLAGS_INTERACTION))
 		return 1
 	if(health <= 0 && checkDead)
-		return 1
-	if(IsUnconscious())
 		return 1
 	if(IsStun() || IsParalyzed())
 		return 1

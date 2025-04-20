@@ -44,8 +44,6 @@ PROCESSING_SUBSYSTEM_DEF(enchantment)
 		return FALSE
 	if(!(enchantment in enchantments_to_list))
 		return FALSE
-	if(has_any_enchantment(item))
-		return FALSE
 
 	var/datum/enchantment/real = enchantments_to_list[enchantment]
 	real.add_item(item)

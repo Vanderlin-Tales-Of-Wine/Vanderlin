@@ -126,9 +126,7 @@
 
 ///////////////////////////////// IMMOBILIZED ////////////////////////////////////
 /mob/living/proc/IsImmobilized() //If we're immobilized
-	if(has_status_effect(STATUS_EFFECT_IMMOBILIZED))
-		doing = 0
-		return has_status_effect(STATUS_EFFECT_IMMOBILIZED)
+	return has_status_effect(STATUS_EFFECT_IMMOBILIZED)
 
 /mob/living/proc/AmountImmobilized() //How many deciseconds remain in our Immobilized status effect
 	var/datum/status_effect/incapacitating/immobilized/I = IsImmobilized()
@@ -462,7 +460,6 @@
 	REMOVE_TRAIT(src, TRAIT_DEATHCOMA, source)
 	if(stat != DEAD)
 		tod = null
-	update_stat()
 
 /mob/living/proc/fakedeath(source, silent = FALSE)
 	if(stat == DEAD)
@@ -472,7 +469,6 @@
 	ADD_TRAIT(src, TRAIT_FAKEDEATH, source)
 	ADD_TRAIT(src, TRAIT_DEATHCOMA, source)
 	tod = station_time_timestamp()
-	update_stat()
 
 /mob/living/proc/unignore_slowdown(source)
 	REMOVE_TRAIT(src, TRAIT_IGNORESLOWDOWN, source)

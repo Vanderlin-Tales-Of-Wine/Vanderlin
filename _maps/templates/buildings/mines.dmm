@@ -1,0 +1,86 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/closed/mineral/bedrock,
+/area/template_noop)
+"d" = (
+/obj/effect/workspot,
+/turf/closed,
+/area/template_noop)
+"p" = (
+/obj/machinery/light/fueled/firebowl/stump,
+/turf/open/floor/blocks,
+/area/template_noop)
+"x" = (
+/obj/structure/fermentation_keg{
+	pixel_x = -4;
+	layer = 2.89
+	},
+/obj/structure/fermentation_keg{
+	pixel_x = 12
+	},
+/obj/structure/fermentation_keg{
+	pixel_y = 16;
+	pixel_x = 8;
+	layer = 2.91
+	},
+/turf/open/floor/cobblerock,
+/area/template_noop)
+"E" = (
+/turf/open/floor/dirt,
+/area/template_noop)
+"K" = (
+/obj/effect/building_node/mines,
+/obj/effect/workspot,
+/turf/closed,
+/area/template_noop)
+"O" = (
+/turf/open/floor/blocks,
+/area/template_noop)
+"P" = (
+/turf/open/floor/cobblerock,
+/area/template_noop)
+"S" = (
+/turf/open/floor/cobblerock{
+	icon = 'icons/obj/stairs.dmi';
+	icon_state = "stonestairs"
+	},
+/area/template_noop)
+"Z" = (
+/turf/closed,
+/area/template_noop)
+
+(1,1,1) = {"
+E
+p
+a
+O
+E
+"}
+(2,1,1) = {"
+E
+a
+Z
+S
+O
+"}
+(3,1,1) = {"
+a
+a
+K
+S
+P
+"}
+(4,1,1) = {"
+a
+a
+d
+S
+x
+"}
+(5,1,1) = {"
+O
+a
+a
+P
+p
+"}

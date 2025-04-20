@@ -325,7 +325,7 @@ GLOBAL_REAL(Master, /datum/controller/master)
 			if(ss_runlevels & GLOB.bitflags[I])
 				while(runlevel_sorted_subsystems.len < I)
 					runlevel_sorted_subsystems += list(list())
-				runlevel_sorted_subsystems[I] += SS
+				runlevel_sorted_subsystems[I] |= SS
 				added_to_any = TRUE
 		if(!added_to_any)
 			WARNING("[SS.name] subsystem is not SS_NO_FIRE but also does not have any runlevels set!")
@@ -465,7 +465,8 @@ GLOBAL_REAL(Master, /datum/controller/master)
 			continue
 		if ((SS_flags & (SS_TICKER|SS_KEEP_TIMING)) == SS_KEEP_TIMING && SS.last_fire + (SS.wait * 0.75) > world.time)
 			continue
-		SS.enqueue()
+		if(!SS.enqueue())
+			return FALSE
 	. = 1
 
 
@@ -634,6 +635,8 @@ GLOBAL_REAL(Master, /datum/controller/master)
 	log_world("MC: SoftReset: Finished.")
 	. = 1
 
+	for(var/datum/controller/subsystem/ss in subsystems) //this is incase a runlevel error occurs, we don't want random shit being left queued up since if a queue ends up half parsed.
+		ss.state = SS_IDLE
 
 
 /datum/controller/master/stat_entry()

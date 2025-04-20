@@ -176,7 +176,7 @@
 	if(!create_at)
 		SSjob.SendToLateJoin(new_character)
 
-	old_mob.client.prefs.copy_to(new_character)
+	old_mob.client.prefs.apply_prefs_to(new_character)
 	new_character.dna.update_dna_identity()
 	old_mob.mind.transfer_to(new_character)
 	if(qdel_old_mob)
@@ -242,7 +242,7 @@
 	var/mob/living/carbon/human/new_character = new//The mob being spawned.
 	SSjob.SendToLateJoin(new_character)
 
-	ghost_player.client.prefs.copy_to(new_character)
+	ghost_player.client.prefs.safe_transfer_prefs_to(new_character)
 	new_character.dna.update_dna_identity()
 	new_character.key = ghost_player.key
 

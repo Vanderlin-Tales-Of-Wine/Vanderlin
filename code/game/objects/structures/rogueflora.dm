@@ -75,6 +75,7 @@
 /obj/structure/flora/tree/obj_destruction(damage_flag)
 	if(stump_type)
 		new stump_type(loc)
+	GLOB.vanderlin_round_stats[STATS_TREES_CUT]++
 	. = ..()
 
 
@@ -237,6 +238,13 @@
 /obj/structure/flora/grass/update_icon()
 	icon_state = "grass[rand(1, 6)]"
 
+/obj/structure/flora/grass/tundra
+	name = "tundra grass"
+	icon_state = "tundragrass1"
+
+/obj/structure/flora/grass/tundra/update_icon()
+	icon_state = "tundragrass[rand(1, 6)]"
+
 /obj/structure/flora/grass/water
 	name = "grass"
 	desc = "This grass is sodden and muddy."
@@ -287,6 +295,16 @@
 	var/list/looty = list()
 	var/bushtype
 
+/obj/structure/flora/grass/bush/update_icon()
+	icon_state = "bush"
+
+/obj/structure/flora/grass/bush/tundra
+	name = "tundra bush"
+	icon_state = "bush_tundra"
+
+/obj/structure/flora/grass/bush/tundra/update_icon()
+	icon_state = "bush_tundra"
+
 /obj/structure/flora/grass/bush/Initialize()
 	if(prob(88))
 		bushtype = pickweight(list(/obj/item/reagent_containers/food/snacks/produce/jacksberry=5,
@@ -333,10 +351,6 @@
 				to_chat(user, "<span class='warning'>Picked clean... I should try later.</span>")
 #endif
 
-
-/obj/structure/flora/grass/bush/update_icon()
-	icon_state = "bush"
-
 /obj/structure/flora/grass/bush/CanPass(atom/movable/mover, turf/target)
 	if(mover.throwing)
 		mover.visible_message(span_danger("[mover] gets caught in \a [src]!"))
@@ -356,12 +370,8 @@
 		return TRUE
 	if(isliving(mover))
 		var/mob/living/living_mover = mover
-		living_mover.SetImmobilized(1 SECONDS)
-		if(living_mover.stat > CONSCIOUS || living_mover.resting)
-			to_chat(living_mover, span_warning("I do not have the strength to free myself from [src]..."))
-			return FALSE
-		if(!do_after(mover, 1 SECONDS, src) || !prob(40)) //you gotta STRUGGLE boy.
-			to_chat(living_mover, span_danger("I am struggling to get out of [src]."))
+		if(living_mover.stat > CONSCIOUS && !living_mover.pulledby)
+			to_chat(living_mover, span_warning("I don't have the strength to free myself from [src]..."))
 			return FALSE
 		return TRUE
 	return FALSE
@@ -373,7 +383,7 @@
 		return
 
 	var/mob/living/L = AM
-	L.Immobilize(5 DECISECONDS)
+	L.Immobilize(1 SECONDS)
 
 	if(L.m_intent == MOVE_INTENT_RUN)
 		L.visible_message(span_warning("[L] crashes into \a [src]!"), span_danger("I run into \a [src]."))
@@ -392,7 +402,7 @@
 		var/obj/item/bodypart/BP = pick(H.bodyparts)
 		BP.receive_damage(10)
 		var/was_hard_collision = (H.m_intent == MOVE_INTENT_RUN || H.throwing || H.atom_flags & Z_FALLING)
-		if((prob(20) || was_hard_collision) && !HAS_TRAIT(src, TRAIT_PIERCEIMMUNE))
+		if((was_hard_collision && prob(10)) && !HAS_TRAIT(src, TRAIT_PIERCEIMMUNE))
 			var/obj/item/natural/thorn/TH = new(src.loc)
 			BP.add_embedded_object(TH, silent = TRUE)
 			to_chat(H, span_danger("\A [TH] impales my [BP.name]."))
@@ -419,6 +429,14 @@
 	. = ..()
 	icon_state = "bushwall[pick(1,2)]"
 
+/obj/structure/flora/grass/bush/wall/tundra
+	name = "tundra great bush"
+	icon_state = "bushwall1_tundra"
+
+/obj/structure/flora/grass/bush/wall/tundra/Initialize()
+	. = ..()
+	icon_state = "bushwall[pick(1,2)]_tundra"
+
 /obj/structure/flora/grass/bush/wall/update_icon()
 	return
 
@@ -439,6 +457,14 @@
 /obj/structure/flora/grass/bush/wall/tall/Initialize()
 	. = ..()
 	icon_state = "tallbush[pick(1,2)]"
+
+/obj/structure/flora/grass/bush/wall/tall/tundra
+	name = "tundra great bush"
+	icon_state = "tallbush1_tundra"
+
+/obj/structure/flora/grass/bush/wall/tall/tundra/Initialize()
+	. = ..()
+	icon_state = "tallbush[pick(1,2)]_tundra"
 
 // fyrituis bush
 /obj/structure/flora/grass/pyroclasticflowers
@@ -805,9 +831,18 @@
 		else
 			icon_state = "bush[rand(1, 3)]"
 
+/obj/structure/flora/grass/bush_meagre/tundra
+	name = "tundra bush"
+	icon_state = "bush1_tundra"
+
+/obj/structure/flora/grass/bush_meagre/tundra/update_icon()
+	icon_state = "bush[rand(1,3)]_tundra"
+
 /obj/structure/flora/grass/bush_meagre/Initialize()
 	if(silky)
 		goodie = /obj/item/natural/worms/grub_silk
+		if(prob(10))
+			goodie = /obj/item/reagent_containers/food/snacks/produce/poppy
 	else
 		if(prob(30))
 			tobacco = TRUE
@@ -912,7 +947,7 @@
 
 /obj/structure/flora/grass/bush_meagre/bog
 	desc = "These large bushes are known to be well-liked by silkworms who make their nests in their dark depths."
-	icon = 'icons/roguetown/mob/monster/Trolls.dmi'
+	icon = 'icons/roguetown/mob/monster/trolls/default_troll.dmi'
 	icon_state = "Trolls"
 	pixel_x = -16
 	pixel_y = -1

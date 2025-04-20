@@ -31,32 +31,26 @@
 	desc = "<span class='red'>Smells like death here.</span>"
 
 /datum/stressevent/peckish
-	timer = 10 MINUTES
 	stressadd = 1
 	desc = "<span class='red'>I'm peckish.</span>"
 
 /datum/stressevent/hungry
-	timer = 10 MINUTES
 	stressadd = 2
 	desc = "<span class='red'>I'm hungry.</span>"
 
 /datum/stressevent/starving
-	timer = 10 MINUTES
 	stressadd = 3
 	desc = "<span class='red'>I'm starving.</span>"
 
 /datum/stressevent/drym
-	timer = 10 MINUTES
 	stressadd = 1
 	desc = "<span class='red'>I'm a little thirsty.</span>"
 
 /datum/stressevent/thirst
-	timer = 10 MINUTES
 	stressadd = 2
 	desc = "<span class='red'>I'm thirsty.</span>"
 
 /datum/stressevent/parched
-	timer = 10 MINUTES
 	stressadd = 3
 	desc = "<span class='red'>I'm going to die of thirst.</span>"
 
@@ -147,6 +141,11 @@
 	stressadd = 4
 	desc = "<span class='red'>YUCK! MAGGOTS!</span>"
 
+/datum/stressevent/psycurselight
+	timer = 1 MINUTES
+	stressadd = 5
+	desc = "<span class='red'>Oh no! I've received divine punishment!</span>"
+
 /datum/stressevent/psycurse
 	timer = INFINITY
 	stressadd = 5
@@ -170,6 +169,13 @@
 	max_stacks = 3
 	stressadd_per_extra_stack = 2
 	desc = "<span class='red'>I puked on myself!</span>"
+
+/datum/stressevent/mouthsoap
+	timer = 3 MINUTES
+	stressadd = 2
+	max_stacks = 2
+	stressadd_per_extra_stack = 2
+	desc = "<span class='red'>I taste soap...</span>"
 
 /datum/stressevent/leechcult
 	timer = 1 MINUTES
@@ -356,3 +362,13 @@
 	stressadd = 1
 	desc = span_red("Eating such a meal without a table? Churlish.")
 	timer = 2 MINUTES
+
+/datum/stressevent/destroyed_past //gaffer destroying their trophies
+	stressadd = 4
+	desc = span_red("A piece of my history is destroyed, how will they know my great past?")
+	timer = 10 MINUTES
+
+/datum/stressevent/ring_madness // ring bearer examines at HEAD EATER related thing
+	stressadd = 1
+	desc = span_red("It mocks me, toys with my mind!")
+	timer = 1 MINUTES

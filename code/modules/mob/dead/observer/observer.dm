@@ -377,14 +377,14 @@ Works together with spawning an observer, noted above.
 			SSdroning.kill_loop(client)
 			SSdroning.kill_droning(client)
 			if(client.holder)
-				if(check_rights(R_WATCH,0))
-					stop_sound_channel(CHANNEL_HEARTBEAT) //Stop heartbeat sounds because You Are A Ghost Now
-					var/mob/dead/observer/ghost = new(src)	// Transfer safety to observer spawning proc.
-					SStgui.on_transfer(src, ghost) // Transfer NanoUIs.
-					ghost.can_reenter_corpse = can_reenter_corpse
-					ghost.ghostize_time = world.time
-					ghost.key = key
-					return ghost
+				//if(check_rights(R_WATCH,0))
+				stop_sound_channel(CHANNEL_HEARTBEAT) //Stop heartbeat sounds because You Are A Ghost Now
+				var/mob/dead/observer/ghost = new(src)	// Transfer safety to observer spawning proc.
+				SStgui.on_transfer(src, ghost) // Transfer NanoUIs.
+				ghost.can_reenter_corpse = can_reenter_corpse
+				ghost.ghostize_time = world.time
+				ghost.key = key
+				return ghost
 //		if(client)
 //			var/S = sound('sound/ambience/creepywind.ogg', repeat = 1, wait = 0, volume = client.prefs.musicvol, channel = CHANNEL_MUSIC)
 //			play_priomusic(S)
@@ -703,9 +703,8 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if (!istype(target))
 		return
 
-	var/icon/I = icon(target.icon,target.icon_state,target.dir)
-
-	var/orbitsize = (I.Width()+I.Height())*0.5
+	var/list/icon_dimensions = get_icon_dimensions(target.icon)
+	var/orbitsize = (icon_dimensions["width"] + icon_dimensions["height"]) * 0.5
 	orbitsize -= (orbitsize/world.icon_size)*(world.icon_size*0.25)
 
 	var/rot_seg
@@ -919,7 +918,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		return FALSE
 
 	target.key = key
-	target.faction = list("neutral")
+	target.faction = list(FACTION_NEUTRAL)
 	return TRUE
 
 //this is a mob verb instead of atom for performance reasons
@@ -1035,13 +1034,10 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		name = client.prefs.real_name
 
 /mob/dead/observer/proc/set_ghost_appearance()
-	if((!client) || (!client.prefs))
+	if(!client?.prefs)
 		return
 
-	if(client.prefs.randomise[RANDOM_NAME])
-		client.prefs.real_name = random_unique_name(gender)
-	if(client.prefs.randomise[RANDOM_BODY])
-		client.prefs.random_character(gender)
+	client.prefs.apply_character_randomization_prefs()
 
 	if(HAIR in client.prefs.pref_species.species_traits)
 		hairstyle = client.prefs.hairstyle

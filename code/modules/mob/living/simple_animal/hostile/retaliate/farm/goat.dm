@@ -1,5 +1,7 @@
 /mob/living/simple_animal/hostile/retaliate/goat/Initialize()
 	. = ..()
+	AddElement(/datum/element/ai_retaliate)
+	RegisterSignal(src, COMSIG_HOSTILE_PRE_ATTACKINGTARGET, PROC_REF(on_pre_attack))
 	GLOB.farm_animals++
 	if(tame)
 		tamed(owner)
@@ -8,24 +10,18 @@
 	..()
 	GLOB.farm_animals = max(GLOB.farm_animals - 1, 0)
 
-/mob/living/simple_animal/hostile/retaliate/goat/find_food()
-	..()
-	var/obj/structure/vine/SV = locate(/obj/structure/vine) in loc
-	if(SV)
-		SV.eat(src)
-		food = max(food + 30, 100)
+/// Called when we attack something in order to piece together the intent of the AI/user and provide desired behavior. The element might be okay here but I'd rather the fluff.
+/// Goats are really good at beating up plants by taking bites out of them, but we use the default attack for everything else
+/mob/living/simple_animal/hostile/retaliate/goat/proc/on_pre_attack(datum/source, atom/target)
+	if(is_type_in_list(target, food_type))
+		eat_plant(target)
+		return COMPONENT_HOSTILE_NO_ATTACK
 
 /mob/living/simple_animal/hostile/retaliate/goat/tamed(mob/user)
 	..()
 	deaggroprob = 50
 	if(can_buckle)
-		var/datum/component/riding/D = LoadComponent(/datum/component/riding)
-		D.set_riding_offsets(RIDING_OFFSET_ALL, list(TEXT_NORTH = list(0, 6), TEXT_SOUTH = list(0, 6), TEXT_EAST = list(-2, 6), TEXT_WEST = list(2, 6)))
-		D.set_vehicle_dir_layer(SOUTH, OBJ_LAYER)
-		D.set_vehicle_dir_layer(NORTH, OBJ_LAYER)
-		D.set_vehicle_dir_layer(EAST, OBJ_LAYER)
-		D.set_vehicle_dir_layer(WEST, OBJ_LAYER)
-
+		AddComponent(/datum/component/riding/gote)
 
 /mob/living/simple_animal/hostile/retaliate/goat/update_icon()
 	cut_overlays()
@@ -39,18 +35,6 @@
 		if(has_buckled_mobs())
 			var/mutable_appearance/mounted = mutable_appearance(icon, "goat_mounted", 4.3)
 			add_overlay(mounted)
-
-
-
-/mob/living/simple_animal/hostile/retaliate/goat/Life()
-	..()
-	if(stat == CONSCIOUS)
-		if(!pulledby)
-			for(var/direction in shuffle(list(1,2,4,8,5,6,9,10)))
-				var/step = get_step(src, direction)
-				if(step)
-					if(locate(/obj/structure/vine) in step || locate(/obj/structure/kneestingers) in step)
-						Move(step, get_dir(src, step))
 
 /mob/living/simple_animal/hostile/retaliate/goat/UniqueAttack()
 	if(istype(target, /obj/structure/vine))
@@ -99,45 +83,31 @@
 					/obj/item/reagent_containers/food/snacks/produce/apple,
 					/obj/item/reagent_containers/food/snacks/produce/turnip,
 					/obj/item/reagent_containers/food/snacks/produce/cabbage,
-					/obj/item/reagent_containers/food/snacks/produce/jacksberry)
+					/obj/item/reagent_containers/food/snacks/produce/jacksberry,
+					/obj/structure/vine,
+					/obj/structure/kneestingers,
+					)
 	tame_chance = 25
 	bonus_tame_chance = 15
 	pooptype = /obj/item/natural/poo/horse
-	var/milkies = TRUE
+	milk_reagent = /datum/reagent/consumable/milk/gote
 
 	base_intents = list(/datum/intent/simple/headbutt)
 	attack_verb_continuous = "headbutts"
 	attack_verb_simple = "headbutt"
 	melee_damage_lower = 8
 	melee_damage_upper = 12
-	TOTALSPD = 4
-	TOTALCON = 4
-	TOTALSTR = 4
+	base_speed = 4
+	base_constitution = 4
+	base_strength = 4
 	buckle_lying = FALSE
 	childtype = list(/mob/living/simple_animal/hostile/retaliate/goat/goatlet = 90, /mob/living/simple_animal/hostile/retaliate/goat/goatlet/boy = 10)
 	can_buckle = TRUE
 	remains_type = /obj/effect/decal/remains/cow
 
-
-
-/mob/living/simple_animal/hostile/retaliate/goat/Initialize()
-	. = ..()
-	if(milkies)
-		gudder = new()
-
-/mob/living/simple_animal/hostile/retaliate/goat/Destroy()
-	qdel(gudder)
-	gudder = null
-	..()
-
-/mob/living/simple_animal/hostile/retaliate/goat/attackby(obj/item/O, mob/user, params)
-	if(!stat && istype(O, /obj/item/reagent_containers/glass))
-		changeNext_move(20) // milking sound length
-		if(gudder)
-			gudder.milkAnimal(O, user)
-			return 1
-	else
-		return ..()
+	ai_controller = /datum/ai_controller/gote
+	AIStatus = AI_OFF
+	can_have_ai = FALSE
 
 /mob/living/simple_animal/hostile/retaliate/goat/get_sound(input)
 	switch(input)
@@ -229,7 +199,10 @@
 					/obj/item/reagent_containers/food/snacks/produce/apple,
 					/obj/item/reagent_containers/food/snacks/produce/turnip,
 					/obj/item/reagent_containers/food/snacks/produce/cabbage,
-					/obj/item/reagent_containers/food/snacks/produce/jacksberry)
+					/obj/item/reagent_containers/food/snacks/produce/jacksberry,
+					/obj/structure/vine,
+					/obj/structure/kneestingers,
+					)
 	pooptype = /obj/item/natural/poo/horse
 
 	base_intents = list(/datum/intent/simple/headbutt)
@@ -239,15 +212,31 @@
 	melee_damage_upper = 22
 	retreat_distance = 0
 	minimum_distance = 0
-	TOTALCON = 7
-	TOTALSTR = 12
-	TOTALSPD = 2
+	base_constitution = 7
+	base_strength = 12
+	base_speed = 2
 
 	can_buckle = TRUE
 	buckle_lying = FALSE
 	tame_chance = 25
 	bonus_tame_chance = 15
 	remains_type = /obj/effect/decal/remains/cow
+
+	ai_controller = /datum/ai_controller/gote
+	AIStatus = AI_OFF
+	can_have_ai = FALSE
+
+/mob/living/simple_animal/hostile/retaliate/goatmale/Initialize()
+	. = ..()
+	AddElement(/datum/element/ai_retaliate)
+	RegisterSignal(src, COMSIG_HOSTILE_PRE_ATTACKINGTARGET, PROC_REF(on_pre_attack))
+
+/// Called when we attack something in order to piece together the intent of the AI/user and provide desired behavior. The element might be okay here but I'd rather the fluff.
+/// Goats are really good at beating up plants by taking bites out of them, but we use the default attack for everything else
+/mob/living/simple_animal/hostile/retaliate/goatmale/proc/on_pre_attack(datum/source, atom/target)
+	if(is_type_in_list(target, food_type))
+		eat_plant(target)
+		return COMPONENT_HOSTILE_NO_ATTACK
 
 /mob/living/simple_animal/hostile/retaliate/goatmale/update_icon()
 	cut_overlays()
@@ -266,12 +255,7 @@
 	..()
 	deaggroprob = 20
 	if(can_buckle)
-		var/datum/component/riding/D = LoadComponent(/datum/component/riding)
-		D.set_riding_offsets(RIDING_OFFSET_ALL, list(TEXT_NORTH = list(0, 6), TEXT_SOUTH = list(0, 6), TEXT_EAST = list(-2, 6), TEXT_WEST = list(2, 6)))
-		D.set_vehicle_dir_layer(SOUTH, OBJ_LAYER)
-		D.set_vehicle_dir_layer(NORTH, OBJ_LAYER)
-		D.set_vehicle_dir_layer(EAST, OBJ_LAYER)
-		D.set_vehicle_dir_layer(WEST, OBJ_LAYER)
+		AddComponent(/datum/component/riding/gote)
 
 /mob/living/simple_animal/hostile/retaliate/goatmale/Initialize()
 	..()
@@ -300,22 +284,14 @@
 	GiveTarget(user)
 	return
 
-/mob/living/simple_animal/hostile/retaliate/goatmale/eat_plants()
-	..()
-	var/obj/structure/vine/SV = locate(/obj/structure/vine) in loc
-	if(SV)
-		SV.eat(src)
+/mob/living/simple_animal/hostile/retaliate/proc/eat_plant(obj/target)
+	if(istype(target, /obj/structure/vine))
+		target:eat(src)
+		food = max(food + 30, 100)
+	if(istype(target, /obj/structure/kneestingers))
+		qdel(target)
 		food = max(food + 30, 100)
 
-/mob/living/simple_animal/hostile/retaliate/goatmale/Life()
-	..()
-	if(stat == CONSCIOUS)
-		if(!pulledby)
-			for(var/direction in shuffle(list(1,2,4,8,5,6,9,10)))
-				var/step = get_step(src, direction)
-				if(step)
-					if(locate(/obj/structure/vine) in step || locate(/obj/structure/kneestingers) in step)
-						Move(step, get_dir(src, step))
 
 /mob/living/simple_animal/hostile/retaliate/goatmale/simple_limb_hit(zone)
 	if(!zone)
@@ -378,14 +354,14 @@
 
 	health = CALF_HEALTH
 	maxHealth = CALF_HEALTH
-	milkies = FALSE
+	milk_reagent = null
 
 	base_intents = list(/datum/intent/simple/headbutt)
 	melee_damage_lower = 1
 	melee_damage_upper = 6
-	TOTALCON = 5
-	TOTALSTR = 5
-	TOTALSPD = 5
+	base_constitution = 5
+	base_strength = 5
+	base_speed = 5
 	defprob = 50
 
 	adult_growth = /mob/living/simple_animal/hostile/retaliate/goat

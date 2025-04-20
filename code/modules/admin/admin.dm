@@ -83,7 +83,12 @@
 		body += " \[<A href='?_src_=holder;[HrefToken()];revive=[REF(M)]'>Heal</A>\] "
 
 	if(M.client)
-		body += "<br>\[<b>First Seen:</b> [M.client.player_join_date]\]\[<b>Byond account registered on:</b> [M.client.account_join_date]\]"
+		body += "<br>\[<b>First Seen:</b> [M.client.player_join_date]\]\[<b>Byond account registered on:</b> [M.client.account_join_date]\] IP: [M.client.address]"
+		body += "<br><br><b>CentCom Ban DB: </b> "
+		if(CONFIG_GET(string/centcom_ban_db))
+			body += "<a href='byond://?_src_=holder;[HrefToken()];centcomlookup=[M.client.ckey]'>Search</a>"
+		else
+			body += "<i>Disabled</i>"
 		body += "<br><br><b>Show related accounts by:</b> "
 		body += "\[ <a href='?_src_=holder;[HrefToken()];showrelatedacc=cid;client=[REF(M.client)]'>CID</a> | "
 		body += "<a href='?_src_=holder;[HrefToken()];showrelatedacc=ip;client=[REF(M.client)]'>IP</a> \]"
@@ -143,6 +148,7 @@
 	body += "<A href='?_src_=holder;[HrefToken()];showmessageckey=[M.ckey]'>Notes | Messages | Watchlist</A> | "
 	if(M.client)
 		body += "\ <A href='?_src_=holder;[HrefToken()];sendbacktolobby=[REF(M)]'>Send back to Lobby</A> | "
+		body += "<A href='?_src_=holder;[HrefToken()];cryomob=[REF(M)]'>CRYO</A>"
 		var/muted = M.client.prefs.muted
 		body += "<br><b>Mute: </b> "
 		body += "\[<A href='?_src_=holder;[HrefToken()];mute=[M.ckey];mute_type=[MUTE_IC]'><font color='[(muted & MUTE_IC)?"red":"blue"]'>IC</font></a> | "
@@ -439,44 +445,55 @@
 	usr << browse(dat, "window=admin2;size=240x280")
 	return
 
-/////////////////////////////////////////////////////////////////////////////////////////////////admins2.dm merge
-//i.e. buttons/verbs
-
-
+#define REGULAR_RESTART "Regular Restart"
+#define REGULAR_RESTART_DELAYED "Regular Restart (with delay)"
+#define HARD_RESTART "Hard Restart (No Delay/Feedback Reason)"
+#define HARDEST_RESTART "Hardest Restart (No actions, just reboot)"
+#define TGS_RESTART "Server Restart (Kill and restart DD)"
 /datum/admins/proc/restart()
 	set category = "Server"
 	set name = "Reboot World"
-	set desc="Restarts the world immediately"
-	if (!usr.client.holder)
+	set desc = "Restarts the world immediately"
+	if(!check_rights(R_SERVER))
 		return
 
-	var/list/options = list("Regular Restart", "Hard Restart (No Delay/Feeback Reason)", "Hardest Restart (No actions, just reboot)")
-	if(world.TgsAvailable())
-		options += "Server Restart (Kill and restart DD)";
-
-	var/rebootconfirm
 	if(SSticker.admin_delay_notice)
-		if(alert(usr, "Are you sure? An admin has already delayed the round end for the following reason: [SSticker.admin_delay_notice]", "Confirmation", "Yes", "No") == "Yes")
-			rebootconfirm = TRUE
-	else
-		rebootconfirm = TRUE
-	if(rebootconfirm)
-		var/result = input(usr, "Select reboot method", "World Reboot", options[1]) as null|anything in options
-		if(result)
-			SSblackbox.record_feedback("tally", "admin_verb", 1, "Reboot World") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-			var/init_by = "Initiated by Admin."
-			switch(result)
-				if("Regular Restart")
-					SSticker.Reboot(init_by, "admin reboot - by Admin", 10)
-				if("Hard Restart (No Delay, No Feeback Reason)")
-					to_chat(world, "World reboot - [init_by]")
-					world.Reboot()
-				if("Hardest Restart (No actions, just reboot)")
-					to_chat(world, "Hard world reboot - [init_by]")
-					world.Reboot(fast_track = TRUE)
-				if("Server Restart (Kill and restart DD)")
-					to_chat(world, "Server restart - [init_by]")
-					world.TgsEndProcess()
+		if(alert(usr, "Are you sure? An admin has already delayed the round end for the following reason: [SSticker.admin_delay_notice]", "Confirmation", "Yes", "No") != "Yes")
+			return FALSE
+
+	var/list/options = list(REGULAR_RESTART, REGULAR_RESTART_DELAYED, HARD_RESTART, HARDEST_RESTART)
+	if(world.TgsAvailable())
+		options += TGS_RESTART
+
+	var/result = input(usr, "Select reboot method", "World Reboot", options[1]) as null|anything in options
+	if(!result)
+		return
+
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Reboot World") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	var/init_by = "Initiated by [get_display_ckey(usr.ckey)]."
+	switch(result)
+		if(REGULAR_RESTART, REGULAR_RESTART_DELAYED)
+			var/delay = 1
+			if(result == REGULAR_RESTART_DELAYED)
+				delay = input("What delay should the restart have (in seconds)?", "Restart Delay", 5) as num|null
+				if(!delay)
+					return FALSE
+			SSticker.Reboot(init_by, "admin reboot - by [usr.key][usr.client.holder.fakekey ? " (stealth)" : ""]", delay SECONDS)
+		if(HARD_RESTART)
+			to_chat(world, "World reboot - [init_by]")
+			world.Reboot()
+		if(HARDEST_RESTART)
+			to_chat(world, "Hard world reboot - [init_by]")
+			world.Reboot(fast_track = TRUE)
+		if(TGS_RESTART)
+			to_chat(world, "Server restart - [init_by]")
+			world.TgsEndProcess()
+
+#undef REGULAR_RESTART
+#undef REGULAR_RESTART_DELAYED
+#undef HARD_RESTART
+#undef HARDEST_RESTART
+#undef TGS_RESTART
 
 /datum/admins/proc/end_round()
 	set category = "Server"
@@ -765,7 +782,7 @@
 
 	dat += "<table>"
 
-	for(var/j in SSjob.occupations)
+	for(var/j in SSjob.joinable_occupations)
 		var/datum/job/job = j
 		count++
 		var/J_title = html_encode(job.title)
@@ -921,6 +938,14 @@
 	message_admins("[key_name_admin(usr)] removed liquids with range [range] in [epicenter.loc.name]")
 	log_game("[key_name_admin(usr)] removed liquids with range [range] in [epicenter.loc.name]")
 
+/client/proc/adjust_personal_see_leylines()
+	set category = "GameMaster"
+	set name = "Hide Current Z-Level Leylines"
+	set desc = "Hides Leylines on the current z-level from your vision."
+
+	toggled_leylines = !toggled_leylines
+	mob.hud_used?.plane_masters_update()
+
 /client/proc/spawn_pollution()
 	set category = "GameMaster"
 	set name = "Spawn Pollution"
@@ -942,37 +967,41 @@
 	set category = "GameMaster"
 	set name = "Anoint New Priest"
 	set desc = "Choose a new priest. The previous one will be excommunicated."
+
 	if(!check_rights())
 		return
 	if(!istype(M))
 		return
 	if(!M.mind)
 		return
-	if(M.mind.assigned_role == "Priest")
+	if(is_priest_job(M.mind.assigned_role))
 		return
-	if(alert(usr, "Are you sure you want to anoint [M.real_name] as the new Priest?", "Confirmation", "Yes", "No") != "Yes")
+	var/appointment_type = browser_alert(usr, "Are you sure you want to anoint [M.real_name] as the new Priest?", "Confirmation", DEFAULT_INPUT_CHOICES)
+	if(appointment_type == CHOICE_NO)
 		return
-	var/datum/job/J = SSjob.GetJobType(/datum/job/priest)
-	for(var/mob/living/carbon/human/HL in GLOB.human_list)
-		if(HL.mind)
-			var/found = FALSE
-			if(HL.mind.assigned_role == "Priest") //this really needs to use job datums in the future
-				HL.mind.assigned_role = "Towner"
-				found = TRUE
-			if(HL.job == "Priest")
-				HL.job = "Ex-Priest"
-				found = TRUE
-			if(found)
-				GLOB.excommunicated_players |= HL.real_name
-				HL.cleric?.excommunicate()
-				HL.verbs -= /mob/living/carbon/human/proc/coronate_lord
-				HL.verbs -= /mob/living/carbon/human/proc/churchexcommunicate
-				HL.verbs -= /mob/living/carbon/human/proc/churchcurse
-				HL.verbs -= /mob/living/carbon/human/proc/churchannouncement
-				J?.remove_spells(HL)
 
-	J?.add_spells(M)
-	M.mind.assigned_role = "Priest"
+	var/datum/job/priest_job = SSjob.GetJobType(/datum/job/priest)
+	//demote the old priest
+	for(var/mob/living/carbon/human/HL in GLOB.human_list)
+		//TODO: this fucking sucks, just locate the priest
+		if(!HL.mind)
+			continue
+
+		if(is_priest_job(HL.mind.assigned_role))
+			HL.mind.set_assigned_role(/datum/job/villager)
+			HL.job = "Ex-Priest"
+
+
+			HL.verbs -= /mob/living/carbon/human/proc/coronate_lord
+			HL.verbs -= /mob/living/carbon/human/proc/churchexcommunicate
+			HL.verbs -= /mob/living/carbon/human/proc/churchcurse
+			HL.verbs -= /mob/living/carbon/human/proc/churchannouncement
+			priest_job?.remove_spells(HL)
+			GLOB.excommunicated_players |= HL.real_name
+			HL.cleric?.excommunicate()
+
+	priest_job?.add_spells(M)
+	M.mind.set_assigned_role(/datum/job/priest)
 	M.job = "Priest"
 	M.set_patron(/datum/patron/divine/astrata)
 	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(M, M.patron)
@@ -991,3 +1020,16 @@
 	set name="Fix Death Arena"
 	SSdeath_arena.admin_reset()
 	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Toggle LOOC", "[GLOB.ooc_allowed ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+/datum/admins/proc/toggle_debug_pathfinding()
+	set category = "GameMaster"
+	set desc="Pathfinding Debug"
+	set name="Pathfinding Debug"
+	var/mob/user = usr
+	if(!user.client.holder)
+		return
+
+	if(!user.client.holder.path_debug)
+		user.client.holder.path_debug = new(user.client.holder)
+	else
+		QDEL_NULL(user.client.holder.path_debug)

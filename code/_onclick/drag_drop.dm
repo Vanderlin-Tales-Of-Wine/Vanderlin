@@ -61,7 +61,9 @@
 	var/progress
 	var/doneset
 	var/aghost_toggle
+	var/last_charge_process
 	var/datum/patreon_data/patreon
+	var/toggled_leylines = TRUE
 
 /atom
 	var/blockscharging = FALSE
@@ -81,8 +83,9 @@
 
 	var/atom/AD = object
 
-	if(mob.used_intent)
-		mob.used_intent.on_mouse_up()
+	if(mob.uses_intents)
+		if(mob.used_intent)
+			mob.used_intent.on_mouse_up()
 
 	if(mob.stat != CONSCIOUS)
 		mob.atkswinging = null
@@ -97,6 +100,7 @@
 	mob.atkswinging = null
 
 	charging = 0
+	last_charge_process = 0
 	chargedprog = 0
 
 	if(!mob.fixedeye) //If fixedeye isn't already enabled, we need to set this var
@@ -132,6 +136,7 @@
 			else
 				if(mob.next_rmove > world.time)
 					return
+			mob.cast_move = 0
 			mob.used_intent = mob.o_intent
 			if(mob.used_intent.get_chargetime() && !AD.blockscharging && !mob.in_throw_mode)
 				updateprogbar()
@@ -146,10 +151,11 @@
 			return
 		mob.atkswinging = "middle"
 		if(mob.mmb_intent)
+			mob.cast_move = 0
 			mob.used_intent = mob.mmb_intent
 			if(mob.used_intent.type == INTENT_SPELL && mob.ranged_ability)
 				var/obj/effect/proc_holder/spell/S = mob.ranged_ability
-				if(!S.cast_check(TRUE,mob))
+				if(!S.cast_check(TRUE,mob, mob.mmb_intent))
 					return
 		if(!mob.mmb_intent)
 			mouse_pointer_icon = 'icons/effects/mousemice/human_looking.dmi'
@@ -170,11 +176,13 @@
 			if(mob.next_rmove > world.time)
 				return
 		mob.atkswinging = "left"
+		mob.cast_move = 0
 		mob.used_intent = mob.a_intent
-		if(mob.used_intent.get_chargetime() && !AD.blockscharging && !mob.in_throw_mode)
-			updateprogbar()
-		else
-			mouse_pointer_icon = 'icons/effects/mousemice/human_attack.dmi'
+		if(mob.uses_intents)
+			if(mob.used_intent.get_chargetime() && !AD.blockscharging && !mob.in_throw_mode)
+				updateprogbar()
+			else
+				mouse_pointer_icon = 'icons/effects/mousemice/human_attack.dmi'
 		return
 
 /mob
@@ -182,7 +190,11 @@
 	var/accent = ACCENT_DEFAULT
 
 /client/MouseUp(object, location, control, params)
+	var/mob/living/L = mob
+	if(L)
+		update_to_mob(L)
 	charging = 0
+	last_charge_process = 0
 //	mob.update_warning()
 	SEND_SIGNAL(src, COMSIG_CLIENT_MOUSEUP, object, location, control, params)
 
@@ -290,8 +302,12 @@
 /client/proc/update_to_mob(mob/living/L)
 	if(charging)
 		if(progress < goal)
-			progress++
+			if(last_charge_process)
+				progress += world.time - last_charge_process
+			else
+				progress++
 			chargedprog = text2num("[((progress / goal) * 100)]")
+			last_charge_process = world.time
 // Here we start changing the mouse_pointer_icon
 			if(!(mob.used_intent.charge_pointer & mob.used_intent.charged_pointer))
 				var/mouseprog = clamp(round(((progress / goal)*100),5), 0, 100)

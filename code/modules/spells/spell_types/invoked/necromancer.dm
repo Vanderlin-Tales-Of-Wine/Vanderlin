@@ -10,8 +10,12 @@
 	sound = 'sound/magic/whiteflame.ogg'
 	associated_skill = /datum/skill/magic/arcane
 	antimagic_allowed = TRUE
-	charge_max = 15 SECONDS
+	recharge_time = 15 SECONDS
 	miracle = FALSE
+	attunements = list(
+		/datum/attunement/dark = 0.4,
+		/datum/attunement/death = 0.5,
+	)
 
 /obj/effect/proc_holder/spell/invoked/strengthen_undead/cast(list/targets, mob/living/user)
 	. = ..()
@@ -46,8 +50,11 @@
 	sound = 'sound/items/beartrap.ogg'
 	associated_skill = /datum/skill/magic/arcane
 	antimagic_allowed = TRUE
-	charge_max = 15 SECONDS
+	recharge_time = 15 SECONDS
 	miracle = FALSE
+	attunements = list(
+		/datum/attunement/dark = 0.4,
+	)
 
 /obj/effect/proc_holder/spell/invoked/eyebite/cast(list/targets, mob/living/user)
 	. = ..()
@@ -63,7 +70,6 @@
 /obj/effect/proc_holder/spell/invoked/raise_undead
 	name = "Raise Undead"
 	desc = ""
-	clothes_req = FALSE
 	range = 7
 	overlay_state = "raiseskele"
 	sound = list('sound/magic/magnet.ogg')
@@ -74,7 +80,11 @@
 	charging_slowdown = 1
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/arcane
-	charge_max = 30 SECONDS
+	recharge_time = 30 SECONDS
+	attunements = list(
+		/datum/attunement/dark = 0.4,
+		/datum/attunement/death = 1,
+	)
 
 
 /**
@@ -167,8 +177,7 @@
 	if(ckey) //player
 		src.ckey = ckey
 	else //npc
-		aggressive = 1
-		mode = AI_HUNT
+		ai_controller = new /datum/ai_controller/human_npc(src)
 		wander = TRUE
 
 	if(!mind)
@@ -185,13 +194,13 @@
 	dna.species.soundpack_m = new /datum/voicepack/skeleton()
 	dna.species.soundpack_f = new /datum/voicepack/skeleton()
 
-	src.TOTALSTR = 6
-	src.TOTALPER = 8
-	src.TOTALEND = 8
-	src.TOTALCON = 8
-	src.TOTALINT = 4
-	src.TOTALSPD = 9
-	src.TOTALLUC = 6
+	src.base_strength = 6
+	src.base_perception = 8
+	src.base_endurance = 8
+	src.base_constitution = 8
+	src.base_intelligence = 4
+	src.base_speed = 9
+	src.base_fortune = 6
 
 
 	cmode_music = 'sound/music/cmode/antag/combat_cult.ogg'
@@ -199,7 +208,7 @@
 	set_patron(master.patron)
 	copy_known_languages_from(master,FALSE)
 	mob_biotypes = MOB_UNDEAD
-	faction = list("undead")
+	faction = list(FACTION_UNDEAD)
 	ambushable = FALSE
 	underwear = "Nude"
 
@@ -241,7 +250,6 @@
 /obj/effect/proc_holder/spell/invoked/projectile/sickness
 	name = "Ray of Sickness"
 	desc = ""
-	clothes_req = FALSE
 	range = 15
 	projectile_type = /obj/projectile/magic/sickness
 	overlay_state = "raiseskele"
@@ -254,7 +262,11 @@
 	charging_slowdown = 1
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/arcane
-	charge_max = 15 SECONDS
+	recharge_time = 15 SECONDS
+	attunements = list(
+		/datum/attunement/dark = 0.4,
+		/datum/attunement/blood = 0.5,
+	)
 
 /obj/effect/proc_holder/spell/self/command_undead
 	name = "Command Undead"
@@ -264,7 +276,7 @@
 	invocation = "Zuth'gorash vel'thar dral'oth!"
 	invocation_type = "shout"
 	antimagic_allowed = TRUE
-	charge_max = 15 SECONDS
+	recharge_time = 15 SECONDS
 
 /obj/effect/proc_holder/spell/self/command_undead/cast(mob/user = usr)
 	. = ..()

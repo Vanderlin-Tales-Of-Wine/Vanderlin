@@ -1,1 +1,0 @@
-/mob/living/simple_animal/hostile/space_dragon : /mob/living/basic/space_dragon/@SUBTYPES{@OLD}

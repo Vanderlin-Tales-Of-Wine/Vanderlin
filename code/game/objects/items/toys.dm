@@ -94,6 +94,7 @@
 	var/card_throw_speed = 1
 	var/card_throw_range = 7
 	var/list/card_attack_verb = list("attacked")
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/toy/cards/suicide_act(mob/living/carbon/user)
 	user.visible_message(span_suicide("[user] is slitting [user.p_their()] wrists with \the [src]! It looks like [user.p_they()] [user.p_have()] a crummy hand!"))
@@ -110,7 +111,7 @@
 	icon = 'icons/obj/toy.dmi'
 	deckstyle = "syndicate"
 	icon_state = "deck_syndicate_full"
-	w_class = WEIGHT_CLASS_SMALL
+	w_class = WEIGHT_CLASS_TINY
 	var/cooldown = 0
 	var/list/cards = list()
 
@@ -176,8 +177,10 @@
 			var/outcome = alert(user, "How do you want to shuffle the deck?","XYLIX","False Shuffle","Force Top Card","Play fair")
 			switch(outcome)
 				if("False Shuffle")
+					GLOB.vanderlin_round_stats[STATS_GAMES_RIGGED]++
 					to_chat(user, span_notice("I shuffle the cards, then reverse the shuffle. Sneaky."))
 				if("Force Top Card")
+					GLOB.vanderlin_round_stats[STATS_GAMES_RIGGED]++
 					user.set_machine(src)
 					interact(user)
 				if("Play fair")

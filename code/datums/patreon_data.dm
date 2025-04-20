@@ -22,7 +22,10 @@
 	assign_access_rank()
 
 /datum/patreon_data/proc/fetch_key_and_rank()
-	var/datum/DBQuery/query_get_key = SSdbcore.NewQuery("SELECT patreon_key, patreon_rank FROM [format_table_name("player")] WHERE ckey = :ckey", list("ckey" = owner.ckey))
+	if(!SSdbcore.IsConnectedCross())
+		SSdbcore.Connect_Cross()
+
+	var/datum/DBQuery/query_get_key = SSdbcore.NewQuery("SELECT patreon_key, patreon_rank FROM [format_table_name("player")] WHERE ckey = :ckey", list("ckey" = owner.ckey), db = TRUE)
 	if(query_get_key.warn_execute())
 		if(query_get_key.NextRow())
 			client_key = query_get_key.item[1]
@@ -47,7 +50,7 @@
 /datum/patreon_data/proc/has_access(rank)
 	if(!access_rank)
 		assign_access_rank()
-	if(owner.holder)
+	if(owner.holder || (owner.ckey in GLOB.deadmins))
 		return TRUE
 	if(rank <= access_rank)
 		return TRUE

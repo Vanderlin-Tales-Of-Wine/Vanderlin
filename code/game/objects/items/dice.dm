@@ -72,6 +72,7 @@
 			outcome = special_faces.Find(outcome)
 		if(!outcome)
 			return
+		GLOB.vanderlin_round_stats[STATS_GAMES_RIGGED]++
 		rigged = DICE_BASICALLY_RIGGED
 		rigged_value = outcome
 		return
@@ -198,8 +199,6 @@
 		if(rigged == DICE_BASICALLY_RIGGED)
 			if(prob(80))
 				result = rigged_value
-			else
-				to_chat(user,span_big("Xylix laughs at your pitiable attempt at sleight of hand."))
 		else if(rigged == DICE_TOTALLY_RIGGED)
 			result = rigged_value
 	if(!permanently_rigged)

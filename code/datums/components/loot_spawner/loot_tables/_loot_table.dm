@@ -13,13 +13,16 @@
 		STATKEY_LCK = 0.99
 	)
 
+	///this is at bare minimum spawn at base
 	var/base_min = 1
+	///this is at bare minimum our maximum spawn count. Luck and the scaling factor is added to this
 	var/base_max = 3
+	///how much each point of luck affects the max and minimum
 	var/scaling_factor = 0.4
 
 /datum/loot_table/proc/spawn_loot(mob/living/looter)
 	var/list/weighted_list = return_list(looter)
-	var/mob_stat_level = looter.return_stat_level(STATKEY_LCK)
+	var/mob_stat_level = looter.get_stat_level(STATKEY_LCK)
 
 	var/adjusted_min = base_min + round(mob_stat_level * scaling_factor, 1)
 	var/adjusted_max = base_max + round(mob_stat_level * scaling_factor, 1)
@@ -48,7 +51,7 @@
 	var/list/weighted_list = list()
 	var/list/pre_weight_list = loot_table[stat_key]
 
-	var/mob_stat_level = looter.return_stat_level(stat_key)
+	var/mob_stat_level = looter.get_stat_level(stat_key)
 	var/minimum_stat_level = 0
 	var/growth_factor = 1.02
 	if(stat_key in growth_factor_list)

@@ -420,7 +420,6 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 	set name = "Hear/Silence Adminhelps"
 	set category = "Prefs - Admin"
 	set desc = ""
-	set hidden = 1
 	if(!holder)
 		return
 	prefs.toggles ^= SOUND_ADMINHELP
@@ -509,4 +508,27 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 		to_chat(src, "Custom Asay color is currently disabled by the server.")
 		return
 	prefs.asaycolor = initial(prefs.asaycolor)
+	prefs.save_preferences()
+
+/client/proc/set_personal_admin_ooc_color()
+	set name = "Set Personal Admin OOC Color"
+	set category = "Prefs - Admin"
+	set desc = ""
+	if(!holder)
+		return
+
+	var/new_ooccolor = input(src, "Please select your OOC color.", "OOC color", prefs.ooccolor) as color|null
+	if(new_ooccolor)
+		prefs.ooccolor = sanitize_ooccolor(new_ooccolor)
+		prefs.save_preferences()
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Set personal admin OOC color")
+	return
+
+/client/proc/reset_personal_admin_ooc_color()
+	set name = "Reset Personal Admin OOC Color"
+	set desc = ""
+	set category = "Prefs - Admin"
+	if(!holder)
+		return
+	prefs.ooccolor = null
 	prefs.save_preferences()

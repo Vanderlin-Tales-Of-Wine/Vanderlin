@@ -37,21 +37,13 @@
 
 /obj/machinery/light/fueled/cauldron/Destroy()
 	chem_splash(loc, 2, list(reagents))
+	playsound(loc, pick('sound/foley/water_land1.ogg','sound/foley/water_land2.ogg', 'sound/foley/water_land3.ogg'), 100, FALSE)
 	qdel(reagents)
 	..()
 
 /obj/machinery/light/fueled/cauldron/burn_out()
 	brewing = 0
 	..()
-
-/*
-/obj/machinery/light/fueled/cauldron/examine(mob/user)
-	if(ingredients.len)//ingredients.len
-		DISABLE_BITFIELD(reagents.flags, AMOUNT_VISIBLE)
-	else
-		ENABLE_BITFIELD(reagents.flags, AMOUNT_VISIBLE)
-	. = ..()
-*/
 
 /obj/machinery/light/fueled/cauldron/process()
 	..()
@@ -100,6 +92,7 @@
 							new itempath(get_turf(src))
 					//handle player perception and reset for next time
 					src.visible_message("<span class='info'>The cauldron finishes boiling with a faint [found_recipe.smells_like] smell.</span>")
+					GLOB.vanderlin_round_stats[STATS_POTIONS_BREWED]++
 					//give xp for /datum/skill/craft/alchemy
 					var/boon = lastuser.mind?.get_learning_boon(/datum/skill/craft/alchemy)
 					var/amt2raise = lastuser.STAINT*2

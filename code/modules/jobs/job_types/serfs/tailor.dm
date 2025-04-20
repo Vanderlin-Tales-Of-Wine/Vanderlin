@@ -1,17 +1,20 @@
 /datum/job/tailor
 	title = "Tailor"
 	f_title = "Seamstress"
+	tutorial = "Cloth, linen, silk and leather. \
+	You've tirelessly studied and poured your life into \
+	sewing articles of protection, padding, and fashion for serf and noble alike."
 	flag = TAILOR
 	department_flag = SERFS
-	faction = "Station"
-	tutorial = "Cloth, linen, silk and leather. You've tirelessly studied and poured your life into \
-				sewing articles of protection, padding, and fashion for serf and noble alike."
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_TAILOR
+	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
-	give_bank_account = TRUE
 	bypass_lastclass = TRUE
-	display_order = JDO_TAILOR
+
+	allowed_sexes = list(MALE, FEMALE)
+	allowed_races = RACES_PLAYER_ALL
 
 	outfit = /datum/outfit/job/tailor
 
@@ -22,7 +25,7 @@
 	head = /obj/item/clothing/head/courtierhat
 	belt = /obj/item/storage/belt/leather
 	beltr = /obj/item/weapon/knife/scissors
-	beltl = /obj/item/storage/keyring/tailor
+	beltl = /obj/item/key/tailor
 	backr = /obj/item/storage/backpack/satchel
 	neck = /obj/item/storage/belt/pouch/coins/mid
 	backpack_contents = list(/obj/item/needle = 1, /obj/item/natural/bundle/cloth = 2, /obj/item/natural/bundle/fibers = 1, /obj/item/dye_pack/luxury = 1, /obj/item/book/advice_weaving = 1, /obj/item/weapon/knife/villager = 1)
@@ -36,6 +39,7 @@
 	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/craft/carpentry, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/stealing, 1, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE)
 	ADD_TRAIT(H, TRAIT_SEEPRICES, TRAIT_GENERIC)
 	if(H.gender == MALE)
 		pants = /obj/item/clothing/pants/tights/red

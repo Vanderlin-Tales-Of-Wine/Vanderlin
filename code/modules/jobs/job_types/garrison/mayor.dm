@@ -1,29 +1,26 @@
 /datum/job/mayor
 	title = "Town Elder"
+	tutorial = "You were once a wanderer, an unremarkable soul who, alongside your old adventuring party, carved your name into history.\
+	Now, the days of adventure are long past. You sit as the town's beloved elder; while the crown may rule from afar, the people\
+	look to you to settle disputes, mend rifts, and keep the true peace in town. Not every conflict must end in bloodshed,\
+	but when it must, you will do what is necessary, as you always have."
 	flag = MAYOR
 	department_flag = GARRISON
-	faction = "Station"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_CHIEF
+	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
-
-	spells = list(/obj/effect/proc_holder/spell/self/convertrole/town_militia)
-	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Aasimar"
-	)
-	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD, AGE_IMMORTAL)
-	tutorial = "The crown may lead officially, but the townsfolk of Vanderlin look to you to manage the settlement and solve lesser issues. Remember the old ways of the law... not everything must end in bloodshed, but do what is necessary to maintain the peace."
-	whitelist_req = FALSE
-	bypass_lastclass = TRUE
-	outfit = /datum/outfit/job/mayor
-	display_order = JDO_CHIEF
-	give_bank_account = 80
 	min_pq = 2
+	bypass_lastclass = TRUE
 
+	allowed_sexes = list(MALE, FEMALE)
+	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD, AGE_IMMORTAL)
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
+
+	outfit = /datum/outfit/job/mayor
+	spells = list(/obj/effect/proc_holder/spell/self/convertrole/town_militia, /obj/effect/proc_holder/spell/invoked/mockery)
+	give_bank_account = 80
 	cmode_music = 'sound/music/cmode/towner/CombatMayor.ogg'
 	can_have_apprentices = FALSE
 
@@ -57,9 +54,12 @@
 		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/music, 5, TRUE)
+		ADD_TRAIT(H, TRAIT_BARDIC_TRAINING, TRAIT_GENERIC)
 		if(H.age == AGE_OLD)
 			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 1, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/misc/music, 1, TRUE)
 			H.change_stat(STATKEY_STR, 1)
 			H.change_stat(STATKEY_PER, 1)
 			H.change_stat(STATKEY_INT, 2)
@@ -83,7 +83,7 @@
 	f_title = "Town Militiawoman"
 	flag = GUARDSMAN
 	department_flag = GARRISON
-	faction = "Station"
+	faction = FACTION_STATION
 	total_positions = 0
 	spawn_positions = 0
 	display_order = JDO_CITYWATCHMEN

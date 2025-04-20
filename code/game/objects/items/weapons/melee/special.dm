@@ -19,6 +19,7 @@
 	swingsound = BLUNTWOOSH_MED
 	minstr = 5
 	blade_dulling = DULLING_BASHCHOP
+	var/static/list/rod_jobs = null
 
 	grid_height = 96
 	grid_width = 32
@@ -59,19 +60,20 @@
 	. = ..()
 	if(get_dist(user, target) > 7)
 		return
-
 	user.changeNext_move(CLICK_CD_MELEE)
-	user.visible_message("<span class='warning'>[user] points [src] at [target].</span>")
+
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/HU = user
 
-		if((HU.job != "Monarch"))
+		if(!is_lord_job(HU.mind?.assigned_role))
 			to_chat(user, "<span class='danger'>The rod doesn't obey me.</span>")
 			return
 
 		if(ishuman(target))
 			var/mob/living/carbon/human/H = target
+
+			user.visible_message("<span class='warning'>[user] points [src] at [target].</span>")
 
 			if(H == HU)
 				return
@@ -79,18 +81,31 @@
 			if(H.anti_magic_check())
 				return
 
-			if(!(H.job in GLOB.rod_jobs))
+			if(!rod_jobs)
+				rod_jobs = GLOB.noble_positions | GLOB.garrison_positions | list(
+				/datum/job/jester::title,
+				/datum/job/servant::title,
+				/datum/job/adventurer/courtagent::title,
+				/datum/job/butler::title,
+				/datum/job/squire::title,
+			)
+
+			if(!((H.mind?.assigned_role.title in rod_jobs)))
 				return
 
 			if(istype(user.used_intent, /datum/intent/lord_electrocute))
 				HU.visible_message("<span class='warning'>[HU] electrocutes [H] with \the [src].</span>")
+				user.Beam(target, icon_state = "lightning[rand(1, 12)]", time = 0.5 SECONDS) // LIGHTNING
+				playsound(user, 'sound/magic/lightningshock.ogg', 70, TRUE)
 				H.electrocute_act(5, src)
+				log_message("[HU] has shocked [H] with the master's rod!", LOG_ATTACK)
 				to_chat(H, "<span class='danger'>I'm electrocuted by the scepter!</span>")
 				return
 
 			if(istype(user.used_intent, /datum/intent/lord_silence))
 				HU.visible_message("<span class='warning'>[HU] silences [H] with \the [src].</span>")
 				H.set_silence(20 SECONDS)
+				log_message("[HU] has silenced [H] with the master's rod!", LOG_ATTACK)
 				to_chat(H, "<span class='danger'>I'm silenced by the scepter!</span>")
 				return
 

@@ -5,8 +5,10 @@
 
 /datum/ai_behavior/find_potential_targets/perform(seconds_per_tick, datum/ai_controller/controller, target_key, targetting_datum_key, hiding_location_key)
 	. = ..()
-
 	var/mob/living/living_mob = controller.pawn
+	if(living_mob.pet_passive)
+		finish_action(controller, succeeded = FALSE)
+		return
 	var/datum/targetting_datum/targetting_datum = controller.blackboard[targetting_datum_key]
 
 	if(living_mob.icon_state == "Trolla") //shitcode add a trait
@@ -35,6 +37,9 @@
 			continue
 
 	for(var/mob/living/living_target in filtered_targets)
+		if(living_target.stat == DEAD)
+			filtered_targets -= living_target
+			continue
 		if(!living_target.rogue_sneaking)
 			continue
 		var/extra_chance = (living_mob.health <= living_mob.maxHealth * 50) ? 30 : 0 // if we're below half health, we're way more alert
@@ -94,3 +99,9 @@
 	. = ..()
 	if(succeeded)
 		controller.pawn.icon_state = "Trolla"
+
+/datum/ai_behavior/find_potential_targets/bum/finish_action(datum/ai_controller/controller, succeeded, ...)
+	. = ..()
+	if(succeeded)
+		var/mob/living/pawn = controller.pawn
+		pawn.say(pick(GLOB.bum_aggro))

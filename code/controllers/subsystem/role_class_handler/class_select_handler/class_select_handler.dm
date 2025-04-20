@@ -223,6 +223,7 @@
 	if(!H.job)
 		return
 
+	// supposed to check for adventurer but this would break behaviour
 	if(H.job == "Drifter" && !showing_combat_classes)
 		for(var/datum/advclass/datums in rolled_classes)
 			if(!(CTAG_ADVENTURER in datums.category_tags))

@@ -13,7 +13,7 @@
 	var/locked = TRUE
 	var/budget = 0
 	var/wgain = 0
-	var/keycontrol = "merchant"
+	var/keycontrol = ACCESS_MERCHANT
 	var/funynthing = FALSE
 
 /obj/structure/fake_machine/vendor/attackby(obj/item/P, mob/user, params)
@@ -177,7 +177,7 @@
 				contents += "[icon2html(I, user)] <a href='byond://?src=[REF(src)];setname=[REF(I)]'>[stars(namer)]</a> - <a href='byond://?src=[REF(src)];setprice=[REF(I)]'>[price]</a> <a href='byond://?src=[REF(src)];retrieve=[REF(I)]'>[stars("TAKE")]</a>"
 		contents += "<BR>"
 
-	var/datum/browser/popup = new(user, "VENDORTHING", "", 370, 220)
+	var/datum/browser/popup = new(user, "VENDORTHING", "", 370, 400)
 	popup.set_content(contents)
 	popup.open()
 
@@ -215,6 +215,24 @@
 		held_items -= I
 	set_light(0)
 	return ..()
+
+/obj/structure/fake_machine/vendor/apothecary
+	name = "DRUG PEDDLER"
+	keycontrol = ACCESS_APOTHECARY
+
+/obj/structure/fake_machine/vendor/blacksmith
+	keycontrol = ACCESS_SMITH
+
+/obj/structure/fake_machine/vendor/inn
+	name = "INNKEEP"
+	keycontrol = ACCESS_INN
+
+/obj/structure/fake_machine/vendor/butcher
+	keycontrol = ACCESS_BUTCHER
+
+/obj/structure/fake_machine/vendor/soilson
+	name = "FARMHAND"
+	keycontrol = ACCESS_FARM
 
 /obj/structure/fake_machine/vendor/centcom
 	name = "LANDLORD"

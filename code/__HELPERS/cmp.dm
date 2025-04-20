@@ -101,12 +101,12 @@ GLOBAL_VAR_INIT(cmp_field, "name")
 /proc/cmp_assignedrole_asc(mob/living/A, mob/living/B)
 	if(!GLOB.job_assignment_order)
 		GLOB.job_assignment_order = get_job_assignment_order()
-	return GLOB.job_assignment_order.Find(A.mind?.assigned_role) - GLOB.job_assignment_order.Find(B.mind?.assigned_role)
+	return GLOB.job_assignment_order.Find(A.mind?.assigned_role.title) - GLOB.job_assignment_order.Find(B.mind?.assigned_role.title)
 
 /proc/cmp_assignedrole_dsc(mob/living/A, mob/living/B)
 	if(!GLOB.job_assignment_order)
 		GLOB.job_assignment_order = get_job_assignment_order()
-	return GLOB.job_assignment_order.Find(B.mind?.assigned_role) - GLOB.job_assignment_order.Find(A.mind?.assigned_role)
+	return GLOB.job_assignment_order.Find(B.mind?.assigned_role.title) - GLOB.job_assignment_order.Find(A.mind?.assigned_role.title)
 
 /proc/cmp_wound_severity_asc(datum/wound/A, datum/wound/B)
 	return A.severity - B.severity

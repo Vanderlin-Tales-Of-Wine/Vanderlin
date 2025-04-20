@@ -112,7 +112,7 @@
 
 /atom/movable/screen/alert/MouseExited()
 	..()
-//	close_tooltip(usr)
+//	closeToolTip(usr)
 
 
 //Gas alerts

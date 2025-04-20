@@ -134,6 +134,11 @@
 	layer = 20.511
 	plane = FULLSCREEN_PLANE
 
+/atom/movable/screen/fullscreen/arcyne_eye
+	icon_state = "curse1"
+	layer = 20.49
+	plane = FULLSCREEN_PLANE
+
 /atom/movable/screen/fullscreen/crit/dying
 	icon = 'icons/roguetown/underworld/charon_servant.dmi'
 	icon_state = "servant"

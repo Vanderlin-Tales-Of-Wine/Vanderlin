@@ -19,7 +19,8 @@
 	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange= 1,
 						/obj/item/natural/hide = 1)
 	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange = 2,
-						/obj/item/natural/hide = 2)
+						/obj/item/natural/hide = 2,
+						/obj/item/natural/head/bug = 1)
 
 	health = BOGBUG_HEALTH
 	maxHealth = BOGBUG_HEALTH
@@ -32,10 +33,10 @@
 	melee_damage_lower = 25
 	melee_damage_upper = 35
 
-	TOTALCON = 13
-	TOTALSTR = 10
-	TOTALSPD = 15
-	TOTALEND = 15
+	base_constitution = 13
+	base_strength = 10
+	base_speed = 15
+	base_endurance = 15
 
 	retreat_distance = 2
 	minimum_distance = 1

@@ -229,7 +229,7 @@
 	desc = "Stranded and hanging, limp and dead."
 	icon_state = "gallows"
 	pixel_y = 0
-	max_integrity = 9999
+	max_integrity = 100
 
 /obj/structure/noose/Destroy()
 	STOP_PROCESSING(SSobj, src)
@@ -242,6 +242,31 @@
 				buckled_mob.adjustBruteLoss(10)
 				buckled_mob.Knockdown(60)
 	return ..()
+
+/obj/structure/noose/attackby(obj/item/W, mob/user, params)
+	if (W.get_sharpness())
+		if(do_after(user, 1 SECONDS, src))
+			new /obj/item/rope(loc)
+			playsound(src, 'sound/foley/dropsound/cloth_drop.ogg', 50, TRUE)
+			if (istype(src, /obj/structure/noose/gallows))
+				new /obj/machinery/light/fueled/lanternpost/unfixed(loc)
+				user.visible_message(span_notice("[user] cuts the noose down from the gallows."), span_notice("I cut the noose down from the gallows."), span_hear("I hear something snap."))
+			else
+				user.visible_message(span_notice("[user] cuts down the noose."), span_notice("I cut down the noose."), span_hear("I hear something snap."))
+			qdel(src)
+	else
+		return ..()
+
+/obj/structure/noose/bullet_act(obj/projectile/P)
+	. = ..()
+	new /obj/item/rope(loc)
+	playsound(src, 'sound/foley/dropsound/cloth_drop.ogg', 50, TRUE)
+	if (istype(src, /obj/structure/noose/gallows))
+		new /obj/machinery/light/fueled/lanternpost/unfixed(loc)
+		visible_message(span_danger("The noose is shot down from the gallows!"))
+	else
+		visible_message(span_danger("The noose is shot down!"))
+	qdel(src)
 
 /obj/structure/noose/user_buckle_mob(mob/living/M, mob/user, check_loc)
 	if(!in_range(user, src) || user.stat != CONSCIOUS || !iscarbon(M))
@@ -269,6 +294,11 @@
 	if(has_buckled_mobs())
 		START_PROCESSING(SSobj, src)
 		M.set_mob_offsets("bed_buckle", _x = 0, _y = 10)
+
+/obj/structure/noose/gallows/post_buckle_mob(mob/living/M)
+	if(has_buckled_mobs())
+		START_PROCESSING(SSobj, src)
+		M.set_mob_offsets("bed_buckle", _x = 6, _y = 16)
 
 /obj/structure/noose/post_unbuckle_mob(mob/living/M)
 	STOP_PROCESSING(SSobj, src)

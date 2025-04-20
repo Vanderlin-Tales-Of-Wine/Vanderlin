@@ -160,6 +160,13 @@
 				/obj/item/natural/fibers = 1)
 	craftdiff = 1
 
+/datum/repeatable_crafting_recipe/sewing/fakeeyepatch
+	name = "see through eyepatch"
+	output = /obj/item/clothing/face/eyepatch/fake
+	requirements = list(/obj/item/natural/cloth = 1,
+				/obj/item/natural/fibers = 1)
+	craftdiff = 2
+
 /datum/repeatable_crafting_recipe/sewing/fisherhat
 	name = "straw fisher hat"
 	output = /obj/item/clothing/head/fisherhat
@@ -176,6 +183,12 @@
 	name = "cloth coif"
 	output = /obj/item/clothing/neck/coif/cloth
 	requirements = list(/obj/item/natural/fibers = 1, /obj/item/natural/cloth = 2)
+	craftdiff = 1
+
+/datum/repeatable_crafting_recipe/sewing/roguehood
+	name = "cloth hood"
+	requirements = list(/obj/item/natural/cloth = 1, /obj/item/natural/fibers = 1,)
+	output = /obj/item/clothing/head/roguehood/uncolored
 	craftdiff = 1
 
 /datum/repeatable_crafting_recipe/sewing/clothtrou
@@ -511,11 +524,9 @@
 /datum/repeatable_crafting_recipe/sewing/weaving
 	abstract_type = /datum/repeatable_crafting_recipe/sewing/weaving
 	attacked_atom = /obj/machinery/loom
-	starting_atom = /obj/item/natural/silk
 	requirements = list(
 		/obj/item/natural/silk = 1
 	)
-	tool_usage = list()
 	craftdiff = 1
 
 /* craftdif of 1 = NOVICE */
@@ -680,7 +691,6 @@
 	output = /obj/item/clothing/armor/gambeson/heavy
 	requirements = list(/obj/item/natural/cloth = 6,
 				/obj/item/natural/fibers = 4)
-	starting_atom = /obj/item/natural/cloth
 	craftdiff = 4
 
 /datum/repeatable_crafting_recipe/sewing/weaving/armordress

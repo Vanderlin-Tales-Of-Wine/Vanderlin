@@ -38,6 +38,7 @@ SUBSYSTEM_DEF(triumphs)
 	name = "Triumphs"
 	flags = SS_NO_FIRE
 	init_order = INIT_ORDER_TRIUMPHS
+	lazy_load = FALSE
 
 	// List of top ten for display in browser page on button click
 	var/list/triumph_leaderboard = list()
@@ -279,7 +280,7 @@ SUBSYSTEM_DEF(triumphs)
 		var/target_file = file("data/player_saves/[target_ckey[1]]/[target_ckey]/triumphs.json")
 		if(!fexists(target_file)) // no file or new player, write them in something
 			var/list/new_guy = list("triumph_count" = 0, "triumph_wipe_season" = GLOB.triumph_wipe_season)
-			WRITE_FILE(new_guy, json_encode(new_guy))
+			WRITE_FILE(target_file, json_encode(new_guy))
 			triumph_amount_cache[target_ckey] = 0
 			return 0
 
@@ -352,19 +353,20 @@ SUBSYSTEM_DEF(triumphs)
 
 // Sort what we got
 /datum/controller/subsystem/triumphs/proc/sort_leaderboard()
-	if(triumph_leaderboard.len > 1) // If we got more than one guy in here time to sort lol
-		var/list/sorted_list = list()
-		for(var/cache_key in triumph_leaderboard)
-			if(!sorted_list.len)
+	if(length(triumph_leaderboard) <= 1)
+		return
+
+	var/list/sorted_list = list()
+	for(var/cache_key in triumph_leaderboard)
+		for(var/sorted_key in sorted_list)
+			var/their_triumphs = sorted_list[sorted_key]
+			var/our_triumphs = triumph_leaderboard[cache_key]
+			if(our_triumphs >= their_triumphs)
+				sorted_list.Insert(sorted_list.Find(sorted_key), cache_key)
 				sorted_list[cache_key] = triumph_leaderboard[cache_key]
+				break
 
-			for(var/sorted_key in sorted_list)
-				if(sorted_list[sorted_key] < triumph_leaderboard[cache_key])
-					sorted_list.Insert(sorted_list.Find(sorted_key), cache_key)
-					sorted_list[cache_key] = triumph_leaderboard[cache_key]
-					break
+		if(!sorted_list.Find(cache_key))
+			sorted_list[cache_key] = triumph_leaderboard[cache_key]
 
-			if(sorted_list.Find(cache_key))
-				continue
-
-		triumph_leaderboard = sorted_list
+	triumph_leaderboard = sorted_list

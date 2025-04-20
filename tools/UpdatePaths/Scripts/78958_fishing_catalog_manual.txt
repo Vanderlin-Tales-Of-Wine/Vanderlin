@@ -1,1 +1,0 @@
-/obj/item/book/fish_catalog : /obj/item/book/manual/fish_catalog{@OLD}

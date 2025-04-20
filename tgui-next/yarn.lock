@@ -1404,19 +1404,19 @@ cache-base@^1.0.1:
     union-value "^1.0.0"
     unset-value "^1.0.0"
 
-caller-callsite@^2.0.0:
+requester-callsite@^2.0.0:
   version "2.0.0"
-  resolved "https://registry.yarnpkg.com/caller-callsite/-/caller-callsite-2.0.0.tgz#847e0fce0a223750a9a027c54b33731ad3154134"
+  resolved "https://registry.yarnpkg.com/requester-callsite/-/requester-callsite-2.0.0.tgz#847e0fce0a223750a9a027c54b33731ad3154134"
   integrity sha1-hH4PzgoiN1CpoCfFSzNzGtMVQTQ=
   dependencies:
     callsites "^2.0.0"
 
-caller-path@^2.0.0:
+requester-path@^2.0.0:
   version "2.0.0"
-  resolved "https://registry.yarnpkg.com/caller-path/-/caller-path-2.0.0.tgz#468f83044e369ab2010fac5f06ceee15bb2cb1f4"
+  resolved "https://registry.yarnpkg.com/requester-path/-/requester-path-2.0.0.tgz#468f83044e369ab2010fac5f06ceee15bb2cb1f4"
   integrity sha1-Ro+DBE42mrIBD6xfBs7uFbsssfQ=
   dependencies:
-    caller-callsite "^2.0.0"
+    requester-callsite "^2.0.0"
 
 callsites@^2.0.0:
   version "2.0.0"
@@ -2794,9 +2794,9 @@ gauge@~2.7.3:
     strip-ansi "^3.0.1"
     wide-align "^1.1.0"
 
-get-caller-file@^2.0.1:
+get-requester-file@^2.0.1:
   version "2.0.5"
-  resolved "https://registry.yarnpkg.com/get-caller-file/-/get-caller-file-2.0.5.tgz#4f94412a82db32f36e3b0b9741f8a97feb031f7e"
+  resolved "https://registry.yarnpkg.com/get-requester-file/-/get-requester-file-2.0.5.tgz#4f94412a82db32f36e3b0b9741f8a97feb031f7e"
   integrity sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==
 
 get-stream@^4.0.0:
@@ -3087,7 +3087,7 @@ import-fresh@^2.0.0:
   resolved "https://registry.yarnpkg.com/import-fresh/-/import-fresh-2.0.0.tgz#d81355c15612d386c61f9ddd3922d4304822a546"
   integrity sha1-2BNVwVYS04bGH53dOSLUMEgipUY=
   dependencies:
-    caller-path "^2.0.0"
+    requester-path "^2.0.0"
     resolve-from "^3.0.0"
 
 import-fresh@^3.0.0:
@@ -6331,7 +6331,7 @@ yargs@13.2.4:
   dependencies:
     cliui "^5.0.0"
     find-up "^3.0.0"
-    get-caller-file "^2.0.1"
+    get-requester-file "^2.0.1"
     os-locale "^3.1.0"
     require-directory "^2.1.1"
     require-main-filename "^2.0.0"

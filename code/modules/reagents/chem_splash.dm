@@ -18,6 +18,20 @@
 	if(!has_reagents)
 		return
 
+	//water turf eats reagents
+	if(istype(epicenter, /turf/open/water))
+		for(var/datum/reagents/R in reactants)
+			R.clear_reagents()
+		return
+
+	//splash down, not on open spaces.
+	while(istype(epicenter, /turf/open/transparent/openspace))
+		var/turf/downcheck = get_step_multiz(epicenter, DOWN)
+		if(downcheck)
+			epicenter = downcheck
+		else
+			break
+
 	var/datum/reagents/splash_holder = new/datum/reagents(total_reagents*threatscale)
 	splash_holder.my_atom = epicenter // For some reason this is setting my_atom to null, and causing runtime errors.
 	var/total_temp = 0

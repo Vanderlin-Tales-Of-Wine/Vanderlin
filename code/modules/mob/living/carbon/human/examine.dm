@@ -33,7 +33,7 @@
 	var/t_has = p_have()
 	var/t_is = p_are()
 	var/obscure_name
-	var/race_name = dna.species.name
+	var/race_name = dna?.species.name
 	var/self_inspect = FALSE
 
 	var/m1 = "[t_He] [t_is]"
@@ -67,11 +67,27 @@
 			self_inspect = TRUE
 		var/used_title = get_role_title()
 		var/is_returning = FALSE
-		var/is_apprentice = mind?.apprentice
 		if(islatejoin)
 			is_returning = TRUE
 
-		statement_of_identity += ("<EM>[used_name]</EM>, the [is_returning ? "returning " : ""][race_name] [used_title][is_apprentice ? ", apprentice of [src.mind.our_apprentice_name]" : ""].")
+		// building the examine identity
+		statement_of_identity += "<EM>[used_name]</EM>"
+
+		var/appendage_to_name
+		if(is_returning && race_name && !HAS_TRAIT(src, TRAIT_FOREIGNER)) // latejoined? Foreigners can never be returning because they never lived here in the first place
+			appendage_to_name += " returning"
+
+		if(race_name) // race name
+			appendage_to_name += " [race_name]"
+
+		if(used_title && !HAS_TRAIT(src, TRAIT_FOREIGNER)) // job name, don't show job of foreigners.
+			appendage_to_name += ", [used_title]"
+
+		if(appendage_to_name) // if we got any of those paramaters add it to their name
+			statement_of_identity += " the [appendage_to_name]"
+
+		statement_of_identity += "." // comma at the end
+		// full name with all paramaters would be: "John Serf the returning Rakshari, Minnie Bonnickers smithy apprentice.""
 		. += statement_of_identity
 
 		if(GLOB.lord_titles[real_name]) //should be tied to known persons but can't do that until there is a way to recognise new people
@@ -162,7 +178,7 @@
 					var/shit = bD.examine_friendorfoe(aD,user,src)
 					if(shit)
 						. += shit
-		if(user.mind?.has_antag_datum(/datum/antagonist/vampirelord) || user.mind?.has_antag_datum(/datum/antagonist/vampire))
+		if(user.mind?.has_antag_datum(/datum/antagonist/vampire))
 			. += "<span class='userdanger'>Blood Volume: [blood_volume]</span>"
 		if(HAS_TRAIT(user, TRAIT_MATTHIOS_EYES))
 			var/atom/item = get_most_expensive()
@@ -510,6 +526,23 @@
 			if(-INFINITY to -5)
 				. += "<span class='warning'><B>[t_He] look[p_s()] much weaker than I.</B></span>"
 
+		var/datum/antagonist/maniac/maniac = user.mind?.has_antag_datum(/datum/antagonist/maniac)
+		if(maniac)
+			var/obj/item/organ/heart/heart = getorganslot(ORGAN_SLOT_HEART)
+			if(heart)
+				var/inscryption_key = LAZYACCESS(heart.inscryption_keys, maniac) // SPECIFICALLY the key that WE wrote
+				if(inscryption_key && (inscryption_key in maniac.key_nums))
+					. += span_danger("[t_He] know[p_s()] [inscryption_key], I AM SURE OF IT!")
+
+	if(IsAdminGhost(user))
+		var/obj/item/organ/heart/heart = getorganslot(ORGAN_SLOT_HEART)
+		if(heart && heart.maniacs)
+			for(var/datum/antagonist/maniac/M in heart.maniacs)
+				var/K = LAZYACCESS(heart.inscryptions, M)
+				var/W = LAZYACCESS(heart.maniacs2wonder_ids, M)
+				var/N = M.owner?.name
+				. += span_notice("Inscryption[N ? " by [N]'s " : ""][W ? "Wonder #[W]" : ""]: [K ? K : ""]")
+
 	if(Adjacent(user))
 		if(isobserver(user))
 			var/static/list/check_zones = list(
@@ -537,7 +570,7 @@
 		if(skipface && user.has_flaw(/datum/charflaw/hunted))
 			user.add_stress(/datum/stressevent/hunted)
 
-	if(!obscure_name && (flavortext || headshot_link))
+	if(!obscure_name && (flavortext || (headshot_link && src.client?.patreon?.has_access(ACCESS_ASSISTANT_RANK)))) // only show flavor text if there is a flavor text and we show headshot
 		. += "<a href='?src=[REF(src)];task=view_flavor_text;'>Examine closer</a>"
 
 	var/list/lines = build_cool_description(get_mob_descriptors(obscure_name, user), src)
@@ -557,6 +590,10 @@
 				if(istype(I, /obj/item/weapon/knife/dagger/steel/profane))
 					. += "profane dagger whispers, [span_danger("\"That's [real_name]! Strike their heart!\"")]"
 					break
+
+	if(HAS_TRAIT(user, TRAIT_SEEPRICES) && sellprice)
+		. += "Is worth around [sellprice] mammons."
+	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, .)
 
 /mob/living/proc/status_effect_examines(pronoun_replacement) //You can include this in any mob's examine() to show the examine texts of status effects!
 	var/list/dat = list()

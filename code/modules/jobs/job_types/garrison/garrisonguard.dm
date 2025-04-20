@@ -1,54 +1,44 @@
 /datum/job/guardsman
 	title = "City Watchmen"
+	tutorial = "You are a member of the City Watch. \
+	You've proven yourself worthy to the Captain and now you've got yourself a salary... \
+	as long as you keep the peace that is."
 	flag = GUARDSMAN
 	department_flag = GARRISON
-	faction = "Station"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_CITYWATCHMEN
+	faction = FACTION_STATION
 	total_positions = 8
 	spawn_positions = 8
+	min_pq = 4
+	bypass_lastclass = TRUE
 
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Aasimar"
-	)
-	allowed_races = list("Humen", "Half-Elf", "Elf", "Dwarf", "Aasimar")
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_IMMORTAL)
-	tutorial = "You are a member of the City Watch. You've proven yourself worthy to the Captain and now you've got yourself a salary.. as long as you keep the peace that is."
-	display_order = JDO_CITYWATCHMEN
-	whitelist_req = FALSE
-	bypass_lastclass = TRUE
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 
 	outfit = /datum/outfit/job/guardsman	//Default outfit.
 	advclass_cat_rolls = list(CTAG_GARRISON = 20)	//Handles class selection.
 	give_bank_account = 30
-	min_pq = 4
-
 	cmode_music = 'sound/music/cmode/garrison/CombatGarrison.ogg'
 
-/datum/job/guardsman/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
+/datum/job/guardsman/after_spawn(mob/living/spawned, client/player_client)
 	..()
-	if(ishuman(L))
-		var/mob/living/carbon/human/H = L
-		H.advsetup = 1
-		H.invisibility = INVISIBILITY_MAXIMUM
-		H.become_blind("advsetup")
-		if(istype(H.cloak, /obj/item/clothing/cloak/half/guard))
-			var/obj/item/clothing/S = H.cloak
-			var/index = findtext(H.real_name, " ")
-			if(index)
-				index = copytext(H.real_name, 1,index)
-			if(!index)
-				index = H.real_name
-			S.name = "guard's half cloak ([index])"
+	var/mob/living/carbon/human/H = spawned
+	if(istype(H.cloak, /obj/item/clothing/cloak/half/guard))
+		var/obj/item/clothing/S = H.cloak
+		var/index = findtext(H.real_name, " ")
+		if(index)
+			index = copytext(H.real_name, 1, index)
+		if(!index)
+			index = H.real_name
+		S.name = "guard's half cloak ([index])"
 
 //................. City Watchmen Base .............. //
 /datum/outfit/job/guardsman/pre_equip(mob/living/carbon/human/H)
 	. = ..()
 	cloak = pick(/obj/item/clothing/cloak/half/guard, /obj/item/clothing/cloak/half/guardsecond)
-	head = pick(/obj/item/clothing/head/helmet/townwatch, /obj/item/clothing/head/helmet/townwatch/alt)
+	head = /obj/item/clothing/head/helmet/townwatch
 	pants = /obj/item/clothing/pants/trou/leather/guard
 	wrists = /obj/item/rope/chain
 	shoes = /obj/item/clothing/shoes/boots
@@ -60,7 +50,8 @@
 //................. Axes, Maces, Swords, Shields .............. //
 /datum/advclass/garrison/footman
 	name = "City Watch Footman"
-	tutorial = "You are a member of the City Watch. You are well versed in holding the line with a shield while wielding a trusty sword, axe, or mace in the other hand."
+	tutorial = "You are a member of the City Watch. \
+	You are well versed in holding the line with a shield while wielding a trusty sword, axe, or mace in the other hand."
 	outfit = /datum/outfit/job/guardsman/footman
 	category_tags = list(CTAG_GARRISON)
 

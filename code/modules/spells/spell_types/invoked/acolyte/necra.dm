@@ -4,7 +4,7 @@
 	range = 5
 	overlay_state = "consecrateburial"
 	releasedrain = 30
-	charge_max = 30 SECONDS
+	recharge_time = 30 SECONDS
 	max_targets = 0
 	cast_without_targets = TRUE
 	sound = 'sound/magic/churn.ogg'
@@ -24,10 +24,12 @@
 	for(var/obj/structure/closet/crate/coffin/coffin in target_turf)
 		if(pacify_coffin(coffin, user))
 			user.visible_message(span_rose("[user] consecrates [coffin]."), span_rose("My funeral rites have been performed on [coffin]."))
+			GLOB.vanderlin_round_stats[STATS_GRAVES_CONSECRATED]++
 			return
 	for(var/obj/structure/closet/dirthole/hole in target_turf)
 		if(pacify_coffin(hole, user))
 			user.visible_message(span_rose("[user] consecrates [hole]."), span_rose("My funeral rites have been performed on [hole]."))
+			GLOB.vanderlin_round_stats[STATS_GRAVES_CONSECRATED]++
 			return
 	to_chat(user, span_warning("I failed to perform the rites."))
 
@@ -36,7 +38,7 @@
 	range = 5
 	overlay_state = "speakwithdead"
 	releasedrain = 30
-	charge_max = 75 SECONDS
+	recharge_time = 75 SECONDS
 	req_items = list(/obj/item/clothing/neck/psycross/silver/necra)
 	max_targets = 0
 	cast_without_targets = TRUE
@@ -45,6 +47,7 @@
 	invocation = "Undermaiden brooks thee respite, be heard, wanderer."
 	invocation_type = "whisper" //can be none, whisper, emote and shout
 	miracle = TRUE
+	healing_miracle = TRUE
 	devotion_cost = 40
 
 /obj/effect/proc_holder/spell/targeted/soulspeak/cast(list/targets,mob/user = usr)
@@ -117,7 +120,7 @@
 	range = 5
 	overlay_state = "necra"
 	releasedrain = 30
-	charge_max = 30 SECONDS
+	recharge_time = 30 SECONDS
 	max_targets = 0
 	cast_without_targets = TRUE
 	req_items = list(/obj/item/clothing/neck/psycross/silver/necra)
@@ -140,13 +143,13 @@
 		if(L.stat == DEAD)
 			continue
 		if(L.mind)
-			var/datum/antagonist/vampirelord/lesser/V = L.mind.has_antag_datum(/datum/antagonist/vampirelord/lesser)
+			var/datum/antagonist/vampire/V = L.mind.has_antag_datum(/datum/antagonist/vampire)
 			if(V)
 				if(!V.disguised)
 					isvampire = TRUE
 			if(L.mind.has_antag_datum(/datum/antagonist/zombie))
 				iszombie = TRUE
-			if(L.mind.special_role == "Vampire Lord")
+			if(istype(V, /datum/antagonist/vampire/lord))
 				user.visible_message("<span class='warning'>[L] overpowers being churned!</span>", "<span class='userdanger'>[L] is too strong, I am churned!</span>")
 				user.Stun(50)
 				user.throw_at(get_ranged_target_turf(user, get_dir(user,L), 7), 7, 1, L, spin = FALSE)

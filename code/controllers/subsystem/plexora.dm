@@ -205,6 +205,13 @@ SUBSYSTEM_DEF(plexora)
 		var/list/json_body = json_decode(response.body)
 		return json_body["alive_likely"]
 
+/datum/controller/subsystem/plexora/proc/relay_admin_say(client/user, message)
+	http_basicasync("relay_admin_say", list(
+		"key" = user.key,
+		"message" = message,
+		"icon_b64" = icon2base64(getFlatIcon(user.mob, SOUTH, no_anim = TRUE)),
+	))
+
 // note: recover_all_SS_and_recreate_master to force mc shit
 
 /datum/controller/subsystem/plexora/proc/mc_alert(alert, level = 5)
@@ -583,6 +590,9 @@ SUBSYSTEM_DEF(plexora)
 		if("icissue")
 			SSplexora.aticket_closed(ticket, action_by_ckey, AHELP_CLOSETYPE_RESOLVE, AHELP_CLOSEREASON_IC)
 			ticket.ICIssue(action_by_ckey)
+		if("mentorissue")
+			SSplexora.aticket_closed(ticket, action_by_ckey, AHELP_CLOSETYPE_RESOLVE, AHELP_CLOSEREASON_MENTOR)
+			ticket.mentorissue(action_by_ckey)
 		if("close")
 			SSplexora.aticket_closed(ticket, action_by_ckey, AHELP_CLOSETYPE_CLOSE)
 			ticket.Close(action_by_ckey)
@@ -648,7 +658,7 @@ SUBSYSTEM_DEF(plexora)
 		message = span_adminsay("<i>Click on the administrator's name to reply.</i>"),)
 
 
-	admin_ticket_log(recipient, "<font color='purple'>PM From [adminname]: [message]</font>")
+	admin_ticket_log(recipient, "<font color='purple'>PM From [adminname]: [message]</font>", player_message = "<font color='purple'>PM From [adminname]: [message]</font>")
 
 	window_flash(recipient, ignorepref = TRUE)
 	// Nullcheck because we run a winset in window flash and I do not trust byond
@@ -657,6 +667,27 @@ SUBSYSTEM_DEF(plexora)
 		SEND_SOUND(recipient, 'sound/misc/adminhelp.ogg')
 
 		recipient.externalreplyamount = EXTERNALREPLYCOUNT
+
+/datum/world_topic/plx_relayadminsay
+	keyword = "PLX_relayadminsay"
+	require_comms_key = TRUE
+
+/datum/world_topic/plx_relayadminsay/Run(list/input)
+	var/sender = input["sender"]
+	var/msg = input["message"]
+
+	msg = emoji_parse(copytext_char(sanitize(msg), 1, MAX_MESSAGE_LEN))
+	if(!msg)
+		return
+
+	msg = keywords_lookup(msg)
+
+	// TODO: Load sender's color prefs? idk
+	msg = span_adminsay("[span_prefix("ADMIN (DISCORD):")] <EM>[sender]</EM>: <span class='message linkify'>[msg]</span>")
+
+	to_chat(GLOB.admins,msg)
+
+	SSblackbox.record_feedback("tally", "admin_say_relay", 1, "Asay external") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 #undef AUTH_HEADER
 #undef TOPIC_EMITTER

@@ -118,6 +118,8 @@
 /obj/structure/trap/proc/trap_check(mob/living/victim)
 	if(last_trigger + time_between_triggers > world.time)
 		return FALSE
+	if(victim.controller_mind)
+		return FALSE
 	if(HAS_TRAIT(victim,TRAIT_LIGHT_STEP))
 		return FALSE
 	if(victim.mind in immune_minds)

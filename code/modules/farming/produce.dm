@@ -106,7 +106,7 @@
 	var/equippedloc = null
 	var/list/bitten_names = list()
 
-/obj/item/reagent_containers/food/snacks/produce/apple/On_Consume(mob/living/eater)
+/obj/item/reagent_containers/food/snacks/produce/apple/on_consume(mob/living/eater)
 	..()
 	if(ishuman(eater))
 		var/mob/living/carbon/human/H = eater
@@ -209,7 +209,7 @@
 	update_icon()
 	..()
 
-/obj/item/reagent_containers/food/snacks/produce/jacksberry/On_Consume(mob/living/eater)
+/obj/item/reagent_containers/food/snacks/produce/jacksberry/on_consume(mob/living/eater)
 	..()
 	update_icon()
 
@@ -479,7 +479,7 @@
 
 /obj/item/reagent_containers/food/snacks/sugar
 	name = "sugar"
-	desc ="<illed sugarcane, sweet as can be."
+	desc ="Milled sugarcane, sweet as can be."
 	icon = 'icons/roguetown/items/produce.dmi'
 	icon_state = "salt"
 	tastes = list("sweet" = 1)
@@ -502,7 +502,6 @@
 
 /* .......... Poppies ........ */
 /obj/item/reagent_containers/food/snacks/produce/poppy
-	seed = /obj/item/neuFarm/seed/sunflower
 	name = "poppy"
 	desc = "For their crimson beauty and the sedating effect of their crushed seeds, these flowers are considered a symbol of Eora."
 	icon_state = "poppy"

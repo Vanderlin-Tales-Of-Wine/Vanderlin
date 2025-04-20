@@ -9,6 +9,8 @@
 	if(!msg)
 		return
 
+	SSplexora.relay_admin_say(src, msg)
+
 	mob.log_talk(msg, LOG_ASAY)
 	msg = keywords_lookup(msg)
 	var/custom_asay_color = (CONFIG_GET(flag/allow_admin_asaycolor) && prefs.asaycolor) ? "<font color=[prefs.asaycolor]>" : "<font color='#FF4500'>"

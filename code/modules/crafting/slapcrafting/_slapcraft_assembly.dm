@@ -135,6 +135,7 @@
 	w_class = recipe.assembly_weight_class
 	if(recipe.anchor_craft)
 		anchored = TRUE
+	density = recipe.dense_assembly
 	name = "[set_recipe.assembly_name_prefix] [set_recipe.name]"
 	desc = "This seems to be a work in progress [set_recipe.name]"
 

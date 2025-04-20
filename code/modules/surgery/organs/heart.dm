@@ -31,6 +31,8 @@
 	/// List of Maniac datums that have inscribed on this heart
 	var/maniacs = list()
 
+	food_type = /obj/item/reagent_containers/food/snacks/organ/heart
+
 /obj/item/organ/heart/examine(mob/user)
 	. = ..()
 	if(IsAdminGhost(user) && inscryptions)

@@ -681,7 +681,18 @@ GLOBAL_LIST_EMPTY(active_lifts_by_type)
 					modifier = 1.5
 			if(total_coin_value >= FLOOR(requested.cost * modifier, 1))
 				total_coin_value -= FLOOR(requested.cost * modifier, 1)
-				SSmerchant.requestlist |= requested.contains
+				if(islist(requested.contains))
+					for(var/item in requested.contains)
+						if(!(item in SSmerchant.requestlist))
+							SSmerchant.requestlist |= item
+							SSmerchant.requestlist[item] = 0
+						SSmerchant.requestlist[item]++
+				else
+					if(!(requested.contains in SSmerchant.requestlist))
+						SSmerchant.requestlist |= requested.contains
+						SSmerchant.requestlist[requested.contains] = 0
+					SSmerchant.requestlist[requested.contains]++
+
 				add_abstract_elastic_data(ELASCAT_ECONOMY, ELASDATA_MAMMONS_SPENT, FLOOR(requested.cost * modifier, 1))
 
 		spawn_coins(total_coin_value, platform)
@@ -802,6 +813,12 @@ GLOBAL_LIST_EMPTY(active_lifts_by_type)
 					sold_count[initial(inside.name)]++
 					sold_items[initial(inside.name)] += FLOOR(inside.sellprice * sell_modifer, 1)
 
+			if(istype(listed_atom, /obj/item/clothing/head/mob_holder))
+				var/obj/item/clothing/head/mob_holder/holder = listed_atom
+				for(var/obj/item/item in holder.held_mob.get_equipped_items())
+					item.forceMove(get_turf(holder))
+				to_chat(holder.held_mob, span_boldwarning("You have been sold."))
+				qdel(holder.held_mob) //so long my friend
 			qdel(listed_atom)
 
 		spawn_coins(total_coin_value, platform)
@@ -833,13 +850,3 @@ GLOBAL_LIST_EMPTY(active_lifts_by_type)
 				manifest.count = count.Copy()
 				manifest.items = items.Copy()
 				manifest.rebuild_info()
-
-///Returns the src and all recursive contents as a list.
-/atom/proc/get_all_contents(ignore_flag_1)
-	. = list(src)
-	var/i = 0
-	while(i < length(.))
-		var/atom/checked_atom = .[++i]
-		if(checked_atom.flags_1 & ignore_flag_1)
-			continue
-		. += checked_atom.contents

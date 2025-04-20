@@ -434,6 +434,7 @@ BLIND     // can't see anything
 	block2add = initial(block2add)
 	body_parts_covered = initial(body_parts_covered)
 	prevent_crits = initial(prevent_crits)
+	gas_transfer_coefficient = initial(gas_transfer_coefficient)
 
 /obj/item/clothing/equipped(mob/user, slot)
 	if(hoodtype && slot != SLOT_ARMOR|SLOT_CLOAK)
@@ -449,7 +450,7 @@ BLIND     // can't see anything
 	hoodtoggled = FALSE
 	if(ishuman(hood.loc))
 		var/mob/living/carbon/H = hood.loc
-		H.transferItemToLoc(hood, src, TRUE)
+		H.transferItemToLoc(hood, get_turf(src), TRUE)
 		hood.moveToNullspace()
 		H.update_inv_wear_suit()
 		H.update_inv_cloak()

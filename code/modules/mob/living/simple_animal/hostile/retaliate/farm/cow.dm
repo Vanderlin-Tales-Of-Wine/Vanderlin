@@ -35,7 +35,7 @@
 					/obj/item/reagent_containers/food/snacks/produce/turnip,
 					/obj/item/reagent_containers/food/snacks/produce/cabbage)
 	pooptype = /obj/item/natural/poo/cow
-	var/milkies = TRUE
+	milk_reagent = /datum/reagent/consumable/milk
 	tame_chance = 25
 	bonus_tame_chance = 15
 
@@ -44,9 +44,9 @@
 	attack_verb_simple = "stomps"
 	melee_damage_lower = 10
 	melee_damage_upper = 12
-	TOTALSPD = 4
-	TOTALCON = 4
-	TOTALSTR = 4
+	base_speed = 4
+	base_constitution = 4
+	base_strength = 4
 	childtype = list(/mob/living/simple_animal/hostile/retaliate/cow/cowlet = 95,
 					/mob/living/simple_animal/hostile/retaliate/cow/cowlet/bullet = 5)
 	remains_type = /obj/effect/decal/remains/cow
@@ -66,8 +66,6 @@
 		CALLBACK(src, PROC_REF(after_cow_tipped)),\
 		CALLBACK(src, PROC_REF(after_cow_untipped)))
 
-	if(milkies)
-		udder = new()
 	ai_controller.set_blackboard_key(BB_BASIC_FOODS, food_type)
 	if(can_breed)
 		AddComponent(\
@@ -77,19 +75,6 @@
 			list(/mob/living/simple_animal/hostile/retaliate/cow/cowlet = 95, /mob/living/simple_animal/hostile/retaliate/cow/cowlet/bullet = 5),\
 			CALLBACK(src, PROC_REF(after_birth)),\
 		)
-/mob/living/simple_animal/hostile/retaliate/cow/Destroy()
-	qdel(udder)
-	udder = null
-	..()
-
-/mob/living/simple_animal/hostile/retaliate/cow/attackby(obj/item/O, mob/user, params)
-	if(!stat && istype(O, /obj/item/reagent_containers/glass))
-//		changeNext_move(20) // milking sound length
-		if(udder)
-			udder.milkAnimal(O, user)
-			return 1
-	else
-		return ..()
 
 /obj/effect/decal/remains/cow
 	name = "remains"
@@ -176,17 +161,6 @@
 	ai_controller.set_blackboard_key(BB_BASIC_MOB_TIP_REACTING, TRUE)
 	ai_controller.set_blackboard_key(BB_BASIC_MOB_TIPPER, tipper)
 
-
-/mob/living/simple_animal/hostile/retaliate/cow/Life()
-	. = ..()
-	if(.)
-		if(food > 0)
-			if(udder)
-				if(production > 0)
-					production--
-					udder.generateMilk()
-
-
 /mob/living/simple_animal/hostile/retaliate/bull
 	icon = 'icons/roguetown/mob/monster/cow.dmi'
 	name = "moo-beast bull"
@@ -228,9 +202,9 @@
 	melee_damage_upper = 45
 	retreat_distance = 0
 	minimum_distance = 0
-	TOTALCON = 20
-	TOTALSTR = 12
-	TOTALSPD = 2
+	base_constitution = 20
+	base_strength = 12
+	base_speed = 2
 	remains_type = /obj/effect/decal/remains/cow
 
 	can_have_ai = FALSE
@@ -328,14 +302,14 @@
 
 	health = CALF_HEALTH
 	maxHealth = CALF_HEALTH
-	milkies = FALSE
+	milk_reagent = null
 
 	base_intents = list(/datum/intent/simple/headbutt)
 	melee_damage_lower = 1
 	melee_damage_upper = 6
-	TOTALCON = 5
-	TOTALSTR = 5
-	TOTALSPD = 5
+	base_constitution = 5
+	base_strength = 5
+	base_speed = 5
 	defprob = 50
 	adult_growth = /mob/living/simple_animal/hostile/retaliate/cow
 

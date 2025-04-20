@@ -20,6 +20,7 @@
 #define POLL_IGNORE_CONTRACTOR_SUPPORT "contractor_support"
 #define POLL_IGNORE_ACADEMY_WIZARD "academy_wizard"
 #define POLL_IGNORE_NECROMANCER_SKELETON "necromancer_skeleton"
+#define POLL_IGNORE_MAGE_SUMMON "mage_summon"
 
 
 GLOBAL_LIST_INIT(poll_ignore_desc, list(
@@ -42,7 +43,8 @@ GLOBAL_LIST_INIT(poll_ignore_desc, list(
 	POLL_IGNORE_SPLITPERSONALITY = "Split Personality",
 	POLL_IGNORE_CONTRACTOR_SUPPORT = "Contractor Support Unit",
 	POLL_IGNORE_ACADEMY_WIZARD = "Academy Wizard Defender",
-	POLL_IGNORE_NECROMANCER_SKELETON = "Necromancer Skeleton"
+	POLL_IGNORE_NECROMANCER_SKELETON = "Necromancer Skeleton",
+	POLL_IGNORE_MAGE_SUMMON = "Mage Summon",
 ))
 GLOBAL_LIST_INIT(poll_ignore, init_poll_ignore())
 

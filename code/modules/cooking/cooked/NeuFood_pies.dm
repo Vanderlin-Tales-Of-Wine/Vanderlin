@@ -275,7 +275,7 @@
 	. = ..()
 	good_quality_descriptors()
 
-/obj/item/reagent_containers/food/snacks/handpie/On_Consume(mob/living/eater)
+/obj/item/reagent_containers/food/snacks/handpie/on_consume(mob/living/eater)
 	..()
 	icon_state = "handpie[bitecount]"
 	if(bitecount == 1)

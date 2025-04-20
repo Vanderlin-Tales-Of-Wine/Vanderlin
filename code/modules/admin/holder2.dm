@@ -25,6 +25,8 @@ GLOBAL_PROTECT(href_token)
 
 	var/deadmined
 	var/datum/role_ban_panel/role_ban_panel
+	var/datum/pathfind_debug/path_debug
+
 
 /datum/admins/New(datum/admin_rank/R, ckey, force_active = FALSE, protected)
 	if(IsAdminAdvancedProcCall())
@@ -63,6 +65,7 @@ GLOBAL_PROTECT(href_token)
 		message_admins("[key_name_admin(usr)][msg]")
 		log_admin("[key_name(usr)][msg]")
 		return QDEL_HINT_LETMELIVE
+	QDEL_NULL(path_debug)
 	. = ..()
 
 /datum/admins/proc/activate()
@@ -76,7 +79,7 @@ GLOBAL_PROTECT(href_token)
 	deadmined = FALSE
 	if (GLOB.directory[target])
 		associate(GLOB.directory[target])	//find the client for a ckey if they are connected and associate them with us
-
+		owner?.toggled_leylines = TRUE
 
 /datum/admins/proc/deactivate()
 	if(IsAdminAdvancedProcCall())
@@ -91,6 +94,8 @@ GLOBAL_PROTECT(href_token)
 	if ((C = owner) || (C = GLOB.directory[target]))
 		disassociate()
 		C.verbs += /client/proc/readmin
+	QDEL_NULL(path_debug)
+	owner?.toggled_leylines = FALSE
 
 /datum/admins/proc/associate(client/C)
 	if(IsAdminAdvancedProcCall())

@@ -19,6 +19,7 @@
 	throw_speed = 1
 	throw_range = 5
 	flags_1 = CONDUCT_1
+	possible_item_intents = list(/datum/intent/food, /datum/intent/stab)
 	attack_verb = list("attacked", "stabbed", "poked")
 	hitsound = 'sound/blank.ogg'
 	armor = list("blunt" = 0, "slash" = 0, "stab" = 0,  "piercing" = 0, "fire" = 50, "acid" = 30)
@@ -28,6 +29,14 @@
 	user.visible_message("<span class='suicide'>[user] stabs \the [src] into [user.p_their()] chest! It looks like [user.p_theyre()] trying to take a bite out of [user.p_them()]self!</span>")
 	playsound(src, 'sound/blank.ogg', 50, TRUE)
 	return BRUTELOSS
+
+/obj/item/kitchen/fork/pre_attack(atom/A, mob/living/user, params)
+	if(istype(A, /obj/item/reagent_containers/food/snacks))
+		var/obj/item/reagent_containers/food/snacks/S = A
+		S.attack(user, user)
+		user.changeNext_move(CLICK_CD_MELEE)
+		return TRUE
+	. = ..()
 
 /obj/item/kitchen/fork/attack(mob/living/carbon/M, mob/living/carbon/user)
 	if(!istype(M))
@@ -43,8 +52,8 @@
 		icon_state = "fork"
 		forkload = null
 
-	else if(user.zone_selected == BODY_ZONE_PRECISE_R_EYE)
-		return eyestab(M,user)
+	// else if(user.zone_selected == BODY_ZONE_PRECISE_R_EYE)
+	// 	return eyestab(M,user)
 	else
 		return ..()
 

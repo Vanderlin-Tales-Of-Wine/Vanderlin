@@ -172,10 +172,10 @@
 	return src
 
 /mob/proc/pacifyme(mob/user)
-	return pacify_corpse(src, user, coin_pq = 0)
+	return pacify_corpse(src, user)
 
 /// Proc that will search inside a given atom for any corpses and pacify them
-/proc/pacify_coffin(atom/movable/coffin, mob/user, deep = TRUE, burial_pq = PQ_GAIN_BURIAL)
+/proc/pacify_coffin(atom/movable/coffin, mob/user, deep = TRUE)
 	if(!coffin)
 		return FALSE
 	var/success = FALSE
@@ -195,14 +195,12 @@
 		for(var/atom/movable/stuffing in coffin)
 			if(isliving(stuffing) || istype(stuffing, /obj/item/bodypart/head))
 				continue
-			if(pacify_coffin(stuffing, user, deep, burial_pq = 0))
+			if(pacify_coffin(stuffing, user, deep))
 				success = TRUE
-	if(success && burial_pq && user?.ckey)
-		adjust_playerquality(burial_pq, user.ckey)
 	return success
 
 /// Proc that finds the client associated with a given corpse and either 1. Lets ghosts skip Underworld and return to lobby 2. Gives spirits a toll
-/proc/pacify_corpse(mob/living/corpse, mob/user, coin_pq = PQ_GAIN_BURIAL_COIN)
+/proc/pacify_corpse(mob/living/corpse, mob/user)
 	if(QDELETED(corpse) || QDELETED(corpse.mind) || (corpse.stat != DEAD))
 		testing("pacify_corpse fail ([corpse.mind?.key || "no key"])")
 		return FALSE
@@ -229,8 +227,6 @@
 					else
 						spirit.put_in_hands(new /obj/item/underworld/coin)
 						to_chat(spirit, span_rose("A coin falls from above into your hands!"))
-					if(coin_pq && user?.ckey)
-						adjust_playerquality(coin_pq, user.ckey)
 					return TRUE
 	else
 		ghost = corpse.ghostize(force_respawn = TRUE)

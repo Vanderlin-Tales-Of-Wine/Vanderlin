@@ -40,7 +40,7 @@
 
 	if(mind)
 		if(!gibbed)
-			var/datum/antagonist/vampirelord/VD = mind.has_antag_datum(/datum/antagonist/vampirelord)
+			var/datum/antagonist/vampire/VD = mind.has_antag_datum(/datum/antagonist/vampire)
 			if(VD)
 				dust(just_ash=TRUE,drop_items=TRUE)
 				return
@@ -57,14 +57,23 @@
 				gib()
 				return
 
-
+	if(client || mind)
+		GLOB.vanderlin_round_stats[STATS_DEATHS]++
+		if(is_noble())
+			GLOB.vanderlin_round_stats[STATS_NOBLE_DEATHS]++
+		if(ishumannorthern(src))
+			GLOB.vanderlin_round_stats[STATS_HUMEN_DEATHS]++
+		if(mind)
+			if(mind.assigned_role.title in GLOB.church_positions)
+				GLOB.vanderlin_round_stats[STATS_CLERGY_DEATHS]++
+			if(mind.has_antag_datum(/datum/antagonist/vampire))
+				GLOB.vanderlin_round_stats[STATS_VAMPIRES_KILLED]++
+			if(mind.has_antag_datum(/datum/antagonist/zombie) || mind.has_antag_datum(/datum/antagonist/skeleton) || mind.has_antag_datum(/datum/antagonist/lich))
+				GLOB.vanderlin_round_stats[STATS_DEADITES_KILLED]++
 
 	if(!gibbed)
 		if(!is_in_roguetown(src))
 			zombie_check()
-
-	if(client || mind)
-		SSticker.deaths++
 
 	stop_sound_channel(CHANNEL_HEARTBEAT)
 	var/obj/item/organ/heart/H = getorganslot(ORGAN_SLOT_HEART)
@@ -84,7 +93,7 @@
 				SSroguemachine.death_queue += texty
 				break
 
-		var/yeae = TRUE
+		var/yeae = TRUE //! TRUE if we were killed on a cross and socially rejected
 		if(buckled)
 			if(istype(buckled, /obj/structure/fluff/psycross) || istype(buckled, /obj/machinery/light/fueled/campfire/pyre))
 				if((real_name in GLOB.excommunicated_players) || (real_name in GLOB.heretical_players))
@@ -100,25 +109,23 @@
 			if(!istype(src, /mob/living/carbon/human/species/skeleton/death_arena) && get_triumphs() > 0)
 				adjust_triumphs(-1)
 
-		if(job == "Monarch")
-			for(var/mob/living/carbon/human/HU in GLOB.player_list)
-				if(!HU.stat)
-					if(is_in_roguetown(HU))
+		if(mind && yeae)
+			// Omens are handled here
+			if((is_lord_job(mind.assigned_role)))
+				addomen(OMEN_NOLORD)
+				for(var/mob/living/carbon/human/HU in GLOB.player_list)
+					if(HU.stat <= CONSCIOUS && is_in_roguetown(HU))
 						HU.playsound_local(get_turf(HU), 'sound/music/lorddeath.ogg', 80, FALSE, pressure_affected = FALSE)
 
-		if(yeae)
-			if(mind)
-				if((mind.assigned_role == "Monarch"))
-					addomen(OMEN_NOLORD)			// Re-adding at Ook's request.
-				if(mind.assigned_role == "Priest")
-					addomen(OMEN_NOPRIEST)	// message changed to reflect only priest for now, change it if more roles added. (Priest dying causes Bad Omen)
+			if(is_priest_job(mind.assigned_role))
+				addomen(OMEN_NOPRIEST)
 
 		if(!gibbed && yeae)
 			for(var/mob/living/carbon/human/HU in viewers(7, src))
 				if(HU.RomanticPartner(src))
 					HU.adjust_triumphs(-1)
 				if(HU != src && !HAS_TRAIT(HU, TRAIT_BLIND))
-					if(!HAS_TRAIT(HU, TRAIT_VILLAIN) && mode == AI_OFF) //temporary measure for npc skeletons
+					if(!HAS_TRAIT(HU, TRAIT_VILLAIN)) //temporary measure for npc skeletons
 						if(HU.dna?.species && dna?.species)
 							if(HU.dna.species.id == dna.species.id)
 								var/mob/living/carbon/D = HU
@@ -141,7 +148,7 @@
 /mob/living/carbon/human/proc/zombie_check()
 	if(!mind)
 		return
-	if(mind.has_antag_datum(/datum/antagonist/vampirelord))
+	if(mind.has_antag_datum(/datum/antagonist/vampire))
 		return
 	if(mind.has_antag_datum(/datum/antagonist/werewolf))
 		return
@@ -154,7 +161,7 @@
 	return mind.add_antag_datum(/datum/antagonist/zombie)
 
 /mob/living/carbon/human/gib(no_brain, no_organs, no_bodyparts, safe_gib = FALSE)
-	SSticker.gibbs++
+	GLOB.vanderlin_round_stats[STATS_PEOPLE_GIBBED]++
 	for(var/mob/living/carbon/human/CA in viewers(7, src))
 		if(CA != src && !HAS_TRAIT(CA, TRAIT_BLIND))
 			if(HAS_TRAIT(CA, TRAIT_STEELHEARTED))
@@ -174,8 +181,9 @@
 	if(!.)
 		return
 	var/datum/job/human_job = SSjob.GetJob(job)
-	switch(human_job.type)
-		if(/datum/job/lord)
-			removeomen(OMEN_NOLORD)
-		if(/datum/job/priest)
-			removeomen(OMEN_NOPRIEST)
+	if(human_job)
+		switch(human_job.type)
+			if(/datum/job/lord)
+				removeomen(OMEN_NOLORD)
+			if(/datum/job/priest)
+				removeomen(OMEN_NOPRIEST)

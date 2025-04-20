@@ -121,6 +121,12 @@
 		else if(ispath(path, /datum/brewing_recipe))
 			var/datum/brewing_recipe/real_path = new path
 			real_path.show_menu(current_reader)
+		else if(ispath(path, /datum/runerituals))
+			var/datum/runerituals/real_path = new path
+			real_path.show_menu(current_reader)
+		else if(ispath(path, /datum/book_entry))
+			var/datum/book_entry/real_path = new path
+			real_path.show_menu(current_reader)
 
 /obj/item/recipe_book/getonmobprop(tag)
 	. = ..()
@@ -221,7 +227,8 @@
 
 	types = list(
 		/datum/repeatable_crafting_recipe/survival,
-		/datum/repeatable_crafting_recipe/soap,
+		/datum/repeatable_crafting_recipe/cooking/soap,
+		/datum/repeatable_crafting_recipe/cooking/soap/bath,
 		/datum/repeatable_crafting_recipe/fishing,
 		/datum/repeatable_crafting_recipe/sigsweet,
 		/datum/repeatable_crafting_recipe/sigdry,
@@ -266,6 +273,9 @@
 	base_icon_state = "book2"
 
 	types = list(
+		/datum/book_entry/rotation_stress,
+		/datum/book_entry/water_pressure,
+		/datum/repeatable_crafting_recipe/engineering,
 		/datum/slapcraft_recipe/engineering,
 	)
 
@@ -302,4 +312,20 @@
 	types = list(
 		/datum/molten_recipe,
 		/datum/anvil_recipe,
+	)
+
+/obj/item/recipe_book/arcyne
+	name = "The Arcanum of Arcyne"
+	desc = "Penned by Elyndor Starforge, Grand Arcanist and Keeper of the Ethereal Crucible"
+	icon_state ="book4_0"
+	base_icon_state = "book4"
+
+	types = list(
+		/datum/book_entry/grimoire,
+		/datum/book_entry/attunement,
+		/datum/book_entry/mana_sources,
+		/datum/repeatable_crafting_recipe/arcyne,
+		/datum/slapcraft_recipe/arcyne,
+		/datum/pot_recipe/arcyne,
+		/datum/runerituals,
 	)

@@ -24,12 +24,13 @@
 	return TRUE
 
 /mob/living/carbon
-	var/stress = 1
+	var/stress = 0
 	var/list/stress_timers = list()
-	var/oldstress = 1
-	var/stressbuffer = -1
+	var/oldstress = 0
+	var/stressbuffer = 0
 	var/list/negative_stressors = list()
 	var/list/positive_stressors = list()
+	COOLDOWN_DECLARE(stress_indicator)
 
 /mob/living/carbon/adjust_stress(amt)
 	stressbuffer = stressbuffer + amt
@@ -38,9 +39,9 @@
 	if(stress > STRESS_MAX)
 		stressbuffer = STRESS_MAX - stress
 		stress = STRESS_MAX
-	if(stress < 0)
-		stressbuffer = stress
-		stress = 0
+	if(stress < STRESS_VGOOD)
+		stressbuffer = stress - STRESS_VGOOD
+		stress = STRESS_VGOOD
 
 /mob/living/carbon/update_stress()
 	if(HAS_TRAIT(src, TRAIT_NOMOOD))
@@ -48,7 +49,6 @@
 		if(hud_used)
 			if(hud_used.stressies)
 				hud_used.stressies.update_icon(stress)
-		return
 	for(var/datum/stressevent/D in negative_stressors)
 		if(D.timer)
 			if(world.time > (D.time_added + D.timer))
@@ -59,10 +59,6 @@
 				remove_stress(D.type)
 
 	if(stress != oldstress)
-		if(stress > oldstress)
-			to_chat(src, "<span class='red'>I gain stress.</span>")
-		else
-			to_chat(src, "<span class='green'>I gain peace.</span>")
 		switch(stress)
 			if(STRESS_VGOOD)
 				apply_status_effect(/datum/status_effect/stress/stressvgood)
@@ -89,7 +85,16 @@
 				remove_status_effect(/datum/status_effect/stress/stressvgood)
 				remove_status_effect(/datum/status_effect/stress/stressbad)
 				remove_status_effect(/datum/status_effect/stress/stressvbad)
-
+				if(!rogue_sneaking && !HAS_TRAIT(src, TRAIT_IMPERCEPTIBLE))
+					play_mental_break_indicator()
+		if(stress > oldstress)
+			to_chat(src, span_red("I gain stress."))
+			if(!rogue_sneaking && !HAS_TRAIT(src, TRAIT_IMPERCEPTIBLE))
+				play_stress_indicator()
+		else
+			to_chat(src, span_green("I gain peace."))
+			if(!rogue_sneaking && !HAS_TRAIT(src, TRAIT_IMPERCEPTIBLE))
+				play_relief_indicator()
 		if(hud_used)
 			if(hud_used.stressies)
 				hud_used.stressies.update_icon()
@@ -157,8 +162,8 @@
 
 // Pass typepaths into this proc
 /mob/living/carbon/remove_stress(event)
-	if(HAS_TRAIT(src, TRAIT_NOMOOD))
-		return FALSE
+	// if(HAS_TRAIT(src, TRAIT_NOMOOD))
+	// 	return FALSE
 	var/list/eventL
 	if(islist(event))
 		eventL = event

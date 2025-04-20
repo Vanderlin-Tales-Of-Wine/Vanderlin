@@ -189,49 +189,47 @@ SUBSYSTEM_DEF(migrants)
 	return turfs
 
 /datum/controller/subsystem/migrants/proc/spawn_migrant(datum/migrant_wave/wave, datum/migrant_assignment/assignment, spawn_on_location)
+	//TODO
 	var/rank = "Migrant"
 	var/mob/dead/new_player/newplayer = assignment.client.mob
-	var/ckey = assignment.client.ckey
-
-	SSjob.AssignRole(newplayer, rank, TRUE)
-
-	var/mob/living/character = newplayer.create_character(TRUE)	//creates the human and transfers vars and mind
-
-	character.islatejoin = TRUE
-	SSjob.EquipRank(character, rank, TRUE)
-
-	var/datum/migrant_role/role = MIGRANT_ROLE(assignment.role_type)
-	character.migrant_type = assignment.role_type
-
 
 	/// copy pasta from AttemptLateSpawn(rank) further on TODO put it in a proc and use in both places
 
-	/// Fade effect
-	var/atom/movable/screen/splash/Spl = new(character.client, TRUE)
-	Spl.Fade(TRUE)
+	var/datum/job/job = SSjob.GetJob(rank)
 
+	SSjob.AssignRole(newplayer, job, 1)
+
+	newplayer.mind.late_joiner = TRUE
+
+	// var/atom/destination = newplayer.mind.assigned_role.get_latejoin_spawn_point()
+	// if(!destination)
+	// 	CRASH("Failed to find a latejoin spawn point.")
+	var/mob/living/character = newplayer.create_character(assignment.spawn_location) //very naive, this is going to error
+	character.islatejoin = TRUE
+	if(!character)
+		CRASH("Failed to create a character for migrants.")
+	newplayer.transfer_character()
+
+	SSjob.EquipRank(character, job, character.client)
+	SSticker.minds += character.mind
 	var/mob/living/carbon/human/humanc
 	if(ishuman(character))
 		humanc = character	//Let's retypecast the var to be human,
 
-	SSticker.minds += character.mind
-	GLOB.joined_player_list += character.ckey
-
 	if(humanc)
-		var/fakekey = character.ckey
-		if(ckey in GLOB.anonymize)
-			fakekey = get_fake_key(character.ckey)
-		GLOB.character_list[character.mobid] = "[fakekey] was [character.real_name] ([rank])<BR>"
+		var/fakekey = get_display_ckey(character.ckey)
+		GLOB.character_list[character.mobid] = "[fakekey] was [character.real_name] ([job.title])<BR>"
 		GLOB.character_ckey_list[character.real_name] = character.ckey
-		log_character("[character.ckey] ([fakekey]) - [character.real_name] - [rank]")
-	if(GLOB.respawncounts[character.ckey])
-		var/AN = GLOB.respawncounts[character.ckey]
-		AN++
-		GLOB.respawncounts[character.ckey] = AN
-	else
-		GLOB.respawncounts[character.ckey] = 1
+		log_character("[character.ckey] ([fakekey]) - [character.real_name] - [job.title]")
+
+	GLOB.joined_player_list += character.ckey
+	GLOB.respawncounts[character.ckey] += 1
 
 	/// And back to non copy pasta code
+
+	var/datum/migrant_role/role = MIGRANT_ROLE(assignment.role_type)
+	character.migrant_type = assignment.role_type
+
 	if(spawn_on_location)
 		character.forceMove(assignment.spawn_location)
 

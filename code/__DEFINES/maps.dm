@@ -20,10 +20,8 @@ Multi-Z stations are supported and multi-Z mining and away missions would
 require only minor tweaks.
 */
 
-// helpers for modifying jobs, used in various job_changes.dm files
-#define MAP_JOB_CHECK if(SSmapping.config.map_name != JOB_MODIFICATION_MAP_NAME) { return; }
-#define MAP_JOB_CHECK_BASE if(SSmapping.config.map_name != JOB_MODIFICATION_MAP_NAME) { return ..(); }
-#define MAP_REMOVE_JOB(jobpath) /datum/job/##jobpath/map_check() { return (SSmapping.config.map_name != JOB_MODIFICATION_MAP_NAME) && ..() }
+/// A map key that corresponds to being one exclusively for Space.
+#define SPACE_KEY "space"
 
 #define SPACERUIN_MAP_EDGE_PAD 15
 
@@ -50,6 +48,7 @@ require only minor tweaks.
 #define ZTRAIT_DOWN "Down"
 #define ZTRAIT_IGNORE_WEATHER_TRAIT "NoDayorWeather"
 
+#define ZTRAIT_LEYLINES "Leylines"
 // enum - how space transitions should affect this level
 #define ZTRAIT_LINKAGE "Linkage"
 	// UNAFFECTED if absent - no space transitions
@@ -64,7 +63,7 @@ require only minor tweaks.
 
 // default trait definitions, used by SSmapping
 #define ZTRAITS_CENTCOM list(ZTRAIT_CENTCOM = TRUE)
-#define ZTRAITS_STATION list(ZTRAIT_LINKAGE = CROSSLINKED, ZTRAIT_STATION = TRUE)
+#define ZTRAITS_STATION list(ZTRAIT_LINKAGE = CROSSLINKED, ZTRAIT_STATION = TRUE, ZTRAIT_LEYLINES = TRUE)
 #define ZTRAITS_TOWN list(ZTRAIT_WEATHER_STUFF = TRUE, ZTRAIT_LINKAGE = CROSSLINKED, ZTRAIT_STATION = TRUE)
 #define ZTRAITS_SPACE list(ZTRAIT_LINKAGE = CROSSLINKED, ZTRAIT_SPACE_RUINS = TRUE)
 #define ZTRAITS_LAVALAND list(\
@@ -100,6 +99,17 @@ require only minor tweaks.
 #define PLACE_LAVA_RUIN "lavaland" //On lavaland ruin z levels(s)
 #define PLACE_BELOW "below" //On z levl below - centered on same tile
 #define PLACE_ISOLATED "isolated" //On isolated ruin z level
+
+/// Map spot is allowed
+#define MAP_DEPLOY_ALLOWED "allowed"
+/// Map spot has turfs that restrict deployment
+#define MAP_DEPLOY_BAD_TURFS "bad turfs"
+/// Map spot has areas that restrict deployment
+#define MAP_DEPLOY_BAD_AREA "bad area"
+/// Map spot has anchored objects that restrict deployment
+#define MAP_DEPLOY_ANCHORED_OBJECTS "anchored objects"
+/// Map spot is out of bounds from the maps x/y coordinates
+#define MAP_DEPLOY_OUTSIDE_MAP "outside map"
 
 // Defines for SSmapping's multiz_levels
 /// TRUE if we're ok with going up

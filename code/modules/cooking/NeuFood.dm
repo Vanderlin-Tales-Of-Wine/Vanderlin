@@ -49,6 +49,7 @@
 /obj/item/reagent_containers/food/snacks/rotten/Initialize()
 	var/mutable_appearance/rotflies = mutable_appearance('icons/roguetown/mob/rotten.dmi', "rotten")
 	add_overlay(rotflies)
+	rot_away_timer = QDEL_IN(src, 10 MINUTES)
 	. = ..()
 
 /obj/item/reagent_containers/food/snacks/rotten/meat
@@ -121,6 +122,10 @@
 	name = "iron spoon"
 	icon_state = "spoon_iron"
 
+/obj/item/kitchen/spoon/pewter
+	name = "pewter spoon"
+	icon_state = "spoon_iron"
+
 /obj/item/kitchen/fork
 	name = "wooden fork"
 	desc = "Traditional utensil for stabbing your food in order to shove it into your mouth."
@@ -130,6 +135,11 @@
 	name = "iron fork"
 	icon_state = "fork_iron"
 
+/obj/item/kitchen/fork/pewter
+	name = "pewter fork"
+	icon_state = "fork_iron"
+
+/// DEPRECIATED. USE /obj/item/plate instead.
 /obj/item/kitchen/platter
 	name = "platter"
 	desc = "Made from wood."
@@ -141,6 +151,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	base_item = /obj/item/kitchen/platter
 
+/// DEPRECIATED. USE /obj/item/plate/clay instead.
 /obj/item/kitchen/platter/clay
 	desc = "Made from fired clay."
 	icon_state = "platter_clay"
@@ -159,6 +170,7 @@
 	..()
 	qdel(src)
 
+/// DEPRECIATED. USE /obj/item/plate/copper instead.
 /obj/item/kitchen/platter/copper
 	desc = "Made from thin metal."
 	icon_state = "platter_copper"
@@ -188,6 +200,10 @@
 	metalizer_result = /obj/item/coin/copper
 
 /obj/item/reagent_containers/glass/bowl/iron
+	icon_state = "bowl_iron"
+	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
+
+/obj/item/reagent_containers/glass/bowl/pewter
 	icon_state = "bowl_iron"
 	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
 
@@ -389,12 +405,12 @@
 	metabolization_rate = 0.3
 
 /datum/reagent/consumable/soup/stew/gross/on_mob_life(mob/living/carbon/M)
-	if(M.mind.assigned_role == "Beggar") // beggars gets revitalized, a little
+	if(is_vagrant_job(M.mind.assigned_role)) // beggars gets revitalized, a little
 		M.adjustBruteLoss(-0.1)
 		M.adjustFireLoss(-0.1)
 		M.adjust_energy(2)
 		return
-	if(HAS_TRAIT(M, TRAIT_NASTY_EATER ))
+	if(HAS_TRAIT(M, TRAIT_NASTY_EATER))
 		return
 	if(prob(8))
 		to_chat(M, span_danger(pick(
@@ -503,8 +519,7 @@
 		short_cooktime = (40 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*5))
 		playsound(get_turf(user), 'sound/foley/kneading_alt.ogg', 90, TRUE, -1)
 		if(do_after(user, short_cooktime, src))
-			var/obj/item/reagent_containers/food/snacks/dough_base/newdough= new(get_turf(user))
-			user.put_in_hands(newdough)
+			new /obj/item/reagent_containers/food/snacks/dough_base(get_turf(src))
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 			qdel(src)
 	else

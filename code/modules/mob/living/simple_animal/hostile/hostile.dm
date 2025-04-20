@@ -91,6 +91,8 @@
 		return 0
 	if(has_buckled_mobs() && tame)
 		return 0
+	if(binded)
+		return 0
 	var/list/possible_targets = ListTargets() //we look around for potential targets and make it a list for later use.
 
 	if(environment_smash)
@@ -180,6 +182,8 @@
 	. = list()
 	if(!HasTargetsList)
 		possible_targets = ListTargets()
+	if(binded)
+		return 0
 	for(var/pos_targ in possible_targets)
 		var/atom/A = pos_targ
 		if(Found(A))//Just in case people want to override targetting
@@ -272,8 +276,11 @@
 		Aggro()
 		return 1
 
+/mob/living/proc/MeleeAction()
+	return
+
 //What we do after closing in
-/mob/living/simple_animal/hostile/proc/MeleeAction(patience = TRUE)
+/mob/living/simple_animal/hostile/MeleeAction(patience = TRUE)
 	if(rapid_melee > 1)
 		var/datum/callback/cb = CALLBACK(src, PROC_REF(CheckAndAttack))
 		var/delay = SSnpcpool.wait / rapid_melee
@@ -344,15 +351,18 @@
 		else if(target != null && prob(40))//No more pulling a mob forever and having a second player attack it, it can switch targets now if it finds a more suitable one
 			FindTarget()
 
+/mob/living/proc/AttackingTarget(mob/living/passed_target)
+	return
 
-/mob/living/simple_animal/hostile/proc/AttackingTarget()
+/mob/living/simple_animal/hostile/AttackingTarget(mob/living/passed_target)
 	if(SEND_SIGNAL(src, COMSIG_HOSTILE_PRE_ATTACKINGTARGET, target) & COMPONENT_HOSTILE_NO_PREATTACK)
 		return FALSE //but more importantly return before attack_animal called
 	SEND_SIGNAL(src, COMSIG_HOSTILE_ATTACKINGTARGET, target)
 	in_melee = TRUE
-	if(!target)
-		return
-	return target.attack_animal(src)
+	var/mob/living/actual_target = passed_target
+	if(!actual_target)
+		actual_target = target
+	return actual_target?.attack_animal(src)
 
 /mob/living/simple_animal/hostile/proc/Aggro()
 	vision_range = aggro_vision_range
@@ -414,8 +424,9 @@
 		Shoot(A)
 	ranged_cooldown = world.time + ranged_cooldown_time
 
+/mob/living/proc/Shoot(atom/targeted_atom)
 
-/mob/living/simple_animal/hostile/proc/Shoot(atom/targeted_atom)
+/mob/living/simple_animal/hostile/Shoot(atom/targeted_atom)
 	if( QDELETED(targeted_atom) || targeted_atom == targets_from.loc || targeted_atom == targets_from )
 		return
 	var/turf/startloc = get_turf(targets_from)

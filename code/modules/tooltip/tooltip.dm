@@ -1,16 +1,4 @@
 /*
-Tooltips v1.1 - 22/10/15
-Developed by Wire (#goonstation on irc.synirc.net)
-- Added support for screen_loc pixel offsets. Should work. Maybe.
-- Added init function to more efficiently send base vars
-
-Configuration:
-- Set control to the correct skin element (remember to actually place the skin element)
-- Set file to the correct path for the .html file (remember to actually place the html file)
-- Attach the datum to the user client on login, e.g.
-	/client/New()
-		src.tooltips = new /datum/tooltip(src)
-
 Usage:
 - Define mouse event procs on your (probably HUD) object and simply call the show and hide procs respectively:
 	/atom/movable/screen/hud
@@ -26,8 +14,6 @@ Customization:
 
 Notes:
 - You may have noticed 90% of the work is done via javascript on the client. Gotta save those cycles man.
-- This is entirely untested in any other codebase besides goonstation so I have no idea if it will port nicely. Good luck!
-	- After testing and discussion (Wire, Remie, MrPerson, AnturK) ToolTips are ok and work for /tg/station13
 */
 
 
@@ -37,13 +23,14 @@ Notes:
 	var/showing = 0
 	var/queueHide = 0
 	var/init = 0
+	var/atom/last_target
 
 
 /datum/tooltip/New(client/C)
 	if (C)
 		owner = C
-//		var/datum/asset/stuff = get_asset_datum(/datum/asset/simple/jquery)
-//		stuff.send(owner)
+		var/datum/asset/stuff = get_asset_datum(/datum/asset/simple/jquery)
+		stuff.send(owner)
 		owner << browse(file2text('code/modules/tooltip/tooltip.html'), "window=[control]")
 
 	..()
@@ -51,7 +38,15 @@ Notes:
 
 /datum/tooltip/proc/show(atom/movable/thing, params = null, title = null, content = null, theme = "default", special = "none")
 	if (!thing || !params || (!title && !content) || !owner || !isnum(world.icon_size))
-		return 0
+		return FALSE
+
+	if (!isnull(last_target))
+		UnregisterSignal(last_target, COMSIG_PARENT_QDELETING)
+
+	RegisterSignal(thing, COMSIG_PARENT_QDELETING, PROC_REF(on_target_qdel))
+
+	last_target = thing
+
 	if (!init)
 		//Initialize some vars
 		init = 1
@@ -83,42 +78,45 @@ Notes:
 	if (queueHide)
 		hide()
 
-	return 1
+	return TRUE
 
 
 /datum/tooltip/proc/hide()
+	queueHide = showing ? TRUE : FALSE
+
 	if (queueHide)
 		addtimer(CALLBACK(src, PROC_REF(do_hide)), 1)
 	else
 		do_hide()
 
-	queueHide = showing ? TRUE : FALSE
-
 	return TRUE
+
+/datum/tooltip/proc/on_target_qdel()
+	SIGNAL_HANDLER
+
+	INVOKE_ASYNC(src, PROC_REF(hide))
+	last_target = null
 
 /datum/tooltip/proc/do_hide()
 	winshow(owner, control, FALSE)
 
-/* TG SPECIFIC CODE */
-
+/datum/tooltip/Destroy(force)
+	last_target = null
+	return ..()
 
 //Open a tooltip for user, at a location based on params
 //Theme is a CSS class in tooltip.html, by default this wrapper chooses a CSS class based on the user's UI_style (Midnight, Plasmafire, Retro, etc)
 //Includes sanity.checks
 /proc/openToolTip(mob/user = null, atom/movable/tip_src = null, params = null,title = "",content = "",theme = "")
-	return
-/* 	if(istype(user))
+	if(istype(user))
 		if(user.client && user.client.tooltips)
-			if(!theme && user.client.prefs && user.client.prefs.UI_style)
-				theme = "rogue"
-			if(!theme)
-				theme = "rogue"
-			user.client.tooltips.show(tip_src, params,title,content,theme) */
+			theme = "default"
+			user.client.tooltips.show(tip_src, params,title,content,theme)
 
 
 //Arbitrarily close a user's tooltip
 //Includes sanity checks.
-/proc/close_tooltip(mob/user)
+/proc/closeToolTip(mob/user)
 	if(istype(user))
 		if(user.client && user.client.tooltips)
 			user.client.tooltips.hide()

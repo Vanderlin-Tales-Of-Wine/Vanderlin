@@ -1,1 +1,0 @@
-/mob/living/simple_animal/hostile/asteroid/brimdemon : /mob/living/basic/mining/brimdemon{@OLD}

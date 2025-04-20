@@ -221,9 +221,9 @@ SUBSYSTEM_DEF(vote)
 			if("gamemode")
 				choices.Add(config.votable_modes)
 			if("map")
-				for(var/map in global.config.maplist)
+				for(var/map in config.maplist)
 					var/datum/map_config/VM = config.maplist[map]
-					if(!VM.votable)
+					if(!VM.available_for_vote())
 						continue
 					choices.Add(VM.map_name)
 			if("custom")
@@ -236,7 +236,13 @@ SUBSYSTEM_DEF(vote)
 						break
 					choices.Add(option)
 			if("endround")
-				initiator_key = pick("Zlod", "Sun King", "Gaia", "Aeon", "Gemini", "Aries")
+				var/rng = rand(1, 1000)
+				if(rng > 200) // 80%
+					initiator_key = pick("Astrata", "Noc", "Dendor", "Abyssor", "Necra", "Ravox", "Xylix", "Pestra", "Malum", "Eora")
+				else if(rng > 50) // 15%
+					initiator_key = pick("Zizo", "Graggar", "Matthios", "Baotha")
+				else
+					initiator_key = "Psydon"
 				choices.Add("Continue Playing","End Round")
 			if("storyteller")
 				choices.Add(SSgamemode.storyteller_vote_choices())

@@ -2,12 +2,15 @@
 	title = "Migrant"
 	flag = MIGRANT
 	department_flag = PEASANTS
-	faction = "Station"
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
-	outfit = null
-	outfit_female = null
+	job_flags = NONE
 	display_order = JDO_MIGRANT
-	show_in_credits = FALSE
-	min_pq = -999
+	faction = FACTION_STATION
 	total_positions = 0
 	spawn_positions = 0
+	min_pq = -999
+
+	allowed_races = RACES_PLAYER_ALL
+	allowed_sexes = list(MALE, FEMALE)
+
+	outfit = null
+	outfit_female = null

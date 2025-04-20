@@ -6,9 +6,7 @@
 		player.ready = PLAYER_READY_TO_PLAY
 
 	SSticker.start_immediately = TRUE
-	sleep(1 SECONDS)
-	SSticker.fire()
-
+	//SSticker.fire()
 GLOBAL_VAR_INIT(round_timer, INITIAL_ROUND_TIMER)
 
 SUBSYSTEM_DEF(ticker)
@@ -78,21 +76,10 @@ SUBSYSTEM_DEF(ticker)
 	var/list/royals_readied = list()
 	var/rulertype = "Monarch" // reports whether king or queen rules
 	var/rulermob = null // reports what the ruling mob is.
+	/// The appointed regent mob
+	var/regent_mob = null
 	var/failedstarts = 0
 	var/list/manualmodes = list()
-
-	//**ROUNDEND STATS**
-	var/deaths = 0			//total deaths in the round
-	var/blood_lost = 0
-	var/tri_gained = 0
-	var/tri_lost = 0
-	var/holefall = 0 // ankles broken
-	var/pplsmited = 0 // people sm
-	var/moatfallers = 0 // moat fall
-	var/gibbs = 0 // gibs been
-	var/snort = 0 // drugs snorted
-	var/beardshavers = 0 // beards shaven, includes  more than dwarves
-	// var/list/cuckers = list()
 
 	var/end_party = FALSE
 	var/last_lobby = 0
@@ -202,9 +189,9 @@ SUBSYSTEM_DEF(ticker)
 			timeLeft -= wait
 
 			if(timeLeft <= 300 && !tipped)
-#ifdef MATURESERVER
+				#ifdef MATURESERVER
 				send_tip_of_the_round()
-#endif
+				#endif
 				tipped = TRUE
 
 			if(timeLeft <= 0)
@@ -214,7 +201,7 @@ SUBSYSTEM_DEF(ticker)
 					timeLeft = null
 					Master.SetRunLevel(RUNLEVEL_LOBBY)
 				else
-					send2chat(new /datum/tgs_message_content("New round starting on [SSmapping.config.map_name]!"), CONFIG_GET(string/chat_announce_new_game))
+					send2chat(new /datum/tgs_message_content("New round starting on Vanderlin!"), CONFIG_GET(string/chat_announce_new_game))
 					current_state = GAME_STATE_SETTING_UP
 					Master.SetRunLevel(RUNLEVEL_SETUP)
 					if(start_immediately)
@@ -264,7 +251,8 @@ SUBSYSTEM_DEF(ticker)
 #endif
 	for(var/V in required_jobs)
 		for(var/mob/dead/new_player/player in GLOB.player_list)
-			if(!player)
+			if(!player || !player.client)
+				stack_trace("somehow [player] doesn't have a client, wtf?")
 				continue
 			if(player.client.prefs.job_preferences[V] == JP_HIGH)
 				if(player.ready == PLAYER_READY_TO_PLAY)
@@ -319,7 +307,6 @@ SUBSYSTEM_DEF(ticker)
 	log_game("GAME SETUP: Divide Occupations success")
 
 	CHECK_TICK
-
 
 	if(!CONFIG_GET(flag/ooc_during_round))
 		toggle_ooc(FALSE) // Turn it off
@@ -437,8 +424,7 @@ SUBSYSTEM_DEF(ticker)
 			explosion(epi, 0, 256, 512, 0, TRUE, TRUE, 0, TRUE)
 
 /datum/controller/subsystem/ticker/proc/create_characters()
-	for(var/i in GLOB.new_player_list)
-		var/mob/dead/new_player/player = i
+	for(var/mob/dead/new_player/player as anything in GLOB.new_player_list)
 		if(!player)
 			message_admins("THERES A FUCKING NULL IN THE NEW_PLAYER_LIST, REPORT IT TO STONEKEEP DEVELOPMENT STAFF NOW!")
 			continue
@@ -447,7 +433,11 @@ SUBSYSTEM_DEF(ticker)
 			continue
 		if(player.ready == PLAYER_READY_TO_PLAY)
 			GLOB.joined_player_list += player.ckey
-			player.create_character(FALSE)
+			var/atom/destination = player.mind.assigned_role.get_roundstart_spawn_point()
+			if(!destination) // Failed to fetch a proper roundstart location, won't be going anywhere.
+				player.new_player_panel()
+				continue
+			player.create_character(destination)
 		else
 			player.new_player_panel()
 		CHECK_TICK
@@ -470,16 +460,18 @@ SUBSYSTEM_DEF(ticker)
 		CHECK_TICK
 
 /datum/controller/subsystem/ticker/proc/equip_characters()
-	var/list/valid_characters = list()
-	for(var/mob/dead/new_player/new_player as anything in GLOB.new_player_list)
-		var/mob/living/carbon/human/player = new_player.new_character
-		if(istype(player) && player.mind?.assigned_role)
-			if(player.mind.assigned_role != player.mind.special_role)
-				valid_characters[player] = new_player
-	sortTim(valid_characters, GLOBAL_PROC_REF(cmp_assignedrole_dsc))
-	for(var/mob/character as anything in valid_characters)
-		var/mob/new_player = valid_characters[character]
-		SSjob.EquipRank(new_player, character.mind.assigned_role, joined_late = FALSE)
+	for(var/mob/dead/new_player/new_player_mob as anything in GLOB.new_player_list)
+		if(!isliving(new_player_mob.new_character))
+			CHECK_TICK
+			continue
+		var/mob/living/carbon/human/new_player_living = new_player_mob.new_character
+		if(!new_player_living.mind || is_unassigned_job(new_player_living.mind.assigned_role))
+			CHECK_TICK
+			continue
+		var/datum/job/player_assigned_role = new_player_living.mind.assigned_role
+		//if(ishuman(new_player_living) && CONFIG_GET(flag/roundstart_traits)) // for quirks
+		if(player_assigned_role.job_flags & JOB_EQUIP_RANK)
+			SSjob.EquipRank(new_player_living, player_assigned_role, new_player_mob.client)
 		CHECK_TICK
 
 /datum/controller/subsystem/ticker/proc/transfer_characters()
@@ -490,9 +482,6 @@ SUBSYSTEM_DEF(ticker)
 		if(living)
 			qdel(player)
 			living.notransform = TRUE
-			if(living.client)
-				var/atom/movable/screen/splash/S = new(living.client, TRUE)
-				S.Fade(TRUE)
 			livings += living
 			GLOB.character_ckey_list[living.real_name] = living.ckey
 
@@ -708,13 +697,11 @@ SUBSYSTEM_DEF(ticker)
 
 	var/skip_delay = check_rights()
 	if(delay_end && !skip_delay)
-		to_chat(world, "<span class='boldannounce'>A game master has delayed the round end.</span>")
+		to_chat(world, span_boldannounce("A game master has delayed the round end."))
 		return
 
 	SStriumphs.end_triumph_saving_time()
-	to_chat(world, "<span class='boldannounce'>Rebooting World in [DisplayTimeText(delay)]. [reason]</span>")
-
-	to_chat(world, "<span class='boldannounce'>Rebooting World in [DisplayTimeText(delay)].</span>")
+	to_chat(world, span_boldannounce("Rebooting World in [DisplayTimeText(delay)]. [reason]"))
 
 	round_end = TRUE
 	var/start_wait = world.time
@@ -722,7 +709,7 @@ SUBSYSTEM_DEF(ticker)
 	sleep(delay - (world.time - start_wait))
 
 	if(delay_end && !skip_delay)
-		to_chat(world, "<span class='boldannounce'>Reboot was cancelled by an admin.</span>")
+		to_chat(world, span_boldannounce("Reboot was cancelled by an admin."))
 		round_end = FALSE
 		return
 	if(end_string)
@@ -731,14 +718,14 @@ SUBSYSTEM_DEF(ticker)
 	var/statspage = CONFIG_GET(string/roundstatsurl)
 	var/gamelogloc = CONFIG_GET(string/gamelogurl)
 	if(statspage)
-		to_chat(world, "<span class='info'>Round statistics and logs can be viewed <a href=\"[statspage][GLOB.round_id]\">at this website!</a></span>")
+		to_chat(world, span_info("Round statistics and logs can be viewed <a href=\"[statspage][GLOB.round_id]\">at this website!</a>"))
 	else if(gamelogloc)
-		to_chat(world, "<span class='info'>Round logs can be located <a href=\"[gamelogloc]\">at this website!</a></span>")
+		to_chat(world, span_info("Round logs can be located <a href=\"[gamelogloc]\">at this website!</a>"))
 
-	log_game("<span class='boldannounce'>Rebooting World. [reason]</span>")
+	log_game("Rebooting World. [reason]")
 
 	if(end_party)
-		to_chat(world, "<span class='boldannounce'>It's over!</span>")
+		to_chat(world, span_boldannounce("It's over!"))
 		world.Del()
 	else
 		world.Reboot()

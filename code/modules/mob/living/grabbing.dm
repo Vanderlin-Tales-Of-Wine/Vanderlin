@@ -274,7 +274,7 @@
 				if(prob(clamp((((4 + ((user.STASTR - (M.STACON+2))/2) + skill_diff) * 10 + rand(-5, 5)) * combat_modifier), 5, 95)))
 					M.Knockdown(max(10 + (skill_diff * 2), 1))
 					playsound(src,"genblunt",100,TRUE)
-					if(user.l_grab && user.l_grab.grabbed == M && user.r_grab && user.r_grab.grabbed == M)
+					if(user.l_grab && user.l_grab.grabbed == M && user.r_grab && user.r_grab.grabbed == M && user.r_grab.grab_state == GRAB_AGGRESSIVE )
 						M.visible_message(span_danger("[user] throws [M] to the ground!"), \
 						span_userdanger("[user] throws me to the ground!"), span_hear("I hear a sickening sound of pugilism!"), COMBAT_MESSAGE_RANGE)
 					else
@@ -609,6 +609,12 @@
 								MOBTIMER_SET(user, MT_ZOMBIETRIUMPH)
 							playsound(C.loc, 'sound/combat/fracture/headcrush (2).ogg', 100, FALSE, -1)
 							return
+		if(HAS_TRAIT(user, TRAIT_POISONBITE))
+			if(C.reagents)
+				var/poison = user.STACON/2 //more peak species level, more poison
+				C.reagents.add_reagent(/datum/reagent/toxin/venom, poison/2)
+				C.reagents.add_reagent(/datum/reagent/medicine/soporpot, poison)
+				to_chat(user, span_warning("Your fangs inject venom into [C]!"))
 	else
 		C.next_attack_msg += " <span class='warning'>Armor stops the damage.</span>"
 	C.visible_message("<span class='danger'>[user] bites [C]'s [parse_zone(sublimb_grabbed)]![C.next_attack_msg.Join()]</span>", \
@@ -645,10 +651,8 @@
 	user.changeNext_move(CLICK_CD_MELEE)
 
 	if(user.mind && C.mind)
-		var/datum/antagonist/vampirelord/VDrinker = user.mind.has_antag_datum(/datum/antagonist/vampirelord)
-		if(!VDrinker) //SLOP OBJECT HIERARCHY CODE
-			VDrinker = user.mind.has_antag_datum(/datum/antagonist/vampire)
-		var/datum/antagonist/vampirelord/VVictim = C.mind.has_antag_datum(/datum/antagonist/vampirelord)
+		var/datum/antagonist/vampire/VDrinker = user.mind.has_antag_datum(/datum/antagonist/vampire)
+		var/datum/antagonist/vampire/VVictim = C.mind.has_antag_datum(/datum/antagonist/vampire)
 		var/zomwerewolf = C.mind.has_antag_datum(/datum/antagonist/werewolf)
 		if(!zomwerewolf)
 			if(C.stat != DEAD)
@@ -669,28 +673,18 @@
 							to_chat(user, "<span class='love'>Virgin blood, delicious!</span>")
 							var/mob/living/carbon/V = user
 							V.add_stress(/datum/stressevent/vblood)
+							var/used_vitae = 750
+
 							if(C.vitae_pool >= 750)
-								if(VDrinker.isspawn)
-									VDrinker.handle_vitae(750, 750)
-								else
-									VDrinker.handle_vitae(750)
-								C.vitae_pool -= 760
 								to_chat(user, "<span class='love'>...And empowering!</span>")
-							else if(C.vitae_pool < 750) // In case someone already drank from their vitae.
-								var/vitaeleft = C.vitae_pool // We assume they're left with 250 vitae or less, so we take it all
-								if(VDrinker.isspawn)
-									VDrinker.handle_vitae(vitaeleft, vitaeleft)
-								else
-									VDrinker.handle_vitae(vitaeleft)
-								C.vitae_pool -= vitaeleft
-								to_chat(user, "<span class='notice'>...But alas, only leftovers...</span>")
 							else
-								to_chat(user, "<span class='warning'>And yet, not enough vitae can be extracted from them... Tsk.</span>")
+								used_vitae = C.vitae_pool // We assume they're left with 250 vitae or less, so we take it all
+								to_chat(user, "<span class='warning'>...But alas, only leftovers...</span>")
+							VDrinker.adjust_vitae(used_vitae, used_vitae)
+							C.vitae_pool -= used_vitae
+
 						else
-							if(VDrinker.isspawn)
-								VDrinker.handle_vitae(500, 500)
-							else
-								VDrinker.handle_vitae(500)
+							VDrinker.adjust_vitae(500, 500)
 							C.vitae_pool -= 500
 				else
 					to_chat(user, span_warning("No more vitae from this blood..."))
@@ -699,24 +693,11 @@
 			addtimer(CALLBACK(user, TYPE_PROC_REF(/mob/living/carbon, vomit), 0, TRUE), rand(8 SECONDS, 15 SECONDS))
 	else
 		if(user.mind) // We're drinking from a mob or a person who disconnected from the game
-			if(user.mind.has_antag_datum(/datum/antagonist/vampirelord))
-				var/datum/antagonist/vampirelord/VDrinker = user.mind.has_antag_datum(/datum/antagonist/vampirelord)
-				C.blood_volume = max(C.blood_volume-45, 0)
-				if(C.vitae_pool >= 250)
-					if(VDrinker.isspawn)
-						VDrinker.handle_vitae(250, 250)
-					else
-						VDrinker.handle_vitae(250)
-				else
-					to_chat(user, "<span class='warning'>And yet, not enough vitae can be extracted from them... Tsk.</span>")
-			else if(user.mind.has_antag_datum(/datum/antagonist/vampire))
+			if(user.mind.has_antag_datum(/datum/antagonist/vampire))
 				var/datum/antagonist/vampire/VDrinker = user.mind.has_antag_datum(/datum/antagonist/vampire)
 				C.blood_volume = max(C.blood_volume-45, 0)
 				if(C.vitae_pool >= 250)
-					if(VDrinker.isspawn)
-						VDrinker.handle_vitae(250, 250)
-					else
-						VDrinker.handle_vitae(250)
+					VDrinker.adjust_vitae(250, 250)
 				else
 					to_chat(user, "<span class='warning'>And yet, not enough vitae can be extracted from them... Tsk.</span>")
 
@@ -731,24 +712,16 @@
 	log_combat(user, C, "drank blood from ")
 
 	if(ishuman(C) && C.mind)
-		var/datum/antagonist/vampirelord/VDrinker = user.mind.has_antag_datum(/datum/antagonist/vampirelord)
-		if(!VDrinker) //SLOP OBJECT HIERARCHY CODE
-			VDrinker = user.mind.has_antag_datum(/datum/antagonist/vampire)
-		if(C.blood_volume <= BLOOD_VOLUME_SURVIVE)
-			if(!VDrinker.isspawn)
-				switch(alert(user, "Would you like to sire a new spawn?","VAMPIRE","Yes","No"))
-					if("Yes")
-						user.visible_message(span_red("[user] begins to infuse dark magic into [C]."))
-						if(do_after(user, 3 SECONDS))
-							C.visible_message(span_red("[C] rises as a new spawn!"))
-							if(istype(VDrinker, /datum/antagonist/vampirelord))
-								var/datum/antagonist/vampirelord/lesser/new_antag = new /datum/antagonist/vampirelord/lesser()
-								new_antag.sired = TRUE
-								C.mind.add_antag_datum(new_antag)
-							else
-								var/datum/antagonist/vampire/lesser/new_antag = new /datum/antagonist/vampire/lesser()
-								C.mind.add_antag_datum(new_antag)
-							sleep(20)
-							C.fully_heal()
-					if("No")
-						to_chat(user, "<span class='warning'>I decide [C] is unworthy.</span>")
+		var/datum/antagonist/vampire/lord/VDrinker = user.mind.has_antag_datum(/datum/antagonist/vampire/lord)
+		if(VDrinker && C.blood_volume <= BLOOD_VOLUME_SURVIVE)
+			if(browser_alert(user, "Would you like to sire a new spawn?", "THE CURSE OF KAIN", DEFAULT_INPUT_CHOICES) != CHOICE_YES)
+				to_chat(user, span_warning("I decide [C] is unworthy."))
+			else
+				user.visible_message(span_danger("Some dark energy begins to flow from [user] into [C]..."), span_userdanger("I begin siring [C]..."))
+				if(do_after(user, 3 SECONDS, C))
+					C.visible_message(span_red("[C] rises as a new spawn!"))
+					var/datum/antagonist/vampire/new_antag = new /datum/antagonist/vampire()
+					C.mind.add_antag_datum(new_antag, VDrinker.team)
+					// this is bad, should give them a healing buff instead
+					sleep(2 SECONDS)
+					C.fully_heal()

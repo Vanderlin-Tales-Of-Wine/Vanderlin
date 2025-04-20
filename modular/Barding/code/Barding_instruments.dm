@@ -39,6 +39,7 @@
 	extra_range = 5
 	var/stress2give = /datum/stressevent/music
 	persistent_loop = TRUE
+	sound_group = /datum/sound_group/instruments
 
 /datum/looping_sound/instrument/on_hear_sound(mob/M)
 	. = ..()
@@ -91,6 +92,10 @@
 
 	if(!HAS_TRAIT(user, TRAIT_BARDIC_TRAINING))
 		return
+
+	for(var/obj/structure/soil/soil in view(7, loc))
+		var/distance = get_dist(loc, soil)
+		soil.process_growth(round(2 / distance, 0.1))
 
 	for(var/mob/living/carbon/L in hearers(7, loc))
 		if(!L.client)

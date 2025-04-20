@@ -1,9 +1,7 @@
 /obj/effect/proc_holder/spell/targeted/shapeshift
 	name = "Shapechange"
 	desc = ""
-	clothes_req = FALSE
-	human_req = FALSE
-	charge_max = 200
+	recharge_time = 200
 	cooldown_min = 50
 	range = -1
 	include_user = TRUE
@@ -58,15 +56,8 @@
 	var/mob/living/shape = new shapeshift_type(caster.loc)
 	H = new(shape,src,caster)
 
-	clothes_req = FALSE
-	human_req = FALSE
-
 /obj/effect/proc_holder/spell/targeted/shapeshift/proc/Restore(mob/living/shape)
 	var/obj/shapeshift_holder/H = locate() in shape
 	if(!H)
 		return
-
 	H.restore()
-
-	clothes_req = initial(clothes_req)
-	human_req = initial(human_req)

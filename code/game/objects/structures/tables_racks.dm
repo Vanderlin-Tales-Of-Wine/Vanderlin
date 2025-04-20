@@ -93,10 +93,10 @@
 	else
 		return !density
 
-/obj/structure/table/CanAStarPass(ID, dir, caller)
+/obj/structure/table/CanAStarPass(ID, dir, requester)
 	. = !density
-	if(ismovableatom(caller))
-		var/atom/movable/mover = caller
+	if(ismovableatom(requester))
+		var/atom/movable/mover = requester
 		. = . || (mover.pass_flags & PASSTABLE)
 
 /obj/structure/table/proc/tableplace(mob/living/user, mob/living/pushed_mob)
@@ -214,7 +214,6 @@
 
 /obj/structure/table/wood
 	name = "wooden table"
-	desc = ""
 	icon = 'icons/roguetown/misc/tables.dmi'
 	icon_state = "tablewood"
 	resistance_flags = FLAMMABLE
@@ -228,24 +227,8 @@
 	flags_1 = NODECONSTRUCT_1
 	max_integrity = 1000
 
-/obj/structure/table/wood/crafted/Initialize()
-	. = ..()
+/obj/structure/table/wood/crafted
 	icon_state = "tablewood1"
-
-/obj/structure/table/wood/narsie_act(total_override = TRUE)
-	if(!total_override)
-		..()
-
-/obj/structure/table/wood
-	name = "wooden table"
-	desc = ""
-	icon = 'icons/roguetown/misc/tables.dmi'
-	icon_state = "tablewood"
-	resistance_flags = FLAMMABLE
-	max_integrity = 70
-	smooth = 0
-	debris = list(/obj/item/grown/log/tree/small = 1)
-	climb_offset = 10
 
 /obj/structure/table/church
 	name = "stone table"
@@ -467,10 +450,10 @@
 	else
 		return 0
 
-/obj/structure/rack/CanAStarPass(ID, dir, caller)
+/obj/structure/rack/CanAStarPass(ID, dir, requester)
 	. = !density
-	if(ismovableatom(caller))
-		var/atom/movable/mover = caller
+	if(ismovableatom(requester))
+		var/atom/movable/mover = requester
 		. = . || (mover.pass_flags & PASSTABLE)
 
 /obj/structure/rack/MouseDrop_T(obj/O, mob/user)

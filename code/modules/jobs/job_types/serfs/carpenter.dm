@@ -2,23 +2,17 @@
 	title = "Carpenter"
 	tutorial = "Others may regard your work as crude and demeaning, but you understand deep in your soul the beauty of woodchopping. \
 	For it is by your axe that the great trees of forests are felled, and it is by your hands from which the shining beacon of civilization is built."
-	faction = "Station"
-	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc"
-	)
-	total_positions = 6
-	spawn_positions = 4
 	flag = LUMBERJACK
 	department_flag = PEASANTS
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_CARPENTER
+	faction = FACTION_STATION
+	total_positions = 6
+	spawn_positions = 4
+
+	allowed_sexes = list(MALE, FEMALE)
+	allowed_races = RACES_PLAYER_ALL
+
 	outfit = /datum/outfit/job/carpenter
 
 /datum/outfit/job/carpenter/pre_equip(mob/living/carbon/human/H)

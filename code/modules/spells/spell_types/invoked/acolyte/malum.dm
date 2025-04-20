@@ -16,9 +16,10 @@
 	associated_skill = /datum/skill/magic/holy
 	charging_slowdown = 3
 	chargedloop = /datum/looping_sound/invokegen
-	charge_max = 3 MINUTES
+	recharge_time = 3 MINUTES
 	chargetime = 2 SECONDS
 	devotion_cost = 30
+	healing_miracle = TRUE
 
 /obj/effect/proc_holder/spell/invoked/vigorouscraft/cast(list/targets, mob/living/carbon/user = usr)
 	var/const/starminatoregen = 50 // How much energy should the spell give
@@ -55,7 +56,7 @@
 	invocation_type = "shout"
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
-	charge_max = 3 MINUTES
+	recharge_time = 3 MINUTES
 	chargetime = 2 SECONDS
 	miracle = TRUE
 	charging_slowdown = 3
@@ -120,7 +121,7 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		jadded += H.get_complex_pain()/50
-		if(!H.check_armor_skill())
+		if(H.get_encumbrance() > 0.6)
 			jadded += 50
 			jrange = 1
 	if(user.adjust_stamina(min(jadded,100)))
@@ -193,7 +194,7 @@
 	invocation_type = "shout"
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = FALSE
-	charge_max = 2 MINUTES
+	recharge_time = 2 MINUTES
 	chargetime = 2 SECONDS
 	miracle = TRUE
 	charging_slowdown = 3

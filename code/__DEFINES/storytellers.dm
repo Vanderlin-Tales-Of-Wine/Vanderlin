@@ -1,21 +1,83 @@
 
 //Could be bitflags, but that would require a good amount of translations, which eh, either way works for me
 /// When the event is combat oriented (spawning monsters, inherently hostile antags)
+/// Base tag for god-related logic and identification
 #define TAG_GOD "god"
+
+/// Tag used for blessings granted by Eora
 #define TAG_BOON "boon"
+
+/// Tag reserved for curse mechanics (unused by gods)
 #define TAG_CURSE "curse"
+
+/// Tag associated with hauntings, used by Noc and Necra
 #define TAG_HAUNTED "haunted"
+
+/// Tag reserved for combat logic (unused by gods)
 #define TAG_COMBAT "combat"
+
+/// Tag used for raid events, associated with Ravox
 #define TAG_RAID "raid"
+
+/// Tag representing trade interactions, used by Abyssor and Matthios
 #define TAG_TRADE "trade"
+
+/// Tag denoting widespread effects, utilized by Eora
 #define TAG_WIDESPREAD "widespread"
+
+/// Tag reserved for villain roles or actions (unused by gods)
 #define TAG_VILLIAN "villian"
+
+/// Tag representing medical influences, tied to Pestra
 #define TAG_MEDICAL "medical"
+
+/// Tag for alchemy-related actions or systems, belonging to Pestra
 #define TAG_ALCHEMY "alchemy"
+
+/// Tag for nature-related events, tied to Pestra and Dendor
 #define TAG_NATURE "nature"
+
+/// Tag representing work-related actions or influence, used by Malum
 #define TAG_WORK "work"
+
+/// Tag for water-related actions or effects, used by Abyssor
 #define TAG_WATER "water"
+
+/// Tag representing magical influence or events, used by Noc and Zizo
 #define TAG_MAGICAL "magical"
+
+/// Tag denoting battle-related effects, associated with Graggar
+#define TAG_BATTLE "battle"
+
+/// Tag symbolizing blood-related actions, belonging to Graggar
+#define TAG_BLOOD "blood"
+
+/// Tag representing war-like influence, tied to Graggar
+#define TAG_WAR "war"
+
+/// Tag for gambling-related systems or events, used by Zizo
+#define TAG_GAMBLE "gamble"
+
+/// Tag symbolizing trickery, mischief, or deception, belonging to Zizo
+#define TAG_TRICKERY "trickery"
+
+/// Tag representing unexpected outcomes or randomness, tied to Zizo
+#define TAG_UNEXPECTED "unexpected"
+
+/// Tag representing insanity-related mechanics, used by Baotha
+#define TAG_INSANITY "insanity"
+
+/// Tag for magic-related influence or systems, belonging to Baotha
+#define TAG_MAGIC "magic"
+
+/// Tag denoting disaster-related events or effects, tied to Baotha
+#define TAG_DISASTER "disaster"
+
+/// Tag representing corruption, used by Matthios
+#define TAG_CORRUPTION "corruption"
+
+/// Tag for loot-related events, effects, or systems, used by Matthios
+#define TAG_LOOT "loot"
 
 #define EVENT_TRACK_MUNDANE "Mundane"
 #define EVENT_TRACK_MODERATE "Moderate"

@@ -18,7 +18,6 @@
 	var/locked = FALSE
 	var/current_tab = TAB_MAIN
 
-
 /obj/structure/fake_machine/steward/attackby(obj/item/P, mob/user, params)
 	if(istype(P, /obj/item/key))
 		var/obj/item/key/K = P
@@ -61,7 +60,7 @@
 		var/amt = D.get_import_price()
 		SStreasury.treasury_value -= amt
 		SStreasury.log_to_steward("-[amt] imported [D.name]")
-		scom_announce("Vanderlin imports [D.name] for [amt] mammon.", )
+		scom_announce("[SSmapping.config.map_name] imports [D.name] for [amt] mammon.", )
 		D.raise_demand()
 		addtimer(CALLBACK(src, PROC_REF(do_import), D.type), 10 SECONDS)
 	if(href_list["export"])
@@ -75,7 +74,7 @@
 		D.held_items -= D.importexport_amt
 		SStreasury.treasury_value += amt
 		SStreasury.log_to_steward("+[amt] exported [D.name]")
-		scom_announce("Vanderlin exports [D.name] for [amt] mammon.")
+		scom_announce("[SSmapping.config.map_name] exports [D.name] for [amt] mammon.")
 		D.lower_demand()
 	if(href_list["togglewithdraw"])
 		var/datum/stock/D = locate(href_list["togglewithdraw"]) in SStreasury.stockpile_datums
@@ -157,11 +156,11 @@
 				break
 	if(href_list["payroll"])
 		var/list/L = list(GLOB.noble_positions) + list(GLOB.garrison_positions) + list(GLOB.church_positions) + list(GLOB.serf_positions) + list(GLOB.peasant_positions) + list(GLOB.youngfolk_positions) + list(GLOB.apprentices_positions)
-		var/list/things = list()
+		var/list/jobs = list()
 		for(var/list/category in L)
 			for(var/A in category)
-				things += A
-		var/job_to_pay = input(usr, "Select a job", src) as null|anything in things
+				jobs += A
+		var/job_to_pay = input(usr, "Select a job", src) as null|anything in jobs
 		if(!job_to_pay)
 			return
 		if(!usr.canUseTopic(src, BE_CLOSE) || locked)
@@ -315,7 +314,7 @@
 	"}
 	if(!canread)
 		contents = stars(contents)
-	var/datum/browser/popup = new(user, "VENDORTHING", "", 370, 220)
+	var/datum/browser/popup = new(user, "VENDORTHING", "", 370, 400)
 	popup.set_content(contents)
 	popup.set_window_options(can_minimize = FALSE, can_maximize = FALSE)
 	popup.open()

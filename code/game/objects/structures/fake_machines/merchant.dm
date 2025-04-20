@@ -189,6 +189,7 @@
 			budget -= cost
 			if(!(upgrade_flags & UPGRADE_NOTAX))
 				SStreasury.give_money_treasury(tax_amt, "goldface import tax")
+				GLOB.vanderlin_round_stats[STATS_TAXES_COLLECTED] += tax_amt
 		else
 			say("Not enough!")
 			return
@@ -275,7 +276,7 @@
 	if(!canread)
 		contents = stars(contents)
 
-	var/datum/browser/popup = new(user, "VENDORTHING", "", 370, 220)
+	var/datum/browser/popup = new(user, "VENDORTHING", "", 370, 400)
 	popup.set_content(contents)
 	popup.open()
 

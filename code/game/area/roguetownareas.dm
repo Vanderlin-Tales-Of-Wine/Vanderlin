@@ -110,7 +110,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound_night = null
 
 /area/rogue/outdoors/rtfield
-	name = "rockhill basin"
+	name = "town basin"
 	icon_state = "rtfield"
 	soundenv = 19
 	ambush_times = list("night","dawn","dusk","day")
@@ -121,11 +121,14 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 				/mob/living/carbon/human/species/goblin/npc/ambush/hell = 50,
 				/mob/living/carbon/human/species/goblin/npc/ambush/sea = 50,
 				/mob/living/carbon/human/species/goblin/npc/ambush = 50)
-	first_time_text = "VANDERLIN BASIN"
 	droning_sound = 'sound/music/area/field.ogg'
 	droning_sound_dusk = 'sound/music/area/septimus.ogg'
 	droning_sound_night = 'sound/music/area/sleeping.ogg'
 	converted_type = /area/rogue/indoors/shelter/rtfield
+
+/area/rogue/outdoors/rtfield/Initialize()
+	. = ..()
+	first_time_text = "[uppertext(SSmapping.config.map_name)] BASIN"
 
 /area/rogue/outdoors/rtfield/safe
 	ambush_mobs = null
@@ -210,7 +213,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 				/mob/living/simple_animal/hostile/retaliate/bigrat = 20,
 				/mob/living/simple_animal/hostile/retaliate/spider = 80,
 				/mob/living/carbon/human/species/goblin/npc/ambush/sea = 50,
-				/mob/living/simple_animal/hostile/retaliate/trollbog = 35)	//Bogbugs bugged bigtime, so removed for now.
+				/mob/living/simple_animal/hostile/retaliate/troll/bog = 35)
 
 	first_time_text = "THE TERRORBOG"
 	custom_area_sound = "sound/misc/stings/BogSting.ogg"
@@ -230,6 +233,14 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound_dusk = 'sound/music/area/septimus.ogg'
 	droning_sound_night = 'sound/music/area/sleeping.ogg'
 
+/area/rogue/outdoors/eora
+	name = "eoran grove"
+	icon_state = "eora"
+	ambientsounds = AMB_JUNGLEDAY
+	ambientnight = AMB_JUNGLENIGHT
+	droning_sound = 'sound/music/area/eora.ogg'
+	droning_sound_dusk =  'sound/music/area/eora.ogg'
+	droning_sound_night = 'sound/music/area/eora.ogg'
 
 //// UNDER AREAS (no indoor rain sound usually)
 
@@ -278,7 +289,6 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 /area/rogue/under/cavewet
 	name = "cavewet"
 	icon_state = "cavewet"
-	first_time_text = "The Undersea"
 	ambientsounds = AMB_CAVEWATER
 	ambientnight = AMB_CAVEWATER
 	spookysounds = SPOOKY_CAVE
@@ -387,7 +397,10 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound_dusk = null
 	droning_sound_night = null
 	converted_type = /area/rogue/outdoors/exposed/manorgarri
-	first_time_text = "THE KEEP OF VANDERLIN"
+
+/area/rogue/indoors/town/manor/Initialize()
+	. = ..()
+	first_time_text = "THE KEEP OF [uppertext(SSmapping.config.map_name)]"
 
 /area/rogue/indoors/town/manorgate
 	name = "Manor Gate"
@@ -537,8 +550,11 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	return FALSE
 
 /area/rogue/indoors/town/entrance
-	first_time_text = "Vanderlin"
 	icon_state = "entrance"
+
+/area/rogue/indoors/town/entrance/Initialize()
+	. = ..()
+	first_time_text = "[uppertext(SSmapping.config.map_name)]"
 
 /area/rogue/indoors/town/clocktower
 	first_time_text = "Clocktower"
@@ -550,7 +566,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	icon_state = "orphanage"
 
 /area/rogue/indoors/town/clinic_large
-	first_time_text = "Physickers Clinic"
+	first_time_text = "The Clinic"
 	icon_state = "clinic_large"
 
 /area/rogue/indoors/town/thieves_guild
@@ -624,7 +640,10 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound_dusk = 'sound/music/area/septimus.ogg'
 	droning_sound_night = 'sound/music/area/deliverer.ogg'
 	converted_type = /area/rogue/indoors/shelter/town
-	first_time_text = "THE CITY OF VANDERLIN"
+
+/area/rogue/outdoors/town/Initialize()
+	. = ..()
+	first_time_text = "[uppertext(SSmapping.config.map_name)]"
 
 /area/rogue/indoors/shelter/town
 	icon_state = "town"
@@ -702,10 +721,13 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound = 'sound/music/area/sewers.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
-	first_time_text = "VANDERLIN'S SEWERS"
 	custom_area_sound = "sound/misc/stings/SewerSting.ogg"
 	ambientrain = RAIN_SEWER
 	converted_type = /area/rogue/outdoors/exposed/under/sewer
+
+/area/rogue/under/town/sewer/Initialize()
+	. = ..()
+	first_time_text = "[uppertext(SSmapping.config.map_name)]'S SEWERS"
 
 /area/rogue/outdoors/exposed/under/sewer
 	icon_state = "sewer"
