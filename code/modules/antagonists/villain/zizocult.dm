@@ -166,6 +166,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 
 	if(stat >= UNCONSCIOUS || !can_speak_vocal())
 		return
+	GLOB.vanderlin_round_stats[STATS_ZIZO_PRAISED]++
 	audible_message("\The [src] praises <span class='bold'>Zizo</span>!")
 	playsound(src.loc, 'sound/vo/cult/praise.ogg', 45, 1)
 	log_say("[src] has praised zizo! (zizo cultist verb)")
@@ -199,6 +200,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	desc = "Strange runics."
 	icon_state = "center"
 	icon = 'icons/obj/sigils.dmi'
+	minimum_clean_strength = CLEAN_STRONG
 	var/sigil_type
 
 /obj/effect/decal/cleanable/sigil/examine(mob/user)
@@ -680,8 +682,9 @@ GLOBAL_LIST_EMPTY(ritualslist)
 /obj/item/soap/cult
 	name = "accursed soap"
 	desc = "It is pulsating."
-	uses = 9
-	cleanspeed = 1
+	clean_speed = 1
+	clean_effectiveness = 100
+	clean_strength = CLEAN_STRONG
 
 /proc/criminalstool(mob/user, turf/C)
 	new /obj/item/soap/cult(C)

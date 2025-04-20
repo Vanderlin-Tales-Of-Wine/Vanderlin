@@ -24,11 +24,13 @@
 	desc = "Plate gauntlets of mystic dark elven alloy, lightweight yet incredibly protective. Typically worn by elite bladesingers."
 	icon_state = "elfhand"
 	allowed_race = list("elf", "half-elf", "dark elf")
+	item_weight = 7 * STEEL_MULTIPLIER
 
 /obj/item/clothing/gloves/rare/elfplate/welfplate
 	name = "elvish plate gauntlets"
 	desc = "Plate gauntlets of mystic elven alloy, lightweight yet incredibly protective. Typically worn by elite bladesingers."
 	icon_state = "welfhand"
+	item_weight = 7 * STEEL_MULTIPLIER
 
 /obj/item/clothing/gloves/rare/dwarfplate
 	name = "dwarvish plate gauntlets"
@@ -36,6 +38,7 @@
 	icon_state = "dwarfhand"
 	allowed_race = list("dwarf")
 	allowed_sex = list(MALE, FEMALE)
+	item_weight = 7 * STEEL_MULTIPLIER
 
 /obj/item/clothing/gloves/rare/grenzelplate
 	name = "grenzelhoftian plate gauntlets"
@@ -43,6 +46,7 @@
 	icon_state = "human_swordhand"
 	allowed_race = list("human")
 	allowed_sex = list(MALE)
+	item_weight = 7 * STEEL_MULTIPLIER
 
 /obj/item/clothing/gloves/rare/zybanplate
 	name = "kataphractoe claw gauntlets"
@@ -50,3 +54,4 @@
 	icon_state = "human_spearhand"
 	allowed_race = list("human")
 	allowed_sex = list(MALE)
+	item_weight = 6 * STEEL_MULTIPLIER

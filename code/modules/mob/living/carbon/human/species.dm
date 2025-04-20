@@ -183,7 +183,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/language = speech_args[SPEECH_LANGUAGE]
 
 	if(message)
-		var/list/accent_words = strings("spellcheck.json", "spellcheck")
+		var/list/accent_words = strings("accents/spellcheck.json", "spellcheck")
 		var/mob/living/carbon/human/H
 		if(ismob(source))
 			H = source
@@ -203,7 +203,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	if(message && message[1] && message[1] != "*")
 		message = " [message]"
 
-		var/list/accent_words = strings("accent_universal.json", "universal")
+		var/list/accent_words = strings("accents/accent_universal.json", "universal")
 		for(var/key in accent_words)
 			var/value = accent_words[key]
 			if(islist(value))
@@ -524,7 +524,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/obj/item/organ/tongue/tongue = C.getorganslot(ORGAN_SLOT_TONGUE)
 	var/obj/item/organ/liver/liver = C.getorganslot(ORGAN_SLOT_LIVER)
 	var/obj/item/organ/stomach/stomach = C.getorganslot(ORGAN_SLOT_STOMACH)
-	var/obj/item/organ/guts/guts = C.getorganslot(ORGAN_SLOT_STOMACH_AID)
+	var/obj/item/organ/guts/guts = C.getorganslot(ORGAN_SLOT_GUTS)
 	var/obj/item/organ/tail/tail = C.getorganslot(ORGAN_SLOT_TAIL)
 
 	var/should_have_brain = TRUE

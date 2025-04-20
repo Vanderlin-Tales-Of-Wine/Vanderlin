@@ -33,10 +33,10 @@
 	melee_damage_lower = 25
 	melee_damage_upper = 35
 
-	TOTALCON = 13
-	TOTALSTR = 10
-	TOTALSPD = 15
-	TOTALEND = 15
+	base_constitution = 13
+	base_strength = 10
+	base_speed = 15
+	base_endurance = 15
 
 	retreat_distance = 2
 	minimum_distance = 1

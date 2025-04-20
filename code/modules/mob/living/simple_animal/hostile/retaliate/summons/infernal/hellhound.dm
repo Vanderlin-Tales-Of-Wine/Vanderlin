@@ -33,9 +33,9 @@
 	food_type = list()
 	footstep_type = FOOTSTEP_MOB_BAREFOOT
 	pooptype = null
-	STACON = 7
-	STASTR = 9
-	STASPD = 13
+	base_constitution = 7
+	base_strength = 9
+	base_speed = 13
 	simple_detect_bonus = 20
 	deaggroprob = 0
 	defprob = 40
