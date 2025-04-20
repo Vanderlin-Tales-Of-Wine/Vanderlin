@@ -42,7 +42,7 @@
 	)
 
 	influence_factors = list(
-		STATS_COMBAT_SKILLS = list("points" = 1.1, "capacity" = 100),
+		STATS_COMBAT_SKILLS = list("points" = 1.3, "capacity" = 100),
 		STATS_PARRIES = list("points" = 0.05, "capacity" = 100),
 		STATS_WARCRIES = list("points" = 0.375, "capacity" = 50),
 		STATS_YIELDS = list("points" = -5, "capacity" = -40),
@@ -64,9 +64,9 @@
 
 	influence_factors = list(
 		STATS_WATER_CONSUMED = list("points" = 0.0095, "capacity" = 90),
-		STATS_FISH_CAUGHT = list("points" = 1.75, "capacity" = 95),
+		STATS_FISH_CAUGHT = list("points" = 1.75, "capacity" = 90),
 		STATS_ABYSSOR_REMEMBERED = list("points" = 1, "capacity" = 45),
-		STATS_LEECHES_EMBEDDED = list("points" = 0.175, "capacity" = 65),
+		STATS_LEECHES_EMBEDDED = list("points" = 0.175, "capacity" = 70),
 		STATS_PEOPLE_DROWNED = list("points" = 7.5, "capacity" = 70),
 	)
 
@@ -94,7 +94,7 @@
 		STATS_GAMES_RIGGED = list("points" = 3.5, "capacity" = 35),
 		STATS_PEOPLE_MOCKED = list("points" = 5, "capacity" = 60),
 		STATS_CRITS_MADE = list("points" = 0.3, "capacity" = 90),
-		STATS_SONGS_PLAYED = list("points" = 1.1, "capacity" = 80),
+		STATS_SONGS_PLAYED = list("points" = 1, "capacity" = 80),
 	)
 
 /datum/storyteller/necra
@@ -139,11 +139,11 @@
 	)
 
 	influence_factors = list(
-		STATS_POTIONS_BREWED = list("points" = 4.25, "capacity" = 70),
+		STATS_POTIONS_BREWED = list("points" = 4.25, "capacity" = 75),
 		STATS_WOUNDS_SEWED = list("points" = 0.5, "capacity" = 100),
-		STATS_SOULS_REINCARNATED = list("points" = 2.65, "capacity" = 60),
-		STATS_ANIMALS_BRED = list("points" = 5, "capacity" = 60),
-		STATS_FOOD_ROTTED = list("points" = 0.375, "capacity" = 80),
+		STATS_SOULS_REINCARNATED = list("points" = 2.65, "capacity" = 65),
+		STATS_ANIMALS_BRED = list("points" = 6, "capacity" = 65),
+		STATS_FOOD_ROTTED = list("points" = 0.35, "capacity" = 80),
 	)
 
 /datum/storyteller/malum
@@ -168,7 +168,7 @@
 	influence_factors = list(
 		STATS_MASTERWORKS_FORGED = list("points" = 3.25, "capacity" = 85),
 		STATS_ROCKS_MINED = list("points" = 0.25, "capacity" = 100),
-		STATS_CRAFT_SKILLS = list("points" = 0.85, "capacity" = 90),
+		STATS_CRAFT_SKILLS = list("points" = 1, "capacity" = 90),
 		STATS_BEARDS_SHAVED = list("points" = -5, "capacity" = -50),
 		STATS_BLACKSTEEL_SMELTED = list("points" = 8, "capacity" = 70),
 	)
@@ -194,11 +194,11 @@
 	)
 
 	influence_factors = list(
-		STATS_PARENTS = list("points" = 8.25, "capacity" = 100),
+		STATS_PARENTS = list("points" = 8.5, "capacity" = 100),
 		STATS_MARRIAGES = list("points" = 25, "capacity" = 100),
-		STATS_HUGS_MADE = list("points" = 2, "capacity" = 80),
-		STATS_CLINGY_PEOPLE = list("points" = 6.25, "capacity" = 80),
-		STATS_PACIFISTS = list("points" = 17.25, "capacity" = 90),
+		STATS_HUGS_MADE = list("points" = 2.5, "capacity" = 70),
+		STATS_CLINGY_PEOPLE = list("points" = 6.5, "capacity" = 80),
+		STATS_PACIFISTS = list("points" = 20, "capacity" = 80),
 	)
 
 /datum/storyteller/dendor
@@ -257,11 +257,11 @@
 	)
 
 	influence_factors = list(
-		STATS_ZIZO_PRAISED = list("points" = 4, "capacity" = 50),
+		STATS_ZIZO_PRAISED = list("points" = 4, "capacity" = 60),
 		STATS_NOBLE_DEATHS = list("points" = 7.5, "capacity" = 85),
-		STATS_DEADITES_WOKEN_UP = list("points" = 3.25, "capacity" = 95),
+		STATS_DEADITES_WOKEN_UP = list("points" = 3.25, "capacity" = 90),
 		STATS_CLERGY_DEATHS = list("points" = 12.5, "capacity" = 100),
-		STATS_TORTURES = list("points" = 3.5, "capacity" = 80),
+		STATS_TORTURES = list("points" = 4, "capacity" = 80),
 	)
 
 	cost_variance = 50  // Events will be highly variable in cost
@@ -357,9 +357,9 @@
 
 	influence_factors = list(
 		STATS_ITEMS_PICKPOCKETED = list("points" = 6.5, "capacity" = 110),
-		STATS_SHRINE_VALUE = list("points" = 0.2, "capacity" = 80),
+		STATS_SHRINE_VALUE = list("points" = 0.225, "capacity" = 90),
 		STATS_GREEDY_PEOPLE = list("points" = 7, "capacity" = 70),
-		STATS_DODGES = list("points" = 0.075, "capacity" = 100),
+		STATS_DODGES = list("points" = 0.09, "capacity" = 100),
 		STATS_LOCKS_PICKED = list("points" = 4.75, "capacity" = 110),
 	)
 
