@@ -319,6 +319,7 @@
 			H.update_inv_head()
 
 //............... Spangenhelm ............... //
+/obj/item/clothing/head/helmet/heavy/viking
 	name = "spangenhelm"
 	desc = "A steel helmet with built in eye and nose protection, commonly used by warriors of the north."
 	icon_state = "spangenhelm"
@@ -334,3 +335,4 @@
 	item_weight = 9 * IRON_MULTIPLIER
 	clothing_flags = CANT_SLEEP_IN
 	max_integrity = INTEGRITY_STRONGEST
+	block2add = FOV_RIGHT|FOV_LEFT
