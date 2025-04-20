@@ -80,7 +80,7 @@ GLOBAL_LIST_EMPTY(antagonists)
 
 /// Adds the specified antag hud to the player. Usually called in an antag datum file
 /datum/antagonist/proc/add_antag_hud(antag_hud_type, antag_hud_name, mob/living/mob_override)
-	if(!antag_hud_name || antag_hud_type)
+	if(!antag_hud_name || !antag_hud_type)
 		return
 	var/mob/living/M = mob_override || owner.current
 	var/datum/atom_hud/antag/hud = GLOB.huds[antag_hud_type]
