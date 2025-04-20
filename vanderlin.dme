@@ -621,7 +621,7 @@
 #include "code\datums\components\butchering.dm"
 #include "code\datums\components\callout.dm"
 #include "code\datums\components\caltrop.dm"
-#include "code\datums\components\cleaning.dm"
+#include "code\datums\components\cleaner.dm"
 #include "code\datums\components\combat_noises.dm"
 #include "code\datums\components\connect_containers.dm"
 #include "code\datums\components\construction.dm"
