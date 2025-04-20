@@ -132,6 +132,9 @@
 	if(burn_target.throwing)
 		return LAVA_BE_IGNORING
 
+	if(burn_target.invisibility >= INVISIBILITY_LIGHTING)
+		return LAVA_BE_IGNORING
+
 	if(isobj(burn_target))
 		var/obj/burn_obj = burn_target
 		if((burn_obj.resistance_flags & immunity_resistance_flags))
