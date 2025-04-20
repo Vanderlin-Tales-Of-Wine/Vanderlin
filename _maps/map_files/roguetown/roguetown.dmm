@@ -900,6 +900,15 @@
 /obj/structure/fluff/walldeco/customflag,
 /turf/closed/wall/mineral/wooddark/horizontal,
 /area/rogue/indoors/town/garrison)
+"aZq" = (
+/obj/structure/closet/crate/chest,
+/obj/item/soap/bath,
+/obj/item/natural/cloth,
+/obj/item/natural/cloth,
+/turf/open/floor/tile{
+	icon_state = "chess"
+	},
+/area/rogue/under/town/basement)
 "aZF" = (
 /obj/structure/chair/stool,
 /turf/open/floor/cobble,
@@ -1656,12 +1665,6 @@
 	icon_state = "plating2"
 	},
 /area/rogue/outdoors/town/roofs)
-"bRz" = (
-/obj/structure/closet/crate/crafted_closet/dark,
-/obj/item/soap/bath,
-/obj/item/natural/cloth,
-/turf/open/floor/herringbone,
-/area/rogue/under/town/basement)
 "bRH" = (
 /obj/structure/stairs{
 	dir = 1
@@ -2355,6 +2358,12 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobble,
+/area/rogue/under/town/basement)
+"cCd" = (
+/obj/structure/closet/crate/crafted_closet/dark,
+/obj/item/soap/bath,
+/obj/item/natural/cloth,
+/turf/open/floor/herringbone,
 /area/rogue/under/town/basement)
 "cDj" = (
 /obj/machinery/light/fueled/wallfire/candle/blue,
@@ -8445,11 +8454,6 @@
 /obj/item/broom,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/manor)
-"jsE" = (
-/obj/structure/closet/crate/chest/old_crate,
-/obj/item/soap/bath,
-/turf/open/floor/blocks/stonered/tiny,
-/area/rogue/indoors/town/bath)
 "jtd" = (
 /obj/structure/fluff/globe,
 /turf/open/floor/wood,
@@ -15079,15 +15083,6 @@
 /obj/structure/fake_machine/scomm,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/church)
-"qBm" = (
-/obj/structure/closet/crate/chest,
-/obj/item/soap/bath,
-/obj/item/natural/cloth,
-/obj/item/natural/cloth,
-/turf/open/floor/tile{
-	icon_state = "chess"
-	},
-/area/rogue/under/town/basement)
 "qBp" = (
 /obj/structure/table/wood{
 	dir = 5;
@@ -20761,6 +20756,11 @@
 /obj/structure/fluff/walldeco/chains,
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/garrison)
+"wQA" = (
+/obj/structure/closet/crate/chest/old_crate,
+/obj/item/soap/bath,
+/turf/open/floor/blocks/stonered/tiny,
+/area/rogue/indoors/town/bath)
 "wQH" = (
 /obj/machinery/light/fueled/torchholder/c,
 /obj/structure/chair/stool,
@@ -31993,7 +31993,7 @@ aWn
 kdB
 vuj
 pvv
-qBm
+aZq
 kdB
 kdB
 kdB
@@ -40621,7 +40621,7 @@ mvo
 vzQ
 vzQ
 kdB
-bRz
+cCd
 oOH
 xAQ
 hmS
@@ -65115,7 +65115,7 @@ eqA
 eqA
 cEA
 bjg
-jsE
+wQA
 jeX
 rCG
 nMo
