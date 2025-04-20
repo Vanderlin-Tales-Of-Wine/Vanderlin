@@ -223,13 +223,8 @@
 	flags_1 = NODECONSTRUCT_1
 	max_integrity = 1000
 
-/obj/structure/table/wood/crafted/Initialize()
-	. = ..()
+/obj/structure/table/wood/crafted
 	icon_state = "tablewood1"
-
-/obj/structure/table/wood/narsie_act(total_override = TRUE)
-	if(!total_override)
-		..()
 
 /obj/structure/table/church
 	name = "stone table"

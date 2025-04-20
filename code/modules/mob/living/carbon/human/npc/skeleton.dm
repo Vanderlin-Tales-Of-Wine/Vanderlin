@@ -53,7 +53,7 @@
 		if(headdy)
 			headdy.icon = 'icons/roguetown/mob/monster/skeletons.dmi'
 			headdy.icon_state = "skull"
-			headdy.headprice = rand(3,10)
+			headdy.headprice = rand(5,15)
 	var/obj/item/bodypart/O = src.get_bodypart(BODY_ZONE_R_ARM)
 	if(O)
 		O.drop_limb()

@@ -43,11 +43,11 @@ jobs:
           tools/bootstrap/python -c ''
       - name: Run Linters
         run: |
-          bash tools/ci/check_filedirs.sh stonekeep.dme
+          bash tools/ci/check_filedirs.sh vanderlin.dme
           bash tools/ci/check_changelogs.sh
           find . -name "*.php" -print0 | xargs -0 -n1 php -l
           bash tools/ci/check_grep.sh
-          tools/bootstrap/python tools/ci/validate_dme.py < stonekeep.dme
+          tools/bootstrap/python tools/ci/validate_dme.py < vanderlin.dme
           tools/bootstrap/python -m dmi.test
           tools/bootstrap/python -m mapmerge2.dmm_test
           tools/bootstrap/python -m tools.maplint.source
@@ -77,7 +77,7 @@ jobs:
           fileName: "DMCompiler_linux-x64.tar.gz"
           extract: true
       - name: Run OpenDream
-        run: ./DMCompiler_linux-x64/DMCompiler stonekeep.dme --suppress-unimplemented --skip-anything-typecheck --version=${BYOND_MAJOR}.${BYOND_MINOR} | python tools/od_annotator/__main__.py "$@"
+        run: ./DMCompiler_linux-x64/DMCompiler vanderlin.dme --suppress-unimplemented --skip-anything-typecheck --version=${BYOND_MAJOR}.${BYOND_MINOR} | python tools/od_annotator/__main__.py "$@"
 
   compile_all_maps:
     if: ( !contains(github.event.head_commit.message, '[ci skip]') )
@@ -96,7 +96,7 @@ jobs:
           bash tools/ci/install_byond.sh
           source $HOME/BYOND/byond/bin/byondsetup
           python3 tools/ci/template_dm_generator.py
-          DreamMaker -DCIBUILDING -DCITESTING -DALL_MAPS stonekeep.dme
+          DreamMaker -DCIBUILDING -DCITESTING -DALL_MAPS vanderlin.dme
 
   run_all_tests:
     if: ( !contains(github.event.head_commit.message, '[ci skip]') )
@@ -136,7 +136,7 @@ jobs:
         run: |
           bash tools/ci/install_byond.sh
           source $HOME/BYOND/byond/bin/byondsetup
-          DreamMaker -DCIBUILDING stonekeep.dme
+          DreamMaker -DCIBUILDING vanderlin.dme
           bash tools/ci/run_server.sh roguetest
 
   test_windows:

@@ -30,6 +30,15 @@
 /obj/structure/closet/crate/crafted_closet/inn,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/shelter)
+"fa" = (
+/obj/structure/fluff/walldeco/vinez,
+/obj/structure/window,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/indoors/shelter)
+"gY" = (
+/obj/structure/window,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/indoors/shelter)
 "hf" = (
 /obj/structure/bed/inn/double,
 /turf/open/floor/ruinedwood/spiralfade,
@@ -102,6 +111,11 @@
 /obj/structure/fermentation_keg/random/beer,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/shelter)
+"os" = (
+/obj/structure/window,
+/obj/structure/fluff/walldeco/vinez,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/indoors/shelter)
 "oF" = (
 /obj/structure/bars/pipe/left,
 /mob/living/carbon/human/species/skeleton/npc/ambush,
@@ -140,6 +154,13 @@
 /obj/structure/fluff/walldeco/vinez/l,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/shelter)
+"tC" = (
+/obj/structure/mineral_door/wood/deadbolt{
+	dir = 1
+	},
+/obj/item/soap,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/indoors/shelter)
 "ug" = (
 /obj/structure/table/wood/large_alt,
 /obj/item/reagent_containers/glass/cup/wooden/crafted{
@@ -161,10 +182,6 @@
 /obj/structure/closet/crate/crafted_closet/inn/south,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/shelter)
-"vn" = (
-/obj/item/bath/soap,
-/turf/open/water/bath,
-/area/rogue/indoors/shelter)
 "vp" = (
 /obj/structure/stairs/d{
 	dir = 4
@@ -173,10 +190,6 @@
 /area/rogue/indoors/shelter)
 "vs" = (
 /turf/closed/wall/mineral/stone/moss,
-/area/rogue/indoors/shelter)
-"vI" = (
-/obj/structure/window,
-/turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/shelter)
 "wL" = (
 /obj/structure/table/wood/large/corner_alt,
@@ -209,16 +222,13 @@
 /obj/machinery/light/fueled/torchholder/r,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/shelter)
-"Ae" = (
-/obj/item/bath/soap,
-/obj/structure/mineral_door/wood/deadbolt{
-	dir = 1
-	},
-/turf/open/floor/ruinedwood/spiralfade,
-/area/rogue/indoors/shelter)
 "Ao" = (
 /obj/structure/table/wood/large/corner_alt,
 /turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/indoors/shelter)
+"AL" = (
+/obj/item/soap/bath,
+/turf/open/water/bath,
 /area/rogue/indoors/shelter)
 "Bl" = (
 /obj/structure/chair/stool,
@@ -345,16 +355,6 @@
 	dir = 4
 	},
 /area/rogue/under/cave)
-"LB" = (
-/obj/structure/window,
-/obj/structure/fluff/walldeco/vinez,
-/turf/open/floor/ruinedwood/spiralfade,
-/area/rogue/indoors/shelter)
-"LU" = (
-/obj/structure/fluff/walldeco/vinez,
-/obj/structure/window,
-/turf/open/floor/ruinedwood/spiralfade,
-/area/rogue/indoors/shelter)
 "LZ" = (
 /obj/structure/chair/wood{
 	dir = 4
@@ -1006,16 +1006,16 @@ px
 vs
 la
 la
-vI
+gY
 EL
 la
-vI
+gY
 EL
 la
 la
 EL
 la
-vI
+gY
 vs
 HR
 IM
@@ -1148,7 +1148,7 @@ Zo
 ph
 Mk
 Zo
-LU
+fa
 HR
 IM
 IM
@@ -1257,8 +1257,8 @@ EL
 UV
 Yx
 Jk
-vn
-LB
+AL
+os
 HR
 IM
 bm
@@ -1275,7 +1275,7 @@ EL
 uD
 Mk
 Mk
-Ae
+tC
 Mk
 Mk
 oF
@@ -1295,7 +1295,7 @@ la
 la
 la
 la
-vI
+gY
 la
 la
 la

@@ -1,5 +1,5 @@
 /mob/living/simple_animal/hostile/retaliate/troll
-	icon = 'icons/roguetown/mob/monster/trolls.dmi'
+	icon = 'icons/roguetown/mob/monster/trolls/default_troll.dmi'
 	name = "troll"
 	desc = "Elven legends say these monsters were servants of Dendor tasked to guard his realm; nowadays they are sometimes found in the company of orcs."
 	icon_state = "Troll"
@@ -60,6 +60,7 @@
 	food = 0
 	dodgetime = 50
 	aggressive = TRUE
+	dendor_taming_chance = DENDOR_TAME_PROB_HIGH
 //	stat_attack = UNCONSCIOUS
 	remains_type = /obj/effect/decal/remains/troll
 	body_eater = TRUE
@@ -69,11 +70,18 @@
 	can_have_ai = FALSE
 
 	var/critvuln = FALSE
+	var/is_hidey = FALSE
+
+	//stone chucking ability
+	var/datum/action/cooldown/mob_cooldown/stone_throw/throwing_stone
 
 /mob/living/simple_animal/hostile/retaliate/troll/Initialize()
 	. = ..()
 	if(critvuln)
 		ADD_TRAIT(src, TRAIT_CRITICAL_WEAKNESS, TRAIT_GENERIC)
+	throwing_stone = new /datum/action/cooldown/mob_cooldown/stone_throw()
+	throwing_stone.Grant(src)
+	ai_controller.set_blackboard_key(BB_TARGETED_ACTION, throwing_stone)
 
 /mob/living/simple_animal/hostile/retaliate/troll/death(gibbed)
 	..()
@@ -153,17 +161,94 @@
 	gender = PLURAL
 	icon_state = "Trolld"
 
-//for keep use
-/mob/living/simple_animal/hostile/retaliate/troll/keep/get_sound(input)
-	switch(input)
-		if("aggro")
-			return pick('sound/vo/mobs/troll/aggro1.ogg','sound/vo/mobs/troll/aggro2.ogg')
-		if("pain")
-			return pick('sound/vo/mobs/troll/pain1.ogg','sound/vo/mobs/troll/pain2.ogg')
-		if("death")
-			return pick('sound/vo/mobs/troll/death.ogg')
-		if("cidle")
-			return pick('sound/vo/mobs/troll/cidle1.ogg','sound/vo/mobs/troll/aggro2.ogg')
+/mob/living/simple_animal/hostile/retaliate/troll/LoseTarget()
+	..()
+	if(!is_hidey)
+		return
+	if(health > 0)
+		icon_state = "Trollso"
+
+/mob/living/simple_animal/hostile/retaliate/troll/Moved()
+	. = ..()
+	if(!is_hidey)
+		return
+	if(!icon_state == "Troll")
+		icon_state = "Troll"
+
+/mob/living/simple_animal/hostile/retaliate/troll/GiveTarget()
+	..()
+	if(!is_hidey)
+		return
+	icon_state = "Trolla"
+
+/mob/living/simple_animal/hostile/retaliate/troll/after_creation()
+	..()
+	if(!is_hidey)
+		return
+	var/obj/item/organ/eyes/eyes = src.getorganslot(ORGAN_SLOT_EYES)
+	if(eyes)
+		eyes.Remove(src,1)
+		QDEL_NULL(eyes)
+	eyes = new /obj/item/organ/eyes/night_vision/nightmare
+	eyes.Insert(src)
+
+/mob/living/simple_animal/hostile/retaliate/troll/bog
+	name = "bog troll"
+	ai_controller = /datum/ai_controller/bog_troll
+	wander = FALSE		// bog trolls are ambush predators
+	turns_per_move = 4
+	is_hidey = TRUE
+
+	health = BOGTROLL_HEALTH
+	maxHealth = BOGTROLL_HEALTH
+	food_type = list(/obj/item/reagent_containers/food/snacks/meat,
+					/obj/item/bodypart,
+					/obj/item/organ)
+
+	base_intents = list(/datum/intent/simple/headbutt, /datum/intent/simple/bigbite)
+	melee_damage_lower = 30
+	melee_damage_upper = 50
+
+	base_constitution = 16
+	base_strength = 16
+	base_speed = 3
+	base_endurance = 15
+
+	defprob = 30
+	defdrain = 13
+
+/mob/living/simple_animal/hostile/retaliate/troll/cave
+	name = "cave troll"
+	desc = "Dwarven tales of giants and trolls often contain these creatures, horrifying amalgamations of flesh and crystal who have long since abandoned Malum's ways."
+	icon = 'icons/roguetown/mob/monster/trolls/cave_troll.dmi'
+	ai_controller = /datum/ai_controller/troll/cave
+
+	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange = 1,
+						/obj/item/alch/horn = 1,
+						/obj/item/natural/rock/mana_crystal = 1,
+						)
+	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange = 1,
+						/obj/item/natural/hide = 2,
+						/obj/item/alch/horn = 2,
+						/obj/item/natural/rock/mana_crystal = 2,
+						)
+	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange= 2,
+						/obj/item/natural/hide = 3,
+						/obj/item/alch/horn = 2,
+						/obj/item/natural/head/troll/cave = 1,
+						/obj/item/natural/rock/mana_crystal = 3,
+						)
+
+	health = CAVETROLL_HEALTH
+	maxHealth = CAVETROLL_HEALTH
+	defprob = 35
+	defdrain = 15
+	dendor_taming_chance = DENDOR_TAME_PROB_LOW
+
+/mob/living/simple_animal/hostile/retaliate/troll/cave/ambush
+	is_hidey = TRUE
+	ai_controller = /datum/ai_controller/troll/ambush
+	wander = FALSE
 
 // You know I had to. Hostile, killer cabbit. Strong. Fast. But not as durable.
 // The most foul, cruel and bad tempered feline-rodent you ever set eyes on.
