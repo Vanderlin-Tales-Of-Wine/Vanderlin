@@ -88,7 +88,7 @@ GLOBAL_LIST_EMPTY(antagonists)
 	set_antag_hud(M, antag_hud_name)
 
 /// Removes the specified antag hud from the player. Usually called in an antag datum file
-/datum/antagonist/proc/remove_antag_hud(antag_hud_type, mob/living/mob_override)
+/datum/antagonist/proc/remove_antag_hud(antag_hud_type, antag_hud_name, mob/living/mob_override)
 	var/mob/living/M = mob_override || owner.current
 	var/datum/atom_hud/antag/hud = GLOB.huds[antag_hud_type]
 	hud.leave_hud(M)

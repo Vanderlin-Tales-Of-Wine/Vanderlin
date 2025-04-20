@@ -9,7 +9,7 @@
 	antagpanel_category = "Maniac"
 	antag_memory = "<b>Recently I've been visited by a lot of VISIONS. They're all about another WORLD, ANOTHER life. I will do EVERYTHING to know the TRUTH, and return to the REAL world.</b>"
 	job_rank = ROLE_MANIAC
-	antag_hud_type = ANTAG_HUD_GENERIC
+	antag_hud_type = ANTAG_HUD_MANIAC
 	antag_hud_name = "generic_villain"
 	confess_lines = list(
 		"I gave them no time to squeal.",

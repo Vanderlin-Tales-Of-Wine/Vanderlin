@@ -3,7 +3,7 @@
 	roundend_category = "Lich"
 	antagpanel_category = "Lich"
 	job_rank = ROLE_LICH
-	antag_hud_type = ANTAG_HUD_NECROMANCER
+	antag_hud_type = ANTAG_HUD_NECROMANCY
 	antag_hud_name = "necromancer"
 	confess_lines = list(
 		"I WILL LIVE ETERNAL!",

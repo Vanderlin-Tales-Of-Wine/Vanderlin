@@ -5,7 +5,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	roundend_category = "zizoid cultists"
 	antagpanel_category = "Zizoid Cult"
 	job_rank = ROLE_ZIZOIDCULTIST
-	antag_hud_type = ANTAG_HUD_ZIZOID_LACKEY
+	antag_hud_type = ANTAG_HUD_ZIZOID
 	antag_hud_name = "zizoid_lackey"
 	confess_lines = list(
 		"DEATH TO THE TEN!",

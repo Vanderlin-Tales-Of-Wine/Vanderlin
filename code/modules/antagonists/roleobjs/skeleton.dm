@@ -1,7 +1,7 @@
 
 /datum/antagonist/skeleton
 	name = "Skeleton"
-	antag_hud_type = ANTAG_HUD_SKELETON
+	antag_hud_type = ANTAG_HUD_NECROMANCY
 	antag_hud_name = "skeleton"
 	increase_votepwr = FALSE
 

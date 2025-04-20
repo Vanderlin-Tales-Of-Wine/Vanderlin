@@ -19,7 +19,7 @@
 
 /datum/antagonist/werewolf/lesser
 	name = "Lesser Verewolf"
-	antag_hud_type = ANTAG_HUD_WEREWOLF_LESSER
+	antag_hud_type = ANTAG_HUD_WEREWOLF
 	antag_hud_name = "werewolf_lesser"
 	increase_votepwr = FALSE
 

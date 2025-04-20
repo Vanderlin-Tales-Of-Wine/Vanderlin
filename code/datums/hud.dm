@@ -7,15 +7,10 @@ GLOBAL_LIST_INIT(huds, list(
 	ROGUE_HUD_MARRIED = new/datum/atom_hud/antag(),
 	ANTAG_HUD_HIDDEN = new/datum/atom_hud/antag/hidden(),
 	ANTAG_HUD_REV = new/datum/atom_hud/antag(),
-	ANTAG_HUD_REV_HEAD = new/datum/atom_hud/antag(),
-	ANTAG_HUD_NECROMANCER = new/datum/atom_hud/antag(),
-	ANTAG_HUD_SKELETON = new/datum/atom_hud/antag(),
-	ANTAG_HUD_VAMPLORD = new/datum/atom_hud/antag(),
-	ANTAG_HUD_VAMP = new/datum/atom_hud/antag(),
+	ANTAG_HUD_NECROMANCY = new/datum/atom_hud/antag(),
+	ANTAG_HUD_VAMPIRE = new/datum/atom_hud/antag(),
 	ANTAG_HUD_WEREWOLF = new/datum/atom_hud/antag(),
-	ANTAG_HUD_WEREWOLF_LESSER = new/datum/atom_hud/antag(),
 	ANTAG_HUD_ZIZOID = new/datum/atom_hud/antag(),
-	ANTAG_HUD_ZIZOID_LACKEY = new/datum/atom_hud/antag(),
 	ANTAG_HUD_BANDIT = new/datum/atom_hud/antag(),
 	))
 
