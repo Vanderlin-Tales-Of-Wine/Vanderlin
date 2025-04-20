@@ -317,3 +317,20 @@
 		if(loc == user && ishuman(user))
 			var/mob/living/carbon/H = user
 			H.update_inv_head()
+
+//............... Spangenhelm ............... //
+	name = "spangenhelm"
+	desc = "A steel helmet with built in eye and nose protection, commonly used by warriors of the north."
+	icon_state = "spangenhelm"
+	icon = 'icons/roguetown/clothing/special/spangenhelm_item'
+	mob_overlay_icon = 'icons/roguetown/clothing/special/onmod/spangenhelm_worn'
+	body_parts_covered = HEAD|SKULL|NOSE|EYES
+	slot_flags = ITEM_SLOT_HEAD
+	flags_inv = HIDEFACE|HIDEHAIR
+	armor = ARMOR_PLATE
+	resistance_flags = FIRE_PROOF
+	blocksound = PLATEHIT
+	prevent_crits = ALL_CRITICAL_HITS
+	item_weight = 9 * IRON_MULTIPLIER
+	clothing_flags = CANT_SLEEP_IN
+	max_integrity = INTEGRITY_STRONGEST
