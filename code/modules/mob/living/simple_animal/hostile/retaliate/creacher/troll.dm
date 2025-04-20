@@ -206,8 +206,6 @@
 
 /mob/living/simple_animal/hostile/retaliate/troll/cave/ambush
 	ai_controller = /datum/ai_controller/troll/ambush
-	is_hidey = TRUE
-	wander = FALSE
 
 /mob/living/simple_animal/hostile/retaliate/troll/axe
 	name = "Troll Skull-Splitter"
