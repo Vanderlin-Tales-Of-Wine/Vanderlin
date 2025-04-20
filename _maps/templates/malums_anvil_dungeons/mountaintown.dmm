@@ -2749,7 +2749,7 @@
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Mm" = (
-/mob/living/simple_animal/hostile/retaliate/troll,
+/mob/living/simple_animal/hostile/retaliate/troll/axe,
 /turf/open/floor/dirt/road,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Mo" = (

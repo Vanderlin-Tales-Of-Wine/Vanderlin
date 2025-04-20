@@ -1700,7 +1700,7 @@
 	},
 /area/rogue/indoors/town)
 "bSu" = (
-/mob/living/simple_animal/hostile/retaliate/troll,
+/mob/living/simple_animal/hostile/retaliate/troll/axe,
 /turf/open/floor/dirt/road,
 /area/rogue/under/cave)
 "bSw" = (
