@@ -803,6 +803,8 @@ GLOBAL_LIST_EMPTY(respawncounts)
 
 //	chatOutput.start() // Starts the chat
 
+	INVOKE_ASYNC(src, PROC_REF(acquire_dpi))
+
 	if(alert_mob_dupe_login)
 		spawn()
 			alert(mob, "You have logged in already with another key this round, please log out of this one NOW or risk being banned!")
@@ -811,6 +813,9 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	connection_realtime = world.realtime
 	connection_timeofday = world.timeofday
 	winset(src, null, "command=\".configure graphics-hwmode on\"")
+	if(byond_version >= 516) // Enable 516 compat browser storage mechanisms
+		winset(src, null, "browser-options=byondstorage,find,devtools")
+
 	var/cev = CONFIG_GET(number/client_error_version)
 	var/ceb = CONFIG_GET(number/client_error_build)
 	var/cwv = CONFIG_GET(number/client_warn_version)
@@ -1579,3 +1584,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	set desc = "Make that one person you had Quality RolePlay with happy."
 
 	commendation_popup(forced)
+
+/// This grabs the DPI of the user per their skin
+/client/proc/acquire_dpi()
+	window_scaling = text2num(winget(src, null, "dpi"))

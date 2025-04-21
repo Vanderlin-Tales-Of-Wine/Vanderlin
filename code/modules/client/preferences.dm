@@ -23,6 +23,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	var/triumphs = 0
 	var/enable_tips = TRUE
 	var/tip_delay = 500 //tip delay in milliseconds
+	var/ui_scale = FALSE //! if TRUE, higher DPS will simply shrink the UI instead of scaling it.
 
 	//Antag preferences
 	var/list/be_special = list()		//Special role selection
@@ -2269,7 +2270,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	character.socks = socks
 
 	/* V: */
-	
+
 	character.headshot_link = headshot_link
 	character.flavortext = flavortext
 

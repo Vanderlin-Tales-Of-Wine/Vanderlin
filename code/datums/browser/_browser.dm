@@ -92,6 +92,15 @@
 	for(var/file in stylesheets)
 		head_content += "<link rel='stylesheet' type='text/css' href='[SSassets.transport.get_asset_url(file)]'>"
 
+	if(user.client?.window_scaling && user.client?.window_scaling != 1 && !user.client?.prefs.ui_scale && width && height)
+		head_content += {"
+			<style>
+				body {
+					zoom: [100 / user.client?.window_scaling]%;
+				}
+			</style>
+			"}
+
 	for(var/file in scripts)
 		head_content += "<script type='text/javascript' src='[SSassets.transport.get_asset_url(file)]'></script>"
 
@@ -114,21 +123,32 @@
 		</html>"}
 
 /datum/browser/proc/open(use_onclose = TRUE)
+	UNTIL(QDELETED(user.client) || !isnull(user.client.window_scaling))
+
 	if(isnull(window_id))	//null check because this can potentially nuke goonchat
 		stack_trace("Browser [title] tried to open with a null ID")
-		to_chat(user, "<span class='danger'>The [title] browser you tried to open failed a sanity check! Please report this on github!</span>")
+		to_chat(user, span_danger("The [title] browser you tried to open failed a sanity check! Please report this on github!"))
 		return
+
 	var/window_size = ""
-	if (width && height)
-		window_size = "size=[width]x[height];"
+	if(width && height)
+		if(user.client?.prefs?.ui_scale)
+			var/scaling = user.client.window_scaling
+			window_size = "size=[width * scaling]x[height * scaling];"
+		else
+			window_size = "size=[width]x[height];"
+
 	var/datum/asset/simple/namespaced/common/common_asset = get_asset_datum(/datum/asset/simple/namespaced/common)
 	common_asset.send(user)
-	if (stylesheets.len)
+
+	if(length(stylesheets))
 		SSassets.transport.send_assets(user, stylesheets)
-	if (scripts.len)
+	if(length(scripts))
 		SSassets.transport.send_assets(user, scripts)
+
 	user << browse(build_page(), "window=[window_id];[window_size][window_options]")
-	if (use_onclose)
+
+	if(use_onclose)
 		setup_onclose()
 
 /datum/browser/proc/setup_onclose()

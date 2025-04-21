@@ -144,3 +144,6 @@
 	var/sound/droning_sound
 
 	var/list/triumph_ids = list() //I am not sure if i should put it here, but if it work? this check for specific triumph IDs.
+
+	/// The DPI scale of the client. 1 is equivalent to 100% window scaling, 2 will be 200% window scaling
+	var/window_scaling = null
