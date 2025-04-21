@@ -25,8 +25,8 @@ y = 32
 # the 0-3 is the block to read from, starting at 0
 [positions]
 convex = 0
-horizontal = 1
-vertical = 2
+vertical = 1
+horizontal = 2
 concave = 3
 
 # When we cut up our blockls, we're cutting "around" a central point
