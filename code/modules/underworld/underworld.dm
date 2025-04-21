@@ -117,14 +117,17 @@
 
 /obj/structure/underworld/carriage/attack_hand(mob/living/carbon/spirit/user)
 	if(user.paid)
-		switch(alert("Are you ready to be judged?",,"Yes","No"))
-			if("Yes")
-				playsound(user, 'sound/misc/deadbell.ogg', 50, TRUE, -2, ignore_walls = TRUE)
-				add_abstract_elastic_data(ELASCAT_COMBAT, ELASDATA_COIN_REVIVES, 1)
-				GLOB.vanderlin_round_stats[STATS_SOULS_REINCARNATED]++
-				user.returntolobby()
-			if("No")
-				to_chat(user,span_notice("You delay fate."))
+		if(user.mind.last_death + 30 MINUTES <= world.time)
+			switch(alert("Are you ready to be judged?",,"Yes","No"))
+				if("Yes")
+					playsound(user, 'sound/misc/deadbell.ogg', 50, TRUE, -2, ignore_walls = TRUE)
+					add_abstract_elastic_data(ELASCAT_COMBAT, ELASDATA_COIN_REVIVES, 1)
+					GLOB.vanderlin_round_stats[STATS_SOULS_REINCARNATED]++
+					user.returntolobby()
+				if("No")
+					to_chat(user,span_notice("You delay fate."))
+		else
+			to_chat(user, "<B><font size=3 color=red>The scales of your fate are not yet balanced. Return in [DisplayTimeText(user.mind.last_death + 30 MINUTES - world.time)].</font></B>")
 	else
 		to_chat(user, "<B><font size=3 color=red>It's LOCKED.</font></B>")
 
