@@ -17,7 +17,7 @@
 		STATS_LITERACY_TAUGHT = list("points" = 15, "capacity" = 100),
 		STATS_ILLITERATES = list("points" = -3.5, "capacity" = -60),
 		STATS_SKILLS_DREAMED = list("points" = 0.3, "capacity" = 100),
-		STATS_MANA_SPENT = list("points" = 0.0125, "capacity" = 100),
+		STATS_MANA_SPENT = list("points" = 0.0135, "capacity" = 100),
 	)
 
 /datum/storyteller/ravox
@@ -42,11 +42,11 @@
 	)
 
 	influence_factors = list(
-		STATS_COMBAT_SKILLS = list("points" = 1.4, "capacity" = 100),
+		STATS_COMBAT_SKILLS = list("points" = 1.75, "capacity" = 100),
 		STATS_PARRIES = list("points" = 0.05, "capacity" = 100),
 		STATS_WARCRIES = list("points" = 0.375, "capacity" = 50),
 		STATS_YIELDS = list("points" = -5, "capacity" = -40),
-		STATS_UNDERWORLD_DUELS = list("points" = 5, "capacity" = 65),
+		STATS_UNDERWORLD_DUELS = list("points" = 6, "capacity" = 65),
 	)
 
 /datum/storyteller/abyssor
@@ -67,7 +67,7 @@
 		STATS_FISH_CAUGHT = list("points" = 1.75, "capacity" = 90),
 		STATS_ABYSSOR_REMEMBERED = list("points" = 1, "capacity" = 45),
 		STATS_LEECHES_EMBEDDED = list("points" = 0.165, "capacity" = 70),
-		STATS_PEOPLE_DROWNED = list("points" = 7.5, "capacity" = 70),
+		STATS_PEOPLE_DROWNED = list("points" = 8, "capacity" = 70),
 	)
 
 /datum/storyteller/xylix
@@ -120,7 +120,7 @@
 
 	influence_factors = list(
 		STATS_DEATHS = list("points" = 1.55, "capacity" = 120),
-		STATS_GRAVES_CONSECRATED = list("points" = 7, "capacity" = 100),
+		STATS_GRAVES_CONSECRATED = list("points" = 7.25, "capacity" = 105),
 		STATS_GRAVES_ROBBED = list("points" = -4, "capacity" = -60),
 		STATS_DEADITES_KILLED = list("points" = 7, "capacity" = 120),
 		STATS_VAMPIRES_KILLED = list("points" = 15, "capacity" = 70),
@@ -227,7 +227,7 @@
 		STATS_PLANTS_HARVESTED = list("points" = 0.75, "capacity" = 150),
 		STATS_WEREVOLVES = list("points" = 15, "capacity" = 85),
 		STATS_DENDOR_SACRIFICES = list("points" = 12.5, "capacity" = 90),
-		STATS_FOREST_DEATHS = list("points" = 4, "capacity" = 90),
+		STATS_FOREST_DEATHS = list("points" = 4.25, "capacity" = 90),
 	)
 
 // INHUMEN
@@ -257,11 +257,11 @@
 	)
 
 	influence_factors = list(
-		STATS_ZIZO_PRAISED = list("points" = 4, "capacity" = 60),
+		STATS_ZIZO_PRAISED = list("points" = 3, "capacity" = 50),
 		STATS_NOBLE_DEATHS = list("points" = 7.5, "capacity" = 85),
-		STATS_DEADITES_WOKEN_UP = list("points" = 3.25, "capacity" = 90),
+		STATS_DEADITES_WOKEN_UP = list("points" = 3.25, "capacity" = 100),
 		STATS_CLERGY_DEATHS = list("points" = 12.5, "capacity" = 100),
-		STATS_TORTURES = list("points" = 4, "capacity" = 80),
+		STATS_TORTURES = list("points" = 3.75, "capacity" = 75),
 	)
 
 	cost_variance = 50  // Events will be highly variable in cost
@@ -290,11 +290,11 @@
 	)
 
 	influence_factors = list(
-		STATS_DRUGS_SNORTED = list("points" = 3.75, "capacity" = 85),
-		STATS_ALCOHOL_CONSUMED = list("points" = 0.0425, "capacity" = 90),
+		STATS_DRUGS_SNORTED = list("points" = 4, "capacity" = 85),
+		STATS_ALCOHOL_CONSUMED = list("points" = 0.044, "capacity" = 90),
 		STATS_ALCOHOLICS = list("points" = 3.5, "capacity" = 60),
 		STATS_JUNKIES = list("points" = 8, "capacity" = 70),
-		STATS_LUXURIOUS_FOOD_EATEN = list("points" = 0.7, "capacity" = 85),
+		STATS_LUXURIOUS_FOOD_EATEN = list("points" = 0.8, "capacity" = 85),
 	)
 
 	cost_variance = 30  // Makes events more erratic in timing
@@ -324,8 +324,8 @@
 
 	influence_factors = list(
 		STATS_BLOOD_SPILT = list("points" = 0.00029, "capacity" = 90),
-		STATS_ORGANS_EATEN = list("points" = 4, "capacity" = 80),
-		STATS_LIMBS_BITTEN = list("points" = 0.85, "capacity" = 75),
+		STATS_ORGANS_EATEN = list("points" = 3.75, "capacity" = 80),
+		STATS_LIMBS_BITTEN = list("points" = 0.8, "capacity" = 75),
 		STATS_PEOPLE_GIBBED = list("points" = 3, "capacity" = 55),
 		STATS_ASSASSINATIONS = list("points" = 15, "capacity" = 85),
 	)
@@ -356,11 +356,11 @@
 	)
 
 	influence_factors = list(
-		STATS_ITEMS_PICKPOCKETED = list("points" = 6.5, "capacity" = 110),
+		STATS_ITEMS_PICKPOCKETED = list("points" = 6.75, "capacity" = 110),
 		STATS_SHRINE_VALUE = list("points" = 0.225, "capacity" = 90),
 		STATS_GREEDY_PEOPLE = list("points" = 8, "capacity" = 70),
 		STATS_DODGES = list("points" = 0.09, "capacity" = 100),
-		STATS_LOCKS_PICKED = list("points" = 4.75, "capacity" = 110),
+		STATS_LOCKS_PICKED = list("points" = 5, "capacity" = 110),
 	)
 
 	cost_variance = 15  // Keeps a balance between predictability and randomness
