@@ -22,8 +22,8 @@
 
 /obj/item/ammo_holder/bullet
 	name = "bullet pouch"
-	icon_state = "pouch0"
-	item_state = "pouch"
+	icon_state = "dartpouch0"
+	item_state = "dartpouch"
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_NECK
 	max_storage = 10
 	ammo_type = list(/obj/item/ammo_casing/caseless/bullet)
