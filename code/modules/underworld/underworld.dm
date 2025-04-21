@@ -116,8 +116,9 @@
 	set_light(5, 3, 30, l_color = LIGHT_COLOR_BLUE)
 
 /obj/structure/underworld/carriage/attack_hand(mob/living/carbon/spirit/user)
+	var/min_death_time = 30 MINUTES
 	if(user.paid)
-		if(user.mind.last_death + 30 MINUTES <= world.time)
+		if(user.mind.last_death + min_death_time <= world.time)
 			switch(alert("Are you ready to be judged?",,"Yes","No"))
 				if("Yes")
 					playsound(user, 'sound/misc/deadbell.ogg', 50, TRUE, -2, ignore_walls = TRUE)
@@ -127,7 +128,7 @@
 				if("No")
 					to_chat(user,span_notice("You delay fate."))
 		else
-			to_chat(user, "<B><font size=3 color=red>The scales of your fate are not yet balanced. Return in [DisplayTimeText(user.mind.last_death + 30 MINUTES - world.time)].</font></B>")
+			to_chat(user, "<B><font size=3 color=red>The scales of your fate are not yet balanced. Return in [DisplayTimeText(user.mind.last_death + min_death_time - world.time)].</font></B>")
 	else
 		to_chat(user, "<B><font size=3 color=red>It's LOCKED.</font></B>")
 
