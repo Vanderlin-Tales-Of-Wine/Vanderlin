@@ -128,9 +128,10 @@
 				continue
 			if(path in all_blacklisted)
 				continue
-			if(total_list[path] < requirements[required_path])
-				return FALSE
-			copied_requirements -= required_path
+			copied_requirements[required_path] -= total_list[path]
+			if(copied_requirements[required_path] <= 0)
+				copied_requirements -= required_path
+			break
 
 	for(var/path as anything in total_list)
 		for(var/required_path as anything in tool_usage)
