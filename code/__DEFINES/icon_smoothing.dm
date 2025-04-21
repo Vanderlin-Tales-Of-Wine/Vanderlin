@@ -40,11 +40,11 @@ DEFINE_BITFIELD(smooth, list(
  * * Matched with the `list/canSmoothWith` variable to check whether smoothing is possible or not.
  */
 
-#define S_TURF(num) ((24 * 0) + num) //Not any different from the number itself, but kept this way in case someone wants to expand it by adding stuff before it.
+#define S_TURF(num) (#num + ",")
 /* /turf only */
 
 #define SMOOTH_GROUP_TURF_OPEN S_TURF(0)				///turf/open
-#define SMOOTH_GROUP_FLOOR_LAVA S_TURF(1)				///turf/open/lava/smooth
+#define SMOOTH_GROUP_FLOOR_WATER S_TURF(1)				///turf/open/lava/smooth
 #define SMOOTH_GROUP_FLOOR_OPEN_SPACE S_TURF(2)			///turf/open/transparent/openspace
 
 #define SMOOTH_GROUP_OPEN_FLOOR S_TURF(3)				///turf/open/floor
@@ -80,22 +80,52 @@ DEFINE_BITFIELD(smooth, list(
 #define SMOOTH_GROUP_WALLS_EREBUS S_TURF(34)			///turf/closed/wall/mineral/underbrick
 #define SMOOTH_GROUP_WALLS_WOOD S_TURF(35)				///turf/closed/wall/mineral/wood
 
-#define MAX_S_TURF SMOOTH_GROUP_WALLS_WOOD //Always match this value with the one above it.
+#define MAX_S_TURF 36 //Always match this value with the one above it.
 
 
-#define S_OBJ(num) (MAX_S_TURF + 1 + num)
+#define S_OBJ(num) ("-" + #num + ",")
 
 /* /obj included */
 
-#define SMOOTH_GROUP_WALLS S_OBJ(0)						///turf/closed/wall, /structure/mineral_door/secret
+#define SMOOTH_GROUP_WALLS S_OBJ(1)						///turf/closed/wall, /structure/mineral_door/secret
 
-#define SMOOTH_GROUP_WINDOW_FULLTILE S_OBJ(21)			///obj/structure/window/fulltile, /obj/structure/window/reinforced/fulltile, /obj/structure/window/reinforced/tinted/fulltile, /obj/structure/window/plasma/fulltile, /obj/structure/window/plasma/reinforced/fulltile
+#define SMOOTH_GROUP_WINDOW_FULLTILE S_OBJ(2)			///obj/structure/window/fulltile, /obj/structure/window/reinforced/fulltile, /obj/structure/window/reinforced/tinted/fulltile, /obj/structure/window/plasma/fulltile, /obj/structure/window/plasma/reinforced/fulltile
 
-#define SMOOTH_GROUP_DOOR S_OBJ(40)						///obj/structure/mineral_door
+#define SMOOTH_GROUP_DOOR S_OBJ(3)						///obj/structure/mineral_door
 
-#define SMOOTH_GROUP_TABLES S_OBJ(50)					///obj/structure/table
-#define SMOOTH_GROUP_WOOD_TABLES S_OBJ(51)				///obj/structure/table/wood
-#define SMOOTH_GROUP_FANCY_WOOD_TABLES S_OBJ(52)		///obj/structure/table/wood/fancy
-#define SMOOTH_GROUP_BRONZE_TABLES S_OBJ(53)			///obj/structure/table/bronze
+#define SMOOTH_GROUP_TABLES S_OBJ(4)					///obj/structure/table
+#define SMOOTH_GROUP_WOOD_TABLES S_OBJ(5)				///obj/structure/table/wood
+#define SMOOTH_GROUP_FANCY_WOOD_TABLES S_OBJ(6)		///obj/structure/table/wood/fancy
+#define SMOOTH_GROUP_BRONZE_TABLES S_OBJ(7)			///obj/structure/table/bronze
 
-#define SMOOTH_GROUP_CLEANABLE_DIRT	S_OBJ(67)			///obj/effect/decal/cleanable/dirt
+#define SMOOTH_GROUP_CLEANABLE_DIRT	S_OBJ(8)			///obj/effect/decal/cleanable/dirt
+
+/// Performs the work to set smoothing_groups and canSmoothWith.
+/// An inlined function used in both turf/Initialize and atom/Initialize.
+#define SETUP_SMOOTHING(...) \
+	if(smoothing_groups) { \
+		if(PERFORM_ALL_TESTS(focus_only/sorted_smoothing_groups)) { \
+			ASSERT_SORTED_SMOOTHING_GROUPS(smoothing_groups); \
+		} \
+		SET_SMOOTHING_GROUPS(smoothing_groups); \
+	} \
+\
+	if(canSmoothWith) { \
+		if(PERFORM_ALL_TESTS(focus_only/sorted_smoothing_groups)) { \
+			ASSERT_SORTED_SMOOTHING_GROUPS(canSmoothWith); \
+		} \
+		/* S_OBJ is always negative, and we are guaranteed to be sorted. */ \
+		if(canSmoothWith[1] == "-") { \
+			smoothing_flags |= SMOOTH_OBJ; \
+		} \
+		SET_SMOOTHING_GROUPS(canSmoothWith); \
+	}
+
+/// Given a smoothing groups variable, will set out to the actual numbers inside it
+#define UNWRAP_SMOOTHING_GROUPS(smoothing_groups, out) \
+	json_decode("\[[##smoothing_groups]0\]"); \
+	##out.len--;
+
+#define ASSERT_SORTED_SMOOTHING_GROUPS(smoothing_group_variable) \
+	var/list/unwrapped = UNWRAP_SMOOTHING_GROUPS(smoothing_group_variable, unwrapped); \
+	assert_sorted(unwrapped, "[#smoothing_group_variable] ([type])"); \
