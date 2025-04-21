@@ -635,10 +635,6 @@
 	. = ..()
 	ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
 
-/turf/open/floor/herringbone/Initialize()
-	. = ..()
-	dir = pick(GLOB.cardinals)
-
 /*	..................   Cobblestone   ................... */
 /turf/open/floor/cobble
 	icon_state = "cobblestone1"

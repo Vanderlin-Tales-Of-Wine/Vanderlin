@@ -6,7 +6,7 @@
 	icon = 'icons/turf/smooth/walls/mineral.dmi'
 	icon_state = MAP_SWITCH("mineral", "mineral-0")
 	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = SMOOTH_GROUP_CLOSED + SMOOTH_GROUP_MINERAL_WALLS
+	smoothing_groups = SMOOTH_GROUP_CLOSED_WALL + SMOOTH_GROUP_MINERAL_WALLS
 	smoothing_list = SMOOTH_GROUP_MINERAL_WALLS
 	wallclimb = TRUE
 	baseturfs = /turf/open/floor/naturalstone
@@ -187,7 +187,7 @@
 	icon = MAP_SWITCH('icons/turf/smooth/walls/mineral.dmi', 'icons/turf/mining.dmi')
 	icon_state = MAP_SWITCH("mineral", "rand_low")
 	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = SMOOTH_GROUP_CLOSED + SMOOTH_GROUP_MINERAL_WALLS
+	smoothing_groups = SMOOTH_GROUP_CLOSED_WALL + SMOOTH_GROUP_MINERAL_WALLS
 	smoothing_list = SMOOTH_GROUP_MINERAL_WALLS
 	turf_type = /turf/open/floor/naturalstone
 	above_floor = /turf/open/floor/naturalstone

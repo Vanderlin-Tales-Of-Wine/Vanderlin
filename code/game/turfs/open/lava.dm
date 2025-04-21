@@ -18,8 +18,8 @@
 	clawfootstep = FOOTSTEP_LAVA
 	heavyfootstep = FOOTSTEP_LAVA
 	smoothing_flags = SMOOTH_EDGE
-	smoothing_groups = SMOOTH_GROUP_OPEN_FLOOR
-	smoothing_list = SMOOTH_GROUP_FLOOR_DIRT + SMOOTH_GROUP_FLOOR_STONE
+	smoothing_groups = SMOOTH_GROUP_FLOOR_LIQUID
+	smoothing_list = SMOOTH_GROUP_OPEN_FLOOR
 	neighborlay_override = "lavedge"
 	turf_flags = NONE
 	var/flow = FALSE

@@ -9,7 +9,7 @@
 	break_sound = 'sound/combat/hits/onstone/stonedeath.ogg'
 	attacked_sound = list('sound/combat/hits/onstone/wallhit.ogg', 'sound/combat/hits/onstone/wallhit2.ogg', 'sound/combat/hits/onstone/wallhit3.ogg')
 	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = SMOOTH_GROUP_CLOSED + SMOOTH_GROUP_WALLS_STONE
+	smoothing_groups = SMOOTH_GROUP_CLOSED_WALL + SMOOTH_GROUP_WALLS_STONE
 	smoothing_list = SMOOTH_GROUP_WALLS_STONE
 	above_floor = /turf/open/floor/blocks
 	baseturfs = list(/turf/open/floor/blocks)
@@ -68,7 +68,7 @@
 	break_sound = 'sound/combat/hits/onstone/stonedeath.ogg'
 	attacked_sound = list('sound/combat/hits/onstone/wallhit.ogg', 'sound/combat/hits/onstone/wallhit2.ogg', 'sound/combat/hits/onstone/wallhit3.ogg')
 	smoothing_flags = SMOOTH_BITMASK_CARDINALS
-	smoothing_groups = SMOOTH_GROUP_CLOSED + SMOOTH_GROUP_WALLS_STONE_DECO
+	smoothing_groups = SMOOTH_GROUP_CLOSED_WALL + SMOOTH_GROUP_WALLS_STONE_DECO
 	smoothing_list = SMOOTH_GROUP_WALLS_STONE_DECO
 	above_floor = /turf/open/floor/blocks
 	baseturfs = list(/turf/open/floor/blocks)
@@ -97,7 +97,7 @@
 	break_sound = 'sound/combat/hits/onstone/stonedeath.ogg'
 	attacked_sound = list('sound/combat/hits/onstone/wallhit.ogg', 'sound/combat/hits/onstone/wallhit2.ogg', 'sound/combat/hits/onstone/wallhit3.ogg')
 	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = SMOOTH_GROUP_CLOSED + SMOOTH_GROUP_WALLS_STONE_CRAFT
+	smoothing_groups = SMOOTH_GROUP_CLOSED_WALL + SMOOTH_GROUP_WALLS_STONE_CRAFT
 	smoothing_list = SMOOTH_GROUP_WALLS_STONE_CRAFT
 	above_floor = /turf/open/floor/blocks
 	baseturfs = list(/turf/open/floor/blocks)
@@ -118,7 +118,7 @@
 	break_sound = 'sound/combat/hits/onstone/stonedeath.ogg'
 	attacked_sound = list('sound/combat/hits/onstone/wallhit.ogg', 'sound/combat/hits/onstone/wallhit2.ogg', 'sound/combat/hits/onstone/wallhit3.ogg')
 	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = SMOOTH_GROUP_CLOSED + SMOOTH_GROUP_WALLS_STONE_BRICK
+	smoothing_groups = SMOOTH_GROUP_CLOSED_WALL + SMOOTH_GROUP_WALLS_STONE_BRICK
 	smoothing_list = SMOOTH_GROUP_WALLS_STONE_BRICK
 	above_floor = /turf/open/floor/blocks
 	baseturfs = list(/turf/open/floor/blocks)
@@ -150,7 +150,7 @@
 	break_sound = 'sound/combat/hits/onwood/destroywalldoor.ogg'
 	attacked_sound = list('sound/combat/hits/onwood/woodimpact (1).ogg','sound/combat/hits/onwood/woodimpact (2).ogg')
 	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = SMOOTH_GROUP_CLOSED + SMOOTH_GROUP_WALLS_WOOD
+	smoothing_groups = SMOOTH_GROUP_CLOSED_WALL + SMOOTH_GROUP_WALLS_WOOD
 	smoothing_list = SMOOTH_GROUP_WALLS_WOOD
 	neighborlay = "dirtedge"
 	above_floor = /turf/open/floor/ruinedwood
@@ -411,7 +411,7 @@
 	break_sound = 'sound/combat/hits/onmetal/sheet (1).ogg'
 	attacked_sound = list('sound/combat/hits/onmetal/attackpipewall (1).ogg','sound/combat/hits/onmetal/attackpipewall (2).ogg')
 	smoothing_flags = SMOOTH_BITMASK_CARDINALS
-	smoothing_groups = SMOOTH_GROUP_CLOSED + SMOOTH_GROUP_WALLS_PIPE
+	smoothing_groups = SMOOTH_GROUP_CLOSED_WALL + SMOOTH_GROUP_WALLS_PIPE
 	smoothing_list = SMOOTH_GROUP_WALLS_PIPE
 	above_floor = /turf/open/floor/concrete
 	baseturfs = list(/turf/open/floor/concrete)
@@ -431,7 +431,7 @@
 	break_sound = 'sound/combat/hits/onstone/stonedeath.ogg'
 	attacked_sound = list('sound/combat/hits/onstone/wallhit.ogg', 'sound/combat/hits/onstone/wallhit2.ogg', 'sound/combat/hits/onstone/wallhit3.ogg')
 	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = SMOOTH_GROUP_CLOSED + SMOOTH_GROUP_WALLS_EREBUS
+	smoothing_groups = SMOOTH_GROUP_CLOSED_WALL + SMOOTH_GROUP_WALLS_EREBUS
 	smoothing_list = SMOOTH_GROUP_WALLS_EREBUS
 	above_floor = /turf/open/floor/church
 	baseturfs = list(/turf/open/floor/church)
