@@ -73,6 +73,8 @@ GLOBAL_LIST_EMPTY(antagonists)
 /// This handles the removal of special abilities
 /datum/antagonist/proc/remove_innate_effects(mob/living/mob_override)
 	var/mob/living/M = mob_override || owner.current
+	if(!istype(M))
+		return
 	for(var/trait as anything in innate_traits)
 		REMOVE_TRAIT(M, trait, "[type]")
 
@@ -81,6 +83,8 @@ GLOBAL_LIST_EMPTY(antagonists)
 	if(!antag_hud_name || !antag_hud_type)
 		return
 	var/mob/living/M = mob_override || owner.current
+	if(!istype(M))
+		return
 	var/datum/atom_hud/antag/hud = GLOB.huds[antag_hud_type]
 	hud.join_hud(M)
 	set_antag_hud(M, antag_hud_name)
