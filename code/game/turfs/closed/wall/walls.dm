@@ -58,6 +58,34 @@
 /turf/closed/wall/mineral/stone/window/moss/red
 	icon = 'icons/turf/walls/stone_moss_red.dmi'
 
+/turf/closed/wall/mineral/decorstone
+	name = "decorated stone wall"
+	desc = "The mason did an excellent job etching details into this wall."
+	icon = 'icons/turf/walls/church_stone.dmi'
+	icon_state = "decorstone"
+	smooth = SMOOTH_MORE
+	blade_dulling = DULLING_BASH
+	max_integrity = 2200
+	sheet_type = /obj/item/natural/stone
+	break_sound = 'sound/combat/hits/onstone/stonedeath.ogg'
+	attacked_sound = list('sound/combat/hits/onstone/wallhit.ogg', 'sound/combat/hits/onstone/wallhit2.ogg', 'sound/combat/hits/onstone/wallhit3.ogg')
+	canSmoothWith = list(/turf/closed/wall/mineral/decorstone)
+	above_floor = /turf/open/floor/blocks
+	baseturfs = list(/turf/open/floor/blocks)
+	neighborlay = "dirtedge"
+	climbdiff = 1
+	damage_deflection = 10
+	hardness = 2
+
+/turf/closed/wall/mineral/decorstone/moss
+	icon = 'icons/turf/walls/church_stone_mossy.dmi'
+
+/turf/closed/wall/mineral/decorstone/moss/blue
+	icon = 'icons/turf/walls/church_stone_mossyblue.dmi'
+
+/turf/closed/wall/mineral/decorstone/moss/red
+	icon = 'icons/turf/walls/church_stone_mossyred.dmi'
+
 /turf/closed/wall/mineral/craftstone
 	name = "craftstone wall"
 	desc = "A durable wall made from specially crafted stone."
@@ -400,14 +428,15 @@
 	name = "erebus stone wall"
 	desc = "The toils of hard-working shades."
 	icon = 'icons/turf/walls/brick_under.dmi'
-	icon_state = "brick_under-0"
-	smoothing_flags = NONE
+	icon_state = MAP_SWITCH("brick_under", "brick_under-0")
+	smoothing_flags = SMOOTH_BITMASK
 	wallclimb = FALSE
 	blade_dulling = DULLING_BASH
 	max_integrity = 99999
 	sheet_type = null
 	break_sound = 'sound/combat/hits/onstone/stonedeath.ogg'
 	attacked_sound = list('sound/combat/hits/onstone/wallhit.ogg', 'sound/combat/hits/onstone/wallhit2.ogg', 'sound/combat/hits/onstone/wallhit3.ogg')
+	canSmoothWith = list(/turf/closed/wall/mineral/underbrick)
 	above_floor = /turf/open/floor/church
 	baseturfs = list(/turf/open/floor/church)
 	neighborlay = "dirtedge"
