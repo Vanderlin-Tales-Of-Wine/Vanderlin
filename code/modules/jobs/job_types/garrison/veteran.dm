@@ -224,6 +224,9 @@
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC) // retired knight!
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 
+/datum/outfit/job/vet/calvaryman/post_equip(mob/living/carbon/human/H)
+	if(!..())
+		return
 	H.adjust_blindness(-3)
 	var/weapons = list("Sword + Recurve Bow","Axe + Crossbow","Spear + Shield")
 	var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
@@ -299,6 +302,9 @@
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 
+/datum/outfit/job/vet/merc/post_equip(mob/living/carbon/human/H)
+	if(!..())
+		return
 	H.adjust_blindness(-3)
 	var/weapons = list("Zweihander","Halberd")
 	var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
