@@ -1683,6 +1683,16 @@
 	},
 /turf/open/floor/woodturned,
 /area/rogue/outdoors/town)
+"cmg" = (
+/obj/machinery/light/fueled/lanternpost/fixed{
+	dir = 1
+	},
+/obj/structure/fluff/railing/wood,
+/obj/structure/fluff/railing/wood{
+	dir = 4
+	},
+/turf/open/floor/woodturned/nosmooth,
+/area/rogue/outdoors/town)
 "cmx" = (
 /obj/structure/fluff/statue/knight,
 /turf/open/floor/tile,
@@ -4009,6 +4019,10 @@
 /obj/machinery/light/fueled/firebowl/standing/blue,
 /turf/open/floor/churchrough,
 /area/rogue/indoors/town/church/inquisition)
+"fwE" = (
+/obj/machinery/light/fueled/lanternpost/fixed,
+/turf/open/floor/wood,
+/area/rogue/outdoors/town)
 "fwQ" = (
 /obj/structure/stairs,
 /obj/structure/fluff/railing/border{
@@ -4554,6 +4568,12 @@
 	},
 /turf/open/floor/dirt,
 /area/rogue/outdoors/rtfield/safe)
+"gmj" = (
+/obj/machinery/light/fueled/lanternpost/fixed{
+	dir = 1
+	},
+/turf/open/floor/woodturned,
+/area/rogue/outdoors/town)
 "gmt" = (
 /obj/structure/table/wood/plain_alt,
 /obj/machinery/light/fueled/oven{
@@ -5147,6 +5167,12 @@
 	},
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/town)
+"hbC" = (
+/obj/machinery/light/fueled/lanternpost/fixed{
+	dir = 1
+	},
+/turf/open/floor/woodturned/nosmooth,
+/area/rogue/outdoors/rtfield/safe)
 "hbD" = (
 /obj/structure/stairs{
 	dir = 4
@@ -15540,6 +15566,12 @@
 /obj/structure/fluff/railing/wood{
 	dir = 8;
 	pixel_y = -1
+	},
+/obj/structure/fluff/railing/wood{
+	dir = 1;
+	layer = 2.7;
+	pixel_x = -2;
+	pixel_y = 7
 	},
 /turf/open/floor/wood/nosmooth,
 /area/rogue/outdoors/town)
@@ -78583,7 +78615,7 @@ vDk
 vDk
 vDk
 utH
-tdO
+utH
 iAO
 iAO
 iAO
@@ -78785,7 +78817,7 @@ vDk
 utH
 vDk
 utH
-tdO
+utH
 iAO
 iAO
 iAO
@@ -80402,7 +80434,7 @@ gXU
 iAO
 iAO
 iAO
-tdO
+utH
 iAO
 iAO
 iAO
@@ -113514,8 +113546,8 @@ sWx
 sWx
 sWx
 sWx
-oyT
-nrE
+blZ
+hDJ
 sWx
 sWx
 sWx
@@ -124028,7 +124060,7 @@ dPJ
 dPJ
 pGl
 wwk
-kwN
+gzR
 sWx
 sWx
 hLp
@@ -124208,7 +124240,7 @@ lgI
 lgI
 jTH
 xGZ
-sWx
+oXu
 vTH
 nrE
 iUA
@@ -124405,7 +124437,7 @@ ljP
 mlq
 lgI
 xGZ
-sWx
+oXu
 sWx
 sWx
 sWx
@@ -125020,7 +125052,7 @@ sWx
 wUO
 nrE
 hDJ
-sWx
+nZa
 sWx
 hVW
 dMD
@@ -125623,7 +125655,7 @@ sWx
 sWx
 sWx
 sWx
-sWx
+gmj
 bmM
 oyT
 sOq
@@ -126031,13 +126063,13 @@ sWx
 vTH
 ljP
 xuP
+nZa
 sWx
 sWx
 sWx
 sWx
 sWx
-sWx
-sWx
+fwE
 vHZ
 xIJ
 jhc
@@ -126441,7 +126473,7 @@ fed
 ljP
 ljP
 nrE
-lgI
+nrE
 mlq
 mlq
 peN
@@ -126642,8 +126674,8 @@ lgI
 uRW
 lgI
 jTH
-xGZ
-sWx
+jTH
+cmg
 sWx
 sWx
 sWx
@@ -126840,7 +126872,7 @@ awK
 nrE
 nrE
 hDJ
-sWx
+nZa
 sWx
 sWx
 sWx
@@ -127038,7 +127070,7 @@ sWx
 sWx
 sWx
 sWx
-sWx
+oXu
 vTH
 wwk
 kwN
@@ -128856,11 +128888,11 @@ sWx
 sWx
 sWx
 sWx
-sWx
+oXu
 wUO
 nrE
 gDI
-cCM
+hbC
 fRf
 daM
 rKQ
