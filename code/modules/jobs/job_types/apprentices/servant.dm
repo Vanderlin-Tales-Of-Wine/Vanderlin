@@ -1,6 +1,5 @@
 /datum/job/servant
-	title = "Butler"
-	f_title = "Maid"
+	title = "Servant"
 	tutorial = "You are the faceless, nameless labor that keeps the royal court fed, washed, and attended to. \
 	You work your fingers to the bone nearly every dae, \
 	and have naught to show for it but boney fingers. \
