@@ -101,10 +101,10 @@
 	var/bottom_left_corner
 	///Smoothing variable
 	var/bottom_right_corner
-	///What smoothing groups does this atom belongs to, to match canSmoothWith. If null, nobody can smooth with it.
+	///What smoothing groups does this atom belongs to, to match smoothing_list. If null, nobody can smooth with it.
 	var/list/smoothing_groups = null
 	///List of smoothing groups this atom can smooth with. If this is null and atom is smooth, it smooths only with itself.
-	var/list/canSmoothWith = null
+	var/list/smoothing_list = null
 
 /**
  * Called when an atom is created in byond (built in engine proc)

@@ -7,7 +7,7 @@
 
 	smoothing_flags = NONE
 	smoothing_groups = null
-	canSmoothWith = null
+	smoothing_list = null
 
 	var/last_event = 0
 	var/active = null

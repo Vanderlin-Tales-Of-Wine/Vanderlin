@@ -6,5 +6,5 @@
 /// and you will only test the check for invalid overlays in appearance building.
 /datum/unit_test/focus_only
 
-/// Checks that smoothing_groups and canSmoothWith are properly sorted in /atom/Initialize
+/// Checks that smoothing_groups and smoothing_list are properly sorted in /atom/Initialize
 /datum/unit_test/focus_only/sorted_smoothing_groups

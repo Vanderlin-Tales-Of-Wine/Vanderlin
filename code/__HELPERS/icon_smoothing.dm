@@ -2,9 +2,9 @@
 /*
 	Each tile is divided in 4 corners, each corner has an appearance associated to it; the tile is then overlayed by these 4 appearances
 	To use this, just set your atom's 'smoothing_flags' var to 1. If your atom can be moved/unanchored, set its 'can_be_unanchored' var to 1.
-	If you don't want your atom's icon to smooth with anything but atoms of the same type, set the list 'canSmoothWith' to null;
-	Otherwise, put all the smoothing groups you want the atom icon to smooth with in 'canSmoothWith', including the group of the atom itself.
-	Smoothing groups are just shared flags between objects. If one of the 'canSmoothWith' of A matches one of the `smoothing_groups` of B, then A will smooth with B.
+	If you don't want your atom's icon to smooth with anything but atoms of the same type, set the list 'smoothing_list' to null;
+	Otherwise, put all the smoothing groups you want the atom icon to smooth with in 'smoothing_list', including the group of the atom itself.
+	Smoothing groups are just shared flags between objects. If one of the 'smoothing_list' of A matches one of the `smoothing_groups` of B, then A will smooth with B.
 	Each atom has its own icon file with all the possible corner states. See 'smooth_wall.dmi' for a template.
 	DIAGONAL SMOOTHING INSTRUCTIONS
 	To make your atom smooth diagonally you need all the proper icon states (see 'smooth_wall.dmi' for a template) and
@@ -57,8 +57,8 @@ DEFINE_BITFIELD(smoothing_junction, list(
 		}; \
 		else { \
 			if(!isnull(neighbor.smoothing_groups)) { \
-				for(var/target in source.canSmoothWith) { \
-					if(!(source.canSmoothWith[target] & neighbor.smoothing_groups[target])) { \
+				for(var/target in source.smoothing_list) { \
+					if(!(source.smoothing_list[target] & neighbor.smoothing_groups[target])) { \
 						continue; \
 					}; \
 					junction |= direction_flag; \
@@ -70,8 +70,8 @@ DEFINE_BITFIELD(smoothing_junction, list(
 					if(!thing.anchored || isnull(thing.smoothing_groups)) { \
 						continue; \
 					}; \
-					for(var/target in source.canSmoothWith) { \
-						if(!(source.canSmoothWith[target] & thing.smoothing_groups[target])) { \
+					for(var/target in source.smoothing_list) { \
+						if(!(source.smoothing_list[target] & thing.smoothing_groups[target])) { \
 							continue; \
 						}; \
 						junction |= direction_flag; \
@@ -225,15 +225,15 @@ DEFINE_BITFIELD(smoothing_junction, list(
 	if(!target_turf)
 		return NULLTURF_BORDER
 
-	if(isnull(canSmoothWith)) //special case in which it will only smooth with itself
+	if(isnull(smoothing_list)) //special case in which it will only smooth with itself
 		if(isturf(src))
 			return (type == target_turf.type) ? ADJ_FOUND : NO_ADJ_FOUND
 		var/atom/matching_obj = locate(type) in target_turf
 		return (matching_obj && matching_obj.type == type) ? ADJ_FOUND : NO_ADJ_FOUND
 
 	if(!isnull(target_turf.smoothing_groups))
-		for(var/target in canSmoothWith)
-			if(!(canSmoothWith[target] & target_turf.smoothing_groups[target]))
+		for(var/target in smoothing_list)
+			if(!(smoothing_list[target] & target_turf.smoothing_groups[target]))
 				continue
 			return ADJ_FOUND
 
@@ -242,8 +242,8 @@ DEFINE_BITFIELD(smoothing_junction, list(
 			var/atom/movable/thing = am
 			if(!thing.anchored || isnull(thing.smoothing_groups))
 				continue
-			for(var/target in canSmoothWith)
-				if(!(canSmoothWith[target] & thing.smoothing_groups[target]))
+			for(var/target in smoothing_list)
+				if(!(smoothing_list[target] & thing.smoothing_groups[target]))
 					continue
 				return ADJ_FOUND
 

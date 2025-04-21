@@ -69,13 +69,13 @@
 	landsound = 'sound/foley/jumpland/woodland.wav'
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_OPEN_FLOOR + SMOOTH_GROUP_WOOD
-	canSmoothWith = SMOOTH_GROUP_WOOD
+	smoothing_list = SMOOTH_GROUP_WOOD
 	damage_deflection = 8
 	max_integrity = 600
 
 /turf/open/floor/wood/nosmooth //these are here so we can put wood floors next to each other but not have them smooth
 	smoothing_groups = SMOOTH_GROUP_OPEN_FLOOR + SMOOTH_GROUP_WOOD_ALT
-	canSmoothWith = SMOOTH_GROUP_WOOD_ALT
+	smoothing_list = SMOOTH_GROUP_WOOD_ALT
 
 /turf/open/floor/wood/turf_destruction(damage_flag)
 	. = ..()
@@ -84,7 +84,7 @@
 /turf/open/floor/wood/nosmooth/saiga
 	icon = 'icons/turf/smooth/floors/wood_alt.dmi'
 	smoothing_groups = SMOOTH_GROUP_OPEN_FLOOR + SMOOTH_GROUP_WOOD_SAIGA
-	canSmoothWith = SMOOTH_GROUP_WOOD_SAIGA
+	smoothing_list = SMOOTH_GROUP_WOOD_SAIGA
 
 /turf/open/floor/woodturned
 	icon = 'icons/turf/smooth/floors/wood_turned.dmi'
@@ -96,7 +96,7 @@
 	landsound = 'sound/foley/jumpland/woodland.wav'
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_OPEN_FLOOR + SMOOTH_GROUP_WOODTURNED
-	canSmoothWith = SMOOTH_GROUP_WOODTURNED
+	smoothing_list = SMOOTH_GROUP_WOODTURNED
 	damage_deflection = 8
 	max_integrity = 600
 
@@ -106,12 +106,12 @@
 
 /turf/open/floor/woodturned/nosmooth
 	smoothing_groups = SMOOTH_GROUP_OPEN_FLOOR + SMOOTH_GROUP_WOODTURNED_ALT
-	canSmoothWith = SMOOTH_GROUP_WOODTURNED_ALT
+	smoothing_list = SMOOTH_GROUP_WOODTURNED_ALT
 
 /turf/open/floor/woodturned/nosmooth/saiga
 	icon = 'icons/turf/smooth/floors/wood_turned_alt.dmi'
 	smoothing_groups = SMOOTH_GROUP_OPEN_FLOOR + SMOOTH_GROUP_WOOD_SAIGA
-	canSmoothWith = SMOOTH_GROUP_WOOD_SAIGA
+	smoothing_list = SMOOTH_GROUP_WOOD_SAIGA
 
 /turf/open/floor/rooftop
 	name = "roof"
@@ -142,8 +142,8 @@
 	landsound = 'sound/foley/jumpland/grassland.wav'
 	slowdown = 0
 	smoothing_flags = SMOOTH_EDGE
-	smoothing_groups = SMOOTH_GROUP_OPEN_FLOOR + SMOOTH_GROUP_GRASS
-	canSmoothWith = SMOOTH_GROUP_GRASS
+	smoothing_groups = SMOOTH_GROUP_GRASS + SMOOTH_GROUP_OPEN_FLOOR
+	smoothing_list = SMOOTH_GROUP_GRASS
 	neighborlay = "grassedge"
 	max_integrity = 1200
 	spread_chance = 15
@@ -201,8 +201,8 @@
 	landsound = 'sound/foley/jumpland/grassland.wav'
 	slowdown = 0
 	smoothing_flags = SMOOTH_EDGE
-	smoothing_groups = SMOOTH_GROUP_OPEN_FLOOR + SMOOTH_GROUP_GRASS
-	canSmoothWith = SMOOTH_GROUP_GRASS
+	smoothing_groups = SMOOTH_GROUP_GRASS + SMOOTH_GROUP_OPEN_FLOOR
+	smoothing_list = SMOOTH_GROUP_GRASS
 	neighborlay = "snowedge"
 	spread_chance = 0
 
@@ -215,8 +215,8 @@
 	desc = "A rugged blanket of snow."
 	icon_state = "snowrough"
 	smoothing_flags = SMOOTH_EDGE
-	smoothing_groups = SMOOTH_GROUP_OPEN_FLOOR + SMOOTH_GROUP_GRASS
-	canSmoothWith = SMOOTH_GROUP_GRASS
+	smoothing_groups = SMOOTH_GROUP_GRASS + SMOOTH_GROUP_OPEN_FLOOR
+	smoothing_list = SMOOTH_GROUP_GRASS
 	neighborlay = "snowroughedge"
 
 	spread_chance = 0
@@ -236,8 +236,8 @@
 	landsound = 'sound/foley/jumpland/grassland.wav'
 	slowdown = 0
 	smoothing_flags = SMOOTH_EDGE
-	smoothing_groups = SMOOTH_GROUP_OPEN_FLOOR + SMOOTH_GROUP_GRASS
-	canSmoothWith = SMOOTH_GROUP_GRASS
+	smoothing_groups = SMOOTH_GROUP_GRASS + SMOOTH_GROUP_OPEN_FLOOR
+	smoothing_list = SMOOTH_GROUP_GRASS
 	neighborlay = "snowpatchy_grassedge"
 
 /*	..................   Dirts   ................... */
@@ -252,8 +252,8 @@
 	landsound = 'sound/foley/jumpland/dirtland.wav'
 	slowdown = 2
 	smoothing_flags = SMOOTH_EDGE
-	smoothing_groups = SMOOTH_GROUP_OPEN_FLOOR + SMOOTH_GROUP_DIRT
-	canSmoothWith = SMOOTH_GROUP_DIRT
+	smoothing_groups = SMOOTH_GROUP_DIRT + SMOOTH_GROUP_OPEN_FLOOR
+	smoothing_list = SMOOTH_GROUP_DIRT
 	neighborlay = "dirtedge"
 	spread_chance = 8
 
@@ -363,8 +363,8 @@
 	icon_state = "road"
 	footstep = FOOTSTEP_SAND
 	smoothing_flags = SMOOTH_EDGE
-	smoothing_groups = SMOOTH_GROUP_OPEN_FLOOR + SMOOTH_GROUP_DIRT
-	canSmoothWith = SMOOTH_GROUP_DIRT
+	smoothing_groups = SMOOTH_GROUP_DIRT + SMOOTH_GROUP_OPEN_FLOOR
+	smoothing_list = SMOOTH_GROUP_DIRT
 	neighborlay = "dirtedge"
 	slowdown = 0
 	path_weight = 10
@@ -438,8 +438,8 @@
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	landsound = 'sound/foley/jumpland/dirtland.wav'
 	smoothing_flags = SMOOTH_EDGE
-	smoothing_groups = SMOOTH_GROUP_OPEN_FLOOR + SMOOTH_GROUP_DIRT
-	canSmoothWith = SMOOTH_GROUP_DIRT
+	smoothing_groups = SMOOTH_GROUP_DIRT + SMOOTH_GROUP_OPEN_FLOOR
+	smoothing_list = SMOOTH_GROUP_DIRT
 	neighborlay = "lavedge"
 
 /turf/open/floor/volcanic/Initialize()
@@ -624,7 +624,7 @@
 	neighborlay = "herringedge"
 	smoothing_flags = SMOOTH_EDGE
 	smoothing_groups = SMOOTH_GROUP_OPEN_FLOOR + SMOOTH_GROUP_STONE_FLOOR
-	canSmoothWith = SMOOTH_GROUP_DIRT + SMOOTH_GROUP_GRASS + SMOOTH_GROUP_SNOW
+	smoothing_list = SMOOTH_GROUP_DIRT + SMOOTH_GROUP_GRASS + SMOOTH_GROUP_SNOW
 
 	damage_deflection = 10
 	max_integrity = 800
@@ -649,7 +649,7 @@
 	landsound = 'sound/foley/jumpland/stoneland.wav'
 	smoothing_flags = SMOOTH_EDGE
 	smoothing_groups = SMOOTH_GROUP_OPEN_FLOOR + SMOOTH_GROUP_STONE_FLOOR
-	canSmoothWith = SMOOTH_GROUP_DIRT + SMOOTH_GROUP_GRASS + SMOOTH_GROUP_SNOW
+	smoothing_list = SMOOTH_GROUP_DIRT + SMOOTH_GROUP_GRASS + SMOOTH_GROUP_SNOW
 	neighborlay = "cobbleedge"
 	max_integrity = 1200
 
@@ -695,7 +695,7 @@
 	landsound = 'sound/foley/jumpland/stoneland.wav'
 	smoothing_flags = SMOOTH_EDGE
 	smoothing_groups = SMOOTH_GROUP_OPEN_FLOOR + SMOOTH_GROUP_STONE_FLOOR
-	canSmoothWith = SMOOTH_GROUP_DIRT + SMOOTH_GROUP_GRASS + SMOOTH_GROUP_SNOW
+	smoothing_list = SMOOTH_GROUP_DIRT + SMOOTH_GROUP_GRASS + SMOOTH_GROUP_SNOW
 	neighborlay = "cobblerock"
 	max_integrity = 1200
 

@@ -37,7 +37,7 @@ DEFINE_BITFIELD(smooth, list(
 /**SMOOTHING GROUPS
  * Groups of things to smooth with.
  * * Contained in the `list/smoothing_groups` variable.
- * * Matched with the `list/canSmoothWith` variable to check whether smoothing is possible or not.
+ * * Matched with the `list/smoothing_list` variable to check whether smoothing is possible or not.
  */
 
 #define S_TURF(num) (#num + ",")
@@ -100,7 +100,7 @@ DEFINE_BITFIELD(smooth, list(
 
 #define SMOOTH_GROUP_CLEANABLE_DIRT	S_OBJ(8)			///obj/effect/decal/cleanable/dirt
 
-/// Performs the work to set smoothing_groups and canSmoothWith.
+/// Performs the work to set smoothing_groups and smoothing_list.
 /// An inlined function used in both turf/Initialize and atom/Initialize.
 #define SETUP_SMOOTHING(...) \
 	if(smoothing_groups) { \
@@ -110,15 +110,15 @@ DEFINE_BITFIELD(smooth, list(
 		SET_SMOOTHING_GROUPS(smoothing_groups); \
 	} \
 \
-	if(canSmoothWith) { \
+	if(smoothing_list) { \
 		if(PERFORM_ALL_TESTS(focus_only/sorted_smoothing_groups)) { \
-			ASSERT_SORTED_SMOOTHING_GROUPS(canSmoothWith); \
+			ASSERT_SORTED_SMOOTHING_GROUPS(smoothing_list); \
 		} \
 		/* S_OBJ is always negative, and we are guaranteed to be sorted. */ \
-		if(canSmoothWith[1] == "-") { \
+		if(smoothing_list[1] == "-") { \
 			smoothing_flags |= SMOOTH_OBJ; \
 		} \
-		SET_SMOOTHING_GROUPS(canSmoothWith); \
+		SET_SMOOTHING_GROUPS(smoothing_list); \
 	}
 
 /// Given a smoothing groups variable, will set out to the actual numbers inside it

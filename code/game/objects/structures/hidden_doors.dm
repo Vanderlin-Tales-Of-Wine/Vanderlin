@@ -372,7 +372,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	new_door.icon = source_turf.icon
 	new_door.icon_state = source_turf.icon_state
 	new_door.smoothing_flags = source_turf.smoothing_flags
-	new_door.canSmoothWith = source_turf.canSmoothWith
+	new_door.smoothing_list = source_turf.smoothing_list
 	new_door.name = source_turf.name
 	new_door.desc = source_turf.desc
 
@@ -381,7 +381,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	for(var/dir in GLOB.cardinals)
 		var/turf/T = get_step(src, dir)
 		var/canDoorSmooth = FALSE
-		for(var/smoothType in new_door.canSmoothWith)
+		for(var/smoothType in new_door.smoothing_list)
 			if(istype(T, smoothType))
 				canDoorSmooth = TRUE
 				break
@@ -389,14 +389,14 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 			continue
 		var/smoothCompatible = FALSE
 		var/alreadyAdded = FALSE
-		for(var/smoothType in T.canSmoothWith)
+		for(var/smoothType in T.smoothing_list)
 			if(istype(source_turf, smoothType))
 				smoothCompatible = TRUE
 			if(ispath(smoothType, /obj/structure/mineral_door/secret))
 				alreadyAdded = TRUE
 				break
 		if(smoothCompatible && !alreadyAdded)
-			T.canSmoothWith += /obj/structure/mineral_door/secret
+			T.smoothing_list += /obj/structure/mineral_door/secret
 
 	if(redstone_id)
 		new_door.redstone_id = redstone_id
