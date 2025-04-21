@@ -31,6 +31,11 @@
 		} \
 	} while (FALSE)
 
+/// *Only* run the test provided within the parentheses
+/// This is useful for debugging when you want to reduce noise, but should never be pushed
+/// Intended to be used in the manner of `TEST_FOCUS(/datum/unit_test/math)`
+#define TEST_FOCUS(test_path) ##test_path { focus = TRUE; }
+
 #define TEST_DEFAULT 1
 #define TEST_CREATE_AND_DESTROY INFINITY
 
@@ -38,6 +43,7 @@
 #include "anchored_mobs.dm"
 #include "component_tests.dm"
 // #include "create_and_destroy.dm"
+#include "focus_only_tests.dm"
 #include "reagent_id_typos.dm"
 //#include "reagent_names.dm"
 #include "reagent_recipe_collisions.dm"

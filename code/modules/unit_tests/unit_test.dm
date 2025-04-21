@@ -15,6 +15,17 @@ GLOBAL_DATUM(current_test, /datum/unit_test)
 GLOBAL_VAR_INIT(failed_any_test, FALSE)
 GLOBAL_VAR(test_log)
 
+
+/// The name of the test that is currently focused.
+/// Use the PERFORM_ALL_TESTS macro instead.
+GLOBAL_VAR_INIT(focused_test, focused_test())
+
+/proc/focused_test()
+	for(var/datum/unit_test/unit_test as anything in subtypesof(/datum/unit_test))
+		if(initial(unit_test.focus))
+			return unit_test
+	return null
+
 /datum/unit_test
 	//Bit of metadata for the future maybe
 	var/list/procs_tested
@@ -29,6 +40,7 @@ GLOBAL_VAR(test_log)
 
 	//internal shit
 	var/list/allocated
+	var/focus = FALSE
 	var/succeeded = TRUE
 	var/list/fail_reasons
 
@@ -146,7 +158,17 @@ GLOBAL_VAR(test_log)
 	CHECK_TICK
 
 	var/list/tests_to_run = sortTim(subtypesof(/datum/unit_test), /proc/cmp_unit_test_priority)
+
+	var/tests_to_run = subtypesof(/datum/unit_test)
+	for(var/_test_to_run in tests_to_run)
+		var/datum/unit_test/test_to_run = _test_to_run
+		if(initial(test_to_run.focus))
+			tests_to_run = list(test_to_run)
+			break
+
 	for(var/I in tests_to_run)
+		if(ispath(I, /datum/unit_test/focus_only))
+			return
 		var/datum/unit_test/test = new I
 
 		GLOB.current_test = test

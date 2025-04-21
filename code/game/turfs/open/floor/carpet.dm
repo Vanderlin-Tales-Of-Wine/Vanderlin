@@ -24,25 +24,25 @@
 /turf/open/floor/carpet/purple
 	icon = 'icons/turf/smooth/floors/carpet_purple.dmi'
 	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = SMOOTH_GROUP_OPEN + SMOOTH_GROUP_CARPET_PURPLE
+	smoothing_groups = SMOOTH_GROUP_OPEN_FLOOR + SMOOTH_GROUP_CARPET_PURPLE
 	canSmoothWith = SMOOTH_GROUP_CARPET_PURPLE
 
 /turf/open/floor/carpet/stellar
 	icon = 'icons/turf/smooth/floors/carpet_stellar.dmi'
 	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = SMOOTH_GROUP_OPEN + SMOOTH_GROUP_CARPET_STELLAR
+	smoothing_groups = SMOOTH_GROUP_OPEN_FLOOR + SMOOTH_GROUP_CARPET_STELLAR
 	canSmoothWith = SMOOTH_GROUP_CARPET_STELLAR
 
 /turf/open/floor/carpet/red
 	icon = 'icons/turf/smooth/floors/carpet_red.dmi'
 	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = SMOOTH_GROUP_OPEN + SMOOTH_GROUP_CARPET_RED
+	smoothing_groups = SMOOTH_GROUP_OPEN_FLOOR + SMOOTH_GROUP_CARPET_RED
 	canSmoothWith = SMOOTH_GROUP_CARPET_RED
 
 /turf/open/floor/carpet/royalblack
 	icon = 'icons/turf/smooth/floors/carpet_royalblack.dmi'
 	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = SMOOTH_GROUP_OPEN + SMOOTH_GROUP_CARPET_ROYAL_BLACK
+	smoothing_groups = SMOOTH_GROUP_OPEN_FLOOR + SMOOTH_GROUP_CARPET_ROYAL_BLACK
 	canSmoothWith = SMOOTH_GROUP_CARPET_ROYAL_BLACK
 
 /turf/open/floor/carpet/break_tile()
