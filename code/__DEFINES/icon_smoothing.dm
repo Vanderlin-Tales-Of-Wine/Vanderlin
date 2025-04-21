@@ -17,6 +17,16 @@
 /// atom is currently queued to smooth.
 #define SMOOTH_QUEUED	(1<<6)
 
+DEFINE_BITFIELD(smooth, list(
+	"SMOOTH_BORDER" = SMOOTH_BORDER,
+	"SMOOTH_BITMASK" = SMOOTH_BITMASK,
+	"SMOOTH_CORNERS" = SMOOTH_CORNERS,
+	"SMOOTH_DIAGONAL_CORNERS" = SMOOTH_DIAGONAL_CORNERS,
+	"SMOOTH_EDGE" = SMOOTH_EDGE,
+	"SMOOTH_OBJ" = SMOOTH_OBJ,
+	"SMOOTH_QUEUED" = SMOOTH_QUEUED,
+))
+
 /*smoothing macros*/
 
 #define QUEUE_SMOOTH(thing_to_queue) if(thing_to_queue.smoothing_flags) {SSicon_smooth.add_to_queue(thing_to_queue)}

@@ -28,12 +28,23 @@
 #define SOUTHWEST_JUNCTION	(1<<6)
 #define NORTHWEST_JUNCTION	(1<<7)
 
+DEFINE_BITFIELD(smoothing_junction, list(
+	"NORTH_JUNCTION" = NORTH_JUNCTION,
+	"SOUTH_JUNCTION" = SOUTH_JUNCTION,
+	"EAST_JUNCTION" = EAST_JUNCTION,
+	"WEST_JUNCTION" = WEST_JUNCTION,
+	"NORTHEAST_JUNCTION" = NORTHEAST_JUNCTION,
+	"SOUTHEAST_JUNCTION" = SOUTHEAST_JUNCTION,
+	"SOUTHWEST_JUNCTION" = SOUTHWEST_JUNCTION,
+	"NORTHWEST_JUNCTION" = NORTHWEST_JUNCTION,
+))
+
 #define NO_ADJ_FOUND 0
 #define ADJ_FOUND 1
 #define NULLTURF_BORDER 2
 
 #define DEFAULT_UNDERLAY_ICON 			'icons/turf/floors.dmi'
-#define DEFAULT_UNDERLAY_ICOSTATE_JUNCTION 	"plating"
+#define DEFAULT_UNDERLAY_ICON_STATE 	"plating"
 
 
 #define SET_ADJ_IN_DIR(source, junction, direction, direction_flag) \
@@ -379,7 +390,7 @@
 /atom/proc/set_smoothed_icon_state(new_junction)
 	. = smoothing_junction
 	smoothing_junction = new_junction
-	icon_state = "[base_icon_state]-[smoothing_junction]"
+	icon_state = "[initial(icon_state)]-[smoothing_junction]"
 
 /turf/closed/set_smoothed_icon_state(new_junction)
 	. = ..()
@@ -395,10 +406,10 @@
 				SOUTH_JUNCTION|WEST_JUNCTION|SOUTHWEST_JUNCTION,
 				SOUTH_JUNCTION|EAST_JUNCTION|SOUTHEAST_JUNCTION
 				)
-				icon_state = "[base_icon_state]-[smoothing_junction]-d"
+				icon_state = "[initial(icon_state)]-[smoothing_junction]-d"
 				if(!fixed_underlay && new_junction != .) // Mutable underlays?
 					var/junction_dir = reverse_ndir(smoothing_junction)
-					var/turned_adjacency = REVERSE_DIR(junction_dir)
+					var/turned_adjacency = null //REVERSE_DIR(junction_dir)
 					var/turf/neighbor_turf = get_step(src, turned_adjacency & (NORTH|SOUTH))
 					var/mutable_appearance/underlay_appearance = mutable_appearance(layer = TURF_LAYER, plane = FLOOR_PLANE)
 					if(!neighbor_turf.get_smooth_underlay_icon(underlay_appearance, src, turned_adjacency))
