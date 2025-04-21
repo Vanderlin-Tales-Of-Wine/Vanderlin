@@ -366,7 +366,11 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/matron_assistant
-	name = "Matrons Assistant"
+	name = "Matron Assistant"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/gaffer_assistant
+	name = "Ring Servant"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/churchling
