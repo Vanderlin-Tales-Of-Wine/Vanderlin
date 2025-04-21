@@ -67,7 +67,7 @@
 	sheet_type = /obj/item/natural/stone
 	break_sound = 'sound/combat/hits/onstone/stonedeath.ogg'
 	attacked_sound = list('sound/combat/hits/onstone/wallhit.ogg', 'sound/combat/hits/onstone/wallhit2.ogg', 'sound/combat/hits/onstone/wallhit3.ogg')
-	smoothing_flags = SMOOTH_BITMASK
+	smoothing_flags = SMOOTH_BITMASK_CARDINALS
 	smoothing_groups = list(SMOOTH_GROUP_CLOSED, SMOOTH_GROUP_WALLS_STONE_DECO)
 	canSmoothWith = list(SMOOTH_GROUP_WALLS_STONE_DECO)
 	above_floor = /turf/open/floor/blocks
@@ -410,7 +410,7 @@
 	sheet_type = null
 	break_sound = 'sound/combat/hits/onmetal/sheet (1).ogg'
 	attacked_sound = list('sound/combat/hits/onmetal/attackpipewall (1).ogg','sound/combat/hits/onmetal/attackpipewall (2).ogg')
-	smoothing_flags = SMOOTH_BITMASK
+	smoothing_flags = SMOOTH_BITMASK_CARDINALS
 	smoothing_groups = list(SMOOTH_GROUP_CLOSED, SMOOTH_GROUP_WALLS_PIPE)
 	canSmoothWith = list(SMOOTH_GROUP_WALLS_PIPE)
 	above_floor = /turf/open/floor/concrete

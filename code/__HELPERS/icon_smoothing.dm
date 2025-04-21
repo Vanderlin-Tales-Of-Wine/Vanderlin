@@ -18,7 +18,8 @@
 	To see an example of a diagonal wall, see '/turf/closed/wall/mineral/titanium' and its subtypes.
 */
 
-//Redefinitions of the diagonal directions so they can be stored in one var without conflicts
+// Components of a smoothing junction
+// Redefinitions of the diagonal directions so they can be stored in one var without conflicts
 #define NORTH_JUNCTION		NORTH //(1<<0)
 #define SOUTH_JUNCTION		SOUTH //(1<<1)
 #define EAST_JUNCTION		EAST  //(1<<2)
@@ -45,7 +46,6 @@ DEFINE_BITFIELD(smoothing_junction, list(
 
 #define DEFAULT_UNDERLAY_ICON 			'icons/turf/floors.dmi'
 #define DEFAULT_UNDERLAY_ICON_STATE 	"plating"
-
 
 #define SET_ADJ_IN_DIR(source, junction, direction, direction_flag) \
 	do { \
@@ -143,10 +143,12 @@ DEFINE_BITFIELD(smoothing_junction, list(
 
 //do not use, use QUEUE_SMOOTH(atom)
 /atom/proc/smooth_icon()
+	if(QDELETED(src))
+		return
 	smoothing_flags &= ~SMOOTH_QUEUED
 	if (!z)
 		CRASH("[type] called smooth_icon() without being on a z-level")
-	if(smoothing_flags & SMOOTH_BITMASK)
+	if(smoothing_flags & (SMOOTH_BITMASK|SMOOTH_BITMASK_CARDINALS))
 		bitmask_smooth()
 	if(smoothing_flags & SMOOTH_EDGE)
 		if(isturf(src))
@@ -259,7 +261,7 @@ DEFINE_BITFIELD(smoothing_junction, list(
 	for(var/direction in GLOB.cardinals) //Cardinal case first.
 		SET_ADJ_IN_DIR(src, new_junction, direction, direction)
 
-	if(!(new_junction & (NORTH|SOUTH)) || !(new_junction & (EAST|WEST)))
+	if(smoothing_flags & SMOOTH_BITMASK_CARDINALS || !(new_junction & (NORTH|SOUTH)) || !(new_junction & (EAST|WEST)))
 		set_smoothed_icon_state(new_junction)
 		return
 
@@ -279,24 +281,23 @@ DEFINE_BITFIELD(smoothing_junction, list(
 
 	set_smoothed_icon_state(new_junction)
 
-///Changes the icon state based on the new junction bitmask. Returns the old junction value.
+///Changes the icon state based on the new junction bitmask.
 /atom/proc/set_smoothed_icon_state(new_junction)
-	. = smoothing_junction
-	icon_state = "[initial(icon_state)]-[smoothing_junction]"
+	icon_state = "[initial(icon_state)]-[new_junction]"
 
 //Icon smoothing helpers
 /proc/smooth_zlevel(zlevel, now = FALSE)
 	var/list/away_turfs = block(locate(1, 1, zlevel), locate(world.maxx, world.maxy, zlevel))
 	for(var/V in away_turfs)
 		var/turf/T = V
-		if(T.smoothing_flags)
+		if(T.smoothing_flags & USES_SMOOTHING)
 			if(now)
 				T.smooth_icon()
 			else
 				QUEUE_SMOOTH(T)
 		for(var/R in T)
 			var/atom/A = R
-			if(A.smoothing_flags)
+			if(A.smoothing_flags & USES_SMOOTHING)
 				if(now)
 					A.smooth_icon()
 				else

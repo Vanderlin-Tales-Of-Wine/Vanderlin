@@ -1,8 +1,8 @@
 /* smoothing_flags */
 /// Smoothing system in where adjacencies are calculated and used to select a pre-baked icon_state, encoded by bitmasking.
 #define SMOOTH_BITMASK	(1<<0)
-/// Smooths with diagonal neighbours
-#define SMOOTH_DIAGONAL	(1<<1)
+/// Limits SMOOTH_BITMASK to only cardinal directions, for use with cardinal smoothing
+#define SMOOTH_BITMASK_CARDINALS (1<<1)
 /**
  * turf only, will smooth via overlaying adjacent turfs
  * Uses var/neighborlay
@@ -11,15 +11,17 @@
 #define SMOOTH_EDGE		(1<<2)
 /// atom will smooth with the borders of the map
 #define SMOOTH_BORDER	(1<<3)
-
 /// smooths with objects, and will thus need to scan turfs for contents.
 #define SMOOTH_OBJ		(1<<4)
 /// atom is currently queued to smooth.
 #define SMOOTH_QUEUED	(1<<5)
 
+#define USES_SMOOTHING (SMOOTH_BITMASK|SMOOTH_BITMASK_CARDINALS|SMOOTH_EDGE)
+
 DEFINE_BITFIELD(smooth, list(
 	"SMOOTH_BORDER" = SMOOTH_BORDER,
 	"SMOOTH_BITMASK" = SMOOTH_BITMASK,
+	"SMOOTH_BITMASK_CARDINALS" = SMOOTH_BITMASK_CARDINALS,
 	"SMOOTH_EDGE" = SMOOTH_EDGE,
 	"SMOOTH_OBJ" = SMOOTH_OBJ,
 	"SMOOTH_QUEUED" = SMOOTH_QUEUED,
@@ -27,9 +29,9 @@ DEFINE_BITFIELD(smooth, list(
 
 /*smoothing macros*/
 
-#define QUEUE_SMOOTH(thing_to_queue) if(thing_to_queue.smoothing_flags) {SSicon_smooth.add_to_queue(thing_to_queue)}
+#define QUEUE_SMOOTH(thing_to_queue) if(thing_to_queue.smoothing_flags & USES_SMOOTHING) {SSicon_smooth.add_to_queue(thing_to_queue)}
 
-#define QUEUE_SMOOTH_NEIGHBORS(thing_to_queue) for(var/neighbor in orange(1, thing_to_queue)) {var/atom/atom_neighbor = neighbor; QUEUE_SMOOTH(atom_neighbor)}
+#define QUEUE_SMOOTH_NEIGHBORS(thing_to_queue) for(var/atom/atom_neighbor as anything in orange(1, thing_to_queue)) {QUEUE_SMOOTH(atom_neighbor)}
 
 
 /**SMOOTHING GROUPS

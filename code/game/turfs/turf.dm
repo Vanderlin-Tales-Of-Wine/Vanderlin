@@ -83,7 +83,7 @@
 		if(canSmoothWith[length(canSmoothWith)] > MAX_S_TURF) //If the last element is higher than the maximum turf-only value, then it must scan turf contents for smoothing targets.
 			smoothing_flags |= SMOOTH_OBJ
 		SET_BITFLAG_LIST(canSmoothWith)
-	if(smoothing_flags & (SMOOTH_BITMASK | SMOOTH_EDGE))
+	if(smoothing_flags & USES_SMOOTHING)
 		QUEUE_SMOOTH(src)
 
 	for(var/atom/movable/AM in src)
