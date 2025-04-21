@@ -1,2 +1,2 @@
 output_name = "wood"
-template = "bitmask/cardinal_32x32.toml"
+template = "cardinal_32x32.toml"
