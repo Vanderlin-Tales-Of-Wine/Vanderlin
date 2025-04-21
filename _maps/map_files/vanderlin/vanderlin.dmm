@@ -3818,6 +3818,12 @@
 /obj/structure/fermentation_keg,
 /turf/open/floor/wood,
 /area/rogue/indoors/soilsons)
+"cuZ" = (
+/obj/effect/landmark/start/gaffer_assistant{
+	dir = 1
+	},
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/indoors/town/merc_guild)
 "cvc" = (
 /obj/structure/table/wood/plain/alto,
 /turf/open/floor/herringbone,
@@ -92544,7 +92550,7 @@ mOW
 sEn
 luA
 pGO
-pGO
+cuZ
 jMD
 jMD
 jMD
