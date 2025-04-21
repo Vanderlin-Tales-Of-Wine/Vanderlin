@@ -1,27 +1,25 @@
 /* smoothing_flags */
-/// Smoothing system in where adjacencies are calculated and used to build an image by mounting each corner at runtime.
-#define SMOOTH_CORNERS	(1<<0)
 /// Smoothing system in where adjacencies are calculated and used to select a pre-baked icon_state, encoded by bitmasking.
-#define SMOOTH_BITMASK		(1<<1)
-/// Atom has diagonal corners, with underlays under them.
-#define SMOOTH_DIAGONAL_CORNERS	(1<<2)
-/// atom will smooth with the borders of the map
-#define SMOOTH_BORDER	(1<<3)
+#define SMOOTH_BITMASK	(1<<0)
+/// Smooths with diagonal neighbours
+#define SMOOTH_DIAGONAL	(1<<1)
 /**
  * turf only, will smooth via overlaying adjacent turfs
  * Uses var/neighborlay
+ * compatible with other smoothing flags
  */
-#define SMOOTH_EDGE		(1<<4)
+#define SMOOTH_EDGE		(1<<2)
+/// atom will smooth with the borders of the map
+#define SMOOTH_BORDER	(1<<3)
+
 /// smooths with objects, and will thus need to scan turfs for contents.
-#define SMOOTH_OBJ		(1<<5)
+#define SMOOTH_OBJ		(1<<4)
 /// atom is currently queued to smooth.
-#define SMOOTH_QUEUED	(1<<6)
+#define SMOOTH_QUEUED	(1<<5)
 
 DEFINE_BITFIELD(smooth, list(
 	"SMOOTH_BORDER" = SMOOTH_BORDER,
 	"SMOOTH_BITMASK" = SMOOTH_BITMASK,
-	"SMOOTH_CORNERS" = SMOOTH_CORNERS,
-	"SMOOTH_DIAGONAL_CORNERS" = SMOOTH_DIAGONAL_CORNERS,
 	"SMOOTH_EDGE" = SMOOTH_EDGE,
 	"SMOOTH_OBJ" = SMOOTH_OBJ,
 	"SMOOTH_QUEUED" = SMOOTH_QUEUED,
@@ -75,9 +73,10 @@ DEFINE_BITFIELD(smooth, list(
 #define SMOOTH_GROUP_WALLS_STONE S_TURF(29)				///turf/closed/wall/mineral/stone
 #define SMOOTH_GROUP_WALLS_STONE_CRAFT S_TURF(30)		///turf/closed/wall/mineral/craftstone
 #define SMOOTH_GROUP_WALLS_STONE_BRICK S_TURF(31)		///turf/closed/wall/mineral/stonebrick
-#define SMOOTH_GROUP_WALLS_PIPE S_TURF(32)				///turf/closed/wall/mineral/pipe
-#define SMOOTH_GROUP_WALLS_EREBUS S_TURF(33)			///turf/closed/wall/mineral/underbrick
-#define SMOOTH_GROUP_WALLS_WOOD S_TURF(34)				///turf/closed/wall/mineral/wood
+#define SMOOTH_GROUP_WALLS_STONE_DECO S_TURF(32)
+#define SMOOTH_GROUP_WALLS_PIPE S_TURF(33)				///turf/closed/wall/mineral/pipe
+#define SMOOTH_GROUP_WALLS_EREBUS S_TURF(34)			///turf/closed/wall/mineral/underbrick
+#define SMOOTH_GROUP_WALLS_WOOD S_TURF(35)				///turf/closed/wall/mineral/wood
 
 #define MAX_S_TURF SMOOTH_GROUP_WALLS_WOOD //Always match this value with the one above it.
 

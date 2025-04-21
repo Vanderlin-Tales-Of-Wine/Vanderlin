@@ -330,7 +330,7 @@
 // Inhumen boss bed. Sleeping on a bear! Kinda comfy, sort of
 /obj/structure/bed/bear
 	desc = "A hide of a slain bear. It looks like someone sleeps on it often."
-	icon = 'icons/turf/floors/bear.dmi'
+	icon = 'icons/obj/bear.dmi'
 	icon_state = "bear"
 	sleepy = 1
 

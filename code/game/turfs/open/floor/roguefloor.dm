@@ -60,8 +60,8 @@
 	ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
 
 /turf/open/floor/wood
-	icon = 'icons/turf/floors/wood.dmi'
-	icon_state = "wood"
+	icon = 'icons/turf/smooth/floors/wood.dmi'
+	icon_state = MAP_SWITCH("wood", "wood-0")
 	footstep = FOOTSTEP_WOOD
 	barefootstep = FOOTSTEP_HARD_BAREFOOT
 	clawfootstep = FOOTSTEP_WOOD_CLAW
@@ -74,8 +74,6 @@
 	max_integrity = 600
 
 /turf/open/floor/wood/nosmooth //these are here so we can put wood floors next to each other but not have them smooth
-	icon_state = "woodsmooth"
-	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_OPEN_FLOOR, SMOOTH_GROUP_WOOD_ALT)
 	canSmoothWith = list(SMOOTH_GROUP_WOOD_ALT)
 
@@ -84,18 +82,18 @@
 	ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
 
 /turf/open/floor/wood/nosmooth/saiga
-	icon = 'icons/turf/floors/woodalt.dmi'
-	icon_state = "wood"
+	icon = 'icons/turf/smooth/floors/wood_alt.dmi'
 	smoothing_groups = list(SMOOTH_GROUP_OPEN_FLOOR, SMOOTH_GROUP_WOOD_SAIGA)
 	canSmoothWith = list(SMOOTH_GROUP_WOOD_SAIGA)
 
 /turf/open/floor/woodturned
-	icon = 'icons/turf/floors/wood_turned.dmi'
-	icon_state = "wood"
+	icon = 'icons/turf/smooth/floors/wood_turned.dmi'
+	icon_state = MAP_SWITCH("wood", "wood-0")
 	footstep = FOOTSTEP_WOOD
 	barefootstep = FOOTSTEP_HARD_BAREFOOT
 	clawfootstep = FOOTSTEP_WOOD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	landsound = 'sound/foley/jumpland/woodland.wav'
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_OPEN_FLOOR, SMOOTH_GROUP_WOODTURNED)
 	canSmoothWith = list(SMOOTH_GROUP_WOODTURNED)
@@ -107,13 +105,13 @@
 	ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
 
 /turf/open/floor/woodturned/nosmooth
-	icon_state = "woodsmooth"
-	smoothing_groups = list(SMOOTH_GROUP_OPEN_FLOOR, SMOOTH_GROUP_WOODTURNED)
-	canSmoothWith = list(SMOOTH_GROUP_WOODTURNED)
+	smoothing_groups = list(SMOOTH_GROUP_OPEN_FLOOR, SMOOTH_GROUP_WOODTURNED_ALT)
+	canSmoothWith = list(SMOOTH_GROUP_WOODTURNED_ALT)
 
 /turf/open/floor/woodturned/nosmooth/saiga
-	icon = 'icons/turf/floors/woodalt_turned.dmi'
-	icon_state = "wood"
+	icon = 'icons/turf/smooth/floors/wood_turned_alt.dmi'
+	smoothing_groups = list(SMOOTH_GROUP_OPEN_FLOOR, SMOOTH_GROUP_WOOD_SAIGA)
+	canSmoothWith = list(SMOOTH_GROUP_WOOD_SAIGA)
 
 /turf/open/floor/rooftop
 	name = "roof"

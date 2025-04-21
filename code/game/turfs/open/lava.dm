@@ -2,8 +2,8 @@
 
 /turf/open/lava
 	name = "lava"
-	icon_state = "lava"
 	icon = 'icons/turf/floors.dmi'
+	icon_state = "lava"
 	gender = PLURAL //"That's some lava."
 	baseturfs = /turf/open/lava //lava all the way down
 	slowdown = 2
@@ -26,7 +26,6 @@
 
 /turf/open/lava/flow
 	icon_state = "flowing-lava"
-
 	flow = TRUE
 
 /turf/open/lava/Initialize()
@@ -156,14 +155,6 @@
 				L.IgniteMob()
 				if(L.health <= 0)
 					L.dust(drop_items = TRUE)
-
-/turf/open/lava/smooth
-	name = "lava"
-	baseturfs = /turf/open/lava/smooth
-	icon = 'icons/turf/floors/lava.dmi'
-	icon_state = "unsmooth"
-	smoothing_flags = SMOOTH_CORNERS | SMOOTH_BORDER
-	canSmoothWith = list(SMOOTH_GROUP_FLOOR_LAVA)
 
 /turf/open/lava/acid
 	name = "acid"

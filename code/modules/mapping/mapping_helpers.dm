@@ -47,10 +47,6 @@
 	else
 		thing.PlaceOnBottom(null, baseturf)
 
-/obj/effect/baseturf_helper/lava
-	name = "lava baseturf editor"
-	baseturf = /turf/open/lava/smooth
-
 /obj/effect/mapping_helpers
 	icon = 'icons/effects/mapping_helpers.dmi'
 	icon_state = ""

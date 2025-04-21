@@ -146,125 +146,14 @@ DEFINE_BITFIELD(smoothing_junction, list(
 	smoothing_flags &= ~SMOOTH_QUEUED
 	if (!z)
 		CRASH("[type] called smooth_icon() without being on a z-level")
-	if(smoothing_flags & SMOOTH_CORNERS)
-		if(smoothing_flags & SMOOTH_DIAGONAL_CORNERS)
-			corners_diagonal_smooth(calculate_adjacencies())
-		else
-			corners_cardinal_smooth(calculate_adjacencies())
-	else if(smoothing_flags & SMOOTH_BITMASK)
+	if(smoothing_flags & SMOOTH_BITMASK)
 		bitmask_smooth()
-	else
-		CRASH("smooth_icon called for [src] with smoothing_flags == [smoothing_flags]")
-
-/turf/smooth_icon()
-	. = ..()
 	if(smoothing_flags & SMOOTH_EDGE)
-		edge_cardinal_smooth(calculate_adjacencies())
-
-/atom/proc/corners_diagonal_smooth(adjacencies)
-	switch(adjacencies)
-		if(NORTH_JUNCTION|WEST_JUNCTION)
-			replace_smooth_overlays("d-se","d-se-0")
-		if(NORTH_JUNCTION|EAST_JUNCTION)
-			replace_smooth_overlays("d-sw","d-sw-0")
-		if(SOUTH_JUNCTION|WEST_JUNCTION)
-			replace_smooth_overlays("d-ne","d-ne-0")
-		if(SOUTH_JUNCTION|EAST_JUNCTION)
-			replace_smooth_overlays("d-nw","d-nw-0")
-
-		if(NORTH_JUNCTION|WEST_JUNCTION|NORTHWEST_JUNCTION)
-			replace_smooth_overlays("d-se","d-se-1")
-		if(NORTH_JUNCTION|EAST_JUNCTION|NORTHEAST_JUNCTION)
-			replace_smooth_overlays("d-sw","d-sw-1")
-		if(SOUTH_JUNCTION|WEST_JUNCTION|SOUTHWEST_JUNCTION)
-			replace_smooth_overlays("d-ne","d-ne-1")
-		if(SOUTH_JUNCTION|EAST_JUNCTION|SOUTHEAST_JUNCTION)
-			replace_smooth_overlays("d-nw","d-nw-1")
-
+		if(isturf(src))
+			var/turf/T = src
+			T.edge_cardinal_smooth(calculate_adjacencies())
 		else
-			corners_cardinal_smooth(adjacencies)
-			return FALSE
-
-	icon_state = ""
-	return TRUE
-
-/atom/proc/corners_cardinal_smooth(adjacencies)
-	//NW CORNER
-	var/nw = "1-i"
-	if((adjacencies & NORTH_JUNCTION) && (adjacencies & WEST_JUNCTION))
-		if(adjacencies & NORTHWEST_JUNCTION)
-			nw = "1-f"
-		else
-			nw = "1-nw"
-	else
-		if(adjacencies & NORTH_JUNCTION)
-			nw = "1-n"
-		else if(adjacencies & WEST_JUNCTION)
-			nw = "1-w"
-
-	//NE CORNER
-	var/ne = "2-i"
-	if((adjacencies & NORTH_JUNCTION) && (adjacencies & EAST_JUNCTION))
-		if(adjacencies & NORTHEAST_JUNCTION)
-			ne = "2-f"
-		else
-			ne = "2-ne"
-	else
-		if(adjacencies & NORTH_JUNCTION)
-			ne = "2-n"
-		else if(adjacencies & EAST_JUNCTION)
-			ne = "2-e"
-
-	//SW CORNER
-	var/sw = "3-i"
-	if((adjacencies & SOUTH_JUNCTION) && (adjacencies & WEST_JUNCTION))
-		if(adjacencies & SOUTHWEST_JUNCTION)
-			sw = "3-f"
-		else
-			sw = "3-sw"
-	else
-		if(adjacencies & SOUTH_JUNCTION)
-			sw = "3-s"
-		else if(adjacencies & WEST_JUNCTION)
-			sw = "3-w"
-
-	//SE CORNER
-	var/se = "4-i"
-	if((adjacencies & SOUTH_JUNCTION) && (adjacencies & EAST_JUNCTION))
-		if(adjacencies & SOUTHEAST_JUNCTION)
-			se = "4-f"
-		else
-			se = "4-se"
-	else
-		if(adjacencies & SOUTH_JUNCTION)
-			se = "4-s"
-		else if(adjacencies & EAST_JUNCTION)
-			se = "4-e"
-
-	var/list/new_overlays
-
-	if(top_left_corner != nw)
-		cut_overlay(top_left_corner)
-		top_left_corner = nw
-		LAZYADD(new_overlays, nw)
-
-	if(top_right_corner != ne)
-		cut_overlay(top_right_corner)
-		top_right_corner = ne
-		LAZYADD(new_overlays, ne)
-
-	if(bottom_right_corner != sw)
-		cut_overlay(bottom_right_corner)
-		bottom_right_corner = sw
-		LAZYADD(new_overlays, sw)
-
-	if(bottom_left_corner != se)
-		cut_overlay(bottom_left_corner)
-		bottom_left_corner = se
-		LAZYADD(new_overlays, se)
-
-	if(new_overlays)
-		add_overlay(new_overlays)
+			CRASH("SMOOTH_EDGE set on non-compatible atom for [src]! Requires turf.")
 
 /turf/proc/edge_cardinal_smooth(adjacencies)
 	var/list/New
@@ -393,40 +282,7 @@ DEFINE_BITFIELD(smoothing_junction, list(
 ///Changes the icon state based on the new junction bitmask. Returns the old junction value.
 /atom/proc/set_smoothed_icon_state(new_junction)
 	. = smoothing_junction
-	smoothing_junction = new_junction
 	icon_state = "[initial(icon_state)]-[smoothing_junction]"
-
-/turf/closed/set_smoothed_icon_state(new_junction)
-	. = ..()
-	if(smoothing_flags & SMOOTH_DIAGONAL_CORNERS)
-		switch(new_junction)
-			if(
-				NORTH_JUNCTION|WEST_JUNCTION,
-				NORTH_JUNCTION|EAST_JUNCTION,
-				SOUTH_JUNCTION|WEST_JUNCTION,
-				SOUTH_JUNCTION|EAST_JUNCTION,
-				NORTH_JUNCTION|WEST_JUNCTION|NORTHWEST_JUNCTION,
-				NORTH_JUNCTION|EAST_JUNCTION|NORTHEAST_JUNCTION,
-				SOUTH_JUNCTION|WEST_JUNCTION|SOUTHWEST_JUNCTION,
-				SOUTH_JUNCTION|EAST_JUNCTION|SOUTHEAST_JUNCTION
-				)
-				icon_state = "[initial(icon_state)]-[smoothing_junction]-d"
-				if(!fixed_underlay && new_junction != .) // Mutable underlays?
-					var/junction_dir = reverse_ndir(smoothing_junction)
-					var/turned_adjacency = REVERSE_DIR(junction_dir)
-					var/turf/neighbor_turf = get_step(src, turned_adjacency & (NORTH|SOUTH))
-					var/mutable_appearance/underlay_appearance = mutable_appearance(layer = TURF_LAYER, plane = FLOOR_PLANE)
-					if(!neighbor_turf.get_smooth_underlay_icon(underlay_appearance, src, turned_adjacency))
-						neighbor_turf = get_step(src, turned_adjacency & (EAST|WEST))
-						if(!neighbor_turf.get_smooth_underlay_icon(underlay_appearance, src, turned_adjacency))
-							neighbor_turf = get_step(src, turned_adjacency)
-							if(!neighbor_turf.get_smooth_underlay_icon(underlay_appearance, src, turned_adjacency))
-								if(!get_smooth_underlay_icon(underlay_appearance, src, turned_adjacency)) //if all else fails, ask our own turf
-									underlay_appearance.icon = DEFAULT_UNDERLAY_ICON
-									underlay_appearance.icon_state = DEFAULT_UNDERLAY_ICON_STATE
-					underlays = list(underlay_appearance)
-	return ..()
-
 
 //Icon smoothing helpers
 /proc/smooth_zlevel(zlevel, now = FALSE)
@@ -445,31 +301,6 @@ DEFINE_BITFIELD(smoothing_junction, list(
 					A.smooth_icon()
 				else
 					QUEUE_SMOOTH(A)
-
-
-/atom/proc/clear_smooth_overlays()
-	cut_overlay(top_left_corner)
-	top_left_corner = null
-	cut_overlay(top_right_corner)
-	top_right_corner = null
-	cut_overlay(bottom_right_corner)
-	bottom_right_corner = null
-	cut_overlay(bottom_left_corner)
-	bottom_left_corner = null
-
-/atom/proc/replace_smooth_overlays(nw, ne, sw, se)
-	clear_smooth_overlays()
-	var/list/O = list()
-	top_left_corner = nw
-	O += nw
-	top_right_corner = ne
-	O += ne
-	bottom_left_corner = sw
-	O += sw
-	bottom_right_corner = se
-	O += se
-	add_overlay(O)
-
 
 /proc/reverse_ndir(ndir)
 	switch(ndir)
@@ -507,16 +338,6 @@ DEFINE_BITFIELD(smoothing_junction, list(
 			return SOUTHEAST
 		else
 			return NONE
-
-
-//Example smooth wall
-/turf/closed/wall/smooth
-	name = "smooth wall"
-	icon = 'icons/turf/smooth_wall.dmi'
-	icon_state = "smooth"
-	smoothing_flags = SMOOTH_CORNERS | SMOOTH_DIAGONAL_CORNERS | SMOOTH_BORDER
-	smoothing_groups = null
-	canSmoothWith = null
 
 #undef NORTH_JUNCTION
 #undef SOUTH_JUNCTION

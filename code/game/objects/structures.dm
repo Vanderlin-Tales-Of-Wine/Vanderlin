@@ -18,7 +18,7 @@
 	if (!armor)
 		armor = list("blunt" = 0, "slash" = 0, "stab" = 0,  "piercing" = 0, "fire" = 50, "acid" = 50)
 	. = ..()
-	if(smoothing_flags)
+	if(smoothing_flags & SMOOTH_BITMASK)
 		QUEUE_SMOOTH(src)
 		QUEUE_SMOOTH_NEIGHBORS(src)
 		icon_state = ""

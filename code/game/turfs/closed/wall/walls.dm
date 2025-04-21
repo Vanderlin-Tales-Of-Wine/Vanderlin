@@ -1,7 +1,7 @@
 /turf/closed/wall/mineral/stone
 	name = "stone wall"
 	desc = "A wall of smooth, unyielding stone."
-	icon = 'icons/turf/walls/stone.dmi'
+	icon = 'icons/turf/smooth/walls/stone.dmi'
 	icon_state = MAP_SWITCH("stone", "stone-0")
 	blade_dulling = DULLING_BASH
 	max_integrity = 1200
@@ -21,7 +21,7 @@
 /turf/closed/wall/mineral/stone/window
 	name = "stone murder hole"
 	desc = "A wall of stone with convenient small indents on it, perfect to let loose arrows against invaders."
-	icon_state = "stonewindow"
+	icon = MAP_SWITCH('icons/turf/smooth/walls/stone.dmi', 'icons/turf/window.dmi')
 	opacity = FALSE
 	max_integrity = 800
 	explosion_block = 2
@@ -33,43 +33,43 @@
 
 /turf/closed/wall/mineral/stone/window/Initialize()
 	. = ..()
-	icon_state = "stone"
-	var/mutable_appearance/M = mutable_appearance(icon, "stonehole", layer = ABOVE_NORMAL_TURF_LAYER)
+	var/mutable_appearance/M = mutable_appearance('icons/turf/window.dmi', "stonehole", layer = ABOVE_NORMAL_TURF_LAYER)
 	add_overlay(M)
 
 /turf/closed/wall/mineral/stone/moss
-	icon = 'icons/turf/walls/stone_moss.dmi'
+	icon = 'icons/turf/smooth/walls/stone_moss.dmi'
 	climbdiff = 4
 
 /turf/closed/wall/mineral/stone/window/moss
-	icon = 'icons/turf/walls/stone_moss.dmi'
+	icon = 'icons/turf/smooth/walls/stone_moss.dmi'
 	icon_state = "window"
 	climbdiff = 4
 
 /turf/closed/wall/mineral/stone/moss/blue
-	icon = 'icons/turf/walls/stone_moss_blue.dmi'
+	icon = 'icons/turf/smooth/walls/stone_moss_blue.dmi'
 
 /turf/closed/wall/mineral/stone/window/moss/blue
-	icon = 'icons/turf/walls/stone_moss_blue.dmi'
+	icon = 'icons/turf/smooth/walls/stone_moss_blue.dmi'
 
 /turf/closed/wall/mineral/stone/moss/red
-	icon = 'icons/turf/walls/stone_moss_red.dmi'
+	icon = 'icons/turf/smooth/walls/stone_moss_red.dmi'
 
 /turf/closed/wall/mineral/stone/window/moss/red
-	icon = 'icons/turf/walls/stone_moss_red.dmi'
+	icon = 'icons/turf/smooth/walls/stone_moss_red.dmi'
 
 /turf/closed/wall/mineral/decorstone
 	name = "decorated stone wall"
 	desc = "The mason did an excellent job etching details into this wall."
-	icon = 'icons/turf/walls/church_stone.dmi'
-	icon_state = "decorstone"
-	smooth = SMOOTH_MORE
+	icon = 'icons/turf/smooth/walls/stone_deco.dmi'
+	icon_state = MAP_SWITCH("stone_deco", "stone_deco-0")
 	blade_dulling = DULLING_BASH
 	max_integrity = 2200
 	sheet_type = /obj/item/natural/stone
 	break_sound = 'sound/combat/hits/onstone/stonedeath.ogg'
 	attacked_sound = list('sound/combat/hits/onstone/wallhit.ogg', 'sound/combat/hits/onstone/wallhit2.ogg', 'sound/combat/hits/onstone/wallhit3.ogg')
-	canSmoothWith = list(/turf/closed/wall/mineral/decorstone)
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = list(SMOOTH_GROUP_CLOSED, SMOOTH_GROUP_WALLS_STONE_DECO)
+	canSmoothWith = list(SMOOTH_GROUP_WALLS_STONE_DECO)
 	above_floor = /turf/open/floor/blocks
 	baseturfs = list(/turf/open/floor/blocks)
 	neighborlay = "dirtedge"
@@ -78,19 +78,19 @@
 	hardness = 2
 
 /turf/closed/wall/mineral/decorstone/moss
-	icon = 'icons/turf/walls/church_stone_mossy.dmi'
+	icon = 'icons/turf/smooth/walls/stone_d_moss.dmi'
 
 /turf/closed/wall/mineral/decorstone/moss/blue
-	icon = 'icons/turf/walls/church_stone_mossyblue.dmi'
+	icon = 'icons/turf/smooth/walls/stone_d_moss_b.dmi'
 
 /turf/closed/wall/mineral/decorstone/moss/red
-	icon = 'icons/turf/walls/church_stone_mossyred.dmi'
+	icon = 'icons/turf/smooth/walls/stone_d_moss_r.dmi'
 
 /turf/closed/wall/mineral/craftstone
 	name = "craftstone wall"
 	desc = "A durable wall made from specially crafted stone."
-	icon = 'icons/turf/walls/stone_fancy.dmi'
-	icon_state = MAP_SWITCH("stone_fancy", "stone_fancy-0")
+	icon = 'icons/turf/smooth/walls/stone_fancy.dmi'
+	icon_state = MAP_SWITCH("craftstone", "craftstone-0")
 	blade_dulling = DULLING_BASH
 	max_integrity = 2200
 	sheet_type = /obj/item/natural/stone
@@ -108,7 +108,7 @@
 /turf/closed/wall/mineral/stonebrick
 	name = "brick wall"
 	desc = "Several rows of bricks form this wall."
-	icon = 'icons/turf/walls/stone_brick.dmi'
+	icon = 'icons/turf/smooth/walls/stone_brick.dmi'
 	icon_state = MAP_SWITCH("stone_brick", "stone_brick-0")
 
 	wallclimb = FALSE
@@ -140,11 +140,10 @@
 /obj/structure/stairs/stone/reddish
 	color = "#ffddd7"
 
-
 /turf/closed/wall/mineral/wood
 	name = "wooden wall"
 	desc = "A rough-hewn wall of wood."
-	icon = 'icons/turf/walls/wood.dmi'
+	icon = 'icons/turf/smooth/walls/wood.dmi'
 	icon_state = MAP_SWITCH("wood", "wood-0")
 	blade_dulling = DULLING_BASHCHOP
 	max_integrity = 1100
@@ -166,7 +165,7 @@
 /turf/closed/wall/mineral/wood/window
 	name = "wooden window"
 	desc = "A window with a rough-hewn wooden frame."
-	icon_state = "woodwindow"
+	icon = MAP_SWITCH('icons/turf/smooth/walls/wood.dmi', 'icons/turf/window.dmi')
 	opacity = FALSE
 	max_integrity = 550
 
@@ -177,7 +176,7 @@
 
 /turf/closed/wall/mineral/wood/window/Initialize()
 	. = ..()
-	var/mutable_appearance/M = mutable_appearance(icon, "woodhole", layer = ABOVE_NORMAL_TURF_LAYER)
+	var/mutable_appearance/M = mutable_appearance('icons/turf/window.dmi', "woodhole", layer = ABOVE_NORMAL_TURF_LAYER)
 	add_overlay(M)
 
 /turf/closed/wall/mineral/tent
@@ -215,7 +214,6 @@
 	max_integrity = 1500
 	break_sound = 'sound/combat/hits/onwood/destroywalldoor.ogg'
 	attacked_sound = list('sound/combat/hits/onwood/woodimpact (1).ogg','sound/combat/hits/onwood/woodimpact (2).ogg')
-//	sheet_type = /obj/item/grown/log/tree/lumber
 	above_floor = /turf/open/floor/ruinedwood
 	baseturfs = list(/turf/open/floor/ruinedwood)
 	neighborlay = "dirtedge"
@@ -405,7 +403,7 @@
 
 /turf/closed/wall/mineral/pipe
 	name = "metal wall"
-	icon = 'icons/turf/walls/pipe.dmi'
+	icon = 'icons/turf/smooth/walls/pipe.dmi'
 	icon_state = MAP_SWITCH("pipe", "pipe-0")
 	blade_dulling = DULLING_BASH
 	max_integrity = 10000
@@ -415,9 +413,6 @@
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_CLOSED, SMOOTH_GROUP_WALLS_PIPE)
 	canSmoothWith = list(SMOOTH_GROUP_WALLS_PIPE)
-	smoothing_flags = NONE
-	smoothing_groups = null
-	canSmoothWith = null
 	above_floor = /turf/open/floor/concrete
 	baseturfs = list(/turf/open/floor/concrete)
 	climbdiff = 1
@@ -427,7 +422,7 @@
 /turf/closed/wall/mineral/underbrick
 	name = "erebus stone wall"
 	desc = "The toils of hard-working shades."
-	icon = 'icons/turf/walls/brick_under.dmi'
+	icon = 'icons/turf/smooth/walls/brick_under.dmi'
 	icon_state = MAP_SWITCH("brick_under", "brick_under-0")
 	smoothing_flags = SMOOTH_BITMASK
 	wallclimb = FALSE
