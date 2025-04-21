@@ -59,7 +59,7 @@
 #endif								//	1 to use the default behaviour;
 									//	2 for preloading absolutely everything;
 
-//#define LOWMEMORYMODE //uncomment this to load centcom and roguetest and thats it.
+#define LOWMEMORYMODE //uncomment this to load centcom and roguetest and thats it.
 
 //#define NO_DUNGEON //comment this to load dungeons.
 
