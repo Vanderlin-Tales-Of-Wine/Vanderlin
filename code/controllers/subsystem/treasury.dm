@@ -132,7 +132,7 @@ SUBSYSTEM_DEF(treasury)
 		var/item_value = movable_atom.get_real_price() * interest_rate
 		vault_accounting[movable_atom.type] += 1
 		if(vault_accounting[movable_atom.type] > 1)
-			item_value *= multiple_item_penalty ** (vault_accounting[movable_atom.type]-1)
+			item_value *= (multiple_item_penalty ** (vault_accounting[movable_atom.type]-1))
 		total_value += item_value
 	return total_value
 
