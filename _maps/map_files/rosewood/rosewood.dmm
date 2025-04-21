@@ -2525,12 +2525,6 @@
 "bvf" = (
 /turf/open/floor/twig,
 /area/rogue/outdoors/town/roofs)
-"bvl" = (
-/mob/living/simple_animal/hostile/retaliate/troll/keep{
-	name = "Grigor"
-	},
-/turf/open/floor/blocks,
-/area/rogue/under/town/basement)
 "bvr" = (
 /obj/structure/fluff/railing/border,
 /turf/open/floor/naturalstone,
@@ -8873,9 +8867,14 @@
 /area/rogue/outdoors/town)
 "eQR" = (
 /obj/structure/closet/crate/chest/wicker,
-/obj/item/reagent_containers/powder/flour,
-/obj/item/reagent_containers/powder/flour,
 /obj/item/reagent_containers/food/snacks/meat/steak,
+/obj/item/reagent_containers/food/snacks/egg,
+/obj/item/reagent_containers/food/snacks/egg,
+/obj/item/reagent_containers/food/snacks/egg,
+/obj/item/reagent_containers/food/snacks/butter,
+/obj/item/reagent_containers/food/snacks/produce/wheat,
+/obj/item/reagent_containers/food/snacks/produce/wheat,
+/obj/item/reagent_containers/food/snacks/produce/wheat,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/merc_guild)
 "eQT" = (
@@ -9599,12 +9598,6 @@
 	},
 /turf/open/floor/woodturned/nosmooth/saiga,
 /area/rogue/under/town/basement)
-"fkP" = (
-/mob/living/simple_animal/hostile/retaliate/troll/keep{
-	name = "Alma"
-	},
-/turf/open/floor/blocks,
-/area/rogue/under/town/basement)
 "fkS" = (
 /turf/closed/wall/mineral/wooddark/end,
 /area/rogue/outdoors/town)
@@ -10078,14 +10071,11 @@
 /area/rogue/outdoors)
 "fyP" = (
 /obj/structure/table/wood/plain,
-/obj/item/cooking/pan{
-	pixel_x = 4;
-	pixel_y = -2
-	},
 /obj/item/weapon/knife/villager{
 	pixel_x = -9;
 	pixel_y = 6
 	},
+/obj/structure/fluff/millstone,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/merc_guild)
 "fyS" = (
@@ -13266,6 +13256,10 @@
 "hmr" = (
 /obj/machinery/light/fueled/hearth,
 /obj/machinery/light/fueled/oven/west,
+/obj/item/cooking/pan{
+	pixel_x = 4;
+	pixel_y = -2
+	},
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/merc_guild)
 "hmx" = (
@@ -14067,6 +14061,10 @@
 	},
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave)
+"hHT" = (
+/obj/structure/plasticflaps,
+/turf/open/floor/blocks/paving,
+/area/rogue/under/town/sewer)
 "hId" = (
 /obj/machinery/light/fueled/torchholder/r,
 /obj/structure/rack/shelf/biggest,
@@ -15308,6 +15306,9 @@
 	},
 /turf/open/floor/wood,
 /area/rogue/indoors/town/tavern)
+"itn" = (
+/turf/open/floor/blocks/paving,
+/area/rogue/under/cave)
 "its" = (
 /turf/open/floor/snow/patchy,
 /area/rogue/outdoors/town)
@@ -16332,8 +16333,8 @@
 /area/rogue/indoors/town/dwarfin)
 "iXx" = (
 /obj/structure/mineral_door/wood/green,
-/obj/effect/mapping_helpers/door/access/town/mercenary,
 /obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/door/access/town/gaffer,
 /turf/open/floor/cobblerock,
 /area/rogue/indoors/town/merc_guild)
 "iXU" = (
@@ -25230,6 +25231,11 @@
 "nTt" = (
 /turf/closed/wall/mineral/decostone/moss/blue,
 /area/rogue/outdoors/town)
+"nTw" = (
+/obj/structure/mineral_door/bars,
+/obj/effect/mapping_helpers/door/access/town/mercenary,
+/turf/open/floor/blocks/paving,
+/area/rogue/under/town/sewer)
 "nTy" = (
 /obj/structure/table/wood/reinf_long{
 	dir = 1
@@ -26978,6 +26984,9 @@
 	},
 /turf/open/floor/woodturned/nosmooth,
 /area/rogue/indoors/town/manor)
+"oNx" = (
+/turf/open/lava/acid,
+/area/rogue/under/cave)
 "oNz" = (
 /obj/machinery/light/fueled/wallfire/candle/l,
 /obj/structure/bookcase/random,
@@ -29049,6 +29058,9 @@
 /obj/effect/landmark/events/animal_migration_point,
 /turf/open/floor/cobblerock/snow,
 /area/rogue/outdoors/town)
+"pSi" = (
+/turf/open/floor/greenstone,
+/area/rogue/under/cave)
 "pSy" = (
 /obj/structure/fluff/statue/gargoyle,
 /obj/structure/fluff/walldeco/vinez/blue,
@@ -39791,6 +39803,10 @@
 	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/town/basement)
+"vLh" = (
+/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/turf/open/floor/greenstone,
+/area/rogue/under/cave)
 "vLi" = (
 /obj/effect/landmark/start/vagrant{
 	dir = 4
@@ -69072,14 +69088,14 @@ ids
 rbI
 qJl
 qJl
-qJl
-qJl
-qJl
-qJl
-qJl
-qJl
-qJl
-qJl
+pSi
+itn
+oNx
+vLh
+oNx
+oNx
+pSi
+itn
 qJl
 qJl
 fTm
@@ -69275,13 +69291,13 @@ rbI
 rbI
 aTe
 knK
-qJl
-qJl
-qJl
-qJl
-qJl
-qJl
-qJl
+pSi
+pSi
+oNx
+itn
+pSi
+oNx
+oNx
 qJl
 qJl
 fTm
@@ -69477,11 +69493,11 @@ tuM
 rbI
 rbI
 gGq
-qJl
-qJl
-qJl
-qJl
-qJl
+oNx
+oNx
+itn
+pSi
+oNx
 aUd
 nhc
 knK
@@ -69680,9 +69696,9 @@ tuM
 rbI
 eOS
 nhc
-nhc
-nhc
-nhc
+iRe
+nTw
+hHT
 nhc
 iRe
 rbI
@@ -101899,7 +101915,7 @@ aZj
 jyq
 jyq
 jyq
-bvl
+aZj
 aZj
 aZj
 isX
@@ -102501,7 +102517,7 @@ hqJ
 jyq
 isX
 aZj
-fkP
+aZj
 aZj
 aZj
 aZj
