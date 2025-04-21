@@ -89,7 +89,7 @@
 /obj/item/coin/examine(mob/user)
 	. = ..()
 	if(isobserver(user))
-		. += span_info("[quantity_to_words(quantity)] ([get_real_price] mammon)")
+		. += span_info("[quantity_to_words(quantity)] [denomination] ([get_real_price()] mammon)")
 		return
 	var/denomination = quantity == 1 ? name : plural_name
 	var/intelligence = user.mind?.current.STAINT
