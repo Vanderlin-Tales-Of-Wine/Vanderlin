@@ -148,15 +148,20 @@
 		winset(src, "infowindow.changelog", "font-style=;")
 
 /client/verb/set_fixed()
-	set name = "IconSize"
-	set category = "Options"
+    set name = "IconSize"
+    set category = "Options"
 
-	if(winget(src, "mapwindow.map", "icon-size") == "64")
-		to_chat(src, "Stretch-to-fit... OK")
-		winset(src, "mapwindow.map", "icon-size=0")
-	else
-		to_chat(src, "64x... OK")
-		winset(src, "mapwindow.map", "icon-size=64")
+    var/current_size = winget(src, "mapwindow.map", "icon-size")
+
+    if(current_size == "0") // Stretch-to-fit → Switch to 64x64
+        to_chat(src, "64x64... OK")
+        winset(src, "mapwindow.map", "icon-size=64")
+    else if(current_size == "64") // 64x64 → Switch to 1x1
+        to_chat(src, "1x1 (Exact Tile Size)... OK")
+        winset(src, "mapwindow.map", "icon-size=1")
+    else // 1x1 or invalid → Switch back to stretch-to-fit
+        to_chat(src, "Stretch-to-fit... OK")
+        winset(src, "mapwindow.map", "icon-size=0")
 
 /client/verb/set_stretch()
 	set name = "IconScaling"
