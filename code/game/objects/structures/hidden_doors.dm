@@ -287,8 +287,8 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 		/datum/job/hand,
 		/datum/job/butler,
 	)
-	icon = 'icons/turf/walls/stonebrick.dmi'
-	icon_state = "stonebrick"
+	icon = 'icons/turf/walls/stone_brick.dmi'
+	icon_state = "stonebrick-0"
 
 /obj/structure/mineral_door/secret/keep/Initialize()
 	. = ..()
@@ -327,8 +327,8 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 		/datum/job/matron,
 	)
 	lang = /datum/language/thievescant
-	icon = 'icons/turf/walls/stonebrick.dmi'
-	icon_state = "stonebrick"
+	icon = 'icons/turf/walls/stone_brick.dmi'
+	icon_state = "stonebrick-0"
 
 /obj/structure/mineral_door/secret/thieves_guild/Initialize()
 	. = ..()

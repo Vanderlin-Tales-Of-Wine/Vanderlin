@@ -61,14 +61,13 @@
 
 /turf/open/floor/wood
 	icon = 'icons/turf/floors/wood.dmi'
-	smooth_icon = 'icons/turf/floors/wood.dmi'
 	icon_state = "wood"
 	footstep = FOOTSTEP_WOOD
 	barefootstep = FOOTSTEP_HARD_BAREFOOT
 	clawfootstep = FOOTSTEP_WOOD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	landsound = 'sound/foley/jumpland/woodland.wav'
-	smoothing_flags = SMOOTH_CORNERS
+	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_OPEN_FLOOR, SMOOTH_GROUP_WOOD)
 	canSmoothWith = list(SMOOTH_GROUP_WOOD)
 	damage_deflection = 8
@@ -76,7 +75,7 @@
 
 /turf/open/floor/wood/nosmooth //these are here so we can put wood floors next to each other but not have them smooth
 	icon_state = "woodsmooth"
-	smoothing_flags = SMOOTH_CORNERS
+	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_OPEN_FLOOR, SMOOTH_GROUP_WOOD_ALT)
 	canSmoothWith = list(SMOOTH_GROUP_WOOD_ALT)
 
@@ -86,20 +85,18 @@
 
 /turf/open/floor/wood/nosmooth/saiga
 	icon = 'icons/turf/floors/woodalt.dmi'
-	smooth_icon = 'icons/turf/floors/woodalt.dmi'
 	icon_state = "wood"
 	smoothing_groups = list(SMOOTH_GROUP_OPEN_FLOOR, SMOOTH_GROUP_WOOD_SAIGA)
 	canSmoothWith = list(SMOOTH_GROUP_WOOD_SAIGA)
 
 /turf/open/floor/woodturned
 	icon = 'icons/turf/floors/wood_turned.dmi'
-	smooth_icon = 'icons/turf/floors/wood_turned.dmi'
 	icon_state = "wood"
 	footstep = FOOTSTEP_WOOD
 	barefootstep = FOOTSTEP_HARD_BAREFOOT
 	clawfootstep = FOOTSTEP_WOOD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
-	smoothing_flags = SMOOTH_CORNERS
+	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_OPEN_FLOOR, SMOOTH_GROUP_WOODTURNED)
 	canSmoothWith = list(SMOOTH_GROUP_WOODTURNED)
 	damage_deflection = 8
@@ -116,7 +113,6 @@
 
 /turf/open/floor/woodturned/nosmooth/saiga
 	icon = 'icons/turf/floors/woodalt_turned.dmi'
-	smooth_icon = 'icons/turf/floors/woodalt_turned.dmi'
 	icon_state = "wood"
 
 /turf/open/floor/rooftop

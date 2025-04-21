@@ -14,10 +14,6 @@
 	var/sheet_type = null
 	var/sheet_amount = 2
 
-	smoothing_flags = SMOOTH_CORNERS
-	smoothing_groups = list(SMOOTH_GROUP_WALLS)
-	canSmoothWith = list(SMOOTH_GROUP_WALLS)
-
 	var/list/dent_decals
 
 /turf/closed/wall/handle_ricochet(obj/projectile/P)			//A huge pile of shitcode!

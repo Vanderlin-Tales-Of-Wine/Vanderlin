@@ -9,7 +9,6 @@
 	smoothing_groups = null
 	canSmoothWith = null
 
-	var/smooth_icon = null
 	var/last_event = 0
 	var/active = null
 
@@ -25,7 +24,3 @@
 			if(1 to 25)
 				. +=  "<span class='warning'>It's falling apart!</span>"
 
-/turf/closed/wall/mineral/Initialize()
-	if(smooth_icon)
-		icon = smooth_icon
-	. = ..()

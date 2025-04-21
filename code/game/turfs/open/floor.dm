@@ -26,12 +26,9 @@
 	///means fires last at base 9 seconds
 	burn_power = 9
 
-	var/smooth_icon = null
 	var/prettifyturf = FALSE
 
 /turf/open/floor/Initialize(mapload)
-	if(smooth_icon)
-		icon = smooth_icon
 	if (!broken_states)
 		broken_states = typelist("broken_states", list("damaged1", "damaged2", "damaged3", "damaged4", "damaged5"))
 	else
