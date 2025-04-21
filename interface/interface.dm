@@ -156,7 +156,7 @@
     if(current_size == "0") // from stretch to fit to 64x64
         to_chat(src, "64x64... OK")
         winset(src, "mapwindow.map", "icon-size=64")
-    else if(current_size == "64") from 64x64 to 1x1!!!
+    else if(current_size == "64") // from 64x64 to 1x1!!!
         to_chat(src, "1x1 (Exact Tile Size)... OK")
         winset(src, "mapwindow.map", "icon-size=1")
     else // 1x1 or invalil switching back
