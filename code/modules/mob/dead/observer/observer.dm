@@ -1040,7 +1040,8 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		return
 
 	if(client?.holder && (type == /mob/dead/observer)) //subtypes begone!
-		icon_state = client?.prefs.admin_ghost_icon
+		icon = file(client?.prefs.admin_ghost_icon_file) ? file(client?.prefs.admin_ghost_icon_file) : 'icons/mob/mob.dmi'
+		icon_state = client?.prefs.admin_ghost_icon ? client?.prefs.admin_ghost_icon : "ghost"
 
 	client.prefs.apply_character_randomization_prefs()
 

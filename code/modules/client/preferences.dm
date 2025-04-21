@@ -21,7 +21,8 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	var/ooccolor = null
 	var/asaycolor = "#ff4500"			//This won't change the color for current admins, only incoming ones.
 	/// the ghost icon this admin ghost will get when becoming an aghost.
-	var/admin_ghost_icon = null
+	var/admin_ghost_icon = "ghost"
+	var/admin_ghost_icon_file = 'icons/mob/mob.dmi'
 	var/triumphs = 0
 	var/enable_tips = TRUE
 	var/tip_delay = 500 //tip delay in milliseconds
