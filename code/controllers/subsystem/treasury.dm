@@ -39,7 +39,7 @@ SUBSYSTEM_DEF(treasury)
 	var/list/bank_accounts = list()
 	var/list/noble_incomes = list()
 	var/list/stockpile_datums = list()
-	var/multiple_item_penalty = 0.66
+	var/multiple_item_penalty = 0.7
 	var/interest_rate = 0.15
 	var/next_treasury_check = 0
 	var/list/log_entries = list()
@@ -132,7 +132,7 @@ SUBSYSTEM_DEF(treasury)
 		var/item_value = movable_atom.get_real_price() * interest_rate
 		vault_accounting[movable_atom.type] += 1
 		if(vault_accounting[movable_atom.type] > 1)
-			item_value *= (vault_accounting[movable_atom.type]-1) * multiple_item_penalty
+			item_value *= multiple_item_penalty ** (vault_accounting[movable_atom.type]-1)
 		total_value += item_value
 	return total_value
 
