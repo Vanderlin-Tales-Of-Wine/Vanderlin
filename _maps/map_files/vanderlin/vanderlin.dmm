@@ -2006,7 +2006,7 @@
 /turf/open/floor/tile{
 	icon_state = "greenstone"
 	},
-/area/rogue/under/town/sewer)
+/area/rogue/indoors/town/merc_guild)
 "bjf" = (
 /obj/machinery/light/fueled/torchholder/l,
 /turf/open/floor/dirt/road,
@@ -5445,7 +5445,7 @@
 /turf/open/floor/tile{
 	icon_state = "greenstone"
 	},
-/area/rogue/under/town/sewer)
+/area/rogue/indoors/town/merc_guild)
 "dDB" = (
 /obj/machinery/light/fueled/firebowl/stump,
 /turf/open/floor/dirt,
@@ -5611,9 +5611,6 @@
 "dHg" = (
 /turf/closed/wall/mineral/decostone,
 /area/rogue/indoors/town/church/chapel)
-"dHp" = (
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/under/town/sewer)
 "dHv" = (
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/ruinedwood/darker,
@@ -6645,6 +6642,11 @@
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/ruinedwood/turned,
 /area/rogue/indoors/town)
+"enb" = (
+/turf/open/floor/tile{
+	icon_state = "greenstone"
+	},
+/area/rogue/indoors/town/merc_guild)
 "enm" = (
 /obj/structure/mineral_door/wood/violet{
 	lockid = "waterfront3"
@@ -8003,7 +8005,7 @@
 /obj/effect/mapping_helpers/door/access/town/mercenary,
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue/under/town/sewer)
+/area/rogue/indoors/town/merc_guild)
 "flq" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 8
@@ -10878,7 +10880,7 @@
 /turf/open/floor/tile{
 	icon_state = "greenstone"
 	},
-/area/rogue/under/town/sewer)
+/area/rogue/indoors/town/merc_guild)
 "hhJ" = (
 /obj/machinery/light/fueled/firebowl,
 /obj/structure/fluff/railing/wood{
@@ -17127,7 +17129,7 @@
 /turf/open/floor/tile{
 	icon_state = "greenstone"
 	},
-/area/rogue/under/town/sewer)
+/area/rogue/indoors/town/merc_guild)
 "log" = (
 /obj/machinery/light/fueled/wallfire/big_fireplace{
 	pixel_y = 32
@@ -17975,7 +17977,7 @@
 "lTI" = (
 /obj/effect/decal/cleanable/blood/drip,
 /turf/closed/wall/mineral/stone,
-/area/rogue/under/town/sewer)
+/area/rogue/indoors/town/merc_guild)
 "lTY" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -18015,6 +18017,9 @@
 	icon_state = "greenstone"
 	},
 /area/rogue/under/town/sewer)
+"lVV" = (
+/turf/closed/wall/mineral/stone/moss,
+/area/rogue/indoors/town/merc_guild)
 "lVW" = (
 /obj/structure/flora/newtree/scorched,
 /turf/open/floor/dirt,
@@ -18417,7 +18422,7 @@
 "mmz" = (
 /obj/item/reagent_containers/food/snacks/smallrat,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue/under/town/sewer)
+/area/rogue/indoors/town/merc_guild)
 "mmY" = (
 /turf/closed/wall/mineral/roofwall/outercorner{
 	dir = 8
@@ -21092,7 +21097,7 @@
 	pixel_y = -32
 	},
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue/under/town/sewer)
+/area/rogue/indoors/town/merc_guild)
 "ocn" = (
 /obj/structure/bars/cemetery,
 /turf/open/floor/dirt,
@@ -24627,7 +24632,7 @@
 /turf/open/floor/tile{
 	icon_state = "greenstone"
 	},
-/area/rogue/under/town/sewer)
+/area/rogue/indoors/town/merc_guild)
 "qFU" = (
 /obj/structure/rack/shelf/biggest,
 /obj/item/paper/confession,
@@ -27517,10 +27522,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/tile/bfloorz,
 /area/rogue/indoors/town/garrison)
-"sCx" = (
-/obj/structure/ladder,
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/under/town/sewer)
 "sCI" = (
 /obj/structure/chair/wood/alt/chair3{
 	dir = 1
@@ -50329,11 +50330,11 @@ vgJ
 vgJ
 vgJ
 vgJ
-lfU
-gxZ
-lfU
-lfU
-lfU
+nEc
+lVV
+nEc
+nEc
+nEc
 vgJ
 vgJ
 vgJ
@@ -50531,11 +50532,11 @@ vgJ
 vgJ
 vgJ
 vgJ
-lfU
-sCx
-dHp
+nEc
+mLO
+pGO
 mmz
-lfU
+nEc
 vgJ
 vgJ
 vgJ
@@ -50733,11 +50734,11 @@ vgJ
 vgJ
 vgJ
 vgJ
-lfU
-gxZ
-gxZ
+nEc
+lVV
+lVV
 obM
-gxZ
+lVV
 vgJ
 vgJ
 vgJ
@@ -50935,11 +50936,11 @@ vgJ
 vgJ
 vgJ
 vgJ
-lfU
+nEc
 hhC
-oGi
-dHp
-gxZ
+enb
+pGO
+lVV
 vgJ
 vgJ
 vgJ
@@ -51137,11 +51138,11 @@ vgJ
 vgJ
 vgJ
 vgJ
-lfU
+nEc
 lod
 qFP
-dHp
-gxZ
+pGO
+lVV
 vgJ
 vgJ
 vgJ
@@ -51339,11 +51340,11 @@ vgJ
 vgJ
 vgJ
 vgJ
-lfU
+nEc
 biX
 dCW
-dHp
-lfU
+pGO
+nEc
 vgJ
 lfU
 lfU
@@ -51541,11 +51542,11 @@ vgJ
 vgJ
 vgJ
 vgJ
-lfU
+nEc
 lTI
-lfU
+nEc
 fla
-lfU
+nEc
 lfU
 oGi
 cDP
