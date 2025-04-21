@@ -114,7 +114,6 @@ GLOBAL_PROTECT(admin_verbs_admin)
 	/client/proc/resetasaycolor,
 	/client/proc/set_personal_admin_ooc_color,
 	/client/proc/reset_personal_admin_ooc_color,
-	/client/proc/set_ghost_icon_path,
 	/client/proc/set_ghost_sprite,
 	/client/proc/toggleadminhelpsound,
 	/client/proc/respawn_character,
