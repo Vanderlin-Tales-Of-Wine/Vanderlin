@@ -24,17 +24,17 @@
 	contains = /obj/item/clothing/face/spectacles/golden
 
 /datum/supply_pack/luxury/glassware_set
-	name = "Set of Glassware Shot Glasses"
+	name = "Set of Glassware Shot Glasses (3)"
 	cost = 60 // These glasses are really expensive
 	contains = list(/obj/item/reagent_containers/glass/cup/glassware/shotglass, /obj/item/reagent_containers/glass/cup/glassware/shotglass, /obj/item/reagent_containers/glass/cup/glassware/shotglass,)
 
 /datum/supply_pack/luxury/glassware_set
-	name = "Set of Glassware Cups"
+	name = "Set of Glassware Cups (3)"
 	cost = 80 // These glasses are really expensive
 	contains = list(/obj/item/reagent_containers/glass/cup/glassware, /obj/item/reagent_containers/glass/cup/glassware, /obj/item/reagent_containers/glass/cup/glassware)
 
 /datum/supply_pack/luxury/glassware_set
-	name = "Set of Glassware Wine Glasses"
+	name = "Set of Glassware Wine Glasses (3)"
 	cost = 80 // These glasses are really expensive
 	contains = list(/obj/item/reagent_containers/glass/cup/glassware/wineglass, /obj/item/reagent_containers/glass/cup/glassware/wineglass, /obj/item/reagent_containers/glass/cup/glassware/wineglass)
 

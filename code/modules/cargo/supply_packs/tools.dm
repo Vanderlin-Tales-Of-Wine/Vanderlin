@@ -59,7 +59,7 @@
 	contains = /obj/structure/dye_bin
 
 /datum/supply_pack/tools/candles
-	name = "Candles"
+	name = "Candles (3)"
 	cost = 8
 	contains = list(/obj/item/candle/yellow,
 	/obj/item/candle/yellow,
@@ -126,7 +126,7 @@
 	contains = /obj/item/reagent_containers/glass/alchemical
 
 /datum/supply_pack/tools/alch_bottles
-	name = "Bulk Alchemy Bottles"
+	name = "Bulk Alchemy Bottles (9)"
 	cost = 20
 	contains = list(/obj/item/reagent_containers/glass/alchemical,/obj/item/reagent_containers/glass/alchemical,/obj/item/reagent_containers/glass/alchemical,
 	/obj/item/reagent_containers/glass/alchemical,/obj/item/reagent_containers/glass/alchemical,/obj/item/reagent_containers/glass/alchemical,
