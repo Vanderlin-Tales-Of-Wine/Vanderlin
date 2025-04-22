@@ -157,7 +157,7 @@
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
-	min_pq = -20
+	min_pq = 8
 	bypass_lastclass = TRUE
 
 	allowed_races = RACES_PLAYER_ALL
@@ -172,6 +172,7 @@
 	shirt = /obj/item/clothing/shirt/undershirt/uncolored
 	belt = /obj/item/storage/belt/leather/rope
 	beltl = /obj/item/storage/belt/pouch/coins/poor
+	beltr = /obj/item/storage/keyring/gaffer_assistant
 	neck = /obj/item/key/gaffer
 	if(H.gender == MALE)
 		armor = /obj/item/clothing/armor/leather/vest/black
