@@ -28,7 +28,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	var/desc
 	/// This flaw is currently disabled and will not process
 	var/ephemeral = FALSE
-	//The mob affected by the character flaw
+	/// The mob affected by the character flaw
 	var/mob/owner
 
 /datum/charflaw/New(mob/new_owner)
