@@ -234,7 +234,7 @@
 		spawned.cmode_music = cmode_music
 
 	if(!(type in actors_list_blacklist)) //don't show these.
-		GLOB.actors_list[spawned.mobid] = "[spawned.real_name] as [spawned.mind.assigned_role]<BR>"
+		GLOB.actors_list[spawned.mobid] = "[spawned.real_name] as [spawned.mind.assigned_role.get_informed_title(spawned)]<BR>"
 
 	if(length(advclass_cat_rolls))
 		var/mob/living/carbon/human/humanguy = spawned
