@@ -9,8 +9,8 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	roundend_category = "Vampires"
 	antagpanel_category = "Vampire"
 	job_rank = ROLE_VAMPIRE
-	antag_hud_type = ANTAG_HUD_TRAITOR
-	antag_hud_name = "Vspawn"
+	antag_hud_type = ANTAG_HUD_VAMPIRE
+	antag_hud_name = "vamp"
 	confess_lines = list(
 		"I WANT YOUR BLOOD!",
 		"DRINK THE BLOOD!",
@@ -22,8 +22,8 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	/// If the vampire will autojoin on spawn.
 	var/autojoin_team = FALSE //! shouldn't exist, need to find a better method
 
-	/// TRAITs that the datum will grant. Static, should not be modified.
-	var/static/list/innate_traits = list(
+	/// TRAITs that the datum will grant.
+	innate_traits = list(
 		TRAIT_STRONGBITE,
 		TRAIT_NOSTAMINA,
 		TRAIT_NOHUNGER,
@@ -56,18 +56,6 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 		return span_boldnotice("Another deadite.")
 	if(istype(examined_datum, /datum/antagonist/skeleton))
 		return span_boldnotice("Another deadite.")
-
-/datum/antagonist/vampire/apply_innate_effects(mob/living/mob_override)
-	var/mob/living/M = mob_override || owner.current
-	add_antag_hud(antag_hud_type, antag_hud_name, M)
-	for(var/trait as anything in innate_traits)
-		ADD_TRAIT(M, trait, "[type]")
-
-/datum/antagonist/vampire/remove_innate_effects(mob/living/mob_override)
-	var/mob/living/M = mob_override || owner.current
-	remove_antag_hud(antag_hud_type, M)
-	for(var/trait as anything in innate_traits)
-		REMOVE_TRAIT(M, trait, "[type]")
 
 /datum/antagonist/vampire/on_gain()
 	SSmapping.retainer.vampires |= owner

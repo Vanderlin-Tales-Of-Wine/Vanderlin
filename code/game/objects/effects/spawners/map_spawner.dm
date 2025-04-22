@@ -174,7 +174,8 @@
 		/obj/item/clothing/armor/plate = 8,
 		/obj/item/clothing/gloves/chain = 3,
 		/obj/item/clothing/neck/bevor = 3,
-		/obj/item/clothing/pants/chainlegs = 5
+		/obj/item/clothing/pants/chainlegs = 5,
+		/obj/item/clothing/pants/chainlegs/kilt = 5
 		)
 
 /obj/effect/spawner/map_spawner/loot/magic
@@ -270,6 +271,7 @@
 		/obj/item/clothing/head/helmet/coppercap = 15,
 		/obj/item/clothing/armor/cuirass/copperchest = 15,
 		/obj/item/clothing/pants/chainlegs/iron = 10,
+		/obj/item/clothing/pants/chainlegs/kilt/iron = 10,
 		/obj/item/clothing/armor/chainmail/iron = 10,
 		/obj/item/clothing/armor/plate/iron = 10,
 		/obj/item/clothing/head/helmet/heavy/ironplate = 10,

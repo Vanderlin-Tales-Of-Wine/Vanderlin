@@ -96,6 +96,7 @@
 #define TRAIT_MALUMFIRE "Professional Smith"
 #define TRAIT_CRATEMOVER "Crate Mover"
 #define TRAIT_BURDEN "Burdened" //Gaffer stuff
+#define TRAIT_OLDPARTY "Old_party"
 
 // PATRON CURSE TRAITS
 #define TRAIT_CURSE "Curse" //source
@@ -181,7 +182,8 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_SEE_LEYLINES = "I can see the lines that make up this world.",
 	TRAIT_TINY = "I am small, its hard to look people in the eyes.",
 	TRAIT_FOREIGNER = span_notice("I'm not from around here."),
-	TRAIT_BURDEN = "I carry the Burden of HEAD EATER's hunger..."
+	TRAIT_BURDEN = "I carry the Burden of HEAD EATER's hunger...",
+	TRAIT_OLDPARTY = "In years long passed, me and a group of fellow adventurers saved this city!"
 	))
 
 #define SIGNAL_ADDTRAIT(trait_ref) ("addtrait " + trait_ref)

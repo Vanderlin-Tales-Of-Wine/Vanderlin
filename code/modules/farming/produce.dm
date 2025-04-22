@@ -182,7 +182,7 @@
 	sellprice = 0 // spoil too quickly to export
 
 /obj/item/reagent_containers/food/snacks/produce/jacksberry
-	seed = /obj/item/neuFarm/seed/berryrogue
+	seed = /obj/item/neuFarm/seed/berry
 	name = "jacksberries"
 	desc = "Common berries found throughout Enigma and surrounding lands. A traveler's repast, or Dendor's wrath."
 	icon_state = "berries"

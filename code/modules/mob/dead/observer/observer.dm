@@ -13,7 +13,7 @@ GLOBAL_LIST_INIT(ghost_verbs, list(
 	name = "ghost"
 	desc = "" //jinkies!
 	icon = 'icons/mob/mob.dmi'
-	icon_state = ""
+	icon_state = "ghost"
 	layer = GHOST_LAYER
 	stat = DEAD
 	density = FALSE
@@ -64,6 +64,8 @@ GLOBAL_LIST_INIT(ghost_verbs, list(
 	// of the mob
 	var/deadchat_name
 	var/ghostize_time = 0
+	var/isinhell
+	var/last_helld = 0
 
 /mob/dead/observer/rogue
 //	see_invisible = SEE_INVISIBLE_LIVING
@@ -1036,6 +1038,9 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 /mob/dead/observer/proc/set_ghost_appearance()
 	if(!client?.prefs)
 		return
+
+	if(client?.holder && (type == /mob/dead/observer)) //subtypes begone!
+		icon_state = client?.prefs.admin_ghost_icon
 
 	client.prefs.apply_character_randomization_prefs()
 

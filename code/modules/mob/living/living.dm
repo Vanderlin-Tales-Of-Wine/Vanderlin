@@ -388,6 +388,7 @@
 	if(AM != src)
 		pulling = AM
 		AM.pulledby = src
+		SEND_SIGNAL(src, COMSIG_LIVING_START_PULL, AM, state, force)
 	update_pull_hud_icon()
 
 	if(isliving(AM))
@@ -552,6 +553,10 @@
 		return
 	if (InCritical() || health <= 0 || (blood_volume < BLOOD_VOLUME_SURVIVE))
 		log_message("Has [whispered ? "whispered his final words" : "succumbed to death"] while in [InFullCritical() ? "hard":"soft"] critical with [round(health, 0.1)] points of health!", LOG_ATTACK)
+
+		if(istype(src.loc, /turf/open/water) && !HAS_TRAIT(src, TRAIT_NOBREATH) && lying && client)
+			GLOB.vanderlin_round_stats[STATS_PEOPLE_DROWNED]++
+
 		adjustOxyLoss(201)
 		updatehealth()
 //		if(!whispered)

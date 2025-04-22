@@ -77,4 +77,5 @@
 		targetted.visible_message(span_danger("[src] dusts [target] with some kind of powder!"))
 		targetted.adjustToxLoss(15)
 		src.drug_cd = world.time
-	return target.attack_animal(src)
+	if(!QDELETED(target))
+		return target.attack_animal(src)
