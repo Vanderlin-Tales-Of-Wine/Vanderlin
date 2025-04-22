@@ -8669,9 +8669,11 @@
 /turf/open/floor/carpet/green,
 /area/rogue/indoors/town/merc_guild)
 "fJb" = (
-/obj/structure/mineral_door/wood/green,
 /obj/effect/mapping_helpers/door/access/town/mercenary,
 /obj/effect/mapping_helpers/door/locker,
+/obj/structure/mineral_door/wood/donjon{
+	dir = 8
+	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/merc_guild)
 "fJh" = (
@@ -94180,9 +94182,9 @@ jht
 jMD
 eYq
 lsl
-nEc
-sSB
-sSB
+qMe
+vgJ
+vgJ
 jMD
 jMD
 jfU
