@@ -40,5 +40,5 @@
 
 /datum/supply_pack/luxury/talkstone
 	name = "Talkstone"
-	cost = 600
+	cost = 300
 	contains = /obj/item/clothing/neck/talkstone

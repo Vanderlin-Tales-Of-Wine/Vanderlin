@@ -460,7 +460,7 @@
 	skillcraft = /datum/skill/craft/engineering
 
 
-/datum/repeatable_crafting_recipe/crafting/normalbait
+/datum/repeatable_crafting_recipe/crafting/wheatlbait
 	name = "bait (wheat)"
 	output = /obj/item/bait
 	requirements = list(
@@ -471,7 +471,7 @@
 	attacked_atom = /obj/item/natural/cloth
 	uses_attacked_atom = TRUE
 
-/datum/repeatable_crafting_recipe/crafting/normalbait
+/datum/repeatable_crafting_recipe/crafting/oatbait
 	name = "bait (oat)"
 	output = /obj/item/bait
 	requirements = list(
