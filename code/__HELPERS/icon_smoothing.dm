@@ -60,11 +60,11 @@ DEFINE_BITFIELD(smoothing_junction, list(
 		smooth(edge = TRUE)
 
 /**
-  * Basic smoothing proc. The atom checks for adjacent directions to smooth with and changes the icon_state based on that.
-  *
-  * Returns the previous smoothing_junction state so the previous state can be compared with the new one after the proc ends, and see the changes, if any.
-  *
-*/
+ * Basic smoothing proc. The atom checks for adjacent directions to smooth with and changes the icon_state based on that.
+ *
+ * Returns the previous smoothing_junction state so the previous state can be compared with the new one after the proc ends, and see the changes, if any.
+ *
+ */
 /atom/proc/smooth(edge = FALSE)
 	var/new_junction = NONE
 
