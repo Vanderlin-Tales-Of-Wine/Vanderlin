@@ -53,6 +53,18 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	if(istype(charflaw, flaw))
 		return TRUE
 
+/mob/proc/get_random_flaw()
+	return
+
+/mob/living/carbon/human/get_random_flaw()
+	var/list/flaws = GLOB.character_flaws.Copy() - list(/datum/charflaw/randflaw, /datum/charflaw/eznoflaw)
+	var/new_charflaw = pick_n_take(flaws)
+	new_charflaw = GLOB.character_flaws[new_charflaw]
+	if(charflaw)
+		QDEL_NULL(charflaw)
+	charflaw = new new_charflaw()
+	charflaw.on_mob_creation(src)
+
 /datum/charflaw/randflaw
 	name = "Random Flaw"
 	desc = "Chooses a random flaw (50% chance for no flaw)"
@@ -66,17 +78,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 		if(H.ckey)
 			nochekk = FALSE
 			if(prob(50))
-				var/flawz = GLOB.character_flaws.Copy()
-				var/charflaw = pick_n_take(flawz)
-				charflaw = GLOB.character_flaws[charflaw]
-				if((charflaw == type) || (charflaw == /datum/charflaw/noflaw))
-					charflaw = pick_n_take(flawz)
-					charflaw = GLOB.character_flaws[charflaw]
-				if((charflaw == type) || (charflaw == /datum/charflaw/noflaw))
-					charflaw = pick_n_take(flawz)
-					charflaw = GLOB.character_flaws[charflaw]
-				H.charflaw = new charflaw()
-				H.charflaw.on_mob_creation(H)
+				H.get_random_flaw()
 			else
 				H.charflaw = new /datum/charflaw/eznoflaw()
 				H.charflaw.on_mob_creation(H)
@@ -523,12 +525,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 /datum/charflaw/pacifist/on_mob_creation(mob/user)
 	var/mob/living/carbon/human/human_user = user
 	if(human_user?.mind in GLOB.pre_setup_antags || human_user?.mind.has_antag_datum(/datum/antagonist))
-		var/list/flaws = GLOB.character_flaws.Copy() - list(/datum/charflaw/randflaw, /datum/charflaw/pacifist)
-		var/charflaw = pick_n_take(flaws)
-		charflaw = GLOB.character_flaws[charflaw]
-		human_user.charflaw = new charflaw()
-		human_user.charflaw.on_mob_creation(human_user)
-		qdel(src)
+		human_user.get_random_flaw()
 	else
 		. = ..()
 		ADD_TRAIT(user, TRAIT_PACIFISM, "[type]")
