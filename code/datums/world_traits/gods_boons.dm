@@ -12,7 +12,7 @@
 
 /datum/world_trait/matthios_fingers
 	name = "Matthios' Fingers"
-	desc = "Improves the thief's chance of a successful pickpocket."
+	desc = "Improves thief's chance of a successful pickpocket."
 
 /datum/world_trait/necra_requiem
 	name = "Necra's Requiem"
