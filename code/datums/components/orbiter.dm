@@ -82,7 +82,7 @@
 	shift.Translate(0, radius)
 	orbiter.transform = shift
 
-	orbiter.SpinAnimation(rotation_speed, -1, clockwise, rotation_segments, parallel = FALSE)
+	orbiter.SpinAnimation(rotation_speed, -1, clockwise, rotation_segments)
 	if(ismob(orbiter))
 		var/mob/M = orbiter
 		M.updating_glide_size = FALSE
@@ -99,7 +99,7 @@
 		return
 	UnregisterSignal(orbiter, COMSIG_MOVABLE_MOVED)
 	SEND_SIGNAL(parent, COMSIG_ATOM_ORBIT_STOP, orbiter)
-	orbiter.SpinAnimation(0, 0)
+	orbiter.SpinAnimation(0, 0, flags = null)
 	orbiters -= orbiter
 	orbiter.stop_orbit(src)
 	orbiter.orbiting = null
