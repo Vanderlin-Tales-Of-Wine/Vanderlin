@@ -107,5 +107,6 @@
 		slot_flags |= ITEM_SLOT_HIP
 		diary_opened = FALSE
 		playsound(loc, 'sound/items/book_close.ogg', 100, FALSE, -1)
+	add_fingerprint(user)
 	update_icon()
 	user.update_inv_hands()
