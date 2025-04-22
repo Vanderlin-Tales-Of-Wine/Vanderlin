@@ -183,19 +183,21 @@ DEFINE_BITFIELD(smoothing_junction, list(
 
 /turf/proc/replace_neighborlay(dir, icon, offset = FALSE)
 	var/add
-	var/y = 32
-	var/x = 32
+	var/y = 0
+	var/x = 0
 	switch(dir)
 		if(NORTH)
 			add = "[icon]-n"
-			y = -y
+			y = -32
 		if(SOUTH)
 			add = "[icon]-s"
+			y = 32
 		if(EAST)
 			add = "[icon]-e"
-			x = -x
+			x = -32
 		if(WEST)
 			add = "[icon]-w"
+			x = 32
 
 	if(!add)
 		return
