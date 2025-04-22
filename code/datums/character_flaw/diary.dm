@@ -84,6 +84,7 @@
 			name = "[user.real_name]'s Diary"
 			desc = "[desc] [user.real_name] is written along the spine."
 			update_icon_state()
+		return
 	read(user)
 	add_fingerprint(user)
 	return ..()
