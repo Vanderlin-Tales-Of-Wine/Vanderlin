@@ -1,7 +1,7 @@
 /datum/antagonist/zombie
 	name = "Zombie"	// Deadite plague of Zizo
 	antagpanel_category = "Zombie"
-	antag_hud_type = ANTAG_HUD_TRAITOR
+	antag_hud_type = ANTAG_HUD_HIDDEN
 	antag_hud_name = "zombie"
 	show_name_in_check_antagonists = TRUE
 	show_in_roundend = FALSE
@@ -25,6 +25,7 @@
 	var/stored_experience
 	/// Whether or not we have been turned
 	var/has_turned = FALSE
+	// we don't use innate_traits here because zombies aren't meant to get their traits on_gain.
 	/// Traits applied to the owner mob when we turn into a zombie
 	var/static/list/traits_zombie = list(
 		TRAIT_NOSTAMINA,

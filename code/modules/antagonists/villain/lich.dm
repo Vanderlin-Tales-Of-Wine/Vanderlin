@@ -3,6 +3,8 @@
 	roundend_category = "Lich"
 	antagpanel_category = "Lich"
 	job_rank = ROLE_LICH
+	antag_hud_type = ANTAG_HUD_NECROMANCY
+	antag_hud_name = "necromancer"
 	confess_lines = list(
 		"I WILL LIVE ETERNAL!",
 		"I AM BEHIND SEVEN PHYLACTERIES!",
@@ -10,6 +12,26 @@
 	)
 	var/list/phylacteries = list()
 	var/out_of_lives = FALSE
+
+	innate_traits = list(
+		TRAIT_NOSTAMINA,
+		TRAIT_NOHUNGER,
+		TRAIT_NOBREATH,
+		TRAIT_NOPAIN,
+		TRAIT_TOXIMMUNE,
+		TRAIT_STEELHEARTED,
+		TRAIT_NOSLEEP,
+		TRAIT_VAMPMANSION,
+		TRAIT_NOMOOD,
+		TRAIT_NOLIMBDISABLE,
+		TRAIT_SHOCKIMMUNE,
+		TRAIT_LIMBATTACHMENT,
+		TRAIT_SEEPRICES,
+		TRAIT_CRITICAL_RESISTANCE,
+		TRAIT_HEAVYARMOR,
+		TRAIT_CABAL,
+		TRAIT_DEATHSIGHT,
+	)
 
 /mob/living/carbon/human
 	/// List of minions that this mob has control over. Used for things like the Lich's "Command Undead" spell.
@@ -51,23 +73,6 @@
 	L.mana_pool.set_intrinsic_recharge(MANA_SOULS)
 	L.mana_pool.ethereal_recharge_rate += 0.2
 
-	ADD_TRAIT(L, TRAIT_NOSTAMINA, "[type]")
-	ADD_TRAIT(L, TRAIT_NOHUNGER, "[type]")
-	ADD_TRAIT(L, TRAIT_NOBREATH, "[type]")
-	ADD_TRAIT(L, TRAIT_NOPAIN, "[type]")
-	ADD_TRAIT(L, TRAIT_TOXIMMUNE, "[type]")
-	ADD_TRAIT(L, TRAIT_STEELHEARTED, "[type]")
-	ADD_TRAIT(L, TRAIT_NOSLEEP, "[type]")
-	ADD_TRAIT(L, TRAIT_VAMPMANSION, "[type]")
-	ADD_TRAIT(L, TRAIT_NOMOOD, "[type]")
-	ADD_TRAIT(L, TRAIT_NOLIMBDISABLE, "[type]")
-	ADD_TRAIT(L, TRAIT_SHOCKIMMUNE, "[type]")
-	ADD_TRAIT(L, TRAIT_LIMBATTACHMENT, "[type]")
-	ADD_TRAIT(L, TRAIT_SEEPRICES, "[type]")
-	ADD_TRAIT(L, TRAIT_CRITICAL_RESISTANCE, "[type]")
-	ADD_TRAIT(L, TRAIT_HEAVYARMOR, "[type]")
-	ADD_TRAIT(L, TRAIT_CABAL, "[type]")
-	ADD_TRAIT(L, TRAIT_DEATHSIGHT, "[type]")
 	L.cmode_music = 'sound/music/cmode/antag/CombatLich.ogg'
 	L.faction = list(FACTION_UNDEAD)
 	if(L.charflaw)

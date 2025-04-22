@@ -3818,6 +3818,12 @@
 /obj/structure/fermentation_keg,
 /turf/open/floor/wood,
 /area/rogue/indoors/soilsons)
+"cuZ" = (
+/obj/effect/landmark/start/gaffer_assistant{
+	dir = 1
+	},
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/indoors/town/merc_guild)
 "cvc" = (
 /obj/structure/table/wood/plain/alto,
 /turf/open/floor/herringbone,
@@ -5270,6 +5276,7 @@
 /area/rogue/indoors/town/shop)
 "dzY" = (
 /obj/structure/chair/stool/crafted,
+/obj/effect/landmark/start/matron_assistant,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/orphanage)
 "dAv" = (
@@ -25367,6 +25374,7 @@
 /area/rogue/indoors/town)
 "rwi" = (
 /obj/structure/bed/wool,
+/obj/effect/landmark/start/tapster,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/town/basement)
 "rww" = (
@@ -92543,7 +92551,7 @@ mOW
 sEn
 luA
 pGO
-pGO
+cuZ
 jMD
 jMD
 jMD
