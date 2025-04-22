@@ -146,6 +146,7 @@
 #include "code\__DEFINES\turf_flags.dm"
 #include "code\__DEFINES\turfs.dm"
 #include "code\__DEFINES\typeids.dm"
+#include "code\__DEFINES\unit_tests.dm"
 #include "code\__DEFINES\vehicles.dm"
 #include "code\__DEFINES\visual_ui.dm"
 #include "code\__DEFINES\vv.dm"
