@@ -38,7 +38,6 @@
 	var/atom_flags = NONE
 	var/grab_state = 0
 	var/throwforce = 0
-	var/datum/component/orbiter/orbiting
 	/// Either FALSE, [EMISSIVE_BLOCK_GENERIC], or [EMISSIVE_BLOCK_UNIQUE]
 	var/blocks_emissive = FALSE
 	///Internal holder for emissive blocker object, do not use directly use blocks_emissive

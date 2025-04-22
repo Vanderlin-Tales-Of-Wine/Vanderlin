@@ -43,6 +43,9 @@ GLOBAL_LIST_INIT(ghost_verbs, list(
 	var/list/datahuds = list() //list of data HUDs shown to ghosts.
 	var/ghost_orbit = GHOST_ORBIT_CIRCLE
 
+	/// The POI we're orbiting
+	var/orbiting_ref
+
 	//These variables store hair data if the ghost originates from a species with head and/or facial hair.
 	var/hairstyle
 	var/hair_color

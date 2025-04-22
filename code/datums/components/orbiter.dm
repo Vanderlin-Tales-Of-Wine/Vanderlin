@@ -70,7 +70,6 @@
 	orbiter_list[orbiter] = TRUE
 	orbiter.orbiting = src
 
-	ADD_TRAIT(orbiter, TRAIT_NO_FLOATING_ANIM, ORBITING_TRAIT)
 	RegisterSignal(orbiter, COMSIG_MOVABLE_MOVED, PROC_REF(orbiter_move_react))
 
 	SEND_SIGNAL(parent, COMSIG_ATOM_ORBIT_BEGIN, orbiter)
@@ -108,7 +107,7 @@
 		return
 	UnregisterSignal(orbiter, COMSIG_MOVABLE_MOVED)
 	SEND_SIGNAL(parent, COMSIG_ATOM_ORBIT_STOP, orbiter)
-	orbiter.SpinAnimation(0, 0)
+	orbiter.SpinAnimation(0, 0, parallel = FALSE)
 	if(istype(orbiter_list[orbiter],/matrix)) //This is ugly.
 		orbiter.transform = orbiter_list[orbiter]
 	orbiter_list -= orbiter
@@ -123,8 +122,6 @@
 		if(isobserver(orbiter))
 			var/mob/dead/observer/ghostie = orbiter
 			ghostie.orbiting_ref = null
-
-	REMOVE_TRAIT(orbiter, TRAIT_NO_FLOATING_ANIM, ORBITING_TRAIT)
 
 	if(!refreshing && !length(orbiter_list) && !QDELING(src))
 		qdel(src)
@@ -167,10 +164,6 @@
 
 /atom/movable/proc/orbit(atom/A, radius = 10, clockwise = FALSE, rotation_speed = 20, rotation_segments = 36, pre_rotation = TRUE)
 	if(!istype(A) || !get_turf(A) || A == src)
-		return
-	if (HAS_TRAIT(A, TRAIT_ORBITING_FORBIDDEN))
-		// Stealth-mins have an empty name, don't want "You cannot orbit   at this time."
-		to_chat(src, span_notice("You cannot orbit ["[A]" || "them"] at this time."))
 		return
 	orbit_target = A
 	return A.AddComponent(/datum/component/orbiter, src, radius, clockwise, rotation_speed, rotation_segments, pre_rotation)
