@@ -68,6 +68,10 @@
 	AIStatus = AI_OFF
 	can_have_ai = FALSE
 
+/mob/living/simple_animal/hostile/retaliate/troll/Initialize()
+	. = ..()
+	ADD_TRAIT(src, TRAIT_ACID_IMMUNE, TRAIT_GENERIC)
+
 /mob/living/simple_animal/hostile/retaliate/troll/get_sound(input)
 	switch(input)
 		if("aggro")
@@ -84,9 +88,6 @@
 
 /mob/living/simple_animal/hostile/retaliate/troll/Life()
 	..()
-	if(pulledby)
-		Retaliate()
-		GiveTarget(pulledby)
 	if(fire_stacks + divine_fire_stacks <= 0)
 		adjustHealth(-rand(20,35))
 
@@ -218,8 +219,6 @@
 	dendor_taming_chance = DENDOR_TAME_PROB_LOW
 	base_intents = list(/datum/intent/simple/troll_axe)
 	attack_sound = list('sound/combat/wooshes/blunt/wooshhuge (1).ogg','sound/combat/wooshes/blunt/wooshhuge (2).ogg','sound/combat/wooshes/blunt/wooshhuge (3).ogg')
-	melee_damage_lower = 45
-	melee_damage_upper = 70
 	loot = list(/obj/item/weapon/axe/iron/troll)
 	deathmessage = "As the creacher tumbles, it falls upon it's axe, snapping the handle."
 
