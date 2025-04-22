@@ -146,6 +146,7 @@
 	bleed_rate = 10
 	can_cauterize = FALSE
 	critical = TRUE
+	var/cflaw = FALSE
 
 /datum/wound/facial/tongue/can_apply_to_mob(mob/living/affected)
 	. = ..()
@@ -159,20 +160,17 @@
 	var/obj/item/organ/tongue/tongue_loss = affected.getorganslot(ORGAN_SLOT_TONGUE)
 	if(tongue_loss)
 		tongue_loss.Remove(affected)
-		tongue_loss.forceMove(affected.drop_location())
+		if(cflaw)
+			qdel(tongue_loss)
+		else
+			tongue_loss.forceMove(affected.drop_location())
 
 /datum/wound/facial/tongue/permanent
 	whp = null
 	woundpain = 0
 	bleed_rate = 0
 	can_sew = FALSE
-
-/datum/wound/facial/tongue/permanent/on_mob_gain(mob/living/affected)
-	affected.Stun(10)
-	var/obj/item/organ/tongue/tongue_loss = affected.getorganslot(ORGAN_SLOT_TONGUE)
-	if(tongue_loss)
-		tongue_loss.Remove(affected)
-		qdel(tongue_loss)
+	cflaw = TRUE
 
 /datum/wound/facial/disfigurement
 	name = "disfigurement"
