@@ -149,9 +149,10 @@ DEFINE_BITFIELD(smoothing_junction, list(
 	icon_state = "[initial(icon_state)]-[new_junction]"
 
 /turf/proc/set_neighborlays(new_junction)
-	var/adjacencies = new_junction
-	if(adjacencies == NONE)
+	if(new_junction == NONE)
 		return
+
+	var/adjacencies = new_junction
 
 	remove_neighborlays()
 
@@ -215,15 +216,13 @@ DEFINE_BITFIELD(smoothing_junction, list(
 //Icon smoothing helpers
 /proc/smooth_zlevel(zlevel, now = FALSE)
 	var/list/away_turfs = block(locate(1, 1, zlevel), locate(world.maxx, world.maxy, zlevel))
-	for(var/V in away_turfs)
-		var/turf/T = V
+	for(var/turf/T as anything in away_turfs)
 		if(T.smoothing_flags & USES_SMOOTHING)
 			if(now)
 				T.smooth_icon()
 			else
 				QUEUE_SMOOTH(T)
-		for(var/R in T)
-			var/atom/A = R
+		for(var/atom/A as anything in T)
 			if(A.smoothing_flags & USES_SMOOTHING)
 				if(now)
 					A.smooth_icon()
