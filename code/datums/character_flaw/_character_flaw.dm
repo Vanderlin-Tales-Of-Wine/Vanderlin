@@ -535,12 +535,8 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	desc = "I don't want to harm other living beings!"
 
 /datum/charflaw/pacifist/on_apply(mob/user)
-	var/mob/living/carbon/human/human_user = user
-	if((human_user?.mind in GLOB.pre_setup_antags) || human_user?.mind.has_antag_datum(/datum/antagonist))
-		human_user.get_random_flaw()
-	else
-		. = ..()
-		ADD_TRAIT(user, TRAIT_PACIFISM, "[type]")
+	. = ..()
+	ADD_TRAIT(user, TRAIT_PACIFISM, "[type]")
 
 /datum/charflaw/pacifist/on_remove()
 	. = ..()
