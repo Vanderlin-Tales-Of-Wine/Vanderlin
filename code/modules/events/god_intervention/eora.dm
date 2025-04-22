@@ -5,7 +5,7 @@
 	weight = 4
 	earliest_start = 15 MINUTES
 	max_occurrences = 1
-	min_players = 10
+	min_players = 30
 	allowed_storytellers = list(/datum/storyteller/eora)
 
 /datum/round_event/eora_marriage_call/start()
@@ -28,6 +28,8 @@
 	// Select up to 3 people of each gender
 	eligible_males = shuffle(eligible_males)
 	eligible_females = shuffle(eligible_females)
+	if(!length(eligible_males) || !length(eligible_females))
+		return
 
 	var/num_pairs = min(3, eligible_males.len, eligible_females.len)
 
