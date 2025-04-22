@@ -17,7 +17,7 @@
 		STATS_LITERACY_TAUGHT = list("points" = 15, "capacity" = 100),
 		STATS_ILLITERATES = list("points" = -3.5, "capacity" = -60),
 		STATS_SKILLS_DREAMED = list("points" = 0.3, "capacity" = 100),
-		STATS_MANA_SPENT = list("points" = 0.0135, "capacity" = 100),
+		STATS_MANA_SPENT = list("points" = 0.014, "capacity" = 100),
 	)
 
 /datum/storyteller/ravox
@@ -63,7 +63,7 @@
 	)
 
 	influence_factors = list(
-		STATS_WATER_CONSUMED = list("points" = 0.0095, "capacity" = 90),
+		STATS_WATER_CONSUMED = list("points" = 0.01, "capacity" = 90),
 		STATS_FISH_CAUGHT = list("points" = 1.75, "capacity" = 90),
 		STATS_ABYSSOR_REMEMBERED = list("points" = 1, "capacity" = 45),
 		STATS_LEECHES_EMBEDDED = list("points" = 0.165, "capacity" = 70),
@@ -94,7 +94,7 @@
 		STATS_GAMES_RIGGED = list("points" = 3.5, "capacity" = 35),
 		STATS_PEOPLE_MOCKED = list("points" = 5, "capacity" = 60),
 		STATS_CRITS_MADE = list("points" = 0.3, "capacity" = 90),
-		STATS_SONGS_PLAYED = list("points" = 1, "capacity" = 80),
+		STATS_SONGS_PLAYED = list("points" = 0.8, "capacity" = 80),
 	)
 
 /datum/storyteller/necra
@@ -223,10 +223,10 @@
 	)
 
 	influence_factors = list(
-		STATS_TREES_CUT = list("points" = -0.175, "capacity" = -75),
+		STATS_TREES_CUT = list("points" = -0.165, "capacity" = -65),
 		STATS_PLANTS_HARVESTED = list("points" = 0.75, "capacity" = 150),
 		STATS_WEREVOLVES = list("points" = 15, "capacity" = 85),
-		STATS_DENDOR_SACRIFICES = list("points" = 12.5, "capacity" = 90),
+		STATS_DENDOR_SACRIFICES = list("points" = 15, "capacity" = 90),
 		STATS_FOREST_DEATHS = list("points" = 4.25, "capacity" = 90),
 	)
 
@@ -257,7 +257,7 @@
 	)
 
 	influence_factors = list(
-		STATS_ZIZO_PRAISED = list("points" = 3, "capacity" = 50),
+		STATS_ZIZO_PRAISED = list("points" = 2.5, "capacity" = 50),
 		STATS_NOBLE_DEATHS = list("points" = 7.5, "capacity" = 85),
 		STATS_DEADITES_WOKEN_UP = list("points" = 3.25, "capacity" = 100),
 		STATS_CLERGY_DEATHS = list("points" = 12.5, "capacity" = 100),
@@ -290,11 +290,11 @@
 	)
 
 	influence_factors = list(
-		STATS_DRUGS_SNORTED = list("points" = 4, "capacity" = 85),
-		STATS_ALCOHOL_CONSUMED = list("points" = 0.044, "capacity" = 90),
+		STATS_DRUGS_SNORTED = list("points" = 4.25, "capacity" = 85),
+		STATS_ALCOHOL_CONSUMED = list("points" = 0.045, "capacity" = 90),
 		STATS_ALCOHOLICS = list("points" = 3.5, "capacity" = 60),
 		STATS_JUNKIES = list("points" = 8, "capacity" = 70),
-		STATS_LUXURIOUS_FOOD_EATEN = list("points" = 0.8, "capacity" = 85),
+		STATS_LUXURIOUS_FOOD_EATEN = list("points" = 0.85, "capacity" = 85),
 	)
 
 	cost_variance = 30  // Makes events more erratic in timing
@@ -323,9 +323,9 @@
 	)
 
 	influence_factors = list(
-		STATS_BLOOD_SPILT = list("points" = 0.000285, "capacity" = 90),
+		STATS_BLOOD_SPILT = list("points" = 0.00028, "capacity" = 90),
 		STATS_ORGANS_EATEN = list("points" = 3, "capacity" = 75),
-		STATS_LIMBS_BITTEN = list("points" = 0.5, "capacity" = 75),
+		STATS_LIMBS_BITTEN = list("points" = 0.475, "capacity" = 70),
 		STATS_PEOPLE_GIBBED = list("points" = 3, "capacity" = 50),
 		STATS_ASSASSINATIONS = list("points" = 15, "capacity" = 80),
 	)
@@ -357,7 +357,7 @@
 
 	influence_factors = list(
 		STATS_ITEMS_PICKPOCKETED = list("points" = 6.75, "capacity" = 110),
-		STATS_SHRINE_VALUE = list("points" = 0.225, "capacity" = 90),
+		STATS_SHRINE_VALUE = list("points" = 0.25, "capacity" = 90),
 		STATS_GREEDY_PEOPLE = list("points" = 8, "capacity" = 70),
 		STATS_DODGES = list("points" = 0.09, "capacity" = 100),
 		STATS_LOCKS_PICKED = list("points" = 5, "capacity" = 110),
