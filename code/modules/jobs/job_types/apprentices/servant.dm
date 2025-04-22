@@ -173,7 +173,6 @@
 	belt = /obj/item/storage/belt/leather/rope
 	beltl = /obj/item/storage/belt/pouch/coins/poor
 	beltr = /obj/item/storage/keyring/gaffer_assistant
-	neck = /obj/item/key/gaffer
 	if(H.gender == MALE)
 		armor = /obj/item/clothing/armor/leather/vest/black
 	else
