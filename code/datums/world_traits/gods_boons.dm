@@ -29,3 +29,7 @@
 /datum/world_trait/malum_diligence
 	name = "Malum's Diligence"
 	desc = "Mined rocks have additional yields."
+
+/datum/world_trait/noc_wisdom
+	name = "Noc's Wisdom"
+	desc = "All magic actions cost less mana."
