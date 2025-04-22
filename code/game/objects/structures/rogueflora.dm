@@ -841,7 +841,7 @@
 /obj/structure/flora/grass/bush_meagre/Initialize()
 	if(silky)
 		goodie = /obj/item/natural/worms/grub_silk
-		if(prob(10))
+		if(prob(20))
 			goodie = /obj/item/reagent_containers/food/snacks/produce/poppy
 	else
 		if(prob(30))
