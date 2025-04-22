@@ -56,6 +56,10 @@ DEFINE_BITFIELD(smoothing_junction, list(
 			}; \
 		}; \
 		else { \
+			if(isnull(source.smoothing_list) && (source.type == neighbor.type)) { \
+				junction |= direction_flag; \
+				break; \
+			}; \
 			if(!isnull(neighbor.smoothing_groups)) { \
 				for(var/target in source.smoothing_list) { \
 					if(!(source.smoothing_list[target] & neighbor.smoothing_groups[target])) { \
