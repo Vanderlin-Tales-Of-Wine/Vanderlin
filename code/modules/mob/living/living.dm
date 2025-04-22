@@ -388,6 +388,7 @@
 	if(AM != src)
 		pulling = AM
 		AM.pulledby = src
+		SEND_SIGNAL(src, COMSIG_LIVING_START_PULL, AM, state, force)
 	update_pull_hud_icon()
 
 	if(isliving(AM))
@@ -552,6 +553,10 @@
 		return
 	if (InCritical() || health <= 0 || (blood_volume < BLOOD_VOLUME_SURVIVE))
 		log_message("Has [whispered ? "whispered his final words" : "succumbed to death"] while in [InFullCritical() ? "hard":"soft"] critical with [round(health, 0.1)] points of health!", LOG_ATTACK)
+
+		if(istype(src.loc, /turf/open/water) && !HAS_TRAIT(src, TRAIT_NOBREATH) && lying && client)
+			GLOB.vanderlin_round_stats[STATS_PEOPLE_DROWNED]++
+
 		adjustOxyLoss(201)
 		updatehealth()
 //		if(!whispered)
@@ -1705,6 +1710,39 @@
 	..()
 	if (client && ranged_ability && ranged_ability.ranged_mousepointer)
 		client.mouse_pointer_icon = ranged_ability.ranged_mousepointer
+
+/mob/living/vv_get_dropdown()
+	. = ..()
+	VV_DROPDOWN_OPTION("", "---------")
+	VV_DROPDOWN_OPTION(VV_HK_MODIFY_STATS, "Modify Stats")
+
+/mob/living/vv_do_topic(list/href_list)
+	. = ..()
+	if(href_list[VV_HK_MODIFY_STATS])
+		if(!check_rights(R_ADMIN))
+			return
+
+		switch(browser_alert(usr, "Add or remove?", "MODIFY STATS", list("ADD", "REMOVE")))
+			if("REMOVE")
+				if(!LAZYLEN(stat_modifiers))
+					return
+
+				var/source = browser_input_list(usr, "Source to Remove", "MODIFY STATS", stat_modifiers)
+				if(!source)
+					return
+
+				remove_stat_modifier(source)
+			if("ADD")
+				var/stat_key = browser_input_list(usr, "Stat to Add", "MODIFY STATS", MOBSTATS)
+				if(!stat_key)
+					return
+
+				var/amount = input(usr, "Stat amount", "MODIFY_STATS") as num|null
+				if(!amount)
+					return
+
+				set_stat_modifier(ADMIN_TRAIT, stat_key, amount)
+		return
 
 /mob/living/vv_edit_var(var_name, var_value)
 	switch(var_name)

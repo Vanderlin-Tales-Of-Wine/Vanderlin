@@ -150,3 +150,18 @@
 
 /datum/map_config/proc/MakeNextMap()
 	return config_filename == "data/next_map.json" || fcopy(config_filename, "data/next_map.json")
+
+/// Checks config parameters to see if this map can be voted for. Returns TRUE or FALSE accordingly.
+/datum/map_config/proc/available_for_vote()
+	if(!votable)
+		return FALSE
+
+	var/player_count = length(GLOB.clients)
+
+	if(config_min_users && player_count < config_min_users)
+		return FALSE
+
+	if(config_max_users && player_count > config_max_users)
+		return FALSE
+
+	return TRUE

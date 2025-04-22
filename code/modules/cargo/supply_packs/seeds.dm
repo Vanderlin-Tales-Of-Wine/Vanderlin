@@ -28,7 +28,7 @@
 /datum/supply_pack/seeds/berry
 	name = "Berry"
 	cost = 5
-	contains = /obj/item/neuFarm/seed/berryrogue
+	contains = /obj/item/neuFarm/seed/berry
 
 /datum/supply_pack/seeds/onion
 	name = "Onion"
@@ -64,3 +64,43 @@
 	name = "Poppy"
 	cost = 50
 	contains = /obj/item/neuFarm/seed/poppy
+
+/datum/supply_pack/seeds/plum
+	name = "Plum"
+	cost = 15
+	contains = /obj/item/neuFarm/seed/plum
+
+/datum/supply_pack/seeds/lemon
+	name = "Lemon"
+	cost = 30
+	contains = /obj/item/neuFarm/seed/lemon
+
+/datum/supply_pack/seeds/lime
+	name = "Lime"
+	cost = 30
+	contains = /obj/item/neuFarm/seed/lime
+
+/datum/supply_pack/seeds/tangerine
+	name = "Tangerine"
+	cost = 30
+	contains = /obj/item/neuFarm/seed/tangerine
+
+/datum/supply_pack/seeds/strawberry
+	name = "Strawberry"
+	cost = 15
+	contains = /obj/item/neuFarm/seed/strawberry
+
+/datum/supply_pack/seeds/blackberry
+	name = "Blackberry"
+	cost = 10
+	contains = /obj/item/neuFarm/seed/blackberry
+
+/datum/supply_pack/seeds/rasberry
+	name = "Rasberry"
+	cost = 10
+	contains = /obj/item/neuFarm/seed/raspberry
+
+/datum/supply_pack/seeds/sugarcane
+	name = "Sugarcane"
+	cost = 50
+	contains = /obj/item/neuFarm/seed/sugarcane

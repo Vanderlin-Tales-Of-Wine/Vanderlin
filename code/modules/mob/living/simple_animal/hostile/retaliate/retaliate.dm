@@ -59,6 +59,9 @@
 	var/tier = 0
 	var/summon_primer = null
 
+	//taming vars
+	var/dendor_taming_chance = DENDOR_TAME_PROB_GURANTEED
+
 /mob/living/simple_animal/hostile/retaliate/onbite(mob/living/carbon/human/user)
 	visible_message(span_danger("[user] bites [src]!"))
 	playsound(src, "smallslash", 100, TRUE, -1)

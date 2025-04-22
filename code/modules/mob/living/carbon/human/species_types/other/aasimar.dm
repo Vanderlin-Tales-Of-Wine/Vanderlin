@@ -97,7 +97,7 @@
 		if(message[1])
 			if(message[1] != "*")
 				message = " [message]"
-				var/list/accent_words = strings("accent_universal.json", "universal")
+				var/list/accent_words = strings("accents/accent_universal.json", "universal")
 
 				for(var/key in accent_words)
 					var/value = accent_words[key]
@@ -156,7 +156,7 @@
 	return null
 
 /datum/species/aasimar/get_accent_list()
-	return strings("proper_replacement.json", "proper")
+	return strings("accents/proper_replacement.json", "proper")
 
 /datum/species/aasimar/get_native_language()
 	return "Celestial"

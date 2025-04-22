@@ -10,9 +10,9 @@
 | Bolts |
 \------*/
 
-/obj/item/ammo_casing/caseless/unembedded()
+/obj/item/ammo_casing/caseless/unembedded(mob/living/owner)
 	if(!QDELETED(src) && prob(25))
-		src.visible_message(span_warning("[src] breaks as it falls out!"), vision_distance = COMBAT_MESSAGE_RANGE)
+		owner.visible_message(span_warning("[src] breaks as it falls out!"), vision_distance = COMBAT_MESSAGE_RANGE)
 		qdel(src)
 		return TRUE
 
@@ -21,7 +21,7 @@
 	name = "bolt"
 	desc = "A small and sturdy bolt, with simple plume and metal tip, alongside a groove to load onto a crossbow."
 	projectile_type = /obj/projectile/bullet/reusable/bolt
-	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/thrust)
+	possible_item_intents = list(/datum/intent/dagger/thrust)
 	caliber = "regbolt"
 	icon = 'icons/roguetown/weapons/ammo.dmi'
 	icon_state = "bolt"
@@ -99,7 +99,6 @@
 	name = "pyroclastic bolt"
 	desc = "A bolt smeared with a flammable tincture."
 	projectile_type = /obj/projectile/bullet/bolt/pyro
-	possible_item_intents = list(/datum/intent/mace/strike)
 	icon_state = "bolt_pyroclastic"
 
 /obj/item/ammo_casing/caseless/bolt/pyro/Initialize()
@@ -154,7 +153,7 @@
 	icon_state = "arrow"
 	force = DAMAGE_KNIFE-2
 	dropshrink = 0.8
-	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/thrust)
+	possible_item_intents = list(/datum/intent/dagger/thrust)
 	max_integrity = 20
 	embedding = list("embedded_pain_multiplier" = 3, "embedded_fall_chance" = 0)
 	firing_effect_type = null
@@ -239,7 +238,6 @@
 	name = "pyroclastic arrow"
 	desc = "An arrow with its tip smeared with a flammable tincture."
 	projectile_type = /obj/projectile/bullet/arrow/pyro
-	possible_item_intents = list(/datum/intent/mace/strike)
 	icon_state = "arrow_pyroclastic"
 	max_integrity = 10
 	force = DAMAGE_KNIFE-2

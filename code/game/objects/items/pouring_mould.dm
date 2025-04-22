@@ -138,6 +138,8 @@
 /obj/item/mould/ingot/create_item()
 	var/atom/to_create
 	to_create = initial(filling_metal.ingot_type)
+	if(filling_metal.ingot_type == /obj/item/ingot/blacksteel)
+		GLOB.vanderlin_round_stats[STATS_BLACKSTEEL_SMELTED]++
 	new to_create(get_turf(src))
 	fufilled_metal = 0
 	filling_metal = null

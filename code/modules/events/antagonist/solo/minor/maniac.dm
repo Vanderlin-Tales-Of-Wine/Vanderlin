@@ -13,6 +13,7 @@
 	restricted_roles = list(
 		"Monarch",
 		"Consort",
+		"Priest",
 		"Orphan",
 		"Churchling",
 		"Innkeepers Son"
@@ -26,5 +27,10 @@
 	weight = 6
 
 	typepath = /datum/round_event/antagonist/solo/maniac
+
+/datum/round_event_control/antagonist/solo/maniac/canSpawnEvent(players_amt, gamemode, fake_check)
+	if(GLOB.maniac_highlander) // Has a Maniac already TRIUMPHED?
+		return FALSE
+	. = ..()
 
 /datum/round_event/antagonist/solo/maniac
