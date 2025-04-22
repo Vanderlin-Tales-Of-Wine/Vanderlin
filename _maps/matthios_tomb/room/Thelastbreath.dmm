@@ -1478,7 +1478,7 @@
 /turf/open/floor/tile/kitchen,
 /area/rogue/indoors)
 "wE" = (
-/mob/living/simple_animal/hostile/retaliate/troll,
+/mob/living/simple_animal/hostile/retaliate/troll/axe,
 /turf/open/floor/naturalstone,
 /area/rogue/indoors)
 "wH" = (
@@ -1832,7 +1832,7 @@
 /turf/open/floor/cobble,
 /area/rogue/indoors)
 "Bm" = (
-/mob/living/simple_animal/hostile/retaliate/troll,
+/mob/living/simple_animal/hostile/retaliate/troll/axe,
 /turf/open/floor/blocks,
 /area/rogue/indoors)
 "Bn" = (
