@@ -152,6 +152,9 @@ DEFINE_BITFIELD(smoothing_junction, list(
 	var/adjacencies = new_junction
 	if(adjacencies == NONE)
 		return
+
+	remove_neighborlays()
+
 	if(adjacencies & NORTH)
 		var/turf/T = get_step(src, NORTH)
 		handle_edge_icon(T, NORTH)
@@ -179,30 +182,39 @@ DEFINE_BITFIELD(smoothing_junction, list(
 		replace_neighborlay(dir, neighborlay_override)
 		return
 	if(neighborlay)
-		T.replace_neighborlay(REVERSE_DIR(dir), neighborlay)
+		// Reverse dir because we are offsetting the overlay onto the adjacency
+		replace_neighborlay(REVERSE_DIR(dir), neighborlay, TRUE)
 
-/turf/proc/replace_neighborlay(dir, icon)
+/turf/proc/replace_neighborlay(dir, icon, offset = FALSE)
 	var/add
+	var/y = 0
+	var/x = 0
 	switch(dir)
 		if(NORTH)
 			add = "[icon]-n"
+			y = -32
 		if(SOUTH)
 			add = "[icon]-s"
+			y = 32
 		if(EAST)
 			add = "[icon]-e"
+			x = -32
 		if(WEST)
 			add = "[icon]-w"
+			x = 32
 
 	if(!add)
 		return
-	remove_neighborlay(dir)
-	LAZYADDASSOC(neighborlay_list, "[dir]", add)
-	add_overlay(add)
 
-/turf/proc/remove_neighborlay(dir)
-	if(LAZYACCESS(neighborlay_list, "[dir]"))
-		cut_overlay(neighborlay_list["[dir]"])
-		LAZYREMOVE(neighborlay_list, "[dir]")
+	var/image/overlay = image(icon, src, add, TURF_DECAL_LAYER, pixel_x = offset ? x : 0, pixel_y = offset ? y : 0 )
+
+	LAZYADDASSOC(neighborlay_list, "[dir]", overlay)
+	add_overlay(overlay)
+
+/turf/proc/remove_neighborlays()
+	for(var/key as anything in neighborlay_list)
+		cut_overlay(neighborlay_list[key])
+		LAZYREMOVE(neighborlay_list, key)
 
 //Icon smoothing helpers
 /proc/smooth_zlevel(zlevel, now = FALSE)

@@ -2,14 +2,14 @@
 /obj/effect/overlay/water
 	icon = 'icons/turf/newwater.dmi'
 	icon_state = "bottom"
-	density = 0
-	mouse_opacity = 0
-	layer = BELOW_MOB_LAYER
+	density = FALSE
+	mouse_opacity = FALSE
+	layer = MID_TURF_LAYER
 	anchored = TRUE
 
 /obj/effect/overlay/water/top
 	icon_state = "top"
-	layer = BELOW_MOB_LAYER
+	layer = MID_TURF_LAYER
 
 /turf/open/water
 	gender = PLURAL

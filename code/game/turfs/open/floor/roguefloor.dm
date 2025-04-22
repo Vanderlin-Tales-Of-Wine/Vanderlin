@@ -126,7 +126,6 @@
 	name = "grass"
 	desc = "Grass, sodden in mud and bogwater."
 	icon_state = "grass"
-	layer = MID_TURF_LAYER
 	footstep = FOOTSTEP_GRASS
 	barefootstep = FOOTSTEP_SOFT_BAREFOOT
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
@@ -185,7 +184,6 @@
 	name = "snow"
 	desc = "A gentle blanket of snow."
 	icon_state = "snow"
-	layer = MID_TURF_LAYER
 	footstep = FOOTSTEP_GRASS
 	barefootstep = FOOTSTEP_SOFT_BAREFOOT
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
@@ -218,7 +216,6 @@
 	name = "dirt"
 	desc = "The dirt is pocked with the scars of countless wars."
 	icon_state = "dirt"
-	layer = MID_TURF_LAYER
 	footstep = FOOTSTEP_GRASS
 	barefootstep = FOOTSTEP_SOFT_BAREFOOT
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
@@ -351,7 +348,6 @@
 	name = "ash"
 	desc = "Smells like burnt wood."
 	icon_state = "ash"
-	layer = MID_TURF_LAYER
 	footstep = FOOTSTEP_SAND
 	barefootstep = FOOTSTEP_SOFT_BAREFOOT
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
@@ -366,7 +362,6 @@
 	name = "sandy ash"
 	desc = "This has been pranced upon by countless skeletal fighters."
 	icon_state = "ash3"
-	layer = MID_TURF_LAYER
 	footstep = FOOTSTEP_SAND
 	barefootstep = FOOTSTEP_SOFT_BAREFOOT
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
@@ -381,7 +376,6 @@
 	name = "void"
 	desc = "The shifting blanket of Necra's realm."
 	icon_state = "undervoid"
-	layer = MID_TURF_LAYER
 	footstep = FOOTSTEP_SAND
 	barefootstep = FOOTSTEP_SOFT_BAREFOOT
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
@@ -402,7 +396,6 @@
 	name = "dirt"
 	desc = "The dirt is pocked with the scars of tectonic movement."
 	icon_state = "lavafloor"
-	layer = MID_TURF_LAYER
 	footstep = FOOTSTEP_SAND
 	barefootstep = FOOTSTEP_SOFT_BAREFOOT
 	clawfootstep = FOOTSTEP_SAND
