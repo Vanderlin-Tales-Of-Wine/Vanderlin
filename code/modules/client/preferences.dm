@@ -867,6 +867,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 			else
 				dat += "<a class='linkOff' href='byond://?src=[REF(N)];late_join=1'>JOINLATE</a>"
 			dat += " - <a href='?_src_=prefs;preference=migrants'>MIGRATION</a>"
+			dat += "<br><a href='?_src_=prefs;preference=manifest'>ACTORS</a>"
 	else
 		dat += "<a href='?_src_=prefs;preference=finished'>DONE</a>"
 		dat += "</center>"
@@ -2159,6 +2160,10 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 					migrant.show_ui()
 					return
 
+				if("manifest")
+					parent.view_actors_manifest()
+					return
+
 				if("finished")
 					user << browse(null, "window=latechoices") //closes late choices window
 					user << browse(null, "window=playersetup") //closes the player setup window
@@ -2269,7 +2274,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	character.socks = socks
 
 	/* V: */
-	
+
 	character.headshot_link = headshot_link
 	character.flavortext = flavortext
 

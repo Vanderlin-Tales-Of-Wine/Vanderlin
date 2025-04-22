@@ -4,6 +4,8 @@
 	set category = "Options"
 	set hidden = 1
 
+	LAZYREMOVE(GLOB.actors_list, mobid) // admin removed - get him outta here.
+
 	if(key)
 		GLOB.respawntimes[key] = world.time
 
@@ -16,7 +18,7 @@
 		return
 	client.screen.Cut()
 	client.screen += client.void
-//	stop_all_loops()
+	stop_all_loops()
 	SSdroning.kill_rain(src.client)
 	SSdroning.kill_loop(src.client)
 	SSdroning.kill_droning(src.client)

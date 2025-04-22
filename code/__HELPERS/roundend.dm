@@ -623,7 +623,7 @@ GLOBAL_LIST_INIT(vanderlin_round_stats, list(
 
 /datum/controller/subsystem/ticker/proc/give_show_playerlist_button(client/C)
 	set waitfor = 0
-	to_chat(C,"<a href='byond://?src=[C];playerlistrogue=1'>* SHOW PLAYER LIST *</a>")
+	to_chat(C,"<a href='byond://?src=[C];playerlist=1'>* SHOW PLAYER LIST *</a>")
 	to_chat(C,"<a href='byond://?src=[C];commendsomeone=1'>* Commend a Character *</a>")
 	to_chat(C,"<a href='byond://?src=[C];viewstats=1'>* View Statistics *</a>")
 	C.show_round_stats()
