@@ -73,7 +73,7 @@
 
 	if(!gibbed)
 		if(!has_world_trait(/datum/world_trait/necra_requiem))
-			if(!is_in_roguetown(src) && if(!has_world_trait(/datum/world_trait/zizo_defilement)))
+			if(!is_in_roguetown(src) && !has_world_trait(/datum/world_trait/zizo_defilement))
 				zombie_check()
 
 	stop_sound_channel(CHANNEL_HEARTBEAT)
