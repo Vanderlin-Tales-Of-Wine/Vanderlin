@@ -323,11 +323,11 @@
 	)
 
 	influence_factors = list(
-		STATS_BLOOD_SPILT = list("points" = 0.00029, "capacity" = 90),
-		STATS_ORGANS_EATEN = list("points" = 3.75, "capacity" = 80),
-		STATS_LIMBS_BITTEN = list("points" = 0.8, "capacity" = 75),
-		STATS_PEOPLE_GIBBED = list("points" = 3, "capacity" = 55),
-		STATS_ASSASSINATIONS = list("points" = 15, "capacity" = 85),
+		STATS_BLOOD_SPILT = list("points" = 0.000285, "capacity" = 90),
+		STATS_ORGANS_EATEN = list("points" = 3, "capacity" = 75),
+		STATS_LIMBS_BITTEN = list("points" = 0.5, "capacity" = 75),
+		STATS_PEOPLE_GIBBED = list("points" = 3, "capacity" = 50),
+		STATS_ASSASSINATIONS = list("points" = 15, "capacity" = 80),
 	)
 
 	cost_variance = 10  // Less randomness, more direct
