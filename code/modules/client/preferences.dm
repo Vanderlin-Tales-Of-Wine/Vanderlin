@@ -2281,24 +2281,6 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	character.familytree_pref = family
 	character.setspouse = setspouse
 
-	if(charflaw)
-		// ???
-		var/obj/item/bodypart/O = character.get_bodypart(BODY_ZONE_R_ARM)
-		if(O)
-			O.drop_limb()
-			qdel(O)
-		O = character.get_bodypart(BODY_ZONE_L_ARM)
-		if(O)
-			O.drop_limb()
-			qdel(O)
-		character.regenerate_limb(BODY_ZONE_R_ARM)
-		character.regenerate_limb(BODY_ZONE_L_ARM)
-		var/datum/job/target_job = parent.mob?.mind?.assigned_role
-		if(target_job?.forced_flaw)
-			charflaw = target_job.forced_flaw
-
-		character.charflaw = new charflaw.type(character)
-
 	if(parent)
 		var/datum/role_bans/bans = get_role_bans_for_ckey(parent.ckey)
 		for(var/datum/role_ban_instance/ban as anything in bans.bans)
