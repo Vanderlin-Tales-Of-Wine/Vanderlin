@@ -24668,8 +24668,8 @@
 /turf/open/floor/carpet/green,
 /area/rogue/indoors/town/merc_guild)
 "qHe" = (
-/obj/structure/mineral_door/wood/green,
 /obj/effect/mapping_helpers/door/access/town/mercenary,
+/obj/structure/mineral_door/wood/green,
 /turf/open/floor/wood/nosmooth,
 /area/rogue/indoors/town/merc_guild)
 "qHJ" = (
@@ -33040,11 +33040,12 @@
 /turf/open/floor/blocks/green,
 /area/rogue/under/town/sewer)
 "wmP" = (
-/obj/structure/mineral_door/wood/window{
-	name = "Mercenary Hideaway"
-	},
 /obj/effect/mapping_helpers/door/access/town/mercenary,
 /obj/effect/mapping_helpers/door/locker,
+/obj/structure/mineral_door/wood/donjon{
+	dir = 8;
+	name = "Mercenary Hideaway"
+	},
 /turf/open/floor/wood/nosmooth,
 /area/rogue/indoors/town/merc_guild)
 "wmU" = (
@@ -94389,7 +94390,7 @@ qMe
 qMe
 eoB
 gEd
-wBa
+nML
 wBa
 wBa
 vgJ
