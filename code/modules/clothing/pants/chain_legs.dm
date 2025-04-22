@@ -41,8 +41,9 @@
 /obj/item/clothing/pants/chainlegs/kilt
 	name = "steel chain kilt"
 	desc = "Interlinked metal rings that drape down all the way to the ankles."
-	icon = 'icons/roguetown/clothing/pants_metal.dmi'
-	mob_overlay_icon = 'icons/roguetown/clothing/onmob/pants_metal.dmi'
+	icon = 'icons/roguetown/clothing/special/pants_metal.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/pants_metal.dmi'
+	sleeved = 'icons/roguetown/clothing/special/onmob/pants_metal.dmi'
 	icon_state = "chainkilt"
 	item_state = "chainkilt"
 
