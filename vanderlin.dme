@@ -1632,6 +1632,7 @@
 #include "code\modules\events\antagonist\solo\minor\bandits.dm"
 #include "code\modules\events\antagonist\solo\minor\maniac.dm"
 #include "code\modules\events\god_intervention\dendor.dm"
+#include "code\modules\events\god_intervention\eora.dm"
 #include "code\modules\events\minor\crop_growth.dm"
 #include "code\modules\events\minor\herb_growth.dm"
 #include "code\modules\events\minor\passive_animal_migration.dm"
