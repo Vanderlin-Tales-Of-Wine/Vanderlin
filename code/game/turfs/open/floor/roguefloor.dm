@@ -762,6 +762,9 @@
 	. = ..()
 	dir = pick(GLOB.cardinals)
 
+/turf/open/floor/church/purple
+	icon_state = "church_purple"
+
 /turf/open/floor/churchbrick
 	icon_state = "church_brick"
 	footstep = FOOTSTEP_STONE
@@ -819,6 +822,10 @@
 /turf/open/floor/churchrough/Initialize()
 	. = ..()
 	dir = pick(GLOB.cardinals)
+
+/turf/open/floor/churchrough/purple
+	icon_state = "church_rough_purple"
+
 //
 /turf/open/floor/herringbone
 	icon_state = "herringbone"

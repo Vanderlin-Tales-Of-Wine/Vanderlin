@@ -25,7 +25,6 @@
 	if(istype(examined_datum, /datum/antagonist/prebel))
 		return "<span class='boldnotice'>My ally in revolt against the pigs.</span>"
 
-
 /datum/antagonist/prebel/on_gain()
 	. = ..()
 	owner.special_role = ROLE_PREBEL
@@ -33,6 +32,12 @@
 	H.cmode_music = 'sound/music/cmode/antag/CombatSausageMaker.ogg'
 	H.add_stress(/datum/stressevent/prebel)
 	ADD_TRAIT(H, TRAIT_VILLAIN, TRAIT_GENERIC)
+	create_objectives()
+	owner.current.log_message("has been converted to the revolution!", LOG_ATTACK, color="red")
+
+/datum/antagonist/prebel/on_removal()
+	remove_objectives()
+	. = ..()
 
 /datum/antagonist/prebel/greet()
 	to_chat(owner, "<span class='danger'>I am a peasant rebel! It's time for a change in leadership for this town.</span>")
@@ -53,22 +58,6 @@
 		if(new_owner.current && HAS_TRAIT(new_owner.current, TRAIT_MINDSHIELD))
 			return FALSE
 
-/datum/antagonist/prebel/apply_innate_effects(mob/living/mob_override)
-	var/mob/living/M = mob_override || owner.current
-	add_antag_hud(antag_hud_type, antag_hud_name, M)
-
-/datum/antagonist/prebel/remove_innate_effects(mob/living/mob_override)
-	var/mob/living/M = mob_override || owner.current
-	remove_antag_hud(antag_hud_type, M)
-
-/datum/antagonist/prebel/on_gain()
-	. = ..()
-	create_objectives()
-	owner.current.log_message("has been converted to the revolution!", LOG_ATTACK, color="red")
-
-/datum/antagonist/prebel/on_removal()
-	remove_objectives()
-	. = ..()
 
 /datum/antagonist/prebel/create_team(datum/team/prebels/new_team)
 	if(!new_team)
@@ -99,8 +88,10 @@
 
 /datum/antagonist/prebel/head
 	name = "Head Rebel"
+	antag_hud_type = ANTAG_HUD_REV
 	antag_hud_name = "rev_head"
 	increase_votepwr = TRUE
+
 /datum/antagonist/prebel/head/on_gain()
 	. = ..()
 	owner.AddSpell(new /obj/effect/proc_holder/spell/self/rebelconvert)

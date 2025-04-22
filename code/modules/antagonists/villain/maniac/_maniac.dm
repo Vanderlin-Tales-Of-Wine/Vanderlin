@@ -9,8 +9,8 @@
 	antagpanel_category = "Maniac"
 	antag_memory = "<b>Recently I've been visited by a lot of VISIONS. They're all about another WORLD, ANOTHER life. I will do EVERYTHING to know the TRUTH, and return to the REAL world.</b>"
 	job_rank = ROLE_MANIAC
-	antag_hud_type = ANTAG_HUD_TRAITOR
-	antag_hud_name = "villain"
+	antag_hud_type = ANTAG_HUD_MANIAC
+	antag_hud_name = "generic_villain"
 	confess_lines = list(
 		"I gave them no time to squeal.",
 		"I shant quit ripping them.",
@@ -18,7 +18,7 @@
 		"Do what thou wilt shall be the whole of the law.",
 	)
 	/// Traits we apply to the owner
-	var/static/list/applied_traits = list(
+	innate_traits = list(
 		TRAIT_DECEIVING_MEEKNESS,
 		TRAIT_NOSTINK,
 		TRAIT_EMPATH,
@@ -108,8 +108,6 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 			dreamer.remove_stress(/datum/stressevent/saw_wonder)
 			dreamer.remove_curse(/datum/curse/zizo)
 		//	dreamer.remove_client_colour(/datum/client_colour/maniac_marked)
-		for(var/trait in applied_traits)
-			ADD_TRAIT(owner.current, trait, "[type]")
 		hallucinations = owner.current.overlay_fullscreen("maniac", /atom/movable/screen/fullscreen/maniac)
 	LAZYINITLIST(owner.learned_recipes)
 	owner.learned_recipes |= recipe_progression[1]
@@ -132,8 +130,6 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 			var/client/clinet = dreamer?.client
 			if(clinet) //clear screenshake animation
 				animate(clinet, dreamer.pixel_y)
-		for(var/trait in applied_traits)
-			REMOVE_TRAIT(owner.current, trait, "[type]")
 		for(var/trait in final_traits)
 			REMOVE_TRAIT(owner.current, trait, "[type]")
 		owner.current.clear_fullscreen("maniac")

@@ -40,131 +40,98 @@
 	recharge_time = 10 SECONDS
 	include_user = 0
 	max_targets = 1
+	/// Ignore crosses and give a different message
+	var/powerful = FALSE
+	/// Willpower divisor from INT
+	var/int_divisor = 3.3
+	/// Faces of blood die
+	var/blood_dice = 9
+	/// Faces of will die
+	var/will_dice = 6
 
 /obj/effect/proc_holder/spell/targeted/transfix/cast(list/targets, mob/user = usr)
 	var/msg = input("Soothe them. Dominate them. Speak and they will succumb.", "Transfix") as text|null
 	if(length(msg) < 10)
-		to_chat(user, span_userdanger("This is not enough!"))
+		to_chat(user, span_userdanger("This not enough to ensnare their mind!"))
 		return FALSE
-	var/bloodskill = user.mind.get_skill_level(/datum/skill/magic/blood)
-	var/bloodroll = roll("[bloodskill]d8")
+	var/bloodskill = user.mind?.get_skill_level(/datum/skill/magic/blood)
+	var/bloodroll = roll(bloodskill, blood_dice)
 	user.say(msg)
+	if(powerful)
+		user.visible_message("<font color='red'>[user]'s eyes glow a ghastly red as they project their will outwards!</font>")
 	for(var/mob/living/carbon/human/L in targets)
-		var/datum/antagonist/vampire/VD = L.mind.has_antag_datum(/datum/antagonist/vampire)
-		var/willpower = round(L.STAINT / 4)
-		var/willroll = roll("[willpower]d6")
+		if(L.stat)
+			continue
+		var/datum/antagonist/vampire/VD = L.mind?.has_antag_datum(/datum/antagonist/vampire)
 		if(VD)
-			return
+			continue
 		if(L.cmode)
-			willroll += 10
+			will_dice++
+		var/willpower = round(L.STAINT / int_divisor, 1)
+		var/willroll = roll(willpower, will_dice)
+		// If the vampire failed badly
+		var/knowledgable = (willroll - bloodroll) >= 3
+
 		var/found_psycross = FALSE
-		for(var/obj/item/clothing/neck/psycross/silver/I in L.contents) //Subpath fix.
-			found_psycross = TRUE
-			break
+		if(!powerful)
+			for(var/obj/item/clothing/neck/psycross/silver/I in L.contents) //Subpath fix.
+				found_psycross = TRUE
+				break
 
 		if(bloodroll >= willroll)
 			if(found_psycross == TRUE)
-				to_chat(L, "<font color='white'>The silver psycross shines and protect me from the unholy magic.</font>")
-				to_chat(user, span_userdanger("[L] has my BANE!It causes me to fail to ensnare their mind!"))
-			else
-				L.drowsyness = min(L.drowsyness + 50, 150)
-				switch(L.drowsyness)
-					if(0 to 50)
-						to_chat(L, "You feel like a curtain is coming over your mind.")
-						to_chat(user, "Their mind gives way slightly.")
-						L.Slowdown(20)
-					if(50 to 100)
-						to_chat(L, "Your eyelids force themselves shut as you feel intense lethargy.")
-						L.Slowdown(50)
-						L.eyesclosed = TRUE
+				var/extra = "!"
+				if(knowledgable)
+					extra = ", I sense the caster was [user]!"
+				to_chat(L, "<font color='white'>The silver psycross shines and protect me from unholy magic[extra]</font>")
+				to_chat(user, span_userdanger("[L] has my BANE! It causes me to fail to ensnare their mind!"))
+				break
+			L.drowsyness = min(L.drowsyness + 50, 150)
+			switch(L.drowsyness)
+				if(0 to 45)
+					to_chat(L, "You feel like a curtain is coming over your mind.")
+					to_chat(user, "Their mind gives way slightly.")
+					L.Slowdown(20)
+				if(45 to 90)
+					to_chat(L, "Your eyelids force themselves shut as you feel intense lethargy.")
+					to_chat(user, "They will not be able to resist much more.")
+					L.eyesclosed = TRUE
+					L.become_blind("eyelids")
+					if(L.hud_used)
 						for(var/atom/movable/screen/eye_intent/eyet in L.hud_used.static_inventory)
 							eyet.update_icon(L)
-						L.become_blind("eyelids")
-						to_chat(user, "They will not be able to resist much more.")
-					if(100 to INFINITY)
-						to_chat(L, span_userdanger("You can't take it anymore. Your legs give out as you fall into the dreamworld."))
-						to_chat(user, "They're mine now.")
-						L.Slowdown(50)
-						L.eyesclosed = TRUE
+					L.Slowdown(50)
+				if(91 to INFINITY)
+					to_chat(L, span_userdanger("You can't take it anymore. Your legs give out as you fall into the dreamworld."))
+					to_chat(user, "They're mine now.")
+					L.eyesclosed = TRUE
+					L.become_blind("eyelids")
+					if(L.hud_used)
 						for(var/atom/movable/screen/eye_intent/eyet in L.hud_used.static_inventory)
 							eyet.update_icon(L)
-						L.become_blind("eyelids")
-						sleep(50)
-						L.Sleeping(600)
+					L.Slowdown(50)
+					sleep(5 SECONDS)
+					if(!QDELETED(L))
+						L.Sleeping(1 MINUTES)
+			continue
 
-		if(willroll >= bloodroll)
-			if(found_psycross == TRUE)
-				to_chat(L, "<font color='white'>The silver psycross shines and protect me from the unholy magic.</font>")
-				to_chat(user, span_userdanger("[L] has my BANE!It causes me to fail to ensnare their mind!"))
-			else
-				to_chat(user, "I fail to ensnare their mind.")
-			if(willroll - bloodroll >= 3)
-				if(found_psycross == TRUE)
-					to_chat(L, "<font color='white'> The silver psycross shines and protect me from the blood magic, the one who used blood magic was [user]!</font>")
-				else
-					to_chat(user, "I fail to ensnare their mind.")
-					to_chat(L, "I feel like someone or something unholy is messing with my head. I should get out of here!")
-					var/holyskill = L.mind.get_skill_level(/datum/skill/magic/holy)
-					var/arcaneskill = L.mind.get_skill_level(/datum/skill/magic/arcane)
-					if(holyskill + arcaneskill >= 1)
-						to_chat(L, "I feel like the unholy magic came from [user]. I should use my magic or miracles on them.")
+		to_chat(user, span_userdanger("I fail to ensnare their mind!"))
+
+		if(!powerful && knowledgable)
+			var/holypower = L.mind?.get_skill_level(/datum/skill/magic/holy)
+			var/magicpower = round(L.mind?.get_skill_level(/datum/skill/magic/arcane) * 0.6, 1)
+			var/roll = roll(1 + holypower + magicpower, 5)
+			if(roll > bloodroll)
+				to_chat(L, "I feel like the unholy magic came from [user]. I should use my magic or miracles on them.")
+
+	return TRUE
 
 /obj/effect/proc_holder/spell/targeted/transfix/master
 	name = "Subjugate"
 	overlay_state = "transfixmaster"
-	releasedrain = 1000
-	chargedrain = 0
-	chargetime = 0
-	range = 7
-	warnie = "sydwarning"
-	movement_interrupt = FALSE
-	chargedloop = null
-	invocation_type = "shout"
-	associated_skill = /datum/skill/magic/blood
-	antimagic_allowed = TRUE
-	recharge_time = 10 SECONDS
-	include_user = 0
+	releasedrain = 150
 	max_targets = 0
-
-/obj/effect/proc_holder/spell/targeted/transfix/master/cast(list/targets, mob/user = usr)
-	var/msg = input("Soothe them. Dominate them. Speak and they will succumb.", "Transfix") as text|null
-	if(length(msg) < 10)
-		to_chat(user, span_userdanger("This is not enough!"))
-		return FALSE
-	var/bloodskill = user.mind.get_skill_level(/datum/skill/magic/blood)
-	var/bloodroll = roll("[bloodskill]d10")
-	user.say(msg)
-	user.visible_message("<font color='red'>[user]'s eyes glow a ghastly red as they project their will outwards!</font>")
-	for(var/mob/living/carbon/human/L in targets)
-		var/datum/antagonist/vampire/VD = L.mind.has_antag_datum(/datum/antagonist/vampire)
-		var/willpower = round(L.STAINT / 4)
-		var/willroll = roll("[willpower]d6")
-		if(VD)
-			return
-		if(L.cmode)
-			willroll += 15
-		if(bloodroll >= willroll)
-			L.drowsyness = min(L.drowsyness + 50, 150)
-			switch(L.drowsyness)
-				if(0 to 50)
-					to_chat(L, "You feel like a curtain is coming over your mind.")
-					L.Slowdown(20)
-				if(50 to 100)
-					to_chat(L, "Your eyelids force themselves shut as you feel intense lethargy.")
-					L.Slowdown(50)
-					L.eyesclosed = TRUE
-					for(var/atom/movable/screen/eye_intent/eyet in L.hud_used.static_inventory)
-						eyet.update_icon(L)
-					L.become_blind("eyelids")
-				if(100 to INFINITY)
-					to_chat(L, span_userdanger("You can't take it anymore. Your legs give out as you fall into the dreamworld."))
-					L.eyesclosed = TRUE
-					for(var/atom/movable/screen/eye_intent/eyet in L.hud_used.static_inventory)
-						eyet.update_icon(L)
-					L.become_blind("eyelids")
-					L.Slowdown(50)
-					sleep(50)
-					L.Sleeping(300)
+	powerful = TRUE
 
 /mob/living/carbon/human/proc/disguise_button()
 	set name = "Disguise"

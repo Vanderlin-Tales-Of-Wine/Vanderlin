@@ -25,6 +25,7 @@
 	gloves = /obj/item/clothing/gloves/leather/phys
 	armor = /obj/item/clothing/shirt/robe/phys
 	neck = /obj/item/clothing/neck/phys
+	belt = /obj/item/storage/belt/leather/rope
 	beltl = /obj/item/storage/keyring/physicker
 
 	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)

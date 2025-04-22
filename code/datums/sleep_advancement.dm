@@ -96,6 +96,20 @@
 		rolled_specials++
 	var/inspirations = 1
 	to_chat(mind.current, span_notice("My consciousness slips and I start dreaming..."))
+	var/dreamwatcher = FALSE
+	
+	if(HAS_TRAIT(mind.current, TRAIT_DREAM_WATCHER))
+		dreamwatcher = TRUE
+		
+		
+	if(dreamwatcher)
+		to_chat(mind.current, span_notice(pick(
+			"You feel the gaze of Noc before all else..",
+			"A silver thread weaves through your thoughts..",
+			"You step into a dream that feels... familiar.",
+			"Noc whispers, not in words, but in meaning.",
+		)))
+
 
 	var/dream_dust = retained_dust
 	dream_dust += BASE_DREAM_DUST
@@ -103,15 +117,25 @@
 		dream_dust += BASE_DREAM_DUST / 2
 
 	var/int = mind.current.STAINT
+
+	if(dreamwatcher)
+		int+= 2
+
 	dream_dust += mind.current.STAINT * DREAM_DUST_PER_INT //25% dream points for each int
-	if(int < 10)
+	if(dreamwatcher)
+		to_chat(mind.current, span_notice("I can feel Noc’s presence... symbols shift, forgotten places stir, and ancient beings whisper through the veil."))
+	else if(int < 10)
 		to_chat(mind.current, span_boldwarning("My shallow imagination makes them dull..."))
 	else if (int > 10)
 		to_chat(mind.current, span_notice("My creative thinking enhances them..."))
 
 	var/stress_median = stress_amount / stress_cycles
-
-	if(stress_median <= 1.0)
+	
+	if(dreamwatcher)
+		to_chat(mind.current, span_notice("Noc opens the dreamworld before me, a realm of impossible beauty and boundless thought."))
+		dream_dust += 100
+		inspirations++
+	else if(stress_median <= 1.0)
 		// Unstressed, happy
 		to_chat(mind.current, span_notice("With no stresses throughout the day I dream vividly..."))
 		dream_dust += 100
@@ -120,6 +144,38 @@
 		// Stressed, unhappy
 		to_chat(mind.current, span_boldwarning("Bothered by the stresses of the day my dreams are short..."))
 		dream_dust -= 100
+
+	//Most Influential God
+	var/datum/storyteller/most_influential = SSgamemode.get_most_influential()
+	if(dreamwatcher)
+		var/list/dreams = SSgamemode.god_dreams[most_influential.name]
+		if(!dreams)
+			dreams = SSgamemode.god_dreams["Unknown"]
+		var/message = pick(dreams)
+		//Pick one of the three messages randomly out of the god_dream list.
+		to_chat(mind.current, span_notice(message))
+
+	if(dreamwatcher)
+		var/list/active_types = list()
+	
+		// Find all active antag types
+		for(var/datum/antagonist/A in GLOB.antagonists)
+			if(!A.owner || !A.owner.current)
+				continue
+			if(SSgamemode.antag_dreams[A.name]) // only if we have dreams for that type
+				active_types |= A.name
+	
+		// Pick one at random and send one of its messages
+		if(active_types.len)
+			var/picked_type = pick(active_types)
+			var/list/messages = SSgamemode.antag_dreams[picked_type]
+			if(messages && messages.len)
+				var/msg = pick(messages)
+				to_chat(mind.current, span_notice(msg))
+		else
+			// Fallback message if no active antags with dreams
+			to_chat(mind.current, span_notice("...the dream is quiet tonight..."))
+
 
 	grant_inspiration_xp(inspirations)
 

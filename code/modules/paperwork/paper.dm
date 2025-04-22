@@ -341,8 +341,9 @@
 				user.hud_used.reads.destroy_read()
 			user << browse(null, "window=reading")
 
-	var/literate = usr.is_literate()
-	if(!usr.canUseTopic(src, BE_CLOSE, literate))
+	if(!usr.can_read())
+		return
+	if(!usr.canUseTopic(src, BE_CLOSE))
 		return
 
 	if(href_list["read"])
@@ -355,7 +356,7 @@
 	if(href_list["write"])
 		var/id = href_list["write"]
 		var/t =  browser_input_text(usr, "Enter what you want to write:", "Write", multiline = TRUE)
-		if(!t || !usr.canUseTopic(src, BE_CLOSE, literate))
+		if(!t || !usr.canUseTopic(src, BE_CLOSE))
 			return
 		var/obj/item/i = usr.get_active_held_item()	//Check to see if he still got that darn pen, also check if he's using a crayon or pen.
 		if(!istype(i, /obj/item/natural/thorn))
@@ -390,9 +391,9 @@
 	if(mailer)
 		return ..()
 
-	if(istype(P, /obj/item/paper)) //Make a manuscript
+	if(P.type == /obj/item/paper) //Make a manuscript
 		if(user.mind.get_skill_level(/datum/skill/misc/reading) <= 0)
-			to_chat(user, span_warning("I fumble with [src] for a bit."))
+			to_chat(user, span_warning("I fumble with [src] and fail to form the manuscript!"))
 			user.changeNext_move(2 SECONDS, user.active_hand_index) //lmao
 			return
 
