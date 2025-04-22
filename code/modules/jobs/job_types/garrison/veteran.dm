@@ -35,7 +35,7 @@
 		if(!index)
 			index = H.real_name
 		S.name = "veteran cloak ([index])"
-
+	ADD_TRAIT(spawned, TRAIT_OLDPARTY, TRAIT_GENERIC)
 
 /datum/advclass/veteran/battlemaster
 	name = "Veteran Battlemaster"
@@ -94,7 +94,6 @@
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_OLDPARTY, TRAIT_GENERIC)
 
 /datum/advclass/veteran/footman
 	name = "Retired Footman"
@@ -153,7 +152,6 @@
 	H.verbs |= /mob/proc/haltyell
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_OLDPARTY, TRAIT_GENERIC)
 
 /datum/advclass/veteran/calvaryman
 	name = "Tarnished Knight"
@@ -215,7 +213,6 @@
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC) // retired knight!
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_OLDPARTY, TRAIT_GENERIC)
 
 	H.adjust_blindness(-3)
 	var/weapons = list("Sword + Recurve Bow","Axe + Crossbow","Spear + Shield")
@@ -291,7 +288,6 @@
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_OLDPARTY, TRAIT_GENERIC)
 
 	H.adjust_blindness(-3)
 	var/weapons = list("Zweihander","Halberd")
