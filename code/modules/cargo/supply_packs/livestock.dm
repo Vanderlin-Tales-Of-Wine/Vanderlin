@@ -39,7 +39,7 @@
 					/mob/living/simple_animal/pet/cat,
 				)
 
-/datum/supply_pack/rogue/livestock/pig
+/datum/supply_pack/livestock/pig
 	name = "Pig"
 	cost = 150
 	contains = list(

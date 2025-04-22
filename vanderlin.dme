@@ -1413,6 +1413,7 @@
 #include "code\modules\cargo\supply_packs\instruments.dm"
 #include "code\modules\cargo\supply_packs\jewelry.dm"
 #include "code\modules\cargo\supply_packs\livestock.dm"
+#include "code\modules\cargo\supply_packs\luxury.dm"
 #include "code\modules\cargo\supply_packs\narcotics.dm"
 #include "code\modules\cargo\supply_packs\rawmat.dm"
 #include "code\modules\cargo\supply_packs\seeds.dm"

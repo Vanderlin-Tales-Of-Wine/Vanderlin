@@ -8,6 +8,11 @@
 	cost = 27
 	contains = /obj/item/clothing/head/helmet/skullcap
 
+/datum/supply_pack/armor/minerhelmet
+	name = "Miner's Helm"
+	cost = 25
+	contains = /obj/item/clothing/head/helmet/leather/minershelm
+
 /datum/supply_pack/armor/poth
 	name = "Pot Helmet"
 	cost = 29
@@ -52,6 +57,11 @@
 	name = "Iron Chain Coif"
 	cost = 27
 	contains = /obj/item/clothing/neck/chaincoif/iron
+
+/datum/supply_pack/armor/chaincoif_steel
+	name = "Steel Chain Coif"
+	cost = 40
+	contains = /obj/item/clothing/neck/chaincoif
 
 /datum/supply_pack/armor/gambeson
 	name = "Cloth Gambeson"

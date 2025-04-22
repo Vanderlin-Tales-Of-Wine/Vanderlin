@@ -71,7 +71,7 @@
 	contains = /obj/item/flashlight/flare/torch/lantern
 
 /datum/supply_pack/tools/pick
-	name = "Pickaxe"
+	name = "Iron Pickaxe"
 	cost = 15
 	contains = /obj/item/weapon/pick
 
@@ -104,6 +104,16 @@
 	name = "Hoe"
 	cost = 15
 	contains = /obj/item/weapon/hoe
+
+/datum/supply_pack/tools/thresher
+	name = "Thresher"
+	cost = 15
+	contains = /obj/item/weapon/thresher
+
+/datum/supply_pack/tools/plough
+	name = "Plough"
+	cost = 60
+	contains = /obj/structure/plough
 
 /datum/supply_pack/tools/bottle
 	name = "Glass Bottle"
@@ -195,18 +205,3 @@
 	name = "Set of Surgical Tools"
 	cost = 65
 	contains = /obj/item/storage/backpack/satchel/surgbag
-
-/datum/supply_pack/tools/glassware_set
-	name = "Set of Glassware Cups"
-	cost = 28 // These glasses are really expensive
-	contains = list(/obj/item/reagent_containers/glass/cup/glassware, /obj/item/reagent_containers/glass/cup/glassware, /obj/item/reagent_containers/glass/cup/glassware)
-
-/datum/supply_pack/tools/glassware_set
-	name = "Set of Glassware Wine Glasses"
-	cost = 34 // These glasses are really expensive
-	contains = list(/obj/item/reagent_containers/glass/cup/glassware/wineglass, /obj/item/reagent_containers/glass/cup/glassware/wineglass, /obj/item/reagent_containers/glass/cup/glassware/wineglass)
-
-/datum/supply_pack/tools/glassware_set
-	name = "Set of Glassware Shot Glasses"
-	cost = 26 // These glasses are really expensive
-	contains = list(/obj/item/reagent_containers/glass/cup/glassware/shotglass, /obj/item/reagent_containers/glass/cup/glassware/shotglass, /obj/item/reagent_containers/glass/cup/glassware/shotglass,)
