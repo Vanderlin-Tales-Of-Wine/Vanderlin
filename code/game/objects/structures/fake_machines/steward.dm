@@ -67,7 +67,9 @@
 		SStreasury.treasury_value -= amt
 		SStreasury.log_to_steward("-[amt] imported [D.name]")
 		if(amt >= 100)
-			scom_announce("[SSmapping.config.map_name] imports [D.name] for [amt] mammon.", )
+			scom_announce("[SSmapping.config.map_name] imports [D.name] for [amt] mammon.")
+		else
+			say("[SSmapping.config.map_name] imports [D.name] for [amt] mammon.")
 		D.raise_demand()
 		addtimer(CALLBACK(src, PROC_REF(do_import), D.type), 10 SECONDS)
 	if(href_list["export"])
@@ -83,6 +85,8 @@
 		SStreasury.log_to_steward("+[amt] exported [D.name]")
 		if(amt >= 100)
 			scom_announce("[SSmapping.config.map_name] exports [D.name] for [amt] mammon.")
+		else
+			say("[SSmapping.config.map_name] exports [D.name] for [amt] mammon.")
 		D.lower_demand()
 	if(href_list["togglewithdraw"])
 		var/datum/stock/D = locate(href_list["togglewithdraw"]) in SStreasury.stockpile_datums
