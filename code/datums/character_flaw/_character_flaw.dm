@@ -26,7 +26,26 @@ GLOBAL_LIST_INIT(character_flaws, list(
 /datum/charflaw
 	var/name
 	var/desc
-	var/ephemeral = FALSE // This flaw is currently disabled and will not process
+	/// This flaw is currently disabled and will not process
+	var/ephemeral = FALSE
+	//The mob affected by the character flaw
+	var/mob/owner
+
+/datum/charflaw/New(mob/new_owner)
+	. = ..()
+	if(new_owner)
+		owner = new_owner
+		on_apply(owner)
+
+/datum/charflaw/proc/on_apply(mob/user)
+	return
+
+/datum/charflaw/Destroy()
+	on_remove()
+	return ..()
+
+/datum/charflaw/proc/on_remove()
+	return
 
 /mob/proc/get_flaw(flaw_type)
 	return
@@ -37,9 +56,6 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	if(charflaw != flaw_type)
 		return
 	return charflaw
-
-/datum/charflaw/proc/on_mob_creation(mob/user)
-	return
 
 /datum/charflaw/proc/flaw_on_life(mob/user)
 	return
@@ -62,8 +78,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	new_charflaw = GLOB.character_flaws[new_charflaw]
 	if(charflaw)
 		QDEL_NULL(charflaw)
-	charflaw = new new_charflaw()
-	charflaw.on_mob_creation(src)
+	charflaw = new new_charflaw(src)
 
 /datum/charflaw/randflaw
 	name = "Random Flaw"
@@ -80,9 +95,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 			if(prob(50))
 				H.get_random_flaw()
 			else
-				H.charflaw = new /datum/charflaw/eznoflaw()
-				H.charflaw.on_mob_creation(H)
-
+				H.charflaw = new /datum/charflaw/eznoflaw(H)
 
 /datum/charflaw/eznoflaw
 	name = "No Flaw"
@@ -110,8 +123,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 				if((charflaw == type) || (charflaw == /datum/charflaw/randflaw))
 					charflaw = pick_n_take(flawz)
 					charflaw = GLOB.character_flaws[charflaw]
-				H.charflaw = new charflaw()
-				H.charflaw.on_mob_creation(H)
+				H.charflaw = new charflaw(H)
 			else
 				nochekk = FALSE
 				H.adjust_triumphs(-3)
@@ -120,7 +132,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	name = "Bad Eyesight"
 	desc = "I need spectacles to see normally from my years spent reading books."
 
-/datum/charflaw/badsight/on_mob_creation(mob/user)
+/datum/charflaw/badsight/on_apply(mob/user)
 	. = ..()
 	var/mob/living/carbon/human/H = user
 	if(H.mind)
@@ -145,7 +157,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	effectedstats = list(STATKEY_PER = -20, STATKEY_SPD = -5, STATKEY_LCK = -20)
 	duration = 100
 
-/datum/charflaw/badsight/on_mob_creation(mob/user)
+/datum/charflaw/badsight/on_apply(mob/user)
 	..()
 	if(!ishuman(user))
 		return
@@ -246,7 +258,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	name = "Cyclops (R)"
 	desc = "I lost my right eye long ago. But it made me great at noticing things."
 
-/datum/charflaw/noeyer/on_mob_creation(mob/user)
+/datum/charflaw/noeyer/on_apply(mob/user)
 	..()
 	if(!ishuman(user))
 		return
@@ -261,7 +273,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	name = "Cyclops (L)"
 	desc = "I lost my left eye long ago. But it made me great at noticing things."
 
-/datum/charflaw/noeyel/on_mob_creation(mob/user)
+/datum/charflaw/noeyel/on_apply(mob/user)
 	..()
 	if(!ishuman(user))
 		return
@@ -276,7 +288,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	name = "Cyclops (L)"
 	desc = "I lost my left eye long ago. But it made me great at noticing things."
 
-/datum/charflaw/noeyerandom/on_mob_creation(mob/user)
+/datum/charflaw/noeyerandom/on_apply(mob/user)
 	. = ..()
 	switch(rand(1,2))
 		if(1)
@@ -329,7 +341,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	var/first_tick = FALSE
 	var/extra_increment_value = 0
 
-/datum/charflaw/greedy/on_mob_creation(mob/user)
+/datum/charflaw/greedy/on_apply(mob/user)
 	next_mammon_increase = world.time + rand(15 MINUTES, 25 MINUTES)
 	last_passed_check = world.time
 
@@ -402,7 +414,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	var/pain_pity_charges = 3
 	var/drugged_up = FALSE
 
-/datum/charflaw/narcoleptic/on_mob_creation(mob/user)
+/datum/charflaw/narcoleptic/on_apply(mob/user)
 	ADD_TRAIT(user, TRAIT_FASTSLEEP, "[type]")
 	reset_timer()
 
@@ -461,7 +473,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	var/next_paincrave = 0
 	var/last_pain_threshold = NONE
 
-/datum/charflaw/masochist/on_mob_creation(mob/living/carbon/human/user)
+/datum/charflaw/masochist/on_apply(mob/living/carbon/human/user)
 	next_paincrave = world.time + rand(15 MINUTES, 25 MINUTES)
 
 /datum/charflaw/masochist/flaw_on_life(mob/living/carbon/human/user)
@@ -522,10 +534,14 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	name = "Pacifist"
 	desc = "I don't want to harm other living beings!"
 
-/datum/charflaw/pacifist/on_mob_creation(mob/user)
+/datum/charflaw/pacifist/on_apply(mob/user)
 	var/mob/living/carbon/human/human_user = user
 	if(human_user?.mind in GLOB.pre_setup_antags || human_user?.mind.has_antag_datum(/datum/antagonist))
 		human_user.get_random_flaw()
 	else
 		. = ..()
 		ADD_TRAIT(user, TRAIT_PACIFISM, "[type]")
+
+/datum/charflaw/pacifist/on_remove()
+	. = ..()
+	REMOVE_TRAIT(owner, TRAIT_PACIFISM, "[type]")

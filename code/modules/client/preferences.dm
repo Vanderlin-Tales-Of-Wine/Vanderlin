@@ -2269,7 +2269,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	character.socks = socks
 
 	/* V: */
-	
+
 	character.headshot_link = headshot_link
 	character.flavortext = flavortext
 
@@ -2295,8 +2295,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		if(target_job?.forced_flaw)
 			charflaw = target_job.forced_flaw
 
-		character.charflaw = new charflaw.type()
-		character.charflaw.on_mob_creation(character)
+		character.charflaw = new charflaw.type(character)
 
 	if(parent)
 		var/datum/role_bans/bans = get_role_bans_for_ckey(parent.ckey)
