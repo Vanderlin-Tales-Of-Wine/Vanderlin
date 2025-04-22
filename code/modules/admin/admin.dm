@@ -497,8 +497,6 @@
 			to_chat(world, "Server restart - [init_by]")
 			world.TgsEndProcess()
 
-
-
 #undef REGULAR_RESTART
 #undef REGULAR_RESTART_DELAYED
 #undef HARD_RESTART
