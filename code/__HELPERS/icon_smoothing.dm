@@ -121,7 +121,7 @@ DEFINE_BITFIELD(smoothing_junction, list(
 		if(edge && isturf(src))
 			if(isturf(src))
 				var/turf/T = src
-				T.set_edge_overlays(new_junction)
+				T.set_neighborlays(new_junction)
 			return
 		set_smoothed_icon_state(new_junction)
 		return
@@ -148,7 +148,7 @@ DEFINE_BITFIELD(smoothing_junction, list(
 /atom/proc/set_smoothed_icon_state(new_junction)
 	icon_state = "[initial(icon_state)]-[new_junction]"
 
-/turf/proc/set_edge_overlays(new_junction)
+/turf/proc/set_neighborlays(new_junction)
 	var/adjacencies = new_junction
 	if(adjacencies == NONE)
 		return
@@ -156,20 +156,16 @@ DEFINE_BITFIELD(smoothing_junction, list(
 	remove_neighborlays()
 
 	if(adjacencies & NORTH)
-		var/turf/T = get_step(src, NORTH)
-		handle_edge_icon(T, NORTH)
+		handle_edge_icon(get_step(src, NORTH), NORTH)
 
 	if(adjacencies & SOUTH)
-		var/turf/T = get_step(src, SOUTH)
-		handle_edge_icon(T, SOUTH)
+		handle_edge_icon(get_step(src, SOUTH), SOUTH)
 
 	if(adjacencies & EAST)
-		var/turf/T = get_step(src, EAST)
-		handle_edge_icon(T, EAST)
+		handle_edge_icon(get_step(src, EAST), EAST)
 
 	if(adjacencies & WEST)
-		var/turf/T = get_step(src, WEST)
-		handle_edge_icon(T, WEST)
+		handle_edge_icon(get_step(src, WEST), WEST)
 
 /turf/proc/handle_edge_icon(turf/T, dir)
 	if(!isturf(T))
@@ -187,21 +183,19 @@ DEFINE_BITFIELD(smoothing_junction, list(
 
 /turf/proc/replace_neighborlay(dir, icon, offset = FALSE)
 	var/add
-	var/y = 0
-	var/x = 0
+	var/y = 32
+	var/x = 32
 	switch(dir)
 		if(NORTH)
 			add = "[icon]-n"
-			y = -32
+			y = -y
 		if(SOUTH)
 			add = "[icon]-s"
-			y = 32
 		if(EAST)
 			add = "[icon]-e"
-			x = -32
+			x = -x
 		if(WEST)
 			add = "[icon]-w"
-			x = 32
 
 	if(!add)
 		return
