@@ -56,6 +56,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/music, 5, TRUE)
 		ADD_TRAIT(H, TRAIT_BARDIC_TRAINING, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_OLDPARTY, TRAIT_GENERIC)
 		if(H.age == AGE_OLD)
 			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 1, TRUE)

@@ -206,6 +206,7 @@
 					else if(blacksteelalloy == 7)
 						testing("BLACKSTEEL ALLOYED")
 						alloy = /obj/item/ingot/blacksteel
+						GLOB.vanderlin_round_stats[STATS_BLACKSTEEL_SMELTED]++
 					else
 						alloy = null
 					if(alloy)

@@ -226,7 +226,7 @@
 	keys = list(/obj/item/key/archive, /obj/item/key/manor)
 
 /obj/item/storage/keyring/merchant
-	keys = list(/obj/item/key/merchant, /obj/item/key/mercenary)
+	keys = list(/obj/item/key/merchant, /obj/item/key/mercenary, /obj/item/key/warehouse)
 
 /obj/item/storage/keyring/mage
 	keys = list(/obj/item/key/manor, /obj/item/key/tower, /obj/item/key/mage)
