@@ -40,8 +40,11 @@
 		male.add_stress(/datum/stressevent/eora_marriage_call)
 		female.add_stress(/datum/stressevent/eora_marriage_call)
 
-		to_chat(male, span_love("Eora's voice whispers in your heart - you feel an irresistible urge to get married..."))
-		to_chat(female, span_love("Eora's voice whispers in your heart - you feel an irresistible urge to get married..."))
+		to_chat(male, span_love("Eora's voice whispers in your heart - you feel an irresistible urge to finally get married..."))
+		to_chat(male, span_love("The name of [female.real_name] seems to get your heart racing for some reason..."))
+
+		to_chat(female, span_love("Eora's voice whispers in your heart - you feel an irresistible urge to finally get married..."))
+		to_chat(female, span_love("The name of [male.real_name] seems to get your heart racing for some reason..."))
 
 		SEND_SOUND(male, 'sound/vo/female/gen/giggle (1).ogg')
 		SEND_SOUND(female, 'sound/vo/female/gen/giggle (1).ogg')
