@@ -536,7 +536,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 
 /datum/charflaw/pacifist/on_apply(mob/user)
 	var/mob/living/carbon/human/human_user = user
-	if(human_user?.mind in GLOB.pre_setup_antags || human_user?.mind.has_antag_datum(/datum/antagonist))
+	if((human_user?.mind in GLOB.pre_setup_antags) || human_user?.mind.has_antag_datum(/datum/antagonist))
 		human_user.get_random_flaw()
 	else
 		. = ..()
