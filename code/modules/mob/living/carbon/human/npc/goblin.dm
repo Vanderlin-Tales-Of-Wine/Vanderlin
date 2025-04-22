@@ -247,11 +247,7 @@
 			equipOutfit(O)
 
 /datum/component/rot/corpse/goblin/process()
-	var/amt2add = 10 //1 second
-	if(last_process)
-		amt2add = ((world.time - last_process)/10) * amt2add
-	last_process = world.time
-	amount += amt2add
+	..(amount_only = TRUE)
 	var/mob/living/carbon/C = parent
 	if(!C)
 		qdel(src)

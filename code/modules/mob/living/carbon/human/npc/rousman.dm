@@ -230,11 +230,7 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 	ADD_TRAIT(src, TRAIT_CRITICAL_WEAKNESS, TRAIT_GENERIC)
 
 /datum/component/rot/corpse/rousman/process()
-	var/amt2add = 10 //1 second
-	if(last_process)
-		amt2add = ((world.time - last_process)/10) * amt2add
-	last_process = world.time
-	amount += amt2add
+	..(amount_only = TRUE)
 	var/mob/living/carbon/C = parent
 	if(!C)
 		qdel(src)
