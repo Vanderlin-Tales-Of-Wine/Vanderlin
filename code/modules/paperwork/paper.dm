@@ -333,9 +333,9 @@
 
 	if(!usr)
 		return
+	var/mob/user = usr
 
 	if(href_list["close"])
-		var/mob/user = usr
 		if(user?.client && user.hud_used)
 			if(user.hud_used.reads)
 				user.hud_used.reads.destroy_read()
@@ -379,6 +379,13 @@
 				testing("[length(info)]")
 				testing("[findtext(info, "\n")]")
 				updateinfolinks()
+			if(istype(src, /obj/item/paper/diary)) // Handle Graphomaniac Diary Writing
+				if(user.has_flaw(/datum/charflaw/addiction/graphomaniac))
+					var/obj/item/paper/diary/diary = src
+					if(!diary.diary_owner==user)
+						return
+					if(length(t)>=75) // We'll only sate if they've written at least about one sentance
+						user.sate_addiction()
 			playsound(src, 'sound/items/write.ogg', 100, FALSE)
 			format_browse(info_links, usr)
 			update_icon_state()

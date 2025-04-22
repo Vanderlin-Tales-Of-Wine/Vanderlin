@@ -14,6 +14,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	"Bad Sight"=/datum/charflaw/badsight,
 	"Paranoid"=/datum/charflaw/paranoid,
 	"Clingy"=/datum/charflaw/clingy,
+	"Graphomaniac (Diary)"=/datum/charflaw/addiction/graphomaniac,
 	"Isolationist"=/datum/charflaw/isolationist,
 	"Fire Servant"=/datum/charflaw/addiction/pyromaniac,
 	"Thief-Borne"=/datum/charflaw/addiction/kleptomaniac,

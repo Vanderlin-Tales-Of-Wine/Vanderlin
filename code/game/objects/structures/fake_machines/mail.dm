@@ -161,6 +161,8 @@
 	if(istype(P, /obj/item/paper))
 		if(P.w_class >= WEIGHT_CLASS_BULKY)
 			return
+		if(istype(P, /obj/item/paper/diary))
+			return // Do not want diaries being sent through the mail.
 		if(alert(user, "Send Mail?",,"YES","NO") == "YES")
 			var/send2place = input(user, "Where to? (Person or #number)", "VANDERLIN", null)
 			var/sentfrom = input(user, "Who is this from?", "VANDERLIN", null)
