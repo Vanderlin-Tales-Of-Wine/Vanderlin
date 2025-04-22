@@ -521,5 +521,14 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	desc = "I don't want to harm other living beings!"
 
 /datum/charflaw/pacifist/on_mob_creation(mob/user)
-	. = ..()
-	ADD_TRAIT(user, TRAIT_PACIFISM, "[type]")
+	var/mob/living/carbon/human/human_user = user
+	if(human_user?.mind in GLOB.pre_setup_antags || human_user?.mind.has_antag_datum(/datum/antagonist))
+		var/list/flaws = GLOB.character_flaws.Copy() - list(/datum/charflaw/randflaw, /datum/charflaw/pacifist)
+		var/charflaw = pick_n_take(flaws)
+		charflaw = GLOB.character_flaws[charflaw]
+		human_user.charflaw = new charflaw()
+		human_user.charflaw.on_mob_creation(human_user)
+		qdel(src)
+	else
+		. = ..()
+		ADD_TRAIT(user, TRAIT_PACIFISM, "[type]")
