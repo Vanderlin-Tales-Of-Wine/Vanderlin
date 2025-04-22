@@ -18,7 +18,6 @@
 		return
 	client.screen.Cut()
 	client.screen += client.void
-	stop_all_loops()
 	SSdroning.kill_rain(src.client)
 	SSdroning.kill_loop(src.client)
 	SSdroning.kill_droning(src.client)
