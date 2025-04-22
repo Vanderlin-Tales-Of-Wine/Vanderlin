@@ -1,15 +1,9 @@
 /datum/advclass/combat/monk
 	name = "Monk"
 	allowed_sexes = list(MALE, FEMALE)
+	allowed_races = RACES_PLAYER_NONHERETICAL
 	tutorial = "A traveling monk of the God Ravox, unmatched in unarmed combat and with an unwavering devotion to Justice."
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Kobold",
-		"Aasimar"
-	)
+
 	outfit = /datum/outfit/job/adventurer/monk
 	min_pq = 0
 	category_tags = list(CTAG_ADVENTURER)

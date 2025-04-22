@@ -42,6 +42,7 @@
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
 	miracle = TRUE
+	healing_miracle = TRUE
 	devotion_cost = 60
 
 /obj/effect/proc_holder/spell/invoked/invisibility/cast(list/targets, mob/living/user)
@@ -94,28 +95,20 @@
 	range = 7
 	hitsound = 'sound/blank.ogg'
 
-/obj/projectile/magic/moondagger/on_hit(atom/target, blocked = FALSE)
+/obj/projectile/magic/moondagger/on_hit(mob/living/carbon/human/target, blocked = FALSE)
 	. = ..()
-	if(ishuman(target))
-		var/mob/living/carbon/human/H = target
-		var/datum/antagonist/werewolf/W = H.mind?.has_antag_datum(/datum/antagonist/werewolf/)
-		var/datum/antagonist/vampirelord/lesser/V = H.mind?.has_antag_datum(/datum/antagonist/vampirelord/lesser)
-		var/datum/antagonist/vampirelord/V_lord = H.mind?.has_antag_datum(/datum/antagonist/vampirelord/)
-		if(V)
-			if(V.disguised)
-				H.visible_message("<font color='white'>\The [src] weakens [H]'s curse temporarily!</font>", span_userdanger("I'm hit by my BANE!"))
-				H.apply_status_effect(/datum/status_effect/debuff/silver_curse)
-			else
-				H.visible_message("<font color='white'>\The [src] weakens [H]'s curse temporarily!</font>", span_userdanger("I'm hit by my BANE!"))
-				H.apply_status_effect(/datum/status_effect/debuff/silver_curse)
-		if(V_lord)
-			if(V_lord.vamplevel < 4 && !V)
-				H.visible_message("<font color='white'>\The [src] weakens [H]'s curse temporarily!</font>", span_userdanger("I'm hit by my BANE!"))
-				H.apply_status_effect(/datum/status_effect/debuff/silver_curse)
-			if(V_lord.vamplevel == 4 && !V)
-				H.visible_message("<font color='red'> The silver weapon fails to affect [H]!</font>", span_userdanger("This feeble metal can't hurt me, I AM ANCIENT!"))
-		if(W && W.transformed == TRUE)
-			H.visible_message("<font color='white'>\The [src] weakens [H]'s curse temporarily!</font>")
-			to_chat(H, span_userdanger("I'm hit by my BANE!"))
-			H.apply_status_effect(/datum/status_effect/debuff/silver_curse)
+	if(!ishuman(target))
+		return
+
+	var/datum/antagonist/werewolf/wolf_datum = target.mind?.has_antag_datum(/datum/antagonist/werewolf/)
+	var/datum/antagonist/vampire/sucker_datum = target.mind?.has_antag_datum(/datum/antagonist/vampire/)
+	if(istype(sucker_datum, /datum/antagonist/vampire/lord))
+		var/datum/antagonist/vampire/lord/sucker_lord = sucker_datum //I am very mature
+		if(sucker_lord.ascended >= 4)
+			target.visible_message(span_danger("\The [src] fails to affect [target]!"), span_userdanger("Feeble metal cannot hurt me, I AM THE ANCIENT!"))
+			return
+
+	if(wolf_datum?.transformed || sucker_datum)
+		target.visible_message(span_danger("\The [src] weakens [target]'s curse temporarily!"), span_userdanger("I'm hit by my BANE!"))
+		target.apply_status_effect(/datum/status_effect/debuff/silver_curse)
 

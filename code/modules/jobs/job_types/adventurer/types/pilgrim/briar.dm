@@ -1,7 +1,7 @@
 /datum/advclass/pilgrim/briar
 	name = "Briar"
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
+
 	outfit = /datum/outfit/job/adventurer/briar
 	category_tags = list(CTAG_PILGRIM)
 	tutorial = "Stoic gardeners or flesh-eating predators, all can follow Dendors path. <br>His Briars scorn civilized living, many embracing their animal nature, being fickle and temperamental."
@@ -167,6 +167,7 @@
 			to_chat(user, span_info("Dendor will not grant more powers, but he still approves of the sacrifice, judging by the signs..."))
 			user.apply_status_effect(/datum/status_effect/buff/blessed)
 			sleep(10)
+			GLOB.vanderlin_round_stats[STATS_DENDOR_SACRIFICES]++
 			qdel(src)
 			return
 		playsound(get_turf(user), 'sound/vo/smokedrag.ogg', 100, TRUE)
@@ -181,6 +182,7 @@
 			user.apply_status_effect(/datum/status_effect/buff/calm)
 	else
 		to_chat(user, span_warning("Dendor finds me unworthy..."))
+	GLOB.vanderlin_round_stats[STATS_DENDOR_SACRIFICES]++
 	qdel(src)
 
 /*	.................   Yellow Blessings of Dendor   ................... */
@@ -199,6 +201,7 @@
 			to_chat(user, span_info("Dendor will not grant more powers, but he still approves of the sacrifice, judging by the signs..."))
 			user.apply_status_effect(/datum/status_effect/buff/blessed)
 			sleep(10)
+			GLOB.vanderlin_round_stats[STATS_DENDOR_SACRIFICES]++
 			qdel(src)
 			return
 		playsound(get_turf(user), 'sound/vo/smokedrag.ogg', 100, TRUE)
@@ -213,6 +216,7 @@
 			user.apply_status_effect(/datum/status_effect/buff/calm)
 	else
 		to_chat(user, span_warning("Dendor finds me unworthy..."))
+	GLOB.vanderlin_round_stats[STATS_DENDOR_SACRIFICES]++
 	qdel(src)
 
 /*	.................  Red Blessings of Dendor   ................... */
@@ -231,6 +235,7 @@
 			to_chat(user, span_info("Dendor will not grant more powers, but he still approves of the sacrifice, judging by the signs..."))
 			user.apply_status_effect(/datum/status_effect/buff/blessed)
 			sleep(10)
+			GLOB.vanderlin_round_stats[STATS_DENDOR_SACRIFICES]++
 			qdel(src)
 			return
 		playsound(get_turf(user), 'sound/vo/smokedrag.ogg', 100, TRUE)
@@ -260,4 +265,5 @@
 				to_chat(user, span_warning("I no longer care for mending wounds, let my rage be heard!"))
 	else
 		to_chat(user, span_warning("Dendor finds me unworthy..."))
+	GLOB.vanderlin_round_stats[STATS_DENDOR_SACRIFICES]++
 	qdel(src)

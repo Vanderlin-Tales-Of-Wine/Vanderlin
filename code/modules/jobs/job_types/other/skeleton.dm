@@ -16,19 +16,7 @@
 	antag_job = TRUE
 
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Rakshari",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc",
-		"Kobold",
-	)
-
+	allowed_races = RACES_PLAYER_ALL
 	cmode_music = 'sound/music/cmode/antag/combatskeleton.ogg'
 
 	outfit = /datum/outfit/job/skeleton
@@ -86,10 +74,10 @@
 /datum/outfit/job/skeleton/pre_equip(mob/living/carbon/human/H)
 	..()
 
-	H.TOTALSTR = rand(8,10)
-	H.TOTALSPD = rand(7,10)
-	H.TOTALINT = 1
-	H.TOTALCON = 3
+	H.base_strength = rand(8,10)
+	H.base_speed = rand(7,10)
+	H.base_intelligence = 1
+	H.base_constitution = 3
 
 /* RAIDER SKELETONS */
 /datum/job/skeleton/raider
@@ -191,10 +179,10 @@
 
 /datum/outfit/job/skeleton/zizoid/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.TOTALSTR = rand(8,17)
-	H.TOTALSPD = rand(7,10)
-	H.TOTALINT = 1
-	H.TOTALCON = 3
+	H.base_strength = rand(8,17)
+	H.base_speed = rand(7,10)
+	H.base_intelligence = 1
+	H.base_constitution = 3
 
 	H.verbs |= /mob/living/carbon/human/proc/praise
 	H.verbs |= /mob/living/carbon/human/proc/communicate

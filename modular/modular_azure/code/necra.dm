@@ -10,6 +10,7 @@
 	req_items = list(/obj/item/clothing/neck/psycross/silver/necra)
 	associated_skill = /datum/skill/magic/holy
 	miracle = TRUE
+	healing_miracle = TRUE
 	devotion_cost = 10
 	var/list/near_death_lines = list(
 		"A haze begins to envelop me, but then suddenly recedes, as if warded back by some great light...",
@@ -94,12 +95,12 @@
 		if(L.stat == DEAD)
 			continue
 		if (L.mind)
-			var/datum/antagonist/vampirelord/lesser/V = L.mind.has_antag_datum(/datum/antagonist/vampirelord/lesser)
+			var/datum/antagonist/vampire/V = L.mind.has_antag_datum(/datum/antagonist/vampire)
 			if (V && !V.disguised)
 				is_vampire = TRUE
 			if (L.mind.has_antag_datum(/datum/antagonist/zombie))
 				is_zombie = TRUE
-			if (L.mind.special_role == "Vampire Lord")
+			if (istype(V, /datum/antagonist/vampire/lord))
 				too_powerful = L
 				user.visible_message(span_warning("[user] suddenly pales before an unseen presence, and gasps!"), span_warning("The sound of rushing blood fills my ears and mind, drowning out my abrogation!"))
 				break

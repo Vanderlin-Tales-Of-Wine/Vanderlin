@@ -37,7 +37,7 @@
 			if(!identified) //we failed the check OR we just dont know who that is
 				to_chat(HL, "Arcyne whispers fill the back of my head, resolving into an unknown [user.gender == FEMALE ? "woman" : "man"]'s voice: <font color=#7246ff>[message]</font>")
 
-			log_game("[key_name(user)] sent a message to [key_name(HL)] with contents [message]")
+			user.log_message("[key_name(user)] sent a spell message to [key_name(HL)]; message: [message]", LOG_GAME, color = "#0000ff")
 			// maybe an option to return a message, here?
 			return ..()
 	to_chat(user, span_warning("I seek a mental connection, but can't find [input]."))

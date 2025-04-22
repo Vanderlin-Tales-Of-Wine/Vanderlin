@@ -76,10 +76,8 @@
 /datum/skill/craft/alchemy/skill_level_effect(level, datum/mind/mind)
 	if(level > SKILL_LEVEL_MASTER)
 		ADD_TRAIT(mind?.current, TRAIT_LEGENDARY_ALCHEMIST, type)
-		//SEND_GLOBAL_SIGNAL(COMSIG_ATOM_ADD_TRAIT, (mind?.current, TRAIT_LEGENDARY_ALCHEMIST))
 	else if(HAS_TRAIT(mind?.current, TRAIT_LEGENDARY_ALCHEMIST))
 		REMOVE_TRAIT(mind?.current, TRAIT_LEGENDARY_ALCHEMIST, type)
-		//SEND_GLOBAL_SIGNAL(COMSIG_ATOM_ADD_TRAIT, (mind?.current, TRAIT_LEGENDARY_ALCHEMIST))
 
 /datum/skill/craft/bombs
 	name = "Bombcrafting"

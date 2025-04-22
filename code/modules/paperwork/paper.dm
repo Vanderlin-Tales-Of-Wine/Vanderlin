@@ -136,7 +136,7 @@
 	else
 		. += "It's from [mailer], addressed to [mailedto].</a>"
 
-/obj/item/paper/proc/read(mob/user)
+/obj/item/paper/proc/read(mob/user, ignore_distance = FALSE)
 	if(!user.client || !user.hud_used)
 		return
 	if(!user.hud_used.reads)
@@ -147,7 +147,7 @@
 		return
 	if(mailer)
 		return
-	if(in_range(user, src) || isobserver(user))
+	if(ignore_distance || in_range(user, src) || isobserver(user))
 //		var/obj/screen/read/R = user.hud_used.reads
 		var/dat = {"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">
 			<html><head><style type=\"text/css\">
@@ -341,8 +341,9 @@
 				user.hud_used.reads.destroy_read()
 			user << browse(null, "window=reading")
 
-	var/literate = usr.is_literate()
-	if(!usr.canUseTopic(src, BE_CLOSE, literate))
+	if(!usr.can_read())
+		return
+	if(!usr.canUseTopic(src, BE_CLOSE))
 		return
 
 	if(href_list["read"])
@@ -355,7 +356,7 @@
 	if(href_list["write"])
 		var/id = href_list["write"]
 		var/t =  browser_input_text(usr, "Enter what you want to write:", "Write", multiline = TRUE)
-		if(!t || !usr.canUseTopic(src, BE_CLOSE, literate))
+		if(!t || !usr.canUseTopic(src, BE_CLOSE))
 			return
 		var/obj/item/i = usr.get_active_held_item()	//Check to see if he still got that darn pen, also check if he's using a crayon or pen.
 		if(!istype(i, /obj/item/natural/thorn))

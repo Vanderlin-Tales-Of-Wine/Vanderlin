@@ -15,16 +15,7 @@
 	bypass_lastclass = TRUE
 
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Dark Elf",
-		"Tiefling",
-		"Aasimar",
-		"Half-Orc"
-	)
+	allowed_races = RACES_PLAYER_ALL
 
 	outfit = /datum/outfit/job/adept
 	advclass_cat_rolls = list(CTAG_ADEPT = 20)
@@ -65,7 +56,7 @@
 	beltl = /obj/item/weapon/mace/spiked
 	backr = /obj/item/weapon/shield/wood/adept
 	gloves = /obj/item/clothing/gloves/leather
-	backpack_contents = list(/obj/item/storage/keyring/shepherd = 1, /obj/item/weapon/knife/dagger/silver = 1)
+	backpack_contents = list(/obj/item/storage/keyring/inquisitor = 1, /obj/item/weapon/knife/dagger/silver = 1)
 
 	//Stats for class
 	H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
@@ -109,7 +100,7 @@
 	backl = /obj/item/ammo_holder/quiver/bolts
 	pants = /obj/item/clothing/pants/trou/leather
 	cloak = /obj/item/clothing/cloak/raincloak/brown
-	backpack_contents = list(/obj/item/lockpick = 1, /obj/item/storage/keyring/shepherd = 1, /obj/item/weapon/knife/dagger/silver = 1)
+	backpack_contents = list(/obj/item/lockpick = 1, /obj/item/storage/keyring/inquisitor = 1, /obj/item/weapon/knife/dagger/silver = 1)
 
 	//Stats for class
 	H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
@@ -153,6 +144,3 @@
 
 /datum/job/adept/after_spawn(mob/living/carbon/spawned, client/player_client)
 	..()
-	spawned.advsetup = TRUE
-	spawned.invisibility = INVISIBILITY_MAXIMUM
-	spawned.become_blind("advsetup")

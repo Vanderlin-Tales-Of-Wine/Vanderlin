@@ -13,7 +13,7 @@ GLOBAL_LIST_INIT(ghost_verbs, list(
 	name = "ghost"
 	desc = "" //jinkies!
 	icon = 'icons/mob/mob.dmi'
-	icon_state = ""
+	icon_state = "ghost"
 	layer = GHOST_LAYER
 	stat = DEAD
 	density = FALSE
@@ -64,6 +64,8 @@ GLOBAL_LIST_INIT(ghost_verbs, list(
 	// of the mob
 	var/deadchat_name
 	var/ghostize_time = 0
+	var/isinhell
+	var/last_helld = 0
 
 /mob/dead/observer/rogue
 //	see_invisible = SEE_INVISIBLE_LIVING
@@ -377,14 +379,14 @@ Works together with spawning an observer, noted above.
 			SSdroning.kill_loop(client)
 			SSdroning.kill_droning(client)
 			if(client.holder)
-				if(check_rights(R_WATCH,0))
-					stop_sound_channel(CHANNEL_HEARTBEAT) //Stop heartbeat sounds because You Are A Ghost Now
-					var/mob/dead/observer/ghost = new(src)	// Transfer safety to observer spawning proc.
-					SStgui.on_transfer(src, ghost) // Transfer NanoUIs.
-					ghost.can_reenter_corpse = can_reenter_corpse
-					ghost.ghostize_time = world.time
-					ghost.key = key
-					return ghost
+				//if(check_rights(R_WATCH,0))
+				stop_sound_channel(CHANNEL_HEARTBEAT) //Stop heartbeat sounds because You Are A Ghost Now
+				var/mob/dead/observer/ghost = new(src)	// Transfer safety to observer spawning proc.
+				SStgui.on_transfer(src, ghost) // Transfer NanoUIs.
+				ghost.can_reenter_corpse = can_reenter_corpse
+				ghost.ghostize_time = world.time
+				ghost.key = key
+				return ghost
 //		if(client)
 //			var/S = sound('sound/ambience/creepywind.ogg', repeat = 1, wait = 0, volume = client.prefs.musicvol, channel = CHANNEL_MUSIC)
 //			play_priomusic(S)
@@ -1036,6 +1038,9 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 /mob/dead/observer/proc/set_ghost_appearance()
 	if(!client?.prefs)
 		return
+
+	if(client?.holder && (type == /mob/dead/observer)) //subtypes begone!
+		icon_state = client?.prefs.admin_ghost_icon
 
 	client.prefs.apply_character_randomization_prefs()
 

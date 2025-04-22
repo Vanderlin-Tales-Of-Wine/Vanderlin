@@ -22,43 +22,23 @@
 	restricted_roles = list(
 		"Monarch",
 		"Consort",
-		"Jester",
-		"Dungeoneer",
-		"Inquisitor",
-		"Men-at-arms",
-		"Merchant",
-		"Priest",
-		"Acolyte",
-		"Adepts",
-		"Templar",
-		"Bandit",
-		"Prince",
-		"Princess",
 		"Hand",
-		"Steward",
-		"Feldsher",
-		"Town Elder",
 		"Captain",
-		"Archivist",
+		"Prince",
+		"Priest",
 		"Merchant",
-		"Royal Knight",
-		"Garrison Guard",
-		"Jailor",
-		"Court Magician",
 		"Forest Warden",
 		"Inquisitor",
-		"Adepts",
-		"Forest Guard",
-		"Squire",
-		"Veteran",
-		"Apothecary"
+		"Adept",
+		"Royal Knight",
+		"Templar",
 	)
 
 /datum/round_event/antagonist/solo/vampires_and_werewolves
 	var/leader = FALSE
 
 /datum/round_event/antagonist/solo/vampires_and_werewolves/start()
-	var/vampire = FALSE
+	var/vampire = TRUE
 	for(var/datum/mind/antag_mind as anything in setup_minds)
 		if(vampire)
 			add_vampire(antag_mind)
@@ -81,13 +61,13 @@
 		var/datum/job/J = SSjob.GetJob(antag_mind.current?.job)
 		J?.adjust_current_positions(-1)
 		antag_mind.current.unequip_everything()
-		antag_mind.add_antag_datum(/datum/antagonist/vampirelord)
+		antag_mind.add_antag_datum(/datum/antagonist/vampire/lord)
 		leader = TRUE
 		return
 	else
-		if(!antag_mind.has_antag_datum(/datum/antagonist/vampirelord))
+		if(!antag_mind.has_antag_datum(/datum/antagonist/vampire))
 			var/datum/job/J = SSjob.GetJob(antag_mind.current?.job)
 			J?.adjust_current_positions(-1)
 			antag_mind.current.unequip_everything()
-			antag_mind.add_antag_datum(/datum/antagonist/vampirelord/lesser)
+			antag_mind.add_antag_datum(/datum/antagonist/vampire/lesser)
 		return

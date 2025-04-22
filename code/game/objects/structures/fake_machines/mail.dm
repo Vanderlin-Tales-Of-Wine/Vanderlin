@@ -110,7 +110,7 @@
 			to_chat(user, span_warning("I do not know what this is, and I do not particularly care."))
 
 		var/mob/living/carbon/human/H = user
-		if(is_merchant_job(H.mind.assigned_role))
+		if(is_merchant_job(H.mind.assigned_role) || is_gaffer_job(H.mind.assigned_role))
 			to_chat(H, span_warning("This is of no use to me - I may give this to a mercenary so they may send it themselves."))
 			return
 		if(!is_mercenary_job(H.mind.assigned_role))
@@ -362,7 +362,7 @@
 		visible_message("<span class='warning'>[user] sends something.</span>")
 		playsound(loc, 'sound/magic/forgotten_bell.ogg', 80, FALSE, -1)
 		playsound(loc, 'sound/misc/disposalflush.ogg', 100, FALSE, -1)
-		for(var/mob/living/carbon/human/I in world) // Find all the living Inquisitors and Adepts and give them a triumph for the confession.
+		for(var/mob/living/carbon/human/I in GLOB.human_list) // Find all the living Inquisitors and Adepts and give them a triumph for the confession.
 			if(I.mind && (is_inquisitor_job(I.mind.assigned_role) || is_adept_job(I.mind.assigned_role)) && !(I.stat == DEAD))
 				if(is_inquisitor_job(I.mind.assigned_role))
 					I.confession_points += 5 // Increase the Inquisitor's confession count.
@@ -458,6 +458,16 @@
 		"Valorian Cloak (2)" = list(
 			list(type = /obj/item/clothing/cloak/cape/inquisitor, count = 1),
 			cost = 2,
+			max_purchases = 1
+		),
+		"Inquisitorial Hat (2)" = list(
+			list(type = /obj/item/clothing/head/leather/inqhat, count = 1),
+			cost = 2,
+			max_purchases = 1
+		),
+		"Inquisitorial Duster (3)" = list(
+			list(type = /obj/item/clothing/armor/medium/scale/inqcoat, count = 1),
+			cost = 3,
 			max_purchases = 1
 		),
 		"Plate Vambraces (2)" = list(

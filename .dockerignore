@@ -18,11 +18,11 @@ cfg
 data
 SQL
 tgui/node_modules
-tgstation.dmb
-tgstation.int
-tgstation.rsc
-tgstation.lk
-tgstation.dyn.rsc
+vanderlin.dmb
+vanderlin.int
+vanderlin.rsc
+vanderlin.lk
+vanderlin.dyn.rsc
 libmariadb.dll
 rust_g.dll
 appveyor.yml

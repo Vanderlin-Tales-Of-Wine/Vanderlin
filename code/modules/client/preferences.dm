@@ -20,6 +20,8 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	var/lastchangelog = ""				//Saved changlog filesize to detect if there was a change
 	var/ooccolor = null
 	var/asaycolor = "#ff4500"			//This won't change the color for current admins, only incoming ones.
+	/// the ghost icon this admin ghost will get when becoming an aghost.
+	var/admin_ghost_icon = null
 	var/triumphs = 0
 	var/enable_tips = TRUE
 	var/tip_delay = 500 //tip delay in milliseconds
@@ -90,18 +92,18 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	var/static/datum/patron/default_patron = /datum/patron/divine/astrata
 	var/list/features = MANDATORY_FEATURE_LIST
 	var/list/randomise = list(
-		(RANDOM_BODY) = TRUE,
-		(RANDOM_BODY_ANTAG) = TRUE,
-		(RANDOM_UNDERWEAR) = TRUE,
-		(RANDOM_UNDERWEAR_COLOR) = TRUE,
-		(RANDOM_UNDERSHIRT) = TRUE,
-		(RANDOM_SOCKS) = TRUE,
-		(RANDOM_HAIRSTYLE) = TRUE,
-		(RANDOM_HAIR_COLOR) = TRUE,
-		(RANDOM_FACIAL_HAIRSTYLE) = TRUE,
-		(RANDOM_FACIAL_HAIR_COLOR) = TRUE,
-		(RANDOM_SKIN_TONE) = TRUE,
-		(RANDOM_EYE_COLOR) = TRUE
+		(RANDOM_BODY) = FALSE,
+		(RANDOM_BODY_ANTAG) = FALSE,
+		(RANDOM_UNDERWEAR) = FALSE,
+		(RANDOM_UNDERWEAR_COLOR) = FALSE,
+		(RANDOM_UNDERSHIRT) = FALSE,
+		(RANDOM_SOCKS) = FALSE,
+		(RANDOM_HAIRSTYLE) = FALSE,
+		(RANDOM_HAIR_COLOR) = FALSE,
+		(RANDOM_FACIAL_HAIRSTYLE) = FALSE,
+		(RANDOM_FACIAL_HAIR_COLOR) = FALSE,
+		(RANDOM_SKIN_TONE) = FALSE,
+		(RANDOM_EYE_COLOR) = FALSE
 	)
 	var/phobia = "spiders"
 
@@ -1569,15 +1571,16 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 						var/datum/faith/faith = faiths_named[faith_input]
 						to_chat(user, "<font color='purple'>Faith: [faith.name]</font>")
 						to_chat(user, "<font color='purple'>Background: [faith.desc]</font>")
-						selected_patron = GLOB.patronlist[faith.godhead] || GLOB.patronlist[pick(GLOB.patrons_by_faith[faith_input])]
+						selected_patron = GLOB.preference_patrons[faith.godhead] || GLOB.preference_patrons[pick(GLOB.patrons_by_faith[faith_input])]
 
 				if("patron")
 					var/list/patrons_named = list()
 					for(var/path as anything in GLOB.patrons_by_faith[selected_patron?.associated_faith || initial(default_patron.associated_faith)])
-						var/datum/patron/patron = GLOB.patronlist[path]
+						var/datum/patron/patron = GLOB.preference_patrons[path]
 						if(!patron.name)
 							continue
-						patrons_named[patron.name] = patron
+						var/pref_name = patron.display_name ? patron.display_name : patron.name
+						patrons_named[pref_name] = patron
 					var/datum/faith/current_faith = GLOB.faithlist[selected_patron?.associated_faith] || GLOB.faithlist[initial(default_patron.associated_faith)]
 					var/god_input = browser_input_list(user, "SELECT YOUR HERO'S PATRON GOD", uppertext("\The [current_faith.name]"), patrons_named, selected_patron)
 					if(god_input)
@@ -2283,6 +2286,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	character.socks = socks
 
 	/* V: */
+
 	character.headshot_link = headshot_link
 	character.flavortext = flavortext
 
@@ -2327,7 +2331,10 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	if(is_misc_banned(parent.ckey, BAN_MISC_PUNISHMENT_CURSE))
 		ADD_TRAIT(character, TRAIT_PUNISHMENT_CURSE, TRAIT_BAN_PUNISHMENT)
 
-	/* V */
+	if(parent?.patreon?.has_access(ACCESS_ASSISTANT_RANK))
+		character.accent = selected_accent
+
+	/* :V */
 
 	if("tail_lizard" in pref_species.default_features)
 		character.dna.species.mutant_bodyparts |= "tail_lizard"
@@ -2336,9 +2343,6 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		character.update_body()
 		character.update_hair()
 		character.update_body_parts(redraw = TRUE)
-
-	if(parent?.patreon?.has_access(ACCESS_ASSISTANT_RANK))
-		character.accent = selected_accent
 
 /datum/preferences/proc/get_default_name(name_id)
 	switch(name_id)

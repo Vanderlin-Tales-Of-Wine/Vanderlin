@@ -2,10 +2,7 @@
 	name = "Paladin"
 	tutorial = "Paladins are former noblemen and clerics who have dedicated themselves to great combat prowess. Often, they were promised redemption for past sins if they crusaded in the name of the gods."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Aasimar"
-	)
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	outfit = /datum/outfit/job/adventurer/paladin
 	maximum_possible_slots = 1
 	min_pq = 2
@@ -17,7 +14,7 @@
 	H.virginity = TRUE
 
 	switch(H.patron?.type)
-		if(/datum/patron/psydon)
+		if(/datum/patron/psydon, /datum/patron/psydon/progressive)
 			head = /obj/item/clothing/head/helmet/heavy/bucket/gold
 			wrists = /obj/item/clothing/neck/psycross/g
 		if(/datum/patron/divine/astrata)
@@ -30,16 +27,16 @@
 			head = /obj/item/clothing/head/helmet/heavy/necked/dendorhelm
 			wrists = /obj/item/clothing/neck/psycross/silver/dendor
 		if(/datum/patron/divine/abyssor)
-			head = /obj/item/clothing/head/helmet/heavy/bucket // Placeholder
+			head = /obj/item/clothing/head/helmet/heavy/necked // Placeholder
 			wrists = /obj/item/clothing/neck/psycross/silver/abyssor
 		if(/datum/patron/divine/necra)
 			head = /obj/item/clothing/head/helmet/heavy/necked/necra
 			wrists = /obj/item/clothing/neck/psycross/silver/necra
 		if(/datum/patron/divine/ravox)
-			head = /obj/item/clothing/head/helmet/heavy/bucket // Placeholder
+			head = /obj/item/clothing/head/helmet/heavy/necked/ravox
 			wrists = /obj/item/clothing/neck/psycross/silver/ravox
 		if(/datum/patron/divine/xylix)
-			head = /obj/item/clothing/head/helmet/heavy/bucket // Placeholder
+			head = /obj/item/clothing/head/helmet/heavy/necked // Placeholder
 			wrists = /obj/item/clothing/neck/psycross/silver/xylix
 		if(/datum/patron/divine/pestra)
 			head = /obj/item/clothing/head/helmet/heavy/necked/pestrahelm
@@ -66,7 +63,7 @@
 	shoes = /obj/item/clothing/shoes/boots/armor
 	belt = /obj/item/storage/belt/leather/steel
 	beltl = /obj/item/storage/belt/pouch/coins/mid
-	id = /obj/item/clothing/ring/silver/toper
+	ring = /obj/item/clothing/ring/silver/toper
 	cloak = /obj/item/clothing/cloak/tabard/crusader
 	neck = /obj/item/clothing/neck/chaincoif
 	gloves = /obj/item/clothing/gloves/plate

@@ -123,8 +123,9 @@
 	//let's adjust the light power based on our skill, too
 	var/skill_level = user.mind?.get_skill_level(attached_spell.associated_skill)
 	var/mote_power = clamp(4 + (skill_level - 3), 4, 7) // every step above journeyman should get us 1 more tile of brightness
-	mote.light_outer_range =  mote_power
-	mote.update_light()
+	mote.set_light_range(new_outer_range = mote_power)
+	if(mote.light_system == STATIC_LIGHT)
+		mote.update_light()
 
 	if (mote.loc == src)
 		user.visible_message(span_notice("[user] holds open the palm of [user.p_their()] hand and concentrates..."), span_notice("I hold open the palm of my hand and concentrate on my arcyne power..."))

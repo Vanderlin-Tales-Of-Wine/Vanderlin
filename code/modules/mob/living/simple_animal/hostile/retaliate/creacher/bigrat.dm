@@ -21,7 +21,8 @@
 						/obj/item/natural/fur/rous = 1,/obj/item/alch/bone = 2)
 	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/steak = 1,
 						/obj/item/alch/sinew = 1,
-						/obj/item/natural/fur/rous = 1, /obj/item/alch/bone = 4)
+						/obj/item/natural/fur/rous = 1, /obj/item/alch/bone = 4,
+						/obj/item/natural/head/rous = 1)
 
 	health = ROUS_HEALTH
 	maxHealth = ROUS_HEALTH
@@ -34,9 +35,9 @@
 	melee_damage_lower = 12
 	melee_damage_upper = 14
 
-	TOTALCON = 3
-	TOTALSTR = 3
-	TOTALSPD = 6
+	base_constitution = 3
+	base_strength = 3
+	base_speed = 6
 
 	retreat_distance = 0
 	minimum_distance = 0

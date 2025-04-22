@@ -283,68 +283,77 @@
 	item_state = "knife"
 	strip_delay = 20
 	var/max_storage = 8
-	var/list/arrows = list()
 	sewrepair = TRUE
-	component_type = /datum/component/storage/concrete/grid/belt/knife_belt
+	component_type = null
 
 
 /obj/item/storage/belt/leather/knifebelt/attack_turf(turf/T, mob/living/user)
-	if(arrows.len >= max_storage)
+	if(length(contents) >= max_storage)
 		to_chat(user, span_warning("Your [src.name] is full!"))
 		return
 	to_chat(user, span_notice("You begin to gather the ammunition..."))
-	for(var/obj/item/weapon/knife/throwingknife/arrow in T.contents)
+	for(var/obj/item/weapon/knife/throwingknife/knife in T.contents)
 		if(do_after(user, 5 DECISECONDS))
-			if(!eatarrow(arrow))
+			if(!eat_knife(knife))
 				break
 
-/obj/item/storage/belt/leather/knifebelt/proc/eatarrow(obj/A)
-	if(A.type in subtypesof(/obj/item/weapon/knife/throwingknife))
-		if(arrows.len < max_storage)
-			A.forceMove(src)
-			arrows += A
-			update_icon()
-			return TRUE
-		else
-			return FALSE
-
-/obj/item/storage/belt/leather/knifebelt/attackby(obj/A, loc, params)
-	if(A.type in subtypesof(/obj/item/weapon/knife/throwingknife))
-		if(arrows.len < max_storage)
-			if(ismob(loc))
-				var/mob/M = loc
-				M.doUnEquip(A, TRUE, src, TRUE, silent = TRUE)
+/obj/item/storage/belt/leather/knifebelt/proc/eat_knife(obj/A)
+	if(A.type in typesof(/obj/item/weapon/knife/throwingknife))
+		if(length(contents) < max_storage)
+			if(SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, A, null, FALSE))
+				update_icon()
+				return TRUE
 			else
-				A.forceMove(src)
-			arrows += A
+				return FALSE
+
+/obj/item/storage/belt/leather/knifebelt/attackby(obj/A, mob/living/user, params)
+	if(A.type in typesof(/obj/item/weapon/knife/throwingknife))
+		if(SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, A, user, TRUE))
 			update_icon()
 			to_chat(usr, span_notice("I discreetly slip [A] into [src]."))
 		else
 			to_chat(loc, span_warning("Full!"))
-		return
-	..()
+		return TRUE
+	. = ..()
 
 /obj/item/storage/belt/leather/knifebelt/attack_right(mob/user)
-	if(arrows.len)
-		var/obj/O = arrows[arrows.len]
-		arrows -= O
-		O.forceMove(user.loc)
-		user.put_in_hands(O)
+	if(length(contents))
+		var/list/knives = list()
+		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_TAKE_TYPE, /obj/item/weapon/knife/throwingknife, drop_location(), amount = 1, check_adjacent = TRUE, user = user, inserted = knives)
+		for(var/knife in knives)
+			user.put_in_active_hand(knife)
+			break
 		update_icon()
 		return TRUE
 
 /obj/item/storage/belt/leather/knifebelt/examine(mob/user)
 	. = ..()
-	if(arrows.len)
-		. += span_notice("[arrows.len] inside.")
+	if(length(contents))
+		. += span_notice("[length(contents)] inside.")
 
 /obj/item/storage/belt/leather/knifebelt/iron/Initialize()
 	. = ..()
 	for(var/i in 1 to max_storage)
 		var/obj/item/weapon/knife/throwingknife/A = new()
-		arrows += A
+		if(!SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, A, null, TRUE, TRUE))
+			qdel(A)
 	update_icon()
 
+/obj/item/storage/belt/leather/knifebelt/steel/Initialize()
+	. = ..()
+	for(var/i in 1 to max_storage)
+		var/obj/item/weapon/knife/throwingknife/steel/A = new()
+		if(!SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, A, null, TRUE, TRUE))
+			qdel(A)
+	update_icon()
+
+/obj/item/storage/belt/leather/knifebelt/psydon/Initialize()
+	. = ..()
+	for(var/i in 1 to max_storage)
+		var/obj/item/weapon/knife/throwingknife/psydon/A = new()
+		if(!SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, A, null, TRUE, TRUE))
+			qdel(A)
+	update_icon()
 
 /obj/item/storage/belt/leather/knifebelt/black
 
@@ -355,19 +364,86 @@
 	. = ..()
 	for(var/i in 1 to max_storage)
 		var/obj/item/weapon/knife/throwingknife/A = new()
-		arrows += A
+		if(!SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, A, null, TRUE, TRUE))
+			qdel(A)
 	update_icon()
 
 /obj/item/storage/belt/leather/knifebelt/black/steel/Initialize()
 	. = ..()
 	for(var/i in 1 to max_storage)
 		var/obj/item/weapon/knife/throwingknife/steel/A = new()
-		arrows += A
+		if(!SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, A, null, TRUE, TRUE))
+			qdel(A)
 	update_icon()
 
 /obj/item/storage/belt/leather/knifebelt/black/psydon/Initialize()
 	. = ..()
 	for(var/i in 1 to max_storage)
 		var/obj/item/weapon/knife/throwingknife/psydon/A = new()
-		arrows += A
+		if(!SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, A, null, TRUE, TRUE))
+			qdel(A)
 	update_icon()
+
+///////////////////////////////////////////////
+
+/obj/item/storage/hip/headhook
+	name = "head hook"
+	desc = "an iron hook for storing 6 heads"
+	icon = 'icons/roguetown/clothing/belts.dmi'
+	//mob_overlay_icon = 'icons/roguetown/clothing/onmob/belts.dmi' //N/A uncomment when a mob_overlay icon is made and added
+	icon_state = "ironheadhook"
+	item_state = "ironheadhook"
+	slot_flags = ITEM_SLOT_HIP
+	w_class = WEIGHT_CLASS_NORMAL
+	max_integrity = 300
+	equip_sound = 'sound/blank.ogg'
+	//content_overlays = FALSE
+	bloody_icon_state = "bodyblood"
+	anvilrepair = /datum/skill/craft/blacksmithing
+	smeltresult = /obj/item/ingot/iron
+	component_type = /datum/component/storage/concrete/grid/headhook
+
+/obj/item/storage/hip/headhook/bronze
+	name = "bronze head hook"
+	desc = "a bronze hook for storing 12 heads"
+	icon = 'icons/roguetown/clothing/belts.dmi'
+	//mob_overlay_icon = 'icons/roguetown/clothing/onmob/belts.dmi'
+	icon_state = "bronzeheadhook"
+	item_state = "bronzeheadhook"
+	slot_flags = ITEM_SLOT_HIP
+	w_class = WEIGHT_CLASS_NORMAL
+	max_integrity = 400
+	equip_sound = 'sound/blank.ogg'
+	//content_overlays = FALSE
+	bloody_icon_state = "bodyblood"
+	anvilrepair = /datum/skill/craft/blacksmithing
+	smeltresult = /obj/item/ingot/bronze
+	component_type = /datum/component/storage/concrete/grid/headhook/bronze
+
+
+/obj/item/storage/hip/headhook/attackby(obj/item/H, mob/user, params)
+	. = ..()
+	user.visible_message("[user] tries to put [H] into [src].", "You try to put [H] into [src].")
+
+/obj/item/storage/hip/headhook/examine(mob/user)
+	. = ..()
+	if(length(contents))
+		. += span_notice("[length(contents)] thing[length(contents) > 1 ? "s" : ""] in [src].")
+
+///obj/item/storage/hip/headhook/royal //N/A uncomment this whole thing when this actually has sprites to use, everything else about it works fine
+	//name = "royal head hook"
+	//desc = "a golden hook for storing 16 heads, befitting of any king's hunt"
+	//icon = 'icons/roguetown/clothing/belts.dmi' //N/A uncomment when a mob_overlay icon is made and added
+	//mob_overlay_icon = 'icons/roguetown/clothing/onmob/belts.dmi'
+	//icon_state = "knife"
+	//item_state = "knife"
+	//slot_flags = ITEM_SLOT_HIP
+	//w_class = WEIGHT_CLASS_NORMAL
+	//max_integrity = 400
+	//equip_sound = 'sound/blank.ogg'
+	//content_overlays = FALSE
+	//sellprice = 250
+	//bloody_icon_state = "bodyblood"
+	//anvilrepair = /datum/skill/craft/blacksmithing
+	//smeltresult = /obj/item/ingot/gold
+	//component_type = /datum/component/storage/concrete/grid/headhook/bronze

@@ -227,7 +227,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 
 /mob/living/simple_animal/attackby(obj/item/O, mob/user, params)
 	if(!stat && istype(O, /obj/item/reagent_containers/glass))
-		if(udder)
+		if(udder && user.used_intent.type == INTENT_FILL)
 			changeNext_move(20) // milking sound length
 			udder.milkAnimal(O, user)
 			return TRUE
@@ -330,13 +330,6 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	for(var/mob/x in BM)
 		x.forceMove(get_turf(src))
 		buckle_mob(x, TRUE)
-
-/mob/proc/set_stat(new_stat)
-	if(new_stat == stat)
-		return
-	. = stat
-	stat = new_stat
-	SEND_SIGNAL(src, COMSIG_MOB_STATCHANGE, new_stat, .)
 
 /mob/living/simple_animal/update_stat()
 	if(status_flags & GODMODE)

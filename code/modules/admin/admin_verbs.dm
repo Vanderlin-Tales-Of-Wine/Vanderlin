@@ -19,6 +19,7 @@ GLOBAL_PROTECT(admin_verbs_default)
 	/datum/admins/proc/start_vote,
 	/datum/admins/proc/show_player_panel,
 	/datum/admins/proc/admin_heal,
+	/datum/admins/proc/admin_bless,
 	/datum/admins/proc/admin_curse,
 	/datum/admins/proc/admin_sleep,
 	/client/proc/ghost_down,
@@ -113,6 +114,7 @@ GLOBAL_PROTECT(admin_verbs_admin)
 	/client/proc/resetasaycolor,
 	/client/proc/set_personal_admin_ooc_color,
 	/client/proc/reset_personal_admin_ooc_color,
+	/client/proc/set_ghost_sprite,
 	/client/proc/toggleadminhelpsound,
 	/client/proc/respawn_character,
 	/client/proc/discord_id_manipulation,
@@ -394,7 +396,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 		if(istype(ghost.mind.current, /mob/living))
 			var/mob/living/M = ghost.mind.current
 			var/datum/status_effect/incapacitating/sleeping/S = M.IsSleeping()
-			if(S && !M.IsKnockdown() && !M.IsStun() && !M.IsParalyzed()) // Wake them up unless they're asleep for another reason
+			if(S && !HAS_TRAIT(M, TRAIT_FLOORED)) // Wake them up unless they're asleep for another reason
 				M.remove_status_effect(S)
 				M.set_resting(FALSE, TRUE)
 			M.density = initial(M.density)
@@ -709,11 +711,21 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	if(!holder)
 		return
 
+	// Handle antag HUD if active
 	if(has_antag_hud())
 		toggle_combo_hud()
 
+	// Deactivate admin holder
 	holder.deactivate()
 
+	// Ensure the admin stops hearing ghosts like a mortal
+	if(prefs)
+		prefs.chat_toggles &= ~CHAT_GHOSTEARS   // Explicitly remove ghost hearing
+		prefs.chat_toggles &= ~CHAT_GHOSTWHISPER // Explicitly remove ghost whispers
+		prefs.save_preferences()
+		to_chat(src, "<span class='info'>I will hear like a mortal.</span>")
+
+	// Messaging
 	to_chat(src, "<span class='interface'>I am now a normal player.</span>")
 	log_admin("[src] deadmined themself.")
 	message_admins("[src] deadmined themself.")
@@ -728,7 +740,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 	if(!A)
 		A = GLOB.admin_datums[ckey]
-		if (!A)
+		if(!A)
 			var/msg = " is trying to readmin but they have no deadmin entry"
 			message_admins("[key_name_admin(src)][msg]")
 			log_admin_private("[key_name(src)][msg]")
@@ -736,7 +748,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 	A.associate(src)
 
-	if (!holder)
+	if(!holder)
 		return //This can happen if an admin attempts to vv themself into somebody elses's deadmin datum by getting ref via brute force
 
 	to_chat(src, "<span class='interface'>I am now an admin.</span>")

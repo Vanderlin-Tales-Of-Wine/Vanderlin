@@ -15,7 +15,7 @@
 
 	advclass_cat_rolls = list(CTAG_TOWNER = 20)
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
+	allowed_races = RACES_PLAYER_ALL
 
 	outfit = null
 	outfit_female = null
@@ -24,9 +24,6 @@
 
 /datum/job/villager/after_spawn(mob/living/carbon/spawned, client/player_client)
 	..()
-	spawned.advsetup = TRUE
-	spawned.invisibility = INVISIBILITY_MAXIMUM
-	spawned.become_blind("advsetup")
 
 /datum/job/villager/New()
 	. = ..()

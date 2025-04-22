@@ -32,10 +32,6 @@
 	projectiletype = /obj/projectile/earthenchunk
 	footstep_type = FOOTSTEP_MOB_BAREFOOT
 	pooptype = null
-	STACON = 20
-	STAEND = 20
-	STASTR = 16
-	STASPD = 3
 	ranged = TRUE
 	simple_detect_bonus = 20
 	deaggroprob = 0
@@ -48,6 +44,12 @@
 	pixel_x = -32
 	dodgetime = 0
 	aggressive = 1
+
+	base_constitution = 20
+	base_endurance = 20
+	base_strength = 16
+	base_speed = 3
+
 	var/stomp_cd
 
 /mob/living/simple_animal/hostile/retaliate/elemental/collossus/MoveToTarget(list/possible_targets)//Step 5, handle movement between us and our target

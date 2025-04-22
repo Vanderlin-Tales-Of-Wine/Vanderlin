@@ -213,12 +213,6 @@
 	gender = MALE
 	specuse = list("human")
 
-/datum/sprite_accessory/hair/helmet
-	name = "Helmet hair"
-	icon_state = "helmet"
-	gender = MALE
-	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
-
 /datum/sprite_accessory/hair/heroic
 	name = "Heroic"
 	icon_state = "heroic"
@@ -407,7 +401,18 @@
 	gender = MALE
 	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
 
+/datum/sprite_accessory/hair/vagabond
+	name = "Vagabond"
+	icon_state = "vagabond"
+	gender = MALE
+	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
 
+
+/datum/sprite_accessory/hair/steward
+	name = "Steward"
+	icon_state = "steward"
+	gender = MALE
+	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
 
 /////////////////////////////
 // GIRLY Hair Definitions  //
@@ -747,12 +752,6 @@
 /datum/sprite_accessory/hair/head/mediumbraid
 	name = "Medium Braid"
 	icon_state = "mediumbraid"
-	gender = FEMALE
-	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
-
-/datum/sprite_accessory/hair/head/countryponytailalt
-	name = "Ponytail (Country Alt)"
-	icon_state = "countryalt"
 	gender = FEMALE
 	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
 
@@ -1147,6 +1146,12 @@
 	gender = NEUTER
 	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
 
+/datum/sprite_accessory/hair/head/countryponytailalt
+	name = "Ponytail (Country Alt)"
+	icon_state = "countryalt"
+	gender = NEUTER
+	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
+
 /datum/sprite_accessory/hair/head/kusanagi_alt
 	name = "Kusanagi (Alt)"
 	icon_state = "kusanagi_alt"
@@ -1156,6 +1161,12 @@
 /datum/sprite_accessory/hair/head/shorthair6
 	name = "Short Hair (Alt)"
 	icon_state = "shorthair_alt"
+	gender = NEUTER
+	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
+
+/datum/sprite_accessory/hair/helmet
+	name = "Helmet Hair"
+	icon_state = "helmet"
 	gender = NEUTER
 	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
 
@@ -1725,48 +1736,6 @@
 	hasinner = 1
 	color_src = HAIR
 	specuse = list("cattan")
-
-/datum/sprite_accessory/wings/none
-	name = "None"
-	icon_state = "none"
-
-/datum/sprite_accessory/wings
-	icon = 'icons/mob/clothing/wings.dmi'
-
-/datum/sprite_accessory/wings_open
-	icon = 'icons/mob/clothing/wings.dmi'
-
-/datum/sprite_accessory/wings/angel
-	name = "Angel"
-	icon_state = "angel"
-	color_src = 0
-	dimension_x = 46
-	center = TRUE
-	dimension_y = 34
-	locked = TRUE
-
-/datum/sprite_accessory/wings_open/angel
-	name = "Angel"
-	icon_state = "angel"
-	color_src = 0
-	dimension_x = 46
-	center = TRUE
-	dimension_y = 34
-
-/datum/sprite_accessory/wings/dragon
-	name = "Dragon"
-	icon_state = "dragon"
-	dimension_x = 96
-	center = TRUE
-	dimension_y = 32
-	locked = TRUE
-
-/datum/sprite_accessory/wings_open/dragon
-	name = "Dragon"
-	icon_state = "dragon"
-	dimension_x = 96
-	center = TRUE
-	dimension_y = 32
 
 /datum/sprite_accessory/frills
 	icon = 'icons/mob/mutant_bodyparts.dmi'

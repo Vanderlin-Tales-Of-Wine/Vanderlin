@@ -14,13 +14,7 @@
 	bypass_lastclass = TRUE
 
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Aasimar"
-	)
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 
 	outfit = /datum/outfit/job/archivist
 	spells = list(/obj/effect/proc_holder/spell/self/learnspell, /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
@@ -31,7 +25,7 @@
 
 /datum/outfit/job/archivist/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.mana_pool.set_intrinsic_recharge(MANA_ALL_LEYLINES)
+	H.mana_pool?.set_intrinsic_recharge(MANA_ALL_LEYLINES)
 	if(H.dna.species.id == "Dwarf")
 		shirt = /obj/item/clothing/shirt/undershirt/puritan
 		armor = /obj/item/clothing/armor/leather/jacket/apothecary

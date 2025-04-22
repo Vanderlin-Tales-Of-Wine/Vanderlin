@@ -28,7 +28,8 @@
 						/obj/item/natural/hide = 2,
 						/obj/item/natural/fur/mole = 3,
 						/obj/item/alch/sinew = 2,
-						/obj/item/alch/bone = 1)
+						/obj/item/alch/bone = 1,
+						/obj/item/natural/head/mole = 1)
 
 	health = MOLE_HEALTH
 	maxHealth = MOLE_HEALTH
@@ -41,10 +42,10 @@
 	melee_damage_lower = 20
 	melee_damage_upper = 25
 
-	TOTALCON = 8
-	TOTALSTR = 12
-	TOTALSPD = 3
-	TOTALEND = 10
+	base_constitution = 8
+	base_strength = 12
+	base_speed = 3
+	base_endurance = 10
 
 	retreat_distance = 0
 	minimum_distance = 0

@@ -1,45 +1,31 @@
-
 /mob/living/carbon/human/proc/choose_name_popup(input)
 	if(QDELETED(src))
 		return
 	var/old_name = real_name
-	if(!stat)
-		/*
-		if(job)
-			var/datum/job/j = SSjob.GetJob(job)
-			if(!j.antag_job)
-				j.current_positions--
-		*/
+	var/new_name = old_name
+	MOBTIMER_SET(src, MT_MIRRORTIME)
+	do //This is so I can exit early if conditions aren't met
+		if(stat > CONSCIOUS)
+			break
 
-		MOBTIMER_SET(src, MT_MIRRORTIME)
+		var/possible_new_name = browser_input_text(src, "What should your [input] name be?", null, max_length = MAX_NAME_LEN, timeout = 60 SECONDS)
+		if(!possible_new_name)
+			break
+		possible_new_name = reject_bad_name(possible_new_name)
+		if(!possible_new_name)
+			to_chat(src, span_warning("Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and ."))
+			break
 
-		var/begin_time = world.time
-		var/new_name = input(src, "What should your [input] name be?", "VANDERLIN")
-		if(world.time > begin_time + 60 SECONDS)
-			to_chat(src, "<font color='red'>You waited too long.</font>")
-			return
-		new_name = reject_bad_name(new_name)
-		if(new_name)
-			new_name = capitalize(new_name)
-			if(new_name in GLOB.chosen_names)
-				to_chat(src, "<font color='red'>The name is taken.</font>")
-				return
-			else
-				real_name = new_name
-		else
-			to_chat(src, "<font color='red'>Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .</font>")
-			return
-	GLOB.chosen_names += real_name
+		possible_new_name = capitalize(possible_new_name)
+		if(possible_new_name in GLOB.chosen_names)
+			to_chat(src, span_warning("That name is taken."))
+			break
+		new_name = possible_new_name
+	while(FALSE)
+
 	if(mind.special_role == "Vampire Lord")
-		if(gender == FEMALE)
-			real_name = "Lady [real_name]"
-		if(gender == MALE)
-			real_name = "Lord [real_name]"
-	mind.name = real_name
+		new_name = "[(gender == FEMALE ? "Lady" : "Lord")] [new_name]"
+
+	fully_replace_character_name(old_name, new_name)
 	var/fakekey = get_display_ckey(ckey)
-	GLOB.character_list[mobid] = "[fakekey] was [real_name] ([input])<BR>"
-	if(GLOB.character_ckey_list[old_name])
-		GLOB.character_ckey_list -= old_name
-	GLOB.character_ckey_list[real_name] = ckey
-	log_character("[ckey] - [real_name] - [input]")
-	log_manifest(ckey,mind,src,latejoin = TRUE)
+	GLOB.character_list[mobid] = "[fakekey] was [new_name] ([input])<BR>"

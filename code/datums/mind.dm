@@ -380,8 +380,16 @@
 		if(known_skills[skill_ref] > old_level)
 			to_chat(current, span_nicegreen("My proficiency in [skill_ref.name] grows to [SSskills.level_names[known_skills[skill_ref]]]!"))
 			skill_ref.skill_level_effect(src, known_skills[skill_ref])
+			GLOB.vanderlin_round_stats[STATS_SKILLS_LEARNED]++
+			if(istype(skill_ref, /datum/skill/combat))
+				GLOB.vanderlin_round_stats[STATS_COMBAT_SKILLS]++
+			if(istype(skill_ref, /datum/skill/craft))
+				GLOB.vanderlin_round_stats[STATS_CRAFT_SKILLS]++
+			if(skill == /datum/skill/misc/reading && old_level == SKILL_LEVEL_NONE && current.is_literate())
+				GLOB.vanderlin_round_stats[STATS_LITERACY_TAUGHT]++
 		if(skill == /datum/skill/magic/arcane)
 			adjust_spellpoints(1)
+
 		return TRUE
 	else
 		to_chat(current, span_warning("My [skill_ref.name] has weakened to [SSskills.level_names[known_skills[skill_ref]]]!"))
@@ -684,7 +692,6 @@
 /datum/mind/proc/has_antag_datum(datum_type, check_subtypes = TRUE)
 	if(!datum_type)
 		CRASH("has_antag_datum was called without an antag datum specified!")
-	. = FALSE
 	for(var/a in antag_datums)
 		var/datum/antagonist/antag_datum_ref = a
 		if(check_subtypes && istype(antag_datum_ref, datum_type))
@@ -700,10 +707,6 @@
 	for(var/datum/antagonist/GG in antag_datums)
 		is_good_guy &&= GG.isgoodguy
 	return is_good_guy
-
-
-/datum/mind/proc/equip_traitor(employer = "The Syndicate", silent = FALSE, datum/antagonist/uplink_owner)
-	return
 
 /**
  * Link a new mobs mind to the creator of said mob. They will join any team they are currently on, and will only switch teams when their creator does.
@@ -737,7 +740,7 @@
 		output += "<B>Objectives:</B>"
 		var/obj_count = 1
 		for(var/datum/objective/objective in all_objectives)
-			output += "<br><B>Objective #[obj_count++]</B>: [objective.explanation_text]"
+			output += "<br><B>[objective.flavor] #[obj_count++]</B>: [objective.explanation_text]"
 //			var/list/datum/mind/other_owners = objective.get_owners() - src
 //			if(other_owners.len)
 //				output += "<ul>"

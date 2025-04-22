@@ -10,6 +10,7 @@
 	invocation_type = "shout"
 	releasedrain = 30
 	miracle = TRUE
+	healing_miracle = TRUE
 	devotion_cost = 25
 
 /obj/effect/proc_holder/spell/invoked/instill_perfection/cast(list/targets,mob/living/user = usr)

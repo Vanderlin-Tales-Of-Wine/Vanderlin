@@ -17,7 +17,7 @@
 	banned_leprosy = FALSE
 
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
+	allowed_races = RACES_PLAYER_ALL
 
 	outfit = /datum/outfit/job/vagrant
 	can_random = FALSE
@@ -57,7 +57,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, pick(2,3,4,5), TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, pick(1,2,3), TRUE) // Street-fu
 		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, pick(1,2,3), TRUE)
-		H.TOTALLUC = rand(1, 20)
+		H.base_fortune = rand(1, 20)
 	if(prob(5))
 		r_hand = /obj/item/weapon/mace/woodclub
 	H.change_stat(STATKEY_INT, -3)

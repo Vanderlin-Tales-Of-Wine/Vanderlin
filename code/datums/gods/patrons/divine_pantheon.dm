@@ -44,7 +44,7 @@
 	flaws = "Cynical, Isolationist, Unfiltered Honesty"
 	worshippers = "Magic Practitioners, Scholars, Scribes"
 	sins = "Suppressing Truth, Burning Books, Censorship"
-	boons = "You learn and teach apprentices slightly better."
+	boons = "You learn, dream, and teach apprentices slightly better."
 	added_traits = list(TRAIT_TUTELAGE)
 	t0 = /obj/effect/proc_holder/spell/invoked/lesser_heal
 	t1 = /obj/effect/proc_holder/spell/invoked/invisibility

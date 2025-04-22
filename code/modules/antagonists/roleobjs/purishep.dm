@@ -25,7 +25,7 @@
 	..()
 
 /datum/objective/purishep
-	explanation_text = "Hunt down and bring to heel all evils that infest Vanderlin. Deliver their confessions."
+	explanation_text = "Hunt down and bring to heel all evils that infest this land. Deliver their confessions."
 
 /datum/objective/purishep/check_completion()
 	if(GLOB.confessors)
