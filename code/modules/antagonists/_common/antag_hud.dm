@@ -43,7 +43,6 @@
 	if(M.mind || new_icon_state) //in mindless mobs, only null is acceptable, otherwise we're antagging a mindless mob, meaning we should runtime
 		M.mind.antag_hud_icon_state = new_icon_state
 
-
 //MIND PROCS
 //these are called by mind.transfer_to()
 /datum/mind/proc/transfer_antag_huds(datum/atom_hud/antag/newhud)
