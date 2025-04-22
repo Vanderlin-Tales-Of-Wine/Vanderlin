@@ -1501,6 +1501,7 @@
 /area/rogue/indoors/town/merc_guild)
 "aSK" = (
 /obj/structure/bed/hay,
+/obj/effect/landmark/start/gaffer_assistant,
 /turf/open/floor/cobble/alt,
 /area/rogue/indoors/town/merc_guild)
 "aSR" = (
@@ -44258,7 +44259,7 @@
 /area/rogue/indoors/town/manorgate)
 "yeA" = (
 /obj/structure/table/wood/plain,
-/obj/item/candle/yellow,
+/obj/item/candle/yellow/lit,
 /turf/open/floor/cobblerock,
 /area/rogue/indoors/town/merc_guild)
 "yfr" = (

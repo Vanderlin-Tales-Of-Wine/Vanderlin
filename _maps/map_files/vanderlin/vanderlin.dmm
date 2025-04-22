@@ -2262,14 +2262,6 @@
 /area/rogue/outdoors/town)
 "btw" = (
 /obj/structure/fake_machine/scomm,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/effect/landmark/start/gaffer_assistant{
-	dir = 1
-	},
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/merc_guild)
 "bty" = (
@@ -10348,6 +10340,7 @@
 /area/rogue/under/town/basement)
 "gOU" = (
 /obj/structure/chair/wood/alt/fancy,
+/obj/effect/landmark/start/gaffer_assistant,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/merc_guild)
 "gPo" = (
@@ -23391,6 +23384,7 @@
 /area/rogue/outdoors/town)
 "pOz" = (
 /obj/structure/bed/hay,
+/obj/effect/landmark/start/gaffer_assistant,
 /turf/open/floor/cobble/alt,
 /area/rogue/indoors/town/merc_guild)
 "pOS" = (
@@ -28375,7 +28369,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement)
 "teV" = (
-/obj/effect/landmark/start/gaffer{
+/obj/effect/landmark/start/gaffer_assistant{
 	dir = 8
 	},
 /turf/open/floor/blocks/newstone/alt,
