@@ -865,7 +865,6 @@ GLOBAL_LIST_EMPTY(active_lifts_by_type)
 					sold_count -= first_count
 
 				var/obj/item/paper/scroll/sold_manifest/manifest = new /obj/item/paper/scroll/sold_manifest(location)
-				manifest.name = "[manifest.name] #[i]"
 				manifest.count = count.Copy()
 				manifest.items = items.Copy()
 				manifest.rebuild_info()

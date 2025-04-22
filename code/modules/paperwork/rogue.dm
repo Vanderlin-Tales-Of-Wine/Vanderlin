@@ -502,7 +502,8 @@
 	info += "<br/></font>"
 
 	info += "<font size=\"2\" face=\"[FOUNTAIN_PEN_FONT]\" color=#27293f>[writers_name] Shipwright of [faction]</font>"
-
+	info += "<br/>"
+	info += "<font size=\"2\" face=\"[FOUNTAIN_PEN_FONT]\" color=#27293f>Time: [gameTimestamp("hh:mm:ss", world.time - SSticker.round_start_time)]</font>"
 	info += "</div>"
 
 /obj/item/paper/scroll/sell_price_changes/proc/generated_test_data()

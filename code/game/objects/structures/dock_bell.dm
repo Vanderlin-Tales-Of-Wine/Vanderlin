@@ -1,5 +1,5 @@
 /obj/structure/dock_bell
-	name = "Dock Bell"
+	name = "dock bell"
 	desc = "A loud bell that carries its sound to the nearby ports. Signals to merchants that the dock has wares to sell."
 
 
