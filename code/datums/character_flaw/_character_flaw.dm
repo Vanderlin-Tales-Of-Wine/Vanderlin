@@ -2,6 +2,7 @@
 GLOBAL_LIST_INIT(character_flaws, list(
 	"Alcoholic"=/datum/charflaw/addiction/alcoholic,
 	"Devout Follower"=/datum/charflaw/addiction/godfearing,
+	"Pacifist"=/datum/charflaw/pacifist,
 	"Smoker"=/datum/charflaw/addiction/smoker,
 	"Junkie"=/datum/charflaw/addiction/junkie,
 	"Cyclops (R)"=/datum/charflaw/noeyer,
@@ -514,3 +515,11 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	for(var/atom/movable/content in movable.contents)
 		mammons += get_mammons_in_atom(content)
 	return mammons
+
+/datum/charflaw/pacifist
+	name = "Pacifist"
+	desc = "I don't want to harm other living beings!"
+
+/datum/charflaw/pacifist/on_mob_creation(mob/user)
+	. = ..()
+	ADD_TRAIT(user, TRAIT_PACIFISM, "[type]")
