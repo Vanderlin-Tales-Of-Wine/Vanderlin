@@ -119,7 +119,7 @@
 			to_chat(user, span_warning("Why am I doing this..."))
 		else
 			to_chat(user, span_warning("They must be in water!"))
-			return FALSE
+		return FALSE
 	else
 		var/turf/open/water/bathspot = T
 		if(!bathspot.wash_in)
@@ -149,17 +149,14 @@
 
 /obj/item/soap/attack_obj(obj/O, mob/living/user)
 	var/datum/reagents/r = O.reagents
-	if(!r)
-		return
-	if(!O.is_open_container())
-		to_chat(user, span_warning("\The [O] is not open."))
+	if(!r || !O.is_open_container())
 		return
 	if(r.total_volume >= r.maximum_volume)
-		to_chat(user, span_warning("There's no room to add it."))
+		to_chat(user, span_warning("There's no room to add [src]."))
 		return
 	var/datum/reagent/wawa = r.get_reagent_amount(/datum/reagent/water)
 	if(!wawa)
-		to_chat(user, span_warning("This needs water to dissolve."))
+		to_chat(user, span_warning("[O] needs to have water to dissolve [src]!"))
 		return
 	var/amt2Add = min(10, wawa, r.maximum_volume - r.total_volume)
 	if(do_after(user, 2 SECONDS, O))
@@ -183,4 +180,7 @@
 /obj/item/soap/bath/scrub_scrub(mob/living/carbon/human/target, mob/living/carbon/user)
 	. = ..()
 	to_chat(target, span_green("I feel so relaxed and clean!"))
-	target.apply_status_effect(/datum/status_effect/buff/clean_plus)
+	if(user != target)
+		target.apply_status_effect(/datum/status_effect/buff/clean_plus)
+	else
+		user.add_stress(/datum/stressevent/clean)
