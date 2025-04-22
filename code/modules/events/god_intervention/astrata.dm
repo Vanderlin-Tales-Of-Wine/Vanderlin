@@ -6,10 +6,10 @@
 	earliest_start = 15 MINUTES
 	max_occurrences = 1
 	min_players = 20
+	todreq = list("dusk", "dawn", "day")
 	allowed_storytellers = list(/datum/storyteller/astrata)
 
 /datum/round_event/astrata_grandeur/start()
-
 	for(var/mob/living/carbon/human/human_mob in GLOB.player_list)
 		if(!istype(human_mob) || human_mob.stat == DEAD || !human_mob.client)
 			continue
