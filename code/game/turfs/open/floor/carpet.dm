@@ -9,6 +9,8 @@
 	clawfootstep = FOOTSTEP_SOFT_BAREFOOT
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
+	smoothing_groups = SMOOTH_GROUP_OPEN_FLOOR + SMOOTH_GROUP_FLOOR_CARPET
+
 	spread_chance = 15
 
 /turf/open/floor/carpet/Initialize()
@@ -23,27 +25,23 @@
 
 /turf/open/floor/carpet/purple
 	icon = 'icons/turf/smooth/floors/carpet_purple.dmi'
+	icon_state = MAP_SWITCH("carpet", "carpet-0")
 	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = SMOOTH_GROUP_OPEN_FLOOR + SMOOTH_GROUP_CARPET_PURPLE
-	smoothing_list = SMOOTH_GROUP_CARPET_PURPLE
 
 /turf/open/floor/carpet/stellar
 	icon = 'icons/turf/smooth/floors/carpet_stellar.dmi'
+	icon_state = MAP_SWITCH("carpet", "carpet-0")
 	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = SMOOTH_GROUP_OPEN_FLOOR + SMOOTH_GROUP_CARPET_STELLAR
-	smoothing_list = SMOOTH_GROUP_CARPET_STELLAR
 
 /turf/open/floor/carpet/red
 	icon = 'icons/turf/smooth/floors/carpet_red.dmi'
+	icon_state = MAP_SWITCH("carpet", "carpet-0")
 	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = SMOOTH_GROUP_OPEN_FLOOR + SMOOTH_GROUP_CARPET_RED
-	smoothing_list = SMOOTH_GROUP_CARPET_RED
 
 /turf/open/floor/carpet/royalblack
 	icon = 'icons/turf/smooth/floors/carpet_royalblack.dmi'
+	icon_state = MAP_SWITCH("carpet", "carpet-0")
 	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = SMOOTH_GROUP_OPEN_FLOOR + SMOOTH_GROUP_CARPET_ROYAL_BLACK
-	smoothing_list = SMOOTH_GROUP_CARPET_ROYAL_BLACK
 
 /turf/open/floor/carpet/break_tile()
 	broken = TRUE

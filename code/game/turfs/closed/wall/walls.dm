@@ -423,7 +423,7 @@
 	name = "erebus stone wall"
 	desc = "The toils of hard-working shades."
 	icon = 'icons/turf/smooth/walls/brick_under.dmi'
-	icon_state = MAP_SWITCH("brick_under", "brick_under-0")
+	icon_state = MAP_SWITCH("underbrick", "underbrick-0")
 	wallclimb = FALSE
 	blade_dulling = DULLING_BASH
 	max_integrity = 99999

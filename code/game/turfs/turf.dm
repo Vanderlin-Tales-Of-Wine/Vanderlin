@@ -43,9 +43,12 @@
 	var/debris = null
 	var/break_message = null
 
+	/// What we overlay onto turfs in our smoothing_list
 	var/neighborlay
-	var/neighborlay_list = list()
+	/// If not null, invert logic and overlay this onto self
 	var/neighborlay_override
+	/// Current neighborlays, associative DIR = Overlay
+	var/list/neighborlay_list
 
 	vis_flags = VIS_INHERIT_PLANE|VIS_INHERIT_ID
 

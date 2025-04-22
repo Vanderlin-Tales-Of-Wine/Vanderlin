@@ -287,17 +287,6 @@
 	..()
 	playsound(src, pick('sound/foley/water_land1.ogg','sound/foley/water_land2.ogg','sound/foley/water_land3.ogg'), 100, FALSE)
 
-/turf/open/water/edge_cardinal_smooth(adjacencies)
-	var/list/Yeah = ..()
-	if(water_overlay)
-		water_overlay.cut_overlays(TRUE)
-		if(Yeah)
-			water_overlay.add_overlay(Yeah)
-	if(water_top_overlay)
-		water_top_overlay.cut_overlays(TRUE)
-		if(Yeah)
-			water_top_overlay.add_overlay(Yeah)
-
 /turf/open/water/Entered(atom/movable/AM, atom/oldLoc)
 	. = ..()
 	for(var/obj/structure/S in src)

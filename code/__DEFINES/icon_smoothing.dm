@@ -17,6 +17,7 @@
 #define SMOOTH_QUEUED	(1<<5)
 
 #define USES_SMOOTHING (SMOOTH_BITMASK|SMOOTH_BITMASK_CARDINALS|SMOOTH_EDGE)
+#define ONLY_CARDINAL (SMOOTH_BITMASK_CARDINALS|SMOOTH_EDGE)
 
 DEFINE_BITFIELD(smooth, list(
 	"SMOOTH_BORDER" = SMOOTH_BORDER,
@@ -40,8 +41,9 @@ DEFINE_BITFIELD(smooth, list(
  * * Matched with the `list/smoothing_list` variable to check whether smoothing is possible or not.
  */
 
-#define S_TURF(num) (#num + ",")
 /* /turf only */
+
+#define S_TURF(num) (#num + ",")
 
 #define SMOOTH_GROUP_OPEN S_TURF(0)						//!turf/open
 #define SMOOTH_GROUP_OPEN_FLOOR S_TURF(1)				//!turf/open/floor
@@ -49,24 +51,15 @@ DEFINE_BITFIELD(smooth, list(
 #define SMOOTH_GROUP_FLOOR_LIQUID S_TURF(2)				//!turf/open/water, /turf/open/lava
 #define SMOOTH_GROUP_FLOOR_OPEN_SPACE S_TURF(3)			//!turf/open/transparent/openspace
 
-#define SMOOTH_GROUP_FLOOR_DIRT S_TURF(4)
-#define SMOOTH_GROUP_FLOOR_GRASS S_TURF(5)
-#define SMOOTH_GROUP_FLOOR_SNOW S_TURF(6)
-#define SMOOTH_GROUP_FLOOR_STONE S_TURF(7)
+#define SMOOTH_GROUP_FLOOR_CARPET S_TURF(4)					//!turf/open/floor/carpet
+#define SMOOTH_GROUP_FLOOR_DIRT S_TURF(5)
+#define SMOOTH_GROUP_FLOOR_DIRT_PATH S_TURF(6)
+#define SMOOTH_GROUP_FLOOR_GRASS S_TURF(7)
+#define SMOOTH_GROUP_FLOOR_SNOW S_TURF(8)
+#define SMOOTH_GROUP_FLOOR_STONE S_TURF(9)
+#define SMOOTH_GROUP_FLOOR_WOOD S_TURF(10)
 
-#define SMOOTH_GROUP_CARPET S_TURF(8)					//!turf/open/floor/carpet
-#define SMOOTH_GROUP_CARPET_PURPLE S_TURF(9)			//!turf/open/floor/carpet/purple
-#define SMOOTH_GROUP_CARPET_STELLAR S_TURF(10)			//!turf/open/floor/carpet/stellar
-#define SMOOTH_GROUP_CARPET_RED S_TURF(11)				//!turf/open/floor/carpet/red
-#define SMOOTH_GROUP_CARPET_ROYAL_BLACK S_TURF(12)		//!turf/open/floor/carpet/royalblack
-#define SMOOTH_GROUP_CARPET_GREEN S_TURF(13)			//!turf/open/floor/carpet/green
-#define SMOOTH_GROUP_CARPET_LORD S_TURF(14)				//!turf/open/floor/carpet/lord
 
-#define SMOOTH_GROUP_WOOD S_TURF(15)
-#define SMOOTH_GROUP_WOOD_ALT S_TURF(16)
-#define SMOOTH_GROUP_WOOD_SAIGA S_TURF(17)
-#define SMOOTH_GROUP_WOODTURNED S_TURF(18)
-#define SMOOTH_GROUP_WOODTURNED_ALT S_TURF(19)
 
 #define SMOOTH_GROUP_CLOSED S_TURF(24)					//!/turf/closed
 #define SMOOTH_GROUP_CLOSED_WALL S_TURF(25)				//!/turf/closed/wall
@@ -83,9 +76,9 @@ DEFINE_BITFIELD(smooth, list(
 
 #define MAX_S_TURF 33 //Always match this value with the one above it.
 
-#define S_OBJ(num) ("-" + #num + ",")
-
 /* /obj included */
+
+#define S_OBJ(num) ("-" + #num + ",")
 
 #define SMOOTH_GROUP_WALLS S_OBJ(1)						//!turf/closed/wall, /structure/mineral_door/secret
 
