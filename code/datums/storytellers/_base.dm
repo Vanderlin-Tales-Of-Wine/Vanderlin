@@ -1,3 +1,4 @@
+#define STANDARD_FOLLOWER_MODIFIER 15
 
 ///The storyteller datum. He operates with the SSgamemode data to run events
 /datum/storyteller
@@ -62,6 +63,10 @@
 	var/always_votable = FALSE
 	///weight this has of being picked for random storyteller/showing up in the vote if not always_votable
 	var/weight = 0
+	/// Influence factors, which are used to calculate storyteller influence. List of lists, which looks like RELEVANT_STATS = list(point gain, max capacity)
+	var/influence_factors = list()
+	/// How many influence points storyteller gets for each follower
+	var/follower_modifier = STANDARD_FOLLOWER_MODIFIER
 
 /datum/storyteller/process()
 	if(!round_started || disable_distribution) // we are differing roundstarted ones until base roundstart so we can get cooler stuff
@@ -223,3 +228,10 @@
 	desc = "Astrata will provide a balanced and varied experience. Consider this the default experience."
 	weight = 6
 	always_votable = TRUE
+
+	influence_factors = list(
+		STATS_LAWS_MADE = list("points" = 3,"capacity" = 30),
+		STATS_ALIVE_NOBLES = list("points" = 5,"capacity" = 125),
+		STATS_NOBLE_DEATHS = list("points" = -10,"capacity" = -125),
+		STATS_ASTRATA_REVIVALS = list("points" = 5, "capacity" = 75),
+	)

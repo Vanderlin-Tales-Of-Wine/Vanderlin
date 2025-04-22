@@ -24,20 +24,21 @@
 /turf/open/floor/dirt/attackby(obj/item/W, mob/user, params)
 	if(hidden_truffles)
 		if(istype(W, /obj/item/weapon/shovel))
-			playsound(get_turf(src),'sound/items/dig_shovel.ogg', 70, TRUE)
 			if(user.used_intent.type == /datum/intent/shovelscoop)
+				playsound(get_turf(src),'sound/items/dig_shovel.ogg', 70, TRUE)
 				if(do_after(user, 3 SECONDS, src))
 					new /obj/item/reagent_containers/food/snacks/truffles(get_turf(src))
 					hidden_truffles = FALSE
+				return TRUE
 	if(hidden_toxicshrooms)
 		if(istype(W, /obj/item/weapon/shovel))
-			playsound(get_turf(src),'sound/items/dig_shovel.ogg', 70, TRUE)
 			if(user.used_intent.type == /datum/intent/shovelscoop)
+				playsound(get_turf(src),'sound/items/dig_shovel.ogg', 70, TRUE)
 				if(do_after(user, 3 SECONDS, src))
 					new /obj/item/reagent_containers/food/snacks/toxicshrooms(get_turf(src))
 					hidden_toxicshrooms = FALSE
-	else ..()
-
+				return TRUE
+	return ..()
 
 //	........   Truffles   ................
 /obj/item/reagent_containers/food/snacks/truffles
@@ -132,9 +133,9 @@
 	melee_damage_lower = 8
 	melee_damage_upper = 14
 	minimum_distance = 1
-	TOTALSPD = 2
-	TOTALCON = 8
-	TOTALSTR = 12
+	base_speed = 2
+	base_constitution = 8
+	base_strength = 12
 	can_buckle = TRUE
 	buckle_lying = FALSE
 	can_saddle = TRUE

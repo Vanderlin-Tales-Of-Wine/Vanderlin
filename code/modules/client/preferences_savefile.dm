@@ -148,6 +148,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	//general preferences
 	S["asaycolor"]			>> asaycolor
 	S["ooccolor"]			>> ooccolor
+	S["admin_ghost_icon"]	>> admin_ghost_icon
 	S["lastchangelog"]		>> lastchangelog
 	S["UI_style"]			>> UI_style
 	S["hotkeys"]			>> hotkeys
@@ -254,6 +255,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["triumphs"], triumphs)
 	WRITE_FILE(S["musicvol"], musicvol)
 	WRITE_FILE(S["anonymize"], anonymize)
+	WRITE_FILE(S["admin_ghost_icon"], admin_ghost_icon)
 	WRITE_FILE(S["crt"], crt)
 	WRITE_FILE(S["lastclass"], lastclass)
 	WRITE_FILE(S["mastervol"], mastervol)
@@ -332,7 +334,21 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["accessory"]			>> accessory
 	S["detail"]			>> detail
 	S["socks"]				>> socks
-	S["randomise"]	>>  randomise
+	S["randomise"] >> randomise
+	// We load our list, but override everything to FALSE to stop a "tainted" save from making it random again.
+	randomise[RANDOM_BODY] = FALSE
+	randomise[RANDOM_BODY_ANTAG] = FALSE
+	randomise[RANDOM_UNDERWEAR] = FALSE
+	randomise[RANDOM_UNDERWEAR_COLOR] = FALSE
+	randomise[RANDOM_UNDERSHIRT] = FALSE
+	randomise[RANDOM_SOCKS] = FALSE
+	randomise[RANDOM_HAIRSTYLE] = FALSE
+	randomise[RANDOM_HAIR_COLOR] = FALSE
+	randomise[RANDOM_FACIAL_HAIRSTYLE] = FALSE
+	randomise[RANDOM_FACIAL_HAIR_COLOR] = FALSE
+	randomise[RANDOM_SKIN_TONE] = FALSE
+	randomise[RANDOM_EYE_COLOR] = FALSE
+
 	S["family"]			>> family
 	S["setspouse"]			>> setspouse
 	S["feature_mcolor"]					>> features["mcolor"]

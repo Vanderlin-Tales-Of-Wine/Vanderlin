@@ -27,6 +27,7 @@
 
 	grid_width = 64
 	grid_height = 64
+	item_weight = 3
 
 	var/fire_resist = T0C+100
 	var/blood_overlay_type = "suit"

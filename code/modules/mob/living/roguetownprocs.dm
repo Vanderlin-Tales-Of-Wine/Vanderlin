@@ -343,6 +343,8 @@
 				src.visible_message("<span class='boldwarning'><b>[src]</b> parries [user] with [W]!</span>")
 			if(!(!src.mind || !user.mind)) // don't need to log if at least one of the mobs is without an initialized mind because this is used for escalation
 				log_defense(src, user, "parried", defending_item, attacking_item, "INTENT:[uppertext(user.used_intent.name)]")
+			if(src.client)
+				GLOB.vanderlin_round_stats[STATS_PARRIES]++
 			return TRUE
 		else
 			to_chat(src, "<span class='warning'>I'm too tired to parry!</span>")
@@ -352,6 +354,8 @@
 			playsound(get_turf(src), pick(W.parrysound), 100, FALSE)
 		if(!(!src.mind || !user.mind)) // don't need to log if at least one of the mobs is without an initialized mind because this is used for escalation
 			log_defense(src, user, "parried", defending_item, attacking_item, "INTENT:[uppertext(user.used_intent.name)]")
+		if(src.client)
+			GLOB.vanderlin_round_stats[STATS_PARRIES]++
 		return TRUE
 
 /mob/proc/do_unarmed_parry(parrydrain as num, mob/living/user)
@@ -363,6 +367,8 @@
 			src.visible_message("<span class='warning'><b>[src]</b> parries [user] with their hands!</span>")
 			if(!(!src.mind || !user.mind)) // don't need to log if at least one of the mobs is without an initialized mind because this is used for escalation
 				log_defense(src, user, "parried", "hands", attacking_item, "INTENT:[uppertext(user.used_intent.name)]")
+			if(src.client)
+				GLOB.vanderlin_round_stats[STATS_PARRIES]++
 			return TRUE
 		else
 			to_chat(src, "<span class='boldwarning'>I'm too tired to parry!</span>")
@@ -371,6 +377,8 @@
 		playsound(get_turf(src), pick(parry_sound), 100, FALSE)
 		if(!(!src.mind || !user.mind)) // don't need to log if at least one of the mobs is without an initialized mind because this is used for escalation
 			log_defense(src, user, "unarmed parried", "hands", attacking_item, "INTENT:[uppertext(user.used_intent.name)]")
+		if(src.client)
+			GLOB.vanderlin_round_stats[STATS_PARRIES]++
 		return TRUE
 
 
@@ -403,10 +411,9 @@
 	if(!(defending_mob.mobility_flags & MOBILITY_STAND))							//Can't dodge when knocked down
 		return FALSE
 	if(defending_mob)
-		if(defending_mob?.check_dodge_skill())
-			dodge_score += (defending_mob.STASPD * 12)
-		else
-			dodge_score += ((defending_mob.STASPD * 10))
+		dodge_score += (defending_mob.STASPD * 15) ///this is now sharply harsher
+		dodge_score *= defending_mob.encumbrance_to_dodge()
+
 	if(attacking_mob)
 		dodge_score -= attacking_mob.STASPD * 7.5
 	if(attacking_item)
@@ -439,7 +446,7 @@
 		dodge_score += (defending_item.wdodgebonus)
 	dodge_score += (defending_mob.used_intent?.idodgebonus)							//Some weapon intents help with dodging
 	if(istype(defending_human))
-		if(!defending_human?.check_armor_skill() || defending_human?.legcuffed)
+		if((defending_human.get_encumbrance() > 0.7) || defending_human?.legcuffed)
 			defending_human.Knockdown(1)
 			return FALSE
 		if(attacking_item)															//Attacker attacked us with a weapon

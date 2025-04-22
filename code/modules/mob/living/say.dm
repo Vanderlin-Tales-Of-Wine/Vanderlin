@@ -198,6 +198,9 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	if(!message)
 		return
 
+	if(findtext(message, "Abyssor"))
+		GLOB.vanderlin_round_stats[STATS_ABYSSOR_REMEMBERED]++
+
 	spans |= speech_span
 
 	if(language)
