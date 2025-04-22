@@ -192,6 +192,9 @@
 	eyes = new /obj/item/organ/eyes/night_vision/nightmare
 	eyes.Insert(src)
 
+/mob/living/simple_animal/hostile/retaliate/troll/quiet
+	footstep_type = FOOTSTEP_MOB_BAREFOOT
+
 /mob/living/simple_animal/hostile/retaliate/troll/bog
 	name = "bog troll"
 	ai_controller = /datum/ai_controller/bog_troll

@@ -2531,7 +2531,7 @@
 /turf/open/floor/twig,
 /area/rogue/outdoors/town/roofs)
 "bvl" = (
-/mob/living/simple_animal/hostile/retaliate/troll/keep{
+/mob/living/simple_animal/hostile/retaliate/troll/quiet{
 	name = "Grigor"
 	},
 /turf/open/floor/blocks,
@@ -9639,7 +9639,7 @@
 /turf/open/floor/woodturned/nosmooth/saiga,
 /area/rogue/under/town/basement)
 "fkP" = (
-/mob/living/simple_animal/hostile/retaliate/troll/keep{
+/mob/living/simple_animal/hostile/retaliate/troll/quiet{
 	name = "Alma"
 	},
 /turf/open/floor/blocks,
