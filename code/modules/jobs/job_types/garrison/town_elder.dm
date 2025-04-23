@@ -127,7 +127,6 @@
 			H.mind?.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/misc/music, 1, TRUE)
 			H.change_stat(STATKEY_STR, -1)
 			H.change_stat(STATKEY_PER, 1)
 			H.change_stat(STATKEY_INT, 1)
@@ -202,6 +201,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/music, 3, TRUE)
 
 		H.mind?.adjust_skillrank(/datum/skill/labor/mining, pick(2,3,4), TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/labor/lumberjacking,pick(2,3,4),TRUE)
@@ -328,6 +328,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/magic/holy, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/music, 4, TRUE)
 
 		// More hand to hand focused
 		H.change_stat(STATKEY_STR, 2)
@@ -384,7 +385,7 @@
 	H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/music, 3, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/misc/music, 6, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 
 
@@ -393,7 +394,6 @@
 	H.change_stat(STATKEY_STR, 1)
 
 	if(H.age == AGE_OLD)
-		H.mind?.adjust_skillrank(/datum/skill/misc/music, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 		H.change_stat(STATKEY_END, 1)
@@ -401,9 +401,7 @@
 
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_BARDIC_TRAINING, TRAIT_GENERIC)
-
-
-
+	H.mind?.AddSpell(new /obj/effect/proc_holder/spell/invoked/mockery)
 
 /datum/outfit/job/town_elder/lorekeeper/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -466,6 +464,7 @@
 	H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/misc/music, 4, TRUE)
 
 	H.change_stat(STATKEY_INT, 2)
 	H.change_stat(STATKEY_SPD, 1)
