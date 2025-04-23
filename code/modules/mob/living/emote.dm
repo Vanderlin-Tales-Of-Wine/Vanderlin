@@ -60,10 +60,9 @@
 /datum/emote/living/custom
 	key = "me"
 	key_third_person = "custom"
-#ifdef MATURESERVER
 	message_param = "%t"
-#endif
 	mute_time = 1
+
 /datum/emote/living/custom/can_run_emote(mob/user, status_check, intentional)
 	. = ..() && intentional
 
@@ -103,14 +102,13 @@
 
 /datum/emote/living/custom/replace_pronoun(mob/user, message)
 	return message
+
 /* A terrible idea, commenting out subtler
 // ............... Subtle ..................
 /datum/emote/living/subtle
 	key = "subtle"
 	key_third_person = "subtleemote"
-#ifdef MATURESERVER
 	message_param = "%t"
-#endif
 	restraint_check = TRUE
 
 /datum/emote/living/subtle/can_run_emote(mob/user, status_check, intentional)
@@ -149,7 +147,6 @@
 
 	user.visible_message("<i>[message]</i>", vision_distance = 1)
 */
-
 
 // ............... A ..................
 /datum/emote/living/attnwhistle

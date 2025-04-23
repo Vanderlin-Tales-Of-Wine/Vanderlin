@@ -1484,14 +1484,7 @@
 /datum/sprite_accessory/underwear
 	icon = 'icons/roguetown/mob/underwear.dmi'
 	use_static = FALSE
-/*#ifdef MATURESERVER
-/datum/sprite_accessory/underwear/nude
-	name = "None"
-	icon_state = null
-	gender = NEUTER
-	use_static = TRUE
-	specuse = ALL_RACES_LIST
-#else*/
+
 /datum/sprite_accessory/underwear/regm
 	name = "Undies"
 	icon_state = "male_reg"

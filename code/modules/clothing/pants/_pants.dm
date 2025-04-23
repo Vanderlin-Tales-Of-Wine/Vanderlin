@@ -55,27 +55,6 @@
 	if(!attach_accessory(I, user))
 		return ..()
 
-/obj/item/clothing/pants/AdjustClothes(mob/user)
-#ifdef MATURESERVER
-	if(loc == user)
-		if(adjustable == CAN_CADJUST)
-			adjustable = CADJUSTED
-			icon_state = "[initial(icon_state)]_t"
-			body_parts_covered = null
-			slowdown += 2
-			if(ishuman(user))
-				var/mob/living/carbon/H = user
-				H.update_inv_pants()
-		else if(adjustable == CADJUSTED)
-			ResetAdjust(user)
-			if(user)
-				if(ishuman(user))
-					var/mob/living/carbon/H = user
-					H.update_inv_pants()
-#else
-	return
-#endif
-
 /obj/item/clothing/pants/update_clothes_damaged_state(damaging = TRUE)
 	..()
 	if(ismob(loc))
