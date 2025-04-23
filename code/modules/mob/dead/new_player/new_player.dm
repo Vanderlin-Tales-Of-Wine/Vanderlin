@@ -423,7 +423,9 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 		GLOB.peasant_positions,
 		GLOB.apprentices_positions,
 		GLOB.serf_positions,
+		GLOB.company_positions,
 		GLOB.youngfolk_positions,
+		GLOB.allmig_positions,
 	)
 
 	for(var/list/category in omegalist)
@@ -452,15 +454,19 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 				if (GARRISON)
 					cat_name = "Garrison"
 				if (SERFS)
-					cat_name = "Tradesmen"
+					cat_name = "Yeomanry"
 				if (CHURCHMEN)
 					cat_name = "Churchmen"
+				if (COMPANY)
+					cat_name = "Company"
 				if (PEASANTS)
 					cat_name = "Peasantry"
 				if (APPRENTICES)
 					cat_name = "Apprentices"
 				if (YOUNGFOLK)
 					cat_name = "Young Folk"
+				if (OUTSIDERS)
+					cat_name = "Outsiders"
 
 			dat += "<fieldset style='width: 185px; border: 2px solid [cat_color]; display: inline'>"
 			dat += "<legend align='center' style='font-weight: bold; color: [cat_color]'>[cat_name]</legend>"

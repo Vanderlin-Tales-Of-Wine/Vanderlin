@@ -223,7 +223,7 @@
 			to_chat(user, "<span class='info'>Open me first.</span>")
 			return FALSE
 		var/obj/item/paper/scroll/cargo/C = I
-		if(C.orders.len > 6)
+		if(C.orders.len >= 6)
 			to_chat(user, "<span class='warning'>Too much order.</span>")
 			return
 		var/picked_cat = input(user, "Categories", "Shipping Ledger") as null|anything in sortList(SSmerchant.supply_cats)
@@ -241,11 +241,14 @@
 		var/datum/supply_pack/picked_pack = input(user, "Shipments", "Shipping Ledger") as null|anything in sortList(pax)
 		if(!picked_pack)
 			return
-
-		C.orders += picked_pack
+		var/amount = input(user, "How many [picked_pack.name] to order?", null, 1) as null|num
+		amount = clamp(amount, 0, 100)
+		if(!amount)
+			return
+		C.orders[picked_pack] += amount
 		C.rebuild_info()
 		return
-	if(istype(I, /obj/item/paper/scroll))
+	if(I.type == /obj/item/paper/scroll)
 		if(!open)
 			to_chat(user, "<span class='info'>Open me first.</span>")
 			return FALSE
@@ -266,9 +269,13 @@
 		var/datum/supply_pack/picked_pack = input(user, "Shipments", "Shipping Ledger") as null|anything in sortList(pax)
 		if(!picked_pack)
 			return
+		var/amount = input(user, "How many [picked_pack.name] to order?", null, 1) as null|num
+		amount = clamp(amount, 0, 100)
+		if(!amount)
+			return
 		var/obj/item/paper/scroll/cargo/C = new(user.loc)
 
-		C.orders += picked_pack
+		C.orders[picked_pack] += amount
 		C.rebuild_info()
 		user.dropItemToGround(P)
 		qdel(P)
@@ -607,7 +614,7 @@
 			user.put_in_hands(PB)
 		return qdel(src)
 
-	if(istype(I, /obj/item/paper))
+	if((I.type == /obj/item/paper) || (I.type == /obj/item/paper/scroll))
 		var/obj/item/paper/inserted_paper = I
 		if(length(pages) == 8)
 			to_chat(user, span_warning("I can not find a place to put [inserted_paper] into [src]..."))

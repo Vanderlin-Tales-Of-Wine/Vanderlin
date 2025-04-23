@@ -6,6 +6,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	"Junkie"=/datum/charflaw/addiction/junkie,
 	"Cyclops (R)"=/datum/charflaw/noeyer,
 	"Cyclops (L)"=/datum/charflaw/noeyel,
+	"Tongueless"=/datum/charflaw/tongueless,
 	"Greedy"=/datum/charflaw/greedy,
 	"Narcoleptic"=/datum/charflaw/narcoleptic,
 	"Masochist"=/datum/charflaw/masochist,
@@ -298,6 +299,18 @@ GLOBAL_LIST_INIT(character_flaws, list(
 			var/obj/item/bodypart/head/head = H.get_bodypart(BODY_ZONE_HEAD)
 			head?.add_wound(/datum/wound/facial/eyes/right/permanent)
 			H.update_fov_angles()
+
+/datum/charflaw/tongueless
+	name = "Tongueless"
+	desc = "I was too annoying. (Being mute is not an excuse to forego roleplay. Use of custom emotes is recommended.)"
+
+/datum/charflaw/tongueless/on_mob_creation(mob/user)
+	..()
+	if(!ishuman(user))
+		return
+	var/mob/living/carbon/human/H = user
+	var/obj/item/bodypart/head/head = H.get_bodypart(BODY_ZONE_HEAD)
+	head?.add_wound(/datum/wound/facial/tongue/permanent)
 
 /datum/charflaw/hunted
 	name = "Hunted"
