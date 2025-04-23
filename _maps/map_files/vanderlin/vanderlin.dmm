@@ -1982,7 +1982,7 @@
 /obj/structure/table/wood/counter{
 	dir = 1
 	},
-/turf/open/floor/ruinedwood/darker,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/merc_guild)
 "bjf" = (
 /obj/machinery/light/fueled/torchholder/l,
@@ -3903,6 +3903,10 @@
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/open/floor/grass,
 /area/rogue/outdoors/rtfield/safe)
+"cxJ" = (
+/obj/structure/fake_machine/scomm,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/indoors/town/merc_guild)
 "cxR" = (
 /turf/closed/wall/mineral/decostone,
 /area/rogue/outdoors/town/roofs)
@@ -4084,7 +4088,7 @@
 /obj/item/reagent_containers/glass/bucket/wooden{
 	pixel_y = 16
 	},
-/turf/open/floor/ruinedwood/darker,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/merc_guild)
 "cCI" = (
 /obj/structure/roguerock{
@@ -6960,7 +6964,7 @@
 /area/rogue/outdoors/town)
 "eyY" = (
 /obj/structure/fermentation_keg/random/water,
-/turf/open/floor/ruinedwood/darker,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/merc_guild)
 "ezj" = (
 /turf/open/floor/grass,
@@ -8420,6 +8424,10 @@
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/town)
+"fzF" = (
+/obj/machinery/light/fueled/wallfire/candle,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/indoors/town/merc_guild)
 "fzW" = (
 /turf/closed/wall/mineral/roofwall/innercorner{
 	dir = 8
@@ -11929,7 +11937,7 @@
 "hTc" = (
 /obj/machinery/light/fueled/hearth,
 /obj/item/cooking/pan,
-/turf/open/floor/ruinedwood/darker,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/merc_guild)
 "hTk" = (
 /turf/open/floor/twig,
@@ -15895,7 +15903,7 @@
 /obj/item/reagent_containers/glass/bucket/pot{
 	pixel_y = 7
 	},
-/turf/open/floor/ruinedwood/darker,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/merc_guild)
 "kvv" = (
 /obj/effect/landmark/start/gravedigger{
@@ -19990,7 +19998,7 @@
 	pixel_x = -9;
 	pixel_y = 6
 	},
-/turf/open/floor/ruinedwood/darker,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/merc_guild)
 "nrf" = (
 /obj/structure/closet/crate/chest/crate,
@@ -21937,7 +21945,7 @@
 	dir = 1
 	},
 /obj/structure/fluff/millstone,
-/turf/open/floor/ruinedwood/darker,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/merc_guild)
 "oJj" = (
 /obj/structure/stairs/stone{
@@ -25931,7 +25939,7 @@
 /obj/item/reagent_containers/food/snacks/produce/wheat,
 /obj/item/reagent_containers/food/snacks/produce/wheat,
 /obj/item/reagent_containers/food/snacks/produce/wheat,
-/turf/open/floor/ruinedwood/darker,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/merc_guild)
 "rya" = (
 /obj/structure/fluff/walldeco/customflag,
@@ -34538,6 +34546,12 @@
 /obj/structure/bookcase/random,
 /turf/open/floor/greenstone,
 /area/rogue/indoors/town/magician)
+"xea" = (
+/obj/structure/fluff/railing/border{
+	dir = 4
+	},
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/indoors/town/merc_guild)
 "xei" = (
 /obj/item/bin/water/gross,
 /turf/open/floor/tile{
@@ -132981,8 +132995,8 @@ vgJ
 vgJ
 jMD
 hTc
-jht
-jht
+pGO
+pGO
 rxJ
 nEc
 jMD
@@ -133183,8 +133197,8 @@ vgJ
 vgJ
 jMD
 kvo
-jht
-jht
+pGO
+pGO
 biW
 egZ
 nEc
@@ -133385,8 +133399,8 @@ vgJ
 vgJ
 jMD
 eyY
-jht
-jht
+pGO
+pGO
 nqS
 egZ
 egZ
@@ -133586,9 +133600,9 @@ dtq
 vgJ
 vgJ
 jMD
-oBe
-jht
-jht
+fzF
+pGO
+pGO
 cCv
 egZ
 egZ
@@ -133788,9 +133802,9 @@ dtq
 vgJ
 vgJ
 jMD
-jht
-jht
-mdm
+cxJ
+pGO
+xea
 oJg
 egZ
 egZ
@@ -133990,7 +134004,7 @@ dtq
 vgJ
 vgJ
 jMD
-jht
+pGO
 aZM
 egZ
 egZ
@@ -134192,7 +134206,7 @@ dtq
 vgJ
 vgJ
 jMD
-jht
+pGO
 aZM
 egZ
 egZ
