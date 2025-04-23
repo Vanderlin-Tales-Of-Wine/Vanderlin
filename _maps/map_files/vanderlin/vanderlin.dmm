@@ -35027,13 +35027,6 @@
 /obj/effect/mapping_helpers/door/access/manor/manor,
 /turf/open/floor/blocks/newstone/alt,
 /area/rogue/under/town/basement)
-"xOF" = (
-/obj/structure/fluff/buysign{
-	name = "Train to Kingsfield Reinstated"
-	},
-/obj/structure/industrial_lift/tram,
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/river)
 "xOP" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4
@@ -131153,11 +131146,11 @@ acx
 acx
 acx
 acx
-acx
-acx
-acx
-acx
-acx
+jjT
+jjT
+jjT
+jjT
+jjT
 acx
 acx
 acx
@@ -131562,9 +131555,9 @@ jjT
 jjT
 jjT
 iBK
-acx
-acx
-acx
+jjT
+jjT
+jjT
 pQS
 ojT
 lox
