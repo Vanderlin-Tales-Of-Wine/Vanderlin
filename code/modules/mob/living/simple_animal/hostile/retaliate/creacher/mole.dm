@@ -189,8 +189,8 @@
 	icon_state = "mole_briars"
 	icon_living = "mole_briars"
 	icon_dead = "mole_dead_briars"
-	TOTALEND = 16
-	TOTALCON = 18
+	base_strength = 16
+	base_constitution = 18
 	food_type = list (/obj/item/bait/forestdelight)
 	tame_chance = 25
 	bonus_tame_chance = 15
