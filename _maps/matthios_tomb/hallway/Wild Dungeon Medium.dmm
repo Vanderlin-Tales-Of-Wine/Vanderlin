@@ -20,8 +20,8 @@
 /turf/open/floor/cobble/mossy,
 /area/rogue/under/cave)
 "cL" = (
-/obj/structure/barricade/rogue,
-/obj/structure/barricade/rogue/crude,
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
 /obj/structure/flora/grass,
 /turf/open/floor/grass,
 /area/rogue/under/cave)
@@ -83,8 +83,8 @@
 /turf/open/floor/grass,
 /area/rogue/under/cave)
 "px" = (
-/obj/structure/barricade/rogue,
-/obj/structure/barricade/rogue/crude,
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
 /turf/open/floor/grass,
 /area/rogue/under/cave)
 "pD" = (

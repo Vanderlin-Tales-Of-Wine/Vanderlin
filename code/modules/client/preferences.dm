@@ -20,6 +20,8 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	var/lastchangelog = ""				//Saved changlog filesize to detect if there was a change
 	var/ooccolor = null
 	var/asaycolor = "#ff4500"			//This won't change the color for current admins, only incoming ones.
+	/// the ghost icon this admin ghost will get when becoming an aghost.
+	var/admin_ghost_icon = null
 	var/triumphs = 0
 	var/enable_tips = TRUE
 	var/tip_delay = 500 //tip delay in milliseconds
@@ -867,6 +869,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 			else
 				dat += "<a class='linkOff' href='byond://?src=[REF(N)];late_join=1'>JOINLATE</a>"
 			dat += " - <a href='?_src_=prefs;preference=migrants'>MIGRATION</a>"
+			dat += "<br><a href='?_src_=prefs;preference=manifest'>ACTORS</a>"
 	else
 		dat += "<a href='?_src_=prefs;preference=finished'>DONE</a>"
 		dat += "</center>"
@@ -2159,6 +2162,10 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 					migrant.show_ui()
 					return
 
+				if("manifest")
+					parent.view_actors_manifest()
+					return
+
 				if("finished")
 					user << browse(null, "window=latechoices") //closes late choices window
 					user << browse(null, "window=playersetup") //closes the player setup window
@@ -2269,7 +2276,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	character.socks = socks
 
 	/* V: */
-	
+
 	character.headshot_link = headshot_link
 	character.flavortext = flavortext
 

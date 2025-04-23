@@ -50,6 +50,7 @@
 	ADD_TRAIT(H, TRAIT_BURDEN, type)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, type)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, type)
+	ADD_TRAIT(H, TRAIT_OLDPARTY, TRAIT_GENERIC)
 
 	H.change_stat("speed", 2)
 	H.change_stat("perception", 1)

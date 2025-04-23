@@ -44,7 +44,7 @@
 	beltr = /obj/item/book/granter/spellbook/apprentice
 	backl = /obj/item/storage/backpack/satchel
 	neck = /obj/item/clothing/neck/psycross/noc
-	backpack_contents = list(/obj/item/literary/apprentice = 1)
+	backpack_contents = list(/obj/item/textbook = 1, /obj/item/natural/feather)
 
 	if(H.mind)
 		if(H.patron != /datum/patron/divine/noc)
@@ -61,7 +61,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/alchemy, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/magic/arcane, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 4, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 6, TRUE)
 		if(H.age == AGE_OLD)
 			H.mind?.adjust_skillrank(/datum/skill/magic/arcane, 2, TRUE)
 		H.change_stat(STATKEY_STR, -1)
