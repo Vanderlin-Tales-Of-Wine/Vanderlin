@@ -16379,9 +16379,9 @@
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/smithy)
 "kNR" = (
-/obj/machinery/light/fueled/wallfire/candle/l,
 /obj/structure/fake_machine/hailer,
 /obj/structure/table/wood/counter/end,
+/obj/item/storage/hip/headhook,
 /turf/open/floor/blocks/newstone/alt,
 /area/rogue/indoors/town/merc_guild)
 "kNY" = (
@@ -20360,6 +20360,7 @@
 /obj/item/reagent_containers/glass/bucket/wooden{
 	pixel_y = 16
 	},
+/obj/item/bin/water,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/merc_guild)
 "nEC" = (
@@ -25585,6 +25586,13 @@
 	},
 /turf/open/transparent/openspace,
 /area/rogue/indoors/town/manor)
+"rmU" = (
+/obj/effect/mapping_helpers/secret_door_creator{
+	name = "Mercenary Secret Door";
+	redstone_id = "mercenary"
+	},
+/turf/closed/wall/mineral/craftstone,
+/area/rogue/indoors/town/merc_guild)
 "rnf" = (
 /obj/machinery/light/fueled/wallfire/candle/blue/r,
 /turf/open/floor/carpet/purple,
@@ -28420,6 +28428,10 @@
 	},
 /turf/open/floor/metal/barograte,
 /area/rogue/indoors/town/clocktower)
+"tie" = (
+/obj/item/bin/water,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/indoors/town/merc_guild)
 "tin" = (
 /obj/machinery/light/fueled/torchholder/c,
 /turf/open/floor/blocks/newstone/alt,
@@ -91145,7 +91157,7 @@ jMD
 jMD
 jMD
 ldq
-rnO
+rmU
 jMD
 hZe
 tlW
@@ -94179,7 +94191,7 @@ maa
 jMD
 moj
 lrm
-jht
+tie
 jMD
 eYq
 lsl
@@ -132765,7 +132777,7 @@ vgJ
 vgJ
 vgJ
 vgJ
-vgJ
+jMD
 jMD
 jMD
 vHx
@@ -132967,9 +132979,9 @@ vgJ
 vgJ
 vgJ
 vgJ
-vgJ
 jMD
 hTc
+jht
 jht
 rxJ
 nEc
@@ -133169,9 +133181,9 @@ vgJ
 vgJ
 vgJ
 vgJ
-vgJ
 jMD
 kvo
+jht
 jht
 biW
 egZ
@@ -133371,9 +133383,9 @@ vgJ
 vgJ
 vgJ
 vgJ
-vgJ
 jMD
 eyY
+jht
 jht
 nqS
 egZ
@@ -133573,9 +133585,9 @@ dtq
 dtq
 vgJ
 vgJ
-vgJ
 jMD
 oBe
+jht
 jht
 cCv
 egZ
@@ -133775,8 +133787,8 @@ gIB
 dtq
 vgJ
 vgJ
-vgJ
 jMD
+jht
 jht
 mdm
 oJg
@@ -133977,8 +133989,8 @@ cAb
 dtq
 vgJ
 vgJ
-vgJ
 jMD
+jht
 aZM
 egZ
 egZ
@@ -134179,8 +134191,8 @@ iGx
 dtq
 vgJ
 vgJ
-vgJ
 jMD
+jht
 aZM
 egZ
 egZ
@@ -134381,7 +134393,7 @@ thO
 dtq
 vgJ
 vgJ
-vgJ
+jMD
 jMD
 jMD
 jMD
