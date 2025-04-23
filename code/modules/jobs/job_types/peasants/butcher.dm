@@ -20,6 +20,9 @@
 	give_bank_account = TRUE
 	cmode_music = 'sound/music/cmode/towner/CombatTowner.ogg'
 
+/datum/outfit/job/beastmaster
+	job_bitflag = BITFLAG_CONSTRUCTOR
+
 /datum/outfit/job/beastmaster/pre_equip(mob/living/carbon/human/H)
 	..()
 

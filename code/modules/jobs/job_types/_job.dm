@@ -138,6 +138,10 @@
 	///Do we get passive income every day from our noble estates?
 	var/noble_income = FALSE
 
+	var/static/list/actors_list_blacklist = list(
+		/datum/job/adventurer,
+		/datum/job/pilgrim,
+	)
 
 /datum/job/New()
 	. = ..()
@@ -235,6 +239,9 @@
 	if(cmode_music)
 		DIRECT_OUTPUT(spawned, load_resource(cmode_music, -1)) //preload their combat mode music
 		spawned.cmode_music = cmode_music
+
+	if(!(type in actors_list_blacklist)) //don't show these.
+		GLOB.actors_list[spawned.mobid] = "[spawned.real_name] as [spawned.mind.assigned_role.get_informed_title(spawned)]<BR>"
 
 	if(length(advclass_cat_rolls))
 		var/mob/living/carbon/human/humanguy = spawned

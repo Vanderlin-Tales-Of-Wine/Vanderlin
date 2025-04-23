@@ -19579,7 +19579,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement)
 "njF" = (
-/obj/structure/barricade/rogue,
+/obj/structure/barricade/wooden,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/town/basement)
 "nkg" = (

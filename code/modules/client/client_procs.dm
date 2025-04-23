@@ -122,7 +122,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		cmd_admin_pm(href_list["priv_msg"],null)
 		return
 
-	if(href_list["playerlistrogue"])
+	if(href_list["playerlist"])
 		if(SSticker.current_state != GAME_STATE_FINISHED)
 			return
 		view_rogue_manifest()
