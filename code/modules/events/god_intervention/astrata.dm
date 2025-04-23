@@ -9,6 +9,13 @@
 	todreq = list("dusk", "dawn", "day")
 	allowed_storytellers = list(/datum/storyteller/astrata)
 
+/datum/round_event_control/astrata_grandeur/canSpawnEvent(players_amt, gamemode, fake_check)
+	. = ..()
+	if(!.)
+		return FALSE
+	if(GLOB.patron_follower_counts["Astrata"] < 3)
+		return FALSE
+
 /datum/round_event/astrata_grandeur/start()
 	for(var/mob/living/carbon/human/human_mob in GLOB.player_list)
 		if(!istype(human_mob) || human_mob.stat == DEAD || !human_mob.client)
