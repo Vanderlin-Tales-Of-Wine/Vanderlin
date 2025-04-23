@@ -319,8 +319,8 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	name = "Tongueless"
 	desc = "I was too annoying. (Being mute is not an excuse to forego roleplay. Use of custom emotes is recommended.)"
 
-/datum/charflaw/tongueless/on_mob_creation(mob/user)
-	..()
+/datum/charflaw/tongueless/on_apply(mob/user)
+	. = ..()
 	if(!ishuman(user))
 		return
 	var/mob/living/carbon/human/H = user
