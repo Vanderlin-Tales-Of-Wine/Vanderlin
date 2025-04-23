@@ -49,11 +49,11 @@ GLOBAL_LIST_EMPTY(graggar_cullings)
 	GLOB.graggar_cullings += new_duel
 
 	first_chosen.add_stress(/datum/stressevent/graggar_culling_unfinished)
-	to_chat(first_chosen, span_boldred("Weak should feed the strong, that is Graggar's will. Prove that you are not weak by eating the heart of [second_chosen.real_name] and gain unimaginable power in turn. Fail, and you will be the one eaten."))
-	to_chat(first_chosen, span_boldred("[second_chosen.real_name] is somewhere in the [lowertext(get_area_name(second_chosen))]. Eat his heart before he eats yours!"))
+	to_chat(first_chosen, span_red("Weak should feed the strong, that is Graggar's will. Prove that you are not weak by eating the heart of [second_chosen.real_name] and gain unimaginable power in turn. Fail, and you will be the one eaten."))
+	to_chat(first_chosen, span_red("[second_chosen.real_name] is somewhere in the [lowertext(get_area_name(second_chosen))]. Eat his heart before he eats yours!"))
 	SEND_SOUND(first_chosen, 'sound/magic/marked.ogg')
 
 	second_chosen.add_stress(/datum/stressevent/graggar_culling_unfinished)
-	to_chat(second_chosen, span_boldred("Weak should feed the strong, that is Graggar's will. Prove that you are not weak by eating the heart of [first_chosen.real_name] and gain unimaginable power in turn. Fail, and you will be the one eaten."))
-	to_chat(second_chosen, span_boldred("[first_chosen.real_name] is somewhere in the [lowertext(get_area_name(first_chosen))]. Eat his heart before he eats yours!"))
+	to_chat(second_chosen, span_red("Weak should feed the strong, that is Graggar's will. Prove that you are not weak by eating the heart of [first_chosen.real_name] and gain unimaginable power in turn. Fail, and you will be the one eaten."))
+	to_chat(second_chosen, span_red("[first_chosen.real_name] is somewhere in the [lowertext(get_area_name(first_chosen))]. Eat his heart before he eats yours!"))
 	SEND_SOUND(second_chosen, 'sound/magic/marked.ogg')
