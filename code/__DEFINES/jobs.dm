@@ -138,7 +138,7 @@
 #define WATCHMAN	(1<<1)
 #define JAILOR	    (1<<2)
 #define DUNGEONEER	(1<<3)
-#define MAYOR       (1<<4)
+#define TOWN_ELDER	(1<<4)
 #define FORWARDEN   (1<<5)
 #define FORGUARD    (1<<6)
 #define GATEMASTER  (1<<7)

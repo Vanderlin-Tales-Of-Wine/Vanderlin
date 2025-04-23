@@ -20444,8 +20444,6 @@
 /area/rogue/indoors/town/cell)
 "ljD" = (
 /obj/structure/mineral_door/wood/deadbolt{
-	icon_state = "wooddir";
-	locked = 0;
 	name = "guest servant room"
 	},
 /turf/open/floor/ruinedwood,
