@@ -1642,6 +1642,7 @@
 #include "code\modules\events\god_intervention\baotha.dm"
 #include "code\modules\events\god_intervention\dendor.dm"
 #include "code\modules\events\god_intervention\eora.dm"
+#include "code\modules\events\god_intervention\graggar.dm"
 #include "code\modules\events\god_intervention\malum.dm"
 #include "code\modules\events\god_intervention\matthios.dm"
 #include "code\modules\events\god_intervention\necra.dm"

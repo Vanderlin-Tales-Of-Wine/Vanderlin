@@ -387,3 +387,8 @@
 	stressadd = 2
 	desc = span_love("Eora calls for me to be wed! I must find my destined partner before I die all alone...")
 	timer = 30 MINUTES
+
+/datum/stressevent/graggar_culling_unfinished
+	stressadd = 1
+	desc = span_red("I must eat my opponent before he eats ME!")
+	timer = INFINITY

@@ -132,6 +132,7 @@
 	S.icon = icon
 	S.icon_state = icon_state
 	S.w_class = w_class
+	S.original_owner = owner
 	if(damage > high_threshold)
 		S.eat_effect = /datum/status_effect/debuff/rotfood
 	S.rotprocess = S.rotprocess * ((high_threshold - damage) / high_threshold)
@@ -146,14 +147,43 @@
 	foodtype = RAW | MEAT | GROSS
 	eat_effect = /datum/status_effect/debuff/uncookedfood
 	rotprocess = 5 MINUTES
+	/// Owner who used to have this organ
+	var/original_owner
 
 /obj/item/reagent_containers/food/snacks/organ/on_consume(mob/living/eater)
 	if(HAS_TRAIT(eater, TRAIT_ORGAN_EATER) && eat_effect != /datum/status_effect/debuff/rotfood)
 		eat_effect = null // food buff handled in /datum/reagent/organpoison
 	if(bitecount >= bitesize)
 		GLOB.vanderlin_round_stats[STATS_ORGANS_EATEN]++
+		check_culling(eater)
 	. = ..()
 	eat_effect = initial(eat_effect)
+
+/obj/item/reagent_containers/food/snacks/organ/proc/check_culling(mob/living/eater)
+	for(var/datum/culling_duel/D in GLOB.graggar_cullings)
+		var/mob/target_owner = D.target.resolve()
+		var/mob/challenger = D.challenger.resolve()
+
+		if(!target_owner || !challenger)
+			GLOB.graggar_cullings -= D
+			continue
+
+		// Check if the eater is either participant and they ate the other's organ
+		if((eater == challenger && original_owner == target_owner) || (eater == target_owner && original_owner == challenger))
+			D.completed = TRUE
+			eater.remove_stress(/datum/stressevent/graggar_culling_unfinished)
+			eater.set_stat_modifier("graggar_culling", STATKEY_STR, 1)
+			eater.set_stat_modifier("graggar_culling", STATKEY_END, 1)
+			eater.set_stat_modifier("graggar_culling", STATKEY_CON, 1)
+			eater.set_stat_modifier("graggar_culling", STATKEY_PER, 1)
+			eater.set_stat_modifier("graggar_culling", STATKEY_INT, 1)
+			eater.set_stat_modifier("graggar_culling", STATKEY_SPD, 1)
+			eater.set_stat_modifier("graggar_culling", STATKEY_LCK, 1)
+			eater.adjust_triumphs(1)
+			to_chat(eater, span_boldnotice("You have proven your strength to Graggar by consuming the flesh of your rival! A sliver of his power now flows through you!"))
+			eater.add_stress(/datum/stressevent/graggar_culling_finished)
+			GLOB.graggar_cullings -= D
+			return TRUE
 
 /obj/item/reagent_containers/food/snacks/organ/heart
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT, /datum/reagent/organpoison = 2)
