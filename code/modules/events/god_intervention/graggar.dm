@@ -4,7 +4,6 @@ GLOBAL_LIST_EMPTY(graggar_cullings)
 /datum/culling_duel
 	var/datum/weakref/challenger
 	var/datum/weakref/target
-	var/completed = FALSE
 
 /datum/culling_duel/New(mob/challenger, mob/target)
 	. = ..()

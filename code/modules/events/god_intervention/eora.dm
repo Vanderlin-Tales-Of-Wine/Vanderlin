@@ -25,17 +25,36 @@
 		else if(human_mob.gender == FEMALE)
 			eligible_females += human_mob
 
-	// Select up to 3 people of each gender
-	eligible_males = shuffle(eligible_males)
-	eligible_females = shuffle(eligible_females)
 	if(!length(eligible_males) || !length(eligible_females))
 		return
 
-	var/num_pairs = min(3, eligible_males.len, eligible_females.len)
+	eligible_males = shuffle(eligible_males)
+	eligible_females = shuffle(eligible_females)
 
-	for(var/i in 1 to num_pairs)
-		var/mob/living/carbon/human/male = eligible_males[i]
-		var/mob/living/carbon/human/female = eligible_females[i]
+	var/list/selected_pairs = list()
+	var/max_pairs = min(3, eligible_males.len, eligible_females.len)
+
+	for(var/i in 1 to max_pairs)
+		var/found_pair = FALSE
+
+		for(var/mob/living/carbon/human/male in eligible_males)
+			for(var/mob/living/carbon/human/female in eligible_females)
+				if(male.family_datum != female.family_datum)
+					selected_pairs += list(list(male, female))
+					eligible_males -= male
+					eligible_females -= female
+					found_pair = TRUE
+					break
+
+			if(found_pair)
+				break
+
+		if(!found_pair)
+			break
+
+	for(var/pair in selected_pairs)
+		var/mob/living/carbon/human/male = pair[1]
+		var/mob/living/carbon/human/female = pair[2]
 
 		male.add_stress(/datum/stressevent/eora_marriage_call)
 		female.add_stress(/datum/stressevent/eora_marriage_call)

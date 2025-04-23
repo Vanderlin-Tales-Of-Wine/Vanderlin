@@ -176,9 +176,8 @@
 			GLOB.graggar_cullings -= D
 			continue
 
-		// Check if the eater is either participant and they ate the other's organ
+		// Check if the eater is either participant and they ate the other's heart
 		if((eater == challenger && original_owner == target_owner) || (eater == target_owner && original_owner == challenger))
-			D.completed = TRUE
 			eater.remove_stress(/datum/stressevent/graggar_culling_unfinished)
 			eater.set_stat_modifier("graggar_culling", STATKEY_STR, 1)
 			eater.set_stat_modifier("graggar_culling", STATKEY_END, 1)
@@ -190,6 +189,16 @@
 			eater.adjust_triumphs(1)
 			to_chat(eater, span_notice("You have proven your strength to Graggar by consuming the heart of your rival! A sliver of his power now flows through you!"))
 			eater.add_stress(/datum/stressevent/graggar_culling_finished)
+
+			if(original_owner == target_owner)
+				target_owner.remove_stress(/datum/stressevent/graggar_culling_unfinished)
+				to_chat(target_owner, span_boldred("You have FAILED Graggar for the LAST TIME!"))
+				target_owner.gib()
+			else if(original_owner == challenger)
+				challenger.remove_stress(/datum/stressevent/graggar_culling_unfinished)
+				to_chat(challenger, span_boldred("You have FAILED Graggar for the LAST TIME!"))
+				challenger.gib()
+
 			GLOB.graggar_cullings -= D
 			return TRUE
 
