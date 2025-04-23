@@ -180,7 +180,7 @@
 			eater.set_stat_modifier("graggar_culling", STATKEY_SPD, 1)
 			eater.set_stat_modifier("graggar_culling", STATKEY_LCK, 1)
 			eater.adjust_triumphs(1)
-			to_chat(eater, span_boldnotice("You have proven your strength to Graggar by consuming the flesh of your rival! A sliver of his power now flows through you!"))
+			to_chat(eater, span_notice("You have proven your strength to Graggar by consuming the flesh of your rival! A sliver of his power now flows through you!"))
 			eater.add_stress(/datum/stressevent/graggar_culling_finished)
 			GLOB.graggar_cullings -= D
 			return TRUE
