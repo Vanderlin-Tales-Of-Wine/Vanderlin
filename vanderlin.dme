@@ -1647,6 +1647,7 @@
 #include "code\modules\events\god_intervention\noc.dm"
 #include "code\modules\events\god_intervention\pestra.dm"
 #include "code\modules\events\god_intervention\ravox.dm"
+#include "code\modules\events\god_intervention\xylix.dm"
 #include "code\modules\events\god_intervention\zizo.dm"
 #include "code\modules\events\minor\crop_growth.dm"
 #include "code\modules\events\minor\herb_growth.dm"
