@@ -1639,6 +1639,7 @@
 #include "code\modules\events\antagonist\solo\minor\maniac.dm"
 #include "code\modules\events\god_intervention\abyssor.dm"
 #include "code\modules\events\god_intervention\astrata.dm"
+#include "code\modules\events\god_intervention\baotha.dm"
 #include "code\modules\events\god_intervention\dendor.dm"
 #include "code\modules\events\god_intervention\eora.dm"
 #include "code\modules\events\god_intervention\malum.dm"

@@ -33,3 +33,7 @@
 /datum/world_trait/noc_wisdom
 	name = "Noc's Wisdom"
 	desc = "All magic actions cost less mana."
+
+/datum/world_trait/baotha_revelry
+	name = "Baotha's Revelry"
+	desc = "Alcohol lasts longer."
