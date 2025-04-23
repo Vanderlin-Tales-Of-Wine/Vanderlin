@@ -5190,14 +5190,6 @@
 "dtq" = (
 /turf/closed/wall/mineral/wood,
 /area/rogue/indoors/town)
-"dtz" = (
-/obj/structure/mineral_door/wood/donjon{
-	dir = 1
-	},
-/obj/effect/mapping_helpers/door/locker,
-/obj/effect/mapping_helpers/door/access/town/mercenary,
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors/town/merc_guild)
 "dtJ" = (
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/church)
@@ -24254,10 +24246,14 @@
 	pixel_x = -32;
 	pixel_y = 0
 	},
-/obj/structure/bars{
-	alpha = 190
-	},
-/turf/open/floor/wood/nosmooth,
+/obj/structure/rack/shelf/biggest,
+/obj/item/rope,
+/obj/item/rope,
+/obj/item/rope,
+/obj/item/rope,
+/obj/item/rope,
+/obj/item/rope,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/merc_guild)
 "qsR" = (
 /obj/structure/bed/mediocre,
@@ -25672,6 +25668,7 @@
 /area/rogue/indoors/town/dwarfin)
 "rpJ" = (
 /obj/effect/decal/cleanable/blood/splatter,
+/obj/item/rope,
 /turf/open/floor/tile{
 	icon_state = "greenstone"
 	},
@@ -29128,6 +29125,14 @@
 	},
 /turf/open/floor/ruinedwood/turned,
 /area/rogue/indoors/town)
+"tGy" = (
+/obj/structure/mineral_door/wood/donjon{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/door/access/town/mercenary,
+/obj/effect/mapping_helpers/door/locker,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/indoors/town/merc_guild)
 "tHc" = (
 /turf/open/floor/cobble/alt,
 /area/rogue/under/town/sewer)
@@ -35602,6 +35607,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/river)
 "xOM" = (
+/obj/structure/fake_machine/scomm/l,
 /turf/open/floor/tile{
 	icon_state = "greenstone"
 	},
@@ -91375,7 +91381,7 @@ jMD
 iKK
 cpn
 qsL
-tlW
+ebp
 unp
 xPX
 xPX
@@ -91576,8 +91582,8 @@ mAn
 fIS
 jht
 pGO
+pGO
 ebp
-tlW
 xPX
 jOU
 xPX
@@ -91778,8 +91784,8 @@ nxE
 jMD
 jht
 pGO
-dtz
-xPX
+pGO
+tGy
 xPX
 utj
 tlW
@@ -91980,8 +91986,8 @@ jMD
 jMD
 oBe
 pGO
+pGO
 ebp
-tlW
 xPX
 xPX
 xPX
@@ -92182,8 +92188,8 @@ odx
 jMD
 jht
 pGO
+pGO
 ebp
-tlW
 tlW
 unp
 tlW
@@ -92384,8 +92390,8 @@ mAn
 fIS
 jht
 pGO
+pGO
 nEc
-ebp
 ebp
 ftc
 ebp
