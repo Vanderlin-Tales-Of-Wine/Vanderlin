@@ -6,6 +6,7 @@
 	earliest_start = 10 MINUTES
 	max_occurrences = 2
 	min_players = 15
+	todreq = list("dusk", "night", "dawn")
 	allowed_storytellers = list(/datum/storyteller/noc)
 
 /datum/round_event/noc_wisdom/start()

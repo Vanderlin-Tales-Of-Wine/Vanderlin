@@ -23,9 +23,9 @@ GLOBAL_LIST_EMPTY(graggar_cullings)
 	track = EVENT_TRACK_INTERVENTION
 	typepath = /datum/round_event/graggar_culling
 	weight = 4
-	earliest_start = 40 MINUTES
+	earliest_start = 30 MINUTES
 	max_occurrences = 1
-	min_players = 50
+	min_players = 45
 	allowed_storytellers = list(/datum/storyteller/graggar)
 
 /datum/round_event_control/graggar_culling/canSpawnEvent(players_amt, gamemode, fake_check)
