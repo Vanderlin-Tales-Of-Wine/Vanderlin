@@ -5,8 +5,8 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	roundend_category = "zizoid cultists"
 	antagpanel_category = "Zizoid Cult"
 	job_rank = ROLE_ZIZOIDCULTIST
-	antag_hud_type = ANTAG_HUD_TRAITOR
-	antag_hud_name = "cultist"
+	antag_hud_type = ANTAG_HUD_ZIZOID
+	antag_hud_name = "zizoid_lackey"
 	confess_lines = list(
 		"DEATH TO THE TEN!",
 		"PRAISE ZIZO!",
@@ -15,8 +15,15 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	)
 	var/islesser = TRUE
 
+	innate_traits = list(
+		TRAIT_STEELHEARTED,
+		TRAIT_VILLAIN,
+	)
+
 /datum/antagonist/zizocultist/leader
 	name = "Zizoid Cultist"
+	antag_hud_type = ANTAG_HUD_ZIZOID
+	antag_hud_name = "zizoid"
 	islesser = FALSE
 
 #define iszizolackey(A) (A.mind?.has_antag_datum(/datum/antagonist/zizocultist))
@@ -42,8 +49,6 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	owner.current.playsound_local(get_turf(owner.current), 'sound/music/maniac.ogg', 80, FALSE, pressure_affected = FALSE)
 	owner.current.verbs |= /mob/living/carbon/human/proc/praise
 	owner.current.verbs |= /mob/living/carbon/human/proc/communicate
-	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_VILLAIN, TRAIT_GENERIC)
 
 	H.change_stat(STATKEY_STR, 2)
 

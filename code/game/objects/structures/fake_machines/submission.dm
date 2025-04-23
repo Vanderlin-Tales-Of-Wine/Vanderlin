@@ -34,7 +34,6 @@
 				if(!A && message == TRUE)
 					say("Couldn't find where to send the submission.")
 					return
-				I.submitted_to_stockpile = TRUE
 				var/list/turfs = list()
 				for(var/turf/T in A)
 					turfs += T

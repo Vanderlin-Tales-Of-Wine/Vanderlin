@@ -21,7 +21,7 @@ GLOBAL_LIST_INIT(garrison_positions, list(
 	/datum/job/gatemaster::title,
 	/datum/job/jailor::title,
 	/datum/job/dungeoneer::title,
-	/datum/job/mayor::title,
+	/datum/job/town_elder::title,
 	/datum/job/forestwarden::title,
 	/datum/job/forestguard::title,
 	))
@@ -47,16 +47,14 @@ GLOBAL_LIST_INIT(serf_positions, list(
 	/datum/job/artificer::title,
 	/datum/job/matron::title,
 	/datum/job/physicker::title,
-	/datum/job/scribe::title,
 	/datum/job/gaffer::title,
-	/datum/job/merchant::title,
+	/datum/job/butler::title,
 	))
 GLOBAL_PROTECT(serf_positions)
 
 GLOBAL_LIST_INIT(peasant_positions, list(
 	/datum/job/farmer::title,
 	/datum/job/miner::title,
-	/datum/job/grabber::title,
 	/datum/job/butcher::title,
 	/datum/job/cook::title,
 	/datum/job/carpenter::title,
@@ -64,14 +62,9 @@ GLOBAL_LIST_INIT(peasant_positions, list(
 	/datum/job/hunter::title,
 	/datum/job/fisher::title,
 	/datum/job/cheesemaker::title,
-	/datum/job/butler::title,
-	/datum/job/mercenary::title,
 	/datum/job/bard::title,
 	/datum/job/prisoner::title,
 	/datum/job/vagrant::title,
-	/datum/job/adventurer::title,
-	/datum/job/pilgrim::title,
-	/datum/job/bandit::title,
 ))
 GLOBAL_PROTECT(peasant_positions)
 
@@ -91,9 +84,18 @@ GLOBAL_LIST_INIT(youngfolk_positions, list(
 ))
 GLOBAL_PROTECT(youngfolk_positions)
 
+GLOBAL_LIST_INIT(company_positions, list(
+	/datum/job/merchant::title,
+	/datum/job/shophand::title,
+	/datum/job/grabber::title,
+	))
+GLOBAL_PROTECT(company_positions)
+
 GLOBAL_LIST_INIT(allmig_positions, list(
-	"Adventurer",
-	"Pilgrim",
+	/datum/job/pilgrim::title,
+	/datum/job/adventurer::title,
+	/datum/job/mercenary::title,
+	/datum/job/bandit::title,
 	))
 
 GLOBAL_LIST_INIT(roguewar_positions, list(
@@ -112,6 +114,7 @@ GLOBAL_LIST_EMPTY(job_assignment_order)
 	sorting_order += GLOB.garrison_positions
 	sorting_order += GLOB.church_positions
 	sorting_order += GLOB.serf_positions
+	sorting_order += GLOB.company_positions
 	sorting_order += GLOB.peasant_positions
 	sorting_order += GLOB.apprentices_positions
 	sorting_order += GLOB.allmig_positions
@@ -119,7 +122,7 @@ GLOBAL_LIST_EMPTY(job_assignment_order)
 	return sorting_order
 
 GLOBAL_LIST_INIT(exp_jobsmap, list(
-	EXP_TYPE_TOWNER = list("titles" = peasant_positions | apprentices_positions | youngfolk_positions | serf_positions),
+	EXP_TYPE_TOWNER = list("titles" = peasant_positions | apprentices_positions | youngfolk_positions | serf_positions | company_positions),
 	EXP_TYPE_NOBLE = list("titles" = noble_positions),
 	EXP_TYPE_CHURCH = list("titles" = church_positions),
 	EXP_TYPE_GUARDS = list("titles" = garrison_positions),

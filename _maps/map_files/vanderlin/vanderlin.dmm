@@ -214,11 +214,13 @@
 /obj/structure/fluff/railing/border{
 	dir = 1
 	},
-/obj/structure/fluff/railing/border{
-	dir = 5
-	},
 /obj/structure/industrial_lift/tram{
 	icon_state = "vertw"
+	},
+/obj/structure/fluff/railing/border{
+	dir = 10;
+	pixel_y = 24;
+	pixel_x = 24
 	},
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/river)
@@ -3086,6 +3088,20 @@
 /obj/effect/decal/remains/saiga,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/rtfield)
+"bUZ" = (
+/obj/structure/fluff/railing/border{
+	dir = 4
+	},
+/obj/structure/industrial_lift/tram{
+	icon_state = "wooden_floor"
+	},
+/obj/structure/fluff/railing/border{
+	dir = 10;
+	pixel_y = 24;
+	pixel_x = 24
+	},
+/turf/open/transparent/openspace,
+/area/rogue/outdoors/river)
 "bVe" = (
 /obj/structure/table/wood/plain_alt,
 /obj/machinery/light/fueled/wallfire/candle{
@@ -3116,15 +3132,11 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/orphanage)
 "bVO" = (
+/obj/structure/industrial_lift/tram{
+	icon_state = "wooden_floor"
+	},
 /obj/structure/fluff/railing/border{
 	dir = 8
-	},
-/obj/structure/fluff/railing/border,
-/obj/structure/fluff/railing/border{
-	dir = 10
-	},
-/obj/structure/industrial_lift/tram{
-	icon_state = "vertw"
 	},
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/river)
@@ -3818,6 +3830,12 @@
 /obj/structure/fermentation_keg,
 /turf/open/floor/wood,
 /area/rogue/indoors/soilsons)
+"cuZ" = (
+/obj/effect/landmark/start/gaffer_assistant{
+	dir = 1
+	},
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/indoors/town/merc_guild)
 "cvc" = (
 /obj/structure/table/wood/plain/alto,
 /turf/open/floor/herringbone,
@@ -5270,6 +5288,7 @@
 /area/rogue/indoors/town/shop)
 "dzY" = (
 /obj/structure/chair/stool/crafted,
+/obj/effect/landmark/start/matron_assistant,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/orphanage)
 "dAv" = (
@@ -7064,11 +7083,15 @@
 /turf/open/floor/blocks,
 /area/rogue/under/town/basement)
 "eIV" = (
+/obj/effect/decal/cobbleedge{
+	icon_state = "jagged";
+	dir = 4
+	},
 /obj/structure/fluff/railing/border{
-	dir = 10
+	dir = 8
 	},
 /obj/structure/industrial_lift/tram{
-	icon_state = "wooden_floor"
+	icon_state = "vertw"
 	},
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/river)
@@ -7627,6 +7650,20 @@
 /obj/structure/flora/grass/bush_meagre,
 /turf/open/floor/grass/eora,
 /area/rogue/outdoors/eora)
+"fbC" = (
+/obj/structure/fluff/railing/border{
+	dir = 8
+	},
+/obj/structure/industrial_lift/tram{
+	icon_state = "wooden_floor"
+	},
+/obj/structure/fluff/railing/border{
+	dir = 6;
+	pixel_y = 24;
+	pixel_x = -24
+	},
+/turf/open/transparent/openspace,
+/area/rogue/outdoors/river)
 "fbJ" = (
 /obj/item/natural/poo,
 /obj/structure/closet/crate/chest/gold,
@@ -8377,7 +8414,19 @@
 /area/rogue/indoors/town/theatre)
 "fEp" = (
 /obj/structure/industrial_lift/tram{
-	icon_state = "nothing"
+	icon_state = "wooden_floor"
+	},
+/obj/structure/fluff/railing/border,
+/obj/structure/fluff/railing/border{
+	dir = 8
+	},
+/obj/machinery/light/fueled/torchholder{
+	pixel_y = -10
+	},
+/obj/structure/fluff/railing/border{
+	dir = 5;
+	pixel_x = -24;
+	pixel_y = -24
 	},
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/river)
@@ -14825,21 +14874,20 @@
 /turf/open/floor/concrete,
 /area/rogue/indoors/town/shop)
 "jVe" = (
-/obj/effect/decal/cobbleedge{
-	icon_state = "jagged";
-	dir = 4
-	},
 /obj/structure/fluff/railing/border{
 	dir = 4
-	},
-/obj/structure/fluff/railing/border{
-	dir = 8
 	},
 /obj/machinery/light/fueled/torchholder{
 	pixel_y = -10
 	},
+/obj/structure/fluff/railing/border,
+/obj/structure/fluff/railing/border{
+	dir = 9;
+	pixel_x = 24;
+	pixel_y = -24
+	},
 /obj/structure/industrial_lift/tram{
-	icon_state = "vertw"
+	icon_state = "wooden_floor"
 	},
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/river)
@@ -14883,11 +14931,13 @@
 	dir = 4
 	},
 /obj/structure/fluff/railing/border,
-/obj/structure/fluff/railing/border{
-	dir = 6
-	},
 /obj/structure/industrial_lift/tram{
 	icon_state = "vertw"
+	},
+/obj/structure/fluff/railing/border{
+	dir = 9;
+	pixel_x = 24;
+	pixel_y = -24
 	},
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/river)
@@ -15774,9 +15824,16 @@
 /obj/structure/table/wood/large/corner_new{
 	dir = 6
 	},
-/obj/item/literary,
+/obj/item/textbook/novice,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/orphanage)
+"kAH" = (
+/obj/structure/industrial_lift/tram{
+	icon_state = "wooden_floor"
+	},
+/obj/machinery/light/fueledstreet/midlamp,
+/turf/open/transparent/openspace,
+/area/rogue/outdoors/river)
 "kBa" = (
 /obj/effect/decal/cobbleedge{
 	dir = 1;
@@ -16843,6 +16900,20 @@
 /obj/structure/flora/grass/water,
 /turf/open/water/sewer,
 /area/rogue/under/town/sewer)
+"lpv" = (
+/obj/structure/fluff/railing/border{
+	dir = 8
+	},
+/obj/structure/industrial_lift/tram{
+	icon_state = "wooden_floor"
+	},
+/obj/structure/fluff/railing/border{
+	dir = 5;
+	pixel_x = -24;
+	pixel_y = -24
+	},
+/turf/open/transparent/openspace,
+/area/rogue/outdoors/river)
 "lpz" = (
 /turf/closed/wall/mineral/wooddark,
 /area/rogue/indoors/town/smithy)
@@ -17041,9 +17112,9 @@
 /obj/structure/closet/crate/crafted_closet,
 /obj/item/candle/yellow,
 /obj/item/natural/feather,
-/obj/item/literary,
-/obj/item/literary/apprentice,
-/obj/item/literary/expert,
+/obj/item/textbook/novice,
+/obj/item/textbook/apprentice,
+/obj/item/textbook/expert,
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/manor)
 "lyE" = (
@@ -20433,15 +20504,6 @@
 	},
 /turf/open/transparent/openspace,
 /area/rogue/indoors/town)
-"nRb" = (
-/obj/structure/fluff/buysign{
-	name = "Train to Kingsfield Reinstated"
-	},
-/obj/structure/industrial_lift/tram{
-	icon_state = "vertw"
-	},
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/river)
 "nRv" = (
 /obj/structure/mineral_door/wood/window,
 /obj/effect/mapping_helpers/door/locker,
@@ -22743,11 +22805,13 @@
 /obj/structure/fluff/railing/border{
 	dir = 8
 	},
-/obj/structure/fluff/railing/border{
-	dir = 9
-	},
 /obj/structure/industrial_lift/tram{
 	icon_state = "wooden_floor"
+	},
+/obj/structure/fluff/railing/border{
+	dir = 6;
+	pixel_y = 24;
+	pixel_x = -24
 	},
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/river)
@@ -24110,11 +24174,13 @@
 /obj/structure/fluff/railing/border{
 	dir = 4
 	},
-/obj/structure/fluff/railing/border{
-	dir = 5
-	},
 /obj/structure/industrial_lift/tram{
 	icon_state = "wooden_floor"
+	},
+/obj/structure/fluff/railing/border{
+	dir = 10;
+	pixel_y = 24;
+	pixel_x = 24
 	},
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/river)
@@ -25367,6 +25433,7 @@
 /area/rogue/indoors/town)
 "rwi" = (
 /obj/structure/bed/wool,
+/obj/effect/landmark/start/tapster,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/town/basement)
 "rww" = (
@@ -26550,14 +26617,11 @@
 	icon_state = "jagged";
 	dir = 4
 	},
-/obj/structure/fluff/railing/border{
-	dir = 4
-	},
-/obj/structure/fluff/railing/border{
-	dir = 8
-	},
 /obj/structure/industrial_lift/tram{
 	icon_state = "vertw"
+	},
+/obj/structure/fluff/railing/border{
+	dir = 6
 	},
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/river)
@@ -27083,6 +27147,20 @@
 /obj/structure/flora/tree/burnt,
 /turf/open/floor/cobblerock,
 /area/rogue/under/cavelava)
+"sDF" = (
+/obj/structure/fluff/railing/border{
+	dir = 4
+	},
+/obj/structure/industrial_lift/tram{
+	icon_state = "wooden_floor"
+	},
+/obj/structure/fluff/railing/border{
+	dir = 9;
+	pixel_x = 24;
+	pixel_y = -24
+	},
+/turf/open/transparent/openspace,
+/area/rogue/outdoors/river)
 "sDU" = (
 /obj/structure/fake_machine/scomm/r,
 /turf/open/floor/ruinedwood/spiral,
@@ -27198,6 +27276,10 @@
 	icon_state = "weird1"
 	},
 /area/rogue/indoors/town/theatre)
+"sGi" = (
+/obj/effect/landmark/start/shophand,
+/turf/open/floor/churchmarble,
+/area/rogue/indoors/town/shop)
 "sGB" = (
 /obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/dirt,
@@ -28637,9 +28719,9 @@
 /area/rogue/under/town/basement)
 "tHf" = (
 /obj/structure/industrial_lift/tram{
-	icon_state = "nothing";
-	alpha = 0
+	icon_state = "wooden_floor"
 	},
+/obj/structure/fluff/railing/border,
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/river)
 "tHj" = (
@@ -32043,11 +32125,13 @@
 /obj/structure/fluff/railing/border{
 	dir = 1
 	},
-/obj/structure/fluff/railing/border{
-	dir = 9
-	},
 /obj/structure/industrial_lift/tram{
 	icon_state = "vertw"
+	},
+/obj/structure/fluff/railing/border{
+	dir = 6;
+	pixel_y = 24;
+	pixel_x = -24
 	},
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/river)
@@ -77663,17 +77747,17 @@ vWo
 sdC
 nlg
 nlg
-nlg
+lpv
 tOX
 tOX
 tOX
+fbC
 nlg
 nlg
 nlg
 bVO
-xYa
-xYa
-xYa
+bVO
+bVO
 fEp
 xYa
 xYa
@@ -77865,17 +77949,17 @@ skg
 tOX
 rOj
 rOj
-xOF
+rOj
 rOj
 tOX
 wCw
-nRb
 wCw
 wCw
-eIV
-sdC
-sdC
-bVO
+wCw
+tOX
+wCw
+wCw
+wCw
 tHf
 xYa
 xYa
@@ -78063,20 +78147,20 @@ jZh
 (11,1,2) = {"
 iDg
 nIl
-tOX
+kAH
 tOX
 rOj
 rOj
 rOj
 rOj
-tOX
+kAH
 wCw
 wCw
 wCw
 wCw
-tOX
-smf
-smf
+kAH
+eIV
+eIV
 smf
 jVe
 xYa
@@ -78471,11 +78555,11 @@ agJ
 mcO
 pKC
 pKC
-pKC
+sDF
 tOX
 tOX
 tOX
-pKC
+bUZ
 pKC
 pKC
 jWf
@@ -80135,7 +80219,7 @@ bgf
 rEw
 rEw
 rEw
-sJG
+rEw
 lLw
 rEw
 rEw
@@ -80359,8 +80443,8 @@ rEw
 rEw
 rEw
 rEw
-sJG
-tvE
+rEw
+bgf
 cjt
 ksw
 ksw
@@ -92543,7 +92627,7 @@ mOW
 sEn
 luA
 pGO
-pGO
+cuZ
 jMD
 jMD
 jMD
@@ -101397,7 +101481,7 @@ nnM
 nnM
 nnM
 nnM
-nnM
+sGi
 nnM
 nnM
 nnM
