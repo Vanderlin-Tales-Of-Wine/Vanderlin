@@ -48,10 +48,10 @@
 	},
 /area/rogue/indoors)
 "bf" = (
-/obj/structure/fermentation_keg/beer,
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_y = -32
 	},
+/obj/structure/fermentation_keg/random/beer,
 /turf/open/floor/ruinedwood{
 	icon_state = "vertw"
 	},
@@ -128,6 +128,12 @@
 /obj/structure/flora/grass,
 /turf/open/floor/grass,
 /area/rogue/outdoors/woods_safe)
+"cr" = (
+/obj/structure/table/wood/plain_alt,
+/obj/item/paper,
+/obj/item/natural/feather,
+/turf/open/floor/wood,
+/area/rogue/indoors)
 "cy" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
@@ -412,7 +418,7 @@
 	},
 /area/rogue/indoors)
 "hk" = (
-/obj/structure/fermentation_keg/water,
+/obj/structure/fermentation_keg/random/water,
 /turf/open/floor/ruinedwood{
 	icon_state = "vertw"
 	},
@@ -427,7 +433,7 @@
 /area/rogue/indoors)
 "hm" = (
 /obj/structure/mineral_door/wood/window{
-	name = "The Fermented Egg Inn"
+	name = "The Fermented Cackleberry Inn"
 	},
 /turf/open/floor/woodturned,
 /area/rogue/indoors)
@@ -623,6 +629,13 @@
 /obj/structure/roguetent,
 /turf/open/floor/twig,
 /area/rogue/indoors)
+"ky" = (
+/obj/structure/table/wood/plain_alt,
+/obj/item/natural/feather,
+/turf/open/floor/twig{
+	dir = 4
+	},
+/area/rogue/indoors)
 "kC" = (
 /obj/structure/rack,
 /obj/item/storage/sack,
@@ -763,6 +776,13 @@
 	},
 /turf/open/floor/grass,
 /area/rogue/outdoors/woods_safe)
+"na" = (
+/obj/structure/table/wood/plain_alt,
+/obj/item/paper,
+/turf/open/floor/twig{
+	dir = 4
+	},
+/area/rogue/indoors)
 "nb" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/rack/shelf/biggest,
@@ -928,17 +948,22 @@
 	pixel_y = 0
 	},
 /obj/item/broom,
-/obj/item/reagent_containers/glass/bucket,
 /obj/item/natural/cloth,
 /obj/item/natural/cloth,
 /obj/item/natural/cloth,
 /obj/structure/closet/crate/crafted_closet/crafted,
+/obj/item/reagent_containers/glass/bucket/wooden,
 /turf/open/floor/wood,
 /area/rogue/indoors)
 "pn" = (
 /obj/structure/flora/newtree,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/woods_safe)
+"pp" = (
+/obj/structure/table/wood/plain_alt,
+/obj/item/paper,
+/turf/open/floor/twig,
+/area/rogue/indoors)
 "pu" = (
 /obj/structure/fluff/railing/fence,
 /turf/open/floor/grass,
@@ -2721,7 +2746,7 @@
 /area/rogue/indoors)
 "Vk" = (
 /obj/structure/fluff/customsign{
-	name = "The Fermented Egg Inn"
+	name = "The Fermented Cackleberry Inn"
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/woods_safe)
@@ -23989,7 +24014,7 @@ tR
 ov
 Dm
 Nu
-jL
+cr
 fV
 go
 DZ
@@ -31065,7 +31090,7 @@ Rs
 Rs
 YY
 GA
-GA
+na
 YY
 Ic
 Wf
@@ -31675,7 +31700,7 @@ Rs
 Rs
 Wf
 Wf
-aN
+pp
 Mk
 YY
 JX
@@ -32464,7 +32489,7 @@ Rs
 IV
 YY
 GA
-GA
+na
 YY
 Rs
 Ic
@@ -32680,8 +32705,8 @@ Rs
 Wf
 Wf
 YY
-GA
-GA
+ky
+na
 YY
 Rs
 Wf
@@ -34696,7 +34721,7 @@ Rs
 Wf
 Ic
 Rs
-Rs
+GR
 VE
 Ad
 MN
@@ -34891,7 +34916,7 @@ ml
 ml
 jT
 aP
-Rs
+GR
 Wf
 Wf
 Ic
