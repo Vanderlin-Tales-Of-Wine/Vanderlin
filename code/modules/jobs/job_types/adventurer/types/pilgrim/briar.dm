@@ -105,7 +105,7 @@
 				/obj/item/reagent_containers/food/snacks/fat =1 )
 	craftdiff = 1
 
-/datum/crafting_recipe/dendor/shillelagh
+/datum/crafting_recipe/dendor/forestdelight
 	name = "forest guardian offering (unique)"
 	result = /obj/item/bait/forestdelight
 	reqs = list(/obj/item/reagent_containers/food/snacks/meat/steak = 1,
