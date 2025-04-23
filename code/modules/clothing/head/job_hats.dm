@@ -95,3 +95,10 @@
 
 /obj/item/clothing/head/wizhat/gen
 	icon_state = "wizardhatgen"
+
+/obj/item/clothing/head/leather/inqhat
+	name = "inquisitorial hat"
+	desc = "A wide-brimmed leather hat, adorned with a crimson-dyed feather. Death has come to your little town."
+	icon_state = "inqhat"
+	item_state = "inqhat"
+	sewrepair = TRUE

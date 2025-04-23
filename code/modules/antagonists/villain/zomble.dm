@@ -1,7 +1,7 @@
 /datum/antagonist/zombie
 	name = "Zombie"	// Deadite plague of Zizo
 	antagpanel_category = "Zombie"
-	antag_hud_type = ANTAG_HUD_TRAITOR
+	antag_hud_type = ANTAG_HUD_HIDDEN
 	antag_hud_name = "zombie"
 	show_name_in_check_antagonists = TRUE
 	show_in_roundend = FALSE
@@ -17,10 +17,6 @@
 	var/ambushable = TRUE
 	var/soundpack_m
 	var/soundpack_f
-	var/oldSTASTR = 7
-	var/oldSTASPD = 2
-	var/oldSTAINT = 1
-	var/oldSTACON = 5
 	var/old_cmode_music
 	var/list/base_intents
 	var/datum/language_holder/prev_language
@@ -29,6 +25,7 @@
 	var/stored_experience
 	/// Whether or not we have been turned
 	var/has_turned = FALSE
+	// we don't use innate_traits here because zombies aren't meant to get their traits on_gain.
 	/// Traits applied to the owner mob when we turn into a zombie
 	var/static/list/traits_zombie = list(
 		TRAIT_NOSTAMINA,
@@ -123,10 +120,7 @@
 	if(zombie.charflaw)
 		zombie.charflaw.ephemeral = FALSE
 	zombie.update_body()
-	zombie.change_stat(STATKEY_STR, oldSTASTR - 7)
-	zombie.change_stat(STATKEY_SPD, oldSTASPD - 2)
-	zombie.change_stat(STATKEY_INT, oldSTAINT - 1)
-	zombie.change_stat(STATKEY_CON, oldSTACON - 5)
+	zombie.remove_stat_modifier("[type]")
 	zombie.cmode_music = old_cmode_music
 	zombie.set_patron(patron)
 	owner.known_skills = stored_skills
@@ -135,12 +129,12 @@
 		REMOVE_TRAIT(zombie, trait, "[type]")
 	zombie.remove_client_colour(/datum/client_colour/monochrome)
 	if(has_turned && become_rotman)
-		zombie.change_stat(STATKEY_CON, -5)
-		zombie.change_stat(STATKEY_SPD, -5)
-		zombie.change_stat(STATKEY_INT, -3)
+		zombie.set_stat_modifier(TRAIT_ROTMAN, STATKEY_CON, -5)
+		zombie.set_stat_modifier(TRAIT_ROTMAN, STATKEY_SPD, -5)
+		zombie.set_stat_modifier(TRAIT_ROTMAN, STATKEY_INT, -3)
 		for(var/trait in traits_rotman)
 			ADD_TRAIT(zombie, trait, "[type]")
-		to_chat(zombie, "<span class='green'>I no longer crave for flesh... <i>But I still feel ill.</i></span>")
+		to_chat(zombie, span_green("I no longer crave for flesh... <i>But I still feel ill.</i>"))
 	else
 		if(!was_i_undead)
 			zombie.mob_biotypes &= ~MOB_UNDEAD
@@ -149,7 +143,7 @@
 		zombie.faction += FACTION_NEUTRAL
 		zombie.regenerate_organs()
 		if(has_turned)
-			to_chat(zombie, "<span class='green'>I no longer crave for flesh...</span>")
+			to_chat(zombie, span_green("I no longer crave for flesh..."))
 	for(var/obj/item/bodypart/zombie_part as anything in zombie.bodyparts)
 		zombie_part.rotted = FALSE
 		zombie_part.update_disabled()
@@ -216,14 +210,14 @@
 
 	for(var/datum/status_effect/effect in zombie.status_effects) //necessary to prevent exploits
 		zombie.remove_status_effect(effect)
-	oldSTASTR = zombie.STASTR
-	oldSTASPD = zombie.STASPD
-	oldSTAINT = zombie.STAINT
-	oldSTACON = zombie.STACON
-	zombie.change_stat(STATKEY_STR, 7, TRUE)
-	zombie.change_stat(STATKEY_SPD, 2, TRUE)
-	zombie.change_stat(STATKEY_INT, 1, TRUE)
-	zombie.change_stat(STATKEY_CON, 5, TRUE)
+	var/offset_strength = 7 - zombie.base_strength
+	var/offset_speed = 2 - zombie.base_speed
+	var/offset_intelligence = 1 - zombie.base_intelligence
+	var/offset_constitution = 5 - zombie.base_constitution
+	zombie.set_stat_modifier("[type]", STATKEY_STR, offset_strength)
+	zombie.set_stat_modifier("[type]", STATKEY_SPD, offset_speed)
+	zombie.set_stat_modifier("[type]", STATKEY_INT, offset_intelligence)
+	zombie.set_stat_modifier("[type]", STATKEY_CON, offset_constitution)
 
 	zombie.vitae_pool = 0 // Again, just in case.
 
@@ -261,6 +255,7 @@
 		qdel(src)
 		return
 
+	GLOB.vanderlin_round_stats[STATS_DEADITES_WOKEN_UP]++
 	zombie.blood_volume = BLOOD_VOLUME_MAXIMUM
 	zombie.setOxyLoss(0, updating_health = FALSE, forced = TRUE) //zombles dont breathe
 	zombie.setToxLoss(0, updating_health = FALSE, forced = TRUE) //zombles are immune to poison

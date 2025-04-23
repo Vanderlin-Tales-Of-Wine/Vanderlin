@@ -12,7 +12,7 @@
 /datum/mapGeneratorModule/cave
 	clusterCheckFlags = CLUSTER_CHECK_DIFFERENT_ATOMS
 	allowed_turfs = list(/turf/open/floor/dirt/road,/turf/open/water,/turf/open/floor/volcanic)
-	spawnableAtoms = list(/obj/item/natural/stone = 5, /obj/structure/roguerock=5, /obj/item/natural/rock=3, /obj/structure/kneestingers=1, /obj/item/restraints/legcuffs/beartrap/armed/camouflage=1)
+	spawnableAtoms = list(/obj/item/natural/stone = 5, /obj/structure/roguerock=5, /obj/item/natural/rock=3, /obj/structure/kneestingers=1, /obj/item/restraints/legcuffs/beartrap/armed/camouflage=1, /obj/structure/innouous_rock = 1)
 	allowed_areas = list(/area/rogue/under/cave/spider,/area/rogue/indoors/cave,/area/rogue/under/cavewet,/area/rogue/under/cave,/area/rogue/under/cavelava)
 
 /datum/mapGeneratorModule/cavedirt

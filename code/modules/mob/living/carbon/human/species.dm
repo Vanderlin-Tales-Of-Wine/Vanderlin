@@ -183,7 +183,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/language = speech_args[SPEECH_LANGUAGE]
 
 	if(message)
-		var/list/accent_words = strings("spellcheck.json", "spellcheck")
+		var/list/accent_words = strings("accents/spellcheck.json", "spellcheck")
 		var/mob/living/carbon/human/H
 		if(ismob(source))
 			H = source
@@ -203,7 +203,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	if(message && message[1] && message[1] != "*")
 		message = " [message]"
 
-		var/list/accent_words = strings("accent_universal.json", "universal")
+		var/list/accent_words = strings("accents/accent_universal.json", "universal")
 		for(var/key in accent_words)
 			var/value = accent_words[key]
 			if(islist(value))

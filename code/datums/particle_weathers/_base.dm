@@ -143,10 +143,11 @@
 	return
 
 /datum/particle_weather/Destroy()
-	for(var/S in currentSounds)
-		var/datum/looping_sound/looping_sound = currentSounds[S]
-		looping_sound.stop()
-		qdel(looping_sound)
+	for(var/mob/living/M as anything in currentSounds)
+		var/datum/looping_sound/looping_sound = currentSounds[M]
+		if(istype(looping_sound))
+			looping_sound.stop()
+			qdel(looping_sound)
 	return ..()
 
 /**
@@ -224,6 +225,9 @@
  */
 /datum/particle_weather/proc/end()
 	running = FALSE
+	for(var/mob/living/M as anything in currentSounds)
+		if(M.client)
+			stop_weather_sound_effect(M)
 	SSParticleWeather.stopWeather()
 
 
@@ -234,10 +238,10 @@
 	var/turf/mob_turf = get_turf(mob_to_check)
 
 	if(!mob_turf)
-		return
+		return FALSE
 
 	if(!mob_turf.outdoor_effect || mob_turf.outdoor_effect.weatherproof)
-		return
+		return FALSE
 
 	return TRUE
 
@@ -286,7 +290,7 @@
 		L.weather = FALSE
 
 
-//Not using looping_sounds properly. somebody smart should fix this
+//Not using looping_sounds properly. somebody smart should fix this //actually this kind of works, just done a bit backwards
 /datum/particle_weather/proc/weather_sound_effect(mob/living/L)
 	var/datum/looping_sound/currentSound = currentSounds[L]
 	if(currentSound)
@@ -308,8 +312,9 @@
 /datum/particle_weather/proc/stop_weather_sound_effect(mob/living/L)
 	var/datum/looping_sound/currentSound = currentSounds[L]
 	if(currentSound)
+		currentSounds[L] = null
 		currentSound.stop()
-
+		qdel(currentSound)
 
 /datum/particle_weather/proc/weather_message(mob/living/L)
 	messagedMobs[L] = world.time + 30 SECONDS //Chunky delay - this spams otherwise - Severity changes and going indoors resets this timer

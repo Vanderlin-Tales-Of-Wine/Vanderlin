@@ -1,6 +1,8 @@
 
 /datum/antagonist/skeleton
 	name = "Skeleton"
+	antag_hud_type = ANTAG_HUD_NECROMANCY
+	antag_hud_name = "skeleton"
 	increase_votepwr = FALSE
 
 /datum/antagonist/skeleton/examine_friendorfoe(datum/antagonist/examined_datum,mob/examiner,mob/examined)
@@ -12,14 +14,6 @@
 		return "<span class='boldnotice'>Another deadite.</span>"
 	if(istype(examined_datum, /datum/antagonist/skeleton))
 		return "<span class='boldnotice'>Another deadite. My ally.</span>"
-
-/datum/antagonist/skeleton/on_gain()
-
-	return ..()
-
-/datum/antagonist/skeleton/on_removal()
-	return ..()
-
 
 /datum/antagonist/skeleton/greet()
 	owner.announce_objectives()

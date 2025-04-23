@@ -34,7 +34,7 @@
 	min_pq = 4
 
 	can_have_apprentices = FALSE
-
+	noble_income = 20
 
 /datum/job/prince/after_spawn(mob/living/carbon/spawned, client/player_client)
 	. = ..()

@@ -20,7 +20,7 @@ SUBSYSTEM_DEF(ParticleWeather)
 	if(runningWeather)
 		if(runningWeather.running)
 			runningWeather.tick()
-			for(var/mob/act_on as anything in GLOB.mob_living_list)
+			for(var/mob/act_on as anything in GLOB.mob_living_list) //yikes. this should probably be a client scan not all mobs. it already checks for minds
 				runningWeather.try_weather_act(act_on)
 			for(var/obj/act_on as anything in GLOB.weather_act_upon_list)
 				runningWeather.weather_obj_act(act_on)

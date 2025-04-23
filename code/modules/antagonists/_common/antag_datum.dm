@@ -18,6 +18,9 @@ GLOBAL_LIST_EMPTY(antagonists)
 	var/antag_hud_name
 	var/list/confess_lines
 
+	/// traits applied to the mob at on_gain() and removed at on_removal()
+	var/list/innate_traits = list()
+
 	//Antag panel properties
 	var/show_in_antagpanel = TRUE	//This will hide adding this antag type in antag panel, use only for internal subtypes that shouldn't be added directly but still show if possessed by mind
 	var/antagpanel_category = "Uncategorized"	//Antagpanel will display these together, REQUIRED
@@ -53,7 +56,7 @@ GLOBAL_LIST_EMPTY(antagonists)
 			return FALSE
 
 //This will be called in add_antag_datum before owner assignment.
-//Should return antag datum without owner.
+/// Should return antag datum without owner.
 /datum/antagonist/proc/specialization(datum/mind/new_owner)
 	return src
 
@@ -61,26 +64,37 @@ GLOBAL_LIST_EMPTY(antagonists)
 	remove_innate_effects(old_body)
 	apply_innate_effects(new_body)
 
-//This handles the application of antag huds/special abilities
+/// This handles the application of special abilities
 /datum/antagonist/proc/apply_innate_effects(mob/living/mob_override)
-	return
+	var/mob/living/M = mob_override || owner.current
+	for(var/trait as anything in innate_traits)
+		ADD_TRAIT(M, trait, "[type]")
 
-//This handles the removal of antag huds/special abilities
+/// This handles the removal of special abilities
 /datum/antagonist/proc/remove_innate_effects(mob/living/mob_override)
-	return
+	var/mob/living/M = mob_override || owner.current
+	if(!istype(M))
+		return
+	for(var/trait as anything in innate_traits)
+		REMOVE_TRAIT(M, trait, "[type]")
 
-// Adds the specified antag hud to the player. Usually called in an antag datum file
+/// Adds the specified antag hud to the player. Usually called in an antag datum file
 /datum/antagonist/proc/add_antag_hud(antag_hud_type, antag_hud_name, mob/living/mob_override)
+	if(!antag_hud_name || !antag_hud_type)
+		return
+	var/mob/living/M = mob_override || owner.current
+	if(!istype(M))
+		return
 	var/datum/atom_hud/antag/hud = GLOB.huds[antag_hud_type]
-	hud.join_hud(mob_override)
-	set_antag_hud(mob_override, antag_hud_name)
+	hud.join_hud(M)
+	set_antag_hud(M, antag_hud_name)
 
-
-// Removes the specified antag hud from the player. Usually called in an antag datum file
-/datum/antagonist/proc/remove_antag_hud(antag_hud_type, mob/living/mob_override)
+/// Removes the specified antag hud from the player. Usually called in an antag datum file
+/datum/antagonist/proc/remove_antag_hud(antag_hud_type, antag_hud_name, mob/living/mob_override)
+	var/mob/living/M = mob_override || owner.current
 	var/datum/atom_hud/antag/hud = GLOB.huds[antag_hud_type]
-	hud.leave_hud(mob_override)
-	set_antag_hud(mob_override, null)
+	hud.leave_hud(M)
+	set_antag_hud(M, null)
 
 //Assign default team and creates one for one of a kind team antagonists
 /datum/antagonist/proc/create_team(datum/team/team)
@@ -92,6 +106,7 @@ GLOBAL_LIST_EMPTY(antagonists)
 		if(!silent)
 			greet()
 		apply_innate_effects()
+		add_antag_hud(antag_hud_type, antag_hud_name)
 		give_antag_moodies()
 		if(is_banned(owner.current) && replace_banned)
 			replace_banned_player()
@@ -120,6 +135,7 @@ GLOBAL_LIST_EMPTY(antagonists)
 /datum/antagonist/proc/on_removal()
 	remove_innate_effects()
 	clear_antag_moodies()
+	remove_antag_hud(antag_hud_type, antag_hud_name)
 	if(owner)
 		LAZYREMOVE(owner.antag_datums, src)
 		if(!silent && owner.current)
