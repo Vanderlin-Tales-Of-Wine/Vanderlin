@@ -169,16 +169,16 @@
 /obj/item/reagent_containers/food/snacks/organ/heart/check_culling(mob/living/eater)
 	. = ..()
 	for(var/datum/culling_duel/D in GLOB.graggar_cullings)
-		var/mob/target_owner = D.target.resolve()
-		var/mob/challenger = D.challenger.resolve()
+		var/mob/living/carbon/human/target_owner = D.target.resolve()
+		var/mob/living/carbon/human/challenger = D.challenger.resolve()
 
 		if(!target_owner || !challenger)
-			GLOB.graggar_cullings -= D
 			continue
 
 		// Check if the eater is either participant and they ate the other's heart
 		if((eater == challenger && original_owner == target_owner) || (eater == target_owner && original_owner == challenger))
 			eater.remove_stress(/datum/stressevent/graggar_culling_unfinished)
+			eater.verbs -= /mob/living/carbon/human/proc/remember_culling
 			eater.set_stat_modifier("graggar_culling", STATKEY_STR, 1)
 			eater.set_stat_modifier("graggar_culling", STATKEY_END, 1)
 			eater.set_stat_modifier("graggar_culling", STATKEY_CON, 1)
@@ -192,10 +192,12 @@
 
 			if(original_owner == target_owner)
 				target_owner.remove_stress(/datum/stressevent/graggar_culling_unfinished)
+				target_owner.verbs -= /mob/living/carbon/human/proc/remember_culling
 				to_chat(target_owner, span_boldred("You have FAILED Graggar for the LAST TIME!"))
 				target_owner.gib()
 			else if(original_owner == challenger)
 				challenger.remove_stress(/datum/stressevent/graggar_culling_unfinished)
+				challenger.verbs -= /mob/living/carbon/human/proc/remember_culling
 				to_chat(challenger, span_boldred("You have FAILED Graggar for the LAST TIME!"))
 				challenger.gib()
 

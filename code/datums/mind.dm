@@ -773,6 +773,25 @@
 	if(window)
 		recipient << browse(output,"window=memory")
 
+/datum/mind/proc/recall_culling(mob/recipient, window=1)
+	var/output = "<B>[recipient.real_name]'s Rival:</B><br>"
+	for(var/datum/culling_duel/D in GLOB.graggar_cullings)
+		var/mob/living/carbon/human/target_owner = D.target.resolve()
+		var/mob/living/carbon/human/challenger = D.challenger.resolve()
+
+		if(!target_owner || !challenger)
+			continue
+
+		if(recipient == target_owner)
+			output += "<br>[challenger.real_name]"
+			output += "<br>Eat your rival's heart before he eats YOURS! Graggar will not forgive failure."
+		else if(recipient == challenger)
+			output += "<br>[target_owner.real_name]"
+			output += "<br>Eat your rival's heart before he eats YOURS! Graggar will not forgive failure."
+
+	if(window)
+		recipient << browse(output,"window=memory")
+
 /datum/mind/Topic(href, href_list)
 	if(!check_rights(R_ADMIN))
 		return
