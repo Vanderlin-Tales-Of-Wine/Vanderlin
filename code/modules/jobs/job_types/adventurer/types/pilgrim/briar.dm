@@ -45,7 +45,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
 		H.mind.teach_crafting_recipe(/datum/crafting_recipe/dendor/shillelagh)
 
 		if(H.age == AGE_OLD)
