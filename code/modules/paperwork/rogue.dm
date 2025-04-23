@@ -17,7 +17,7 @@
 		if(!open)
 			to_chat(user, "<span class='warning'>Open me.</span>")
 			return
-	..()
+	. = ..()
 
 /obj/item/paper/scroll/getonmobprop(tag)
 	. = ..()
@@ -70,7 +70,7 @@
 			dat += "[info]<br>"
 			dat += "<a href='?src=[REF(src)];close=1' style='position:absolute;right:50px'>Close</a>"
 			dat += "</body></html>"
-			user << browse(dat, "window=reading;size=460x300;can_close=0;can_minimize=0;can_maximize=0;can_resize=0")
+			user << browse(dat, "window=reading;size=460x460;can_close=0;can_minimize=0;can_maximize=0;can_resize=0")
 		else
 			user.hud_used.reads.icon_state = "scroll"
 			user.hud_used.reads.show()
@@ -85,9 +85,8 @@
 		return "<span class='warning'>I'm too far away to read it.</span>"
 
 /obj/item/paper/scroll/Initialize()
-	open = FALSE
 	update_icon_state()
-	..()
+	. = ..()
 
 /obj/item/paper/scroll/rmb_self(mob/user)
 	attack_right(user)
@@ -143,7 +142,7 @@
 /obj/item/paper/scroll/cargo/examine(mob/user)
 	. = ..()
 	if(signedname)
-		. += "It was signed by [signedname] the [signedjob]."
+		. += "This was signed by [signedname] the [signedjob]."
 
 	//for each order, add up total price and display orders
 
@@ -189,9 +188,9 @@
 		info += "<ul>"
 		for(var/datum/supply_pack/A in orders)
 			if(!A.contraband)
-				info += "<li style='color:#06080F;font-size:11px;font-family:\"Segoe Script\"'>[A.name] - [A.cost] mammons</li><br/>"
+				info += "<li style='color:#06080F;font-size:11px;font-family:\"Segoe Script\"'>[A.name] x[orders[A]] - [A.cost * orders[A]] mammons</li><br/>"
 			else
-				info += "<li style='color:#610018;font-size:11px;font-family:\"Segoe Script\"'>[A.name] - [A.cost] mammons</li><br/>"
+				info += "<li style='color:#610018;font-size:11px;font-family:\"Segoe Script\"'>[A.name] x[orders[A]] - [A.cost * orders[A]] mammons</li><br/>"
 		info += "</ul>"
 
 	info += "<br/></font>"
@@ -359,7 +358,7 @@
 	real_names |= GLOB.roundstart_court_agents
 
 /obj/item/paper/scroll/frumentarii
-	name = "Frumentarii scroll"
+	name = "frumentarii scroll"
 	desc = "A list of the hand's fingers. Strike a candidate with this to allow them servitude. Use a writing utensil to cross out a finger."
 	old_render = FALSE
 
@@ -428,7 +427,7 @@
 
 
 /obj/item/paper/scroll/keep_plans
-	name = "Keep Architectural Drawings"
+	name = "keep architectural drawings"
 	desc = "Paper etched with the floor plans for the entire keep."
 
 /obj/item/paper/scroll/keep_plans/read(mob/user)
@@ -438,7 +437,7 @@
 
 
 /obj/item/paper/scroll/sold_manifest
-	name = "Shipping Manifest"
+	name = "shipping manifest"
 	old_render = FALSE
 	var/list/count = list()
 	var/list/items = list()
@@ -503,7 +502,8 @@
 	info += "<br/></font>"
 
 	info += "<font size=\"2\" face=\"[FOUNTAIN_PEN_FONT]\" color=#27293f>[writers_name] Shipwright of [faction]</font>"
-
+	info += "<br/>"
+	info += "<font size=\"2\" face=\"[FOUNTAIN_PEN_FONT]\" color=#27293f>Time: [gameTimestamp("hh:mm:ss", world.time - SSticker.round_start_time)]</font>"
 	info += "</div>"
 
 /obj/item/paper/scroll/sell_price_changes/proc/generated_test_data()

@@ -27,6 +27,7 @@
 	name = "Churchling"
 	jobtype = /datum/job/churchling
 	allowed_patrons = ALL_TEMPLE_PATRONS
+	job_bitflag = BITFLAG_CHURCH
 
 /datum/outfit/job/churchling/pre_equip(mob/living/carbon/human/H)
 	..()

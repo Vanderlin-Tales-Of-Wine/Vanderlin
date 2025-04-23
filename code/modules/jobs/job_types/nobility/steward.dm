@@ -19,6 +19,7 @@
 
 	outfit = /datum/outfit/job/steward
 	give_bank_account = 100
+	noble_income = 16
 	cmode_music = 'sound/music/cmode/nobility/combat_noble.ogg'
 
 /datum/outfit/job/steward

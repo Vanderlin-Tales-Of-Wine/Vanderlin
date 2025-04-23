@@ -787,6 +787,18 @@
 	desc = "Gazing Noc helps me think."
 	icon_state = "buff"
 
+/datum/status_effect/buff/nocblessed
+	id = "nocblessed"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/nocblessed
+	effectedstats = list("intelligence" = 3, "perception" = 2) 
+	duration = 300 MINUTES
+
+/atom/movable/screen/alert/status_effect/buff/nocblessed
+	name = "Blessed by Noc"
+	desc = "I have been blessed by Noc since i was born, with his help i can see and think better than anyone."
+	icon_state = "intelligence"
+
+
 /datum/status_effect/buff/seelie_drugs
 	id = "seelie drugs"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/druqks

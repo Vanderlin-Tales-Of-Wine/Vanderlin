@@ -255,6 +255,7 @@
 		qdel(src)
 		return
 
+	GLOB.vanderlin_round_stats[STATS_DEADITES_WOKEN_UP]++
 	zombie.blood_volume = BLOOD_VOLUME_MAXIMUM
 	zombie.setOxyLoss(0, updating_health = FALSE, forced = TRUE) //zombles dont breathe
 	zombie.setToxLoss(0, updating_health = FALSE, forced = TRUE) //zombles are immune to poison

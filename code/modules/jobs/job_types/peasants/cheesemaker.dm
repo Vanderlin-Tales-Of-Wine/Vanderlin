@@ -15,6 +15,9 @@
 	allowed_races = RACES_PLAYER_ALL
 	outfit = /datum/outfit/job/cheesemaker
 
+/datum/outfit/job/cheesemaker
+	job_bitflag = BITFLAG_CONSTRUCTOR
+
 /datum/outfit/job/cheesemaker/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
