@@ -160,6 +160,14 @@
 	eat_effect = initial(eat_effect)
 
 /obj/item/reagent_containers/food/snacks/organ/proc/check_culling(mob/living/eater)
+	return
+
+/obj/item/reagent_containers/food/snacks/organ/heart
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT, /datum/reagent/organpoison = 2)
+	grind_results = list(/datum/reagent/organpoison = 6)
+
+/obj/item/reagent_containers/food/snacks/organ/heart/check_culling(mob/living/eater)
+	. = ..()
 	for(var/datum/culling_duel/D in GLOB.graggar_cullings)
 		var/mob/target_owner = D.target.resolve()
 		var/mob/challenger = D.challenger.resolve()
@@ -180,14 +188,10 @@
 			eater.set_stat_modifier("graggar_culling", STATKEY_SPD, 1)
 			eater.set_stat_modifier("graggar_culling", STATKEY_LCK, 1)
 			eater.adjust_triumphs(1)
-			to_chat(eater, span_notice("You have proven your strength to Graggar by consuming the flesh of your rival! A sliver of his power now flows through you!"))
+			to_chat(eater, span_notice("You have proven your strength to Graggar by consuming the heart of your rival! A sliver of his power now flows through you!"))
 			eater.add_stress(/datum/stressevent/graggar_culling_finished)
 			GLOB.graggar_cullings -= D
 			return TRUE
-
-/obj/item/reagent_containers/food/snacks/organ/heart
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT, /datum/reagent/organpoison = 2)
-	grind_results = list(/datum/reagent/organpoison = 6)
 
 /obj/item/reagent_containers/food/snacks/organ/lungs
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT, /datum/reagent/organpoison = 2)
