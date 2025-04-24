@@ -323,8 +323,6 @@
 	icon = MAP_SWITCH('icons/obj/smooth_structures/fancy_table.dmi', 'icons/obj/structures.dmi')
 	icon_state = "fancy_table"
 	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = SMOOTH_GROUP_FANCY_WOOD_TABLES
-	smoothing_list = SMOOTH_GROUP_FANCY_WOOD_TABLES
 
 /obj/structure/table/wood/fancy/black
 	icon = MAP_SWITCH('icons/obj/smooth_structures/fancy_table_black.dmi', 'icons/obj/structures.dmi')
