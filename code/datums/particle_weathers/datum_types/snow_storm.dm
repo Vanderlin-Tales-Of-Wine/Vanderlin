@@ -135,7 +135,6 @@
 
 /obj/structure/snow/Initialize(mapload, bleed_layers)
 	. = ..()
-	icon_state = "blank"
 	bleed_layer = bleed_layers
 	if(!bleed_layer)
 		bleed_layer = rand(1, 3)
