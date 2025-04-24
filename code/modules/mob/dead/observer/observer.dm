@@ -74,6 +74,9 @@ GLOBAL_LIST_INIT(ghost_verbs, list(
 	var/next_gmove
 	var/misting = 0
 	draw_icon = TRUE
+	invisibility = INVISIBILITY_GHOST
+	see_invisible = SEE_INVISIBLE_GHOST
+	icon_state = "ghost1"
 
 /mob/dead/observer/rogue/nodraw
 	draw_icon = FALSE
@@ -115,13 +118,16 @@ GLOBAL_LIST_INIT(ghost_verbs, list(
 	see_in_dark = 0
 	hud_type = /datum/hud/obs
 	can_reenter_corpse = FALSE
+	invisibility = INVISIBILITY_GHOST
+	see_invisible = SEE_INVISIBLE_GHOST
 
 /mob/dead/observer/screye/Move(n, direct)
 	return
 
 /mob/dead/observer/profane // Ghost type for souls trapped by the profane dagger. They can't move, but can talk to the dagger's wielder and other trapped souls.
 	sight = 0
-	see_invisible = SEE_INVISIBLE_OBSERVER
+	invisibility = INVISIBILITY_GHOST
+	see_invisible = SEE_INVISIBLE_GHOST
 
 /mob/dead/observer/profane/Move(n, direct)
 	return
