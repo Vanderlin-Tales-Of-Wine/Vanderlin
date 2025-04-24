@@ -34,11 +34,11 @@ SUBSYSTEM_DEF(librarian)
 		if(search_category == "Any")
 			for(var/book in books)
 				return_books |= list(books[book])
-
-		for(var/book in books)
-			var/list/book_info = books[book]
-			if(book_info["category"] == search_category)
-				return_books |= list(books[book])
+		else
+			for(var/book in books)
+				var/list/book_info = books[book]
+				if(book_info["category"] == search_category)
+					return_books |= list(books[book])
 
 	return return_books
 

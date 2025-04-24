@@ -30,6 +30,7 @@
 	outfit = /datum/outfit/job/hand
 	advclass_cat_rolls = list(CTAG_HAND = 20)
 	give_bank_account = 120
+	noble_income = 22
 
 /datum/outfit/job/hand
 	job_bitflag = BITFLAG_ROYALTY

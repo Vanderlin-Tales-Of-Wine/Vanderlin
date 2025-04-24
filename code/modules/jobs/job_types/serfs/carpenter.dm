@@ -15,6 +15,9 @@
 
 	outfit = /datum/outfit/job/carpenter
 
+/datum/outfit/job/carpenter
+	job_bitflag = BITFLAG_CONSTRUCTOR
+
 /datum/outfit/job/carpenter/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
