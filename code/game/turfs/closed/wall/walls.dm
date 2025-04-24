@@ -103,11 +103,6 @@
 	climbdiff = 1
 	damage_deflection = 10
 
-/turf/closed/wall/mineral/craftstone/grooved
-	name = "grooved craftstone wall"
-	desc = "A durable wall made from specially crafted stone. It has less footholds."
-	climbdiff = 3
-
 /turf/closed/wall/mineral/stonebrick
 	name = "brick wall"
 	desc = "Several rows of bricks form this wall."
