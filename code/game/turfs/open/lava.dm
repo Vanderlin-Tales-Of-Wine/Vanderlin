@@ -20,7 +20,7 @@
 	smoothing_flags =  SMOOTH_EDGE | SMOOTH_BORDER
 	smoothing_groups = SMOOTH_GROUP_FLOOR_LIQUID
 	smoothing_list = SMOOTH_GROUP_OPEN_FLOOR
-	neighborlay_override = "lavedge"
+	neighborlay_self = "lavedge"
 	turf_flags = NONE
 	var/flow = FALSE
 	/// How much fire damage we deal to living mobs stepping on us

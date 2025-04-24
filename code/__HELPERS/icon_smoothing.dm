@@ -170,19 +170,19 @@ DEFINE_BITFIELD(smoothing_junction, list(
 
 /turf/proc/handle_edge_icon(turf/T, dir)
 	if(!isturf(T))
-		if(smoothing_flags & SMOOTH_BORDER && neighborlay_override)
-			replace_neighborlay(dir, neighborlay_override)
+		if(smoothing_flags & SMOOTH_BORDER && neighborlay_self)
+			add_neighborlay(dir, neighborlay_self)
 		return
 	if(type == T.type)
 		return
-	if(neighborlay_override)
-		replace_neighborlay(dir, neighborlay_override)
+	if(neighborlay_self)
+		add_neighborlay(dir, neighborlay_self)
 		return
 	if(neighborlay)
 		// Reverse dir because we are offsetting the overlay onto the adjacency
-		replace_neighborlay(REVERSE_DIR(dir), neighborlay, TRUE)
+		add_neighborlay(REVERSE_DIR(dir), neighborlay, TRUE)
 
-/turf/proc/replace_neighborlay(dir, icon, offset = FALSE)
+/turf/proc/add_neighborlay(dir, icon, offset = FALSE)
 	var/add
 	var/y = 0
 	var/x = 0

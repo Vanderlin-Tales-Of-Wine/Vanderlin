@@ -28,7 +28,7 @@
 	smoothing_flags = SMOOTH_EDGE | SMOOTH_BORDER
 	smoothing_groups = SMOOTH_GROUP_FLOOR_LIQUID
 	smoothing_list = SMOOTH_GROUP_OPEN_FLOOR + SMOOTH_GROUP_CLOSED_WALL
-	neighborlay_override = "edge"
+	neighborlay_self = "edge"
 	footstep = null
 	barefootstep = null
 	clawfootstep = null

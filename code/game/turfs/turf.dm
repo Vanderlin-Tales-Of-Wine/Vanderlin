@@ -45,15 +45,12 @@
 
 	/// What we overlay onto turfs in our smoothing_list
 	var/neighborlay
-	/// If not null, invert logic and overlay this onto self
-	var/neighborlay_override
-	/// Current neighborlays, associative DIR = Overlay
+	/// If we were going to smooth with an Atom instead overlay this onto self
+	var/neighborlay_self
+	/// Current neighborlays, associative "DIR" = Overlay, neighborlays are always handled by the smoothing atom not what it smoothed with
 	var/list/neighborlay_list
 
 	vis_flags = VIS_INHERIT_PLANE|VIS_INHERIT_ID
-
-	///Icon-smoothing variable to map a diagonal wall corner with a fixed underlay.
-	var/list/fixed_underlay = null
 
 /turf/vv_edit_var(var_name, new_value)
 	var/static/list/banned_edits = list("x", "y", "z")
