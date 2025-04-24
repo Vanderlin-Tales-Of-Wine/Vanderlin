@@ -13908,6 +13908,9 @@
 /obj/structure/throne{
 	name = "Throne of Daftmarsh"
 	},
+/obj/structure/fake_machine/titan{
+	pixel_y = 32
+	},
 /turf/open/floor/carpet/lord/center,
 /area/rogue/indoors/town/manor)
 "pmv" = (
