@@ -68,7 +68,7 @@
 		H.mind?.AddSpell(new /obj/effect/proc_holder/spell/self/learnspell)
 		H.mind?.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
 
-	if(H.age == AGE_OLD) //WIZARD!!!!!!!!!!!!!
+	if(H.age == AGE_OLD) //cause I'm a motherfucking wizaaaarddddddddddddd
 		armor = /obj/item/clothing/shirt/robe/courtmage
 		H.change_stat(STATKEY_SPD, -1)
 		H.change_stat(STATKEY_INT, 1)

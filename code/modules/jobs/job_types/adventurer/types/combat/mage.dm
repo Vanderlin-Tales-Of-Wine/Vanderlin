@@ -30,12 +30,6 @@
 		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/alchemy, 2, TRUE)
-		if(H.age == AGE_OLD)
-			head = /obj/item/clothing/head/wizhat/gen
-			armor = /obj/item/clothing/shirt/robe/plain
-			backl = /obj/item/storage/backpack/backpack
-			H.mind?.adjust_skillrank(/datum/skill/magic/arcane, 1, TRUE)
-			H.change_stat(STATKEY_INT, 1)
 		H.change_stat(STATKEY_STR, -2)
 		H.change_stat(STATKEY_INT, 3)
 		H.change_stat(STATKEY_CON, -2)
@@ -43,3 +37,10 @@
 		H.change_stat(STATKEY_SPD, -2)
 		H.mind?.adjust_spellpoints(7)
 		H.mind?.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
+
+	if(H.age == AGE_OLD)
+		head = /obj/item/clothing/head/wizhat/gen
+		armor = /obj/item/clothing/shirt/robe/plain
+		backl = /obj/item/storage/backpack/backpack
+		H.mind?.adjust_skillrank(/datum/skill/magic/arcane, 1, TRUE)
+		H.change_stat(STATKEY_INT, 1)
