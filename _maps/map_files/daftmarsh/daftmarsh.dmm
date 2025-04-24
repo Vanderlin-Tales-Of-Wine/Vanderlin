@@ -718,7 +718,7 @@
 /area/rogue/outdoors/town)
 "aSs" = (
 /obj/structure/kneestingers,
-/turf/open/water/river,
+/turf/open/water/river/dirt,
 /area/rogue/under/town/caverogue)
 "aSw" = (
 /obj/machinery/light/fueled/wallfire/candle/l,
@@ -1485,6 +1485,10 @@
 /obj/effect/mapping_helpers/door/access/manor/manor,
 /turf/open/floor/hexstone,
 /area/rogue/indoors/town/manor)
+"bFn" = (
+/obj/effect/landmark/start/adventurerlate,
+/turf/open/floor/dirt,
+/area/rogue/outdoors/rtfield/safe)
 "bFG" = (
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/church)
@@ -1724,9 +1728,6 @@
 	},
 /turf/closed/wall/mineral/decorstone,
 /area/rogue/indoors/town/manor)
-"bSD" = (
-/turf/open/water/cleanshallow,
-/area/rogue/under/town/caverogue)
 "bSW" = (
 /obj/structure/closet/crate/chest/crafted,
 /turf/open/floor/wood/nosmooth,
@@ -2298,6 +2299,12 @@
 	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/smithy)
+"cvP" = (
+/obj/structure/fluff/buysign{
+	name = "This isn't a train. You are hallucinating."
+	},
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors/rtfield)
 "cvR" = (
 /turf/open/floor/tile/bath,
 /area/rogue/indoors/town/manor)
@@ -3239,9 +3246,6 @@
 	icon_state = "plating2"
 	},
 /area/rogue/outdoors/town)
-"dGD" = (
-/turf/open/water/river,
-/area/rogue/under/town/caverogue)
 "dHN" = (
 /obj/structure/stairs{
 	dir = 1
@@ -3554,7 +3558,7 @@
 /area/rogue/indoors/town/manor)
 "dVN" = (
 /obj/structure/roguerock,
-/turf/open/water/river,
+/turf/open/water/river/dirt,
 /area/rogue/under/town/caverogue)
 "dWf" = (
 /turf/open/floor/carpet/royalblack,
@@ -3626,9 +3630,13 @@
 /obj/machinery/light/fueled/wallfire/candle/blue/r,
 /turf/open/floor/churchbrick,
 /area/rogue/indoors/town/clinic_large)
+"eal" = (
+/obj/structure/train,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors/rtfield/safe)
 "ebl" = (
 /obj/structure/flora/grass/water,
-/turf/open/water/cleanshallow,
+/turf/open/water/swamp,
 /area/rogue/under/town/caverogue)
 "ebI" = (
 /obj/machinery/light/fueled/firebowl/standing/blue,
@@ -7164,7 +7172,7 @@
 /obj/structure/roguerock{
 	icon_state = "rock4"
 	},
-/turf/open/water/river,
+/turf/open/water/river/dirt,
 /area/rogue/under/town/caverogue)
 "hPE" = (
 /obj/structure/waterwheel,
@@ -7650,7 +7658,7 @@
 /area/rogue/indoors/town/bath)
 "isC" = (
 /obj/structure/flora/grass/water,
-/turf/open/water/river,
+/turf/open/water/river/dirt,
 /area/rogue/under/town/caverogue)
 "isE" = (
 /obj/item/key/apartments/apartment8,
@@ -8056,7 +8064,7 @@
 /obj/structure/roguerock{
 	icon_state = "rock2"
 	},
-/turf/open/water/river,
+/turf/open/water/river/dirt,
 /area/rogue/under/town/caverogue)
 "iIy" = (
 /obj/structure/stairs{
@@ -8490,6 +8498,10 @@
 /obj/structure/flora/grass/water,
 /turf/open/water/marsh,
 /area/rogue/outdoors/rtfield)
+"jjR" = (
+/obj/effect/landmark/start/adventurerlate,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors/rtfield/safe)
 "jjW" = (
 /obj/structure/table/wood/counter/end{
 	dir = 1
@@ -8888,12 +8900,6 @@
 "jDc" = (
 /turf/open/floor/dirt,
 /area/rogue/outdoors/rtfield/safe)
-"jDq" = (
-/obj/structure/kneestingers,
-/turf/open/water/river{
-	dir = 4
-	},
-/area/rogue/under/town/caverogue)
 "jDx" = (
 /turf/open/floor/cobblerock,
 /area/rogue/under/cavelava)
@@ -11074,7 +11080,7 @@
 /obj/structure/roguerock{
 	icon_state = "rock3"
 	},
-/turf/open/water/river,
+/turf/open/water/river/dirt,
 /area/rogue/under/town/caverogue)
 "lYl" = (
 /obj/structure/closet/crate/chest/neu,
@@ -17571,7 +17577,7 @@
 /area/rogue/indoors/town/magician)
 "tbS" = (
 /obj/structure/flora/grass/water/reeds,
-/turf/open/water/river,
+/turf/open/water/river/dirt,
 /area/rogue/under/town/caverogue)
 "tbU" = (
 /obj/structure/window/openclose,
@@ -17772,7 +17778,7 @@
 /area/rogue/outdoors/rtfield/safe)
 "tnk" = (
 /obj/structure/kneestingers,
-/turf/open/water/cleanshallow,
+/turf/open/water/swamp,
 /area/rogue/under/town/caverogue)
 "tnp" = (
 /obj/structure/fake_machine/atm,
@@ -18675,6 +18681,12 @@
 	dir = 4
 	},
 /area/rogue/indoors/town/clinic_large)
+"uhm" = (
+/obj/structure/fluff/buysign{
+	name = "Carriage to Vanderlin"
+	},
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors/rtfield/safe)
 "uhn" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4
@@ -21590,11 +21602,6 @@
 /obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/floor/cobble/alt,
 /area/rogue/indoors/town/manor)
-"xic" = (
-/turf/open/water/river{
-	dir = 4
-	},
-/area/rogue/under/town/caverogue)
 "xiw" = (
 /obj/machinery/light/fueled/torchholder{
 	dir = 1
@@ -44340,17 +44347,17 @@ ite
 ite
 ite
 ite
-dGD
-dGD
-dGD
-dGD
+sbz
+sbz
+sbz
+sbz
 isC
-dGD
-dGD
-dGD
-dGD
-dGD
-xic
+sbz
+sbz
+sbz
+sbz
+sbz
+rSE
 ite
 ite
 ite
@@ -44542,19 +44549,19 @@ ite
 ite
 ite
 ite
-dGD
+sbz
 aSs
-dGD
+sbz
 isC
 tbS
-dGD
-dGD
+sbz
+sbz
 aSs
-dGD
-dGD
-dGD
-dGD
-jDq
+sbz
+sbz
+sbz
+sbz
+xoC
 ite
 ite
 ite
@@ -44749,18 +44756,18 @@ ite
 ite
 rtk
 ite
-dGD
-dGD
-dGD
-dGD
+sbz
+sbz
+sbz
+sbz
 isC
 isC
 isC
-dGD
-dGD
-dGD
-dGD
-xic
+sbz
+sbz
+sbz
+sbz
+rSE
 ite
 ite
 ite
@@ -44956,16 +44963,16 @@ ite
 ite
 ite
 ite
-dGD
-dGD
+sbz
+sbz
 tbS
-dGD
-dGD
-dGD
-dGD
-dGD
+sbz
+sbz
+sbz
+sbz
+sbz
 iHR
-xic
+rSE
 ite
 ite
 ite
@@ -45160,28 +45167,28 @@ ite
 ite
 ite
 ite
-dGD
-dGD
+sbz
+sbz
 lXh
-dGD
+sbz
 isC
 isC
-dGD
-dGD
-dGD
+sbz
+sbz
+sbz
 isC
 isC
-dGD
-dGD
-dGD
-dGD
-dGD
-dGD
+sbz
+sbz
+sbz
+sbz
+sbz
+sbz
 dVN
-dGD
+sbz
 aSs
-dGD
-xic
+sbz
+rSE
 ite
 ite
 ite
@@ -45366,32 +45373,32 @@ ite
 ite
 ite
 isC
-dGD
-dGD
+sbz
+sbz
 aSs
-dGD
-dGD
+sbz
+sbz
 tbS
 hOT
-dGD
+sbz
 isC
 isC
 isC
-dGD
-dGD
-dGD
-dGD
-dGD
-dGD
-dGD
-dGD
-xic
+sbz
+sbz
+sbz
+sbz
+sbz
+sbz
+sbz
+sbz
+rSE
 ite
 glA
-bSD
-bSD
-bSD
-bSD
+ehQ
+ehQ
+ehQ
+ehQ
 tnk
 glA
 ite
@@ -45576,24 +45583,24 @@ ite
 ite
 ite
 ite
-dGD
-dGD
-dGD
+sbz
+sbz
+sbz
 aSs
-dGD
-dGD
-dGD
+sbz
+sbz
+sbz
 isC
 isC
 isC
-dGD
-dGD
-dGD
-dGD
-bSD
+sbz
+sbz
+sbz
+sbz
+ehQ
 ebl
-bSD
-bSD
+ehQ
+ehQ
 ebl
 glA
 glA
@@ -45785,19 +45792,19 @@ ite
 ite
 ite
 ite
-dGD
-dGD
-dGD
-dGD
+sbz
+sbz
+sbz
+sbz
 hOT
-dGD
-dGD
-bSD
-bSD
-bSD
-bSD
+sbz
+sbz
+ehQ
+ehQ
+ehQ
+ehQ
 ebl
-bSD
+ehQ
 glA
 ite
 ite
@@ -45994,12 +46001,12 @@ ite
 ite
 ite
 jpy
-bSD
-bSD
+ehQ
+ehQ
 ebl
 tnk
-bSD
-bSD
+ehQ
+ehQ
 glA
 ite
 ite
@@ -46197,9 +46204,9 @@ ite
 ite
 glA
 glA
-bSD
-bSD
-bSD
+ehQ
+ehQ
+ehQ
 ebl
 ebl
 glA
@@ -46399,10 +46406,10 @@ ite
 ite
 glA
 glA
-bSD
-bSD
+ehQ
+ehQ
 ebl
-bSD
+ehQ
 jpy
 glA
 ite
@@ -92158,11 +92165,11 @@ vxB
 aTl
 aTl
 vxB
-vxB
+pLv
 vxB
 aTl
 vxB
-vxB
+pLv
 aTl
 aTl
 aTl
@@ -92355,7 +92362,7 @@ vbR
 aTl
 aTl
 vxB
-vxB
+pLv
 aTl
 aTl
 aTl
@@ -93567,7 +93574,7 @@ aTl
 aTl
 aTl
 aTl
-vxB
+pLv
 vxB
 aTl
 aTl
@@ -93640,7 +93647,7 @@ hlw
 aTl
 aTl
 aTl
-aTl
+hVT
 aTl
 aTl
 ite
@@ -94166,7 +94173,7 @@ vbR
 aTl
 aTl
 vxB
-aTl
+hVT
 aTl
 aTl
 aTl
@@ -94774,7 +94781,7 @@ aTl
 aTl
 aTl
 aTl
-aTl
+hVT
 aTl
 aTl
 ite
@@ -95374,7 +95381,7 @@ vbR
 aTl
 aTl
 aTl
-aTl
+hVT
 aTl
 aTl
 vxB
@@ -95448,7 +95455,7 @@ aTl
 aTl
 aTl
 aTl
-vxB
+pLv
 aTl
 aTl
 aTl
@@ -95848,7 +95855,7 @@ aTl
 aTl
 aTl
 vxB
-vxB
+pLv
 vxB
 vxB
 aTl
@@ -97389,7 +97396,7 @@ aTl
 aTl
 aTl
 aTl
-vxB
+pLv
 aTl
 aTl
 aTl
@@ -98240,7 +98247,7 @@ vxB
 vxB
 vxB
 vxB
-aTl
+hVT
 aTl
 aTl
 aTl
@@ -98464,7 +98471,7 @@ hlw
 hlw
 aTl
 aTl
-aTl
+hVT
 vxB
 vxB
 aTl
@@ -98596,7 +98603,7 @@ vbR
 vbR
 vbR
 aTl
-aTl
+hVT
 aTl
 aTl
 vxB
@@ -98842,7 +98849,7 @@ aTl
 vxB
 aTl
 aTl
-aTl
+hVT
 vxB
 vxB
 vxB
@@ -99003,7 +99010,7 @@ aTl
 aTl
 vxB
 aTl
-aTl
+hVT
 aTl
 ite
 ite
@@ -99241,38 +99248,38 @@ ite
 aTl
 aTl
 aTl
-aTl
-aTl
-aTl
-aTl
-vxB
-vxB
-aTl
-aTl
-aTl
-aTl
-aTl
-aTl
-hlw
-hlw
-hlw
-vbR
-vbR
-vbR
-vbR
-vbR
-vbR
-vbR
-vbR
-vbR
-hlw
-hlw
+hVT
 aTl
 aTl
 aTl
 vxB
 vxB
 aTl
+aTl
+aTl
+aTl
+aTl
+aTl
+hlw
+hlw
+hlw
+vbR
+vbR
+vbR
+vbR
+vbR
+vbR
+vbR
+vbR
+vbR
+hlw
+hlw
+aTl
+aTl
+aTl
+vxB
+vxB
+hVT
 aTl
 ite
 ite
@@ -99852,7 +99859,7 @@ aTl
 aTl
 aTl
 aTl
-vxB
+pLv
 aTl
 aTl
 aTl
@@ -100412,44 +100419,44 @@ vbR
 vbR
 aTl
 aTl
-aTl
-aTl
-vxB
-vxB
-aTl
-ite
-ite
-ite
-ite
-ite
-ite
-ite
-ite
-ite
-ite
-ite
-ite
-ite
-ite
-ite
-ite
-ite
-ite
-ite
-ite
-ite
-ite
-ite
-ite
-ite
-ite
-ite
-ite
-ite
+hVT
 aTl
 vxB
+vxB
 aTl
+ite
+ite
+ite
+ite
+ite
+ite
+ite
+ite
+ite
+ite
+ite
+ite
+ite
+ite
+ite
+ite
+ite
+ite
+ite
+ite
+ite
+ite
+ite
+ite
+ite
+ite
+ite
+ite
+ite
 aTl
+vxB
+aTl
+hVT
 vxB
 vxB
 vxB
@@ -100884,7 +100891,7 @@ aTl
 aTl
 aTl
 aTl
-vxB
+pLv
 vxB
 aTl
 aTl
@@ -101058,7 +101065,7 @@ aTl
 vxB
 vxB
 vxB
-aTl
+hVT
 aTl
 vxB
 vxB
@@ -101625,7 +101632,7 @@ aTl
 aTl
 vxB
 aTl
-aTl
+hVT
 aTl
 ite
 ite
@@ -102062,7 +102069,7 @@ aTl
 vxB
 vxB
 vxB
-aTl
+hVT
 aTl
 aTl
 aTl
@@ -102687,7 +102694,7 @@ hlw
 hlw
 hlw
 hlw
-aTl
+hVT
 aTl
 hlw
 hlw
@@ -102880,8 +102887,8 @@ hlw
 hlw
 hlw
 aTl
-aTl
-vxB
+hVT
+pLv
 aTl
 aTl
 hlw
@@ -103035,7 +103042,7 @@ vbR
 aTl
 aTl
 aTl
-aTl
+hVT
 aTl
 aTl
 aTl
@@ -106622,6 +106629,7 @@ sWx
 sWx
 sWx
 sWx
+sqp
 sWx
 sWx
 sWx
@@ -106629,9 +106637,8 @@ sWx
 sWx
 sWx
 sWx
-sWx
-sWx
-sWx
+sqp
+npG
 sWx
 sWx
 sWx
@@ -106764,6 +106771,7 @@ sWx
 sWx
 sWx
 sWx
+jVa
 sWx
 sWx
 sWx
@@ -106774,6 +106782,12 @@ sWx
 sWx
 sWx
 sWx
+nZI
+sWx
+sWx
+sWx
+sWx
+fqR
 sWx
 sWx
 sWx
@@ -106782,14 +106796,7 @@ sWx
 sWx
 sWx
 sWx
-sWx
-sWx
-sWx
-sWx
-sWx
-sWx
-sWx
-sWx
+iep
 sWx
 sWx
 sWx
@@ -108380,7 +108387,7 @@ sWx
 sWx
 sWx
 sWx
-jVa
+sWx
 sWx
 sWx
 sWx
@@ -109805,21 +109812,6 @@ sWx
 sWx
 sWx
 sWx
-nZI
-sWx
-sWx
-sWx
-sWx
-fqR
-sWx
-sWx
-sWx
-sWx
-sWx
-sWx
-sWx
-sWx
-iep
 sWx
 sWx
 sWx
@@ -109854,7 +109846,6 @@ sWx
 sWx
 sWx
 sWx
-sqp
 sWx
 sWx
 sWx
@@ -109862,8 +109853,24 @@ sWx
 sWx
 sWx
 sWx
-sqp
-npG
+sWx
+sWx
+sWx
+sWx
+sWx
+sWx
+sWx
+sWx
+sWx
+sWx
+sWx
+sWx
+sWx
+sWx
+sWx
+sWx
+sWx
+sWx
 sWx
 sWx
 sWx
@@ -181915,7 +181922,7 @@ jDc
 cCM
 jDc
 lgq
-lgq
+eal
 lgq
 lgq
 jDc
@@ -182120,7 +182127,7 @@ lgq
 lgq
 pLa
 lgq
-lgq
+jjR
 jDc
 vtk
 vtk
@@ -182322,7 +182329,7 @@ jDc
 lgq
 lgq
 lgq
-lgq
+jjR
 lgq
 tYU
 vtk
@@ -182524,7 +182531,7 @@ lgq
 lgq
 lgq
 lgq
-jDc
+bFn
 jDc
 vtk
 tYU
@@ -182725,7 +182732,7 @@ cCM
 jDc
 lgq
 lgq
-lgq
+uhm
 lgq
 cCM
 vtk
@@ -182927,7 +182934,7 @@ vxB
 aTl
 xqc
 aTl
-xqc
+cvP
 aTl
 vxB
 xgY
