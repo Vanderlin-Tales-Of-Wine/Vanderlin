@@ -859,11 +859,6 @@
 /obj/item/mana_battery/mana_crystal/small,
 /turf/open/floor/cobblerock,
 /area/rogue)
-"QN" = (
-/obj/structure/mineral_door/wood/red,
-/obj/structure/spider/stickyweb/solo,
-/turf/closed/basic,
-/area/rogue)
 "Rf" = (
 /obj/item/ore/iron{
 	pixel_x = 7;
@@ -20668,7 +20663,7 @@ Ft
 MZ
 zv
 Mr
-QN
+Xt
 mF
 MZ
 Ft

@@ -266,6 +266,8 @@
 /obj/structure/mineral_door/wood{
 	name = "guard's barracks"
 	},
+/obj/effect/mapping_helpers/door/access/manor/atarms,
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/manor)
 "apj" = (
@@ -3214,6 +3216,7 @@
 	locked = 1;
 	lockid = "manor"
 	},
+/obj/effect/mapping_helpers/door/access/manor/manor,
 /turf/open/floor/tile,
 /area/rogue/indoors/town/manor)
 "dEg" = (
@@ -3564,6 +3567,7 @@
 /area/rogue/indoors/town/manor)
 "dVy" = (
 /obj/structure/mineral_door/wood,
+/obj/effect/mapping_helpers/door/access/manor/manor,
 /turf/open/floor/tile,
 /area/rogue/indoors/town/manor)
 "dVN" = (
@@ -3947,13 +3951,10 @@
 /area/rogue/indoors/town/cell)
 "etj" = (
 /obj/structure/mineral_door/wood{
-	locked = 1;
-	lockid = "garrison";
 	name = "guard's quarters"
 	},
-/obj/structure/mineral_door/wood{
-	name = "guard's barracks"
-	},
+/obj/effect/mapping_helpers/door/access/manor/atarms,
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/manor)
 "etF" = (
@@ -5342,6 +5343,7 @@
 /area/rogue/indoors/town/magician)
 "fUe" = (
 /obj/structure/mineral_door/wood,
+/obj/effect/mapping_helpers/door/access/manor/manor,
 /turf/open/floor/hexstone,
 /area/rogue/indoors/town/manor)
 "fUn" = (
@@ -15277,6 +15279,12 @@
 	},
 /turf/open/transparent/openspace,
 /area/rogue/indoors/town/church/inquisition)
+"qNm" = (
+/obj/effect/landmark/hammer/dev_text{
+	name = "Tweak boat a bit more and bring dock inwards when boat no longer collides with town."
+	},
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/outdoors/town)
 "qNC" = (
 /turf/closed/wall/mineral/wooddark/horizontal,
 /area/rogue/indoors/town/shop)
@@ -19135,6 +19143,7 @@
 	locked = 1;
 	lockid = "manor"
 	},
+/obj/effect/mapping_helpers/door/access/manor/manor,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor)
 "uFQ" = (
@@ -109211,7 +109220,7 @@ sWx
 sWx
 dpp
 nrE
-nrE
+qNm
 oQY
 sWx
 sWx
