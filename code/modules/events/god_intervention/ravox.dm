@@ -41,5 +41,5 @@
 	weakest.set_stat_modifier("ravox_resolve", STATKEY_STR, 1)
 	weakest.set_stat_modifier("ravox_resolve", STATKEY_END, 1)
 	weakest.set_stat_modifier("ravox_resolve", STATKEY_CON, 1)
-	to_chat(weakest, span_green("You may be weak compared to your fellow warriors of justice, but still you persevere. The War God honors those who fight even when victory seems impossible. Let his gift be your whetstone — now strike!"))
+	to_chat(weakest, span_green("You may be weak compared to your fellow warriors of justice, but still you persevere. Ravox honors those who fight even when victory seems impossible. Let his gift of strength be your whetstone — now strike!"))
 	SEND_SOUND(weakest, 'sound/vo/male/knight/rage (6).ogg')
