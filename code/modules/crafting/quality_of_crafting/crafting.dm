@@ -117,6 +117,7 @@
 	starting_atom = /obj/item/weapon/knife
 	output = /obj/item/weapon/polearm/woodstaff
 	output_amount = 2
+	required_intent = /datum/intent/dagger/cut
 	craft_time = 5 SECONDS
 	uses_attacked_atom = FALSE
 
@@ -343,6 +344,7 @@
 		/obj/item/ammo_casing/caseless/arrow= 1,
 		/obj/item/reagent_containers/food/snacks/produce/fyritius = 1,
 	)
+	blacklisted_paths = list(/obj/item/ammo_casing/caseless/arrow/pyro)
 	attacked_atom = /obj/item/ammo_casing/caseless/arrow
 	starting_atom = /obj/item/reagent_containers/food/snacks/produce/fyritius
 	output = /obj/item/ammo_casing/caseless/arrow/pyro
@@ -357,6 +359,7 @@
 		/obj/item/ammo_casing/caseless/bolt= 1,
 		/obj/item/reagent_containers/food/snacks/produce/fyritius = 1,
 	)
+	blacklisted_paths = list(/obj/item/ammo_casing/caseless/bolt/pyro)
 	attacked_atom = /obj/item/ammo_casing/caseless/bolt
 	starting_atom = /obj/item/reagent_containers/food/snacks/produce/fyritius
 	output = /obj/item/ammo_casing/caseless/bolt/pyro
@@ -418,13 +421,14 @@
 /datum/repeatable_crafting_recipe/crafting/scroll
 	name = "parchment scroll"
 	requirements = list(
-		/obj/item/paper = 3,
+		/obj/item/paper = 2,
 		/obj/item/natural/fibers = 1,
 	)
+	blacklisted_paths = list(/obj/item/paper/scroll, /obj/item/paper/confession)
 	starting_atom = /obj/item/natural/fibers
 	attacked_atom = /obj/item/paper
 	output = /obj/item/paper/scroll
-	subtypes_allowed = FALSE
+	subtypes_allowed = TRUE
 	uses_attacked_atom = TRUE
 	craftdiff = 0
 
@@ -456,7 +460,7 @@
 	skillcraft = /datum/skill/craft/engineering
 
 
-/datum/repeatable_crafting_recipe/crafting/normalbait
+/datum/repeatable_crafting_recipe/crafting/wheatlbait
 	name = "bait (wheat)"
 	output = /obj/item/bait
 	requirements = list(
@@ -467,7 +471,7 @@
 	attacked_atom = /obj/item/natural/cloth
 	uses_attacked_atom = TRUE
 
-/datum/repeatable_crafting_recipe/crafting/normalbait
+/datum/repeatable_crafting_recipe/crafting/oatbait
 	name = "bait (oat)"
 	output = /obj/item/bait
 	requirements = list(

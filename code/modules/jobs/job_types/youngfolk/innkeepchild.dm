@@ -21,6 +21,9 @@
 	can_have_apprentices = FALSE
 	cmode_music = 'sound/music/cmode/towner/CombatInn.ogg'
 
+/datum/outfit/job/innkeep_son
+	job_bitflag = BITFLAG_CONSTRUCTOR
+
 /datum/outfit/job/innkeep_son/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)

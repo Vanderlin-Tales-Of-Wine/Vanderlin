@@ -144,7 +144,17 @@ Actual Adjacent procs :
 
 					var/newg = cur.g + cur.source.Distance3D(T)
 
-					newg += cur.source.path_weight
+					// Check if the turf has objects with BLOCK_Z_OUT_DOWN flag
+					var/has_block_z_out_down = FALSE
+					for(var/obj/structure/O in T.contents)
+						if(O.obj_flags & BLOCK_Z_OUT_DOWN)
+							has_block_z_out_down = TRUE
+							break
+
+					// Only add path_weight if the turf doesn't have objects with BLOCK_Z_OUT_DOWN flag
+					if(!has_block_z_out_down)
+						newg += cur.source.path_weight
+
 					// Apply a larger penalty for changing z-levels to prefer same-level paths
 					if (i >= 4 && check_z_levels)
 						newg += 10 // Increased penalty to make same-level paths more preferred
@@ -207,10 +217,17 @@ Actual Adjacent procs :
 
 		// First check if there are stairs in the current turf leading down
 		for (var/obj/structure/stairs/S in T.contents)
+			//Must approach from opposite direction of stair
+			var/turf/approach = get_step(T, turn(S.dir, 180))
+			if(!istransparentturf(approach))
+				continue
+
 			// Destination would be the turf below in the stair's direction
 			var/turf/dest = get_step(below, S.dir)
 			if (dest && !dest.density)
-				return dest
+				for (var/obj/structure/stairs/S2 in dest.contents)
+					if (S2.dir == S.dir)
+						return dest
 
 		// If no stairs in current turf, check for stairs in adjacent turfs that might lead to below
 		for (var/turf/adjacent in get_adjacent_open_turfs(T))
@@ -231,13 +248,25 @@ Actual Adjacent procs :
 		return FALSE
 
 	if (is_type_in_typecache(T, GLOB.dangerous_turfs))
-		if(istype(T, /turf/open/transparent))
-			var/turf/open/below_turf = GET_TURF_BELOW(T)
-			var/obj/structure/stairs/S = locate(/obj/structure/stairs/) in below_turf.contents
-			if(!S)
+		// Check if there's an object with BLOCK_Z_OUT_DOWN flag on the turf
+		var/has_block_z_out_down = FALSE
+		for(var/obj/structure/O in T.contents)
+			if(O.obj_flags & BLOCK_Z_OUT_DOWN)
+				has_block_z_out_down = TRUE
+				break
+
+		// If it's a dangerous turf WITHOUT the BLOCK_Z_OUT_DOWN flag, handle as before
+		if(!has_block_z_out_down)
+			if(istype(T, /turf/open/transparent))
+				var/turf/open/below_turf = GET_TURF_BELOW(T)
+				var/obj/structure/stairs/S = locate(/obj/structure/stairs/) in below_turf.contents
+				if(!S)
+					return FALSE
+				var/required_dir = turn(S.dir, 180)
+				if(get_dir(src, T) != required_dir)
+					return FALSE
+			else
 				return FALSE
-		else
-			return FALSE
 
 	// Same z-level movement - use standard check
 	if (!check_z_levels || T.z == z)

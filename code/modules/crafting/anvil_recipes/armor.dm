@@ -61,6 +61,13 @@
 	created_item = /obj/item/clothing/pants/chainlegs/iron
 	craftdiff = 0
 
+/datum/anvil_recipe/armor/iron/chainkilt
+	name = "Iron Chain Kilt"
+	recipe_name = "a short Chain Kilt"
+	req_bar = /obj/item/ingot/iron
+	created_item = /obj/item/clothing/pants/chainlegs/kilt/iron
+	craftdiff = 0
+
 /datum/anvil_recipe/armor/iron/chaincoif
 	name = "Iron Chain Coif"
 	recipe_name = "a Chain Coif"
@@ -86,7 +93,6 @@
 	recipe_name = "maille shirt"
 	req_bar = /obj/item/ingot/iron
 	created_item = /obj/item/clothing/armor/chainmail/iron
-
 
 /datum/anvil_recipe/armor/iron/plate
 	name = "Iron Plate Armor (+Bar x2)"
@@ -179,6 +185,13 @@
 	recipe_name = "a pair of Chain Chausses"
 	req_bar = /obj/item/ingot/steel
 	created_item = /obj/item/clothing/pants/chainlegs
+	craftdiff = 2
+
+/datum/anvil_recipe/armor/steel/chainkilt_steel
+	name = "Chain Kilt"
+	recipe_name = "a long Chain Kilt"
+	req_bar = /obj/item/ingot/steel
+	created_item = /obj/item/clothing/pants/chainlegs/kilt
 	craftdiff = 2
 
 /datum/anvil_recipe/armor/steel/chaincoif
@@ -379,6 +392,22 @@
 	additional_items = list(/obj/item/natural/cloth)
 	created_item = /obj/item/clothing/head/helmet/heavy/decorated/bascinet
 	craftdiff = 2
+
+/datum/anvil_recipe/armor/steel/halfplate_decrorated
+	name = "Decorated Half-plate (+Steel Bar x2, + Gold Bar)"
+	recipe_name = "a decorated Half-Plate Armor"
+	req_bar = /obj/item/ingot/steel
+	additional_items = list(/obj/item/ingot/steel,/obj/item/ingot/steel, /obj/item/ingot/gold)
+	created_item = /obj/item/clothing/armor/plate/decorated
+	craftdiff = 4
+
+/datum/anvil_recipe/armor/steel/halfplate_decrorated_corset
+	name = "Decorated Half-plate With Corset (+Steel Bar x2, + Gold Bar, + Silk x3)"
+	recipe_name = "a decorated Half-Plate Armor with Corset"
+	req_bar = /obj/item/ingot/steel
+	additional_items = list(/obj/item/ingot/steel,/obj/item/ingot/steel, /obj/item/ingot/gold, /obj/item/natural/silk, /obj/item/natural/silk, /obj/item/natural/silk)
+	created_item = /obj/item/clothing/armor/plate/decorated/corset
+	craftdiff = 4
 
 // --------- GOLD -----------
 /datum/anvil_recipe/armor/gold/mask

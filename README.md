@@ -4,7 +4,7 @@
 
 | Website                   | Link                                           |
 |---------------------------|------------------------------------------------|
-| Discord | [https://discord.com/invite/monkestation](https://discord.com/invite/monkestation) |
+| Discord | [https://discord.monkestation.com](https://discord.monkestation.com) |
 | Code    | [https://github.com/Vanderlin-Tales-Of-Wine/Vanderlin](https://github.com/Vanderlin-Tales-Of-Wine/Vanderlin)    |
 | Wiki    | N/A |
 

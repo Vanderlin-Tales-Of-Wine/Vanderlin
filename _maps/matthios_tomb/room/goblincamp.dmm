@@ -12,7 +12,7 @@
 /turf/open/floor/dirt,
 /area/rogue/under/cavewet)
 "bg" = (
-/obj/structure/barricade/rogue,
+/obj/structure/barricade/wooden,
 /turf/open/floor/dirt,
 /area/rogue/under/cavewet)
 "bx" = (

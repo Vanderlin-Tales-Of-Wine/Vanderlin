@@ -30,7 +30,7 @@
 			choicez += "GOLD"
 		if(amt >= 5)
 			choicez += "SILVER"
-		if(amt >= 1) choicez += "BRONZE"
+		if(amt > 1) choicez += "BRONZE"
 		var/selection = input(user, "Make a Selection", src) as null|anything in choicez
 		if(!selection)
 			return
@@ -61,6 +61,10 @@
 		H.flash_fullscreen("redflash3")
 		playsound(H, 'sound/combat/hits/bladed/genstab (1).ogg', 100, FALSE, -1)
 		SStreasury.create_bank_account(H)
+		if(H.mind)
+			var/datum/job/target_job = SSjob.GetJob(H.mind.assigned_role)
+			if(target_job && target_job.noble_income)
+				SStreasury.noble_incomes[H] = target_job.noble_income
 		spawn(5)
 			say("New account created.")
 			playsound(src, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)
@@ -83,12 +87,11 @@
 				return
 
 			if(H in SStreasury.bank_accounts)
-				SStreasury.generate_money_account(P.get_real_price(), H)
-				if(!(H.job in GLOB.noble_positions) && !HAS_TRAIT(H, TRAIT_NOBLE))
-					var/T = round(P.get_real_price() * SStreasury.tax_value)
-					if(T != 0)
-						say("Your deposit was taxed [T] mammon.")
-						GLOB.vanderlin_round_stats[STATS_TAXES_COLLECTED] += T
+				var/list/deposit_results = SStreasury.generate_money_account(P.get_real_price(), H)
+				if(islist(deposit_results))
+					if(deposit_results[2] != 0)
+						say("Your deposit was taxed [deposit_results[2]] mammon.")
+						GLOB.vanderlin_round_stats[STATS_TAXES_COLLECTED] += deposit_results[2]
 				qdel(P)
 				playsound(src, 'sound/misc/coininsert.ogg', 100, FALSE, -1)
 				return
