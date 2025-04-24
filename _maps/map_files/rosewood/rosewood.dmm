@@ -394,11 +394,7 @@
 /area/rogue/indoors/town)
 "aln" = (
 /obj/structure/fluff/walldeco/vinez/blue,
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/indoors/town)
 "alI" = (
 /obj/structure/fluff/walldeco/church/line{
@@ -1751,11 +1747,7 @@
 /obj/effect/mapping_helpers/secret_door_creator/keep{
 	redstone_id = "RosewoodM15"
 	},
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/under/town/basement)
 "aXA" = (
 /obj/machinery/light/fueled/wallfire/candle/l{
@@ -1892,11 +1884,7 @@
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/indoors/town/magician)
 "bbx" = (
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/indoors/town/vault)
 "bcv" = (
 /turf/closed/wall/mineral/stone,
@@ -2242,11 +2230,7 @@
 /turf/open/floor/ruinedwood/turned,
 /area/rogue/indoors/town/dwarfin)
 "bmM" = (
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/indoors/town)
 "bmP" = (
 /obj/structure/fake_machine/scomm,
@@ -4042,11 +4026,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/town)
 "chH" = (
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/under/cave)
 "chN" = (
 /obj/structure/bed/hay,
@@ -4512,11 +4492,7 @@
 /area/rogue/indoors/villagegarrison)
 "cur" = (
 /obj/structure/fluff/walldeco/psybanner/red,
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/indoors/town/church/inquisition)
 "cuz" = (
 /obj/machinery/light/fueled/firebowl/standing/blue,
@@ -5617,11 +5593,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/town/basement)
 "cYa" = (
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/indoors/town/church/inquisition)
 "cYh" = (
 /obj/structure/bed/shit,
@@ -7159,11 +7131,7 @@
 /turf/open/floor/ruinedwood/turned,
 /area/rogue/indoors/town)
 "dQT" = (
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/indoors/town/bath)
 "dQV" = (
 /obj/structure/mineral_door/wood/window{
@@ -7177,11 +7145,7 @@
 /turf/open/floor/dirt,
 /area/rogue/indoors/town/tavern)
 "dRl" = (
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/indoors/town/steward)
 "dRt" = (
 /obj/structure/bookcase/random_recipes,
@@ -7279,11 +7243,7 @@
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town)
 "dUE" = (
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/indoors/town/merc_guild)
 "dUQ" = (
 /turf/closed/wall/mineral/pipe{
@@ -7655,11 +7615,7 @@
 /area/rogue/outdoors/town)
 "eeV" = (
 /obj/structure/fluff/walldeco/vinez/blue,
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/indoors/town/garrison)
 "eeW" = (
 /obj/structure/window/stained,
@@ -8472,11 +8428,7 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor)
 "eEL" = (
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/outdoors)
 "eEW" = (
 /obj/structure/fluff/railing/border{
@@ -11339,11 +11291,7 @@
 /area/rogue/indoors/town/orphanage)
 "giO" = (
 /obj/structure/fluff/walldeco/vinez/blue,
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/under/cave)
 "giU" = (
 /obj/machinery/tanningrack,
@@ -12220,11 +12168,7 @@
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town)
 "gJA" = (
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/indoors/town/shop)
 "gJT" = (
 /obj/structure/mineral_door/wood,
@@ -12457,11 +12401,7 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/garrison)
 "gPQ" = (
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/indoors/town/manorgate)
 "gQj" = (
 /obj/structure/fluff/railing/border{
@@ -14593,11 +14533,7 @@
 /area/rogue/outdoors/town)
 "hXX" = (
 /obj/structure/fake_machine/scomm,
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/indoors/town/church/inquisition)
 "hXZ" = (
 /obj/structure/stairs/stone{
@@ -15315,11 +15251,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/outdoors/mountains)
 "isX" = (
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/under/town/basement)
 "itm" = (
 /obj/structure/window/openclose{
@@ -15404,11 +15336,7 @@
 /turf/open/floor/metal/barograte/open,
 /area/rogue/indoors/town/clocktower)
 "ivd" = (
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/indoors/town/smithy)
 "ivg" = (
 /obj/structure/closet/crate/crafted_closet,
@@ -15645,11 +15573,7 @@
 /obj/structure/lever/hidden/keep{
 	redstone_id = "RosewoodM15"
 	},
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/under/town/basement)
 "iBY" = (
 /obj/structure/lever{
@@ -16766,11 +16690,7 @@
 /obj/structure/lever/hidden/keep{
 	redstone_id = "toilet"
 	},
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/under/town/basement)
 "jmL" = (
 /obj/structure/closet/crate/crafted_closet,
@@ -17224,11 +17144,7 @@
 /area/rogue/outdoors/rtfield)
 "jzV" = (
 /obj/structure/fluff/walldeco/vinez/blue,
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/indoors/town/church/inquisition)
 "jAl" = (
 /obj/structure/closet/crate/chest/crafted,
@@ -18609,11 +18525,7 @@
 /turf/open/floor/carpet,
 /area/rogue/indoors/town/tavern)
 "kmp" = (
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/outdoors/town)
 "kms" = (
 /obj/structure/bookcase/random/eoratica,
@@ -19111,11 +19023,7 @@
 /turf/closed/basic,
 /area/rogue/indoors/town)
 "kAD" = (
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/indoors/town/cell)
 "kAF" = (
 /obj/structure/closet/crate/coffin,
@@ -19688,11 +19596,7 @@
 /area/rogue/outdoors/town)
 "kPP" = (
 /obj/structure/fluff/walldeco/masonflag,
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/indoors/town/dwarfin)
 "kPS" = (
 /obj/structure/table/wood/plain_alt,
@@ -20781,11 +20685,7 @@
 /turf/open/floor/cobble,
 /area/rogue/indoors)
 "lvI" = (
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/indoors/town/manor)
 "lvO" = (
 /turf/open/floor/rooftop,
@@ -21834,11 +21734,7 @@
 /area/rogue/indoors/town/magician)
 "mbY" = (
 /obj/structure/fluff/walldeco/painting/seraphina,
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/indoors/town/church/inquisition)
 "mbZ" = (
 /obj/structure/rack/shelf/biggest,
@@ -24910,11 +24806,7 @@
 /turf/closed/mineral/cold,
 /area/rogue/under/town/basement)
 "nID" = (
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/under/town/sewer)
 "nIE" = (
 /obj/machinery/light/fueled/torchholder/l,
@@ -25294,11 +25186,7 @@
 /obj/structure/lever/hidden{
 	redstone_id = "Thieves1"
 	},
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/under/town/sewer)
 "nTg" = (
 /obj/effect/landmark/start/churchling{
@@ -26498,11 +26386,7 @@
 	},
 /area/rogue/outdoors/town/roofs)
 "oxw" = (
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/indoors/town/church)
 "oxz" = (
 /obj/structure/stairs{
@@ -26793,11 +26677,7 @@
 /area/rogue/outdoors/mountains)
 "oGr" = (
 /obj/structure/fluff/walldeco/stone,
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/under/town/sewer)
 "oGy" = (
 /obj/machinery/tanningrack,
@@ -26938,11 +26818,7 @@
 /turf/open/floor/metal,
 /area/rogue/outdoors/town/roofs)
 "oJk" = (
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/outdoors/town/roofs)
 "oJs" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -27150,11 +27026,7 @@
 /area/rogue/outdoors/town)
 "oOV" = (
 /obj/structure/fake_machine/vendor/apothecary,
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/indoors/town/bath)
 "oPa" = (
 /obj/structure/mineral_door/wood/violet{
@@ -27944,11 +27816,7 @@
 /area/rogue/under/cave)
 "phH" = (
 /obj/structure/fluff/walldeco/psybanner,
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/indoors/town/church/inquisition)
 "phI" = (
 /obj/structure/rack,
@@ -29324,11 +29192,7 @@
 /area/rogue/indoors/town/shop)
 "pVW" = (
 /obj/structure/fake_machine/vendor/blacksmith,
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/indoors/town/smithy)
 "pWq" = (
 /obj/effect/landmark/start/fisher{
@@ -30507,11 +30371,7 @@
 	dir = 8;
 	name = "Mage Tower and School West"
 	},
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/indoors/town/manor)
 "qHw" = (
 /turf/open/floor/tile,
@@ -32546,11 +32406,7 @@
 /area/rogue/outdoors/rtfield)
 "rNP" = (
 /obj/machinery/light/fueled/wallfire/candle/blue,
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/indoors/town/church/inquisition)
 "rNT" = (
 /obj/structure/mineral_door/wood/red{
@@ -33055,11 +32911,7 @@
 /area/rogue/indoors/town/manor)
 "scm" = (
 /obj/structure/fluff/walldeco/vinez/blue,
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/indoors/town/smithy)
 "scx" = (
 /turf/open/floor/snow,
@@ -33995,11 +33847,7 @@
 /obj/effect/mapping_helpers/secret_door_creator{
 	redstone_id = "Thieves1"
 	},
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/under/town/sewer)
 "sCi" = (
 /obj/structure/stairs{
@@ -35010,11 +34858,7 @@
 /area/rogue/indoors/town/merc_guild)
 "teY" = (
 /obj/structure/fluff/walldeco/vinez/blue,
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/indoors/town/bath)
 "tfd" = (
 /obj/structure/rack,
@@ -35690,11 +35534,7 @@
 "tuz" = (
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /obj/structure/fluff/walldeco/psybanner,
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/indoors/town/church/inquisition)
 "tuA" = (
 /obj/structure/fluff/railing/border{
@@ -36628,11 +36468,7 @@
 /obj/effect/mapping_helpers/secret_door_creator/keep{
 	redstone_id = "RosewoodM19"
 	},
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/under/town/basement)
 "tWs" = (
 /obj/structure/rack/shelf/biggest,
@@ -36868,11 +36704,7 @@
 /obj/structure/lever/hidden/keep{
 	redstone_id = "RosewoodM19"
 	},
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/under/town/basement)
 "uhb" = (
 /turf/open/floor/cobble/alt,
@@ -38177,11 +38009,7 @@
 "uPl" = (
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /obj/structure/fluff/walldeco/psybanner/red,
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/indoors/town/church/inquisition)
 "uPt" = (
 /obj/structure/closet/crate/drawer,
@@ -39203,11 +39031,7 @@
 /obj/structure/fluff/walldeco/customflag{
 	name = "rosewood flag"
 	},
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/indoors/town/manor)
 "vpb" = (
 /obj/machinery/light/fueledstreet/blue{
@@ -39407,11 +39231,7 @@
 "vtQ" = (
 /obj/structure/fluff/walldeco/vinez/blue,
 /obj/structure/fluff/walldeco/vinez/blue,
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/indoors/town/bath)
 "vtU" = (
 /obj/machinery/light/fueled/wallfire{
@@ -39428,11 +39248,7 @@
 "vua" = (
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /obj/structure/fluff/walldeco/vinez/blue,
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/indoors/town/church/inquisition)
 "vug" = (
 /obj/structure/chair/bench/church/smallbench{
@@ -39550,11 +39366,7 @@
 /area/rogue/outdoors/mountains)
 "vyk" = (
 /obj/machinery/light/fueled/wallfire/candle/blue,
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/under/town/sewer)
 "vyp" = (
 /turf/open/floor/tile/checker,
@@ -41885,11 +41697,7 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/manor)
 "wLl" = (
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/indoors/town/garrison)
 "wLq" = (
 /obj/effect/decal/cobbleedge{
@@ -41954,19 +41762,11 @@
 /obj/effect/mapping_helpers/secret_door_creator/keep{
 	redstone_id = "toilet"
 	},
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/under/town/basement)
 "wNg" = (
 /obj/structure/fluff/wallclock,
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/indoors/town/church/inquisition)
 "wNB" = (
 /obj/structure/table/wood,
@@ -42087,11 +41887,7 @@
 /area/rogue/indoors/town)
 "wQS" = (
 /obj/structure/fluff/walldeco/painting/queen,
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/indoors/town/church/inquisition)
 "wQY" = (
 /obj/structure/fluff/railing/wood,
@@ -42466,11 +42262,7 @@
 "xdt" = (
 /obj/structure/fluff/walldeco/vinez/blue,
 /obj/structure/fluff/walldeco/vinez/blue,
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/indoors/town)
 "xdY" = (
 /obj/machinery/light/fueledstreet/blue/wall,
@@ -42486,11 +42278,7 @@
 	},
 /area/rogue/indoors/town/manor)
 "xer" = (
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/indoors/town/dwarfin)
 "xev" = (
 /obj/structure/fluff/railing/wood{
@@ -42538,11 +42326,7 @@
 /area/rogue/indoors/town/merc_guild)
 "xfV" = (
 /obj/structure/fluff/walldeco/painting/crown,
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/indoors/town/church/inquisition)
 "xgK" = (
 /obj/structure/chair/wood/alt/chair3{
@@ -43755,11 +43539,7 @@
 /area/rogue/indoors/town)
 "xSi" = (
 /obj/structure/fake_machine/mail,
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/indoors/town/church/inquisition)
 "xSL" = (
 /turf/open/floor/tile/masonic/inverted,
@@ -44316,11 +44096,7 @@
 /area/rogue/under/town/basement)
 "ygP" = (
 /obj/structure/fluff/walldeco/painting,
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/closed/wall/mineral/craftstone/grooved,
 /area/rogue/indoors/town/church/inquisition)
 "ygY" = (
 /obj/structure/fluff/railing/border{
