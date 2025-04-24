@@ -909,9 +909,6 @@ SUBSYSTEM_DEF(gamemode)
 	var/datum/storyteller/chosen_storyteller = storytellers[passed_type]
 	chosen_storyteller.times_chosen++
 	current_storyteller = storytellers[passed_type]
-	if(!secret_storyteller)
-		send_to_playing_players(span_notice("<b>Storyteller is [current_storyteller.name]!</b>"))
-		send_to_playing_players(span_notice("[current_storyteller.welcome_text]"))
 
 /// Panel containing information, variables and controls about the gamemode and scheduled event
 /datum/controller/subsystem/gamemode/proc/admin_panel(mob/user)

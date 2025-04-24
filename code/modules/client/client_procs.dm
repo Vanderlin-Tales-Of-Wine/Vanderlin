@@ -37,6 +37,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 
 /client
 	var/commendedsomeone
+	var/atom/movable/movingmob
 	var/whitelisted = 2
 
 /client/Topic(href, href_list, hsrc)
@@ -951,10 +952,6 @@ GLOBAL_LIST_EMPTY(respawncounts)
 
 	if(CONFIG_GET(flag/autoconvert_notes))
 		convert_notes_sql(ckey)
-
-
-
-	add_patreon_verbs()
 
 
 	to_chat(src, get_message_output("message", ckey))

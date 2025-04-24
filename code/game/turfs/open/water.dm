@@ -11,6 +11,7 @@
 	icon_state = "top"
 	layer = MID_TURF_LAYER
 
+
 /turf/open/water
 	gender = PLURAL
 	name = "water"
@@ -34,6 +35,7 @@
 	heavyfootstep = null
 	landsound = 'sound/foley/jumpland/waterland.wav'
 	path_weight = 90
+	shine = SHINE_SHINY
 	var/datum/reagent/water_reagent = /datum/reagent/water
 	var/mapped = TRUE // infinite source of water
 	var/water_volume = 100 // 100 is 1 bucket. Minimum of 10 to count as a water tile
@@ -121,6 +123,8 @@
 		QDEL_NULL(water_top_overlay)
 		for(var/obj/effect/overlay/water/water in contents)
 			qdel(water)
+		make_unshiny()
+		shine = 0
 		we_cut = TRUE
 		var/mutable_appearance/dirty = mutable_appearance('icons/turf/floors.dmi', "dirt")
 		add_overlay(dirty)
@@ -210,7 +214,7 @@
 					adjust_originate_watervolume(water_count)
 
 /turf/open/water/Initialize()
-	. = ..()
+	.  = ..()
 	if(!mapped)
 		START_PROCESSING(SSobj, src)
 	else
@@ -441,16 +445,33 @@
 	name = "water"
 	desc = "Faintly yellow colored. Suspicious."
 	icon = 'icons/turf/floors.dmi'
-	icon_state = MAP_SWITCH("bathtile", "bathtileW")
+	icon_state = "bathtileW"
 	water_level = 2
 	slowdown = 15
 	water_reagent = /datum/reagent/water
+
+/turf/open/water/bath/Initialize()
+	.  = ..()
+	icon_state = "bathtile"
+
+/turf/open/water/bath/pool
+	desc = "Clear water, pleasant temperature. Soothing."
+	icon_state = "bathtile_pool"
+/turf/open/water/bath/pool/Initialize()
+	.  = ..()
+	icon_state = "bathtile_pool"
+
+/turf/open/water/bath/pool/mid
+	icon_state = "bathtile_pool_mid"
+/turf/open/water/bath/pool/mid/Initialize()
+	.  = ..()
+	icon_state = "bathtile_pool_mid"
 
 /turf/open/water/sewer
 	name = "sewage"
 	desc = "This dark water smells of dead rats."
 	icon = 'icons/turf/floors.dmi'
-	icon_state = MAP_SWITCH("paving", "pavingW")
+	icon_state = "pavingW"
 	water_level = 1
 	slowdown = 1
 	wash_in = FALSE
@@ -472,6 +493,8 @@
 			return
 		if(iscarbon(AM))
 			var/mob/living/carbon/C = AM
+			// if(HAS_TRAIT(AM, TRAIT_LEECHIMMUNE))
+			// 	return
 			if(C.blood_volume <= 0)
 				return
 			var/list/zonee = list(BODY_ZONE_R_LEG,BODY_ZONE_L_LEG)
@@ -491,19 +514,24 @@
 /datum/reagent/water/gross/marshy
 	color = "#60b17b"
 
+/turf/open/water/sewer/Initialize()
+	icon_state = "paving"
+	.  = ..()
+
 /turf/open/water/swamp
 	name = "murk"
 	desc = "Weeds and algae cover the surface of the water."
 	icon = 'icons/turf/floors.dmi'
-	icon_state = MAP_SWITCH("dirt", "dirtW2")
+	icon_state = "dirtW2"
 	water_level = 2
 	slowdown = 20
 	wash_in = FALSE
 	water_reagent = /datum/reagent/water/gross/sewer
 
 /turf/open/water/swamp/Initialize()
+	icon_state = "dirt"
 	dir = pick(GLOB.cardinals)
-	. = ..()
+	.  = ..()
 
 /turf/open/water/swamp/Entered(atom/movable/AM, atom/oldLoc)
 	. = ..()
@@ -536,7 +564,7 @@
 /turf/open/water/swamp/deep
 	name = "murk"
 	desc = "Deep water with several weeds and algae on the surface."
-	icon_state = MAP_SWITCH("dirt", "dirtW")
+	icon_state = "dirtW"
 	water_level = 3
 	slowdown = 20
 	swim_skill = TRUE
@@ -573,21 +601,22 @@
 	name = "marshwater"
 	desc = "A heavy layer of weeds and algae cover the surface of the water."
 	icon = 'icons/turf/floors.dmi'
-	icon_state = MAP_SWITCH("dirt", "dirtW3")
+	icon_state = "dirtW3"
 	water_level = 2
 	slowdown = 15
 	wash_in = FALSE
 	water_reagent = /datum/reagent/water/gross/marshy
 
 /turf/open/water/marsh/Initialize()
+	.  = ..()
+	icon_state = "dirt"
 	dir = pick(GLOB.cardinals)
-	. = ..()
 
 /turf/open/water/marsh/deep
 	name = "marshwater"
 	desc = "A heavy layer of weeds and algae cover the surface of the deep water."
 	icon = 'icons/turf/floors.dmi'
-	icon_state = MAP_SWITCH("dirt", "dirtW4")
+	icon_state = "dirtW4"
 	water_level = 3
 	slowdown = 20
 	swim_skill = TRUE
@@ -596,41 +625,48 @@
 	name = "water"
 	desc = "Clear and shallow water, what a blessing!"
 	icon = 'icons/turf/floors.dmi'
-	icon_state = MAP_SWITCH("rock", "rockw2")
+	icon_state = "rockw2"
 	water_level = 2
 	slowdown = 15
 	water_reagent = /datum/reagent/water
 
 /turf/open/water/cleanshallow/Initialize()
+	.  = ..()
+	icon_state = "rock"
 	dir = pick(GLOB.cardinals)
-	. = ..()
+
 
 /turf/open/water/cleanshallow/dirt
 	name = "water"
 	desc = "Clear and shallow water, mostly untainted by surrounding soil."
-	icon_state = MAP_SWITCH("dirt", "dirtW5")
+	icon_state = "dirtW5"
 
 /turf/open/water/cleanshallow/Initialize()
+	.  = ..()
+	icon_state = "dirt"
 	dir = pick(GLOB.cardinals)
-	. = ..()
+
 
 /turf/open/water/blood
 	name = "blood"
 	desc = "A pool of sanguine liquid."
 	icon = 'icons/turf/floors.dmi'
-	icon_state = MAP_SWITCH("rock", "rockb")
+	icon_state = "rockb"
 	water_level = 2
 	slowdown = 15
 	water_reagent = /datum/reagent/blood
 
 /turf/open/water/blood/Initialize()
+	.  = ..()
+	icon_state = "rock"
 	dir = pick(GLOB.cardinals)
-	. = ..()
+
 
 /turf/open/water/river
 	name = "water"
 	desc = "Crystal clear water! Flowing swiflty along the river."
-	icon_state = MAP_SWITCH("rocky", "rivermove-dir")
+	icon_state = "rivermove-dir"
+	icon = 'icons/turf/newwater.dmi'
 	water_level = 3
 	slowdown = 20
 	swim_skill = TRUE
@@ -658,6 +694,11 @@
 		water_top_overlay.color = water_reagent.color
 		water_top_overlay.icon_state = "rivertop"
 		water_top_overlay.dir = dir
+
+/turf/open/water/river/Initialize()
+	.  = ..()
+	icon_state = "rocky"
+
 
 /turf/open/water/river/LateInitialize()
 	. = ..()
@@ -701,12 +742,20 @@
 				A.ConveyorMove(dir)
 
 /turf/open/water/river/dirt
-	icon_state = MAP_SWITCH("dirty", "rivermovealt-dir")
+	icon_state = "rivermovealt-dir"
 	water_reagent = /datum/reagent/water/gross/sewer
 
+/turf/open/water/river/dirt/Initialize()
+	.  = ..()
+	icon_state = "dirty"
+
 /turf/open/water/river/blood
-	icon_state = MAP_SWITCH("rocky", "rivermovealt2-dir")
+	icon_state = "rivermovealt2-dir"
 	water_reagent = /datum/reagent/blood
+
+/turf/open/water/river/blood/Initialize()
+	.  = ..()
+	icon_state = "rocky"
 
 /turf/open/water/acid // holy SHIT
 	name = "acid pool"

@@ -114,6 +114,9 @@
 
 	QUEUE_SMOOTH_NEIGHBORS(src)
 
+	if(shine)
+		make_shiny(shine)
+
 	return INITIALIZE_HINT_NORMAL
 
 /turf/Destroy(force)
