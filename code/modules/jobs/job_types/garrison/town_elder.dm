@@ -12,7 +12,7 @@
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
-	min_pq = 10 // Requires knowledge and good rp for the classes?
+	min_pq = 10 // Requires knowledge and good rp for the classes.
 	bypass_lastclass = TRUE
 	spells = list(/obj/effect/proc_holder/spell/self/convertrole/town_militia)
 	allowed_sexes = list(MALE, FEMALE)
