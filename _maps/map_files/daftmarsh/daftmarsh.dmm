@@ -2960,6 +2960,16 @@
 /obj/structure/closet/crate/crafted_closet/crafted,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/garrison)
+"dpp" = (
+/obj/structure/fluff/railing/wood{
+	dir = 1;
+	pixel_y = 6
+	},
+/obj/structure/fluff/buysign{
+	name = "Imports- North"
+	},
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/outdoors/town)
 "dqa" = (
 /obj/structure/bed/inn,
 /obj/item/bedsheet/fabric,
@@ -13507,6 +13517,13 @@
 	},
 /turf/open/floor/carpet/stellar,
 /area/rogue/indoors/town/shop)
+"oQY" = (
+/obj/structure/fluff/railing/wood,
+/obj/structure/fluff/sellsign{
+	name = "Exports- South"
+	},
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/outdoors/town)
 "oRk" = (
 /turf/closed/wall/mineral/pipe{
 	icon_state = "iron_line"
@@ -17759,16 +17776,6 @@
 /obj/machinery/light/fueled/firebowl/standing/blue,
 /turf/open/floor/wood,
 /area/rogue/outdoors/town/roofs)
-"tmP" = (
-/obj/structure/fluff/buysign{
-	name = "Imports- North"
-	},
-/obj/structure/fluff/railing/wood{
-	dir = 1;
-	pixel_y = 6
-	},
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/outdoors/town)
 "tmR" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4
@@ -21224,13 +21231,6 @@
 "wOT" = (
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/town/manorgate)
-"wPp" = (
-/obj/structure/fluff/sellsign{
-	name = "Exports- South"
-	},
-/obj/structure/fluff/railing/wood,
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/outdoors/town)
 "wPR" = (
 /obj/machinery/light/fueled/forge,
 /turf/open/floor/herringbone,
@@ -108805,10 +108805,10 @@ sWx
 sWx
 sWx
 sWx
-sWx
-sWx
-sWx
-sWx
+tBF
+nrE
+nrE
+aKo
 sWx
 sWx
 sWx
@@ -109007,10 +109007,10 @@ sWx
 sWx
 sWx
 sWx
-sWx
-sWx
-sWx
-sWx
+vTH
+xmH
+nrE
+hDJ
 sWx
 sWx
 sWx
@@ -109209,10 +109209,10 @@ sWx
 sWx
 sWx
 sWx
-sWx
-sWx
-sWx
-sWx
+dpp
+nrE
+nrE
+oQY
 sWx
 sWx
 sWx
@@ -109411,10 +109411,10 @@ sWx
 sWx
 sWx
 sWx
-sWx
-sWx
-sWx
-sWx
+vTH
+nrE
+nrE
+hDJ
 sWx
 sWx
 sWx
@@ -109613,10 +109613,10 @@ sWx
 sWx
 sWx
 sWx
-sWx
-sWx
-sWx
-sWx
+cma
+ljP
+ljP
+xuP
 sWx
 sWx
 sWx
@@ -109815,10 +109815,10 @@ sWx
 sWx
 sWx
 sWx
-sWx
-sWx
-sWx
-sWx
+tBF
+oyT
+oyT
+aKo
 sWx
 sWx
 sWx
@@ -110017,10 +110017,10 @@ sWx
 sWx
 sWx
 sWx
-sWx
-sWx
-sWx
-sWx
+nbF
+fed
+ljP
+xuP
 sWx
 sWx
 sWx
@@ -110219,8 +110219,8 @@ sWx
 sWx
 sWx
 sWx
-vTH
-xmH
+nbF
+fed
 nrE
 hDJ
 sWx
@@ -110421,10 +110421,10 @@ sWx
 sWx
 sWx
 sWx
-tmP
-nrE
-nrE
-wPp
+vTH
+ljP
+ljP
+hDJ
 sWx
 sWx
 sWx
@@ -110623,8 +110623,8 @@ sWx
 sWx
 sWx
 sWx
-vTH
-nrE
+lce
+wwk
 nrE
 hDJ
 sWx
@@ -110826,9 +110826,9 @@ nZa
 sWx
 sWx
 vTH
+oyT
 nrE
-nrE
-hDJ
+gDI
 sWx
 sWx
 sWx
@@ -111028,7 +111028,7 @@ jhc
 gMf
 gMf
 ljP
-ljP
+oyT
 ljP
 ljP
 oFk
