@@ -3,7 +3,7 @@
 /datum/charflaw/limbloss
 	var/lost_zone
 
-/datum/charflaw/limbloss/on_apply(mob/user)
+/datum/charflaw/limbloss/on_mob_creation(mob/user)
 	if(!ishuman(user))
 		return
 	var/mob/living/carbon/human/H = user
@@ -18,7 +18,7 @@
 	desc = "I lost my right arm long ago, but the wooden arm doesn't bleed as much."
 	lost_zone = BODY_ZONE_R_ARM
 
-/datum/charflaw/limbloss/arm_r/on_apply(mob/user)
+/datum/charflaw/limbloss/arm_r/on_mob_creation(mob/user)
 	..()
 	if(!ishuman(user))
 		return
@@ -31,7 +31,7 @@
 	desc = "I lost my left arm long ago, but the wooden arm doesn't bleed as much."
 	lost_zone = BODY_ZONE_L_ARM
 
-/datum/charflaw/limbloss/arm_l/on_apply(mob/user)
+/datum/charflaw/limbloss/arm_l/on_mob_creation(mob/user)
 	..()
 	if(!ishuman(user))
 		return

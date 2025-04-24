@@ -47,7 +47,7 @@
 
 		last_announcement_time = world.time
 
-datum/job/town_elder/after_spawn(mob/living/spawned, client/player_client)
+/datum/job/town_elder/after_spawn(mob/living/spawned, client/player_client)
 	. = ..()
 	var/mob/living/carbon/human/H = spawned
 	ADD_TRAIT(H, TRAIT_OLDPARTY, TRAIT_GENERIC)
@@ -113,7 +113,7 @@ datum/job/town_elder/after_spawn(mob/living/spawned, client/player_client)
 		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/music, 5, TRUE)
-		
+
 		H.mind?.AddSpell(new /obj/effect/proc_holder/spell/invoked/mockery)
 
 		H.change_stat(STATKEY_STR, -1)
@@ -161,7 +161,7 @@ datum/job/town_elder/after_spawn(mob/living/spawned, client/player_client)
 	H.advsetup = 0
 	H.invisibility = initial(H.invisibility)
 	H.cure_blind("bard_select")
-	var/atom/movable/screen/advsetup/GET_IT_OUT = locate() in H.hud_used?.static_inventory 
+	var/atom/movable/screen/advsetup/GET_IT_OUT = locate() in H.hud_used?.static_inventory
 	qdel(GET_IT_OUT)
 
 
@@ -341,7 +341,7 @@ datum/job/town_elder/after_spawn(mob/living/spawned, client/player_client)
 		if(!H.has_language(/datum/language/celestial))
 			H.grant_language(/datum/language/celestial)
 			to_chat(H, "<span class='info'>I can speak Celestial with ,c before my speech.</span>")
-	
+
 
 	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(H, H.patron)
 	H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
@@ -349,7 +349,7 @@ datum/job/town_elder/after_spawn(mob/living/spawned, client/player_client)
 
 
 
-/datum/advclass/town_elder/lorekeeper 
+/datum/advclass/town_elder/lorekeeper
 	name = "Lorekeeper"
 
 	tutorial = "Your tales once lit up taverns, your ballads echoed through cities, and your curiosity led you across kingdoms. But the stage grows quiet, and your thirst for stories has shifted. Now, you collect history instead of applause, recording the town’s past, preserving its legends, and guiding the present with the wisdom of ages. In a world where memory is power, you are its guardian."
@@ -372,8 +372,8 @@ datum/job/town_elder/after_spawn(mob/living/spawned, client/player_client)
 	beltr = /obj/item/weapon/sword/arming
 	beltl = /obj/item/flashlight/flare/torch/lantern
 	backpack_contents = list(/obj/item/storage/belt/pouch/coins/mid = 1, /obj/item/storage/keyring/elder = 1, /obj/item/paper/scroll = 5, /obj/item/natural/feather = 1)
-	
-	
+
+
 	H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
@@ -386,24 +386,24 @@ datum/job/town_elder/after_spawn(mob/living/spawned, client/player_client)
 	H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/music, 3, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
-	
-	
+
+
 	H.change_stat(STATKEY_INT, 2)
 	H.change_stat(STATKEY_SPD, 2)
 	H.change_stat(STATKEY_STR, 1)
-	
+
 	if(H.age == AGE_OLD)
 		H.mind?.adjust_skillrank(/datum/skill/misc/music, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 		H.change_stat(STATKEY_END, 1)
 		H.change_stat(STATKEY_INT, 1)
-	
+
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_BARDIC_TRAINING, TRAIT_GENERIC)
 
-	
-	
+
+
 
 /datum/outfit/job/town_elder/lorekeeper/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -427,17 +427,17 @@ datum/job/town_elder/after_spawn(mob/living/spawned, client/player_client)
 	H.advsetup = 0
 	H.invisibility = initial(H.invisibility)
 	H.cure_blind("bard_select")
-	var/atom/movable/screen/advsetup/GET_IT_OUT = locate() in H.hud_used?.static_inventory 
+	var/atom/movable/screen/advsetup/GET_IT_OUT = locate() in H.hud_used?.static_inventory
 	qdel(GET_IT_OUT)
 
 
 
-/datum/advclass/town_elder/dreamwatcher 
+/datum/advclass/town_elder/dreamwatcher
 	name = "Dreamwatcher"
 
 	tutorial = "Your dreams have always been vivid, filled with colors, voices, and shadows that seemed to watch. As a child, you feared them. As an adult, you began to listen. The Church speaks of Noc as the keeper of magic, but to you, he is something deeper: a silent guide whose truths are written not in scripture, but in sleep. Now, as Elder of this town, you offer more than leadership. You help others find clarity in the quiet spaces of their hearts, through signs, symbols, and truths too easily ignored. Some call it intuition. Others call it wisdom. You know it simply as listening."
 	outfit = /datum/outfit/job/town_elder/dreamwatcher
-	
+
 	//Not a Magician nor an Acolyte, but something more, blessed by Noc since they were born, being capable of Visions and Feelings through dreams, they can feel the highest god influence or and get a hint about any of the active antags.
 	category_tags = list(CTAG_TOWN_ELDER)
 
@@ -454,19 +454,19 @@ datum/job/town_elder/after_spawn(mob/living/spawned, client/player_client)
 	wrists = /obj/item/clothing/wrists/nocwrappings
 	neck = /obj/item/clothing/neck/psycross/noc
 	backpack_contents = list(/obj/item/storage/belt/pouch/coins/poor = 1, /obj/item/needle = 1 )
-	
+
 	if(H.patron != /datum/patron/divine/noc)
 		H.set_patron(/datum/patron/divine/noc)
-	
+
 	H.apply_status_effect(/datum/status_effect/buff/nocblessed)
 	// 3 INT and 2 PER buff, stats will be lowered because of that
-	
+
 	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
-	
+
 	H.change_stat(STATKEY_INT, 2)
 	H.change_stat(STATKEY_SPD, 1)
 	H.change_stat(STATKEY_PER, 1)
@@ -475,8 +475,8 @@ datum/job/town_elder/after_spawn(mob/living/spawned, client/player_client)
 		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
 		H.change_stat(STATKEY_INT, 1)
 		H.change_stat(STATKEY_END, 1)
-		
+
 	ADD_TRAIT(H, TRAIT_DREAM_WATCHER, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_EMPATH, TRAIT_GENERIC)
 
-	
+

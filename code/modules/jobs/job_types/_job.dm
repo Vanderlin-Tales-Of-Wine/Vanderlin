@@ -243,30 +243,21 @@
 	if(!(type in actors_list_blacklist)) //don't show these.
 		GLOB.actors_list[spawned.mobid] = "[spawned.real_name] as [spawned.mind.assigned_role.get_informed_title(spawned)]<BR>"
 
+	var/mob/living/carbon/human/humanguy = spawned
+
+	var/datum/job/target_job = humanguy?.mind?.assigned_role
+	if(target_job?.forced_flaw)
+		if(humanguy.charflaw)
+			QDEL_NULL(humanguy.charflaw)
+		humanguy.charflaw = new target_job.forced_flaw.type(humanguy)
+
+	if(humanguy.charflaw)
+		humanguy.charflaw.after_spawn(humanguy)
+
 	if(length(advclass_cat_rolls))
-		var/mob/living/carbon/human/humanguy = spawned
 		humanguy.advsetup = TRUE
 		humanguy.invisibility = INVISIBILITY_MAXIMUM
 		humanguy.become_blind("advsetup")
-
-	if(player_client.prefs.charflaw)
-		var/mob/living/carbon/human/human_user = spawned
-		var/obj/item/bodypart/O = human_user.get_bodypart(BODY_ZONE_R_ARM)
-		if(O)
-			O.drop_limb()
-			qdel(O)
-		O = human_user.get_bodypart(BODY_ZONE_L_ARM)
-		if(O)
-			O.drop_limb()
-			qdel(O)
-		human_user.regenerate_limb(BODY_ZONE_R_ARM)
-		human_user.regenerate_limb(BODY_ZONE_L_ARM)
-		var/our_charflaw = player_client.prefs.charflaw.type
-		var/datum/job/target_job = human_user.mind?.assigned_role
-		if(target_job?.forced_flaw)
-			our_charflaw = target_job.forced_flaw.type
-
-		human_user.charflaw = new our_charflaw(human_user)
 
 /datum/job/proc/announce_job(mob/living/joining_mob)
 	if(head_announce)
