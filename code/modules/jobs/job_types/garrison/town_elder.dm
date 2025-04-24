@@ -51,7 +51,6 @@
 	. = ..()
 	var/mob/living/carbon/human/H = spawned
 	ADD_TRAIT(H, TRAIT_OLDPARTY, TRAIT_GENERIC)
-	H.verbs |= /mob/living/carbon/human/proc/townannouncement
 
 /obj/effect/proc_holder/spell/self/convertrole/town_militia
 	name = "Recruit Militia"
