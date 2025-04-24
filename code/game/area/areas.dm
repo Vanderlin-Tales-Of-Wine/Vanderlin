@@ -14,6 +14,17 @@
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	invisibility = INVISIBILITY_LIGHTING
 
+	/// List of all turfs currently inside this area as nested lists indexed by zlevel.
+	/// Acts as a filtered bersion of area.contents For faster lookup
+	/// (area.contents is actually a filtered loop over world)
+	/// Semi fragile, but it prevents stupid so I think it's worth it
+	var/list/list/turf/turfs_by_zlevel = list()
+	/// turfs_by_z_level can become MASSIVE lists, so rather then adding/removing from it each time we have a problem turf
+	/// We should instead store a list of turfs to REMOVE from it, then hook into a getter for it
+	/// There is a risk of this and contained_turfs leaking, so a subsystem will run it down to 0 incrementally if it gets too large
+	/// This uses the same nested list format as turfs_by_zlevel
+	var/list/list/turf/turfs_to_uncontain_by_zlevel = list()
+
 	var/map_name // Set in New(); preserves the name set by the map maker, even if renamed by the Blueprints.
 
 	var/valid_territory = TRUE // If it's a valid territory for cult summoning or the CRAB-17 phone to spawn
@@ -104,19 +115,14 @@ GLOBAL_LIST_EMPTY(teleportlocs)
  * The returned list of turfs is sorted by name
  */
 /proc/process_teleport_locs()
-	for(var/V in GLOB.sortedAreas)
-		var/area/AR = V
-		if(AR.noteleport)
-			continue
+	for(var/area/AR as anything in get_sorted_areas())
 		if(GLOB.teleportlocs[AR.name])
 			continue
-		if (!AR.contents.len)
+		if (!AR.has_contained_turfs())
 			continue
-		var/turf/picked = AR.contents[1]
-		if (picked && is_station_level(picked.z))
+		if (is_station_level(AR.z))
 			GLOB.teleportlocs[AR.name] = AR
 
-	sortTim(GLOB.teleportlocs, GLOBAL_PROC_REF(cmp_text_asc))
 
 /**
  * Called when an area loads
@@ -128,10 +134,99 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 	// rather than waiting for atoms to initialize.
 	if (unique)
 		GLOB.areas_by_type[type] = src
+	GLOB.areas += src
 	return ..()
 
 /area/proc/can_craft_here()
 	return TRUE
+
+/// Returns the highest zlevel that this area contains turfs for
+/area/proc/get_highest_zlevel()
+	for (var/area_zlevel in length(turfs_by_zlevel) to 1 step -1)
+		if (length(turfs_to_uncontain_by_zlevel) >= area_zlevel)
+			if (length(turfs_by_zlevel[area_zlevel]) - length(turfs_to_uncontain_by_zlevel[area_zlevel]) > 0)
+				return area_zlevel
+		else
+			if (length(turfs_by_zlevel[area_zlevel]))
+				return area_zlevel
+	return 0
+
+/// Returns a nested list of lists with all turfs split by zlevel.
+/// only zlevels with turfs are returned. The order of the list is not guaranteed.
+/area/proc/get_zlevel_turf_lists()
+	if(length(turfs_to_uncontain_by_zlevel))
+		cannonize_contained_turfs()
+
+	var/list/zlevel_turf_lists = list()
+
+	for (var/list/zlevel_turfs as anything in turfs_by_zlevel)
+		if (length(zlevel_turfs))
+			zlevel_turf_lists[++zlevel_turf_lists.len] = zlevel_turfs
+
+	return zlevel_turf_lists
+
+/// Returns a list with all turfs in this zlevel.
+/area/proc/get_turfs_by_zlevel(zlevel)
+	if (length(turfs_to_uncontain_by_zlevel) >= zlevel && length(turfs_to_uncontain_by_zlevel[zlevel]))
+		cannonize_contained_turfs_by_zlevel(zlevel)
+
+	if (length(turfs_by_zlevel) < zlevel)
+		return list()
+
+	return turfs_by_zlevel[zlevel]
+
+
+/// Merges a list containing all of the turfs zlevel lists from get_zlevel_turf_lists inside one list. Use get_zlevel_turf_lists() or get_turfs_by_zlevel() unless you need all the turfs in one list to avoid generating large lists
+/area/proc/get_turfs_from_all_zlevels()
+	. = list()
+	for (var/list/zlevel_turfs as anything in get_zlevel_turf_lists())
+		. += zlevel_turfs
+
+/// Ensures that the contained_turfs list properly represents the turfs actually inside us
+/area/proc/cannonize_contained_turfs_by_zlevel(zlevel_to_clean, _autoclean = TRUE)
+	// This is massively suboptimal for LARGE removal lists
+	// Try and keep the mass removal as low as you can. We'll do this by ensuring
+	// We only actually add to contained turfs after large changes (Also the management subsystem)
+	// Do your damndest to keep turfs out of /area/space as a stepping stone
+	// That sucker gets HUGE and will make this take actual seconds
+	if (zlevel_to_clean <= length(turfs_by_zlevel) && zlevel_to_clean <= length(turfs_to_uncontain_by_zlevel))
+		turfs_by_zlevel[zlevel_to_clean] -= turfs_to_uncontain_by_zlevel[zlevel_to_clean]
+
+	if (_autoclean) // Removes empty lists from the end of this list
+		var/new_length = length(turfs_to_uncontain_by_zlevel)
+		// Walk backwards thru the list
+		for (var/i in length(turfs_to_uncontain_by_zlevel) to 0 step -1)
+			if (i && length(turfs_to_uncontain_by_zlevel[i]))
+				break // Stop the moment we find a useful list
+			new_length = i
+
+		if (new_length < length(turfs_to_uncontain_by_zlevel))
+			turfs_to_uncontain_by_zlevel.len = new_length
+
+		if (new_length >= zlevel_to_clean)
+			turfs_to_uncontain_by_zlevel[zlevel_to_clean] = list()
+	else
+		turfs_to_uncontain_by_zlevel[zlevel_to_clean] = list()
+
+
+/// Ensures that the contained_turfs list properly represents the turfs actually inside us
+/area/proc/cannonize_contained_turfs()
+	for (var/area_zlevel in 1 to length(turfs_to_uncontain_by_zlevel))
+		cannonize_contained_turfs_by_zlevel(area_zlevel, _autoclean = FALSE)
+
+	turfs_to_uncontain_by_zlevel = list()
+
+
+/// Returns TRUE if we have contained turfs, FALSE otherwise
+/area/proc/has_contained_turfs()
+	for (var/area_zlevel in 1 to length(turfs_by_zlevel))
+		if (length(turfs_to_uncontain_by_zlevel) >= area_zlevel)
+			if (length(turfs_by_zlevel[area_zlevel]) - length(turfs_to_uncontain_by_zlevel[area_zlevel]) > 0)
+				return TRUE
+		else
+			if (length(turfs_by_zlevel[area_zlevel]))
+				return TRUE
+	return FALSE
 
 /**
  * Initalize this area
@@ -188,7 +283,7 @@ GLOBAL_LIST_EMPTY(teleportlocs)
  * areas don't have a valid z themself or something
  */
 /area/proc/reg_in_areas_in_z()
-	if(contents.len)
+	if(!has_contained_turfs())
 		var/list/areas_in_z = SSmapping.areas_in_z
 		var/z
 		update_areasize()
@@ -216,7 +311,12 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 /area/Destroy()
 	if(GLOB.areas_by_type[type] == src)
 		GLOB.areas_by_type[type] = null
+	GLOB.sortedAreas -= src
+	GLOB.areas -= src
 	STOP_PROCESSING(SSobj, src)
+
+	turfs_by_zlevel = null
+	turfs_to_uncontain_by_zlevel = null
 	return ..()
 
 /**
@@ -365,7 +465,7 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 /area/proc/setup(a_name)
 	name = a_name
 	valid_territory = FALSE
-	addSorted()
+	require_area_resort()
 /**
  * Set the area size of the area
  *
@@ -376,8 +476,9 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 	if(outdoors)
 		return FALSE
 	areasize = 0
-	for(var/turf/open/T in contents)
-		areasize++
+	for (var/list/zlevel_turfs as anything in get_zlevel_turf_lists())
+		for(var/turf/open/thisvarisunused in zlevel_turfs)
+			areasize++
 
 /**
  * Causes a runtime error

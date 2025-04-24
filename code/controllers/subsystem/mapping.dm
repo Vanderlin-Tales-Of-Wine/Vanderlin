@@ -81,12 +81,12 @@ SUBSYSTEM_DEF(mapping)
 		map_adjustment.on_mapping_init()
 		log_world("Applied '[map_adjustment.map_file_name]' map adjustment: on_mapping_init()")
 	loadWorld()
-	repopulate_sorted_areas()
+	require_area_resort()
 	process_teleport_locs()			//Sets up the wizard teleport locations
 	preloadTemplates()
 	// Add the transit level
 	transit = add_new_zlevel("Transit/Reserved", list(ZTRAIT_RESERVED = TRUE))
-	repopulate_sorted_areas()
+	require_area_resort()
 	initialize_reserved_level(transit.z_value)
 	generate_z_level_linkages()
 	calculate_default_z_level_gravities()
@@ -185,7 +185,7 @@ SUBSYSTEM_DEF(mapping)
 	// load the maps
 	for (var/P in parsed_maps)
 		var/datum/parsed_map/pm = P
-		if (!pm.load(1, 1, start_z + parsed_maps[P], no_changeturf = TRUE))
+		if (!pm.load(1, 1, start_z + parsed_maps[P], no_changeturf = TRUE, new_z = TRUE))
 			errorList |= pm.original_path
 
 	log_game("Loaded [name] in [(REALTIMEOFDAY - start_time)/10]s!")
@@ -209,10 +209,8 @@ SUBSYSTEM_DEF(mapping)
 
 	var/list/otherZ = list()
 
-	#ifndef LOWMEMORYMODE
 	for(var/map_json in config.other_z)
 		otherZ += load_map_config(map_json)
-	#endif
 	#ifndef NO_DUNGEON
 	otherZ += load_map_config("_maps/map_files/shared/dungeon.json")
 	#endif
@@ -431,6 +429,20 @@ SUBSYSTEM_DEF(mapping)
 		qdel(trait)
 		return TRUE
 	return FALSE
+
+/datum/controller/subsystem/mapping/proc/build_area_turfs(z_level, space_guaranteed)
+	// If we know this is filled with default tiles, we can use the default area
+	// Faster
+	if(space_guaranteed)
+		var/area/global_area = GLOB.areas_by_type[world.area]
+		LISTASSERTLEN(global_area.turfs_by_zlevel, z_level, list())
+		global_area.turfs_by_zlevel[z_level] = Z_TURFS(z_level)
+		return
+
+	for(var/turf/to_contain as anything in Z_TURFS(z_level))
+		var/area/our_area = to_contain.loc
+		LISTASSERTLEN(our_area.turfs_by_zlevel, z_level, list())
+		our_area.turfs_by_zlevel[z_level] += to_contain
 
 /proc/has_world_trait(datum/world_trait/trait_type)
 	if(!length(SSmapping.active_world_traits))

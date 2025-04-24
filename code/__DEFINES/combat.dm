@@ -189,6 +189,7 @@
 //Intent blade class for dismember class
 #define BCLASS_BLUNT		"blunt"
 #define BCLASS_SMASH		"smashing"
+#define BCLASS_DRILL		"drilling"
 #define BCLASS_CUT			"slash"
 #define BCLASS_CHOP			"chopping"
 #define BCLASS_STAB			"stabbing"
