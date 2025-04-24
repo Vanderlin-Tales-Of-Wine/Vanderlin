@@ -507,6 +507,10 @@
 "aJm" = (
 /turf/closed/wall/mineral/stone,
 /area/rogue/indoors/town/manorgate)
+"aJn" = (
+/obj/structure/fluff/traveltile/inhumen,
+/turf/open/floor/cobblerock,
+/area/rogue/outdoors/woods)
 "aJu" = (
 /turf/open/floor/cobble,
 /area/rogue/outdoors/town/roofs)
@@ -4128,7 +4132,7 @@
 /obj/structure/chair/wood/alt/chair_noble/red{
 	dir = 4
 	},
-/obj/effect/landmark/start/manorguardsman{
+/obj/effect/landmark/start/watchman{
 	dir = 4
 	},
 /turf/open/floor/carpet/royalblack,
@@ -5759,11 +5763,6 @@
 	dir = 8
 	},
 /area/rogue/indoors/town/dwarfin)
-"goc" = (
-/obj/effect/landmark/start/manorguardsman,
-/obj/structure/chair/wood/alt/chair_noble/red,
-/turf/open/floor/carpet/royalblack,
-/area/rogue/indoors/town/manor)
 "goh" = (
 /obj/structure/table/wood{
 	dir = 1;
@@ -11489,7 +11488,7 @@
 /area/rogue/indoors/town)
 "mtD" = (
 /obj/structure/chair/wood/alt/chair_noble/red,
-/obj/effect/landmark/start/manorguardsman,
+/obj/effect/landmark/start/watchman,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor)
 "mtX" = (
@@ -12142,7 +12141,7 @@
 /obj/structure/chair/wood/alt/chair_noble/red{
 	dir = 8
 	},
-/obj/effect/landmark/start/manorguardsman{
+/obj/effect/landmark/start/watchman{
 	dir = 8
 	},
 /turf/open/floor/carpet/royalblack,
@@ -12796,6 +12795,10 @@
 	},
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/manor)
+"nYG" = (
+/obj/structure/fluff/traveltile/bandit,
+/turf/open/floor/cobblerock,
+/area/rogue/outdoors/woods)
 "nYI" = (
 /obj/structure/bars,
 /obj/machinery/light/fueled/wallfire/candle,
@@ -13557,7 +13560,7 @@
 /obj/structure/chair/wood/alt/chair_noble/red{
 	dir = 1
 	},
-/obj/effect/landmark/start/manorguardsman{
+/obj/effect/landmark/start/watchman{
 	dir = 1
 	},
 /turf/open/floor/carpet/royalblack,
@@ -13580,6 +13583,10 @@
 /obj/structure/fluff/clock,
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/manor)
+"oVg" = (
+/obj/structure/fluff/traveltile/vampire,
+/turf/open/floor/cobblerock,
+/area/rogue/outdoors/rtfield)
 "oVq" = (
 /obj/structure/closet/crate/crafted_closet/inn,
 /turf/open/floor/carpet/green,
@@ -15525,15 +15532,6 @@
 	},
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town/tavern)
-"qZV" = (
-/obj/effect/landmark/start/manorguardsman{
-	dir = 1
-	},
-/obj/structure/chair/wood/alt/chair_noble/red{
-	dir = 1
-	},
-/turf/open/floor/carpet/royalblack,
-/area/rogue/indoors/town/manor)
 "rad" = (
 /turf/open/floor/tile{
 	icon_state = "greenstone"
@@ -19124,15 +19122,6 @@
 /obj/item/natural/feather,
 /obj/item/natural/feather,
 /turf/open/floor/church,
-/area/rogue/indoors/town/manor)
-"uFv" = (
-/obj/effect/landmark/start/manorguardsman{
-	dir = 4
-	},
-/obj/structure/chair/wood/alt/chair_noble/red{
-	dir = 4
-	},
-/turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor)
 "uFy" = (
 /obj/structure/closet/crate/crafted_closet/inn,
@@ -88475,7 +88464,7 @@ apV
 "}
 (127,1,2) = {"
 qVr
-xgY
+oVg
 xqc
 xqc
 xqc
@@ -88677,7 +88666,7 @@ apV
 "}
 (128,1,2) = {"
 qVr
-xgY
+oVg
 xgY
 xgY
 xgY
@@ -88879,7 +88868,7 @@ apV
 "}
 (129,1,2) = {"
 qVr
-xgY
+oVg
 xgY
 xgY
 xgY
@@ -112918,7 +112907,7 @@ gxS
 "}
 (48,1,3) = {"
 gxS
-mbl
+nYG
 mbl
 mbl
 vxp
@@ -113120,7 +113109,7 @@ gxS
 "}
 (49,1,3) = {"
 gxS
-mbl
+nYG
 wvS
 mbl
 wvS
@@ -113322,7 +113311,7 @@ gxS
 "}
 (50,1,3) = {"
 gxS
-mbl
+nYG
 wvS
 mbl
 mbl
@@ -126141,7 +126130,7 @@ yji
 yji
 qVn
 tIT
-uFv
+ezs
 ezs
 jSL
 imI
@@ -126544,10 +126533,10 @@ vzR
 xrF
 qVn
 qVn
-goc
+mtD
 gmI
 ntm
-qZV
+oUj
 gip
 etj
 gip
@@ -144045,9 +144034,9 @@ qUU
 vdG
 chE
 tut
-mbl
-mbl
-mbl
+aJn
+aJn
+aJn
 tut
 chE
 chE
