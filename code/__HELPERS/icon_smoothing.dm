@@ -83,6 +83,30 @@ DEFINE_BITFIELD(smoothing_junction, list(
 				if(smooth_edge && type == neighbor.type) { \
 					break set_adj_in_dir; \
 				}; \
+				if(smooth_obj) { \
+					for(var/atom/movable/thing as anything in neighbor) { \
+						if(!thing.anchored) { \
+							continue; \
+						}; \
+						if(!smoothing_list) { \
+							if(type == thing.type) { \
+								new_junction |= direction_flag; \
+								break set_adj_in_dir; \
+							}; \
+							continue; \
+						}; \
+						var/thing_smoothing_groups = thing.smoothing_groups; \
+						if(!thing_smoothing_groups) { \
+							continue; \
+						}; \
+						for(var/target in smoothing_list) { \
+							if(smoothing_list[target] & thing_smoothing_groups[target]) { \
+								new_junction |= direction_flag; \
+								break set_adj_in_dir; \
+							}; \
+						}; \
+					}; \
+				}; \
 				if(!smoothing_list) { \
 					if(type == neighbor.type) { \
 						new_junction |= direction_flag; \
@@ -95,20 +119,6 @@ DEFINE_BITFIELD(smoothing_junction, list(
 						if(smoothing_list[target] & neighbor_smoothing_groups[target]) { \
 							new_junction |= direction_flag; \
 							break set_adj_in_dir; \
-						}; \
-					}; \
-				}; \
-				if(smooth_obj) { \
-					for(var/atom/movable/thing as anything in neighbor) { \
-						var/thing_smoothing_groups = thing.smoothing_groups; \
-						if(!thing.anchored || isnull(thing_smoothing_groups)) { \
-							continue; \
-						}; \
-						for(var/target in smoothing_list) { \
-							if(smoothing_list[target] & thing_smoothing_groups[target]) { \
-								new_junction |= direction_flag; \
-								break set_adj_in_dir; \
-							}; \
 						}; \
 					}; \
 				}; \

@@ -184,7 +184,6 @@
 	desc = "Made from durable fabric and wooden branches."
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "tent"
-	smoothing_flags = NONE
 	blade_dulling = DULLING_BASHCHOP
 	max_integrity = 300
 	break_sound = 'sound/combat/hits/onwood/destroywalldoor.ogg'
@@ -209,7 +208,6 @@
 	desc = "Made from durable, somewhat darker wood."
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "corner"
-	smoothing_flags = NONE
 	blade_dulling = DULLING_BASHCHOP
 	max_integrity = 1500
 	break_sound = 'sound/combat/hits/onwood/destroywalldoor.ogg'
@@ -262,7 +260,6 @@
 	name = "wall"
 	icon = 'icons/turf/walls.dmi'
 	icon_state = ""
-	smoothing_flags = NONE
 	blade_dulling = DULLING_BASHCHOP
 	max_integrity = 1100
 	break_sound = 'sound/combat/hits/onwood/destroywalldoor.ogg'
@@ -294,7 +291,6 @@
 	desc = "A wattle and daub wall."
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "decowood"
-	smoothing_flags = NONE
 	blade_dulling = DULLING_BASHCHOP
 	max_integrity = 1100
 	break_sound = 'sound/combat/hits/onwood/destroywalldoor.ogg'
@@ -322,7 +318,6 @@
 	desc = "The mason did an excellent job etching details into this wall."
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "decostone-b"
-	smoothing_flags = NONE
 	wallclimb = FALSE
 	blade_dulling = DULLING_BASH
 	max_integrity = 2200
@@ -430,7 +425,7 @@
 	sheet_type = null
 	break_sound = 'sound/combat/hits/onstone/stonedeath.ogg'
 	attacked_sound = list('sound/combat/hits/onstone/wallhit.ogg', 'sound/combat/hits/onstone/wallhit2.ogg', 'sound/combat/hits/onstone/wallhit3.ogg')
-	smoothing_flags = SMOOTH_BITMASK
+	smoothing_flags = SMOOTH_BITMASK_CARDINALS
 	smoothing_groups = SMOOTH_GROUP_CLOSED_WALL + SMOOTH_GROUP_WALLS_EREBUS
 	smoothing_list = SMOOTH_GROUP_WALLS_EREBUS
 	above_floor = /turf/open/floor/church
