@@ -1315,7 +1315,7 @@
 /mob/living/carbon/encumbrance_to_speed()
 	var/exponential = (2.71 ** -(get_encumbrance() - 0.6)) * 10
 	var/speed_factor = 1 / (1 + exponential)
-	var/precentage =  CLAMP(speed_factor * (1 - (STAEND / 20)), 0, 1)
+	var/precentage =  CLAMP(speed_factor * (1 - (STASTR / 20)), 0, 1)
 
 	add_movespeed_modifier("encumbrance", override = TRUE, multiplicative_slowdown = 5 * precentage)
 

@@ -64,5 +64,17 @@
 	display_results(user, target, span_notice("You burn away the rot inside of [target]."),
 		"[user] burns the rot within [target].",
 		"[user] takes a [tool] to [target]'s innards.")
+	if(ishuman(target))
+		var/mob/living/carbon/human/human = target
+		if(human.funeral)
+			if(human.client)
+				to_chat(human, span_warning("My funeral rites were undone!"))
+			else
+				var/mob/dead/observer/ghost = human.get_ghost(TRUE, TRUE)
+				if(ghost)
+					to_chat(ghost, span_warning("My funeral rites were undone!"))
+		human.funeral = FALSE
+	if(target.stat < DEAD)
+		target.remove_client_colour(/datum/client_colour/monochrome/death)
 	target.take_bodypart_damage(null, burndam)
 	return TRUE

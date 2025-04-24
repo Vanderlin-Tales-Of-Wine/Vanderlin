@@ -175,6 +175,7 @@ GLOBAL_LIST_INIT(ghost_verbs, list(
 				name = random_unique_name(gender)
 
 		mind = body.mind	//we don't transfer the mind but we keep a reference to it.
+		mind.current_ghost = src
 
 		set_suicide(body.suiciding) // Transfer whether they committed suicide.
 
@@ -236,6 +237,7 @@ GLOBAL_LIST_INIT(ghost_verbs, list(
 		verbs += GLOB.ghost_verbs
 
 	grant_all_languages()
+
 //	show_data_huds()
 //	data_huds_on = 1
 
@@ -246,6 +248,8 @@ GLOBAL_LIST_INIT(ghost_verbs, list(
 	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_atom_colour)), 10)
 
 /mob/dead/observer/Destroy()
+	mind?.current_ghost = null
+
 	GLOB.ghost_images_default -= ghostimage_default
 	QDEL_NULL(ghostimage_default)
 
@@ -478,7 +482,6 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 	if(NewLoc)
 		forceMove(NewLoc)
-		update_parallax_contents()
 	else
 		forceMove(get_turf(src))  //Get out of closets and such as a ghost
 		if((direct & NORTH) && y < world.maxy)
@@ -516,6 +519,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	remove_client_colour(/datum/client_colour/monochrome)
 	client.change_view(CONFIG_GET(string/default_view))
 	SStgui.on_transfer(src, mind.current) // Transfer NanoUIs.
+	mind.current_ghost = null
 	mind.current.key = key
 	return TRUE
 
@@ -761,7 +765,6 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 			if(T && isturf(T))	//Make sure the turf exists, then move the source to that destination.
 				A.forceMove(T)
-				A.update_parallax_contents()
 			else
 				to_chat(A, "<span class='danger'>This mob is not located in the game world.</span>")
 

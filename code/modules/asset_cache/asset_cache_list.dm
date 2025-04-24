@@ -30,6 +30,8 @@
 /datum/asset/simple/namespaced/roguefonts
 	legacy = TRUE
 	assets = list(
+		"PixelifySans-VariableFont_wght.ttf" = 'interface/fonts/PixelifySans-VariableFont_wght.ttf',
+		"pterra.ttf" = 'interface/fonts/pterra.ttf',
 		"pterra.ttf" = 'interface/fonts/pterra.ttf',
 		"chiseld.ttf" = 'interface/fonts/chiseld.ttf',
 		"blackmoor.ttf" = 'interface/fonts/blackmoor.ttf',
