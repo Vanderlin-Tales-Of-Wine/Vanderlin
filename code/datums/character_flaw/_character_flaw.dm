@@ -38,9 +38,11 @@ GLOBAL_LIST_INIT(character_flaws, list(
 		owner = new_owner
 		on_mob_creation(owner)
 
+/// Applies when the user mob is created without mind
 /datum/charflaw/proc/on_mob_creation(mob/user)
 	return
 
+/// Aplies after the user mob is fully spawned and has mind
 /datum/charflaw/proc/after_spawn(mob/user)
 	return
 
@@ -48,6 +50,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	on_remove()
 	return ..()
 
+/// Applies when the flaw is deleted
 /datum/charflaw/proc/on_remove()
 	return
 
@@ -73,6 +76,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	if(istype(charflaw, flaw))
 		return TRUE
 
+/// Replaces mob's flaw with a random one excluding no flaw
 /mob/proc/get_random_flaw()
 	return
 
@@ -552,7 +556,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 
 /datum/charflaw/pacifist/after_spawn(mob/user)
 	var/mob/living/carbon/human/human_user = user
-	if((human_user?.mind in GLOB.pre_setup_antags) || human_user?.mind.has_antag_datum(/datum/antagonist))
+	if((human_user.mind in GLOB.pre_setup_antags) || human_user.mind?.has_antag_datum(/datum/antagonist))
 		human_user.get_random_flaw()
 	else
 		. = ..()
