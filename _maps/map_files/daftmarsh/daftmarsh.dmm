@@ -6757,6 +6757,10 @@
 	},
 /turf/open/floor/carpet/green,
 /area/rogue/indoors/town/merc_guild)
+"hrg" = (
+/obj/machinery/light/fueled/wallfire/candle/r,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/indoors/town/merc_guild)
 "hrk" = (
 /obj/structure/window/openclose{
 	dir = 1
@@ -6821,6 +6825,7 @@
 "hvo" = (
 /obj/structure/bookcase/random_recipes,
 /obj/item/book/law,
+/obj/machinery/light/fueled/wallfire/candle/l,
 /turf/open/floor/carpet/green,
 /area/rogue/indoors/town)
 "hvL" = (
@@ -11839,6 +11844,12 @@
 	},
 /turf/open/floor/church,
 /area/rogue/indoors/town/manor)
+"mMm" = (
+/obj/machinery/light/fueled/wallfire/candle{
+	pixel_y = -32
+	},
+/turf/open/floor/carpet/green,
+/area/rogue/indoors/town)
 "mMx" = (
 /obj/machinery/light/fueled/wallfire/candle/blue{
 	pixel_y = -32
@@ -15076,6 +15087,10 @@
 /obj/structure/closet/crate/chest/wicker,
 /obj/item/fishing/line/bobber,
 /turf/open/floor/wood,
+/area/rogue/indoors/town)
+"qxa" = (
+/obj/machinery/light/fueled/wallfire/candle,
+/turf/open/floor/carpet/green,
 /area/rogue/indoors/town)
 "qxn" = (
 /obj/machinery/light/fueled/wallfire/candle/blue,
@@ -22174,6 +22189,17 @@
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/twig,
 /area/rogue/outdoors/town)
+"xHa" = (
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/natural/feather,
+/obj/structure/rack/shelf/biggest,
+/obj/machinery/light/fueled/wallfire/candle/r,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/indoors/town/merc_guild)
 "xHJ" = (
 /obj/structure/table/wood/large/corner_new{
 	dir = 6
@@ -115095,7 +115121,7 @@ sWx
 sWx
 sWx
 olO
-vaf
+olO
 vaf
 neM
 phC
@@ -115296,12 +115322,12 @@ sWx
 sWx
 sWx
 sWx
-vaf
+olO
 olO
 hvo
 qbt
 qbt
-qbt
+mMm
 vaf
 sWx
 bqo
@@ -115904,10 +115930,10 @@ bAM
 bAM
 olO
 vaf
-qbt
+qxa
 qbt
 tCJ
-qbt
+mMm
 olO
 sWx
 sWx
@@ -120599,9 +120625,9 @@ vFa
 hpj
 bLc
 xFK
+hrg
 uwi
-uwi
-pCW
+xHa
 mlf
 sWx
 sWx
