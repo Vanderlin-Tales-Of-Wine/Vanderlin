@@ -50,12 +50,6 @@
 /obj/effect/decal/cleanable/blood/gibs/old,
 /turf/open/floor/cobblerock,
 /area/rogue/under/cavewet)
-"bS" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_end";
-	dir = 1
-	},
-/area/rogue/under/cavewet)
 "cE" = (
 /obj/structure/kneestingers{
 	icon_state = "glowshroom2"
@@ -319,11 +313,6 @@
 "lq" = (
 /turf/closed/wall/mineral/decostone/long{
 	dir = 1
-	},
-/area/rogue/under/cavewet)
-"lC" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_line"
 	},
 /area/rogue/under/cavewet)
 "ml" = (
@@ -1481,9 +1470,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/under/cavewet)
 "Yb" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_end"
-	},
+/turf/closed/wall/mineral/pipe,
 /area/rogue/under/cavewet)
 "YB" = (
 /obj/effect/dungeon_directional_helper/south,
@@ -1636,10 +1623,10 @@ qM
 (5,1,1) = {"
 kY
 vs
-bS
-lC
+Yb
+Yb
 qy
-lC
+Yb
 Yb
 wF
 bB
@@ -1764,10 +1751,10 @@ qM
 (9,1,1) = {"
 kY
 vs
-bS
-lC
+Yb
+Yb
 qy
-lC
+Yb
 Yb
 wF
 bB

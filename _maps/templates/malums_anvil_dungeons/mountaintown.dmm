@@ -537,12 +537,6 @@
 	},
 /turf/open/floor/churchmarble,
 /area/rogue/under/mountains/anvil/dungeon)
-"fP" = (
-/turf/closed/wall/mineral/pipe{
-	dir = 8;
-	icon_state = "iron_corner"
-	},
-/area/rogue/under/mountains/anvil/dungeon/lower)
 "fU" = (
 /obj/structure/table/wood/large/corner{
 	dir = 2
@@ -942,11 +936,6 @@
 /obj/item/coin/silver/pile,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/mountains/anvil/dungeon)
-"ms" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_line"
-	},
-/area/rogue/under/mountains/anvil/dungeon)
 "mt" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/naturalstone,
@@ -1115,11 +1104,6 @@
 "oQ" = (
 /obj/structure/barricade/wooden,
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue/under/mountains/anvil/dungeon/lower)
-"ph" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_line"
-	},
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "pn" = (
 /obj/structure/rack/shelf/biggest,
@@ -2351,12 +2335,6 @@
 /obj/effect/decal/remains/troll,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
-"GL" = (
-/turf/closed/wall/mineral/pipe{
-	dir = 4;
-	icon_state = "iron_line"
-	},
-/area/rogue/under/mountains/anvil/dungeon)
 "GO" = (
 /obj/item/bin/water,
 /obj/item/weapon/tongs,
@@ -2613,23 +2591,11 @@
 /mob/living/carbon/human/species/orc/tribal,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
-"Kw" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_corner";
-	dir = 1
-	},
-/area/rogue/under/mountains/anvil/dungeon)
 "Kz" = (
 /obj/structure/table/wood{
 	icon_state = "tablewood_alt2"
 	},
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue/under/mountains/anvil/dungeon/lower)
-"KH" = (
-/turf/closed/wall/mineral/pipe{
-	dir = 1;
-	icon_state = "iron_corner"
-	},
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "KO" = (
 /turf/open/floor/concrete,
@@ -3158,12 +3124,6 @@
 	},
 /turf/open/floor/churchrough,
 /area/rogue/under/mountains/anvil/dungeon/lower)
-"SU" = (
-/turf/closed/wall/mineral/pipe{
-	dir = 8;
-	icon_state = "iron_corner"
-	},
-/area/rogue/under/mountains/anvil/dungeon)
 "Tb" = (
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon/lower)
@@ -3675,12 +3635,6 @@
 /obj/effect/decal/cleanable/blood/gibs/limb,
 /obj/item/weapon/hammer/iron,
 /turf/open/floor/blocks,
-/area/rogue/under/mountains/anvil/dungeon/lower)
-"Zm" = (
-/turf/closed/wall/mineral/pipe{
-	dir = 4;
-	icon_state = "iron_line"
-	},
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Zq" = (
 /obj/effect/decal/cleanable/blood/gibs,
@@ -5646,8 +5600,8 @@ UD
 UD
 md
 rq
-KH
-ph
+uz
+uz
 cn
 Ex
 YP
@@ -5712,7 +5666,7 @@ UD
 UD
 md
 rq
-Zm
+uz
 Xf
 sZ
 VS
@@ -5778,7 +5732,7 @@ UD
 UD
 md
 rq
-Zm
+uz
 Xf
 sl
 tF
@@ -5844,7 +5798,7 @@ UD
 UD
 md
 rq
-Zm
+uz
 Xf
 Od
 Od
@@ -5910,7 +5864,7 @@ UD
 UD
 md
 rq
-Zm
+uz
 Xf
 tF
 JJ
@@ -5976,7 +5930,7 @@ UD
 UD
 md
 rq
-Zm
+uz
 Xf
 JJ
 JJ
@@ -6042,7 +5996,7 @@ UD
 UD
 md
 rq
-Zm
+uz
 Xf
 tF
 JJ
@@ -6108,7 +6062,7 @@ UD
 UD
 md
 rq
-Zm
+uz
 Xf
 tF
 av
@@ -6174,7 +6128,7 @@ UD
 UD
 md
 rq
-Zm
+uz
 Xf
 Xf
 Xf
@@ -6194,7 +6148,7 @@ rq
 rq
 Xf
 Xf
-Zm
+uz
 Xf
 Xf
 iC
@@ -6240,7 +6194,7 @@ UD
 UD
 md
 rq
-Zm
+uz
 UD
 UD
 UD
@@ -6260,7 +6214,7 @@ rq
 md
 md
 rq
-Zm
+uz
 rq
 Xf
 iC
@@ -6306,9 +6260,9 @@ UD
 UD
 md
 rq
-fP
-ph
-ph
+uz
+uz
+uz
 UD
 cn
 cn
@@ -6327,8 +6281,8 @@ cC
 cC
 cC
 uz
-ph
-ph
+uz
+uz
 kw
 UD
 UD
@@ -10214,8 +10168,8 @@ gy
 gy
 aQ
 uE
-Kw
-ms
+gN
+gN
 IX
 iF
 go
@@ -10280,7 +10234,7 @@ gy
 gy
 aQ
 uE
-GL
+gN
 FI
 Li
 iF
@@ -10412,8 +10366,8 @@ FI
 FI
 FI
 uE
-SU
-ms
+gN
+gN
 IX
 iF
 hD

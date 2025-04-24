@@ -248,12 +248,6 @@
 /obj/structure/spider/stickyweb,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/under/cave)
-"cy" = (
-/turf/closed/wall/mineral/pipe{
-	dir = 4;
-	icon_state = "iron_corner"
-	},
-/area/rogue/under/cave)
 "cF" = (
 /obj/structure/bookcase/random/myths,
 /turf/open/floor/tile/masonic/single,
@@ -757,12 +751,6 @@
 "ip" = (
 /obj/structure/fluff/nest,
 /turf/open/floor/twig,
-/area/rogue/under/cave)
-"is" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_corner";
-	dir = 4
-	},
 /area/rogue/under/cave)
 "it" = (
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
@@ -1708,12 +1696,6 @@
 	},
 /turf/open/transparent/openspace,
 /area/rogue/under/cave)
-"tG" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_joint";
-	dir = 8
-	},
-/area/rogue/under/cave)
 "tK" = (
 /obj/structure/bars/pipe{
 	dir = 5;
@@ -1730,12 +1712,6 @@
 "tR" = (
 /obj/item/ammo_casing/caseless/arrow,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue/under/cave)
-"tT" = (
-/turf/closed/wall/mineral/pipe{
-	dir = 4;
-	icon_state = "iron_line"
-	},
 /area/rogue/under/cave)
 "tV" = (
 /obj/item/ingot/gold,
@@ -2023,12 +1999,6 @@
 /obj/item/ammo_holder/quiver/arrows,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cave)
-"xm" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_line";
-	dir = 4
-	},
-/area/rogue/under/cave)
 "xr" = (
 /obj/structure/window/stained,
 /obj/structure/bars,
@@ -2072,11 +2042,6 @@
 /obj/item/chair/stool/bar,
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave)
-"xP" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_end"
-	},
-/area/rogue/under/cave)
 "xT" = (
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
 	base_strength = 15;
@@ -2101,11 +2066,6 @@
 "xV" = (
 /mob/living/carbon/human/species/goblin/npc/ambush/cave,
 /turf/open/floor/cobblerock,
-/area/rogue/under/cave)
-"xX" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_corner"
-	},
 /area/rogue/under/cave)
 "yc" = (
 /obj/structure/fluff/railing/border{
@@ -2135,12 +2095,6 @@
 "yl" = (
 /obj/structure/fermentation_keg/random/water,
 /turf/open/floor/twig,
-/area/rogue/under/cave)
-"yq" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_corner";
-	dir = 8
-	},
 /area/rogue/under/cave)
 "yr" = (
 /obj/effect/decal/cleanable/blood,
@@ -2388,12 +2342,6 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/tile/kitchen,
 /area/rogue/under/cave)
-"Bf" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_end";
-	dir = 8
-	},
-/area/rogue/under/cave)
 "Bh" = (
 /obj/structure/bed/hay,
 /turf/open/floor/twig,
@@ -2605,12 +2553,6 @@
 "Dl" = (
 /obj/item/chair/chair_nobles,
 /turf/open/floor/churchmarble,
-/area/rogue/under/cave)
-"Dm" = (
-/turf/closed/wall/mineral/pipe{
-	dir = 1;
-	icon_state = "iron_corner"
-	},
 /area/rogue/under/cave)
 "Do" = (
 /obj/structure/lever/hidden{
@@ -2900,12 +2842,6 @@
 /obj/item/reagent_containers/glass/cup/golden,
 /turf/open/floor/carpet/purple,
 /area/rogue/under/cave)
-"FU" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_corner";
-	dir = 1
-	},
-/area/rogue/under/cave)
 "FW" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
@@ -3064,12 +3000,6 @@
 /obj/effect/decal/remains/human,
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave)
-"HQ" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_end";
-	dir = 1
-	},
-/area/rogue/under/cave)
 "HT" = (
 /mob/living/carbon/human/species/goblin/npc/ambush,
 /turf/open/floor/cobble,
@@ -3131,12 +3061,6 @@
 	dir = 4
 	},
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
-"IR" = (
-/turf/closed/wall/mineral/pipe{
-	dir = 8;
-	icon_state = "iron_corner"
-	},
 /area/rogue/under/cave)
 "IY" = (
 /obj/structure/table/wood/plain_alt,
@@ -3209,11 +3133,6 @@
 /obj/structure/fluff/railing/border,
 /mob/living/simple_animal/hostile/skeleton/bow,
 /turf/open/floor/cobble,
-/area/rogue/under/cave)
-"JC" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_line"
-	},
 /area/rogue/under/cave)
 "JE" = (
 /obj/structure/trap/spike,
@@ -3981,12 +3900,6 @@
 /obj/structure/chair/bench/throne,
 /turf/open/floor/carpet/lord/center,
 /area/rogue/under/cave)
-"RQ" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_end";
-	dir = 4
-	},
-/area/rogue/under/cave)
 "RR" = (
 /mob/living/simple_animal/hostile/skeleton/bow,
 /turf/open/floor/ruinedwood/darker,
@@ -4753,8 +4666,8 @@ ns
 Xp
 ns
 ns
-Dm
-JC
+Xp
+Xp
 ns
 ns
 ns
@@ -4770,10 +4683,10 @@ zP
 zP
 Fs
 zP
-HQ
-JC
-JC
-JC
+Xp
+Xp
+Xp
+Xp
 Xp
 ns
 ns
@@ -4822,10 +4735,10 @@ zP
 zP
 zP
 zP
-yq
-JC
-JC
-is
+Xp
+Xp
+Xp
+Xp
 SO
 SO
 UP
@@ -4846,7 +4759,7 @@ yI
 zP
 zP
 zP
-tT
+Xp
 FG
 FG
 FG
@@ -4918,11 +4831,11 @@ cV
 zP
 zP
 zP
-yq
-JC
-JC
-JC
-xX
+Xp
+Xp
+Xp
+Xp
+Xp
 ns
 ns
 ns
@@ -4994,7 +4907,7 @@ ck
 cd
 TR
 Kt
-tT
+Xp
 Th
 Th
 Th
@@ -5033,9 +4946,9 @@ ns
 (5,1,1) = {"
 ns
 zP
-yq
-JC
-xP
+Xp
+Xp
+Xp
 zP
 Ig
 PQ
@@ -5066,7 +4979,7 @@ rg
 wh
 wh
 cd
-yq
+Xp
 Xp
 Xp
 Xp
@@ -5257,7 +5170,7 @@ fL
 fL
 CF
 CF
-xm
+Xp
 SO
 ZO
 ZO
@@ -5329,7 +5242,7 @@ qu
 CF
 Rk
 CF
-xm
+Xp
 Sj
 ZO
 Mc
@@ -5401,7 +5314,7 @@ fL
 CF
 YW
 Km
-xm
+Xp
 UP
 oz
 Ng
@@ -5473,7 +5386,7 @@ CF
 Am
 vS
 vS
-xm
+Xp
 Wx
 Hh
 Ng
@@ -5486,7 +5399,7 @@ Hh
 SO
 SO
 Wx
-tT
+Xp
 Mc
 Yx
 SF
@@ -5494,9 +5407,9 @@ UP
 Sj
 SO
 zP
-Dm
-JC
-xX
+Xp
+Xp
+Xp
 Th
 Th
 kl
@@ -5536,16 +5449,16 @@ ns
 "}
 (12,1,1) = {"
 Xp
-JC
-JC
-xX
+Xp
+Xp
+Xp
 IB
 IB
 zP
 zP
 zP
 zP
-RQ
+Xp
 zO
 Hh
 KY
@@ -5558,17 +5471,17 @@ Do
 zP
 zP
 zP
-yq
-JC
-JC
-JC
-JC
-JC
-JC
-JC
+Xp
+Xp
+Xp
+Xp
+Xp
+Xp
+Xp
+Xp
 Xp
 FG
-xm
+Xp
 FG
 Th
 Mb
@@ -5610,7 +5523,7 @@ ns
 ns
 SO
 UP
-tT
+Xp
 Ng
 Ng
 zP
@@ -5640,7 +5553,7 @@ zP
 zP
 Xp
 FG
-xm
+Xp
 FG
 Th
 Mb
@@ -5712,7 +5625,7 @@ zP
 zP
 FG
 FG
-xm
+Xp
 FG
 Th
 kl
@@ -5784,7 +5697,7 @@ zP
 zP
 FG
 FG
-xm
+Xp
 FG
 Th
 kl
@@ -5856,7 +5769,7 @@ Ao
 zP
 FG
 FG
-xm
+Xp
 FG
 Th
 Hh
@@ -5898,7 +5811,7 @@ ns
 ns
 SO
 SF
-tT
+Xp
 Ng
 WP
 zP
@@ -5928,7 +5841,7 @@ Ba
 zP
 FG
 FG
-xm
+Xp
 FG
 Th
 Hh
@@ -5970,19 +5883,19 @@ ns
 ns
 zP
 zP
-RQ
+Xp
 IB
 IB
-Bf
+Xp
 zP
 zP
 zP
-Dm
-JC
-JC
-JC
-JC
-xX
+Xp
+Xp
+Xp
+Xp
+Xp
+Xp
 zP
 zP
 zP
@@ -6000,9 +5913,9 @@ oY
 zP
 Th
 Th
-IR
-JC
-xX
+Xp
+Xp
+Xp
 Th
 Th
 Th
@@ -6045,19 +5958,19 @@ Bc
 wQ
 lE
 lE
-tT
+Xp
 zP
 zP
 zP
-xm
+Xp
 Th
 Th
 Th
 Th
-yq
-JC
-JC
-xP
+Xp
+Xp
+Xp
+Xp
 zP
 zP
 zP
@@ -6074,7 +5987,7 @@ EC
 EC
 Ej
 EC
-xm
+Xp
 Th
 Th
 Th
@@ -6117,7 +6030,7 @@ JE
 lE
 Zf
 Zf
-yq
+Xp
 Xp
 zP
 zP
@@ -6146,10 +6059,10 @@ FE
 rg
 Ng
 Ng
-IR
-JC
-JC
-xX
+Xp
+Xp
+Xp
+Xp
 Th
 Mb
 Mb
@@ -6221,7 +6134,7 @@ Ng
 IB
 sP
 Th
-xm
+Xp
 Th
 Mb
 Mb
@@ -6293,7 +6206,7 @@ rg
 Th
 Yj
 Th
-xm
+Xp
 Th
 Mb
 Mb
@@ -6436,7 +6349,7 @@ Th
 Th
 Th
 Th
-xm
+Xp
 Th
 Mb
 Mb
@@ -6508,7 +6421,7 @@ Bs
 NV
 br
 Jh
-RQ
+Xp
 Th
 xz
 xz
@@ -6866,9 +6779,9 @@ Th
 Th
 Th
 Th
-Dm
-JC
-JC
+Xp
+Xp
+Xp
 Th
 Mb
 Mb
@@ -6938,7 +6851,7 @@ cd
 cd
 wE
 wE
-xm
+Xp
 Th
 Th
 Th
@@ -6981,8 +6894,8 @@ cW
 nY
 uE
 wW
-FU
-xP
+Xp
+Xp
 Th
 Th
 UQ
@@ -7010,9 +6923,9 @@ rg
 Zn
 Ng
 Ng
-yq
-JC
-xX
+Xp
+Xp
+Xp
 Th
 Th
 Mb
@@ -7053,7 +6966,7 @@ JU
 wW
 nY
 Mr
-xm
+Xp
 zP
 zP
 Th
@@ -7084,7 +6997,7 @@ Ng
 Ng
 kV
 Nt
-xm
+Xp
 Th
 Th
 Mb
@@ -7125,7 +7038,7 @@ uE
 jY
 xb
 wW
-xm
+Xp
 zP
 zP
 zP
@@ -7156,7 +7069,7 @@ ZS
 Ng
 Th
 Yj
-xm
+Xp
 Th
 Th
 Mb
@@ -7197,11 +7110,11 @@ VT
 wW
 nY
 uE
-xm
+Xp
 zP
 zP
-Dm
-xP
+Xp
+Xp
 Th
 Th
 Th
@@ -7218,10 +7131,10 @@ zP
 zP
 zP
 zP
-HQ
-JC
-JC
-xX
+Xp
+Xp
+Xp
+Xp
 ST
 tz
 oV
@@ -7269,10 +7182,10 @@ zP
 Ec
 wW
 zP
-yq
-JC
-JC
-cy
+Xp
+Xp
+Xp
+Xp
 zP
 zP
 zP
@@ -7293,14 +7206,14 @@ LB
 ep
 ep
 cK
-xm
+Xp
 Th
 Th
 UI
 Hr
 Th
 Th
-xm
+Xp
 Th
 Hh
 Mb
@@ -7365,7 +7278,7 @@ zP
 ep
 mZ
 zP
-yq
+Xp
 Xp
 FG
 HD
@@ -7659,7 +7572,7 @@ kl
 MX
 Ti
 Th
-xm
+Xp
 Th
 Th
 Hh
@@ -7730,8 +7643,8 @@ WS
 xV
 Hh
 im
-FU
-is
+Xp
+Xp
 Th
 Th
 Th
@@ -7802,7 +7715,7 @@ YH
 Ng
 Ng
 zm
-RQ
+Xp
 Th
 Th
 Th
@@ -7946,7 +7859,7 @@ Ng
 Ef
 Ng
 rg
-Bf
+Xp
 Th
 Th
 Th
@@ -8018,7 +7931,7 @@ YH
 Ng
 Ng
 Ng
-yq
+Xp
 Xp
 Th
 Th
@@ -8135,7 +8048,7 @@ Cl
 WJ
 iX
 Kx
-Dm
+Xp
 Xp
 zP
 SO
@@ -8157,10 +8070,10 @@ lE
 Zy
 wY
 lE
-Dm
-JC
-JC
-xX
+Xp
+Xp
+Xp
+Xp
 Th
 Th
 Xp
@@ -8202,12 +8115,12 @@ ns
 ns
 zP
 zP
-Dm
-JC
-JC
-JC
-JC
-is
+Xp
+Xp
+Xp
+Xp
+Xp
+Xp
 zP
 zP
 SO
@@ -8229,7 +8142,7 @@ hZ
 rx
 lE
 VA
-xm
+Xp
 FG
 FG
 Xp
@@ -8426,7 +8339,7 @@ zP
 zP
 zP
 zP
-xm
+Xp
 Ep
 si
 Ci
@@ -8498,7 +8411,7 @@ nZ
 vh
 aI
 Tc
-xm
+Xp
 Fc
 vb
 si
@@ -8518,7 +8431,7 @@ LZ
 zK
 xs
 xs
-FU
+Xp
 Xp
 Th
 Th
@@ -8590,7 +8503,7 @@ si
 Mx
 QF
 QF
-xm
+Xp
 Th
 Th
 Vv
@@ -8642,7 +8555,7 @@ Rl
 Rl
 Rl
 Tc
-xm
+Xp
 si
 si
 si
@@ -8662,7 +8575,7 @@ Zo
 BA
 rs
 dQ
-xm
+Xp
 Th
 Th
 xk
@@ -8714,7 +8627,7 @@ Rl
 cp
 Rl
 uv
-xm
+Xp
 AY
 IH
 si
@@ -8734,7 +8647,7 @@ Wc
 Wc
 si
 GZ
-xm
+Xp
 Th
 Th
 ZX
@@ -8786,7 +8699,7 @@ TP
 TP
 Rl
 AT
-xm
+Xp
 zP
 Ct
 zP
@@ -8806,7 +8719,7 @@ Ct
 Ct
 Ct
 zP
-xm
+Xp
 Th
 Th
 wO
@@ -8858,7 +8771,7 @@ HJ
 gm
 Rl
 Ul
-xm
+Xp
 QF
 QF
 Kc
@@ -8878,7 +8791,7 @@ sj
 QF
 QF
 QF
-xm
+Xp
 Th
 Th
 wO
@@ -8950,7 +8863,7 @@ sj
 QF
 QF
 QF
-xm
+Xp
 Th
 Th
 Ly
@@ -9022,7 +8935,7 @@ sj
 QF
 QF
 QF
-xm
+Xp
 Th
 Th
 Ly
@@ -9094,7 +9007,7 @@ sj
 QF
 QF
 QF
-yq
+Xp
 Xp
 Th
 EV
@@ -9156,10 +9069,10 @@ QF
 zP
 zP
 zP
-Dm
-JC
-JC
-xP
+Xp
+Xp
+Xp
+Xp
 zP
 jv
 Ct
@@ -9211,7 +9124,7 @@ ns
 ns
 QF
 QF
-xm
+Xp
 Iu
 ek
 zP
@@ -9226,9 +9139,9 @@ QF
 QF
 QF
 zP
-Dm
-JC
-cy
+Xp
+Xp
+Xp
 uK
 Op
 gz
@@ -9283,7 +9196,7 @@ ns
 ns
 QF
 QF
-xm
+Xp
 Iu
 Iu
 Ct
@@ -9298,7 +9211,7 @@ QF
 QF
 QF
 zP
-xm
+Xp
 xB
 xB
 Dg
@@ -9355,7 +9268,7 @@ ns
 ns
 QF
 QF
-xm
+Xp
 ek
 Iu
 Ct
@@ -9369,8 +9282,8 @@ QF
 QF
 QF
 QF
-Dm
-cy
+Xp
+Xp
 xB
 QR
 Pm
@@ -9427,7 +9340,7 @@ ns
 ns
 QF
 QF
-xm
+Xp
 ek
 Iu
 Ct
@@ -9441,7 +9354,7 @@ QF
 QF
 QF
 QF
-xm
+Xp
 xB
 jC
 mp
@@ -9499,7 +9412,7 @@ ns
 ns
 QF
 QF
-xm
+Xp
 Iu
 Iu
 zP
@@ -9513,7 +9426,7 @@ dn
 QF
 QF
 QF
-RQ
+Xp
 xB
 fl
 QF
@@ -9574,7 +9487,7 @@ zP
 zP
 Iu
 kQ
-HQ
+Xp
 zP
 zP
 zP
@@ -10036,8 +9949,8 @@ DV
 DV
 DV
 DV
-HQ
-xX
+Xp
+Xp
 Th
 QF
 QF
@@ -10109,7 +10022,7 @@ QF
 QF
 QF
 QF
-xm
+Xp
 Th
 QF
 QF
@@ -10181,7 +10094,7 @@ QF
 QF
 QF
 QF
-xm
+Xp
 QF
 QF
 QF
@@ -10253,7 +10166,7 @@ QF
 QF
 QF
 QF
-xm
+Xp
 QF
 QF
 QF
@@ -10325,7 +10238,7 @@ QF
 QF
 QF
 QF
-xm
+Xp
 QF
 QF
 QF
@@ -10397,7 +10310,7 @@ QF
 QF
 QF
 QF
-xm
+Xp
 Th
 QF
 QF
@@ -10469,7 +10382,7 @@ DV
 DV
 DV
 Th
-RQ
+Xp
 Th
 QF
 QF
@@ -10865,12 +10778,12 @@ ns
 "}
 (36,1,2) = {"
 ns
-Dm
-JC
-JC
-JC
-JC
-xP
+Xp
+Xp
+Xp
+Xp
+Xp
+Xp
 zP
 zP
 zP
@@ -10899,9 +10812,9 @@ Th
 Th
 ou
 QF
-Dm
-JC
-JC
+Xp
+Xp
+Xp
 Th
 QF
 QF
@@ -10937,7 +10850,7 @@ ns
 "}
 (37,1,2) = {"
 ns
-xm
+Xp
 QF
 QF
 QF
@@ -10971,7 +10884,7 @@ Th
 FG
 QF
 FG
-xm
+Xp
 QF
 QF
 QF
@@ -11009,7 +10922,7 @@ ns
 "}
 (38,1,2) = {"
 ns
-xm
+Xp
 QF
 QF
 QF
@@ -11081,7 +10994,7 @@ ns
 "}
 (39,1,2) = {"
 ns
-xm
+Xp
 aU
 lt
 lt
@@ -11153,7 +11066,7 @@ ns
 "}
 (40,1,2) = {"
 ns
-xm
+Xp
 MQ
 sa
 QF
@@ -11187,7 +11100,7 @@ Th
 QF
 QF
 FG
-xm
+Xp
 QF
 QF
 QF
@@ -11225,9 +11138,9 @@ ns
 "}
 (41,1,2) = {"
 ns
-tG
-JC
-xP
+Xp
+Xp
+Xp
 zP
 Of
 Ct
@@ -11259,8 +11172,8 @@ Th
 QF
 QF
 QF
-yq
-JC
+Xp
+Xp
 Th
 Th
 QF
@@ -11297,7 +11210,7 @@ ns
 "}
 (42,1,2) = {"
 ns
-xm
+Xp
 aa
 zv
 aa
@@ -11369,7 +11282,7 @@ ns
 "}
 (43,1,2) = {"
 ns
-xm
+Xp
 st
 af
 JT
@@ -11441,7 +11354,7 @@ ns
 "}
 (44,1,2) = {"
 ns
-xm
+Xp
 iN
 sg
 bW
@@ -11657,7 +11570,7 @@ ns
 "}
 (47,1,2) = {"
 ns
-xm
+Xp
 st
 Pe
 aa
@@ -11691,8 +11604,8 @@ Th
 Th
 Ly
 Ly
-Dm
-JC
+Xp
+Xp
 Th
 Th
 ns
@@ -11729,7 +11642,7 @@ ns
 "}
 (48,1,2) = {"
 ns
-xm
+Xp
 zr
 Og
 zv
@@ -11761,9 +11674,9 @@ zP
 Xp
 Th
 Th
-HQ
-JC
-is
+Xp
+Xp
+Xp
 ns
 ns
 ns
@@ -11801,9 +11714,9 @@ ns
 "}
 (49,1,2) = {"
 ns
-yq
-JC
-xP
+Xp
+Xp
+Xp
 zP
 sz
 zP
