@@ -68,18 +68,16 @@
 		H.mind?.AddSpell(new /obj/effect/proc_holder/spell/self/learnspell)
 		H.mind?.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
 
-	if(H.age == AGE_OLD)
-	armor = /obj/item/clothing/shirt/robe/courtmage
-	H.change_stat(STATKEY_SPD, -1)
-	H.change_stat(STATKEY_INT, 1)
-	if(H.dna.species.id == "human")
-		belt = /obj/item/storage/belt/leather/plaquegold
-		cloak = null
-		head = /obj/item/clothing/head/wizhat
-		if(H.gender == FEMALE)
-			armor = /obj/item/clothing/shirt/robe/courtmage
-		if(H.gender == MALE)
-			armor = /obj/item/clothing/shirt/robe/wizard
-			H.dna.species.soundpack_m = new /datum/voicepack/male/wizard()
+	if(H.age == AGE_OLD) //WIZARD!!!!!!!!!!!!!
+		armor = /obj/item/clothing/shirt/robe/courtmage
+		H.change_stat(STATKEY_SPD, -1)
+		H.change_stat(STATKEY_INT, 1)
+		if(H.dna.species.id == "human")
+			belt = /obj/item/storage/belt/leather/plaquegold
+			cloak = null
+			head = /obj/item/clothing/head/wizhat
+			if(H.gender == MALE)
+				armor = /obj/item/clothing/shirt/robe/wizard
+				H.dna.species.soundpack_m = new /datum/voicepack/male/wizard()
 
 		H.generate_random_attunements(rand(4,6))
