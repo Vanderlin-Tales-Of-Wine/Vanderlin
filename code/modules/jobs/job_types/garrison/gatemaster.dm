@@ -43,9 +43,6 @@
 /datum/job/gatemaster/after_spawn(mob/living/spawned, client/player_client)
 	..()
 	var/mob/living/carbon/human/H = spawned
-	H.advsetup = TRUE
-	H.invisibility = INVISIBILITY_MAXIMUM
-	H.become_blind("advsetup")
 
 	if(istype(H.cloak, /obj/item/clothing/cloak/stabard/surcoat/guard))
 		var/obj/item/clothing/S = H.cloak

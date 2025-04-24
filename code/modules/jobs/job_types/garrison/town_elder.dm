@@ -144,19 +144,19 @@ datum/job/town_elder/after_spawn(mob/living/spawned, client/player_client)
 	H.advsetup = 1
 	H.invisibility = INVISIBILITY_MAXIMUM
 	H.become_blind("bard_select")
-	var/instruments = list(
-		"Harp" = /obj/item/instrument/harp,
-		"Lute" = /obj/item/instrument/lute,
-		"Accordion" = /obj/item/instrument/accord,
-		"Guitar" = /obj/item/instrument/guitar,
-		"Flute" = /obj/item/instrument/flute,
-		"Drum" = /obj/item/instrument/drum,
-		"Hurdy-Gurdy" = /obj/item/instrument/hurdygurdy,
-		"Viola" = /obj/item/instrument/viola)
-	var/instrument_choice = input(usr, "Choose your instrument.", "XYLIX") as anything in instruments
-	var/spawn_instrument = instruments[instrument_choice]
-	if(!spawn_instrument)
-		spawn_instrument = /obj/item/instrument/lute
+	var/spawn_instrument = /obj/item/instrument/lute
+	if(player_client)
+		var/instruments = list(
+			"Harp" = /obj/item/instrument/harp,
+			"Lute" = /obj/item/instrument/lute,
+			"Accordion" = /obj/item/instrument/accord,
+			"Guitar" = /obj/item/instrument/guitar,
+			"Flute" = /obj/item/instrument/flute,
+			"Drum" = /obj/item/instrument/drum,
+			"Hurdy-Gurdy" = /obj/item/instrument/hurdygurdy,
+			"Viola" = /obj/item/instrument/viola)
+		var/instrument_choice = input(usr, "Choose your instrument.", "XYLIX") as anything in instruments
+		spawn_instrument = instruments[instrument_choice]
 	H.equip_to_slot_or_del(new spawn_instrument(H),SLOT_BACK_R, TRUE)
 	H.advsetup = 0
 	H.invisibility = initial(H.invisibility)
@@ -411,19 +411,19 @@ datum/job/town_elder/after_spawn(mob/living/spawned, client/player_client)
 	H.advsetup = 1
 	H.invisibility = INVISIBILITY_MAXIMUM
 	H.become_blind("bard_select")
-	var/instruments = list(
-		"Harp" = /obj/item/instrument/harp,
-		"Lute" = /obj/item/instrument/lute,
-		"Accordion" = /obj/item/instrument/accord,
-		"Guitar" = /obj/item/instrument/guitar,
-		"Flute" = /obj/item/instrument/flute,
-		"Drum" = /obj/item/instrument/drum,
-		"Hurdy-Gurdy" = /obj/item/instrument/hurdygurdy,
-		"Viola" = /obj/item/instrument/viola)
-	var/instrument_choice = input(usr, "Choose your instrument.", "XYLIX") as anything in instruments
-	var/spawn_instrument = instruments[instrument_choice]
-	if(!spawn_instrument)
-		spawn_instrument = /obj/item/instrument/lute
+	var/spawn_instrument = /obj/item/instrument/lute
+	if(player_client)
+		var/instruments = list(
+			"Harp" = /obj/item/instrument/harp,
+			"Lute" = /obj/item/instrument/lute,
+			"Accordion" = /obj/item/instrument/accord,
+			"Guitar" = /obj/item/instrument/guitar,
+			"Flute" = /obj/item/instrument/flute,
+			"Drum" = /obj/item/instrument/drum,
+			"Hurdy-Gurdy" = /obj/item/instrument/hurdygurdy,
+			"Viola" = /obj/item/instrument/viola)
+		var/instrument_choice = input(usr, "Choose your instrument.", "XYLIX") as anything in instruments
+		spawn_instrument = instruments[instrument_choice]
 	H.equip_to_slot_or_del(new spawn_instrument(H),SLOT_BACK_R, TRUE)
 	H.advsetup = 0
 	H.invisibility = initial(H.invisibility)
