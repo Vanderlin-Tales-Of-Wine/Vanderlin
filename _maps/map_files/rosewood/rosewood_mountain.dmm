@@ -2345,8 +2345,8 @@
 /turf/closed/mineral/random/cold/med,
 /area/rogue/under/mountains/anvil/upper)
 "sC" = (
-/obj/structure/barricade/rogue,
-/obj/structure/barricade/rogue/crude,
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/upper)
 "sF" = (
@@ -2559,8 +2559,8 @@
 /turf/open/floor/grass/cold,
 /area/rogue/under/mountains/anvil/upper)
 "uD" = (
-/obj/structure/barricade/rogue,
-/obj/structure/barricade/rogue/crude,
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
 /obj/structure/fluff/walldeco/vinez/blue,
 /turf/open/floor/snow,
 /area/rogue/under/mountains/anvil/upper)
@@ -3732,8 +3732,8 @@
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 8
 	},
-/obj/structure/barricade/rogue/crude,
-/obj/structure/barricade/rogue,
+/obj/structure/barricade/wooden/crude,
+/obj/structure/barricade/wooden,
 /obj/structure/fluff/walldeco/vinez/blue,
 /turf/open/floor/snow,
 /area/rogue/under/mountains/anvil/upper)
@@ -6228,8 +6228,8 @@
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/mountains/anvil/snowyforest)
 "XJ" = (
-/obj/structure/barricade/rogue,
-/obj/structure/barricade/rogue/crude,
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
 /turf/open/floor/snow,
 /area/rogue/under/mountains/anvil/upper)
 "XL" = (
