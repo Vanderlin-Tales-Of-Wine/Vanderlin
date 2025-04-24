@@ -28,21 +28,20 @@
 	uses_attacked_atom = TRUE
 	subtypes_allowed = TRUE
 
-
 /datum/repeatable_crafting_recipe/canvas
 	name = "canvas"
 	output = /obj/item/canvas
-	starting_atom = /obj/item/paper
 	requirements = list(
-		/obj/item/paper = 2
+		/obj/item/paper = 2,
 	)
+	tool_usage = list(
+		/obj/item/needle = list("starts to weave", "start to weave")
+	)
+	starting_atom = /obj/item/needle
 	attacked_atom = /obj/item/paper
-
 	craft_time = 3 SECONDS
 	crafting_message = "starts weaving a canvas"
 	craftdiff = 0
-	uses_attacked_atom = TRUE
-	subtypes_allowed = TRUE
 
 /datum/repeatable_crafting_recipe/paintbrush
 	name = "paint brush"

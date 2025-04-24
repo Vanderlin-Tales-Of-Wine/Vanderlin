@@ -317,6 +317,8 @@
 						var/attacking_item = user.get_active_held_item()
 						if(!(!src.mind || !user.mind)) // don't need to log if at least one of the mobs is without an initialized mind because this is used for escalation
 							log_defense(src, user, "dodged", attacking_atom = attacking_item, addition = "(INTENT:[uppertext(user.used_intent.name)])")
+						if(src.client)
+							GLOB.vanderlin_round_stats[STATS_DODGES]++
 						return TRUE
 					else
 						return FALSE
@@ -515,6 +517,8 @@
 //				playsound(T, T.landsound, 100, FALSE)
 	if(!(!src.mind || !user.mind)) // don't need to log if at least one of the mobs is without an initialized mind because this is used for escalation
 		log_defense(src, user, "dodged", defending_item, attacking_item, "INTENT:[uppertext(attacking_mob.used_intent.name)]")
+	if(src.client)
+		GLOB.vanderlin_round_stats[STATS_DODGES]++
 	return TRUE
 //	else
 		//return FALSE

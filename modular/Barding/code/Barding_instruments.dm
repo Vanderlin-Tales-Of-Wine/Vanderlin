@@ -203,6 +203,7 @@
 	soundloop.stress2give = stressevent
 	soundloop.start()
 	user.apply_status_effect(/datum/status_effect/buff/playing_music, stressevent, note_color)
+	GLOB.vanderlin_round_stats[STATS_SONGS_PLAYED]++
 	if(dynamic_icon)
 		lift_to_mouth()
 		update_icon()

@@ -605,6 +605,10 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound_dusk = null
 	droning_sound_night = null
 
+/area/rogue/indoors/town/town_elder/place
+	icon_state = "tavern"
+	first_time_text = "THE?"
+
 // so you can teleport to the farm
 /area/rogue/indoors/soilsons
 	name = "soilsons"
