@@ -37,6 +37,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 
 /client
 	var/commendedsomeone
+	var/atom/movable/movingmob
 	var/whitelisted = 2
 
 /client/Topic(href, href_list, hsrc)
@@ -122,7 +123,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		cmd_admin_pm(href_list["priv_msg"],null)
 		return
 
-	if(href_list["playerlistrogue"])
+	if(href_list["playerlist"])
 		if(SSticker.current_state != GAME_STATE_FINISHED)
 			return
 		view_rogue_manifest()
@@ -951,10 +952,6 @@ GLOBAL_LIST_EMPTY(respawncounts)
 
 	if(CONFIG_GET(flag/autoconvert_notes))
 		convert_notes_sql(ckey)
-
-
-
-	add_patreon_verbs()
 
 
 	to_chat(src, get_message_output("message", ckey))

@@ -633,4 +633,3 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 				continue
 			key_bindings |= key
 			key_bindings[key] = GLOB.hotkey_keybinding_list_by_key[key]
-			preference_message_list |= span_bold("[key_name[1]] was unbound and the default key was not in use it has been set to [key]!")

@@ -93,8 +93,3 @@
 #ifdef GC_FAILURE_HARD_LOOKUP
 #define FIND_REF_NO_CHECK_TICK
 #endif
-
-#ifdef TGS
-// TGS performs its own build of dm.exe, but includes a prepended TGS define.
-#define CBT
-#endif
