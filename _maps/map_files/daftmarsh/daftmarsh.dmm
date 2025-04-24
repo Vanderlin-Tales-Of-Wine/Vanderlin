@@ -9847,6 +9847,10 @@
 "ksE" = (
 /turf/open/floor/dirt,
 /area/rogue/under/cavewet)
+"ksO" = (
+/obj/effect/landmark/observer_start,
+/turf/open/floor/carpet/lord/center,
+/area/rogue/indoors/town/manor)
 "ktk" = (
 /obj/machinery/light/fueled/oven{
 	pixel_y = 31
@@ -123728,7 +123732,7 @@ dhy
 ngg
 dhy
 waK
-dhy
+ksO
 qzc
 dhy
 dhy
