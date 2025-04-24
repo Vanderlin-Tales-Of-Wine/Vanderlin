@@ -11,10 +11,6 @@
 /mob/living/carbon/human/species/goblin/npc/cave,
 /turf/open/floor/dirt,
 /area/rogue/under/cavewet)
-"bg" = (
-/obj/structure/barricade/rogue,
-/turf/open/floor/dirt,
-/area/rogue/under/cavewet)
 "bx" = (
 /mob/living/carbon/human/species/goblin/npc/cave,
 /turf/open/floor/grass/cold,
@@ -74,11 +70,6 @@
 /obj/item/reagent_containers/food/snacks/meat/salami,
 /turf/open/floor/grass/cold,
 /area/rogue/under/mountains)
-"mG" = (
-/obj/structure/door/stone,
-/obj/effect/dungeon_directional_helper/south,
-/turf/open/floor/dirt,
-/area/rogue/under/cavewet)
 "mV" = (
 /obj/structure/flora/newtree/snow,
 /turf/open/floor/grass/cold,
@@ -112,11 +103,6 @@
 "oN" = (
 /turf/open/floor/snow/patchy,
 /area/rogue/under/mountains)
-"oS" = (
-/obj/structure/door/stone,
-/obj/effect/dungeon_directional_helper/north,
-/turf/open/floor/dirt,
-/area/rogue/under/cavewet)
 "pE" = (
 /obj/machinery/light/fueled/firebowl,
 /turf/open/floor/dirt,
@@ -142,10 +128,6 @@
 /area/rogue/under/cavewet)
 "tl" = (
 /obj/effect/spawner/map_spawner/loot/magic,
-/turf/open/floor/dirt,
-/area/rogue/under/cavewet)
-"tB" = (
-/obj/structure/door/stone,
 /turf/open/floor/dirt,
 /area/rogue/under/cavewet)
 "tH" = (
@@ -193,6 +175,11 @@
 /area/rogue/under/cavewet)
 "xC" = (
 /turf/open/floor/grass/cold,
+/area/rogue/under/cavewet)
+"xR" = (
+/obj/structure/door/stone,
+/obj/effect/dungeon_directional_helper/north,
+/turf/open/floor/dirt,
 /area/rogue/under/cavewet)
 "yb" = (
 /obj/effect/decal/cleanable/blood,
@@ -255,6 +242,10 @@
 /obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/dirt,
 /area/rogue/under/cavewet)
+"EL" = (
+/obj/structure/barricade/wooden,
+/turf/open/floor/dirt,
+/area/rogue/under/cavewet)
 "EU" = (
 /obj/structure/table/wood/treestump,
 /turf/open/floor/snow,
@@ -279,6 +270,10 @@
 "Jv" = (
 /turf/open/transparent/openspace,
 /area/rogue/under/mountains)
+"JM" = (
+/obj/structure/door/stone,
+/turf/open/floor/dirt,
+/area/rogue/under/cavewet)
 "KO" = (
 /turf/open/floor/snow/patchy,
 /area/rogue/under/cavewet)
@@ -316,24 +311,6 @@
 "QA" = (
 /turf/closed/mineral/bedrock,
 /area/rogue/under/cavewet)
-"RP" = (
-/obj/effect/decal/cleanable/blood/drip,
-/obj/item/weapon/polearm/spear/billhook,
-/obj/item/clothing/head/crown/circlet/sleepless,
-/obj/effect/spawner/map_spawner/loot/coin/absurd,
-/obj/effect/spawner/map_spawner/loot/potion_vitals,
-/obj/effect/mapping_helpers/floor_clothing_equipper,
-/mob/living/carbon/human/species/goblin/npc{
-	base_constitution = 20;
-	base_endurance = 20;
-	base_intelligence = 20;
-	base_fortune = 20;
-	base_perception = 20;
-	base_speed = 20;
-	name = "Level 1 Goblin"
-	},
-/turf/open/floor/dirt,
-/area/rogue/under/cavewet)
 "RS" = (
 /obj/structure/closet/crate/chest/crate,
 /obj/item/reagent_containers/glass/bottle/waterskin,
@@ -347,11 +324,6 @@
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/snow,
 /area/rogue/under/mountains)
-"Sy" = (
-/obj/structure/door/stone,
-/obj/effect/dungeon_directional_helper/east,
-/turf/open/floor/dirt,
-/area/rogue/under/cavewet)
 "SA" = (
 /obj/structure/fluff/railing/wood{
 	dir = 8
@@ -387,6 +359,11 @@
 	},
 /turf/open/floor/snow,
 /area/rogue/under/mountains)
+"Vi" = (
+/obj/structure/door/stone,
+/obj/effect/dungeon_directional_helper/east,
+/turf/open/floor/dirt,
+/area/rogue/under/cavewet)
 "Vr" = (
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/grass/cold,
@@ -417,11 +394,34 @@
 /obj/machinery/light/fueled/firebowl,
 /turf/open/floor/snow,
 /area/rogue/under/mountains)
+"Yp" = (
+/obj/effect/decal/cleanable/blood/drip,
+/obj/item/weapon/polearm/spear/billhook,
+/obj/item/clothing/head/crown/circlet/sleepless,
+/obj/effect/spawner/map_spawner/loot/coin/absurd,
+/obj/effect/spawner/map_spawner/loot/potion_vitals,
+/obj/effect/mapping_helpers/floor_clothing_equipper,
+/mob/living/carbon/human/species/goblin/npc{
+	base_constitution = 20;
+	base_endurance = 20;
+	base_intelligence = 20;
+	base_fortune = 20;
+	base_perception = 20;
+	base_speed = 20;
+	name = "Level 1 Goblin"
+	},
+/turf/open/floor/dirt,
+/area/rogue/under/cavewet)
 "YL" = (
 /obj/structure/stairs/stone{
 	dir = 1
 	},
 /turf/open/floor/snow,
+/area/rogue/under/cavewet)
+"YX" = (
+/obj/structure/door/stone,
+/obj/effect/dungeon_directional_helper/south,
+/turf/open/floor/dirt,
 /area/rogue/under/cavewet)
 "ZF" = (
 /obj/structure/fluff/railing/wood,
@@ -753,7 +753,7 @@ QA
 "}
 (11,1,1) = {"
 QA
-bg
+EL
 QA
 xC
 KO
@@ -785,7 +785,7 @@ QA
 "}
 (12,1,1) = {"
 QA
-bg
+EL
 QA
 xC
 KO
@@ -848,7 +848,7 @@ xC
 QA
 "}
 (14,1,1) = {"
-oS
+xR
 Xp
 pE
 QA
@@ -877,7 +877,7 @@ QA
 QA
 xC
 Xp
-mG
+YX
 "}
 (15,1,1) = {"
 QA
@@ -912,7 +912,7 @@ Xp
 QA
 "}
 (16,1,1) = {"
-tB
+JM
 Xp
 Xp
 Xp
@@ -941,7 +941,7 @@ Xp
 Xp
 Xp
 Xp
-tB
+JM
 "}
 (17,1,1) = {"
 QA
@@ -1214,7 +1214,7 @@ NX
 Hl
 Xp
 Xp
-RP
+Yp
 Xp
 xC
 Vr
@@ -1374,9 +1374,9 @@ QA
 QA
 QA
 QA
-Sy
+Vi
 QA
-tB
+JM
 QA
 QA
 QA

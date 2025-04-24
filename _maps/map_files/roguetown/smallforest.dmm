@@ -301,14 +301,6 @@
 /obj/structure/flora/tree/wise,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/woods)
-"re" = (
-/obj/structure/door/weak/bolt{
-	dir = 1
-	},
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
-/area/rogue/indoors)
 "ri" = (
 /turf/closed/wall/mineral/wooddark,
 /area/rogue/indoors)
@@ -614,6 +606,14 @@
 /mob/living/simple_animal/hostile/retaliate/goat,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/woods)
+"UT" = (
+/obj/structure/door/weak/bolt{
+	dir = 1
+	},
+/turf/open/floor/ruinedwood{
+	icon_state = "horzw"
+	},
+/area/rogue/indoors)
 "Vh" = (
 /turf/open/water/river,
 /area/rogue/outdoors/woods)
@@ -12145,7 +12145,7 @@ ri
 XR
 bj
 zF
-re
+UT
 ab
 ab
 ub

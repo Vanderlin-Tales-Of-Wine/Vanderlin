@@ -77,6 +77,7 @@
 
 	var/cached_mailer
 	var/cached_mailedto
+	var/trapped
 
 /obj/item/paper/get_real_price()
 	if(info)
@@ -214,6 +215,14 @@
 		mailedto = null
 		update_icon()
 		return
+	if(trapped)
+		var/mob/living/victim = user
+		victim.visible_message(span_notice("[user] opens the [src]."))
+		to_chat(user, span_warning("This parchment is full of strange symbols that start to glow. How odd. Wait-"))
+		sleep(5)
+		victim.adjust_fire_stacks(15)
+		victim.IgniteMob()
+		victim.visible_message(span_danger("[user] bursts into flames upon reading [src]!"))
 	read(user)
 	if(rigged && (SSevents.holidays && SSevents.holidays[APRIL_FOOLS]))
 		if(!spam_flag)
@@ -348,6 +357,14 @@
 
 	if(href_list["read"])
 		read(usr)
+		if(trapped)
+			var/mob/living/victim = usr
+			victim.visible_message(span_notice("[usr] opens the [src]."))
+			to_chat(usr, span_warning("This parchment is full of strange symbols that start to glow. How odd. Wait-"))
+			sleep(5)
+			victim.adjust_fire_stacks(15)
+			victim.IgniteMob()
+			victim.visible_message(span_danger("[usr] bursts into flames upon reading [src]!"))
 
 	if(href_list["help"])
 		openhelp(usr)
@@ -412,6 +429,13 @@
 
 		user.put_in_hands(new_manuscript)
 		return
+
+	if(istype(P, /obj/item/natural/feather/infernal))
+		if(trapped)
+			to_chat(user, span_warning("[src] is already trapped."))
+		else
+			to_chat(user, span_warning("I draw infernal symbols on this [src], rigging it to explode."))
+			trapped = TRUE
 
 	if(istype(P, /obj/item/natural/thorn) || istype(P, /obj/item/natural/feather))
 		if(is_blind(user))

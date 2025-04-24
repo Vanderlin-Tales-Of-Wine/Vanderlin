@@ -7,10 +7,18 @@
 "ag" = (
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
+"ak" = (
+/obj/structure/door/red,
+/turf/open/floor/cobble,
+/area/rogue/under/mountains/anvil/dungeon/lower)
 "am" = (
 /obj/structure/bed/shit,
 /mob/living/carbon/human/species/goblin/npc/ambush,
 /turf/open/floor/twig,
+/area/rogue/under/mountains/anvil/dungeon)
+"ao" = (
+/obj/structure/door/weak/bolt,
+/turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon)
 "au" = (
 /obj/structure/bookcase/random/legends,
@@ -32,6 +40,10 @@
 "ba" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/carpet,
+/area/rogue/under/mountains/anvil/dungeon/lower)
+"bf" = (
+/obj/structure/door/stone,
+/turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "bk" = (
 /obj/structure/table/wood{
@@ -109,6 +121,13 @@
 /obj/machinery/light/fueled/torchholder/l,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon)
+"cn" = (
+/obj/structure/door/fancy{
+	lockid = "manor";
+	name = "Manor"
+	},
+/turf/open/floor/cobblerock,
+/area/rogue/under/mountains/anvil/dungeon)
 "cr" = (
 /obj/machinery/light/fueled/torchholder/l,
 /obj/structure/handcart{
@@ -168,6 +187,11 @@
 "dn" = (
 /obj/structure/stairs/stone,
 /turf/open/floor/carpet,
+/area/rogue/under/mountains/anvil/dungeon)
+"ds" = (
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
+/turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon)
 "dw" = (
 /obj/structure/chair/wood/alt/fancy,
@@ -313,13 +337,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon)
-"fh" = (
-/obj/structure/door/fancy{
-	lockid = "manor";
-	name = "Manor"
-	},
-/turf/open/floor/cobble,
-/area/rogue/under/mountains/anvil/dungeon)
 "fk" = (
 /obj/machinery/light/fueled/campfire/longlived,
 /obj/effect/decal/cleanable/blood,
@@ -346,10 +363,6 @@
 /mob/living/simple_animal/hostile/skeleton/spear,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon)
-"fM" = (
-/obj/structure/door/red,
-/turf/open/floor/cobble,
-/area/rogue/under/mountains/anvil/dungeon/lower)
 "fS" = (
 /mob/living/carbon/human/species/skeleton/npc/warrior,
 /turf/open/floor/cobble,
@@ -360,6 +373,11 @@
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "fZ" = (
 /obj/structure/chair/bench/church/r,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/cobble,
+/area/rogue/under/mountains/anvil/dungeon/lower)
+"ga" = (
+/obj/structure/door,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
@@ -402,11 +420,6 @@
 /obj/structure/chair/wood/alt,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon)
-"gB" = (
-/obj/item/reagent_containers/food/snacks/potato/baked,
-/obj/structure/spider/stickyweb,
-/turf/open/floor/cobblerock,
-/area/rogue/under/mountains/anvil/dungeon/lower)
 "gE" = (
 /obj/structure/chair/wood/alt,
 /mob/living/carbon/human/species/skeleton/npc/peasant,
@@ -487,6 +500,10 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/carpet,
 /area/rogue/under/mountains/anvil/dungeon)
+"hV" = (
+/obj/structure/door/viewport,
+/turf/open/floor/cobble,
+/area/rogue/under/mountains/anvil/dungeon/lower)
 "hY" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /mob/living/simple_animal/hostile/retaliate/mimic,
@@ -546,10 +563,6 @@
 "iK" = (
 /mob/living/simple_animal/hostile/retaliate/bigrat,
 /turf/open/floor/cobble,
-/area/rogue/under/mountains/anvil/dungeon)
-"iP" = (
-/obj/structure/door/window,
-/turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon)
 "iQ" = (
 /obj/structure/trophy/deer,
@@ -628,10 +641,6 @@
 /obj/item/reagent_containers/glass/cup/skull,
 /obj/item/reagent_containers/glass/cup/skull,
 /obj/item/reagent_containers/glass/cup/skull,
-/turf/open/floor/cobble,
-/area/rogue/under/mountains/anvil/dungeon)
-"jN" = (
-/obj/structure/door/window,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon)
 "jQ" = (
@@ -1162,15 +1171,13 @@
 /obj/structure/table/vtable,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
-"pR" = (
-/obj/structure/door/stone,
-/turf/open/floor/cobble,
+"pN" = (
+/obj/structure/door/fancy{
+	lockid = "manor";
+	name = "Manor"
+	},
+/turf/open/floor/carpet/lord/center,
 /area/rogue/under/mountains/anvil/dungeon/lower)
-"pS" = (
-/obj/structure/barricade/rogue,
-/obj/structure/barricade/rogue/crude,
-/turf/open/floor/cobble,
-/area/rogue/under/mountains/anvil/dungeon)
 "qk" = (
 /obj/structure/bookcase/random/apocrypha,
 /obj/machinery/light/fueled/wallfire/candle/blue,
@@ -1202,6 +1209,10 @@
 /obj/machinery/light/fueled/torchholder/r,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
+"qr" = (
+/obj/structure/door,
+/turf/open/floor/cobble,
+/area/rogue/under/mountains/anvil/dungeon)
 "qs" = (
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
@@ -1486,13 +1497,6 @@
 /obj/structure/bed/sleepingbag,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
-"tK" = (
-/obj/structure/door/fancy{
-	lockid = "manor";
-	name = "Manor"
-	},
-/turf/open/floor/cobblerock,
-/area/rogue/under/mountains/anvil/dungeon)
 "tY" = (
 /obj/item/alch/bone,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -1554,11 +1558,10 @@
 /obj/item/weapon/knife/cleaver,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon)
-"uu" = (
-/obj/structure/door,
-/obj/effect/decal/cleanable/dirt/dust,
+"ut" = (
+/obj/structure/door/window,
 /turf/open/floor/cobble,
-/area/rogue/under/mountains/anvil/dungeon/lower)
+/area/rogue/under/mountains/anvil/dungeon)
 "uv" = (
 /obj/machinery/light/fueled/firebowl,
 /turf/open/floor/cobble,
@@ -1575,6 +1578,10 @@
 /obj/structure/fluff/railing/fence{
 	dir = 8
 	},
+/turf/open/floor/cobblerock,
+/area/rogue/under/mountains/anvil/dungeon)
+"uJ" = (
+/obj/structure/door/window,
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon)
 "uM" = (
@@ -1714,12 +1721,23 @@
 /obj/effect/decal/cleanable/blood/gibs/down,
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon)
+"wG" = (
+/obj/structure/door/fancy{
+	lockid = "manor";
+	name = "Manor"
+	},
+/turf/open/floor/cobble,
+/area/rogue/under/mountains/anvil/dungeon)
 "wI" = (
 /obj/structure/fluff/walldeco/skullspike,
 /turf/open/floor/twig,
 /area/rogue/under/mountains/anvil/dungeon)
 "wL" = (
 /obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/cobble,
+/area/rogue/under/mountains/anvil/dungeon)
+"xa" = (
+/obj/structure/door/swing,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon)
 "xc" = (
@@ -1864,10 +1882,6 @@
 /obj/item/natural/bundle/cloth,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon)
-"zb" = (
-/obj/structure/door/weak/bolt,
-/turf/open/floor/cobblerock,
-/area/rogue/under/mountains/anvil/dungeon)
 "zk" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/closet/crate/chest/gold,
@@ -1881,10 +1895,6 @@
 /obj/item/ingot/gold,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
-"zm" = (
-/obj/structure/door/swing,
-/turf/open/floor/cobble,
-/area/rogue/under/mountains/anvil/dungeon)
 "zp" = (
 /obj/machinery/light/fueled/campfire/longlived,
 /turf/open/floor/naturalstone,
@@ -1984,10 +1994,6 @@
 /obj/item/reagent_containers/food/snacks/cooked/ham,
 /obj/item/reagent_containers/food/snacks/cooked/ham,
 /obj/item/reagent_containers/food/snacks/cooked/ham,
-/turf/open/floor/cobblerock,
-/area/rogue/under/mountains/anvil/dungeon)
-"AL" = (
-/obj/structure/door,
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon)
 "AO" = (
@@ -2109,10 +2115,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
-"CK" = (
-/obj/structure/door/viewport,
-/turf/open/floor/cobble,
-/area/rogue/under/mountains/anvil/dungeon/lower)
 "CO" = (
 /turf/closed/wall/mineral/wood,
 /area/rogue/under/mountains/anvil/dungeon)
@@ -2177,10 +2179,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon/lower)
-"DF" = (
-/obj/structure/door,
-/turf/open/floor/cobble,
-/area/rogue/under/mountains/anvil/dungeon)
 "DH" = (
 /obj/structure/stairs/stone,
 /turf/open/floor/carpet,
@@ -2604,13 +2602,6 @@
 /obj/item/book/noc,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
-"IJ" = (
-/obj/structure/door/fancy{
-	lockid = "manor";
-	name = "Manor"
-	},
-/turf/open/floor/cobble,
-/area/rogue/under/mountains/anvil/dungeon/lower)
 "IK" = (
 /obj/structure/flora/grass,
 /obj/structure/flora/ausbushes/brflowers,
@@ -2790,6 +2781,10 @@
 /obj/machinery/light/fueled/torchholder/l,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
+"KJ" = (
+/obj/structure/door,
+/turf/open/floor/cobblerock,
+/area/rogue/under/mountains/anvil/dungeon)
 "KN" = (
 /obj/structure/rack,
 /obj/item/weapon/pick,
@@ -3037,9 +3032,6 @@
 	},
 /turf/open/floor/carpet,
 /area/rogue/under/mountains/anvil/dungeon)
-"Oq" = (
-/turf/closed/basic,
-/area/rogue/under/mountains/anvil/dungeon/lower)
 "Ou" = (
 /obj/item/clothing/face/facemask/goldmask,
 /obj/item/clothing/wrists/bracers/hoplite,
@@ -3242,12 +3234,6 @@
 /obj/item/weapon/knife/cleaver,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon)
-"QX" = (
-/obj/structure/door/weak/bolt{
-	dir = 1
-	},
-/turf/open/floor/cobble,
-/area/rogue/under/mountains/anvil/dungeon)
 "QY" = (
 /obj/structure/table/wood/large/corner,
 /obj/item/coin/copper/pile,
@@ -3257,6 +3243,11 @@
 "Ra" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/cobble,
+/area/rogue/under/mountains/anvil/dungeon/lower)
+"Rf" = (
+/obj/item/reagent_containers/food/snacks/potato/baked,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Rq" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -3401,6 +3392,9 @@
 /obj/item/storage/belt/leather/plaquegold,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon)
+"Tp" = (
+/turf/closed/basic,
+/area/rogue/under/mountains/anvil/dungeon/lower)
 "Tx" = (
 /obj/structure/fluff/walldeco/moon,
 /obj/machinery/light/fueled/torchholder,
@@ -3446,6 +3440,13 @@
 /obj/item/alch/swampdust,
 /obj/item/alch/swampdust,
 /obj/item/alch/swampdust,
+/turf/open/floor/cobble,
+/area/rogue/under/mountains/anvil/dungeon/lower)
+"TX" = (
+/obj/structure/door/fancy{
+	lockid = "manor";
+	name = "Manor"
+	},
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Ua" = (
@@ -3688,13 +3689,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon)
-"WO" = (
-/obj/structure/door/fancy{
-	lockid = "manor";
-	name = "Manor"
-	},
-/turf/open/floor/carpet/lord/center,
-/area/rogue/under/mountains/anvil/dungeon/lower)
 "WP" = (
 /mob/living/simple_animal/hostile/retaliate/minotaur/axe{
 	real_name = "Bonebreaker"
@@ -3738,6 +3732,12 @@
 /obj/item/weapon/knife/dagger/steel/dirk,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
+"Xs" = (
+/obj/structure/door/weak/bolt{
+	dir = 1
+	},
+/turf/open/floor/cobble,
+/area/rogue/under/mountains/anvil/dungeon)
 "XB" = (
 /obj/structure/chair/bench/church/r,
 /turf/open/floor/cobble,
@@ -5179,7 +5179,7 @@ FM
 Xc
 Xc
 Xc
-Oq
+Tp
 Xc
 Xc
 Xc
@@ -5314,7 +5314,7 @@ Xc
 Xc
 Xc
 FM
-gB
+Rf
 lJ
 eq
 Ds
@@ -5882,7 +5882,7 @@ FM
 FM
 dC
 FM
-fM
+ak
 dC
 FM
 FM
@@ -6018,7 +6018,7 @@ rx
 ba
 ba
 WZ
-IJ
+TX
 Wq
 ba
 WZ
@@ -6150,7 +6150,7 @@ ba
 WZ
 rx
 rx
-WO
+pN
 rx
 Wq
 ba
@@ -6278,7 +6278,7 @@ FM
 FM
 dC
 FM
-fM
+ak
 dC
 FM
 FM
@@ -6544,7 +6544,7 @@ dY
 rx
 hr
 As
-pR
+bf
 Wq
 Wq
 rx
@@ -6685,7 +6685,7 @@ rx
 dC
 FM
 mf
-uu
+ga
 RO
 FM
 Xc
@@ -6945,7 +6945,7 @@ FM
 FM
 FM
 rx
-CK
+hV
 Wq
 Wq
 rx
@@ -9326,7 +9326,7 @@ kZ
 kZ
 kZ
 kZ
-pS
+ds
 kZ
 kZ
 ta
@@ -9526,7 +9526,7 @@ kZ
 mU
 oR
 bY
-DF
+qr
 bY
 bY
 bY
@@ -9595,7 +9595,7 @@ wL
 kZ
 kZ
 kZ
-jN
+ut
 kZ
 kZ
 kZ
@@ -9868,7 +9868,7 @@ bY
 PL
 bY
 jC
-iP
+uJ
 bY
 Ip
 bY
@@ -9917,7 +9917,7 @@ QN
 oR
 bY
 bY
-jN
+ut
 bY
 wL
 kf
@@ -9994,7 +9994,7 @@ jC
 bY
 wL
 wL
-zm
+xa
 kg
 bY
 Po
@@ -10195,12 +10195,12 @@ hH
 Cb
 kZ
 kZ
-DF
+qr
 Cb
 kZ
 kZ
 kZ
-AL
+KJ
 kZ
 kZ
 Cb
@@ -10271,7 +10271,7 @@ gh
 eC
 vf
 im
-fh
+wG
 mA
 oR
 mA
@@ -10403,7 +10403,7 @@ pr
 jC
 dK
 bY
-tK
+cn
 oR
 mA
 oR
@@ -10464,7 +10464,7 @@ kZ
 kZ
 kZ
 Cb
-DF
+qr
 kZ
 kZ
 kZ
@@ -10856,7 +10856,7 @@ bY
 SU
 oR
 oR
-zb
+ao
 oR
 jC
 AO
@@ -10911,7 +10911,7 @@ oR
 oR
 UN
 wL
-QX
+Xs
 iZ
 oR
 oR
@@ -11317,7 +11317,7 @@ oR
 oR
 oR
 oR
-QX
+Xs
 fH
 oR
 rm
