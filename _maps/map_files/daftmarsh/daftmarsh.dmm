@@ -923,10 +923,6 @@
 /obj/structure/bed/hay,
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/town/church)
-"baJ" = (
-/obj/structure/flora/tree/evil,
-/turf/open/floor/dirt,
-/area/rogue/outdoors/rtfield)
 "baV" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 1
@@ -13591,10 +13587,6 @@
 /obj/structure/closet/crate/crafted_closet/inn,
 /turf/open/floor/carpet/green,
 /area/rogue/indoors/town/merc_guild)
-"oVy" = (
-/obj/structure/flora/tree/evil,
-/turf/open/floor/grass,
-/area/rogue/outdoors/rtfield)
 "oVG" = (
 /obj/structure/fluff/walldeco/vinez,
 /turf/closed/wall/mineral/decorstone/moss,
@@ -22508,11 +22500,6 @@
 /obj/structure/flora/grass/bush_meagre,
 /turf/open/floor/grass,
 /area/rogue/outdoors/town)
-"ygP" = (
-/obj/structure/flora/tree/evil,
-/obj/structure/flora/tree/evil,
-/turf/open/floor/dirt,
-/area/rogue/outdoors/rtfield)
 "ygV" = (
 /obj/structure/fluff/railing/wood{
 	dir = 1;
@@ -96143,7 +96130,7 @@ qVr
 hVT
 hVT
 aTl
-oVy
+fND
 vxB
 vxB
 aTl
@@ -96343,7 +96330,7 @@ apV
 (166,1,2) = {"
 qVr
 hVT
-oVy
+fND
 vxB
 vxB
 aTl
@@ -96545,7 +96532,7 @@ apV
 (167,1,2) = {"
 qVr
 hVT
-oVy
+fND
 vxB
 vxB
 aTl
@@ -96746,8 +96733,8 @@ apV
 "}
 (168,1,2) = {"
 qVr
-baJ
-baJ
+qUb
+aTl
 aTl
 aTl
 aTl
@@ -97554,7 +97541,7 @@ apV
 "}
 (172,1,2) = {"
 qVr
-baJ
+qUb
 aTl
 aTl
 xqc
@@ -97756,8 +97743,8 @@ apV
 "}
 (173,1,2) = {"
 qVr
-baJ
-ygP
+qUb
+qUb
 aTl
 aTl
 aTl
@@ -97959,7 +97946,7 @@ apV
 (174,1,2) = {"
 qVr
 pLv
-baJ
+qUb
 aTl
 aTl
 fiz
@@ -98162,7 +98149,7 @@ apV
 qVr
 pLv
 hVT
-aTl
+qUb
 aTl
 aTl
 vxB
@@ -98365,7 +98352,7 @@ qVr
 pLv
 pLv
 vxB
-baJ
+aTl
 aTl
 aTl
 vxB
