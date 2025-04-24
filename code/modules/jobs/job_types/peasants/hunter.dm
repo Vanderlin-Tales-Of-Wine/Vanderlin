@@ -20,6 +20,9 @@
 	give_bank_account = 15
 	apprentice_name = "Hunter"
 
+/datum/outfit/job/hunter
+	job_bitflag = BITFLAG_CONSTRUCTOR
+
 /datum/outfit/job/hunter/pre_equip(mob/living/carbon/human/H)
 	..()
 	pants = /obj/item/clothing/pants/tights/random
