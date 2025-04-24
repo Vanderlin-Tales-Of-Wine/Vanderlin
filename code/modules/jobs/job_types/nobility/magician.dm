@@ -52,19 +52,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/alchemy, 5, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 4, TRUE)
-		if(H.age == AGE_OLD)
-			armor = /obj/item/clothing/shirt/robe/courtmage
-			H.change_stat(STATKEY_SPD, -1)
-			H.change_stat(STATKEY_INT, 1)
-			if(H.dna.species.id == "human")
-				belt = /obj/item/storage/belt/leather/plaquegold
-				cloak = null
-				head = /obj/item/clothing/head/wizhat
-				if(H.gender == FEMALE)
-					armor = /obj/item/clothing/shirt/robe/courtmage
-				if(H.gender == MALE)
-					armor = /obj/item/clothing/shirt/robe/wizard
-					H.dna.species.soundpack_m = new /datum/voicepack/male/wizard()
+
 		ADD_TRAIT(H, TRAIT_SEEPRICES, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_LEGENDARY_ALCHEMIST, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
@@ -74,10 +62,24 @@
 		H.change_stat(STATKEY_INT, 5)
 		H.change_stat(STATKEY_CON, -2)
 		H.change_stat(STATKEY_SPD, -2)
-		H.mind.adjust_spellpoints(17)
-		H.mind.AddSpell(new /obj/effect/proc_holder/spell/aoe_turf/knock)
-		H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/ethereal_jaunt)
-		H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/learnspell)
-		H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
+		H.mind?.adjust_spellpoints(17)
+		H.mind?.AddSpell(new /obj/effect/proc_holder/spell/aoe_turf/knock)
+		H.mind?.AddSpell(new /obj/effect/proc_holder/spell/targeted/ethereal_jaunt)
+		H.mind?.AddSpell(new /obj/effect/proc_holder/spell/self/learnspell)
+		H.mind?.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
+
+	if(H.age == AGE_OLD)
+	armor = /obj/item/clothing/shirt/robe/courtmage
+	H.change_stat(STATKEY_SPD, -1)
+	H.change_stat(STATKEY_INT, 1)
+	if(H.dna.species.id == "human")
+		belt = /obj/item/storage/belt/leather/plaquegold
+		cloak = null
+		head = /obj/item/clothing/head/wizhat
+		if(H.gender == FEMALE)
+			armor = /obj/item/clothing/shirt/robe/courtmage
+		if(H.gender == MALE)
+			armor = /obj/item/clothing/shirt/robe/wizard
+			H.dna.species.soundpack_m = new /datum/voicepack/male/wizard()
 
 		H.generate_random_attunements(rand(4,6))

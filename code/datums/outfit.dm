@@ -114,6 +114,8 @@
  * * visualsOnly true if this is only for display (in the character setup screen)
  *
  * If visualsOnly is true, you can omit any work that doesn't visually appear on the character sprite
+ *
+ * The mob might not have a client or mind if it's a preview. Always add a check before using client or mind.
  */
 /datum/outfit/proc/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	//to be overridden for customization depending on client prefs,species etc
@@ -129,6 +131,8 @@
  * * visualsOnly true if this is only for display (in the character setup screen)
  *
  * If visualsOnly is true, you can omit any work that doesn't visually appear on the character sprite
+ *
+ * The mob won't have a client or mind if it's a preview. Always add a check before using client or mind.
  */
 /datum/outfit/proc/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	//to be overridden for toggling internals, id binding, access etc
