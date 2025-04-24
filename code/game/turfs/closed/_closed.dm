@@ -6,6 +6,9 @@
 	density = TRUE
 	blocks_air = TRUE
 	baseturfs = list(/turf/open/floor/naturalstone, /turf/open/transparent/openspace)
+
+	smoothing_groups = SMOOTH_GROUP_CLOSED
+
 	var/above_floor
 	var/wallpress = TRUE
 	var/wallclimb = FALSE

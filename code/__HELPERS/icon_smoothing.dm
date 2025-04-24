@@ -54,18 +54,13 @@ DEFINE_BITFIELD(smoothing_junction, list(
 	smoothing_flags &= ~SMOOTH_QUEUED
 	if (!z)
 		CRASH("[type] called smooth_icon() without being on a z-level")
-	if(smoothing_flags & (SMOOTH_BITMASK|SMOOTH_BITMASK_CARDINALS))
+	if(smoothing_flags & USES_SMOOTHING)
 		smooth()
-	if(smoothing_flags & SMOOTH_EDGE)
-		smooth(edge = TRUE)
+	else
+		CRASH("[type] called smooth_icon() without valid flags: [smoothing_flags]")
 
-/**
- * Basic smoothing proc. The atom checks for adjacent directions to smooth with and changes the icon_state based on that.
- *
- * Returns the previous smoothing_junction state so the previous state can be compared with the new one after the proc ends, and see the changes, if any.
- *
- */
-/atom/proc/smooth(edge = FALSE)
+/// Basic smoothing proc. The atom checks for adjacent directions to smooth with and changes the icon_state based on that.
+/atom/proc/smooth()
 	var/new_junction = NONE
 
 	// cache for sanic speed
@@ -73,42 +68,49 @@ DEFINE_BITFIELD(smoothing_junction, list(
 
 	var/smooth_border = (smoothing_flags & SMOOTH_BORDER)
 	var/smooth_obj = (smoothing_flags & SMOOTH_OBJ)
+	var/smooth_edge = (smoothing_flags & SMOOTH_EDGE)
 
 	#define SET_ADJ_IN_DIR(direction, direction_flag) \
 		set_adj_in_dir: { \
 			do { \
 				var/turf/neighbor = get_step(src, direction); \
-				if(neighbor) { \
-					if(smoothing_list) { \
-						var/neighbor_smoothing_groups = neighbor.smoothing_groups; \
-						if(neighbor_smoothing_groups) { \
-							for(var/target as anything in smoothing_list) { \
-								if(smoothing_list[target] & neighbor_smoothing_groups[target]) { \
-									new_junction |= direction_flag; \
-									break set_adj_in_dir; \
-								}; \
-							}; \
-						}; \
-						if(smooth_obj) { \
-							for(var/atom/movable/thing as anything in neighbor) { \
-								var/thing_smoothing_groups = thing.smoothing_groups; \
-								if(!thing.anchored || isnull(thing_smoothing_groups)) { \
-									continue; \
-								}; \
-								for(var/target in smoothing_list) { \
-									if(smoothing_list[target] & thing_smoothing_groups[target]) { \
-										new_junction |= direction_flag; \
-										break set_adj_in_dir; \
-									}; \
-								}; \
-							}; \
-						}; \
-					} else if (type == neighbor.type) { \
+				if(!neighbor) { \
+					if(smooth_border) { \
 						new_junction |= direction_flag; \
-						break set_adj_in_dir; \
 					}; \
-				} else if (smooth_border) { \
-					new_junction |= direction_flag; \
+					break set_adj_in_dir; \
+				}; \
+				if(smooth_edge && type == neighbor.type) { \
+					break set_adj_in_dir; \
+				}; \
+				if(!smoothing_list) { \
+					if(type == neighbor.type) { \
+						new_junction |= direction_flag; \
+					}; \
+					break set_adj_in_dir; \
+				}; \
+				var/neighbor_smoothing_groups = neighbor.smoothing_groups; \
+				if(neighbor_smoothing_groups) { \
+					for(var/target as anything in smoothing_list) { \
+						if(smoothing_list[target] & neighbor_smoothing_groups[target]) { \
+							new_junction |= direction_flag; \
+							break set_adj_in_dir; \
+						}; \
+					}; \
+				}; \
+				if(smooth_obj) { \
+					for(var/atom/movable/thing as anything in neighbor) { \
+						var/thing_smoothing_groups = thing.smoothing_groups; \
+						if(!thing.anchored || isnull(thing_smoothing_groups)) { \
+							continue; \
+						}; \
+						for(var/target in smoothing_list) { \
+							if(smoothing_list[target] & thing_smoothing_groups[target]) { \
+								new_junction |= direction_flag; \
+								break set_adj_in_dir; \
+							}; \
+						}; \
+					}; \
 				}; \
 				break set_adj_in_dir; \
 			} while(FALSE) \
@@ -117,12 +119,14 @@ DEFINE_BITFIELD(smoothing_junction, list(
 	for(var/direction as anything in GLOB.cardinals) //Cardinal case first.
 		SET_ADJ_IN_DIR(direction, direction)
 
-	if(smoothing_flags & ONLY_CARDINAL || !(new_junction & (NORTH|SOUTH)) || !(new_junction & (EAST|WEST)))
-		if(edge && isturf(src))
-			if(isturf(src))
-				var/turf/T = src
-				T.set_neighborlays(new_junction)
-			return
+	if(smooth_edge)
+		if(!isturf(src))
+			CRASH("[type] has SMOOTH_EDGE set but is not a turf!")
+		var/turf/T = src
+		T.set_neighborlays(new_junction)
+		return
+
+	if(smoothing_flags & SMOOTH_BITMASK_CARDINALS || !(new_junction & (NORTH|SOUTH)) || !(new_junction & (EAST|WEST)))
 		set_smoothed_icon_state(new_junction)
 		return
 
@@ -149,55 +153,46 @@ DEFINE_BITFIELD(smoothing_junction, list(
 	icon_state = "[initial(icon_state)]-[new_junction]"
 
 /turf/proc/set_neighborlays(new_junction)
+	remove_neighborlays()
+
 	if(new_junction == NONE)
 		return
 
-	var/adjacencies = new_junction
+	if(new_junction & NORTH)
+		handle_edge_icon(NORTH)
 
-	remove_neighborlays()
+	if(new_junction & SOUTH)
+		handle_edge_icon(SOUTH)
 
-	if(adjacencies & NORTH)
-		handle_edge_icon(get_step(src, NORTH), NORTH)
+	if(new_junction & EAST)
+		handle_edge_icon(EAST)
 
-	if(adjacencies & SOUTH)
-		handle_edge_icon(get_step(src, SOUTH), SOUTH)
+	if(new_junction & WEST)
+		handle_edge_icon(WEST)
 
-	if(adjacencies & EAST)
-		handle_edge_icon(get_step(src, EAST), EAST)
-
-	if(adjacencies & WEST)
-		handle_edge_icon(get_step(src, WEST), WEST)
-
-/turf/proc/handle_edge_icon(turf/T, dir)
-	if(!isturf(T))
-		if(smoothing_flags & SMOOTH_BORDER && neighborlay_self)
-			add_neighborlay(dir, neighborlay_self)
-		return
-	if(type == T.type)
-		return
+/turf/proc/handle_edge_icon(dir)
 	if(neighborlay_self)
 		add_neighborlay(dir, neighborlay_self)
-		return
 	if(neighborlay)
 		// Reverse dir because we are offsetting the overlay onto the adjacency
 		add_neighborlay(REVERSE_DIR(dir), neighborlay, TRUE)
 
-/turf/proc/add_neighborlay(dir, icon, offset = FALSE)
+/turf/proc/add_neighborlay(dir, edgeicon, offset = FALSE)
 	var/add
 	var/y = 0
 	var/x = 0
 	switch(dir)
 		if(NORTH)
-			add = "[icon]-n"
+			add = "[edgeicon]-n"
 			y = -32
 		if(SOUTH)
-			add = "[icon]-s"
+			add = "[edgeicon]-s"
 			y = 32
 		if(EAST)
-			add = "[icon]-e"
+			add = "[edgeicon]-e"
 			x = -32
 		if(WEST)
-			add = "[icon]-w"
+			add = "[edgeicon]-w"
 			x = 32
 
 	if(!add)
@@ -211,6 +206,8 @@ DEFINE_BITFIELD(smoothing_junction, list(
 /turf/proc/remove_neighborlays()
 	for(var/key as anything in neighborlay_list)
 		cut_overlay(neighborlay_list[key])
+		qdel(neighborlay_list[key])
+		neighborlay_list[key] = null
 		LAZYREMOVE(neighborlay_list, key)
 
 //Icon smoothing helpers

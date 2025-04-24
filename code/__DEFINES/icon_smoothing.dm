@@ -3,11 +3,7 @@
 #define SMOOTH_BITMASK	(1<<0)
 /// Limits SMOOTH_BITMASK to only cardinal directions, for use with cardinal smoothing
 #define SMOOTH_BITMASK_CARDINALS (1<<1)
-/**
- * turf only, will smooth via overlaying adjacent turfs
- * Uses var/neighborlay
- * compatible with other smoothing flags
- */
+/// Turf only, uses overlays to create edges on smoothed atoms. Incompatible with bitmask smoothing.
 #define SMOOTH_EDGE		(1<<2)
 /// atom will smooth with the borders of the map
 #define SMOOTH_BORDER	(1<<3)
@@ -17,7 +13,6 @@
 #define SMOOTH_QUEUED	(1<<5)
 
 #define USES_SMOOTHING (SMOOTH_BITMASK|SMOOTH_BITMASK_CARDINALS|SMOOTH_EDGE)
-#define ONLY_CARDINAL (SMOOTH_BITMASK_CARDINALS|SMOOTH_EDGE)
 
 DEFINE_BITFIELD(smooth, list(
 	"SMOOTH_BORDER" = SMOOTH_BORDER,
