@@ -9535,6 +9535,13 @@
 "kjP" = (
 /turf/closed/wall/mineral/stone/window/moss,
 /area/rogue/indoors/town/orphanage)
+"kjW" = (
+/obj/structure/fluff/railing/border{
+	dir = 4
+	},
+/obj/structure/fake_machine/scomm,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/indoors/town/tavern)
 "kkn" = (
 /obj/machinery/light/fueled/firebowl/stump,
 /turf/open/floor/grass,
@@ -20729,6 +20736,7 @@
 "wjg" = (
 /obj/structure/table/wood/counter/end,
 /obj/machinery/light/fueled/oven/south,
+/obj/structure/fake_machine/scomm/l,
 /turf/open/floor/tile,
 /area/rogue/indoors/town/tavern)
 "wjA" = (
@@ -124017,7 +124025,7 @@ sID
 sID
 cMh
 lkm
-ykY
+kjW
 ykY
 xvy
 dje
