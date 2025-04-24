@@ -2748,6 +2748,11 @@
 	dir = 4
 	},
 /area/rogue/indoors/town/clocktower)
+"cWQ" = (
+/obj/structure/fluff/walldeco/church/line,
+/obj/structure/fluff/statue/astrata,
+/turf/open/floor/churchmarble,
+/area/rogue/indoors/town/church/chapel)
 "cXd" = (
 /obj/structure/mineral_door/wood/donjon/stone,
 /obj/effect/mapping_helpers/door/access/church/church,
@@ -11884,6 +11889,11 @@
 	},
 /turf/open/floor/wood,
 /area/rogue/outdoors/town/roofs)
+"mKy" = (
+/obj/structure/fluff/walldeco/church/line,
+/obj/structure/fluff/statue/astrata/bling,
+/turf/open/floor/churchmarble,
+/area/rogue/indoors/town/church/chapel)
 "mKK" = (
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /obj/item/coin/gold/pile,
@@ -15955,11 +15965,6 @@
 	},
 /turf/open/floor/church,
 /area/rogue/indoors/town/manor)
-"rpV" = (
-/obj/structure/fluff/statue/astrata,
-/obj/structure/fluff/walldeco/church/line,
-/turf/open/floor/churchmarble,
-/area/rogue/indoors/town/church/chapel)
 "rqw" = (
 /obj/machinery/light/fueled/torchholder/r,
 /turf/open/floor/cobble,
@@ -20847,6 +20852,7 @@
 /area/rogue/under/cavewet)
 "wfm" = (
 /obj/structure/table/wood/plain_alt,
+/obj/structure/fluff/millstone,
 /turf/open/floor/tile,
 /area/rogue/indoors/town/church)
 "wfz" = (
@@ -22580,11 +22586,6 @@
 "xWw" = (
 /turf/open/floor/blocks/newstone/alt,
 /area/rogue/outdoors/town/roofs)
-"xWC" = (
-/obj/structure/fluff/statue/astrata/bling,
-/obj/structure/fluff/walldeco/church/line,
-/turf/open/floor/churchmarble,
-/area/rogue/indoors/town/church/chapel)
 "xWK" = (
 /turf/open/floor/churchrough,
 /area/rogue/outdoors/town/roofs)
@@ -89433,7 +89434,7 @@ mBr
 mBr
 mBr
 xtJ
-rpV
+jyG
 vRg
 vRg
 qkV
@@ -89635,7 +89636,7 @@ qkY
 lOP
 qkV
 cpN
-jyG
+cWQ
 dsu
 dsu
 lJH
@@ -90645,7 +90646,7 @@ qkY
 tqx
 qkV
 wGb
-jyG
+mKy
 dsu
 dsu
 sQo
@@ -90847,7 +90848,7 @@ qkY
 fSY
 qkV
 cpN
-xWC
+jyG
 dsu
 dsu
 lJH
@@ -132059,7 +132060,7 @@ eKn
 eKn
 gvF
 gvF
-eKn
+foW
 ioe
 sWx
 sWx
@@ -134908,7 +134909,7 @@ vtk
 vtk
 vtk
 daM
-jDc
+fRf
 jDc
 jDc
 jDc
@@ -136107,12 +136108,12 @@ sWx
 sWx
 sWx
 sWx
-cCM
+qgq
 faD
 jDc
 jDc
 cCM
-jDc
+fRf
 jio
 cCM
 psu
@@ -138125,7 +138126,7 @@ cCM
 jDc
 jDc
 cCM
-jDc
+fRf
 jDc
 jDc
 jDc
@@ -138331,8 +138332,8 @@ cCM
 cCM
 cCM
 cCM
-cCM
 jDc
+fRf
 jDc
 daM
 ite
@@ -138531,7 +138532,7 @@ usf
 jDc
 cCM
 jDc
-jDc
+cCM
 jDc
 cCM
 cCM
@@ -179141,7 +179142,7 @@ dKR
 ptM
 cCM
 cCM
-jDc
+fRf
 cCM
 vtk
 tYU
@@ -194468,12 +194469,12 @@ dKR
 dKR
 dKR
 dKR
-dKR
-dKR
-dKR
-dKR
-dKR
-dKR
+ctZ
+ctZ
+kIn
+gUR
+gUR
+gUR
 dKR
 dKR
 dKR
@@ -194670,12 +194671,12 @@ dKR
 dKR
 dKR
 dKR
-dKR
-dKR
-dKR
-dKR
-dKR
-dKR
+ctZ
+ctZ
+mdv
+gUR
+gUR
+gUR
 dKR
 dKR
 dKR
@@ -194872,12 +194873,12 @@ dKR
 dKR
 dKR
 dKR
-dKR
-dKR
-dKR
-dKR
-dKR
-dKR
+ctZ
+ctZ
+mdv
+gUR
+gUR
+gUR
 dKR
 dKR
 dKR
@@ -195074,12 +195075,12 @@ dKR
 dKR
 dKR
 dKR
-dKR
-dKR
-dKR
-dKR
-dKR
-dKR
+ctZ
+ctZ
+mdv
+gUR
+gUR
+gUR
 dKR
 dKR
 dKR
@@ -195278,7 +195279,7 @@ dKR
 ctZ
 ctZ
 ctZ
-kIn
+mdv
 gUR
 gUR
 gUR
