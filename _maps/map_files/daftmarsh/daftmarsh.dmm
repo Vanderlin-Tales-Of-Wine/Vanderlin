@@ -1731,6 +1731,13 @@
 	},
 /turf/closed/wall/mineral/decorstone,
 /area/rogue/indoors/town/manor)
+"bSC" = (
+/obj/machinery/light/fueled/hearth,
+/obj/item/reagent_containers/glass/bucket/pot{
+	pixel_y = 4
+	},
+/turf/open/floor/blocks/stonered,
+/area/rogue/indoors/town/manor)
 "bSW" = (
 /obj/structure/closet/crate/chest/crafted,
 /turf/open/floor/wood/nosmooth,
@@ -2378,6 +2385,16 @@
 /obj/structure/closet/crate/chest/neu,
 /turf/open/floor/twig,
 /area/rogue/indoors/town/bath)
+"czd" = (
+/obj/structure/closet/crate/crafted_closet,
+/obj/item/reagent_containers/glass/cup/silver,
+/obj/item/reagent_containers/glass/cup/wooden,
+/obj/item/reagent_containers/glass/cup/wooden,
+/obj/item/reagent_containers/glass/cup/wooden,
+/obj/item/reagent_containers/glass/cup/wooden,
+/obj/item/reagent_containers/glass/carafe/silver,
+/turf/open/floor/blocks/stonered,
+/area/rogue/indoors/town/manor)
 "cAe" = (
 /obj/machinery/light/fueled/hearth,
 /turf/open/floor/wood,
@@ -3737,6 +3754,15 @@
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/twig,
 /area/rogue/outdoors/town)
+"edd" = (
+/obj/effect/waterfall{
+	pixel_x = 32;
+	pixel_y = 24
+	},
+/turf/open/water/river/dirt{
+	dir = 4
+	},
+/area/rogue/under/town/caverogue)
 "edg" = (
 /obj/structure/table/wood/large/corner_new,
 /turf/open/floor/wood,
@@ -4606,6 +4632,10 @@
 /area/rogue/indoors/town/manor)
 "eXO" = (
 /obj/machinery/light/fueled/hearth,
+/obj/item/cooking/pan{
+	pixel_x = 1;
+	pixel_y = 1
+	},
 /turf/open/floor/blocks/stonered,
 /area/rogue/indoors/town/manor)
 "eXQ" = (
@@ -4741,6 +4771,13 @@
 	},
 /turf/open/floor/cobble,
 /area/rogue/under/town/caverogue)
+"fhe" = (
+/obj/effect/waterfall{
+	pixel_x = 16;
+	pixel_y = 19
+	},
+/turf/open/water/marsh,
+/area/rogue/outdoors/rtfield)
 "fhf" = (
 /obj/structure/mineral_door/wood/donjon,
 /obj/effect/mapping_helpers/door/locker,
@@ -6365,7 +6402,21 @@
 /turf/open/floor/carpet/green,
 /area/rogue/indoors/town/merc_guild)
 "gUc" = (
-/obj/structure/fermentation_keg/water,
+/obj/item/reagent_containers/glass/bowl,
+/obj/item/reagent_containers/glass/bowl,
+/obj/item/reagent_containers/glass/bowl,
+/obj/item/reagent_containers/glass/bowl,
+/obj/structure/closet/crate/crafted_closet,
+/obj/item/reagent_containers/glass/bowl,
+/obj/item/reagent_containers/glass/bowl,
+/obj/item/plate,
+/obj/item/plate,
+/obj/item/plate,
+/obj/item/plate,
+/obj/item/plate,
+/obj/item/plate,
+/obj/item/plate,
+/obj/item/plate,
 /turf/open/floor/blocks/stonered,
 /area/rogue/indoors/town/manor)
 "gUu" = (
@@ -10681,6 +10732,7 @@
 /area/rogue/indoors/town/church)
 "lyu" = (
 /obj/machinery/light/fueled/wallfire/candle/r,
+/obj/structure/fermentation_keg/water,
 /turf/open/floor/blocks/stonered,
 /area/rogue/indoors/town/manor)
 "lyO" = (
@@ -13402,6 +13454,15 @@
 /obj/structure/window/stained/silver,
 /turf/open/floor/metal/barograte,
 /area/rogue/indoors/town/clocktower)
+"oDA" = (
+/obj/effect/waterfall{
+	pixel_x = 16;
+	pixel_y = 19
+	},
+/turf/open/water/river/dirt{
+	dir = 4
+	},
+/area/rogue/under/town/caverogue)
 "oDW" = (
 /turf/closed/wall/mineral/decorstone,
 /area/rogue/indoors/town/manorgate)
@@ -15789,6 +15850,15 @@
 	},
 /turf/open/floor/twig,
 /area/rogue/outdoors/town)
+"rkP" = (
+/obj/effect/waterfall{
+	pixel_x = 16;
+	pixel_y = 19
+	},
+/turf/open/water/river/dirt{
+	dir = 8
+	},
+/area/rogue/outdoors/rtfield/safe)
 "rkY" = (
 /obj/structure/rack/shelf/biggest,
 /obj/item/clothing/neck/talkstone{
@@ -22247,6 +22317,19 @@
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /turf/open/floor/metal/barograte,
 /area/rogue/indoors/town/clocktower)
+"xGm" = (
+/obj/effect/waterfall{
+	pixel_x = 6;
+	pixel_y = 32
+	},
+/obj/effect/waterfall{
+	pixel_x = 11;
+	pixel_y = 6
+	},
+/turf/open/water/river/dirt{
+	dir = 4
+	},
+/area/rogue/under/town/caverogue)
 "xGt" = (
 /obj/structure/bed/mediocre,
 /obj/item/bedsheet/pelt,
@@ -37445,7 +37528,7 @@ ite
 ite
 ite
 rSE
-rSE
+oDA
 rSE
 ite
 ite
@@ -43910,8 +43993,8 @@ ite
 ite
 ite
 rSE
-rSE
-rSE
+edd
+xGm
 ite
 ite
 ite
@@ -88391,7 +88474,7 @@ hlw
 aTl
 aTl
 hlw
-hlw
+fhe
 aTl
 aTl
 ite
@@ -121640,7 +121723,7 @@ piM
 piM
 piM
 xGS
-xGS
+czd
 aMs
 hFM
 gMr
@@ -121834,7 +121917,7 @@ sWx
 sWx
 sWx
 sLQ
-eXO
+bSC
 xGS
 xGS
 xGS
@@ -131214,7 +131297,7 @@ ikU
 cCM
 jDc
 jDc
-cCM
+jDc
 jDc
 dxH
 dxH
@@ -131823,7 +131906,7 @@ jDc
 cCM
 cCM
 dxH
-dxH
+rkP
 cCM
 jDc
 jDc
