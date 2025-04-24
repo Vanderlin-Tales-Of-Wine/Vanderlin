@@ -232,17 +232,6 @@
 	if(!total_override)
 		..()
 
-/obj/structure/table/wood
-	name = "wooden table"
-	desc = ""
-	icon = 'icons/roguetown/misc/tables.dmi'
-	icon_state = "tablewood"
-	resistance_flags = FLAMMABLE
-	max_integrity = 70
-	smooth = 0
-	debris = list(/obj/item/grown/log/tree/small = 1)
-	climb_offset = 10
-
 /obj/structure/table/church
 	name = "stone table"
 	icon = 'icons/roguetown/misc/tables.dmi'
