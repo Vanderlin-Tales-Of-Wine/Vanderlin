@@ -88,11 +88,11 @@
 				break
 			L.drowsyness = min(L.drowsyness + 50, 150)
 			switch(L.drowsyness)
-				if(0 to 45)
+				if(0 to 50)
 					to_chat(L, "You feel like a curtain is coming over your mind.")
 					to_chat(user, "Their mind gives way slightly.")
 					L.Slowdown(20)
-				if(45 to 90)
+				if(51 to 90)
 					to_chat(L, "Your eyelids force themselves shut as you feel intense lethargy.")
 					to_chat(user, "They will not be able to resist much more.")
 					L.eyesclosed = TRUE
