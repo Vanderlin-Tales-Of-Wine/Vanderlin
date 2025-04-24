@@ -396,7 +396,7 @@
 /turf/open/floor/wood,
 /area/rogue/indoors)
 "gq" = (
-/obj/structure/mineral_door/wood/deadbolt{
+/obj/structure/door/weak/bolt{
 	dir = 1
 	},
 /turf/open/floor/dirt,
@@ -558,7 +558,7 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors)
 "ic" = (
-/obj/structure/mineral_door/wood{
+/obj/structure/door{
 	lockid = "oldinn1";
 	name = "Room I"
 	},
@@ -747,7 +747,7 @@
 /turf/open/floor/dirt,
 /area/rogue/outdoors/woods)
 "lM" = (
-/obj/structure/mineral_door/wood/deadbolt,
+/obj/structure/door/weak/bolt,
 /turf/open/floor/twig{
 	dir = 4
 	},
@@ -851,7 +851,7 @@
 /turf/open/floor/twig,
 /area/rogue/indoors)
 "nW" = (
-/obj/structure/mineral_door/wood/deadbolt{
+/obj/structure/door/weak/bolt{
 	dir = 8
 	},
 /turf/open/floor/twig{
@@ -877,7 +877,7 @@
 "oh" = (
 /obj/effect/mapping_helpers/door/access/garrison/forest,
 /obj/effect/mapping_helpers/door/locker,
-/obj/structure/mineral_door/wood/donjon{
+/obj/structure/door/viewport{
 	dir = 8
 	},
 /turf/open/floor/blocks,
@@ -934,7 +934,7 @@
 /turf/open/floor/grass,
 /area/rogue/outdoors/woods)
 "pv" = (
-/obj/structure/mineral_door/wood{
+/obj/structure/door{
 	lockid = "oldinn3";
 	name = "Side Room"
 	},
@@ -1489,7 +1489,7 @@
 /turf/open/floor/cobble,
 /area/rogue/indoors)
 "yO" = (
-/obj/structure/mineral_door/wood/window{
+/obj/structure/door/window{
 	name = "The Fermented Cackleberry Inn"
 	},
 /turf/open/floor/woodturned,
@@ -1521,7 +1521,7 @@
 /turf/open/floor/dirt,
 /area/rogue/outdoors/woods)
 "zk" = (
-/obj/structure/mineral_door/wood{
+/obj/structure/door{
 	lockid = "oldfarm"
 	},
 /turf/open/floor/woodturned,
@@ -1544,7 +1544,7 @@
 	},
 /area/rogue/indoors)
 "zA" = (
-/obj/structure/mineral_door/wood{
+/obj/structure/door{
 	lockid = "oldsmith"
 	},
 /turf/open/floor/blocks,
@@ -2413,7 +2413,7 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/outdoors/mountains)
 "PS" = (
-/obj/structure/mineral_door/wood{
+/obj/structure/door{
 	lockid = "oldinn2";
 	name = "Room II"
 	},
@@ -2494,7 +2494,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/mountains)
 "Rl" = (
-/obj/structure/mineral_door/wood{
+/obj/structure/door{
 	lockid = "oldfarm"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -2548,7 +2548,7 @@
 "Sg" = (
 /obj/effect/mapping_helpers/door/access/garrison/forest,
 /obj/effect/mapping_helpers/door/locker,
-/obj/structure/mineral_door/wood/green{
+/obj/structure/door/green{
 	name = "Thatchwood Garrison"
 	},
 /turf/open/floor/blocks,
@@ -2565,7 +2565,7 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/outdoors/mountains)
 "Ss" = (
-/obj/structure/mineral_door/wood/deadbolt{
+/obj/structure/door/weak/bolt{
 	dir = 1
 	},
 /turf/open/floor/twig,
@@ -2586,7 +2586,7 @@
 /turf/open/floor/twig,
 /area/rogue/indoors)
 "SX" = (
-/obj/structure/mineral_door/wood{
+/obj/structure/door{
 	name = "Thatchwood Smithy";
 	lockid = "oldsmith"
 	},
@@ -2774,7 +2774,7 @@
 /turf/open/floor/cobble,
 /area/rogue/indoors)
 "WN" = (
-/obj/structure/mineral_door/swing_door,
+/obj/structure/door/swing,
 /obj/structure/fluff/walldeco/wantedposter,
 /turf/open/floor/ruinedwood{
 	icon_state = "vertw"
@@ -2794,7 +2794,7 @@
 "Xl" = (
 /obj/effect/mapping_helpers/door/access/garrison/forest,
 /obj/effect/mapping_helpers/door/locker,
-/obj/structure/mineral_door/wood/green{
+/obj/structure/door/green{
 	name = "Thatchwood Barracks"
 	},
 /turf/open/floor/blocks,
