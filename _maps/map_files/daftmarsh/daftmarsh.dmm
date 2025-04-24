@@ -5622,6 +5622,11 @@
 /obj/machinery/light/fueled/torchholder/l,
 /turf/open/floor/blocks,
 /area/rogue/under/town/caverogue)
+"geq" = (
+/obj/structure/bookcase/random_recipes,
+/obj/machinery/light/fueled/wallfire/candle/r,
+/turf/open/floor/carpet/green,
+/area/rogue/indoors/town)
 "geG" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 1
@@ -9129,6 +9134,9 @@
 	pixel_x = 6;
 	pixel_y = 5
 	},
+/obj/machinery/light/fueled/wallfire/candle{
+	pixel_y = -32
+	},
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town)
 "jQl" = (
@@ -9219,6 +9227,11 @@
 	},
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/soilsons)
+"jTu" = (
+/obj/structure/mannequin/male,
+/obj/machinery/light/fueled/wallfire/candle/l,
+/turf/open/floor/tile/masonic/single,
+/area/rogue/indoors/town)
 "jTH" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4
@@ -9331,6 +9344,9 @@
 	},
 /obj/item/clothing/shirt/dress/silkdress/random{
 	pixel_x = -2
+	},
+/obj/machinery/light/fueled/wallfire/candle{
+	pixel_y = -32
 	},
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town)
@@ -13578,6 +13594,11 @@
 	icon_state = "greenstone"
 	},
 /area/rogue/indoors/town/clocktower)
+"oSZ" = (
+/obj/structure/mannequin/male,
+/obj/machinery/light/fueled/wallfire/candle/r,
+/turf/open/floor/tile/masonic/single,
+/area/rogue/indoors/town)
 "oUj" = (
 /obj/structure/chair/wood/alt/chair_noble/red{
 	dir = 1
@@ -16296,6 +16317,7 @@
 /area/rogue/indoors/town/church)
 "rPk" = (
 /obj/structure/table/wood/plain_alt,
+/obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/floor/carpet/green,
 /area/rogue/indoors/town)
 "rPB" = (
@@ -19247,6 +19269,12 @@
 /obj/effect/landmark/events/haunts,
 /turf/open/floor/blocks,
 /area/rogue/outdoors/town)
+"uNc" = (
+/obj/structure/mannequin/male/female,
+/obj/structure/fluff/railing/border,
+/obj/machinery/light/fueled/wallfire/candle/r,
+/turf/open/floor/tile/masonic/single,
+/area/rogue/indoors/town)
 "uNn" = (
 /turf/open/floor/greenstone/runed,
 /area/rogue/indoors/town/magician)
@@ -21591,6 +21619,10 @@
 	},
 /turf/open/floor/wood/nosmooth,
 /area/rogue/indoors/town)
+"xgF" = (
+/obj/machinery/light/fueled/wallfire/candle/l,
+/turf/open/floor/carpet/green,
+/area/rogue/indoors/town)
 "xgN" = (
 /turf/closed/mineral,
 /area/rogue/outdoors/woods)
@@ -21998,6 +22030,12 @@
 	},
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town/church)
+"xBd" = (
+/obj/structure/mannequin/male/female,
+/obj/structure/fluff/railing/border,
+/obj/machinery/light/fueled/wallfire/candle/l,
+/turf/open/floor/tile/masonic/single,
+/area/rogue/indoors/town)
 "xBK" = (
 /obj/structure/flora/grass/water/reeds,
 /turf/open/water,
@@ -118310,13 +118348,13 @@ nrE
 nrE
 wwk
 eol
-mtB
+xBd
 dMc
 kLD
 tuk
 olO
 hMD
-fbG
+jTu
 eol
 oyT
 pOf
@@ -119118,13 +119156,13 @@ wwk
 wwk
 nrE
 eol
-mtB
+uNc
 kkM
 kLD
 iem
 kLD
 ydg
-fbG
+oSZ
 eol
 fed
 wwk
@@ -119523,11 +119561,11 @@ ljP
 ljP
 mJG
 oUC
+xgF
 qbt
 qbt
 qbt
-qbt
-qbt
+xgF
 oUC
 mJG
 nrE
@@ -120128,13 +120166,13 @@ oyT
 oyT
 wwk
 mJG
-oUC
+geq
 qbt
 wRY
 rPk
 fyf
 qbt
-oUC
+geq
 mJG
 wwk
 wwk
