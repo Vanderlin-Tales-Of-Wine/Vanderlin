@@ -495,6 +495,7 @@
 "aHf" = (
 /obj/structure/closet/crate/chest/neu,
 /obj/item/fishing/bait/dough,
+/obj/machinery/light/fueled/torchholder/r,
 /turf/open/floor/wood,
 /area/rogue/indoors/town)
 "aHI" = (
@@ -4144,6 +4145,7 @@
 	pixel_x = -10;
 	pixel_y = 0
 	},
+/obj/structure/fake_machine/mail,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/steward)
 "ezm" = (
@@ -10740,6 +10742,12 @@
 	},
 /turf/open/floor/churchbrick,
 /area/rogue/indoors/town/church/inquisition)
+"lCR" = (
+/obj/structure/closet/crate/chest/neu,
+/obj/item/fishing/bait/dough,
+/obj/machinery/light/fueled/torchholder/l,
+/turf/open/floor/wood,
+/area/rogue/indoors/town)
 "lDp" = (
 /obj/structure/closet/crate/chest/old_crate,
 /turf/open/floor/blocks/newstone/alt,
@@ -17737,6 +17745,10 @@
 /obj/structure/stairs,
 /turf/open/floor/wood/nosmooth,
 /area/rogue/indoors/town/manor)
+"tfy" = (
+/obj/structure/fake_machine/scomm/l,
+/turf/open/floor/blocks/stonered,
+/area/rogue/indoors/town/manor)
 "tfK" = (
 /obj/structure/chair/stool,
 /obj/structure/flora/grass,
@@ -19752,6 +19764,7 @@
 "viM" = (
 /obj/structure/closet/crate/chest/old_crate,
 /obj/item/fishing/bait/gray,
+/obj/machinery/light/fueled/torchholder/r,
 /turf/open/floor/wood,
 /area/rogue/indoors/town)
 "viR" = (
@@ -71729,10 +71742,10 @@ iAO
 iAO
 iAO
 olO
-olO
-olO
-olO
-olO
+eeP
+oZp
+oZp
+wjd
 olO
 iAO
 iAO
@@ -71934,12 +71947,12 @@ olO
 uwn
 qJK
 qJK
-aHf
+lCR
 cuz
-olO
-olO
-olO
-olO
+eeP
+oZp
+oZp
+wjd
 iAO
 iAO
 iAO
@@ -72131,7 +72144,7 @@ iAO
 iAO
 iAO
 iAO
-olO
+npa
 cdW
 cdW
 cdW
@@ -72333,7 +72346,7 @@ iAO
 iAO
 iAO
 iAO
-olO
+mJG
 dKH
 cdW
 qwT
@@ -72345,7 +72358,7 @@ cdW
 cdW
 cdW
 lhB
-olO
+mJG
 iAO
 iAO
 iAO
@@ -72535,7 +72548,7 @@ iAO
 iAO
 iAO
 iAO
-olO
+vIL
 olO
 cdW
 cdW
@@ -72744,10 +72757,10 @@ viM
 tVn
 bDg
 kcy
-olO
-olO
-olO
-olO
+eeP
+oZp
+oZp
+wjd
 iAO
 iAO
 iAO
@@ -72941,10 +72954,10 @@ iAO
 iAO
 iAO
 olO
-olO
-olO
-olO
-olO
+eeP
+oZp
+oZp
+wjd
 olO
 iAO
 iAO
@@ -120747,7 +120760,7 @@ sWx
 sWx
 qVn
 rIi
-xGS
+tfy
 cCE
 yjl
 nXe
