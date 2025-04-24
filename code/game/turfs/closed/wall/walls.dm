@@ -403,7 +403,7 @@
 
 /turf/closed/wall/mineral/pipe
 	name = "metal wall"
-	icon = 'icons/turf/smooth/walls/pipe.dmi'
+	icon = 'icons/turf/smooth/walls/pipe_used.dmi'
 	icon_state = MAP_SWITCH("pipe", "pipe-0")
 	blade_dulling = DULLING_BASH
 	max_integrity = 10000
