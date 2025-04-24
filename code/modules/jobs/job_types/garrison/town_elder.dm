@@ -140,7 +140,8 @@ datum/job/town_elder/after_spawn(mob/living/spawned, client/player_client)
 
 
 /datum/outfit/job/town_elder/mayor/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
+	if(!..())
+		return
 	H.advsetup = 1
 	H.invisibility = INVISIBILITY_MAXIMUM
 	H.become_blind("bard_select")
