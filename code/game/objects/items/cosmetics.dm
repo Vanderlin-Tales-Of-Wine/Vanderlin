@@ -23,11 +23,12 @@
 
 /obj/item/lipstick/random
 	name = "lipstick"
-	icon_state = MAP_SWITCH("lipstick", "random_lipstick")
+	icon_state = "random_lipstick"
 
 /obj/item/lipstick/random/Initialize()
 	. = ..()
-	colour = pick("red", "purple", "lime", "black", "green", "blue"," white")
+	icon_state = "lipstick"
+	colour = pick("red","purple","lime","black","green","blue","white")
 	name = "[colour] lipstick"
 
 /obj/item/lipstick/attack_self(mob/user)

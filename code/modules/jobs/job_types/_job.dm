@@ -93,7 +93,6 @@
 	var/list/peopleiknow = list()
 	var/list/peopleknowme = list()
 
-	var/plevel_req = 0
 	var/min_pq = -999
 
 	var/give_bank_account = FALSE

@@ -89,6 +89,10 @@
 	///AI controller that controls this atom. type on init, then turned into an instance during runtime
 	var/datum/ai_controller/ai_controller
 
+	///how shiny we are
+	var/mutable_appearance/total_reflection_mask
+	var/shine = SHINE_MATTE
+
 /**
  * Called when an atom is created in byond (built in engine proc)
  *
@@ -252,6 +256,21 @@
 	//Check for centcom itself
 	if(istype(T.loc, /area/centcom))
 		return TRUE
+
+
+/atom/proc/make_shiny(_shine = SHINE_REFLECTIVE)
+	if(total_reflection_mask)
+		if(shine != _shine)
+			cut_overlay(total_reflection_mask)
+		else
+			return
+	total_reflection_mask = mutable_appearance('icons/turf/overlays.dmi', "whiteFull", plane = REFLECTIVE_DISPLACEMENT_PLANE)
+	add_overlay(total_reflection_mask)
+	shine = _shine
+
+/atom/proc/make_unshiny()
+	cut_overlay(total_reflection_mask)
+	shine = SHINE_MATTE
 
 /**
  * Ensure a list of atoms/reagents exists inside this atom
