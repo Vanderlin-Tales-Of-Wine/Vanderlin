@@ -20489,6 +20489,12 @@
 /obj/structure/closet/crate/crafted_closet/dark,
 /obj/item/alch/tobaccodust,
 /obj/item/alch/swampdust,
+/obj/item/reagent_containers/food/snacks/produce/manabloom,
+/obj/item/reagent_containers/food/snacks/produce/manabloom,
+/obj/item/reagent_containers/food/snacks/produce/manabloom,
+/obj/item/reagent_containers/food/snacks/produce/manabloom,
+/obj/item/reagent_containers/food/snacks/produce/manabloom,
+/obj/item/reagent_containers/food/snacks/produce/manabloom,
 /turf/open/floor/carpet/stellar,
 /area/rogue/indoors/town/magician)
 "uFt" = (
