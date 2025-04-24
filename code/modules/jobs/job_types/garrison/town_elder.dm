@@ -32,8 +32,8 @@
 
 	var/static/last_announcement_time = 0
 
-	if(world.time < last_announcement_time + 15 MINUTES)
-		var/time_left = round((last_announcement_time + 15 MINUTES - world.time) / 10)
+	if(world.time < last_announcement_time + 10 MINUTES)
+		var/time_left = round((last_announcement_time + 10 MINUTES - world.time) / 10)
 		to_chat(src, "<span class='warning'>You must wait [time_left] more seconds before making another announcement.</span>")
 		return
 
@@ -51,6 +51,7 @@
 	. = ..()
 	var/mob/living/carbon/human/H = spawned
 	ADD_TRAIT(H, TRAIT_OLDPARTY, TRAIT_GENERIC)
+	H.verbs |= /mob/living/carbon/human/proc/townannouncement
 
 /obj/effect/proc_holder/spell/self/convertrole/town_militia
 	name = "Recruit Militia"
@@ -86,7 +87,6 @@
 /datum/outfit/job/town_elder/mayor/pre_equip(mob/living/carbon/human/H)
 
 
-	H.verbs |= /mob/living/carbon/human/proc/townannouncement
 	pants = /obj/item/clothing/pants/trou/leather
 	head = /obj/item/clothing/head/tophat
 	armor = /obj/item/clothing/armor/leather/vest/winterjacket
@@ -178,7 +178,6 @@
 
 /datum/outfit/job/town_elder/master_of_crafts_and_labor/pre_equip(mob/living/carbon/human/H)
 
-	H.verbs |= /mob/living/carbon/human/proc/townannouncement
 	head = /obj/item/clothing/head/hatblu
 	armor = /obj/item/clothing/armor/leather/vest/random
 	pants = /obj/item/clothing/pants/trou
@@ -270,7 +269,6 @@
 	allowed_patrons = ALL_TEMPLE_PATRONS
 
 /datum/outfit/job/town_elder/hearth_acolyte/pre_equip(mob/living/carbon/human/H)
-	H.verbs |= /mob/living/carbon/human/proc/townannouncement
 	head = /obj/item/clothing/head/roguehood/random
 	armor = /obj/item/clothing/shirt/robe
 	shoes = /obj/item/clothing/shoes/sandals
@@ -359,7 +357,6 @@
 	category_tags = list(CTAG_TOWN_ELDER)
 
 /datum/outfit/job/town_elder/lorekeeper/pre_equip(mob/living/carbon/human/H)
-	H.verbs |= /mob/living/carbon/human/proc/townannouncement
 	head = /obj/item/clothing/head/bardhat
 	shoes = /obj/item/clothing/shoes/boots
 	pants = /obj/item/clothing/pants/trou/leather
@@ -441,7 +438,6 @@
 
 
 /datum/outfit/job/town_elder/dreamwatcher/pre_equip(mob/living/carbon/human/H)
-	H.verbs |= /mob/living/carbon/human/proc/townannouncement
 	head = /obj/item/clothing/head/softcap
 	armor = /obj/item/clothing/shirt/robe/black
 	shoes = /obj/item/clothing/shoes/sandals
