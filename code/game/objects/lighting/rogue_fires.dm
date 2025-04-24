@@ -226,10 +226,10 @@
 				return TRUE
 
 /obj/machinery/light/fueled/torchholder/Initialize()
-    if(torchy)
-        torchy = new torchy(src)
-        torchy.spark_act()
-    . = ..()
+	if(torchy)
+		torchy = new torchy(src)
+		torchy.spark_act()
+	. = ..()
 
 /obj/machinery/light/fueled/torchholder/OnCrafted(dirin, user)
 	dir = turn(dirin, 180)
