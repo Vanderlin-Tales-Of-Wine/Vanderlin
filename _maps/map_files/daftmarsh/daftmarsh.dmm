@@ -11124,6 +11124,23 @@
 	},
 /turf/open/floor/wood,
 /area/rogue/indoors/town/smithy)
+"lRz" = (
+/obj/machinery/light/fueled/wallfire/candle{
+	pixel_x = 32;
+	pixel_y = 0
+	},
+/obj/item/flint,
+/obj/item/flint{
+	pixel_x = 8;
+	pixel_y = 0
+	},
+/obj/item/flint{
+	pixel_x = -5;
+	pixel_y = 6
+	},
+/obj/structure/table/wood/reinforced_alter,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/indoors/town/smithy)
 "lRF" = (
 /obj/effect/landmark/events/haunts,
 /turf/open/floor/ruinedwood/spiral,
@@ -130099,7 +130116,7 @@ peN
 peN
 dMD
 dMD
-tQW
+lRz
 noG
 fbw
 jLE
