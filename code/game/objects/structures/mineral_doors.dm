@@ -249,12 +249,17 @@
 			if(L.m_intent == MOVE_INTENT_SNEAK)
 				to_chat(user, span_warning("This door is locked."))
 				return
-		if(world.time >= last_bump+20)
+		if(world.time >= last_bump+20 && can_knock)
 			last_bump = world.time
-			if(can_knock)
+			if(user.a_intent.name == "punch")
 				playsound(src, 'sound/foley/doors/knocking.ogg', 100)
 				user.visible_message(span_warning("[user] knocks on [src]."), \
 					span_notice("I knock on [src]."))
+				return
+			door_rattle()
+			user.visible_message(span_warning("[user] tries the handle, but the door does not move."), \
+					span_notice("I try the handle, but the door does not move."))
+			return
 		return
 	return TryToSwitchState(user)
 
