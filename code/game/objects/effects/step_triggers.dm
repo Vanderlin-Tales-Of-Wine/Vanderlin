@@ -55,7 +55,7 @@
 			return
 
 	if(immobilize)
-		ADD_TRAIT(AM, TRAIT_IMMOBILIZED, src)
+		ADD_TRAIT(AM, TRAIT_IMMOBILIZED, REF(src))
 
 	affecting.Add(AM)
 	while(AM && !stopthrow)
@@ -89,7 +89,7 @@
 
 	affecting.Remove(AM)
 
-	REMOVE_TRAIT(AM, TRAIT_IMMOBILIZED, src)
+	REMOVE_TRAIT(AM, TRAIT_IMMOBILIZED, REF(src))
 
 /* Stops things thrown by a thrower, doesn't do anything */
 
