@@ -1950,7 +1950,6 @@
 		set_lying_angle(pick(90, 270))
 		set_body_position(LYING_DOWN)
 		on_fall()
-	SEND_SIGNAL(src, COMSIG_LIVING_ON_FLOORED_START)
 
 /// Proc to append behavior to the condition of being floored. Called when the condition ends.
 /mob/living/proc/on_floored_end()

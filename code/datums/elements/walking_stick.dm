@@ -1,7 +1,6 @@
 
 /datum/element/walking_stick
 	element_flags = ELEMENT_BESPOKE
-	var/datum/weakref/mob_holder
 
 /datum/element/walking_stick/Attach(datum/target, fov_angle)
 	. = ..()
@@ -13,9 +12,6 @@
 
 /datum/element/walking_stick/Detach(datum/target)
 	UnregisterSignal(target, list(COMSIG_ITEM_EQUIPPED, COMSIG_ITEM_DROPPED))
-	var/old_mob_holder = mob_holder.resolve()
-	if(old_mob_holder)
-		UnregisterSignal(old_mob_holder, COMSIG_LIVING_ON_FLOORED_START)
 	return ..()
 
 /// On dropping the item (or not holding the item), check usable_legs
@@ -23,8 +19,6 @@
 	SIGNAL_HANDLER
 	if(!istype(dropper))
 		return
-	UnregisterSignal(dropper, COMSIG_LIVING_ON_FLOORED_START)
-	mob_holder = null
 	if(dropper.usable_legs < 2 && !(dropper.movement_type & (FLYING | FLOATING))) //Check if less than 2 legs
 		ADD_TRAIT(dropper, TRAIT_FLOORED, LACKING_LOCOMOTION_APPENDAGES_TRAIT)
 
@@ -38,12 +32,3 @@
 		return
 
 	REMOVE_TRAIT(equipper, TRAIT_FLOORED, LACKING_LOCOMOTION_APPENDAGES_TRAIT)
-	RegisterSignal(equipper, COMSIG_LIVING_ON_FLOORED_START, PROC_REF(on_floored_started))
-	mob_holder = WEAKREF(equipper)
-
-/// Called after mob calls on_floored_start()
-/datum/element/walking_stick/proc/on_floored_started(datum/source)
-	SIGNAL_HANDLER
-	if(!isliving(source))
-		return
-	REMOVE_TRAIT(source, TRAIT_FLOORED, LACKING_LOCOMOTION_APPENDAGES_TRAIT)
