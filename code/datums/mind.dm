@@ -776,18 +776,49 @@
 /datum/mind/proc/recall_culling(mob/recipient, window=1)
 	var/output = "<B>[recipient.real_name]'s Rival:</B><br>"
 	for(var/datum/culling_duel/D in GLOB.graggar_cullings)
-		var/mob/living/carbon/human/target_owner = D.target.resolve()
 		var/mob/living/carbon/human/challenger = D.challenger.resolve()
+		var/mob/living/carbon/human/target = D.target.resolve()
+		var/obj/item/organ/heart/target_heart = D.target_heart.resolve()
+		var/obj/item/organ/heart/challenger_heart = D.challenger_heart.resolve()
 
-		if(!target_owner || !challenger)
+		// Check if duel is impossible to complete
+		if(recipient == challenger && !target && !target_heart)
+			recipient.remove_stress(/datum/stressevent/graggar_culling_unfinished)
+			recipient.verbs -= /mob/living/carbon/human/proc/remember_culling
+			output += "<br>The culling has ended - your rival is completely gone, and so is their heart."
+			to_chat(recipient, span_warning("Graggar grumbles as your rival has vanished. You get NOTHING."))
+			qdel(D)
 			continue
 
-		if(recipient == target_owner)
-			output += "<br>[challenger.real_name]"
-			output += "<br>Eat your rival's heart before he eats YOURS! Graggar will not forgive failure."
-		else if(recipient == challenger)
-			output += "<br>[target_owner.real_name]"
-			output += "<br>Eat your rival's heart before he eats YOURS! Graggar will not forgive failure."
+		if(recipient == target && !challenger && !challenger_heart)
+			recipient.remove_stress(/datum/stressevent/graggar_culling_unfinished)
+			recipient.verbs -= /mob/living/carbon/human/proc/remember_culling
+			output += "<br>The culling has ended - your rival is completely gone, and so is their heart."
+			to_chat(recipient, span_warning("Graggar grumbles as your rival has vanished. You get NOTHING."))
+			qdel(D)
+			continue
+
+		if(recipient == challenger)
+			if(target)
+				output += "<br>[target.real_name]"
+				output += "<br>Eat your rival's heart before they eat YOURS! Graggar will not forgive failure."
+			else if(target_heart)
+				output += "<br>Rival's Heart"
+				output += "<br>It's somewhere in the [get_area_name(target_heart)]"
+				output += "<br>Your rival is dead but their heart remains. Consume it to claim victory!"
+			else
+				continue
+
+		else if(recipient == target)
+			if(challenger)
+				output += "<br>[challenger.real_name]"
+				output += "<br>Eat your rival's heart before he eat YOURS! Graggar will not forgive failure."
+			else if(challenger_heart)
+				output += "<br>Rival's Heart"
+				output += "<br>It's somewhere in the [get_area_name(challenger_heart)]"
+				output += "<br>Your rival is dead but their heart remains. Consume it to claim victory!"
+			else
+				continue
 
 	if(window)
 		recipient << browse(output,"window=memory")

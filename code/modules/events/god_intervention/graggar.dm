@@ -4,11 +4,43 @@ GLOBAL_LIST_EMPTY(graggar_cullings)
 /datum/culling_duel
 	var/datum/weakref/challenger
 	var/datum/weakref/target
+	var/datum/weakref/challenger_heart
+	var/datum/weakref/target_heart
 
 /datum/culling_duel/New(mob/challenger, mob/target)
 	. = ..()
 	src.challenger = WEAKREF(challenger)
 	src.target = WEAKREF(target)
+	var/obj/item/organ/heart/c_heart = challenger.getorganslot(ORGAN_SLOT_HEART)
+	var/obj/item/organ/heart/t_heart = target.getorganslot(ORGAN_SLOT_HEART)
+	src.challenger_heart = WEAKREF(c_heart)
+	src.target_heart = WEAKREF(t_heart)
+
+/datum/culling_duel/Destroy()
+	GLOB.graggar_cullings -= src
+	return ..()
+
+/datum/culling_duel/proc/process_win(mob/living/winner, mob/living/loser)
+	winner.remove_stress(/datum/stressevent/graggar_culling_unfinished)
+	winner.verbs -= /mob/living/carbon/human/proc/remember_culling
+	winner.set_stat_modifier("graggar_culling", STATKEY_STR, 1)
+	winner.set_stat_modifier("graggar_culling", STATKEY_END, 1)
+	winner.set_stat_modifier("graggar_culling", STATKEY_CON, 1)
+	winner.set_stat_modifier("graggar_culling", STATKEY_PER, 1)
+	winner.set_stat_modifier("graggar_culling", STATKEY_INT, 1)
+	winner.set_stat_modifier("graggar_culling", STATKEY_SPD, 1)
+	winner.set_stat_modifier("graggar_culling", STATKEY_LCK, 1)
+	winner.adjust_triumphs(2)
+	to_chat(winner, span_notice("You have proven your strength to Graggar by consuming your rival's heart!"))
+	winner.add_stress(/datum/stressevent/graggar_culling_finished)
+
+	if(loser)
+		loser.remove_stress(/datum/stressevent/graggar_culling_unfinished)
+		loser.verbs -= /mob/living/carbon/human/proc/remember_culling
+		to_chat(loser, span_boldred("You have FAILED Graggar for the LAST TIME!"))
+		loser.gib()
+
+	qdel(src)
 
 /// Verb for the graggar's culling contestants to remember their targets
 /mob/living/carbon/human/proc/remember_culling()
@@ -42,6 +74,10 @@ GLOBAL_LIST_EMPTY(graggar_cullings)
 			continue
 
 		if(!human_mob.patron || !istype(human_mob.patron, /datum/patron/inhumen/graggar))
+			continue
+
+		var/obj/item/organ/heart/heart = human_mob.getorganslot(ORGAN_SLOT_HEART)
+		if(!heart)
 			continue
 
 		contenders += human_mob

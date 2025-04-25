@@ -135,7 +135,6 @@
 	S.icon = icon
 	S.icon_state = icon_state
 	S.w_class = w_class
-	S.original_owner = last_owner
 	if(damage > high_threshold)
 		S.eat_effect = /datum/status_effect/debuff/rotfood
 	S.rotprocess = S.rotprocess * ((high_threshold - damage) / high_threshold)
@@ -150,8 +149,6 @@
 	foodtype = RAW | MEAT | GROSS
 	eat_effect = /datum/status_effect/debuff/uncookedfood
 	rotprocess = 5 MINUTES
-	/// Owner who used to have this organ
-	var/original_owner
 
 /obj/item/reagent_containers/food/snacks/organ/on_consume(mob/living/eater)
 	if(HAS_TRAIT(eater, TRAIT_ORGAN_EATER) && eat_effect != /datum/status_effect/debuff/rotfood)
@@ -172,39 +169,16 @@
 /obj/item/reagent_containers/food/snacks/organ/heart/check_culling(mob/living/eater)
 	. = ..()
 	for(var/datum/culling_duel/D in GLOB.graggar_cullings)
-		var/mob/living/carbon/human/target_owner = D.target.resolve()
+		var/obj/item/organ/heart/d_challenger_heart = D.challenger_heart.resolve()
+		var/obj/item/organ/heart/d_target_heart = D.target_heart.resolve()
 		var/mob/living/carbon/human/challenger = D.challenger.resolve()
+		var/mob/living/carbon/human/target = D.target.resolve()
 
-		if(!target_owner || !challenger)
-			continue
-
-		// Check if the eater is either participant and they ate the other's heart
-		if((eater == challenger && original_owner == target_owner) || (eater == target_owner && original_owner == challenger))
-			eater.remove_stress(/datum/stressevent/graggar_culling_unfinished)
-			eater.verbs -= /mob/living/carbon/human/proc/remember_culling
-			eater.set_stat_modifier("graggar_culling", STATKEY_STR, 1)
-			eater.set_stat_modifier("graggar_culling", STATKEY_END, 1)
-			eater.set_stat_modifier("graggar_culling", STATKEY_CON, 1)
-			eater.set_stat_modifier("graggar_culling", STATKEY_PER, 1)
-			eater.set_stat_modifier("graggar_culling", STATKEY_INT, 1)
-			eater.set_stat_modifier("graggar_culling", STATKEY_SPD, 1)
-			eater.set_stat_modifier("graggar_culling", STATKEY_LCK, 1)
-			eater.adjust_triumphs(1)
-			to_chat(eater, span_notice("You have proven your strength to Graggar by consuming the heart of your rival! A sliver of his power now flows through you!"))
-			eater.add_stress(/datum/stressevent/graggar_culling_finished)
-
-			if(original_owner == target_owner)
-				target_owner.remove_stress(/datum/stressevent/graggar_culling_unfinished)
-				target_owner.verbs -= /mob/living/carbon/human/proc/remember_culling
-				to_chat(target_owner, span_boldred("You have FAILED Graggar for the LAST TIME!"))
-				target_owner.gib()
-			else if(original_owner == challenger)
-				challenger.remove_stress(/datum/stressevent/graggar_culling_unfinished)
-				challenger.verbs -= /mob/living/carbon/human/proc/remember_culling
-				to_chat(challenger, span_boldred("You have FAILED Graggar for the LAST TIME!"))
-				challenger.gib()
-
-			GLOB.graggar_cullings -= D
+		if(src == d_target_heart && challenger && eater == challenger)
+			D.process_win(winner = eater, loser = target)
+			return TRUE
+		else if(src == d_challenger_heart && target && eater == target)
+			D.process_win(winner = eater, loser = challenger)
 			return TRUE
 
 /obj/item/reagent_containers/food/snacks/organ/lungs
