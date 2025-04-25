@@ -348,6 +348,12 @@
 	icon_state = "greenkey"
 	lockid = ACCESS_GUEST
 
+/obj/item/key/courtphys
+	name = "court physician's key"
+	desc = "A key granted to the honored Court Physician."
+	icon_state = "cheesekey"
+	lockid = ACCESS_PHYS
+
 ////// CHURCH
 
 /obj/item/key/church

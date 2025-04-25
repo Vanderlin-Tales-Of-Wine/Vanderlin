@@ -19,13 +19,12 @@
 	head = /obj/item/clothing/head/roguehood/phys
 	shoes = /obj/item/clothing/shoes/boots/leather
 	shirt = /obj/item/clothing/shirt/undershirt/black
-	backr = /obj/item/storage/backpack/satchel
-	backl = /obj/item/storage/backpack/satchel/surgbag
+	backl = /obj/item/storage/backpack/satchel/black
+	backpack_contents = list(/obj/item/weapon/surgery/scalpel = 1, /obj/item/weapon/surgery/saw = 1, /obj/item/weapon/surgery/hemostat = 2, /obj/item/weapon/surgery/retractor = 1, /obj/item/weapon/surgery/bonesetter = 1, /obj/item/weapon/surgery/hammer = 1)
 	pants = /obj/item/clothing/pants/tights/random
 	gloves = /obj/item/clothing/gloves/leather/phys
 	armor = /obj/item/clothing/shirt/robe/phys
 	neck = /obj/item/clothing/neck/phys
-	beltl = /obj/item/storage/keyring/physicker
 
 	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
@@ -33,10 +32,7 @@
 	H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 3, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/craft/alchemy, 1, TRUE)
-	if(H.age == AGE_OLD)
-		H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 3, TRUE)
-	H.change_stat(STATKEY_INT, 2)
+	H.change_stat(STATKEY_INT, -1)
 	H.change_stat(STATKEY_SPD, 1)
 	ADD_TRAIT(H, TRAIT_EMPATH, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)
-	H?.mind?.AddSpell(new /obj/effect/proc_holder/spell/invoked/diagnose/secular)
