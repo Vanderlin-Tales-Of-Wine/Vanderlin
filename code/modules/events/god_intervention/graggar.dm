@@ -35,7 +35,7 @@ GLOBAL_LIST_EMPTY(graggar_cullings)
 		winner.remove_stress(/datum/stressevent/graggar_culling_unfinished)
 		winner.verbs -= /mob/living/carbon/human/proc/remember_culling
 		winner.add_stress(/datum/stressevent/graggar_culling_finished)
-		to_chat(winner, span_red("Your rival's heart has been either destroyed or has rotted away! While not the glorious consumption Graggar desired, he acknowledges you as not weak."))
+		to_chat(winner, span_notice("Your rival's heart has been either destroyed or has rotted away! While not the glorious consumption Graggar desired, he acknowledges you as not weak."))
 		winner.adjust_triumphs(1)
 	if(loser)
 		loser.remove_stress(/datum/stressevent/graggar_culling_unfinished)
