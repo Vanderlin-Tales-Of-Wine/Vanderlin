@@ -62,7 +62,7 @@
 	move_react(new_parent)
 
 /datum/component/orbiter/proc/begin_orbit(atom/movable/orbiter, radius, clockwise, rotation_speed, rotation_segments, pre_rotation)
-	if(orbiter.orbiting)
+	if(orbiter?.orbiting)
 		if(orbiter.orbiting == src)
 			orbiter.orbiting.end_orbit(orbiter, TRUE)
 		else
