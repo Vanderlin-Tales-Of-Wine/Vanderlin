@@ -59,6 +59,7 @@
 		H.mind.teach_crafting_recipe(/datum/crafting_recipe/dendor/sacrifice_growing)
 		H.mind.teach_crafting_recipe(/datum/crafting_recipe/dendor/sacrifice_stinging)
 		H.mind.teach_crafting_recipe(/datum/crafting_recipe/dendor/sacrifice_devouring)
+		H.mind.teach_crafting_recipe(/datum/crafting_recipe/dendor/forestdelight)
 
 	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(H, H.patron)
 	H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
@@ -107,11 +108,10 @@
 
 /datum/crafting_recipe/dendor/forestdelight
 	name = "forest guardian offering (unique)"
-	result = /obj/item/bait/forestdelight
-	reqs = list(/obj/item/reagent_containers/food/snacks/meat= 1,
+	reqs = list(/obj/item/bait/bloody = 1,
 				/obj/item/reagent_containers/food/snacks/produce/swampweed_dried = 1,
 				/obj/item/reagent_containers/food/snacks/raisins = 1 )
-	craftdiff = 0
+	result = /obj/item/bait/forestdelight
 
 /datum/crafting_recipe/dendor/shrine/saiga
 	name = "stinging shrine to Dendor (unique)"
