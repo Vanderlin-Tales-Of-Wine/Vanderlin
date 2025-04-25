@@ -2210,6 +2210,7 @@
 #include "code\modules\spells\spell_types\invoked\necromancer.dm"
 #include "code\modules\spells\spell_types\invoked\orison_touch.dm"
 #include "code\modules\spells\spell_types\invoked\priest.dm"
+#include "code\modules\spells\spell_types\invoked\ritual_butchery.dm"
 #include "code\modules\spells\spell_types\invoked\spider.dm"
 #include "code\modules\spells\spell_types\invoked\vampire.dm"
 #include "code\modules\spells\spell_types\invoked\acolyte\abyssor.dm"
