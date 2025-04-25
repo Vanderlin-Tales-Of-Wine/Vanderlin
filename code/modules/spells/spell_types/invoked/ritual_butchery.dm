@@ -51,6 +51,9 @@
 	heart.forceMove(target.drop_location())
 	user.put_in_hands(heart)
 
+	target.add_splatter_floor()
+	target.adjustBruteLoss(20)
+
 	user.visible_message("<span class='warning'>[user] rips [target]'s heart out with a roar!</span>", \
 						"<span class='red'>You present the heart to Graggar! The God chuckles upon this offering.</span>")
 	user.emote("rage", forced = TRUE)
