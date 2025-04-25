@@ -58,6 +58,7 @@ GLOBAL_LIST_EMPTY(graggar_cullings)
 	to_chat(winner, span_notice("You have proven your strength to Graggar by consuming your rival's heart! Your rival's strength is now YOURS!"))
 	winner.adjust_triumphs(2)
 	winner.add_stress(/datum/stressevent/graggar_culling_finished)
+	SEND_SOUND(winner, 'sound/ambience/noises/genspooky (1).ogg')
 
 	if(loser)
 		loser.remove_stress(/datum/stressevent/graggar_culling_unfinished)
@@ -110,22 +111,36 @@ GLOBAL_LIST_EMPTY(graggar_cullings)
 	if(length(contenders) < 2)
 		return
 
-	var/mob/living/carbon/human/first_chosen = pick_n_take(contenders)
-	var/mob/living/carbon/human/second_chosen = pick_n_take(contenders)
+	// 25% chance for grand culling (multiple pairs)
+	var/grand_culling = prob(25)
+	var/max_pairs = grand_culling ? floor(length(contenders) / 2) : 1
 
-	var/datum/culling_duel/new_duel = new(first_chosen, second_chosen)
-	GLOB.graggar_cullings += new_duel
+	for(var/i in 1 to max_pairs)
+		if(length(contenders) < 2)
+			break
 
-	first_chosen.add_stress(/datum/stressevent/graggar_culling_unfinished)
-	first_chosen.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/extract_heart)
-	first_chosen.verbs |= /mob/living/carbon/human/proc/remember_culling
-	to_chat(first_chosen, span_red("Weak should feed the strong, that is Graggar's will. Prove that you are not weak by eating the heart of [span_notice(second_chosen.real_name)] and gain unimaginable power in turn. Fail, and you will be the one eaten."))
-	to_chat(first_chosen, span_red("[span_notice(second_chosen.real_name)] is somewhere in the [span_notice(lowertext(get_area_name(second_chosen)))]. Eat their heart before they eat yours!"))
-	SEND_SOUND(first_chosen, 'sound/magic/marked.ogg')
+		var/mob/living/carbon/human/first_chosen = pick_n_take(contenders)
+		var/mob/living/carbon/human/second_chosen = pick_n_take(contenders)
 
-	second_chosen.add_stress(/datum/stressevent/graggar_culling_unfinished)
-	second_chosen.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/extract_heart)
-	second_chosen.verbs |= /mob/living/carbon/human/proc/remember_culling
-	to_chat(second_chosen, span_red("Weak should feed the strong, that is Graggar's will. Prove that you are not weak by eating the heart of [span_notice(first_chosen.real_name)] and gain unimaginable power in turn. Fail, and you will be the one eaten."))
-	to_chat(second_chosen, span_red("[span_notice(first_chosen.real_name)] is somewhere in the [span_notice(lowertext(get_area_name(first_chosen)))]. Eat their heart before they eat yours!"))
-	SEND_SOUND(second_chosen, 'sound/magic/marked.ogg')
+		var/datum/culling_duel/new_duel = new(first_chosen, second_chosen)
+		GLOB.graggar_cullings += new_duel
+
+		// Notify first chosen
+		first_chosen.add_stress(/datum/stressevent/graggar_culling_unfinished)
+		first_chosen.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/extract_heart)
+		first_chosen.verbs |= /mob/living/carbon/human/proc/remember_culling
+		to_chat(first_chosen, span_red("Weak should feed the strong, that is Graggar's will. Prove that you are not weak by eating the heart of [span_notice(second_chosen.real_name)] and gain unimaginable power in turn. Fail, and you will be the one eaten."))
+		to_chat(first_chosen, span_red("[span_notice(second_chosen.real_name)] is somewhere in the [span_notice(lowertext(get_area_name(second_chosen)))]. Eat their heart before they eat yours!"))
+		if(grand_culling)
+			to_chat(first_chosen, span_red("Graggar has decreed a GRAND CULLING! Many hearts will feed the strong today!"))
+		SEND_SOUND(first_chosen, 'sound/magic/marked.ogg')
+
+		// Notify second chosen
+		second_chosen.add_stress(/datum/stressevent/graggar_culling_unfinished)
+		second_chosen.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/extract_heart)
+		second_chosen.verbs |= /mob/living/carbon/human/proc/remember_culling
+		to_chat(second_chosen, span_red("Weak should feed the strong, that is Graggar's will. Prove that you are not weak by eating the heart of [span_notice(first_chosen.real_name)] and gain unimaginable power in turn. Fail, and you will be the one eaten."))
+		to_chat(second_chosen, span_red("[span_notice(first_chosen.real_name)] is somewhere in the [span_notice(lowertext(get_area_name(first_chosen)))]. Eat their heart before they eat yours!"))
+		if(grand_culling)
+			to_chat(second_chosen, span_red("Graggar has decreed a GRAND CULLING! Many hearts will feed the strong today!"))
+		SEND_SOUND(second_chosen, 'sound/magic/marked.ogg')
