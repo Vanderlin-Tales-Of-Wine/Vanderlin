@@ -177,6 +177,8 @@ GLOBAL_VAR_INIT(mobids, 1)
 			msg = blind_message
 		if(!msg)
 			continue
+		if(M != src && !M.eye_blind)
+			log_message("saw [key_name(living_speaker)] emote: [message]", LOG_EMOTE, log_globally = FALSE)
 		M.show_message(msg, MSG_VISUAL, blind_message, MSG_AUDIBLE)
 		if(runechat_message && M.can_hear())
 			M.create_chat_message(src, raw_message = runechat_message, spans = list("emote"))
@@ -202,6 +204,8 @@ GLOBAL_VAR_INIT(mobids, 1)
 	if(self_message)
 		hearers -= src
 	for(var/mob/M in hearers)
+		if(M != src && M.client && !deaf_message)
+				log_message("heard [key_name(living_speaker)] emote: [message]", LOG_EMOTE, log_globally = FALSE)
 		M.show_message(message, MSG_AUDIBLE, deaf_message, MSG_VISUAL)
 		if(runechat_message && M.can_see_runechat(src) && M.can_hear())
 			M.create_chat_message(src, raw_message = runechat_message, spans = list("emote"))

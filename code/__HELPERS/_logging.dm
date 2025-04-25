@@ -292,7 +292,10 @@
 	if(include_name)
 		if(M)
 			if(M.real_name)
-				. += "/([M.real_name])"
+				. += "/([M.real_name] "
+				if(real_name != name)
+					. += "DISGUISED AS [name]"
+				. += ")"
 			else if(M.name)
 				. += "/([M.name])"
 		else if(fallback_name)
