@@ -781,42 +781,45 @@
 		var/obj/item/organ/heart/target_heart = D.target_heart.resolve()
 		var/obj/item/organ/heart/challenger_heart = D.challenger_heart.resolve()
 
-		// Check if duel is impossible to complete
-		if(recipient == challenger && !target && !target_heart)
-			recipient.remove_stress(/datum/stressevent/graggar_culling_unfinished)
-			recipient.verbs -= /mob/living/carbon/human/proc/remember_culling
-			output += "<br>The culling has ended - your rival is completely gone, and so is their heart."
-			to_chat(recipient, span_warning("Graggar grumbles as your rival has vanished. You get NOTHING."))
-			qdel(D)
-			continue
-
-		if(recipient == target && !challenger && !challenger_heart)
-			recipient.remove_stress(/datum/stressevent/graggar_culling_unfinished)
-			recipient.verbs -= /mob/living/carbon/human/proc/remember_culling
-			output += "<br>The culling has ended - your rival is completely gone, and so is their heart."
-			to_chat(recipient, span_warning("Graggar grumbles as your rival has vanished. You get NOTHING."))
-			qdel(D)
-			continue
-
 		if(recipient == challenger)
 			if(target)
-				output += "<br>[target.real_name]"
-				output += "<br>Eat your rival's heart before they eat YOURS! Graggar will not forgive failure."
+				if(target_heart && target_heart.owner && target_heart.owner != target) // Rival is not gone but their heart is in someone else
+					output += "<br>[target.real_name]"
+					output += "<br>Your rival's heart beats in [target_heart.owner.real_name]'s chest in the [lowertext(get_area_name(target_heart))]"
+					output += "<br>Retrieve and consume it to claim victory! Graggar will not forgive failure."
+				else
+					output += "<br>[target.real_name]"
+					output += "<br>Eat your rival's heart before they eat YOURS! Graggar will not forgive failure."
 			else if(target_heart)
-				output += "<br>Rival's Heart"
-				output += "<br>It's somewhere in the [get_area_name(target_heart)]"
-				output += "<br>Your rival is dead but their heart remains. Consume it to claim victory!"
+				if(target_heart.owner && target_heart.owner != recipient)
+					output += "<br>Rival's Heart"
+					output += "<br>It's currently inside [target_heart.owner.real_name]'s chest in the [lowertext(get_area_name(target_heart))]"
+					output += "<br>Your rival is dead but their heart beats in another's chest. Retrieve and consume it to claim victory!"
+				else
+					output += "<br>Rival's Heart"
+					output += "<br>It's somewhere in the [lowertext(get_area_name(target_heart))]"
+					output += "<br>Your rival is dead but their heart remains. Consume it to claim victory!"
 			else
 				continue
 
 		else if(recipient == target)
 			if(challenger)
-				output += "<br>[challenger.real_name]"
-				output += "<br>Eat your rival's heart before he eat YOURS! Graggar will not forgive failure."
+				if(challenger_heart && challenger_heart.owner && challenger_heart.owner != challenger) // Rival is not gone but their heart is in someone else
+					output += "<br>[challenger.real_name]"
+					output += "<br>Your rival's heart beats in [challenger_heart.owner.real_name]'s chest in the [lowertext(get_area_name(challenger_heart))]"
+					output += "<br>Retrieve and consume it to claim victory! Graggar will not forgive failure."
+				else
+					output += "<br>[challenger.real_name]"
+					output += "<br>Eat your rival's heart before he eat YOURS! Graggar will not forgive failure."
 			else if(challenger_heart)
-				output += "<br>Rival's Heart"
-				output += "<br>It's somewhere in the [get_area_name(challenger_heart)]"
-				output += "<br>Your rival is dead but their heart remains. Consume it to claim victory!"
+				if(challenger_heart.owner && challenger_heart.owner != recipient)
+					output += "<br>Rival's Heart"
+					output += "<br>It's currently inside [challenger_heart.owner.real_name]'s chest in the [lowertext(get_area_name(challenger_heart))]"
+					output += "<br>Your rival is dead but their heart beats in another's chest. Retrieve and consume it to claim victory!"
+				else
+					output += "<br>Rival's Heart"
+					output += "<br>It's somewhere in the [lowertext(get_area_name(challenger_heart))]"
+					output += "<br>Your rival is dead but their heart remains. Consume it to claim victory!"
 			else
 				continue
 
