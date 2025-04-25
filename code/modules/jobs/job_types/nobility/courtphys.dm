@@ -26,17 +26,17 @@
 	..()
 	H.virginity = TRUE
 	shoes = /obj/item/clothing/shoes/shortboots
-	shirt = /obj/item/clothing/shirt/undershirt/red
+	shirt = /obj/item/clothing/shirt/tunic/noblecoat
 	backr = /obj/item/storage/backpack/satchel
 	backl = /obj/item/storage/backpack/satchel/surgbag
-	pants = /obj/item/clothing/pants/tights/random
+	pants = /obj/item/clothing/pants/skirt/green
 	gloves = /obj/item/clothing/gloves/leather/feld
-	armor = /obj/item/clothing/shirt/robe/feld
-	head = /obj/item/clothing/head/roguehood/feld
-	mask = /obj/item/clothing/face/feld
-	neck = /obj/item/clothing/neck/feld
+	head = /obj/item/clothing/head/physhat
+	mask = /obj/item/clothing/face/spectacles/golden
+	neck = /obj/item/clothing/neck/coif/cloth
 	belt = /obj/item/storage/belt/leather
 	beltl = /obj/item/storage/keyring/physician
+	cloak = /obj/item/clothing/cloak/apron/brown
 
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 5, TRUE)
@@ -56,4 +56,5 @@
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_LEGENDARY_ALCHEMIST, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	H?.mind?.AddSpell(new /obj/effect/proc_holder/spell/invoked/diagnose/secular)
