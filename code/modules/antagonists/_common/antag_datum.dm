@@ -262,7 +262,7 @@ GLOBAL_LIST_EMPTY(antagonists)
 	antag_memory = new_memo
 
 /// makes the owner's role unassigned and reopens their job slot
-/datum/antagonist/proc/return_job()
+/datum/antagonist/proc/remove_job()
 	if(owner.assigned_role)
 		owner.assigned_role.adjust_current_positions(-1)
 	owner.assigned_role = /datum/job/unassigned
