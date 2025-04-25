@@ -169,15 +169,15 @@
 /obj/item/reagent_containers/food/snacks/organ/heart/check_culling(mob/living/eater)
 	. = ..()
 	for(var/datum/culling_duel/D in GLOB.graggar_cullings)
-		var/obj/item/organ/heart/d_challenger_heart = D.challenger_heart.resolve()
-		var/obj/item/organ/heart/d_target_heart = D.target_heart.resolve()
-		var/mob/living/carbon/human/challenger = D.challenger.resolve()
-		var/mob/living/carbon/human/target = D.target.resolve()
+		var/obj/item/organ/heart/d_challenger_heart = D.challenger_heart?.resolve()
+		var/obj/item/organ/heart/d_target_heart = D.target_heart?.resolve()
+		var/mob/living/carbon/human/challenger = D.challenger?.resolve()
+		var/mob/living/carbon/human/target = D.target?.resolve()
 
-		if(src == d_target_heart && challenger && eater == challenger)
+		if(src == d_target_heart && eater == challenger)
 			D.process_win(winner = eater, loser = target)
 			return TRUE
-		else if(src == d_challenger_heart && target && eater == target)
+		else if(src == d_challenger_heart && eater == target)
 			D.process_win(winner = eater, loser = challenger)
 			return TRUE
 
