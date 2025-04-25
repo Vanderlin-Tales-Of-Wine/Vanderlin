@@ -244,7 +244,7 @@
 	. = ..()
 	var/mob/M = usr
 
-	if(!M.incapacitated() && loc == M && istype(over_object, /atom/movable/screen/inventory/hand))
+	if(!M.incapacitated(ignore_grab = TRUE) && loc == M && istype(over_object, /atom/movable/screen/inventory/hand))
 		if(!allow_attack_hand_drop(M))
 			return
 		var/atom/movable/screen/inventory/hand/H = over_object
@@ -260,7 +260,7 @@
 
 /obj/item/clothing/proc/can_use(mob/user)
 	if(user && ismob(user))
-		if(!user.incapacitated())
+		if(!user.incapacitated(ignore_grab = TRUE))
 			return TRUE
 	return FALSE
 

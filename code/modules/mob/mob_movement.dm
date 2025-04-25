@@ -122,7 +122,7 @@
 	if(mob.buckled)							//if we're buckled to something, tell it we moved.
 		return mob.buckled.relaymove(mob, direct)
 
-	if(!(L.mobility_flags & MOBILITY_MOVE))
+	if(HAS_TRAIT(L, TRAIT_IMMOBILIZED))
 		return FALSE
 
 	if(isobj(mob.loc) || ismob(mob.loc))	//Inside an object, tell it we moved
@@ -192,7 +192,7 @@
 	if(P)
 		if(isliving(P))
 			var/mob/living/M = P
-			if(!(M.mobility_flags & MOBILITY_STAND))
+			if(M.body_position == LYING_DOWN)
 				if(!M.buckled) //carrying/piggyback
 					mob.setDir(turn(mob.dir, 180))
 		else
@@ -230,11 +230,11 @@
 			move_delay = world.time + 10
 			to_chat(src, "<span class='warning'>I can't move!</span>")
 			return TRUE
-		else if(mob.incapacitated(ignore_restraints = 1))
+		else if(HAS_TRAIT(mob, TRAIT_INCAPACITATED))
 			move_delay = world.time + 10
 			to_chat(src, "<span class='warning'>I can't move!</span>")
 			return TRUE
-		else if(mob.restrained(ignore_grab = 1))
+		else if(HAS_TRAIT(mob, TRAIT_RESTRAINED))
 			move_delay = world.time + 10
 			to_chat(src, "<span class='warning'>I'm restrained! I can't move!</span>")
 			return TRUE

@@ -268,6 +268,14 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_IMMOBILIZED		"immobilized" //! Prevents voluntary movement.
 #define TRAIT_KNOCKEDOUT		"knockedout" //! Forces the user to stay unconscious.
 #define TRAIT_FLOORED 			"floored" //! Prevents standing or staying up on its own.
+/// Prevents usage of manipulation appendages (picking, holding or using items, manipulating storage).
+#define TRAIT_HANDS_BLOCKED		"handsblocked"
+/// Inability to access UI hud elements. Turned into a trait from [MOBILITY_UI] to be able to track sources.
+#define TRAIT_UI_BLOCKED		"uiblocked"
+/// Inability to pull things. Turned into a trait from [MOBILITY_PULL] to be able to track sources.
+#define TRAIT_PULL_BLOCKED		"pullblocked"
+/// Abstract condition that prevents movement if being pulled and might be resisted against. Handcuffs and straight jackets, basically.
+#define TRAIT_RESTRAINED		"restrained"
 #define TRAIT_INCAPACITATED		"incapacitated"
 #define TRAIT_BLIND 			"blind"
 #define TRAIT_MUTE				"mute"
@@ -369,6 +377,9 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_NOEMBED			"noembed"
 #define TRAIT_NO_TELEPORT		"no-teleport" //you just can't
 
+/// Buckling yourself to objects with this trait won't immobilize you
+#define TRAIT_NO_IMMOBILIZE "no_immobilize"
+
 // common trait sources
 #define TRAIT_GENERIC "generic"
 #define UNCONSCIOUS_TRAIT "unconscious"
@@ -398,9 +409,17 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define CRIT_HEALTH_TRAIT "crit_health"
 #define OXYLOSS_TRAIT "oxyloss"
 #define BLOODLOSS_TRAIT "bloodloss"
-#define BUCKLED_TRAIT "buckled" //! trait associated to being buckled
-#define CHOKEHOLD_TRAIT "chokehold" //! trait associated to being held in a chokehold
-#define RESTING_TRAIT "resting" //! trait associated to resting
+/// Trait associated to being buckled
+#define BUCKLED_TRAIT "buckled"
+/// Trait associated to being held in a chokehold
+#define CHOKEHOLD_TRAIT "chokehold"
+/// trait associated to resting
+#define RESTING_TRAIT "resting"
+/// Trait associated to wearing a suit
+#define SUIT_TRAIT "suit"
+/// Trait associated to lying down (having a [lying_angle] of a different value than zero).
+#define LYING_DOWN_TRAIT "lying-down"
+
 /// trait associated to a stat value or range of
 #define STAT_TRAIT "stat"
 
@@ -451,3 +470,11 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_I_AM_INVISIBLE_ON_A_BOAT "invisible_on_tram"
 ///Trait given by /datum/element/relay_attacker
 #define TRAIT_RELAYING_ATTACKER "relaying_attacker"
+
+#define LACKING_LOCOMOTION_APPENDAGES_TRAIT "lacking-locomotion-appengades" //trait associated to not having locomotion appendages nor the ability to fly or float
+#define LACKING_MANIPULATION_APPENDAGES_TRAIT "lacking-manipulation-appengades" //trait associated to not having fine manipulation appendages such as hands
+#define HANDCUFFED_TRAIT "handcuffed"
+/// Trait applied by by [/datum/component/soulstoned]
+#define SOULSTONE_TRAIT "soulstone"
+/// Trait applied to brain mobs when they lack external aid for locomotion, such as being inside a mech.
+#define BRAIN_UNAIDED "brain-unaided"

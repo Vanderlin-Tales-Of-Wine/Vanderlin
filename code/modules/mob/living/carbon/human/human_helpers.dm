@@ -2,8 +2,8 @@
 /mob/living/carbon/human/proc/change_name(new_name)
 	real_name = new_name
 
-/mob/living/carbon/human/restrained(ignore_grab)
-	. = ((wear_armor && wear_armor.breakouttime) || ..())
+// /mob/living/carbon/human/restrained(ignore_grab)
+// 	. = ((wear_armor && wear_armor.breakouttime) || ..())
 
 /mob/living/carbon/human/check_language_hear(language)
 	var/mob/living/carbon/V = src
@@ -18,10 +18,9 @@
 
 
 /mob/living/carbon/human/canBeHandcuffed()
-	if(get_num_arms(FALSE) >= 2)
-		return TRUE
-	else
+	if(num_hands < 2)
 		return FALSE
+	return TRUE
 
 //gets assignment from ID or ID inside PDA or PDA itself
 //Useful when player do something with computers

@@ -377,7 +377,7 @@ There are several things that need to be remembered:
 
 	if(!gloves && bloody_hands)
 		var/mutable_appearance/bloody_overlay = mutable_appearance('icons/effects/blood.dmi', "bloodyhands", -GLOVES_LAYER)
-		if(get_num_arms(FALSE) < 2)
+		if(num_hands < 2)
 			if(has_left_hand(FALSE))
 				bloody_overlay.icon_state = "bloodyhands_left"
 			else if(has_right_hand(FALSE))

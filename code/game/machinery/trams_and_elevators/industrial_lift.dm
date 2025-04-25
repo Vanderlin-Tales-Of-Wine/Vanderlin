@@ -579,7 +579,7 @@ GLOBAL_LIST_INIT(all_radial_directions, list(
 	if(!isliving(user))
 		return FALSE
 	// Gotta be awake and aware
-	if(user.incapacitated())
+	if(user.incapacitated(ignore_grab = TRUE))
 		return FALSE
 	// Gotta be by the lift
 	if(!user.Adjacent(src))
@@ -661,7 +661,7 @@ GLOBAL_LIST_INIT(all_radial_directions, list(
  * * boolean, FALSE if the menu should be closed, TRUE if the menu is clear to stay opened.
  */
 /obj/structure/industrial_lift/proc/check_menu(mob/user, starting_loc)
-	if(user.incapacitated() || !user.Adjacent(src) || starting_loc != src.loc)
+	if(user.incapacitated(ignore_grab = TRUE) || !user.Adjacent(src) || starting_loc != src.loc)
 		return FALSE
 	return TRUE
 

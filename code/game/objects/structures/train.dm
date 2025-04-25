@@ -21,7 +21,7 @@
 	)
 
 /obj/structure/train/MouseDrop_T(atom/dropping, mob/user)
-	if(!isliving(user) || user.incapacitated())
+	if(!isliving(user) || user.incapacitated(ignore_grab = TRUE))
 		return //No ghosts or incapacitated folk allowed to do this.
 	if(!ishuman(dropping))
 		return //Only humans have job slots to be freed.
@@ -40,7 +40,7 @@
 		return //prevents noble roles from cryoing as per request of Aberra
 	if(alert("Are you sure you want to [departing_mob == user ? "leave for Kingsfield (you" : "send this person to Kingfield (they"] will be removed from the current round, the job slot freed)?", "Departing", "Confirm", "Cancel") != "Confirm")
 		return //doublechecks that people actually want to leave the round
-	if(user.incapacitated() || QDELETED(departing_mob) || (departing_mob != user && departing_mob.client) || get_dist(src, dropping) > 2 || get_dist(src, user) > 2)
+	if(user.incapacitated(ignore_grab = TRUE) || QDELETED(departing_mob) || (departing_mob != user && departing_mob.client) || get_dist(src, dropping) > 2 || get_dist(src, user) > 2)
 		return //Things have changed since the alert happened.
 	say("[user] [departing_mob == user ? "is departing for Kingsfield" : "is sending [departing_mob] to Kingsfield!"]")
 	in_use = TRUE //Just sends a simple message to chat that some-one is leaving

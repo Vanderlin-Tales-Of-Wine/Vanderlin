@@ -212,8 +212,6 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 
 	var/breakpath
 
-	var/walking_stick = FALSE
-
 	var/mailer = null
 	var/mailedto = null
 
@@ -453,7 +451,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	set hidden = 1
 	set src in oview(1)
 
-	if(!isturf(loc) || usr.stat || usr.restrained())
+	if(!isturf(loc) || usr.stat != CONSCIOUS || HAS_TRAIT(usr, TRAIT_HANDS_BLOCKED))
 		return
 
 	if(isliving(usr))
@@ -552,7 +550,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	add_fingerprint(usr)
 	return ..()
 
-/obj/item/attack_hand(mob/user)
+/obj/item/attack_hand(mob/living/user)
 	. = ..()
 	if(.)
 		return
@@ -562,7 +560,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		return
 
 	if(twohands_required)
-		if(user.get_num_arms() < 2)
+		if(user.usable_hands < 2)
 			to_chat(user, "<span class='warning'>[src] is too bulky to carry in one hand!</span>")
 			return
 		if(get_dist(src,user) > 1)
@@ -805,7 +803,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	set hidden = 1
 	set name = "Pick up"
 
-	if(usr.incapacitated() || !Adjacent(usr))
+	if(usr.incapacitated(ignore_grab = TRUE) || !Adjacent(usr))
 		return
 
 	if(isliving(usr))
@@ -1280,7 +1278,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	if(user.get_inactive_held_item())
 		to_chat(user, "<span class='warning'>I need a free hand first.</span>")
 		return
-	if(user.get_num_arms() < 2)
+	if(user.usable_hands < 2)
 		to_chat(user, "<span class='warning'>I don't have enough hands.</span>")
 		return
 	wielded = TRUE

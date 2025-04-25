@@ -316,7 +316,7 @@
 		return
 	if(isliving(AM) && !AM.throwing)
 		var/mob/living/L = AM
-		if(L.lying || water_level == 3)
+		if(L.body_position == LYING_DOWN || water_level == 3)
 			L.SoakMob(FULL_BODY)
 		else
 			if(water_level == 2)

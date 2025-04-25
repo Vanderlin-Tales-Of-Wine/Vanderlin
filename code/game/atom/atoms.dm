@@ -487,7 +487,7 @@
  * Default behaviour is to send a warning that the user can't move while buckled as long
  * as the buckle_message_cooldown has expired (50 ticks)
  */
-/atom/proc/relaymove(mob/user)
+/atom/proc/relaymove(mob/living/user, direction)
 	if(buckle_message_cooldown <= world.time)
 		buckle_message_cooldown = world.time + 50
 		to_chat(user, "<span class='warning'>I should try resisting.</span>")
@@ -574,8 +574,8 @@
 		return FALSE
 	return add_blood_DNA(blood_dna)
 
-///Called when gravity returns after floating I think
-/atom/proc/handle_fall()
+///Used for making a sound when a mob involuntarily falls into the ground.
+/atom/proc/handle_fall(mob/faller)
 	return
 
 /**

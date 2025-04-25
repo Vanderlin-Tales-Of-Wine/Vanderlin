@@ -11,8 +11,11 @@
 	firefuel = 10 MINUTES
 	resistance_flags = FLAMMABLE
 	slot_flags = ITEM_SLOT_BACK
-	walking_stick = TRUE
 	smeltresult = /obj/item/ash
+
+/obj/item/broom/Initialize()
+	. = ..()
+	AddElement(/datum/element/walking_stick)
 
 /obj/item/broom/getonmobprop(tag)
 	. = ..()

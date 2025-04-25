@@ -1,6 +1,6 @@
 /obj/item/clothing/armor/chainmail
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT
-	name = "Haubergeon"
+	name = "haubergeon"
 	desc = "Made out of interlocked steel rings. Offers superior resistance against arrows, stabs and cuts. \nUsually worn as padding for proper armor."
 	icon_state = "haubergeon"
 	blocksound = CHAINHIT
