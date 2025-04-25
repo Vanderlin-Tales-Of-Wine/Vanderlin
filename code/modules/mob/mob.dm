@@ -204,7 +204,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 	if(self_message)
 		hearers -= src
 	for(var/mob/M in hearers)
-		if(M != src && M.client && !deaf_message)
+		if(M != src && M.client && can_hear())
 				log_message("heard [key_name(living_speaker)] emote: [message]", LOG_EMOTE, log_globally = FALSE)
 		M.show_message(message, MSG_AUDIBLE, deaf_message, MSG_VISUAL)
 		if(runechat_message && M.can_see_runechat(src) && M.can_hear())
