@@ -263,10 +263,10 @@ GLOBAL_LIST_EMPTY(antagonists)
 
 /// makes the owner's role unassigned and reopens their job slot
 /datum/antagonist/proc/return_job()
-	if(assigned_role)
+	if(owner.assigned_role)
 		owner.assigned_role.adjust_current_positions(-1)
 	owner.assigned_role = /datum/job/unassigned
-	owner.migrant_role = null
+	owner.current?.migrant_role = null
 	owner.current?.job = null
 
 //This one is created by admin tools for custom objectives
