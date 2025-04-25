@@ -33,6 +33,14 @@
 
 	food_type = /obj/item/reagent_containers/food/snacks/organ/heart
 
+/obj/item/organ/heart/Destroy()
+	for(var/datum/culling_duel/D in GLOB.graggar_cullings)
+		if(D.challenger_heart?.resolve() == src)
+			D.handle_heart_destroyed("challenger")
+		else if(D.target_heart?.resolve() == src)
+			D.handle_heart_destroyed("target")
+	return ..()
+
 /obj/item/organ/heart/examine(mob/user)
 	. = ..()
 	if(IsAdminGhost(user) && inscryptions)

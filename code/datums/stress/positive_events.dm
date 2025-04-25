@@ -205,5 +205,5 @@
 
 /datum/stressevent/graggar_culling_finished
 	stressadd = -1
-	desc = span_green("I have devoured my opponent! Graggar favours me now!")
+	desc = span_green("I have prevailed over my rival! Graggar favours me now!")
 	timer = INFINITY
