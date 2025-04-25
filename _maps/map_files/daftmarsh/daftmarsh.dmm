@@ -65,6 +65,7 @@
 "aep" = (
 /obj/item/key/apartments/apartment10,
 /obj/structure/closet/crate/crafted_closet/inn,
+/obj/item/key/apartments/apartment10,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town)
 "aes" = (
@@ -153,7 +154,7 @@
 /area/rogue/indoors/town/manor)
 "aiV" = (
 /obj/structure/throne,
-/mob/living/carbon/human/species/zizombie/ambush,
+/mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/floor/carpet/lord/center,
 /area/rogue/under/town/sewer)
 "aiW" = (
@@ -9898,6 +9899,7 @@
 "jUw" = (
 /obj/structure/closet/crate/crafted_closet,
 /obj/item/broom,
+/obj/item/key/apartments/apartment10,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town)
 "jUD" = (
@@ -11303,7 +11305,7 @@
 /area/rogue/indoors/butchershop)
 "luA" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/mob/living/carbon/human/species/zizombie/ambush,
+/mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/under/town/sewer)
 "luG" = (
@@ -13664,7 +13666,7 @@
 /turf/open/floor/churchrough,
 /area/rogue/outdoors/town)
 "nWT" = (
-/mob/living/carbon/human/species/zizombie/ambush,
+/mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/town/sewer)
 "nWX" = (
@@ -108223,7 +108225,6 @@ sWx
 sWx
 sWx
 sWx
-sqp
 sWx
 sWx
 sWx
@@ -108231,8 +108232,9 @@ sWx
 sWx
 sWx
 sWx
-sqp
-npG
+sWx
+sWx
+sWx
 sWx
 sWx
 sWx
@@ -108417,6 +108419,7 @@ sWx
 sWx
 sWx
 sWx
+sqp
 sWx
 sWx
 sWx
@@ -108424,9 +108427,8 @@ sWx
 sWx
 sWx
 sWx
-sWx
-sWx
-sWx
+sqp
+npG
 sWx
 sWx
 sWx
