@@ -58,10 +58,11 @@
 
 /datum/job/bard/after_spawn(mob/living/carbon/spawned, client/player_client)
 	. = ..()
-	var/mob/living/carbon/H = spawned
-	H.advsetup = 1
-	H.invisibility = INVISIBILITY_MAXIMUM
-	H.become_blind("bard_select")
+	select_instrument(spawned, player_client)
+
+/datum/job/proc/select_instrument(mob/living/carbon/spawned, client/player_client)
+	set waitfor = FALSE
+
 	var/instruments = list(
 		"Harp" = /obj/item/instrument/harp,
 		"Lute" = /obj/item/instrument/lute,
@@ -71,13 +72,16 @@
 		"Drum" = /obj/item/instrument/drum,
 		"Hurdy-Gurdy" = /obj/item/instrument/hurdygurdy,
 		"Viola" = /obj/item/instrument/viola)
+	var/timerid = addtimer(CALLBACK(src, PROC_REF(equip_instrument), spawned, player_client, instruments[pick(instruments)]), 20 SECONDS, TIMER_STOPPABLE)
 	var/instrument_choice = input(player_client, "Choose your instrument.", "XYLIX") as anything in instruments
+	if(SStimer.timer_id_dict[timerid])
+		deltimer(timerid)
+	else
+		return
 	var/spawn_instrument = instruments[instrument_choice]
 	if(!spawn_instrument)
-		spawn_instrument = /obj/item/instrument/lute
-	H.equip_to_slot_or_del(new spawn_instrument(H),SLOT_BACK_R, TRUE)
-	H.advsetup = 0
-	H.invisibility = initial(H.invisibility)
-	H.cure_blind("bard_select")
-	var/atom/movable/screen/advsetup/GET_IT_OUT = locate() in H.hud_used?.static_inventory // dis line sux its basically a loop anyways if i remember
-	qdel(GET_IT_OUT)
+		spawn_instrument = instruments[pick(instruments)]
+	equip_instrument(spawned, player_client, spawn_instrument)
+
+/datum/job/proc/equip_instrument(mob/living/carbon/spawned, client/player_client, spawn_instrument)
+	spawned.equip_to_appropriate_slot(new spawn_instrument(get_turf(spawned)))
