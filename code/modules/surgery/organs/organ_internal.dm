@@ -52,6 +52,8 @@
 	var/organ_dna_type = /datum/organ_dna
 	/// What food typepath should be used when eaten
 	var/food_type = /obj/item/reagent_containers/food/snacks/organ
+	/// Original owner of the organ, the one who had it inside them last
+	var/mob/living/carbon/last_owner = null
 
 /obj/item/organ/proc/Insert(mob/living/carbon/M, special = 0, drop_if_replaced = TRUE)
 	if(!iscarbon(M) || owner == M)
@@ -66,6 +68,7 @@
 			qdel(replaced)
 
 	owner = M
+	last_owner = M
 	M.internal_organs |= src
 	M.internal_organs_slot[slot] = src
 	moveToNullspace()
@@ -132,7 +135,7 @@
 	S.icon = icon
 	S.icon_state = icon_state
 	S.w_class = w_class
-	S.original_owner = owner
+	S.original_owner = last_owner
 	if(damage > high_threshold)
 		S.eat_effect = /datum/status_effect/debuff/rotfood
 	S.rotprocess = S.rotprocess * ((high_threshold - damage) / high_threshold)
