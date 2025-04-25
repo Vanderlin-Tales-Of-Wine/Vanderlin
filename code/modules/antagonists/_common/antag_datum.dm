@@ -266,7 +266,7 @@ GLOBAL_LIST_EMPTY(antagonists)
 	if(assigned_role)
 		owner.assigned_role.adjust_current_positions(-1)
 	owner.assigned_role = /datum/job/unassigned
-	owner.current?.migrant_role = null
+	owner.migrant_role = null
 	owner.current?.job = null
 
 //This one is created by admin tools for custom objectives
