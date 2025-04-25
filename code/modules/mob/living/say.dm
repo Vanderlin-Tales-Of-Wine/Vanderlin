@@ -276,7 +276,10 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 		if(type & MSG_AUDIBLE) //audio
 			message = "<I>... You can almost hear something ...</I>"
 	else
-		log_message("heard [speaker] say: [message]", LOG_SAY, color="orange", FALSE)
+		if(isliving(speaker))
+			var/mob/living/living_speaker = speaker
+			if(living_speaker.client)
+				log_message("heard [speaker.name]/([speaker.real_name]) say: [message]", LOG_SAY, color="orange", FALSE)
 	show_message(message, MSG_AUDIBLE, deaf_message, deaf_type)
 	return message
 
