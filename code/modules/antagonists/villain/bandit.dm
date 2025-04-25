@@ -25,6 +25,9 @@
 	owner.special_role = "Bandit"
 	owner.purge_combat_knowledge()
 	move_to_spawnpoint()
+	return_job()
+	owner.current.roll_mob_stats()
+
 	forge_objectives()
 	. = ..()
 	finalize_bandit()
