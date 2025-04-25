@@ -278,7 +278,7 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	else
 		if(isliving(speaker))
 			var/mob/living/living_speaker = speaker
-			if(living_speaker.client)
+			if(living_speaker.client && src.client)
 				log_message("heard [speaker.name]/([speaker.real_name]) say: [message]", LOG_SAY, color="orange", FALSE)
 	show_message(message, MSG_AUDIBLE, deaf_message, deaf_type)
 	return message
