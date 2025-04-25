@@ -293,8 +293,8 @@
 		if(M)
 			if(M.real_name)
 				. += "/([M.real_name] "
-				if(real_name != name)
-					. += "DISGUISED AS [name]"
+				if(M.real_name != M.name)
+					. += "DISGUISED AS [M.name]"
 				. += ")"
 			else if(M.name)
 				. += "/([M.name])"
