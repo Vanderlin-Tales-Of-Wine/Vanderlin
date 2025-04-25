@@ -42,7 +42,7 @@
 	. = ..()
 	owner.special_role = name
 	move_to_spawnpoint()
-	return_job()
+	remove_job()
 	owner.current?.roll_mob_stats()
 	skele_look()
 	equip_lich()
