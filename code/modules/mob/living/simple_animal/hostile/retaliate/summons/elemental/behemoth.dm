@@ -70,7 +70,8 @@
 	if(!target)
 		return
 	addtimer(CALLBACK(src,PROC_REF(yeet),target), 1 SECONDS)
-	return target.attack_animal(src)
+	if(!QDELETED(target))
+		return target.attack_animal(src)
 
 /obj/effect/temp_visual/marker
 	icon = 'icons/effects/effects.dmi'

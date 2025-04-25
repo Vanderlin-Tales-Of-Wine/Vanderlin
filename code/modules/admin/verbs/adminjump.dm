@@ -1,4 +1,4 @@
-/client/proc/jumptoarea(area/A in GLOB.sortedAreas)
+/client/proc/jumptoarea(area/A in get_sorted_areas())
 	set name = "Jump to Area"
 	set desc = ""
 	set category = "GameMaster"
@@ -10,10 +10,10 @@
 		return
 
 	var/list/turfs = list()
-	for(var/turf/T in A)
-		if(T.density)
-			continue
-		turfs.Add(T)
+	for (var/list/zlevel_turfs as anything in A.get_zlevel_turf_lists())
+		for (var/turf/area_turf as anything in zlevel_turfs)
+			if(!area_turf.density)
+				turfs.Add(area_turf)
 
 	var/turf/T = safepick(turfs)
 	if(!T)
@@ -144,7 +144,11 @@
 	if(!src.holder)
 		//to_chat(src, "Only administrators may use this command.")
 		return
-	var/area/A = input(usr, "Pick an area.", "Pick an area") in GLOB.sortedAreas|null
+	var/list/sorted_areas = get_sorted_areas()
+	if(!length(sorted_areas))
+		to_chat(src, "No areas found.")
+		return
+	var/area/A = input(usr, "Pick an area.", "Pick an area") in sorted_areas
 	if(A && istype(A))
 		if(M.forceMove(safepick(get_area_turfs(A))))
 

@@ -26,6 +26,9 @@
 	. = ..()
 	AddComponent(/datum/component/combat_noise, list("aggro" = 2))
 
+/mob/living/carbon/human/species/orc/ambush
+	ai_controller = /datum/ai_controller/human_npc
+
 /mob/living/carbon/human/species/orc/ambush/after_creation()
 	..()
 	job = "Ambush Orc"
@@ -300,6 +303,7 @@
 //NEW ORCS WITH DIFFERENT GEAR AND SHIT
 /mob/living/carbon/human/species/orc/tribal
 	name = "Tribal Orc"
+	ai_controller = /datum/ai_controller/human_npc
 	var/loadout = /datum/outfit/job/npc/orc/tribal
 	ambushable = FALSE
 
@@ -349,6 +353,7 @@
 
 /mob/living/carbon/human/species/orc/warrior
 	name = "Warrior Orc"
+	ai_controller = /datum/ai_controller/human_npc
 	var/loadout = /datum/outfit/job/npc/orc/warrior
 	ambushable = FALSE
 
@@ -419,6 +424,7 @@
 
 /mob/living/carbon/human/species/orc/marauder
 	name = "Marauder Orc"
+	ai_controller = /datum/ai_controller/human_npc
 	var/loadout = /datum/outfit/job/npc/orc/marauder
 	ambushable = FALSE
 
@@ -472,6 +478,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////
 /mob/living/carbon/human/species/orc/warlord
 	name = "Warlord Orc"
+	ai_controller = /datum/ai_controller/human_npc
 	var/loadout = /datum/outfit/job/npc/orc/warlord
 	ambushable = FALSE
 

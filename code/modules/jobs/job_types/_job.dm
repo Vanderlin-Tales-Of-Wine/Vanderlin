@@ -93,7 +93,6 @@
 	var/list/peopleiknow = list()
 	var/list/peopleknowme = list()
 
-	var/plevel_req = 0
 	var/min_pq = -999
 
 	var/give_bank_account = FALSE
@@ -135,7 +134,13 @@
 	var/apprentice_name
 	///do we magic?
 	var/magic_user = FALSE
+	///Do we get passive income every day from our noble estates?
+	var/noble_income = FALSE
 
+	var/static/list/actors_list_blacklist = list(
+		/datum/job/adventurer,
+		/datum/job/pilgrim,
+	)
 
 /datum/job/New()
 	. = ..()
@@ -144,6 +149,9 @@
 			peopleiknow += X
 			peopleknowme += X
 		for(var/X in GLOB.serf_positions)
+			peopleiknow += X
+			peopleknowme += X
+		for(var/X in GLOB.company_positions)
 			peopleiknow += X
 			peopleknowme += X
 		for(var/X in GLOB.church_positions)
@@ -221,6 +229,8 @@
 			SStreasury.create_bank_account(spawned, give_bank_account)
 		else
 			SStreasury.create_bank_account(spawned)
+		if(noble_income)
+			SStreasury.noble_incomes[spawned] = noble_income
 
 	if(job_flags & JOB_SHOW_IN_CREDITS)
 		SScrediticons.processing += spawned
@@ -228,6 +238,9 @@
 	if(cmode_music)
 		DIRECT_OUTPUT(spawned, load_resource(cmode_music, -1)) //preload their combat mode music
 		spawned.cmode_music = cmode_music
+
+	if(!(type in actors_list_blacklist)) //don't show these.
+		GLOB.actors_list[spawned.mobid] = "[spawned.real_name] as [spawned.mind.assigned_role.get_informed_title(spawned)]<BR>"
 
 	if(length(advclass_cat_rolls))
 		var/mob/living/carbon/human/humanguy = spawned

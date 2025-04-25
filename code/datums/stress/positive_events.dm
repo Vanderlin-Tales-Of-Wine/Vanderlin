@@ -25,7 +25,7 @@
 
 /datum/stressevent/viewexecution
 	timer = 5 MINUTES
-	stressadd = -2
+	stressadd = -3 // to counteract the +1 from watching death
 	desc = span_green("Nice civilized entertainment.")
 
 /datum/stressevent/psyprayer
@@ -192,3 +192,8 @@
 	timer = 5 MINUTES
 	stressadd = -3
 	desc = span_green("My apprentice is improving, all thanks to me!")
+
+/datum/stressevent/saw_old_party
+	timer = 2 MINUTES
+	stressadd = -2
+	desc = span_green("Its always good to see an old friends face.")

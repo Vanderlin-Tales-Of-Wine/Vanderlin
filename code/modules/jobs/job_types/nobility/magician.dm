@@ -67,6 +67,7 @@
 					H.dna.species.soundpack_m = new /datum/voicepack/male/wizard()
 		ADD_TRAIT(H, TRAIT_SEEPRICES, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_OLDPARTY, TRAIT_GENERIC)
 		H.virginity = TRUE
 		H.change_stat(STATKEY_STR, -2)
 		H.change_stat(STATKEY_INT, 5)

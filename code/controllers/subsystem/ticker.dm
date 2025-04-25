@@ -45,7 +45,7 @@ SUBSYSTEM_DEF(ticker)
 	//376000 day
 	var/gametime_offset = 288001		//Deciseconds to add to world.time for station time.
 	var/station_time_rate_multiplier = 40		//factor of station time progressal vs real time.
-	var/time_until_vote = 120 MINUTES
+	var/time_until_vote = 135 MINUTES
 	var/last_vote_time = null
 	var/firstvote = TRUE
 
@@ -228,13 +228,13 @@ SUBSYSTEM_DEF(ticker)
 				Master.SetRunLevel(RUNLEVEL_POSTGAME)
 			if(firstvote)
 				if(world.time > round_start_time + time_until_vote)
-					SSvote.initiate_vote("restart", "The Gods")
+					SSvote.initiate_vote("endround", "The Gods")
 					time_until_vote = 40 MINUTES
 					last_vote_time = world.time
 					firstvote = FALSE
 			else
 				if(world.time > last_vote_time + time_until_vote)
-					SSvote.initiate_vote("restart", "The Gods")
+					SSvote.initiate_vote("endround", "The Gods")
 
 /datum/controller/subsystem/ticker
 	var/last_bot_update = 0

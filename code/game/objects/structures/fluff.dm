@@ -251,7 +251,7 @@
 		return 1
 	if(istype(mover) && (mover.pass_flags & PASSGRILLE))
 		return 1
-	if(mover.throwing && !ismob(mover))
+	if(mover.throwing && isitem(mover))
 		return prob(66)
 	return ..()
 

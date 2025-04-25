@@ -48,9 +48,9 @@ SUBSYSTEM_DEF(atoms)
 				++count
 				#endif
 				CHECK_TICK
-
+	#ifdef TESTING
 	testing("Initialized [count] atoms")
-
+	#endif
 	initialized = INITIALIZATION_INNEW_REGULAR
 
 	if(late_loaders.len)

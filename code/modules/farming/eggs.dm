@@ -36,4 +36,5 @@
 		qdel(src)
 
 /obj/item/reagent_containers/food/snacks/egg/proc/hatch(mob/living/simple_animal/hostile/retaliate/chicken/parent)
+	GLOB.vanderlin_round_stats[STATS_ANIMALS_BRED]++
 	new /mob/living/simple_animal/hostile/retaliate/chicken/chick(get_turf(parent))
