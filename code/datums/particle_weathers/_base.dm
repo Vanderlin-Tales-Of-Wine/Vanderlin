@@ -130,6 +130,8 @@
 
 	var/blend_type
 	var/filter_type
+	var/secondary_filter_type
+	var/forecast_tag
 
 	var/datum/weather_effect/weather_special_effect
 
@@ -165,7 +167,7 @@
 	addtimer(CALLBACK(src, PROC_REF(wind_down)), weather_duration)
 
 	if(particleEffectType)
-		SSParticleWeather.SetparticleEffect(new particleEffectType, blend_type, filter_type);
+		SSParticleWeather.SetparticleEffect(new particleEffectType, blend_type, filter_type, secondary_filter_type);
 
 	if(weather_special_effect)
 		SSParticleWeather.weather_special_effect = new weather_special_effect(src)
@@ -354,3 +356,12 @@
 	message_admins("[key_name_admin(usr)] started weather of type [weather_type].")
 	log_admin("[key_name(usr)] started weather of type [weather_type].")
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Run Particle Weather")
+
+
+/datum/weather_effect
+	var/name = "effect"
+	var/probability = 0
+	var/datum/particle_weather/initiator_ref
+
+/datum/weather_effect/proc/effect_affect(turf/target_turf)
+	return FALSE

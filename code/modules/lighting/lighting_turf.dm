@@ -121,6 +121,13 @@
 			else
 				lighting_clear_overlay()
 
+	//move the turf
+	LISTASSERTLEN(old_area.turfs_to_uncontain_by_zlevel, z, list())
+	LISTASSERTLEN(new_area.turfs_by_zlevel, z, list())
+	old_area.turfs_to_uncontain_by_zlevel[z] += src
+	new_area.turfs_by_zlevel[z] += src
+	new_area.contents += src
+
 /turf/proc/get_corners()
 	if (!IS_DYNAMIC_LIGHTING(src) && !light_sources)
 		return null

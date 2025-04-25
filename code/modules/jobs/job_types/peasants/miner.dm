@@ -15,6 +15,9 @@
 
 	outfit = /datum/outfit/job/miner
 
+/datum/outfit/job/miner
+	job_bitflag = BITFLAG_CONSTRUCTOR
+
 /datum/outfit/job/miner/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/armingcap
