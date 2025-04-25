@@ -474,8 +474,8 @@
 /turf/open/floor/metal/barograte,
 /area/rogue/under/mountains/anvil/lower)
 "hQ" = (
-/obj/structure/barricade/rogue,
-/obj/structure/barricade/rogue/crude,
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
 /turf/open/floor/church,
 /area/rogue/under/mountains/anvil/lower)
 "hR" = (
@@ -963,7 +963,7 @@
 /turf/closed/wall/mineral/wooddark/vertical,
 /area/rogue/under/mountains/anvil/lower/building)
 "oI" = (
-/obj/structure/barricade/rogue,
+/obj/structure/barricade/wooden,
 /turf/open/floor/snow/patchy,
 /area/rogue/indoors/mountains/anvil/surface/building)
 "oJ" = (
@@ -1356,7 +1356,7 @@
 /area/rogue/under/mountains/anvil/lower)
 "uG" = (
 /obj/structure/mineral_door/bars,
-/obj/structure/barricade/rogue/crude,
+/obj/structure/barricade/wooden/crude,
 /turf/open/floor/blocks/green,
 /area/rogue/under/mountains/anvil/lower/building)
 "uP" = (
@@ -1447,7 +1447,7 @@
 /area/rogue/under/mountains/anvil/lower/building)
 "wb" = (
 /obj/structure/window/stained/silver,
-/obj/structure/barricade/rogue/crude,
+/obj/structure/barricade/wooden/crude,
 /turf/open/floor/church,
 /area/rogue/under/mountains/anvil/lower)
 "wi" = (
@@ -1461,8 +1461,8 @@
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/mountains/anvil/lower/building)
 "wr" = (
-/obj/structure/barricade/rogue,
-/obj/structure/barricade/rogue/crude,
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
 /turf/open/floor/blocks,
 /area/rogue/under/mountains/anvil/lower/building)
 "wy" = (
@@ -1519,7 +1519,7 @@
 /turf/closed/mineral/copper,
 /area/rogue/under/mountains/anvil/lower/building)
 "xL" = (
-/obj/structure/barricade/rogue,
+/obj/structure/barricade/wooden,
 /turf/open/floor/blocks,
 /area/rogue/under/mountains/anvil/lower/building)
 "xM" = (
@@ -3007,7 +3007,7 @@
 /turf/open/floor/blocks,
 /area/rogue/under/mountains/anvil/lower/building)
 "UN" = (
-/obj/structure/barricade/rogue,
+/obj/structure/barricade/wooden,
 /turf/open/floor/twig,
 /area/rogue/indoors/mountains/anvil/surface/building)
 "UO" = (
@@ -3303,7 +3303,7 @@
 /turf/open/floor/blocks,
 /area/rogue/under/mountains/anvil/lower/building)
 "Zb" = (
-/obj/structure/barricade/rogue,
+/obj/structure/barricade/wooden,
 /turf/open/floor/snow,
 /area/rogue/indoors/mountains/anvil/surface/building)
 "Zd" = (

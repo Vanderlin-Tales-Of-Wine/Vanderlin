@@ -657,7 +657,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 
 /client/proc/has_antag_hud()
-	var/datum/atom_hud/A = GLOB.huds[ANTAG_HUD_TRAITOR]
+	var/datum/atom_hud/A = GLOB.huds[ANTAG_HUD_HIDDEN]
 	return A.hudusers[mob]
 
 /client/proc/show_tip()

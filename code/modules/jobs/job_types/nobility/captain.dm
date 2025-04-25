@@ -20,6 +20,7 @@
 	spells = list(/obj/effect/proc_holder/spell/self/convertrole/guard)
 	give_bank_account = 120
 	cmode_music = 'sound/music/cmode/antag/CombatSausageMaker.ogg'
+	noble_income = 11
 
 /datum/job/captain/after_spawn(mob/living/spawned, client/player_client)
 	..()

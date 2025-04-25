@@ -326,6 +326,17 @@
 	chargetime = 0
 	swingdelay = 3
 
+/datum/intent/drill
+	name = "drill"
+	icon_state = "inpick"
+	attack_verb = list("drills","augers")
+	hitsound = list('sound/combat/hits/pick/genpick (1).ogg', 'sound/combat/hits/pick/genpick (2).ogg')
+	animname = "strike"
+	item_damage_type = "stab"
+	blade_class = BCLASS_DRILL
+	chargetime = 0.3
+	swingdelay = 3
+
 /datum/intent/shoot //shooting crossbows or other guns, no parrydrain
 	name = "shoot"
 	icon_state = "inshoot"

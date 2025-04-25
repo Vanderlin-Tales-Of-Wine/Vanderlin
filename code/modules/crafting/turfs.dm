@@ -251,10 +251,11 @@
 /datum/crafting_recipe/turfs/twig/TurfCheck(mob/user, turf/T)
 	if(isclosedturf(T))
 		return
-	if(!istype(T, /turf/open/floor/dirt))
-		if(!istype(T, /turf/open/transparent/openspace))
-			if(!istype(T, /turf/open/floor/grass))
-				return
+	if(!istype(T, /turf/open/floor))
+		return
+	if(!istype(T, /turf/open/transparent/openspace))
+		if(!istype(T, /turf/open/floor/grass))
+			return
 	return TRUE
 
 /datum/crafting_recipe/turfs/twigplatform
