@@ -24,10 +24,10 @@ GLOBAL_LIST_EMPTY(graggar_cullings)
 	var/mob/living/carbon/human/winner
 	var/mob/living/carbon/human/loser
 
-	if(which_heart == "target" && (target_heart.resolve() == null))
+	if(which_heart == "target")
 		winner = challenger.resolve()
 		loser = target.resolve()
-	else if(which_heart == "challenger" && (challenger_heart.resolve() == null))
+	else if(which_heart == "challenger")
 		winner = target.resolve()
 		loser = challenger.resolve()
 
