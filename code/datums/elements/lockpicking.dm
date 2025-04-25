@@ -97,17 +97,7 @@
 //ui is spawned, users screen is updated
 
 /client/proc/spawn_lockpicking_UI(obj/lock, mob/living/user, obj/lockpick, obj/wedge, difficulty, shown_d, skill_level) //potentially different sprites for locks and picks, put here
-	switch(shown_d) //for UI capitilsation
-		if("master")
-			shown_d = "MASTER"
-		if("expert")
-			shown_d = "EXPERT"
-		if("standard")
-			shown_d = "STANDARD"
-		if("novice")
-			shown_d = "NOVICE"
-		if("beginner")
-			shown_d = "BEGINNER"
+	shown_d = uppertext(shown_d) //the haters one this one
 
 	var/atom/movable/screen/movable/snap/lockpicking/imagery = new
 	imagery.picking_object = lock
@@ -411,6 +401,7 @@
 
 	to_chat(user, "<span class='notice'>You pick [name]s lock.</span>")
 	user.visible_message(span_notice("[user.name] picks [name]s lock."), span_notice("You pick the [name]s lock."))
+	GLOB.vanderlin_round_stats[STATS_LOCKS_PICKED]++
 
 	being_picked = FALSE
 

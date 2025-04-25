@@ -130,6 +130,8 @@
 	if(lying)
 		adjustOxyLoss(5)
 		emote("drown")
+		if(stat == DEAD && client)
+			GLOB.vanderlin_round_stats[STATS_PEOPLE_DROWNED]++
 		var/datum/reagents/reagents = new()
 		reagents.add_reagent(W.water_reagent, 2)
 		reagents.trans_to(src, reagents.total_volume, transfered_by = src, method = INGEST)

@@ -46,41 +46,14 @@ GLOBAL_VAR_INIT(dayspassed, FALSE)
 	if(GLOB.todoverride)
 		GLOB.tod = GLOB.todoverride
 	if((GLOB.tod != oldtod) && !GLOB.todoverride && (GLOB.dayspassed>1)) //weather check on tod changes
-		if(!GLOB.forecast)
-			switch(GLOB.tod)
-				if("dawn")
-					if(prob(25))
-						GLOB.forecast = "rain"
-				if("day")
-					if(prob(5))
-						GLOB.forecast = "rain"
-				if("dusk")
-					if(prob(33))
-						GLOB.forecast = "rain"
-				if("night")
-					if(prob(40))
-						GLOB.forecast = "rain"
-			if(GLOB.forecast == "rain")
-				var/foundnd
-				if(SSParticleWeather?.runningWeather?.target_trait == PARTICLEWEATHER_RAIN)
-					foundnd = TRUE
-				if(!foundnd)
-					SSParticleWeather?.run_weather(pick(/datum/particle_weather/rain_gentle, /datum/particle_weather/rain_storm))
-		else
-			switch(GLOB.forecast) //end the weather now
-				if("rain")
-					if(GLOB.tod == "day")
-						GLOB.forecast = "rainbow"
-					else
-						GLOB.forecast = null
-				if("rainbow")
-					GLOB.forecast = null
+		SSParticleWeather.check_forecast(GLOB.tod)
 
 	if(GLOB.tod != oldtod)
 		if(GLOB.tod == "dawn")
 			GLOB.dayspassed++
 			if(GLOB.dayspassed == 8)
 				GLOB.dayspassed = 1
+			SStreasury.distribute_estate_incomes()
 		for(var/mob/living/player in GLOB.mob_list)
 			if(player.stat != DEAD && player.client)
 				player.do_time_change()

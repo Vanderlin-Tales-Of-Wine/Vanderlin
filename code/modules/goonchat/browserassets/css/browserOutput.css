@@ -380,7 +380,7 @@ h1.alert, h2.alert	{color: #c9c1ba;font-family: Pterra, TrueType;}
 .smallred				{color: #b84d47;	font-size: 75%;}
 .boldred				{color: #b84d47;	font-weight: bold;}
 .blue					{color: #6a8cb7;}
-.purple					{color: #967aaf;}
+.lightpurple			{color: #967aaf;}
 .nicegreen				{color: #9bccd0;}
 .cult					{color: #960000;}
 .cultlarge				{color: #960000;	font-weight: bold;	font-size: 3;}
@@ -473,6 +473,8 @@ h1.alert, h2.alert	{color: #c9c1ba;font-family: Pterra, TrueType;}
 .love_mid					{color: #e9a8d1;	font-size: 75%;}
 .love_high					{color: #f05ee1;	font-size: 75%;}
 .love_extreme					{color: #d146f5;	font-size: 75%;}
+
+.silver					{color: #c0c0c0;}
 /*
 @keyframes hypnocolor {
 	0%		{color: #202020;}

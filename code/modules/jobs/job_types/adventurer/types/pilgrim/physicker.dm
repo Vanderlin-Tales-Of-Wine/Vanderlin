@@ -11,6 +11,8 @@
 	maximum_possible_slots = 2
 	apprentice_name = "Physicker Apprentice"
 
+	cmode_music = 'sound/music/cmode/nobility/combat_physician.ogg'
+
 /datum/outfit/job/adventurer/physicker/pre_equip(mob/living/carbon/human/H)
 	..()
 	mask = /obj/item/clothing/face/phys
@@ -23,6 +25,7 @@
 	gloves = /obj/item/clothing/gloves/leather/phys
 	armor = /obj/item/clothing/shirt/robe/phys
 	neck = /obj/item/clothing/neck/phys
+	belt = /obj/item/storage/belt/leather/rope
 	beltl = /obj/item/storage/keyring/physicker
 
 	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)

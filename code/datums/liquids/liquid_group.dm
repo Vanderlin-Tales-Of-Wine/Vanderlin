@@ -382,15 +382,15 @@ GLOBAL_VAR_INIT(liquid_debug_colors, FALSE)
 
 /datum/liquid_group/proc/remove_specific(obj/effect/abstract/liquid_turf/remover, amount, datum/reagent/reagent_type, deferred_removal = FALSE)
 	reagents.remove_reagent(reagent_type.type, amount)
+	process_removal(amount)
 	if(!QDELETED(remover) && !deferred_removal)
 		check_liquid_removal(remover, amount)
-	total_reagent_volume = reagents.total_volume
 
 /datum/liquid_group/proc/transfer_to_atom(obj/effect/abstract/liquid_turf/remover, amount, atom/transfer_target, transfer_method = INGEST)
 	reagents.trans_to(transfer_target, amount, no_react = TRUE)
+	process_removal(amount)
 	if(!QDELETED(remover))
 		check_liquid_removal(remover, amount)
-	total_reagent_volume = reagents.total_volume
 
 /datum/liquid_group/proc/move_liquid_group(obj/effect/abstract/liquid_turf/member)
 	remove_from_group(member.my_turf)
@@ -968,6 +968,13 @@ GLOBAL_VAR_INIT(liquid_debug_colors, FALSE)
 /datum/liquid_group/proc/spread_liquid(turf/new_turf, turf/source_turf)
 	if(isclosedturf(new_turf) || !source_turf.atmos_adjacent_turfs)
 		return
+	if(new_turf.turf_flags & TURF_NO_LIQUID_SPREAD)
+		var/has_block_z_out_down = FALSE
+		for(var/obj/structure/O in new_turf.contents)
+			if(O.obj_flags & BLOCK_Z_OUT_DOWN)
+				has_block_z_out_down = TRUE
+		if(!has_block_z_out_down)
+			return
 	if(!(new_turf in source_turf.atmos_adjacent_turfs)) //i hate that this is needed
 		return
 	if(!source_turf.atmos_adjacent_turfs[new_turf])

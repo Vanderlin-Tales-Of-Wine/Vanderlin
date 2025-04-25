@@ -182,7 +182,7 @@
 	sellprice = 0 // spoil too quickly to export
 
 /obj/item/reagent_containers/food/snacks/produce/jacksberry
-	seed = /obj/item/neuFarm/seed/berryrogue
+	seed = /obj/item/neuFarm/seed/berry
 	name = "jacksberries"
 	desc = "Common berries found throughout Enigma and surrounding lands. A traveler's repast, or Dendor's wrath."
 	icon_state = "berries"
@@ -479,7 +479,7 @@
 
 /obj/item/reagent_containers/food/snacks/sugar
 	name = "sugar"
-	desc ="<illed sugarcane, sweet as can be."
+	desc ="Milled sugarcane, sweet as can be."
 	icon = 'icons/roguetown/items/produce.dmi'
 	icon_state = "salt"
 	tastes = list("sweet" = 1)
@@ -502,7 +502,6 @@
 
 /* .......... Poppies ........ */
 /obj/item/reagent_containers/food/snacks/produce/poppy
-	seed = /obj/item/neuFarm/seed/sunflower
 	name = "poppy"
 	desc = "For their crimson beauty and the sedating effect of their crushed seeds, these flowers are considered a symbol of Eora."
 	icon_state = "poppy"

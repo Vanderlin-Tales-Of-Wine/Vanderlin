@@ -82,7 +82,7 @@ GLOBAL_LIST_INIT(visual_ui_id_to_type, list())
 	if (mind)
 		mind.remove_all_uis()
 
-/mob/proc/display_ui(ui_ID)
+/mob/proc/display_ui(ui_ID = "Hello World")
 	if (mind)
 		mind.display_ui(ui_ID)
 
@@ -157,25 +157,25 @@ GLOBAL_LIST_INIT(visual_ui_id_to_type, list())
 
 // Send every element to the client, called on Login() and when the UI is first added to a mind
 /datum/visual_ui/proc/send_to_client()
-	if (mind.current)
-		var/mob/M = mind.current
-		if (!M.client)
+	var/mob/current = get_user()
+	if (current)
+		if (!current.client)
 			return
 
 		if (!valid() || !display_with_parent) // Makes sure the UI isn't still active when we should have lost it (such as coming out of a mecha while disconnected)
 			hide(TRUE)
 
 		for (var/obj/abstract/visual_ui_element/element in elements)
-			mind.current.client.screen |= element
+			current.client.screen |= element
 
 // Removes every element from the client, called on Logout()
 /datum/visual_ui/proc/remove_from_client()
-	if (mind.current)
-		var/mob/M = mind.current
-		if (!M.client)
+	var/mob/current = get_user()
+	if (current)
+		if (!current.client)
 			return
 
-		mind.current.client.screen -= elements
+		current.client.screen -= elements
 
 // Makes every element visible
 /datum/visual_ui/proc/display()
@@ -184,7 +184,7 @@ GLOBAL_LIST_INIT(visual_ui_id_to_type, list())
 		return
 	active = TRUE
 
-	var/mob/M = mind.current
+	var/mob/M = get_user()
 	if (failsafe && M.client && !(failsafe in M.client.screen))
 		send_to_client() // The elements disappeared from the client screen due to some fuckery, send them back!
 
@@ -242,7 +242,8 @@ GLOBAL_LIST_INIT(visual_ui_id_to_type, list())
 		return src
 
 /datum/visual_ui/proc/get_user()
-	ASSERT(mind && mind.current)
+	if(mind.current_ghost)
+		return mind.current_ghost
 	return mind.current
 
 ////////////////////////////////////////////////////////////////////
@@ -268,6 +269,13 @@ GLOBAL_LIST_INIT(visual_ui_id_to_type, list())
 
 	var/const_offset_y = 0 //these are constant offsets to ensure moving is seemless
 	var/const_offset_x = 0 //these are constant offsets to ensure moving is seemless
+
+	var/obj/abstract/visual_ui_element/scrollable/scrollable_parent = null
+	var/scroll_height = 0
+
+	var/initial_offset_y = 0
+	var/initial_offset_y_set = FALSE
+
 
 /obj/abstract/visual_ui_element/New(turf/loc, datum/visual_ui/P)
 	if (!istype(P))
@@ -306,7 +314,8 @@ GLOBAL_LIST_INIT(visual_ui_id_to_type, list())
 	invisibility = 101
 
 /obj/abstract/visual_ui_element/proc/get_user()
-	ASSERT(parent && parent.mind && parent.mind.current)
+	if(parent.mind.current_ghost)
+		return parent.mind.current_ghost
 	return parent.mind.current
 
 /obj/abstract/visual_ui_element/proc/update_ui_screen_loc()
@@ -370,148 +379,15 @@ GLOBAL_LIST_INIT(visual_ui_id_to_type, list())
 	icon_state = "blank"
 	mouse_opacity = 0
 
-////////////////// HOVERABLE ////////////////////////
-// Make use of MouseEntered/MouseExited to allow for effects and behaviours related to simply hovering above the element
+/datum/visual_ui/proc/animate_elements(start_y_offset, end_y_offset, duration, on_complete)
+	for(var/obj/abstract/visual_ui_element/element in elements)
+		// We're using pixel_y for smooth animation rather than screen_loc
+		// because screen_loc updates are not as smooth
+		var/start_pixel_y = start_y_offset
+		var/end_pixel_y = end_y_offset
 
-/obj/abstract/visual_ui_element/hoverable
-	var/hovering = FALSE
-	var/tooltip_title = "Undefined UI Element"
-	var/tooltip_content = ""
-	var/tooltip_theme = "default"
-	var/hover_state = TRUE
+		element.pixel_y = start_pixel_y
+		animate(element, pixel_y = end_pixel_y, time = duration)
 
-/obj/abstract/visual_ui_element/hoverable/MouseEntered(location,control,params)
-	start_hovering(location,control,params)
-	hovering = 1
-
-/obj/abstract/visual_ui_element/hoverable/MouseExited()
-	stop_hovering()
-	hovering = 0
-
-/obj/abstract/visual_ui_element/hoverable/hide()
-	..()
-	stop_hovering()
-	hovering = 0
-
-/obj/abstract/visual_ui_element/hoverable/disappear()
-	..()
-	stop_hovering()
-	hovering = 0
-
-/obj/abstract/visual_ui_element/hoverable/proc/start_hovering(location, control, params)
-	if (hover_state)
-		icon_state = "[base_icon_state]-hover"
-	if (element_flags & MINDUI_FLAG_TOOLTIP)
-		var/mob/M = get_user()
-		if (M)
-			//I hate this, I hate this, but somehow the tooltips won't appear in the right place unless I do this black magic
-			//this only happens with mindUI elements, but the more offset from the center the elements are, tooltips become even more offset.
-			//this code corrects this extra offset.
-			var/list/param_list = params2list(params)
-			var/screenloc = param_list["screen-loc"]
-			var/x_index = findtext(screenloc, ":", 1, 0)
-			var/comma_index = findtext(screenloc,",", x_index, 0)
-			var/y_index = findtext(screenloc,":", comma_index, 0)
-			var/x_loc = text2num(copytext(screenloc, 1, x_index))
-			var/y_loc = text2num(copytext(screenloc, comma_index+1, y_index))
-			if (x_loc <= 7)
-				x_loc = 7
-			else
-				x_loc = 9
-			if (y_loc <= 7)
-				y_loc = 7
-			else
-				y_loc = 9
-			openToolTip(M,src,"icon-x=1;icon-y=1;screen-loc=[x_loc]:1,[y_loc]:1",title = tooltip_title,content = tooltip_content,theme = tooltip_theme)
-
-/obj/abstract/visual_ui_element/hoverable/proc/stop_hovering()
-	if (hover_state)
-		icon_state = "[base_icon_state]"
-	if (element_flags & MINDUI_FLAG_TOOLTIP)
-		var/mob/M = get_user()
-		if (M)
-			closeToolTip(M)
-
-
-////////////////// MOVABLE ////////////////////////
-// Make use of MouseDown/MouseUp/MouseDrop to allow for relocating of the element
-// By setting "move_whole_ui" to TRUE, the element will cause its entire parent UI to move with it.
-
-/obj/abstract/visual_ui_element/hoverable/movable
-	var/move_whole_ui = FALSE
-	var/moving = FALSE
-	var/icon/movement
-
-/obj/abstract/visual_ui_element/hoverable/movable/AltClick(mob/user) // Alt+Click defaults to reset the offset
-	reset_loc()
-
-/obj/abstract/visual_ui_element/hoverable/movable/MouseDown(location, control, params)
-	if (!movement)
-		var/icon/I = new(icon, icon_state)
-		I.Blend('icons/visual_ui/mind_ui.dmi', ICON_OVERLAY, I.Width()/2-16, I.Height()/2-16)
-		I.Scale(2* I.Width(),2* I.Height()) // doubling the size to account for players generally having more or less a 960x960 resolution
-		var/rgba = "#FFFFFF" + copytext(rgb(0,0,0,191), 8)
-		I.Blend(rgba, ICON_MULTIPLY)
-		movement = I
-
-	var/mob/M = get_user()
-	M.client.mouse_pointer_icon = movement
-	moving = TRUE
-
-/obj/abstract/visual_ui_element/hoverable/movable/MouseUp(location, control, params)
-	var/mob/M = get_user()
-	M.client.mouse_pointer_icon = initial(M.client.mouse_pointer_icon)
-	if (moving)
-		move_loc(params)
-
-/obj/abstract/visual_ui_element/hoverable/movable/MouseDrop(over_object, src_location, over_location, src_control, over_control, params)
-	var/mob/M = get_user()
-	M.client.mouse_pointer_icon = initial(M.client.mouse_pointer_icon)
-	move_loc(params)
-
-/obj/abstract/visual_ui_element/hoverable/movable/proc/move_loc(params)
-	moving = FALSE
-	var/list/PM = params2list(params)
-	if(!PM || !PM["screen-loc"])
-		return
-
-	//first we need the x and y coordinates in pixels of the element relative to the bottom left corner of the screen
-	var/icon/I = new(icon,icon_state)
-	var/view = get_view_size()
-	var/list/offsets = screen_loc_to_offset(screen_loc, view)
-	var/start_x_val = offsets[1]
-	var/start_y_val = offsets[2]
-
-	//now we get those of the place where we released the mouse button
-	var/list/dest_loc_params = splittext(PM["screen-loc"], ",")
-	var/list/dest_loc_X = splittext(dest_loc_params[1],":")
-	var/list/dest_loc_Y = splittext(dest_loc_params[2],":")
-	var/dest_pix_x = text2num(dest_loc_X[2]) - round(I.Width()/2)
-	var/dest_pix_y = text2num(dest_loc_Y[2]) - round(I.Height()/2)
-	var/dest_x_val = text2num(dest_loc_X[1])*32 + dest_pix_x + const_offset_x
-	var/dest_y_val = text2num(dest_loc_Y[1])*32 + dest_pix_y + const_offset_y //this probably needs some more advanced math based on screen pos type
-
-	//and calculate the offset between the two, which we can then add to either the element or the whole UI
-	if (move_whole_ui)
-		parent.offset_x += dest_x_val - start_x_val
-		parent.offset_y += dest_y_val - start_y_val
-		parent.update_ui_screen_loc()
-		for (var/datum/visual_ui/sub in parent.subUIs)
-			if (!sub.never_move)
-				sub.offset_x += dest_x_val - start_x_val
-				sub.offset_y += dest_y_val - start_y_val
-				sub.update_ui_screen_loc()
-	else
-		offset_x += dest_x_val - start_x_val
-		offset_y += dest_y_val - start_y_val
-		update_ui_screen_loc()
-
-/obj/abstract/visual_ui_element/hoverable/movable/proc/reset_loc()
-	if (move_whole_ui)
-		parent.offset_x = 0
-		parent.offset_y = 0
-		parent.update_ui_screen_loc()
-	else
-		offset_x = initial(offset_x)
-		offset_y = initial(offset_y)
-		update_ui_screen_loc()
+	if(on_complete)
+		addtimer(on_complete, duration + 1)

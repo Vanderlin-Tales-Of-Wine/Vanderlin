@@ -8,6 +8,8 @@
 	var/list/reagent_requirements = list()
 	///this is a list of tool usage in their order which executes after requirements and reagents are fufilled these are assoc lists going path = list(text, self_text, sound)
 	var/list/tool_usage = list()
+	///these typepaths and their subtypes won't be considered as requirements for recipes
+	var/list/blacklisted_paths = list()
 
 	///do we need to be learned
 	var/requires_learning = FALSE
@@ -70,6 +72,10 @@
 	if(required_intent && user.used_intent.type != required_intent)
 		return FALSE
 
+	for(var/path in blacklisted_paths)
+		if(attacked_item in typesof(path))
+			return FALSE
+
 	var/obj/structure/table/table = locate(/obj/structure/table) in get_turf(attacked_atom)
 	if(required_table && !table)
 		return FALSE
@@ -111,15 +117,21 @@
 					usable_contents[item.type]++
 
 	var/list/total_list = usable_contents
+	var/list/all_blacklisted = list()
+	for(var/path in blacklisted_paths)
+		all_blacklisted |= typesof(path)
 	for(var/path as anything in total_list)
 		for(var/required_path as anything in requirements)
 			if(!ispath(path, required_path))
 				continue
 			if(!subtypes_allowed && (path in subtypesof(required_path)))
 				continue
-			if(total_list[path] < requirements[required_path])
-				return FALSE
-			copied_requirements -= required_path
+			if(path in all_blacklisted)
+				continue
+			copied_requirements[required_path] -= total_list[path]
+			if(copied_requirements[required_path] <= 0)
+				copied_requirements -= required_path
+			break
 
 	for(var/path as anything in total_list)
 		for(var/required_path as anything in tool_usage)
@@ -193,9 +205,14 @@
 
 	var/max_crafts = 10000
 	var/list/total_list = usable_contents
+	var/list/all_blacklisted = list()
+	for(var/path in blacklisted_paths)
+		all_blacklisted |= typesof(path)
 	for(var/path as anything in total_list)
 		for(var/required_path as anything in requirements)
 			if(!ispath(path, required_path))
+				continue
+			if(path in all_blacklisted)
 				continue
 			var/holder_max_crafts = FLOOR(total_list[path] / requirements[required_path], 1)
 			if(holder_max_crafts < max_crafts)
@@ -279,9 +296,11 @@
 		var/list/copied_reagent_requirements = reagent_requirements.Copy()
 		var/list/copied_tool_usage = tool_usage.Copy()
 		var/list/to_delete = list()
+		var/list/all_blacklisted = list()
+		for(var/path in blacklisted_paths)
+			all_blacklisted |= typesof(path)
 
 		var/obj/item/active_item = user.get_active_held_item()
-
 
 		if(put_items_in_hand)
 			if(!is_type_in_list(active_item, requirements))
@@ -298,9 +317,13 @@
 				break
 			if(!is_type_in_list(item, copied_requirements) && !istype(item, /obj/item/natural/bundle))
 				continue
+			if(item.type in all_blacklisted)
+				continue
 			if(istype(item, /obj/item/natural/bundle))
 				var/early_ass_break = FALSE
 				var/bundle_path = item:stacktype
+				if(bundle_path in all_blacklisted)
+					continue
 				for(var/path in copied_requirements)
 					if(QDELETED(item))
 						break
@@ -358,6 +381,8 @@
 			if(!length(copied_requirements))
 				break
 			if(!is_type_in_list(item, copied_requirements))
+				continue
+			if(item.type in all_blacklisted)
 				continue
 			to_chat(user, "You start grabbing [item] from your bag.")
 			if(do_after(user, storage_use_time, item))

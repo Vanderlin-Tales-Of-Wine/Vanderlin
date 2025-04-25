@@ -44,9 +44,9 @@
 	attack_verb_simple = "stomps"
 	melee_damage_lower = 10
 	melee_damage_upper = 12
-	TOTALSPD = 4
-	TOTALCON = 4
-	TOTALSTR = 4
+	base_speed = 4
+	base_constitution = 4
+	base_strength = 4
 	childtype = list(/mob/living/simple_animal/hostile/retaliate/cow/cowlet = 95,
 					/mob/living/simple_animal/hostile/retaliate/cow/cowlet/bullet = 5)
 	remains_type = /obj/effect/decal/remains/cow
@@ -55,16 +55,18 @@
 	AIStatus = AI_OFF
 	ai_controller = /datum/ai_controller/basic_controller/cow
 	var/can_breed = TRUE
+	var/can_tip = TRUE
 
 /mob/living/simple_animal/hostile/retaliate/cow/Initialize()
 	..()
-	AddComponent(/datum/component/tippable, \
-		0.5 SECONDS, \
-		0.5 SECONDS, \
-		rand(25 SECONDS, 50 SECONDS), \
-		null,
-		CALLBACK(src, PROC_REF(after_cow_tipped)),\
-		CALLBACK(src, PROC_REF(after_cow_untipped)))
+	if(can_tip)
+		AddComponent(/datum/component/tippable, \
+			0.5 SECONDS, \
+			0.5 SECONDS, \
+			rand(25 SECONDS, 50 SECONDS), \
+			null,
+			CALLBACK(src, PROC_REF(after_cow_tipped)),\
+			CALLBACK(src, PROC_REF(after_cow_untipped)))
 
 	ai_controller.set_blackboard_key(BB_BASIC_FOODS, food_type)
 	if(can_breed)
@@ -202,9 +204,9 @@
 	melee_damage_upper = 45
 	retreat_distance = 0
 	minimum_distance = 0
-	TOTALCON = 20
-	TOTALSTR = 12
-	TOTALSPD = 2
+	base_constitution = 20
+	base_strength = 12
+	base_speed = 2
 	remains_type = /obj/effect/decal/remains/cow
 
 	can_have_ai = FALSE
@@ -307,14 +309,16 @@
 	base_intents = list(/datum/intent/simple/headbutt)
 	melee_damage_lower = 1
 	melee_damage_upper = 6
-	TOTALCON = 5
-	TOTALSTR = 5
-	TOTALSPD = 5
+	base_constitution = 5
+	base_strength = 5
+	base_speed = 5
 	defprob = 50
 	adult_growth = /mob/living/simple_animal/hostile/retaliate/cow
 
 	ai_controller = /datum/ai_controller/basic_controller/cow/baby
 	can_breed = FALSE
+	can_tip = FALSE
+
 
 /mob/living/simple_animal/hostile/retaliate/cow/cowlet/bullet
 	desc = "So cute! Be careful of those horns, though."
