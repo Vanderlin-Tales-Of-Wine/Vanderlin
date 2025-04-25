@@ -7,6 +7,7 @@
 	pixel_y = -44
 
 /obj/reflection/New(loc,mob/owner)
+	. = ..()
 	owner.vis_contents += src
 
 /mob/living
