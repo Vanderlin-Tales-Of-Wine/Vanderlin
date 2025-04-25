@@ -35,11 +35,12 @@
 
 /obj/item/organ/heart/Destroy()
 	for(var/datum/culling_duel/D in GLOB.graggar_cullings)
-		var/obj/item/organ/heart/challenger_heart = D.challenger_heart?.resolve()
-		var/obj/item/organ/heart/target_heart = D.target_heart?.resolve()
-		if(challenger_heart == src)
+		var/mob/living/carbon/human/challenger = D.challenger?.resolve()
+		var/mob/living/carbon/human/target = D.target?.resolve()
+
+		if(last_owner == challenger)
 			D.handle_heart_destroyed("challenger")
-		else if(target_heart == src)
+		else if(last_owner == target)
 			D.handle_heart_destroyed("target")
 	return ..()
 
