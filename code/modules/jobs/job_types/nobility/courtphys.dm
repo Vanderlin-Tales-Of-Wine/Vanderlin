@@ -29,7 +29,6 @@
 	shirt = /obj/item/clothing/shirt/tunic/noblecoat
 	backr = /obj/item/storage/backpack/satchel
 	backl = /obj/item/storage/backpack/satchel/surgbag
-	pants = /obj/item/clothing/pants/skirt/green
 	gloves = /obj/item/clothing/gloves/leather/feld
 	head = /obj/item/clothing/head/physhat
 	mask = /obj/item/clothing/face/spectacles/golden
@@ -37,7 +36,10 @@
 	belt = /obj/item/storage/belt/leather
 	beltl = /obj/item/storage/keyring/physician
 	cloak = /obj/item/clothing/cloak/apron/brown
-
+	if(H.gender == FEMALE)
+		pants = /obj/item/clothing/pants/skirt/green
+	if(H.gender == MALE)
+		pants = /obj/item/clothing/pants/trou/leather
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 5, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
