@@ -206,6 +206,7 @@
 		// The special flag is important, because otherwise mobs can die
 		// while undergoing transformation into different mobs.
 		Remove(owner, special=TRUE)
+	last_owner = null
 	STOP_PROCESSING(SSobj, src)
 	return ..()
 
