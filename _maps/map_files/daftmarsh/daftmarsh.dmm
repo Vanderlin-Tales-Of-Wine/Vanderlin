@@ -763,6 +763,10 @@
 "aSd" = (
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/town/sewer)
+"aSm" = (
+/obj/structure/fake_machine/atm,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/outdoors/town)
 "aSp" = (
 /obj/structure/chair/bench,
 /turf/open/floor/cobble,
@@ -7365,6 +7369,10 @@
 /obj/structure/flora/grass/water,
 /turf/open/floor/naturalstone,
 /area/rogue/under/town/sewer)
+"hwd" = (
+/obj/machinery/light/fueled/firebowl/stump,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors/rtfield/safe)
 "hxu" = (
 /obj/structure/fluff/railing/border{
 	dir = 4
@@ -13210,6 +13218,7 @@
 	pixel_x = -8;
 	pixel_y = -17
 	},
+/obj/item/weapon/polearm/woodstaff/quarterstaff,
 /turf/open/floor/blocks,
 /area/rogue/outdoors/town/roofs)
 "nwX" = (
@@ -128191,7 +128200,7 @@ vaf
 vaf
 wcw
 vaf
-nrE
+aSm
 nrE
 hDJ
 sWx
@@ -182937,7 +182946,7 @@ cCM
 qsm
 jDc
 cCM
-cCM
+qgq
 tYU
 vtk
 vtk
@@ -183337,7 +183346,7 @@ cCM
 cCM
 jDc
 jDc
-lgq
+hwd
 lgq
 jDc
 jDc
@@ -184751,7 +184760,7 @@ hVT
 vxB
 vxB
 aTl
-aTl
+yhn
 xqc
 aTl
 aTl
@@ -185160,7 +185169,7 @@ vxB
 aTl
 vxB
 aTl
-vxB
+kkn
 swj
 swj
 swj
