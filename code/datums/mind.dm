@@ -802,11 +802,11 @@
 				if(target_heart.owner && target_heart.owner != recipient)
 					output += "<br>Rival's Heart"
 					output += "<br>It's currently inside [target_heart.owner.real_name]'s chest in [target_heart_location]"
-					output += "<br>Your rival is dead but their heart beats in another's chest. Retrieve and consume it to claim victory!"
+					output += "<br>Your rival's heart beats in another's chest. Retrieve and consume it to claim victory!"
 				else
 					output += "<br>Rival's Heart"
-					output += "<br>It's somewhere in [target_heart_location]"
-					output += "<br>Your rival is dead but their heart remains. Consume it to claim victory!"
+					output += "<br>It's somewhere in the [target_heart_location]"
+					output += "<br>Your rival's heart is exposed bare! Consume it to claim victory!"
 			else
 				continue
 
@@ -823,11 +823,11 @@
 				if(challenger_heart.owner && challenger_heart.owner != recipient)
 					output += "<br>Rival's Heart"
 					output += "<br>It's currently inside [challenger_heart.owner.real_name]'s chest in [challenger_heart_location]"
-					output += "<br>Your rival is dead but their heart beats in another's chest. Retrieve and consume it to claim victory!"
+					output += "<br>Your rival's heart beats in another's chest. Retrieve and consume it to claim victory!"
 				else
 					output += "<br>Rival's Heart"
-					output += "<br>It's somewhere in [challenger_heart_location]"
-					output += "<br>Your rival is dead but their heart remains. Consume it to claim victory!"
+					output += "<br>It's somewhere in the [challenger_heart_location]"
+					output += "<br>Your rival's heart is exposed bare! Consume it to claim victory!"
 			else
 				continue
 
