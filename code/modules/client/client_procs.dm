@@ -361,7 +361,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		data += "<font color='#93cac7'><span class='bold'>No confessions!</span></font>"
 	data += "</div>"
 
-	var/datum/browser/popup = new(src.mob, "vanderlin_stats", "<center>End Round Statistics</center>", 1025, 700)
+	var/datum/browser/popup = new(src.mob, "vanderlin_stats", "<center>End Round Statistics</center>", 1050, 700)
 	popup.set_content(data.Join())
 	popup.open()
 
