@@ -127,7 +127,7 @@
 		var/datum/reagents/reagentstouch = new()
 		reagentstouch.add_reagent(W.water_reagent, 2)
 		reagentstouch.trans_to(src, reagents.total_volume, transfered_by = src, method = TOUCH)	*/
-	if(lying)
+	if(body_position == LYING_DOWN)
 		var/drown_damage = has_world_trait(/datum/world_trait/abyssor_rage) ? 10 : 5
 		adjustOxyLoss(drown_damage)
 		emote("drown")
