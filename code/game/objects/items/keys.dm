@@ -351,8 +351,8 @@
 /obj/item/key/courtphys
 	name = "court physician's key"
 	desc = "A key granted to the honored Court Physician."
-	icon_state = "cheesekey"
-	lockid = ACCESS_PHYS
+	icon_state = "ankhkey"
+	lockid = ACCESS_PHYSICIAN
 
 ////// CHURCH
 

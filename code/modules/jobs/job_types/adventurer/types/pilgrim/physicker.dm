@@ -19,8 +19,7 @@
 	head = /obj/item/clothing/head/roguehood/phys
 	shoes = /obj/item/clothing/shoes/boots/leather
 	shirt = /obj/item/clothing/shirt/undershirt/black
-	backl = /obj/item/storage/backpack/satchel/black
-	backpack_contents = list(/obj/item/weapon/surgery/scalpel = 1, /obj/item/weapon/surgery/saw = 1, /obj/item/weapon/surgery/hemostat = 2, /obj/item/weapon/surgery/retractor = 1, /obj/item/weapon/surgery/bonesetter = 1, /obj/item/needle = 1, /obj/item/natural/worms/leech = 2)
+	backl = /obj/item/storage/backpack/satchel/surgbag/shit
 	pants = /obj/item/clothing/pants/tights/random
 	gloves = /obj/item/clothing/gloves/leather/phys
 	armor = /obj/item/clothing/shirt/robe/phys
