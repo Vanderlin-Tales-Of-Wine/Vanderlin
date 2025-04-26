@@ -199,7 +199,7 @@ GLOBAL_LIST_INIT(vanderlin_round_stats, list(
 ))
 
 // Features of the round
-#define FEATURED_STATS_TREE_FELLERS "tree_fellers"
+#define FEATURED_STATS_TREE_FELLERS "TOP 10 Tree Fellers"
 
 GLOBAL_LIST_INIT(featured_stats, list(
 	FEATURED_STATS_TREE_FELLERS = list(),

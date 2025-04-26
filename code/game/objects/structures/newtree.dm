@@ -101,7 +101,13 @@
 	if(.)
 		if(!was_destroyed && obj_destroyed && user?.real_name)
 			var/list/fellers = GLOB.featured_stats[FEATURED_STATS_TREE_FELLERS]
-			fellers[user.real_name] += 1
+			var/job_title = ""
+			if(user.mind?.assigned_role)
+				job_title = "([user.mind.assigned_role.title])"
+			else if(user.job)
+				job_title = "([user.job])"
+			var/key = "[user.real_name][job_title]"
+			fellers[key] = (fellers[key] || 0) + 1
 
 /obj/structure/flora/newtree/fire_act(added, maxstacks)
 	. = ..()
