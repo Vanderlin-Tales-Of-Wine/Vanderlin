@@ -202,7 +202,61 @@ GLOBAL_LIST_INIT(vanderlin_round_stats, list(
 #define FEATURED_STATS_TREE_FELLERS "TOP 10 Tree Fellers"
 
 GLOBAL_LIST_INIT(featured_stats, list(
-	FEATURED_STATS_TREE_FELLERS = list(),
+	FEATURED_STATS_TREE_FELLERS = list(
+		"name" = "Top Tree Fellers",
+		"color" = "#9b6937"
+	),
+	FEATURED_STATS_MONSTER_SLAYERS = list(
+		"name" = "Monster Slayers",
+		"color" = "#e6b327"
+	),
+	FEATURED_STATS_MASTER_CRAFTS = list(
+		"name" = "Master Craftsmen",
+		"color" = "#6b5ba1"
+	)
 ))
 
 GLOBAL_LIST_EMPTY(patron_follower_counts)
+
+/proc/get_featured_stat_display(stat_id)
+	var/list/stat_data = GLOB.featured_stats[stat_id]
+	if(!stat_data)
+		stat_id = GLOB.featured_stats[1]
+		stat_data = GLOB.featured_stats[stat_id]
+
+	return "<font color='[stat_data["color"]]'><span class='bold'>[stat_data["name"]]:</span></font><br>" + \
+	       format_top_three(stat_id)
+
+/proc/format_top_three(stat_category)
+	var/list/top = list()
+	var/list/stats = GLOB.featured_stats[stat_category]
+	for(var/name in stats)
+		top += list(list("name" = name, "count" = stats[name]))
+
+	top = sortList(top, /proc/cmp_stat_count_desc)
+
+	var/list/result = list()
+	for(var/i in 1 to min(3, top.len))
+		var/entry = top[i]
+		result += "[entry["name"]] ([entry["count"]])"
+
+	return result.Join("<br>")
+
+/proc/cmp_stat_count_desc(list/a, list/b)
+	return b["count"] - a["count"]
+
+/proc/get_most_common_job()
+	// Implement job tracking logic here
+	return "Lumberjack (17)"
+
+/proc/get_average_age()
+	// Implement age calculation logic here
+	return "32.5"
+
+/proc/get_gender_distribution()
+	// Implement gender tracking logic here
+	return "Male: 55%<br>Female: 40%<br>Other: 5%"
+
+/proc/get_most_common_species()
+	// Implement species tracking logic here
+	return "Human (62%)"

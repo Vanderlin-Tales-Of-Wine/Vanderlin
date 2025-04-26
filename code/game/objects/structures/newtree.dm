@@ -103,9 +103,9 @@
 			var/list/fellers = GLOB.featured_stats[FEATURED_STATS_TREE_FELLERS]
 			var/job_title = ""
 			if(user.mind?.assigned_role)
-				job_title = "([user.mind.assigned_role.title])"
+				job_title = " ([user.mind.assigned_role.title])"
 			else if(user.job)
-				job_title = "([user.job])"
+				job_title = " ([user.job])"
 			var/key = "[user.real_name][job_title]"
 			fellers[key] = (fellers[key] || 0) + 1
 

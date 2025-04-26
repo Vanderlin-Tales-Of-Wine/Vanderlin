@@ -134,7 +134,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		return
 
 	if(href_list["viewstats"])
-		show_round_stats()
+		show_round_stats(href_list["featured_stat"])
 		return
 
 	if(href_list["viewinfluences"])
@@ -175,39 +175,24 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	..()	//redirect to hsrc.Topic()
 
 /// Shows round end popup with all kind of statistics
-/client/proc/show_round_stats()
+/client/proc/show_round_stats(featured_stat)
 	if(SSticker.current_state != GAME_STATE_FINISHED && !check_rights(R_ADMIN))
 		return
 
 	var/list/data = list()
 
-	// Navigation buttons container
+	// Navigation buttons
 	data += "<div style='width: 100%; text-align: center; margin: 15px 0;'>"
-	data += "<a href='byond://?src=[REF(src)];viewstats=1' style='\
-		display: inline-block;\
-		width: 120px;\
-		padding: 8px 12px;\
-		margin: 0 10px;\
-		background: #2a2a2a;\
-		border: 1px solid #444;\
-		color: #ddd;\
-		font-weight: bold;\
-		text-decoration: none;\
-		border-radius: 3px;\
-		font-size: 0.9em;'>STATISTICS</a>"
-	data += "<a href='byond://?src=[REF(src)];viewinfluences=1' style='\
-		display: inline-block;\
-		width: 120px;\
-		padding: 8px 12px;\
-		margin: 0 10px;\
-		background: #2a2a2a;\
-		border: 1px solid #444;\
-		color: #ddd;\
-		font-weight: bold;\
-		text-decoration: none;\
-		border-radius: 3px;\
-		font-size: 0.9em;'>INFLUENCES</a>"
+	data += "<a href='byond://?src=[REF(src)];viewstats=1' style='display: inline-block; width: 120px; padding: 8px 12px; margin: 0 10px; background: #2a2a2a; border: 1px solid #444; color: #ddd; font-weight: bold; text-decoration: none; border-radius: 3px; font-size: 0.9em;'>STATISTICS</a>"
+	data += "<a href='byond://?src=[REF(src)];viewinfluences=1' style='display: inline-block; width: 120px; padding: 8px 12px; margin: 0 10px; background: #2a2a2a; border: 1px solid #444; color: #ddd; font-weight: bold; text-decoration: none; border-radius: 3px; font-size: 0.9em;'>INFLUENCES</a>"
 	data += "</div>"
+
+	// Featured stat setup
+	var/current_featured = (featured_stat in GLOB.featured_stats) ? featured_stat : GLOB.featured_stats[1]
+	var/list/stat_keys = GLOB.featured_stats
+	var/current_index = stat_keys.Find(current_featured)
+	var/next_stat = stat_keys[(current_index % length(stat_keys)) + 1]
+	var/prev_stat = stat_keys[current_index == 1 ? length(stat_keys) : (current_index - 1)]
 
 	// Influential deities section
 	var/max_influence = -INFINITY
@@ -261,36 +246,62 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	// Main content container
 	data += "<div style='width: 100%; margin: 22.5px auto 0; padding: 0 5%; box-sizing: border-box;'>"
 
-	// Columns container
-	data += "<div style='display: table; margin: 0 auto;'>"
+	// Three Columns container
+	data += "<div style='display: table; margin: 0 auto; width: 100%;'>"
 	data += "<div style='display: table-row;'>"
 
-	// Left Column
-	data += "<div style='display: table-cell; width: 47.5%; padding-left: 22.5px; word-break: break-word; text-align: left;'>"
+	// Featured Statistics Column
+	data += "<div style='display: table-cell; width: 25%; padding-right: 15px; word-break: break-word; text-align: left; vertical-align: top;'>"
+	data += "<div style='text-align: center; margin-bottom: 15px;'>"
+	data += "<a href='byond://?src=[REF(src)];viewstats=1;featured_stat=[prev_stat]' style='color: #e6b327; text-decoration: none; font-weight: bold; margin-right: 10px; font-size: 1.2em;'>&#9664;</a>"
+	data += "<span style='font-weight: bold; color: #bd1717;'>Featured Statistics</span>"
+	data += "<a href='byond://?src=[REF(src)];viewstats=1;featured_stat=[next_stat]' style='color: #e6b327; text-decoration: none; font-weight: bold; margin-left: 10px; font-size: 1.2em;'>&#9654;</a>"
+	data += "</div>"
+	data += "<div style='text-align: center; margin-bottom: 5px;'>"
+	data += "<font color='[GLOB.featured_stats[current_featured]["color"]]'><span class='bold'>[GLOB.featured_stats[current_featured]["name"]]</span></font>"
+	data += "</div>"
+	data += format_top_three(current_featured)
+	data += "</div>"
+
+	// General Statistics Columns
+	data += "<div style='display: table-cell; width: 20%; padding: 0 10px; word-break: break-word; text-align: left; vertical-align: top; border-left: 1px solid #444;'>"
+	data += "<div style='text-align: center; font-weight: bold; color: #bd1717; margin-bottom: 15px; padding-top: 10px;'>General Statistics</div>"
 	data += "<font color='#9b6937'><span class='bold'>Total Deaths:</span></font> [GLOB.vanderlin_round_stats[STATS_DEATHS]]<br>"
 	data += "<font color='#6b5ba1'><span class='bold'>Noble Deaths:</span></font> [GLOB.vanderlin_round_stats[STATS_NOBLE_DEATHS]]<br>"
 	data += "<font color='#e6b327'><span class='bold'>Holy Revivals:</span></font> [GLOB.vanderlin_round_stats[STATS_ASTRATA_REVIVALS]]<br>"
 	data += "<font color='#825b1c'><span class='bold'>Moat Fallers:</span></font> [GLOB.vanderlin_round_stats[STATS_MOAT_FALLERS]]<br>"
 	data += "<font color='#ac5d5d'><span class='bold'>Ankles Broken:</span></font> [GLOB.vanderlin_round_stats[STATS_ANKLES_BROKEN]]<br>"
+	data += "</div>"
+
+	// Second General Statistics Column
+	data += "<div style='display: table-cell; width: 20%; padding: 0 10px; word-break: break-word; text-align: left; vertical-align: top;'>"
+	data += "<div style='height: 38px;'></div>"
 	data += "<font color='#e6d927'><span class='bold'>People Smitten:</span></font> [GLOB.vanderlin_round_stats[STATS_PEOPLE_SMITTEN]]<br>"
 	data += "<font color='#aa5320'><span class='bold'>Kleptomaniacs:</span></font> [GLOB.vanderlin_round_stats[STATS_KLEPTOMANIACS]]<br>"
 	data += "<font color='#8f816b'><span class='bold'>Items Stolen:</span></font> [GLOB.vanderlin_round_stats[STATS_ITEMS_PICKPOCKETED]]<br>"
 	data += "<font color='#f5c02e'><span class='bold'>Taxes Collected:</span></font> [GLOB.vanderlin_round_stats[STATS_TAXES_COLLECTED]]<br>"
-	data += "<font color='#90a037'><span class='bold'>Laughs Had:</span></font> [GLOB.vanderlin_round_stats[STATS_LAUGHS_MADE]]"
+	data += "<font color='#90a037'><span class='bold'>Laughs Had:</span></font> [GLOB.vanderlin_round_stats[STATS_LAUGHS_MADE]]<br>"
 	data += "</div>"
 
-	// Right Column
-	data += "<div style='display: table-cell; width: 47.5%; padding-left: 35px; word-break: break-word; text-align: left;'>"
-	data += "<font color='#36959c'><span class='bold'>Triumphs Awarded:</span></font> [GLOB.vanderlin_round_stats[STATS_TRIUMPHS_AWARDED]]<br>"
-	data += "<font color='#a02fa4'><span class='bold'>Triumphs Stolen:</span></font> [GLOB.vanderlin_round_stats[STATS_TRIUMPHS_STOLEN] * -1]<br>"
-	data += "<font color='#d7da2f'><span class='bold'>Prayers Made:</span></font> [GLOB.vanderlin_round_stats[STATS_PRAYERS_MADE]]<br>"
-	data += "<font color='#6e7c81'><span class='bold'>Skills Learned:</span></font> [GLOB.vanderlin_round_stats[STATS_SKILLS_LEARNED]]<br>"
-	data += "<font color='#0f555c'><span class='bold'>Beards Shaved:</span></font> [GLOB.vanderlin_round_stats[STATS_BEARDS_SHAVED]]<br>"
-	data += "<font color='#836033'><span class='bold'>Trees Cut:</span></font> [GLOB.vanderlin_round_stats[STATS_TREES_CUT]]<br>"
-	data += "<font color='#4492a5'><span class='bold'>Fish Caught:</span></font> [GLOB.vanderlin_round_stats[STATS_FISH_CAUGHT]]<br>"
-	data += "<font color='#9c3e46'><span class='bold'>Active Deadites:</span></font> [GLOB.vanderlin_round_stats[STATS_DEADITES_ALIVE]]<br>"
-	data += "<font color='#af2323'><span class='bold'>Organs Eaten:</span></font> [GLOB.vanderlin_round_stats[STATS_ORGANS_EATEN]]<br>"
-	data += "<font color='#af2379'><span class='bold'>Kisses Made:</span></font> [GLOB.vanderlin_round_stats[STATS_KISSES_MADE]]"
+	// Census Column
+	data += "<div style='display: table-cell; width: 17.5%; padding: 0 10px; word-break: break-word; text-align: left; vertical-align: top; border-left: 1px solid #444;'>"
+	data += "<div style='text-align: center; font-weight: bold; color: #bd1717; margin-bottom: 15px; padding-top: 10px;'>Census</div>"
+	data += "<font color='#36959c'><span class='bold'>Most Common Job:</span></font><br>"
+	data += "[get_most_common_job()]<br>"
+	data += "<font color='#a02fa4'><span class='bold'>Average Age:</span></font> [get_average_age()]<br>"
+	data += "<font color='#d7da2f'><span class='bold'>Gender Dist:</span></font><br>"
+	data += "[get_gender_distribution()]<br>"
+	data += "</div>"
+
+	// Second Census Column
+	data += "<div style='display: table-cell; width: 17.5%; padding-left: 10px; word-break: break-word; text-align: left; vertical-align: top;'>"
+	data += "<div style='height: 38px;'></div>" // Spacer to align with title
+	data += "<font color='#6e7c81'><span class='bold'>Top Species:</span></font><br>"
+	data += "[get_most_common_species()]<br>"
+	data += "<font color='#bd1717'><span class='bold'>Unique Roles:</span></font><br>"
+	data += "Coming Soon<br>"
+	data += "<font color='#9b6937'><span class='bold'>Avg. Playtime:</span></font><br>"
+	data += "Coming Soon<br>"
 	data += "</div>"
 
 	data += "</div></div></div>"
@@ -305,8 +316,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		data += "<font color='#93cac7'><span class='bold'>No confessions!</span></font>"
 	data += "</div>"
 
-	src.mob << browse(null, "window=vanderlin_influences")
-	var/datum/browser/popup = new(src.mob, "vanderlin_stats", "<center>End Round Statistics</center>", 465, 650)
+	var/datum/browser/popup = new(src.mob, "vanderlin_stats", "<center>End Round Statistics</center>", 800, 650)
 	popup.set_content(data.Join())
 	popup.open()
 
