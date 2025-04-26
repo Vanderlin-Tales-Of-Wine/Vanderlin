@@ -185,7 +185,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 	action_background_icon_state = ""
 	base_action = /datum/action/spell_action/spell
 
-/obj/effect/proc_holder/spell/proc/create_logs(user, list/targets)
+/obj/effect/proc_holder/spell/proc/create_logs(atom/user, list/targets)
 	var/targets_string = targets.Join(", ")
 	user.log_message("cast the spell [name] on [target]", color="red", LOG_ATTACK)
 	for(var/target as anything in targets)
