@@ -32,7 +32,9 @@
 #define INTERACT_MACHINE_OPEN_SILICON 		(1<<4)
 /// must be silicon to interact
 #define INTERACT_MACHINE_REQUIRES_SILICON	(1<<5)
+/// need to see
+#define INTERACT_MACHINE_REQUIRES_SIGHT		(1<<6)
 /// MACHINES HAVE THIS BY DEFAULT, SOMEONE SHOULD RUN THROUGH MACHINES AND REMOVE IT FROM THINGS LIKE LIGHT SWITCHES WHEN POSSIBLE!!--------------------------
 /// This flag determines if a machine set_machine's the user when the user uses it, making updateUsrDialog make the user re-call interact() on it.
 /// THIS FLAG IS ON ALL MACHINES BY DEFAULT, NEEDS TO BE RE-EVALUATED LATER!!
-#define INTERACT_MACHINE_SET_MACHINE 		(1<<6)
+#define INTERACT_MACHINE_SET_MACHINE 		(1<<7)

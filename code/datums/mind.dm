@@ -63,6 +63,8 @@
 	var/ghostname
 	/// the current mob this mind is residing in
 	var/mob/living/current
+	///the ghost we currently have
+	var/mob/dead/observer/current_ghost
 	/// is this mind datum currently linked to a client?
 	var/active = FALSE
 	/// the memory of this mind

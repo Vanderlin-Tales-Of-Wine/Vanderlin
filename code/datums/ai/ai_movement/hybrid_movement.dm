@@ -6,7 +6,6 @@
 	var/fallbacking = FALSE
 	var/fallback_fail = 0
 
-///Put your movement behavior in here!
 /datum/ai_movement/hybrid_pathing/process(delta_time)
 	for(var/datum/ai_controller/controller as anything in moving_controllers)
 		if(!COOLDOWN_FINISHED(controller, movement_cooldown))
@@ -17,12 +16,39 @@
 		var/turf/target_turf = get_step_towards(movable_pawn, controller.current_movement_target)
 		var/turf/end_turf = get_turf(controller.current_movement_target)
 		var/advanced = TRUE
+		var/turf/current_turf = get_turf(movable_pawn)
 
 		var/mob/cliented_mob = controller.current_movement_target
 		var/cliented = FALSE
 		if(istype(cliented_mob))
 			if(cliented_mob.client)
 				cliented = TRUE
+
+		// Check if we've moved to a lower Z-level (possibly thrown) and our path expects us to be higher
+		if(length(controller.movement_path) && controller.movement_path[1])
+			var/turf/next_step = controller.movement_path[1]
+
+			// If the next step is on a higher Z-level than our current position,
+			// verify that there are stairs at our current position leading up
+			if(next_step.z > current_turf.z)
+				// Check if there's a valid stair to go up
+				var/turf/above = get_step_multiz(current_turf, UP)
+				var/can_go_up = FALSE
+
+				if(above && !above.density)
+					// Look for stairs at current location
+					for(var/obj/structure/stairs/S in current_turf.contents)
+						var/turf/dest = get_step(above, S.dir)
+						if(dest == next_step || get_step(dest, S.dir) == next_step)
+							can_go_up = TRUE
+							break
+
+				// If we can't go up but our path expects us to, we've likely been thrown down
+				// So regenerate the path from our current position
+				if(!can_go_up)
+					controller.movement_path = null
+					fallbacking = FALSE
+					fallback_fail = 0
 
 		if(end_turf?.z == movable_pawn?.z && !length(controller.movement_path) && !cliented)
 			advanced = FALSE
@@ -37,6 +63,7 @@
 					advanced = TRUE
 					controller.movement_path = null
 					fallbacking = TRUE
+					SEND_SIGNAL(movable_pawn, COMSIG_AI_GENERAL_CHANGE, "Unable to Basic Move swapping to AStar.")
 
 
 			if(!advanced)
@@ -44,6 +71,7 @@
 					controller.pathing_attempts++
 					if(controller.pathing_attempts >= max_pathing_attempts)
 						controller.CancelActions()
+						SEND_SIGNAL(movable_pawn, COMSIG_AI_GENERAL_CHANGE, "Failed pathfinding cancelling.")
 		if(advanced)
 			var/minimum_distance = controller.max_target_distance
 			// right now I'm just taking the shortest minimum distance of our current behaviors, at some point in the future
@@ -60,6 +88,8 @@
 			if(length(controller.movement_path))
 				var/turf/last_turf = controller.movement_path[length(controller.movement_path)]
 				var/turf/next_step = controller.movement_path[1]
+
+				// Handle movement along the path normally
 				if(next_step.z != movable_pawn.z)
 					movable_pawn.Move(next_step)
 				else
@@ -101,3 +131,4 @@
 
 				COOLDOWN_START(controller, repath_cooldown, 2 SECONDS)
 				controller.movement_path = get_path_to(movable_pawn, controller.current_movement_target, /turf/proc/Distance3D, max_path_distance + 1, 250,  minimum_distance, id=controller.get_access())
+				SEND_SIGNAL(controller.pawn, COMSIG_AI_PATH_GENERATED, controller.movement_path)

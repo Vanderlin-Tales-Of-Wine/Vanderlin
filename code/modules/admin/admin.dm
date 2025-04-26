@@ -695,7 +695,7 @@
 	if(preparsed.len > 1)
 		amount = CLAMP(text2num(preparsed[2]),1,ADMIN_SPAWN_CAP)
 
-	var/chosen = pick_closest_path(path)
+	var/atom/chosen = pick_closest_path(path)
 	if(!chosen)
 		return
 	var/turf/T = get_turf(usr)
@@ -709,6 +709,7 @@
 
 	log_admin("[key_name(usr)] spawned [amount] x [chosen] at [AREACOORD(usr)]")
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Spawn Atom") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	return initial(chosen.name)
 
 /datum/admins/proc/podspawn_atom(object as text)
 	set category = "Debug"

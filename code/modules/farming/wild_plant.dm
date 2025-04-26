@@ -103,3 +103,9 @@
 	incoming_type = /datum/plant_def/manabloom
 	. = ..()
 
+/obj/structure/wild_plant/nospread/poppy
+	icon_state = "poppy2"
+
+/obj/structure/wild_plant/nospread/poppy/New(loc, datum/plant_def/incoming_type, spread_chance)
+	incoming_type = /datum/plant_def/poppy
+	. = ..()
