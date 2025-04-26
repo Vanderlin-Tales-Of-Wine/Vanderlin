@@ -104,7 +104,7 @@
 /obj/item/clothing/head/helmet/heavy/viking
 	name = "spangenhelm"
 	desc = "A steel helmet with built in eye and nose protection, commonly used by warriors of the north."
-	icon_state = "spangenhelm"
+	icon_state = "spangenhelm_item"
 	icon = 'icons/roguetown/clothing/special/spangenhelm_item.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/spangenhelm_worn.dmi'
 	body_parts_covered = HEAD|NOSE|EYES
