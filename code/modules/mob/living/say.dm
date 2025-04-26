@@ -273,8 +273,7 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	message = compose_message(speaker, message_language, raw_message, radio_freq, spans, message_mode)
 	// voice muffling
 	if(stat == UNCONSCIOUS)
-		if(type & MSG_AUDIBLE) //audio
-			message = "<I>... You can almost hear something ...</I>"
+		message = "<I>... You can almost hear something ...</I>"
 	else
 		if(isliving(speaker))
 			var/mob/living/living_speaker = speaker
