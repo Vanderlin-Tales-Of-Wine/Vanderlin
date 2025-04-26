@@ -188,7 +188,9 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	data += "</div>"
 
 	// Featured stat setup
-	var/current_featured = (featured_stat in GLOB.featured_stats) ? featured_stat : GLOB.featured_stats[1]
+	var/current_featured = featured_stat
+	if(!current_featured || !(current_featured in GLOB.featured_stats))
+		current_featured = pick(GLOB.featured_stats)
 	var/list/stat_keys = GLOB.featured_stats
 	var/current_index = stat_keys.Find(current_featured)
 	var/next_stat = stat_keys[(current_index % length(stat_keys)) + 1]
@@ -1680,3 +1682,9 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	set desc = "Make that one person you had Quality RolePlay with happy."
 
 	commendation_popup(forced)
+
+/client/proc/view_stats()
+	set name = "View Statistics"
+	set category = "OOC"
+
+	show_round_stats()

@@ -95,6 +95,8 @@
 	status_flags |= GODMODE
 	ai_controller?.set_ai_status(AI_STATUS_OFF)
 	if(client)
+		client.verbs |= /client/proc/lobbyooc
+		client.verbs |= /client/proc/view_stats
 		client.show_game_over()
 
 /mob/living/do_game_over()
@@ -110,8 +112,7 @@
 		var/mob/living/simple_animal/hostile/H = src
 		H.LoseTarget()
 	if(client)
-		client.verbs += /client/proc/lobbyooc
-		client.verbs += /client/proc/commendsomeone
+		client.verbs |= /client/proc/commendsomeone
 
 /client/proc/show_game_over()
 	var/atom/movable/screen/splash/credits/S = new(src, FALSE)
