@@ -20316,6 +20316,12 @@
 	},
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/town/church)
+"tJz" = (
+/obj/structure/fake_machine/mail{
+	pixel_y = -32
+	},
+/turf/open/floor/carpet/stellar,
+/area/rogue/indoors/town/merc_guild)
 "tJF" = (
 /obj/structure/table/wood/plain_alt,
 /obj/machinery/light/fueled/wallfire/candle/blue{
@@ -122670,7 +122676,7 @@ hpj
 oju
 qnw
 qnw
-mnV
+tJz
 nyy
 sWx
 sWx
