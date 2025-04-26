@@ -1067,10 +1067,6 @@
 	},
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
-"cX" = (
-/obj/structure/table/wood/plain,
-/turf/open/floor/carpet,
-/area/rogue/indoors)
 "cZ" = (
 /obj/structure/kneestingers,
 /turf/open/water/river,
@@ -1195,13 +1191,6 @@
 /obj/structure/dungeon_entry/center,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/mountains/decap)
-"hN" = (
-/obj/structure/window/openclose{
-	dir = 1
-	},
-/obj/structure/water_pipe,
-/turf/open/floor/wood,
-/area/rogue/indoors)
 "hO" = (
 /obj/structure/gearbox,
 /turf/open/floor/grass/yel,
@@ -1470,6 +1459,10 @@
 /obj/structure/ladder,
 /turf/open/floor/blocks,
 /area/rogue/indoors)
+"rR" = (
+/obj/structure/fluff/statue/zizo,
+/turf/open/floor/cobblerock,
+/area/rogue/indoors)
 "sd" = (
 /obj/structure/flora/grass/herb/symphitum,
 /turf/open/floor/grass/yel,
@@ -1699,13 +1692,6 @@
 /obj/structure/hotspring/border/eleven,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/mountains/decap)
-"zp" = (
-/obj/structure/rack/shelf/biggest{
-	pixel_y = 18
-	},
-/obj/machinery/light/fueled/torchholder/r,
-/turf/open/floor/carpet,
-/area/rogue/indoors)
 "zA" = (
 /obj/structure/water_pump,
 /turf/open/floor/grass/yel,
@@ -1786,15 +1772,6 @@
 	},
 /turf/open/floor/dirt,
 /area/rogue/outdoors/mountains/decap)
-"AQ" = (
-/obj/item/bottle_kit{
-	pixel_x = -3
-	},
-/obj/item/bottle_kit{
-	pixel_x = 10
-	},
-/turf/closed/wall/mineral/wood,
-/area/rogue/indoors)
 "Bv" = (
 /obj/structure/flora/grass/herb/hypericum,
 /turf/open/floor/dirt,
@@ -1806,10 +1783,6 @@
 /obj/effect/landmark/observer_start,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors)
-"CZ" = (
-/obj/structure/mineral_door,
-/turf/open/floor/wood,
-/area/rogue/indoors)
 "Di" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/flora/ausbushes/lavendergrass,
@@ -2064,10 +2037,6 @@
 /obj/item/reagent_containers/glass/bucket/pot/copper,
 /turf/open/floor/blocks,
 /area/rogue/indoors)
-"OZ" = (
-/obj/machinery/light/fueled/torchholder/l,
-/turf/open/floor/wood,
-/area/rogue/indoors)
 "Pd" = (
 /obj/structure/roguerock,
 /turf/open/water,
@@ -2281,10 +2250,6 @@
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
-"Xa" = (
-/obj/structure/fermentation_keg/distiller,
-/turf/open/floor/carpet,
-/area/rogue/indoors)
 "Xg" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/minecart_rail{
@@ -2333,12 +2298,6 @@
 /area/rogue/outdoors/mountains/decap)
 "Zs" = (
 /turf/closed/wall/mineral/wood,
-/area/rogue/indoors)
-"Zx" = (
-/obj/structure/window/openclose{
-	dir = 8
-	},
-/turf/open/floor/carpet,
 /area/rogue/indoors)
 
 (1,1,1) = {"
@@ -16955,13 +16914,13 @@ hO
 QN
 QN
 QN
-QN
-jC
-QN
-Zs
-Zs
-Zs
-Zs
+Wr
+Wr
+Wr
+pc
+pc
+pc
+pc
 QN
 qi
 RC
@@ -17212,13 +17171,13 @@ cJ
 QN
 jC
 QN
-QN
-QN
-QN
-CZ
-mY
-OZ
-Zs
+Wr
+Wr
+Wr
+pc
+pc
+pc
+pc
 QN
 qi
 RC
@@ -17469,13 +17428,13 @@ cJ
 QN
 QN
 QN
-Zs
-Zx
-Zx
-Zs
-mY
-mY
-Zs
+pc
+pc
+pc
+pc
+rR
+pc
+pc
 QN
 qi
 RC
@@ -17726,13 +17685,13 @@ hO
 ez
 ky
 mo
-hN
-Xa
-aI
-cX
-mY
-mY
-Zs
+pc
+pc
+pc
+pc
+pc
+pc
+pc
 QN
 at
 at
@@ -17983,13 +17942,13 @@ Ua
 zA
 aQ
 aQ
-AQ
-zp
-aI
-aI
-mY
-mY
-Zs
+pc
+pc
+pc
+pc
+pc
+pc
+pc
 at
 at
 as
@@ -18240,13 +18199,13 @@ Ua
 QN
 QN
 jC
-Zs
-Zs
-Zs
-Zs
-Zs
-Zs
-Zs
+pc
+pc
+pc
+pc
+pc
+pc
+pc
 as
 as
 as

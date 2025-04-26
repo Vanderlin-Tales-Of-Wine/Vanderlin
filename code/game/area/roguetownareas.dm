@@ -904,3 +904,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	name = "lair (Inhumen)"
 	droning_sound = 'sound/music/area/decap.ogg'
 	first_time_text = "THE DEEP BOG"
+
+/area/rogue/indoors/lich
+	name = "lair (Lich)"
+	droning_sound = 'sound/music/area/churchnight.ogg'

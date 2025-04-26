@@ -11,7 +11,7 @@
 
 /datum/patron/inhumen/can_pray(mob/living/follower)
 	for(var/obj/structure/fluff/psycross/cross in view(7, get_turf(follower)))
-		if(!cross.obj_broken)
+		if(cross.divine && !cross.obj_broken)
 			to_chat(follower, span_danger("That accursed cross won't let me commune with the Forbidden One!"))
 			return FALSE
 

@@ -305,10 +305,6 @@
 /obj/structure/flora/grass/bush/tundra/update_icon()
 	icon_state = "bush_tundra"
 
-/obj/structure/flora/grass/bush/bog
-	name = "bog bush"
-	icon_state = "bush_bog"
-
 /obj/structure/flora/grass/bush/Initialize()
 	if(prob(88))
 		bushtype = pickweight(list(/obj/item/reagent_containers/food/snacks/produce/jacksberry=5,
@@ -466,14 +462,18 @@
 	name = "tundra great bush"
 	icon_state = "tallbush1_tundra"
 
-/obj/structure/flora/grass/bush/wall/tall/bog
-	desc = "A tall bush that has grown into a hedge...but this one seems diseased."
-	name = "bog great bush"
-	icon_state = "tallbush1_bog"
-
 /obj/structure/flora/grass/bush/wall/tall/tundra/Initialize()
 	. = ..()
 	icon_state = "tallbush[pick(1,2)]_tundra"
+
+/obj/structure/flora/grass/bush/wall/tall/bog
+	desc = "A tall bush that has grown into a hedge... but this one seems diseased."
+	name = "bog great bush"
+	icon_state = "tallbush1_bog"
+
+/obj/structure/flora/grass/bush/wall/tall/bog/Initialize()
+	. = ..()
+	icon_state = "tallbush[pick(1,2)]_bog"
 
 // fyrituis bush
 /obj/structure/flora/grass/pyroclasticflowers
@@ -846,6 +846,13 @@
 
 /obj/structure/flora/grass/bush_meagre/tundra/update_icon()
 	icon_state = "bush[rand(1,3)]_tundra"
+
+/obj/structure/flora/grass/bush_meagre/yellow
+	name = "bog bush"
+	icon_state = "bush1_bog"
+
+/obj/structure/flora/grass/bush_meagre/yellow/update_icon()
+	icon_state = "bush[rand(1,3)]_bog"
 
 /obj/structure/flora/grass/bush_meagre/Initialize()
 	if(silky)
