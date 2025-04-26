@@ -9324,6 +9324,14 @@
 /obj/structure/fluff/railing/border,
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/church/inquisition)
+"fcj" = (
+/obj/structure/mineral_door/wood/fancywood{
+	name = "Court Physician's Room"
+	},
+/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/door/access/manor/physician,
+/turf/open/floor/woodturned,
+/area/rogue/indoors/town/manor)
 "fcy" = (
 /obj/machinery/light/fueled/torchholder/l{
 	dir = 1
