@@ -324,7 +324,7 @@
 	desc = "A steel helmet with built in eye and nose protection, commonly used by warriors of the north."
 	icon_state = "spangenhelm"
 	icon = 'icons/roguetown/clothing/special/spangenhelm_item'
-	mob_overlay_icon = 'icons/roguetown/clothing/special/onmod/spangenhelm_worn'
+	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/spangenhelm_worn'
 	body_parts_covered = HEAD|NOSE|EYES
 	slot_flags = ITEM_SLOT_HEAD
 	flags_inv = HIDEFACE|HIDEHAIR
