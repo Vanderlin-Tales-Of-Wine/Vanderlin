@@ -156,11 +156,11 @@
 /datum/antagonist/lich/proc/rise_anew(location)
 	var/mob/living/carbon/human/lich_mob
 	if(isbrain(owner.current)) // we have been decapitated, let's reattach to our old body.
-		if(!isnull(lich_body))
+		lich_mob = lich_body.resolve() // current body isn't a human mob, let's use the reference to our old body.
+		if(isnull(lich_mob))
 			return // the old body no longer exists, it's over.
-		lich_mob = lich_body // current body isn't a human mob, let's use the reference to our old body.
 		var/mob/living/brain/lich_brain = owner.current
-		if(!istype(/obj/item/bodypart/head, lich_brain.loc.loc))
+		if(!istype(lich_brain.loc.loc, /obj/item/bodypart/head))
 			return // we have no head, it's over.
 		var/obj/item/bodypart/head/lich_head = lich_brain.loc.loc
 		lich_head.attach_limb(lich_mob)
@@ -177,7 +177,6 @@
 		QDEL_NULL(lich_mob.charflaw)
 	lich_mob.mob_biotypes |= MOB_UNDEAD
 	lich_mob.grant_undead_eyes()
-
 
 /obj/item/phylactery
 	name = "phylactery"
