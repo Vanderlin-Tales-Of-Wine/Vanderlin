@@ -206,7 +206,7 @@
 	craftdiff = 1
 
 /datum/repeatable_crafting_recipe/sewing/sleepingbag
-	name = "roll of sleepcloth"
+	name = "bedroll"
 	output = /obj/item/sleepingbag
 	requirements =  list(/obj/item/natural/cloth = 2,
 				/obj/item/natural/fibers = 1)
