@@ -87,12 +87,15 @@ GLOBAL_LIST_INIT(name2reagent, build_name2reagent())
 /datum/reagent/proc/on_mob_life(mob/living/carbon/M)
 	current_cycle++
 	if(holder)
-		holder.remove_reagent(type, metabolization_rate) //By default it slowly disappears.
+		var/adjusted_metabolization_rate = metabolization_rate
+		if(istype(src, /datum/reagent/consumable/ethanol) && has_world_trait(/datum/world_trait/baotha_revelry))
+			adjusted_metabolization_rate = adjusted_metabolization_rate * 0.5
+		holder.remove_reagent(type, adjusted_metabolization_rate) //By default it slowly disappears.
 		if(M.client)
 			if(istype(src, /datum/reagent/consumable/ethanol))
-				GLOB.vanderlin_round_stats[STATS_ALCOHOL_CONSUMED] += metabolization_rate
+				GLOB.vanderlin_round_stats[STATS_ALCOHOL_CONSUMED] += adjusted_metabolization_rate
 			if(istype(src, /datum/reagent/water))
-				GLOB.vanderlin_round_stats[STATS_WATER_CONSUMED] += metabolization_rate
+				GLOB.vanderlin_round_stats[STATS_WATER_CONSUMED] += adjusted_metabolization_rate
 	return TRUE
 
 /datum/reagent/proc/on_transfer(atom/A, method=TOUCH, trans_volume) //Called after a reagent is transfered

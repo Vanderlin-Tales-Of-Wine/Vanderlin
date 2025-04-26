@@ -1548,21 +1548,14 @@
 /area/rogue/outdoors/woods)
 "zo" = (
 /obj/structure/rack,
-/obj/item/ingot/iron,
+/obj/item/ingot/copper{
+	pixel_x = -2
+	},
+/obj/item/ingot/copper{
+	pixel_x = -8
+	},
 /obj/item/ingot/tin{
-	pixel_y = -10
-	},
-/obj/item/ingot/tin{
-	pixel_y = -10
-	},
-/obj/item/ingot/copper{
-	pixel_y = -5
-	},
-/obj/item/ingot/copper{
-	pixel_y = -5
-	},
-/obj/item/ingot/copper{
-	pixel_y = -5
+	pixel_x = 7
 	},
 /turf/open/floor/cobble,
 /area/rogue/indoors)
