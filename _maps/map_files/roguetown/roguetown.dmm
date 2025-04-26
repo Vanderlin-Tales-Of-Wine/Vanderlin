@@ -1201,13 +1201,6 @@
 "brm" = (
 /turf/closed/wall/mineral/wooddark/slitted,
 /area/rogue/under/cave)
-"bsa" = (
-/obj/structure/mineral_door/wood{
-	icon_state = "wcv";
-	lockid = "merchant"
-	},
-/turf/open/floor/carpet/royalblack,
-/area/rogue/indoors/town/shop)
 "bsi" = (
 /obj/structure/mineral_door/wood{
 	lockid = "merchant"
@@ -1699,10 +1692,6 @@
 	icon_state = "roofg"
 	},
 /area/rogue/indoors/town)
-"bSu" = (
-/mob/living/simple_animal/hostile/retaliate/troll,
-/turf/open/floor/dirt/road,
-/area/rogue/under/cave)
 "bSw" = (
 /obj/machinery/light/fueled/wallfire/candle/l,
 /obj/structure/closet/crate/crafted_closet,
@@ -10947,15 +10936,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town)
-"mfM" = (
-/obj/structure/mineral_door/wood{
-	icon_state = "wcv";
-	lockid = "merchant"
-	},
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
-/area/rogue/indoors/town/shop)
 "mgu" = (
 /turf/open/floor/blocks/stonered,
 /area/rogue/indoors/town/dwarfin)
@@ -14654,6 +14634,13 @@
 "pYP" = (
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/exposed/dwarf)
+"pYT" = (
+/obj/structure/mineral_door/wood{
+	icon_state = "wcv";
+	lockid = "merchant"
+	},
+/turf/open/floor/carpet/royalblack,
+/area/rogue/indoors/town/shop)
 "pZd" = (
 /obj/machinery/light/fueled/wallfire/candle,
 /obj/structure/fluff/railing/border{
@@ -19113,6 +19100,15 @@
 /obj/machinery/light/fueled/firebowl/stump,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/town)
+"vbC" = (
+/obj/structure/mineral_door/wood{
+	icon_state = "wcv";
+	lockid = "merchant"
+	},
+/turf/open/floor/ruinedwood{
+	icon_state = "horzw"
+	},
+/area/rogue/indoors/town/shop)
 "vcC" = (
 /obj/structure/chair/wood/alt,
 /turf/open/floor/woodturned,
@@ -20165,6 +20161,10 @@
 "wgm" = (
 /turf/closed/wall/mineral/decostone/long,
 /area/rogue/indoors/town/church)
+"wgB" = (
+/mob/living/simple_animal/hostile/retaliate/troll/axe,
+/turf/open/floor/dirt/road,
+/area/rogue/under/cave)
 "wgF" = (
 /obj/machinery/light/fueled/chand,
 /turf/open/transparent/openspace,
@@ -36805,7 +36805,7 @@ vzQ
 vzQ
 vzH
 xKX
-bSu
+wgB
 vzQ
 vzQ
 vzQ
@@ -59355,7 +59355,7 @@ uQd
 xIk
 xIk
 xIk
-bsa
+pYT
 uQd
 fFV
 oSN
@@ -59827,7 +59827,7 @@ nSp
 hgo
 tWY
 tWY
-mfM
+vbC
 oPd
 oPd
 tWY

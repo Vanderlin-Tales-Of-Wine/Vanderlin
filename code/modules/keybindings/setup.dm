@@ -30,7 +30,7 @@
 		erase_output = "[erase_output];[macro_name].parent=null"
 	winset(src, null, erase_output)
 
-/client/proc/set_macros()
+/client/proc/set_macros(skip_chats = FALSE, skip_macro_mode = FALSE)
 	set waitfor = FALSE
 
 	//Reset and populate the rolling buffer
@@ -43,10 +43,13 @@
 	var/list/macro_set = SSinput.macro_set
 	for(var/k in 1 to length(macro_set))
 		var/key = macro_set[k]
+		if(skip_chats && (key == "T" || key == "M" || key == "Tab"))//macros supercede internal key_downs and key_ups
+			continue
 		var/command = macro_set[key]
 		winset(src, "default-[REF(key)]", "parent=default;name=[key];command=[command]")
 
-	if(prefs.hotkeys)
-		winset(src, null, "input.focus=true command=activeInput input.background-color=[COLOR_INPUT_ENABLED] input.text-color = #EEEEEE")
-	else
-		winset(src, null, "input.focus=true command=activeInput input.background-color=[COLOR_INPUT_DISABLED] input.text-color = #ad9eb4")
+	if(!skip_macro_mode)
+		if(prefs.hotkeys)
+			winset(src, null, "input.focus=true command=activeInput input.background-color=[COLOR_INPUT_ENABLED] input.text-color = #EEEEEE")
+		else
+			winset(src, null, "input.focus=true command=activeInput input.background-color=[COLOR_INPUT_DISABLED] input.text-color = #ad9eb4")

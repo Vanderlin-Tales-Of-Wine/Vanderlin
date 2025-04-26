@@ -51,7 +51,6 @@
 		if(istype(NewLocTurf, /turf/closed/wall)) // gas can go through doors/windows but not walls
 			return
 		forceMove(NewLoc)
-		update_parallax_contents()
 	else
 		forceMove(get_turf(src))  //Get out of closets and such as a ghost
 		if((direct & NORTH) && y < world.maxy)
@@ -329,8 +328,8 @@
 /obj/structure/innocent_bush
 	name = "bush"
 	desc = "These large bushes are known to be well-liked by silkworms who make their nests in their dark depths."
-	icon = 'icons/roguetown/mob/monster/trolls/default_troll.dmi'
-	icon_state = "Trolls"
+	icon = 'icons/mob/creacher/trolls/troll.dmi'
+	icon_state = "troll_hide"
 	pixel_x = -16
 	layer = ABOVE_ALL_MOB_LAYER
 	max_integrity = 500
@@ -367,8 +366,8 @@
 /obj/structure/innouous_rock
 	name = "mana crystal deposit"
 	desc = "These large mana crystals deposit are known to bring fortune to miners who ventures into the deep dark depths of the world."
-	icon = 'icons/roguetown/mob/monster/trolls/cave_troll.dmi'
-	icon_state = "Trolls"
+	icon = 'icons/mob/creacher/trolls/troll_cave.dmi'
+	icon_state = "troll_hide"
 	pixel_x = -16
 	layer = ABOVE_ALL_MOB_LAYER
 	max_integrity = 500

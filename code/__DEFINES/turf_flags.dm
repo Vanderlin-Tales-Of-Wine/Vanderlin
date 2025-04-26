@@ -5,6 +5,7 @@
 #define CHANGETURF_INHERIT_AIR 16 // Inherit air from previous turf. Implies CHANGETURF_IGNORE_AIR
 #define CHANGETURF_RECALC_ADJACENT 32 //Immediately recalc adjacent atmos turfs instead of queuing.
 
+#define TURF_NO_LIQUID_SPREAD (1<<2)
 /// Can weather affect turf
 #define TURF_WEATHER (1<<3)
 /// Proof or not

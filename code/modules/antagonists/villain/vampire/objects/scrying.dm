@@ -13,6 +13,8 @@
 /mob/dead/observer/rogue/arcaneeye
 	sight = 0
 	see_in_dark = 2
+	invisibility = INVISIBILITY_GHOST
+	see_invisible = SEE_INVISIBLE_GHOST
 
 	misting = 0
 	var/mob/living/carbon/human/vampirelord = null
@@ -30,8 +32,7 @@
 		to_chat(usr, span_warning("You're not an Eye!"))
 		return
 	var/list/filtered = list()
-	for(var/V in GLOB.sortedAreas)
-		var/area/A = V
+	for(var/area/A as anything in get_sorted_areas())
 		if(!A.hidden)
 			filtered += A
 	var/area/thearea  = input("Area to jump to", "VANDERLIN") as null|anything in filtered
@@ -48,7 +49,6 @@
 		return
 
 	usr.forceMove(pick(L))
-	update_parallax_contents()
 
 /mob/dead/observer/rogue/arcaneeye/Initialize()
 	. = ..()
@@ -131,7 +131,6 @@
 		if(istype(NewLocTurf, /turf/closed/mineral/bedrock)) // prevent going out of bounds.
 			return
 		forceMove(NewLoc)
-		update_parallax_contents()
 	else
 		forceMove(get_turf(src))  //Get out of closets and such as a ghost
 		if((direct & NORTH) && y < world.maxy)
