@@ -386,8 +386,6 @@
 /area/rogue/under/mountains/anvil/lower)
 "fm" = (
 /obj/structure/table/wood/plain,
-/obj/structure/table/wood/plain,
-/obj/structure/table/wood/plain,
 /obj/item/reagent_containers/glass/bottle/sugar{
 	pixel_x = 1;
 	pixel_y = -1
@@ -801,10 +799,6 @@
 	},
 /obj/effect/decal/cleanable/food/flour,
 /turf/open/floor/naturalstone,
-/area/rogue/under/mountains/anvil/lower)
-"kY" = (
-/obj/structure/mineral_door/wood/donjon/stone,
-/turf/closed/basic,
 /area/rogue/under/mountains/anvil/lower)
 "ll" = (
 /turf/closed/wall/mineral/decostone/center,
@@ -1588,7 +1582,6 @@
 /area/rogue/under/mountains/anvil/lower)
 "xu" = (
 /obj/structure/table/wood/plain,
-/obj/structure/table/wood/plain,
 /obj/structure/fluff/millstone,
 /obj/item/reagent_containers/food/snacks/sugar{
 	pixel_x = -8;
@@ -2192,7 +2185,7 @@
 /area/rogue/under/mountains/anvil/lower)
 "GF" = (
 /obj/structure/mineral_door/wood/donjon/stone,
-/turf/closed/wall/mineral/decostone/cand,
+/turf/open/floor/hexstone,
 /area/rogue/under/mountains/anvil/lower)
 "GG" = (
 /obj/item/weapon/polearm/spear/hoplite/winged,
@@ -2596,10 +2589,6 @@
 /obj/structure/dungeon_entry,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
-"MD" = (
-/obj/structure/mineral_door/wood/donjon/stone,
-/turf/open/floor/naturalstone,
-/area/rogue/under/mountains/anvil/lower)
 "MF" = (
 /obj/effect/decal/remains/human,
 /obj/item/mana_battery/mana_crystal/small,
@@ -2724,7 +2713,6 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
 "Ov" = (
-/obj/structure/table/wood/plain,
 /obj/structure/table/wood/plain,
 /obj/item/plate/clay{
 	pixel_x = 3;
@@ -26553,7 +26541,7 @@ lD
 lD
 Dc
 lO
-MD
+GF
 GF
 lO
 Dc
@@ -72613,7 +72601,7 @@ Bt
 Dc
 iQ
 XT
-kY
+Mj
 XT
 XT
 Dc
