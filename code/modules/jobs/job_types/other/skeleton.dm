@@ -44,7 +44,7 @@
 	H.regenerate_limb(BODY_ZONE_R_ARM)
 	H.regenerate_limb(BODY_ZONE_L_ARM)
 	for(var/obj/item/bodypart/B in H.bodyparts)
-		B.skeletonize()
+		B.skeletonize(FALSE)
 	H.base_intents = list(INTENT_HELP, INTENT_DISARM, INTENT_GRAB, /datum/intent/simple/claw)
 	H.update_a_intents()
 

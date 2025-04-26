@@ -211,7 +211,7 @@
 	faction = list(FACTION_UNDEAD)
 	ambushable = FALSE
 
-	skeletonize()
+	skeletonize(FALSE)
 	skele_look()
 
 	if(charflaw)

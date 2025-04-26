@@ -65,7 +65,7 @@
 	regenerate_limb(BODY_ZONE_R_ARM)
 	regenerate_limb(BODY_ZONE_L_ARM)
 	for(var/obj/item/bodypart/B in src.bodyparts)
-		B.skeletonize()
+		B.skeletonize(FALSE)
 	grant_undead_eyes()
 	underwear = "Nude"
 	if(charflaw)
@@ -97,7 +97,6 @@
 	H.base_constitution = 8
 	H.base_endurance = 8
 	H.base_intelligence = 1
-
 
 /datum/outfit/job/greater_skeleton/pre_equip(mob/living/carbon/human/H) //equipped onto Summon Greater Undead player skeletons only after the mind is added
 	..()

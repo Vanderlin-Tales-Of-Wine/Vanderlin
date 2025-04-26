@@ -60,7 +60,7 @@
 
 /datum/antagonist/lich/proc/skele_look()
 	var/mob/living/carbon/human/L = owner.current
-	L.skeletonize()
+	L.skeletonize(FALSE)
 	L.skele_look()
 
 /datum/antagonist/lich/proc/equip_lich()
@@ -80,7 +80,7 @@
 	L.mob_biotypes |= MOB_UNDEAD
 	L.dna.species.species_traits |= NOBLOOD
 	L.grant_undead_eyes()
-	L.skeletonize()
+	L.skeletonize(FALSE)
 	L.unequip_everything()
 	L.equipOutfit(/datum/outfit/job/lich)
 	L.set_patron(/datum/patron/inhumen/zizo)
