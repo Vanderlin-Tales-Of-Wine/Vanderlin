@@ -1444,7 +1444,7 @@
 /area/rogue/outdoors/woods)
 "tY" = (
 /obj/item/clothing/neck/mana_star{
-	desc = s
+	desc = ""
 	},
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)

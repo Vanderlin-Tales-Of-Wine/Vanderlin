@@ -575,10 +575,6 @@
 "aJm" = (
 /turf/closed/wall/mineral/stone,
 /area/rogue/indoors/town/manorgate)
-"aJn" = (
-/obj/structure/fluff/traveltile/inhumen,
-/turf/open/floor/cobblerock,
-/area/rogue/outdoors/woods)
 "aJu" = (
 /turf/open/floor/cobble,
 /area/rogue/outdoors/town/roofs)
@@ -146573,9 +146569,9 @@ qUU
 vdG
 chE
 tut
-aJn
-aJn
-aJn
+mbl
+mbl
+mbl
 tut
 chE
 chE
