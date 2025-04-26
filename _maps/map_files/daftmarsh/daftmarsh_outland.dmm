@@ -2103,9 +2103,6 @@
 /obj/structure/flora/newtree/snow,
 /turf/open/floor/grass,
 /area/rogue/outdoors/woods)
-"Ft" = (
-/turf/closed/mineral,
-/area/rogue)
 "FA" = (
 /obj/structure/fluff/traveltile{
 	aportalgoesto = "daftmarsh-town-to-outlands";
@@ -64621,7 +64618,7 @@ ze
 ze
 ze
 ze
-Ft
+pn
 pn
 pn
 pn
@@ -65426,7 +65423,7 @@ ze
 ze
 ze
 ze
-Ft
+pn
 pn
 pn
 pn
@@ -65628,7 +65625,7 @@ ze
 ze
 ze
 ze
-Ft
+pn
 pn
 pn
 pn
@@ -66231,7 +66228,7 @@ ze
 ze
 ze
 ze
-Ft
+pn
 pn
 pn
 pn
@@ -66432,8 +66429,8 @@ UR
 ze
 ze
 ze
-Ft
-Ft
+pn
+pn
 pn
 pn
 pn
@@ -66834,7 +66831,7 @@ ze
 ze
 ze
 ze
-Ft
+pn
 pn
 pn
 pn
@@ -67035,8 +67032,8 @@ ze
 ze
 ze
 ze
-Ft
-Ft
+pn
+pn
 pn
 pn
 pn
@@ -67437,7 +67434,7 @@ ze
 ze
 ze
 ze
-Ft
+pn
 pn
 pn
 pn
@@ -67638,8 +67635,8 @@ ze
 ze
 ze
 ze
-Ft
-Ft
+pn
+pn
 pn
 pn
 pn
@@ -68040,7 +68037,7 @@ ze
 ze
 ze
 ze
-Ft
+pn
 pn
 pn
 pn
@@ -68845,7 +68842,7 @@ ze
 ze
 ze
 ze
-Ft
+pn
 pn
 pn
 pn
@@ -69047,7 +69044,7 @@ ze
 zE
 ze
 ze
-Ft
+pn
 pn
 pn
 pn
@@ -69248,8 +69245,8 @@ ze
 ze
 ze
 ze
-Ft
-Ft
+pn
+pn
 pn
 pn
 pn

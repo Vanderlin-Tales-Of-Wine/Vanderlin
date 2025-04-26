@@ -959,6 +959,11 @@
 	},
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement)
+"aZN" = (
+/turf/closed/wall/mineral/roofwall/middle{
+	dir = 8
+	},
+/area/rogue/indoors/town/tavern)
 "aZR" = (
 /obj/effect/landmark/start/magician,
 /obj/structure/chair/bench/coucha,
@@ -1873,6 +1878,11 @@
 /obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/carpet/green,
 /area/rogue/indoors/town)
+"bOz" = (
+/turf/closed/wall/mineral/roofwall/outercorner{
+	dir = 4
+	},
+/area/rogue/indoors/town/tavern)
 "bOL" = (
 /obj/structure/flora/grass/water,
 /turf/open/floor/dirt,
@@ -3903,6 +3913,11 @@
 "dMD" = (
 /turf/closed/wall/mineral/wood,
 /area/rogue/indoors/town/smithy)
+"dNv" = (
+/turf/closed/wall/mineral/roofwall/middle{
+	dir = 4
+	},
+/area/rogue/indoors/town/tavern)
 "dNH" = (
 /obj/structure/window/openclose{
 	dir = 4
@@ -8359,6 +8374,11 @@
 	},
 /turf/open/floor/carpet/stellar,
 /area/rogue/indoors/town/merc_guild)
+"igd" = (
+/turf/closed/wall/mineral/roofwall/innercorner{
+	dir = 8
+	},
+/area/rogue/indoors/town/tavern)
 "ige" = (
 /obj/structure/fluff/walldeco/church/line,
 /turf/open/floor/churchrough,
@@ -8982,6 +9002,9 @@
 /obj/structure/water_pipe,
 /turf/open/floor/metal/barograte,
 /area/rogue/indoors/town/clocktower)
+"iGQ" = (
+/turf/closed/wall/mineral/roofwall/outercorner,
+/area/rogue/indoors/town/tavern)
 "iHf" = (
 /obj/structure/water_pipe,
 /obj/structure/bars/pipe,
@@ -11654,6 +11677,9 @@
 	},
 /turf/open/floor/carpet/stellar,
 /area/rogue/indoors/town/merc_guild)
+"lqR" = (
+/turf/closed/wall/mineral/roofwall/middle,
+/area/rogue/indoors/town/tavern)
 "lqT" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4
@@ -15490,10 +15516,6 @@
 /obj/structure/table/wood/reinforced_alter,
 /turf/open/floor/carpet/green,
 /area/rogue/indoors/town/merc_guild)
-"piH" = (
-/obj/machinery/light/fueled/chand,
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/town/roofs)
 "piM" = (
 /obj/structure/chair/stool,
 /turf/open/floor/blocks/stonered/tiny,
@@ -16296,6 +16318,11 @@
 /obj/structure/bed/wool,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/manor)
+"pZE" = (
+/turf/closed/wall/mineral/roofwall/outercorner{
+	dir = 1
+	},
+/area/rogue/indoors/town/tavern)
 "pZU" = (
 /obj/structure/fluff/railing/wood{
 	dir = 8;
@@ -19412,6 +19439,11 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/tile/bfloorz,
 /area/rogue/indoors/town/garrison)
+"sUs" = (
+/turf/closed/wall/mineral/roofwall/outercorner{
+	dir = 8
+	},
+/area/rogue/indoors/town/tavern)
 "sVV" = (
 /obj/structure/table/wood{
 	dir = 1;
@@ -20821,6 +20853,11 @@
 	},
 /turf/open/floor/wood,
 /area/rogue/outdoors/town/roofs)
+"uht" = (
+/turf/closed/wall/mineral/roofwall/middle{
+	dir = 1
+	},
+/area/rogue/indoors/town/tavern)
 "uit" = (
 /obj/structure/table/wood{
 	dir = 6;
@@ -21324,6 +21361,9 @@
 	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/outdoors/town)
+"uGf" = (
+/turf/closed/wall/mineral/roofwall/center,
+/area/rogue/indoors/town/tavern)
 "uGr" = (
 /obj/structure/mineral_door/wood/window{
 	name = "Tailor Shop"
@@ -21523,6 +21563,9 @@
 	},
 /turf/open/floor/wood/nosmooth,
 /area/rogue/outdoors/town)
+"uSR" = (
+/turf/closed/wall/mineral/roofwall/innercorner,
+/area/rogue/indoors/town/tavern)
 "uTx" = (
 /obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/floor/ruinedwood/chevron,
@@ -207909,11 +207952,11 @@ mdv
 mdv
 mdv
 mdv
-qcL
-bvD
-bvD
-bvD
-gBj
+iGQ
+aZN
+aZN
+aZN
+bOz
 mdv
 mdv
 gUR
@@ -208107,15 +208150,15 @@ ctZ
 mdv
 mdv
 mdv
-qcL
-bvD
-bvD
-bvD
-wdh
-bef
-bef
-bef
-mhG
+iGQ
+aZN
+aZN
+aZN
+igd
+uGf
+uGf
+uGf
+lqR
 mdv
 mdv
 gUR
@@ -208309,15 +208352,15 @@ ctZ
 mdv
 mdv
 mdv
-aFp
-bef
-bef
-bef
-bef
-bef
-bef
-bef
-mhG
+uht
+uGf
+uGf
+uGf
+uGf
+uGf
+uGf
+uGf
+lqR
 mdv
 mdv
 gUR
@@ -208511,15 +208554,15 @@ ctZ
 mdv
 mdv
 mdv
-aFp
-bef
-bef
-bef
-bef
-bef
-bef
-bef
-mhG
+uht
+uGf
+uGf
+uGf
+uGf
+uGf
+uGf
+uGf
+lqR
 mdv
 mdv
 gUR
@@ -208712,16 +208755,16 @@ ctZ
 ctZ
 mdv
 mdv
-qcL
-wdh
-bef
-bef
-bef
-bef
-bef
-bef
-bef
-mhG
+iGQ
+igd
+uGf
+uGf
+uGf
+uGf
+uGf
+uGf
+uGf
+lqR
 mdv
 gUR
 gUR
@@ -208914,16 +208957,16 @@ ctZ
 ctZ
 mdv
 mdv
-aFp
-bef
-dKR
-dKR
-dKR
-dKR
-bef
-bef
-gVd
-hng
+uht
+uGf
+bzj
+bzj
+bzj
+bzj
+uGf
+uGf
+uSR
+sUs
 mdv
 gUR
 gUR
@@ -209116,15 +209159,15 @@ ctZ
 ctZ
 mdv
 mdv
-aFp
-bef
-dKR
-dKR
-dKR
-dKR
-bef
-bef
-mhG
+uht
+uGf
+bzj
+bzj
+bzj
+bzj
+uGf
+uGf
+lqR
 mdv
 mdv
 gUR
@@ -209318,15 +209361,15 @@ ctZ
 ctZ
 mdv
 mdv
-aFp
-bef
-dKR
-piH
-dKR
-dKR
-bef
-bef
-mhG
+uht
+uGf
+bzj
+qvD
+bzj
+bzj
+uGf
+uGf
+lqR
 mdv
 mdv
 gUR
@@ -209520,15 +209563,15 @@ ctZ
 ctZ
 mdv
 mdv
-aFp
-bef
-dKR
-dKR
-dKR
-dKR
-gVd
-atX
-hng
+uht
+uGf
+bzj
+bzj
+bzj
+bzj
+uSR
+dNv
+sUs
 mdv
 gUR
 gUR
@@ -209722,13 +209765,13 @@ ctZ
 ctZ
 mdv
 mdv
-aFp
-bef
-bef
-bef
-bef
-bef
-mhG
+uht
+uGf
+uGf
+uGf
+uGf
+uGf
+lqR
 mdv
 mdv
 mdv
@@ -209924,13 +209967,13 @@ ctZ
 ctZ
 mdv
 mdv
-eoL
-atX
-atX
-atX
-atX
-atX
-hng
+pZE
+dNv
+dNv
+dNv
+dNv
+dNv
+sUs
 ltK
 ltK
 ltK
