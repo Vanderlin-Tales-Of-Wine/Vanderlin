@@ -1323,14 +1323,6 @@
 	for(var/obj/item/bodypart/B in src.bodyparts)
 		B.skeletonize(lethal)
 
-/mob/living/carbon/proc/skele_look()
-	hairstyle = "Bald"
-	facial_hairstyle = "Shaved"
-	update_body()
-	update_hair()
-	update_body_parts(redraw = TRUE)
-	underwear = "Nude"
-
 /mob/living/carbon/proc/grant_undead_eyes()
 	var/obj/item/organ/eyes/eyes = getorganslot(ORGAN_SLOT_EYES)
 	if(eyes)

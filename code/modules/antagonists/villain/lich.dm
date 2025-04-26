@@ -153,29 +153,30 @@
 		phylacteries -= phyl
 		return TRUE
 
-/datum/antagonist/lich/proc/rise_anew()
-	var/mob/living/carbon/human/bigbad
-	if(ishuman(owner.current))
-		bigbad = owner.current
+/datum/antagonist/lich/proc/rise_anew(location)
+	var/mob/living/carbon/human/lich_mob
+	if(isbrain(owner.current)) // we have been decapitated, let's reattach to our old body.
+		if(!isnull(lich_body))
+			return // the old body no longer exists, it's over.
+		lich_mob = lich_body // current body isn't a human mob, let's use the reference to our old body.
+		var/mob/living/brain/lich_brain = owner.current
+		if(!istype(/obj/item/bodypart/head, lich_brain.loc.loc))
+			return // we have no head, it's over.
+		var/obj/item/bodypart/head/lich_head = lich_brain.loc.loc
+		lich_head.attach_limb(lich_mob)
 	else
-		bigbad = lich_body
-		else
-			if(isbrain(owner.current))
-				var/mob/living/brain/lich_brain = owner.current
-				if(!istype(obj/item/bodypart/head, lich_brain.loc.loc))
-					return
-				var/obj/item/bodypart/head/lich_head = lich_brain.loc.loc
-				lich_head.attach_limb(bidbad)
-	bigbad.revive(TRUE, TRUE)
+		if(ishuman(owner.current))
+			lich_mob = owner.current // current body is a human mob.
 
-	for(var/obj/item/bodypart/B in bigbad.bodyparts)
-		B.skeletonize(FALSE)
+	lich_mob.revive(TRUE, TRUE) // we live, yay.
 
-	bigbad.faction = list(FACTION_UNDEAD)
-	if(bigbad.charflaw)
-		QDEL_NULL(bigbad.charflaw)
-	bigbad.mob_biotypes |= MOB_UNDEAD
-	bigbad.grant_undead_eyes()
+	lich_mob.skeletonize(FALSE)
+
+	lich_mob.faction = list(FACTION_UNDEAD)
+	if(lich_mob.charflaw)
+		QDEL_NULL(lich_mob.charflaw)
+	lich_mob.mob_biotypes |= MOB_UNDEAD
+	lich_mob.grant_undead_eyes()
 
 
 /obj/item/phylactery
@@ -208,6 +209,6 @@
 	animate(src, pixel_x = pixel_x + offset, time = 0.2, loop = -1) //start shaking
 	visible_message(span_warning("[src] begins to glow and shake violently!"))
 	spawn(timer)
-		possessor.owner.current.forceMove(get_turf(src))
 		possessor.rise_anew()
+		possessor.owner.current.forceMove(get_turf(src))
 		qdel(src)

@@ -45,7 +45,7 @@
 
 /mob/living/carbon/human/species/skeleton/after_creation()
 	..()
-	if(sdna && dna.species)
+	if(dna && dna.species)
 		dna.species.species_traits |= NOBLOOD
 		dna.species.soundpack_m = new /datum/voicepack/skeleton()
 		dna.species.soundpack_f = new /datum/voicepack/skeleton()
@@ -66,7 +66,7 @@
 	regenerate_limb(BODY_ZONE_L_ARM)
 	for(var/obj/item/bodypart/B in src.bodyparts)
 		B.skeletonize()
-	grant_undead_eyes
+	grant_undead_eyes()
 	underwear = "Nude"
 	if(charflaw)
 		QDEL_NULL(charflaw)
