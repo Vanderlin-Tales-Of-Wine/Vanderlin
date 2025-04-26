@@ -241,7 +241,7 @@
 	if(locked)
 		if( user.used_intent.type == /datum/intent/unarmed/claw )
 			user.changeNext_move(CLICK_CD_MELEE)
-			to_chat(user, "<span class='warning'>Something claws at the door!!</span>")
+			to_chat(user, "<span class='warning'>[src] is damaged by the claws!!</span>")
 			take_damage(40, "brute", "slash", 1)
 			return
 		if(isliving(user))
