@@ -11,6 +11,7 @@
 	var/cookonme = FALSE
 	var/crossfire = TRUE
 	var/can_damage = FALSE
+	light_system = MOVABLE_LIGHT
 
 /obj/machinery/light/fueled/Initialize()
 	if(soundloop)
@@ -161,7 +162,7 @@
 				if(!user.temporarilyRemoveItemFromInventory(W))
 					return
 				on = FALSE
-				set_light(0)
+				update()
 				update_icon()
 				qdel(W)
 				src.visible_message("<span class='warning'>[user] snuffs the fire.</span>")

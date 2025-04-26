@@ -212,6 +212,12 @@
 /obj/machinery/light/fueled/torchholder/l
 	dir = EAST
 
+/obj/machinery/light/fueled/torchholder/seton(s)
+	. = ..()
+	if(!torchy || torchy.fuel <= 0)
+		on = FALSE
+		set_light_on(on)
+
 /obj/machinery/light/fueled/torchholder/fire_act(added, maxstacks)
 	if(torchy)
 		if(!on)
@@ -225,7 +231,7 @@
 					soundloop.start()
 				return TRUE
 
-/obj/machinery/light/fueled/torchholder/Initialize()
+/obj/machinery/light/fueled/torchholder/Initialize(mapload)
 	torchy = new /obj/item/flashlight/flare/torch(src)
 	torchy.spark_act()
 	. = ..()
@@ -256,7 +262,7 @@
 			torchy.forceMove(loc)
 		torchy = null
 		on = FALSE
-		set_light(0)
+		update()
 		update_icon()
 		playsound(src.loc, 'sound/foley/torchfixturetake.ogg', 70)
 

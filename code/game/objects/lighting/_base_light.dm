@@ -62,6 +62,8 @@
 
 	var/fueluse = -1 // How much fuel the machinery starts with. At -1, it is never turned off with the passing of time.
 
+	light_system = MOVABLE_LIGHT // to enable fog cutting
+
 /obj/machinery/light/broken
 	status = LIGHT_BROKEN
 	icon_state = "tube-broken"
@@ -144,6 +146,7 @@
 // update the icon_state and luminosity of the light depending on its state
 /obj/machinery/light/proc/update(trigger = TRUE)
 	emergency_mode = FALSE
+	set_light_on(on)
 	if(on)
 		var/BR = brightness
 		var/PO = bulb_power
@@ -180,7 +183,9 @@
 				if(status == LIGHT_OK && trigger)
 					explode()
 			else
-				set_light(BR, light_inner_range, PO, l_color = CO)
+				set_light_range(new_inner_range = light_inner_range, new_outer_range = BR)
+				set_light_power(PO)
+				set_light_color(CO)
 	else
 		emergency_mode = TRUE
 		START_PROCESSING(SSmachines, src)
@@ -213,7 +218,7 @@
 /obj/machinery/light/proc/burn_out()
 	if(on)
 		on = FALSE
-		set_light(0)
+		update()
 		update_icon()
 
 // attempt to set the light's on/off status

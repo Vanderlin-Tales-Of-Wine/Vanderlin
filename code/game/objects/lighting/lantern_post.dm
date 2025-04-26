@@ -22,6 +22,12 @@
 	permanent = FALSE
 	on = FALSE
 
+/obj/machinery/light/fueled/lanternpost/seton(s)
+	. = ..()
+	if(!torchy || torchy.fuel <= 0)
+		on = FALSE
+		set_light_on(on)
+
 /obj/machinery/light/fueled/lanternpost/fire_act(added, maxstacks)
 	if(torchy)
 		if(!on)
@@ -60,7 +66,7 @@
 			torchy.forceMove(loc)
 		torchy = null
 		on = FALSE
-		set_light(0)
+		update()
 		update_icon()
 		playsound(src.loc, 'sound/foley/torchfixturetake.ogg', 100)
 

@@ -22,7 +22,7 @@
 
 /obj/machinery/light/fueledstreet/proc/lights_out()
 	on = FALSE
-	set_light(0)
+	update()
 	update_icon()
 	addtimer(CALLBACK(src, PROC_REF(lights_on)), 5 MINUTES)
 
