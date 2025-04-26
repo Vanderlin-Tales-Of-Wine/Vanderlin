@@ -1693,10 +1693,6 @@
 	icon_state = "roofg"
 	},
 /area/rogue/indoors/town)
-"bSu" = (
-/mob/living/simple_animal/hostile/retaliate/troll,
-/turf/open/floor/dirt/road,
-/area/rogue/under/cave)
 "bSw" = (
 /obj/machinery/light/fueled/wallfire/candle/l,
 /obj/structure/closet/crate/crafted_closet,
@@ -3506,9 +3502,6 @@
 "dQd" = (
 /turf/closed/wall/mineral/wooddark/window,
 /area/rogue/indoors/town/manor)
-"dQo" = (
-/turf/closed/wall/mineral/pipe,
-/area/rogue/indoors/town/clocktower)
 "dSa" = (
 /obj/structure/closet/crate/chest/neu_fancy,
 /obj/item/gem/green,
@@ -5564,6 +5557,9 @@
 	icon_state = "linoleum"
 	},
 /area/rogue/indoors/town/vault)
+"gfC" = (
+/turf/closed/wall/mineral/pipe,
+/area/rogue/indoors/town/clocktower)
 "ggd" = (
 /turf/closed/wall/mineral/stone/moss,
 /area/rogue/indoors/town/manor)
@@ -5573,6 +5569,9 @@
 	lockid = "graveyard"
 	},
 /turf/open/floor/blocks,
+/area/rogue/under/town/basement)
+"ggw" = (
+/turf/closed/wall/mineral/pipe,
 /area/rogue/under/town/basement)
 "ghC" = (
 /obj/machinery/light/fueled/forge,
@@ -7509,9 +7508,6 @@
 /obj/effect/spawner/map_spawner/hauntz_random,
 /turf/open/floor/blocks/green,
 /area/rogue/under/town/sewer)
-"ikT" = (
-/turf/closed/wall/mineral/pipe,
-/area/rogue/indoors/town/dwarfin)
 "ilg" = (
 /obj/structure/bed/shit{
 	name = "makeshift bed"
@@ -8334,6 +8330,9 @@
 	},
 /turf/open/floor/churchrough,
 /area/rogue/indoors/town/church/chapel)
+"joc" = (
+/turf/closed/wall/mineral/pipe,
+/area/rogue/outdoors/town/roofs)
 "jof" = (
 /obj/structure/closet/crate/crafted_closet/dark,
 /obj/item/clothing/shirt/tunic/green,
@@ -10866,9 +10865,6 @@
 	},
 /turf/open/floor/hexstone,
 /area/rogue/indoors/town)
-"meK" = (
-/turf/closed/wall/mineral/pipe,
-/area/rogue/outdoors/town/roofs)
 "mfD" = (
 /obj/machinery/light/fueled/wallfire/candle,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -11652,9 +11648,6 @@
 	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town)
-"mUi" = (
-/turf/closed/wall/mineral/pipe,
-/area/rogue/under/town/basement)
 "mUj" = (
 /obj/effect/decal/cobbleedge{
 	dir = 6
@@ -17444,6 +17437,10 @@
 	},
 /turf/open/floor/cobble,
 /area/rogue/outdoors/exposed/dwarf)
+"txj" = (
+/mob/living/simple_animal/hostile/retaliate/troll/axe,
+/turf/open/floor/dirt/road,
+/area/rogue/under/cave)
 "txz" = (
 /obj/machinery/light/fueled/firebowl/standing,
 /turf/open/floor/woodturned,
@@ -21294,6 +21291,9 @@
 "xBZ" = (
 /turf/open/floor/tile/masonic,
 /area/rogue/indoors/town/manor)
+"xCP" = (
+/turf/closed/wall/mineral/pipe,
+/area/rogue/indoors/town/dwarfin)
 "xDO" = (
 /obj/structure/feedinghole,
 /obj/structure/fluff/railing/border{
@@ -32899,7 +32899,7 @@ lfH
 nQb
 gAP
 mjr
-mUi
+ggw
 xug
 czv
 xug
@@ -36498,8 +36498,8 @@ sBD
 kdB
 kdB
 kdB
-mUi
-mUi
+ggw
+ggw
 aWn
 aWn
 lTK
@@ -36609,7 +36609,7 @@ vzQ
 vzQ
 vzH
 xKX
-bSu
+txj
 vzQ
 vzQ
 vzQ
@@ -39479,7 +39479,7 @@ kYt
 xug
 czv
 xug
-mUi
+ggw
 kdB
 kdB
 kdB
@@ -56025,7 +56025,7 @@ cOm
 sEX
 sEX
 sEX
-ikT
+xCP
 sSE
 mgu
 tjs
@@ -79578,13 +79578,13 @@ oiP
 oiP
 sjf
 sjf
-meK
-meK
-meK
-meK
-meK
-meK
-meK
+joc
+joc
+joc
+joc
+joc
+joc
+joc
 aCf
 doW
 doW
@@ -79735,13 +79735,13 @@ oiP
 oiP
 sjf
 sjf
-meK
+joc
 mlB
 gXP
 gXP
 tfS
 cGj
-meK
+joc
 aCf
 doW
 doW
@@ -79892,13 +79892,13 @@ oiP
 oiP
 sjf
 sjf
-meK
+joc
 cyQ
 gXP
 gXP
 aNE
 aNE
-meK
+joc
 aCf
 doW
 doW
@@ -80049,13 +80049,13 @@ oiP
 oiP
 sjf
 sjf
-meK
+joc
 qDd
 nAv
 nAv
 aNE
 aNE
-meK
+joc
 aCf
 doW
 doW
@@ -80206,13 +80206,13 @@ oiP
 oiP
 sjf
 veu
-meK
+joc
 oiP
 oiP
 oiP
 knV
 aNE
-meK
+joc
 aCf
 doW
 doW
@@ -80363,13 +80363,13 @@ oiP
 oiP
 sjf
 sjf
-meK
+joc
 oiP
 oiP
 oiP
 knV
 aNE
-meK
+joc
 aCf
 doW
 doW
@@ -80526,7 +80526,7 @@ bQU
 bQU
 bQU
 tHo
-meK
+joc
 aCf
 doW
 doW
@@ -80677,13 +80677,13 @@ oiP
 oiP
 sjf
 sjf
-meK
-meK
-meK
-meK
-meK
-meK
-meK
+joc
+joc
+joc
+joc
+joc
+joc
+joc
 aCf
 doW
 doW
@@ -103914,13 +103914,13 @@ oiP
 oiP
 oiP
 oiP
-meK
-meK
-meK
-meK
-meK
-meK
-meK
+joc
+joc
+joc
+joc
+joc
+joc
+joc
 oiP
 iFl
 iFl
@@ -104071,13 +104071,13 @@ oiP
 oiP
 oiP
 oiP
-meK
+joc
 oiP
 oiP
 oiP
 oiP
 oiP
-meK
+joc
 oiP
 iFl
 iFl
@@ -104228,13 +104228,13 @@ oiP
 oiP
 oiP
 oiP
-meK
+joc
 oiP
 oiP
 oiP
 oiP
 oiP
-meK
+joc
 oiP
 iFl
 iFl
@@ -104385,13 +104385,13 @@ oiP
 oiP
 oiP
 oiP
-meK
+joc
 oiP
 oiP
 oiP
 oiP
 oiP
-meK
+joc
 oiP
 iFl
 iFl
@@ -104542,13 +104542,13 @@ bQU
 bQU
 bQU
 tHo
-meK
+joc
 oiP
 oiP
 oiP
 oiP
 oiP
-meK
+joc
 oiP
 iFl
 iFl
@@ -104699,13 +104699,13 @@ oiP
 oiP
 oiP
 oiP
-meK
+joc
 oiP
 oiP
 oiP
 oiP
 oiP
-meK
+joc
 oiP
 iFl
 iFl
@@ -104856,13 +104856,13 @@ oiP
 oiP
 oiP
 oiP
-meK
+joc
 oiP
 oiP
 oiP
 oiP
 oiP
-meK
+joc
 oiP
 iFl
 iFl
@@ -105013,13 +105013,13 @@ oiP
 oiP
 oiP
 oiP
-meK
-meK
-meK
-meK
-meK
-meK
-meK
+joc
+joc
+joc
+joc
+joc
+joc
+joc
 oiP
 iFl
 iFl
@@ -108572,11 +108572,11 @@ iFl
 iFl
 iFl
 eqn
-dQo
+gfC
 fzX
 eqn
 fzX
-dQo
+gfC
 eqn
 eqn
 kyR
@@ -108728,14 +108728,14 @@ iFl
 iFl
 iFl
 eqn
-dQo
+gfC
 jfK
 ued
 jYf
 ued
 jfK
 icd
-dQo
+gfC
 eqn
 iFl
 iFl
@@ -108884,7 +108884,7 @@ iFl
 iFl
 iFl
 eqn
-dQo
+gfC
 jYf
 jfK
 iiw
@@ -108892,7 +108892,7 @@ lDR
 iiw
 jfK
 gzA
-dQo
+gfC
 eqn
 cTX
 iFl
@@ -109200,11 +109200,11 @@ iFl
 eqn
 iiw
 iiw
-dQo
+gfC
 qaY
 aaF
 qaY
-dQo
+gfC
 keR
 hjp
 kgn

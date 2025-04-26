@@ -248,6 +248,10 @@
 /obj/structure/spider/stickyweb,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/under/cave)
+"cE" = (
+/mob/living/simple_animal/hostile/retaliate/troll/axe,
+/turf/open/floor/twig,
+/area/rogue/under/cave)
 "cF" = (
 /obj/structure/bookcase/random/myths,
 /turf/open/floor/tile/masonic/single,
@@ -293,10 +297,6 @@
 	pixel_y = 1
 	},
 /turf/open/floor/churchmarble,
-/area/rogue/under/cave)
-"cZ" = (
-/mob/living/simple_animal/hostile/retaliate/troll,
-/turf/open/floor/cobble,
 /area/rogue/under/cave)
 "dc" = (
 /obj/structure/mineral_door/wood/violet,
@@ -3027,6 +3027,10 @@
 /obj/item/natural/rock,
 /turf/open/floor/grass/red,
 /area/rogue/under/cave)
+"Ip" = (
+/mob/living/simple_animal/hostile/retaliate/troll/axe,
+/turf/open/floor/cobble,
+/area/rogue/under/cave)
 "Iu" = (
 /turf/open/floor/blocks,
 /area/rogue/under/cave)
@@ -3494,11 +3498,6 @@
 /obj/structure/roguerock,
 /turf/open/floor/cobblerock,
 /area/rogue/under/cave)
-"NL" = (
-/obj/effect/decal/cleanable/blood,
-/mob/living/simple_animal/hostile/retaliate/troll,
-/turf/open/floor/cobblerock,
-/area/rogue/under/cave)
 "NR" = (
 /obj/structure/fluff/railing/border{
 	dir = 10
@@ -3675,10 +3674,6 @@
 /obj/structure/bars,
 /obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/tile/masonic/inverted,
-/area/rogue/under/cave)
-"PL" = (
-/mob/living/simple_animal/hostile/retaliate/troll,
-/turf/open/floor/twig,
 /area/rogue/under/cave)
 "PP" = (
 /obj/structure/table/stone_small,
@@ -4341,6 +4336,11 @@
 	pixel_y = 31
 	},
 /turf/open/floor/ruinedwood/chevron,
+/area/rogue/under/cave)
+"WA" = (
+/obj/effect/decal/cleanable/blood,
+/mob/living/simple_animal/hostile/retaliate/troll/axe,
+/turf/open/floor/cobblerock,
 /area/rogue/under/cave)
 "WB" = (
 /obj/structure/bed,
@@ -5220,7 +5220,7 @@ Hh
 kl
 pB
 ip
-PL
+cE
 ip
 pB
 kl
@@ -6489,7 +6489,7 @@ Hh
 Hh
 CA
 bq
-NL
+WA
 PX
 rm
 Hh
@@ -6633,7 +6633,7 @@ Ng
 Ng
 Ng
 JQ
-cZ
+Ip
 PB
 rm
 br

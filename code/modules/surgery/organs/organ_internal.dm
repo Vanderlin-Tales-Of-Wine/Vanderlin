@@ -52,6 +52,8 @@
 	var/organ_dna_type = /datum/organ_dna
 	/// What food typepath should be used when eaten
 	var/food_type = /obj/item/reagent_containers/food/snacks/organ
+	/// Original owner of the organ, the one who had it inside them last
+	var/mob/living/carbon/last_owner = null
 
 /obj/item/organ/proc/Insert(mob/living/carbon/M, special = 0, drop_if_replaced = TRUE)
 	if(!iscarbon(M) || owner == M)
@@ -66,6 +68,7 @@
 			qdel(replaced)
 
 	owner = M
+	last_owner = M
 	M.internal_organs |= src
 	M.internal_organs_slot[slot] = src
 	moveToNullspace()
@@ -132,6 +135,8 @@
 	S.icon = icon
 	S.icon_state = icon_state
 	S.w_class = w_class
+	S.organ_inside = src
+	forceMove(S)
 	if(damage > high_threshold)
 		S.eat_effect = /datum/status_effect/debuff/rotfood
 	S.rotprocess = S.rotprocess * ((high_threshold - damage) / high_threshold)
@@ -146,18 +151,45 @@
 	foodtype = RAW | MEAT | GROSS
 	eat_effect = /datum/status_effect/debuff/uncookedfood
 	rotprocess = 5 MINUTES
+	var/obj/item/organ/organ_inside
 
 /obj/item/reagent_containers/food/snacks/organ/on_consume(mob/living/eater)
 	if(HAS_TRAIT(eater, TRAIT_ORGAN_EATER) && eat_effect != /datum/status_effect/debuff/rotfood)
 		eat_effect = null // food buff handled in /datum/reagent/organpoison
 	if(bitecount >= bitesize)
 		GLOB.vanderlin_round_stats[STATS_ORGANS_EATEN]++
+		check_culling(eater)
 	. = ..()
 	eat_effect = initial(eat_effect)
+
+/obj/item/reagent_containers/food/snacks/organ/Destroy()
+	QDEL_NULL(organ_inside)
+	return ..()
+
+/obj/item/reagent_containers/food/snacks/organ/proc/check_culling(mob/living/eater)
+	return
 
 /obj/item/reagent_containers/food/snacks/organ/heart
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT, /datum/reagent/organpoison = 2)
 	grind_results = list(/datum/reagent/organpoison = 6)
+
+/obj/item/reagent_containers/food/snacks/organ/heart/check_culling(mob/living/eater)
+	. = ..()
+	if(!organ_inside)
+		return
+
+	for(var/datum/culling_duel/D in GLOB.graggar_cullings)
+		var/obj/item/organ/heart/d_challenger_heart = D.challenger_heart?.resolve()
+		var/obj/item/organ/heart/d_target_heart = D.target_heart?.resolve()
+		var/mob/living/carbon/human/challenger = D.challenger?.resolve()
+		var/mob/living/carbon/human/target = D.target?.resolve()
+
+		if(organ_inside == d_target_heart && eater == challenger)
+			D.process_win(winner = eater, loser = target)
+			return TRUE
+		else if(organ_inside == d_challenger_heart && eater == target)
+			D.process_win(winner = eater, loser = challenger)
+			return TRUE
 
 /obj/item/reagent_containers/food/snacks/organ/lungs
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT, /datum/reagent/organpoison = 2)
@@ -174,6 +206,7 @@
 		// The special flag is important, because otherwise mobs can die
 		// while undergoing transformation into different mobs.
 		Remove(owner, special=TRUE)
+	last_owner = null
 	STOP_PROCESSING(SSobj, src)
 	return ..()
 
@@ -182,10 +215,8 @@
 		var/mob/living/carbon/human/H = user
 		if(status == ORGAN_ORGANIC)
 			var/obj/item/reagent_containers/food/snacks/S = prepare_eat(H)
-			if(S)
-				qdel(src)
-				if(H.put_in_active_hand(S))
-					S.attack(H, H)
+			if(S && H.put_in_active_hand(S))
+				S.attack(H, H)
 	else
 		..()
 
