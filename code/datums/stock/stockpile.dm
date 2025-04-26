@@ -168,7 +168,7 @@
 	held_items = 4
 	payout_price = 6
 	withdraw_price = 15
-	export_price = 13
+	export_price = 26
 	importexport_amt = 5
 
 /datum/stock/stockpile/gold
@@ -178,5 +178,5 @@
 	held_items = 4
 	payout_price = 7
 	withdraw_price = 17
-	export_price = 15
+	export_price = 30
 	importexport_amt = 5

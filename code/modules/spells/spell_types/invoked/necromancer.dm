@@ -289,6 +289,8 @@
 	var/mob/living/carbon/human/lich_player = user
 
 	to_chat(lich_player, span_boldannounce("Lich [lich_player.real_name] commands: [message]"))
+	message_admins("[lich_player.real_name], the Lich, commands his minions: [message]")
+	lich_player.log_message("[lich_player.real_name], the Lich, commands his minions: [message]", LOG_GAME)
 
 	for(var/mob/player in lich_player.minions)
 		if(player.mind)

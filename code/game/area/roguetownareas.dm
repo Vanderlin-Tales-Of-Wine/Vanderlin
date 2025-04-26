@@ -155,7 +155,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 				/turf/open/floor/grass)
 	ambush_mobs = list(
 				/mob/living/simple_animal/hostile/retaliate/wolf = 60,
-				/mob/living/simple_animal/hostile/retaliate/troll = 10,
+				/mob/living/simple_animal/hostile/retaliate/troll/axe = 10,
 				/mob/living/carbon/human/species/goblin/npc/ambush = 45,
 				/mob/living/simple_animal/hostile/retaliate/mole = 25)
 	first_time_text = "THE MURDERWOOD"
