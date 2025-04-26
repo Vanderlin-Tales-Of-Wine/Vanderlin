@@ -32256,7 +32256,7 @@
 	name = "Court Physician's Room"
 	},
 /obj/effect/mapping_helpers/door/locker,
-/obj/effect/mapping_helpers/door/access/town/physician,
+/obj/effect/mapping_helpers/door/access/manor/physician,
 /turf/open/floor/churchrough,
 /area/rogue/indoors/town/manor)
 "vwV" = (

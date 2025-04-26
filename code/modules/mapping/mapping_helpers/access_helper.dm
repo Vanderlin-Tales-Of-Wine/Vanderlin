@@ -141,5 +141,5 @@
 /obj/effect/mapping_helpers/door/access/manor/guest
 	access_string = ACCESS_GUEST
 
-/obj/effect/mapping_helpers/door/access/town/physician
+/obj/effect/mapping_helpers/door/access/manor/physician
 	access_string = ACCESS_PHYS
