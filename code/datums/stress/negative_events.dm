@@ -390,5 +390,5 @@
 
 /datum/stressevent/graggar_culling_unfinished
 	stressadd = 1
-	desc = span_red("I must eat my opponent before he eats ME!")
+	desc = span_red("I must eat my opponent's heart before he eats MINE!")
 	timer = INFINITY
