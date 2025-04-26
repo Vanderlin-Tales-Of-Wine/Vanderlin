@@ -169,8 +169,8 @@
 		return
 	if(!usr.canUseTopic(src, BE_CLOSE) || locked)
 		return
+	var/mob/living/carbon/human/human_mob = usr
 	if(href_list["buy"])
-		var/mob/M = usr
 		var/path = text2path(href_list["buy"])
 		if(!ispath(path, /datum/supply_pack))
 			message_admins("APOTHECARY [usr.key] IS TRYING TO BUY A [path] WITH THE GOLDFACE. THIS IS AN EXPLOIT.")
@@ -185,13 +185,14 @@
 			budget -= cost
 			if(!(upgrade_flags & UPGRADE_NOTAX))
 				SStreasury.give_money_treasury(tax_amt, "goldface import tax")
+				record_featured_stat(FEATURED_STATS_TAX_PAYERS, human_mob, tax_amt)
 				GLOB.vanderlin_round_stats[STATS_TAXES_COLLECTED] += tax_amt
 		else
 			say("Not enough!")
 			return
 		var/pathi = pick(PA.contains)
 		var/obj/item/I = new pathi(get_turf(src))
-		M.put_in_hands(I)
+		human_mob.put_in_hands(I)
 		qdel(PA)
 	if(href_list["change"])
 		if(budget > 0)
