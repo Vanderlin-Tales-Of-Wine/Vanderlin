@@ -59,7 +59,7 @@
 	contents += "<BR>"
 
 	for(var/datum/stock/stockpile/R in SStreasury.stockpile_datums)
-		var/message = "[R.name] - Payout: [R.get_payout_price()] - Stockpiled: [R.held_items]"
+		var/message = "[R.name] - Payout: [R.get_payout_price()] - Stockpiled: [R.held_items] - Oversupply at: [R.oversupply_amount]"
 		if(R.held_items >= R.oversupply_amount)
 			message += " - !OVERSUPPLIED!"
 		contents += message
