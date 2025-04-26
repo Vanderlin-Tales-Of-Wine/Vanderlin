@@ -1319,3 +1319,16 @@
 
 	add_movespeed_modifier("encumbrance", override = TRUE, multiplicative_slowdown = 5 * precentage)
 
+/mob/living/carbon/proc/skeletonize(lethal = TRUE)
+	for(var/obj/item/bodypart/B in src.bodyparts)
+		B.skeletonize(lethal)
+
+/mob/living/carbon/proc/skele_look()
+	hairstyle = "Bald"
+	facial_hairstyle = "Shaved"
+	update_body()
+	update_hair()
+	update_body_parts(redraw = TRUE)
+	underwear = "Nude"
+
+/mob/living/carbon/proc/grant_undead_eyes()

@@ -11,7 +11,7 @@
 		"YOU CANNOT KILL ME!",
 	)
 	var/list/phylacteries = list()
-	/// reference to the body so we can revive even if decapitated
+	/// weak reference to the body so we can revive even if decapitated
 	var/datum/weakref/lich_body
 	var/out_of_lives = FALSE
 
@@ -42,12 +42,11 @@
 /datum/antagonist/lich/on_gain()
 	SSmapping.retainer.liches |= owner
 	. = ..()
-	if(ishuman(parent.current))
-		lich_body = WEAKREF(parent.current)
+	if(iscarbon(owner.current))
+		lich_body = WEAKREF(owner.current)
 	owner.special_role = name
 	skele_look()
 	equip_lich()
-	greet()
 	return ..()
 
 /datum/antagonist/lich/greet()
@@ -61,11 +60,8 @@
 
 /datum/antagonist/lich/proc/skele_look()
 	var/mob/living/carbon/human/L = owner.current
-	L.hairstyle = "Bald"
-	L.facial_hairstyle = "Shaved"
-	L.update_body()
-	L.update_hair()
-	L.update_body_parts(redraw = TRUE)
+	L.skeletonize()
+	L.skele_look()
 
 /datum/antagonist/lich/proc/equip_lich()
 	owner.unknow_all_people()
@@ -83,14 +79,8 @@
 		QDEL_NULL(L.charflaw)
 	L.mob_biotypes |= MOB_UNDEAD
 	L.dna.species.species_traits |= NOBLOOD
-	var/obj/item/organ/eyes/eyes = L.getorganslot(ORGAN_SLOT_EYES)
-	if(eyes)
-		eyes.Remove(L,1)
-		QDEL_NULL(eyes)
-	eyes = new /obj/item/organ/eyes/night_vision/zombie
-	eyes.Insert(L)
-	for(var/obj/item/bodypart/B in L.bodyparts)
-		B.skeletonize(FALSE)
+	L.grant_undead_eyes()
+	L.skeletonize()
 	L.unequip_everything()
 	L.equipOutfit(/datum/outfit/job/lich)
 	L.set_patron(/datum/patron/inhumen/zizo)
@@ -167,10 +157,15 @@
 	var/mob/living/carbon/human/bigbad
 	if(ishuman(owner.current))
 		bigbad = owner.current
-	else if(isbrain(owner.current))
-		var/mob/living/brain/lich_brain = owner.current
-		var/obj/item/bodypart/head/head = H.get_bodypart(BODY_ZONE_HEAD)
-
+	else
+		bigbad = lich_body
+		else
+			if(isbrain(owner.current))
+				var/mob/living/brain/lich_brain = owner.current
+				if(!istype(obj/item/bodypart/head, lich_brain.loc.loc))
+					return
+				var/obj/item/bodypart/head/lich_head = lich_brain.loc.loc
+				lich_head.attach_limb(bidbad)
 	bigbad.revive(TRUE, TRUE)
 
 	for(var/obj/item/bodypart/B in bigbad.bodyparts)
@@ -180,12 +175,7 @@
 	if(bigbad.charflaw)
 		QDEL_NULL(bigbad.charflaw)
 	bigbad.mob_biotypes |= MOB_UNDEAD
-	var/obj/item/organ/eyes/eyes = bigbad.getorganslot(ORGAN_SLOT_EYES)
-	if(eyes)
-		eyes.Remove(bigbad,1)
-		QDEL_NULL(eyes)
-	eyes = new /obj/item/organ/eyes/night_vision/zombie
-	eyes.Insert(bigbad)
+	bigbad.grant_undead_eyes()
 
 
 /obj/item/phylactery
