@@ -591,6 +591,10 @@
 	for(var/direction in GLOB.cardinals)
 		var/turf/step_back = get_step(src, direction)
 		for(var/obj/structure/structure in step_back.contents)
+			if(istype(structure, /obj/structure/minecart_rail))
+				if(direction != dir || direction != GLOB.reverse_dir[dir])
+					continue
+
 			if(direction == dir || direction == GLOB.reverse_dir[dir])
 				continue
 			if(structure.rotation_network)

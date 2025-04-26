@@ -25,6 +25,7 @@
 
 /datum/outfit/job/undertaker
 	allowed_patrons = list(/datum/patron/divine/necra)
+	job_bitflag = BITFLAG_CHURCH
 
 /datum/outfit/job/undertaker/pre_equip(mob/living/carbon/human/H)
 	..()

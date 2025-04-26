@@ -98,6 +98,7 @@
 
 	if(QDELETED(client?.patreon))
 		client?.patreon = new(client)
+	resend_all_uis()
 
 /mob/proc/send_pref_messages()
 	if(client?.prefs)

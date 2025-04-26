@@ -391,3 +391,10 @@
 	name = "2x Forks (tin)"
 	req_bar = /obj/item/ingot/tin
 	created_item = /obj/item/kitchen/fork/pewter
+
+/datum/anvil_recipe/tools/drill
+	craftdiff = 4
+	name = "Clockwork Drill"
+	req_bar = /obj/item/ingot/steel
+	additional_items = list(/obj/item/ingot/steel = 1, /obj/item/gear/metal = 1, /obj/item/natural/wood/plank = 1)
+	created_item = /obj/item/weapon/pick/drill

@@ -61,6 +61,8 @@
 			if(istype(C.buckled, /obj/structure/fluff/psycross) || istype(C.buckled, /obj/machinery/light/fueled/campfire/pyre))
 				if((C.real_name in GLOB.excommunicated_players) || (C.real_name in GLOB.heretical_players))
 					stress2give = /datum/stressevent/viewsinpunish
+			else if(istype(C.buckled, /obj/structure/guillotine))
+				stress2give = null
 	if(stress2give)
 		for(var/mob/living/carbon/CA in hearers(world.view, C))
 			if(CA != C && !HAS_TRAIT(CA, TRAIT_BLIND))
@@ -357,7 +359,7 @@
 				continue
 			C.surgeries -= body_zone
 
-	for(var/obj/item/organ/stored_organ in src)
+	for(var/obj/item/organ/stored_organ as anything in src)
 		stored_organ.Insert(C)
 
 	for(var/datum/wound/wound as anything in wounds)

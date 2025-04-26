@@ -2195,7 +2195,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/indoors/shelter/bog)
 "Dw" = (
-/mob/living/simple_animal/hostile/retaliate/troll,
+/mob/living/simple_animal/hostile/retaliate/troll/axe,
 /turf/open/floor/naturalstone,
 /area/rogue/indoors/cave)
 "DA" = (
