@@ -335,4 +335,4 @@
 	item_weight = 9 * IRON_MULTIPLIER
 	clothing_flags = CANT_SLEEP_IN
 	max_integrity = INTEGRITY_STRONGEST
-	block2add = FOV_RIGHT|FOV_LEFT
+	block2add = FOV_BEHIND
