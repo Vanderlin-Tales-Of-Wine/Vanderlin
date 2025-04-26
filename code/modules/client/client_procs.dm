@@ -219,7 +219,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 			else if(influence == SSgamemode.calculate_storyteller_influence(most_frequent.type) && prob(50))
 				most_frequent = initialized_storyteller
 
-	// Gods display - properly centered
+	// Gods display
 	data += "<div style='text-align: center; margin: 25px auto; width: 80%; max-width: 800px;'>"
 	if(max_influence <= 0 && max_chosen <= 0)
 		data += "<div style='font-size: 1.2em; font-weight: bold; margin-bottom: 12px;'>"
@@ -242,43 +242,36 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	data += "<div style='border-top: 1.5px solid #444; margin: 15px auto; width: 100%;'></div>"
 	data += "</div>"
 
-	// Main stats container with aligned dividers
+	// Main stats container
 	data += "<div style='display: table; width: 100%; border-spacing: 0; table-layout: fixed;'>"
 	data += "<div style='display: table-row;'>"
 
 	// Featured Statistics Column (25%)
 	data += "<div style='display: table-cell; width: 25%; vertical-align: top; padding-right: 15px;'>"
-
-	// Header with consistent height
 	data += "<div style='height: 38px; text-align: center;'>"
 	data += "<a href='byond://?src=[REF(src)];viewstats=1;featured_stat=[prev_stat]' style='color: #e6b327; text-decoration: none; font-weight: bold; margin-right: 10px; font-size: 1.2em;'>&#9664;</a>"
 	data += "<span style='font-weight: bold; color: #bd1717;'>Featured Statistics</span>"
 	data += "<a href='byond://?src=[REF(src)];viewstats=1;featured_stat=[next_stat]' style='color: #e6b327; text-decoration: none; font-weight: bold; margin-left: 10px; font-size: 1.2em;'>&#9654;</a>"
 	data += "</div>"
-
-	// Aligned divider
 	data += "<div style='border-top: 1px solid #444; width: 80%; margin: 0 auto 15px auto;'></div>"
-
 	data += "<div style='text-align: center; margin-bottom: 5px;'>"
 	data += "<font color='[GLOB.featured_stats[current_featured]["color"]]'><span class='bold'>[GLOB.featured_stats[current_featured]["name"]]</span></font>"
 	data += "</div>"
+
+	// Centered container with left-aligned content
 	data += "<div style='text-align: center;'>"
-	data += "[length(GLOB.featured_stats[current_featured]["entries"]) ? format_top_three(current_featured) : "<div style='margin-top: 20px;'>Nobody</div>"]"
+	data += "<div style='display: inline-block; text-align: left; margin-left: auto; margin-right: auto;'>"
+	data += "[length(GLOB.featured_stats[current_featured]["entries"]) ? format_top_ten(current_featured) : "<div style='margin-top: 20px;'>Nobody</div>"]"
+	data += "</div>"
 	data += "</div>"
 	data += "</div>"
 
 	// General Statistics Section (40%)
 	data += "<div style='display: table-cell; width: 40%; vertical-align: top;'>"
-
-	// Header with same height
 	data += "<div style='height: 38px; text-align: center;'>"
 	data += "<span style='font-weight: bold; color: #bd1717;'>General Statistics</span>"
 	data += "</div>"
-
-	// Aligned divider
 	data += "<div style='border-top: 1px solid #444; width: 80%; margin: 0 auto 15px auto;'></div>"
-
-	// Two-column content
 	data += "<div style='display: table; width: 100%;'>"
 	data += "<div style='display: table-row;'>"
 
@@ -289,6 +282,12 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	data += "<font color='#e6b327'><span class='bold'>Holy Revivals:</span></font> [GLOB.vanderlin_round_stats[STATS_ASTRATA_REVIVALS]]<br>"
 	data += "<font color='#825b1c'><span class='bold'>Moat Fallers:</span></font> [GLOB.vanderlin_round_stats[STATS_MOAT_FALLERS]]<br>"
 	data += "<font color='#ac5d5d'><span class='bold'>Ankles Broken:</span></font> [GLOB.vanderlin_round_stats[STATS_ANKLES_BROKEN]]<br>"
+	data += "<font color='#36959c'><span class='bold'>Triumphs Awarded:</span></font> [GLOB.vanderlin_round_stats[STATS_TRIUMPHS_AWARDED]]<br>"
+	data += "<font color='#a02fa4'><span class='bold'>Triumphs Stolen:</span></font> [GLOB.vanderlin_round_stats[STATS_TRIUMPHS_STOLEN] * -1]<br>"
+	data += "<font color='#d7da2f'><span class='bold'>Prayers Made:</span></font> [GLOB.vanderlin_round_stats[STATS_PRAYERS_MADE]]<br>"
+	data += "<font color='#6e7c81'><span class='bold'>Skills Learned:</span></font> [GLOB.vanderlin_round_stats[STATS_SKILLS_LEARNED]]<br>"
+	data += "<font color='#9c3e46'><span class='bold'>Active Deadites:</span></font> [GLOB.vanderlin_round_stats[STATS_DEADITES_ALIVE]]<br>"
+	data += "<font color='#23af4d'><span class='bold'>Plants Harvested:</span></font> [GLOB.vanderlin_round_stats[STATS_PLANTS_HARVESTED]]<br>"
 	data += "</div>"
 
 	// Right column
@@ -298,43 +297,53 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	data += "<font color='#8f816b'><span class='bold'>Items Stolen:</span></font> [GLOB.vanderlin_round_stats[STATS_ITEMS_PICKPOCKETED]]<br>"
 	data += "<font color='#f5c02e'><span class='bold'>Taxes Collected:</span></font> [GLOB.vanderlin_round_stats[STATS_TAXES_COLLECTED]]<br>"
 	data += "<font color='#90a037'><span class='bold'>Laughs Had:</span></font> [GLOB.vanderlin_round_stats[STATS_LAUGHS_MADE]]<br>"
+	data += "<font color='#0f555c'><span class='bold'>Beards Shaved:</span></font> [GLOB.vanderlin_round_stats[STATS_BEARDS_SHAVED]]<br>"
+	data += "<font color='#836033'><span class='bold'>Trees Cut:</span></font> [GLOB.vanderlin_round_stats[STATS_TREES_CUT]]<br>"
+	data += "<font color='#4492a5'><span class='bold'>Fish Caught:</span></font> [GLOB.vanderlin_round_stats[STATS_FISH_CAUGHT]]<br>"
+	data += "<font color='#af2323'><span class='bold'>Organs Eaten:</span></font> [GLOB.vanderlin_round_stats[STATS_ORGANS_EATEN]]<br>"
+	data += "<font color='#afa623'><span class='bold'>Locks Picked:</span></font> [GLOB.vanderlin_round_stats[STATS_LOCKS_PICKED]]<br>"
+	data += "<font color='#af2379'><span class='bold'>Kisses Made:</span></font> [GLOB.vanderlin_round_stats[STATS_KISSES_MADE]]<br>"
 	data += "</div>"
-
 	data += "</div></div>"
 	data += "</div>"
 
 	// Census Section (35%)
 	data += "<div style='display: table-cell; width: 35%; vertical-align: top;'>"
-
-	// Header with same height
 	data += "<div style='height: 38px; text-align: center;'>"
 	data += "<span style='font-weight: bold; color: #bd1717;'>Census</span>"
 	data += "</div>"
-
-	// Aligned divider
 	data += "<div style='border-top: 1px solid #444; width: 80%; margin: 0 auto 15px auto;'></div>"
-
-	// Two-column content
 	data += "<div style='display: table; width: 100%;'>"
 	data += "<div style='display: table-row;'>"
 
 	// Left column
 	data += "<div style='display: table-cell; width: 50%; vertical-align: top; border-left: 1px solid #444; padding: 0 10px;'>"
-	data += "<font color='#36959c'><span class='bold'>Most Common Job:</span></font><br>"
-	data += "[get_most_common_job()]<br>"
-	data += "<font color='#a02fa4'><span class='bold'>Average Age:</span></font> [get_average_age()]<br>"
-	data += "<font color='#d7da2f'><span class='bold'>Gender Dist:</span></font><br>"
-	data += "[get_gender_distribution()]<br>"
+	data += "<font color='#8f1dc0'<span class='bold'>Ruler's Patron:</span></font> [GLOB.vanderlin_round_stats[STATS_MONARCH_PATRON]]<br>"
+	data += "<font color='#4682B4'><span class='bold'>Total Populace:</span></font> [SSgamemode.active_players]<br>"
+	data += "<font color='#B22222'><span class='bold'>High Nobility:</span></font> [SSgamemode.royalty]<br>"
+	data += "<font color='#556B2F'><span class='bold'>Garrison:</span></font> [SSgamemode.garrison]<br>"
+	data += "<font color='#DAA520'><span class='bold'>Clergy:</span></font> [SSgamemode.church]<br>"
+	data += "<font color='#D2691E'><span class='bold'>Tradesmen:</span></font> [SSgamemode.constructor]<br>"
+	data += "<font color='#FF69B4'><span class='bold'>Married:</span></font> [GLOB.vanderlin_round_stats[STATS_MARRIED]]<br>"
+	data += "<font color='#6b89e0'><span class='bold'>Males:</span></font> [GLOB.vanderlin_round_stats[STATS_MALE_POPULATION]]<br>"
+	data += "<font color='#d67daa'><span class='bold'>Females:</span></font> [GLOB.vanderlin_round_stats[STATS_FEMALE_POPULATION]]<br>"
+	data += "<font color='#FFD700'><span class='bold'>Children:</span></font> [GLOB.vanderlin_round_stats[STATS_CHILD_POPULATION]]<br>"
+	data += "<font color='#C0C0C0'><span class='bold'>Elderly:</span></font> [GLOB.vanderlin_round_stats[STATS_ELDERLY_POPULATION]]<br>"
 	data += "</div>"
 
 	// Right column
 	data += "<div style='display: table-cell; width: 50%; vertical-align: top; padding: 0 10px;'>"
-	data += "<font color='#6e7c81'><span class='bold'>Top Species:</span></font><br>"
-	data += "[get_most_common_species()]<br>"
-	data += "<font color='#bd1717'><span class='bold'>Unique Roles:</span></font><br>"
-	data += "Coming Soon<br>"
-	data += "<font color='#9b6937'><span class='bold'>Avg. Playtime:</span></font><br>"
-	data += "Coming Soon<br>"
+	data += "<font color='#8B4513'><span class='bold'>Humens:</span></font> [GLOB.vanderlin_round_stats[STATS_ALIVE_NORTHERN_HUMANS]]<br>"
+	data += "<font color='#808080'><span class='bold'>Dwarves:</span></font> [GLOB.vanderlin_round_stats[STATS_ALIVE_DWARVES]]<br>"
+	data += "<font color='#87CEEB'><span class='bold'>Elves:</span></font> [GLOB.vanderlin_round_stats[STATS_ALIVE_SNOW_ELVES]]<br>"
+	data += "<font color='#7729af'><span class='bold'>Dark Elves:</span></font> [GLOB.vanderlin_round_stats[STATS_ALIVE_DARK_ELVES]]<br>"
+	data += "<font color='#9ACD32'><span class='bold'>Half-Elves:</span></font> [GLOB.vanderlin_round_stats[STATS_ALIVE_HALF_ELVES]]<br>"
+	data += "<font color='#DC143C'><span class='bold'>Tieflings:</span></font> [GLOB.vanderlin_round_stats[STATS_ALIVE_TIEFLINGS]]<br>"
+	data += "<font color='#228B22'><span class='bold'>Half-Orcs:</span></font> [GLOB.vanderlin_round_stats[STATS_ALIVE_HALF_ORCS]]<br>"
+	data += "<font color='#CD853F'><span class='bold'>Kobolds:</span></font> [GLOB.vanderlin_round_stats[STATS_ALIVE_KOBOLDS]]<br>"
+	data += "<font color='#FFD700'><span class='bold'>Rakshari:</span></font> [GLOB.vanderlin_round_stats[STATS_ALIVE_RAKSHARI]]<br>"
+	data += "<font color='#FFFAF0'><span class='bold'>Aasimar:</span></font> [GLOB.vanderlin_round_stats[STATS_ALIVE_AASIMAR]]<br>"
+	data += "<font color='#b99079'><span class='bold'>Verewolves:</span></font> [GLOB.vanderlin_round_stats[STATS_WEREVOLVES]]<br>"
 	data += "</div>"
 
 	data += "</div></div>"
@@ -352,7 +361,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		data += "<font color='#93cac7'><span class='bold'>No confessions!</span></font>"
 	data += "</div>"
 
-	var/datum/browser/popup = new(src.mob, "vanderlin_stats", "<center>End Round Statistics</center>", 950, 650)
+	var/datum/browser/popup = new(src.mob, "vanderlin_stats", "<center>End Round Statistics</center>", 1025, 700)
 	popup.set_content(data.Join())
 	popup.open()
 

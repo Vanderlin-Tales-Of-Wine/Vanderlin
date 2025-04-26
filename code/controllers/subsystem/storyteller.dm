@@ -120,7 +120,7 @@ SUBSYSTEM_DEF(gamemode)
 
 	//Gods dreams for the dreamwatcher
 	var/list/god_dreams = list()
-	
+
 	//Antag dreams for the dreamwatcher
 	var/list/antag_dreams = list()
 
@@ -207,7 +207,7 @@ SUBSYSTEM_DEF(gamemode)
 		control += event //add it to the list of all events (controls)
 		//List of Possible dreams for the Dreamwatcher
 		god_dreams = list(
-		
+
 			//Divine Pantheon
 
 			"Psydon" = list(
@@ -215,13 +215,13 @@ SUBSYSTEM_DEF(gamemode)
 				"...a vast warmth flickers behind your closed eyes... broken pieces drift, searching for their whole...",
 				"...you walk among ruins humming with warmth... pieces of something divine lie scattered, each pulse a memory, each breath a promise..."
 			),
-		
+
 			"Astrata"= list(
 				"...radiance floods your dream... it’s not warmth, but judgment disguised as light...",
 				"...you dream of unending sunrise, gold pouring over endless skies... judgment walks in daylight’s shoes...",
 				"...a glare pierces your soul... you feel seen, judged, burned, yet safe... the light watches, unwavering and eternal..."
 			),
-		
+
 			"Noc" = list(
 				"...silver light spills across ink-black halls... you hear pages fluttering without wind, and a voice speaks in riddles...",
 				"...a tapestry of stars weaves itself in your mind... patterns emerge and vanish, revealing truths never spoken aloud...",
@@ -233,13 +233,13 @@ SUBSYSTEM_DEF(gamemode)
 				"...everything is still... you are the last heartbeat in a world already buried... a cold smile waits just past the veil...",
 				"...a quiet woman sits by a river made of ash... she nods once, counting your breath..."
 			),
-		
+
 			"Pestra"= list(
 				"...your dream wilts, then blooms. A garden of endings and beginnings surrounds you...",
 				"...you hold your own bones like seeds. Rain falls, and they whisper with life...",
 				"...you see a flower bloom in ash. It dies and returns, brighter, stranger. The rhythm of endings comforts you...",
 			),
-		
+
 			"Ravox"= list(
 				"...a sword rests beside a scale... neither tips...",
 				"...steel sings in your dreams... a verdict is written in blood and flame, but justice waits before it lands...",
@@ -251,61 +251,61 @@ SUBSYSTEM_DEF(gamemode)
 				"...your hands ache... you build something vast, but can never see the whole... sparks kiss your skin, and you smile...",
 				"...endless clanging fills your mind... with each strike, something within you hardens, reforged in smoke and effort..."
 			),
-		
+
 			"Dendor"= list(
 				"...animals scream in tongues you almost understand... trees whisper old pain, searching for their shepherd...",
 				"...vines coil around your limbs. Roots burst from your feet... the forest within you howls, a kingdom lost to madness...",
 				"...eyes glow among tangled thorns... something ancient, betrayed, hungers again..."
 			),
-		
+
 			"Abyssor"= list(
 				"...the sea invades your lungs... a storm of blood and salt rises...",
 				"...fins brush past your legs... the water tastes of fury and old wounds...",
 				"...tides drag you under... in the silence, you hear sobbing, not yours... the sea remembers every wound..."
 			),
 
-		
+
 			"Xylix"= list(
 				"...you laugh without knowing why... your reflection winks back as a stranger...",
 				"...you wear masks you’ve never owned... each one laughs in a new voice... you are a guest in your own skin...",
 				"...every path splits... every answer lies... yet you smile... trickery is truth when worn well..."
 			),
-		
+
 			"Eora"= list(
 				"...you dream in color,red threads, gold loops, blue knots... all pulling gently...",
 				"...a weaving surrounds you... every face you’ve loved or hated is there...",
 				"...your heart is a loom... dreams pass through it, weaving bonds to people you’ve never met, yet feel you’ve always known..."
 			),
-			
+
 			//Inhumen Pantheon
-			
+
 			"Matthios"= list(
 				"...a shadow slips your pocket open... you feel lighter in your dream...",
 				"...a purse vanishes from your belt... a laugh echoes in your ears... you check your pockets, your name is gone...",
 				"...you follow footprints that vanish behind you... no one walks beside you, yet you’re never alone..."
 			),
-		
+
 			"Baotha" = list(
 				"...everything glows with joy... then it melts, and you, giggle anyway...",
 				"...you float through a city of glass, laughter echoing in colors... you smile with no mouth and sing without sound...",
 				"...your body dances without thought... every breath tastes like honey and smoke... you forget, and it feels divine..."
 			),
-		
+
 			"Graggar"= list(
 				"...your mouth is not your own... it’s laughing, snarling, hungry...",
 				"...you tear through flesh with joy... your dream is soaked in red... hunger knows your name, and calls you friend...",
 				"...an ancient drum beats under your ribs... it demands violence in return for peace..."
 			),
-		
+
 			"Zizo"= list(
 				"...eyes stare from skulls that still weep... you cradle a child made of frost and ash... it whispers secrets backwards...",
 				"...your name is forgotten by everyone in your dream... only bones remember...",
 				"...a girl with white eyes smiles at you... her lullaby stitches flesh to spirit..."
 			),
-			
+
 			"Unknown" = list("You feel a presence watching your sleep... old, vast, and unknowable. You do not yet know their name.")
 		)
-	
+
 		//List of possible dreams for the dream watcher
 		antag_dreams = list(
 			"Vampire Lord"= list(
@@ -313,25 +313,25 @@ SUBSYSTEM_DEF(gamemode)
 				"...i dream of a king who rules the night, but cowers when Astrata stirs...",
 				"...a crown of blood weighs heavy on an unseen tyrant’s brow..."
 			),
-			
+
 			"Vampire "= list(
 				"...a shadow bends the knee, thirsting only to serve...",
 				"...a heartbeat muffled by obedience, but the hunger remains...",
 				"...fangs with no will, only command..."
 			),
-			
+
 			"Vampire Spawn"= list(
 				"...fangs glint in the dream-dark, but the face remains hidden...",
 				"...something thirsts nearby,quiet, obedient, waiting...",
 				"...a shadow follows another shadow... one leads... one feeds..."
 			),
-		
+
 			"Verevolf"= list(
 				"...something howls just beyond the treeline... it’s not the wind...",
 				"...the forest runs red. Pawprints, but no wolves in sight...",
 				"...i dream of teeth and torn flesh... the beast is closer tonight..."
 			),
-			
+
 			"Lesser Verewolf"= list(
 				"...smaller footsteps still leave trails of blood in the woods...",
 				"...the forest howls with sorrow and rage...",
@@ -342,7 +342,7 @@ SUBSYSTEM_DEF(gamemode)
 				"...mud-covered boots tread paths of insurrection...",
 				"...someone sharpens a scythe with justice on their lips..."
 			),
-			
+
 			"Peasant Head Rebel"= list(
 				"...a common man wears the crown of fury...",
 				"...a leader rises not from blood, but from rage...",
@@ -353,37 +353,37 @@ SUBSYSTEM_DEF(gamemode)
 				"...a black crown rests on brittle bone... the throne is not empty...",
 				"...every step in this dream leaves bones behind me..."
 			),
-				
+
 			"Aspirant"= list(
 				"...a noble sleeps with ambition burning like wildfire...",
 				"...the throne creaks under invisible weight...",
 				"...someone dreams not of peace, but of power..."
 			),
-				
+
 			"Zizoid Lackey"= list(
 				"...eyes flicker with borrowed madness...",
 				"...they serve a shape they dare not name...",
 				"...something alien tugs at their strings..."
 			),
-	
+
 			"Zizoid Cultist"= list(
 				"...a spiral burns behind my eyelids when I close them...",
 				"...a silver tongue hums a hymn to nothing, and you almost sing along...",
 				"...there’s a shape in the dream that shouldn’t exist..."
 			),
-		
+
 			"Bandit" = list(
 				"...coins rattle where no one stands...",
 				"...my pockets feel lighter here...",
 				"...something greedy walks this dream, smiling..."
 			),
-		
+
 			"Assassin"= list(
 				"...a knife glints, vanishes... who held it?",
 				"...a silent breath... a glint of steel... a name forgotten...",
 				"...there’s blood here... fresh, but I saw no violence..."
 			),
-		
+
 			"Dreamer"= list(
 				"...the dream bends unnaturally, as though something, or someone, believes the world is not real...",
 				"...a presence drifts through the dream, disjointed and frantic, as if seeking a truth no one else can see...",
@@ -1298,6 +1298,8 @@ SUBSYSTEM_DEF(gamemode)
 		return
 
 	GLOB.patron_follower_counts.Cut()
+
+	GLOB.vanderlin_round_stats[STATS_MONARCH_PATRON] = "None"
 	GLOB.vanderlin_round_stats[STATS_ALIVE_NOBLES] = 0
 	GLOB.vanderlin_round_stats[STATS_ILLITERATES] = 0
 	GLOB.vanderlin_round_stats[STATS_WEREVOLVES] = 0
@@ -1308,8 +1310,25 @@ SUBSYSTEM_DEF(gamemode)
 	GLOB.vanderlin_round_stats[STATS_KLEPTOMANIACS] = 0
 	GLOB.vanderlin_round_stats[STATS_GREEDY_PEOPLE] = 0
 	GLOB.vanderlin_round_stats[STATS_PARENTS] = 0
-	GLOB.vanderlin_round_stats[STATS_ALIVE_TIEFLINGS] = 0
 	GLOB.vanderlin_round_stats[STATS_PACIFISTS] = 0
+	GLOB.vanderlin_round_stats[STATS_MARRIED] = 0
+	GLOB.vanderlin_round_stats[STATS_MALE_POPULATION] = 0
+	GLOB.vanderlin_round_stats[STATS_FEMALE_POPULATION] = 0
+	GLOB.vanderlin_round_stats[STATS_OTHER_GENDER] = 0
+	GLOB.vanderlin_round_stats[STATS_CHILD_POPULATION] = 0
+	GLOB.vanderlin_round_stats[STATS_ELDERLY_POPULATION] = 0
+
+	// Races count
+	GLOB.vanderlin_round_stats[STATS_ALIVE_TIEFLINGS] = 0
+	GLOB.vanderlin_round_stats[STATS_ALIVE_NORTHERN_HUMANS] = 0
+	GLOB.vanderlin_round_stats[STATS_ALIVE_DWARVES] = 0
+	GLOB.vanderlin_round_stats[STATS_ALIVE_DARK_ELVES] = 0
+	GLOB.vanderlin_round_stats[STATS_ALIVE_SNOW_ELVES] = 0
+	GLOB.vanderlin_round_stats[STATS_ALIVE_HALF_ELVES] = 0
+	GLOB.vanderlin_round_stats[STATS_ALIVE_HALF_ORCS] = 0
+	GLOB.vanderlin_round_stats[STATS_ALIVE_KOBOLDS] = 0
+	GLOB.vanderlin_round_stats[STATS_ALIVE_RAKSHARI] = 0
+	GLOB.vanderlin_round_stats[STATS_ALIVE_AASIMAR] = 0
 
 	for(var/client/client in GLOB.clients)
 		if(roundstart)
@@ -1324,12 +1343,26 @@ SUBSYSTEM_DEF(gamemode)
 		if(!roundstart)
 			if(living.patron)
 				GLOB.patron_follower_counts[living.patron.name]++
+				if(living.job == "Monarch")
+					GLOB.vanderlin_round_stats[STATS_MONARCH_PATRON] = "[living.patron.name]"
 		if(living.mind.has_antag_datum(/datum/antagonist/werewolf))
 			GLOB.vanderlin_round_stats[STATS_WEREVOLVES]++
 		if(living.mind.has_antag_datum(/datum/antagonist/zombie) || living.mind.has_antag_datum(/datum/antagonist/skeleton) || living.mind.has_antag_datum(/datum/antagonist/lich))
 			GLOB.vanderlin_round_stats[STATS_DEADITES_ALIVE]++
 		if(ishuman(living))
 			var/mob/living/carbon/human/human_mob = client.mob
+			switch(human_mob.gender)
+				if(MALE)
+					GLOB.vanderlin_round_stats[STATS_MALE_POPULATION]++
+				if(FEMALE)
+					GLOB.vanderlin_round_stats[STATS_FEMALE_POPULATION]++
+				else
+					GLOB.vanderlin_round_stats[STATS_OTHER_GENDER]++
+			switch(human_mob.age)
+				if(AGE_CHILD)
+					GLOB.vanderlin_round_stats[STATS_CHILD_POPULATION]++
+				if(AGE_OLD)
+					GLOB.vanderlin_round_stats[STATS_ELDERLY_POPULATION]++
 			if(human_mob.is_noble())
 				GLOB.vanderlin_round_stats[STATS_ALIVE_NOBLES]++
 			if(!human_mob.is_literate())
@@ -1346,12 +1379,34 @@ SUBSYSTEM_DEF(gamemode)
 				GLOB.vanderlin_round_stats[STATS_GREEDY_PEOPLE]++
 			if(HAS_TRAIT_NOT_FROM(src, TRAIT_PACIFISM, "hugbox"))
 				GLOB.vanderlin_round_stats[STATS_PACIFISTS]++
-			if(istiefling(human_mob))
-				GLOB.vanderlin_round_stats[STATS_ALIVE_TIEFLINGS]++
+			if(human_mob.setspouse)
+				GLOB.vanderlin_round_stats[STATS_MARRIED]++
 			if(human_mob.family_datum)
 				var/family_role = human_mob.family_datum.family[human_mob]
 				if(family_role in list(FAMILY_FATHER, FAMILY_MOTHER))
 					GLOB.vanderlin_round_stats[STATS_PARENTS]++
+
+			// Races
+			if(istiefling(human_mob))
+				GLOB.vanderlin_round_stats[STATS_ALIVE_TIEFLINGS]++
+			if(ishumannorthern(human_mob))
+				GLOB.vanderlin_round_stats[STATS_ALIVE_NORTHERN_HUMANS]++
+			if(isdwarf(human_mob))
+				GLOB.vanderlin_round_stats[STATS_ALIVE_DWARVES]++
+			if(isdarkelf(human_mob))
+				GLOB.vanderlin_round_stats[STATS_ALIVE_DARK_ELVES]++
+			if(issnowelf(human_mob))
+				GLOB.vanderlin_round_stats[STATS_ALIVE_SNOW_ELVES]++
+			if(ishalfelf(human_mob))
+				GLOB.vanderlin_round_stats[STATS_ALIVE_HALF_ELVES]++
+			if(ishalforc(human_mob))
+				GLOB.vanderlin_round_stats[STATS_ALIVE_HALF_ORCS]++
+			if(iskobold(human_mob))
+				GLOB.vanderlin_round_stats[STATS_ALIVE_KOBOLDS]++
+			if(israkshari(human_mob))
+				GLOB.vanderlin_round_stats[STATS_ALIVE_RAKSHARI]++
+			if(isaasimar(human_mob))
+				GLOB.vanderlin_round_stats[STATS_ALIVE_AASIMAR]++
 
 /// Returns follower modifier for the given storyteller
 /datum/controller/subsystem/gamemode/proc/get_storyteller_follower_modifier(datum/storyteller/chosen_storyteller)

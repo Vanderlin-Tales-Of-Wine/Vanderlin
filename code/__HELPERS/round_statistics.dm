@@ -1,5 +1,23 @@
-// General statistics
+// Census
+#define STATS_ALIVE_NORTHERN_HUMANS "alive_northern_humans"
+#define STATS_ALIVE_DWARVES "alive_dwarves"
+#define STATS_ALIVE_DARK_ELVES "alive_dark_elves"
+#define STATS_ALIVE_SNOW_ELVES "alive_snow_elves"
+#define STATS_ALIVE_HALF_ELVES "alive_half_elves"
+#define STATS_ALIVE_HALF_ORCS "alive_half_orcs"
+#define STATS_ALIVE_KOBOLDS "alive_kobolds"
+#define STATS_ALIVE_RAKSHARI "alive_rakshari"
+#define STATS_ALIVE_AASIMAR "alive_aasimar"
+#define STATS_ALIVE_TIEFLINGS "alive_tieflings"
+#define STATS_MONARCH_PATRON "monarch_patron"
+#define STATS_MARRIED "married"
+#define STATS_MALE_POPULATION "male_population"
+#define STATS_FEMALE_POPULATION "female_population"
+#define STATS_OTHER_GENDER "other_gender"
+#define STATS_CHILD_POPULATION "child_population"
+#define STATS_ELDERLY_POPULATION "elderly_population"
 
+// General statistics
 #define STATS_MOAT_FALLERS "moat_fallers"
 #define STATS_ANKLES_BROKEN "ankles_broken"
 #define STATS_PEOPLE_SMITTEN "people_smitten"
@@ -15,7 +33,6 @@
 
 // Psydon
 #define STATS_HUMEN_DEATHS "humen_deaths"
-#define STATS_ALIVE_TIEFLINGS "alive_tieflings"
 
 // Astrata
 #define STATS_LAWS_AND_DECREES_MADE "laws_and_decrees_made"
@@ -180,6 +197,15 @@ GLOBAL_LIST_INIT(vanderlin_round_stats, list(
 	STATS_HUMEN_DEATHS = 0,
 	STATS_PARENTS = 0,
 	STATS_SKILLS_DREAMED = 0,
+	STATS_ALIVE_NORTHERN_HUMANS = 0,
+	STATS_ALIVE_DWARVES = 0,
+	STATS_ALIVE_DARK_ELVES = 0,
+	STATS_ALIVE_SNOW_ELVES = 0,
+	STATS_ALIVE_HALF_ELVES = 0,
+	STATS_ALIVE_HALF_ORCS = 0,
+	STATS_ALIVE_KOBOLDS = 0,
+	STATS_ALIVE_RAKSHARI = 0,
+	STATS_ALIVE_AASIMAR = 0,
 	STATS_ALIVE_TIEFLINGS = 0,
 	STATS_PEOPLE_DROWNED = 0,
 	STATS_MANA_SPENT = 0,
@@ -196,17 +222,36 @@ GLOBAL_LIST_INIT(vanderlin_round_stats, list(
 	STATS_LUXURIOUS_FOOD_EATEN = 0,
 	STATS_DEADITES_WOKEN_UP = 0,
 	STATS_DODGES = 0,
+	STATS_MARRIED = 0,
+	STATS_MONARCH_PATRON = "None",
+	STATS_MALE_POPULATION = 0,
+	STATS_FEMALE_POPULATION = 0,
+	STATS_OTHER_GENDER = 0,
+	STATS_CHILD_POPULATION = 0,
+	STATS_ELDERLY_POPULATION = 0,
 ))
 
 GLOBAL_LIST_EMPTY(patron_follower_counts)
 
 // Featured stats of the round
 #define FEATURED_STATS_TREE_FELLERS "tree_fellers"
+#define FEATURED_STATS_THIEVES "thieves"
+#define FEATURED_STATS_ALCHEMISTS "alchemists"
 
 GLOBAL_LIST_INIT(featured_stats, list(
 	FEATURED_STATS_TREE_FELLERS = list(
-		"name" = "Top Tree Fellers",
+		"name" = "TOP 10 Lumberjacks",
 		"color" = "#9b6937",
+		"entries" = list()
+	),
+	FEATURED_STATS_ALCHEMISTS = list(
+		"name" = "TOP 10 Alchemists",
+		"color" = "#6b256e",
+		"entries" = list()
+	),
+	FEATURED_STATS_THIEVES = list(
+		"name" = "TOP 10 Thieves",
+		"color" = "#6e4a25",
 		"entries" = list()
 	),
 ))
@@ -218,9 +263,9 @@ GLOBAL_LIST_INIT(featured_stats, list(
 		stat_data = GLOB.featured_stats[stat_id]
 
 	return "<font color='[stat_data["color"]]'><span class='bold'>[stat_data["name"]]:</span></font><br>" + \
-	       format_top_three(stat_id)
+	       format_top_ten(stat_id)
 
-/proc/format_top_three(stat_category)
+/proc/format_top_ten(stat_category)
 	var/list/stat_data = GLOB.featured_stats[stat_category]
 	if(!stat_data || !stat_data["entries"])
 		return "No data available"
@@ -239,20 +284,23 @@ GLOBAL_LIST_INIT(featured_stats, list(
 	return result.Join("<br>")
 
 /proc/cmp_stat_count_desc(list/a, list/b)
-	return b["count"] - a["count"]
+    return b["count"] - a["count"]
 
-/proc/get_most_common_job()
-	// Implement job tracking logic here
-	return "Lumberjack (17)"
+/proc/record_featured_stat(stat_category, mob/living/user, increment = 1)
+	if(!stat_category || !user?.real_name || !GLOB.featured_stats[stat_category])
+		return
 
-/proc/get_average_age()
-	// Implement age calculation logic here
-	return "32.5"
+	var/list/stat_data = GLOB.featured_stats[stat_category]
+	var/job_title = ""
 
-/proc/get_gender_distribution()
-	// Implement gender tracking logic here
-	return "Male: 55%<br>Female: 40%<br>Other: 5%"
+	if(user.mind?.assigned_role)
+		job_title = " ([user.mind.assigned_role.title])"
+	else if(user.job)
+		job_title = " ([user.job])"
 
-/proc/get_most_common_species()
-	// Implement species tracking logic here
-	return "Human (62%)"
+	var/key = "[user.real_name][job_title]"
+
+	if(!stat_data["entries"])
+		stat_data["entries"] = list()
+
+	stat_data["entries"][key] = (stat_data["entries"][key] || 0) + increment
