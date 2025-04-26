@@ -238,6 +238,7 @@ GLOBAL_LIST_EMPTY(patron_follower_counts)
 #define FEATURED_STATS_THIEVES "thieves"
 #define FEATURED_STATS_ALCHEMISTS "alchemists"
 #define FEATURED_STATS_TAX_PAYERS "tax_payers"
+#define FEATURED_STATS_ALCOHOLICS "alcohol_drinkers"
 
 GLOBAL_LIST_INIT(featured_stats, list(
 	FEATURED_STATS_TREE_FELLERS = list(
@@ -252,12 +253,17 @@ GLOBAL_LIST_INIT(featured_stats, list(
 	),
 	FEATURED_STATS_ALCHEMISTS = list(
 		"name" = "TOP 10 Alchemists",
-		"color" = "#6b256e",
+		"color" = "#861f8a",
 		"entries" = list()
 	),
 	FEATURED_STATS_THIEVES = list(
 		"name" = "TOP 10 Thieves",
 		"color" = "#6e4a25",
+		"entries" = list()
+	),
+	FEATURED_STATS_ALCOHOLICS = list(
+		"name" = "TOP 10 Alcoholics",
+		"color" = "#945d96",
 		"entries" = list()
 	),
 ))
@@ -274,7 +280,7 @@ GLOBAL_LIST_INIT(featured_stats, list(
 /proc/format_top_ten(stat_category)
 	var/list/stat_data = GLOB.featured_stats[stat_category]
 	if(!stat_data || !stat_data["entries"])
-		return "No data available"
+		return "Nobody"
 
 	var/list/entries = list()
 	for(var/key in stat_data["entries"])
@@ -283,7 +289,7 @@ GLOBAL_LIST_INIT(featured_stats, list(
 	entries = sortList(entries, /proc/cmp_stat_count_desc)
 
 	var/list/result = list()
-	for(var/i in 1 to min(10, entries.len)) // Show top 10 instead of just 3
+	for(var/i in 1 to min(10, entries.len))
 		var/list/entry = entries[i]
 		result += "[i]. [entry["name"]] - [entry["count"]]"
 
