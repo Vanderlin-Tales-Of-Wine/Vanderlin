@@ -284,7 +284,7 @@ GLOBAL_LIST_INIT(featured_stats, list(
 	return result.Join("<br>")
 
 /proc/cmp_stat_count_desc(list/a, list/b)
-    return b["count"] - a["count"]
+	return b["count"] - a["count"]
 
 /proc/record_featured_stat(stat_category, mob/living/user, increment = 1)
 	if(!stat_category || !user?.real_name || !GLOB.featured_stats[stat_category])
