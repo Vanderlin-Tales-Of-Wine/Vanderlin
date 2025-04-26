@@ -275,6 +275,22 @@
 	)
 	component_type = /datum/component/storage/concrete/grid/surgery_bag
 
+/obj/item/storage/backpack/satchel/surgbag/shit
+	populate_contents = list(
+		/obj/item/needle,
+		/obj/item/weapon/surgery/scalpel,
+		/obj/item/weapon/surgery/saw,
+		/obj/item/weapon/surgery/hemostat,
+		/obj/item/weapon/surgery/hemostat,
+		/obj/item/weapon/surgery/retractor,
+		/obj/item/weapon/surgery/bonesetter,
+		/obj/item/weapon/surgery/cautery,
+		/obj/item/natural/worms/leech,
+		/obj/item/natural/worms/leech,
+		/obj/item/weapon/surgery/hammer,
+		/obj/item/natural/bundle/fibers/full,
+	)
+
 /obj/item/storage/belt/leather/knifebelt
 
 	name = "tossblade belt"

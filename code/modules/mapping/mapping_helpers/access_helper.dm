@@ -142,4 +142,4 @@
 	access_string = ACCESS_GUEST
 
 /obj/effect/mapping_helpers/door/access/manor/physician
-	access_string = ACCESS_PHYS
+	access_string = ACCESS_PHYSICIAN
