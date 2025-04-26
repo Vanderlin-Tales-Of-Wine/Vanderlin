@@ -343,22 +343,31 @@
 	metalizer_result = null
 
 /obj/structure/bed/sleepingbag
-	name = "sleepcloth"
+	name = "bedroll"
 	desc = "So you can sleep on the ground in relative peace."
 	icon_state = "sleepingcloth"
 	attacked_sound = 'sound/foley/cloth_rip.ogg'
 	break_sound = 'sound/foley/cloth_rip.ogg'
 	sleepy = 0.75
+	var/item_path = /obj/item/sleepingbag
 
 /obj/structure/bed/sleepingbag/MiddleClick(mob/user, params)
 	..()
 	user.visible_message("<span class='notice'>[user] begins rolling up \the [src].</span>")
 	if(do_after(user, 2 SECONDS, target = src))
-		user.put_in_hands(new /obj/item/sleepingbag(get_turf(src)))
+		var/obj/item/new_bedroll = new item_path(get_turf(src))
+		new_bedroll.color = color
+		user.put_in_hands(new_bedroll)
 		qdel(src)
 
+/obj/structure/bed/sleepingbag/deluxe
+	name = "deluxe bedroll"
+	desc = "For people who want to sleep on the ground in a relatively more comfortable peace."
+	sleepy = 1
+	item_path = /obj/item/sleepingbag/deluxe
+
 /obj/item/sleepingbag
-	name = "roll of sleepcloth"
+	name = "rolled-up bedroll"
 	desc = "A quick and simple way to create a resting place on the ground."
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "sleepingcloth_rolled"
@@ -366,8 +375,9 @@
 	slot_flags = ITEM_SLOT_BACK
 	grid_height = 64
 	grid_width = 96
+	var/bed_path = /obj/structure/bed/sleepingbag
 
-/obj/item/sleepingbag/MiddleClick(mob/user, params)
+/obj/item/sleepingbag/attack_self(mob/user, params)
 	..()
 	var/turf/T = get_turf(loc)
 	if(!isfloorturf(T))
@@ -379,8 +389,20 @@
 			return
 	user.visible_message("<span class='notice'>[user] begins placing \the [src] down on the ground.</span>")
 	if(do_after(user, 2 SECONDS, src, (IGNORE_HELD_ITEM)))
-		new /obj/structure/bed/sleepingbag(get_turf(src))
+		var/obj/structure/new_bedroll = new bed_path(get_turf(src))
+		new_bedroll.color = color
 		qdel(src)
+
+/obj/item/sleepingbag/MiddleClick(mob/user, params)
+	. = ..()
+	attack_self(user, params)
+
+/obj/item/sleepingbag/deluxe
+	name = "rolled-up deluxe bedroll"
+	desc = "A portable bedroll made from durable and comfortable material."
+	icon = 'icons/roguetown/items/misc.dmi'
+	icon_state = "bedroll_r"
+	bed_path = /obj/structure/bed/sleepingbag/deluxe
 
 /obj/structure/bed/post_buckle_mob(mob/living/M)
 	..()
