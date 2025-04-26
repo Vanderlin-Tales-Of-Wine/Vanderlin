@@ -5557,10 +5557,6 @@
 /obj/structure/fermentation_keg/random/beer,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/bandit_lair)
-"Im" = (
-/obj/structure/window/stained/zizo,
-/turf/closed/wall/mineral/decostone/moss/long,
-/area/rogue/indoors/lich)
 "In" = (
 /obj/structure/rack,
 /obj/item/weapon/axe/iron,
@@ -7923,9 +7919,7 @@
 /area/rogue/outdoors)
 "Ze" = (
 /obj/structure/window/stained/zizo,
-/turf/closed/wall/mineral/decostone/long{
-	dir = 1
-	},
+/turf/open/floor/church,
 /area/rogue/indoors/lich)
 "Zh" = (
 /obj/structure/rack,
@@ -18625,7 +18619,7 @@ gN
 Kx
 Kx
 lD
-Im
+Ze
 lD
 wE
 ut
@@ -18862,7 +18856,7 @@ ag
 HZ
 Dn
 JS
-JS
+Ze
 lD
 ky
 lD
@@ -19772,7 +19766,7 @@ ag
 HZ
 Dn
 JS
-JS
+Ze
 hg
 lD
 lD
