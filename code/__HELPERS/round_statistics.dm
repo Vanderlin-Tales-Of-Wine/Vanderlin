@@ -239,6 +239,7 @@ GLOBAL_LIST_EMPTY(patron_follower_counts)
 #define FEATURED_STATS_ALCHEMISTS "alchemists"
 #define FEATURED_STATS_TAX_PAYERS "tax_payers"
 #define FEATURED_STATS_ALCOHOLICS "alcohol_drinkers"
+#define FEATURED_STATS_FISHERS "fishers"
 
 GLOBAL_LIST_INIT(featured_stats, list(
 	FEATURED_STATS_TREE_FELLERS = list(
@@ -254,6 +255,11 @@ GLOBAL_LIST_INIT(featured_stats, list(
 	FEATURED_STATS_ALCHEMISTS = list(
 		"name" = "TOP 10 Alchemists",
 		"color" = "#861f8a",
+		"entries" = list()
+	),
+	FEATURED_STATS_FISHERS = list(
+		"name" = "TOP 10 Fishers",
+		"color" = "#559bbb",
 		"entries" = list()
 	),
 	FEATURED_STATS_THIEVES = list(
