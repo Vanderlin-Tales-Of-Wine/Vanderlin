@@ -27,3 +27,8 @@
 	if(isliving(crosser) && !obj_broken)
 		take_damage(11, BRUTE, "blunt", 1)
 	..()
+
+/obj/item/clothing/face/spectacles/inqglasses
+	name = "crimson spectacles"
+	desc = "Spectacles evoking the stained glass of Grenzelhoftian cathedrals. See all evil."
+	icon_state = "bglasses"

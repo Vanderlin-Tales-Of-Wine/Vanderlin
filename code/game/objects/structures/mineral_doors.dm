@@ -3,93 +3,52 @@
 /proc/lockid_to_lockpick_difficulty(lockid)
 	if(!lockid)
 		return 5
-	switch(lockid)
-		if(ACCESS_VAULT)
-			return 1
-		if(ACCESS_LORD)
-			return 1
-		if(ACCESS_MANOR)
-			return 2
-		if(ACCESS_GUEST)
-			return 2
-		if(ACCESS_DUNGEON)
-			return 2
-		if(ACCESS_FOREST)
-			return 2
-		if(ACCESS_GARRISON)
-			return 2
-		if(ACCESS_FARM)
-			return 4
-		if(ACCESS_WAREHOUSE)
-			return 3
-		if(ACCESS_CAPTAIN)
-			return 3
-		if(ACCESS_MERCHANT)
-			return 5
-		if(ACCESS_INN)
-			return 5
-		if(ACCESS_SMITH)
-			return 3
-		if(ACCESS_BUTCHER)
-			return 3
-		if(ACCESS_MANOR_GATE)
-			return 2
-		if(ACCESS_PRIEST)
-			return 2
-		if(ACCESS_CHURCH)
-			return 3
-		if(ACCESS_TOWER)
-			return 3
-		if(ACCESS_MAGE)
-			return 2
-		if(ACCESS_ARTIFICER)
-			return 4
-		if(ACCESS_HAND)
-			return 1
-		if(ACCESS_STEWARD)
-			return 2
-		if(ACCESS_FELDSHER)
-			return 3
-		if("roomi")
-			return 6
-		if("roomii")
-			return 6
-		if("roomiii")
-			return 6
-		if("roomiv")
-			return 6
-		if("roomv")
-			return 6
-		if("roomvi")
-			return 6
-		if("medroomi")
-			return 5
-		if("medroomii")
-			return 5
-		if("medroomiii")
-			return 5
-		if("medroomiv")
-			return 5
-		if("medroomv")
-			return 5
-		if("medroomvi")
-			return 5
-		if("luxroomi")
-			return 3
-		if("luxroomi")
-			return 3
-		if("luxroomii")
-			return 3
-		if("luxroomiii")
-			return 3
-		if("luxroomiv")
-			return 3
-		if("luxroomv")
-			return 3
-		if("luxroomvi")
-			return 3
-		else
-			return 5
+	var/static/list/lock_difficulties = list(
+		ACCESS_VAULT = 1,
+		ACCESS_LORD = 1,
+		ACCESS_MANOR = 2,
+		ACCESS_GUEST = 2,
+		ACCESS_DUNGEON = 2,
+		ACCESS_FOREST = 2,
+		ACCESS_GARRISON = 2,
+		ACCESS_FARM = 4,
+		ACCESS_WAREHOUSE = 3,
+		ACCESS_CAPTAIN = 3,
+		ACCESS_MERCHANT = 5,
+		ACCESS_INN = 5,
+		ACCESS_SMITH = 3,
+		ACCESS_BUTCHER = 3,
+		ACCESS_MANOR_GATE = 2,
+		ACCESS_PRIEST = 2,
+		ACCESS_CHURCH = 3,
+		ACCESS_TOWER = 3,
+		ACCESS_MAGE = 2,
+		ACCESS_ARTIFICER = 4,
+		ACCESS_HAND = 1,
+		ACCESS_STEWARD = 2,
+		ACCESS_FELDSHER = 3,
+		"roomi" = 6,
+		"roomii" = 6,
+		"roomiii" = 6,
+		"roomiv" = 6,
+		"roomv" = 6,
+		"roomvi" = 6,
+		"medroomi" = 5,
+		"medroomii" = 5,
+		"medroomiii" = 5,
+		"medroomiv" = 5,
+		"medroomv" = 5,
+		"medroomvi" = 5,
+		"luxroomi" = 3,
+		"luxroomii" = 3,
+		"luxroomiii" = 3,
+		"luxroomiv" = 3,
+		"luxroomv" = 3,
+		"luxroomvi" = 3
+	)
+
+	return lock_difficulties[lockid] || 5
+
 /obj/structure/mineral_door
 	name = "metal door"
 	density = TRUE

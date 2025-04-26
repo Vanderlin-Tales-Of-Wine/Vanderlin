@@ -11,6 +11,7 @@
 	chargetime = 0
 	releasedrain = 5
 	miracle = TRUE
+	healing_miracle = TRUE
 	devotion_cost = 5
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/holy
@@ -342,11 +343,10 @@
 	else if (istype(thing, /obj/item/natural/cloth))
 		// stupid little easter egg here: you can dampen a cloth to clean with it, because prestidigitation also lets you clean things. also a lot cheaper devotion-wise than filling a bucket
 		var/obj/item/natural/cloth/the_cloth = thing
-		if (!the_cloth.wet)
-			var/holy_skill = user.mind?.get_skill_level(attached_spell.associated_skill)
-			the_cloth.wet += holy_skill * 5
-			user.visible_message(span_info("[user] closes [user.p_their()] eyes in prayer, beads of moisture coalescing in [user.p_their()] hands to moisten [the_cloth]."), span_notice("I utter forth a plea to [user.patron.name] for succour, and will moisture into [the_cloth]. I should be able to clean with it properly now."))
-			return water_moisten
+		var/holy_skill = user.mind?.get_skill_level(attached_spell.associated_skill)
+		the_cloth.reagents?.add_reagent(/datum/reagent/water, 2 * holy_skill)
+		user.visible_message(span_info("[user] closes [user.p_their()] eyes in prayer, beads of moisture coalescing in [user.p_their()] hands to moisten [the_cloth]."), span_notice("I utter forth a plea to [user.patron.name] for succour, and will moisture into [the_cloth]. I should be able to clean with it properly now."))
+		return water_moisten
 	else
 		to_chat(user, span_info("I'll need to find a container that can hold water."))
 
@@ -401,11 +401,10 @@
 	else if (istype(thing, /obj/item/natural/cloth))
 		// stupid little easter egg here: you can dampen a cloth to clean with it, because prestidigitation also lets you clean things. also a lot cheaper devotion-wise than filling a bucket
 		var/obj/item/natural/cloth/the_cloth = thing
-		if (!the_cloth.wet)
-			var/holy_skill = user.mind?.get_skill_level(attached_spell.associated_skill)
-			the_cloth.wet += holy_skill * 5
-			user.visible_message(span_info("[user] closes [user.p_their()] eyes in prayer, beads of moisture coalescing in [user.p_their()] hands to moisten [the_cloth]."), span_notice("I utter forth a plea to [user.patron.name] for succour, and will moisture into [the_cloth]. I should be able to clean with it properly now."))
-			return water_moisten
+		var/holy_skill = user.mind?.get_skill_level(attached_spell.associated_skill)
+		the_cloth.reagents?.add_reagent(/datum/reagent/water, 2 * holy_skill)
+		user.visible_message(span_info("[user] closes [user.p_their()] eyes in prayer, beads of moisture coalescing in [user.p_their()] hands to moisten [the_cloth]."), span_notice("I utter forth a plea to [user.patron.name] for succour, and will moisture into [the_cloth]. I should be able to clean with it properly now."))
+		return water_moisten
 	else
 		to_chat(user, span_info("I'll need to find a container that can hold water."))
 

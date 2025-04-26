@@ -24,6 +24,8 @@
 			user.add_stress(/datum/stressevent/ugly_self)
 		else
 			user.add_stress(/datum/stressevent/ugly)
+	if(HAS_TRAIT(src, TRAIT_OLDPARTY) && HAS_TRAIT(user, TRAIT_OLDPARTY) && user != src)
+		user.add_stress(/datum/stressevent/saw_old_party)
 
 /mob/living/carbon/human/examine(mob/user)
 //this is very slightly better than it was because you can use it more places. still can't do \his[src] though.
@@ -158,6 +160,9 @@
 			. += span_greentext("<b>[m1] an agent of the court!</b>")
 
 		if(user != src)
+			if(HAS_TRAIT(src, TRAIT_OLDPARTY) && HAS_TRAIT(user, TRAIT_OLDPARTY))
+				. += span_green("Ahh... my old friend!")
+
 			if(HAS_TRAIT(src, TRAIT_THIEVESGUILD) && HAS_TRAIT(user, TRAIT_THIEVESGUILD))
 				. += span_green("A member of the Thieves Guild.")
 
@@ -525,6 +530,23 @@
 				. += "<span class='warning'>[t_He] look[p_s()] weaker than I.</span>"
 			if(-INFINITY to -5)
 				. += "<span class='warning'><B>[t_He] look[p_s()] much weaker than I.</B></span>"
+
+		var/datum/antagonist/maniac/maniac = user.mind?.has_antag_datum(/datum/antagonist/maniac)
+		if(maniac)
+			var/obj/item/organ/heart/heart = getorganslot(ORGAN_SLOT_HEART)
+			if(heart)
+				var/inscryption_key = LAZYACCESS(heart.inscryption_keys, maniac) // SPECIFICALLY the key that WE wrote
+				if(inscryption_key && (inscryption_key in maniac.key_nums))
+					. += span_danger("[t_He] know[p_s()] [inscryption_key], I AM SURE OF IT!")
+
+	if(IsAdminGhost(user))
+		var/obj/item/organ/heart/heart = getorganslot(ORGAN_SLOT_HEART)
+		if(heart && heart.maniacs)
+			for(var/datum/antagonist/maniac/M in heart.maniacs)
+				var/K = LAZYACCESS(heart.inscryptions, M)
+				var/W = LAZYACCESS(heart.maniacs2wonder_ids, M)
+				var/N = M.owner?.name
+				. += span_notice("Inscryption[N ? " by [N]'s " : ""][W ? "Wonder #[W]" : ""]: [K ? K : ""]")
 
 	if(Adjacent(user))
 		if(isobserver(user))

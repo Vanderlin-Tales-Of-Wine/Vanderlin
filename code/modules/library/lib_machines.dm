@@ -116,7 +116,7 @@
 						continue
 					manuel_name_to_path |= initial(book.name)
 					manuel_name_to_path[initial(book.name)] = book
-			choice = input(user, "Choose an option for \the [src]") in manuel_name_to_path
+			choice = input(user, "Choose an option for \the [src]") as null|anything in manuel_name_to_path
 			if(choice)
 				start_printing(user, manuel_name_to_path[choice])
 
@@ -147,6 +147,7 @@
 		visible_message("<span class='notice'>The printing press hums as it produces [book.name].</span>")
 
 	// Printing is done
+	GLOB.vanderlin_round_stats[STATS_BOOKS_PRINTED]++
 	printing = FALSE
 	src.icon_state = "Ppress_Done"
 	cooldown = world.time + PRINTER_COOLDOWN

@@ -10,6 +10,7 @@
 	blade_dulling = DULLING_BASHCHOP
 	attacked_sound = list('sound/combat/hits/onmetal/grille (1).ogg', 'sound/combat/hits/onmetal/grille (2).ogg', 'sound/combat/hits/onmetal/grille (3).ogg')
 	smeltresult = /obj/item/ingot/bronze
+	obj_flags = CAN_BE_HIT | BLOCK_Z_OUT_DOWN
 
 	var/water_pressure
 	var/datum/reagent/carrying_reagent

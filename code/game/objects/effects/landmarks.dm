@@ -153,6 +153,10 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	name = "Men-at-arms"
 	icon_state = "arrow"
 
+/obj/effect/landmark/start/gatemaster
+	name = "Gatemaster"
+	icon_state = "arrow"
+
 /obj/effect/landmark/start/forestwarden
 	name = "Forest Warden"
 	icon_state = "arrow"
@@ -211,6 +215,9 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	name = "Stevedore"
 	icon_state = "arrow"
 
+/obj/effect/landmark/start/shophand
+	name = "Shophand"
+	icon_state = "arrow"
 
 /obj/effect/landmark/start/innkeep
 	name = "Innkeep"
@@ -355,6 +362,18 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 
 /obj/effect/landmark/start/servant
 	name = "Servant"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/tapster
+	name = "Tapster"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/matron_assistant
+	name = "Matron Assistant"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/gaffer_assistant
+	name = "Ring Servant"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/churchling

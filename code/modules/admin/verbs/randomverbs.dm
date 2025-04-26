@@ -142,6 +142,27 @@
 	message_admins("<span class='adminnotice'>[key_name_admin(usr)] Sent a global narrate</span>")
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Global Narrate") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
+/client/proc/send_to_cryo(mob/M in GLOB.mob_list)
+	set category = "Admin"
+	set name = "Send To Cryo"
+
+	if(!check_rights(R_ADMIN))
+		return
+
+	if(!M)
+		M = input("Send who?", "Active Players") as null|anything in GLOB.player_list
+
+	if(!M)
+		return
+	var/message_to_admins = span_adminnotice("<b> [key_name(usr)] has sent ([M.name]/[M.key]):</b> to cryo. <BR>")
+	var/message_to_admin_user = span_notice(cryo_mob(M))
+
+	to_chat(src, message_to_admin_user)
+	log_admin(message_to_admins)
+	message_admins(message_to_admins)
+	admin_ticket_log(M, message_to_admins)
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Send To Cryo") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
 /client/proc/cmd_admin_direct_narrate(mob/M)
 	set category = "Special Verbs"
 	set name = "Direct Narrate"
@@ -636,7 +657,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 
 /client/proc/has_antag_hud()
-	var/datum/atom_hud/A = GLOB.huds[ANTAG_HUD_TRAITOR]
+	var/datum/atom_hud/A = GLOB.huds[ANTAG_HUD_HIDDEN]
 	return A.hudusers[mob]
 
 /client/proc/show_tip()

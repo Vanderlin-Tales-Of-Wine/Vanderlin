@@ -23,7 +23,7 @@ if [ -d ".git" ]; then
   cp -r .git/logs/* $1/.git/logs/
 fi
 
-cp stonekeep.dmb stonekeep.rsc $1/
+cp vanderlin.dmb vanderlin.rsc $1/
 cp -r _maps/* $1/_maps/
 cp -r icons/*_title.dmi $1/icons/
 cp -r icons/effects/* $1/icons/effects/

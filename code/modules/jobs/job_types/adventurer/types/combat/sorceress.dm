@@ -14,7 +14,7 @@
 
 /datum/outfit/job/adventurer/sorceress/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.mana_pool.set_intrinsic_recharge(MANA_ALL_LEYLINES)
+	H.mana_pool?.set_intrinsic_recharge(MANA_ALL_LEYLINES)
 	shoes = /obj/item/clothing/shoes/simpleshoes
 	armor = /obj/item/clothing/shirt/robe/mage
 	belt = /obj/item/storage/belt/leather/rope

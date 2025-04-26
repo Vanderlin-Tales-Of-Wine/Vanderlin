@@ -20,6 +20,8 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	var/lastchangelog = ""				//Saved changlog filesize to detect if there was a change
 	var/ooccolor = null
 	var/asaycolor = "#ff4500"			//This won't change the color for current admins, only incoming ones.
+	/// the ghost icon this admin ghost will get when becoming an aghost.
+	var/admin_ghost_icon = null
 	var/triumphs = 0
 	var/enable_tips = TRUE
 	var/tip_delay = 500 //tip delay in milliseconds
@@ -90,18 +92,18 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	var/static/datum/patron/default_patron = /datum/patron/divine/astrata
 	var/list/features = MANDATORY_FEATURE_LIST
 	var/list/randomise = list(
-		(RANDOM_BODY) = TRUE,
-		(RANDOM_BODY_ANTAG) = TRUE,
-		(RANDOM_UNDERWEAR) = TRUE,
-		(RANDOM_UNDERWEAR_COLOR) = TRUE,
-		(RANDOM_UNDERSHIRT) = TRUE,
-		(RANDOM_SOCKS) = TRUE,
-		(RANDOM_HAIRSTYLE) = TRUE,
-		(RANDOM_HAIR_COLOR) = TRUE,
-		(RANDOM_FACIAL_HAIRSTYLE) = TRUE,
-		(RANDOM_FACIAL_HAIR_COLOR) = TRUE,
-		(RANDOM_SKIN_TONE) = TRUE,
-		(RANDOM_EYE_COLOR) = TRUE
+		(RANDOM_BODY) = FALSE,
+		(RANDOM_BODY_ANTAG) = FALSE,
+		(RANDOM_UNDERWEAR) = FALSE,
+		(RANDOM_UNDERWEAR_COLOR) = FALSE,
+		(RANDOM_UNDERSHIRT) = FALSE,
+		(RANDOM_SOCKS) = FALSE,
+		(RANDOM_HAIRSTYLE) = FALSE,
+		(RANDOM_HAIR_COLOR) = FALSE,
+		(RANDOM_FACIAL_HAIRSTYLE) = FALSE,
+		(RANDOM_FACIAL_HAIR_COLOR) = FALSE,
+		(RANDOM_SKIN_TONE) = FALSE,
+		(RANDOM_EYE_COLOR) = FALSE
 	)
 	var/phobia = "spiders"
 
@@ -867,6 +869,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 			else
 				dat += "<a class='linkOff' href='byond://?src=[REF(N)];late_join=1'>JOINLATE</a>"
 			dat += " - <a href='?_src_=prefs;preference=migrants'>MIGRATION</a>"
+			dat += "<br><a href='?_src_=prefs;preference=manifest'>ACTORS</a>"
 	else
 		dat += "<a href='?_src_=prefs;preference=finished'>DONE</a>"
 		dat += "</center>"
@@ -986,9 +989,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 				if(job.whitelist_req && (!user.client.whitelisted()))
 					HTML += "<font color=#6183a5>[used_name]</font></td> <td> </td></tr>"
 					continue
-			if(job.plevel_req > user.client.patreonlevel())
-				HTML += "<font color=#a59461>[used_name]</font></td> <td> </td></tr>"
-				continue
+
 			if(get_playerquality(user.ckey) < job.min_pq)
 				HTML += "<font color=#a36c63>[used_name] (Min PQ: [job.min_pq])</font></td> <td> </td></tr>"
 				continue
@@ -2117,16 +2118,6 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 				if("allow_midround_antag")
 					toggles ^= MIDROUND_ANTAG
 
-				if("parallaxup")
-					parallax = WRAP(parallax + 1, PARALLAX_INSANE, PARALLAX_DISABLE + 1)
-					if (parent && parent.mob && parent.mob.hud_used)
-						parent.mob.hud_used.update_parallax_pref(parent.mob)
-
-				if("parallaxdown")
-					parallax = WRAP(parallax - 1, PARALLAX_INSANE, PARALLAX_DISABLE + 1)
-					if (parent && parent.mob && parent.mob.hud_used)
-						parent.mob.hud_used.update_parallax_pref(parent.mob)
-
 				if("ambientocclusion")
 					ambientocclusion = !ambientocclusion
 					if(parent && parent.screen && parent.screen.len)
@@ -2157,6 +2148,10 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 
 				if("migrants")
 					migrant.show_ui()
+					return
+
+				if("manifest")
+					parent.view_actors_manifest()
 					return
 
 				if("finished")
@@ -2269,6 +2264,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	character.socks = socks
 
 	/* V: */
+
 	character.headshot_link = headshot_link
 	character.flavortext = flavortext
 
@@ -2313,7 +2309,10 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	if(is_misc_banned(parent.ckey, BAN_MISC_PUNISHMENT_CURSE))
 		ADD_TRAIT(character, TRAIT_PUNISHMENT_CURSE, TRAIT_BAN_PUNISHMENT)
 
-	/* V */
+	if(parent?.patreon?.has_access(ACCESS_ASSISTANT_RANK))
+		character.accent = selected_accent
+
+	/* :V */
 
 	if("tail_lizard" in pref_species.default_features)
 		character.dna.species.mutant_bodyparts |= "tail_lizard"
@@ -2322,9 +2321,6 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		character.update_body()
 		character.update_hair()
 		character.update_body_parts(redraw = TRUE)
-
-	if(parent?.patreon?.has_access(ACCESS_ASSISTANT_RANK))
-		character.accent = selected_accent
 
 /datum/preferences/proc/get_default_name(name_id)
 	switch(name_id)

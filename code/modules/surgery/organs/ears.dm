@@ -29,7 +29,7 @@
 
 /obj/item/organ/ears/Insert(mob/living/carbon/M, special, drop_if_replaced)
 	. = ..()
-	for(var/datum/wound/facial/ears/ear_wound as anything in M.get_wounds())
+	for(var/datum/wound/facial/ears/ear_wound in M.get_wounds())
 		qdel(ear_wound)
 
 /obj/item/organ/ears/on_life()

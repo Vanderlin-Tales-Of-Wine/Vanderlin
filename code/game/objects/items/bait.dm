@@ -114,5 +114,5 @@
 						/mob/living/simple_animal/hostile/retaliate/bigrat = 10,
 						/mob/living/simple_animal/hostile/retaliate/mole = 15,
 						/mob/living/simple_animal/hostile/retaliate/troll = 5,
-						/mob/living/simple_animal/hostile/retaliate/trollbog = 5,
+						/mob/living/simple_animal/hostile/retaliate/troll/bog = 5,
 						/mob/living/simple_animal/hostile/retaliate/troll/caerbannog = 2.5)
