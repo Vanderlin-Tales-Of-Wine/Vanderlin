@@ -11,6 +11,8 @@
 		"YOU CANNOT KILL ME!",
 	)
 	var/list/phylacteries = list()
+	/// reference to the body so we can revive even if decapitated
+	var/datum/weakref/lich_body
 	var/out_of_lives = FALSE
 
 	innate_traits = list(
@@ -40,6 +42,8 @@
 /datum/antagonist/lich/on_gain()
 	SSmapping.retainer.liches |= owner
 	. = ..()
+	if(ishuman(parent.current))
+		lich_body = WEAKREF(parent.current)
 	owner.special_role = name
 	skele_look()
 	equip_lich()
@@ -160,7 +164,13 @@
 		return TRUE
 
 /datum/antagonist/lich/proc/rise_anew()
-	var/mob/living/carbon/human/bigbad = owner.current
+	var/mob/living/carbon/human/bigbad
+	if(ishuman(owner.current))
+		bigbad = owner.current
+	else if(isbrain(owner.current))
+		var/mob/living/brain/lich_brain = owner.current
+		var/obj/item/bodypart/head/head = H.get_bodypart(BODY_ZONE_HEAD)
+
 	bigbad.revive(TRUE, TRUE)
 
 	for(var/obj/item/bodypart/B in bigbad.bodyparts)
