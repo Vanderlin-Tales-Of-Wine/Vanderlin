@@ -198,25 +198,18 @@ GLOBAL_LIST_INIT(vanderlin_round_stats, list(
 	STATS_DODGES = 0,
 ))
 
-// Features of the round
-#define FEATURED_STATS_TREE_FELLERS "TOP 10 Tree Fellers"
+GLOBAL_LIST_EMPTY(patron_follower_counts)
+
+// Featured stats of the round
+#define FEATURED_STATS_TREE_FELLERS "tree_fellers"
 
 GLOBAL_LIST_INIT(featured_stats, list(
 	FEATURED_STATS_TREE_FELLERS = list(
 		"name" = "Top Tree Fellers",
-		"color" = "#9b6937"
+		"color" = "#9b6937",
+		"entries" = list()
 	),
-	FEATURED_STATS_MONSTER_SLAYERS = list(
-		"name" = "Monster Slayers",
-		"color" = "#e6b327"
-	),
-	FEATURED_STATS_MASTER_CRAFTS = list(
-		"name" = "Master Craftsmen",
-		"color" = "#6b5ba1"
-	)
 ))
-
-GLOBAL_LIST_EMPTY(patron_follower_counts)
 
 /proc/get_featured_stat_display(stat_id)
 	var/list/stat_data = GLOB.featured_stats[stat_id]
@@ -228,17 +221,20 @@ GLOBAL_LIST_EMPTY(patron_follower_counts)
 	       format_top_three(stat_id)
 
 /proc/format_top_three(stat_category)
-	var/list/top = list()
-	var/list/stats = GLOB.featured_stats[stat_category]
-	for(var/name in stats)
-		top += list(list("name" = name, "count" = stats[name]))
+	var/list/stat_data = GLOB.featured_stats[stat_category]
+	if(!stat_data || !stat_data["entries"])
+		return "No data available"
 
-	top = sortList(top, /proc/cmp_stat_count_desc)
+	var/list/entries = list()
+	for(var/key in stat_data["entries"])
+		entries += list(list("name" = key, "count" = stat_data["entries"][key]))
+
+	entries = sortList(entries, /proc/cmp_stat_count_desc)
 
 	var/list/result = list()
-	for(var/i in 1 to min(3, top.len))
-		var/entry = top[i]
-		result += "[entry["name"]] ([entry["count"]])"
+	for(var/i in 1 to min(10, entries.len)) // Show top 10 instead of just 3
+		var/list/entry = entries[i]
+		result += "[i]. [entry["name"]] - [entry["count"]]"
 
 	return result.Join("<br>")
 

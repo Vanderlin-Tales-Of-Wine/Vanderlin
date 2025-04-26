@@ -219,8 +219,8 @@ GLOBAL_LIST_EMPTY(respawncounts)
 			else if(influence == SSgamemode.calculate_storyteller_influence(most_frequent.type) && prob(50))
 				most_frequent = initialized_storyteller
 
-	data += "<div style='text-align: center; margin: 25px 0 20px 0;'>"
-
+	// Gods display - properly centered
+	data += "<div style='text-align: center; margin: 25px auto; width: 80%; max-width: 800px;'>"
 	if(max_influence <= 0 && max_chosen <= 0)
 		data += "<div style='font-size: 1.2em; font-weight: bold; margin-bottom: 12px;'>"
 		data += "No <span style='color: #bd1717;'>Gods</span>, No <span style='color: #bd1717;'>Masters</span>"
@@ -239,33 +239,51 @@ GLOBAL_LIST_EMPTY(respawncounts)
 				data += "<div style='font-size: 1.2em; font-weight: bold; margin-bottom: 12px;'>"
 				data += "The longest reigning God was <span style='color:[most_frequent.color_theme];'>[most_frequent.name]</span>"
 				data += "</div>"
-
-	data += "<div style='border-top: 1.5px solid #444; margin: 15px auto 20px auto; width: 80%;'></div>"
+	data += "<div style='border-top: 1.5px solid #444; margin: 15px auto; width: 100%;'></div>"
 	data += "</div>"
 
-	// Main content container
-	data += "<div style='width: 100%; margin: 22.5px auto 0; padding: 0 5%; box-sizing: border-box;'>"
-
-	// Three Columns container
-	data += "<div style='display: table; margin: 0 auto; width: 100%;'>"
+	// Main stats container with aligned dividers
+	data += "<div style='display: table; width: 100%; border-spacing: 0; table-layout: fixed;'>"
 	data += "<div style='display: table-row;'>"
 
-	// Featured Statistics Column
-	data += "<div style='display: table-cell; width: 25%; padding-right: 15px; word-break: break-word; text-align: left; vertical-align: top;'>"
-	data += "<div style='text-align: center; margin-bottom: 15px;'>"
+	// Featured Statistics Column (25%)
+	data += "<div style='display: table-cell; width: 25%; vertical-align: top; padding-right: 15px;'>"
+
+	// Header with consistent height
+	data += "<div style='height: 38px; text-align: center;'>"
 	data += "<a href='byond://?src=[REF(src)];viewstats=1;featured_stat=[prev_stat]' style='color: #e6b327; text-decoration: none; font-weight: bold; margin-right: 10px; font-size: 1.2em;'>&#9664;</a>"
 	data += "<span style='font-weight: bold; color: #bd1717;'>Featured Statistics</span>"
 	data += "<a href='byond://?src=[REF(src)];viewstats=1;featured_stat=[next_stat]' style='color: #e6b327; text-decoration: none; font-weight: bold; margin-left: 10px; font-size: 1.2em;'>&#9654;</a>"
 	data += "</div>"
+
+	// Aligned divider
+	data += "<div style='border-top: 1px solid #444; width: 80%; margin: 0 auto 15px auto;'></div>"
+
 	data += "<div style='text-align: center; margin-bottom: 5px;'>"
 	data += "<font color='[GLOB.featured_stats[current_featured]["color"]]'><span class='bold'>[GLOB.featured_stats[current_featured]["name"]]</span></font>"
 	data += "</div>"
-	data += format_top_three(current_featured)
+	data += "<div style='text-align: center;'>"
+	data += "[length(GLOB.featured_stats[current_featured]["entries"]) ? format_top_three(current_featured) : "<div style='margin-top: 20px;'>Nobody</div>"]"
+	data += "</div>"
 	data += "</div>"
 
-	// General Statistics Columns
-	data += "<div style='display: table-cell; width: 20%; padding: 0 10px; word-break: break-word; text-align: left; vertical-align: top; border-left: 1px solid #444;'>"
-	data += "<div style='text-align: center; font-weight: bold; color: #bd1717; margin-bottom: 15px; padding-top: 10px;'>General Statistics</div>"
+	// General Statistics Section (40%)
+	data += "<div style='display: table-cell; width: 40%; vertical-align: top;'>"
+
+	// Header with same height
+	data += "<div style='height: 38px; text-align: center;'>"
+	data += "<span style='font-weight: bold; color: #bd1717;'>General Statistics</span>"
+	data += "</div>"
+
+	// Aligned divider
+	data += "<div style='border-top: 1px solid #444; width: 80%; margin: 0 auto 15px auto;'></div>"
+
+	// Two-column content
+	data += "<div style='display: table; width: 100%;'>"
+	data += "<div style='display: table-row;'>"
+
+	// Left column
+	data += "<div style='display: table-cell; width: 50%; vertical-align: top; border-left: 1px solid #444; padding: 0 10px;'>"
 	data += "<font color='#9b6937'><span class='bold'>Total Deaths:</span></font> [GLOB.vanderlin_round_stats[STATS_DEATHS]]<br>"
 	data += "<font color='#6b5ba1'><span class='bold'>Noble Deaths:</span></font> [GLOB.vanderlin_round_stats[STATS_NOBLE_DEATHS]]<br>"
 	data += "<font color='#e6b327'><span class='bold'>Holy Revivals:</span></font> [GLOB.vanderlin_round_stats[STATS_ASTRATA_REVIVALS]]<br>"
@@ -273,9 +291,8 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	data += "<font color='#ac5d5d'><span class='bold'>Ankles Broken:</span></font> [GLOB.vanderlin_round_stats[STATS_ANKLES_BROKEN]]<br>"
 	data += "</div>"
 
-	// Second General Statistics Column
-	data += "<div style='display: table-cell; width: 20%; padding: 0 10px; word-break: break-word; text-align: left; vertical-align: top;'>"
-	data += "<div style='height: 38px;'></div>"
+	// Right column
+	data += "<div style='display: table-cell; width: 50%; vertical-align: top; padding: 0 10px;'>"
 	data += "<font color='#e6d927'><span class='bold'>People Smitten:</span></font> [GLOB.vanderlin_round_stats[STATS_PEOPLE_SMITTEN]]<br>"
 	data += "<font color='#aa5320'><span class='bold'>Kleptomaniacs:</span></font> [GLOB.vanderlin_round_stats[STATS_KLEPTOMANIACS]]<br>"
 	data += "<font color='#8f816b'><span class='bold'>Items Stolen:</span></font> [GLOB.vanderlin_round_stats[STATS_ITEMS_PICKPOCKETED]]<br>"
@@ -283,9 +300,26 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	data += "<font color='#90a037'><span class='bold'>Laughs Had:</span></font> [GLOB.vanderlin_round_stats[STATS_LAUGHS_MADE]]<br>"
 	data += "</div>"
 
-	// Census Column
-	data += "<div style='display: table-cell; width: 17.5%; padding: 0 10px; word-break: break-word; text-align: left; vertical-align: top; border-left: 1px solid #444;'>"
-	data += "<div style='text-align: center; font-weight: bold; color: #bd1717; margin-bottom: 15px; padding-top: 10px;'>Census</div>"
+	data += "</div></div>"
+	data += "</div>"
+
+	// Census Section (35%)
+	data += "<div style='display: table-cell; width: 35%; vertical-align: top;'>"
+
+	// Header with same height
+	data += "<div style='height: 38px; text-align: center;'>"
+	data += "<span style='font-weight: bold; color: #bd1717;'>Census</span>"
+	data += "</div>"
+
+	// Aligned divider
+	data += "<div style='border-top: 1px solid #444; width: 80%; margin: 0 auto 15px auto;'></div>"
+
+	// Two-column content
+	data += "<div style='display: table; width: 100%;'>"
+	data += "<div style='display: table-row;'>"
+
+	// Left column
+	data += "<div style='display: table-cell; width: 50%; vertical-align: top; border-left: 1px solid #444; padding: 0 10px;'>"
 	data += "<font color='#36959c'><span class='bold'>Most Common Job:</span></font><br>"
 	data += "[get_most_common_job()]<br>"
 	data += "<font color='#a02fa4'><span class='bold'>Average Age:</span></font> [get_average_age()]<br>"
@@ -293,9 +327,8 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	data += "[get_gender_distribution()]<br>"
 	data += "</div>"
 
-	// Second Census Column
-	data += "<div style='display: table-cell; width: 17.5%; padding-left: 10px; word-break: break-word; text-align: left; vertical-align: top;'>"
-	data += "<div style='height: 38px;'></div>" // Spacer to align with title
+	// Right column
+	data += "<div style='display: table-cell; width: 50%; vertical-align: top; padding: 0 10px;'>"
 	data += "<font color='#6e7c81'><span class='bold'>Top Species:</span></font><br>"
 	data += "[get_most_common_species()]<br>"
 	data += "<font color='#bd1717'><span class='bold'>Unique Roles:</span></font><br>"
@@ -304,10 +337,13 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	data += "Coming Soon<br>"
 	data += "</div>"
 
-	data += "</div></div></div>"
+	data += "</div></div>"
+	data += "</div>"
+
+	data += "</div></div>"
 
 	// Confessions section
-	data += "<div style='text-align: center; margin: 17.5px auto 17.5px auto; padding: 15px 0; border-top: 1.5px solid #444; width: 80%; max-width: 800px;'>"
+	data += "<div style='text-align: center; margin: 25px auto; padding: 15px 0; border-top: 1.5px solid #444; width: 80%; max-width: 800px;'>"
 	if(GLOB.confessors.len)
 		data += "<font color='#93cac7'><span class='bold'>Confessions:</span></font> "
 		for(var/x in GLOB.confessors)
@@ -316,7 +352,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		data += "<font color='#93cac7'><span class='bold'>No confessions!</span></font>"
 	data += "</div>"
 
-	var/datum/browser/popup = new(src.mob, "vanderlin_stats", "<center>End Round Statistics</center>", 800, 650)
+	var/datum/browser/popup = new(src.mob, "vanderlin_stats", "<center>End Round Statistics</center>", 950, 650)
 	popup.set_content(data.Join())
 	popup.open()
 
