@@ -21742,7 +21742,7 @@
 "oAe" = (
 /obj/effect/mapping_helpers/door/locker,
 /obj/structure/mineral_door/wood/violet,
-/obj/effect/mapping_helpers/door/access/manor/mage,
+/obj/effect/mapping_helpers/door/access/town/tower,
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/magician)
 "oAj" = (
@@ -26045,8 +26045,7 @@
 /area/rogue/indoors/villagegarrison)
 "rzb" = (
 /obj/structure/chair/wood/alt/fancy{
-	dir = 1;
-	icon_state = "chair1"
+	dir = 1
 	},
 /obj/effect/landmark/start/mercenary{
 	dir = 1
@@ -28582,7 +28581,7 @@
 	name = "Cell Door"
 	},
 /obj/effect/mapping_helpers/door/locker,
-/obj/effect/mapping_helpers/door/access/manor/mage,
+/obj/effect/mapping_helpers/door/access/town/tower,
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/magician)
 "tkN" = (
@@ -35675,13 +35674,6 @@
 /obj/effect/mapping_helpers/door/access/manor/manor,
 /turf/open/floor/blocks/newstone/alt,
 /area/rogue/under/town/basement)
-"xOF" = (
-/obj/structure/fluff/buysign{
-	name = "Train to Kingsfield Reinstated"
-	},
-/obj/structure/industrial_lift/tram,
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/river)
 "xOM" = (
 /obj/structure/fake_machine/scomm/l,
 /turf/open/floor/tile{
