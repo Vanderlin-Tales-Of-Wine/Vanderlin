@@ -95,6 +95,14 @@
 			if(L.mind)
 				L.mind.adjust_experience(/datum/skill/misc/climbing, exp_to_gain, FALSE)
 
+/obj/structure/flora/newtree/attacked_by(obj/item/I, mob/living/user)
+	var/was_destroyed = obj_destroyed
+	. = ..()
+	if(.)
+		if(!was_destroyed && obj_destroyed && user?.real_name)
+			var/list/fellers = GLOB.featured_stats[FEATURED_STATS_TREE_FELLERS]
+			fellers[user.real_name] += 1
+
 /obj/structure/flora/newtree/fire_act(added, maxstacks)
 	. = ..()
 	if(.)
