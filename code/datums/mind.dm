@@ -780,12 +780,20 @@
 		var/mob/living/carbon/human/target = D.target.resolve()
 		var/obj/item/organ/heart/target_heart = D.target_heart.resolve()
 		var/obj/item/organ/heart/challenger_heart = D.challenger_heart.resolve()
+		var/target_heart_location
+		var/challenger_heart_location
+
+		if(target_heart)
+			target_heart_location = target_heart.owner ? target_heart.owner.prepare_deathsight_message() : lowertext(get_area_name(target_heart))
+
+		if(challenger_heart)
+			challenger_heart_location = challenger_heart.owner ? challenger_heart.owner.prepare_deathsight_message() : lowertext(get_area_name(challenger_heart))
 
 		if(recipient == challenger)
 			if(target)
 				if(target_heart && target_heart.owner && target_heart.owner != target) // Rival is not gone but their heart is in someone else
 					output += "<br>[target.real_name], the [target.job]"
-					output += "<br>Your rival's heart beats in [target_heart.owner.real_name]'s chest in the [lowertext(get_area_name(target_heart))]"
+					output += "<br>Your rival's heart beats in [target_heart.owner.real_name]'s chest in [target_heart_location]"
 					output += "<br>Retrieve and consume it to claim victory! Graggar will not forgive failure."
 				else
 					output += "<br>[target.real_name], the [target.job]"
@@ -793,11 +801,11 @@
 			else if(target_heart)
 				if(target_heart.owner && target_heart.owner != recipient)
 					output += "<br>Rival's Heart"
-					output += "<br>It's currently inside [target_heart.owner.real_name]'s chest in the [lowertext(get_area_name(target_heart))]"
+					output += "<br>It's currently inside [target_heart.owner.real_name]'s chest in [target_heart_location]"
 					output += "<br>Your rival is dead but their heart beats in another's chest. Retrieve and consume it to claim victory!"
 				else
 					output += "<br>Rival's Heart"
-					output += "<br>It's somewhere in the [lowertext(get_area_name(target_heart))]"
+					output += "<br>It's somewhere in [target_heart_location]"
 					output += "<br>Your rival is dead but their heart remains. Consume it to claim victory!"
 			else
 				continue
@@ -806,7 +814,7 @@
 			if(challenger)
 				if(challenger_heart && challenger_heart.owner && challenger_heart.owner != challenger) // Rival is not gone but their heart is in someone else
 					output += "<br>[challenger.real_name], the [challenger.job]"
-					output += "<br>Your rival's heart beats in [challenger_heart.owner.real_name]'s chest in the [lowertext(get_area_name(challenger_heart))]"
+					output += "<br>Your rival's heart beats in [challenger_heart.owner.real_name]'s chest in [challenger_heart_location]"
 					output += "<br>Retrieve and consume it to claim victory! Graggar will not forgive failure."
 				else
 					output += "<br>[challenger.real_name], the [challenger.job]"
@@ -814,11 +822,11 @@
 			else if(challenger_heart)
 				if(challenger_heart.owner && challenger_heart.owner != recipient)
 					output += "<br>Rival's Heart"
-					output += "<br>It's currently inside [challenger_heart.owner.real_name]'s chest in the [lowertext(get_area_name(challenger_heart))]"
+					output += "<br>It's currently inside [challenger_heart.owner.real_name]'s chest in [challenger_heart_location]"
 					output += "<br>Your rival is dead but their heart beats in another's chest. Retrieve and consume it to claim victory!"
 				else
 					output += "<br>Rival's Heart"
-					output += "<br>It's somewhere in the [lowertext(get_area_name(challenger_heart))]"
+					output += "<br>It's somewhere in [challenger_heart_location]"
 					output += "<br>Your rival is dead but their heart remains. Consume it to claim victory!"
 			else
 				continue

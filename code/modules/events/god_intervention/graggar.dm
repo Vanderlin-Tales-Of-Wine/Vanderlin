@@ -125,12 +125,15 @@ GLOBAL_LIST_EMPTY(graggar_cullings)
 		var/datum/culling_duel/new_duel = new(first_chosen, second_chosen)
 		GLOB.graggar_cullings += new_duel
 
+		var/first_chosen_location = first_chosen.prepare_deathsight_message()
+		var/second_chosen_location = second_chosen.prepare_deathsight_message()
+
 		// Notify first chosen
 		first_chosen.add_stress(/datum/stressevent/graggar_culling_unfinished)
 		first_chosen.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/extract_heart)
 		first_chosen.verbs |= /mob/living/carbon/human/proc/remember_culling
 		to_chat(first_chosen, span_red("Weak should feed the strong, that is Graggar's will. Prove that you are not weak by eating the heart of [span_notice(second_chosen.real_name)], the [second_chosen.job] and gain unimaginable power in turn. Fail, and you will be the one eaten."))
-		to_chat(first_chosen, span_red("[span_notice(second_chosen.real_name)], the [second_chosen.job] is somewhere in the [span_notice(lowertext(get_area_name(second_chosen)))]. Eat their heart before they eat yours!"))
+		to_chat(first_chosen, span_red("[span_notice(second_chosen.real_name)], the [second_chosen.job] is somewhere in the [span_notice(second_chosen_location)]. Eat their heart before they eat yours!"))
 		if(grand_culling)
 			to_chat(first_chosen, span_red("Graggar has decreed a GRAND CULLING! Many hearts will feed the strong todae!"))
 		SEND_SOUND(first_chosen, 'sound/magic/marked.ogg')
@@ -140,7 +143,7 @@ GLOBAL_LIST_EMPTY(graggar_cullings)
 		second_chosen.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/extract_heart)
 		second_chosen.verbs |= /mob/living/carbon/human/proc/remember_culling
 		to_chat(second_chosen, span_red("Weak should feed the strong, that is Graggar's will. Prove that you are not weak by eating the heart of [span_notice(first_chosen.real_name)], the [first_chosen.job] and gain unimaginable power in turn. Fail, and you will be the one eaten."))
-		to_chat(second_chosen, span_red("[span_notice(first_chosen.real_name)], the [first_chosen.job] is somewhere in the [span_notice(lowertext(get_area_name(first_chosen)))]. Eat their heart before they eat yours!"))
+		to_chat(second_chosen, span_red("[span_notice(first_chosen.real_name)], the [first_chosen.job] is somewhere in the [span_notice(first_chosen_location)]. Eat their heart before they eat yours!"))
 		if(grand_culling)
 			to_chat(second_chosen, span_red("Graggar has decreed a GRAND CULLING! Many hearts will feed the strong todae!"))
 		SEND_SOUND(second_chosen, 'sound/magic/marked.ogg')
