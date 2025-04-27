@@ -51,7 +51,7 @@
 	beltl = /obj/item/flashlight/flare/torch/lantern
 	neck = /obj/item/clothing/neck/bevor
 	armor = /obj/item/clothing/armor/leather/splint
-	backpack_contents = list(/obj/item/storage/keyring/inquisitor = 1)
+	backpack_contents = list(/obj/item/storage/keyring/inquisitor = 1, /obj/item/storage/belt/pouch/coins/rich)
 	var/prev_real_name = H.real_name
 	var/prev_name = H.name
 	var/honorary = "Ritter"

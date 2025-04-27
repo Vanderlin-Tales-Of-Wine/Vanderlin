@@ -6,4 +6,4 @@
 			L += "[i]"
 	if(!L.len)
 		return			//passed!
-	Fail("The following mobs are defined as anchored. This is incompatible with the new move force/resist system and needs to be revised.: [L.Join(" ")]")
+	TEST_FAIL("The following mobs are defined as anchored. This is incompatible with the new move force/resist system and needs to be revised.: [L.Join(" ")]")

@@ -26,7 +26,7 @@
 	var/obj/item/bodypart/head/bobs_head = bob.get_bodypart(BODY_ZONE_HEAD)
 	bobs_head.drop_limb()
 
-	TEST_ASSERT_EQUAL(alice.get_bodypart(BODY_ZONE_HEAD), null, "Alice still has a head after dismemberment")
+	TEST_ASSERT_NULL(alice.get_bodypart(BODY_ZONE_HEAD), "Alice still has a head after dismemberment")
 	TEST_ASSERT_EQUAL(alice.get_visible_name(), "Unknown", "Alice's head was dismembered, but they are not Unknown")
 
 	TEST_ASSERT_EQUAL(bobs_head.real_name, "Bob", "Bob's head does not remember that it is from Bob")
@@ -36,7 +36,7 @@
 	user.put_in_active_hand(bobs_head)
 	add_prosthetic.success(user, alice, BODY_ZONE_HEAD, bobs_head)
 
-	TEST_ASSERT(!isnull(alice.get_bodypart(BODY_ZONE_HEAD)), "Alice has no head after prosthetic replacement")
+	TEST_ASSERT_NOTNULL(alice.get_bodypart(BODY_ZONE_HEAD), "Alice has no head after prosthetic replacement")
 	TEST_ASSERT_EQUAL(alice.get_visible_name(), "Bob", "Bob's head was transplanted onto Alice's body, but their name is not Bob")
 
 /datum/unit_test/tend_wounds/Run()

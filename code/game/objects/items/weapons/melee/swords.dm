@@ -196,6 +196,7 @@
 	max_blade_int = 200
 	max_integrity = INTEGRITY_STRONG
 	wdefense = GOOD_PARRY
+	smeltresult = /obj/item/ingot/iron
 
 /obj/item/weapon/sword/short
 	force = DAMAGE_SHORTSWORD

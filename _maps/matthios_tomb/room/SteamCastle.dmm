@@ -301,7 +301,7 @@
 /turf/open/floor/churchmarble,
 /area/rogue/under/cave)
 "cZ" = (
-/mob/living/simple_animal/hostile/retaliate/troll,
+/mob/living/simple_animal/hostile/retaliate/troll/axe,
 /turf/open/floor/cobble,
 /area/rogue/under/cave)
 "dc" = (
@@ -3577,7 +3577,7 @@
 /area/rogue/under/cave)
 "NL" = (
 /obj/effect/decal/cleanable/blood,
-/mob/living/simple_animal/hostile/retaliate/troll,
+/mob/living/simple_animal/hostile/retaliate/troll/axe,
 /turf/open/floor/cobblerock,
 /area/rogue/under/cave)
 "NR" = (
@@ -3758,7 +3758,7 @@
 /turf/open/floor/tile/masonic/inverted,
 /area/rogue/under/cave)
 "PL" = (
-/mob/living/simple_animal/hostile/retaliate/troll,
+/mob/living/simple_animal/hostile/retaliate/troll/axe,
 /turf/open/floor/twig,
 /area/rogue/under/cave)
 "PP" = (

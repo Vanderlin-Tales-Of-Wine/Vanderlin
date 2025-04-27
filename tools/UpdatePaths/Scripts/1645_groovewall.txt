@@ -1,0 +1,1 @@
+/turf/closed/wall/mineral/craftstone{name = "Grooved Wall"} : /turf/closed/wall/mineral/craftstone

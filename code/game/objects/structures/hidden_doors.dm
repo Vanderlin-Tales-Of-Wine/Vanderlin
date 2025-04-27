@@ -72,6 +72,15 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 /obj/structure/mineral_door/secret/door_rattle()
 	return
 
+/obj/structure/mineral_door/secret/attack_hand(mob/user)
+	. = ..()
+	if(.)
+		return
+	user.changeNext_move(CLICK_CD_MELEE)
+	to_chat(user, span_notice("I start feeling around [src]"))
+	if(!do_after(user, 1.5 SECONDS, src))
+		return
+
 //can't kick it open, but you can kick it closed
 /obj/structure/mineral_door/secret/onkick(mob/user)
 	if(locked)
