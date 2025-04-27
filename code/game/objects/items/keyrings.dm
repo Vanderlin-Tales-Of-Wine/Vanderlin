@@ -11,7 +11,7 @@
 	dropshrink = 0
 	throwforce = 0
 	var/list/keys = list() //Used to generate starting keys on initialization, check contents instead for actual keys
-	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_NECK|ITEM_SLOT_MOUTH|ITEM_SLOT_WRISTS
+	slot_flags = ITEM_SLOT_HIP_L|ITEM_SLOT_HIP_R|ITEM_SLOT_NECK|ITEM_SLOT_MOUTH|ITEM_SLOT_WRISTS
 	experimental_inhand = FALSE
 	dropshrink = 0.7
 	drop_sound = 'sound/foley/dropsound/chain_drop.ogg'
@@ -110,7 +110,7 @@
 	dropshrink = 0
 	throwforce = 0
 	var/list/picks = list()
-	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_NECK|ITEM_SLOT_MOUTH|ITEM_SLOT_WRISTS
+	slot_flags = ITEM_SLOT_HIP_L|ITEM_SLOT_HIP_R|ITEM_SLOT_NECK|ITEM_SLOT_MOUTH|ITEM_SLOT_WRISTS
 	experimental_inhand = FALSE
 	dropshrink = 0.7
 
