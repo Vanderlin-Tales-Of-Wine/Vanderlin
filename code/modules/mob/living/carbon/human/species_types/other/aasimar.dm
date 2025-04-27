@@ -116,7 +116,7 @@
 /datum/species/aasimar/get_skin_list()
 	return sortList(list(
 		"Coral" = SKIN_COLOR_CORAL, // - (Pink)
-		"Blacksteel"	   = SKIN_COLOR_BLACKSTEEL, // - (Dark purple)
+		"Soapstone"	   = SKIN_COLOR_SOAPSTONE, // - (Seafoam green)
 		"Marble" = SKIN_COLOR_MARBLE, // - (White stone)
 		"Silver" = SKIN_COLOR_SILVER, // - (Grey)
 		"Copper" = SKIN_COLOR_COPPER, // - (Orange)
