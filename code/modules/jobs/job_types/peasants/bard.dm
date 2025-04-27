@@ -58,30 +58,15 @@
 
 /datum/job/bard/after_spawn(mob/living/carbon/spawned, client/player_client)
 	. = ..()
-	select_instrument(spawned, player_client)
-
-/datum/job/proc/select_instrument(mob/living/carbon/spawned, client/player_client)
-	set waitfor = FALSE
-
-	var/instruments = list(
-		"Harp" = /obj/item/instrument/harp,
+	spawned.select_equippable(player_client,
+		list("Harp" = /obj/item/instrument/harp,
 		"Lute" = /obj/item/instrument/lute,
 		"Accordion" = /obj/item/instrument/accord,
 		"Guitar" = /obj/item/instrument/guitar,
 		"Flute" = /obj/item/instrument/flute,
 		"Drum" = /obj/item/instrument/drum,
 		"Hurdy-Gurdy" = /obj/item/instrument/hurdygurdy,
-		"Viola" = /obj/item/instrument/viola)
-	var/timerid = addtimer(CALLBACK(src, PROC_REF(equip_instrument), spawned, player_client, instruments[pick(instruments)]), 20 SECONDS, TIMER_STOPPABLE)
-	var/instrument_choice = input(player_client, "Choose your instrument.", "XYLIX") as anything in instruments
-	if(SStimer.timer_id_dict[timerid])
-		deltimer(timerid)
-	else
-		return
-	var/spawn_instrument = instruments[instrument_choice]
-	if(!spawn_instrument)
-		spawn_instrument = instruments[pick(instruments)]
-	equip_instrument(spawned, player_client, spawn_instrument)
-
-/datum/job/proc/equip_instrument(mob/living/carbon/spawned, client/player_client, spawn_instrument)
-	spawned.equip_to_appropriate_slot(new spawn_instrument(get_turf(spawned)))
+		"Viola" = /obj/item/instrument/viola),
+		message = "Choose your instrument.",
+		title = "XYLIX"
+		)
