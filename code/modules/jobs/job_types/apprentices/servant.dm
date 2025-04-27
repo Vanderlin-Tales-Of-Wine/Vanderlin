@@ -187,7 +187,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/stealing, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/music, pick(0,1,1), TRUE)
 		H.change_stat(STATKEY_SPD, 1)
 		H.change_stat(STATKEY_END, 1)
