@@ -13,16 +13,16 @@
 #define STATS_MARRIED "married"
 #define STATS_MALE_POPULATION "male_population"
 #define STATS_FEMALE_POPULATION "female_population"
-#define STATS_OTHER_GENDER "other_gender"
+#define STATS_OTHER_GENDER "other_gender_population"
 #define STATS_CHILD_POPULATION "child_population"
 #define STATS_ELDERLY_POPULATION "elderly_population"
 
 // General statistics
 #define STATS_MOAT_FALLERS "moat_fallers"
 #define STATS_ANKLES_BROKEN "ankles_broken"
-#define STATS_PEOPLE_SMITTEN "people_smitten"
-#define STATS_TRIUMPHS_AWARDED "triumphs_awarded"
-#define STATS_TRIUMPHS_STOLEN "triumphs_stolen"
+#define STATS_PEOPLE_SMITTEN "smited"
+#define STATS_TRIUMPHS_AWARDED "triumph_gained"
+#define STATS_TRIUMPHS_STOLEN "triumph_lost"
 #define STATS_PRAYERS_MADE "prayers_made"
 #define STATS_KISSES_MADE "kisses_made"
 #define STATS_SKILLS_LEARNED "skills_learned"
@@ -57,7 +57,7 @@
 
 // Pestra
 #define STATS_POTIONS_BREWED "potions_brewed"
-#define STATS_WOUNDS_SEWED "wounds_healed"
+#define STATS_WOUNDS_SEWED "wounds_sewed"
 #define STATS_SOULS_REINCARNATED "souls_reincarnated"
 #define STATS_ANIMALS_BRED "animals_bred"
 #define STATS_FOOD_ROTTED "food_rotted"
@@ -107,18 +107,18 @@
 // Zizo
 #define STATS_ZIZO_PRAISED "zizo_praised"
 #define STATS_DEADITES_WOKEN_UP "deadites_woken_up"
-#define STATS_CLERGY_DEATHS "priest_deaths"
+#define STATS_CLERGY_DEATHS "clergy_deaths"
 #define STATS_TORTURES "tortures"
 
 // Graggar
-#define STATS_BLOOD_SPILT "blood_spilt"
+#define STATS_BLOOD_SPILT "blood_lost"
 #define STATS_ORGANS_EATEN "organs_eaten"
-#define STATS_PEOPLE_GIBBED "people_gibbed"
+#define STATS_PEOPLE_GIBBED "gibbed"
 #define STATS_ASSASSINATIONS "assassinations"
 #define STATS_LIMBS_BITTEN "limbs_bitten"
 
 // Baotha
-#define STATS_DRUGS_SNORTED "drugs_snorted"
+#define STATS_DRUGS_SNORTED "snorted_drugs"
 #define STATS_ALCOHOL_CONSUMED "alcohol_consumed"
 #define STATS_ALCOHOLICS "alcoholics"
 #define STATS_JUNKIES "junkies"
