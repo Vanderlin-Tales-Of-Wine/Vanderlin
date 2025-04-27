@@ -155,11 +155,23 @@
 		return
 
 	var/datum/patron/A = H.patron
-	var/list/spelllist = list(/obj/effect/proc_holder/spell/targeted/abrogation, A.t0)
-	for(var/spell_type in spelllist)
-		if(!spell_type || H.mind.has_spell(spell_type))
-			continue
-		H.mind.AddSpell(new spell_type)
+	if(istype(A, /datum/patron/divine/necra))
+		var/list/spelllist = list(
+			/obj/effect/proc_holder/spell/targeted/churn = A.t3,
+			/obj/effect/proc_holder/spell/invoked/lesser_heal = A.t0
+		)
+		//You need abrogation to get lesser_heal
+		for(var/spell_type in spelllist)
+			if(!spell_type || H.mind.has_spell(spell_type))
+				continue
+			H.mind.AddSpell(new spell_type)
+	else
+		var/list/spelllist = list(/obj/effect/proc_holder/spell/targeted/abrogation, A.t0)
+		for(var/spell_type in spelllist)
+			if(!spell_type || H.mind.has_spell(spell_type))
+				continue
+			H.mind.AddSpell(new spell_type)
+
 	level = CLERIC_T0
 	max_devotion = 230
 	max_progression = 230

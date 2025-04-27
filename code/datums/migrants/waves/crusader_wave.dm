@@ -63,6 +63,7 @@
 	greet_text = "Crusader of the true faith, you came from Grenzelhoft under the command of the Inquisitor. Obey them as they lead you to smite the heathens."
 	outfit = /datum/outfit/job/adventurer/crusader
 	allowed_races = RACES_PLAYER_GRENZ
+
 /datum/migrant_wave/crusade
 	name = "The Holy Crusade"
 	shared_wave_type = /datum/migrant_wave/crusade

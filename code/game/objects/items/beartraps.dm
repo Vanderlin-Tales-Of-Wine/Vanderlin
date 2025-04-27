@@ -40,7 +40,7 @@
 			add_mob_blood(C)
 			if(!BP.is_object_embedded(src))
 				BP.add_embedded_object(src)
-			close_trap()
+			close_trap(user)
 			C.visible_message("<span class='boldwarning'>[C] triggers \the [src].</span>", \
 					"<span class='userdanger'>I trigger \the [src]!</span>")
 			C.emote("agony")
@@ -67,7 +67,7 @@
 				add_mob_blood(C)
 				if(!BP.is_object_embedded(src))
 					BP.add_embedded_object(src)
-				close_trap()
+				close_trap(user)
 				C.visible_message("<span class='boldwarning'>[C] triggers \the [src].</span>", \
 						"<span class='userdanger'>I trigger \the [src]!</span>")
 				C.emote("agony")
@@ -84,7 +84,7 @@
 		user.visible_message("<span class='warning'>[user] triggers \the [src] with [W].</span>", \
 				"<span class='danger'>I trigger \the [src] with [W]!</span>")
 		W.take_damage(20)
-		close_trap()
+		close_trap(user, W)
 		if(isliving(user))
 			var/mob/living/L = user
 			L.update_sneak_invis(TRUE)
@@ -138,13 +138,13 @@
 					playsound(src.loc, 'sound/items/beartrap.ogg', 300, TRUE, -1)
 					return
 
-/obj/item/restraints/legcuffs/beartrap/proc/close_trap(atom/triggerer)
+/obj/item/restraints/legcuffs/beartrap/proc/close_trap(atom/triggerer, atom/item)
 	armed = FALSE
 	anchored = FALSE // Take it off the ground
 	alpha = 255
 	update_icon()
 	playsound(src.loc, 'sound/items/beartrap.ogg', 300, TRUE, -1)
-	triggerer.log_message("has stepped into the [src]!", LOG_ATTACK)
+	triggerer.log_message("has triggered the [src][item ? " with [item]" : ""]!", LOG_ATTACK)
 
 /obj/item/restraints/legcuffs/beartrap/Crossed(AM as mob|obj)
 	if(armed && isturf(loc))

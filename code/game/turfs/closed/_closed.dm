@@ -39,7 +39,7 @@
 			return
 
 /turf/closed/proc/feel_turf(mob/living/user)
-	to_chat(user, span_notice("I start feeling around the [src]"))
+	to_chat(user, span_notice("I start feeling around [src]"))
 	if(!do_after(user, 1.5 SECONDS, src))
 		return
 

@@ -25,12 +25,12 @@
 /mob/living/carbon/human/cure_husk(list/sources)
 	. = ..()
 	if(.)
-		update_hair()
+		update_body()
 
 /mob/living/carbon/human/become_husk(source)
 	. = ..()
 	if(.)
-		update_hair()
+		update_body()
 
 /mob/living/carbon/human/set_drugginess(amount)
 	..()

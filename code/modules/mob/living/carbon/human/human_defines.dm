@@ -20,17 +20,6 @@
 
 	var/last_sound //last emote so we have no doubles
 
-	//Hair colour and style
-	var/hair_color = "000"
-	var/hairstyle = "Bald"
-
-	//Facial hair colour and style
-	var/facial_hair_color = "000"
-	var/facial_hairstyle = "Shaved"
-
-	//Eye colour
-	var/eye_color = "000"
-
 	var/voice_color = "a0a0a0"
 
 	var/detail_color = "000"
