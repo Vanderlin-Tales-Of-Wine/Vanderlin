@@ -30,6 +30,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 		TRAIT_STEELHEARTED,
 		TRAIT_NOMOOD,
 		TRAIT_VILLAIN,
+		TRAIT_CRITICAL_RESISTANCE,
 	)
 
 #define iszizolackey(A) (A.mind?.has_antag_datum(/datum/antagonist/zizocultist))
