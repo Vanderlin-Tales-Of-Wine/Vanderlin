@@ -256,8 +256,7 @@
 
 	if(!check_rights())
 		return
-
-	M.fully_heal(admin_revive = TRUE)
+	M.revive(TRUE, TRUE)
 	message_admins("<span class='danger'>Admin [key_name_admin(usr)] healed / revived [key_name_admin(M)]!</span>")
 	log_admin("[key_name(usr)] healed / Revived [key_name(M)].")
 
@@ -478,14 +477,22 @@
 				delay = input("What delay should the restart have (in seconds)?", "Restart Delay", 5) as num|null
 				if(!delay)
 					return FALSE
+			SSplexora.restart_type = PLEXORA_SHUTDOWN_NORMAL
+			SSplexora.restart_requester = usr
 			SSticker.Reboot(init_by, "admin reboot - by [usr.key][usr.client.holder.fakekey ? " (stealth)" : ""]", delay SECONDS)
 		if(HARD_RESTART)
+			SSplexora.restart_type = PLEXORA_SHUTDOWN_HARD
+			SSplexora.restart_requester = usr
 			to_chat(world, "World reboot - [init_by]")
 			world.Reboot()
 		if(HARDEST_RESTART)
+			SSplexora.restart_type = PLEXORA_SHUTDOWN_HARDEST
+			SSplexora.restart_requester = usr
 			to_chat(world, "Hard world reboot - [init_by]")
 			world.Reboot(fast_track = TRUE)
 		if(TGS_RESTART)
+			SSplexora.restart_type = PLEXORA_SHUTDOWN_KILLDD
+			SSplexora.restart_requester = usr
 			to_chat(world, "Server restart - [init_by]")
 			world.TgsEndProcess()
 
@@ -687,7 +694,7 @@
 	if(preparsed.len > 1)
 		amount = CLAMP(text2num(preparsed[2]),1,ADMIN_SPAWN_CAP)
 
-	var/chosen = pick_closest_path(path)
+	var/atom/chosen = pick_closest_path(path)
 	if(!chosen)
 		return
 	var/turf/T = get_turf(usr)
@@ -701,6 +708,7 @@
 
 	log_admin("[key_name(usr)] spawned [amount] x [chosen] at [AREACOORD(usr)]")
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Spawn Atom") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	return initial(chosen.name)
 
 /datum/admins/proc/podspawn_atom(object as text)
 	set category = "Debug"

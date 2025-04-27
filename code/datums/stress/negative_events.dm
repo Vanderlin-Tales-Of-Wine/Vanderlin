@@ -270,17 +270,22 @@
 /datum/stressevent/tortured
 	stressadd = 3
 	max_stacks = 5
-	desc = "<span class='red'>I'm broken.</span>"
-	timer = 60 SECONDS
+	stressadd_per_extra_stack = 1
+	desc = span_red("I'm broken.")
+	timer = 5 MINUTES
 
-/datum/stressevent/confessed
-	stressadd = 3
-	desc = "<span class='red'>I've confessed to sin.</span>"
-	timer = 15 MINUTES
-
-/datum/stressevent/confessedgood
+/datum/stressevent/torture_small_penalty
 	stressadd = 1
-	desc = "<span class='red'>I've confessed to sin, it feels good.</span>"
+	max_stacks = 3
+	stressadd_per_extra_stack = 1
+	desc = span_red("I tortured an innocent...")
+	timer = 5 MINUTES
+
+/datum/stressevent/torture_large_penalty
+	stressadd = 3
+	max_stacks = 3
+	stressadd_per_extra_stack = 3
+	desc = span_red("I tortured a fellow believer!")
 	timer = 15 MINUTES
 
 /datum/stressevent/maniac
@@ -353,6 +358,11 @@
 	desc = span_red("This fare is really beneath me. I deserve better than this...")
 	timer = 5 MINUTES
 
+/datum/stressevent/tortured/on_apply(mob/living/user)
+	. = ..()
+	if(user.client)
+		GLOB.vanderlin_round_stats[STATS_TORTURES]++
+
 /datum/stressevent/noble_bad_manners
 	stressadd = 1
 	desc = span_red("I should've used a spoon...")
@@ -372,3 +382,13 @@
 	stressadd = 1
 	desc = span_red("It mocks me, toys with my mind!")
 	timer = 1 MINUTES
+
+/datum/stressevent/eora_marriage_call
+	stressadd = 2
+	desc = span_rose("Eora calls for me to be wed! I must find my destined partner before I die all alone...")
+	timer = 30 MINUTES
+
+/datum/stressevent/graggar_culling_unfinished
+	stressadd = 1
+	desc = span_red("I must eat my opponent's heart before he eats MINE!")
+	timer = INFINITY

@@ -27,6 +27,9 @@
 	give_bank_account = 60
 	cmode_music = 'sound/music/cmode/towner/CombatInn.ogg'
 
+/datum/outfit/job/innkeep
+	job_bitflag = BITFLAG_CONSTRUCTOR
+
 /datum/outfit/job/innkeep/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)

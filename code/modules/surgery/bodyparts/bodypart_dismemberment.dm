@@ -61,6 +61,8 @@
 			if(istype(C.buckled, /obj/structure/fluff/psycross) || istype(C.buckled, /obj/machinery/light/fueled/campfire/pyre))
 				if((C.real_name in GLOB.excommunicated_players) || (C.real_name in GLOB.heretical_players))
 					stress2give = /datum/stressevent/viewsinpunish
+			else if(istype(C.buckled, /obj/structure/guillotine))
+				stress2give = null
 	if(stress2give)
 		for(var/mob/living/carbon/CA in hearers(world.view, C))
 			if(CA != C && !HAS_TRAIT(CA, TRAIT_BLIND))
@@ -142,7 +144,7 @@
 		return FALSE
 	var/atom/drop_location = owner.drop_location()
 	var/mob/living/carbon/was_owner = owner
-	update_limb(dropping_limb = TRUE)
+	update_limb(TRUE, owner)
 
 	if(length(wounds))
 		var/list/stored_wounds = list()
@@ -179,11 +181,9 @@
 		was_owner.hand_bodyparts[held_index] = null
 	was_owner.bodyparts -= src
 	owner = null
-
 	update_icon_dropped()
 	was_owner.update_health_hud() //update the healthdoll
 	was_owner.update_body()
-	was_owner.update_hair()
 	was_owner.update_mobility()
 
 	// drop_location = null happens when a "dummy human" used for rendering icons on prefs screen gets its limbs replaced.
@@ -357,7 +357,7 @@
 				continue
 			C.surgeries -= body_zone
 
-	for(var/obj/item/organ/stored_organ in src)
+	for(var/obj/item/organ/stored_organ as anything in src)
 		stored_organ.Insert(C)
 
 	for(var/datum/wound/wound as anything in wounds)
@@ -372,7 +372,6 @@
 
 	C.updatehealth()
 	C.update_body()
-	C.update_hair()
 	C.update_damage_overlays()
 	C.update_mobility()
 
@@ -396,10 +395,6 @@
 
 	if(ishuman(C))
 		var/mob/living/carbon/human/H = C
-		H.hair_color = hair_color
-		H.hairstyle = hairstyle
-		H.facial_hair_color = facial_hair_color
-		H.facial_hairstyle = facial_hairstyle
 		H.lip_style = lip_style
 		H.lip_color = lip_color
 	if(real_name)

@@ -411,7 +411,7 @@
 				if(ishuman(A))
 					var/mob/living/carbon/human/U = src
 					var/mob/living/carbon/human/V = A
-					var/thiefskill = src.mind.get_skill_level(/datum/skill/misc/stealing)
+					var/thiefskill = src.mind.get_skill_level(/datum/skill/misc/stealing) + (has_world_trait(/datum/world_trait/matthios_fingers) ? 1 : 0)
 					var/stealroll = roll("[thiefskill]d6")
 					var/targetperception = (V.STAPER)
 					var/exp_to_gain = STAINT
@@ -448,7 +448,8 @@
 								put_in_active_hand(picked)
 								to_chat(src, span_green("I stole [picked]!"))
 								exp_to_gain *= src.mind.get_learning_boon(thiefskill)
-								GLOB.vanderlin_round_stats[STATS_ITEMS_PICKPOCKETED]++
+								if(V.client && V.stat != DEAD)
+									GLOB.vanderlin_round_stats[STATS_ITEMS_PICKPOCKETED]++
 								if(has_flaw(/datum/charflaw/addiction/kleptomaniac))
 									sate_addiction()
 							else

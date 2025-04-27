@@ -66,7 +66,7 @@
 	plane = GAME_PLANE
 	appearance_flags = PLANE_MASTER //should use client color
 	blend_mode = BLEND_OVERLAY
-	//render_target = GAME_PLANE_RENDER_TARGET
+	render_target = GAME_PLANE_RENDER_TARGET
 
 /atom/movable/screen/plane_master/game_world/backdrop(mob/mymob)
 	filters = list()
@@ -247,6 +247,13 @@
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	blend_mode = BLEND_MULTIPLY
 
+/atom/movable/screen/plane_master/fog_cutter
+	name = "fog cutting plane master"
+	layer = O_LIGHTING_VISUAL_LAYER
+	plane = PLANE_FOG_CUTTER
+	render_target = FOG_RENDER_TARGET
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	blend_mode = BLEND_MULTIPLY
 
 //Contains all weather overlays
 /atom/movable/screen/plane_master/weather_overlay
@@ -338,3 +345,20 @@
 		alpha = 0
 	else
 		alpha = 255
+
+//
+/atom/movable/screen/plane_master/reflective
+	name = "reflective plane master"
+	plane = REFLECTION_PLANE
+	appearance_flags = PLANE_MASTER
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+
+/atom/movable/screen/plane_master/reflective/Initialize(mapload)
+	. = ..()
+	add_filter("motion_blur", 1.4, motion_blur_filter(y = 0.7))
+	filters += filter(type="alpha", render_source = REFLECTIVE_DISPLACEMENT_PLANE_RENDER_TARGET)
+
+/atom/movable/screen/plane_master/reflective_cutter
+	name = "reflective_cutting_plane"
+	plane = REFLECTIVE_DISPLACEMENT_PLANE
+	render_target = REFLECTIVE_DISPLACEMENT_PLANE_RENDER_TARGET

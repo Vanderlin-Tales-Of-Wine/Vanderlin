@@ -59,6 +59,9 @@
 
 	if(client || mind)
 		GLOB.vanderlin_round_stats[STATS_DEATHS]++
+		var/area_of_death = lowertext(get_area_name(src))
+		if(area_of_death == "wilderness")
+			GLOB.vanderlin_round_stats[STATS_FOREST_DEATHS]++
 		if(is_noble())
 			GLOB.vanderlin_round_stats[STATS_NOBLE_DEATHS]++
 		if(ishumannorthern(src))
@@ -72,8 +75,9 @@
 				GLOB.vanderlin_round_stats[STATS_DEADITES_KILLED]++
 
 	if(!gibbed)
-		if(!is_in_roguetown(src))
-			zombie_check()
+		if(!has_world_trait(/datum/world_trait/necra_requiem))
+			if(!is_in_roguetown(src) || has_world_trait(/datum/world_trait/zizo_defilement))
+				zombie_check()
 
 	stop_sound_channel(CHANNEL_HEARTBEAT)
 	var/obj/item/organ/heart/H = getorganslot(ORGAN_SLOT_HEART)

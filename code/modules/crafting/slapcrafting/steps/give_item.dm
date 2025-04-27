@@ -85,6 +85,12 @@
 	desc = "Add a riddle of steel."
 	item_types = list(/obj/item/riddleofsteel)
 
+/datum/slapcraft_step/item/steel
+	desc = "Add a steel ingot."
+	item_types = list(/obj/item/ingot/steel)
+
+/datum/slapcraft_step/item/steel/second
+
 /datum/slapcraft_step/item/plank
 	desc = "Add a wooden plank."
 	item_types = list(/obj/item/natural/wood/plank)

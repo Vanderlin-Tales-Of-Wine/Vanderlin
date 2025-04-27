@@ -8,7 +8,7 @@
 /turf/open/floor/blocks/paving/vert,
 /area/rogue/outdoors/caves)
 "d" = (
-/mob/living/simple_animal/hostile/retaliate/troll,
+/mob/living/simple_animal/hostile/retaliate/troll/axe,
 /obj/structure/fluff/nest,
 /obj/item/alch/bone,
 /obj/item/clothing/head/hatfur,

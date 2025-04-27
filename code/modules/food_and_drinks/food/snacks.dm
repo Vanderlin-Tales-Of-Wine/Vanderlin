@@ -167,6 +167,7 @@ All foods are distributed among various categories. Use common sense.
 			qdel(src)
 			if(!location || !SEND_SIGNAL(location, COMSIG_TRY_STORAGE_INSERT, NU, null, TRUE, TRUE))
 				NU.forceMove(get_turf(NU.loc))
+			GLOB.vanderlin_round_stats[STATS_FOOD_ROTTED]++
 			return TRUE
 	else
 		color = "#6c6897"
@@ -179,6 +180,7 @@ All foods are distributed among various categories. Use common sense.
 		cooktime = 0
 		modified = TRUE
 		rot_away_timer = QDEL_IN(src, 10 MINUTES)
+		GLOB.vanderlin_round_stats[STATS_FOOD_ROTTED]++
 		return TRUE
 
 
@@ -312,6 +314,8 @@ All foods are distributed among various categories. Use common sense.
 	eater.taste(reagents)
 
 	if(!reagents.total_volume)
+		if(faretype == FARE_LAVISH || faretype == FARE_FINE)
+			GLOB.vanderlin_round_stats[STATS_LUXURIOUS_FOOD_EATEN]++
 		var/atom/current_loc = loc
 		qdel(src)
 		if(isliving(current_loc))

@@ -24,6 +24,8 @@
 			user.add_stress(/datum/stressevent/ugly_self)
 		else
 			user.add_stress(/datum/stressevent/ugly)
+	if(HAS_TRAIT(src, TRAIT_OLDPARTY) && HAS_TRAIT(user, TRAIT_OLDPARTY) && user != src)
+		user.add_stress(/datum/stressevent/saw_old_party)
 
 /mob/living/carbon/human/examine(mob/user)
 //this is very slightly better than it was because you can use it more places. still can't do \his[src] though.
@@ -141,23 +143,26 @@
 			. += span_userdanger("HERETIC! SHAME!")
 
 		if(real_name in GLOB.outlawed_players)
-			. += "<span class='userdanger'>OUTLAW!</span>"
+			. += span_userdanger("OUTLAW!")
 
 		if(iszizocultist(user) || iszizolackey(user))
 			if(virginity)
-				. += "<span class='userdanger'>VIRGIN!</span>"
+				. += span_userdanger("VIRGIN!")
 
 		if(mind && mind.special_role)
 			if(mind && mind.special_role == "Bandit" && HAS_TRAIT(user, TRAIT_KNOWBANDITS))
-				. += "<span class='userdanger'>BANDIT!</span>"
+				. += span_userdanger("BANDIT!")
 			if(mind && mind.special_role == "Vampire Lord")
-				. += "<span class='userdanger'>A MONSTER!</span>"
+				. += span_userdanger("A MONSTER!")
 
 		var/list/known_frumentarii = user.mind?.cached_frumentarii
 		if(name in known_frumentarii)
 			. += span_greentext("<b>[m1] an agent of the court!</b>")
 
 		if(user != src)
+			if(HAS_TRAIT(src, TRAIT_OLDPARTY) && HAS_TRAIT(user, TRAIT_OLDPARTY))
+				. += span_green("Ahh... my old friend!")
+
 			if(HAS_TRAIT(src, TRAIT_THIEVESGUILD) && HAS_TRAIT(user, TRAIT_THIEVESGUILD))
 				. += span_green("A member of the Thieves Guild.")
 
@@ -179,7 +184,7 @@
 					if(shit)
 						. += shit
 		if(user.mind?.has_antag_datum(/datum/antagonist/vampire))
-			. += "<span class='userdanger'>Blood Volume: [blood_volume]</span>"
+			. += span_userdanger("Blood Volume: [blood_volume]")
 		if(HAS_TRAIT(user, TRAIT_MATTHIOS_EYES))
 			var/atom/item = get_most_expensive()
 			if(item)
@@ -262,7 +267,7 @@
 	if(wear_neck && !(SLOT_NECK in obscured))
 		. += "[m3] [wear_neck.get_examine_string(user)] around [m2] neck."
 
-	if(eye_color == BLOODCULT_EYE)
+	if(get_eye_color() == BLOODCULT_EYE)
 		. += "<span class='warning'><B>[capitalize(m2)] eyes are glowing an unnatural red!</B></span>"
 
 	//ears
@@ -564,6 +569,7 @@
 			. += "<a href='byond://?src=[REF(src)];inspect_limb=[checked_zone]'>Inspect [parse_zone(checked_zone)]</a>"
 			if(!(mobility_flags & MOBILITY_STAND) && user != src && (user.zone_selected == BODY_ZONE_CHEST))
 				. += "<a href='byond://?src=[REF(src)];check_hb=1'>Listen to Heartbeat</a>"
+		. += "<a href='byond://?src=[REF(src)];view_descriptors=1'>Look at Features</a>"
 
 	// Characters with the hunted flaw will freak out if they can't see someone's face.
 	if(!appears_dead)
@@ -571,11 +577,7 @@
 			user.add_stress(/datum/stressevent/hunted)
 
 	if(!obscure_name && (flavortext || (headshot_link && src.client?.patreon?.has_access(ACCESS_ASSISTANT_RANK)))) // only show flavor text if there is a flavor text and we show headshot
-		. += "<a href='?src=[REF(src)];task=view_flavor_text;'>Examine closer</a>"
-
-	var/list/lines = build_cool_description(get_mob_descriptors(obscure_name, user), src)
-	for(var/line in lines)
-		. += span_info(line)
+		. += "<a href='?src=[REF(src)];task=view_flavor_text;'>Examine Closer</a>"
 
 	var/trait_exam = common_trait_examine()
 	if(!isnull(trait_exam))

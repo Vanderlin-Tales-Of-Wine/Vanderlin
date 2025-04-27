@@ -108,6 +108,7 @@
 #define span_phobia(str) ("<span class='phobia'>" + str + "</span>")
 #define span_prefix(str) ("<span class='prefix'>" + str + "</span>")
 #define span_purple(str) ("<span class='purple'>" + str + "</span>")
+#define span_lightpurple(str) ("<span class='lightpurple'>" + str + "</span>")
 #define span_radio(str) ("<span class='radio'>" + str + "</span>")
 #define span_reallybig(str) ("<span class='reallybig'>" + str + "</span>")
 #define span_reallybigboldnotice(str) ("<span class='reallybigboldnotice'>" + str + "</span>")
@@ -155,6 +156,7 @@
 #define span_warningbig(str) ("<span class='warningbig'>" + str + "</span>")
 #define span_yell(str) ("<span class='yell'>" + str + "</span>")
 #define span_yellowteamradio(str) ("<span class='yellowteamradio'>" + str + "</span>")
+#define span_silver(str) ("<span class='silver'>" + str + "</span>")
 
 /* ROGUE */
 #define span_artery(str) ("<span class='artery'>" + str + "</span>")

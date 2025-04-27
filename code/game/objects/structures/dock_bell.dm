@@ -1,5 +1,5 @@
 /obj/structure/dock_bell
-	name = "Dock Bell"
+	name = "dock bell"
 	desc = "A loud bell that carries its sound to the nearby ports. Signals to merchants that the dock has wares to sell."
 
 
@@ -9,7 +9,7 @@
 
 	COOLDOWN_DECLARE(ring_bell)
 	COOLDOWN_DECLARE(outsider_ring_bell)
-	var/static/approved_jobs = list(/datum/job/merchant, /datum/job/grabber, /datum/job/steward, /datum/job/gaffer)
+	var/static/approved_jobs = list(/datum/job/merchant, /datum/job/grabber, /datum/job/steward, /datum/job/shophand)
 	max_integrity = 999999
 
 /obj/structure/dock_bell/examine(mob/user)

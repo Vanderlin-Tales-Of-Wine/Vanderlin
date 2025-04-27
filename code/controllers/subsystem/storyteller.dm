@@ -118,6 +118,11 @@ SUBSYSTEM_DEF(gamemode)
 		)
 
 
+	//Gods dreams for the dreamwatcher
+	var/list/god_dreams = list()
+	
+	//Antag dreams for the dreamwatcher
+	var/list/antag_dreams = list()
 
 	/// Associative list of control events by their track category. Compiled in Init
 	var/list/event_pools = list()
@@ -182,7 +187,6 @@ SUBSYSTEM_DEF(gamemode)
 	flags |= SS_NO_FIRE
 	return ..()
 #endif
-
 	// Populate event pools
 	for(var/track in event_tracks)
 		event_pools[track] = list()
@@ -202,6 +206,188 @@ SUBSYSTEM_DEF(gamemode)
 			continue // event isn't good for this map no point in trying to add it to the list
 		control += event //add it to the list of all events (controls)
 
+		///List of Possible influence dreams for the Dreamwatcher
+		god_dreams = list(
+		
+			//Divine Pantheon
+
+			"Psydon" = list(
+				"...golden threads drift through the void, stitching stars where wounds once were... something sacred stirs beneath the quiet...",
+				"...a vast warmth flickers behind your closed eyes... broken pieces drift, searching for their whole...",
+				"...you walk among ruins humming with warmth... pieces of something divine lie scattered, each pulse a memory, each breath a promise..."
+			),
+		
+			"Astrata"= list(
+				"...radiance floods your dream... it’s not warmth, but judgment disguised as light...",
+				"...you dream of unending sunrise, gold pouring over endless skies... judgment walks in daylight’s shoes...",
+				"...a glare pierces your soul... you feel seen, judged, burned, yet safe... the light watches, unwavering and eternal..."
+			),
+		
+			"Noc" = list(
+				"...silver light spills across ink-black halls... you hear pages fluttering without wind, and a voice speaks in riddles...",
+				"...a tapestry of stars weaves itself in your mind... patterns emerge and vanish, revealing truths never spoken aloud...",
+				"...moonlight coils into a key... you reach for it, but your hands are made of questions..."
+			),
+
+			"Necra"= list(
+				"...the dream begins with a closed door... you knock. Silence answers... when it opens, everything you were is counted, weighed...",
+				"...everything is still... you are the last heartbeat in a world already buried... a cold smile waits just past the veil...",
+				"...a quiet woman sits by a river made of ash... she nods once, counting your breath..."
+			),
+		
+			"Pestra"= list(
+				"...your dream wilts, then blooms. A garden of endings and beginnings surrounds you...",
+				"...you hold your own bones like seeds. Rain falls, and they whisper with life...",
+				"...you see a flower bloom in ash. It dies and returns, brighter, stranger. The rhythm of endings comforts you...",
+			),
+		
+			"Ravox"= list(
+				"...a sword rests beside a scale... neither tips...",
+				"...steel sings in your dreams... a verdict is written in blood and flame, but justice waits before it lands...",
+				"...you duel a mirror image of yourself... the victor is neither, yet the fight continues... law and war share the same breath..."
+			),
+
+			"Malum"= list(
+				"...hammers echo through your sleep... something is being made, perhaps you...",
+				"...your hands ache... you build something vast, but can never see the whole... sparks kiss your skin, and you smile...",
+				"...endless clanging fills your mind... with each strike, something within you hardens, reforged in smoke and effort..."
+			),
+		
+			"Dendor"= list(
+				"...animals scream in tongues you almost understand... trees whisper old pain, searching for their shepherd...",
+				"...vines coil around your limbs. Roots burst from your feet... the forest within you howls, a kingdom lost to madness...",
+				"...eyes glow among tangled thorns... something ancient, betrayed, hungers again..."
+			),
+		
+			"Abyssor"= list(
+				"...the sea invades your lungs... a storm of blood and salt rises...",
+				"...fins brush past your legs... the water tastes of fury and old wounds...",
+				"...tides drag you under... in the silence, you hear sobbing, not yours... the sea remembers every wound..."
+			),
+
+		
+			"Xylix"= list(
+				"...you laugh without knowing why... your reflection winks back as a stranger...",
+				"...you wear masks you’ve never owned... each one laughs in a new voice... you are a guest in your own skin...",
+				"...every path splits... every answer lies... yet you smile... trickery is truth when worn well..."
+			),
+		
+			"Eora"= list(
+				"...you dream in color,red threads, gold loops, blue knots... all pulling gently...",
+				"...a weaving surrounds you... every face you’ve loved or hated is there...",
+				"...your heart is a loom... dreams pass through it, weaving bonds to people you’ve never met, yet feel you’ve always known..."
+			),
+			
+			//Inhumen Pantheon
+			
+			"Matthios"= list(
+				"...a shadow slips your pocket open... you feel lighter in your dream...",
+				"...a purse vanishes from your belt... a laugh echoes in your ears... you check your pockets, your name is gone...",
+				"...you follow footprints that vanish behind you... no one walks beside you, yet you’re never alone..."
+			),
+		
+			"Baotha" = list(
+				"...everything glows with joy... then it melts, and you, giggle anyway...",
+				"...you float through a city of glass, laughter echoing in colors... you smile with no mouth and sing without sound...",
+				"...your body dances without thought... every breath tastes like honey and smoke... you forget, and it feels divine..."
+			),
+		
+			"Graggar"= list(
+				"...your mouth is not your own... it’s laughing, snarling, hungry...",
+				"...you tear through flesh with joy... your dream is soaked in red... hunger knows your name, and calls you friend...",
+				"...an ancient drum beats under your ribs... it demands violence in return for peace..."
+			),
+		
+			"Zizo"= list(
+				"...eyes stare from skulls that still weep... you cradle a child made of frost and ash... it whispers secrets backwards...",
+				"...your name is forgotten by everyone in your dream... only bones remember...",
+				"...a girl with white eyes smiles at you... her lullaby stitches flesh to spirit..."
+			),
+			
+			"Unknown" = list("You feel a presence watching your sleep... old, vast, and unknowable. You do not yet know their name.")
+		)
+
+		///List of possible antag dreams for the dream watcher
+		antag_dreams = list(
+			/datum/antagonist/vampire/lord = list(
+					"... a pale figure watches from afar... its gaze weighs heavy on your soul",
+					"... red velvet, torn and trailing... a presence unseen but always near",
+					"... a name you cannot remember sits on your tongue... it tastes of blood and dust"
+				),
+			/datum/antagonist/vampire = list(
+					"... a hand reaches from the dark... obedient, yet trembling",
+					"... you kneel, not knowing why... the voice behind you compels it",
+					"... a collar of roses and rust... worn by the willing"
+				),
+			/datum/antagonist/vampire/lesser = list (
+					"... fangs bloom from cracked lips... hunger shudders through the air",
+					"... you see your reflection... it smiles with borrowed teeth",
+					"... a laugh beneath floorboards... young, broken, blood-wet"
+				),
+			/datum/antagonist/lich = list (
+					"... a cold wind whispers names no longer spoken",
+					"... the tower bleeds light... skeletal hands trace forbidden runes",
+					"... bones rattle in a jar... they whisper of eternity"
+				),
+			/datum/antagonist/werewolf = list(
+					"... fur and fury rise... the moon stains the sky",
+					"... howling splits the silence... your hands ache with claws",
+					"... you wake with dirt under your nails... and a taste of fur"
+				),
+			/datum/antagonist/werewolf/lesser = list(
+					"... bones snap in rhythm... hunger guides their paws",
+					"... they follow the alpha's scent... and dream of killing him",
+					"... a low growl rumbles under moonlight... fur and fury rise"
+				),
+			/datum/antagonist/zizocultist = list(
+					"...a circle chants beneath shifting stars... their eyes are wrong",
+					"...ink flows upward... the words burn in reverse",
+					"...your thoughts are not your own... they hum in unison"
+				),
+			/datum/antagonist/zizocultist/leader = list(
+					"... a silent servant tends to a spiral... it never ends",
+					"... you hand someone a book... you've never seen it before",
+					"... something stands just behind your shoulder... always just behind"
+				),
+			/datum/antagonist/prebel = list(
+					"... muddy boots march across broken fields... fire follows",
+					"... the crowd roars without faces... you hold the torch",
+					"... a scythe buried in stone... your hand fits its grip perfectly"
+				),
+			/datum/antagonist/prebel/head = list(
+					"... a crowned figure of burlap and ash... they speak with your voice",
+					"... a throne made of pitchforks... it wobbles with every heartbeat",
+					"... children chant in the ruins... the rhythm carries a blade"
+				),
+			/datum/antagonist/aspirant = list(
+					"...you climb a tower of mirrors... none reflect the same face",
+					"...a blade sings your name... but you've never heard it before",
+					"...the stars rearrange themselves... spelling failure"
+				),
+			/datum/antagonist/bandit = list(
+					"... coin clinks like bone... your pockets are never full",
+					"... a dagger flickers in the candlelight... too fast to see",
+					"... a mask laughs... the voice behind it is yours"
+				),
+			/datum/antagonist/assassin = list(
+					"... a shadow parts from your own... and doesn't return",
+					"... footsteps on the ceiling... you hold your breath",
+					"... ink-black gloves close around your throat... gently"
+				),
+			/datum/antagonist/maniac = list(
+					"... a door opens inside a room that shouldn't exist... behind it, a thousand mirrors... none show your face",
+					"... you hear the world breathe... a hiss, a code, a loop... someone is watching from behind the glass",
+					"... you see structures made of meat and bone... they form words you can almost understand... then collapse"
+				),
+			"Unknown" = list(
+					"... something lingers in the darkness",
+					"... you feel an unseen presence watching",
+					"... the air grows heavy with forgotten whispers"
+				)
+		)
+
+
+		
 	load_config_vars()
 	load_event_config_vars()
 
@@ -217,8 +403,7 @@ SUBSYSTEM_DEF(gamemode)
 
 /datum/controller/subsystem/gamemode/fire(resumed = FALSE)
 	if(last_devotion_check < world.time)
-		refresh_alive_stats()
-		pick_most_devoted()
+		pick_most_influential()
 		last_devotion_check = world.time + 2 MINUTES
 
 	if(SSticker.HasRoundStarted() && (world.time - SSticker.round_start_time) >= ROUNDSTART_VALID_TIMEFRAME)
@@ -661,7 +846,7 @@ SUBSYSTEM_DEF(gamemode)
 		secret_storyteller = TRUE
 		selected_storyteller = pickweight(get_valid_storytellers(TRUE))
 		return
-	pick_most_devoted(TRUE)
+	pick_most_influential(TRUE)
 
 /datum/controller/subsystem/gamemode/proc/storyteller_vote_choices()
 	var/list/final_choices = list()
@@ -715,10 +900,9 @@ SUBSYSTEM_DEF(gamemode)
 		message_admins("Attempted to set an invalid storyteller type: [passed_type], force setting to guide instead.")
 		current_storyteller = storytellers[/datum/storyteller/astrata] //if we dont have any then we brick, lets not do that
 		CRASH("Attempted to set an invalid storyteller type: [passed_type].")
+	var/datum/storyteller/chosen_storyteller = storytellers[passed_type]
+	chosen_storyteller.times_chosen++
 	current_storyteller = storytellers[passed_type]
-	if(!secret_storyteller)
-		send_to_playing_players(span_notice("<b>Storyteller is [current_storyteller.name]!</b>"))
-		send_to_playing_players(span_notice("[current_storyteller.welcome_text]"))
 
 /// Panel containing information, variables and controls about the gamemode and scheduled event
 /datum/controller/subsystem/gamemode/proc/admin_panel(mob/user)
@@ -1046,44 +1230,47 @@ SUBSYSTEM_DEF(gamemode)
 			listed.occurrences++
 			listed.occurrences++
 
-/datum/controller/subsystem/gamemode/proc/pick_most_devoted(roundstart = FALSE)
-	var/list/storytellers_with_votes = list()
-	for(var/client/client in GLOB.clients)
-		var/mob/living/living = client.mob
-		if(!istype(living))
-			continue
-		if(!roundstart)
-			if(!living.mind)
-				continue
-			if(living.stat == DEAD)
-				continue
-			if(!living.patron)
-				continue
-			if(!initial(living.patron.storyteller))
-				continue
-			storytellers_with_votes |= initial(living.patron.storyteller)
-			storytellers_with_votes[initial(living.patron.storyteller)]++
-		else
-			storytellers_with_votes |= initial(client.prefs.selected_patron.storyteller)
-			storytellers_with_votes[initial(client.prefs.selected_patron.storyteller)]++
-
-	var/datum/storyteller/highest
-	for(var/datum/storyteller/listed as anything in storytellers_with_votes)
-		if(!highest)
-			highest = listed
-			continue
-		if(storytellers_with_votes[listed] < storytellers_with_votes[highest])
-			continue
-
-		if(storytellers_with_votes[listed] == storytellers_with_votes[highest] && prob(50))
-			continue
-		highest = listed
-	if(!highest)
-		return
-	set_storyteller(highest)
-
 /// Compares influence of all storytellers and sets a new storyteller with a highest influence
 /datum/controller/subsystem/gamemode/proc/pick_most_influential(roundstart = FALSE)
+	refresh_alive_stats(roundstart)
+	var/list/storytellers_with_influence = list()
+	var/datum/storyteller/highest
+	var/datum/storyteller/lowest
+
+	for(var/storyteller_type in storytellers)
+		var/datum/storyteller/initialized_storyteller = storytellers[storyteller_type]
+		if(!initialized_storyteller)
+			continue
+		var/influence = calculate_storyteller_influence(storyteller_type)
+		storytellers_with_influence[initialized_storyteller] = influence
+
+		if(!highest)
+			highest = initialized_storyteller
+			lowest = initialized_storyteller
+			continue
+
+		if(influence > storytellers_with_influence[highest])
+			highest = initialized_storyteller
+		else if(influence == storytellers_with_influence[highest] && prob(50))
+			highest = initialized_storyteller
+
+		if(influence < storytellers_with_influence[lowest])
+			lowest = initialized_storyteller
+		else if(influence == storytellers_with_influence[lowest] && prob(50))
+			lowest = initialized_storyteller
+
+	if(!highest)
+		return
+
+	if(storytellers_with_influence[highest] > 1)
+		highest.bonus_points -= 1
+
+	lowest.bonus_points += 1
+
+	set_storyteller(highest.type)
+
+///To get the most influential God
+/datum/controller/subsystem/gamemode/proc/get_most_influential(roundstart = FALSE)
 	var/list/storytellers_with_influence = list()
 	var/datum/storyteller/highest
 	for(var/datum/storyteller/initalized_storyteller as anything in storytellers)
@@ -1096,12 +1283,15 @@ SUBSYSTEM_DEF(gamemode)
 		if(storytellers_with_influence[initalized_storyteller] == storytellers_with_influence[highest] && prob(50))
 			continue
 		highest = initalized_storyteller
-	if(!highest)
-		return
-	set_storyteller(highest)
+	return highest
+
 
 /// Refreshes statistics regarding alive statuses of certain professions or antags, like nobles
-/datum/controller/subsystem/gamemode/proc/refresh_alive_stats()
+/datum/controller/subsystem/gamemode/proc/refresh_alive_stats(roundstart = FALSE)
+	if(SSticker.current_state == GAME_STATE_FINISHED)
+		return
+
+	GLOB.patron_follower_counts.Cut()
 	GLOB.vanderlin_round_stats[STATS_ALIVE_NOBLES] = 0
 	GLOB.vanderlin_round_stats[STATS_ILLITERATES] = 0
 	GLOB.vanderlin_round_stats[STATS_WEREVOLVES] = 0
@@ -1113,8 +1303,11 @@ SUBSYSTEM_DEF(gamemode)
 	GLOB.vanderlin_round_stats[STATS_GREEDY_PEOPLE] = 0
 	GLOB.vanderlin_round_stats[STATS_PARENTS] = 0
 	GLOB.vanderlin_round_stats[STATS_ALIVE_TIEFLINGS] = 0
+	GLOB.vanderlin_round_stats[STATS_PACIFISTS] = 0
 
 	for(var/client/client in GLOB.clients)
+		if(roundstart)
+			GLOB.patron_follower_counts[client.prefs.selected_patron.name]++
 		var/mob/living/living = client.mob
 		if(!istype(living))
 			continue
@@ -1122,6 +1315,9 @@ SUBSYSTEM_DEF(gamemode)
 			continue
 		if(living.stat == DEAD)
 			continue
+		if(!roundstart)
+			if(living.patron)
+				GLOB.patron_follower_counts[living.patron.name]++
 		if(living.mind.has_antag_datum(/datum/antagonist/werewolf))
 			GLOB.vanderlin_round_stats[STATS_WEREVOLVES]++
 		if(living.mind.has_antag_datum(/datum/antagonist/zombie) || living.mind.has_antag_datum(/datum/antagonist/skeleton) || living.mind.has_antag_datum(/datum/antagonist/lich))
@@ -1142,6 +1338,8 @@ SUBSYSTEM_DEF(gamemode)
 				GLOB.vanderlin_round_stats[STATS_KLEPTOMANIACS]++
 			if(human_mob.has_flaw(/datum/charflaw/greedy))
 				GLOB.vanderlin_round_stats[STATS_GREEDY_PEOPLE]++
+			if(HAS_TRAIT_NOT_FROM(src, TRAIT_PACIFISM, "hugbox"))
+				GLOB.vanderlin_round_stats[STATS_PACIFISTS]++
 			if(istiefling(human_mob))
 				GLOB.vanderlin_round_stats[STATS_ALIVE_TIEFLINGS]++
 			if(human_mob.family_datum)
@@ -1178,14 +1376,17 @@ SUBSYSTEM_DEF(gamemode)
 	return influence
 
 /// Return total influence of the storyteller, which includes all his statistics and number of their followers
-/datum/controller/subsystem/gamemode/proc/calculate_storyteller_influence(datum/storyteller/chosen_storyteller, roundstart = FALSE)
-	var/datum/storyteller/initalized_storyteller = storytellers[chosen_storyteller]
-	if(!initalized_storyteller)
+/datum/controller/subsystem/gamemode/proc/calculate_storyteller_influence(datum/storyteller/chosen_storyteller)
+	var/datum/storyteller/initialized_storyteller = storytellers[chosen_storyteller]
+	if(!initialized_storyteller)
 		return
 
-	var/total_influence = get_patron_followers_numbers(initalized_storyteller.name, roundstart) * initalized_storyteller.follower_modifier
-	for(var/influence_factor in initalized_storyteller.influence_factors)
+	var/total_influence = GLOB.patron_follower_counts[initialized_storyteller.name] * initialized_storyteller.follower_modifier
+	for(var/influence_factor in initialized_storyteller.influence_factors)
 		total_influence += calculate_specific_influence(chosen_storyteller, influence_factor)
+
+	total_influence += initialized_storyteller.bonus_points
+
 	return total_influence
 
 #undef DEFAULT_STORYTELLER_VOTE_OPTIONS

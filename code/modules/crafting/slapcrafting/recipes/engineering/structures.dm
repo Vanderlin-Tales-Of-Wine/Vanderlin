@@ -119,3 +119,18 @@
 		)
 	result_type = /obj/structure/bars/bent
 	craftsound = 'sound/foley/Building-01.ogg'
+
+
+/datum/slapcraft_recipe/engineering/structure/orphan_crusher
+	name = "Auto Anvil"
+	steps = list(
+		/datum/slapcraft_step/item/steel,
+		/datum/slapcraft_step/item/steel/second,
+		/datum/slapcraft_step/use_item/engineering/hammer,
+		/datum/slapcraft_step/item/cog,
+		/datum/slapcraft_step/item/riddleofsteel,
+		/datum/slapcraft_step/use_item/engineering/hammer,
+	)
+
+	result_type = /obj/structure/orphan_smasher
+	craftsound = 'sound/foley/Building-01.ogg'
