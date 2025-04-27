@@ -9,7 +9,7 @@
 	throw_range = 5
 	throwforce = 5
 	damtype = BRUTE
-	slot_flags = ITEM_SLOT_HIP
+	slot_flags = ITEM_SLOT_HIP_L|ITEM_SLOT_HIP_R
 	force = 5
 	hitsound = 'sound/items/bsmith1.ogg'
 	COOLDOWN_DECLARE(bell_ring)
