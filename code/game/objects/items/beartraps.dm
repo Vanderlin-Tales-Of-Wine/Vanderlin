@@ -144,7 +144,7 @@
 	alpha = 255
 	update_icon()
 	playsound(src.loc, 'sound/items/beartrap.ogg', 300, TRUE, -1)
-	triggerer.log_message("has triggered the [src][item ? " with [item]" : " by stepping on it"]!", LOG_ATTACK)
+	triggerer.log_message("has triggered the [src][item ? " with [item]" : ""]!", LOG_ATTACK)
 
 /obj/item/restraints/legcuffs/beartrap/Crossed(AM as mob|obj)
 	if(armed && isturf(loc))
