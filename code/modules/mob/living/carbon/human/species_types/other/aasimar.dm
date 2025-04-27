@@ -124,6 +124,7 @@
 		"Rust" = SKIN_COLOR_RUST, // - (Red-brown)
 		"Obsidian" = SKIN_COLOR_OBSIDIAN, // - (Black)
 		"Lapis" = SKIN_COLOR_LAPIS, // - (Deep blue)
+		"Basalt" = SKIN_COLOR_BASALT, // - Dark grey
 	))
 
 /datum/species/aasimar/get_hairc_list()
