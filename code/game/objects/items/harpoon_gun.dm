@@ -36,7 +36,7 @@
 	bigboy = TRUE
 	wlength = WLENGTH_LONG
 	w_class = WEIGHT_CLASS_BULKY
-	slot_flags = ITEM_SLOT_HIP
+	slot_flags = ITEM_SLOT_HIP_L|ITEM_SLOT_HIP_R
 
 	///is the hook retracted
 	var/retracted_hook = TRUE
