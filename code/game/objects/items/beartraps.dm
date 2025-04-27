@@ -84,7 +84,7 @@
 		user.visible_message("<span class='warning'>[user] triggers \the [src] with [W].</span>", \
 				"<span class='danger'>I trigger \the [src] with [W]!</span>")
 		W.take_damage(20)
-		close_trap(user)
+		close_trap(user, W)
 		if(isliving(user))
 			var/mob/living/L = user
 			L.update_sneak_invis(TRUE)
@@ -144,7 +144,7 @@
 	alpha = 255
 	update_icon()
 	playsound(src.loc, 'sound/items/beartrap.ogg', 300, TRUE, -1)
-	triggerer.log_message("has triggered the [src][item ? " with the [item]" : " by stepping into it"]!", LOG_ATTACK)
+	triggerer.log_message("has triggered the [src][item ? " with [item]" : " by stepping on it"]!", LOG_ATTACK)
 
 /obj/item/restraints/legcuffs/beartrap/Crossed(AM as mob|obj)
 	if(armed && isturf(loc))
