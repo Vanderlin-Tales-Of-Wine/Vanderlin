@@ -49,14 +49,14 @@
 	requirements = list(
 	/obj/item/alch/calendula = 2
 	)
-	output_item = /obj/item/head/flowercrown/rosa
+	output_item = /obj/item/clothing/head/flowercrown/rosa
 
 /datum/orderless_slapcraft/flowercrown/salvia
 	name = "Salvia Crown"
 	requirements = list(
 	/obj/item/alch/salvia = 2
 	)
-	output_item = /obj/item/head/flowercrown/salvia
+	output_item = /obj/item/clothing/head/flowercrown/salvia
 
 
 
