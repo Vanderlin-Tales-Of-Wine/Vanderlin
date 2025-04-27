@@ -187,9 +187,11 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 
 /obj/effect/proc_holder/spell/proc/create_logs(atom/user, list/targets)
 	var/targets_string = targets.Join(", ")
-	user.log_message("cast the spell [name] on [targets_string]", "red", LOG_ATTACK)
-	for(var/atom/target as anything in targets)
-		target.log_message("was affected by spell [name], caster was [user]", "red", LOG_ATTACK, FALSE)
+	if(user)
+		user.log_message("cast the spell [name] on [targets_string]", "red", LOG_ATTACK)
+	if(targets)
+		for(var/atom/target as anything in targets)
+			target.log_message("was affected by spell [name], caster was [user]", "red", LOG_ATTACK, FALSE)
 
 /obj/effect/proc_holder/spell/get_chargetime()
 	if(ranged_ability_user && chargetime)
