@@ -57,10 +57,7 @@
 
 /datum/antagonist/lich/proc/skele_look()
 	var/mob/living/carbon/human/L = owner.current
-	L.hairstyle = "Bald"
-	L.facial_hairstyle = "Shaved"
-	L.update_body()
-	L.update_hair()
+	L.dna?.species.go_bald(L)
 	L.update_body_parts(redraw = TRUE)
 
 /datum/antagonist/lich/proc/equip_lich()

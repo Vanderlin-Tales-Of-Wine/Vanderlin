@@ -356,7 +356,7 @@
 /obj/item/organ/proc/imprint_organ_dna(datum/organ_dna/organ_dna)
 	organ_dna.organ_type = type
 	if(accessory_type)
-		organ_dna.accessory_type = accessory_type
+		organ_dna?.accessory_type = accessory_type
 		organ_dna.accessory_colors = accessory_colors
 
 /obj/item/organ/proc/update_accessory_colors()

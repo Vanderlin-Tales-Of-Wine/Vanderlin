@@ -5,6 +5,7 @@
 	zone = BODY_ZONE_PRECISE_EARS
 	slot = ORGAN_SLOT_EARS
 	gender = PLURAL
+	visible_organ = TRUE
 
 	healing_factor = STANDARD_ORGAN_HEALING
 	decay_factor = STANDARD_ORGAN_DECAY
@@ -99,22 +100,6 @@
 	icon = 'icons/obj/clothing/hats.dmi'
 	icon_state = "kitty"
 	damage_multiplier = 2
-
-/obj/item/organ/ears/cat/Insert(mob/living/carbon/human/H, special = 0, drop_if_replaced = TRUE)
-	..()
-	if(istype(H))
-		color = H.hair_color
-		H.dna.species.mutant_bodyparts |= "ears"
-		H.dna.features["ears"] = "Cat"
-		H.update_body()
-
-/obj/item/organ/ears/cat/Remove(mob/living/carbon/human/H,  special = 0)
-	..()
-	if(istype(H))
-		color = H.hair_color
-		H.dna.features["ears"] = "None"
-		H.dna.species.mutant_bodyparts -= "ears"
-		H.update_body()
 
 /obj/item/organ/ears/penguin
 	name = "penguin ears"

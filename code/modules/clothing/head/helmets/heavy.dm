@@ -100,6 +100,25 @@
 	prevent_crits = ALL_CRITICAL_HITS
 	item_weight = 9 * IRON_MULTIPLIER
 
+//............... Spangenhelm ............... //
+/obj/item/clothing/head/helmet/heavy/viking
+	name = "spangenhelm"
+	desc = "A steel helmet with built in eye and nose protection, commonly used by warriors of the north."
+	icon_state = "Spangenhelm_item"
+	icon = 'icons/roguetown/clothing/special/spangenhelm_item.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/spangenhelm_worn.dmi'
+	body_parts_covered = HEAD|NOSE|EYES
+	slot_flags = ITEM_SLOT_HEAD
+	flags_inv = HIDEFACE|HIDEHAIR
+	armor = ARMOR_PLATE
+	resistance_flags = FIRE_PROOF
+	blocksound = PLATEHIT
+	prevent_crits = ALL_CRITICAL_HITS
+	item_weight = 9 * IRON_MULTIPLIER
+	clothing_flags = CANT_SLEEP_IN
+	max_integrity = INTEGRITY_STRONGEST
+	block2add = FOV_BEHIND
+
 //............... Temple heavy helmets ......................//
 //............... Astrata Helmet ............... //
 /obj/item/clothing/head/helmet/heavy/necked/astrata
