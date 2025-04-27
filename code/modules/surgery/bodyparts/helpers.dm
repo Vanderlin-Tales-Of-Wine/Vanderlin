@@ -187,38 +187,3 @@
 		if(robotic)
 			L.change_bodypart_status(BODYPART_ROBOTIC)
 	. = L
-
-/mob/living/carbon/proc/Digitigrade_Leg_Swap(swap_back)
-	var/body_plan_changed = FALSE
-	for(var/X in bodyparts)
-		var/obj/item/bodypart/O = X
-		var/obj/item/bodypart/N
-		if((!O.use_digitigrade && swap_back == FALSE) || (O.use_digitigrade && swap_back == TRUE))
-			if(O.body_part == LEG_LEFT)
-				if(swap_back == TRUE)
-					N = new /obj/item/bodypart/l_leg
-				else
-					N = new /obj/item/bodypart/l_leg/digitigrade
-			else if(O.body_part == LEG_RIGHT)
-				if(swap_back == TRUE)
-					N = new /obj/item/bodypart/r_leg
-				else
-					N = new /obj/item/bodypart/r_leg/digitigrade
-		if(!N)
-			continue
-		body_plan_changed = TRUE
-		O.drop_limb(1)
-		qdel(O)
-		N.attach_limb(src)
-	if(body_plan_changed && ishuman(src))
-		var/mob/living/carbon/human/H = src
-		if(H.wear_pants)
-			var/obj/item/clothing/pants/U = H.wear_pants
-			if(U.mutantrace_variation)
-				if(swap_back)
-					U.adjusted = NORMAL_STYLE
-				else
-					U.adjusted = DIGITIGRADE_STYLE
-				H.update_inv_w_uniform()
-		if(H.shoes && !swap_back)
-			H.dropItemToGround(H.shoes)
