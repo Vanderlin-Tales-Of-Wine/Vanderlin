@@ -58,6 +58,8 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 		return span_boldnotice("Another deadite.")
 
 /datum/antagonist/vampire/on_gain()
+	owner.current.has_reflection = FALSE
+	owner.current.cut_overlay(owner.current.reflective_icon)
 	SSmapping.retainer.vampires |= owner
 	move_to_spawnpoint()
 	owner.special_role = name
@@ -79,6 +81,9 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	owner.current.verbs |= /mob/living/carbon/human/proc/disguise_button
 
 /datum/antagonist/vampire/on_removal()
+	owner.current.has_reflection = TRUE
+	owner.current.create_reflection()
+	owner.current.update_reflection()
 	if(!silent && owner.current)
 		to_chat(owner.current, span_danger("I am no longer a [job_rank]!"))
 	owner.special_role = null
@@ -97,15 +102,18 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 
 /datum/antagonist/vampire/proc/vamp_look()
 	var/mob/living/carbon/human/V = owner.current
+	var/obj/item/organ/eyes/eyes = V.getorganslot(ORGAN_SLOT_EYES)
 	cache_skin = V.skin_tone
-	cache_eyes = V.eye_color
-	cache_hair = V.hair_color
+	cache_eyes = V.get_eye_color()
+	cache_hair = V.get_hair_color()
 	V.skin_tone = "c9d3de"
-	V.hair_color = "181a1d"
-	V.facial_hair_color = "181a1d"
-	V.eye_color = "ff0000"
+	V.set_hair_color("#181a1d", FALSE)
+	V.set_facial_hair_color("#181a1d", FALSE)
+
+	eyes.heterochromia = FALSE
+	eyes.eye_color = "#FF0000"
+
 	V.update_body()
-	V.update_hair()
 	V.update_body_parts(redraw = TRUE)
 	V.mob_biotypes = MOB_UNDEAD
 

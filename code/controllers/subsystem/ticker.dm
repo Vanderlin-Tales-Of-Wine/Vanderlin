@@ -228,13 +228,13 @@ SUBSYSTEM_DEF(ticker)
 				Master.SetRunLevel(RUNLEVEL_POSTGAME)
 			if(firstvote)
 				if(world.time > round_start_time + time_until_vote)
-					SSvote.initiate_vote("restart", "The Gods")
+					SSvote.initiate_vote("endround", "The Gods")
 					time_until_vote = 40 MINUTES
 					last_vote_time = world.time
 					firstvote = FALSE
 			else
 				if(world.time > last_vote_time + time_until_vote)
-					SSvote.initiate_vote("restart", "The Gods")
+					SSvote.initiate_vote("endround", "The Gods")
 
 /datum/controller/subsystem/ticker
 	var/last_bot_update = 0
@@ -445,7 +445,7 @@ SUBSYSTEM_DEF(ticker)
 /datum/controller/subsystem/ticker/proc/select_ruler()
 	switch(rulertype)
 		if("Monarch")
-			for(var/mob/living/carbon/human/K in world)
+			for(var/mob/living/carbon/human/K as anything in GLOB.human_list)
 				if(istype(K, /mob/living/carbon/human/dummy))
 					continue
 				if(K.job == "Monarch")

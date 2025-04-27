@@ -58,6 +58,27 @@
 		return
 	. = ..()
 
+/obj/structure/bridge/CanPass(atom/movable/O, turf/target)
+	if(istype(O, /mob/camera))
+		return TRUE
+	var/direction = get_dir(loc, target)
+	if(direction != dir && direction != GLOB.reverse_dir[dir])
+		return FALSE
+	return TRUE
+
+/obj/structure/bridge/CheckExit(atom/movable/O, turf/target)
+	if(istype(O, /mob/camera))
+		return TRUE
+	var/direction = get_dir(loc, target)
+	if(direction != dir && direction != GLOB.reverse_dir[dir])
+		return FALSE
+	return TRUE
+
+/obj/structure/bridge/CanAStarPass(ID, to_dir, requester)
+	if(to_dir != dir && to_dir != GLOB.reverse_dir[dir])
+		return FALSE
+	return TRUE
+
 /// Repairing a damaged bridge section back to full health
 /obj/structure/bridge/proc/repair_bridge()
 	if(broken)

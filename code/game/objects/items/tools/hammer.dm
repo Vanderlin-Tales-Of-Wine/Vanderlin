@@ -204,6 +204,8 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	associated_skill = /datum/skill/combat/axesmaces
 	smeltresult = /obj/item/ingot/iron
+	grid_width = null
+	grid_height = null
 
 /obj/item/weapon/hammer/sledgehammer/getonmobprop(tag)
 	. = ..()

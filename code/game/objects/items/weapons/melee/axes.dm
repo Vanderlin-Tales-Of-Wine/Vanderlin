@@ -164,6 +164,16 @@
 			if("onbelt")
 				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0)
 
+/obj/item/weapon/axe/iron/troll
+	name = "splitter axe"
+	desc = "A crudely made axe, more reminiscent to one used for splitting logs if it was made with tree trunk and a shiny sharpened rock; which does make you think, what use does a troll have for wood?"
+	icon_state = "troll_axe"
+	max_blade_int = 150
+	force = DAMAGE_AXE+3
+	force_wielded = DAMAGE_HEAVYAXE_WIELD
+	minstr = 10
+	wdefense = AVERAGE_PARRY
+
 //................ Pick Axe ............... //
 // Pickaxe-axe ; Technically both a tool and weapon, but it goes here due to weapon function.
 // Same stats as steel axe, but refactored for pickaxe quality purposes.
@@ -337,26 +347,18 @@
 
 
 /obj/item/weapon/axe/boneaxe
-	slot_flags = ITEM_SLOT_HIP | ITEM_SLOT_BACK
-	force = 18
-	force_wielded = 22
-	possible_item_intents = list(/datum/intent/axe/cut,/datum/intent/axe/chop)
 	name = "bone axe"
 	desc = "A rough axe made of bones"
 	icon_state = "boneaxe"
-	lefthand_file = 'icons/mob/inhands/weapons/rogue_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/weapons/rogue_righthand.dmi'
-	//dropshrink = 0.75
-	parrysound = list('sound/combat/parry/wood/parrywood (1).ogg', 'sound/combat/parry/wood/parrywood (2).ogg', 'sound/combat/parry/wood/parrywood (3).ogg')
-	swingsound = BLADEWOOSH_MED
-	associated_skill = /datum/skill/combat/axesmaces
+	force = 18
+	force_wielded = 22
+	possible_item_intents = list(/datum/intent/axe/cut, /datum/intent/axe/chop)
+	gripped_intents = list(/datum/intent/axe/cut, /datum/intent/axe/chop)
 	max_blade_int = 100
 	minstr = 8
 	wdefense = 1
-	w_class = WEIGHT_CLASS_BULKY
 	wlength = WLENGTH_SHORT
 	pickup_sound = 'sound/foley/equip/rummaging-03.ogg'
-	gripped_intents = list(/datum/intent/axe/cut,/datum/intent/axe/chop)
 
 /obj/item/weapon/axe/boneaxe/getonmobprop(tag)
 	if(tag)
