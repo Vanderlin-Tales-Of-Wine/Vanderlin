@@ -7,7 +7,7 @@
 	icon = 'icons/roguetown/items/misc.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	smeltresult = /obj/item/ingot/bronze
-	slot_flags = ITEM_SLOT_HIP
+	slot_flags = ITEM_SLOT_HIP_L|ITEM_SLOT_HIP_R
 	var/obj/item/accepted_power_source = /obj/item/gear/metal
 	/// This is the amount of charges we get per power source
 	var/charge_per_source = 5
