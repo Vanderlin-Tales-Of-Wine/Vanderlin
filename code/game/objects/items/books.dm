@@ -13,7 +13,7 @@
 	force = 5
 	throw_speed = 1
 	throw_range = 5
-	slot_flags = ITEM_SLOT_HIP
+	slot_flags = ITEM_SLOT_HIP_L|ITEM_SLOT_HIP_R
 	w_class = WEIGHT_CLASS_NORMAL		 //upped to three because books are, y'know, pretty big. (and you could hide them inside eachother recursively forever)
 	attack_verb = list("bashed", "whacked", "educated")
 	resistance_flags = FLAMMABLE
@@ -195,11 +195,11 @@
 
 /obj/item/book/attack_right(mob/user)
 	if(!open)
-		slot_flags &= ~ITEM_SLOT_HIP
+		slot_flags &= ~ITEM_SLOT_HIP_L|ITEM_SLOT_HIP_R
 		open = TRUE
 		playsound(loc, 'sound/items/book_open.ogg', 100, FALSE, -1)
 	else
-		slot_flags |= ITEM_SLOT_HIP
+		slot_flags |= ITEM_SLOT_HIP_L|ITEM_SLOT_HIP_R
 		open = FALSE
 		playsound(loc, 'sound/items/book_close.ogg', 100, FALSE, -1)
 	curpage = 1
