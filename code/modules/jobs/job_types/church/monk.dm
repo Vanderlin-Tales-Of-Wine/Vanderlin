@@ -108,21 +108,6 @@
 			H.mind?.adjust_skillrank(/datum/skill/labor/farming, 2, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/labor/taming, 1, TRUE)
 			ADD_TRAIT(H, TRAIT_SEEDKNOW, TRAIT_GENERIC)
-			var/instruments = list(
-				"Harp" = /obj/item/instrument/harp,
-				"Lute" = /obj/item/instrument/lute,
-				"Accordion" = /obj/item/instrument/accord,
-				"Guitar" = /obj/item/instrument/guitar,
-				"Flute" = /obj/item/instrument/flute,
-				"Drum" = /obj/item/instrument/drum,
-				"Hurdy-Gurdy" = /obj/item/instrument/hurdygurdy,
-				"Viola" = /obj/item/instrument/viola)
-			var/instrument_choice = input("Choose your instrument.", "XYLIX") as anything in instruments
-			H.set_blindness(0)
-			if(instrument_choice && instruments[instrument_choice])
-				backr = instruments[instrument_choice]
-			else
-				backr = /obj/item/instrument/lute
 		if(/datum/patron/divine/abyssor)
 			head = /obj/item/clothing/head/roguehood/random
 			neck = /obj/item/clothing/neck/psycross/silver/abyssor
@@ -146,6 +131,21 @@
 			H.mind?.adjust_skillrank(/datum/skill/misc/stealing, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/misc/music, 3, TRUE)
 			ADD_TRAIT(H, TRAIT_BARDIC_TRAINING, TRAIT_GENERIC)
+			var/instruments = list(
+				"Harp" = /obj/item/instrument/harp,
+				"Lute" = /obj/item/instrument/lute,
+				"Accordion" = /obj/item/instrument/accord,
+				"Guitar" = /obj/item/instrument/guitar,
+				"Flute" = /obj/item/instrument/flute,
+				"Drum" = /obj/item/instrument/drum,
+				"Hurdy-Gurdy" = /obj/item/instrument/hurdygurdy,
+				"Viola" = /obj/item/instrument/viola)
+			var/instrument_choice = input("Choose your instrument.", "XYLIX") as anything in instruments
+			H.set_blindness(0)
+			if(instrument_choice && instruments[instrument_choice])
+				backr = instruments[instrument_choice]
+			else
+				backr = /obj/item/instrument/lute
 		if(/datum/patron/divine/malum)
 			head = /obj/item/clothing/head/roguehood/random
 			neck = /obj/item/clothing/neck/psycross/silver/malum
