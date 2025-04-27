@@ -643,6 +643,16 @@
 			to_chat(E, "<span class='warning'>I feel unexplicably repelled!</span>")
 			E.cursed_freak_out()
 
+		// anti pedophile logging
+		var/log_msg
+		if(E.age == AGE_CHILD)
+			log_msg = "[H][ADMIN_FLW(H)] kissed [E] [ADMIN_FLW(E)], a CHILD!"
+			if(H.age == AGE_CHILD)
+				log_msg += " As a child."
+			else
+				log_msg += " As an adult."
+			message_admins(log_msg)
+
 		var/do_change
 		if(target.loc == user.loc)
 			do_change = TRUE
@@ -656,7 +666,7 @@
 				message_param = "kisses %t on the ear."
 				if(E.dna.species?.id == "elf")
 					if(!E.cmode)
-						to_chat(target, "<span class='love'>It tickles...</span>")
+						to_chat(target, span_love("It tickles..."))
 			else if(H.zone_selected == BODY_ZONE_PRECISE_R_EYE || H.zone_selected == BODY_ZONE_PRECISE_L_EYE)
 				message_param = "kisses %t on the brow."
 			else
@@ -928,17 +938,30 @@
 	message_param = "slaps %t in the face."
 	emote_type = EMOTE_VISIBLE
 	restraint_check = TRUE
+
 /datum/emote/living/slap/run_emote(mob/user, params, type_override, intentional)
 	message_param = initial(message_param) // reset
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(H.zone_selected == BODY_ZONE_PRECISE_GROIN)
 			message_param = "slaps %t on the ass!"
+
+			// anti pedophile logging
+			var/log_msg
+			if(E.age == AGE_CHILD)
+			log_msg = "[H][ADMIN_FLW(H)] slapped [E] [ADMIN_FLW(E)] on the ass, a CHILD!"
+			if(H.age == AGE_CHILD)
+				log_msg += " As a child."
+			else
+				log_msg += " As an adult."
+			message_admins(log_msg)
+
 	..()
 /mob/living/carbon/human/verb/emote_slap()
 	set name = "Slap"
 	set category = "Emotes"
 	emote("slap", intentional = TRUE, targetted = TRUE)
+
 /datum/emote/living/slap/adjacentaction(mob/user, mob/target)
 	. = ..()
 	if(!user || !target)
