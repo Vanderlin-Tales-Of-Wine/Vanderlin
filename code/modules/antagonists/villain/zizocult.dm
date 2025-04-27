@@ -632,7 +632,6 @@ GLOBAL_LIST_EMPTY(ritualslist)
 				return
 			if(M.cmode)
 				user.electrocute_act(30)
-			H.electrocute_act(20)
 			H.Stun(10 SECONDS)
 			H.silent += 30
 			qdel(src)
