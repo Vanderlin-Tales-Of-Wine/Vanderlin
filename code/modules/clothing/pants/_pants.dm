@@ -94,8 +94,6 @@
 
 	if(mutantrace_variation && ishuman(user))
 		var/mob/living/carbon/human/H = user
-		if(DIGITIGRADE in H.dna.species.species_traits)
-			adjusted = DIGITIGRADE_STYLE
 		H.update_inv_w_uniform()
 
 	if(slot == SLOT_PANTS && freshly_laundered)
@@ -193,8 +191,6 @@
 		H.update_body()
 
 /obj/item/clothing/pants/proc/toggle_jumpsuit_adjust()
-	if(adjusted == DIGITIGRADE_STYLE)
-		return
 	adjusted = !adjusted
 	if(adjusted)
 		if(fitted != FEMALE_UNIFORM_TOP)

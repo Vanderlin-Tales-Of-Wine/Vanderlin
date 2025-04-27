@@ -23,6 +23,7 @@
 	outfit = /datum/outfit/job/gaffer
 	give_bank_account = 20
 	min_pq = 8
+	bypass_lastclass = TRUE
 	selection_color = "#3b150e"
 
 	spells = list(/obj/effect/proc_holder/spell/self/convertrole/mercenary)

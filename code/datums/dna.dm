@@ -10,6 +10,7 @@
 	var/mob/living/holder
 	///Body markings of the DNA's owner. This is for storing their original state for re-creating the character. They'll get changed on species mutation
 	var/list/list/body_markings = list()
+	var/list/organ_dna = list()
 	//Familytree variable
 	var/parent_mix
 
@@ -34,6 +35,7 @@
 	destination.dna.unique_enzymes = unique_enzymes
 	destination.dna.uni_identity = uni_identity
 	destination.dna.human_blood_type = human_blood_type
+	destination.dna.organ_dna = organ_dna
 	destination.set_species(species.type, icon_update=0)
 	destination.dna.body_markings = deepCopyList(body_markings)
 	destination.dna.features = features.Copy()
@@ -61,16 +63,8 @@
 			L[DNA_GENDER_BLOCK] = construct_block(G_PLURAL, 3)
 	if(ishuman(holder))
 		var/mob/living/carbon/human/H = holder
-		if(!GLOB.hairstyles_list.len)
-			init_sprite_accessory_subtypes(/datum/sprite_accessory/hair,GLOB.hairstyles_list, GLOB.hairstyles_male_list, GLOB.hairstyles_female_list)
-		L[DNA_HAIRSTYLE_BLOCK] = construct_block(GLOB.hairstyles_list.Find(H.hairstyle), GLOB.hairstyles_list.len)
-		L[DNA_HAIR_COLOR_BLOCK] = H.hair_color
-		if(!GLOB.facial_hairstyles_list.len)
-			init_sprite_accessory_subtypes(/datum/sprite_accessory/facial_hair, GLOB.facial_hairstyles_list, GLOB.facial_hairstyles_male_list, GLOB.facial_hairstyles_female_list)
-		L[DNA_FACIAL_HAIRSTYLE_BLOCK] = construct_block(GLOB.facial_hairstyles_list.Find(H.facial_hairstyle), GLOB.facial_hairstyles_list.len)
-		L[DNA_FACIAL_HAIR_COLOR_BLOCK] = sanitize_hexcolor(H.facial_hair_color)
 		L[DNA_SKIN_TONE_BLOCK] = H.skin_tone
-		L[DNA_EYE_COLOR_BLOCK] = H.eye_color
+		L[DNA_EYE_COLOR_BLOCK] = H.get_eye_color()
 
 	for(var/i=1, i<=DNA_UNI_IDENTITY_BLOCKS, i++)
 		if(L[i])
@@ -78,6 +72,7 @@
 		else
 			. += random_string(DNA_BLOCK_SIZE,GLOB.hex_characters)
 	return .
+
 
 /datum/dna/proc/generate_unique_enzymes()
 	. = ""
@@ -93,14 +88,10 @@
 		return
 	var/mob/living/carbon/human/H = holder
 	switch(blocknumber)
-		if(DNA_HAIR_COLOR_BLOCK)
-			setblock(uni_identity, blocknumber, sanitize_hexcolor(H.hair_color))
-		if(DNA_FACIAL_HAIR_COLOR_BLOCK)
-			setblock(uni_identity, blocknumber, sanitize_hexcolor(H.facial_hair_color))
 		if(DNA_SKIN_TONE_BLOCK)
 			setblock(uni_identity, blocknumber, sanitize_hexcolor(H.skin_tone))
 		if(DNA_EYE_COLOR_BLOCK)
-			setblock(uni_identity, blocknumber, sanitize_hexcolor(H.eye_color))
+			setblock(uni_identity, blocknumber, sanitize_hexcolor(H.get_eye_color()))
 		if(DNA_GENDER_BLOCK)
 			switch(H.gender)
 				if(MALE)
@@ -109,11 +100,6 @@
 					setblock(uni_identity, blocknumber, construct_block(G_FEMALE, 3))
 				else
 					setblock(uni_identity, blocknumber, construct_block(G_PLURAL, 3))
-		if(DNA_FACIAL_HAIRSTYLE_BLOCK)
-			setblock(uni_identity, blocknumber, construct_block(GLOB.facial_hairstyles_list.Find(H.facial_hairstyle), GLOB.facial_hairstyles_list.len))
-		if(DNA_HAIRSTYLE_BLOCK)
-			setblock(uni_identity, blocknumber, construct_block(GLOB.hairstyles_list.Find(H.hairstyle), GLOB.hairstyles_list.len))
-
 
 /datum/dna/proc/is_same_as(datum/dna/D)
 	if(uni_identity == D.uni_identity && real_name == D.real_name)
@@ -174,7 +160,6 @@
 	..()
 	if(icon_update)
 		update_body()
-		update_hair()
 		update_body_parts(TRUE)
 
 /mob/proc/has_dna()
@@ -207,7 +192,6 @@
 
 	if(mrace || newfeatures || ui)
 		update_body()
-		update_hair()
 		update_body_parts()
 
 /mob/living/carbon/proc/create_dna()
@@ -233,7 +217,6 @@
 	..()
 	if(icon_update)
 		update_body()
-		update_hair()
 		if(mutcolor_update)
 			update_body_parts()
 
