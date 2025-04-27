@@ -29,7 +29,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 		TRAIT_DECEIVING_MEEKNESS,
 		TRAIT_STEELHEARTED,
 		TRAIT_NOMOOD,
-		TRAIT_NOPAINSTUN,
+		TRAIT_VILLAIN,
 	)
 
 #define iszizolackey(A) (A.mind?.has_antag_datum(/datum/antagonist/zizocultist))
@@ -69,7 +69,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 		owner.clamped_adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
 		owner.clamped_adjust_skillrank(/datum/skill/combat/wrestling, 5, TRUE)
 		owner.clamped_adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
-		H.change_stat(STATKEY_STR, 3)
+		H.change_stat(STATKEY_STR, 2)
 		H.change_stat(STATKEY_END, 3)
 		H.change_stat(STATKEY_CON, 3)
 		H.change_stat(STATKEY_SPD, 4)
