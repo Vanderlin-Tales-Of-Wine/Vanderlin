@@ -88,10 +88,10 @@
 
 /obj/item/coin/examine(mob/user)
 	. = ..()
+	var/denomination = quantity == 1 ? name : plural_name
 	if(isobserver(user))
 		. += span_info("[quantity_to_words(quantity)] [denomination] ([get_real_price()] mammon)")
 		return
-	var/denomination = quantity == 1 ? name : plural_name
 	var/intelligence = user.mind?.current.STAINT
 
 	if(quantity > 1)  // Just so you don't count single coins, observers don't need to count.
