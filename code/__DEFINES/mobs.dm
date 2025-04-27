@@ -459,8 +459,8 @@
 #define SKIN_COLOR_CRIMSONLANDS "4e3729" //Black
 
 //AASIMAR SKIN TONES
-#define SKIN_COLOR_CORAL "FF00FF" //Pink
-#define SKIN_COLOR_BLACKSTEEL "201d30" //Dark purple
+#define SKIN_COLOR_CORAL "ff96d6" //Pink
+#define SKIN_COLOR_SOAPSTONE "c7f9cc" //Seafoam green
 #define SKIN_COLOR_MARBLE "e6e4d8" //White
 #define SKIN_COLOR_SILVER "c0c0c0" //Grey
 #define SKIN_COLOR_COPPER "b87333" //Orange
