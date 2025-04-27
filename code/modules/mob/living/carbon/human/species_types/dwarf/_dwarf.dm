@@ -6,6 +6,10 @@
 	id = "dwarf"
 	max_age = 200
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | RACE_SWAP | SLIME_EXTRACT
+	bodypart_features = list(
+		/datum/bodypart_feature/hair/head,
+		/datum/bodypart_feature/hair/facial,
+	)
 
 /datum/species/dwarf/on_species_gain(mob/living/carbon/C, datum/species/old_species)
 	..()

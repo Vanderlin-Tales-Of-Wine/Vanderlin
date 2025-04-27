@@ -26,17 +26,8 @@
 /datum/body_marking/proc/get_default_color(list/features, datum/species/pref_species) //Needs features for the color information
 	var/list/colors
 	switch(default_color)
-		if(DEFAULT_PRIMARY)
-			colors = features["mcolor"]
-		if(DEFAULT_SECONDARY)
-			colors = features["mcolor2"]
-		if(DEFAULT_TERTIARY)
-			colors = features["mcolor3"]
 		if(DEFAULT_SKIN_OR_PRIMARY)
-			if(pref_species && pref_species.use_skintones)
-				colors = features["skin_color"]
-			else
-				colors = features["mcolor"]
+			colors = features["skin_color"]
 		else
 			colors = default_color
 

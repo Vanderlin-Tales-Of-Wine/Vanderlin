@@ -185,6 +185,14 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 	action_background_icon_state = ""
 	base_action = /datum/action/spell_action/spell
 
+/obj/effect/proc_holder/spell/proc/create_logs(atom/user, list/targets)
+	var/targets_string = targets.Join(", ")
+	if(user)
+		user.log_message("cast the spell [name] on [targets_string]", "red", LOG_ATTACK)
+	if(targets)
+		for(var/atom/target as anything in targets)
+			target.log_message("was affected by spell [name], caster was [user]", "red", LOG_ATTACK, FALSE)
+
 /obj/effect/proc_holder/spell/get_chargetime()
 	if(ranged_ability_user && chargetime)
 		var/newtime = chargetime
@@ -421,7 +429,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 
 	set_attuned_strength(total_attunements)
 	if(user && user.ckey)
-		user.log_message("<span class='danger'>cast the spell [name].</span>", LOG_ATTACK)
+		create_logs(user, targets)
 	if(recharge)
 		recharging = FALSE
 	if(cast(targets,user=user))
