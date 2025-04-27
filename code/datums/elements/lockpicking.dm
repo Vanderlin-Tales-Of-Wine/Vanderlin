@@ -25,18 +25,18 @@
 	if(!isatom(target))
 		return ELEMENT_INCOMPATIBLE
 
-	switch(difficulty)
-		if(1 to 3)
+	switch(clamp(difficulty, 1, 6))
+		if(1)
 			shown_difficulty = "LEGENDARY"
-		if(4 to 6)
+		if(2)
 			shown_difficulty = "MASTER"
-		if(7 to 9)
+		if(3)
 			shown_difficulty = "EXPERT"
-		if(10 to 15)
+		if(4)
 			shown_difficulty = "SKILLED"
-		if(16 to 20)
+		if(5)
 			shown_difficulty = "NOVICE"
-		if(20 to 100)
+		if(6)
 			shown_difficulty = "BASIC"
 
 	if(!src.lockpicks)

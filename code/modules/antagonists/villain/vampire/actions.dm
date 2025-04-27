@@ -88,11 +88,11 @@
 				break
 			L.drowsyness = min(L.drowsyness + 50, 150)
 			switch(L.drowsyness)
-				if(0 to 45)
+				if(0 to 50)
 					to_chat(L, "You feel like a curtain is coming over your mind.")
 					to_chat(user, "Their mind gives way slightly.")
 					L.Slowdown(20)
-				if(45 to 90)
+				if(51 to 90)
 					to_chat(L, "Your eyelids force themselves shut as you feel intense lethargy.")
 					to_chat(user, "They will not be able to resist much more.")
 					L.eyesclosed = TRUE
@@ -159,12 +159,13 @@
 		return
 	VD.disguised = TRUE
 	skin_tone = VD.cache_skin
-	hair_color = VD.cache_hair
-	eye_color = VD.cache_eyes
-	facial_hair_color = VD.cache_hair
+	var/obj/item/organ/eyes/eyes = getorganslot(ORGAN_SLOT_EYES)
+
+	set_hair_color(VD.cache_hair, FALSE)
+	set_facial_hair_color(VD.cache_hair, FALSE)
+	eyes.eye_color = VD.cache_eyes
 	mob_biotypes = MOB_ORGANIC
 	update_body()
-	update_hair()
 	update_body_parts(redraw = TRUE)
 	to_chat(src, span_notice("My true form is hidden."))
 
@@ -172,16 +173,15 @@
 	if(!VD)
 		return
 	VD.disguised = FALSE
-//	VD.cache_skin = skin_tone
-//	VD.cache_eyes = eye_color
-//	VD.cache_hair = hair_color
+
+	var/obj/item/organ/eyes/eyes = getorganslot(ORGAN_SLOT_EYES)
+
 	mob_biotypes = MOB_UNDEAD
 	skin_tone = "c9d3de"
-	hair_color = "181a1d"
-	facial_hair_color = "181a1d"
-	eye_color = "ff0000"
+	set_hair_color("#181a1d", FALSE)
+	set_facial_hair_color("#181a1d", FALSE)
+	eyes.eye_color = "#ff0000"
 	update_body()
-	update_hair()
 	update_body_parts(redraw = TRUE)
 	to_chat(src, span_danger("My true form is revealed."))
 

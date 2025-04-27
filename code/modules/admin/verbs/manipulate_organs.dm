@@ -1,4 +1,4 @@
-/client/proc/manipulate_organs(mob/living/carbon/C in world)
+/client/proc/manipulate_organs(mob/living/carbon/C as anything in GLOB.carbon_list)
 	set name = "Manipulate Organs"
 	set category = "Debug"
 	var/operation = input("Select organ operation.", "Organ Manipulation", "cancel") as null|anything in list("add organ", "drop organ", "remove organ", "cancel")

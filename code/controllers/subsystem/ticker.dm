@@ -445,7 +445,7 @@ SUBSYSTEM_DEF(ticker)
 /datum/controller/subsystem/ticker/proc/select_ruler()
 	switch(rulertype)
 		if("Monarch")
-			for(var/mob/living/carbon/human/K in world)
+			for(var/mob/living/carbon/human/K as anything in GLOB.human_list)
 				if(istype(K, /mob/living/carbon/human/dummy))
 					continue
 				if(K.job == "Monarch")
