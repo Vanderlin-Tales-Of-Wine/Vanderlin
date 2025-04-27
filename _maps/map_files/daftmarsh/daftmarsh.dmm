@@ -2431,6 +2431,14 @@
 	},
 /turf/open/floor/tile/bfloorz,
 /area/rogue/indoors/town/manor)
+"cox" = (
+/obj/effect/decal/cobbleedge{
+	dir = 1;
+	icon_state = "borderfall"
+	},
+/obj/machinery/tanningrack,
+/turf/open/floor/tile/kitchen,
+/area/rogue/indoors/town)
 "cpj" = (
 /obj/structure/table/wood/plain_alt,
 /obj/item/reagent_containers/glass/cup/wooden{
@@ -121485,7 +121493,7 @@ nrE
 fed
 eol
 rLL
-qAa
+cox
 iZC
 iZC
 iZC
