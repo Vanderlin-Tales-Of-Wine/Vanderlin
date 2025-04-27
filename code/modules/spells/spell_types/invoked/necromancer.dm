@@ -213,6 +213,7 @@
 
 	skeletonize(FALSE)
 	skele_look()
+	grant_undead_eyes()
 
 	if(charflaw)
 		QDEL_NULL(charflaw)
