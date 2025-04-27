@@ -99,7 +99,7 @@
 		return
 	UnregisterSignal(orbiter, COMSIG_MOVABLE_MOVED)
 	SEND_SIGNAL(parent, COMSIG_ATOM_ORBIT_STOP, orbiter)
-	orbiter.SpinAnimation(0, 0)
+	orbiter.SpinAnimation(0, 0, parallel = FALSE)
 	orbiters -= orbiter
 	orbiter.stop_orbit(src)
 	orbiter.orbiting = null
