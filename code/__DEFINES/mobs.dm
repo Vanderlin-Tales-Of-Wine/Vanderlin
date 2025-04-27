@@ -462,12 +462,13 @@
 #define SKIN_COLOR_CORAL "ff96d6" //Pink
 #define SKIN_COLOR_SOAPSTONE "c7f9cc" //Seafoam green
 #define SKIN_COLOR_MARBLE "e6e4d8" //White
-#define SKIN_COLOR_SILVER "c0c0c0" //Grey
+#define SKIN_COLOR_SILVER "c0c0c0" //Light grey
 #define SKIN_COLOR_COPPER "b87333" //Orange
 #define SKIN_COLOR_GOLD "d4af37" //Gold
 #define SKIN_COLOR_RUST "b7410e" //Red-brown
 #define SKIN_COLOR_OBSIDIAN "03010D" //Black
 #define SKIN_COLOR_LAPIS "26619C" //Deep blue
+#define SKIN_COLOR_BASALT "474a4c" //Dark grey
 
 //HALF ELF SKIN TONES
 #define SKIN_COLOR_ZIZO_CURSED "fff0e9" //Pale as SHIT
