@@ -6,7 +6,7 @@
 	icon = 'icons/roguetown/items/cooking.dmi'
 	w_class = WEIGHT_CLASS_NORMAL
 	throwforce = 0
-	slot_flags = ITEM_SLOT_HIP
+	slot_flags = ITEM_SLOT_HIP_L|ITEM_SLOT_HIP_R
 	throw_speed = 0.5
 	var/fuze = 50
 	var/lit = FALSE
@@ -89,7 +89,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	//dropshrink = 0
 	throwforce = 0
-	slot_flags = ITEM_SLOT_HIP
+	slot_flags = ITEM_SLOT_HIP_L|ITEM_SLOT_HIP_R
 	throw_speed = 0.75
 	grid_width = 32
 	grid_height = 64
