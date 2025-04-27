@@ -89,9 +89,6 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	owner.special_role = null
 	return ..()
 
-/datum/antagonist/vampire/proc/move_to_spawnpoint()
-	return
-
 /datum/antagonist/vampire/proc/equip()
 	return
 

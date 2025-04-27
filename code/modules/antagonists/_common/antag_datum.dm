@@ -287,3 +287,6 @@ GLOBAL_LIST_EMPTY(antagonists)
 	else
 		return
 	..()
+
+/datum/antagonist/proc/move_to_spawnpoint()
+	return
