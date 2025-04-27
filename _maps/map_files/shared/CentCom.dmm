@@ -3181,7 +3181,7 @@
 "rg" = (
 /obj/structure/window/stained/zizo,
 /obj/structure/fluff/walldeco/vinez,
-/turf/closed/basic,
+/turf/open/floor/church,
 /area/rogue/indoors/lich)
 "rj" = (
 /obj/structure/table/wood/reinforced,
