@@ -693,7 +693,7 @@
 		remove_movespeed_modifier(MOVESPEED_ID_DAMAGE_SLOWDOWN_FLYING)
 
 /mob/living/carbon/human/proc/skele_look()
-	dna.species.go_bald(L)
+	dna.species.go_bald()
 	update_body_parts(redraw = TRUE)
 	underwear = "Nude"
 
