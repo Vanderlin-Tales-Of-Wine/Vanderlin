@@ -64,6 +64,7 @@
 /datum/component/orbiter/proc/begin_orbit(atom/movable/orbiter, radius, clockwise, rotation_speed, rotation_segments, pre_rotation)
 	if(!istype(orbiter))
 		stack_trace("begin orbit called on [orbiter] which is a [orbiter.type]!")
+		return
 	if(orbiter.orbiting)
 		if(orbiter.orbiting == src)
 			orbiter.orbiting.end_orbit(orbiter, TRUE)
