@@ -198,7 +198,7 @@
 		return TryToSwitchState(user)
 	if(user.used_intent.type == /datum/intent/unarmed/claw)
 		user.changeNext_move(CLICK_CD_MELEE)
-		to_chat(user, "<span class='warning'>I claw at [src]!</span>")
+		to_chat(user, span_warning("I claw at [src]"))
 		take_damage(40, BRUTE, BCLASS_CUT, TRUE)
 		return
 	if(isliving(user))
