@@ -32,15 +32,15 @@
 
 	var/static/last_announcement_time = 0
 
-	if(world.time < last_announcement_time + 1200)
-		var/time_left = round((last_announcement_time + 1200 - world.time) / 10)
+	if(world.time < last_announcement_time + 10 MINUTES)
+		var/time_left = round((last_announcement_time + 10 MINUTES - world.time) / 10)
 		to_chat(src, "<span class='warning'>You must wait [time_left] more seconds before making another announcement.</span>")
 		return
 
 	var/inputty = input("Make an announcement", "VANDERLIN") as text|null
 	if(inputty)
 		if(!istype(get_area(src), /area/rogue/indoors/town/tavern))
-			to_chat(src, "<span class='warning'>I need to do this from the drunken saiga tavern.</span>")
+			to_chat(src, "<span class='warning'>I need to do this from the tavern.</span>")
 			return FALSE
 		priority_announce("[inputty]", title = "[src.real_name], The Town Elder Speaks", sound = 'sound/misc/bell.ogg')
 		src.log_talk("[TIMETOTEXT4LOGS] [inputty]", LOG_SAY, tag="Town Elder announcement")
@@ -86,7 +86,6 @@
 /datum/outfit/job/town_elder/mayor/pre_equip(mob/living/carbon/human/H)
 
 
-	H.verbs |= /mob/living/carbon/human/proc/townannouncement
 	pants = /obj/item/clothing/pants/trou/leather
 	head = /obj/item/clothing/head/tophat
 	armor = /obj/item/clothing/armor/leather/vest/winterjacket
@@ -127,7 +126,6 @@
 			H.mind?.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/misc/music, 1, TRUE)
 			H.change_stat(STATKEY_STR, -1)
 			H.change_stat(STATKEY_PER, 1)
 			H.change_stat(STATKEY_INT, 1)
@@ -179,7 +177,6 @@
 
 /datum/outfit/job/town_elder/master_of_crafts_and_labor/pre_equip(mob/living/carbon/human/H)
 
-	H.verbs |= /mob/living/carbon/human/proc/townannouncement
 	head = /obj/item/clothing/head/hatblu
 	armor = /obj/item/clothing/armor/leather/vest/random
 	pants = /obj/item/clothing/pants/trou
@@ -202,6 +199,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/music, 3, TRUE)
 
 		H.mind?.adjust_skillrank(/datum/skill/labor/mining, pick(2,3,4), TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/labor/lumberjacking,pick(2,3,4),TRUE)
@@ -270,7 +268,6 @@
 	allowed_patrons = ALL_TEMPLE_PATRONS
 
 /datum/outfit/job/town_elder/hearth_acolyte/pre_equip(mob/living/carbon/human/H)
-	H.verbs |= /mob/living/carbon/human/proc/townannouncement
 	head = /obj/item/clothing/head/roguehood/random
 	armor = /obj/item/clothing/shirt/robe
 	shoes = /obj/item/clothing/shoes/sandals
@@ -328,6 +325,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/magic/holy, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/music, 4, TRUE)
 
 		// More hand to hand focused
 		H.change_stat(STATKEY_STR, 2)
@@ -335,7 +333,7 @@
 		H.change_stat(STATKEY_END, 2)
 
 		if(H.age == AGE_OLD)
-			H.mind?.adjust_skillrank(/datum/skill/magic/holy, 2, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/magic/holy, 1, TRUE)
 			H.change_stat(STATKEY_END, 1)
 
 		if(!H.has_language(/datum/language/celestial))
@@ -358,7 +356,6 @@
 	category_tags = list(CTAG_TOWN_ELDER)
 
 /datum/outfit/job/town_elder/lorekeeper/pre_equip(mob/living/carbon/human/H)
-	H.verbs |= /mob/living/carbon/human/proc/townannouncement
 	head = /obj/item/clothing/head/bardhat
 	shoes = /obj/item/clothing/shoes/boots
 	pants = /obj/item/clothing/pants/trou/leather
@@ -384,7 +381,7 @@
 	H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/music, 3, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/misc/music, 6, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 
 
@@ -393,7 +390,6 @@
 	H.change_stat(STATKEY_STR, 1)
 
 	if(H.age == AGE_OLD)
-		H.mind?.adjust_skillrank(/datum/skill/misc/music, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 		H.change_stat(STATKEY_END, 1)
@@ -401,9 +397,7 @@
 
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_BARDIC_TRAINING, TRAIT_GENERIC)
-
-
-
+	H.mind?.AddSpell(new /obj/effect/proc_holder/spell/invoked/mockery)
 
 /datum/outfit/job/town_elder/lorekeeper/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -439,11 +433,10 @@
 	outfit = /datum/outfit/job/town_elder/dreamwatcher
 
 	//Not a Magician nor an Acolyte, but something more, blessed by Noc since they were born, being capable of Visions and Feelings through dreams, they can feel the highest god influence or and get a hint about any of the active antags.
-	category_tags = list(CTAG_TOWN_ELDER)
+	// category_tags = list(CTAG_TOWN_ELDER)
 
 
 /datum/outfit/job/town_elder/dreamwatcher/pre_equip(mob/living/carbon/human/H)
-	H.verbs |= /mob/living/carbon/human/proc/townannouncement
 	head = /obj/item/clothing/head/softcap
 	armor = /obj/item/clothing/shirt/robe/black
 	shoes = /obj/item/clothing/shoes/sandals
@@ -466,6 +459,7 @@
 	H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/misc/music, 4, TRUE)
 
 	H.change_stat(STATKEY_INT, 2)
 	H.change_stat(STATKEY_SPD, 1)
