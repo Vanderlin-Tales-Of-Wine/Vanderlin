@@ -1557,6 +1557,7 @@
 #include "code\modules\cooking\raw\NeuFood_meat.dm"
 #include "code\modules\cooking\raw\NeuFood_processed.dm"
 #include "code\modules\cooking\raw\NeuFood_veggies.dm"
+#include "code\modules\cooking\Teas_and_Brews.dm"
 #include "code\modules\crafting\crafting_recipe_html.dm"
 #include "code\modules\crafting\items.dm"
 #include "code\modules\crafting\runes.dm"
