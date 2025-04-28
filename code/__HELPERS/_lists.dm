@@ -377,6 +377,14 @@ if (length(L) < I) { \
 		. = L[picked]
 		L.Cut(picked,picked+1)			//Cut is far more efficient that Remove()
 
+/// Shuffle then pick or return only element (Or null)
+/proc/pick_shuffle(list/L)
+	if(!LAZYLEN(L))
+		return
+	if(L.len == 1)
+		return L[0]
+	return pick(shuffle(L))
+
 /// Fetch a random value from an associated list.
 #define pick_assoc(L) L[pick(L)]
 
