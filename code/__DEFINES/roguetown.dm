@@ -7,7 +7,7 @@
 /// Races not considered discriminated against in Vanderlin. Used for nobility, guards, etc.
 #define RACES_PLAYER_NONDISCRIMINATED	list("Humen", "Half-Elf", "Elf", "Dwarf", "Aasimar")
 /// Races who are nonheretical to the church. Excluded races typically have an inhumen god associated, like Zizo. Used for church/faith roles.
-#define RACES_PLAYER_NONHERETICAL		list("Humen", "Rakshari", "Half-Elf", "Elf", "Dwarf", "Aasimar", "Kobold")
+#define RACES_PLAYER_NONHERETICAL		list("Humen", "Half-Elf", "Elf", "Dwarf", "Aasimar")
 /// Races who are non-exotic to Vanderlin. These are races from foreign lands with no local pull or uncommon races. Used in miscellaneous cases, when they would not be that role.
 #define RACES_PLAYER_NONEXOTIC			list("Humen", "Half-Elf", "Dark Elf", "Elf", "Dwarf", "Tiefling", "Half-Orc", "Aasimar")
 ///Races that lack lux

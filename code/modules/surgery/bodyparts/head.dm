@@ -25,13 +25,6 @@
 
 	//Limb appearance info:
 	var/real_name = "" //Replacement name
-	//Hair colour and style
-	var/hair_color = "000"
-	var/hairstyle = "Bald"
-	var/hair_alpha = 255
-	//Facial hair colour and style
-	var/facial_hair_color = "000"
-	var/facial_hairstyle = "Shaved"
 	//Eye Colouring
 
 	var/lip_style = null
@@ -128,8 +121,6 @@
 	real_name = C.real_name
 	if(HAS_TRAIT(C, TRAIT_HUSK))
 		real_name = "Unknown"
-		hairstyle = "Bald"
-		facial_hairstyle = "Shaved"
 		lip_style = null
 
 	else if(!animal_origin)
@@ -137,37 +128,6 @@
 		if(!H.dna || !H.dna.species)
 			return ..()
 		var/datum/species/S = H.dna.species
-
-		//Facial hair
-		if(H.facial_hairstyle && (FACEHAIR in S.species_traits))
-			facial_hairstyle = H.facial_hairstyle
-			if(S.hair_color)
-				if(S.hair_color == "mutcolor")
-					facial_hair_color = H.dna.features["mcolor"]
-				else
-					facial_hair_color = S.hair_color
-			else
-				facial_hair_color = H.facial_hair_color
-			hair_alpha = S.hair_alpha
-		else
-			facial_hairstyle = "Shaved"
-			facial_hair_color = "000"
-			hair_alpha = 255
-		//Hair
-		if(H.hairstyle && (HAIR in S.species_traits))
-			hairstyle = H.hairstyle
-			if(S.hair_color)
-				if(S.hair_color == "mutcolor")
-					hair_color = H.dna.features["mcolor"]
-				else
-					hair_color = S.hair_color
-			else
-				hair_color = H.hair_color
-			hair_alpha = S.hair_alpha
-		else
-			hairstyle = "Bald"
-			hair_color = "000"
-			hair_alpha = initial(hair_alpha)
 		// lipstick
 		if(H.lip_style && (LIPS in S.species_traits))
 			lip_style = H.lip_style
@@ -193,15 +153,6 @@
 	if(dropped) //certain overlays only appear when the limb is being detached from its owner.
 
 		if(status != BODYPART_ROBOTIC) //having a robotic head hides certain features.
-			//facial hair
-			if(facial_hairstyle)
-				var/datum/sprite_accessory/S = GLOB.facial_hairstyles_list[facial_hairstyle]
-				if(S)
-					var/image/facial_overlay = image(S.icon, "[S.icon_state]", -HAIR_LAYER, SOUTH)
-					facial_overlay.color = "#" + facial_hair_color
-					facial_overlay.alpha = hair_alpha
-					. += facial_overlay
-
 			//Applies the debrained overlay if there is no brain
 			if(!brain)
 				var/image/debrain_overlay = image(layer = -HAIR_LAYER, dir = SOUTH)
@@ -209,13 +160,6 @@
 					debrain_overlay.icon = 'icons/mob/human_face.dmi'
 					debrain_overlay.icon_state = "debrained"
 				. += debrain_overlay
-			else
-				var/datum/sprite_accessory/S2 = GLOB.hairstyles_list[hairstyle]
-				if(S2)
-					var/image/hair_overlay = image(S2.icon, "[S2.icon_state]", -HAIR_LAYER, SOUTH)
-					hair_overlay.color = "#" + hair_color
-					hair_overlay.alpha = hair_alpha
-					. += hair_overlay
 			//ROGTODO add accessories (earrings, piercings) here
 
 		// lipstick

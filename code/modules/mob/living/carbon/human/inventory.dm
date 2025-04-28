@@ -322,7 +322,7 @@
 
 /mob/living/carbon/human/wear_mask_update(obj/item/I, toggle_off = 1)
 	if((I.flags_inv & (HIDEHAIR|HIDEFACIALHAIR)) || (initial(I.flags_inv) & (HIDEHAIR|HIDEFACIALHAIR)))
-		update_hair()
+		update_body()
 	if(I.flags_inv & HIDEEYES)
 		update_inv_glasses()
 	check_armor_class()
@@ -330,11 +330,11 @@
 
 /mob/living/carbon/human/head_update(obj/item/I, forced)
 	if((I.flags_inv & (HIDEHAIR|HIDEFACIALHAIR)) || forced)
-		update_hair()
+		update_body()
 	else
 		var/obj/item/clothing/C = I
 		if(istype(C) && C.dynamic_hair_suffix)
-			update_hair()
+			update_body()
 	if(I.flags_inv & HIDEEYES || forced)
 		update_inv_glasses()
 	if(I.flags_inv & HIDEEARS || forced)

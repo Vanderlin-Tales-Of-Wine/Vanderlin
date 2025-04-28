@@ -103,7 +103,7 @@
 	update_icon()
 
 /obj/structure/mannequin/attack_hand(mob/living/user)
-	if(user.cmode || user.a_intent == INTENT_HARM || user.a_intent == INTENT_DISARM)
+	if(user.a_intent.name == "punch")
 		if(!tipped_over)
 			TipOver()
 			return

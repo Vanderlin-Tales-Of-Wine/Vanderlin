@@ -13,6 +13,8 @@
 /mob/dead/observer/rogue/arcaneeye
 	sight = 0
 	see_in_dark = 2
+	invisibility = INVISIBILITY_GHOST
+	see_invisible = SEE_INVISIBLE_GHOST
 
 	misting = 0
 	var/mob/living/carbon/human/vampirelord = null
