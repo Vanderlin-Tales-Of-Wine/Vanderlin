@@ -659,62 +659,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 					lip_overlay.pixel_y += offsets[OFFSET_FACE_F][2]
 			standing += lip_overlay
 
-		// eyes
-		if(!(NOEYESPRITES in species_traits))
-			var/obj/item/organ/eyes/E = H.getorganslot(ORGAN_SLOT_EYES)
-			var/mutable_appearance/eye_overlay
-			if(!E)
-				eye_overlay = mutable_appearance('icons/mob/human_face.dmi', "eyes_missing", -BODY_LAYER)
-			else
-				eye_overlay = mutable_appearance('icons/mob/human_face.dmi', "[E.eye_icon_state]", -BODY_LAYER)
-			if((EYECOLOR in species_traits) && E)
-				eye_overlay.color = "#" + H.eye_color
-			if(H.gender == FEMALE)
-				if(OFFSET_FACE_F in offsets)
-					eye_overlay.pixel_x += offsets[OFFSET_FACE_F][1]
-					eye_overlay.pixel_y += offsets[OFFSET_FACE_F][2]
-			else
-				if(OFFSET_FACE in offsets)
-					eye_overlay.pixel_x += offsets[OFFSET_FACE][1]
-					eye_overlay.pixel_y += offsets[OFFSET_FACE][2]
-			standing += eye_overlay
-
-		//detail
-		if(H.detail)
-			var/datum/sprite_accessory/detail/detail = GLOB.detail_list[H.detail]
-			var/mutable_appearance/accessory_overlay
-			if(detail)
-				accessory_overlay = mutable_appearance(detail.icon, "[detail.icon_state]_BODY", -BODY_LAYER)
-				if(!detail.use_static)
-					if(detail.color_src == HAIR)
-						accessory_overlay.color = "#[H.hair_color]"
-					else
-						accessory_overlay.color = "#" + H.detail_color
-				if(H.gender == FEMALE)
-					if(OFFSET_FACE_F in offsets)
-						accessory_overlay.pixel_x += offsets[OFFSET_FACE_F][1]
-						accessory_overlay.pixel_y += offsets[OFFSET_FACE_F][2]
-				else
-					if(OFFSET_FACE in offsets)
-						accessory_overlay.pixel_x += offsets[OFFSET_FACE][1]
-						accessory_overlay.pixel_y += offsets[OFFSET_FACE][2]
-				standing += accessory_overlay
-
-		if(H.accessory)
-			var/datum/sprite_accessory/accessories/accessory = GLOB.accessories_list[H.accessory]
-			var/mutable_appearance/accessory_overlay
-			if(accessory)
-				accessory_overlay = mutable_appearance(accessory.icon, "[accessory.icon_state]_BODY", -BODY_LAYER)
-				if(H.gender == FEMALE)
-					if(OFFSET_FACE_F in offsets)
-						accessory_overlay.pixel_x += offsets[OFFSET_FACE_F][1]
-						accessory_overlay.pixel_y += offsets[OFFSET_FACE_F][2]
-				else
-					if(OFFSET_FACE in offsets)
-						accessory_overlay.pixel_x += offsets[OFFSET_FACE][1]
-						accessory_overlay.pixel_y += offsets[OFFSET_FACE][2]
-				standing += accessory_overlay
-
 		if(H.dna.species.hairyness)
 			var/mutable_appearance/bodyhair_overlay
 			if(H.gender == MALE)
