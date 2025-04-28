@@ -56,6 +56,7 @@
 			armor = /obj/item/clothing/shirt/robe/eora
 			H.cmode_music = 'sound/music/cmode/church/CombatEora.ogg'
 			ADD_TRAIT(H, TRAIT_BEAUTIFUL, TRAIT_GENERIC)
+			ADD_TRAIT(H, TRAIT_EMPATH, TRAIT_GENERIC)
 			H.virginity = FALSE
 			H.mind?.adjust_skillrank(/datum/skill/misc/music, 2, TRUE)
 		if(/datum/patron/divine/noc)
