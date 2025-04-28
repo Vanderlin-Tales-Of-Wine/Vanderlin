@@ -400,7 +400,7 @@
 
 /datum/pot_recipe/tea/taraxamint
 	name = "Taraxacum-Mentha tea"
-	cooking_time = 30 SECONDS
+	cooking_time = 60 SECONDS
 	water_conversion = 0.6
 	produced_reagent = /datum/reagent/consumable/newtea/taraxamint
 	required_items = list(/obj/item/alch/taraxacum = 1, /obj/item/alch/mentha = 1)
@@ -409,7 +409,7 @@
 
 /datum/pot_recipe/tea/utricasaliva
 	name = "Urtica-Saliva tea"
-	cooking_time = 30 SECONDS
+	cooking_time = 60 SECONDS
 	water_conversion = 0.6
 	produced_reagent = /datum/reagent/consumable/newtea/utricasaliva
 	required_items = list(/obj/item/alch/urtica = 1, /obj/item/alch/salvia = 1)
@@ -418,7 +418,7 @@
 
 /datum/pot_recipe/tea/badidea
 	name = "westleach tar tea"
-	cooking_time = 30 SECONDS
+	cooking_time = 40 SECONDS
 	water_conversion = 0.2
 	produced_reagent = /datum/reagent/consumable/newtea/badidea
 	required_items = list(/obj/item/reagent_containers/food/snacks/produce/dry_westleach = 3)
@@ -427,7 +427,7 @@
 
 /datum/pot_recipe/tea/fourtwenty
 	name = "swampweed brew"
-	cooking_time = 30 SECONDS
+	cooking_time = 40 SECONDS
 	water_conversion = 0.6
 	produced_reagent = /datum/reagent/consumable/newtea/fourtwenty
 	required_items = list(/obj/item/reagent_containers/food/snacks/produce/swampweed_dried = 2)
@@ -436,10 +436,19 @@
 
 /datum/pot_recipe/tea/manabloom
 	name = "Manabloom tea"
-	cooking_time = 30 SECONDS
+	cooking_time = 40 SECONDS
 	water_conversion = 0.6
 	produced_reagent = /datum/reagent/consumable/newtea/manabloom
 	required_items = list(/obj/item/reagent_containers/food/snacks/produce/manabloom = 2) // weak, unrefined, crude manabloom extraction
+	finished_smell = /datum/pollutant/food/druqks
+	pollute_amount = 100
+
+/datum/pot_recipe/tea/compot
+	name = "Compot"
+	cooking_time = 90 SECONDS
+	water_conversion = 0.8
+	produced_reagent = /datum/reagent/consumable/newtea/compot
+	required_items = list(/obj/item/reagent_containers/food/snacks/raisins = 2) // weak, unrefined, crude manabloom extraction
 	finished_smell = /datum/pollutant/food/druqks
 	pollute_amount = 100
 

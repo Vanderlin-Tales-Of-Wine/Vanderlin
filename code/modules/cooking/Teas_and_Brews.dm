@@ -22,7 +22,7 @@
 	name = "Taraxacum-Mentha tea"
 	description = "If you see this, stop using moondust"
 	reagent_state = LIQUID
-	color = "#9b9c53"
+	color = "#acaf01"
 	nutriment_factor = 2
 	metabolization_rate = 0.3 // 33% of normal metab
 	taste_description = "relaxing texture, minty aftertaste"
@@ -45,7 +45,7 @@
 	name = "Urtica-Saliva tea"
 	description = "If you see this, stop using moondust"
 	reagent_state = LIQUID
-	color = "#30113a"
+	color = "#451853"
 	nutriment_factor = 2
 	metabolization_rate = 1
 	taste_description = "tingling, sour fruits"
@@ -67,7 +67,7 @@
 	name = "westleach tar tea"
 	description = "If you see this, stop using moondust"
 	reagent_state = LIQUID
-	color = "#270807"
+	color = "#490100"
 	nutriment_factor = 2
 	metabolization_rate = 2 // ye be fucked my guy
 	taste_description = "HEROIC, amounts of westleach tar"
@@ -108,7 +108,7 @@
 	name = "Manabloom tea"
 	description = "If you see this, stop using moondust"
 	reagent_state = LIQUID
-	color = "#6183a3"
+	color = "#5986b1"
 	nutriment_factor = 2
 	metabolization_rate = 0.2 // 20% of normal metab
 	taste_description = "stinging, floral tones. Did it just cast something in your mouth?..."
@@ -129,7 +129,7 @@
 	name = "Compot"
 	description = "If you see this, stop using moondust"
 	reagent_state = LIQUID
-	color = "#7e6536"
+	color = "#b38838"
 	nutriment_factor = 2
 	metabolization_rate = 0.2 // 20% of normal metab
 	taste_description = "strong berry taste, its very sweet"
