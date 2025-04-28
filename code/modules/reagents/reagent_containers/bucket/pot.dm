@@ -395,6 +395,8 @@
 	pollute_amount = 100
 
 //teas go here
+/datum/pot_recipe/tea
+	abstract_type = /datum/pot_recipe/tea
 
 /datum/pot_recipe/tea/taraxamint
 	name = "Taraxacum-Mentha tea"
