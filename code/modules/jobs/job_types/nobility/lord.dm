@@ -30,6 +30,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	)
 	outfit = /datum/outfit/job/lord
 	bypass_lastclass = TRUE
+	allowed_patrons = ALL_TEMPLE_PATRONS
 	give_bank_account = 500
 	selection_color = "#7851A9"
 
