@@ -15,10 +15,10 @@
 
 /datum/reagent/consumable/newtea/on_mob_life(mob/living/carbon/M)
 	if(M.blood_volume < BLOOD_VOLUME_NORMAL)
-	M.blood_volume = min(M.blood_volume+2, BLOOD_VOLUME_NORMAL)
+		M.blood_volume = min(M.blood_volume+2, BLOOD_VOLUME_NORMAL)
 	..()
 
-/datum/reagent/consumable/newtea/camomilemint
+/datum/reagent/consumable/newtea/taraxamint
 	name = "Taraxacum-Mentha tea"
 	description = "If you see this, stop using moondust"
 	reagent_state = LIQUID
@@ -29,9 +29,9 @@
 	taste_mult = 3
 	quality = 1
 
-/datum/reagent/consumable/newtea/camomilemint/on_mob_life(mob/living/carbon/M)
+/datum/reagent/consumable/newtea/taraxamint/on_mob_life(mob/living/carbon/M)
 	if(volume >= 20)
-		M.reagents.remove_reagent(/datum/reagent/consumable/newtea/camomilemint, 2) //No overhealing.
+		M.reagents.remove_reagent(/datum/reagent/consumable/newtea/taraxamint, 2) //No overhealing.
 	var/list/wCount = M.get_wounds()
 	if(wCount.len > 0)
 		M.heal_wounds(0.4) // Equals to 24 woundhealing distributed when you drink entire 20 units. Slow and not too much, but just enough to give you time to crawl to somewhere safe (lets be real, even the streets are a gamble)
@@ -48,7 +48,7 @@
 	color = "#30113a"
 	nutriment_factor = 2
 	metabolization_rate = 1
-	taste_description = "tingling fruits"
+	taste_description = "tingling, sour fruits"
 	taste_mult = 2
 	alpha = 153
 	quality = 3
@@ -70,7 +70,7 @@
 	color = "#270807"
 	nutriment_factor = 2
 	metabolization_rate = 2 // ye be fucked my guy
-	taste_description = "HEROIC, ammounts of westleach tar"
+	taste_description = "HEROIC, amounts of westleach tar"
 	taste_mult = 4
 	hydration_factor = 0
 	alpha = 153
