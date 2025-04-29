@@ -116,15 +116,18 @@
 /datum/species/aasimar/get_skin_list()
 	return sortList(list(
 		"Coral" = SKIN_COLOR_CORAL, // - (Pink)
-		"Soapstone"	   = SKIN_COLOR_SOAPSTONE, // - (Seafoam green)
+		"Soapstone" = SKIN_COLOR_SOAPSTONE, // - (Seafoam green)
 		"Marble" = SKIN_COLOR_MARBLE, // - (White stone)
-		"Silver" = SKIN_COLOR_SILVER, // - (Grey)
+		"Silver" = SKIN_COLOR_SILVER, // - (Ice Grey)
 		"Copper" = SKIN_COLOR_COPPER, // - (Orange)
 		"Gold" = SKIN_COLOR_GOLD, // - (Yellow)
 		"Rust" = SKIN_COLOR_RUST, // - (Red-brown)
 		"Obsidian" = SKIN_COLOR_OBSIDIAN, // - (Black)
 		"Lapis" = SKIN_COLOR_LAPIS, // - (Deep blue)
-		"Basalt" = SKIN_COLOR_BASALT, // - Dark grey
+		"Basalt" = SKIN_COLOR_BASALT, // - (Dark grey)
+		"Larimar" = SKIN_COLOR_LARIMAR, // - (Cyan)
+		"Amazonite" = SKIN_COLOR_AMAZONITE, // - (Turquoise)
+		"Limestone" = SKIN_COLOR_LIMESTONE, // - (Tan)
 	))
 
 /datum/species/aasimar/get_hairc_list()
