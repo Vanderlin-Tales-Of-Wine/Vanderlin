@@ -37,11 +37,33 @@
 
 /obj/effect/fog_parter
 	icon = 'icons/effects/light_overlays/light_288.dmi'
-	icon_state = "light"
+	icon_state = "light2"
 	pixel_y = -128
 	pixel_x = -128
 	plane = PLANE_FOG_CUTTER
 	invisibility = INVISIBILITY_LIGHTING
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	///Cache of the possible light overlays, according to size.
+	var/static/list/light_overlays = list(
+		"32" = 'icons/effects/light_overlays/light_32.dmi',
+		"64" = 'icons/effects/light_overlays/light_64.dmi',
+		"96" = 'icons/effects/light_overlays/light_96.dmi',
+		"128" = 'icons/effects/light_overlays/light_128.dmi',
+		"160" = 'icons/effects/light_overlays/light_160.dmi',
+		"192" = 'icons/effects/light_overlays/light_192.dmi',
+		"224" = 'icons/effects/light_overlays/light_224.dmi',
+		"256" = 'icons/effects/light_overlays/light_256.dmi',
+		"288" = 'icons/effects/light_overlays/light_288.dmi',
+		"320" = 'icons/effects/light_overlays/light_320.dmi',
+		"352" = 'icons/effects/light_overlays/light_352.dmi',
+		)
+
+/obj/effect/fog_parter/proc/set_range(range)
+	if(range <= 0)
+		return
+	range = clamp(CEILING(range, 0.5), 1, 6)
+	var/pixel_bounds = ((range - 1) * 64) + 32
+	icon = light_overlays["[pixel_bounds]"]
 
 /datum/particle_weather/fog
 	name = "Fog"

@@ -19,11 +19,11 @@
 	log_world(msg)
 
 //print a testing-mode debug message to world.log and world
-#ifdef TESTING
+// #ifdef TESTING
 #define testing(msg) log_world("[TIMETOTEXT4LOGS] ## TESTING: [msg]"); to_chat(world, "## TESTING: [msg]")
-#else
-#define testing(msg)
-#endif
+// #else
+// #define testing(msg)
+// #endif
 
 /proc/log_test(text)
 #ifdef UNIT_TESTS
