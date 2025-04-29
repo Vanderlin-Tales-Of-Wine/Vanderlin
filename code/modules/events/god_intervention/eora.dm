@@ -21,7 +21,7 @@
 			continue
 
 		// Exclude married and children
-		if(human_mob.spouse_mob || human_mob.age == AGE_CHILD)
+		if(human_mob.IsWedded() || human_mob.age == AGE_CHILD)
 			continue
 
 		// Exclude parents
