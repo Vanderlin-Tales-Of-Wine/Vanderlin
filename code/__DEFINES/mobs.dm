@@ -461,14 +461,17 @@
 //AASIMAR SKIN TONES
 #define SKIN_COLOR_CORAL "ff96d6" //Pink
 #define SKIN_COLOR_SOAPSTONE "c7f9cc" //Seafoam green
-#define SKIN_COLOR_MARBLE "e6e4d8" //White
-#define SKIN_COLOR_SILVER "c0c0c0" //Light grey
+#define SKIN_COLOR_LIMESTONE "e6e4d8" //Tan
+#define SKIN_COLOR_SILVER "94B9C0" //Ice grey, at least that's what microsoft paint says
 #define SKIN_COLOR_COPPER "b87333" //Orange
 #define SKIN_COLOR_GOLD "d4af37" //Gold
-#define SKIN_COLOR_RUST "b7410e" //Red-brown
-#define SKIN_COLOR_OBSIDIAN "03010D" //Black
+#define SKIN_COLOR_RUST "B71F1F" //Dark red
+#define SKIN_COLOR_OBSIDIAN "19132a" //Black
 #define SKIN_COLOR_LAPIS "26619C" //Deep blue
 #define SKIN_COLOR_BASALT "474a4c" //Dark grey
+#define SKIN_COLOR_MARBLE "E6E6E6" //White
+#define SKIN_COLOR_LARIMAR "a9ded1" //Cyan
+#define SKIN_COLOR_AMAZONITE "b6f1f2" //also Cyan
 
 //HALF ELF SKIN TONES
 #define SKIN_COLOR_ZIZO_CURSED "fff0e9" //Pale as SHIT
