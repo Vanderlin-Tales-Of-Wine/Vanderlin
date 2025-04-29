@@ -13863,16 +13863,6 @@
 /obj/structure/fluff/railing/border{
 	dir = 5
 	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/effect/mapping_helpers/secret_door_creator/keep{
-	floor_turf = /turf/open/floor/ruinedwood/spiral;
-	override_floor = 1;
-	redstone_id = 515
-	},
 /turf/open/floor/churchrough,
 /area/rogue/indoors/town/manor)
 "jeP" = (
@@ -17096,19 +17086,6 @@
 	},
 /turf/closed/wall/mineral/wood/window,
 /area/rogue/indoors/town/smithy)
-"lit" = (
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/effect/mapping_helpers/secret_door_creator/keep{
-	floor_turf = /turf/open/floor/ruinedwood/spiral;
-	override_floor = 1;
-	redstone_id = 514
-	},
-/turf/closed/wall/mineral/wood,
-/area/rogue/indoors/town/manor)
 "liC" = (
 /obj/structure/chair/bench,
 /turf/open/floor/cobble,
@@ -28563,23 +28540,6 @@
 	pixel_x = -14;
 	pixel_y = -7
 	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/table/wood{
-	dir = 1;
-	icon_state = "longtable_mid"
-	},
-/obj/item/reagent_containers/glass/carafe/silver/redwine{
-	pixel_x = 9;
-	pixel_y = 12
-	},
-/obj/item/reagent_containers/glass/cup/silver{
-	pixel_x = -6;
-	pixel_y = 7
-	},
 /turf/open/water/cleanshallow,
 /area/rogue/indoors/town/manor)
 "sYB" = (
@@ -36662,19 +36622,6 @@
 "yiB" = (
 /turf/closed/mineral,
 /area/rogue/indoors/town/shop)
-"yiY" = (
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/effect/mapping_helpers/secret_door_creator/keep{
-	floor_turf = /turf/open/floor/ruinedwood/spiral;
-	override_floor = 1;
-	redstone_id = 614
-	},
-/turf/closed/wall/mineral/wood,
-/area/rogue/indoors/town/manor)
 "yjq" = (
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_y = -32
@@ -134967,7 +134914,7 @@ xGB
 eYz
 rhb
 faL
-qWa
+faL
 ksA
 uIF
 mMx
@@ -137588,9 +137535,9 @@ phh
 phh
 ebb
 aop
-yiY
 phh
-lit
+phh
+phh
 bQI
 fyD
 phh
