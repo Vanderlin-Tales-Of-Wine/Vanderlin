@@ -7,11 +7,13 @@
 	drag_slowdown = 2
 	open_sound = 'sound/misc/chestopen.ogg'
 	close_sound = 'sound/misc/chestclose.ogg'
-	sellprice = 1
+	locked = FALSE
+	sellprice = 1 // crate recycling program
 	max_integrity = 200
 	blade_dulling = DULLING_BASHCHOP
 	mob_storage_capacity = 1
 	allow_dense = FALSE
+	static_price = TRUE
 
 /obj/structure/closet/crate/chest/open(mob/living/user)
 	. = ..()
@@ -76,6 +78,7 @@
 	open_sound = 'sound/items/book_open.ogg'
 	open_sound = 'sound/items/book_close.ogg'
 	close_sound = 'sound/items/book_close.ogg'
+	sellprice = 0
 
 /obj/structure/closet/crate/chest/neu
 	name = "sturdy oak chest"

@@ -75,6 +75,7 @@
 /obj/structure/flora/tree/obj_destruction(damage_flag)
 	if(stump_type)
 		new stump_type(loc)
+	GLOB.vanderlin_round_stats[STATS_TREES_CUT]++
 	. = ..()
 
 
@@ -236,6 +237,13 @@
 
 /obj/structure/flora/grass/update_icon()
 	icon_state = "grass[rand(1, 6)]"
+
+/obj/structure/flora/grass/tundra
+	name = "tundra grass"
+	icon_state = "tundragrass1"
+
+/obj/structure/flora/grass/tundra/update_icon()
+	icon_state = "tundragrass[rand(1, 6)]"
 
 /obj/structure/flora/grass/water
 	name = "grass"
@@ -833,7 +841,7 @@
 /obj/structure/flora/grass/bush_meagre/Initialize()
 	if(silky)
 		goodie = /obj/item/natural/worms/grub_silk
-		if(prob(10))
+		if(prob(20))
 			goodie = /obj/item/reagent_containers/food/snacks/produce/poppy
 	else
 		if(prob(30))
@@ -939,11 +947,8 @@
 
 /obj/structure/flora/grass/bush_meagre/bog
 	desc = "These large bushes are known to be well-liked by silkworms who make their nests in their dark depths."
-	icon = 'icons/roguetown/mob/monster/Trolls.dmi'
-	icon_state = "Trolls"
+	icon = 'icons/mob/creacher/trolls/troll.dmi'
+	icon_state = "troll_hide"
 	pixel_x = -16
 	pixel_y = -1
 	silky = TRUE
-
-
-

@@ -18,9 +18,12 @@
 	display_order = JDO_ARMORER
 	give_bank_account = 30
 
+/datum/outfit/job/armorsmith
+	job_bitflag = BITFLAG_CONSTRUCTOR
+
 /datum/outfit/job/armorsmith/pre_equip(mob/living/carbon/human/H)
 	..()
-	id = /obj/item/clothing/ring/silver/makers_guild
+	ring = /obj/item/clothing/ring/silver/makers_guild
 	head = /obj/item/clothing/head/hatfur
 	if(prob(50))
 		head = /obj/item/clothing/head/hatblu
@@ -86,9 +89,12 @@
 	give_bank_account = 30
 	min_pq = 0
 
+/datum/outfit/job/weaponsmith
+	job_bitflag = BITFLAG_CONSTRUCTOR
+
 /datum/outfit/job/weaponsmith/pre_equip(mob/living/carbon/human/H)
 	..()
-	id = /obj/item/clothing/ring/silver/makers_guild
+	ring = /obj/item/clothing/ring/silver/makers_guild
 	head = /obj/item/clothing/head/hatfur
 	if(prob(50))
 		head = /obj/item/clothing/head/hatblu

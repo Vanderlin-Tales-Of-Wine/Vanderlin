@@ -50,10 +50,6 @@ GLOBAL_LIST_EMPTY(hellspawns)
 	GLOB.hellexits -= src
 	return ..()
 
-/mob/dead/observer
-	var/isinhell
-	var/last_helld = 0
-
 /mob/dead/observer/proc/go2hell()
 	var/obj/effect/landmark/L = pick(GLOB.hellspawns)
 	if(L)

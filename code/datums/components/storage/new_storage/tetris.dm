@@ -382,12 +382,10 @@
 		if(istype(attacking_item, /obj/item/needle))
 			var/obj/item/needle/sewer = attacking_item
 			var/obj/item/storage/this_item = parent
-			if(sewer.can_repair && this_item.sewrepair && this_item.max_integrity && !this_item.obj_broken && this_item.obj_integrity < this_item.max_integrity && user.mind.get_skill_level(/datum/skill/misc/sewing) >= 1 && this_item.ontable() && !being_repaired)
-				being_repaired = TRUE
+			if(sewer.can_repair && this_item.sewrepair && this_item.max_integrity && !this_item.obj_broken && this_item.obj_integrity < this_item.max_integrity && this_item.ontable())
 				return FALSE
 		if(user.used_intent.type == /datum/intent/snip) //This makes it so we can salvage
 			return FALSE
-	being_repaired = FALSE
 
 	. = TRUE //no afterattack
 	if(!can_be_inserted(attacking_item, FALSE, user, params = params, storage_click = storage_click))
@@ -652,7 +650,7 @@
 			final_y = coordinate_y+current_y
 			calculated_coordinates = "[final_x],[final_y]"
 			testing("handle_item_insertion SUCCESS calculated_coordinates: ([calculated_coordinates])")
-			LAZYADDASSOC(grid_coordinates_to_item, calculated_coordinates, storing)
+			LAZYADDASSOCLIST(grid_coordinates_to_item, calculated_coordinates, storing)
 			LAZYINITLIST(item_to_grid_coordinates)
 			LAZYINITLIST(item_to_grid_coordinates[storing])
 			LAZYADD(item_to_grid_coordinates[storing], calculated_coordinates)
@@ -752,6 +750,9 @@
 	storing.on_enter_storage(master)
 	storing.item_flags |= IN_STORAGE
 	storing.mouse_opacity = MOUSE_OPACITY_OPAQUE //So you can click on the area around the item to equip it, instead of having to pixel hunt
+	if(ismovable(parent))
+		if(ismob(parent:loc))
+			parent:loc:encumbrance_to_speed()
 	if(user)
 		if(user.client && (user.active_storage != src))
 			user.client.screen -= storing

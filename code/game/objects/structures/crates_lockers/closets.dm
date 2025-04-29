@@ -38,6 +38,7 @@
 	throw_speed = 1
 	throw_range = 1
 	anchored = FALSE
+
 	can_add_lock = TRUE
 	lock = /datum/lock/key
 

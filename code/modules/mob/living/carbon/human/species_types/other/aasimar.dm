@@ -33,7 +33,6 @@
 
 	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,OLDGREY)
 	inherent_traits = list(TRAIT_NOMOBSWAP)
-	default_features = list("mcolor" = "FFF", "wings" = "None")
 	use_skintones = 1
 	disliked_food = NONE
 	liked_food = NONE
@@ -61,12 +60,16 @@
 	specstats_f = list(STATKEY_STR = 0, STATKEY_PER = 0, STATKEY_INT = 2, STATKEY_CON = 1, STATKEY_END = 1, STATKEY_SPD = -1, STATKEY_LCK = 0)
 	enflamed_icon = "widefire"
 	patreon_req = 0
-
+	bodypart_features = list(
+		/datum/bodypart_feature/hair/head,
+		/datum/bodypart_feature/hair/facial,
+	)
 	customizers = list(
 		/datum/customizer/organ/eyes/humanoid,
 		/datum/customizer/bodypart_feature/hair/head/humanoid,
 		/datum/customizer/bodypart_feature/hair/facial/humanoid,
 		/datum/customizer/bodypart_feature/accessory,
+		/datum/customizer/bodypart_feature/face_detail,
 	)
 	body_markings = list(
 		/datum/body_marking/tonage,
@@ -97,7 +100,7 @@
 		if(message[1])
 			if(message[1] != "*")
 				message = " [message]"
-				var/list/accent_words = strings("accent_universal.json", "universal")
+				var/list/accent_words = strings("accents/accent_universal.json", "universal")
 
 				for(var/key in accent_words)
 					var/value = accent_words[key]
@@ -156,7 +159,7 @@
 	return null
 
 /datum/species/aasimar/get_accent_list()
-	return strings("proper_replacement.json", "proper")
+	return strings("accents/proper_replacement.json", "proper")
 
 /datum/species/aasimar/get_native_language()
 	return "Celestial"

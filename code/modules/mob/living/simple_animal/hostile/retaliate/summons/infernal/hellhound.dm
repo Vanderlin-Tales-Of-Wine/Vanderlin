@@ -33,9 +33,9 @@
 	food_type = list()
 	footstep_type = FOOTSTEP_MOB_BAREFOOT
 	pooptype = null
-	STACON = 7
-	STASTR = 9
-	STASPD = 13
+	base_constitution = 7
+	base_strength = 9
+	base_speed = 13
 	simple_detect_bonus = 20
 	deaggroprob = 0
 	defprob = 40
@@ -79,4 +79,5 @@
 		targetted.IgniteMob()
 		targetted.visible_message(span_danger("[src] sets [target] on fire!"))
 		src.flame_cd = world.time
-	return target.attack_animal(src)
+	if(!QDELETED(target))
+		return target.attack_animal(src)

@@ -41,8 +41,8 @@
 
 	/* admin stuff */
 	var/follower_ident = "[follower.key]/([follower.real_name]) (follower of [patron])"
-	message_admins("[follower_ident] [ADMIN_SM(follower)] [ADMIN_JMP(follower)] prays: [span_info(prayer)]")
-	log_prayer(span_info("[follower_ident] prays: [prayer]"))
+	message_admins("[follower_ident] [ADMIN_SM(follower)] [ADMIN_FLW(follower)] prays: [span_info(prayer)]")
+	user.log_message("(follower of [patron]) prays: [prayer]", LOG_GAME)
 
 	follower.whisper(prayer)
 
@@ -380,36 +380,6 @@
 		else
 			L.Knockdown(10)
 
-/datum/emote/living/flap
-	key = "flap"
-	key_third_person = "flaps"
-	message = "flaps their wings."
-	restraint_check = TRUE
-	var/wing_time = 20
-/datum/emote/living/carbon/human/flap/can_run_emote(mob/user, status_check = TRUE , intentional)
-	return FALSE
-/datum/emote/living/flap/run_emote(mob/user, params, type_override, intentional)
-	. = ..()
-	if(. && ishuman(user))
-		var/mob/living/carbon/human/H = user
-		var/open = FALSE
-		if(H.dna.features["wings"] != "None")
-			if("wingsopen" in H.dna.species.mutant_bodyparts)
-				open = TRUE
-				H.CloseWings()
-			else
-				H.OpenWings()
-			addtimer(CALLBACK(H, open ? TYPE_PROC_REF(/mob/living/carbon/human, OpenWings) : TYPE_PROC_REF(/mob/living/carbon/human, CloseWings)), wing_time)
-
-/datum/emote/living/flap/aflap
-	key = "aflap"
-	key_third_person = "aflaps"
-	message = "flaps their wings ANGRILY!"
-	restraint_check = TRUE
-	wing_time = 10
-/datum/emote/living/carbon/human/aflap/can_run_emote(mob/user, status_check = TRUE , intentional)
-	return FALSE
-
 /datum/emote/living/fatigue
 	key = "fatigue"
 	emote_type = EMOTE_AUDIBLE
@@ -617,6 +587,9 @@
 		H.add_stress(/datum/stressevent/hug)
 		playsound(target.loc, pick('sound/vo/hug.ogg'), 100, FALSE, -1)
 
+		if(user.mind)
+			GLOB.vanderlin_round_stats[STATS_HUGS_MADE]++
+
 // ............... I ..................
 /datum/emote/living/idle
 	key = "idle"
@@ -689,6 +662,8 @@
 			else
 				message_param = "kisses %t on \the [parse_zone(H.zone_selected)]."
 	playsound(target.loc, pick('sound/vo/kiss (1).ogg','sound/vo/kiss (2).ogg'), 100, FALSE, -1)
+	if(user.mind)
+		GLOB.vanderlin_round_stats[STATS_KISSES_MADE]++
 
 // ............... L ..................
 /datum/emote/living/laugh
@@ -704,6 +679,11 @@
 	if(. && iscarbon(user))
 		var/mob/living/carbon/C = user
 		return !C.silent
+
+/datum/emote/living/laugh/run_emote(mob/user, params, type_override, intentional, targetted)
+	. = ..()
+	if(. && user.mind)
+		GLOB.vanderlin_round_stats[STATS_LAUGHS_MADE]++
 
 /mob/living/carbon/human/verb/emote_laugh()
 	set name = "Laugh"
@@ -898,6 +878,12 @@
 	key = "rage"
 	message = "screams in rage!"
 	emote_type = EMOTE_AUDIBLE
+
+/datum/emote/living/rage/run_emote(mob/user, params, type_override, intentional, targetted)
+	. = ..()
+	if(. && user.mind)
+		GLOB.vanderlin_round_stats[STATS_WARCRIES]++
+
 /mob/living/carbon/human/verb/emote_rage()
 	set name = "Rage"
 	set category = "Noises"

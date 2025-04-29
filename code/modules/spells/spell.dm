@@ -175,6 +175,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 	var/base_icon_state = "spell"
 	var/associated_skill = /datum/skill/magic/arcane
 	var/miracle = FALSE
+	var/healing_miracle = FALSE
 	var/devotion_cost = 0
 	var/ignore_cockblock = FALSE //whether or not to ignore TRAIT_SPELLBLOCK
 	var/uses_mana = TRUE
@@ -183,6 +184,15 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 	action_icon = 'icons/mob/actions/roguespells.dmi'
 	action_background_icon_state = ""
 	base_action = /datum/action/spell_action/spell
+
+/obj/effect/proc_holder/spell/proc/create_logs(atom/user, list/targets)
+	var/targets_string
+	if(targets)
+		targets_string = targets.Join(", ")
+		for(var/atom/target as anything in targets)
+			target.log_message("was affected by spell [name], caster was [user]", "red", LOG_ATTACK, FALSE)
+	if(user)
+		user.log_message("cast the spell [name][targets ? "on [targets_string]" : ""].", "red", LOG_ATTACK)
 
 /obj/effect/proc_holder/spell/get_chargetime()
 	if(ranged_ability_user && chargetime)
@@ -218,7 +228,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 			var/diffy = 10 - ranged_ability_user.STAINT
 			newdrain = newdrain + (releasedrain * (diffy * 0.02))
 //		newdrain = newdrain + (ranged_ability_user.checkwornweight() * 10)
-		if(!ranged_ability_user.check_armor_skill())
+		if(ranged_ability_user.get_encumbrance() > 0.4)
 			newdrain += 40
 		testing("[releasedrain] newdrain [newdrain]")
 		if(newdrain > 0)
@@ -391,6 +401,13 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 	return
 
 /obj/effect/proc_holder/spell/proc/perform(list/targets, recharge = TRUE, mob/user = usr) //if recharge is started is important for the trigger spells
+	if(length(targets) && miracle && healing_miracle)
+		var/mob/living/target = targets[1]
+		if(istype(target))
+			var/lux_state = target.get_lux_status()
+			if(lux_state != LUX_HAS_LUX)
+				target.visible_message(span_danger("[target] recoils in disgust!"))
+
 	before_cast(targets)
 	invocation(user)
 
@@ -413,7 +430,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 
 	set_attuned_strength(total_attunements)
 	if(user && user.ckey)
-		user.log_message("<span class='danger'>cast the spell [name].</span>", LOG_ATTACK)
+		create_logs(user, targets)
 	if(recharge)
 		recharging = FALSE
 	if(cast(targets,user=user))

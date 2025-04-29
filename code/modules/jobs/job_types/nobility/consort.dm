@@ -25,7 +25,7 @@
 	give_bank_account = 500
 	apprentice_name = "Servant"
 	cmode_music = 'sound/music/cmode/nobility/combat_noble.ogg'
-
+	noble_income = 22
 
 /datum/job/consort/after_spawn(mob/living/spawned, client/player_client)
 	..()
@@ -41,7 +41,7 @@
 /datum/outfit/job/consort // Default equipment regardless of class.
 	head = /obj/item/clothing/head/crown/nyle/consortcrown
 	shoes = /obj/item/clothing/shoes/boots
-	id = /obj/item/clothing/ring/silver
+	ring = /obj/item/clothing/ring/silver
 	belt = /obj/item/storage/belt/leather
 	beltl = /obj/item/storage/keyring/consort
 	beltr = /obj/item/storage/belt/pouch/coins/rich

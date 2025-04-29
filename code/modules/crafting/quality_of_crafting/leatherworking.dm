@@ -73,11 +73,6 @@
 	sellprice = 17
 	craftdiff = 1
 
-/datum/repeatable_crafting_recipe/leather/hood
-	name = "leather hood"
-	output = /obj/item/clothing/head/roguehood/brown
-	craftdiff = 2
-
 /datum/repeatable_crafting_recipe/leather/cloak
 	name = "leather raincloak"
 	requirements = list(
@@ -376,6 +371,13 @@
 	)
 	output = /obj/item/ammo_holder/quiver
 	craftdiff = 1
+
+/datum/repeatable_crafting_recipe/leather/sleepingbag_deluxe
+	name = "deluxe bedroll"
+	output = /obj/item/sleepingbag/deluxe
+	requirements =  list(/obj/item/natural/hide/cured = 2,
+				/obj/item/rope = 1)
+	craftdiff = 2
 
 /datum/repeatable_crafting_recipe/leather/standalone
 	abstract_type = /datum/repeatable_crafting_recipe/leather/standalone

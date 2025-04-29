@@ -28,6 +28,9 @@
 /obj/effect/mapping_helpers/access/keyset/town/artificer
 	accesses = list(ACCESS_ARTIFICER)
 
+/obj/effect/mapping_helpers/access/keyset/town/miner
+	accesses = list(ACCESS_MINER)
+
 /obj/effect/mapping_helpers/access/keyset/town/clinic
 	accesses = list(ACCESS_CLINIC)
 

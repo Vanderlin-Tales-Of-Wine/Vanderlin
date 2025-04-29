@@ -728,6 +728,7 @@
 	max_integrity = 800
 	break_sound = 'sound/combat/hits/onstone/stonedeath.ogg'
 	attacked_sound = list('sound/combat/hits/onstone/wallhit.ogg', 'sound/combat/hits/onstone/wallhit2.ogg', 'sound/combat/hits/onstone/wallhit3.ogg')
+	shine = SHINE_SHINY
 
 /turf/open/floor/churchmarble/cardinal_smooth(adjacencies)
 	smooth(adjacencies)
@@ -768,6 +769,9 @@
 /turf/open/floor/church/Initialize()
 	. = ..()
 	dir = pick(GLOB.cardinals)
+
+/turf/open/floor/church/purple
+	icon_state = "church_purple"
 
 /turf/open/floor/churchbrick
 	icon_state = "church_brick"
@@ -826,6 +830,10 @@
 /turf/open/floor/churchrough/Initialize()
 	. = ..()
 	dir = pick(GLOB.cardinals)
+
+/turf/open/floor/churchrough/purple
+	icon_state = "church_rough_purple"
+
 //
 /turf/open/floor/herringbone
 	icon_state = "herringbone"
@@ -970,7 +978,7 @@
 /obj/effect/decal/cobbleedge
 	name = ""
 	desc = ""
-	icon = 'icons/turf/roguefloor.dmi'
+	icon = 'icons/turf/floors.dmi'
 	icon_state = "cobblestone_edges"
 	mouse_opacity = 0
 
@@ -986,7 +994,7 @@
 /obj/effect/decal/cobblerockedge
 	name = ""
 	desc = ""
-	icon = 'icons/turf/roguefloor.dmi'
+	icon = 'icons/turf/floors.dmi'
 	icon_state = "cobble_edges"
 	mouse_opacity = 0
 
@@ -1123,7 +1131,7 @@
 	ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
 
 /turf/open/floor/carpet/lord
-	icon = 'icons/turf/roguefloor.dmi'
+	icon = 'icons/turf/floors.dmi'
 	icon_state = ""
 
 /turf/open/floor/carpet/lord/Initialize()
@@ -1159,7 +1167,7 @@
 	icon_state = "carpet_r"
 
 /turf/open/floor/carpet/green
-	icon = 'icons/turf/roguefloor.dmi'
+	icon = 'icons/turf/floors.dmi'
 	icon_state = "carpet_inn"
 
 /turf/open/floor/shroud

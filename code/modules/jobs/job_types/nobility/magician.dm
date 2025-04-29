@@ -34,7 +34,7 @@
 	armor = /obj/item/clothing/shirt/robe/black
 	cloak = /obj/item/clothing/cloak/black_cloak
 	neck = /obj/item/clothing/neck/mana_star
-	id = /obj/item/clothing/ring/gold
+	ring = /obj/item/clothing/ring/gold
 	belt = /obj/item/storage/belt/leather/plaquesilver
 	beltr = /obj/item/storage/magebag
 	backl = /obj/item/weapon/polearm/woodstaff
@@ -68,6 +68,7 @@
 		ADD_TRAIT(H, TRAIT_SEEPRICES, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_LEGENDARY_ALCHEMIST, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_OLDPARTY, TRAIT_GENERIC)
 		H.virginity = TRUE
 		H.change_stat(STATKEY_STR, -2)
 		H.change_stat(STATKEY_INT, 5)

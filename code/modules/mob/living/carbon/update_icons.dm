@@ -143,10 +143,10 @@
 				used_prop = "gen"
 				prop = I.getonmobprop(used_prop)
 			if(I.force_reupdate_inhand)
-				if(I.onprop[used_prop])
+				if(I.onprop?[used_prop])
 					prop = I.onprop[used_prop]
 				else
-					I.onprop[used_prop] = prop
+					LAZYSET(I.onprop, used_prop, prop)
 			if(!prop)
 				continue
 			var/flipsprite = FALSE
@@ -480,8 +480,6 @@
 	for(var/X in bodyparts)
 		var/obj/item/bodypart/BP = X
 		. += "-[BP.body_zone]"
-		if(BP.use_digitigrade)
-			. += "-digitigrade[BP.use_digitigrade]"
 		if(BP.animal_origin)
 			. += "-[BP.animal_origin]"
 		if(BP.status == BODYPART_ORGANIC)

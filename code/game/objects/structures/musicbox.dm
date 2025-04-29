@@ -56,9 +56,9 @@
 
 /datum/looping_sound/musloop
 	mid_sounds = list()
-	mid_length = 30 MINUTES
-	volume = 50
-	extra_range = 6
+	mid_length = 4 MINUTES
+	volume = 70
+	extra_range = 8
 	falloff = 0
 	persistent_loop = TRUE
 	var/stress2give = /datum/stressevent/music
@@ -91,13 +91,11 @@
 	curfile = pick(init_curfile)
 	soundloop = new(src, FALSE)
 	if(playuponspawn)
-		playmusic("START")
-		update_icon()
+		start_playing()
 
 /obj/structure/fake_machine/musicbox/Destroy()
-	playmusic("STOP")
-	del(soundloop)
 	. = ..()
+	qdel(soundloop)
 
 /obj/structure/fake_machine/musicbox/update_icon()
 	icon_state = "music[playing]"
@@ -109,30 +107,25 @@
 		. += span_info("It's [src.locked ? "locked" : "unlocked"].")
 		. += span_info("It's keyhole has [src.access2string()] etched next to it.")
 
-/obj/structure/fake_machine/musicbox/proc/playmusic(mode="TOGGLE") // "TOGGLE" | "START" | "STOP"
-	playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
-	if(mode=="TOGGLE")
-		if(!playing)
-			if(curfile)
-				playing = TRUE
-				soundloop.mid_sounds = list(curfile)
-				soundloop.cursound = null
-				soundloop.volume = curvol
-				soundloop.start()
-		else
-			playing = FALSE
-			soundloop.stop()
-	if(mode=="START")
-		if(!playing)
-			if(curfile)
-				playing = TRUE
-				soundloop.mid_sounds = list(curfile)
-				soundloop.cursound = null
-				soundloop.volume = curvol
-				soundloop.start()
-	if(mode=="STOP")
-		playing = FALSE
-		soundloop.stop()
+/obj/structure/fake_machine/musicbox/proc/toggle_music()
+	if(!playing)
+		start_playing()
+	else
+		stop_playing()
+
+/obj/structure/fake_machine/musicbox/proc/start_playing()
+	playing = TRUE
+	soundloop.mid_sounds = list(curfile)
+	soundloop.cursound = null
+	soundloop.volume = curvol
+	soundloop.start()
+	testing("Music: V[soundloop.volume] C[soundloop.cursound] T[soundloop.thingshearing]")
+	update_icon()
+
+/obj/structure/fake_machine/musicbox/proc/stop_playing()
+	playing = FALSE
+	soundloop.stop()
+	update_icon()
 
 /obj/structure/fake_machine/musicbox/attack_hand(mob/user)
 	. = ..()
@@ -156,7 +149,7 @@
 	playsound(loc, pick('sound/misc/keyboard_select (1).ogg','sound/misc/keyboard_select (2).ogg','sound/misc/keyboard_select (3).ogg','sound/misc/keyboard_select (4).ogg'), 100, FALSE, -1)
 
 	if(button_selection=="Stop/Start")
-		playmusic("TOGGLE")
+		toggle_music()
 
 	if(button_selection=="Change Song")
 		var/songlists_selection = input(user, "Which song list?", "\The [src]") as null | anything in list("CHILL"=MUSIC_TAVCAT_CHILL, "FUCK"=MUSIC_TAVCAT_FUCK, "PARTY"=MUSIC_TAVCAT_PARTY, "SCUM"=MUSIC_TAVCAT_SCUM, "DAMN"=MUSIC_TAVCAT_DAMN, "MISC"=MUSIC_TAVCAT_MISC)
@@ -184,8 +177,8 @@
 		playsound(loc, pick('sound/misc/keyboard_select (1).ogg','sound/misc/keyboard_select (2).ogg','sound/misc/keyboard_select (3).ogg','sound/misc/keyboard_select (4).ogg'), 100, FALSE, -1)
 		user.visible_message(span_info("[user] presses a button on \the [src]."),span_info("I press a button on \the [src]."))
 		curfile = chosen_songlists_selection[song_selection]
-		playmusic("STOP")
-		playmusic("START")
+		stop_playing()
+		start_playing()
 
 	if(button_selection=="Change Volume")
 		var/volume_selection = input(user, "How loud do you wish me to be?", "\The [src] (Volume Currently : [curvol]/[100])") as num|null
@@ -196,16 +189,15 @@
 			return
 		playsound(loc, pick('sound/misc/keyboard_select (1).ogg','sound/misc/keyboard_select (2).ogg','sound/misc/keyboard_select (3).ogg','sound/misc/keyboard_select (4).ogg'), 100, FALSE, -1)
 		user.visible_message(span_info("[user] presses a button on \the [src]."),span_info("I press a button on \the [src]."))
-		volume_selection = clamp(volume_selection, 0, 100)
-		curvol = volume_selection
-		playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
-		playmusic("STOP")
-		playmusic("START")
+		volume_selection = clamp(volume_selection, 1, 100)
 		if(curvol<volume_selection)
 			to_chat(user, span_info("I make \the [src] louder."))
 		else
 			to_chat(user, span_info("I make \the [src] quieter."))
-	update_icon()
+		curvol = volume_selection
+		playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
+		stop_playing()
+		start_playing()
 
 /obj/structure/fake_machine/musicbox/attackby(obj/item/I, mob/living/user, params)
 	if(!I.has_access())

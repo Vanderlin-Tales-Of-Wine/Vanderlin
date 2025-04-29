@@ -67,17 +67,7 @@
 
 //ui is spawned, users screen is updated
 /client/proc/spawn_lockpicking_UI(obj/lock, mob/living/user, obj/lockpick, obj/wedge, difficulty, shown_d, skill_level) //potentially different sprites for locks and picks, put here
-	switch(shown_d) //for UI capitilsation
-		if("master")
-			shown_d = "MASTER"
-		if("expert")
-			shown_d = "EXPERT"
-		if("standard")
-			shown_d = "STANDARD"
-		if("novice")
-			shown_d = "NOVICE"
-		if("beginner")
-			shown_d = "BEGINNER"
+	shown_d = uppertext(shown_d) //the haters one this one
 
 	var/atom/movable/screen/movable/snap/lockpicking/imagery = new
 	imagery.picking_object = lock
@@ -350,3 +340,43 @@
 
 /atom/movable/screen/movable/snap/lockpicking/proc/turn_sound_reset()
 	playing_lock_sound = FALSE
+
+//obj is told its picked, theoretically can be used for any objects
+
+/obj/proc/picked(mob/living/user, obj/lockpick_used, skill_level, difficulty)
+
+	finish_lockpicking(user)
+
+	if(prob(60 - (skill_level * 10)))
+		to_chat(user, "<span class='notice'>Your [lockpick_used.name] broke!</span>")
+		playsound(loc, 'sound/items/LPBreak.ogg', 100 - (15 * skill_level))
+		qdel(lockpick_used)
+
+	//special cases that need telling what to do due to others shartcode
+	var/obj/structure/mineral_door/A = src
+	if(istype(A))
+		A.locked = FALSE
+	lock_tampered = TRUE
+	playsound(loc, 'sound/items/LPWin.ogg', 150 - (15 * skill_level))
+
+	var/amt2raise = user.STAINT + (50 / difficulty)
+	var/boon = user.mind?.get_learning_boon(/datum/skill/misc/lockpicking)
+	user.mind?.adjust_experience(/datum/skill/misc/lockpicking, amt2raise * boon)
+	return TRUE
+
+/obj/proc/finish_lockpicking(mob/living/user)
+
+	if(!user)
+		return FALSE
+
+	to_chat(user, "<span class='notice'>You pick [name]s lock.</span>")
+	user.visible_message(span_notice("[user.name] picks [name]s lock."), span_notice("You pick the [name]s lock."))
+	GLOB.vanderlin_round_stats[STATS_LOCKS_PICKED]++
+
+	being_picked = FALSE
+
+	return TRUE
+
+/obj/proc/can_be_picked()
+	return TRUE
+

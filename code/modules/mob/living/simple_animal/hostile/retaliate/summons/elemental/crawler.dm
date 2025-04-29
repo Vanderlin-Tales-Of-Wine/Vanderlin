@@ -29,10 +29,6 @@
 	food_type = list()
 	footstep_type = FOOTSTEP_MOB_BAREFOOT
 	pooptype = null
-	STACON = 13
-	STAEND = 13
-	STASTR = 8
-	STASPD = 8
 	simple_detect_bonus = 20
 	deaggroprob = 0
 	defprob = 40
@@ -46,6 +42,10 @@
 	dodgetime = 0
 	aggressive = 1
 
+	base_constitution = 13
+	base_endurance = 13
+	base_strength = 8
+	base_speed = 8
 
 /mob/living/simple_animal/hostile/retaliate/elemental/crawler/Initialize()
 	. = ..()

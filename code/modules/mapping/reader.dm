@@ -354,6 +354,10 @@
 			//we do this after we load everything in. if we don't, we'll have weird atmos bugs regarding atmos adjacent turfs
 			T.AfterChange(CHANGETURF_IGNORE_AIR)
 
+	if(new_z)
+		for(var/z_index in bounds[MAP_MINZ] to bounds[MAP_MAXZ])
+			SSmapping.build_area_turfs(z_index)
+
 	if(expanded_x || expanded_y)
 		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_EXPANDED_WORLD_BOUNDS, expanded_x, expanded_y)
 
@@ -923,6 +927,12 @@ GLOBAL_LIST_EMPTY(map_model_default)
 					CRASH("[area_type] failed to be new'd, what'd you do?")
 			loaded_areas[area_type] = area_instance
 
+		if(!new_z)
+			old_area = crds.loc
+			LISTASSERTLEN(old_area.turfs_to_uncontain_by_zlevel, crds.z, list())
+			LISTASSERTLEN(area_instance.turfs_by_zlevel, crds.z, list())
+			old_area.turfs_to_uncontain_by_zlevel[crds.z] += crds
+			area_instance.turfs_by_zlevel[crds.z] += crds
 		area_instance.contents.Add(crds)
 
 		if(GLOB.use_preloader)

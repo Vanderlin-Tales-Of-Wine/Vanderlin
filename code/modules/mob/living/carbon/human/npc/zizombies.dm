@@ -116,7 +116,7 @@
 		if(headdy)
 			headdy.icon = 'icons/roguetown/mob/monster/zizombie.dmi'
 			headdy.icon_state = "[src.dna.species.id]_head"
-			headdy.headprice = 5
+			headdy.headprice = rand(15,40)
 	src.grant_language(/datum/language/common)
 	var/obj/item/organ/eyes/eyes = src.getorganslot(ORGAN_SLOT_EYES)
 	if(eyes)
@@ -175,10 +175,14 @@
 
 /datum/component/rot/corpse/zizombie/process()
 	var/amt2add = 10 //1 second
+	var/time_elapsed = last_process ? (world.time - last_process)/10 : 1
 	if(last_process)
 		amt2add = ((world.time - last_process)/10) * amt2add
 	last_process = world.time
 	amount += amt2add
+	if(has_world_trait(/datum/world_trait/pestra_mercy))
+		amount -= 5 * time_elapsed
+
 	var/mob/living/carbon/C = parent
 	if(!C)
 		qdel(src)
@@ -197,10 +201,10 @@
 			if(!B.rotted)
 				B.rotted = TRUE
 				should_update = TRUE
-			if(B.rotted && amount < 16 MINUTES)
+			if(B.rotted && amount < 16 MINUTES && !(FACTION_MATTHIOS in C.faction))
 				var/turf/open/T = C.loc
 				if(istype(T))
-					T.pollute_turf(/datum/pollutant/rot, 10)
+					T.pollute_turf(/datum/pollutant/rot, 4)
 	if(should_update)
 		if(amount > 20 MINUTES)
 			C.update_body()
@@ -224,10 +228,10 @@
 
 /datum/outfit/job/species/zizombie/npc/peasant/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.TOTALSTR = 9
-	H.TOTALSPD = 7
-	H.TOTALCON = 10
-	H.TOTALEND = 16//the zombies shouldn't get tired after all
+	H.base_strength = 9
+	H.base_speed = 7
+	H.base_constitution = 10
+	H.base_endurance = 16//the zombies shouldn't get tired after all
 	shirt = /obj/item/clothing/shirt/undershirt/vagrant
 	pants = /obj/item/clothing/pants/tights/vagrant
 	shoes = /obj/item/clothing/shoes/simpleshoes
@@ -303,10 +307,10 @@
 
 /datum/outfit/job/species/zizombie/npc/warrior/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.TOTALSTR = 10
-	H.TOTALSPD = 7
-	H.TOTALCON = 10
-	H.TOTALEND = 16//the zizombies shouldn't get tired after all
+	H.base_strength = 10
+	H.base_speed = 7
+	H.base_constitution = 10
+	H.base_endurance = 16//the zizombies shouldn't get tired after all
 	var/loadout = rand(1,6)
 	switch(loadout)
 		if(1) //zizombie Warrior
@@ -387,10 +391,10 @@
 
 /datum/outfit/job/species/zizombie/npc/militiamen/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.TOTALSTR = 10
-	H.TOTALSPD = 7
-	H.TOTALCON = 10
-	H.TOTALEND = 16//the zizombies shouldn't get tired after all
+	H.base_strength = 10
+	H.base_speed = 7
+	H.base_constitution = 10
+	H.base_endurance = 16//the zizombies shouldn't get tired after all
 	var/loadout = rand(1,5)
 	switch(loadout)
 		if(1) //zizombie Warrior
@@ -467,10 +471,10 @@
 
 /datum/outfit/job/species/zizombie/npc/GRENZEL/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.TOTALSTR = 12
-	H.TOTALSPD = 7
-	H.TOTALCON = 10
-	H.TOTALEND = 20//the zizombies shouldn't get tired after all
+	H.base_strength = 12
+	H.base_speed = 7
+	H.base_constitution = 10
+	H.base_endurance = 20//the zizombies shouldn't get tired after all
 	var/loadout = rand(1,5)
 	switch(loadout)
 		if(1) //zizombie Warrior

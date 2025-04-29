@@ -16,4 +16,5 @@
 			CB.Invoke()
 
 	clear_important_client_contents(client)
+	remove_all_uis()
 	return TRUE

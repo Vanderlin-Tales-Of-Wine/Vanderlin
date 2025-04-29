@@ -151,7 +151,7 @@ GLOBAL_LIST_INIT(primordial_wounds, init_primordial_wounds())
 
 /// Adds this wound to a given bodypart
 /datum/wound/proc/apply_to_bodypart(obj/item/bodypart/affected, silent = FALSE, crit_message = FALSE)
-	if(QDELETED(affected) || QDELETED(affected.owner))
+	if(QDELETED(src) || QDELETED(affected) || QDELETED(affected.owner))
 		return FALSE
 	if(bodypart_owner)
 		remove_from_bodypart()
@@ -300,6 +300,7 @@ GLOBAL_LIST_INIT(primordial_wounds, init_primordial_wounds())
 	passive_healing = max(passive_healing, 1)
 	if(mob_overlay != old_overlay)
 		owner?.update_damage_overlays()
+	GLOB.vanderlin_round_stats[STATS_WOUNDS_SEWED]++
 	return TRUE
 
 /// Checks if this wound has a special infection (zombie or werewolf)

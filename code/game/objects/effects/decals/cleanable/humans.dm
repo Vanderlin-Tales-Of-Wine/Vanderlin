@@ -11,6 +11,8 @@
 	nomouseover = TRUE
 	appearance_flags = NO_CLIENT_COLOR
 	nomouseover = TRUE
+	minimum_clean_strength = CLEAN_STRENGTH_BLOOD
+
 	var/blood_timer
 	var/wash_precent = 0
 	var/glows = FALSE
