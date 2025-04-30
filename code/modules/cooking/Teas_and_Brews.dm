@@ -42,7 +42,7 @@
 	..()
 
 /datum/reagent/consumable/newtea/utricasalvia
-	name = "Urtica-Saliva tea"
+	name = "Urtica-Salvia tea"
 	description = "If you see this, stop using moondust"
 	reagent_state = LIQUID
 	color = "#451853"
