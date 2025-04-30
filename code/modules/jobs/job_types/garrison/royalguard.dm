@@ -93,7 +93,7 @@
 	switch(weapon_choice)
 		if("Flail)
 			r_hand = /obj/item/weapon/flail/sflail
-			H.mind?.adjust_skillrank(/datum/skill/combat/whipsandflails, 4, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/combat/whipsflails, 4, TRUE)
 		if("Halberd")
 			r_hand = /obj/item/weapon/polearm/halberd
 			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
