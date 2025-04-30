@@ -41,7 +41,7 @@
 		M.adjustToxLoss(-1, 0)
 	..()
 
-/datum/reagent/consumable/newtea/utricasaliva
+/datum/reagent/consumable/newtea/utricasalvia
 	name = "Urtica-Saliva tea"
 	description = "If you see this, stop using moondust"
 	reagent_state = LIQUID
@@ -53,9 +53,9 @@
 	alpha = 153
 	quality = 3
 
-/datum/reagent/consumable/newtea/utricasaliva/on_mob_life(mob/living/carbon/M)
+/datum/reagent/consumable/newtea/utricasalvia/on_mob_life(mob/living/carbon/M)
 	if(volume >= 20)
-		M.reagents.remove_reagent(/datum/reagent/consumable/newtea/utricasaliva, 2)
+		M.reagents.remove_reagent(/datum/reagent/consumable/newtea/utricasalvia, 2)
 	var/list/wCount = M.get_wounds()
 	if(wCount.len > 0)
 		M.heal_wounds(2) // 40 woundhealing distributed on all wounds, not too much to balance innate healing below, but works faster
