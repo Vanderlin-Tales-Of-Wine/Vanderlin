@@ -23,10 +23,10 @@
 /obj/proc/handle_keylock(obj/item/I, mob/user)
 	var/datum/lock/key/KL = lock
 	if(I.has_access() && pre_lock_interact(user))
-		if(!KL.check_access(I))
-			lock_failed(user)
-			return TRUE
 		var/silent = user.m_intent == MOVE_INTENT_SNEAK
+		if(!KL.check_access(I))
+			lock_failed(user, silent)
+			return TRUE
 		if(lock.toggle())
 			on_lock(user, silent)
 		else
@@ -67,13 +67,14 @@
 	return TRUE
 
 /// Called when our key fails to toggle the lock
-/obj/proc/lock_failed(mob/user)
+/obj/proc/lock_failed(mob/user, silent = FALSE)
 	to_chat(user, span_notice("This isn't the right key for [src]."))
-	rattle()
+	rattle(silent)
 
 /// Shake a bit make a noise
-/obj/proc/rattle()
-	playsound(get_turf(src), rattle_sound, 100)
+/obj/proc/rattle(silent = FALSE)
+	if(!silent && rattle_sound)
+		playsound(get_turf(src), rattle_sound, 100)
 	var/oldx = pixel_x
 	animate(src, pixel_x = oldx + 1, time = 0.5)
 	animate(pixel_x = oldx - 1, time = 0.5)
@@ -81,14 +82,14 @@
 
 /// Called when locked
 /obj/proc/on_lock(mob/user, silent = FALSE)
-	if(!silent)
+	if(!silent && lock_sound)
 		playsound(get_turf(src), lock_sound, 100)
 		user.visible_message(span_notice("[user] locks [src]."))
 	to_chat(user, span_notice("I lock [src]."))
 
 /// Called when unlocked
 /obj/proc/on_unlock(mob/user, silent = FALSE)
-	if(!silent)
+	if(!silent && unlock_sound)
 		playsound(get_turf(src), unlock_sound, 100)
 		user.visible_message(span_notice("[user] unlocks [src]."))
 	to_chat(user, span_notice("I unlock [src]."))
@@ -102,15 +103,14 @@
 
 /// Returns obj access list copy or null
 /obj/proc/get_access()
-	if(lock != null)
-		return lock.get_access()
 	if(!length(lockids))
 		return null
 	return lockids.Copy()
 
 /// Check if obj has access set
 /obj/proc/has_access()
-	if(!islist(get_access()) || !length(get_access()))
+	var/list/access = get_access()
+	if(!islist(access) || !length(access))
 		return FALSE
 	return TRUE
 

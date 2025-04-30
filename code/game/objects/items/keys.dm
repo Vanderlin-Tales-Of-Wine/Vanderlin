@@ -10,13 +10,6 @@
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_MOUTH|ITEM_SLOT_NECK|ITEM_SLOT_RING
 	grid_height = 64
 	grid_width = 32
-	/// If the key is usable in a lock
-	var/usable = TRUE
-
-/obj/item/key/get_access()
-	if(!usable)
-		return null
-	return ..()
 
 /obj/item/lockpick
 	name = "lockpick"
@@ -38,17 +31,29 @@
 	name = "custom key"
 	desc = "A custom key designed by a blacksmith."
 	icon_state = "brownkey"
-	usable = FALSE // Usable once finished to make this less of a hack
+	var/access2add
+
+/obj/item/key/custom/get_access()
+	if(access2add)
+		return access2add
+	return ..()
+
+/obj/item/key/custom/copy_access(obj/O)
+	var/list/access = get_access(O)
+	if(access)
+		access2add = access
+		return TRUE
+	return FALSE
 
 /obj/item/key/custom/examine()
 	. += ..()
-	if(usable)
+	if(lockids)
 		. += span_info("It has been etched with [access2string()].")
 		. += span_info("It can have a name etched with a hammer.")
 		return
 	. += span_info("Its teeth can be set with a hammer or copied from an existing lock or key.")
-	if(get_access())
-		. += span_info("It has been marked with [access2string()], but has not been finished.")
+	if(access2add)
+		. += span_info("It has been marked with [access2add], but has not been finished.")
 
 /obj/item/key/custom/attackby(obj/item/I, mob/user, params)
 	if(!istype(I, /obj/item/weapon/hammer))
@@ -65,18 +70,19 @@
 	if(!input)
 		return
 	to_chat(user, span_notice("You set the key ID to [input]."))
-	lockids = list("[input]")
+	access2add = list("[input]")
 
 /obj/item/key/custom/attack_right(mob/user)
-	if(usable)
+	if(lockids)
 		to_chat(user, span_warning("[src] has been finished, it cannot be adjusted again!"))
 		return
 	var/held = user.get_active_held_item()
 	if(istype(held, /obj/item/weapon/hammer))
-		if(!get_access())
+		if(!access2add)
 			to_chat(user, span_warning("[src] is not ready, its teeth are not set!"))
 			return
-		usable = TRUE
+		lockids = access2add
+		access2add = null
 		to_chat(user, span_notice("You finish [src]."))
 		return
 	if(!copy_access(held))
@@ -161,7 +167,7 @@
 	name = "miner's key"
 	desc = "This bronze key should open the Miner's quarters."
 	icon_state = "brownkey"
-	lockid = ACCESS_MINER
+	lockids = list(ACCESS_MINER)
 
 // Residents
 

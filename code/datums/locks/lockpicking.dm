@@ -6,18 +6,15 @@
 	//check if object is being picked if can be picked
 	var/being_picked = FALSE
 
-/datum/element/lockpickable/proc/examine(obj/source, mob/user, list/examine_list)
-	SIGNAL_HANDLER
-	if(source.lock_tampered)
-		examine_list += span_notice("[source] has been tampered with.")
-
 //user is told its picking
 /mob/living/proc/try_pick(obj/P, obj/item/L, list/obj/lockpicks, list/obj/wedges, difficulty)
-	if(isobj(P))
-		if(P.being_picked)
-			return FALSE
+	if(!isobj(P))
+		return FALSE
 
-	if(!P.lock || !istype(P.lock, /datum/lock/keylock))
+	if(P.being_picked)
+		return FALSE
+
+	if(!can_be_picked())
 		return FALSE
 
 	var/datum/lock/key/KL = P.lock
@@ -84,7 +81,6 @@
 	imagery.the_wedge = wedge
 	imagery.skill_level = skill_level
 	lock.being_picked = TRUE
-
 
 	playsound(user, 'sound/items/LPstart.ogg', 100 - (15 * skill_level))
 
@@ -183,7 +179,6 @@
 	vis_contents += linked_pick
 
 /atom/movable/screen/movable/snap/lockpicking/MouseMove(location, control, params)
-
 	. = ..()
 
 	if(!frozen && linked_pick)
@@ -272,7 +267,6 @@
 
 //compilcated circle mathematics about rotations and shit, signals and the like
 /atom/movable/screen/movable/snap/lockpicking/process()
-
 	if(!linked_lock || !picker)
 		lock_angle = 0
 		return FALSE
@@ -331,7 +325,6 @@
 			picking_object.picked(picker, the_lockpick, skill_level, difficulty)
 			qdel(src)
 		return FALSE
-
 	return TRUE
 
 /atom/movable/screen/movable/snap/lockpicking/proc/play_turn_sound(timerd)
@@ -340,43 +333,3 @@
 
 /atom/movable/screen/movable/snap/lockpicking/proc/turn_sound_reset()
 	playing_lock_sound = FALSE
-
-//obj is told its picked, theoretically can be used for any objects
-
-/obj/proc/picked(mob/living/user, obj/lockpick_used, skill_level, difficulty)
-
-	finish_lockpicking(user)
-
-	if(prob(60 - (skill_level * 10)))
-		to_chat(user, "<span class='notice'>Your [lockpick_used.name] broke!</span>")
-		playsound(loc, 'sound/items/LPBreak.ogg', 100 - (15 * skill_level))
-		qdel(lockpick_used)
-
-	//special cases that need telling what to do due to others shartcode
-	var/obj/structure/mineral_door/A = src
-	if(istype(A))
-		A.locked = FALSE
-	lock_tampered = TRUE
-	playsound(loc, 'sound/items/LPWin.ogg', 150 - (15 * skill_level))
-
-	var/amt2raise = user.STAINT + (50 / difficulty)
-	var/boon = user.mind?.get_learning_boon(/datum/skill/misc/lockpicking)
-	user.mind?.adjust_experience(/datum/skill/misc/lockpicking, amt2raise * boon)
-	return TRUE
-
-/obj/proc/finish_lockpicking(mob/living/user)
-
-	if(!user)
-		return FALSE
-
-	to_chat(user, "<span class='notice'>You pick [name]s lock.</span>")
-	user.visible_message(span_notice("[user.name] picks [name]s lock."), span_notice("You pick the [name]s lock."))
-	GLOB.vanderlin_round_stats[STATS_LOCKS_PICKED]++
-
-	being_picked = FALSE
-
-	return TRUE
-
-/obj/proc/can_be_picked()
-	return TRUE
-
