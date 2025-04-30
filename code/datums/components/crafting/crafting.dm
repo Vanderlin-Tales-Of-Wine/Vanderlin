@@ -607,7 +607,7 @@
 
 	var/t
 	if(catty.len > 1)
-		t=input(user, "CHOOSE SKILL") as null|anything in catty
+		t=browser_input_list(user, "CHOOSE SKILL", catty)
 	else
 		t=pick(catty)
 	if(t)

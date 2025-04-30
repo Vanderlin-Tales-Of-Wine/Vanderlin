@@ -63,7 +63,7 @@
 			if(M != user)
 				mobsadjacent += M
 		if(mobsadjacent.len)
-			chosenmob = input("[key] who?") as null|anything in mobsadjacent
+			chosenmob = browser_input_list("[key] who?", mobsadjacent)
 		if(istype(chosenmob))
 			if(user.Adjacent(chosenmob))
 				params = chosenmob.name
