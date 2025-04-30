@@ -33,5 +33,5 @@ Check your door implementation to ensure this method exists and is appropriate.*
 
 /obj/effect/proc_holder/spell/aoe_turf/knock/proc/open_closet(obj/structure/closet/C)
 	if(istype(C))
-		c.unlock()
-		c.open()
+		C.unlock()
+		C.open()
