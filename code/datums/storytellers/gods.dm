@@ -90,11 +90,11 @@
 	)
 
 	influence_factors = list(
-		STATS_LAUGHS_MADE = list("points" = 0.275, "capacity" = 100),
+		STATS_LAUGHS_MADE = list("points" = 0.265, "capacity" = 90),
 		STATS_GAMES_RIGGED = list("points" = 3.5, "capacity" = 35),
 		STATS_PEOPLE_MOCKED = list("points" = 5, "capacity" = 60),
-		STATS_CRITS_MADE = list("points" = 0.295, "capacity" = 90),
-		STATS_SONGS_PLAYED = list("points" = 0.75, "capacity" = 80),
+		STATS_CRITS_MADE = list("points" = 0.29, "capacity" = 90),
+		STATS_SONGS_PLAYED = list("points" = 0.7, "capacity" = 70),
 	)
 
 /datum/storyteller/necra
@@ -120,10 +120,10 @@
 
 	influence_factors = list(
 		STATS_DEATHS = list("points" = 1.55, "capacity" = 120),
-		STATS_GRAVES_CONSECRATED = list("points" = 7.25, "capacity" = 105),
+		STATS_GRAVES_CONSECRATED = list("points" = 7, "capacity" = 100),
 		STATS_GRAVES_ROBBED = list("points" = -4, "capacity" = -60),
-		STATS_DEADITES_KILLED = list("points" = 7, "capacity" = 110),
-		STATS_VAMPIRES_KILLED = list("points" = 15, "capacity" = 80),
+		STATS_DEADITES_KILLED = list("points" = 6.5, "capacity" = 100),
+		STATS_VAMPIRES_KILLED = list("points" = 15, "capacity" = 70),
 	)
 
 /datum/storyteller/pestra
@@ -356,11 +356,11 @@
 	)
 
 	influence_factors = list(
-		STATS_ITEMS_PICKPOCKETED = list("points" = 6.75, "capacity" = 100),
+		STATS_ITEMS_PICKPOCKETED = list("points" = 6.5, "capacity" = 95),
 		STATS_SHRINE_VALUE = list("points" = 0.25, "capacity" = 90),
 		STATS_GREEDY_PEOPLE = list("points" = 8, "capacity" = 70),
 		STATS_DODGES = list("points" = 0.0875, "capacity" = 100),
-		STATS_LOCKS_PICKED = list("points" = 5, "capacity" = 100),
+		STATS_LOCKS_PICKED = list("points" = 5, "capacity" = 95),
 	)
 
 	cost_variance = 15  // Keeps a balance between predictability and randomness
