@@ -196,9 +196,13 @@
 	if(istype(O, /obj/structure/mineral_door/wood)) //This is to ensure the new door will retain its lock
 		var/obj/structure/mineral_door/wood/I = O
 		var/obj/structure/mineral_door/wood/new_door = new I.metalizer_result(get_turf(I))
-		new_door.locked = I.locked
-		if(I.keylock)
-			new_door.copy_access(I)
+		if(I.lock?.uses_key)
+			var/datum/lock/key/oldlock = I.lock
+			var/datum/lock/key/newlock = new(new_door)
+			newlock.locked = oldlock.locked
+			newlock.lockid_list = oldlock.lockid_list
+			newlock.difficulty = oldlock.difficulty
+			new_door.lock = newlock
 		qdel(I)
 	else
 		var/obj/I = O

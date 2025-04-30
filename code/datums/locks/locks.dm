@@ -9,21 +9,21 @@
 	locked = TRUE
 
 /datum/lock/key/steward
-	lockid = ACCESS_STEWARD
+	llockid_list = list(ACCESS_STEWARD)
 	locked = TRUE
 
 /datum/lock/key/merchant
-	lockid = ACCESS_MERCHANT
+	lockid_list = list(ACCESS_MERCHANT)
 	locked = TRUE
 
 /datum/lock/key/lord
-	lockid = ACCESS_LORD
+	lockid_list = list(ACCESS_LORD)
 	locked = TRUE
 
 /datum/lock/key/apothecary
-	lockid = ACCESS_APOTHECARY
+	lockid_list = list(ACCESS_APOTHECARY)
 	locked = TRUE
 
 ///// Multiple key locks
-/datum/lock/key/multiple/pillory
+/datum/lock/key/pillory
 	lockid_list = list(ACCESS_GARRISON, ACCESS_FOREST, ACCESS_AT_ARMS, ACCESS_DUNGEON)
