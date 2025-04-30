@@ -407,11 +407,11 @@
 	finished_smell = /datum/pollutant/food/teas
 	pollute_amount = 100
 
-/datum/pot_recipe/tea/utricasaliva
-	name = "Urtica-Saliva tea"
+/datum/pot_recipe/tea/utricasalvia
+	name = "Urtica-Salvia tea"
 	cooking_time = 60 SECONDS
 	water_conversion = 0.6
-	produced_reagent = /datum/reagent/consumable/newtea/utricasaliva
+	produced_reagent = /datum/reagent/consumable/newtea/utricasalvia
 	required_items = list(/obj/item/alch/urtica = 1, /obj/item/alch/salvia = 1)
 	finished_smell = /datum/pollutant/food/teas
 	pollute_amount = 100
