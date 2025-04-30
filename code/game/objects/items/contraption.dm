@@ -192,12 +192,12 @@
 		S.set_up(1, 1, front)
 		S.start()
 		return
-	var/skill = user.mind.get_skill_level(/datum/skill/craft/engineering)
-	if(istype(O, /obj/structure/mineral_door/wood)) //This is to ensure the new door will retain its lock
-		var/obj/structure/mineral_door/wood/I = O
-		var/obj/structure/mineral_door/wood/new_door = new I.metalizer_result(get_turf(I))
-		if(I.lock?.uses_key)
-			var/datum/lock/key/oldlock = I.lock
+	var/skill = user.mind?.get_skill_level(/datum/skill/craft/engineering)
+	if(istype(O, /obj/structure/door)) //This is to ensure the new door will retain its lock
+		var/obj/structure/door/door = O
+		var/obj/structure/door/new_door = new door.metalizer_result(get_turf(I))
+		if(door.lock?.uses_key)
+			var/datum/lock/key/oldlock = door.lock
 			var/datum/lock/key/newlock = new(new_door)
 			newlock.locked = oldlock.locked
 			newlock.lockid_list = oldlock.lockid_list

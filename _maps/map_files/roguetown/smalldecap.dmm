@@ -77,21 +77,6 @@
 /obj/structure/spider/stickyweb,
 /turf/open/floor/dirt,
 /area/rogue/under/cavelava)
-"ca" = (
-/obj/item/restraints/legcuffs/beartrap/armed/camouflage,
-/obj/structure/barricade/wooden/crude,
-/obj/structure/barricade/wooden,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/blood/tracks,
-/obj/structure/mineral_door/wood/green{
-	name = "Old Door";
-	locked = 1
-	},
-/obj/structure/bars/passage{
-	redstone_id = "sewerruin1"
-	},
-/turf/open/floor/blocks,
-/area/rogue/under/cavelava)
 "cq" = (
 /obj/structure/bars/passage{
 	redstone_id = "sewerruin1"
@@ -226,14 +211,6 @@
 /obj/structure/barricade/wooden/crude,
 /turf/open/floor/naturalstone,
 /area/rogue/under/cavelava)
-"fh" = (
-/obj/structure/mineral_door/wood/green{
-	name = "Old Door";
-	locked = 1
-	},
-/obj/item/restraints/legcuffs/beartrap/armed/camouflage,
-/turf/open/floor/cobble,
-/area/rogue/under/cavelava)
 "fn" = (
 /obj/structure/bars,
 /turf/open/floor/dirt,
@@ -242,15 +219,6 @@
 /obj/structure/flora/shroom_tree,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/mountains/deception)
-"fv" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/mineral_door/wood/green{
-	name = "Old Door";
-	locked = 1
-	},
-/turf/open/floor/concrete,
-/area/rogue/under/cavelava)
 "fG" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/concrete,
@@ -277,6 +245,14 @@
 	dir = 8
 	},
 /area/rogue/outdoors/mountains/decap)
+"gb" = (
+/obj/structure/door/green{
+	name = "Old Door"
+	},
+/obj/effect/mapping_helpers/door/locker,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/herringbone,
+/area/rogue/under/cavelava)
 "gm" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/blood,
@@ -370,19 +346,19 @@
 /obj/structure/table/wood/plain,
 /turf/open/floor/tile,
 /area/rogue/outdoors/caves)
-"hF" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/mineral_door/wood/green{
-	name = "Old Door";
-	locked = 1
-	},
-/turf/open/floor/concrete,
-/area/rogue/under/cavelava)
 "hJ" = (
 /obj/structure/closet/crate/chest/neu_fancy,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/statue/gold/loot,
 /turf/open/floor/tile/kitchen,
+/area/rogue/under/cavelava)
+"hV" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/door/green{
+	name = "Old Door"
+	},
+/obj/effect/mapping_helpers/door/locker,
+/turf/open/floor/concrete,
 /area/rogue/under/cavelava)
 "ib" = (
 /obj/item/grown/log/tree/small,
@@ -525,10 +501,6 @@
 /obj/machinery/light/fueled/wallfire/candle/l,
 /turf/open/floor/concrete,
 /area/rogue/under/cavelava)
-"lz" = (
-/mob/living/simple_animal/hostile/retaliate/troll/axe,
-/turf/open/floor/dirt,
-/area/rogue/under/cavelava)
 "lH" = (
 /obj/machinery/light/fueled/torchholder,
 /turf/closed/wall/mineral/stone,
@@ -537,6 +509,10 @@
 /obj/machinery/light/fueled/lanternpost,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/mountains/decap)
+"lK" = (
+/mob/living/simple_animal/hostile/retaliate/troll/axe,
+/turf/open/floor/dirt,
+/area/rogue/under/cavelava)
 "lN" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/blood/old,
@@ -688,13 +664,6 @@
 /obj/machinery/light/fueled/firebowl/stump,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/mountains/deception)
-"oH" = (
-/obj/structure/mineral_door/wood/green{
-	name = "Old Door";
-	locked = 1
-	},
-/turf/open/floor/concrete,
-/area/rogue/under/cavelava)
 "oI" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/tile/kitchen,
@@ -720,12 +689,6 @@
 "pG" = (
 /turf/open/lava/flow,
 /area/rogue/outdoors/mountains/decap)
-"pK" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/blood/gibs/torso,
-/mob/living/simple_animal/hostile/retaliate/troll/axe,
-/turf/open/floor/blocks,
-/area/rogue/under/cavelava)
 "pM" = (
 /obj/machinery/light/fueled/firebowl/standing,
 /turf/open/floor/hexstone,
@@ -769,11 +732,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /turf/open/floor/concrete,
-/area/rogue/under/cavelava)
-"qO" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/mob/living/simple_animal/hostile/retaliate/troll/axe,
-/turf/open/floor/tile/kitchen,
 /area/rogue/under/cavelava)
 "ra" = (
 /turf/open/floor/naturalstone,
@@ -924,6 +882,11 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobble,
 /area/rogue/under/cavelava)
+"vq" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/mob/living/simple_animal/hostile/retaliate/troll/axe,
+/turf/open/floor/blocks,
+/area/rogue/under/cavelava)
 "vr" = (
 /obj/item/restraints/legcuffs/beartrap/armed/camouflage,
 /turf/open/floor/dirt/road,
@@ -942,6 +905,17 @@
 /obj/structure/spider/stickyweb,
 /obj/structure/spider/stickyweb,
 /turf/open/floor/naturalstone,
+/area/rogue/under/cavelava)
+"vS" = (
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
+/obj/structure/door/green{
+	name = "Old Door"
+	},
+/obj/effect/mapping_helpers/door/locker,
+/obj/item/restraints/legcuffs/beartrap/armed/camouflage,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/cobble,
 /area/rogue/under/cavelava)
 "vV" = (
 /obj/structure/closet/crate/chest/neu_fancy,
@@ -1003,11 +977,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/dirt,
 /area/rogue/under/cavelava)
-"xI" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/mob/living/simple_animal/hostile/retaliate/troll/axe,
-/turf/open/floor/blocks,
-/area/rogue/under/cavelava)
 "xO" = (
 /turf/closed/mineral/random/high,
 /area/rogue/outdoors/caves)
@@ -1029,14 +998,6 @@
 /obj/structure/closet/crate/coffin,
 /obj/item/weapon/sword/decorated,
 /turf/open/floor/cobble/mossy,
-/area/rogue/under/cavelava)
-"yg" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/mineral_door/wood/green{
-	name = "Old Door";
-	locked = 1
-	},
-/turf/open/floor/blocks,
 /area/rogue/under/cavelava)
 "yl" = (
 /turf/open/lava,
@@ -1112,17 +1073,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/light/fueled/wallfire/candle/l,
 /turf/open/floor/greenstone,
-/area/rogue/under/cavelava)
-"Az" = (
-/obj/structure/barricade/wooden,
-/obj/structure/barricade/wooden/crude,
-/obj/structure/mineral_door/wood/green{
-	name = "Old Door";
-	locked = 1
-	},
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/item/restraints/legcuffs/beartrap/armed/camouflage,
-/turf/open/floor/cobble,
 /area/rogue/under/cavelava)
 "AI" = (
 /obj/structure/closet/crate/crafted_closet/dark,
@@ -1302,14 +1252,6 @@
 /obj/item/alch/bone,
 /turf/open/floor/cobble,
 /area/rogue/under/cavelava)
-"FZ" = (
-/obj/structure/mineral_door/wood/green{
-	name = "Old Door";
-	locked = 1
-	},
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/herringbone,
-/area/rogue/under/cavelava)
 "Gb" = (
 /mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -1480,6 +1422,14 @@
 /obj/structure/flora/tree,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/caves)
+"Jy" = (
+/obj/structure/door/green{
+	name = "Old Door"
+	},
+/obj/effect/mapping_helpers/door/locker,
+/obj/item/restraints/legcuffs/beartrap/armed/camouflage,
+/turf/open/floor/cobble,
+/area/rogue/under/cavelava)
 "JK" = (
 /obj/item/ammo_casing/caseless/arrow/stone,
 /turf/open/floor/dirt,
@@ -1535,6 +1485,12 @@
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 6
 	},
+/turf/open/floor/blocks,
+/area/rogue/under/cavelava)
+"Ll" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/blood/gibs/torso,
+/mob/living/simple_animal/hostile/retaliate/troll/axe,
 /turf/open/floor/blocks,
 /area/rogue/under/cavelava)
 "Lq" = (
@@ -1607,17 +1563,16 @@
 	dir = 8
 	},
 /area/rogue/outdoors/mountains/decap)
+"MU" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/mob/living/simple_animal/hostile/retaliate/troll/axe,
+/turf/open/floor/tile/kitchen,
+/area/rogue/under/cavelava)
 "Nd" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/blood/old,
 /mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue/under/cavelava)
-"Nn" = (
-/mob/living/simple_animal/hostile/retaliate/troll/axe,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/blood/gibs/down,
-/turf/open/floor/dirt,
 /area/rogue/under/cavelava)
 "Np" = (
 /obj/item/grown/log/tree/small,
@@ -1729,6 +1684,15 @@
 /obj/item/alch/magicdust,
 /turf/open/floor/cobble/mossy,
 /area/rogue/under/cavelava)
+"Ql" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/door/green{
+	name = "Old Door"
+	},
+/obj/effect/mapping_helpers/door/locker,
+/turf/open/floor/concrete,
+/area/rogue/under/cavelava)
 "Qm" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/blood/old,
@@ -1792,6 +1756,12 @@
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/under/cavelava)
+"RZ" = (
+/mob/living/simple_animal/hostile/retaliate/troll/axe,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/blood/gibs/down,
+/turf/open/floor/dirt,
+/area/rogue/under/cavelava)
 "Sd" = (
 /obj/effect/decal/cleanable/blood/tracks,
 /turf/open/floor/dirt/road,
@@ -1827,12 +1797,6 @@
 	},
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/caves)
-"Tj" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/mob/living/simple_animal/hostile/retaliate/troll/axe,
-/turf/open/floor/tile/kitchen,
-/area/rogue/under/cavelava)
 "Tn" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood/darker,
@@ -1862,6 +1826,21 @@
 "TG" = (
 /turf/open/floor/ruinedwood,
 /area/rogue/outdoors/mountains/deception)
+"TH" = (
+/obj/item/restraints/legcuffs/beartrap/armed/camouflage,
+/obj/structure/barricade/wooden,
+/obj/effect/decal/cleanable/blood/tracks,
+/obj/structure/bars/passage{
+	redstone_id = "sewerruin1"
+	},
+/obj/structure/barricade/wooden/crude,
+/obj/effect/decal/cleanable/blood/tracks,
+/obj/structure/door/green{
+	name = "Old Door"
+	},
+/obj/effect/mapping_helpers/door/locker,
+/turf/open/floor/blocks,
+/area/rogue/under/cavelava)
 "TK" = (
 /mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/hexstone,
@@ -1944,6 +1923,12 @@
 /obj/item/ammo_casing/caseless/arrow/stone,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town/dwarfin)
+"VH" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/mob/living/simple_animal/hostile/retaliate/troll/axe,
+/turf/open/floor/tile/kitchen,
+/area/rogue/under/cavelava)
 "VO" = (
 /obj/machinery/light/fueled/torchholder,
 /turf/closed/wall/mineral/stonebrick,
@@ -2046,6 +2031,21 @@
 /obj/structure/closet/crate/chest/old_crate,
 /obj/item/statue/gold,
 /turf/open/floor/dirt,
+/area/rogue/under/cavelava)
+"YI" = (
+/obj/structure/door/green{
+	name = "Old Door"
+	},
+/obj/effect/mapping_helpers/door/locker,
+/turf/open/floor/concrete,
+/area/rogue/under/cavelava)
+"YP" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/door/green{
+	name = "Old Door"
+	},
+/obj/effect/mapping_helpers/door/locker,
+/turf/open/floor/blocks,
 /area/rogue/under/cavelava)
 "YR" = (
 /obj/effect/decal/cleanable/blood/old{
@@ -7078,7 +7078,7 @@ Mb
 Ui
 Mb
 sg
-fh
+Jy
 Xy
 LZ
 LZ
@@ -15783,7 +15783,7 @@ LZ
 xc
 WJ
 LZ
-lz
+lK
 LZ
 xi
 LZ
@@ -15928,7 +15928,7 @@ Qi
 qI
 oI
 oI
-qO
+MU
 oI
 fG
 Qi
@@ -16054,12 +16054,12 @@ mW
 Qi
 Vk
 Xt
-oH
+YI
 fG
-Tj
+VH
 BK
 BK
-Tj
+VH
 ab
 Qi
 Aa
@@ -16171,7 +16171,7 @@ LZ
 LZ
 LZ
 xc
-Nn
+RZ
 xc
 LZ
 LZ
@@ -16441,7 +16441,7 @@ Qi
 sJ
 Vk
 sJ
-yg
+YP
 sJ
 sJ
 Vk
@@ -16561,7 +16561,7 @@ Qi
 Qi
 Qi
 Vk
-xI
+vq
 Vk
 Qi
 LZ
@@ -16823,7 +16823,7 @@ dG
 fL
 nC
 nC
-ca
+TH
 nM
 Qi
 ZF
@@ -16949,7 +16949,7 @@ Aa
 Qi
 Qi
 Vk
-pK
+Ll
 mW
 Vk
 Vk
@@ -16965,7 +16965,7 @@ nC
 nC
 nC
 Xt
-fv
+Ql
 sg
 lN
 FN
@@ -17101,7 +17101,7 @@ gH
 vc
 sg
 sg
-Az
+vS
 UN
 UN
 LZ
@@ -17221,7 +17221,7 @@ Ck
 bh
 lq
 Qi
-hF
+hV
 Qi
 Qi
 Qi
@@ -17338,7 +17338,7 @@ Uv
 Aa
 Qi
 Qi
-FZ
+gb
 Qi
 Qi
 Qi

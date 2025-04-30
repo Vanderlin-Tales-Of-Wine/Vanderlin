@@ -86,12 +86,6 @@
 /mob/living/carbon/human/species/rousman/ambush,
 /turf/open/floor/naturalstone,
 /area/rogue/under/cavewet)
-"dY" = (
-/obj/structure/mineral_door/wood/donjon{
-	dir = 1
-	},
-/turf/open/floor/blocks/stonered/tiny,
-/area/rogue/under/cavewet)
 "eo" = (
 /obj/structure/rack/shelf/biggest,
 /obj/item/storage/sack{
@@ -119,6 +113,10 @@
 	pixel_x = -6
 	},
 /turf/open/floor/blocks/stonered/tiny,
+/area/rogue/under/cavewet)
+"fr" = (
+/obj/structure/barricade/wooden,
+/turf/open/floor/cobblerock,
 /area/rogue/under/cavewet)
 "fs" = (
 /obj/structure/stairs/stone/church,
@@ -224,6 +222,12 @@
 	pixel_y = 11
 	},
 /obj/item/clothing/pants/trou,
+/turf/open/floor/blocks/stonered/tiny,
+/area/rogue/under/cavewet)
+"ig" = (
+/obj/structure/door/viewport{
+	dir = 1
+	},
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/under/cavewet)
 "iv" = (
@@ -541,10 +545,6 @@
 	},
 /turf/open/floor/church,
 /area/rogue/under/cavewet)
-"rk" = (
-/obj/structure/barricade/wooden,
-/turf/open/floor/blocks/stonered/tiny,
-/area/rogue/under/cavewet)
 "rm" = (
 /obj/machinery/light/fueled/torchholder/c,
 /turf/open/floor/churchrough,
@@ -776,6 +776,10 @@
 /obj/machinery/light/fueled/smelter,
 /obj/effect/decal/cleanable/dirt/cobweb,
 /turf/open/floor/church,
+/area/rogue/under/cavewet)
+"Cp" = (
+/obj/structure/door/stone,
+/turf/open/floor/churchrough,
 /area/rogue/under/cavewet)
 "CX" = (
 /obj/structure/fluff/railing/border{
@@ -1071,6 +1075,10 @@
 "Oz" = (
 /turf/open/floor/blocks/stonered,
 /area/rogue/under/cavewet)
+"OJ" = (
+/obj/structure/door/stone,
+/turf/open/floor/blocks/stonered/tiny,
+/area/rogue/under/cavewet)
 "OO" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/churchrough,
@@ -1183,10 +1191,6 @@
 	},
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/under/cavewet)
-"RP" = (
-/obj/structure/mineral_door/wood/donjon/stone,
-/turf/open/floor/blocks/stonered/tiny,
-/area/rogue/under/cavewet)
 "Sx" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 4
@@ -1211,10 +1215,6 @@
 /obj/machinery/light/fueled/torchholder/l,
 /obj/structure/spider/cocoon,
 /turf/open/floor/churchrough,
-/area/rogue/under/cavewet)
-"SW" = (
-/obj/structure/barricade/wooden,
-/turf/open/floor/cobblerock,
 /area/rogue/under/cavewet)
 "Tc" = (
 /obj/structure/chair/stool,
@@ -1309,10 +1309,6 @@
 	desc = "A weak, crumbling wall made from specially crafted stone.";
 	name = "weak craftstone wall"
 	},
-/area/rogue/under/cavewet)
-"UQ" = (
-/obj/structure/mineral_door/wood/donjon/stone,
-/turf/open/floor/churchrough,
 /area/rogue/under/cavewet)
 "UR" = (
 /mob/living/simple_animal/hostile/retaliate/mimic,
@@ -1488,6 +1484,10 @@
 "YB" = (
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/naturalstone,
+/area/rogue/under/cavewet)
+"Zn" = (
+/obj/structure/barricade/wooden,
+/turf/open/floor/blocks/stonered/tiny,
 /area/rogue/under/cavewet)
 "ZE" = (
 /obj/structure/kneestingers{
@@ -1877,7 +1877,7 @@ sP
 tX
 mt
 wx
-UQ
+Cp
 dO
 PB
 lq
@@ -2675,8 +2675,8 @@ jA
 Tc
 cS
 kY
-RP
-RP
+OJ
+OJ
 qW
 mB
 TC
@@ -2734,7 +2734,7 @@ kJ
 UZ
 ME
 Sx
-UQ
+Cp
 go
 go
 yS
@@ -2742,10 +2742,10 @@ uG
 go
 Un
 of
-dY
+ig
 Un
 uG
-dY
+ig
 Up
 Up
 Up
@@ -2766,7 +2766,7 @@ dO
 OO
 OO
 dO
-UQ
+Cp
 Un
 Un
 go
@@ -2774,10 +2774,10 @@ go
 Un
 Un
 Un
-dY
+ig
 oo
 oo
-dY
+ig
 Up
 Up
 Up
@@ -2836,7 +2836,7 @@ kY
 go
 ZS
 Un
-RP
+OJ
 Un
 Un
 vl
@@ -2859,15 +2859,15 @@ kY
 kY
 kY
 kY
-RP
+OJ
 kY
 kY
 qC
 DY
 kY
-UQ
+Cp
 LM
-UQ
+Cp
 kY
 go
 Uu
@@ -2891,8 +2891,8 @@ qX
 qX
 qX
 kY
-rk
-rk
+Zn
+Zn
 Ny
 Jf
 ix
@@ -3150,7 +3150,7 @@ qM
 qM
 qM
 qM
-SW
+fr
 qM
 qM
 qM

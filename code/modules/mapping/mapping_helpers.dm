@@ -179,7 +179,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_lava)
 /obj/effect/mapping_helpers/access/Initialize()
 	. = ..()
 	var/static/list/valid = list(
-		/obj/structure/mineral_door, \
+		/obj/structure/door, \
 		/obj/structure/closet, \
 		/obj/structure/fake_machine/vendor, \
 		/obj/structure/fake_machine/merchantvend

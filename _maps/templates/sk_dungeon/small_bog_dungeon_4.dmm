@@ -105,9 +105,8 @@
 /turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "x" = (
-/obj/structure/mineral_door/bars{
-	locked = 1
-	},
+/obj/structure/door/iron/bars,
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/herringbone,
 /area/rogue/outdoors/caves)
 "y" = (
@@ -173,9 +172,8 @@
 /turf/closed/wall/mineral/craftstone,
 /area/rogue/outdoors/caves)
 "P" = (
-/obj/structure/mineral_door/wood/violet{
-	locked = 1
-	},
+/obj/structure/door/violet,
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/blocks,
 /area/rogue/outdoors/caves)
 "Q" = (

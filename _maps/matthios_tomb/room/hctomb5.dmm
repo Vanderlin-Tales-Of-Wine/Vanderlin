@@ -103,7 +103,7 @@
 /turf/open/floor/dirt,
 /area/rogue/under/cave)
 "mM" = (
-/obj/structure/mineral_door/wood/donjon/stone,
+/obj/structure/door/stone,
 /turf/open/floor/herringbone,
 /area/rogue/indoors/shelter)
 "nh" = (
@@ -147,7 +147,7 @@
 /turf/open/floor/herringbone,
 /area/rogue/indoors/shelter)
 "pR" = (
-/obj/structure/mineral_door/wood/red,
+/obj/structure/door/red,
 /turf/open/floor/wood/nosmooth,
 /area/rogue/indoors/shelter)
 "qh" = (
@@ -262,10 +262,10 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave)
 "BU" = (
-/obj/structure/mineral_door/wood/deadbolt{
-	dir = 1;
-	locked = 1
+/obj/structure/door/weak/bolt{
+	dir = 1
 	},
+/obj/effect/mapping_helpers/door/locker,
 /obj/effect/decal/shadow_floor,
 /turf/open/floor/blocks,
 /area/rogue/indoors/shelter)
@@ -314,7 +314,7 @@
 /turf/open/floor/blocks,
 /area/rogue/indoors/shelter)
 "GK" = (
-/obj/structure/mineral_door/wood/deadbolt{
+/obj/structure/door/weak/bolt{
 	dir = 1
 	},
 /turf/open/floor/blocks,
@@ -344,7 +344,7 @@
 /turf/open/floor/dirt,
 /area/rogue/under/cave)
 "Kw" = (
-/obj/structure/mineral_door/wood/red,
+/obj/structure/door/red,
 /turf/open/floor/blocks,
 /area/rogue/indoors/shelter)
 "KE" = (

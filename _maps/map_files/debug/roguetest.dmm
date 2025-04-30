@@ -903,10 +903,6 @@
 /obj/item/weapon/shield/tower,
 /turf/open/floor/cobble,
 /area/rogue/indoors)
-"cm" = (
-/obj/structure/mineral_door,
-/turf/open/floor/blocks,
-/area/rogue/indoors)
 "cn" = (
 /obj/structure/hotspring/border/ten,
 /turf/open/floor/grass/yel,
@@ -1156,6 +1152,11 @@
 	},
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
+"gd" = (
+/obj/structure/flora/grass,
+/obj/effect/fog_parter,
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
 "gp" = (
 /obj/structure/hotspring,
 /obj/effect/lily_petal/two,
@@ -1211,11 +1212,6 @@
 	dir = 8
 	},
 /area/rogue/outdoors/mountains/decap)
-"ia" = (
-/obj/structure/flora/grass,
-/obj/effect/fog_parter,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
 "iE" = (
 /obj/machinery/light/fueled/torchholder/hotspring/standing{
 	pixel_x = 15
@@ -1223,6 +1219,14 @@
 /obj/structure/flora/grass,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/mountains/decap)
+"jc" = (
+/obj/structure/flora/ausbushes/ppflowers,
+/obj/structure/minecart_rail{
+	dir = 4
+	},
+/obj/structure/closet/crate/miningcar,
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
 "ji" = (
 /obj/structure/hotspring/border/three,
 /turf/open/floor/dirt/road,
@@ -1307,13 +1311,6 @@
 "mo" = (
 /obj/structure/flora/grass,
 /obj/structure/water_pipe,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
-"mq" = (
-/obj/structure/flora/grass,
-/obj/structure/minecart_rail{
-	dir = 4
-	},
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
 "mx" = (
@@ -1522,13 +1519,6 @@
 /obj/effect/falling_sakura,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
-"tz" = (
-/obj/structure/flora/grass/herb/symphitum,
-/obj/structure/minecart_rail{
-	dir = 4
-	},
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
 "tH" = (
 /turf/closed,
 /area/rogue/outdoors)
@@ -1682,6 +1672,12 @@
 /obj/structure/hotspring/border/three,
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
+"yY" = (
+/obj/structure/minecart_rail{
+	dir = 4
+	},
+/turf/open/floor/dirt,
+/area/rogue/outdoors)
 "zc" = (
 /obj/machinery/light/fueled/torchholder/r,
 /turf/open/floor/dirt/road,
@@ -1802,17 +1798,27 @@
 "BE" = (
 /turf/closed,
 /area/rogue/outdoors/mountains/decap)
+"BW" = (
+/obj/structure/flora/grass/herb/symphitum,
+/obj/structure/minecart_rail{
+	dir = 4
+	},
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
 "CO" = (
 /obj/effect/landmark/observer_start,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors)
-"CZ" = (
-/obj/structure/mineral_door,
-/turf/open/floor/wood,
-/area/rogue/indoors)
 "Di" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/flora/ausbushes/lavendergrass,
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
+"Dw" = (
+/obj/structure/flora/grass,
+/obj/structure/minecart_rail{
+	dir = 4
+	},
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
 "Dz" = (
@@ -1934,12 +1940,6 @@
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
-"In" = (
-/obj/structure/minecart_rail{
-	dir = 4
-	},
-/turf/open/floor/dirt,
-/area/rogue/outdoors)
 "IW" = (
 /obj/structure/hotspring/border/nine,
 /obj/effect/falling_sakura,
@@ -1994,12 +1994,6 @@
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
-"Lc" = (
-/obj/structure/minecart_rail{
-	dir = 4
-	},
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
 "Ln" = (
 /obj/structure/chair/hotspring_bench/left{
 	pixel_y = 12
@@ -2016,6 +2010,10 @@
 /obj/structure/flora/grass,
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
+"Ma" = (
+/obj/structure/door,
+/turf/open/floor/blocks,
+/area/rogue/indoors)
 "Mn" = (
 /turf/open/floor/dirt,
 /area/rogue/indoors)
@@ -2281,18 +2279,20 @@
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
+"WY" = (
+/obj/structure/minecart_rail{
+	dir = 4
+	},
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
 "Xa" = (
 /obj/structure/fermentation_keg/distiller,
 /turf/open/floor/carpet,
 /area/rogue/indoors)
-"Xg" = (
-/obj/structure/flora/ausbushes/ppflowers,
-/obj/structure/minecart_rail{
-	dir = 4
-	},
-/obj/structure/closet/crate/miningcar,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
+"XA" = (
+/obj/structure/door,
+/turf/open/floor/wood,
+/area/rogue/indoors)
 "XC" = (
 /obj/structure/flora/grass,
 /mob/living/simple_animal/hostile/retaliate/cow,
@@ -11810,7 +11810,7 @@ RF
 ky
 qc
 FN
-mq
+Dw
 qc
 qc
 Wr
@@ -12067,7 +12067,7 @@ RC
 eq
 jC
 QN
-Xg
+jc
 QN
 qc
 QN
@@ -12324,7 +12324,7 @@ SZ
 RF
 Qi
 QN
-In
+yY
 al
 Wr
 ai
@@ -16177,7 +16177,7 @@ yB
 bq
 ad
 bq
-cm
+Ma
 Wr
 Wr
 cU
@@ -17215,7 +17215,7 @@ QN
 QN
 QN
 QN
-CZ
+XA
 mY
 OZ
 Zs
@@ -75292,7 +75292,7 @@ QN
 ky
 QN
 jC
-ia
+gd
 ky
 qc
 QN
@@ -76575,7 +76575,7 @@ zc
 Mn
 QN
 QN
-Lc
+WY
 QN
 QN
 eE
@@ -76832,7 +76832,7 @@ Zs
 aj
 QN
 jC
-Lc
+WY
 ky
 jC
 ss
@@ -77089,7 +77089,7 @@ aj
 Kh
 QN
 QN
-tz
+BW
 QN
 QN
 ss

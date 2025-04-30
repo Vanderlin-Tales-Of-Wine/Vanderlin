@@ -1,16 +1,20 @@
 /obj/effect/mapping_helpers/access/keyset
-	name = "keyid access helper"
+	name = "access helper"
 	icon_state = "access_helper"
 	var/list/accesses
+	var/difficulty
 
 /obj/effect/mapping_helpers/access/keyset/payload(obj/payload)
 	if(!length(accesses))
 		log_mapping("[src] at [AREACOORD(src)] tried to set lockids, but had nothing to assign!")
 		return
-	if(payload.lockids != null)
-		log_mapping("[src] at [AREACOORD(src)] tried to set lockids, but lockid was already set!")
+	if(!payload.lock_check(TRUE))
+		log_mapping("[src] at [AREACOORD(src)] tried to set lockids, but [payload.type] hasn't got a keylock!")
 		return
-	payload.lockids += accesses
+	var/datum/lock/key/KL = payload.lock
+	if(difficulty)
+		KL.set_pick_difficulty(difficulty)
+	KL.set_access(accesses)
 
 // Town locks
 /obj/effect/mapping_helpers/access/keyset/town
