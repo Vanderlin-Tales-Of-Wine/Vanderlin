@@ -46,6 +46,9 @@
 					H.update_inv_neck()
 					H.update_inv_head()
 
+/obj/item/clothing/neck/keffiyeh/uncolored
+	color = CLOTHING_LINEN
+
 /obj/item/clothing/neck/keffiyeh/red
 	color = CLOTHING_BLOOD_RED
 
