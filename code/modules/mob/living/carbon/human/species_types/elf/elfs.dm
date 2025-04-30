@@ -156,4 +156,4 @@
 	return last_names
 
 /datum/species/elf/snow/get_accent_list()
-	return strings("accents/russian_replacement.json", "russian")
+	return GLOB.accent_list[ACCENT_ELF]

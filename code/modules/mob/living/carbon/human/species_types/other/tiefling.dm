@@ -190,7 +190,7 @@
 	return last_names
 
 /datum/species/tieberian/get_accent_list()
-	return strings("accents/spanish_replacement.json", "spanish")
+	return GLOB.accent_list[ACCENT_TIEFLING]
 
 /datum/species/tieberian/get_native_language()
 	return "Infernal"

@@ -140,4 +140,5 @@
 	return last_names
 
 /datum/species/elf/dark/get_accent_list()
-	return strings("accents/french_replacement.json", "french")
+	return GLOB:accent_list[ACCENT_DELF]
+
