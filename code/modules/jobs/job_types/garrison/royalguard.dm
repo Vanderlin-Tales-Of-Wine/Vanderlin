@@ -91,7 +91,7 @@
 	var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
 	H.set_blindness(0)
 	switch(weapon_choice)
-		if("Flail)
+		if("Flail")
 			r_hand = /obj/item/weapon/flail/sflail
 			H.mind?.adjust_skillrank(/datum/skill/combat/whipsflails, 4, TRUE)
 		if("Halberd")
