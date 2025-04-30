@@ -140,5 +140,5 @@
 	return last_names
 
 /datum/species/elf/dark/get_accent_list()
-	return GLOB:accent_list[ACCENT_DELF]
+	return GLOB.accent_list[ACCENT_DELF]
 
