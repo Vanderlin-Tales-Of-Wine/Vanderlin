@@ -57,7 +57,6 @@
 	beltr = /obj/item/weapon/sword/arming
 	backr = /obj/item/storage/backpack/satchel
 	backl = /obj/item/weapon/shield/tower/metal
-	r_hand = /obj/item/weapon/polearm/halberd
 	gloves = /obj/item/clothing/gloves/chain
 	head = /obj/item/clothing/head/helmet/visored/knight
 
@@ -67,7 +66,6 @@
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/shields, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
@@ -88,3 +86,14 @@
 	if(H.dna?.species)
 		if(H.dna.species.id == "human")
 			H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
+	H.adjust_blindness(-3)
+	var/weapons = list("Flail","Halberd")
+	var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
+	H.set_blindness(0)
+	switch(weapon_choice)
+		if("Flail)
+			r_hand = /obj/item/weapon/flail/sflail
+			H.mind?.adjust_skillrank(/datum/skill/combat/whipsandflails, 4, TRUE)
+		if("Halberd")
+			r_hand = /obj/item/weapon/polearm/halberd
+			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
