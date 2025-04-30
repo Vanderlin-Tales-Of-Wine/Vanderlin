@@ -36,7 +36,7 @@
 /area/rogue/under/cavewet)
 "hi" = (
 /obj/structure/door/fancy,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter)
 "hR" = (
@@ -49,7 +49,7 @@
 /area/rogue/under/cave)
 "kt" = (
 /obj/structure/door/fancy,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /obj/item/soap/bath{
 	pixel_y = -5
 	},

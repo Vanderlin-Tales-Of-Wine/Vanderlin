@@ -249,7 +249,7 @@
 /obj/structure/door/green{
 	name = "Old Door"
 	},
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/herringbone,
 /area/rogue/under/cavelava)
@@ -357,7 +357,7 @@
 /obj/structure/door/green{
 	name = "Old Door"
 	},
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/concrete,
 /area/rogue/under/cavelava)
 "ib" = (
@@ -912,7 +912,7 @@
 /obj/structure/door/green{
 	name = "Old Door"
 	},
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /obj/item/restraints/legcuffs/beartrap/armed/camouflage,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobble,
@@ -1426,7 +1426,7 @@
 /obj/structure/door/green{
 	name = "Old Door"
 	},
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /obj/item/restraints/legcuffs/beartrap/armed/camouflage,
 /turf/open/floor/cobble,
 /area/rogue/under/cavelava)
@@ -1690,7 +1690,7 @@
 /obj/structure/door/green{
 	name = "Old Door"
 	},
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/concrete,
 /area/rogue/under/cavelava)
 "Qm" = (
@@ -1838,7 +1838,7 @@
 /obj/structure/door/green{
 	name = "Old Door"
 	},
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/blocks,
 /area/rogue/under/cavelava)
 "TK" = (
@@ -2036,7 +2036,7 @@
 /obj/structure/door/green{
 	name = "Old Door"
 	},
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/concrete,
 /area/rogue/under/cavelava)
 "YP" = (
@@ -2044,7 +2044,7 @@
 /obj/structure/door/green{
 	name = "Old Door"
 	},
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/blocks,
 /area/rogue/under/cavelava)
 "YR" = (

@@ -12,22 +12,26 @@
 		return FALSE
 
 	if(P.being_picked)
+		to_chat(src, span_notice("Someone else is picking \the [P]."))
 		return FALSE
 
-	if(!can_be_picked())
+	if(!P.can_be_picked())
+		to_chat(src, span_notice("I cannot lockpick \the [P]."))
 		return FALSE
 
 	var/datum/lock/key/KL = P.lock
+	if(!KL.locked)
+		to_chat(src, span_notice("\the [P] is unlocked."))
+		return FALSE
+
 	var/obj/item/the_wedge = get_inactive_held_item()
 
-	if(!is_type_in_list(L, lockpicks))
-		return FALSE
 	if(!is_type_in_list(the_wedge, wedges))
-		to_chat(src, span_notice("You need a wedge in order to lockpick the [P]!"))
+		to_chat(src, span_notice("I need a wedge in order to lockpick \the [P]."))
 		return FALSE
 
 	client.spawn_lockpicking_UI(P, src, L, the_wedge, difficulty, KL.get_string_difficulty(), mind?.get_skill_level(/datum/skill/misc/lockpicking))
-	visible_message(span_warning("[src] starts to pick the lock of [P]!"), span_notice("I start to pick the lock of [P]..."))
+	visible_message(span_warning("[src] starts to pick the lock of \the [P]!"), span_notice("I start to pick the lock of \the [P]..."))
 	return TRUE
 
 //obj is told its picked, theoretically can be used for any objects
@@ -35,13 +39,14 @@
 	finish_lockpicking(user)
 
 	if(prob(60 - (skill_level * 10)))
-		to_chat(user, "<span class='notice'>Your [lockpick_used.name] broke!</span>")
+		to_chat(user, span_notice("My [lockpick_used] broke!"))
 		playsound(loc, 'sound/items/LPBreak.ogg', 100 - (15 * skill_level))
 		qdel(lockpick_used)
 
 	if(lock)
 		lock.locked = FALSE
 		lock.tampered = TRUE
+
 	playsound(loc, 'sound/items/LPWin.ogg', 150 - (15 * skill_level))
 
 	var/amt2raise = user.STAINT + (50 / difficulty)
@@ -251,7 +256,7 @@
 	qdel(src)
 	picking_object.being_picked = FALSE
 
-	to_chat(picker, "<span class='notice'>You stop picking the [picking_object.name]s lock.</span>")
+	to_chat(picker, span_notice("I stop picking the lock of \the [picking_object]."))
 
 /atom/movable/screen/movable/snap/lockpicking/proc/on_mouse_up(datum/source, atom/object, turf/location, control, params)
 	SIGNAL_HANDLER
@@ -302,7 +307,7 @@
 	if(failing)
 		if(break_checking_cooldown <= world.time)
 			if(prob(10 - skill_level))
-				to_chat(picker, "<span class='notice'>Your [the_lockpick] broke!</span>")
+				to_chat(picker, span_notice("My [the_lockpick] broke!"))
 				playsound(loc, 'sound/items/LPBreak.ogg', 100 - (15 * skill_level))
 				qdel(the_lockpick)
 			break_checking_cooldown = world.time + 7 SECONDS

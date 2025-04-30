@@ -70,10 +70,6 @@
 			return TRUE
 	if(I.obj_flags_ignore)
 		return I.attack_obj(src, user)
-	if(lock_check(TRUE))
-		if(handle_keylock(I, user))
-			user.changeNext_move(CLICK_CD_FAST)
-			return TRUE
 	return ..() || ((obj_flags & CAN_BE_HIT) && I.attack_obj(src, user))
 
 /turf/attackby(obj/item/I, mob/living/user, params)

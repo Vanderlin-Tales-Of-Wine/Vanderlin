@@ -457,8 +457,8 @@
 /area/rogue/outdoors/bog)
 "fl" = (
 /obj/structure/door/green,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter/bog)
 "fm" = (
@@ -654,7 +654,7 @@
 /area/rogue/indoors/shelter/bog)
 "hM" = (
 /obj/structure/door/green,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter/bog)
 "hO" = (
@@ -1384,7 +1384,7 @@
 /obj/structure/door/viewport{
 	dir = 1
 	},
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/naturalstone,
 /area/rogue/indoors/cave)
 "rS" = (
@@ -1872,8 +1872,8 @@
 /area/rogue/indoors/shelter/bog)
 "xV" = (
 /obj/structure/door/viewport,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter/bog)
 "yd" = (
@@ -3096,7 +3096,7 @@
 "Qx" = (
 /obj/structure/door/viewport,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter/bog)
 "QA" = (

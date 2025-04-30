@@ -95,7 +95,7 @@
 				E.budget2change(budgie)
 				budgie = 0
 		if(play_sound)
-			playsound(src.loc, 'sound/misc/hiss.ogg', 100, FALSE, -1)
+			playsound(loc, 'sound/misc/hiss.ogg', 100, FALSE, -1)
 
 /////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
@@ -120,9 +120,10 @@
 	max_integrity = 0
 	anchored = TRUE
 	layer = BELOW_OBJ_LAYER
-	lockids = list(ACCESS_MERCHANT)
-	locked = TRUE
-	keylock = TRUE
+	rattle_sound = 'sound/misc/machineno.ogg'
+	unlock_sound = 'sound/misc/beep.ogg'
+	lock_sound = 'sound/misc/beep.ogg'
+	lock = /datum/lock/key/merchant
 	var/list/held_items = list()
 	var/budget = 0
 	var/upgrade_flags
@@ -134,42 +135,29 @@
 
 /obj/structure/fake_machine/merchantvend/obj_break(damage_flag)
 	. = ..()
-	budget2change(src.budget)
+	budget2change(budget)
 	set_light(0)
 
 /obj/structure/fake_machine/merchantvend/Destroy()
 	. = ..()
-	budget2change(src.budget)
+	budget2change(budget)
 	set_light(0)
 
 /obj/structure/fake_machine/merchantvend/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/coin))
 		var/money = I.get_real_price()
-		src.budget += money
+		budget += money
 		qdel(I)
 		to_chat(user, span_info("I put [money] mammon in [src]."))
 		playsound(get_turf(src), 'sound/misc/machinevomit.ogg', 100, TRUE, -1)
 		return attack_hand(user)
-	if(!I.has_access())
-		return ..()
-	if(!src.keylock || !src.has_access())
-		to_chat(user, span_warning("[src] has no lock!"))
-		return
-	if(src.check_access(I))
-		src.locked = !src.locked
-		to_chat(user, span_info("I [src.locked ? "lock" : "unlock"] [src]."))
-		playsound(get_turf(src), 'sound/misc/beep.ogg', 100, FALSE, -1)
-		if(src.locked)
-			return
-		return attack_hand(user)
-	playsound(get_turf(src), 'sound/misc/machineno.ogg', 100, FALSE, -1)
-	to_chat(user, span_info("I lack the key for [src]."))
+	return ..()
 
 /obj/structure/fake_machine/merchantvend/Topic(href, href_list)
 	. = ..()
 	if(!ishuman(usr))
 		return
-	if(!usr.canUseTopic(src, BE_CLOSE) || locked)
+	if(!usr.canUseTopic(src, BE_CLOSE) || locked())
 		return
 	if(href_list["buy"])
 		var/path = text2path(href_list["buy"])
@@ -213,7 +201,7 @@
 		var/select = input(usr, "Please select an option.", "", null) as null|anything in options
 		if(!select)
 			return
-		if(!usr.canUseTopic(src, BE_CLOSE) || locked)
+		if(!usr.canUseTopic(src, BE_CLOSE) || locked())
 			return
 		switch(select)
 			if("Enable Paying Taxes")
@@ -230,7 +218,7 @@
 		return
 	if(!ishuman(user))
 		return
-	if(locked)
+	if(locked())
 		to_chat(user, "<span class='warning'>It's locked. Of course.</span>")
 		return
 	user.changeNext_move(CLICK_CD_MELEE)

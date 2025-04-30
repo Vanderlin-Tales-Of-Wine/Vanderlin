@@ -74,7 +74,8 @@
 	if(obj_integrity == null)
 		obj_integrity = max_integrity
 	if(lock)
-		lock = new lock(src)
+		lock = new lock(src, lockids)
+		lockids = null
 
 	. = ..() //Do this after, else mat datums is mad.
 

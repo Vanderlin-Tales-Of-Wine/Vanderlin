@@ -1943,7 +1943,7 @@
 /obj/structure/door/iron/bars{
 	lockid = "mansionvampire"
 	},
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/blocks,
 /area/rogue/indoors/vampire_manor)
 "mt" = (
@@ -2402,7 +2402,7 @@
 /obj/structure/door/red{
 	lockid = "banditcamp"
 	},
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/bandit_lair)
 "qj" = (
@@ -3328,7 +3328,7 @@
 /obj/structure/door/weak/bolt{
 	dir = 1
 	},
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/woods_safe)
 "zW" = (
@@ -3907,7 +3907,7 @@
 /obj/structure/door/iron/bars{
 	lockid = "banditcamp"
 	},
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/dirt,
 /area/rogue/indoors/bandit_lair)
 "FV" = (
@@ -4432,7 +4432,7 @@
 /obj/structure/door/iron/bars{
 	lockid = "mansionvampire"
 	},
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/woods_safe)
 "KT" = (
@@ -4998,7 +4998,7 @@
 /obj/structure/door/iron/bars{
 	lockid = "mansionvampire"
 	},
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/woods_safe)
 "QX" = (
@@ -5794,7 +5794,7 @@
 	dir = 1;
 	lockid = "mansionvampire"
 	},
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/blocks,
 /area/rogue/indoors/vampire_manor)
 "Yg" = (

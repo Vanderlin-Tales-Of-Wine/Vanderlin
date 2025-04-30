@@ -348,7 +348,7 @@
 /area/rogue/under/cave)
 "ok" = (
 /obj/structure/door/red,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/blocks/stonered,
 /area/rogue/under/cave)
 "or" = (
@@ -392,7 +392,7 @@
 "qX" = (
 /obj/effect/decal/cleanable/blood,
 /obj/structure/door/red,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/blocks/stonered,
 /area/rogue/under/cave)
 "ra" = (

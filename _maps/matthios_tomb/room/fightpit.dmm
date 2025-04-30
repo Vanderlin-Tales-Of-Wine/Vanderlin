@@ -112,7 +112,7 @@
 /obj/structure/door/viewport{
 	dir = 8
 	},
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "ld" = (
@@ -142,7 +142,7 @@
 /obj/structure/door/viewport{
 	dir = 8
 	},
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cave)
 "mX" = (
@@ -284,7 +284,7 @@
 /obj/structure/door/viewport{
 	dir = 4
 	},
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "xX" = (
@@ -314,7 +314,7 @@
 /area/rogue/under/cave)
 "Ci" = (
 /obj/structure/door,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "Cr" = (
@@ -565,7 +565,7 @@
 /obj/structure/door/viewport{
 	dir = 4
 	},
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cave)
 "XA" = (

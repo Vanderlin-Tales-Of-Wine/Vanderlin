@@ -9,7 +9,7 @@
 	locked = TRUE
 
 /datum/lock/key/steward
-	llockid_list = list(ACCESS_STEWARD)
+	lockid_list = list(ACCESS_STEWARD)
 	locked = TRUE
 
 /datum/lock/key/merchant
@@ -22,6 +22,14 @@
 
 /datum/lock/key/apothecary
 	lockid_list = list(ACCESS_APOTHECARY)
+	locked = TRUE
+
+/datum/lock/key/manor
+	lockid_list = list(ACCESS_MANOR)
+	locked = TRUE
+
+/datum/lock/key/inn
+	lockid_list = list(ACCESS_INN)
 	locked = TRUE
 
 ///// Multiple key locks

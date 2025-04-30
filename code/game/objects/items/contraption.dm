@@ -195,15 +195,14 @@
 	var/skill = user.mind?.get_skill_level(/datum/skill/craft/engineering)
 	if(istype(O, /obj/structure/door)) //This is to ensure the new door will retain its lock
 		var/obj/structure/door/door = O
-		var/obj/structure/door/new_door = new door.metalizer_result(get_turf(I))
+		var/obj/structure/door/new_door = new door.metalizer_result(get_turf(door))
 		if(door.lock?.uses_key)
 			var/datum/lock/key/oldlock = door.lock
-			var/datum/lock/key/newlock = new(new_door)
+			var/datum/lock/key/newlock = new(new_door, oldlock.lockid_list)
 			newlock.locked = oldlock.locked
-			newlock.lockid_list = oldlock.lockid_list
 			newlock.difficulty = oldlock.difficulty
 			new_door.lock = newlock
-		qdel(I)
+		qdel(door)
 	else
 		var/obj/I = O
 		new I.metalizer_result(get_turf(I))

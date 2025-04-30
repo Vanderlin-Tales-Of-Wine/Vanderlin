@@ -58,7 +58,7 @@
 /obj/structure/door{
 	lockid = "artificer"
 	},
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/ruinedwood{
 	icon_state = "weird1"
 	},

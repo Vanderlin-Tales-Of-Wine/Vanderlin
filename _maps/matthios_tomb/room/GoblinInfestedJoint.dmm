@@ -579,7 +579,7 @@
 	lockid = "forrestgarrison";
 	dir = 4
 	},
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/cobble,
 /area/rogue/indoors/shelter)
 "xp" = (

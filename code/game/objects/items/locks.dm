@@ -17,7 +17,7 @@
 	var/access = I.get_access()
 	if(!access)
 		return FALSE
-	for(id as anything in lockids)
+	for(var/id as anything in lockids)
 		if(id in access)
 			return TRUE
 	return FALSE

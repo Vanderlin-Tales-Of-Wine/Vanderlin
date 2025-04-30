@@ -1100,6 +1100,10 @@
 /obj/structure/hotspring/border/thirteen,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
+"ey" = (
+/obj/structure/door/weak/bolt,
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
 "ez" = (
 /obj/structure/rotation_piece/cog,
 /turf/open/floor/grass/yel,
@@ -1613,6 +1617,11 @@
 	},
 /turf/open/floor/blocks,
 /area/rogue/indoors)
+"wc" = (
+/obj/structure/flora/grass,
+/obj/item/key/merchant,
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
 "we" = (
 /turf/open/water,
 /area/rogue/outdoors/mountains/decap)
@@ -1909,6 +1918,16 @@
 /obj/structure/pottery_lathe,
 /turf/open/floor/wood,
 /area/rogue/indoors)
+"GL" = (
+/obj/structure/door,
+/obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/town/merchant,
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
+"GM" = (
+/obj/structure/door/swing,
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
 "GU" = (
 /obj/structure/hotspring/border/eleven,
 /obj/effect/lily_petal/three{
@@ -14383,8 +14402,8 @@ zF
 HK
 QN
 QN
-QN
-qc
+GL
+wc
 QN
 bs
 QN
@@ -14640,7 +14659,7 @@ qi
 RC
 QN
 Wg
-QN
+ey
 qc
 jC
 fS
@@ -14897,7 +14916,7 @@ Pg
 EX
 Gi
 ky
-QN
+GM
 aq
 QN
 Wr

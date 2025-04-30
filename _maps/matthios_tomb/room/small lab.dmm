@@ -354,7 +354,7 @@
 /area/rogue/under/cave)
 "MK" = (
 /obj/structure/door/iron/bars,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/under/cave)
 "Qb" = (
@@ -419,7 +419,7 @@
 /area/rogue/under/cave)
 "ZJ" = (
 /obj/structure/door/violet,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/cobblerock,
 /area/rogue/under/cave)
 "ZL" = (

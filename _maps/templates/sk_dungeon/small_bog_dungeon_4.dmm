@@ -106,7 +106,7 @@
 /area/rogue/outdoors/caves)
 "x" = (
 /obj/structure/door/iron/bars,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/herringbone,
 /area/rogue/outdoors/caves)
 "y" = (
@@ -173,7 +173,7 @@
 /area/rogue/outdoors/caves)
 "P" = (
 /obj/structure/door/violet,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/blocks,
 /area/rogue/outdoors/caves)
 "Q" = (

@@ -35,6 +35,8 @@
 	var/delivery_icon = "deliverycloset" //which icon to use when packagewrapped. null to be unwrappable.
 	var/anchorable = TRUE
 	var/icon_welded = "welded"
+	/// Opened by hands
+	var/has_doors = TRUE
 	throw_speed = 1
 	throw_range = 1
 	anchored = FALSE

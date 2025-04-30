@@ -65,7 +65,7 @@
 /obj/effect/mapping_helpers/access/keyset/town/veteran
 	accesses = list(ACCESS_VETERAN)
 
-/obj/effect/mapping_helpers/door/access/town/gaffer
+/obj/effect/mapping_helpers/access/keyset/town/gaffer
 	accesses = list(ACCESS_GAFFER)
 
 /obj/effect/mapping_helpers/access/keyset/town/tower

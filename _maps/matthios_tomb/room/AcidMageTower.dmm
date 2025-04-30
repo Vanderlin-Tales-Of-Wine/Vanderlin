@@ -205,7 +205,7 @@
 /obj/structure/door/red{
 	lockid = "Acid1"
 	},
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/churchrough,
 /area/rogue/indoors)
 "im" = (

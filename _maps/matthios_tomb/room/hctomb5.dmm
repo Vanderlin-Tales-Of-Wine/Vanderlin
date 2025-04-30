@@ -265,7 +265,7 @@
 /obj/structure/door/weak/bolt{
 	dir = 1
 	},
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /obj/effect/decal/shadow_floor,
 /turf/open/floor/blocks,
 /area/rogue/indoors/shelter)

@@ -441,7 +441,7 @@
 	lockid = "oldinn1";
 	name = "Room I"
 	},
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/wood,
 /area/rogue/indoors)
 "hD" = (
@@ -524,8 +524,8 @@
 /turf/open/floor/dirt,
 /area/rogue/outdoors/woods)
 "jj" = (
-/obj/effect/mapping_helpers/door/access/garrison/forest,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
+/obj/effect/mapping_helpers/access/locker,
 /obj/structure/door/viewport{
 	dir = 8
 	},
@@ -947,7 +947,7 @@
 	lockid = "oldinn2";
 	name = "Room II"
 	},
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/wood,
 /area/rogue/indoors)
 "ph" = (
@@ -1265,8 +1265,8 @@
 /turf/closed/wall/mineral/tent,
 /area/rogue/indoors/cave)
 "uL" = (
-/obj/effect/mapping_helpers/door/access/garrison/forest,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
+/obj/effect/mapping_helpers/access/locker,
 /obj/structure/door/green{
 	name = "Thatchwood Garrison"
 	},
@@ -1599,8 +1599,8 @@
 /turf/open/water/cleanshallow,
 /area/rogue/outdoors/woods)
 "As" = (
-/obj/effect/mapping_helpers/door/access/garrison/forest,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
+/obj/effect/mapping_helpers/access/locker,
 /obj/structure/door/green{
 	name = "Thatchwood Barracks"
 	},
@@ -2346,7 +2346,7 @@
 	lockid = "oldinn3";
 	name = "Side Room"
 	},
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/twig,
 /area/rogue/indoors)
 "OD" = (
@@ -2577,7 +2577,7 @@
 /obj/structure/door{
 	lockid = "oldfarm"
 	},
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/woodturned,
 /area/rogue/indoors)
 "Sy" = (

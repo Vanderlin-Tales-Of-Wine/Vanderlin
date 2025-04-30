@@ -131,7 +131,7 @@
 /area/rogue/outdoors/mountains/anvil/snowyforest)
 "bo" = (
 /obj/structure/door/stone,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/herringbone,
 /area/rogue/under/mountains/anvil/lower)
 "bq" = (
@@ -208,7 +208,7 @@
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "bR" = (
 /obj/structure/door/stone,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/church,
 /area/rogue/under/mountains/anvil/lower)
 "bX" = (
@@ -404,7 +404,7 @@
 "dn" = (
 /obj/structure/door/fancy,
 /obj/structure/fluff/walldeco/vinez/red,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "dq" = (
@@ -680,7 +680,7 @@
 /area/rogue/outdoors/mountains/anvil/snowyforest)
 "fp" = (
 /obj/structure/door/fancy,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "fr" = (
@@ -2060,7 +2060,7 @@
 /area/rogue/outdoors/mountains/anvil/snowyforest)
 "qt" = (
 /obj/structure/door/fancy,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/carpet/purple,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "qv" = (
@@ -2642,7 +2642,7 @@
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "uW" = (
 /obj/structure/door/stone,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/under/mountains/anvil/lower)
 "uX" = (
@@ -2752,7 +2752,7 @@
 /area/rogue/under/mountains/anvil/dungeon)
 "wa" = (
 /obj/structure/door/fancy,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "wd" = (
@@ -3393,7 +3393,7 @@
 /area/rogue/outdoors/mountains/anvil/snowyforest)
 "Bt" = (
 /obj/structure/door/fancy,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/herringbone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Bu" = (
@@ -4564,7 +4564,7 @@
 /area/rogue/under/mountains/anvil/dungeon)
 "KR" = (
 /obj/structure/door/fancy,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "KS" = (
@@ -5616,7 +5616,7 @@
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "SH" = (
 /obj/structure/door/stone,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/hexstone,
 /area/rogue/under/mountains/anvil/lower)
 "SI" = (
@@ -5897,7 +5897,7 @@
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "UY" = (
 /obj/structure/door/fancy,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/herringbone,
 /area/rogue/under/mountains/anvil/dungeon)
 "Vb" = (
@@ -6108,7 +6108,7 @@
 /area/rogue/under/cavelava)
 "WB" = (
 /obj/structure/door/stone,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/mountains/anvil/lower)
 "WD" = (
@@ -6406,7 +6406,7 @@
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "YU" = (
 /obj/structure/door/fancy,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "YV" = (

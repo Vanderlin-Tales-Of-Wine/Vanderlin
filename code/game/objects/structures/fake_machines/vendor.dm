@@ -9,9 +9,10 @@
 	max_integrity = 0
 	anchored = TRUE
 	layer = BELOW_OBJ_LAYER
-	lockids = list(ACCESS_MERCHANT)
-	locked = TRUE
-	keylock = TRUE
+	rattle_sound = 'sound/misc/machineno.ogg'
+	unlock_sound = 'sound/misc/beep.ogg'
+	lock_sound = 'sound/misc/beep.ogg'
+	lock = /datum/lock/key/locked
 	var/list/held_items = list()
 	var/budget = 0
 	var/wgain = 0
@@ -43,7 +44,7 @@
 	. = ..()
 
 /obj/structure/fake_machine/vendor/update_icon()
-	if(!locked || obj_broken)
+	if(!locked() || obj_broken)
 		icon_state = "streetvendor0"
 		if(length(overlays))
 			cut_overlays()
@@ -70,21 +71,10 @@
 	if(!I.has_access()) // Maybe this should be rclick so you can sell keys
 		add_merchandise(I, user)
 		return
-	if(!keylock || !has_access())
-		to_chat(user, span_warning("\The [src] has no lock!"))
-		return
-	if(check_access(I))
-		locked = !locked
-		user.visible_message( \
-			span_warning("[user] [locked ? "locks" : "unlocks"] \the [src]."), \
-			span_notice("I [locked ? "lock" : "unlock"] \the [src]."))
-		playsound(get_turf(src), 'sound/misc/beep.ogg', 100, FALSE, -1)
-		return
-	playsound(get_turf(src), 'sound/misc/machineno.ogg', 100, FALSE, -1)
-	to_chat(user, span_info("I lack the key for \the [src]."))
+	return ..()
 
 /obj/structure/fake_machine/vendor/proc/add_merchandise(obj/item/I, mob/user)
-	if(locked)
+	if(locked())
 		to_chat(user, span_info("I cannot put [I] in [src] while it's locked."))
 		return
 	if(I.w_class > WEIGHT_CLASS_BULKY)
@@ -106,7 +96,7 @@
 		var/obj/item/O = locate(href_list["buy"]) in held_items
 		if(!O || !istype(O))
 			return
-		if(!usr.canUseTopic(src, BE_CLOSE) || !locked)
+		if(!usr.canUseTopic(src, BE_CLOSE) || !locked())
 			return
 		if(ishuman(usr))
 			if(held_items[O]["PRICE"])
@@ -124,7 +114,7 @@
 		var/obj/item/O = locate(href_list["retrieve"]) in held_items
 		if(!O || !istype(O))
 			return
-		if(!usr.canUseTopic(src, BE_CLOSE) || locked)
+		if(!usr.canUseTopic(src, BE_CLOSE) || locked())
 			return
 		if(ishuman(usr))
 			held_items -= O
@@ -132,14 +122,14 @@
 				O.forceMove(get_turf(src))
 			update_icon()
 	if(href_list["change"])
-		if(!usr.canUseTopic(src, BE_CLOSE) || !locked)
+		if(!usr.canUseTopic(src, BE_CLOSE) || !locked())
 			return
 		if(ishuman(usr))
 			if(budget > 0)
 				budget2change(budget, usr)
 				budget = 0
 	if(href_list["withdrawgain"])
-		if(!usr.canUseTopic(src, BE_CLOSE) || locked)
+		if(!usr.canUseTopic(src, BE_CLOSE) || locked())
 			return
 		if(ishuman(usr))
 			if(wgain > 0)
@@ -149,7 +139,7 @@
 		var/obj/item/O = locate(href_list["setname"]) in held_items
 		if(!O || !istype(O))
 			return
-		if(!usr.canUseTopic(src, BE_CLOSE) || locked)
+		if(!usr.canUseTopic(src, BE_CLOSE) || locked())
 			return
 		if(ishuman(usr))
 			var/prename
@@ -162,7 +152,7 @@
 		var/obj/item/O = locate(href_list["setprice"]) in held_items
 		if(!O || !istype(O))
 			return
-		if(!usr.canUseTopic(src, BE_CLOSE) || locked)
+		if(!usr.canUseTopic(src, BE_CLOSE) || locked())
 			return
 		if(ishuman(usr))
 			var/preprice
@@ -185,13 +175,13 @@
 	var/contents
 	if(canread)
 		contents = "<center>THE PEDDLER, THIRD ITERATION<BR>"
-		if(locked)
+		if(locked())
 			contents += "<a href='byond://?src=[REF(src)];change=1'>Stored Mammon:</a> [budget]<BR>"
 		else
 			contents += "<a href='byond://?src=[REF(src)];withdrawgain=1'>Stored Profits:</a> [wgain]<BR>"
 	else
 		contents = "<center>[stars("THE PEDDLER, THIRD ITERATION")]<BR>"
-		if(locked)
+		if(locked())
 			contents += "<a href='byond://?src=[REF(src)];change=1'>[stars("Stored Mammon:")]</a> [budget]<BR>"
 		else
 			contents += "<a href='byond://?src=[REF(src)];withdrawgain=1'>[stars("Stored Profits:")]</a> [wgain]<BR>"
@@ -206,7 +196,7 @@
 		if(!namer)
 			held_items[I]["NAME"] = "thing"
 			namer = "thing"
-		if(locked)
+		if(locked())
 			if(canread)
 				contents += "[icon2html(I, user)] [namer] - [price] <a href='byond://?src=[REF(src)];buy=[REF(I)]'>BUY</a>"
 			else
@@ -262,35 +252,30 @@
 	update_icon()
 
 /obj/structure/fake_machine/vendor/apothecary
-	lockids = list("nightman")
+	name = "DRUG PEDDLER"
+	lockids = list(ACCESS_APOTHECARY)
 	lighting_color = "#8f06b5"
 	filled_overlay = "vendor-drug"
 
-/obj/structure/fake_machine/vendor/apothecary
-	name = "DRUG PEDDLER"
-	keycontrol = ACCESS_APOTHECARY
-
 /obj/structure/fake_machine/vendor/blacksmith
-	keycontrol = ACCESS_SMITH
+	lockids = list(ACCESS_SMITH)
 
 /obj/structure/fake_machine/vendor/inn
 	name = "INNKEEP"
-	keycontrol = ACCESS_INN
+	lockids = list(ACCESS_INN)
 
 /obj/structure/fake_machine/vendor/butcher
-	keycontrol = ACCESS_BUTCHER
+	lockids = list(ACCESS_BUTCHER)
 
 /obj/structure/fake_machine/vendor/soilson
 	name = "FARMHAND"
-	keycontrol = ACCESS_FARM
+	lockids = list(ACCESS_FARM)
 
 /obj/structure/fake_machine/vendor/centcom
 	name = "LANDLORD"
 	desc = "Give this thing money, and you will immediately buy a neat property in the capital."
-	max_integrity = 0
 	icon_state = "streetvendor1"
-	lockids = list()
-	locked = FALSE
+	max_integrity = 0
 	var/list/cachey = list()
 
 /obj/structure/fake_machine/vendor/centcom/attack_hand(mob/living/user)

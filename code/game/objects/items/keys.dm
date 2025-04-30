@@ -58,7 +58,7 @@
 /obj/item/key/custom/attackby(obj/item/I, mob/user, params)
 	if(!istype(I, /obj/item/weapon/hammer))
 		return ..()
-	if(usable)
+	if(lockids)
 		var/input = (input(user, "What would you name this key?", "", "") as text)
 		if(!input)
 			return

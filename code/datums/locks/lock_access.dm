@@ -1,7 +1,7 @@
 /obj
 	/**
-	 * A list of lockids for keys or custom keys and custom locks
-	 * Should not be used on things with a /datum/lock
+	 * A list of lockids for keys and locks
+	 * If something has a lock it's used to set access of the lock then nulled
 	 */
 	var/list/lockids
 	/// A lock datum that handles access and lockpicking
@@ -51,6 +51,11 @@
 	if(!lock_check())
 		return FALSE
 	return lock.locked
+
+/obj/proc/lock_toggle()
+	if(!lock_check())
+		return FALSE
+	lock.toggle()
 
 /obj/proc/lock()
 	if(!lock_check())

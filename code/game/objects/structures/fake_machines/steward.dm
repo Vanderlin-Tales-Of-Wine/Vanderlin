@@ -16,9 +16,10 @@
 	anchored = TRUE
 	layer = BELOW_OBJ_LAYER
 
-	lockids = list(ACCESS_STEWARD)
-	locked = TRUE
-	keylock = TRUE
+	rattle_sound = 'sound/misc/machineno.ogg'
+	unlock_sound = 'sound/misc/beep.ogg'
+	lock_sound = 'sound/misc/beep.ogg'
+	lock = /datum/lock/key/steward
 
 	var/current_tab = TAB_MAIN
 	var/compact = FALSE
@@ -29,22 +30,11 @@
 		qdel(I)
 		playsound(src, 'sound/misc/coininsert.ogg', 100, FALSE, -1)
 		return
-	if(!I.has_access())
-		return ..()
-	if(!src.keylock || !src.has_access())
-		to_chat(user, span_warning("[src] has no lock!"))
-		return
-	if(src.check_access(I))
-		src.locked = !src.locked
-		to_chat(user, span_info("I [src.locked ? "lock" : "unlock"] [src]."))
-		playsound(get_turf(src), 'sound/misc/beep.ogg', 100, FALSE, -1)
-		return
-	playsound(get_turf(src), 'sound/misc/machineno.ogg', 100, FALSE, -1)
-	to_chat(user, span_info("I lack the key for [src]."))
+	return ..()
 
 /obj/structure/fake_machine/steward/Topic(href, href_list)
 	. = ..()
-	if(!usr.canUseTopic(src, BE_CLOSE) || locked)
+	if(!usr.canUseTopic(src, BE_CLOSE) || locked())
 		return
 	if(href_list["switchtab"])
 		current_tab = text2num(href_list["switchtab"])
@@ -91,7 +81,7 @@
 			return
 		if(!D.percent_bounty)
 			var/newamount = input(usr, "Set a new oversupply amount for [D.name]", src, D.oversupply_amount) as null|num
-			if(!usr.canUseTopic(src, BE_CLOSE) || locked)
+			if(!usr.canUseTopic(src, BE_CLOSE) || locked())
 				return
 			if(!isnum(newamount))
 				return
@@ -105,7 +95,7 @@
 			return
 		if(!D.percent_bounty)
 			var/newtax = input(usr, "Set a new oversupply price for [D.name]", src, D.oversupply_payout) as null|num
-			if(!usr.canUseTopic(src, BE_CLOSE) || locked)
+			if(!usr.canUseTopic(src, BE_CLOSE) || locked())
 				return
 			if(!isnum(newtax))
 				return
@@ -119,7 +109,7 @@
 			return
 		if(!D.percent_bounty)
 			var/newtax = input(usr, "Set a new price for [D.name]", src, D.payout_price) as null|num
-			if(!usr.canUseTopic(src, BE_CLOSE) || locked)
+			if(!usr.canUseTopic(src, BE_CLOSE) || locked())
 				return
 			if(!isnum(newtax))
 				return
@@ -131,7 +121,7 @@
 		else
 			var/newtax = input(usr, "Set a new percent for [D.name]", src, D.payout_price) as null|num
 			if(newtax)
-				if(!usr.canUseTopic(src, BE_CLOSE) || locked)
+				if(!usr.canUseTopic(src, BE_CLOSE) || locked())
 					return
 				if(findtext(num2text(newtax), "."))
 					return
@@ -146,7 +136,7 @@
 		if(!D.percent_bounty)
 			var/newtax = input(usr, "Set a new price to withdraw [D.name]", src, D.withdraw_price) as null|num
 			if(newtax)
-				if(!usr.canUseTopic(src, BE_CLOSE) || locked)
+				if(!usr.canUseTopic(src, BE_CLOSE) || locked())
 					return
 				if(findtext(num2text(newtax), "."))
 					return
@@ -159,7 +149,7 @@
 		for(var/mob/living/A in SStreasury.bank_accounts)
 			if(A == X)
 				var/newtax = input(usr, "How much to give [X]", src) as null|num
-				if(!usr.canUseTopic(src, BE_CLOSE) || locked)
+				if(!usr.canUseTopic(src, BE_CLOSE) || locked())
 					return
 				if(findtext(num2text(newtax), "."))
 					return
@@ -176,7 +166,7 @@
 		for(var/mob/living/A in SStreasury.bank_accounts)
 			if(A == X)
 				var/newtax = input(usr, "How much to fine [X]", src) as null|num
-				if(!usr.canUseTopic(src, BE_CLOSE) || locked)
+				if(!usr.canUseTopic(src, BE_CLOSE) || locked())
 					return
 				if(findtext(num2text(newtax), "."))
 					return
@@ -195,14 +185,14 @@
 		var/job_to_pay = input(usr, "Select a job", src) as null|anything in jobs
 		if(!job_to_pay)
 			return
-		if(!usr.canUseTopic(src, BE_CLOSE) || locked)
+		if(!usr.canUseTopic(src, BE_CLOSE) || locked())
 			return
 		var/amount_to_pay = input(usr, "How much to pay every [job_to_pay]", src) as null|num
 		if(!amount_to_pay)
 			return
 		if(amount_to_pay<1)
 			return
-		if(!usr.canUseTopic(src, BE_CLOSE) || locked)
+		if(!usr.canUseTopic(src, BE_CLOSE) || locked())
 			return
 		if(findtext(num2text(amount_to_pay), "."))
 			return
@@ -240,7 +230,7 @@
 	. = ..()
 	if(.)
 		return
-	if(locked)
+	if(locked())
 		to_chat(user, "<span class='warning'>It's locked. Of course.</span>")
 		return
 	user.changeNext_move(CLICK_CD_MELEE)

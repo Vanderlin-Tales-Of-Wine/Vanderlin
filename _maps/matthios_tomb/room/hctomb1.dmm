@@ -269,7 +269,7 @@
 /area/rogue/under)
 "qH" = (
 /obj/structure/door/green,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/hexstone,
 /area/rogue/indoors/shelter)
 "qI" = (

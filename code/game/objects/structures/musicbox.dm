@@ -79,6 +79,9 @@
 	density = TRUE
 	anchored = TRUE
 	max_integrity = 0
+	rattle_sound = 'sound/misc/machineno.ogg'
+	unlock_sound = 'sound/misc/beep.ogg'
+	lock_sound = 'sound/misc/beep.ogg'
 	var/datum/looping_sound/musloop/soundloop
 	var/list/init_curfile = list('sound/music/jukeboxes/_misc/_generic.ogg') // A list of songs that curfile is set to on init. MUST BE IN ONE OF THE MUSIC_TAVCAT_'s. MAPPERS MAY TOUCH THIS.
 	var/curfile // The current track that is playing right now
@@ -103,9 +106,9 @@
 /obj/structure/fake_machine/musicbox/examine(mob/user)
 	. = ..()
 	. += "Volume: [curvol]/100"
-	if(src.keylock && src.has_access())
-		. += span_info("It's [src.locked ? "locked" : "unlocked"].")
-		. += span_info("It's keyhole has [src.access2string()] etched next to it.")
+	if(lock_check(TRUE))
+		. += span_info("It's [locked() ? "locked" : "unlocked"].")
+		. += span_info("It's keyhole has [access2string()] etched next to it.")
 
 /obj/structure/fake_machine/musicbox/proc/toggle_music()
 	if(!playing)
@@ -135,7 +138,7 @@
 
 	user.changeNext_move(CLICK_CD_MELEE)
 
-	if(locked)
+	if(locked())
 		to_chat(user, span_info("\The [src] is locked..."))
 		return
 
@@ -199,31 +202,11 @@
 		stop_playing()
 		start_playing()
 
-/obj/structure/fake_machine/musicbox/attackby(obj/item/I, mob/living/user, params)
-	if(!I.has_access())
-		return ..()
-	if(!src.keylock || src.has_access())
-		to_chat(user, span_notice("\The [src] has no lock."))
-		return
-	if(src.check_access(I))
-		src.locked = !src.locked
-		user.visible_message( \
-			span_info("[user] [src.locked ? "locks" : "unlocks"] \the [src]."), \
-			span_info("I [src.locked ? "lock" : "unlock"] \the [src]."))
-		playsound(get_turf(src), 'sound/misc/beep.ogg', 100, FALSE, -1)
-		return
-	to_chat(user, span_info("I lack the key for \the [src]."))
-	playsound(get_turf(src), 'sound/misc/machineno.ogg', 100, FALSE, -1)
-
 /obj/structure/fake_machine/musicbox/mannor
-	lockids = list(ACCESS_MANOR)
-	locked = TRUE
-	keylock = TRUE
+	lock = /datum/lock/key/manor
 
 /obj/structure/fake_machine/musicbox/tavern
-	lockids = list(ACCESS_INN)
-	locked = TRUE
-	keylock = TRUE
+	lock = /datum/lock/key/inn
 	curvol = 30
 	playuponspawn = TRUE
 	init_curfile = list(\

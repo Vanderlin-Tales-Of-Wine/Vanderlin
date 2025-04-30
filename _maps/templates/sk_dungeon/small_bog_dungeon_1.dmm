@@ -341,7 +341,7 @@
 /area/rogue/outdoors/bog)
 "Ty" = (
 /obj/structure/door/weak/bolt,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/cobble/mossy,
 /area/rogue/outdoors/bog)
 "UI" = (

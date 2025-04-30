@@ -35,7 +35,7 @@
 	name = "Reading Room";
 	lockid = "manor"
 	},
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/carpet/lord/center,
 /area/rogue/indoors/shelter)
 "bl" = (
@@ -235,7 +235,7 @@
 	name = "Kitchen";
 	lockid = "manor"
 	},
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/tile,
 /area/rogue/indoors/shelter)
 "ma" = (
@@ -243,7 +243,7 @@
 	name = "Hall";
 	lockid = "manor"
 	},
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/hexstone,
 /area/rogue/indoors/shelter)
 "mn" = (
@@ -412,7 +412,7 @@
 	name = "Queens Retreat";
 	lockid = "manor"
 	},
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/carpet/lord/center,
 /area/rogue/indoors/shelter)
 "th" = (
@@ -554,7 +554,7 @@
 	name = "Bedroom";
 	lockid = "merchant"
 	},
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/shelter)
 "xp" = (
@@ -1008,7 +1008,7 @@
 	name = "Bath";
 	lockid = "manor"
 	},
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/tile/bath,
 /area/rogue/indoors/shelter)
 "Pf" = (
@@ -1160,7 +1160,7 @@
 	lockid = "nightmaiden";
 	name = "Storage"
 	},
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/tile,
 /area/rogue/indoors/shelter)
 "XD" = (
