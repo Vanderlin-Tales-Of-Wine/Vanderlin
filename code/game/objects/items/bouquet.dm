@@ -16,17 +16,17 @@
 	icon_state = "bouquet_rosa"
 
 /obj/item/bouquet/salvia
-	name = "salvia boquet"
+	name = "salvia bouquet"
 	desc = "A boquet of sweet smelling salvia, a beautiful and royal purple flower."
 	icon_state = "bouquet_salvia"
 
 /obj/item/bouquet/matricaria
-	name = "matricaria boquet"
+	name = "matricaria bouquet"
 	desc = "A bouqet of maricaria"
 	icon_state = "bouquet_matricaria"
 
 /obj/item/bouquet/calendula
-	name = "calendula boquet"
+	name = "calendula bouquet"
 	desc = "A bouqet of calendula, a flower used in herbal medicine, said to have healing properties"
 	icon_state = "bouquet_calendula"
 

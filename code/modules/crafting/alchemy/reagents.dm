@@ -61,8 +61,8 @@
 	..()
 	. = 1
 
-/datum/reagent/medicine/rosewater
-	name = "Rose Water"
+/datum/reagent/medicine/rosawater
+	name = "Rosa Water"
 	description = "Steeped rose petals with mild regeneration."
 	reagent_state = LIQUID
 	color = "#f398b6"
@@ -71,7 +71,7 @@
 	metabolization_rate = REAGENTS_METABOLISM
 	alpha = 173
 
-/datum/reagent/medicine/rosewater/on_mob_life(mob/living/carbon/M)
+/datum/reagent/medicine/rosawater/on_mob_life(mob/living/carbon/M)
 	. = ..()
 	if (M.mob_biotypes & MOB_BEAST)
 		M.adjustFireLoss(0.5*REM)
