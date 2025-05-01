@@ -189,8 +189,7 @@
 	if(!zombie.client)
 		zombie.ai_controller = new /datum/ai_controller/zombie(zombie)
 
-	var/obj/item/organ/eyes/eyes = new /obj/item/organ/eyes/night_vision/zombie
-	eyes.Insert(zombie, drop_if_replaced = FALSE)
+	zombie.grant_undead_eyes()
 	ambushable = zombie.ambushable
 	zombie.ambushable = FALSE
 
