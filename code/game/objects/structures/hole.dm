@@ -17,6 +17,7 @@
 	buckle_lying = 90
 	layer = 2.8
 	lock = null
+	can_add_lock = FALSE
 
 /obj/structure/closet/dirthole/grave
 	stage = 3

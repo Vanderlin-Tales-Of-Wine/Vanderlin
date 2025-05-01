@@ -17,6 +17,7 @@
 	break_sound = 'sound/combat/hits/onwood/destroywalldoor.ogg'
 	attacked_sound = list('sound/combat/hits/onwood/woodimpact (1).ogg', 'sound/combat/hits/onwood/woodimpact (2).ogg')
 	lock = /datum/lock/key
+	can_add_lock = TRUE
 
 	/// Can people riding go through without falling off their mount
 	var/ridethrough = FALSE
@@ -250,11 +251,6 @@
 	. = ..()
 	unlock()
 	force_open()
-
-/obj/structure/door/OnCrafted(dirin, user)
-	. = ..()
-	if(lock)
-		QDEL_NULL(lock)
 
 /obj/structure/door/fire_act(added, maxstacks)
 	if(!added)

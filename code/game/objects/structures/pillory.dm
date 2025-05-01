@@ -29,12 +29,6 @@
 	LAZYINITLIST(buckled_mobs)
 	. = ..()
 
-/obj/structure/pillory/OnCrafted(dirin, mob/user)
-	. = ..()
-	if(lock)
-		QDEL_NULL(lock)
-	can_add_lock = TRUE
-
 /obj/structure/pillory/examine(mob/user)
 	. = ..()
 	. += span_info("It is [latched ? "latched" : "unlatched"].")

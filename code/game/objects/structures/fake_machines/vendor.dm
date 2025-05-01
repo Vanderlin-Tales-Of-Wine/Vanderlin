@@ -218,6 +218,7 @@
 
 /obj/structure/fake_machine/vendor/nolock
 	lock = null
+	can_add_lock = TRUE
 
 /obj/structure/fake_machine/vendor/inn
 	lockids = list(ACCESS_INN)
