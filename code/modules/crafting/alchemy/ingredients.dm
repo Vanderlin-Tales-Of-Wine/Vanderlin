@@ -333,7 +333,7 @@
 	spitoutmouth = FALSE
 	alternate_worn_layer  = 8.9 //On top of helmet
 
-	major_pot = /datum/alch_cauldron_recipe/rosewater_potion
+	major_pot = /datum/alch_cauldron_recipe/rosawater_potion
 	med_pot = /datum/alch_cauldron_recipe/end_potion
 	minor_pot = /datum/alch_cauldron_recipe/antidote
 
