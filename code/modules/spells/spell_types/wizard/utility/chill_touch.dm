@@ -3,7 +3,7 @@
 	desc = "A skeletal hand grips your target, the targetted zone changes the effect."
 	overlay_state = "null"
 	releasedrain = 50
-	chargetime = 10
+	chargetime = 3 SECONDS
 	recharge_time = 50 SECONDS
 	range = 6
 	warnie = "spellwarning"
@@ -38,7 +38,8 @@
 		hand.bodypart = bodypart
 		hand.forceMove(target)
 		bodypart.add_embedded_object(hand, silent = TRUE, crit_message = FALSE)
-		target.visible_message(span_warning("A skeletal hand grips [target]'s [bodypart]!"), span_danger("A skeletal hand grips me [bodypart]!"))
+		target.visible_message(span_warning("A skeletal hand grips [target]'s [bodypart]!"), span_danger("A skeletal hand grips my [bodypart]!"))
+		return TRUE
 	return FALSE
 
 /obj/item/chilltouch5e

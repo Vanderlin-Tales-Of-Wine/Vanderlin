@@ -43,6 +43,7 @@
 #define ACCESS_MAGE "mage"
 #define ACCESS_AT_ARMS "at_arms"
 #define ACCESS_GUEST "guest"
+#define ACCESS_PHYSICIAN "physician"
 
 // Shops
 #define ACCESS_SHOP_I "shop1"
