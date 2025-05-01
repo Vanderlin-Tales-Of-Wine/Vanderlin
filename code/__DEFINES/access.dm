@@ -16,6 +16,7 @@
 #define ACCESS_TOWER "tower"
 #define ACCESS_WAREHOUSE "warehouse"
 #define ACCESS_ARTIFICER "artificer"
+#define ACCESS_MINER "miner"
 #define ACCESS_BATHHOUSE "bathhouse"
 
 // Town Garrison (Including forest)
@@ -42,6 +43,7 @@
 #define ACCESS_MAGE "mage"
 #define ACCESS_AT_ARMS "at_arms"
 #define ACCESS_GUEST "guest"
+#define ACCESS_PHYSICIAN "physician"
 
 // Shops
 #define ACCESS_SHOP_I "shop1"

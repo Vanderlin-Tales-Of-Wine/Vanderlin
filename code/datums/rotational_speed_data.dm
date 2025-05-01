@@ -36,9 +36,9 @@
 			start_deconstruct(user, item)
 			return
 
-/obj/structure/proc/start_deconstruct(mob/user, obj/item/rotation_contraption/type)
+/obj/structure/proc/start_deconstruct(mob/living/user, obj/item/rotation_contraption/type)
 	user.visible_message(span_notice("[user] starts to disassemble [src]."), span_notice("You start to disassemble [src]."))
-	if(!do_after(user, 3 SECONDS, src))
+	if(!do_after(user, 1.5 SECONDS  - (user.mind?.get_skill_level(/datum/skill/craft/engineering) * 2), src))
 		return
 	new type(get_turf(src))
 	qdel(src)
@@ -99,9 +99,7 @@
 
 /obj/structure/proc/find_rotation_network()
 	var/turf/step_forward = get_step(src, dir)
-	if(!step_forward)
-		return
-	for(var/obj/structure/structure in step_forward.contents)
+	for(var/obj/structure/structure in step_forward?.contents)
 		if(structure.dir != dir && structure.dir != GLOB.reverse_dir[dir] && !istype(structure, /obj/structure/gearbox) && !istype(structure, /obj/structure/minecart_rail))
 			continue
 		if(structure.rotation_network)
@@ -113,7 +111,7 @@
 					rotation_break()
 
 	var/turf/step_back = get_step(src, GLOB.reverse_dir[dir])
-	for(var/obj/structure/structure in step_back.contents)
+	for(var/obj/structure/structure in step_back?.contents)
 		if(structure.dir != dir && structure.dir != GLOB.reverse_dir[dir])
 			continue
 		if(structure.rotation_network)
@@ -165,8 +163,6 @@
 	if(connector.rotation_direction && connector.rotation_direction != rotation_direction)
 		if(connector.rotations_per_minute && rotations_per_minute)
 			return FALSE
-	if(connector.stress_generator && connector.giving_stress && !stress_generator)
-		return FALSE
 	return TRUE
 
 /obj/structure/proc/try_network_merge(obj/structure/connector)
@@ -325,6 +321,8 @@
 		set_type(placed_type)
 	if(can_stack)
 		for(var/obj/item/rotation_contraption/contraption in loc)
+			if(QDELETED(contraption))
+				continue
 			if(contraption == src)
 				continue
 			if(!istype(contraption, src.type))
@@ -382,7 +380,7 @@
 			return
 
 	visible_message("[user] starts placing down [src].", "You start to place [src].")
-	if(!do_after(user, 2 SECONDS, T))
+	if(!do_after(user, 1.2 SECONDS - user.mind?.get_skill_level(/datum/skill/craft/engineering), T))
 		return
 	var/obj/structure/structure = new placed_type(T)
 	if(directional)

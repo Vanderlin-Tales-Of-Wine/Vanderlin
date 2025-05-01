@@ -199,6 +199,12 @@
 	icon_state = "brownkey"
 	lockid = ACCESS_ARTIFICER
 
+/obj/item/key/miner
+	name = "miner's key"
+	desc = "This bronze key should open the Miner's quarters."
+	icon_state = "brownkey"
+	lockid = ACCESS_MINER
+
 // Residents
 
 /obj/item/key/matron
@@ -341,6 +347,12 @@
 	desc = "The key to the manor's guest room. Given to visiting nobles."
 	icon_state = "greenkey"
 	lockid = ACCESS_GUEST
+
+/obj/item/key/courtphys
+	name = "court physician's key"
+	desc = "A key granted to the honored Court Physician."
+	icon_state = "ankhkey"
+	lockid = ACCESS_PHYSICIAN
 
 ////// CHURCH
 

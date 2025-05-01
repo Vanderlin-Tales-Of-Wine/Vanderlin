@@ -129,6 +129,10 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	name = "Court Magician"
 	icon_state = "arrow"
 
+/obj/effect/landmark/start/courtphys
+	name = "Court Physician"
+	icon_state = "arrow"
+
 /obj/effect/landmark/start/guardsman
 	name = "City Watchmen"
 	icon_state = "arrow"
@@ -168,7 +172,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 /obj/effect/landmark/start/villager
 	name = "Towner"
 	icon_state = "arrow"
-	jobspawn_override = list("Fisher","Noble","Hunter","Lumberjack","Miner","Physicker","Bard","Carpenter","Cheesemaker")
+	jobspawn_override = list("Fisher","Noble","Hunter","Lumberjack","Miner","Bard","Carpenter","Cheesemaker")
 
 /obj/effect/landmark/start/cheesemaker
 	name = "Cheesemaker"
@@ -215,6 +219,9 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	name = "Stevedore"
 	icon_state = "arrow"
 
+/obj/effect/landmark/start/shophand
+	name = "Shophand"
+	icon_state = "arrow"
 
 /obj/effect/landmark/start/innkeep
 	name = "Innkeep"
@@ -270,10 +277,6 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 
 /obj/effect/landmark/start/mercenary
 	name = "Mercenary"
-	icon_state = "arrow"
-
-/obj/effect/landmark/start/physicker
-	name = "Physicker"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/minor_noble
@@ -359,6 +362,18 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 
 /obj/effect/landmark/start/servant
 	name = "Servant"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/tapster
+	name = "Tapster"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/matron_assistant
+	name = "Matron Assistant"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/gaffer_assistant
+	name = "Ring Servant"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/churchling

@@ -22,6 +22,10 @@
 	var/space_ruin_levels = 7
 	var/space_empty_levels = 1
 
+	/// List of unit tests that are skipped when running this map
+	var/list/skipped_tests
+
+	var/custom_area_sound = null
 	var/list/other_z
 
 /proc/load_map_config(filename = "data/next_map.json", default_to_van, delete_after, error_if_missing = TRUE)
@@ -109,6 +113,20 @@
 		log_world("map_config space_empty_levels is not a number!")
 		return
 
+	var/soundTemp = json["custom_area_sound"]
+	if (istext(soundTemp))
+		if(!findtextEx(soundTemp, new /regex("\\.ogg$"))) //makes sure this is an ogg file
+			log_world("map_config [soundTemp] is not a valid .ogg file!")
+			return
+		var/soundFile = file(soundTemp)
+		if(!soundFile)
+			log_world("map_config custom_area_sound not found at [soundTemp]!")
+			return
+		custom_area_sound = soundFile
+	else if (!isnull(soundTemp))
+		log_world("map_config custom_area_sound is not a string!")
+		return
+
 	var/list/other_z = json["other_z"]
 	var/list/final_z
 	for(var/map_path in other_z)
@@ -120,6 +138,16 @@
 			stack_trace("tried to add two of the same z-level")
 			continue
 		LAZYOR(final_z, map_path)
+
+#ifdef UNIT_TESTS
+	// Check for unit tests to skip, no reason to check these if we're not running tests
+	for(var/path_as_text in json["ignored_unit_tests"])
+		var/path_real = text2path(path_as_text)
+		if(!ispath(path_real, /datum/unit_test))
+			stack_trace("Invalid path in mapping config for ignored unit tests: \[[path_as_text]\]")
+			continue
+		LAZYADD(skipped_tests, path_real)
+#endif
 
 	src.other_z = final_z
 	defaulted = FALSE
@@ -135,3 +163,18 @@
 
 /datum/map_config/proc/MakeNextMap()
 	return config_filename == "data/next_map.json" || fcopy(config_filename, "data/next_map.json")
+
+/// Checks config parameters to see if this map can be voted for. Returns TRUE or FALSE accordingly.
+/datum/map_config/proc/available_for_vote()
+	if(!votable)
+		return FALSE
+
+	var/player_count = length(GLOB.clients)
+
+	if(config_min_users && player_count < config_min_users)
+		return FALSE
+
+	if(config_max_users && player_count > config_max_users)
+		return FALSE
+
+	return TRUE

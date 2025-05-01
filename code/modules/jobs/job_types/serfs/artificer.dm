@@ -19,6 +19,9 @@
 	outfit = /datum/outfit/job/artificer
 	give_bank_account = 8
 
+/datum/outfit/job/artificer
+	job_bitflag = BITFLAG_CONSTRUCTOR
+
 /datum/outfit/job/artificer/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)

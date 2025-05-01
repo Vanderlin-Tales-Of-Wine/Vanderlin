@@ -223,7 +223,8 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 
 	var/list/blocksound //played when an item that is equipped blocks a hit
 
-	var/list/onprop = list()
+	/// A lazylist to store inhands data.
+	var/list/onprop
 	var/damage_type = "blunt"
 	var/force_reupdate_inhand = TRUE
 
@@ -716,6 +717,8 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	if(!silent)
 		playsound(src, drop_sound, DROP_SOUND_VOLUME, TRUE, ignore_walls = FALSE)
 	user.update_equipment_speed_mods()
+	if(isliving(user))
+		user:encumbrance_to_speed()
 	update_transform()
 
 // called just as an item is picked up (loc is not yet changed)
@@ -726,9 +729,11 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 
 // called just as an item is picked up (loc is not yet changed)
 /obj/item/proc/afterpickup(mob/user)
+	SHOULD_CALL_PARENT(TRUE)
+	if(isliving(user))
+		user:encumbrance_to_speed()
 
 /obj/item/proc/afterdrop(mob/user)
-
 
 // called when "found" in pockets and storage items. Returns 1 if the search should end.
 /obj/item/proc/on_found(mob/finder)
@@ -1217,7 +1222,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 /obj/item/proc/embedded(atom/embedded_target, obj/item/bodypart/part)
 	return
 
-/obj/item/proc/unembedded()
+/obj/item/proc/unembedded(mob/living/owner)
 	if(item_flags & DROPDEL && !QDELETED(src))
 		qdel(src)
 		return TRUE
@@ -1316,3 +1321,10 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	if(get_real_price() > 0 && (HAS_TRAIT(user, TRAIT_SEEPRICES) || simpleton_price))
 		return span_info("Value: [get_real_price()] mammon")
 	return FALSE
+
+/obj/item/proc/get_stored_weight()
+	var/held_weight = 0
+	for(var/obj/item/stored_item in contents)
+		held_weight += stored_item.item_weight * carry_multiplier
+
+	return held_weight

@@ -36,6 +36,10 @@
 	pic.alpha = 150
 	return TRUE
 
+/datum/component/decal/blood/apply(atom/thing)
+	//pic.color = source.get_blood_dna_color() || COLOR_BLOOD
+	return ..()
+
 /datum/component/decal/blood/proc/get_examine_name(datum/source, mob/user, list/override)
 	var/atom/A = parent
 	override[EXAMINE_POSITION_ARTICLE] = A.gender == PLURAL? "some" : "a"

@@ -1,5 +1,6 @@
 /turf/closed
 	name = ""
+	icon_state = "black"
 	layer = CLOSED_TURF_LAYER
 	opacity = 1
 	density = TRUE
@@ -38,7 +39,7 @@
 			return
 
 /turf/closed/proc/feel_turf(mob/living/user)
-	to_chat(user, span_notice("I start feeling around the [src]"))
+	to_chat(user, span_notice("I start feeling around [src]"))
 	if(!do_after(user, 1.5 SECONDS, src))
 		return
 
@@ -246,7 +247,7 @@
 /turf/closed/indestructible/wooddark
 	name = "wall"
 	desc = ""
-	icon = 'icons/turf/roguewall.dmi'
+	icon = 'icons/turf/walls.dmi'
 	icon_state = "corner"
 
 /turf/closed/indestructible/roguewindow

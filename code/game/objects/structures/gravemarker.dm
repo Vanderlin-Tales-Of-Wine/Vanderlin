@@ -24,7 +24,7 @@
 
 /obj/structure/gravemarker
 	name = "grave marker"
-	icon = 'icons/turf/roguefloor.dmi'
+	icon = 'icons/turf/floors.dmi'
 	icon_state = "gravemarker1"
 	density = FALSE
 	max_integrity = 0
@@ -43,5 +43,5 @@
 	for(var/obj/structure/closet/dirthole/hole in loc)
 		if(pacify_coffin(hole, user))
 			user.visible_message(span_rose("[user] consecrates [hole]."), span_rose("I consecrate [hole]."))
-			GLOB.vanderlin_round_stats["graves_consecrated"]++
+			GLOB.vanderlin_round_stats[STATS_GRAVES_CONSECRATED]++
 	return ..()

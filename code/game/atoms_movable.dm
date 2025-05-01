@@ -329,6 +329,7 @@
 			pulling.set_pulledby(null)
 			var/mob/living/ex_pulled = pulling
 			pulling = null
+			SEND_SIGNAL(ex_pulled, COMSIG_ATOM_NO_LONGER_PULLED, src)
 			if(isliving(ex_pulled))
 				var/mob/living/L = ex_pulled
 				L.update_mobility()// mob gets up if it was lyng down in a chokehold
@@ -389,7 +390,6 @@
 /atom/movable/proc/set_glide_size(target = 0)
 	SEND_SIGNAL(src, COMSIG_MOVABLE_UPDATE_GLIDE_SIZE, target)
 	glide_size = target
-
 	for(var/atom/movable/AM in buckled_mobs)
 		AM.set_glide_size(target)
 ////////////////////////////////////////
@@ -561,8 +561,6 @@
 	if (!inertia_moving)
 		inertia_next_move = world.time + inertia_move_delay
 		newtonian_move(Dir)
-	if (client_mobs_in_contents)
-		update_parallax_contents()
 
 	var/turf/old_turf = get_turf(OldLoc)
 	var/turf/new_turf = get_turf(src)
@@ -1165,6 +1163,8 @@
 	return
 
 /atom/movable/proc/can_be_pulled(user, grab_state, force)
+	if(SEND_SIGNAL(src, COMSIG_ATOM_CAN_BE_PULLED, user) & COMSIG_ATOM_CANT_PULL)
+		return FALSE
 	if(throwing)
 		return FALSE
 	if(force < (move_resist * MOVE_FORCE_PULL_RATIO))

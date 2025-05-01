@@ -18,6 +18,14 @@
 	if(!default_choice)
 		default_choice = customizer_choices[1]
 
+//this exists because npcs don't have perfs so load based on carbon dna
+/datum/customizer/proc/return_species(datum/preferences/prefs)
+	if(istype(prefs))
+		return prefs.pref_species
+	else
+		var/mob/living/carbon/carbon = prefs
+		return carbon?.dna?.species
+
 /datum/customizer/proc/make_default_customizer_entry(datum/preferences/prefs, changed_entry = TRUE)
 	return get_customizer_entry(prefs, default_choice, changed_entry)
 
