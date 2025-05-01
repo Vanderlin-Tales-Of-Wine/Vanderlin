@@ -235,18 +235,7 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 	if(!perform_check(user, FALSE))
 		reset_mode()
 		return FALSE
-
-	var/static/last_announcement_time = 0
-
-	if(world.time < last_announcement_time + 1 MINUTES)
-		var/time_left = round((last_announcement_time + 1 MINUTES - world.time) / 10)
-		say("Wait [time_left] more seconds before making another announcement!")
-		playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
-		reset_mode()
-		return FALSE
-
 	priority_announce(html_decode(user.treat_message(message)), "[user.real_name], The [user.get_role_title()] Speaks", 'sound/misc/alert.ogg', "Captain")
-	last_announcement_time = world.time
 	reset_mode()
 	return TRUE
 
