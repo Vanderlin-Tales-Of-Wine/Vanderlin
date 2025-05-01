@@ -54,7 +54,7 @@
 	outfit = /datum/outfit/job/dark_itinerant_squire
 	antag_datum = /datum/antagonist/zizocultist
 	allowed_sexes = list(FEMALE)
-	allowed_races = list("tiefling","Half-Orc","Dark Elf")
+	allowed_races = list("Dark Elf")
 	grant_lit_torch = TRUE
 
 /datum/outfit/job/dark_itinerant_squire/pre_equip(mob/living/carbon/human/H)
