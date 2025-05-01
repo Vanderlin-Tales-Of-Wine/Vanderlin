@@ -65,9 +65,9 @@
 	influence_factors = list(
 		STATS_WATER_CONSUMED = list("points" = 0.0125, "capacity" = 90),
 		STATS_FISH_CAUGHT = list("points" = 1.85, "capacity" = 90),
-		STATS_ABYSSOR_REMEMBERED = list("points" = 1, "capacity" = 45),
+		STATS_ABYSSOR_REMEMBERED = list("points" = 1.25, "capacity" = 45),
 		STATS_LEECHES_EMBEDDED = list("points" = 0.165, "capacity" = 70),
-		STATS_PEOPLE_DROWNED = list("points" = 9, "capacity" = 70),
+		STATS_PEOPLE_DROWNED = list("points" = 9, "capacity" = 75),
 	)
 
 /datum/storyteller/xylix
@@ -119,9 +119,9 @@
 	)
 
 	influence_factors = list(
-		STATS_DEATHS = list("points" = 1.55, "capacity" = 120),
+		STATS_DEATHS = list("points" = 1.525, "capacity" = 120),
 		STATS_GRAVES_CONSECRATED = list("points" = 7, "capacity" = 100),
-		STATS_GRAVES_ROBBED = list("points" = -4, "capacity" = -60),
+		STATS_GRAVES_ROBBED = list("points" = -4, "capacity" = -50),
 		STATS_DEADITES_KILLED = list("points" = 6.5, "capacity" = 100),
 		STATS_VAMPIRES_KILLED = list("points" = 15, "capacity" = 70),
 	)
@@ -170,7 +170,7 @@
 		STATS_ROCKS_MINED = list("points" = 0.25, "capacity" = 100),
 		STATS_CRAFT_SKILLS = list("points" = 1, "capacity" = 90),
 		STATS_BEARDS_SHAVED = list("points" = -4, "capacity" = -45),
-		STATS_BLACKSTEEL_SMELTED = list("points" = 10, "capacity" = 65),
+		STATS_BLACKSTEEL_SMELTED = list("points" = 9, "capacity" = 65),
 	)
 
 /datum/storyteller/eora
@@ -195,7 +195,7 @@
 
 	influence_factors = list(
 		STATS_PARENTS = list("points" = 9, "capacity" = 100),
-		STATS_MARRIAGES = list("points" = 25, "capacity" = 100),
+		STATS_MARRIAGES = list("points" = 25, "capacity" = 75),
 		STATS_HUGS_MADE = list("points" = 2.5, "capacity" = 60),
 		STATS_CLINGY_PEOPLE = list("points" = 6, "capacity" = 80),
 		STATS_PACIFISTS = list("points" = 15, "capacity" = 80),
@@ -227,7 +227,7 @@
 		STATS_PLANTS_HARVESTED = list("points" = 0.75, "capacity" = 150),
 		STATS_WEREVOLVES = list("points" = 15, "capacity" = 90),
 		STATS_DENDOR_SACRIFICES = list("points" = 15, "capacity" = 90),
-		STATS_FOREST_DEATHS = list("points" = 6, "capacity" = 90),
+		STATS_FOREST_DEATHS = list("points" = 6.25, "capacity" = 90),
 	)
 
 // INHUMEN
@@ -258,7 +258,7 @@
 
 	influence_factors = list(
 		STATS_ZIZO_PRAISED = list("points" = 2.5, "capacity" = 50),
-		STATS_NOBLE_DEATHS = list("points" = 7.5, "capacity" = 85),
+		STATS_NOBLE_DEATHS = list("points" = 7.25, "capacity" = 85),
 		STATS_DEADITES_WOKEN_UP = list("points" = 3.25, "capacity" = 95),
 		STATS_CLERGY_DEATHS = list("points" = 12.5, "capacity" = 95),
 		STATS_TORTURES = list("points" = 3.75, "capacity" = 75),
