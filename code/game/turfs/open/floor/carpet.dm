@@ -1,9 +1,9 @@
 /turf/open/floor/carpet
 	name = "carpet"
-	landsound = 'sound/foley/jumpland/carpetland.wav'
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "carpet"
 	flags_1 = NONE
+	landsound = 'sound/foley/jumpland/carpetland.wav'
 	footstep = FOOTSTEP_CARPET
 	barefootstep = FOOTSTEP_SOFT_BAREFOOT
 	clawfootstep = FOOTSTEP_SOFT_BAREFOOT

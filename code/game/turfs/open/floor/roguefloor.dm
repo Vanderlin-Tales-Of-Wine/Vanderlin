@@ -31,6 +31,7 @@
 /*	..................   Darker version   ................... */
 /turf/open/floor/ruinedwood/darker // here problem was opposite, too bright wood for bandit lair
 	color = "#d9c9b0"
+
 /turf/open/floor/ruinedwood/turned/darker
 	color = "#d9c9b0"
 
@@ -164,6 +165,7 @@
 	desc = "Grass, ripe with Dendor's blood."
 	icon_state = "grass_red"
 	neighborlay = "grass_rededge"
+
 /turf/open/floor/grass/yel
 	name = "yellow grass"
 	desc = "Grass, blessed by Astrata's light."
@@ -180,11 +182,11 @@
 	name = "hell grass"
 	desc = "Grass, ominous and instilling uncomfort."
 	icon_state = "hellgrass"
-	neighborlay = "hellgrassedge"
+	neighborlay = "hellgrass"
 
 /turf/open/floor/grass/eora
 	icon_state = "hellgrass"
-	neighborlay = "hellgrassedge"
+	neighborlay = "hellgrass"
 /*	..................   Snow   ................... */
 
 /turf/open/floor/snow
@@ -837,27 +839,6 @@
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "carpet_inn"
 
-/turf/open/floor/shroud
-	name = "treetop"
-	icon_state = "treetop1"
-	landsound = 'sound/foley/jumpland/dirtland.wav'
-	footstep = null
-	barefootstep = null
-	clawfootstep = null
-	heavyfootstep = null
-	slowdown = 4
-
-/turf/open/floor/shroud/Entered(atom/movable/AM, atom/oldLoc)
-	..()
-	if(isliving(AM))
-		if(istype(oldLoc, type))
-			playsound(AM, "plantcross", 100, TRUE)
-
-/turf/open/floor/shroud/Initialize()
-	. = ..()
-	icon_state = "treetop[rand(1,2)]"
-	dir = pick(GLOB.cardinals)
-
 /turf/open/floor/naturalstone
 	icon_state = "digstone"
 	footstep = FOOTSTEP_STONE
@@ -865,10 +846,6 @@
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	landsound = 'sound/foley/jumpland/grassland.wav'
-
-/turf/open/floor/naturalstone/turf_destruction(damage_flag)
-	. = ..()
-	return
 
 /turf/open/floor/plank
 	icon_state = "plank"
