@@ -792,3 +792,4 @@ GLOBAL_LIST_INIT(IconStates_cache, list())
 			var/list/screens = list(C.hud_used.plane_masters["[FLOOR_PLANE]"], C.hud_used.plane_masters["[GAME_PLANE]"], C.hud_used.plane_masters["[LIGHTING_PLANE]"])
 			for(var/whole_screen in screens)
 				animate(whole_screen, transform = matrix(), time = 5, easing = QUAD_EASING)
+#endif
