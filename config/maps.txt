@@ -22,7 +22,3 @@ map rosewood
 	minplayers 90
 	votable
 endmap
-
-map roguetown
-	disabled
-endmap

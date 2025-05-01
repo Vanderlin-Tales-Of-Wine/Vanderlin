@@ -50,7 +50,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/alchemy, 5, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/craft/alchemy, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 4, TRUE)
 		if(H.age == AGE_OLD)
 			armor = /obj/item/clothing/shirt/robe/courtmage
@@ -66,7 +66,6 @@
 					armor = /obj/item/clothing/shirt/robe/wizard
 					H.dna.species.soundpack_m = new /datum/voicepack/male/wizard()
 		ADD_TRAIT(H, TRAIT_SEEPRICES, TRAIT_GENERIC)
-		ADD_TRAIT(H, TRAIT_LEGENDARY_ALCHEMIST, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_OLDPARTY, TRAIT_GENERIC)
 		H.virginity = TRUE

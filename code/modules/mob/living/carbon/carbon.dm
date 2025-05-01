@@ -1319,3 +1319,16 @@
 
 	add_movespeed_modifier("encumbrance", override = TRUE, multiplicative_slowdown = 5 * precentage)
 
+/mob/living/carbon/proc/skeletonize(lethal = TRUE)
+	for(var/obj/item/bodypart/B in bodyparts)
+		B.skeletonize(lethal)
+	update_body_parts()
+
+/mob/living/carbon/proc/grant_undead_eyes()
+	var/obj/item/organ/eyes/eyes = getorganslot(ORGAN_SLOT_EYES)
+	if(eyes)
+		eyes.Remove(src,1)
+		QDEL_NULL(eyes)
+
+	eyes = new /obj/item/organ/eyes/night_vision/zombie
+	eyes.Insert(src)
