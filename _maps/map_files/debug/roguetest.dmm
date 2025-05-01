@@ -1140,6 +1140,10 @@
 /obj/structure/flora/grass,
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
+"fF" = (
+/obj/structure/mineral_door,
+/turf/open/floor/wood,
+/area/rogue/indoors)
 "fQ" = (
 /obj/structure/bridge_stakes,
 /turf/open/floor/dirt/road,
@@ -1200,11 +1204,10 @@
 	dir = 8
 	},
 /area/rogue/outdoors/mountains/decap)
-"ia" = (
-/obj/structure/flora/grass,
-/obj/effect/fog_parter,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
+"hY" = (
+/obj/machinery/light/fueled/torchholder/l,
+/turf/open/floor/wood,
+/area/rogue/indoors)
 "iE" = (
 /obj/machinery/light/fueled/torchholder/hotspring/standing{
 	pixel_x = 15
@@ -1296,13 +1299,6 @@
 "mo" = (
 /obj/structure/flora/grass,
 /obj/structure/water_pipe,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
-"mq" = (
-/obj/structure/flora/grass,
-/obj/structure/minecart_rail{
-	dir = 4
-	},
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
 "mx" = (
@@ -1459,10 +1455,6 @@
 /obj/structure/ladder,
 /turf/open/floor/blocks,
 /area/rogue/indoors)
-"rR" = (
-/obj/structure/fluff/statue/zizo,
-/turf/open/floor/cobblerock,
-/area/rogue/indoors)
 "sd" = (
 /obj/structure/flora/grass/herb/symphitum,
 /turf/open/floor/grass/yel,
@@ -1514,13 +1506,6 @@
 /obj/structure/hotspring,
 /obj/effect/falling_sakura,
 /turf/open/floor/dirt/road,
-/area/rogue/outdoors)
-"tz" = (
-/obj/structure/flora/grass/herb/symphitum,
-/obj/structure/minecart_rail{
-	dir = 4
-	},
-/turf/open/floor/grass/yel,
 /area/rogue/outdoors)
 "tH" = (
 /turf/closed,
@@ -1853,6 +1838,13 @@
 	},
 /turf/open/water/river,
 /area/rogue/outdoors/mountains/decap)
+"Fy" = (
+/obj/structure/rack/shelf/biggest{
+	pixel_y = 18
+	},
+/obj/machinery/light/fueled/torchholder/r,
+/turf/open/floor/carpet,
+/area/rogue/indoors)
 "FN" = (
 /obj/structure/flora/ausbushes/brflowers,
 /turf/open/floor/grass/yel,
@@ -1872,6 +1864,15 @@
 	},
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors)
+"Gn" = (
+/obj/item/bottle_kit{
+	pixel_x = -3
+	},
+/obj/item/bottle_kit{
+	pixel_x = 10
+	},
+/turf/closed/wall/mineral/wood,
+/area/rogue/indoors)
 "Gu" = (
 /obj/structure/pottery_lathe,
 /turf/open/floor/wood,
@@ -1907,12 +1908,12 @@
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
-"In" = (
-/obj/structure/minecart_rail{
-	dir = 4
+"Il" = (
+/obj/structure/window/openclose{
+	dir = 8
 	},
-/turf/open/floor/dirt,
-/area/rogue/outdoors)
+/turf/open/floor/carpet,
+/area/rogue/indoors)
 "IW" = (
 /obj/structure/hotspring/border/nine,
 /obj/effect/falling_sakura,
@@ -1967,12 +1968,10 @@
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
-"Lc" = (
-/obj/structure/minecart_rail{
-	dir = 4
-	},
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
+"KM" = (
+/obj/structure/table/wood/plain,
+/turf/open/floor/carpet,
+/area/rogue/indoors)
 "Ln" = (
 /obj/structure/chair/hotspring_bench/left{
 	pixel_y = 12
@@ -2030,6 +2029,13 @@
 /obj/structure/window/openclose{
 	dir = 8
 	},
+/turf/open/floor/wood,
+/area/rogue/indoors)
+"Oz" = (
+/obj/structure/window/openclose{
+	dir = 1
+	},
+/obj/structure/water_pipe,
 /turf/open/floor/wood,
 /area/rogue/indoors)
 "OI" = (
@@ -2164,6 +2170,10 @@
 /obj/structure/roguetent/preopen,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/mountains/decap)
+"TV" = (
+/obj/structure/fermentation_keg/distiller,
+/turf/open/floor/carpet,
+/area/rogue/indoors)
 "Ua" = (
 /turf/open/water/river{
 	dir = 4
@@ -2249,14 +2259,6 @@
 	dir = 4
 	},
 /turf/open/floor/dirt/road,
-/area/rogue/outdoors)
-"Xg" = (
-/obj/structure/flora/ausbushes/ppflowers,
-/obj/structure/minecart_rail{
-	dir = 4
-	},
-/obj/structure/closet/crate/miningcar,
-/turf/open/floor/grass/yel,
 /area/rogue/outdoors)
 "XC" = (
 /obj/structure/flora/grass,
@@ -11769,7 +11771,7 @@ RF
 ky
 qc
 FN
-mq
+qc
 qc
 qc
 Wr
@@ -12026,7 +12028,7 @@ RC
 eq
 jC
 QN
-Xg
+jC
 QN
 qc
 QN
@@ -12283,7 +12285,7 @@ SZ
 RF
 Qi
 QN
-In
+ai
 al
 Wr
 ai
@@ -16914,13 +16916,13 @@ hO
 QN
 QN
 QN
-Wr
-Wr
-Wr
-pc
-pc
-pc
-pc
+QN
+jC
+QN
+Zs
+Zs
+Zs
+Zs
 QN
 qi
 RC
@@ -17171,13 +17173,13 @@ cJ
 QN
 jC
 QN
-Wr
-Wr
-Wr
-pc
-pc
-pc
-pc
+QN
+QN
+QN
+fF
+mY
+hY
+Zs
 QN
 qi
 RC
@@ -17428,13 +17430,13 @@ cJ
 QN
 QN
 QN
-pc
-pc
-pc
-pc
-rR
-pc
-pc
+Zs
+Il
+Il
+Zs
+mY
+mY
+Zs
 QN
 qi
 RC
@@ -17685,13 +17687,13 @@ hO
 ez
 ky
 mo
-pc
-pc
-pc
-pc
-pc
-pc
-pc
+Oz
+TV
+aI
+KM
+mY
+mY
+Zs
 QN
 at
 at
@@ -17942,13 +17944,13 @@ Ua
 zA
 aQ
 aQ
-pc
-pc
-pc
-pc
-pc
-pc
-pc
+Gn
+Fy
+aI
+aI
+mY
+mY
+Zs
 at
 at
 as
@@ -18199,13 +18201,13 @@ Ua
 QN
 QN
 jC
-pc
-pc
-pc
-pc
-pc
-pc
-pc
+Zs
+Zs
+Zs
+Zs
+Zs
+Zs
+Zs
 as
 as
 as
@@ -75251,7 +75253,7 @@ QN
 ky
 QN
 jC
-ia
+qc
 ky
 qc
 QN
@@ -76534,7 +76536,7 @@ zc
 Mn
 QN
 QN
-Lc
+QN
 QN
 QN
 eE
@@ -76791,7 +76793,7 @@ Zs
 aj
 QN
 jC
-Lc
+QN
 ky
 jC
 ss
@@ -77048,7 +77050,7 @@ aj
 Kh
 QN
 QN
-tz
+sd
 QN
 QN
 ss
