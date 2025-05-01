@@ -166,3 +166,6 @@
 /obj/effect/mapping_helpers/access/keyset/manor/guest
 	accesses = list(ACCESS_GUEST)
 	difficulty = 4
+
+/obj/effect/mapping_helpers/access/keyset/manor/physician
+	accesses = list(ACCESS_PHYSICIAN)

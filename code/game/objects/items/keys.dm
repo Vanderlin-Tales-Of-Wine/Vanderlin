@@ -312,6 +312,12 @@
 	icon_state = "greenkey"
 	lockids = list(ACCESS_GUEST)
 
+/obj/item/key/courtphys
+	name = "court physician's key"
+	desc = "A key granted to the honored Court Physician."
+	icon_state = "ankhkey"
+	lockid = ACCESS_PHYSICIAN
+
 ////// CHURCH
 
 /obj/item/key/church
