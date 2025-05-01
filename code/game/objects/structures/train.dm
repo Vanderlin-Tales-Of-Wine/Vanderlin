@@ -82,7 +82,7 @@
 		var/datum/job/mob_job = departing_mob.mind.assigned_role
 		mob_job.adjust_current_positions(-1)
 	qdel(departing_mob)
-<<<<<<< HEAD
+	return "[mob_name] successfully cryo'd!"
 
 /obj/structure/train/carriage //A temporary subform of the train that is just a carriage	name = "train"
 	desc = "A train carriage."
@@ -92,6 +92,3 @@
 	density = TRUE
 	anchored = TRUE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
-=======
-	return "[mob_name] successfully cryo'd!"
->>>>>>> 1f5574a8f49e284da10c4547ff81dbc26cdf5842
