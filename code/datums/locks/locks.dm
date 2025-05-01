@@ -32,6 +32,25 @@
 	lockid_list = list(ACCESS_INN)
 	locked = TRUE
 
+/datum/lock/key/vendor
+	locked = TRUE
+	difficulty = 3
+
+/datum/lock/key/goldface
+	lockid_list = list(ACCESS_MERCHANT)
+	locked = TRUE
+	difficulty = 3
+
+/datum/lock/key/purity
+	lockid_list = list(ACCESS_APOTHECARY)
+	locked = TRUE
+	difficulty = 3
+
+/datum/lock/key/nerve
+	lockid_list = list(ACCESS_STEWARD)
+	locked = TRUE
+	difficulty = 1
+
 ///// Multiple key locks
 /datum/lock/key/pillory
 	lockid_list = list(ACCESS_GARRISON, ACCESS_FOREST, ACCESS_AT_ARMS, ACCESS_DUNGEON)

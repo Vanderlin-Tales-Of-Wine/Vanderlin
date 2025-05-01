@@ -19,7 +19,7 @@
 	rattle_sound = 'sound/misc/machineno.ogg'
 	unlock_sound = 'sound/misc/beep.ogg'
 	lock_sound = 'sound/misc/beep.ogg'
-	lock = /datum/lock/key/steward
+	lock = /datum/lock/key/nerve
 
 	var/current_tab = TAB_MAIN
 	var/compact = FALSE

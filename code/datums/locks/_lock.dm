@@ -13,6 +13,7 @@
 
 /datum/lock/New(obj/holder)
 	src.holder = holder
+	src.holder.on_lock_add()
 
 /datum/lock/Destroy()
 	src.holder = null

@@ -116,7 +116,7 @@
 	max_integrity = 0
 	anchored = TRUE
 	layer = BELOW_OBJ_LAYER
-	lock = /datum/lock/key/apothecary
+	lock = /datum/lock/key/purity
 	var/list/held_items = list()
 	var/budget = 0
 	var/upgrade_flags

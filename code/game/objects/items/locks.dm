@@ -7,14 +7,22 @@
 	dropshrink = 0.75
 
 /obj/item/customlock/examine()
-	. += ..()
+	. = ..()
 	if(get_access())
 		. += span_info("It has been etched with [access2string()].")
 		return
 	. += span_info("Its pins can be set with a hammer or copied from an existing lock or key.")
 
 /obj/item/customlock/proc/check_access(obj/item/I)
-	var/access = I.get_access()
+	var/access
+	if(istype(I, /obj/item/key/custom))
+		var/obj/item/key/custom/k = I
+		if(k.access2add)
+			access = k.access2add
+		else
+			access = k.get_access()
+	else
+		access = I.get_access()
 	if(!access)
 		return FALSE
 	for(var/id as anything in lockids)

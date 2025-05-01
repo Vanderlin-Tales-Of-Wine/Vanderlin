@@ -16,28 +16,6 @@
 	/// Sound we play when a key fails to unlock
 	var/rattle_sound = 'sound/foley/lockrattle.ogg'
 
-/**
- * Handle lock actions like keys and lockpicking
- * Returns TRUE if the lock was interacted with
- */
-/obj/proc/handle_keylock(obj/item/I, mob/user)
-	var/datum/lock/key/KL = lock
-	if(I.has_access() && pre_lock_interact(user))
-		var/silent = user.m_intent == MOVE_INTENT_SNEAK
-		if(!KL.check_access(I))
-			lock_failed(user, silent)
-			return TRUE
-		if(lock.toggle())
-			on_lock(user, silent)
-		else
-			on_unlock(user, silent)
-		return TRUE
-	if(isliving(user))
-		var/mob/living/L = user
-		if(pre_lock_interact(user) && L.try_pick(src, I, KL.lockpicks, KL.wedges, KL.difficulty))
-			return TRUE
-	return FALSE
-
 /// Check if obj has a lock datum and optionally if it uses a key
 /obj/proc/lock_check(key = FALSE)
 	if(!lock || !istype(lock, /datum/lock))
@@ -89,15 +67,21 @@
 /obj/proc/on_lock(mob/user, silent = FALSE)
 	if(!silent && lock_sound)
 		playsound(get_turf(src), lock_sound, 100)
-		user.visible_message(span_notice("[user] locks [src]."))
-	to_chat(user, span_notice("I lock [src]."))
+		user.visible_message(span_notice("[user] locks \the [src]."), span_notice("I lock \the [src]"), span_notice("I hear a click."))
+		return
+	to_chat(user, span_notice("I lock \the [src]."))
 
 /// Called when unlocked
 /obj/proc/on_unlock(mob/user, silent = FALSE)
 	if(!silent && unlock_sound)
 		playsound(get_turf(src), unlock_sound, 100)
-		user.visible_message(span_notice("[user] unlocks [src]."))
+		user.visible_message(span_notice("[user] unlocks [src]."), span_notice("I unlock \the [src]"), span_notice("I hear a click."))
+		return
 	to_chat(user, span_notice("I unlock [src]."))
+
+/// Somethings might care when a lock is added to them
+/obj/proc/on_lock_add(mob/user)
+	return
 
 /// Copy obj access to another obj returns success
 /obj/proc/copy_access(obj/O)

@@ -1,6 +1,6 @@
 /obj/structure/fake_machine/vendor
 	name = "PEDDLER"
-	desc = "The stomach of this thing can been stuffed with fun things for you to buy."
+	desc = "The stomach of this thing can be stuffed with fun things for you to buy."
 	icon = 'icons/roguetown/misc/machines.dmi'
 	icon_state = "streetvendor1"
 	density = TRUE
@@ -12,7 +12,7 @@
 	rattle_sound = 'sound/misc/machineno.ogg'
 	unlock_sound = 'sound/misc/beep.ogg'
 	lock_sound = 'sound/misc/beep.ogg'
-	lock = /datum/lock/key/locked
+	lock = /datum/lock/key/vendor
 	var/list/held_items = list()
 	var/budget = 0
 	var/wgain = 0
@@ -25,6 +25,9 @@
 
 /obj/structure/fake_machine/vendor/Initialize()
 	. = ..()
+	update_icon()
+
+/obj/structure/fake_machine/vender/on_lock_add()
 	update_icon()
 
 /obj/structure/fake_machine/vendor/obj_break(damage_flag)
@@ -68,10 +71,11 @@
 		to_chat(user, span_info("I put [money] mammon in \the [src]."))
 		playsound(get_turf(src), 'sound/misc/machinevomit.ogg', 100, TRUE, -1)
 		return attack_hand(user)
-	if(!I.has_access()) // Maybe this should be rclick so you can sell keys
-		add_merchandise(I, user)
-		return
-	return ..()
+
+/obj/structure/fake_machine/vendor/attack_right(mob/user)
+	. = ..()
+	var/held = user.get_active_held_item()
+	add_merchandise(held, user)
 
 /obj/structure/fake_machine/vendor/proc/add_merchandise(obj/item/I, mob/user)
 	if(locked())
@@ -211,6 +215,9 @@
 	var/datum/browser/popup = new(user, "VENDORTHING", "", 370, 400)
 	popup.set_content(contents)
 	popup.open()
+
+/obj/structure/fake_machine/vendor/nolock
+	lock = null
 
 /obj/structure/fake_machine/vendor/inn
 	lockids = list(ACCESS_INN)

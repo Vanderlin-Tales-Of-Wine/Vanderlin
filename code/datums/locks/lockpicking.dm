@@ -21,7 +21,7 @@
 
 	var/datum/lock/key/KL = P.lock
 	if(!KL.locked)
-		to_chat(src, span_notice("\the [P] is unlocked."))
+		to_chat(src, span_notice("\The [P] is unlocked."))
 		return FALSE
 
 	var/obj/item/the_wedge = get_inactive_held_item()
@@ -39,7 +39,7 @@
 	finish_lockpicking(user)
 
 	if(prob(60 - (skill_level * 10)))
-		to_chat(user, span_notice("My [lockpick_used] broke!"))
+		to_chat(user, span_notice("My \the [lockpick_used] broke!"))
 		playsound(loc, 'sound/items/LPBreak.ogg', 100 - (15 * skill_level))
 		qdel(lockpick_used)
 
@@ -57,7 +57,7 @@
 /obj/proc/finish_lockpicking(mob/living/user)
 	if(!user)
 		return FALSE
-	user.visible_message(span_warning("[user] picks the lock of [src]!"), span_notice("I finish picking the lock of [src]."))
+	user.visible_message(span_warning("[user] picks the lock of \the [src]!"), span_notice("I finish picking the lock of \the [src]."))
 	GLOB.vanderlin_round_stats[STATS_LOCKS_PICKED]++
 	being_picked = FALSE
 	return TRUE
@@ -209,7 +209,7 @@
 	clicker = usercli
 	RegisterSignal(clicker, COMSIG_CLIENT_MOUSEDOWN, PROC_REF(on_mouse_down))
 	RegisterSignal(clicker, COMSIG_CLIENT_MOUSEUP, PROC_REF(on_mouse_up))
-	RegisterSignal(picker,COMSIG_MOVABLE_MOVED, PROC_REF(close_lockpick))
+	RegisterSignal(picker, COMSIG_MOVABLE_MOVED, PROC_REF(close_lockpick))
 	RegisterSignal(picker, COMSIG_PARENT_EXAMINE, PROC_REF(mob_detection))
 
 	//checks both for each just incase they switch hands for no reason mid lockpick
@@ -250,7 +250,7 @@
 /atom/movable/screen/movable/snap/lockpicking/proc/mob_detection(atom/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
 
-	examine_list += span_notice("They are picking the [picking_object]'s lock!")
+	examine_list += span_notice("They are picking \the [picking_object]'s lock!")
 
 /atom/movable/screen/movable/snap/lockpicking/proc/close_lockpick(client/source, atom/_target, turf/location, control, params)
 	SIGNAL_HANDLER
@@ -308,7 +308,7 @@
 	if(failing)
 		if(break_checking_cooldown <= world.time)
 			if(prob(10 - skill_level))
-				to_chat(picker, span_notice("My [the_lockpick] broke!"))
+				to_chat(picker, span_notice("My \the [the_lockpick] broke!"))
 				playsound(loc, 'sound/items/LPBreak.ogg', 100 - (15 * skill_level))
 				qdel(the_lockpick)
 			break_checking_cooldown = world.time + 7 SECONDS

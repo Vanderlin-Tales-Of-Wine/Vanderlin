@@ -123,7 +123,7 @@
 	rattle_sound = 'sound/misc/machineno.ogg'
 	unlock_sound = 'sound/misc/beep.ogg'
 	lock_sound = 'sound/misc/beep.ogg'
-	lock = /datum/lock/key/merchant
+	lock = /datum/lock/key/goldface
 	var/list/held_items = list()
 	var/budget = 0
 	var/upgrade_flags

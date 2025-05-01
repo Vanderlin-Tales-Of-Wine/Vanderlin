@@ -33,13 +33,13 @@
 	icon_state = "brownkey"
 	var/access2add
 
-/obj/item/key/custom/get_access()
-	if(access2add)
-		return access2add
-	return ..()
-
 /obj/item/key/custom/copy_access(obj/O)
-	var/list/access = get_access(O)
+	if(istype(O, /obj/item/key/custom))
+		var/obj/item/key/custom/k = O
+		if(k.access2add)
+			src.access2add = k.access2add
+			return TRUE
+	var/list/access= O.get_access()
 	if(access)
 		access2add = access
 		return TRUE
@@ -53,7 +53,7 @@
 		return
 	. += span_info("Its teeth can be set with a hammer or copied from an existing lock or key.")
 	if(access2add)
-		. += span_info("It has been marked with [access2add], but has not been finished.")
+		. += span_info("It has been marked with [access2add[1]], but has not been finished.")
 
 /obj/item/key/custom/attackby(obj/item/I, mob/user, params)
 	if(!istype(I, /obj/item/weapon/hammer))
