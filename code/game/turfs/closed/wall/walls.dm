@@ -103,7 +103,6 @@
 	climbdiff = 1
 	damage_deflection = 10
 
-
 /turf/closed/wall/mineral/stonebrick
 	name = "brick wall"
 	desc = "Several rows of bricks form this wall."

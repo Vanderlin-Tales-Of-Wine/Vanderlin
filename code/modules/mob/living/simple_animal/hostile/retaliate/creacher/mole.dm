@@ -1,3 +1,24 @@
+
+/mob/living/simple_animal/hostile/retaliate/mole/update_icon()
+	cut_overlays()
+	..()
+	if(stat != DEAD)
+		if(has_buckled_mobs())
+			var/mutable_appearance/mounted = mutable_appearance(icon, "mole_mounted", 4.3)
+			add_overlay(mounted)
+
+/mob/living/simple_animal/hostile/retaliate/mole/tamed(mob/user)
+	..()
+	deaggroprob = 30
+	if(can_buckle)
+		AddComponent(/datum/component/riding/mole)
+
+/mob/living/simple_animal/hostile/retaliate/mole/Initialize()
+	. = ..()
+	if(tame)
+		tamed(owner)
+	ADD_TRAIT(src, TRAIT_IGNOREDAMAGESLOWDOWN, TRAIT_GENERIC)
+
 /mob/living/simple_animal/hostile/retaliate/mole
 	icon = 'icons/roguetown/mob/monster/mole.dmi'
 	name = "lesser brown mole"
@@ -10,7 +31,7 @@
 	emote_hear = null
 	emote_see = null
 	turns_per_move = 2
-	move_to_delay = 5
+	move_to_delay = 7
 	vision_range = 7
 	aggro_vision_range = 9
 
@@ -36,6 +57,8 @@
 	food_type = list(/obj/item/reagent_containers/food/snacks/meat,
 					/obj/item/bodypart,
 					/obj/item/organ)
+	tame_chance = 15
+	bonus_tame_chance = 15
 
 	base_intents = list(/datum/intent/simple/claw)
 	attack_sound = list('sound/vo/mobs/mole/MoleAttack1.ogg','sound/vo/mobs/mole/MoleAttack2.ogg')
@@ -46,6 +69,9 @@
 	base_strength = 12
 	base_speed = 3
 	base_endurance = 10
+
+	can_buckle = TRUE
+	can_saddle = FALSE
 
 	retreat_distance = 0
 	minimum_distance = 0
@@ -156,3 +182,35 @@
 			return "foreleg"
 	return ..()
 
+/mob/living/simple_animal/hostile/retaliate/mole/briars
+	name = "Moss Crawler Mole"
+	desc = "One of many miracles of Dendor, they hide in deep forests only able to be summoned by wise briars who dedicate themselves to call for spirits of forest in time of need"
+	icon = 'icons/roguetown/mob/monster/mole.dmi'
+	icon_state = "mole_briars"
+	icon_living = "mole_briars"
+	icon_dead = "mole_dead_briars"
+	base_strength = 16
+	base_constitution = 18
+	food_type = list (/obj/item/bait/forestdelight)
+	tame_chance = 25
+	bonus_tame_chance = 15
+
+/mob/living/simple_animal/hostile/retaliate/mole/briars/update_icon()
+	cut_overlays()
+	..()
+	if(stat != DEAD)
+		if(has_buckled_mobs())
+			var/mutable_appearance/mounted = mutable_appearance(icon, "mole_mounted_briars", 4.3)
+			add_overlay(mounted)
+
+/mob/living/simple_animal/hostile/retaliate/mole/briars/tamed(mob/user)
+	..()
+	deaggroprob = 30
+	if(can_buckle)
+		AddComponent(/datum/component/riding/mole)
+
+/mob/living/simple_animal/hostile/retaliate/mole/briars/Initialize()
+	. = ..()
+	if(tame)
+		tamed(owner)
+	ADD_TRAIT(src, TRAIT_IGNOREDAMAGESLOWDOWN, TRAIT_GENERIC)

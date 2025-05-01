@@ -148,26 +148,9 @@
 		underwear_color = random_short_color()
 	if(randomise_flags & RANDOMIZE_UNDERSHIRT)
 		undershirt = random_undershirt(gender)
-	if(randomise_flags & RANDOMIZE_SOCKS)
-		socks = random_socks()
-
-	if(randomise_flags & RANDOMIZE_HAIRSTYLE)
-		hairstyle = species.random_hairstyle(gender)
-	if(randomise_flags & RANDOMIZE_FACIAL_HAIRSTYLE)
-		facial_hairstyle = species.random_facial_hairstyle(gender)
-	if(randomise_flags & (RANDOMIZE_HAIR_COLOR | RANDOMIZE_FACIAL_HAIR_COLOR))
-		var/list/hairs
-		if(age == AGE_OLD && (OLDGREY in species.species_traits))
-			hairs = species.get_oldhc_list()
-		else
-			hairs = species.get_hairc_list()
-		hair_color = hairs[pick(hairs)]
-		facial_hair_color = hair_color
 	if(randomise_flags & RANDOMIZE_SKIN_TONE)
 		var/list/skin_list = species.get_skin_list()
 		skin_tone = skin_list[pick(skin_list)]
-	if(randomise_flags & RANDOMIZE_EYE_COLOR)
-		eye_color = random_eye_color()
 	if(randomise_flags & RANDOMIZE_FEATURES)
 		dna.features = random_features()
 
