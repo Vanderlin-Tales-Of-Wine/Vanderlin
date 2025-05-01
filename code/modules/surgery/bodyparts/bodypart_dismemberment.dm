@@ -337,7 +337,6 @@
 	moveToNullspace()
 	set_owner(C)
 	C.add_bodypart(src)
-	C.bodyparts += src
 	if(held_index)
 		if(held_index > C.hand_bodyparts.len)
 			C.hand_bodyparts.len = held_index
