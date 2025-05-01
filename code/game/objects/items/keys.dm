@@ -316,7 +316,7 @@
 	name = "court physician's key"
 	desc = "A key granted to the honored Court Physician."
 	icon_state = "ankhkey"
-	lockid = ACCESS_PHYSICIAN
+	lockids = list(ACCESS_PHYSICIAN)
 
 ////// CHURCH
 
