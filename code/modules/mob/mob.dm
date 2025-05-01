@@ -328,15 +328,15 @@ GLOBAL_VAR_INIT(mobids, 1)
 
 	if(!slot_priority)
 		slot_priority = list( \
-			SLOT_BACK, SLOT_RING, SLOT_WRISTS,\
+			SLOT_RING, SLOT_WRISTS,\
 			SLOT_PANTS, SLOT_ARMOR,\
 			SLOT_WEAR_MASK, SLOT_HEAD, SLOT_NECK,\
 			SLOT_SHOES, SLOT_GLOVES,\
-			SLOT_HEAD,\
-			SLOT_BELT, SLOT_S_STORE,\
+			SLOT_BELT,\
 			SLOT_MOUTH,SLOT_BACK_R,SLOT_BACK_L,SLOT_BELT_L,SLOT_BELT_R,SLOT_CLOAK,SLOT_SHIRT,\
 			SLOT_L_STORE, SLOT_R_STORE,\
-			SLOT_GENERC_DEXTROUS_STORAGE\
+			SLOT_GENERC_DEXTROUS_STORAGE,\
+			SLOT_HANDS\
 		)
 
 	for(var/slot in slot_priority)
@@ -1288,3 +1288,24 @@ GLOBAL_VAR_INIT(mobids, 1)
 		input = capitalize(copytext(input, customsayverb+1))
 	return "[message_spans_start(spans)][input]</span>"
 
+/// Send a menu that allows for the selection of an item. Randomly selects one after time_limit. selection_list should be an associative list of string and typepath
+/mob/proc/select_equippable(client/player_client, selection_list = list(), time_limit = 20 SECONDS, message = "", title = "")
+	set waitfor = FALSE
+	if(!length(selection_list))
+		return
+	var/client/client_to_use = player_client
+	if(!client_to_use)
+		client_to_use = client
+	if(!client_to_use)
+		return
+	var/random_choice = selection_list[pick(selection_list)]
+	var/timerid = addtimer(CALLBACK(src, PROC_REF(equip_to_appropriate_slot), new random_choice()), time_limit, TIMER_STOPPABLE)
+	var/choice = input(player_client, message, title) as anything in selection_list
+	if(SStimer.timer_id_dict[timerid])
+		deltimer(timerid)
+	else
+		return
+	var/spawn_item = selection_list[choice]
+	if(!spawn_item)
+		spawn_item = selection_list[pick(selection_list)]
+	equip_to_appropriate_slot(new spawn_item(get_turf(src)))

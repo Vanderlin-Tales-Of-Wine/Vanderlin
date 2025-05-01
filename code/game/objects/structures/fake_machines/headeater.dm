@@ -70,7 +70,7 @@
 		to_chat(user, span_danger("It seems uninterested by the [H]"))
 		return
 
-	if(!HAS_TRAIT(user, TRAIT_BURDEN) || !is_gaffer_assistant_job(user.mind.assigned_role))
+	if(!HAS_TRAIT(user, TRAIT_BURDEN) && !is_gaffer_assistant_job(user.mind.assigned_role))
 		to_chat(user, span_danger("you can't feed the [src] without carrying his burden"))
 		return
 

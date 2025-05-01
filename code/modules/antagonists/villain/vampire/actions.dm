@@ -388,12 +388,7 @@
 	var/amt2raise = licker.STAINT*2
 	usr.mind.adjust_experience(/datum/skill/magic/blood, floor(amt2raise * boon), FALSE)
 	fully_heal(admin_revive = TRUE)
-	var/obj/item/organ/eyes/eyes = licker.getorganslot(ORGAN_SLOT_EYES)
-	if(eyes)
-		eyes.Remove(licker, TRUE)
-		QDEL_NULL(eyes)
-	eyes = new /obj/item/organ/eyes/night_vision/zombie
-	eyes.Insert(licker)
+	licker.grant_undead_eyes()
 	cooldown = TRUE
 	sleep(cooldown_time)
 	to_chat(src, "<span class='info'>My [name] ability is ready to be casted again.</span>")
