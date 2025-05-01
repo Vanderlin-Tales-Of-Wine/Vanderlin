@@ -27,7 +27,7 @@
 	. = ..()
 	update_icon()
 
-/obj/structure/fake_machine/vender/on_lock_add()
+/obj/structure/fake_machine/vendor/on_lock_add()
 	update_icon()
 
 /obj/structure/fake_machine/vendor/obj_break(damage_flag)
