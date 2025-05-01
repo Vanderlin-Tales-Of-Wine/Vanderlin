@@ -1,5 +1,3 @@
-GLOBAL_LIST_EMPTY(street_lamp_lights)
-
 /obj/structure/astratanshard
 	name = "astratan shard"
 	max_integrity = 1500
@@ -46,8 +44,6 @@ GLOBAL_LIST_EMPTY(street_lamp_lights)
 /obj/structure/astratanshard/Destroy()
 	if(broken_containment)
 		Unregall()
-	for(var/obj/machinery/light/fueledstreet/lamp as anything in GLOB.street_lamp_lights)
-		lamp.lights_out(TRUE)
 	. = ..()
 
 

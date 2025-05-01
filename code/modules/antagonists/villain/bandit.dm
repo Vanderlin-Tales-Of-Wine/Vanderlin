@@ -25,8 +25,6 @@
 	owner.special_role = "Bandit"
 	owner.purge_combat_knowledge()
 	move_to_spawnpoint()
-	remove_job()
-	owner.current.roll_mob_stats()
 	forge_objectives()
 	. = ..()
 	finalize_bandit()
@@ -49,7 +47,7 @@
 /proc/isbandit(mob/living/M)
 	return istype(M) && M.mind && M.mind.has_antag_datum(/datum/antagonist/bandit)
 
-/datum/antagonist/bandit/move_to_spawnpoint()
+/datum/antagonist/bandit/proc/move_to_spawnpoint()
 	owner.current.forceMove(pick(GLOB.bandit_starts))
 
 /datum/antagonist/bandit/proc/equip_bandit()

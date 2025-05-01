@@ -44,20 +44,11 @@
 		/obj/item/natural/elementalmote,
 		/obj/item/mana_battery/mana_crystal/standard,
 		/obj/item/mana_battery/mana_crystal/standard,
-		/obj/item/natural/obsidian,
-		/obj/item/natural/obsidian,
-		/obj/item/natural/obsidian,
-		/obj/item/reagent_containers/food/snacks/produce/manabloom,
-		/obj/item/reagent_containers/food/snacks/produce/manabloom,
-		/obj/item/reagent_containers/food/snacks/produce/manabloom,
-	)
-
-/obj/item/storage/magebag/poor
-	populate_contents = list(
 		/obj/item/mana_battery/mana_crystal/standard,
-		/obj/item/mana_battery/mana_crystal/standard,
-		/obj/item/mana_battery/mana_crystal/small,
-		/obj/item/mana_battery/mana_crystal/small,
+		/obj/item/natural/obsidian,
+		/obj/item/natural/obsidian,
+		/obj/item/natural/obsidian,
+		/obj/item/reagent_containers/food/snacks/produce/manabloom,
 		/obj/item/reagent_containers/food/snacks/produce/manabloom,
 		/obj/item/reagent_containers/food/snacks/produce/manabloom,
 	)
