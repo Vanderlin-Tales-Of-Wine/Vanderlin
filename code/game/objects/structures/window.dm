@@ -244,7 +244,7 @@
 	if(brokenstate)
 		return
 	if( user.used_intent.type == /datum/intent/unarmed/claw )
-		to_chat(user, "<span class='warning'>The deadite smashes the window!!</span>")
+		to_chat(user, "<span class='warning'>[user] smashes the window!!</span>")
 		obj_break()
 		return
 	user.changeNext_move(CLICK_CD_MELEE)

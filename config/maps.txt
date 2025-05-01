@@ -28,10 +28,3 @@ map daftmarsh
 	votable
 endmap
 
-map roguetown
-	disabled
-endmap
-
-map dun_manor
-	disabled
-endmap

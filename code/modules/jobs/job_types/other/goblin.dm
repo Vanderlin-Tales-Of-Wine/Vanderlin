@@ -39,12 +39,7 @@
 	H.remove_all_languages()
 	H.base_intents = list(INTENT_HELP, INTENT_DISARM, INTENT_GRAB, /datum/intent/simple/claw)
 	H.update_a_intents()
-	var/obj/item/organ/eyes/eyes = H.getorganslot(ORGAN_SLOT_EYES)
-	if(eyes)
-		eyes.Remove(H,1)
-		QDEL_NULL(eyes)
-	eyes = new /obj/item/organ/eyes/night_vision/zombie
-	eyes.Insert(H)
+	H.grant_undead_eyes()
 	H.ambushable = FALSE
 	H.underwear = "Nude"
 	if(H.charflaw)

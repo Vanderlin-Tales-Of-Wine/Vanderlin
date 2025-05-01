@@ -45,36 +45,31 @@
 
 /mob/living/carbon/human/species/skeleton/after_creation()
 	..()
-	if(src.dna && src.dna.species)
-		src.dna.species.species_traits |= NOBLOOD
-		src.dna.species.soundpack_m = new /datum/voicepack/skeleton()
-		src.dna.species.soundpack_f = new /datum/voicepack/skeleton()
+	if(dna && dna.species)
+		dna.species.species_traits |= NOBLOOD
+		dna.species.soundpack_m = new /datum/voicepack/skeleton()
+		dna.species.soundpack_f = new /datum/voicepack/skeleton()
 		var/obj/item/bodypart/head/headdy = get_bodypart("head")
 		if(headdy)
 			headdy.icon = 'icons/roguetown/mob/monster/skeletons.dmi'
 			headdy.icon_state = "skull"
 			headdy.headprice = rand(5,15)
-	var/obj/item/bodypart/O = src.get_bodypart(BODY_ZONE_R_ARM)
+	var/obj/item/bodypart/O = get_bodypart(BODY_ZONE_R_ARM)
 	if(O)
 		O.drop_limb()
 		qdel(O)
-	O = src.get_bodypart(BODY_ZONE_L_ARM)
+	O = get_bodypart(BODY_ZONE_L_ARM)
 	if(O)
 		O.drop_limb()
 		qdel(O)
-	src.regenerate_limb(BODY_ZONE_R_ARM)
-	src.regenerate_limb(BODY_ZONE_L_ARM)
+	regenerate_limb(BODY_ZONE_R_ARM)
+	regenerate_limb(BODY_ZONE_L_ARM)
 	for(var/obj/item/bodypart/B in src.bodyparts)
-		B.skeletonize()
-	var/obj/item/organ/eyes/eyes = src.getorganslot(ORGAN_SLOT_EYES)
-	if(eyes)
-		eyes.Remove(src,1)
-		QDEL_NULL(eyes)
-	eyes = new /obj/item/organ/eyes/night_vision/zombie
-	eyes.Insert(src)
-	src.underwear = "Nude"
-	if(src.charflaw)
-		QDEL_NULL(src.charflaw)
+		B.skeletonize(FALSE)
+	grant_undead_eyes()
+	underwear = "Nude"
+	if(charflaw)
+		QDEL_NULL(charflaw)
 	update_body()
 	mob_biotypes = MOB_UNDEAD
 	faction = list(FACTION_UNDEAD)
@@ -102,7 +97,6 @@
 	H.base_constitution = 8
 	H.base_endurance = 8
 	H.base_intelligence = 1
-
 
 /datum/outfit/job/greater_skeleton/pre_equip(mob/living/carbon/human/H) //equipped onto Summon Greater Undead player skeletons only after the mind is added
 	..()

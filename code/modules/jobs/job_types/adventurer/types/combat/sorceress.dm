@@ -19,7 +19,7 @@
 	armor = /obj/item/clothing/shirt/robe/mage
 	belt = /obj/item/storage/belt/leather/rope
 	backr = /obj/item/storage/backpack/satchel
-	beltr = /obj/item/storage/magebag/apprentice
+	beltr = /obj/item/storage/magebag/poor
 	beltl = /obj/item/reagent_containers/glass/bottle/manapot
 	r_hand = /obj/item/weapon/polearm/woodstaff
 	backpack_contents = list(/obj/item/book/granter/spellbook/apprentice = 1, /obj/item/chalk = 1)
@@ -36,6 +36,5 @@
 		H.change_stat(STATKEY_CON, -1)
 		H.change_stat(STATKEY_END, -1)
 		H.change_stat(STATKEY_SPD, -2)
-		H.mind.adjust_spellpoints(7)
-		H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/learnspell)
+		H.mind.adjust_spellpoints(5)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
