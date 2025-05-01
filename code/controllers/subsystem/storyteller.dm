@@ -205,7 +205,8 @@ SUBSYSTEM_DEF(gamemode)
 			qdel(event)
 			continue // event isn't good for this map no point in trying to add it to the list
 		control += event //add it to the list of all events (controls)
-		//List of Possible dreams for the Dreamwatcher
+
+		///List of Possible influence dreams for the Dreamwatcher
 		god_dreams = list(
 		
 			//Divine Pantheon
@@ -305,95 +306,88 @@ SUBSYSTEM_DEF(gamemode)
 			
 			"Unknown" = list("You feel a presence watching your sleep... old, vast, and unknowable. You do not yet know their name.")
 		)
-	
-		//List of possible dreams for the dream watcher
+
+		///List of possible antag dreams for the dream watcher
 		antag_dreams = list(
-			"Vampire Lord"= list(
-				"...a crown of thorns drips blood in the dark, yet no shadow dares touch the sun...",
-				"...i dream of a king who rules the night, but cowers when Astrata stirs...",
-				"...a crown of blood weighs heavy on an unseen tyrant’s brow..."
-			),
-			
-			"Vampire "= list(
-				"...a shadow bends the knee, thirsting only to serve...",
-				"...a heartbeat muffled by obedience, but the hunger remains...",
-				"...fangs with no will, only command..."
-			),
-			
-			"Vampire Spawn"= list(
-				"...fangs glint in the dream-dark, but the face remains hidden...",
-				"...something thirsts nearby,quiet, obedient, waiting...",
-				"...a shadow follows another shadow... one leads... one feeds..."
-			),
-		
-			"Verevolf"= list(
-				"...something howls just beyond the treeline... it’s not the wind...",
-				"...the forest runs red. Pawprints, but no wolves in sight...",
-				"...i dream of teeth and torn flesh... the beast is closer tonight..."
-			),
-			
-			"Lesser Verewolf"= list(
-				"...smaller footsteps still leave trails of blood in the woods...",
-				"...the forest howls with sorrow and rage...",
-				"...something primal scratches at your mind..."
-			),
-			"Peasant Rebel"= list(
-				"...a whisper stirs in the tavern, torches and pitchforks by nightfall...",
-				"...mud-covered boots tread paths of insurrection...",
-				"...someone sharpens a scythe with justice on their lips..."
-			),
-			
-			"Peasant Head Rebel"= list(
-				"...a common man wears the crown of fury...",
-				"...a leader rises not from blood, but from rage...",
-				"...they chant a name... it is not your majesty..."
-			),
-			"Lich"= list(
-				"...a cold wind drags whispers from forgotten tombs...",
-				"...a black crown rests on brittle bone... the throne is not empty...",
-				"...every step in this dream leaves bones behind me..."
-			),
-				
-			"Aspirant"= list(
-				"...a noble sleeps with ambition burning like wildfire...",
-				"...the throne creaks under invisible weight...",
-				"...someone dreams not of peace, but of power..."
-			),
-				
-			"Zizoid Lackey"= list(
-				"...eyes flicker with borrowed madness...",
-				"...they serve a shape they dare not name...",
-				"...something alien tugs at their strings..."
-			),
-	
-			"Zizoid Cultist"= list(
-				"...a spiral burns behind my eyelids when I close them...",
-				"...a silver tongue hums a hymn to nothing, and you almost sing along...",
-				"...there’s a shape in the dream that shouldn’t exist..."
-			),
-		
-			"Bandit" = list(
-				"...coins rattle where no one stands...",
-				"...my pockets feel lighter here...",
-				"...something greedy walks this dream, smiling..."
-			),
-		
-			"Assassin"= list(
-				"...a knife glints, vanishes... who held it?",
-				"...a silent breath... a glint of steel... a name forgotten...",
-				"...there’s blood here... fresh, but I saw no violence..."
-			),
-		
-			"Dreamer"= list(
-				"...the dream bends unnaturally, as though something, or someone, believes the world is not real...",
-				"...a presence drifts through the dream, disjointed and frantic, as if seeking a truth no one else can see...",
-				"...flickers of false memories, impossible places... someone’s mind is unraveling inside the dream..."
-			)
+			/datum/antagonist/vampire/lord = list(
+					"... a pale figure watches from afar... its gaze weighs heavy on your soul",
+					"... red velvet, torn and trailing... a presence unseen but always near",
+					"... a name you cannot remember sits on your tongue... it tastes of blood and dust"
+				),
+			/datum/antagonist/vampire = list(
+					"... a hand reaches from the dark... obedient, yet trembling",
+					"... you kneel, not knowing why... the voice behind you compels it",
+					"... a collar of roses and rust... worn by the willing"
+				),
+			/datum/antagonist/vampire/lesser = list (
+					"... fangs bloom from cracked lips... hunger shudders through the air",
+					"... you see your reflection... it smiles with borrowed teeth",
+					"... a laugh beneath floorboards... young, broken, blood-wet"
+				),
+			/datum/antagonist/lich = list (
+					"... a cold wind whispers names no longer spoken",
+					"... the tower bleeds light... skeletal hands trace forbidden runes",
+					"... bones rattle in a jar... they whisper of eternity"
+				),
+			/datum/antagonist/werewolf = list(
+					"... fur and fury rise... the moon stains the sky",
+					"... howling splits the silence... your hands ache with claws",
+					"... you wake with dirt under your nails... and a taste of fur"
+				),
+			/datum/antagonist/werewolf/lesser = list(
+					"... bones snap in rhythm... hunger guides their paws",
+					"... they follow the alpha's scent... and dream of killing him",
+					"... a low growl rumbles under moonlight... fur and fury rise"
+				),
+			/datum/antagonist/zizocultist = list(
+					"...a circle chants beneath shifting stars... their eyes are wrong",
+					"...ink flows upward... the words burn in reverse",
+					"...your thoughts are not your own... they hum in unison"
+				),
+			/datum/antagonist/zizocultist/leader = list(
+					"... a silent servant tends to a spiral... it never ends",
+					"... you hand someone a book... you've never seen it before",
+					"... something stands just behind your shoulder... always just behind"
+				),
+			/datum/antagonist/prebel = list(
+					"... muddy boots march across broken fields... fire follows",
+					"... the crowd roars without faces... you hold the torch",
+					"... a scythe buried in stone... your hand fits its grip perfectly"
+				),
+			/datum/antagonist/prebel/head = list(
+					"... a crowned figure of burlap and ash... they speak with your voice",
+					"... a throne made of pitchforks... it wobbles with every heartbeat",
+					"... children chant in the ruins... the rhythm carries a blade"
+				),
+			/datum/antagonist/aspirant = list(
+					"...you climb a tower of mirrors... none reflect the same face",
+					"...a blade sings your name... but you've never heard it before",
+					"...the stars rearrange themselves... spelling failure"
+				),
+			/datum/antagonist/bandit = list(
+					"... coin clinks like bone... your pockets are never full",
+					"... a dagger flickers in the candlelight... too fast to see",
+					"... a mask laughs... the voice behind it is yours"
+				),
+			/datum/antagonist/assassin = list(
+					"... a shadow parts from your own... and doesn't return",
+					"... footsteps on the ceiling... you hold your breath",
+					"... ink-black gloves close around your throat... gently"
+				),
+			/datum/antagonist/maniac = list(
+					"... a door opens inside a room that shouldn't exist... behind it, a thousand mirrors... none show your face",
+					"... you hear the world breathe... a hiss, a code, a loop... someone is watching from behind the glass",
+					"... you see structures made of meat and bone... they form words you can almost understand... then collapse"
+				),
+			"Unknown" = list(
+					"... something lingers in the darkness",
+					"... you feel an unseen presence watching",
+					"... the air grows heavy with forgotten whispers"
+				)
 		)
 
 
-
-
+		
 	load_config_vars()
 	load_event_config_vars()
 
@@ -1275,7 +1269,7 @@ SUBSYSTEM_DEF(gamemode)
 
 	set_storyteller(highest.type)
 
-//To get the most influential God
+///To get the most influential God
 /datum/controller/subsystem/gamemode/proc/get_most_influential(roundstart = FALSE)
 	var/list/storytellers_with_influence = list()
 	var/datum/storyteller/highest

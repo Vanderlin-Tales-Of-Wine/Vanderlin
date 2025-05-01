@@ -698,6 +698,7 @@
 #include "code\datums\components\riding\_base.dm"
 #include "code\datums\components\riding\goat.dm"
 #include "code\datums\components\riding\human.dm"
+#include "code\datums\components\riding\mole.dm"
 #include "code\datums\components\riding\pig.dm"
 #include "code\datums\components\riding\saiga.dm"
 #include "code\datums\components\storage\storage.dm"

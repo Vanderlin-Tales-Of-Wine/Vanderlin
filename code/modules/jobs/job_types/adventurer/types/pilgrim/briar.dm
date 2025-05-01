@@ -47,6 +47,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
 		H.mind.teach_crafting_recipe(/datum/crafting_recipe/dendor/shillelagh)
+		H.mind.teach_crafting_recipe(/datum/crafting_recipe/dendor/forestdelight)
 
 		if(H.age == AGE_OLD)
 			H.mind?.adjust_skillrank(/datum/skill/magic/holy, 1, TRUE)
@@ -105,6 +106,13 @@
 				/obj/item/ash = 1,
 				/obj/item/reagent_containers/food/snacks/fat =1 )
 	craftdiff = 1
+
+/datum/crafting_recipe/dendor/forestdelight
+	name = "forest guardian offering (unique)"
+	reqs = list(/obj/item/bait/bloody = 1,
+				/obj/item/reagent_containers/food/snacks/produce/swampweed_dried = 1,
+				/obj/item/reagent_containers/food/snacks/raisins = 1 )
+	result = /obj/item/bait/forestdelight
 
 /datum/crafting_recipe/dendor/shrine/saiga
 	name = "stinging shrine to Dendor (unique)"
