@@ -23,9 +23,10 @@
 	SSroguemachine.hailer = src
 
 /obj/structure/fake_machine/hailer/attackby(obj/item/H, mob/user, params)
-	if(!HAS_TRAIT(user, TRAIT_BURDEN) || !is_gaffer_assistant_job(user.mind.assigned_role))
-		to_chat(user, "<span class='notice'>stranger danger! the [src] closes its teeth as you extend your hand to it</span>")
-		return
+	if(!HAS_TRAIT(user, TRAIT_BURDEN))
+		if(!is_gaffer_assistant_job(user.mind.assigned_role))
+			to_chat(user, "<span class='notice'>stranger danger! the [src] closes its teeth as you extend your hand to it</span>")
+			return
 	if(istype(H, /obj/item/reagent_containers/powder/salt)) //mmmm, salt.
 		to_chat(user, "<span class='notice'>the [src]'s tongue slips between its bronze teeth to lap at the salt in [user]'s hand, finishing with effectionate licks across their palm... gross </span>")
 		say("mmmpphh... grrrrrhh... hhhrrrnnn...")

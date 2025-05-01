@@ -70,9 +70,10 @@
 		to_chat(user, span_danger("It seems uninterested by the [H]"))
 		return
 
-	if(!HAS_TRAIT(user, TRAIT_BURDEN) || !is_gaffer_assistant_job(user.mind.assigned_role))
-		to_chat(user, span_danger("you can't feed the [src] without carrying his burden"))
-		return
+	if(!HAS_TRAIT(user, TRAIT_BURDEN))
+		if(!is_gaffer_assistant_job(user.mind.assigned_role))
+			to_chat(user, span_danger("you can't feed the [src] without carrying his burden"))
+			return
 
 	if(istype(H, /obj/item/bodypart/head))
 		var/obj/item/bodypart/head/E = H
