@@ -22,6 +22,7 @@
 	name = "stone murder hole"
 	desc = "A wall of stone with convenient small indents on it, perfect to let loose arrows against invaders."
 	icon = MAP_SWITCH('icons/turf/smooth/walls/stone.dmi', 'icons/turf/window.dmi')
+	icon_state = "stone"
 	opacity = FALSE
 	max_integrity = 800
 	explosion_block = 2
@@ -41,21 +42,23 @@
 	climbdiff = 4
 
 /turf/closed/wall/mineral/stone/window/moss
-	icon = 'icons/turf/smooth/walls/stone_moss.dmi'
-	icon_state = "window"
+	icon = MAP_SWITCH('icons/turf/smooth/walls/stone_moss.dmi', 'icons/turf/window.dmi')
+	icon_state = MAP_SWITCH("stone", "stone_moss")
 	climbdiff = 4
 
 /turf/closed/wall/mineral/stone/moss/blue
 	icon = 'icons/turf/smooth/walls/stone_moss_blue.dmi'
 
 /turf/closed/wall/mineral/stone/window/moss/blue
-	icon = 'icons/turf/smooth/walls/stone_moss_blue.dmi'
+	icon = MAP_SWITCH('icons/turf/smooth/walls/stone_moss_blue.dmi', 'icons/turf/window.dmi')
+	icon_state = MAP_SWITCH("stone", "stone_moss_blue")
 
 /turf/closed/wall/mineral/stone/moss/red
 	icon = 'icons/turf/smooth/walls/stone_moss_red.dmi'
 
 /turf/closed/wall/mineral/stone/window/moss/red
-	icon = 'icons/turf/smooth/walls/stone_moss_red.dmi'
+	icon = MAP_SWITCH('icons/turf/smooth/walls/stone_moss_red.dmi', 'icons/turf/window.dmi')
+	icon_state = MAP_SWITCH("stone", "stone_moss_red")
 
 /turf/closed/wall/mineral/decorstone
 	name = "decorated stone wall"
@@ -166,6 +169,7 @@
 	name = "wooden window"
 	desc = "A window with a rough-hewn wooden frame."
 	icon = MAP_SWITCH('icons/turf/smooth/walls/wood.dmi', 'icons/turf/window.dmi')
+	icon_state = "wood"
 	opacity = FALSE
 	max_integrity = 550
 
