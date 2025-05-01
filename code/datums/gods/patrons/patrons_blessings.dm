@@ -8,34 +8,34 @@
 	if(!check_rights())
 		return FALSE
 
-	var/category = input("Select Blessing Category") as null|anything in list("Divine", "Food", "Special", "Mending")
+	var/category = browser_input_list("Select Blessing Category", list("Divine", "Food", "Special", "Mending"))
 	if(!category)
 		return FALSE
 
 	var/blessing_path
 	switch(category)
 		if("Divine")
-			blessing_path = input("Choose Divine Blessing") as null|anything in list( \
+			blessing_path = browser_input_list("Choose Divine Blessing", list( \
 				/datum/status_effect/buff/noc, \
 				/datum/status_effect/buff/ravox, \
 				/datum/status_effect/buff/beastsense, \
 				/datum/status_effect/buff/trollshape, \
 				/datum/status_effect/buff/divine_beauty, \
 				/datum/status_effect/buff/call_to_arms, \
-				/datum/status_effect/buff/craft_buff)
+				/datum/status_effect/buff/craft_buff))
 		if("Food")
-			blessing_path = input("Choose Food Blessing") as null|anything in list( \
+			blessing_path = browser_input_list("Choose Food Blessing", list( \
 				/datum/status_effect/buff/foodbuff, \
-				/datum/status_effect/buff/clean_plus)
+				/datum/status_effect/buff/clean_plus))
 		if("Special")
-			blessing_path = input("Choose Special Blessing") as null|anything in list( \
+			blessing_path = browser_input_list("Choose Special Blessing", list( \
 				/datum/status_effect/buff/duration_modification/featherfall, \
 				/datum/status_effect/buff/duration_modification/darkvision, \
 				/datum/status_effect/buff/duration_modification/haste, \
 				/datum/status_effect/buff/calm, \
-				/datum/status_effect/buff/barbrage)
+				/datum/status_effect/buff/barbrage))
 		if("Mending")
-			var/mending_amount = input("Choose Lifeblood Amount") as null|anything in list(5, 10, 15, 20, 25, 30)
+			var/mending_amount = browser_input_list("Choose Lifeblood Amount", list(5, 10, 15, 20, 25, 30))
 			if(!mending_amount)
 				return FALSE
 
@@ -53,9 +53,9 @@
 	if(!blessing_path)
 		return FALSE
 
-	var/duration_choice = input("Select Duration for the Blessing:") as null|anything in list( \
+	var/duration_choice = browser_input_list("Select Duration for the Blessing:", list( \
 		"1 Minute", "5 Minutes", "10 Minutes", "20 Minutes", \
-		"30 Minutes", "60 Minutes", "Until Sleep", "Infinite")
+		"30 Minutes", "60 Minutes", "Until Sleep", "Infinite"))
 	if(!duration_choice)
 		return FALSE
 

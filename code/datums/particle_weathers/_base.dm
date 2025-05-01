@@ -347,7 +347,7 @@
 	if(!holder)
 		return
 
-	var/weather_type = input("Choose a weather", "Weather")  as null|anything in sortList(subtypesof(/datum/particle_weather), /proc/cmp_typepaths_asc)
+	var/weather_type = browser_input_list("Choose a weather", "Weather", sortList(subtypesof(/datum/particle_weather), /proc/cmp_typepaths_asc))
 	if(!weather_type)
 		return
 
