@@ -19,6 +19,7 @@
 // Town locks
 /obj/effect/mapping_helpers/access/keyset/town
 	color = "#58431e"
+	difficulty = 4
 
 /obj/effect/mapping_helpers/access/keyset/town/tailor
 	accesses = list(ACCESS_TAILOR)
@@ -28,9 +29,11 @@
 
 /obj/effect/mapping_helpers/access/keyset/town/inn
 	accesses = list(ACCESS_INN)
+	difficulty = 5
 
 /obj/effect/mapping_helpers/access/keyset/town/artificer
 	accesses = list(ACCESS_ARTIFICER)
+	difficulty = 3
 
 /obj/effect/mapping_helpers/access/keyset/town/miner
 	accesses = list(ACCESS_MINER)
@@ -40,6 +43,7 @@
 
 /obj/effect/mapping_helpers/access/keyset/town/merchant
 	accesses = list(ACCESS_MERCHANT)
+	difficulty = 3
 
 /obj/effect/mapping_helpers/access/keyset/town/soilson
 	accesses = list(ACCESS_FARM)
@@ -49,9 +53,11 @@
 
 /obj/effect/mapping_helpers/access/keyset/town/apothecary
 	accesses = list(ACCESS_APOTHECARY)
+	difficulty = 3
 
 /obj/effect/mapping_helpers/access/keyset/town/doctor
 	accesses = list(ACCESS_FELDSHER)
+	difficulty = 3
 
 /obj/effect/mapping_helpers/access/keyset/town/matron
 	accesses = list(ACCESS_MATRON)
@@ -67,25 +73,31 @@
 
 /obj/effect/mapping_helpers/access/keyset/town/gaffer
 	accesses = list(ACCESS_GAFFER)
+	difficulty = 3
 
 /obj/effect/mapping_helpers/access/keyset/town/tower
 	accesses = list(ACCESS_TOWER)
+	difficulty = 3
 
 /obj/effect/mapping_helpers/access/keyset/town/warehouse
 	accesses = list(ACCESS_WAREHOUSE)
+	difficulty = 3
 
 /obj/effect/mapping_helpers/access/keyset/town/bathhouse
 	accesses = list(ACCESS_BATHHOUSE)
+	difficulty = 5
 
 // Town Garrison
 /obj/effect/mapping_helpers/access/keyset/garrison
 	color = "#b02323"
+	difficulty = 3
 
 /obj/effect/mapping_helpers/access/keyset/garrison/general
 	accesses = list(ACCESS_GARRISON)
 
 /obj/effect/mapping_helpers/access/keyset/garrison/captain
 	accesses = list(ACCESS_CAPTAIN)
+	difficulty = 2
 
 /obj/effect/mapping_helpers/access/keyset/garrison/forest
 	accesses = list(ACCESS_FOREST)
@@ -96,22 +108,26 @@
 // Church locks
 /obj/effect/mapping_helpers/access/keyset/church
 	color = "#eaed3e"
+	difficulty = 3
 
 /obj/effect/mapping_helpers/access/keyset/church/general
 	accesses = list(ACCESS_CHURCH)
 
 /obj/effect/mapping_helpers/access/keyset/church/priest
 	accesses = list(ACCESS_PRIEST)
+	difficulty = 2
 
 /obj/effect/mapping_helpers/access/keyset/church/inquisition
 	accesses = list(ACCESS_RITTER)
 
 /obj/effect/mapping_helpers/access/keyset/church/grave
 	accesses = list(ACCESS_GRAVE)
+	difficulty = 4
 
 // Manor locks
 /obj/effect/mapping_helpers/access/keyset/manor
 	color = "#a926ad"
+	difficulty = 3
 
 /obj/effect/mapping_helpers/access/keyset/manor/general
 	accesses = list(ACCESS_MANOR)
@@ -121,18 +137,22 @@
 
 /obj/effect/mapping_helpers/access/keyset/manor/steward
 	accesses = list(ACCESS_STEWARD)
+	difficulty = 2
 
 /obj/effect/mapping_helpers/access/keyset/manor/dungeon
 	accesses = list(ACCESS_DUNGEON)
 
 /obj/effect/mapping_helpers/access/keyset/manor/hand
 	accesses = list(ACCESS_HAND)
+	difficulty = 2
 
 /obj/effect/mapping_helpers/access/keyset/manor/lord
 	accesses = list(ACCESS_LORD)
+	difficulty = 1
 
 /obj/effect/mapping_helpers/access/keyset/manor/vault
 	accesses = list(ACCESS_VAULT)
+	difficulty = 1
 
 /obj/effect/mapping_helpers/access/keyset/manor/mage
 	accesses = list(ACCESS_MAGE)
@@ -145,3 +165,4 @@
 
 /obj/effect/mapping_helpers/access/keyset/manor/guest
 	accesses = list(ACCESS_GUEST)
+	difficulty = 4

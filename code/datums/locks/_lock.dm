@@ -125,7 +125,7 @@
 			return TRUE
 	return FALSE
 
-/datum/lock/key/proc/set_access(var/list/access)
+/datum/lock/key/proc/set_access(list/access)
 	if(!LAZYLEN(access) || !islist(access))
 		return
 	lockid_list = access
