@@ -20,6 +20,9 @@
 	give_bank_account = 100
 	cmode_music = 'sound/music/cmode/towner/CombatBeggar.ogg'
 
+/datum/outfit/job/apothecary
+	job_bitflag = BITFLAG_ROYALTY | BITFLAG_CONSTRUCTOR
+
 /datum/outfit/job/apothecary/pre_equip(mob/living/carbon/human/H)
 	..()
 	armor = /obj/item/clothing/armor/gambeson/apothecary
@@ -30,7 +33,6 @@
 	belt = /obj/item/storage/belt/leather
 	beltr = /obj/item/storage/keyring/apothecary
 	beltl = /obj/item/storage/belt/pouch/coins/mid
-	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_LEGENDARY_ALCHEMIST, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_FORAGER, TRAIT_GENERIC)
 	if(H.mind)

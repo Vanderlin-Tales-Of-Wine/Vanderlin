@@ -28,6 +28,8 @@ GLOBAL_LIST_INIT(turfs_without_ground, typecacheof(list(
 
 #define isopenturf(A) (istype(A, /turf/open))
 
+#define isopenspace(A) (istype(A, /turf/open/transparent/openspace))
+
 #define isindestructiblefloor(A) (istype(A, /turf/open/indestructible))
 
 #define isfloorturf(A) (istype(A, /turf/open/floor))
@@ -156,6 +158,7 @@ GLOBAL_LIST_INIT(RATS_DONT_EAT, typecacheof(list(
 	#define is_lord_job(job_type) (istype(job_type, /datum/job/lord))
 	#define is_consort_job(job_type) (istype(job_type, /datum/job/consort))
 	#define is_merchant_job(job_type) (istype(job_type, /datum/job/merchant))
+	#define is_steward_job(job_type) (istype(job_type, /datum/job/steward))
 // Garrison
 // Church
 	#define is_priest_job(job_type) (istype(job_type, /datum/job/priest))
@@ -169,6 +172,8 @@ GLOBAL_LIST_INIT(RATS_DONT_EAT, typecacheof(list(
 	#define is_mercenary_job(job_type) (istype(job_type, /datum/job/mercenary))
 	#define is_pilgrim_job(job_type) (istype(job_type, /datum/job/pilgrim))
 	#define is_vagrant_job(job_type) (istype(job_type, /datum/job/vagrant))
+//  Apprentices
+	#define is_gaffer_assistant_job(job_type) (istype(job_type, /datum/job/gaffer_assistant))
 // Villains
 	#define is_skeleton_job(job_type) (istype(job_type, /datum/job/skeleton))
 		#define is_skeleton_knight_job(job_type) (istype(job_type, /datum/job/skeleton/knight))

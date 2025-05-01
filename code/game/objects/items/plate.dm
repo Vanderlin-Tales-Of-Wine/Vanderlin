@@ -134,6 +134,31 @@
 	resistance_flags = FIRE_PROOF
 	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
 
+/obj/item/plate/pewter
+	name = "pewter platter"
+	desc = "A tin plate that contains just a tinge of lead."
+	icon_state = "platter_tin"
+	resistance_flags = FIRE_PROOF
+	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
+
+/obj/item/plate/silver
+	name = "silver platter"
+	desc = "A fancy silver plate often used by the nobility as a symbol of class."
+	icon_state = "platter_silver"
+	resistance_flags = FIRE_PROOF
+	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
+	sellprice = 12
+	smeltresult = /obj/item/ingot/silver
+
+/obj/item/plate/gold
+	name = "gold platter"
+	desc = "A fancy gold plate often used by the nobility as a symbol of class."
+	icon_state = "platter_gold"
+	resistance_flags = FIRE_PROOF
+	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
+	sellprice = 20
+	smeltresult = /obj/item/ingot/gold
+
 /obj/item/plate/tray
 	name = "tray"
 	desc = "Best used when hosting for banquets or drunken taverns."

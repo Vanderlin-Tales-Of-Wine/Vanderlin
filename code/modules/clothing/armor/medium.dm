@@ -19,6 +19,7 @@
 	body_parts_covered = COVERAGE_ALL_BUT_ARMS
 	prevent_crits = ALL_CRITICAL_HITS
 	max_integrity = INTEGRITY_STRONG
+	item_weight = 7
 
 
 //................ Armored Surcoat ............... //	- splint mail looking armor thats colored
@@ -29,6 +30,7 @@
 	item_state = "surcoat"
 	detail_tag = "_metal"		// metal bits are the details so keep them uncolorer = white
 	detail_color = COLOR_WHITE
+	item_weight = 7.4
 
 /obj/item/clothing/armor/medium/surcoat/Initialize()
 	. = ..()
@@ -50,3 +52,21 @@
 	sellprice = VALUE_SNOWFLAKE_STEEL+BONUS_VALUE_SMALL
 
 	body_parts_covered = COVERAGE_FULL
+
+/obj/item/clothing/armor/medium/scale/inqcoat
+	slot_flags = ITEM_SLOT_ARMOR
+	name = "inquisitorial duster"
+	desc = "Metal plates reinforce this heavy coat. Its striking silhouette is of ill omen to any mainland community - whether pious, or profane."
+	body_parts_covered = CHEST|VITALS|GROIN|LEGS|ARMS
+	allowed_sex = list(MALE, FEMALE)
+	icon = 'icons/roguetown/clothing/armor.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/armor.dmi'
+	sleeved = 'icons/roguetown/clothing/onmob/helpers/sleeves_armor_inqui.dmi'
+	icon_state = "inqcoat"
+	item_state = "inqcoat"
+	sleevetype = "shirt"
+	max_integrity = INTEGRITY_STRONG
+	anvilrepair = /datum/skill/craft/armorsmithing
+	smeltresult = /obj/item/ingot/steel
+	equip_delay_self = 4 SECONDS
+	blocksound = SOFTHIT

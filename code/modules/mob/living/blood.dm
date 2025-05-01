@@ -171,7 +171,7 @@
 			return
 	if(blood_volume)
 		blood_volume = max(blood_volume - amt, 0)
-		GLOB.vanderlin_round_stats["blood_spilt"] += amt
+		GLOB.vanderlin_round_stats[STATS_BLOOD_SPILT] += amt
 		if(isturf(src.loc)) //Blood loss still happens in locker, floor stays clean
 			add_drip_floor(get_turf(src), amt)
 		var/vol2use
@@ -227,6 +227,15 @@
 	RETURN_TYPE(/datum/blood_type)
 	return GLOB.blood_types[/datum/blood_type/animal]
 
+/mob/living/proc/get_lux_status()
+	var/datum/blood_type/blood = get_blood_type()
+
+	if(has_status_effect(/datum/status_effect/buff/lux_drained))
+		return LUX_DRAINED
+
+	if(istype(blood, /datum/blood_type/human/tiefling))
+		return LUX_FUCK_YOU_TIEFLING
+	return blood.contains_lux
 
 /mob/living/carbon/human/get_blood_type()
 	RETURN_TYPE(/datum/blood_type)

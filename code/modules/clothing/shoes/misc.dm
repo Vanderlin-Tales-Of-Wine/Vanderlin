@@ -133,3 +133,20 @@
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/stonekeep_merc.dmi'
 	armor = list("blunt" = 25, "slash" = 25, "stab" = 25,  "piercing" = 15, "fire" = 0, "acid" = 0)
 	sellprice = 20
+
+/obj/item/clothing/shoes/otavan
+	name = "otavan leather boots"
+	desc = "Boots of outstanding craft, your fragile feet has never felt so protected and comfortable before."
+	body_parts_covered = FEET
+	icon_state = "fencerboots"
+	item_state = "fencerboots"
+	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
+	blocksound = SOFTHIT
+	max_integrity = 200
+	armor = ARMOR_LEATHER_GOOD
+
+/obj/item/clothing/shoes/otavan/inqboots
+	name = "inquisitorial boots"
+	desc = "The steel-lined heels click."
+	icon_state = "inqboots"
+	item_state = "inqboots"

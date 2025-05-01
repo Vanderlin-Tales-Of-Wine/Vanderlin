@@ -608,6 +608,8 @@
 								user.adjust_triumphs(1)
 								MOBTIMER_SET(user, MT_ZOMBIETRIUMPH)
 							playsound(C.loc, 'sound/combat/fracture/headcrush (2).ogg', 100, FALSE, -1)
+							if(C.client)
+								GLOB.vanderlin_round_stats[STATS_LIMBS_BITTEN]++
 							return
 		if(HAS_TRAIT(user, TRAIT_POISONBITE))
 			if(C.reagents)
@@ -621,6 +623,8 @@
 					"<span class='userdanger'>[user] bites my [parse_zone(sublimb_grabbed)]![C.next_attack_msg.Join()]</span>", "<span class='hear'>I hear a sickening sound of chewing!</span>", COMBAT_MESSAGE_RANGE, user)
 	to_chat(user, "<span class='danger'>I bite [C]'s [parse_zone(sublimb_grabbed)].[C.next_attack_msg.Join()]</span>")
 	C.next_attack_msg.Cut()
+	if(C.client && C.stat != DEAD)
+		GLOB.vanderlin_round_stats[STATS_LIMBS_BITTEN]++
 	log_combat(user, C, "limb chewed [sublimb_grabbed] ")
 
 //this is for carbon mobs being drink only

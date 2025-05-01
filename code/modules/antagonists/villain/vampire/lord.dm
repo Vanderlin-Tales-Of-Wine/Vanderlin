@@ -1,6 +1,7 @@
 /datum/antagonist/vampire/lord
 	name = "Vampire Lord"
-	antag_hud_name = "vampire"
+	antag_hud_type = ANTAG_HUD_VAMPIRE
+	antag_hud_name = "vamplord"
 	autojoin_team = TRUE
 	confess_lines = list(
 		"I AM ANCIENT!",
@@ -24,11 +25,20 @@
 	REMOVE_TRAIT(M, TRAIT_HEAVYARMOR, "[type]")
 
 /datum/antagonist/vampire/lord/on_gain()
+	var/mob/living/carbon/vampire = owner.current
+	remove_job()
+	owner.current?.roll_mob_stats()
 	owner.purge_combat_knowledge()
 	. = ..()
 	portal = new()
 	owner.current.AddSpell(portal)
 	addtimer(CALLBACK(owner.current, TYPE_PROC_REF(/mob/living/carbon/human, choose_name_popup), "[name]"), 5 SECONDS)
+	var/obj/item/organ/eyes/eyes = vampire.getorganslot(ORGAN_SLOT_EYES)
+	if(eyes)
+		eyes.Remove(vampire,1)
+		QDEL_NULL(eyes)
+	eyes = new /obj/item/organ/eyes/night_vision/zombie
+	eyes.Insert(vampire)
 
 /datum/antagonist/vampire/lord/after_gain()
 	owner.current.verbs |= /mob/living/carbon/human/proc/demand_submission
@@ -99,7 +109,7 @@
 
 /datum/outfit/job/vamplord/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.mind.adjust_skillrank(/datum/skill/magic/blood, 2, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/magic/blood, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 5, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
@@ -124,13 +134,13 @@
 	set name = "Demand Submission"
 	set category = "VAMPIRE"
 	if(SSmapping.retainer.king_submitted)
-		to_chat(src, span_warning("I am already the Master of Vanderlin."))
+		to_chat(src, span_warning("I am already the Master of [SSmapping.config.map_name]."))
 		return
 
 	var/mob/living/carbon/ruler = SSticker.rulermob
 
 	if(!ruler || (get_dist(src, ruler) > 1))
-		to_chat(src, span_warning("The Master of Vanderlin is not beside me."))
+		to_chat(src, span_warning("The Master of [SSmapping.config.map_name] is not beside me."))
 		return
 
 	if(ruler.stat <= CONSCIOUS)

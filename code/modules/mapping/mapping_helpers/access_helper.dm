@@ -25,6 +25,9 @@
 /obj/effect/mapping_helpers/door/access/town/artificer
 	access_string = ACCESS_ARTIFICER
 
+/obj/effect/mapping_helpers/door/access/town/miner
+	access_string = ACCESS_MINER
+
 /obj/effect/mapping_helpers/door/access/town/inn
 	access_string = ACCESS_INN
 
@@ -137,3 +140,6 @@
 
 /obj/effect/mapping_helpers/door/access/manor/guest
 	access_string = ACCESS_GUEST
+
+/obj/effect/mapping_helpers/door/access/manor/physician
+	access_string = ACCESS_PHYSICIAN

@@ -1,9 +1,4 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"aC" = (
-/turf/closed/wall/mineral/underbrick{
-	icon_state = "line"
-	},
-/area/rogue/underworld)
 "bL" = (
 /obj/structure/flora/tree/underworld,
 /turf/open/floor/dirt,
@@ -110,12 +105,6 @@
 	},
 /turf/open/floor/church,
 /area/rogue/underworld)
-"yn" = (
-/turf/closed/wall/mineral/underbrick{
-	icon_state = "end";
-	dir = 8
-	},
-/area/rogue/underworld)
 "zq" = (
 /turf/open/floor/dirt,
 /area/rogue/underworld)
@@ -172,12 +161,6 @@
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /turf/open/floor/churchrough,
 /area/rogue/underworld)
-"Eh" = (
-/turf/closed/wall/mineral/underbrick{
-	icon_state = "line";
-	dir = 4
-	},
-/area/rogue/underworld)
 "EV" = (
 /turf/closed/indestructible/wooddark/mast,
 /area/rogue)
@@ -199,11 +182,6 @@
 	pixel_y = 0
 	},
 /turf/open/floor/church,
-/area/rogue/underworld)
-"IH" = (
-/turf/closed/wall/mineral/underbrick{
-	icon_state = "end"
-	},
 /area/rogue/underworld)
 "IK" = (
 /obj/structure/underworld/coinspawner,
@@ -243,12 +221,6 @@
 	pixel_y = -32
 	},
 /turf/open/floor/churchrough,
-/area/rogue/underworld)
-"NA" = (
-/turf/closed/wall/mineral/underbrick{
-	icon_state = "end";
-	dir = 4
-	},
 /area/rogue/underworld)
 "OG" = (
 /obj/structure/flora/tree/underworld,
@@ -319,12 +291,6 @@
 /area/rogue/underworld)
 "Wt" = (
 /turf/open/floor/church,
-/area/rogue/underworld)
-"Xt" = (
-/turf/closed/wall/mineral/underbrick{
-	icon_state = "end";
-	dir = 1
-	},
 /area/rogue/underworld)
 "Zm" = (
 /turf/open/transparent/openspace,
@@ -7292,7 +7258,7 @@ sz
 sz
 sz
 sz
-aC
+sz
 Wt
 Wt
 Wt
@@ -7302,7 +7268,7 @@ Wt
 Wt
 Wt
 Wt
-aC
+sz
 KU
 sO
 sO
@@ -7422,17 +7388,17 @@ sz
 sz
 sz
 sz
-aC
-Wt
-sz
-Eh
-Eh
-Eh
-Eh
-Eh
 sz
 Wt
-aC
+sz
+sz
+sz
+sz
+sz
+sz
+sz
+Wt
+sz
 KU
 sO
 sO
@@ -7552,17 +7518,17 @@ sz
 sz
 sz
 sz
-aC
+sz
 Wt
-aC
+sz
 oU
 df
 df
 df
 oU
-aC
+sz
 Wt
-aC
+sz
 KU
 sO
 sO
@@ -7684,13 +7650,13 @@ sz
 sz
 sz
 Wt
-aC
+sz
 Ea
 df
 TM
 df
 ME
-aC
+sz
 Wt
 sz
 sz
@@ -7814,13 +7780,13 @@ sz
 sz
 sz
 Wt
-aC
+sz
 oU
 df
 df
 df
 oU
-aC
+sz
 Wt
 Wt
 sz
@@ -8216,7 +8182,7 @@ sz
 sz
 Wt
 Wt
-aC
+sz
 KU
 sO
 sO
@@ -8346,7 +8312,7 @@ OG
 sz
 sz
 Wt
-aC
+sz
 KU
 sO
 sO
@@ -8460,7 +8426,7 @@ sz
 sz
 sz
 sz
-aC
+sz
 OG
 Vk
 Vk
@@ -8474,9 +8440,9 @@ Vk
 Vk
 Vk
 OG
-aC
+sz
 Wt
-aC
+sz
 KU
 sO
 sO
@@ -8590,7 +8556,7 @@ sz
 sz
 sz
 sz
-aC
+sz
 Vk
 Vk
 Vk
@@ -8604,9 +8570,9 @@ Vk
 Vk
 Vk
 Vk
-aC
+sz
 Wt
-aC
+sz
 KU
 sO
 sO
@@ -8717,9 +8683,9 @@ sz
 sz
 sz
 sz
-Eh
-Eh
-Eh
+sz
+sz
+sz
 sz
 mn
 Vk
@@ -8734,9 +8700,9 @@ OG
 Vk
 Vk
 Vk
-aC
+sz
 Wt
-aC
+sz
 KU
 sO
 sO
@@ -8864,9 +8830,9 @@ Vk
 Vk
 Vk
 Vk
-aC
+sz
 Wt
-aC
+sz
 KU
 sO
 sO
@@ -8994,9 +8960,9 @@ Vk
 Vk
 Vk
 Td
-aC
+sz
 Wt
-aC
+sz
 KU
 sO
 sO
@@ -9124,9 +9090,9 @@ Vk
 Vk
 Vk
 Vk
-aC
+sz
 Wt
-aC
+sz
 KU
 sO
 sO
@@ -9237,9 +9203,9 @@ sz
 sz
 sz
 sz
-Eh
-Eh
-Eh
+sz
+sz
+sz
 sz
 mn
 Vk
@@ -9254,9 +9220,9 @@ OG
 Vk
 Vk
 Vk
-aC
+sz
 Wt
-aC
+sz
 KU
 sO
 sO
@@ -9370,7 +9336,7 @@ sz
 sz
 sz
 sz
-aC
+sz
 Vk
 Vk
 Vk
@@ -9384,9 +9350,9 @@ Vk
 Vk
 Vk
 Vk
-aC
+sz
 Wt
-aC
+sz
 KU
 sO
 sO
@@ -9500,7 +9466,7 @@ sz
 sz
 sz
 sz
-aC
+sz
 OG
 Vk
 Vk
@@ -9514,9 +9480,9 @@ Vk
 Vk
 Vk
 OG
-aC
+sz
 Wt
-aC
+sz
 KU
 sO
 sO
@@ -9646,7 +9612,7 @@ OG
 sz
 sz
 Wt
-aC
+sz
 KU
 sO
 sO
@@ -9776,7 +9742,7 @@ sz
 sz
 Wt
 Wt
-aC
+sz
 KU
 sO
 sO
@@ -10154,13 +10120,13 @@ sz
 sz
 sz
 Wt
-aC
+sz
 oU
 df
 df
 df
 oU
-aC
+sz
 Wt
 Wt
 sz
@@ -10284,13 +10250,13 @@ Lk
 sz
 sz
 Wt
-aC
+sz
 Ea
 df
 CP
 df
 ME
-aC
+sz
 Wt
 sz
 sz
@@ -10414,15 +10380,15 @@ df
 IP
 sz
 Wt
-aC
+sz
 oU
 df
 df
 df
 zs
-aC
+sz
 Wt
-aC
+sz
 KU
 EV
 sO
@@ -10545,14 +10511,14 @@ IP
 sz
 Wt
 sz
-Eh
-Eh
-Eh
-Eh
-Eh
+sz
+sz
+sz
+sz
+sz
 sz
 Wt
-aC
+sz
 KU
 sO
 sO
@@ -10682,7 +10648,7 @@ Wt
 Wt
 Wt
 Wt
-aC
+sz
 KU
 sO
 sO
@@ -10803,15 +10769,15 @@ df
 Lk
 PP
 sz
-Eh
-Eh
-Eh
-Eh
-Eh
-Eh
-Eh
-Eh
-Eh
+sz
+sz
+sz
+sz
+sz
+sz
+sz
+sz
+sz
 sz
 KU
 sO
@@ -23018,10 +22984,10 @@ sz
 sz
 PP
 PP
-Xt
-Eh
-Eh
-IH
+sz
+sz
+sz
+sz
 sz
 Bj
 Bj
@@ -23146,8 +23112,8 @@ xn
 sz
 sz
 sz
-Eh
-IH
+sz
+sz
 PP
 PP
 PP
@@ -25119,7 +25085,7 @@ Bj
 ol
 ol
 Wt
-yn
+sz
 Lk
 Lk
 PP
@@ -25249,7 +25215,7 @@ Bj
 ol
 ol
 Qv
-NA
+sz
 Lk
 Lk
 Lk
@@ -25356,9 +25322,9 @@ Lk
 Lk
 Lk
 Lk
-Xt
-Eh
-IH
+sz
+sz
+sz
 Sp
 ol
 Bj
@@ -25876,9 +25842,9 @@ Lk
 Lk
 Lk
 Lk
-Xt
-Eh
-IH
+sz
+sz
+sz
 Sp
 ol
 Bj
@@ -26029,7 +25995,7 @@ Bj
 ol
 ol
 Qv
-yn
+sz
 Lk
 Lk
 Lk
@@ -26136,7 +26102,7 @@ PP
 PP
 PP
 PP
-yn
+sz
 sz
 Wt
 ol
@@ -26159,7 +26125,7 @@ Bj
 ol
 ol
 Wt
-NA
+sz
 Lk
 Lk
 Lk
@@ -26266,7 +26232,7 @@ PP
 PP
 PP
 PP
-aC
+sz
 Kf
 Wt
 ol
@@ -26396,7 +26362,7 @@ PP
 PP
 PP
 PP
-aC
+sz
 Wt
 Wt
 Wt
@@ -26526,7 +26492,7 @@ PP
 PP
 PP
 PP
-aC
+sz
 Wt
 Wt
 Wt
@@ -26656,7 +26622,7 @@ PP
 PP
 PP
 PP
-aC
+sz
 xS
 xS
 xS
@@ -26786,7 +26752,7 @@ PP
 PP
 PP
 PP
-aC
+sz
 kH
 kH
 kH
@@ -26916,7 +26882,7 @@ PP
 PP
 PP
 PP
-aC
+sz
 kH
 kH
 kH
@@ -27046,7 +27012,7 @@ PP
 PP
 PP
 PP
-aC
+sz
 kH
 kH
 kH
@@ -27176,7 +27142,7 @@ xn
 PP
 PP
 PP
-aC
+sz
 kH
 kH
 kH
@@ -27306,7 +27272,7 @@ xn
 PP
 sz
 sz
-NA
+sz
 kH
 kH
 kH
@@ -27323,7 +27289,7 @@ Lk
 Lk
 Lk
 Lk
-aC
+sz
 sz
 sz
 PP
@@ -27453,7 +27419,7 @@ Lk
 Lk
 Lk
 Lk
-NA
+sz
 sz
 sz
 PP

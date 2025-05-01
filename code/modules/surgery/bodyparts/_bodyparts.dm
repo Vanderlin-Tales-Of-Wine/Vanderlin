@@ -18,7 +18,6 @@
 	var/aux_zone // used for hands
 	var/aux_layer
 	var/body_part = 0 //bitflag used to check which clothes cover this bodypart
-	var/use_digitigrade = NOT_DIGITIGRADE //Used for alternate legs, useless elsewhere
 	var/held_index = 0 //are we a hand? if so, which one!
 
 	var/disabled = BODYPART_NOT_DISABLED //If disabled, limb is as good as missing
@@ -387,7 +386,6 @@
 	if(owner)
 		owner.updatehealth()
 		owner.update_body() //if our head becomes robotic, we remove the lizard horns and human hair.
-		owner.update_hair()
 		owner.update_damage_overlays()
 
 /obj/item/bodypart/proc/is_organic_limb()
@@ -406,7 +404,7 @@
 		C = owner
 		no_update = FALSE
 
-	if(HAS_TRAIT(C, TRAIT_HUSK) && is_organic_limb())
+	if(C && HAS_TRAIT(C, TRAIT_HUSK) && is_organic_limb())
 		species_id = "husk" //overrides species_id
 		dmg_overlay_type = "" //no damage overlay shown when husked
 		should_draw_gender = FALSE
@@ -441,14 +439,7 @@
 		body_gender = H.gender
 		should_draw_gender = S.sexes
 
-		if((MUTCOLORS in S.species_traits) || (DYNCOLORS in S.species_traits))
-			if(S.fixed_mut_color)
-				species_color = S.fixed_mut_color
-			else
-				species_color = H.dna.features["mcolor"]
-			should_draw_greyscale = TRUE
-		else
-			species_color = ""
+		species_color = ""
 
 		mutation_color = ""
 
@@ -535,8 +526,6 @@
 						skeleton.filters += alpha_mask_filter(icon=icon('icons/effects/wounds.dmi', "[body_zone]_acid[acid_damage_intensity]"))
 					skeleton.dir = image_dir
 					. += skeleton
-			else if(use_digitigrade)
-				limb.icon_state = "digitigrade_[use_digitigrade]_[body_zone]"
 			else
 				limb.icon_state = "[body_zone][skel]"
 				if(wound_icon_state || acid_damage_intensity)
@@ -579,6 +568,31 @@
 				. += aux
 		return
 
+	var/draw_organ_features = TRUE
+	var/draw_bodypart_features = TRUE
+	if(owner && owner.dna)
+		var/datum/species/owner_species = owner.dna.species
+		if(NO_ORGAN_FEATURES in owner_species.species_traits)
+			draw_organ_features = FALSE
+		if(NO_BODYPART_FEATURES in owner_species.species_traits)
+			draw_bodypart_features = FALSE
+
+	if(!skeletonized && draw_organ_features)
+		for(var/obj/item/organ/organ as anything in get_organs())
+			if(!organ.is_visible())
+				continue
+			var/mutable_appearance/organ_appearance = organ.get_bodypart_overlay(src)
+			if(organ_appearance)
+				. += organ_appearance
+
+	// Feature overlays
+	if(!skeletonized && draw_bodypart_features)
+		for(var/datum/bodypart_feature/feature as anything in bodypart_features)
+			var/overlays = feature.get_bodypart_overlay(src)
+			if(!overlays)
+				continue
+			. += overlays
+
 	if(should_draw_greyscale && !skeletonized)
 		var/draw_color =  mutation_color || species_color || skin_tone
 		if(rotted || (owner && HAS_TRAIT(owner, TRAIT_ROTMAN)))
@@ -587,6 +601,22 @@
 			limb.color = "#[draw_color]"
 			if(aux_zone && !hideaux)
 				aux.color = "#[draw_color]"
+
+///since organs aren't actually stored in the bodypart themselves while attached to a person, we have to query the owner for what we should have
+/obj/item/bodypart/proc/get_organs()
+	if(!owner)
+		return FALSE
+
+	var/list/bodypart_organs
+	for(var/obj/item/organ/organ_check as anything in owner.internal_organs) //internal organs inside the dismembered limb are dropped.
+		if(check_zone(organ_check.zone) == body_zone)
+			LAZYADD(bodypart_organs, organ_check) // this way if we don't have any, it'll just return null
+
+	for(var/obj/item/organ/organ_check as anything in contents)
+		if(check_zone(organ_check.zone) == body_zone)
+			LAZYADD(bodypart_organs, organ_check) // this way if we don't have any, it'll just return null
+
+	return bodypart_organs
 
 /obj/item/bodypart/deconstruct(disassembled = TRUE)
 	drop_organs()
@@ -786,10 +816,6 @@
 		if(owner.stat < DEAD)
 			to_chat(owner, "<span class='danger'>I can no longer feel my [name].</span>")
 
-/obj/item/bodypart/l_leg/digitigrade
-	name = "left digitigrade leg"
-	use_digitigrade = FULL_DIGITIGRADE
-
 /obj/item/bodypart/l_leg/monkey
 	icon = 'icons/mob/animal_parts.dmi'
 	icon_state = "default_monkey_l_leg"
@@ -834,10 +860,6 @@
 	else if(disabled == BODYPART_DISABLED_PARALYSIS)
 		if(owner.stat < DEAD)
 			to_chat(owner, "<span class='danger'>I can no longer feel my [name].</span>")
-
-/obj/item/bodypart/r_leg/digitigrade
-	name = "right digitigrade leg"
-	use_digitigrade = FULL_DIGITIGRADE
 
 /obj/item/bodypart/r_leg/monkey
 	icon = 'icons/mob/animal_parts.dmi'

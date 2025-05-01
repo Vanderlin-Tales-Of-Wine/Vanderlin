@@ -266,6 +266,9 @@
 		. += "A very old golden ring appointing its wearer as the Mercenary guild master, its strangely missing the crown for the centre stone"
 
 /obj/item/clothing/ring/gold/burden/attack_hand(mob/user)
+	if(is_gaffer_assistant_job(user.mind?.assigned_role))
+		to_chat(user, span_danger("It is not mine to have..."))
+		return
 	. = ..()
 	if(!user.mind)
 		return

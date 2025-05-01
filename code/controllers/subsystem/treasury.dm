@@ -37,14 +37,17 @@ SUBSYSTEM_DEF(treasury)
 	var/queens_tax = 0.15
 	var/treasury_value = 0
 	var/list/bank_accounts = list()
+	var/list/noble_incomes = list()
 	var/list/stockpile_datums = list()
+	var/multiple_item_penalty = 0.7
+	var/interest_rate = 0.15
 	var/next_treasury_check = 0
 	var/list/log_entries = list()
-
+	var/list/vault_accounting = list() //used for the vault count, cleared every fire()
 
 /datum/controller/subsystem/treasury/Initialize()
 	//Randomizes the roundstart amount of money and the queens tax.
-	treasury_value = rand(800,1500)
+	treasury_value = rand(800,1200)
 	queens_tax = pick(0.09, 0.15, 0.21, 0.30)
 
 	//For the merchants import and export.
@@ -62,7 +65,7 @@ SUBSYSTEM_DEF(treasury)
 /datum/controller/subsystem/treasury/fire(resumed = 0)
 	if(world.time > next_treasury_check)
 		//I dont know why the treasury check is randomized
-		next_treasury_check = world.time + rand(5 MINUTES, 8 MINUTES)
+		next_treasury_check = world.time + rand(8 MINUTES, 12 MINUTES)
 		if(SSticker.current_state == GAME_STATE_PLAYING)
 			//Stock price updated based on demand variable.
 			for(var/datum/stock/X in stockpile_datums)
@@ -86,39 +89,52 @@ SUBSYSTEM_DEF(treasury)
 		*/
 		amt_to_generate = amt_to_generate - (amt_to_generate * queens_tax)
 		amt_to_generate = round(amt_to_generate)
-		give_money_treasury(amt_to_generate, "wealth horde")
+		give_money_treasury(amt_to_generate, "Wealth Horde")
 		for(var/mob/living/carbon/human/X in GLOB.human_list)
-			if(X.job == "Monarch" || X.job == "Consort" || X.job == "Steward")
+			if(!X.mind)
+				continue
+			if(is_lord_job(X.mind.assigned_role) || is_consort_job(X.mind.assigned_role) || is_steward_job(X.mind.assigned_role))
 				send_ooc_note("Income from wealth horde: +[amt_to_generate]", name = X.real_name)
 				return
 
 /*
 * Calculates Passive income based
 * on the items that are placed within
-* the vault.
+* the vault. Resets vault tracking of duplicate items
 */
 /datum/controller/subsystem/treasury/proc/CalcVaultIncome()
+	vault_accounting = list()
 	var/area/A = GLOB.areas_by_type[/area/rogue/indoors/town/vault]
 	var/passive_income = 0
-	for(var/obj/item/I in A)
+	for(var/obj/I in A)
 		if(!isturf(I.loc))
 			continue
-		if(I.get_real_price() <= 0)
-			continue
-		/*
-		* This seems to be a removed variable
-		* that occurs only in submission.dm and
-		* bounties.dm. Its original purpose
-		* seems to be preventing people from
-		* collecting the same bounty several times.
-		*/
-		if(!I.submitted_to_stockpile)
-			I.submitted_to_stockpile = TRUE
-		//Passive income is 15% of the items worth.
-		if(is_type_in_typecache(I, GLOB.ITEM_DOES_NOT_GENERATE_VAULT_RENT) )
-			passive_income += (I.get_real_price()*0) // coin gives no interest, need to have rare items or refined products
-		else	passive_income += (I.get_real_price()*0.15)
+		if(isitem(I))
+			passive_income += add_to_vault(I)
+		else if(istype(I, /obj/structure/closet))
+			for(var/obj/item/item in I.contents)
+				passive_income += add_to_vault(item)
+
 	return passive_income
+
+/datum/controller/subsystem/treasury/proc/add_to_vault(obj/item/item)
+	var/list/objects_to_search = list(item)
+	var/datum/component/storage/storage = item.GetComponent(/datum/component/storage)
+	if(storage)
+		objects_to_search |= storage.contents()
+	var/total_value = 0
+	for(var/atom/movable/movable_atom in objects_to_search)
+		if(is_type_in_typecache(movable_atom, GLOB.ITEM_DOES_NOT_GENERATE_VAULT_RENT))
+			continue
+		if(movable_atom.get_real_price() <= 0)
+			continue
+		//Passive income is 15% of the items worth.
+		var/item_value = movable_atom.get_real_price() * interest_rate
+		vault_accounting[movable_atom.type] += 1
+		if(vault_accounting[movable_atom.type] > 1)
+			item_value *= (multiple_item_penalty ** (vault_accounting[movable_atom.type]-1))
+		total_value += item_value
+	return total_value
 
 /*
 * These procs are all called directly from
@@ -137,37 +153,37 @@ SUBSYSTEM_DEF(treasury)
 	return TRUE
 
 //increments the treasury directly (tax collection)
-/datum/controller/subsystem/treasury/proc/give_money_treasury(amt, source)
+/datum/controller/subsystem/treasury/proc/give_money_treasury(amt, source, silent = FALSE)
 	if(!amt)
 		return
 	treasury_value += amt
+	if(silent)
+		return
 	if(source)
 		log_to_steward("+[amt] to treasury ([source])")
 	else
 		log_to_steward("+[amt] to treasury")
 
-//pays to account from treasury (payroll)
-/datum/controller/subsystem/treasury/proc/give_money_account(amt, name, source)
+//pays to account (if it exists) from treasury (payroll). Not taxed
+/datum/controller/subsystem/treasury/proc/give_money_account(amt, target, source)
 	if(!amt)
 		return
-	if(!name)
+	if(!target)
 		return
+	amt = floor(amt)
+	var/target_name = target
+	if(istype(target,/mob/living/carbon/human))
+		var/mob/living/carbon/human/H = target
+		target_name = H.real_name
 	var/found_account
-	if (amt > treasury_value)  // Check if the amount exceeds the treasury balance
-		send_ooc_note("<b>The Bank:</b> Error: Insufficient funds in the treasury to complete the transaction.", name = name)
-		return FALSE  // Return early if the treasury balance is insufficient
 	for(var/X in bank_accounts)
-		if(X == name)
+		if(X == target)
 			if(amt > 0)
-				bank_accounts[X] += amt  // Deposit the money into the player's account
-				treasury_value -= amt   // Deduct the given amount from the treasury
+				bank_accounts[X] += amt  // Add funds into the player's account
 			else
 				// Check if the amount to be fined exceeds the player's account balance
-				if(abs(amt) > bank_accounts[X])
-					send_ooc_note("<b>The Bank:</b> Error: Insufficient funds in the player's account to complete the fine.", name = name)
-					return FALSE  // Return early if the player has insufficient funds
+				amt = min(max(amt, -1 * bank_accounts[X]), 0)  // amt should be a negative number
 				bank_accounts[X] -= abs(amt)  // Deduct the fine amount from the player's account
-				treasury_value += abs(amt)  // Add the fined amount to the treasury
 			found_account = TRUE
 			break
 	if(!found_account)
@@ -176,60 +192,81 @@ SUBSYSTEM_DEF(treasury)
 	if (amt > 0)
 		// Player received money
 		if(source)
-			send_ooc_note("<b>The Bank:</b> You received money. ([source])", name = name)
-			log_to_steward("+[amt] from treasury to [name] ([source])")
+			send_ooc_note("<b>MEISTER:</b> Your account has received [amt] mammon. ([source])", name = target_name)
+			log_to_steward("+[amt] from treasury to [target_name] ([source])")
 		else
-			send_ooc_note("<b>The Bank:</b> You received money.", name = name)
-			log_to_steward("+[amt] from treasury to [name]")
-	else
+			send_ooc_note("<b>MEISTER:</b> Your account has received [amt] mammon.", name = target_name)
+			log_to_steward("+[amt] from treasury to [target_name]")
+	else if (amt < 0)
 		// Player was fined
 		if(source)
-			send_ooc_note("<b>The Bank:</b> You were fined. ([source])", name = name)
-			log_to_steward("[name] was fined [amt] ([source])")
+			send_ooc_note("<b>MEISTER:</b> Your account was fined [abs(amt)] mammon. ([source])", name = target_name)
+			log_to_steward("[name] was fined [target_name] ([source])")
 		else
-			send_ooc_note("<b>The Bank:</b> You were fined.", name = name)
-			log_to_steward("[name] was fined [amt]")
+			send_ooc_note("<b>MEISTER:</b> Your account was fined [abs(amt)] mammon.", name = target_name)
+			log_to_steward("[name] was fined [target_name]")
 
 	return TRUE
 
-//increments the treasury and gives the money to the account (deposits)
-/datum/controller/subsystem/treasury/proc/generate_money_account(amt, name, source)
+///Deposits money into a character's bank account. Taxes are deducted from the deposit and added to the treasury.
+///@param amt: The amount of money to deposit.
+///@param character: The character making the deposit.
+///@return a list(original deposit, taxed amount) if the money was successfully deposited, FALSE otherwise.
+/datum/controller/subsystem/treasury/proc/generate_money_account(amt, mob/living/carbon/human/character)
 	if(!amt)
-		return
-	var/found_account
-	for(var/X in bank_accounts)
-		if(X == name)
-			bank_accounts[X] += amt  // Deposit the money into the player's account
-			found_account = TRUE
-			break
-	if(!found_account)
-		log_to_steward("+[amt] deposited by anonymous.")
-		return
-	if(source)
-		log_to_steward("+[amt] deposited by [name] ([source])")
+		return FALSE
+	if(!character)
+		return FALSE
+	var/taxed_amount = 0
+	var/original_amt = amt
+	treasury_value += amt
+	if(character in bank_accounts)
+		if(HAS_TRAIT(character, TRAIT_NOBLE))
+			bank_accounts[character] += amt
+		else
+			taxed_amount = round(amt * tax_value)
+			amt -= taxed_amount
+			bank_accounts[character] += amt
 	else
-		log_to_steward("+[amt] deposited by [name]")
-	return TRUE
+		return FALSE
+
+	log_to_steward("+[original_amt] deposited by [character.real_name] of which taxed [taxed_amount]")
+
+	return list(original_amt, taxed_amount)
 
 
-/datum/controller/subsystem/treasury/proc/withdraw_money_account(amt, name)
+/datum/controller/subsystem/treasury/proc/withdraw_money_account(amt, target)
 	if(!amt)
 		return
+	var/target_name = target
+	if(istype(target_name,/mob/living/carbon/human))
+		var/mob/living/carbon/human/H = target_name
+		target_name = H.real_name
 	var/found_account
 	for(var/X in bank_accounts)
-		if(X == name)
+		if(X == target)
 			if(bank_accounts[X] < amt)  // Check if the withdrawal amount exceeds the player's account balance
-				send_ooc_note("<b>The Bank:</b> Error: Insufficient funds in the player's account to complete the withdrawal.", name = name)
+				send_ooc_note("<b>MEISTER:</b> Error: Insufficient funds in the account to complete the withdrawal.", name = target_name)
 				return  // Return without processing the transaction
+			if(treasury_value < amt)  // Check if the amount exceeds the treasury balance
+				send_ooc_note("<b>MEISTER:</b> Error: Insufficient funds in the treasury to complete the transaction.", name = target_name)
+				return  // Return early if the treasury balance is insufficient
 			bank_accounts[X] -= amt
+			treasury_value -= amt
 			found_account = TRUE
 			break
 	if(!found_account)
 		return
-	log_to_steward("-[amt] withdrawn by [name]")
+	log_to_steward("-[amt] withdrawn by [target_name]")
 	return TRUE
 
 
 /datum/controller/subsystem/treasury/proc/log_to_steward(log)
 	log_entries += log
 	return
+
+/datum/controller/subsystem/treasury/proc/distribute_estate_incomes()
+	for(var/mob/living/welfare_dependant in noble_incomes)
+		var/how_much = noble_incomes[welfare_dependant]
+		give_money_treasury(how_much, silent = TRUE)
+		give_money_account(how_much, welfare_dependant, "Vanderlin Noble Estate")

@@ -287,6 +287,8 @@ GLOBAL_VAR_INIT(mobids, 1)
 		return FALSE
 	equip_to_slot(W, slot, redraw_mob, initial) //This proc should not ever fail.
 	update_a_intents()
+	if(isliving(src))
+		src:update_reflection()
 	return TRUE
 
 /**
@@ -1101,11 +1103,11 @@ GLOBAL_VAR_INIT(mobids, 1)
 /mob/proc/can_read(obj/O, silent = FALSE)
 	if(is_blind(src) || eye_blurry)
 		if(!silent)
-			to_chat(src, "<span class='warning'>I'm too blind to read.</span>")
+			to_chat(src, span_warning("I'm too blind to read."))
 		return
 	if(!is_literate())
 		if(!silent)
-			to_chat(src, "<span class='warning'>I can't make sense of these verba.</span>")
+			to_chat(src, span_warning("I can't make sense of these verbs."))
 		return
 	return TRUE
 

@@ -251,7 +251,7 @@
 		return 1
 	if(istype(mover) && (mover.pass_flags & PASSGRILLE))
 		return 1
-	if(mover.throwing && !ismob(mover))
+	if(mover.throwing && isitem(mover))
 		return prob(66)
 	return ..()
 
@@ -945,14 +945,20 @@
 	if(user.mind)
 		var/datum/antagonist/bandit/B = user.mind.has_antag_datum(/datum/antagonist/bandit)
 		if(B)
+			if(istype(W, /obj/item/reagent_containers/lux))
+				user.adjust_triumphs(1, reason = "Offered Lux")
+				qdel(W)
+				return
 			if(istype(W, /obj/item/coin) || istype(W, /obj/item/gem) || istype(W, /obj/item/reagent_containers/glass/cup/silver) || istype(W, /obj/item/reagent_containers/glass/cup/golden) || istype(W, /obj/item/reagent_containers/glass/carafe) || istype(W, /obj/item/clothing/ring) || istype(W, /obj/item/clothing/head/crown/circlet) || istype(W, /obj/item/statue))
 				if(B.tri_amt >= 10)
 					to_chat(user, "<span class='warning'>The mouth doesn't open.</span>")
 					return
 				if(!istype(W, /obj/item/coin))
 					B.contrib += (W.get_real_price() / 2) //sell jewerly and other fineries, though at a lesser price compared to fencing them first
+					GLOB.vanderlin_round_stats[STATS_SHRINE_VALUE] += (W.get_real_price() / 2)
 				else
 					B.contrib += W.get_real_price()
+					GLOB.vanderlin_round_stats[STATS_SHRINE_VALUE] += W.get_real_price()
 				if(B.contrib >= 100)
 					B.tri_amt++
 					user.mind.adjust_triumphs(1)
@@ -1171,6 +1177,9 @@
 						thebride.adjust_triumphs(1)
 						//Bite the apple first if you want to be the groom.
 						priority_announce("[thegroom.real_name] has married [bridefirst]!", title = "Holy Union!", sound = 'sound/misc/bell.ogg')
+						thegroom.remove_stress(/datum/stressevent/eora_marriage_call)
+						thebride.remove_stress(/datum/stressevent/eora_marriage_call)
+						GLOB.vanderlin_round_stats[STATS_MARRIAGES]++
 						marriage = TRUE
 						qdel(A)
 
@@ -1271,6 +1280,9 @@
 	if(!user.mind)
 		return
 	if(!ring_destroyed)
+		return
+	if(is_gaffer_assistant_job(user.mind?.assigned_role))
+		to_chat(user, span_danger("It is not mine to have..."))
 		return
 	to_chat(user, span_danger("As you extend your hand over to the glowing ring, you feel a shiver go up your spine, as if unseen eyes turned to glare at you..."))
 	var/gaffed = alert(user, "Will you bear the burden? (Be the next Gaffer)", "YOUR DESTINY", "Yes", "No")

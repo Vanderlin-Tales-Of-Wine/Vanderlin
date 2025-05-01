@@ -46,9 +46,6 @@
 /mob/proc/update_body()
 	return
 
-/mob/proc/update_hair()
-	return
-
 /mob/proc/update_fire()
 	return
 

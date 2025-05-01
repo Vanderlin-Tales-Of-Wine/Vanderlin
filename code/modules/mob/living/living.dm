@@ -17,6 +17,8 @@
 	faction += "[REF(src)]"
 	GLOB.mob_living_list += src
 	init_faith()
+	if(has_reflection)
+		create_reflection()
 
 /mob/living/Destroy()
 	if(FACTION_MATTHIOS in faction)
@@ -48,6 +50,66 @@
 	return ..()
 
 
+/mob/living/update_overlays()
+	. = ..()
+	update_reflection()
+
+/mob/living/update_icon()
+	. = ..()
+	update_reflection()
+
+
+/mob/living/proc/create_reflection()
+	//Add custom reflection image
+	var/mutable_appearance/MAM = new()
+	//appearance stuff
+	MAM.appearance = appearance
+	if(render_target)
+		MAM.render_source = render_target
+	MAM.plane = REFLECTION_PLANE
+	//transform stuff
+	var/matrix/n_transform = MAM.transform
+	n_transform.Scale(1, -1)
+	MAM.transform = n_transform
+	MAM.vis_flags = VIS_INHERIT_DIR
+	//filters
+	var/icon/I = icon('icons/turf/overlays.dmi', "whiteOverlay")
+	I.Flip(NORTH)
+	MAM.filters += filter(type = "alpha", icon = I)
+	reflective_icon = MAM
+	reflective_icon.pixel_y = -32
+	add_overlay(reflective_icon)
+	update_vision_cone()
+
+/mob/living/carbon/human/dummy
+	has_reflection = FALSE
+
+/mob/living/carbon/human/dummy/update_reflection()
+	return
+
+/mob/living/proc/update_reflection()
+	if(!has_reflection)
+		return
+	if(!reflective_icon)
+		create_reflection()
+	cut_overlay(reflective_icon)
+	reflective_icon.appearance = appearance
+	if(render_target)
+		reflective_icon.render_source = render_target
+	reflective_icon.plane = REFLECTION_PLANE
+	reflective_icon.pixel_y = -32
+	//transform stuff
+	var/matrix/n_transform = reflective_icon.transform
+	n_transform.Scale(1, -1)
+	reflective_icon.transform = n_transform
+	reflective_icon.vis_flags = VIS_INHERIT_DIR
+	//filters
+	var/icon/I = icon('icons/turf/overlays.dmi', "partialOverlay")
+	I.Flip(NORTH)
+	reflective_icon.filters += filter(type = "alpha", icon = I)
+	add_overlay(reflective_icon)
+	update_vision_cone()
+
 /mob/living/onZImpact(turf/T, levels)
 	if(HAS_TRAIT(src, TRAIT_NOFALLDAMAGE2))
 		return
@@ -73,7 +135,7 @@
 		playsound(src.loc, 'sound/foley/zfall.ogg', 100, FALSE)
 	if(!isgroundlessturf(T))
 		ZImpactDamage(T, levels)
-		GLOB.vanderlin_round_stats["moat_fallers"]++
+		GLOB.vanderlin_round_stats[STATS_MOAT_FALLERS]++
 	return ..()
 
 /mob/living/proc/ZImpactDamage(turf/T, levels)
@@ -388,6 +450,7 @@
 	if(AM != src)
 		pulling = AM
 		AM.pulledby = src
+		SEND_SIGNAL(src, COMSIG_LIVING_START_PULL, AM, state, force)
 	update_pull_hud_icon()
 
 	if(isliving(AM))
@@ -552,6 +615,10 @@
 		return
 	if (InCritical() || health <= 0 || (blood_volume < BLOOD_VOLUME_SURVIVE))
 		log_message("Has [whispered ? "whispered his final words" : "succumbed to death"] while in [InFullCritical() ? "hard":"soft"] critical with [round(health, 0.1)] points of health!", LOG_ATTACK)
+
+		if(istype(src.loc, /turf/open/water) && !HAS_TRAIT(src, TRAIT_NOBREATH) && lying && client)
+			GLOB.vanderlin_round_stats[STATS_PEOPLE_DROWNED]++
+
 		adjustOxyLoss(201)
 		updatehealth()
 //		if(!whispered)
@@ -983,6 +1050,7 @@
 		return
 	surrendering = 1
 	if(alert(src, "Yield in surrender?",,"YES","NO") == "YES")
+		GLOB.vanderlin_round_stats[STATS_YIELDS]++
 		changeNext_move(CLICK_CD_EXHAUSTED)
 		var/image/flaggy = image('icons/effects/effects.dmi',src,"surrender",ABOVE_MOB_LAYER)
 		flaggy.appearance_flags = RESET_TRANSFORM|KEEP_APART
@@ -1705,6 +1773,39 @@
 	if (client && ranged_ability && ranged_ability.ranged_mousepointer)
 		client.mouse_pointer_icon = ranged_ability.ranged_mousepointer
 
+/mob/living/vv_get_dropdown()
+	. = ..()
+	VV_DROPDOWN_OPTION("", "---------")
+	VV_DROPDOWN_OPTION(VV_HK_MODIFY_STATS, "Modify Stats")
+
+/mob/living/vv_do_topic(list/href_list)
+	. = ..()
+	if(href_list[VV_HK_MODIFY_STATS])
+		if(!check_rights(R_ADMIN))
+			return
+
+		switch(browser_alert(usr, "Add or remove?", "MODIFY STATS", list("ADD", "REMOVE")))
+			if("REMOVE")
+				if(!LAZYLEN(stat_modifiers))
+					return
+
+				var/source = browser_input_list(usr, "Source to Remove", "MODIFY STATS", stat_modifiers)
+				if(!source)
+					return
+
+				remove_stat_modifier(source)
+			if("ADD")
+				var/stat_key = browser_input_list(usr, "Stat to Add", "MODIFY STATS", MOBSTATS)
+				if(!stat_key)
+					return
+
+				var/amount = input(usr, "Stat amount", "MODIFY_STATS") as num|null
+				if(!amount)
+					return
+
+				set_stat_modifier(ADMIN_TRAIT, stat_key, amount)
+		return
+
 /mob/living/vv_edit_var(var_name, var_value)
 	switch(var_name)
 		if ("maxHealth")
@@ -2059,3 +2160,17 @@
 
 	SEND_SIGNAL(src, COMSIG_LIVING_UNFRIENDED, old_friend)
 	return TRUE
+/mob/living/proc/get_carry_capacity()
+	return max(45, STAEND * 12)
+
+///this is returned as decimal value between 0 and 1
+/mob/living/proc/get_encumbrance()
+	return 0
+
+/mob/living/proc/get_total_weight()
+	return 0
+
+/mob/living/proc/encumbrance_to_dodge()
+	return 1
+
+/mob/living/proc/encumbrance_to_speed()
