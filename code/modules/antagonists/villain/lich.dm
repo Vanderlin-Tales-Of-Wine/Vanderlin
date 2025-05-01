@@ -41,6 +41,9 @@
 	SSmapping.retainer.liches |= owner
 	. = ..()
 	owner.special_role = name
+	move_to_spawnpoint()
+	remove_job()
+	owner.current?.roll_mob_stats()
 	skele_look()
 	equip_lich()
 	greet()
@@ -52,7 +55,7 @@
 	..()
 	owner.current.playsound_local(get_turf(owner.current), 'sound/music/lichintro.ogg', 80, FALSE, pressure_affected = FALSE)
 
-/datum/antagonist/lich/proc/move_to_spawnpoint()
+/datum/antagonist/lich/move_to_spawnpoint()
 	owner.current.forceMove(pick(GLOB.lich_starts))
 
 /datum/antagonist/lich/proc/skele_look()
