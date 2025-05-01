@@ -21,12 +21,7 @@
 
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD)
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-	)
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	give_bank_account = 30
 	cmode_music = 'sound/music/cmode/garrison/CombatForestGarrison.ogg'
 
@@ -38,7 +33,10 @@
 
 /datum/outfit/job/forestguard/pre_equip(mob/living/carbon/human/H)
 	..()
-	cloak = /obj/item/clothing/cloak/forrestercloak
+	if(SSmapping.config.map_name == "Rosewood")
+		cloak = /obj/item/clothing/cloak/forrestercloak/snow
+	else
+		cloak = /obj/item/clothing/cloak/forrestercloak
 	armor = /obj/item/clothing/armor/leather/advanced/forrester
 	head = /obj/item/clothing/head/helmet/medium/decorated/skullmet
 	shirt = /obj/item/clothing/shirt/undershirt/black
@@ -51,9 +49,6 @@
 
 /datum/job/forestguard/after_spawn(mob/living/carbon/spawned, client/player_client)
 	..()
-	spawned.advsetup = TRUE
-	spawned.invisibility = INVISIBILITY_MAXIMUM
-	spawned.become_blind("advsetup")
 
 // Axes Maces and Swords
 /datum/advclass/forestguard/infantry
@@ -76,7 +71,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/lumberjacking, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/lumberjacking, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/carpentry, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/tanning, 1, TRUE)
@@ -115,7 +110,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/lumberjacking, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/lumberjacking, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/carpentry, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/tanning, 1, TRUE)
@@ -152,7 +147,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/lumberjacking, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/lumberjacking, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/carpentry, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/tanning, 1, TRUE)

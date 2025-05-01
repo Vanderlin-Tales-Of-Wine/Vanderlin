@@ -65,13 +65,14 @@
 		y,
 		level.z_value,
 		no_changeturf = (SSatoms.initialized == INITIALIZATION_INSSATOMS),
-		placeOnTop = TRUE,
+		place_on_top = TRUE,
+		new_z = TRUE
 	)
 	var/list/bounds = parsed.bounds
 	if(!bounds)
 		return FALSE
 
-	repopulate_sorted_areas()
+	require_area_resort()
 	//initialize things that are normally initialized after map load
 	parsed.initTemplateBounds()
 	smooth_zlevel(world.maxz)
@@ -99,13 +100,13 @@
 	// ruins clogging up memory for the whole round.
 	var/datum/parsed_map/parsed = cached_map || new(file(mappath))
 	cached_map = keep_cached_map ? parsed : null
-	if(!parsed.load(T.x, T.y, T.z, cropMap=TRUE, no_changeturf=(SSatoms.initialized == INITIALIZATION_INSSATOMS), placeOnTop=TRUE))
+	if(!parsed.load(T.x, T.y, T.z, no_changeturf=(SSatoms.initialized == INITIALIZATION_INSSATOMS), place_on_top=TRUE))
 		return
 	var/list/bounds = parsed.bounds
 	if(!bounds)
 		return
 
-	repopulate_sorted_areas()
+	require_area_resort()
 
 	//initialize things that are normally initialized after map load
 	parsed.initTemplateBounds()

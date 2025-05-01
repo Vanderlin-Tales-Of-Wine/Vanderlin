@@ -35,15 +35,15 @@
 						continue
 				var/val = C.armor.getRating(d_type)
 				// The code below finally fixes the targetting order of armor > shirt > flesh. - Foxtrot (#gundamtanaka)
-				var/armorworn = src.get_item_by_slot(SLOT_ARMOR) // The armor we're wearing
-				var/shirtworn = src.get_item_by_slot(SLOT_SHIRT) // The shirt we're wearing
+				var/obj/item/armorworn = src.get_item_by_slot(SLOT_ARMOR) // The armor we're wearing
+				var/obj/item/shirtworn = src.get_item_by_slot(SLOT_SHIRT) // The shirt we're wearing
 				if(bp == armorworn) // If the targeted bodypart has an armor...
 					if(val > 0) // ...and it's an actual armor with armor values...
 						if(val > protection)
 							protection = val
 							used = armorworn // ...force us to use it above all!
 				// If we don't have armor equipped or the one we have is broken...
-				else if(bp == shirtworn && src.wear_armor?.obj_integrity <= 0 || armorworn == null)
+				else if(bp == shirtworn && (!armorworn || (armorworn.max_integrity && armorworn.obj_integrity <= 0) || !zone2covered(def_zone, armorworn.body_parts_covered)))
 					if(val > 0) // ...and it's not just a linen shirt...
 						if(val > protection)
 							protection = val
@@ -264,7 +264,7 @@
 			to_chat(M, "<span class='danger'>I disarm [src]!</span>")
 		else if(!M.client || prob(5)) // only natural monkeys get to stun reliably, (they only do it occasionaly)
 			playsound(loc, 'sound/blank.ogg', 25, TRUE, -1)
-			if (src.IsKnockdown() && !src.IsParalyzed())
+			if(HAS_TRAIT(src, TRAIT_FLOORED) && !IsParalyzed())
 				Paralyze(40)
 				log_combat(M, src, "pinned")
 				visible_message("<span class='danger'>[M] pins [src] down!</span>", \
@@ -527,9 +527,7 @@
 			if(prob(min(acidpwr*acid_volume/10, 90))) //Applies disfigurement
 				affecting.receive_damage(acidity, 2*acidity)
 				emote("scream")
-				facial_hairstyle = "Shaved"
-				hairstyle = "Bald"
-				update_hair()
+				dna?.species.go_bald(src)
 				ADD_TRAIT(src, TRAIT_DISFIGURED, TRAIT_GENERIC)
 
 		update_damage_overlays()

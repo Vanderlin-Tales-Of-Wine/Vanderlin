@@ -8,13 +8,15 @@
 	"Dead Windmills" = 'sound/music/jukeboxes/chill/dead_windmills.ogg',\
 	"In Heaven Everythin" = 'sound/music/jukeboxes/chill/in_heaven_eif.ogg',\
 	"Jazznocn" = 'sound/music/jukeboxes/chill/jazznocn.ogg',\
-	"Vivalaluna-Damla" = 'sound/music/jukeboxes/chill/vivalaluna-damla.ogg'\
+	"Vivalaluna-Damla" = 'sound/music/jukeboxes/chill/vivalaluna-damla.ogg',\
+	"Taste of your Tears" = 'sound/music/jukeboxes/chill/taste_of_your_tears.ogg'\
 )
 #define MUSIC_TAVCAT_FUCK list(\
 	"Cure4Sorrow" = 'sound/music/jukeboxes/fuck/cure4sorrow.ogg',\
 	"Dangerous Radiation" = 'sound/music/jukeboxes/fuck/dangeradiation.ogg',\
 	"Pandora's Box" = 'sound/music/jukeboxes/fuck/fb-pandora.ogg',\
-	"Raspberry jam" = 'sound/music/jukeboxes/fuck/raspberryjam.ogg'\
+	"Raspberry jam" = 'sound/music/jukeboxes/fuck/raspberryjam.ogg',\
+	"Stardust Memories" = 'sound/music/jukeboxes/fuck/stardstm.ogg'\
 )
 #define MUSIC_TAVCAT_PARTY list(\
 	"A Winter Kiss" = 'sound/music/jukeboxes/party/a_winter_kiss.ogg',\
@@ -23,25 +25,40 @@
 	"Invisible" = 'sound/music/jukeboxes/party/av_invis.ogg',\
 	"Kick the Beat" = 'sound/music/jukeboxes/party/av_ktb.ogg',\
 	"dAnCe nAtion" = 'sound/music/jukeboxes/party/dance_nation_remix.ogg',\
-	"Imagine" = 'sound/music/jukeboxes/party/imagine.ogg'\
+	"Imagine" = 'sound/music/jukeboxes/party/imagine.ogg',\
+	"My Glamorous Life" = 'sound/music/jukeboxes/party/my_glamorous_life.ogg'\
 )
 #define MUSIC_TAVCAT_SCUM list(\
 	"Shades of Futility" = 'sound/music/jukeboxes/scum/fb-sofutile.ogg',\
 	"Headspin" = 'sound/music/jukeboxes/scum/headspin.ogg',\
 	"Mr Doubt" = 'sound/music/jukeboxes/scum/mr_doubt.ogg',\
-	"Stagebox" = 'sound/music/jukeboxes/scum/stagebox.remix.ogg'\
+	"Stagebox" = 'sound/music/jukeboxes/scum/stagebox.remix.ogg',\
+	"Camel Without Filter" = 'sound/music/jukeboxes/scum/pedro_-_camel_without_filter.ogg',\
+	"Roll Up (Dupe Edit)" = 'sound/music/jukeboxes/scum/roll_up_dupe_edit.ogg',\
+	"Cyberride" = 'sound/music/jukeboxes/scum/cyberrid.ogg'\
+)
+#define MUSIC_TAVCAT_DAMN list(\
+	"Basshead" = 'sound/music/jukeboxes/damn/pedro_-_basshead.ogg',\
+	"Bubbles Up" = 'sound/music/jukeboxes/damn/pedro_-_bubbles_up.ogg',\
+	"Life Sucks" = 'sound/music/jukeboxes/damn/pedro_-_life_sucks.ogg',\
+	"Silent Avantgarde" = 'sound/music/jukeboxes/damn/pedro_-_silent_avantgarde.ogg',\
+	"What is Funk" = 'sound/music/jukeboxes/damn/what_is_funk.ogg',\
+	"Enlightenment" = 'sound/music/jukeboxes/damn/enlightenment.ogg',\
+	"Blue Curacao" = 'sound/music/jukeboxes/damn/blue_curacao.ogg',\
+	"Breath of Life" = 'sound/music/jukeboxes/damn/breath_of_life.ogg'\
 )
 #define MUSIC_TAVCAT_MISC list(\
 	"Generic" = 'sound/music/jukeboxes/_misc/_generic.ogg',\
 	"AndreiKabak" = 'sound/music/jukeboxes/_misc/Andrei_Kabak-Pathologic.ogg',\
-	"Twyrine" = 'sound/music/jukeboxes/_misc/Twyrine-Pathologic2.ogg'\
+	"Twyrine" = 'sound/music/jukeboxes/_misc/Twyrine-Pathologic2.ogg',\
+	"waitingroom" = 'sound/music/jukeboxes/_misc/waitingroom.ogg'\
 )
 
 /datum/looping_sound/musloop
 	mid_sounds = list()
-	mid_length = 18000 // This is 30 minutes- just in case something wierd happens.
-	volume = 50
-	extra_range = 6
+	mid_length = 2400 // Whoever wrote this is giving me an aneurism
+	volume = 70
+	extra_range = 8
 	falloff = 0
 	persistent_loop = TRUE
 	var/stress2give = /datum/stressevent/music
@@ -76,13 +93,11 @@
 	curfile = pick(init_curfile)
 	soundloop = new(src, FALSE)
 	if(playuponspawn)
-		playmusic("START")
-		update_icon()
+		start_playing()
 
 /obj/structure/fake_machine/musicbox/Destroy()
-	playmusic("STOP")
-	del(soundloop)
 	. = ..()
+	qdel(soundloop)
 
 /obj/structure/fake_machine/musicbox/update_icon()
 	icon_state = "music[playing]"
@@ -96,30 +111,25 @@
 		else
 			. += span_info("It's unlocked- under a [lockid] key!")
 
-/obj/structure/fake_machine/musicbox/proc/playmusic(mode="TOGGLE") // "TOGGLE" | "START" | "STOP"
-	playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
-	if(mode=="TOGGLE")
-		if(!playing)
-			if(curfile)
-				playing = TRUE
-				soundloop.mid_sounds = list(curfile)
-				soundloop.cursound = null
-				soundloop.volume = curvol
-				soundloop.start()
-		else
-			playing = FALSE
-			soundloop.stop()
-	if(mode=="START")
-		if(!playing)
-			if(curfile)
-				playing = TRUE
-				soundloop.mid_sounds = list(curfile)
-				soundloop.cursound = null
-				soundloop.volume = curvol
-				soundloop.start()
-	if(mode=="STOP")
-		playing = FALSE
-		soundloop.stop()
+/obj/structure/fake_machine/musicbox/proc/toggle_music()
+	if(!playing)
+		start_playing()
+	else
+		stop_playing()
+
+/obj/structure/fake_machine/musicbox/proc/start_playing()
+	playing = TRUE
+	soundloop.mid_sounds = list(curfile)
+	soundloop.cursound = null
+	soundloop.volume = curvol
+	soundloop.start()
+	testing("Music: V[soundloop.volume] C[soundloop.cursound] T[soundloop.thingshearing]")
+	update_icon()
+
+/obj/structure/fake_machine/musicbox/proc/stop_playing()
+	playing = FALSE
+	soundloop.stop()
+	update_icon()
 
 /obj/structure/fake_machine/musicbox/attack_hand(mob/user)
 	. = ..()
@@ -143,10 +153,10 @@
 	playsound(loc, pick('sound/misc/keyboard_select (1).ogg','sound/misc/keyboard_select (2).ogg','sound/misc/keyboard_select (3).ogg','sound/misc/keyboard_select (4).ogg'), 100, FALSE, -1)
 
 	if(button_selection=="Stop/Start")
-		playmusic("TOGGLE")
+		toggle_music()
 
 	if(button_selection=="Change Song")
-		var/songlists_selection = input(user, "Which song list?", "\The [src]") as null | anything in list("CHILL"=MUSIC_TAVCAT_CHILL, "FUCK"=MUSIC_TAVCAT_FUCK, "PARTY"=MUSIC_TAVCAT_PARTY, "SCUM"=MUSIC_TAVCAT_SCUM, "MISC"=MUSIC_TAVCAT_MISC)
+		var/songlists_selection = input(user, "Which song list?", "\The [src]") as null | anything in list("CHILL"=MUSIC_TAVCAT_CHILL, "FUCK"=MUSIC_TAVCAT_FUCK, "PARTY"=MUSIC_TAVCAT_PARTY, "SCUM"=MUSIC_TAVCAT_SCUM, "DAMN"=MUSIC_TAVCAT_DAMN, "MISC"=MUSIC_TAVCAT_MISC)
 		playsound(loc, pick('sound/misc/keyboard_select (1).ogg','sound/misc/keyboard_select (2).ogg','sound/misc/keyboard_select (3).ogg','sound/misc/keyboard_select (4).ogg'), 100, FALSE, -1)
 		user.visible_message(span_info("[user] presses a button on \the [src]."),span_info("I press a button on \the [src]."))
 		var/chosen_songlists_selection = null
@@ -158,6 +168,8 @@
 			chosen_songlists_selection = MUSIC_TAVCAT_PARTY
 		if(songlists_selection=="SCUM")
 			chosen_songlists_selection = MUSIC_TAVCAT_SCUM
+		if(songlists_selection=="DAMN")
+			chosen_songlists_selection = MUSIC_TAVCAT_DAMN
 		if(songlists_selection=="MISC")
 			chosen_songlists_selection = MUSIC_TAVCAT_MISC
 		var/song_selection = input(user, "Which song do I play?", "\The [src]") as null | anything in chosen_songlists_selection
@@ -169,8 +181,8 @@
 		playsound(loc, pick('sound/misc/keyboard_select (1).ogg','sound/misc/keyboard_select (2).ogg','sound/misc/keyboard_select (3).ogg','sound/misc/keyboard_select (4).ogg'), 100, FALSE, -1)
 		user.visible_message(span_info("[user] presses a button on \the [src]."),span_info("I press a button on \the [src]."))
 		curfile = chosen_songlists_selection[song_selection]
-		playmusic("STOP")
-		playmusic("START")
+		stop_playing()
+		start_playing()
 
 	if(button_selection=="Change Volume")
 		var/volume_selection = input(user, "How loud do you wish me to be?", "\The [src] (Volume Currently : [curvol]/[100])") as num|null
@@ -181,16 +193,15 @@
 			return
 		playsound(loc, pick('sound/misc/keyboard_select (1).ogg','sound/misc/keyboard_select (2).ogg','sound/misc/keyboard_select (3).ogg','sound/misc/keyboard_select (4).ogg'), 100, FALSE, -1)
 		user.visible_message(span_info("[user] presses a button on \the [src]."),span_info("I press a button on \the [src]."))
-		volume_selection = clamp(volume_selection, 0, 100)
-		curvol = volume_selection
-		playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
-		playmusic("STOP")
-		playmusic("START")
+		volume_selection = clamp(volume_selection, 1, 100)
 		if(curvol<volume_selection)
 			to_chat(user, span_info("I make \the [src] louder."))
 		else
 			to_chat(user, span_info("I make \the [src] quieter."))
-	update_icon()
+		curvol = volume_selection
+		playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
+		stop_playing()
+		start_playing()
 
 /obj/structure/fake_machine/musicbox/attackby(obj/item/useitem, mob/living/user, params)
 	. = ..()

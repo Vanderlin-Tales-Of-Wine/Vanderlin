@@ -112,7 +112,7 @@
 		SSroguemachine.key = src
 
 /obj/item/key/lord/proc/anti_stall()
-	src.visible_message(span_warning("[src] crumbles to dust, the ashes spiriting away in the direction of the Keep."))
+	src.visible_message(span_warning("[src] flies up into the sky and into the direction of the keep!"))
 	SSroguemachine.key = null //Do not harddel.
 	qdel(src) //Anti-stall
 
@@ -198,6 +198,12 @@
 	desc = "This bronze key should open the Artificer's guild."
 	icon_state = "brownkey"
 	lockid = ACCESS_ARTIFICER
+
+/obj/item/key/miner
+	name = "miner's key"
+	desc = "This bronze key should open the Miner's quarters."
+	icon_state = "brownkey"
+	lockid = ACCESS_MINER
 
 // Residents
 
@@ -341,6 +347,12 @@
 	desc = "The key to the manor's guest room. Given to visiting nobles."
 	icon_state = "greenkey"
 	lockid = ACCESS_GUEST
+
+/obj/item/key/courtphys
+	name = "court physician's key"
+	desc = "A key granted to the honored Court Physician."
+	icon_state = "ankhkey"
+	lockid = ACCESS_PHYSICIAN
 
 ////// CHURCH
 

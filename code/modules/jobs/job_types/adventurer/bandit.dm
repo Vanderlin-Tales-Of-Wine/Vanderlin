@@ -4,7 +4,7 @@
 	worthy of your bounty being hung on the wall outside of the local inn. \
 	You now live with your fellow free men in the bog, and generally get up to no good."
 	flag = BANDIT
-	department_flag = PEASANTS
+	department_flag = OUTSIDERS
 	job_flags = (JOB_EQUIP_RANK)
 	display_order = JDO_BANDIT
 	faction = FACTION_STATION
@@ -12,8 +12,6 @@
 	spawn_positions = 0
 	min_pq = 4
 	antag_job = TRUE
-
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
 
 	outfit = null
 	outfit_female = null
@@ -32,9 +30,6 @@
 	var/mob/living/carbon/human/H = spawned
 	if(!H.mind)
 		return
-	H.advsetup = 1
-	H.invisibility = INVISIBILITY_MAXIMUM
-	H.become_blind("advsetup")
 	H.ambushable = FALSE
 
 /datum/outfit/job/bandit/post_equip(mob/living/carbon/human/H)

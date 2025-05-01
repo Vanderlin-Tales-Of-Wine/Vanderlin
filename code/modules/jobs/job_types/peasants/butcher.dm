@@ -13,23 +13,15 @@
 	min_pq = -20
 	bypass_lastclass = TRUE
 
-	allowed_races = list(
-		"Humen",
-		"Rakshari",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc",
-		"Kobold",
-	)
+	allowed_races = RACES_PLAYER_ALL
 
 
 	outfit = /datum/outfit/job/beastmaster
 	give_bank_account = TRUE
 	cmode_music = 'sound/music/cmode/towner/CombatTowner.ogg'
+
+/datum/outfit/job/beastmaster
+	job_bitflag = BITFLAG_CONSTRUCTOR
 
 /datum/outfit/job/beastmaster/pre_equip(mob/living/carbon/human/H)
 	..()

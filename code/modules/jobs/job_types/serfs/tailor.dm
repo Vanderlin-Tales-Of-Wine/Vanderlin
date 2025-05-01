@@ -14,9 +14,12 @@
 	bypass_lastclass = TRUE
 
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
+	allowed_races = RACES_PLAYER_ALL
 
 	outfit = /datum/outfit/job/tailor
+
+/datum/outfit/job/tailor
+	job_bitflag = BITFLAG_CONSTRUCTOR
 
 /datum/outfit/job/tailor/pre_equip(mob/living/carbon/human/H)
 	..()

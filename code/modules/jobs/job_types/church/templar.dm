@@ -13,13 +13,7 @@
 	min_pq = 8
 
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Dwarf",
-		"Aasimar",
-		"Half-Elf",
-	)
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	allowed_patrons = ALL_TEMPLAR_PATRONS
 
 	outfit = /datum/outfit/job/templar
@@ -33,7 +27,7 @@
 
 /datum/outfit/job/templar/pre_equip(mob/living/carbon/human/H)
 	..()
-	head = /obj/item/clothing/head/helmet/heavy/bucket
+	head = /obj/item/clothing/head/helmet/heavy/necked
 	cloak = /obj/item/clothing/cloak/tabard/crusader/tief
 	switch(H.patron?.type)
 		if(/datum/patron/divine/astrata)
@@ -95,7 +89,7 @@
 	backr = /obj/item/weapon/shield/tower/metal
 	belt = /obj/item/storage/belt/leather/black
 	beltl = /obj/item/storage/belt/pouch/coins/poor
-	id = /obj/item/clothing/ring/silver
+	ring = /obj/item/clothing/ring/silver
 	gloves = /obj/item/clothing/gloves/chain
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
@@ -118,7 +112,6 @@
 		if(/datum/patron/divine/abyssor)
 			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
 			backl = /obj/item/weapon/polearm/spear/billhook
-			beltr = /obj/item/storage/belt/pouch/coins/poor
 		if(/datum/patron/divine/malum)
 			H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 4, TRUE)
 			beltr = /obj/item/weapon/mace/warhammer/steel
@@ -134,5 +127,5 @@
 	C.grant_spells_templar(H)
 	H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
 	if(H.dna?.species)
-		if(H.dna.species.id == "humen")
+		if(H.dna.species.id == "human")
 			H.dna.species.soundpack_m = new /datum/voicepack/male/knight()

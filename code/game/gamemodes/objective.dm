@@ -228,7 +228,7 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 
 /datum/objective/protect//The opposite of killing a dude.
 	name = "protect"
-	martyr_compatible = 1
+	martyr_compatible = TRUE
 	var/target_role_type = FALSE
 	var/human_check = TRUE
 
@@ -523,7 +523,7 @@ GLOBAL_LIST_EMPTY(possible_items)
 /datum/objective/contract/proc/generate_dropoff()
 	var/found = FALSE
 	while (!found)
-		var/area/dropoff_area = pick(GLOB.sortedAreas)
+		var/area/dropoff_area = pick(GLOB.areas)
 		if(dropoff_area && is_station_level(dropoff_area.z) && !dropoff_area.outdoors)
 			dropoff = dropoff_area
 			found = TRUE

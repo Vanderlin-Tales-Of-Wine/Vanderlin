@@ -14,20 +14,14 @@
 	min_pq = 0
 
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc"
-	)
+	allowed_races = RACES_PLAYER_ALL
 
 	outfit = /datum/outfit/job/hunter
 	give_bank_account = 15
 	apprentice_name = "Hunter"
+
+/datum/outfit/job/hunter
+	job_bitflag = BITFLAG_CONSTRUCTOR
 
 /datum/outfit/job/hunter/pre_equip(mob/living/carbon/human/H)
 	..()

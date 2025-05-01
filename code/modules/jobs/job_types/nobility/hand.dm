@@ -13,6 +13,9 @@
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
+	spells = list(
+		/obj/effect/proc_holder/spell/self/grant_title,
+	)
 	min_pq = 10
 	bypass_lastclass = TRUE
 
@@ -27,6 +30,7 @@
 	outfit = /datum/outfit/job/hand
 	advclass_cat_rolls = list(CTAG_HAND = 20)
 	give_bank_account = 120
+	noble_income = 22
 
 /datum/outfit/job/hand
 	job_bitflag = BITFLAG_ROYALTY
@@ -37,9 +41,6 @@
 	. = ..()
 	SSfamilytree.AddRoyal(spawned, FAMILY_OMMER)
 	var/mob/living/carbon/human/H = spawned
-	H.advsetup = 1
-	H.invisibility = INVISIBILITY_MAXIMUM
-	H.become_blind("advsetup")
 
 	if(GLOB.keep_doors.len > 0)
 		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(know_keep_door_password), H), 50)

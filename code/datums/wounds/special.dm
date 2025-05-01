@@ -146,6 +146,7 @@
 	bleed_rate = 10
 	can_cauterize = FALSE
 	critical = TRUE
+	var/permanent = FALSE
 
 /datum/wound/facial/tongue/can_apply_to_mob(mob/living/affected)
 	. = ..()
@@ -156,10 +157,20 @@
 /datum/wound/facial/tongue/on_mob_gain(mob/living/affected)
 	. = ..()
 	affected.Stun(10)
-	var/obj/item/organ/tongue/tongue_up_my_asshole = affected.getorganslot(ORGAN_SLOT_TONGUE)
-	if(tongue_up_my_asshole)
-		tongue_up_my_asshole.Remove(affected)
-		tongue_up_my_asshole.forceMove(affected.drop_location())
+	var/obj/item/organ/tongue/tongue_loss = affected.getorganslot(ORGAN_SLOT_TONGUE)
+	if(tongue_loss)
+		tongue_loss.Remove(affected)
+		if(permanent)
+			qdel(tongue_loss)
+		else
+			tongue_loss.forceMove(affected.drop_location())
+
+/datum/wound/facial/tongue/permanent
+	whp = null
+	woundpain = 0
+	bleed_rate = 0
+	can_sew = FALSE
+	permanent = TRUE
 
 /datum/wound/facial/disfigurement
 	name = "disfigurement"
@@ -180,7 +191,7 @@
 /datum/wound/facial/disfigurement/on_mob_loss(mob/living/affected)
 	. = ..()
 	REMOVE_TRAIT(affected, TRAIT_DISFIGURED, "[type]")
-	
+
 /datum/wound/facial/disfigurement/nose
 	name = "rhinotomy"
 	check_name = "<span class='warning'>NOSE</span>"

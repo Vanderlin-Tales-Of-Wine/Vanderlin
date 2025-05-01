@@ -9,24 +9,13 @@
 	display_order = JDO_FELDSHER
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	faction = FACTION_STATION
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 2
+	spawn_positions = 2
 	min_pq = 2
 
 	//Reason all races allowed is you are basically a very talented court physician; even 'lower races' would find this to be one of the only ways to obtain a sort of nobility.
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Rakshari",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc",
-		"Kobold",
-	)
+	allowed_races = RACES_PLAYER_NONEXOTIC
 
 
 	outfit = /datum/outfit/job/feldsher
@@ -38,7 +27,6 @@
 
 /datum/outfit/job/feldsher/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.virginity = TRUE
 	shoes = /obj/item/clothing/shoes/shortboots
 	shirt = /obj/item/clothing/shirt/undershirt/red
 	backr = /obj/item/storage/backpack/satchel
@@ -58,7 +46,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 5, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/alchemy, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/craft/alchemy, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE)
 
 		if(H.age == AGE_OLD)
@@ -70,5 +58,4 @@
 	ADD_TRAIT(H, TRAIT_EMPATH, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_LEGENDARY_ALCHEMIST, TRAIT_GENERIC)
 	H?.mind?.AddSpell(new /obj/effect/proc_holder/spell/invoked/diagnose/secular)

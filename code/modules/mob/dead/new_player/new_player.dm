@@ -138,24 +138,6 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 				to_chat(usr, "<span class='warning'>[pick(choicez)] ([ttime]).</span>")
 				return
 
-		var/plevel = 0
-		if(ismob(usr))
-			var/mob/user = usr
-			if(user.client)
-				plevel = user.client.patreonlevel()
-		if(!IsPatreon(ckey))
-			if(SSticker.queued_players.len || (relevant_cap && living_player_count() >= relevant_cap && !(ckey(key) in GLOB.admin_datums) && plevel < 1))
-				to_chat(usr, "<span class='danger'>[CONFIG_GET(string/hard_popcap_message)]</span>")
-
-				var/queue_position = SSticker.queued_players.Find(usr)
-				if(queue_position == 1)
-					to_chat(usr, "<span class='notice'>Thou art next in line to join the game. You will be notified when a slot opens up.</span>")
-				else if(queue_position)
-					to_chat(usr, "<span class='notice'>Thou art [queue_position-1] players in front of you in the queue to join the game.</span>")
-				else
-					SSticker.queued_players += usr
-					to_chat(usr, "<span class='notice'>Thou have been added to the queue to join the game. Your position in queue is [SSticker.queued_players.len].</span>")
-				return
 		LateChoices()
 
 	if(href_list["SelectedJob"])
@@ -286,6 +268,13 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 /mob/dead/new_player/proc/IsJobUnavailable(rank, latejoin = FALSE)
 	var/datum/job/job = SSjob.GetJob(rank)
 	//TODO: This fucking sucks.
+
+	if(is_skeleton_knight_job(job)) //has to be first because it's a subtype of skeleton
+		if(has_world_trait(/datum/world_trait/death_knight))
+			return JOB_AVAILABLE
+		else
+			return JOB_UNAVAILABLE_GENERIC
+
 	if(is_skeleton_job(job))
 		if(has_world_trait(/datum/world_trait/skeleton_siege))
 			return JOB_AVAILABLE
@@ -300,12 +289,6 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 
 	if(is_rousman_job(job))
 		if(has_world_trait(/datum/world_trait/rousman_siege))
-			return JOB_AVAILABLE
-		else
-			return JOB_UNAVAILABLE_GENERIC
-
-	if(is_deathknight_job(job))
-		if(has_world_trait(/datum/world_trait/death_knight))
 			return JOB_AVAILABLE
 		else
 			return JOB_UNAVAILABLE_GENERIC
@@ -345,8 +328,7 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 			return JOB_UNAVAILABLE_RACE
 /*	if(length(job.allowed_patrons) && !(client.prefs.selected_patron.type in job.allowed_patrons))
 		return JOB_UNAVAILABLE_DEITY */
-	if(job.plevel_req > client.patreonlevel())
-		return JOB_UNAVAILABLE_PATREON
+
 	if(!isnull(job.min_pq) && (get_playerquality(ckey) < job.min_pq))
 		return JOB_UNAVAILABLE_QUALITY
 	if(length(job.allowed_sexes) && !(client.prefs.gender in job.allowed_sexes))
@@ -422,7 +404,9 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 		GLOB.peasant_positions,
 		GLOB.apprentices_positions,
 		GLOB.serf_positions,
+		GLOB.company_positions,
 		GLOB.youngfolk_positions,
+		GLOB.allmig_positions,
 	)
 
 	for(var/list/category in omegalist)
@@ -451,15 +435,19 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 				if (GARRISON)
 					cat_name = "Garrison"
 				if (SERFS)
-					cat_name = "Tradesmen"
+					cat_name = "Yeomanry"
 				if (CHURCHMEN)
 					cat_name = "Churchmen"
+				if (COMPANY)
+					cat_name = "Company"
 				if (PEASANTS)
 					cat_name = "Peasantry"
 				if (APPRENTICES)
 					cat_name = "Apprentices"
 				if (YOUNGFOLK)
 					cat_name = "Young Folk"
+				if (OUTSIDERS)
+					cat_name = "Outsiders"
 
 			dat += "<fieldset style='width: 185px; border: 2px solid [cat_color]; display: inline'>"
 			dat += "<legend align='center' style='font-weight: bold; color: [cat_color]'>[cat_name]</legend>"

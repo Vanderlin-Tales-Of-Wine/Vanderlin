@@ -1,0 +1,21 @@
+{
+    "map_name": "Rosewood",
+    "map_path": "map_files/rosewood",
+    "map_file": "rosewood.dmm",
+	"traits": [
+		{"Up": true, "Turf Weather Effects": true},
+		{"Up": true, "Down": true, "Turf Weather Effects": true, "Leylines": true},
+		{"Up": true, "Down": true, "Turf Weather Effects": true, "Leylines": true},
+		{"Up": true, "Down": true, "Turf Weather Effects": true},
+		{"Down": true, "Turf Weather Effects": true}
+	],
+	"other_z": [
+		"_maps/map_files/rosewood/rosewood_forest.json",
+		"_maps/map_files/rosewood/rosewood_mountain.json",
+		"_maps/map_files/vanderlin/vanderlin_bog.json"
+	],
+	"minetype": null,
+	"space_empty_levels": 0,
+	"space_ruin_levels": 0,
+	"custom_area_sound": "sound/misc/stings/RosewoodSting.ogg"
+}

@@ -1,24 +1,20 @@
 /datum/advclass/pilgrim/cheesemaker
 	name = "Cheesemaker"
-	tutorial = "Craftsmen who have mastered the art of curdling milks \
-				into delicious and long lasting wheels of cheese."
+	tutorial = "Some say Dendor brings bountiful harvests - this much is true, but rot brings forth life. \
+	From life brings decay, and from decay brings life. Like your parents before you, you let milk rot into cheese. \
+	This is your duty, this is your call."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Rakshari",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc",
-		"Kobold",
-	)
+
 	outfit = /datum/outfit/job/adventurer/cheesemaker
 
 	category_tags = list(CTAG_PILGRIM)
 	apprentice_name = "Cheesemaker Apprentice"
+
+/datum/advclass/pilgrim/cheesemaker/post_equip(mob/living/carbon/human/H)
+	. = ..()
+	var/animal_path = pick(/mob/living/simple_animal/hostile/retaliate/goat, /mob/living/simple_animal/hostile/retaliate/cow)
+	var/mob/living/simple_animal/animal = new animal_path(get_turf(H))
+	animal.tamed(H)
 
 /datum/outfit/job/adventurer/cheesemaker/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -28,7 +24,7 @@
 	H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/labor/taming, 1, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/labor/taming, 3, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 4, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/labor/farming, 2, TRUE)
 	belt = /obj/item/storage/belt/leather

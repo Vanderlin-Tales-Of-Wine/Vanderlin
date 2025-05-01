@@ -2,10 +2,7 @@
 	name = "Grenzelhoft Count"
 	tutorial = "A Count hailing from the Grenzelhoft Imperiate, here on an official visit to Vanderlin."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Dwarf"
-	)
+	allowed_races = RACES_PLAYER_GRENZ
 	outfit = /datum/outfit/job/adventurer/grenzelhoft
 	category_tags = list(CTAG_PILGRIM)
 	maximum_possible_slots = 1
@@ -25,7 +22,7 @@
 	beltl = /obj/item/weapon/sword/sabre/dec
 	beltr = /obj/item/flashlight/flare/torch/lantern
 	backr = /obj/item/storage/backpack/satchel
-	id = /obj/item/clothing/ring/gold
+	ring = /obj/item/clothing/ring/gold
 	shirt = /obj/item/clothing/shirt/grenzelhoft
 	pants = /obj/item/clothing/pants/grenzelpants
 	neck = /obj/item/clothing/neck/gorget

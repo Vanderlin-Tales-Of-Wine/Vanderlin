@@ -12,24 +12,13 @@
 	buckle_lying = FALSE
 	mob_biotypes = MOB_ORGANIC|MOB_HUMANOID
 
-	ambushable = 1
+	ambushable = TRUE //! DEPRECATED VAR, USE TRAIT_NOAMBUSH
 
 	voice_pitch = 1
 
 	var/footstep_type = FOOTSTEP_MOB_HUMAN
 
 	var/last_sound //last emote so we have no doubles
-
-	//Hair colour and style
-	var/hair_color = "000"
-	var/hairstyle = "Bald"
-
-	//Facial hair colour and style
-	var/facial_hair_color = "000"
-	var/facial_hairstyle = "Shaved"
-
-	//Eye colour
-	var/eye_color = "000"
 
 	var/voice_color = "a0a0a0"
 

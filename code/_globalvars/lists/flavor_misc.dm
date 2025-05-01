@@ -1,19 +1,4 @@
 //Preferences stuff
-	//Hairstyles
-GLOBAL_LIST_EMPTY(hairstyles_list)			//stores /datum/sprite_accessory/hair indexed by name
-GLOBAL_LIST_EMPTY(hairstyles_male_list)		//stores only hair names
-GLOBAL_LIST_EMPTY(hairstyles_female_list)	//stores only hair names
-GLOBAL_LIST_EMPTY(facial_hairstyles_list)	//stores /datum/sprite_accessory/facial_hair indexed by name
-GLOBAL_LIST_EMPTY(facial_hairstyles_male_list)	//stores only hair names
-GLOBAL_LIST_EMPTY(facial_hairstyles_female_list)	//stores only hair names
-	//Jewelry
-GLOBAL_LIST_EMPTY(accessories_list)			//stores /datum/sprite_accessory/hair indexed by name
-GLOBAL_LIST_EMPTY(accessories_m)		//stores only hair names
-GLOBAL_LIST_EMPTY(accessories_f)	//stores only hair names
-	//snowflake
-GLOBAL_LIST_EMPTY(detail_list)			//stores /datum/sprite_accessory/hair indexed by name
-GLOBAL_LIST_EMPTY(detail_m)		//stores only hair names
-GLOBAL_LIST_EMPTY(detail_f)	//stores only hair names
 	//Underwear
 GLOBAL_LIST_EMPTY(underwear_list)		//stores /datum/sprite_accessory/underwear indexed by name
 GLOBAL_LIST_EMPTY(underwear_m)	//stores only underwear name
@@ -22,27 +7,6 @@ GLOBAL_LIST_EMPTY(underwear_f)	//stores only underwear name
 GLOBAL_LIST_EMPTY(undershirt_list) 	//stores /datum/sprite_accessory/undershirt indexed by name
 GLOBAL_LIST_EMPTY(undershirt_m)	 //stores only undershirt name
 GLOBAL_LIST_EMPTY(undershirt_f)	 //stores only undershirt name
-	//Socks
-GLOBAL_LIST_EMPTY(socks_list)		//stores /datum/sprite_accessory/socks indexed by name
-	//Lizard Bits (all datum lists indexed by name)
-GLOBAL_LIST_EMPTY(body_markings_list)
-GLOBAL_LIST_EMPTY(tails_list_lizard)
-GLOBAL_LIST_EMPTY(animated_tails_list_lizard)
-GLOBAL_LIST_EMPTY(snouts_list)
-GLOBAL_LIST_EMPTY(horns_list)
-GLOBAL_LIST_EMPTY(frills_list)
-GLOBAL_LIST_EMPTY(spines_list)
-GLOBAL_LIST_EMPTY(legs_list)
-GLOBAL_LIST_EMPTY(animated_spines_list)
-
-	//Mutant Human bits
-GLOBAL_LIST_EMPTY(tails_list_human)
-GLOBAL_LIST_EMPTY(animated_tails_list_human)
-GLOBAL_LIST_EMPTY(ears_list)
-GLOBAL_LIST_EMPTY(wings_list)
-GLOBAL_LIST_EMPTY(wings_open_list)
-GLOBAL_LIST_EMPTY(r_wings_list)
-GLOBAL_LIST_EMPTY(caps_list)
 
 GLOBAL_LIST_INIT(color_list_ethereal, list("F Class(Green)" = "97ee63", "F2 Class (Light Green)" = "00fa9a", "F3 Class (Dark Green)" = "37835b", "M Class (Red)" = "9c3030", "M1 Class (Purple)" = "ee82ee", "G Class (Yellow)" = "fbdf56", "O Class (Blue)" = "3399ff", "A Class (Cyan)" = "00ffff"))
 
@@ -200,6 +164,7 @@ GLOBAL_LIST_INIT(station_numerals, greek_letters + phonetic_alphabet + numbers_a
 
 GLOBAL_LIST_INIT(admiral_messages, list("Do you know how expensive these stations are?","Stop wasting my time.","I was sleeping, thanks a lot.","Stand and fight you cowards!","You knew the risks coming in.","Stop being paranoid.","Whatever's broken just build a new one.","No.", "<i>null</i>","<i>Error: No comment given.</i>", "It's a good day to die!"))
 
+GLOBAL_LIST_EMPTY(persistent_sound_loops) //Used in sound subsystem to keep track of persistent sounds (musicboxes and instruments mostly)
 
 /// 1000 element long list containing the 1000 most common words in the English language.
 /// Indexed by word, value is the rank of the word in the list. So accessing it is fasta.

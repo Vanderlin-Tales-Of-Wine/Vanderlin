@@ -14,7 +14,7 @@
 	base_antags = 1
 	maximum_antags = 2
 
-	weight = 0 //temp disabled 12
+	weight = 12 //temp disabled 12
 
 	earliest_start = 0 SECONDS
 
@@ -24,36 +24,16 @@
 	restricted_roles = list(
 		"Monarch",
 		"Consort",
-		"Jester",
-		"Dungeoneer",
-		"Inquisitor",
-		"Men-at-arms",
-		"Merchant",
-		"Priest",
-		"Acolyte",
-		"Adepts",
-		"Templar",
-		"Bandit",
-		"Prince",
-		"Princess",
 		"Hand",
-		"Steward",
-		"Feldsher",
-		"Town Elder",
 		"Captain",
-		"Archivist",
+		"Prince",
+		"Priest",
 		"Merchant",
-		"Royal Knight",
-		"Garrison Guard",
-		"Jailor",
-		"Court Magician",
 		"Forest Warden",
 		"Inquisitor",
-		"Adepts",
-		"Forest Guard",
-		"Squire",
-		"Veteran",
-		"Apothecary"
+		"Adept",
+		"Royal Knight",
+		"Templar",
 	)
 
 /datum/round_event/antagonist/solo/lich

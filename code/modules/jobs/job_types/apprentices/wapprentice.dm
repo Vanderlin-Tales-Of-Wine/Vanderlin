@@ -12,7 +12,7 @@
 	total_positions = 2
 	spawn_positions = 2
 
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
+	allowed_races = RACES_PLAYER_ALL
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_ages = list(AGE_CHILD, AGE_ADULT)
 
@@ -38,22 +38,25 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/fetch)
+		H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
 	if(H.gender == MALE)
 		pants = /obj/item/clothing/pants/tights/random
 		shoes = /obj/item/clothing/shoes/simpleshoes
 		shirt = /obj/item/clothing/shirt/shortshirt
 		belt = /obj/item/storage/belt/leather/rope
 		beltl = /obj/item/storage/keyring/mageapprentice
+		beltr = /obj/item/storage/magebag/apprentice
 		armor = /obj/item/clothing/shirt/robe/newmage/adept
 		backr = /obj/item/storage/backpack/satchel
 	else
 		shoes = /obj/item/clothing/shoes/sandals
-		shirt = /obj/item/clothing/shirt/undershirt
+		shirt = /obj/item/clothing/shirt/dress/silkdress/random
 		belt = /obj/item/storage/belt/leather/rope
 		beltl = /obj/item/storage/keyring/mageapprentice
+		beltr = /obj/item/storage/magebag/apprentice
 		armor = /obj/item/clothing/shirt/robe/newmage/adept
 		backr = /obj/item/storage/backpack/satchel
-	backpack_contents = list(/obj/item/book/granter/spellbook/apprentice)
+	backpack_contents = list(/obj/item/book/granter/spellbook/apprentice = 1, /obj/item/chalk = 1)
 	H.change_stat(STATKEY_INT, 1)
 	H.change_stat(STATKEY_SPD, -1)
 	ADD_TRAIT(H, TRAIT_MALUMFIRE, TRAIT_GENERIC)

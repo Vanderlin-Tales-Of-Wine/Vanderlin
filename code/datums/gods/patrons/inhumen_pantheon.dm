@@ -72,7 +72,7 @@
 	domain = "Goddess of Drugs, Self-Preservation, and Remorseless Joy"
 	desc = "Ascended, formerly disgraced tiefling consort notorious for having a mind elsewhere. Through Her envy and callous distaste, she traded her family's life for a shipment of powder. As she preaches to her followers, 'Joy at all costs!'"
 	flaws = "Enviousness, Self-Destruction, Willingness to Sacrifice Others"
-	worshippers = "Addicts, Gamblers, the Motherless and Maidenless"
+	worshippers = "Addicts, Hedonists, the Motherless and Maidenless"
 	sins = "Sobriety, Self-Sacrifice, Faltering Willpower"
 	boons = "You will never overdose on drugs."
 	added_traits = list(TRAIT_CRACKHEAD)
@@ -98,7 +98,7 @@
 		"NONE OF THIS IS REAL!",
 		"WHO AM I WORSHIPPING?!"
 	)
-	non_faith = TRUE
+	preference_accessible = FALSE
 
 /datum/patron/inhumen/graggar_zizo/can_pray(mob/living/follower)
 	var/datum/antagonist/maniac/dreamer = follower.mind.has_antag_datum(/datum/antagonist/maniac)
@@ -112,7 +112,9 @@
 	var/datum/antagonist/maniac/dreamer = follower.mind.has_antag_datum(/datum/antagonist/maniac)
 	if(!dreamer)
 		return FALSE
-
+	if(text2num(message) == dreamer.sum_keys)
+		INVOKE_ASYNC(dreamer, TYPE_PROC_REF(/datum/antagonist/maniac, wake_up))
+		return TRUE
 	// something interesting should happen...
 
 	. = ..()

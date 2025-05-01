@@ -57,8 +57,6 @@
 		STOP_PROCESSING(SSobj, src)
 		return 1
 
-
-
 /obj/item/reagent_containers/food/snacks/fish/carp
 	name = "carp"
 	icon_state = "carp"
@@ -163,3 +161,32 @@
 
 /obj/item/reagent_containers/food/snacks/fryfish/eel/rare
 	eat_effect = list(/datum/status_effect/buff/foodbuff, /datum/status_effect/buff/blessed)
+
+/*	.................   Chocolate Fish   ................... */
+
+/obj/item/reagent_containers/food/snacks/fryfish/carp/attackby(obj/item/I, mob/living/user, params)
+	..()
+	if(user.mind)
+		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
+	var/found_table = locate(/obj/structure/table) in (loc)
+	if(isturf(loc)&& (found_table))
+		if(istype(I, /obj/item/reagent_containers/food/snacks/chocolate))
+			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
+			to_chat(user, span_notice("Creating an insult against cooking..."))
+			if(do_after(user, short_cooktime, src))
+				new /obj/item/reagent_containers/food/snacks/chocolate_carp(loc)
+				qdel(I)
+				qdel(src)
+				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
+
+/obj/item/reagent_containers/food/snacks/chocolate_carp
+	name = "le carp au chocolat"
+	desc = "Plundered grenzlehoftian chocolate drizzled over fish, this abomination is a delicacy to dark elves. In this case the eyeless cave fish has been substituted for a carp."
+	icon_state = "chocolatecarp"
+	bitesize = 4
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
+	tastes = list("a horrible clash of salty fish and sweet chocolate" = 1)
+	faretype = FARE_IMPOVERISHED
+	rotprocess = null
+	dropshrink = 0.6
+	eat_effect = /datum/status_effect/buff/foodbuff

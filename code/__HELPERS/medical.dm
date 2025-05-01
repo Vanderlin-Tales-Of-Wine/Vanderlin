@@ -44,16 +44,10 @@
 			return "brain"
 		if(ORGAN_SLOT_APPENDIX)
 			return "appendix"
-		if(ORGAN_SLOT_RIGHT_ARM_AUG)
-			return "right arm implant"
-		if(ORGAN_SLOT_LEFT_ARM_AUG)
-			return "left arm implant"
 		if(ORGAN_SLOT_STOMACH)
 			return "stomach"
-		if(ORGAN_SLOT_STOMACH_AID)
-			return "stomach aid"
-		if(ORGAN_SLOT_BREATHING_TUBE)
-			return "breathing tube"
+		if(ORGAN_SLOT_GUTS)
+			return "guts"
 		if(ORGAN_SLOT_EARS)
 			return "ears"
 		if(ORGAN_SLOT_EYES)
@@ -62,30 +56,12 @@
 			return "lungs"
 		if(ORGAN_SLOT_HEART)
 			return "heart"
-		if(ORGAN_SLOT_ZOMBIE)
-			return "zombie gland"
-		if(ORGAN_SLOT_THRUSTERS)
-			return "thrusters"
-		if(ORGAN_SLOT_HUD)
-			return "eye implant"
 		if(ORGAN_SLOT_LIVER)
 			return "liver"
 		if(ORGAN_SLOT_TONGUE)
 			return "tongue"
 		if(ORGAN_SLOT_VOICE)
 			return "vocal cords"
-		if(ORGAN_SLOT_ADAMANTINE_RESONATOR)
-			return "adamantine resonator"
-		if(ORGAN_SLOT_HEART_AID)
-			return "heart aid"
-		if(ORGAN_SLOT_BRAIN_ANTIDROP)
-			return "brain antidrop implant"
-		if(ORGAN_SLOT_BRAIN_ANTISTUN)
-			return "brain antistun implant"
 		if(ORGAN_SLOT_TAIL)
 			return "tail"
-		if(ORGAN_SLOT_PARASITE_EGG)
-			return "parasite egg"
-		if(ORGAN_SLOT_REGENERATIVE_CORE)
-			return "regenerative core"
 	return slot

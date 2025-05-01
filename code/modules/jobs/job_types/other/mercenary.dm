@@ -7,7 +7,7 @@
 	\n\n\
 	You care not. Another day, another mammon."
 	flag = GRAVETENDER
-	department_flag = PEASANTS
+	department_flag = OUTSIDERS
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_MERCENARY
 	faction = FACTION_STATION
@@ -17,31 +17,13 @@
 	bypass_lastclass = TRUE
 
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Rakshari",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc",
-		"Kobold",
-	)
+	allowed_races = RACES_PLAYER_ALL
 
 	outfit = null
 	outfit_female = null
 	give_bank_account = 3
 	advclass_cat_rolls = list(CTAG_MERCENARY = 20)
 	is_foreigner = TRUE
-
-/datum/job/mercenary/after_spawn(mob/living/spawned, client/player_client)
-	..()
-	var/mob/living/carbon/human/H = spawned
-	H.advsetup = TRUE
-	H.invisibility = INVISIBILITY_MAXIMUM
-	H.become_blind("advsetup")
 
 /datum/outfit/job/mercenary // Reminder message
 	var/tutorial = "<br><br><font color='#855b14'><span class='bold'>Your sponsor, the Merchant, representing the MGE guild, might have work for you todae, go find out.</span></font><br><br>"

@@ -15,7 +15,7 @@
 	return
 
 /// This proc can add overlays to the organ image that is to be attached to a bodypart.
-/datum/bodypart_feature/proc/bodypart_overlays(mutable_appearance/standing)
+/datum/bodypart_feature/proc/bodypart_overlays(mutable_appearance/standing, obj/item/bodypart/bodypart)
 	return
 
 /datum/bodypart_feature/proc/get_bodypart_overlay(obj/item/bodypart/bodypart)
@@ -28,7 +28,7 @@
 		return
 	for(var/standing in appearances)
 		bodypart_icon(standing)
-		bodypart_overlays(standing)
+		bodypart_overlays(standing, bodypart)
 	return appearances
 
 /// Sets an accessory type and optionally colors too.

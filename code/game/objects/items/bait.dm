@@ -113,6 +113,13 @@
 	attracted_types = list(/mob/living/simple_animal/hostile/retaliate/wolf = 33,
 						/mob/living/simple_animal/hostile/retaliate/bigrat = 10,
 						/mob/living/simple_animal/hostile/retaliate/mole = 15,
-						/mob/living/simple_animal/hostile/retaliate/troll = 5,
-						/mob/living/simple_animal/hostile/retaliate/trollbog = 5,
+						/mob/living/simple_animal/hostile/retaliate/troll/axe = 5,
+						/mob/living/simple_animal/hostile/retaliate/troll/bog = 5,
 						/mob/living/simple_animal/hostile/retaliate/troll/caerbannog = 2.5)
+
+/obj/item/bait/forestdelight
+	name = "meat wrapped in strange herbs"
+	icon_state = "baitbriar"
+	desc = "a piece of rotten and rancid meat wrapped in several herbs. The aroma induces both vomit and a nice herbal odor"
+	attracted_types = list (/mob/living/simple_animal/hostile/retaliate/mole/briars = 50,
+						/mob/living/simple_animal/pet/cat/cabbit = 5) // cause get rabbited

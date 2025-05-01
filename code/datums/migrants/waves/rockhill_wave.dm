@@ -3,7 +3,7 @@
 	greet_text = "You are the mayor of Rockhill, you've come to Vanderlin to discuss important matters with their Monarch."
 	outfit = /datum/outfit/job/rockhill/mayor
 	allowed_sexes = list(MALE,FEMALE)
-	allowed_races = list("Humen","Dwarf","Elf","Half-Elf")
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	grant_lit_torch = TRUE
 	is_foreigner = FALSE
 /datum/outfit/job/rockhill/mayor/pre_equip(mob/living/carbon/human/H)
@@ -25,7 +25,7 @@
 		neck = /obj/item/storage/belt/pouch/coins/rich
 		cloak = /obj/item/clothing/cloak/raincloak/furcloak
 		beltr = /obj/item/weapon/sword/rapier
-		id = /obj/item/clothing/ring/silver
+		ring = /obj/item/clothing/ring/silver
 		shoes = /obj/item/clothing/shoes/nobleboot
 		backr = /obj/item/storage/backpack/satchel
 		backpack_contents = list(/obj/item/storage/belt/pouch/coins/rich = 1, /obj/item/flashlight/flare/torch/lantern = 1)
@@ -61,7 +61,7 @@
 	name = "Knight of Rockhill"
 	greet_text = "You are a Knight of Rockhill, the notable of said town has taken the journey to your liege, you are to ensure their safety."
 	outfit = /datum/outfit/job/rockhill/knight
-	allowed_races = list("Humen","Dwarf","Elf","Half-Elf","Aasimar")
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	grant_lit_torch = TRUE
 	advjob_examine = FALSE
 /datum/outfit/job/rockhill/knight/pre_equip(mob/living/carbon/human/H)
@@ -131,12 +131,7 @@
 	name = "Rockhill Serjeant"
 	greet_text = "The Mayor of Rockhill has conscripted you and your mens to go see the rulers of Vanderlin."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Dwarf",
-		"Aasimar",
-		"Elf",
-		"Half-Elf")
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	grant_lit_torch = TRUE
 	advjob_examine = FALSE
 	outfit = /datum/outfit/job/rockhill/serjeant_at_arms
@@ -188,7 +183,7 @@
 	name = "Guardsmen of Rockhill"
 	greet_text = "Your Serjeant has been conscripted by the mayor of rockhill to guard them as they visit the rulers of Vanderlin. Ensure they live."
 	outfit = /datum/outfit/job/footman_bannerman
-	allowed_races = list("Humen","Dwarf","Aasimar","Elf","Half-Elf")
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	grant_lit_torch = TRUE
 	advjob_examine = FALSE
 

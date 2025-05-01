@@ -58,19 +58,17 @@
 		qdel(src)
 
 /datum/status_effect/proc/on_apply() //Called whenever the buff is applied; returning FALSE will cause it to autoremove itself.
-	for(var/S in effectedstats)
-		owner.change_stat(S, effectedstats[S])
+	for(var/stat in effectedstats)
+		owner.set_stat_modifier("[id]", stat, effectedstats[stat])
 	return TRUE
 
 /datum/status_effect/proc/tick() //Called every tick.
 
 /datum/status_effect/proc/on_remove() //Called whenever the buff expires or is removed; do note that at the point this is called, it is out of the owner's status_effects but owner is not yet null
-	for(var/S in effectedstats)
-		owner.change_stat(S, -(effectedstats[S]))
+	owner.remove_stat_modifier("[id]")
 
 /datum/status_effect/proc/be_replaced() //Called instead of on_remove when a status effect is replaced by itself or when a status effect with on_remove_on_mob_delete = FALSE has its mob deleted
-	for(var/S in effectedstats)
-		owner.change_stat(S, -(effectedstats[S]))
+	owner.remove_stat_modifier("[id]")
 	owner.clear_alert(id)
 	LAZYREMOVE(owner.status_effects, src)
 	owner = null

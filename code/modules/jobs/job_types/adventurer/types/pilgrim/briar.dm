@@ -1,7 +1,7 @@
 /datum/advclass/pilgrim/briar
 	name = "Briar"
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
+
 	outfit = /datum/outfit/job/adventurer/briar
 	category_tags = list(CTAG_PILGRIM)
 	tutorial = "Stoic gardeners or flesh-eating predators, all can follow Dendors path. <br>His Briars scorn civilized living, many embracing their animal nature, being fickle and temperamental."
@@ -47,6 +47,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
 		H.mind.teach_crafting_recipe(/datum/crafting_recipe/dendor/shillelagh)
+		H.mind.teach_crafting_recipe(/datum/crafting_recipe/dendor/forestdelight)
 
 		if(H.age == AGE_OLD)
 			H.mind?.adjust_skillrank(/datum/skill/magic/holy, 1, TRUE)
@@ -63,9 +64,10 @@
 	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(H, H.patron)
 	H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
 	C.grant_spells(H)
+	/*
 	if((H.facial_hairstyle == "Wise Hermit") || (H.facial_hairstyle == "Knightly") || (H.facial_hairstyle == "Raider") || (H.facial_hairstyle == "Rumata") || (H.facial_hairstyle == "Choppe") || (H.facial_hairstyle == "Full Beard") || (H.facial_hairstyle == "Fullest Beard") || (H.facial_hairstyle == "Drinker") || (H.facial_hairstyle == "Knowledge") || (H.facial_hairstyle == "Brew") || (H.facial_hairstyle == "Ranger"))
 		C.devotion += 40
-
+	*/
 /datum/outfit/job/adventurer/briar
 	var/tutorial = "<br><br><font color='#44720e'><span class='bold'>You know well how to make a shrine to Dendor, wood, thorns, and the head of a favored animal.<br><br>Choose a path stinging, devouring or growing, and make your sacrifices...<br><br>Remember - Dendor will only grant special powers from Blessing the first time you do recieve it, and only those mastering all his Miracles can unlock their full potential.  </span></font><br><br>"
 
@@ -104,6 +106,13 @@
 				/obj/item/ash = 1,
 				/obj/item/reagent_containers/food/snacks/fat =1 )
 	craftdiff = 1
+
+/datum/crafting_recipe/dendor/forestdelight
+	name = "forest guardian offering (unique)"
+	reqs = list(/obj/item/bait/bloody = 1,
+				/obj/item/reagent_containers/food/snacks/produce/swampweed_dried = 1,
+				/obj/item/reagent_containers/food/snacks/raisins = 1 )
+	result = /obj/item/bait/forestdelight
 
 /datum/crafting_recipe/dendor/shrine/saiga
 	name = "stinging shrine to Dendor (unique)"
@@ -166,6 +175,7 @@
 			to_chat(user, span_info("Dendor will not grant more powers, but he still approves of the sacrifice, judging by the signs..."))
 			user.apply_status_effect(/datum/status_effect/buff/blessed)
 			sleep(10)
+			GLOB.vanderlin_round_stats[STATS_DENDOR_SACRIFICES]++
 			qdel(src)
 			return
 		playsound(get_turf(user), 'sound/vo/smokedrag.ogg', 100, TRUE)
@@ -180,6 +190,7 @@
 			user.apply_status_effect(/datum/status_effect/buff/calm)
 	else
 		to_chat(user, span_warning("Dendor finds me unworthy..."))
+	GLOB.vanderlin_round_stats[STATS_DENDOR_SACRIFICES]++
 	qdel(src)
 
 /*	.................   Yellow Blessings of Dendor   ................... */
@@ -198,6 +209,7 @@
 			to_chat(user, span_info("Dendor will not grant more powers, but he still approves of the sacrifice, judging by the signs..."))
 			user.apply_status_effect(/datum/status_effect/buff/blessed)
 			sleep(10)
+			GLOB.vanderlin_round_stats[STATS_DENDOR_SACRIFICES]++
 			qdel(src)
 			return
 		playsound(get_turf(user), 'sound/vo/smokedrag.ogg', 100, TRUE)
@@ -212,6 +224,7 @@
 			user.apply_status_effect(/datum/status_effect/buff/calm)
 	else
 		to_chat(user, span_warning("Dendor finds me unworthy..."))
+	GLOB.vanderlin_round_stats[STATS_DENDOR_SACRIFICES]++
 	qdel(src)
 
 /*	.................  Red Blessings of Dendor   ................... */
@@ -230,6 +243,7 @@
 			to_chat(user, span_info("Dendor will not grant more powers, but he still approves of the sacrifice, judging by the signs..."))
 			user.apply_status_effect(/datum/status_effect/buff/blessed)
 			sleep(10)
+			GLOB.vanderlin_round_stats[STATS_DENDOR_SACRIFICES]++
 			qdel(src)
 			return
 		playsound(get_turf(user), 'sound/vo/smokedrag.ogg', 100, TRUE)
@@ -259,4 +273,5 @@
 				to_chat(user, span_warning("I no longer care for mending wounds, let my rage be heard!"))
 	else
 		to_chat(user, span_warning("Dendor finds me unworthy..."))
+	GLOB.vanderlin_round_stats[STATS_DENDOR_SACRIFICES]++
 	qdel(src)

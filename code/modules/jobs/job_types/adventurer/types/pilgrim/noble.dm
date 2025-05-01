@@ -1,18 +1,10 @@
 /datum/advclass/pilgrim/noble
 	name = "Noble"
 	tutorial = "The blood of a noble family runs through your veins. Perhaps you are visiting from some place far away, \
-	looking to enjoy the hospitality of the ruler of Vanderlin. You have many mammons to your name, but with wealth comes \
+	looking to enjoy the hospitality of the ruler. You have many mammons to your name, but with wealth comes \
 	danger, so keep your wits and tread lightly..."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Half-Orc"
-	)
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	outfit = /datum/outfit/job/adventurer/noble
 	category_tags = list(CTAG_PILGRIM)
 	maximum_possible_slots = 2
@@ -41,7 +33,7 @@
 	backl = /obj/item/storage/backpack/satchel
 	neck = /obj/item/storage/belt/pouch/coins/veryrich
 	belt = /obj/item/storage/belt/leather
-	id = /obj/item/clothing/ring/silver
+	ring = /obj/item/clothing/ring/silver
 	if(H.gender == FEMALE)
 		H.change_stat(STATKEY_SPD, 1)
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)

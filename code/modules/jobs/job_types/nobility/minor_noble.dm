@@ -1,7 +1,7 @@
 /datum/job/minor_noble
 	title = "Noble"
 	tutorial = "The blood of a noble family runs through your veins. You are the living proof that the minor houses \
-	of Vanderlin still exist in spite of the Monarch. You have many mammons to your name, but with wealth comes \
+	still exist in spite of the Monarch. You have many mammons to your name, but with wealth comes \
 	danger, so keep your wits and tread lightly..."
 	display_order = JDO_MINOR_NOBLE
 	flag = MINOR_NOBLE
@@ -13,21 +13,12 @@
 	min_pq = 1
 
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Half-Orc",
-		"Aasimar",
-		"Rakshari"
-	)
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 
 	outfit = /datum/outfit/job/noble
 	apprentice_name = "Servant"
 	give_bank_account = 60
+	noble_income = 16
 
 /datum/outfit/job/noble
 	job_bitflag = BITFLAG_ROYALTY
@@ -55,7 +46,7 @@
 	backl = /obj/item/storage/backpack/satchel
 	neck = /obj/item/storage/belt/pouch/coins/veryrich
 	belt = /obj/item/storage/belt/leather
-	id = /obj/item/clothing/ring/silver
+	ring = /obj/item/clothing/ring/silver
 	if(H.gender == FEMALE)
 		H.change_stat(STATKEY_SPD, 1)
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)

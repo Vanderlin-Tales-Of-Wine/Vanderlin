@@ -10,6 +10,7 @@
 
 	anvilrepair = /datum/skill/craft/engineering
 	slowdown = 1.5
+	item_weight = 6 * BRONZE_MULTIPLIER
 
 /obj/item/clothing/shoes/boots/armor/steam/equipped(mob/living/user, slot)
 	if(!(slotdefine2slotbit(slot) & slot_flags))

@@ -66,7 +66,7 @@
 			mob_timers[MT_PAINSTUN] = world.time + 10 SECONDS
 			var/probby = 40 - (STAEND * 2)
 			probby = max(probby, 10)
-			if(lying || IsKnockdown())
+			if(lying || HAS_TRAIT(src, TRAIT_FLOORED))
 				if(prob(3) && (painpercent >= 80) )
 					emote("painmoan")
 			else
@@ -128,8 +128,11 @@
 		reagentstouch.add_reagent(W.water_reagent, 2)
 		reagentstouch.trans_to(src, reagents.total_volume, transfered_by = src, method = TOUCH)	*/
 	if(lying)
-		adjustOxyLoss(5)
+		var/drown_damage = has_world_trait(/datum/world_trait/abyssor_rage) ? 10 : 5
+		adjustOxyLoss(drown_damage)
 		emote("drown")
+		if(stat == DEAD && client)
+			GLOB.vanderlin_round_stats[STATS_PEOPLE_DROWNED]++
 		var/datum/reagents/reagents = new()
 		reagents.add_reagent(W.water_reagent, 2)
 		reagents.trans_to(src, reagents.total_volume, transfered_by = src, method = INGEST)

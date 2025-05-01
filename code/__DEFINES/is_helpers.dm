@@ -22,9 +22,13 @@ GLOBAL_LIST_INIT(turfs_without_ground, typecacheof(list(
 
 #define isclient(A) istype(A, /client)
 
+#define ismind(A) istype(A, /datum/mind)
+
 #define isgroundlessturf(A) (is_type_in_typecache(A, GLOB.turfs_without_ground))
 
 #define isopenturf(A) (istype(A, /turf/open))
+
+#define isopenspace(A) (istype(A, /turf/open/transparent/openspace))
 
 #define isindestructiblefloor(A) (istype(A, /turf/open/indestructible))
 
@@ -154,6 +158,7 @@ GLOBAL_LIST_INIT(RATS_DONT_EAT, typecacheof(list(
 	#define is_lord_job(job_type) (istype(job_type, /datum/job/lord))
 	#define is_consort_job(job_type) (istype(job_type, /datum/job/consort))
 	#define is_merchant_job(job_type) (istype(job_type, /datum/job/merchant))
+	#define is_steward_job(job_type) (istype(job_type, /datum/job/steward))
 // Garrison
 // Church
 	#define is_priest_job(job_type) (istype(job_type, /datum/job/priest))
@@ -165,12 +170,15 @@ GLOBAL_LIST_INIT(RATS_DONT_EAT, typecacheof(list(
 // Peasantry
 	#define is_adventurer_job(job_type) (istype(job_type, /datum/job/adventurer))
 	#define is_mercenary_job(job_type) (istype(job_type, /datum/job/mercenary))
+	#define is_pilgrim_job(job_type) (istype(job_type, /datum/job/pilgrim))
 	#define is_vagrant_job(job_type) (istype(job_type, /datum/job/vagrant))
+//  Apprentices
+	#define is_gaffer_assistant_job(job_type) (istype(job_type, /datum/job/gaffer_assistant))
 // Villains
-	#define is_skeleton_job(job_type) (istype(job_type, /datum/job/skeleton)) //template for easy filling in
-	#define is_rousman_job(job_type) (istype(job_type, /datum/job/rousman)) //template for easy filling in
-	#define is_goblin_job(job_type) (istype(job_type, /datum/job/goblin)) //template for easy filling in
-	#define is_deathknight_job(job_type) (istype(job_type, /datum/job/deathknight)) //template for easy filling in
+	#define is_skeleton_job(job_type) (istype(job_type, /datum/job/skeleton))
+		#define is_skeleton_knight_job(job_type) (istype(job_type, /datum/job/skeleton/knight))
+	#define is_rousman_job(job_type) (istype(job_type, /datum/job/rousman))
+	#define is_goblin_job(job_type) (istype(job_type, /datum/job/goblin))
 
 // seemingly deprecated:
 //"Preacher" //as a job, there is an equivalent class

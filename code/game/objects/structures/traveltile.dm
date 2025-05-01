@@ -32,7 +32,7 @@
 /obj/structure/fluff/traveltile
 	name = "travel"
 	icon_state = "travel"
-	icon = 'icons/turf/roguefloor.dmi'
+	icon = 'icons/turf/floors.dmi'
 	density = FALSE
 	anchored = TRUE
 	layer = ABOVE_OPEN_TURF_LAYER
@@ -58,7 +58,7 @@
 /obj/structure/fluff/traveltile/proc/hide_if_needed()
 	if(invis_without_trait && required_trait)
 		invisibility = INVISIBILITY_OBSERVER
-		var/image/I = image(icon = 'icons/turf/roguefloor.dmi', icon_state = "travel", layer = ABOVE_OPEN_TURF_LAYER, loc = src)
+		var/image/I = image(icon = 'icons/turf/floors.dmi', icon_state = "travel", layer = ABOVE_OPEN_TURF_LAYER, loc = src)
 		add_alt_appearance(/datum/atom_hud/alternate_appearance/basic, required_trait, I)
 
 /obj/structure/fluff/traveltile/proc/get_other_end_turf(return_travel = FALSE)
@@ -159,6 +159,7 @@
 	if(invis_without_trait && !revealed_to.Find(user))
 		show_travel_tile(user)
 		the_tile.show_travel_tile(user)
+	user.log_message("[user.mind?.key ? user.mind?.key : user.real_name] has travelled to [loc_name(the_tile)] from", LOG_GAME, color = "#0000ff")
 	mob_move_travel_z_level(user, get_turf(the_tile))
 
 /obj/structure/fluff/traveltile/proc/reveal_travel_trait_to_others(mob/living/user)

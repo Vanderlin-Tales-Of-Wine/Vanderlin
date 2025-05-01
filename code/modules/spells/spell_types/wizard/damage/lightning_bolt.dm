@@ -43,10 +43,6 @@
 	. = ..()
 	if(ismob(target))
 		var/mob/M = target
-		var/mob/living/carbon/H = target
-		H.set_heartattack(FALSE)
-		H.revive(full_heal = FALSE, admin_revive = FALSE)
-		H.emote("breathgasp")
 		if(M.anti_magic_check())
 			visible_message(span_warning("[src] fizzles on contact with [target]!"))
 			playsound(get_turf(target), 'sound/magic/magic_nulled.ogg', 100)

@@ -12,8 +12,6 @@
 		var/_measurement = measurement; \
 		return_var = text2num(copytext(_measurement, findtextEx(_measurement, "x") + 1)); \
 	} while(FALSE);
-#define LAZYREMOVEASSOC(L, K, V) if(L) { if(L[K]) { L[K] -= V; if(!length(L[K])) L -= K; } if(!length(L)) L = null; }
-#define LAZYADDASSOC(L, K, V) if(!L) { L = list(); } L[K] += list(V);
 /**
  * # Chat Message Overlay
  *
@@ -113,10 +111,6 @@
 		extra_classes |= "small"
 
 	var/list/prefixes
-	// Append radio icon if from a virtual speaker
-	if (extra_classes.Find("virtual-speaker"))
-		var/image/r_icon = image('icons/UI_Icons/chat/chat_icons.dmi', icon_state = "radio")
-		LAZYADD(prefixes, "\icon[r_icon]")
 
 	// Append language icon if the language uses one
 	var/datum/language/language_instance = GLOB.language_datum_instances[language]
@@ -187,7 +181,7 @@
 	message.maptext = complete_text
 
 	// View the message
-	LAZYADDASSOC(owned_by.seen_messages, message_loc, src)
+	LAZYADDASSOCLIST(owned_by.seen_messages, message_loc, src)
 	owned_by.images |= message
 	animate(message, alpha = 150, time = CHAT_MESSAGE_SPAWN_TIME)
 

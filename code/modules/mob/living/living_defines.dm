@@ -1,4 +1,13 @@
 
+/obj/reflection
+	vis_flags = VIS_INHERIT_ICON|VIS_INHERIT_ICON_STATE|VIS_INHERIT_DIR|VIS_INHERIT_LAYER|VIS_UNDERLAY
+	appearance_flags = PIXEL_SCALE
+	plane = REFLECTION_PLANE
+	mouse_opacity = 0
+	pixel_y = -44
+
+/obj/reflection/New(loc,mob/owner)
+	owner.vis_contents += src
 
 /mob/living
 	see_invisible = SEE_INVISIBLE_LIVING
@@ -20,7 +29,10 @@
 	var/toxloss = 0		//Toxic damage caused by being poisoned or radiated
 	var/fireloss = 0	//Burn damage caused by being way too hot, too cold or burnt.
 	var/cloneloss = 0	//Damage caused by being cloned or ejected from the cloner early. slimes also deal cloneloss damage to victims
-	var/crit_threshold = HEALTH_THRESHOLD_CRIT // when the mob goes from "normal" to crit
+	/// when the mob goes from "normal" to crit
+	var/crit_threshold = HEALTH_THRESHOLD_CRIT
+	///When the mob enters hard critical state and is fully incapacitated.
+	var/hardcrit_threshold = HEALTH_THRESHOLD_FULLCRIT
 
 	var/mobility_flags = MOBILITY_FLAGS_DEFAULT
 
@@ -80,8 +92,6 @@
 	var/butcher_difficulty = 0 //effectiveness prob. is modified negatively by this amount; positive numbers make it more difficult, negative ones make it easier
 
 	var/hellbound = 0 //People who've signed infernal contracts are unrevivable.
-
-	var/list/weather_immunities = list()
 
 	var/stun_absorption = null //converted to a list of stun absorption sources this mob has when one is added
 
@@ -176,3 +186,8 @@
 	var/blood_drained = 0
 	///are we skinned?
 	var/skinned = FALSE
+
+	///our reflection child
+	var/has_reflection = TRUE
+
+	var/mutable_appearance/reflective_icon

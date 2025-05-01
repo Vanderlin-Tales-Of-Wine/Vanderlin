@@ -32,9 +32,9 @@
 	melee_damage_lower = 20
 	melee_damage_upper = 30
 
-	STACON = 7
-	STASTR = 8
-	STASPD = 15
+	base_constitution = 7
+	base_strength = 8
+	base_speed = 15
 
 	simple_detect_bonus = 20
 	retreat_distance = 0

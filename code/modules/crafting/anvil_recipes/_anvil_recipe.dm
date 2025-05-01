@@ -155,6 +155,7 @@
 		if(BLACKSMITH_LEVEL_LEGENDARY to INFINITY)
 			I.name = "masterwork [I.name]"
 			modifier = 1.3
+			GLOB.vanderlin_round_stats[STATS_MASTERWORKS_FORGED]++
 
 	if(!modifier) // Sanity.
 		return
@@ -170,6 +171,7 @@
 	if(istype(I, /obj/item/weapon))
 		var/obj/item/weapon/W = I
 		W.force *= modifier
+		W.force_wielded *= modifier
 		W.throwforce *= modifier
 		W.blade_int *= modifier
 		W.max_blade_int *= modifier

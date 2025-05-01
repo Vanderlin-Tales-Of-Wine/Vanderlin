@@ -19,6 +19,7 @@ GLOBAL_PROTECT(admin_verbs_default)
 	/datum/admins/proc/start_vote,
 	/datum/admins/proc/show_player_panel,
 	/datum/admins/proc/admin_heal,
+	/datum/admins/proc/admin_bless,
 	/datum/admins/proc/admin_curse,
 	/datum/admins/proc/admin_sleep,
 	/client/proc/ghost_down,
@@ -113,6 +114,7 @@ GLOBAL_PROTECT(admin_verbs_admin)
 	/client/proc/resetasaycolor,
 	/client/proc/set_personal_admin_ooc_color,
 	/client/proc/reset_personal_admin_ooc_color,
+	/client/proc/set_ghost_sprite,
 	/client/proc/toggleadminhelpsound,
 	/client/proc/respawn_character,
 	/client/proc/discord_id_manipulation,
@@ -394,7 +396,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 		if(istype(ghost.mind.current, /mob/living))
 			var/mob/living/M = ghost.mind.current
 			var/datum/status_effect/incapacitating/sleeping/S = M.IsSleeping()
-			if(S && !M.IsKnockdown() && !M.IsStun() && !M.IsParalyzed()) // Wake them up unless they're asleep for another reason
+			if(S && !HAS_TRAIT(M, TRAIT_FLOORED)) // Wake them up unless they're asleep for another reason
 				M.remove_status_effect(S)
 				M.set_resting(FALSE, TRUE)
 			M.density = initial(M.density)
