@@ -40,51 +40,48 @@ DEFINE_BITFIELD(smooth, list(
 
 #define S_TURF(num) (#num + ",")
 
-#define SMOOTH_GROUP_OPEN S_TURF(0)						//!turf/open
-#define SMOOTH_GROUP_OPEN_FLOOR S_TURF(1)				//!turf/open/floor
+#define SMOOTH_GROUP_OPEN S_TURF(0) //!turf/open
+#define SMOOTH_GROUP_OPEN_FLOOR S_TURF(1) //!turf/open/floor
 
-#define SMOOTH_GROUP_FLOOR_LIQUID S_TURF(2)				//!turf/open/water, /turf/open/lava
-#define SMOOTH_GROUP_FLOOR_OPEN_SPACE S_TURF(3)			//!turf/open/transparent/openspace
+#define SMOOTH_GROUP_FLOOR_LIQUID S_TURF(2) //!turf/open/water, /turf/open/lava
+#define SMOOTH_GROUP_FLOOR_OPEN_SPACE S_TURF(3) //!turf/open/transparent/openspace
 
-#define SMOOTH_GROUP_FLOOR_CARPET S_TURF(4)					//!turf/open/floor/carpet
+#define SMOOTH_GROUP_FLOOR_CARPET S_TURF(4) //!turf/open/floor/carpet
 #define SMOOTH_GROUP_FLOOR_DIRT S_TURF(5)
-#define SMOOTH_GROUP_FLOOR_DIRT_PATH S_TURF(6)
+#define SMOOTH_GROUP_FLOOR_DIRT_ROAD S_TURF(6)
 #define SMOOTH_GROUP_FLOOR_GRASS S_TURF(7)
 #define SMOOTH_GROUP_FLOOR_SNOW S_TURF(8)
 #define SMOOTH_GROUP_FLOOR_STONE S_TURF(9)
 #define SMOOTH_GROUP_FLOOR_WOOD S_TURF(10)
 
+#define SMOOTH_GROUP_CLOSED S_TURF(11) //!/turf/closed
+#define SMOOTH_GROUP_CLOSED_WALL S_TURF(12) //!/turf/closed/wall
 
+#define SMOOTH_GROUP_MINERAL_WALLS S_TURF(13) //!turf/closed/mineral, /turf/closed/mineral/turf/random, /closed/indestructible
 
-#define SMOOTH_GROUP_CLOSED S_TURF(24)					//!/turf/closed
-#define SMOOTH_GROUP_CLOSED_WALL S_TURF(25)				//!/turf/closed/wall
+#define SMOOTH_GROUP_WALLS_STONE S_TURF(14) //!turf/closed/wall/mineral/stone (and moss)
+#define SMOOTH_GROUP_WALLS_STONE_CRAFT S_TURF(15) //!turf/closed/wall/mineral/craftstone
+#define SMOOTH_GROUP_WALLS_STONE_BRICK S_TURF(16) //!turf/closed/wall/mineral/stonebrick
+#define SMOOTH_GROUP_WALLS_STONE_DECO S_TURF(17) //!turf/closed/wall/mineral/decorstone (and moss)
+#define SMOOTH_GROUP_WALLS_PIPE S_TURF(18) //!turf/closed/wall/mineral/pipe
+#define SMOOTH_GROUP_WALLS_EREBUS S_TURF(19) //!turf/closed/wall/mineral/underbrick
+#define SMOOTH_GROUP_WALLS_WOOD S_TURF(20) //!turf/closed/wall/mineral/wood
 
-#define SMOOTH_GROUP_MINERAL_WALLS S_TURF(26)			//!turf/closed/mineral, /turf/closed/mineral/turf/random, /closed/indestructible
-
-#define SMOOTH_GROUP_WALLS_STONE S_TURF(27)				//!turf/closed/wall/mineral/stone (and moss)
-#define SMOOTH_GROUP_WALLS_STONE_CRAFT S_TURF(28)		//!turf/closed/wall/mineral/craftstone
-#define SMOOTH_GROUP_WALLS_STONE_BRICK S_TURF(29)		//!turf/closed/wall/mineral/stonebrick
-#define SMOOTH_GROUP_WALLS_STONE_DECO S_TURF(30)		//!turf/closed/wall/mineral/decorstone (and moss)
-#define SMOOTH_GROUP_WALLS_PIPE S_TURF(31)				//!turf/closed/wall/mineral/pipe
-#define SMOOTH_GROUP_WALLS_EREBUS S_TURF(32)			//!turf/closed/wall/mineral/underbrick
-#define SMOOTH_GROUP_WALLS_WOOD S_TURF(33)				//!turf/closed/wall/mineral/wood
-
-#define MAX_S_TURF 33 //Always match this value with the one above it.
+#define MAX_S_TURF 20 //Always match this value with the one above it.
 
 /* /obj included */
 
 #define S_OBJ(num) ("-" + #num + ",")
 
-#define SMOOTH_GROUP_WALLS S_OBJ(1)						//!turf/closed/wall, /structure/mineral_door/secret
+#define SMOOTH_GROUP_WALLS_SECRET S_OBJ(1) //!turf/closed/wall, /structure/mineral_door/secret
 
-#define SMOOTH_GROUP_WINDOW_FULLTILE S_OBJ(2)			//!obj/structure/window
+#define SMOOTH_GROUP_WINDOW_FULLTILE S_OBJ(2) //!obj/structure/window
 
-#define SMOOTH_GROUP_DOOR S_OBJ(3)						//!obj/structure/mineral_door
+#define SMOOTH_GROUP_DOOR S_OBJ(3) //!obj/structure/mineral_door
 
-#define SMOOTH_GROUP_TABLES S_OBJ(4)					//!obj/structure/table
-#define SMOOTH_GROUP_WOOD_TABLES S_OBJ(5)				//!obj/structure/table/wood
-#define SMOOTH_GROUP_FANCY_WOOD_TABLES S_OBJ(6)			//!obj/structure/table/wood/fancy
-
+#define SMOOTH_GROUP_TABLES S_OBJ(4) //!obj/structure/table
+#define SMOOTH_GROUP_WOOD_TABLES S_OBJ(5) //!obj/structure/table/wood
+#define SMOOTH_GROUP_FANCY_WOOD_TABLES S_OBJ(6) //!obj/structure/table/wood/fancy
 
 /// Performs the work to set smoothing_groups and smoothing_list.
 /// An inlined function used in both turf/Initialize and atom/Initialize.
