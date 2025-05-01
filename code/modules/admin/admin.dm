@@ -256,8 +256,7 @@
 
 	if(!check_rights())
 		return
-
-	M.fully_heal(admin_revive = TRUE)
+	M.revive(TRUE, TRUE)
 	message_admins("<span class='danger'>Admin [key_name_admin(usr)] healed / revived [key_name_admin(M)]!</span>")
 	log_admin("[key_name(usr)] healed / Revived [key_name(M)].")
 
