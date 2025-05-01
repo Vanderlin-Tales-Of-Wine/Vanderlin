@@ -135,9 +135,9 @@
 
 /datum/wound/lashing
 	name = "lashing"
-	whp = 40
+	whp = 30
 	sewn_whp = 12
-	bleed_rate = 0.8
+	bleed_rate = 0.6
 	sewn_bleed_rate = 0.02
 	clotting_rate = 0.02
 	sewn_clotting_rate = 0.02
@@ -145,7 +145,7 @@
 	sewn_clotting_threshold = 0.1
 	woundpain = 10
 	sewn_woundpain = 4
-	sew_threshold = 50
+	sew_threshold = 65
 	can_sew = TRUE
 	can_cauterize = TRUE
 
@@ -153,26 +153,26 @@
 	name = "superficial lashing"
 	whp = 15
 	sewn_whp = 5
-	bleed_rate = 0.4
+	bleed_rate = 0.2
 	sewn_bleed_rate = 0.01
 	clotting_rate = 0.02
 	sewn_clotting_rate = 0.02
 	clotting_threshold = 0.1
 	sewn_clotting_threshold = 0.05
-	woundpain = 6
+	woundpain = 8
 	sewn_woundpain = 2
 	sew_threshold = 30
 
 /datum/wound/lashing/large
 	name = "excruciating lashing"
-	whp = 60
+	whp = 45
 	sewn_whp = 15
-	bleed_rate = 2 //Intended for combat, might kill if used for punishment. Force can be controlled by not charging the whip lash fully.
+	bleed_rate = 1.2 //Intended for combat, might kill if used for punishment. Force can be controlled by not charging the whip lash fully.
 	sewn_bleed_rate = 0.05
 	clotting_rate = 0.02
 	sewn_clotting_rate = 0.02
 	clotting_threshold = 0.4
 	sewn_clotting_threshold = 0.1
-	woundpain = 20
-	sewn_woundpain = 10
-	sew_threshold = 75
+	woundpain = 22
+	sewn_woundpain = 14
+	sew_threshold = 95
