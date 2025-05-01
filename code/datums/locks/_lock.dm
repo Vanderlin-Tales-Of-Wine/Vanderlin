@@ -12,6 +12,8 @@
 	var/tampered = FALSE
 
 /datum/lock/New(obj/holder)
+	if(!holder)
+		CRASH("[type] created without a parent object.")
 	src.holder = holder
 	src.holder.on_lock_add()
 

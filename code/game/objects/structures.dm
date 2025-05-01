@@ -57,10 +57,10 @@
 		return
 
 /obj/structure/pre_lock_interact(mob/user)
-	. = ..()
 	if(broken)
 		to_chat(user, span_notice("[src] is broken, I cannot do this."))
 		return FALSE
+	return ..()
 
 /obj/structure/Crossed(atom/movable/AM)
 	. = ..()
