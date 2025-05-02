@@ -62,31 +62,31 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 			challenger_count++
 
 	if(astrata_count >= challenger_count)
-		adjust_storyteller_influence("Astrata", 200)
+		adjust_storyteller_influence("Astrata", 150)
 
 		for(var/datum/weakref/supporter_ref in supporters_astrata)
 			var/mob/living/carbon/human/supporter = supporter_ref.resolve()
 			if(supporter && supporter.patron == astrata)
+				to_chat(supporter, span_notice("Astrata's light prevails! Your steadfast devotion is rewarded with many triumphs."))
 				supporter.adjust_triumphs(3)
-				to_chat(supporter, span_notice("Astrata's light prevails! Your steadfast devotion is rewarded with a triumph."))
 			else if(supporter)
-				to_chat(supporter, span_notice("Astrata's light prevails over the challenge of [challenger.name]! The Sun Queen expected no less from you."))
+				to_chat(supporter, span_notice("Astrata's light prevails over the challenge of [challenger.name]! The Sun Queen expected no less than your total support."))
 
-		priority_announce("Astrata's light prevails over the challenge of [challenger.name]! The Sun Queen confirms her status as a true heir of Psydon!", "Astrata is VICTORIOUS!")
+		priority_announce("Astrata's light prevails over the challenge of [challenger.name]! The Sun Queen confirms her status as a true heir of Psydon!", "Astrata is VICTORIOUS!", 'sound/magic/ahh2.ogg')
 
 	else if(challenger_count > astrata_count)
-		adjust_storyteller_influence(challenger.name, 200)
+		adjust_storyteller_influence(challenger.name, 150)
 
 		for(var/datum/weakref/supporter_ref in supporters_challenger)
 			var/mob/living/carbon/human/supporter = supporter_ref.resolve()
 			if(supporter && supporter.patron == challenger)
-				supporter.adjust_triumphs(2)
 				to_chat(supporter, span_notice("[challenger.name]'s challenge succeeds! Your persistent faith is rewarded with triumphs."))
+				supporter.adjust_triumphs(2)
 			else if(supporter)
+				to_chat(supporter, span_notice("[challenger.name]'s challenge succeeds against Astrata's tyranny! Your support is rewarded with a triumph."))
 				supporter.adjust_triumphs(1)
-				to_chat(supporter, span_notice("[challenger.name]'s challenge succeeds against Astrata's light! Your support is rewarded with a triumph."))
 
-		priority_announce("[challenger.name]'s challenge succeeds against Astrata's light! The Sun Queen is grudgingly forced to listen...", "[challenger.name] RULES!")
+		priority_announce("[challenger.name]'s challenge succeeds against Astrata's tyranny! The Sun Queen is grudgingly forced to listen...", "[challenger.name] RULES!", 'sound/magic/inspire_02.ogg')
 
 	for(var/mob/living/carbon/human/H in GLOB.player_list)
 		if(!H.mind)
@@ -139,7 +139,7 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 		options["[challenger.name]"] = "challenger"
 
 
-	var/choice = input(user, "Choose your allegiance in the schism, you can change your side [uses_remaining] time\s):", "Choose your side") as null|anything in options
+	var/choice = input(user, "Choose your allegiance in the schism, you can change your side [uses_remaining] more time\s", "Choose your side") as null|anything in options
 	if(!choice || !current_schism)
 		return
 
@@ -149,6 +149,8 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 		current_side = "astrata"
 	else if(user_ref in current_schism.supporters_challenger)
 		current_side = "challenger"
+	else
+		current_side = "neutral"
 
 	if(options[choice] == current_side)
 		to_chat(user, span_notice("You're already supporting this side!"))
@@ -254,4 +256,4 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 			most_followers = current_followers
 			strongest_challenger = god
 
-	return strongest_challenger
+	return strongest_challenger.type
