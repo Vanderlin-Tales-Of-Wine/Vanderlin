@@ -965,16 +965,6 @@
 		if(H.zone_selected == BODY_ZONE_PRECISE_GROIN)
 			message_param = "slaps %t on the ass!"
 
-			// anti pedophile logging
-			var/log_msg
-			if(E.age == AGE_CHILD)
-			log_msg = "[H][ADMIN_FLW(H)] slapped a CHILD on the ass!"
-			if(H.age == AGE_CHILD)
-				log_msg += " As a child."
-			else
-				log_msg += " As an adult."
-			message_admins(log_msg)
-
 	..()
 /mob/living/carbon/human/verb/emote_slap()
 	set name = "Slap"
