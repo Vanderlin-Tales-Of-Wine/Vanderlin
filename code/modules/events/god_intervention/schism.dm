@@ -31,7 +31,7 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 	if(!challenger)
 		return
 
-	priority_announce("[challenger.name] challenges Astrata's leadeship! The outcome of this conflict will be decided in less than 2 daes by a sheer number of their supporters. [challenger.name] offers great rewards to his followers if victorious, while Astrata promises revenge for those who dare to defy her. Choose your side, or stand aside...", "Schism within the Ten", 'sound/magic/marked.ogg')
+	priority_announce("[challenger.name] challenges Astrata's leadeship! The outcome of this conflict will be decided in less than 2 daes by a sheer number of their supporters. [challenger.name] offers great rewards to all faithful if victorious, while Astrata promises revenge for those who dare to defy her. Choose your side, or stand aside...", "Schism within the Ten", 'sound/magic/marked.ogg')
 
 	for(var/mob/living/carbon/human/human_mob in GLOB.player_list)
 		if(!istype(human_mob) || human_mob.stat == DEAD || !human_mob.client)
@@ -208,7 +208,7 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 			continue
 
 		if(human_mob.patron == strongest_challenger)
-			to_chat(human_mob, span_notice("You feel a divine calling from your patron - the time has come to challenge Astrata's authority! Prepare for the coming schism!"))
+			to_chat(human_mob, span_notice("You hear a divine calling from your patron - the time has come to challenge Astrata's authority! Prepare for the coming schism!"))
 			SEND_SOUND(human_mob, 'sound/magic/marked.ogg')
 
 	new /datum/tennite_schism(strongest_challenger)
