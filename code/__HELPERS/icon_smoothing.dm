@@ -61,6 +61,8 @@ DEFINE_BITFIELD(smoothing_junction, list(
 
 /// Basic smoothing proc. The atom checks for adjacent directions to smooth with and changes the icon_state based on that.
 /atom/proc/smooth()
+	if(!smoothing_icon)
+		smoothing_icon = initial(icon_state)
 	var/new_junction = NONE
 
 	// cache for sanic speed
@@ -160,7 +162,7 @@ DEFINE_BITFIELD(smoothing_junction, list(
 
 ///Changes the icon state based on the new junction bitmask.
 /atom/proc/set_smoothed_icon_state(new_junction)
-	icon_state = "[initial(icon_state)]-[new_junction]"
+	icon_state = "[smoothing_icon]-[new_junction]"
 
 /turf/proc/set_neighborlays(new_junction)
 	remove_neighborlays()

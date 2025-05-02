@@ -73,7 +73,7 @@ DEFINE_BITFIELD(smooth, list(
 
 #define S_OBJ(num) ("-" + #num + ",")
 
-#define SMOOTH_GROUP_WALLS_SECRET S_OBJ(1) //!turf/closed/wall, /structure/mineral_door/secret
+#define SMOOTH_GROUP_WALLS S_OBJ(1) //!turf/closed/wall, /structure/mineral_door/secret
 
 #define SMOOTH_GROUP_WINDOW_FULLTILE S_OBJ(2) //!obj/structure/window
 

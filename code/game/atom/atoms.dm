@@ -88,6 +88,8 @@
 
 	///Icon-smoothing behavior.
 	var/smoothing_flags = NONE
+	///Icon to use for smoothing, only required for secret doors
+	var/smoothing_icon
 	///What directions this is currently smoothing with. IMPORTANT: This uses the smoothing direction flags as defined in icon_smoothing.dm, instead of the BYOND flags.
 	var/smoothing_junction = null //This starts as null for us to know when it's first set, but after that it will hold a 8-bit mask ranging from 0 to 255.
 	///What smoothing groups does this atom belongs to, to match smoothing_list. If null, nobody can smooth with it.

@@ -2,11 +2,10 @@ GLOBAL_LIST_EMPTY(keep_doors)
 GLOBAL_LIST_EMPTY(thieves_guild_doors)
 
 /obj/structure/mineral_door/secret
-	hover_color = "#607d65"
-
 	name = "wall"
-	desc = ""
-	icon_state = "woodhandle" //change me
+	icon = 'icons/turf/smooth/walls/stone_brick.dmi'
+	icon_state = MAP_SWITCH("stone_brick", "stone_brick-0")
+	hover_color = "#607d65"
 	openSound = 'sound/foley/doors/creak.ogg'
 	closeSound = 'sound/foley/doors/shut.ogg'
 	resistance_flags = FLAMMABLE
@@ -15,10 +14,14 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	layer = ABOVE_MOB_LAYER
 	keylock = FALSE
 	locked = TRUE
-	icon = 'icons/roguetown/misc/doors.dmi'
+
 	blade_dulling = DULLING_BASHCHOP
 	break_sound = 'sound/combat/hits/onwood/destroywalldoor.ogg'
 	attacked_sound = list('sound/combat/hits/onwood/woodimpact (1).ogg','sound/combat/hits/onwood/woodimpact (2).ogg')
+
+	smoothing_flags = NONE
+	smoothing_groups = SMOOTH_GROUP_WALLS + SMOOTH_GROUP_CLOSED
+	smoothing_list = SMOOTH_GROUP_WALLS
 
 	can_add_lock = FALSE
 	can_knock = FALSE
@@ -294,8 +297,6 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 		/datum/job/hand,
 		/datum/job/butler,
 	)
-	icon = 'icons/turf/smooth/walls/stone_brick.dmi'
-	icon_state = "stonebrick-0"
 
 /obj/structure/mineral_door/secret/keep/Initialize()
 	. = ..()
@@ -334,8 +335,6 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 		/datum/job/matron,
 	)
 	lang = /datum/language/thievescant
-	icon = 'icons/turf/smooth/walls/stone_brick.dmi'
-	icon_state = "stonebrick-0"
 
 /obj/structure/mineral_door/secret/thieves_guild/Initialize()
 	. = ..()
@@ -378,34 +377,18 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	var/turf/closed/source_turf = get_turf(src)
 	var/obj/structure/mineral_door/secret/new_door = new door_type(source_turf)
 
-	new_door.icon = source_turf.icon
-	new_door.icon_state = source_turf.icon_state
-	new_door.smoothing_flags = source_turf.smoothing_flags
-	new_door.smoothing_list = source_turf.smoothing_list
 	new_door.name = source_turf.name
 	new_door.desc = source_turf.desc
+	new_door.icon = source_turf.icon
+	new_door.icon_state = source_turf.icon_state
 
-	//assigns local smoothing to neighboring walls
-	//i can see this causing an issue under very specific door configuration.
-	for(var/dir in GLOB.cardinals)
-		var/turf/T = get_step(src, dir)
-		var/canDoorSmooth = FALSE
-		for(var/smoothType in new_door.smoothing_list)
-			if(istype(T, smoothType))
-				canDoorSmooth = TRUE
-				break
-		if(!canDoorSmooth)
-			continue
-		var/smoothCompatible = FALSE
-		var/alreadyAdded = FALSE
-		for(var/smoothType in T.smoothing_list)
-			if(istype(source_turf, smoothType))
-				smoothCompatible = TRUE
-			if(ispath(smoothType, /obj/structure/mineral_door/secret))
-				alreadyAdded = TRUE
-				break
-		if(smoothCompatible && !alreadyAdded)
-			T.smoothing_list += /obj/structure/mineral_door/secret
+	var/smooth = source_turf.smoothing_flags
+
+	if(smooth)
+		new_door.smoothing_flags |= smooth
+		new_door.smoothing_icon = initial(source_turf.icon_state)
+		QUEUE_SMOOTH(new_door)
+		QUEUE_SMOOTH_NEIGHBORS(new_door)
 
 	if(redstone_id)
 		new_door.redstone_id = redstone_id
