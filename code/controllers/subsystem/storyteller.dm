@@ -1297,6 +1297,7 @@ SUBSYSTEM_DEF(gamemode)
 	GLOB.vanderlin_round_stats[STATS_ALIVE_NOBLES] = 0
 	GLOB.vanderlin_round_stats[STATS_ILLITERATES] = 0
 	GLOB.vanderlin_round_stats[STATS_WEREVOLVES] = 0
+	GLOB.vanderlin_round_stats[STATS_VAMPIRES] = 0
 	GLOB.vanderlin_round_stats[STATS_DEADITES_ALIVE] = 0
 	GLOB.vanderlin_round_stats[STATS_CLINGY_PEOPLE] = 0
 	GLOB.vanderlin_round_stats[STATS_ALCOHOLICS] = 0
@@ -1344,6 +1345,8 @@ SUBSYSTEM_DEF(gamemode)
 					GLOB.vanderlin_round_stats[STATS_MONARCH_PATRON] = "[living.patron.name]"
 		if(living.mind.has_antag_datum(/datum/antagonist/werewolf))
 			GLOB.vanderlin_round_stats[STATS_WEREVOLVES]++
+		if(living.mind.has_antag_datum(/datum/antagonist/vampire))
+			GLOB.vanderlin_round_stats[STATS_VAMPIRES]++
 		if(living.mind.has_antag_datum(/datum/antagonist/zombie) || living.mind.has_antag_datum(/datum/antagonist/skeleton) || living.mind.has_antag_datum(/datum/antagonist/lich))
 			GLOB.vanderlin_round_stats[STATS_DEADITES_ALIVE]++
 		if(ishuman(living))

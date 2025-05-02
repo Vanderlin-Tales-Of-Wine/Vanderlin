@@ -12,6 +12,7 @@
 
 #define STATS_MONARCH_PATRON "monarch_patron"
 #define STATS_MARRIED "married"
+#define STATS_VAMPIRES "vampires"
 
 #define STATS_MALE_POPULATION "male_population"
 #define STATS_FEMALE_POPULATION "female_population"
@@ -240,6 +241,7 @@ GLOBAL_LIST_INIT(vanderlin_round_stats, list(
 	STATS_ELDERLY_POPULATION = 0,
 	STATS_IMMORTAL_POPULATION = 0,
 	STATS_PSYCROSS_USERS = 0,
+	STATS_VAMPIRES = 0,
 ))
 
 GLOBAL_LIST_EMPTY(patron_follower_counts)
