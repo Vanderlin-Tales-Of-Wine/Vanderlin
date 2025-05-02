@@ -27,6 +27,8 @@
 
 /datum/job/bandit/after_spawn(mob/living/spawned, client/player_client)
 	..()
+	var/datum/antagonist/new_antag = new /datum/antagonist/bandit()
+	H.mind.add_antag_datum(new_antag)
 	var/mob/living/carbon/human/H = spawned
 	if(!H.mind)
 		return
@@ -34,6 +36,4 @@
 
 /datum/outfit/job/bandit/post_equip(mob/living/carbon/human/H)
 	..()
-	var/datum/antagonist/new_antag = new /datum/antagonist/bandit()
-	H.mind.add_antag_datum(new_antag)
 	addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, choose_name_popup), "BANDIT"), 5 SECONDS)
