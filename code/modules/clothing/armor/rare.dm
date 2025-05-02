@@ -53,7 +53,7 @@
 	desc = "Engraved on this masterwork of humen metallurgy lies \"Thrice Slain, Thrice Risen, Thrice Pronged\" alongside the symbol of Psydon in its neck guard."
 	icon_state = "human_swordchest"
 	allowed_race = list("human")
-	allowed_sex = list(MALE)
+	allowed_sex = list(MALE, FEMALE)
 	item_weight = 12 * STEEL_MULTIPLIER
 
 /obj/item/clothing/armor/rare/zybanplate
