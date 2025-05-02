@@ -472,7 +472,7 @@
 	to_chat(C,"<a href='byond://?src=[C];playerlist=1'>* SHOW PLAYER LIST *</a>")
 	to_chat(C,"<a href='byond://?src=[C];commendsomeone=1'>* Commend a Character *</a>")
 	to_chat(C,"<a href='byond://?src=[C];viewstats=1'>* View Statistics *</a>")
-	C.show_round_stats()
+	C.show_round_stats(pick_assoc(GLOB.featured_stats))
 	C.commendation_popup()
 
 /datum/action/report

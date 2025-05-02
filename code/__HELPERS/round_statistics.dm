@@ -254,7 +254,7 @@ GLOBAL_LIST_EMPTY(species_crime_stats)
 
 GLOBAL_LIST_INIT(species_population_stats, list(
 	/datum/species/human/northern = STATS_ALIVE_NORTHERN_HUMANS,
-	/datum/species/dwarf = STATS_ALIVE_DWARVES,
+	/datum/species/dwarf/mountain = STATS_ALIVE_DWARVES,
 	/datum/species/elf/dark = STATS_ALIVE_DARK_ELVES,
 	/datum/species/elf/snow = STATS_ALIVE_SNOW_ELVES,
 	/datum/species/human/halfelf = STATS_ALIVE_HALF_ELVES,
@@ -263,7 +263,6 @@ GLOBAL_LIST_INIT(species_population_stats, list(
 	/datum/species/rakshari = STATS_ALIVE_RAKSHARI,
 	/datum/species/aasimar = STATS_ALIVE_AASIMAR,
 	/datum/species/tieberian = STATS_ALIVE_TIEFLINGS,
-	/datum/species/dwarf/mountain = STATS_ALIVE_DWARVES,
 	/datum/species/werewolf = STATS_WEREVOLVES,
 ))
 
@@ -296,7 +295,7 @@ GLOBAL_LIST_INIT(featured_stats, list(
 	),
 	FEATURED_STATS_CRIME_RATES = list(
 		"name" = "TOP 10 Crime Rates",
-		"color" = "#8d5d65",
+		"color" = "#bb6976",
 		"entries" = list(),
 		"special" = TRUE
 	),
@@ -422,7 +421,7 @@ GLOBAL_LIST_INIT(featured_stats, list(
 		species_rates[species_type] = rate
 		species_names[species_type] = initial(species_type.name)
 
-	species_rates = sortTim(species_rates, /proc/cmp_numeric_dsc)
+	species_rates = sortTim(species_rates, /proc/cmp_numeric_dsc, associative = TRUE)
 
 	var/list/entries = list()
 	var/rank = 1
@@ -435,5 +434,14 @@ GLOBAL_LIST_INIT(featured_stats, list(
 	GLOB.featured_stats[FEATURED_STATS_CRIME_RATES]["entries"] = entries
 
 /proc/get_species_population(datum/species/species_type)
-	var/stat_key = GLOB.species_population_stats[species_type]
-	return stat_key ? GLOB.vanderlin_round_stats[stat_key] : 0
+    if(!species_type)
+        return 0
+
+    var/static/list/population_stats = GLOB.species_population_stats
+    var/stat_key = ispath(species_type) ? population_stats[species_type] : population_stats[species_type.type]
+
+    if(!stat_key)
+        return 0
+
+    var/pop = GLOB.vanderlin_round_stats[stat_key]
+    return isnum(pop) ? pop : 0

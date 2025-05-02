@@ -1686,4 +1686,4 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	set name = "View Statistics"
 	set category = "OOC"
 
-	show_round_stats()
+	show_round_stats(pick_assoc(GLOB.featured_stats))

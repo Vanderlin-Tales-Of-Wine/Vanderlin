@@ -357,7 +357,7 @@
 
 	influence_factors = list(
 		STATS_ITEMS_PICKPOCKETED = list("points" = 6.5, "capacity" = 95),
-		STATS_SHRINE_VALUE = list("points" = 0.2, "capacity" = 80),
+		STATS_SHRINE_VALUE = list("points" = 0.175, "capacity" = 75),
 		STATS_GREEDY_PEOPLE = list("points" = 8, "capacity" = 70),
 		STATS_DODGES = list("points" = 0.0875, "capacity" = 100),
 		STATS_LOCKS_PICKED = list("points" = 5, "capacity" = 95),
