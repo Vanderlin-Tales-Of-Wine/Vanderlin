@@ -17,7 +17,7 @@
 
 /obj/item/bouquet/salvia
 	name = "salvia bouquet"
-	desc = "A boquet of sweet smelling salvia, a beautiful and royal purple flower."
+	desc = "A bouquet of sweet smelling salvia, a beautiful and royal purple flower."
 	icon_state = "bouquet_salvia"
 
 /obj/item/bouquet/matricaria
