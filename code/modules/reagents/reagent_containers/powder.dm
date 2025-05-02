@@ -50,6 +50,7 @@
 
 	if(reagents.total_volume)
 		reagents.trans_to(M, reagents.total_volume, transfered_by = user, method = "swallow")
+		record_criminal_stat(STATS_DRUGS_SNORTED, user)
 		GLOB.vanderlin_round_stats[STATS_DRUGS_SNORTED]++
 	qdel(src)
 	return TRUE

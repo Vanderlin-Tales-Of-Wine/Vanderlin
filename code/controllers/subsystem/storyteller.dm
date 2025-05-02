@@ -1290,6 +1290,8 @@ SUBSYSTEM_DEF(gamemode)
 	if(SSticker.current_state == GAME_STATE_FINISHED)
 		return
 
+	update_crime_rates()
+
 	GLOB.patron_follower_counts.Cut()
 
 	GLOB.vanderlin_round_stats[STATS_MONARCH_PATRON] = "None"

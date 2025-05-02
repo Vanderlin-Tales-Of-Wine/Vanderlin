@@ -72,6 +72,7 @@
 			outcome = special_faces.Find(outcome)
 		if(!outcome)
 			return
+		record_criminal_stat(STATS_GAMES_RIGGED, user)
 		GLOB.vanderlin_round_stats[STATS_GAMES_RIGGED]++
 		rigged = DICE_BASICALLY_RIGGED
 		rigged_value = outcome

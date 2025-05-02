@@ -248,6 +248,23 @@ GLOBAL_LIST_INIT(vanderlin_round_stats, list(
 
 GLOBAL_LIST_EMPTY(patron_follower_counts)
 
+GLOBAL_LIST_EMPTY(species_crime_stats)
+
+GLOBAL_LIST_INIT(species_population_stats, list(
+	/datum/species/human/northern = STATS_ALIVE_NORTHERN_HUMANS,
+	/datum/species/dwarf = STATS_ALIVE_DWARVES,
+	/datum/species/elf/dark = STATS_ALIVE_DARK_ELVES,
+	/datum/species/elf/snow = STATS_ALIVE_SNOW_ELVES,
+	/datum/species/human/halfelf = STATS_ALIVE_HALF_ELVES,
+	/datum/species/halforc = STATS_ALIVE_HALF_ORCS,
+	/datum/species/kobold = STATS_ALIVE_KOBOLDS,
+	/datum/species/rakshari = STATS_ALIVE_RAKSHARI,
+	/datum/species/aasimar = STATS_ALIVE_AASIMAR,
+	/datum/species/tieberian = STATS_ALIVE_TIEFLINGS,
+	/datum/species/dwarf/mountain = STATS_ALIVE_DWARVES,
+	/datum/species/werewolf = STATS_WEREVOLVES,
+))
+
 // Featured stats of the round
 #define FEATURED_STATS_TREE_FELLERS "tree_fellers"
 #define FEATURED_STATS_THIEVES "thieves"
@@ -258,6 +275,7 @@ GLOBAL_LIST_EMPTY(patron_follower_counts)
 #define FEATURED_STATS_FISHERS "fishers"
 #define FEATURED_STATS_GOURMETS "gourmets"
 #define FEATURED_STATS_SCREAMERS "screamers"
+#define FEATURED_STATS_CRIME_RATES "crime_rates"
 
 GLOBAL_LIST_INIT(featured_stats, list(
 	FEATURED_STATS_TREE_FELLERS = list(
@@ -290,14 +308,14 @@ GLOBAL_LIST_INIT(featured_stats, list(
 		"color" = "#559bbb",
 		"entries" = list()
 	),
-	FEATURED_STATS_THIEVES = list(
-		"name" = "TOP 10 Thieves",
-		"color" = "#6e4a25",
-		"entries" = list()
-	),
 	FEATURED_STATS_SCREAMERS = list(
 		"name" = "TOP 10 Screamers",
 		"color" = "#d34747",
+		"entries" = list()
+	),
+	FEATURED_STATS_THIEVES = list(
+		"name" = "TOP 10 Thieves",
+		"color" = "#6e4a25",
 		"entries" = list()
 	),
 	FEATURED_STATS_ALCOHOLICS = list(
@@ -305,16 +323,13 @@ GLOBAL_LIST_INIT(featured_stats, list(
 		"color" = "#945d96",
 		"entries" = list()
 	),
+	FEATURED_STATS_CRIME_RATES = list(
+		"name" = "TOP 10 Crime rates by species",
+		"color" = "#c41e3a",
+		"entries" = list(),
+		"special" = TRUE
+	),
 ))
-
-/proc/get_featured_stat_display(stat_id)
-	var/list/stat_data = GLOB.featured_stats[stat_id]
-	if(!stat_data)
-		stat_id = GLOB.featured_stats[1]
-		stat_data = GLOB.featured_stats[stat_id]
-
-	return "<font color='[stat_data["color"]]'><span class='bold'>[stat_data["name"]]:</span></font><br>" + \
-	       format_top_ten(stat_id)
 
 /proc/format_top_ten(stat_category)
 	var/list/stat_data = GLOB.featured_stats[stat_category]
@@ -355,3 +370,44 @@ GLOBAL_LIST_INIT(featured_stats, list(
 		stat_data["entries"] = list()
 
 	stat_data["entries"][key] = (stat_data["entries"][key] || 0) + increment
+
+/proc/record_criminal_stat(crime_stat, mob/living/carbon/perp, increment = 1)
+	if(!perp || !crime_stat || !perp.dna?.species)
+		return
+
+	LAZYINITLIST(GLOB.species_crime_stats[perp.dna.species])
+	GLOB.species_crime_stats[perp.dna.species][crime_stat] += increment
+
+/proc/update_crime_rates()
+	if(!length(GLOB.species_crime_stats))
+		GLOB.featured_stats[FEATURED_STATS_CRIME_RATES]["entries"] = list()
+		return
+
+	var/list/species_rates = list()
+	var/list/species_names = list()
+
+	for(var/datum/species/species_type in GLOB.species_crime_stats)
+		var/total_crimes = 0
+		for(var/stat in GLOB.species_crime_stats[species_type])
+			total_crimes += GLOB.species_crime_stats[species_type][stat]
+
+		var/pop = get_species_population(species_type) || 1
+		var/rate = (total_crimes / pop) * 100
+		species_rates[species_type] = rate
+		species_names[species_type] = initial(species_type.name)
+
+	species_rates = sortTim(species_rates, /proc/cmp_numeric_dsc)
+
+	var/list/entries = list()
+	var/rank = 1
+	for(var/species_type in species_rates)
+		if(rank > 10)
+			break
+		entries["[species_names[species_type]]"] = "[round(species_rates[species_type], 1)]%"
+		rank++
+
+	GLOB.featured_stats[FEATURED_STATS_CRIME_RATES]["entries"] = entries
+
+/proc/get_species_population(datum/species/species_type)
+	var/stat_key = GLOB.species_population_stats[species_type]
+	return stat_key ? GLOB.vanderlin_round_stats[stat_key] : 0
