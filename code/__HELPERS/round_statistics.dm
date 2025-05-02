@@ -277,6 +277,7 @@ GLOBAL_LIST_INIT(species_population_stats, list(
 #define FEATURED_STATS_FISHERS "fishers"
 #define FEATURED_STATS_GOURMETS "gourmets"
 #define FEATURED_STATS_SCREAMERS "screamers"
+#define FEATURED_STATS_MINERS "miners"
 #define FEATURED_STATS_CRIME_RATES "crime_rates"
 
 GLOBAL_LIST_INIT(featured_stats, list(
@@ -293,6 +294,11 @@ GLOBAL_LIST_INIT(featured_stats, list(
 	FEATURED_STATS_SPEAKERS = list(
 		"name" = "TOP 10 Speakers",
 		"color" = "#93cabe",
+		"entries" = list()
+	),
+	FEATURED_STATS_MINERS = list(
+		"name" = "TOP 10 Miners",
+		"color" = "#bd8e60",
 		"entries" = list()
 	),
 	FEATURED_STATS_ALCHEMISTS = list(

@@ -99,7 +99,7 @@
 	var/was_destroyed = obj_destroyed
 	. = ..()
 	if(.)
-		if(!was_destroyed && obj_destroyed && user?.real_name)
+		if(!was_destroyed && obj_destroyed)
 			record_featured_stat(FEATURED_STATS_TREE_FELLERS, user)
 
 /obj/structure/flora/newtree/fire_act(added, maxstacks)
