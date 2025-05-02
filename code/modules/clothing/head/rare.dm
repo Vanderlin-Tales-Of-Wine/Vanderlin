@@ -54,8 +54,6 @@
 	desc = "A Grenzelhoftian chicklet sallet, decorated with a plume of valor. \
 			It has been proven with severe battle-testing that a wearer's head would crack before the helmet chips."
 	icon_state = "human_swordhead"
-	allowed_sex = list(MALE, FEMALE)
-	allowed_race = list("human")
 	flags_inv = HIDEEARS
 	clothing_flags = CANT_SLEEP_IN
 	body_parts_covered = HEAD|EARS|HAIR
@@ -69,8 +67,6 @@
 			where the old God-King resided."
 	icon_state = "human_spearhead"
 	item_state = "human_spearplate"
-	allowed_sex = list(MALE)
-	allowed_race = list("human")
 	flags_inv = HIDEEARS|HIDEFACE
 	clothing_flags = CANT_SLEEP_IN
 	body_parts_covered = HEAD|EARS|HAIR|NOSE|MOUTH
@@ -85,7 +81,6 @@
 	icon_state = "aasimarhead"
 	worn_x_dimension = 64
 	worn_y_dimension = 64
-	allowed_race = list("aasimar")
 	flags_inv = HIDEEARS
 	clothing_flags = CANT_SLEEP_IN
 	body_parts_covered = HEAD|EARS|HAIR
