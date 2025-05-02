@@ -133,6 +133,43 @@
 			if(HAS_TRAIT(src, TRAIT_UGLY))
 				. += span_necrosis(span_bold("[self_inspect ? "I am" : "[t_He] is"] hideous."))
 
+		if(length(GLOB.tennite_schisms))
+			var/datum/tennite_schism/current_schism
+			for(var/datum/tennite_schism/schism in GLOB.tennite_schisms)
+				current_schism = schism
+				break
+
+			if(current_schism)
+				var/datum/weakref/user_ref = WEAKREF(user)
+				var/datum/weakref/mob_ref = WEAKREF(src)
+
+				// Check if examiner is a supporter
+				var/user_side
+				if(user_ref in current_schism.supporters_astrata)
+					user_side = "astrata"
+				else if(user_ref in current_schism.supporters_challenger)
+					user_side = "challenger"
+
+				// Check if examined mob is a supporter
+				var/mob_side
+				if(mob_ref in current_schism.supporters_astrata)
+					mob_side = "astrata"
+				else if(mob_ref in current_schism.supporters_challenger)
+					mob_side = "challenger"
+
+				// Only show messages if both are on sides (not neutral)
+				if(user_side && mob_side)
+					if(user_side == mob_side)
+						// Same side
+						var/datum/patron/their_god = user_side == "astrata" ? current_schism.astrata_god.resolve() : current_schism.challenger_god.resolve()
+						if(their_god)
+							. += span_green("A fellow supporter of [their_god.name]!")
+					else
+						// Opposing side
+						var/datum/patron/their_god = mob_side == "astrata" ? current_schism.astrata_god.resolve() : current_schism.challenger_god.resolve()
+						if(their_god)
+							. += span_phobia("A supporter of the opposing side - [their_god.name]!")
+
 		if(HAS_TRAIT(src, TRAIT_FOREIGNER) && !HAS_TRAIT(user, TRAIT_FOREIGNER))
 			. += span_phobia("A foreigner...")
 

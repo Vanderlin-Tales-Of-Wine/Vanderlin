@@ -39,7 +39,7 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
         if(!istype(human_mob) || human_mob.stat == DEAD || !human_mob.client)
             continue
 
-        if(!istype(human_mob.patron, /datum/patron/divine))
+        if(!is_tennite(human_mob))
             continue
 
         human_mob.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/choose_schism_side)
@@ -56,11 +56,7 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 
     if(astrata_count > challenger_count)
         // Astrata wins
-        for(var/storyteller_type in SSgamemode.storytellers)
-            var/datum/storyteller/S = SSgamemode.storytellers[storyteller_type]
-            if(S.name == astrata.name)
-                S.bonus_points += 200
-                break
+        adjust_storyteller_influence("Astrata", 200)
         for(var/datum/weakref/supporter_ref in supporters_astrata)
             var/mob/living/supporter = supporter_ref.resolve()
             if(supporter)
@@ -70,19 +66,7 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
         priority_announce("The schism has ended! Astrata's light prevails over the challenge of [challenger.name]!", "Celestial Schism Concluded")
     else if(challenger_count > astrata_count)
         // Challenger wins
-        for(var/storyteller_type in SSgamemode.storytellers)
-            var/datum/storyteller/S = SSgamemode.storytellers[storyteller_type]
-            if(S.name == challenger.name)
-                S.bonus_points += 200
-                break
-
-        // Add bonus points to the challenger's storyteller
-        for(var/storyteller_type in SSgamemode.storytellers)
-            var/datum/storyteller/S = SSgamemode.storytellers[storyteller_type]
-            if(S.name == challenger.name)
-                S.bonus_points += 50
-                break
-
+        adjust_storyteller_influence(challenger.name, 200)
         for(var/datum/weakref/supporter_ref in supporters_challenger)
             var/mob/living/supporter = supporter_ref.resolve()
             if(supporter)
@@ -93,10 +77,10 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
     else
         priority_announce("The schism has ended in a stalemate! Neither side could claim dominance.", "Celestial Schism Concluded")
 
+    // Clean up spells
     for(var/mob/living/carbon/human/human_mob in GLOB.player_list)
         if(!istype(human_mob) || !human_mob.mind)
             continue
-
         human_mob.mind.RemoveSpell(/obj/effect/proc_holder/spell/invoked/choose_schism_side)
 
     qdel(src)
@@ -123,15 +107,20 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 
 /obj/effect/proc_holder/spell/invoked/choose_schism_side
     name = "Choose Schism Side"
-    desc = "Declare your allegiance in the schism within the Ten."
+    desc = "Declare your allegiance in the schism within the Ten. You may change your mind once."
     invocation = "DECLARE ALLEGIANCE"
     invocation_type = "whisper"
     action_icon_state = "convert"
-    cooldown_min = 3 MINUTES // Cooldown for changing sides
+    cooldown_min = 3 MINUTES
+    var/uses_remaining = 2 // Players get 2 total uses (initial choice + one change)
 
 /obj/effect/proc_holder/spell/invoked/choose_schism_side/cast(list/targets, mob/living/carbon/human/user)
-    if(!user.patron || !istype(user.patron, /datum/patron/divine))
+    if(!is_tennite(user))
         to_chat(user, span_warning("Only Tennites can participate in the schism."))
+        return
+
+    if(uses_remaining <= 0)
+        to_chat(user, span_warning("You've already finalized your allegiance in the schism."))
         return
 
     var/datum/tennite_schism/current_schism
@@ -150,9 +139,18 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
         options["[challenger.name]"] = "challenger"
     options["Neutral"] = "neutral"
 
-    var/choice = input(user, "Choose your allegiance in the schism:", "Schism within the Ten") as null|anything in options
+    var/choice = input(user, "Choose your allegiance in the schism (Remaining changes: [uses_remaining-1]):", "Schism within the Ten") as null|anything in options
     if(!choice || !current_schism)
         return
+
+    uses_remaining--
+    current_schism.change_side(user, options[choice])
+
+    if(uses_remaining <= 0)
+        name = "[initial(name)] (Finalized)"
+        if(action)
+            action.UpdateButtonIcon() // Visual feedback
+        to_chat(user, span_boldnotice("Your allegiance in the schism is now final."))
 
     current_schism.change_side(user, options[choice])
 
@@ -171,67 +169,25 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
     if(!.)
         return FALSE
 
-    // Check if Astrata is weak compared to another Tennite god
     var/datum/patron/astrata = GLOB.patronlist[/datum/patron/divine/astrata]
     if(!astrata)
         return FALSE
 
-    var/astrata_power = GLOB.patron_follower_counts["Astrata"] * 10
-    // Get influence from storyteller system if available
-    for(var/storyteller_type in SSgamemode.storytellers)
-        var/datum/storyteller/S = SSgamemode.storytellers[storyteller_type]
-        if(S.name == "Astrata")
-            astrata_power += SSgamemode.calculate_storyteller_influence(S.type)
-            break
+    var/astrata_power = (GLOB.patron_follower_counts["Astrata"] * 10) + get_storyteller_influence("Astrata")
 
     for(var/type in subtypesof(/datum/patron/divine) - /datum/patron/divine/astrata)
         var/datum/patron/divine/god = GLOB.patronlist[type]
-        if(!god || !istype(god, /datum/patron/divine))
+        if(!god)
             continue
 
-        var/god_power = GLOB.patron_follower_counts[god.name] * 10
-        // Get influence from storyteller system if available
-        for(var/storyteller_type in SSgamemode.storytellers)
-            var/datum/storyteller/S = SSgamemode.storytellers[storyteller_type]
-            if(S.name == god.name)
-                god_power += SSgamemode.calculate_storyteller_influence(S.type)
-                break
-
+        var/god_power = (GLOB.patron_follower_counts[god.name] * 10) + get_storyteller_influence(god.name)
         if(god_power > astrata_power * 1.25) // 25% stronger than Astrata
             return TRUE
 
     return FALSE
 
 /datum/round_event/schism_within_ten/start()
-    // Find the strongest challenger god
-    var/astrata_power = GLOB.patron_follower_counts["Astrata"] * 10
-    // Get Astrata's storyteller influence if available
-    for(var/storyteller_type in SSgamemode.storytellers)
-        var/datum/storyteller/S = SSgamemode.storytellers[storyteller_type]
-        if(S.name == "Astrata")
-            astrata_power += SSgamemode.calculate_storyteller_influence(S.type)
-            break
-
-    var/datum/patron/strongest_challenger
-    var/strongest_power = 0
-
-    for(var/type in subtypesof(/datum/patron/divine) - /datum/patron/divine/astrata)
-        var/datum/patron/divine/god = GLOB.patronlist[type]
-        if(!god || !istype(god, /datum/patron/divine))
-            continue
-
-        var/god_power = GLOB.patron_follower_counts[god.name] * 10
-        // Get god's storyteller influence if available
-        for(var/storyteller_type in SSgamemode.storytellers)
-            var/datum/storyteller/S = SSgamemode.storytellers[storyteller_type]
-            if(S.name == god.name)
-                god_power += SSgamemode.calculate_storyteller_influence(S.type)
-                break
-
-        if(god_power > strongest_power && god_power > astrata_power * 1.25)
-            strongest_power = god_power
-            strongest_challenger = god
-
+    var/datum/patron/strongest_challenger = find_strongest_challenger()
     if(!strongest_challenger)
         return
 
@@ -255,3 +211,43 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 /proc/announce_schism_end()
     for(var/datum/tennite_schism/schism in GLOB.tennite_schisms)
         schism.process_winner()
+
+/proc/adjust_storyteller_influence(god_name, amount)
+    for(var/storyteller_type in SSgamemode.storytellers)
+        var/datum/storyteller/S = SSgamemode.storytellers[storyteller_type]
+        if(S.name == god_name)
+            S.bonus_points += amount
+            break
+
+/proc/is_tennite(mob/living/carbon/human/human_mob)
+    if(!human_mob.patron)
+        return FALSE
+    return istype(human_mob.patron, /datum/patron/divine)
+
+/proc/get_storyteller_influence(god_name)
+    for(var/storyteller_type in SSgamemode.storytellers)
+        var/datum/storyteller/S = SSgamemode.storytellers[storyteller_type]
+        if(S.name == god_name)
+            return SSgamemode.calculate_storyteller_influence(S.type)
+    return 0
+
+/proc/find_strongest_challenger()
+    var/datum/patron/astrata = GLOB.patronlist[/datum/patron/divine/astrata]
+    if(!astrata)
+        return null
+
+    var/astrata_power = (GLOB.patron_follower_counts["Astrata"] * 10) + get_storyteller_influence("Astrata")
+    var/datum/patron/strongest_challenger
+    var/strongest_power = 0
+
+    for(var/type in subtypesof(/datum/patron/divine) - /datum/patron/divine/astrata)
+        var/datum/patron/divine/god = GLOB.patronlist[type]
+        if(!god)
+            continue
+
+        var/god_power = (GLOB.patron_follower_counts[god.name] * 10) + get_storyteller_influence(god.name)
+        if(god_power > strongest_power && god_power > astrata_power * 1.25)
+            strongest_power = god_power
+            strongest_challenger = god
+
+    return strongest_challenger
