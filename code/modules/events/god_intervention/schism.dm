@@ -24,22 +24,23 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
     return ..()
 
 /datum/tennite_schism/proc/announce()
-    if(announced)
-        return
+	if(announced)
+		return
 
-    announced = TRUE
-    var/datum/patron/challenger = challenger_god.resolve()
-    if(!challenger)
-        return
+	announced = TRUE
+	var/datum/patron/challenger = challenger_god.resolve()
+	if(!challenger)
+		return
 
-    priority_announce("A schism has emerged within the Ten! [challenger.name] challenges Astrata's authority! All Tennites must choose their allegiance!", "Celestial Schism", 'sound/magic/marked.ogg')
+	priority_announce("A schism has emerged within the Ten! [challenger.name] challenges Astrata's authority! All Tennites must choose their allegiance!", "Celestial Schism", 'sound/magic/marked.ogg')
 
-    // Grant the choosing spell to ALL players (not just Tennites)
-    for(var/mob/living/carbon/human/human_mob in GLOB.player_list)
-        if(!istype(human_mob) || human_mob.stat == DEAD || !human_mob.client)
-            continue
+	for(var/mob/living/carbon/human/human_mob in GLOB.player_list)
+		if(!istype(human_mob) || human_mob.stat == DEAD || !human_mob.client)
+			continue
 
-        human_mob.mind.AddSpell(new /obj/effect/proc_holder/spell/self/choose_schism_side) // Changed to self type
+		human_mob.mind.AddSpell(new /obj/effect/proc_holder/spell/self/choose_schism_side)
+		if(!is_tennite(human_mob))
+			to_chat(human_mob, span_notice("Even though you are not a Tennite and won't matter in its ultimate outcome, you may pretend and use the schism to further your own goals..."))
 
 /datum/tennite_schism/proc/process_winner()
     var/datum/patron/challenger = challenger_god.resolve()
@@ -48,23 +49,34 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
     if(!challenger || !astrata)
         return
 
-    var/astrata_count = length(supporters_astrata)
-    var/challenger_count = length(supporters_challenger)
+    // Only count Tennite supporters
+    var/astrata_count = 0
+    var/challenger_count = 0
 
-    if(astrata_count > challenger_count)
+    for(var/datum/weakref/supporter_ref in supporters_astrata)
+        var/mob/living/carbon/human/supporter = supporter_ref.resolve()
+        if(supporter && is_tennite(supporter))
+            astrata_count++
+
+    for(var/datum/weakref/supporter_ref in supporters_challenger)
+        var/mob/living/carbon/human/supporter = supporter_ref.resolve()
+        if(supporter && is_tennite(supporter))
+            challenger_count++
+
+    if(astrata_count >= challenger_count)
         // Astrata wins
         adjust_storyteller_influence("Astrata", 200)
 
         // Original supporters (Astrata patrons) get triumphs
         for(var/datum/weakref/supporter_ref in supporters_astrata)
-            var/mob/living/supporter = supporter_ref.resolve()
+            var/mob/living/carbon/human/supporter = supporter_ref.resolve()
             if(supporter && supporter.patron == astrata)
                 supporter.adjust_triumphs(1)
                 to_chat(supporter, span_notice("Astrata's light prevails! Your steadfast devotion is rewarded with a triumph."))
             else if(supporter)
                 to_chat(supporter, span_notice("Astrata's light prevails over the challenge of [challenger.name]!"))
 
-        priority_announce("The schism has ended! Astrata's light prevails over the challenge of [challenger.name]!", "Celestial Schism Concluded")
+        priority_announce("The schism has ended! Astrata's light prevails over the challenge of [challenger.name]!", "Schism Concluded")
 
     else if(challenger_count > astrata_count)
         // Challenger wins
@@ -72,16 +84,14 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 
         // Original supporters (challenger patrons) get triumphs
         for(var/datum/weakref/supporter_ref in supporters_challenger)
-            var/mob/living/supporter = supporter_ref.resolve()
+            var/mob/living/carbon/human/supporter = supporter_ref.resolve()
             if(supporter && supporter.patron == challenger)
                 supporter.adjust_triumphs(1)
                 to_chat(supporter, span_notice("[challenger.name]'s challenge succeeds! Your bold faith is rewarded with a triumph."))
             else if(supporter)
                 to_chat(supporter, span_notice("[challenger.name]'s challenge succeeds against Astrata's light!"))
 
-        priority_announce("The schism has ended! [challenger.name]'s challenge succeeds against Astrata's light!", "Celestial Schism Concluded")
-    else
-        priority_announce("The schism has ended in a stalemate! Neither side could claim dominance.", "Celestial Schism Concluded")
+        priority_announce("The schism has ended! [challenger.name]'s challenge succeeds against Astrata's light!", "Schism Concluded")
 
     // Clean up spells
     for(var/mob/living/carbon/human/H in GLOB.player_list)
@@ -128,10 +138,6 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
     var/datum/tennite_schism/current_schism = GLOB.tennite_schisms[1]
     var/datum/patron/challenger = current_schism.challenger_god.resolve()
 
-    if(!is_tennite(user))
-        to_chat(user, span_notice("Though not a Tennite, you may still influence the schism to further your own goals..."))
-        uses_remaining = 0 // Non-tennites get one free use
-
     if(uses_remaining <= 0)
         to_chat(user, span_warning("You've already finalized your allegiance in the schism."))
         return
@@ -142,11 +148,10 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
         options["[challenger.name]"] = "challenger"
     options["Neutral"] = "neutral"
 
-    var/choice = input(user, "Choose your allegiance in the schism (Remaining changes: [uses_remaining-1]):", "Schism within the Ten") as null|anything in options
+    var/choice = input(user, "Choose your allegiance in the schism (Possible changes remaining: [uses_remaining-1]):", "Schism within the Ten") as null|anything in options
     if(!choice || !current_schism)
-        return // Cancelling doesn't use a charge
+        return
 
-    // Check if they're selecting their current side
     var/current_side
     var/datum/weakref/user_ref = WEAKREF(user)
     if(user_ref in current_schism.supporters_astrata)
@@ -156,7 +161,7 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 
     if(options[choice] == current_side)
         to_chat(user, span_notice("You're already supporting this side!"))
-        return // Doesn't use a charge
+        return
 
     uses_remaining--
     current_schism.change_side(user, options[choice])
@@ -186,15 +191,15 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
     if(!astrata)
         return FALSE
 
-    var/astrata_power = (GLOB.patron_follower_counts["Astrata"] * 10) + get_storyteller_influence("Astrata")
+    var/astrata_followers = GLOB.patron_follower_counts["Astrata"] || 0
 
     for(var/type in subtypesof(/datum/patron/divine) - /datum/patron/divine/astrata)
         var/datum/patron/divine/god = GLOB.patronlist[type]
         if(!god)
             continue
 
-        var/god_power = (GLOB.patron_follower_counts[god.name] * 10) + get_storyteller_influence(god.name)
-        if(god_power > astrata_power * 1.25) // 25% stronger than Astrata
+        var/god_followers = GLOB.patron_follower_counts[god.name] || 0
+        if(god_followers > astrata_followers)
             return TRUE
 
     return FALSE
@@ -245,22 +250,17 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
     return 0
 
 /proc/find_strongest_challenger()
-    var/datum/patron/astrata = GLOB.patronlist[/datum/patron/divine/astrata]
-    if(!astrata)
-        return null
-
-    var/astrata_power = (GLOB.patron_follower_counts["Astrata"] * 10) + get_storyteller_influence("Astrata")
     var/datum/patron/strongest_challenger
-    var/strongest_power = 0
+    var/most_followers = 0
 
     for(var/type in subtypesof(/datum/patron/divine) - /datum/patron/divine/astrata)
         var/datum/patron/divine/god = GLOB.patronlist[type]
         if(!god)
             continue
 
-        var/god_power = (GLOB.patron_follower_counts[god.name] * 10) + get_storyteller_influence(god.name)
-        if(god_power > strongest_power && god_power > astrata_power * 1.25)
-            strongest_power = god_power
+        var/current_followers = GLOB.patron_follower_counts[god.name] || 0
+        if(current_followers > most_followers)
+            most_followers = current_followers
             strongest_challenger = god
 
     return strongest_challenger
@@ -276,11 +276,7 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 
 /datum/round_event/schism_within_ten/debug/start()
     // Find any divine patron besides Astrata
-    var/datum/patron/challenger
-    for(var/type in subtypesof(/datum/patron/divine) - /datum/patron/divine/astrata)
-        challenger = GLOB.patronlist[type]
-        if(challenger)
-            break
+    var/datum/patron/challenger = /datum/patron/divine/abyssor
 
     if(!challenger)
         message_admins("DEBUG SCHISM: No challenger god found!")
