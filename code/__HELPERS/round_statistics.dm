@@ -41,6 +41,7 @@
 // Psydon
 #define STATS_HUMEN_DEATHS "humen_deaths"
 #define STATS_PSYCROSS_USERS "people_wearing_psycross"
+#define STATS_LUX_HARVESTED "lux_harvested"
 
 // Astrata
 #define STATS_LAWS_AND_DECREES_MADE "laws_and_decrees_made"
@@ -242,6 +243,7 @@ GLOBAL_LIST_INIT(vanderlin_round_stats, list(
 	STATS_IMMORTAL_POPULATION = 0,
 	STATS_PSYCROSS_USERS = 0,
 	STATS_VAMPIRES = 0,
+	STATS_LUX_HARVESTED = 0,
 ))
 
 GLOBAL_LIST_EMPTY(patron_follower_counts)

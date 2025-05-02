@@ -343,7 +343,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	data += "<font color='#87CEEB'><span class='bold'>Pure Elves:</span></font> [GLOB.vanderlin_round_stats[STATS_ALIVE_SNOW_ELVES]]<br>"
 	data += "<font color='#9ACD32'><span class='bold'>Half-Elves:</span></font> [GLOB.vanderlin_round_stats[STATS_ALIVE_HALF_ELVES]]<br>"
 	data += "<font color='#7729af'><span class='bold'>Dark Elves:</span></font> [GLOB.vanderlin_round_stats[STATS_ALIVE_DARK_ELVES]]<br>"
-	data += "<font color='#FFFAF0'><span class='bold'>Aasimar:</span></font> [GLOB.vanderlin_round_stats[STATS_ALIVE_AASIMAR]]<br>"
+	data += "<font color='#e7e3d9'><span class='bold'>Aasimar:</span></font> [GLOB.vanderlin_round_stats[STATS_ALIVE_AASIMAR]]<br>"
 	data += "<font color='#DC143C'><span class='bold'>Tieflings:</span></font> [GLOB.vanderlin_round_stats[STATS_ALIVE_TIEFLINGS]]<br>"
 	data += "<font color='#228B22'><span class='bold'>Half-Orcs:</span></font> [GLOB.vanderlin_round_stats[STATS_ALIVE_HALF_ORCS]]<br>"
 	data += "<font color='#CD853F'><span class='bold'>Kobolds:</span></font> [GLOB.vanderlin_round_stats[STATS_ALIVE_KOBOLDS]]<br>"
@@ -394,9 +394,17 @@ GLOBAL_LIST_EMPTY(respawncounts)
 				psydonite_user = TRUE
 
 	var/psydon_followers = GLOB.patron_follower_counts["Psydon"] || 0
+	var/largest_religion = (psydon_followers > 0)
+	if(largest_religion)
+		for(var/patron in GLOB.patron_follower_counts)
+			if(patron == "Psydon")
+				continue
+			if(GLOB.patron_follower_counts[patron] >= psydon_followers)
+				largest_religion = FALSE
+				break
 	var/apostasy_followers = GLOB.patron_follower_counts["Godless"] || 0
 	var/psydonite_monarch = GLOB.vanderlin_round_stats[STATS_MONARCH_PATRON] == "Psydon" ? TRUE : FALSE
-	var/psydon_influence = (psydon_followers * 20) + (GLOB.confessors.len * 20) + (GLOB.vanderlin_round_stats[STATS_HUMEN_DEATHS] * -10) + (GLOB.vanderlin_round_stats[STATS_ALIVE_TIEFLINGS] * -20) + (psydonite_monarch ? (psydonite_monarch * 500) : -250) + (GLOB.vanderlin_round_stats[STATS_PSYCROSS_USERS] * 10) + (apostasy_followers * -20) + (psydonite_user ? 10000 : -10000)
+	var/psydon_influence = (psydon_followers * 20) + (GLOB.confessors.len * 20) + (GLOB.vanderlin_round_stats[STATS_HUMEN_DEATHS] * -10) + (GLOB.vanderlin_round_stats[STATS_ALIVE_TIEFLINGS] * -20) + (psydonite_monarch ? (psydonite_monarch * 500) : -250) + (largest_religion? (largest_religion * 500) : -250) + (GLOB.vanderlin_round_stats[STATS_PSYCROSS_USERS] * 10) + (apostasy_followers * -20) + (GLOB.vanderlin_round_stats[STATS_LUX_HARVESTED] * -50) + (psydonite_user ? 10000 : -10000)
 
 	data += "<div style='width: 42.5%; margin: 0 auto 30px; border: 2px solid #99b2b1; background: #47636d; color: #d0d0d0; max-height: 420px;'>"
 	data += "<div style='text-align: center; font-size: 1.3em; padding: 12px;'><b>PSYDON</b></div>"
@@ -408,12 +416,14 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	data += "Number of followers: [psydon_followers] ([get_colored_influence_value(psydon_followers * 20)])<br>"
 	data += "People wearing psycross: [GLOB.vanderlin_round_stats[STATS_PSYCROSS_USERS]] ([get_colored_influence_value(GLOB.vanderlin_round_stats[STATS_PSYCROSS_USERS] * 10)])<br>"
 	data += "Number of confessions: [GLOB.confessors.len] ([get_colored_influence_value(GLOB.confessors.len * 20)])<br>"
+	data += "Largest faith: [largest_religion ? "YES" : "NO"] ([get_colored_influence_value(largest_religion ? 500 : -250)])<br>"
 	data += "Psydonite monarch: [psydonite_monarch ? "YES" : "NO"] ([get_colored_influence_value((psydonite_monarch ? (psydonite_monarch * 500) : -250))])<br>"
 	data += "</div>"
 
 	data += "<div style='flex: 1; padding-left: 60px;'>"
 	data += "Number of apostates: [apostasy_followers] ([get_colored_influence_value(apostasy_followers * -20)])<br>"
 	data += "Humen deaths: [GLOB.vanderlin_round_stats[STATS_HUMEN_DEATHS]] ([get_colored_influence_value(GLOB.vanderlin_round_stats[STATS_HUMEN_DEATHS] * -10)])<br>"
+	data += "Lux harvested: [GLOB.vanderlin_round_stats[STATS_LUX_HARVESTED]] ([get_colored_influence_value(GLOB.vanderlin_round_stats[STATS_LUX_HARVESTED] * -50)])<br>"
 	data += "Number of demonspawns: [GLOB.vanderlin_round_stats[STATS_ALIVE_TIEFLINGS]] ([get_colored_influence_value(GLOB.vanderlin_round_stats[STATS_ALIVE_TIEFLINGS] * -20)])<br>"
 	data += "God's status: [psydonite_user ? "ALIVE" : "DEAD"] ([get_colored_influence_value(psydonite_user ? 10000 : -10000)])<br>"
 	data += "</div>"
