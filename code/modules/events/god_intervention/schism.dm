@@ -6,16 +6,11 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 	var/list/supporters_astrata = list()
 	var/list/supporters_challenger = list()
 	var/list/neutrals = list()
-	var/start_time
-	var/end_time
-	var/announced = FALSE
 
 /datum/tennite_schism/New(datum/patron/challenger)
 	. = ..()
 	src.challenger_god = WEAKREF(challenger)
 	src.astrata_god = WEAKREF(GLOB.patronlist[/datum/patron/divine/astrata])
-	start_time = world.time + 3 MINUTES
-	end_time = start_time + 30 MINUTES
 	GLOB.tennite_schisms += src
 
 /datum/tennite_schism/Destroy()
@@ -23,10 +18,6 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 	return ..()
 
 /datum/tennite_schism/proc/announce()
-	if(announced)
-		return
-
-	announced = TRUE
 	var/datum/patron/challenger = challenger_god.resolve()
 	if(!challenger)
 		return
@@ -256,4 +247,4 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 			most_followers = current_followers
 			strongest_challenger = god
 
-	return strongest_challenger.type
+	return strongest_challenger
