@@ -40566,8 +40566,6 @@
 /area/rogue/indoors/town)
 "whP" = (
 /obj/structure/door/weak/bolt{
-	icon_state = "wooddir";
-	locked = 0;
 	name = "guest servant room"
 	},
 /turf/open/floor/ruinedwood,
