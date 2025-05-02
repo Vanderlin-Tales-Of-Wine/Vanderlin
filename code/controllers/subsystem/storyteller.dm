@@ -1352,7 +1352,7 @@ SUBSYSTEM_DEF(gamemode)
 			switch(human_mob.gender)
 				if(MALE)
 					GLOB.vanderlin_round_stats[STATS_MALE_POPULATION]++
-				else if(FEMALE)
+				if(FEMALE)
 					GLOB.vanderlin_round_stats[STATS_FEMALE_POPULATION]++
 				else
 					GLOB.vanderlin_round_stats[STATS_OTHER_GENDER]++
