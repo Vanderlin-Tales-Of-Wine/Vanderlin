@@ -45,7 +45,7 @@
 	desc = "Battling the Zybantus led to the exchange of military ideas. The Grenzelhoft adopted refined chain and plate armaments to better allow their knights unmatchable resilience against the enemies of their Empire."
 	icon_state = "human_swordhand"
 	allowed_race = list("human")
-	allowed_sex = list(MALE)
+	allowed_sex = list(MALE, FEMALE)
 	item_weight = 7 * STEEL_MULTIPLIER
 
 /obj/item/clothing/gloves/rare/zybanplate
