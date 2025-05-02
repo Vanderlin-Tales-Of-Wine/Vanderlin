@@ -952,11 +952,11 @@
 			var/log_msg
 			if(target.age == AGE_CHILD)
 				log_msg = "[H][ADMIN_FLW(H)] slapped [target][ADMIN_FLW(target)] on the ass, a CHILD!"
-			if(H.age == AGE_CHILD)
-				log_msg += " As a child."
-			else
-				log_msg += " As an adult."
-			message_admins(log_msg)
+				if(H.age == AGE_CHILD)
+					log_msg += " As a child."
+				else
+					log_msg += " As an adult."
+				message_admins(log_msg)
 
 /datum/emote/living/slap/run_emote(mob/user, params, type_override, intentional)
 	message_param = initial(message_param) // reset
