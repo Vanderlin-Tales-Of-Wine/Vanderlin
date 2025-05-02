@@ -221,6 +221,7 @@ SUBSYSTEM_DEF(ticker)
 
 			check_for_lord()
 			if(!roundend_check_paused && SSgamemode.check_finished(force_ending) || force_ending)
+				SSgamemode.refresh_alive_stats()
 				current_state = GAME_STATE_FINISHED
 				toggle_ooc(TRUE) // Turn it on
 				toggle_dooc(TRUE)
