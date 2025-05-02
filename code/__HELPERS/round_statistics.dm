@@ -279,6 +279,8 @@ GLOBAL_LIST_INIT(species_population_stats, list(
 #define FEATURED_STATS_SCREAMERS "screamers"
 #define FEATURED_STATS_MINERS "miners"
 #define FEATURED_STATS_CRIME_RATES "crime_rates"
+#define FEATURED_STATS_MAGES "mages"
+#define FEATURED_STATS_CRAFTERS "crafters"
 
 GLOBAL_LIST_INIT(featured_stats, list(
 	FEATURED_STATS_TREE_FELLERS = list(
@@ -290,6 +292,12 @@ GLOBAL_LIST_INIT(featured_stats, list(
 		"name" = "TOP 10 Tax Payers",
 		"color" = "#f1e35d",
 		"entries" = list()
+	),
+	FEATURED_STATS_CRIME_RATES = list(
+		"name" = "TOP 10 Crime Rates",
+		"color" = "#8d5d65",
+		"entries" = list(),
+		"special" = TRUE
 	),
 	FEATURED_STATS_SPEAKERS = list(
 		"name" = "TOP 10 Speakers",
@@ -316,6 +324,11 @@ GLOBAL_LIST_INIT(featured_stats, list(
 		"color" = "#559bbb",
 		"entries" = list()
 	),
+	FEATURED_STATS_CRAFTERS = list(
+		"name" = "TOP 10 Crafters",
+		"color" = "#a8a24e",
+		"entries" = list()
+	),
 	FEATURED_STATS_SCREAMERS = list(
 		"name" = "TOP 10 Screamers",
 		"color" = "#d34747",
@@ -331,11 +344,10 @@ GLOBAL_LIST_INIT(featured_stats, list(
 		"color" = "#945d96",
 		"entries" = list()
 	),
-	FEATURED_STATS_CRIME_RATES = list(
-		"name" = "TOP 10 Crime Rates",
-		"color" = "#8d5d65",
-		"entries" = list(),
-		"special" = TRUE
+	FEATURED_STATS_MAGES = list(
+		"name" = "TOP 10 Mages",
+		"color" = "#9eaceb",
+		"entries" = list()
 	),
 ))
 
