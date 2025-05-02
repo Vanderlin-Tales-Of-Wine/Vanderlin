@@ -24,7 +24,6 @@
 	name = "elvish plate helmet"
 	desc = "A bizarrely lightweight helmet of alloyed dark elven steel, offering unparalleled protection for elite bladesingers."
 	icon_state = "elfhead"
-	allowed_race = list("elf", "half-elf", "dark elf")
 	clothing_flags = CANT_SLEEP_IN
 	armor_class = AC_MEDIUM
 	body_parts_covered = HEAD|HAIR|NOSE
@@ -42,7 +41,6 @@
 	desc = "The Langobards are a cult of personality that are tasked by the Dwarven Kings to issue judgement, \
 			justice and order around the realms for dwarvenkind. This helmet is a respected symbol of authority."
 	icon_state = "dwarfhead"
-	allowed_race = list("dwarf")
 	flags_inv = HIDEEARS
 	clothing_flags = CANT_SLEEP_IN
 	body_parts_covered = HEAD_EXCEPT_MOUTH
