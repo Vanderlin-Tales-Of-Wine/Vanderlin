@@ -4550,6 +4550,10 @@
 /obj/structure/chair/wood/alt,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
+"Wq" = (
+/obj/structure/fluff/traveltile/vampire,
+/turf/open/floor/cobblerock,
+/area/rogue/outdoors/woods)
 "Wv" = (
 /obj/structure/closet/crate/chest/gold,
 /obj/effect/spawner/map_spawner/loot/magic,
@@ -49491,7 +49495,7 @@ SK
 "}
 (22,1,2) = {"
 SK
-Kg
+Wq
 yF
 Kg
 yF
@@ -49693,7 +49697,7 @@ SK
 "}
 (23,1,2) = {"
 SK
-Kg
+Wq
 yF
 yF
 yF
@@ -49895,7 +49899,7 @@ SK
 "}
 (24,1,2) = {"
 SK
-Kg
+Wq
 Kg
 Kg
 Kg
