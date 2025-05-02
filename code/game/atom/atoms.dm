@@ -71,9 +71,6 @@
 	///Economy cost of item in premium vendor
 	var/custom_premium_price
 
-	//List of datums orbiting this atom
-	var/datum/component/orbiter/orbiters
-
 	/// Will move to flags_1 when i can be arsed to (2019, has not done so)
 	var/rad_flags = NONE
 

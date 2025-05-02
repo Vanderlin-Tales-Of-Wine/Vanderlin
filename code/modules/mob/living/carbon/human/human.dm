@@ -692,6 +692,11 @@
 		remove_movespeed_modifier(MOVESPEED_ID_DAMAGE_SLOWDOWN)
 		remove_movespeed_modifier(MOVESPEED_ID_DAMAGE_SLOWDOWN_FLYING)
 
+/mob/living/carbon/human/proc/skele_look()
+	dna.species.go_bald()
+	update_body_parts(redraw = TRUE)
+	underwear = "Nude"
+
 /mob/living/carbon/human/adjust_nutrition(change) //Honestly FUCK the oldcoders for putting nutrition on /mob someone else can move it up because holy hell I'd have to fix SO many typechecks
 	if(HAS_TRAIT(src, TRAIT_NOHUNGER))
 		return FALSE

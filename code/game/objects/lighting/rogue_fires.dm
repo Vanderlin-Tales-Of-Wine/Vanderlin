@@ -196,7 +196,7 @@
 	base_state = "torchwall"
 	brightness = 5
 	density = FALSE
-	var/obj/item/flashlight/flare/torch/torchy
+	var/obj/item/flashlight/flare/torch/torchy = /obj/item/flashlight/flare/torch
 	fueluse = FALSE //we use the torch's fuel
 	soundloop = null
 	crossfire = FALSE
@@ -226,8 +226,9 @@
 				return TRUE
 
 /obj/machinery/light/fueled/torchholder/Initialize()
-	torchy = new /obj/item/flashlight/flare/torch(src)
-	torchy.spark_act()
+	if(torchy)
+		torchy = new torchy(src)
+		torchy.spark_act()
 	. = ..()
 
 /obj/machinery/light/fueled/torchholder/OnCrafted(dirin, user)
@@ -311,6 +312,19 @@
 			playsound(src.loc, 'sound/foley/torchfixtureput.ogg', 70)
 		return
 	. = ..()
+
+
+/obj/machinery/light/fueled/torchholder/metal_torch
+	torchy = /obj/item/flashlight/flare/torch/metal
+
+/obj/machinery/light/fueled/torchholder/metal_torch/west
+	dir = WEST
+
+/obj/machinery/light/fueled/torchholder/metal_torch/east
+	dir = EAST
+
+/obj/machinery/light/fueled/torchholder/metal_torch/north
+	dir = NORTH
 
 /obj/machinery/light/fueled/chand
 	name = "chandelier"
