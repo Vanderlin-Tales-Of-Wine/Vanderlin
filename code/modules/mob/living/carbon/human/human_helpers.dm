@@ -127,7 +127,7 @@
 
 	return damage
 
-/mob/living/carbon/human/get_kick_damage(multiplier = 1)
+/mob/living/carbon/human/proc/get_kick_damage(multiplier = 1)
 	var/damage = 12
 	var/used_str = STASTR
 
