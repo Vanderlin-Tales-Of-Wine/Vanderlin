@@ -42,6 +42,4 @@
 	for(var/jobType in limited_jobs)
 		var/slots = limited_jobs[jobType]
 		change_job_position(jobType, slots, slots)
-		var/datum/job/J = SSjob.GetJobType(jobType)
-		J?.job_flags &= ~(JOB_NEW_PLAYER_JOINABLE)
 	return
