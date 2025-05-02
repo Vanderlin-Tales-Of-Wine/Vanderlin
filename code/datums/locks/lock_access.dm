@@ -10,6 +10,8 @@
 	var/can_add_lock = FALSE
 	/// If we have a lock datum, can we remove it?
 	var/can_remove_lock = FALSE
+	/// This is depreciated but I don't want to replace it
+	var/lockid
 
 	var/lock_sound = 'sound/foley/lock.ogg'
 	var/unlock_sound = 'sound/foley/unlock.ogg'

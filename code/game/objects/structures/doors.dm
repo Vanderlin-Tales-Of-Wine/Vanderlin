@@ -54,8 +54,6 @@
 	var/has_bolt = FALSE
 	/// Handle viewport toggle
 	var/has_viewport = FALSE
-	/// This is depreciated but I don't want to replace it
-	var/lockid
 
 /obj/structure/door/Initialize()
 	. = ..()

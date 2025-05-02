@@ -73,7 +73,12 @@
 		set_material_information()
 	if(obj_integrity == null)
 		obj_integrity = max_integrity
+	if(lockid)
+		log_mapping("[src] at [AREACOORD(src)] has dirty lockid varedit.")
 	if(lock)
+		if(lockid && !lockids)
+			lockids = list(lockid)
+			lockid = null
 		lock = new lock(src, lockids)
 		lockids = null
 
