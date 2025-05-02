@@ -2434,7 +2434,7 @@
 /area/rogue/indoors/town/cell)
 "clJ" = (
 /obj/structure/fluff/buysign{
-	name = "Train to Kingsfield Reinstated"
+	name = "Imports"
 	},
 /obj/structure/industrial_lift/tram,
 /turf/open/transparent/openspace,
@@ -11060,7 +11060,7 @@
 /area/rogue/indoors/town/manor)
 "kDG" = (
 /obj/structure/fluff/buysign{
-	name = "Train to Kingsfield Reinstated"
+	name = "Exports"
 	},
 /obj/structure/industrial_lift/tram{
 	icon_state = "vertw"
@@ -109518,7 +109518,7 @@ sWx
 sWx
 sWx
 sWx
-sWx
+sqp
 sWx
 sWx
 sWx
@@ -110326,7 +110326,7 @@ sWx
 sWx
 sWx
 sWx
-sWx
+npG
 sWx
 sWx
 sWx
@@ -110931,9 +110931,9 @@ sWx
 sWx
 iep
 sWx
-npG
 sWx
-sqp
+sWx
+sWx
 sWx
 sWx
 sWx
@@ -111066,9 +111066,11 @@ sWx
 sWx
 sWx
 sWx
+sWx
+sWx
+sWx
+sWx
 jVa
-sWx
-sWx
 sWx
 sWx
 sWx
@@ -111082,10 +111084,8 @@ nZI
 sWx
 sWx
 sWx
+sWx
 fqR
-sWx
-sWx
-sWx
 sWx
 sWx
 sWx
