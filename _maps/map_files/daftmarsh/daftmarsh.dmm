@@ -2307,6 +2307,10 @@
 /obj/structure/chair/wood/alt/chair_noble/red,
 /turf/open/floor/tile,
 /area/rogue/indoors/town/manor)
+"cga" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/blocks,
+/area/rogue/indoors/town/manor)
 "cgK" = (
 /obj/structure/fake_machine/scomm{
 	pixel_y = -32
@@ -6378,6 +6382,13 @@
 /obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/town/church)
+"gfb" = (
+/obj/structure/fluff/railing/border{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/blocks,
+/area/rogue/indoors/town/manor)
 "gfZ" = (
 /obj/effect/landmark/events/animal_migration_point,
 /turf/open/floor/twig,
@@ -21307,6 +21318,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 9
 	},
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/blocks,
 /area/rogue/under/town/basement)
 "usG" = (
@@ -128987,8 +128999,8 @@ gDZ
 gDZ
 sdc
 iXs
-iXs
-iXs
+uNN
+uNN
 iXs
 iXs
 vzR
@@ -129195,7 +129207,7 @@ vzR
 cce
 iXs
 iXs
-iXs
+uNN
 qVn
 qVn
 qVn
@@ -129600,7 +129612,7 @@ kIk
 vzR
 vzR
 iXs
-iXs
+uNN
 iXs
 qVn
 qVn
@@ -130000,7 +130012,7 @@ ePj
 ePj
 qVn
 eYE
-iXs
+uNN
 qVn
 lVp
 lVp
@@ -130401,8 +130413,8 @@ uAp
 eII
 qVn
 iXs
-iXs
-iXs
+uNN
+uNN
 iXs
 iXs
 qVn
@@ -131198,7 +131210,7 @@ sWx
 sWx
 qVn
 iXs
-iXs
+uNN
 vzR
 qVn
 gDZ
@@ -131400,7 +131412,7 @@ sWx
 sWx
 sWx
 qVn
-iXs
+uNN
 vzR
 qVn
 gDZ
@@ -131806,7 +131818,7 @@ sWx
 qVn
 iXs
 iXs
-iXs
+uNN
 iXs
 diG
 fOX
@@ -132008,7 +132020,7 @@ sWx
 qVn
 qVn
 qVn
-iXs
+uNN
 ncy
 ncy
 osT
@@ -167982,7 +167994,7 @@ hcQ
 hcQ
 hcQ
 qVn
-iXs
+uNN
 qVn
 mwB
 mwB
@@ -168588,7 +168600,7 @@ cqf
 qVn
 qVn
 qVn
-iXs
+uNN
 qVn
 mwB
 mwB
@@ -168790,7 +168802,7 @@ cuF
 cuF
 cOF
 qVn
-iXs
+uNN
 qVn
 qVn
 pLK
@@ -168992,7 +169004,7 @@ sKI
 sKI
 jQU
 qVn
-iXs
+uNN
 qVn
 bgt
 xWw
@@ -169194,7 +169206,7 @@ cqf
 qVn
 qVn
 qVn
-iXs
+uNN
 xxH
 xWw
 lqv
@@ -170401,7 +170413,7 @@ mwB
 mwB
 qVn
 mwB
-tdI
+gfb
 qVn
 dKR
 dKR
@@ -170603,7 +170615,7 @@ qVn
 qVn
 qVn
 eNp
-tdI
+gfb
 qVn
 dKR
 dKR
@@ -172611,7 +172623,7 @@ dKR
 dKR
 dKR
 qVn
-qas
+cga
 vSa
 qVn
 uSe
