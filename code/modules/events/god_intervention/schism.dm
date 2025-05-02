@@ -1,4 +1,3 @@
-/// Tracks schism participants and their chosen sides
 GLOBAL_LIST_EMPTY(tennite_schisms)
 
 /datum/tennite_schism
@@ -49,7 +48,6 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 	if(!challenger || !astrata)
 		return
 
-	// Only count Tennite supporters
 	var/astrata_count = 0
 	var/challenger_count = 0
 
@@ -64,10 +62,8 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 			challenger_count++
 
 	if(astrata_count >= challenger_count)
-		// Astrata wins
 		adjust_storyteller_influence("Astrata", 200)
 
-		// Original supporters (Astrata patrons) get triumphs
 		for(var/datum/weakref/supporter_ref in supporters_astrata)
 			var/mob/living/carbon/human/supporter = supporter_ref.resolve()
 			if(supporter && supporter.patron == astrata)
@@ -79,10 +75,8 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 		priority_announce("Astrata's light prevails over the challenge of [challenger.name]! The Sun Queen confirms her status as a true heir of Psydon!", "Astrata is VICTORIOUS!")
 
 	else if(challenger_count > astrata_count)
-		// Challenger wins
 		adjust_storyteller_influence(challenger.name, 200)
 
-		// Original supporters (challenger patrons) get triumphs
 		for(var/datum/weakref/supporter_ref in supporters_challenger)
 			var/mob/living/carbon/human/supporter = supporter_ref.resolve()
 			if(supporter && supporter.patron == challenger)
@@ -94,7 +88,6 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 
 		priority_announce("[challenger.name]'s challenge succeeds against Astrata's light! The Sun Queen is grudgingly forced to listen...", "[challenger.name] RULES!")
 
-	// Clean up spells
 	for(var/mob/living/carbon/human/H in GLOB.player_list)
 		if(!H.mind)
 			continue
@@ -103,12 +96,10 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 	qdel(src)
 
 /datum/tennite_schism/proc/change_side(mob/living/carbon/human/user, new_side)
-	// Remove from previous side
 	supporters_astrata -= WEAKREF(user)
 	supporters_challenger -= WEAKREF(user)
 	neutrals -= WEAKREF(user)
 
-	// Add to new side
 	switch(new_side)
 		if("astrata")
 			supporters_astrata += WEAKREF(user)
@@ -123,12 +114,10 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 			to_chat(user, span_notice("You have declared neutrality in the schism."))
 
 /obj/effect/proc_holder/spell/self/choose_schism_side
-	name = "Choose Schism Side"
+	name = "Choose your side"
 	desc = "Declare your allegiance in the schism within the Ten."
-	invocation = "DECLARE ALLEGIANCE"
-	invocation_type = "whisper"
-	action_icon_state = "convert"
-	cooldown_min = 3 MINUTES
+	overlay_state = "limb_attach"
+	cooldown_min = 1 MINUTES
 	var/uses_remaining = 2
 
 /obj/effect/proc_holder/spell/self/choose_schism_side/cast(mob/living/carbon/human/user)
@@ -145,9 +134,10 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 
 	var/list/options = list()
 	options["Astrata"] = "astrata"
+	options["Neutral"] = "neutral"
 	if(challenger)
 		options["[challenger.name]"] = "challenger"
-	options["Neutral"] = "neutral"
+
 
 	var/choice = input(user, "Choose your allegiance in the schism, you can change your side [uses_remaining] time\s):", "Choose your side") as null|anything in options
 	if(!choice || !current_schism)
@@ -265,45 +255,3 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 			strongest_challenger = god
 
 	return strongest_challenger
-
-/datum/round_event_control/schism_within_ten/debug
-	name = "DEBUG: Schism within the Ten"
-	typepath = /datum/round_event/schism_within_ten/debug
-	weight = 0
-	max_occurrences = 1
-	min_players = 1 // Bypass normal player count
-	earliest_start = 0 // Can trigger immediately
-	gamemode_blacklist = list()
-
-/datum/round_event/schism_within_ten/debug/start()
-	// Find any divine patron besides Astrata
-	var/datum/patron/challenger = /datum/patron/divine/abyssor
-
-	if(!challenger)
-		message_admins("DEBUG SCHISM: No challenger god found!")
-		return
-
-	// Create the schism with reduced timers
-	var/datum/tennite_schism/S = new(challenger)
-	S.start_time = world.time + 30 SECONDS // 30 sec preparation
-	S.end_time = world.time + 5 MINUTES // 5 min duration
-
-	// Auto-assign first two available players
-	var/list/tennites = list()
-	for(var/mob/living/carbon/human/H in GLOB.player_list)
-		if(H.stat != DEAD && H.client && is_tennite(H))
-			tennites += H
-			if(tennites.len >= 2)
-				break
-
-	if(tennites.len >= 2)
-		// Assign to opposite sides
-		var/datum/tennite_schism/schism = GLOB.tennite_schisms[1]
-		schism.change_side(tennites[1], "astrata")
-		schism.change_side(tennites[2], "challenger")
-
-		message_admins("DEBUG SCHISM: [key_name_admin(tennites[1])] forced as Astrata supporter, [key_name_admin(tennites[2])] as [challenger.name] supporter")
-
-	// Announce immediately
-	addtimer(CALLBACK(S, /datum/tennite_schism/proc/announce), 15 SECONDS)
-	addtimer(CALLBACK(S, /datum/tennite_schism/proc/process_winner), 1 MINUTES)
