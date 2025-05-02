@@ -773,6 +773,7 @@
 	message_param = "pinches %t."
 	emote_type = EMOTE_VISIBLE
 	restraint_check = TRUE
+
 /datum/emote/living/pinch/adjacentaction(mob/user, mob/target)
 	. = ..()
 	if(!user || !target)
@@ -780,6 +781,7 @@
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = target
 		H.flash_fullscreen("redflash1")
+
 /mob/living/carbon/human/verb/emote_pinch()
 	set name = "Pinch"
 	set category = "Emotes"
@@ -939,6 +941,23 @@
 	emote_type = EMOTE_VISIBLE
 	restraint_check = TRUE
 
+/datum/emote/living/slap/adjacentaction(mob/user, mob/target)
+	. = ..()
+	if(!user || !target)
+		return
+	if(ishuman(target))
+		var/mob/living/carbon/human/H = user
+		if(H.zone_selected == BODY_ZONE_PRECISE_GROIN)
+		// anti pedophile logging
+			var/log_msg
+			if(E.age == AGE_CHILD)
+			log_msg = "[H][ADMIN_FLW(H)] slapped [E][ADMIN_FLW(E)] on the ass, a CHILD!"
+			if(H.age == AGE_CHILD)
+				log_msg += " As a child."
+			else
+				log_msg += " As an adult."
+			message_admins(log_msg)
+
 /datum/emote/living/slap/run_emote(mob/user, params, type_override, intentional)
 	message_param = initial(message_param) // reset
 	if(ishuman(user))
@@ -949,7 +968,7 @@
 			// anti pedophile logging
 			var/log_msg
 			if(E.age == AGE_CHILD)
-			log_msg = "[H][ADMIN_FLW(H)] slapped [E] [ADMIN_FLW(E)] on the ass, a CHILD!"
+			log_msg = "[H][ADMIN_FLW(H)] slapped a CHILD on the ass!"
 			if(H.age == AGE_CHILD)
 				log_msg += " As a child."
 			else
