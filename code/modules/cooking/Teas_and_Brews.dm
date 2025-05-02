@@ -21,7 +21,6 @@
 /datum/reagent/consumable/newtea/taraxamint
 	name = "Taraxacum-Mentha tea"
 	description = "If you see this, stop using moondust"
-	reagent_state = LIQUID
 	color = "#acaf01"
 	nutriment_factor = 2
 	metabolization_rate = 0.3 // 33% of normal metab
@@ -44,7 +43,6 @@
 /datum/reagent/consumable/newtea/utricasalvia
 	name = "Urtica-Salvia tea"
 	description = "If you see this, stop using moondust"
-	reagent_state = LIQUID
 	color = "#451853"
 	nutriment_factor = 2
 	metabolization_rate = 1
@@ -66,7 +64,6 @@
 /datum/reagent/consumable/newtea/badidea
 	name = "westleach tar tea"
 	description = "If you see this, stop using moondust"
-	reagent_state = LIQUID
 	color = "#490100"
 	nutriment_factor = 2
 	metabolization_rate = 2 // ye be fucked my guy
@@ -89,7 +86,6 @@
 /datum/reagent/consumable/newtea/fourtwenty
 	name = "swampweed brew"
 	description = "If you see this, stop using moondust"
-	reagent_state = LIQUID
 	color = "#04750a"
 	nutriment_factor = 2
 	metabolization_rate = 1
@@ -107,7 +103,6 @@
 /datum/reagent/consumable/newtea/manabloom
 	name = "Manabloom tea"
 	description = "If you see this, stop using moondust"
-	reagent_state = LIQUID
 	color = "#5986b1"
 	nutriment_factor = 2
 	metabolization_rate = 0.2 // 20% of normal metab
@@ -128,7 +123,6 @@
 /datum/reagent/consumable/newtea/compot
 	name = "Compot"
 	description = "If you see this, stop using moondust"
-	reagent_state = LIQUID
 	color = "#b38838"
 	nutriment_factor = 2
 	metabolization_rate = 0.2 // 20% of normal metab
