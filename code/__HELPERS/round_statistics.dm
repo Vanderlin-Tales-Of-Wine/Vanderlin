@@ -434,14 +434,14 @@ GLOBAL_LIST_INIT(featured_stats, list(
 	GLOB.featured_stats[FEATURED_STATS_CRIME_RATES]["entries"] = entries
 
 /proc/get_species_population(datum/species/species_type)
-    if(!species_type)
-        return 0
+	if(!species_type)
+		return 0
 
-    var/static/list/population_stats = GLOB.species_population_stats
-    var/stat_key = ispath(species_type) ? population_stats[species_type] : population_stats[species_type.type]
+	var/static/list/population_stats = GLOB.species_population_stats
+	var/stat_key = ispath(species_type) ? population_stats[species_type] : population_stats[species_type.type]
 
-    if(!stat_key)
-        return 0
+	if(!stat_key)
+		return 0
 
-    var/pop = GLOB.vanderlin_round_stats[stat_key]
-    return isnum(pop) ? pop : 0
+	var/pop = GLOB.vanderlin_round_stats[stat_key]
+	return isnum(pop) ? pop : 0
