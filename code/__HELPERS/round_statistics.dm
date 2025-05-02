@@ -267,7 +267,7 @@ GLOBAL_LIST_INIT(featured_stats, list(
 		"color" = "#3bac5d",
 		"entries" = list()
 	),
-	FEATURED_STATS_GOURTMETS = list(
+	FEATURED_STATS_GOURMETS = list(
 		"name" = "TOP 10 Gourmets",
 		"color" = "#6765cf",
 		"entries" = list()
