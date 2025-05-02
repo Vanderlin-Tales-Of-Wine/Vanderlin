@@ -945,13 +945,14 @@
 	. = ..()
 	if(!user || !target)
 		return
-	if(ishuman(target))
+	if(ishuman(target) && ishuman(user))
 		var/mob/living/carbon/human/H = user
+		var/mob/living/carbon/human/E = target
 		if(H.zone_selected == BODY_ZONE_PRECISE_GROIN)
 		// anti pedophile logging
 			var/log_msg
-			if(target.age == AGE_CHILD)
-				log_msg = "[H][ADMIN_FLW(H)] slapped [target][ADMIN_FLW(target)] on the ass, a CHILD!"
+			if(E.age == AGE_CHILD)
+				log_msg = "[H][ADMIN_FLW(H)] slapped [E][ADMIN_FLW(E)] on the ass, a CHILD!"
 				if(H.age == AGE_CHILD)
 					log_msg += " As a child."
 				else
