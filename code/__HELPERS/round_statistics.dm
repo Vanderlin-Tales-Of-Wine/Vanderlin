@@ -281,6 +281,7 @@ GLOBAL_LIST_INIT(species_population_stats, list(
 #define FEATURED_STATS_CRIME_RATES "crime_rates"
 #define FEATURED_STATS_MAGES "mages"
 #define FEATURED_STATS_CRAFTERS "crafters"
+#define FEATURED_STATS_FARMERS "farmers"
 
 GLOBAL_LIST_INIT(featured_stats, list(
 	FEATURED_STATS_TREE_FELLERS = list(
@@ -327,6 +328,11 @@ GLOBAL_LIST_INIT(featured_stats, list(
 	FEATURED_STATS_CRAFTERS = list(
 		"name" = "TOP 10 Crafters",
 		"color" = "#a8a24e",
+		"entries" = list()
+	),
+	FEATURED_STATS_FARMERS = list(
+		"name" = "TOP 10 Farmers",
+		"color" = "#50eb77",
 		"entries" = list()
 	),
 	FEATURED_STATS_SCREAMERS = list(
