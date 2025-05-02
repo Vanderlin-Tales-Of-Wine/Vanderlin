@@ -505,6 +505,12 @@
 /obj/structure/window/openclose,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/orphanage)
+"aCM" = (
+/obj/structure/lever/hidden/keep{
+	redstone_id = "HallZPassage"
+	},
+/turf/closed/wall/mineral/decorstone,
+/area/rogue/indoors/town/manor)
 "aDc" = (
 /obj/structure/fluff/walldeco/vinez,
 /turf/closed/wall/mineral/decorstone/moss,
@@ -2504,11 +2510,11 @@
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement)
 "cqf" = (
-/obj/effect/mapping_helpers/door/access/manor,
 /obj/effect/mapping_helpers/door/locker,
 /obj/structure/mineral_door/wood/violet{
 	name = "Heir's Chambers"
 	},
+/obj/effect/mapping_helpers/door/access/manor/manor,
 /turf/open/floor/blocks/newstone/alt,
 /area/rogue/indoors/town/manor)
 "cqv" = (
@@ -9829,14 +9835,6 @@
 /obj/item/bedsheet/double_pelt,
 /turf/open/floor/wood/nosmooth,
 /area/rogue/indoors/town)
-"jss" = (
-/obj/structure/table/wood/large_new{
-	icon_state = "alt_largetable";
-	dir = 10
-	},
-/obj/item/storage/keyring/inquisitor,
-/turf/open/floor/church,
-/area/rogue/indoors/town/church/inquisition)
 "jsB" = (
 /obj/structure/chair/wood/alt/chair_noble/purple{
 	dir = 1
@@ -22173,15 +22171,13 @@
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/manor)
 "vfy" = (
-/obj/structure/table/wood/large_new{
-	icon_state = "alt_largetable";
-	dir = 6
-	},
 /obj/item/reagent_containers/food/snacks/hardtack{
 	pixel_x = 4;
 	pixel_y = 6
 	},
 /obj/structure/fake_machine/mail,
+/obj/structure/table/wood/plain_alt,
+/obj/item/storage/keyring/inquisitor,
 /turf/open/floor/church,
 /area/rogue/indoors/town/church/inquisition)
 "vfG" = (
@@ -22504,11 +22500,11 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/orphanage)
 "vtt" = (
-/obj/effect/mapping_helpers/door/access/manor/hand,
 /obj/effect/mapping_helpers/door/locker,
 /obj/structure/mineral_door/wood/fancywood{
 	name = "Meeting Room"
 	},
+/obj/effect/mapping_helpers/door/access/manor/manor,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/manor)
 "vtC" = (
@@ -23333,6 +23329,10 @@
 	dir = 4
 	},
 /area/rogue/indoors/butchershop)
+"wjP" = (
+/obj/structure/ladder,
+/turf/open/floor/blocks,
+/area/rogue/indoors/town/church/inquisition)
 "wkh" = (
 /obj/machinery/light/fueled/wallfire/candle/l,
 /turf/open/floor/wood/nosmooth,
@@ -24452,6 +24452,12 @@
 /obj/structure/dock_bell,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/outdoors/town)
+"xow" = (
+/obj/effect/mapping_helpers/secret_door_creator/keep{
+	redstone_id = "HallZPassage"
+	},
+/turf/closed/wall/mineral/decorstone,
+/area/rogue/indoors/town/manor)
 "xoC" = (
 /obj/structure/kneestingers,
 /turf/open/water/river/dirt{
@@ -87812,7 +87818,7 @@ hOf
 hOf
 hOf
 uPM
-iXs
+fUn
 iXs
 bMn
 wCB
@@ -106794,7 +106800,7 @@ sWx
 sWx
 sWx
 sWx
-iQm
+sWx
 sWx
 sWx
 sWx
@@ -106990,22 +106996,22 @@ sWx
 sWx
 sWx
 sWx
-hOL
-uYx
-dTy
-dTy
-dTy
-vND
-vND
-vND
-dTy
-dTy
-dTy
-vDM
 sWx
 sWx
 sWx
-wxb
+sWx
+sWx
+sWx
+sWx
+sWx
+sWx
+sWx
+sWx
+sWx
+sWx
+sWx
+sWx
+sWx
 sWx
 sWx
 sWx
@@ -107191,23 +107197,23 @@ sWx
 sWx
 sWx
 sWx
-qhV
-jBv
-vND
-wol
-wol
-clJ
-wol
-vND
-utq
-kDG
-utq
-utq
-lAc
-uYx
-uYx
-vDM
-onT
+sWx
+sWx
+sWx
+sWx
+sWx
+sWx
+sWx
+iQm
+sWx
+sWx
+sWx
+sWx
+sWx
+sWx
+sWx
+sWx
+sWx
 sWx
 sWx
 sWx
@@ -107393,23 +107399,23 @@ sWx
 sWx
 sWx
 sWx
-gYB
+sWx
+hOL
+uYx
+dTy
+dTy
+dTy
 vND
 vND
-wol
-wol
-wol
-wol
 vND
-utq
-utq
-utq
-utq
-vND
-roD
-roD
-roD
-sfq
+dTy
+dTy
+dTy
+vDM
+sWx
+sWx
+sWx
+wxb
 sWx
 sWx
 sWx
@@ -107595,23 +107601,23 @@ sWx
 sWx
 sWx
 sWx
-aTn
-oxS
+qhV
+jBv
 vND
 wol
 wol
+clJ
 wol
-wol
-bDT
+vND
+utq
+kDG
 utq
 utq
-utq
-utq
-sdm
-jEf
-jEf
-iKb
-sWx
+lAc
+uYx
+uYx
+vDM
+onT
 sWx
 sWx
 sWx
@@ -107797,23 +107803,23 @@ sWx
 sWx
 sWx
 sWx
-sWx
-hbj
-jEf
-tDs
-tDs
-tDs
+gYB
 vND
 vND
+wol
+wol
+wol
+wol
 vND
-tDs
-tDs
-tDs
-iKb
-sWx
-sWx
-sWx
-sWx
+utq
+utq
+utq
+utq
+vND
+roD
+roD
+roD
+sfq
 sWx
 sWx
 sWx
@@ -107999,27 +108005,27 @@ sWx
 sWx
 sWx
 sWx
+aTn
+oxS
+vND
+wol
+wol
+wol
+wol
+bDT
+utq
+utq
+utq
+utq
+sdm
+jEf
+jEf
+iKb
 sWx
 sWx
 sWx
 sWx
-sWx
-sWx
-sWx
-sWx
-sWx
-sWx
-sWx
-sWx
-sWx
-sWx
-sWx
-sWx
-sWx
-sWx
-sWx
-sWx
-sWx
+jAY
 sWx
 sWx
 sWx
@@ -108202,18 +108208,18 @@ sWx
 sWx
 sWx
 sWx
-sWx
-sWx
-sWx
-sWx
-sWx
-sWx
-sWx
-sWx
-sWx
-sWx
-sWx
-sWx
+hbj
+jEf
+tDs
+tDs
+tDs
+vND
+vND
+vND
+tDs
+tDs
+tDs
+iKb
 sWx
 sWx
 sWx
@@ -109104,7 +109110,7 @@ sWx
 sWx
 sWx
 sWx
-npG
+sWx
 sWx
 sWx
 sWx
@@ -109500,7 +109506,6 @@ sWx
 sWx
 sWx
 sWx
-sqp
 sWx
 sWx
 sWx
@@ -109508,7 +109513,8 @@ sWx
 sWx
 sWx
 sWx
-sqp
+sWx
+sWx
 sWx
 sWx
 sWx
@@ -109639,7 +109645,6 @@ sWx
 sWx
 sWx
 sWx
-jAY
 sWx
 sWx
 sWx
@@ -109650,7 +109655,6 @@ sWx
 sWx
 sWx
 sWx
-jVa
 sWx
 sWx
 sWx
@@ -109661,12 +109665,6 @@ sWx
 sWx
 sWx
 sWx
-nZI
-sWx
-sWx
-sWx
-sWx
-fqR
 sWx
 sWx
 sWx
@@ -109675,7 +109673,15 @@ sWx
 sWx
 sWx
 sWx
-iep
+sWx
+sWx
+sWx
+sWx
+sWx
+sWx
+sWx
+sWx
+sWx
 sWx
 sWx
 sWx
@@ -110923,11 +110929,11 @@ sWx
 sWx
 sWx
 sWx
+iep
 sWx
+npG
 sWx
-sWx
-sWx
-sWx
+sqp
 sWx
 sWx
 sWx
@@ -111060,6 +111066,7 @@ sWx
 sWx
 sWx
 sWx
+jVa
 sWx
 sWx
 sWx
@@ -111071,12 +111078,11 @@ sWx
 sWx
 sWx
 sWx
+nZI
 sWx
 sWx
 sWx
-sWx
-sWx
-sWx
+fqR
 sWx
 sWx
 sWx
@@ -127403,8 +127409,8 @@ dVy
 qVn
 qVn
 qVn
-qVn
-qVn
+xow
+aCM
 qVn
 qVn
 ygI
@@ -127808,7 +127814,7 @@ gMr
 aDw
 qVn
 qas
-qas
+cga
 qas
 qVn
 aNk
@@ -128011,7 +128017,7 @@ aDw
 qVn
 qas
 qVn
-qVn
+qas
 qVn
 qVn
 qVn
@@ -128213,7 +128219,7 @@ qVn
 qVn
 qas
 qVn
-wCB
+wjP
 wCB
 wCB
 wCB
@@ -128413,10 +128419,10 @@ qVn
 qVn
 qVn
 qas
-qas
+cga
 qVn
 wCB
-jss
+wCB
 ndJ
 hWd
 wCB

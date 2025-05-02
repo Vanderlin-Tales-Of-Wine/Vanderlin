@@ -3215,10 +3215,6 @@
 /obj/structure/rack,
 /turf/open/floor/cobble,
 /area/rogue/indoors)
-"Iy" = (
-/obj/structure/bridge,
-/turf/open/lava/smooth,
-/area/rogue/under/mountains/anvil/lower)
 "IC" = (
 /obj/structure/stairs{
 	dir = 8
@@ -3802,9 +3798,6 @@
 	},
 /turf/open/floor/grass,
 /area/rogue/outdoors/woods_safe)
-"Pk" = (
-/turf/closed/basic,
-/area/rogue/under/mountains/anvil/lower)
 "Pn" = (
 /obj/structure/table/wood/plain,
 /obj/item/reagent_containers/food/snacks/tangerine_dried{
@@ -4393,7 +4386,7 @@
 /obj/structure/bridge{
 	dir = 4
 	},
-/turf/open/lava/smooth,
+/turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/lower)
 "Ux" = (
 /turf/open/transparent/openspace,
@@ -42606,8 +42599,8 @@ xo
 xo
 kc
 SE
-Iy
-Iy
+lT
+lT
 LU
 GX
 GX
@@ -44427,10 +44420,10 @@ ft
 Df
 Df
 lm
-Iy
-Iy
+lT
+lT
 sq
-Iy
+lT
 LU
 Df
 Df
@@ -76548,7 +76541,7 @@ PF
 PF
 XT
 XT
-Pk
+XT
 PF
 PF
 PF
