@@ -27,7 +27,6 @@
 	name = "dark elf plate"
 	desc = "A fine suit of sleek, moulded dark elf metal. Its interlocking nature and light weight allow for increased maneuverability."
 	icon_state = "elfchest"
-	allowed_race = list("elf", "half-elf", "dark elf")
 	equip_delay_self = 2 SECONDS
 	unequip_delay_self = 2 SECONDS
 
@@ -52,8 +51,6 @@
 	name = "grenzelhoftian plate regalia"
 	desc = "Engraved on this masterwork of humen metallurgy lies \"Thrice Slain, Thrice Risen, Thrice Pronged\" alongside the symbol of Psydon in its neck guard."
 	icon_state = "human_swordchest"
-	allowed_race = list("human")
-	allowed_sex = list(MALE, FEMALE)
 	item_weight = 12 * STEEL_MULTIPLIER
 
 /obj/item/clothing/armor/rare/zybanplate
@@ -62,8 +59,6 @@
 			ensuring the wearer optimal defence with forgiving breathability. \
 			The sigil of the Zybantu Kataphractoe is embezzeled at the throat guard."
 	icon_state = "human_spearchest"
-	allowed_race = list("human")
-	allowed_sex = list(MALE)
 	item_weight = 12 * STEEL_MULTIPLIER
 
 // Aasimar hoplite armor, a very rare armor indeed
@@ -74,7 +69,6 @@
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/armor.dmi'
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/sleeves_armor.dmi'
 	icon_state = "aasimarplate"
-	allowed_race = list("aasimar")
 	smeltresult = /obj/item/ingot/bronze
 	sellprice = VALUE_SNOWFLAKE_STEEL+BONUS_VALUE_MODEST // It has great value to historical collectors
 
