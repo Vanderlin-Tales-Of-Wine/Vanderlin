@@ -34,15 +34,12 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 
     priority_announce("A schism has emerged within the Ten! [challenger.name] challenges Astrata's authority! All Tennites must choose their allegiance!", "Celestial Schism", 'sound/magic/marked.ogg')
 
-    // Grant the choosing spell to all tennites
+    // Grant the choosing spell to ALL players (not just Tennites)
     for(var/mob/living/carbon/human/human_mob in GLOB.player_list)
         if(!istype(human_mob) || human_mob.stat == DEAD || !human_mob.client)
             continue
 
-        if(!is_tennite(human_mob))
-            continue
-
-        human_mob.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/choose_schism_side)
+        human_mob.mind.AddSpell(new /obj/effect/proc_holder/spell/self/choose_schism_side) // Changed to self type
 
 /datum/tennite_schism/proc/process_winner()
     var/datum/patron/challenger = challenger_god.resolve()
@@ -57,31 +54,40 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
     if(astrata_count > challenger_count)
         // Astrata wins
         adjust_storyteller_influence("Astrata", 200)
+
+        // Original supporters (Astrata patrons) get triumphs
         for(var/datum/weakref/supporter_ref in supporters_astrata)
             var/mob/living/supporter = supporter_ref.resolve()
-            if(supporter)
+            if(supporter && supporter.patron == astrata)
                 supporter.adjust_triumphs(1)
-                to_chat(supporter, span_notice("Astrata's light prevails! Your faith is rewarded with a triumph."))
+                to_chat(supporter, span_notice("Astrata's light prevails! Your steadfast devotion is rewarded with a triumph."))
+            else if(supporter)
+                to_chat(supporter, span_notice("Astrata's light prevails over the challenge of [challenger.name]!"))
 
         priority_announce("The schism has ended! Astrata's light prevails over the challenge of [challenger.name]!", "Celestial Schism Concluded")
+
     else if(challenger_count > astrata_count)
         // Challenger wins
         adjust_storyteller_influence(challenger.name, 200)
+
+        // Original supporters (challenger patrons) get triumphs
         for(var/datum/weakref/supporter_ref in supporters_challenger)
             var/mob/living/supporter = supporter_ref.resolve()
-            if(supporter)
+            if(supporter && supporter.patron == challenger)
                 supporter.adjust_triumphs(1)
-                to_chat(supporter, span_notice("[challenger.name]'s challenge succeeds! Your faith is rewarded with a triumph."))
+                to_chat(supporter, span_notice("[challenger.name]'s challenge succeeds! Your bold faith is rewarded with a triumph."))
+            else if(supporter)
+                to_chat(supporter, span_notice("[challenger.name]'s challenge succeeds against Astrata's light!"))
 
         priority_announce("The schism has ended! [challenger.name]'s challenge succeeds against Astrata's light!", "Celestial Schism Concluded")
     else
         priority_announce("The schism has ended in a stalemate! Neither side could claim dominance.", "Celestial Schism Concluded")
 
     // Clean up spells
-    for(var/mob/living/carbon/human/human_mob in GLOB.player_list)
-        if(!istype(human_mob) || !human_mob.mind)
+    for(var/mob/living/carbon/human/H in GLOB.player_list)
+        if(!H.mind)
             continue
-        human_mob.mind.RemoveSpell(/obj/effect/proc_holder/spell/invoked/choose_schism_side)
+        H.mind.RemoveSpell(/obj/effect/proc_holder/spell/self/choose_schism_side)
 
     qdel(src)
 
@@ -105,43 +111,52 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
             neutrals += WEAKREF(user)
             to_chat(user, span_notice("You have declared neutrality in the schism."))
 
-/obj/effect/proc_holder/spell/invoked/choose_schism_side
+/obj/effect/proc_holder/spell/self/choose_schism_side
     name = "Choose Schism Side"
-    desc = "Declare your allegiance in the schism within the Ten. You may change your mind once."
+    desc = "Declare your allegiance in the schism within the Ten."
     invocation = "DECLARE ALLEGIANCE"
     invocation_type = "whisper"
     action_icon_state = "convert"
     cooldown_min = 3 MINUTES
-    var/uses_remaining = 2 // Players get 2 total uses (initial choice + one change)
+    var/uses_remaining = 2
 
-/obj/effect/proc_holder/spell/invoked/choose_schism_side/cast(list/targets, mob/living/carbon/human/user)
-    if(!is_tennite(user))
-        to_chat(user, span_warning("Only Tennites can participate in the schism."))
+/obj/effect/proc_holder/spell/self/choose_schism_side/cast(mob/living/carbon/human/user)
+    if(!length(GLOB.tennite_schisms))
+        to_chat(user, span_warning("There is no active schism to participate in."))
         return
+
+    var/datum/tennite_schism/current_schism = GLOB.tennite_schisms[1]
+    var/datum/patron/challenger = current_schism.challenger_god.resolve()
+
+    if(!is_tennite(user))
+        to_chat(user, span_notice("Though not a Tennite, you may still influence the schism to further your own goals..."))
+        uses_remaining = 0 // Non-tennites get one free use
 
     if(uses_remaining <= 0)
         to_chat(user, span_warning("You've already finalized your allegiance in the schism."))
         return
 
-    var/datum/tennite_schism/current_schism
-    for(var/datum/tennite_schism/schism in GLOB.tennite_schisms)
-        current_schism = schism
-        break
-
-    if(!current_schism)
-        to_chat(user, span_warning("There is no active schism to participate in."))
-        return
-
     var/list/options = list()
     options["Astrata"] = "astrata"
-    var/datum/patron/challenger = current_schism.challenger_god.resolve()
     if(challenger)
         options["[challenger.name]"] = "challenger"
     options["Neutral"] = "neutral"
 
     var/choice = input(user, "Choose your allegiance in the schism (Remaining changes: [uses_remaining-1]):", "Schism within the Ten") as null|anything in options
     if(!choice || !current_schism)
-        return
+        return // Cancelling doesn't use a charge
+
+    // Check if they're selecting their current side
+    var/current_side
+    var/datum/weakref/user_ref = WEAKREF(user)
+    if(user_ref in current_schism.supporters_astrata)
+        current_side = "astrata"
+    else if(user_ref in current_schism.supporters_challenger)
+        current_side = "challenger"
+
+    if(options[choice] == current_side)
+        to_chat(user, span_notice("You're already supporting this side!"))
+        return // Doesn't use a charge
 
     uses_remaining--
     current_schism.change_side(user, options[choice])
@@ -149,10 +164,8 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
     if(uses_remaining <= 0)
         name = "[initial(name)] (Finalized)"
         if(action)
-            action.UpdateButtonIcon() // Visual feedback
+            action.UpdateButtonIcon()
         to_chat(user, span_boldnotice("Your allegiance in the schism is now final."))
-
-    current_schism.change_side(user, options[choice])
 
 /datum/round_event_control/schism_within_ten
     name = "Schism within the Ten"
@@ -251,3 +264,49 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
             strongest_challenger = god
 
     return strongest_challenger
+
+/datum/round_event_control/schism_within_ten/debug
+    name = "DEBUG: Schism within the Ten"
+    typepath = /datum/round_event/schism_within_ten/debug
+    weight = 0
+    max_occurrences = 1
+    min_players = 1 // Bypass normal player count
+    earliest_start = 0 // Can trigger immediately
+    gamemode_blacklist = list()
+
+/datum/round_event/schism_within_ten/debug/start()
+    // Find any divine patron besides Astrata
+    var/datum/patron/challenger
+    for(var/type in subtypesof(/datum/patron/divine) - /datum/patron/divine/astrata)
+        challenger = GLOB.patronlist[type]
+        if(challenger)
+            break
+
+    if(!challenger)
+        message_admins("DEBUG SCHISM: No challenger god found!")
+        return
+
+    // Create the schism with reduced timers
+    var/datum/tennite_schism/S = new(challenger)
+    S.start_time = world.time + 30 SECONDS // 30 sec preparation
+    S.end_time = world.time + 5 MINUTES // 5 min duration
+
+    // Auto-assign first two available players
+    var/list/tennites = list()
+    for(var/mob/living/carbon/human/H in GLOB.player_list)
+        if(H.stat != DEAD && H.client && is_tennite(H))
+            tennites += H
+            if(tennites.len >= 2)
+                break
+
+    if(tennites.len >= 2)
+        // Assign to opposite sides
+        var/datum/tennite_schism/schism = GLOB.tennite_schisms[1]
+        schism.change_side(tennites[1], "astrata")
+        schism.change_side(tennites[2], "challenger")
+
+        message_admins("DEBUG SCHISM: [key_name_admin(tennites[1])] forced as Astrata supporter, [key_name_admin(tennites[2])] as [challenger.name] supporter")
+
+    // Announce immediately
+    addtimer(CALLBACK(S, /datum/tennite_schism/proc/announce), 15 SECONDS)
+    addtimer(CALLBACK(S, /datum/tennite_schism/proc/process_winner), 1 MINUTES)
