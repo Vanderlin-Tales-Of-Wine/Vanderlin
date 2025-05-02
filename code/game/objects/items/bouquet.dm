@@ -27,7 +27,7 @@
 
 /obj/item/bouquet/calendula
 	name = "calendula bouquet"
-	desc = "A bouqet of calendula, a flower used in herbal medicine, said to have healing properties"
+	desc = "A bouquet of calendula, a flower used in herbal medicine, said to have healing properties"
 	icon_state = "bouquet_calendula"
 
 /obj/item/clothing/head/flowercrown
