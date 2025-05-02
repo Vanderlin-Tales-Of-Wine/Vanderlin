@@ -85,7 +85,6 @@
 			if (upd)
 				M.update_damage_overlays()
 
-
 /datum/reagent/medicine/gender_potion
 	name = "Gender Potion"
 	description = "Change the user's gender."
