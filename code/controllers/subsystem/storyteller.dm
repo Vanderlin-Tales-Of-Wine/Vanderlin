@@ -1293,6 +1293,7 @@ SUBSYSTEM_DEF(gamemode)
 	GLOB.patron_follower_counts.Cut()
 
 	GLOB.vanderlin_round_stats[STATS_MONARCH_PATRON] = "None"
+	GLOB.vanderlin_round_stats[STATS_PSYCROSS_USERS] = 0
 	GLOB.vanderlin_round_stats[STATS_ALIVE_NOBLES] = 0
 	GLOB.vanderlin_round_stats[STATS_ILLITERATES] = 0
 	GLOB.vanderlin_round_stats[STATS_WEREVOLVES] = 0
@@ -1351,7 +1352,7 @@ SUBSYSTEM_DEF(gamemode)
 			switch(human_mob.gender)
 				if(MALE)
 					GLOB.vanderlin_round_stats[STATS_MALE_POPULATION]++
-				if(FEMALE)
+				else if(FEMALE)
 					GLOB.vanderlin_round_stats[STATS_FEMALE_POPULATION]++
 				else
 					GLOB.vanderlin_round_stats[STATS_OTHER_GENDER]++
