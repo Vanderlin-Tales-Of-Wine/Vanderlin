@@ -6753,12 +6753,6 @@
 /obj/structure/fake_machine/mail,
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/smithy)
-"edL" = (
-/obj/structure/stairs/stone{
-	dir = 1
-	},
-/turf/closed/basic,
-/area/rogue/indoors/town)
 "edN" = (
 /obj/structure/table/optable,
 /obj/structure/curtain/bounty{
@@ -16740,12 +16734,6 @@
 /obj/effect/mapping_helpers/door/access/manor/atarms,
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement)
-"kCP" = (
-/obj/structure/stairs/stone{
-	dir = 1
-	},
-/turf/closed/basic,
-/area/rogue/outdoors/town)
 "kDi" = (
 /turf/open/floor/rooftop,
 /area/rogue/indoors/town)
@@ -36658,7 +36646,7 @@
 /obj/structure/stairs/stone{
 	dir = 1
 	},
-/turf/open/transparent/openspace,
+/turf/open/floor/blocks,
 /area/rogue/outdoors/town)
 "xOn" = (
 /obj/structure/flora/grass/bush,
@@ -62215,7 +62203,7 @@ ijd
 iGx
 gUi
 rnJ
-edL
+vWM
 qqE
 qqE
 uOT
@@ -102817,7 +102805,7 @@ pOt
 lsl
 nSA
 lsl
-kCP
+xOl
 iSk
 qmr
 qMe
