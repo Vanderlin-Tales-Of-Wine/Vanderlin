@@ -200,4 +200,3 @@
 	valid_input = /obj/item/alch/rosa
 	valid_outputs = list(/obj/item/herbseed/rosa = 1)
 
-
