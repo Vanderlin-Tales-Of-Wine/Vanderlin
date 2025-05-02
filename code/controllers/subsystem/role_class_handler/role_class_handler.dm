@@ -97,6 +97,8 @@ SUBSYSTEM_DEF(role_class_handler)
 		//XTRA_MEATY.PQ_boost_divider = 10
 	else
 		var/datum/job/RT_JOB = SSjob.GetJob(H.job)
+		if(isnull(RT_JOB))
+			H.adv_hugboxing_cancel() // this is really bad but I don't care.
 		if(RT_JOB.advclass_cat_rolls.len)
 			XTRA_MEATY.class_cat_alloc_attempts = RT_JOB.advclass_cat_rolls
 
