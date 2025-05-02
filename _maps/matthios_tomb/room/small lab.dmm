@@ -1,8 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aF" = (
-/obj/structure/closet/crate/chest/neu_fancy{
-	locked = 1
-	},
+/obj/structure/closet/crate/chest/neu_fancy,
+/obj/effect/mapping_helpers/access/locker,
 /obj/item/weapon/knife/dagger/silver,
 /obj/item/reagent_containers/powder/moondust_purest,
 /obj/item/reagent_containers/powder/moondust_purest{
@@ -36,9 +35,8 @@
 /area/rogue/under/cave)
 "cn" = (
 /obj/item/alch/golddust,
-/obj/structure/closet/crate/chest/neu_fancy{
-	locked = 1
-	},
+/obj/structure/closet/crate/chest/neu_fancy,
+/obj/effect/mapping_helpers/access/locker,
 /obj/item/reagent_containers/powder/blastpowder,
 /obj/item/reagent_containers/powder/blastpowder,
 /obj/item/reagent_containers/powder/blastpowder,
@@ -203,9 +201,8 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/cave)
 "un" = (
-/obj/structure/closet/crate/chest{
-	locked = 1
-	},
+/obj/structure/closet/crate/chest,
+/obj/effect/mapping_helpers/access/locker,
 /obj/item/reagent_containers/glass/bottle/healthpot,
 /obj/item/reagent_containers/glass/bottle/healthpot,
 /obj/item/reagent_containers/glass/bottle/healthpot{

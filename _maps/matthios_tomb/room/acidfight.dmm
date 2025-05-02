@@ -117,9 +117,8 @@
 "H" = (
 /obj/structure/fluff/wallclock,
 /obj/item/flashlight/flare/torch/lantern/copper,
-/obj/structure/closet/crate/chest{
-	locked = 1
-	},
+/obj/structure/closet/crate/chest,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/metal/barograte,
 /area/rogue/indoors/shelter)
 "J" = (
