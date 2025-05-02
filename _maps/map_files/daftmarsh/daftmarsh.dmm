@@ -62,6 +62,12 @@
 	},
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement)
+"aed" = (
+/obj/structure/lever/hidden/keep{
+	redstone_id = "Guest1Passage"
+	},
+/turf/closed/wall/mineral/decorstone,
+/area/rogue/indoors/town/manor)
 "aep" = (
 /obj/item/key/apartments/apartment10,
 /obj/structure/closet/crate/crafted_closet/inn,
@@ -1548,6 +1554,10 @@
 	},
 /turf/open/floor/wood,
 /area/rogue/indoors/town/garrison)
+"bzY" = (
+/obj/machinery/light/fueled/wallfire/candle/r,
+/turf/open/floor/blocks,
+/area/rogue/under/town/basement)
 "bAd" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 4
@@ -1863,6 +1873,7 @@
 /area/rogue/outdoors/woods)
 "bNF" = (
 /obj/structure/fermentation_keg,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobble,
 /area/rogue/under/town/sewer)
 "bNY" = (
@@ -1888,6 +1899,13 @@
 /obj/structure/flora/grass/water,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/rtfield)
+"bOW" = (
+/obj/machinery/light/fueled/wallfire/candle{
+	pixel_x = 32;
+	pixel_y = 0
+	},
+/turf/open/floor/blocks,
+/area/rogue/under/town/basement)
 "bPl" = (
 /obj/structure/flora/grass/water,
 /turf/open/floor/hexstone,
@@ -2010,6 +2028,12 @@
 /mob/living/simple_animal/hostile/retaliate/goat,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/town)
+"bUL" = (
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 8
+	},
+/turf/open/floor/blocks,
+/area/rogue/under/town/basement)
 "bVg" = (
 /obj/machinery/light/fueled/wallfire/candle/blue/l,
 /turf/open/water/bath,
@@ -2100,6 +2124,12 @@
 "bYx" = (
 /turf/closed,
 /area/rogue/outdoors/town/roofs)
+"bYL" = (
+/obj/structure/lever/hidden/keep{
+	redstone_id = "Basement5Passage"
+	},
+/turf/closed/wall/mineral/craftstone,
+/area/rogue/under/town/basement)
 "bZh" = (
 /obj/item/reagent_containers/food/snacks/egg,
 /obj/item/reagent_containers/food/snacks/egg,
@@ -2122,13 +2152,6 @@
 	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/orphanage)
-"bZB" = (
-/obj/structure/fluff/railing/border{
-	dir = 6
-	},
-/obj/machinery/light/fueled/wallfire/candle/blue,
-/turf/open/floor/tile/bath,
-/area/rogue/indoors/town/manor)
 "bZM" = (
 /obj/structure/bed/mediocre,
 /obj/item/bedsheet/pelt,
@@ -2212,6 +2235,12 @@
 	},
 /turf/open/floor/carpet/stellar,
 /area/rogue/indoors/town/merc_guild)
+"cbx" = (
+/obj/effect/mapping_helpers/secret_door_creator/keep{
+	redstone_id = "Guest1Passage"
+	},
+/turf/closed/wall/mineral/decorstone,
+/area/rogue/indoors/town/manor)
 "cby" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 1
@@ -2310,6 +2339,11 @@
 	},
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/church)
+"chM" = (
+/obj/structure/ladder,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/blocks,
+/area/rogue/under/town/basement)
 "cih" = (
 /obj/structure/mineral_door/wood/window{
 	name = "orphanage"
@@ -2472,6 +2506,12 @@
 	name = "Heir's Chambers"
 	},
 /turf/open/floor/blocks/newstone/alt,
+/area/rogue/indoors/town/manor)
+"cqv" = (
+/obj/effect/mapping_helpers/secret_door_creator/keep{
+	redstone_id = "KeepBathPassage"
+	},
+/turf/closed/wall/mineral/decorstone,
 /area/rogue/indoors/town/manor)
 "cqR" = (
 /turf/closed/wall/mineral/stone/moss,
@@ -2691,6 +2731,12 @@
 "cAk" = (
 /turf/closed/wall/mineral/decorstone/moss,
 /area/rogue/indoors/town/tavern)
+"cBv" = (
+/obj/machinery/light/fueled/wallfire/candle{
+	pixel_y = -32
+	},
+/turf/open/floor/carpet/royalblack,
+/area/rogue/indoors/town/manor)
 "cBz" = (
 /obj/machinery/light/fueled/wallfire/candle/blue/r,
 /turf/open/floor/wood,
@@ -2794,6 +2840,12 @@
 	},
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/church/inquisition)
+"cFx" = (
+/obj/effect/mapping_helpers/secret_door_creator/keep{
+	redstone_id = "Basement1Passage"
+	},
+/turf/closed/wall/mineral/stone/moss,
+/area/rogue/under/town/basement)
 "cFB" = (
 /obj/structure/table/wood/large_new{
 	icon_state = "alt_largetable";
@@ -3245,6 +3297,12 @@
 /obj/machinery/light/fueled/wallfire/candle/blue/l,
 /turf/open/transparent/openspace,
 /area/rogue/indoors/town/magician)
+"diG" = (
+/obj/effect/mapping_helpers/secret_door_creator/keep{
+	redstone_id = "KeepBath2Passage"
+	},
+/turf/closed/wall/mineral/decorstone,
+/area/rogue/indoors/town/manor)
 "diT" = (
 /turf/closed/mineral,
 /area/rogue/outdoors/town)
@@ -4344,6 +4402,12 @@
 	icon_state = "vertw"
 	},
 /area/rogue/indoors/town/tavern)
+"ejv" = (
+/obj/effect/mapping_helpers/secret_door_creator/keep{
+	redstone_id = "WolfpitPassage"
+	},
+/turf/closed/wall/mineral/stone,
+/area/rogue/under/town/basement)
 "ejN" = (
 /obj/structure/closet/crate/crafted_closet,
 /obj/item/weapon/sword/rapier/dec,
@@ -4934,6 +4998,10 @@
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/outdoors/rtfield/safe)
+"eOa" = (
+/obj/machinery/light/fueled/torchholder/r,
+/turf/open/floor/carpet/lord/right,
+/area/rogue/indoors/town/manor)
 "eOc" = (
 /obj/structure/mineral_door/wood/donjon/stone,
 /obj/effect/mapping_helpers/door/access/church/church,
@@ -5186,6 +5254,12 @@
 /obj/structure/chair/stool,
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/manor)
+"eZm" = (
+/obj/effect/mapping_helpers/secret_door_creator/keep{
+	redstone_id = "Basement3Passage"
+	},
+/turf/closed/wall/mineral/craftstone,
+/area/rogue/under/town/basement)
 "fag" = (
 /obj/structure/table/wood/counter/end,
 /turf/open/floor/wood,
@@ -6285,7 +6359,6 @@
 /area/rogue/indoors/town)
 "gdQ" = (
 /obj/structure/fluff/railing/border,
-/obj/machinery/light/fueled/wallfire/candle/blue,
 /obj/machinery/light/fueled/wallfire/candle/blue/r,
 /turf/open/floor/tile/bath,
 /area/rogue/indoors/town/manor)
@@ -7491,6 +7564,10 @@
 "hmN" = (
 /turf/open/floor/blocks/green,
 /area/rogue/under/town/sewer)
+"hmP" = (
+/obj/item/reagent_containers/food/snacks/smallrat,
+/turf/open/floor/blocks,
+/area/rogue/under/town/basement)
 "hng" = (
 /turf/closed/wall/mineral/roofwall/outercorner{
 	dir = 8
@@ -7700,6 +7777,12 @@
 "hym" = (
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor)
+"hyR" = (
+/obj/effect/mapping_helpers/secret_door_creator/keep{
+	redstone_id = "Basement5Passage"
+	},
+/turf/closed/wall/mineral/craftstone,
+/area/rogue/under/town/basement)
 "hyT" = (
 /obj/structure/closet/crate/crafted_closet,
 /turf/open/floor/carpet/stellar,
@@ -8018,6 +8101,12 @@
 	},
 /turf/open/floor/tile/bfloorz,
 /area/rogue/indoors/town/bath)
+"hNY" = (
+/obj/structure/lever/hidden/keep{
+	redstone_id = "LordPassage"
+	},
+/turf/closed/wall/mineral/decorstone,
+/area/rogue/indoors/town/manor)
 "hOf" = (
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement)
@@ -8373,6 +8462,10 @@
 	},
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/town)
+"ieR" = (
+/obj/effect/decal/cleanable/dirt/cobweb,
+/turf/open/floor/blocks,
+/area/rogue/under/town/basement)
 "ifl" = (
 /obj/structure/mineral_door/wood/fancywood{
 	name = "Hand's Chambers"
@@ -10618,6 +10711,12 @@
 	},
 /turf/open/floor/church,
 /area/rogue/indoors/town/church)
+"kiK" = (
+/obj/effect/mapping_helpers/secret_door_creator/keep{
+	redstone_id = "Basement2Passage"
+	},
+/turf/closed/wall/mineral/stone/moss,
+/area/rogue/under/town/basement)
 "kjt" = (
 /obj/structure/bars{
 	alpha = 190
@@ -11613,6 +11712,12 @@
 "lmE" = (
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/merc_guild)
+"lmO" = (
+/obj/structure/lever/hidden/keep{
+	redstone_id = "WolfpitPassage"
+	},
+/turf/closed/wall/mineral/stone,
+/area/rogue/under/town/basement)
 "lnd" = (
 /obj/item/instrument/lute,
 /obj/item/instrument/harp,
@@ -11660,6 +11765,11 @@
 "lpg" = (
 /turf/closed/wall/mineral/wooddark/vertical,
 /area/rogue/indoors/town/shop)
+"lpy" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/light/fueled/wallfire/candle/r,
+/turf/open/floor/blocks,
+/area/rogue/under/town/basement)
 "lpz" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
@@ -11971,6 +12081,12 @@
 	icon_state = "vertw"
 	},
 /area/rogue/indoors/town/tavern)
+"lDX" = (
+/obj/machinery/light/fueled/wallfire/candle{
+	pixel_y = -32
+	},
+/turf/open/floor/blocks,
+/area/rogue/under/town/basement)
 "lDY" = (
 /obj/structure/table/wood{
 	icon_state = "longtable"
@@ -12120,6 +12236,12 @@
 /obj/structure/flora/grass/water,
 /turf/open/water,
 /area/rogue/under/cavewet)
+"lKG" = (
+/obj/structure/lever/hidden/keep{
+	redstone_id = "Basement6Passage"
+	},
+/turf/closed/wall/mineral/stonebrick,
+/area/rogue/under/town/basement)
 "lKM" = (
 /mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/water/marsh,
@@ -13438,6 +13560,12 @@
 "ncm" = (
 /turf/open/transparent/openspace,
 /area/rogue/indoors/town/shop)
+"ncy" = (
+/obj/structure/lever/hidden/keep{
+	redstone_id = "KeepBath2Passage"
+	},
+/turf/closed/wall/mineral/decorstone,
+/area/rogue/indoors/town/manor)
 "ncD" = (
 /obj/structure/fluff/walldeco/vinez,
 /turf/closed/wall/mineral/wooddark/end,
@@ -13765,6 +13893,12 @@
 /obj/structure/fluff/walldeco/psybanner,
 /turf/closed/wall/mineral/decorstone,
 /area/rogue/indoors/town/church)
+"nwq" = (
+/obj/structure/lever/hidden/keep{
+	redstone_id = "Hall1Passage"
+	},
+/turf/closed/wall/mineral/decorstone,
+/area/rogue/indoors/town/manor)
 "nwy" = (
 /obj/structure/fluff/railing/border,
 /turf/open/transparent/openspace,
@@ -14710,6 +14844,11 @@
 /obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/blocks/newstone,
 /area/rogue/indoors/town/manor)
+"osT" = (
+/obj/structure/fluff/railing/border,
+/obj/machinery/light/fueled/wallfire/candle/blue,
+/turf/open/floor/tile/bath,
+/area/rogue/indoors/town/manor)
 "osX" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4
@@ -15296,6 +15435,10 @@
 "oYo" = (
 /turf/open/floor/church,
 /area/rogue/under/town/basement)
+"oYx" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/cobblerock,
+/area/rogue/under/town/sewer)
 "oYM" = (
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/magician)
@@ -15330,6 +15473,10 @@
 	},
 /turf/open/floor/churchrough,
 /area/rogue/outdoors/town)
+"pax" = (
+/obj/machinery/light/fueled/wallfire/candle,
+/turf/open/floor/blocks,
+/area/rogue/under/town/basement)
 "paC" = (
 /turf/closed/wall/mineral/stone,
 /area/rogue/indoors/town/church)
@@ -15522,6 +15669,12 @@
 /obj/item/bin/water,
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/indoors/town/bath)
+"piq" = (
+/obj/structure/lever/hidden/keep{
+	redstone_id = "Basement2Passage"
+	},
+/turf/closed/wall/mineral/stone/moss,
+/area/rogue/under/town/basement)
 "pis" = (
 /obj/structure/table/wood/reinforced_alter,
 /turf/open/floor/carpet/green,
@@ -17045,6 +17198,12 @@
 /obj/machinery/light/fueled/firebowl/stump,
 /turf/open/floor/dirt/road,
 /area/rogue/under/cavelava)
+"qMf" = (
+/obj/effect/mapping_helpers/secret_door_creator/keep{
+	redstone_id = "Basement6Passage"
+	},
+/turf/closed/wall/mineral/stonebrick,
+/area/rogue/under/town/basement)
 "qMh" = (
 /obj/structure/table/wood/reinf_long{
 	dir = 1
@@ -17399,6 +17558,13 @@
 /obj/item/clothing/shirt/undershirt/sailor/red,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town)
+"rfV" = (
+/obj/structure/rack/shelf/biggest,
+/obj/item/natural/bundle/stick,
+/obj/item/natural/bundle/stick,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/blocks,
+/area/rogue/under/town/sewer)
 "rgf" = (
 /obj/structure/table/wood{
 	dir = 1;
@@ -17416,6 +17582,12 @@
 /obj/item/weapon/shovel,
 /turf/open/floor/carpet/stellar,
 /area/rogue/indoors/town/shop)
+"rgF" = (
+/obj/structure/lever/hidden/keep{
+	redstone_id = "Basement1Passage"
+	},
+/turf/closed/wall/mineral/stone,
+/area/rogue/under/town/basement)
 "rgM" = (
 /turf/closed/wall/mineral/wood,
 /area/rogue/indoors/town/theatre)
@@ -17837,6 +18009,12 @@
 	},
 /turf/open/floor/carpet/lord/center,
 /area/rogue/indoors/town/manor)
+"rAG" = (
+/obj/effect/mapping_helpers/secret_door_creator/keep{
+	redstone_id = "Basement4Passage"
+	},
+/turf/closed/wall/mineral/craftstone,
+/area/rogue/under/town/basement)
 "rAM" = (
 /obj/machinery/light/fueled/firebowl/stump,
 /turf/open/floor/naturalstone,
@@ -17956,6 +18134,12 @@
 /obj/structure/ladder,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/tavern)
+"rHb" = (
+/obj/structure/lever/hidden/keep{
+	redstone_id = "Basement4Passage"
+	},
+/turf/closed/wall/mineral/craftstone,
+/area/rogue/under/town/basement)
 "rHD" = (
 /obj/item/bedsheet/wool,
 /obj/structure/bed/mediocre,
@@ -18411,6 +18595,11 @@
 /obj/machinery/light/fueled/firebowl/standing/blue,
 /turf/open/floor/church,
 /area/rogue/indoors/town/bath)
+"rZj" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/light/fueled/wallfire/candle,
+/turf/open/floor/blocks,
+/area/rogue/under/town/basement)
 "rZn" = (
 /obj/structure/lever/hidden/keep{
 	redstone_id = "Cuck"
@@ -18492,6 +18681,12 @@
 /turf/closed/wall/mineral/roofwall/outercorner{
 	dir = 1
 	},
+/area/rogue/indoors/town/manor)
+"sdc" = (
+/obj/effect/mapping_helpers/secret_door_creator/keep{
+	redstone_id = "Hall1Passage"
+	},
+/turf/closed/wall/mineral/decorstone,
 /area/rogue/indoors/town/manor)
 "sdm" = (
 /obj/structure/fluff/railing/border{
@@ -18606,6 +18801,14 @@
 /obj/structure/closet/crate/crafted_closet,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/under/town/sewer)
+"shS" = (
+/obj/structure/fluff/railing/border{
+	dir = 4;
+	icon_state = "border"
+	},
+/obj/machinery/light/fueled/wallfire/candle/blue/l,
+/turf/open/floor/tile/bath,
+/area/rogue/indoors/town/manor)
 "sim" = (
 /mob/living/simple_animal/hostile/retaliate/spider,
 /turf/open/floor/cobblerock,
@@ -18664,6 +18867,7 @@
 /area/rogue/indoors/town/church/chapel)
 "skm" = (
 /obj/item/reagent_containers/glass/bottle,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobblerock,
 /area/rogue/under/town/sewer)
 "sko" = (
@@ -19194,6 +19398,12 @@
 "sFM" = (
 /turf/closed/wall/mineral/decorstone/moss,
 /area/rogue/outdoors/rtfield/safe)
+"sGJ" = (
+/obj/effect/mapping_helpers/secret_door_creator/keep{
+	redstone_id = "LordPassage"
+	},
+/turf/closed/wall/mineral/decorstone,
+/area/rogue/indoors/town/manor)
 "sGT" = (
 /obj/structure/chair/wood/alt{
 	dir = 1
@@ -20031,6 +20241,12 @@
 /mob/living/simple_animal/hostile/retaliate/spider/mutated,
 /turf/open/floor/blocks,
 /area/rogue/under/town/sewer)
+"tuc" = (
+/obj/structure/lever/hidden/keep{
+	redstone_id = "DungeoneerPassage"
+	},
+/turf/closed/wall/mineral/decorstone/moss,
+/area/rogue/under/town/basement)
 "tug" = (
 /obj/structure/stairs{
 	dir = 1
@@ -20660,6 +20876,11 @@
 /obj/machinery/light/fueled/torchholder/l,
 /turf/open/floor/wood/nosmooth,
 /area/rogue/indoors/town)
+"tXS" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/reagent_containers/food/snacks/smallrat,
+/turf/open/floor/blocks,
+/area/rogue/under/town/basement)
 "tYk" = (
 /obj/structure/table/wood/counter/end{
 	dir = 1
@@ -20809,6 +21030,10 @@
 	},
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/church)
+"uff" = (
+/obj/machinery/light/fueled/wallfire/candle/l,
+/turf/open/floor/blocks,
+/area/rogue/under/town/sewer)
 "ufD" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 8
@@ -21020,6 +21245,17 @@
 /obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/manor)
+"upn" = (
+/obj/effect/mapping_helpers/secret_door_creator/keep{
+	redstone_id = "DungeoneerPassage"
+	},
+/turf/closed/wall/mineral/decorstone/moss,
+/area/rogue/under/town/basement)
+"upu" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/cobweb,
+/turf/open/floor/blocks,
+/area/rogue/under/town/basement)
 "upv" = (
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/indoors/town/manor)
@@ -21455,6 +21691,12 @@
 /obj/machinery/light/fueled/torchholder/c,
 /turf/open/floor/wood,
 /area/rogue/indoors/butchershop)
+"uMO" = (
+/obj/structure/lever/hidden/keep{
+	redstone_id = "Basement2Passage"
+	},
+/turf/closed/wall/mineral/stone,
+/area/rogue/under/town/basement)
 "uMZ" = (
 /obj/effect/landmark/events/haunts,
 /turf/open/floor/blocks,
@@ -21489,6 +21731,12 @@
 /obj/item/candle/skull,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/orphanage)
+"uOE" = (
+/obj/structure/lever/hidden/keep{
+	redstone_id = "Basement3Passage"
+	},
+/turf/closed/wall/mineral/craftstone,
+/area/rogue/under/town/basement)
 "uOM" = (
 /obj/structure/mineral_door/wood,
 /obj/effect/mapping_helpers/door/access/town/smith,
@@ -22522,6 +22770,10 @@
 /obj/structure/well,
 /turf/open/floor/blocks,
 /area/rogue/outdoors/town)
+"vFV" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/dirt/road,
+/area/rogue/under/town/sewer)
 "vFW" = (
 /turf/closed/wall/mineral/decorstone,
 /area/rogue/outdoors/town/roofs)
@@ -23166,6 +23418,7 @@
 /area/rogue/indoors/town/church)
 "wpM" = (
 /obj/structure/bed/shit,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/dirt/road,
 /area/rogue/under/town/sewer)
 "wpR" = (
@@ -24320,6 +24573,12 @@
 "xrV" = (
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town)
+"xsn" = (
+/obj/effect/mapping_helpers/secret_door_creator/keep{
+	redstone_id = "Basement2Passage"
+	},
+/turf/closed/wall/mineral/stone,
+/area/rogue/under/town/basement)
 "xsp" = (
 /obj/structure/table/wood/plain_alt,
 /obj/item/weapon/surgery/retractor,
@@ -24590,6 +24849,11 @@
 	},
 /turf/open/floor/church,
 /area/rogue/indoors/town/church)
+"xEi" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/light/fueled/wallfire/candle/l,
+/turf/open/floor/blocks,
+/area/rogue/under/town/basement)
 "xFt" = (
 /obj/structure/bars/pipe{
 	dir = 1;
@@ -24747,6 +25011,12 @@
 	icon_state = "weird1"
 	},
 /area/rogue/indoors/town/bath)
+"xMX" = (
+/obj/structure/lever/hidden/keep{
+	redstone_id = "KeepBathPassage"
+	},
+/turf/closed/wall/mineral/decorstone,
+/area/rogue/indoors/town/manor)
 "xOn" = (
 /obj/structure/rack,
 /obj/machinery/light/fueled/wallfire/candle/blue/l,
@@ -24832,6 +25102,11 @@
 /obj/structure/bars/cemetery,
 /turf/open/floor/dirt/road,
 /area/rogue/under/town/sewer)
+"xUl" = (
+/obj/item/reagent_containers/food/snacks/smallrat,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/blocks,
+/area/rogue/under/town/basement)
 "xUm" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4
@@ -40452,7 +40727,7 @@ ugZ
 oaq
 aSd
 rXl
-rsA
+nsw
 ehQ
 glA
 lOO
@@ -40654,12 +40929,12 @@ ugZ
 xYK
 kta
 jKT
-rsA
+nsw
 ehQ
 glA
 lOO
 jVr
-rsA
+nsw
 vqJ
 ttD
 rsA
@@ -41066,8 +41341,8 @@ glX
 glX
 ugZ
 ugZ
-rsA
-rsA
+nsw
+nsw
 ugZ
 glX
 glX
@@ -41643,7 +41918,7 @@ glX
 ehQ
 ehQ
 ugZ
-rsA
+nsw
 ugZ
 jJG
 jZM
@@ -41845,7 +42120,7 @@ glX
 ehQ
 ehQ
 ugZ
-rsA
+nsw
 ugZ
 ukM
 ukM
@@ -42047,7 +42322,7 @@ glX
 ehQ
 ehQ
 ugZ
-rsA
+nsw
 ugZ
 ugZ
 ugZ
@@ -42855,7 +43130,7 @@ glX
 ehQ
 ehQ
 ugZ
-rsA
+nsw
 ugZ
 dJg
 opF
@@ -43057,7 +43332,7 @@ glX
 ehQ
 ehQ
 ugZ
-rsA
+nsw
 ugZ
 aiV
 qAI
@@ -43259,7 +43534,7 @@ glX
 ehQ
 ehQ
 ugZ
-rsA
+nsw
 ugZ
 ihc
 iMZ
@@ -43286,8 +43561,8 @@ bgU
 lOO
 glX
 ugZ
-rsA
-rsA
+nsw
+nsw
 ugZ
 gZD
 gZD
@@ -43461,7 +43736,7 @@ glX
 ehQ
 ehQ
 ugZ
-rsA
+nsw
 ugZ
 mxj
 mNG
@@ -43663,8 +43938,8 @@ glX
 ehQ
 ehQ
 ugZ
+nsw
 rsA
-ugZ
 mNG
 mNG
 qxm
@@ -43865,7 +44140,7 @@ glX
 ehQ
 ehQ
 ugZ
-rsA
+nsw
 ugZ
 mNG
 mNG
@@ -43893,7 +44168,7 @@ ugZ
 glX
 glX
 ugZ
-rsA
+nsw
 ugZ
 glX
 glX
@@ -44110,7 +44385,7 @@ ukM
 ukM
 xPe
 sDP
-nGi
+oYx
 skm
 xTZ
 nGi
@@ -44472,7 +44747,7 @@ ehQ
 ehQ
 ugZ
 rsA
-rsA
+nsw
 ugZ
 aQU
 bNq
@@ -44674,7 +44949,7 @@ glX
 glX
 ugZ
 rsA
-rsA
+nsw
 ugZ
 bNq
 mhr
@@ -44875,7 +45150,7 @@ glX
 glX
 glX
 ugZ
-rsA
+nsw
 rsA
 glX
 aQU
@@ -44918,7 +45193,7 @@ xPe
 ukM
 hmN
 sDP
-nGi
+oYx
 xRy
 xTZ
 nGi
@@ -45077,7 +45352,7 @@ glX
 glX
 glX
 ugZ
-rsA
+nsw
 rsA
 rsA
 ugZ
@@ -45282,7 +45557,7 @@ ugZ
 ugZ
 ugZ
 rsA
-rsA
+nsw
 ugZ
 ugZ
 ehQ
@@ -45484,7 +45759,7 @@ glX
 glX
 ugZ
 ugZ
-rsA
+nsw
 ugZ
 rmi
 rMg
@@ -45682,8 +45957,8 @@ glX
 glX
 glX
 ugZ
-aMn
-aWX
+rfV
+mPz
 lvQ
 glX
 rsA
@@ -46087,7 +46362,7 @@ glX
 glX
 ugZ
 dUH
-aWX
+mPz
 rsA
 ugZ
 rsA
@@ -46289,7 +46564,7 @@ glX
 glX
 ugZ
 rsA
-aWX
+mPz
 rsA
 ugZ
 rsA
@@ -46310,7 +46585,7 @@ iXs
 uNN
 iXs
 tWd
-iXs
+bOW
 iXs
 bEw
 kSn
@@ -46512,8 +46787,8 @@ iXs
 iXs
 hOf
 wMB
-wMB
-wMB
+lmO
+ejv
 wMB
 kSn
 nsw
@@ -46694,9 +46969,9 @@ glX
 ugZ
 aWX
 aWX
-aWX
+mPz
 ugZ
-rsA
+nsw
 ugZ
 nsa
 bNq
@@ -46714,7 +46989,7 @@ iXs
 iXs
 hOf
 wMB
-rsA
+uff
 nsw
 rsA
 ugZ
@@ -46898,7 +47173,7 @@ ugZ
 lOO
 ugZ
 ugZ
-rsA
+nsw
 ugZ
 ugZ
 ugZ
@@ -46919,7 +47194,7 @@ kSn
 rsA
 nsw
 rsA
-ugZ
+glA
 aoE
 aBO
 aBO
@@ -47100,16 +47375,16 @@ glA
 lOO
 glA
 ugZ
+nsw
+nsw
+nsw
+nsw
+rsA
+nsw
 rsA
 rsA
-rsA
-rsA
-rsA
-rsA
-rsA
-rsA
-rsA
-rsA
+nsw
+nsw
 rsA
 wMB
 wMB
@@ -47301,8 +47576,8 @@ ehQ
 glA
 lOO
 glA
-ugZ
 rsA
+nsw
 rsA
 ugZ
 ugZ
@@ -47535,12 +47810,12 @@ ukM
 ukM
 ukM
 dCS
-rsA
+nsw
 dCS
 ehQ
 dCS
 ehQ
-mQa
+cFR
 glX
 glX
 glX
@@ -47741,7 +48016,7 @@ aWX
 rsA
 aWX
 nXw
-rsA
+nsw
 des
 ugZ
 glX
@@ -47941,9 +48216,9 @@ ugZ
 dCS
 dHH
 sjl
-rsA
-mQa
-mQa
+nsw
+cFR
+cFR
 aWX
 ugZ
 glX
@@ -48324,7 +48599,7 @@ kSP
 kSP
 kSP
 ugZ
-rsA
+nsw
 ugZ
 ugZ
 ugZ
@@ -48346,7 +48621,7 @@ fpf
 ehQ
 rJR
 urk
-aWX
+mPz
 dXm
 ehQ
 glX
@@ -48519,36 +48794,36 @@ lOO
 lOO
 lOO
 rsA
-rsA
+nsw
 ugZ
 ugZ
 ugZ
 ugZ
 ugZ
 ugZ
-rsA
+nsw
 ugZ
 ehQ
 ehQ
 ugZ
 rsA
+nsw
+nsw
 rsA
 rsA
 rsA
 rsA
-rsA
-rsA
-rsA
-rsA
-rsA
-rsA
+nsw
+nsw
+nsw
+nsw
 rsA
 ugZ
 dQs
-aWX
+mPz
 dXm
 ehQ
-dCS
+vFV
 xcc
 ehQ
 glX
@@ -48721,12 +48996,12 @@ caR
 ePi
 toZ
 wBV
-rsA
-ugZ
-rsA
+nsw
 rsA
 rsA
 rsA
+nsw
+nsw
 rsA
 rsA
 ugZ
@@ -81857,13 +82132,13 @@ tRv
 tRv
 uPM
 iXs
+uNN
+uNN
+uNN
+uNN
 iXs
 iXs
-iXs
-iXs
-iXs
-iXs
-iXs
+uNN
 iXs
 uPM
 ite
@@ -82058,14 +82333,14 @@ tRv
 tRv
 tRv
 uPM
-iXs
+uNN
 wMB
 wMB
 wMB
 wMB
 wMB
 wMB
-iXs
+uNN
 iXs
 uPM
 ite
@@ -82267,8 +82542,8 @@ hOf
 hOf
 htR
 wMB
-iXs
-iXs
+uNN
+xUl
 uPM
 ite
 ite
@@ -82455,13 +82730,13 @@ hOf
 wmJ
 axj
 axj
+ieR
+hmP
+uNN
+uNN
 iXs
 iXs
-iXs
-iXs
-iXs
-iXs
-iXs
+uNN
 iXs
 wMB
 wFE
@@ -82656,8 +82931,8 @@ hOf
 hOf
 hOf
 hAE
-axj
-iXs
+lKG
+rZj
 iXs
 wMB
 wMB
@@ -82672,7 +82947,7 @@ hOf
 lnP
 wMB
 iXs
-iXs
+uNN
 uPM
 ite
 ite
@@ -82858,8 +83133,8 @@ hOf
 lsV
 hOf
 hOf
-axj
-iXs
+qMf
+uNN
 iXs
 uPM
 adX
@@ -82873,8 +83148,8 @@ wMB
 wee
 wMB
 wMB
-iXs
-iXs
+uNN
+uNN
 uPM
 ite
 ite
@@ -83061,8 +83336,8 @@ hOf
 hOf
 wmJ
 axj
-iXs
-iXs
+uNN
+uNN
 uPM
 hOf
 hOf
@@ -83075,8 +83350,8 @@ nQV
 nQV
 vqh
 wMB
-iXs
-iXs
+uNN
+uNN
 uPM
 ite
 ite
@@ -83264,7 +83539,7 @@ hAE
 axj
 axj
 iXs
-iXs
+uNN
 uPM
 yfP
 hOf
@@ -83479,7 +83754,7 @@ dHN
 nQV
 nQV
 wMB
-iXs
+lpy
 iXs
 uPM
 ite
@@ -83666,8 +83941,8 @@ tRv
 uPM
 iXs
 iXs
-iXs
-iXs
+uNN
+uNN
 iXs
 wMB
 ucr
@@ -83681,8 +83956,8 @@ dHN
 nQV
 xyc
 wMB
-eqo
-eqo
+rHb
+rAG
 eqo
 eqo
 eqo
@@ -84068,7 +84343,7 @@ tRv
 tRv
 tRv
 uPM
-iXs
+uNN
 iXs
 wJn
 hCD
@@ -84270,8 +84545,8 @@ tRv
 tRv
 tRv
 uPM
-iXs
-iXs
+uNN
+hmP
 iKO
 ctk
 uIi
@@ -84472,8 +84747,8 @@ tRv
 tRv
 tRv
 uPM
-iXs
-iXs
+uNN
+uNN
 wJn
 mKK
 mji
@@ -84675,7 +84950,7 @@ tRv
 tRv
 uPM
 iXs
-iXs
+uNN
 iKO
 fyW
 wKs
@@ -84876,7 +85151,7 @@ tRv
 tRv
 tRv
 uPM
-iXs
+uNN
 iXs
 iKO
 nJM
@@ -84901,7 +85176,7 @@ rSF
 rSF
 rSF
 hOf
-eqo
+eZm
 iXs
 uPM
 ite
@@ -85103,8 +85378,8 @@ rSF
 rSF
 fHP
 iXs
-eqo
-iXs
+uOE
+rZj
 uPM
 ite
 ite
@@ -85280,7 +85555,7 @@ tRv
 tRv
 tRv
 uPM
-iXs
+bzY
 iXs
 wJn
 hCD
@@ -85306,7 +85581,7 @@ qoA
 cqb
 hcI
 eqo
-iXs
+uNN
 uPM
 ite
 ite
@@ -85482,8 +85757,8 @@ tRv
 tRv
 eqo
 eqo
-eqo
-eqo
+bYL
+hyR
 wJn
 wJn
 wJn
@@ -85508,7 +85783,7 @@ eqo
 eqo
 eqo
 eqo
-iXs
+uNN
 uPM
 ite
 ite
@@ -85707,8 +85982,8 @@ lhM
 lhM
 eqo
 iXs
-iXs
-iXs
+uNN
+uNN
 iXs
 iXs
 uPM
@@ -86110,9 +86385,9 @@ dJv
 wMB
 wMB
 eqo
-iXs
-iXs
-iXs
+xUl
+uNN
+uNN
 uPM
 ite
 ite
@@ -86516,7 +86791,7 @@ pho
 uXO
 cCL
 aHI
-iXs
+uNN
 uPM
 ite
 ite
@@ -86718,7 +86993,7 @@ rQL
 uXO
 wms
 aHI
-iXs
+uNN
 uPM
 ite
 ite
@@ -86920,7 +87195,7 @@ pRM
 skO
 cQZ
 aHI
-iXs
+uNN
 uPM
 ite
 ite
@@ -87700,9 +87975,9 @@ hdd
 sWx
 sWx
 uPM
+upu
 iXs
-iXs
-wMB
+xsn
 ouo
 bGa
 iCJ
@@ -87727,7 +88002,7 @@ bhk
 hOf
 hOf
 kSn
-iXs
+xUl
 uPM
 bMn
 ewr
@@ -87903,8 +88178,8 @@ sWx
 sWx
 uPM
 uPM
-iXs
-wMB
+lDX
+uMO
 aLu
 ouo
 ouo
@@ -87929,7 +88204,7 @@ hOf
 hOf
 ewQ
 kSn
-iXs
+uNN
 uPM
 wCB
 mai
@@ -88105,7 +88380,7 @@ kSn
 kSn
 kSn
 uPM
-iXs
+uNN
 uPM
 ouo
 jKF
@@ -88113,7 +88388,7 @@ iwU
 wMn
 uPM
 hOf
-hOf
+qjO
 hOf
 hOf
 uPM
@@ -88131,7 +88406,7 @@ hOf
 hOf
 ewQ
 uPM
-iXs
+uNN
 uPM
 wCB
 fVx
@@ -88307,15 +88582,15 @@ tRv
 tRv
 uPM
 uPM
-iXs
+tXS
 uPM
 uPM
 wMB
 wMB
 kSn
 kSn
-kSn
-wMB
+cFx
+rgF
 wMB
 uPM
 vzR
@@ -88332,7 +88607,7 @@ iXs
 bhk
 hOf
 hOf
-kSn
+kiK
 iXs
 uPM
 wCB
@@ -88511,14 +88786,14 @@ tRv
 uPM
 iXs
 iXs
+uNN
 iXs
 iXs
 iXs
 iXs
-iXs
-iXs
-iXs
-iXs
+uNN
+xEi
+tXS
 iXs
 vzR
 lWi
@@ -88534,8 +88809,8 @@ hOf
 hOf
 hOf
 hOf
-kSn
-iXs
+piq
+pax
 uPM
 wCB
 fWB
@@ -88713,9 +88988,9 @@ tRv
 uPM
 uPM
 kSn
-kSn
-kSn
-uPM
+iXs
+uNN
+iXs
 uPM
 eYE
 iXs
@@ -88737,7 +89012,7 @@ gPE
 esX
 qzP
 qzP
-iXs
+uNN
 uPM
 wCB
 wCB
@@ -88914,15 +89189,15 @@ tRv
 tRv
 tRv
 tRv
-tRv
-tRv
-tRv
-tRv
+kSn
+kSn
+kSn
+uPM
 uPM
 uPM
 iXs
 iXs
-uPM
+upn
 tYI
 hOf
 hOf
@@ -88939,7 +89214,7 @@ skO
 skO
 lRQ
 qzP
-iXs
+uNN
 uPM
 ite
 ite
@@ -89122,9 +89397,9 @@ tRv
 tRv
 uPM
 iXs
-iXs
-iXs
-uPM
+uNN
+lDX
+tuc
 nIA
 qjO
 hOf
@@ -89317,11 +89592,11 @@ tRv
 tRv
 tRv
 tRv
-tRv
-tRv
-tRv
-tRv
-tRv
+kSn
+kSn
+kSn
+kSn
+kSn
 uPM
 iXs
 iXs
@@ -89517,15 +89792,15 @@ tRv
 tRv
 tRv
 tRv
-tRv
-tRv
-tRv
-tRv
-tRv
-tRv
-tRv
+uPM
+uPM
 uPM
 iXs
+iXs
+iXs
+uNN
+uNN
+uNN
 iXs
 kSn
 sWx
@@ -89719,16 +89994,16 @@ tRv
 tRv
 tRv
 tRv
-tRv
-tRv
-tRv
-tRv
-tRv
-tRv
-tRv
 uPM
+ieR
 iXs
 iXs
+uNN
+uNN
+iXs
+iXs
+iXs
+bUL
 kSn
 sWx
 sWx
@@ -89921,13 +90196,13 @@ tRv
 tRv
 tRv
 tRv
-tRv
-tRv
-tRv
-tRv
-tRv
-tRv
-tRv
+uPM
+uNN
+iXs
+kSn
+kSn
+kSn
+kSn
 uPM
 uPM
 uPM
@@ -90123,10 +90398,10 @@ tRv
 tRv
 tRv
 tRv
-tRv
-tRv
-tRv
-tRv
+uPM
+uNN
+iXs
+uPM
 tRv
 tRv
 tRv
@@ -90325,10 +90600,10 @@ tRv
 tRv
 tRv
 tRv
-tRv
-tRv
-tRv
-tRv
+uPM
+uNN
+hmP
+uPM
 tRv
 tRv
 tRv
@@ -90527,10 +90802,10 @@ tRv
 tRv
 tRv
 tRv
-tRv
-tRv
-tRv
-tRv
+uPM
+iXs
+iXs
+uPM
 tRv
 tRv
 tRv
@@ -90724,15 +90999,15 @@ hdd
 hdd
 hdd
 kSn
-tRv
-tRv
-tRv
-tRv
-tRv
-tRv
-tRv
-tRv
-tRv
+kSn
+kSn
+kSn
+kSn
+kSn
+kSn
+iXs
+uPM
+uPM
 tRv
 tRv
 tRv
@@ -90927,13 +91202,13 @@ hdd
 hdd
 kSn
 kSn
-tRv
-tRv
-tRv
-tRv
-tRv
-tRv
-tRv
+chM
+uNN
+uNN
+iXs
+uNN
+uNN
+uPM
 tRv
 tRv
 tRv
@@ -91129,13 +91404,13 @@ hdd
 hdd
 hdd
 uPM
-tRv
-tRv
-tRv
-tRv
-tRv
-tRv
-tRv
+uPM
+uPM
+uPM
+uPM
+uPM
+uPM
+uPM
 tRv
 tRv
 tRv
@@ -128710,7 +128985,7 @@ ejN
 qVn
 gDZ
 gDZ
-qVn
+sdc
 iXs
 iXs
 iXs
@@ -128912,7 +129187,7 @@ sez
 qVn
 uAp
 eII
-qVn
+nwq
 iXs
 iXs
 vzR
@@ -130327,8 +130602,8 @@ gDZ
 gDZ
 gDZ
 qVn
-qVn
-qVn
+xMX
+cqv
 qVn
 qVn
 qVn
@@ -131328,7 +131603,7 @@ sWx
 sWx
 qVn
 iXs
-iXs
+fUn
 qVn
 qVn
 qVn
@@ -131533,9 +131808,9 @@ iXs
 iXs
 iXs
 iXs
-qVn
-bZB
-eRL
+diG
+fOX
+shS
 cvR
 cvR
 eRL
@@ -131734,9 +132009,9 @@ qVn
 qVn
 qVn
 iXs
-qVn
-qVn
-gKC
+ncy
+ncy
+osT
 qpD
 qpD
 qpD
@@ -167694,8 +167969,8 @@ dKR
 dKR
 dKR
 qVn
-hym
-hym
+tIT
+cBv
 qVn
 yji
 yji
@@ -168509,7 +168784,7 @@ qMq
 mwB
 lCx
 cuF
-cuF
+tUn
 cuF
 cuF
 cuF
@@ -168711,7 +168986,7 @@ qMq
 mwB
 bxf
 sKI
-sKI
+eOa
 sKI
 sKI
 sKI
@@ -168906,8 +169181,8 @@ qVn
 stc
 stc
 qVn
-gDZ
-gDZ
+uAp
+txt
 qVn
 qVn
 qVn
@@ -170731,8 +171006,8 @@ wsU
 uZd
 uZd
 qVn
-qVn
-qVn
+cbx
+aed
 qVn
 dKR
 dKR
@@ -172134,8 +172409,8 @@ dKR
 qVn
 qVn
 qVn
-qVn
-qVn
+sGJ
+hNY
 qVn
 wkl
 uFt
