@@ -169,8 +169,8 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	var/obj/effect/statclick/ahelp/statclick
 	/// Static counter used for generating each ticket ID
 	var/static/ticket_counter = 0
-	/// key of the admin that claimed this ticket.
-	var/ticket_claimant_key
+	/// ckey of the admin that claimed this ticket.
+	var/ticket_claimant_ckey
 
 //call this on its own to create a ticket, don't manually assign current_ticket
 //msg is the title of the ticket: usually the ahelp text
@@ -360,29 +360,29 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 
 /// claims or unclaims the ticket for the admin, gives an option if it was already claimed and returns false if they decided not to claim it.
 /datum/admin_help/proc/claim_ticket(key_name = key_name_admin(usr), silent = FALSE)
-	if(ticket_claimant_key == usr.key)
+	if(ticket_claimant_ckey == usr.client.ckey)
 		unclaim_ticket(key_name)
 		return TRUE
 
-	ticket_claimant_key = usr.key
+	ticket_claimant_ckey = usr.client.ckey
 	SSblackbox.record_feedback("tally", "ahelp_stats", 1, "ticket_claimed")
-	AddInteraction("[ticket_claimant_key] has claimed Ticket #[id]")
+	AddInteraction("[ticket_claimant_ckey] has claimed Ticket #[id]")
 	message_admins("[usr.key] claimed [TicketHref("Ticket #[id]")]!")
 
 /// unclaims the ticket.
 /datum/admin_help/proc/unclaim_ticket(key_name = key_name_admin(usr), silent = FALSE)
-	ticket_claimant_key = null
+	ticket_claimant_ckey = null
 	SSblackbox.record_feedback("tally", "ahelp_stats", 1, "ticket_unclaimed")
-	AddInteraction("[ticket_claimant_key] has UNclaimed Ticket #[id]")
+	AddInteraction("[ticket_claimant_ckey] has UNclaimed Ticket #[id]")
 	message_admins("[usr.key] UNclaimed [TicketHref("Ticket #[id]")]!")
 
 /// checks if the admin has the ticket claimed, if not - make sure they want to perform the action.
 /datum/admin_help/proc/claim_assert(key_name = key_name_admin(usr), silent = FALSE)
-	if(!ticket_claimant_key) // if no one has claimed the ticket already then claim it.
+	if(!ticket_claimant_ckey) // if no one has claimed the ticket already then claim it.
 		claim_ticket()
 		return TRUE
-	if(ticket_claimant_key != usr.key)
-		if(alert("Already claimed by[ticket_claimant_key]! do it anyways?",,"Yes","No") == "No")
+	if(ticket_claimant_ckey != usr.client.ckey)
+		if(alert("Already claimed by[ticket_claimant_ckey]! do it anyways?",,"Yes","No") == "No")
 			return FALSE
 	return TRUE
 
@@ -465,7 +465,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	var/ref_src = "[REF(src)]"
 	dat += "<h4>Admin Help Ticket #[id]: [LinkedReplyName(ref_src)]</h4>"
 	if(usr.client?.holder)
-		dat += "<h5>Ticket Claimed by [ticket_claimant_key ? ticket_claimant_key : "NONE"]</h5>"
+		dat += "<h5>Ticket Claimed by [ticket_claimant_ckey ? ticket_claimant_ckey : "NONE"]</h5>"
 	dat += "<b>State: "
 	switch(state)
 		if(AHELP_ACTIVE)
