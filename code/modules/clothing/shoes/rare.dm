@@ -21,7 +21,6 @@
 	body_parts_covered = FEET
 	icon_state = "elfshoes"
 	item_state = "elfshoes"
-	allowed_race = list("elf", "half-elf", "dark elf")
 	color = null
 	blocksound = PLATEHIT
 	item_weight = 7 * STEEL_MULTIPLIER
@@ -40,7 +39,6 @@
 /obj/item/clothing/shoes/boots/rare/dwarfplate
 	name = "decorated dwarven plate boots"
 	allowed_race = list("dwarf")
-	allowed_sex = list(MALE, FEMALE)
 	desc = "Laced with golden bands, these dwarven plated boots glitter with glory as they are used to kick enemy's shins."
 	body_parts_covered = FEET|LEGS
 	icon_state = "dwarfshoe"
@@ -51,8 +49,6 @@
 
 /obj/item/clothing/shoes/boots/rare/grenzelplate
 	name = "grenzelhoft \"Elvenbane\" sabatons"
-	allowed_race = list("human")
-	allowed_sex = list(MALE, FEMALE)
 	desc = "The sabatons that march to the tune of a glorious nation. It is said that the boots \
 			are gilded with the tears of once native elves of the Grenzeholft lands, \
 			eradicated via humen conquest."
@@ -65,8 +61,6 @@
 
 /obj/item/clothing/shoes/boots/rare/zybanplate
 	name = "zybantean segmented plate boots"
-	allowed_race = list("human")
-	allowed_sex = list(MALE)
 	desc = "The segmented plate boots are a recent alteration to the Zybantu Elite, \
 			many old warriors decorate their own by tieing ribbons and other knick-knacks \
 			as a homage to the colorful socks they wore in simpler times."
