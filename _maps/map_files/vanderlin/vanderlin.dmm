@@ -382,13 +382,6 @@
 	icon_state = "plating2"
 	},
 /area/rogue/indoors/town/shop)
-"aky" = (
-/obj/structure/minecart_rail{
-	dir = 4
-	},
-/obj/structure/minecart_rail/railbreak,
-/turf/open/floor/metal,
-/area/rogue/indoors/town)
 "akW" = (
 /obj/structure/window/openclose{
 	dir = 8
@@ -5883,7 +5876,7 @@
 /obj/effect/decal/cleanable/dirt/cobweb{
 	dir = 8
 	},
-/obj/effect/spawner/map_spawner/loot/potion_ingredient,
+/obj/effect/spawner/map_spawner/loot/food,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town)
 "dFK" = (
@@ -19419,7 +19412,7 @@
 "myv" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/rack/shelf/biggest,
-/obj/effect/spawner/map_spawner/loot/potion_ingredient,
+/obj/effect/spawner/map_spawner/loot/food,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town)
 "myF" = (
@@ -19838,6 +19831,9 @@
 "mJO" = (
 /turf/closed/wall/mineral/decostone,
 /area/rogue/indoors/town/church)
+"mJS" = (
+/turf/closed/mineral/bedrock,
+/area/rogue/under/town/sewer)
 "mKD" = (
 /obj/structure/closet/crate/crafted_closet,
 /obj/item/weapon/sword/rapier/dec,
@@ -24644,7 +24640,7 @@
 /obj/structure/fluff/walldeco/customflag{
 	pixel_y = -32
 	},
-/turf/open/transparent/openspace,
+/turf/closed/wall/mineral/stone,
 /area/rogue/outdoors/town)
 "pSo" = (
 /obj/structure/fluff/psycross{
@@ -25527,6 +25523,10 @@
 /obj/machinery/tanningrack,
 /turf/open/floor/blocks/newstone/alt,
 /area/rogue/under/town/basement)
+"qwD" = (
+/obj/effect/decal/cleanable/generic,
+/turf/closed/wall/mineral/stone,
+/area/rogue/under/town/sewer)
 "qwG" = (
 /obj/structure/bars/grille,
 /obj/item/natural/rock{
@@ -30841,6 +30841,7 @@
 /turf/open/floor/blocks,
 /area/rogue/outdoors/town)
 "tVm" = (
+/obj/structure/rotation_piece,
 /turf/open/floor/metal,
 /area/rogue/indoors/town)
 "tVw" = (
@@ -35571,7 +35572,7 @@
 /obj/structure/minecart_rail{
 	dir = 10
 	},
-/turf/closed/mineral,
+/turf/closed/mineral/bedrock,
 /area/rogue/indoors/town)
 "xcx" = (
 /obj/machinery/light/fueled/wallfire/candle/l,
@@ -59573,7 +59574,7 @@ oGi
 rnJ
 tGm
 iGx
-aky
+ijd
 iGx
 cYy
 dpf
@@ -59763,8 +59764,8 @@ cDP
 oGi
 lfU
 lfU
-nZs
-nZs
+mJS
+mJS
 lfU
 lfU
 oGi
@@ -60165,7 +60166,7 @@ oGi
 cDP
 cDP
 oGi
-nZs
+mJS
 nRZ
 nRZ
 nRZ
@@ -60367,12 +60368,12 @@ oGi
 cDP
 cDP
 oGi
-nZs
+mJS
 nRZ
 nRZ
 nRZ
 nRZ
-nZs
+mJS
 oGi
 cDP
 cDP
@@ -60569,17 +60570,17 @@ cDP
 oLM
 cDP
 oGi
-nZs
+mJS
 nRZ
 nRZ
 nRZ
 nRZ
-nZs
+mJS
 oGi
 cDP
 cDP
 cDP
-oGi
+lfU
 rnJ
 jsG
 iGx
@@ -60771,17 +60772,17 @@ cDP
 cDP
 cDP
 oGi
-nZs
+mJS
 nRZ
 nRZ
 nRZ
 nRZ
-nZs
+mJS
 oGi
 cDP
 cDP
 cDP
-nhr
+qwD
 rnJ
 tGm
 iGx
@@ -60973,12 +60974,12 @@ cDP
 cDP
 kqi
 oGi
-nZs
+mJS
 nRZ
 nRZ
 nRZ
 dWi
-nZs
+mJS
 oGi
 oLM
 cDP
@@ -61180,7 +61181,7 @@ nRZ
 nRZ
 nRZ
 dWi
-nZs
+mJS
 oGi
 cDP
 cDP
@@ -61781,12 +61782,12 @@ cDP
 kqi
 cDP
 oGi
-oGi
+mJS
 lfU
 dWi
 dWi
 dWi
-nZs
+mJS
 oGi
 cDP
 cDP
@@ -63399,8 +63400,8 @@ cDP
 oGi
 oGi
 lfU
-nRZ
-nRZ
+mJS
+mJS
 lfU
 iMo
 oGi
@@ -63600,9 +63601,9 @@ cDP
 cDP
 oGi
 lfU
-nRZ
-nRZ
-nRZ
+nZs
+nZs
+nZs
 lfU
 iMo
 oGi
@@ -63801,12 +63802,12 @@ cDP
 cDP
 cDP
 oGi
+mJS
 nZs
-nRZ
-nRZ
-nRZ
-nRZ
 nZs
+nZs
+nZs
+mJS
 oGi
 cDP
 cDP
@@ -64003,12 +64004,12 @@ cDP
 cDP
 cDP
 oGi
+mJS
 nZs
-nRZ
-nRZ
-nRZ
-nRZ
 nZs
+nZs
+nZs
+mJS
 oGi
 cDP
 cDP
@@ -64206,10 +64207,10 @@ cDP
 cDP
 oGi
 lfU
-nRZ
-nRZ
-nRZ
-nRZ
+nZs
+nZs
+nZs
+nZs
 lfU
 oGi
 cDP
@@ -64219,7 +64220,7 @@ oGi
 rnJ
 tGm
 iGx
-aky
+ijd
 iGx
 nhb
 iGx
@@ -64407,11 +64408,11 @@ kqi
 cDP
 cDP
 oGi
+mJS
 nZs
-nRZ
-nRZ
-nRZ
-nRZ
+nZs
+nZs
+nZs
 lfU
 oGi
 cDP
@@ -64609,12 +64610,12 @@ kqi
 cDP
 oLM
 oGi
+mJS
 nZs
-nRZ
-nRZ
-nRZ
-nRZ
 nZs
+nZs
+nZs
+mJS
 oGi
 cDP
 cDP
@@ -64811,12 +64812,12 @@ cDP
 cDP
 cDP
 oGi
+mJS
 nZs
-nRZ
-nRZ
-nRZ
-nRZ
 nZs
+nZs
+nZs
+mJS
 oGi
 cDP
 cDP
@@ -65014,10 +65015,10 @@ cDP
 cDP
 oGi
 lfU
-nRZ
-nRZ
-nRZ
-nRZ
+nZs
+nZs
+nZs
+nZs
 lfU
 oGi
 cDP
@@ -65025,11 +65026,11 @@ cDP
 cDP
 oGi
 lfU
-jXx
+sjG
 guB
 ijd
 guB
-jXx
+sjG
 fkZ
 vgJ
 vgJ
@@ -65216,10 +65217,10 @@ cDP
 cDP
 oGi
 lfU
-nRZ
-nRZ
-nRZ
-nRZ
+nZs
+nZs
+nZs
+nZs
 lfU
 oGi
 cDP
@@ -65227,11 +65228,11 @@ cDP
 cDP
 oGi
 lfU
-jXx
+sjG
 guB
 ijd
 guB
-jXx
+sjG
 fkZ
 vgJ
 vgJ
@@ -65418,10 +65419,10 @@ oLM
 cDP
 oGi
 lfU
-nRZ
-nRZ
-nRZ
-nRZ
+nZs
+nZs
+nZs
+nZs
 lfU
 oGi
 cDP
@@ -65429,11 +65430,11 @@ cDP
 oLM
 oGi
 lfU
-jXx
+sjG
 guB
 ijd
 guB
-jXx
+sjG
 fkZ
 vgJ
 vgJ
@@ -65619,23 +65620,23 @@ cDP
 cDP
 kqi
 oGi
+mJS
 nZs
-nRZ
-nRZ
-nRZ
-nRZ
 nZs
+nZs
+nZs
+mJS
 lPK
 kqi
 cDP
 rGC
 nVk
 lfU
-jXx
+sjG
 guB
 ijd
 guB
-jXx
+sjG
 fkZ
 vgJ
 vgJ
@@ -65821,23 +65822,23 @@ cDP
 cDP
 kqi
 oGi
+mJS
 nZs
-nRZ
-nRZ
-nRZ
-nRZ
 nZs
+nZs
+nZs
+mJS
 oGi
 kqi
 cDP
 rGC
 oGi
 lfU
-jXx
+sjG
 guB
 ijd
 guB
-jXx
+sjG
 fkZ
 vgJ
 vgJ
@@ -66024,10 +66025,10 @@ cDP
 kqi
 wGS
 lfU
-nRZ
-nRZ
-nRZ
-nRZ
+nZs
+nZs
+nZs
+nZs
 lfU
 oGi
 rGC
@@ -66035,11 +66036,11 @@ rGC
 eXv
 oGi
 lfU
-jXx
+sjG
 guB
 ijd
 guB
-jXx
+sjG
 fkZ
 vgJ
 vgJ
@@ -66227,7 +66228,7 @@ cDP
 oGi
 lfU
 lfU
-nZs
+mJS
 lfU
 lfU
 lfU
@@ -66237,11 +66238,11 @@ cDP
 eXv
 nVk
 lfU
-jXx
+sjG
 guB
 ijd
 guB
-jXx
+sjG
 fkZ
 vgJ
 vgJ
@@ -66439,11 +66440,11 @@ rGC
 cDP
 nVk
 lfU
-jXx
+sjG
 guB
 ijd
 guB
-jXx
+sjG
 fkZ
 vgJ
 vgJ
@@ -66641,11 +66642,11 @@ rGC
 rGC
 nVk
 lfU
-jXx
+sjG
 guB
 ijd
 guB
-jXx
+sjG
 fkZ
 vgJ
 vgJ
@@ -66843,11 +66844,11 @@ cDP
 vAb
 ean
 lfU
-jXx
+sjG
 guB
 ijd
 guB
-jXx
+sjG
 fkZ
 vgJ
 vgJ
@@ -67045,7 +67046,7 @@ nVk
 nVk
 nVk
 lfU
-jXx
+sjG
 guB
 ijd
 guB
@@ -67247,11 +67248,11 @@ lPK
 nVk
 lPK
 lfU
-jXx
+sjG
 guB
 ijd
 guB
-jXx
+sjG
 fkZ
 vgJ
 vgJ
@@ -67449,11 +67450,11 @@ lfU
 lfU
 lfU
 lfU
-jXx
+sjG
 guB
 ijd
 guB
-jXx
+sjG
 fkZ
 vgJ
 vgJ
@@ -67853,11 +67854,11 @@ vgJ
 vgJ
 vgJ
 fkZ
-jXx
+sjG
 guB
 ijd
 guB
-jXx
+sjG
 fkZ
 vgJ
 vgJ
@@ -68055,11 +68056,11 @@ vgJ
 vgJ
 vgJ
 fkZ
-jXx
+sjG
 guB
 ijd
 guB
-jXx
+sjG
 fkZ
 vgJ
 vgJ
@@ -68257,11 +68258,11 @@ vgJ
 vgJ
 vgJ
 fkZ
-jXx
+sjG
 guB
 ijd
 guB
-jXx
+sjG
 fkZ
 vgJ
 vgJ
@@ -68459,11 +68460,11 @@ vgJ
 vgJ
 vgJ
 fkZ
-jXx
+sjG
 guB
 ijd
 guB
-jXx
+sjG
 fkZ
 vgJ
 vgJ
@@ -68661,11 +68662,11 @@ vgJ
 vgJ
 vgJ
 fkZ
-jXx
+sjG
 guB
 ijd
 guB
-jXx
+sjG
 fkZ
 vgJ
 vgJ
@@ -68863,11 +68864,11 @@ vgJ
 vgJ
 vgJ
 fkZ
-jXx
+sjG
 guB
 ijd
 guB
-jXx
+sjG
 fkZ
 vgJ
 vgJ
@@ -69065,11 +69066,11 @@ vgJ
 vgJ
 vgJ
 fkZ
-jXx
+sjG
 guB
 ijd
 guB
-jXx
+sjG
 fkZ
 vgJ
 vgJ
@@ -69267,11 +69268,11 @@ vgJ
 vgJ
 vgJ
 fkZ
-jXx
+sjG
 guB
 ijd
 guB
-jXx
+sjG
 fkZ
 vgJ
 vgJ
@@ -69469,11 +69470,11 @@ vgJ
 vgJ
 vgJ
 fkZ
-jXx
+sjG
 guB
 ijd
 guB
-jXx
+sjG
 fkZ
 vgJ
 vgJ
@@ -69671,11 +69672,11 @@ vgJ
 vgJ
 vgJ
 fkZ
-jXx
+sjG
 guB
 ijd
 guB
-jXx
+sjG
 fkZ
 vgJ
 vgJ
@@ -100980,7 +100981,7 @@ elp
 fOL
 iSk
 iSk
-iSk
+eCc
 wVG
 xVQ
 qQO
