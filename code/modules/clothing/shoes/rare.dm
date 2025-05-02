@@ -52,7 +52,7 @@
 /obj/item/clothing/shoes/boots/rare/grenzelplate
 	name = "grenzelhoft \"Elvenbane\" sabatons"
 	allowed_race = list("human")
-	allowed_sex = list(MALE)
+	allowed_sex = list(MALE, FEMALE)
 	desc = "The sabatons that march to the tune of a glorious nation. It is said that the boots \
 			are gilded with the tears of once native elves of the Grenzeholft lands, \
 			eradicated via humen conquest."
