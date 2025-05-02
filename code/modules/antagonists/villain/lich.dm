@@ -41,12 +41,12 @@
 
 /datum/antagonist/lich/on_gain()
 	SSmapping.retainer.liches |= owner
+	remove_job()
 	. = ..()
 	if(iscarbon(owner.current))
 		lich_body = WEAKREF(owner.current)
 	owner.special_role = name
 	move_to_spawnpoint()
-	remove_job()
 	owner.current?.roll_mob_stats()
 	skele_look()
 	equip_lich()

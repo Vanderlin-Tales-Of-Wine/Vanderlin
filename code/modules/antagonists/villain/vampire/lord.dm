@@ -25,8 +25,8 @@
 	REMOVE_TRAIT(M, TRAIT_HEAVYARMOR, "[type]")
 
 /datum/antagonist/vampire/lord/on_gain()
-	var/mob/living/carbon/vampire = owner.current
 	remove_job()
+	var/mob/living/carbon/vampire = owner.current
 	owner.current?.roll_mob_stats()
 	owner.purge_combat_knowledge()
 	. = ..()
