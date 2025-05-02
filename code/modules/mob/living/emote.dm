@@ -951,7 +951,7 @@
 		// anti pedophile logging
 			var/log_msg
 			if(E.age == AGE_CHILD)
-			log_msg = "[H][ADMIN_FLW(H)] slapped [E][ADMIN_FLW(E)] on the ass, a CHILD!"
+			log_msg = "[H][ADMIN_FLW(H)] slapped [target][ADMIN_FLW(target)] on the ass, a CHILD!"
 			if(H.age == AGE_CHILD)
 				log_msg += " As a child."
 			else
