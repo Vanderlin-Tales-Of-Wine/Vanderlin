@@ -1310,7 +1310,10 @@ SUBSYSTEM_DEF(gamemode)
 	GLOB.vanderlin_round_stats[STATS_FEMALE_POPULATION] = 0
 	GLOB.vanderlin_round_stats[STATS_OTHER_GENDER] = 0
 	GLOB.vanderlin_round_stats[STATS_CHILD_POPULATION] = 0
+	GLOB.vanderlin_round_stats[STATS_ADULT_POPULATION] = 0
+	GLOB.vanderlin_round_stats[STATS_MIDDLEAGED_POPULATION] = 0
 	GLOB.vanderlin_round_stats[STATS_ELDERLY_POPULATION] = 0
+	GLOB.vanderlin_round_stats[STATS_IMMORTAL_POPULATION] = 0
 
 	// Races count
 	GLOB.vanderlin_round_stats[STATS_ALIVE_TIEFLINGS] = 0
@@ -1359,8 +1362,14 @@ SUBSYSTEM_DEF(gamemode)
 			switch(human_mob.age)
 				if(AGE_CHILD)
 					GLOB.vanderlin_round_stats[STATS_CHILD_POPULATION]++
+				if(AGE_ADULT)
+					GLOB.vanderlin_round_stats[STATS_ADULT_POPULATION]++
+				if(AGE_MIDDLEAGED)
+					GLOB.vanderlin_round_stats[STATS_MIDDLEAGED_POPULATION]++
 				if(AGE_OLD)
 					GLOB.vanderlin_round_stats[STATS_ELDERLY_POPULATION]++
+				if(AGE_IMMORTAL)
+					GLOB.vanderlin_round_stats[STATS_IMMORTAL_POPULATION]++
 			if(human_mob.is_noble())
 				GLOB.vanderlin_round_stats[STATS_ALIVE_NOBLES]++
 			if(!human_mob.is_literate())
@@ -1377,12 +1386,12 @@ SUBSYSTEM_DEF(gamemode)
 				GLOB.vanderlin_round_stats[STATS_GREEDY_PEOPLE]++
 			if(HAS_TRAIT_NOT_FROM(src, TRAIT_PACIFISM, "hugbox"))
 				GLOB.vanderlin_round_stats[STATS_PACIFISTS]++
-			if(human_mob.setspouse)
-				GLOB.vanderlin_round_stats[STATS_MARRIED]++
 			if(human_mob.family_datum)
 				var/family_role = human_mob.family_datum.family[human_mob]
 				if(family_role in list(FAMILY_FATHER, FAMILY_MOTHER))
 					GLOB.vanderlin_round_stats[STATS_PARENTS]++
+				if(human_mob.IsWedded() || (family_role in list(FAMILY_FATHER, FAMILY_MOTHER)))
+					GLOB.vanderlin_round_stats[STATS_MARRIED]++
 
 			// Races
 			if(istiefling(human_mob))
