@@ -51,13 +51,13 @@
 
 /obj/structure/mineral_door
 	name = "metal door"
+	icon = 'icons/roguetown/misc/doors.dmi'
+	icon_state = "wcg"
 	density = TRUE
 	anchored = TRUE
 	opacity = TRUE
 	layer = OPEN_DOOR_LAYER
 
-	icon = 'icons/roguetown/misc/doors.dmi'
-	icon_state = "wcg"
 	max_integrity = 1000
 	integrity_failure = 0.5
 	armor = list("blunt" = 10, "slash" = 10, "stab" = 10,  "piercing" = 0, "fire" = 50, "acid" = 50)
@@ -75,7 +75,6 @@
 	var/sheetAmount = 7 //how much we drop when deconstructed
 
 	var/windowed = FALSE
-	var/base_state = null
 
 	var/locked = FALSE
 	var/last_bump = null
@@ -168,8 +167,6 @@
 
 /obj/structure/mineral_door/Initialize()
 	. = ..()
-	if(!base_state)
-		base_state = icon_state
 	set_init_layer()
 	air_update_turf(TRUE)
 	if(keylock)
@@ -301,7 +298,7 @@
 		playsound(src, openSound, 90)
 	if(!windowed)
 		set_opacity(FALSE)
-	flick("[base_state]opening",src)
+	flick("[initial(icon_state)]opening",src)
 	sleep(animate_time)
 	density = FALSE
 	door_opened = TRUE
@@ -322,7 +319,7 @@
 	isSwitchingStates = TRUE
 	if(!silent)
 		playsound(src, closeSound, 90)
-	flick("[base_state]closing",src)
+	flick("[initial(icon_state)]closing",src)
 	sleep(animate_time)
 	density = TRUE
 	if(!windowed)
@@ -334,7 +331,7 @@
 	isSwitchingStates = FALSE
 
 /obj/structure/mineral_door/update_icon()
-	icon_state = "[base_state][door_opened ? "open":""]"
+	icon_state = "[initial(icon_state)][door_opened ? "open":""]"
 
 /obj/structure/mineral_door/proc/door_rattle()
 	playsound(src, rattlesound, 100)
@@ -403,7 +400,7 @@
 					if(do_after(user, (30 SECONDS / user.mind.get_skill_level(repair_skill)), src)) // 1 skill = 30 secs, 2 skill = 15 secs etc.
 						qdel(I)
 						playsound(user, 'sound/misc/wood_saw.ogg', 100, TRUE)
-						icon_state = "[base_state]"
+						icon_state = "[initial(icon_state)]"
 						density = TRUE
 						opacity = TRUE
 						brokenstate = FALSE
@@ -484,7 +481,7 @@
 
 /obj/structure/mineral_door/obj_break(damage_flag, mapload)
 	if(!brokenstate)
-		icon_state = "[base_state]br"
+		icon_state = "[initial(icon_state)]br"
 		density = FALSE
 		opacity = FALSE
 		brokenstate = TRUE
@@ -542,7 +539,6 @@
 
 /obj/structure/mineral_door/wood
 	name = "door"
-	desc = ""
 	icon_state = "woodhandle"
 	openSound = list('sound/foley/doors/creak.ogg')
 	closeSound = 'sound/foley/doors/shut.ogg'
@@ -550,11 +546,9 @@
 	max_integrity = 1000
 	damage_deflection = 12
 	keylock = TRUE
-	icon = 'icons/roguetown/misc/doors.dmi'
 	blade_dulling = DULLING_BASHCHOP
 	break_sound = 'sound/combat/hits/onwood/destroywalldoor.ogg'
 	attacked_sound = list('sound/combat/hits/onwood/woodimpact (1).ogg','sound/combat/hits/onwood/woodimpact (2).ogg')
-	var/over_state = "woodover"
 	repairable = TRUE
 	repair_cost_first = /obj/item/grown/log/tree/small
 	repair_cost_second = /obj/item/grown/log/tree/small
@@ -563,14 +557,11 @@
 
 /obj/structure/mineral_door/wood/Initialize()
 	if(icon_state =="woodhandle")
-		if(icon_state != "wcv")
-			if(prob(10))
-				icon_state = "wcg"
-			else if(prob(10))
-				icon_state = "wcr"
-	if(over_state)
-		add_overlay(mutable_appearance(icon, "[over_state]", ABOVE_MOB_LAYER))
-	..()
+		if(prob(10))
+			icon_state = "wcg"
+		else if(prob(10))
+			icon_state = "wcr"
+	. = ..()
 
 /obj/structure/mineral_door/wood/green
 	icon_state = "wcg"
@@ -578,7 +569,6 @@
 	icon_state = "wcr"
 /obj/structure/mineral_door/wood/violet
 	icon_state = "wcv"
-
 
 /obj/structure/mineral_door/wood/pickaxe_door(mob/living/user, obj/item/I)
 	return
@@ -603,7 +593,8 @@
 /obj/structure/mineral_door/swing_door
 	name = "swing door"
 	desc = "A door that swings."
-	icon_state = "woodhandle"
+	icon = 'icons/roguetown/misc/doors.dmi'
+	icon_state = "swing"
 	openSound = 'sound/foley/doors/creak.ogg'
 	closeSound = 'sound/foley/doors/shut.ogg'
 	resistance_flags = FLAMMABLE
@@ -612,8 +603,6 @@
 	opacity = FALSE
 	windowed = TRUE
 	keylock = FALSE
-	icon = 'icons/roguetown/misc/doors.dmi'
-	icon_state = "swing"
 	blade_dulling = DULLING_BASHCHOP
 	break_sound = 'sound/combat/hits/onwood/destroywalldoor.ogg'
 	attacked_sound = list('sound/combat/hits/onwood/woodimpact (1).ogg','sound/combat/hits/onwood/woodimpact (2).ogg')
@@ -626,25 +615,19 @@
 	animate_time = 4
 
 /obj/structure/mineral_door/wood/window
-	opacity = FALSE
 	icon_state = "woodwindow"
+	opacity = FALSE
 	windowed = TRUE
-	desc = ""
-	over_state = "woodwindowopen"
 
 /obj/structure/mineral_door/wood/fancywood
 	icon_state = "fancy_wood"
-	desc = ""
-	over_state = "fancy_woodopen"
 
 /obj/structure/mineral_door/wood/deadbolt
 	desc = "This door comes with a deadbolt."
-	icon_state = "wooddir"
-	base_state = "wood"
+	icon_state = MAP_SWITCH("wood", "wooddir")
 	var/lockdir
 	keylock = FALSE
 	max_integrity = 500
-	over_state = "woodopen"
 	kickthresh = 10
 	openSound = 'sound/foley/doors/shittyopen.ogg'
 	closeSound = 'sound/foley/doors/shittyclose.ogg'
@@ -657,7 +640,6 @@
 /obj/structure/mineral_door/wood/deadbolt/Initialize()
 	. = ..()
 	lockdir = dir
-	icon_state = base_state
 
 /obj/structure/mineral_door/wood/deadbolt/attack_right(mob/user)
 	user.changeNext_move(CLICK_CD_FAST)
@@ -684,11 +666,9 @@
 
 /obj/structure/mineral_door/wood/donjon
 	desc = "This door has a built-in viewport."
-	icon_state = "donjondir"
-	base_state = "donjon"
+	icon_state = MAP_SWITCH("donjon", "donjondir")
 	keylock = TRUE
 	max_integrity = 2000
-	over_state = "dunjonopen"
 	var/viewportdir
 	kickthresh = 15
 	locksound = 'sound/foley/doors/lockmetal.ogg'
@@ -702,12 +682,9 @@
 
 /obj/structure/mineral_door/wood/donjon/stone
 	name = "stone door"
-	desc = ""
 	icon_state = "stone"
-	base_state = "stone"
 	keylock = TRUE
 	max_integrity = 1000
-	over_state = "stoneopen"
 	openSound = 'sound/foley/doors/stoneopen.ogg'
 	closeSound = 'sound/foley/doors/stoneclose.ogg'
 	attacked_sound = list('sound/combat/hits/onwood/woodimpact (1).ogg','sound/combat/hits/onwood/woodimpact (2).ogg')
@@ -736,7 +713,6 @@
 
 /obj/structure/mineral_door/wood/donjon/Initialize()
 	viewportdir = dir
-	icon_state = base_state
 	..()
 
 /obj/structure/mineral_door/wood/donjon/OnCrafted(dirin, mob/user)
@@ -780,7 +756,6 @@
 
 /obj/structure/mineral_door/bars
 	name = "iron door"
-	desc = ""
 	icon_state = "bars"
 	openSound = 'sound/foley/doors/ironopen.ogg'
 	closeSound = 'sound/foley/doors/ironclose.ogg'
@@ -788,7 +763,6 @@
 	max_integrity = 1000
 	damage_deflection = 15
 	keylock = TRUE
-	icon = 'icons/roguetown/misc/doors.dmi'
 	blade_dulling = DULLING_BASH
 	opacity = FALSE
 	windowed = TRUE
@@ -804,23 +778,15 @@
 	repair_skill = /datum/skill/craft/blacksmithing
 	animate_time = 6
 
-/obj/structure/mineral_door/bars/Initialize()
-	. = ..()
-	add_overlay(mutable_appearance(icon, "barsopen", ABOVE_MOB_LAYER))
-
-
 /obj/structure/mineral_door/bars/onkick(mob/user)
 	user.visible_message("<span class='warning'>[user] kicks [src]!</span>")
 	return
-
 
 /obj/structure/mineral_door/wood/deadbolt/shutter
 	name = "serving hatch"
 	desc = "Can be locked from the inside."
 	icon_state = "serving"
-	base_state = "serving"
 	max_integrity = 250
-	over_state = "servingopen"
 	openSound = 'sound/foley/blindsopen.ogg'
 	closeSound = 'sound/foley/blindsclose.ogg'
 	dir = NORTH

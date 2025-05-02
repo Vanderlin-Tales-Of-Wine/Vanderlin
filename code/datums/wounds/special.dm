@@ -285,3 +285,33 @@
 			"The testicles are destroyed!",
 			"The testicles are eviscerated!",
 		)
+
+/datum/wound/scarring
+	name = "permanent scarring"
+	check_name = "<span class='userdanger'><B>SCARRED</B></span>"
+	severity = WOUND_SEVERITY_SEVERE
+	crit_message = list(
+		"The whiplash cuts deep!",
+		"The tissue is irreversibly rended!",
+		"The %BODYPART is thoroughly disfigured!",
+	)
+	sound_effect = 'sound/combat/crit.ogg'
+	whp = 80
+	woundpain = 30
+	can_sew = FALSE
+	can_cauterize = FALSE
+	disabling = TRUE
+	critical = TRUE
+	sleep_healing = 0
+	var/gain_emote = "paincrit"
+
+/datum/wound/scarring/on_mob_gain(mob/living/affected)
+	. = ..()
+	affected.emote("scream", TRUE)
+	affected.Slowdown(20)
+	shake_camera(affected, 2, 2)
+
+/datum/wound/scarring/can_stack_with(datum/wound/other)
+	if(istype(other, /datum/wound/scarring))
+		return FALSE
+	return TRUE

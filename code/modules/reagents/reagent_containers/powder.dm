@@ -13,7 +13,7 @@
 
 /obj/item/reagent_containers/powder/throw_impact(atom/hit_atom, datum/thrownthing/thrownthing)
 	. = ..()
-	if(thrownthing.target_zone != BODY_ZONE_PRECISE_NOSE)
+	if(thrownthing?.target_zone != BODY_ZONE_PRECISE_NOSE)
 		return
 	if(iscarbon(hit_atom))
 		var/mob/living/carbon/C = hit_atom
