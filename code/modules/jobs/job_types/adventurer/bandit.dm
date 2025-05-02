@@ -5,11 +5,11 @@
 	You now live with your fellow free men in the bog, and generally get up to no good."
 	flag = BANDIT
 	department_flag = OUTSIDERS
-	job_flags = (JOB_EQUIP_RANK)
+	job_flags = (JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE | JOB_SHOW_IN_CREDITS)
 	display_order = JDO_BANDIT
 	faction = FACTION_STATION
-	total_positions = 0
-	spawn_positions = 0
+	total_positions = 6
+	spawn_positions = 4
 	min_pq = 4
 	antag_job = TRUE
 
