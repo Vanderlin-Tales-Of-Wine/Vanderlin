@@ -78,7 +78,7 @@
 	if(!departing_mob.mind.assigned_role || istype(departing_mob.mind.assigned_role, /datum/job/unassigned))
 		qdel(departing_mob)
 		return "[mob_name] has no assigned job! Deleting instead!"
-	if(departing_mob.mind)
+	if(departing_mob.mind && !is_unassigned_job(departing_mob.mind.assigned_role))
 		var/datum/job/mob_job = departing_mob.mind.assigned_role
 		mob_job.adjust_current_positions(-1)
 	qdel(departing_mob)
