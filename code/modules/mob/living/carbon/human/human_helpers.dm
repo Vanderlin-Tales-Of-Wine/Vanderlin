@@ -107,8 +107,10 @@
 
 /mob/living/carbon/human/get_punch_dmg()
 	var/damage = 12
-
 	var/used_str = STASTR
+
+	if(mind?.has_antag_datum(/datum/antagonist/werewolf))
+		return 30
 
 	if(domhand)
 		used_str = get_str_arms(used_hand)
@@ -123,11 +125,25 @@
 	if(istype(BP))
 		damage *= BP.punch_modifier
 
-	if(mind)
-		if(mind.has_antag_datum(/datum/antagonist/werewolf))
-			return 30
-
 	return damage
+
+/mob/living/carbon/human/get_kick_damage(multiplier = 1)
+	var/damage = 12
+	var/used_str = STASTR
+
+	if(mind?.has_antag_datum(/datum/antagonist/werewolf))
+		return 30 * multiplier
+
+	if(used_str >= 11)
+		damage = max(damage + (damage * ((used_str - 10) * 0.3)), 1)
+
+	if(used_str <= 9)
+		damage = max(damage - (damage * ((10 - used_str) * 0.1)), 1)
+
+	if(shoes)
+		damage *= (1 + (shoes.armor_class * 0.2))
+
+	return damage * multiplier
 
 /// Fully randomizes everything in the character.
 // Reflect changes in [datum/preferences/proc/randomise_appearance_prefs]

@@ -1510,9 +1510,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 				target.mind.attackedme[user.real_name] = world.time
 			var/selzone = accuracy_check(user.zone_selected, user, target, /datum/skill/combat/unarmed, user.used_intent)
 			var/obj/item/bodypart/affecting = target.get_bodypart(check_zone(selzone))
-			var/damage = (user.get_punch_dmg() * 1.4)
-			if(user.shoes)
-				damage *= (1 + (user.shoes.armor_class * 0.2))
+			var/damage = user.get_kick_damage(2.5)
 			var/armor_block = target.run_armor_check(selzone, "blunt", blade_dulling = BCLASS_BLUNT)
 			var/balance = 10
 			target.next_attack_msg.Cut()
@@ -1616,9 +1614,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		if(!affecting)
 			affecting = target.get_bodypart(BODY_ZONE_CHEST)
 		var/armor_block = target.run_armor_check(selzone, "blunt", blade_dulling = BCLASS_BLUNT)
-		var/damage = (user.get_punch_dmg() * 2.5)
-		if(user.shoes)
-			damage *= (1 + (user.shoes.armor_class * 0.2))
+		var/damage = user.get_kick_damage(1.4)
 		if(!target.apply_damage(damage, user.dna.species.attack_type, affecting, armor_block))
 			target.next_attack_msg += " <span class='warning'>Armor stops the damage.</span>"
 		else
