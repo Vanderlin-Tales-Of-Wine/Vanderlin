@@ -11,6 +11,7 @@
 #define STATS_ALIVE_TIEFLINGS "alive_tieflings"
 
 #define STATS_MONARCH_PATRON "monarch_patron"
+#define STATS_TOTAL_POPULATION "total_population"
 #define STATS_MARRIED "married"
 #define STATS_VAMPIRES "vampires"
 
@@ -244,6 +245,7 @@ GLOBAL_LIST_INIT(vanderlin_round_stats, list(
 	STATS_PSYCROSS_USERS = 0,
 	STATS_VAMPIRES = 0,
 	STATS_LUX_HARVESTED = 0,
+	STATS_TOTAL_POPULATION = 0,
 ))
 
 GLOBAL_LIST_EMPTY(patron_follower_counts)
@@ -324,8 +326,8 @@ GLOBAL_LIST_INIT(featured_stats, list(
 		"entries" = list()
 	),
 	FEATURED_STATS_CRIME_RATES = list(
-		"name" = "TOP 10 Crime rates by species",
-		"color" = "#c41e3a",
+		"name" = "TOP 10 Crime Rates",
+		"color" = "#8d5d65",
 		"entries" = list(),
 		"special" = TRUE
 	),

@@ -323,7 +323,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	// Left column
 	data += "<div style='display: table-cell; width: 50%; vertical-align: top; border-left: 1px solid #444; padding: 0 10px;'>"
 	data += "<font color='#8f1dc0'<span class='bold'>Ruler's Patron:</span></font> [GLOB.vanderlin_round_stats[STATS_MONARCH_PATRON]]<br>"
-	data += "<font color='#4682B4'><span class='bold'>Total Populace:</span></font> [SSgamemode.active_players]<br>"
+	data += "<font color='#4682B4'><span class='bold'>Total Populace:</span></font> [GLOB.vanderlin_round_stats[STATS_TOTAL_POPULATION]]<br>"
 	data += "<font color='#ce4646'><span class='bold'>High Nobility:</span></font> [SSgamemode.royalty]<br>"
 	data += "<font color='#556B2F'><span class='bold'>Garrison:</span></font> [SSgamemode.garrison]<br>"
 	data += "<font color='#DAA520'><span class='bold'>Clergy:</span></font> [SSgamemode.church]<br>"

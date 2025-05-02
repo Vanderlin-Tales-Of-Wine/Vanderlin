@@ -1295,6 +1295,7 @@ SUBSYSTEM_DEF(gamemode)
 	GLOB.patron_follower_counts.Cut()
 
 	GLOB.vanderlin_round_stats[STATS_MONARCH_PATRON] = "None"
+	GLOB.vanderlin_round_stats[STATS_TOTAL_POPULATION] = 0
 	GLOB.vanderlin_round_stats[STATS_PSYCROSS_USERS] = 0
 	GLOB.vanderlin_round_stats[STATS_ALIVE_NOBLES] = 0
 	GLOB.vanderlin_round_stats[STATS_ILLITERATES] = 0
@@ -1353,6 +1354,7 @@ SUBSYSTEM_DEF(gamemode)
 			GLOB.vanderlin_round_stats[STATS_DEADITES_ALIVE]++
 		if(ishuman(living))
 			var/mob/living/carbon/human/human_mob = client.mob
+			GLOB.vanderlin_round_stats[STATS_TOTAL_POPULATION]++
 			for(var/obj/item/clothing/neck/current_item in human_mob.get_equipped_items(TRUE))
 				if(current_item.type in list(/obj/item/clothing/neck/psycross, /obj/item/clothing/neck/psycross/silver, /obj/item/clothing/neck/psycross/g))
 					GLOB.vanderlin_round_stats[STATS_PSYCROSS_USERS]++
