@@ -182,7 +182,6 @@ INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_lava)
 		/obj/structure/door, \
 		/obj/structure/closet, \
 		/obj/structure/fake_machine/vendor, \
-		/obj/structure/fake_machine/merchantvend
 	)
 
 	// Get the first thing we find starting with doors and closets

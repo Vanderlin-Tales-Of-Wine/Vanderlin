@@ -12,6 +12,9 @@
 		log_mapping("[src] at [AREACOORD(src)] tried to set lockids, but [payload.type] hasn't got a keylock!")
 		return
 	var/datum/lock/key/KL = payload.lock
+	if(KL.lockid_list)
+		log_mapping("[src] at [AREACOORD(src)] tried to set lockids, but [payload.type] has them set!")
+		return
 	if(difficulty)
 		KL.set_pick_difficulty(difficulty)
 	KL.set_access(accesses)
