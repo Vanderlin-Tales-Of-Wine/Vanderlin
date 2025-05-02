@@ -346,7 +346,6 @@
 		icon_state = "rosa"
 		user.update_icon()
 
-
 /obj/item/alch/hypericum
 	name = "hypericum"
 	icon_state = "hypericum"
