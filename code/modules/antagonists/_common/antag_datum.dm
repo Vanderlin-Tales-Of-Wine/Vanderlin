@@ -261,11 +261,11 @@ GLOBAL_LIST_EMPTY(antagonists)
 		return
 	antag_memory = new_memo
 
-/// makes the owner's role unassigned and reopens their job slot
+/// makes the owner's role pilgrim (THIS IS NEEDED FOR ADVCLASS TO FUNCTION) and reopens their job slot
 /datum/antagonist/proc/remove_job()
 	if(owner.assigned_role)
 		owner.assigned_role.adjust_current_positions(-1)
-	owner.assigned_role = /datum/job/unassigned
+	owner.assigned_role = /datum/job/pilgrim
 	owner.current?.job = null
 
 //This one is created by admin tools for custom objectives
