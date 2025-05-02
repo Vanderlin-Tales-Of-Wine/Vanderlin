@@ -54,7 +54,7 @@
 	desc = "A Grenzelhoftian chicklet sallet, decorated with a plume of valor. \
 			It has been proven with severe battle-testing that a wearer's head would crack before the helmet chips."
 	icon_state = "human_swordhead"
-	allowed_sex = list(MALE)
+	allowed_sex = list(MALE, FEMALE)
 	allowed_race = list("human")
 	flags_inv = HIDEEARS
 	clothing_flags = CANT_SLEEP_IN
