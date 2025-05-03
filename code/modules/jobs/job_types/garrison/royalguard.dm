@@ -93,4 +93,4 @@
 	spawned.select_equippable(player_client,
 		list("Flail" = /obj/item/weapon/flail/sflail,
 		"Halberd" = /obj/item/weapon/polearm/halberd,)
-		title = "KNIGHT")
+		title = "KNIGHT" )
