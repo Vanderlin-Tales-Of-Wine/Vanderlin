@@ -1298,6 +1298,9 @@ SUBSYSTEM_DEF(gamemode)
 	GLOB.vanderlin_round_stats[STATS_TOTAL_POPULATION] = 0
 	GLOB.vanderlin_round_stats[STATS_PSYCROSS_USERS] = 0
 	GLOB.vanderlin_round_stats[STATS_ALIVE_NOBLES] = 0
+	GLOB.vanderlin_round_stats[STATS_ALIVE_GARRISON] = 0
+	GLOB.vanderlin_round_stats[STATS_ALIVE_CLERGY] = 0
+	GLOB.vanderlin_round_stats[STATS_ALIVE_TRADESMEN] = 0
 	GLOB.vanderlin_round_stats[STATS_ILLITERATES] = 0
 	GLOB.vanderlin_round_stats[STATS_WEREVOLVES] = 0
 	GLOB.vanderlin_round_stats[STATS_VAMPIRES] = 0
