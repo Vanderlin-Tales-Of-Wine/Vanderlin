@@ -214,11 +214,12 @@
 
 /turf/open/water/Initialize()
 	. = ..()
-	if(!mapped)
-		START_PROCESSING(SSobj, src)
+	if(mapped)
+		if(prob(1) && prob(10))
+			new /obj/item/bottlemessage/ancient(get_turf(src))
 	else
-		if(prob(rand(0,1)))
-			new /obj/item/bottlemessage/ancient(src.loc)
+		START_PROCESSING(SSobj, src)
+
 	water_overlay = new(src)
 	water_top_overlay = new(src)
 	update_icon()
