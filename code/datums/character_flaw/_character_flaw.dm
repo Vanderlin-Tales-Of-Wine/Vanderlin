@@ -81,7 +81,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	return
 
 /mob/living/carbon/human/get_random_flaw()
-	var/list/flaws = GLOB.character_flaws.Copy() - list(/datum/charflaw/randflaw, /datum/charflaw/eznoflaw)
+	var/list/flaws = GLOB.character_flaws.Copy() - list(/datum/charflaw/randflaw, /datum/charflaw/noflaw)
 	var/new_charflaw = pick_n_take(flaws)
 	new_charflaw = GLOB.character_flaws[new_charflaw]
 	if(charflaw)
@@ -558,6 +558,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	var/mob/living/carbon/human/human_user = user
 	if((human_user.mind in GLOB.pre_setup_antags) || human_user.mind?.has_antag_datum(/datum/antagonist))
 		human_user.get_random_flaw()
+		human_user?.charflaw.after_spawn(human_user)
 	else
 		. = ..()
 		ADD_TRAIT(user, TRAIT_PACIFISM, "[type]")
