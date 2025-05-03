@@ -672,11 +672,6 @@
 		water_top_overlay.icon_state = "rivertop"
 		water_top_overlay.dir = dir
 
-/turf/open/water/river/Initialize()
-	dir = pick(GLOB.cardinals)
-	. = ..()
-
-
 /turf/open/water/river/LateInitialize()
 	. = ..()
 	var/turf/open/water/river/water = get_step(src, dir)
@@ -722,17 +717,9 @@
 	icon_state = MAP_SWITCH("dirty", "rivermovealt-dir")
 	water_reagent = /datum/reagent/water/gross/sewer
 
-/turf/open/water/river/dirt/Initialize()
-	dir = pick(GLOB.cardinals)
-	. = ..()
-
 /turf/open/water/river/blood
 	icon_state = MAP_SWITCH("rocky", "rivermovealt2-dir")
 	water_reagent = /datum/reagent/blood
-
-/turf/open/water/river/blood/Initialize()
-	dir = pick(GLOB.cardinals)
-	. = ..()
 
 /turf/open/water/acid // holy SHIT
 	name = "acid pool"
