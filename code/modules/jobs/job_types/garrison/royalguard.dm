@@ -86,14 +86,13 @@
 	if(H.dna?.species)
 		if(H.dna.species.id == "human")
 			H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
-	H.adjust_blindness(-3)
-	var/weapons = list("Flail","Halberd")
-	var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
-	H.set_blindness(0)
-	switch(weapon_choice)
-		if("Flail")
-			r_hand = /obj/item/weapon/flail/sflail
-			H.mind?.adjust_skillrank(/datum/skill/combat/whipsflails, 4, TRUE)
-		if("Halberd")
-			r_hand = /obj/item/weapon/polearm/halberd
-			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
+/datum/job/royalguard/after_spawn(mob/living/carbon/spawned, client/player_client)
+	. = ..()
+	spawned.select_equippable(player_client,
+		list("Flail" = /obj/item/weapon/flail/sflail,
+		H.mind?.adjust_skillrank(/datum/skill/combat/whipsflails, 4, TRUE)
+		"Halberd" = /obj/item/weapon/polearm/halberd,
+		H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
+		message = "Take up arms!",
+		title = "KNIGHT"
+		)
