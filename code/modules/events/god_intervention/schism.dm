@@ -44,12 +44,12 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 
 	for(var/datum/weakref/supporter_ref in supporters_astrata)
 		var/mob/living/carbon/human/supporter = supporter_ref.resolve()
-		if(supporter && is_tennite(supporter))
+		if(supporter && supporter.stat != DEAD && is_tennite(supporter))
 			astrata_count++
 
 	for(var/datum/weakref/supporter_ref in supporters_challenger)
 		var/mob/living/carbon/human/supporter = supporter_ref.resolve()
-		if(supporter && is_tennite(supporter))
+		if(supporter && supporter.stat != DEAD && is_tennite(supporter))
 			challenger_count++
 
 	if(astrata_count >= challenger_count)
