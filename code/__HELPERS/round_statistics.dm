@@ -294,7 +294,7 @@ GLOBAL_LIST_INIT(featured_stats, list(
 		"entries" = list()
 	),
 	FEATURED_STATS_CRIME_RATES = list(
-		"name" = "TOP 10 Crime Rates",
+		"name" = "TOP 10 Crime Rates (Average = 100%)",
 		"color" = "#bb6976",
 		"entries" = list(),
 		"special" = TRUE
