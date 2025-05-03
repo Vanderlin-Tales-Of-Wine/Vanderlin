@@ -272,6 +272,7 @@ GLOBAL_LIST_EMPTY(patron_follower_counts)
 #define FEATURED_STATS_MAGES "mages"
 #define FEATURED_STATS_CRAFTERS "crafters"
 #define FEATURED_STATS_FARMERS "farmers"
+#define FEATURED_STATS_STORYTELLERS "storytellers"
 
 GLOBAL_LIST_INIT(featured_stats, list(
 	FEATURED_STATS_TREE_FELLERS = list(
@@ -302,6 +303,11 @@ GLOBAL_LIST_INIT(featured_stats, list(
 	FEATURED_STATS_ALCHEMISTS = list(
 		"name" = "TOP 10 Alchemists",
 		"color" = "#3bac5d",
+		"entries" = list()
+	),
+	FEATURED_STATS_STORYTELLERS = list(
+		"name" = "TOP 10 Reigning Gods",
+		"color" = "#eeca2c",
 		"entries" = list()
 	),
 	FEATURED_STATS_GOURMETS = list(

@@ -900,9 +900,11 @@ SUBSYSTEM_DEF(gamemode)
 		message_admins("Attempted to set an invalid storyteller type: [passed_type], force setting to guide instead.")
 		current_storyteller = storytellers[/datum/storyteller/astrata] //if we dont have any then we brick, lets not do that
 		CRASH("Attempted to set an invalid storyteller type: [passed_type].")
+
 	var/datum/storyteller/chosen_storyteller = storytellers[passed_type]
 	chosen_storyteller.times_chosen++
-	current_storyteller = storytellers[passed_type]
+	GLOB.featured_stats[FEATURED_STATS_STORYTELLERS]["entries"][initial(chosen_storyteller.name)] = chosen_storyteller.times_chosen
+	current_storyteller = chosen_storyteller
 
 /// Panel containing information, variables and controls about the gamemode and scheduled event
 /datum/controller/subsystem/gamemode/proc/admin_panel(mob/user)
