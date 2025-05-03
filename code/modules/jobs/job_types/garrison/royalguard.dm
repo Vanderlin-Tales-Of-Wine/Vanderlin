@@ -94,5 +94,4 @@
 		list("Flail" = /obj/item/weapon/flail/sflail,
 		"Halberd" = /obj/item/weapon/polearm/halberd,
 		message = "Take up arms!",
-		title = "KNIGHT" 
-		)
+		title = "KNIGHT" )
