@@ -155,6 +155,18 @@
 	eyes = new /obj/item/organ/eyes/night_vision/nightmare
 	eyes.Insert(src)
 
+/mob/living/simple_animal/hostile/retaliate/troll/quiet
+	footstep_type = FOOTSTEP_MOB_BAREFOOT
+
+/mob/living/simple_animal/hostile/retaliate/troll/quiet/get_sound(input)
+	switch(input)
+		if("aggro")
+			return pick('sound/vo/mobs/troll/aggro1.ogg','sound/vo/mobs/troll/aggro2.ogg')
+		if("pain")
+			return pick('sound/vo/mobs/troll/pain1.ogg','sound/vo/mobs/troll/pain2.ogg')
+		if("death")
+			return pick('sound/vo/mobs/troll/death.ogg')
+
 /mob/living/simple_animal/hostile/retaliate/troll/bog
 	name = "bog troll"
 	ai_controller = /datum/ai_controller/bog_troll

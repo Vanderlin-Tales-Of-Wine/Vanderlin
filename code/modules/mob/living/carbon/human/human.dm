@@ -6,6 +6,7 @@
 	var/obj/item/held_item = user.get_active_held_item()
 	if(held_item && (user.zone_selected == BODY_ZONE_PRECISE_MOUTH))
 		if(held_item.get_sharpness() && held_item.wlength == WLENGTH_SHORT)
+			var/datum/bodypart_feature/hair/facial = get_bodypart_feature_of_slot(BODYPART_FEATURE_FACIAL_HAIR)
 			if(has_stubble)
 				playsound(src, 'sound/foley/shaving.ogg', 100, TRUE, -1)
 				if(user == src)
@@ -14,18 +15,18 @@
 					user.visible_message("<span class='danger'>[user] starts to shave [src]'s stubble with [held_item].</span>")
 				if(do_after(user, 5 SECONDS, src))
 					has_stubble = FALSE
-					update_hair()
+					update_body()
 				else
 					held_item.melee_attack_chain(user, src, params)
-			else if(facial_hairstyle != "None")
+			else if(facial?.accessory_type != /datum/sprite_accessory/hair/facial/none)
 				playsound(src, 'sound/foley/shaving.ogg', 100, TRUE, -1)
 				if(user == src)
 					user.visible_message("<span class='danger'>[user] starts to shave [user.p_their()] facehairs with [held_item].</span>")
 				else
 					user.visible_message("<span class='danger'>[user] starts to shave [src]'s facehairs with [held_item].</span>")
 				if(do_after(user, 5 SECONDS, src))
-					facial_hairstyle = "None"
-					update_hair()
+					set_facial_hair_style(/datum/sprite_accessory/hair/facial/none)
+					update_body()
 					GLOB.vanderlin_round_stats[STATS_BEARDS_SHAVED]++
 					if(dna?.species)
 						if(dna.species.id == "dwarf")
@@ -37,30 +38,11 @@
 	if(user == src)
 		if(get_num_arms(FALSE) < 1)
 			return
-		/* // No undies removing
-		if(user.zone_selected == BODY_ZONE_PRECISE_GROIN)
-			if(get_location_accessible(src, BODY_ZONE_PRECISE_GROIN, skipundies = TRUE))
-				if(underwear == "Nude")
-					return
-				if(do_after(user, 30, needhand = 1, target = src))
-					cached_underwear = underwear
-					underwear = "Nude"
-					update_body()
-					var/obj/item/undies/U
-					if(gender == MALE)
-						U = new/obj/item/undies(get_turf(src))
-					else
-						U = new/obj/item/undies/f(get_turf(src))
-					U.color = underwear_color
-					user.put_in_hands(U)
-		*/
 #endif
 
 /mob/living/carbon/human/Initialize()
 	// verbs += /mob/living/proc/mob_sleep
 	verbs += /mob/living/proc/lay_down
-
-	icon_state = ""		//Remove the inherent human icon that is visible on the map editor. We're rendering ourselves limb by limb, having it still be there results in a bug where the basic human icon appears below as south in all directions and generally looks nasty.
 
 	//initialize limbs first
 	create_bodyparts()
@@ -315,18 +297,6 @@
 	if(!. && error_msg && user)
 		// Might need re-wording.
 		to_chat(user, "<span class='alert'>There is no exposed flesh or thin material [above_neck(target_zone) ? "on [p_their()] head" : "on [p_their()] body"].</span>")
-
-
-//Used for new human mobs created by cloning/goleming/podding
-/mob/living/carbon/human/proc/set_cloned_appearance()
-	if(gender == MALE)
-		facial_hairstyle = "Full Beard"
-	else
-		facial_hairstyle = "Shaved"
-	hairstyle = pick("Bedhead", "Bedhead 2", "Bedhead 3")
-	underwear = "Nude"
-	update_body()
-	update_hair()
 
 /mob/living/carbon/human/proc/do_cpr(mob/living/carbon/C)
 	CHECK_DNA_AND_SPECIES(C)
@@ -719,6 +689,11 @@
 	else
 		remove_movespeed_modifier(MOVESPEED_ID_DAMAGE_SLOWDOWN)
 		remove_movespeed_modifier(MOVESPEED_ID_DAMAGE_SLOWDOWN_FLYING)
+
+/mob/living/carbon/human/proc/skele_look()
+	dna.species.go_bald()
+	update_body_parts(redraw = TRUE)
+	underwear = "Nude"
 
 /mob/living/carbon/human/adjust_nutrition(change) //Honestly FUCK the oldcoders for putting nutrition on /mob someone else can move it up because holy hell I'd have to fix SO many typechecks
 	if(HAS_TRAIT(src, TRAIT_NOHUNGER))

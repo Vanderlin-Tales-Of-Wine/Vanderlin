@@ -775,6 +775,67 @@
 	if(window)
 		recipient << browse(output,"window=memory")
 
+/datum/mind/proc/recall_culling(mob/recipient, window=1)
+	var/output = "<B>[recipient.real_name]'s Rival:</B><br>"
+	for(var/datum/culling_duel/D in GLOB.graggar_cullings)
+		var/mob/living/carbon/human/challenger = D.challenger.resolve()
+		var/mob/living/carbon/human/target = D.target.resolve()
+		var/obj/item/organ/heart/target_heart = D.target_heart.resolve()
+		var/obj/item/organ/heart/challenger_heart = D.challenger_heart.resolve()
+		var/target_heart_location
+		var/challenger_heart_location
+
+		if(target_heart)
+			target_heart_location = target_heart.owner ? target_heart.owner.prepare_deathsight_message() : lowertext(get_area_name(target_heart))
+
+		if(challenger_heart)
+			challenger_heart_location = challenger_heart.owner ? challenger_heart.owner.prepare_deathsight_message() : lowertext(get_area_name(challenger_heart))
+
+		if(recipient == challenger)
+			if(target)
+				if(target_heart && target_heart.owner && target_heart.owner != target) // Rival is not gone but their heart is in someone else
+					output += "<br>[target.real_name], the [target.job]"
+					output += "<br>Your rival's heart beats in [target_heart.owner.real_name]'s chest in [target_heart_location]"
+					output += "<br>Retrieve and consume it to claim victory! Graggar will not forgive failure."
+				else
+					output += "<br>[target.real_name], the [target.job]"
+					output += "<br>Eat your rival's heart before they eat YOURS! Graggar will not forgive failure."
+			else if(target_heart)
+				if(target_heart.owner && target_heart.owner != recipient)
+					output += "<br>Rival's Heart"
+					output += "<br>It's currently inside [target_heart.owner.real_name]'s chest in [target_heart_location]"
+					output += "<br>Your rival's heart beats in another's chest. Retrieve and consume it to claim victory!"
+				else
+					output += "<br>Rival's Heart"
+					output += "<br>It's somewhere in the [target_heart_location]"
+					output += "<br>Your rival's heart is exposed bare! Consume it to claim victory!"
+			else
+				continue
+
+		else if(recipient == target)
+			if(challenger)
+				if(challenger_heart && challenger_heart.owner && challenger_heart.owner != challenger) // Rival is not gone but their heart is in someone else
+					output += "<br>[challenger.real_name], the [challenger.job]"
+					output += "<br>Your rival's heart beats in [challenger_heart.owner.real_name]'s chest in [challenger_heart_location]"
+					output += "<br>Retrieve and consume it to claim victory! Graggar will not forgive failure."
+				else
+					output += "<br>[challenger.real_name], the [challenger.job]"
+					output += "<br>Eat your rival's heart before he eat YOURS! Graggar will not forgive failure."
+			else if(challenger_heart)
+				if(challenger_heart.owner && challenger_heart.owner != recipient)
+					output += "<br>Rival's Heart"
+					output += "<br>It's currently inside [challenger_heart.owner.real_name]'s chest in [challenger_heart_location]"
+					output += "<br>Your rival's heart beats in another's chest. Retrieve and consume it to claim victory!"
+				else
+					output += "<br>Rival's Heart"
+					output += "<br>It's somewhere in the [challenger_heart_location]"
+					output += "<br>Your rival's heart is exposed bare! Consume it to claim victory!"
+			else
+				continue
+
+	if(window)
+		recipient << browse(output,"window=memory")
+
 /datum/mind/Topic(href, href_list)
 	if(!check_rights(R_ADMIN))
 		return

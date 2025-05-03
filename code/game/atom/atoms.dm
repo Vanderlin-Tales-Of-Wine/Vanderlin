@@ -71,9 +71,6 @@
 	///Economy cost of item in premium vendor
 	var/custom_premium_price
 
-	//List of datums orbiting this atom
-	var/datum/component/orbiter/orbiters
-
 	/// Will move to flags_1 when i can be arsed to (2019, has not done so)
 	var/rad_flags = NONE
 
@@ -104,6 +101,8 @@
  * We also generate a tag here if the DF_USE_TAG flag is set on the atom
  */
 /atom/New(loc, ...)
+	SHOULD_CALL_PARENT(TRUE)
+	. = ..()
 	//atom creation method that preloads variables at creation
 	if(GLOB.use_preloader && (src.type == GLOB._preloader.target_path))//in case the instanciated atom is creating other atoms in New()
 		world.preloader_load(src)

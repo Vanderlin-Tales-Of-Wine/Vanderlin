@@ -26,12 +26,14 @@
 
 /obj/effect/proc_holder/spell/invoked/mimicry/on_gain(mob/living/carbon/human/user)
 	. = ..()
+	var/datum/bodypart_feature/hair/feature = user.get_bodypart_feature_of_slot(BODYPART_FEATURE_HAIR)
+	var/datum/bodypart_feature/hair/facial = user.get_bodypart_feature_of_slot(BODYPART_FEATURE_FACIAL_HAIR)
 	old_dna = user.dna
-	old_hair = user.hairstyle
-	old_hair_color = user.hair_color
-	old_eye_color = user.eye_color
-	old_facial_hair_color = user.facial_hair_color
-	old_facial_hair = user.facial_hair_color
+	old_hair = feature?.accessory_type
+	old_hair_color = user.get_hair_color()
+	old_eye_color = user.get_eye_color()
+	old_facial_hair_color = user.get_facial_hair_color()
+	old_facial_hair = facial?.accessory_type
 	old_gender = user.gender
 
 /obj/effect/proc_holder/spell/invoked/mimicry/cast(list/targets, mob/living/user)
@@ -56,29 +58,33 @@
 	user.name = target.get_visible_name()
 	user.gender = target.gender
 
+	var/datum/bodypart_feature/hair/target_feature = target.get_bodypart_feature_of_slot(BODYPART_FEATURE_HAIR)
+	var/datum/bodypart_feature/hair/target_facial = target.get_bodypart_feature_of_slot(BODYPART_FEATURE_FACIAL_HAIR)
+
 	var/picked = FALSE
 	if(prob(40))
-		user.eye_color = target.eye_color
+		var/obj/item/organ/eyes/eyes = user.getorganslot(ORGAN_SLOT_EYES)
+		eyes.eye_color = target.get_eye_color()
 	else
 		picked = TRUE
 
 	if(prob(70) && !picked)
-		user.hair_color = target.hair_color
+		user.set_hair_color(target.get_hair_color(), FALSE)
 	else
 		picked = TRUE
 
 	if(prob(70) && !picked)
-		user.hairstyle = target.hairstyle
+		user.set_hair_style(target_feature?.accessory_type, FALSE)
 	else
 		picked = TRUE
 
 	if(prob(70) && !picked)
-		user.facial_hair_color = target.facial_hair_color
+		user.set_facial_hair_color(target.get_facial_hair_color(), FALSE)
 	else
 		picked = TRUE
 
 	if(prob(70) && !picked)
-		user.facial_hairstyle = target.facial_hairstyle
+		user.set_facial_hair_style(target_facial?.accessory_type, FALSE)
 	else
 		picked = TRUE
 
@@ -94,11 +100,12 @@
 	user.real_name = old_dna.real_name
 	user.name = user.get_visible_name()
 	user.gender = old_gender
+	var/obj/item/organ/eyes/eyes = user.getorganslot(ORGAN_SLOT_EYES)
 
-	user.hair_color = old_hair_color
-	user.eye_color = old_eye_color
-	user.hairstyle = old_hair
-	user.facial_hair_color = old_facial_hair_color
-	user.facial_hairstyle = old_facial_hair
+	eyes.eye_color = old_eye_color
+	user.set_facial_hair_color(old_facial_hair_color, FALSE)
+	user.set_facial_hair_style(old_facial_hair, FALSE)
+	user.set_hair_color(old_hair_color, FALSE)
+	user.set_hair_style(old_hair, FALSE)
 
 	user.updateappearance(mutcolor_update = TRUE)

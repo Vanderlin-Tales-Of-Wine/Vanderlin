@@ -268,6 +268,13 @@
 	created_item = /obj/item/clothing/head/helmet/kettle/slit
 	craftdiff = 2
 
+/datum/anvil_recipe/armor/steel/spangenhelm
+	name = "Spangenhelm"
+	recipe_name = "a nasal helm with built in eye protection"
+	req_bar = /obj/item/ingot/steel
+	created_item = /obj/item/clothing/head/helmet/heavy/viking
+	craftdiff = 3
+
 /datum/anvil_recipe/armor/steel/froghelmet
 	name = "Frog Helmet"
 	recipe_name = "a frog helmet"
