@@ -10,6 +10,7 @@
 	..()
 	H.mind.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/axesmaces, 4, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/combat/shields, 4, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
