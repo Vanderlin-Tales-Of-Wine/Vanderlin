@@ -1375,8 +1375,14 @@ SUBSYSTEM_DEF(gamemode)
 					GLOB.vanderlin_round_stats[STATS_ELDERLY_POPULATION]++
 				if(AGE_IMMORTAL)
 					GLOB.vanderlin_round_stats[STATS_IMMORTAL_POPULATION]++
-			if(human_mob.is_noble())
+			if(human_mob.mind.assigned_role.title in GLOB.noble_positions)
 				GLOB.vanderlin_round_stats[STATS_ALIVE_NOBLES]++
+			if(human_mob.mind.assigned_role.title in GLOB.garrison_positions)
+				GLOB.vanderlin_round_stats[STATS_ALIVE_GARRISON]++
+			if(human_mob.mind.assigned_role.title in GLOB.church_positions)
+				GLOB.vanderlin_round_stats[STATS_ALIVE_CLERGY]++
+			if((human_mob.mind.assigned_role.title in GLOB.serf_positions) || (human_mob.mind.assigned_role.title in GLOB.peasant_positions) || (human_mob.mind.assigned_role.title in GLOB.company_positions))
+				GLOB.vanderlin_round_stats[STATS_ALIVE_TRADESMEN]++
 			if(!human_mob.is_literate())
 				GLOB.vanderlin_round_stats[STATS_ILLITERATES]++
 			if(human_mob.has_flaw(/datum/charflaw/clingy))

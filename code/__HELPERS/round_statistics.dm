@@ -9,11 +9,15 @@
 #define STATS_ALIVE_RAKSHARI "alive_rakshari"
 #define STATS_ALIVE_AASIMAR "alive_aasimar"
 #define STATS_ALIVE_TIEFLINGS "alive_tieflings"
+#define STATS_VAMPIRES "vampires"
+
+#define STATS_ALIVE_GARRISON "alive_garrison"
+#define STATS_ALIVE_CLERGY "alive_clergy"
+#define STATS_ALIVE_TRADESMEN "alive_tradesmen"
 
 #define STATS_MONARCH_PATRON "monarch_patron"
 #define STATS_TOTAL_POPULATION "total_population"
 #define STATS_MARRIED "married"
-#define STATS_VAMPIRES "vampires"
 
 #define STATS_MALE_POPULATION "male_population"
 #define STATS_FEMALE_POPULATION "female_population"
@@ -246,6 +250,9 @@ GLOBAL_LIST_INIT(vanderlin_round_stats, list(
 	STATS_VAMPIRES = 0,
 	STATS_LUX_HARVESTED = 0,
 	STATS_TOTAL_POPULATION = 0,
+	STATS_ALIVE_GARRISON = 0,
+	STATS_ALIVE_CLERGY = 0,
+	STATS_ALIVE_TRADESMEN = 0,
 ))
 
 GLOBAL_LIST_EMPTY(patron_follower_counts)
