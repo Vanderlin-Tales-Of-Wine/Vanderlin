@@ -131,7 +131,7 @@
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
 			H.mind?.adjust_skillrank(/datum/skill/misc/stealing, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/misc/music, 3, TRUE)
-			/datum/job/monk/after_spawn(mob/living/carbon/spawned, client/player_client)
+			/datum/job/bard/after_spawn(mob/living/carbon/spawned, client/player_client)
 				. = ..()
 				spawned.select_equippable(player_client,
 					list("Harp" = /obj/item/instrument/harp,
