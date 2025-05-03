@@ -1652,7 +1652,6 @@
 #include "code\modules\events\antagonist\solo\werewolfs.dm"
 #include "code\modules\events\antagonist\solo\zizo_cult.dm"
 #include "code\modules\events\antagonist\solo\minor\aspirant.dm"
-#include "code\modules\events\antagonist\solo\minor\bandits.dm"
 #include "code\modules\events\antagonist\solo\minor\maniac.dm"
 #include "code\modules\events\god_intervention\abyssor.dm"
 #include "code\modules\events\god_intervention\astrata.dm"

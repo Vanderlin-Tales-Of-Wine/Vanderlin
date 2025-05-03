@@ -7,7 +7,6 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	desc = null
 	icon = 'icons/turf/walls/stonebrick.dmi'
 	icon_state = "stonebrick"
-	base_state = null
 	resistance_flags = NONE
 	max_integrity = 9999
 	damage_deflection = 30
