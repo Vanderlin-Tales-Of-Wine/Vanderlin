@@ -1375,7 +1375,7 @@ SUBSYSTEM_DEF(gamemode)
 					GLOB.vanderlin_round_stats[STATS_ELDERLY_POPULATION]++
 				if(AGE_IMMORTAL)
 					GLOB.vanderlin_round_stats[STATS_IMMORTAL_POPULATION]++
-			if(human_mob.mind.assigned_role.title in GLOB.noble_positions)
+			if(human_mob.is_noble())
 				GLOB.vanderlin_round_stats[STATS_ALIVE_NOBLES]++
 			if(human_mob.mind.assigned_role.title in GLOB.garrison_positions)
 				GLOB.vanderlin_round_stats[STATS_ALIVE_GARRISON]++
