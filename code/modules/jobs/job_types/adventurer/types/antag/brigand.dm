@@ -33,7 +33,7 @@
 	mask = /obj/item/clothing/face/facemask/steel
 	neck = /obj/item/clothing/neck/chaincoif/iron
 	head = /obj/item/clothing/head/helmet/leather/volfhelm
-	armor = /obj/item/clothing/armor/leather/hide
+	armor = /obj/item/clothing/armor/cuirass/iron
 	H.change_stat(STATKEY_STR, 3)
 	H.change_stat(STATKEY_END, 2)
 	H.change_stat(STATKEY_CON, 2)
