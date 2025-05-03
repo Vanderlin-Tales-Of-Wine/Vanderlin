@@ -176,6 +176,7 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 		return FALSE
 
 	var/astrata_followers = GLOB.patron_follower_counts["Astrata"] || 0
+	var/astrata_influence = get_storyteller_influence("Astrata") || 0
 
 	for(var/type in subtypesof(/datum/patron/divine) - /datum/patron/divine/astrata)
 		var/datum/patron/divine/god = GLOB.patronlist[type]
@@ -183,7 +184,9 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 			continue
 
 		var/god_followers = GLOB.patron_follower_counts[god.name] || 0
-		if(god_followers > astrata_followers)
+		var/god_influence = get_storyteller_influence(god.name) || 0
+
+		if(god_followers > astrata_followers && god_influence > astrata_influence)
 			return TRUE
 
 	return FALSE
