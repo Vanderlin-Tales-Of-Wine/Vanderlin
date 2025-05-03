@@ -250,22 +250,6 @@ GLOBAL_LIST_INIT(vanderlin_round_stats, list(
 
 GLOBAL_LIST_EMPTY(patron_follower_counts)
 
-GLOBAL_LIST_EMPTY(species_crime_stats)
-
-GLOBAL_LIST_INIT(species_population_stats, list(
-	/datum/species/human/northern = STATS_ALIVE_NORTHERN_HUMANS,
-	/datum/species/dwarf/mountain = STATS_ALIVE_DWARVES,
-	/datum/species/elf/dark = STATS_ALIVE_DARK_ELVES,
-	/datum/species/elf/snow = STATS_ALIVE_SNOW_ELVES,
-	/datum/species/human/halfelf = STATS_ALIVE_HALF_ELVES,
-	/datum/species/halforc = STATS_ALIVE_HALF_ORCS,
-	/datum/species/kobold = STATS_ALIVE_KOBOLDS,
-	/datum/species/rakshari = STATS_ALIVE_RAKSHARI,
-	/datum/species/aasimar = STATS_ALIVE_AASIMAR,
-	/datum/species/tieberian = STATS_ALIVE_TIEFLINGS,
-	/datum/species/werewolf = STATS_WEREVOLVES,
-))
-
 // Featured stats of the round
 #define FEATURED_STATS_TREE_FELLERS "tree_fellers"
 #define FEATURED_STATS_THIEVES "thieves"
@@ -296,7 +280,7 @@ GLOBAL_LIST_INIT(featured_stats, list(
 	FEATURED_STATS_CRIMINALS = list(
 		"name" = "TOP 10 Criminals",
 		"color" = "#bb6976",
-		"entries" = list(),
+		"entries" = list()
 	),
 	FEATURED_STATS_SPEAKERS = list(
 		"name" = "TOP 10 Speakers",
