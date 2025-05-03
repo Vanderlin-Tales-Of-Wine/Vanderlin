@@ -1395,7 +1395,7 @@ SUBSYSTEM_DEF(gamemode)
 				GLOB.vanderlin_round_stats[STATS_KLEPTOMANIACS]++
 			if(human_mob.has_flaw(/datum/charflaw/greedy))
 				GLOB.vanderlin_round_stats[STATS_GREEDY_PEOPLE]++
-			if(HAS_TRAIT_NOT_FROM(src, TRAIT_PACIFISM, "hugbox"))
+			if(HAS_TRAIT_NOT_FROM(human_mob, TRAIT_PACIFISM, "hugbox"))
 				GLOB.vanderlin_round_stats[STATS_PACIFISTS]++
 			if(human_mob.family_datum)
 				var/family_role = human_mob.family_datum.family[human_mob]

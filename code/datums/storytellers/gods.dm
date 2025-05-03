@@ -194,11 +194,11 @@
 	)
 
 	influence_factors = list(
-		STATS_PARENTS = list("points" = 9, "capacity" = 100),
+		STATS_PARENTS = list("points" = 8, "capacity" = 90),
 		STATS_MARRIAGES = list("points" = 25, "capacity" = 75),
-		STATS_HUGS_MADE = list("points" = 2.5, "capacity" = 60),
-		STATS_CLINGY_PEOPLE = list("points" = 6, "capacity" = 80),
-		STATS_PACIFISTS = list("points" = 12.5, "capacity" = 75),
+		STATS_HUGS_MADE = list("points" = 2, "capacity" = 60),
+		STATS_CLINGY_PEOPLE = list("points" = 6, "capacity" = 75),
+		STATS_PACIFISTS = list("points" = 10, "capacity" = 70),
 	)
 
 /datum/storyteller/dendor
