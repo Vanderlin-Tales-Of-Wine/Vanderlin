@@ -836,12 +836,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 
 /proc/darkeyes(mob/user, turf/C)
 	for(var/mob/living/carbon/human/H in C.contents)
-		var/obj/item/organ/eyes/eyes = H.getorganslot(ORGAN_SLOT_EYES)
-		if(eyes)
-			eyes.Remove(H,1)
-			QDEL_NULL(eyes)
-		eyes = new /obj/item/organ/eyes/night_vision/zombie
-		eyes.Insert(H)
+		H.grant_undead_eyes()
 		to_chat(H.mind, "<span class='notice'>I no longer fear the dark.</span>")
 		break
 
