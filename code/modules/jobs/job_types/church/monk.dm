@@ -131,20 +131,6 @@
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
 			H.mind?.adjust_skillrank(/datum/skill/misc/stealing, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/misc/music, 3, TRUE)
-			/datum/job/bard/after_spawn(mob/living/carbon/spawned, client/player_client)
-				. = ..()
-				spawned.select_equippable(player_client,
-					list("Harp" = /obj/item/instrument/harp,
-					"Lute" = /obj/item/instrument/lute,
-					"Accordion" = /obj/item/instrument/accord,
-					"Guitar" = /obj/item/instrument/guitar,
-					"Flute" = /obj/item/instrument/flute,
-					"Drum" = /obj/item/instrument/drum,
-					"Hurdy-Gurdy" = /obj/item/instrument/hurdygurdy,
-					"Viola" = /obj/item/instrument/viola),
-					message = "Choose your instrument.",
-					title = "XYLIX"
-					)
 		if(/datum/patron/divine/malum)
 			head = /obj/item/clothing/head/roguehood/random
 			neck = /obj/item/clothing/neck/psycross/silver/malum
