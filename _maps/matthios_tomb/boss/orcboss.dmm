@@ -3,80 +3,80 @@
 /obj/structure/chair/stool,
 /mob/living/carbon/human/species/orc/tribal,
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "bp" = (
 /turf/closed/wall/mineral/stonebrick,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "bI" = (
 /obj/structure/fermentation_keg/random/beer,
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "co" = (
 /mob/living/carbon/human/species/orc/marauder,
 /turf/open/floor/dirt/road,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "da" = (
 /obj/structure/mineral_door/wood/donjon/stone,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "di" = (
 /obj/structure/fluff/railing/border{
 	dir = 6
 	},
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "em" = (
 /obj/item/chair/stool/bar,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "eK" = (
 /obj/machinery/light/fueled/campfire/longlived,
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
+"fz" = (
+/turf/closed/wall/mineral/tent,
+/area/rogue/under/tomb)
 "gd" = (
 /obj/structure/fluff/railing/border,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "gz" = (
 /obj/structure/chair/stool,
 /mob/living/carbon/human/species/orc/tribal,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "jT" = (
 /turf/open/floor/dirt/road,
-/area/rogue/under/cave)
-"ln" = (
-/turf/closed/wall/mineral/tent,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "ly" = (
 /obj/item/clothing/shoes/nobleboot{
 	pixel_x = 1;
 	pixel_y = 15
 	},
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "lI" = (
 /obj/machinery/light/fueled/wallfire,
 /turf/closed/wall/mineral/wooddark/horizontal,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "mb" = (
 /obj/structure/chair/stool,
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "pH" = (
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "pQ" = (
 /obj/structure/table/wood/counter/end{
 	dir = 1
 	},
 /obj/item/clothing/neck/menears,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "pT" = (
 /mob/living/carbon/human/species/orc/warrior,
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "qE" = (
 /obj/structure/toilet,
 /obj/item/clothing/neck/psycross/g,
@@ -92,86 +92,86 @@
 	},
 /mob/living/carbon/human/species/orc/ambush,
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/indoors)
 "rP" = (
 /obj/machinery/light/fueled/firebowl,
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "rQ" = (
 /turf/closed/wall/mineral/tent,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "rV" = (
 /turf/closed/wall/mineral/wooddark/horizontal,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "so" = (
 /turf/open/transparent/openspace,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "sw" = (
 /obj/structure/chair/bench/throne,
 /obj/item/clothing/ring/active/nomag,
 /mob/living/carbon/human/species/orc/warlord/skilled,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "tn" = (
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "uj" = (
 /obj/structure/roguetent,
 /turf/open/floor/dirt/road,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/indoors)
 "vg" = (
 /turf/open/transparent/openspace,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "vm" = (
 /obj/structure/chair/stool,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "yp" = (
 /mob/living/carbon/human/species/orc/warrior,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "yJ" = (
 /obj/structure/window/openclose,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "zV" = (
 /obj/structure/closet/dirthole/grave,
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "CT" = (
 /obj/structure/roguetent,
 /turf/open/floor/dirt,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "Dh" = (
 /obj/structure/ladder,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "FM" = (
 /obj/item/weapon/shovel,
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "GK" = (
 /obj/structure/ladder,
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "HF" = (
 /obj/structure/closet/dirthole/closed/loot,
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "Jl" = (
 /obj/structure/table/wood/counter/end,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "Jt" = (
 /obj/structure/bed/shit,
 /mob/living/carbon/human/species/orc/ambush,
 /turf/open/floor/dirt,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "JC" = (
 /obj/structure/table/vtable/v2,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "JV" = (
 /obj/structure/table/wood/reinf_long{
 	dir = 1
@@ -184,7 +184,7 @@
 	pixel_x = 1
 	},
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "KK" = (
 /obj/structure/table/vtable,
 /obj/item/gem/diamond,
@@ -206,22 +206,22 @@
 	pixel_x = 6
 	},
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "Lh" = (
 /obj/structure/fluff/railing/border{
 	dir = 5
 	},
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "Lw" = (
 /turf/closed/wall/mineral/wooddark/vertical,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "Na" = (
 /obj/structure/fluff/railing/border{
 	dir = 4
 	},
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "Nk" = (
 /obj/structure/closet/crate/chest/wicker,
 /obj/item/clothing/head/fancyhat,
@@ -232,19 +232,19 @@
 /obj/item/clothing/cloak/half/random,
 /obj/item/clothing/armor/leather/vest/black,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "Ns" = (
 /obj/item/clothing/neck/elfears,
 /obj/structure/table/wood/large/corner,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "Qq" = (
 /turf/closed/mineral/bedrock,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "Sx" = (
 /mob/living/carbon/human/species/orc/ambush,
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "SG" = (
 /obj/structure/table/wood/reinf_long,
 /obj/item/clothing/face/shepherd/clothmask{
@@ -255,14 +255,14 @@
 	pixel_x = -6
 	},
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "TJ" = (
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "UA" = (
 /obj/structure/table/wood/large/corner,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "UN" = (
 /obj/item/reagent_containers/glass/cup/skull{
 	pixel_x = -9
@@ -276,19 +276,19 @@
 	pixel_x = 12
 	},
 /turf/open/floor/dirt/road,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "Vq" = (
 /obj/structure/fluff/railing/fence,
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "VC" = (
 /obj/structure/stairs,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "YU" = (
 /obj/structure/gate/bars/preopen,
 /turf/open/floor/dirt/road,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 
 (1,1,1) = {"
 Qq
@@ -644,9 +644,9 @@ Qq
 "}
 (17,1,1) = {"
 Qq
-ln
+rQ
 uj
-ln
+rQ
 pH
 pH
 pH
@@ -666,9 +666,9 @@ Qq
 "}
 (18,1,1) = {"
 Qq
-ln
+rQ
 qE
-ln
+rQ
 pH
 pH
 pH
@@ -688,9 +688,9 @@ Qq
 "}
 (19,1,1) = {"
 Qq
-ln
-ln
-ln
+rQ
+rQ
+rQ
 pH
 pH
 pH
@@ -764,15 +764,15 @@ vg
 vg
 vg
 vg
-rQ
-rQ
-rQ
-rQ
-rQ
-rQ
-rQ
-rQ
-rQ
+fz
+fz
+fz
+fz
+fz
+fz
+fz
+fz
+fz
 Qq
 "}
 (3,1,2) = {"
@@ -786,15 +786,15 @@ vg
 vg
 vg
 vg
-rQ
-rQ
-rQ
-rQ
-rQ
-rQ
-rQ
-rQ
-rQ
+fz
+fz
+fz
+fz
+fz
+fz
+fz
+fz
+fz
 Qq
 "}
 (4,1,2) = {"
@@ -808,15 +808,15 @@ vg
 vg
 vg
 vg
-rQ
-rQ
-rQ
-rQ
-rQ
-rQ
-rQ
-rQ
-rQ
+fz
+fz
+fz
+fz
+fz
+fz
+fz
+fz
+fz
 Qq
 "}
 (5,1,2) = {"
@@ -1085,9 +1085,9 @@ Qq
 "}
 (17,1,2) = {"
 Qq
-rQ
-rQ
-rQ
+fz
+fz
+fz
 vg
 vg
 vg
@@ -1107,9 +1107,9 @@ Qq
 "}
 (18,1,2) = {"
 Qq
-rQ
-rQ
-rQ
+fz
+fz
+fz
 vg
 vg
 vg
@@ -1129,9 +1129,9 @@ Qq
 "}
 (19,1,2) = {"
 Qq
-rQ
-rQ
-rQ
+fz
+fz
+fz
 vg
 vg
 vg

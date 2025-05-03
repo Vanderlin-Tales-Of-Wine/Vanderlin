@@ -1,7 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
 /turf/open/floor/dirt/road,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb)
 "b" = (
 /obj/structure/table/wood/nice/decorated,
 /obj/item/candle/yellow/lit/infinite/strong/skull,
@@ -9,17 +9,17 @@
 /obj/item/reagent_containers/glass/bottle/redwine,
 /obj/item/statue/gold,
 /turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/indoors)
 "c" = (
 /mob/living/carbon/human/species/orc/ambush,
 /turf/open/floor/dirt/road,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb)
 "d" = (
 /obj/structure/table/vtable/v2,
 /obj/item/book/godofdreamsandnightmares,
 /obj/item/natural/feather,
 /turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/indoors)
 "e" = (
 /obj/item/weapon/shield/tower/buckleriron,
 /obj/item/weapon/sword/khopesh,
@@ -30,61 +30,64 @@
 /obj/item/clothing/armor/cuirass/copperchest,
 /obj/structure/closet/crate/chest,
 /turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/indoors)
 "f" = (
 /obj/machinery/light/fueled/firebowl/standing,
 /turf/open/floor/dirt/road,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb)
+"g" = (
+/turf/closed/mineral/bedrock,
+/area/rogue/under/tomb/indoors)
 "j" = (
 /turf/closed/wall/mineral/wooddark/horizontal,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/indoors)
 "l" = (
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/dirt/road,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb)
 "m" = (
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/dirt/road,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb)
 "o" = (
 /obj/structure/bookcase/random/legends,
 /turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/indoors)
 "p" = (
 /obj/structure/table/vtable,
 /obj/item/paper/scroll,
 /obj/item/clothing/ring/gold,
 /turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/indoors)
 "q" = (
 /turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/indoors)
 "r" = (
 /obj/structure/mineral_door/wood/fancywood,
 /turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/indoors)
 "s" = (
 /obj/structure/fermentation_keg/water,
 /turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/indoors)
 "u" = (
 /obj/structure/fermentation_keg/beer,
 /turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/indoors)
 "z" = (
 /turf/closed/mineral/bedrock,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb)
 "B" = (
 /obj/structure/chair/wood,
 /turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/indoors)
 "C" = (
 /turf/closed/wall/mineral/wooddark/vertical,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/indoors)
 "D" = (
 /obj/machinery/light/fueled/wallfire/candle/weak/l,
 /turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/indoors)
 "H" = (
 /obj/structure/table/wood/nice/decorated,
 /obj/item/clothing/face/cigarette/pipe/westman,
@@ -94,53 +97,53 @@
 /obj/item/reagent_containers/glass/cup/skull,
 /obj/item/reagent_containers/glass/cup/silver,
 /turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/indoors)
 "J" = (
 /obj/machinery/light/fueled/wallfire/candle/r,
 /mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/indoors)
 "K" = (
 /obj/structure/table/wood/plain/alt,
 /obj/machinery/light/fueled/wallfire/candle/weak/l,
 /obj/item/reagent_containers/food/snacks/cheddar/aged,
 /obj/item/reagent_containers/glass/cup/skull,
 /turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/indoors)
 "N" = (
 /turf/closed/wall/mineral/wooddark/end,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/indoors)
 "O" = (
 /obj/structure/chair/wood/alt/chair_noble/purple,
 /turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/indoors)
 "P" = (
 /obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/indoors)
 "R" = (
 /obj/structure/bed/shit,
 /turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/indoors)
 "S" = (
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/dirt/road,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb)
 "V" = (
 /turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/indoors)
 "W" = (
 /obj/structure/mineral_door/wood/donjon/stone,
 /turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/indoors)
 "X" = (
 /obj/structure/bed/inn/double,
 /turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/indoors)
 "Y" = (
 /obj/effect/dungeon_directional_helper/east,
 /turf/open/floor/dirt/road,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb)
 
 (1,1,1) = {"
 z
@@ -173,37 +176,37 @@ a
 z
 "}
 (4,1,1) = {"
-z
-z
-z
-z
+g
+g
+g
+g
 a
 a
 a
 l
 "}
 (5,1,1) = {"
-z
+g
 R
 K
-z
+g
 a
 a
 a
 z
 "}
 (6,1,1) = {"
-z
+g
 q
 q
-z
+g
 a
 a
 a
 z
 "}
 (7,1,1) = {"
-z
+g
 e
 q
 W
@@ -213,10 +216,10 @@ f
 z
 "}
 (8,1,1) = {"
-z
-z
-z
-z
+g
+g
+g
+g
 z
 Y
 z

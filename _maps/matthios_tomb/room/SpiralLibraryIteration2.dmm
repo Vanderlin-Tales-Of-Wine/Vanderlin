@@ -2,158 +2,161 @@
 "bF" = (
 /obj/effect/decal/remains/bigrat,
 /turf/open/floor/churchrough,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "bR" = (
 /obj/structure/bookcase,
 /obj/item/book/random_book,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "bS" = (
 /obj/item/book/random_book,
 /turf/open/floor/churchrough,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "cG" = (
 /obj/effect/decal/cleanable/shreds,
 /obj/structure/fluff/railing/wood{
 	dir = 4
 	},
 /turf/open/floor/ruinedwood/darker,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "cR" = (
 /obj/structure/rack/shelf,
 /obj/effect/decal/cleanable/shreds,
 /turf/open/floor/churchrough,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "dD" = (
 /obj/effect/decal/cleanable/generic,
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/churchrough,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "eH" = (
 /obj/machinery/light/fueled/wallfire/candle/blue/l,
 /turf/open/transparent/openspace,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "fH" = (
 /obj/machinery/light/fueled/wallfire/candle/blue/r,
 /obj/effect/decal/cleanable/generic,
 /turf/open/floor/churchrough,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "fO" = (
 /obj/effect/decal/remains/bigrat,
 /obj/item/book/random_book,
 /turf/open/floor/churchrough,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "gp" = (
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/churchrough,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb)
 "gV" = (
 /obj/effect/decal/cleanable/generic,
 /obj/structure/fluff/railing/wood{
 	dir = 1
 	},
 /turf/open/floor/churchrough,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "hl" = (
 /obj/structure/fluff/railing/wood{
 	dir = 1
 	},
 /turf/open/floor/churchrough,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "hm" = (
 /obj/structure/bookcase,
 /obj/item/book/random_book,
 /obj/item/book/random_book,
 /turf/open/floor/churchrough,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "hp" = (
 /turf/open/floor/ruinedwood/darker,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb)
 "is" = (
 /obj/item/gem/green,
 /turf/closed/wall/mineral/underbrick,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "iH" = (
 /obj/structure/stairs{
 	dir = 4
 	},
 /turf/open/floor/ruinedwood,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "iK" = (
 /obj/effect/decal/cleanable/generic,
 /turf/open/floor/churchrough,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "jr" = (
 /obj/effect/dungeon_directional_helper/east,
 /turf/open/floor/churchrough,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb)
 "jY" = (
 /obj/structure/bookcase,
 /obj/item/book/random_book,
 /turf/open/floor/churchrough,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "lr" = (
 /obj/structure/bookcase,
 /obj/item/book/random_book,
 /obj/item/book/random_book,
 /obj/item/book/random_book,
 /turf/open/floor/churchrough,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "lG" = (
 /obj/effect/decal/cleanable/generic,
 /obj/structure/fluff/railing/wood{
 	dir = 1
 	},
 /turf/open/floor/ruinedwood/darker,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "mC" = (
 /obj/effect/decal/cleanable/shreds,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "mK" = (
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "nR" = (
 /turf/closed/wall/mineral/wooddark,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "nW" = (
 /obj/structure/fluff/railing/wood{
 	dir = 8
 	},
 /turf/open/floor/ruinedwood/darker,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
+"ov" = (
+/turf/open/floor/churchrough,
+/area/rogue/under/tomb/indoors/magic)
 "oO" = (
 /obj/structure/mineral_door/wood/violet,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "ps" = (
 /obj/item/natural/rock,
 /turf/closed/wall/mineral/underbrick,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "qk" = (
 /obj/structure/mineral_door/wood/violet,
 /turf/open/floor/churchrough,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "rq" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/churchrough,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "rO" = (
 /obj/effect/decal/cleanable/generic,
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "rX" = (
 /turf/open/floor/ruinedwood,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "sQ" = (
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
 /turf/open/floor/churchrough,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "tz" = (
 /turf/open/transparent/openspace,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "tT" = (
 /obj/structure/bookcase,
 /obj/item/book/random_book,
@@ -168,7 +171,7 @@
 /obj/item/book/random_book,
 /obj/item/book/random_book,
 /turf/open/floor/churchrough,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "ue" = (
 /obj/structure/bookcase,
 /obj/item/book/random_book,
@@ -177,17 +180,17 @@
 /obj/item/book/random_book,
 /obj/item/book/random_book,
 /turf/open/floor/churchrough,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "ur" = (
 /obj/structure/stairs,
 /turf/open/floor/ruinedwood,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "wU" = (
 /obj/structure/bookcase,
 /obj/item/book/random_book,
 /obj/item/book/random_book,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "xm" = (
 /obj/structure/bookcase,
 /obj/item/book/random_book,
@@ -196,30 +199,30 @@
 /obj/item/book/random_book,
 /obj/item/book/random_book,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "xD" = (
 /obj/effect/decal/cleanable/shreds,
 /obj/item/book/random_book,
 /turf/open/floor/churchrough,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "xE" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/fluff/railing/wood{
 	dir = 4
 	},
 /turf/open/floor/ruinedwood/darker,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "ym" = (
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/churchrough,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb)
 "yw" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "zE" = (
 /turf/closed/mineral/bedrock,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb)
 "Ax" = (
 /obj/effect/decal/cleanable/dirt/cobweb{
 	dir = 8
@@ -227,16 +230,16 @@
 /obj/structure/bookcase,
 /obj/item/book/random_book,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "BB" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/churchrough,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "Ce" = (
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/churchrough,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "DX" = (
 /obj/structure/bookcase,
 /obj/item/book/random_book,
@@ -249,17 +252,17 @@
 /obj/item/book/random_book,
 /obj/item/book/random_book,
 /turf/open/floor/churchrough,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "GC" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
 /turf/open/floor/churchrough,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "Hj" = (
 /obj/effect/decal/cleanable/dirt/cobweb,
 /obj/structure/rack/shelf,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "Hs" = (
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
 /obj/structure/bookcase,
@@ -270,84 +273,87 @@
 /obj/item/book/random_book,
 /obj/item/book/random_book,
 /turf/open/floor/churchrough,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "Ht" = (
 /obj/structure/stairs{
 	dir = 8
 	},
 /turf/open/floor/ruinedwood,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "Hx" = (
 /obj/structure/bookcase,
 /obj/item/book/random_book,
 /obj/item/book/random_book,
 /obj/item/book/random_book,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "In" = (
 /obj/effect/decal/cleanable/dirt/cobweb{
 	dir = 4
 	},
 /turf/open/floor/ruinedwood/darker,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "It" = (
 /obj/structure/fluff/railing/wood{
 	dir = 8
 	},
 /turf/open/floor/churchrough,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "IT" = (
 /obj/effect/decal/cleanable/generic,
 /obj/structure/fluff/railing/wood{
 	dir = 8
 	},
 /turf/open/floor/churchrough,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "Ku" = (
 /turf/open/floor/churchrough,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb)
 "LE" = (
 /obj/structure/stairs{
 	dir = 1
 	},
 /turf/open/floor/ruinedwood,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "NW" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4
 	},
 /turf/open/floor/ruinedwood/darker,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "Ra" = (
 /obj/effect/decal/cleanable/dirt/cobweb{
 	dir = 4
 	},
 /obj/structure/bookcase,
 /turf/open/floor/churchrough,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "Rg" = (
 /turf/closed/wall/mineral/underbrick,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
+"Sg" = (
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/tomb/indoors/magic)
 "Si" = (
 /obj/effect/decal/remains/bigrat,
 /obj/item/book/random_book,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "Sr" = (
 /obj/effect/decal/cleanable/dirt/cobweb,
 /obj/structure/rack/shelf,
 /turf/open/floor/churchrough,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "Tw" = (
 /obj/effect/decal/cleanable/dirt/cobweb{
 	dir = 8
 	},
 /turf/open/floor/churchrough,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "UC" = (
 /obj/effect/decal/cleanable/dirt/cobweb,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "UX" = (
 /obj/structure/bookcase,
 /obj/item/book/random_book,
@@ -357,22 +363,22 @@
 /obj/item/book/random_book,
 /obj/item/book/random_book,
 /turf/open/floor/churchrough,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "VP" = (
 /obj/structure/fluff/railing/wood{
 	dir = 1
 	},
 /turf/open/floor/ruinedwood/darker,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 "Xx" = (
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/churchrough,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb)
 "XA" = (
 /obj/structure/rack/shelf,
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors/magic)
 
 (1,1,1) = {"
 zE
@@ -415,9 +421,9 @@ Rg
 ps
 Sr
 ue
-Ku
-Ku
-Ku
+ov
+ov
+ov
 iK
 tT
 Rg
@@ -432,12 +438,12 @@ Rg
 rq
 bS
 DX
-Ku
+ov
 xD
 iK
 ue
 bS
-Ku
+ov
 Rg
 Rg
 zE
@@ -450,8 +456,8 @@ rq
 rq
 ue
 iK
-Ku
-Ku
+ov
+ov
 jY
 rq
 rq
@@ -464,11 +470,11 @@ Ku
 Rg
 UX
 GC
-Ku
-Ku
-Ku
-Ku
-Ku
+ov
+ov
+ov
+ov
+ov
 rq
 rq
 bF
@@ -479,7 +485,7 @@ Ku
 (7,1,1) = {"
 Ku
 qk
-Ku
+ov
 iK
 Ce
 rX
@@ -487,17 +493,17 @@ rX
 rX
 nR
 nR
-Ku
-Ku
-Ku
+ov
+ov
+ov
 qk
 Ku
 "}
 (8,1,1) = {"
 ym
 Rg
-Ku
-Ku
+ov
+ov
 Ce
 iH
 iH
@@ -506,14 +512,14 @@ Ht
 Ht
 hl
 iK
-Ku
+ov
 Rg
 Xx
 "}
 (9,1,1) = {"
 Ku
 qk
-Ku
+ov
 bS
 dD
 rX
@@ -522,8 +528,8 @@ ur
 rX
 rX
 gV
-Ku
-Ku
+ov
+ov
 qk
 Ku
 "}
@@ -539,7 +545,7 @@ ur
 rX
 rX
 hl
-Ku
+ov
 ue
 Rg
 Ku
@@ -556,7 +562,7 @@ It
 It
 It
 rq
-Ku
+ov
 hm
 Rg
 zE
@@ -569,8 +575,8 @@ sQ
 iK
 jY
 iK
-Ku
-Ku
+ov
+ov
 tT
 rq
 Tw
@@ -585,9 +591,9 @@ Rg
 Rg
 cR
 hm
-Ku
+ov
 fH
-Ku
+ov
 UX
 Tw
 Rg
@@ -673,8 +679,8 @@ Hj
 xm
 tz
 eH
-hp
-hp
+Sg
+Sg
 In
 Rg
 Rg
@@ -688,11 +694,11 @@ Rg
 UC
 tz
 bR
-hp
+Sg
 tz
 tz
 Hx
-hp
+Sg
 tz
 Rg
 Rg
@@ -703,15 +709,15 @@ zE
 Rg
 wU
 Si
-hp
+Sg
 cG
 NW
 tz
 NW
 xE
 yw
-hp
-hp
+Sg
+Sg
 Rg
 zE
 "}
@@ -736,7 +742,7 @@ hp
 hp
 oO
 yw
-hp
+Sg
 rO
 rX
 rX
@@ -745,15 +751,15 @@ Ht
 Ht
 VP
 tz
-hp
+Sg
 oO
 hp
 "}
 (8,1,2) = {"
 hp
 Rg
-hp
-hp
+Sg
+Sg
 mK
 iH
 iH
@@ -770,23 +776,23 @@ hp
 hp
 oO
 yw
-hp
-hp
+Sg
+Sg
 rX
 rX
 tz
 tz
 tz
 lG
-hp
-hp
+Sg
+Sg
 oO
 hp
 "}
 (10,1,2) = {"
 hp
 Rg
-hp
+Sg
 yw
 mK
 rX
@@ -795,7 +801,7 @@ tz
 tz
 tz
 VP
-hp
+Sg
 Hx
 Rg
 hp
@@ -812,7 +818,7 @@ nW
 nW
 nW
 mC
-hp
+Sg
 Ax
 Rg
 zE
@@ -826,7 +832,7 @@ tz
 tz
 tz
 tz
-hp
+Sg
 tz
 tz
 tz
@@ -840,12 +846,12 @@ Rg
 Rg
 is
 XA
-hp
+Sg
 tz
-hp
+Sg
 yw
-hp
-hp
+Sg
+Sg
 Rg
 Rg
 Rg

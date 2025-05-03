@@ -2,69 +2,69 @@
 "bO" = (
 /obj/structure/flora/shroom_tree,
 /turf/open/floor/dirt/ambush,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "bY" = (
 /turf/open/floor/dirt/ambush,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "cl" = (
 /obj/machinery/light/fueled/wallfire/candle/r,
 /obj/structure/fluff/statue/knight/interior/r,
 /turf/open/floor/tile/checkeralt,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "cm" = (
 /obj/structure/fluff/walldeco/painting/castle,
 /turf/closed/wall/mineral/wood,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "cP" = (
 /obj/structure/flora/shroom_tree,
 /turf/open/floor/dirt/road,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "dv" = (
 /obj/structure/fluff/walldeco/painting/crown,
 /turf/closed/wall/mineral/wood,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "dE" = (
 /obj/structure/flora/grass/swampweed,
 /turf/open/floor/dirt/ambush,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "ec" = (
 /obj/machinery/light/fueled/torchholder/l,
 /obj/structure/flora/grass/swampweed,
 /turf/open/floor/dirt/ambush,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "en" = (
 /turf/closed/mineral/bedrock,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "eu" = (
 /mob/living/simple_animal/hostile/retaliate/trufflepig,
 /turf/open/water/swamp/deep,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "fl" = (
 /obj/structure/fluff/walldeco/painting,
 /turf/closed/wall/mineral/wood,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "gu" = (
 /obj/machinery/light/fueled/torchholder/l,
 /turf/open/floor/dirt/road,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "gI" = (
 /obj/structure/table/wood/nice/decorated_alt,
 /obj/item/ore/gold,
 /obj/effect/landmark/chest_or_mimic,
 /turf/open/floor/carpet,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "kv" = (
 /obj/structure/fluff/statue/evil,
 /turf/open/floor/tile/checkeralt,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "mz" = (
 /obj/structure/flora/grass/swampweed,
 /turf/open/floor/dirt/road,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "mY" = (
 /obj/machinery/light/fueled/torchholder/c,
 /turf/open/floor/dirt/road,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "nl" = (
 /obj/structure/table/wood/plain/alt,
 /obj/item/weapon/pitchfork/copper,
@@ -72,155 +72,155 @@
 /obj/item/clothing/face/cigarette/pipe,
 /obj/item/reagent_containers/food/snacks/produce/swampweed_dried,
 /turf/open/floor/blocks/paving/vert,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "pt" = (
 /obj/machinery/light/fueled/torchholder/c,
 /obj/structure/flora/grass/swampweed,
 /turf/open/floor/dirt/ambush,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "pY" = (
 /obj/machinery/light/fueled/torchholder/c,
 /turf/open/floor/dirt/ambush,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "rv" = (
 /obj/machinery/light/fueled/wallfire/candle/l,
 /obj/structure/fluff/statue/knight/interior,
 /turf/open/floor/tile/checkeralt,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "sj" = (
 /obj/machinery/light/fueled/wallfire/candle/l,
 /turf/open/floor/carpet,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "sK" = (
 /obj/structure/table/wood/nice/decorated_alt,
 /obj/item/statue/gold/loot,
 /obj/effect/landmark/chest_or_mimic,
 /turf/open/floor/carpet,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "te" = (
 /obj/machinery/light/fueled/torchholder/r,
 /turf/open/floor/dirt/road,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "tg" = (
 /mob/living/simple_animal/hostile/retaliate/trufflepig,
 /turf/open/floor/dirt/road,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "tx" = (
 /obj/structure/table/wood/nice/decorated_alt,
 /obj/item/statue/gold,
 /obj/effect/landmark/chest_or_mimic,
 /turf/open/floor/carpet,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "uc" = (
 /obj/structure/table/wood/nice/decorated_alt,
 /obj/item/clothing/ring/gold,
 /obj/effect/landmark/chest_or_mimic,
 /turf/open/floor/carpet,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "vp" = (
 /turf/open/floor/carpet,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "wC" = (
 /obj/structure/chair/stool,
 /turf/open/floor/blocks/paving/vert,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "wP" = (
 /obj/machinery/light/fueled/torchholder/r,
 /turf/open/floor/dirt/ambush,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "xS" = (
 /obj/machinery/light/fueled/firebowl/standing,
 /turf/open/floor/carpet,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "yG" = (
 /turf/open/water/swamp,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "AE" = (
 /mob/living/simple_animal/hostile/retaliate/trufflepig,
 /turf/open/floor/dirt/ambush,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "AH" = (
 /turf/open/floor/blocks/paving/vert,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "BJ" = (
 /obj/structure/bed/shit,
 /turf/open/floor/blocks/paving/vert,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "Da" = (
 /obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/floor/carpet,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "Fu" = (
 /obj/structure/mineral_door/wood/donjon/stone,
 /turf/open/floor/blocks/paving/vert,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "Fv" = (
 /obj/machinery/light/fueled/wallfire/candle/l,
 /turf/open/floor/tile/checkeralt,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "Gb" = (
 /obj/machinery/light/fueled/torchholder/r,
 /obj/effect/landmark/chest_or_mimic,
 /obj/item/reagent_containers/glass/bottle/stronghealthpot,
 /obj/item/reagent_containers/food/snacks/cheddar/aged,
 /turf/open/floor/blocks/paving/vert,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "Gy" = (
 /obj/structure/fluff/walldeco/painting/seraphina,
 /obj/structure/fluff/walldeco/painting/seraphina,
 /turf/closed/wall/mineral/wood,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "HP" = (
 /obj/machinery/light/fueled/torchholder/l,
 /obj/structure/fermentation_keg/water,
 /turf/open/floor/blocks/paving/vert,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "JX" = (
 /obj/structure/flora/shroom_tree,
 /turf/closed/mineral/bedrock,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "Ke" = (
 /turf/open/water/swamp/deep,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "LB" = (
 /obj/structure/mineral_door/wood/fancywood,
 /turf/open/floor/carpet,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "LS" = (
 /obj/structure/fluff/walldeco/painting/queen,
 /turf/closed/wall/mineral/wood,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "OE" = (
 /obj/machinery/light/fueled/torchholder/c,
 /mob/living/simple_animal/hostile/retaliate/trufflepig,
 /turf/open/floor/dirt/ambush,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "Qf" = (
 /obj/structure/fluff/walldeco/painting/skull,
 /turf/closed/wall/mineral/wood,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "QX" = (
 /turf/closed/wall/mineral/wood,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "UY" = (
 /obj/structure/table/wood/nice/decorated_alt,
 /obj/item/reagent_containers/glass/cup/golden,
 /obj/effect/landmark/chest_or_mimic,
 /turf/open/floor/carpet,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "Vz" = (
 /obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/floor/tile/checkeralt,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "WO" = (
 /obj/structure/table/wood/nice/decorated_alt,
 /obj/item/ingot/gold,
 /obj/effect/landmark/chest_or_mimic,
 /turf/open/floor/carpet,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "Yf" = (
 /turf/open/floor/tile/checkeralt,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "Yi" = (
 /obj/structure/table/wood/nice/decorated_alt,
 /obj/item/clothing/face/facemask/goldmask,
@@ -236,10 +236,10 @@
 /obj/item/lockpickring,
 /obj/effect/landmark/chest_or_mimic,
 /turf/open/floor/carpet,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "YH" = (
 /turf/open/floor/dirt/road,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 
 (1,1,1) = {"
 en

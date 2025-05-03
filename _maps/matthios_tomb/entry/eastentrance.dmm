@@ -1,30 +1,30 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "av" = (
 /turf/closed/mineral/bedrock,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "aF" = (
 /obj/structure/table/wood/plain,
 /turf/open/floor/herringbone,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "bP" = (
 /obj/structure/mineral_door/wood,
 /turf/open/floor/herringbone,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "cG" = (
 /turf/open/floor/carpet/red,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "ed" = (
 /obj/structure/stairs/stone/church{
 	dir = 1
 	},
 /turf/open/floor/hexstone,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "et" = (
 /turf/closed/wall/mineral/stone,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "gw" = (
 /turf/open/floor/hexstone,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "hV" = (
 /obj/structure/table/church{
 	dir = 1
@@ -42,7 +42,7 @@
 	pixel_y = 11
 	},
 /turf/open/floor/hexstone,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "kf" = (
 /obj/structure/closet/crate/chest,
 /obj/item/neuFarm/seed/wheat,
@@ -69,47 +69,47 @@
 /obj/item/neuFarm/seed/apple,
 /obj/item/neuFarm/seed/apple,
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "kW" = (
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "ma" = (
 /obj/effect/decal/cleanable/sigil/S,
 /turf/open/floor/hexstone,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "md" = (
 /obj/structure/dungeon_exit,
 /turf/open/floor/herringbone,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "ny" = (
 /obj/structure/fermentation_keg/random/water,
 /turf/open/floor/herringbone,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "nK" = (
 /obj/machinery/light/fueled/oven/east,
 /turf/open/floor/herringbone,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "os" = (
 /obj/structure/stairs/stone/church{
 	dir = 1
 	},
 /turf/open/floor/herringbone,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "pI" = (
 /obj/machinery/light/fueled/torchholder/c,
 /turf/open/floor/herringbone,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "pP" = (
 /obj/structure/window/openclose{
 	dir = 8
 	},
 /turf/open/floor/herringbone,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "qs" = (
 /obj/structure/table/wood/plain,
 /obj/item/weapon/knife/cleaver,
 /turf/open/floor/herringbone,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "ry" = (
 /obj/structure/closet/crate/chest,
 /obj/item/reagent_containers/food/snacks/produce/wheat,
@@ -122,15 +122,15 @@
 /obj/item/reagent_containers/food/snacks/produce/wheat,
 /obj/item/reagent_containers/food/snacks/produce/wheat,
 /turf/open/floor/herringbone,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "sj" = (
 /obj/item/reagent_containers/glass/bucket/wooden/alter,
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "tz" = (
 /obj/structure/fluff/statue/knightalt,
 /turf/open/floor/hexstone,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "uG" = (
 /obj/structure/table/church/m,
 /obj/item/reagent_containers/glass/bottle/waterskin{
@@ -145,128 +145,134 @@
 	pixel_y = 7
 	},
 /turf/open/floor/hexstone,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
+"uT" = (
+/turf/open/floor/naturalstone,
+/area/rogue/under/tomb/cave)
 "uW" = (
 /obj/structure/well,
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "vv" = (
 /obj/structure/window/openclose{
 	dir = 4
 	},
 /turf/open/floor/herringbone,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "wx" = (
 /obj/structure/fermentation_keg/random/beer,
 /turf/open/floor/herringbone,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "xk" = (
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "xl" = (
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "xP" = (
 /turf/open/floor/hexstone,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "yl" = (
 /obj/effect/decal/cleanable/sigil,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/hexstone,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "Ac" = (
 /obj/structure/fluff/statue/knight/interior,
 /turf/open/floor/hexstone,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "AB" = (
 /turf/open/transparent/openspace,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "AC" = (
 /obj/structure/bed/inn,
 /obj/machinery/light/fueled/torchholder/c,
 /turf/open/floor/herringbone,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "Bm" = (
 /obj/structure/table/wood/plain,
 /obj/structure/fluff/millstone,
 /turf/open/floor/herringbone,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "Bu" = (
 /obj/structure/window/openclose,
 /turf/open/floor/herringbone,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "Bz" = (
 /obj/structure/window/openclose{
 	dir = 1
 	},
 /turf/open/floor/herringbone,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "CX" = (
 /obj/machinery/light/fueled/hearth,
 /obj/item/cooking/pan,
 /turf/open/floor/herringbone,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "EJ" = (
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "FA" = (
 /obj/structure/closet/crate/crafted_closet/inn,
 /obj/item/clothing/shirt/robe/plain,
 /turf/open/floor/herringbone,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
+"FQ" = (
+/turf/open/transparent/openspace,
+/area/rogue/under/tomb/cave)
 "GE" = (
 /obj/structure/gate/preopen,
 /turf/open/floor/hexstone,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "Iu" = (
 /turf/open/transparent/openspace,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "IE" = (
 /obj/effect/decal/cleanable/sigil/SW,
 /turf/open/floor/hexstone,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "Jb" = (
 /obj/structure/fluff/statue/evil,
 /turf/open/floor/hexstone,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "JJ" = (
 /turf/open/floor/herringbone,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "Kf" = (
 /obj/structure/fluff/statue/knight/interior/r,
 /turf/open/floor/hexstone,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "Mi" = (
 /obj/machinery/light/fueled/torchholder/l,
 /turf/open/floor/hexstone,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "MC" = (
 /obj/structure/fluff/statue/knightalt/r,
 /turf/open/floor/hexstone,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "OV" = (
 /obj/effect/decal/cleanable/sigil/W,
 /turf/open/floor/hexstone,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "OX" = (
 /obj/machinery/light/fueled/firebowl,
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "Rt" = (
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "Ry" = (
 /obj/machinery/light/fueled/hearth,
 /obj/item/reagent_containers/glass/bucket/pot,
 /turf/open/floor/herringbone,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "Ub" = (
 /obj/structure/closet/crate/chest/crafted,
 /turf/open/floor/hexstone,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "Uz" = (
 /obj/structure/table/church,
 /obj/item/flashlight/flare/torch/metal{
@@ -281,27 +287,27 @@
 	pixel_y = 6
 	},
 /turf/open/floor/hexstone,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "Vt" = (
 /obj/machinery/light/fueled/firebowl,
 /turf/open/floor/hexstone,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "Vx" = (
 /obj/effect/decal/cleanable/sigil/E,
 /turf/open/floor/hexstone,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "Wo" = (
 /obj/machinery/light/fueled/firebowl,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "Xm" = (
 /obj/effect/decal/cleanable/sigil/SE,
 /turf/open/floor/hexstone,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 "Yw" = (
 /obj/structure/closet/crate/drawer/inn,
 /turf/open/floor/herringbone,
-/area/rogue/indoors/shelter)
+/area/rogue/under/tomb/indoors)
 
 (1,1,1) = {"
 av
@@ -342,10 +348,10 @@ av
 "}
 (2,1,1) = {"
 av
-xl
-xl
-xl
-xl
+uT
+uT
+uT
+uT
 av
 av
 av
@@ -379,9 +385,9 @@ av
 "}
 (3,1,1) = {"
 av
-xl
-xl
-xl
+uT
+uT
+uT
 av
 av
 xl
@@ -417,7 +423,7 @@ av
 (4,1,1) = {"
 av
 av
-xl
+uT
 av
 av
 xl
@@ -454,7 +460,7 @@ xl
 (5,1,1) = {"
 av
 av
-xl
+uT
 xl
 xl
 xl
@@ -927,7 +933,7 @@ kW
 xl
 xl
 xl
-xl
+uT
 av
 av
 av
@@ -964,8 +970,8 @@ kW
 xl
 xl
 av
-xl
-xl
+uT
+uT
 av
 av
 "}
@@ -1002,7 +1008,7 @@ xl
 xl
 av
 av
-xl
+uT
 av
 av
 "}
@@ -1036,8 +1042,8 @@ kW
 xl
 xl
 xl
-xl
-xl
+uT
+uT
 av
 av
 av
@@ -1074,7 +1080,7 @@ xl
 xl
 av
 av
-xl
+uT
 av
 av
 av
@@ -1112,7 +1118,7 @@ av
 av
 av
 av
-xl
+uT
 av
 av
 av
@@ -1145,12 +1151,12 @@ xl
 xl
 xl
 xl
-xl
+uT
 av
 av
 av
-xl
-xl
+uT
+uT
 av
 av
 "}
@@ -1179,10 +1185,10 @@ av
 av
 av
 av
-xl
+uT
 av
-xl
-xl
+uT
+uT
 av
 av
 av
@@ -1268,10 +1274,10 @@ av
 "}
 (2,1,2) = {"
 av
-AB
-AB
-AB
-AB
+FQ
+FQ
+FQ
+FQ
 av
 av
 av
@@ -1305,9 +1311,9 @@ av
 "}
 (3,1,2) = {"
 av
-AB
-AB
-AB
+FQ
+FQ
+FQ
 av
 av
 AB
@@ -1343,7 +1349,7 @@ av
 (4,1,2) = {"
 av
 av
-AB
+FQ
 av
 av
 AB
@@ -1380,7 +1386,7 @@ AB
 (5,1,2) = {"
 av
 av
-AB
+FQ
 AB
 AB
 AB
@@ -1853,7 +1859,7 @@ AB
 AB
 AB
 AB
-AB
+FQ
 av
 av
 av
@@ -1890,8 +1896,8 @@ AB
 AB
 AB
 av
-AB
-AB
+FQ
+FQ
 av
 av
 "}
@@ -1928,7 +1934,7 @@ AB
 AB
 av
 av
-AB
+FQ
 av
 av
 "}
@@ -1962,8 +1968,8 @@ AB
 AB
 AB
 AB
-AB
-AB
+FQ
+FQ
 av
 av
 av
@@ -2000,7 +2006,7 @@ AB
 AB
 av
 av
-AB
+FQ
 av
 av
 av
@@ -2038,7 +2044,7 @@ av
 av
 av
 av
-AB
+FQ
 av
 av
 av
@@ -2071,12 +2077,12 @@ AB
 AB
 AB
 AB
-AB
+FQ
 av
 av
 av
-AB
-AB
+FQ
+FQ
 av
 av
 "}
@@ -2105,10 +2111,10 @@ av
 av
 av
 av
-AB
+FQ
 av
-AB
-AB
+FQ
+FQ
 av
 av
 av

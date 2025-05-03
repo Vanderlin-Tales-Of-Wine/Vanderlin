@@ -2,68 +2,68 @@
 "a" = (
 /obj/structure/spider/stickyweb,
 /turf/open/floor/churchmarble,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "c" = (
 /turf/closed/wall/mineral/stonebrick/reddish,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "d" = (
 /obj/structure/chair/bench/couchablack/r,
 /turf/open/floor/churchmarble,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "f" = (
 /obj/structure/fluff/walldeco/vinez/l,
 /turf/closed/wall/mineral/stonebrick/reddish,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "g" = (
 /obj/structure/fluff/walldeco/vinez/r,
 /obj/machinery/light/fueled/wallfire/candle/blue/r,
 /obj/item/instrument/flute,
 /turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "i" = (
 /obj/structure/fluff/walldeco/vinez/l,
 /obj/structure/fluff/walldeco/vinez/r,
 /obj/structure/mineral_door/wood/violet,
 /turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "l" = (
 /mob/living/simple_animal/hostile/retaliate/spider/mutated,
 /turf/open/floor/churchmarble,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "m" = (
 /obj/structure/fluff/walldeco/vinez/r,
 /obj/structure/fluff/walldeco/vinez/l,
 /obj/structure/mineral_door/wood/violet,
 /turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "n" = (
 /obj/structure/fluff/walldeco/vinez/l,
 /obj/machinery/light/fueled/wallfire/candle/blue/l,
 /turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "o" = (
 /obj/machinery/light/fueled/wallfire/candle/blue/l,
 /turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "p" = (
 /obj/structure/chair/bench/couchablack,
 /turf/open/floor/churchmarble,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "q" = (
 /obj/structure/mineral_door/wood/violet,
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "s" = (
 /obj/structure/fluff/walldeco/vinez/r,
 /turf/closed/wall/mineral/stonebrick/reddish,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "t" = (
 /turf/closed/wall/mineral/stone/moss,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "v" = (
 /turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "w" = (
 /obj/item/clothing/shirt/tunic/blue,
 /obj/item/gem/blue,
@@ -78,7 +78,7 @@
 /mob/living/carbon/human/species/skeleton/npc/no_equipment,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "x" = (
 /obj/structure/table/vtable,
 /obj/item/clothing/gloves/rare/elfplate,
@@ -90,63 +90,63 @@
 /obj/item/clothing/neck/menears,
 /obj/item/clothing/neck/mercmedal/anthrax,
 /turf/open/floor/churchmarble,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "y" = (
 /obj/structure/spider/stickyweb,
 /obj/machinery/light/fueled/wallfire/candle/blue/l,
 /turf/open/floor/churchmarble,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "z" = (
 /turf/open/floor/churchmarble,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "B" = (
 /obj/structure/mineral_door/wood/violet,
 /obj/structure/spider/stickyweb,
 /turf/open/floor/churchmarble,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "C" = (
 /obj/structure/mineral_door/wood/violet,
 /obj/effect/dungeon_directional_helper/east,
 /turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "D" = (
 /obj/machinery/light/fueled/wallfire/candle/blue/r,
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "E" = (
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "F" = (
 /obj/structure/fluff/walldeco/vinez/r,
 /obj/machinery/light/fueled/wallfire/candle/blue/r,
 /turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "I" = (
 /obj/structure/chair/wood/alt/chair_noble,
 /turf/open/floor/churchmarble,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "K" = (
 /obj/structure/fluff/walldeco/vinez/l,
 /obj/machinery/light/fueled/wallfire/candle/blue/l,
 /obj/item/reagent_containers/glass/bottle/whitewine,
 /turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "O" = (
 /obj/structure/fluff/statue/spider,
 /turf/open/floor/churchmarble,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "R" = (
 /obj/structure/well,
 /obj/item/reagent_containers/glass/bucket/wooden,
 /turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "S" = (
 /obj/structure/spider/stickyweb,
 /obj/machinery/light/fueled/wallfire/candle/blue/r,
 /turf/open/floor/churchmarble,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "W" = (
 /obj/structure/table/vtable/v2,
 /obj/item/reagent_containers/glass/bottle/wine/sourwine,
@@ -159,12 +159,12 @@
 /obj/item/natural/cloth,
 /obj/item/natural/cloth,
 /turf/open/floor/churchmarble,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "Z" = (
 /obj/structure/spider/stickyweb,
 /mob/living/simple_animal/hostile/retaliate/spider/mutated,
 /turf/open/floor/churchmarble,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 
 (1,1,1) = {"
 c
