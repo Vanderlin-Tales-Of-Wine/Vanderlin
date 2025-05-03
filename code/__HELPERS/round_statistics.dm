@@ -277,7 +277,7 @@ GLOBAL_LIST_INIT(species_population_stats, list(
 #define FEATURED_STATS_GOURMETS "gourmets"
 #define FEATURED_STATS_SCREAMERS "screamers"
 #define FEATURED_STATS_MINERS "miners"
-#define FEATURED_STATS_CRIME_RATES "crime_rates"
+#define FEATURED_STATS_CRIMINALS "criminals"
 #define FEATURED_STATS_MAGES "mages"
 #define FEATURED_STATS_CRAFTERS "crafters"
 #define FEATURED_STATS_FARMERS "farmers"
@@ -293,11 +293,10 @@ GLOBAL_LIST_INIT(featured_stats, list(
 		"color" = "#f1e35d",
 		"entries" = list()
 	),
-	FEATURED_STATS_CRIME_RATES = list(
-		"name" = "TOP 10 Crime Rates (Average = 100%)",
+	FEATURED_STATS_CRIMINALS = list(
+		"name" = "TOP 10 Criminals",
 		"color" = "#bb6976",
 		"entries" = list(),
-		"special" = TRUE
 	),
 	FEATURED_STATS_SPEAKERS = list(
 		"name" = "TOP 10 Speakers",
@@ -395,53 +394,3 @@ GLOBAL_LIST_INIT(featured_stats, list(
 		stat_data["entries"] = list()
 
 	stat_data["entries"][key] = (stat_data["entries"][key] || 0) + increment
-
-/proc/record_criminal_stat(crime_stat, mob/living/carbon/perp, increment = 1)
-	if(!perp || !crime_stat || !perp.dna?.species)
-		return
-
-	LAZYINITLIST(GLOB.species_crime_stats[perp.dna.species])
-	GLOB.species_crime_stats[perp.dna.species][crime_stat] += increment
-
-/proc/update_crime_rates()
-	if(!length(GLOB.species_crime_stats))
-		GLOB.featured_stats[FEATURED_STATS_CRIME_RATES]["entries"] = list()
-		return
-
-	var/list/species_rates = list()
-	var/list/species_names = list()
-
-	for(var/datum/species/species_type in GLOB.species_crime_stats)
-		var/total_crimes = 0
-		for(var/stat in GLOB.species_crime_stats[species_type])
-			total_crimes += GLOB.species_crime_stats[species_type][stat]
-
-		var/pop = get_species_population(species_type) || 1
-		var/rate = (total_crimes / pop) * 100
-		species_rates[species_type] = rate
-		species_names[species_type] = initial(species_type.name)
-
-	species_rates = sortTim(species_rates, /proc/cmp_numeric_dsc, associative = TRUE)
-
-	var/list/entries = list()
-	var/rank = 1
-	for(var/species_type in species_rates)
-		if(rank > 10)
-			break
-		entries["[species_names[species_type]]"] = "[round(species_rates[species_type], 1)]%"
-		rank++
-
-	GLOB.featured_stats[FEATURED_STATS_CRIME_RATES]["entries"] = entries
-
-/proc/get_species_population(datum/species/species_type)
-	if(!species_type)
-		return 0
-
-	var/static/list/population_stats = GLOB.species_population_stats
-	var/stat_key = ispath(species_type) ? population_stats[species_type] : population_stats[species_type.type]
-
-	if(!stat_key)
-		return 0
-
-	var/pop = GLOB.vanderlin_round_stats[stat_key]
-	return isnum(pop) ? pop : 0
