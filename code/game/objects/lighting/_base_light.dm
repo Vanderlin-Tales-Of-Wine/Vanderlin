@@ -116,6 +116,7 @@
 	addtimer(CALLBACK(src, PROC_REF(update), 0), 1)
 
 /obj/machinery/light/Destroy()
+	QDEL_NULL(fog_parter_effect)
 	var/area/A = get_area(src)
 	if(A)
 		on = FALSE
@@ -341,8 +342,7 @@
 		return
 	if(on)
 		if(!istype(fog_parter_effect))
-			fog_parter_effect = new fog_parter_effect(get_turf(src))
-			fog_parter_effect.set_range(light_outer_range)
+			fog_parter_effect = new fog_parter_effect(get_turf(src), light_outer_range)
 	else
 		qdel(fog_parter_effect)
 		fog_parter_effect = initial(fog_parter_effect)

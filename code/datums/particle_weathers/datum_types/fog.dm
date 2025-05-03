@@ -38,11 +38,10 @@
 /obj/effect/fog_parter
 	icon = 'icons/effects/light_overlays/light_288.dmi'
 	icon_state = "light2"
-	pixel_y = -128
-	pixel_x = -128
 	plane = PLANE_FOG_CUTTER
 	invisibility = INVISIBILITY_LIGHTING
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	vis_flags = NONE
 	///Cache of the possible light overlays, according to size.
 	var/static/list/light_overlays = list(
 		"32" = 'icons/effects/light_overlays/light_32.dmi',
@@ -58,12 +57,23 @@
 		"352" = 'icons/effects/light_overlays/light_352.dmi',
 		)
 
+/obj/effect/fog_parter/Initialize(mapload, range = 5)
+	. = ..()
+	set_range(range)
+
 /obj/effect/fog_parter/proc/set_range(range)
 	if(range <= 0)
 		return
 	range = clamp(CEILING(range, 0.5), 1, 6)
 	var/pixel_bounds = ((range - 1) * 64) + 32
 	icon = light_overlays["[pixel_bounds]"]
+	if(pixel_bounds == 32)
+		transform = null
+		return
+	var/offset = (pixel_bounds - 32) * 0.5
+	var/matrix/new_transform = new
+	new_transform.Translate(-offset, -offset)
+	transform = new_transform
 
 /datum/particle_weather/fog
 	name = "Fog"
