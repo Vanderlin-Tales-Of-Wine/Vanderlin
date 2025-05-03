@@ -93,6 +93,5 @@
 		H.mind?.adjust_skillrank(/datum/skill/combat/whipsflails, 4, TRUE)
 		"Halberd" = /obj/item/weapon/polearm/halberd,
 		H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
-		message = "Take up arms!",
 		title = "KNIGHT"
 		)
