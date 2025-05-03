@@ -2,7 +2,7 @@
 	name = "Eora's Marriage Call"
 	track = EVENT_TRACK_INTERVENTION
 	typepath = /datum/round_event/eora_marriage_call
-	weight = 4
+	weight = 8
 	earliest_start = 15 MINUTES
 	max_occurrences = 1
 	min_players = 30

@@ -2,7 +2,7 @@
 	name = "Zizo's Defilement"
 	track = EVENT_TRACK_INTERVENTION
 	typepath = /datum/round_event/zizo_defilement
-	weight = 4
+	weight = 8
 	earliest_start = 25 MINUTES
 	max_occurrences = 2
 	min_players = 40

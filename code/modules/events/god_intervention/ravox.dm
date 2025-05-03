@@ -2,7 +2,7 @@
 	name = "Ravox's Resolve"
 	track = EVENT_TRACK_INTERVENTION
 	typepath = /datum/round_event/ravox_resolve
-	weight = 4
+	weight = 8
 	earliest_start = 25 MINUTES
 	max_occurrences = 1
 	min_players = 30
