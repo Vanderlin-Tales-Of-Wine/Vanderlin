@@ -16,7 +16,7 @@
 		/datum/job/prince,
 		/datum/job/consort,
 		/datum/job/priest,
-		/datum/job/captain,
+		/datum/job/captain,//Rest of these roles cannot cryo, as they must ahelp first before leaving the round.
 		/datum/job/gaffer //opening up the slot will break the gaffer ring code
 	)
 
@@ -83,3 +83,12 @@
 		mob_job.adjust_current_positions(-1)
 	qdel(departing_mob)
 	return "[mob_name] successfully cryo'd!"
+
+/obj/structure/train/carriage //A temporary subform of the train that is just a carriage	name = "train"
+	desc = "A train carriage."
+	icon = 'icons/roguetown/items/train.dmi'
+	icon_state = "train2"
+	layer = TABLE_LAYER
+	density = TRUE
+	anchored = TRUE
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF

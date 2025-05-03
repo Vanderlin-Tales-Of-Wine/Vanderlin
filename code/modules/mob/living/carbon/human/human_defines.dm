@@ -2,7 +2,8 @@
 	name = "Unknown"
 	real_name = "Unknown"
 	icon = 'icons/mob/human.dmi'
-	icon_state = "human_basic"
+	// Appearance is built by overlays
+	icon_state = MAP_SWITCH("", "human_basic")
 	appearance_flags = KEEP_TOGETHER|TILE_BOUND|PIXEL_SCALE
 	hud_possible = list(ANTAG_HUD)
 	hud_type = /datum/hud/human
