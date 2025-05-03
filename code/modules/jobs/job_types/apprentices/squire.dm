@@ -4,7 +4,7 @@
 	You and your friends practiced the basics, swordfighting with sticks and loosing arrows into hay bale targets. \n\
 	The Captain took notice of your potential, and recruited you as a personal ward. \
 	\n\n\
-	Learn from the garrison and train hard... maybe one dae you will be part of the keep's garrison... What, you thought you'd be a knight?"
+	Learn from the garrison and train hard... maybe one dae you will be honored with knighthood"
 	flag = SQUIRE
 	department_flag = APPRENTICES
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
@@ -39,7 +39,7 @@
 
 /datum/advclass/squire/lancer
 	name = "Pikeman Squire"
-	tutorial = "Years of poking bug nests with sticks have led to your new position. With enough luck, you might survive to adulthood and join the men-at-arms as a pikeman."
+	tutorial = "You were chosen as a squire, and chose the pike as your weapon of choice. Perhaps your future holds you as a man-at-arms, or a knight in shining armor, if you survive to adulthood, that is."
 	outfit = /datum/outfit/job/squire/lancer
 
 	category_tags = list(CTAG_SQUIRE)
@@ -72,7 +72,7 @@
 
 /datum/advclass/squire/footman
 	name = "Footman Squire"
-	tutorial = "Years of smacking things with sticks and fine footwork have led to this. With enough luck, you might survive to adulthood and join the men-at-arms as a fencer, what, you thought you'd be a knight? Unlikely."
+	tutorial = "You were chosen as a squire, and chose the sword as your weapon of choice. Perhaps your future holds you as a man-at-arms, or a knight in shining armor, if you survive to adulthood, that is."
 	outfit = /datum/outfit/job/squire/footman
 
 	category_tags = list(CTAG_SQUIRE)
@@ -105,7 +105,7 @@
 
 /datum/advclass/squire/skirmisher
 	name = "Bowman Squire"
-	tutorial = "Years of using slingshots and bows have led to now. With enough luck, you might survive to adulthood and join the men-at-arms as an archer"
+	tutorial = "You were chosen as a squire, and chose the bow as your weapon of choice. Perhaps your future holds you as a man-at-arms, or a knight in shining armor, if you survive to adulthood, that is."
 	outfit = /datum/outfit/job/squire/skirmisher
 
 	category_tags = list(CTAG_SQUIRE)
