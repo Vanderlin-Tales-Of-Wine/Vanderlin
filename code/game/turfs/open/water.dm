@@ -216,7 +216,7 @@
 	. = ..()
 	if(mapped)
 		if(prob(1) && prob(10))
-			new /obj/item/bottlemessage/ancient(get_turf(src))
+			new /obj/item/bottlemessage/ancient(src)
 	else
 		START_PROCESSING(SSobj, src)
 
