@@ -25,13 +25,13 @@
 	H.mind.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
 	belt = /obj/item/storage/belt/leather
-	pants = /obj/item/clothing/pants/trou/leather
-	shirt = /obj/item/clothing/shirt/shortshirt/random
+	pants = /obj/item/clothing/pants/trou/leather/advanced
+	shirt = /obj/item/clothing/armor/chainmail
 	shoes = /obj/item/clothing/shoes/boots
 	backr = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/needle/thorn = 1, /obj/item/natural/cloth = 1)
 	mask = /obj/item/clothing/face/facemask/steel
-	neck = /obj/item/clothing/neck/coif
+	neck = /obj/item/clothing/neck/chaincoif/iron
 	head = /obj/item/clothing/head/helmet/leather/volfhelm
 	armor = /obj/item/clothing/armor/leather/hide
 	H.change_stat(STATKEY_STR, 3)
