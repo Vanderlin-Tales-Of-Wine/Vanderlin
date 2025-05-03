@@ -554,9 +554,9 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	name = "Pacifist"
 	desc = "I don't want to harm other living beings!"
 
-/datum/charflaw/pacifist/after_spawn(mob/user)
+/datum/charflaw/pacifist/after_spawn(mob/user, force = FALSE)
 	var/mob/living/carbon/human/human_user = user
-	if((human_user.mind in GLOB.pre_setup_antags) || human_user.mind?.has_antag_datum(/datum/antagonist))
+	if(!force && ((human_user.mind in GLOB.pre_setup_antags) || human_user.mind.has_antag_datum(/datum/antagonist)))
 		human_user.get_random_flaw()
 		human_user?.charflaw.after_spawn(human_user)
 	else

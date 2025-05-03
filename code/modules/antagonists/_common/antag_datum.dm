@@ -148,6 +148,7 @@ GLOBAL_LIST_EMPTY(antagonists)
 			if(was_pacifist)
 				var/mob/living/carbon/human/human_user = owner.current
 				human_user.charflaw = new /datum/charflaw/pacifist(human_user)
+				human_user.charflaw.after_spawn(human_user, TRUE)
 			if(!silent)
 				farewell()
 	var/datum/team/team = get_team()
