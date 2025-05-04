@@ -26,3 +26,6 @@
 #define COMSIG_GLOB_JOB_AFTER_SPAWN "!job_after_spawn"
 /// job datum has been called to deal with the aftermath of a latejoin spawn
 #define COMSIG_GLOB_JOB_AFTER_LATEJOIN_SPAWN "!job_after_latejoin_spawn"
+
+///! a sound was played : (sound_player, sound_file)
+#define COMSIG_GLOB_SOUND_PLAYED "!sound_played"

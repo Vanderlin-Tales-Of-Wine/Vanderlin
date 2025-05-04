@@ -1443,12 +1443,8 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 			qdel(O)
 		character.regenerate_limb(BODY_ZONE_R_ARM)
 		character.regenerate_limb(BODY_ZONE_L_ARM)
-		var/datum/job/target_job = parent.mob?.mind?.assigned_role
-		if(target_job?.forced_flaw)
-			charflaw = target_job.forced_flaw
 
-		character.charflaw = new charflaw.type()
-		character.charflaw.on_mob_creation(character)
+		character.charflaw = new charflaw.type(character)
 
 	if(parent)
 		var/datum/role_bans/bans = get_role_bans_for_ckey(parent.ckey)

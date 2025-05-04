@@ -96,7 +96,7 @@
 		return
 
 	var/probby = 53 - (STAEND * 2)
-	if(!(mobility_flags & MOBILITY_STAND))
+	if(body_position == LYING_DOWN)
 		probby = probby - 20
 	if(prob(probby))
 		MOBTIMER_SET(src, MT_PAINSTUN)

@@ -11,6 +11,8 @@
 		"YOU CANNOT KILL ME!",
 	)
 	var/list/phylacteries = list()
+	/// weak reference to the body so we can revive even if decapitated
+	var/datum/weakref/lich_body
 	var/out_of_lives = FALSE
 
 	innate_traits = list(
@@ -40,13 +42,14 @@
 /datum/antagonist/lich/on_gain()
 	SSmapping.retainer.liches |= owner
 	. = ..()
+	if(iscarbon(owner.current))
+		lich_body = WEAKREF(owner.current)
 	owner.special_role = name
 	move_to_spawnpoint()
 	remove_job()
 	owner.current?.roll_mob_stats()
 	skele_look()
 	equip_lich()
-	greet()
 	return ..()
 
 /datum/antagonist/lich/greet()
@@ -60,8 +63,8 @@
 
 /datum/antagonist/lich/proc/skele_look()
 	var/mob/living/carbon/human/L = owner.current
-	L.dna?.species.go_bald(L)
-	L.update_body_parts(redraw = TRUE)
+	L.skeletonize(FALSE)
+	L.skele_look()
 
 /datum/antagonist/lich/proc/equip_lich()
 	owner.unknow_all_people()
@@ -79,14 +82,8 @@
 		QDEL_NULL(L.charflaw)
 	L.mob_biotypes |= MOB_UNDEAD
 	L.dna.species.species_traits |= NOBLOOD
-	var/obj/item/organ/eyes/eyes = L.getorganslot(ORGAN_SLOT_EYES)
-	if(eyes)
-		eyes.Remove(L,1)
-		QDEL_NULL(eyes)
-	eyes = new /obj/item/organ/eyes/night_vision/zombie
-	eyes.Insert(L)
-	for(var/obj/item/bodypart/B in L.bodyparts)
-		B.skeletonize(FALSE)
+	L.grant_undead_eyes()
+	L.skeletonize(FALSE)
 	L.unequip_everything()
 	L.equipOutfit(/datum/outfit/job/lich)
 	L.set_patron(/datum/patron/inhumen/zizo)
@@ -160,24 +157,30 @@
 		phylacteries -= phyl
 		return TRUE
 
-/datum/antagonist/lich/proc/rise_anew()
-	var/mob/living/carbon/human/bigbad = owner.current
-	bigbad.revive(TRUE, TRUE)
+/datum/antagonist/lich/proc/rise_anew(location)
+	var/mob/living/carbon/human/lich_mob
+	if(isbrain(owner.current)) // we have been decapitated, let's reattach to our old body.
+		lich_mob = lich_body.resolve() // current body isn't a human mob, let's use the reference to our old body.
+		if(isnull(lich_mob))
+			return // the old body no longer exists, it's over.
+		var/mob/living/brain/lich_brain = owner.current
+		if(!istype(lich_brain.loc.loc, /obj/item/bodypart/head))
+			return // we have no head, it's over.
+		var/obj/item/bodypart/head/lich_head = lich_brain.loc.loc
+		lich_head.attach_limb(lich_mob)
+	else
+		if(ishuman(owner.current))
+			lich_mob = owner.current // current body is a human mob.
 
-	for(var/obj/item/bodypart/B in bigbad.bodyparts)
-		B.skeletonize(FALSE)
+	lich_mob.revive(TRUE, TRUE) // we live, yay.
 
-	bigbad.faction = list(FACTION_UNDEAD)
-	if(bigbad.charflaw)
-		QDEL_NULL(bigbad.charflaw)
-	bigbad.mob_biotypes |= MOB_UNDEAD
-	var/obj/item/organ/eyes/eyes = bigbad.getorganslot(ORGAN_SLOT_EYES)
-	if(eyes)
-		eyes.Remove(bigbad,1)
-		QDEL_NULL(eyes)
-	eyes = new /obj/item/organ/eyes/night_vision/zombie
-	eyes.Insert(bigbad)
+	lich_mob.skeletonize(FALSE)
 
+	lich_mob.faction = list(FACTION_UNDEAD)
+	if(lich_mob.charflaw)
+		QDEL_NULL(lich_mob.charflaw)
+	lich_mob.mob_biotypes |= MOB_UNDEAD
+	lich_mob.grant_undead_eyes()
 
 /obj/item/phylactery
 	name = "phylactery"
@@ -209,6 +212,6 @@
 	animate(src, pixel_x = pixel_x + offset, time = 0.2, loop = -1) //start shaking
 	visible_message(span_warning("[src] begins to glow and shake violently!"))
 	spawn(timer)
-		possessor.owner.current.forceMove(get_turf(src))
 		possessor.rise_anew()
+		possessor.owner.current.forceMove(get_turf(src))
 		qdel(src)

@@ -251,7 +251,6 @@
 	name = "ring of burden"
 	icon_state = "ring_protection" //N/A change this to a real sprite after its made
 	sellprice = 0
-	var/bearerdied = FALSE
 
 /obj/item/clothing/ring/gold/burden/Initialize()
 	. = ..()
@@ -266,6 +265,9 @@
 		. += "A very old golden ring appointing its wearer as the Mercenary guild master, its strangely missing the crown for the centre stone"
 
 /obj/item/clothing/ring/gold/burden/attack_hand(mob/user)
+	if(is_gaffer_assistant_job(user.mind?.assigned_role))
+		to_chat(user, span_danger("It is not mine to have..."))
+		return
 	. = ..()
 	if(!user.mind)
 		return
@@ -313,7 +315,6 @@
 		return
 	visible_message(span_warning("[src] begins to twitch and shake violently, before crumbling into ash"))
 	new /obj/item/ash(loc)
-	bearerdied = TRUE
 	qdel(src)
 
 /obj/item/clothing/ring/gold/burden/equipped(mob/user, slot)
@@ -332,8 +333,6 @@
 	to_chat(user, span_danger("The moment the [src] is in your grasp, it fuses with the skin of your palm, you can't let it go without choosing your destiny first."))
 
 /obj/item/clothing/ring/gold/burden/Destroy()
-	if(bearerdied == TRUE)
-		SEND_GLOBAL_SIGNAL(COMSIG_GAFFER_RING_DESTROYED, src)
-		bearerdied = FALSE
-		. = ..()
+	SEND_GLOBAL_SIGNAL(COMSIG_GAFFER_RING_DESTROYED, src)
+	. = ..()
 

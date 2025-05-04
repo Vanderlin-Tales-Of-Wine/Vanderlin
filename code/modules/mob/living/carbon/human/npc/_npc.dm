@@ -31,11 +31,11 @@
 
 // taken from /mob/living/carbon/human/interactive/
 /mob/living/carbon/human/proc/IsDeadOrIncap(checkDead = TRUE)
-	if(!(mobility_flags & MOBILITY_FLAGS_INTERACTION))
-		return 1
+	// if(!(mobility_flags & MOBILITY_FLAGS_INTERACTION))
+	// 	return 1
 	if(health <= 0 && checkDead)
 		return 1
-	if(IsStun() || IsParalyzed())
+	if(HAS_TRAIT(src, TRAIT_INCAPACITATED))
 		return 1
 	if(stat)
 		return 1
@@ -98,7 +98,7 @@
 		swap_hand()
 		Weapon = get_active_held_item()
 		OffWeapon = get_inactive_held_item()
-	if(!(mobility_flags & MOBILITY_STAND))
+	if(body_position == LYING_DOWN)
 		aimheight_change(rand(1,10))
 	else
 		aimheight_change(rand(10,19))

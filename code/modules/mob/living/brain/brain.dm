@@ -17,6 +17,8 @@
 		OB.brainmob = src
 		forceMove(OB)
 
+		ADD_TRAIT(src, TRAIT_IMMOBILIZED, BRAIN_UNAIDED)
+		ADD_TRAIT(src, TRAIT_HANDS_BLOCKED, BRAIN_UNAIDED)
 
 /mob/living/brain/proc/create_dna()
 	stored_dna = new /datum/dna/stored(src)
@@ -33,9 +35,6 @@
 		testing("BASEDLOL ")
 		ghostize(drawskip=TRUE)		//Ghostize checks for key so nothing else is necessary.
 	return ..()
-
-/mob/living/brain/update_mobility()
-	mobility_flags = NONE
 
 /mob/living/brain/ex_act() //you cant blow up brainmobs because it makes transfer_to() freak out when borgs blow up.
 	return

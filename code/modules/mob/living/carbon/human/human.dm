@@ -36,15 +36,13 @@
 					held_item.melee_attack_chain(user, src, params)
 		return
 	if(user == src)
-		if(get_num_arms(FALSE) < 1)
+		if(usable_hands < 1)
 			return
 #endif
 
 /mob/living/carbon/human/Initialize()
 	// verbs += /mob/living/proc/mob_sleep
 	verbs += /mob/living/proc/lay_down
-
-	icon_state = ""		//Remove the inherent human icon that is visible on the map editor. We're rendering ourselves limb by limb, having it still be there results in a bug where the basic human icon appears below as south in all directions and generally looks nasty.
 
 	//initialize limbs first
 	create_bodyparts()
@@ -590,7 +588,7 @@
 	return (istype(target) && target.stat == CONSCIOUS)
 
 /mob/living/carbon/human/proc/can_be_firemanned(mob/living/carbon/target)
-	return (ishuman(target) && !(target.mobility_flags & MOBILITY_STAND))
+	return (ishuman(target) && target.body_position == LYING_DOWN)
 
 /mob/living/carbon/human/proc/fireman_carry(mob/living/carbon/target)
 	var/carrydelay = 5 SECONDS //if you have latex you are faster at grabbing
@@ -691,6 +689,11 @@
 	else
 		remove_movespeed_modifier(MOVESPEED_ID_DAMAGE_SLOWDOWN)
 		remove_movespeed_modifier(MOVESPEED_ID_DAMAGE_SLOWDOWN_FLYING)
+
+/mob/living/carbon/human/proc/skele_look()
+	dna.species.go_bald()
+	update_body_parts(redraw = TRUE)
+	underwear = "Nude"
 
 /mob/living/carbon/human/adjust_nutrition(change) //Honestly FUCK the oldcoders for putting nutrition on /mob someone else can move it up because holy hell I'd have to fix SO many typechecks
 	if(HAS_TRAIT(src, TRAIT_NOHUNGER))

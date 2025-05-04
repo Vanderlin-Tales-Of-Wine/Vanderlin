@@ -23,8 +23,8 @@
 	SSroguemachine.hailer = src
 
 /obj/structure/fake_machine/hailer/attackby(obj/item/H, mob/user, params)
-	if((!HAS_TRAIT(user, TRAIT_BURDEN)))
-		to_chat(user, "<span class='notice'>stranger danger! the [src] closes its teeth as you extend your hand to it</span>")
+	if(!HAS_TRAIT(user, TRAIT_BURDEN) && !is_gaffer_assistant_job(user.mind.assigned_role))
+		to_chat(user, span_danger("you can't feed the [src] without carrying his burden"))
 		return
 	if(istype(H, /obj/item/reagent_containers/powder/salt)) //mmmm, salt.
 		to_chat(user, "<span class='notice'>the [src]'s tongue slips between its bronze teeth to lap at the salt in [user]'s hand, finishing with effectionate licks across their palm... gross </span>")
@@ -83,9 +83,9 @@
 				to_chat(usr, "<span class='warning'>You'll need something to write with!</span>")
 
 	if(href_list["read"])
-		var/obj/item/I = locate(href_list["read"]) in contents
-		if(istype(I) && I.loc == src)
-			usr.examinate(I)
+		var/obj/item/paper/I = locate(href_list["read"]) in SSroguemachine.hailer.contents
+		if(istype(I) && I.loc == SSroguemachine.hailer && in_range(src, usr))
+			I.read(usr)
 
 	if(href_list["rename"]) //this doesnt even update the menu in real time, people are gonna think it aint workin' for sure, lol, lmao - the clown
 		var/obj/item/I = locate(href_list["rename"]) in contents

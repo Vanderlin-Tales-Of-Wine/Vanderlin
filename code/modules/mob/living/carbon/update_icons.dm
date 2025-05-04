@@ -6,15 +6,15 @@
 	var/final_pixel_y = pixel_y
 	var/final_dir = dir
 	var/changed = 0
-	if(lying != lying_prev && rotate_on_lying)
+	if(lying_angle != lying_prev && rotate_on_lying)
 		changed++
-		ntransform.TurnTo(lying_prev , lying)
-		if(!lying) //Lying to standing
+		ntransform.TurnTo(lying_prev , lying_angle)
+		if(!lying_angle) //Lying to standing
 			final_pixel_y = get_standard_pixel_y_offset()
 		else //if(lying != 0)
 			if(lying_prev == 0) //Standing to lying
 				pixel_y = get_standard_pixel_y_offset()
-				final_pixel_y = get_standard_pixel_y_offset(lying)
+				final_pixel_y = get_standard_pixel_y_offset(lying_angle)
 				if(dir & (EAST|WEST)) //Facing east or west
 //					final_dir = pick(NORTH, SOUTH) //So you fall on your side rather than your face or ass
 					final_dir = SOUTH
@@ -33,7 +33,7 @@
 		update_vision_cone()
 	else
 		pixel_x = get_standard_pixel_x_offset()
-		pixel_y = get_standard_pixel_y_offset(lying)
+		pixel_y = get_standard_pixel_y_offset(lying_angle)
 
 /mob/living
 	var/list/overlays_standing[TOTAL_LAYERS]

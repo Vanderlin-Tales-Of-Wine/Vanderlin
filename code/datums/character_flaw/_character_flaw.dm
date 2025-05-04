@@ -2,6 +2,7 @@
 GLOBAL_LIST_INIT(character_flaws, list(
 	"Alcoholic"=/datum/charflaw/addiction/alcoholic,
 	"Devout Follower"=/datum/charflaw/addiction/godfearing,
+	"Pacifist"=/datum/charflaw/pacifist,
 	"Smoker"=/datum/charflaw/addiction/smoker,
 	"Junkie"=/datum/charflaw/addiction/junkie,
 	"Cyclops (R)"=/datum/charflaw/noeyer,
@@ -26,7 +27,32 @@ GLOBAL_LIST_INIT(character_flaws, list(
 /datum/charflaw
 	var/name
 	var/desc
-	var/ephemeral = FALSE // This flaw is currently disabled and will not process
+	/// This flaw is currently disabled and will not process
+	var/ephemeral = FALSE
+	/// The mob affected by the character flaw
+	var/mob/owner
+
+/datum/charflaw/New(mob/new_owner)
+	. = ..()
+	if(new_owner)
+		owner = new_owner
+		on_mob_creation(owner)
+
+/// Applies when the user mob is created without mind
+/datum/charflaw/proc/on_mob_creation(mob/user)
+	return
+
+/// Aplies after the user mob is fully spawned and has mind
+/datum/charflaw/proc/after_spawn(mob/user)
+	return
+
+/datum/charflaw/Destroy()
+	on_remove()
+	return ..()
+
+/// Applies when the flaw is deleted
+/datum/charflaw/proc/on_remove()
+	return
 
 /mob/proc/get_flaw(flaw_type)
 	return
@@ -37,9 +63,6 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	if(charflaw != flaw_type)
 		return
 	return charflaw
-
-/datum/charflaw/proc/on_mob_creation(mob/user)
-	return
 
 /datum/charflaw/proc/flaw_on_life(mob/user)
 	return
@@ -52,6 +75,18 @@ GLOBAL_LIST_INIT(character_flaws, list(
 		return
 	if(istype(charflaw, flaw))
 		return TRUE
+
+/// Replaces mob's flaw with a random one excluding no flaw
+/mob/proc/get_random_flaw()
+	return
+
+/mob/living/carbon/human/get_random_flaw()
+	var/list/flaws = GLOB.character_flaws.Copy() - list(/datum/charflaw/randflaw, /datum/charflaw/noflaw)
+	var/new_charflaw = pick_n_take(flaws)
+	new_charflaw = GLOB.character_flaws[new_charflaw]
+	if(charflaw)
+		QDEL_NULL(charflaw)
+	charflaw = new new_charflaw(src)
 
 /datum/charflaw/randflaw
 	name = "Random Flaw"
@@ -66,21 +101,9 @@ GLOBAL_LIST_INIT(character_flaws, list(
 		if(H.ckey)
 			nochekk = FALSE
 			if(prob(50))
-				var/flawz = GLOB.character_flaws.Copy()
-				var/charflaw = pick_n_take(flawz)
-				charflaw = GLOB.character_flaws[charflaw]
-				if((charflaw == type) || (charflaw == /datum/charflaw/noflaw))
-					charflaw = pick_n_take(flawz)
-					charflaw = GLOB.character_flaws[charflaw]
-				if((charflaw == type) || (charflaw == /datum/charflaw/noflaw))
-					charflaw = pick_n_take(flawz)
-					charflaw = GLOB.character_flaws[charflaw]
-				H.charflaw = new charflaw()
-				H.charflaw.on_mob_creation(H)
+				H.get_random_flaw()
 			else
-				H.charflaw = new /datum/charflaw/eznoflaw()
-				H.charflaw.on_mob_creation(H)
-
+				H.charflaw = new /datum/charflaw/eznoflaw(H)
 
 /datum/charflaw/eznoflaw
 	name = "No Flaw"
@@ -108,8 +131,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 				if((charflaw == type) || (charflaw == /datum/charflaw/randflaw))
 					charflaw = pick_n_take(flawz)
 					charflaw = GLOB.character_flaws[charflaw]
-				H.charflaw = new charflaw()
-				H.charflaw.on_mob_creation(H)
+				H.charflaw = new charflaw(H)
 			else
 				nochekk = FALSE
 				H.adjust_triumphs(-3)
@@ -118,11 +140,11 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	name = "Bad Eyesight"
 	desc = "I need spectacles to see normally from my years spent reading books."
 
-/datum/charflaw/badsight/on_mob_creation(mob/user)
+/datum/charflaw/badsight/after_spawn(mob/user)
 	. = ..()
 	var/mob/living/carbon/human/H = user
 	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 
 /datum/charflaw/badsight/flaw_on_life(mob/user)
 	if(!ishuman(user))
@@ -305,7 +327,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	desc = "I was too annoying. (Being mute is not an excuse to forego roleplay. Use of custom emotes is recommended.)"
 
 /datum/charflaw/tongueless/on_mob_creation(mob/user)
-	..()
+	. = ..()
 	if(!ishuman(user))
 		return
 	var/mob/living/carbon/human/H = user
@@ -527,3 +549,20 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	for(var/atom/movable/content in movable.contents)
 		mammons += get_mammons_in_atom(content)
 	return mammons
+
+/datum/charflaw/pacifist
+	name = "Pacifist"
+	desc = "I don't want to harm other living beings!"
+
+/datum/charflaw/pacifist/after_spawn(mob/user, force = FALSE)
+	var/mob/living/carbon/human/human_user = user
+	if(!force && ((human_user.mind in GLOB.pre_setup_antags) || human_user.mind.has_antag_datum(/datum/antagonist)))
+		human_user.get_random_flaw()
+		human_user?.charflaw.after_spawn(human_user)
+	else
+		. = ..()
+		ADD_TRAIT(user, TRAIT_PACIFISM, "[type]")
+
+/datum/charflaw/pacifist/on_remove()
+	. = ..()
+	REMOVE_TRAIT(owner, TRAIT_PACIFISM, "[type]")

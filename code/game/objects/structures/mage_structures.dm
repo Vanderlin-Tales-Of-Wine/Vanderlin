@@ -72,16 +72,13 @@ s
 /obj/structure/mineral_door/wood/deadbolt/arcyne
 	desc = "arcyne door"
 	icon_state = "arcyne"
-	base_state = "arcyne"
 	keylock = FALSE
 	max_integrity = 2000
-	over_state = "arcyneopen"
 
 /obj/structure/mineral_door/wood/deadbolt/arcyne/caster
 	var/mob/caster
 
 /obj/structure/mineral_door/wood/deadbolt/arcyne/caster/Initialize(mapload, mob/summoner)
-//	icon_state = base_state
 	. = ..()
 	caster = summoner
 
