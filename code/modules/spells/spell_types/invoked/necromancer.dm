@@ -210,18 +210,10 @@
 	mob_biotypes = MOB_UNDEAD
 	faction = list(FACTION_UNDEAD)
 	ambushable = FALSE
-	underwear = "Nude"
 
-	for(var/obj/item/bodypart/BP in bodyparts)
-		BP.skeletonize()
-
-	var/obj/item/organ/eyes/eyes = getorganslot(ORGAN_SLOT_EYES)
-	if(eyes)
-		eyes.Remove(src,1)
-		QDEL_NULL(eyes)
-
-	eyes = new /obj/item/organ/eyes/night_vision/zombie
-	eyes.Insert(src)
+	skeletonize(FALSE)
+	skele_look()
+	grant_undead_eyes()
 
 	if(charflaw)
 		QDEL_NULL(charflaw)

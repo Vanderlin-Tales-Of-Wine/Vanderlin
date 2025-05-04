@@ -36,7 +36,7 @@
 
 	controller.set_blackboard_key(hiding_location_key, hiding_target)
 
-	basic_mob.face_atom()
+	basic_mob.face_atom(target)
 	var/list/possible_intents = list()
 	for(var/datum/intent/intent as anything in basic_mob.possible_a_intents)
 		if(istype(intent, /datum/intent/unarmed/help) || istype(intent, /datum/intent/unarmed/shove) || istype(intent, /datum/intent/unarmed/grab))

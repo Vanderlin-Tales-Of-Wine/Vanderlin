@@ -44,11 +44,20 @@
 		/obj/item/natural/elementalmote,
 		/obj/item/mana_battery/mana_crystal/standard,
 		/obj/item/mana_battery/mana_crystal/standard,
-		/obj/item/mana_battery/mana_crystal/standard,
 		/obj/item/natural/obsidian,
 		/obj/item/natural/obsidian,
 		/obj/item/natural/obsidian,
 		/obj/item/reagent_containers/food/snacks/produce/manabloom,
+		/obj/item/reagent_containers/food/snacks/produce/manabloom,
+		/obj/item/reagent_containers/food/snacks/produce/manabloom,
+	)
+
+/obj/item/storage/magebag/poor
+	populate_contents = list(
+		/obj/item/mana_battery/mana_crystal/standard,
+		/obj/item/mana_battery/mana_crystal/standard,
+		/obj/item/mana_battery/mana_crystal/small,
+		/obj/item/mana_battery/mana_crystal/small,
 		/obj/item/reagent_containers/food/snacks/produce/manabloom,
 		/obj/item/reagent_containers/food/snacks/produce/manabloom,
 	)
@@ -650,7 +659,6 @@
 	icon = 'icons/roguetown/misc/mana.dmi'
 	icon_state = "soul"
 
-	resistance_flags = INDESTRUCTIBLE
 	plane = PLANE_LEYLINES
 	invisibility = INVISIBILITY_LEYLINES
 	anchored = TRUE
@@ -667,6 +675,7 @@
 	animate(src, pixel_y = 4, time = 1 SECONDS, loop = -1, flags = ANIMATION_RELATIVE)
 	animate(pixel_y = -4, time = 1 SECONDS, flags = ANIMATION_RELATIVE)
 	QDEL_IN(src, 10 MINUTES)
+	. = ..()
 
 /obj/structure/soul/attack_hand(mob/living/user)
 	. = ..()
@@ -679,7 +688,7 @@
 
 	var/failed = FALSE
 	while(!failed)
-		var/mob/living/drained = drainer.resolve()
+		var/mob/living/drained = drainer?.resolve()
 		if(!do_after(user, 3 SECONDS, target = src))
 			qdel(transfer_beam)
 			failed = TRUE

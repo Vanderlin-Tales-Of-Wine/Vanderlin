@@ -18,7 +18,7 @@
 		/datum/ai_planning_subtree/generic_stand,
 		/datum/ai_planning_subtree/flee_target,
 
-		/datum/ai_planning_subtree/simple_find_target,
+		/datum/ai_planning_subtree/simple_find_target/human,
 		/datum/ai_planning_subtree/basic_melee_attack_subtree,
 
 		/datum/ai_planning_subtree/find_weapon,
@@ -46,3 +46,11 @@
 /datum/ai_controller/human_npc/proc/update_movespeed(mob/living/pawn)
 	SIGNAL_HANDLER
 	movement_delay = pawn.cached_multiplicative_slowdown
+
+/datum/ai_controller/human_npc/can_move()
+	. = ..()
+	if(!.)
+		return FALSE
+	var/mob/living/living_pawn = pawn
+	if(living_pawn.pulledby) // to mimick normal human behavior
+		return FALSE

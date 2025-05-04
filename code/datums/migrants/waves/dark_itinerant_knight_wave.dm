@@ -3,6 +3,7 @@
 	greet_text = "You are an evil itinerant Knight, you have embarked alongside your squire on a voyage to engulf chaos within these lands."
 	outfit = /datum/outfit/job/dark_itinerant_knight
 	antag_datum = /datum/antagonist/zizocultist
+	allowed_sexes = list(FEMALE)
 	allowed_races = list("Dark Elf")
 	grant_lit_torch = TRUE
 
@@ -52,7 +53,8 @@
 	greet_text = "You are the squire of an evil knight, they have taken you under their custody as you were the only one who didn't object to their dubious ethics."
 	outfit = /datum/outfit/job/dark_itinerant_squire
 	antag_datum = /datum/antagonist/zizocultist
-	allowed_races = list("tiefling","Half-Orc","Dark Elf")
+	allowed_sexes = list(FEMALE)
+	allowed_races = list("Dark Elf")
 	grant_lit_torch = TRUE
 
 /datum/outfit/job/dark_itinerant_squire/pre_equip(mob/living/carbon/human/H)

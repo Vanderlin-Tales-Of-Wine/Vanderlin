@@ -71,9 +71,6 @@
 	///Economy cost of item in premium vendor
 	var/custom_premium_price
 
-	//List of datums orbiting this atom
-	var/datum/component/orbiter/orbiters
-
 	/// Will move to flags_1 when i can be arsed to (2019, has not done so)
 	var/rad_flags = NONE
 
@@ -104,6 +101,8 @@
  * We also generate a tag here if the DF_USE_TAG flag is set on the atom
  */
 /atom/New(loc, ...)
+	SHOULD_CALL_PARENT(TRUE)
+	. = ..()
 	//atom creation method that preloads variables at creation
 	if(GLOB.use_preloader && (src.type == GLOB._preloader.target_path))//in case the instanciated atom is creating other atoms in New()
 		world.preloader_load(src)
@@ -488,7 +487,7 @@
  * Default behaviour is to send a warning that the user can't move while buckled as long
  * as the buckle_message_cooldown has expired (50 ticks)
  */
-/atom/proc/relaymove(mob/user)
+/atom/proc/relaymove(mob/living/user, direction)
 	if(buckle_message_cooldown <= world.time)
 		buckle_message_cooldown = world.time + 50
 		to_chat(user, "<span class='warning'>I should try resisting.</span>")
@@ -575,8 +574,8 @@
 		return FALSE
 	return add_blood_DNA(blood_dna)
 
-///Called when gravity returns after floating I think
-/atom/proc/handle_fall()
+///Used for making a sound when a mob involuntarily falls into the ground.
+/atom/proc/handle_fall(mob/faller)
 	return
 
 /**
@@ -903,10 +902,6 @@
 /atom/Exited(atom/movable/AM, atom/newLoc)
 	SEND_SIGNAL(src, COMSIG_ATOM_EXITED, AM, newLoc)
 
-///Return atom temperature
-/atom/proc/return_temperature()
-	return
-
 /**
  *Tool behavior procedure. Redirects to tool-specific procs by default.
  *
@@ -1203,3 +1198,38 @@
 /atom/proc/InitializeAIController()
 	if(ai_controller)
 		ai_controller = new ai_controller(src)
+
+/obj/proc/propagate_temp_change(value, weight, falloff = 0.5, max_depth = 3)
+	var/key = REF(src)
+	temperature_affected_turfs = list()
+	_propagate_turf_heat(src, get_turf(src), key, value, weight, falloff, max_depth)
+
+/obj/proc/remove_temp_effect()
+	var/key = REF(src)
+	for(var/turf/T in temperature_affected_turfs)
+		T.remove_turf_temperature(key)
+	temperature_affected_turfs = null
+
+/atom/proc/_propagate_turf_heat(obj/source, turf/start, key, value, weight, falloff, max_depth, depth = 0, seen = null)
+	if(!start || depth > max_depth || (abs(value) < 0.1 && weight < 0.1))
+		return
+	if(!seen)
+		seen = list()
+	if(start in seen)
+		return
+	seen += start
+	start.add_turf_temperature(key, value, weight)
+	if(!source.temperature_affected_turfs)
+		source.temperature_affected_turfs = list()
+	source.temperature_affected_turfs |= start
+
+	var/next_value = value * falloff
+	var/next_weight = weight * falloff
+
+	for(var/dir in GLOB.cardinals)
+		var/turf/adj = get_step(start, dir)
+		if(istype(adj))
+			// Check if there's a wall blocking propagation
+			if(!start.CanAtmosPass(adj))
+				continue
+			_propagate_turf_heat(source, adj, key, next_value, next_weight, falloff, max_depth, depth + 1, seen)

@@ -92,7 +92,7 @@
 //ACTION DATUMS
 
 /datum/action/vehicle
-	check_flags = AB_CHECK_RESTRAINED | AB_CHECK_STUN | AB_CHECK_CONSCIOUS
+	check_flags = AB_CHECK_HANDS_BLOCKED | AB_CHECK_IMMOBILE | AB_CHECK_CONSCIOUS
 	button_icon_state = ""
 	var/obj/vehicle/vehicle_target
 

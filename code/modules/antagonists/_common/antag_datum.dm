@@ -27,6 +27,8 @@ GLOBAL_LIST_EMPTY(antagonists)
 	var/show_name_in_check_antagonists = FALSE //Will append antagonist name in admin listings - use for categories that share more than one antag type
 	var/increase_votepwr = TRUE
 	var/isgoodguy = FALSE // Some "antagonist" datums are granted to not inherently bad guys, this is to differentiate for the sake of bardic buffs.
+	/// Did the owner mob have pacifism as a character flaw
+	var/was_pacifist = FALSE
 
 	///flags used by storytellers
 	var/antag_flags = NONE
@@ -108,6 +110,10 @@ GLOBAL_LIST_EMPTY(antagonists)
 		apply_innate_effects()
 		add_antag_hud(antag_hud_type, antag_hud_name)
 		give_antag_moodies()
+		if(owner.current.has_flaw(/datum/charflaw/pacifist))
+			var/mob/living/carbon/human/human_user = owner.current
+			QDEL_NULL(human_user?.charflaw)
+			was_pacifist = TRUE
 		if(is_banned(owner.current) && replace_banned)
 			replace_banned_player()
 		else if(owner.current.client?.holder && (CONFIG_GET(flag/auto_deadmin_antagonists) || owner.current.client.prefs?.toggles & DEADMIN_ANTAGONIST))
@@ -138,8 +144,13 @@ GLOBAL_LIST_EMPTY(antagonists)
 	remove_antag_hud(antag_hud_type, antag_hud_name)
 	if(owner)
 		LAZYREMOVE(owner.antag_datums, src)
-		if(!silent && owner.current)
-			farewell()
+		if(owner.current)
+			if(was_pacifist)
+				var/mob/living/carbon/human/human_user = owner.current
+				human_user.charflaw = new /datum/charflaw/pacifist(human_user)
+				human_user.charflaw.after_spawn(human_user, TRUE)
+			if(!silent)
+				farewell()
 	var/datum/team/team = get_team()
 	if(team)
 		team.remove_member(owner)

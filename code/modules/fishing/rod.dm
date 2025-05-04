@@ -215,7 +215,7 @@
 		return
 	if(!user.Process_Spacemove(0) && user.inertia_dir)
 		return
-	if(user.IsStun() || user.IsParalyzed())
+	if(HAS_TRAIT(user, TRAIT_INCAPACITATED))
 		return
 	if(user.loc != startingturf)
 		return

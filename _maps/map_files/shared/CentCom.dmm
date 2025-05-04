@@ -1116,7 +1116,7 @@
 	dir = 10;
 	icon_state = "largetable"
 	},
-/obj/item/mortar,
+/obj/item/reagent_containers/glass/mortar,
 /obj/item/pestle,
 /turf/open/floor/tile,
 /area/rogue/indoors/vampire_manor)

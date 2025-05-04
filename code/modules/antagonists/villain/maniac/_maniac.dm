@@ -188,7 +188,7 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 
 		trey_liam.set_hair_color("#999999", FALSE)
 		trey_liam.set_facial_hair_color("#999999", FALSE)
-		trey_liam.set_hair_style(/datum/sprite_accessory/hair/head/thicklong_alt, FALSE)
+		trey_liam.set_hair_style(/datum/sprite_accessory/hair/head/thickcurly, FALSE)
 		trey_liam.set_facial_hair_style(/datum/sprite_accessory/hair/facial/know, FALSE)
 		trey_liam.age = AGE_OLD
 		trey_liam.equipOutfit(/datum/outfit/treyliam)
