@@ -144,9 +144,9 @@
 		return
 	if(user.get_active_held_item() != src)
 		return
-	if(user.incapacitated())
+	if(user.incapacitated(ignore_grab = TRUE))
 		return
-	if((M.mobility_flags & MOBILITY_STAND))
+	if((M.body_position != LYING_DOWN))
 		if(M.checkmiss(user))
 			return
 	if(istype(user.rmb_intent, /datum/rmb_intent/strong))
@@ -186,7 +186,7 @@
 		var/offh = 0
 		var/obj/item/W = M.held_items[1]
 		if(W)
-			if(!(M.mobility_flags & MOBILITY_STAND))
+			if(M.body_position == LYING_DOWN)
 				M.throw_item(get_step(M,turn(M.dir, 90)), offhand = offh)
 			else
 				M.dropItemToGround(W)
@@ -198,7 +198,7 @@
 		var/offh = 0
 		var/obj/item/W = M.held_items[2]
 		if(W)
-			if(!(M.mobility_flags & MOBILITY_STAND))
+			if(M.body_position == LYING_DOWN)
 				M.throw_item(get_step(M,turn(M.dir, 270)), offhand = offh)
 			else
 				M.dropItemToGround(W)
@@ -357,7 +357,7 @@
 			if(!cont)
 				return 0
 		if(DULLING_PICK) //cannot deal damage if not a pick item. aka rock walls
-			if(!(user.mobility_flags & MOBILITY_STAND))
+			if(user.body_position == LYING_DOWN)
 				to_chat(user, span_warning("I need to stand up to get a proper swing."))
 				return 0
 			if(user.used_intent.blade_class != BCLASS_PICK && user.used_intent.blade_class != BCLASS_DRILL)
@@ -387,7 +387,7 @@
 	if(user.used_intent.get_chargetime() && user.client?.chargedprog < 100)
 		newforce = newforce * round(user.client?.chargedprog / 100, 0.1)
 	// newforce = round(newforce, 1)
-	if(!(user.mobility_flags & MOBILITY_STAND))
+	if(user.body_position == LYING_DOWN)
 		newforce *= 0.5
 	if(user.has_status_effect(/datum/status_effect/divine_strike))
 		newforce += 5

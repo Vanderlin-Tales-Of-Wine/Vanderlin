@@ -36,7 +36,7 @@
 					held_item.melee_attack_chain(user, src, params)
 		return
 	if(user == src)
-		if(get_num_arms(FALSE) < 1)
+		if(usable_hands < 1)
 			return
 #endif
 
@@ -588,7 +588,7 @@
 	return (istype(target) && target.stat == CONSCIOUS)
 
 /mob/living/carbon/human/proc/can_be_firemanned(mob/living/carbon/target)
-	return (ishuman(target) && !(target.mobility_flags & MOBILITY_STAND))
+	return (ishuman(target) && target.body_position == LYING_DOWN)
 
 /mob/living/carbon/human/proc/fireman_carry(mob/living/carbon/target)
 	var/carrydelay = 5 SECONDS //if you have latex you are faster at grabbing

@@ -242,8 +242,18 @@
 	if(!(type in actors_list_blacklist)) //don't show these.
 		GLOB.actors_list[spawned.mobid] = "[spawned.real_name] as [spawned.mind.assigned_role.get_informed_title(spawned)]<BR>"
 
+	var/mob/living/carbon/human/humanguy = spawned
+
+	var/datum/job/target_job = humanguy?.mind?.assigned_role
+	if(target_job?.forced_flaw)
+		if(humanguy.charflaw)
+			QDEL_NULL(humanguy.charflaw)
+		humanguy.charflaw = new target_job.forced_flaw.type(humanguy)
+
+	if(humanguy.charflaw)
+		humanguy.charflaw.after_spawn(humanguy)
+
 	if(length(advclass_cat_rolls))
-		var/mob/living/carbon/human/humanguy = spawned
 		humanguy.advsetup = TRUE
 		humanguy.invisibility = INVISIBILITY_MAXIMUM
 		humanguy.become_blind("advsetup")

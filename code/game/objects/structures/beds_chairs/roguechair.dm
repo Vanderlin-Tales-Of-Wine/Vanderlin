@@ -165,7 +165,7 @@
 /obj/structure/chair/wood/alt/CanPass(atom/movable/mover, turf/target)
 	if(isliving(mover))
 		var/mob/living/M = mover
-		if((M.mobility_flags & MOBILITY_STAND))
+		if((M.body_position != LYING_DOWN))
 			if(isturf(loc))
 				var/movefrom = get_dir(M.loc, loc)
 				if(movefrom == dir && item_chair != null)
@@ -192,7 +192,7 @@
 /obj/structure/chair/wood/alt/CheckExit(atom/movable/O, turf/target)
 	if(isliving(O))
 		var/mob/living/M = O
-		if((M.mobility_flags & MOBILITY_STAND))
+		if((M.body_position != LYING_DOWN))
 			if(isturf(loc))
 				var/movefrom = get_dir(M.loc, target)
 				if(movefrom == turn(dir, 180) && item_chair != null)
