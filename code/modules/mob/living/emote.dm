@@ -646,7 +646,7 @@
 		// anti pedophile logging
 		var/log_msg
 		if(E.age == AGE_CHILD)
-			log_msg = "[H][ADMIN_FLW(H)] kissed [E] [ADMIN_FLW(E)], a CHILD!"
+			log_msg = "[key_name(H)][ADMIN_FLW(H)] kissed [key_name(E)] [ADMIN_FLW(E)], a CHILD!"
 			if(H.age == AGE_CHILD)
 				log_msg += " As a child."
 			else
@@ -952,7 +952,7 @@
 		// anti pedophile logging
 			var/log_msg
 			if(E.age == AGE_CHILD)
-				log_msg = "[H][ADMIN_FLW(H)] slapped [E][ADMIN_FLW(E)] on the ass, a CHILD!"
+				log_msg = "[key_name(H)][ADMIN_FLW(H)] slapped [key_name(E)][ADMIN_FLW(E)] on the ass, a CHILD!"
 				if(H.age == AGE_CHILD)
 					log_msg += " As a child."
 				else
