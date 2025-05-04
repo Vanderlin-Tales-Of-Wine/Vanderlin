@@ -29,7 +29,7 @@
 
 /obj/item/weapon/polearm/Initialize()
 	. = ..()
-	AddElement(/datum/element/walking_stick)
+	AddComponent(/datum/component/walking_stick)
 
 /obj/item/weapon/polearm/getonmobprop(tag)
 	. = ..()
@@ -441,7 +441,7 @@
 
 /obj/item/weapon/sickle/scythe/Initialize()
 	. = ..()
-	AddElement(/datum/element/walking_stick)
+	AddComponent(/datum/component/walking_stick)
 
 /obj/item/weapon/polearm/spear/bonespear
 	force = 18

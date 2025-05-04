@@ -130,7 +130,7 @@
 	hook = new /obj/item/fishing/hook/abytrident(src)
 	line = new /obj/item/fishing/line/no_line(src)
 	baited = new /obj/item/fishing/bait/no_bait(src)
-	AddElement(/datum/element/walking_stick)
+	AddComponent(/datum/component/walking_stick)
 
 /obj/item/fishingrod/abyssor_trident/examine(mob/user)
 	. = ..()

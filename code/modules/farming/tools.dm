@@ -239,7 +239,7 @@
 
 /obj/item/weapon/hoe/Initialize()
 	. = ..()
-	AddElement(/datum/element/walking_stick)
+	AddComponent(/datum/component/walking_stick)
 
 /obj/item/weapon/hoe/getonmobprop(tag)
 	. = ..()
@@ -370,7 +370,7 @@
 
 /obj/item/weapon/pitchfork/Initialize()
 	. = ..()
-	AddElement(/datum/element/walking_stick)
+	AddComponent(/datum/component/walking_stick)
 
 /obj/item/weapon/pitchfork/getonmobprop(tag)
 	. = ..()
