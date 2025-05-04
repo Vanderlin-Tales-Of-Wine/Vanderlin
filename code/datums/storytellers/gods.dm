@@ -3,14 +3,15 @@
 	desc = "Astrata will provide a balanced and varied experience. Consider this the default experience."
 	weight = 6
 	always_votable = TRUE
+	follower_modifier = ASTRATA_FOLLOWER_MODIFIER
 	color_theme = "#FFD700"
 
 	influence_factors = list(
-		STATS_LAWS_AND_DECREES_MADE = list("points" = 2.5,"capacity" = 40),
-		STATS_ALIVE_NOBLES = list("points" = 4,"capacity" = 80),
-		STATS_NOBLE_DEATHS = list("points" = -6.25,"capacity" = -80),
-		STATS_ASTRATA_REVIVALS = list("points" = 5, "capacity" = 70),
-		STATS_TAXES_COLLECTED = list("points" = 0.175,"capacity" = 85),
+		STATS_LAWS_AND_DECREES_MADE = list("points" = 3,"capacity" = 40),
+		STATS_ALIVE_NOBLES = list("points" = 4.5,"capacity" = 85),
+		STATS_NOBLE_DEATHS = list("points" = -6,"capacity" = -85),
+		STATS_ASTRATA_REVIVALS = list("points" = 6, "capacity" = 75),
+		STATS_TAXES_COLLECTED = list("points" = 0.175,"capacity" = 90),
 	)
 
 /datum/storyteller/noc
@@ -29,10 +30,10 @@
 
 	influence_factors = list(
 		STATS_BOOKS_PRINTED = list("points" = 4, "capacity" = 40),
-		STATS_LITERACY_TAUGHT = list("points" = 15, "capacity" = 90),
-		STATS_ILLITERATES = list("points" = -3, "capacity" = -60),
+		STATS_LITERACY_TAUGHT = list("points" = 15, "capacity" = 80),
+		STATS_ILLITERATES = list("points" = -2.5, "capacity" = -50),
 		STATS_SKILLS_DREAMED = list("points" = 0.325, "capacity" = 100),
-		STATS_MANA_SPENT = list("points" = 0.0145, "capacity" = 100),
+		STATS_MANA_SPENT = list("points" = 0.015, "capacity" = 100),
 	)
 
 /datum/storyteller/ravox
@@ -57,7 +58,7 @@
 	)
 
 	influence_factors = list(
-		STATS_COMBAT_SKILLS = list("points" = 1.75, "capacity" = 100),
+		STATS_COMBAT_SKILLS = list("points" = 2, "capacity" = 100),
 		STATS_PARRIES = list("points" = 0.05, "capacity" = 100),
 		STATS_WARCRIES = list("points" = 0.375, "capacity" = 50),
 		STATS_YIELDS = list("points" = -5, "capacity" = -40),
@@ -105,10 +106,10 @@
 	)
 
 	influence_factors = list(
-		STATS_LAUGHS_MADE = list("points" = 0.26, "capacity" = 85),
+		STATS_LAUGHS_MADE = list("points" = 0.25, "capacity" = 85),
 		STATS_GAMES_RIGGED = list("points" = 3.5, "capacity" = 35),
 		STATS_PEOPLE_MOCKED = list("points" = 5, "capacity" = 60),
-		STATS_CRITS_MADE = list("points" = 0.285, "capacity" = 90),
+		STATS_CRITS_MADE = list("points" = 0.28, "capacity" = 90),
 		STATS_SONGS_PLAYED = list("points" = 0.7, "capacity" = 70),
 	)
 
@@ -134,11 +135,11 @@
 	)
 
 	influence_factors = list(
-		STATS_DEATHS = list("points" = 1.525, "capacity" = 120),
+		STATS_DEATHS = list("points" = 1.5, "capacity" = 110),
 		STATS_GRAVES_CONSECRATED = list("points" = 7, "capacity" = 100),
 		STATS_GRAVES_ROBBED = list("points" = -4, "capacity" = -50),
-		STATS_DEADITES_KILLED = list("points" = 6.5, "capacity" = 100),
-		STATS_VAMPIRES_KILLED = list("points" = 15, "capacity" = 70),
+		STATS_DEADITES_KILLED = list("points" = 6.25, "capacity" = 90),
+		STATS_VAMPIRES_KILLED = list("points" = 12.5, "capacity" = 70),
 	)
 
 /datum/storyteller/pestra
@@ -213,7 +214,7 @@
 		STATS_MARRIAGES = list("points" = 25, "capacity" = 75),
 		STATS_HUGS_MADE = list("points" = 2, "capacity" = 60),
 		STATS_CLINGY_PEOPLE = list("points" = 6, "capacity" = 75),
-		STATS_PACIFISTS = list("points" = 10, "capacity" = 70),
+		STATS_PACIFISTS = list("points" = 12, "capacity" = 70),
 	)
 
 /datum/storyteller/dendor
@@ -240,9 +241,9 @@
 	influence_factors = list(
 		STATS_TREES_CUT = list("points" = -0.35, "capacity" = -60),
 		STATS_PLANTS_HARVESTED = list("points" = 0.75, "capacity" = 140),
-		STATS_WEREVOLVES = list("points" = 15, "capacity" = 90),
-		STATS_DENDOR_SACRIFICES = list("points" = 15, "capacity" = 90),
-		STATS_FOREST_DEATHS = list("points" = 6.25, "capacity" = 90),
+		STATS_WEREVOLVES = list("points" = 15, "capacity" = 80),
+		STATS_DENDOR_SACRIFICES = list("points" = 15, "capacity" = 80),
+		STATS_FOREST_DEATHS = list("points" = 6.25, "capacity" = 100),
 	)
 
 // INHUMEN
@@ -273,9 +274,9 @@
 
 	influence_factors = list(
 		STATS_ZIZO_PRAISED = list("points" = 1.5, "capacity" = 40),
-		STATS_NOBLE_DEATHS = list("points" = 6.25, "capacity" = 85),
-		STATS_DEADITES_WOKEN_UP = list("points" = 3, "capacity" = 85),
-		STATS_CLERGY_DEATHS = list("points" = 10.5, "capacity" = 85),
+		STATS_NOBLE_DEATHS = list("points" = 6, "capacity" = 80),
+		STATS_DEADITES_WOKEN_UP = list("points" = 3, "capacity" = 90),
+		STATS_CLERGY_DEATHS = list("points" = 10, "capacity" = 80),
 		STATS_TORTURES = list("points" = 4, "capacity" = 70),
 	)
 
