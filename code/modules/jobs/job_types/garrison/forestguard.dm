@@ -124,12 +124,13 @@
 		H.change_stat(STATKEY_PER, 2)
 		H.change_stat(STATKEY_SPD, 3)
 		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_FORAGER, TRAIT_GENERIC)
 
-// Hand to Hand
+// Berserker
 /datum/advclass/forestguard/brawler
-	name = "Forest Brawler"
-	tutorial = "In the goblin wars you took an oath to never wield a weapon, you just enjoy getting your hands dirty too much..."
+	name = "Forest Reaver"
+	tutorial = "In the goblin wars you took an oath to never hold a shield, you just enjoy having a weapon in both hands..."
 	outfit = /datum/outfit/job/forestguard/brawler
 	category_tags = list(CTAG_FORGARRISON)
 
@@ -143,7 +144,7 @@
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
@@ -151,14 +152,13 @@
 		H.mind?.adjust_skillrank(/datum/skill/craft/carpentry, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/tanning, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 1, TRUE)
-		H.change_stat(STATKEY_STR, 3)
+		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 4, TRUE)
+		H.change_stat(STATKEY_STR, 2)
 		H.change_stat(STATKEY_CON, 2)
-		H.change_stat(STATKEY_END, 2)
-		H.change_stat(STATKEY_SPD, -2)
+		H.change_stat(STATKEY_END, 3)
 		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_FORAGER, TRAIT_GENERIC)
