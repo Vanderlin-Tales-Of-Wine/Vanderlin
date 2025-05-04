@@ -402,7 +402,7 @@
 	name = "Taraxacum-Mentha tea"
 	cooking_time = 60 SECONDS
 	water_conversion = 0.6
-	produced_reagent = /datum/reagent/consumable/newtea/taraxamint
+	produced_reagent = /datum/reagent/consumable/tea/taraxamint
 	required_items = list(/obj/item/alch/taraxacum = 1, /obj/item/alch/mentha = 1)
 	finished_smell = /datum/pollutant/food/teas
 	pollute_amount = 100
@@ -411,7 +411,7 @@
 	name = "Urtica-Salvia tea"
 	cooking_time = 60 SECONDS
 	water_conversion = 0.6
-	produced_reagent = /datum/reagent/consumable/newtea/utricasalvia
+	produced_reagent = /datum/reagent/consumable/tea/utricasalvia
 	required_items = list(/obj/item/alch/urtica = 1, /obj/item/alch/salvia = 1)
 	finished_smell = /datum/pollutant/food/teas
 	pollute_amount = 100
@@ -420,7 +420,7 @@
 	name = "westleach tar tea"
 	cooking_time = 40 SECONDS
 	water_conversion = 0.2
-	produced_reagent = /datum/reagent/consumable/newtea/badidea
+	produced_reagent = /datum/reagent/consumable/tea/badidea
 	required_items = list(/obj/item/reagent_containers/food/snacks/produce/dry_westleach = 3)
 	finished_smell = /datum/pollutant/food/fried_rat
 	pollute_amount = 100
@@ -429,7 +429,7 @@
 	name = "swampweed brew"
 	cooking_time = 40 SECONDS
 	water_conversion = 0.6
-	produced_reagent = /datum/reagent/consumable/newtea/fourtwenty
+	produced_reagent = /datum/reagent/consumable/tea/fourtwenty
 	required_items = list(/obj/item/reagent_containers/food/snacks/produce/swampweed_dried = 2)
 	finished_smell = /datum/pollutant/food/druqks
 	pollute_amount = 100
@@ -438,7 +438,7 @@
 	name = "Manabloom tea"
 	cooking_time = 40 SECONDS
 	water_conversion = 0.6
-	produced_reagent = /datum/reagent/consumable/newtea/manabloom
+	produced_reagent = /datum/reagent/consumable/tea/manabloom
 	required_items = list(/obj/item/reagent_containers/food/snacks/produce/manabloom = 2) // weak, unrefined, crude manabloom extraction
 	finished_smell = /datum/pollutant/food/druqks
 	pollute_amount = 100
@@ -447,7 +447,7 @@
 	name = "Compot"
 	cooking_time = 90 SECONDS
 	water_conversion = 0.8
-	produced_reagent = /datum/reagent/consumable/newtea/compot
+	produced_reagent = /datum/reagent/consumable/tea/compot
 	required_items = list(/obj/item/reagent_containers/food/snacks/raisins = 2) // weak, unrefined, crude manabloom extraction
 	finished_smell = /datum/pollutant/food/druqks
 	pollute_amount = 100
