@@ -41,7 +41,7 @@
 
 /obj/item/storage/keyring/update_icon()
 	. = ..()
-	switch(length(src.contents))
+	switch(length(contents))
 		if(0)
 			icon_state = "keyring0"
 		if(1)
@@ -64,20 +64,23 @@
 		desc += span_info("\n- [KE.name ? "\A [KE.name]." : "An unknown key."]")
 
 /obj/item/storage/keyring/proc/refresh_keys()
-	LAZYCLEARLIST(src.combined_access)
+	LAZYCLEARLIST(combined_access)
 
-	if(!length(src.contents))
+	if(!length(contents))
 		return
 
-	for(var/obj/item/key/K in src.contents)
+	LAZYINITLIST(combined_access)
+
+	for(var/obj/item/key/K in contents)
 		if(!length(K.lockids))
 			continue
-		src.combined_access |= K.get_access()
+
+		combined_access |= K.get_access()
 
 /obj/item/storage/keyring/get_access()
-	if(LAZYLEN(src.combined_access))
-		return src.combined_access
-	return ..()
+	if(LAZYLEN(combined_access))
+		return combined_access
+	return null
 
 /obj/item/storage/keyring/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	. = ..()
