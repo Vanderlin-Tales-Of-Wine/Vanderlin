@@ -174,7 +174,7 @@
 		L.start_pulling(pulling, supress_message = TRUE)
 		if(was_pulled_buckled)
 			var/mob/living/M = pulling
-			if(M.mobility_flags & MOBILITY_STAND)	// piggyback carry
+			if(M.body_position != LYING_DOWN)	// piggyback carry
 				L.buckle_mob(pulling, TRUE, TRUE, FALSE, 0, 0)
 			else				// fireman carry
 				L.buckle_mob(pulling, TRUE, TRUE, 90, 0, 0)

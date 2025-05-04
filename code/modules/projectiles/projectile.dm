@@ -567,7 +567,7 @@
 			//If they're unconscious or dead they shouldn't be getting hit by indirect fire
 			if((CHECK_BITFIELD(L.mobility_flags, MOBILITY_USE | MOBILITY_STAND | MOBILITY_MOVE) && L.stat == CONSCIOUS) || L.stat >= UNCONSCIOUS)
 				return FALSE
-			if(L.lying)
+			if(L.body_position == LYING_DOWN)
 				return FALSE
 	return TRUE
 

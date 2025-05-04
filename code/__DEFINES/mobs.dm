@@ -458,6 +458,19 @@
 #define SKIN_COLOR_DESERT "9c6f52" //Middle-east
 #define SKIN_COLOR_CRIMSONLANDS "4e3729" //Black
 
+#define SKIN_COLOR_GRENZELHOFT "fff0e9"
+#define SKIN_COLOR_HAMMERHOLD "ffe0d1"
+#define SKIN_COLOR_AVAR "fcccb3"
+#define SKIN_COLOR_ROCKHILL "edc6b3"
+#define SKIN_COLOR_OTAVA "e2b9a3"
+#define SKIN_COLOR_ETRUSCA "d9a284"
+#define SKIN_COLOR_GRONN "c9a893"
+#define SKIN_COLOR_GIZA "ba9882"
+#define SKIN_COLOR_SHALVISTINE "ac8369"
+#define SKIN_COLOR_LALVESTINE "9c6f52"
+#define SKIN_COLOR_NALEDI "4e3729"
+#define SKIN_COLOR_KAZENGUN "dbcca9"
+
 //AASIMAR SKIN TONES
 #define SKIN_COLOR_PLANETAR "474a4c" //Grey
 #define SKIN_COLOR_DEVA "b6f1f2" //Sky blue
@@ -508,3 +521,15 @@
 
 /// Humans are slowed by the difference between bodytemp and BODYTEMP_COLD_DAMAGE_LIMIT divided by this
 #define COLD_SLOWDOWN_FACTOR				20
+
+/// Possible value of [/atom/movable/buckle_lying]. If set to a different (positive-or-zero) value than this, the buckling thing will force a lying angle on the buckled.
+#define NO_BUCKLE_LYING -1
+
+/// Simple mob trait, indicating it may follow continuous move actions controlled by code instead of by user input.
+#define MOVES_ON_ITS_OWN (1<<0)
+
+// Body position defines.
+/// Mob is standing up, usually associated with lying_angle value of 0.
+#define STANDING_UP 0
+/// Mob is lying down, usually associated with lying_angle values of 90 or 270.
+#define LYING_DOWN 1

@@ -765,7 +765,7 @@
 /turf/open/floor/metal/barograte,
 /area/rogue/indoors)
 "rU" = (
-/obj/item/mortar,
+/obj/item/reagent_containers/glass/mortar,
 /turf/open/floor/metal/barograte,
 /area/rogue/indoors)
 "rW" = (

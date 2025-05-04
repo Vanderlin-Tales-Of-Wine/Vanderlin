@@ -42,24 +42,9 @@ SUBSYSTEM_DEF(nightshift)
 	priority_announce(message, sound='sound/misc/bell.ogg', sender_override="Automated Lighting System Announcement")
 
 /datum/controller/subsystem/nightshift/proc/check_nightshift()
-//	var/emergency = GLOB.security_level >= SEC_LEVEL_RED
-//	var/announcing = FALSE
-//	var/time = station_time()
-/*	var/night_time = (time < nightshift_day_start) || (time > nightshift_dusk_start) || (settod() in list("night", "dawn", "dusk"))
-	if(high_security_mode != emergency)
-		high_security_mode = emergency
-		if(night_time)
-			announcing = FALSE
-			if(!emergency)
-				announce("Restoring night lighting configuration to normal operation.")
-			else
-				announce("Disabling night lighting: Station is in a state of emergency.")
-	if(emergency)
-		night_time = FALSE
-	if(nightshift_active != night_time)
-		update_nightshift(night_time, announcing)*/
 	var/curtod = settod()
 	if(current_tod != curtod)
+		SSParticleWeather.selected_forecast.set_ambient_temperature(curtod)
 		testing("curtod [curtod] current_tod [current_tod] globtod [GLOB.tod]")
 		current_tod = GLOB.tod
 		update_nightshift()

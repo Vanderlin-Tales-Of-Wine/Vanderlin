@@ -18,7 +18,7 @@
 	)
 	output = /obj/item/soap
 	starting_atom = /obj/item/pestle
-	attacked_atom = /obj/item/mortar
+	attacked_atom = /obj/item/reagent_containers/glass/mortar
 	tool_use_time = 4 SECONDS
 	craft_time = 6 SECONDS
 

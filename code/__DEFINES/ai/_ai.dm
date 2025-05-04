@@ -5,9 +5,9 @@
 #define AI_STATUS_IDLE      "ai_idle"
 
 ///Carbon checks
-#define SHOULD_RESIST(source) (source.on_fire || source.buckled  || (source.pulledby && source.pulledby.grab_state > GRAB_PASSIVE))
+#define SHOULD_RESIST(source) (source.on_fire || source.buckled || HAS_TRAIT(source, TRAIT_RESTRAINED) || (source.pulledby && (source.pulledby != source) && source.pulledby.grab_state > GRAB_PASSIVE))
 #define SHOULD_STAND(source) (source.resting)
-#define IS_DEAD_OR_INCAP(source) (source.incapacitated() || source.stat)
+#define IS_DEAD_OR_INCAP(source) (source.incapacitated(ignore_grab = TRUE) || source.stat)
 
 
 // How far should we, by default, be looking for interesting things to de-idle?
@@ -117,3 +117,4 @@ F
 #define BB_ONLY_FISH_WHILE_HUNGRY "BB_only_fish_while_hungry"
 
 #define BB_RESISTING "BB_resisting"
+#define BB_FUTURE_MOVEMENT_PATH "BB_future_path"

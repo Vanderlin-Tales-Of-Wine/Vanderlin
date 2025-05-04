@@ -469,7 +469,7 @@
 /area/rogue/under/cavelava)
 "IH" = (
 /obj/structure/rack/shelf/biggest,
-/obj/item/mortar,
+/obj/item/reagent_containers/glass/mortar,
 /obj/item/pestle,
 /turf/open/floor/hexstone,
 /area/rogue/under/cavelava)

@@ -110,7 +110,6 @@
 	max_integrity = INTEGRITY_WORST/2 // not meant for long-term combat
 	minstr = 7
 	dropshrink = 0.9
-	walking_stick = TRUE
 	thrown_bclass = BCLASS_STAB
 
 	throw_speed = 3
@@ -131,6 +130,7 @@
 	hook = new /obj/item/fishing/hook/abytrident(src)
 	line = new /obj/item/fishing/line/no_line(src)
 	baited = new /obj/item/fishing/bait/no_bait(src)
+	AddElement(/datum/element/walking_stick)
 
 /obj/item/fishingrod/abyssor_trident/examine(mob/user)
 	. = ..()

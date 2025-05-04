@@ -180,7 +180,7 @@
 
 	starting_atom = /obj/item/weapon/knife
 	attacked_atom = /obj/item/natural/stone
-	output = /obj/item/mortar
+	output = /obj/item/reagent_containers/glass/mortar
 	craftdiff = 0
 	skillcraft = /datum/skill/craft/masonry
 	subtypes_allowed = TRUE

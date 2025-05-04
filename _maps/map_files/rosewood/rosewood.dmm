@@ -12641,7 +12641,7 @@
 /area/rogue/indoors/town/church/inquisition)
 "gVP" = (
 /obj/structure/rack/shelf/biggest,
-/obj/item/mortar,
+/obj/item/reagent_containers/glass/mortar,
 /obj/item/pestle,
 /obj/item/flint,
 /turf/open/floor/twig,
@@ -22862,7 +22862,7 @@
 	dir = 10;
 	icon_state = "largetable"
 	},
-/obj/item/mortar{
+/obj/item/reagent_containers/glass/mortar{
 	pixel_y = 5
 	},
 /obj/item/pestle{

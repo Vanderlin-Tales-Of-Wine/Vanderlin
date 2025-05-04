@@ -25,7 +25,7 @@
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
 	},
-/obj/item/mortar,
+/obj/item/reagent_containers/glass/mortar,
 /obj/item/pestle,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
