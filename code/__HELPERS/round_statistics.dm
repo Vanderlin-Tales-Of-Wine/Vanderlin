@@ -366,7 +366,8 @@ GLOBAL_LIST_INIT(featured_stats, list(
 	var/list/result = list()
 	for(var/i in 1 to min(10, entries.len))
 		var/list/entry = entries[i]
-		result += "[i]. [entry["name"]] - [entry["count"]]"
+		var/rounded_count = round(entry["count"])
+		result += "[i]. [entry["name"]] - [rounded_count]"
 
 	return result.Join("<br>")
 

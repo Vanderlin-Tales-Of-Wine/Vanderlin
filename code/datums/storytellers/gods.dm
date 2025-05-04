@@ -238,7 +238,7 @@
 	)
 
 	influence_factors = list(
-		STATS_TREES_CUT = list("points" = -0.25, "capacity" = -60),
+		STATS_TREES_CUT = list("points" = -0.35, "capacity" = -60),
 		STATS_PLANTS_HARVESTED = list("points" = 0.75, "capacity" = 140),
 		STATS_WEREVOLVES = list("points" = 15, "capacity" = 90),
 		STATS_DENDOR_SACRIFICES = list("points" = 15, "capacity" = 90),
