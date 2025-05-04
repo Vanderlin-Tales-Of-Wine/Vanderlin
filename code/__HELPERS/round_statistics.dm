@@ -9,6 +9,8 @@
 #define STATS_ALIVE_RAKSHARI "alive_rakshari"
 #define STATS_ALIVE_AASIMAR "alive_aasimar"
 #define STATS_ALIVE_TIEFLINGS "alive_tieflings"
+#define STATS_ALIVE_HOLLOWKINS "alive_hollowkins"
+#define STATS_ALIVE_HARPIES "alive_harpies"
 #define STATS_VAMPIRES "vampires"
 
 #define STATS_ALIVE_GARRISON "alive_garrison"
@@ -221,6 +223,8 @@ GLOBAL_LIST_INIT(vanderlin_round_stats, list(
 	STATS_ALIVE_RAKSHARI = 0,
 	STATS_ALIVE_AASIMAR = 0,
 	STATS_ALIVE_TIEFLINGS = 0,
+	STATS_ALIVE_HOLLOWKINS = 0,
+	STATS_ALIVE_HARPIES = 0,
 	STATS_PEOPLE_DROWNED = 0,
 	STATS_MANA_SPENT = 0,
 	STATS_WATER_CONSUMED  = 0,

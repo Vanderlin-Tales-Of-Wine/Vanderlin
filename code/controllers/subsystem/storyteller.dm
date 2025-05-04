@@ -1305,6 +1305,7 @@ SUBSYSTEM_DEF(gamemode)
 	GLOB.vanderlin_round_stats[STATS_WEREVOLVES] = 0
 	GLOB.vanderlin_round_stats[STATS_VAMPIRES] = 0
 	GLOB.vanderlin_round_stats[STATS_DEADITES_ALIVE] = 0
+
 	GLOB.vanderlin_round_stats[STATS_CLINGY_PEOPLE] = 0
 	GLOB.vanderlin_round_stats[STATS_ALCOHOLICS] = 0
 	GLOB.vanderlin_round_stats[STATS_JUNKIES] = 0
@@ -1313,9 +1314,11 @@ SUBSYSTEM_DEF(gamemode)
 	GLOB.vanderlin_round_stats[STATS_PARENTS] = 0
 	GLOB.vanderlin_round_stats[STATS_PACIFISTS] = 0
 	GLOB.vanderlin_round_stats[STATS_MARRIED] = 0
+
 	GLOB.vanderlin_round_stats[STATS_MALE_POPULATION] = 0
 	GLOB.vanderlin_round_stats[STATS_FEMALE_POPULATION] = 0
 	GLOB.vanderlin_round_stats[STATS_OTHER_GENDER] = 0
+
 	GLOB.vanderlin_round_stats[STATS_CHILD_POPULATION] = 0
 	GLOB.vanderlin_round_stats[STATS_ADULT_POPULATION] = 0
 	GLOB.vanderlin_round_stats[STATS_MIDDLEAGED_POPULATION] = 0
@@ -1333,6 +1336,8 @@ SUBSYSTEM_DEF(gamemode)
 	GLOB.vanderlin_round_stats[STATS_ALIVE_KOBOLDS] = 0
 	GLOB.vanderlin_round_stats[STATS_ALIVE_RAKSHARI] = 0
 	GLOB.vanderlin_round_stats[STATS_ALIVE_AASIMAR] = 0
+	GLOB.vanderlin_round_stats[STATS_ALIVE_HOLLOWKINS] = 0
+	GLOB.vanderlin_round_stats[STATS_ALIVE_HARPIES] = 0
 
 	for(var/client/client in GLOB.clients)
 		if(roundstart)
@@ -1430,6 +1435,10 @@ SUBSYSTEM_DEF(gamemode)
 				GLOB.vanderlin_round_stats[STATS_ALIVE_RAKSHARI]++
 			if(isaasimar(human_mob))
 				GLOB.vanderlin_round_stats[STATS_ALIVE_AASIMAR]++
+			if(ishollowkin(human_mob))
+				GLOB.vanderlin_round_stats[STATS_ALIVE_HOLLOWKINS]++
+			if(isharpy(human_mob))
+				GLOB.vanderlin_round_stats[STATS_ALIVE_HARPIES]++
 
 /// Returns follower modifier for the given storyteller
 /datum/controller/subsystem/gamemode/proc/get_storyteller_follower_modifier(datum/storyteller/chosen_storyteller)
