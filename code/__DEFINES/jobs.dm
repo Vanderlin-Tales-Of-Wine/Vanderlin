@@ -185,6 +185,7 @@
 #define SQUIRE		(1<<1)
 #define SERVANT		(1<<2)
 #define PRINCE		(1<<3)
+#define PAGE		(1<<4)
 
 #define YOUNGFOLK           (1<<6)
 
