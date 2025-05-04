@@ -231,10 +231,6 @@ GLOBAL_VAR_INIT(mobids, 1)
 /mob/proc/get_item_by_slot(slot_id)
 	return null
 
-///Is the mob restrained
-/mob/proc/restrained(ignore_grab = TRUE)
-	return
-
 ///Is the mob incapacitated
 /mob/proc/incapacitated(ignore_restraints = FALSE, ignore_grab = TRUE)
 	return
@@ -528,7 +524,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 	set hidden = 1
 	set src = usr
 
-	if(incapacitated())
+	if(incapacitated(ignore_grab = TRUE))
 		return
 
 	var/obj/item/I = get_active_held_item()
@@ -815,7 +811,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 		return FALSE
 	if(notransform)
 		return FALSE
-	if(restrained())
+	if(HAS_TRAIT(src, TRAIT_RESTRAINED))
 		return FALSE
 	if( buckled || stat != CONSCIOUS)
 		return FALSE
@@ -823,7 +819,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 
 ///Checks mobility move as well as parent checks
 /mob/living/canface()
-	if(!(mobility_flags & MOBILITY_MOVE))
+	if(HAS_TRAIT(src, TRAIT_IMMOBILIZED))
 		return FALSE
 	if(world.time < last_dir_change + 5)
 		return
@@ -1237,23 +1233,9 @@ GLOBAL_VAR_INIT(mobids, 1)
 ///Set the movement type of the mob and update it's movespeed
 /mob/setMovetype(newval)
 	. = ..()
+	if(isnull(.))
+		return
 	update_movespeed(FALSE)
-
-/// Updates the grab state of the mob and updates movespeed
-/mob/setGrabState(newstate)
-	. = ..()
-	if(!pulling)
-		remove_movespeed_modifier(MOVESPEED_ID_MOB_GRAB_STATE, update=TRUE)
-	else
-		if(!newstate)
-			remove_movespeed_modifier(MOVESPEED_ID_MOB_GRAB_STATE, update=TRUE)
-		else
-			if(grab_state == GRAB_PASSIVE)
-				remove_movespeed_modifier(MOVESPEED_ID_MOB_GRAB_STATE, update=TRUE)
-			else
-				var/usedmove = grab_state*3
-				if(usedmove)
-					add_movespeed_modifier(MOVESPEED_ID_MOB_GRAB_STATE, update=TRUE, priority=100, override=TRUE, multiplicative_slowdown=usedmove, blacklisted_movetypes=FLOATING)
 
 /mob/proc/update_equipment_speed_mods()
 	var/speedies = equipped_speed_mods()

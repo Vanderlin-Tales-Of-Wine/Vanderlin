@@ -114,7 +114,7 @@
 	if(H == src)
 		to_chat(src, span_warning("I won't torture myself!"))
 		return
-	if(!H.restrained() && !H.buckled)
+	if(!HAS_TRAIT(H, TRAIT_RESTRAINED) && !H.buckled)
 		to_chat(src, span_warning("[H] needs to be restrained or buckled first!"))
 		return
 	if(H.stat == DEAD)
@@ -127,7 +127,7 @@
 		return
 	if(!do_after(src, 4 SECONDS, H))
 		return
-	if(!H.restrained() && !H.buckled)
+	if(!HAS_TRAIT(H, TRAIT_RESTRAINED) && !H.buckled)
 		to_chat(src, span_warning("[H] needs to be restrained or buckled first!"))
 		return
 	if(H.stat == DEAD)
@@ -158,7 +158,7 @@
 	if(H == src)
 		to_chat(src, span_warning("I won't torture myself!"))
 		return
-	if(!H.restrained() && !H.buckled)
+	if(!HAS_TRAIT(H, TRAIT_RESTRAINED) && !H.buckled)
 		to_chat(src, span_warning("[H] needs to be restrained or buckled first!"))
 		return
 	if(H.stat == DEAD)
@@ -171,7 +171,7 @@
 		return
 	if(!do_after(src, 4 SECONDS, H))
 		return
-	if(!H.restrained() && !H.buckled)
+	if(!HAS_TRAIT(H, TRAIT_RESTRAINED) && !H.buckled)
 		to_chat(src, span_warning("[H] needs to be restrained or buckled first!"))
 		return
 	if(H.stat == DEAD)

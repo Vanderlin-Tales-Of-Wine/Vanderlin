@@ -41,8 +41,8 @@
 /obj/item/bodypart/proc/inspect_limb(mob/user)
 	var/bodypart_status = list("<B>[capitalize(name)]:</B>")
 	var/observer_privilege = isobserver(user)
-	if(owner && disabled)
-		switch(disabled)
+	if(owner && bodypart_disabled)
+		switch(bodypart_disabled)
 			if(BODYPART_DISABLED_DAMAGE)
 				bodypart_status += "[src] is numb to touch."
 			if(BODYPART_DISABLED_PARALYSIS)
@@ -189,7 +189,7 @@
 		else
 			status += "<a href='byond://?src=[owner_ref];bandaged_limb=[REF(src)];bandage=[REF(bandage)]' class='info'>[uppertext(bandage.name)]</a>"
 
-	if(disabled)
+	if(bodypart_disabled)
 		status += "<span class='deadsay'>CRIPPLED</span>"
 
 	return status

@@ -343,6 +343,8 @@
 /obj/structure/door/proc/TryToSwitchState(atom/user)
 	if(switching_states || !anchored)
 		return FALSE
+	if(HAS_TRAIT(user, TRAIT_HANDS_BLOCKED))
+		return FALSE
 	if(!isliving(user))
 		return FALSE
 	var/mob/living/M = user

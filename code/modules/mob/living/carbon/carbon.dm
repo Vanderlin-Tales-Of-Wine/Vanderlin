@@ -123,7 +123,7 @@
 			return TRUE
 	/*
 	for(var/datum/surgery/S in surgeries)
-		if(!(mobility_flags & MOBILITY_STAND) || !S.lying_required)
+		if(!(body_position != LYING_DOWN) || !S.lying_required)
 			if(S.self_operable || user != src)
 				if(S.next_step(user, user.used_intent))
 					return 1
@@ -219,7 +219,7 @@
 						thrown_range = round((STASTR/throwable_mob.STACON)*2)
 						var/turf/start_T = get_turf(loc) //Get the start and target tile for the descriptors
 						var/turf/end_T = get_turf(target)
-						if(!HAS_TRAIT(thrown_thing, TRAIT_TINY) || !(mobility_flags & MOBILITY_STAND) || (throwable_mob.cmode && throwable_mob.mobility_flags & MOBILITY_STAND))
+						if(!HAS_TRAIT(thrown_thing, TRAIT_TINY) || body_position == LYING_DOWN || (throwable_mob.cmode && throwable_mob.body_position != LYING_DOWN))
 							while(end_T.z > start_T.z)
 								end_T = GET_TURF_BELOW(end_T)
 						if((end_T.z > start_T.z) && throwable_mob.cmode)
@@ -261,13 +261,13 @@
 			used_sound = pick(PUNCHWOOSH)
 		playsound(get_turf(src), used_sound, 60, FALSE)
 
-/mob/living/carbon/restrained(ignore_grab = TRUE)
-//	. = (handcuffed || (!ignore_grab && pulledby && pulledby.grab_state >= GRAB_AGGRESSIVE))
-	if(handcuffed)
-		return TRUE
-	if(pulledby && !ignore_grab)
-		if(pulledby != src)
-			return TRUE
+// /mob/living/carbon/restrained(ignore_grab = TRUE)
+// //	. = (handcuffed || (!ignore_grab && pulledby && pulledby.grab_state >= GRAB_AGGRESSIVE))
+// 	if(handcuffed)
+// 		return TRUE
+// 	if(pulledby && !ignore_grab)
+// 		if(pulledby != src)
+// 			return TRUE
 
 /mob/living/carbon/proc/canBeHandcuffed()
 	return 0
@@ -311,8 +311,9 @@
 	user << browse(dat, "window=mob[REF(src)];size=325x500")
 	onclose(user, "mob[REF(src)]")
 
-/mob/living/carbon/fall(forced)
-	loc.handle_fall(src, forced)//it's loc so it doesn't call the mob's handle_fall which does nothing
+/mob/living/carbon/on_fall()
+	. = ..()
+	loc.handle_fall(src)//it's loc so it doesn't call the mob's handle_fall which does nothing
 
 /mob/living/carbon/is_muzzled()
 	return FALSE
@@ -321,7 +322,7 @@
 	var/breakoutextra = 30 SECONDS
 
 /mob/living/carbon/resist_buckle()
-	if(restrained())
+	if(HAS_TRAIT(src, TRAIT_RESTRAINED))
 		changeNext_move(CLICK_CD_BREAKOUT)
 		last_special = world.time + CLICK_CD_BREAKOUT
 		var/buckle_cd = 1 MINUTES
@@ -348,8 +349,8 @@
 /mob/living/carbon/resist_fire()
 	fire_stacks = max(0, fire_stacks - 2.5)
 	divine_fire_stacks = max(0, divine_fire_stacks - 2.5)
-	if(fire_stacks + divine_fire_stacks > 10 || !(mobility_flags & MOBILITY_STAND))
-		Paralyze(50, TRUE, TRUE)
+	if(fire_stacks + divine_fire_stacks > 10 || body_position == LYING_DOWN)
+		Paralyze(50, ignore_canstun = TRUE)
 		spin(32,2)
 		fire_stacks = max(0, fire_stacks - 5)
 		divine_fire_stacks = max(0, divine_fire_stacks - 5)
@@ -412,7 +413,7 @@
 /mob/living/carbon/proc/uncuff()
 	if (handcuffed)
 		var/obj/item/W = handcuffed
-		handcuffed = null
+		set_handcuffed(null)
 		if (buckled && buckled.buckle_requires_restraints)
 			buckled.unbuckle_mob(src)
 		update_handcuffed()
@@ -445,8 +446,8 @@
 		return FALSE
 	if(I != handcuffed && I != legcuffed)
 		return FALSE
-	visible_message("[cuff_break ? "<span class='danger'>" : "<span class='warning'>"][src] manages to [cuff_break ? "break" : "slip"] out of [I]!</span>")
-	to_chat(src, "<span class='notice'>I [cuff_break ? "break" : "slip"] out of [I]!</span>")
+	visible_message(span_danger("[src] manages to [cuff_break ? "break" : "remove"] [I]!"))
+	to_chat(src, span_notice("You successfully [cuff_break ? "break" : "remove"] [I]."))
 
 	if(istype(I, /obj/item/net))
 		if(has_status_effect(/datum/status_effect/debuff/netted))
@@ -461,8 +462,8 @@
 		if(I == handcuffed)
 			handcuffed.forceMove(drop_location())
 			handcuffed.dropped(src)
-			handcuffed = null
-			if(buckled && buckled.buckle_requires_restraints)
+			set_handcuffed(null)
+			if(buckled?.buckle_requires_restraints)
 				buckled.unbuckle_mob(src)
 			update_handcuffed()
 			return TRUE
@@ -654,9 +655,11 @@
 	if(dna)
 		dna.real_name = real_name
 
-/mob/living/carbon/update_mobility()
+/mob/living/carbon/set_body_position(new_value)
 	. = ..()
-	if(!(mobility_flags & MOBILITY_STAND))
+	if(isnull(.))
+		return
+	if(new_value == LYING_DOWN)
 		add_movespeed_modifier(MOVESPEED_ID_CARBON_CRAWLING, TRUE, multiplicative_slowdown = CRAWLING_ADD_SLOWDOWN)
 	else
 		remove_movespeed_modifier(MOVESPEED_ID_CARBON_CRAWLING, TRUE)
@@ -686,7 +689,6 @@
 		used_damage = total_oxy
 	set_health(round(maxHealth - used_damage, DAMAGE_PRECISION))
 	update_stat()
-	update_mobility()
 
 	if(stat == SOFT_CRIT)
 		add_movespeed_modifier(MOVESPEED_ID_CARBON_SOFTCRIT, TRUE, multiplicative_slowdown = SOFTCRIT_ADD_SLOWDOWN)
@@ -981,7 +983,7 @@
 				set_stat(SOFT_CRIT)
 			else
 				set_stat(CONSCIOUS)
-		update_mobility()
+		// update_mobility()
 	update_damage_hud()
 	update_health_hud()
 	update_spd()
@@ -998,7 +1000,6 @@
 	update_action_buttons_icon() //some of our action buttons might be unusable when we're handcuffed.
 	update_inv_handcuffed()
 	update_hud_handcuffed()
-	update_mobility()
 
 /mob/living/carbon/fully_heal(admin_revive = FALSE)
 	if(reagents)
@@ -1022,7 +1023,7 @@
 		suiciding = FALSE
 		regenerate_limbs()
 		regenerate_organs()
-		handcuffed = initial(handcuffed)
+		set_handcuffed(null)
 		for(var/obj/item/restraints/R in contents) //actually remove cuffs from inventory
 			qdel(R)
 		update_handcuffed()
@@ -1033,7 +1034,7 @@
 	// heal ears after healing traits, since ears check TRAIT_DEAF trait
 	// when healing.
 	restoreEars()
-	update_disabled_bodyparts()
+	// update_disabled_bodyparts()
 
 /mob/living/carbon/can_be_revived()
 	. = ..()
@@ -1080,19 +1081,49 @@
 /mob/living/carbon/proc/create_bodyparts()
 	var/l_arm_index_next = -1
 	var/r_arm_index_next = 0
-	for(var/X in bodyparts)
-		var/obj/item/bodypart/O = new X()
-		O.owner = src
-		bodyparts.Remove(X)
-		bodyparts.Add(O)
-		if(O.body_part == ARM_LEFT)
-			l_arm_index_next += 2
-			O.held_index = l_arm_index_next //1, 3, 5, 7...
-			hand_bodyparts += O
-		else if(O.body_part == ARM_RIGHT)
-			r_arm_index_next += 2
-			O.held_index = r_arm_index_next //2, 4, 6, 8...
-			hand_bodyparts += O
+	for(var/bodypart_path in bodyparts)
+		var/obj/item/bodypart/bodypart_instance = new bodypart_path()
+		bodypart_instance.set_owner(src)
+		bodyparts.Remove(bodypart_path)
+		add_bodypart(bodypart_instance)
+		switch(bodypart_instance.body_part)
+			if(ARM_LEFT)
+				l_arm_index_next += 2
+				bodypart_instance.held_index = l_arm_index_next //1, 3, 5, 7...
+				hand_bodyparts += bodypart_instance
+			if(ARM_RIGHT)
+				r_arm_index_next += 2
+				bodypart_instance.held_index = r_arm_index_next //2, 4, 6, 8...
+				hand_bodyparts += bodypart_instance
+
+///Proc to hook behavior on bodypart additions.
+/mob/living/carbon/proc/add_bodypart(obj/item/bodypart/new_bodypart)
+	bodyparts += new_bodypart
+	new_bodypart.set_owner(src)
+
+	switch(new_bodypart.body_part)
+		if(LEG_LEFT, LEG_RIGHT)
+			set_num_legs(num_legs + 1)
+			if(!new_bodypart.bodypart_disabled)
+				set_usable_legs(usable_legs + 1)
+		if(ARM_LEFT, ARM_RIGHT)
+			set_num_hands(num_hands + 1)
+			if(!new_bodypart.bodypart_disabled)
+				set_usable_hands(usable_hands + 1)
+
+///Proc to hook behavior on bodypart removals.
+/mob/living/carbon/proc/remove_bodypart(obj/item/bodypart/old_bodypart)
+	bodyparts -= old_bodypart
+
+	switch(old_bodypart.body_part)
+		if(LEG_LEFT, LEG_RIGHT)
+			set_num_legs(num_legs - 1)
+			if(!old_bodypart.bodypart_disabled)
+				set_usable_legs(usable_legs - 1)
+		if(ARM_LEFT, ARM_RIGHT)
+			set_num_hands(num_hands - 1)
+			if(!old_bodypart.bodypart_disabled)
+				set_usable_hands(usable_hands - 1)
 
 /mob/living/carbon/do_after_coefficent()
 	. = ..()
@@ -1109,10 +1140,10 @@
 		var/obj/item/organ/I = X
 		I.Insert(src)
 
-/mob/living/carbon/proc/update_disabled_bodyparts()
-	for(var/B in bodyparts)
-		var/obj/item/bodypart/BP = B
-		BP.update_disabled()
+// /mob/living/carbon/proc/update_disabled_bodyparts()
+// 	for(var/B in bodyparts)
+// 		var/obj/item/bodypart/BP = B
+// 		BP.update_disabled()
 
 /mob/living/carbon/vv_get_dropdown()
 	. = ..()
@@ -1227,6 +1258,30 @@
 		if(mood.sanity < SANITY_UNSTABLE)
 			return TRUE
 
+/// Modifies the handcuffed value if a different value is passed, returning FALSE otherwise. The variable should only be changed through this proc.
+/mob/living/carbon/proc/set_handcuffed(new_value)
+	if(handcuffed == new_value)
+		return FALSE
+	. = handcuffed
+	handcuffed = new_value
+	if(.)
+		if(!handcuffed)
+			REMOVE_TRAIT(src, TRAIT_RESTRAINED, HANDCUFFED_TRAIT)
+	else if(handcuffed)
+		ADD_TRAIT(src, TRAIT_RESTRAINED, HANDCUFFED_TRAIT)
+
+/mob/living/carbon/on_lying_down(new_lying_angle)
+	. = ..()
+	if(!buckled || buckled.buckle_lying != 0)
+		lying_angle_on_lying_down(new_lying_angle)
+
+/// Special carbon interaction on lying down, to transform its sprite by a rotation.
+/mob/living/carbon/proc/lying_angle_on_lying_down(new_lying_angle)
+	if(!new_lying_angle)
+		set_lying_angle(pick(90, 270))
+	else
+		set_lying_angle(new_lying_angle)
+
 /mob/living/carbon/can_speak_vocal()
 	. = ..()
 	if(!.)
@@ -1236,7 +1291,7 @@
 	for(var/obj/item/grabbing/grab in grabbedby)
 		if(grab.sublimb_grabbed == BODY_ZONE_PRECISE_MOUTH)
 			return FALSE
-	if(istype(loc, /turf/open/water) && !(mobility_flags & MOBILITY_STAND))
+	if(istype(loc, /turf/open/water) && body_position == LYING_DOWN)
 		return FALSE
 
 ///Returns a list of all body_zones covered by clothing

@@ -8,6 +8,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	health = 20
 	maxHealth = 20
 	gender = PLURAL //placeholder
+	living_flags = MOVES_ON_ITS_OWN
 
 	status_flags = CANPUSH|CANSLOWDOWN|CANSTUN
 
@@ -337,9 +338,11 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	if(stat != DEAD)
 		if(health <= 0)
 			death()
-			SEND_SIGNAL(src, COMSIG_MOB_STATCHANGE, DEAD)
+			// SEND_SIGNAL(src, COMSIG_MOB_STATCHANGE, DEAD)
 			return
-	SEND_SIGNAL(src, COMSIG_MOB_STATCHANGE, stat)
+		else
+			set_stat(CONSCIOUS)
+	// SEND_SIGNAL(src, COMSIG_MOB_STATCHANGE, stat)
 	if(footstep_type)
 		AddComponent(/datum/component/footstep, footstep_type)
 
@@ -361,7 +364,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	if(!stop_automated_movement && wander && !doing())
 		if(ssaddle && has_buckled_mobs())
 			return 0
-		if((isturf(loc) || allow_movement_on_non_turfs) && (mobility_flags & MOBILITY_MOVE))		//This is so it only moves if it's not inside a closet, gentics machine, etc.
+		if((isturf(loc) || allow_movement_on_non_turfs) && !HAS_TRAIT(src, TRAIT_IMMOBILIZED))		//This is so it only moves if it's not inside a closet, gentics machine, etc.
 			turns_since_move++
 			if(turns_since_move >= turns_per_move)
 				if(!(stop_automated_movement_when_pulled && pulledby)) //Some animals don't move when pulled
@@ -547,7 +550,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 			transform = transform.Turn(180)
 		density = FALSE
 		..()
-		SEND_SIGNAL(src, COMSIG_MOB_STATCHANGE, DEAD)
+		// SEND_SIGNAL(src, COMSIG_MOB_STATCHANGE, DEAD)
 
 /mob/living/simple_animal/proc/CanAttack(atom/the_target)
 	if(see_invisible < the_target.invisibility)
@@ -578,14 +581,13 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 //	return
 
 /mob/living/simple_animal/revive(full_heal = FALSE, admin_revive = FALSE)
-	if(..()) //successfully ressuscitated from death
-		icon = initial(icon)
-		icon_state = icon_living
-		density = initial(density)
-		mobility_flags = MOBILITY_FLAGS_DEFAULT
-		update_mobility()
-		. = TRUE
-		setMovetype(initial(movement_type))
+	. = ..()
+	if(!.)
+		return
+	icon = initial(icon)
+	icon_state = icon_living
+	density = initial(density)
+	setMovetype(initial(movement_type))
 
 /mob/living/simple_animal/proc/make_babies() // <3 <3 <3
 	if(gender != FEMALE || stat || next_scan_time > world.time || !childtype || !animal_species || !SSticker.IsRoundInProgress())
@@ -631,7 +633,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 //			breedchildren--
 
 /mob/living/simple_animal/canUseTopic(atom/movable/M, be_close=FALSE, no_dexterity=FALSE, no_tk=FALSE)
-	if(incapacitated())
+	if(incapacitated(ignore_grab = TRUE))
 		to_chat(src, "<span class='warning'>I can't do that right now!</span>")
 		return FALSE
 	if(be_close && !in_range(M, src))
@@ -660,23 +662,6 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	else
 		REMOVE_TRAIT(src, TRAIT_IMMOBILIZED, RESTING_TRAIT)
 	return ..()
-
-/mob/living/simple_animal/update_mobility(value_otherwise = TRUE)
-	if(HAS_TRAIT_NOT_FROM(src, TRAIT_IMMOBILIZED, BUCKLED_TRAIT))
-		drop_all_held_items()
-		mobility_flags = NONE
-	else if(buckled)
-		mobility_flags = MOBILITY_FLAGS_INTERACTION
-	else
-		if(value_otherwise)
-			mobility_flags = MOBILITY_FLAGS_DEFAULT
-		else
-			mobility_flags = NONE
-	if(!(mobility_flags & MOBILITY_MOVE))
-		walk(src, 0) //stop mid walk
-
-	update_transform()
-	update_action_buttons_icon()
 
 /mob/living/simple_animal/update_transform()
 	var/matrix/ntransform = matrix(transform) //aka transform.Copy()

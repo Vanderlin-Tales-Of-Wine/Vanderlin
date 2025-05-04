@@ -33,7 +33,8 @@
 	var/datum/forced_movement/force_moving = null	//handled soley by forced_movement.dm
 	///Holds information about any movement loops currently running/waiting to run on the movable. Lazy, will be null if nothing's going on
 	var/datum/movement_packet/move_packet
-	var/movement_type = GROUND		//Incase you have multiple types, you automatically use the most useful one. IE: Skating on ice, flippers on water, flying over chasm/space, etc.
+	/// Incase you have multiple types, you automatically use the most useful one. IE: Skating on ice, flippers on water, flying over chasm/space, etc.
+	var/movement_type = GROUND
 	var/atom/movable/pulling
 	var/atom_flags = NONE
 	var/grab_state = 0
@@ -330,10 +331,7 @@
 			var/mob/living/ex_pulled = pulling
 			pulling = null
 			SEND_SIGNAL(ex_pulled, COMSIG_ATOM_NO_LONGER_PULLED, src)
-			if(isliving(ex_pulled))
-				var/mob/living/L = ex_pulled
-				L.update_mobility()// mob gets up if it was lyng down in a chokehold
-	setGrabState(0)
+	setGrabState(GRAB_PASSIVE)
 
 /atom/movable/proc/Move_Pulled(atom/A)
 	if(!pulling)
@@ -708,7 +706,11 @@
 		var/atom/movable/AM = item
 		AM.onTransitZ(old_z,new_z)
 
+///Proc to modify the movement_type and hook behavior associated with it changing.
 /atom/movable/proc/setMovetype(newval)
+	if(movement_type == newval)
+		return
+	. = movement_type
 	movement_type = newval
 
 //Called whenever an object moves and by mobs when they attempt to move themselves through space
