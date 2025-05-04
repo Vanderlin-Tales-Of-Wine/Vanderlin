@@ -8966,14 +8966,6 @@
 "fDa" = (
 /turf/open/floor/cobble,
 /area/rogue/outdoors/woods_safe)
-"fDd" = (
-/obj/structure/door/window,
-/obj/structure/door/window{
-	name = "City Watch Garrison"
-	},
-/obj/effect/mapping_helpers/access/keyset/town/inn,
-/turf/open/floor/wood,
-/area/rogue/indoors/town/tavern)
 "fDj" = (
 /obj/structure/fake_machine/scomm/r,
 /turf/open/floor/wood,
@@ -143497,7 +143489,7 @@ jZz
 jZz
 jZz
 jZz
-fDd
+iMq
 fwz
 fwz
 tea
