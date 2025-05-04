@@ -37,7 +37,7 @@
 	wrists = /obj/item/clothing/wrists/bracers/leather
 	backpack_contents = list(/obj/item/storage/keyring/manorguard = 1, /obj/item/clothing/neck/chaincoif = 1, /obj/item/weapon/hammer/iron = 1, /obj/item/clothing/head/helmet/nasal = 1, /obj/item/storage/belt/pouch/coins/poor = 1)
 	
-if(H.mind)
+	if(H.mind)
 	H.mind?.adjust_skillrank(/datum/skill/combat/bows, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
