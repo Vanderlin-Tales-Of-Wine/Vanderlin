@@ -231,6 +231,9 @@
 			M.Stun(1)
 			M.take_overall_damage(A.fall_damage()*2)
 	A.onZImpact(src, levels)
+	if(isobj(A))
+		for(var/mob/living/mob in contents)
+			A:on_fall_impact(mob, levels * 0.75)
 	return TRUE
 
 /atom/movable/proc/fall_damage()

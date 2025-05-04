@@ -80,6 +80,7 @@
 	gripspriteonmob = TRUE
 	melting_material = /datum/material/steel
 	melt_amount = 150
+	gripsprite = TRUE
 
 /obj/item/weapon/pick/drill/Initialize()
 	. = ..()
@@ -91,10 +92,14 @@
 	STOP_PROCESSING(SSobj, src)
 	return ..()
 
+/obj/item/weapon/pick/drill/afterattack(atom/target, mob/living/user, proximity_flag, click_parameters)
+	. = ..()
+	SEND_SIGNAL(src, COMSIG_ATOM_STEAM_USE, 5)
+
 /obj/item/weapon/pick/drill/process()
-	if(altgripped)
+	if(wielded)
 		if(!SEND_SIGNAL(src, COMSIG_ATOM_STEAM_USE, 1))
 			if(ismob(loc))
 				ungrip(loc, FALSE)
 			else
-				altgripped = FALSE
+				wielded = FALSE

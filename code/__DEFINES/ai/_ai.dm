@@ -117,3 +117,4 @@ F
 #define BB_ONLY_FISH_WHILE_HUNGRY "BB_only_fish_while_hungry"
 
 #define BB_RESISTING "BB_resisting"
+#define BB_FUTURE_MOVEMENT_PATH "BB_future_path"

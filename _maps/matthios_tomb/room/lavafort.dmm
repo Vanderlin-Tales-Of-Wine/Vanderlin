@@ -83,15 +83,6 @@
 	},
 /turf/open/transparent/openspace,
 /area/rogue/under/cavelava)
-"fz" = (
-/obj/structure/rack/shelf/biggest,
-/obj/item/reagent_containers/glass/bucket/wooden,
-/obj/item/natural/bundle/stick,
-/obj/structure/fluff/walldeco/church/line{
-	dir = 4
-	},
-/turf/open/floor/hexstone,
-/area/rogue/under/cavelava)
 "fL" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
@@ -330,6 +321,10 @@
 "yp" = (
 /turf/open/floor/dirt,
 /area/rogue/under/cavelava)
+"yC" = (
+/obj/structure/door/stone,
+/turf/open/floor/cobble,
+/area/rogue/under/cavelava)
 "yG" = (
 /obj/structure/closet/crate/chest/neu_fancy,
 /obj/item/weapon/sickle,
@@ -352,13 +347,6 @@
 /obj/structure/table/wood/treestump/burnt,
 /turf/open/floor/grass/red,
 /area/rogue/under/cavelava)
-"zP" = (
-/obj/structure/table/wood{
-	icon_state = "tablewood1"
-	},
-/obj/item/soap/bath,
-/turf/open/floor/hexstone,
-/area/rogue/under/cavelava)
 "AD" = (
 /obj/structure/fluff/railing/border,
 /obj/effect/decal/cleanable/sigil/S,
@@ -367,6 +355,13 @@
 "Bk" = (
 /obj/structure/bookcase/random/myths,
 /turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/cavelava)
+"Cv" = (
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
+/obj/item/soap/bath,
+/turf/open/floor/hexstone,
 /area/rogue/under/cavelava)
 "CP" = (
 /mob/living/simple_animal/hostile/skeleton/bow,
@@ -446,6 +441,12 @@
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/cobble,
 /area/rogue/under/cavelava)
+"HR" = (
+/obj/structure/rack/shelf/biggest,
+/obj/item/reagent_containers/glass/mortar,
+/obj/item/pestle,
+/turf/open/floor/hexstone,
+/area/rogue/under/cavelava)
 "HT" = (
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
@@ -467,12 +468,6 @@
 	dir = 5
 	},
 /turf/open/transparent/openspace,
-/area/rogue/under/cavelava)
-"IH" = (
-/obj/structure/rack/shelf/biggest,
-/obj/item/mortar,
-/obj/item/pestle,
-/turf/open/floor/hexstone,
 /area/rogue/under/cavelava)
 "Jf" = (
 /turf/open/floor/grass/red,
@@ -569,10 +564,6 @@
 /mob/living/simple_animal/hostile/skeleton/bow,
 /turf/open/floor/hexstone,
 /area/rogue/under/cavelava)
-"Qz" = (
-/obj/structure/door/stone,
-/turf/open/floor/cobble,
-/area/rogue/under/cavelava)
 "QB" = (
 /obj/structure/fluff/railing/border{
 	dir = 4
@@ -586,15 +577,20 @@
 	},
 /turf/open/transparent/openspace,
 /area/rogue/under/cavelava)
-"QX" = (
-/obj/structure/door/stone,
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/under/cavelava)
 "RH" = (
 /obj/structure/fluff/railing/border{
 	dir = 9
 	},
 /turf/open/transparent/openspace,
+/area/rogue/under/cavelava)
+"Sv" = (
+/obj/structure/rack/shelf/biggest,
+/obj/item/reagent_containers/glass/bucket/wooden,
+/obj/item/natural/bundle/stick,
+/obj/structure/fluff/walldeco/church/line{
+	dir = 4
+	},
+/turf/open/floor/hexstone,
 /area/rogue/under/cavelava)
 "SI" = (
 /obj/structure/fluff/railing/border{
@@ -618,6 +614,10 @@
 	},
 /mob/living/carbon/human/species/skeleton/npc/peasant,
 /turf/open/floor/carpet/royalblack,
+/area/rogue/under/cavelava)
+"TD" = (
+/obj/structure/door/stone,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/cavelava)
 "TN" = (
 /obj/structure/flora/ausbushes/ywflowers,
@@ -1062,11 +1062,11 @@ NO
 NO
 lS
 HT
-zP
+Cv
 lS
-Qz
+yC
 cr
-Qz
+yC
 lS
 qh
 mY
@@ -1157,7 +1157,7 @@ JG
 NO
 NO
 JG
-Qz
+yC
 jk
 CQ
 Uz
@@ -1165,7 +1165,7 @@ Hh
 Hh
 jk
 jk
-Qz
+yC
 JG
 NO
 JG
@@ -1221,7 +1221,7 @@ JG
 NO
 JG
 JG
-Qz
+yC
 jk
 CQ
 Uz
@@ -1229,7 +1229,7 @@ Hh
 Hh
 jk
 jk
-Qz
+yC
 JG
 NO
 JG
@@ -1320,9 +1320,9 @@ lS
 HT
 Tc
 lS
-Qz
+yC
 cr
-Qz
+yC
 lS
 kU
 Fa
@@ -2022,7 +2022,7 @@ aj
 aj
 aj
 lS
-IH
+HR
 lq
 lS
 om
@@ -2054,7 +2054,7 @@ aj
 aj
 aj
 lS
-fz
+Sv
 yI
 Ga
 jk
@@ -2158,7 +2158,7 @@ OY
 aj
 jk
 hi
-QX
+TD
 qh
 jk
 mF

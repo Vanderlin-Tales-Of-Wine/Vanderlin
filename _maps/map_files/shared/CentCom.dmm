@@ -1075,15 +1075,6 @@
 	},
 /turf/open/floor/herringbone,
 /area/rogue/indoors/vampire_manor)
-"dr" = (
-/obj/structure/table/wood{
-	dir = 10;
-	icon_state = "largetable"
-	},
-/obj/item/mortar,
-/obj/item/pestle,
-/turf/open/floor/tile,
-/area/rogue/indoors/vampire_manor)
 "ds" = (
 /mob/living/simple_animal/hostile/retaliate/cow,
 /turf/open/floor/dirt,
@@ -1191,6 +1182,14 @@
 /obj/machinery/light/fueled/torchholder/l,
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/indoors)
+"dQ" = (
+/obj/structure/table/church{
+	dir = 1
+	},
+/obj/structure/fluff/walldeco/bigpainting/lake,
+/obj/item/textbook/novice,
+/turf/open/floor/herringbone,
+/area/rogue/indoors/vampire_manor)
 "dR" = (
 /obj/structure/closet/crate/coffin/vampire,
 /turf/open/floor/herringbone,
@@ -1245,6 +1244,10 @@
 "eq" = (
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue)
+"ev" = (
+/obj/structure/door,
+/turf/open/floor/blocks,
+/area/rogue/indoors/vampire_manor)
 "ey" = (
 /obj/effect/decal/cleanable/dirt/cobweb{
 	dir = 8
@@ -1444,6 +1447,13 @@
 	},
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/bandit_lair)
+"gt" = (
+/obj/structure/door/iron/bars{
+	lockid = "mansionvampire"
+	},
+/obj/effect/mapping_helpers/door/locker,
+/turf/open/floor/blocks,
+/area/rogue/indoors/vampire_manor)
 "gv" = (
 /obj/structure/table/wood/reinforced,
 /obj/item/clothing/pants/tights,
@@ -1478,6 +1488,12 @@
 /obj/item/clothing/armor/leather/jacket/apothecary,
 /turf/open/floor/wood,
 /area/rogue/indoors)
+"gN" = (
+/obj/structure/door{
+	lockid = "mansionvampire"
+	},
+/turf/open/floor/hexstone,
+/area/rogue/indoors/vampire_manor)
 "gQ" = (
 /obj/structure/flora/grass,
 /obj/structure/fluff/railing/wood,
@@ -1579,6 +1595,10 @@
 /obj/structure/bars,
 /turf/open/floor/blocks,
 /area/rogue/indoors/vampire_manor)
+"hJ" = (
+/obj/structure/door,
+/turf/open/floor/hexstone,
+/area/rogue/indoors/vampire_manor)
 "hN" = (
 /obj/structure/irrigation_channel,
 /turf/open/floor/grass/yel,
@@ -1645,10 +1665,6 @@
 /obj/machinery/light/fueled/torchholder/r,
 /turf/open/floor/wood,
 /area/rogue/indoors)
-"iy" = (
-/obj/structure/door,
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors)
 "iE" = (
 /obj/structure/hotspring/border/twelve,
 /turf/open/floor/grass/yel,
@@ -1670,6 +1686,28 @@
 /obj/effect/decal/remains/bigrat,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/bog/inhumen_camp)
+"iR" = (
+/obj/structure/closet/crate/chest/wicker,
+/obj/item/neuFarm/seed/cabbage,
+/obj/item/neuFarm/seed/cabbage,
+/obj/item/neuFarm/seed/apple,
+/obj/item/neuFarm/seed/apple,
+/obj/item/neuFarm/seed/oat,
+/obj/item/neuFarm/seed/oat,
+/obj/item/neuFarm/seed/onion,
+/obj/item/neuFarm/seed/onion,
+/obj/item/neuFarm/seed/pear,
+/obj/item/neuFarm/seed/pear,
+/obj/item/neuFarm/seed/berry,
+/obj/item/neuFarm/seed/berry,
+/obj/item/neuFarm/seed/potato,
+/obj/item/neuFarm/seed/potato,
+/obj/item/neuFarm/seed/wheat,
+/obj/item/neuFarm/seed/wheat,
+/obj/item/neuFarm/seed/westleach,
+/obj/item/neuFarm/seed/westleach,
+/turf/open/floor/dirt,
+/area/rogue/outdoors/woods_safe)
 "iX" = (
 /obj/structure/table/wood{
 	icon_state = "largetable"
@@ -1804,10 +1842,6 @@
 "jZ" = (
 /turf/open/floor/hexstone,
 /area/rogue/indoors/vampire_manor)
-"kb" = (
-/obj/structure/door/window,
-/turf/open/floor/cobble,
-/area/rogue/indoors)
 "ke" = (
 /obj/structure/table/wood{
 	dir = 10;
@@ -1918,10 +1952,18 @@
 /obj/structure/rotation_piece,
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
+"lQ" = (
+/obj/structure/door/window,
+/turf/open/floor/blocks,
+/area/rogue/indoors)
 "lV" = (
 /obj/machinery/light/fueled/firebowl/standing,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/bandit_lair)
+"mb" = (
+/obj/structure/door/iron/bars,
+/turf/open/floor/cobblerock,
+/area/rogue/outdoors/woods_safe)
 "mh" = (
 /obj/item/restraints/legcuffs/beartrap/armed/camouflage,
 /turf/open/water/swamp,
@@ -1939,19 +1981,6 @@
 /obj/structure/bars,
 /turf/open/floor/dirt,
 /area/rogue/indoors/bandit_lair)
-"mq" = (
-/obj/structure/door/iron/bars{
-	lockid = "mansionvampire"
-	},
-/obj/effect/mapping_helpers/door/locker,
-/turf/open/floor/blocks,
-/area/rogue/indoors/vampire_manor)
-"mt" = (
-/obj/structure/door{
-	lockid = "mansionvampire"
-	},
-/turf/open/floor/herringbone,
-/area/rogue/indoors/vampire_manor)
 "mv" = (
 /obj/structure/bed/hay,
 /turf/open/floor/ruinedwood/darker,
@@ -1963,28 +1992,6 @@
 "my" = (
 /obj/structure/flora/grass/bush/wall/tall,
 /turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/woods_safe)
-"mF" = (
-/obj/structure/closet/crate/chest/wicker,
-/obj/item/neuFarm/seed/cabbage,
-/obj/item/neuFarm/seed/cabbage,
-/obj/item/neuFarm/seed/apple,
-/obj/item/neuFarm/seed/apple,
-/obj/item/neuFarm/seed/oat,
-/obj/item/neuFarm/seed/oat,
-/obj/item/neuFarm/seed/onion,
-/obj/item/neuFarm/seed/onion,
-/obj/item/neuFarm/seed/pear,
-/obj/item/neuFarm/seed/pear,
-/obj/item/neuFarm/seed/berry,
-/obj/item/neuFarm/seed/berry,
-/obj/item/neuFarm/seed/potato,
-/obj/item/neuFarm/seed/potato,
-/obj/item/neuFarm/seed/wheat,
-/obj/item/neuFarm/seed/wheat,
-/obj/item/neuFarm/seed/westleach,
-/obj/item/neuFarm/seed/westleach,
-/turf/open/floor/dirt,
 /area/rogue/outdoors/woods_safe)
 "mK" = (
 /obj/item/weapon/shovel/small,
@@ -2071,12 +2078,6 @@
 /obj/structure/table/wood/plain,
 /turf/open/floor/tile/checker_green,
 /area/rogue/indoors)
-"ny" = (
-/obj/structure/door/red{
-	lockid = "banditcamp"
-	},
-/turf/open/floor/ruinedwood/turned/darker,
-/area/rogue/indoors/bandit_lair)
 "nA" = (
 /obj/structure/table/wood/reinforced,
 /obj/item/clothing/armor/brigandine,
@@ -2155,10 +2156,6 @@
 /obj/structure/flora/tree,
 /turf/open/water/swamp,
 /area/rogue/outdoors/woods_safe)
-"op" = (
-/obj/structure/door,
-/turf/open/floor/hexstone,
-/area/rogue/indoors/vampire_manor)
 "oq" = (
 /obj/structure/table/wood{
 	dir = 8;
@@ -2226,12 +2223,6 @@
 /obj/structure/mannequin/male,
 /turf/open/floor/wood,
 /area/rogue/indoors)
-"oT" = (
-/obj/structure/door,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
-/area/rogue/indoors/vampire_manor)
 "oV" = (
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/cobble,
@@ -2398,13 +2389,6 @@
 /obj/item/clothing/cloak/half/brown,
 /turf/open/floor/carpet,
 /area/rogue/indoors)
-"qf" = (
-/obj/structure/door/red{
-	lockid = "banditcamp"
-	},
-/obj/effect/mapping_helpers/door/locker,
-/turf/open/floor/ruinedwood/turned/darker,
-/area/rogue/indoors/bandit_lair)
 "qj" = (
 /obj/effect/decal/cleanable/blood/gibs/down,
 /turf/open/floor/dirt,
@@ -2513,6 +2497,10 @@
 /obj/structure/fermentation_keg/random/water,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/bandit_lair)
+"rq" = (
+/obj/structure/door/window,
+/turf/open/floor/cobble,
+/area/rogue/indoors)
 "rr" = (
 /obj/item/candle/skull/lit{
 	pixel_y = 6
@@ -2533,10 +2521,21 @@
 "rw" = (
 /turf/open/floor/dirt,
 /area/rogue/indoors/vampire_manor)
+"rz" = (
+/obj/structure/door/swing,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/indoors)
 "rA" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/twig,
 /area/rogue/outdoors/bog/inhumen_camp)
+"rE" = (
+/obj/structure/door/red{
+	lockid = "banditcamp"
+	},
+/obj/effect/mapping_helpers/door/locker,
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/indoors/bandit_lair)
 "rH" = (
 /obj/structure/table/wood{
 	dir = 5;
@@ -2761,12 +2760,6 @@
 /obj/effect/falling_sakura,
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
-"ts" = (
-/obj/structure/door/red{
-	lockid = "banditcamp"
-	},
-/turf/open/floor/ruinedwood/darker,
-/area/rogue/indoors/bandit_lair)
 "tz" = (
 /obj/item/clothing/shirt/dress/gen/black,
 /obj/item/clothing/shoes/shortboots,
@@ -2831,6 +2824,10 @@
 	},
 /turf/open/floor/cobble,
 /area/rogue/indoors/bandit_lair)
+"ub" = (
+/obj/structure/door,
+/turf/open/floor/tile,
+/area/rogue/indoors)
 "ud" = (
 /obj/item/grown/log/tree/small,
 /turf/open/floor/dirt,
@@ -2848,10 +2845,6 @@
 /obj/item/rope,
 /turf/open/floor/blocks/paving/vert,
 /area/rogue/indoors/vampire_manor)
-"uw" = (
-/obj/structure/door/window,
-/turf/open/floor/blocks,
-/area/rogue/indoors)
 "uy" = (
 /obj/structure/flora/tree,
 /obj/structure/flora/tree,
@@ -2966,6 +2959,14 @@
 /obj/item/reagent_containers/glass/cup/wooden,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/bandit_lair)
+"vx" = (
+/obj/structure/door/viewport{
+	dir = 1;
+	lockid = "mansionvampire"
+	},
+/obj/effect/mapping_helpers/door/locker,
+/turf/open/floor/blocks,
+/area/rogue/indoors/vampire_manor)
 "vB" = (
 /obj/structure/mannequin/male,
 /obj/item/clothing/shoes/simpleshoes/buckle,
@@ -3324,13 +3325,6 @@
 /obj/item/storage/keyring,
 /turf/open/floor/carpet,
 /area/rogue/indoors)
-"zT" = (
-/obj/structure/door/weak/bolt{
-	dir = 1
-	},
-/obj/effect/mapping_helpers/door/locker,
-/turf/open/floor/cobblerock,
-/area/rogue/outdoors/woods_safe)
 "zW" = (
 /obj/structure/hotspring/border/fourteen,
 /obj/structure/bridge{
@@ -3347,12 +3341,6 @@
 /obj/item/clothing/pants/tights/purple,
 /turf/open/floor/wood,
 /area/rogue)
-"Ad" = (
-/obj/structure/door{
-	lockid = "mansionvampire"
-	},
-/turf/open/floor/hexstone,
-/area/rogue/indoors/vampire_manor)
 "Ae" = (
 /obj/structure/flora/tree,
 /turf/open/floor/dirt,
@@ -3403,10 +3391,6 @@
 /obj/effect/landmark/admin,
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/indoors)
-"AF" = (
-/obj/structure/door,
-/turf/open/floor/blocks,
-/area/rogue/indoors/vampire_manor)
 "AH" = (
 /obj/structure/grindwheel,
 /turf/open/floor/hexstone,
@@ -3682,6 +3666,12 @@
 	icon_state = "tavern"
 	},
 /area/rogue/indoors/bandit_lair)
+"DK" = (
+/obj/structure/door/weak/bolt{
+	dir = 1
+	},
+/turf/open/floor/dirt,
+/area/rogue/outdoors/bog/inhumen_camp)
 "DP" = (
 /obj/structure/table/wood{
 	icon_state = "largetable"
@@ -3827,6 +3817,12 @@
 /obj/item/recipe_book/survival,
 /turf/open/floor/herringbone,
 /area/rogue/indoors/vampire_manor)
+"Fd" = (
+/obj/structure/door{
+	lockid = "mansionvampire"
+	},
+/turf/open/floor/dirt,
+/area/rogue/indoors/vampire_manor)
 "Fe" = (
 /obj/effect/decal/cleanable/blood,
 /obj/structure/fluff/railing/fence{
@@ -3856,6 +3852,12 @@
 /obj/item/key/bandit,
 /obj/item/key/bandit,
 /turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/indoors/bandit_lair)
+"Fm" = (
+/obj/structure/door/red{
+	lockid = "banditcamp"
+	},
+/turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/bandit_lair)
 "Fn" = (
 /obj/structure/table/wood/plain,
@@ -3891,6 +3893,12 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel/maniac/damaged,
 /area/rogue)
+"FA" = (
+/obj/structure/door,
+/turf/open/floor/ruinedwood{
+	icon_state = "weird1"
+	},
+/area/rogue/indoors/vampire_manor)
 "FI" = (
 /obj/effect/decal/remains/wolf,
 /turf/open/floor/dirt/road,
@@ -3903,13 +3911,6 @@
 /obj/structure/flora/grass/herb/symphitum,
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
-"FU" = (
-/obj/structure/door/iron/bars{
-	lockid = "banditcamp"
-	},
-/obj/effect/mapping_helpers/door/locker,
-/turf/open/floor/dirt,
-/area/rogue/indoors/bandit_lair)
 "FV" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/structure/closet/crate/drawer,
@@ -4002,6 +4003,13 @@
 /obj/structure/fluff/walldeco/church/line,
 /turf/open/floor/herringbone,
 /area/rogue/indoors/vampire_manor)
+"GD" = (
+/obj/structure/door/weak/bolt{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/door/locker,
+/turf/open/floor/cobblerock,
+/area/rogue/outdoors/woods_safe)
 "GE" = (
 /obj/structure/table/wood/reinforced,
 /obj/item/clothing/armor/medium/surcoat/heartfelt,
@@ -4052,10 +4060,6 @@
 "Hi" = (
 /turf/open/floor/dirt/road,
 /area/rogue/indoors/bandit_lair)
-"Ho" = (
-/obj/structure/door,
-/turf/open/floor/tile,
-/area/rogue/indoors)
 "Hq" = (
 /obj/structure/table/wood{
 	dir = 9;
@@ -4169,12 +4173,6 @@
 "HZ" = (
 /turf/closed/mineral/bedrock,
 /area/rogue/outdoors/bog/inhumen_camp)
-"Ic" = (
-/obj/structure/door{
-	lockid = "mansionvampire"
-	},
-/turf/open/floor/metal/barograte,
-/area/rogue/indoors/vampire_manor)
 "Ie" = (
 /obj/structure/fluff/railing/border{
 	dir = 4;
@@ -4253,6 +4251,15 @@
 "II" = (
 /turf/open/water/swamp,
 /area/rogue/outdoors/bog/inhumen_camp)
+"IJ" = (
+/obj/structure/table/wood{
+	dir = 10;
+	icon_state = "largetable"
+	},
+/obj/item/reagent_containers/glass/mortar,
+/obj/item/pestle,
+/turf/open/floor/tile,
+/area/rogue/indoors/vampire_manor)
 "IK" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/fake_door{
@@ -4261,10 +4268,6 @@
 	},
 /turf/closed/wall/mineral/underbrick/fake_world,
 /area/rogue)
-"IO" = (
-/obj/structure/door/iron/bars,
-/turf/open/floor/cobblerock,
-/area/rogue/outdoors/woods_safe)
 "IP" = (
 /obj/structure/table/wood/fancy/black,
 /obj/item/clothing/cloak/cape/crusader{
@@ -4428,13 +4431,6 @@
 /obj/item/clothing/shoes/boots,
 /turf/open/floor/carpet,
 /area/rogue/indoors)
-"KS" = (
-/obj/structure/door/iron/bars{
-	lockid = "mansionvampire"
-	},
-/obj/effect/mapping_helpers/door/locker,
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors/woods_safe)
 "KT" = (
 /obj/structure/table/wood/reinforced,
 /obj/item/clothing/armor/plate/full,
@@ -4493,6 +4489,13 @@
 /obj/structure/closet/crate/miningcar,
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
+"LD" = (
+/obj/structure/door/iron/bars{
+	lockid = "mansionvampire"
+	},
+/obj/effect/mapping_helpers/door/locker,
+/turf/open/floor/cobblerock,
+/area/rogue/outdoors/woods_safe)
 "LE" = (
 /obj/structure/hotspring,
 /obj/effect/falling_sakura,
@@ -4711,12 +4714,6 @@
 /obj/structure/flora/grass,
 /turf/open/floor/grass/red,
 /area/rogue/outdoors/woods_safe)
-"NF" = (
-/obj/structure/door/weak/bolt{
-	dir = 1
-	},
-/turf/open/floor/dirt,
-/area/rogue/outdoors/bog/inhumen_camp)
 "NG" = (
 /obj/structure/rack,
 /obj/item/weapon/shield/wood,
@@ -4728,15 +4725,17 @@
 /obj/machinery/light/fueled/oven/south,
 /turf/open/floor/tile/checker_green,
 /area/rogue/indoors)
+"NP" = (
+/obj/structure/door/red{
+	lockid = "banditcamp"
+	},
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/indoors/bandit_lair)
 "NR" = (
 /obj/machinery/light/fueled/torchholder/c,
 /obj/item/clothing/shirt/robe/phys,
 /obj/structure/mannequin/male,
 /turf/open/floor/wood,
-/area/rogue/indoors)
-"NS" = (
-/obj/structure/door/swing,
-/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors)
 "NU" = (
 /obj/structure/fluff/railing/fence,
@@ -4816,12 +4815,6 @@
 "Ph" = (
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors)
-"Pj" = (
-/obj/structure/door{
-	lockid = "mansionvampire"
-	},
-/turf/open/floor/dirt,
-/area/rogue/indoors/vampire_manor)
 "Pk" = (
 /obj/structure/rack,
 /obj/item/weapon/axe/stone,
@@ -4888,6 +4881,13 @@
 	},
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
+"PR" = (
+/obj/structure/door/iron/bars{
+	lockid = "mansionvampire"
+	},
+/obj/effect/mapping_helpers/door/locker,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors/woods_safe)
 "PT" = (
 /obj/structure/table/wood/fancy/red,
 /obj/item/clothing/armor/chainmail/iron/orc,
@@ -4994,13 +4994,6 @@
 /obj/machinery/light/fueled/torchholder/r,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/bandit_lair)
-"QJ" = (
-/obj/structure/door/iron/bars{
-	lockid = "mansionvampire"
-	},
-/obj/effect/mapping_helpers/door/locker,
-/turf/open/floor/cobblerock,
-/area/rogue/outdoors/woods_safe)
 "QX" = (
 /obj/item/bin/water/gross,
 /obj/structure/fluff/walldeco/maidendrape,
@@ -5270,10 +5263,6 @@
 /obj/structure/chair/bench,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/woods_safe)
-"Tr" = (
-/obj/structure/door,
-/turf/open/floor/herringbone,
-/area/rogue/indoors/vampire_manor)
 "Tv" = (
 /obj/machinery/light/fueled/torchholder/c,
 /turf/open/floor/cobblerock,
@@ -5332,6 +5321,10 @@
 /obj/structure/rack,
 /obj/item/weapon/mace,
 /turf/open/floor/hexstone,
+/area/rogue/indoors/vampire_manor)
+"TJ" = (
+/obj/structure/door,
+/turf/open/floor/herringbone,
 /area/rogue/indoors/vampire_manor)
 "TK" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -5529,6 +5522,10 @@
 	},
 /turf/open/floor/wood,
 /area/rogue/indoors)
+"Vr" = (
+/obj/structure/door,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/indoors)
 "Vt" = (
 /obj/structure/vampire/necromanticbook{
 	pixel_x = -16;
@@ -5610,14 +5607,6 @@
 /obj/item/weapon/shield/tower,
 /turf/open/floor/cobble,
 /area/rogue/indoors)
-"Wh" = (
-/obj/structure/table/church{
-	dir = 1
-	},
-/obj/structure/fluff/walldeco/bigpainting/lake,
-/obj/item/textbook/novice,
-/turf/open/floor/herringbone,
-/area/rogue/indoors/vampire_manor)
 "Wj" = (
 /turf/open/floor/blocks,
 /area/rogue/indoors)
@@ -5710,6 +5699,12 @@
 "WS" = (
 /turf/open/floor/underworld/space/sparkle_quiet/fake_world,
 /area/rogue)
+"WU" = (
+/obj/structure/door{
+	lockid = "mansionvampire"
+	},
+/turf/open/floor/metal/barograte,
+/area/rogue/indoors/vampire_manor)
 "WW" = (
 /obj/structure/flora/grass,
 /obj/structure/flora/grass/herb/symphitum,
@@ -5719,6 +5714,12 @@
 /obj/structure/chair/bench/ancientlog,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/woods_safe)
+"WZ" = (
+/obj/structure/door{
+	lockid = "mansionvampire"
+	},
+/turf/open/floor/herringbone,
+/area/rogue/indoors/vampire_manor)
 "Xe" = (
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/bandit_lair)
@@ -5789,14 +5790,6 @@
 "Yc" = (
 /turf/closed/wall/mineral/wooddark/slitted,
 /area/rogue/indoors)
-"Yf" = (
-/obj/structure/door/viewport{
-	dir = 1;
-	lockid = "mansionvampire"
-	},
-/obj/effect/mapping_helpers/door/locker,
-/turf/open/floor/blocks,
-/area/rogue/indoors/vampire_manor)
 "Yg" = (
 /obj/structure/table/wood{
 	dir = 5;
@@ -5987,6 +5980,13 @@
 /obj/structure/closet/dirthole/grave,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/bog/inhumen_camp)
+"ZM" = (
+/obj/structure/door/iron/bars{
+	lockid = "banditcamp"
+	},
+/obj/effect/mapping_helpers/door/locker,
+/turf/open/floor/dirt,
+/area/rogue/indoors/bandit_lair)
 "ZP" = (
 /turf/open/water/swamp/deep,
 /area/rogue/outdoors/bog/inhumen_camp)
@@ -6866,7 +6866,7 @@ Xe
 Xe
 Xe
 oI
-ny
+NP
 Xe
 oI
 mv
@@ -7117,7 +7117,7 @@ Rw
 qm
 Dz
 Dz
-ny
+NP
 Xe
 Xe
 MF
@@ -7635,7 +7635,7 @@ Sy
 Te
 cw
 Rw
-ts
+Fm
 Rw
 cw
 Xe
@@ -7646,7 +7646,7 @@ Xe
 Xe
 Xe
 oI
-qf
+rE
 Xe
 Xe
 Xe
@@ -7905,7 +7905,7 @@ Rw
 Sq
 Sq
 Sq
-qf
+rE
 cw
 yP
 Ch
@@ -8177,7 +8177,7 @@ xt
 xt
 Qy
 Qy
-zT
+GD
 Qy
 Qy
 xt
@@ -8286,7 +8286,7 @@ Te
 yR
 yR
 yR
-qf
+rE
 yR
 da
 da
@@ -8681,7 +8681,7 @@ yR
 QB
 dp
 dp
-FU
+ZM
 Qy
 Qy
 Qy
@@ -11159,7 +11159,7 @@ Zz
 Zz
 Zz
 Te
-KS
+PR
 xt
 xt
 xt
@@ -11306,7 +11306,7 @@ xt
 xt
 xt
 xt
-KS
+PR
 xt
 xt
 Te
@@ -11425,7 +11425,7 @@ xt
 xt
 xt
 qs
-mF
+iR
 bL
 dj
 xt
@@ -11682,7 +11682,7 @@ yE
 yE
 yE
 yE
-Tr
+TJ
 yE
 yE
 yE
@@ -11693,7 +11693,7 @@ LJ
 yE
 yE
 yE
-Pj
+Fd
 yE
 ct
 yE
@@ -11945,7 +11945,7 @@ dU
 cT
 cT
 Zl
-Tr
+TJ
 Zl
 cT
 cT
@@ -12084,12 +12084,12 @@ yE
 ni
 Hq
 JR
-dr
+IJ
 ni
 ni
 ct
 bH
-QJ
+LD
 bD
 bD
 bD
@@ -12340,7 +12340,7 @@ bU
 cT
 cT
 Zl
-mt
+WZ
 ni
 ni
 ni
@@ -12596,7 +12596,7 @@ cT
 cT
 Zl
 yE
-Wh
+dQ
 cT
 cT
 yE
@@ -12853,7 +12853,7 @@ yE
 yE
 yE
 yE
-Tr
+TJ
 yE
 yE
 AJ
@@ -12988,7 +12988,7 @@ Zl
 yE
 yE
 yE
-Ic
+WU
 yE
 yE
 yE
@@ -13376,13 +13376,13 @@ jS
 cy
 bO
 Zl
-Ic
+WU
 jZ
 jZ
 Ba
 dd
 Ba
-Yf
+vx
 dm
 dm
 dm
@@ -13397,7 +13397,7 @@ dD
 Qy
 Qy
 Qy
-IO
+mb
 Qy
 dD
 dD
@@ -13527,7 +13527,7 @@ Qy
 dD
 dD
 dD
-IO
+mb
 Qy
 Qy
 dD
@@ -13768,7 +13768,7 @@ Zl
 yE
 yE
 yE
-Ad
+gN
 yE
 yE
 yE
@@ -14024,7 +14024,7 @@ ca
 lo
 nZ
 yE
-oT
+FA
 yE
 fD
 Gs
@@ -14160,7 +14160,7 @@ Zl
 Gs
 jZ
 jZ
-op
+hJ
 bV
 bV
 hG
@@ -14807,14 +14807,14 @@ yE
 yE
 hG
 hG
-mq
-mq
+gt
+gt
 hG
 hG
 yE
 yE
 yE
-AF
+ev
 yE
 yE
 Te
@@ -16432,7 +16432,7 @@ fy
 fy
 fy
 fy
-kb
+rq
 qO
 qO
 ee
@@ -16944,8 +16944,8 @@ ag
 UN
 UN
 UN
-kb
-kb
+rq
+rq
 UN
 UN
 UN
@@ -17808,13 +17808,13 @@ pW
 Jx
 Zt
 Zt
-NF
+DK
 VB
 VB
 VB
 VB
 VB
-NF
+DK
 VB
 VB
 II
@@ -19539,7 +19539,7 @@ Wj
 Wj
 fZ
 Wj
-uw
+lQ
 Ph
 Ph
 Dg
@@ -20336,7 +20336,7 @@ bh
 aw
 aw
 Yc
-Ho
+ub
 aw
 Yc
 ag
@@ -20462,7 +20462,7 @@ iu
 sb
 sb
 sb
-NS
+rz
 eD
 eD
 aw
@@ -21503,10 +21503,10 @@ ak
 rM
 rM
 YU
-iy
+Vr
 Yc
 Yc
-Ho
+ub
 aw
 Yc
 ag

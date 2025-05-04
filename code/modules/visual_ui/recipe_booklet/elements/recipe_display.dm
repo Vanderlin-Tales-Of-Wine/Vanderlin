@@ -91,7 +91,7 @@
 		current.client.screen |= requirement
 		register_element(requirement)
 		length++
-		requirement.maptext = {"<span style='font-size:8pt;font-family:"Papyrus";color:[hover_color]' class='center maptext '>[recipe.requirements[path]] x [initial(path.name)]</span>"}
+		requirement.maptext = {"<span style='font-size:8pt;font-family:"Pixelify Sans";color:[hover_color]' class='center maptext '>[recipe.requirements[path]] x [initial(path.name)]</span>"}
 
 	for(var/datum/reagent/path as anything in recipe.reagent_requirements)
 		var/obj/abstract/visual_ui_element/recipe_info_one_liner/requirement = new /obj/abstract/visual_ui_element/recipe_info_one_liner(null, parent)
@@ -102,7 +102,7 @@
 		current.client.screen |= requirement
 		register_element(requirement)
 		length++
-		requirement.maptext = {"<span style='font-size:8pt;font-family:"Papyrus";color:[hover_color]' class='center maptext '>[CEILING(recipe.reagent_requirements[path] / 3, 1)] Oz of [initial(path.name)]</span>"}
+		requirement.maptext = {"<span style='font-size:8pt;font-family:"Pixelify Sans";color:[hover_color]' class='center maptext '>[CEILING(recipe.reagent_requirements[path] / 3, 1)] Oz of [initial(path.name)]</span>"}
 
 	var/obj/abstract/visual_ui_element/recipe_info_break/requirements_end = new /obj/abstract/visual_ui_element/recipe_info_break(null, parent)
 	requirements_end.offset_x = offset_x
