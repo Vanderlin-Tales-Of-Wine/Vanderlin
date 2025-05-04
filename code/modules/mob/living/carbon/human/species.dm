@@ -446,7 +446,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			if(neworgan)
 				qdel(neworgan)
 		else if (!C.dna.organ_dna[slot] && neworgan)
-			var/datum/organ_dna/new_dna = neworgan.create_organ_dna(src)
+			var/datum/organ_dna/new_dna = neworgan.create_organ_dna()
 			C.dna.organ_dna[slot] = new_dna
 
 /datum/species/proc/is_organ_slot_allowed(mob/living/carbon/human/human, organ_slot)
