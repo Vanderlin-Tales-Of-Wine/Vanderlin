@@ -186,6 +186,17 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 	if(!.)
 		return FALSE
 
+	var/alternative_events = FALSE
+	for(var/datum/round_event_control/E in SSevents.control)
+		if(E == src)
+			continue
+		if(E.canSpawnEvent(players_amt, gamemode, fake_check))
+			alternative_events = TRUE
+			break
+
+	if(!alternative_events)
+		return FALSE
+
 	var/datum/patron/astrata = GLOB.patronlist[/datum/patron/divine/astrata]
 	if(!astrata)
 		return FALSE
@@ -225,7 +236,7 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 
 	new /datum/tennite_schism(strongest_challenger)
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(announce_schism_start)), 3 MINUTES)
-	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(announce_schism_end)), 33 MINUTES)
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(announce_schism_end)), 36 MINUTES)
 
 /proc/announce_schism_start()
 	for(var/datum/tennite_schism/schism in GLOB.tennite_schisms)
