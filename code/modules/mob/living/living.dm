@@ -431,7 +431,7 @@
 			return FALSE
 	return TRUE
 
-/mob/living/start_pulling(atom/movable/AM, state, force = pull_force, supress_message = FALSE, obj/item/item_override)
+/mob/living/start_pulling(atom/movable/AM, state, force = pull_force, suppress_message = FALSE, obj/item/item_override, accurate = FALSE)
 	if(!AM || !src)
 		return FALSE
 	if(!(AM.can_be_pulled(src, state, force)))
@@ -473,7 +473,7 @@
 		if(iscarbon(M))
 			var/mob/living/carbon/C = M
 			var/obj/item/grabbing/O = new()
-			var/used_limb = C.find_used_grab_limb(src)
+			var/used_limb = C.find_used_grab_limb(src, accurate)
 			O.name = "[C]'s [parse_zone(used_limb)]"
 			var/obj/item/bodypart/BP = C.get_bodypart(check_zone(used_limb))
 			C.grabbedby += O
@@ -488,9 +488,9 @@
 			put_in_hands(O)
 			O.update_hands(src)
 			if((HAS_TRAIT(src, TRAIT_STRONG_GRABBER) && cmode) || item_override)
-				supress_message = TRUE
+				suppress_message = TRUE
 				C.grippedby(src)
-			if(!supress_message)
+			if(!suppress_message)
 				send_pull_message(M)
 		else
 			var/obj/item/grabbing/O = new()
@@ -504,15 +504,15 @@
 			put_in_hands(O)
 			O.update_hands(src)
 			if((HAS_TRAIT(src, TRAIT_STRONG_GRABBER) && cmode) || item_override)
-				supress_message = TRUE
+				suppress_message = TRUE
 				M.grippedby(src)
-			if(!supress_message)
+			if(!suppress_message)
 				send_pull_message(M)
 
 		update_pull_movespeed()
 		set_pull_offsets(M, state)
 	else
-		if(!supress_message)
+		if(!suppress_message)
 			var/sound_to_play = 'sound/combat/shove.ogg'
 			playsound(src.loc, sound_to_play, 50, TRUE, -1)
 		var/obj/item/grabbing/O = new(src)
@@ -1156,25 +1156,34 @@
 	if(pulledby.grab_state >= GRAB_AGGRESSIVE)
 		combat_modifier -= 0.1
 
-	var/atom/puller_hand = pulledby.get_active_held_item()
-	if(puller_hand && !istype(puller_hand, /obj/item/grabbing)) // so you can't pummel them with a weapon
-		combat_modifier += 0.25
+	var/obj/item/puller_hand = pulledby.get_active_held_item()
+	if(isitem(puller_hand))
+		if(!istype(puller_hand, /obj/item/grabbing) && puller_hand.wlength > WLENGTH_SHORT)  // so you can't pummel them with a weapon
+			combat_modifier += 0.25
 
 	if(cmode && !L.cmode)
-		combat_modifier += 0.3
+		combat_modifier += 0.5
 	else if(!cmode && L.cmode)
 		combat_modifier -= 0.3
+
+	if(L.buckled)
+		combat_modifier += 0.5
 
 	for(var/obj/item/grabbing/G in grabbedby)
 		if(G.chokehold)
 			combat_modifier -= 0.15
 
-	resist_chance = clamp((((4 + (((STASTR - L.STASTR)/2) + wrestling_diff)) * 10 + rand(-5, 10)) * combat_modifier), 5, 95)
+	resist_chance += ((((STASTR - L.STASTR)/2) + wrestling_diff) * 7 + rand(-5, 10))
+	testing("AFTER: [resist_chance]")
+	testing("CM: [combat_modifier]")
+	resist_chance *= combat_modifier
+	resist_chance = clamp(resist_chance, 5, 95)
 
 	if(moving_resist && client) //we resisted by trying to move
 		client.move_delay = world.time + 20
+	adjust_stamina(rand(5,15))
+	pulledby.adjust_stamina(rand(2,7))
 	if(prob(resist_chance))
-		adjust_stamina(rand(5,15))
 		visible_message("<span class='warning'>[src] breaks free of [pulledby]'s grip!</span>", \
 						"<span class='notice'>I break free of [pulledby]'s grip!</span>", null, null, pulledby)
 		to_chat(pulledby, "<span class='danger'>[src] breaks free of my grip!</span>")
@@ -1184,18 +1193,17 @@
 		var/wrestling_cooldown_reduction = 0
 		if(pulledby?.mind?.get_skill_level(/datum/skill/combat/wrestling))
 			wrestling_cooldown_reduction = 0.2 SECONDS * pulledby.mind.get_skill_level(/datum/skill/combat/wrestling)
-		TIMER_COOLDOWN_START(src, "broke_free", max(0, 2.2 SECONDS - wrestling_cooldown_reduction))
-
+		TIMER_COOLDOWN_START(src, "broke_free", max(0, 2.5 SECONDS - wrestling_cooldown_reduction))
+		playsound(src.loc, 'sound/combat/grabbreak.ogg', 50, TRUE, -1)
 		return FALSE
 	else
-		adjust_stamina(rand(5,15))
 		var/shitte = ""
 		if(client?.prefs.showrolls)
 			shitte = " ([resist_chance]%)"
 		visible_message("<span class='warning'>[src] struggles to break free from [pulledby]'s grip!</span>", \
 						"<span class='warning'>I struggle against [pulledby]'s grip![shitte]</span>", null, null, pulledby)
 		to_chat(pulledby, "<span class='warning'>[src] struggles against my grip!</span>")
-
+		playsound(src.loc, 'sound/combat/grabstruggle.ogg', 50, TRUE, -1)
 		return TRUE
 
 /mob/living/carbon/human/resist_grab(moving_resist)
@@ -1213,6 +1221,7 @@
 							visible_message("<span class='warning'>[src] struggles to break free from [pulledby]'s grip!</span>", \
 											"<span class='warning'>I struggle against [pulledby]'s grip!</span>", null, null, pulledby)
 							to_chat(pulledby, "<span class='warning'>[src] struggles against my grip!</span>")
+							playsound(src.loc, 'sound/combat/grabstruggle.ogg', 50, TRUE, -1)
 							return FALSE
 	return ..()
 

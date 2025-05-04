@@ -135,17 +135,20 @@
 			return parse_zone(zone)
 		return affecting.name
 
-/mob/living/carbon/proc/find_used_grab_limb(mob/living/user) //for finding the exact limb or inhand to grab
+/mob/living/carbon/proc/find_used_grab_limb(mob/living/user, accurate = FALSE) //for finding the exact limb or inhand to grab
 	var/used_limb = BODY_ZONE_CHEST
 	var/missing_nose = HAS_TRAIT(src, TRAIT_MISSING_NOSE)
 	var/obj/item/bodypart/affecting
-	affecting = get_bodypart(check_zone(user.zone_selected))
-	if(user.zone_selected && affecting)
-		if(user.zone_selected in affecting.grabtargets)
-			if(missing_nose && user.zone_selected == BODY_ZONE_PRECISE_NOSE)
+	var/selzone = user.zone_selected
+	if(cmode && !accurate)
+		selzone = accuracy_check(user.zone_selected, user, src, /datum/skill/combat/wrestling, user.used_intent)
+	affecting = get_bodypart(check_zone(selzone))
+	if(selzone && affecting)
+		if(selzone in affecting.grabtargets)
+			if(missing_nose && selzone == BODY_ZONE_PRECISE_NOSE)
 				used_limb = BODY_ZONE_HEAD
 			else
-				used_limb = user.zone_selected
+				used_limb = selzone
 		else
 			used_limb = affecting.body_zone
 	return used_limb

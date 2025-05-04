@@ -186,20 +186,30 @@
 	if(sublimb_grabbed == BODY_ZONE_PRECISE_NECK && grab_state > 0) //grabbing aggresively the neck
 		if(user && (M.dir == turn(get_dir(M,user), 180))) //is behind the grabbed
 			chokehold = TRUE
+		else
+			chokehold = FALSE
 
 	if(chokehold)
 		combat_modifier += 0.15
+
+	if(M.pulling == user && M.grab_state >= GRAB_AGGRESSIVE) // target is grabbing back
+		combat_modifier -= 0.2
 
 	combat_modifier *= ((skill_diff * 0.1) + 1)
 
 	switch(user.used_intent.type)
 		if(/datum/intent/grab/upgrade)
 			if(!(M.status_flags & CANPUSH) || HAS_TRAIT(M, TRAIT_PUSHIMMUNE))
-				to_chat(user, "<span class='warning'>Can't get a grip!</span>")
+				to_chat(user, span_warning("I can't get a grip!"))
 				return FALSE
 			user.adjust_stamina(1) //main stamina consumption in grippedby() struggle
-			M.grippedby(user)
+			if(M.grippedby(user)) // grab was strengthened
+				if(sublimb_grabbed == BODY_ZONE_PRECISE_NECK && (user && (M.dir == turn(get_dir(M,user), 180))))
+					chokehold = TRUE
 		if(/datum/intent/grab/choke)
+			if(user.buckled)
+				to_chat(user, span_warning("I can't do this while buckled!"))
+				return FALSE
 			if(limb_grabbed && grab_state > 0) //this implies a carbon victim
 				if(iscarbon(M) && M != user)
 					user.adjust_stamina(rand(1,3))
@@ -215,7 +225,10 @@
 								span_userdanger("[user] [pick("chokes", "strangles")] me[chokehold ? " with a chokehold" : ""]!"), span_hear("I hear a sickening sound of pugilism!"), COMBAT_MESSAGE_RANGE, user)
 						to_chat(user, span_danger("I [pick("choke", "strangle")] [C][chokehold ? " with a chokehold" : ""]!"))
 		if(/datum/intent/grab/hostage)
-			if(limb_grabbed && grab_state > 0) //this implies a carbon victim
+			if(user.buckled)
+				to_chat(user, span_warning("I can't do this while buckled!"))
+				return FALSE
+			if(limb_grabbed && grab_state > GRAB_PASSIVE) //this implies a carbon victim
 				if(ishuman(M) && M != user)
 					var/mob/living/carbon/human/H = M
 					var/mob/living/carbon/human/U = user
@@ -231,23 +244,35 @@
 						U.hostage = H
 						H.hostagetaker = U
 		if(/datum/intent/grab/twist)
+			if(user.buckled)
+				to_chat(user, span_warning("I can't do this while buckled!"))
+				return FALSE
 			if(limb_grabbed && grab_state > 0) //this implies a carbon victim
 				if(iscarbon(M))
 					user.adjust_stamina(rand(3,8))
 					twistlimb(user)
 		if(/datum/intent/grab/twistitem)
+			if(user.buckled)
+				to_chat(user, span_warning("I can't do this while buckled!"))
+				return FALSE
 			if(limb_grabbed && grab_state > 0) //this implies a carbon victim
 				if(ismob(M))
 					user.adjust_stamina(rand(3,8))
 					twistitemlimb(user)
 		if(/datum/intent/grab/remove)
+			if(user.buckled)
+				to_chat(user, span_warning("I can't do this while buckled!"))
+				return FALSE
 			if(isitem(sublimb_grabbed))
 				user.adjust_stamina(rand(3,8))
 				removeembeddeditem(user)
 			else
 				user.stop_pulling()
 		if(/datum/intent/grab/shove)
-			if(user.body_position == LYING_DOWN)
+			if(user.buckled)
+				to_chat(user, span_warning("I can't do this while buckled!"))
+				return FALSE
+			if(!(user.mobility_flags & MOBILITY_STAND))
 				to_chat(user, "<span class='warning'>I must stand up first.</span>")
 				return
 			if(M.body_position == LYING_DOWN)
@@ -273,7 +298,7 @@
 				user.adjust_stamina(rand(5,15))
 				if(prob(clamp((((4 + ((user.STASTR - (M.STACON+2))/2) + skill_diff) * 10 + rand(-5, 5)) * combat_modifier), 5, 95)))
 					M.Knockdown(max(10 + (skill_diff * 2), 1))
-					M.set_resting(TRUE, TRUE)
+					M.drop_all_held_items()
 					playsound(src,"genblunt",100,TRUE)
 					if(user.l_grab && user.l_grab.grabbed == M && user.r_grab && user.r_grab.grabbed == M && user.r_grab.grab_state == GRAB_AGGRESSIVE )
 						M.visible_message(span_danger("[user] throws [M] to the ground!"), \
@@ -285,8 +310,13 @@
 				else
 					M.visible_message(span_warning("[user] tries to shove [M]!"), \
 									span_danger("[user] tries to shove me!"), span_hear("I hear aggressive shuffling!"), COMBAT_MESSAGE_RANGE)
+					user.dropItemToGround(src, force = TRUE, silent = TRUE)
+					user.start_pulling(M, suppress_message = TRUE, accurate = TRUE)
 				user.changeNext_move(CLICK_CD_GRABBING)
 		if(/datum/intent/grab/disarm)
+			if(user.buckled)
+				to_chat(user, span_warning("I can't do this while buckled!"))
+				return FALSE
 			var/obj/item/I
 			if(sublimb_grabbed == BODY_ZONE_PRECISE_L_HAND && M.active_hand_index == 1)
 				I = M.get_active_held_item()
@@ -306,24 +336,52 @@
 				if(prob(probby))
 					M.dropItemToGround(I, force = FALSE, silent = FALSE)
 					user.dropItemToGround(src, force = TRUE, silent = TRUE)
-					if(!QDELETED(I))
-						user.put_in_active_hand(I)
-						M.visible_message(span_danger("[user] takes [I] from [M]'s hand!"), \
-									span_userdanger("[user] takes [I] from my hand!"), span_hear("I hear aggressive shuffling!"), COMBAT_MESSAGE_RANGE)
-						playsound(src.loc, 'sound/combat/weaponr1.ogg', 100, FALSE, -1) //sound queue to let them know that they got disarmed
-					user.changeNext_move(CLICK_CD_MELEE)//avoids instantly attacking with the new weapon
-				else
-					probby += 5
 					if(prob(probby))
-						M.dropItemToGround(I, force = FALSE, silent = FALSE)
+						if(!QDELETED(I))
+							user.put_in_active_hand(I)
+							M.visible_message(span_danger("[user] takes [I] from [M]'s hand!"), \
+										span_userdanger("[user] takes [I] from my hand!"), span_hear("I hear aggressive shuffling!"), COMBAT_MESSAGE_RANGE)
+							playsound(src.loc, 'sound/combat/weaponr1.ogg', 100, FALSE, -1) //sound queue to let them know that they got disarmed
+						user.changeNext_move(CLICK_CD_MELEE)//avoids instantly attacking with the new weapon
+					else
 						M.visible_message(span_danger("[user] disarms [M] of [I]!"), \
 								span_userdanger("[user] disarms me of [I]!"), span_hear("I hear aggressive shuffling!"), COMBAT_MESSAGE_RANGE)
-						M.Stun(6)//slight delay to pick up the weapon
-					else
-						user.Immobilize(10)
-						M.Immobilize(10)
-						M.visible_message(span_notice("[user.name] struggles to disarm [M.name]!"))
-						playsound(src.loc, 'sound/foley/struggle.ogg', 100, FALSE, -1)
+						M.changeNext_move(6)//slight delay to pick up the weapon
+				else
+					user.Immobilize(10)
+					M.Immobilize(6)
+					M.visible_message(span_warning("[user.name] struggles to disarm [M.name]!"), COMBAT_MESSAGE_RANGE)
+					playsound(src.loc, 'sound/foley/struggle.ogg', 100, FALSE, -1)
+					user.dropItemToGround(src, force = TRUE, silent = TRUE)
+					user.start_pulling(M, suppress_message = TRUE, accurate = TRUE)
+			else
+				to_chat(user, span_warning("They aren't holding anything in that hand!"))
+				return
+		if(/datum/intent/grab/armdrag)
+			if(user.buckled)
+				to_chat(user, span_warning("I can't do this while buckled!"))
+				return FALSE
+			var/obj/item/I
+			if(ispath(limb_grabbed.type, /obj/item/bodypart/l_arm))
+				I = M.get_item_for_held_index(1)
+			else
+				I = M.get_item_for_held_index(2)
+			user.adjust_stamina(rand(3,8))
+			var/probby = clamp((((3 + (((user.STASTR - M.STACON)/4) + skill_diff)) * 10) * combat_modifier), 5, 95)
+			if(I)
+				if(prob(probby))
+					M.dropItemToGround(I, force = FALSE, silent = FALSE)
+					M.visible_message(span_danger("[user] disarms [M] of [I]!"), \
+							span_userdanger("[user] disarms me of [I]!"), span_hear("I hear aggressive shuffling!"), COMBAT_MESSAGE_RANGE)
+					M.changeNext_move(6)//slight delay to pick up the weapon
+					user.changeNext_move(6)
+				else
+					user.Immobilize(10)
+					M.Immobilize(6)
+					M.visible_message(span_warning("[user.name] struggles to disarm [M.name]!"), COMBAT_MESSAGE_RANGE)
+					playsound(src.loc, 'sound/foley/struggle.ogg', 100, FALSE, -1)
+					user.dropItemToGround(src, force = TRUE, silent = TRUE)
+					user.start_pulling(M, suppress_message = TRUE, accurate = TRUE)
 			else
 				to_chat(user, span_warning("They aren't holding anything in that hand!"))
 				return
@@ -536,6 +594,11 @@
 
 /datum/intent/grab/disarm
 	name = "disarm"
+	desc = ""
+	icon_state = "intake"
+
+/datum/intent/grab/armdrag
+	name = "arm disarm"
 	desc = ""
 	icon_state = "intake"
 

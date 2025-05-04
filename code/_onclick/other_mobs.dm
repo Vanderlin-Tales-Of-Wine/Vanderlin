@@ -281,10 +281,14 @@
 				if(!A.Adjacent(src))
 					return
 				if(A == src)
-					return
-				if(ismob(A))
-					var/mob/M = A
-					if(lying_angle && M.pulling != src)
+					var/list/mobs_here = list()
+					for(var/mob/M in get_turf(src))
+						if(M.invisibility || M == src)
+							continue
+						mobs_here += M
+					if(mobs_here.len)
+						A = pick(mobs_here)
+					if(A == src) //auto aim couldn't select another target
 						return
 				if(IsOffBalanced())
 					to_chat(src, span_warning("I haven't regained my balance yet."))
