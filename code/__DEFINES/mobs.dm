@@ -472,6 +472,7 @@
 #define SKIN_COLOR_MARBLE "E6E6E6" //White
 #define SKIN_COLOR_LARIMAR "a9ded1" //Cyan
 #define SKIN_COLOR_AMAZONITE "b6f1f2" //also Cyan
+#define SKIN-COLOR_ZINC "daeaeb" //Light aqua
 
 //HALF ELF SKIN TONES
 #define SKIN_COLOR_ZIZO_CURSED "fff0e9" //Pale as SHIT
