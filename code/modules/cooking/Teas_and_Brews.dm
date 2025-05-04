@@ -48,7 +48,6 @@
 	metabolization_rate = 1
 	taste_description = "tingling, sour fruits"
 	taste_mult = 2
-	alpha = 153
 	quality = 3
 
 /datum/reagent/consumable/tea/utricasalvia/on_mob_life(mob/living/carbon/M)
@@ -70,7 +69,6 @@
 	taste_description = "HEROIC, amounts of westleach tar"
 	taste_mult = 4
 	hydration_factor = 0
-	alpha = 153
 	quality = 0
 
 /datum/reagent/consumable/tea/badidea/on_mob_life(mob/living/carbon/M)
@@ -92,7 +90,6 @@
 	taste_description = "dirt, colors, future"
 	taste_mult = 3
 	hydration_factor = 2
-	alpha = 153
 	quality = 1
 
 /datum/reagent/consumable/tea/fourtwenty/on_mob_life(mob/living/carbon/M)
@@ -109,7 +106,6 @@
 	taste_description = "stinging, floral tones. Did it just cast something in your mouth?..."
 	taste_mult = 2
 	hydration_factor = 2
-	alpha = 153
 
 /datum/reagent/consumable/tea/manabloom/on_mob_life(mob/living/carbon/M)
 	if(volume >= 20)
@@ -128,7 +124,6 @@
 	metabolization_rate = 0.2 // 20% of normal metab
 	taste_description = "strong berry taste, its very sweet"
 	taste_mult = 4
-	alpha = 153
 	hydration_factor = 6 //a hydrating, nutritious and convinient drink made of raisins
 	nutriment_factor = 6
 	quality = 3
