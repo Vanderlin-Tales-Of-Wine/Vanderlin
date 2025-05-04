@@ -178,7 +178,7 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 	weight = 1
 	max_occurrences = 1
 	min_players = 50
-	earliest_start = 35 MINUTES
+	earliest_start = 30 MINUTES
 	allowed_storytellers = list(/datum/storyteller/noc, /datum/storyteller/ravox, /datum/storyteller/necra, /datum/storyteller/xylix, /datum/storyteller/pestra, /datum/storyteller/abyssor, /datum/storyteller/dendor, /datum/storyteller/eora, /datum/storyteller/malum)
 
 /datum/round_event_control/schism_within_ten/canSpawnEvent(players_amt, gamemode, fake_check)
