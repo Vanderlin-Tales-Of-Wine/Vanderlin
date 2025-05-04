@@ -13,10 +13,8 @@
 		COOLDOWN_START(controller, movement_cooldown, controller.movement_delay)
 
 		var/atom/movable/movable_pawn = controller.pawn
-		if(!isturf(movable_pawn.loc)) //No moving if not on a turf
-			continue
 
-		if(controller.ai_traits & STOP_MOVING_WHEN_PULLED && movable_pawn.pulledby)
+		if(!controller.can_move())
 			continue
 
 		var/minimum_distance = controller.max_target_distance

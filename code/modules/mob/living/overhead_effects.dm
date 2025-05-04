@@ -43,7 +43,7 @@
 	icon_state = null
 	duration = 25
 	layer = BELOW_MOB_LAYER
-	vis_flags = VIS_INHERIT_PLANE
+	vis_flags = VIS_INHERIT_PLANE|VIS_INHERIT_ID
 
 /obj/effect/temp_visual/stress_event/Initialize(mapload, list/seers, path, iname, list/offsets)
 	. = ..()

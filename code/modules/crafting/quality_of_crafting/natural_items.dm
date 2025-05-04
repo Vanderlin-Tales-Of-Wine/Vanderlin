@@ -443,3 +443,4 @@
 	starting_atom= /obj/item/natural/fibers
 	output = /obj/item/weapon/axe/boneaxe
 	craftdiff = 2
+

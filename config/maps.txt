@@ -22,3 +22,8 @@ map rosewood
 	minplayers 90
 	votable
 endmap
+
+map daftmarsh
+	maxplayers 75
+	votable
+endmap

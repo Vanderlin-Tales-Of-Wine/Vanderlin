@@ -670,6 +670,7 @@
 	var/datum/weakref/drainer
 
 /obj/structure/soul/New(loc, mob/living/dead_person)
+	. = ..()
 	if(dead_person?.mana_pool)
 		mana_amount = dead_person.mana_pool.amount
 		drainer = WEAKREF(dead_person)

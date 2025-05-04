@@ -746,9 +746,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		if(!I.species_exception || !is_type_in_list(src, I.species_exception))
 			return FALSE
 
-	var/num_arms = H.get_num_arms(FALSE)
-	var/num_legs = H.get_num_legs(FALSE)
-
 	switch(slot)
 		if(SLOT_HANDS)
 			if(H.get_empty_held_indexes())
@@ -822,7 +819,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 				return FALSE
 			if( !(I.slot_flags & ITEM_SLOT_GLOVES) )
 				return FALSE
-			if(num_arms < 1)
+			if(H.num_hands < 1)
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
 		if(SLOT_SHOES)
@@ -830,7 +827,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 				return FALSE
 			if( !(I.slot_flags & ITEM_SLOT_SHOES) )
 				return FALSE
-			if(num_legs < 1)
+			if(H.num_legs < 1)
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
 		if(SLOT_BELT)
@@ -985,7 +982,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 				return FALSE
 			if(!I.breakouttime)
 				return FALSE
-			if(num_legs < 2)
+			if(H.num_legs < 2)
 				return FALSE
 			return TRUE
 		if(SLOT_IN_BACKPACK)
@@ -1191,11 +1188,11 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 /datum/species/proc/help(mob/living/carbon/human/user, mob/living/carbon/human/target, datum/martial_art/attacker_style)
 //	if(!((target.health < 0 || HAS_TRAIT(target, TRAIT_FAKEDEATH)) && !(target.mobility_flags & MOBILITY_STAND)))
-	if(!(target.mobility_flags & MOBILITY_STAND))
+	if(target.body_position == LYING_DOWN)
 		target.help_shake_act(user)
 		if(target != user)
 			log_combat(user, target, "shaken")
-		return 1
+		return TRUE
 /*	else
 		var/we_breathe = !HAS_TRAIT(user, TRAIT_NOBREATH)
 		var/we_lung = user.getorganslot(ORGAN_SLOT_LUNGS)
@@ -1272,7 +1269,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			return FALSE
 		if(!target.Adjacent(user))
 			return
-		if(user.incapacitated())
+		if(user.incapacitated(ignore_grab = TRUE))
 			return
 
 		var/damage = user.get_punch_dmg()
@@ -1345,7 +1342,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			target.apply_effect(knockdown_duration, EFFECT_KNOCKDOWN, armor_block)
 			target.forcesay(GLOB.hit_appends)
 			log_combat(user, target, "got a stun punch with their previous punch")*/
-		if(!(target.mobility_flags & MOBILITY_STAND))
+		if(target.body_position == LYING_DOWN)
 			target.forcesay(GLOB.hit_appends)
 		if(!nodmg)
 			playsound(target.loc, user.used_intent.hitsound, 100, FALSE)
@@ -1495,22 +1492,20 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 	if(user.stamina >= user.maximum_stamina)
 		return FALSE
-	if(!(user.mobility_flags & MOBILITY_STAND))
+	if(user.body_position == LYING_DOWN)
 		return FALSE
 	var/stander = TRUE
-	if(!(target.mobility_flags & MOBILITY_STAND))
+	if(target.body_position == LYING_DOWN)
 		stander = FALSE
 	if(user.loc == target.loc)
-		if(!stander && (user.mobility_flags & MOBILITY_STAND))
+		if(!stander && (user.body_position != LYING_DOWN))
 			target.lastattacker = user.real_name
 			target.lastattackerckey = user.ckey
 			if(target.mind)
 				target.mind.attackedme[user.real_name] = world.time
 			var/selzone = accuracy_check(user.zone_selected, user, target, /datum/skill/combat/unarmed, user.used_intent)
 			var/obj/item/bodypart/affecting = target.get_bodypart(check_zone(selzone))
-			var/damage = (user.get_punch_dmg() * 1.4)
-			if(user.shoes)
-				damage *= (1 + (user.shoes.armor_class * 0.2))
+			var/damage = user.get_kick_damage(2.5)
 			var/armor_block = target.run_armor_check(selzone, "blunt", blade_dulling = BCLASS_BLUNT)
 			var/balance = 10
 			target.next_attack_msg.Cut()
@@ -1614,9 +1609,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		if(!affecting)
 			affecting = target.get_bodypart(BODY_ZONE_CHEST)
 		var/armor_block = target.run_armor_check(selzone, "blunt", blade_dulling = BCLASS_BLUNT)
-		var/damage = (user.get_punch_dmg() * 2.5)
-		if(user.shoes)
-			damage *= (1 + (user.shoes.armor_class * 0.2))
+		var/damage = user.get_kick_damage(1.4)
 		if(!target.apply_damage(damage, user.dna.species.attack_type, affecting, armor_block))
 			target.next_attack_msg += " <span class='warning'>Armor stops the damage.</span>"
 		else

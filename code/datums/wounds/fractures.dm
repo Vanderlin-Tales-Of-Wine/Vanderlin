@@ -85,9 +85,9 @@
 		ADD_TRAIT(affected, TRAIT_DEAF, "[type]")
 		ADD_TRAIT(affected, TRAIT_NOPAIN, "[type]")
 		affected.become_nearsighted()
-		if(iscarbon(affected))
-			var/mob/living/carbon/carbon_affected = affected
-			carbon_affected.update_disabled_bodyparts()
+		// if(iscarbon(affected))
+		// 	var/mob/living/carbon/carbon_affected = affected
+			// carbon_affected.update_disabled_bodyparts()
 	if(mortal && HAS_TRAIT(affected, TRAIT_CRITICAL_WEAKNESS))
 		affected.death()
 
@@ -101,9 +101,9 @@
 		REMOVE_TRAIT(affected, TRAIT_DEAF, "[type]")
 		REMOVE_TRAIT(affected, TRAIT_NOPAIN, "[type]")
 		affected.cure_nearsighted()
-		if(iscarbon(affected))
-			var/mob/living/carbon/carbon_affected = affected
-			carbon_affected.update_disabled_bodyparts()
+		// if(iscarbon(affected))
+		// 	var/mob/living/carbon/carbon_affected = affected
+			// carbon_affected.update_disabled_bodyparts()
 
 /datum/wound/fracture/head/on_life()
 	. = ..()
@@ -195,9 +195,9 @@
 	if(!istype(affected, /mob/living/carbon/human/species/skeleton/death_arena))
 		ADD_TRAIT(affected, TRAIT_PARALYSIS, "[type]")
 		ADD_TRAIT(affected, TRAIT_NOPAIN, "[type]")
-	if(iscarbon(affected))
-		var/mob/living/carbon/carbon_affected = affected
-		carbon_affected.update_disabled_bodyparts()
+	// if(iscarbon(affected))
+	// 	var/mob/living/carbon/carbon_affected = affected
+		// carbon_affected.update_disabled_bodyparts()
 	if(HAS_TRAIT(affected, TRAIT_CRITICAL_WEAKNESS))
 		affected.death()
 
@@ -205,9 +205,9 @@
 	. = ..()
 	REMOVE_TRAIT(affected, TRAIT_PARALYSIS, "[type]")
 	REMOVE_TRAIT(affected, TRAIT_NOPAIN, "[type]")
-	if(iscarbon(affected))
-		var/mob/living/carbon/carbon_affected = affected
-		carbon_affected.update_disabled_bodyparts()
+	// if(iscarbon(affected))
+	// 	var/mob/living/carbon/carbon_affected = affected
+		// carbon_affected.update_disabled_bodyparts()
 
 /datum/wound/fracture/neck/on_life()
 	. = ..()
@@ -252,14 +252,14 @@
 	affected.Stun(20)
 	ADD_TRAIT(affected, TRAIT_PARALYSIS_R_LEG, "[type]")
 	ADD_TRAIT(affected, TRAIT_PARALYSIS_L_LEG, "[type]")
-	if(iscarbon(affected))
-		var/mob/living/carbon/carbon_affected = affected
-		carbon_affected.update_disabled_bodyparts()
+	// if(iscarbon(affected))
+	// 	var/mob/living/carbon/carbon_affected = affected
+		// carbon_affected.update_disabled_bodyparts()
 
 /datum/wound/fracture/groin/on_mob_loss(mob/living/affected)
 	. = ..()
 	REMOVE_TRAIT(affected, TRAIT_PARALYSIS_R_LEG, "[type]")
 	REMOVE_TRAIT(affected, TRAIT_PARALYSIS_L_LEG, "[type]")
-	if(iscarbon(affected))
-		var/mob/living/carbon/carbon_affected = affected
-		carbon_affected.update_disabled_bodyparts()
+	// if(iscarbon(affected))
+	// 	var/mob/living/carbon/carbon_affected = affected
+		// carbon_affected.update_disabled_bodyparts()

@@ -66,6 +66,8 @@
 /datum/ai_behavior/find_potential_targets/proc/pick_final_target(datum/ai_controller/controller, list/filtered_targets)
 	return pick(filtered_targets)
 
+/datum/ai_behavior/find_potential_targets/human
+	vision_range = 7
 
 /datum/ai_behavior/find_potential_targets/rat
 	vision_range = 2
@@ -99,7 +101,7 @@
 			var/mob/living/simple_animal/hostile/retaliate/troll/mob = controller.pawn
 			mob.ambush()
 
-/datum/ai_behavior/find_potential_targets/bum/finish_action(datum/ai_controller/controller, succeeded, ...)
+/datum/ai_behavior/find_potential_targets/human/bum/finish_action(datum/ai_controller/controller, succeeded, ...)
 	. = ..()
 	if(succeeded)
 		var/mob/living/pawn = controller.pawn
