@@ -35,7 +35,11 @@
 	START_PROCESSING(SSfastprocess, src)
 
 /obj/item/grabbing/process()
-	valid_check()
+	if(valid_check())
+		if(sublimb_grabbed == BODY_ZONE_PRECISE_NECK && (grabbee && (grabbed.dir == turn(get_dir(grabbed,grabbee), 180))))
+			chokehold = TRUE
+		else
+			chokehold = FALSE
 
 /obj/item/grabbing/proc/valid_check()
 	// We should be conscious to do this, first of all...
@@ -183,12 +187,6 @@
 	else if(!user.cmode && M.cmode)
 		combat_modifier -= 0.3
 
-	if(sublimb_grabbed == BODY_ZONE_PRECISE_NECK && grab_state > 0) //grabbing aggresively the neck
-		if(user && (M.dir == turn(get_dir(M,user), 180))) //is behind the grabbed
-			chokehold = TRUE
-		else
-			chokehold = FALSE
-
 	if(chokehold)
 		combat_modifier += 0.15
 
@@ -203,9 +201,7 @@
 				to_chat(user, span_warning("I can't get a grip!"))
 				return FALSE
 			user.adjust_stamina(1) //main stamina consumption in grippedby() struggle
-			if(M.grippedby(user)) // grab was strengthened
-				if(sublimb_grabbed == BODY_ZONE_PRECISE_NECK && (user && (M.dir == turn(get_dir(M,user), 180))))
-					chokehold = TRUE
+			M.grippedby(user)
 		if(/datum/intent/grab/choke)
 			if(user.buckled)
 				to_chat(user, span_warning("I can't do this while buckled!"))
