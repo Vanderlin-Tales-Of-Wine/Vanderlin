@@ -480,6 +480,7 @@
 			O.grabbed = C
 			O.grabbee = src
 			O.limb_grabbed = BP
+			BP.grabbedby += O
 			if(item_override)
 				O.sublimb_grabbed = item_override
 			else

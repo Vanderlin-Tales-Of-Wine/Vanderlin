@@ -21,7 +21,7 @@
 	var/sublimb_grabbed		//ref to what precise (sublimb) we are grabbing (if any) (text)
 	var/list/dependents = list()
 	var/handaction
-	var/bleed_suppressing = 0.5 //multiplier for how much we suppress bleeding, can accumulate so two grabs means 25% bleeding
+	var/bleed_suppressing = 0.25 //multiplier for how much we suppress bleeding, can accumulate so two grabs means 25% bleeding
 	var/chokehold = FALSE
 
 /atom/movable //reference to all obj/item/grabbing
@@ -42,6 +42,8 @@
 			chokehold = FALSE
 
 /obj/item/grabbing/proc/valid_check()
+	if(QDELETED(grabbee) || QDELETED(grabbed))
+		return
 	// We should be conscious to do this, first of all...
 	if(grabbee.stat < UNCONSCIOUS)
 		// Mouth grab while we're adjacent is good
@@ -103,6 +105,17 @@
 	if(ismob(grabbed))
 		var/mob/M = grabbed
 		M.grabbedby -= src
+		if(iscarbon(M) && sublimb_grabbed)
+			var/mob/living/carbon/carbonmob = M
+			var/obj/item/bodypart/part = carbonmob.get_bodypart(sublimb_grabbed)
+
+			// Edge case: if a weapon becomes embedded in a mob, our "grab" will be destroyed...
+			// In this case, grabbed will be the mob, and sublimb_grabbed will be the weapon, rather than a bodypart
+			// This means we should skip any further processing for the bodypart
+			if(part)
+				part.grabbedby -= src
+				part = null
+				sublimb_grabbed = null
 	if(isturf(grabbed))
 		var/turf/T = grabbed
 		T.grabbedby -= src
@@ -201,7 +214,8 @@
 				to_chat(user, span_warning("I can't get a grip!"))
 				return FALSE
 			user.adjust_stamina(1) //main stamina consumption in grippedby() struggle
-			M.grippedby(user)
+			if(M.grippedby(user)) // grab was strengthened
+				bleed_suppressing = 0.5
 		if(/datum/intent/grab/choke)
 			if(user.buckled)
 				to_chat(user, span_warning("I can't do this while buckled!"))
