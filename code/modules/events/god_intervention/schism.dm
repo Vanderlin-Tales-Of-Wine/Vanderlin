@@ -14,6 +14,7 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 	GLOB.tennite_schisms += src
 
 /datum/tennite_schism/Destroy()
+	UnregisterSignal(SSdcs, COMSIG_GLOB_JOB_AFTER_SPAWN)
 	GLOB.tennite_schisms -= src
 	return ..()
 
@@ -22,15 +23,24 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 	if(!challenger)
 		return
 
-	priority_announce("[challenger.name] challenges Astrata's leadeship! The outcome of this conflict will be decided in less than 2 daes by a sheer number of their supporters. [challenger.name] offers great rewards to all faithful if victorious, while Astrata promises revenge for those who dare to defy her. Choose your side, or stand aside...", "Schism within the Ten", 'sound/magic/marked.ogg')
+	priority_announce("[challenger.name] challenges Astrata's leadeship! The outcome of this conflict will be decided in less than 2 daes by a sheer number of their supporters. [challenger.name] promises great rewards to the faithful if victorious, while Astrata swears revenge to any who dare to defy her. Choose your side, or stand aside...", "Schism within the Ten", 'sound/magic/marked.ogg')
+	for(var/mob/living/carbon/human/H in GLOB.player_list)
+		setup_mob(H)
 
-	for(var/mob/living/carbon/human/human_mob in GLOB.player_list)
-		if(!istype(human_mob) || human_mob.stat == DEAD || !human_mob.client)
-			continue
+	RegisterSignal(SSdcs, COMSIG_GLOB_JOB_AFTER_SPAWN, PROC_REF(handle_latejoin))
 
-		human_mob.mind.AddSpell(new /obj/effect/proc_holder/spell/self/choose_schism_side)
-		if(!is_tennite(human_mob))
-			to_chat(human_mob, span_notice("Even though you are not a Tennite and won't matter in its ultimate outcome, you may pretend and use the schism to further your own goals..."))
+/datum/tennite_schism/proc/handle_latejoin(datum/source, mob/living/carbon/human/H, client/C)
+	SIGNAL_HANDLER
+	if(istype(H))
+		setup_mob(H)
+
+/datum/tennite_schism/proc/setup_mob(mob/living/carbon/human/H)
+	if(!istype(H) || H.stat == DEAD || !H.mind)
+		return
+
+	H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/choose_schism_side)
+	if(!is_tennite(H))
+		to_chat(H, span_notice("Even though you are not a tennite and won't matter in the ultimate resolution of this conflict, you may pretend to be one and use the schism to further your own goals..."))
 
 /datum/tennite_schism/proc/process_winner()
 	var/datum/patron/challenger = challenger_god.resolve()
@@ -53,7 +63,7 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 			challenger_count++
 
 	if(astrata_count >= challenger_count)
-		adjust_storyteller_influence("Astrata", 150)
+		adjust_storyteller_influence("Astrata", 175)
 
 		for(var/datum/weakref/supporter_ref in supporters_astrata)
 			var/mob/living/carbon/human/supporter = supporter_ref.resolve()
@@ -63,10 +73,16 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 			else if(supporter)
 				to_chat(supporter, span_notice("Astrata's light prevails over the challenge of [challenger.name]! The Sun Queen expected no less than your total support."))
 
+		for(var/datum/weakref/supporter_ref in supporters_challenger)
+			var/mob/living/carbon/human/supporter = supporter_ref.resolve()
+			if(supporter)
+				to_chat(supporter, span_userdanger("NEVER DEFY ME AGAIN!"))
+				supporter.electrocute_act(5, astrata)
+
 		priority_announce("Astrata's light prevails over the challenge of [challenger.name]! The Sun Queen confirms her status as a true heir of Psydon!", "Astrata is VICTORIOUS!", 'sound/magic/ahh2.ogg')
 
 	else if(challenger_count > astrata_count)
-		adjust_storyteller_influence(challenger.name, 150)
+		adjust_storyteller_influence(challenger.name, 175)
 
 		for(var/datum/weakref/supporter_ref in supporters_challenger)
 			var/mob/living/carbon/human/supporter = supporter_ref.resolve()
@@ -77,7 +93,7 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 				to_chat(supporter, span_notice("[challenger.name]'s challenge succeeds against Astrata's tyranny! Your support is rewarded with a triumph."))
 				supporter.adjust_triumphs(1)
 
-		priority_announce("[challenger.name]'s challenge succeeds against Astrata's tyranny! The Sun Queen is grudgingly forced to listen...", "[challenger.name] RULES!", 'sound/magic/inspire_02.ogg')
+		priority_announce("[challenger.name]'s challenge succeeds against Astrata's tyranny! The Sun Queen is grudgingly forced to share power with [challenger.name]...", "[challenger.name] RULES!", 'sound/magic/inspire_02.ogg')
 
 	for(var/mob/living/carbon/human/H in GLOB.player_list)
 		if(!H.mind)
@@ -151,7 +167,6 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 	current_schism.change_side(user, options[choice])
 
 	if(uses_remaining <= 0)
-		name = "[initial(name)] (Finalized)"
 		if(action)
 			action.UpdateButtonIcon()
 		to_chat(user, span_boldnotice("Your allegiance in the schism is now final."))
@@ -192,11 +207,14 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 	return FALSE
 
 /datum/round_event/schism_within_ten/start()
+	if(LAZYLEN(GLOB.tennite_schisms) > 0)
+		return
+
 	var/datum/patron/strongest_challenger = find_strongest_challenger()
 	if(!strongest_challenger)
 		return
 
-	// Notify challenger god's patrons
+	// Notify challenger god's followers
 	for(var/mob/living/carbon/human/human_mob in GLOB.player_list)
 		if(!istype(human_mob) || human_mob.stat == DEAD || !human_mob.client)
 			continue
