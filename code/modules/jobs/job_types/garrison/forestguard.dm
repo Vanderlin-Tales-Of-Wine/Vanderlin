@@ -127,7 +127,7 @@
 		ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_FORAGER, TRAIT_GENERIC)
 
-// Berserker
+// Reaver
 /datum/advclass/forestguard/brawler
 	name = "Forest Reaver"
 	tutorial = "In the goblin wars you took an oath to never hold a shield, you just enjoy having a weapon in both hands..."
