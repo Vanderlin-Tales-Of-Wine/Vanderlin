@@ -246,7 +246,7 @@
 	var/obj/item/grabbing/bite/B = new()
 	user.equip_to_slot_or_del(B, SLOT_MOUTH)
 	if(user.mouth == B)
-		var/used_limb = src.find_used_grab_limb(user)
+		var/used_limb = src.find_used_grab_limb(user, accurate = TRUE)
 		B.name = "[src]'s [parse_zone(used_limb)]"
 		var/obj/item/bodypart/BP = get_bodypart(check_zone(used_limb))
 		BP.grabbedby += B

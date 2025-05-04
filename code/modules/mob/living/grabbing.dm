@@ -272,7 +272,7 @@
 			if(user.buckled)
 				to_chat(user, span_warning("I can't do this while buckled!"))
 				return FALSE
-			if(!(user.mobility_flags & MOBILITY_STAND))
+			if(user.body_position == LYING_DOWN)
 				to_chat(user, "<span class='warning'>I must stand up first.</span>")
 				return
 			if(M.body_position == LYING_DOWN)

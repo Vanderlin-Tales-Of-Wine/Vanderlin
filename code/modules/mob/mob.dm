@@ -818,7 +818,9 @@ GLOBAL_VAR_INIT(mobids, 1)
 	return TRUE
 
 ///Checks mobility move as well as parent checks
-/mob/living/canface()
+/mob/living/canface(atom/A)
+	if(!A)
+		return
 	if(HAS_TRAIT(src, TRAIT_IMMOBILIZED))
 		return FALSE
 	if(world.time < last_dir_change + 5)
