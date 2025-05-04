@@ -21,6 +21,14 @@
 		if(!(default_accessory in sprite_accessories))
 			CRASH("Customizer choice [type] has a default accessory which is unavailable in its accessory list.")
 
+//this exists because npcs don't have perfs so load based on carbon dna
+/datum/customizer_choice/proc/return_species(datum/preferences/prefs)
+	if(istype(prefs))
+		return prefs.pref_species
+	else
+		var/mob/living/carbon/carbon = prefs
+		return carbon?.dna?.species
+
 /datum/customizer_choice/proc/apply_customizer_to_character(mob/living/carbon/human/human, datum/preferences/prefs, datum/customizer_entry/entry)
 	return
 
@@ -40,7 +48,7 @@
 		random_accessory = get_random_accessory(entry, prefs)
 	if(random_accessory)
 		set_accessory_type(prefs, random_accessory, entry)
-	var/random_color = get_random_color(entry, prefs, entry.accessory_type)
+	var/random_color = get_random_color(entry, prefs, entry?.accessory_type)
 	if(random_color)
 		entry.accessory_colors = random_color
 	on_randomize_entry(entry, prefs)
@@ -61,8 +69,8 @@
 
 /datum/customizer_choice/proc/generate_pref_choices(list/dat, datum/preferences/prefs, datum/customizer_entry/entry, customizer_type)
 	var/datum/sprite_accessory/accessory
-	if(sprite_accessories && entry.accessory_type)
-		accessory = SPRITE_ACCESSORY(entry.accessory_type)
+	if(sprite_accessories && entry?.accessory_type)
+		accessory = SPRITE_ACCESSORY(entry?.accessory_type)
 
 	if(accessory)
 		var/accessory_link
@@ -92,7 +100,7 @@
 			for(var/choice_type in sprite_accessories)
 				var/datum/sprite_accessory/accessory = SPRITE_ACCESSORY(choice_type)
 				choice_list[accessory.name] = choice_type
-			var/chosen_input = input(user, "Choose your [lowertext(name)] appearance:", "Character Preference")  as null|anything in choice_list
+			var/chosen_input = browser_input_list(user, "Choose your [lowertext(name)] appearance:", "Character Preference", choice_list)
 			if(!chosen_input)
 				return
 			var/choice_type = choice_list[chosen_input]
@@ -105,7 +113,7 @@
 			var/i = 0
 			for(var/accessory_type in sprite_accessories)
 				i++
-				if(entry.accessory_type != accessory_type)
+				if(entry?.accessory_type != accessory_type)
 					continue
 				current_index = i
 				break
@@ -127,7 +135,7 @@
 			if(!sprite_accessories || !allows_accessory_color_customization)
 				return
 			var/index = text2num(href_list["color_index"])
-			var/datum/sprite_accessory/accessory = SPRITE_ACCESSORY(entry.accessory_type)
+			var/datum/sprite_accessory/accessory = SPRITE_ACCESSORY(entry?.accessory_type)
 			if(index > accessory.color_keys)
 				return
 			var/list/color_list = color_string_to_list(entry.accessory_colors)
@@ -143,14 +151,14 @@
 
 /datum/customizer_choice/proc/validate_entry(datum/preferences/prefs, datum/customizer_entry/entry)
 	/// Validate chosen accessory
-	if(entry.accessory_type && !sprite_accessories)
-		entry.accessory_type = null
+	if(entry?.accessory_type && !sprite_accessories)
+		entry?.accessory_type = null
 		entry.accessory_colors = null
-	else if (sprite_accessories && !(entry.accessory_type in sprite_accessories))
+	else if (sprite_accessories && !(entry?.accessory_type in sprite_accessories))
 		set_accessory_type(prefs, default_accessory, entry)
 	/// Validate colors
-	if(entry.accessory_type)
-		var/datum/sprite_accessory/accessory = SPRITE_ACCESSORY(entry.accessory_type)
+	if(entry?.accessory_type)
+		var/datum/sprite_accessory/accessory = SPRITE_ACCESSORY(entry?.accessory_type)
 		if(accessory.color_keys != 0)
 			var/reset_colors = FALSE
 			if(!entry.accessory_colors)
@@ -163,21 +171,21 @@
 				entry.accessory_colors = accessory.get_default_colors(color_key_source_list_from_prefs(prefs))
 
 /datum/customizer_choice/proc/set_accessory_type(datum/preferences/prefs, new_accessory_type, datum/customizer_entry/entry)
-	if(entry.accessory_type == new_accessory_type)
+	if(entry?.accessory_type == new_accessory_type)
 		return
 	if(!entry.customizer_choice_type)
 		CRASH("Tried to set a customizer entry accessory without a customizer choice.")
 	if(!(new_accessory_type in sprite_accessories))
 		CRASH("Tried to set an customizer entry accessory that isn't allowed for the customizer choice.")
 
-	entry.accessory_type = new_accessory_type
-	var/datum/sprite_accessory/accessory = SPRITE_ACCESSORY(entry.accessory_type)
+	entry?.accessory_type = new_accessory_type
+	var/datum/sprite_accessory/accessory = SPRITE_ACCESSORY(entry?.accessory_type)
 	entry.accessory_colors = accessory.get_default_colors(color_key_source_list_from_prefs(prefs))
 
 /datum/customizer_choice/proc/reset_accessory_colors(datum/preferences/prefs, datum/customizer_entry/entry)
-	if(!entry.accessory_type)
+	if(!entry?.accessory_type)
 		return
-	var/datum/sprite_accessory/accessory = SPRITE_ACCESSORY(entry.accessory_type)
+	var/datum/sprite_accessory/accessory = SPRITE_ACCESSORY(entry?.accessory_type)
 	entry.accessory_colors = accessory.get_default_colors(color_key_source_list_from_prefs(prefs))
 
 /// When you want to customize an organ but not through DNA (hair dye for example)
@@ -191,54 +199,4 @@
 	return
 
 /datum/customizer_choice/proc/customize_organ(obj/item/organ/organ, datum/customizer_entry/entry)
-	return
-
-/datum/customizer_choice/organ
-	abstract_type = /datum/customizer_choice/organ
-	name = "Organ"
-	/// Typepath of the organ this choice yields.
-	var/organ_type
-	/// Slot of the organ.
-	var/organ_slot
-	/// Typepath of the organ DNA.
-	var/organ_dna_type = /datum/organ_dna
-
-/// When you want to customize an organ but not through DNA (hair dye for example)
-/datum/customizer_choice/organ/get_organ_slot(obj/item/organ/organ, datum/customizer_entry/entry)
-	return organ_slot
-
-/// When you want to customize an organ but not through DNA (hair dye for example)
-/datum/customizer_choice/organ/customize_organ(obj/item/organ/organ, datum/customizer_entry/entry)
-	return
-
-/datum/customizer_choice/organ/imprint_organ_dna(datum/organ_dna/organ_dna, datum/customizer_entry/entry, datum/preferences/prefs)
-	organ_dna.organ_type = organ_type
-	if(entry.accessory_type)
-		organ_dna.accessory_type = entry.accessory_type
-		if(allows_accessory_color_customization)
-			organ_dna.accessory_colors = entry.accessory_colors
-		else
-			var/datum/sprite_accessory/accessory = SPRITE_ACCESSORY(entry.accessory_type)
-			organ_dna.accessory_colors = accessory.get_default_colors(color_key_source_list_from_prefs(prefs))
-
-/datum/customizer_choice/organ/create_organ_dna(datum/customizer_entry/entry, datum/preferences/prefs)
-	var/datum/organ_dna/organ_dna = new organ_dna_type()
-	imprint_organ_dna(organ_dna, entry, prefs)
-	return organ_dna
-
-/datum/customizer_choice/bodypart_feature
-	abstract_type = /datum/customizer_choice/bodypart_feature
-	name = "Bodypart Feature"
-	/// Typepath of the bodypart feature
-	var/feature_type = /datum/bodypart_feature
-
-/datum/customizer_choice/bodypart_feature/apply_customizer_to_character(mob/living/carbon/human/human, datum/preferences/prefs, datum/customizer_entry/entry)
-	var/datum/bodypart_feature/feature = new feature_type()
-	if(entry.accessory_type)
-		var/colors_used = allows_accessory_color_customization ? entry.accessory_colors : null
-		feature.set_accessory_type(entry.accessory_type, colors_used, human)
-	customize_feature(feature, human, prefs, entry)
-	human.add_bodypart_feature(feature)
-
-/datum/customizer_choice/bodypart_feature/proc/customize_feature(datum/bodypart_feature/feature, mob/living/carbon/human/human, datum/preferences/prefs, datum/customizer_entry/entry)
 	return

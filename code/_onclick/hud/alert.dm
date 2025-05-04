@@ -283,7 +283,7 @@
 	if(!istype(L) || !L.can_resist())
 		return
 	L.changeNext_move(CLICK_CD_RESIST)
-	if(L.mobility_flags & MOBILITY_MOVE)
+	if(!HAS_TRAIT(L, TRAIT_IMMOBILIZED))
 		return L.resist_fire() //I just want to start a flame in your hearrrrrrtttttt.
 
 //Ethereal
@@ -338,7 +338,7 @@
 //OBJECT-BASED
 
 /atom/movable/screen/alert/restrained/buckled
-	name = "Sitting/laying"
+	name = "Buckled"
 	desc = ""
 	icon_state = "buckled"
 
@@ -358,7 +358,7 @@
 	if(!istype(L) || !L.can_resist())
 		return
 	L.changeNext_move(CLICK_CD_RESIST)
-	if((L.mobility_flags & MOBILITY_MOVE) && (L.last_special <= world.time))
+	if(!HAS_TRAIT(L, TRAIT_IMMOBILIZED) && (L.last_special <= world.time))
 		return L.resist_restraints()
 
 /atom/movable/screen/alert/restrained/buckled/Click()

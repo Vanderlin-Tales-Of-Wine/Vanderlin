@@ -116,6 +116,18 @@
 	start_lit = TRUE
 	icon_state = "skullcandle_lit"
 
+/obj/item/candle/eora
+	icon = 'icons/roguetown/items/lighting.dmi'
+	name = "eora's candle"
+	desc = ""
+	color = "#f858b5ff"
+	light_color = "#ff13d8ff"
+	infinite = TRUE
+
+/obj/item/candle/eora/lit
+	start_lit = TRUE
+	icon_state = "candle1_lit"
+
 /obj/item/candle/yellow/lit/infinite
 	light_power = 1
 	light_outer_range =  4

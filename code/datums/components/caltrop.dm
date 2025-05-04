@@ -45,11 +45,14 @@
 		if((H.movement_type & FLYING) || H.buckled)
 			return
 
+		if(H.body_position == LYING_DOWN) //if were not standing we cant step on the caltrop
+			return
+
 		var/damage = rand(min_damage, max_damage)
 		H.apply_damage(damage, BRUTE, picked_def_zone)
 
 		if(cooldown < world.time - 10) //cooldown to avoid message spam.
-			if(!H.incapacitated(ignore_restraints = TRUE))
+			if(!H.incapacitated(ignore_restraints = TRUE, ignore_grab = TRUE))
 				H.visible_message("<span class='danger'>[H] steps on [A].</span>", \
 						"<span class='danger'>I step on [A]!</span>")
 			else

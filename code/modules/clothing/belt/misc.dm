@@ -275,6 +275,22 @@
 	)
 	component_type = /datum/component/storage/concrete/grid/surgery_bag
 
+/obj/item/storage/backpack/satchel/surgbag/shit
+	populate_contents = list(
+		/obj/item/needle,
+		/obj/item/weapon/surgery/scalpel,
+		/obj/item/weapon/surgery/saw,
+		/obj/item/weapon/surgery/hemostat,
+		/obj/item/weapon/surgery/hemostat,
+		/obj/item/weapon/surgery/retractor,
+		/obj/item/weapon/surgery/bonesetter,
+		/obj/item/weapon/surgery/cautery,
+		/obj/item/natural/worms/leech,
+		/obj/item/natural/worms/leech,
+		/obj/item/weapon/surgery/hammer,
+		/obj/item/natural/bundle/fibers/full,
+	)
+
 /obj/item/storage/belt/leather/knifebelt
 
 	name = "tossblade belt"
@@ -284,7 +300,7 @@
 	strip_delay = 20
 	var/max_storage = 8
 	sewrepair = TRUE
-	component_type = null
+	component_type = /datum/component/storage/concrete/grid/belt/knife_belt
 
 
 /obj/item/storage/belt/leather/knifebelt/attack_turf(turf/T, mob/living/user)
@@ -334,7 +350,7 @@
 /obj/item/storage/belt/leather/knifebelt/iron/Initialize()
 	. = ..()
 	for(var/i in 1 to max_storage)
-		var/obj/item/weapon/knife/throwingknife/A = new()
+		var/obj/item/weapon/knife/throwingknife/A = new(loc)
 		if(!SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, A, null, TRUE, TRUE))
 			qdel(A)
 	update_icon()
@@ -342,7 +358,7 @@
 /obj/item/storage/belt/leather/knifebelt/steel/Initialize()
 	. = ..()
 	for(var/i in 1 to max_storage)
-		var/obj/item/weapon/knife/throwingknife/steel/A = new()
+		var/obj/item/weapon/knife/throwingknife/steel/A = new(loc)
 		if(!SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, A, null, TRUE, TRUE))
 			qdel(A)
 	update_icon()
@@ -350,7 +366,7 @@
 /obj/item/storage/belt/leather/knifebelt/psydon/Initialize()
 	. = ..()
 	for(var/i in 1 to max_storage)
-		var/obj/item/weapon/knife/throwingknife/psydon/A = new()
+		var/obj/item/weapon/knife/throwingknife/psydon/A = new(loc)
 		if(!SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, A, null, TRUE, TRUE))
 			qdel(A)
 	update_icon()
@@ -363,7 +379,7 @@
 /obj/item/storage/belt/leather/knifebelt/black/iron/Initialize()
 	. = ..()
 	for(var/i in 1 to max_storage)
-		var/obj/item/weapon/knife/throwingknife/A = new()
+		var/obj/item/weapon/knife/throwingknife/A = new(loc)
 		if(!SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, A, null, TRUE, TRUE))
 			qdel(A)
 	update_icon()
@@ -371,7 +387,7 @@
 /obj/item/storage/belt/leather/knifebelt/black/steel/Initialize()
 	. = ..()
 	for(var/i in 1 to max_storage)
-		var/obj/item/weapon/knife/throwingknife/steel/A = new()
+		var/obj/item/weapon/knife/throwingknife/steel/A = new(loc)
 		if(!SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, A, null, TRUE, TRUE))
 			qdel(A)
 	update_icon()
@@ -379,7 +395,7 @@
 /obj/item/storage/belt/leather/knifebelt/black/psydon/Initialize()
 	. = ..()
 	for(var/i in 1 to max_storage)
-		var/obj/item/weapon/knife/throwingknife/psydon/A = new()
+		var/obj/item/weapon/knife/throwingknife/psydon/A = new(loc)
 		if(!SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, A, null, TRUE, TRUE))
 			qdel(A)
 	update_icon()

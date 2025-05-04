@@ -51,7 +51,7 @@
 	beltl = /obj/item/flashlight/flare/torch/lantern
 	neck = /obj/item/clothing/neck/bevor
 	armor = /obj/item/clothing/armor/leather/splint
-	backpack_contents = list(/obj/item/storage/keyring/inquisitor = 1)
+	backpack_contents = list(/obj/item/storage/keyring/inquisitor = 1, /obj/item/storage/belt/pouch/coins/rich)
 	var/prev_real_name = H.real_name
 	var/prev_name = H.name
 	var/honorary = "Ritter"
@@ -114,7 +114,7 @@
 	if(H == src)
 		to_chat(src, span_warning("I won't torture myself!"))
 		return
-	if(!H.restrained() && !H.buckled)
+	if(!HAS_TRAIT(H, TRAIT_RESTRAINED) && !H.buckled)
 		to_chat(src, span_warning("[H] needs to be restrained or buckled first!"))
 		return
 	if(H.stat == DEAD)
@@ -127,7 +127,7 @@
 		return
 	if(!do_after(src, 4 SECONDS, H))
 		return
-	if(!H.restrained() && !H.buckled)
+	if(!HAS_TRAIT(H, TRAIT_RESTRAINED) && !H.buckled)
 		to_chat(src, span_warning("[H] needs to be restrained or buckled first!"))
 		return
 	if(H.stat == DEAD)
@@ -158,7 +158,7 @@
 	if(H == src)
 		to_chat(src, span_warning("I won't torture myself!"))
 		return
-	if(!H.restrained() && !H.buckled)
+	if(!HAS_TRAIT(H, TRAIT_RESTRAINED) && !H.buckled)
 		to_chat(src, span_warning("[H] needs to be restrained or buckled first!"))
 		return
 	if(H.stat == DEAD)
@@ -171,7 +171,7 @@
 		return
 	if(!do_after(src, 4 SECONDS, H))
 		return
-	if(!H.restrained() && !H.buckled)
+	if(!HAS_TRAIT(H, TRAIT_RESTRAINED) && !H.buckled)
 		to_chat(src, span_warning("[H] needs to be restrained or buckled first!"))
 		return
 	if(H.stat == DEAD)

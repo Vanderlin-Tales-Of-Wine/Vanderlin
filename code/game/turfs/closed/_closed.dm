@@ -34,12 +34,12 @@
 			var/mob/living/simple_animal/A = L
 			if (!A.dextrous)
 				return
-		if(L.mobility_flags & MOBILITY_MOVE)
+		if(!HAS_TRAIT(L, TRAIT_IMMOBILIZED))
 			wallpress(L)
 			return
 
 /turf/closed/proc/feel_turf(mob/living/user)
-	to_chat(user, span_notice("I start feeling around the [src]"))
+	to_chat(user, span_notice("I start feeling around [src]"))
 	if(!do_after(user, 1.5 SECONDS, src))
 		return
 
@@ -49,7 +49,7 @@
 /turf/closed/proc/wallpress(mob/living/user)
 	if(user.wallpressed)
 		return
-	if(!(user.mobility_flags & MOBILITY_STAND))
+	if(user.body_position == LYING_DOWN)
 		return
 	var/dir2wall = get_dir(user,src)
 	if(!(dir2wall in GLOB.cardinals))
@@ -74,7 +74,7 @@
 /turf/closed/proc/wallshove(mob/living/user)
 	if(user.wallpressed)
 		return
-	if(!(user.mobility_flags & MOBILITY_STAND))
+	if(user.body_position == LYING_DOWN)
 		return
 	var/dir2wall = get_dir(user,src)
 	if(!(dir2wall in GLOB.cardinals))
@@ -106,7 +106,7 @@
 	if(density)
 		if(ishuman(AM))
 			var/mob/living/carbon/human/H = AM
-			if(H.dir == get_dir(H,src) && H.m_intent == MOVE_INTENT_RUN && !H.lying)
+			if(H.dir == get_dir(H,src) && H.m_intent == MOVE_INTENT_RUN && H.body_position != LYING_DOWN)
 				H.Immobilize(10)
 				H.apply_damage(15, BRUTE, "head", H.run_armor_check("head", "blunt", damage = 15))
 				H.toggle_rogmove_intent(MOVE_INTENT_WALK, TRUE)

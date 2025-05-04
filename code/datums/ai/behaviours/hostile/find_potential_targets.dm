@@ -11,9 +11,6 @@
 		return
 	var/datum/targetting_datum/targetting_datum = controller.blackboard[targetting_datum_key]
 
-	if(living_mob.icon_state == "Trolla") //shitcode add a trait
-		vision_range = 9
-
 	if(!targetting_datum)
 		CRASH("No target datum was supplied in the blackboard for [controller.pawn]")
 
@@ -69,6 +66,8 @@
 /datum/ai_behavior/find_potential_targets/proc/pick_final_target(datum/ai_controller/controller, list/filtered_targets)
 	return pick(filtered_targets)
 
+/datum/ai_behavior/find_potential_targets/human
+	vision_range = 7
 
 /datum/ai_behavior/find_potential_targets/rat
 	vision_range = 2
@@ -98,9 +97,11 @@
 /datum/ai_behavior/find_potential_targets/bog_troll/finish_action(datum/ai_controller/controller, succeeded, ...)
 	. = ..()
 	if(succeeded)
-		controller.pawn.icon_state = "Trolla"
+		if(istype(controller.pawn, /mob/living/simple_animal/hostile/retaliate/troll))
+			var/mob/living/simple_animal/hostile/retaliate/troll/mob = controller.pawn
+			mob.ambush()
 
-/datum/ai_behavior/find_potential_targets/bum/finish_action(datum/ai_controller/controller, succeeded, ...)
+/datum/ai_behavior/find_potential_targets/human/bum/finish_action(datum/ai_controller/controller, succeeded, ...)
 	. = ..()
 	if(succeeded)
 		var/mob/living/pawn = controller.pawn

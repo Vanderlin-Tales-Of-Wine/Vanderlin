@@ -51,7 +51,7 @@
 					if(!mind.antag_datums || !mind.antag_datums.len)
 						allmig_reward++
 						to_chat(src, span_danger("Nights Survived: \Roman[allmig_reward]"))
-						if(allmig_reward > 0 && allmig_reward % 3 == 0)
+						if(allmig_reward > 0 && allmig_reward % 2 == 0)
 							adjust_triumphs(1)
 	if(HAS_TRAIT(src, TRAIT_LEPROSY))
 		if(MOBTIMER_FINISHED(src, MT_LEPERBLEED, 6 MINUTES))
@@ -113,7 +113,7 @@
 				if(gender == MALE)
 					if(prob(50))
 						has_stubble = TRUE
-						update_hair()
+						update_body()
 
 
 /mob/living/carbon/human/handle_traits()
@@ -345,7 +345,7 @@
 		return
 	if(!eyesclosed)
 		return
-	if(mobility_flags & MOBILITY_STAND)
+	if(body_position != LYING_DOWN)
 		return
 	if(!istype(loc, /obj/structure/closet/crate/coffin))
 		return

@@ -313,10 +313,38 @@
 /obj/item/alch/salvia
 	name = "salvia"
 	icon_state = "salvia"
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/head_items.dmi'
+	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_MASK
+	body_parts_covered = NONE
+	w_class = WEIGHT_CLASS_TINY
+	alternate_worn_layer  = 8.9 //On top of helmet
 
 	major_pot = /datum/alch_cauldron_recipe/con_potion
 	med_pot = /datum/alch_cauldron_recipe/str_potion
 	minor_pot = /datum/alch_cauldron_recipe/end_potion
+
+/obj/item/alch/rosa
+	name = "rosa"
+	icon_state = "rosa"
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/head_items.dmi'
+	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_MASK|ITEM_SLOT_MOUTH
+	body_parts_covered = NONE
+	w_class = WEIGHT_CLASS_TINY
+	spitoutmouth = FALSE
+	alternate_worn_layer  = 8.9 //On top of helmet
+
+	major_pot = /datum/alch_cauldron_recipe/rosawater_potion
+	med_pot = /datum/alch_cauldron_recipe/end_potion
+	minor_pot = /datum/alch_cauldron_recipe/antidote
+
+/obj/item/alch/rosa/equipped(mob/living/carbon/human/user, slot)
+	. = ..()
+	if(slot == SLOT_MOUTH)
+		icon_state = "rosa_mouth"
+		user.update_inv_mouth()
+	else
+		icon_state = "rosa"
+		user.update_icon()
 
 /obj/item/alch/hypericum
 	name = "hypericum"

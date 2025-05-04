@@ -155,11 +155,23 @@
 		return
 
 	var/datum/patron/A = H.patron
-	var/list/spelllist = list(/obj/effect/proc_holder/spell/targeted/abrogation, A.t0)
-	for(var/spell_type in spelllist)
-		if(!spell_type || H.mind.has_spell(spell_type))
-			continue
-		H.mind.AddSpell(new spell_type)
+	if(istype(A, /datum/patron/divine/necra))
+		var/list/spelllist = list(
+			/obj/effect/proc_holder/spell/targeted/churn = A.t3,
+			/obj/effect/proc_holder/spell/invoked/lesser_heal = A.t0
+		)
+		//You need abrogation to get lesser_heal
+		for(var/spell_type in spelllist)
+			if(!spell_type || H.mind.has_spell(spell_type))
+				continue
+			H.mind.AddSpell(new spell_type)
+	else
+		var/list/spelllist = list(/obj/effect/proc_holder/spell/targeted/abrogation, A.t0)
+		for(var/spell_type in spelllist)
+			if(!spell_type || H.mind.has_spell(spell_type))
+				continue
+			H.mind.AddSpell(new spell_type)
+
 	level = CLERIC_T0
 	max_devotion = 230
 	max_progression = 230
@@ -202,7 +214,7 @@
 	var/prayersesh = 0
 	visible_message("[src] kneels their head in prayer.", "I kneel my head in prayer to [patron.name].")
 	for(var/i in 1 to 50)
-		if(do_after(src, 3 SECONDS, timed_action_flags = (IGNORE_USER_DIR_CHANGE)))
+		if(do_after(src, 3 SECONDS, timed_action_flags = (IGNORE_USER_DIR_CHANGE), hidden = FALSE))
 			if(C.devotion >= C.max_devotion)
 				to_chat(src, "<font color='red'>I have reached the limit of my devotion...</font>")
 				break

@@ -72,9 +72,10 @@
 	/obj/structure/flora/grass/herb/calendula,/obj/structure/flora/grass/herb/mentha,
 	/obj/structure/flora/grass/herb/urtica,/obj/structure/flora/grass/herb/salvia,
 	/obj/structure/flora/grass/herb/hypericum,/obj/structure/flora/grass/herb/benedictus,
-	/obj/structure/flora/grass/herb/valeriana,/obj/structure/flora/grass/herb/artemisia))
+	/obj/structure/flora/grass/herb/valeriana,/obj/structure/flora/grass/herb/artemisia,
+	/obj/structure/wild_plant/nospread/poppy))
 
-	var/obj/structure/flora/grass/herb/boi = new type
+	var/obj/structure/boi = new type
 	boi.forceMove(get_turf(src))
 	boi.pixel_x += rand(-3,3)
 	. = ..()
@@ -165,4 +166,10 @@
 	icon_state = "artemisia"
 
 	herbtype = /obj/item/alch/artemisia
+
+/obj/structure/flora/grass/herb/rosa
+	name = "rosa"
+	icon_state = "rosa"
+
+	herbtype = /obj/item/alch/rosa
 

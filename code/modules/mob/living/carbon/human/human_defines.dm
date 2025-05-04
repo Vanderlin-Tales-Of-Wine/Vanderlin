@@ -2,14 +2,15 @@
 	name = "Unknown"
 	real_name = "Unknown"
 	icon = 'icons/mob/human.dmi'
-	icon_state = "human_basic"
+	// Appearance is built by overlays
+	icon_state = MAP_SWITCH("", "human_basic")
 	appearance_flags = KEEP_TOGETHER|TILE_BOUND|PIXEL_SCALE
 	hud_possible = list(ANTAG_HUD)
 	hud_type = /datum/hud/human
 	base_intents = list(INTENT_HELP, INTENT_DISARM, INTENT_GRAB, INTENT_HARM)
 	possible_mmb_intents = list(INTENT_STEAL, INTENT_JUMP, INTENT_KICK, INTENT_BITE, INTENT_GIVE)
 	can_buckle = TRUE
-	buckle_lying = FALSE
+	buckle_lying = 0
 	mob_biotypes = MOB_ORGANIC|MOB_HUMANOID
 
 	ambushable = TRUE //! DEPRECATED VAR, USE TRAIT_NOAMBUSH
@@ -19,17 +20,6 @@
 	var/footstep_type = FOOTSTEP_MOB_HUMAN
 
 	var/last_sound //last emote so we have no doubles
-
-	//Hair colour and style
-	var/hair_color = "000"
-	var/hairstyle = "Bald"
-
-	//Facial hair colour and style
-	var/facial_hair_color = "000"
-	var/facial_hairstyle = "Shaved"
-
-	//Eye colour
-	var/eye_color = "000"
 
 	var/voice_color = "a0a0a0"
 
