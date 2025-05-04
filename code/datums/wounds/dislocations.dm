@@ -78,13 +78,13 @@
 	. = ..()
 	if(!istype(affected, /mob/living/carbon/human/species/skeleton/death_arena))
 		ADD_TRAIT(affected, TRAIT_PARALYSIS, "[type]")
-	if(iscarbon(affected))
-		var/mob/living/carbon/carbon_affected = affected
-		carbon_affected.update_disabled_bodyparts()
+	// if(iscarbon(affected))
+	// 	var/mob/living/carbon/carbon_affected = affected
+		// carbon_affected.update_disabled_bodyparts()
 
 /datum/wound/dislocation/neck/on_mob_loss(mob/living/affected)
 	. = ..()
 	REMOVE_TRAIT(affected, TRAIT_PARALYSIS, "[type]")
-	if(iscarbon(affected))
-		var/mob/living/carbon/carbon_affected = affected
-		carbon_affected.update_disabled_bodyparts()
+	// if(iscarbon(affected))
+	// 	var/mob/living/carbon/carbon_affected = affected
+		// carbon_affected.update_disabled_bodyparts()

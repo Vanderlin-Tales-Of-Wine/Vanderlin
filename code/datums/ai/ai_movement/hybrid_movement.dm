@@ -12,6 +12,9 @@
 			continue
 		COOLDOWN_START(controller, movement_cooldown, controller.movement_delay)
 
+		if(!controller.can_move())
+			continue
+
 		var/atom/movable/movable_pawn = controller.pawn
 		var/turf/target_turf = get_step_towards(movable_pawn, controller.current_movement_target)
 		var/turf/end_turf = get_turf(controller.current_movement_target)

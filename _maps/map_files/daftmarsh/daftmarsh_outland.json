@@ -1,0 +1,11 @@
+{
+    "map_name": "Daftmarsh Outlands",
+    "map_path": "map_files/daftmarsh",
+    "map_file": "daftmarsh_outland.dmm",
+	"traits": [
+        {"Up": true},
+        {"Up": true, "Down": true, "Leylines": true},
+        {"Up": true, "Down": true, "Leylines": true},
+        {"Down": true, "Leylines": true}
+    ]
+}

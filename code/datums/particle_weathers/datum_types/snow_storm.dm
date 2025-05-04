@@ -121,7 +121,7 @@
 	name = "Snow"
 	desc = "Big pile of snow"
 	icon = 'icons/effects/snow.dmi'
-	icon_state = "snow_1"
+	icon_state = MAP_SWITCH("blank", "snow_1")
 	var/icon_prefix = "snow"
 	anchored = TRUE
 	density = FALSE
@@ -135,7 +135,6 @@
 
 /obj/structure/snow/Initialize(mapload, bleed_layers)
 	. = ..()
-	icon_state = "blank"
 	bleed_layer = bleed_layers
 	if(!bleed_layer)
 		bleed_layer = rand(1, 3)

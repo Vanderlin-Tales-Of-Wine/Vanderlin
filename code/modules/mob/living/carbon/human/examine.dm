@@ -239,9 +239,8 @@
 	if(gloves && !(SLOT_GLOVES in obscured))
 		. += "[m3] [gloves.get_examine_string(user)] on [m2] hands."
 	else if(FR && length(FR.blood_DNA))
-		var/hand_number = get_num_arms(FALSE)
-		if(hand_number)
-			. += "[m3][hand_number > 1 ? "" : " a"] <span class='bloody'>blood-stained</span> hand[hand_number > 1 ? "s" : ""]!"
+		if(num_hands)
+			. += span_warning("[t_He] [t_has] [num_hands > 1 ? "" : "a"] blood-stained hand[num_hands > 1 ? "s" : ""]!")
 
 	//belt
 	if(belt && !(SLOT_BELT in obscured))
@@ -567,7 +566,7 @@
 		else
 			var/checked_zone = check_zone(user.zone_selected)
 			. += "<a href='byond://?src=[REF(src)];inspect_limb=[checked_zone]'>Inspect [parse_zone(checked_zone)]</a>"
-			if(!(mobility_flags & MOBILITY_STAND) && user != src && (user.zone_selected == BODY_ZONE_CHEST))
+			if(body_position == LYING_DOWN && user != src && (user.zone_selected == BODY_ZONE_CHEST))
 				. += "<a href='byond://?src=[REF(src)];check_hb=1'>Listen to Heartbeat</a>"
 		. += "<a href='byond://?src=[REF(src)];view_descriptors=1'>Look at Features</a>"
 

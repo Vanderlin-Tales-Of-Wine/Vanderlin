@@ -68,7 +68,7 @@
 		return 1
 	if(isliving(mover))
 		var/mob/living/M = mover
-		if(!(M.mobility_flags & MOBILITY_STAND))
+		if(M.body_position == LYING_DOWN)
 			if(passcrawl)
 				return TRUE
 	if(icon_state == "woodrailing" && (dir in CORNERDIRS))
@@ -119,7 +119,7 @@
 		return 1
 	if(isliving(O))
 		var/mob/living/M = O
-		if(!(M.mobility_flags & MOBILITY_STAND))
+		if(M.body_position == LYING_DOWN)
 			if(passcrawl)
 				return TRUE
 	if(icon_state == "woodrailing" && (dir in CORNERDIRS))
@@ -872,7 +872,7 @@
 							if(H.tiredness >= 50)
 								H.apply_status_effect(/datum/status_effect/debuff/trainsleep)
 						probby = 0
-					if(!(L.mobility_flags & MOBILITY_STAND))
+					if(L.body_position == LYING_DOWN)
 						probby = 0
 					if(L.STAINT < 3)
 						probby = 0

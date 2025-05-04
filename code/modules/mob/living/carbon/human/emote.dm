@@ -60,7 +60,7 @@
 	key = "handshake"
 	message = "shakes their own hands."
 	message_param = "shakes hands with %t."
-	restraint_check = TRUE
+	hands_use_check = TRUE
 	emote_type = EMOTE_AUDIBLE
 
 
@@ -78,14 +78,14 @@
 	key = "raise"
 	key_third_person = "raises"
 	message = "raises a hand."
-	restraint_check = TRUE
+	hands_use_check = TRUE
 
 /datum/emote/living/carbon/human/salute
 	key = "salute"
 	key_third_person = "salutes"
 	message = "salutes."
 	message_param = "salutes to %t."
-	restraint_check = TRUE
+	hands_use_check = TRUE
 
 /datum/emote/living/carbon/human/shrug
 	key = "shrug"
