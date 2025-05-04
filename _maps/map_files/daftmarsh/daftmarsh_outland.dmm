@@ -1431,8 +1431,8 @@
 /obj/structure/mineral_door/wood/green{
 	name = "Salem Garrison"
 	},
-/obj/effect/mapping_helpers/door/locker,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
+/obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
 /turf/open/floor/hexstone,
 /area/rogue/indoors/villagegarrison)
 "oA" = (
@@ -1665,8 +1665,8 @@
 /obj/structure/mineral_door/wood/green{
 	name = "forrest warden bedroom"
 	},
-/obj/effect/mapping_helpers/door/locker,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
+/obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/villagegarrison)
 "rt" = (
@@ -1736,8 +1736,8 @@
 /obj/structure/mineral_door/wood/donjon{
 	dir = 1
 	},
-/obj/effect/mapping_helpers/door/locker,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
+/obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
 /turf/open/floor/metal{
 	icon_state = "plating2"
 	},
@@ -1893,8 +1893,8 @@
 /obj/structure/mineral_door/wood/donjon{
 	dir = 8
 	},
-/obj/effect/mapping_helpers/door/locker,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
+/obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
 /turf/open/floor/metal{
 	icon_state = "plating2"
 	},
@@ -3610,8 +3610,8 @@
 /turf/open/floor/cobble/alt,
 /area/rogue/under/mountains/anvil/lower)
 "MO" = (
-/obj/effect/mapping_helpers/door/locker,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
+/obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
 /obj/structure/mineral_door/wood/green{
 	name = "Salem Garrison"
 	},
@@ -3700,7 +3700,7 @@
 /obj/structure/mineral_door/wood/deadbolt{
 	dir = 4
 	},
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
 "Oc" = (
@@ -3896,7 +3896,7 @@
 /area/rogue/indoors/villagegarrison)
 "PQ" = (
 /obj/structure/mineral_door/bars,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/lower)
 "PW" = (
@@ -4178,8 +4178,8 @@
 /obj/structure/mineral_door/wood/green{
 	name = "forrest garrison barracks"
 	},
-/obj/effect/mapping_helpers/door/locker,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
+/obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/villagegarrison)
 "Sr" = (
