@@ -15,12 +15,14 @@
 	implements = list(
 		TOOL_SCALPEL = 80,
 		TOOL_SHARP = 60,
-		/obj/item/kitchen/spoon = 80
+		/obj/item/kitchen/spoon = 40
 	)
 	target_mobtypes = list(/mob/living/carbon/human, /mob/living/carbon/monkey)
 	time = 8 SECONDS
 	surgery_flags = SURGERY_BLOODY | SURGERY_INCISED | SURGERY_CLAMPED | SURGERY_RETRACTED | SURGERY_BROKEN
 	skill_min = SKILL_LEVEL_JOURNEYMAN
+	preop_sound = 'sound/surgery/organ2.ogg'
+	success_sound = 'sound/surgery/organ1.ogg'
 
 /datum/surgery_step/extract_lux/validate_target(mob/user, mob/living/target, target_zone, datum/intent/intent)
 	. = ..()

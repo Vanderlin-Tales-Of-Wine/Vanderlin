@@ -106,7 +106,7 @@ GLOBAL_LIST_INIT_TYPED(blood_types, /datum/blood_type, init_subtypes_w_path_keys
 		/datum/blood_type/human/o_minus,
 	)
 	reagent_type = /datum/reagent/blood
-	contains_lux = FALSE
+	contains_lux = TRUE
 
 /datum/blood_type/human/delf
 	name = "Dark Elf"
@@ -114,7 +114,7 @@ GLOBAL_LIST_INIT_TYPED(blood_types, /datum/blood_type, init_subtypes_w_path_keys
 		/datum/blood_type/human/o_minus,
 	)
 	reagent_type = /datum/reagent/blood
-	contains_lux = FALSE
+	contains_lux = TRUE
 
 /datum/blood_type/human/rakshari
 	name = "Rakshari"
@@ -130,7 +130,7 @@ GLOBAL_LIST_INIT_TYPED(blood_types, /datum/blood_type, init_subtypes_w_path_keys
 		/datum/blood_type/human/o_minus,
 	)
 	reagent_type = /datum/reagent/blood
-	contains_lux = FALSE
+	contains_lux = TRUE
 
 /datum/blood_type/human/a_plus
 	name = "A+"

@@ -19,6 +19,7 @@
 	skill_min = SKILL_LEVEL_NOVICE
 	skill_median = SKILL_LEVEL_NOVICE
 	preop_sound = 'sound/surgery/organ2.ogg'
+	success_sound = 'sound/surgery/organ1.ogg'
 
 /datum/surgery_step/remove_object/validate_bodypart(mob/user, mob/living/carbon/target, obj/item/bodypart/bodypart, target_zone)
 	. = ..()
