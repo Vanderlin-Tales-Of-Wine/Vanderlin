@@ -1,27 +1,26 @@
 /datum/job/page
-title = "Page"
-tutorial = "You've shown promise, both physically and mentally, and now you've been taken in by the knights of the realm to both serve and learn.\
-Though you may be a knight one day, it's mostly doing what you're told so far..."
-flag = PAGE
-department_flag = APPRENTICES
-job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
-faction = FACTION_STATION
-total_positions = 2
-spawn_positions = 2
+	title = "Page"
+	tutorial = "You've shown promise, both physically and mentally, and now you've been taken in by the knights of the realm to both serve and learn.\
+	Though you may be a knight one day, it's mostly doing what you're told so far..."
+	flag = PAGE
+	department_flag = APPRENTICES
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	faction = FACTION_STATION
+	total_positions = 2
+	spawn_positions = 2
 
-allowed_races = RACES_PLAYER_NONDISCRIMINATED
-allowed_sexes = list(MALE, FEMALE)
-allowed_ages = list(AGE_CHILD)
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
+	allowed_sexes = list(MALE, FEMALE)
+	allowed_ages = list(AGE_CHILD)
 
-outfit = /datum/outfit/job/page
-display_order = JDO_page
-give_bank_account = TRUE
-min_pq = 0
-bypass_lastclass = TRUE
-selection_color = "#304529"
-advclass_cat_rolls = list(CTAG_page = 20)
-can_have_apprentices = FALSE
-
+	outfit = /datum/outfit/job/page
+	display_order = JDO_page
+	give_bank_account = TRUE
+	min_pq = 0
+	bypass_lastclass = TRUE
+	selection_color = "#304529"
+	advclass_cat_rolls = list(CTAG_page = 20)
+	can_have_apprentices = FALSE
 
 /datum/outfit/job/page
 	shirt = /obj/item/clothing/shirt/undershirt/guard
