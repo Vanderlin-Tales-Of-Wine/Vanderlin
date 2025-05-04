@@ -6,11 +6,11 @@
 	color_theme = "#FFD700"
 
 	influence_factors = list(
-		STATS_LAWS_AND_DECREES_MADE = list("points" = 3,"capacity" = 40),
-		STATS_ALIVE_NOBLES = list("points" = 4,"capacity" = 90),
-		STATS_NOBLE_DEATHS = list("points" = -6.25,"capacity" = -90),
+		STATS_LAWS_AND_DECREES_MADE = list("points" = 2.5,"capacity" = 40),
+		STATS_ALIVE_NOBLES = list("points" = 4,"capacity" = 80),
+		STATS_NOBLE_DEATHS = list("points" = -6.25,"capacity" = -80),
 		STATS_ASTRATA_REVIVALS = list("points" = 5, "capacity" = 70),
-		STATS_TAXES_COLLECTED = list("points" = 0.175,"capacity" = 90),
+		STATS_TAXES_COLLECTED = list("points" = 0.175,"capacity" = 85),
 	)
 
 /datum/storyteller/noc
