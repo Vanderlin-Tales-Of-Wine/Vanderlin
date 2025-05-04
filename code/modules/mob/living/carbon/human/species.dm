@@ -402,7 +402,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		if(C.dna.organ_dna[slot])
 			var/datum/organ_dna/organ_dna = C.dna.organ_dna[slot]
 			if(organ_dna.can_create_organ())
-				neworgan = organ_dna.create_organ()
+				neworgan = organ_dna.create_organ(species = src)
 				if(slot_mutantorgans[slot])
 					if(!istype(neworgan, slot_mutantorgans[slot]))
 						var/new_type = slot_mutantorgans[slot]
@@ -446,7 +446,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			if(neworgan)
 				qdel(neworgan)
 		else if (!C.dna.organ_dna[slot] && neworgan)
-			var/datum/organ_dna/new_dna = neworgan.create_organ_dna()
+			var/datum/organ_dna/new_dna = neworgan.create_organ_dna(src)
 			C.dna.organ_dna[slot] = new_dna
 
 /datum/species/proc/is_organ_slot_allowed(mob/living/carbon/human/human, organ_slot)

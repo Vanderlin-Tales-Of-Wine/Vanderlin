@@ -20,7 +20,6 @@ SUBSYSTEM_DEF(job)
 /datum/controller/subsystem/job/Initialize(timeofday)
 	if(!length(all_occupations))
 		SetupOccupations()
-	generate_selectable_species()
 	return ..()
 
 /datum/controller/subsystem/job/proc/SetupOccupations()
