@@ -24,7 +24,7 @@
 #define RACES_PLAYER_PATREON			list("Kobold")
 
 /// Guard Races - No Orcs
-#define RACES_PLAYER_GUARD						list("Humen", "Rakshari", "Half-Elf", "Dark Elf", "Elf", "Dwarf", "Tiefling", "Aasimar", "Kobold") //To add Harpies and HollowKin? Maybe?
+#define RACES_PLAYER_GUARD						list("Humen", "Rakshari", "Half-Elf", "Elf", "Dwarf", "Tiefling", "Aasimar", "Kobold") //To add Harpies and HollowKin? Maybe?
 
 
 #define ALL_TEMPLE_PATRONS 		list(/datum/patron/divine/astrata, /datum/patron/divine/noc, /datum/patron/divine/dendor, /datum/patron/divine/abyssor, /datum/patron/divine/necra, /datum/patron/divine/ravox, /datum/patron/divine/xylix, /datum/patron/divine/pestra, /datum/patron/divine/malum, /datum/patron/divine/eora)
