@@ -42,6 +42,7 @@
 #define STATS_SKILLS_LEARNED "skills_learned"
 #define STATS_DEADITES_ALIVE "deadites_alive"
 #define STATS_KLEPTOMANIACS "kleptomaniacs"
+#define STATS_LUX_REVIVALS "lux_revivals"
 
 // Influence related statistics
 
@@ -257,6 +258,7 @@ GLOBAL_LIST_INIT(vanderlin_round_stats, list(
 	STATS_ALIVE_GARRISON = 0,
 	STATS_ALIVE_CLERGY = 0,
 	STATS_ALIVE_TRADESMEN = 0,
+	STATS_LUX_REVIVALS = 0,
 ))
 
 GLOBAL_LIST_EMPTY(patron_follower_counts)
