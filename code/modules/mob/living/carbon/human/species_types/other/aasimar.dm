@@ -128,6 +128,7 @@
 		"Larimar" = SKIN_COLOR_LARIMAR, // - (Cyan)
 		"Amazonite" = SKIN_COLOR_AMAZONITE, // - (Turquoise)
 		"Limestone" = SKIN_COLOR_LIMESTONE, // - (Tan)
+		"Zinc" = SKIN_COLOR_ZINC, // - (Light aqua)
 	))
 
 /datum/species/aasimar/get_hairc_list()
