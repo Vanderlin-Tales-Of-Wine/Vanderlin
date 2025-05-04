@@ -106,7 +106,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/lower)
 "bj" = (
-/obj/structure/mineral_door/wood/green,
+/obj/structure/door/green,
 /turf/open/floor/twig,
 /area/rogue/indoors)
 "bl" = (
@@ -267,7 +267,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/outdoors/mountains)
 "cK" = (
-/obj/structure/mineral_door/wood/red,
+/obj/structure/door/red,
 /turf/open/floor/wood,
 /area/rogue/indoors)
 "cL" = (
@@ -1428,7 +1428,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/outdoors/mountains)
 "oe" = (
-/obj/structure/mineral_door/wood/green{
+/obj/structure/door/green{
 	name = "Salem Garrison"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -1606,7 +1606,7 @@
 /turf/open/water/swamp,
 /area/rogue/outdoors/bog)
 "qB" = (
-/obj/structure/mineral_door/wood{
+/obj/structure/door{
 	name = "Salem Smithy";
 	lockid = "oldsmith"
 	},
@@ -1662,7 +1662,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/lower)
 "rr" = (
-/obj/structure/mineral_door/wood/green{
+/obj/structure/door/green{
 	name = "forrest warden bedroom"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -1733,7 +1733,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/woods)
 "so" = (
-/obj/structure/mineral_door/wood/donjon{
+/obj/structure/door/viewport{
 	dir = 1
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -1890,7 +1890,7 @@
 /turf/open/floor/grass,
 /area/rogue/outdoors/woods_safe)
 "tE" = (
-/obj/structure/mineral_door/wood/donjon{
+/obj/structure/door/viewport{
 	dir = 8
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -2546,7 +2546,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
 "BL" = (
-/obj/structure/mineral_door/wood/deadbolt{
+/obj/structure/door/weak/bolt{
 	dir = 4;
 	name = "Salem Gate"
 	},
@@ -2572,7 +2572,7 @@
 /turf/open/floor/cobble,
 /area/rogue/indoors)
 "BW" = (
-/obj/structure/mineral_door/bars,
+/obj/structure/door/iron/bars,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
@@ -2959,7 +2959,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/lower)
 "FP" = (
-/obj/structure/mineral_door/wood/green,
+/obj/structure/door/green,
 /turf/open/floor/wood,
 /area/rogue/indoors)
 "FS" = (
@@ -3043,7 +3043,7 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/villagegarrison)
 "GF" = (
-/obj/structure/mineral_door/wood/donjon/stone,
+/obj/structure/door/stone,
 /turf/open/floor/hexstone,
 /area/rogue/under/mountains/anvil/lower)
 "GG" = (
@@ -3054,7 +3054,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/lower)
 "GM" = (
-/obj/structure/mineral_door/wood/donjon/stone,
+/obj/structure/door/stone,
 /turf/open/floor/cobble/alt,
 /area/rogue/under/mountains/anvil/lower)
 "GQ" = (
@@ -3269,7 +3269,7 @@
 /turf/open/floor/wood,
 /area/rogue/indoors)
 "Ji" = (
-/obj/structure/mineral_door/wood/deadbolt{
+/obj/structure/door/weak/bolt{
 	dir = 8;
 	name = "Salem Gate"
 	},
@@ -3550,7 +3550,7 @@
 /turf/open/floor/twig,
 /area/rogue/under/mountains/anvil/lower)
 "Mj" = (
-/obj/structure/mineral_door/wood/donjon/stone,
+/obj/structure/door/stone,
 /turf/open/floor/herringbone,
 /area/rogue/under/mountains/anvil/lower)
 "Mn" = (
@@ -3612,7 +3612,7 @@
 "MO" = (
 /obj/effect/mapping_helpers/door/locker,
 /obj/effect/mapping_helpers/door/access/garrison/forest,
-/obj/structure/mineral_door/wood/green{
+/obj/structure/door/green{
 	name = "Salem Garrison"
 	},
 /turf/open/floor/hexstone,
@@ -3697,7 +3697,7 @@
 /turf/closed,
 /area/rogue)
 "NY" = (
-/obj/structure/mineral_door/wood/deadbolt{
+/obj/structure/door/weak/bolt{
 	dir = 4
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -3895,7 +3895,7 @@
 /turf/closed/wall/mineral/stone/moss,
 /area/rogue/indoors/villagegarrison)
 "PQ" = (
-/obj/structure/mineral_door/bars,
+/obj/structure/door/iron/bars,
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/lower)
@@ -4175,7 +4175,7 @@
 /turf/open/floor/cobble,
 /area/rogue/indoors)
 "So" = (
-/obj/structure/mineral_door/wood/green{
+/obj/structure/door/green{
 	name = "forrest garrison barracks"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -4635,7 +4635,7 @@
 /turf/closed/wall/mineral/decostone/center,
 /area/rogue/under/mountains/anvil/upper)
 "Xt" = (
-/obj/structure/mineral_door/wood/red,
+/obj/structure/door/red,
 /obj/structure/spider/stickyweb/solo,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/under/mountains/anvil/lower)
