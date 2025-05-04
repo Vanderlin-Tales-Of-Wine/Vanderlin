@@ -1627,9 +1627,7 @@
 /turf/open/floor/blocks/newstone/alt,
 /area/rogue/indoors/town/merc_guild)
 "aRY" = (
-/obj/structure/mineral_door/wood/window{
-	name = "Ticket Office"
-	},
+/obj/structure/mineral_door/wood/window,
 /obj/effect/mapping_helpers/door/locker,
 /obj/effect/mapping_helpers/door/access/town/inn,
 /turf/open/floor/ruinedwood,
@@ -2152,9 +2150,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield/safe)
 "bhQ" = (
-/obj/structure/mineral_door/wood/window{
-	name = "Ticket Office"
-	},
+/obj/structure/mineral_door/wood/window,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/theatre)
 "bhT" = (
@@ -8912,9 +8908,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/town)
 "fzQ" = (
-/obj/structure/mineral_door/wood/window{
-	name = "Ticket Office"
-	},
+/obj/structure/mineral_door/wood/window,
 /obj/effect/mapping_helpers/door/access/town/butcher,
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/woodturned/nosmooth,
@@ -9837,9 +9831,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town)
 "gkm" = (
-/obj/structure/mineral_door/wood/window{
-	name = "Ticket Office"
-	},
+/obj/structure/mineral_door/wood/window,
 /obj/effect/mapping_helpers/door/locker,
 /obj/effect/mapping_helpers/door/access/town/soilson,
 /turf/open/floor/wood/nosmooth,
@@ -12973,9 +12965,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/indoors/butchershop)
 "inx" = (
-/obj/structure/mineral_door/wood/window{
-	name = "Ticket Office"
-	},
+/obj/structure/mineral_door/wood/window,
 /obj/effect/mapping_helpers/door/access/garrison/garrison,
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/blocks,
@@ -15699,9 +15689,7 @@
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town)
 "jYm" = (
-/obj/structure/mineral_door/wood/window{
-	name = "Ticket Office"
-	},
+/obj/structure/mineral_door/wood/window,
 /obj/effect/mapping_helpers/door/locker,
 /obj/effect/mapping_helpers/door/access/town/inn,
 /turf/open/floor/tile{
@@ -17746,9 +17734,7 @@
 "loE" = (
 /obj/effect/mapping_helpers/door/access/manor/steward,
 /obj/effect/mapping_helpers/door/locker,
-/obj/structure/mineral_door/wood/window{
-	name = "Ticket Office"
-	},
+/obj/structure/mineral_door/wood/window,
 /turf/open/floor/cobblerock,
 /area/rogue/indoors/town)
 "loN" = (
@@ -21855,9 +21841,7 @@
 /turf/open/floor/cobble/mossy,
 /area/rogue/under/cavewet)
 "oaq" = (
-/obj/structure/mineral_door/wood/window{
-	name = "Ticket Office"
-	},
+/obj/structure/mineral_door/wood/window,
 /obj/effect/mapping_helpers/door/access/town/butcher,
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/wood,
@@ -22964,9 +22948,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/town/sewer)
 "oHS" = (
-/obj/structure/mineral_door/wood/window{
-	name = "Ticket Office"
-	},
+/obj/structure/mineral_door/wood/window,
 /obj/effect/mapping_helpers/door/access/town/inn,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/tavern)
@@ -23902,9 +23884,7 @@
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/magician)
 "prR" = (
-/obj/structure/mineral_door/wood/window{
-	name = "Ticket Office"
-	},
+/obj/structure/mineral_door/wood/window,
 /obj/effect/mapping_helpers/door/locker,
 /obj/effect/mapping_helpers/door/access/town/soilson,
 /turf/open/floor/ruinedwood/turned/darker,
@@ -24318,9 +24298,7 @@
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town)
 "pGq" = (
-/obj/structure/mineral_door/wood/window{
-	name = "Ticket Office"
-	},
+/obj/structure/mineral_door/wood/window,
 /obj/effect/mapping_helpers/door/locker,
 /obj/effect/mapping_helpers/door/access/town/inn,
 /turf/open/floor/ruinedwood{
@@ -24698,9 +24676,7 @@
 "pTs" = (
 /obj/effect/mapping_helpers/door/locker,
 /obj/effect/mapping_helpers/door/access/garrison/captain,
-/obj/structure/mineral_door/wood/window{
-	name = "Ticket Office"
-	},
+/obj/structure/mineral_door/wood/window,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/garrison)
 "pTu" = (
@@ -27639,9 +27615,7 @@
 /turf/open/floor/churchrough,
 /area/rogue/indoors/town/church/inquisition)
 "rTK" = (
-/obj/structure/mineral_door/wood/window{
-	name = "Ticket Office"
-	},
+/obj/structure/mineral_door/wood/window,
 /obj/effect/mapping_helpers/door/locker,
 /obj/effect/mapping_helpers/door/access/garrison/forest,
 /turf/open/floor/wood,
@@ -29632,9 +29606,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/indoors/town/tavern)
 "tlt" = (
-/obj/structure/mineral_door/wood/window{
-	name = "Ticket Office"
-	},
+/obj/structure/mineral_door/wood/window,
 /obj/effect/mapping_helpers/door/access/town/inn,
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/ruinedwood/spiralfade,
@@ -29864,9 +29836,7 @@
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/town/manorgate)
 "tsb" = (
-/obj/structure/mineral_door/wood/window{
-	name = "Ticket Office"
-	},
+/obj/structure/mineral_door/wood/window,
 /obj/effect/mapping_helpers/door/access/garrison/garrison,
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/metal,
@@ -35016,9 +34986,7 @@
 /turf/open/floor/blocks/newstone/alt,
 /area/rogue/indoors/town/dwarfin)
 "wJK" = (
-/obj/structure/mineral_door/wood/window{
-	name = "Ticket Office"
-	},
+/obj/structure/mineral_door/wood/window,
 /obj/effect/mapping_helpers/door/access/town/butcher,
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/woodturned,
@@ -35719,9 +35687,7 @@
 /turf/open/floor/blocks/newstone/alt,
 /area/rogue/indoors/town/church)
 "xhg" = (
-/obj/structure/mineral_door/wood/window{
-	name = "Ticket Office"
-	},
+/obj/structure/mineral_door/wood/window,
 /obj/effect/mapping_helpers/door/access/town/butcher,
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/wood/nosmooth,
@@ -36615,9 +36581,7 @@
 /turf/open/floor/blocks/newstone/alt,
 /area/rogue/under/town/basement)
 "xOY" = (
-/obj/structure/mineral_door/wood/window{
-	name = "Ticket Office"
-	},
+/obj/structure/mineral_door/wood/window,
 /obj/effect/mapping_helpers/door/locker,
 /obj/effect/mapping_helpers/door/access/town/soilson,
 /turf/open/floor/ruinedwood{
