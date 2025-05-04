@@ -129,7 +129,6 @@
 #define PHYSICIAN	(1<<5)
 #define CAPTAIN		(1<<6)
 #define ARCHIVIST   (1<<7)
-#define MERCHANT	(1<<8)
 #define MINOR_NOBLE	(1<<9)
 
 #define GARRISON		(1<<1)
@@ -285,8 +284,6 @@
 #define JDO_MINER 28.8
 #define JDO_MATRON 28.9
 #define JDO_GRAVEMAN 29
-
-#define JDO_APOTHECARY 29.1
 
 #define JDO_JESTER 30
 #define JDO_BARD 30.1

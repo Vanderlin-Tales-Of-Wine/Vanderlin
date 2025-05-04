@@ -28,5 +28,5 @@
 		callback.Invoke(victim)
 
 /datum/component/slippery/proc/Slip_on_wearer(datum/source, atom/movable/AM, mob/living/crossed)
-	if(crossed.lying && !crossed.buckle_lying)
+	if(crossed.body_position != LYING_DOWN && !crossed.buckle_lying)
 		Slip(source, AM)

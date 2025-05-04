@@ -2,8 +2,8 @@
 /obj/item/bodypart/proc/can_dismember(obj/item/I)
 	return dismemberable
 
-/obj/item/bodypart/proc/can_disable(obj/item/I)
-	return disableable
+// /obj/item/bodypart/proc/can_disable(obj/item/I)
+// 	return disableable
 
 /obj/item/bodypart
 	/// Wound we get when surgically reattached
@@ -179,12 +179,11 @@
 	if(held_index)
 		was_owner.dropItemToGround(owner.get_item_for_held_index(held_index), force = TRUE)
 		was_owner.hand_bodyparts[held_index] = null
-	was_owner.bodyparts -= src
+	was_owner.remove_bodypart(src)
 	owner = null
 	update_icon_dropped()
 	was_owner.update_health_hud() //update the healthdoll
 	was_owner.update_body()
-	was_owner.update_mobility()
 
 	// drop_location = null happens when a "dummy human" used for rendering icons on prefs screen gets its limbs replaced.
 	if(!drop_location)
@@ -239,13 +238,13 @@
 		if(C.handcuffed)
 			C.handcuffed.forceMove(drop_location())
 			C.handcuffed.dropped(C)
-			C.handcuffed = null
+			C.set_handcuffed(null)
 			C.update_handcuffed()
 		if(C.hud_used)
 			var/atom/movable/screen/inventory/hand/R = C.hud_used.hand_slots["[held_index]"]
 			if(R)
 				R.update_icon()
-		if(C.gloves && (C.get_num_arms(FALSE) < 1))
+		if(C.gloves && (C.num_hands < 1))
 			C.dropItemToGround(C.gloves, force = TRUE)
 		C.update_inv_gloves() //to remove the bloody hands overlay
 		C.update_inv_armor()
@@ -258,13 +257,13 @@
 		if(C.handcuffed)
 			C.handcuffed.forceMove(drop_location())
 			C.handcuffed.dropped(C)
-			C.handcuffed = null
+			C.set_handcuffed(null)
 			C.update_handcuffed()
 		if(C.hud_used)
 			var/atom/movable/screen/inventory/hand/L = C.hud_used.hand_slots["[held_index]"]
 			if(L)
 				L.update_icon()
-		if(C.gloves && (C.get_num_arms(FALSE) < 1))
+		if(C.gloves && (C.num_hands < 1))
 			C.dropItemToGround(C.gloves, force = TRUE)
 		C.update_inv_gloves() //to remove the bloody hands overlay
 		C.update_inv_armor()
@@ -279,7 +278,7 @@
 			C.legcuffed = null
 			C.remove_movespeed_modifier(MOVESPEED_ID_LEGCUFF_SLOWDOWN, TRUE)
 			C.update_inv_legcuffed()
-		if(C.shoes && (C.get_num_legs(FALSE) < 1))
+		if(C.shoes && (C.num_legs < 1))
 			C.dropItemToGround(C.shoes, force = TRUE)
 		C.update_inv_shoes()
 		C.update_inv_pants()
@@ -294,7 +293,7 @@
 			C.legcuffed = null
 			C.remove_movespeed_modifier(MOVESPEED_ID_LEGCUFF_SLOWDOWN, TRUE)
 			C.update_inv_legcuffed()
-		if(C.shoes && (C.get_num_legs(FALSE) < 1))
+		if(C.shoes && (C.num_legs < 1))
 			C.dropItemToGround(C.shoes, force = TRUE)
 		C.update_inv_shoes()
 		C.update_inv_pants()
@@ -336,8 +335,8 @@
 
 /obj/item/bodypart/proc/attach_limb(mob/living/carbon/C, special)
 	moveToNullspace()
-	owner = C
-	C.bodyparts += src
+	set_owner(C)
+	C.add_bodypart(src)
 	if(held_index)
 		if(held_index > C.hand_bodyparts.len)
 			C.hand_bodyparts.len = held_index
@@ -373,8 +372,6 @@
 	C.updatehealth()
 	C.update_body()
 	C.update_damage_overlays()
-	C.update_mobility()
-
 
 /obj/item/bodypart/head/attach_limb(mob/living/carbon/C, special)
 	//Transfer some head appearance vars over

@@ -85,7 +85,7 @@
 
 #define CHOKE_REAGENTS_INGEST_ON_BREATH_AMOUNT 2
 
-#define SUBMERGEMENT_PERCENT(carbon, liquids) min(1,(!MOBILITY_STAND ? liquids.liquid_group.group_overlay_state+LYING_DOWN_SUBMERGEMENT_STATE_BONUS : liquids.liquid_group.group_overlay_state)/TOTAL_LIQUID_STATES)
+#define SUBMERGEMENT_PERCENT(carbon, liquids) min(1,(carbon.body_position == LYING_DOWN ? liquids.liquid_group.group_overlay_state+LYING_DOWN_SUBMERGEMENT_STATE_BONUS : liquids.liquid_group.group_overlay_state)/TOTAL_LIQUID_STATES)
 
 #define LIQUID_PROTECTION "liquid_protection"
 

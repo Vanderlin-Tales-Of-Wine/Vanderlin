@@ -48,7 +48,7 @@
 
 	// Handling running OVER people
 	for(var/mob/living/smacked in loc)
-		if(smacked.lying)
+		if(smacked.body_position == LYING_DOWN)
 			continue
 		if(momentum <= 8)
 			momentum = floor(momentum / 2)
@@ -97,7 +97,7 @@
 	//playsound(src, 'sound/effects/bang.ogg', 50, vary = TRUE)
 	take_damage(max_integrity * 0.05)
 	momentum = floor(momentum / momentum_mod)
-	if(smacked.lying)
+	if(smacked.body_position == LYING_DOWN)
 		smacked.Paralyze(4 SECONDS)
 		return
 

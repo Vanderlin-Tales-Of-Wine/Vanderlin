@@ -169,6 +169,8 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	var/obj/effect/statclick/ahelp/statclick
 	/// Static counter used for generating each ticket ID
 	var/static/ticket_counter = 0
+	/// ckey of the admin that claimed this ticket.
+	var/ticket_claimant_ckey
 
 //call this on its own to create a ticket, don't manually assign current_ticket
 //msg is the title of the ticket: usually the ahelp text
@@ -202,7 +204,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 
 	if(is_bwoink)
 		AddInteraction("<font color='blue'>[key_name_admin(usr)] PM'd [LinkedReplyName()]</font>", player_message = "<font color='blue'>[LinkedReplyName(usr, FALSE)] PM'd [LinkedReplyName()]</font>")
-		message_admins("<font color='blue'>Ticket [TicketHref("#[id]")] created</font>")
+		message_admins("<font color='blue'>[TicketHref("Ticket #[id]")] created</font>")
 		SSplexora.aticket_new(src, msg, is_bwoink, TRUE, usr.ckey)
 	else
 		SSplexora.aticket_new(src, msg, is_bwoink, FALSE)
@@ -244,6 +246,13 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	. = ADMIN_FULLMONTY_NONAME(initiator.mob)
 	if(state == AHELP_ACTIVE)
 		. += ClosureLinks(ref_src)
+	. += claim_link(ref_src)
+
+/datum/admin_help/proc/limited_monty(ref_src)
+	if(!ref_src)
+		ref_src = "[REF(src)]"
+	. = ADMIN_MONTY_LIMITED(initiator.mob)
+	. += claim_link()
 
 //private
 /datum/admin_help/proc/ClosureLinks(ref_src)
@@ -255,6 +264,11 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	. += " (<A HREF='?_src_=holder;[HrefToken(TRUE)];ahelp=[ref_src];ahelp_action=close'>CLOSE</A>)"
 	. += " (<A HREF='?_src_=holder;[HrefToken(TRUE)];ahelp=[ref_src];ahelp_action=resolve'>RSLVE</A>)"
 
+/datum/admin_help/proc/claim_link(ref_src)
+	if(!ref_src)
+		ref_src = "[REF(src)]"
+	. = " (<A HREF='?_src_=holder;[HrefToken(TRUE)];ahelp=[ref_src];ahelp_action=claimticket'>CLAIM</A>)"
+
 //private
 /datum/admin_help/proc/LinkedReplyName(ref_src)
 	if(!ref_src)
@@ -265,14 +279,14 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 /datum/admin_help/proc/TicketHref(msg, ref_src, action = "ticket")
 	if(!ref_src)
 		ref_src = "[REF(src)]"
-	return "<A HREF='?_src_=holder;[HrefToken(TRUE)];ahelp=[ref_src];ahelp_action=[action]'>[msg]</A>"
+	return "<A HREF='?_src_=holder;[HrefToken(TRUE)];ahelp=[ref_src];ahelp_action=[action];color:red'>[msg]</A>"
 
 //message from the initiator without a target, all admins will see this
 //won't bug irc
 /datum/admin_help/proc/MessageNoRecipient(msg)
 	var/ref_src = "[REF(src)]"
 	//Message to be sent to all admins
-	var/admin_msg = "<span class='adminnotice'><span class='adminhelp'>Ticket [TicketHref("#[id]", ref_src)]</span><b>: [LinkedReplyName(ref_src)] [FullMonty(ref_src)]:</b> <span class='linkify'>[keywords_lookup(msg)]</span></span>"
+	var/admin_msg = "<span class='adminnotice'><span class='adminhelp'>[TicketHref("Ticket #[id]", ref_src)]</span><b>: [LinkedReplyName(ref_src)] [limited_monty(ref_src)] </b> <span class='linkify'>[keywords_lookup(msg)]</span></span>"
 
 	AddInteraction("<font color='red'>[LinkedReplyName(ref_src)]: [msg]</font>", player_message = "<font color='red'>[LinkedReplyName(ref_src)]: [msg]</font>")
 	log_admin_private("Ticket #[id]: [key_name(initiator)]: [msg]")
@@ -313,7 +327,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 		initiator.current_ticket = src
 
 	AddInteraction("<font color='purple'>Reopened by [key_name_admin(usr)]</font>", player_message = "Ticket reopened!")
-	var/msg = "<span class='adminhelp'>Ticket [TicketHref("#[id]")] reopened by [key_name_admin(usr)].</span>"
+	var/msg = "<span class='adminhelp'>[TicketHref("Ticket #[id]")] reopened by [key_name_admin(usr)].</span>"
 	message_admins(msg)
 	log_admin_private(msg)
 	SSblackbox.record_feedback("tally", "ahelp_stats", 1, "reopened")
@@ -340,9 +354,37 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	AddInteraction("<font color='red'>Closed by [key_name].</font>", player_message = "<font color='red'>Ticket closed!</font>")
 	if(!silent)
 		SSblackbox.record_feedback("tally", "ahelp_stats", 1, "closed")
-		var/msg = "Ticket [TicketHref("#[id]")] closed by [key_name]."
+		var/msg = "[TicketHref("Ticket #[id]")] closed by [key_name]."
 		message_admins(msg)
 		log_admin_private(msg)
+
+/// claims or unclaims the ticket for the admin, gives an option if it was already claimed and returns false if they decided not to claim it.
+/datum/admin_help/proc/claim_ticket(key_name = key_name_admin(usr), silent = FALSE)
+	if(ticket_claimant_ckey == usr.client.ckey)
+		unclaim_ticket(key_name)
+		return TRUE
+
+	ticket_claimant_ckey = usr.client.ckey
+	SSblackbox.record_feedback("tally", "ahelp_stats", 1, "ticket_claimed")
+	AddInteraction("[ticket_claimant_ckey] has claimed Ticket #[id]")
+	message_admins("[usr.key] claimed [TicketHref("Ticket #[id]")]!")
+
+/// unclaims the ticket.
+/datum/admin_help/proc/unclaim_ticket(key_name = key_name_admin(usr), silent = FALSE)
+	ticket_claimant_ckey = null
+	SSblackbox.record_feedback("tally", "ahelp_stats", 1, "ticket_unclaimed")
+	AddInteraction("[ticket_claimant_ckey] has UNclaimed Ticket #[id]")
+	message_admins("[usr.key] UNclaimed [TicketHref("Ticket #[id]")]!")
+
+/// checks if the admin has the ticket claimed, if not - make sure they want to perform the action.
+/datum/admin_help/proc/claim_assert(key_name = key_name_admin(usr), silent = FALSE)
+	if(!ticket_claimant_ckey) // if no one has claimed the ticket already then claim it.
+		claim_ticket()
+		return TRUE
+	if(ticket_claimant_ckey != usr.client.ckey)
+		if(alert("Already claimed by[ticket_claimant_ckey]! do it anyways?",,"Yes","No") == "No")
+			return FALSE
+	return TRUE
 
 //Resolve ticket with mentorhelp Issue message
 /datum/admin_help/proc/mentorissue(key_name = key_name_admin(usr))
@@ -356,7 +398,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 		to_chat(initiator, msg)
 
 	SSblackbox.record_feedback("tally", "ahelp_stats", 1, "")
-	msg = "Ticket [TicketHref("#[id]")] marked as mechanics issue by [key_name]"
+	msg = "[TicketHref("Ticket #[id]")] marked as mechanics issue by [key_name]"
 	message_admins(msg)
 	log_admin_private(msg)
 	AddInteraction("Marked as mechanics issue by [key_name]", player_message = "<font color='green'>Marked as mechanics issue!</font>")
@@ -376,7 +418,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	to_chat(initiator, "<span class='adminhelp'>My ticket has been resolved by an admin. The Adminhelp verb will be returned to you shortly.</span>")
 	if(!silent)
 		SSblackbox.record_feedback("tally", "ahelp_stats", 1, "resolved")
-		var/msg = "Ticket [TicketHref("#[id]")] resolved by [key_name]"
+		var/msg = "[TicketHref("Ticket #[id]")] resolved by [key_name]"
 		message_admins(msg)
 		log_admin_private(msg)
 
@@ -384,7 +426,6 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 /datum/admin_help/proc/Reject(key_name = key_name_admin(usr))
 	if(state != AHELP_ACTIVE)
 		return
-
 	if(initiator)
 		initiator.giveadminhelpverb()
 
@@ -395,7 +436,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 		to_chat(initiator, "Please try to be calm, clear, and descriptive in admin helps, do not assume the admin has seen any related events, and clearly state the names of anybody you are reporting.")
 
 	SSblackbox.record_feedback("tally", "ahelp_stats", 1, "rejected")
-	var/msg = "Ticket [TicketHref("#[id]")] rejected by [key_name]"
+	var/msg = "[TicketHref("Ticket #[id]")] rejected by [key_name]"
 	message_admins(msg)
 	log_admin_private(msg)
 	AddInteraction("Rejected by [key_name].", player_message = "Ticket rejected!")
@@ -405,7 +446,6 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 /datum/admin_help/proc/ICIssue(key_name = key_name_admin(usr))
 	if(state != AHELP_ACTIVE)
 		return
-
 	var/msg = "<font color='red' size='4'><b>- AdminHelp marked as IC issue! -</b></font><br>"
 	msg += "<font color='red'>My issue has been determined by an administrator to be an in character issue and does NOT require administrator intervention at this time. For further resolution you should pursue options that are in character.</font>"
 
@@ -413,7 +453,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 		to_chat(initiator, msg)
 
 	SSblackbox.record_feedback("tally", "ahelp_stats", 1, "IC")
-	msg = "Ticket [TicketHref("#[id]")] marked as IC by [key_name]"
+	msg = "[TicketHref("Ticket #[id]")] marked as IC by [key_name]"
 	message_admins(msg)
 	log_admin_private(msg)
 	AddInteraction("Marked as IC issue by [key_name]", player_message = "Marked as IC issue!")
@@ -424,6 +464,8 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	var/list/dat = list("<html><head><title>Ticket #[id]</title></head>")
 	var/ref_src = "[REF(src)]"
 	dat += "<h4>Admin Help Ticket #[id]: [LinkedReplyName(ref_src)]</h4>"
+	if(usr.client?.holder)
+		dat += "<h5>Ticket Claimed by [ticket_claimant_ckey ? ticket_claimant_ckey : "NONE"]</h5>"
 	dat += "<b>State: "
 	switch(state)
 		if(AHELP_ACTIVE)
@@ -456,7 +498,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	if(new_title)
 		name = new_title
 		//not saying the original name cause it could be a long ass message
-		var/msg = "Ticket [TicketHref("#[id]")] titled [name] by [key_name_admin(usr)]"
+		var/msg = "[TicketHref("Ticket #[id]")] titled [name] by [key_name_admin(usr)]"
 		message_admins(msg)
 		log_admin_private(msg)
 	TicketPanel()	//we have to be here to do this
@@ -464,29 +506,48 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 //Forwarded action from admin/Topic
 /datum/admin_help/proc/Action(action)
 	testing("Ahelp action: [action]")
+
 	switch(action)
+		if("claimticket")
+			claim_ticket()
 		if("ticket")
 			TicketPanel()
 		if("retitle")
+			if(!claim_assert())
+				return
 			Retitle()
 		if("reject")
+			if(!claim_assert())
+				return
 			SSplexora.aticket_closed(src, usr.ckey, AHELP_CLOSETYPE_REJECT)
 			Reject()
 		if("reply")
+			if(!claim_assert())
+				return
 			usr.client.cmd_ahelp_reply(initiator)
 		if("icissue")
+			if(!claim_assert())
+				return
 			SSplexora.aticket_closed(src, usr.ckey, AHELP_CLOSETYPE_RESOLVE, AHELP_CLOSEREASON_IC)
 			ICIssue()
 		if("mentorissue")
+			if(!claim_assert())
+				return
 			SSplexora.aticket_closed(src, usr.ckey, AHELP_CLOSETYPE_RESOLVE, AHELP_CLOSEREASON_IC)
 			mentorissue()
 		if("close")
+			if(!claim_assert())
+				return
 			SSplexora.aticket_closed(src, usr.ckey, AHELP_CLOSETYPE_CLOSE)
 			Close()
 		if("resolve")
+			if(!claim_assert())
+				return
 			SSplexora.aticket_closed(src, usr.ckey, AHELP_CLOSETYPE_RESOLVE)
 			Resolve()
 		if("reopen")
+			if(!claim_assert())
+				return
 			Reopen()
 
 /datum/admin_help/proc/player_ticket_panel()

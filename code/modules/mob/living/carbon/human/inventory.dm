@@ -139,6 +139,7 @@
 			if(I.flags_inv & HIDEJUMPSUIT)
 				update_inv_shirt()
 			if(wear_armor.breakouttime) //when equipping a straightjacket
+				ADD_TRAIT(src, TRAIT_RESTRAINED, SUIT_TRAIT)
 				stop_pulling() //can't pull if restrained
 				update_action_buttons_icon() //certain action buttons will no longer be usable.
 			update_inv_armor()
@@ -229,6 +230,7 @@
 		if(s_store && invdrop)
 			dropItemToGround(s_store, TRUE, silent = silent) //It makes no sense for your suit storage to stay on you if you drop your suit.
 		if(wear_armor.breakouttime) //when unequipping a straightjacket
+			REMOVE_TRAIT(src, TRAIT_RESTRAINED, SUIT_TRAIT)
 			drop_all_held_items() //suit is restraining
 			update_action_buttons_icon() //certain action buttons may be usable again.
 		wear_armor = null
@@ -365,7 +367,7 @@
 		qdel(I)
 
 /mob/living/carbon/human/proc/smart_equipbag() // take most recent item out of bag or place held item in bag
-	if(incapacitated())
+	if(incapacitated(ignore_grab = TRUE))
 		return
 	var/obj/item/thing = get_active_held_item()
 	var/obj/item/equipped_back = get_item_by_slot(SLOT_BACK)
@@ -396,7 +398,7 @@
 	return
 
 /mob/living/carbon/human/proc/smart_equipbelt() // put held thing in belt or take most recent item out of belt
-	if(incapacitated())
+	if(incapacitated(ignore_grab = TRUE))
 		return
 	var/obj/item/thing = get_active_held_item()
 	var/obj/item/equipped_belt = get_item_by_slot(SLOT_BELT)

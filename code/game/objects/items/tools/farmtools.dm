@@ -46,7 +46,6 @@
 	wlength = WLENGTH_LONG
 	w_class = WEIGHT_CLASS_BULKY
 	blade_dulling = DULLING_BASHCHOP
-	walking_stick = TRUE
 	minstr = 6
 	wdefense = 2
 	dropshrink = 0.8
