@@ -210,6 +210,12 @@
 		target = get_step_multiz(source, direction)
 		if(!target)
 			return FALSE
+
+	if((movement_type & FLYING) && HAS_TRAIT(src, TRAIT_HOLLOWBONES))
+		var/turf/below = GET_TURF_BELOW(source)
+		if(isopenspace(below))
+			return TRUE
+
 	return !(movement_type & FLYING) && has_gravity(source) && !throwing
 
 /atom/movable/proc/onZImpact(turf/T, levels)

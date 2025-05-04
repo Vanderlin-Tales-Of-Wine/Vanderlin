@@ -1335,25 +1335,28 @@
 	for(var/obj/item/worn_item as anything in (get_equipped_items(TRUE) + held_items))
 		if(isnull(worn_item))
 			continue
+		var/modifier = 1
+		if(HAS_TRAIT(src, TRAIT_HOLLOWBONES))
+			modifier = 4
 		if(isclothing(worn_item))
 			switch(worn_item:armor_class)
 				if(AC_HEAVY)
 					if(!HAS_TRAIT(src, TRAIT_HEAVYARMOR))
-						held_weight += worn_item.item_weight * 2
+						held_weight += worn_item.item_weight * 2 * modifier
 					else
-						held_weight += worn_item.item_weight
+						held_weight += worn_item.item_weight * modifier
 				if(AC_MEDIUM)
 					if(!HAS_TRAIT(src, TRAIT_MEDIUMARMOR))
-						held_weight += worn_item.item_weight * 2
+						held_weight += worn_item.item_weight * 2 * modifier
 					else
-						held_weight += worn_item.item_weight
+						held_weight += worn_item.item_weight * modifier
 				if(AC_LIGHT)
 					held_weight += worn_item.item_weight
 				else
 					held_weight += worn_item.item_weight
 		else
 			held_weight += worn_item.item_weight
-		held_weight += worn_item.get_stored_weight()
+		held_weight += worn_item.get_stored_weight(HAS_TRAIT(src, TRAIT_AMAZING_BACK))
 
 	return held_weight
 

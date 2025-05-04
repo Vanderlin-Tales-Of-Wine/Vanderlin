@@ -94,7 +94,7 @@
 		var/datum/blood_type/blood = GLOB.blood_types[all_dna[dna_sample]]
 		reagents_to_add += blood.reagent_type
 
-	reagents.remove_all(reagents.total_volume)
+	reagents.remove_all(reagents?.total_volume)
 	var/num_reagents = length(reagents_to_add)
 	for(var/reagent_type in reagents_to_add)
 		reagents.add_reagent(reagent_type, round((bloodiness * 0.1) / num_reagents, 0.01))

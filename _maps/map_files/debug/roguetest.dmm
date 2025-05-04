@@ -5,6 +5,20 @@
 "ac" = (
 /turf/closed,
 /area)
+"ad" = (
+/obj/structure/rotation_piece{
+	dir = 8
+	},
+/turf/open/floor/blocks,
+/area/rogue/indoors)
+"ae" = (
+/obj/structure/apiary,
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
+"af" = (
+/obj/structure/bridge_stakes,
+/turf/open/floor/cobblerock,
+/area/rogue/outdoors)
 "ag" = (
 /obj/structure/window/openclose{
 	dir = 1
@@ -20,6 +34,11 @@
 "aj" = (
 /turf/open/floor/dirt/road,
 /area/rogue/indoors)
+"ak" = (
+/obj/structure/minecart_rail,
+/obj/structure/closet/crate/miningcar,
+/turf/open/floor/dirt,
+/area/rogue/outdoors)
 "al" = (
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
@@ -62,6 +81,11 @@
 /obj/item/ore/coal,
 /turf/open/floor/dirt/road,
 /area/rogue/indoors)
+"aq" = (
+/obj/structure/flora/grass,
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
 "ar" = (
 /obj/structure/lootable_structure/grain_barrel{
 	pixel_x = -6;
@@ -179,6 +203,12 @@
 /obj/item/clothing/armor/gambeson/heavy/dress,
 /turf/open/floor/carpet,
 /area/rogue/indoors)
+"aF" = (
+/obj/machinery/light/fueled/torchholder/hotspring/standing{
+	pixel_x = -15
+	},
+/turf/open/floor/dirt,
+/area/rogue/outdoors)
 "aG" = (
 /obj/structure/flora/grass/bush{
 	pixel_x = 19
@@ -246,6 +276,10 @@
 /obj/machinery/light/fueled/firebowl,
 /turf/open/floor/carpet,
 /area/rogue/indoors)
+"aQ" = (
+/obj/structure/water_pipe,
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
 "aR" = (
 /obj/structure/table/wood{
 	icon_state = "tablewood2";
@@ -279,6 +313,13 @@
 "aU" = (
 /turf/open/floor/cobblerock/alt,
 /area/rogue/outdoors/mountains/decap)
+"aV" = (
+/obj/structure/fluff/railing/wood{
+	dir = 4;
+	pixel_y = -1
+	},
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
 "aW" = (
 /obj/structure/table/wood{
 	icon_state = "tablewood2";
@@ -443,10 +484,17 @@
 "bp" = (
 /turf/open/floor/volcanic,
 /area/rogue/outdoors/mountains/decap)
+"bq" = (
+/turf/open/floor/blocks,
+/area/rogue/indoors)
 "br" = (
 /obj/structure/bed/hay,
 /turf/open/floor/cobble/mossy,
 /area/rogue/outdoors/mountains/decap)
+"bs" = (
+/obj/effect/landmark/latejoin,
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
 "bt" = (
 /obj/structure/table/wood{
 	icon_state = "tablewood2";
@@ -587,6 +635,14 @@
 /obj/item/weapon/mace,
 /turf/open/floor/cobble,
 /area/rogue/indoors)
+"bH" = (
+/obj/effect/waterfall,
+/turf/open/water/river,
+/area/rogue/outdoors)
+"bI" = (
+/obj/structure/flora/grass/herb/taraxacum,
+/turf/open/floor/dirt,
+/area/rogue/outdoors/mountains/decap)
 "bJ" = (
 /obj/structure/table/wood{
 	icon_state = "tablewood2";
@@ -851,9 +907,20 @@
 /obj/structure/mineral_door,
 /turf/open/floor/blocks,
 /area/rogue/indoors)
+"cn" = (
+/obj/structure/hotspring/border/ten,
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
 "co" = (
 /turf/closed/mineral/random/med,
 /area/rogue/outdoors/mountains/decap)
+"cp" = (
+/obj/structure/hotspring/border/nine,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors)
+"cq" = (
+/turf/closed/mineral/bedrock,
+/area/rogue/outdoors/beach)
 "cr" = (
 /obj/structure/flora/grass/herb/calendula,
 /turf/open/floor/cobblerock,
@@ -861,10 +928,21 @@
 "cs" = (
 /turf/open/lava,
 /area/rogue/outdoors/mountains/decap)
+"ct" = (
+/obj/effect/landmark/start,
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
 "cu" = (
 /obj/structure/flora/grass/herb/calendula,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/mountains/decap)
+"cv" = (
+/obj/structure/flora/grass,
+/obj/structure/bridge_stakes{
+	dir = 4
+	},
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
 "cw" = (
 /obj/machinery/light/fueled/torchholder/hotspring/standing{
 	pixel_x = -15
@@ -891,6 +969,10 @@
 	},
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/mountains/decap)
+"cB" = (
+/obj/structure/fluff/railing/wood,
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
 "cF" = (
 /obj/machinery/light/fueled/torchholder/l,
 /turf/open/floor/dirt,
@@ -901,6 +983,21 @@
 	dir = 4
 	},
 /turf/open/floor/cobble/mossy,
+/area/rogue/outdoors/mountains/decap)
+"cI" = (
+/obj/structure/flora/grass,
+/obj/effect/falling_sakura,
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
+"cJ" = (
+/obj/structure/rotation_piece{
+	dir = 8
+	},
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
+"cK" = (
+/obj/structure/flora/grass/herb/salvia,
+/turf/open/floor/cobblerock,
 /area/rogue/outdoors/mountains/decap)
 "cL" = (
 /turf/closed/basic,
@@ -922,10 +1019,27 @@
 "cO" = (
 /turf/closed/wall/mineral/wooddark,
 /area/rogue/outdoors/mountains/decap)
+"cP" = (
+/obj/machinery/light/fueled/torchholder/hotspring/standing{
+	pixel_x = 15;
+	pixel_y = 32
+	},
+/obj/structure/flora/grass,
+/obj/effect/falling_sakura,
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
 "cQ" = (
 /obj/structure/flora/grass/herb/euphrasia,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/mountains/decap)
+"cR" = (
+/obj/structure/fluff/railing/wood,
+/obj/machinery/light/fueled/torchholder/hotspring{
+	pixel_y = -1;
+	pixel_x = -16
+	},
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
 "cS" = (
 /obj/structure/flora/grass,
 /turf/open/floor/dirt,
@@ -938,6 +1052,12 @@
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
+"cU" = (
+/obj/machinery/light/fueled/torchholder/hotspring/standing{
+	pixel_x = -15
+	},
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
 "cV" = (
 /turf/open/floor/grass/mixyel,
 /area/rogue/outdoors/mountains/decap)
@@ -947,39 +1067,60 @@
 	},
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
+"cX" = (
+/obj/structure/table/wood/plain,
+/turf/open/floor/carpet,
+/area/rogue/indoors)
 "cZ" = (
 /obj/structure/kneestingers,
 /turf/open/water/river,
 /area/rogue/outdoors/mountains/decap)
-"dx" = (
-/obj/structure/hotspring,
-/obj/effect/lily_petal,
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors)
-"ed" = (
-/obj/structure/hotspring/border/fourteen,
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors)
-"ee" = (
-/obj/structure/bridge_stakes,
+"dw" = (
+/obj/effect/landmark/start/lord{
+	dir = 8
+	},
 /turf/open/floor/grass/yel,
+/area/rogue/outdoors)
+"ef" = (
+/obj/structure/hotspring/border/five,
+/obj/structure/flora/hotspring_rocks{
+	pixel_y = -4;
+	pixel_x = 4
+	},
+/turf/open/floor/cobblerock,
+/area/rogue/outdoors/mountains/decap)
+"ek" = (
+/obj/machinery/light/fueled/torchholder/hotspring/standing{
+	pixel_x = 15
+	},
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
+"eq" = (
+/obj/structure/flora/grass,
+/obj/structure/flora/grass/herb/symphitum,
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
+"ew" = (
+/obj/structure/hotspring/border/thirteen,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors)
+"ez" = (
+/obj/structure/rotation_piece/cog,
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
+"eD" = (
+/obj/structure/hotspring,
+/obj/effect/lily_petal/three,
+/obj/structure/flora/sakura{
+	pixel_y = -13
+	},
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors)
 "eE" = (
 /obj/structure/stairs/stone/reddish{
 	dir = 8
 	},
 /turf/open/floor/grass/yel,
-/area/rogue/outdoors)
-"eX" = (
-/obj/structure/mineral_door,
-/turf/open/floor/wood,
-/area/rogue/indoors)
-"fb" = (
-/obj/structure/hotspring/border/two,
-/obj/structure/bridge{
-	layer = 4
-	},
-/turf/open/floor/dirt/road,
 /area/rogue/outdoors)
 "fe" = (
 /obj/structure/closet/crate/chest,
@@ -998,10 +1139,28 @@
 	},
 /turf/open/floor/dirt,
 /area/rogue/outdoors/mountains/decap)
-"gw" = (
+"fs" = (
+/obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/flora/grass,
-/mob/living/simple_animal/hostile/retaliate/cow,
 /turf/open/floor/grass/yel,
+/area/rogue/outdoors)
+"fQ" = (
+/obj/structure/bridge_stakes,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors)
+"fS" = (
+/obj/structure/well,
+/obj/machinery/light/fueled/torchholder/hotspring{
+	pixel_y = -12;
+	pixel_x = -16
+	},
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
+"gp" = (
+/obj/structure/hotspring,
+/obj/effect/lily_petal/two,
+/obj/effect/falling_sakura,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors)
 "gy" = (
 /obj/structure/table/wood/nice,
@@ -1024,12 +1183,412 @@
 	},
 /turf/open/floor/wood,
 /area/rogue/indoors)
-"gB" = (
-/obj/structure/flora/grass,
-/obj/structure/flora/grass/herb/urtica,
+"hd" = (
+/obj/structure/hotspring/border/five,
+/turf/open/floor/cobblerock,
+/area/rogue/outdoors/mountains/decap)
+"hi" = (
+/obj/structure/table/wood/treestump/shroomstump,
+/turf/open/floor/dirt,
+/area/rogue/outdoors/mountains/decap)
+"hF" = (
+/obj/structure/dungeon_entry/center,
+/turf/open/floor/dirt,
+/area/rogue/outdoors/mountains/decap)
+"hN" = (
+/obj/structure/window/openclose{
+	dir = 1
+	},
+/obj/structure/water_pipe,
+/turf/open/floor/wood,
+/area/rogue/indoors)
+"hO" = (
+/obj/structure/gearbox,
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
-"gM" = (
+"hP" = (
+/turf/open/water/river{
+	dir = 8
+	},
+/area/rogue/outdoors/mountains/decap)
+"ia" = (
+/obj/structure/flora/grass,
+/obj/effect/fog_parter,
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
+"iE" = (
+/obj/machinery/light/fueled/torchholder/hotspring/standing{
+	pixel_x = 15
+	},
+/obj/structure/flora/grass,
+/turf/open/floor/dirt,
+/area/rogue/outdoors/mountains/decap)
+"ji" = (
+/obj/structure/hotspring/border/three,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors)
+"jt" = (
+/obj/structure/hotspring/border/three,
+/obj/machinery/light/fueled/torchholder/hotspring/standing{
+	pixel_x = -15
+	},
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors)
+"jC" = (
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
+"jE" = (
+/obj/structure/bed/mediocre,
+/obj/item/bedsheet/pelt,
+/turf/open/floor/carpet,
+/area/rogue/indoors)
+"jV" = (
+/obj/structure/rotation_piece,
+/obj/machinery/light/fueled/torchholder/hotspring/standing{
+	pixel_x = 15
+	},
+/turf/open/floor/dirt,
+/area/rogue/outdoors/mountains/decap)
+"ky" = (
+/obj/structure/flora/ausbushes/ywflowers,
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
+"kS" = (
+/obj/structure/kneestingers,
+/obj/structure/waterwheel,
+/turf/open/water/river{
+	dir = 8
+	},
+/area/rogue/outdoors/mountains/decap)
+"ln" = (
+/obj/structure/flora/ausbushes/ppflowers,
+/obj/effect/falling_sakura,
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
+"lp" = (
+/obj/structure/vertical_gearbox,
+/turf/open/floor/wood,
+/area/rogue/indoors)
+"lQ" = (
+/obj/structure/minecart_rail{
+	dir = 4
+	},
+/obj/structure/fluff/traveltile{
+	aportalid = "cave";
+	aportalgoesto = "main"
+	},
+/turf/open/floor/cobblerock,
+/area/rogue/outdoors/mountains/decap)
+"lV" = (
+/obj/machinery/light/fueled/torchholder/r,
+/turf/open/floor/cobble,
+/area/rogue/indoors)
+"lY" = (
+/obj/structure/closet/crate/chest,
+/obj/item/ore/gold,
+/obj/item/ore/gold,
+/obj/item/ore/gold,
+/obj/item/ore/gold,
+/obj/item/ore/gold,
+/obj/item/ore/gold,
+/turf/open/floor/cobble,
+/area/rogue/indoors)
+"mi" = (
+/obj/structure/rotation_piece,
+/turf/open/floor/blocks,
+/area/rogue/indoors)
+"mj" = (
+/obj/machinery/light/fueled/torchholder/hotspring/standing{
+	pixel_x = 15
+	},
+/turf/open/floor/dirt,
+/area/rogue/outdoors/mountains/decap)
+"mo" = (
+/obj/structure/flora/grass,
+/obj/structure/water_pipe,
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
+"mq" = (
+/obj/structure/flora/grass,
+/obj/structure/minecart_rail{
+	dir = 4
+	},
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
+"mx" = (
+/obj/structure/bridge_stakes{
+	dir = 8
+	},
+/turf/open/floor/dirt,
+/area/rogue/outdoors/mountains/decap)
+"mD" = (
+/obj/machinery/light/fueled/torchholder/r,
+/obj/structure/closet/crate/chest/wicker,
+/obj/item/natural/chaff/wheat,
+/obj/item/natural/chaff/wheat,
+/obj/item/natural/chaff/wheat,
+/obj/item/natural/chaff/wheat,
+/obj/item/natural/chaff/wheat,
+/obj/item/natural/chaff/oat,
+/obj/item/natural/chaff/oat,
+/turf/open/floor/blocks,
+/area/rogue/indoors)
+"mF" = (
+/obj/structure/hotspring,
+/obj/effect/lily_petal,
+/obj/effect/lily_petal/three{
+	pixel_y = -14;
+	pixel_x = -2
+	},
+/obj/effect/lily_petal/two{
+	pixel_y = 13;
+	pixel_x = 11
+	},
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors)
+"mO" = (
+/obj/structure/flora/ausbushes/lavendergrass,
+/turf/open/floor/grass/yel,
+/area/rogue/indoors)
+"mY" = (
+/turf/open/floor/wood,
+/area/rogue/indoors)
+"ne" = (
+/turf/open/transparent/openspace,
+/area/rogue)
+"ng" = (
+/obj/effect/waterfall,
+/turf/open/water/river,
+/area/rogue/outdoors/mountains/decap)
+"nG" = (
+/turf/open/floor/cobble,
+/area)
+"oB" = (
+/obj/structure/window/openclose{
+	dir = 4
+	},
+/turf/open/floor/wood,
+/area/rogue/indoors)
+"oC" = (
+/obj/structure/flora/grass,
+/obj/structure/fluff/railing/wood,
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
+"oH" = (
+/obj/structure/soil/debug_soil/random,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors)
+"pc" = (
+/turf/open/floor/cobblerock,
+/area/rogue/indoors)
+"pD" = (
+/obj/structure/hotspring/border/fourteen,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors)
+"pQ" = (
+/obj/structure/rotation_piece,
+/turf/open/floor/wood,
+/area/rogue/indoors)
+"pY" = (
+/obj/structure/bridge_stakes{
+	dir = 8
+	},
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
+"qa" = (
+/obj/structure/flora/grass,
+/obj/structure/flora/ausbushes/lavendergrass,
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
+"qc" = (
+/obj/structure/flora/grass,
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
+"qi" = (
+/obj/structure/hotspring/border/five,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors)
+"qj" = (
+/obj/structure/rack/shelf,
+/obj/structure/bookcase/random_recipes,
+/turf/open/floor/wood,
+/area/rogue/indoors)
+"qw" = (
+/obj/structure/fluff/railing/wood,
+/turf/open/floor/cobblerock,
+/area/rogue/outdoors)
+"qG" = (
+/obj/machinery/light/fueled/torchholder/hotspring/standing{
+	pixel_x = 15;
+	pixel_y = 32
+	},
+/obj/structure/flora/grass,
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
+"qZ" = (
+/turf/closed/mineral/random/high,
+/area/rogue/outdoors/mountains/decap)
+"rf" = (
+/obj/structure/window/openclose{
+	dir = 8
+	},
+/obj/structure/rotation_piece{
+	dir = 8
+	},
+/turf/open/floor/blocks,
+/area/rogue/indoors)
+"rh" = (
+/turf/closed/basic,
+/area/rogue/outdoors)
+"rm" = (
+/obj/structure/flora/shroom_tree{
+	pixel_x = -36;
+	pixel_y = 3
+	},
+/obj/structure/flora/grass/bush_meagre{
+	pixel_y = -2;
+	pixel_x = -16;
+	layer = 7
+	},
+/obj/structure/flora/grass/bush_meagre{
+	pixel_y = -4;
+	pixel_x = -29;
+	layer = 7
+	},
+/obj/structure/flora/grass/bush{
+	pixel_x = -7;
+	pixel_y = 1
+	},
+/turf/open/floor/dirt,
+/area/rogue/outdoors/mountains/decap)
+"ro" = (
+/obj/structure/gearbox,
+/turf/open/floor/blocks,
+/area/rogue/indoors)
+"rB" = (
+/obj/structure/ladder,
+/turf/open/floor/blocks,
+/area/rogue/indoors)
+"sd" = (
+/obj/structure/flora/grass/herb/symphitum,
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
+"ss" = (
+/turf/open/transparent/openspace,
+/area/rogue/outdoors)
+"su" = (
+/obj/item/recipe_book/survival,
+/turf/open/floor/dirt,
+/area/rogue/outdoors/mountains/decap)
+"sG" = (
+/obj/structure/rack/shelf,
+/obj/structure/rack/shelf/biggest,
+/obj/item/reagent_containers/glass/cup{
+	pixel_y = 14;
+	pixel_x = -7
+	},
+/obj/item/reagent_containers/glass/cup{
+	pixel_y = 12
+	},
+/obj/item/reagent_containers/glass/cup{
+	pixel_x = 7;
+	pixel_y = 13
+	},
+/obj/item/weapon/hoe/copper{
+	pixel_y = -1
+	},
+/obj/item/weapon/shovel{
+	pixel_y = -5
+	},
+/turf/open/floor/wood,
+/area/rogue/indoors)
+"sK" = (
+/obj/structure/well,
+/turf/open/water,
+/area/rogue/outdoors)
+"ti" = (
+/obj/structure/fluff/walldeco/vinez{
+	pixel_x = -21
+	},
+/obj/structure/fluff/walldeco/vinez{
+	pixel_x = -14;
+	pixel_y = -27
+	},
+/turf/closed/mineral/random/med,
+/area/rogue/outdoors/mountains/decap)
+"tp" = (
+/obj/structure/hotspring,
+/obj/effect/falling_sakura,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors)
+"tz" = (
+/obj/structure/flora/grass/herb/symphitum,
+/obj/structure/minecart_rail{
+	dir = 4
+	},
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
+"tH" = (
+/turf/closed,
+/area/rogue/outdoors)
+"tN" = (
+/obj/structure/hotspring/border/eight,
+/obj/structure/bridge{
+	layer = 4;
+	dir = 4
+	},
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors)
+"tW" = (
+/obj/structure/hotspring/border/ten,
+/obj/structure/flora/hotspring_rocks/grassy{
+	pixel_y = -9;
+	pixel_x = 15;
+	layer = 3
+	},
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors)
+"uf" = (
+/obj/structure/hotspring/border/eight,
+/obj/effect/falling_sakura,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors)
+"ug" = (
+/turf/open/water/river{
+	dir = 4
+	},
+/area/rogue/outdoors/mountains/decap)
+"ui" = (
+/obj/structure/minecart_rail,
+/obj/structure/fluff/traveltile{
+	aportalid = "main";
+	aportalgoesto = "cave"
+	},
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
+"uL" = (
+/obj/structure/hotspring/border/two,
+/turf/open/floor/cobblerock,
+/area/rogue/outdoors/mountains/decap)
+"uV" = (
+/turf/open/lava/flow{
+	dir = 8
+	},
+/area/rogue/outdoors/mountains/decap)
+"vs" = (
+/turf/closed/mineral/bedrock,
+/area/rogue)
+"vB" = (
+/obj/structure/hotspring,
+/obj/effect/lily_petal/two,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors)
+"vV" = (
+/obj/machinery/light/fueled/campfire/densefire,
+/turf/open/floor/cobblerock,
+/area/rogue/outdoors/mountains/decap)
+"vW" = (
 /obj/structure/table/wood/plain,
 /obj/item/cooking/skewer{
 	pixel_y = -7
@@ -1064,442 +1623,6 @@
 	},
 /turf/open/floor/blocks,
 /area/rogue/indoors)
-"gQ" = (
-/obj/structure/flora/grass/herb/salvia,
-/turf/open/floor/cobblerock,
-/area/rogue/outdoors/mountains/decap)
-"gW" = (
-/obj/structure/stairs/stone/reddish{
-	dir = 8
-	},
-/turf/open/floor/cobblerock,
-/area/rogue/outdoors)
-"hd" = (
-/obj/structure/hotspring/border/five,
-/turf/open/floor/cobblerock,
-/area/rogue/outdoors/mountains/decap)
-"hi" = (
-/obj/structure/table/wood/treestump/shroomstump,
-/turf/open/floor/dirt,
-/area/rogue/outdoors/mountains/decap)
-"hF" = (
-/obj/structure/dungeon_entry/center,
-/turf/open/floor/dirt,
-/area/rogue/outdoors/mountains/decap)
-"hP" = (
-/turf/open/water/river{
-	dir = 8
-	},
-/area/rogue/outdoors/mountains/decap)
-"hQ" = (
-/obj/structure/flora/grass,
-/obj/structure/minecart_rail,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
-"ia" = (
-/obj/structure/flora/grass,
-/obj/effect/fog_parter,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
-"iq" = (
-/obj/effect/landmark/observer_start,
-/turf/open/floor/cobblerock,
-/area/rogue/outdoors)
-"iA" = (
-/obj/structure/minecart_rail{
-	dir = 4
-	},
-/obj/structure/fluff/traveltile{
-	aportalid = "cave";
-	aportalgoesto = "main"
-	},
-/turf/open/floor/cobblerock,
-/area/rogue/outdoors/mountains/decap)
-"iE" = (
-/obj/machinery/light/fueled/torchholder/hotspring/standing{
-	pixel_x = 15
-	},
-/obj/structure/flora/grass,
-/turf/open/floor/dirt,
-/area/rogue/outdoors/mountains/decap)
-"iH" = (
-/obj/structure/bridge_stakes{
-	dir = 8
-	},
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
-"iP" = (
-/obj/structure/hotspring/border/nine,
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors)
-"jC" = (
-/obj/structure/flora/ausbushes/ppflowers,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
-"jE" = (
-/obj/structure/bed/mediocre,
-/obj/item/bedsheet/pelt,
-/turf/open/floor/carpet,
-/area/rogue/indoors)
-"jV" = (
-/obj/structure/rotation_piece,
-/obj/machinery/light/fueled/torchholder/hotspring/standing{
-	pixel_x = 15
-	},
-/turf/open/floor/dirt,
-/area/rogue/outdoors/mountains/decap)
-"ky" = (
-/obj/structure/flora/ausbushes/ywflowers,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
-"kN" = (
-/obj/structure/flora/grass,
-/obj/structure/flora/ausbushes/ppflowers,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
-"kO" = (
-/obj/structure/rotation_piece,
-/turf/open/floor/blocks,
-/area/rogue/indoors)
-"kS" = (
-/obj/structure/kneestingers,
-/obj/structure/waterwheel,
-/turf/open/water/river{
-	dir = 8
-	},
-/area/rogue/outdoors/mountains/decap)
-"kW" = (
-/turf/open/floor/blocks,
-/area/rogue/indoors)
-"lo" = (
-/obj/structure/fluff/railing/wood,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
-"lp" = (
-/obj/structure/vertical_gearbox,
-/turf/open/floor/wood,
-/area/rogue/indoors)
-"lV" = (
-/obj/machinery/light/fueled/torchholder/r,
-/turf/open/floor/cobble,
-/area/rogue/indoors)
-"lY" = (
-/obj/structure/closet/crate/chest,
-/obj/item/ore/gold,
-/obj/item/ore/gold,
-/obj/item/ore/gold,
-/obj/item/ore/gold,
-/obj/item/ore/gold,
-/obj/item/ore/gold,
-/turf/open/floor/cobble,
-/area/rogue/indoors)
-"mj" = (
-/obj/machinery/light/fueled/torchholder/hotspring/standing{
-	pixel_x = 15
-	},
-/turf/open/floor/dirt,
-/area/rogue/outdoors/mountains/decap)
-"mn" = (
-/obj/structure/water_pipe,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
-"mq" = (
-/obj/structure/flora/grass,
-/obj/structure/minecart_rail{
-	dir = 4
-	},
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
-"mx" = (
-/obj/structure/bridge_stakes{
-	dir = 8
-	},
-/turf/open/floor/dirt,
-/area/rogue/outdoors/mountains/decap)
-"mN" = (
-/obj/structure/chair/hotspring_bench/right{
-	pixel_y = 12
-	},
-/obj/effect/landmark/start/consort,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
-"mO" = (
-/obj/structure/flora/ausbushes/lavendergrass,
-/turf/open/floor/grass/yel,
-/area/rogue/indoors)
-"mU" = (
-/obj/structure/flora/ausbushes/ppflowers,
-/obj/structure/minecart_rail{
-	dir = 4
-	},
-/obj/structure/closet/crate/miningcar,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
-"mY" = (
-/turf/open/floor/wood,
-/area/rogue/indoors)
-"ne" = (
-/turf/open/transparent/openspace,
-/area/rogue)
-"ng" = (
-/obj/effect/waterfall,
-/turf/open/water/river,
-/area/rogue/outdoors/mountains/decap)
-"nx" = (
-/obj/structure/rotation_piece,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
-"nG" = (
-/turf/open/floor/cobble,
-/area)
-"oj" = (
-/obj/structure/hotspring,
-/obj/effect/lily_petal,
-/obj/effect/lily_petal/three{
-	pixel_y = -14;
-	pixel_x = -2
-	},
-/obj/effect/lily_petal/two{
-	pixel_y = 13;
-	pixel_x = 11
-	},
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors)
-"on" = (
-/obj/structure/hotspring/border/three,
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors)
-"oB" = (
-/obj/structure/window/openclose{
-	dir = 4
-	},
-/turf/open/floor/wood,
-/area/rogue/indoors)
-"oG" = (
-/obj/structure/rotation_piece{
-	dir = 8
-	},
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
-"pc" = (
-/turf/open/floor/cobblerock,
-/area/rogue/indoors)
-"pf" = (
-/obj/machinery/light/fueled/torchholder/hotspring/standing{
-	pixel_x = 15;
-	pixel_y = 32
-	},
-/obj/structure/flora/grass,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
-"pM" = (
-/obj/structure/hotspring/border/five,
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors)
-"pQ" = (
-/obj/structure/rotation_piece,
-/turf/open/floor/wood,
-/area/rogue/indoors)
-"qa" = (
-/obj/structure/flora/grass,
-/obj/structure/flora/ausbushes/lavendergrass,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
-"qc" = (
-/obj/structure/flora/grass,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
-"qj" = (
-/obj/structure/rack/shelf,
-/obj/structure/bookcase/random_recipes,
-/turf/open/floor/wood,
-/area/rogue/indoors)
-"qo" = (
-/obj/structure/hotspring/border/two,
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors)
-"qq" = (
-/obj/structure/hotspring/border/two,
-/obj/machinery/light/fueled/torchholder/hotspring/standing{
-	pixel_x = -15
-	},
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors)
-"qy" = (
-/obj/structure/hotspring,
-/obj/effect/lily_petal/three,
-/obj/effect/falling_sakura,
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors)
-"qH" = (
-/obj/structure/table/wood/plain,
-/obj/item/cooking/pan,
-/turf/open/floor/blocks,
-/area/rogue/indoors)
-"qW" = (
-/obj/structure/flora/ausbushes/ppflowers,
-/obj/structure/flora/ausbushes/lavendergrass,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
-"qZ" = (
-/turf/closed/mineral/random/high,
-/area/rogue/outdoors/mountains/decap)
-"rd" = (
-/obj/structure/ladder,
-/turf/open/floor/blocks,
-/area/rogue/indoors)
-"rh" = (
-/turf/closed/basic,
-/area/rogue/outdoors)
-"rm" = (
-/obj/structure/flora/shroom_tree{
-	pixel_x = -36;
-	pixel_y = 3
-	},
-/obj/structure/flora/grass/bush_meagre{
-	pixel_y = -2;
-	pixel_x = -16;
-	layer = 7
-	},
-/obj/structure/flora/grass/bush_meagre{
-	pixel_y = -4;
-	pixel_x = -29;
-	layer = 7
-	},
-/obj/structure/flora/grass/bush{
-	pixel_x = -7;
-	pixel_y = 1
-	},
-/turf/open/floor/dirt,
-/area/rogue/outdoors/mountains/decap)
-"rq" = (
-/obj/machinery/light/fueled/hearth,
-/obj/item/reagent_containers/glass/bucket/pot/copper,
-/turf/open/floor/blocks,
-/area/rogue/indoors)
-"rV" = (
-/obj/machinery/light/fueled/torchholder/hotspring/standing{
-	pixel_x = 15;
-	pixel_y = 32
-	},
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
-"sd" = (
-/obj/structure/flora/grass/herb/symphitum,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
-"ss" = (
-/turf/open/transparent/openspace,
-/area/rogue/outdoors)
-"su" = (
-/obj/item/recipe_book/survival,
-/turf/open/floor/dirt,
-/area/rogue/outdoors/mountains/decap)
-"sG" = (
-/obj/structure/rack/shelf,
-/obj/structure/rack/shelf/biggest,
-/obj/item/reagent_containers/glass/cup{
-	pixel_y = 14;
-	pixel_x = -7
-	},
-/obj/item/reagent_containers/glass/cup{
-	pixel_y = 12
-	},
-/obj/item/reagent_containers/glass/cup{
-	pixel_x = 7;
-	pixel_y = 13
-	},
-/obj/item/weapon/hoe/copper{
-	pixel_y = -1
-	},
-/obj/item/weapon/shovel{
-	pixel_y = -5
-	},
-/turf/open/floor/wood,
-/area/rogue/indoors)
-"sQ" = (
-/obj/machinery/light/fueled/torchholder/hotspring/standing{
-	pixel_x = 15;
-	pixel_y = 32
-	},
-/obj/structure/flora/grass,
-/obj/effect/falling_sakura,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
-"sS" = (
-/obj/structure/window/openclose{
-	dir = 8
-	},
-/obj/structure/rotation_piece{
-	dir = 8
-	},
-/turf/open/floor/blocks,
-/area/rogue/indoors)
-"ti" = (
-/obj/structure/fluff/walldeco/vinez{
-	pixel_x = -21
-	},
-/obj/structure/fluff/walldeco/vinez{
-	pixel_x = -14;
-	pixel_y = -27
-	},
-/turf/closed/mineral/random/med,
-/area/rogue/outdoors/mountains/decap)
-"tz" = (
-/obj/structure/flora/grass/herb/symphitum,
-/obj/structure/minecart_rail{
-	dir = 4
-	},
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
-"tH" = (
-/turf/closed,
-/area/rogue/outdoors)
-"tZ" = (
-/obj/structure/flora/grass,
-/obj/structure/water_pipe,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
-"uf" = (
-/turf/closed/mineral/bedrock,
-/area/rogue/outdoors/beach)
-"ug" = (
-/turf/open/water/river{
-	dir = 4
-	},
-/area/rogue/outdoors/mountains/decap)
-"ut" = (
-/obj/structure/gearbox,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
-"uF" = (
-/obj/structure/bridge_stakes,
-/turf/open/floor/cobblerock,
-/area/rogue/outdoors)
-"uL" = (
-/obj/structure/hotspring/border/two,
-/turf/open/floor/cobblerock,
-/area/rogue/outdoors/mountains/decap)
-"uT" = (
-/obj/structure/flora/ausbushes/ppflowers,
-/obj/structure/flora/grass/herb/symphitum,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
-"vs" = (
-/turf/closed/mineral/bedrock,
-/area/rogue)
-"vT" = (
-/obj/structure/hotspring/border/seven,
-/obj/structure/bridge{
-	layer = 4;
-	dir = 4
-	},
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors)
-"vV" = (
-/obj/machinery/light/fueled/campfire/densefire,
-/turf/open/floor/cobblerock,
-/area/rogue/outdoors/mountains/decap)
 "we" = (
 /turf/open/water,
 /area/rogue/outdoors/mountains/decap)
@@ -1507,41 +1630,34 @@
 /obj/structure/hotspring/border/nine,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/mountains/decap)
-"wq" = (
+"wD" = (
 /obj/structure/bridge_stakes{
-	dir = 1
+	dir = 8
 	},
-/turf/open/floor/dirt/road,
+/turf/open/floor/cobblerock,
 /area/rogue/outdoors)
-"wK" = (
-/obj/structure/hotspring/border/seven,
+"wY" = (
+/obj/structure/flora/sakura{
+	pixel_y = -13
+	},
 /obj/effect/falling_sakura,
-/turf/open/floor/dirt/road,
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
+"xh" = (
+/obj/structure/waterwheel,
+/turf/open/water/river{
+	dir = 4
+	},
+/area/rogue/outdoors)
+"xp" = (
+/turf/open/water/river,
 /area/rogue/outdoors)
 "xw" = (
 /obj/machinery/light/fueled/forge,
 /turf/open/floor/cobble,
 /area/rogue/indoors)
-"xz" = (
-/turf/open/lava/flow{
-	dir = 1
-	},
-/area/rogue/outdoors/mountains/decap)
-"xH" = (
-/obj/structure/hotspring/border/twelve,
-/obj/effect/lily_petal/three{
-	pixel_y = -15;
-	pixel_x = 7
-	},
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors)
-"xO" = (
-/obj/structure/hotspring,
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors)
-"xU" = (
-/obj/structure/flora/ausbushes/brflowers,
-/obj/structure/flora/grass,
+"xM" = (
+/obj/structure/bridge_stakes,
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
 "yr" = (
@@ -1559,32 +1675,13 @@
 	},
 /turf/open/floor/blocks,
 /area/rogue/indoors)
-"yJ" = (
-/obj/structure/hotspring,
-/obj/effect/lily_petal/two,
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors)
-"yN" = (
-/obj/structure/window/openclose{
-	dir = 8
-	},
-/turf/open/floor/carpet,
-/area/rogue/indoors)
-"yO" = (
-/obj/machinery/light/fueled/torchholder/r,
-/obj/structure/closet/crate/chest/wicker,
-/obj/item/natural/chaff/wheat,
-/obj/item/natural/chaff/wheat,
-/obj/item/natural/chaff/wheat,
-/obj/item/natural/chaff/wheat,
-/obj/item/natural/chaff/wheat,
-/obj/item/natural/chaff/oat,
-/obj/item/natural/chaff/oat,
-/turf/open/floor/blocks,
-/area/rogue/indoors)
 "yP" = (
 /turf/closed/mineral/bedrock,
 /area/rogue/outdoors/mountains/decap)
+"yW" = (
+/obj/structure/hotspring/border/three,
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
 "zc" = (
 /obj/machinery/light/fueled/torchholder/r,
 /turf/open/floor/dirt/road,
@@ -1592,15 +1689,27 @@
 "zk" = (
 /turf/closed/wall/mineral/tent,
 /area/rogue/outdoors/mountains/decap)
-"zl" = (
-/obj/structure/minecart_rail,
-/obj/structure/closet/crate/miningcar,
-/turf/open/floor/dirt,
+"zm" = (
+/obj/structure/hotspring,
+/obj/effect/lily_petal/three,
+/obj/effect/falling_sakura,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors)
 "zn" = (
 /obj/structure/hotspring/border/eleven,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/mountains/decap)
+"zp" = (
+/obj/structure/rack/shelf/biggest{
+	pixel_y = 18
+	},
+/obj/machinery/light/fueled/torchholder/r,
+/turf/open/floor/carpet,
+/area/rogue/indoors)
+"zA" = (
+/obj/structure/water_pump,
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
 "zB" = (
 /obj/item/reagent_containers/glass/bucket/wooden{
 	pixel_y = 14;
@@ -1612,45 +1721,36 @@
 	},
 /turf/closed/wall/mineral/wood,
 /area/rogue/indoors)
-"zI" = (
-/obj/structure/hotspring/border/five,
-/obj/structure/bridge{
-	layer = 4
-	},
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors)
-"zU" = (
+"zF" = (
 /obj/structure/hotspring/border/eleven,
-/obj/structure/bridge{
-	layer = 4;
-	dir = 4
-	},
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
-"zW" = (
-/obj/structure/flora/grass/herb/urtica,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
+"zM" = (
+/obj/machinery/light/fueled/torchholder/l,
+/turf/open/floor/blocks,
+/area/rogue/indoors)
 "zZ" = (
 /obj/structure/throne,
 /turf/open/floor/cobble,
 /area/rogue/indoors)
-"Ag" = (
-/obj/structure/minecart_rail{
-	dir = 4
+"Ab" = (
+/obj/structure/hotspring/border/thirteen,
+/obj/machinery/light/fueled/torchholder/hotspring/standing{
+	pixel_x = -15
 	},
-/turf/open/floor/dirt,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors)
 "An" = (
 /obj/structure/hotspring/border/six,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/mountains/decap)
-"Aq" = (
-/obj/structure/hotspring/border/three,
-/obj/machinery/light/fueled/torchholder/hotspring/standing{
-	pixel_x = -15
+"At" = (
+/obj/structure/hotspring/border/fourteen,
+/obj/structure/bridge{
+	layer = 4;
+	dir = 4
 	},
-/turf/open/floor/dirt/road,
+/turf/open/floor/grass/yel,
 /area/rogue/outdoors)
 "Az" = (
 /obj/machinery/light/fueled/torchholder/hotspring/standing{
@@ -1658,11 +1758,6 @@
 	pixel_y = 12
 	},
 /turf/open/floor/wood,
-/area/rogue/outdoors)
-"AD" = (
-/obj/structure/flora/grass,
-/obj/structure/flora/grass/herb/symphitum,
-/turf/open/floor/grass/yel,
 /area/rogue/outdoors)
 "AI" = (
 /obj/structure/flora/grass/water/reeds,
@@ -1691,6 +1786,15 @@
 	},
 /turf/open/floor/dirt,
 /area/rogue/outdoors/mountains/decap)
+"AQ" = (
+/obj/item/bottle_kit{
+	pixel_x = -3
+	},
+/obj/item/bottle_kit{
+	pixel_x = 10
+	},
+/turf/closed/wall/mineral/wood,
+/area/rogue/indoors)
 "Bv" = (
 /obj/structure/flora/grass/herb/hypericum,
 /turf/open/floor/dirt,
@@ -1698,36 +1802,19 @@
 "BE" = (
 /turf/closed,
 /area/rogue/outdoors/mountains/decap)
-"BK" = (
-/obj/structure/hotspring/border/twelve,
-/obj/structure/flora/hotspring_rocks/grassy{
-	pixel_y = -10;
-	pixel_x = 1
-	},
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors)
-"Cf" = (
-/obj/structure/flora/ausbushes/ppflowers,
-/obj/structure/flora/grass,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
-"CE" = (
-/turf/open/lava/flow{
-	dir = 8
-	},
-/area/rogue/outdoors/mountains/decap)
-"CF" = (
-/obj/structure/fluff/railing/wood{
-	dir = 4;
-	pixel_y = -1
-	},
-/mob/living/simple_animal/hostile/retaliate/cow,
+"CO" = (
+/obj/effect/landmark/observer_start,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors)
-"Dq" = (
-/obj/machinery/light/fueled/torchholder/l,
+"CZ" = (
+/obj/structure/mineral_door,
 /turf/open/floor/wood,
 /area/rogue/indoors)
+"Di" = (
+/obj/structure/flora/ausbushes/ppflowers,
+/obj/structure/flora/ausbushes/lavendergrass,
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
 "Dz" = (
 /obj/structure/hotspring,
 /obj/structure/hotspring,
@@ -1738,65 +1825,49 @@
 /obj/structure/flora/grass,
 /turf/closed/mineral/random/med,
 /area/rogue/outdoors/mountains/decap)
-"DH" = (
-/obj/structure/rack/shelf/biggest{
-	pixel_y = 18
-	},
-/obj/machinery/light/fueled/torchholder/r,
-/turf/open/floor/carpet,
-/area/rogue/indoors)
-"DW" = (
-/turf/open/floor/wood,
-/area/rogue/outdoors)
-"Eh" = (
-/obj/structure/irrigation_channel,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
-"El" = (
+"DJ" = (
 /obj/structure/hotspring/border/ten,
 /obj/effect/falling_sakura,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
-"Em" = (
-/obj/structure/flora/grass,
-/obj/structure/flora/ausbushes/ywflowers,
-/obj/machinery/light/fueled/torchholder/hotspring/standing{
-	pixel_x = -15
+"DW" = (
+/turf/open/floor/wood,
+/area/rogue/outdoors)
+"DY" = (
+/obj/structure/hotspring,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors)
+"EH" = (
+/obj/structure/fluff/railing/wood{
+	dir = 4;
+	pixel_y = -1
 	},
-/turf/open/floor/grass/yel,
+/mob/living/simple_animal/hostile/retaliate/cow,
+/turf/open/floor/cobblerock,
 /area/rogue/outdoors)
 "EI" = (
 /obj/structure/gearbox,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/mountains/decap)
-"ES" = (
-/obj/structure/hotspring/border/eleven,
-/obj/effect/lily_petal/three{
-	pixel_y = -14;
-	pixel_x = -2
+"EX" = (
+/obj/structure/hotspring/border/two,
+/obj/structure/bridge{
+	layer = 4
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
-"Fk" = (
-/turf/open/water/river{
-	dir = 4
-	},
+"Fc" = (
+/obj/structure/hotspring/border/seven,
+/obj/effect/falling_sakura,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors)
-"Fl" = (
-/obj/structure/minecart_rail,
-/obj/structure/fluff/traveltile{
-	aportalid = "main";
-	aportalgoesto = "cave"
+"Fj" = (
+/obj/structure/hotspring/border/twelve,
+/obj/effect/lily_petal/three{
+	pixel_y = -15;
+	pixel_x = 7
 	},
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
-"Fm" = (
-/obj/structure/well,
-/obj/machinery/light/fueled/torchholder/hotspring{
-	pixel_y = -12;
-	pixel_x = -16
-	},
-/turf/open/floor/grass/yel,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors)
 "Fo" = (
 /obj/machinery/anvil,
@@ -1809,46 +1880,36 @@
 	},
 /turf/open/water/river,
 /area/rogue/outdoors/mountains/decap)
-"FA" = (
-/obj/structure/hotspring,
-/obj/effect/lily_petal/two,
-/obj/effect/falling_sakura,
-/turf/open/floor/dirt/road,
+"FN" = (
+/obj/structure/flora/ausbushes/brflowers,
+/turf/open/floor/grass/yel,
 /area/rogue/outdoors)
+"FU" = (
+/obj/structure/window/openclose,
+/obj/structure/rotation_piece,
+/turf/open/floor/blocks,
+/area/rogue/indoors)
 "FX" = (
 /obj/structure/hotspring/border/thirteen,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/mountains/decap)
-"Gg" = (
-/obj/structure/hotspring/border,
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors)
-"Gr" = (
-/obj/structure/hotspring/border/eight,
-/obj/effect/falling_sakura,
-/turf/open/floor/dirt/road,
+"Gi" = (
+/obj/structure/bridge_stakes{
+	dir = 1
+	},
+/turf/open/floor/cobblerock,
 /area/rogue/outdoors)
 "Gu" = (
 /obj/structure/pottery_lathe,
 /turf/open/floor/wood,
 /area/rogue/indoors)
-"GA" = (
-/obj/effect/landmark/start/lord{
-	dir = 8
+"GU" = (
+/obj/structure/hotspring/border/eleven,
+/obj/effect/lily_petal/three{
+	pixel_y = -15;
+	pixel_x = 7
 	},
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
-"GD" = (
-/obj/structure/hotspring/border/fourteen,
-/obj/structure/bridge{
-	layer = 4;
-	dir = 4
-	},
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
-"GZ" = (
-/obj/effect/falling_sakura,
-/turf/open/floor/grass/yel,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors)
 "He" = (
 /obj/structure/rotation_piece,
@@ -1860,68 +1921,58 @@
 	dir = 8
 	},
 /area/rogue/outdoors/mountains/decap)
-"Hy" = (
-/obj/machinery/light/fueled/torchholder/hotspring/standing{
-	pixel_x = 15
-	},
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
-"HB" = (
-/turf/open/water/river,
-/area/rogue/outdoors)
-"If" = (
-/obj/structure/fluff/millstone,
-/obj/structure/table/wood/plain,
-/obj/item/storage/sack{
-	pixel_x = -10;
-	pixel_y = 19
-	},
-/turf/open/floor/blocks,
-/area/rogue/indoors)
-"ID" = (
-/obj/structure/rotation_piece{
+"Hr" = (
+/obj/structure/stairs/stone/reddish{
 	dir = 8
 	},
-/turf/open/floor/blocks,
-/area/rogue/indoors)
-"IJ" = (
-/obj/structure/fluff/railing/wood,
 /turf/open/floor/cobblerock,
+/area/rogue/outdoors)
+"HK" = (
+/obj/structure/hotspring/border/two,
+/obj/machinery/light/fueled/torchholder/hotspring/standing{
+	pixel_x = -15
+	},
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors)
+"In" = (
+/obj/structure/minecart_rail{
+	dir = 4
+	},
+/turf/open/floor/dirt,
 /area/rogue/outdoors)
 "IW" = (
 /obj/structure/hotspring/border/nine,
 /obj/effect/falling_sakura,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
+"Jc" = (
+/obj/structure/hotspring/border/seven,
+/obj/structure/bridge{
+	layer = 4;
+	dir = 4
+	},
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors)
 "Jj" = (
 /obj/structure/hotspring/border/eight,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/mountains/decap)
-"Jr" = (
-/obj/structure/flora/grass/herb/hypericum,
-/turf/open/floor/cobblerock,
-/area/rogue/outdoors/mountains/decap)
-"Jw" = (
-/obj/item/bottle_kit{
-	pixel_x = -3
-	},
-/obj/item/bottle_kit{
-	pixel_x = 10
-	},
-/turf/closed/wall/mineral/wood,
-/area/rogue/indoors)
 "JM" = (
 /obj/structure/well,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/mountains/decap)
-"JO" = (
-/obj/effect/landmark/start,
-/turf/open/floor/grass/yel,
+"JU" = (
+/obj/structure/hotspring/border/twelve,
+/obj/structure/flora/hotspring_rocks/grassy{
+	pixel_y = -10;
+	pixel_x = 1
+	},
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors)
-"JT" = (
-/obj/structure/flora/grass,
-/obj/effect/falling_sakura,
-/turf/open/floor/grass/yel,
+"Kd" = (
+/obj/structure/hotspring,
+/obj/effect/lily_petal,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors)
 "Ke" = (
 /obj/structure/flora/ausbushes/brflowers,
@@ -1930,19 +1981,16 @@
 	},
 /turf/open/floor/dirt,
 /area/rogue/outdoors/mountains/decap)
-"Kf" = (
-/obj/structure/hotspring/border/eight,
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors)
 "Kh" = (
 /turf/open/floor/grass/yel,
 /area/rogue/indoors)
-"KO" = (
-/obj/structure/hotspring/border/ten,
-/obj/structure/flora/hotspring_rocks/grassy{
-	pixel_y = -9;
-	pixel_x = 15;
-	layer = 3
+"Ko" = (
+/obj/structure/hotspring/border/twelve,
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
+"Kr" = (
+/obj/structure/bridge_stakes{
+	dir = 1
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
@@ -1952,32 +2000,20 @@
 	},
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
-"Lx" = (
-/obj/structure/hotspring,
-/obj/effect/lily_petal/three,
-/obj/structure/flora/sakura{
-	pixel_y = -13
-	},
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors)
-"LE" = (
-/obj/structure/fermentation_keg/distiller,
-/turf/open/floor/carpet,
-/area/rogue/indoors)
-"LR" = (
-/obj/structure/hotspring/border/thirteen,
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors)
-"LT" = (
-/obj/structure/bridge_stakes{
-	dir = 8
-	},
-/turf/open/floor/cobblerock,
-/area/rogue/outdoors)
-"Mi" = (
+"Ln" = (
 /obj/structure/chair/hotspring_bench/left{
 	pixel_y = 12
 	},
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
+"Lv" = (
+/turf/open/lava/flow{
+	dir = 1
+	},
+/area/rogue/outdoors/mountains/decap)
+"LA" = (
+/obj/structure/flora/ausbushes/brflowers,
+/obj/structure/flora/grass,
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
 "Mn" = (
@@ -1995,36 +2031,7 @@
 	},
 /turf/open/floor/wood,
 /area/rogue/outdoors)
-"My" = (
-/obj/structure/water_pump,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
-"MW" = (
-/obj/structure/hotspring/border/eleven,
-/obj/effect/lily_petal/three{
-	pixel_y = -15;
-	pixel_x = 7
-	},
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors)
-"Ni" = (
-/obj/structure/flora/ausbushes/ppflowers,
-/obj/effect/falling_sakura,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
-"No" = (
-/obj/machinery/light/fueled/torchholder/hotspring/standing{
-	pixel_x = -15
-	},
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
-"Nz" = (
-/obj/structure/bridge_stakes{
-	dir = 4
-	},
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors)
-"NG" = (
+"MV" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/flora/grass,
 /obj/machinery/light/fueled/torchholder/hotspring/standing{
@@ -2033,11 +2040,18 @@
 	},
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
-"NV" = (
-/obj/machinery/light/fueled/torchholder/hotspring/standing{
-	pixel_x = -15
-	},
-/turf/open/floor/dirt,
+"Nb" = (
+/obj/structure/flora/grass,
+/obj/structure/flora/ausbushes/ywflowers,
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
+"NF" = (
+/obj/structure/irrigation_channel,
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
+"NY" = (
+/obj/effect/falling_sakura,
+/turf/open/floor/grass/yel,
 /area/rogue/outdoors)
 "Of" = (
 /obj/structure/window/openclose{
@@ -2045,21 +2059,37 @@
 	},
 /turf/open/floor/wood,
 /area/rogue/indoors)
-"On" = (
-/obj/structure/window/openclose{
-	dir = 1
-	},
-/obj/structure/water_pipe,
+"OI" = (
+/obj/machinery/light/fueled/hearth,
+/obj/item/reagent_containers/glass/bucket/pot/copper,
+/turf/open/floor/blocks,
+/area/rogue/indoors)
+"OZ" = (
+/obj/machinery/light/fueled/torchholder/l,
 /turf/open/floor/wood,
 /area/rogue/indoors)
-"OW" = (
-/obj/structure/hotspring/border/twelve,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
 "Pd" = (
 /obj/structure/roguerock,
 /turf/open/water,
 /area/rogue/outdoors/mountains/decap)
+"Pg" = (
+/obj/structure/hotspring/border/five,
+/obj/structure/bridge{
+	layer = 4
+	},
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors)
+"Pl" = (
+/obj/structure/hotspring/border/seven,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors)
+"Pm" = (
+/obj/structure/chair/hotspring_bench/right{
+	pixel_y = 12
+	},
+/obj/effect/landmark/start/consort,
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
 "Pq" = (
 /obj/machinery/light/fueled/smelter/great,
 /turf/open/floor/cobble,
@@ -2068,17 +2098,8 @@
 /obj/machinery/light/fueled/firebowl,
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
-"Qe" = (
-/obj/structure/hotspring/border/eleven,
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors)
 "Qi" = (
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
-"QB" = (
-/obj/structure/flora/grass,
-/obj/structure/fluff/railing/wood,
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
 "QN" = (
@@ -2090,33 +2111,19 @@
 	},
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/mountains/decap)
+"RC" = (
+/obj/structure/hotspring/border/two,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors)
 "RF" = (
-/obj/structure/hotspring/border/ten,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
-"RZ" = (
-/obj/structure/hotspring/border/ten,
+/obj/structure/hotspring/border,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
-"Sd" = (
-/obj/structure/flora/sakura{
-	pixel_y = -13
-	},
-/obj/effect/falling_sakura,
+"Sx" = (
+/obj/structure/flora/grass,
+/obj/structure/minecart_rail,
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
-"Sp" = (
-/obj/structure/soil/debug_soil/random,
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors)
-"Sw" = (
-/obj/structure/hotspring/border/five,
-/obj/structure/flora/hotspring_rocks{
-	pixel_y = -4;
-	pixel_x = 4
-	},
-/turf/open/floor/cobblerock,
-/area/rogue/outdoors/mountains/decap)
 "Sz" = (
 /obj/structure/bridge{
 	layer = 4;
@@ -2124,15 +2131,11 @@
 	},
 /turf/open/transparent/openspace,
 /area/rogue/outdoors)
-"SI" = (
-/obj/effect/waterfall,
-/turf/open/water/river,
-/area/rogue/outdoors)
-"SR" = (
-/obj/structure/hotspring/border/eight,
-/obj/structure/bridge{
-	layer = 4;
-	dir = 4
+"SE" = (
+/obj/structure/hotspring/border/eleven,
+/obj/effect/lily_petal/three{
+	pixel_y = -14;
+	pixel_x = -2
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
@@ -2142,23 +2145,14 @@
 	},
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
-"SY" = (
-/obj/structure/flora/grass,
-/obj/structure/bridge_stakes{
-	dir = 4
-	},
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
 "SZ" = (
-/obj/structure/hotspring,
-/obj/effect/falling_sakura,
+/obj/structure/hotspring/border/ten,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
-"To" = (
-/obj/structure/waterwheel,
-/turf/open/water/river{
-	dir = 4
-	},
+"Tr" = (
+/obj/structure/flora/ausbushes/ppflowers,
+/obj/structure/flora/grass/herb/symphitum,
+/turf/open/floor/grass/yel,
 /area/rogue/outdoors)
 "Ts" = (
 /obj/structure/roguerock{
@@ -2172,8 +2166,8 @@
 	},
 /turf/open/water,
 /area/rogue/outdoors/mountains/decap)
-"Tv" = (
-/obj/structure/hotspring/border/twelve,
+"Ty" = (
+/obj/structure/hotspring/border/eight,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
 "Tz" = (
@@ -2187,13 +2181,9 @@
 	},
 /turf/open/floor/wood,
 /area/rogue/outdoors)
-"TD" = (
-/obj/structure/bridge_stakes,
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors)
-"TM" = (
-/obj/structure/flora/grass/herb/taraxacum,
-/turf/open/floor/dirt,
+"TJ" = (
+/obj/structure/flora/grass/herb/hypericum,
+/turf/open/floor/cobblerock,
 /area/rogue/outdoors/mountains/decap)
 "TO" = (
 /obj/machinery/light/fueled/torchholder/hotspring/standing{
@@ -2205,6 +2195,11 @@
 /obj/structure/roguetent/preopen,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/mountains/decap)
+"Ua" = (
+/turf/open/water/river{
+	dir = 4
+	},
+/area/rogue/outdoors)
 "Ub" = (
 /obj/structure/flora/ausbushes/brflowers,
 /turf/open/floor/dirt,
@@ -2215,44 +2210,25 @@
 "Uv" = (
 /turf/closed,
 /area/rogue)
-"Uw" = (
-/obj/structure/well,
-/turf/open/water,
-/area/rogue/outdoors)
-"UJ" = (
-/obj/structure/hotspring/border/thirteen,
-/obj/machinery/light/fueled/torchholder/hotspring/standing{
-	pixel_x = -15
-	},
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors)
-"UP" = (
-/obj/structure/hotspring/border/seven,
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors)
-"UT" = (
-/obj/structure/flora/ausbushes/lavendergrass,
-/obj/structure/flora/grass,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
 "UY" = (
 /obj/structure/flora/grass,
 /turf/open/floor/grass/mixyel,
 /area/rogue/outdoors/mountains/decap)
-"Vt" = (
-/obj/structure/flora/ausbushes/brflowers,
+"Vp" = (
+/obj/structure/flora/grass,
+/obj/structure/flora/grass/herb/urtica,
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
-"Vw" = (
-/obj/structure/window/openclose,
-/obj/structure/rotation_piece,
+"Vz" = (
+/obj/structure/table/wood/plain,
+/obj/item/cooking/pan,
 /turf/open/floor/blocks,
 /area/rogue/indoors)
-"Vy" = (
-/obj/structure/fluff/railing/wood,
-/obj/machinery/light/fueled/torchholder/hotspring{
-	pixel_y = -1;
-	pixel_x = -16
+"VA" = (
+/obj/structure/flora/grass,
+/obj/structure/flora/ausbushes/ywflowers,
+/obj/machinery/light/fueled/torchholder/hotspring/standing{
+	pixel_x = -15
 	},
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
@@ -2261,11 +2237,18 @@
 /obj/effect/falling_sakura,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
-"Wd" = (
-/obj/structure/bridge_stakes{
-	dir = 1
-	},
-/turf/open/floor/cobblerock,
+"VD" = (
+/obj/structure/flora/ausbushes/ywflowers,
+/obj/structure/flora/grass,
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
+"VG" = (
+/obj/structure/flora/grass/herb/urtica,
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
+"Wa" = (
+/obj/structure/rotation_piece,
+/turf/open/floor/grass/yel,
 /area/rogue/outdoors)
 "Wg" = (
 /obj/structure/flora/ausbushes/ppflowers,
@@ -2275,40 +2258,61 @@
 "Wi" = (
 /turf/open/water/river,
 /area/rogue/outdoors/mountains/decap)
-"Wn" = (
-/obj/structure/flora/grass,
-/obj/structure/flora/ausbushes/ywflowers,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
+"Wo" = (
+/obj/structure/fluff/millstone,
+/obj/structure/table/wood/plain,
+/obj/item/storage/sack{
+	pixel_x = -10;
+	pixel_y = 19
+	},
+/turf/open/floor/blocks,
+/area/rogue/indoors)
 "Wr" = (
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors)
-"Ww" = (
-/obj/structure/gearbox,
-/turf/open/floor/blocks,
-/area/rogue/indoors)
 "WA" = (
 /turf/open/lava/flow,
 /area/rogue/outdoors/mountains/decap)
-"WM" = (
-/obj/structure/table/wood/plain,
+"WC" = (
+/obj/structure/hotspring/border/eleven,
+/obj/structure/bridge{
+	layer = 4;
+	dir = 4
+	},
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors)
+"Xa" = (
+/obj/structure/fermentation_keg/distiller,
 /turf/open/floor/carpet,
 /area/rogue/indoors)
-"WW" = (
-/obj/machinery/light/fueled/torchholder/l,
-/turf/open/floor/blocks,
-/area/rogue/indoors)
-"Xb" = (
-/obj/structure/apiary,
+"Xg" = (
+/obj/structure/flora/ausbushes/ppflowers,
+/obj/structure/minecart_rail{
+	dir = 4
+	},
+/obj/structure/closet/crate/miningcar,
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
-"XI" = (
-/obj/structure/flora/ausbushes/ywflowers,
+"XC" = (
 /obj/structure/flora/grass,
+/mob/living/simple_animal/hostile/retaliate/cow,
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
-"Yl" = (
-/obj/structure/rotation_piece/cog,
+"XL" = (
+/obj/structure/hotspring/border/twelve,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors)
+"XT" = (
+/obj/structure/bridge_stakes{
+	dir = 4
+	},
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors)
+"Yi" = (
+/obj/machinery/light/fueled/torchholder/hotspring/standing{
+	pixel_x = 15;
+	pixel_y = 32
+	},
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
 "Ys" = (
@@ -2318,8 +2322,9 @@
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
-"YA" = (
-/obj/structure/hotspring/border/three,
+"Yv" = (
+/obj/structure/flora/ausbushes/ppflowers,
+/obj/structure/flora/grass,
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
 "YR" = (
@@ -2329,17 +2334,12 @@
 "Zs" = (
 /turf/closed/wall/mineral/wood,
 /area/rogue/indoors)
-"ZD" = (
-/obj/effect/landmark/latejoin,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
-"ZW" = (
-/obj/structure/fluff/railing/wood{
-	dir = 4;
-	pixel_y = -1
+"Zx" = (
+/obj/structure/window/openclose{
+	dir = 8
 	},
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
+/turf/open/floor/carpet,
+/area/rogue/indoors)
 
 (1,1,1) = {"
 ac
@@ -9767,7 +9767,7 @@ EI
 bm
 He
 au
-Jr
+TJ
 hd
 wg
 Jj
@@ -10523,11 +10523,11 @@ WA
 WA
 WA
 WA
-xz
-TM
+Lv
+bI
 bp
 aU
-CE
+uV
 co
 cs
 cs
@@ -10541,7 +10541,7 @@ au
 cQ
 hd
 uL
-Jr
+TJ
 yP
 BE
 BE
@@ -10791,7 +10791,7 @@ cs
 cs
 co
 co
-gQ
+cK
 aL
 cV
 au
@@ -11053,7 +11053,7 @@ aL
 bv
 au
 cz
-Sw
+ef
 yP
 yP
 yP
@@ -11300,7 +11300,7 @@ at
 at
 at
 SS
-gW
+Hr
 at
 at
 at
@@ -11308,7 +11308,7 @@ yP
 yP
 yP
 aL
-iA
+lQ
 aL
 yP
 yP
@@ -11803,27 +11803,27 @@ as
 as
 as
 at
-LR
-UP
-UP
-Gg
+ew
+Pl
+Pl
+RF
 ky
 qc
-Vt
+FN
 mq
 qc
 qc
 Wr
 sd
-XI
-pM
-qo
-uT
+VD
+qi
+RC
+Tr
 qc
 jC
 QN
 QN
-QB
+oC
 QN
 QN
 QN
@@ -12060,29 +12060,29 @@ as
 as
 as
 at
-pM
-xO
-dx
-qo
-AD
+qi
+DY
+Kd
+RC
+eq
 jC
 QN
-mU
+Xg
 QN
 qc
 QN
 Wr
-TD
-zI
-fb
-wq
+fQ
+Pg
+EX
+Kr
 Wr
 QN
 Wr
 QN
-lo
+cB
 Wr
-gw
+XC
 QN
 at
 at
@@ -12317,27 +12317,27 @@ as
 as
 as
 at
-pM
-xO
-xO
-RZ
-Gg
+qi
+DY
+DY
+SZ
+RF
 Qi
 QN
-Ag
+In
 al
 Wr
 ai
 QN
 qc
-pM
-qo
-gB
+qi
+RC
+Vp
 Wr
 al
 qc
 jC
-IJ
+qw
 QN
 QN
 QN
@@ -12574,28 +12574,28 @@ as
 as
 as
 at
-pM
-Lx
+qi
+eD
+tp
+tp
 SZ
-SZ
-RZ
-Gg
-Nz
+RF
+XT
 Wr
 Qi
 QN
 QN
-Cf
-Hy
-pM
-qo
-NG
+Yv
+ek
+qi
+RC
+MV
 QN
-Nz
+XT
 QN
 QN
-QB
-ZW
+oC
+aV
 QN
 QN
 QN
@@ -12831,30 +12831,30 @@ as
 as
 as
 at
-pM
-SZ
-FA
+qi
+tp
+gp
 IW
-ES
-RZ
-vT
-UP
-UP
-UP
-UP
-UP
-UP
-xH
-KO
-UP
-UP
-vT
-Gg
-pf
+SE
+SZ
+Jc
+Pl
+Pl
+Pl
+Pl
+Pl
+Pl
+Fj
+tW
+Pl
+Pl
+Jc
+RF
+qG
 QN
-Vy
-ZW
-CF
+cR
+aV
+EH
 QN
 at
 ac
@@ -13088,30 +13088,30 @@ as
 as
 as
 at
-pM
-xO
-qy
-qq
-ed
-Kf
-SR
-Kf
-Kf
-Qe
-oj
-iP
-Kf
-Kf
-Kf
-Kf
-Kf
-zU
-RZ
-Gg
+qi
+DY
+zm
+HK
+pD
+Ty
+tN
+Ty
+Ty
+zF
+mF
+cp
+Ty
+Ty
+Ty
+Ty
+Ty
+WC
+SZ
+RF
 QN
-Sd
-GZ
-GZ
+wY
+NY
+NY
 at
 at
 ac
@@ -13345,30 +13345,30 @@ as
 as
 as
 at
-ed
-Gr
-Gr
+pD
+uf
+uf
 VB
-qW
+Di
 qc
-LT
+wD
 QN
-UJ
+Ab
 Ys
-iP
-on
+cp
+ji
 QN
 jC
 qc
 ky
 QN
-GD
-Qe
-RZ
-Gg
-GZ
-GZ
-Ni
+At
+zF
+SZ
+RF
+NY
+NY
+ln
 at
 ac
 ac
@@ -13602,30 +13602,30 @@ as
 as
 as
 at
-uf
+cq
 at
-mN
-Vt
+Pm
+FN
 ky
 Wr
 QN
-LR
-BK
-iP
-Aq
+ew
+JU
+cp
+jt
 QN
-Vt
-UT
+FN
+fs
 QN
 QN
 qc
-iH
-ed
-Qe
-RZ
-Gg
-sQ
-JT
+pY
+pD
+zF
+SZ
+RF
+cP
+cI
 at
 ac
 ac
@@ -13861,28 +13861,28 @@ as
 as
 ac
 at
-Mi
+Ln
 jC
-GA
-Vt
-LR
-Tv
-iP
-on
-zW
+dw
+FN
+ew
+XL
+cp
+ji
+VG
 jC
-zW
+VG
 QN
-xU
-ZD
+LA
+bs
 jC
 al
 QN
-ed
-Qe
-El
-wK
-wK
+pD
+zF
+DJ
+Fc
+Fc
 at
 ac
 ac
@@ -14119,27 +14119,27 @@ as
 ac
 at
 at
-LR
-UP
-UP
-xH
-iP
-on
+ew
+Pl
+Pl
+Fj
+cp
+ji
 ky
 QN
-Xb
+ae
 QN
 QN
 QN
 QN
 Wr
-iq
+CO
 qc
-Em
-pM
-iP
-Kf
-Kf
+VA
+qi
+cp
+Ty
+Ty
 at
 at
 ac
@@ -14375,27 +14375,27 @@ as
 as
 ac
 at
-LR
-Tv
-iP
-Kf
-Qe
-qq
+ew
+XL
+cp
+Ty
+zF
+HK
 QN
 QN
 QN
 qc
 QN
-ZD
+bs
 QN
 al
 al
 QN
 QN
 qc
-pM
-qo
-No
+qi
+RC
+cU
 QN
 QN
 at
@@ -14632,29 +14632,29 @@ as
 as
 ac
 at
-xH
-iP
-on
+Fj
+cp
+ji
 cT
-pM
-qo
+qi
+RC
 QN
 Wg
 QN
 qc
 jC
-Fm
-ZD
-kN
+fS
+bs
+aq
 jC
-ZD
+bs
 qc
 qc
-pM
-qo
+qi
+RC
 QN
-Eh
-Sp
+NF
+oH
 at
 at
 ac
@@ -14889,30 +14889,30 @@ ac
 ac
 ac
 at
-iP
-on
+cp
+ji
 Wr
-ee
-zI
-fb
-Wd
+xM
+Pg
+EX
+Gi
 ky
 QN
-kN
+aq
 QN
 Wr
 QN
-kN
+aq
 QN
 QN
 ky
-LR
-Tv
-qo
+ew
+XL
+RC
 QN
-Eh
-Sp
-Sp
+NF
+oH
+oH
 at
 at
 ac
@@ -15146,30 +15146,30 @@ ac
 ac
 ac
 at
-YA
-Wn
+yW
+Nb
 jC
 ai
-pM
-RZ
-Gg
+qi
+SZ
+RF
 QN
 Wr
-JO
+ct
 Wr
 qc
 qc
 QN
-Xb
+ae
 QN
-LR
-OW
-yJ
-qo
+ew
+Ko
+vB
+RC
 QN
-Eh
-Eh
-Sp
+NF
+NF
+oH
 QN
 at
 ac
@@ -15403,14 +15403,14 @@ ac
 ac
 ac
 at
-Fl
-hQ
-zl
+ui
+Sx
+ak
 Wr
-ed
-Qe
+pD
+zF
+cn
 RF
-Gg
 QN
 QN
 QN
@@ -15418,15 +15418,15 @@ jC
 QN
 jC
 QN
-LR
-xH
-iP
-Qe
-qo
+ew
+Fj
+cp
+zF
+RC
 QN
-Sp
-Eh
-Eh
+oH
+NF
+NF
 QN
 at
 ac
@@ -15661,30 +15661,30 @@ ac
 ac
 ax
 ax
-sS
+rf
 ax
 QN
-NV
-ed
-Qe
-RZ
-Gg
-kN
-kN
-SY
+aF
+pD
+zF
+SZ
+RF
+aq
+aq
+cv
 QN
-Hy
-LR
-Tv
-iP
-on
-pM
-qo
+ek
+ew
+XL
+cp
+ji
+qi
+RC
 QN
-Eh
-Eh
-Sp
-Sp
+NF
+NF
+oH
+oH
 at
 ac
 ac
@@ -15916,32 +15916,32 @@ ac
 ac
 ac
 ax
-rd
-WW
-gM
-qH
+rB
+zM
+vW
+Vz
 ax
 ai
 Wr
-ed
-MW
-RZ
-UP
-UP
-vT
-UP
-UP
-Tv
-iP
-on
+pD
+GU
+SZ
+Pl
+Pl
+Jc
+Pl
+Pl
+XL
+cp
+ji
 QN
-pM
-qo
-rV
-Sp
-Eh
-Sp
-Sp
+qi
+RC
+Yi
+oH
+NF
+oH
+oH
 at
 ac
 ac
@@ -16174,30 +16174,30 @@ ac
 ac
 ax
 yB
-kW
-ID
-kW
+bq
+ad
+bq
 cm
 Wr
 Wr
-No
-ed
-Kf
-Kf
-Kf
-SR
-Kf
-Kf
-Kf
-Aq
+cU
+pD
+Ty
+Ty
+Ty
+tN
+Ty
+Ty
+Ty
+jt
 QN
 jC
-pM
-qo
+qi
+RC
 QN
-Sp
-Uw
-Eh
+oH
+sK
+NF
 QN
 at
 ac
@@ -16430,32 +16430,32 @@ ac
 ac
 ac
 ax
-Ww
-kO
-Ww
-kO
-Vw
-ut
+ro
+mi
+ro
+mi
+FU
+hO
 QN
 Wr
 qc
 QN
 jC
 QN
-LT
+wD
 ai
 QN
 QN
 QN
 Wr
 QN
-pM
-qo
+qi
+RC
 QN
-Sp
-Eh
-Sp
-Sp
+oH
+NF
+oH
+oH
 at
 ac
 ac
@@ -16687,12 +16687,12 @@ ac
 ac
 ac
 ax
-Ww
-If
-yO
-rq
+ro
+Wo
+mD
+OI
 ax
-oG
+cJ
 jC
 ky
 ai
@@ -16705,14 +16705,14 @@ Wr
 jC
 ai
 ai
-uF
-zI
-fb
-Wd
-Eh
-Eh
-Sp
-Sp
+af
+Pg
+EX
+Gi
+NF
+NF
+oH
+oH
 at
 ac
 ac
@@ -16949,9 +16949,9 @@ ax
 ax
 ax
 QN
-ut
-nx
-ut
+hO
+Wa
+hO
 QN
 QN
 QN
@@ -16963,11 +16963,11 @@ Zs
 Zs
 Zs
 QN
-pM
-qo
+qi
+RC
 QN
-Eh
-Sp
+NF
+oH
 QN
 at
 at
@@ -17205,26 +17205,26 @@ ac
 ac
 ac
 at
-SI
-HB
+bH
+xp
 QN
-oG
+cJ
 QN
 jC
 QN
 QN
 QN
 QN
-eX
+CZ
 mY
-Dq
+OZ
 Zs
 QN
-pM
-qo
-rV
-Eh
-Sp
+qi
+RC
+Yi
+NF
+oH
 at
 at
 ac
@@ -17463,22 +17463,22 @@ ac
 ac
 at
 QN
-Fk
-Fk
-oG
+Ua
+Ua
+cJ
 QN
 QN
 QN
 Zs
-yN
-yN
+Zx
+Zx
 Zs
 mY
 mY
 Zs
 QN
-pM
-qo
+qi
+RC
 at
 at
 at
@@ -17721,15 +17721,15 @@ ac
 at
 qc
 QN
-To
-ut
-Yl
+xh
+hO
+ez
 ky
-tZ
-On
-LE
+mo
+hN
+Xa
 aI
-WM
+cX
 mY
 mY
 Zs
@@ -17978,13 +17978,13 @@ ac
 at
 at
 QN
-Fk
-Fk
-My
-mn
-mn
-Jw
-DH
+Ua
+Ua
+zA
+aQ
+aQ
+AQ
+zp
 aI
 aI
 mY
@@ -18236,7 +18236,7 @@ ac
 at
 at
 at
-Fk
+Ua
 QN
 QN
 jC
@@ -82236,12 +82236,12 @@ ss
 ss
 ss
 ss
-ss
-ss
-ss
-ss
-Sz
-ss
+Tz
+DW
+DW
+DW
+Mr
+DW
 ss
 ss
 ss
@@ -82493,12 +82493,12 @@ ss
 ss
 ss
 ss
-ss
-Tz
+ck
 DW
 DW
-Mr
-ss
+DW
+DW
+DW
 ss
 ss
 ss
@@ -82747,15 +82747,15 @@ ss
 ss
 ss
 ss
-ss
-ss
-ss
-ss
-ck
+Az
 DW
 DW
 DW
-ss
+DW
+DW
+DW
+DW
+DW
 ss
 ss
 ss
@@ -83004,15 +83004,15 @@ ss
 ss
 ss
 ss
-ss
-Az
 DW
 DW
 DW
 DW
 DW
 DW
-ss
+DW
+DW
+DW
 ss
 ss
 at
@@ -83261,7 +83261,6 @@ ss
 ss
 ss
 ss
-ss
 DW
 DW
 DW
@@ -83269,7 +83268,8 @@ DW
 DW
 DW
 DW
-ss
+DW
+DW
 at
 at
 at
@@ -83518,7 +83518,7 @@ ss
 ss
 ss
 ss
-ss
+DW
 DW
 DW
 DW
@@ -83775,7 +83775,7 @@ at
 ss
 ss
 ss
-ss
+DW
 DW
 DW
 DW

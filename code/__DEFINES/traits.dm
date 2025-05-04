@@ -51,6 +51,8 @@
 #define TRAIT_FORAGER					"Foraging Knowledge" //Can tell which berries are good to eat when examining
 #define TRAIT_TINY 						"Tiny"
 #define TRAIT_DREAM_WATCHER				"Noc Blessed" //Unique Trait of the Dream Watcher Town Elder Class, they have a chance to know about antags or gods influences.
+#define TRAIT_HOLLOWBONES				"Hollow Bones"
+#define TRAIT_AMAZING_BACK				"Light Load"
 
 // Divine patron trait bonuses:
 #define TRAIT_SOUL_EXAMINE				"Blessing of Necra"  //can check bodies to see if they have departed
@@ -186,6 +188,8 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_BURDEN = "I carry the Burden of HEAD EATER's hunger...",
 	TRAIT_OLDPARTY = "In years long passed, me and a group of fellow adventurers saved this city!",
 	TRAIT_DREAM_WATCHER = span_notice("I'm blessed by Noc, my dreams tell more than the average person.."),
+	TRAIT_AMAZING_BACK = span_notice("I'm able to carry far more on my back!"),
+	TRAIT_HOLLOWBONES = span_danger("My bones are light as air, Its hard to wear armor."),
 	))
 
 #define SIGNAL_ADDTRAIT(trait_ref) ("addtrait " + trait_ref)

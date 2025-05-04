@@ -3261,7 +3261,7 @@
 "WK" = (
 /obj/structure/table/stone_small,
 /obj/item/pestle,
-/obj/item/mortar,
+/obj/item/reagent_containers/glass/mortar,
 /turf/open/floor/hexstone,
 /area/rogue/indoors)
 "WO" = (

@@ -172,6 +172,15 @@
 // BREATHING //
 ///////////////
 
+/mob/living/carbon/handle_temperature()
+	var/turf/open/turf = get_turf(src)
+	if(!istype(turf))
+		return
+	var/temp = turf.return_temperature()
+
+	if(temp < 0 )
+		snow_shiver = world.time + 3 SECONDS + abs(temp)
+
 //Start of a breath chain, calls breathe()
 /mob/living/carbon/handle_breathing(times_fired)
 	var/breath_effect_prob = 0

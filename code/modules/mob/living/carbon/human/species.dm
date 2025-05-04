@@ -403,10 +403,11 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			var/datum/organ_dna/organ_dna = C.dna.organ_dna[slot]
 			if(organ_dna.can_create_organ())
 				neworgan = organ_dna.create_organ()
-				if(!istype(neworgan, slot_mutantorgans[slot]))
-					var/new_type = slot_mutantorgans[slot]
-					neworgan = new new_type()
-					organ_dna.imprint_organ(neworgan)
+				if(slot_mutantorgans[slot])
+					if(!istype(neworgan, slot_mutantorgans[slot]))
+						var/new_type = slot_mutantorgans[slot]
+						neworgan = new new_type()
+						organ_dna.imprint_organ(neworgan)
 				if(pref_load)
 					pref_load.customize_organ(neworgan)
 		else
@@ -2060,14 +2061,40 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 ////////////////
 
 /datum/species/proc/can_wag_tail(mob/living/carbon/human/H)
+	if(!H) //Somewhere in the core code we're getting those procs with H being null
+		return FALSE
+	var/obj/item/organ/tail/T = H.getorganslot(ORGAN_SLOT_TAIL)
+	if(!T)
+		return FALSE
+	if(T.can_wag)
+		return TRUE
 	return FALSE
 
 /datum/species/proc/is_wagging_tail(mob/living/carbon/human/H)
-	return FALSE
+	if(!H) //Somewhere in the core code we're getting those procs with H being null
+		return FALSE
+	var/obj/item/organ/tail/T = H.getorganslot(ORGAN_SLOT_TAIL)
+	if(!T)
+		return FALSE
+	return T.wagging
 
 /datum/species/proc/start_wagging_tail(mob/living/carbon/human/H)
+	if(!H) //Somewhere in the core code we're getting those procs with H being null
+		return
+	var/obj/item/organ/tail/T = H.getorganslot(ORGAN_SLOT_TAIL)
+	if(!T)
+		return FALSE
+	T.wagging = TRUE
+	H.update_body_parts(TRUE)
 
 /datum/species/proc/stop_wagging_tail(mob/living/carbon/human/H)
+	if(!H) //Somewhere in the core code we're getting those procs with H being null
+		return
+	var/obj/item/organ/tail/T = H.getorganslot(ORGAN_SLOT_TAIL)
+	if(!T)
+		return
+	T.wagging = FALSE
+	H.update_body_parts(TRUE)
 
 /datum/species/proc/knockback(obj/item/I, mob/living/target, mob/living/user, nodmg, actual_damage)
 	if(!istype(I))
