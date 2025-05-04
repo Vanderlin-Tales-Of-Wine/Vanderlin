@@ -1,3 +1,18 @@
+/datum/storyteller/astrata
+	name = "Astrata"
+	desc = "Astrata will provide a balanced and varied experience. Consider this the default experience."
+	weight = 6
+	always_votable = TRUE
+	color_theme = "#FFD700"
+
+	influence_factors = list(
+		STATS_LAWS_AND_DECREES_MADE = list("points" = 3,"capacity" = 40),
+		STATS_ALIVE_NOBLES = list("points" = 4,"capacity" = 90),
+		STATS_NOBLE_DEATHS = list("points" = -6.25,"capacity" = -90),
+		STATS_ASTRATA_REVIVALS = list("points" = 5, "capacity" = 70),
+		STATS_TAXES_COLLECTED = list("points" = 0.175,"capacity" = 90),
+	)
+
 /datum/storyteller/noc
 	name = "Noc"
 	desc = "Noc will try to send more magical events."
@@ -90,10 +105,10 @@
 	)
 
 	influence_factors = list(
-		STATS_LAUGHS_MADE = list("points" = 0.265, "capacity" = 90),
+		STATS_LAUGHS_MADE = list("points" = 0.26, "capacity" = 85),
 		STATS_GAMES_RIGGED = list("points" = 3.5, "capacity" = 35),
 		STATS_PEOPLE_MOCKED = list("points" = 5, "capacity" = 60),
-		STATS_CRITS_MADE = list("points" = 0.29, "capacity" = 90),
+		STATS_CRITS_MADE = list("points" = 0.285, "capacity" = 90),
 		STATS_SONGS_PLAYED = list("points" = 0.7, "capacity" = 70),
 	)
 
@@ -141,9 +156,9 @@
 	influence_factors = list(
 		STATS_POTIONS_BREWED = list("points" = 4.25, "capacity" = 75),
 		STATS_WOUNDS_SEWED = list("points" = 0.5, "capacity" = 100),
-		STATS_SOULS_REINCARNATED = list("points" = 2.5, "capacity" = 65),
+		STATS_SOULS_REINCARNATED = list("points" = 2.3, "capacity" = 65),
 		STATS_ANIMALS_BRED = list("points" = 6, "capacity" = 65),
-		STATS_FOOD_ROTTED = list("points" = 0.275, "capacity" = 80),
+		STATS_FOOD_ROTTED = list("points" = 0.265, "capacity" = 80),
 	)
 
 /datum/storyteller/malum
@@ -223,7 +238,7 @@
 	)
 
 	influence_factors = list(
-		STATS_TREES_CUT = list("points" = -0.165, "capacity" = -60),
+		STATS_TREES_CUT = list("points" = -0.25, "capacity" = -60),
 		STATS_PLANTS_HARVESTED = list("points" = 0.75, "capacity" = 140),
 		STATS_WEREVOLVES = list("points" = 15, "capacity" = 90),
 		STATS_DENDOR_SACRIFICES = list("points" = 15, "capacity" = 90),
@@ -258,9 +273,9 @@
 
 	influence_factors = list(
 		STATS_ZIZO_PRAISED = list("points" = 1.5, "capacity" = 40),
-		STATS_NOBLE_DEATHS = list("points" = 6, "capacity" = 85),
+		STATS_NOBLE_DEATHS = list("points" = 6.25, "capacity" = 85),
 		STATS_DEADITES_WOKEN_UP = list("points" = 3, "capacity" = 85),
-		STATS_CLERGY_DEATHS = list("points" = 10, "capacity" = 85),
+		STATS_CLERGY_DEATHS = list("points" = 10.5, "capacity" = 85),
 		STATS_TORTURES = list("points" = 4, "capacity" = 70),
 	)
 
@@ -325,7 +340,7 @@
 	influence_factors = list(
 		STATS_BLOOD_SPILT = list("points" = 0.000275, "capacity" = 90),
 		STATS_ORGANS_EATEN = list("points" = 3.25, "capacity" = 75),
-		STATS_LIMBS_BITTEN = list("points" = 0.575, "capacity" = 75),
+		STATS_LIMBS_BITTEN = list("points" = 0.6, "capacity" = 75),
 		STATS_PEOPLE_GIBBED = list("points" = 3, "capacity" = 50),
 		STATS_ASSASSINATIONS = list("points" = 15, "capacity" = 80),
 	)
