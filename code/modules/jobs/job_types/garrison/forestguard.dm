@@ -21,7 +21,7 @@
 
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD)
-	allowed_races = RACES_PLAYER_NONDISCRIMINATED
+	allowed_races = RACES_PLAYER_GUARD
 	give_bank_account = 30
 	cmode_music = 'sound/music/cmode/garrison/CombatForestGarrison.ogg'
 
