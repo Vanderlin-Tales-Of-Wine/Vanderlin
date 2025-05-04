@@ -35,31 +35,31 @@
 	armor = /obj/item/clothing/armor/chainmail
 	gloves = /obj/item/clothing/gloves/leather
 	wrists = /obj/item/clothing/wrists/bracers/leather
-	
 	backpack_contents = list(/obj/item/storage/keyring/manorguard = 1, /obj/item/clothing/neck/chaincoif = 1, /obj/item/weapon/hammer/iron = 1, /obj/item/clothing/head/helmet/nasal = 1, /obj/item/storage/belt/pouch/coins/poor = 1)
 	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/combat/bows, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/craft/weaponsmithing, 1, TRUE)  // for repairs
-		H.mind.adjust_skillrank(/datum/skill/craft/armorsmithing, 1, TRUE)
-		H.change_stat(STATKEY_STR, 1)
-		H.change_stat(STATKEY_PER, 1)
-		H.change_stat(STATKEY_END, 1)
-		H.change_stat(STATKEY_CON, 1)
-		H.verbs |= /mob/proc/haltyell
+
+	H.mind?.adjust_skillrank(/datum/skill/combat/bows, 2, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 1, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/craft/weaponsmithing, 1, TRUE)  // for repairs
+	H.mind.adjust_skillrank(/datum/skill/craft/armorsmithing, 1, TRUE)
+	H.change_stat(STATKEY_STR, 1)
+	H.change_stat(STATKEY_PER, 1)
+	H.change_stat(STATKEY_END, 1)
+	H.change_stat(STATKEY_CON, 1)
+	H.verbs |= /mob/proc/haltyell
 
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
