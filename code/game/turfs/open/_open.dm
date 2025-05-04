@@ -1,7 +1,6 @@
 /turf/open
 	plane = FLOOR_PLANE
 	var/slowdown = 0 //negative for faster, positive for slower
-
 	var/postdig_icon_change = FALSE
 	var/postdig_icon
 	var/wet
@@ -143,3 +142,40 @@
 /turf/open/OnCrafted(dirin, mob/user)
 	. = ..()
 	flags_1 |= CAN_BE_ATTACKED_1
+
+///this will always use the highest value given depending on if set for negative
+/turf/proc/add_turf_temperature(key, value, weight = 1)
+	if(!temperature_sources)
+		temperature_sources = list()
+
+	temperature_sources[key] = list(value, weight)
+	rebuild_turf_temperature()
+
+
+/turf/proc/remove_turf_temperature(key)
+	if(temperature_sources && (key in temperature_sources))
+		temperature_sources -= key
+	rebuild_turf_temperature()
+
+/turf/proc/rebuild_turf_temperature()
+	var/total = 0
+	var/total_weight = 0
+
+	for(var/source in temperature_sources)
+		var/data = temperature_sources[source]
+		var/value = data[1]
+		var/weight = data[2]
+
+		total += value * weight
+		total_weight += weight
+
+	var/delta = total_weight ? (total / total_weight) : 0
+	temperature_modification = delta
+
+/turf/proc/return_temperature()
+	var/ambient_temperature = SSParticleWeather.selected_forecast.current_ambient_temperature
+	if(ambient_temperature < 15 && (outdoor_effect?.weatherproof || !outdoor_effect))
+		ambient_temperature += 5
+	if(SSmapping.level_has_any_trait(z, list(ZTRAIT_CELLAR_LIKE)))
+		ambient_temperature = 11 + CEILING(ambient_temperature * 0.2, 1)
+	return temperature_modification + ambient_temperature

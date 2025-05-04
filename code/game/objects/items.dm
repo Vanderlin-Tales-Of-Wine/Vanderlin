@@ -1295,6 +1295,22 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	user.update_a_intents()
 	user.update_inv_hands()
 
+
+/obj/item/on_fall_impact(mob/living/impactee, fall_speed)
+	. = ..()
+	if(!item_weight)
+		return
+
+	var/target_zone = BODY_ZONE_HEAD
+	/*
+	if(impactee.lying)
+		target_zone = BODY_ZONE_CHEST
+	*/
+	playsound(impactee.loc, pick('sound/combat/gib (1).ogg','sound/combat/gib (2).ogg'), 200, FALSE, 3)
+	add_blood_DNA(impactee.return_blood_DNA())
+	impactee.visible_message(span_danger("[src] crashes into [impactee]'s [target_zone]!"), span_danger("A [src] hits you in your [target_zone]!"))
+	impactee.apply_damage(item_weight * fall_speed, BRUTE, target_zone, impactee.run_armor_check(target_zone, "blunt", damage = item_weight * fall_speed))
+
 /obj/item/attack_self(mob/user)
 	. = ..()
 	if(twohands_required)
@@ -1320,9 +1336,9 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		return span_info("Value: [get_real_price()] mammon")
 	return FALSE
 
-/obj/item/proc/get_stored_weight()
+/obj/item/proc/get_stored_weight(has_trait)
 	var/held_weight = 0
 	for(var/obj/item/stored_item in contents)
 		held_weight += stored_item.item_weight * carry_multiplier
 
-	return held_weight
+	return has_trait ? held_weight * 0.5 : held_weight

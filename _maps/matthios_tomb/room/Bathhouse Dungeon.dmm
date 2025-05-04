@@ -16,10 +16,6 @@
 /obj/effect/decal/cleanable/blood/footprints,
 /turf/open/floor/churchmarble,
 /area/rogue/indoors)
-"ay" = (
-/obj/structure/door/stone,
-/turf/open/floor/blocks,
-/area/rogue/indoors)
 "aA" = (
 /obj/structure/flora/ausbushes/sunnybush,
 /turf/open/floor/grass,
@@ -107,11 +103,6 @@
 /obj/effect/waterfall,
 /turf/closed/wall/mineral/decostone,
 /area/rogue/indoors)
-"cx" = (
-/obj/structure/rack/shelf/biggest,
-/obj/item/reagent_containers/glass/bucket/wooden,
-/turf/open/floor/herringbone,
-/area/rogue/indoors)
 "cB" = (
 /obj/structure/mirror,
 /obj/item/statue/silver,
@@ -142,13 +133,6 @@
 /obj/structure/chair/bench/coucha,
 /obj/item/reagent_containers/glass/cup/silver,
 /turf/open/floor/carpet,
-/area/rogue/indoors)
-"cT" = (
-/obj/structure/rack/shelf/biggest,
-/obj/item/soap/bath,
-/obj/item/soap/bath,
-/obj/effect/spawner/map_spawner/loot/potion_ingredient/herb,
-/turf/open/floor/metal/barograte,
 /area/rogue/indoors)
 "cU" = (
 /obj/effect/spawner/map_spawner/loot,
@@ -281,11 +265,6 @@
 /obj/item/restraints/legcuffs/beartrap/armed/camouflage,
 /turf/open/floor/grass,
 /area/rogue/indoors)
-"fJ" = (
-/obj/structure/door/stone,
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor/blocks,
-/area/rogue/indoors)
 "fN" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/lavendergrass,
@@ -293,18 +272,16 @@
 /obj/effect/spawner/map_spawner/loot,
 /turf/open/floor/grass,
 /area/rogue/indoors)
-"fV" = (
-/obj/structure/rack/shelf/biggest,
-/obj/item/soap/bath,
-/obj/item/soap,
-/turf/open/floor/metal/barograte,
-/area/rogue/indoors)
 "fW" = (
 /obj/item/chair/fancy{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/tile/masonic/inverted,
+/area/rogue/indoors)
+"gf" = (
+/obj/structure/door/stone,
+/turf/open/floor/churchmarble,
 /area/rogue/indoors)
 "gj" = (
 /obj/effect/decal/cleanable/blood/splatter,
@@ -359,6 +336,10 @@
 /obj/structure/fluff/clock/dense,
 /turf/open/floor/carpet,
 /area/rogue/indoors)
+"hj" = (
+/obj/structure/door/swing,
+/turf/open/floor/herringbone,
+/area/rogue/indoors)
 "hA" = (
 /obj/structure/table/wood/fancy/black,
 /obj/effect/spawner/map_spawner/loot,
@@ -388,11 +369,6 @@
 /obj/effect/decal/cleanable/food/flour,
 /turf/open/floor/tile/kitchen,
 /area/rogue/indoors)
-"ip" = (
-/obj/structure/door/stone,
-/obj/effect/decal/cleanable/blood/splatter,
-/turf/open/floor/blocks,
-/area/rogue/indoors)
 "iy" = (
 /obj/structure/fluff/railing/border{
 	dir = 6
@@ -406,6 +382,11 @@
 "iU" = (
 /obj/item/statue/silver,
 /turf/open/floor/carpet,
+/area/rogue/indoors)
+"jb" = (
+/obj/structure/door/stone,
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/open/floor/blocks,
 /area/rogue/indoors)
 "jg" = (
 /obj/effect/decal/cleanable/food/tomato_smudge,
@@ -448,11 +429,6 @@
 "jN" = (
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors)
-"jU" = (
-/obj/structure/door/stone,
-/obj/effect/decal/cleanable/blood/footprints,
-/turf/open/floor/churchmarble,
-/area/rogue/indoors)
 "jV" = (
 /obj/structure/closet/crate/chest/lootbox,
 /obj/effect/spawner/map_spawner/loot/rare,
@@ -480,13 +456,6 @@
 "kM" = (
 /obj/machinery/light/fueled/hearth/big_fireplace,
 /turf/closed/wall/mineral/decostone,
-/area/rogue/indoors)
-"kP" = (
-/obj/structure/rack/shelf/biggest,
-/obj/item/soap,
-/obj/item/soap/bath,
-/obj/effect/spawner/map_spawner/loot/potion_ingredient/herb,
-/turf/open/floor/metal/barograte,
 /area/rogue/indoors)
 "kR" = (
 /obj/structure/fluff/railing/border{
@@ -527,12 +496,6 @@
 /obj/structure/trap/fire,
 /obj/effect/waterfall,
 /turf/open/floor/tile/masonic/single,
-/area/rogue/indoors)
-"lm" = (
-/obj/structure/rack/shelf/biggest,
-/obj/item/soap,
-/obj/item/soap,
-/turf/open/floor/metal/barograte,
 /area/rogue/indoors)
 "lu" = (
 /obj/structure/fluff/walldeco/vinez,
@@ -595,10 +558,6 @@
 /obj/structure/flora/grass/herb/artemisia,
 /turf/open/floor/grass,
 /area/rogue/indoors)
-"mT" = (
-/obj/structure/door/stone,
-/turf/open/floor/hexstone,
-/area/rogue/indoors)
 "mV" = (
 /obj/effect/decal/cleanable/blood/gibs/up,
 /turf/open/floor/metal/barograte,
@@ -628,6 +587,10 @@
 /obj/effect/spawner/map_spawner/loot,
 /turf/open/floor/carpet,
 /area/rogue/indoors)
+"nR" = (
+/obj/item/reagent_containers/glass/mortar,
+/turf/open/floor/metal/barograte,
+/area/rogue/indoors)
 "nS" = (
 /obj/structure/closet/crate/chest/lootbox,
 /obj/item/statue/gold/loot,
@@ -648,6 +611,11 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/open/floor/grass,
+/area/rogue/indoors)
+"oj" = (
+/obj/structure/rack/shelf/biggest,
+/obj/item/reagent_containers/glass/bucket/wooden,
+/turf/open/floor/herringbone,
 /area/rogue/indoors)
 "oz" = (
 /obj/effect/decal/cleanable/blood/gibs/old,
@@ -716,10 +684,6 @@
 /obj/effect/decal/cleanable/blood/gibs/up,
 /turf/open/floor/tile/masonic/inverted,
 /area/rogue/indoors)
-"qa" = (
-/obj/structure/door/stone,
-/turf/open/floor/churchmarble,
-/area/rogue/indoors)
 "qb" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/tile/masonic/inverted,
@@ -783,18 +747,13 @@
 	dir = 4
 	},
 /area/rogue/indoors)
-"qO" = (
-/obj/structure/rack/shelf/biggest,
-/obj/item/soap,
-/turf/open/floor/herringbone,
-/area/rogue/indoors)
 "qZ" = (
 /obj/effect/decal/cleanable/blood/gibs/down,
 /turf/open/floor/blocks,
 /area/rogue/indoors)
-"rb" = (
-/obj/structure/door/swing,
-/turf/open/floor/herringbone,
+"ri" = (
+/obj/structure/door/stone,
+/turf/open/floor/blocks/green,
 /area/rogue/indoors)
 "rp" = (
 /obj/structure/fermentation_keg/water,
@@ -810,9 +769,17 @@
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors)
-"rU" = (
-/obj/item/mortar,
+"rz" = (
+/obj/structure/rack/shelf/biggest,
+/obj/item/soap,
+/obj/item/soap,
 /turf/open/floor/metal/barograte,
+/area/rogue/indoors)
+"rH" = (
+/obj/structure/door/stone,
+/obj/machinery/light/fueled/wallfire/candle/weak,
+/obj/structure/trap/saw_blades,
+/turf/open/floor/hexstone,
 /area/rogue/indoors)
 "rW" = (
 /turf/open/floor/tile/bath,
@@ -848,11 +815,6 @@
 /obj/structure/flora/grass/water/reeds,
 /obj/structure/trap/shock,
 /turf/open/water/bath,
-/area/rogue/indoors)
-"sr" = (
-/obj/item/reagent_containers/glass/bucket/wooden,
-/mob/living/carbon/human/species/rousman/ambush,
-/turf/open/floor/hexstone,
 /area/rogue/indoors)
 "sw" = (
 /obj/effect/spawner/map_spawner/loot/weapon,
@@ -957,6 +919,16 @@
 "uy" = (
 /turf/open/floor/tile/masonic/single,
 /area/rogue/indoors)
+"uz" = (
+/obj/structure/rack/shelf/biggest,
+/obj/item/soap/bath,
+/obj/item/soap,
+/turf/open/floor/metal/barograte,
+/area/rogue/indoors)
+"uH" = (
+/obj/structure/door/stone,
+/turf/open/floor/hexstone,
+/area/rogue/indoors)
 "uK" = (
 /mob/living/simple_animal/hostile/retaliate/bigrat,
 /turf/open/floor/metal,
@@ -996,6 +968,11 @@
 "vV" = (
 /obj/effect/decal/cleanable/blood/gibs/body,
 /turf/open/floor/carpet/royalblack,
+/area/rogue/indoors)
+"wc" = (
+/obj/structure/rack/shelf/biggest,
+/obj/item/soap,
+/turf/open/floor/herringbone,
 /area/rogue/indoors)
 "wy" = (
 /turf/open/transparent/openspace,
@@ -1099,6 +1076,10 @@
 	dir = 4
 	},
 /turf/open/floor/hexstone,
+/area/rogue/indoors)
+"yA" = (
+/obj/structure/door/stone,
+/turf/open/floor/blocks,
 /area/rogue/indoors)
 "yE" = (
 /obj/structure/flora/ausbushes/grassybush,
@@ -1212,10 +1193,6 @@
 /obj/effect/spawner/map_spawner/loot/medium,
 /turf/open/floor/blocks,
 /area/rogue/indoors)
-"Bh" = (
-/obj/structure/door,
-/turf/open/floor/herringbone,
-/area/rogue/indoors)
 "Bw" = (
 /obj/structure/fluff/walldeco/vinez,
 /obj/structure/fluff/walldeco/vinez,
@@ -1271,6 +1248,11 @@
 "CP" = (
 /obj/structure/chair/wood/alt/fancy,
 /turf/open/floor/carpet,
+/area/rogue/indoors)
+"CT" = (
+/obj/structure/door/stone,
+/obj/effect/decal/cleanable/blood/footprints,
+/turf/open/floor/churchmarble,
 /area/rogue/indoors)
 "Dl" = (
 /obj/structure/flora/grass/water,
@@ -1579,6 +1561,13 @@
 /obj/structure/flora/grass,
 /turf/open/floor/grass,
 /area/rogue/indoors)
+"Ki" = (
+/obj/structure/rack/shelf/biggest,
+/obj/item/soap/bath,
+/obj/item/soap/bath,
+/obj/effect/spawner/map_spawner/loot/potion_ingredient/herb,
+/turf/open/floor/metal/barograte,
+/area/rogue/indoors)
 "KA" = (
 /obj/structure/rack/shelf/biggest,
 /obj/effect/spawner/map_spawner/loot/potion_ingredient/herb,
@@ -1790,6 +1779,11 @@
 /obj/structure/trap/spike,
 /turf/open/floor/blocks,
 /area/rogue/indoors)
+"PM" = (
+/obj/structure/door/stone,
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/blocks,
+/area/rogue/indoors)
 "PO" = (
 /obj/structure/flora/grass/water/reeds,
 /obj/structure/trap/shock,
@@ -1830,12 +1824,6 @@
 /obj/effect/decal/cleanable/blood/gibs/limb,
 /turf/open/floor/hexstone,
 /area/rogue/indoors)
-"QH" = (
-/obj/structure/door/stone,
-/obj/machinery/light/fueled/wallfire/candle/weak,
-/obj/structure/trap/saw_blades,
-/turf/open/floor/hexstone,
-/area/rogue/indoors)
 "QK" = (
 /mob/living/carbon/human/species/rousman/ambush,
 /turf/open/floor/church,
@@ -1847,6 +1835,13 @@
 "Ra" = (
 /obj/structure/flora/ausbushes/brflowers,
 /turf/open/floor/grass,
+/area/rogue/indoors)
+"Rp" = (
+/obj/structure/rack/shelf/biggest,
+/obj/item/soap,
+/obj/item/soap/bath,
+/obj/effect/spawner/map_spawner/loot/potion_ingredient/herb,
+/turf/open/floor/metal/barograte,
 /area/rogue/indoors)
 "Rs" = (
 /obj/effect/dungeon_directional_helper/west,
@@ -1922,6 +1917,10 @@
 	dir = 10
 	},
 /turf/open/floor/blocks,
+/area/rogue/indoors)
+"Ta" = (
+/obj/structure/door,
+/turf/open/floor/herringbone,
 /area/rogue/indoors)
 "Tg" = (
 /obj/structure/flora/ausbushes/fullgrass,
@@ -2050,10 +2049,6 @@
 /obj/machinery/light/fueled/wallfire/candle/weak,
 /turf/open/floor/metal/barograte,
 /area/rogue/indoors)
-"Wt" = (
-/obj/structure/door/stone,
-/turf/open/floor/blocks/green,
-/area/rogue/indoors)
 "Ww" = (
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/blocks/green,
@@ -2165,6 +2160,11 @@
 /obj/item/restraints/legcuffs/beartrap/armed/camouflage,
 /turf/open/floor/grass,
 /area/rogue/indoors)
+"ZB" = (
+/obj/item/reagent_containers/glass/bucket/wooden,
+/mob/living/carbon/human/species/rousman/ambush,
+/turf/open/floor/hexstone,
+/area/rogue/indoors)
 "ZC" = (
 /obj/structure/fluff/statue/knight/interior/r,
 /turf/open/water/bath,
@@ -2270,7 +2270,7 @@ YK
 Nh
 tH
 qo
-cx
+oj
 Ap
 SR
 rW
@@ -2398,7 +2398,7 @@ Xj
 Ap
 RO
 tH
-qO
+wc
 lu
 Av
 rW
@@ -2415,7 +2415,7 @@ ni
 XZ
 zd
 Fn
-rb
+hj
 Hc
 bu
 "}
@@ -2429,15 +2429,15 @@ gw
 ZL
 Ap
 Ap
-Bh
+Ta
 ni
 ni
 Ap
-Wt
+ri
 Ap
 Ap
 es
-Wt
+ri
 ni
 Kb
 xG
@@ -2463,7 +2463,7 @@ ni
 wJ
 wJ
 wJ
-Wt
+ri
 wJ
 wJ
 wJ
@@ -2471,7 +2471,7 @@ wJ
 wJ
 wJ
 wJ
-Wt
+ri
 wJ
 wJ
 wJ
@@ -2495,7 +2495,7 @@ ni
 wJ
 wJ
 wJ
-Wt
+ri
 wJ
 wJ
 wJ
@@ -2503,11 +2503,11 @@ wJ
 wJ
 wJ
 wJ
-Wt
+ri
 wJ
 wJ
 wJ
-Bh
+Ta
 tH
 au
 oz
@@ -2556,7 +2556,7 @@ ni
 ni
 Ap
 Ap
-Wt
+ri
 ni
 Ap
 Ap
@@ -2569,8 +2569,8 @@ db
 yR
 ni
 gX
-Wt
-Wt
+ri
+ri
 gX
 gX
 GF
@@ -2635,7 +2635,7 @@ Bz
 gX
 wJ
 wJ
-Wt
+ri
 rW
 rW
 rW
@@ -2763,7 +2763,7 @@ Cy
 ni
 wJ
 wJ
-Wt
+ri
 rW
 rW
 rW
@@ -2806,8 +2806,8 @@ pa
 (20,1,1) = {"
 pa
 Hc
-Wt
-Wt
+ri
+ri
 Ap
 oE
 Ap
@@ -2825,8 +2825,8 @@ db
 yR
 Ap
 Ap
-Wt
-Wt
+ri
+ri
 gX
 gX
 qx
@@ -2880,7 +2880,7 @@ jW
 uK
 Yu
 ni
-fV
+uz
 QR
 oG
 sV
@@ -2912,12 +2912,12 @@ SR
 SR
 SA
 ni
-lm
+rz
 MY
 xK
 my
 Qd
-rU
+nR
 dW
 Kb
 zB
@@ -2944,7 +2944,7 @@ SR
 SR
 As
 ni
-kP
+Rp
 IG
 qz
 dX
@@ -2976,7 +2976,7 @@ Yu
 SA
 Yu
 Ap
-cT
+Ki
 gj
 Ll
 ni
@@ -3005,7 +3005,7 @@ Kb
 id
 Kb
 Kb
-QH
+rH
 Kb
 lu
 Ap
@@ -3039,7 +3039,7 @@ wJ
 wJ
 wJ
 wJ
-Wt
+ri
 wJ
 wJ
 wJ
@@ -3071,7 +3071,7 @@ wJ
 wJ
 wJ
 wJ
-Wt
+ri
 wJ
 wJ
 wJ
@@ -3238,7 +3238,7 @@ xM
 ke
 ke
 av
-jU
+CT
 Ui
 Xy
 av
@@ -3270,7 +3270,7 @@ yR
 ke
 ke
 av
-jU
+CT
 DF
 xI
 av
@@ -3308,7 +3308,7 @@ yR
 xM
 tx
 xM
-ay
+yA
 xM
 yR
 cd
@@ -3322,14 +3322,14 @@ yR
 Ix
 Ix
 Ix
-sr
+ZB
 DY
 xC
 yR
 gM
 yR
 VG
-ay
+yA
 yR
 xM
 tx
@@ -3351,8 +3351,8 @@ pa
 (7,1,2) = {"
 pa
 yR
-mT
-mT
+uH
+uH
 yR
 yR
 tx
@@ -3363,7 +3363,7 @@ gl
 Ml
 nr
 nr
-ay
+yA
 gw
 Fg
 yR
@@ -3374,7 +3374,7 @@ jN
 JI
 jN
 ez
-ay
+yA
 ke
 ke
 yR
@@ -3599,8 +3599,8 @@ CP
 vg
 yR
 yR
-qa
-qa
+gf
+gf
 xM
 tx
 "}
@@ -3645,7 +3645,7 @@ to
 yR
 ej
 XY
-ay
+yA
 nr
 nr
 Ap
@@ -3727,8 +3727,8 @@ hc
 tF
 yR
 yR
-qa
-qa
+gf
+gf
 xM
 tx
 "}
@@ -3808,7 +3808,7 @@ SG
 bf
 Ft
 yR
-mT
+uH
 ni
 Ap
 Ap
@@ -3841,7 +3841,7 @@ lZ
 WQ
 xM
 xv
-mT
+uH
 Ix
 vd
 Xe
@@ -3918,7 +3918,7 @@ lE
 jN
 gC
 JK
-ip
+jb
 ke
 HD
 yR
@@ -3968,7 +3968,7 @@ EW
 Ft
 Ft
 xM
-mT
+uH
 xM
 yR
 xM
@@ -3980,7 +3980,7 @@ yR
 xM
 yR
 ar
-fJ
+PM
 xM
 yR
 cd
@@ -3993,13 +3993,13 @@ pa
 yR
 ke
 ke
-qa
+gf
 qy
 kR
 lC
 JJ
 aC
-qa
+gf
 ke
 ke
 ke

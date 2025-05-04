@@ -30,6 +30,7 @@
 		return
 
 	//Breathing, if applicable
+	handle_temperature()
 	handle_breathing(times_fired)
 	if(HAS_TRAIT(src, TRAIT_SIMPLE_WOUNDS))
 		handle_wounds()
@@ -82,6 +83,9 @@
 	handle_typing_indicator()
 	if(istype(loc, /turf/open/water))
 		handle_inwater(loc)
+
+/mob/living/proc/handle_temperature()
+	return
 
 /mob/living/proc/handle_breathing(times_fired)
 	return

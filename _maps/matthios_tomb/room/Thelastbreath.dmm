@@ -53,6 +53,12 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/indoors)
+"bh" = (
+/obj/structure/table/stone_small,
+/obj/item/pestle,
+/obj/item/reagent_containers/glass/mortar,
+/turf/open/floor/hexstone,
+/area/rogue/indoors)
 "bs" = (
 /obj/effect/decal/cleanable/blood/gibs,
 /turf/open/floor/blocks,
@@ -92,14 +98,16 @@
 	},
 /turf/open/floor/plasteel/maniac,
 /area/rogue/indoors)
-"bM" = (
-/mob/living/simple_animal/hostile/retaliate/troll/axe,
-/turf/open/floor/naturalstone,
-/area/rogue/indoors)
 "bN" = (
 /obj/item/candle/yellow/lit/infinite{
 	pixel_y = 3
 	},
+/turf/open/floor/church,
+/area/rogue/indoors)
+"bO" = (
+/obj/structure/door/stone,
+/obj/effect/decal/cleanable/blood/tracks,
+/obj/effect/decal/cleanable/blood/tracks,
 /turf/open/floor/church,
 /area/rogue/indoors)
 "bR" = (
@@ -172,10 +180,6 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/indoors)
-"cV" = (
-/obj/structure/door/stone,
-/turf/open/floor/cobble,
-/area/rogue/indoors)
 "cY" = (
 /obj/structure/fluff/walldeco/painting/seraphina,
 /turf/closed/wall/mineral/decostone,
@@ -244,6 +248,11 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/church,
 /area/rogue/indoors)
+"dY" = (
+/obj/machinery/light/fueled/wallfire/candle/l,
+/obj/structure/door/stone,
+/turf/open/floor/church,
+/area/rogue/indoors)
 "ec" = (
 /obj/structure/lever/hidden{
 	redstone_id = "L2"
@@ -256,6 +265,13 @@
 /obj/structure/fluff/walldeco/vinez,
 /obj/structure/fluff/walldeco/psybanner/red,
 /turf/closed/wall/mineral/decostone,
+/area/rogue/indoors)
+"ek" = (
+/obj/structure/door/stone{
+	lockid = "Dungeon1"
+	},
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/church,
 /area/rogue/indoors)
 "er" = (
 /obj/effect/mapping_helpers/floor_clothing_equipper,
@@ -456,6 +472,10 @@
 	name = "suspicious stone wall"
 	},
 /area/rogue/indoors)
+"hu" = (
+/obj/structure/door/stone,
+/turf/open/floor/dirt,
+/area/rogue/indoors)
 "hx" = (
 /obj/structure/table/stone_small,
 /obj/effect/spawner/map_spawner/loot/food,
@@ -478,10 +498,6 @@
 /obj/effect/decal/cleanable/blood/gibs/limb,
 /turf/open/water/swamp/deep,
 /area/rogue/indoors)
-"hJ" = (
-/obj/structure/door/stone,
-/turf/open/floor/churchbrick,
-/area/rogue/indoors)
 "hO" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/sparsegrass,
@@ -495,10 +511,6 @@
 /obj/effect/spawner/map_spawner/loot/rare,
 /obj/item/gem/green,
 /turf/open/floor/churchbrick,
-/area/rogue/indoors)
-"hT" = (
-/obj/structure/door/stone,
-/turf/open/floor/church,
 /area/rogue/indoors)
 "hV" = (
 /obj/structure/bookcase/random,
@@ -618,14 +630,6 @@
 /obj/structure/fluff/walldeco/vinez,
 /turf/closed/wall/mineral/decostone,
 /area/rogue/indoors)
-"kf" = (
-/obj/structure/door/stone{
-	lockid = "Dungeon1"
-	},
-/obj/effect/mapping_helpers/access/locker,
-/obj/structure/fluff/walldeco/vinez,
-/turf/open/floor/hexstone,
-/area/rogue/indoors)
 "kk" = (
 /obj/structure/pressure_plate{
 	redstone_id = "trap1"
@@ -637,13 +641,16 @@
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/churchmarble,
 /area/rogue/indoors)
-"ks" = (
-/mob/living/simple_animal/hostile/retaliate/troll/axe,
-/turf/open/floor/blocks,
-/area/rogue/indoors)
 "kx" = (
 /obj/structure/fluff/walldeco/feldshersign,
 /turf/closed/wall/mineral/decostone,
+/area/rogue/indoors)
+"ky" = (
+/obj/structure/door/stone{
+	lockid = "Dungeon1"
+	},
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/cobble,
 /area/rogue/indoors)
 "kG" = (
 /obj/structure/table/stone_small,
@@ -831,11 +838,6 @@
 /obj/effect/spawner/map_spawner/loot,
 /turf/open/floor/blocks,
 /area/rogue/indoors)
-"mQ" = (
-/obj/machinery/light/fueled/wallfire/candle/r,
-/obj/structure/door/stone,
-/turf/open/floor/church,
-/area/rogue/indoors)
 "mV" = (
 /obj/structure/stairs/stone/d{
 	dir = 8
@@ -913,13 +915,6 @@
 /obj/structure/spider/stickyweb/solo,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors)
-"nX" = (
-/obj/structure/door/stone{
-	lockid = "Dungeon1"
-	},
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/churchmarble,
-/area/rogue/indoors)
 "nZ" = (
 /obj/effect/decal/cleanable/food/tomato_smudge,
 /obj/item/natural/stone,
@@ -969,19 +964,6 @@
 /obj/machinery/light/fueled/wallfire/candle/l,
 /turf/open/floor/hexstone,
 /area/rogue/indoors)
-"oY" = (
-/obj/structure/door/stone{
-	lockid = "Dungeon1"
-	},
-/obj/effect/mapping_helpers/access/locker,
-/obj/structure/pressure_plate{
-	redstone_id = "W3"
-	},
-/obj/structure/barricade/wooden,
-/obj/structure/barricade/wooden/crude,
-/obj/structure/fluff/walldeco/vinez,
-/turf/open/floor/hexstone,
-/area/rogue/indoors)
 "pb" = (
 /turf/closed/wall/mineral/decostone/cand,
 /area/rogue/indoors)
@@ -1007,6 +989,19 @@
 	pixel_x = 9
 	},
 /turf/open/floor/church,
+/area/rogue/indoors)
+"pD" = (
+/obj/structure/door/stone{
+	lockid = "Dungeon1"
+	},
+/obj/effect/mapping_helpers/access/locker,
+/obj/structure/pressure_plate{
+	redstone_id = "W3"
+	},
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
+/obj/structure/fluff/walldeco/vinez,
+/turf/open/floor/hexstone,
 /area/rogue/indoors)
 "pF" = (
 /obj/structure/fluff/nest,
@@ -1335,6 +1330,10 @@
 /obj/effect/decal/cleanable/blood/gibs/torso,
 /turf/open/floor/dirt,
 /area/rogue/indoors)
+"uf" = (
+/obj/structure/door/stone,
+/turf/open/floor/church,
+/area/rogue/indoors)
 "uj" = (
 /obj/item/candle/yellow/lit/infinite{
 	pixel_y = 6
@@ -1407,11 +1406,6 @@
 /obj/item/reagent_containers/food/snacks/rotten/meat,
 /turf/open/floor/naturalstone,
 /area/rogue/indoors)
-"vw" = (
-/obj/structure/door/stone,
-/obj/effect/decal/cleanable/blood/splatter,
-/turf/open/floor/church,
-/area/rogue/indoors)
 "vz" = (
 /obj/structure/rack/shelf/biggest,
 /obj/item/reagent_containers/glass/bottle/wine/sourwine,
@@ -1429,6 +1423,14 @@
 "vE" = (
 /mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/churchbrick,
+/area/rogue/indoors)
+"vG" = (
+/obj/structure/door/stone{
+	lockid = "Dungeon1"
+	},
+/obj/effect/mapping_helpers/access/locker,
+/obj/structure/fluff/walldeco/vinez,
+/turf/open/floor/hexstone,
 /area/rogue/indoors)
 "vJ" = (
 /obj/structure/mirror/fancy,
@@ -1463,11 +1465,6 @@
 	},
 /turf/open/transparent/openspace,
 /area/rogue/indoors)
-"wm" = (
-/obj/machinery/light/fueled/wallfire/candle/l,
-/obj/structure/door/stone,
-/turf/open/floor/church,
-/area/rogue/indoors)
 "ww" = (
 /obj/structure/flora/grass/water,
 /obj/structure/flora/grass/water/reeds,
@@ -1480,6 +1477,10 @@
 "wD" = (
 /obj/effect/decal/cleanable/food/pie_smudge,
 /turf/open/floor/tile/kitchen,
+/area/rogue/indoors)
+"wE" = (
+/mob/living/simple_animal/hostile/retaliate/troll/axe,
+/turf/open/floor/naturalstone,
 /area/rogue/indoors)
 "wH" = (
 /obj/item/reagent_containers/glass/bucket/wooden,
@@ -1602,10 +1603,21 @@
 /obj/item/reagent_containers/glass/cup/skull,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors)
+"yh" = (
+/obj/structure/door/stone,
+/turf/open/floor/churchbrick,
+/area/rogue/indoors)
 "yp" = (
 /obj/structure/bookcase/random,
 /obj/structure/spider/stickyweb,
 /turf/open/floor/tile/masonic/spiral,
+/area/rogue/indoors)
+"yr" = (
+/obj/structure/door/stone{
+	lockid = "Dungeon1"
+	},
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/churchmarble,
 /area/rogue/indoors)
 "yt" = (
 /obj/structure/trap/wall_projectile,
@@ -1820,6 +1832,10 @@
 	},
 /turf/open/floor/cobble,
 /area/rogue/indoors)
+"Bm" = (
+/mob/living/simple_animal/hostile/retaliate/troll/axe,
+/turf/open/floor/blocks,
+/area/rogue/indoors)
 "Bn" = (
 /obj/structure/rack/shelf/biggest,
 /obj/item/reagent_containers/glass/bucket/wooden,
@@ -1873,11 +1889,6 @@
 /obj/item/natural/stone,
 /obj/effect/decal/cleanable/blood/puddle,
 /turf/open/floor/dirt,
-/area/rogue/indoors)
-"Ci" = (
-/obj/structure/door/stone,
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor/church,
 /area/rogue/indoors)
 "Cn" = (
 /obj/machinery/light/fueled/wallfire/candle/l,
@@ -2074,7 +2085,7 @@
 /area/rogue/indoors)
 "FO" = (
 /obj/structure/door/stone,
-/turf/open/floor/dirt,
+/turf/open/floor/cobble,
 /area/rogue/indoors)
 "FP" = (
 /obj/effect/decal/cleanable/blood/gibs/body,
@@ -2106,6 +2117,17 @@
 	},
 /turf/open/floor/blocks,
 /area/rogue/indoors)
+"Gl" = (
+/obj/machinery/light/fueled/wallfire/candle/r,
+/obj/structure/door/stone,
+/turf/open/floor/church,
+/area/rogue/indoors)
+"Gn" = (
+/obj/structure/door/stone,
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
+/turf/open/floor/church,
+/area/rogue/indoors)
 "Gr" = (
 /obj/item/natural/stone,
 /turf/open/floor/tile,
@@ -2127,6 +2149,13 @@
 /obj/item/natural/rock,
 /turf/open/floor/dirt,
 /area/rogue/indoors)
+"GJ" = (
+/obj/structure/door/stone{
+	lockid = "Dungeon1"
+	},
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/hexstone,
+/area/rogue/indoors)
 "GK" = (
 /obj/structure/fluff/nest,
 /mob/living/carbon/human/species/rousman/ambush,
@@ -2135,12 +2164,6 @@
 "GS" = (
 /obj/structure/table/wood/reinf_long,
 /turf/open/floor/tile/masonic/spiral,
-/area/rogue/indoors)
-"GT" = (
-/obj/structure/door/stone,
-/obj/effect/decal/cleanable/blood/tracks,
-/obj/effect/decal/cleanable/blood/tracks,
-/turf/open/floor/church,
 /area/rogue/indoors)
 "GV" = (
 /obj/structure/curtain{
@@ -2158,6 +2181,11 @@
 /obj/item/clothing/shirt/robe/phys,
 /obj/item/weapon/surgery/scalpel,
 /turf/open/floor/hexstone,
+/area/rogue/indoors)
+"GZ" = (
+/obj/structure/door/stone,
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/open/floor/church,
 /area/rogue/indoors)
 "Hc" = (
 /obj/machinery/light/fueled/oven,
@@ -2230,12 +2258,6 @@
 /obj/structure/gravemarker,
 /turf/open/floor/grass,
 /area/rogue/indoors)
-"Ic" = (
-/obj/structure/door/stone,
-/obj/structure/fluff/walldeco/feldshersign,
-/obj/structure/fluff/walldeco/vinez,
-/turf/open/floor/cobble,
-/area/rogue/indoors)
 "Ix" = (
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /turf/open/floor/church,
@@ -2261,10 +2283,6 @@
 /obj/structure/well/fountain,
 /turf/open/floor/cobblerock,
 /area/rogue/indoors)
-"IP" = (
-/obj/structure/door/stone,
-/turf/open/floor/hexstone,
-/area/rogue/indoors)
 "IR" = (
 /obj/effect/mapping_helpers/secret_door_creator{
 	redstone_id = "W4"
@@ -2286,6 +2304,17 @@
 "IZ" = (
 /obj/effect/spawner/map_spawner/loot,
 /turf/open/floor/blocks,
+/area/rogue/indoors)
+"Jf" = (
+/obj/structure/door/stone,
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/church,
+/area/rogue/indoors)
+"Jk" = (
+/obj/structure/door/stone,
+/obj/structure/fluff/walldeco/feldshersign,
+/obj/structure/fluff/walldeco/vinez,
+/turf/open/floor/cobble,
 /area/rogue/indoors)
 "Jo" = (
 /obj/structure/fluff/nest,
@@ -2557,12 +2586,6 @@
 	},
 /turf/closed/wall/mineral/decostone,
 /area/rogue/indoors)
-"MY" = (
-/obj/structure/door/stone,
-/obj/structure/barricade/wooden,
-/obj/structure/barricade/wooden/crude,
-/turf/open/floor/church,
-/area/rogue/indoors)
 "MZ" = (
 /obj/structure/chair/wood/alt/chair_noble/red{
 	dir = 1
@@ -2753,6 +2776,10 @@
 /area/rogue/indoors)
 "PO" = (
 /obj/machinery/light/fueled/wallfire/candle/blue/r,
+/turf/open/floor/hexstone,
+/area/rogue/indoors)
+"PR" = (
+/obj/structure/door/stone,
 /turf/open/floor/hexstone,
 /area/rogue/indoors)
 "PS" = (
@@ -3110,13 +3137,6 @@
 /mob/living/simple_animal/hostile/retaliate/mole,
 /turf/open/floor/dirt,
 /area/rogue/indoors)
-"UI" = (
-/obj/structure/door/stone{
-	lockid = "Dungeon1"
-	},
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/church,
-/area/rogue/indoors)
 "UJ" = (
 /obj/item/reagent_containers/glass/bucket/wooden,
 /turf/open/floor/ruinedwood,
@@ -3162,13 +3182,6 @@
 "Vq" = (
 /obj/structure/fermentation_keg,
 /turf/open/floor/hexstone,
-/area/rogue/indoors)
-"Vs" = (
-/obj/structure/door/stone{
-	lockid = "Dungeon1"
-	},
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/cobble,
 /area/rogue/indoors)
 "Vv" = (
 /obj/structure/trap/fire,
@@ -3247,12 +3260,6 @@
 "WC" = (
 /obj/structure/bookcase/random,
 /turf/open/floor/blocks,
-/area/rogue/indoors)
-"WK" = (
-/obj/structure/table/stone_small,
-/obj/item/pestle,
-/obj/item/mortar,
-/turf/open/floor/hexstone,
 /area/rogue/indoors)
 "WO" = (
 /obj/effect/decal/cleanable/blood/gibs/body,
@@ -3380,13 +3387,6 @@
 /obj/item/candle/yellow/lit/infinite,
 /obj/item/candle/yellow/lit/infinite,
 /turf/open/floor/church,
-/area/rogue/indoors)
-"Yy" = (
-/obj/structure/door/stone{
-	lockid = "Dungeon1"
-	},
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/hexstone,
 /area/rogue/indoors)
 "YL" = (
 /obj/structure/closet/crate/chest/gold,
@@ -3548,7 +3548,7 @@ RZ
 RZ
 RZ
 RZ
-wm
+dY
 eQ
 eQ
 eQ
@@ -3595,7 +3595,7 @@ RZ
 RZ
 RZ
 RZ
-mQ
+Gl
 eQ
 eQ
 IJ
@@ -3631,14 +3631,14 @@ fm
 fm
 fm
 pb
-hT
-hT
+uf
+uf
 PM
 fm
 fm
 pb
 fm
-UI
+ek
 PM
 fm
 fm
@@ -3956,7 +3956,7 @@ PM
 RZ
 RZ
 PM
-hT
+uf
 fm
 pb
 fm
@@ -4002,7 +4002,7 @@ mA
 fm
 RZ
 RZ
-hT
+uf
 cI
 cI
 zk
@@ -4049,7 +4049,7 @@ mA
 fm
 RZ
 RZ
-hT
+uf
 cI
 SD
 cI
@@ -4068,7 +4068,7 @@ lA
 fm
 fm
 pb
-FO
+hu
 fm
 pb
 lz
@@ -4376,8 +4376,8 @@ wU
 "}
 (20,1,1) = {"
 pb
-hT
-hT
+uf
+uf
 pb
 mV
 mV
@@ -4389,7 +4389,7 @@ nV
 iC
 fm
 FX
-FO
+hu
 fm
 pb
 fm
@@ -4587,7 +4587,7 @@ fm
 fm
 pb
 fm
-MY
+Gn
 pb
 Wh
 RZ
@@ -4620,8 +4620,8 @@ pb
 fm
 fm
 pb
-UI
-UI
+ek
+ek
 pb
 fm
 fm
@@ -4699,8 +4699,8 @@ fm
 bK
 bK
 pb
-hT
-hT
+uf
+uf
 pb
 "}
 (27,1,1) = {"
@@ -4817,7 +4817,7 @@ fm
 fm
 pb
 fm
-MY
+Gn
 pb
 fm
 fm
@@ -4839,7 +4839,7 @@ BB
 dr
 Uj
 Uj
-GT
+bO
 sQ
 RZ
 PM
@@ -4969,7 +4969,7 @@ Hc
 ZU
 MS
 Xp
-hT
+uf
 Yb
 Gu
 sR
@@ -5016,7 +5016,7 @@ cI
 Xl
 Xp
 pR
-Ci
+Jf
 Gu
 PA
 PA
@@ -5104,7 +5104,7 @@ uV
 ju
 os
 uY
-wm
+dY
 cI
 OR
 Xp
@@ -5232,7 +5232,7 @@ la
 sL
 sL
 sL
-ks
+Bm
 la
 rz
 sL
@@ -5275,7 +5275,7 @@ PA
 NP
 PA
 sL
-bM
+wE
 zp
 sL
 PA
@@ -5356,7 +5356,7 @@ KJ
 WO
 po
 Yb
-vw
+GZ
 RZ
 lt
 fm
@@ -5437,7 +5437,7 @@ eQ
 pb
 fm
 fm
-hT
+uf
 fm
 fm
 pb
@@ -5448,7 +5448,7 @@ fm
 fm
 pb
 fm
-vw
+GZ
 fm
 pb
 RZ
@@ -5481,7 +5481,7 @@ eQ
 RL
 eQ
 eQ
-hT
+uf
 RZ
 RZ
 RZ
@@ -5528,7 +5528,7 @@ eQ
 eQ
 eQ
 eQ
-mQ
+Gl
 RZ
 RZ
 RZ
@@ -6088,7 +6088,7 @@ nI
 nI
 nI
 RZ
-IP
+PR
 lA
 lA
 qb
@@ -6177,8 +6177,8 @@ wK
 HW
 Oc
 oU
-hJ
-hJ
+yh
+yh
 oU
 MR
 Oc
@@ -6360,7 +6360,7 @@ Oc
 zW
 zW
 qK
-nX
+yr
 qK
 Oc
 Oc
@@ -6474,7 +6474,7 @@ fm
 fm
 fm
 qK
-oY
+pD
 Oc
 Oc
 fm
@@ -6506,9 +6506,9 @@ nI
 dE
 Oc
 eg
-hJ
+yh
 cY
-hJ
+yh
 eg
 Oc
 CJ
@@ -6711,7 +6711,7 @@ Fm
 nI
 hg
 hg
-kf
+vG
 hg
 hg
 hg
@@ -6808,7 +6808,7 @@ UZ
 Oc
 wW
 Oc
-Yy
+GJ
 Oc
 UZ
 fm
@@ -7283,7 +7283,7 @@ uu
 hg
 GV
 hg
-WK
+bh
 hg
 hg
 wB
@@ -7414,7 +7414,7 @@ fm
 Oc
 Oc
 Oc
-Ic
+Jk
 fm
 kx
 fm
@@ -7604,12 +7604,12 @@ fm
 Nx
 tj
 hg
-cV
+FO
 hg
 hg
 lT
 hg
-Vs
+ky
 hg
 hg
 hY

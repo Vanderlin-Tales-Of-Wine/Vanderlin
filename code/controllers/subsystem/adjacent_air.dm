@@ -78,6 +78,8 @@ SUBSYSTEM_DEF(adjacent_air)
 
 /turf/proc/add_liquid_from_reagents(datum/reagents/giver, no_react = FALSE, chem_temp, amount)
 	var/list/compiled_list = list()
+	if(!giver.total_volume)
+		return
 	var/multiplier = amount ? amount / giver.total_volume : 1
 	for(var/r in giver.reagent_list)
 		var/datum/reagent/R = r
