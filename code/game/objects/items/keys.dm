@@ -41,7 +41,7 @@
 			return TRUE
 	var/list/access= O.get_access()
 	if(access)
-		access2add = access
+		access2add = access.Copy()
 		return TRUE
 	return FALSE
 

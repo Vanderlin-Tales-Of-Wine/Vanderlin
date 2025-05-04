@@ -79,7 +79,7 @@
 
 /obj/item/storage/keyring/get_access()
 	if(LAZYLEN(combined_access))
-		return combined_access
+		return combined_access.Copy()
 	return null
 
 /obj/item/storage/keyring/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
