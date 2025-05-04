@@ -192,7 +192,7 @@
 	if(chokehold)
 		combat_modifier += 0.15
 
-	if(M.pulling == user && M.grab_state >= GRAB_AGGRESSIVE) // target is grabbing back
+	if(pulledby && pulledby.grab_state >= GRAB_AGGRESSIVE)
 		combat_modifier -= 0.2
 
 	combat_modifier *= ((skill_diff * 0.1) + 1)
