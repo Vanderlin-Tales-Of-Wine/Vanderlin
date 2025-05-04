@@ -136,4 +136,4 @@ can_have_apprentices = FALSE
 		H.change_stat(STATKEY_INT, 1)
 		H.change_stat(STATKEY_SPD, 1)
 	if(H.gender == MALE && H.dna?.species)
-		H.dna.species.soundpack_m = new /datum/voicepack/male/page()
+		H.dna.species.soundpack_m = new /datum/voicepack/male/squire()
