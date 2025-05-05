@@ -1097,6 +1097,8 @@ GLOBAL_VAR_INIT(mobids, 1)
 
 ///Can this mob read (is literate and not blind)
 /mob/proc/can_read(obj/O, silent = FALSE)
+	if(isobserver(src))
+		return TRUE
 	if(is_blind(src) || eye_blurry)
 		if(!silent)
 			to_chat(src, span_warning("I'm too blind to read."))
