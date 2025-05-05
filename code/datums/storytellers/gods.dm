@@ -8,7 +8,7 @@
 
 	influence_factors = list(
 		STATS_LAWS_AND_DECREES_MADE = list("points" = 2.75,"capacity" = 45),
-		STATS_ALIVE_NOBLES = list("points" = 3.75,"capacity" = 75),
+		STATS_ALIVE_NOBLES = list("points" = 4,"capacity" = 75),
 		STATS_NOBLE_DEATHS = list("points" = -5,"capacity" = -75),
 		STATS_ASTRATA_REVIVALS = list("points" = 6, "capacity" = 75),
 		STATS_TAXES_COLLECTED = list("points" = 0.175,"capacity" = 90),
@@ -273,7 +273,7 @@
 	)
 
 	influence_factors = list(
-		STATS_ZIZO_PRAISED = list("points" = 0.5, "capacity" = 40),
+		STATS_ZIZO_PRAISED = list("points" = 0.15, "capacity" = 40),
 		STATS_NOBLE_DEATHS = list("points" = 6, "capacity" = 80),
 		STATS_DEADITES_WOKEN_UP = list("points" = 3, "capacity" = 90),
 		STATS_CLERGY_DEATHS = list("points" = 10, "capacity" = 80),
