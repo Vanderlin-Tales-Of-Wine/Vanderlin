@@ -124,13 +124,13 @@
 		H.change_stat(STATKEY_PER, 2)
 		H.change_stat(STATKEY_SPD, 3)
 		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
-		ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_NOPAINSTUN, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_FORAGER, TRAIT_GENERIC)
 
 // Reaver
 /datum/advclass/forestguard/brawler
 	name = "Forest Reaver"
-	tutorial = "In the goblin wars you took an oath to never hold a shield, you just enjoy having a weapon in both hands..."
+	tutorial = "In the goblin wars you took an oath to never shy from a hit, you just enjoy the chaos of battle..."
 	outfit = /datum/outfit/job/forestguard/brawler
 	category_tags = list(CTAG_FORGARRISON)
 
@@ -138,6 +138,7 @@
 	..()
 	neck = /obj/item/clothing/neck/chaincoif
 	beltl = /obj/item/weapon/mace/steel/morningstar
+	r_hand = /obj/item/weapon/polearm/halberd/bardiche/woodcutter
 	beltr = /obj/item/weapon/axe/iron
 	backpack_contents = list(/obj/item/weapon/knife/hunting = 1, /obj/item/rope/chain = 1, /obj/item/key/forrestgarrison = 1, /obj/item/storage/belt/pouch/coins/poor)
 	H.verbs |= /mob/proc/haltyell
@@ -160,5 +161,5 @@
 		H.change_stat(STATKEY_CON, 2)
 		H.change_stat(STATKEY_END, 3)
 		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
-		ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_NOPAINSTUN, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_FORAGER, TRAIT_GENERIC)
