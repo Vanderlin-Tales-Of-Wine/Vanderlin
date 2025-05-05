@@ -43,7 +43,9 @@
 
 /obj/item/grabbing/proc/valid_check()
 	if(QDELETED(grabbee) || QDELETED(grabbed))
-		return
+		grabbee?.stop_pulling(FALSE)
+		qdel(src)
+		return FALSE
 	// We should be conscious to do this, first of all...
 	if(grabbee.stat < UNCONSCIOUS)
 		// Mouth grab while we're adjacent is good
