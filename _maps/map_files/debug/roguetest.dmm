@@ -1241,6 +1241,14 @@
 	},
 /turf/open/floor/dirt,
 /area/rogue/outdoors/mountains/decap)
+"kb" = (
+/obj/structure/flora/ausbushes/ppflowers,
+/obj/structure/minecart_rail{
+	dir = 4
+	},
+/obj/structure/closet/crate/miningcar,
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
 "ky" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/open/floor/grass/yel,
@@ -1348,6 +1356,13 @@
 "nG" = (
 /turf/open/floor/cobble,
 /area)
+"nX" = (
+/obj/structure/flora/grass/herb/symphitum,
+/obj/structure/minecart_rail{
+	dir = 4
+	},
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
 "oB" = (
 /obj/structure/window/openclose{
 	dir = 4
@@ -1424,6 +1439,12 @@
 /area/rogue/indoors)
 "rh" = (
 /turf/closed/basic,
+/area/rogue/outdoors)
+"rj" = (
+/obj/structure/minecart_rail{
+	dir = 4
+	},
+/turf/open/floor/grass/yel,
 /area/rogue/outdoors)
 "rm" = (
 /obj/structure/flora/shroom_tree{
@@ -1721,6 +1742,12 @@
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
+"Ai" = (
+/obj/structure/minecart_rail{
+	dir = 4
+	},
+/turf/open/floor/dirt,
+/area/rogue/outdoors)
 "An" = (
 /obj/structure/hotspring/border/six,
 /turf/open/floor/cobblerock,
@@ -1783,6 +1810,13 @@
 "BE" = (
 /turf/closed,
 /area/rogue/outdoors/mountains/decap)
+"BW" = (
+/obj/structure/flora/grass,
+/obj/structure/minecart_rail{
+	dir = 4
+	},
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
 "CO" = (
 /obj/effect/landmark/observer_start,
 /turf/open/floor/cobblerock,
@@ -2117,6 +2151,11 @@
 "SZ" = (
 /obj/structure/hotspring/border/ten,
 /turf/open/floor/dirt/road,
+/area/rogue/outdoors)
+"Tk" = (
+/obj/structure/flora/grass,
+/obj/effect/fog_parter,
+/turf/open/floor/grass/yel,
 /area/rogue/outdoors)
 "Tr" = (
 /obj/structure/flora/ausbushes/ppflowers,
@@ -11771,7 +11810,7 @@ RF
 ky
 qc
 FN
-qc
+BW
 qc
 qc
 Wr
@@ -12028,7 +12067,7 @@ RC
 eq
 jC
 QN
-jC
+kb
 QN
 qc
 QN
@@ -12285,7 +12324,7 @@ SZ
 RF
 Qi
 QN
-ai
+Ai
 al
 Wr
 ai
@@ -75253,7 +75292,7 @@ QN
 ky
 QN
 jC
-qc
+Tk
 ky
 qc
 QN
@@ -76536,7 +76575,7 @@ zc
 Mn
 QN
 QN
-QN
+rj
 QN
 QN
 eE
@@ -76793,7 +76832,7 @@ Zs
 aj
 QN
 jC
-QN
+rj
 ky
 jC
 ss
@@ -77050,7 +77089,7 @@ aj
 Kh
 QN
 QN
-sd
+nX
 QN
 QN
 ss
