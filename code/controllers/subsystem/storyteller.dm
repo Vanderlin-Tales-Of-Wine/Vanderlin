@@ -1264,7 +1264,7 @@ SUBSYSTEM_DEF(gamemode)
 	if(!highest)
 		return
 
-	if(storytellers_with_influence[highest] > 1)
+	if(storytellers_with_influence[highest] > 1.25)
 		highest.bonus_points -= 1.25
 
 	lowest.bonus_points += 1.25
