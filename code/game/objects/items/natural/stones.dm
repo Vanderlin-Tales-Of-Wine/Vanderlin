@@ -350,6 +350,13 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 			L.consider_ambush()
 	..()
 
+/obj/item/natural/rock/attacked_by(obj/item/I, mob/living/user)
+	var/was_destroyed = obj_destroyed
+	. = ..()
+	if(.)
+		if(!was_destroyed && obj_destroyed)
+			record_featured_stat(FEATURED_STATS_MINERS, user)
+
 /obj/item/natural/rock/deconstruct(disassembled = FALSE)
 	if(!disassembled)
 		if(mineralType && mineralAmt)

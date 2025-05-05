@@ -137,6 +137,7 @@
 
 /atom/proc/OnCrafted(dirin, mob/user)
 	SHOULD_CALL_PARENT(TRUE)
+	record_featured_stat(FEATURED_STATS_CRAFTERS, user)
 	add_abstract_elastic_data(ELASCAT_CRAFTING, "[name]", 1)
 	return
 

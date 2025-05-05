@@ -7,6 +7,14 @@
 /mob/living/carbon/human/species/skeleton/npc/peasant,
 /turf/open/floor/dirt/road,
 /area/rogue/under/cave)
+"ax" = (
+/obj/structure/door/violet{
+	lockid = "nightmaiden";
+	name = "Storage"
+	},
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/tile,
+/area/rogue/indoors/shelter)
 "aG" = (
 /obj/structure/gravemarker{
 	desc = "To my strong father, I will not let you down."
@@ -30,14 +38,6 @@
 	},
 /turf/open/floor/grass,
 /area/rogue/under/cave)
-"bi" = (
-/obj/structure/door/violet{
-	name = "Reading Room";
-	lockid = "manor"
-	},
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/carpet/lord/center,
-/area/rogue/indoors/shelter)
 "bl" = (
 /turf/closed/wall/mineral/roofwall/innercorner{
 	dir = 1
@@ -55,6 +55,11 @@
 /turf/open/floor/ruinedwood{
 	icon_state = "weird1"
 	},
+/area/rogue/indoors/shelter)
+"cA" = (
+/obj/item/bin/water,
+/obj/item/soap/bath,
+/turf/open/floor/tile/bath,
 /area/rogue/indoors/shelter)
 "cV" = (
 /obj/structure/table/wood,
@@ -230,32 +235,11 @@
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/dirt/road,
 /area/rogue/under/cave)
-"lP" = (
-/obj/structure/door/violet{
-	name = "Kitchen";
-	lockid = "manor"
-	},
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/tile,
-/area/rogue/indoors/shelter)
-"ma" = (
-/obj/structure/door/violet{
-	name = "Hall";
-	lockid = "manor"
-	},
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/hexstone,
-/area/rogue/indoors/shelter)
 "mn" = (
 /obj/machinery/light/fueled/wallfire/candle/weak/r,
 /turf/open/floor/carpet/lord/right{
 	dir = 1
 	},
-/area/rogue/indoors/shelter)
-"mt" = (
-/obj/item/bin/water,
-/obj/item/soap/bath,
-/turf/open/floor/tile/bath,
 /area/rogue/indoors/shelter)
 "mC" = (
 /obj/structure/fake_machine/musicbox,
@@ -371,6 +355,14 @@
 	icon_state = "weird1"
 	},
 /area/rogue/indoors/shelter)
+"ri" = (
+/obj/structure/door/violet{
+	name = "Bath";
+	lockid = "manor"
+	},
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/tile/bath,
+/area/rogue/indoors/shelter)
 "ro" = (
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/grass,
@@ -406,14 +398,6 @@
 /area/rogue/under/cave)
 "ta" = (
 /turf/closed/wall/mineral/stonebrick,
-/area/rogue/indoors/shelter)
-"tg" = (
-/obj/structure/door/violet{
-	name = "Queens Retreat";
-	lockid = "manor"
-	},
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/carpet/lord/center,
 /area/rogue/indoors/shelter)
 "th" = (
 /turf/closed/wall/mineral/roofwall/middle{
@@ -548,14 +532,6 @@
 	pixel_y = 6
 	},
 /turf/open/floor/tile,
-/area/rogue/indoors/shelter)
-"wK" = (
-/obj/structure/door/violet{
-	name = "Bedroom";
-	lockid = "merchant"
-	},
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/carpet/red,
 /area/rogue/indoors/shelter)
 "xp" = (
 /obj/structure/table/wood,
@@ -789,10 +765,26 @@
 	dir = 1
 	},
 /area/rogue/indoors/shelter)
+"FN" = (
+/obj/structure/door/violet{
+	name = "Bedroom";
+	lockid = "merchant"
+	},
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/carpet/red,
+/area/rogue/indoors/shelter)
 "GD" = (
 /turf/open/floor/carpet/lord/right{
 	dir = 1
 	},
+/area/rogue/indoors/shelter)
+"GE" = (
+/obj/structure/door/violet{
+	name = "Queens Retreat";
+	lockid = "manor"
+	},
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/carpet/lord/center,
 /area/rogue/indoors/shelter)
 "GK" = (
 /obj/structure/fluff/railing/wood{
@@ -870,6 +862,14 @@
 "Jt" = (
 /turf/open/floor/cobble/mossy,
 /area/rogue/under/cave)
+"Jy" = (
+/obj/structure/door/violet{
+	name = "Reading Room";
+	lockid = "manor"
+	},
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/carpet/lord/center,
+/area/rogue/indoors/shelter)
 "JK" = (
 /obj/machinery/light/fueled/wallfire{
 	pixel_x = -32
@@ -1003,14 +1003,6 @@
 /obj/structure/chair/bench,
 /turf/open/floor/grass,
 /area/rogue/under/cave)
-"Pa" = (
-/obj/structure/door/violet{
-	name = "Bath";
-	lockid = "manor"
-	},
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/tile/bath,
-/area/rogue/indoors/shelter)
 "Pf" = (
 /obj/structure/fluff/telescope,
 /turf/open/floor/grass,
@@ -1048,6 +1040,14 @@
 	},
 /turf/open/floor/dirt,
 /area/rogue/under/cave)
+"Rl" = (
+/obj/structure/door/violet{
+	name = "Kitchen";
+	lockid = "manor"
+	},
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/tile,
+/area/rogue/indoors/shelter)
 "Ry" = (
 /obj/structure/flora/grass/herb/artemisia,
 /turf/open/floor/grass,
@@ -1091,6 +1091,14 @@
 "Tm" = (
 /turf/open/floor/grass,
 /area/rogue/under/cave)
+"TK" = (
+/obj/structure/door/violet{
+	name = "Hall";
+	lockid = "manor"
+	},
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/hexstone,
+/area/rogue/indoors/shelter)
 "Ue" = (
 /obj/structure/fluff/railing/wood,
 /obj/machinery/light/fueled/firebowl,
@@ -1155,14 +1163,6 @@
 /obj/structure/flora/newtree,
 /turf/open/floor/grass,
 /area/rogue/under/cave)
-"Xv" = (
-/obj/structure/door/violet{
-	lockid = "nightmaiden";
-	name = "Storage"
-	},
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/tile,
-/area/rogue/indoors/shelter)
 "XD" = (
 /obj/structure/fluff/railing/wood{
 	pixel_y = -4
@@ -1671,7 +1671,7 @@ Yx
 Yx
 ta
 ta
-bi
+Jy
 ta
 ta
 ou
@@ -1701,11 +1701,11 @@ NP
 ye
 ye
 Xb
-lP
+Rl
 GD
 ND
 CD
-ma
+TK
 ye
 ou
 ou
@@ -1731,7 +1731,7 @@ ta
 ta
 ta
 ta
-Xv
+ax
 ta
 ta
 Cg
@@ -1740,7 +1740,7 @@ rV
 ta
 ta
 ta
-Pa
+ri
 ta
 ta
 ta
@@ -1863,10 +1863,10 @@ Fs
 Cy
 ta
 ta
-tg
+GE
 ta
 ta
-mt
+cA
 sy
 mS
 sy
@@ -2667,8 +2667,8 @@ ta
 Zx
 Zx
 ta
-wK
-wK
+FN
+FN
 ta
 Zx
 Zx

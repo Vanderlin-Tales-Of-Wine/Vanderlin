@@ -3,7 +3,6 @@
 	desc = "A door that can open and close."
 	icon = 'icons/roguetown/misc/doors.dmi'
 	icon_state = "woodhandle"
-	var/base_state = "woodhandle"
 	density = TRUE
 	anchored = TRUE
 	opacity = TRUE
@@ -71,9 +70,9 @@
 
 /obj/structure/door/update_icon()
 	if(obj_broken)
-		icon_state = "[base_state]br"
+		icon_state = "[initial(icon_state)]br"
 		return
-	icon_state = "[base_state][door_opened ? "open":""]"
+	icon_state = "[initial(icon_state)][door_opened ? "open":""]"
 
 /obj/structure/door/examine(mob/user)
 	. = ..()
@@ -250,6 +249,11 @@
 	unlock()
 	force_open()
 
+/obj/structure/door/OnCrafted(dirin, user)
+	. = ..()
+	if(has_bolt || has_viewport)
+		dir = turn(dirin, 180)
+
 /obj/structure/door/fire_act(added, maxstacks)
 	if(!added)
 		return FALSE
@@ -259,6 +263,8 @@
 
 /obj/structure/door/proc/TryToSwitchState(atom/user)
 	if(switching_states || !anchored)
+		return FALSE
+	if(HAS_TRAIT(user, TRAIT_HANDS_BLOCKED))
 		return FALSE
 	if(!isliving(user))
 		return FALSE
@@ -288,7 +294,7 @@
 		playsound(get_turf(src), open_sound, 90)
 	if(!windowed)
 		set_opacity(FALSE)
-	flick("[base_state]opening",src)
+	flick("[initial(icon_state)]opening",src)
 	sleep(animate_time)
 	density = FALSE
 	door_opened = TRUE
@@ -322,7 +328,7 @@
 		playsound(get_turf(src), close_sound, 90)
 	if(!windowed)
 		set_opacity(TRUE)
-	flick("[base_state]closing", src)
+	flick("[initial(icon_state)]closing", src)
 	sleep(animate_time)
 	density = TRUE
 	door_opened = FALSE
@@ -393,29 +399,23 @@
 
 /obj/structure/door/green
 	icon_state = "wcg"
-	base_state = "wcg"
 
 /obj/structure/door/red
 	icon_state = "wcr"
-	base_state = "wcr"
 
 /obj/structure/door/violet
 	icon_state = "wcv"
-	base_state = "wcv"
 
 /obj/structure/door/fancy
 	icon_state = "fancy_wood"
-	base_state = "fancy_wood"
 
 /obj/structure/door/window
 	icon_state = "woodwindow"
-	base_state = "woodwindow"
 	opacity = FALSE
 	windowed = TRUE
 
 /obj/structure/door/viewport
-	icon_state = "donjondir"
-	base_state = "donjon"
+	icon_state = MAP_SWITCH("donjon", "donjondir")
 	max_integrity = 2000
 	has_viewport = TRUE
 	lock_sound = 'sound/foley/lockmetal.ogg'
@@ -425,15 +425,10 @@
 	repair_cost_second = /obj/item/ingot/iron
 	metalizer_result = null
 
-/obj/structure/door/viewport/Initialize()
-	. = ..()
-	icon_state = "donjon"
-
 /obj/structure/door/swing
 	name = "swing door"
 	desc = "A door that swings."
 	icon_state = "swing"
-	base_state = "swing"
 	windowed = TRUE
 	opacity = FALSE
 	lock = null
@@ -444,7 +439,6 @@
 
 /obj/structure/door/weak
 	icon_state = "wood"
-	base_state = "wood"
 	max_integrity = 500
 	kickthresh = 10
 	open_sound = 'sound/foley/doors/shittyopen.ogg'
@@ -452,19 +446,14 @@
 	metalizer_result = null
 
 /obj/structure/door/weak/bolt
-	icon_state = "wooddir"
+	icon_state = MAP_SWITCH("wood", "wooddir")
 	has_bolt = TRUE
 	lock = /datum/lock
-
-/obj/structure/door/weak/bolt/Initialize()
-	. = ..()
-	icon_state = "wood"
 
 /obj/structure/door/weak/bolt/shutter
 	name = "serving hatch"
 	desc = "Can be locked from the inside."
 	icon_state = "serving"
-	base_state = "serving"
 	max_integrity = 250
 	open_sound = 'sound/foley/blindsopen.ogg'
 	close_sound = 'sound/foley/blindsclose.ogg'
@@ -475,7 +464,6 @@
 /obj/structure/door/iron
 	name = "iron door"
 	icon_state = "donjon"
-	base_state = "donjon"
 	armor = list("blunt" = 15, "slash" = 30, "stab" = 30,  "piercing" = 0, "fire" = 50, "acid" = 50)
 	max_integrity = 2000
 	damage_deflection = 15
@@ -494,7 +482,6 @@
 
 /obj/structure/door/iron/bars
 	icon_state = "bars"
-	base_state = "bars"
 	max_integrity = 1000
 	blade_dulling = DULLING_BASHCHOP
 	windowed = TRUE
@@ -509,7 +496,6 @@
 /obj/structure/door/stone
 	name = "stone door"
 	icon_state = "stone"
-	base_state = "stone"
 	armor = list("blunt" = 15, "slash" = 30, "stab" = 30,  "piercing" = 0, "fire" = 50, "acid" = 50)
 	open_sound = 'sound/foley/doors/stoneopen.ogg'
 	close_sound = 'sound/foley/doors/stoneclose.ogg'

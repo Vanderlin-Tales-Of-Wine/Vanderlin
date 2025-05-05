@@ -903,10 +903,6 @@
 /obj/item/weapon/shield/tower,
 /turf/open/floor/cobble,
 /area/rogue/indoors)
-"cm" = (
-/obj/structure/mineral_door,
-/turf/open/floor/blocks,
-/area/rogue/indoors)
 "cn" = (
 /obj/structure/hotspring/border/ten,
 /turf/open/floor/grass/yel,
@@ -1081,6 +1077,14 @@
 	},
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
+"dx" = (
+/obj/structure/door,
+/turf/open/floor/blocks,
+/area/rogue/indoors)
+"dF" = (
+/obj/structure/door,
+/turf/open/floor/wood,
+/area/rogue/indoors)
 "ef" = (
 /obj/structure/hotspring/border/five,
 /obj/structure/flora/hotspring_rocks{
@@ -1806,10 +1810,6 @@
 /obj/effect/landmark/observer_start,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors)
-"CZ" = (
-/obj/structure/mineral_door,
-/turf/open/floor/wood,
-/area/rogue/indoors)
 "Di" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/flora/ausbushes/lavendergrass,
@@ -16177,7 +16177,7 @@ yB
 bq
 ad
 bq
-cm
+dx
 Wr
 Wr
 cU
@@ -17215,7 +17215,7 @@ QN
 QN
 QN
 QN
-CZ
+dF
 mY
 OZ
 Zs

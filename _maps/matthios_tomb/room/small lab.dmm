@@ -1,22 +1,4 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"aF" = (
-/obj/structure/closet/crate/chest/neu_fancy,
-/obj/effect/mapping_helpers/access/locker,
-/obj/item/weapon/knife/dagger/silver,
-/obj/item/reagent_containers/powder/moondust_purest,
-/obj/item/reagent_containers/powder/moondust_purest{
-	pixel_y = -4;
-	pixel_x = -3
-	},
-/obj/item/reagent_containers/powder/moondust_purest{
-	pixel_x = 6
-	},
-/obj/item/reagent_containers/powder/ozium{
-	pixel_y = -8;
-	pixel_x = -1
-	},
-/turf/open/floor/ruinedwood/turned/darker,
-/area/rogue/under/cave)
 "bf" = (
 /obj/structure/fluff/walldeco/vinez/r,
 /turf/open/floor/blocks,
@@ -31,19 +13,6 @@
 /obj/structure/table/wood/counter,
 /obj/structure/bars/alt,
 /obj/item/candle/yellow/lit,
-/turf/open/floor/cobblerock,
-/area/rogue/under/cave)
-"cn" = (
-/obj/item/alch/golddust,
-/obj/structure/closet/crate/chest/neu_fancy,
-/obj/effect/mapping_helpers/access/locker,
-/obj/item/reagent_containers/powder/blastpowder,
-/obj/item/reagent_containers/powder/blastpowder,
-/obj/item/reagent_containers/powder/blastpowder,
-/turf/open/floor/ruinedwood/turned/darker,
-/area/rogue/under/cave)
-"cz" = (
-/obj/structure/door/swing,
 /turf/open/floor/cobblerock,
 /area/rogue/under/cave)
 "cD" = (
@@ -200,13 +169,21 @@
 /obj/structure/bars/alt,
 /turf/open/floor/cobblerock,
 /area/rogue/under/cave)
-"un" = (
-/obj/structure/closet/crate/chest,
+"tY" = (
+/obj/structure/closet/crate/chest/neu_fancy,
 /obj/effect/mapping_helpers/access/locker,
-/obj/item/reagent_containers/glass/bottle/healthpot,
-/obj/item/reagent_containers/glass/bottle/healthpot,
-/obj/item/reagent_containers/glass/bottle/healthpot{
-	pixel_x = -8
+/obj/item/weapon/knife/dagger/silver,
+/obj/item/reagent_containers/powder/moondust_purest,
+/obj/item/reagent_containers/powder/moondust_purest{
+	pixel_y = -4;
+	pixel_x = -3
+	},
+/obj/item/reagent_containers/powder/moondust_purest{
+	pixel_x = 6
+	},
+/obj/item/reagent_containers/powder/ozium{
+	pixel_y = -8;
+	pixel_x = -1
 	},
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/under/cave)
@@ -216,6 +193,11 @@
 /area/rogue/under/cave)
 "uK" = (
 /obj/effect/dungeon_directional_helper/east,
+/turf/open/floor/cobblerock,
+/area/rogue/under/cave)
+"vm" = (
+/obj/structure/door/violet,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/cobblerock,
 /area/rogue/under/cave)
 "wk" = (
@@ -314,6 +296,16 @@
 	},
 /turf/open/floor/plank/h,
 /area/rogue/under/cave)
+"FG" = (
+/obj/structure/closet/crate/chest,
+/obj/effect/mapping_helpers/access/locker,
+/obj/item/reagent_containers/glass/bottle/healthpot,
+/obj/item/reagent_containers/glass/bottle/healthpot,
+/obj/item/reagent_containers/glass/bottle/healthpot{
+	pixel_x = -8
+	},
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/cave)
 "FJ" = (
 /obj/structure/table/wood/counter/end,
 /obj/item/reagent_containers/food/snacks/rotten/breadslice,
@@ -345,14 +337,14 @@
 /obj/item/reagent_containers/food/snacks/produce/wheat,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/under/cave)
-"Ld" = (
-/obj/item/reagent_containers/glass/bucket/wooden,
-/turf/open/floor/cobblerock,
-/area/rogue/under/cave)
-"MK" = (
+"Jv" = (
 /obj/structure/door/iron/bars,
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/cave)
+"Ld" = (
+/obj/item/reagent_containers/glass/bucket/wooden,
+/turf/open/floor/cobblerock,
 /area/rogue/under/cave)
 "Qb" = (
 /obj/structure/closet/crate/chest/wicker,
@@ -371,6 +363,15 @@
 /area/rogue/under/cave)
 "QB" = (
 /turf/closed/wall/mineral/stone,
+/area/rogue/under/cave)
+"Sa" = (
+/obj/item/alch/golddust,
+/obj/structure/closet/crate/chest/neu_fancy,
+/obj/effect/mapping_helpers/access/locker,
+/obj/item/reagent_containers/powder/blastpowder,
+/obj/item/reagent_containers/powder/blastpowder,
+/obj/item/reagent_containers/powder/blastpowder,
+/turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/under/cave)
 "SO" = (
 /obj/structure/closet/crate/chest/wicker,
@@ -414,9 +415,8 @@
 /obj/structure/bed/hay,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/under/cave)
-"ZJ" = (
-/obj/structure/door/violet,
-/obj/effect/mapping_helpers/access/locker,
+"ZE" = (
+/obj/structure/door/swing,
 /turf/open/floor/cobblerock,
 /area/rogue/under/cave)
 "ZL" = (
@@ -556,7 +556,7 @@ Tj
 rY
 nw
 nw
-un
+FG
 QB
 Ty
 Ty
@@ -622,7 +622,7 @@ QB
 ck
 yE
 to
-ZJ
+vm
 Tj
 Ty
 Ty
@@ -640,7 +640,7 @@ mH
 mH
 Ub
 mH
-cz
+ZE
 Am
 Am
 Am
@@ -996,7 +996,7 @@ oo
 QB
 BM
 wk
-MK
+Jv
 nw
 QB
 oo
@@ -1017,7 +1017,7 @@ oo
 oo
 QB
 qO
-cn
+Sa
 yv
 nw
 QB
@@ -1107,7 +1107,7 @@ QB
 EJ
 nw
 nw
-aF
+tY
 QB
 oo
 oo

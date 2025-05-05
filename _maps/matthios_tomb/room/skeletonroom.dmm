@@ -30,13 +30,6 @@
 	},
 /turf/open/floor/wood,
 /area/rogue/under/cave)
-"hZ" = (
-/obj/structure/door/weak/bolt{
-	dir = 8
-	},
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/hexstone,
-/area/rogue/under/cave)
 "kB" = (
 /obj/structure/chair/wood/alt/chair_noble/red{
 	dir = 8
@@ -46,8 +39,10 @@
 "lg" = (
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
-"ms" = (
-/obj/structure/door/weak/bolt,
+"nk" = (
+/obj/structure/door/weak/bolt{
+	dir = 8
+	},
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
@@ -59,13 +54,6 @@
 /turf/open/floor/hexstone{
 	dir = 1
 	},
-/area/rogue/under/cave)
-"rp" = (
-/obj/structure/door/weak/bolt{
-	dir = 4
-	},
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "sE" = (
 /obj/structure/fluff/walldeco/painting/castle,
@@ -90,13 +78,6 @@
 	},
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
-"vj" = (
-/obj/structure/door/weak/bolt{
-	dir = 1
-	},
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/hexstone,
-/area/rogue/under/cave)
 "vv" = (
 /obj/structure/table/church/m,
 /obj/item/clothing/ring/active/nomag{
@@ -114,6 +95,11 @@
 	dir = 10
 	},
 /turf/open/floor/wood,
+/area/rogue/under/cave)
+"xT" = (
+/obj/structure/door/weak/bolt,
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "yY" = (
 /obj/structure/fluff/railing/border{
@@ -177,6 +163,13 @@
 /obj/structure/fluff/walldeco/painting/skull,
 /turf/closed/wall/mineral/stone,
 /area/rogue/under/cave)
+"Gs" = (
+/obj/structure/door/weak/bolt{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/hexstone,
+/area/rogue/under/cave)
 "GG" = (
 /obj/structure/fluff/walldeco/bigpainting,
 /turf/open/floor/hexstone,
@@ -197,15 +190,6 @@
 /obj/structure/chair/wood/alt/chair_noble/red,
 /turf/open/floor/wood,
 /area/rogue/under/cave)
-"KU" = (
-/obj/structure/door/weak/bolt{
-	dir = 1
-	},
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/hexstone{
-	dir = 1
-	},
-/area/rogue/under/cave)
 "Ll" = (
 /obj/effect/dungeon_directional_helper/east,
 /turf/open/floor/cobblerock,
@@ -217,6 +201,13 @@
 "LH" = (
 /obj/structure/fluff/walldeco/painting/crown,
 /turf/closed/wall/mineral/stone/moss,
+/area/rogue/under/cave)
+"NX" = (
+/obj/structure/door/weak/bolt{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "Ob" = (
 /obj/structure/chair/bench/church/mid,
@@ -257,6 +248,15 @@
 /area/rogue/under/cave)
 "RZ" = (
 /turf/open/floor/cobblerock,
+/area/rogue/under/cave)
+"Ta" = (
+/obj/structure/door/weak/bolt{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/hexstone{
+	dir = 1
+	},
 /area/rogue/under/cave)
 "Tf" = (
 /turf/closed/wall/mineral/stone/moss,
@@ -346,8 +346,8 @@ Tf
 RJ
 RJ
 RJ
-rp
-rp
+Gs
+Gs
 Tf
 RJ
 Tf
@@ -426,7 +426,7 @@ DK
 "}
 (7,1,1) = {"
 RZ
-ms
+xT
 lg
 lg
 tj
@@ -455,12 +455,12 @@ qt
 lg
 lg
 lg
-vj
+NX
 VG
 "}
 (9,1,1) = {"
 RZ
-ms
+xT
 lg
 lg
 Xm
@@ -550,8 +550,8 @@ Tf
 RJ
 RJ
 Tf
-hZ
-hZ
+nk
+nk
 Tf
 Tf
 WG
@@ -602,8 +602,8 @@ Tf
 Tf
 Tf
 Tf
-rp
-rp
+Gs
+Gs
 Tf
 Tf
 Tf
@@ -682,7 +682,7 @@ DK
 "}
 (7,1,2) = {"
 qt
-ms
+xT
 zw
 BU
 BU
@@ -694,7 +694,7 @@ BU
 BU
 zk
 Ox
-KU
+Ta
 qt
 "}
 (8,1,2) = {"
@@ -716,7 +716,7 @@ qt
 "}
 (9,1,2) = {"
 qt
-ms
+xT
 yY
 BU
 BU
@@ -728,7 +728,7 @@ BU
 BU
 aL
 Ox
-KU
+Ta
 qt
 "}
 (10,1,2) = {"
@@ -806,8 +806,8 @@ Tf
 Tf
 Tf
 Tf
-hZ
-hZ
+nk
+nk
 Tf
 Tf
 HK

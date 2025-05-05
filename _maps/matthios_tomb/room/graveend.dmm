@@ -13,6 +13,27 @@
 "e" = (
 /turf/open/floor/dirt,
 /area/rogue/under/cave)
+"f" = (
+/obj/structure/door/viewport{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/hexstone,
+/area/rogue/under/cave)
+"j" = (
+/mob/living/simple_animal/hostile/demon{
+	name = "Bonetaker";
+	base_constitution = 15;
+	base_endurance = 15;
+	base_intelligence = 15;
+	base_fortune = 15;
+	base_perception = 15;
+	base_speed = 18;
+	base_strength = 20
+	},
+/obj/effect/decal/cleanable/blood/gibs/up,
+/turf/open/floor/hexstone,
+/area/rogue/under/cave)
 "m" = (
 /obj/effect/spawner/map_spawner/loot,
 /turf/open/floor/hexstone,
@@ -115,22 +136,14 @@
 /obj/structure/closet/crate/coffin,
 /turf/open/floor/dirt,
 /area/rogue/under/cave)
-"M" = (
-/obj/effect/decal/cleanable/blood/footprints,
+"L" = (
+/obj/structure/door/viewport{
+	dir = 4
+	},
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
-"P" = (
-/mob/living/simple_animal/hostile/demon{
-	name = "Bonetaker";
-	base_constitution = 15;
-	base_endurance = 15;
-	base_intelligence = 15;
-	base_fortune = 15;
-	base_perception = 15;
-	base_speed = 18;
-	base_strength = 20
-	},
-/obj/effect/decal/cleanable/blood/gibs/up,
+"M" = (
+/obj/effect/decal/cleanable/blood/footprints,
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "Q" = (
@@ -151,13 +164,6 @@
 /mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/floor/dirt,
 /area/rogue/under/cave)
-"V" = (
-/obj/structure/door/viewport{
-	dir = 4
-	},
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/hexstone,
-/area/rogue/under/cave)
 "W" = (
 /obj/structure/table/wood/plain/alt,
 /obj/item/reagent_containers/glass/cup/golden,
@@ -165,12 +171,6 @@
 /area/rogue/under/cave)
 "X" = (
 /obj/structure/bars,
-/turf/open/floor/hexstone,
-/area/rogue/under/cave)
-"Y" = (
-/obj/structure/door/viewport{
-	dir = 4
-	},
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
 
@@ -187,7 +187,7 @@ a
 x
 x
 x
-Y
+L
 x
 x
 x
@@ -432,7 +432,7 @@ x
 u
 M
 v
-P
+j
 p
 x
 "}
@@ -523,7 +523,7 @@ x
 x
 x
 x
-V
+f
 x
 "}
 (16,1,2) = {"

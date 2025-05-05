@@ -12,6 +12,13 @@
 /obj/item/organ/heart,
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/under/cave)
+"an" = (
+/obj/structure/door/fancy,
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/turf/open/floor/churchbrick,
+/area/rogue/under/cave)
 "ap" = (
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/blocks/stonered,
@@ -23,6 +30,11 @@
 	},
 /obj/machinery/light/fueled/oven/south,
 /turf/open/floor/tile/checker,
+/area/rogue/under/cave)
+"bc" = (
+/obj/structure/door/red,
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/blocks/stonered,
 /area/rogue/under/cave)
 "bj" = (
 /mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
@@ -136,12 +148,9 @@
 /obj/item/plate,
 /turf/open/floor/tile/checker,
 /area/rogue/under/cave)
-"fl" = (
-/obj/structure/door/fancy,
-/obj/effect/decal/cleanable/blood/tracks{
-	dir = 4
-	},
-/turf/open/floor/churchbrick,
+"fu" = (
+/obj/structure/door/iron/bars,
+/turf/open/floor/dirt,
 /area/rogue/under/cave)
 "fQ" = (
 /obj/effect/decal/cleanable/blood,
@@ -260,10 +269,6 @@
 /obj/machinery/light/fueled/firebowl/standing,
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/under/cave)
-"jT" = (
-/obj/structure/door/iron/bars,
-/turf/open/floor/blocks/stonered,
-/area/rogue/under/cave)
 "kY" = (
 /obj/structure/fluff/railing/border{
 	dir = 10
@@ -310,10 +315,6 @@
 "mj" = (
 /turf/open/floor/carpet/lord/center,
 /area/rogue/under/cave)
-"mq" = (
-/obj/structure/door/iron/bars,
-/turf/open/floor/dirt,
-/area/rogue/under/cave)
 "mr" = (
 /obj/effect/decal/cleanable/blood/gibs,
 /obj/effect/decal/cleanable/blood,
@@ -345,11 +346,6 @@
 /obj/item/organ/lungs,
 /obj/item/organ/eyes,
 /turf/open/floor/blocks/stonered/tiny,
-/area/rogue/under/cave)
-"ok" = (
-/obj/structure/door/red,
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/blocks/stonered,
 /area/rogue/under/cave)
 "or" = (
 /mob/living/carbon/human/species/skeleton/npc/no_equipment,
@@ -388,12 +384,6 @@
 	layer = 2
 	},
 /turf/open/floor/blocks/stonered/tiny,
-/area/rogue/under/cave)
-"qX" = (
-/obj/effect/decal/cleanable/blood,
-/obj/structure/door/red,
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/blocks/stonered,
 /area/rogue/under/cave)
 "ra" = (
 /obj/effect/decal/cleanable/blood/drip,
@@ -583,6 +573,12 @@
 	},
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/under/cave)
+"Db" = (
+/obj/effect/decal/cleanable/blood,
+/obj/structure/door/red,
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/blocks/stonered,
+/area/rogue/under/cave)
 "DD" = (
 /obj/structure/fluff/sellsign{
 	name = "INEDIBLE PARTS"
@@ -597,6 +593,10 @@
 /obj/item/weapon/polearm/spear/stone/copper,
 /obj/item/clothing/armor/leather/vest/butcher,
 /turf/open/floor/tile/checker,
+/area/rogue/under/cave)
+"DR" = (
+/obj/structure/door/iron/bars,
+/turf/open/floor/blocks/stonered,
 /area/rogue/under/cave)
 "El" = (
 /obj/structure/table/wood/fancy/black,
@@ -1014,7 +1014,7 @@ DD
 Jl
 tJ
 WT
-ok
+bc
 Jl
 Jl
 ac
@@ -1028,7 +1028,7 @@ IZ
 gB
 Jl
 Jl
-ok
+bc
 Jl
 Jl
 DD
@@ -1041,12 +1041,12 @@ IZ
 IZ
 zT
 zT
-mq
+fu
 Jl
 Jl
 Jl
 Jl
-ok
+bc
 bj
 Jl
 dj
@@ -1060,11 +1060,11 @@ IZ
 FB
 Jl
 bj
-ok
+bc
 Jl
 Jl
 Jl
-mq
+fu
 zT
 zT
 IZ
@@ -1079,8 +1079,8 @@ Jl
 Jl
 Jl
 Lu
-ok
-qX
+bc
+Db
 Lu
 IZ
 DF
@@ -1090,8 +1090,8 @@ yr
 fg
 IZ
 Lu
-ok
-qX
+bc
+Db
 Lu
 Jl
 Jl
@@ -1148,8 +1148,8 @@ Vq
 Vq
 Eo
 IZ
-fl
-fl
+an
+an
 IZ
 IZ
 Eo
@@ -1361,7 +1361,7 @@ IZ
 Jl
 Jl
 Jl
-jT
+DR
 Jl
 Jl
 Jl
@@ -1384,7 +1384,7 @@ Vq
 Jl
 Jl
 Jl
-jT
+DR
 Jl
 Jl
 Jl
@@ -1425,7 +1425,7 @@ ap
 Jl
 Jl
 Jl
-jT
+DR
 Jl
 tJ
 Jl
@@ -1448,7 +1448,7 @@ Vq
 Jl
 Jl
 Jl
-jT
+DR
 Jl
 Jl
 Jl
@@ -1819,11 +1819,11 @@ Jl
 Jl
 Jl
 Jl
-jT
+DR
 Ar
 Jl
 Ar
-jT
+DR
 Jl
 Jl
 Jl
@@ -1851,11 +1851,11 @@ Jl
 Jl
 Jl
 Jl
-jT
+DR
 Jl
 Jl
 WT
-jT
+DR
 Jl
 Jl
 Jl

@@ -30,15 +30,18 @@
 /obj/effect/decal/cleanable/sigil/NW,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter)
+"gp" = (
+/obj/item/soap{
+	pixel_x = -3;
+	pixel_y = -5
+	},
+/obj/structure/door/swing,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/indoors/shelter)
 "gI" = (
 /obj/structure/stairs,
 /turf/open/floor/tile,
 /area/rogue/under/cavewet)
-"hi" = (
-/obj/structure/door/fancy,
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors/shelter)
 "hR" = (
 /obj/machinery/light/fueled/wallfire/candle/blue/r,
 /turf/open/floor/ruinedwood/spiral,
@@ -47,23 +50,18 @@
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/dirt,
 /area/rogue/under/cave)
-"kt" = (
-/obj/structure/door/fancy,
-/obj/effect/mapping_helpers/access/locker,
+"kc" = (
 /obj/item/soap/bath{
 	pixel_y = -5
 	},
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors/shelter)
+/turf/open/water/bath,
+/area/rogue/under/cavewet)
 "kJ" = (
 /mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/water/bath,
 /area/rogue/under/cavewet)
-"lf" = (
+"lk" = (
 /obj/structure/door/swing,
-/obj/item/soap/bath{
-	pixel_y = -5
-	},
 /turf/open/floor/tile,
 /area/rogue/under/cavewet)
 "mh" = (
@@ -118,16 +116,30 @@
 /mob/living/carbon/human/species/skeleton/npc/peasant,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter)
+"ru" = (
+/obj/structure/door/swing,
+/obj/item/soap/bath{
+	pixel_y = -5
+	},
+/turf/open/floor/tile,
+/area/rogue/under/cavewet)
+"rB" = (
+/obj/structure/door/fancy,
+/obj/effect/mapping_helpers/access/locker,
+/obj/item/soap/bath{
+	pixel_y = -5
+	},
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/indoors/shelter)
 "sm" = (
 /mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter)
-"tB" = (
-/obj/item/soap/bath{
-	pixel_y = -5
-	},
-/turf/open/water/bath,
-/area/rogue/under/cavewet)
+"sx" = (
+/obj/structure/door/fancy,
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/indoors/shelter)
 "tE" = (
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/dirt,
@@ -170,13 +182,6 @@
 "xY" = (
 /mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/floor/tile,
-/area/rogue/under/cavewet)
-"ze" = (
-/obj/item/soap/bath{
-	pixel_y = -5
-	},
-/mob/living/carbon/human/species/skeleton/npc/ambush,
-/turf/open/water/bath,
 /area/rogue/under/cavewet)
 "zi" = (
 /obj/structure/bed/shit,
@@ -243,10 +248,6 @@
 /mob/living/carbon/human/species/skeleton/npc/warrior,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter)
-"Ja" = (
-/obj/structure/door/swing,
-/turf/open/floor/tile,
-/area/rogue/under/cavewet)
 "JI" = (
 /turf/open/water/swamp/deep,
 /area/rogue/under/cave)
@@ -332,17 +333,16 @@
 "RG" = (
 /turf/closed/mineral/bedrock,
 /area/rogue/under/cave)
-"Ta" = (
-/obj/item/soap{
-	pixel_x = -3;
-	pixel_y = -5
-	},
-/obj/structure/door/swing,
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors/shelter)
 "TQ" = (
 /turf/open/transparent/openspace,
 /area/rogue/under/cave)
+"UB" = (
+/obj/item/soap/bath{
+	pixel_y = -5
+	},
+/mob/living/carbon/human/species/skeleton/npc/ambush,
+/turf/open/water/bath,
+/area/rogue/under/cavewet)
 "UT" = (
 /turf/open/water/bath,
 /area/rogue/under/cavewet)
@@ -465,14 +465,14 @@ JI
 YZ
 UT
 UT
-tB
+kc
 vx
-Ja
+lk
 cV
 cV
-Ja
+lk
 vx
-tB
+kc
 UT
 UT
 YZ
@@ -485,7 +485,7 @@ RG
 mF
 JI
 YZ
-ze
+UB
 UT
 UT
 vx
@@ -517,7 +517,7 @@ cV
 YZ
 vx
 UT
-ze
+UB
 UT
 YZ
 JI
@@ -551,7 +551,7 @@ RG
 mF
 JI
 YZ
-lf
+ru
 YZ
 YZ
 YZ
@@ -562,7 +562,7 @@ vx
 YZ
 YZ
 YZ
-lf
+ru
 YZ
 JI
 mF
@@ -617,7 +617,7 @@ RG
 mF
 JI
 YZ
-Ja
+lk
 YZ
 YZ
 YZ
@@ -628,7 +628,7 @@ vx
 YZ
 YZ
 YZ
-Ja
+lk
 YZ
 JI
 mF
@@ -663,7 +663,7 @@ JI
 YZ
 Mj
 UT
-tB
+kc
 vx
 YZ
 cV
@@ -672,7 +672,7 @@ YZ
 Yy
 UT
 UT
-tB
+kc
 YZ
 JI
 mF
@@ -692,7 +692,7 @@ cV
 cV
 YZ
 vx
-tB
+kc
 UT
 kJ
 YZ
@@ -709,10 +709,10 @@ UT
 UT
 UT
 vx
-lf
+ru
 cV
 cV
-lf
+ru
 vx
 UT
 kJ
@@ -993,7 +993,7 @@ TQ
 uR
 Ey
 Ey
-Ta
+gp
 Ey
 Ey
 nn
@@ -1002,7 +1002,7 @@ nn
 nn
 Ey
 Ey
-kt
+rB
 Ey
 Ey
 Yr
@@ -1059,7 +1059,7 @@ TQ
 uR
 Ey
 Ey
-hi
+sx
 Ey
 Ey
 nn
@@ -1068,7 +1068,7 @@ nn
 nn
 Ey
 Ey
-hi
+sx
 Ey
 Ey
 Yr

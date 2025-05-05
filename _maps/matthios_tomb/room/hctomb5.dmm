@@ -164,6 +164,12 @@
 	},
 /turf/open/floor/cobble,
 /area/rogue/indoors/shelter)
+"sS" = (
+/obj/structure/door/weak/bolt{
+	dir = 1
+	},
+/turf/open/floor/blocks,
+/area/rogue/indoors/shelter)
 "tc" = (
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/shelter)
@@ -171,18 +177,6 @@
 /obj/machinery/light/fueled/torchholder/l,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/blocks,
-/area/rogue/indoors/shelter)
-"tS" = (
-/obj/structure/door/stone,
-/turf/open/floor/herringbone,
-/area/rogue/indoors/shelter)
-"uN" = (
-/obj/structure/door/weak/bolt{
-	dir = 1
-	},
-/obj/effect/mapping_helpers/access/locker,
-/obj/effect/decal/shadow_floor,
 /turf/open/floor/blocks,
 /area/rogue/indoors/shelter)
 "uS" = (
@@ -201,10 +195,6 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobble,
-/area/rogue/indoors/shelter)
-"vy" = (
-/obj/structure/door/red,
-/turf/open/floor/blocks,
 /area/rogue/indoors/shelter)
 "vK" = (
 /turf/closed/wall/mineral/decostone/cand,
@@ -263,22 +253,26 @@
 "zG" = (
 /turf/open/floor/cobblerock,
 /area/rogue/under/cave)
-"Af" = (
-/obj/structure/table/stone_small,
-/obj/item/reagent_containers/glass/mortar{
-	pixel_y = 9
-	},
-/turf/open/floor/cobble,
-/area/rogue/indoors/shelter)
 "AC" = (
 /obj/structure/trap/wall_projectile{
 	dir = 4
 	},
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave)
-"Cs" = (
-/obj/structure/door/red,
-/turf/open/floor/wood/nosmooth,
+"AQ" = (
+/obj/structure/door/weak/bolt{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/access/locker,
+/obj/effect/decal/shadow_floor,
+/turf/open/floor/blocks,
+/area/rogue/indoors/shelter)
+"CH" = (
+/obj/structure/table/stone_small,
+/obj/item/reagent_containers/glass/mortar{
+	pixel_y = 9
+	},
+/turf/open/floor/cobble,
 /area/rogue/indoors/shelter)
 "CJ" = (
 /obj/machinery/light/fueled/lanternpost{
@@ -317,16 +311,14 @@
 /obj/effect/decal/shadow_floor,
 /turf/open/floor/blocks,
 /area/rogue/indoors/shelter)
+"Gp" = (
+/obj/structure/door/red,
+/turf/open/floor/wood/nosmooth,
+/area/rogue/indoors/shelter)
 "Ha" = (
 /obj/structure/roguerock,
 /turf/open/floor/cobblerock,
 /area/rogue/under/cave)
-"HE" = (
-/obj/structure/door/weak/bolt{
-	dir = 1
-	},
-/turf/open/floor/blocks,
-/area/rogue/indoors/shelter)
 "HT" = (
 /turf/closed/wall/mineral/stone,
 /area/rogue/indoors/shelter)
@@ -371,6 +363,10 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobble,
+/area/rogue/indoors/shelter)
+"Nr" = (
+/obj/structure/door/stone,
+/turf/open/floor/herringbone,
 /area/rogue/indoors/shelter)
 "NE" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -458,6 +454,10 @@
 /obj/structure/stairs/stone,
 /obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/floor/cobble,
+/area/rogue/indoors/shelter)
+"ZB" = (
+/obj/structure/door/red,
+/turf/open/floor/blocks,
 /area/rogue/indoors/shelter)
 "ZV" = (
 /turf/open/floor/blocks,
@@ -729,7 +729,7 @@ Xe
 "}
 (13,1,1) = {"
 HT
-Af
+CH
 yJ
 Sf
 HT
@@ -776,11 +776,11 @@ HT
 bW
 nV
 fC
-uN
+AQ
 Vk
 ZV
 ZV
-HE
+sS
 Sk
 Sk
 Sk
@@ -843,7 +843,7 @@ fC
 NE
 Pt
 zc
-vy
+ZB
 Vk
 aw
 HT
@@ -1230,7 +1230,7 @@ Xe
 Xe
 WQ
 WQ
-tS
+Nr
 WQ
 WQ
 "}
@@ -1242,7 +1242,7 @@ iP
 XH
 Vo
 Vo
-Cs
+Gp
 HT
 eg
 eg

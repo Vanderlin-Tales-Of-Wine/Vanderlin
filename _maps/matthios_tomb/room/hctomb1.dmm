@@ -29,6 +29,12 @@
 /mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter)
+"bX" = (
+/obj/structure/door,
+/turf/open/floor/metal{
+	icon_state = "plating2"
+	},
+/area/rogue/indoors/shelter)
 "bZ" = (
 /mob/living/carbon/human/species/orc/ambush,
 /turf/open/floor/dirt/road,
@@ -166,7 +172,7 @@
 /obj/structure/bars,
 /turf/open/floor/cobble/alt,
 /area/rogue/indoors/shelter)
-"jR" = (
+"jt" = (
 /obj/structure/barricade/wooden,
 /turf/open/floor/dirt/road,
 /area/rogue/under)
@@ -267,11 +273,6 @@
 "qw" = (
 /turf/open/floor/ruinedwood/turned,
 /area/rogue/under)
-"qH" = (
-/obj/structure/door/green,
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/hexstone,
-/area/rogue/indoors/shelter)
 "qI" = (
 /turf/open/floor/dirt/road,
 /area/rogue/under)
@@ -297,6 +298,11 @@
 /obj/structure/table/wood/nice/decorated_alt,
 /obj/item/organ/eyes,
 /turf/open/floor/ruinedwood/darker,
+/area/rogue/indoors/shelter)
+"rE" = (
+/obj/structure/door/green,
+/obj/item/restraints/legcuffs/beartrap/armed/camouflage,
+/turf/open/floor/hexstone,
 /area/rogue/indoors/shelter)
 "rX" = (
 /obj/machinery/light/fueled/torchholder/l,
@@ -388,11 +394,6 @@
 /obj/item/weapon/hammer/iron,
 /turf/open/floor/cobble/alt,
 /area/rogue/indoors/shelter)
-"xR" = (
-/obj/structure/door/green,
-/obj/item/restraints/legcuffs/beartrap/armed/camouflage,
-/turf/open/floor/hexstone,
-/area/rogue/indoors/shelter)
 "yd" = (
 /turf/open/floor/hexstone,
 /area/rogue/indoors/shelter)
@@ -404,12 +405,6 @@
 /obj/structure/flora/grass/water,
 /turf/open/water/cleanshallow,
 /area/rogue/under)
-"yK" = (
-/obj/structure/door,
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
-/area/rogue/indoors/shelter)
 "yS" = (
 /turf/open/floor/concrete,
 /area/rogue/indoors/shelter)
@@ -433,6 +428,10 @@
 /obj/structure/table/wood/treestump/shroomstump,
 /turf/open/floor/dirt,
 /area/rogue/under)
+"zt" = (
+/obj/structure/door,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/indoors/shelter)
 "zz" = (
 /mob/living/carbon/human/species/skeleton/npc/no_equipment,
 /obj/effect/decal/cleanable/vomit/old{
@@ -452,12 +451,6 @@
 /obj/item/natural/rock/random,
 /turf/open/floor/naturalstone,
 /area/rogue/indoors/shelter)
-"Bk" = (
-/obj/structure/door/viewport{
-	door_opened = 1
-	},
-/turf/open/floor/ruinedwood/spiralfade,
-/area/rogue/indoors/shelter)
 "Bx" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/metal/barograte,
@@ -469,6 +462,11 @@
 "BX" = (
 /turf/open/floor/naturalstone,
 /area/rogue/under)
+"Cp" = (
+/obj/structure/door/green,
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/hexstone,
+/area/rogue/indoors/shelter)
 "CC" = (
 /obj/item/grown/log/tree/stick,
 /turf/open/floor/dirt,
@@ -483,6 +481,17 @@
 "Dd" = (
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/cobble,
+/area/rogue/indoors/shelter)
+"DA" = (
+/obj/structure/door/viewport,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/indoors/shelter)
+"Ec" = (
+/obj/structure/door/viewport{
+	door_opened = 1
+	},
+/turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/shelter)
 "Ei" = (
 /obj/structure/closet/crate/chest/crate,
@@ -506,10 +515,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/shelter)
-"EQ" = (
-/obj/structure/barricade/wooden,
-/turf/open/floor/dirt,
-/area/rogue/under)
 "Fg" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 10
@@ -743,6 +748,12 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/shelter)
+"Qr" = (
+/obj/structure/door/iron/bars,
+/turf/open/floor/metal{
+	icon_state = "plating2"
+	},
+/area/rogue/indoors/shelter)
 "Qy" = (
 /obj/effect/decal/cobbleedge/alt,
 /turf/open/floor/cobblerock,
@@ -795,12 +806,6 @@
 "Se" = (
 /turf/open/floor/dirt,
 /area/rogue/under)
-"SF" = (
-/obj/structure/door/iron/bars,
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
-/area/rogue/indoors/shelter)
 "SG" = (
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/hexstone,
@@ -823,10 +828,6 @@
 "Tu" = (
 /obj/item/bin/water/gross,
 /turf/open/floor/blocks/paving,
-/area/rogue/indoors/shelter)
-"Uh" = (
-/obj/structure/door,
-/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter)
 "Ur" = (
 /obj/machinery/light/fueled/forge,
@@ -874,6 +875,10 @@
 /obj/effect/decal/cleanable/blood/gibs/old,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/shelter)
+"Wg" = (
+/obj/structure/barricade/wooden,
+/turf/open/floor/dirt,
+/area/rogue/under)
 "Wr" = (
 /obj/structure/rack,
 /obj/effect/spawner/map_spawner/loot/armor,
@@ -903,11 +908,6 @@
 	dir = 4
 	},
 /obj/structure/chair/wood/alt/chair3,
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors/shelter)
-"YD" = (
-/obj/structure/door/viewport,
-/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter)
 "YU" = (
@@ -1110,7 +1110,7 @@ iM
 OJ
 OJ
 iM
-xR
+rE
 iM
 OJ
 OJ
@@ -1335,7 +1335,7 @@ iM
 OJ
 iM
 iM
-qH
+Cp
 iM
 iM
 BX
@@ -1656,8 +1656,8 @@ mt
 qI
 QH
 QH
-yK
-yK
+bX
+bX
 QH
 RM
 Kj
@@ -1809,9 +1809,9 @@ aY
 aY
 aY
 Jg
-jR
-jR
-EQ
+jt
+jt
+Wg
 Jg
 BX
 BX
@@ -2488,7 +2488,7 @@ Pn
 Pn
 Pn
 QH
-SF
+Qr
 HX
 HX
 QH
@@ -2619,7 +2619,7 @@ QH
 RM
 Kj
 QH
-Uh
+zt
 iM
 tJ
 RM
@@ -2650,7 +2650,7 @@ Pn
 Pn
 iO
 sZ
-Bk
+Ec
 ij
 ij
 vw
@@ -2682,7 +2682,7 @@ Pn
 Pn
 iO
 sZ
-YD
+DA
 ij
 vw
 Qf

@@ -6,6 +6,20 @@
 /obj/structure/chair/stool,
 /turf/open/floor/naturalstone,
 /area/rogue/indoors/cave)
+"ai" = (
+/obj/structure/door{
+	name = "Thatchwood Smithy";
+	lockid = "oldsmith"
+	},
+/turf/open/floor/blocks,
+/area/rogue/indoors)
+"aH" = (
+/obj/structure/door/swing,
+/obj/structure/fluff/walldeco/wantedposter,
+/turf/open/floor/ruinedwood{
+	icon_state = "vertw"
+	},
+/area/rogue/indoors)
 "aI" = (
 /obj/structure/fake_machine/scomm{
 	pixel_x = -32;
@@ -60,6 +74,12 @@
 /obj/structure/stairs{
 	dir = 4
 	},
+/turf/open/floor/ruinedwood{
+	icon_state = "horzw"
+	},
+/area/rogue/indoors)
+"br" = (
+/obj/structure/door/weak/bolt,
 /turf/open/floor/ruinedwood{
 	icon_state = "horzw"
 	},
@@ -145,12 +165,10 @@
 /obj/structure/fluff/railing/border,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors)
-"de" = (
-/obj/structure/door/weak/bolt{
-	dir = 1
-	},
-/turf/open/floor/dirt,
-/area/rogue/outdoors/woods)
+"db" = (
+/obj/structure/door/weak/bolt,
+/turf/open/floor/grass,
+/area/rogue/indoors)
 "dh" = (
 /obj/machinery/light/fueled/campfire/longlived,
 /turf/open/floor/naturalstone,
@@ -301,6 +319,14 @@
 	},
 /turf/open/floor/wood,
 /area/rogue/indoors)
+"fl" = (
+/obj/structure/door{
+	lockid = "oldinn1";
+	name = "Room I"
+	},
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/wood,
+/area/rogue/indoors)
 "fz" = (
 /turf/closed,
 /area/rogue/outdoors/mountains)
@@ -348,12 +374,6 @@
 /obj/machinery/light/fueled/smelter,
 /turf/open/floor/cobblerock,
 /area/rogue/indoors)
-"gd" = (
-/obj/structure/door/weak/bolt,
-/turf/open/floor/twig{
-	dir = 4
-	},
-/area/rogue/indoors)
 "go" = (
 /obj/structure/closet/crate/chest/wicker,
 /obj/item/neuFarm/seed/cabbage,
@@ -367,6 +387,14 @@
 /obj/structure/flora/grass/bush,
 /turf/open/floor/grass,
 /area/rogue/outdoors/woods_safe)
+"gu" = (
+/obj/structure/door/weak/bolt{
+	dir = 8
+	},
+/turf/open/floor/twig{
+	dir = 4
+	},
+/area/rogue/indoors)
 "gy" = (
 /obj/structure/stairs/stone,
 /turf/open/floor/cobble,
@@ -383,10 +411,6 @@
 /obj/machinery/light/fueled/hearth,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood,
-/area/rogue/indoors)
-"gN" = (
-/obj/structure/door/weak/bolt,
-/turf/open/floor/grass,
 /area/rogue/indoors)
 "gS" = (
 /obj/structure/closet/crate/crafted_closet/inn,
@@ -430,19 +454,26 @@
 	icon_state = "horzw"
 	},
 /area/rogue/indoors)
+"hs" = (
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
+/obj/effect/mapping_helpers/access/locker,
+/obj/structure/door/viewport{
+	dir = 8
+	},
+/turf/open/floor/blocks,
+/area/rogue/indoors)
 "hx" = (
 /obj/machinery/light/fueled/torchholder{
 	pixel_y = 26
 	},
 /turf/open/floor/dirt,
 /area/rogue/outdoors/woods)
-"hB" = (
+"hC" = (
 /obj/structure/door{
-	lockid = "oldinn1";
-	name = "Room I"
+	lockid = "oldfarm"
 	},
 /obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/wood,
+/turf/open/floor/woodturned,
 /area/rogue/indoors)
 "hD" = (
 /obj/structure/stairs/stone{
@@ -489,12 +520,6 @@
 /obj/machinery/light/fueled/forge,
 /turf/open/floor/cobblerock,
 /area/rogue/indoors)
-"iY" = (
-/obj/structure/door{
-	lockid = "oldfarm"
-	},
-/turf/open/floor/woodturned,
-/area/rogue/indoors)
 "jc" = (
 /obj/structure/flora/grass,
 /obj/structure/fluff/railing/wood,
@@ -523,14 +548,6 @@
 	},
 /turf/open/floor/dirt,
 /area/rogue/outdoors/woods)
-"jj" = (
-/obj/effect/mapping_helpers/access/keyset/garrison/forest,
-/obj/effect/mapping_helpers/access/locker,
-/obj/structure/door/viewport{
-	dir = 8
-	},
-/turf/open/floor/blocks,
-/area/rogue/indoors)
 "jB" = (
 /obj/structure/fluff/railing/wood{
 	dir = 8;
@@ -588,6 +605,14 @@
 /obj/machinery/light/fueled/campfire/longlived,
 /turf/open/floor/grass,
 /area/rogue/outdoors/woods)
+"kd" = (
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
+/obj/effect/mapping_helpers/access/locker,
+/obj/structure/door/green{
+	name = "Thatchwood Barracks"
+	},
+/turf/open/floor/blocks,
+/area/rogue/indoors)
 "kf" = (
 /obj/structure/innocent_bush,
 /turf/open/floor/dirt,
@@ -681,6 +706,14 @@
 	},
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/outdoors/mountains)
+"lh" = (
+/obj/structure/door/weak/bolt{
+	dir = 1
+	},
+/turf/open/floor/ruinedwood{
+	icon_state = "horzw"
+	},
+/area/rogue/indoors)
 "ll" = (
 /turf/closed/indestructible/wooddark,
 /area/rogue/outdoors/woods)
@@ -783,13 +816,6 @@
 	},
 /turf/open/floor/grass,
 /area/rogue/outdoors/woods_safe)
-"mZ" = (
-/obj/structure/door/swing,
-/obj/structure/fluff/walldeco/wantedposter,
-/turf/open/floor/ruinedwood{
-	icon_state = "vertw"
-	},
-/area/rogue/indoors)
 "na" = (
 /obj/structure/table/wood/plain_alt,
 /obj/item/paper,
@@ -942,13 +968,17 @@
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/grass,
 /area/rogue/outdoors/woods_safe)
-"pg" = (
-/obj/structure/door{
-	lockid = "oldinn2";
-	name = "Room II"
+"oY" = (
+/obj/structure/door/weak/bolt{
+	dir = 1
 	},
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/wood,
+/turf/open/floor/twig,
+/area/rogue/indoors)
+"pc" = (
+/obj/structure/door{
+	lockid = "oldfarm"
+	},
+/turf/open/floor/woodturned,
 /area/rogue/indoors)
 "ph" = (
 /obj/machinery/light/fueled/wallfire/candle{
@@ -963,6 +993,14 @@
 /obj/item/reagent_containers/glass/bucket/wooden,
 /turf/open/floor/wood,
 /area/rogue/indoors)
+"pk" = (
+/obj/structure/door{
+	lockid = "oldinn3";
+	name = "Side Room"
+	},
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/twig,
+/area/rogue/indoors)
 "pn" = (
 /obj/structure/flora/newtree,
 /turf/open/floor/dirt,
@@ -976,14 +1014,6 @@
 /obj/structure/fluff/railing/fence,
 /turf/open/floor/grass,
 /area/rogue/outdoors/woods)
-"pA" = (
-/obj/structure/door/weak/bolt{
-	dir = 8
-	},
-/turf/open/floor/twig{
-	dir = 4
-	},
-/area/rogue/indoors)
 "pC" = (
 /obj/structure/kneestingers,
 /turf/open/water/swamp/deep,
@@ -1056,6 +1086,12 @@
 /turf/open/floor/twig{
 	dir = 8
 	},
+/area/rogue/indoors)
+"ql" = (
+/obj/structure/door/window{
+	name = "The Fermented Cackleberry Inn"
+	},
+/turf/open/floor/woodturned,
 /area/rogue/indoors)
 "qB" = (
 /obj/machinery/light/fueled/torchholder/l,
@@ -1178,12 +1214,6 @@
 /obj/effect/spawner/map_spawner/stump,
 /turf/open/floor/grass,
 /area/rogue/outdoors/woods)
-"sZ" = (
-/obj/structure/door/weak/bolt,
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
-/area/rogue/indoors)
 "ti" = (
 /obj/structure/stairs/stone{
 	dir = 8
@@ -1235,12 +1265,6 @@
 /obj/structure/flora/newtree,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/woods)
-"ui" = (
-/obj/structure/door/weak/bolt{
-	dir = 1
-	},
-/turf/open/floor/dirt,
-/area/rogue/indoors)
 "um" = (
 /obj/structure/fluff/walldeco/wantedposter{
 	pixel_y = -32
@@ -1264,14 +1288,12 @@
 "ut" = (
 /turf/closed/wall/mineral/tent,
 /area/rogue/indoors/cave)
-"uL" = (
-/obj/effect/mapping_helpers/access/keyset/garrison/forest,
-/obj/effect/mapping_helpers/access/locker,
-/obj/structure/door/green{
-	name = "Thatchwood Garrison"
+"uN" = (
+/obj/structure/door/weak/bolt{
+	dir = 1
 	},
-/turf/open/floor/blocks,
-/area/rogue/indoors)
+/turf/open/floor/dirt,
+/area/rogue/outdoors/woods)
 "vc" = (
 /obj/structure/closet/crate/crafted_closet,
 /obj/item/natural/cloth,
@@ -1284,6 +1306,12 @@
 /obj/structure/bed/sleepingbag,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/twig,
+/area/rogue/indoors)
+"vg" = (
+/obj/structure/door/weak/bolt{
+	dir = 1
+	},
+/turf/open/floor/dirt,
 /area/rogue/indoors)
 "vm" = (
 /obj/structure/fluff/railing/fence,
@@ -1467,12 +1495,6 @@
 	},
 /turf/open/floor/dirt,
 /area/rogue/outdoors/woods)
-"xU" = (
-/obj/structure/door{
-	lockid = "oldsmith"
-	},
-/turf/open/floor/blocks,
-/area/rogue/indoors)
 "xV" = (
 /obj/structure/well,
 /turf/open/floor/dirt,
@@ -1502,6 +1524,18 @@
 /area/rogue/outdoors/woods_safe)
 "yB" = (
 /turf/open/floor/cobble,
+/area/rogue/indoors)
+"yG" = (
+/obj/structure/door/weak/bolt,
+/turf/open/floor/twig{
+	dir = 4
+	},
+/area/rogue/indoors)
+"yJ" = (
+/obj/structure/door/weak/bolt{
+	dir = 8
+	},
+/turf/open/transparent/openspace,
 /area/rogue/indoors)
 "yV" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -1552,6 +1586,19 @@
 	},
 /turf/open/floor/dirt,
 /area/rogue/outdoors/woods)
+"zo" = (
+/obj/structure/rack,
+/obj/item/ingot/copper{
+	pixel_x = -2
+	},
+/obj/item/ingot/copper{
+	pixel_x = -8
+	},
+/obj/item/ingot/tin{
+	pixel_x = 7
+	},
+/turf/open/floor/cobble,
+/area/rogue/indoors)
 "zu" = (
 /obj/structure/bed/sleepingbag,
 /turf/open/floor/naturalstone,
@@ -1561,12 +1608,6 @@
 /turf/open/floor/ruinedwood{
 	icon_state = "horzw"
 	},
-/area/rogue/indoors)
-"zK" = (
-/obj/structure/door/window{
-	name = "The Fermented Cackleberry Inn"
-	},
-/turf/open/floor/woodturned,
 /area/rogue/indoors)
 "zR" = (
 /obj/item/reagent_containers/food/snacks/smallrat,
@@ -1598,14 +1639,6 @@
 "Aj" = (
 /turf/open/water/cleanshallow,
 /area/rogue/outdoors/woods)
-"As" = (
-/obj/effect/mapping_helpers/access/keyset/garrison/forest,
-/obj/effect/mapping_helpers/access/locker,
-/obj/structure/door/green{
-	name = "Thatchwood Barracks"
-	},
-/turf/open/floor/blocks,
-/area/rogue/indoors)
 "Aw" = (
 /obj/structure/fluff/signage{
 	dir = 1;
@@ -1622,6 +1655,14 @@
 /obj/structure/flora/newtree,
 /turf/open/floor/grass,
 /area/rogue/outdoors/woods_safe)
+"AG" = (
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
+/obj/effect/mapping_helpers/access/locker,
+/obj/structure/door/green{
+	name = "Thatchwood Garrison"
+	},
+/turf/open/floor/blocks,
+/area/rogue/indoors)
 "AH" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood{
@@ -1722,6 +1763,12 @@
 	},
 /turf/open/floor/dirt,
 /area/rogue/outdoors/woods_safe)
+"CT" = (
+/obj/structure/door{
+	lockid = "oldsmith"
+	},
+/turf/open/floor/blocks,
+/area/rogue/indoors)
 "CU" = (
 /turf/closed/mineral/random/high,
 /area/rogue/indoors/cave)
@@ -2036,16 +2083,18 @@
 /obj/structure/closet/crate/chest/neu,
 /turf/open/floor/twig,
 /area/rogue/indoors)
-"IR" = (
-/obj/structure/door/weak/bolt{
-	dir = 1
-	},
-/turf/open/floor/twig,
-/area/rogue/indoors)
 "IV" = (
 /obj/machinery/light/fueled/firebowl/stump,
 /turf/open/floor/grass,
 /area/rogue/outdoors/woods_safe)
+"IZ" = (
+/obj/structure/door{
+	lockid = "oldinn2";
+	name = "Room II"
+	},
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/wood,
+/area/rogue/indoors)
 "Ja" = (
 /obj/structure/flora/grass,
 /turf/open/floor/grass,
@@ -2211,14 +2260,6 @@
 "LT" = (
 /turf/open/floor/grass,
 /area/rogue/indoors)
-"LW" = (
-/obj/structure/door/weak/bolt{
-	dir = 1
-	},
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
-/area/rogue/indoors)
 "LY" = (
 /turf/closed/wall/mineral/wooddark,
 /area/rogue/outdoors/woods)
@@ -2265,6 +2306,12 @@
 "MN" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood,
+/area/rogue/indoors)
+"MT" = (
+/obj/structure/door/weak/bolt{
+	dir = 1
+	},
+/turf/open/transparent/openspace,
 /area/rogue/indoors)
 "Nn" = (
 /turf/open/floor/naturalstone,
@@ -2340,14 +2387,6 @@
 /turf/open/floor/ruinedwood{
 	icon_state = "vertw"
 	},
-/area/rogue/indoors)
-"OC" = (
-/obj/structure/door{
-	lockid = "oldinn3";
-	name = "Side Room"
-	},
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/twig,
 /area/rogue/indoors)
 "OD" = (
 /obj/structure/rack/shelf/big{
@@ -2482,13 +2521,6 @@
 "Rh" = (
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/mountains)
-"Ro" = (
-/obj/structure/door{
-	name = "Thatchwood Smithy";
-	lockid = "oldsmith"
-	},
-/turf/open/floor/blocks,
-/area/rogue/indoors)
 "Rq" = (
 /obj/structure/closet/crate/crafted_closet/inn,
 /obj/effect/decal/cleanable/dirt/cobweb,
@@ -2527,19 +2559,6 @@
 /obj/machinery/light/fueled/campfire/longlived,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/woods)
-"RJ" = (
-/obj/structure/rack,
-/obj/item/ingot/copper{
-	pixel_x = -2
-	},
-/obj/item/ingot/copper{
-	pixel_x = -8
-	},
-/obj/item/ingot/tin{
-	pixel_x = 7
-	},
-/turf/open/floor/cobble,
-/area/rogue/indoors)
 "RM" = (
 /obj/effect/landmark/start/lich,
 /turf/open/floor/grass,
@@ -2547,12 +2566,6 @@
 "Sb" = (
 /turf/open/floor/cobble,
 /area/rogue/outdoors/mountains)
-"Sd" = (
-/obj/structure/door/weak/bolt{
-	dir = 8
-	},
-/turf/open/transparent/openspace,
-/area/rogue/indoors)
 "Sf" = (
 /obj/structure/chair/wood/alt/chair3{
 	dir = 8
@@ -2573,13 +2586,6 @@
 "Su" = (
 /turf/closed/mineral/bedrock,
 /area/rogue/outdoors/mountains)
-"Sv" = (
-/obj/structure/door{
-	lockid = "oldfarm"
-	},
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/woodturned,
-/area/rogue/indoors)
 "Sy" = (
 /turf/closed/mineral/bedrock,
 /area/rogue/outdoors/woods)
@@ -2603,6 +2609,12 @@
 	dir = 8
 	},
 /area/rogue/outdoors/mountains)
+"Tc" = (
+/obj/structure/door/weak/bolt{
+	dir = 4
+	},
+/turf/open/transparent/openspace,
+/area/rogue/indoors)
 "Tg" = (
 /obj/structure/fluff/railing/fence{
 	dir = 1
@@ -2854,12 +2866,6 @@
 "Xw" = (
 /turf/open/water,
 /area/rogue/outdoors/woods)
-"XE" = (
-/obj/structure/door/weak/bolt{
-	dir = 4
-	},
-/turf/open/transparent/openspace,
-/area/rogue/indoors)
 "XH" = (
 /obj/structure/fluff/railing/wood{
 	dir = 1
@@ -2872,12 +2878,6 @@
 	dir = 8
 	},
 /turf/open/floor/twig,
-/area/rogue/indoors)
-"Yg" = (
-/obj/structure/door/weak/bolt{
-	dir = 1
-	},
-/turf/open/transparent/openspace,
 /area/rogue/indoors)
 "Yv" = (
 /obj/effect/landmark/start/adventurer,
@@ -5410,7 +5410,7 @@ wV
 Qd
 Qd
 wV
-sZ
+br
 hg
 hg
 SA
@@ -7229,7 +7229,7 @@ wV
 wV
 wV
 UR
-gN
+db
 hg
 hg
 hg
@@ -23401,7 +23401,7 @@ Xk
 bX
 fV
 fV
-Sv
+hC
 bX
 fV
 ov
@@ -23604,7 +23604,7 @@ ov
 mH
 Nu
 Nu
-gd
+yG
 SA
 SA
 kC
@@ -24208,7 +24208,7 @@ UR
 wV
 bX
 fV
-iY
+pc
 fV
 bX
 ov
@@ -24560,7 +24560,7 @@ wV
 bX
 hg
 hg
-ui
+vg
 wV
 cA
 Qd
@@ -25465,7 +25465,7 @@ fK
 EB
 hg
 hg
-LW
+lh
 cA
 cA
 cA
@@ -26419,7 +26419,7 @@ UR
 wV
 ll
 Tl
-de
+uN
 Qd
 UR
 Xk
@@ -28846,7 +28846,7 @@ WK
 mH
 Iq
 Mk
-IR
+oY
 Rs
 Rs
 VE
@@ -29294,7 +29294,7 @@ wV
 RD
 ee
 hg
-ui
+vg
 wV
 wV
 wV
@@ -29661,7 +29661,7 @@ Rs
 Wf
 PK
 jJ
-pA
+gu
 jJ
 Wf
 Wf
@@ -29872,7 +29872,7 @@ Wf
 aP
 aP
 VE
-xU
+CT
 jJ
 jJ
 Rs
@@ -30275,10 +30275,10 @@ Ic
 Wf
 aP
 gb
-RJ
+zo
 lo
 sw
-Ro
+ai
 Ic
 Rs
 Rs
@@ -31271,7 +31271,7 @@ WK
 AO
 qj
 RB
-IR
+oY
 Rs
 Wf
 Ic
@@ -33491,7 +33491,7 @@ Ja
 ov
 SJ
 yV
-hB
+fl
 MN
 VE
 Rq
@@ -33895,7 +33895,7 @@ Ja
 ov
 eG
 yV
-pg
+IZ
 Nu
 VE
 ri
@@ -34111,7 +34111,7 @@ Ic
 um
 jJ
 VE
-As
+kd
 VE
 VE
 VE
@@ -34301,7 +34301,7 @@ VE
 VE
 VE
 Nu
-OC
+pk
 XW
 VE
 jJ
@@ -34311,7 +34311,7 @@ Ic
 Rs
 Ic
 Wf
-uL
+AG
 PI
 Nu
 BB
@@ -34706,7 +34706,7 @@ kn
 MN
 Nu
 Nu
-zK
+ql
 Wf
 Rs
 Rs
@@ -35106,7 +35106,7 @@ JX
 jJ
 VE
 VE
-mZ
+aH
 FB
 oO
 kp
@@ -35323,7 +35323,7 @@ Ja
 dZ
 jJ
 VE
-jj
+hs
 VE
 VE
 jJ
@@ -47229,9 +47229,9 @@ Rh
 Ab
 hg
 hg
-sZ
+br
 hg
-LW
+lh
 hg
 Ab
 Rh
@@ -47835,7 +47835,7 @@ Rh
 Ab
 hg
 hg
-sZ
+br
 hg
 kl
 mA
@@ -65054,7 +65054,7 @@ lg
 QD
 bX
 qd
-XE
+Tc
 qd
 bX
 Rh
@@ -66670,7 +66670,7 @@ QV
 QD
 bX
 qd
-Sd
+yJ
 qd
 bX
 QD
@@ -106259,7 +106259,7 @@ Rh
 Rh
 QY
 QD
-Yg
+MT
 hg
 hg
 SA

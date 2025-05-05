@@ -344,7 +344,7 @@
 
 /obj/item/weapon/mace/goden/shillelagh/Initialize()
 	. = ..()
-	AddElement(/datum/element/walking_stick)
+	AddComponent(/datum/component/walking_stick)
 
 /obj/item/weapon/mace/goden/shillelagh/getonmobprop(tag)
 	. = ..()

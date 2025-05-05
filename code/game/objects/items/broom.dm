@@ -15,7 +15,7 @@
 
 /obj/item/broom/Initialize()
 	. = ..()
-	AddElement(/datum/element/walking_stick)
+	AddComponent(/datum/component/walking_stick)
 
 /obj/item/broom/getonmobprop(tag)
 	. = ..()

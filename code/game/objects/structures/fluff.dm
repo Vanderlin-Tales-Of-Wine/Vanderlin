@@ -1177,8 +1177,8 @@
 						thebride.adjust_triumphs(1)
 						//Bite the apple first if you want to be the groom.
 						priority_announce("[thegroom.real_name] has married [bridefirst]!", title = "Holy Union!", sound = 'sound/misc/bell.ogg')
-						thegroom.remove_stress(/datum/stressevent/eora_marriage_call)
-						thebride.remove_stress(/datum/stressevent/eora_marriage_call)
+						thegroom.remove_stress(/datum/stressevent/eora_matchmaking)
+						thebride.remove_stress(/datum/stressevent/eora_matchmaking)
 						GLOB.vanderlin_round_stats[STATS_MARRIAGES]++
 						marriage = TRUE
 						qdel(A)

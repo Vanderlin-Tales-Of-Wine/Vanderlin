@@ -74,6 +74,7 @@
 	icon_state = "arcyne"
 	blade_dulling = DULLING_BASH
 	resistance_flags = FIRE_PROOF
+	lock = /datum/lock
 	can_add_lock = FALSE
 	max_integrity = 2000
 
@@ -84,7 +85,6 @@
 	metalizer_result = null
 
 /obj/structure/door/arcyne/bolt
-	lock = /datum/lock
 	has_bolt = TRUE
 
 /obj/structure/door/arcyne/bolt/caster

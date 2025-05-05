@@ -34,6 +34,13 @@
 /mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/floor/blocks,
 /area/rogue/indoors)
+"bg" = (
+/obj/structure/trap/wall_projectile/fireball{
+	dir = 4
+	},
+/obj/structure/door/viewport,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/indoors)
 "bo" = (
 /obj/effect/decal/cleanable/food/flour,
 /obj/effect/decal/cleanable/food/mess/rotting,
@@ -58,11 +65,6 @@
 /obj/structure/curtain,
 /turf/open/floor/churchrough,
 /area/rogue/indoors)
-"cA" = (
-/obj/structure/barricade/wooden,
-/obj/structure/barricade/wooden/crude,
-/turf/open/floor/churchrough,
-/area/rogue/indoors/cave)
 "cC" = (
 /obj/effect/decal/cleanable/vomit,
 /obj/effect/decal/cleanable/sigil/SW,
@@ -78,17 +80,17 @@
 /obj/effect/decal/cleanable/sigil/SE,
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/indoors)
-"cY" = (
-/obj/structure/door/stone,
-/obj/structure/barricade/wooden,
-/obj/structure/barricade/wooden/crude,
-/turf/open/floor/churchrough,
-/area/rogue/indoors)
 "db" = (
 /obj/item/natural/rock/random_ore,
 /obj/structure/forcefield_weak,
 /turf/open/floor/naturalstone,
 /area/rogue/indoors/cave)
+"de" = (
+/obj/structure/door/stone,
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
+/turf/open/floor/churchrough,
+/area/rogue/indoors)
 "dm" = (
 /mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/blocks,
@@ -116,6 +118,11 @@
 /obj/structure/bonepile,
 /turf/open/floor/grass/cold,
 /area/rogue/indoors)
+"eJ" = (
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
+/turf/open/floor/churchrough,
+/area/rogue/indoors/cave)
 "eQ" = (
 /obj/structure/fluff/walldeco/painting/seraphina,
 /turf/closed/wall/mineral/stonebrick,
@@ -132,6 +139,13 @@
 /obj/machinery/light/fueled/firebowl/standing/blue,
 /turf/open/floor/naturalstone,
 /area/rogue/indoors/cave)
+"fB" = (
+/obj/structure/door/red{
+	lockid = "Acid1"
+	},
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/churchrough,
+/area/rogue/indoors)
 "fF" = (
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /turf/open/floor/blocks,
@@ -153,6 +167,11 @@
 /obj/item/reagent_containers/glass/bucket/wooden,
 /turf/open/floor/tile/bath,
 /area/rogue/indoors)
+"ge" = (
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
+/turf/open/floor/churchrough,
+/area/rogue/indoors)
 "gj" = (
 /obj/effect/decal/cleanable/food/egg_smudge,
 /obj/machinery/light/fueled/oven,
@@ -166,6 +185,14 @@
 "gr" = (
 /mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/floor/ruinedwood/spiral,
+/area/rogue/indoors)
+"gs" = (
+/obj/machinery/light/fueled/wallfire/candle/blue,
+/obj/structure/trap/wall_projectile/fireball{
+	dir = 4
+	},
+/obj/structure/door/viewport,
+/turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors)
 "gU" = (
 /obj/structure/roguerock,
@@ -200,13 +227,6 @@
 /obj/structure/table/wood,
 /obj/item/storage/sack,
 /turf/open/floor/tile/kitchen,
-/area/rogue/indoors)
-"ic" = (
-/obj/structure/door/red{
-	lockid = "Acid1"
-	},
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/churchrough,
 /area/rogue/indoors)
 "im" = (
 /obj/structure/bookcase,
@@ -499,14 +519,6 @@
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/cobble/alt,
 /area/rogue/indoors/cave)
-"sc" = (
-/obj/machinery/light/fueled/wallfire/candle/blue,
-/obj/structure/trap/wall_projectile/fireball{
-	dir = 4
-	},
-/obj/structure/door/viewport,
-/turf/open/floor/ruinedwood/darker,
-/area/rogue/indoors)
 "sp" = (
 /turf/closed/wall/mineral/stonebrick,
 /area/rogue/indoors)
@@ -562,10 +574,6 @@
 /mob/living/simple_animal/hostile/retaliate/spider/mutated,
 /turf/open/floor/churchmarble,
 /area/rogue/indoors)
-"tV" = (
-/obj/structure/door/red,
-/turf/open/floor/churchrough,
-/area/rogue/indoors)
 "uk" = (
 /turf/open/floor/cobblerock/alt,
 /area/rogue/indoors/cave)
@@ -594,6 +602,10 @@
 /obj/structure/fluff/statue,
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/indoors)
+"vK" = (
+/obj/structure/door/viewport,
+/turf/open/floor/blocks,
+/area/rogue/indoors)
 "vO" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
@@ -619,6 +631,10 @@
 	redstone_id = 882
 	},
 /turf/closed/wall/mineral/stonebrick,
+/area/rogue/indoors)
+"vZ" = (
+/obj/structure/door/red,
+/turf/open/floor/churchrough,
 /area/rogue/indoors)
 "wf" = (
 /obj/structure/toilet,
@@ -679,11 +695,6 @@
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/indoors)
-"yi" = (
-/obj/structure/trap/saw_blades,
-/obj/structure/door/viewport,
-/turf/open/floor/ruinedwood/chevron,
-/area/rogue/indoors)
 "yF" = (
 /obj/structure/rack/shelf/biggest,
 /obj/item/natural/cloth,
@@ -724,13 +735,6 @@
 /obj/item/grown/log/tree/stick,
 /mob/living/carbon/human/species/skeleton/npc/peasant,
 /turf/open/floor/churchbrick,
-/area/rogue/indoors)
-"BZ" = (
-/obj/structure/trap/wall_projectile/fireball{
-	dir = 4
-	},
-/obj/structure/door/viewport,
-/turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors)
 "Ce" = (
 /obj/structure/bookcase/random,
@@ -952,11 +956,6 @@
 "HW" = (
 /turf/open/floor/carpet,
 /area/rogue/indoors)
-"IV" = (
-/obj/structure/barricade/wooden,
-/obj/structure/barricade/wooden/crude,
-/turf/open/floor/churchrough,
-/area/rogue/indoors)
 "Jg" = (
 /obj/structure/closet/crate/chest/lootbox,
 /turf/open/floor/tile/masonic/spiral,
@@ -1042,6 +1041,11 @@
 /obj/structure/table/stone_small,
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /turf/open/floor/tile,
+/area/rogue/indoors)
+"LL" = (
+/obj/structure/trap/saw_blades,
+/obj/structure/door/viewport,
+/turf/open/floor/ruinedwood/chevron,
 /area/rogue/indoors)
 "LM" = (
 /obj/machinery/artificer_table,
@@ -1166,20 +1170,11 @@
 /obj/structure/trap/wall_projectile,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors)
-"Qa" = (
-/obj/structure/door/viewport,
-/turf/open/floor/blocks,
-/area/rogue/indoors)
 "Qo" = (
 /obj/structure/stairs/fancy{
 	dir = 8
 	},
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors)
-"Qw" = (
-/obj/structure/barricade/wooden,
-/obj/structure/barricade/wooden/crude,
-/turf/open/floor/churchbrick,
 /area/rogue/indoors)
 "QC" = (
 /obj/structure/table/stone_small,
@@ -1234,6 +1229,11 @@
 	dir = 8
 	},
 /turf/open/floor/churchmarble,
+/area/rogue/indoors)
+"Tu" = (
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
+/turf/open/floor/churchbrick,
 /area/rogue/indoors)
 "Tv" = (
 /obj/structure/window/stained/silver,
@@ -1819,7 +1819,7 @@ uk
 MQ
 GZ
 GZ
-IV
+ge
 Js
 Pr
 ta
@@ -1851,8 +1851,8 @@ sy
 MQ
 MQ
 ZG
-IV
-Qw
+ge
+Tu
 QG
 sp
 pu
@@ -1899,8 +1899,8 @@ QP
 QP
 QP
 QP
-cY
-cA
+de
+eJ
 ZG
 uk
 MQ
@@ -1918,7 +1918,7 @@ oy
 sp
 He
 QG
-ic
+fB
 EU
 rR
 tQ
@@ -1931,8 +1931,8 @@ KO
 KO
 jG
 mX
-cY
-cA
+de
+eJ
 ZG
 Dc
 MQ
@@ -1951,18 +1951,18 @@ sp
 sp
 sp
 sp
-ic
+fB
 sp
 ai
 eQ
 sp
 sp
-ic
+fB
 sp
 sp
 ta
 sp
-tV
+vZ
 sp
 HP
 MQ
@@ -2114,16 +2114,16 @@ BH
 DL
 Ff
 RN
-tV
+vZ
 XD
 vW
 fr
-tV
+vZ
 pa
 pa
 Jr
 Rm
-IV
+ge
 sp
 oy
 MQ
@@ -2155,7 +2155,7 @@ cn
 cn
 cn
 sp
-IV
+ge
 HA
 oy
 MQ
@@ -2626,8 +2626,8 @@ sp
 sp
 sp
 sp
-sc
-BZ
+gs
+bg
 sp
 cE
 cn
@@ -2699,7 +2699,7 @@ Pz
 Rp
 sp
 kg
-tV
+vZ
 sp
 OG
 dr
@@ -2757,7 +2757,7 @@ sp
 fF
 sE
 Ld
-Qa
+vK
 TB
 YO
 VQ
@@ -2789,7 +2789,7 @@ sp
 lt
 OF
 Ld
-Qa
+vK
 TB
 YO
 lh
@@ -2848,7 +2848,7 @@ sp
 sp
 sp
 sp
-ic
+fB
 sp
 sp
 Ld
@@ -2922,7 +2922,7 @@ eQ
 sp
 ai
 sp
-ic
+fB
 sp
 sp
 Nd
@@ -2983,7 +2983,7 @@ Ng
 dZ
 nr
 KF
-tV
+vZ
 CF
 CF
 gd
@@ -3109,8 +3109,8 @@ sp
 sp
 sp
 sp
-yi
-yi
+LL
+LL
 sp
 sp
 cn

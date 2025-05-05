@@ -215,3 +215,7 @@
 /datum/pollutant/food/druqks
 	name = "acrid air"
 	scent = "acrid air"
+
+/datum/pollutant/food/teas
+	name = "herbal smell"
+	scent = "herbal smell"

@@ -69,8 +69,6 @@
 	SIGNAL_HANDLER
 	if(buckled && buckled.buckle_lying != NO_BUCKLE_LYING)
 		return // Handled by the buckle.
-	if(!HAS_TRAIT(src, TRAIT_FLOORED))
-		return
 	mobility_flags &= ~MOBILITY_STAND
 	on_floored_start()
 

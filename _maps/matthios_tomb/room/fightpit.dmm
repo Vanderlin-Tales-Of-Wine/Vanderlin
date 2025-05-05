@@ -35,6 +35,20 @@
 /mob/living/carbon/human/species/goblin/npc/ambush/sea,
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
+"dS" = (
+/obj/structure/door/viewport{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/hexstone,
+/area/rogue/under/cave)
+"dU" = (
+/obj/structure/door/viewport{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/hexstone,
+/area/rogue/under/cave)
 "eD" = (
 /obj/item/clothing/shoes/boots/armor,
 /obj/structure/fluff/walldeco/chains,
@@ -108,13 +122,6 @@
 /mob/living/carbon/human/species/skeleton/npc/no_equipment,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cave)
-"kU" = (
-/obj/structure/door/viewport{
-	dir = 8
-	},
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/hexstone,
-/area/rogue/under/cave)
 "ld" = (
 /obj/structure/rack/shelf/biggest,
 /obj/item/weapon/polearm/spear/billhook,
@@ -138,18 +145,16 @@
 /obj/item/reagent_containers/food/snacks/cooked/sausage,
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
-"mL" = (
-/obj/structure/door/viewport{
-	dir = 8
-	},
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/ruinedwood/darker,
-/area/rogue/under/cave)
 "mX" = (
 /turf/closed/wall/mineral/stone/window/moss,
 /area/rogue/under/cave)
 "nm" = (
 /obj/effect/dungeon_directional_helper/south,
+/turf/open/floor/hexstone,
+/area/rogue/under/cave)
+"nM" = (
+/obj/structure/door,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "oY" = (
@@ -258,6 +263,13 @@
 /mob/living/carbon/human/species/skeleton/npc/no_equipment,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cave)
+"wn" = (
+/obj/structure/door/viewport{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/cave)
 "wq" = (
 /obj/structure/fluff/railing/border,
 /obj/structure/table/vtable,
@@ -279,13 +291,6 @@
 /obj/structure/chair/bench/church/mid,
 /mob/living/carbon/human/species/skeleton/npc/no_equipment,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue/under/cave)
-"xO" = (
-/obj/structure/door/viewport{
-	dir = 4
-	},
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "xX" = (
 /turf/open/transparent/openspace,
@@ -312,11 +317,6 @@
 /obj/effect/decal/cleanable/blood/gibs,
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
-"Ci" = (
-/obj/structure/door,
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/hexstone,
-/area/rogue/under/cave)
 "Cr" = (
 /obj/structure/fluff/railing/border{
 	icon_state = "border";
@@ -335,6 +335,13 @@
 "CK" = (
 /mob/living/carbon/human/species/skeleton/npc/warrior,
 /turf/open/floor/hexstone,
+/area/rogue/under/cave)
+"CR" = (
+/obj/structure/door/viewport{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cave)
 "DJ" = (
 /turf/closed/mineral/bedrock,
@@ -561,13 +568,6 @@
 /obj/item/reagent_containers/glass/bottle/strongpoison,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cave)
-"Xx" = (
-/obj/structure/door/viewport{
-	dir = 4
-	},
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/ruinedwood/darker,
-/area/rogue/under/cave)
 "XA" = (
 /turf/open/floor/rooftop{
 	dir = 1
@@ -737,7 +737,7 @@ pT
 pT
 hX
 hX
-xO
+dS
 hX
 pT
 pT
@@ -884,13 +884,13 @@ DJ
 DJ
 pT
 mX
-Ci
+nM
 mX
 pT
 pT
 pT
 hX
-kU
+dU
 hX
 hX
 pT
@@ -1195,7 +1195,7 @@ xX
 hX
 Xa
 hX
-Xx
+CR
 hX
 hX
 xX
@@ -1305,7 +1305,7 @@ xX
 hX
 zX
 hX
-mL
+wn
 hX
 hX
 xX

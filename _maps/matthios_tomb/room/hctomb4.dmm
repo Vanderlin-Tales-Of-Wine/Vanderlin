@@ -178,18 +178,14 @@
 /obj/structure/table/wood/treestump/shroomstump,
 /turf/open/floor/dirt,
 /area/rogue/under/cave)
-"gy" = (
-/obj/structure/door/fancy{
-	name = "Room 2 - VERY HAUNTED!!!"
-	},
-/obj/effect/mapping_helpers/access/locker,
-/obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/carpet,
-/area/rogue/indoors/shelter)
 "hc" = (
 /obj/structure/stairs,
 /obj/machinery/light/fueled/wallfire/candle/blue/l,
 /turf/open/floor/ruinedwood/spiral,
+/area/rogue/indoors/shelter)
+"hy" = (
+/obj/structure/door/window,
+/turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/shelter)
 "hO" = (
 /obj/structure/table/wood/large/corner_new{
@@ -319,6 +315,14 @@
 "mG" = (
 /turf/closed/mineral,
 /area/rogue/under/cave)
+"mL" = (
+/obj/structure/door/green{
+	name = "Room 3 - DO NOT ENTER"
+	},
+/obj/effect/mapping_helpers/access/locker,
+/obj/structure/barricade/wooden/crude,
+/turf/open/floor/ruinedwood/chevron,
+/area/rogue/indoors/shelter)
 "ng" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -451,6 +455,12 @@
 	icon_state = "carpet"
 	},
 /area/rogue/indoors/shelter)
+"su" = (
+/obj/structure/door/green{
+	name = "Room 5"
+	},
+/turf/open/floor/ruinedwood/chevron,
+/area/rogue/indoors/shelter)
 "tf" = (
 /obj/structure/chair/wood/alt/chair3,
 /turf/open/floor/ruinedwood/turned/darker,
@@ -459,13 +469,6 @@
 /obj/structure/bed/inn,
 /obj/item/bedsheet/fabric,
 /turf/open/floor/carpet,
-/area/rogue/indoors/shelter)
-"tR" = (
-/obj/structure/door/green{
-	name = "Room 4 - HAUNTED"
-	},
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/ruinedwood/chevron,
 /area/rogue/indoors/shelter)
 "ul" = (
 /obj/effect/decal/cleanable/blood/old,
@@ -494,6 +497,11 @@
 	dir = 8
 	},
 /turf/open/floor/carpet,
+/area/rogue/indoors/shelter)
+"vk" = (
+/obj/structure/door/swing,
+/obj/structure/fluff/wallclock/l,
+/turf/open/floor/twig,
 /area/rogue/indoors/shelter)
 "vt" = (
 /obj/machinery/light/fueled/wallfire/candle/blue/l,
@@ -576,12 +584,6 @@
 /obj/structure/flora/grass/bush,
 /turf/open/floor/dirt/road,
 /area/rogue/under/cave)
-"yu" = (
-/obj/structure/door/fancy{
-	name = "Room 1"
-	},
-/turf/open/floor/carpet,
-/area/rogue/indoors/shelter)
 "yC" = (
 /obj/structure/stairs{
 	dir = 8
@@ -622,19 +624,16 @@
 "zJ" = (
 /turf/closed/wall/mineral/wooddark,
 /area/rogue/indoors/shelter)
-"zP" = (
-/obj/structure/door/fancy{
-	name = "Room 6"
-	},
-/turf/open/floor/carpet,
-/area/rogue/indoors/shelter)
 "zS" = (
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/dirt/road,
 /area/rogue/under/cave)
-"Ao" = (
-/obj/structure/door/window,
-/turf/open/floor/ruinedwood/turned/darker,
+"Ae" = (
+/obj/structure/door/green{
+	name = "Room 4 - HAUNTED"
+	},
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/ruinedwood/chevron,
 /area/rogue/indoors/shelter)
 "At" = (
 /turf/open/floor/dirt,
@@ -693,14 +692,6 @@
 /obj/structure/stairs,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter)
-"Ei" = (
-/obj/structure/door/green{
-	name = "Room 3 - DO NOT ENTER"
-	},
-/obj/effect/mapping_helpers/access/locker,
-/obj/structure/barricade/wooden/crude,
-/turf/open/floor/ruinedwood/chevron,
-/area/rogue/indoors/shelter)
 "EV" = (
 /turf/open/floor/rooftop{
 	dir = 8
@@ -711,11 +702,6 @@
 	dir = 1
 	},
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors/shelter)
-"Fj" = (
-/obj/structure/door/swing,
-/obj/structure/fluff/wallclock/l,
-/turf/open/floor/twig,
 /area/rogue/indoors/shelter)
 "Fy" = (
 /turf/open/floor/ruinedwood,
@@ -798,6 +784,12 @@
 	},
 /turf/open/floor/carpet,
 /area/rogue/indoors/shelter)
+"JA" = (
+/obj/structure/door/fancy{
+	name = "Room 6"
+	},
+/turf/open/floor/carpet,
+/area/rogue/indoors/shelter)
 "JF" = (
 /obj/structure/stairs{
 	dir = 4
@@ -808,6 +800,12 @@
 /obj/item/natural/rock/gemerald,
 /turf/open/floor/cobblerock,
 /area/rogue/under/cave)
+"KA" = (
+/obj/structure/door/fancy{
+	name = "Room 1"
+	},
+/turf/open/floor/carpet,
+/area/rogue/indoors/shelter)
 "KL" = (
 /obj/structure/bed/mediocre,
 /obj/item/bedsheet/cloth,
@@ -983,10 +981,6 @@
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/shelter)
-"RR" = (
-/obj/structure/door/green,
-/turf/open/floor/twig,
-/area/rogue/indoors/shelter)
 "Sa" = (
 /obj/structure/table/wood/reinforced_alt{
 	dir = 4
@@ -997,6 +991,14 @@
 /mob/living/simple_animal/hostile/retaliate/mole,
 /turf/open/floor/cobblerock,
 /area/rogue/under/cave)
+"Sv" = (
+/obj/structure/door/fancy{
+	name = "Room 2 - VERY HAUNTED!!!"
+	},
+/obj/effect/mapping_helpers/access/locker,
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/floor/carpet,
+/area/rogue/indoors/shelter)
 "Sx" = (
 /obj/structure/stairs{
 	dir = 8
@@ -1119,6 +1121,10 @@
 	},
 /turf/open/floor/tile/checker,
 /area/rogue/indoors/shelter)
+"Up" = (
+/obj/structure/door/green,
+/turf/open/floor/twig,
+/area/rogue/indoors/shelter)
 "Uw" = (
 /obj/structure/bookcase/random/myths,
 /turf/open/floor/ruinedwood/spiral,
@@ -1131,12 +1137,6 @@
 /turf/open/floor/carpet/green{
 	icon_state = "carpet"
 	},
-/area/rogue/indoors/shelter)
-"UU" = (
-/obj/structure/door/green{
-	name = "Room 5"
-	},
-/turf/open/floor/ruinedwood/chevron,
 /area/rogue/indoors/shelter)
 "UX" = (
 /obj/item/natural/stone{
@@ -1670,7 +1670,7 @@ Sa
 Mc
 zJ
 BD
-RR
+Up
 BD
 ab
 PH
@@ -1700,7 +1700,7 @@ Dn
 Fy
 Fy
 Fy
-Fj
+vk
 fK
 fK
 nT
@@ -1881,7 +1881,7 @@ Yg
 Yg
 zJ
 ab
-Ao
+hy
 ab
 zJ
 Fy
@@ -1975,7 +1975,7 @@ Yg
 aD
 Pl
 Pl
-Ao
+hy
 fh
 fh
 ul
@@ -2627,11 +2627,11 @@ ab
 ab
 zJ
 lr
-yu
+KA
 lr
 Cr
 lr
-gy
+Sv
 lr
 ab
 xX
@@ -2790,7 +2790,7 @@ Pd
 Pd
 EY
 oG
-Ei
+mL
 zh
 PP
 ab
@@ -2886,7 +2886,7 @@ Pd
 Pd
 mw
 oG
-tR
+Ae
 xO
 ZW
 ab
@@ -2975,14 +2975,14 @@ xl
 lE
 ya
 UT
-zP
+JA
 oG
 eu
 oG
 oG
 dy
 ep
-UU
+su
 bg
 yT
 ab

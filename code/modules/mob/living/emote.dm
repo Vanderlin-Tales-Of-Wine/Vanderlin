@@ -1004,6 +1004,11 @@
 				to_chat(C, "<span class='warning'>I try to scream but my voice fails me.</span>")
 				. = FALSE
 
+/datum/emote/living/scream/run_emote(mob/user, params, type_override, intentional, targetted)
+	. = ..()
+	if(. && user.mind)
+		record_featured_stat(FEATURED_STATS_SCREAMERS, user)
+
 /datum/emote/living/scowl
 	key = "scowl"
 	key_third_person = "scowls"
