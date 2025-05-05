@@ -49,40 +49,31 @@
 	user.update_inv_hands()
 
 /obj/item/paper/scroll/read(mob/user)
-	if(!open)
+	if(!open && !isobserver(user))
 		to_chat(user, "<span class='info'>Open me.</span>")
 		return
-	if(!user.client || !user.hud_used)
-		return
-	if(!user.hud_used.reads)
-		return
-	if(!user.can_read(src))
-		if(info)
-			user.mind.adjust_experience(/datum/skill/misc/reading, 2, FALSE)
-		return
-	/*font-size: 125%;*/
-	if(in_range(user, src) || isobserver(user))
-		if(old_render)
-			user << browse_rsc('html/book.png')
-			var/dat = {"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">
-			<html><head><style type=\"text/css\">
-			body { background-image:url('book.png');background-repeat: repeat; }</style></head><body scroll=yes>"}
-			dat += "[info]<br>"
-			dat += "<a href='?src=[REF(src)];close=1' style='position:absolute;right:50px'>Close</a>"
-			dat += "</body></html>"
-			user << browse(dat, "window=reading;size=460x460;can_close=0;can_minimize=0;can_maximize=0;can_resize=0")
-		else
-			user.hud_used.reads.icon_state = "scroll"
-			user.hud_used.reads.show()
-			user.hud_used.reads.maptext = info
-			user.hud_used.reads.maptext_width = 230
-			user.hud_used.reads.maptext_height = 200
-			user.hud_used.reads.maptext_y = 150
-			user.hud_used.reads.maptext_x = 120
+	. = ..()
 
-		onclose(user, "reading", src)
+/obj/item/paper/scroll/show_paper_hud(mob/user)
+	if(old_render)
+		user << browse_rsc('html/book.png')
+		var/dat = {"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">
+		<html><head><style type=\"text/css\">
+		body { background-image:url('book.png');background-repeat: repeat; }</style></head><body scroll=yes>"}
+		dat += "[info]<br>"
+		dat += "<a href='?src=[REF(src)];close=1' style='position:absolute;right:50px'>Close</a>"
+		dat += "</body></html>"
+		user << browse(dat, "window=reading;size=460x460;can_close=0;can_minimize=0;can_maximize=0;can_resize=0")
 	else
-		return "<span class='warning'>I'm too far away to read it.</span>"
+		user.hud_used.reads.icon_state = "scroll"
+		user.hud_used.reads.show()
+		user.hud_used.reads.maptext = info
+		user.hud_used.reads.maptext_width = 230
+		user.hud_used.reads.maptext_height = 200
+		user.hud_used.reads.maptext_y = 150
+		user.hud_used.reads.maptext_x = 120
+
+	onclose(user, "reading", src)
 
 /obj/item/paper/scroll/Initialize()
 	update_icon_state()
