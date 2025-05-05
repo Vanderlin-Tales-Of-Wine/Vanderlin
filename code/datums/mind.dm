@@ -999,16 +999,16 @@
 			to_chat(current, "<B>Personal Goal #[personal_count]</B>: [O.explanation_text]")
 			personal_count++
 
-	var/antag_count = 1
+	var/obj_count = 1
 	for(var/datum/antagonist/antag_datum_ref in antag_datums)
 		if(length(antag_datum_ref.objectives))
 			to_chat(current, span_notice("Your [antag_datum_ref.name] objectives:"))
 			for(var/datum/objective/O in antag_datum_ref.objectives)
 				O.update_explanation_text()
-				to_chat(current, "<B>[O.flavor] #[antag_count]</B>: [O.explanation_text]")
-				antag_count++
+				to_chat(current, "<B>[O.flavor] #[obj_count]</B>: [O.explanation_text]")
+				obj_count++
 
-/datum/mind/proc/announce_new_personal_objectives()
+/datum/mind/proc/announce_personal_objectives()
 	if(!personal_objectives.len)
 		return
 
@@ -1271,12 +1271,3 @@
     for(var/O in personal_objectives)
         qdel(O)
     personal_objectives.Cut()
-
-/datum/mind/proc/announce_personal_objectives()
-    if(!personal_objectives.len)
-        return
-    to_chat(current, "<span class='notice'>You have some personal goals:</span>")
-    var/obj_count = 1
-    for(var/datum/objective/objective in personal_objectives)
-        to_chat(current, "<B>Personal Goal #[obj_count]</B>: [objective.explanation_text]")
-        obj_count++
