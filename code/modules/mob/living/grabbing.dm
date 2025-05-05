@@ -229,13 +229,16 @@
 					if(get_location_accessible(C, BODY_ZONE_PRECISE_NECK))
 						if(prob(23))
 							C.emote("choke")
+						var/choke_damage = user.STASTR
 						if(chokehold)
-							C.adjustOxyLoss(user.STASTR * 1.2)
-						else
-							C.adjustOxyLoss(user.STASTR)
+							choke_damage *= 1.2
+						if(C.pulling == user && C.grab_state >= GRAB_AGGRESSIVE)
+							choke_damage *= 0.95
+						C.adjustOxyLoss(choke_damage)
 						C.visible_message(span_danger("[user] [pick("chokes", "strangles")] [C][chokehold ? " with a chokehold" : ""]!"), \
 								span_userdanger("[user] [pick("chokes", "strangles")] me[chokehold ? " with a chokehold" : ""]!"), span_hear("I hear a sickening sound of pugilism!"), COMBAT_MESSAGE_RANGE, user)
 						to_chat(user, span_danger("I [pick("choke", "strangle")] [C][chokehold ? " with a chokehold" : ""]!"))
+					user.changeNext_move(CLICK_CD_MELEE)
 		if(/datum/intent/grab/hostage)
 			if(user.buckled)
 				to_chat(user, span_warning("I can't do this while buckled!"))
@@ -366,6 +369,7 @@
 					playsound(src.loc, 'sound/foley/struggle.ogg', 100, FALSE, -1)
 					user.dropItemToGround(src, force = TRUE, silent = TRUE)
 					user.start_pulling(M, suppress_message = TRUE, accurate = TRUE)
+					user.changeNext_move(CLICK_CD_GRABBING)
 			else
 				to_chat(user, span_warning("They aren't holding anything in that hand!"))
 				return
@@ -394,6 +398,7 @@
 					playsound(src.loc, 'sound/foley/struggle.ogg', 100, FALSE, -1)
 					user.dropItemToGround(src, force = TRUE, silent = TRUE)
 					user.start_pulling(M, suppress_message = TRUE, accurate = TRUE)
+					user.changeNext_move(CLICK_CD_GRABBING)
 			else
 				to_chat(user, span_warning("They aren't holding anything in that hand!"))
 				return
