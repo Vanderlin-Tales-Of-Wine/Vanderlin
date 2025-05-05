@@ -7,8 +7,8 @@
 	color_theme = "#FFD700"
 
 	influence_factors = list(
-		STATS_LAWS_AND_DECREES_MADE = list("points" = 3,"capacity" = 40),
-		STATS_ALIVE_NOBLES = list("points" = 4.5,"capacity" = 85),
+		STATS_LAWS_AND_DECREES_MADE = list("points" = 2.75,"capacity" = 45),
+		STATS_ALIVE_NOBLES = list("points" = 4,"capacity" = 85),
 		STATS_NOBLE_DEATHS = list("points" = -6,"capacity" = -85),
 		STATS_ASTRATA_REVIVALS = list("points" = 6, "capacity" = 75),
 		STATS_TAXES_COLLECTED = list("points" = 0.175,"capacity" = 90),
@@ -155,11 +155,11 @@
 	)
 
 	influence_factors = list(
-		STATS_POTIONS_BREWED = list("points" = 4.25, "capacity" = 75),
-		STATS_WOUNDS_SEWED = list("points" = 0.5, "capacity" = 100),
-		STATS_SOULS_REINCARNATED = list("points" = 2.3, "capacity" = 65),
+		STATS_POTIONS_BREWED = list("points" = 4.5, "capacity" = 80),
+		STATS_WOUNDS_SEWED = list("points" = 0.475, "capacity" = 100),
+		STATS_SOULS_REINCARNATED = list("points" = 2.25, "capacity" = 65),
 		STATS_ANIMALS_BRED = list("points" = 6, "capacity" = 65),
-		STATS_FOOD_ROTTED = list("points" = 0.265, "capacity" = 80),
+		STATS_FOOD_ROTTED = list("points" = 0.25, "capacity" = 80),
 	)
 
 /datum/storyteller/malum
@@ -372,11 +372,11 @@
 	)
 
 	influence_factors = list(
-		STATS_ITEMS_PICKPOCKETED = list("points" = 6.25, "capacity" = 90),
+		STATS_ITEMS_PICKPOCKETED = list("points" = 6, "capacity" = 90),
 		STATS_SHRINE_VALUE = list("points" = 0.15, "capacity" = 70),
 		STATS_GREEDY_PEOPLE = list("points" = 8, "capacity" = 70),
 		STATS_DODGES = list("points" = 0.0875, "capacity" = 100),
-		STATS_LOCKS_PICKED = list("points" = 4.75, "capacity" = 90),
+		STATS_LOCKS_PICKED = list("points" = 4.5, "capacity" = 90),
 	)
 
 	cost_variance = 15  // Keeps a balance between predictability and randomness

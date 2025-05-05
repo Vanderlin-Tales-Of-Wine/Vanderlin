@@ -389,17 +389,18 @@ GLOBAL_LIST_INIT(featured_stats, list(
 
 	if(user.mind?.assigned_role)
 		if(!is_unassigned_job(user.mind.assigned_role))
-			if(user.gender == FEMALE)
+			if(user.gender == FEMALE && user.mind.assigned_role.f_title)
 				job_title = " ([user.mind.assigned_role.f_title])"
-			else
+			else if(user.mind.assigned_role.title)
 				job_title = " ([user.mind.assigned_role.title])"
-		else
-			if(user.mind.special_role)
+			else if(user.mind.special_role)
 				job_title = " ([user.mind.special_role])"
 			else
 				job_title = " (Jobless)"
-	else if(user.job)
-		job_title = " ([user.job])"
+		else if(user.mind.special_role)
+			job_title = " ([user.mind.special_role])"
+		else
+			job_title = " (Jobless)"
 
 	var/key = "[user.real_name][job_title]"
 
