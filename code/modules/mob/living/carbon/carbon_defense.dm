@@ -351,7 +351,7 @@
 	apply_status_effect(/datum/status_effect/shock_recovery)
 	addtimer(CALLBACK(src, PROC_REF(remove_shock_paralyze_immunity), src), time)
 
-/mob/living/carbon/proc/remove_shock_paralyze_immunity
+/mob/living/carbon/proc/remove_shock_paralyze_immunity()
 	remove_status_effect(/datum/status_effect/shock_recovery)
 
 /mob/living/carbon/proc/help_shake_act(mob/living/carbon/M)

@@ -113,7 +113,7 @@
 	icon_state = "paralyze"
 
 /datum/status_effect/shock_recovery
-	id = "stressvgood"
+	id = "shock_recovery"
 	alert_type = /atom/movable/screen/alert/status_effect/paralyzed/recovery
 
 /datum/status_effect/stress/shock_recovery
