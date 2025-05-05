@@ -531,6 +531,8 @@ GLOBAL_LIST_EMPTY(ritualslist)
 
 	n_req = /obj/item/organ/heart
 
+	is_cultist_ritual = TRUE
+
 	function = /proc/skeletaljaunt
 
 /proc/skeletaljaunt(mob/user, turf/C)
@@ -927,6 +929,8 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	center_requirement = /mob/living/carbon/human
 
 	function = /proc/badomenzizo
+
+	is_cultist_ritual = TRUE
 
 /proc/badomenzizo(mob/user, turf/C)
 	for(var/mob/living/carbon/human/H in C.contents)
