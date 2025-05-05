@@ -7,8 +7,8 @@
 	color_theme = "#FFD700"
 
 	influence_factors = list(
-		STATS_LAWS_AND_DECREES_MADE = list("points" = 2.5,"capacity" = 45),
-		STATS_ALIVE_NOBLES = list("points" = 3,"capacity" = 75),
+		STATS_LAWS_AND_DECREES_MADE = list("points" = 2.75,"capacity" = 45),
+		STATS_ALIVE_NOBLES = list("points" = 3.75,"capacity" = 75),
 		STATS_NOBLE_DEATHS = list("points" = -5,"capacity" = -75),
 		STATS_ASTRATA_REVIVALS = list("points" = 6, "capacity" = 75),
 		STATS_TAXES_COLLECTED = list("points" = 0.175,"capacity" = 90),
@@ -33,7 +33,7 @@
 		STATS_LITERACY_TAUGHT = list("points" = 15, "capacity" = 80),
 		STATS_ILLITERATES = list("points" = -2.5, "capacity" = -50),
 		STATS_SKILLS_DREAMED = list("points" = 0.325, "capacity" = 100),
-		STATS_MANA_SPENT = list("points" = 0.015, "capacity" = 100),
+		STATS_MANA_SPENT = list("points" = 0.016, "capacity" = 100),
 	)
 
 /datum/storyteller/ravox
@@ -159,7 +159,7 @@
 		STATS_WOUNDS_SEWED = list("points" = 0.5, "capacity" = 100),
 		STATS_SOULS_REINCARNATED = list("points" = 2.25, "capacity" = 65),
 		STATS_ANIMALS_BRED = list("points" = 6, "capacity" = 65),
-		STATS_FOOD_ROTTED = list("points" = 0.2, "capacity" = 80),
+		STATS_FOOD_ROTTED = list("points" = 0.175, "capacity" = 80),
 	)
 
 /datum/storyteller/malum
@@ -240,7 +240,7 @@
 
 	influence_factors = list(
 		STATS_TREES_CUT = list("points" = -0.35, "capacity" = -60),
-		STATS_PLANTS_HARVESTED = list("points" = 0.75, "capacity" = 140),
+		STATS_PLANTS_HARVESTED = list("points" = 0.8, "capacity" = 140),
 		STATS_WEREVOLVES = list("points" = 15, "capacity" = 80),
 		STATS_DENDOR_SACRIFICES = list("points" = 15, "capacity" = 80),
 		STATS_FOREST_DEATHS = list("points" = 6.25, "capacity" = 100),
@@ -273,7 +273,7 @@
 	)
 
 	influence_factors = list(
-		STATS_ZIZO_PRAISED = list("points" = 0.75, "capacity" = 40),
+		STATS_ZIZO_PRAISED = list("points" = 0.5, "capacity" = 40),
 		STATS_NOBLE_DEATHS = list("points" = 6, "capacity" = 80),
 		STATS_DEADITES_WOKEN_UP = list("points" = 3, "capacity" = 90),
 		STATS_CLERGY_DEATHS = list("points" = 10, "capacity" = 80),
@@ -306,7 +306,7 @@
 	)
 
 	influence_factors = list(
-		STATS_DRUGS_SNORTED = list("points" = 4.25, "capacity" = 85),
+		STATS_DRUGS_SNORTED = list("points" = 4.5, "capacity" = 85),
 		STATS_ALCOHOL_CONSUMED = list("points" = 0.045, "capacity" = 90),
 		STATS_ALCOHOLICS = list("points" = 3.5, "capacity" = 60),
 		STATS_JUNKIES = list("points" = 8, "capacity" = 70),
