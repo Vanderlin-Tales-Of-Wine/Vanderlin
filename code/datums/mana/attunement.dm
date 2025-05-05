@@ -45,8 +45,8 @@ GLOBAL_LIST_INIT(default_attunements, create_default_attunement_list())
 
 	alignments = list(
 		/datum/patron/divine/astrata = 1,
-		/datum/patron/inhumen/zizo = 0.15,
-		/datum/patron/divine/noc = 0.3,
+		/datum/patron/inhumen/zizo = 0.25,
+		/datum/patron/divine/noc = 0.15,
 		/datum/patron/divine/malum = 1.2,
 	)
 
@@ -64,7 +64,7 @@ GLOBAL_LIST_INIT(default_attunements, create_default_attunement_list())
 	desc = "An element typically associated with weather, sometimes with divinity, and often technology."
 
 	alignments = list(
-		/datum/patron/divine/noc = 0.35,
+		/datum/patron/divine/noc = 0.25,
 		/datum/patron/inhumen/zizo = 0.15,
 		/datum/patron/divine/abyssor = 0.5,
 	)
@@ -158,7 +158,7 @@ GLOBAL_LIST_INIT(default_attunements, create_default_attunement_list())
 	desc = ""
 
 	alignments = list(
-		/datum/patron/divine/noc = 2,
+		/datum/patron/divine/noc = 1.5,
 		/datum/patron/inhumen/zizo = 1.2,
 	)
 
