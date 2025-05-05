@@ -34,6 +34,10 @@
 		"ZIZO SHOWED ME THE WAY!",
 	)
 	storyteller = /datum/storyteller/zizo
+	added_verbs = list(
+		/mob/living/carbon/human/proc/draw_sigil,
+		/mob/living/carbon/human/proc/praise,
+	)
 
 /datum/patron/inhumen/graggar
 	name = "Graggar"

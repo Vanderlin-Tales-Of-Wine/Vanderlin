@@ -54,7 +54,6 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	H.cmode_music = 'sound/music/cmode/antag/combat_cult.ogg'
 	owner.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
 	owner.current.playsound_local(get_turf(owner.current), 'sound/music/maniac.ogg', 80, FALSE, pressure_affected = FALSE)
-	owner.current.verbs |= /mob/living/carbon/human/proc/praise
 	owner.current.verbs |= /mob/living/carbon/human/proc/communicate
 
 	H.change_stat(STATKEY_STR, 2)
@@ -76,7 +75,6 @@ GLOBAL_LIST_EMPTY(ritualslist)
 		H.change_stat(STATKEY_SPD, 4)
 		H.change_stat(STATKEY_INT, 5)
 		owner.special_role = ROLE_ZIZOIDCULTIST
-		owner.current.verbs |= /mob/living/carbon/human/proc/draw_sigil
 		owner.current.verbs |= /mob/living/carbon/human/proc/release_minion
 
 /datum/antagonist/zizocultist/greet()
@@ -272,99 +270,102 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	var/list/rituals = list()
 	if(icon_state != "center") // fucking awful but it has to be this way
 		return
-	if(iszizocultist(user) || iszizolackey(user))
-		for(var/G in GLOB.ritualslist)
-			var/datum/ritual/path = GLOB.ritualslist[G]
-			if(path.circle == sigil_type)
-				rituals |= path.name
-
-		var/ritualnameinput = input(user, "Rituals", "VANDERLIN") as null|anything in rituals
-		testing("ritualnameinput [ritualnameinput]")
-		var/datum/ritual/pickritual
-
-		pickritual = GLOB.ritualslist[ritualnameinput]
-		testing("pickritual [pickritual]")
-
-		var/cardinal_success = FALSE
-		var/center_success = FALSE
-
-		if(!pickritual)
-			return
-
-		var/dews = 0
-
-		if(pickritual.e_req)
-			for(var/atom/A in get_step(src, EAST))
-				if(istype(A, pickritual.e_req))
-					dews++
-					break
-				else
-					continue
-		else
-			dews++
-
-		if(pickritual.s_req)
-			for(var/atom/A in get_step(src, SOUTH))
-				if(istype(A, pickritual.s_req))
-					dews++
-					break
-				else
-					continue
-		else
-			dews++
-
-		if(pickritual.w_req)
-			for(var/atom/A in get_step(src, WEST))
-				if(istype(A, pickritual.w_req))
-					dews++
-					break
-				else
-					continue
-		else
-			dews++
-
-		if(pickritual.n_req)
-			for(var/atom/A in get_step(src, NORTH))
-				if(istype(A, pickritual.n_req))
-					dews++
-					break
-				else
-					continue
-		else
-			dews++
-
-		if(dews >= 4)
-			cardinal_success = TRUE
-			testing("CARDINAL SUCCESS!")
-
-		for(var/atom/A in loc.contents)
-			if(!istype(A, pickritual.center_requirement))
+	if(user.patron.type != /datum/patron/inhumen/zizo)
+		return
+	for(var/G in GLOB.ritualslist)
+		var/datum/ritual/path = GLOB.ritualslist[G]
+		if(path.circle == sigil_type)
+			if(path.is_cultist_ritual && !(iszizocultist(user) || iszizolackey(user))) // some rituals are cultist exclusive
 				continue
-			else
-				center_success = TRUE
-				testing("CENTER SUCCESS!")
+			rituals |= path.name
+
+	var/ritualnameinput = input(user, "Rituals", "VANDERLIN") as null|anything in rituals
+	testing("ritualnameinput [ritualnameinput]")
+	var/datum/ritual/pickritual
+
+	pickritual = GLOB.ritualslist[ritualnameinput]
+	testing("pickritual [pickritual]")
+
+	var/cardinal_success = FALSE
+	var/center_success = FALSE
+
+	if(!pickritual)
+		return
+
+	var/dews = 0
+
+	if(pickritual.e_req)
+		for(var/atom/A in get_step(src, EAST))
+			if(istype(A, pickritual.e_req))
+				dews++
 				break
+			else
+				continue
+	else
+		dews++
 
-		var/badritualpunishment = FALSE
-		if(cardinal_success != TRUE)
-			if(badritualpunishment)
-				return
-			to_chat(user.mind, "<span class='danger'>\"That's not how you do it, fool.\"</span>")
-			user.electrocute_act(10, src)
+	if(pickritual.s_req)
+		for(var/atom/A in get_step(src, SOUTH))
+			if(istype(A, pickritual.s_req))
+				dews++
+				break
+			else
+				continue
+	else
+		dews++
+
+	if(pickritual.w_req)
+		for(var/atom/A in get_step(src, WEST))
+			if(istype(A, pickritual.w_req))
+				dews++
+				break
+			else
+				continue
+	else
+		dews++
+
+	if(pickritual.n_req)
+		for(var/atom/A in get_step(src, NORTH))
+			if(istype(A, pickritual.n_req))
+				dews++
+				break
+			else
+				continue
+	else
+		dews++
+
+	if(dews >= 4)
+		cardinal_success = TRUE
+		testing("CARDINAL SUCCESS!")
+
+	for(var/atom/A in loc.contents)
+		if(!istype(A, pickritual.center_requirement))
+			continue
+		else
+			center_success = TRUE
+			testing("CENTER SUCCESS!")
+			break
+
+	var/badritualpunishment = FALSE
+	if(cardinal_success != TRUE)
+		if(badritualpunishment)
 			return
+		to_chat(user.mind, "<span class='danger'>\"That's not how you do it, fool.\"</span>")
+		user.electrocute_act(10, src)
+		return
 
-		if(center_success != TRUE)
-			if(badritualpunishment)
-				return
-			to_chat(user.mind, "<span class='danger'>\"That's not how you do it, fool.\"</span>")
-			user.electrocute_act(10, src)
+	if(center_success != TRUE)
+		if(badritualpunishment)
 			return
+		to_chat(user.mind, "<span class='danger'>\"That's not how you do it, fool.\"</span>")
+		user.electrocute_act(10, src)
+		return
 
-		testing("Now calling proc")
-		consume_ingredients(pickritual)
-		user.playsound_local(user, 'sound/vo/cult/tesa.ogg', 25)
-		user.whisper("O'vena tesa...")
-		call(pickritual.function)(user, loc)
+	testing("Now calling proc")
+	consume_ingredients(pickritual)
+	user.playsound_local(user, 'sound/vo/cult/tesa.ogg', 25)
+	user.whisper("O'vena tesa...")
+	call(pickritual.function)(user, loc)
 
 /obj/effect/decal/cleanable/sigil/N
 	icon_state = "N"
@@ -474,6 +475,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	var/s_req = null
 	var/w_req = null
 	var/function // a proc
+	var/is_cultist_ritual = FALSE
 
 
 // SERVANTRY
@@ -484,6 +486,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	center_requirement = /mob/living/carbon/human
 
 	function = /proc/convert_cultist
+	is_cultist_ritual = TRUE
 
 /proc/convert_cultist(mob/user, turf/C)
 	testing("NOW TESTING CONVERT")
@@ -778,6 +781,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	center_requirement = /obj/item/ingot/steel
 
 	function = /proc/summonweapons
+	is_cultist_ritual = TRUE
 
 /proc/summonweapons(mob/user, turf/C)
 	var/datum/effect_system/spark_spread/S = new(C)
@@ -937,6 +941,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	s_req = /mob/living/carbon/human // virgin
 
 	function = /proc/ascend
+	is_cultist_ritual = TRUE
 
 /proc/ascend(mob/user, turf/C)
 	for(var/mob/living/carbon/human/H in C.contents)
