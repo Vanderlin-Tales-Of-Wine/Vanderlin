@@ -144,6 +144,8 @@
 	var/list/apprentice_training_skills = list()
 
 	var/list/apprentices = list()
+	/// List of personal objectives not tied to the antag roles
+	var/list/personal_objectives = list()
 
 	var/has_studied = FALSE
 	/// Variable that lets the event picker see if someones getting chosen or not
@@ -739,6 +741,13 @@
 	var/output = "<B>[current.real_name]'s Memories:</B><br>"
 	output += memory
 
+	if(personal_objectives.len)
+		output += "<B>Personal Goals:</B>"
+		var/personal_count = 1
+		for(var/datum/objective/objective in personal_objectives)
+			output += "<br><B>Personal Goal #[personal_count]</B>: [objective.explanation_text]"
+			personal_count++
+		output += "<br>"
 
 	var/list/all_objectives = list()
 	for(var/datum/antagonist/antag_datum_ref in antag_datums)
@@ -747,19 +756,14 @@
 
 	if(all_objectives.len)
 		output += "<B>Objectives:</B>"
-		var/obj_count = 1
+		var/antag_count = 1
 		for(var/datum/objective/objective in all_objectives)
-			output += "<br><B>[objective.flavor] #[obj_count++]</B>: [objective.explanation_text]"
-//			var/list/datum/mind/other_owners = objective.get_owners() - src
-//			if(other_owners.len)
-//				output += "<ul>"
-//				for(var/datum/mind/M in other_owners)
-//					output += "<li>Conspirator: [M.name]</li>"
-//				output += "</ul>"
+			output += "<br><B>[objective.flavor] #[antag_count]</B>: [objective.explanation_text]"
+			antag_count++
 
 	if(window)
 		recipient << browse(output,"window=memory")
-	else if(all_objectives.len || memory)
+	else if(all_objectives.len || memory || personal_objectives.len)
 		to_chat(recipient, "<i>[output]</i>")
 
 /// output current targets to the player
@@ -856,7 +860,10 @@
 		if (isnull(new_memo))
 			return
 		memory = new_memo
-
+	else if(href_list["add_personal_obj"])
+		admin_add_personal_objective(usr)
+	else if(href_list["remove_personal_obj"])
+		admin_remove_personal_objectives(usr)
 	else if (href_list["obj_edit"] || href_list["obj_add"])
 		var/objective_pos //Edited objectives need to keep same order in antag objective list
 		var/def_value
@@ -968,21 +975,47 @@
 		usr = current
 	traitor_panel()
 
-/// get all objectives of a mind
-/datum/mind/proc/get_all_objectives()
-	var/list/all_objectives = list()
+/// Gets only antagonist objectives
+/datum/mind/proc/get_antag_objectives()
+	var/list/antag_objectives = list()
 	for(var/datum/antagonist/antag_datum_ref in antag_datums)
-		all_objectives |= antag_datum_ref.objectives
-	return all_objectives
+		antag_objectives |= antag_datum_ref.objectives
+	return antag_objectives
 
-/// print out all objectives to a mind
+/// Gets only personal objectives
+/datum/mind/proc/get_personal_objectives()
+	return personal_objectives?.Copy() || list()
+
+/// Gets all objectives (both types)
+/datum/mind/proc/get_all_objectives()
+	return get_personal_objectives() + get_antag_objectives()
+
+/// Announce all objectives (both types)
 /datum/mind/proc/announce_objectives()
+	if(length(personal_objectives))
+		var/personal_count = 1
+		for(var/datum/objective/O in personal_objectives)
+			O.update_explanation_text()
+			to_chat(current, "<B>Personal Goal #[personal_count]</B>: [O.explanation_text]")
+			personal_count++
+
+	var/antag_count = 1
+	for(var/datum/antagonist/antag_datum_ref in antag_datums)
+		if(length(antag_datum_ref.objectives))
+			to_chat(current, span_notice("Your [antag_datum_ref.name] objectives:"))
+			for(var/datum/objective/O in antag_datum_ref.objectives)
+				O.update_explanation_text()
+				to_chat(current, "<B>[O.flavor] #[antag_count]</B>: [O.explanation_text]")
+				antag_count++
+
+/datum/mind/proc/announce_new_personal_objectives()
+	if(!personal_objectives.len)
+		return
+
 	var/obj_count = 1
-	to_chat(current, span_notice("My current objectives:"))
-	for(var/objective in get_all_objectives())
-		var/datum/objective/O = objective
+	for(var/datum/objective/O in personal_objectives)
 		O.update_explanation_text()
-		to_chat(current, "<B>[O.flavor] #[obj_count]</B>: [O.explanation_text]")
+		to_chat(current, "<B>Personal Objective #[obj_count]</B>: [O.explanation_text]")
 		obj_count++
 
 /**
@@ -1222,3 +1255,28 @@
 		title = apprentice_name
 	youngling.mind.our_apprentice_name = "[current.real_name]'s [title]"
 	to_chat(current, span_notice("[youngling.real_name] has become your apprentice."))
+
+/datum/mind/proc/add_personal_objective(datum/objective/O)
+    if(!istype(O))
+        return FALSE
+    personal_objectives += O
+    O.owner = src
+    return TRUE
+
+/datum/mind/proc/remove_personal_objective(datum/objective/O)
+    personal_objectives -= O
+    qdel(O)
+
+/datum/mind/proc/clear_personal_objectives()
+    for(var/O in personal_objectives)
+        qdel(O)
+    personal_objectives.Cut()
+
+/datum/mind/proc/announce_personal_objectives()
+    if(!personal_objectives.len)
+        return
+    to_chat(current, "<span class='notice'>You have some personal goals:</span>")
+    var/obj_count = 1
+    for(var/datum/objective/objective in personal_objectives)
+        to_chat(current, "<B>Personal Goal #[obj_count]</B>: [objective.explanation_text]")
+        obj_count++
