@@ -3622,7 +3622,7 @@
 /obj/structure/rack,
 /obj/machinery/light/fueled/wallfire/candle,
 /obj/item/recipe_book/underworld,
-/obj/item/mortar,
+/obj/item/reagent_containers/glass/mortar,
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/bath)
 "dxy" = (
@@ -11904,7 +11904,7 @@
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
 	},
-/obj/item/mortar,
+/obj/item/reagent_containers/glass/mortar,
 /obj/item/pestle,
 /turf/open/floor/ruinedwood{
 	icon_state = "weird1"
@@ -15652,7 +15652,7 @@
 /obj/structure/table/wood/counter/end{
 	dir = 4
 	},
-/obj/item/mortar,
+/obj/item/reagent_containers/glass/mortar,
 /obj/item/pestle,
 /turf/open/floor/blocks,
 /area/rogue/under/town/sewer)
