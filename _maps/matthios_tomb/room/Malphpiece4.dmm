@@ -173,7 +173,7 @@
 /turf/open/floor/carpet,
 /area/rogue/outdoors/caves)
 "Fu" = (
-/obj/structure/mineral_door/wood/donjon/stone,
+/obj/structure/door/stone,
 /turf/open/floor/blocks/paving/vert,
 /area/rogue/outdoors/caves)
 "Fv" = (
@@ -209,7 +209,7 @@
 /turf/open/water/swamp/deep,
 /area/rogue/outdoors/caves)
 "LB" = (
-/obj/structure/mineral_door/wood/fancywood,
+/obj/structure/door/fancy,
 /turf/open/floor/carpet,
 /area/rogue/outdoors/caves)
 "LS" = (

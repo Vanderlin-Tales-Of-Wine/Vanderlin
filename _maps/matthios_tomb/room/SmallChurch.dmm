@@ -39,6 +39,10 @@
 /obj/structure/flora/grass/water,
 /turf/open/water/swamp,
 /area/rogue/under/cavewet)
+"bu" = (
+/obj/structure/barricade/wooden,
+/turf/open/floor/churchmarble,
+/area/rogue/under/cavewet)
 "bv" = (
 /obj/structure/fluff/psycross/crafted,
 /obj/structure/flora/ausbushes/fullgrass,
@@ -128,14 +132,16 @@
 /obj/machinery/light/fueled/torchholder/c,
 /turf/open/floor/dirt/road,
 /area/rogue/under/cavewet)
+"ew" = (
+/obj/structure/door/iron/bars,
+/turf/open/floor/metal{
+	dir = 1
+	},
+/area/rogue/under/cavewet)
 "eC" = (
 /obj/structure/closet/crate/coffin,
 /obj/item/clothing/ring/gold/rontz,
 /turf/open/floor/tile/masonic/spiral,
-/area/rogue/under/cavewet)
-"eY" = (
-/obj/structure/mineral_door/wood/violet,
-/turf/open/floor/churchrough,
 /area/rogue/under/cavewet)
 "fu" = (
 /obj/structure/flora/grass,
@@ -163,13 +169,6 @@
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/concrete,
 /area/rogue/under/cavewet)
-"gr" = (
-/obj/structure/mineral_door/wood/donjon/stone{
-	can_add_lock = 0;
-	locked = 1
-	},
-/turf/open/floor/churchmarble,
-/area/rogue/under/cavewet)
 "gH" = (
 /obj/structure/chair/bench/church/mid,
 /mob/living/carbon/human/species/skeleton/npc/peasant,
@@ -179,11 +178,6 @@
 /turf/closed/wall/mineral/decostone/end{
 	dir = 8
 	},
-/area/rogue/under/cavewet)
-"gO" = (
-/obj/structure/barricade/wooden,
-/obj/machinery/light/fueled/torchholder/l,
-/turf/open/floor/churchmarble,
 /area/rogue/under/cavewet)
 "hf" = (
 /obj/structure/chair/stool,
@@ -233,6 +227,11 @@
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/grass,
 /area/rogue/under/cavewet)
+"jT" = (
+/obj/structure/closet/crate/chest/crate,
+/obj/structure/barricade/wooden/crude,
+/turf/open/floor/churchmarble,
+/area/rogue/under/cavewet)
 "kl" = (
 /obj/structure/roguerock,
 /turf/open/floor/dirt/road,
@@ -263,6 +262,10 @@
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
 /turf/open/floor/dirt/road,
 /area/rogue/under/cavewet)
+"lJ" = (
+/obj/structure/door/stone,
+/turf/open/floor/churchmarble,
+/area/rogue/under/cavewet)
 "lM" = (
 /turf/open/floor/churchmarble,
 /area/rogue/under/cavewet)
@@ -275,6 +278,10 @@
 /area/rogue/under/cavewet)
 "mW" = (
 /turf/closed,
+/area/rogue/under/cavewet)
+"mX" = (
+/obj/structure/barricade/wooden/crude,
+/turf/open/floor/churchmarble,
 /area/rogue/under/cavewet)
 "nb" = (
 /obj/machinery/light/fueled/oven/south,
@@ -382,10 +389,6 @@
 	dir = 4
 	},
 /area/rogue/under/cavewet)
-"qK" = (
-/obj/structure/barricade/wooden,
-/turf/open/floor/churchmarble,
-/area/rogue/under/cavewet)
 "ra" = (
 /obj/structure/table/church{
 	dir = 1
@@ -433,10 +436,6 @@
 	pixel_y = -1
 	},
 /turf/open/floor/blocks,
-/area/rogue/under/cavewet)
-"td" = (
-/obj/structure/mineral_door/wood/violet,
-/turf/open/floor/churchmarble,
 /area/rogue/under/cavewet)
 "tr" = (
 /obj/structure/roguetent,
@@ -590,6 +589,10 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/open/floor/grass,
 /area/rogue/under/cavewet)
+"zW" = (
+/obj/structure/door/violet,
+/turf/open/floor/churchrough,
+/area/rogue/under/cavewet)
 "As" = (
 /obj/structure/chair/bench/church/r,
 /mob/living/carbon/human/species/skeleton/npc/peasant,
@@ -645,8 +648,9 @@
 /obj/structure/spider/stickyweb,
 /turf/open/floor/dirt/road,
 /area/rogue/under/cavewet)
-"CV" = (
-/obj/structure/mineral_door/wood/donjon/stone,
+"CW" = (
+/obj/structure/barricade/wooden,
+/obj/machinery/light/fueled/torchholder/l,
 /turf/open/floor/churchmarble,
 /area/rogue/under/cavewet)
 "DB" = (
@@ -819,6 +823,13 @@
 /obj/item/weapon/knife/dagger/steel/profane,
 /obj/effect/decal/cleanable/sigil,
 /turf/open/floor/plasteel/maniac/damaged,
+/area/rogue/under/cavewet)
+"IZ" = (
+/obj/structure/door/stone{
+	can_add_lock = 0
+	},
+/obj/effect/mapping_helpers/door/locker,
+/turf/open/floor/churchmarble,
 /area/rogue/under/cavewet)
 "Js" = (
 /obj/item/flashlight/flare/torch,
@@ -1022,11 +1033,6 @@
 /obj/effect/decal/cleanable/blood/puddle,
 /turf/open/floor/churchmarble,
 /area/rogue/under/cavewet)
-"Re" = (
-/obj/structure/closet/crate/chest/crate,
-/obj/structure/barricade/wooden/crude,
-/turf/open/floor/churchmarble,
-/area/rogue/under/cavewet)
 "Rl" = (
 /obj/structure/closet/dirthole/closed,
 /mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
@@ -1043,12 +1049,6 @@
 	},
 /obj/structure/fluff/psycross/copper,
 /turf/open/floor/blocks,
-/area/rogue/under/cavewet)
-"RQ" = (
-/obj/structure/mineral_door/bars,
-/turf/open/floor/metal{
-	dir = 1
-	},
 /area/rogue/under/cavewet)
 "RR" = (
 /turf/open/floor/metal{
@@ -1159,8 +1159,8 @@
 /obj/structure/closet/dirthole/closed/loot,
 /turf/open/floor/grass/cold,
 /area/rogue/under/cavewet)
-"VQ" = (
-/obj/structure/barricade/wooden/crude,
+"Wd" = (
+/obj/structure/door/violet,
 /turf/open/floor/churchmarble,
 /area/rogue/under/cavewet)
 "Wk" = (
@@ -1926,9 +1926,9 @@ DB
 lM
 SK
 cV
-CV
+lJ
 MO
-CV
+lJ
 cV
 cV
 dY
@@ -2002,7 +2002,7 @@ MO
 cV
 cV
 cV
-gr
+IZ
 MO
 Mv
 bi
@@ -2030,7 +2030,7 @@ SK
 Kc
 pN
 pN
-gr
+IZ
 AS
 lr
 cb
@@ -2058,7 +2058,7 @@ lM
 lM
 lM
 pN
-gr
+IZ
 lM
 lM
 lM
@@ -2084,13 +2084,13 @@ SK
 GA
 lM
 lM
-CV
+lJ
 jl
 Zs
 bh
 ON
 Ed
-gr
+IZ
 lM
 lM
 lM
@@ -2639,7 +2639,7 @@ qe
 qe
 qe
 qe
-eY
+zW
 qe
 qe
 qe
@@ -2704,10 +2704,10 @@ BI
 BI
 BI
 cH
-qK
+bu
 ZF
 HY
-gO
+CW
 lM
 SK
 pr
@@ -2736,9 +2736,9 @@ BI
 BI
 BI
 cH
-qK
-Re
-qK
+bu
+jT
+bu
 lM
 lM
 SK
@@ -2768,7 +2768,7 @@ BI
 BI
 un
 MO
-VQ
+mX
 Ww
 ZF
 lM
@@ -2800,12 +2800,12 @@ qF
 BI
 BI
 KM
-VQ
+mX
 ZF
-qK
+bu
 KB
 lM
-CV
+lJ
 MB
 MB
 rK
@@ -2832,12 +2832,12 @@ BI
 BI
 BI
 IM
-qK
-qK
+bu
+bu
 sx
 lM
 lM
-CV
+lJ
 MB
 MB
 rK
@@ -2895,13 +2895,13 @@ SK
 lM
 lM
 lM
-gr
+IZ
 lM
 QB
 KB
 lM
 lM
-CV
+lJ
 MB
 MB
 rK
@@ -2923,7 +2923,7 @@ Fi
 Fi
 rU
 rU
-td
+Wd
 NQ
 aC
 Mu
@@ -2933,7 +2933,7 @@ Rx
 hf
 lM
 lM
-CV
+lJ
 MB
 MB
 rK
@@ -3023,7 +3023,7 @@ SK
 YC
 lM
 sb
-gr
+IZ
 lM
 KB
 lM
@@ -3183,12 +3183,12 @@ MB
 MB
 MB
 MB
-RQ
+ew
 MB
 MB
 MB
 MB
-RQ
+ew
 MB
 MB
 MB

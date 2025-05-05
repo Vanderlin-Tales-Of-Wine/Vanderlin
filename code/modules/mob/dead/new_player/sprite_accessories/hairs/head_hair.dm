@@ -449,12 +449,6 @@
 	gender = FEMALE
 	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
 
-/datum/sprite_accessory/hair/head/damsel
-	name = "Damsel"
-	icon_state = "damsel"
-	gender = FEMALE
-	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
-
 /datum/sprite_accessory/hair/head/emma
 	name = "Emma"
 	icon_state = "emma"
@@ -978,24 +972,6 @@
 	gender = NEUTER
 	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
 
-/datum/sprite_accessory/hair/head/wavyovereye
-	name = "Wavy Over Eye"
-	icon_state = "wavyovereye"
-	gender = NEUTER
-	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
-
-/datum/sprite_accessory/hair/head/straightovereye
-	name = "Straight Over Eye"
-	icon_state = "straightovereye"
-	gender = NEUTER
-	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
-
-/datum/sprite_accessory/hair/head/straightside
-	name = "Straight Side"
-	icon_state = "straightside"
-	gender = NEUTER
-	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
-
 /datum/sprite_accessory/hair/head/straightshort
 	name = "Straight Short"
 	icon_state = "straightshort"
@@ -1077,12 +1053,6 @@
 /datum/sprite_accessory/hair/head/thickcurly
 	name = "Thick Curly"
 	icon_state = "thickcurly"
-	gender = NEUTER
-	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
-
-/datum/sprite_accessory/hair/head/thicklong_alt
-	name = "Thick Long (Alt)"
-	icon_state = "thicklong_alt"
 	gender = NEUTER
 	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
 

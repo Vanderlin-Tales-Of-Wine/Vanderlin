@@ -30,7 +30,7 @@
 	return
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/blowgun/process_fire(atom/target, mob/living/user, message = TRUE, params = null, zone_override = "", bonus_spread = 0)
-	if(user.get_num_arms(FALSE) < 1)
+	if(user.usable_hands < 1)
 		return FALSE
 	if(user.client)
 		if(user.client.chargedprog >= 100)
@@ -90,7 +90,7 @@
 
 /datum/intent/shoot/blowgun/can_charge()
 	if(mastermob)
-		if(mastermob.get_num_arms(FALSE) < 1)
+		if(mastermob.usable_hands < 1)
 			return FALSE
 	return TRUE
 
@@ -116,7 +116,7 @@
 
 /datum/intent/arc/blowgun/can_charge()
 	if(mastermob)
-		if(mastermob.get_num_arms(FALSE) < 1)
+		if(mastermob.usable_hands < 1)
 			return FALSE
 	return TRUE
 

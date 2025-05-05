@@ -68,7 +68,7 @@
 		return 1
 	if(isliving(mover))
 		var/mob/living/M = mover
-		if(!(M.mobility_flags & MOBILITY_STAND))
+		if(M.body_position == LYING_DOWN)
 			if(passcrawl)
 				return TRUE
 	if(icon_state == "woodrailing" && (dir in CORNERDIRS))
@@ -119,7 +119,7 @@
 		return 1
 	if(isliving(O))
 		var/mob/living/M = O
-		if(!(M.mobility_flags & MOBILITY_STAND))
+		if(M.body_position == LYING_DOWN)
 			if(passcrawl)
 				return TRUE
 	if(icon_state == "woodrailing" && (dir in CORNERDIRS))
@@ -900,7 +900,7 @@
 							if(H.tiredness >= 50)
 								H.apply_status_effect(/datum/status_effect/debuff/trainsleep)
 						probby = 0
-					if(!(L.mobility_flags & MOBILITY_STAND))
+					if(L.body_position == LYING_DOWN)
 						probby = 0
 					if(L.STAINT < 3)
 						probby = 0
@@ -1213,8 +1213,8 @@
 						thebride.adjust_triumphs(1)
 						//Bite the apple first if you want to be the groom.
 						priority_announce("[thegroom.real_name] has married [bridefirst]!", title = "Holy Union!", sound = 'sound/misc/bell.ogg')
-						thegroom.remove_stress(/datum/stressevent/eora_marriage_call)
-						thebride.remove_stress(/datum/stressevent/eora_marriage_call)
+						thegroom.remove_stress(/datum/stressevent/eora_matchmaking)
+						thebride.remove_stress(/datum/stressevent/eora_matchmaking)
 						GLOB.vanderlin_round_stats[STATS_MARRIAGES]++
 						marriage = TRUE
 						qdel(A)

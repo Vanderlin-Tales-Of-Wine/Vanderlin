@@ -109,10 +109,10 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cave)
 "kU" = (
-/obj/structure/mineral_door/wood/donjon{
-	dir = 8;
-	locked = 1
+/obj/structure/door/viewport{
+	dir = 8
 	},
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "ld" = (
@@ -139,10 +139,10 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "mL" = (
-/obj/structure/mineral_door/wood/donjon{
-	dir = 8;
-	locked = 1
+/obj/structure/door/viewport{
+	dir = 8
 	},
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cave)
 "mX" = (
@@ -281,10 +281,10 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cave)
 "xO" = (
-/obj/structure/mineral_door/wood/donjon{
-	dir = 4;
-	locked = 1
+/obj/structure/door/viewport{
+	dir = 4
 	},
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "xX" = (
@@ -313,9 +313,8 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "Ci" = (
-/obj/structure/mineral_door/wood{
-	locked = 1
-	},
+/obj/structure/door,
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "Cr" = (
@@ -563,10 +562,10 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cave)
 "Xx" = (
-/obj/structure/mineral_door/wood/donjon{
-	dir = 4;
-	locked = 1
+/obj/structure/door/viewport{
+	dir = 4
 	},
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cave)
 "XA" = (

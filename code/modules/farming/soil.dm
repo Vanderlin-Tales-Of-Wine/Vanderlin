@@ -71,6 +71,7 @@
 		feedback = "Praise Dendor for our harvest is bountiful."
 		modifier += 3
 
+	record_featured_stat(FEATURED_STATS_FARMERS, user)
 	GLOB.vanderlin_round_stats[STATS_PLANTS_HARVESTED]++
 	to_chat(user, span_notice(feedback))
 	yield_produce(modifier)

@@ -58,22 +58,22 @@
 			attackhostage()
 
 		if(wear_armor)
-			if(mobility_flags & MOBILITY_STAND)
+			if(body_position != LYING_DOWN)
 				var/obj/item/clothing/C = wear_armor
 				C.step_action()
 
 		if(wear_shirt)
-			if(mobility_flags & MOBILITY_STAND)
+			if(body_position != LYING_DOWN)
 				var/obj/item/clothing/C = wear_shirt
 				C.step_action()
 
 		if(cloak)
-			if(mobility_flags & MOBILITY_STAND)
+			if(body_position != LYING_DOWN)
 				var/obj/item/clothing/C = cloak
 				C.step_action()
 
 		if(shoes)
-			if(mobility_flags & MOBILITY_STAND)
+			if(body_position != LYING_DOWN)
 				var/obj/item/clothing/shoes/S = shoes
 
 				//Bloody footprints

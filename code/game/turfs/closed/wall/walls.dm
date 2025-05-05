@@ -156,8 +156,8 @@
 	explosion_block = 4
 	hardness = 7
 
-	burn_power = 20
-	spread_chance = 4
+	burn_power = 200
+	spread_chance = 0.8
 
 /turf/closed/wall/mineral/wood/window
 	name = "wooden window"
@@ -195,8 +195,8 @@
 	explosion_block = 0
 	hardness = 70
 
-	burn_power = 20
-	spread_chance = 9
+	burn_power = 200
+	spread_chance = 1.8
 
 
 /turf/closed/wall/mineral/tent/OnCrafted(dirin, mob/user)
@@ -220,8 +220,8 @@
 	climbdiff = 3
 	explosion_block = 4
 	hardness = 7
-	burn_power = 20
-	spread_chance = 4
+	burn_power = 200
+	spread_chance = 0.8
 
 /turf/closed/wall/mineral/wooddark/OnCrafted(dirin, mob/user)
 	if(dirin == NORTH || dirin == SOUTH)
@@ -250,6 +250,7 @@
 
 /turf/closed/wall/mineral/wooddark/window/OnCrafted(dirin, mob/user)
 	SHOULD_CALL_PARENT(FALSE)
+	record_featured_stat(FEATURED_STATS_CRAFTERS, user)
 	add_abstract_elastic_data(ELASCAT_CRAFTING, "[name]", 1)
 	return
 
@@ -273,8 +274,8 @@
 	climbdiff = 3
 	hardness = 7
 
-	burn_power = 20
-	spread_chance = 2
+	burn_power = 200
+	spread_chance = 0.4
 
 
 /turf/closed/wall/mineral/roofwall/center
@@ -307,8 +308,8 @@
 	explosion_block = 4
 	hardness = 7
 
-	burn_power = 20
-	spread_chance = 4
+	burn_power = 200
+	spread_chance = 0.8
 
 /turf/closed/wall/mineral/decowood/Initialize()
 	. = ..()

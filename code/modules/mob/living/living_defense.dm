@@ -193,10 +193,10 @@
 	if(surrendering)
 		combat_modifier = 2
 
-	if(restrained())
+	if(HAS_TRAIT(src, TRAIT_RESTRAINED))
 		combat_modifier += 0.25
 
-	if(!(mobility_flags & MOBILITY_STAND) && user.mobility_flags & MOBILITY_STAND)
+	if(body_position == LYING_DOWN && user.body_position != LYING_DOWN)
 		combat_modifier += 0.05
 	if(user.cmode && !cmode)
 		combat_modifier += 0.3
@@ -328,7 +328,7 @@
 		return FALSE
 	if(!M.Adjacent(src))
 		return FALSE
-	if(M.incapacitated())
+	if(M.incapacitated(ignore_grab = TRUE))
 		return FALSE
 
 	if(checkmiss(M))

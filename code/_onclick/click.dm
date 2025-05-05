@@ -28,14 +28,14 @@
 		mod *= S.nextmove_modifier()
 		adj += S.nextmove_adjust()
 	if(!hand)
-		next_move = world.time + ((num + adj)*mod)
+		next_move = world.time + ((num + adj)*mod * (InCritical()? 3 : 1))
 		hud_used?.cdmid?.mark_dirty()
 		return
 	if(hand == 1)
-		next_lmove = world.time + ((num + adj)*mod)
+		next_lmove = world.time + ((num + adj)*mod * (InCritical()? 3 : 1))
 		hud_used?.cdleft?.mark_dirty()
 	else
-		next_rmove = world.time + ((num + adj)*mod)
+		next_rmove = world.time + ((num + adj)*mod * (InCritical()? 3 : 1))
 		hud_used?.cdright?.mark_dirty()
 
 /*
@@ -193,7 +193,7 @@
 			RightClickOn(A, params)
 			return
 
-	if(incapacitated(ignore_restraints = TRUE))
+	if(incapacitated(ignore_restraints = TRUE, ignore_grab = TRUE))
 		return
 
 	if(!atkswinging)
@@ -205,9 +205,9 @@
 	if(dir == get_dir(A,src)) //they are behind us and we are not facing them
 		return
 
-	if(restrained())
+	if(HAS_TRAIT(src, TRAIT_HANDS_BLOCKED))
 		changeNext_move(CLICK_CD_HANDCUFFED)   //Doing shit in cuffs shall be vey slow
-		RestrainedClickOn(A)
+		UnarmedAttack(A)
 		return
 
 	if(in_throw_mode)
@@ -500,14 +500,6 @@
 /mob/proc/RangedAttack(atom/A, params)
 	if(SEND_SIGNAL(src, COMSIG_MOB_ATTACK_RANGED, A, params) & COMPONENT_CANCEL_ATTACK_CHAIN)
 		return TRUE
-/*
-	Restrained ClickOn
-
-	Used when you are handcuffed and click things.
-	Not currently used by anything but could easily be.
-*/
-/mob/proc/RestrainedClickOn(atom/A)
-	return
 
 /**
  *Middle click
