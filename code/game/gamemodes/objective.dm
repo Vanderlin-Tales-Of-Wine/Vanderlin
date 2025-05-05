@@ -15,7 +15,7 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 	var/triumph_count = 1
 	var/flavor = "Goal" //so it appear as "goal", "dream", "aspiration", etc
 
-/datum/objective/New(text, owner)
+/datum/objective/New(text, datum/mind/owner)
 	if(text)
 		explanation_text = text
 	if(owner)
