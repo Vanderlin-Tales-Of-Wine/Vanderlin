@@ -296,6 +296,15 @@ SUBSYSTEM_DEF(ticker)
 	CHECK_TICK
 	GLOB.start_landmarks_list = shuffle(GLOB.start_landmarks_list) //Shuffle the order of spawn points so they dont always predictably spawn bottom-up and right-to-left
 
+	create_characters() //Create player characters
+	log_game("GAME SETUP: create characters success")
+	collect_minds()
+	log_game("GAME SETUP: collect minds success")
+	equip_characters()
+	log_game("GAME SETUP: equip characters success")
+	transfer_characters()	//transfer keys to the new mobs
+	log_game("GAME SETUP: transfer characters success")
+
 	for(var/I in round_start_events)
 		var/datum/callback/cb = I
 		cb.InvokeAsync()
