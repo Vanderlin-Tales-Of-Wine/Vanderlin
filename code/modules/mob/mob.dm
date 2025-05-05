@@ -819,13 +819,11 @@ GLOBAL_VAR_INIT(mobids, 1)
 
 ///Checks mobility move as well as parent checks
 /mob/living/canface(atom/A)
-	if(!A)
-		return
 	if(HAS_TRAIT(src, TRAIT_IMMOBILIZED))
 		return FALSE
 	if(world.time < last_dir_change + 5)
 		return
-	if(pulledby && pulledby.grab_state >= GRAB_AGGRESSIVE) //the reason this isn't a mobility_flags check is because you want them to be able to change dir if you're passively grabbing them
+	if(A && pulledby && pulledby.grab_state >= GRAB_AGGRESSIVE) //the reason this isn't a mobility_flags check is because you want them to be able to change dir if you're passively grabbing them
 		// get_cardinal_dir is inconsistent, reuse face_atom code
 		var/dx = A.x - src.x
 		var/dy = A.y - src.y
