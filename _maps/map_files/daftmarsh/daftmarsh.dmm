@@ -9691,6 +9691,9 @@
 	pixel_x = -1;
 	pixel_y = -6
 	},
+/obj/item/reagent_containers/glass/mortar{
+	pixel_x = 15
+	},
 /turf/open/floor/ruinedwood{
 	icon_state = "weird1"
 	},
@@ -11905,6 +11908,7 @@
 	icon_state = "tablewood1"
 	},
 /obj/item/pestle,
+/obj/item/reagent_containers/glass/mortar,
 /turf/open/floor/ruinedwood{
 	icon_state = "weird1"
 	},
@@ -14059,6 +14063,7 @@
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_y = -32
 	},
+/obj/item/pestle,
 /turf/open/floor/ruinedwood{
 	icon_state = "weird1"
 	},
@@ -15652,6 +15657,7 @@
 	dir = 4
 	},
 /obj/item/pestle,
+/obj/item/reagent_containers/glass/mortar,
 /turf/open/floor/blocks,
 /area/rogue/under/town/sewer)
 "pig" = (
