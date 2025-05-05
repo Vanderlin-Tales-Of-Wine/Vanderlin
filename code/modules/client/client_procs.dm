@@ -627,7 +627,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		return
 
 	var/suffix = initialized_storyteller.bonus_points >= 0 ? "from wanting to rule" : "from long reign exhaustion"
-	var/bonus_display = "<div>([get_colored_influence_value(initialized_storyteller.bonus_points)] [suffix])</div>"
+	var/bonus_display = "<div>([get_colored_influence_value(round(initialized_storyteller.bonus_points))] [suffix])</div>"
 
 	return {"
 	<div style='border:6px solid [bg_color]; background:[bg_color]; border-radius:6px; height:100%';>

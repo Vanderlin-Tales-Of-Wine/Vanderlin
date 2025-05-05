@@ -1265,9 +1265,9 @@ SUBSYSTEM_DEF(gamemode)
 		return
 
 	if(storytellers_with_influence[highest] > 1)
-		highest.bonus_points -= 1
+		highest.bonus_points -= 1.25
 
-	lowest.bonus_points += 1
+	lowest.bonus_points += 1.25
 
 	set_storyteller(highest.type)
 

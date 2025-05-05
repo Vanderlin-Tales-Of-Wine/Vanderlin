@@ -7,9 +7,9 @@
 	color_theme = "#FFD700"
 
 	influence_factors = list(
-		STATS_LAWS_AND_DECREES_MADE = list("points" = 2.75,"capacity" = 45),
-		STATS_ALIVE_NOBLES = list("points" = 4,"capacity" = 85),
-		STATS_NOBLE_DEATHS = list("points" = -6,"capacity" = -85),
+		STATS_LAWS_AND_DECREES_MADE = list("points" = 2.5,"capacity" = 45),
+		STATS_ALIVE_NOBLES = list("points" = 3,"capacity" = 75),
+		STATS_NOBLE_DEATHS = list("points" = -5,"capacity" = -75),
 		STATS_ASTRATA_REVIVALS = list("points" = 6, "capacity" = 75),
 		STATS_TAXES_COLLECTED = list("points" = 0.175,"capacity" = 90),
 	)
@@ -156,10 +156,10 @@
 
 	influence_factors = list(
 		STATS_POTIONS_BREWED = list("points" = 4.5, "capacity" = 80),
-		STATS_WOUNDS_SEWED = list("points" = 0.475, "capacity" = 100),
+		STATS_WOUNDS_SEWED = list("points" = 0.5, "capacity" = 100),
 		STATS_SOULS_REINCARNATED = list("points" = 2.25, "capacity" = 65),
 		STATS_ANIMALS_BRED = list("points" = 6, "capacity" = 65),
-		STATS_FOOD_ROTTED = list("points" = 0.25, "capacity" = 80),
+		STATS_FOOD_ROTTED = list("points" = 0.2, "capacity" = 80),
 	)
 
 /datum/storyteller/malum
@@ -273,7 +273,7 @@
 	)
 
 	influence_factors = list(
-		STATS_ZIZO_PRAISED = list("points" = 1.5, "capacity" = 40),
+		STATS_ZIZO_PRAISED = list("points" = 0.75, "capacity" = 40),
 		STATS_NOBLE_DEATHS = list("points" = 6, "capacity" = 80),
 		STATS_DEADITES_WOKEN_UP = list("points" = 3, "capacity" = 90),
 		STATS_CLERGY_DEATHS = list("points" = 10, "capacity" = 80),
