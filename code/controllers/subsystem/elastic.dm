@@ -54,7 +54,7 @@ SUBSYSTEM_DEF(elastic)
 
 /datum/controller/subsystem/elastic/proc/get_round_data()
 	var/list/round_data = list()
-	// For stats that need special formatting and must be send manually instead of as a part of the loop
+	/// For stats that need special formatting and must be send manually instead of as a part of the loop
 	var/list/special_stats = list(STATS_BLOOD_SPILT)
 
 	for(var/patron_name in GLOB.patron_follower_counts)
