@@ -1294,7 +1294,6 @@ SUBSYSTEM_DEF(gamemode)
 
 	GLOB.patron_follower_counts.Cut()
 
-	GLOB.vanderlin_round_stats[STATS_MONARCH_PATRON] = "None"
 	GLOB.vanderlin_round_stats[STATS_TOTAL_POPULATION] = 0
 	GLOB.vanderlin_round_stats[STATS_PSYCROSS_USERS] = 0
 	GLOB.vanderlin_round_stats[STATS_ALIVE_NOBLES] = 0
