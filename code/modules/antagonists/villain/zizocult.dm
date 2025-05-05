@@ -222,8 +222,10 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	if(!sigil_type)
 		return
 
-	if(user.patron.type == /datum/patron/inhumen/zizo)
-		to_chat(user, "It is of the [sigil_type] circle.")
+	if(ishuman(user))
+		var/mob/living/carbon/human/human_user = user
+		if(human_user.patron.type == /datum/patron/inhumen/zizo)
+			to_chat(user, "It is of the [sigil_type] circle.")
 
 /obj/effect/decal/cleanable/sigil/Initialize(mapload)
 	. = ..()
