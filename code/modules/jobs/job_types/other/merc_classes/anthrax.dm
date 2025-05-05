@@ -76,6 +76,7 @@
 
 			H.change_stat(STATKEY_SPD, 2) //Speedier than a Steppesman, but not as tough or damaging.
 			H.change_stat(STATKEY_END, 1)
+			H.change_stat(STATKEY_PER, 3)
 
 			ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 
