@@ -4963,7 +4963,7 @@
 /obj/structure/rack,
 /obj/machinery/light/fueled/wallfire/candle,
 /obj/item/recipe_book/underworld,
-/obj/item/mortar,
+/obj/item/reagent_containers/glass/mortar,
 /turf/open/floor/cobble,
 /area/rogue/indoors/town)
 "cYh" = (
@@ -14755,7 +14755,7 @@
 	dir = 10;
 	icon_state = "largetable"
 	},
-/obj/item/mortar{
+/obj/item/reagent_containers/glass/mortar{
 	pixel_y = 5
 	},
 /obj/item/pestle{
@@ -30677,7 +30677,7 @@
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
 	},
-/obj/item/mortar,
+/obj/item/reagent_containers/glass/mortar,
 /obj/item/pestle,
 /obj/structure/fake_machine/scomm,
 /turf/open/floor/ruinedwood{

@@ -114,6 +114,7 @@
 	fueluse = 0
 	crossfire = FALSE
 	cookonme = TRUE
+	temperature_change = 35
 
 /obj/machinery/light/fueled/wallfire/candle
 	name = "candles"
@@ -124,6 +125,7 @@
 	cookonme = FALSE
 	pixel_y = 32
 	soundloop = null
+	temperature_change = 0
 
 /obj/machinery/light/fueled/wallfire/candle/OnCrafted(dirin, mob/user)
 	pixel_x = 0
@@ -202,6 +204,7 @@
 	crossfire = FALSE
 	plane = GAME_PLANE_UPPER
 	cookonme = FALSE
+	temperature_change = 0
 
 /obj/machinery/light/fueled/torchholder/c
 	pixel_y = 32
@@ -340,6 +343,7 @@
 	soundloop = null
 	crossfire = FALSE
 	obj_flags = CAN_BE_HIT | BLOCK_Z_OUT_DOWN | BLOCK_Z_IN_UP
+	temperature_change = 5
 
 /obj/machinery/light/fueled/chand/attack_hand(mob/user)
 	if(isliving(user) && on)
@@ -362,6 +366,7 @@
 	on = FALSE
 	cookonme = TRUE
 	soundloop = /datum/looping_sound/fireloop
+	temperature_change = 45
 	var/heat_time = 100
 	var/obj/item/attachment = null
 	var/obj/item/reagent_containers/food/snacks/food = null
@@ -538,6 +543,8 @@
 	cookonme = TRUE
 	max_integrity = 30
 	soundloop = /datum/looping_sound/fireloop
+
+	temperature_change = 35
 
 /obj/machinery/light/fueled/campfire/process()
 	..()

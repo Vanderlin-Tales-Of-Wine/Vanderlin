@@ -44,7 +44,7 @@
 	if(iscarbon(loc))
 		var/mob/living/carbon/M = loc
 		if(M.handcuffed == src)
-			M.handcuffed = null
+			M.set_handcuffed(null)
 			M.update_handcuffed()
 			if(M.buckled && M.buckled.buckle_requires_restraints)
 				M.buckled.unbuckle_mob(M)
@@ -64,10 +64,10 @@
 
 	if(user.aimheight >= 5)
 		if(!C.handcuffed)
-			if(C.get_num_arms(FALSE))
+			if(C.num_hands)
 				C.visible_message(span_warning("[user] is trying to tie [C]'s arms with [src.name]!"), \
 									span_danger("[user] is trying to tie my arms with [src.name]!"))
-				if(do_after(user, 6 SECONDS * (C.surrendering ? 0.5 : 1), C) && C.get_num_arms(FALSE))
+				if(do_after(user, 6 SECONDS * (C.surrendering ? 0.5 : 1), C) && C.num_hands)
 					apply_cuffs(C, user, leg = FALSE)
 					C.visible_message(span_warning("[user] ties [C]' arms with [src.name]."), \
 										span_danger("[user] ties my arms up with [src.name]."))
@@ -80,10 +80,10 @@
 				to_chat(user, span_warning("[C] is missing two or one arms."))
 	else
 		if(!C.legcuffed)
-			if(C.get_num_legs(FALSE))
+			if(C.num_legs)
 				C.visible_message(span_warning("[user] is trying to tie [C]'s legs with [src.name]!"), \
 									span_danger("[user] is trying to tie my legs with [src.name]!"))
-				if(do_after(user, 6 SECONDS * (C.surrendering ? 0.5 : 1), C) && C.get_num_legs(FALSE))
+				if(do_after(user, 6 SECONDS * (C.surrendering ? 0.5 : 1), C) && C.num_legs)
 					apply_cuffs(C, user, leg = TRUE)
 					C.visible_message(span_warning("[user] ties [C]' legs with [src.name]."), \
 										span_danger("[user] ties my legs up with [src.name]."))
@@ -106,7 +106,7 @@
 		var/obj/item/cuffs = src
 
 		cuffs.forceMove(target)
-		target.handcuffed = cuffs
+		target.set_handcuffed(cuffs)
 
 		target.update_handcuffed()
 		return
@@ -181,7 +181,7 @@
 	ensnare(hit_atom)
 
 /obj/item/net/proc/ensnare(mob/living/carbon/C)
-	if(!C.legcuffed && C.get_num_legs(FALSE) >= 2)
+	if(!C.legcuffed && C.num_legs >= 2)
 		visible_message("<span class='danger'>\The [src] ensnares [C]!</span>")
 		C.legcuffed = src
 		forceMove(C)
@@ -269,7 +269,7 @@
 	qdel(src)
 
 /obj/structure/noose/user_buckle_mob(mob/living/M, mob/user, check_loc)
-	if(!in_range(user, src) || user.stat != CONSCIOUS || !iscarbon(M))
+	if(!in_range(user, src) || user.stat != CONSCIOUS || HAS_TRAIT(user, TRAIT_RESTRAINED) || !iscarbon(M))
 		return FALSE
 
 	if (!M.get_bodypart("head"))

@@ -53,14 +53,14 @@
 	. = ..()
 	verbs += /mob/living/proc/lay_down
 
-/mob/living/simple_animal/pet/cat/update_mobility()
-	..()
-	if(client && stat != DEAD)
-		if (resting)
-			icon_state = "[icon_living]_rest"
-		else
-			icon_state = "[icon_living]"
-	regenerate_icons()
+// /mob/living/simple_animal/pet/cat/update_mobility()
+// 	..()
+// 	if(client && stat != DEAD)
+// 		if (resting)
+// 			icon_state = "[icon_living]_rest"
+// 		else
+// 			icon_state = "[icon_living]"
+// 	regenerate_icons()
 
 
 /mob/living/simple_animal/pet/cat/Crossed(mob/living/L) // Gato Basado - makes it leave when people step too close
@@ -69,7 +69,7 @@
 		if(health > 1)
 			icon_state = "[icon_living]"
 			set_resting(FALSE)
-			update_mobility()
+			// update_mobility()
 			if(isturf(loc))
 				dir = pick(GLOB.cardinals)
 				step(src, dir)
@@ -199,7 +199,7 @@
 			visible_message("<span class='notice'>\The [src] hisses at [M] and recoils in disgust.</span>")
 			icon_state = "[icon_living]"
 			set_resting(FALSE)
-			update_mobility()
+			// update_mobility()
 			playsound(get_turf(src), 'sound/vo/mobs/cat/cathiss.ogg', 80, TRUE, -1)
 			dir = pick(GLOB.alldirs)
 			step(src, dir)
@@ -209,7 +209,7 @@
 				visible_message("<span class='notice'>\The [src] hisses at [M] and recoils in disgust.</span>")
 				icon_state = "[icon_living]"
 				set_resting(FALSE)
-				update_mobility()
+				// update_mobility()
 				playsound(get_turf(src), 'sound/vo/mobs/cat/cathiss.ogg', 80, TRUE, -1)
 				dir = pick(GLOB.alldirs)
 				step(src, dir)

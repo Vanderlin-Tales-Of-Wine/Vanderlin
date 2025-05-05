@@ -72,7 +72,7 @@
 	if(!found_command)
 		return list()
 
-	if(istype(found_command) && found_command.get_tertiary_args())
+	if(istype(found_command) && found_command.get_tertiary_args(secondary_arg))
 		return found_command.get_tertiary_args(secondary_arg)
 
 	return list()
@@ -155,7 +155,8 @@
 
 	var/list/matches = list()
 
-	var/list/input_parts = splittext(input_text, " ")
+	// Parse input with quote awareness
+	var/list/input_parts = parse_quoted_arguments(input_text)
 	var/parts_count = length(input_parts)
 
 	var/ends_with_space = (length(input_text) > 0 && input_text[length(input_text)] == " ")
@@ -205,29 +206,8 @@
 	else
 		completion_index = (completion_index % length(completion_suggestions)) + 1
 
-	// Apply the completion
-	var/new_text
-
-	if(parts_count == 1 && !ends_with_space)
-		new_text = completion_suggestions[completion_index]
-	else if(parts_count == 1 && ends_with_space)
-		new_text = input_parts[1] + " " + completion_suggestions[completion_index]
-	else if(parts_count == 2 && !ends_with_space)
-		new_text = input_parts[1] + " " + completion_suggestions[completion_index]
-	else if(parts_count == 2 && ends_with_space)
-		new_text = input_parts[1] + " " + input_parts[2] + " " + completion_suggestions[completion_index]
-	else if(parts_count >= 3)
-		if(ends_with_space)
-			new_text = input_text + completion_suggestions[completion_index]
-		else
-			new_text = ""
-			for(var/i = 1, i < parts_count, i++)
-				new_text += input_parts[i] + " "
-			new_text += completion_suggestions[completion_index]
-
-			if(parts_count > 3)
-				for(var/i = 4, i <= parts_count, i++)
-					new_text += " " + input_parts[i]
+	// Apply the completion, preserving quotes where needed
+	var/new_text = apply_completion_with_quotes(input_parts, completion_suggestions[completion_index], ends_with_space)
 
 	input_text = new_text
 	cursor_position = length(input_text)
@@ -239,6 +219,75 @@
 	update_prediction()
 
 	return TRUE
+
+/obj/abstract/visual_ui_element/console_input/proc/apply_completion_with_quotes(list/input_parts, completion, ends_with_space)
+	var/new_text = ""
+	// Check if we need to quote the completion (if it contains spaces)
+	var/needs_quotes = findtext(completion, " ") > 0
+
+	if(length(input_parts) == 1 && !ends_with_space)
+		// Completing the command
+		new_text = completion
+	else if(length(input_parts) == 1 && ends_with_space)
+		// Adding second argument
+		new_text = input_parts[1] + " "
+		if(needs_quotes)
+			new_text += "\"" + completion + "\""
+		else
+			new_text += completion
+	else if(length(input_parts) == 2 && !ends_with_space)
+		// Completing second argument
+		new_text = input_parts[1] + " "
+		if(needs_quotes)
+			new_text += "\"" + completion + "\""
+		else
+			new_text += completion
+	else if(length(input_parts) == 2 && ends_with_space)
+		// Adding third argument
+		new_text = input_parts[1] + " " + input_parts[2] + " "
+		if(needs_quotes)
+			new_text += "\"" + completion + "\""
+		else
+			new_text += completion
+	else if(length(input_parts) >= 3)
+		// Handle more complex cases
+		new_text = input_parts[1] + " " + input_parts[2] + " "
+
+		if(needs_quotes)
+			new_text += "\"" + completion + "\""
+		else
+			new_text += completion
+
+		if(length(input_parts) > 3)
+			for(var/i = 4, i <= length(input_parts), i++)
+				new_text += " " + input_parts[i]
+
+	return new_text
+
+/obj/abstract/visual_ui_element/console_input/proc/parse_quoted_arguments(text)
+	var/list/result = list()
+	var/current_arg = ""
+	var/in_quotes = FALSE
+
+	for(var/i = 1, i <= length(text), i++)
+		var/char = text[i]
+
+		if(char == "\"" && (i == 1 || text[i-1] != "\\"))
+			in_quotes = !in_quotes
+			continue
+
+		if(char == " " && !in_quotes)
+			if(length(current_arg) > 0)
+				result += current_arg
+				current_arg = ""
+			continue
+
+		current_arg += char
+
+	if(length(current_arg) > 0)
+		result += current_arg
+
+	return result
 
 /obj/abstract/visual_ui_element/console_input/proc/reset_completion()
 	completion_suggestions = list()
@@ -253,7 +302,8 @@
 	if(cursor_position != length(input_text) || !length(input_text))
 		return
 
-	var/list/input_parts = splittext(input_text, " ")
+	// Parse input with quote awareness
+	var/list/input_parts = parse_quoted_arguments(input_text)
 	var/parts_count = length(input_parts)
 
 	if(parts_count == 1)
@@ -265,7 +315,6 @@
 				showing_prediction = TRUE
 				break
 	else if(parts_count == 2)
-		// Predict secondary argument
 		var/base_command = input_parts[1]
 		var/current_word = input_parts[2]
 
@@ -276,7 +325,6 @@
 				showing_prediction = TRUE
 				break
 	else if(parts_count >= 3)
-		// Predict tertiary argument
 		var/base_command = input_parts[1]
 		var/secondary_arg = input_parts[2]
 		var/current_word = input_parts[3]
@@ -348,6 +396,7 @@
 				input_text = copytext(input_text, 1, cursor_position) + copytext(input_text, cursor_position + 1)
 				cursor_position--
 			reset_completion()
+			update_prediction()
 		if("Delete")
 			special_key = TRUE
 			if(cursor_position < length(input_text))
@@ -361,6 +410,7 @@
 			special_key = TRUE
 			if(cursor_position == length(input_text) && showing_prediction)
 				apply_prediction()
+				update_prediction()
 			else
 				cursor_position = min(length(input_text), cursor_position + 1)
 				showing_prediction = FALSE

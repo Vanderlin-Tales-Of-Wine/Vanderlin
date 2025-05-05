@@ -9,6 +9,7 @@ GLOBAL_LIST_INIT(console_commands, init_possible_commands())
 /datum/console_command
 	var/command_key
 	var/required_args = 0
+	var/notify_admins = TRUE
 
 /datum/console_command/proc/get_secondary_args(mob/user)
 	return list()
