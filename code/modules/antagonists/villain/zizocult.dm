@@ -222,7 +222,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	if(!sigil_type)
 		return
 
-	if(iszizocultist(user) || iszizolackey(user))
+	if(user.patron.type == /datum/patron/inhumen/zizo)
 		to_chat(user, "It is of the [sigil_type] circle.")
 
 /obj/effect/decal/cleanable/sigil/Initialize(mapload)
@@ -626,7 +626,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 /obj/item/corruptedheart/attack(mob/living/M, mob/living/user)
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-		if(iszizocultist(H) || iszizolackey(H))
+		if(user.patron.type == /datum/patron/inhumen/zizo)
 			H.blood_volume = BLOOD_VOLUME_MAXIMUM
 			to_chat(H, "<span class='notice'>My elixir of life is stagnant once again.</span>")
 			qdel(src)
