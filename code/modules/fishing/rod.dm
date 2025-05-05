@@ -215,7 +215,7 @@
 		return
 	if(!user.Process_Spacemove(0) && user.inertia_dir)
 		return
-	if(user.IsStun() || user.IsParalyzed())
+	if(HAS_TRAIT(user, TRAIT_INCAPACITATED))
 		return
 	if(user.loc != startingturf)
 		return
@@ -728,7 +728,7 @@
 				else
 					caughtfish.name = "[sizedesc] [raritydesc] [caughtfish.name]"
 					caughtfish.sellprice *= costmod
-
+			record_featured_stat(FEATURED_STATS_FISHERS, fisher)
 			GLOB.vanderlin_round_stats[STATS_FISH_CAUGHT]++
 		else//only occurs on special catch that most likely won't have special modifiers
 			if(turfcatch)

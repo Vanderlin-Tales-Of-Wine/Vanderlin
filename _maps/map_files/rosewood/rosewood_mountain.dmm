@@ -354,7 +354,7 @@
 /area/rogue/under/mountains/anvil/lower)
 "cY" = (
 /obj/structure/table/stone_small,
-/obj/item/mortar,
+/obj/item/reagent_containers/glass/mortar,
 /obj/item/pestle,
 /turf/open/floor/herringbone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
@@ -1946,7 +1946,7 @@
 /area/rogue/under/mountains/anvil/lower)
 "pq" = (
 /obj/structure/table/stone_small,
-/obj/item/mortar,
+/obj/item/reagent_containers/glass/mortar,
 /obj/effect/spawner/map_spawner/loot/rare,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/mountains/anvil/lower)

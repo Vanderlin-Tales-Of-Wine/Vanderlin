@@ -1,6 +1,7 @@
 /datum/console_command/doom
 	command_key = "doom"
 	required_args = 0
+	notify_admins = FALSE
 
 /datum/console_command/doom/help_information(obj/abstract/visual_ui_element/scrollable/console_output/output)
 	output.add_line("doom - Opens Doom in a new window")

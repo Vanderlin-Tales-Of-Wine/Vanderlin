@@ -5,11 +5,11 @@
 	You now live with your fellow free men in the bog, and generally get up to no good."
 	flag = BANDIT
 	department_flag = OUTSIDERS
-	job_flags = (JOB_EQUIP_RANK)
+	job_flags = (JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE | JOB_SHOW_IN_CREDITS)
 	display_order = JDO_BANDIT
 	faction = FACTION_STATION
-	total_positions = 0
-	spawn_positions = 0
+	total_positions = 6
+	spawn_positions = 4
 	min_pq = 4
 	antag_job = TRUE
 
@@ -28,12 +28,12 @@
 /datum/job/bandit/after_spawn(mob/living/spawned, client/player_client)
 	..()
 	var/mob/living/carbon/human/H = spawned
+	var/datum/antagonist/new_antag = new /datum/antagonist/bandit()
+	H.mind.add_antag_datum(new_antag)
 	if(!H.mind)
 		return
 	H.ambushable = FALSE
 
 /datum/outfit/job/bandit/post_equip(mob/living/carbon/human/H)
 	..()
-	var/datum/antagonist/new_antag = new /datum/antagonist/bandit()
-	H.mind.add_antag_datum(new_antag)
 	addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, choose_name_popup), "BANDIT"), 5 SECONDS)

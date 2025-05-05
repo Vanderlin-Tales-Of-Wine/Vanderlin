@@ -383,7 +383,7 @@
 	desc = span_red("It mocks me, toys with my mind!")
 	timer = 1 MINUTES
 
-/datum/stressevent/eora_marriage_call
+/datum/stressevent/eora_matchmaking
 	stressadd = 2
 	desc = span_rose("Eora calls for me to be wed! I must find my destined partner before I die all alone...")
 	timer = 30 MINUTES

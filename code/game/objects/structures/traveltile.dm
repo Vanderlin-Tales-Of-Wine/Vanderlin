@@ -126,7 +126,7 @@
 	var/mob/living/living = AM
 	if(living.stat != CONSCIOUS)
 		return
-	if(living.incapacitated())
+	if(living.incapacitated(ignore_grab = TRUE))
 		return
 	// if it's in the same chain, it will actually stop a pulled thing being pulled, bandaid solution with a timer
 	addtimer(CALLBACK(src, PROC_REF(user_try_travel), living), 1)

@@ -186,6 +186,8 @@
 		if(burn_obj.armor?.getRating("fire") > 50) //obj with 100% fire armor still get slowly burned away.
 			burn_obj.armor.setRating(fire = 50)
 		burn_obj.fire_act(temperature_damage, 1000 * seconds_per_tick)
+		if(QDELETED(burn_obj))
+			return FALSE
 		burn_obj.take_damage(burn_obj.max_integrity * 0.1, BURN, "fire", 0) // fire_act damage is clamped
 		if(istype(burn_obj, /obj/structure/closet))
 			for(var/burn_content in burn_target)

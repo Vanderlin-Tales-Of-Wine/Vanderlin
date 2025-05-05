@@ -14,7 +14,7 @@
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	tiled_dirt = FALSE
 
-	spread_chance = 15
+	spread_chance = 0.6
 
 /turf/open/floor/carpet/examine(mob/user)
 	. = ..()

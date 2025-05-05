@@ -171,8 +171,8 @@
 						/turf/open/floor/snow/rough)
 	max_integrity = 1200
 
-	spread_chance = 15
-	burn_power = 6
+	spread_chance = 3
+	burn_power = 60
 
 /turf/open/floor/grass/Initialize()
 	dir = pick(GLOB.cardinals)
@@ -321,7 +321,7 @@
 	canSmoothWith = list(/turf/open/floor/grass,
 						/turf/open/floor/snow)
 
-	spread_chance = 8
+	spread_chance = 1.6
 
 	neighborlay = "dirtedge"
 	var/muddy = FALSE

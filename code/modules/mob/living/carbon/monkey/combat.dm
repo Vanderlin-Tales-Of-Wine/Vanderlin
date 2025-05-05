@@ -50,11 +50,11 @@
 
 // taken from /mob/living/carbon/human/interactive/
 /mob/living/carbon/monkey/proc/IsDeadOrIncap(checkDead = TRUE)
-	if(!(mobility_flags & MOBILITY_FLAGS_INTERACTION))
-		return 1
+	// if(!(mobility_flags & MOBILITY_FLAGS_INTERACTION))
+	// 	return 1
 	if(health <= 0 && checkDead)
 		return 1
-	if(IsStun() || IsParalyzed())
+	if(HAS_TRAIT(src, TRAIT_INCAPACITATED))
 		return 1
 	if(stat)
 		return 1
@@ -129,7 +129,7 @@
 
 /mob/living/carbon/monkey/proc/handle_combat()
 	if(pickupTarget)
-		if(IsDeadOrIncap() || restrained() || blacklistItems[pickupTarget] || HAS_TRAIT(pickupTarget, TRAIT_NODROP))
+		if(IsDeadOrIncap() || HAS_TRAIT(src, TRAIT_RESTRAINED) || blacklistItems[pickupTarget] || HAS_TRAIT(pickupTarget, TRAIT_NODROP))
 			pickupTarget = null
 		else
 			pickupTimer++

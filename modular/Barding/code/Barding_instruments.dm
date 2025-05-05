@@ -151,6 +151,8 @@
 	. = ..()
 	if(.)
 		return
+	if(!isliving(user) || user.stat || (HAS_TRAIT(user, TRAIT_RESTRAINED)))
+		return
 	user.changeNext_move(CLICK_CD_MELEE)
 	if(playing)
 		terminate_playing(user)

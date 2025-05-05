@@ -271,7 +271,7 @@
 /area/rogue/indoors/shelter)
 "CH" = (
 /obj/structure/table/stone_small,
-/obj/item/mortar{
+/obj/item/reagent_containers/glass/mortar{
 	pixel_y = 9
 	},
 /turf/open/floor/cobble,

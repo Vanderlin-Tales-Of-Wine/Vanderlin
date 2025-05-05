@@ -270,6 +270,8 @@
 /obj/structure/mineral_door/proc/TryToSwitchState(atom/user)
 	if(isSwitchingStates || !anchored)
 		return
+	if(HAS_TRAIT(user, TRAIT_HANDS_BLOCKED))
+		return
 	if(isliving(user))
 		var/mob/living/M = user
 		if(world.time - M.last_bumped <= 60)

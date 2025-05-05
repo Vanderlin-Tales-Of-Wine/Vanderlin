@@ -44,7 +44,7 @@
 		var/obj/item/bodypart/attacked_prosthetic = O
 		if(!attacked_prosthetic.anvilrepair || !isturf(attacked_prosthetic.loc))
 			return
-		if(attacked_prosthetic.obj_integrity >= attacked_prosthetic.max_integrity && attacked_prosthetic.brute_dam == 0 && attacked_prosthetic.burn_dam == 0 && attacked_prosthetic.wounds == null && attacked_prosthetic.disabled == BODYPART_NOT_DISABLED) //A mouthful
+		if(attacked_prosthetic.obj_integrity >= attacked_prosthetic.max_integrity && attacked_prosthetic.brute_dam == 0 && attacked_prosthetic.burn_dam == 0 && attacked_prosthetic.wounds == null && attacked_prosthetic.bodypart_disabled == BODYPART_NOT_DISABLED) //A mouthful
 			to_chat(user, span_warning("There is nothing to further repair on [attacked_prosthetic]."))
 			return
 
@@ -68,7 +68,7 @@
 			else
 				user.visible_message(span_info("[user] repairs [attacked_prosthetic]!"))
 				attacked_prosthetic.wounds = null //You need actual skill to do this
-				attacked_prosthetic.disabled = BODYPART_NOT_DISABLED
+				attacked_prosthetic.bodypart_disabled = BODYPART_NOT_DISABLED
 			blacksmith_mind.add_sleep_experience(attacked_prosthetic.anvilrepair, amt2raise)
 		else
 			user.visible_message(span_warning("[user] fumbles trying to repair [attacked_prosthetic]!"))

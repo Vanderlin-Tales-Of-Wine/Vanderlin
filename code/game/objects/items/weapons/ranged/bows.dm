@@ -71,7 +71,7 @@
 		update_icon()
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/process_fire(atom/target, mob/living/user, message = TRUE, params = null, zone_override = "", bonus_spread = 0)
-	if(user.get_num_arms(FALSE) < 2)
+	if(user.usable_hands < 2)
 		return FALSE
 	if(user.get_inactive_held_item())
 		return FALSE
@@ -131,7 +131,7 @@
 
 /datum/intent/shoot/bow/can_charge()
 	if(mastermob)
-		if(mastermob.get_num_arms(FALSE) < 2)
+		if(mastermob.usable_hands < 2)
 			return FALSE
 		if(mastermob.get_inactive_held_item())
 			return FALSE
@@ -167,7 +167,7 @@
 
 /datum/intent/arc/bow/can_charge()
 	if(mastermob)
-		if(mastermob.get_num_arms(FALSE) < 2)
+		if(mastermob.usable_hands < 2)
 			return FALSE
 		if(mastermob.get_inactive_held_item())
 			return FALSE
