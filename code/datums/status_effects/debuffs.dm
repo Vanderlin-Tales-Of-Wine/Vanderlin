@@ -112,6 +112,16 @@
 	desc = ""
 	icon_state = "paralyze"
 
+/datum/status_effect/shock_recovery
+	id = "stressvgood"
+	alert_type = /atom/movable/screen/alert/status_effect/paralyzed/recovery
+
+/datum/status_effect/stress/shock_recovery
+
+/atom/movable/screen/alert/status_effect/paralyzed/recovery
+	name = "Shock Recovery"
+	desc = "I have recently been shocked. \n"
+
 //UNCONSCIOUS
 /datum/status_effect/incapacitating/unconscious
 	id = "unconscious"
