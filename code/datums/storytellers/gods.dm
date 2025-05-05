@@ -273,7 +273,7 @@
 	)
 
 	influence_factors = list(
-		STATS_ZIZO_PRAISED = list("points" = 0.15, "capacity" = 40),
+		STATS_ZIZO_PRAISED = list("points" = 0.2, "capacity" = 40),
 		STATS_NOBLE_DEATHS = list("points" = 6, "capacity" = 80),
 		STATS_DEADITES_WOKEN_UP = list("points" = 3, "capacity" = 90),
 		STATS_CLERGY_DEATHS = list("points" = 10, "capacity" = 80),
