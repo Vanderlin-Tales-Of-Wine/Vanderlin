@@ -990,15 +990,8 @@
 /datum/mind/proc/get_all_objectives()
 	return get_personal_objectives() + get_antag_objectives()
 
-/// Announce all objectives (both types)
-/datum/mind/proc/announce_objectives()
-	if(length(personal_objectives))
-		var/personal_count = 1
-		for(var/datum/objective/O in personal_objectives)
-			O.update_explanation_text()
-			to_chat(current, "<B>Personal Goal #[personal_count]</B>: [O.explanation_text]")
-			personal_count++
-
+/// Announces only antagonist objectives
+/datum/mind/proc/announce_antagonist_objectives()
 	var/obj_count = 1
 	for(var/datum/antagonist/antag_datum_ref in antag_datums)
 		if(length(antag_datum_ref.objectives))
@@ -1008,15 +1001,19 @@
 				to_chat(current, "<B>[O.flavor] #[obj_count]</B>: [O.explanation_text]")
 				obj_count++
 
+/// Announces only personal objectives
 /datum/mind/proc/announce_personal_objectives()
-	if(!personal_objectives.len)
-		return
+	if(length(personal_objectives))
+		var/personal_count = 1
+		for(var/datum/objective/O in personal_objectives)
+			O.update_explanation_text()
+			to_chat(current, "<B>Personal Goal #[personal_count]</B>: [O.explanation_text]")
+			personal_count++
 
-	var/obj_count = 1
-	for(var/datum/objective/O in personal_objectives)
-		O.update_explanation_text()
-		to_chat(current, "<B>Personal Objective #[obj_count]</B>: [O.explanation_text]")
-		obj_count++
+/// Announce all objectives (both types)
+/datum/mind/proc/announce_objectives()
+	announce_personal_objectives()
+	announce_antagonist_objectives()
 
 /**
  * add a spell to a mind
