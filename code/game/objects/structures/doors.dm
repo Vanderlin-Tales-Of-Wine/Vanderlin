@@ -332,6 +332,8 @@
 /obj/structure/door/OnCrafted(dirin, user)
 	. = ..()
 	keylock = FALSE
+	if(has_bolt || has_viewport)
+		dir = turn(dirin, 180)
 
 /obj/structure/door/fire_act(added, maxstacks)
 	if(!added)
