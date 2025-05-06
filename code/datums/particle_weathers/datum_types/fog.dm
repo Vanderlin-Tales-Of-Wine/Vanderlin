@@ -41,6 +41,7 @@
 	pixel_y = -128
 	pixel_x = -128
 	plane = PLANE_FOG_CUTTER
+	invisibility = INVISIBILITY_LIGHTING
 
 /datum/particle_weather/fog
 	name = "Fog"

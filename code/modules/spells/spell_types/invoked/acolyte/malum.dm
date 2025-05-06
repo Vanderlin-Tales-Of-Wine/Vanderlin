@@ -88,7 +88,7 @@
 	if(istype(user.loc, /turf/open/water))
 		to_chat(user, span_warning("I can't jump while floating."))
 		return FALSE
-	if(user.get_num_legs() < 2)
+	if(user.usable_legs < 2)
 		return FALSE
 	if(user.IsOffBalanced())
 		to_chat(user, span_warning("I haven't regained my balance yet."))
@@ -97,7 +97,7 @@
 		to_chat(src, span_warning("I'm being grabbed."))
 		user.resist_grab()
 		return FALSE
-	if(!(user.mobility_flags & MOBILITY_STAND))
+	if(user.body_position == LYING_DOWN)
 		to_chat(user, span_warning("I should stand up first."))
 		return FALSE
 	if(A.z != user.z)

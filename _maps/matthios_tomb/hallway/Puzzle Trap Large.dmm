@@ -103,7 +103,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "jE" = (
-/obj/structure/mineral_door/wood/donjon/stone,
+/obj/structure/door/stone,
 /obj/structure/fluff/walldeco/vinez,
 /turf/open/floor/cobblerock,
 /area/rogue/indoors)
@@ -121,7 +121,7 @@
 /turf/open/floor/cobble,
 /area/rogue/indoors)
 "lE" = (
-/obj/structure/mineral_door/wood/donjon/stone,
+/obj/structure/door/stone,
 /obj/structure/trap/saw_blades,
 /turf/open/floor/cobblerock,
 /area/rogue/indoors)
@@ -137,7 +137,7 @@
 /turf/open/floor/cobble,
 /area/rogue/indoors)
 "nt" = (
-/obj/structure/mineral_door/wood/donjon/stone,
+/obj/structure/door/stone,
 /obj/machinery/light/fueled/wallfire/candle,
 /obj/structure/fluff/walldeco/vinez,
 /turf/open/floor/cobble,
@@ -156,7 +156,7 @@
 /turf/open/floor/cobble,
 /area/rogue/indoors)
 "pA" = (
-/obj/structure/mineral_door/wood/donjon/stone,
+/obj/structure/door/stone,
 /obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/cobble,
 /area/rogue/indoors)
@@ -165,7 +165,7 @@
 /turf/open/floor/cobble,
 /area/rogue/indoors)
 "qv" = (
-/obj/structure/mineral_door/wood/donjon/stone,
+/obj/structure/door/stone,
 /turf/open/floor/cobble,
 /area/rogue/indoors)
 "qD" = (
@@ -180,7 +180,7 @@
 /turf/open/floor/cobble,
 /area/rogue/indoors)
 "rJ" = (
-/obj/structure/mineral_door/wood/donjon/stone,
+/obj/structure/door/stone,
 /obj/structure/fluff/walldeco/vinez,
 /obj/structure/fluff/walldeco/vinez,
 /turf/open/floor/cobblerock,
@@ -235,7 +235,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "za" = (
-/obj/structure/mineral_door/wood/donjon/stone,
+/obj/structure/door/stone,
 /obj/structure/trap/saw_blades,
 /obj/structure/fluff/walldeco/vinez,
 /turf/open/floor/cobblerock,
@@ -270,7 +270,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "AV" = (
-/obj/structure/mineral_door/wood/donjon/stone,
+/obj/structure/door/stone,
 /obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/cobblerock,
 /area/rogue/indoors)
@@ -391,7 +391,7 @@
 	},
 /area/rogue/indoors)
 "MO" = (
-/obj/structure/mineral_door/wood/donjon/stone,
+/obj/structure/door/stone,
 /turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "NB" = (
@@ -521,7 +521,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "YE" = (
-/obj/structure/mineral_door/wood/donjon/stone,
+/obj/structure/door/stone,
 /obj/structure/fluff/walldeco/vinez,
 /turf/open/floor/cobble,
 /area/rogue/indoors)

@@ -270,7 +270,7 @@
 
 /datum/component/storage/proc/quick_empty(mob/user) // Evidently this handles emptying sacks in Roguetown...
 	var/atom/A = parent
-	if(!user.canUseStorage() || !A.Adjacent(user) || user.incapacitated()) // Some sanity checks
+	if(!user.canUseStorage() || !A.Adjacent(user) || user.incapacitated(ignore_grab = TRUE)) // Some sanity checks
 		return
 	if(locked)
 //		to_chat(M, "<span class='warning'>[parent] seems to be locked!</span>")
@@ -576,7 +576,7 @@
 		return
 	if(!over_object)
 		return
-	if(M.incapacitated() || !M.canUseStorage())
+	if(M.incapacitated(ignore_grab = TRUE) || !M.canUseStorage())
 		return
 
 	if(ishuman(M))
@@ -638,7 +638,7 @@
 		var/obj/item/I = O
 		if(iscarbon(M))
 			var/mob/living/L = M
-			if(!L.incapacitated() && I == L.get_active_held_item())
+			if(!L.incapacitated(ignore_grab = TRUE) && I == L.get_active_held_item())
 				if(!SEND_SIGNAL(I, COMSIG_CONTAINS_STORAGE) && can_be_inserted(I, FALSE))	//If it has storage it should be trying to dump, not insert.
 					handle_item_insertion(I, FALSE, L)
 
@@ -924,7 +924,7 @@
 			playsound(A, rustle_sound, 50, TRUE, -5)
 		return
 
-	if(!user.incapacitated())
+	if(!user.incapacitated(ignore_grab = TRUE))
 		var/obj/item/I = locate() in real_location()
 		if(!I)
 			return

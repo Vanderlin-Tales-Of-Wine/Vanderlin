@@ -28,8 +28,8 @@
 							/obj/structure/table/wood/treestump = 4,
 							/obj/structure/closet/dirthole/closed/loot=6,
 							/obj/item/restraints/legcuffs/beartrap/armed/camouflage=0.1)
-	spawnableTurfs = list(/turf/open/floor/dirt/road=80,
-						/turf/open/water/swamp=25)
+	spawnableTurfs = list(/turf/open/floor/dirt/road=40,
+						/turf/open/water/swamp=5)
 	allowed_areas = list(/area/rogue/outdoors/woods)
 
 /datum/mapGeneratorModule/forestroad
@@ -41,7 +41,7 @@
 	clusterCheckFlags = CLUSTER_CHECK_NONE
 	allowed_turfs = list(/turf/open/floor/dirt)
 	excluded_turfs = list(/turf/open/floor/dirt/road)
-	spawnableTurfs = list(/turf/open/floor/grass = 200)
+	spawnableTurfs = list(/turf/open/floor/grass = 15)
 	allowed_areas = list(/area/rogue/outdoors/woods)
 
 /datum/mapGeneratorModule/forestgrass

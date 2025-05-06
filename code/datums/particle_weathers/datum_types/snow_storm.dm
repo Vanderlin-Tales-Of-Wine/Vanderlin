@@ -2,7 +2,8 @@
 /particles/weather/snow
 	icon_state             = list("cross"=2, "snow_1"=5, "snow_2"=2, "snow_3"=2,)
 	color                  = "#ffffff"
-	position               = generator("box", list(-500,-500,5), list(500,500,0))
+	position               = generator("box", list(-500,-256,0), list(400,500,0))
+	grow			       = list(-0.01,-0.01)
 	spin                   = generator("num",-10,10)
 	gravity                = list(0, -2, 0.1)
 	drift                  = generator("circle", 0, 3) // Some random movement for variation
@@ -11,6 +12,7 @@
 	maxSpawning           = 100
 	minSpawning           = 20
 	wind                  = 2
+	transform 			   = null
 
 /datum/particle_weather/snow_gentle
 	name = "Rain"
@@ -103,8 +105,8 @@
 /turf/proc/apply_weather_effect(datum/weather_effect/effect)
 	SIGNAL_HANDLER
 
-	if(locate(/obj/structure/mineral_door) in src)
-		var/obj/structure/mineral_door/door = locate(/obj/structure/mineral_door) in src
+	if(locate(/obj/structure/door) in src)
+		var/obj/structure/door/door = locate(/obj/structure/door) in src
 		if(door.density)
 			return
 	if(locate(/obj/structure/window) in src)

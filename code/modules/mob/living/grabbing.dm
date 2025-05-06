@@ -172,10 +172,10 @@
 	if(M.surrendering)																//If the target has surrendered
 		combat_modifier = 2
 
-	if(M.restrained())																//If the target is restrained
+	if(HAS_TRAIT(M, TRAIT_RESTRAINED))																//If the target is restrained
 		combat_modifier += 0.25
 
-	if(!(M.mobility_flags & MOBILITY_STAND) && user.mobility_flags & MOBILITY_STAND) //We are on the ground, target is not
+	if(M.body_position == LYING_DOWN && user.body_position != LYING_DOWN) //We are on the ground, target is not
 		combat_modifier += 0.1
 
 	if(user.cmode && !M.cmode)
@@ -247,10 +247,10 @@
 			else
 				user.stop_pulling()
 		if(/datum/intent/grab/shove)
-			if(!(user.mobility_flags & MOBILITY_STAND))
+			if(user.body_position == LYING_DOWN)
 				to_chat(user, "<span class='warning'>I must stand up first.</span>")
 				return
-			if(!(M.mobility_flags & MOBILITY_STAND))
+			if(M.body_position == LYING_DOWN)
 				if(user.loc != M.loc)
 					to_chat(user, "<span class='warning'>I must be on top of them.</span>")
 					return
@@ -273,6 +273,7 @@
 				user.adjust_stamina(rand(5,15))
 				if(prob(clamp((((4 + ((user.STASTR - (M.STACON+2))/2) + skill_diff) * 10 + rand(-5, 5)) * combat_modifier), 5, 95)))
 					M.Knockdown(max(10 + (skill_diff * 2), 1))
+					M.set_resting(TRUE, TRUE)
 					playsound(src,"genblunt",100,TRUE)
 					if(user.l_grab && user.l_grab.grabbed == M && user.r_grab && user.r_grab.grabbed == M && user.r_grab.grab_state == GRAB_AGGRESSIVE )
 						M.visible_message(span_danger("[user] throws [M] to the ground!"), \
@@ -421,8 +422,8 @@
 			if(isturf(T))
 				user.Move_Pulled(T)
 		if(/datum/intent/grab/smash)
-			if(!(user.mobility_flags & MOBILITY_STAND))
-				to_chat(user, "<span class='warning'>I must stand..</span>")
+			if(user.body_position == LYING_DOWN)
+				to_chat(user, "<span class='warning'>I must stand.</span>")
 				return
 			if(limb_grabbed && grab_state > 0) //this implies a carbon victim
 				if(isopenturf(T))
@@ -430,7 +431,7 @@
 						var/mob/living/carbon/C = grabbed
 						if(!C.Adjacent(T))
 							return FALSE
-						if(C.mobility_flags & MOBILITY_STAND)
+						if(C.body_position != LYING_DOWN)
 							return
 						playsound(C.loc, T.attacked_sound, 100, FALSE, -1)
 						smashlimb(T, user)
@@ -439,7 +440,7 @@
 						var/mob/living/carbon/C = grabbed
 						if(!C.Adjacent(T))
 							return FALSE
-						if(!(C.mobility_flags & MOBILITY_STAND))
+						if(!(C.body_position != LYING_DOWN))
 							return
 						playsound(C.loc, T.attacked_sound, 100, FALSE, -1)
 						smashlimb(T, user)
@@ -450,8 +451,8 @@
 	user.changeNext_move(CLICK_CD_MELEE)
 	if(user.used_intent.type == /datum/intent/grab/smash)
 		if(isstructure(O) && O.blade_dulling != DULLING_CUT)
-			if(!(user.mobility_flags & MOBILITY_STAND))
-				to_chat(user, "<span class='warning'>I must stand..</span>")
+			if(user.body_position == LYING_DOWN)
+				to_chat(user, "<span class='warning'>I must stand.</span>")
 				return
 			if(limb_grabbed && grab_state > 0) //this implies a carbon victim
 				if(iscarbon(grabbed))

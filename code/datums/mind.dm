@@ -497,7 +497,7 @@
  ** max - maximum amount up to which the skill will be changed
 */
 /datum/mind/proc/clamped_adjust_skillrank(skill, amt, max, silent)
-	adjust_skillrank(skill, clamp(max - get_skill_level(skill), 0, amt), silent)
+	adjust_skillrank(skill, clamp(abs(amt - get_skill_level(skill)), 0, max), silent)
 
 /**
  * sets the skill level to a specific amount

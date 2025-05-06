@@ -11,18 +11,9 @@
 /mob/living/carbon/human/species/goblin/npc/cave,
 /turf/open/floor/dirt,
 /area/rogue/under/cavewet)
-"bg" = (
-/obj/structure/barricade/wooden,
-/turf/open/floor/dirt,
-/area/rogue/under/cavewet)
 "bx" = (
 /mob/living/carbon/human/species/goblin/npc/cave,
 /turf/open/floor/grass/cold,
-/area/rogue/under/cavewet)
-"bW" = (
-/obj/structure/mineral_door/wood/donjon/stone,
-/obj/effect/dungeon_directional_helper/north,
-/turf/open/floor/dirt,
 /area/rogue/under/cavewet)
 "cW" = (
 /obj/machinery/light/fueled/hearth,
@@ -185,6 +176,11 @@
 "xC" = (
 /turf/open/floor/grass/cold,
 /area/rogue/under/cavewet)
+"xR" = (
+/obj/structure/door/stone,
+/obj/effect/dungeon_directional_helper/north,
+/turf/open/floor/dirt,
+/area/rogue/under/cavewet)
 "yb" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/dirt,
@@ -203,10 +199,6 @@
 /turf/open/water/river{
 	dir = 8
 	},
-/area/rogue/under/cavewet)
-"Aq" = (
-/obj/structure/mineral_door/wood/donjon/stone,
-/turf/open/floor/dirt,
 /area/rogue/under/cavewet)
 "AB" = (
 /mob/living/simple_animal/hostile/orc/spear2,
@@ -250,6 +242,10 @@
 /obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/dirt,
 /area/rogue/under/cavewet)
+"EL" = (
+/obj/structure/barricade/wooden,
+/turf/open/floor/dirt,
+/area/rogue/under/cavewet)
 "EU" = (
 /obj/structure/table/wood/treestump,
 /turf/open/floor/snow,
@@ -274,6 +270,10 @@
 "Jv" = (
 /turf/open/transparent/openspace,
 /area/rogue/under/mountains)
+"JM" = (
+/obj/structure/door/stone,
+/turf/open/floor/dirt,
+/area/rogue/under/cavewet)
 "KO" = (
 /turf/open/floor/snow/patchy,
 /area/rogue/under/cavewet)
@@ -282,11 +282,6 @@
 	dir = 1
 	},
 /turf/open/floor/metal,
-/area/rogue/under/cavewet)
-"Mz" = (
-/obj/structure/mineral_door/wood/donjon/stone,
-/obj/effect/dungeon_directional_helper/east,
-/turf/open/floor/dirt,
 /area/rogue/under/cavewet)
 "NI" = (
 /obj/structure/fluff/railing/wood,
@@ -364,9 +359,9 @@
 	},
 /turf/open/floor/snow,
 /area/rogue/under/mountains)
-"Vc" = (
-/obj/structure/mineral_door/wood/donjon/stone,
-/obj/effect/dungeon_directional_helper/south,
+"Vi" = (
+/obj/structure/door/stone,
+/obj/effect/dungeon_directional_helper/east,
 /turf/open/floor/dirt,
 /area/rogue/under/cavewet)
 "Vr" = (
@@ -422,6 +417,11 @@
 	dir = 1
 	},
 /turf/open/floor/snow,
+/area/rogue/under/cavewet)
+"YX" = (
+/obj/structure/door/stone,
+/obj/effect/dungeon_directional_helper/south,
+/turf/open/floor/dirt,
 /area/rogue/under/cavewet)
 "ZF" = (
 /obj/structure/fluff/railing/wood,
@@ -753,7 +753,7 @@ QA
 "}
 (11,1,1) = {"
 QA
-bg
+EL
 QA
 xC
 KO
@@ -785,7 +785,7 @@ QA
 "}
 (12,1,1) = {"
 QA
-bg
+EL
 QA
 xC
 KO
@@ -848,7 +848,7 @@ xC
 QA
 "}
 (14,1,1) = {"
-bW
+xR
 Xp
 pE
 QA
@@ -877,7 +877,7 @@ QA
 QA
 xC
 Xp
-Vc
+YX
 "}
 (15,1,1) = {"
 QA
@@ -912,7 +912,7 @@ Xp
 QA
 "}
 (16,1,1) = {"
-Aq
+JM
 Xp
 Xp
 Xp
@@ -941,7 +941,7 @@ Xp
 Xp
 Xp
 Xp
-Aq
+JM
 "}
 (17,1,1) = {"
 QA
@@ -1374,9 +1374,9 @@ QA
 QA
 QA
 QA
-Mz
+Vi
 QA
-Aq
+JM
 QA
 QA
 QA

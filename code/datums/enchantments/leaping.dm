@@ -5,7 +5,7 @@
 
 /datum/enchantment/leaping/on_equip(obj/item/i, mob/living/user, slot)
 	.=..()
-	if(slot == ITEM_SLOT_HANDS)
+	if(slot == SLOT_HANDS)
 		return
 	if(active_item)
 		return

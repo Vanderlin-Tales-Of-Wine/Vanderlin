@@ -9,7 +9,7 @@
 		return
 	if(!user)
 		return
-	if(user.incapacitated())
+	if(user.incapacitated(ignore_grab = TRUE))
 		return
 	var/mob/living/L = target
 	user.changeNext_move(CLICK_CD_FAST)
@@ -30,7 +30,7 @@
 		perc += (ourskill - theirskill)*15 	//skill is of the essence
 		perc += (user.STAINT - L.STAINT)*10	//but it's also mostly a mindgame
 		perc += (user.STASPD - L.STASPD)*5 	//yet a speedy feint is hard to counter
-	if(!L.cmode)
+	if(!user.cmode)
 		perc = 0
 	if(L.has_status_effect(/datum/status_effect/debuff/feinted))
 		perc = 0

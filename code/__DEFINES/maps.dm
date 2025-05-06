@@ -48,6 +48,7 @@ require only minor tweaks.
 #define ZTRAIT_DOWN "Down"
 #define ZTRAIT_IGNORE_WEATHER_TRAIT "NoDayorWeather"
 
+#define ZTRAIT_CELLAR_LIKE "Cellar"
 #define ZTRAIT_LEYLINES "Leylines"
 // enum - how space transitions should affect this level
 #define ZTRAIT_LINKAGE "Linkage"
@@ -62,7 +63,7 @@ require only minor tweaks.
 #define ZTRAIT_BASETURF "Baseturf"
 
 // default trait definitions, used by SSmapping
-#define ZTRAITS_CENTCOM list(ZTRAIT_CENTCOM = TRUE, ZTRAIT_STATION = TRUE)
+#define ZTRAITS_CENTCOM list(ZTRAIT_CENTCOM = TRUE)
 #define ZTRAITS_STATION list(ZTRAIT_LINKAGE = CROSSLINKED, ZTRAIT_STATION = TRUE, ZTRAIT_LEYLINES = TRUE)
 #define ZTRAITS_TOWN list(ZTRAIT_WEATHER_STUFF = TRUE, ZTRAIT_LINKAGE = CROSSLINKED, ZTRAIT_STATION = TRUE)
 #define ZTRAITS_SPACE list(ZTRAIT_LINKAGE = CROSSLINKED, ZTRAIT_SPACE_RUINS = TRUE)

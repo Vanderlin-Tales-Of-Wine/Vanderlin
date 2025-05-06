@@ -161,7 +161,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/saigabuck
 	icon = 'icons/roguetown/mob/monster/saiga.dmi'
-	name = "saiga"
+	name = "saigabuck"
 	icon_state = "buck"
 	icon_living = "buck"
 	icon_dead = "buck_dead"
