@@ -97,6 +97,36 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 				to_chat(supporter, span_notice("[challenger.name]'s challenge succeeds against Astrata's tyranny! Your support is rewarded with a triumph."))
 				supporter.adjust_triumphs(1)
 
+		var/mob/living/carbon/human/selected_priest = null
+		var/was_supporter = FALSE
+
+		// First try to find a challenger supporter who is clergy
+		for(var/datum/weakref/supporter_ref in supporters_challenger)
+			var/mob/living/carbon/human/human_mob = supporter_ref.resolve()
+			if(human_mob && human_mob.stat != DEAD && human_mob.mind && (human_mob.mind.assigned_role.title in GLOB.church_positions))
+				selected_priest = human_mob
+				was_supporter = TRUE
+				break
+
+		// If no supporter found, fall back to any clergy member who has challenger as his patron
+		if(!selected_priest)
+			for(var/mob/living/carbon/human/human_mob in GLOB.player_list)
+				if(human_mob.stat != DEAD && human_mob.mind && (human_mob.mind.assigned_role.title in GLOB.church_positions) && human_mob.patron == challenger)
+					selected_priest = human_mob
+					break
+
+		// Promote the selected priest if we found one
+		if(selected_priest)
+			selected_priest.job = "Vice Priest"
+			selected_priest.verbs |= /mob/living/carbon/human/proc/churchexcommunicate
+			selected_priest.verbs |= /mob/living/carbon/human/proc/churchcurse
+			selected_priest.verbs |= /mob/living/carbon/human/proc/churchannouncement
+
+			if(was_supporter)
+				to_chat(selected_priest, span_notice("[challenger.name] smiles upon you! Your faithful support during the schism has been rewarded with the position of a Vice Priest!"))
+			else
+				to_chat(selected_priest, span_notice("Though you did not openly support [challenger.name] during the schism, you have been chosen to serve as a Vice Priest!"))
+
 		for(var/datum/weakref/supporter_ref in supporters_astrata)
 			var/mob/living/carbon/human/supporter = supporter_ref.resolve()
 			if(supporter)
