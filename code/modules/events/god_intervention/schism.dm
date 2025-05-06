@@ -32,11 +32,11 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 /datum/tennite_schism/proc/handle_latejoin(datum/source, mob/living/carbon/human/H, client/C)
 	SIGNAL_HANDLER
 	if(istype(H))
-		setup_mob(H)
 		var/datum/patron/challenger = challenger_god.resolve()
 		if(!challenger)
 			return
 		to_chat(H, span_warning("There is an active schism within the Ten! [challenger.name] has challenged Astrata's leadeship!"))
+		setup_mob(H)
 
 /datum/tennite_schism/proc/setup_mob(mob/living/carbon/human/H)
 	if(!istype(H) || H.stat == DEAD || !H.mind)
