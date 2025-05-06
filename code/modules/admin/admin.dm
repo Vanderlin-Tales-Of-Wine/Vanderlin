@@ -111,8 +111,8 @@
 			patron = initial(living.patron.name)
 		var/flaw = "NA"
 		if(ishuman(M))
-			var/mob/living/carbon/human = M
-			flaw = human.charflaw
+			var/mob/living/carbon/human/human_mob = M
+			flaw = human_mob.charflaw
 		body += "<br><br>Current Patron: [patron]"
 		body += "Current Flaw: [flaw]"
 
