@@ -1,7 +1,35 @@
 /datum/objective/torture
-	name = "Torture Someone"
+	name = "Extract Truth Through Pain"
+	var/torture_count = 0
+	var/required_count = 1  // Only need to torture once to prove devotion
 	triumph_count = 0
 
-/datum/objective/torture/update_explanation_text()
+/datum/objective/torture/on_creation()
 	. = ..()
-	explanation_text = "Successfully torture another living being!"
+	if(owner?.current)
+		RegisterSignal(owner.current, COMSIG_TORTURE_PERFORMED, PROC_REF(on_torture_performed))
+	update_explanation_text()
+
+/datum/objective/torture/Destroy()
+	if(owner?.current)
+		UnregisterSignal(owner.current, COMSIG_TORTURE_PERFORMED)
+	return ..()
+
+/datum/objective/torture/proc/on_torture_performed(datum/source, mob/living/victim)
+	SIGNAL_HANDLER
+	if(completed)
+		return
+
+	torture_count++
+	if(torture_count >= required_count)
+		complete_objective(victim)
+
+/datum/objective/torture/proc/complete_objective(mob/living/victim)
+	to_chat(owner.current, span_greentext("You have extracted the truth through pain, satisfying Zizo!"))
+	owner.current.adjust_triumphs(1)
+	completed = TRUE
+	adjust_storyteller_influence("Zizo", 15)
+	UnregisterSignal(owner.current, COMSIG_TORTURE_PERFORMED)
+
+/datum/objective/torture/update_explanation_text()
+	explanation_text = "Torture someone until they confess to please Zizo!"

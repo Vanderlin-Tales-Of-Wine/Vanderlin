@@ -8,4 +8,5 @@
 #define COMSIG_SKILL_RANK_INCREASED "skill_rank_increased" // (skill_type, new_rank)
 #define COMSIG_ITEM_CRAFTED "item_crafted" // (user, craft_path)
 #define COMSIG_ORGAN_CONSUMED "organ_consumed" // (mob/living/consumer, organ_type)
-
+#define COMSIG_TORTURE_PERFORMED "torture_performed" // (mob/living/torturer, mob/living/victim)
+#define COMSIG_GRAVE_CONSECRATED "grave_consecrated" // (mob/living/consecrator, obj/structure/closet/dirthole)

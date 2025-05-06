@@ -22,7 +22,7 @@
 
 	var/mob/living/carbon/human/chosen_one = pick(valid_targets)
 
-	var/datum/objective/burial/new_objective = new(owner = chosen_one.mind)
+	var/datum/objective/proper_burial/new_objective = new(owner = chosen_one.mind)
 	chosen_one.mind.add_personal_objective(new_objective)
 
 	to_chat(chosen_one, span_biginfo("Necra demands proper rites for the departed! Give two corpses proper burials to earn Necra's favor!"))
