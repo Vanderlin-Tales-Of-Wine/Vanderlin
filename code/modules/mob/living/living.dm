@@ -1180,8 +1180,8 @@
 
 	if(moving_resist && client) //we resisted by trying to move
 		client.move_delay = world.time + 20
-	adjust_stamina(rand(5,15))
-	pulledby.adjust_stamina(rand(2,7))
+	adjust_stamina(rand(3,8))
+	pulledby.adjust_stamina(rand(1,4))
 	if(prob(resist_chance))
 		visible_message("<span class='warning'>[src] breaks free of [pulledby]'s grip!</span>", \
 						"<span class='notice'>I break free of [pulledby]'s grip!</span>", null, null, pulledby)
