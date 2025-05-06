@@ -1391,6 +1391,8 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 /// Applies the given preferences to a human mob. Calling this directly will skip sanitisation.
 /// This is good if you are applying prefs to a mob as if you were cloning them.
 /datum/preferences/proc/apply_prefs_to(mob/living/carbon/human/character, icon_updates = TRUE)
+	if(QDELETED(character) || !ishuman(character))
+		return
 	character.set_species(pref_species.type, icon_update = FALSE, pref_load = src)
 	if(real_name in GLOB.chosen_names)
 		character.real_name = pref_species.random_name(gender)
@@ -1449,15 +1451,15 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 				var/datum/curse/curse = GLOB.curse_names[curse_name]
 				character.add_curse(curse.type)
 
-	apply_trait_bans(character, parent.ckey)
+		apply_trait_bans(character, parent.ckey)
 
-	if(is_misc_banned(parent.ckey, BAN_MISC_LEPROSY))
-		ADD_TRAIT(character, TRAIT_LEPROSY, TRAIT_BAN_PUNISHMENT)
-	if(is_misc_banned(parent.ckey, BAN_MISC_PUNISHMENT_CURSE))
-		ADD_TRAIT(character, TRAIT_PUNISHMENT_CURSE, TRAIT_BAN_PUNISHMENT)
+		if(is_misc_banned(parent.ckey, BAN_MISC_LEPROSY))
+			ADD_TRAIT(character, TRAIT_LEPROSY, TRAIT_BAN_PUNISHMENT)
+		if(is_misc_banned(parent.ckey, BAN_MISC_PUNISHMENT_CURSE))
+			ADD_TRAIT(character, TRAIT_PUNISHMENT_CURSE, TRAIT_BAN_PUNISHMENT)
 
-	if(parent?.patreon?.has_access(ACCESS_ASSISTANT_RANK))
-		character.accent = selected_accent
+		if(parent.patreon?.has_access(ACCESS_ASSISTANT_RANK))
+			character.accent = selected_accent
 
 	/* :V */
 
