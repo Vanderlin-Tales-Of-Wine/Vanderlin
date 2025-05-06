@@ -135,6 +135,14 @@
 					added_wound = /datum/wound/puncture
 				if(1 to 10)
 					added_wound = /datum/wound/puncture/small
+		if(BCLASS_LASHING)
+			switch(dam)
+				if(20 to INFINITY)
+					added_wound = /datum/wound/lashing/large
+				if(10 to 20)
+					added_wound = /datum/wound/lashing
+				if(1 to 10)
+					added_wound = /datum/wound/lashing/small
 		if(BCLASS_BITE)
 			switch(dam)
 				if(20 to INFINITY)
@@ -219,7 +227,7 @@
 		return FALSE
 	LAZYREMOVE(simple_embedded_objects, embedder)
 	embedder.is_embedded = FALSE
-	embedder.unembedded()
+	embedder.unembedded(src)
 	if(!QDELETED(embedder))
 		var/drop_location = drop_location()
 		if(drop_location)

@@ -25,9 +25,9 @@
 	var/list/burnt_states
 
 	///the chance this turf has to spread, basically 1.75% by default
-	spread_chance = 1.75
-	///means fires last at base 9 seconds
-	burn_power = 9
+	spread_chance = 0.35
+	///means fires last at base 90 seconds
+	burn_power = 90
 
 	tiled_dirt = TRUE
 

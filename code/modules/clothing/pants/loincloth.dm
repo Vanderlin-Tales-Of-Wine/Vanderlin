@@ -4,7 +4,6 @@
 	desc = "Protects your modesty, but not much else."
 	icon_state = "loincloth"
 	item_state = "loincloth"
-//	adjustable = CAN_CADJUST
 	r_sleeve_status = SLEEVE_NOMOD
 	l_sleeve_status = SLEEVE_NOMOD
 	fiber_salvage = FALSE

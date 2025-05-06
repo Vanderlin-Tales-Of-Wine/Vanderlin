@@ -67,7 +67,7 @@
 		covered = "mask"
 	if(C != user)
 		if(isturf(eater.loc))
-			if(C.mobility_flags & MOBILITY_STAND)
+			if(C.body_position != LYING_DOWN)
 				if(get_dir(eater, user) != eater.dir)
 					to_chat(user, "<span class='warning'>I must stand in front of [C.p_them()].</span>")
 					return 0

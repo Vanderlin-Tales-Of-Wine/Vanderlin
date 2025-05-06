@@ -8,7 +8,7 @@
 	if(target.grabbedby == user)
 		if(user.grab_state >= GRAB_AGGRESSIVE)
 			return zone
-	if(target.lying)
+	if(target.body_position == LYING_DOWN)
 		return zone
 	if( (target.dir == turn(get_dir(target,user), 180)))
 		return zone
@@ -67,7 +67,7 @@
 		return FALSE
 	if(stat)
 		return FALSE
-	if(lying)
+	if(body_position == LYING_DOWN)
 		return FALSE
 	if(user.stat_roll(STATKEY_LCK,4,10,TRUE))
 		var/list/usedp = list("Critical miss!", "Damn! Critical miss!", "No! Critical miss!", "It can't be! Critical miss!", "Betrayed by lady luck! Critical miss!", "Bad luck! Critical miss!", "Curse creation! Critical miss!", "What?! Critical miss!")
@@ -89,7 +89,7 @@
 		return FALSE
 	if(user == src)
 		return FALSE
-	if(!(mobility_flags & MOBILITY_MOVE))
+	if(HAS_TRAIT(src, TRAIT_IMMOBILIZED))
 		return FALSE
 
 	if(client && used_intent)
@@ -189,7 +189,7 @@
 			if(HAS_TRAIT(U, TRAIT_GUIDANCE))
 				prob2defend -= 10
 
-			if(!(mobility_flags & MOBILITY_STAND))	// checks if laying down and applies 20% defense malus if so
+			if(body_position == LYING_DOWN)	// checks if laying down and applies 20% defense malus if so
 				prob2defend *= 0.8
 			prob2defend = clamp(prob2defend, 5, 95)
 			if(src.client?.prefs.showrolls)
@@ -208,7 +208,7 @@
 			if(weapon_parry == TRUE)
 				if(do_parry(used_weapon, drained, user)) //show message
 					// defender skill gain
-					if((mobility_flags & MOBILITY_STAND) && attacker_skill && (defender_skill < attacker_skill - SKILL_LEVEL_NOVICE))
+					if((body_position != LYING_DOWN) && attacker_skill && (defender_skill < attacker_skill - SKILL_LEVEL_NOVICE))
 						// No duping exp gains by attacking with a shield on active hand
 						if(used_weapon == offhand && istype(used_weapon, /obj/item/weapon/shield))
 							// Most shield users aren't bright, let's not make it near impossible to learn
@@ -221,7 +221,7 @@
 
 					//attacker skill gain
 
-					if((U.mobility_flags & MOBILITY_STAND) && defender_skill && (attacker_skill < defender_skill - SKILL_LEVEL_NOVICE))
+					if((U.body_position != LYING_DOWN) && defender_skill && (attacker_skill < defender_skill - SKILL_LEVEL_NOVICE))
 						if(AB)
 							U.mind?.adjust_experience(AB.associated_skill, max(round(U.STAINT/2), 0), FALSE)
 						else
@@ -250,7 +250,7 @@
 
 			if(weapon_parry == FALSE)
 				if(do_unarmed_parry(drained, user))
-					if((mobility_flags & MOBILITY_STAND) && attacker_skill && (defender_skill < attacker_skill - SKILL_LEVEL_NOVICE))
+					if((body_position != LYING_DOWN) && attacker_skill && (defender_skill < attacker_skill - SKILL_LEVEL_NOVICE))
 						H.mind?.adjust_experience(/datum/skill/combat/unarmed, max(round(STAINT/2), 0), FALSE)
 					flash_fullscreen("blackflash2")
 					return TRUE
@@ -410,7 +410,7 @@
 	var/dodge_score = defending_mob.defprob
 	if(defending_mob.stamina >= defending_mob.maximum_stamina)
 		return FALSE
-	if(!(defending_mob.mobility_flags & MOBILITY_STAND))							//Can't dodge when knocked down
+	if(defending_mob.body_position == LYING_DOWN)						//Can't dodge when knocked down
 		return FALSE
 	if(defending_mob)
 		dodge_score += (defending_mob.STASPD * 15) ///this is now sharply harsher

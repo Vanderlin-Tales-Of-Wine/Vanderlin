@@ -82,11 +82,11 @@
 	},
 /area/rogue/outdoors/bog)
 "qE" = (
-/obj/structure/mineral_door/wood/violet,
+/obj/structure/door/violet,
 /turf/open/floor/hexstone,
 /area/rogue/outdoors/bog)
 "rh" = (
-/obj/structure/mineral_door/bars,
+/obj/structure/door/iron/bars,
 /turf/open/floor/cobble/mossy,
 /area/rogue/outdoors/bog)
 "rt" = (
@@ -138,7 +138,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/bog)
 "uV" = (
-/obj/structure/mineral_door/bars,
+/obj/structure/door/iron/bars,
 /turf/open/floor/blocks,
 /area/rogue/outdoors/bog)
 "uZ" = (
@@ -242,7 +242,7 @@
 	},
 /area/rogue/outdoors/bog)
 "Hd" = (
-/obj/structure/mineral_door/wood/violet,
+/obj/structure/door/violet,
 /turf/open/floor/ruinedwood,
 /area/rogue/outdoors/bog)
 "HR" = (
@@ -340,9 +340,8 @@
 	},
 /area/rogue/outdoors/bog)
 "Ty" = (
-/obj/structure/mineral_door/wood/deadbolt{
-	locked = 1
-	},
+/obj/structure/door/weak/bolt,
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/cobble/mossy,
 /area/rogue/outdoors/bog)
 "UI" = (

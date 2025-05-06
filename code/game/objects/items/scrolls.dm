@@ -30,7 +30,7 @@
 
 /obj/item/teleportation_scroll/Topic(href, href_list)
 	..()
-	if (usr.stat || usr.restrained() || src.loc != usr)
+	if (usr.stat != CONSCIOUS || HAS_TRAIT(usr, TRAIT_HANDS_BLOCKED) || src.loc != usr)
 		return
 	if (!ishuman(usr))
 		return 1
@@ -49,7 +49,7 @@
 	var/A
 
 	A = input(user, "Area to jump to", "BOOYEA", A) as null|anything in GLOB.teleportlocs
-	if(!src || QDELETED(src) || !user || !user.is_holding(src) || user.incapacitated() || !A || !uses)
+	if(!src || QDELETED(src) || !user || !user.is_holding(src) || user.incapacitated(ignore_grab = TRUE) || !A || !uses)
 		return
 	var/area/thearea = GLOB.teleportlocs[A]
 

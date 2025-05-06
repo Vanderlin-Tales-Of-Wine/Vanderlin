@@ -36,7 +36,9 @@
 	if(!target)
 		return FALSE
 	var/mob/pawn = controller.pawn
-	pawn.emote("retreat")
+	if(!controller.pawn)
+		return FALSE //the fuck how?
+	pawn?.emote("retreat")
 	plot_path_away_from(controller, target)
 	return ..()
 

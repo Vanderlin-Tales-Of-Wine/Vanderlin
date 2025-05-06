@@ -103,7 +103,7 @@
 	update_icon()
 
 /obj/structure/mannequin/attack_hand(mob/living/user)
-	if(user.cmode || user.a_intent == INTENT_HARM || user.a_intent == INTENT_DISARM)
+	if(user.a_intent.name == "punch")
 		if(!tipped_over)
 			TipOver()
 			return
@@ -127,7 +127,7 @@
 /obj/structure/mannequin/MouseDrop(atom/over_object)
 	. = ..()
 	var/mob/living/M = usr
-	if(!istype(M) || M.incapacitated() || !Adjacent(M) || unchangeable)
+	if(!istype(M) || M.incapacitated(ignore_grab = TRUE) || !Adjacent(M) || unchangeable)
 		return
 	ShowInventory(M)
 
@@ -144,7 +144,7 @@
 */
 /obj/structure/mannequin/Topic(href, href_list)
 	..()
-	if(tipped_over || !(iscarbon(usr)) || usr.incapacitated() || !Adjacent(usr))
+	if(tipped_over || !(iscarbon(usr)) || usr.incapacitated(ignore_grab = TRUE) || !Adjacent(usr))
 		return
 	var/mob/living/carbon/user = usr
 	switch(href_list["command"])

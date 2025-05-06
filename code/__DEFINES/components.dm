@@ -145,40 +145,6 @@
 #define COMSIG_TURF_HAS_GRAVITY "turf_has_gravity"				//from base of atom/has_gravity(): (atom/asker, list/forced_gravities)
 #define COMSIG_TURF_MULTIZ_NEW "turf_multiz_new"				//from base of turf/New(): (turf/source, direction)
 
-// /atom/movable signals
-#define COMSIG_MOVABLE_PRE_MOVE "movable_pre_move"					//from base of atom/movable/Moved(): (/atom)
-	#define COMPONENT_MOVABLE_BLOCK_PRE_MOVE 1
-#define COMSIG_MOVABLE_MOVED "movable_moved"					//from base of atom/movable/Moved(): (/atom, dir)
-#define COMSIG_MOVABLE_CROSS "movable_cross"					//from base of atom/movable/Cross(): (/atom/movable)
-#define COMSIG_MOVABLE_CROSSED "movable_crossed"                //from base of atom/movable/Crossed(): (/atom/movable)
-#define COMSIG_MOVABLE_UNCROSS "movable_uncross"				//from base of atom/movable/Uncross(): (/atom/movable)
-	#define COMPONENT_MOVABLE_BLOCK_UNCROSS 1
-#define COMSIG_MOVABLE_UNCROSSED "movable_uncrossed"            //from base of atom/movable/Uncrossed(): (/atom/movable)
-#define COMSIG_MOVABLE_BUMP "movable_bump"						//from base of atom/movable/Bump(): (/atom)
-#define COMSIG_MOVABLE_IMPACT "movable_impact"					//from base of atom/movable/throw_impact(): (/atom/hit_atom, /datum/thrownthing/throwingdatum)
-#define COMSIG_MOVABLE_IMPACT_ZONE "item_impact_zone"			//from base of mob/living/hitby(): (mob/living/target, hit_zone)
-#define COMSIG_MOVABLE_PRE_THROW "movable_pre_throw"			//from base of atom/movable/throw_at(): (list/args)
-	#define COMPONENT_CANCEL_THROW 1
-#define COMSIG_MOVABLE_POST_THROW "movable_post_throw"			//from base of atom/movable/throw_at(): (datum/thrownthing, spin)
-///from base of datum/thrownthing/finalize(): (obj/thrown_object, datum/thrownthing) used for when a throw is finished
-#define COMSIG_MOVABLE_THROW_LANDED "movable_throw_landed"
-#define COMSIG_MOVABLE_Z_CHANGED "movable_ztransit" 			//from base of atom/movable/onTransitZ(): (old_z, new_z)
-#define COMSIG_MOVABLE_SECLUDED_LOCATION "movable_secluded" 	//called when the movable is placed in an unaccessible area, used for stationloving: ()
-#define COMSIG_MOVABLE_HEAR "movable_hear"						//from base of atom/movable/Hear(): (proc args list(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode))
-	#define HEARING_MESSAGE 1
-	#define HEARING_SPEAKER 2
-//	#define HEARING_LANGUAGE 3
-	#define HEARING_RAW_MESSAGE 4
-	/* #define HEARING_RADIO_FREQ 5
-	#define HEARING_SPANS 6
-	#define HEARING_MESSAGE_MODE 7 */
-#define COMSIG_MOVABLE_DISPOSING "movable_disposing"			//called when the movable is added to a disposal holder object for disposal movement: (obj/structure/disposalholder/holder, obj/machinery/disposal/source)
-#define COMSIG_MOVABLE_UPDATE_GLIDE_SIZE "movable_glide_size"	//Called when the movable's glide size is updated: (new_glide_size)
-/// Called when something is pushed by a living mob bumping it: (mob/living/pusher, push force)
-#define COMSIG_MOVABLE_BUMP_PUSHED "movable_bump_pushed"
-	/// Stop it from moving
-	#define COMPONENT_NO_PUSH (1<<0)
-
 // /mob signals
 #define COMSIG_MOB_DEATH "mob_death"							//from base of mob/death(): (gibbed)
 
@@ -220,38 +186,6 @@
 	#define MOB_DEADSAY_SIGNAL_INTERCEPT 1
 ///from base of /mob/verb/pointed: (atom/A)
 #define COMSIG_MOB_POINTED "mob_pointed"
-// /mob/living signals
-#define COMSIG_LIVING_SET_RESTING "comsig_set_resting"
-#define COMSIG_LIVING_RESIST "living_resist"					//from base of mob/living/resist() (/mob/living)
-#define COMSIG_LIVING_IGNITED "living_ignite"					//from base of mob/living/IgniteMob() (/mob/living)
-#define COMSIG_LIVING_EXTINGUISHED "living_extinguished"		//from base of mob/living/ExtinguishMob() (/mob/living)
-#define COMSIG_LIVING_ELECTROCUTE_ACT "living_electrocute_act"		//from base of mob/living/electrocute_act(): (shock_damage, source, siemens_coeff, flags)
-#define COMSIG_LIVING_MINOR_SHOCK "living_minor_shock"			//sent by stuff like stunbatons and tasers: ()
-#define COMSIG_LIVING_REVIVE "living_revive"					//from base of mob/living/revive() (full_heal, admin_revive)
-#define COMSIG_PROCESS_BORGCHARGER_OCCUPANT "living_charge"		//sent from borg recharge stations: (amount, repairs)
-#define COMSIG_MOB_CLIENT_LOGIN "comsig_mob_client_login"		//sent when a mob/login() finishes: (client)
-#define COMSIG_BORG_SAFE_DECONSTRUCT "borg_safe_decon"			//sent from borg mobs to itself, for tools to catch an upcoming destroy() due to safe decon (rather than detonation)
-#define COMSIG_MOB_ACTIVE_PERCEPTION "comsig_mob_active_perception"	//sent from mob/living/proc/look_around(): (mob/living/source)
-
-//ALL OF THESE DO NOT TAKE INTO ACCOUNT WHETHER AMOUNT IS 0 OR LOWER AND ARE SENT REGARDLESS!
-#define COMSIG_LIVING_STATUS_OFFBALANCED "living_offbalanced"
-#define COMSIG_LIVING_STATUS_STUN "living_stun"					//from base of mob/living/Stun() (amount, update, ignore)
-#define COMSIG_LIVING_STATUS_KNOCKDOWN "living_knockdown"		//from base of mob/living/Knockdown() (amount, update, ignore)
-#define COMSIG_LIVING_STATUS_PARALYZE "living_paralyze"			//from base of mob/living/Paralyze() (amount, update, ignore)
-#define COMSIG_LIVING_STATUS_IMMOBILIZE "living_immobilize"		//from base of mob/living/Immobilize() (amount, update, ignore)
-#define COMSIG_LIVING_STATUS_UNCONSCIOUS "living_unconscious"	//from base of mob/living/Unconscious() (amount, update, ignore)
-/// from base of mob/living/updatehealth()
-#define COMSIG_LIVING_HEALTH_UPDATE "living_health_update"
-#define COMSIG_LIVING_STATUS_SLEEP "living_sleeping"			//from base of mob/living/Sleeping() (amount, update, ignore)
-	#define COMPONENT_NO_STUN 1			//For all of them
-#define COMSIG_LIVING_CAN_TRACK "mob_cantrack"					//from base of /mob/living/can_track(): (mob/user)
-	#define COMPONENT_CANT_TRACK 1
-///from base of mob/living/death(): (gibbed)
-#define COMSIG_LIVING_DEATH "living_death"
-/// From /mob/living/befriend() : (mob/living/new_friend)
-#define COMSIG_LIVING_BEFRIENDED "living_befriended"
-/// From /mob/living/unfriend() : (mob/living/old_friend)
-#define COMSIG_LIVING_UNFRIENDED "living_unfriended"
 
 // /mob/living/carbon signals
 #define COMSIG_CARBON_SOUNDBANG "carbon_soundbang"					//from base of mob/living/carbon/soundbang_act(): (list(intensity))

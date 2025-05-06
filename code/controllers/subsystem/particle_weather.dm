@@ -57,6 +57,7 @@ SUBSYSTEM_DEF(ParticleWeather)
 			selected_forecast = new /datum/forecast/rosewood()
 		else
 			selected_forecast = new /datum/forecast/vanderlin()
+	selected_forecast.set_ambient_temperature(SSnightshift.current_tod ? SSnightshift.current_tod : settod())
 	return ..()
 
 /datum/controller/subsystem/ParticleWeather/proc/run_weather(datum/particle_weather/weather_datum_type, force = 0)

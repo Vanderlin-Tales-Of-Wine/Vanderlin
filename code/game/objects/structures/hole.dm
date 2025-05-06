@@ -130,6 +130,7 @@
 		attacking_shovel.update_icon()
 		return
 	else
+		playsound(loc,'sound/items/dig_shovel.ogg', 100, TRUE)
 		if(stage == 3)
 			var/turf/underT = get_step_multiz(src, DOWN)
 			if(underT && isopenturf(underT) && mastert)
@@ -167,11 +168,14 @@
 			else
 				stage++
 		if(stage == 4)
+			if(!do_after(user, 5 SECONDS * attacking_shovel.time_multiplier, src)) // WE CANT HAVE NICE THINGS CAN WE
+				return
 			stage = 3
 			climb_offset = 0
 			locked = FALSE
 			open()
 			for(var/obj/structure/gravemarker/G in loc)
+				record_featured_stat(FEATURED_STATS_CRIMINALS, user)
 				GLOB.vanderlin_round_stats[STATS_GRAVES_ROBBED]++
 				qdel(G)
 				if(isliving(user))
@@ -184,7 +188,6 @@
 		update_icon()
 		attacking_shovel.heldclod = new(attacking_shovel)
 		attacking_shovel.update_icon()
-		playsound(loc,'sound/items/dig_shovel.ogg', 100, TRUE)
 		return
 
 /datum/status_effect/debuff/cursed
@@ -204,7 +207,7 @@
 		O.forceMove(T)
 	if(!istype(O) || O.anchored || istype(O, /atom/movable/screen))
 		return
-	if(!istype(user) || user.incapacitated() || !(user.mobility_flags & MOBILITY_STAND))
+	if(!istype(user) || user.incapacitated() || user.body_position == LYING_DOWN)
 		return
 	if(!Adjacent(user) || !user.Adjacent(O))
 		return

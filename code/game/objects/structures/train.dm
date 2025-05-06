@@ -16,12 +16,12 @@
 		/datum/job/prince,
 		/datum/job/consort,
 		/datum/job/priest,
-		/datum/job/captain,
+		/datum/job/captain,//Rest of these roles cannot cryo, as they must ahelp first before leaving the round.
 		/datum/job/gaffer //opening up the slot will break the gaffer ring code
 	)
 
 /obj/structure/train/MouseDrop_T(atom/dropping, mob/user)
-	if(!isliving(user) || user.incapacitated())
+	if(!isliving(user) || user.incapacitated(ignore_grab = TRUE))
 		return //No ghosts or incapacitated folk allowed to do this.
 	if(!ishuman(dropping))
 		return //Only humans have job slots to be freed.
@@ -40,7 +40,7 @@
 		return //prevents noble roles from cryoing as per request of Aberra
 	if(alert("Are you sure you want to [departing_mob == user ? "leave for Kingsfield (you" : "send this person to Kingfield (they"] will be removed from the current round, the job slot freed)?", "Departing", "Confirm", "Cancel") != "Confirm")
 		return //doublechecks that people actually want to leave the round
-	if(user.incapacitated() || QDELETED(departing_mob) || (departing_mob != user && departing_mob.client) || get_dist(src, dropping) > 2 || get_dist(src, user) > 2)
+	if(user.incapacitated(ignore_grab = TRUE) || QDELETED(departing_mob) || (departing_mob != user && departing_mob.client) || get_dist(src, dropping) > 2 || get_dist(src, user) > 2)
 		return //Things have changed since the alert happened.
 	say("[user] [departing_mob == user ? "is departing for Kingsfield" : "is sending [departing_mob] to Kingsfield!"]")
 	in_use = TRUE //Just sends a simple message to chat that some-one is leaving
@@ -75,7 +75,7 @@
 	if(!departing_mob.mind)
 		qdel(departing_mob)
 		return "[mob_name] has no mind! Deleting instead!"
-	if(!departing_mob.mind.assigned_role || istype(departing_mob.mind.assigned_role, /datum/job/unassigned))
+	if(!departing_mob.mind.assigned_role || !is_unassigned_job(departing_mob.mind.assigned_role))
 		qdel(departing_mob)
 		return "[mob_name] has no assigned job! Deleting instead!"
 	if(departing_mob.mind)
@@ -83,3 +83,12 @@
 		mob_job.adjust_current_positions(-1)
 	qdel(departing_mob)
 	return "[mob_name] successfully cryo'd!"
+
+/obj/structure/train/carriage //A temporary subform of the train that is just a carriage	name = "train"
+	desc = "A train carriage."
+	icon = 'icons/roguetown/items/train.dmi'
+	icon_state = "train2"
+	layer = TABLE_LAYER
+	density = TRUE
+	anchored = TRUE
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF

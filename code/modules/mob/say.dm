@@ -38,12 +38,7 @@
 	set name = "Me"
 	set category = "IC"
 	set hidden = 1
-#ifndef MATURESERVER
-	return
-#endif
-//	if(!client.whitelisted())
-//		to_chat(usr, "<span class='warning'>I can't do custom emotes. (NOT WHITELISTED)</span>")
-//		return
+
 	if(client)
 		if(get_playerquality(client.ckey) <= -20)
 			to_chat(usr, "<span class='warning'>I can't use custom emotes. (LOW PQ)</span>")
@@ -62,7 +57,7 @@
 ///Speak as a dead person (ghost etc)
 /mob/proc/say_dead(message)
 	return
-/* 
+/*
 	var/name = real_name
 	var/alt_name = ""
 

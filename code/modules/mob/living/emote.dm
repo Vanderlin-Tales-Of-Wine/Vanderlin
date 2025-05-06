@@ -60,10 +60,9 @@
 /datum/emote/living/custom
 	key = "me"
 	key_third_person = "custom"
-#ifdef MATURESERVER
 	message_param = "%t"
-#endif
 	mute_time = 1
+
 /datum/emote/living/custom/can_run_emote(mob/user, status_check, intentional)
 	. = ..() && intentional
 
@@ -103,14 +102,13 @@
 
 /datum/emote/living/custom/replace_pronoun(mob/user, message)
 	return message
+
 /* A terrible idea, commenting out subtler
 // ............... Subtle ..................
 /datum/emote/living/subtle
 	key = "subtle"
 	key_third_person = "subtleemote"
-#ifdef MATURESERVER
 	message_param = "%t"
-#endif
 	restraint_check = TRUE
 
 /datum/emote/living/subtle/can_run_emote(mob/user, status_check, intentional)
@@ -149,7 +147,6 @@
 
 	user.visible_message("<i>[message]</i>", vision_distance = 1)
 */
-
 
 // ............... A ..................
 /datum/emote/living/attnwhistle
@@ -379,36 +376,6 @@
 			L.SetUnconscious(200)
 		else
 			L.Knockdown(10)
-
-/datum/emote/living/flap
-	key = "flap"
-	key_third_person = "flaps"
-	message = "flaps their wings."
-	restraint_check = TRUE
-	var/wing_time = 20
-/datum/emote/living/carbon/human/flap/can_run_emote(mob/user, status_check = TRUE , intentional)
-	return FALSE
-/datum/emote/living/flap/run_emote(mob/user, params, type_override, intentional)
-	. = ..()
-	if(. && ishuman(user))
-		var/mob/living/carbon/human/H = user
-		var/open = FALSE
-		if(H.dna.features["wings"] != "None")
-			if("wingsopen" in H.dna.species.mutant_bodyparts)
-				open = TRUE
-				H.CloseWings()
-			else
-				H.OpenWings()
-			addtimer(CALLBACK(H, open ? TYPE_PROC_REF(/mob/living/carbon/human, OpenWings) : TYPE_PROC_REF(/mob/living/carbon/human, CloseWings)), wing_time)
-
-/datum/emote/living/flap/aflap
-	key = "aflap"
-	key_third_person = "aflaps"
-	message = "flaps their wings ANGRILY!"
-	restraint_check = TRUE
-	wing_time = 10
-/datum/emote/living/carbon/human/aflap/can_run_emote(mob/user, status_check = TRUE , intentional)
-	return FALSE
 
 /datum/emote/living/fatigue
 	key = "fatigue"
@@ -673,6 +640,16 @@
 			to_chat(E, "<span class='warning'>I feel unexplicably repelled!</span>")
 			E.cursed_freak_out()
 
+		// anti pedophile logging
+		var/log_msg
+		if(E.age == AGE_CHILD)
+			log_msg = "[key_name(H)][ADMIN_FLW(H)] kissed [key_name(E)] [ADMIN_FLW(E)], a CHILD!"
+			if(H.age == AGE_CHILD)
+				log_msg += " As a child."
+			else
+				log_msg += " As an adult."
+			message_admins(log_msg)
+
 		var/do_change
 		if(target.loc == user.loc)
 			do_change = TRUE
@@ -686,7 +663,7 @@
 				message_param = "kisses %t on the ear."
 				if(E.dna.species?.id == "elf")
 					if(!E.cmode)
-						to_chat(target, "<span class='love'>It tickles...</span>")
+						to_chat(target, span_love("It tickles..."))
 			else if(H.zone_selected == BODY_ZONE_PRECISE_R_EYE || H.zone_selected == BODY_ZONE_PRECISE_L_EYE)
 				message_param = "kisses %t on the brow."
 			else
@@ -793,6 +770,7 @@
 	message_param = "pinches %t."
 	emote_type = EMOTE_VISIBLE
 	restraint_check = TRUE
+
 /datum/emote/living/pinch/adjacentaction(mob/user, mob/target)
 	. = ..()
 	if(!user || !target)
@@ -800,6 +778,7 @@
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = target
 		H.flash_fullscreen("redflash1")
+
 /mob/living/carbon/human/verb/emote_pinch()
 	set name = "Pinch"
 	set category = "Emotes"
@@ -815,8 +794,8 @@
 	message_param = initial(message_param) // reset
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		if(H.get_num_arms() == 0)
-			if(H.get_num_legs() != 0)
+		if(H.usable_hands == 0)
+			if(H.usable_legs != 0)
 				message_param = "tries to point at %t with a leg, <span class='danger'>falling down</span> in the process!"
 				H.Paralyze(20)
 			else
@@ -958,17 +937,38 @@
 	message_param = "slaps %t in the face."
 	emote_type = EMOTE_VISIBLE
 	restraint_check = TRUE
+
+/datum/emote/living/slap/adjacentaction(mob/user, mob/target)
+	. = ..()
+	if(!user || !target)
+		return
+	if(ishuman(target) && ishuman(user))
+		var/mob/living/carbon/human/H = user
+		var/mob/living/carbon/human/E = target
+		if(H.zone_selected == BODY_ZONE_PRECISE_GROIN)
+		// anti pedophile logging
+			var/log_msg
+			if(E.age == AGE_CHILD)
+				log_msg = "[key_name(H)][ADMIN_FLW(H)] slapped [key_name(E)][ADMIN_FLW(E)] on the ass, a CHILD!"
+				if(H.age == AGE_CHILD)
+					log_msg += " As a child."
+				else
+					log_msg += " As an adult."
+				message_admins(log_msg)
+
 /datum/emote/living/slap/run_emote(mob/user, params, type_override, intentional)
 	message_param = initial(message_param) // reset
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(H.zone_selected == BODY_ZONE_PRECISE_GROIN)
 			message_param = "slaps %t on the ass!"
+
 	..()
 /mob/living/carbon/human/verb/emote_slap()
 	set name = "Slap"
 	set category = "Emotes"
 	emote("slap", intentional = TRUE, targetted = TRUE)
+
 /datum/emote/living/slap/adjacentaction(mob/user, mob/target)
 	. = ..()
 	if(!user || !target)
@@ -1000,6 +1000,11 @@
 			if(!C.adjust_stamina(3)) // I guess this is here to reduce spamming? Or some other concept? Reduced from 10
 				to_chat(C, "<span class='warning'>I try to scream but my voice fails me.</span>")
 				. = FALSE
+
+/datum/emote/living/scream/run_emote(mob/user, params, type_override, intentional, targetted)
+	. = ..()
+	if(. && user.mind)
+		record_featured_stat(FEATURED_STATS_SCREAMERS, user)
 
 /datum/emote/living/scowl
 	key = "scowl"

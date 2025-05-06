@@ -7,6 +7,7 @@
 	base_state = "oven"
 	density = FALSE
 	on = FALSE
+	temperature_change = 45
 	var/list/food = list()
 	var/maxfood = 5
 	var/donefoods = FALSE

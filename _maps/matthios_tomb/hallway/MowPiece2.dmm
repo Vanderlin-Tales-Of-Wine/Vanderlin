@@ -163,11 +163,6 @@
 	},
 /turf/open/floor/cobblerock,
 /area/rogue/under/cave)
-"zE" = (
-/obj/structure/barricade/wooden,
-/obj/structure/barricade/wooden/crude,
-/turf/open/floor/cobblerock,
-/area/rogue/under/cave)
 "Bz" = (
 /obj/effect/decal/cleanable/blood,
 /mob/living/carbon/human/species/orc/tribal,
@@ -176,6 +171,11 @@
 "Cf" = (
 /obj/item/ingot/gold,
 /turf/open/floor/ruinedwood,
+/area/rogue/under/cave)
+"Cw" = (
+/obj/structure/barricade/wooden,
+/obj/structure/barricade/wooden/crude,
+/turf/open/floor/cobblerock,
 /area/rogue/under/cave)
 "CL" = (
 /obj/item/clothing/neck/psycross/silver,
@@ -214,10 +214,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/blocks,
 /area/rogue/under/cave)
-"KM" = (
-/obj/structure/mineral_door/wood,
-/turf/open/floor/cobblerock,
-/area/rogue/under/cave)
 "KV" = (
 /mob/living/carbon/human/species/skeleton/npc/peasant,
 /obj/structure/bed/mediocre,
@@ -250,6 +246,10 @@
 "Mw" = (
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/dirt/road,
+/area/rogue/under/cave)
+"Nc" = (
+/obj/structure/door,
+/turf/open/floor/cobblerock,
 /area/rogue/under/cave)
 "Ng" = (
 /obj/effect/decal/cleanable/blood,
@@ -313,7 +313,7 @@ jK
 tA
 iR
 hT
-KM
+Nc
 PO
 cm
 jK
@@ -345,7 +345,7 @@ jK
 PO
 cm
 jK
-zE
+Cw
 Wv
 Mt
 jK
@@ -353,13 +353,13 @@ jK
 (5,1,1) = {"
 jK
 jK
-KM
+Nc
 jK
 jK
 cm
 PO
 sF
-KM
+Nc
 sF
 jK
 jK
@@ -414,7 +414,7 @@ HA
 sF
 PO
 PO
-KM
+Nc
 Wk
 cA
 EB
@@ -425,7 +425,7 @@ jK
 DW
 kW
 kW
-KM
+Nc
 cm
 PO
 jK

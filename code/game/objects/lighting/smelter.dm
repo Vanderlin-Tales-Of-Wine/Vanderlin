@@ -10,6 +10,7 @@
 	climb_time = 0
 	climb_offset = 10
 	on = TRUE
+	temperature_change = 86
 	var/list/ore = list()
 	var/maxore = 1
 	var/cooking = 0

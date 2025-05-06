@@ -104,6 +104,8 @@
 	return FALSE
 
 /mob/living/carbon/monkey/canBeHandcuffed()
+	if(num_hands < 2)
+		return FALSE
 	return TRUE
 
 /mob/living/carbon/monkey/IsVocal()

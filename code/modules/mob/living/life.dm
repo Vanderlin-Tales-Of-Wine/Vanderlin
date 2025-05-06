@@ -30,6 +30,7 @@
 		return
 
 	//Breathing, if applicable
+	handle_temperature()
 	handle_breathing(times_fired)
 	if(HAS_TRAIT(src, TRAIT_SIMPLE_WOUNDS))
 		handle_wounds()
@@ -83,6 +84,9 @@
 	if(istype(loc, /turf/open/water))
 		handle_inwater(loc)
 
+/mob/living/proc/handle_temperature()
+	return
+
 /mob/living/proc/handle_breathing(times_fired)
 	return
 
@@ -96,7 +100,7 @@
 		return
 
 	var/probby = 53 - (STAEND * 2)
-	if(!(mobility_flags & MOBILITY_STAND))
+	if(body_position == LYING_DOWN)
 		probby = probby - 20
 	if(prob(probby))
 		MOBTIMER_SET(src, MT_PAINSTUN)

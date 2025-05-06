@@ -189,8 +189,7 @@
 	if(!zombie.client)
 		zombie.ai_controller = new /datum/ai_controller/zombie(zombie)
 
-	var/obj/item/organ/eyes/eyes = new /obj/item/organ/eyes/night_vision/zombie
-	eyes.Insert(zombie, drop_if_replaced = FALSE)
+	zombie.grant_undead_eyes()
 	ambushable = zombie.ambushable
 	zombie.ambushable = FALSE
 
@@ -266,7 +265,7 @@
 		zombie.heal_wounds(INFINITY) //Heal every wound that is not permanent
 	zombie.set_stat(UNCONSCIOUS) //Start unconscious
 	zombie.updatehealth() //then we check if the mob should wake up
-	zombie.update_mobility()
+	// zombie.update_mobility()
 	zombie.update_sight()
 	zombie.reload_fullscreen()
 	transform_zombie()

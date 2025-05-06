@@ -95,6 +95,14 @@
 			if(L.mind)
 				L.mind.adjust_experience(/datum/skill/misc/climbing, exp_to_gain, FALSE)
 
+/obj/structure/flora/newtree/attacked_by(obj/item/I, mob/living/user)
+	var/was_destroyed = obj_destroyed
+	. = ..()
+	if(.)
+		if(!was_destroyed && obj_destroyed)
+			record_featured_stat(FEATURED_STATS_TREE_FELLERS, user)
+			GLOB.vanderlin_round_stats[STATS_TREES_CUT]++
+
 /obj/structure/flora/newtree/fire_act(added, maxstacks)
 	. = ..()
 	if(.)
@@ -181,7 +189,6 @@
 	if(!istype(NT, /turf/open/transparent/openspace) && !(locate(/obj/structure/table/wood/treestump) in NT))//if i don't add the stump check it spawns however many zlevels it goes up because of src recursion
 		new /obj/structure/table/wood/treestump(NT)
 	playsound(src, 'sound/misc/treefall.ogg', 100, FALSE)
-	GLOB.vanderlin_round_stats[STATS_TREES_CUT]++
 
 /obj/structure/flora/newtree/proc/build_trees()
 	var/turf/target = get_step_multiz(src, UP)

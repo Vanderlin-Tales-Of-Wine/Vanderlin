@@ -25,18 +25,18 @@
 	if(!isatom(target))
 		return ELEMENT_INCOMPATIBLE
 
-	switch(difficulty)
-		if(1 to 3)
+	switch(clamp(difficulty, 1, 6))
+		if(1)
 			shown_difficulty = "LEGENDARY"
-		if(4 to 6)
+		if(2)
 			shown_difficulty = "MASTER"
-		if(7 to 9)
+		if(3)
 			shown_difficulty = "EXPERT"
-		if(10 to 15)
+		if(4)
 			shown_difficulty = "SKILLED"
-		if(16 to 20)
+		if(5)
 			shown_difficulty = "NOVICE"
-		if(20 to 100)
+		if(6)
 			shown_difficulty = "BASIC"
 
 	if(!src.lockpicks)
@@ -383,7 +383,7 @@
 		qdel(lockpick_used)
 
 	//special cases that need telling what to do due to others shartcode
-	var/obj/structure/mineral_door/A = src
+	var/obj/structure/door/A = src
 	if(istype(A))
 		A.locked = FALSE
 	lock_tampered = TRUE
@@ -401,6 +401,7 @@
 
 	to_chat(user, "<span class='notice'>You pick [name]s lock.</span>")
 	user.visible_message(span_notice("[user.name] picks [name]s lock."), span_notice("You pick the [name]s lock."))
+	record_featured_stat(FEATURED_STATS_CRIMINALS, user)
 	GLOB.vanderlin_round_stats[STATS_LOCKS_PICKED]++
 
 	being_picked = FALSE

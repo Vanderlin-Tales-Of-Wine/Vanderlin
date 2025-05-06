@@ -118,7 +118,7 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 //Mob mobility var flags
 /// can move
 #define MOBILITY_MOVE			(1<<0)
-/// can, and is, standing up
+/// can stand
 #define MOBILITY_STAND			(1<<1)
 /// can pickup items
 #define MOBILITY_PICKUP			(1<<2)
@@ -132,7 +132,6 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 #define MOBILITY_PULL			(1<<6)
 
 #define MOBILITY_FLAGS_DEFAULT (MOBILITY_MOVE | MOBILITY_STAND | MOBILITY_PICKUP | MOBILITY_USE | MOBILITY_UI | MOBILITY_STORAGE | MOBILITY_PULL)
-#define MOBILITY_FLAGS_INTERACTION (MOBILITY_USE | MOBILITY_PICKUP | MOBILITY_UI | MOBILITY_STORAGE)
 
 //alternate appearance flags
 #define AA_TARGET_SEE_APPEARANCE (1<<0)

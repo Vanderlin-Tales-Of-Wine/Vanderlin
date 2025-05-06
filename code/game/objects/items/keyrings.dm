@@ -264,14 +264,14 @@
 /obj/item/storage/keyring/jester
 	keys = list(/obj/item/key/manor, /obj/item/key/atarms, /obj/item/key/walls)
 
+/obj/item/storage/keyring/physician
+	keys = list(/obj/item/key/manor, /obj/item/key/atarms, /obj/item/key/dungeon, /obj/item/key/courtphys)
+
 /obj/item/storage/keyring/elder
 	keys = list(/obj/item/key/veteran, /obj/item/key/walls, /obj/item/key/elder, /obj/item/key/butcher, /obj/item/key/soilson, /obj/item/key/manor)
 
 /obj/item/storage/keyring/feldsher
-	keys = list(/obj/item/key/feldsher, /obj/item/key/manor, /obj/item/key/clinic, /obj/item/key/bathhouse)
-
-/obj/item/storage/keyring/physicker
-	keys = list(/obj/item/key/clinic)
+	keys = list(/obj/item/key/feldsher, /obj/item/key/clinic, /obj/item/key/bathhouse)
 
 /obj/item/storage/keyring/artificer
 	keys = list(/obj/item/key/artificer, /obj/item/key/blacksmith, /obj/item/key/miner)
@@ -288,7 +288,5 @@
 /obj/item/storage/keyring/master_of_crafts_and_labor
 	keys = list(/obj/item/key/elder, /obj/item/key/blacksmith,/obj/item/key/tailor,/obj/item/key/tavern,/obj/item/key/apothecary, /obj/item/key/butcher, /obj/item/key/soilson,/obj/item/key/artificer,/obj/item/key/clinic)
 
-
-
-
-
+/obj/item/storage/keyring/gaffer_assistant
+	keys = list(/obj/item/key/gaffer, /obj/item/key/mercenary)

@@ -1,16 +1,12 @@
 /client
 	var/list/played_loops = list() //uses dlink to link to the sound
 
-
 /proc/playsound(atom/source, soundin, vol as num, vary, extrarange as num, falloff, frequency = null, channel, pressure_affected = FALSE, ignore_walls = TRUE, soundping = FALSE, repeat)
 	if(isarea(source))
 		CRASH("playsound(): source is an area")
 
 	var/turf/turf_source = get_turf(source)
-	if(isturf(source))
-		turf_source = source
-
-	if (!turf_source)
+	if(!turf_source)
 		return
 
 	//allocate a channel if necessary now so its the same for everyone
@@ -56,7 +52,7 @@
 		if(get_dist(M, turf_source) <= maxdistance)
 			if(M.playsound_local(turf_source, soundin, vol, vary, frequency, falloff, channel, pressure_affected, S, repeat, muffled = TRUE))
 				. += M
-
+	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_SOUND_PLAYED, source, soundin)
 
 /proc/ping_sound(atom/A)
 	var/image/I = image(icon = 'icons/effects/effects.dmi', loc = A, icon_state = "emote", layer = ABOVE_MOB_LAYER)

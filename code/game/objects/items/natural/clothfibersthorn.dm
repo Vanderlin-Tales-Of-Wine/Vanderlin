@@ -101,6 +101,8 @@
 	if(cleaner.client && ((atom_to_clean in cleaner.client.screen) && !cleaner.is_holding(atom_to_clean)))
 		to_chat(cleaner, span_warning("I need to take \the [atom_to_clean] off before cleaning it!"))
 		return DO_NOT_CLEAN
+	if(!reagents.total_volume)
+		return DO_NOT_CLEAN
 
 	// overly complicated effectiveness calculations
 	// explanation/graph https://www.desmos.com/calculator/sjzjfkeupd

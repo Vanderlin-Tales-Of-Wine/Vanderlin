@@ -22,13 +22,12 @@
 	THIS IS AN <I>EXTREMELY</I> DISCRIMINATED SPECIES. EXPECT A MORE DIFFICULT EXPERIENCE. <B>NOBLES EVEN MORE SO.</B> PLAY AT YOUR OWN RISK."
 
 	skin_tone_wording = "Clan"
+	nutrition_mod = 2 // 200% higher hunger rate. Hungry, hungry horcs
 
 	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,STUBBLE,OLDGREY)
 	inherent_traits = list(TRAIT_NOMOBSWAP, TRAIT_NOSTINK)
 	// horcs are STINKY
 	components_to_add = list(/datum/component/rot/stinky_person)
-	default_features = list("mcolor" = "FFF", "ears" = "ElfH", "wings" = "None")
-	mutant_bodyparts = list("ears")
 	use_skintones = 1
 	disliked_food = NONE
 	liked_food = NONE
@@ -51,10 +50,35 @@
 	OFFSET_FACE_F = list(0,0), OFFSET_BELT_F = list(0,1), OFFSET_BACK_F = list(0,1), \
 	OFFSET_NECK_F = list(0,1), OFFSET_MOUTH_F = list(0,1), OFFSET_PANTS_F = list(0,0), \
 	OFFSET_SHIRT_F = list(0,1), OFFSET_ARMOR_F = list(0,1), OFFSET_UNDIES_F = list(0,1))
-	specstats = list(STATKEY_STR = 2, STATKEY_PER = -2, STATKEY_INT = -2, STATKEY_CON = 2, STATKEY_END = 1, STATKEY_SPD = 0, STATKEY_LCK = -1)
-	specstats_f = list(STATKEY_STR = 2, STATKEY_PER = -2, STATKEY_INT = -1, STATKEY_CON = 1, STATKEY_END = 1, STATKEY_SPD = 0, STATKEY_LCK = -1)
+	specstats = list(STATKEY_STR = 2, STATKEY_PER = -2, STATKEY_INT = -2, STATKEY_CON = 2, STATKEY_END = 1, STATKEY_SPD = 0, STATKEY_LCK = 0)
+	specstats_f = list(STATKEY_STR = 2, STATKEY_PER = -2, STATKEY_INT = -1, STATKEY_CON = 1, STATKEY_END = 1, STATKEY_SPD = 0, STATKEY_LCK = 0)
 	enflamed_icon = "widefire"
 	exotic_bloodtype = /datum/blood_type/human/horc
+
+	customizers = list(
+		/datum/customizer/organ/ears/halforc,
+		/datum/customizer/organ/eyes/humanoid,
+		/datum/customizer/bodypart_feature/hair/head/humanoid,
+		/datum/customizer/bodypart_feature/hair/facial/humanoid,
+		/datum/customizer/bodypart_feature/accessory,
+		/datum/customizer/bodypart_feature/face_detail,
+	)
+	bodypart_features = list(
+		/datum/bodypart_feature/hair/head,
+		/datum/bodypart_feature/hair/facial,
+	)
+	organs = list(
+		ORGAN_SLOT_BRAIN = /obj/item/organ/brain,
+		ORGAN_SLOT_HEART = /obj/item/organ/heart,
+		ORGAN_SLOT_LUNGS = /obj/item/organ/lungs,
+		ORGAN_SLOT_EYES = /obj/item/organ/eyes,
+		ORGAN_SLOT_EARS = /obj/item/organ/ears/halforc,
+		ORGAN_SLOT_TONGUE = /obj/item/organ/tongue,
+		ORGAN_SLOT_LIVER = /obj/item/organ/liver,
+		ORGAN_SLOT_STOMACH = /obj/item/organ/stomach,
+		ORGAN_SLOT_APPENDIX = /obj/item/organ/appendix,
+		ORGAN_SLOT_GUTS = /obj/item/organ/guts,
+	)
 
 /datum/species/halforc/check_roundstart_eligible()
 	return TRUE

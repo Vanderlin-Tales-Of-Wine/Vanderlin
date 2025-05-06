@@ -122,8 +122,8 @@
 		var/obj/structure/closet/C = target
 		if(C.masterkey)
 			lockid = C.lockid
-	if(istype(target, /obj/structure/mineral_door))
-		var/obj/structure/mineral_door/D = target
+	if(istype(target, /obj/structure/door))
+		var/obj/structure/door/D = target
 		if(D.masterkey)
 			lockid = D.lockid
 
@@ -133,8 +133,8 @@
 		var/obj/structure/closet/C = target
 		if(C.masterkey)
 			lockid = C.lockid
-	if(istype(target, /obj/structure/mineral_door))
-		var/obj/structure/mineral_door/D = target
+	if(istype(target, /obj/structure/door))
+		var/obj/structure/door/D = target
 		if(D.masterkey)
 			lockid = D.lockid
 
@@ -347,6 +347,12 @@
 	desc = "The key to the manor's guest room. Given to visiting nobles."
 	icon_state = "greenkey"
 	lockid = ACCESS_GUEST
+
+/obj/item/key/courtphys
+	name = "court physician's key"
+	desc = "A key granted to the honored Court Physician."
+	icon_state = "ankhkey"
+	lockid = ACCESS_PHYSICIAN
 
 ////// CHURCH
 

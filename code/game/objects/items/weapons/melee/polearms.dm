@@ -23,10 +23,13 @@
 	parrysound = list('sound/combat/parry/wood/parrywood (1).ogg', 'sound/combat/parry/wood/parrywood (2).ogg', 'sound/combat/parry/wood/parrywood (3).ogg')
 	dropshrink = 0.8
 	blade_dulling = DULLING_BASHCHOP
-	walking_stick = TRUE
 	wdefense = GREAT_PARRY
 	thrown_bclass = BCLASS_STAB
 	sellprice = 20
+
+/obj/item/weapon/polearm/Initialize()
+	. = ..()
+	AddComponent(/datum/component/walking_stick)
 
 /obj/item/weapon/polearm/getonmobprop(tag)
 	. = ..()
@@ -431,11 +434,14 @@
 	drop_sound = 'sound/foley/dropsound/blade_drop.ogg'
 	dropshrink = 0.75
 	blade_dulling = DULLING_BASHCHOP
-	walking_stick = TRUE
 	wdefense = 2
 	thrown_bclass = BCLASS_CUT
 	throwforce = 25
 	sellprice = 10
+
+/obj/item/weapon/sickle/scythe/Initialize()
+	. = ..()
+	AddComponent(/datum/component/walking_stick)
 
 /obj/item/weapon/polearm/spear/bonespear
 	force = 18
@@ -457,7 +463,6 @@
 	melting_material = null
 	associated_skill = /datum/skill/combat/polearms
 	blade_dulling = DULLING_BASHCHOP
-	walking_stick = TRUE
 	wdefense = 4
 	max_integrity = 60
 	throwforce = 20
