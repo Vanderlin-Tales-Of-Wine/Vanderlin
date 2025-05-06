@@ -439,7 +439,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 		return
 
 	var/turf/open/floor/T = get_turf(src)
-	if(istype[T])
+	if(istype(T))
 		T.generateSigils(src, input)
 
 /mob/living/carbon/human/proc/release_minion()
