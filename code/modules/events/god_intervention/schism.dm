@@ -117,6 +117,7 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 
 		// Promote the selected priest if we found one
 		if(selected_priest)
+			selected_priest.mind.set_assigned_role(/datum/job/priest/vice)
 			selected_priest.job = "Vice Priest"
 			selected_priest.verbs |= /mob/living/carbon/human/proc/churchexcommunicate
 			selected_priest.verbs |= /mob/living/carbon/human/proc/churchcurse
@@ -299,9 +300,9 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 			SEND_SOUND(human_mob, 'sound/magic/marked.ogg')
 
 	new /datum/tennite_schism(strongest_challenger)
-	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(announce_schism_start)), 2 MINUTES)
-	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(announce_schism_standings)), 16 MINUTES)
-	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(announce_schism_end)), 33 MINUTES)
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(announce_schism_start)), 20 SECONDS)
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(announce_schism_standings)), 45 SECONDS)
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(announce_schism_end)), 80 SECONDS)
 
 /// Officially starts the schism with an announcement and ability to choose sides
 /proc/announce_schism_start()

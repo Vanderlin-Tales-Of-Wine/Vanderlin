@@ -90,6 +90,16 @@
 	total_positions = 0
 	spawn_positions = 0
 
+/datum/job/priest/vice //just used to change the priest title
+	title = "Vice Priest"
+	f_title = "Vice Priestess"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK)
+	flag = PRIEST
+	department_flag = CHURCHMEN
+	faction = FACTION_STATION
+	total_positions = 0
+	spawn_positions = 0
+
 /mob/living/carbon/human/proc/coronate_lord()
 	set name = "Coronate"
 	set category = "Priest"
