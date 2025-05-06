@@ -22,10 +22,15 @@
 
 	var/mob/living/carbon/human/chosen_one = pick(valid_targets)
 
-	var/datum/objective/eat_organs/new_objective = new(owner = chosen_one.mind)
+	var/datum/objective/consume_organs/new_objective = new(owner = chosen_one.mind)
 	chosen_one.mind.add_personal_objective(new_objective)
 
-	to_chat(chosen_one, span_biginfo("Graggar hungers! Consume organs and hearts to earn Graggar's favor!"))
+	if(!locate(/obj/effect/proc_holder/spell/invoked/extract_heart) in chosen_one.mind.spell_list)
+		var/obj/effect/proc_holder/spell/invoked/extract_heart/heart_spell = new()
+		chosen_one.mind.AddSpell(heart_spell)
+		to_chat(chosen_one, span_notice("Graggar grants you the terrible power to extract hearts!"))
+
+	to_chat(chosen_one, span_biginfo("Graggar hungers! [new_objective.explanation_text]"))
 	SEND_SOUND(chosen_one, 'sound/magic/marked.ogg')
 
 	chosen_one.mind.announce_personal_objectives()
