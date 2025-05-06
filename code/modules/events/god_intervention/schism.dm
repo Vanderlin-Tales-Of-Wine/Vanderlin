@@ -33,6 +33,10 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 	SIGNAL_HANDLER
 	if(istype(H))
 		setup_mob(H)
+		var/datum/patron/challenger = challenger_god.resolve()
+		if(!challenger)
+			return
+		to_chat(H, span_warning("There is an active schism within the Ten! [challenger.name] has challenged Astrata's leadeship!"))
 
 /datum/tennite_schism/proc/setup_mob(mob/living/carbon/human/H)
 	if(!istype(H) || H.stat == DEAD || !H.mind)
@@ -97,6 +101,7 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 			var/mob/living/carbon/human/supporter = supporter_ref.resolve()
 			if(supporter)
 				to_chat(supporter, span_userdanger("INCOMPETENT IMBECILES!"))
+				supporter.electrocute_act(5, astrata)
 
 	for(var/mob/living/carbon/human/H in GLOB.player_list)
 		if(!H.mind)
@@ -104,6 +109,32 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 		H.mind.RemoveSpell(/obj/effect/proc_holder/spell/self/choose_schism_side)
 
 	qdel(src)
+
+/// Announces the current standings in the schism
+/datum/tennite_schism/proc/announce_standings()
+	var/datum/patron/challenger = challenger_god.resolve()
+	var/datum/patron/astrata = astrata_god.resolve()
+
+	if(!challenger || !astrata)
+		return
+
+	var/astrata_count = 0
+	var/challenger_count = 0
+
+	for(var/datum/weakref/supporter_ref in supporters_astrata)
+		var/mob/living/carbon/human/supporter = supporter_ref.resolve()
+		if(supporter && supporter.stat != DEAD && is_tennite(supporter))
+			astrata_count++
+
+	for(var/datum/weakref/supporter_ref in supporters_challenger)
+		var/mob/living/carbon/human/supporter = supporter_ref.resolve()
+		if(supporter && supporter.stat != DEAD && is_tennite(supporter))
+			challenger_count++
+
+	if(astrata_count >= challenger_count)
+		priority_announce("Astrata is leading in the schism! She will have her revenge soon enough...", "Schism Rages On", 'sound/magic/marked.ogg')
+	else if(challenger_count > astrata_count)
+		priority_announce("[challenger.name] is leading in the schism! Astrata will soon be forced to yield...", "Schism Rages On", 'sound/magic/marked.ogg')
 
 /datum/tennite_schism/proc/change_side(mob/living/carbon/human/user, new_side)
 	supporters_astrata -= WEAKREF(user)
@@ -238,13 +269,19 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 			SEND_SOUND(human_mob, 'sound/magic/marked.ogg')
 
 	new /datum/tennite_schism(strongest_challenger)
-	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(announce_schism_start)), 3 MINUTES)
-	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(announce_schism_end)), 34 MINUTES)
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(announce_schism_start)), 2 MINUTES)
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(announce_schism_standings)), 17 MINUTES)
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(announce_schism_end)), 33 MINUTES)
 
 /// Officially starts the schism with an announcement and ability to choose sides
 /proc/announce_schism_start()
 	for(var/datum/tennite_schism/schism in GLOB.tennite_schisms)
 		schism.announce()
+
+/// Announces current standings in the schism
+/proc/announce_schism_standings()
+	for(var/datum/tennite_schism/schism in GLOB.tennite_schisms)
+		schism.announce_standings()
 
 /// Officially ends the schism and declares the winner of it
 /proc/announce_schism_end()
