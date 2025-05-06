@@ -189,7 +189,6 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 
 /obj/effect/proc_holder/spell/self/choose_schism_side
 	name = "Choose your side"
-	desc = "Declare your allegiance in the schism within the Ten."
 	overlay_state = "limb_attach"
 	cooldown_min = 1 MINUTES
 	var/uses_remaining = 2
