@@ -10,3 +10,4 @@
 #define COMSIG_ORGAN_CONSUMED "organ_consumed" // (mob/living/consumer, organ_type)
 #define COMSIG_TORTURE_PERFORMED "torture_performed" // (mob/living/torturer, mob/living/victim)
 #define COMSIG_GRAVE_CONSECRATED "grave_consecrated" // (mob/living/consecrator, obj/structure/closet/dirthole)
+#define COMSIG_ANIMAL_TAMED "animal_tamed" // (mob/living/tamer, mob/living/simple_animal)
