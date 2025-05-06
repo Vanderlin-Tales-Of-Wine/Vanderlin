@@ -286,7 +286,7 @@
 		if(HAS_TRAIT(user, TRAIT_BASHDOORS))
 			if(locked)
 				user.visible_message(span_warning("[user] bashes into [src]!"))
-				take_damage(200, BRUTE, BCLASS_SMASH, TRUE)
+				take_damage(200, BRUTE, BCLASS_BLUNT, TRUE)
 			else
 				playsound(src, 'sound/combat/hits/onwood/woodimpact (1).ogg', 100)
 				force_open()
@@ -295,7 +295,7 @@
 		if(HAS_TRAIT(user, TRAIT_ROTMAN))
 			if(locked)
 				user.visible_message(span_warning("The deadite bashes into [src]!"))
-				take_damage(50, BRUTE, BCLASS_SMASH, TRUE)
+				take_damage(50, BRUTE, BCLASS_BLUNT, TRUE)
 			else
 				playsound(src, 'sound/combat/hits/onwood/woodimpact (1).ogg', 90)
 				force_open()
