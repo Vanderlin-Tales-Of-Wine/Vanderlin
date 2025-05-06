@@ -446,7 +446,7 @@
 /obj/item/reagent_containers/food/snacks/produce/sunflower
 	seed = /obj/item/neuFarm/seed/sunflower
 	name = "sunflower"
-	desc = ""
+	desc = "A flower in the shape of the Sun. It is Astrata's favourite flower."
 	icon_state = "sunflower"
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/head_items.dmi'
 	seed = /obj/item/neuFarm/seed/sunflower
