@@ -64,7 +64,7 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 
 	if(astrata_count >= challenger_count)
 		priority_announce("Astrata's light prevails over the challenge of [challenger.name]! The Sun Queen confirms her status as a true heir of Psydon!", "Astrata is VICTORIOUS!", 'sound/magic/ahh2.ogg')
-		adjust_storyteller_influence("Astrata", 150)
+		adjust_storyteller_influence("Astrata", 160)
 
 		for(var/datum/weakref/supporter_ref in supporters_astrata)
 			var/mob/living/carbon/human/supporter = supporter_ref.resolve()
@@ -82,7 +82,7 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 
 	else if(challenger_count > astrata_count)
 		priority_announce("[challenger.name]'s challenge succeeds against Astrata's tyranny! The Sun Queen is grudgingly forced to share power with [challenger.name]...", "[challenger.name] RULES!", 'sound/magic/inspire_02.ogg')
-		adjust_storyteller_influence(challenger.name, 150)
+		adjust_storyteller_influence(challenger.name, 160)
 
 		for(var/datum/weakref/supporter_ref in supporters_challenger)
 			var/mob/living/carbon/human/supporter = supporter_ref.resolve()
@@ -92,6 +92,11 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 			else if(supporter)
 				to_chat(supporter, span_notice("[challenger.name]'s challenge succeeds against Astrata's tyranny! Your support is rewarded with a triumph."))
 				supporter.adjust_triumphs(1)
+
+		for(var/datum/weakref/supporter_ref in supporters_astrata)
+			var/mob/living/carbon/human/supporter = supporter_ref.resolve()
+			if(supporter)
+				to_chat(supporter, span_userdanger("INCOMPETENT IMBECILES!"))
 
 	for(var/mob/living/carbon/human/H in GLOB.player_list)
 		if(!H.mind)
@@ -176,7 +181,7 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 	weight = 1
 	max_occurrences = 1
 	min_players = 50
-	earliest_start = 30 MINUTES
+	earliest_start = 25 MINUTES
 	allowed_storytellers = list(/datum/storyteller/noc, /datum/storyteller/ravox, /datum/storyteller/necra, /datum/storyteller/xylix, /datum/storyteller/pestra, /datum/storyteller/abyssor, /datum/storyteller/dendor, /datum/storyteller/eora, /datum/storyteller/malum)
 
 /datum/round_event_control/schism_within_ten/canSpawnEvent(players_amt, gamemode, fake_check)
@@ -234,7 +239,7 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 
 	new /datum/tennite_schism(strongest_challenger)
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(announce_schism_start)), 3 MINUTES)
-	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(announce_schism_end)), 36 MINUTES)
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(announce_schism_end)), 34 MINUTES)
 
 /proc/announce_schism_start()
 	for(var/datum/tennite_schism/schism in GLOB.tennite_schisms)
