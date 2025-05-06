@@ -35,8 +35,8 @@
 	animate(item, pixel_x = pixel_x + offset, time = 0.2, loop = -1) //start shaking
 	visible_message(span_warning("[src] begins to glow and shake violently!"))
 	spawn(timer)
-		possessor.rise_anew()
-		possessor.owner.current.forceMove(get_turf(src))
+		revival()
+		parent.forceMove(get_turf(src))
 		qdel(src)
 
 /datum/component/death_ringer/proc/revival()
