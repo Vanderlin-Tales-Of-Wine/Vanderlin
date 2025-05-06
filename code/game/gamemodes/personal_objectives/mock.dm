@@ -14,6 +14,7 @@
 	return ..()
 
 /datum/objective/mock/proc/on_mock_used(datum/source, mob/living/target, mob/living/user)
+	SIGNAL_HANDLER
 	return
 
 /// Monarch variant

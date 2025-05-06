@@ -1,0 +1,38 @@
+/datum/round_event_control/astrata_nobility
+	name = "Astrata's Noble Aspiration"
+	track = EVENT_TRACK_MUNDANE
+	typepath = /datum/round_event/astrata_nobility
+	weight = 5
+	earliest_start = 20 MINUTES
+	max_occurrences = 1
+	min_players = 20
+
+/datum/round_event_control/astrata_nobility/canSpawnEvent(players_amt, gamemode, fake_check)
+	. = ..()
+	if(!.)
+		return FALSE
+	if(GLOB.patron_follower_counts["Astrata"] < 1)
+		return FALSE
+
+/datum/round_event/astrata_nobility/start()
+	var/list/valid_targets = list()
+
+	for(var/mob/living/carbon/human/human_mob in GLOB.player_list)
+		if(!istype(human_mob) || human_mob.stat == DEAD || !human_mob.client)
+			continue
+		if(!human_mob.patron || !istype(human_mob.patron, /datum/patron/divine/astrata))
+			continue
+		valid_targets += human_mob
+
+	if(!valid_targets.len)
+		return
+
+	var/mob/living/carbon/human/chosen_one = pick(valid_targets)
+
+	var/datum/objective/nobility/new_objective = new(owner = chosen_one.mind)
+	chosen_one.mind.add_personal_objective(new_objective)
+
+	to_chat(chosen_one, span_biginfo("Astrata wishes you to ascend in status! Become part of the nobility to earn Astrata's favor!"))
+	SEND_SOUND(chosen_one, 'sound/magic/marked.ogg')
+
+	chosen_one.mind.announce_personal_objectives()
