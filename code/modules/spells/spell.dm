@@ -199,7 +199,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 		for(var/atom/target as anything in targets)
 			target.log_message("was affected by spell [name], caster was [key_name_admin(user)]", LOG_ATTACK, "red", FALSE)
 	if(user)
-		user.log_message("casted the spell [name][targets ? " on [parsed_target_list]" : ""].", LOG_ATTACK, "red")
+		user.log_message("casted the spell [name][targets ? " on [targets_string ]" : ""].", LOG_ATTACK, "red")
 
 /obj/effect/proc_holder/spell/get_chargetime()
 	if(ranged_ability_user && chargetime)
