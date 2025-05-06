@@ -633,9 +633,9 @@
 					user.put_in_hands(item)
 					break
 	if(length(products))
-		var/list/items_to_put = list()
+		var/list/items_to_put
 		for(var/obj/item/item in products)
-			items_to_put += item
+			LAZYADD(items_to_put, item)
 		if(LAZYLEN(items_to_put))
 			user.put_in_hands(pick(items_to_put))
 
