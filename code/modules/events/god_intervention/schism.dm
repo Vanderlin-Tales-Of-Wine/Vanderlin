@@ -39,7 +39,7 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 	if(!challenger)
 		return
 
-	to_chat(H, span_warning("There is an active schism within the Ten! [challenger.name] has challenged Astrata's leadership!"))
+	to_chat(H, span_notice("There is an active schism within the Ten! [challenger.name] has challenged Astrata's leadership!"))
 	setup_mob(H)
 
 /datum/tennite_schism/proc/setup_mob(mob/living/carbon/human/H)
