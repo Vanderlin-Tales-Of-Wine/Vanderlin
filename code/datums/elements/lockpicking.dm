@@ -383,7 +383,7 @@
 		qdel(lockpick_used)
 
 	//special cases that need telling what to do due to others shartcode
-	var/obj/structure/mineral_door/A = src
+	var/obj/structure/door/A = src
 	if(istype(A))
 		A.locked = FALSE
 	lock_tampered = TRUE

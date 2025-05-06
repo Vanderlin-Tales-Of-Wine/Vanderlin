@@ -1,4 +1,8 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aA" = (
+/obj/structure/door,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/indoors/shelter)
 "bi" = (
 /obj/structure/chair/bench/couch/redright,
 /turf/open/floor/ruinedwood/spiralfade,
@@ -28,15 +32,6 @@
 /area/rogue/indoors/shelter)
 "ex" = (
 /obj/structure/closet/crate/crafted_closet/inn,
-/turf/open/floor/ruinedwood/spiralfade,
-/area/rogue/indoors/shelter)
-"fa" = (
-/obj/structure/fluff/walldeco/vinez,
-/obj/structure/window,
-/turf/open/floor/ruinedwood/spiralfade,
-/area/rogue/indoors/shelter)
-"gY" = (
-/obj/structure/window,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/shelter)
 "hf" = (
@@ -83,11 +78,6 @@
 "jJ" = (
 /turf/open/floor/naturalstone,
 /area/rogue/indoors/shelter)
-"jV" = (
-/obj/structure/mineral_door/wood,
-/obj/item/restraints/legcuffs/beartrap/armed,
-/turf/open/floor/ruinedwood/spiralfade,
-/area/rogue/indoors/shelter)
 "kC" = (
 /obj/structure/toilet,
 /mob/living/carbon/human/species/orc/npc,
@@ -109,11 +99,6 @@
 /area/rogue/under/cave)
 "of" = (
 /obj/structure/fermentation_keg/random/beer,
-/turf/open/floor/ruinedwood/spiralfade,
-/area/rogue/indoors/shelter)
-"os" = (
-/obj/structure/window,
-/obj/structure/fluff/walldeco/vinez,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/shelter)
 "oF" = (
@@ -154,8 +139,12 @@
 /obj/structure/fluff/walldeco/vinez/l,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/shelter)
-"tC" = (
-/obj/structure/mineral_door/wood/deadbolt{
+"sR" = (
+/obj/item/soap/bath,
+/turf/open/water/bath,
+/area/rogue/indoors/shelter)
+"tb" = (
+/obj/structure/door/weak/bolt{
 	dir = 1
 	},
 /obj/item/soap,
@@ -191,6 +180,15 @@
 "vs" = (
 /turf/closed/wall/mineral/stone/moss,
 /area/rogue/indoors/shelter)
+"vI" = (
+/obj/structure/window,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/indoors/shelter)
+"wm" = (
+/obj/structure/door,
+/obj/item/restraints/legcuffs/beartrap/armed,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/indoors/shelter)
 "wL" = (
 /obj/structure/table/wood/large/corner_alt,
 /obj/item/reagent_containers/glass/cup/wooden/crafted{
@@ -225,10 +223,6 @@
 "Ao" = (
 /obj/structure/table/wood/large/corner_alt,
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue/indoors/shelter)
-"AL" = (
-/obj/item/soap/bath,
-/turf/open/water/bath,
 /area/rogue/indoors/shelter)
 "Bl" = (
 /obj/structure/chair/stool,
@@ -296,10 +290,6 @@
 "HR" = (
 /turf/open/floor/rooftop/green,
 /area/rogue/under/cave)
-"Ij" = (
-/obj/structure/mineral_door/wood,
-/turf/open/floor/ruinedwood/spiralfade,
-/area/rogue/indoors/shelter)
 "Iy" = (
 /obj/machinery/light/fueled/wallfire{
 	pixel_x = 16
@@ -355,6 +345,16 @@
 	dir = 4
 	},
 /area/rogue/under/cave)
+"LB" = (
+/obj/structure/window,
+/obj/structure/fluff/walldeco/vinez,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/indoors/shelter)
+"LU" = (
+/obj/structure/fluff/walldeco/vinez,
+/obj/structure/window,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/indoors/shelter)
 "LZ" = (
 /obj/structure/chair/wood{
 	dir = 4
@@ -442,6 +442,10 @@
 	},
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/shelter)
+"Vy" = (
+/obj/structure/door/window,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/indoors/shelter)
 "VY" = (
 /obj/structure/fluff/walldeco/vinez/r,
 /turf/open/floor/ruinedwood/spiralfade,
@@ -457,10 +461,6 @@
 /obj/structure/fluff/railing/border{
 	dir = 4
 	},
-/turf/open/floor/ruinedwood/spiralfade,
-/area/rogue/indoors/shelter)
-"WZ" = (
-/obj/structure/mineral_door/wood/window,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/shelter)
 "Xw" = (
@@ -568,8 +568,8 @@ vs
 qI
 vs
 vs
-WZ
-WZ
+Vy
+Vy
 vs
 vs
 qI
@@ -694,7 +694,7 @@ bm
 KZ
 KZ
 KZ
-WZ
+Vy
 Hp
 Mk
 Mk
@@ -707,7 +707,7 @@ Mk
 Mk
 Mk
 Mk
-WZ
+Vy
 KZ
 KZ
 KZ
@@ -716,7 +716,7 @@ KZ
 GK
 KZ
 KZ
-WZ
+Vy
 Mk
 Mk
 Mk
@@ -729,7 +729,7 @@ FI
 Bl
 Mk
 Mk
-WZ
+Vy
 KZ
 KZ
 mp
@@ -744,7 +744,7 @@ Mk
 Mk
 vs
 vs
-jV
+wm
 vs
 Vx
 Pc
@@ -829,11 +829,11 @@ pU
 vs
 vs
 vs
-Ij
+aA
 vs
 ex
 Mk
-Ij
+aA
 Mk
 wU
 wU
@@ -1006,16 +1006,16 @@ px
 vs
 la
 la
-gY
+vI
 EL
 la
-gY
+vI
 EL
 la
 la
 EL
 la
-gY
+vI
 vs
 HR
 IM
@@ -1072,16 +1072,16 @@ px
 EL
 la
 la
-Ij
+aA
 EL
 la
-Ij
+aA
 EL
 la
-Ij
+aA
 EL
 la
-Ij
+aA
 EL
 HR
 IM
@@ -1148,7 +1148,7 @@ Zo
 ph
 Mk
 Zo
-fa
+LU
 HR
 IM
 IM
@@ -1208,7 +1208,7 @@ Mk
 EL
 la
 la
-Ij
+aA
 EL
 EL
 EL
@@ -1257,8 +1257,8 @@ EL
 UV
 Yx
 Jk
-AL
-os
+sR
+LB
 HR
 IM
 bm
@@ -1275,7 +1275,7 @@ EL
 uD
 Mk
 Mk
-tC
+tb
 Mk
 Mk
 oF
@@ -1295,7 +1295,7 @@ la
 la
 la
 la
-gY
+vI
 la
 la
 la

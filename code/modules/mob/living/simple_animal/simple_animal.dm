@@ -851,7 +851,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 					riding_datum.vehicle_move_delay -= (amt/5 + 1.5)
 					riding_datum.vehicle_move_delay -= 3
 			if(loc != oldloc)
-				var/obj/structure/mineral_door/MD = locate() in loc
+				var/obj/structure/door/MD = locate() in loc
 				if(MD && !MD.ridethrough)
 					if(isliving(user))
 						var/mob/living/L = user

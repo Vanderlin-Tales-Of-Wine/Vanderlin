@@ -43,7 +43,7 @@
 	belt = /obj/item/storage/belt/leather
 	beltl = /obj/item/weapon/axe/iron
 	beltr = /obj/item/storage/belt/pouch/coins/rich
-	backr = /obj/item/weapon/polearm/halberd/bardiche/woodcutter
+	backr = /obj/item/weapon/polearm/halberd/bardiche/warcutter
 	backl = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/weapon/knife/hunting = 1, /obj/item/rope/chain = 1, /obj/item/key/forrestgarrison = 1, /obj/item/signal_horn = 1)
 	if(H.mind)

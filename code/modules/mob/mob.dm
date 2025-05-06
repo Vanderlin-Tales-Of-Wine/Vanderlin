@@ -768,7 +768,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 		if(!TurfAdjacent(listed_turf))
 			listed_turf = null
 		else
-			var/obj/structure/mineral_door/secret/secret_door =  locate(/obj/structure/mineral_door/secret) in listed_turf
+			var/obj/structure/door/secret/secret_door =  locate(/obj/structure/door/secret) in listed_turf
 			if(!secret_door)
 				statpanel(listed_turf.name, null, listed_turf)
 			var/list/overrides = list()

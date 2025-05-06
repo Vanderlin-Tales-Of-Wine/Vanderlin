@@ -660,7 +660,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 					lip_overlay.pixel_y += offsets[OFFSET_FACE_F][2]
 			standing += lip_overlay
 
-#ifdef MATURESERVER
 		if(H.dna.species.hairyness)
 			var/mutable_appearance/bodyhair_overlay
 			if(H.gender == MALE)
@@ -669,7 +668,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 				bodyhair_overlay = mutable_appearance(H.dna.species.limbs_icon_f, "[H.dna.species.hairyness]", -BODY_LAYER)
 			bodyhair_overlay.color = H.get_hair_color()
 			standing += bodyhair_overlay
-#endif
 
 	//Underwear, Undershirts & Socks
 	if(!(NO_UNDERWEAR in species_traits))

@@ -13,13 +13,13 @@ Format:
 	votable (is this map votable)
 endmap
 
-map rosewood
-	minplayers 90
+map vanderlin
+	default
 	votable
 endmap
 
-map vanderlin
-	default
+map rosewood
+	minplayers 90
 	votable
 endmap
 
@@ -27,4 +27,3 @@ map daftmarsh
 	maxplayers 75
 	votable
 endmap
-

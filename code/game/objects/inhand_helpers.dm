@@ -802,7 +802,7 @@ GLOBAL_LIST_INIT(IconStates_cache, list())
 		var/mob/M = mob
 		if(isturf(M.loc))
 			var/turf/T = M.loc
-			for(var/obj/structure/mineral_door/D in T)
+			for(var/obj/structure/door/D in T)
 				to_chat(M, "DOOR - [D]")
 				to_chat(M, "LOCKID: [D.lockid]")
 				to_chat(M, "LOCKSTATUS: [D.locked]")

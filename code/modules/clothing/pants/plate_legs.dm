@@ -5,7 +5,6 @@
 	gender = PLURAL
 	icon_state = "heavyleggies" // Finally a sprite
 	item_state = "heavyleggies"
-	// adjustable = CAN_CADJUST
 	sewrepair = FALSE
 	blocksound = PLATEHIT
 	equip_delay_self = 30

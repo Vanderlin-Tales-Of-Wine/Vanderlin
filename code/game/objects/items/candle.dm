@@ -116,6 +116,18 @@
 	start_lit = TRUE
 	icon_state = "skullcandle_lit"
 
+/obj/item/candle/skull/darkskull
+	icon_state = "darkskullcandle"
+	infinite = TRUE
+	light_color = LIGHT_COLOR_LAVENDER
+
+/obj/item/candle/skull/darkskull/update_icon()
+	icon_state = "darkskullcandle[lit ? "_lit" : ""]"
+
+/obj/item/candle/skull/darkskull/lit
+	start_lit = TRUE
+	icon_state = "darkskullcandle_lit"
+
 /obj/item/candle/eora
 	icon = 'icons/roguetown/items/lighting.dmi'
 	name = "eora's candle"
