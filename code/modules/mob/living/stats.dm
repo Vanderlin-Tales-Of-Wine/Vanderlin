@@ -364,7 +364,7 @@
 	//! DEPRECATED PROC
 	if(!stat_key || !adjust_amount)
 		return
-		
+
 	adjust_stat_modifier(LEGACY_SOURCE, stat_key, adjust_amount)
 
 #undef LEGACY_SOURCE

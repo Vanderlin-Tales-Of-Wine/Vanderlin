@@ -59,7 +59,8 @@
 			rotty.rotted = FALSE
 			rotty.skeletonized = FALSE
 			rotty.update_limb()
-			rotty.update_disabled()
+			if(rotty.can_be_disabled)
+				rotty.update_disabled()
 	target.update_body()
 	display_results(user, target, span_notice("You burn away the rot inside of [target]."),
 		"[user] burns the rot within [target].",
