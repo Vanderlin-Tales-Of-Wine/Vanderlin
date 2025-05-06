@@ -88,6 +88,7 @@
 	if(H.dna?.species)
 		if(H.dna.species.id == "human")
 			H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
+
 /datum/job/royalguard/after_spawn(mob/living/carbon/spawned, client/player_client)
 	. = ..()
 	spawned.select_equippable(player_client,
