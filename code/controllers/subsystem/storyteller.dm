@@ -1481,6 +1481,13 @@ SUBSYSTEM_DEF(gamemode)
 
 	return total_influence
 
+/proc/adjust_storyteller_influence(god_name, amount)
+	for(var/storyteller_type in SSgamemode.storytellers)
+		var/datum/storyteller/S = SSgamemode.storytellers[storyteller_type]
+		if(S.name == god_name)
+			S.bonus_points += amount
+			break
+
 #undef DEFAULT_STORYTELLER_VOTE_OPTIONS
 #undef MAX_POP_FOR_STORYTELLER_VOTE
 #undef ROUNDSTART_VALID_TIMEFRAME

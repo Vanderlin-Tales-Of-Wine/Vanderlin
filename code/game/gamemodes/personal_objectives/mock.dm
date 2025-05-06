@@ -27,6 +27,7 @@
 		to_chat(owner.current, span_greentext("You have mocked the monarch and completed the objective!"))
 		owner.current.adjust_triumphs(1)
 		completed = TRUE
+		adjust_storyteller_influence("Xylix", 15)
 		UnregisterSignal(owner.current, COMSIG_VICIOUSLY_MOCKED)
 
 /datum/objective/mock/monarch/update_explanation_text()
@@ -57,6 +58,7 @@
 			to_chat(owner.current, span_greentext("You have mocked enough nobles and completed the objective!"))
 			owner.current.adjust_triumphs(1)
 			completed = TRUE
+			adjust_storyteller_influence("Xylix", 10)
 			UnregisterSignal(owner.current, COMSIG_VICIOUSLY_MOCKED)
 		else
 			to_chat(owner.current, span_notice("Noble mocked! Viciously mock [required_count - mocked_targets] more noble to complete the objective!"))
