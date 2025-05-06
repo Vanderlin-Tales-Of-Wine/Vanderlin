@@ -1,2 +1,3 @@
-///from base of /obj/effect/proc_holder/spell/invoked/mockery/cast(): (list/targets, mob/living/user)
-#define COMSIG_VICIOUSLY_MOCKED "viciously_mocked_act"
+#define COMSIG_VICIOUSLY_MOCKED "viciously_mocked_act" // (victim, user)
+#define COMSIG_BAPTISM_RECEIVED "baptism_received" // (baptizer)
+
