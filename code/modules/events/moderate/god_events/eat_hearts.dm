@@ -1,5 +1,5 @@
 /datum/round_event_control/graggar_organs
-	name = "Graggar's Feast"
+	name = "Feast of Organs"
 	track = EVENT_TRACK_MODERATE
 	typepath = /datum/round_event/graggar_organs
 	weight = 5

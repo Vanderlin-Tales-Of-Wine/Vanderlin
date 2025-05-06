@@ -1,5 +1,5 @@
 /datum/round_event_control/abyssor_fish_release
-	name = "Abyssor's Fish Release"
+	name = "Fish Release Request"
 	track = EVENT_TRACK_MUNDANE
 	typepath = /datum/round_event/abyssor_fish_release
 	weight = 5

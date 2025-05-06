@@ -1,5 +1,5 @@
 /datum/round_event_control/zizo_torture
-	name = "Zizo's Cruel Demand"
+	name = "Demand of Cruelty"
 	track = EVENT_TRACK_MODERATE
 	typepath = /datum/round_event/zizo_torture
 	weight = 5

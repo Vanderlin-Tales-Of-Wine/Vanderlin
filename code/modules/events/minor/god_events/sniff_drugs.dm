@@ -1,5 +1,5 @@
 /datum/round_event_control/baotha_sniffing
-	name = "Baotha's Chemical Desire"
+	name = "Drug Desire"
 	track = EVENT_TRACK_MUNDANE
 	typepath = /datum/round_event/baotha_sniffing
 	weight = 5

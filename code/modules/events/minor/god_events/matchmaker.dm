@@ -1,5 +1,5 @@
 /datum/round_event_control/eora_marriage
-	name = "Eora's Marriage Broker"
+	name = "Marriage Broker"
 	track = EVENT_TRACK_MUNDANE
 	typepath = /datum/round_event/eora_marriage
 	weight = 5

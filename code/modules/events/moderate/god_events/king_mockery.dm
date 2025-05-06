@@ -1,5 +1,5 @@
 /datum/round_event_control/xylix_mocking
-	name = "Xylix's Mockery (Monarch)"
+	name = "Mockery (Monarch)"
 	track = EVENT_TRACK_MODERATE
 	typepath = /datum/round_event/xylix_mocking
 	weight = 5

@@ -1,5 +1,5 @@
 /datum/round_event_control/malum_crafting
-	name = "Malum's Crafting Challenge"
+	name = "Crafting Request"
 	track = EVENT_TRACK_MUNDANE
 	typepath = /datum/round_event/malum_crafting
 	weight = 5
