@@ -241,33 +241,23 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(announce_schism_start)), 3 MINUTES)
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(announce_schism_end)), 34 MINUTES)
 
+/// Officially starts the schism with an announcement and ability to choose sides
 /proc/announce_schism_start()
 	for(var/datum/tennite_schism/schism in GLOB.tennite_schisms)
 		schism.announce()
 
+/// Officially ends the schism and declares the winner of it
 /proc/announce_schism_end()
 	for(var/datum/tennite_schism/schism in GLOB.tennite_schisms)
 		schism.process_winner()
 
-/proc/adjust_storyteller_influence(god_name, amount)
-	for(var/storyteller_type in SSgamemode.storytellers)
-		var/datum/storyteller/S = SSgamemode.storytellers[storyteller_type]
-		if(S.name == god_name)
-			S.bonus_points += amount
-			break
-
+/// Checks if the mob has any divine pantheon god as their patron
 /proc/is_tennite(mob/living/carbon/human/human_mob)
 	if(!human_mob.patron)
 		return FALSE
 	return istype(human_mob.patron, /datum/patron/divine)
 
-/proc/get_storyteller_influence(god_name)
-	for(var/storyteller_type in SSgamemode.storytellers)
-		var/datum/storyteller/S = SSgamemode.storytellers[storyteller_type]
-		if(S.name == god_name)
-			return SSgamemode.calculate_storyteller_influence(S.type)
-	return 0
-
+/// Finds strongest divine pantheon to challenge Astrata
 /proc/find_strongest_challenger()
 	var/datum/patron/strongest_challenger
 	var/most_followers = 0

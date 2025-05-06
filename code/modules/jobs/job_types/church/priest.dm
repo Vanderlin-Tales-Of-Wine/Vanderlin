@@ -158,6 +158,9 @@
 				if(H.real_name == inputty)
 					H.cleric?.recommunicate()
 			return
+		if(length(GLOB.tennite_schisms))
+			to_chat(src, span_warning("I cannot excommunicate anyone during the schism!"))
+			return FALSE
 		var/found = FALSE
 		for(var/mob/living/carbon/human/H in GLOB.player_list)
 			if(H.real_name == inputty)
@@ -186,6 +189,9 @@
 				if(H.real_name == inputty)
 					H.remove_stress(/datum/stressevent/psycurse)
 			return
+		if(length(GLOB.tennite_schisms))
+			to_chat(src, span_warning("I cannot curse anyone during the schism!"))
+			return FALSE
 		var/found = FALSE
 		for(var/mob/living/carbon/H in GLOB.player_list)
 			if(H.real_name == inputty)
