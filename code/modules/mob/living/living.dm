@@ -1175,8 +1175,6 @@
 			combat_modifier -= 0.15
 
 	resist_chance += ((((STASTR - L.STASTR)/2) + wrestling_diff) * 7 + rand(-5, 10))
-	testing("AFTER: [resist_chance]")
-	testing("CM: [combat_modifier]")
 	resist_chance *= combat_modifier
 	resist_chance = clamp(resist_chance, 5, 95)
 
@@ -1223,7 +1221,8 @@
 											"<span class='warning'>I struggle against [pulledby]'s grip!</span>", null, null, pulledby)
 							to_chat(pulledby, "<span class='warning'>[src] struggles against my grip!</span>")
 							playsound(src.loc, 'sound/combat/grabstruggle.ogg', 50, TRUE, -1)
-							return FALSE
+							client?.move_delay = world.time + 20
+							return TRUE
 	return ..()
 
 /mob/living/proc/resist_buckle()

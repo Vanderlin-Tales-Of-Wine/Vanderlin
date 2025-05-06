@@ -229,7 +229,7 @@
 					if(get_location_accessible(C, BODY_ZONE_PRECISE_NECK))
 						if(prob(23))
 							C.emote("choke")
-						var/choke_damage = user.STASTR
+						var/choke_damage = user.STASTR * 0.75 // this is too busted
 						if(chokehold)
 							choke_damage *= 1.2
 						if(C.pulling == user && C.grab_state >= GRAB_AGGRESSIVE)
@@ -238,6 +238,8 @@
 						C.visible_message(span_danger("[user] [pick("chokes", "strangles")] [C][chokehold ? " with a chokehold" : ""]!"), \
 								span_userdanger("[user] [pick("chokes", "strangles")] me[chokehold ? " with a chokehold" : ""]!"), span_hear("I hear a sickening sound of pugilism!"), COMBAT_MESSAGE_RANGE, user)
 						to_chat(user, span_danger("I [pick("choke", "strangle")] [C][chokehold ? " with a chokehold" : ""]!"))
+					else
+						to_chat(user, span_warning("I can't reach [C]'s throat!"))
 					user.changeNext_move(CLICK_CD_MELEE)
 		if(/datum/intent/grab/hostage)
 			if(user.buckled)
