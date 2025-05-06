@@ -1176,7 +1176,7 @@
 
 	resist_chance += ((((STASTR - L.STASTR)/2) + wrestling_diff) * 7 + rand(-5, 10))
 	resist_chance *= combat_modifier
-	resist_chance = clamp(resist_chance, 5, 95)
+	resist_chance = clamp(resist_chance, 10, 95)
 
 	if(moving_resist && client) //we resisted by trying to move
 		client.move_delay = world.time + 20
