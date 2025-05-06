@@ -189,7 +189,8 @@
 	updatehealth()
 
 /mob/living/carbon/human/bleed(amt)
-	amt *= physiology?.bleed_mod
+	if(physiology)
+		amt *= physiology.bleed_mod
 	if(!(NOBLOOD in dna?.species?.species_traits))
 		return ..()
 
