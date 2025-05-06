@@ -188,7 +188,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 /obj/effect/proc_holder/spell/proc/create_logs(atom/user, list/targets)
 	var/parsed_target_list = list()
 	for(var/atom/target as anything in targets)
-		if(ismob)
+		if(ismob(target))
 			var/mob/mob_target = target
 			parsed_target_list += key_name_admin(mob_target)
 		else
