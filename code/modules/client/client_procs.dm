@@ -1066,7 +1066,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		adminGreet(1)
 		holder.owner = null
 		GLOB.admins -= src
-/*		if (!GLOB.admins.len && SSticker.IsRoundInProgress()) //Only report this stuff if we are currently playing.
+		if (!GLOB.admins.len && SSticker.IsRoundInProgress()) //Only report this stuff if we are currently playing.
 			var/cheesy_message = pick(
 				"I have no admins online!",\
 				"I'm all alone :(",\
@@ -1082,8 +1082,8 @@ GLOBAL_LIST_EMPTY(respawncounts)
 				"Forever alone :("\
 			)
 
-//			send2irc("Server", "[cheesy_message] (No admins online)")
-*/
+			send2adminchat("Server", "[cheesy_message] (No admins online)")
+
 	if(player_details)
 		player_details.achievements.save()
 
