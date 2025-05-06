@@ -215,7 +215,7 @@
 /turf/open/water/Initialize()
 	. = ..()
 	if(mapped)
-		if(prob(1) && prob(10))
+		if(prob(0.1))
 			new /obj/item/bottlemessage/ancient(src)
 	else
 		START_PROCESSING(SSobj, src)
