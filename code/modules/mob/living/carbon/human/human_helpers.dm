@@ -107,6 +107,8 @@
 /mob/living/carbon/human/get_punch_dmg()
 	var/damage = 12
 	var/used_str = STASTR
+	if(QDELETED(src) || !ishuman(src))
+		return
 
 	if(mind?.has_antag_datum(/datum/antagonist/werewolf))
 		return 30
@@ -129,6 +131,8 @@
 /mob/living/carbon/human/proc/get_kick_damage(multiplier = 1)
 	var/damage = 12
 	var/used_str = STASTR
+	if(QDELETED(src) || !ishuman(src))
+		return
 
 	if(mind?.has_antag_datum(/datum/antagonist/werewolf))
 		return 30 * multiplier

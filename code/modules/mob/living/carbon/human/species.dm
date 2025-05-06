@@ -1464,7 +1464,11 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			log_combat(user, target, "shoved", append_message)
 
 //shameless copypaste
-/datum/species/proc/kicked(mob/living/carbon/human/user, mob/living/carbon/human/target)
+/datum/species/proc/kicked(mob/living/carbon/human/user, mob/living/carbon/target)
+	if(QDELETED(user) || QDELETED(target))
+		return
+	if(!ishuman(user) || !iscarbon(target))
+		return
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
 		to_chat(user, "<span class='warning'>I don't want to harm [target]!</span>")
 		return FALSE
