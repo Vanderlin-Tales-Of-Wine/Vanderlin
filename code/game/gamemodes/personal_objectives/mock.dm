@@ -22,9 +22,9 @@
 	name = "Mock Monarch"
 	triumph_count = 0
 
-/datum/objective/mock/monarch/on_mock_used(datum/source, mob/living/target, mob/living/user)
+/datum/objective/mock/monarch/on_mock_used(datum/source, mob/living/victim)
 	. = ..()
-	if((target.mind?.assigned_role == "Monarch" || target.job == "Monarch") && (user == owner.current))
+	if((victim.mind?.assigned_role == "Monarch" || victim.job == "Monarch") && (source == owner.current))
 		to_chat(owner.current, span_greentext("You have mocked the monarch and completed the objective!"))
 		owner.current.adjust_triumphs(1)
 		completed = TRUE
@@ -45,15 +45,13 @@
 	. = ..()
 	explanation_text = "Viciously mock [required_count] nobles!"
 
-/datum/objective/mock/noble/on_mock_used(datum/source, mob/living/target, mob/living/user)
+/datum/objective/mock/noble/on_mock_used(datum/source, mob/living/victim)
 	. = ..()
-	var/mob/living/carbon/human/human_target = target
-	if(!istype(human_target))
-		return
-	if(human_target.stat == DEAD || human_target == user)
+	var/mob/living/carbon/human/human_victim = victim
+	if(!istype(human_victim) || human_victim.stat == DEAD || human_victim == source)
 		return
 
-	if(human_target.is_noble() && (user == owner.current))
+	if(human_victim.is_noble() && (source == owner.current))
 		mocked_targets++
 		if(mocked_targets >= required_count)
 			to_chat(owner.current, span_greentext("You have mocked enough nobles and completed the objective!"))

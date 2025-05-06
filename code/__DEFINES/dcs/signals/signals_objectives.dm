@@ -1,4 +1,4 @@
-#define COMSIG_VICIOUSLY_MOCKED "viciously_mocked_act" // (victim, user)
+#define COMSIG_VICIOUSLY_MOCKED "viciously_mocked_act" // (victim)
 #define COMSIG_BAPTISM_RECEIVED "baptism_received" // (baptizer)
 #define COMSIG_LUX_EXTRACTED "lux_extracted" // (victim)
 #define COMSIG_GLOBAL_MARRIAGE "global_marriage" // (bride, groom)
@@ -9,5 +9,5 @@
 #define COMSIG_ITEM_CRAFTED "item_crafted" // (user, craft_path)
 #define COMSIG_ORGAN_CONSUMED "organ_consumed" // (mob/living/consumer, organ_type)
 #define COMSIG_TORTURE_PERFORMED "torture_performed" // (mob/living/torturer, mob/living/victim)
-#define COMSIG_GRAVE_CONSECRATED "grave_consecrated" // (mob/living/consecrator, obj/structure/closet/dirthole)
+#define COMSIG_GRAVE_CONSECRATED "grave_consecrated" // (mob/living/consecrator, obj/container)
 #define COMSIG_ANIMAL_TAMED "animal_tamed" // (mob/living/tamer, mob/living/simple_animal)
