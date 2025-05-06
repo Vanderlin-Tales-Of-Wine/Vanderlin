@@ -3,7 +3,7 @@
 	icon_state = "access_helper"
 	var/access_string = null
 
-/obj/effect/mapping_helpers/door/access/payload(obj/structure/mineral_door/door)
+/obj/effect/mapping_helpers/door/access/payload(obj/structure/door/door)
 	if(door.lockid != null)
 		log_mapping("[src] at [AREACOORD(src)] tried to set lockid, but lockid was already set!")
 		return

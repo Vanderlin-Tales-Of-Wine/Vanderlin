@@ -40,6 +40,8 @@
 		honorary = "Dame"
 	spawned.real_name = "[honorary] [prev_real_name]"
 	spawned.name = "[honorary] [prev_name]"
+	var/static/list/selectable = list("Flail" = /obj/item/weapon/flail/sflail, "Halberd" = /obj/item/weapon/polearm/halberd)
+	spawned.select_equippable(player_client, selectable, message = "Take up arms!", title = "KNIGHT")
 
 /datum/outfit/job/royalguard
 	job_bitflag = BITFLAG_GARRISON
@@ -57,7 +59,6 @@
 	beltr = /obj/item/weapon/sword/arming
 	backr = /obj/item/storage/backpack/satchel
 	backl = /obj/item/weapon/shield/tower/metal
-	r_hand = /obj/item/weapon/polearm/halberd
 	gloves = /obj/item/clothing/gloves/chain
 	head = /obj/item/clothing/head/helmet/visored/knight
 
@@ -67,7 +68,6 @@
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/shields, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
@@ -77,6 +77,8 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/whipsflails, 4, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
 		H.change_stat(STATKEY_STR, 2)
 		H.change_stat(STATKEY_PER, 2)
 		H.change_stat(STATKEY_END, 2)

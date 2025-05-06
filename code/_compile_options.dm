@@ -3,7 +3,6 @@
 
 //#define DATUMVAR_DEBUGGING_MODE	//Enables the ability to cache datum vars and retrieve later for debugging which vars changed.
 
-#define MATURESERVER
 //#define TESTSERVER
 #define ALLOWPLAY
 
@@ -46,18 +45,12 @@
 // We do not ship byond-tracy. Build it yourself here: https://github.com/mafemergency/byond-tracy/
 // #define USE_BYOND_TRACY
 
-#if defined(CIBUILDING) && !defined(OPENDREAM)
-#define UNIT_TESTS
+// 0 to allow using external resources or on-demand behaviour;
+// 1 to use the default behaviour;
+// 2 for preloading absolutely everything;
+#ifndef PRELOAD_RSC
+#define PRELOAD_RSC 0
 #endif
-
-#ifdef UNIT_TESTS
-#define DEPLOY_TEST
-#endif
-
-#ifndef PRELOAD_RSC					//set to:
-#define PRELOAD_RSC		0			//	0 to allow using external resources or on-demand behaviour;
-#endif								//	1 to use the default behaviour;
-									//	2 for preloading absolutely everything;
 
 //#define LOWMEMORYMODE //uncomment this to load centcom and roguetest and thats it.
 
@@ -65,6 +58,18 @@
 
 #ifdef LOWMEMORYMODE
 #define FORCE_MAP "_maps/roguetest.json"
+#endif
+
+#ifdef TESTING
+#warn compiling in TESTING mode. testing() debug messages will be visible.
+#endif
+
+#if defined(CIBUILDING) && !defined(OPENDREAM)
+#define UNIT_TESTS
+#endif
+
+#ifdef CITESTING
+#define TESTING
 #endif
 
 //Update this whenever you need to take advantage of more recent byond features
@@ -85,23 +90,6 @@
 #endif
 #endif
 
-//Additional code for the above flags.
-#ifdef TESTING
-#warn compiling in TESTING mode. testing() debug messages will be visible.
-#endif
-
-#ifdef CITESTING // avoids the above warning
-#define TESTING
-#endif
-
 #ifdef GC_FAILURE_HARD_LOOKUP
 #define FIND_REF_NO_CHECK_TICK
-#endif
-
-#ifdef TRAVISBUILDING
-#define UNIT_TESTS
-#endif
-
-#ifdef TRAVISTESTING
-#define TESTING
 #endif

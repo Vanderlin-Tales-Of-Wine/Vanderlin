@@ -409,7 +409,7 @@ Turf and target are separate in case you want to teleport some distance from a t
 	return 0
 
 /proc/type2area(type)
-	for(var/area/A in world)
+	for(var/area/A as anything in GLOB.areas)
 		if(A.type == type)
 			return A
 

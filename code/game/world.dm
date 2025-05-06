@@ -392,24 +392,13 @@ GLOBAL_PROTECT(tracy_init_reason)
 /world/proc/update_status()
 	var/s = ""
 	s += "<center><a href=\"https://discord.gg/zNAGFDcQ\">"
-#ifdef MATURESERVER
 	s += "<big><b>Vanderlin - Now 24/7 (Hosted by Monkestation)</b></big></a><br>"
 	s += "<b>Dark Medieval Fantasy Roleplay<b><br>"
-
-#else
-	s += "<big><b>ROGUEWORLD</b></big></a><br>"
-	s += "<b>Fantasy Computer Survival Game</b></center><br>"
-#endif
-//	s += "<img src=\"https://i.imgur.com/shj547T.jpg\"></a></center>"
-
-//	s += "! <b>UPDATE 4.4</b> 4/22/2022<br><br>"
-#ifdef MATURESERVER
 	s += "\["
 	if(SSticker.current_state <= GAME_STATE_PREGAME)
 		s += "<b>GAME STATUS:</b> IN LOBBY"
 	else
 		s += "<b>GAME STATUS:</b> PLAYING"
-#endif
 	status = s
 	return s
 

@@ -234,10 +234,6 @@
 /mob/living/carbon/human/species/skeleton/npc/peasant,
 /turf/open/floor/carpet/red,
 /area/rogue/under/cave)
-"cs" = (
-/obj/structure/mineral_door/wood/violet,
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/under/cave)
 "ct" = (
 /obj/structure/chair/stool,
 /turf/open/floor/naturalstone,
@@ -299,15 +295,6 @@
 	pixel_y = 1
 	},
 /turf/open/floor/churchmarble,
-/area/rogue/under/cave)
-"cZ" = (
-/mob/living/simple_animal/hostile/retaliate/troll/axe,
-/turf/open/floor/cobble,
-/area/rogue/under/cave)
-"dc" = (
-/obj/structure/mineral_door/wood/violet,
-/obj/machinery/light/fueled/wallfire/candle,
-/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/cave)
 "df" = (
 /obj/item/natural/glass/shard,
@@ -457,6 +444,13 @@
 /obj/item/statue/gold,
 /turf/open/floor/tile,
 /area/rogue/under/cave)
+"eF" = (
+/obj/structure/door/stone{
+	lockid = "CastleNoble"
+	},
+/obj/effect/mapping_helpers/door/locker,
+/turf/open/floor/tile/masonic/inverted,
+/area/rogue/under/cave)
 "eH" = (
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /turf/open/floor/churchmarble,
@@ -590,6 +584,13 @@
 /obj/structure/table/wood/plain_alt,
 /turf/open/floor/tile/kitchen,
 /area/rogue/under/cave)
+"fM" = (
+/obj/structure/door/violet{
+	lockid = "CastleGate1"
+	},
+/obj/effect/mapping_helpers/door/locker,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/cave)
 "fO" = (
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
 	base_strength = 15;
@@ -695,6 +696,14 @@
 /obj/item/chair/chair_nobles,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/cave)
+"hw" = (
+/obj/structure/door/iron/bars{
+	lockid = "CastleArmor1"
+	},
+/obj/effect/mapping_helpers/door/locker,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/cobble,
+/area/rogue/under/cave)
 "hx" = (
 /obj/item/natural/rock,
 /obj/item/natural/wood/plank,
@@ -707,6 +716,10 @@
 "hD" = (
 /obj/structure/bars,
 /turf/open/floor/cobblerock,
+/area/rogue/under/cave)
+"hE" = (
+/mob/living/simple_animal/hostile/retaliate/troll/axe,
+/turf/open/floor/cobble,
 /area/rogue/under/cave)
 "hF" = (
 /obj/structure/winch{
@@ -727,6 +740,10 @@
 /obj/structure/trap/shock,
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
+"ib" = (
+/obj/structure/door/violet,
+/turf/open/floor/tile/bath,
+/area/rogue/under/cave)
 "id" = (
 /obj/structure/rack/shelf/big,
 /turf/open/floor/cobble,
@@ -746,13 +763,6 @@
 "im" = (
 /obj/item/bin/water/gross,
 /turf/open/floor/cobble,
-/area/rogue/under/cave)
-"in" = (
-/obj/structure/mineral_door/wood/donjon/stone{
-	locked = 1;
-	lockid = "CastleNoble"
-	},
-/turf/open/floor/tile/masonic/inverted,
 /area/rogue/under/cave)
 "ip" = (
 /obj/structure/fluff/nest,
@@ -819,6 +829,11 @@
 	dir = 8
 	},
 /turf/open/floor/tile/masonic/inverted,
+/area/rogue/under/cave)
+"iQ" = (
+/obj/effect/decal/cleanable/blood,
+/mob/living/simple_animal/hostile/retaliate/troll/axe,
+/turf/open/floor/cobblerock,
 /area/rogue/under/cave)
 "iU" = (
 /obj/structure/fluff/railing/border{
@@ -958,10 +973,6 @@
 /obj/structure/trap/chill,
 /turf/open/floor/blocks,
 /area/rogue/under/cave)
-"kV" = (
-/obj/structure/mineral_door/wood/donjon/stone,
-/turf/open/floor/herringbone,
-/area/rogue/under/cave)
 "kW" = (
 /mob/living/carbon/human/species/goblin/npc/ambush/cave,
 /turf/open/floor/twig,
@@ -1058,9 +1069,13 @@
 	},
 /turf/open/floor/blocks,
 /area/rogue/under/cave)
-"md" = (
-/obj/structure/mineral_door/wood/donjon/stone,
-/turf/open/floor/blocks,
+"mg" = (
+/obj/structure/door/violet{
+	lockid = "CastleMage1"
+	},
+/obj/effect/mapping_helpers/door/locker,
+/obj/effect/decal/cleanable/blood/tracks,
+/turf/open/floor/tile/masonic/single,
 /area/rogue/under/cave)
 "mp" = (
 /obj/structure/fluff/railing/border,
@@ -1084,13 +1099,6 @@
 "mB" = (
 /obj/item/natural/glass/shard,
 /turf/open/floor/wood/nosmooth,
-/area/rogue/under/cave)
-"mD" = (
-/obj/structure/mineral_door/wood/violet{
-	locked = 1;
-	lockid = "CastleGate1"
-	},
-/turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cave)
 "mF" = (
 /mob/living/carbon/human/species/skeleton/npc/ambush,
@@ -1164,11 +1172,8 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
-"nH" = (
-/obj/structure/mineral_door/wood/violet{
-	locked = 1;
-	lockid = "CastleArti"
-	},
+"nz" = (
+/obj/structure/door/violet,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/cave)
 "nQ" = (
@@ -1226,6 +1231,10 @@
 /obj/item/ammo_casing/caseless/arrow,
 /turf/open/transparent/openspace,
 /area/rogue/under/cave)
+"oy" = (
+/obj/structure/door/stone,
+/turf/open/floor/ruinedwood/chevron,
+/area/rogue/under/cave)
 "oz" = (
 /turf/open/floor/dirt,
 /area/rogue/under/cave)
@@ -1258,14 +1267,6 @@
 "oP" = (
 /obj/structure/fermentation_keg,
 /turf/open/floor/hexstone,
-/area/rogue/under/cave)
-"oQ" = (
-/obj/structure/mineral_door/wood/violet{
-	locked = 1;
-	lockid = "CastleMage1"
-	},
-/obj/effect/decal/cleanable/blood/tracks,
-/turf/open/floor/tile/masonic/single,
 /area/rogue/under/cave)
 "oR" = (
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
@@ -1328,10 +1329,6 @@
 "pj" = (
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /turf/closed/wall/mineral/decostone,
-/area/rogue/under/cave)
-"pv" = (
-/obj/structure/mineral_door/wood/donjon/stone,
-/turf/open/floor/wood/nosmooth,
 /area/rogue/under/cave)
 "pB" = (
 /turf/closed/wall/mineral/tent,
@@ -1511,6 +1508,10 @@
 /obj/structure/spider/stickyweb,
 /turf/open/floor/cobble,
 /area/rogue/under/cave)
+"ri" = (
+/obj/structure/door/stone,
+/turf/open/floor/blocks,
+/area/rogue/under/cave)
 "rm" = (
 /mob/living/carbon/human/species/orc/warrior,
 /turf/open/floor/cobblerock,
@@ -1560,13 +1561,6 @@
 /obj/structure/bars,
 /turf/open/floor/cobble,
 /area/rogue/under/cave)
-"rZ" = (
-/obj/structure/mineral_door/wood/donjon/stone{
-	lockid = "CastleNoble";
-	locked = 1
-	},
-/turf/open/floor/tile/masonic/inverted,
-/area/rogue/under/cave)
 "sa" = (
 /obj/item/bodypart/r_arm/prosthetic/gold,
 /turf/open/floor/metal,
@@ -1602,6 +1596,10 @@
 /mob/living/carbon/human/species/orc/ambush,
 /turf/open/floor/carpet/red,
 /area/rogue/under/cave)
+"sw" = (
+/obj/structure/door/violet,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/cave)
 "sz" = (
 /obj/machinery/light/fueled/wallfire/candle,
 /turf/closed/wall/mineral/decostone,
@@ -1610,6 +1608,10 @@
 /obj/structure/rack/shelf/biggest,
 /obj/effect/spawner/map_spawner/loot/medium,
 /turf/open/floor/cobble,
+/area/rogue/under/cave)
+"sH" = (
+/obj/structure/door/stone,
+/turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "sK" = (
 /obj/item/natural/stone,
@@ -1741,6 +1743,11 @@
 /obj/item/ingot/gold,
 /turf/open/floor/blocks,
 /area/rogue/under/cave)
+"ua" = (
+/obj/structure/door/violet,
+/obj/machinery/light/fueled/wallfire/candle,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/cave)
 "uc" = (
 /obj/structure/table/wood/plain_alt,
 /obj/item/reagent_containers/food/snacks/bread/raisin/poison,
@@ -1780,6 +1787,13 @@
 	redstone_id = "CastleSecret6"
 	},
 /turf/closed/wall/mineral/decostone,
+/area/rogue/under/cave)
+"up" = (
+/obj/structure/door/stone{
+	lockid = "CastlePrison1"
+	},
+/obj/effect/mapping_helpers/door/locker,
+/turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "uq" = (
 /obj/structure/chair/stool,
@@ -1840,6 +1854,10 @@
 "uX" = (
 /obj/machinery/light/fueled/firebowl/church,
 /turf/open/floor/naturalstone,
+/area/rogue/under/cave)
+"uZ" = (
+/obj/structure/door/swing,
+/turf/open/floor/wood/nosmooth/saiga,
 /area/rogue/under/cave)
 "vb" = (
 /mob/living/carbon/human/species/skeleton/npc/warrior,
@@ -2182,6 +2200,13 @@
 /mob/living/carbon/human/species/goblin/npc/ambush/cave,
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave)
+"yS" = (
+/obj/structure/door/stone{
+	lockid = "CastleGuard1"
+	},
+/obj/effect/mapping_helpers/door/locker,
+/turf/open/floor/herringbone,
+/area/rogue/under/cave)
 "yT" = (
 /obj/structure/bars/pipe{
 	dir = 8;
@@ -2309,11 +2334,23 @@
 	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/cave)
+"Ar" = (
+/obj/structure/door/stone{
+	lockid = "CastleNoble2"
+	},
+/obj/effect/mapping_helpers/door/locker,
+/obj/structure/trap/saw_blades,
+/turf/open/floor/blocks,
+/area/rogue/under/cave)
 "At" = (
 /obj/structure/fluff/railing/border{
 	dir = 10
 	},
 /turf/open/floor/cobblerock,
+/area/rogue/under/cave)
+"Av" = (
+/obj/structure/door/stone,
+/turf/open/floor/herringbone,
 /area/rogue/under/cave)
 "Ax" = (
 /obj/effect/decal/cleanable/blood/gibs/up,
@@ -2326,6 +2363,10 @@
 "Az" = (
 /obj/structure/fluff/railing/border,
 /turf/open/floor/cobblerock,
+/area/rogue/under/cave)
+"AC" = (
+/obj/structure/door/stone,
+/turf/open/floor/cobble,
 /area/rogue/under/cave)
 "AD" = (
 /obj/machinery/light/fueled/wallfire/candle,
@@ -2415,13 +2456,6 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
-"Bw" = (
-/obj/structure/mineral_door/wood/donjon/stone{
-	locked = 1;
-	lockid = "CastlePrison1"
-	},
-/turf/open/floor/hexstone,
-/area/rogue/under/cave)
 "By" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
@@ -2445,14 +2479,6 @@
 /obj/item/natural/rock,
 /obj/item/natural/stone,
 /turf/open/floor/cobblerock,
-/area/rogue/under/cave)
-"BG" = (
-/obj/structure/mineral_door/wood/donjon/stone{
-	locked = 1;
-	lockid = "CastleNoble2"
-	},
-/obj/structure/trap/saw_blades,
-/turf/open/floor/blocks,
 /area/rogue/under/cave)
 "BK" = (
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
@@ -2713,10 +2739,6 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/tile/masonic/single,
 /area/rogue/under/cave)
-"Ec" = (
-/obj/structure/mineral_door/swing_door,
-/turf/open/floor/wood/nosmooth/saiga,
-/area/rogue/under/cave)
 "Ed" = (
 /obj/machinery/light/fueled/firebowl,
 /turf/open/floor/cobblerock,
@@ -2795,10 +2817,6 @@
 	dir = 8
 	},
 /turf/open/floor/carpet/red,
-/area/rogue/under/cave)
-"EV" = (
-/obj/structure/mineral_door/wood/violet,
-/turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cave)
 "EW" = (
 /obj/effect/decal/cleanable/sigil/E,
@@ -3079,10 +3097,6 @@
 /obj/structure/rack/shelf/biggest,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cave)
-"Ib" = (
-/obj/structure/mineral_door/wood/violet,
-/turf/open/floor/tile/bath,
-/area/rogue/under/cave)
 "Ic" = (
 /obj/structure/table/wood/plain,
 /obj/effect/spawner/map_spawner/loot,
@@ -3104,10 +3118,6 @@
 /obj/structure/table/vtable/v2,
 /obj/effect/spawner/map_spawner/loot/common,
 /turf/open/floor/carpet/red,
-/area/rogue/under/cave)
-"IB" = (
-/obj/structure/mineral_door/wood/donjon/stone,
-/turf/open/floor/cobble,
 /area/rogue/under/cave)
 "ID" = (
 /obj/structure/stairs{
@@ -3348,13 +3358,6 @@
 "Lp" = (
 /turf/open/floor/carpet/lord/left,
 /area/rogue/under/cave)
-"Ls" = (
-/obj/structure/mineral_door/wood/donjon/stone{
-	locked = 1;
-	lockid = "CastleGuard1"
-	},
-/turf/open/floor/herringbone,
-/area/rogue/under/cave)
 "Lt" = (
 /obj/effect/decal/cobbleedge{
 	icon_state = "borderfall";
@@ -3386,6 +3389,10 @@
 "LB" = (
 /obj/structure/bed,
 /turf/open/floor/herringbone,
+/area/rogue/under/cave)
+"LG" = (
+/obj/structure/door/iron/bars,
+/turf/open/floor/cobble,
 /area/rogue/under/cave)
 "LI" = (
 /turf/open/floor/tile/bath,
@@ -3575,11 +3582,6 @@
 /obj/structure/roguerock,
 /turf/open/floor/cobblerock,
 /area/rogue/under/cave)
-"NL" = (
-/obj/effect/decal/cleanable/blood,
-/mob/living/simple_animal/hostile/retaliate/troll/axe,
-/turf/open/floor/cobblerock,
-/area/rogue/under/cave)
 "NR" = (
 /obj/structure/fluff/railing/border{
 	dir = 10
@@ -3692,6 +3694,10 @@
 	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/cave)
+"Pi" = (
+/obj/structure/door/stone,
+/turf/open/floor/wood/nosmooth,
+/area/rogue/under/cave)
 "Pj" = (
 /obj/structure/bars/pipe{
 	dir = 8;
@@ -3757,10 +3763,6 @@
 /obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/tile/masonic/inverted,
 /area/rogue/under/cave)
-"PL" = (
-/mob/living/simple_animal/hostile/retaliate/troll/axe,
-/turf/open/floor/twig,
-/area/rogue/under/cave)
 "PP" = (
 /obj/structure/table/stone_small,
 /obj/structure/fluff/millstone,
@@ -3780,6 +3782,10 @@
 "PX" = (
 /obj/item/ammo_casing/caseless/arrow,
 /turf/open/floor/cobble,
+/area/rogue/under/cave)
+"PY" = (
+/obj/structure/door/stone,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/cave)
 "Qb" = (
 /obj/item/paper{
@@ -4024,6 +4030,13 @@
 "Sr" = (
 /obj/item/natural/glass/shard,
 /turf/open/transparent/openspace,
+/area/rogue/under/cave)
+"Sy" = (
+/obj/structure/door/violet{
+	lockid = "CastleArti"
+	},
+/obj/effect/mapping_helpers/door/locker,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/cave)
 "Sz" = (
 /obj/structure/stairs/stone,
@@ -4330,9 +4343,9 @@
 /obj/structure/fluff/walldeco/chains,
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
-"VG" = (
-/obj/structure/mineral_door/wood/donjon/stone,
-/turf/open/floor/ruinedwood/chevron,
+"VC" = (
+/mob/living/simple_animal/hostile/retaliate/troll/axe,
+/turf/open/floor/twig,
 /area/rogue/under/cave)
 "VH" = (
 /obj/structure/table/wood/plain_alt,
@@ -4403,10 +4416,6 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
-"Wi" = (
-/obj/structure/mineral_door/bars,
-/turf/open/floor/cobble,
-/area/rogue/under/cave)
 "Wl" = (
 /obj/structure/stairs/stone{
 	dir = 4
@@ -4448,14 +4457,6 @@
 "WJ" = (
 /mob/living/carbon/human/species/goblin/npc/ambush/cave,
 /turf/open/floor/hexstone,
-/area/rogue/under/cave)
-"WL" = (
-/obj/structure/mineral_door/bars{
-	locked = 1;
-	lockid = "CastleArmor1"
-	},
-/obj/structure/spider/stickyweb,
-/turf/open/floor/cobble,
 /area/rogue/under/cave)
 "WN" = (
 /obj/structure/fluff/railing/border,
@@ -4512,10 +4513,6 @@
 /obj/structure/rack/shelf/biggest,
 /obj/item/clothing/armor/plate/orc,
 /turf/open/floor/twig,
-/area/rogue/under/cave)
-"Yd" = (
-/obj/structure/mineral_door/wood/donjon/stone,
-/turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "Ye" = (
 /obj/structure/closet/crate/crafted_closet/inn,
@@ -4629,10 +4626,6 @@
 /area/rogue/under/cave)
 "YY" = (
 /turf/open/floor/ruinedwood/chevron,
-/area/rogue/under/cave)
-"Zd" = (
-/obj/structure/mineral_door/wood/donjon/stone,
-/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/cave)
 "Zf" = (
 /obj/structure/stairs/stone{
@@ -4892,7 +4885,7 @@ Xp
 Xp
 zP
 dE
-Yd
+sH
 lE
 lu
 lu
@@ -4964,7 +4957,7 @@ zP
 Xp
 zP
 dE
-Yd
+sH
 lE
 lE
 lE
@@ -5041,7 +5034,7 @@ Ig
 PQ
 wQ
 lE
-IB
+AC
 Ng
 Ng
 Ng
@@ -5054,7 +5047,7 @@ Ng
 Ng
 Ng
 Ng
-kV
+Av
 mZ
 ep
 gM
@@ -5113,7 +5106,7 @@ bB
 lE
 lE
 lE
-IB
+AC
 Ng
 Ng
 Ng
@@ -5126,14 +5119,14 @@ Ng
 Ng
 Ng
 Ng
-kV
+Av
 ep
 Qk
 gM
 mZ
 Rt
 mZ
-kV
+Av
 Ng
 Ng
 rg
@@ -5210,7 +5203,7 @@ YG
 rg
 rg
 Ng
-IB
+AC
 sP
 Th
 Xp
@@ -5278,7 +5271,7 @@ ZO
 Wx
 SO
 zP
-WL
+hw
 yX
 yX
 rQ
@@ -5307,7 +5300,7 @@ Hh
 kl
 pB
 ip
-PL
+VC
 ip
 pB
 kl
@@ -5539,8 +5532,8 @@ Xp
 JC
 JC
 xX
-IB
-IB
+AC
+AC
 zP
 zP
 zP
@@ -5971,8 +5964,8 @@ ns
 zP
 zP
 RQ
-IB
-IB
+AC
+AC
 Bf
 zP
 zP
@@ -6061,10 +6054,10 @@ xP
 zP
 zP
 zP
-Zd
+PY
 zP
 zP
-Zd
+PY
 zP
 Gc
 Gc
@@ -6218,7 +6211,7 @@ FE
 Qr
 hk
 Ng
-IB
+AC
 sP
 Th
 xm
@@ -6576,7 +6569,7 @@ Hh
 Hh
 CA
 bq
-NL
+iQ
 PX
 rm
 Hh
@@ -6720,7 +6713,7 @@ Ng
 Ng
 Ng
 JQ
-cZ
+hE
 PB
 rm
 br
@@ -7082,7 +7075,7 @@ wE
 Ef
 Ng
 Ng
-kV
+Av
 Nt
 xm
 Th
@@ -7266,7 +7259,7 @@ ns
 ns
 zP
 zP
-Ec
+uZ
 wW
 zP
 yq
@@ -7430,7 +7423,7 @@ vJ
 Ix
 Rl
 aa
-Ls
+yS
 ep
 ep
 LB
@@ -7792,10 +7785,10 @@ MY
 hD
 zP
 sz
-kV
+Av
 zP
 sz
-kV
+Av
 zP
 zP
 YH
@@ -7849,7 +7842,7 @@ Jm
 lE
 lE
 Wg
-IB
+AC
 Pu
 Qi
 Ng
@@ -7862,19 +7855,19 @@ Ng
 Ef
 Qi
 sN
-IB
+AC
 Ng
 Ng
 Ng
 Ng
 Ef
 Ng
-Wi
+LG
 Pu
 Ng
 Ef
 Ng
-kV
+Av
 wA
 Th
 Th
@@ -7921,7 +7914,7 @@ mS
 lE
 lE
 lE
-IB
+AC
 Ef
 Ng
 Ng
@@ -7934,14 +7927,14 @@ Qi
 Jk
 Qi
 Ng
-IB
+AC
 Ng
 Ng
 Ng
 Ng
 Ng
 Pu
-Wi
+LG
 Ng
 Ef
 Ng
@@ -8008,7 +8001,7 @@ MY
 hD
 zP
 sz
-Bw
+up
 zP
 uf
 km
@@ -8570,7 +8563,7 @@ Rl
 Rl
 Rl
 Tc
-BG
+Ar
 si
 si
 bp
@@ -8655,7 +8648,7 @@ AJ
 EW
 VP
 Gu
-oQ
+mg
 lq
 Zo
 Zo
@@ -8790,12 +8783,12 @@ xm
 zP
 Ct
 zP
-dc
+ua
 zP
 zP
 zP
 zP
-cs
+nz
 zP
 zP
 zP
@@ -9097,8 +9090,8 @@ QF
 yq
 Xp
 Th
-EV
-EV
+sw
+sw
 Th
 QF
 QF
@@ -9140,8 +9133,8 @@ ns
 zP
 zP
 zP
-md
-md
+ri
+ri
 zP
 zP
 Ct
@@ -9238,7 +9231,7 @@ Tc
 Tc
 Tc
 Tc
-cs
+nz
 Ly
 ao
 tR
@@ -9310,7 +9303,7 @@ Tc
 eq
 Tc
 Tc
-cs
+nz
 ao
 ao
 ao
@@ -9529,8 +9522,8 @@ QF
 Th
 Th
 Th
-mD
-mD
+fM
+fM
 Th
 QF
 QF
@@ -9578,8 +9571,8 @@ HQ
 zP
 zP
 zP
-dc
-cs
+ua
+nz
 zP
 sz
 zP
@@ -9653,7 +9646,7 @@ aa
 aa
 tr
 tr
-Ib
+ib
 jW
 SI
 SI
@@ -9719,7 +9712,7 @@ Cu
 QF
 QF
 eO
-rZ
+eF
 aa
 aa
 jh
@@ -9791,7 +9784,7 @@ nn
 Wl
 Wl
 eO
-in
+eF
 aa
 aa
 aa
@@ -9869,7 +9862,7 @@ aa
 QT
 gs
 jx
-Ib
+ib
 LI
 SI
 SI
@@ -9932,8 +9925,8 @@ ns
 zP
 zP
 zP
-pv
-pv
+Pi
+Pi
 zP
 zP
 zP
@@ -10507,8 +10500,8 @@ ns
 ns
 zP
 zP
-pv
-pv
+Pi
+Pi
 zP
 zP
 Ru
@@ -10800,7 +10793,7 @@ Ru
 Ru
 Kg
 Kg
-VG
+oy
 YY
 YY
 YY
@@ -10878,8 +10871,8 @@ Ct
 Ct
 zP
 zP
-dc
-cs
+ua
+nz
 zP
 zP
 QE
@@ -10887,7 +10880,7 @@ SI
 bz
 LI
 LI
-Ib
+ib
 Tc
 Rl
 Rl
@@ -11103,7 +11096,7 @@ SI
 rf
 jW
 LI
-Ib
+ib
 Tc
 Rl
 YI
@@ -11249,9 +11242,9 @@ QF
 QF
 zP
 zP
-nH
+Sy
 zP
-nH
+Sy
 zP
 zP
 Xp
@@ -11450,7 +11443,7 @@ aa
 aa
 zr
 aa
-md
+ri
 Iu
 pX
 YN
@@ -11463,7 +11456,7 @@ Iu
 QF
 QF
 Iu
-md
+ri
 Tc
 Tc
 Tc
@@ -11522,7 +11515,7 @@ ra
 uu
 dz
 Ud
-md
+ri
 YN
 tg
 Iu
@@ -11535,7 +11528,7 @@ Iu
 Iu
 YN
 Iu
-md
+ri
 Tc
 Tc
 Tc

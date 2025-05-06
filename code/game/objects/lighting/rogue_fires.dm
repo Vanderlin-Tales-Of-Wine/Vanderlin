@@ -62,9 +62,21 @@
 	base_state = "stumpfireb"
 	bulb_colour = "#6cfdff"
 
+/obj/machinery/light/fueled/firebowl/blackfire
+	desc = "A fire, black as death."
+	icon_state = "blackfire1"
+	base_state = "blackfire"
+	bulb_colour = "#8468ff"
+
 /obj/machinery/light/fueled/firebowl/church
 	icon_state = "churchfire1"
 	base_state = "churchfire"
+
+/obj/machinery/light/fueled/firebowl/church/unholyfire
+	desc = "This fire burns yet it is cold..."
+	icon_state = "unholyfire1"
+	base_state = "unholyfire"
+	bulb_colour = "#8468ff"
 
 /obj/machinery/light/fueled/firebowl/standing
 	name = "standing fire"
@@ -170,6 +182,25 @@
 	pixel_y = 0
 	pixel_x = 32
 /obj/machinery/light/fueled/wallfire/candle/blue/l
+	pixel_y = 0
+	pixel_x = -32
+
+/obj/machinery/light/fueled/wallfire/candle/skull
+	bulb_colour = "#8d73ff"
+	icon_state = "skullwallcandle1"
+	base_state = "skullwallcandle"
+
+/obj/machinery/light/fueled/wallfire/candle/skull/extinguish()
+	return FALSE
+
+/obj/machinery/light/fueled/wallfire/candle/skull/burn_out()
+	return FALSE
+
+/obj/machinery/light/fueled/wallfire/candle/skull/r
+	pixel_y = 0
+	pixel_x = 32
+
+/obj/machinery/light/fueled/wallfire/candle/skull/l
 	pixel_y = 0
 	pixel_x = -32
 

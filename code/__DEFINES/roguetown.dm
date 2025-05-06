@@ -23,6 +23,8 @@
 /// Patreon only races.
 #define RACES_PLAYER_PATREON			list("Kobold", "Hollow-Kin")
 
+/// Guard Races - No Orcs
+#define RACES_PLAYER_GUARD						list("Humen", "Rakshari", "Half-Elf", "Elf", "Dwarf", "Tiefling", "Aasimar", "Harpies", "Dark Elf")
 
 
 #define ALL_TEMPLE_PATRONS 		list(/datum/patron/divine/astrata, /datum/patron/divine/noc, /datum/patron/divine/dendor, /datum/patron/divine/abyssor, /datum/patron/divine/necra, /datum/patron/divine/ravox, /datum/patron/divine/xylix, /datum/patron/divine/pestra, /datum/patron/divine/malum, /datum/patron/divine/eora)

@@ -479,7 +479,7 @@
 #define SKIN_COLOR_COPPER "b87333" //Orange
 #define SKIN_COLOR_GOLD "d4af37" //Gold
 #define SKIN_COLOR_RUST "B71F1F" //Dark red
-#define SKIN_COLOR_OBSIDIAN "19132a" //Black
+#define SKIN_COLOR_ONYX "19132a" //Black
 #define SKIN_COLOR_LAPIS "26619C" //Deep blue
 #define SKIN_COLOR_BASALT "474a4c" //Dark grey
 #define SKIN_COLOR_MARBLE "E6E6E6" //White

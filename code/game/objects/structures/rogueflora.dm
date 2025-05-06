@@ -335,10 +335,6 @@
 		user.changeNext_move(CLICK_CD_MELEE)
 		playsound(src.loc, "plantcross", 80, FALSE, -1)
 		if(do_after(L, rand(1,5) DECISECONDS, src))
-#ifndef MATURESERVER
-			if(!looty.len && (world.time > res_replenish))
-				loot_replenish()
-#endif
 			if(prob(50) && looty.len)
 				if(looty.len == 1)
 					res_replenish = world.time + 8 MINUTES
@@ -349,13 +345,8 @@
 					user.visible_message("<span class='notice'>[user] finds [B] in [src].</span>")
 					return
 			user.visible_message("<span class='warning'>[user] searches through [src].</span>")
-#ifdef MATURESERVER
 			if(!looty.len)
 				to_chat(user, "<span class='warning'>Picked clean.</span>")
-#else
-			if(!looty.len)
-				to_chat(user, "<span class='warning'>Picked clean... I should try later.</span>")
-#endif
 
 /obj/structure/flora/grass/bush/CanPass(atom/movable/mover, turf/target)
 	if(mover.throwing)
@@ -472,6 +463,15 @@
 	. = ..()
 	icon_state = "tallbush[pick(1,2)]_tundra"
 
+/obj/structure/flora/grass/bush/wall/tall/bog
+	desc = "A tall bush that has grown into a hedge... but this one seems diseased."
+	name = "bog great bush"
+	icon_state = "tallbush1_bog"
+
+/obj/structure/flora/grass/bush/wall/tall/bog/Initialize()
+	. = ..()
+	icon_state = "tallbush[pick(1,2)]_bog"
+
 // fyrituis bush
 /obj/structure/flora/grass/pyroclasticflowers
 	name = "odd group of flowers"
@@ -509,10 +509,6 @@
 		user.changeNext_move(CLICK_CD_MELEE)
 		playsound(src.loc, "plantcross", 80, FALSE, -1)
 		if(do_after(L, rand(1,5) DECISECONDS, src))
-#ifndef MATURESERVER
-			if(!looty2.len && (world.time > res_replenish2))
-				loot_replenish2()
-#endif
 			if(prob(50) && looty2.len)
 				if(looty2.len == 1)
 					res_replenish2 = world.time + 8 MINUTES
@@ -523,13 +519,8 @@
 					user.visible_message(span_notice("[user] finds [B] in [src]."))
 					return
 			user.visible_message(span_warning("[user] searches through [src]."))
-#ifdef MATURESERVER
 			if(!looty2.len)
 				to_chat(user, span_warning("Picked clean."))
-#else
-			if(!looty2.len)
-				to_chat(user, span_warning("Picked clean... I should try later."))
-#endif
 
 // swarmpweed bush
 /obj/structure/flora/grass/swampweed
@@ -569,10 +560,6 @@
 		user.changeNext_move(CLICK_CD_MELEE)
 		playsound(src.loc, "plantcross", 80, FALSE, -1)
 		if(do_after(L, rand(1,5) DECISECONDS, src))
-#ifndef MATURESERVER
-			if(!looty2.len && (world.time > res_replenish2))
-				loot_replenish2()
-#endif
 			if(prob(50) && looty2.len)
 				if(looty2.len == 1)
 					res_replenish2 = world.time + 8 MINUTES
@@ -583,13 +570,8 @@
 					user.visible_message("<span class='notice'>[user] finds [B] in [src].</span>")
 					return
 			user.visible_message("<span class='warning'>[user] searches through [src].</span>")
-#ifdef MATURESERVER
 			if(!looty2.len)
 				to_chat(user, "<span class='warning'>Picked clean.</span>")
-#else
-			if(!looty2.len)
-				to_chat(user, "<span class='warning'>Picked clean... I should try later.</span>")
-#endif
 
 // swarmweed looting
 /obj/structure/flora/grass/swampweed/attack_hand(mob/user)
@@ -598,10 +580,6 @@
 		user.changeNext_move(CLICK_CD_MELEE)
 		playsound(src.loc, "plantcross", 80, FALSE, -1)
 		if(do_after(L, rand(1,5) DECISECONDS, src))
-#ifndef MATURESERVER
-			if(!looty3.len && (world.time > res_replenish3))
-				loot_replenish3()
-#endif
 			if(prob(50) && looty3.len)
 				if(looty3.len == 1)
 					res_replenish3 = world.time + 8 MINUTES
@@ -612,13 +590,8 @@
 					user.visible_message("<span class='notice'>[user] finds [B] in [src].</span>")
 					return
 			user.visible_message("<span class='warning'>[user] searches through [src].</span>")
-#ifdef MATURESERVER
 			if(!looty3.len)
 				to_chat(user, "<span class='warning'>Picked clean.</span>")
-#else
-			if(!looty3.len)
-				to_chat(user, "<span class='warning'>Picked clean... I should try later.</span>")
-#endif
 
 // varients
 
@@ -843,6 +816,13 @@
 
 /obj/structure/flora/grass/bush_meagre/tundra/update_icon()
 	icon_state = "bush[rand(1,3)]_tundra"
+
+/obj/structure/flora/grass/bush_meagre/yellow
+	name = "bog bush"
+	icon_state = "bush1_bog"
+
+/obj/structure/flora/grass/bush_meagre/yellow/update_icon()
+	icon_state = "bush[rand(1,3)]_bog"
 
 /obj/structure/flora/grass/bush_meagre/Initialize()
 	if(silky)

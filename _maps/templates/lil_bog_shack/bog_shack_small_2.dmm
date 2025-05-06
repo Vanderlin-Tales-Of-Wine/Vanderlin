@@ -55,10 +55,10 @@
 	},
 /area/rogue/indoors/shelter/bog)
 "l" = (
-/obj/structure/mineral_door/wood{
-	locked = 1;
+/obj/structure/door{
 	lockid = "artificer"
 	},
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/ruinedwood{
 	icon_state = "weird1"
 	},
