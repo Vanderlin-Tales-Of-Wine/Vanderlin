@@ -463,6 +463,15 @@
 	. = ..()
 	icon_state = "tallbush[pick(1,2)]_tundra"
 
+/obj/structure/flora/grass/bush/wall/tall/bog
+	desc = "A tall bush that has grown into a hedge... but this one seems diseased."
+	name = "bog great bush"
+	icon_state = "tallbush1_bog"
+
+/obj/structure/flora/grass/bush/wall/tall/bog/Initialize()
+	. = ..()
+	icon_state = "tallbush[pick(1,2)]_bog"
+
 // fyrituis bush
 /obj/structure/flora/grass/pyroclasticflowers
 	name = "odd group of flowers"
@@ -807,6 +816,13 @@
 
 /obj/structure/flora/grass/bush_meagre/tundra/update_icon()
 	icon_state = "bush[rand(1,3)]_tundra"
+
+/obj/structure/flora/grass/bush_meagre/yellow
+	name = "bog bush"
+	icon_state = "bush1_bog"
+
+/obj/structure/flora/grass/bush_meagre/yellow/update_icon()
+	icon_state = "bush[rand(1,3)]_bog"
 
 /obj/structure/flora/grass/bush_meagre/Initialize()
 	if(silky)

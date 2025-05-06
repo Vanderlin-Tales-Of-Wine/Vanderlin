@@ -2770,7 +2770,7 @@
 	pixel_x = 1;
 	pixel_y = 15
 	},
-/obj/item/mortar{
+/obj/item/reagent_containers/glass/mortar{
 	pixel_x = 1;
 	pixel_y = 1
 	},
