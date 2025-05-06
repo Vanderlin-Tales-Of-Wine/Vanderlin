@@ -73,15 +73,16 @@ DEFINE_BITFIELD(smooth, list(
 
 #define S_OBJ(num) ("-" + #num + ",")
 
-#define SMOOTH_GROUP_WALLS S_OBJ(1) //!turf/closed/wall, /structure/mineral_door/secret
+#define SMOOTH_GROUP_WALLS S_OBJ(1) //!turf/closed/wall, /structure/door/secret
 
 #define SMOOTH_GROUP_WINDOW_FULLTILE S_OBJ(2) //!obj/structure/window
 
-#define SMOOTH_GROUP_DOOR S_OBJ(3) //!obj/structure/mineral_door
+#define SMOOTH_GROUP_DOOR S_OBJ(3) //!obj/structure/door
+#define SMOOTH_GROUP_DOOR_SECRET S_OBJ(4) //!obj/structure/door/secret
 
-#define SMOOTH_GROUP_TABLES S_OBJ(4) //!obj/structure/table
-#define SMOOTH_GROUP_WOOD_TABLES S_OBJ(5) //!obj/structure/table/wood
-#define SMOOTH_GROUP_FANCY_WOOD_TABLES S_OBJ(6) //!obj/structure/table/wood/fancy
+#define SMOOTH_GROUP_TABLES S_OBJ(5) //!obj/structure/table
+#define SMOOTH_GROUP_WOOD_TABLES S_OBJ(6) //!obj/structure/table/wood
+#define SMOOTH_GROUP_FANCY_WOOD_TABLES S_OBJ(7) //!obj/structure/table/wood/fancy
 
 /// Performs the work to set smoothing_groups and smoothing_list.
 /// An inlined function used in both turf/Initialize and atom/Initialize.

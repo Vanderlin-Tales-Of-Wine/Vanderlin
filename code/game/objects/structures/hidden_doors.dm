@@ -14,8 +14,8 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	locked = TRUE
 
 	smoothing_flags = NONE
-	smoothing_groups = SMOOTH_GROUP_WALLS + SMOOTH_GROUP_CLOSED
-	smoothing_list = SMOOTH_GROUP_WALLS
+	smoothing_groups = SMOOTH_GROUP_DOOR_SECRET
+	smoothing_list = SMOOTH_GROUP_DOOR_SECRET +  SMOOTH_GROUP_CLOSED_WALL
 
 	can_add_lock = FALSE
 	can_knock = FALSE
@@ -72,7 +72,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 /obj/structure/door/secret/door_rattle()
 	return
 
-/obj/structure/mineral_door/secret/attack_hand(mob/user)
+/obj/structure/door/secret/attack_hand(mob/user)
 	. = ..()
 	if(.)
 		return
