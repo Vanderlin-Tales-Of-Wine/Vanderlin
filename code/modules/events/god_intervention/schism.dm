@@ -24,7 +24,7 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 		return
 
 	priority_announce("[challenger.name] challenges Astrata's leadeship! The outcome of this conflict will be decided in less than 2 daes by a sheer number of their supporters. [challenger.name] promises great rewards to the faithful if victorious, while Astrata swears revenge to any who dare to defy her. Choose your side, or stand aside...", "Schism within the Ten", 'sound/magic/marked.ogg')
-	for(var/mob/living/carbon/human/H in GLOB.player_list)
+	for(var/mob/living/carbon/human/H in GLOB.human_list)
 		setup_mob(H)
 
 	RegisterSignal(SSdcs, COMSIG_GLOB_JOB_AFTER_SPAWN, PROC_REF(handle_latejoin))
@@ -136,7 +136,7 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 				to_chat(supporter, span_userdanger("INCOMPETENT IMBECILES!"))
 				supporter.electrocute_act(5, astrata)
 
-	for(var/mob/living/carbon/human/H in GLOB.player_list)
+	for(var/mob/living/carbon/human/H in GLOB.human_list)
 		if(!H.mind)
 			continue
 		H.mind.RemoveSpell(/obj/effect/proc_holder/spell/self/choose_schism_side)
@@ -236,6 +236,7 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 		if(action)
 			action.UpdateButtonIcon()
 		to_chat(user, span_boldnotice("Your allegiance in the schism is now final."))
+	return TRUE
 
 /datum/round_event_control/schism_within_ten
 	name = "Schism within the Ten"
