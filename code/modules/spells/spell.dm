@@ -186,7 +186,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 	base_action = /datum/action/spell_action/spell
 
 /obj/effect/proc_holder/spell/proc/create_logs(atom/user, list/targets)
-	var/parsed_target_list = list()
+	var/list/parsed_target_list = list()
 	for(var/atom/target as anything in targets)
 		if(ismob(target))
 			var/mob/mob_target = target
