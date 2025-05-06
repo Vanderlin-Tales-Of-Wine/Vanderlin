@@ -742,7 +742,7 @@
 	output += memory
 
 	if(personal_objectives.len)
-		output += "<B>Personal Goals:</B>"
+		output += "<B>Personal Objectives:</B>"
 		var/personal_count = 1
 		for(var/datum/objective/objective in personal_objectives)
 			output += "<br><B>Personal Goal #[personal_count]</B>: [objective.explanation_text][objective.completed ? " (COMPLETED)" : ""]"
