@@ -128,13 +128,13 @@
 		ADD_TRAIT(H, TRAIT_FORAGER, TRAIT_GENERIC)
 
 // Reaver
-/datum/advclass/forestguard/brawler
+/datum/advclass/forestguard/reaver
 	name = "Forest Reaver"
 	tutorial = "In the goblin wars you took an oath to never shy from a hit, you just enjoy the chaos of battle..."
-	outfit = /datum/outfit/job/forestguard/brawler
+	outfit = /datum/outfit/job/forestguard/reaver
 	category_tags = list(CTAG_FORGARRISON)
 
-/datum/outfit/job/forestguard/brawler/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/forestguard/reaver/pre_equip(mob/living/carbon/human/H)
 	..()
 	neck = /obj/item/clothing/neck/chaincoif
 	beltl = /obj/item/weapon/mace/steel/morningstar
