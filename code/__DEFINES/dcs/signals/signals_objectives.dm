@@ -6,3 +6,4 @@
 #define COMSIG_ITEM_STOLEN "item_stolen" // (victim)
 #define COMSIG_SKILL_XP_GAINED "skill_xp_gained" // (skill_type, amount_gained, new_level)
 #define COMSIG_SKILL_RANK_INCREASED "skill_rank_increased" // (skill_type, new_rank)
+#define COMSIG_ITEM_CRAFTED "item_crafted" // (user, craft_path)

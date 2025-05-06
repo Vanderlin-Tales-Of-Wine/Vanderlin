@@ -22,10 +22,10 @@
 
 	var/mob/living/carbon/human/chosen_one = pick(valid_targets)
 
-	var/datum/objective/craft_item/new_objective = new(owner = chosen_one.mind)
+	var/datum/objective/craft_shrine/new_objective = new(owner = chosen_one.mind)
 	chosen_one.mind.add_personal_objective(new_objective)
 
-	to_chat(chosen_one, span_biginfo("Malum demands you hone your craft! Create something worthy to earn Malum's favor!"))
+	to_chat(chosen_one, span_biginfo("Malum demands a physical manifestation of devotion! Craft a sacred psycross to earn Malum's favor!"))
 	SEND_SOUND(chosen_one, 'sound/magic/marked.ogg')
 
 	chosen_one.mind.announce_personal_objectives()

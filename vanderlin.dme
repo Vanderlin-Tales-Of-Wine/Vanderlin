@@ -975,7 +975,6 @@
 #include "code\game\gamemodes\objective.dm"
 #include "code\game\gamemodes\objective_items.dm"
 #include "code\game\gamemodes\objectives_rogue.dm"
-#include "code\game\gamemodes\personal_objectives\_objectives_signals.dm"
 #include "code\game\gamemodes\personal_objectives\baptism.dm"
 #include "code\game\gamemodes\personal_objectives\become_noble.dm"
 #include "code\game\gamemodes\personal_objectives\bury.dm"
