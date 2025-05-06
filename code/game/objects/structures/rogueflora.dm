@@ -35,6 +35,14 @@
 						user.put_in_hands(I)
 			return
 
+/obj/structure/flora/tree/attacked_by(obj/item/I, mob/living/user)
+	var/was_destroyed = obj_destroyed
+	. = ..()
+	if(.)
+		if(!was_destroyed && obj_destroyed)
+			record_featured_stat(FEATURED_STATS_TREE_FELLERS, user)
+			GLOB.vanderlin_round_stats[STATS_TREES_CUT]++
+
 /obj/structure/flora/tree/fire_act(added, maxstacks)
 	if(added > 5)
 		return ..()
@@ -75,9 +83,7 @@
 /obj/structure/flora/tree/obj_destruction(damage_flag)
 	if(stump_type)
 		new stump_type(loc)
-	GLOB.vanderlin_round_stats[STATS_TREES_CUT]++
 	. = ..()
-
 
 /obj/structure/flora/tree/Initialize()
 	. = ..()

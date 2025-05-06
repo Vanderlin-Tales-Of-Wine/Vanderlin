@@ -88,6 +88,7 @@
 		if(!stairs)
 			stairs = new /obj/structure/stairs(partner)
 		stairs.dir = dir
+	record_featured_stat(FEATURED_STATS_CRAFTERS, user)
 	add_abstract_elastic_data(ELASCAT_CRAFTING, "[name]", 1)
 	return
 
@@ -101,6 +102,7 @@
 		if(!stairs)
 			stairs = new /obj/structure/stairs/stone(partner)
 		stairs.dir = dir
+	record_featured_stat(FEATURED_STATS_CRAFTERS, user)
 	add_abstract_elastic_data(ELASCAT_CRAFTING, "[name]", 1)
 	return
 

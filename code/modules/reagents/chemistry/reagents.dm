@@ -93,6 +93,7 @@ GLOBAL_LIST_INIT(name2reagent, build_name2reagent())
 		holder.remove_reagent(type, adjusted_metabolization_rate) //By default it slowly disappears.
 		if(M.client)
 			if(istype(src, /datum/reagent/consumable/ethanol))
+				record_featured_stat(FEATURED_STATS_ALCOHOLICS, M, adjusted_metabolization_rate)
 				GLOB.vanderlin_round_stats[STATS_ALCOHOL_CONSUMED] += adjusted_metabolization_rate
 			if(istype(src, /datum/reagent/water))
 				GLOB.vanderlin_round_stats[STATS_WATER_CONSUMED] += adjusted_metabolization_rate

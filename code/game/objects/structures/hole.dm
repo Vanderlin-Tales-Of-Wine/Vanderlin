@@ -175,6 +175,7 @@
 			locked = FALSE
 			open()
 			for(var/obj/structure/gravemarker/G in loc)
+				record_featured_stat(FEATURED_STATS_CRIMINALS, user)
 				GLOB.vanderlin_round_stats[STATS_GRAVES_ROBBED]++
 				qdel(G)
 				if(isliving(user))

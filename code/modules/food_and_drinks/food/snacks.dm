@@ -330,6 +330,7 @@ All foods are distributed among various categories. Use common sense.
 
 	if(!reagents.total_volume)
 		if(faretype == FARE_LAVISH || faretype == FARE_FINE)
+			record_featured_stat(FEATURED_STATS_GOURMETS, eater)
 			GLOB.vanderlin_round_stats[STATS_LUXURIOUS_FOOD_EATEN]++
 		var/atom/current_loc = loc
 		qdel(src)
