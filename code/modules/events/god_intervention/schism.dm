@@ -63,7 +63,8 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 			challenger_count++
 
 	if(astrata_count >= challenger_count)
-		adjust_storyteller_influence("Astrata", 175)
+		priority_announce("Astrata's light prevails over the challenge of [challenger.name]! The Sun Queen confirms her status as a true heir of Psydon!", "Astrata is VICTORIOUS!", 'sound/magic/ahh2.ogg')
+		adjust_storyteller_influence("Astrata", 150)
 
 		for(var/datum/weakref/supporter_ref in supporters_astrata)
 			var/mob/living/carbon/human/supporter = supporter_ref.resolve()
@@ -79,10 +80,9 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 				to_chat(supporter, span_userdanger("NEVER DEFY ME AGAIN!"))
 				supporter.electrocute_act(5, astrata)
 
-		priority_announce("Astrata's light prevails over the challenge of [challenger.name]! The Sun Queen confirms her status as a true heir of Psydon!", "Astrata is VICTORIOUS!", 'sound/magic/ahh2.ogg')
-
 	else if(challenger_count > astrata_count)
-		adjust_storyteller_influence(challenger.name, 175)
+		priority_announce("[challenger.name]'s challenge succeeds against Astrata's tyranny! The Sun Queen is grudgingly forced to share power with [challenger.name]...", "[challenger.name] RULES!", 'sound/magic/inspire_02.ogg')
+		adjust_storyteller_influence(challenger.name, 150)
 
 		for(var/datum/weakref/supporter_ref in supporters_challenger)
 			var/mob/living/carbon/human/supporter = supporter_ref.resolve()
@@ -92,8 +92,6 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 			else if(supporter)
 				to_chat(supporter, span_notice("[challenger.name]'s challenge succeeds against Astrata's tyranny! Your support is rewarded with a triumph."))
 				supporter.adjust_triumphs(1)
-
-		priority_announce("[challenger.name]'s challenge succeeds against Astrata's tyranny! The Sun Queen is grudgingly forced to share power with [challenger.name]...", "[challenger.name] RULES!", 'sound/magic/inspire_02.ogg')
 
 	for(var/mob/living/carbon/human/H in GLOB.player_list)
 		if(!H.mind)
