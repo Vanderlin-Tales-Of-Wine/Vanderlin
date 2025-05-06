@@ -245,17 +245,3 @@
 
 /mob/living/carbon/spirit/toggle_move_intent()
 	m_intent = MOVE_INTENT_WALK
-
-// This is the ghost's follow verb with an argument
-/mob/living/carbon/spirit/proc/ManualFollow(atom/movable/target)
-	if (!istype(target))
-		return
-
-	var/icon/I = icon(target.icon,target.icon_state,target.dir)
-
-	var/orbitsize = (I.Width()+I.Height())*0.5
-	orbitsize -= (orbitsize/world.icon_size)*(world.icon_size*0.25)
-
-	var/rot_seg = 36 //360/10 bby, smooth enough aproximation of a circle
-
-	orbit(target,orbitsize, FALSE, 20, rot_seg)
