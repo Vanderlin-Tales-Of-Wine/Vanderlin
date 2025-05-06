@@ -168,6 +168,7 @@
 #include "code\__DEFINES\dcs\signals\signals_leash.dm"
 #include "code\__DEFINES\dcs\signals\signals_movable.dm"
 #include "code\__DEFINES\dcs\signals\signals_moveloop.dm"
+#include "code\__DEFINES\dcs\signals\signals_objectives.dm"
 #include "code\__DEFINES\dcs\signals\signals_spatial_grid.dm"
 #include "code\__DEFINES\dcs\signals\signals_ticker.dm"
 #include "code\__DEFINES\dcs\signals\signals_tram.dm"
