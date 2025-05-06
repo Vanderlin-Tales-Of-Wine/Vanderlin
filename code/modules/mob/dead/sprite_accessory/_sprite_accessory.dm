@@ -47,7 +47,7 @@
 	return TRUE
 
 /datum/sprite_accessory/proc/generic_gender_feature_adjust(list/appearance_list, obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner, feature_male_key, feature_female_key)
-	if(!ishuman(owner) || QDELETED(owner))
+	if(QDELETED(owner) || !ishuman(owner))
 		return
 	var/mob/living/carbon/human/humie = owner
 	var/datum/species/species = owner.dna?.species
