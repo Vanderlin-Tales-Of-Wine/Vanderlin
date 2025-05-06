@@ -41,6 +41,7 @@
 			wrists = /obj/item/clothing/wrists/wrappings
 			shoes = /obj/item/clothing/shoes/sandals
 			armor = /obj/item/clothing/shirt/robe/astrata
+			backpack_contents = list(/obj/item/needle , /obj/item/reagent_containers/food/snacks/produce/sunflower = 1)
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
 		if(/datum/patron/divine/necra) //Necra acolytes are now gravetenders
 			head = /obj/item/clothing/head/padded/deathshroud
@@ -54,6 +55,7 @@
 			neck = /obj/item/clothing/neck/psycross/silver/eora
 			shoes = /obj/item/clothing/shoes/sandals
 			armor = /obj/item/clothing/shirt/robe/eora
+			backpack_contents = list(/obj/item/needle , /obj/item/alch/rosa = 1)
 			H.cmode_music = 'sound/music/cmode/church/CombatEora.ogg'
 			ADD_TRAIT(H, TRAIT_BEAUTIFUL, TRAIT_GENERIC)
 			H.virginity = FALSE
