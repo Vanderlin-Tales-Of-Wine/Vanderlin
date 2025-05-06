@@ -124,9 +124,11 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 			selected_priest.verbs |= /mob/living/carbon/human/proc/churchannouncement
 
 			if(was_supporter)
-				to_chat(selected_priest, span_notice("[challenger.name] smiles upon you! Your faithful support during the schism has been rewarded with the position of a Vice Priest!"))
+				to_chat(selected_priest, span_green("[challenger.name] smiles upon you! Your faithful support during the schism has been rewarded with the position of a Vice Priest!"))
 			else
-				to_chat(selected_priest, span_notice("Though you did not openly support [challenger.name] during the schism, you have been chosen to serve as a Vice Priest!"))
+				to_chat(selected_priest, span_green("Though you did not openly support [challenger.name] during the schism, you have been chosen to serve as a Vice Priest!"))
+
+			priority_announce("[challenger.name] has selected [selected_priest.real_name] as a Vice Priest! Power sharing begins!", "Vice Priest rises")
 
 		for(var/datum/weakref/supporter_ref in supporters_astrata)
 			var/mob/living/carbon/human/supporter = supporter_ref.resolve()
