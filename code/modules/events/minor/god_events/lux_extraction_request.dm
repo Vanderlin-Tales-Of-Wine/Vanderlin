@@ -1,5 +1,5 @@
 /datum/round_event_control/pestra_lux
-	name = "Lux Extraction Demand
+	name = "Lux Extraction Demand"
 	track = EVENT_TRACK_MUNDANE
 	typepath = /datum/round_event/pestra_lux
 	weight = 5
