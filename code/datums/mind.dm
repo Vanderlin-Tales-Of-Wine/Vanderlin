@@ -745,7 +745,7 @@
 		output += "<B>Personal Goals:</B>"
 		var/personal_count = 1
 		for(var/datum/objective/objective in personal_objectives)
-			output += "<br><B>Personal Goal #[personal_count]</B>: [objective.explanation_text]"
+			output += "<br><B>Personal Goal #[personal_count]</B>: [objective.explanation_text][objective.completed ? " (COMPLETED)" : ""]"
 			personal_count++
 		output += "<br>"
 
@@ -756,10 +756,10 @@
 
 	if(all_objectives.len)
 		output += "<B>Objectives:</B>"
-		var/antag_count = 1
+		var/antag_obj_count = 1
 		for(var/datum/objective/objective in all_objectives)
-			output += "<br><B>[objective.flavor] #[antag_count]</B>: [objective.explanation_text]"
-			antag_count++
+			output += "<br><B>[objective.flavor] #[antag_obj_count]</B>: [objective.explanation_text][objective.completed ? " (COMPLETED)" : ""]"
+			antag_obj_count++
 
 	if(window)
 		recipient << browse(output,"window=memory")
