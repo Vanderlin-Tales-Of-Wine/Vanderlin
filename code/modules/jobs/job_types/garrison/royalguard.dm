@@ -40,6 +40,8 @@
 		honorary = "Dame"
 	spawned.real_name = "[honorary] [prev_real_name]"
 	spawned.name = "[honorary] [prev_name]"
+	var/static/list/selectable = list("Flail" = /obj/item/weapon/flail/sflail, "Halberd" = /obj/item/weapon/polearm/halberd)
+	spawned.select_equippable(player_client, selectable, message = "Take up arms!", title = "KNIGHT")
 
 /datum/outfit/job/royalguard
 	job_bitflag = BITFLAG_GARRISON
@@ -88,13 +90,3 @@
 	if(H.dna?.species)
 		if(H.dna.species.id == "human")
 			H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
-
-/datum/job/royalguard/after_spawn(mob/living/carbon/spawned, client/player_client)
-	. = ..()
-	spawned.select_equippable(player_client,
-		list("Flail" = /obj/item/weapon/flail/sflail,
-		"Halberd" = /obj/item/weapon/polearm/halberd,
-		message = "Take up arms!",
-		title = "KNIGHT" )
-)
-
