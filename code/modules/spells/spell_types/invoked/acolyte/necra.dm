@@ -115,7 +115,7 @@
 	soul.orbiting?.end_orbit()
 	soul.drop_all_held_items()
 	for(var/obj/effect/landmark/underworld/A in shuffle(GLOB.landmarks_list))
-		soul.loc = A.loc
+		soul.forceMove(A)
 		for(var/I in itemstore)
 			soul.put_in_hands(new I())
 		break
