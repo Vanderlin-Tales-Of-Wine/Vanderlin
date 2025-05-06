@@ -78,7 +78,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave)
 "u" = (
-/obj/structure/mineral_door/wood/green,
+/obj/structure/door/green,
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave)
 "x" = (
@@ -132,7 +132,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/cave)
 "N" = (
-/obj/structure/mineral_door/wood/green,
+/obj/structure/door/green,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/cave)
 "O" = (

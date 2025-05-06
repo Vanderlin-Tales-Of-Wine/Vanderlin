@@ -1,4 +1,7 @@
+/// Standard follower modifier for storytellers, ie. how many points they get for each follower
 #define STANDARD_FOLLOWER_MODIFIER 20
+/// Special follower modifier for Astrata, who is a default patron
+#define ASTRATA_FOLLOWER_MODIFIER STANDARD_FOLLOWER_MODIFIER - 3
 
 ///The storyteller datum. He operates with the SSgamemode data to run events
 /datum/storyteller
@@ -228,18 +231,3 @@
 			weight_total -= event.reoccurence_penalty_multiplier * weight_total * (1 - (event_repetition_multiplier ** occurences))
 		/// Write it
 		event.calculated_weight = weight_total
-
-/datum/storyteller/astrata
-	name = "Astrata"
-	desc = "Astrata will provide a balanced and varied experience. Consider this the default experience."
-	weight = 6
-	always_votable = TRUE
-	color_theme = "#FFD700"
-
-	influence_factors = list(
-		STATS_LAWS_AND_DECREES_MADE = list("points" = 3,"capacity" = 40),
-		STATS_ALIVE_NOBLES = list("points" = 5,"capacity" = 115),
-		STATS_NOBLE_DEATHS = list("points" = -7.5,"capacity" = -105),
-		STATS_ASTRATA_REVIVALS = list("points" = 6, "capacity" = 70),
-		STATS_TAXES_COLLECTED = list("points" = 0.15,"capacity" = 85),
-	)

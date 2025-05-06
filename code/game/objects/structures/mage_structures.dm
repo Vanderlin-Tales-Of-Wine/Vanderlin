@@ -27,7 +27,7 @@
 
 /obj/structure/arcyne_wall/caster
 	var/mob/caster
-s
+
 /obj/structure/arcyne_wall/caster/Initialize(mapload, mob/summoner)
 	. = ..()
 	caster = summoner
@@ -69,34 +69,36 @@ s
 			return TRUE
 	return FALSE
 
-/obj/structure/mineral_door/wood/deadbolt/arcyne
-	desc = "arcyne door"
+/obj/structure/door/arcyne
+	name = "arcyne door"
 	icon_state = "arcyne"
+	blade_dulling = DULLING_BASH
+	resistance_flags = FIRE_PROOF
 	keylock = FALSE
+	can_add_lock = FALSE
 	max_integrity = 2000
 
-/obj/structure/mineral_door/wood/deadbolt/arcyne/caster
+	repairable = FALSE
+	repair_cost_first = null
+	repair_cost_second = null
+	repair_skill = null
+	metalizer_result = null
+
+/obj/structure/door/arcyne/bolt
+	has_bolt = TRUE
+
+/obj/structure/door/arcyne/bolt/caster
 	var/mob/caster
 
-/obj/structure/mineral_door/wood/deadbolt/arcyne/caster/Initialize(mapload, mob/summoner)
+/obj/structure/door/arcyne/bolt/caster/Initialize(mapload, mob/summoner)
 	. = ..()
 	caster = summoner
 
-/obj/structure/mineral_door/wood/deadbolt/arcyne/caster/attack_right(mob/user)
+/obj/structure/door/arcyne/bolt/caster/attack_right(mob/user)
+	if(user != caster)
+		to_chat(user, span_warning("A magical force prevents me from interacting with [src]!"))
+		return
 	..()
-	if(door_opened || isSwitchingStates)
-		return
-	if(user == caster)
-		lock_toggle(user)
-		to_chat(user, span_warning("The lock to this door is broken."))
-		return
-	if(brokenstate)
-		to_chat(user, span_warning("There isn't much left of this door."))
-		return
-	if(get_dir(src,user) == lockdir)
-		lock_toggle(user)
-	else
-		to_chat(user, span_warning("The door doesn't lock from this side."))
 
 /atom/movable
 	var/list/mana_beams

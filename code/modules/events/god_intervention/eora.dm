@@ -1,14 +1,14 @@
-/datum/round_event_control/eora_marriage_call
-	name = "Eora's Marriage Call"
+/datum/round_event_control/eora_matchmaking
+	name = "Eora's Matchmaking"
 	track = EVENT_TRACK_INTERVENTION
-	typepath = /datum/round_event/eora_marriage_call
+	typepath = /datum/round_event/eora_matchmaking
 	weight = 4
 	earliest_start = 15 MINUTES
 	max_occurrences = 1
 	min_players = 30
 	allowed_storytellers = list(/datum/storyteller/eora)
 
-/datum/round_event/eora_marriage_call/start()
+/datum/round_event/eora_matchmaking/start()
 	var/list/eligible_males = list()
 	var/list/eligible_females = list()
 
@@ -16,9 +16,19 @@
 		if(!istype(human_mob) || human_mob.stat == DEAD || !human_mob.client)
 			continue
 
-		// Must worship the Ten and be unmarried, clergy is excluded
-		if(!human_mob.patron || !istype(human_mob.patron, /datum/patron/divine) || (human_mob.mind?.assigned_role.title in GLOB.church_positions) || human_mob.spouse_mob)
+		// Must worship the Ten, clergy is excluded
+		if(!human_mob.patron || !istype(human_mob.patron, /datum/patron/divine) || (human_mob.mind?.assigned_role.title in GLOB.church_positions))
 			continue
+
+		// Exclude married and children
+		if(human_mob.IsWedded() || human_mob.age == AGE_CHILD)
+			continue
+
+		// Exclude parents
+		if(human_mob.family_datum)
+			var/family_role = human_mob.family_datum.family[human_mob]
+			if(family_role in list(FAMILY_FATHER, FAMILY_MOTHER))
+				continue
 
 		if(human_mob.gender == MALE)
 			eligible_males += human_mob
@@ -56,14 +66,13 @@
 		var/mob/living/carbon/human/male = pair[1]
 		var/mob/living/carbon/human/female = pair[2]
 
-		male.add_stress(/datum/stressevent/eora_marriage_call)
-		female.add_stress(/datum/stressevent/eora_marriage_call)
+		male.add_stress(/datum/stressevent/eora_matchmaking)
+		female.add_stress(/datum/stressevent/eora_matchmaking)
 
 		to_chat(male, span_rose("Eora's voice whispers in your heart - you feel an irresistible urge to finally get married..."))
-		to_chat(male, span_rose("The name of [span_notice("[female.real_name]")], the [female.job] seems to get your heart racing for some reason..."))
+		to_chat(male, span_rose("You can choose anyone you fancy to fulfill this desire, but the name of [span_notice("[female.real_name]")], the [female.job] seems to get your heart racing for some reason..."))
+		SEND_SOUND(male, 'sound/vo/female/gen/giggle (1).ogg')
 
 		to_chat(female, span_rose("Eora's voice whispers in your heart - you feel an irresistible urge to finally get married..."))
-		to_chat(female, span_rose("The name of [span_notice("[male.real_name]")], the [male.job] seems to get your heart racing for some reason..."))
-
-		SEND_SOUND(male, 'sound/vo/female/gen/giggle (1).ogg')
+		to_chat(female, span_rose("You can choose anyone you fancy to fulfill this desire, but the name of [span_notice("[male.real_name]")], the [male.job] seems to get your heart racing for some reason..."))
 		SEND_SOUND(female, 'sound/vo/female/gen/giggle (1).ogg')

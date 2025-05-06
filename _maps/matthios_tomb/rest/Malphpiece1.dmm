@@ -60,7 +60,7 @@
 /turf/open/floor/cobblerock/alt,
 /area/rogue/outdoors/caves)
 "r" = (
-/obj/structure/mineral_door/wood/fancywood,
+/obj/structure/door/fancy,
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/outdoors/caves)
 "s" = (
@@ -130,7 +130,7 @@
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/outdoors/caves)
 "W" = (
-/obj/structure/mineral_door/wood/donjon/stone,
+/obj/structure/door/stone,
 /turf/open/floor/cobblerock/alt,
 /area/rogue/outdoors/caves)
 "X" = (

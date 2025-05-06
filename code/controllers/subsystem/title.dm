@@ -31,11 +31,8 @@ SUBSYSTEM_DEF(title)
 		file_path = "[global.config.directory]/title_screens/images/[pick(title_screens)]"
 
 	if(!file_path)
-#ifndef ROGUEWORLD
 		file_path = "icons/default_title.dmi"
-#else
-		file_path = "icons/rogueworld_title.dmi"
-#endif
+
 	ASSERT(fexists(file_path))
 
 	icon = new(fcopy_rsc(file_path))

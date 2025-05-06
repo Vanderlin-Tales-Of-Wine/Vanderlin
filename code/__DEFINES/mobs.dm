@@ -472,15 +472,20 @@
 #define SKIN_COLOR_KAZENGUN "dbcca9"
 
 //AASIMAR SKIN TONES
-#define SKIN_COLOR_PLANETAR "474a4c" //Grey
-#define SKIN_COLOR_DEVA "b6f1f2" //Sky blue
-#define SKIN_COLOR_SOLAR "daeaeb" //WHITE
-#define SKIN_COLOR_EMPYREA "a9ded1" //Periwinkle blue
-#define SKIN_COLOR_GAEIA "db874f" //Orange
-#define SKIN_COLOR_CELESTIAL "e1c565" //Yellow
-#define SKIN_COLOR_OLYMPIA "c7f9cc" //Seafoam green
-#define SKIN_COLOR_NECRAL "19132a" //Black
-#define SKIN_COLOR_ABYSSAL "22577a" //Deep blue
+#define SKIN_COLOR_CORAL "ff96d6" //Pink
+#define SKIN_COLOR_SOAPSTONE "c7f9cc" //Seafoam green
+#define SKIN_COLOR_LIMESTONE "e6e4d8" //Tan
+#define SKIN_COLOR_SILVER "94B9C0" //Ice grey, at least that's what microsoft paint says
+#define SKIN_COLOR_COPPER "b87333" //Orange
+#define SKIN_COLOR_GOLD "d4af37" //Gold
+#define SKIN_COLOR_RUST "B71F1F" //Dark red
+#define SKIN_COLOR_ONYX "19132a" //Black
+#define SKIN_COLOR_LAPIS "26619C" //Deep blue
+#define SKIN_COLOR_BASALT "474a4c" //Dark grey
+#define SKIN_COLOR_MARBLE "E6E6E6" //White
+#define SKIN_COLOR_LARIMAR "a9ded1" //Cyan
+#define SKIN_COLOR_AMAZONITE "b6f1f2" //also Cyan
+#define SKIN_COLOR_ZINC "daeaeb" //Light aqua
 
 //HALF ELF SKIN TONES
 #define SKIN_COLOR_ZIZO_CURSED "fff0e9" //Pale as SHIT

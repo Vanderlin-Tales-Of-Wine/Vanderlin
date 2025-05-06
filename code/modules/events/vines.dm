@@ -3,7 +3,7 @@
 
 	var/obj/structure/vine/SV = new()
 
-	for(var/area/rogue/outdoors/town/A in world)
+	for(var/area/rogue/outdoors/town/A as anything in GLOB.areas)
 		for(var/turf/open/F in A)
 			if(F.Enter(SV))
 				if(!istype(F, /turf/open/transparent/openspace))

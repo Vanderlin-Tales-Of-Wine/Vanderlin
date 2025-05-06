@@ -43,6 +43,10 @@
 /obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/floor/wood,
 /area/rogue/indoors/shelter)
+"cT" = (
+/obj/structure/door/red,
+/turf/open/floor/blocks,
+/area/rogue/indoors/shelter)
 "eg" = (
 /turf/open/transparent/openspace,
 /area/rogue/under/cave)
@@ -84,6 +88,14 @@
 /obj/structure/fermentation_keg/random/water,
 /turf/open/floor/blocks,
 /area/rogue/indoors/shelter)
+"kE" = (
+/obj/structure/door/weak/bolt{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/door/locker,
+/obj/effect/decal/shadow_floor,
+/turf/open/floor/blocks,
+/area/rogue/indoors/shelter)
 "kZ" = (
 /obj/structure/table/stone_small,
 /obj/item/reagent_containers/food/snacks/meat/fatty{
@@ -102,10 +114,6 @@
 "mA" = (
 /turf/open/floor/dirt,
 /area/rogue/under/cave)
-"mM" = (
-/obj/structure/mineral_door/wood/donjon/stone,
-/turf/open/floor/herringbone,
-/area/rogue/indoors/shelter)
 "nh" = (
 /obj/structure/roguerock,
 /turf/open/floor/naturalstone,
@@ -145,10 +153,6 @@
 "pF" = (
 /obj/machinery/light/fueled/wallfire/candle/weak/l,
 /turf/open/floor/herringbone,
-/area/rogue/indoors/shelter)
-"pR" = (
-/obj/structure/mineral_door/wood/red,
-/turf/open/floor/wood/nosmooth,
 /area/rogue/indoors/shelter)
 "qh" = (
 /turf/open/floor/herringbone,
@@ -213,6 +217,10 @@
 /obj/effect/decal/cleanable/vomit/old,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/shelter)
+"xq" = (
+/obj/structure/door/stone,
+/turf/open/floor/herringbone,
+/area/rogue/indoors/shelter)
 "xz" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/blocks/green,
@@ -261,33 +269,28 @@
 	},
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave)
-"BU" = (
-/obj/structure/mineral_door/wood/deadbolt{
-	dir = 1;
-	locked = 1
-	},
-/obj/effect/decal/shadow_floor,
-/turf/open/floor/blocks,
-/area/rogue/indoors/shelter)
-"CH" = (
-/obj/structure/table/stone_small,
-/obj/item/reagent_containers/glass/mortar{
-	pixel_y = 9
-	},
-/turf/open/floor/cobble,
-/area/rogue/indoors/shelter)
 "CJ" = (
 /obj/machinery/light/fueled/lanternpost{
 	dir = 1
 	},
 /turf/open/floor/cobble,
 /area/rogue/under/cave)
+"CN" = (
+/obj/structure/door/weak/bolt{
+	dir = 1
+	},
+/turf/open/floor/blocks,
+/area/rogue/indoors/shelter)
 "CP" = (
 /obj/structure/fluff/walldeco/painting/skull{
 	pixel_x = -32
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood,
+/area/rogue/indoors/shelter)
+"CR" = (
+/obj/structure/door/red,
+/turf/open/floor/wood/nosmooth,
 /area/rogue/indoors/shelter)
 "CT" = (
 /obj/effect/decal/cobbleedge{
@@ -311,12 +314,6 @@
 /obj/structure/table/wood/reinforced_alter,
 /obj/structure/bars/bent,
 /obj/effect/decal/shadow_floor,
-/turf/open/floor/blocks,
-/area/rogue/indoors/shelter)
-"GK" = (
-/obj/structure/mineral_door/wood/deadbolt{
-	dir = 1
-	},
 /turf/open/floor/blocks,
 /area/rogue/indoors/shelter)
 "Ha" = (
@@ -343,9 +340,12 @@
 /obj/structure/flora/grass/herb/random,
 /turf/open/floor/dirt,
 /area/rogue/under/cave)
-"Kw" = (
-/obj/structure/mineral_door/wood/red,
-/turf/open/floor/blocks,
+"JH" = (
+/obj/structure/table/stone_small,
+/obj/item/reagent_containers/glass/mortar{
+	pixel_y = 9
+	},
+/turf/open/floor/cobble,
 /area/rogue/indoors/shelter)
 "KE" = (
 /obj/effect/decal/remains/human,
@@ -729,7 +729,7 @@ Xe
 "}
 (13,1,1) = {"
 HT
-CH
+JH
 yJ
 Sf
 HT
@@ -776,11 +776,11 @@ HT
 bW
 nV
 fC
-BU
+kE
 Vk
 ZV
 ZV
-GK
+CN
 Sk
 Sk
 Sk
@@ -843,7 +843,7 @@ fC
 NE
 Pt
 zc
-Kw
+cT
 Vk
 aw
 HT
@@ -1230,7 +1230,7 @@ Xe
 Xe
 WQ
 WQ
-mM
+xq
 WQ
 WQ
 "}
@@ -1242,7 +1242,7 @@ iP
 XH
 Vo
 Vo
-pR
+CR
 HT
 eg
 eg
