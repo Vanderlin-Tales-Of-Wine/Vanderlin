@@ -16,7 +16,7 @@
 	for(var/mob/living/carbon/human/H in GLOB.player_list)
 		if(!istype(H) || H.stat == DEAD || !H.client || !istype(H.patron, /datum/patron/divine/xylix))
 			continue
-		if(is_type_in_list(/obj/effect/proc_holder/spell/invoked/mockery, H.mind.spell_list))
+		if(locate(/obj/effect/proc_holder/spell/invoked/mockery) in H.mind.spell_list)
 			mockers++
 			if(mockers >= 1)
 				return TRUE
@@ -28,7 +28,7 @@
 	for(var/mob/living/carbon/human/H in GLOB.player_list)
 		if(!istype(H) || H.stat == DEAD || !H.client || !istype(H.patron, /datum/patron/divine/xylix))
 			continue
-		if(is_type_in_list(/obj/effect/proc_holder/spell/invoked/mockery, H.mind.spell_list))
+		if(locate(/obj/effect/proc_holder/spell/invoked/mockery) in H.mind.spell_list)
 			valid_targets += H
 
 	if(!valid_targets.len)
@@ -39,7 +39,7 @@
 	var/datum/objective/mock/noble/new_objective = new(owner = chosen_one.mind)
 	chosen_one.mind.add_personal_objective(new_objective)
 
-	to_chat(chosen_one, span_biginfo("Xylix demands entertainment! Mock [new_objective.required_count] nobles to prove your wit and earn Xylix's favor!"))
+	to_chat(chosen_one, span_biginfo("Xylix demands entertainment! Viciously mock [new_objective.required_count] nobles to prove your wit and earn Xylix's favor!"))
 	SEND_SOUND(chosen_one, 'sound/vo/male/evil/laugh (1).ogg')
 
 	chosen_one.mind.announce_personal_objectives()

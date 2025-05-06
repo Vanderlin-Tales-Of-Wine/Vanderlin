@@ -59,4 +59,4 @@
 			completed = TRUE
 			UnregisterSignal(owner.current, COMSIG_VICIOUSLY_MOCKED)
 		else
-			to_chat(owner.current, span_notice("Noble mocked! Mock [required_count - mocked_targets] more to complete the objective!"))
+			to_chat(owner.current, span_notice("Noble mocked! Viciously mock [required_count - mocked_targets] more noble to complete the objective!"))

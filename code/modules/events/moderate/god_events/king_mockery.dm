@@ -35,7 +35,7 @@
 	to_chat(chosen_one, span_biginfo("Xylix demands great entertainment! Seek out and viciously mock the monarch to prove your devotion and earn Xylix's favor!"))
 	SEND_SOUND(chosen_one, 'sound/vo/male/evil/laugh (1).ogg')
 
-	if(!is_type_in_list(/obj/effect/proc_holder/spell/invoked/mockery, chosen_one.mind.spell_list))
+	if(!locate(/obj/effect/proc_holder/spell/invoked/mockery) in chosen_one.mind.spell_list)
 		var/obj/effect/proc_holder/spell/invoked/mockery/mock_spell = new()
 		chosen_one.mind.AddSpell(mock_spell)
 		to_chat(chosen_one, span_notice("Xylix has granted you the gift of savage mockery! Use it to ridicule your target."))
