@@ -112,7 +112,7 @@
 		var/flaw = "NA"
 		if(ishuman(M))
 			var/mob/living/carbon/human = M
-			flaw = H.charflaw
+			flaw = human.charflaw
 		body += "<br><br>Current Patron: [patron]"
 		body += "Current Flaw: [flaw]"
 
