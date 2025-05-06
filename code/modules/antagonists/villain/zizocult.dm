@@ -915,6 +915,21 @@ GLOBAL_LIST_EMPTY(ritualslist)
 				cavity.cavity_item.forceMove(drop_location)
 				cavity.cavity_item = null
 
+/datum/ritual/unholy_binding
+	name = "Unholy Life"
+	circle = "Fleshcrafting"
+	center_requirement = /mob/living/carbon/human // the one to be granted the phylactery
+	n_req = /obj/item/mana_battery/mana_crystal/standard
+	e_req = /obj/item/reagent_containers/food/snacks/meat
+	w_req = /obj/item/reagent_containers/food/snacks/meat
+
+	function = /proc/unholy_binding
+
+/proc/unholy_binding(mob/user, turf/C)
+	var/obj/item/phylactery/phyl = new obj/item/phylactery
+	phyl.possessor =
+
+
 /datum/ritual/badomen
 	name = "Bad Omen"
 	circle = "Fleshcrafting"
