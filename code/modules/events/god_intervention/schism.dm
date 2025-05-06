@@ -29,14 +29,18 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 
 	RegisterSignal(SSdcs, COMSIG_GLOB_JOB_AFTER_SPAWN, PROC_REF(handle_latejoin))
 
-/datum/tennite_schism/proc/handle_latejoin(datum/source, mob/living/carbon/human/H, client/C)
+/datum/tennite_schism/proc/handle_latejoin(datum/source, datum/job/job, mob/living/spawned, client/player_client)
 	SIGNAL_HANDLER
-	if(istype(H))
-		var/datum/patron/challenger = challenger_god.resolve()
-		if(!challenger)
-			return
-		to_chat(H, span_warning("There is an active schism within the Ten! [challenger.name] has challenged Astrata's leadeship!"))
-		setup_mob(H)
+	if(!istype(spawned, /mob/living/carbon/human))
+		return
+
+	var/mob/living/carbon/human/H = spawned
+	var/datum/patron/challenger = challenger_god?.resolve()
+	if(!challenger)
+		return
+
+	to_chat(H, span_warning("There is an active schism within the Ten! [challenger.name] has challenged Astrata's leadership!"))
+	setup_mob(H)
 
 /datum/tennite_schism/proc/setup_mob(mob/living/carbon/human/H)
 	if(!istype(H) || H.stat == DEAD || !H.mind)
