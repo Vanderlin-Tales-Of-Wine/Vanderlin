@@ -3,3 +3,4 @@
 #define COMSIG_LUX_EXTRACTED "lux_extracted" // (victim)
 #define COMSIG_GLOBAL_MARRIAGE "global_marriage" // (bride, groom)
 #define COMSIG_DRUG_SNIFFED "drug_sniffed" // (applier)
+
