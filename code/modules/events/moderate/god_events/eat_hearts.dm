@@ -5,7 +5,7 @@
 	weight = 5
 	earliest_start = 20 MINUTES
 	max_occurrences = 1
-	min_players = 20
+	min_players = 30
 
 /datum/round_event/graggar_organs/start()
 	var/list/valid_targets = list()

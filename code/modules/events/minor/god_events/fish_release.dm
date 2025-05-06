@@ -3,9 +3,9 @@
 	track = EVENT_TRACK_MUNDANE
 	typepath = /datum/round_event/abyssor_fish_release
 	weight = 5
-	earliest_start = 20 MINUTES
+	earliest_start = 10 MINUTES
 	max_occurrences = 1
-	min_players = 20
+	min_players = 15
 
 /datum/round_event/abyssor_fish_release/start()
 	var/mob/living/carbon/human/best_fisher

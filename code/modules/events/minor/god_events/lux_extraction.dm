@@ -3,9 +3,9 @@
 	track = EVENT_TRACK_MUNDANE
 	typepath = /datum/round_event/pestra_lux
 	weight = 5
-	earliest_start = 20 MINUTES
+	earliest_start = 10 MINUTES
 	max_occurrences = 1
-	min_players = 20
+	min_players = 25
 
 /datum/round_event/pestra_lux/start()
 	var/list/valid_targets = list()

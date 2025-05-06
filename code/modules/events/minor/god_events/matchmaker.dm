@@ -3,9 +3,9 @@
 	track = EVENT_TRACK_MUNDANE
 	typepath = /datum/round_event/eora_marriage
 	weight = 5
-	earliest_start = 20 MINUTES
+	earliest_start = 10 MINUTES
 	max_occurrences = 1
-	min_players = 20
+	min_players = 30
 
 /datum/round_event/eora_marriage/start()
 	var/list/valid_targets = list()
