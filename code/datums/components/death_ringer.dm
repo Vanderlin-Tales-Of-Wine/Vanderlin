@@ -9,22 +9,35 @@
 	if(!living(parent))
 		return COMPONENT_INCOMPATIBLE
 
-	if(!isitem(possessed_object))
-		return COMPONENT_INCOMPATIBLE
-
-/datum/component/death_ringer/RegisterWithParent(obj/list/item/possessed_objects)
+/datum/component/death_ringer/RegisterWithParent(obj/list/possessed_objects_incoming)
 	. = ..()
-	var/datum/weak_reference =
-	for(var/item in posessed_objects)
-	var/datum/weak_reference/posessed_object_ref
-	possessed_object_ref = possessed_object
+	for(var/possessed_thing in possessed_objects_incoming)
+		var/datum/weak_reference/posessed_object_ref = possessed_thing
+		possessed_objects += posessed_object_ref
 
 	if(iscarbon(parent))
 		var/living/carbon/carbon_mob = parent
 		var/item/bodypart/head/possessor_head = carbon_mob.get_bodypart(BODY_ZONE_HEAD)
 		possessor_head_ref = possessor_head
 
-	RegisterSignal(parent, COMSIG_LIVING_DEATH, PROC_REF(revival))
+	RegisterSignal(parent, COMSIG_LIVING_DEATH, PROC_REF(on_death))
+
+/datum/component/death_ringer/proc/on_death()
+	for(var/datum/weak_reference/possessed_ref in possessed_objects)
+		if(!possessed_ref.resolve())
+			continue
+		var/obj/thingie = possessed_ref
+		begin_chargeup(thingie)
+		return
+
+/datum/component/death_ringer/proc/begin_chargeup(item, timer = 10 SECONDS)
+	var/offset = prob(50) ? -2 : 2
+	animate(item, pixel_x = pixel_x + offset, time = 0.2, loop = -1) //start shaking
+	visible_message(span_warning("[src] begins to glow and shake violently!"))
+	spawn(timer)
+		possessor.rise_anew()
+		possessor.owner.current.forceMove(get_turf(src))
+		qdel(src)
 
 /datum/component/death_ringer/proc/revival()
 	if(!parent || QDELETED(parent))

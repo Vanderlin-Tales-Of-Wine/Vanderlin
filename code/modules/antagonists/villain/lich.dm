@@ -10,10 +10,6 @@
 		"I AM BEHIND SEVEN PHYLACTERIES!",
 		"YOU CANNOT KILL ME!",
 	)
-	var/list/phylacteries = list()
-	/// weak reference to the body so we can revive even if decapitated
-	var/datum/weakref/lich_body
-	var/out_of_lives = FALSE
 
 	innate_traits = list(
 		TRAIT_NOSTAMINA,
@@ -42,8 +38,6 @@
 /datum/antagonist/lich/on_gain()
 	SSmapping.retainer.liches |= owner
 	. = ..()
-	if(iscarbon(owner.current))
-		lich_body = WEAKREF(owner.current)
 	owner.special_role = name
 	move_to_spawnpoint()
 	remove_job()
