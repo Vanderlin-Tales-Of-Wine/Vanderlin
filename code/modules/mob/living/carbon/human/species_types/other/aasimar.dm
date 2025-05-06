@@ -125,7 +125,7 @@
 		"Copper" = SKIN_COLOR_COPPER, // - (Orange)
 		"Gold" = SKIN_COLOR_GOLD, // - (Yellow)
 		"Rust" = SKIN_COLOR_RUST, // - (Red-brown)
-		"Obsidian" = SKIN_COLOR_OBSIDIAN, // - (Black)
+		"Obsidian" = SKIN_COLOR_ONYX, // - (Black)
 		"Lapis" = SKIN_COLOR_LAPIS, // - (Deep blue)
 		"Basalt" = SKIN_COLOR_BASALT, // - (Dark grey)
 		"Larimar" = SKIN_COLOR_LARIMAR, // - (Cyan)
