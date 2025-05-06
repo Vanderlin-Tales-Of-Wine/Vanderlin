@@ -633,9 +633,7 @@
 					user.put_in_hands(item)
 					break
 	if(length(products))
-		var/product = pick(products)
-		if(isitem(product))
-			user.put_in_hands()
+		user.put_in_hands(pick(products))
 
 /datum/repeatable_crafting_recipe/proc/generate_html(mob/user)
 	var/client/client = user
