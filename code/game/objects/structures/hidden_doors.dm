@@ -399,7 +399,6 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 
 	. = ..()
 
-
 /obj/effect/mapping_helpers/secret_door_creator/keep
 	name = "Keep Secret Door Creator"
 	door_type = /obj/structure/door/secret/keep
