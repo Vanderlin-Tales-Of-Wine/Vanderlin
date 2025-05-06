@@ -820,6 +820,8 @@ GLOBAL_LIST_EMPTY(ritualslist)
 
 	function = /proc/bunnylegs
 
+	is_cultist_ritual = TRUE
+
 /proc/bunnylegs(mob/user, turf/C)
 	for(var/mob/living/carbon/human/H in C.contents)
 		ADD_TRAIT(H, TRAIT_ZJUMP, TRAIT_GENERIC)
@@ -888,6 +890,8 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	s_req = /obj/item/reagent_containers/food/snacks/meat
 
 	function = /proc/fleshform
+
+	is_cultist_ritual = TRUE
 
 /proc/fleshform(mob/user, turf/C)
 	for(var/mob/living/carbon/human/H in C.contents)
