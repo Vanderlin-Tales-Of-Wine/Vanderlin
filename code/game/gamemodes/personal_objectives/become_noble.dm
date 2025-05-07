@@ -21,11 +21,11 @@
 	if(completed)
 		return
 
-	to_chat(owner.current, span_greentext("You have achieved nobility and completed Astrata's objective!"))
+	to_chat(owner.current, span_greentext("You have earned nobility and completed Astrata's objective!"))
 	owner.current.adjust_triumphs(1)
 	completed = TRUE
 	adjust_storyteller_influence("Astrata", 15)
 	UnregisterSignal(owner.current, SIGNAL_ADDTRAIT(TRAIT_NOBLE))
 
 /datum/objective/nobility/update_explanation_text()
-	explanation_text = "Become a part of the nobility through any means!"
+	explanation_text = "Become a part of the nobility by any means!"
