@@ -11,8 +11,17 @@
 	. = ..()
 	if(!.)
 		return FALSE
-	if(GLOB.patron_follower_counts["Astrata"] < 1)
-		return FALSE
+
+	for(var/mob/living/carbon/human/H in GLOB.player_list)
+		if(!istype(H) || H.stat == DEAD || !H.client)
+			continue
+		if(!H.patron || !istype(H.patron, /datum/patron/divine/astrata))
+			continue
+		if(H.is_noble())
+			continue
+		return TRUE
+
+	return FALSE
 
 /datum/round_event/astrata_nobility/start()
 	var/list/valid_targets = list()
@@ -21,6 +30,8 @@
 		if(!istype(human_mob) || human_mob.stat == DEAD || !human_mob.client)
 			continue
 		if(!human_mob.patron || !istype(human_mob.patron, /datum/patron/divine/astrata))
+			continue
+		if(human_mob.is_noble())
 			continue
 		valid_targets += human_mob
 

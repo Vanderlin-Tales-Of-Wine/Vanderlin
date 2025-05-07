@@ -7,6 +7,22 @@
 	max_occurrences = 1
 	min_players = 30
 
+/datum/round_event_control/graggar_organs/canSpawnEvent(players_amt, gamemode, fake_check)
+	. = ..()
+	if(!.)
+		return FALSE
+
+	for(var/mob/living/carbon/human/H in GLOB.player_list)
+		if(!istype(H) || H.stat == DEAD || !H.client)
+			continue
+		if(!H.patron || !istype(H.patron, /datum/patron/inhumen/graggar))
+			continue
+		if(locate(/obj/effect/proc_holder/spell/invoked/extract_heart) in H.mind.spell_list)
+			continue
+		return TRUE
+
+	return FALSE
+
 /datum/round_event/graggar_organs/start()
 	var/list/valid_targets = list()
 
@@ -14,6 +30,8 @@
 		if(!istype(human_mob) || human_mob.stat == DEAD || !human_mob.client)
 			continue
 		if(!human_mob.patron || !istype(human_mob.patron, /datum/patron/inhumen/graggar))
+			continue
+		if(locate(/obj/effect/proc_holder/spell/invoked/extract_heart) in human_mob.mind.spell_list)
 			continue
 		valid_targets += human_mob
 
@@ -25,10 +43,9 @@
 	var/datum/objective/consume_organs/new_objective = new(owner = chosen_one.mind)
 	chosen_one.mind.add_personal_objective(new_objective)
 
-	if(!locate(/obj/effect/proc_holder/spell/invoked/extract_heart) in chosen_one.mind.spell_list)
-		var/obj/effect/proc_holder/spell/invoked/extract_heart/heart_spell = new()
-		chosen_one.mind.AddSpell(heart_spell)
-		to_chat(chosen_one, span_notice("Graggar grants you the terrible power to extract hearts!"))
+	var/obj/effect/proc_holder/spell/invoked/extract_heart/heart_spell = new()
+	chosen_one.mind.AddSpell(heart_spell)
+	to_chat(chosen_one, span_notice("Graggar grants you the terrible power to extract hearts!"))
 
 	to_chat(chosen_one, span_biginfo("Graggar hungers! [new_objective.explanation_text]"))
 	SEND_SOUND(chosen_one, 'sound/magic/marked.ogg')

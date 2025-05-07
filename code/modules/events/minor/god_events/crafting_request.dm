@@ -7,6 +7,22 @@
 	max_occurrences = 1
 	min_players = 15
 
+/datum/round_event_control/malum_crafting/canSpawnEvent(players_amt, gamemode, fake_check)
+	. = ..()
+	if(!.)
+		return FALSE
+
+	for(var/mob/living/carbon/human/H in GLOB.player_list)
+		if(!istype(H) || H.stat == DEAD || !H.client)
+			continue
+		if(!H.patron || !istype(H.patron, /datum/patron/divine/malum))
+			continue
+		if(H.mind?.get_skill_level(/datum/skill/craft/crafting) < 3)
+			continue
+		return TRUE
+
+	return FALSE
+
 /datum/round_event/malum_crafting/start()
 	var/list/valid_targets = list()
 
@@ -14,6 +30,8 @@
 		if(!istype(human_mob) || human_mob.stat == DEAD || !human_mob.client)
 			continue
 		if(!human_mob.patron || !istype(human_mob.patron, /datum/patron/divine/malum))
+			continue
+		if(human_mob.mind?.get_skill_level(/datum/skill/craft/crafting) < 3)
 			continue
 		valid_targets += human_mob
 

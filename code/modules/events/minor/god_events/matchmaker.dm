@@ -7,6 +7,20 @@
 	max_occurrences = 1
 	min_players = 30
 
+/datum/round_event_control/eora_marriage/canSpawnEvent(players_amt, gamemode, fake_check)
+	. = ..()
+	if(!.)
+		return FALSE
+
+	for(var/mob/living/carbon/human/H in GLOB.player_list)
+		if(!istype(H) || H.stat == DEAD || !H.client)
+			continue
+		if(!H.patron || !istype(H.patron, /datum/patron/divine/eora))
+			continue
+		return TRUE
+
+	return FALSE
+
 /datum/round_event/eora_marriage/start()
 	var/list/valid_targets = list()
 

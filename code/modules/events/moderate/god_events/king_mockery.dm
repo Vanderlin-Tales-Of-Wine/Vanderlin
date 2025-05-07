@@ -11,8 +11,17 @@
 	. = ..()
 	if(!.)
 		return FALSE
-	if(GLOB.patron_follower_counts["Xylix"] < 1)
-		return FALSE
+
+	for(var/mob/living/carbon/human/H in GLOB.player_list)
+		if(!istype(H) || H.stat == DEAD || !H.client)
+			continue
+		if(!H.patron || !istype(H.patron, /datum/patron/divine/xylix))
+			continue
+		if(locate(/obj/effect/proc_holder/spell/invoked/mockery) in H.mind.spell_list)
+			continue
+		return TRUE
+
+	return FALSE
 
 /datum/round_event/xylix_mocking/start()
 	var/list/valid_targets = list()
@@ -21,6 +30,8 @@
 		if(!istype(human_mob) || human_mob.stat == DEAD || !human_mob.client)
 			continue
 		if(!human_mob.patron || !istype(human_mob.patron, /datum/patron/divine/xylix))
+			continue
+		if(locate(/obj/effect/proc_holder/spell/invoked/mockery) in human_mob.mind.spell_list)
 			continue
 		valid_targets += human_mob
 
@@ -35,9 +46,8 @@
 	to_chat(chosen_one, span_biginfo("Xylix demands great entertainment! Seek out and viciously mock the monarch to prove your devotion and earn Xylix's favor!"))
 	SEND_SOUND(chosen_one, 'sound/vo/male/evil/laugh (1).ogg')
 
-	if(!locate(/obj/effect/proc_holder/spell/invoked/mockery) in chosen_one.mind.spell_list)
-		var/obj/effect/proc_holder/spell/invoked/mockery/mock_spell = new()
-		chosen_one.mind.AddSpell(mock_spell)
-		to_chat(chosen_one, span_notice("Xylix has granted you the gift of savage mockery! Use it to ridicule your target."))
+	var/obj/effect/proc_holder/spell/invoked/mockery/mock_spell = new()
+	chosen_one.mind.AddSpell(mock_spell)
+	to_chat(chosen_one, span_notice("Xylix has granted you the gift of savage mockery! Use it to ridicule your target."))
 
 	chosen_one.mind.announce_personal_objectives()

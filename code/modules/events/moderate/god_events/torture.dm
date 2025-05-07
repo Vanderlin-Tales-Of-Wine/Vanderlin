@@ -7,6 +7,20 @@
 	max_occurrences = 1
 	min_players = 20
 
+/datum/round_event_control/zizo_torture/canSpawnEvent(players_amt, gamemode, fake_check)
+	. = ..()
+	if(!.)
+		return FALSE
+
+	for(var/mob/living/carbon/human/H in GLOB.player_list)
+		if(!istype(H) || H.stat == DEAD || !H.client)
+			continue
+		if(!H.patron || !istype(H.patron, /datum/patron/inhumen/zizo))
+			continue
+		return TRUE
+
+	return FALSE
+
 /datum/round_event/zizo_torture/start()
 	var/list/valid_targets = list()
 
