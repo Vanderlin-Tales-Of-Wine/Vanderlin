@@ -11,8 +11,15 @@
 	. = ..()
 	if(!.)
 		return FALSE
-	if(GLOB.patron_follower_counts["Noc"] < 1)
-		return FALSE
+
+	for(var/mob/living/carbon/human/H in GLOB.player_list)
+		if(!istype(H) || H.stat == DEAD || !H.client)
+			continue
+		if(!H.patron || !istype(H.patron, /datum/patron/divine/noc))
+			continue
+		if(H.mana_pool && H.mana_pool.intrinsic_recharge_sources == NONE)
+			return TRUE
+	return FALSE
 
 /datum/round_event/noc_baptism/start()
 	var/list/valid_targets = list()
@@ -22,7 +29,8 @@
 			continue
 		if(!human_mob.patron || !istype(human_mob.patron, /datum/patron/divine/noc))
 			continue
-		valid_targets += human_mob
+		if(human_mob.mana_pool && human_mob.mana_pool.intrinsic_recharge_sources == NONE)
+			valid_targets += human_mob
 
 	if(!valid_targets.len)
 		return

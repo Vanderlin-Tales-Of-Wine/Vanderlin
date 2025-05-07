@@ -1,30 +1,31 @@
 /datum/round_event_control/abyssor_fish_release
 	name = "Fish Release Request"
 	track = EVENT_TRACK_MUNDANE
-	typepath = /datum/round_event/abyssor_fish_release
+	typepath = /datum/round_event/abyssor_fishing
 	weight = 5
 	earliest_start = 10 MINUTES
 	max_occurrences = 1
 	min_players = 15
 
-/datum/round_event/abyssor_fish_release/start()
-	var/mob/living/carbon/human/best_fisher
+/datum/round_event/abyssor_fishing/start()
+	var/list/valid_targets = list()
 
 	for(var/mob/living/carbon/human/human_mob in GLOB.player_list)
 		if(!istype(human_mob) || human_mob.stat == DEAD || !human_mob.client)
 			continue
 		if(!human_mob.patron || !istype(human_mob.patron, /datum/patron/divine/abyssor))
 			continue
-		if(!best_fisher)
-			best_fisher = human_mob
+		valid_targets += human_mob
 
-	if(!best_fisher)
+	if(!valid_targets.len)
 		return
 
-	var/datum/objective/fish_release/new_objective = new(owner = best_fisher.mind)
-	best_fisher.mind.add_personal_objective(new_objective)
+	var/mob/living/carbon/human/chosen_one = pick(valid_targets)
 
-	to_chat(best_fisher, span_biginfo("Abyssor demands mercy for the creatures of the deep! Release a rare or super rare fish back into the wild to earn Abyssor's favor!"))
-	SEND_SOUND(best_fisher, 'sound/magic/marked.ogg')
+	var/datum/objective/release_fish/new_objective = new(owner = chosen_one.mind)
+	chosen_one.mind.add_personal_objective(new_objective)
 
-	best_fisher.mind.announce_personal_objectives()
+	to_chat(chosen_one, span_biginfo("Abyssor demands mercy for the creatures of the deep! Any rare fish returned to the water will please him!"))
+	SEND_SOUND(chosen_one, 'sound/magic/marked.ogg')
+
+	chosen_one.mind.announce_personal_objectives()
