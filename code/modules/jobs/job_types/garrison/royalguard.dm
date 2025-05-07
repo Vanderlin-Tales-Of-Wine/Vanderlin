@@ -129,7 +129,6 @@
 			H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 
-
 /datum/outfit/job/royalguard/knight/pre_equip(mob/living/carbon/human/H)
 	..()
 	armor = /obj/item/clothing/armor/brigandine
@@ -151,6 +150,11 @@
 	H.change_stat(STATKEY_STR, -1)
 	H.change_stat(STATKEY_CON, -1)
 	H.change_stat(STATKEY_SPD, -1)
+
+/datum/outfit/job/royalguard/steam/post_equip(mob/living/carbon/human/H, visualsOnly)
+	. = ..()
+	if(H.backr && istype(H.backr, /obj/item/clothing/cloak/boiler))
+		SEND_SIGNAL(H.backr, COMSIG_ATOM_STEAM_INCREASE, 500)
 
 /datum/advclass/royalguard/steam
 	name = "Steam Knight"
