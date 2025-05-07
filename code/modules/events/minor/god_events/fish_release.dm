@@ -17,7 +17,7 @@
 			continue
 		if(!H.patron || !istype(H.patron, /datum/patron/divine/abyssor))
 			continue
-		if(H.mind?.assigned_role != /datum/job/fisher)
+		if(!istype(H.mind?.assigned_role, /datum/job/fisher))
 			continue
 		return TRUE
 
@@ -26,14 +26,14 @@
 /datum/round_event/abyssor_fishing/start()
 	var/list/valid_targets = list()
 
-	for(var/mob/living/carbon/human/human_mob in GLOB.player_list)
-		if(!istype(human_mob) || human_mob.stat == DEAD || !human_mob.client)
+	for(var/mob/living/carbon/human/H in GLOB.player_list)
+		if(!istype(H) || H.stat == DEAD || !H.client)
 			continue
-		if(!human_mob.patron || !istype(human_mob.patron, /datum/patron/divine/abyssor))
+		if(!H.patron || !istype(H.patron, /datum/patron/divine/abyssor))
 			continue
-		if(human_mob.mind?.assigned_role != /datum/job/fisher)
+		if(!istype(H.mind?.assigned_role, /datum/job/fisher))
 			continue
-		valid_targets += human_mob
+		valid_targets += H
 
 	if(!valid_targets.len)
 		return
