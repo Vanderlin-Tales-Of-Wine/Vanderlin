@@ -58,8 +58,8 @@
 
 /datum/job/bard/after_spawn(mob/living/carbon/spawned, client/player_client)
 	. = ..()
-	spawned.select_equippable(player_client, \
-		list("Harp" = /obj/item/instrument/harp, \
+	spawned.select_equippable(list( \
+		"Harp" = /obj/item/instrument/harp, \
 		"Lute" = /obj/item/instrument/lute, \
 		"Accordion" = /obj/item/instrument/accord, \
 		"Guitar" = /obj/item/instrument/guitar, \
