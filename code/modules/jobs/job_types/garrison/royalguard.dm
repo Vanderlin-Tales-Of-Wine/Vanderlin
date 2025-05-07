@@ -102,7 +102,7 @@
 	var/static/list/selectable = list( \
 		"Flail" = /obj/item/weapon/flail/sflail, \
 		"Halberd" = /obj/item/weapon/polearm/halberd, \
-		"Greatsword" = /obj/item/weapon/sword/long/greatsword, \
+		"Longsword" = /obj/item/weapon/sword/long, \
 		"Sabre" = /obj/item/weapon/sword/sabre/dec, \
 		"Unarmed" = /obj/item/weapon/knife/dagger/steel \
 		)
@@ -116,7 +116,7 @@
 		if("Halberd")
 			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
 			grant_shield = FALSE
-		if("Greatsword")
+		if("Longsword")
 			H.mind?.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
 			grant_shield = FALSE
 		if("Sabre")
@@ -159,15 +159,17 @@
 	gloves = /obj/item/clothing/gloves/plate/steam
 	head = /obj/item/clothing/head/helmet/heavy/steam
 
+	// Steam armour is complex
 	H.change_stat(STATKEY_INT, 1)
 	// Stronger armour than base RK
 	// Stat punishment for not having the armour active
 	H.change_stat(STATKEY_STR, -2)
-	H.change_stat(STATKEY_END, -1)
 	H.change_stat(STATKEY_CON, -1)
-	H.change_stat(STATKEY_SPD, -2)
+	H.change_stat(STATKEY_SPD, -1)
 
 /datum/outfit/job/royalguard/steam/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
 	if(H.backr && istype(H.backr, /obj/item/clothing/cloak/boiler))
-		SEND_SIGNAL(H.backr, COMSIG_ATOM_STEAM_INCREASE, 500)
+		var/obj/item/clothing/cloak/boiler/B = H.backr
+		SEND_SIGNAL(B, COMSIG_ATOM_STEAM_INCREASE, 500)
+		B.update_armor()
