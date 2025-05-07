@@ -28,4 +28,4 @@
 	UnregisterSignal(owner.current, COMSIG_BAPTISM_RECEIVED)
 
 /datum/objective/baptism/update_explanation_text()
-	explanation_text = "Receive baptism in Noc's name to gain their favor!"
+	explanation_text = "Receive mana baptism in Noc's name to gain their favor!"

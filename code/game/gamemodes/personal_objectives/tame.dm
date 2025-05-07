@@ -32,4 +32,4 @@
 	UnregisterSignal(owner.current, COMSIG_ANIMAL_TAMED)
 
 /datum/objective/tame_animal/update_explanation_text()
-	explanation_text = "Tame an animal, either by feeding it or any other way until it acknowledges you as a friend."
+	explanation_text = "Tame an animal, either by feeding it or any other means until it acknowledges you as a friend. Dendor wills it!"

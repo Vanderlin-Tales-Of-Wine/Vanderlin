@@ -24,7 +24,7 @@
 	if(burials_completed >= required_burials)
 		complete_objective()
 	else
-		to_chat(owner.current, span_notice("Grave consecrated! [required_burials - burials_completed] more to complete Necra's rites."))
+		to_chat(owner.current, span_notice("Grave consecrated! [required_burials - burials_completed] more to complete Necra's trial."))
 
 /datum/objective/proper_burial/proc/complete_objective()
 	to_chat(owner.current, span_greentext("You have properly consecrated enough graves to satisfy Necra!"))
@@ -34,4 +34,4 @@
 	UnregisterSignal(owner.current, COMSIG_GRAVE_CONSECRATED)
 
 /datum/objective/proper_burial/update_explanation_text()
-	explanation_text = "Consecrate [required_burials] graves to properly lay the dead to rest."
+	explanation_text = "Consecrate [required_burials] graves to earn Necra's approval."

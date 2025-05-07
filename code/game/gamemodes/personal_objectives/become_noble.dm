@@ -28,4 +28,4 @@
 	UnregisterSignal(owner.current, SIGNAL_ADDTRAIT(TRAIT_NOBLE))
 
 /datum/objective/nobility/update_explanation_text()
-	explanation_text = "Become a part of the nobility by any means!"
+	explanation_text = "Become a part of the nobility by any means to gain Astrata's approval!"

@@ -31,4 +31,4 @@
 		to_chat(owner.current, span_notice("Substance sniffed! Sniff [required_count - sniff_count] more to complete Baotha's objective."))
 
 /datum/objective/sniff_drugs/update_explanation_text()
-	explanation_text = "Sniff [required_count] substances to earn Baotha's favor!"
+	explanation_text = "Sniff [required_count] substances for Baotha's pleasure!"
