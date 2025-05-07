@@ -963,11 +963,11 @@
 
 	var/matrix/initial_transform = matrix(transform)
 	var/matrix/rotated_transform = transform.Turn(15 * turn_dir)
-	animate(src, pixel_x = pixel_x + pixel_x_diff, pixel_y = pixel_y + pixel_y_diff, transform=rotated_transform, time = 1, easing=BACK_EASING|EASE_IN, flags = ANIMATION_PARALLEL)
-	animate(pixel_x = pixel_x - pixel_x_diff, pixel_y = pixel_y - pixel_y_diff, transform=initial_transform, time = 2, easing=SINE_EASING, flags = ANIMATION_PARALLEL)
+	animate(src, pixel_x = pixel_x + pixel_x_diff, pixel_y = pixel_y + pixel_y_diff, transform=rotated_transform, time = 3, easing=BACK_EASING|EASE_IN, flags = ANIMATION_PARALLEL)
+	animate(pixel_x = pixel_x - pixel_x_diff, pixel_y = pixel_y - pixel_y_diff, transform=initial_transform, time = 5, easing=SINE_EASING, flags = ANIMATION_PARALLEL)
 
 
-/atom/movable/proc/do_item_attack_animation(atom/attacked_atom, visual_effect_icon, obj/item/used_item, animation_type = ATTACK_ANIMATION_SWIPE)
+/atom/movable/proc/do_item_attack_animation(atom/attacked_atom, visual_effect_icon, obj/item/used_item, animation_type = ATTACK_ANIMATION_BONK)
 	if (visual_effect_icon)
 		var/image/attack_image = image(icon = 'icons/effects/effects.dmi', icon_state = visual_effect_icon)
 		attack_image.plane = attacked_atom.plane + 1
@@ -977,9 +977,9 @@
 		attack_image.appearance_flags = APPEARANCE_UI
 		var/atom/movable/flick_visual/attack = attacked_atom.flick_overlay_view(attack_image, 1 SECONDS)
 		var/matrix/copy_transform = new(transform)
-		animate(attack, alpha = 175, transform = copy_transform.Scale(0.75), time = 0.3 SECONDS)
-		animate(time = 0.1 SECONDS)
-		animate(alpha = 0, time = 0.3 SECONDS, easing = CIRCULAR_EASING|EASE_OUT)
+		animate(attack, alpha = 175, transform = copy_transform.Scale(0.75), time = 0.5 SECONDS)
+		animate(time = 0.2 SECONDS)
+		animate(alpha = 0, time = 0.5 SECONDS, easing = CIRCULAR_EASING|EASE_OUT)
 		return
 
 	if (isnull(used_item))
@@ -1022,9 +1022,9 @@
 		if (ATTACK_ANIMATION_BONK)
 			attack.pixel_x = 14 * x_sign
 			attack.pixel_y = 12 * y_sign
-			animate(attack, alpha = 175, transform = copy_transform.Scale(0.75), pixel_x = 4 * x_sign, pixel_y = 3 * y_sign, time = 0.2 SECONDS)
-			animate(time = 0.1 SECONDS)
-			animate(alpha = 0, time = 0.1 SECONDS, easing = CIRCULAR_EASING|EASE_OUT)
+			animate(attack, alpha = 175, transform = copy_transform.Scale(0.75), pixel_x = 4 * x_sign, pixel_y = 3 * y_sign, time = 0.5 SECONDS)
+			animate(time = 0.3 SECONDS)
+			animate(alpha = 0, time = 0.2 SECONDS, easing = CIRCULAR_EASING|EASE_OUT)
 
 		if (ATTACK_ANIMATION_THRUST)
 			var/attack_angle = dir2angle(direction) + rand(-7, 7)
@@ -1041,7 +1041,7 @@
 				attack,
 				pixel_x = (22 * x_sign - 12 * sin(attack_angle)) * angle_mult,
 				pixel_y = (18 * y_sign - 8 * cos(attack_angle)) * angle_mult,
-				time = 0.1 SECONDS,
+				time = 0.3 SECONDS,
 				easing = CUBIC_EASING|EASE_IN,
 			)
 			animate(
@@ -1050,14 +1050,14 @@
 				transform = copy_transform.Scale(0.75),
 				pixel_x = (22 * x_sign + 26 * sin(attack_angle)) * angle_mult,
 				pixel_y = (18 * y_sign + 22 * cos(attack_angle)) * angle_mult,
-				time = 0.3 SECONDS,
+				time = 0.5 SECONDS,
 				easing = CUBIC_EASING|EASE_OUT,
 			)
 			animate(
 				alpha = 0,
 				pixel_x = -3 * -(x_sign + sin(attack_angle)),
 				pixel_y = -2 * -(y_sign + cos(attack_angle)),
-				time = 0.1 SECONDS,
+				time = 0.3 SECONDS,
 				easing = CIRCULAR_EASING|EASE_OUT
 			)
 
@@ -1096,11 +1096,11 @@
 			attack.pixel_y += 8 * y_rot_sign
 			attack.transform = attack.transform.Turn(anim_angle - 45 * anim_dir)
 			copy_transform = copy_transform.Scale(0.75)
-			animate(attack, alpha = 175, time = 0.3 SECONDS, flags = ANIMATION_PARALLEL)
-			animate(time = 0.1 SECONDS)
-			animate(alpha = 0, time = 0.1 SECONDS, easing = CIRCULAR_EASING|EASE_OUT)
+			animate(attack, alpha = 175, time = 0.5 SECONDS, flags = ANIMATION_PARALLEL)
+			animate(time = 0.3 SECONDS)
+			animate(alpha = 0, time = 0.3 SECONDS, easing = CIRCULAR_EASING|EASE_OUT)
 
-			animate(attack, transform = copy_transform.Turn(anim_angle + 45 * anim_dir), time = 0.3 SECONDS, flags = ANIMATION_PARALLEL)
+			animate(attack, transform = copy_transform.Turn(anim_angle + 45 * anim_dir), time = 0.5 SECONDS, flags = ANIMATION_PARALLEL)
 
 			var/x_return = 10 * -x_rot_sign
 			var/y_return = 8 * -y_rot_sign
@@ -1120,11 +1120,11 @@
 					x_return = 18 * x_sign
 					y_return = 6 * y_sign
 
-			animate(attack, pixel_x = 4 * x_sign * angle_mult, time = 0.2 SECONDS, easing = CIRCULAR_EASING | EASE_IN, flags = ANIMATION_PARALLEL)
-			animate(pixel_x = x_return, time = 0.2 SECONDS, easing = CIRCULAR_EASING | EASE_OUT)
+			animate(attack, pixel_x = 4 * x_sign * angle_mult, time = 0.4 SECONDS, easing = CIRCULAR_EASING | EASE_IN, flags = ANIMATION_PARALLEL)
+			animate(pixel_x = x_return, time = 0.4 SECONDS, easing = CIRCULAR_EASING | EASE_OUT)
 
-			animate(attack, pixel_y = 3 * y_sign * angle_mult, time = 0.2 SECONDS, easing = CIRCULAR_EASING | EASE_IN, flags = ANIMATION_PARALLEL)
-			animate(pixel_y = y_return, time = 0.2 SECONDS, easing = CIRCULAR_EASING | EASE_OUT)
+			animate(attack, pixel_y = 3 * y_sign * angle_mult, time = 0.4 SECONDS, easing = CIRCULAR_EASING | EASE_IN, flags = ANIMATION_PARALLEL)
+			animate(pixel_y = y_return, time = 0.4 SECONDS, easing = CIRCULAR_EASING | EASE_OUT)
 
 /obj/effect/temp_visual/dir_setting/attack_effect
 	icon = 'icons/effects/effects.dmi'
