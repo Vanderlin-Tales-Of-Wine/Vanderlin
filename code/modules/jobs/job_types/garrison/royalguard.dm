@@ -127,8 +127,7 @@
 			H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 			grant_shield = FALSE
 	if(grant_shield)
-		H.mind?.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/shields, 1, TRUE)
 		var/shield = new /obj/item/weapon/shield/tower/metal()
 		if(!H.equip_to_appropriate_slot(shield))
 			qdel(shield)
