@@ -259,6 +259,8 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 
 	var/alternative_events = FALSE
 	for(var/datum/round_event_control/E in SSevents.control)
+		if(E.track != EVENT_TRACK_INTERVENTION)
+			continue
 		if(E == src)
 			continue
 		if(E.canSpawnEvent(players_amt, gamemode, fake_check))
