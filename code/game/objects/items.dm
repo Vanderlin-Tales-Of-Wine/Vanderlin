@@ -274,7 +274,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	var/datum/artificer_recipe/artrecipe
 
 	/// angle of the icon, these are used for attack animations
-	var/icon_angle = 30 // most of our icons are angled
+	var/icon_angle = 50 // most of our icons are angled
 
 /obj/item/Initialize()
 	. = ..()
