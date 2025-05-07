@@ -167,6 +167,8 @@
 
 	//TODO: use build_roundend_report()
 
+	gamemode_report()
+
 	to_chat(world, personal_objectives_report())
 
 	sleep(10 SECONDS)
