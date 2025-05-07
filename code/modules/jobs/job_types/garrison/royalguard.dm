@@ -19,9 +19,16 @@
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 
-	outfit = /datum/outfit/job/royalguard
+	advclass_cat_rolls = list(CTAG_ROYALKNIGHT = 20)
 	give_bank_account = 30
 	cmode_music = 'sound/music/cmode/nobility/CombatKnight.ogg'
+
+/datum/advclass/royalguard/knight
+	name = "Royal Knight"
+
+	outfit = /datum/outfit/job/royalguard/knight
+
+	category_tags = list(CTAG_ROYALKNIGHT)
 
 /datum/job/royalguard/after_spawn(mob/living/carbon/human/spawned, client/player_client)
 	..()
@@ -40,49 +47,48 @@
 		honorary = "Dame"
 	spawned.real_name = "[honorary] [prev_real_name]"
 	spawned.name = "[honorary] [prev_name]"
-	var/static/list/selectable = list("Flail" = /obj/item/weapon/flail/sflail, "Halberd" = /obj/item/weapon/polearm/halberd)
-	spawned.select_equippable(player_client, selectable, message = "Take up arms!", title = "KNIGHT")
 
 /datum/outfit/job/royalguard
 	job_bitflag = BITFLAG_GARRISON
 
 /datum/outfit/job/royalguard/pre_equip(mob/living/carbon/human/H)
 	..()
-	pants = /obj/item/clothing/pants/chainlegs
-	cloak = /obj/item/clothing/cloak/tabard/knight/guard
-	neck = /obj/item/clothing/neck/gorget
+	neck = /obj/item/clothing/neck/chaincoif
+	pants = /obj/item/clothing/pants/platelegs
+	cloak = /obj/item/clothing/cloak/tabard/knight/guard  // Wear the King's colors
 	shirt = /obj/item/clothing/armor/gambeson/arming
-	armor = /obj/item/clothing/armor/brigandine // Wear the King's colors.
-	shoes = /obj/item/clothing/shoes/boots/armor/light
 	beltl = /obj/item/storage/keyring/manorguard
 	belt = /obj/item/storage/belt/leather
 	beltr = /obj/item/weapon/sword/arming
-	backr = /obj/item/storage/backpack/satchel
-	backl = /obj/item/weapon/shield/tower/metal
-	gloves = /obj/item/clothing/gloves/chain
-	head = /obj/item/clothing/head/helmet/visored/knight
+	backl = /obj/item/storage/backpack/satchel
+	wrists = /obj/item/clothing/wrists/bracers
 
 	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/shields, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/whipsflails, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
-		H.change_stat(STATKEY_STR, 2)
-		H.change_stat(STATKEY_PER, 2)
-		H.change_stat(STATKEY_END, 2)
-		H.change_stat(STATKEY_CON, 1)
+		H.mind.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+
+		H.mind.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 4, TRUE)
+
+		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE)
+
+	H.change_stat(STATKEY_STR, 3)
+	H.change_stat(STATKEY_PER, 2)
+	H.change_stat(STATKEY_END, 3)
+	H.change_stat(STATKEY_CON, 2)
+	H.change_stat(STATKEY_INT, 1)
+
 	H.verbs |= /mob/proc/haltyell
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
@@ -90,3 +96,65 @@
 	if(H.dna?.species)
 		if(H.dna.species.id == "human")
 			H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
+
+/datum/outfit/job/royalguard/post_equip(mob/living/carbon/human/H, visualsOnly)
+	. = ..()
+	var/static/list/selectable = list( \
+		"Flail" = /obj/item/weapon/flail/sflail, \
+		"Halberd" = /obj/item/weapon/polearm/halberd, \
+		"Greatsword" = /obj/item/weapon/sword/long/greatsword, \
+		"Sabre" = /obj/item/weapon/sword/sabre/dec, \
+		"Unarmed" = null \
+		)
+	var/choice = H.select_equippable(selectable, message = "Take up arms!", title = "KNIGHT")
+	if(!choice)
+		return
+	switch(choice)
+		if("Flail")
+			H.mind?.adjust_skillrank(/datum/skill/combat/whipsflails, 2, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
+		if("Halberd")
+			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/combat/shields, 1, TRUE)
+		if("Greatsword")
+			H.mind?.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
+			// Fuck this code here
+			if(H.backr && istype(H.backr, /obj/item/weapon/shield/tower/metal))
+				H.doUnEquip(H.backr, force = TRUE, silent = TRUE)
+				qdel(H.backr)
+		if("Sabre")
+			H.mind?.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
+		if("Unarmed")
+			H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
+
+
+/datum/outfit/job/royalguard/knight/pre_equip(mob/living/carbon/human/H)
+	..()
+	armor = /obj/item/clothing/armor/brigandine
+	shoes = /obj/item/clothing/shoes/boots/armor/light
+	backr = /obj/item/weapon/shield/tower/metal
+	gloves = /obj/item/clothing/gloves/chain
+	head = /obj/item/clothing/head/helmet/visored/knight
+
+/datum/outfit/job/royalguard/steam/pre_equip(mob/living/carbon/human/H)
+	..()
+	backr = /obj/item/clothing/cloak/boiler
+	armor = /obj/item/clothing/armor/steam
+	shoes = /obj/item/clothing/shoes/boots/armor/steam
+	gloves = /obj/item/clothing/gloves/plate/steam
+	head = /obj/item/clothing/head/helmet/heavy/steam
+
+	H.change_stat(STATKEY_INT, 1)
+	// Stronger armour than base RK + stat buff
+	H.change_stat(STATKEY_STR, -1)
+	H.change_stat(STATKEY_CON, -1)
+	H.change_stat(STATKEY_SPD, -1)
+
+/datum/advclass/royalguard/steam
+	name = "Steam Knight"
+
+	outfit = /datum/outfit/job/royalguard/steam
+
+	category_tags = list(CTAG_ROYALKNIGHT)
