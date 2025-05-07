@@ -231,7 +231,7 @@
 		return
 
 	var/text
-	if(spans.Find("emote"))
+	if(spans?.Find("emote"))
 		text = raw_message
 	else
 		text = lang_treat(speaker, message_language, raw_message, spans, null, TRUE)
