@@ -42,7 +42,7 @@
 	neck = /obj/item/clothing/neck/bevor
 	belt = /obj/item/storage/belt/leather
 	beltl = /obj/item/weapon/axe/iron
-	beltr = /obj/item/storage/belt/pouch/coins/rich
+	beltr = /obj/item/storage/belt/pouch/coins/mid
 	backr = /obj/item/weapon/polearm/halberd/bardiche/warcutter
 	backl = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/weapon/knife/hunting = 1, /obj/item/rope/chain = 1, /obj/item/key/forrestgarrison = 1, /obj/item/signal_horn = 1)
@@ -69,8 +69,6 @@
 		H.change_stat(STATKEY_END, 2)
 		H.change_stat(STATKEY_SPD, 1)
 	H.verbs |= /mob/proc/haltyell
-	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_FORAGER, TRAIT_GENERIC)
