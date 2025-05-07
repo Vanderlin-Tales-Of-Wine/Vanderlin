@@ -40,5 +40,4 @@
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 	H.change_stat(STATKEY_END, 2)
 	H.change_stat(STATKEY_PER, -2) // We don't want them using ranged weapons, period.
-	H.change_stat(STATKEY_SPD, 2) // Hit-And-Run.
-	H.change_stat(STATKEY_STR, -1) // Returning expert wrestling at suggestion of Head Admin Gale. Giving a strength malus to balance this.
+	H.change_stat(STATKEY_SPD, 3) // Hit-And-Run.
