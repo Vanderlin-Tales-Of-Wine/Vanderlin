@@ -1465,6 +1465,10 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 //shameless copypaste
 /datum/species/proc/kicked(mob/living/carbon/human/user, mob/living/carbon/human/target)
+	if(QDELETED(user) || QDELETED(target))
+		return
+	if(!ishuman(user) || !ishuman(target))
+		return
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
 		to_chat(user, "<span class='warning'>I don't want to harm [target]!</span>")
 		return FALSE

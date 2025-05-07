@@ -2329,8 +2329,6 @@
 "mi" = (
 /obj/structure/winch{
 	dir = 4;
-	gid = "gatemanor2";
-	redstone_id = "gatemanor3";
 	pixel_x = -6
 	},
 /turf/open/floor/church,

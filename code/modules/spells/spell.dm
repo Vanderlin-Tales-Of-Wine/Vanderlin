@@ -186,13 +186,20 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 	base_action = /datum/action/spell_action/spell
 
 /obj/effect/proc_holder/spell/proc/create_logs(atom/user, list/targets)
+	var/list/parsed_target_list = list()
+	for(var/atom/target as anything in targets)
+		if(ismob(target))
+			var/mob/mob_target = target
+			parsed_target_list += key_name_admin(mob_target)
+		else
+			parsed_target_list += target.name
 	var/targets_string
-	if(targets)
-		targets_string = targets.Join(", ")
+	if(parsed_target_list)
+		targets_string = parsed_target_list.Join(", ")
 		for(var/atom/target as anything in targets)
-			target.log_message("was affected by spell [name], caster was [user]", LOG_ATTACK, "red", FALSE)
+			target.log_message("was affected by spell [name], caster was [key_name_admin(user)]", LOG_ATTACK, "red", FALSE)
 	if(user)
-		user.log_message("cast the spell [name][targets ? "on [targets_string]" : ""].", LOG_ATTACK, "red")
+		user.log_message("casted the spell [name][targets_string ? " on [targets_string ]" : ""].", LOG_ATTACK, "red")
 
 /obj/effect/proc_holder/spell/get_chargetime()
 	if(ranged_ability_user && chargetime)

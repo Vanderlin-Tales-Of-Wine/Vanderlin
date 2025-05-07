@@ -103,5 +103,6 @@
 				to_chat(host, "<span class='danger'>[host]'s [bodypart] is twisted by a skeletal hand!</span>")
 				playsound(get_turf(host), pick('sound/combat/hits/punch/punch (1).ogg','sound/combat/hits/punch/punch (2).ogg','sound/combat/hits/punch/punch (3).ogg'), 100, FALSE, -1)
 				target.apply_damage(oxy_drain*mult*3, BRUTE, bodypart)
-				bodypart.update_disabled()
+				if(bodypart.can_be_disabled)
+					bodypart.update_disabled()
 	return FALSE
