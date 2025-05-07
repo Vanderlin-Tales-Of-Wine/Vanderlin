@@ -16,6 +16,7 @@
 	var/intent_type
 	var/animname = "strike"
 	var/blade_class = BCLASS_BLUNT
+	var/attack_animation = ATTACK_ANIMATION_SWIPE
 	var/list/hitsound = list('sound/combat/hits/blunt/bluntsmall (1).ogg', 'sound/combat/hits/blunt/bluntsmall (2).ogg')
 	var/canparry = TRUE
 	var/candodge = TRUE
