@@ -43,7 +43,7 @@
 	var/datum/objective/release_fish/new_objective = new(owner = chosen_one.mind)
 	chosen_one.mind.add_personal_objective(new_objective)
 
-	to_chat(chosen_one, span_notice("Abyssor demands mercy for the creatures of the deep! Any rare fish returned to the water will please him!"))
+	to_chat(chosen_one, span_notice("Abyssor demands respite for the creatures of the deep! Any rare fish returned to the water will please him!"))
 	SEND_SOUND(chosen_one, 'sound/items/bucket_transfer (2).ogg')
 
 	chosen_one.mind.announce_personal_objectives()

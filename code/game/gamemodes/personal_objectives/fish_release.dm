@@ -3,7 +3,7 @@
 	triumph_count = 0
 	var/released_count = 0
 	var/required_count = 1
-	var/list/valid_rarities = list("rare", "ultra", "gold")
+	var/required_rarity_rank = 1
 
 /datum/objective/release_fish/on_creation()
 	. = ..()
@@ -19,13 +19,7 @@
 	if(completed || !owner?.current)
 		return
 
-	var/is_valid = FALSE
-	for(var/rarity in valid_rarities)
-		if(raritymod?[rarity])
-			is_valid = TRUE
-			break
-
-	if(!is_valid)
+	if(!(raritymod >= required_rarity_rank))
 		return
 
 	released_count++
@@ -41,4 +35,3 @@
 
 /datum/objective/release_fish/update_explanation_text()
 	explanation_text = "Have any rare or better fish returned to the water to honor Abyssor."
-
