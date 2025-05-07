@@ -104,7 +104,7 @@
 		"Halberd" = /obj/item/weapon/polearm/halberd, \
 		"Greatsword" = /obj/item/weapon/sword/long/greatsword, \
 		"Sabre" = /obj/item/weapon/sword/sabre/dec, \
-		"Unarmed" = null \
+		"Unarmed" = /obj/item/weapon/knife/dagger/steel \
 		)
 	var/choice = H.select_equippable(selectable, message = "Take up arms!", title = "KNIGHT")
 	if(!choice)
@@ -113,7 +113,6 @@
 	switch(choice)
 		if("Flail")
 			H.mind?.adjust_skillrank(/datum/skill/combat/whipsflails, 2, TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
 		if("Halberd")
 			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
 			grant_shield = FALSE
@@ -122,11 +121,14 @@
 			grant_shield = FALSE
 		if("Sabre")
 			H.mind?.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
 		if("Unarmed")
 			H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+			grant_shield = FALSE
 	if(grant_shield)
+		H.mind?.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
 		var/shield = new /obj/item/weapon/shield/tower/metal()
 		if(!H.equip_to_appropriate_slot(shield))
 			qdel(shield)
@@ -160,7 +162,7 @@
 	H.change_stat(STATKEY_INT, 1)
 	// Stronger armour than base RK
 	// Stat punishment for not having the armour active
-	H.change_stat(STATKEY_STR, -1)
+	H.change_stat(STATKEY_STR, -2)
 	H.change_stat(STATKEY_END, -1)
 	H.change_stat(STATKEY_CON, -1)
 	H.change_stat(STATKEY_SPD, -2)

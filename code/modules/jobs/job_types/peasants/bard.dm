@@ -56,9 +56,9 @@
 	H.change_stat(STATKEY_SPD, 2)
 	H.change_stat(STATKEY_STR, -1)
 
-/datum/job/bard/after_spawn(mob/living/carbon/spawned, client/player_client)
+/datum/outfit/job/bard/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
-	spawned.select_equippable(list( \
+	H.select_equippable(list( \
 		"Harp" = /obj/item/instrument/harp, \
 		"Lute" = /obj/item/instrument/lute, \
 		"Accordion" = /obj/item/instrument/accord, \

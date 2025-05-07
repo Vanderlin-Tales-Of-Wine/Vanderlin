@@ -1278,24 +1278,11 @@ GLOBAL_VAR_INIT(mobids, 1)
 		return
 	if(!LAZYLEN(selection_list))
 		return
-	var/list/random_choices
-	for(var/selection as anything in selection_list)
-		var/random = selection_list[selection]
-		if(random && isitem(random))
-			LAZYADD(random_choices, random)
-	var/timerid
-	if(LAZYLEN(random_choices))
-		var/random_choice = pick(random_choices)
-		timerid = addtimer(CALLBACK(src, PROC_REF(equip_to_appropriate_slot), new random_choice()), time_limit, TIMER_STOPPABLE)
 	var/choice = browser_input_list(src, message, title, selection_list, timeout = time_limit)
-	if(SStimer.timer_id_dict[timerid])
-		deltimer(timerid)
 	if(!choice)
-		return
-	if(!LAZYACCESS(selection_list, choice))
-		return choice
-	var/spawn_item = selection_list[choice]
+		choice = pick(selection_list)
+	var/spawn_item = LAZYACCESS(selection_list, choice)
 	if(!spawn_item)
-		spawn_item = selection_list[pick(selection_list)]
+		return choice
 	equip_to_appropriate_slot(new spawn_item(get_turf(src)))
 	return choice
