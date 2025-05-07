@@ -88,6 +88,8 @@ GLOBAL_LIST_EMPTY(antagonists)
 	if(!istype(M))
 		return
 	var/datum/atom_hud/antag/hud = GLOB.huds[antag_hud_type]
+	if(!hud)
+		return
 	hud.join_hud(M)
 	set_antag_hud(M, antag_hud_name)
 
