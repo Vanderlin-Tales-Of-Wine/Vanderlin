@@ -549,30 +549,30 @@ GLOBAL_LIST_EMPTY(possible_items)
 	return (istype(user_area, dropoff) && istype(target_area, dropoff))
 
 /datum/mind/proc/admin_add_personal_objective(mob/admin)
-    if(!GLOB.admin_objective_list)
-        generate_admin_objective_list()
+	if(!GLOB.admin_objective_list)
+		generate_admin_objective_list()
 
-    var/selected_type = input(admin, "Select objective type:", "Objective type") as null|anything in GLOB.admin_objective_list
-    selected_type = GLOB.admin_objective_list[selected_type]
-    if(!selected_type)
-        return
+	var/selected_type = input(admin, "Select objective type:", "Objective type") as null|anything in GLOB.admin_objective_list
+	selected_type = GLOB.admin_objective_list[selected_type]
+	if(!selected_type)
+		return
 
-    var/datum/objective/O = new selected_type
-    O.admin_edit(admin)
-    add_personal_objective(O)
-    message_admins("[key_name_admin(admin)] added a new personal objective for [current]: [O.explanation_text]")
-    log_admin("[key_name(admin)] added a new personal objective for [current]: [O.explanation_text]")
+	var/datum/objective/O = new selected_type
+	O.admin_edit(admin)
+	add_personal_objective(O)
+	message_admins("[key_name_admin(admin)] added a new personal objective for [current]: [O.explanation_text]")
+	log_admin("[key_name(admin)] added a new personal objective for [current]: [O.explanation_text]")
 
 /datum/mind/proc/admin_remove_personal_objectives(mob/admin)
-    var/list/choices = list()
-    for(var/datum/objective/O in personal_objectives)
-        choices["[O.explanation_text]"] = O
+	var/list/choices = list()
+	for(var/datum/objective/O in personal_objectives)
+		choices["[O.explanation_text]"] = O
 
-    var/choice = input(admin, "Select objective to remove:", "Remove Objective") as null|anything in choices
-    if(!choice)
-        return
+	var/choice = input(admin, "Select objective to remove:", "Remove Objective") as null|anything in choices
+	if(!choice)
+		return
 
-    var/datum/objective/O = choices[choice]
-    remove_personal_objective(O)
-    message_admins("[key_name_admin(admin)] removed a personal objective from [current]: [O.explanation_text]")
-    log_admin("[key_name(admin)] removed a personal objective from [current]: [O.explanation_text]")
+	var/datum/objective/O = choices[choice]
+	remove_personal_objective(O)
+	message_admins("[key_name_admin(admin)] removed a personal objective from [current]: [O.explanation_text]")
+	log_admin("[key_name(admin)] removed a personal objective from [current]: [O.explanation_text]")

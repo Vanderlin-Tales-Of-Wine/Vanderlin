@@ -1258,17 +1258,17 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 	to_chat(current, span_notice("[youngling.real_name] has become your apprentice."))
 
 /datum/mind/proc/add_personal_objective(datum/objective/O)
-    if(!istype(O))
-        return FALSE
-    personal_objectives += O
-    O.owner = src
-    return TRUE
+	if(!istype(O))
+		return FALSE
+	personal_objectives += O
+	O.owner = src
+	return TRUE
 
 /datum/mind/proc/remove_personal_objective(datum/objective/O)
-    personal_objectives -= O
-    qdel(O)
+	personal_objectives -= O
+	qdel(O)
 
 /datum/mind/proc/clear_personal_objectives()
-    for(var/O in personal_objectives)
-        qdel(O)
-    personal_objectives.Cut()
+	for(var/O in personal_objectives)
+		qdel(O)
+	personal_objectives.Cut()
