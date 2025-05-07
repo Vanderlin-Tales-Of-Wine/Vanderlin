@@ -23,8 +23,6 @@
 	give_bank_account = 30
 	cmode_music = 'sound/music/cmode/nobility/CombatKnight.ogg'
 
-	var/reduced_skill = FALSE
-
 /datum/advclass/royalguard/knight
 	name = "Steel Knight"
 	tutorial = "The classic Knight in shining armor. Slightly more skilled then their Steam counterpart but has worse armor."
@@ -53,6 +51,7 @@
 
 /datum/outfit/job/royalguard
 	job_bitflag = BITFLAG_GARRISON
+	var/reduced_skill = FALSE
 
 /datum/outfit/job/royalguard/pre_equip(mob/living/carbon/human/H)
 	..()
