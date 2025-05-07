@@ -1,7 +1,7 @@
 /datum/objective/torture
 	name = "Extract Truth Through Pain"
 	var/torture_count = 0
-	var/required_count = 1  // Only need to torture once to prove devotion
+	var/required_count = 1
 	triumph_count = 0
 
 /datum/objective/torture/on_creation()

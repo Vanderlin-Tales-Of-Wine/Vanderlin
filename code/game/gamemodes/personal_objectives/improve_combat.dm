@@ -2,7 +2,7 @@
     name = "Improve Combat Skills"
     triumph_count = 0
     var/levels_gained = 0
-    var/required_levels = 2  // Need to gain 2 combat skill levels
+    var/required_levels = 2
 
 /datum/objective/improve_combat/on_creation()
     . = ..()
@@ -22,7 +22,6 @@
     if(completed)
         return
 
-    // Only count combat skills
     if(!ispath(skill_type, /datum/skill/combat))
         return
 

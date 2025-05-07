@@ -5,7 +5,6 @@
 /datum/objective/baptism/on_creation()
 	. = ..()
 	if(owner?.current)
-		// Check if already baptized by examining mana pool's recharge sources
 		if(owner.current.mana_pool?.intrinsic_recharge_sources & MANA_ALL_LEYLINES)
 			on_baptism_received()
 		else

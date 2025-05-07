@@ -22,17 +22,14 @@
     if(completed)
         return
 
-    // Count all organs
     organs_consumed++
 
-    // Specifically count hearts
     if(ispath(organ_type, /obj/item/reagent_containers/food/snacks/organ/heart))
         hearts_consumed++
         to_chat(owner.current, span_cult("You feel Graggar's pleasure as you consume a heart!"))
     else
         to_chat(owner.current, span_notice("Organ consumed! [organs_required - organs_consumed] more organs needed."))
 
-    // Check completion
     if(organs_consumed >= organs_required && hearts_consumed >= hearts_required)
         complete_objective()
 
@@ -40,7 +37,7 @@
     to_chat(owner.current, span_greentext("You have consumed enough organs and hearts to satisfy Graggar!"))
     owner.current.adjust_triumphs(1)
     completed = TRUE
-    adjust_storyteller_influence("Graggar", 20) // Slightly higher reward for dual requirements
+    adjust_storyteller_influence("Graggar", 20)
     UnregisterSignal(owner.current, COMSIG_ORGAN_CONSUMED)
 
 /datum/objective/consume_organs/update_explanation_text()
