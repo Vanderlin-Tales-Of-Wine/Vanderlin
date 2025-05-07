@@ -864,10 +864,7 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 		if (isnull(new_memo))
 			return
 		memory = new_memo
-	else if(href_list["add_personal_obj"])
-		admin_add_personal_objective(usr)
-	else if(href_list["remove_personal_obj"])
-		admin_remove_personal_objectives(usr)
+
 	else if (href_list["obj_edit"] || href_list["obj_add"])
 		var/objective_pos //Edited objectives need to keep same order in antag objective list
 		var/def_value
