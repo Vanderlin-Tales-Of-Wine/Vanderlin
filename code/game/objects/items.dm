@@ -264,6 +264,18 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	///these are flags of what tools can interact with this atom useful to stop hard coding interactions
 	var/tool_flags = NONE
 
+	var/list/attunement_values
+	///this is in KG
+	var/item_weight = 0
+	///this is a multiplier to the weight of items inside of this items contents
+	var/carry_multiplier = 1
+
+	/// Artificers Recipe
+	var/datum/artificer_recipe/artrecipe
+
+	/// angle of the icon, these are used for attack animations
+	var/icon_angle = 30 // most of our icons are angled
+
 /obj/item/Initialize()
 	. = ..()
 

@@ -932,7 +932,7 @@
 
 /atom/movable/proc/do_attack_animation(atom/attacked_atom, visual_effect_icon, obj/item/used_item, no_effect, item_animation_override = null, datum/intent/used_intent)
 	if(!no_effect && (visual_effect_icon || used_item))
-		var/animation_type = item_animation_override || used_intent.attack_animation
+		var/animation_type = item_animation_override || used_intent.get_attack_animation_type()
 		if (used_item && !item_animation_override)
 			switch(used_item.get_sharpness())
 				if (ATTACK_ANIMATION_SWIPE)
@@ -1029,7 +1029,7 @@
 		if (ATTACK_ANIMATION_THRUST)
 			var/attack_angle = dir2angle(direction) + rand(-7, 7)
 			// Deducting 90 because we're assuming that icon_angle of 0 means an east-facing sprite
-			var/anim_angle = attack_angle
+			var/anim_angle = attack_angle - 90 + used_item.icon_angle
 			var/angle_mult = 1
 			if (x_sign && y_sign)
 				angle_mult = 1.4
@@ -1067,7 +1067,7 @@
 			var/x_rot_sign = 0
 			var/y_rot_sign = 0
 			var/attack_dir = (prob(50) ? 1 : -1)
-			var/anim_angle = dir2angle(direction)
+			var/anim_angle = dir2angle(direction) - 90 + used_item.icon_angle
 
 			if (x_sign)
 				y_rot_sign = attack_dir

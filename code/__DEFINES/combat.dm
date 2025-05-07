@@ -187,12 +187,11 @@
 #define INTENT_USE			/datum/intent/use
 
 // animation types
-
 #define ATTACK_ANIMATION_BONK "bonk"
 #define ATTACK_ANIMATION_SWIPE "swipe"
 #define ATTACK_ANIMATION_THRUST "thrust"
 
-//Intent blade class for dismember class
+//Intent blade class for dismember class, if you add more here - you need to update the lists get_attack_animation_type() uses
 #define BCLASS_BLUNT		"blunt"
 #define BCLASS_SMASH		"smashing"
 #define BCLASS_DRILL		"drilling"
