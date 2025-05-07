@@ -427,15 +427,15 @@
 		has_objectives = TRUE
 		var/name_with_title
 		if(mind.current)
-			name_with_title = "[mind.current.real_name] the [mind.assigned_role.get_informed_title(mind.current)]"
+			name_with_title = printplayer(mind)
 		else
-			name_with_title = mind.name || "Unknown"
+			name_with_title = "Unknown"
 
-		parts += "<b>[name_with_title]'s personal objectives:</b>"
+		parts += "[name_with_title]"
 
 		var/obj_count = 1
 		for(var/datum/objective/objective as anything in mind.personal_objectives)
-			var/result = objective.check_completion() ? "<font color='green'>SUCCESS</font>" : "<font color='red'>FAIL</font>"
+			var/result = objective.check_completion() ? span_green("SUCCESS") : span_red("FAIL")
 			parts += "[obj_count]. [objective.explanation_text] - [result]"
 			obj_count++
 
