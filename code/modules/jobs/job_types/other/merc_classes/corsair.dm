@@ -2,9 +2,7 @@
 	name = "Corsair"
 	tutorial = "Banished from polite society, you once found kin with privateers, working adjacent to a royal navy. After the Red Flag battered itself in the wind one last time, your purse was still not satisfied... And yet he complained that his belly was not full."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Tiefling"
-	)
+	allowed_races = list("Tiefling")
 	outfit = /datum/outfit/job/adventurer/corsair
 	category_tags = list(CTAG_MERCENARY)
 	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander.ogg'
