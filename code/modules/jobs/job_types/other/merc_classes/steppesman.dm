@@ -31,7 +31,7 @@
 	backr = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/weapon/knife/hunting = 1)
 	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/bows, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/whipsflails, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
@@ -47,7 +47,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
-	H.change_stat(STATKEY_PER, 2)
+	H.change_stat(STATKEY_PER, 1)
 	H.change_stat(STATKEY_CON, 1)
 	H.change_stat(STATKEY_SPD, 1)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
