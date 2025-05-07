@@ -39,7 +39,7 @@
 	var/datum/objective/sniff_drugs/new_objective = new(owner = chosen_one.mind)
 	chosen_one.mind.add_personal_objective(new_objective)
 
-	to_chat(chosen_one, span_biginfo("Baotha demands chemical ecstasy! Sniff drugs to earn Baotha's favor!"))
+	to_chat(chosen_one, span_notice("Baotha demands chemical ecstasy! Sniff drugs to earn Baotha's favor!"))
 	SEND_SOUND(chosen_one, 'sound/ambience/noises/genspooky (1).ogg')
 
 	chosen_one.mind.announce_personal_objectives()

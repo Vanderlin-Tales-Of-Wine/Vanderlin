@@ -43,7 +43,7 @@
 	var/datum/objective/nobility/new_objective = new(owner = chosen_one.mind)
 	chosen_one.mind.add_personal_objective(new_objective)
 
-	to_chat(chosen_one, span_biginfo("Astrata wishes you to ascend in status! Become a part of the nobility to earn Astrata's favor!"))
+	to_chat(chosen_one, span_notice("Astrata wishes you to ascend in status! Become a part of the nobility to earn Astrata's favor!"))
 	SEND_SOUND(chosen_one, 'sound/magic/bless.ogg')
 
 	chosen_one.mind.announce_personal_objectives()

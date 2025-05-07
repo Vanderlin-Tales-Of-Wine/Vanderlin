@@ -39,7 +39,7 @@
 	var/datum/objective/tame_animal/new_objective = new(owner = chosen_one.mind)
 	chosen_one.mind.add_personal_objective(new_objective)
 
-	to_chat(chosen_one, span_biginfo("Dendor calls you to bond with the wild creatures! Tame an animal to earn Dendor's favor!"))
+	to_chat(chosen_one, span_notice("Dendor calls you to bond with the wild creatures! Tame an animal to earn Dendor's favor!"))
 	SEND_SOUND(chosen_one, 'sound/magic/barbroar.ogg')
 
 	chosen_one.mind.announce_personal_objectives()

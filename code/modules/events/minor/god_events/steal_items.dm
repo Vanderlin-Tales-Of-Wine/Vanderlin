@@ -47,7 +47,7 @@
 	var/datum/objective/steal_items/new_objective = new(owner = chosen_one.mind)
 	chosen_one.mind.add_personal_objective(new_objective)
 
-	to_chat(chosen_one, span_biginfo("Matthios demands you prove your cunning! Pickpocket fools to earn Matthios' favor!"))
+	to_chat(chosen_one, span_notice("Matthios demands you prove your cunning! Pickpocket fools to earn Matthios' favor!"))
 	SEND_SOUND(chosen_one, 'sound/items/matidol2.ogg')
 
 	chosen_one.mind.announce_personal_objectives()

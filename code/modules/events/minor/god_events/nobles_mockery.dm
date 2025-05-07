@@ -39,7 +39,7 @@
 	var/datum/objective/mock/noble/new_objective = new(owner = chosen_one.mind)
 	chosen_one.mind.add_personal_objective(new_objective)
 
-	to_chat(chosen_one, span_biginfo("Xylix demands entertainment! Viciously mock [new_objective.required_count] nobles to prove your wit and earn Xylix's favor!"))
+	to_chat(chosen_one, span_notice("Xylix demands entertainment! Viciously mock [new_objective.required_count] nobles to prove your wit and earn Xylix's favor!"))
 	SEND_SOUND(chosen_one, 'sound/vo/male/evil/laugh (1).ogg')
 
 	chosen_one.mind.announce_personal_objectives()
