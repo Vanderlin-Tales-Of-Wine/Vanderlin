@@ -16,17 +16,6 @@
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/concrete,
 /area/rogue/under/cavewet)
-"f" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_line"
-	},
-/area/rogue/under/cavewet)
-"g" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_joint";
-	dir = 1
-	},
-/area/rogue/under/cavewet)
 "h" = (
 /obj/item/flashlight/flare/torch/lantern,
 /turf/open/floor/metal,
@@ -49,12 +38,6 @@
 /obj/effect/dungeon_directional_helper/east,
 /turf/open/floor/concrete,
 /area/rogue/under/cavewet)
-"p" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_line";
-	dir = 4
-	},
-/area/rogue/under/cavewet)
 "q" = (
 /turf/open/floor/tile,
 /area/rogue/under/cavewet)
@@ -68,12 +51,6 @@
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/concrete,
 /area/rogue/under/cavewet)
-"w" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_joint";
-	dir = 4
-	},
-/area/rogue/under/cavewet)
 "x" = (
 /mob/living/simple_animal/hostile/retaliate/bigrat,
 /turf/open/water/swamp,
@@ -81,12 +58,6 @@
 "y" = (
 /obj/item/natural/worms/leech/propaganda,
 /turf/open/floor/metal,
-/area/rogue/under/cavewet)
-"A" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_corner";
-	dir = 4
-	},
 /area/rogue/under/cavewet)
 "B" = (
 /obj/structure/bars/pipe,
@@ -96,25 +67,11 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/metal,
 /area/rogue/under/cavewet)
-"F" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_joint";
-	dir = 8
-	},
-/area/rogue/under/cavewet)
 "H" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_corner"
-	},
+/turf/closed/wall/mineral/pipe,
 /area/rogue/under/cavewet)
 "I" = (
 /turf/open/floor/concrete,
-/area/rogue/under/cavewet)
-"K" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_corner";
-	dir = 1
-	},
 /area/rogue/under/cavewet)
 "L" = (
 /obj/structure/ladder,
@@ -132,17 +89,6 @@
 /area/rogue/under/cavewet)
 "Q" = (
 /turf/open/floor/metal,
-/area/rogue/under/cavewet)
-"S" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_joint"
-	},
-/area/rogue/under/cavewet)
-"T" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_corner";
-	dir = 8
-	},
 /area/rogue/under/cavewet)
 "U" = (
 /obj/structure/bars/pipe,
@@ -195,15 +141,15 @@ c
 (3,1,1) = {"
 c
 q
-K
-f
-f
-S
+H
+H
+H
+H
 q
 q
-S
-f
-f
+H
+H
+H
 H
 q
 c
@@ -211,7 +157,7 @@ c
 (4,1,1) = {"
 c
 q
-p
+H
 x
 a
 a
@@ -220,14 +166,14 @@ a
 a
 a
 a
-p
+H
 q
 c
 "}
 (5,1,1) = {"
 c
 q
-p
+H
 a
 a
 a
@@ -236,14 +182,14 @@ a
 a
 a
 x
-p
+H
 q
 c
 "}
 (6,1,1) = {"
 c
 q
-F
+H
 a
 a
 a
@@ -252,14 +198,14 @@ a
 a
 a
 a
-w
+H
 q
 c
 "}
 (7,1,1) = {"
 I
 j
-p
+H
 a
 a
 a
@@ -268,14 +214,14 @@ x
 a
 a
 a
-p
+H
 I
 I
 "}
 (8,1,1) = {"
 t
 I
-p
+H
 a
 a
 a
@@ -284,14 +230,14 @@ Y
 a
 a
 a
-p
+H
 I
 e
 "}
 (9,1,1) = {"
 c
 q
-F
+H
 a
 a
 a
@@ -300,14 +246,14 @@ a
 a
 a
 a
-w
+H
 q
 c
 "}
 (10,1,1) = {"
 c
 q
-p
+H
 a
 x
 a
@@ -316,14 +262,14 @@ a
 a
 a
 a
-p
+H
 q
 c
 "}
 (11,1,1) = {"
 c
 q
-p
+H
 a
 X
 a
@@ -332,23 +278,23 @@ a
 a
 a
 x
-p
+H
 q
 c
 "}
 (12,1,1) = {"
 c
 q
-T
-f
-f
-g
+H
+H
+H
+H
 q
 q
-g
-f
-f
-A
+H
+H
+H
+H
 q
 c
 "}

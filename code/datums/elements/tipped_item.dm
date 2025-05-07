@@ -29,15 +29,17 @@
 /datum/element/tipped_item/proc/check_dip(obj/item/dipper, obj/item/reagent_containers/attacked_container, mob/living/attacker, params)
 	SIGNAL_HANDLER
 
-	if(!istype(attacked_container))
+	if(QDELETED(attacked_container) || !istype(attacked_container))
+		return
+	if(attacker.cmode)
+		return
+	if(!attacked_container.reagents)
 		return
 	if(!attacked_container.reagents.total_volume)
 		return
 	if(!(attacked_container.reagents.flags & DRAINABLE))
 		return
 	if(dipper.reagents.total_volume == dipper.reagents.maximum_volume)
-		return
-	if(attacker.cmode)
 		return
 
 	INVOKE_ASYNC(src, PROC_REF(start_dipping), dipper, attacked_container, attacker)

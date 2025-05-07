@@ -50,32 +50,6 @@
 /obj/structure/flora/tree/Initialize()
 	. = ..()
 
-/*
-	if(makevines)
-		var/turf/target = get_step_multiz(src, UP)
-		if(istype(target, /turf/open/transparent/openspace))
-			target.ChangeTurf(/turf/open/floor/shroud)
-			var/makecanopy = FALSE
-			for(var/D in GLOB.cardinals)
-				if(!makecanopy)
-					var/turf/NT = get_step(src, D)
-					for(var/obj/structure/flora/tree/R in NT)
-						if(R.makevines)
-							makecanopy = TRUE
-							break
-			if(makecanopy)
-				for(var/D in GLOB.cardinals)
-					var/turf/NT = get_step(target, D)
-					if(NT)
-						if(istype(NT, /turf/open/transparent/openspace) || istype(NT, /turf/open/floor/shroud))
-							NT.ChangeTurf(/turf/closed/wall/shroud)
-							for(var/X in GLOB.cardinals)
-								var/turf/NA = get_step(NT, X)
-								if(NA)
-									if(istype(NA, /turf/open/transparent/openspace))
-										NA.ChangeTurf(/turf/open/floor/shroud)
-*/
-
 	if(istype(loc, /turf/open/floor/grass))
 		var/turf/T = loc
 		T.ChangeTurf(/turf/open/floor/dirt)

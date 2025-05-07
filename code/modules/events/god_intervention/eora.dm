@@ -2,7 +2,7 @@
 	name = "Eora's Matchmaking"
 	track = EVENT_TRACK_INTERVENTION
 	typepath = /datum/round_event/eora_matchmaking
-	weight = 4
+	weight = 8
 	earliest_start = 15 MINUTES
 	max_occurrences = 1
 	min_players = 30

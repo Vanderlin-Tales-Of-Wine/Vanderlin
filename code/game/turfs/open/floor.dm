@@ -6,14 +6,13 @@
 	desc = ""
 	icon = 'icons/turf/floors.dmi'
 	baseturfs = /turf/open/transparent/openspace
-	smooth = SMOOTH_FALSE
-	neighborlay = ""
-	canSmoothWith = null
 	footstep = FOOTSTEP_FLOOR
 	barefootstep = FOOTSTEP_HARD_BAREFOOT
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	attacked_sound = list('sound/combat/hits/onwood/woodimpact (1).ogg','sound/combat/hits/onwood/woodimpact (2).ogg')
+
+	smoothing_groups = SMOOTH_GROUP_OPEN_FLOOR
 
 	var/icon_regular_floor = "floor" //used to remember what icon the tile should have by default
 	var/icon_plating = "plating"
@@ -29,14 +28,9 @@
 	///means fires last at base 90 seconds
 	burn_power = 90
 
-	tiled_dirt = TRUE
-
-	var/smooth_icon = null
 	var/prettifyturf = FALSE
 
 /turf/open/floor/Initialize(mapload)
-	if(smooth_icon)
-		icon = smooth_icon
 	if (!broken_states)
 		broken_states = typelist("broken_states", list("damaged1", "damaged2", "damaged3", "damaged4", "damaged5"))
 	else

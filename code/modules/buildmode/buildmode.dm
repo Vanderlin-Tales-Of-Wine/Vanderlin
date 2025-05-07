@@ -50,6 +50,8 @@
 	return ..()
 
 /datum/buildmode/proc/post_login()
+	if(QDELETED(holder))
+		return
 	// since these will get wiped upon login
 	holder.screen += buttons
 	// re-open the according switch mode

@@ -1,6 +1,9 @@
 /// Randomizes our character preferences according to enabled bitflags.
 // Reflect changes in [mob/living/carbon/human/proc/randomize_human_appearance]
 /datum/preferences/proc/randomise_appearance_prefs(randomise_flags = ALL)
+	if(!length(GLOB.roundstart_races))
+		generate_selectable_species()
+
 	if(randomise_flags & RANDOMIZE_SPECIES)
 		var/rando_race = GLOB.species_list[pick(GLOB.roundstart_races)]
 		pref_species = new rando_race()

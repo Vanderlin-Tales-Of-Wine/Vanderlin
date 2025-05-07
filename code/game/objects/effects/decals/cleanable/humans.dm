@@ -87,6 +87,8 @@
 	bloodiness = 0
 
 /obj/effect/decal/cleanable/blood/lazy_init_reagents()
+	if(!reagents)
+		return
 	var/datum/component/forensics/D = GetComponent(/datum/component/forensics)
 	var/list/all_dna = D?.blood_DNA
 	var/list/reagents_to_add = list()

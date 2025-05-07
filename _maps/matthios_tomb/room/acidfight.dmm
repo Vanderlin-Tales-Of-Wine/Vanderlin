@@ -18,12 +18,6 @@
 /obj/structure/bars/pipe,
 /turf/open/transparent/openspace,
 /area/rogue/under/cavelava)
-"i" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_line";
-	dir = 4
-	},
-/area/rogue/indoors/shelter)
 "k" = (
 /obj/item/natural/poo/cow,
 /turf/open/floor/metal,
@@ -101,19 +95,11 @@
 /turf/open/floor/metal,
 /area/rogue/under/cavelava)
 "E" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_line"
-	},
+/turf/closed/wall/mineral/pipe,
 /area/rogue/indoors/shelter)
 "F" = (
 /turf/open/floor/dirt/road,
 /area/rogue/under/cavelava)
-"G" = (
-/turf/closed/wall/mineral/pipe{
-	dir = 1;
-	icon_state = "iron_corner"
-	},
-/area/rogue/indoors/shelter)
 "H" = (
 /obj/structure/fluff/wallclock,
 /obj/item/flashlight/flare/torch/lantern/copper,
@@ -1003,7 +989,7 @@ x
 x
 m
 m
-G
+E
 E
 E
 E
@@ -1047,7 +1033,7 @@ U
 m
 x
 m
-i
+E
 H
 s
 s
@@ -1069,7 +1055,7 @@ U
 m
 x
 x
-i
+E
 o
 s
 R

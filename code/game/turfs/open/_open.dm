@@ -11,6 +11,8 @@
 	var/footstepstealth = FALSE
 	baseturfs = /turf/open/transparent/openspace
 
+	smoothing_groups = SMOOTH_GROUP_OPEN
+
 /turf/proc/get_slowdown(mob/user)
 	return 0
 

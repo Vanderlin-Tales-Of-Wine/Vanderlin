@@ -318,7 +318,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 	else
 		CALCULATE_ADJACENT_TURFS(src)
 
-	queue_smooth_neighbors(src)
+	QUEUE_SMOOTH_NEIGHBORS(src)
 
 	HandleTurfChange(src)
 

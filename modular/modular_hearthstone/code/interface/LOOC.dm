@@ -58,7 +58,7 @@
 
 
 	msg = emoji_parse(msg)
-	mob.log_talk(msg, LOG_LOOC)
+	mob.log_talk("LOOC: [msg]", LOG_LOOC)
 
 	var/prefix = "LOOC"
 	var/list/mobs = list()

@@ -2,7 +2,7 @@
 	name = "Xylix's Fortune"
 	track = EVENT_TRACK_INTERVENTION
 	typepath = /datum/round_event/xylix_fortune
-	weight = 4
+	weight = 8
 	earliest_start = 20 MINUTES
 	max_occurrences = 1
 	min_players = 30

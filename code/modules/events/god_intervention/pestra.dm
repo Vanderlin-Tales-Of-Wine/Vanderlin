@@ -2,7 +2,7 @@
 	name = "Pestra's Mercy"
 	track = EVENT_TRACK_INTERVENTION
 	typepath = /datum/round_event/pestra_mercy
-	weight = 4
+	weight = 8
 	earliest_start = 0 SECONDS
 	max_occurrences = 2
 	min_players = 10

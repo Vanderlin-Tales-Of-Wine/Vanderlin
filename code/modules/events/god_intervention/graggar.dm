@@ -80,7 +80,7 @@ GLOBAL_LIST_EMPTY(graggar_cullings)
 	name = "Graggar's Culling"
 	track = EVENT_TRACK_INTERVENTION
 	typepath = /datum/round_event/graggar_culling
-	weight = 4
+	weight = 8
 	earliest_start = 25 MINUTES
 	max_occurrences = 1
 	min_players = 40

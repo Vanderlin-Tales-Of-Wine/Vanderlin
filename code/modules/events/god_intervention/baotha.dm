@@ -2,7 +2,7 @@
 	name = "Baotha's Revelry"
 	track = EVENT_TRACK_INTERVENTION
 	typepath = /datum/round_event/baotha_revelry
-	weight = 4
+	weight = 8
 	earliest_start = 15 MINUTES
 	max_occurrences = 2
 	min_players = 10
