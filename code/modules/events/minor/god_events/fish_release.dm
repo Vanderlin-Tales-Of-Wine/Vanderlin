@@ -17,7 +17,7 @@
 			continue
 		if(!H.patron || !istype(H.patron, /datum/patron/divine/abyssor))
 			continue
-		if(H.mind?.assigned_role != "Fisher")
+		if(H.mind?.assigned_role != /datum/job/fisher)
 			continue
 		return TRUE
 
@@ -31,7 +31,7 @@
 			continue
 		if(!human_mob.patron || !istype(human_mob.patron, /datum/patron/divine/abyssor))
 			continue
-		if(human_mob.mind?.assigned_role != "Fisher")
+		if(human_mob.mind?.assigned_role != /datum/job/fisher)
 			continue
 		valid_targets += human_mob
 

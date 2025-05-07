@@ -17,7 +17,7 @@
 			continue
 		if(!H.patron || !istype(H.patron, /datum/patron/divine/necra))
 			continue
-		if(H.mind?.assigned_role == "Graventeder")
+		if(H.mind?.assigned_role == /datum/job/undertaker || H.job == "Graventeder")
 			continue
 		return TRUE
 
@@ -31,7 +31,7 @@
 			continue
 		if(!human_mob.patron || !istype(human_mob.patron, /datum/patron/divine/necra))
 			continue
-		if(human_mob.mind?.assigned_role == "Gravetender")
+		if(human_mob.mind?.assigned_role == /datum/job/undertaker || human_mob.job == "Gravetender")
 			continue
 		valid_targets += human_mob
 
