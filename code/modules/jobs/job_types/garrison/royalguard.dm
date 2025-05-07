@@ -106,7 +106,7 @@
 		"Sabre" = /obj/item/weapon/sword/sabre/dec, \
 		"Unarmed" = /obj/item/weapon/knife/dagger/steel \
 		)
-	var/choice = H.select_equippable(selectable, message = "Take up arms!", title = "KNIGHT")
+	var/choice = H.select_equippable(selectable, message = "Choose Your Specialisation", title = "KNIGHT")
 	if(!choice)
 		return
 	var/grant_shield = TRUE
