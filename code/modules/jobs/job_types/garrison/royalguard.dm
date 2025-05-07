@@ -25,11 +25,13 @@
 
 /datum/advclass/royalguard/knight
 	name = "Steel Knight"
-	tutorial = "The classic Knight in shining armor."
+	tutorial = "The classic Knight in shining armor. Slightly more skilled then their Steam counterpart but has worse armor."
 
 	outfit = /datum/outfit/job/royalguard/knight
 
 	category_tags = list(CTAG_ROYALKNIGHT)
+
+	var/reduced_skill = FALSE
 
 /datum/job/royalguard/after_spawn(mob/living/carbon/human/spawned, client/player_client)
 	..()
@@ -110,19 +112,23 @@
 	if(!choice)
 		return
 	var/grant_shield = TRUE
+	var/modifier = reduced_skill
 	switch(choice)
 		if("Flail")
-			H.mind?.adjust_skillrank(/datum/skill/combat/whipsflails, 2, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/combat/whipsflails, 2 - modifier, TRUE)
 		if("Halberd")
-			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 2 - modifier, TRUE)
 			grant_shield = FALSE
 		if("Longsword")
-			H.mind?.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
+			if(!reduced_skill)
+				H.mind?.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
 			grant_shield = FALSE
 		if("Sabre")
-			H.mind?.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
+			if(!reduced_skill)
+				H.mind?.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
 		if("Unarmed")
-			H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
+			if(!reduced_skill)
+				H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 			grant_shield = FALSE
@@ -150,6 +156,9 @@
 
 	category_tags = list(CTAG_ROYALKNIGHT)
 
+/datum/outfit/job/royalguard/steam
+	reduced_skill = TRUE
+
 /datum/outfit/job/royalguard/steam/pre_equip(mob/living/carbon/human/H)
 	. = ..()
 	backr = /obj/item/clothing/cloak/boiler
@@ -162,8 +171,10 @@
 	H.change_stat(STATKEY_INT, 1)
 	// Stronger armour than base RK
 	// Stat punishment for not having the armour active
-	H.change_stat(STATKEY_STR, -2)
+	H.change_stat(STATKEY_STR, -1)
 	H.change_stat(STATKEY_CON, -1)
+	H.change_stat(STATKEY_END, -1)
+	// Way heavier
 	H.change_stat(STATKEY_SPD, -1)
 
 /datum/outfit/job/royalguard/steam/post_equip(mob/living/carbon/human/H, visualsOnly)
