@@ -24,7 +24,8 @@
 	cmode_music = 'sound/music/cmode/nobility/CombatKnight.ogg'
 
 /datum/advclass/royalguard/knight
-	name = "Royal Knight"
+	name = "Steel Knight"
+	tutorial = "The classic Knight in shining armor."
 
 	outfit = /datum/outfit/job/royalguard/knight
 
@@ -57,11 +58,11 @@
 	pants = /obj/item/clothing/pants/platelegs
 	cloak = /obj/item/clothing/cloak/tabard/knight/guard  // Wear the King's colors
 	shirt = /obj/item/clothing/armor/gambeson/arming
-	beltl = /obj/item/storage/keyring/manorguard
 	belt = /obj/item/storage/belt/leather
 	beltr = /obj/item/weapon/sword/arming
 	backl = /obj/item/storage/backpack/satchel
 	wrists = /obj/item/clothing/wrists/bracers
+	backpack_contents = list(/obj/item/storage/keyring/manorguard = 1)
 
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
@@ -93,9 +94,8 @@
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
-	if(H.dna?.species)
-		if(H.dna.species.id == "human")
-			H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
+	if(H.dna?.species?.id == "human")
+		H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
 
 /datum/outfit/job/royalguard/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
@@ -109,33 +109,45 @@
 	var/choice = H.select_equippable(selectable, message = "Take up arms!", title = "KNIGHT")
 	if(!choice)
 		return
+	var/grant_shield = TRUE
 	switch(choice)
 		if("Flail")
 			H.mind?.adjust_skillrank(/datum/skill/combat/whipsflails, 2, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
 		if("Halberd")
 			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/combat/shields, 1, TRUE)
+			grant_shield = FALSE
 		if("Greatsword")
 			H.mind?.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
-			// Fuck this code here
-			if(H.backr && istype(H.backr, /obj/item/weapon/shield/tower/metal))
-				H.doUnEquip(H.backr, force = TRUE, silent = TRUE)
-				qdel(H.backr)
+			grant_shield = FALSE
 		if("Sabre")
 			H.mind?.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
 		if("Unarmed")
 			H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
+	if(grant_shield)
+		var/shield = new /obj/item/weapon/shield/tower/metal()
+		if(!H.equip_to_appropriate_slot(shield))
+			qdel(shield)
 
 /datum/outfit/job/royalguard/knight/pre_equip(mob/living/carbon/human/H)
 	..()
 	armor = /obj/item/clothing/armor/brigandine
 	shoes = /obj/item/clothing/shoes/boots/armor/light
-	backr = /obj/item/weapon/shield/tower/metal
 	gloves = /obj/item/clothing/gloves/chain
 	head = /obj/item/clothing/head/helmet/visored/knight
+
+/datum/advclass/royalguard/steam
+	name = "Steam Knight"
+	tutorial = "The pinnacle of Vanderlin's steam technology. \
+	Start with a set of Steam Armor that requires steam to function. \
+	The suit is powerful when powered but will slow you down when not, \
+	you also have less space to store your arms."
+
+	outfit = /datum/outfit/job/royalguard/steam
+
+	category_tags = list(CTAG_ROYALKNIGHT)
 
 /datum/outfit/job/royalguard/steam/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -146,19 +158,14 @@
 	head = /obj/item/clothing/head/helmet/heavy/steam
 
 	H.change_stat(STATKEY_INT, 1)
-	// Stronger armour than base RK + stat buff
+	// Stronger armour than base RK
+	// Stat punishment for not having the armour active
 	H.change_stat(STATKEY_STR, -1)
+	H.change_stat(STATKEY_END, -1)
 	H.change_stat(STATKEY_CON, -1)
-	H.change_stat(STATKEY_SPD, -1)
+	H.change_stat(STATKEY_SPD, -2)
 
 /datum/outfit/job/royalguard/steam/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
 	if(H.backr && istype(H.backr, /obj/item/clothing/cloak/boiler))
 		SEND_SIGNAL(H.backr, COMSIG_ATOM_STEAM_INCREASE, 500)
-
-/datum/advclass/royalguard/steam
-	name = "Steam Knight"
-
-	outfit = /datum/outfit/job/royalguard/steam
-
-	category_tags = list(CTAG_ROYALKNIGHT)
