@@ -930,6 +930,9 @@
 /mob
 	no_bump_effect = FALSE
 
+GLOBAL_VAR_INIT(pixel_diff, 12)
+GLOBAL_VAR_INIT(pixel_diff_time, 1)
+
 /atom/movable/proc/do_attack_animation(atom/attacked_atom, visual_effect_icon, obj/item/used_item, no_effect, item_animation_override = null, datum/intent/used_intent)
 	if(!no_effect && (visual_effect_icon || used_item))
 		var/animation_type = item_animation_override || used_intent?.get_attack_animation_type()
@@ -943,22 +946,22 @@
 
 	var/direction = get_dir(src, attacked_atom)
 	if(direction & NORTH)
-		pixel_y_diff = 8
+		pixel_y_diff = GLOB.pixel_diff
 		turn_dir = prob(50) ? -1 : 1
 	else if(direction & SOUTH)
-		pixel_y_diff = -8
+		pixel_y_diff = -GLOB.pixel_diff
 		turn_dir = prob(50) ? -1 : 1
 
 	if(direction & EAST)
-		pixel_x_diff = 8
+		pixel_x_diff = GLOB.pixel_diff
 	else if(direction & WEST)
-		pixel_x_diff = -8
+		pixel_x_diff = -GLOB.pixel_diff
 		turn_dir = -1
 
 	var/matrix/initial_transform = matrix(transform)
 	var/matrix/rotated_transform = transform.Turn(15 * turn_dir)
-	animate(src, pixel_x = pixel_x + pixel_x_diff, pixel_y = pixel_y + pixel_y_diff, transform=rotated_transform, time = 1, easing=BACK_EASING|EASE_IN, flags = ANIMATION_PARALLEL)
-	animate(pixel_x = pixel_x - pixel_x_diff, pixel_y = pixel_y - pixel_y_diff, transform=initial_transform, time = 2, easing=SINE_EASING, flags = ANIMATION_PARALLEL)
+	animate(src, pixel_x = pixel_x + pixel_x_diff, pixel_y = pixel_y + pixel_y_diff, transform=rotated_transform, time = GLOB.pixel_diff_time, easing=LINEAR_EASING, flags = ANIMATION_PARALLEL)
+	animate(pixel_x = pixel_x - pixel_x_diff, pixel_y = pixel_y - pixel_y_diff, transform=initial_transform, time = GLOB.pixel_diff_time * 2, easing=SINE_EASING, flags = ANIMATION_PARALLEL)
 
 
 /atom/movable/proc/do_item_attack_animation(atom/attacked_atom, visual_effect_icon, obj/item/used_item, animation_type = ATTACK_ANIMATION_SWIPE)
@@ -973,7 +976,7 @@
 		var/matrix/copy_transform = new(transform)
 		animate(attack, alpha = 175, transform = copy_transform.Scale(0.75), time = 0.3 SECONDS)
 		animate(time = 0.1 SECONDS)
-		animate(alpha = 0, time = 0.3 SECONDS, easing = CIRCULAR_EASING|EASE_OUT)
+		animate(alpha = 0, time = 0.3 SECONDS, easing = BACK_EASING|EASE_OUT)
 		return
 
 	if (isnull(used_item))
@@ -1018,7 +1021,7 @@
 			attack.pixel_y = 12 * y_sign
 			animate(attack, alpha = 175, transform = copy_transform.Scale(0.75), pixel_x = 4 * x_sign, pixel_y = 3 * y_sign, time = 0.2 SECONDS)
 			animate(time = 0.1 SECONDS)
-			animate(alpha = 0, time = 0.1 SECONDS, easing = CIRCULAR_EASING|EASE_OUT)
+			animate(alpha = 0, time = 0.1 SECONDS, easing = BACK_EASING|EASE_OUT)
 
 		if (ATTACK_ANIMATION_THRUST)
 			var/attack_angle = dir2angle(direction) + rand(-7, 7)
@@ -1036,7 +1039,7 @@
 				pixel_x = (22 * x_sign - 12 * sin(attack_angle)) * angle_mult,
 				pixel_y = (18 * y_sign - 8 * cos(attack_angle)) * angle_mult,
 				time = 0.1 SECONDS,
-				easing = CUBIC_EASING|EASE_IN,
+				easing = BACK_EASING|EASE_OUT,
 			)
 			animate(
 				attack,
@@ -1045,14 +1048,14 @@
 				pixel_x = (22 * x_sign + 26 * sin(attack_angle)) * angle_mult,
 				pixel_y = (18 * y_sign + 22 * cos(attack_angle)) * angle_mult,
 				time = 0.3 SECONDS,
-				easing = CUBIC_EASING|EASE_OUT,
+				easing = BACK_EASING|EASE_OUT,
 			)
 			animate(
 				alpha = 0,
 				pixel_x = -3 * -(x_sign + sin(attack_angle)),
 				pixel_y = -2 * -(y_sign + cos(attack_angle)),
 				time = 0.1 SECONDS,
-				easing = CIRCULAR_EASING|EASE_OUT
+				easing = BACK_EASING|EASE_OUT
 			)
 
 		if (ATTACK_ANIMATION_SWIPE)
@@ -1092,7 +1095,7 @@
 			copy_transform = copy_transform.Scale(0.75)
 			animate(attack, alpha = 175, time = 0.3 SECONDS, flags = ANIMATION_PARALLEL)
 			animate(time = 0.1 SECONDS)
-			animate(alpha = 0, time = 0.1 SECONDS, easing = CIRCULAR_EASING|EASE_OUT)
+			animate(alpha = 0, time = 0.1 SECONDS, easing = BACK_EASING|EASE_OUT)
 
 			animate(attack, transform = copy_transform.Turn(anim_angle + 45 * anim_dir), time = 0.3 SECONDS, flags = ANIMATION_PARALLEL)
 
