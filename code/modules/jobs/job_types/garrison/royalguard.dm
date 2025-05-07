@@ -132,7 +132,7 @@
 			qdel(shield)
 
 /datum/outfit/job/royalguard/knight/pre_equip(mob/living/carbon/human/H)
-	..()
+	. = ..()
 	armor = /obj/item/clothing/armor/brigandine
 	shoes = /obj/item/clothing/shoes/boots/armor/light
 	gloves = /obj/item/clothing/gloves/chain
@@ -142,15 +142,15 @@
 	name = "Steam Knight"
 	tutorial = "The pinnacle of Vanderlin's steam technology. \
 	Start with a set of Steam Armor that requires steam to function. \
-	The suit is powerful when powered but will slow you down when not, \
-	you also have less space to store your arms."
+	The suit is powerful when powered but will slow you down when not \
+	and has the cost of reducing your space for arms."
 
 	outfit = /datum/outfit/job/royalguard/steam
 
 	category_tags = list(CTAG_ROYALKNIGHT)
 
 /datum/outfit/job/royalguard/steam/pre_equip(mob/living/carbon/human/H)
-	..()
+	. = ..()
 	backr = /obj/item/clothing/cloak/boiler
 	armor = /obj/item/clothing/armor/steam
 	shoes = /obj/item/clothing/shoes/boots/armor/steam
