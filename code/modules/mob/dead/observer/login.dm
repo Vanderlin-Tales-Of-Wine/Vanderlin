@@ -6,7 +6,6 @@
 		ghost_others = client.prefs.ghost_others
 	var/preferred_form = null
 
-
 	if(IsAdminGhost(src))
 		has_unlimited_silicon_privilege = 1
 
