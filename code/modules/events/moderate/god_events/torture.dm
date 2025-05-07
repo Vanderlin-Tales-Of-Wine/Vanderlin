@@ -40,9 +40,11 @@
 	chosen_one.mind.add_personal_objective(new_objective)
 
 	chosen_one.verbs |= /mob/living/carbon/human/proc/torture_victim
-	to_chat(chosen_one, span_notice("You gain the ability to <b>torture victims</b>."))
 
-	to_chat(chosen_one, span_biginfo("Zizo demands suffering! Extract the truth through pain to earn Zizo's favor!"))
+
+	to_chat(chosen_one, span_biginfo("Zizo demands suffering! Extract the information through pain to earn Zizo's favor!"))
 	SEND_SOUND(chosen_one, 'sound/magic/marked.ogg')
+
+	to_chat(chosen_one, span_notice("You have gained an ability to <b>torture</b> others!"))
 
 	chosen_one.mind.announce_personal_objectives()

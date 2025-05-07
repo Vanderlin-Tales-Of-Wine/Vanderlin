@@ -25,10 +25,10 @@
         to_chat(owner.current, span_greentext("You have stolen enough items to complete Matthios' objective!"))
         owner.current.adjust_triumphs(1)
         completed = TRUE
-        adjust_storyteller_influence("Matthios", 15)
+        adjust_storyteller_influence("Matthios", 10)
         UnregisterSignal(owner.current, COMSIG_ITEM_STOLEN)
     else
         to_chat(owner.current, span_notice("Item stolen! Steal [required_count - stolen_count] more to complete Matthios' objective."))
 
 /datum/objective/steal_items/update_explanation_text()
-    explanation_text = "Steal [required_count] items from others to prove your cunning to Matthios!"
+    explanation_text = "Steal [required_count] item\s from others to prove your cunning to Matthios!"

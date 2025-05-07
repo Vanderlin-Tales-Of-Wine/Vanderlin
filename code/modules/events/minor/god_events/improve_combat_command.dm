@@ -1,5 +1,5 @@
 /datum/round_event_control/ravox_combat
-	name = "Be Stronger Desire"
+	name = "Get Stronger Desire"
 	track = EVENT_TRACK_MUNDANE
 	typepath = /datum/round_event/ravox_combat
 	weight = 5

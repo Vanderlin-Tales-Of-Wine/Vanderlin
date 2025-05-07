@@ -23,6 +23,8 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 	on_creation()
 
 /datum/objective/proc/on_creation()
+	if(owner && !(owner in GLOB.personal_objective_minds))
+		GLOB.personal_objective_minds |= owner
 	return
 
 /datum/objective/proc/get_owners() // Combine owner and team into a single list.

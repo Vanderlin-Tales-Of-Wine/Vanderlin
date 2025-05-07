@@ -38,4 +38,4 @@
         to_chat(owner.current, span_notice("Combat skill improved! [required_levels - levels_gained] more levels needed."))
 
 /datum/objective/improve_combat/update_explanation_text()
-    explanation_text = "Improve your combat skills by gaining [required_levels] total skill levels through practice or training."
+    explanation_text = "Improve your combat skills by gaining [required_levels] total skill levels through practice or dreams."

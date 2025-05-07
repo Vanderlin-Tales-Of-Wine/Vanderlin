@@ -25,4 +25,4 @@
 	UnregisterSignal(owner.current, COMSIG_LUX_EXTRACTED)
 
 /datum/objective/lux_extraction/update_explanation_text()
-	explanation_text = "Extract lux from a living being to sate Pestra's hunger!"
+	explanation_text = "Extract lux from a living being to sate Pestra's curiosity!"

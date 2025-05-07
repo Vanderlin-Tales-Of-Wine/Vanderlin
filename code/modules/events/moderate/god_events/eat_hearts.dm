@@ -45,9 +45,10 @@
 
 	var/obj/effect/proc_holder/spell/invoked/extract_heart/heart_spell = new()
 	chosen_one.mind.AddSpell(heart_spell)
-	to_chat(chosen_one, span_notice("Graggar grants you the terrible power to extract hearts!"))
 
 	to_chat(chosen_one, span_biginfo("Graggar hungers! [new_objective.explanation_text]"))
 	SEND_SOUND(chosen_one, 'sound/magic/marked.ogg')
+
+	to_chat(chosen_one, span_notice("Graggar grants you a power to extract hearts from the dead!"))
 
 	chosen_one.mind.announce_personal_objectives()

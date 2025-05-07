@@ -25,10 +25,10 @@
 		to_chat(owner.current, span_greentext("You have sniffed enough substances to complete Baotha's objective!"))
 		owner.current.adjust_triumphs(1)
 		completed = TRUE
-		adjust_storyteller_influence("Baotha", 15)
+		adjust_storyteller_influence("Baotha", 10)
 		UnregisterSignal(owner.current, COMSIG_DRUG_SNIFFED)
 	else
 		to_chat(owner.current, span_notice("Substance sniffed! Sniff [required_count - sniff_count] more to complete Baotha's objective."))
 
 /datum/objective/sniff_drugs/update_explanation_text()
-	explanation_text = "Sniff [required_count] different substances to experience Baotha's ecstasy!"
+	explanation_text = "Sniff [required_count] substances to earn Baotha's favor!"

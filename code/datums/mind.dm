@@ -1,3 +1,5 @@
+GLOBAL_LIST_EMPTY(personal_objective_minds)
+
 /*	Note from Carnie:
 		The way datum/mind stuff works has been changed a lot.
 		Minds now represent IC characters rather than following a client around constantly.

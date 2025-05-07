@@ -19,6 +19,8 @@
 			continue
 		if(H.mind?.assigned_role == "Bandit")
 			continue
+		if(H.mind?.get_skill_level(/datum/skill/misc/stealing) < 2)
+			continue
 		return TRUE
 
 	return FALSE
@@ -33,6 +35,8 @@
 			continue
 		if(human_mob.mind?.assigned_role == "Bandit")
 			continue
+		if(human_mob.mind?.get_skill_level(/datum/skill/misc/stealing) < 2)
+			continue
 		valid_targets += human_mob
 
 	if(!valid_targets.len)
@@ -43,7 +47,7 @@
 	var/datum/objective/steal_items/new_objective = new(owner = chosen_one.mind)
 	chosen_one.mind.add_personal_objective(new_objective)
 
-	to_chat(chosen_one, span_biginfo("Matthios demands you prove your cunning! Steal valuables to earn Matthios' favor!"))
+	to_chat(chosen_one, span_biginfo("Matthios demands you prove your cunning! Pickpocket fools to earn Matthios' favor!"))
 	SEND_SOUND(chosen_one, 'sound/magic/marked.ogg')
 
 	chosen_one.mind.announce_personal_objectives()

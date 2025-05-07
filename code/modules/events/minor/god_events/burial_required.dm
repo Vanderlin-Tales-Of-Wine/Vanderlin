@@ -1,5 +1,5 @@
 /datum/round_event_control/necra_burials
-	name = "Sacred Burials"
+	name = "Burial Desire"
 	track = EVENT_TRACK_MUNDANE
 	typepath = /datum/round_event/necra_burials
 	weight = 5

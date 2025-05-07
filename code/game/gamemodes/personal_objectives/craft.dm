@@ -22,7 +22,7 @@
     to_chat(owner.current, span_greentext("You have crafted a sacred shrine, completing Malum's objective!"))
     owner.current.adjust_triumphs(1)
     completed = TRUE
-    adjust_storyteller_influence("Malum", 15)
+    adjust_storyteller_influence("Malum", 10)
     UnregisterSignal(owner.current, COMSIG_ITEM_CRAFTED)
 
 /datum/objective/craft_shrine/update_explanation_text()

@@ -40,7 +40,7 @@
 	var/datum/objective/baptism/new_objective = new(owner = chosen_one.mind)
 	chosen_one.mind.add_personal_objective(new_objective)
 
-	to_chat(chosen_one, span_biginfo("Noc demands your devotion! Seek baptism in Noc's name to earn their favor!"))
+	to_chat(chosen_one, span_biginfo("Noc demands that you learn the ways of the arcane! Seek baptism in Noc's name to earn their favor!"))
 	SEND_SOUND(chosen_one, 'sound/magic/marked.ogg')
 
 	chosen_one.mind.announce_personal_objectives()
