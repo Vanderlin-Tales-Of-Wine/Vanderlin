@@ -105,7 +105,7 @@ SUBSYSTEM_DEF(job)
 			JobDebug("FOC flag failed, Player: [player], Flag: [flag], ")
 			continue
 		if(!player.client.prefs.spec_check(player))
-			JobDebug("FOC player has invalid species preference(Patreon/Limited-Locked Species), Player: [player], Job:[job.title], Race: [player.client.prefs.pref_species.name]") // wtf does DO mean???
+			JobDebug("FOC player has invalid species preference(Patreon/Limited-Locked Species), Player: [player], Job:[job.title], Race: [player.client.prefs.pref_species.name]")
 			continue
 		if(player.mind && (job.title in player.mind.restricted_roles))
 			JobDebug("FOC incompatible with antagonist role, Player: [player]")
@@ -363,7 +363,7 @@ SUBSYSTEM_DEF(job)
 					continue
 
 				if(!player.client.prefs.spec_check(player)) //This should check if they're allowed to use the specie :thinking:
-					JobDebug("DO player has invalid species preference(Patreon/Limited-Locked Species), Player: [player], Job:[job.title], Race: [player.client.prefs.pref_species.name]") // wtf does DO mean???
+					JobDebug("DO player has invalid species preference(Patreon/Limited-Locked Species), Player: [player], Job:[job.title], Race: [player.client.prefs.pref_species.name]")
 					continue
 
 				if(player.mind && (job.title in player.mind.restricted_roles))
