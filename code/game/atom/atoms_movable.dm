@@ -933,12 +933,6 @@
 /atom/movable/proc/do_attack_animation(atom/attacked_atom, visual_effect_icon, obj/item/used_item, no_effect, item_animation_override = null, datum/intent/used_intent)
 	if(!no_effect && (visual_effect_icon || used_item))
 		var/animation_type = item_animation_override || used_intent?.get_attack_animation_type()
-		if (used_item && !item_animation_override)
-			switch(used_item.get_sharpness())
-				if (ATTACK_ANIMATION_SWIPE)
-					animation_type = ATTACK_ANIMATION_SWIPE
-				if (ATTACK_ANIMATION_THRUST)
-					animation_type = ATTACK_ANIMATION_THRUST
 		do_item_attack_animation(attacked_atom, visual_effect_icon, used_item, animation_type = animation_type)
 
 	if(attacked_atom == src)
