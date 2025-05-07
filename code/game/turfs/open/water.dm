@@ -319,6 +319,7 @@
 		var/obj/item/reagent_containers/food/snacks/fish/F = AM
 		if(F.raritymod && (F.raritymod["rare"] || F.raritymod["ultra"] || F.raritymod["gold"]))
 			SEND_GLOBAL_SIGNAL(COMSIG_GLOBAL_FISH_RELEASED, F.type, F.raritymod)
+			F.visible_message("<span class='warning'>[F] dives into the [src] and disappears!</span>")
 		qdel(F)
 	if(isliving(AM) && !AM.throwing)
 		var/mob/living/L = AM

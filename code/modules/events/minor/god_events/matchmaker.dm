@@ -40,6 +40,6 @@
 	chosen_one.mind.add_personal_objective(new_objective)
 
 	to_chat(chosen_one, span_biginfo("Eora wishes to see love blossom! Arrange a marriage between any two people to earn Eora's favor!"))
-	SEND_SOUND(chosen_one, 'sound/magic/marked.ogg')
+	SEND_SOUND(chosen_one, 'sound/vo/female/gen/giggle (1).ogg')
 
 	chosen_one.mind.announce_personal_objectives()

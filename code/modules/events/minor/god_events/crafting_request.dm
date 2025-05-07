@@ -44,6 +44,6 @@
 	chosen_one.mind.add_personal_objective(new_objective)
 
 	to_chat(chosen_one, span_biginfo("Malum demands a physical manifestation of devotion! Craft a sacred psycross to earn Malum's favor!"))
-	SEND_SOUND(chosen_one, 'sound/magic/marked.ogg')
+	SEND_SOUND(chosen_one, 'sound/magic/dwarf_chant01.ogg')
 
 	chosen_one.mind.announce_personal_objectives()

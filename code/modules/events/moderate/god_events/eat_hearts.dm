@@ -47,7 +47,7 @@
 	chosen_one.mind.AddSpell(heart_spell)
 
 	to_chat(chosen_one, span_biginfo("Graggar hungers! [new_objective.explanation_text]"))
-	SEND_SOUND(chosen_one, 'sound/magic/marked.ogg')
+	SEND_SOUND(chosen_one, 'sound/ambience/noises/genspooky (1).ogg')
 
 	to_chat(chosen_one, span_notice("Graggar grants you a power to extract hearts from the dead!"))
 

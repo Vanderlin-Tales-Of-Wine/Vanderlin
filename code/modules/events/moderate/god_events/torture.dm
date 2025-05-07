@@ -43,7 +43,7 @@
 
 
 	to_chat(chosen_one, span_biginfo("Zizo demands suffering! Extract the information through pain to earn Zizo's favor!"))
-	SEND_SOUND(chosen_one, 'sound/magic/marked.ogg')
+	SEND_SOUND(chosen_one, 'sound/ambience/noises/genspooky (1).ogg')
 
 	to_chat(chosen_one, span_notice("You have gained an ability to <b>torture</b> others!"))
 
