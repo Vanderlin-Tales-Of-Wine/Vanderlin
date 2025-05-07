@@ -1447,13 +1447,6 @@ SUBSYSTEM_DEF(gamemode)
 
 	return initalized_storyteller.follower_modifier
 
-/proc/adjust_storyteller_influence(god_name, amount)
-	for(var/storyteller_type in SSgamemode.storytellers)
-		var/datum/storyteller/S = SSgamemode.storytellers[storyteller_type]
-		if(S.name == god_name)
-			S.bonus_points += amount
-			break
-
 /// Returns influence value for a given storyteller for his given statistic
 /datum/controller/subsystem/gamemode/proc/calculate_specific_influence(datum/storyteller/chosen_storyteller, statistic)
 	var/datum/storyteller/initalized_storyteller = storytellers[chosen_storyteller]
