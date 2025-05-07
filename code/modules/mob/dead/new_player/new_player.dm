@@ -92,7 +92,7 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 			if(SSticker.job_change_locked)
 				return
 		if(!client.prefs.spec_check(src))
-			to_chat(usr, span_boldwarning("Your selected species is invalid, Problably because the specie is disabled or your patreon has expired, Select a new character or change race.."))
+			to_chat(usr, span_boldwarning("Your selected species is invalid, either because it is disabled or patreon only, select a new character or change species."))
 			return
 		if(SSticker.current_state <= GAME_STATE_PREGAME)
 			if(ready != tready)
