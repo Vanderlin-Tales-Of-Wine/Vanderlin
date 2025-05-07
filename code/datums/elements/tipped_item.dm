@@ -29,7 +29,7 @@
 /datum/element/tipped_item/proc/check_dip(obj/item/dipper, obj/item/reagent_containers/attacked_container, mob/living/attacker, params)
 	SIGNAL_HANDLER
 
-	if(!istype(attacked_container))
+	if(QDELETED(attacked_container) || !istype(attacked_container))
 		return
 	if(attacker.cmode)
 		return
