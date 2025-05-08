@@ -31,24 +31,6 @@
 
 	category_tags = list(CTAG_ROYALKNIGHT)
 
-/datum/job/royalguard/after_spawn(mob/living/carbon/human/spawned, client/player_client)
-	..()
-	if(istype(spawned.cloak, /obj/item/clothing/cloak/tabard/knight/guard))
-		var/obj/item/clothing/S = spawned.cloak
-		var/index = findtext(spawned.real_name, " ")
-		if(index)
-			index = copytext(spawned.real_name, 1,index)
-		if(!index)
-			index = spawned.real_name
-		S.name = "knight's tabard ([index])"
-	var/prev_real_name = spawned.real_name
-	var/prev_name = spawned.name
-	var/honorary = "Sir"
-	if(spawned.gender == FEMALE)
-		honorary = "Dame"
-	spawned.real_name = "[honorary] [prev_real_name]"
-	spawned.name = "[honorary] [prev_name]"
-
 /datum/outfit/job/royalguard
 	job_bitflag = BITFLAG_GARRISON
 	var/reduced_skill = FALSE
@@ -100,6 +82,22 @@
 
 /datum/outfit/job/royalguard/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
+	if(istype(H.cloak, /obj/item/clothing/cloak/tabard/knight/guard))
+		var/obj/item/clothing/S = H.cloak
+		var/index = findtext(H.real_name, " ")
+		if(index)
+			index = copytext(H.real_name, 1,index)
+		if(!index)
+			index = H.real_name
+		S.name = "knight's tabard ([index])"
+	var/prev_real_name = H.real_name
+	var/prev_name = H.name
+	var/honorary = "Sir"
+	if(H.gender == FEMALE)
+		honorary = "Dame"
+	H.real_name = "[honorary] [prev_real_name]"
+	H.name = "[honorary] [prev_name]"
+
 	var/static/list/selectable = list( \
 		"Flail" = /obj/item/weapon/flail/sflail, \
 		"Halberd" = /obj/item/weapon/polearm/halberd, \
