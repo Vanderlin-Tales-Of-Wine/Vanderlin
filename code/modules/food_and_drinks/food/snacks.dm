@@ -156,8 +156,8 @@ All foods are distributed among various categories. Use common sense.
 				temp_modifier = 1.0 + ((turf_temp - 20) / 10) * 0.2
 				temp_modifier = min(temp_modifier, 3.0) // Cap at 3x speed
 			else
-				// Each 10 degrees below room temp decreases rot rate by 20%
-				temp_modifier = max(0.2, 1.0 - ((20 -turf_temp) / 10) * 0.2)
+				// Each 5 degrees below room temp decreases rot rate by 20%
+				temp_modifier = max(0.2, 1.0 - ((20 -turf_temp) / 5) * 0.2)
 				// Minimum 0.2x speed (cold slows but doesn't completely stop rot)
 
 		var/obj/structure/fake_machine/vendor = locate(/obj/structure/fake_machine/vendor) in get_turf(src)
