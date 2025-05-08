@@ -2,7 +2,7 @@
 	name = "Abyssor's Rage"
 	track = EVENT_TRACK_INTERVENTION
 	typepath = /datum/round_event/abyssor_rage
-	weight = 4
+	weight = 8
 	earliest_start = 10 MINUTES
 	max_occurrences = 2
 	min_players = 20

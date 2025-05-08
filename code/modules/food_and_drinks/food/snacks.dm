@@ -171,6 +171,8 @@ All foods are distributed among various categories. Use common sense.
 	return ..()
 
 /obj/item/reagent_containers/food/snacks/proc/become_rotten()
+	if(QDELETED(src))
+		return
 	if(become_rot_type)
 		if(ismob(loc))
 			return FALSE

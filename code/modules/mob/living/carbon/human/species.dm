@@ -402,7 +402,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		if(C.dna.organ_dna[slot])
 			var/datum/organ_dna/organ_dna = C.dna.organ_dna[slot]
 			if(organ_dna.can_create_organ())
-				neworgan = organ_dna.create_organ()
+				neworgan = organ_dna.create_organ(species = src)
 				if(slot_mutantorgans[slot])
 					if(!istype(neworgan, slot_mutantorgans[slot]))
 						var/new_type = slot_mutantorgans[slot]
@@ -1465,6 +1465,10 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 //shameless copypaste
 /datum/species/proc/kicked(mob/living/carbon/human/user, mob/living/carbon/human/target)
+	if(QDELETED(user) || QDELETED(target))
+		return
+	if(!ishuman(user) || !ishuman(target))
+		return
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
 		to_chat(user, "<span class='warning'>I don't want to harm [target]!</span>")
 		return FALSE

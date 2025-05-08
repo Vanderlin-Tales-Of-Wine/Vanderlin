@@ -86,6 +86,17 @@
 	///AI controller that controls this atom. type on init, then turned into an instance during runtime
 	var/datum/ai_controller/ai_controller
 
+	///Icon-smoothing behavior.
+	var/smoothing_flags = NONE
+	///Icon to use for smoothing, only required for secret doors
+	var/smoothing_icon
+	///What directions this is currently smoothing with. IMPORTANT: This uses the smoothing direction flags as defined in icon_smoothing.dm, instead of the BYOND flags.
+	var/smoothing_junction = null //This starts as null for us to know when it's first set, but after that it will hold a 8-bit mask ranging from 0 to 255.
+	///What smoothing groups does this atom belongs to, to match smoothing_list. If null, nobody can smooth with it.
+	var/list/smoothing_groups = null
+	///List of smoothing groups this atom can smooth with. If this is null and atom is smooth, it smooths only with itself.
+	var/list/smoothing_list = null
+
 	///how shiny we are
 	var/mutable_appearance/total_reflection_mask
 	var/shine = SHINE_MATTE
@@ -162,15 +173,14 @@
 	if(color)
 		add_atom_colour(color, FIXED_COLOUR_PRIORITY)
 
-	if (light_system == STATIC_LIGHT && light_power && (light_inner_range || light_outer_range))
+	if(light_system == STATIC_LIGHT && light_power && (light_inner_range || light_outer_range))
 		update_light()
 
-	if (opacity && isturf(loc))
+	if(opacity && isturf(loc))
 		var/turf/T = loc
 		T.has_opaque_atom = TRUE // No need to recalculate it in this case, it's guaranteed to be on afterwards anyways.
 
-	if (canSmoothWith)
-		canSmoothWith = typelist("canSmoothWith", canSmoothWith)
+	SETUP_SMOOTHING()
 
 	ComponentInitialize()
 	InitializeAIController()
@@ -222,6 +232,9 @@
 
 	QDEL_NULL(light)
 	QDEL_NULL(ai_controller)
+
+	if(smoothing_flags & SMOOTH_QUEUED)
+		SSicon_smooth.remove_from_queues(src)
 
 	return ..()
 
@@ -1020,7 +1033,7 @@
 /atom/proc/log_talk(message, message_type, tag=null, log_globally=TRUE, forced_by=null)
 	var/prefix = tag ? "([tag]) " : ""
 	var/suffix = forced_by ? " FORCED by [forced_by]" : ""
-	log_message("[prefix]\"[message]\"[suffix]", message_type, log_globally=log_globally)
+	log_message("[prefix]\"[message]\"[suffix]", message_type, "#1900ff", log_globally)
 
 /// Helper for logging of messages with only one sender and receiver
 /proc/log_directed_talk(atom/source, atom/target, message, message_type, tag)

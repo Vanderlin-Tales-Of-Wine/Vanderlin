@@ -194,7 +194,8 @@
 				rotty.rotted = FALSE
 				rotty.skeletonized = FALSE
 				rotty.update_limb()
-				rotty.update_disabled()
+				if(rotty.can_be_disabled)
+					rotty.update_disabled()
 		target.update_body()
 		if(!HAS_TRAIT(target, TRAIT_ROTMAN))
 			target.visible_message("<span class='notice'>The rot leaves [target]'s body!</span>", "<span class='green'>I feel the rot leave my body!</span>")

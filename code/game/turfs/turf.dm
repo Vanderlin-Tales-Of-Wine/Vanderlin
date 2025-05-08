@@ -30,8 +30,6 @@
 	var/bullet_sizzle = FALSE //used by ammo_casing/bounce_away() to determine if the shell casing should make a sizzle sound when it's ejected over the turf
 							//IE if the turf is supposed to be water, set TRUE.
 
-	var/tiled_dirt = FALSE // use smooth tiled dirt decal
-
 	var/turf_integrity	//defaults to max_integrity
 	var/max_integrity = 500
 	var/integrity_failure = 0 //0 if we have no special broken behavior, otherwise is a percentage of at what point the obj breaks. 0.5 being 50%
@@ -45,9 +43,12 @@
 	var/debris = null
 	var/break_message = null
 
+	/// What we overlay onto turfs in our smoothing_list
 	var/neighborlay
-	var/neighborlay_list = list()
-	var/neighborlay_override
+	/// If we were going to smooth with an Atom instead overlay this onto self
+	var/neighborlay_self
+	/// Current neighborlays, associative "DIR" = Overlay, neighborlays are always handled by the smoothing atom not what it smoothed with
+	var/list/neighborlay_list
 
 	vis_flags = VIS_INHERIT_PLANE|VIS_INHERIT_ID
 
@@ -73,8 +74,11 @@
 	assemble_baseturfs()
 
 	levelupdate()
-	if(smooth)
-		queue_smooth(src)
+
+	SETUP_SMOOTHING()
+
+	if(smoothing_flags & USES_SMOOTHING)
+		QUEUE_SMOOTH(src)
 
 	for(var/atom/movable/AM in src)
 		Entered(AM)
@@ -105,7 +109,7 @@
 
 	ComponentInitialize()
 
-	queue_smooth_neighbors(src)
+	QUEUE_SMOOTH_NEIGHBORS(src)
 
 	if(shine)
 		make_shiny(shine)
@@ -117,6 +121,8 @@
 	if(!changing_turf)
 		stack_trace("Incorrect turf deletion")
 	changing_turf = FALSE
+	if(neighborlay_list)
+		remove_neighborlays()
 	var/turf/T = GET_TURF_ABOVE(src)
 	if(T)
 		T.multiz_turf_del(src, DOWN)
@@ -137,7 +143,9 @@
 	..()
 
 /turf/proc/can_see_sky()
-	if(outdoor_effect?.state == SKY_VISIBLE)
+	if(!outdoor_effect)
+		return FALSE
+	if(outdoor_effect.state != SKY_BLOCKED)
 		return TRUE
 	return FALSE
 

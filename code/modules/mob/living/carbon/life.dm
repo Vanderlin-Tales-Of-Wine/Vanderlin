@@ -166,7 +166,8 @@
 
 /mob/living/carbon/human/get_complex_pain()
 	. = ..()
-	. *= physiology.pain_mod
+	if(physiology)
+		. *= physiology.pain_mod
 
 ///////////////
 // BREATHING //

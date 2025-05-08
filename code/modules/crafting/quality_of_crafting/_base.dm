@@ -633,7 +633,11 @@
 					user.put_in_hands(item)
 					break
 	if(length(products))
-		user.put_in_hands(pick(products))
+		var/list/items_to_put
+		for(var/obj/item/item in products)
+			LAZYADD(items_to_put, item)
+		if(LAZYLEN(items_to_put))
+			user.put_in_hands(pick(items_to_put))
 
 /datum/repeatable_crafting_recipe/proc/generate_html(mob/user)
 	var/client/client = user

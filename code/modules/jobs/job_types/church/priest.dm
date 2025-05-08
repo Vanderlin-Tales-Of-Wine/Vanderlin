@@ -90,6 +90,16 @@
 	total_positions = 0
 	spawn_positions = 0
 
+/datum/job/priest/vice //just used to change the priest title
+	title = "Vice Priest"
+	f_title = "Vice Priestess"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK)
+	flag = PRIEST
+	department_flag = CHURCHMEN
+	faction = FACTION_STATION
+	total_positions = 0
+	spawn_positions = 0
+
 /mob/living/carbon/human/proc/coronate_lord()
 	set name = "Coronate"
 	set category = "Priest"
@@ -158,6 +168,9 @@
 				if(H.real_name == inputty)
 					H.cleric?.recommunicate()
 			return
+		if(length(GLOB.tennite_schisms))
+			to_chat(src, span_warning("I cannot excommunicate anyone during the schism!"))
+			return FALSE
 		var/found = FALSE
 		for(var/mob/living/carbon/human/H in GLOB.player_list)
 			if(H.real_name == inputty)
@@ -186,6 +199,9 @@
 				if(H.real_name == inputty)
 					H.remove_stress(/datum/stressevent/psycurse)
 			return
+		if(length(GLOB.tennite_schisms))
+			to_chat(src, span_warning("I cannot curse anyone during the schism!"))
+			return FALSE
 		var/found = FALSE
 		for(var/mob/living/carbon/H in GLOB.player_list)
 			if(H.real_name == inputty)

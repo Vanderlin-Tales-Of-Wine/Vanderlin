@@ -397,7 +397,7 @@
 /mob/living/carbon/human/update_health_hud(stamina_only = FALSE)
 	if(!client || !hud_used)
 		return
-	if(dna.species.update_health_hud())
+	if(dna?.species?.update_health_hud())
 		return
 	else
 		if(hud_used.bloods && !stamina_only)

@@ -381,7 +381,7 @@
 	if(known_skills[skill_ref] >= old_level)
 		if(known_skills[skill_ref] > old_level)
 			to_chat(current, span_nicegreen("My proficiency in [skill_ref.name] grows to [SSskills.level_names[known_skills[skill_ref]]]!"))
-			skill_ref.skill_level_effect(src, known_skills[skill_ref])
+			skill_ref.skill_level_effect(known_skills[skill_ref], src)
 			GLOB.vanderlin_round_stats[STATS_SKILLS_LEARNED]++
 			if(istype(skill_ref, /datum/skill/combat))
 				GLOB.vanderlin_round_stats[STATS_COMBAT_SKILLS]++

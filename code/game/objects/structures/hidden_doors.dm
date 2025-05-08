@@ -2,17 +2,20 @@ GLOBAL_LIST_EMPTY(keep_doors)
 GLOBAL_LIST_EMPTY(thieves_guild_doors)
 
 /obj/structure/door/secret
-	hover_color = "#607d65"
 	name = "wall"
-	desc = null
-	icon = 'icons/turf/walls/stonebrick.dmi'
-	icon_state = "stonebrick"
+	icon = 'icons/turf/smooth/walls/stone_brick.dmi'
+	icon_state = MAP_SWITCH("stone_brick", "stone_brick-0")
+	hover_color = "#607d65"
 	resistance_flags = NONE
 	max_integrity = 9999
 	damage_deflection = 30
 	layer = ABOVE_MOB_LAYER
 	keylock = FALSE
 	locked = TRUE
+
+	smoothing_flags = NONE
+	smoothing_groups = SMOOTH_GROUP_DOOR_SECRET
+	smoothing_list = SMOOTH_GROUP_DOOR_SECRET +  SMOOTH_GROUP_CLOSED_WALL
 
 	can_add_lock = FALSE
 	can_knock = FALSE
@@ -59,6 +62,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 		/datum/job/wapprentice,
 		/datum/job/archivist,
 	)
+	//make me look like an arcane door
 
 /obj/structure/door/secret/Initialize()
 	become_hearing_sensitive()
@@ -68,7 +72,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 /obj/structure/door/secret/door_rattle()
 	return
 
-/obj/structure/mineral_door/secret/attack_hand(mob/user)
+/obj/structure/door/secret/attack_hand(mob/user)
 	. = ..()
 	if(.)
 		return
@@ -370,34 +374,18 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	var/turf/closed/source_turf = get_turf(src)
 	var/obj/structure/door/secret/new_door = new door_type(source_turf)
 
-	new_door.icon = source_turf.icon
-	new_door.icon_state = source_turf.icon_state
-	new_door.smooth = source_turf.smooth
-	new_door.canSmoothWith = source_turf.canSmoothWith
 	new_door.name = source_turf.name
 	new_door.desc = source_turf.desc
+	new_door.icon = source_turf.icon
+	new_door.icon_state = source_turf.icon_state
 
-	//assigns local smoothing to neighboring walls
-	//i can see this causing an issue under very specific door configuration.
-	for(var/dir in GLOB.cardinals)
-		var/turf/T = get_step(src, dir)
-		var/canDoorSmooth = FALSE
-		for(var/smoothType in new_door.canSmoothWith)
-			if(istype(T, smoothType))
-				canDoorSmooth = TRUE
-				break
-		if(!canDoorSmooth)
-			continue
-		var/smoothCompatible = FALSE
-		var/alreadyAdded = FALSE
-		for(var/smoothType in T.canSmoothWith)
-			if(istype(source_turf, smoothType))
-				smoothCompatible = TRUE
-			if(ispath(smoothType, /obj/structure/door/secret))
-				alreadyAdded = TRUE
-				break
-		if(smoothCompatible && !alreadyAdded)
-			T.canSmoothWith += /obj/structure/door/secret
+	var/smooth = source_turf.smoothing_flags
+
+	if(smooth)
+		new_door.smoothing_flags |= smooth
+		new_door.smoothing_icon = initial(source_turf.icon_state)
+		QUEUE_SMOOTH(new_door)
+		QUEUE_SMOOTH_NEIGHBORS(new_door)
 
 	if(redstone_id)
 		new_door.redstone_id = redstone_id
@@ -410,7 +398,6 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 		source_turf.ChangeTurf(source_turf.baseturfs[1])
 
 	. = ..()
-
 
 /obj/effect/mapping_helpers/secret_door_creator/keep
 	name = "Keep Secret Door Creator"

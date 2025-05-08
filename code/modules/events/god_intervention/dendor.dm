@@ -2,7 +2,7 @@
 	name = "Dendor's Vines (Malus)"
 	track = EVENT_TRACK_INTERVENTION
 	typepath = /datum/round_event/dendor_vines
-	weight = 4
+	weight = 2
 	earliest_start = 0 SECONDS
 	max_occurrences = 2
 	min_players = 3
@@ -35,7 +35,7 @@
 	track = EVENT_TRACK_INTERVENTION
 	typepath = /datum/round_event/dendor_vines_good
 	earliest_start = 0 SECONDS
-	weight = 4
+	weight = 2
 	max_occurrences = 2
 	min_players = 3
 	todreq = list("dusk", "night", "dawn", "day")
@@ -66,7 +66,7 @@
 	name = "Dendor's Blessing"
 	track = EVENT_TRACK_INTERVENTION
 	typepath = /datum/round_event/dendor_fertility
-	weight = 4
+	weight = 2
 	earliest_start = 0 SECONDS
 	max_occurrences = 2
 	min_players = 3
@@ -79,7 +79,7 @@
 	name = "Dendor's Ire"
 	track = EVENT_TRACK_INTERVENTION
 	typepath = /datum/round_event/dendor_ire
-	weight = 4
+	weight = 2
 	earliest_start = 0 SECONDS
 	max_occurrences = 2
 	min_players = 3
