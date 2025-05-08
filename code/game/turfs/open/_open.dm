@@ -157,7 +157,7 @@
 	. = ..()
 	if(.)
 		return
-	for(var/obj/structure/door/possible_door as anything in contents) // we typecheck later
+	for(var/obj/structure/door/possible_door as anything in contents) // we typecheck one line down
 		if(istype(possible_door))
 			possible_door.attack_hand(user) // if someone clicks an open turf with an empty hand, redirect it to a door on the tile.
 			return
