@@ -13,6 +13,14 @@
 
 	smoothing_groups = SMOOTH_GROUP_OPEN
 
+	var/obj/effect/hotspot/active_hotspot
+
+	nomouseover = TRUE
+
+	appearance_flags = LONG_GLIDE | TILE_BOUND
+	/// Pollution of this turf
+	var/datum/pollution/pollution
+
 /turf/proc/get_slowdown(mob/user)
 	return 0
 
@@ -144,6 +152,15 @@
 /turf/open/OnCrafted(dirin, mob/user)
 	. = ..()
 	flags_1 |= CAN_BE_ATTACKED_1
+
+/turf/open/attack_hand(mob/user)
+	. = ..()
+	if(.)
+		return
+	for(var/obj/structure/door/possible_door in contents)
+		if(istype(possible_door))
+			possible_door.attack_hand(user) // if someone clicks an open turf with an empty hand, redirect it to a door on the tile.
+			return
 
 ///this will always use the highest value given depending on if set for negative
 /turf/proc/add_turf_temperature(key, value, weight = 1)
