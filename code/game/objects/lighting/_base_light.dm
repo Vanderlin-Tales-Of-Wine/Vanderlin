@@ -344,7 +344,8 @@
 		if(!istype(fog_parter_effect))
 			fog_parter_effect = new fog_parter_effect(get_turf(src), light_outer_range)
 	else
-		qdel(fog_parter_effect)
+		if(istype(fog_parter_effect)) // to check if its initialized instead of a path
+			qdel(fog_parter_effect)
 		fog_parter_effect = initial(fog_parter_effect)
 
 /obj/machinery/light/set_light_range(new_inner_range, new_outer_range)
