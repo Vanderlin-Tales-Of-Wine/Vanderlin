@@ -7,6 +7,11 @@
 	max_occurrences = 1
 	min_players = 20
 
+	tags = list(
+		TAG_BLOOD,
+		TAG_INSANITY,
+	)
+
 /datum/round_event_control/zizo_torture/canSpawnEvent(players_amt, gamemode, fake_check)
 	. = ..()
 	if(!.)

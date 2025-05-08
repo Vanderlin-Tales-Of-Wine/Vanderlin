@@ -7,6 +7,10 @@
 	max_occurrences = 1
 	min_players = 15
 
+	tags = list(
+		TAG_WORK,
+	)
+
 /datum/round_event_control/malum_crafting/canSpawnEvent(players_amt, gamemode, fake_check)
 	. = ..()
 	if(!.)

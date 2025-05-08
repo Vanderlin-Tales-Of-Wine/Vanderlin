@@ -7,6 +7,11 @@
 	max_occurrences = 1
 	min_players = 30
 
+	tags = list(
+		TAG_BOON,
+		TAG_WIDESPREAD,
+	)
+
 /datum/round_event_control/eora_marriage/canSpawnEvent(players_amt, gamemode, fake_check)
 	. = ..()
 	if(!.)

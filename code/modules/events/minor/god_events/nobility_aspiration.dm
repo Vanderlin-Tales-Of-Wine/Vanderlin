@@ -7,6 +7,10 @@
 	max_occurrences = 1
 	min_players = 15
 
+	tags = list(
+		TAG_BOON,
+	)
+
 /datum/round_event_control/astrata_nobility/canSpawnEvent(players_amt, gamemode, fake_check)
 	. = ..()
 	if(!.)

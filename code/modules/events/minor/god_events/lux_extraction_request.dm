@@ -7,6 +7,11 @@
 	max_occurrences = 1
 	min_players = 25
 
+	tags = list(
+		TAG_MEDICAL,
+		TAG_BLOOD,
+	)
+
 /datum/round_event_control/pestra_lux/canSpawnEvent(players_amt, gamemode, fake_check)
 	. = ..()
 	if(!.)

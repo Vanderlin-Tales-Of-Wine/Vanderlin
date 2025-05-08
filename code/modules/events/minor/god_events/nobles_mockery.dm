@@ -7,6 +7,10 @@
 	max_occurrences = 1
 	min_players = 20
 
+	tags = list(
+		TAG_TRICKERY,
+	)
+
 /datum/round_event_control/xylix_mocking_nobles/canSpawnEvent(players_amt, gamemode, fake_check)
 	. = ..()
 	if(!.)

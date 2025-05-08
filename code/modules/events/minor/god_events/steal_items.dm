@@ -7,6 +7,11 @@
 	max_occurrences = 1
 	min_players = 15
 
+	tags = list(
+		TAG_TRICKERY,
+		TAG_LOOT,
+	)
+
 /datum/round_event_control/matthios_theft/canSpawnEvent(players_amt, gamemode, fake_check)
 	. = ..()
 	if(!.)

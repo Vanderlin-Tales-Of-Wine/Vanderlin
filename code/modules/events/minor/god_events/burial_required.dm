@@ -7,6 +7,10 @@
 	max_occurrences = 1
 	min_players = 25
 
+	tags = list(
+		TAG_HAUNTED,
+	)
+
 /datum/round_event_control/necra_burials/canSpawnEvent(players_amt, gamemode, fake_check)
 	. = ..()
 	if(!.)

@@ -7,6 +7,11 @@
 	max_occurrences = 1
 	min_players = 15
 
+	tags = list(
+		TAG_INSANITY,
+		TAG_ALCHEMY,
+	)
+
 /datum/round_event_control/baotha_sniffing/canSpawnEvent(players_amt, gamemode, fake_check)
 	. = ..()
 	if(!.)

@@ -7,6 +7,11 @@
 	max_occurrences = 1
 	min_players = 30
 
+	tags = list(
+		TAG_BLOOD,
+		TAG_BATTLE,
+	)
+
 /datum/round_event_control/graggar_organs/canSpawnEvent(players_amt, gamemode, fake_check)
 	. = ..()
 	if(!.)
