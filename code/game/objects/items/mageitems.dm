@@ -110,7 +110,7 @@
 	if(structures_in_way == TRUE)
 		to_chat(user, span_cult("There is a structure, rune or wall in the way."))
 		return
-	var/crafttime = (100 - ((user.mind?.get_skill_level(/datum/skill/magic/arcane)) * 5))
+	var/crafttime = (10 SECONDS - ((user.mind?.get_skill_level(/datum/skill/magic/arcane)) * 5))
 
 	user.visible_message(span_warning("[user] begins to scribe something [user.p_their()] [src]!"), \
 		span_notice("I start to drag the [src] in the shape of symbols and sigils"))
@@ -179,7 +179,7 @@
 		to_chat(user, span_cult("There is a structure, rune or wall in the way."))
 		return
 	var/chosen_keyword
-	if(initial(pickrune.req_keyword))
+	if(pickrune.req_keyword)
 		chosen_keyword = stripped_input(user, "Keyword for the new rune", "Runes", max_length = MAX_NAME_LEN)
 		if(!chosen_keyword)
 			return FALSE
@@ -188,9 +188,9 @@
 		user.visible_message(span_warning("[user] cuts open [user.p_their()] palm!"), \
 			span_cult("I slice open my palm!"))
 		if(user.blood_volume)
-			user.apply_damage(initial(pickrune.scribe_damage), BRUTE, pick(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM))
+			user.apply_damage(pickrune.scribe_damage, BRUTE, pick(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM))
 		is_bled = TRUE
-	var/crafttime = (100 - ((user.mind?.get_skill_level(/datum/skill/magic/arcane))*5))
+	var/crafttime = (10 SECONDS - ((user.mind?.get_skill_level(/datum/skill/magic/arcane)) * 5))
 
 	user.visible_message(span_warning("[user] begins to carve something with [user.p_their()] blade!"), \
 		span_notice("I start to drag the blade in the shape of symbols and sigils."))
@@ -207,7 +207,6 @@
 		//check for /sturcture subtypes in the turf's contents
 		for(var/obj/structure/S in T.contents)
 			return TRUE		//Found a structure, no need to continue
-
 		//check if turf itself is a /turf/closed subtype
 		if(istype(T,/turf/closed))
 			return TRUE
