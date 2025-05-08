@@ -1,6 +1,6 @@
 /datum/advclass/roguemage //mage class - like the adventurer mage, but more evil.
 	name = "Rogue Mage"
-	tutorial = "Cast aside by your masters for unholy experimentation, you lived for a time in hiding in the forest where you eventually met the unsavory followers of Matthios who took you in as family, one of their own. Amongst your brigand friends you now have opportunity to attain the wealth and power necessary for your to rise above those who once looked down on you."
+	tutorial = "Cast aside by your masters for unholy experimentation, you lived for a time in hiding, in the forest, where you eventually met the unsavoury followers of Matthios who took you in as family, one of their own. Amongst your brigand friends you now have opportunity to attain the wealth and power necessary for your to rise above those who once looked down on you."
 	allowed_sexes = list(MALE, FEMALE)
 	outfit = /datum/outfit/job/bandit/roguemage
 	category_tags = list(CTAG_BANDIT)
