@@ -164,7 +164,7 @@ All foods are distributed among various categories. Use common sense.
 		if(!istype(loc, /obj/item/storage/backpack/backpack/artibackpack))
 			var/obj/structure/table/located = locate(/obj/structure/table) in loc
 			if(located || vendor || chest)
-				warming -= 5 * temp_modifier
+				warming -= 4 * temp_modifier
 			else
 				warming -= 20 * temp_modifier //ssobj processing has a wait of 20
 			if(warming < (-1*rotprocess))
