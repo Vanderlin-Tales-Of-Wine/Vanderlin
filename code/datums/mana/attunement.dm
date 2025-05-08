@@ -158,7 +158,7 @@ GLOBAL_LIST_INIT(default_attunements, create_default_attunement_list())
 	desc = ""
 
 	alignments = list(
-		/datum/patron/divine/noc = 1.5,
+		/datum/patron/divine/noc = 2,
 		/datum/patron/inhumen/zizo = 1.2,
 	)
 
