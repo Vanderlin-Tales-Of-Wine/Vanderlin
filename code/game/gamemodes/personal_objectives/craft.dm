@@ -1,11 +1,15 @@
 /datum/objective/craft_shrine
-	name = "Craft Shrine"
+	name = "Build Shrines"
 	triumph_count = 0
 	var/target_type = /obj/structure/fluff/psycross/crafted
+	var/target_count = 2
+	var/current_count = 0
 
-/datum/objective/craft_shrine/New(text, datum/mind/owner, obj/target_path)
+/datum/objective/craft_shrine/New(text, datum/mind/owner, obj/target_path, count)
 	if(target_path)
 		target_type = target_path
+	if(count)
+		target_count = count
 	. = ..()
 
 /datum/objective/craft_shrine/on_creation()
@@ -24,11 +28,16 @@
 	if(completed || !ispath(craft_path, target_type))
 		return
 
-	to_chat(owner.current, span_greentext("You have built the sacred cross, completing Malum's objective!"))
+	current_count++
+	if(current_count < target_count)
+		to_chat(owner.current, span_notice("You have built [current_count] out of [target_count] sacred crosses."))
+		return
+
+	to_chat(owner.current, span_greentext("You have built all the required sacred crosses, completing Malum's objective!"))
 	owner.current.adjust_triumphs(1)
 	completed = TRUE
 	adjust_storyteller_influence("Malum", 10)
 	UnregisterSignal(owner.current, COMSIG_ITEM_CRAFTED)
 
 /datum/objective/craft_shrine/update_explanation_text()
-	explanation_text = "Build a wooden pantheon cross to demonstrate your devotion to Malum."
+	explanation_text = "Build [target_count] wooden pantheon cross[target_count > 1 ? "es" : ""] to demonstrate your devotion to Malum."
