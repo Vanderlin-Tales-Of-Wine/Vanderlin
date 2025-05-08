@@ -1,6 +1,6 @@
 /datum/advclass/sawbones // doctor class. like the pilgrim, but more evil
 	name = "Sawbones"
-	tutorial = "An unholy practictioner of medicine and when necessary -- murder. You joined hands with Brigands to ensure that your coin purse and your rumbling belly are always satisfied."
+	tutorial = "An unholy practitioner of medicine and when necessary - murder. You joined forces with Brigands to ensure that your coin purse and your rumbling belly are always satisfied."
 	allowed_sexes = list(MALE, FEMALE)
 	outfit = /datum/outfit/job/bandit/sawbones
 	category_tags = list(CTAG_BANDIT)
