@@ -8,10 +8,6 @@
 	density = TRUE
 	climbable = TRUE
 
-/obj/item // This is probably a bad idea. Sorry...
-	/// Artificers Recipe
-	var/datum/artificer_recipe/artrecipe
-
 /obj/machinery/artificer_table/examine(mob/user)
 	. = ..()
 	if(material)

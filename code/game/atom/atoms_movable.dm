@@ -930,87 +930,198 @@
 /mob
 	no_bump_effect = FALSE
 
-/atom/movable/proc/do_attack_animation(atom/A, visual_effect_icon, obj/item/used_item, no_effect)
+GLOBAL_VAR_INIT(pixel_diff, 12)
+GLOBAL_VAR_INIT(pixel_diff_time, 1)
+
+/atom/movable/proc/do_attack_animation(atom/attacked_atom, visual_effect_icon, obj/item/used_item, no_effect, item_animation_override = null, datum/intent/used_intent)
 	if(!no_effect && (visual_effect_icon || used_item))
-		do_item_attack_animation(A, visual_effect_icon, used_item)
+		var/animation_type = item_animation_override || used_intent?.get_attack_animation_type()
+		do_item_attack_animation(attacked_atom, visual_effect_icon, used_item, animation_type = animation_type)
 
-	if(!no_bump_effect)
-		return
-
-	if(ismob(A))
-		var/mob/M = A
-		if(M.stat == DEAD)
-			return
-
-	if(A == src)
+	if(attacked_atom == src)
 		return //don't do an animation if attacking self
 	var/pixel_x_diff = 0
 	var/pixel_y_diff = 0
+	var/turn_dir = 1
 
-	var/direction = get_dir(src, A)
+	var/direction = get_dir(src, attacked_atom)
 	if(direction & NORTH)
-		pixel_y_diff = 8
+		pixel_y_diff = GLOB.pixel_diff
+		turn_dir = prob(50) ? -1 : 1
 	else if(direction & SOUTH)
-		pixel_y_diff = -8
+		pixel_y_diff = -GLOB.pixel_diff
+		turn_dir = prob(50) ? -1 : 1
 
 	if(direction & EAST)
-		pixel_x_diff = 8
+		pixel_x_diff = GLOB.pixel_diff
 	else if(direction & WEST)
-		pixel_x_diff = -8
+		pixel_x_diff = -GLOB.pixel_diff
+		turn_dir = -1
 
-	animate(A, pixel_x = A.pixel_x + pixel_x_diff, pixel_y = A.pixel_y + pixel_y_diff, time = 2)
-	animate(A, pixel_x = A.pixel_x - pixel_x_diff, pixel_y = A.pixel_y - pixel_y_diff, time = 2)
-
-/atom/movable/proc/do_item_attack_animation(atom/A, visual_effect_icon, obj/item/used_item)
-//	var/noanim = FALSE
-	if(used_item)
-		if(used_item.no_effect)
-			return
-	if(!visual_effect_icon)
-		return
-/*
-	I = image(icon = 'icons/effects/effects.dmi', loc = src, icon_state = visual_effect_icon, layer = src.layer + 0.1)
-	if(A == src)
-		return
-	else
-		I.dir = get_dir(src, A)
-	if(I.dir & NORTH)
-		I.pixel_y = 32
-	else if(I.dir & SOUTH)
-		I.pixel_y = -32
-
-	if(I.dir & EAST)
-		I.pixel_x = 32
-	else if(I.dir & WEST)
-		I.pixel_x = -32
-	noanim = TRUE
+	var/matrix/initial_transform = matrix(transform)
+	var/matrix/rotated_transform = transform.Turn(15 * turn_dir)
+	animate(src, pixel_x = pixel_x + pixel_x_diff, pixel_y = pixel_y + pixel_y_diff, transform=rotated_transform, time = GLOB.pixel_diff_time, easing=LINEAR_EASING, flags = ANIMATION_PARALLEL)
+	animate(pixel_x = pixel_x - pixel_x_diff, pixel_y = pixel_y - pixel_y_diff, transform=initial_transform, time = GLOB.pixel_diff_time * 2, easing=SINE_EASING, flags = ANIMATION_PARALLEL)
 
 
-	if(!I)
+/atom/movable/proc/do_item_attack_animation(atom/attacked_atom, visual_effect_icon, obj/item/used_item, animation_type = ATTACK_ANIMATION_SWIPE)
+	if (visual_effect_icon)
+		var/image/attack_image = image(icon = 'icons/effects/effects.dmi', icon_state = visual_effect_icon)
+		attack_image.plane = attacked_atom.plane + 1
+		// Scale the icon.
+		attack_image.transform *= 0.4
+		// The icon should not rotate.
+		attack_image.appearance_flags = APPEARANCE_UI
+		var/atom/movable/flick_visual/attack = attacked_atom.flick_overlay_view(attack_image, 1 SECONDS)
+		var/matrix/copy_transform = new(transform)
+		animate(attack, alpha = 175, transform = copy_transform.Scale(0.75), time = 0.3 SECONDS)
+		animate(time = 0.1 SECONDS)
+		animate(alpha = 0, time = 0.3 SECONDS, easing = BACK_EASING|EASE_OUT)
 		return
 
-	I.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	flick_overlay(I, GLOB.clients, 5) // 5 ticks/half a second
-
-	if(!noanim)
-		// And animate the attack!
-		animate(I, alpha = 175, pixel_x = 0, pixel_y = 0, pixel_z = 0, time = 3)
-	*/
-	if(A == src)
+	if (isnull(used_item))
 		return
-	var/dist = get_dist(src, A)
-	var/turf/first_step = get_step(src, get_dir(src, A))
-	if(dist >= 1)	//1 tile range attack, no need for any loops
-		var/obj/effect/temp_visual/dir_setting/attack_effect/atk = new(first_step, get_dir(src, A))
-		atk.icon_state = visual_effect_icon
-		atk.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	if(dist > 1)	//2+ tiles, we algo
-		for(var/i = 1, i<dist, i++)
-			var/turf/next_step = get_step(first_step, get_dir(first_step, A))
-			var/obj/effect/temp_visual/dir_setting/attack_effect/atk = new(next_step, get_dir(first_step, A))
-			atk.icon_state = visual_effect_icon
-			atk.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-			first_step = next_step
+
+	var/image/attack_image = image(icon = used_item, icon_state = used_item.icon_state)
+	attack_image.plane = attacked_atom.plane + 1
+	attack_image.pixel_w = used_item.pixel_x + used_item.pixel_w
+	attack_image.pixel_z = used_item.pixel_y + used_item.pixel_z
+	// Scale the icon.
+	attack_image.transform *= 0.5
+	// The icon should not rotate.
+	attack_image.appearance_flags = APPEARANCE_UI
+
+	var/atom/movable/flick_visual/attack = attacked_atom.flick_overlay_view(attack_image, 1 SECONDS)
+	var/matrix/copy_transform = new(transform)
+	var/x_sign = 0
+	var/y_sign = 0
+	var/direction = get_dir(src, attacked_atom)
+	if (direction & NORTH)
+		y_sign = -1
+	else if (direction & SOUTH)
+		y_sign = 1
+
+	if (direction & EAST)
+		x_sign = -1
+	else if (direction & WEST)
+		x_sign = 1
+
+	// Attacking self, or something on the same turf as us
+	if (!direction)
+		y_sign = 1
+		// Not a fan of this, but its the "cleanest" way to animate this
+		x_sign = 0.25 * (prob(50) ? 1 : -1)
+		// For piercing attacks
+		direction = SOUTH
+
+	// And animate the attack!
+	switch (animation_type)
+		if (ATTACK_ANIMATION_BONK)
+			attack.pixel_x = 14 * x_sign
+			attack.pixel_y = 12 * y_sign
+			animate(attack, alpha = 175, transform = copy_transform.Scale(0.75), pixel_x = 4 * x_sign, pixel_y = 3 * y_sign, time = 0.2 SECONDS)
+			animate(time = 0.1 SECONDS)
+			animate(alpha = 0, time = 0.1 SECONDS, easing = BACK_EASING|EASE_OUT)
+
+		if (ATTACK_ANIMATION_THRUST)
+			var/attack_angle = dir2angle(direction) + rand(-7, 7)
+			// Deducting 90 because we're assuming that icon_angle of 0 means an east-facing sprite
+			var/anim_angle = attack_angle - 90 + used_item.icon_angle
+			var/angle_mult = 1
+			if (x_sign && y_sign)
+				angle_mult = 1.4
+			attack.pixel_x = 22 * x_sign * angle_mult
+			attack.pixel_y = 18 * y_sign * angle_mult
+			attack.transform = attack.transform.Turn(anim_angle)
+			copy_transform = copy_transform.Turn(anim_angle)
+			animate(
+				attack,
+				pixel_x = (22 * x_sign - 12 * sin(attack_angle)) * angle_mult,
+				pixel_y = (18 * y_sign - 8 * cos(attack_angle)) * angle_mult,
+				time = 0.1 SECONDS,
+				easing = BACK_EASING|EASE_OUT,
+			)
+			animate(
+				attack,
+				alpha = 175,
+				transform = copy_transform.Scale(0.75),
+				pixel_x = (22 * x_sign + 26 * sin(attack_angle)) * angle_mult,
+				pixel_y = (18 * y_sign + 22 * cos(attack_angle)) * angle_mult,
+				time = 0.3 SECONDS,
+				easing = BACK_EASING|EASE_OUT,
+			)
+			animate(
+				alpha = 0,
+				pixel_x = -3 * -(x_sign + sin(attack_angle)),
+				pixel_y = -2 * -(y_sign + cos(attack_angle)),
+				time = 0.1 SECONDS,
+				easing = BACK_EASING|EASE_OUT
+			)
+
+		if (ATTACK_ANIMATION_SWIPE)
+			attack.pixel_x = 18 * x_sign
+			attack.pixel_y = 14 * y_sign
+			var/x_rot_sign = 0
+			var/y_rot_sign = 0
+			var/attack_dir = (prob(50) ? 1 : -1)
+			var/anim_angle = dir2angle(direction) - 90 + used_item.icon_angle
+
+			if (x_sign)
+				y_rot_sign = attack_dir
+			if (y_sign)
+				x_rot_sign = attack_dir
+
+			// Animations are flipped, so flip us too!
+			if (x_sign > 0 || y_sign < 0)
+				attack_dir *= -1
+
+			// We're swinging diagonally, use separate logic
+			var/anim_dir = attack_dir
+			if (x_sign && y_sign)
+				if (attack_dir < 0)
+					x_rot_sign = -x_sign * 1.4
+					y_rot_sign = 0
+				else
+					x_rot_sign = 0
+					y_rot_sign = -y_sign * 1.4
+
+				// Flip us if we've been flipped *unless* we're flipped due to both axis
+				if ((x_sign < 0 && y_sign > 0) || (x_sign > 0 && y_sign < 0))
+					anim_dir *= -1
+
+			attack.pixel_x += 10 * x_rot_sign
+			attack.pixel_y += 8 * y_rot_sign
+			attack.transform = attack.transform.Turn(anim_angle - 45 * anim_dir)
+			copy_transform = copy_transform.Scale(0.75)
+			animate(attack, alpha = 175, time = 0.3 SECONDS, flags = ANIMATION_PARALLEL)
+			animate(time = 0.1 SECONDS)
+			animate(alpha = 0, time = 0.1 SECONDS, easing = BACK_EASING|EASE_OUT)
+
+			animate(attack, transform = copy_transform.Turn(anim_angle + 45 * anim_dir), time = 0.3 SECONDS, flags = ANIMATION_PARALLEL)
+
+			var/x_return = 10 * -x_rot_sign
+			var/y_return = 8 * -y_rot_sign
+
+			if (!x_rot_sign)
+				x_return = 18 * x_sign
+			if (!y_rot_sign)
+				y_return = 14 * y_sign
+
+			var/angle_mult = 1
+			if (x_sign && y_sign)
+				angle_mult = 1.4
+				if (attack_dir > 0)
+					x_return = 8 * x_sign
+					y_return = 14 * y_sign
+				else
+					x_return = 18 * x_sign
+					y_return = 6 * y_sign
+
+			animate(attack, pixel_x = 4 * x_sign * angle_mult, time = 0.2 SECONDS, easing = CIRCULAR_EASING | EASE_IN, flags = ANIMATION_PARALLEL)
+			animate(pixel_x = x_return, time = 0.2 SECONDS, easing = CIRCULAR_EASING | EASE_OUT)
+
+			animate(attack, pixel_y = 3 * y_sign * angle_mult, time = 0.2 SECONDS, easing = CIRCULAR_EASING | EASE_IN, flags = ANIMATION_PARALLEL)
+			animate(pixel_y = y_return, time = 0.2 SECONDS, easing = CIRCULAR_EASING | EASE_OUT)
 
 /obj/effect/temp_visual/dir_setting/attack_effect
 	icon = 'icons/effects/effects.dmi'

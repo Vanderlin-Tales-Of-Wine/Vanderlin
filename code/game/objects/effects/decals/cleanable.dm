@@ -42,6 +42,8 @@
 
 /obj/effect/decal/cleanable/attackby(obj/item/W, mob/user, params)
 	lazy_init_reagents()
+	if(!reagents)
+		return ..()
 	if(istype(W, /obj/item/reagent_containers/glass))
 		if(src.reagents && W.reagents)
 			. = 1 //so the containers don't splash their content on the src while scooping.

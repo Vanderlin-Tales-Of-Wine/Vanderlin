@@ -544,7 +544,7 @@
 			return
 	if(!used_intent.noaa && ismob(A))
 //		playsound(src, pick(GLOB.unarmed_swingmiss), 100, FALSE)
-		do_attack_animation(A, visual_effect_icon = used_intent.animname)
+		do_attack_animation(A, visual_effect_icon = used_intent.animname, used_intent = used_intent)
 		changeNext_move(used_intent.clickcd)
 //		src.emote("attackgrunt")
 		playsound(get_turf(src), used_intent.miss_sound, 100, FALSE)
