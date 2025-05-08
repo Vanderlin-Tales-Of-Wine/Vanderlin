@@ -1439,13 +1439,26 @@ SUBSYSTEM_DEF(gamemode)
 			if(isharpy(human_mob))
 				GLOB.vanderlin_round_stats[STATS_ALIVE_HARPIES]++
 
-/// Returns follower modifier for the given storyteller
-/datum/controller/subsystem/gamemode/proc/get_storyteller_follower_modifier(datum/storyteller/chosen_storyteller)
-	var/datum/storyteller/initalized_storyteller = storytellers[chosen_storyteller]
-	if(!initalized_storyteller)
-		return
+/// Returns total follower influence for the given storyteller
+/datum/controller/subsystem/gamemode/proc/get_follower_influence(datum/storyteller/chosen_storyteller)
+	var/datum/storyteller/initialized_storyteller = storytellers[chosen_storyteller]
+	if(!initialized_storyteller)
+		return 0
 
-	return initalized_storyteller.follower_modifier
+	var/follower_count = GLOB.patron_follower_counts[initialized_storyteller.name] || 0
+	var/base_mod = initialized_storyteller.follower_modifier
+	var/diminish_threshold = 5
+	var/min_mod = 15
+
+	// Calculate total influence with diminishing returns
+	var/total_influence = 0
+	for(var/i in 1 to follower_count)
+		if(i <= diminish_threshold)
+			total_influence += base_mod
+		else
+			total_influence += max(min_mod, base_mod - (i - diminish_threshold))
+
+	return total_influence
 
 /// Returns influence value for a given storyteller for his given statistic
 /datum/controller/subsystem/gamemode/proc/calculate_specific_influence(datum/storyteller/chosen_storyteller, statistic)
@@ -1471,9 +1484,10 @@ SUBSYSTEM_DEF(gamemode)
 /datum/controller/subsystem/gamemode/proc/calculate_storyteller_influence(datum/storyteller/chosen_storyteller)
 	var/datum/storyteller/initialized_storyteller = storytellers[chosen_storyteller]
 	if(!initialized_storyteller)
-		return
+		return 0
 
-	var/total_influence = GLOB.patron_follower_counts[initialized_storyteller.name] * initialized_storyteller.follower_modifier
+	var/total_influence = get_follower_influence(chosen_storyteller)
+
 	for(var/influence_factor in initialized_storyteller.influence_factors)
 		total_influence += calculate_specific_influence(chosen_storyteller, influence_factor)
 
