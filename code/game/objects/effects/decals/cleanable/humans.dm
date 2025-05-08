@@ -91,16 +91,18 @@
 		return
 	var/datum/component/forensics/D = GetComponent(/datum/component/forensics)
 	var/list/all_dna = D?.blood_DNA
-	var/list/reagents_to_add = list()
-	for(var/dna_sample in all_dna)
+	var/list/reagents_to_add
+	for(var/dna_sample as anything in all_dna)
 		var/datum/blood_type/blood = GLOB.blood_types[all_dna[dna_sample]]
-		reagents_to_add += blood.reagent_type
+		if(blood)
+			LAZY_ADD(reagents_to_add, blood)
 
-	reagents.remove_all(reagents?.total_volume)
+	reagents.remove_all(reagents.total_volume)
+	if(!LAZYLEN(reagents_to_add))
+		return
 	var/num_reagents = length(reagents_to_add)
-	for(var/reagent_type in reagents_to_add)
+	for(var/reagent_type as anything in reagents_to_add)
 		reagents.add_reagent(reagent_type, round((bloodiness * 0.1) / num_reagents, 0.01))
-
 
 /obj/effect/decal/cleanable/blood/replace_decal(obj/effect/decal/cleanable/C)
 	. = ..()
