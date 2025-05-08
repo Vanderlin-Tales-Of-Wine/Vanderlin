@@ -95,7 +95,7 @@
 	for(var/dna_sample as anything in all_dna)
 		var/datum/blood_type/blood = GLOB.blood_types[all_dna[dna_sample]]
 		if(blood)
-			LAZY_ADD(reagents_to_add, blood)
+			LAZYADD(reagents_to_add, blood)
 
 	reagents.remove_all(reagents.total_volume)
 	if(!LAZYLEN(reagents_to_add))
