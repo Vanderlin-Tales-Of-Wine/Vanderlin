@@ -386,6 +386,7 @@
 	using.screen_loc = rogueui_eye
 	using.hud = src
 	static_inventory += using
+	using.update_overlays()
 
 	set_advclass()
 

@@ -88,6 +88,8 @@ GLOBAL_LIST_EMPTY(antagonists)
 	if(!istype(M))
 		return
 	var/datum/atom_hud/antag/hud = GLOB.huds[antag_hud_type]
+	if(!hud)
+		return
 	hud.join_hud(M)
 	set_antag_hud(M, antag_hud_name)
 
@@ -275,7 +277,7 @@ GLOBAL_LIST_EMPTY(antagonists)
 /// makes the owner's role unassigned and reopens their job slot
 /datum/antagonist/proc/remove_job()
 	if(owner.assigned_role)
-		owner.assigned_role.adjust_current_positions(-1)
+		owner.assigned_role.adjust_current_positions(1)
 	owner.assigned_role = /datum/job/unassigned
 	owner.current?.job = null
 

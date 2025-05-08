@@ -235,9 +235,10 @@
 		playsound(src, "smallslash", 100, TRUE, -1)
 		if(istype(src, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = src
-			if(user.mind && mind)
-				if(istype(user.dna.species, /datum/species/werewolf))
-					caused_wound?.werewolf_infect_attempt()
+			if(user?.mind && mind)
+				if(user.dna?.species && istype(user.dna.species, /datum/species/werewolf))
+					if(caused_wound)
+						caused_wound.werewolf_infect_attempt()
 					if(prob(30))
 						user.werewolf_feed(src)
 				if(user.mind.has_antag_datum(/datum/antagonist/zombie) && !src.mind.has_antag_datum(/datum/antagonist/zombie))
@@ -451,6 +452,8 @@
 								to_chat(src, span_green("I stole [picked]!"))
 								exp_to_gain *= src.mind.get_learning_boon(thiefskill)
 								if(V.client && V.stat != DEAD)
+									record_featured_stat(FEATURED_STATS_THIEVES, U)
+									record_featured_stat(FEATURED_STATS_CRIMINALS, U)
 									GLOB.vanderlin_round_stats[STATS_ITEMS_PICKPOCKETED]++
 								if(has_flaw(/datum/charflaw/addiction/kleptomaniac))
 									sate_addiction()
@@ -541,7 +544,7 @@
 			return
 	if(!used_intent.noaa && ismob(A))
 //		playsound(src, pick(GLOB.unarmed_swingmiss), 100, FALSE)
-		do_attack_animation(A, visual_effect_icon = used_intent.animname)
+		do_attack_animation(A, visual_effect_icon = used_intent.animname, used_intent = used_intent)
 		changeNext_move(used_intent.clickcd)
 //		src.emote("attackgrunt")
 		playsound(get_turf(src), used_intent.miss_sound, 100, FALSE)

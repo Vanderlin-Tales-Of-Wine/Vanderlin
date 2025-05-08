@@ -15,7 +15,7 @@
 /obj/structure/table
 	name = "table"
 	desc = ""
-	icon = 'icons/obj/smooth_structures/table.dmi'
+	//icon = 'icons/obj/smooth_structures/table.dmi'
 	icon_state = "table"
 	density = TRUE
 	anchored = TRUE
@@ -31,16 +31,14 @@
 	var/deconstruction_ready = 1
 	max_integrity = 100
 	integrity_failure = 0.33
-	smooth = SMOOTH_TRUE
-	canSmoothWith = list(/obj/structure/table)
 	destroy_sound = 'sound/combat/hits/onwood/destroyfurniture.ogg'
 	attacked_sound = list('sound/combat/hits/onwood/woodimpact (1).ogg','sound/combat/hits/onwood/woodimpact (2).ogg')
 	blade_dulling = DULLING_BASHCHOP
 
 /obj/structure/table/update_icon()
-	if(smooth)
-		queue_smooth(src)
-		queue_smooth_neighbors(src)
+	if(smoothing_flags & SMOOTH_BITMASK)
+		QUEUE_SMOOTH(src)
+		QUEUE_SMOOTH_NEIGHBORS(src)
 
 /obj/structure/table/narsie_act()
 	var/atom/A = loc
@@ -211,14 +209,12 @@
  * Wooden tables
  */
 
-
 /obj/structure/table/wood
 	name = "wooden table"
 	icon = 'icons/roguetown/misc/tables.dmi'
 	icon_state = "tablewood"
 	resistance_flags = FLAMMABLE
 	max_integrity = 70
-	smooth = 0
 	debris = list(/obj/item/grown/log/tree/small = 1)
 	climb_offset = 10
 
@@ -232,11 +228,9 @@
 
 /obj/structure/table/church
 	name = "stone table"
-	desc = ""
 	icon = 'icons/roguetown/misc/tables.dmi'
 	icon_state = "churchtable"
 	max_integrity = 300
-	smooth = 0
 	climb_offset = 10
 	debris = list(/obj/item/natural/stone = 1)
 
@@ -246,21 +240,17 @@
 
 /obj/structure/table/stone_small
 	name = "stone table"
-	desc = ""
 	icon = 'icons/roguetown/misc/tables.dmi'
 	icon_state = "stonetable_small"
 	max_integrity = 300
-	smooth = 0
 	climb_offset = 10
 	debris = list(/obj/item/natural/stone = 1)
 
 /obj/structure/table/vtable
 	name = "ancient wooden table"
-	desc = ""
 	icon = 'icons/roguetown/misc/tables.dmi'
 	icon_state = "vtable"
 	max_integrity = 300
-	smooth = 0
 	climb_offset = 10
 	debris = list(/obj/item/grown/log/tree/small = 1)
 
@@ -311,91 +301,58 @@
 	icon_state = "largetable_alt2"
 
 /obj/structure/table/wood/fine
-	name = "wooden table"
-	desc = ""
 	icon = 'icons/roguetown/misc/tables.dmi'
 	icon_state = "tablefine"
 	resistance_flags = FLAMMABLE
 	max_integrity = 40
-	smooth = 0
 	debris = list(/obj/item/grown/log/tree/small = 2)
 	climb_offset = 10
 
 /obj/structure/table/wood/nice
-	name = "wooden table"
-	desc = ""
 	icon = 'icons/roguetown/misc/tables.dmi'
 	icon_state = "tablefine2"
 
-/obj/structure/table/wood/poker //No specialties, Just a mapping object.
-	name = "gambling table"
-	desc = ""
-	icon = 'icons/obj/smooth_structures/poker_table.dmi'
-	icon_state = "poker_table"
-
-/obj/structure/table/wood/poker/narsie_act()
-	..(FALSE)
-
 /obj/structure/table/wood/fancy
 	name = "fancy table"
-	desc = ""
-	icon = 'icons/obj/structures.dmi'
+	icon = MAP_SWITCH('icons/obj/smooth_structures/fancy_table.dmi', 'icons/obj/structures.dmi')
 	icon_state = "fancy_table"
-	canSmoothWith = list(/obj/structure/table/wood/fancy,
-		/obj/structure/table/wood/fancy/black,
-		/obj/structure/table/wood/fancy/blue,
-		/obj/structure/table/wood/fancy/cyan,
-		/obj/structure/table/wood/fancy/green,
-		/obj/structure/table/wood/fancy/orange,
-		/obj/structure/table/wood/fancy/purple,
-		/obj/structure/table/wood/fancy/red,
-		/obj/structure/table/wood/fancy/royalblack,
-		/obj/structure/table/wood/fancy/royalblue)
-	var/smooth_icon = 'icons/obj/smooth_structures/fancy_table.dmi' // see Initialize()
-
-/obj/structure/table/wood/fancy/Initialize()
-	. = ..()
-	// Needs to be set dynamically because table smooth sprites are 32x34,
-	// which the editor treats as a two-tile-tall object. The sprites are that
-	// size so that the north/south corners look nice - examine the detail on
-	// the sprites in the editor to see why.
-	icon = smooth_icon
+	smoothing_flags = SMOOTH_BITMASK | SMOOTH_OBJ
 
 /obj/structure/table/wood/fancy/black
+	icon = MAP_SWITCH('icons/obj/smooth_structures/fancy_table_black.dmi', 'icons/obj/structures.dmi')
 	icon_state = "fancy_table_black"
-	smooth_icon = 'icons/obj/smooth_structures/fancy_table_black.dmi'
 
 /obj/structure/table/wood/fancy/blue
+	icon = MAP_SWITCH('icons/obj/smooth_structures/fancy_table_blue.dmi', 'icons/obj/structures.dmi')
 	icon_state = "fancy_table_blue"
-	smooth_icon = 'icons/obj/smooth_structures/fancy_table_blue.dmi'
 
 /obj/structure/table/wood/fancy/cyan
+	icon = MAP_SWITCH('icons/obj/smooth_structures/fancy_table_cyan.dmi', 'icons/obj/structures.dmi')
 	icon_state = "fancy_table_cyan"
-	smooth_icon = 'icons/obj/smooth_structures/fancy_table_cyan.dmi'
 
 /obj/structure/table/wood/fancy/green
+	icon = MAP_SWITCH('icons/obj/smooth_structures/fancy_table_green.dmi', 'icons/obj/structures.dmi')
 	icon_state = "fancy_table_green"
-	smooth_icon = 'icons/obj/smooth_structures/fancy_table_green.dmi'
 
 /obj/structure/table/wood/fancy/orange
+	icon = MAP_SWITCH('icons/obj/smooth_structures/fancy_table_orange.dmi', 'icons/obj/structures.dmi')
 	icon_state = "fancy_table_orange"
-	smooth_icon = 'icons/obj/smooth_structures/fancy_table_orange.dmi'
 
 /obj/structure/table/wood/fancy/purple
+	icon = MAP_SWITCH('icons/obj/smooth_structures/fancy_table_purple.dmi', 'icons/obj/structures.dmi')
 	icon_state = "fancy_table_purple"
-	smooth_icon = 'icons/obj/smooth_structures/fancy_table_purple.dmi'
 
 /obj/structure/table/wood/fancy/red
+	icon = MAP_SWITCH('icons/obj/smooth_structures/fancy_table_red.dmi', 'icons/obj/structures.dmi')
 	icon_state = "fancy_table_red"
-	smooth_icon = 'icons/obj/smooth_structures/fancy_table_red.dmi'
 
 /obj/structure/table/wood/fancy/royalblack
+	icon = MAP_SWITCH('icons/obj/smooth_structures/fancy_table_royalblack.dmi', 'icons/obj/structures.dmi')
 	icon_state = "fancy_table_royalblack"
-	smooth_icon = 'icons/obj/smooth_structures/fancy_table_royalblack.dmi'
 
 /obj/structure/table/wood/fancy/royalblue
+	icon = MAP_SWITCH('icons/obj/smooth_structures/fancy_table_royalblue.dmi', 'icons/obj/structures.dmi')
 	icon_state = "fancy_table_royalblue"
-	smooth_icon = 'icons/obj/smooth_structures/fancy_table_royalblue.dmi'
 
 /*	..................   More tables   ................... */
 /obj/structure/table/wood/reinf_long
@@ -538,7 +495,6 @@
 	desc = ""
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "optable"
-	smooth = SMOOTH_FALSE
 	can_buckle = 1
 	buckle_lying = NO_BUCKLE_LYING
 	buckle_requires_restraints = 1

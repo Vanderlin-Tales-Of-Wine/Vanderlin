@@ -1,24 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"a" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_line";
-	dir = 4
-	},
-/area/rogue/under/cavewet)
-"c" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_corner";
-	dir = 8
-	},
-/area/rogue/under/cavewet)
 "d" = (
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/hexstone,
-/area/rogue/under/cavewet)
-"e" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_line"
-	},
 /area/rogue/under/cavewet)
 "h" = (
 /obj/item/reagent_containers/food/snacks/smallrat,
@@ -36,19 +19,8 @@
 /obj/structure/toilet,
 /turf/open/floor/metal/barograte/open,
 /area/rogue/under/cavewet)
-"o" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_corner"
-	},
-/area/rogue/under/cavewet)
 "r" = (
 /turf/closed/wall/mineral/pipe,
-/area/rogue/under/cavewet)
-"t" = (
-/turf/closed/wall/mineral/pipe{
-	dir = 4;
-	icon_state = "iron_corner"
-	},
 /area/rogue/under/cavewet)
 "u" = (
 /obj/effect/dungeon_directional_helper/south,
@@ -62,12 +34,6 @@
 /obj/item/natural/worms/leech,
 /turf/open/water/sewer,
 /area/rogue/under/cavewet)
-"y" = (
-/turf/closed/wall/mineral/pipe{
-	dir = 8;
-	icon_state = "iron_corner"
-	},
-/area/rogue/under/cavewet)
 "z" = (
 /turf/open/floor/metal/barograte/open,
 /area/rogue/under/cavewet)
@@ -80,21 +46,9 @@
 /obj/item/natural/poo,
 /turf/open/water/sewer,
 /area/rogue/under/cavewet)
-"D" = (
-/turf/closed/wall/mineral/pipe{
-	dir = 1;
-	icon_state = "iron_corner"
-	},
-/area/rogue/under/cavewet)
 "E" = (
 /obj/structure/ladder,
 /turf/open/floor/metal/barograte/open,
-/area/rogue/under/cavewet)
-"H" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_corner";
-	dir = 4
-	},
 /area/rogue/under/cavewet)
 "I" = (
 /obj/item/reagent_containers/food/snacks/smallrat,
@@ -200,11 +154,11 @@ J
 J
 J
 J
-a
+r
 S
 S
 S
-a
+r
 J
 J
 h
@@ -214,34 +168,34 @@ M
 (3,1,1) = {"
 M
 j
-o
+r
 R
 J
 J
 S
-e
-e
-t
+r
+r
+r
 J
-D
-o
+r
+r
 J
 M
 "}
 (4,1,1) = {"
 M
 J
-y
-e
-o
+r
+r
+r
 J
 J
 J
 J
 x
 J
-y
-t
+r
+r
 J
 M
 "}
@@ -251,12 +205,12 @@ J
 J
 x
 r
-D
-e
-e
-e
-e
-o
+r
+r
+r
+r
+r
+r
 J
 J
 J
@@ -264,19 +218,19 @@ M
 "}
 (6,1,1) = {"
 M
-e
-e
+r
+r
 J
 J
-a
+r
 Q
 j
 J
 J
-a
+r
 x
-e
-e
+r
+r
 M
 "}
 (7,1,1) = {"
@@ -285,12 +239,12 @@ S
 S
 S
 J
-a
+r
 X
 r
-o
+r
 J
-a
+r
 J
 S
 S
@@ -302,10 +256,10 @@ S
 I
 S
 J
-a
+r
 C
 J
-a
+r
 k
 J
 J
@@ -319,12 +273,12 @@ S
 S
 S
 J
-y
-o
+r
+r
 J
-c
-e
-o
+r
+r
+r
 J
 I
 S
@@ -332,31 +286,31 @@ M
 "}
 (10,1,1) = {"
 M
-e
-e
-o
+r
+r
+r
 J
 J
-a
+r
 j
 J
 J
-y
-e
-e
-e
+r
+r
+r
+r
 M
 "}
 (11,1,1) = {"
 M
 S
 S
-y
-H
+r
+r
 x
-c
-e
-e
+r
+r
+r
 J
 J
 J
@@ -374,27 +328,27 @@ J
 J
 J
 J
-e
-e
-e
-o
+r
+r
+r
+r
 J
 M
 "}
 (13,1,1) = {"
 M
 J
-e
-e
-e
-o
+r
+r
+r
+r
 I
 S
 J
 J
 J
-D
-t
+r
+r
 J
 M
 "}
@@ -404,11 +358,11 @@ J
 J
 J
 j
-a
+r
 S
 S
 S
-a
+r
 J
 J
 J

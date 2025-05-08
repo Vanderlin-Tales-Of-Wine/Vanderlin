@@ -137,7 +137,7 @@
 /turf/open/floor/tile/checker,
 /area/rogue/under/cave)
 "fl" = (
-/obj/structure/mineral_door/wood/fancywood,
+/obj/structure/door/fancy,
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 4
 	},
@@ -261,7 +261,7 @@
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/under/cave)
 "jT" = (
-/obj/structure/mineral_door/bars,
+/obj/structure/door/iron/bars,
 /turf/open/floor/blocks/stonered,
 /area/rogue/under/cave)
 "kY" = (
@@ -311,7 +311,7 @@
 /turf/open/floor/carpet/lord/center,
 /area/rogue/under/cave)
 "mq" = (
-/obj/structure/mineral_door/bars,
+/obj/structure/door/iron/bars,
 /turf/open/floor/dirt,
 /area/rogue/under/cave)
 "mr" = (
@@ -347,9 +347,8 @@
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/under/cave)
 "ok" = (
-/obj/structure/mineral_door/wood/red{
-	locked = 1
-	},
+/obj/structure/door/red,
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/blocks/stonered,
 /area/rogue/under/cave)
 "or" = (
@@ -392,9 +391,8 @@
 /area/rogue/under/cave)
 "qX" = (
 /obj/effect/decal/cleanable/blood,
-/obj/structure/mineral_door/wood/red{
-	locked = 1
-	},
+/obj/structure/door/red,
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/blocks/stonered,
 /area/rogue/under/cave)
 "ra" = (

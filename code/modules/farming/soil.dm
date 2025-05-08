@@ -71,6 +71,7 @@
 		feedback = "Praise Dendor for our harvest is bountiful."
 		modifier += 3
 
+	record_featured_stat(FEATURED_STATS_FARMERS, user)
 	GLOB.vanderlin_round_stats[STATS_PLANTS_HARVESTED]++
 	to_chat(user, span_notice(feedback))
 	yield_produce(modifier)
@@ -476,6 +477,8 @@
 
 
 /obj/structure/soil/proc/process_plant_health(dt)
+	if(!plant)
+		return
 	var/drain_rate = plant.water_drain_rate
 	// Lots of weeds harm the plant
 	if(weeds >= MAX_PLANT_WEEDS * 0.6)
@@ -495,6 +498,8 @@
 		adjust_plant_health(dt * PLANT_BLESS_HEAL_RATE)
 
 /obj/structure/soil/proc/process_plant_nutrition(dt)
+	if(!plant)
+		return
 	var/turf/location = loc
 	if(!plant.can_grow_underground && !location.can_see_sky())
 		return
@@ -540,6 +545,8 @@
 	process_growth(target_growth_time)
 
 /obj/structure/soil/proc/process_growth(target_growth_time)
+	if(!plant)
+		return
 	var/target_nutrition
 	if(!matured)
 		target_nutrition = (plant.maturation_nutrition / plant.maturation_time) * target_growth_time
@@ -553,6 +560,8 @@
 
 
 /obj/structure/soil/proc/add_growth(added_growth)
+	if(!plant)
+		return
 	growth_time += added_growth
 	if(!matured)
 		if(growth_time >= plant.maturation_time)

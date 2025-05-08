@@ -1,22 +1,22 @@
 
 /mob/living/carbon/human/Stun(amount, ignore_canstun = FALSE)
-	amount = dna.species.spec_stun(src,amount)
+	amount = dna?.species?.spec_stun(src, amount)
 	return ..()
 
 /mob/living/carbon/human/Knockdown(amount, ignore_canstun = FALSE)
-	amount = dna.species.spec_stun(src,amount)
+	amount = dna?.species?.spec_stun(src, amount)
 	return ..()
 
 /mob/living/carbon/human/Paralyze(amount, ignore_canstun = FALSE)
-	amount = dna.species.spec_stun(src, amount)
+	amount = dna?.species?.spec_stun(src, amount)
 	return ..()
 
 /mob/living/carbon/human/Immobilize(amount, ignore_canstun = FALSE)
-	amount = dna.species.spec_stun(src, amount)
+	amount = dna?.species?.spec_stun(src, amount)
 	return ..()
 
 /mob/living/carbon/human/Unconscious(amount, ignore_canstun = FALSE)
-	amount = dna?.species?.spec_stun(src,amount)
+	amount = dna?.species?.spec_stun(src, amount)
 	return ..()
 
 /mob/living/carbon/human/Sleeping(amount)

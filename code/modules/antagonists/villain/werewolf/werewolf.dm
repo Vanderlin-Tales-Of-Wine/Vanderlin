@@ -165,7 +165,7 @@
 	item_damage_type = "slash"
 
 /obj/item/weapon/werewolf_claw
-	name = "Verevolf Claw"
+	name = "verevolf claw"
 	desc = ""
 	item_state = null
 	lefthand_file = null
@@ -191,7 +191,7 @@
 
 /obj/item/weapon/werewolf_claw/Initialize()
 	. = ..()
-	AddElement(/datum/element/walking_stick)
+	AddComponent(/datum/component/walking_stick)
 
 /obj/item/weapon/werewolf_claw/right
 	icon_state = "claw_r"

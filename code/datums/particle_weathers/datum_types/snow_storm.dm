@@ -105,8 +105,8 @@
 /turf/proc/apply_weather_effect(datum/weather_effect/effect)
 	SIGNAL_HANDLER
 
-	if(locate(/obj/structure/mineral_door) in src)
-		var/obj/structure/mineral_door/door = locate(/obj/structure/mineral_door) in src
+	if(locate(/obj/structure/door) in src)
+		var/obj/structure/door/door = locate(/obj/structure/door) in src
 		if(door.density)
 			return
 	if(locate(/obj/structure/window) in src)

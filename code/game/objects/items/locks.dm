@@ -92,8 +92,8 @@
 		to_chat(user, span_notice("You add [src] to [S]."))
 		qdel(src)
 		return
-	if(istype(S, /obj/structure/mineral_door))
-		var/obj/structure/mineral_door/door = S
+	if(istype(S, /obj/structure/door))
+		var/obj/structure/door/door = S
 		if(!door.can_add_lock)
 			to_chat(user, span_warning("A lock can't be added to [S]."))
 		if(door.keylock == TRUE)

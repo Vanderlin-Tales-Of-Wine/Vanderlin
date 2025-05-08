@@ -13,33 +13,6 @@
 "e" = (
 /turf/open/floor/dirt,
 /area/rogue/under/cave)
-"h" = (
-/obj/structure/mineral_door/wood/donjon{
-	dir = 4
-	},
-/turf/open/floor/hexstone,
-/area/rogue/under/cave)
-"i" = (
-/obj/structure/mineral_door/wood/donjon{
-	dir = 4;
-	locked = 1
-	},
-/turf/open/floor/hexstone,
-/area/rogue/under/cave)
-"j" = (
-/mob/living/simple_animal/hostile/demon{
-	name = "Bonetaker";
-	base_constitution = 15;
-	base_endurance = 15;
-	base_intelligence = 15;
-	base_fortune = 15;
-	base_perception = 15;
-	base_speed = 18;
-	base_strength = 20
-	},
-/obj/effect/decal/cleanable/blood/gibs/up,
-/turf/open/floor/hexstone,
-/area/rogue/under/cave)
 "m" = (
 /obj/effect/spawner/map_spawner/loot,
 /turf/open/floor/hexstone,
@@ -146,6 +119,20 @@
 /obj/effect/decal/cleanable/blood/footprints,
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
+"P" = (
+/mob/living/simple_animal/hostile/demon{
+	name = "Bonetaker";
+	base_constitution = 15;
+	base_endurance = 15;
+	base_intelligence = 15;
+	base_fortune = 15;
+	base_perception = 15;
+	base_speed = 18;
+	base_strength = 20
+	},
+/obj/effect/decal/cleanable/blood/gibs/up,
+/turf/open/floor/hexstone,
+/area/rogue/under/cave)
 "Q" = (
 /obj/structure/closet/crate/coffin,
 /mob/living/carbon/human/species/skeleton/npc/ambush,
@@ -164,6 +151,13 @@
 /mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/floor/dirt,
 /area/rogue/under/cave)
+"V" = (
+/obj/structure/door/viewport{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/door/locker,
+/turf/open/floor/hexstone,
+/area/rogue/under/cave)
 "W" = (
 /obj/structure/table/wood/plain/alt,
 /obj/item/reagent_containers/glass/cup/golden,
@@ -171,6 +165,12 @@
 /area/rogue/under/cave)
 "X" = (
 /obj/structure/bars,
+/turf/open/floor/hexstone,
+/area/rogue/under/cave)
+"Y" = (
+/obj/structure/door/viewport{
+	dir = 4
+	},
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
 
@@ -187,7 +187,7 @@ a
 x
 x
 x
-h
+Y
 x
 x
 x
@@ -432,7 +432,7 @@ x
 u
 M
 v
-j
+P
 p
 x
 "}
@@ -523,7 +523,7 @@ x
 x
 x
 x
-i
+V
 x
 "}
 (16,1,2) = {"

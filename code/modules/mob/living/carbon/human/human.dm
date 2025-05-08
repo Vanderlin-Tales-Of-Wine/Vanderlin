@@ -1,4 +1,3 @@
-#ifdef MATURESERVER
 /mob/living/carbon/human/MiddleClick(mob/user, params)
 	..()
 	if(!user)
@@ -34,11 +33,6 @@
 							V.add_stress(/datum/stressevent/dwarfshaved)
 				else
 					held_item.melee_attack_chain(user, src, params)
-		return
-	if(user == src)
-		if(usable_hands < 1)
-			return
-#endif
 
 /mob/living/carbon/human/Initialize()
 	// verbs += /mob/living/proc/mob_sleep
@@ -403,7 +397,7 @@
 /mob/living/carbon/human/update_health_hud(stamina_only = FALSE)
 	if(!client || !hud_used)
 		return
-	if(dna.species.update_health_hud())
+	if(dna?.species?.update_health_hud())
 		return
 	else
 		if(hud_used.bloods && !stamina_only)

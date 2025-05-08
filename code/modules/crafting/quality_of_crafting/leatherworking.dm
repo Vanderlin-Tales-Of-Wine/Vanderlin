@@ -340,7 +340,8 @@
 	requirements = list(
 		/obj/item/natural/hide/cured = 1,
 	)
-	output = list(/obj/item/clothing/head/brimmed = 2)
+	output_amount = 2
+	output = /obj/item/clothing/head/brimmed
 	craftdiff = 1
 
 /datum/repeatable_crafting_recipe/leather/volfmantle

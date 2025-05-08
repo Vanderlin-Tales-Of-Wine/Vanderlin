@@ -13,7 +13,7 @@
 		/datum/slapcraft_step/item/small_log/second,
 		/datum/slapcraft_step/use_item/carpentry/hammer
 		)
-	result_type = /obj/structure/mineral_door/wood
+	result_type = /obj/structure/door
 
 /datum/slapcraft_recipe/carpentry/structure/swingdoor
 	name = "swing door"
@@ -22,7 +22,7 @@
 		/datum/slapcraft_step/item/small_log/second,
 		/datum/slapcraft_step/use_item/carpentry/hammer
 		)
-	result_type = /obj/structure/mineral_door/swing_door
+	result_type = /obj/structure/door/swing
 
 /datum/slapcraft_recipe/carpentry/structure/deadbolt
 	name = "wooden door (deadbolt)"
@@ -33,7 +33,7 @@
 		/datum/slapcraft_step/item/stick,
 		/datum/slapcraft_step/use_item/carpentry/hammer/second
 		)
-	result_type = /obj/structure/mineral_door/wood/deadbolt
+	result_type = /obj/structure/door/weak/bolt
 
 /datum/slapcraft_recipe/carpentry/structure/donjon
 	name = "wooden door (viewport)"
@@ -44,7 +44,7 @@
 		/datum/slapcraft_step/item/iron,
 		/datum/slapcraft_step/use_item/carpentry/hammer/second
 		)
-	result_type = /obj/structure/mineral_door/wood/donjon
+	result_type = /obj/structure/door/viewport
 	craftdiff = 2
 
 /datum/slapcraft_recipe/carpentry/structure/fancydoor
@@ -54,7 +54,7 @@
 		/datum/slapcraft_step/item/small_log/second,
 		/datum/slapcraft_step/use_item/carpentry/hammer
 		)
-	result_type = /obj/structure/mineral_door/wood/fancywood
+	result_type = /obj/structure/door/fancy
 	craftdiff = 3
 
 /datum/slapcraft_recipe/carpentry/structure/roguebin

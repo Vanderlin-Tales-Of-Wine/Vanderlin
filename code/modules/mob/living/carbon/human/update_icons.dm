@@ -257,9 +257,8 @@ There are several things that need to be remembered:
 /mob/living/carbon/human/regenerate_icons()
 	if(!..())
 		icon_render_key = null //invalidate bodyparts cache
-		if(dna.species)
-			if(dna.species.regenerate_icons(src))
-				return
+		if(dna?.species?.regenerate_icons(src))
+			return
 		update_body()
 		update_inv_wear_id()
 		update_inv_gloves()

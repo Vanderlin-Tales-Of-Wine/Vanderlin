@@ -98,6 +98,8 @@ Notes:
 	last_target = null
 
 /datum/tooltip/proc/do_hide()
+	if(QDELETED(owner))
+		return
 	winshow(owner, control, FALSE)
 
 /datum/tooltip/Destroy(force)

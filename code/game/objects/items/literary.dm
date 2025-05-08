@@ -118,7 +118,7 @@
 /*.............. READING ..............*/
 
 /obj/item/textbook/novice
-	icon_state = "book1_1"
+	icon_state = "book_1"
 	minskill = SKILL_LEVEL_NONE
 	maxskill = SKILL_LEVEL_NOVICE
 	exppercycle = 5

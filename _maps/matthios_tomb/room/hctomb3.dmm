@@ -50,12 +50,6 @@
 /obj/effect/decal/cleanable/blood/gibs/old,
 /turf/open/floor/cobblerock,
 /area/rogue/under/cavewet)
-"bS" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_end";
-	dir = 1
-	},
-/area/rogue/under/cavewet)
 "cE" = (
 /obj/structure/kneestingers{
 	icon_state = "glowshroom2"
@@ -85,12 +79,6 @@
 "dW" = (
 /mob/living/carbon/human/species/rousman/ambush,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cavewet)
-"dY" = (
-/obj/structure/mineral_door/wood/donjon{
-	dir = 1
-	},
-/turf/open/floor/blocks/stonered/tiny,
 /area/rogue/under/cavewet)
 "eo" = (
 /obj/structure/rack/shelf/biggest,
@@ -292,6 +280,10 @@
 	},
 /turf/closed/wall/mineral/craftstone,
 /area/rogue/under/cavewet)
+"kI" = (
+/obj/structure/door/stone,
+/turf/open/floor/churchrough,
+/area/rogue/under/cavewet)
 "kJ" = (
 /obj/structure/fluff/railing/border{
 	dir = 9
@@ -319,11 +311,6 @@
 "lq" = (
 /turf/closed/wall/mineral/decostone/long{
 	dir = 1
-	},
-/area/rogue/under/cavewet)
-"lC" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_line"
 	},
 /area/rogue/under/cavewet)
 "ml" = (
@@ -597,6 +584,15 @@
 /area/rogue/under/cavewet)
 "to" = (
 /turf/open/floor/cobblerock,
+/area/rogue/under/cavewet)
+"tv" = (
+/obj/structure/door/viewport{
+	dir = 1
+	},
+/turf/open/floor/blocks/stonered/tiny,
+/area/rogue/under/cavewet)
+"tx" = (
+/turf/closed/wall/mineral/pipe,
 /area/rogue/under/cavewet)
 "tR" = (
 /obj/structure/fluff/railing/border{
@@ -1183,10 +1179,6 @@
 	},
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/under/cavewet)
-"RP" = (
-/obj/structure/mineral_door/wood/donjon/stone,
-/turf/open/floor/blocks/stonered/tiny,
-/area/rogue/under/cavewet)
 "Sx" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 4
@@ -1310,10 +1302,6 @@
 	name = "weak craftstone wall"
 	},
 /area/rogue/under/cavewet)
-"UQ" = (
-/obj/structure/mineral_door/wood/donjon/stone,
-/turf/open/floor/churchrough,
-/area/rogue/under/cavewet)
 "UR" = (
 /mob/living/simple_animal/hostile/retaliate/mimic,
 /obj/machinery/light/fueled/wallfire/candle/blue,
@@ -1435,6 +1423,10 @@
 	},
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/under/cavewet)
+"Xc" = (
+/obj/structure/door/stone,
+/turf/open/floor/blocks/stonered/tiny,
+/area/rogue/under/cavewet)
 "Xr" = (
 /obj/machinery/light/fueled/torchholder/r,
 /obj/structure/spider/cocoon,
@@ -1479,11 +1471,6 @@
 	},
 /obj/structure/closet/crate/chest/neu,
 /turf/open/floor/dirt/road,
-/area/rogue/under/cavewet)
-"Yb" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_end"
-	},
 /area/rogue/under/cavewet)
 "YB" = (
 /obj/effect/dungeon_directional_helper/south,
@@ -1636,11 +1623,11 @@ qM
 (5,1,1) = {"
 kY
 vs
-bS
-lC
+tx
+tx
 qy
-lC
-Yb
+tx
+tx
 wF
 bB
 kY
@@ -1764,11 +1751,11 @@ qM
 (9,1,1) = {"
 kY
 vs
-bS
-lC
+tx
+tx
 qy
-lC
-Yb
+tx
+tx
 wF
 bB
 vs
@@ -1877,7 +1864,7 @@ sP
 tX
 mt
 wx
-UQ
+kI
 dO
 PB
 lq
@@ -2675,8 +2662,8 @@ jA
 Tc
 cS
 kY
-RP
-RP
+Xc
+Xc
 qW
 mB
 TC
@@ -2734,7 +2721,7 @@ kJ
 UZ
 ME
 Sx
-UQ
+kI
 go
 go
 yS
@@ -2742,10 +2729,10 @@ uG
 go
 Un
 of
-dY
+tv
 Un
 uG
-dY
+tv
 Up
 Up
 Up
@@ -2766,7 +2753,7 @@ dO
 OO
 OO
 dO
-UQ
+kI
 Un
 Un
 go
@@ -2774,10 +2761,10 @@ go
 Un
 Un
 Un
-dY
+tv
 oo
 oo
-dY
+tv
 Up
 Up
 Up
@@ -2836,7 +2823,7 @@ kY
 go
 ZS
 Un
-RP
+Xc
 Un
 Un
 vl
@@ -2859,15 +2846,15 @@ kY
 kY
 kY
 kY
-RP
+Xc
 kY
 kY
 qC
 DY
 kY
-UQ
+kI
 LM
-UQ
+kI
 kY
 go
 Uu

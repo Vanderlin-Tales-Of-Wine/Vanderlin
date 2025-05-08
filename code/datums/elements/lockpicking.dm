@@ -383,7 +383,7 @@
 		qdel(lockpick_used)
 
 	//special cases that need telling what to do due to others shartcode
-	var/obj/structure/mineral_door/A = src
+	var/obj/structure/door/A = src
 	if(istype(A))
 		A.locked = FALSE
 	lock_tampered = TRUE
@@ -401,6 +401,7 @@
 
 	to_chat(user, "<span class='notice'>You pick [name]s lock.</span>")
 	user.visible_message(span_notice("[user.name] picks [name]s lock."), span_notice("You pick the [name]s lock."))
+	record_featured_stat(FEATURED_STATS_CRIMINALS, user)
 	GLOB.vanderlin_round_stats[STATS_LOCKS_PICKED]++
 
 	being_picked = FALSE

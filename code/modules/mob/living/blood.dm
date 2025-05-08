@@ -189,11 +189,10 @@
 	updatehealth()
 
 /mob/living/carbon/human/bleed(amt)
-	amt *= physiology.bleed_mod
-	if(!(NOBLOOD in dna.species.species_traits))
+	if(physiology)
+		amt *= physiology.bleed_mod
+	if(!(NOBLOOD in dna?.species?.species_traits))
 		return ..()
-
-
 
 /mob/living/proc/restore_blood()
 	blood_volume = initial(blood_volume)

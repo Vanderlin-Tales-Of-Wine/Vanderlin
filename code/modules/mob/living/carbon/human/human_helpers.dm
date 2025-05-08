@@ -105,6 +105,9 @@
 		return TRUE
 
 /mob/living/carbon/human/get_punch_dmg()
+	if(QDELETED(src) || !ishuman(src))
+		return
+
 	var/damage = 12
 	var/used_str = STASTR
 
@@ -116,7 +119,6 @@
 
 	if(used_str >= 11)
 		damage = max(damage + (damage * ((used_str - 10) * 0.3)), 1)
-
 	if(used_str <= 9)
 		damage = max(damage - (damage * ((10 - used_str) * 0.1)), 1)
 
@@ -127,6 +129,9 @@
 	return damage
 
 /mob/living/carbon/human/proc/get_kick_damage(multiplier = 1)
+	if(QDELETED(src) || !ishuman(src))
+		return
+
 	var/damage = 12
 	var/used_str = STASTR
 
@@ -135,7 +140,6 @@
 
 	if(used_str >= 11)
 		damage = max(damage + (damage * ((used_str - 10) * 0.3)), 1)
-
 	if(used_str <= 9)
 		damage = max(damage - (damage * ((10 - used_str) * 0.1)), 1)
 
