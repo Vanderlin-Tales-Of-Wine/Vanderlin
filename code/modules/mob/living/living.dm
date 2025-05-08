@@ -1179,7 +1179,7 @@
 	resist_chance = clamp(resist_chance, 7, 95)
 
 	// if(moving_resist && client) //we resisted by trying to move
-	client.move_delay = world.time + 20
+	client?.move_delay = world.time + 20
 	changeNext_move(CLICK_CD_RESIST)
 	adjust_stamina(rand(3,8))
 	pulledby.adjust_stamina(rand(1,4))
