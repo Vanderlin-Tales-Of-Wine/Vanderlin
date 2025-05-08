@@ -103,26 +103,44 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 
 		var/mob/living/carbon/human/selected_priest = null
 		var/was_supporter = FALSE
+		var/was_clergy = FALSE
 
-		// First try to find a challenger supporter who is clergy
+		// First try to find a challenger supporter who is also clergy
 		for(var/datum/weakref/supporter_ref in supporters_challenger)
 			var/mob/living/carbon/human/human_mob = supporter_ref.resolve()
-			if(human_mob && human_mob.stat != DEAD && human_mob.mind && (human_mob.mind.assigned_role.title in GLOB.church_positions))
+			if(human_mob && human_mob.stat != DEAD && human_mob.client && (human_mob.mind?.assigned_role.title in GLOB.church_positions) && human_mob.patron == challenger)
 				selected_priest = human_mob
 				was_supporter = TRUE
+				was_clergy = TRUE
 				break
 
-		// If no supporter found, fall back to any clergy member who has challenger as his patron
+		// If no supporter found, fall back to any clergy member who has the challenger as his patron
 		if(!selected_priest)
 			for(var/mob/living/carbon/human/human_mob in GLOB.player_list)
-				if(human_mob.stat != DEAD && human_mob.mind && (human_mob.mind.assigned_role.title in GLOB.church_positions) && human_mob.patron == challenger)
+				if(human_mob.stat != DEAD && human_mob.client && (human_mob.mind?.assigned_role.title in GLOB.church_positions) && human_mob.patron == challenger)
 					selected_priest = human_mob
+					was_clergy = TRUE
+					break
+
+		// As a last resort, pick someone who has the challenger as his patron, is adult, is not a noble, garrison or a migrant
+		if(!selected_priest)
+			for(var/datum/weakref/supporter_ref in supporters_challenger)
+				var/mob/living/carbon/human/human_mob = supporter_ref.resolve()
+				if(human_mob && human_mob.stat != DEAD && human_mob.client && human_mob.patron == challenger && !human_mob.is_noble() && human_mob.age != AGE_CHILD && !(human_mob.mind?.assigned_role.title in GLOB.garrison_positions) && !(human_mob.mind?.assigned_role.title in GLOB.allmig_positions))
+					selected_priest = human_mob
+					was_supporter = TRUE
 					break
 
 		// Promote the selected priest if we found one
 		if(selected_priest)
-			selected_priest.mind.set_assigned_role(/datum/job/priest/vice)
 			selected_priest.job = "Vice Priest"
+			selected_priest.advjob = "Vice Priest"
+			selected_priest.migrant_type = null
+			if(!was_clergy)
+				var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(selected_priest, selected_priest.patron)
+				C.grant_spells(selected_priest)
+				selected_priest.verbs |= /mob/living/carbon/human/proc/devotionreport
+				selected_priest.verbs |= /mob/living/carbon/human/proc/clericpray
 			selected_priest.verbs |= /mob/living/carbon/human/proc/churchexcommunicate
 			selected_priest.verbs |= /mob/living/carbon/human/proc/churchcurse
 			selected_priest.verbs |= /mob/living/carbon/human/proc/churchannouncement
