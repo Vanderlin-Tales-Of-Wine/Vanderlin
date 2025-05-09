@@ -347,8 +347,6 @@
 				brute_loss = ((100 * (2 - round(bomb_armor*0.01, 0.05)) * ddist) - ((100 * (2 - round(bomb_armor*0.01, 0.05))) * fodist) * dmgmod)
 				burn_loss = brute_loss
 			damage_clothes(max(brute_loss - bomb_armor, 0), BRUTE, "blunt")
-//				if (!istype(ears, /obj/item/clothing/ears/earmuffs))
-//					adjustEarDamage(30, 120)
 			Unconscious((50 * ddist) - (15 * fodist))
 			Knockdown(((30 * ddist) - (30 * fodist)) - (bomb_armor * 1.6))
 
@@ -359,8 +357,6 @@
 				brute_loss = ((30 * (2 - round(bomb_armor*0.01, 0.05)) * hdist) - ((30 * (2 - round(bomb_armor*0.01, 0.05))) * fodist) * dmgmod)
 				burn_loss = brute_loss
 			damage_clothes(max(brute_loss - bomb_armor, 0), BRUTE, "blunt")
-//				if (!istype(ears, /obj/item/clothing/ears/earmuffs))
-//					adjustEarDamage(30, 120)
 			Unconscious((10 * hdist) - (5 * fodist))
 			Knockdown(((30 * hdist) - (30 * fodist)) - (bomb_armor * 1.6))
 
@@ -369,9 +365,6 @@
 			if(bomb_armor)
 				brute_loss = (10 * (2 - round(bomb_armor*0.01, 0.05)) * ldist) - ((10 * (2 - round(bomb_armor*0.01, 0.05))) * fodist)
 				damage_clothes(max(brute_loss - bomb_armor, 0), BRUTE, "blunt")
-//				if (!istype(ears, /obj/item/clothing/ears/earmuffs))
-//					adjustEarDamage(15,60)
-
 	take_overall_damage(brute_loss,burn_loss)
 
 	//attempt to dismember bodyparts

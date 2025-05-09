@@ -505,14 +505,6 @@ There are several things that need to be remembered:
 	apply_overlay(WRISTS_LAYER)
 	apply_overlay(WRISTSLEEVE_LAYER)
 
-/mob/living/carbon/human/update_inv_glasses()
-	return
-
-
-/mob/living/carbon/human/update_inv_ears()
-	return
-
-
 /mob/living/carbon/human/update_inv_shoes()
 	remove_overlay(SHOES_LAYER)
 	remove_overlay(SHOESLEEVE_LAYER)
