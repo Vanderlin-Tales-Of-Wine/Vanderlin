@@ -1447,7 +1447,7 @@ SUBSYSTEM_DEF(gamemode)
 
 	var/follower_count = GLOB.patron_follower_counts[initialized_storyteller.name] || 0
 	var/base_mod = initialized_storyteller.follower_modifier
-	var/diminish_threshold = 5
+	var/diminish_threshold = 4
 	var/min_mod = 15
 
 	// Calculate total influence with diminishing returns

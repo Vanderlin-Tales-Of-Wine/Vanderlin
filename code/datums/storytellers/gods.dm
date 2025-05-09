@@ -239,7 +239,7 @@
 		STATS_MARRIAGES = list("points" = 25, "capacity" = 75),
 		STATS_HUGS_MADE = list("points" = 2, "capacity" = 60),
 		STATS_CLINGY_PEOPLE = list("points" = 6, "capacity" = 75),
-		STATS_PACIFISTS = list("points" = 12, "capacity" = 70),
+		STATS_PACIFISTS = list("points" = 12.5, "capacity" = 70),
 	)
 
 /datum/storyteller/dendor
@@ -265,10 +265,10 @@
 
 	influence_factors = list(
 		STATS_TREES_CUT = list("points" = -0.35, "capacity" = -60),
-		STATS_PLANTS_HARVESTED = list("points" = 0.8, "capacity" = 140),
+		STATS_PLANTS_HARVESTED = list("points" = 0.75, "capacity" = 140),
 		STATS_WEREVOLVES = list("points" = 15, "capacity" = 80),
 		STATS_DENDOR_SACRIFICES = list("points" = 15, "capacity" = 80),
-		STATS_FOREST_DEATHS = list("points" = 6.25, "capacity" = 100),
+		STATS_FOREST_DEATHS = list("points" = 6, "capacity" = 100),
 	)
 
 // INHUMEN
