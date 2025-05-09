@@ -316,7 +316,8 @@
 		return FALSE
 
 	M.do_attack_animation(src, visual_effect_icon = M.a_intent.animname)
-	playsound(get_turf(M), pick(M.attack_sound), 100, FALSE)
+	if(M.attack_sound)
+		playsound(get_turf(M), pick(M.attack_sound), 100, FALSE)
 
 	var/cached_intent = M.used_intent
 
