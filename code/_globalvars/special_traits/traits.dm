@@ -151,14 +151,11 @@
 	weight = 100
 
 /datum/special_trait/cunning_linguist/on_apply(mob/living/carbon/human/character, silent)
-	ADD_TRAIT(character, TRAIT_GOODLOVER, "[type]")
-	switch(rand(1,3))
+	switch(rand(1,2))
 		if(1)
 			character.grant_language(/datum/language/elvish)
 		if(2)
 			character.grant_language(/datum/language/hellspeak)
-		if(3)
-			character.grant_language(/datum/language/draconic)
 
 /datum/special_trait/corn_fed
 	name = "Corn Fed"
@@ -213,7 +210,7 @@
 	weight = 50
 
 /datum/special_trait/pineapple/on_apply(mob/living/carbon/human/character, silent)
-	character.mind.special_items["Whip"] = /obj/item/rogueweapon/whip
+	character.mind.special_items["Whip"] = /obj/item/weapon/whip/antique
 	character.mind.adjust_skillrank(/datum/skill/combat/whipsflails, 6, TRUE)
 
 /datum/special_trait/psydons_rider
@@ -226,11 +223,11 @@
 /datum/special_trait/psydons_rider/on_apply(mob/living/carbon/human/character, silent)
 	character.drunkenness = 50
 	for(var/i in 1 to 2)
-		var/obj/item/bottle = new /obj/item/reagent_containers/glass/bottle/rogue/wine(get_turf(character))
+		var/obj/item/bottle = new /obj/item/reagent_containers/glass/bottle/wine(get_turf(character))
 		character.put_in_hands(bottle, forced = TRUE)
 
 	character.mind.adjust_skillrank(/datum/skill/misc/riding, 4, TRUE)
-	new /mob/living/simple_animal/hostile/retaliate/rogue/saiga/tame/saddled(get_turf(character))
+	new /mob/living/simple_animal/hostile/retaliate/saiga/tame/saddled(get_turf(character))
 
 /datum/special_trait/spring_in_my_step
 	name = "Spring in my Step"
@@ -314,7 +311,7 @@
 	weight = 100
 
 /datum/special_trait/richpouch/on_apply(mob/living/carbon/human/character, silent)
-	var/obj/item/pouch = new /obj/item/storage/belt/rogue/pouch/coins/rich(get_turf(character))
+	var/obj/item/pouch = new /obj/item/storage/belt/pouch/coins/rich(get_turf(character))
 	character.put_in_hands(pouch, forced = TRUE)
 
 /datum/special_trait/swift
@@ -365,7 +362,7 @@
 	name = "Godless"
 	greet_text = span_notice("Gods may exist, but know what? I care not.")
 	req_text = "Non-Church Role"
-	restricted_jobs = list(CHURCH_ROLES)
+	restricted_jobs = list(CHURCHMEN)
 	weight = 100
 
 /datum/special_trait/atheism/on_apply(mob/living/carbon/human/character, silent)
@@ -401,7 +398,7 @@
 	greet_text = span_boldwarning("I've been denounced by the church for either reasons legitimate or not!")
 	req_text = "Non-church role"
 	weight = 20
-	restricted_jobs = list(CHURCH_ROLES)
+	restricted_jobs = list(CHURCHMEN)
 
 /datum/special_trait/hussite/on_apply(mob/living/carbon/human/character, silent)
 	GLOB.excommunicated_players += character.real_name
