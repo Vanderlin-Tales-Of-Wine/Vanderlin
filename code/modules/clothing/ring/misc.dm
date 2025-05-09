@@ -340,7 +340,7 @@
 
 /obj/item/clothing/ring/dragon_ring
 	name = "Dragon Ring"
-	icon_state = "dragonring"
+	icon_state = "ring_g" // supposed to have it's own sprite but I'm lazy asf
 	desc = "Carrying the likeness of a dragon, this glorious ring hums with a subtle energy."
 	sellprice = 666
 	var/active_item
