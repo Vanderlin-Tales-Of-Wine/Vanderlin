@@ -58,7 +58,8 @@
 	if(!user)
 		return FALSE
 	user.visible_message(span_warning("[user] picks the lock of \the [src]!"), span_notice("I finish picking the lock of \the [src]."))
-	GLOB.vanderlin_round_stats[STATS_LOCKS_PICKED]++
+	record_featured_stat(FEATURED_STATS_CRIMINALS, user)
+        GLOB.vanderlin_round_stats[STATS_LOCKS_PICKED]++
 	being_picked = FALSE
 	return TRUE
 
