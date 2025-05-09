@@ -16,7 +16,7 @@
 	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,STUBBLE,OLDGREY)
 	default_features = MANDATORY_FEATURE_LIST
 	use_skintones = TRUE
-	possible_ages = ALL_AGES_LIST_WITH_CHILD
+	possible_ages = list(AGE_CHILD, AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD)
 	disliked_food = NONE
 	liked_food = NONE
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | RACE_SWAP | SLIME_EXTRACT
