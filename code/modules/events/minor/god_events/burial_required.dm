@@ -3,7 +3,7 @@
 	track = EVENT_TRACK_MUNDANE
 	typepath = /datum/round_event/necra_burials
 	weight = 5
-	earliest_start = 10 MINUTES
+	earliest_start = 15 MINUTES
 	max_occurrences = 1
 	min_players = 25
 
@@ -21,7 +21,7 @@
 			continue
 		if(!H.patron || !istype(H.patron, /datum/patron/divine/necra))
 			continue
-		if(istype(H.mind?.assigned_role, /datum/job/undertaker) || H.job == "Graventeder")
+		if(istype(H.mind?.assigned_role, /datum/job/undertaker) || H.job == "Graventeder" || H.is_noble())
 			continue
 		return TRUE
 
@@ -35,7 +35,7 @@
 			continue
 		if(!human_mob.patron || !istype(human_mob.patron, /datum/patron/divine/necra))
 			continue
-		if(istype(human_mob.mind?.assigned_role, /datum/job/undertaker) || human_mob.job == "Graventeder")
+		if(istype(human_mob.mind?.assigned_role, /datum/job/undertaker) || human_mob.job == "Graventeder" || human_mob.is_noble())
 			continue
 		valid_targets += human_mob
 

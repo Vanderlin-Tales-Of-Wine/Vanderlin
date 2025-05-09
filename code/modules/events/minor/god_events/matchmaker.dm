@@ -3,7 +3,7 @@
 	track = EVENT_TRACK_MUNDANE
 	typepath = /datum/round_event/eora_marriage
 	weight = 5
-	earliest_start = 10 MINUTES
+	earliest_start = 5 MINUTES
 	max_occurrences = 1
 	min_players = 30
 

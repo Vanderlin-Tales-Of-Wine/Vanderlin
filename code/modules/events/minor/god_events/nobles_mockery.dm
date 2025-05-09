@@ -16,21 +16,18 @@
 	if(!.)
 		return FALSE
 
-	var/mockers = 0
 	for(var/mob/living/carbon/human/H in GLOB.player_list)
-		if(!istype(H) || H.stat == DEAD || !H.client || !istype(H.patron, /datum/patron/divine/xylix))
+		if(!istype(H) || H.stat == DEAD || !H.client || !istype(H.patron, /datum/patron/divine/xylix) || H.is_noble())
 			continue
 		if(locate(/obj/effect/proc_holder/spell/invoked/mockery) in H.mind.spell_list)
-			mockers++
-			if(mockers >= 1)
-				return TRUE
+			return TRUE
 	return FALSE
 
 /datum/round_event/xylix_mocking_nobles/start()
 	var/list/valid_targets = list()
 
 	for(var/mob/living/carbon/human/H in GLOB.player_list)
-		if(!istype(H) || H.stat == DEAD || !H.client || !istype(H.patron, /datum/patron/divine/xylix))
+		if(!istype(H) || H.stat == DEAD || !H.client || !istype(H.patron, /datum/patron/divine/xylix) || H.is_noble())
 			continue
 		if(locate(/obj/effect/proc_holder/spell/invoked/mockery) in H.mind.spell_list)
 			valid_targets += H

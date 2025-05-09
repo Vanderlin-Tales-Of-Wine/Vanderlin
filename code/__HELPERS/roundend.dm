@@ -442,10 +442,11 @@
 			parts += "[obj_count]. [objective.explanation_text] - [result]"
 			obj_count++
 
+		parts += "<br>" // Added space between objective holders
 		CHECK_TICK
 
 	if(!has_objectives)
-		parts += "No personal objectives were assigned this round."
+		parts += "<div style='text-align: center;'>No personal objectives were assigned this round.</div>"
 
 	parts += "</div>"
 

@@ -3,7 +3,7 @@
 	track = EVENT_TRACK_MODERATE
 	typepath = /datum/round_event/xylix_mocking
 	weight = 5
-	earliest_start = 20 MINUTES
+	earliest_start = 15 MINUTES
 	max_occurrences = 1
 	min_players = 20
 
@@ -18,7 +18,7 @@
 		return FALSE
 
 	for(var/mob/living/carbon/human/H in GLOB.player_list)
-		if(!istype(H) || H.stat == DEAD || !H.client)
+		if(!istype(H) || H.stat == DEAD || !H.client || is_lord_job(H.mind?.assigned_role))
 			continue
 		if(!H.patron || !istype(H.patron, /datum/patron/divine/xylix))
 			continue
@@ -32,7 +32,7 @@
 	var/list/valid_targets = list()
 
 	for(var/mob/living/carbon/human/human_mob in GLOB.player_list)
-		if(!istype(human_mob) || human_mob.stat == DEAD || !human_mob.client)
+		if(!istype(human_mob) || human_mob.stat == DEAD || !human_mob.client || is_lord_job(human_mob.mind?.assigned_role))
 			continue
 		if(!human_mob.patron || !istype(human_mob.patron, /datum/patron/divine/xylix))
 			continue
