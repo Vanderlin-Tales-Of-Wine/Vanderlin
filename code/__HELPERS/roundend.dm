@@ -442,7 +442,7 @@
 			parts += "[obj_count]. [objective.explanation_text] - [result]"
 			obj_count++
 
-		parts += "<br>" // Added space between objective holders
+		parts += "<br>"
 		CHECK_TICK
 
 	if(!has_objectives)
