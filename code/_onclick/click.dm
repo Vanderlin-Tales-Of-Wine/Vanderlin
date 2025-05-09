@@ -305,7 +305,7 @@
 					if(!used_intent.noaa)
 						changeNext_move(CLICK_CD_MELEE)
 						if(get_dist(get_turf(src), T) <= used_intent.reach)
-							do_attack_animation(T, visual_effect_icon = used_intent.animname)
+							do_attack_animation(T, visual_effect_icon = used_intent.animname, used_intent = used_intent)
 						else
 							do_attack_animation(get_ranged_target_turf(src, get_dir(src, T), 1), visual_effect_icon = used_intent.animname)
 						if(W)

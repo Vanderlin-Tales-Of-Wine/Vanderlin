@@ -25,6 +25,8 @@
 	surgery_flags = SURGERY_BLOODY | SURGERY_INCISED | SURGERY_CLAMPED
 	skill_min = SKILL_LEVEL_APPRENTICE
 	skill_median = SKILL_LEVEL_APPRENTICE
+	success_sound = 'sound/surgery/retractor2.ogg'
+	failure_sound = 'sound/surgery/organ2.ogg'
 	/// How much brute damage we heal per completion
 	var/brutehealing = 0
 	/// How much burn damage we heal per completion

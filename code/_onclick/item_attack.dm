@@ -173,15 +173,15 @@
 		if(M.d_intent == INTENT_DODGE)
 			if(!user.used_intent.swingdelay)
 				if(get_dist(get_turf(user), get_turf(M)) <= user.used_intent.reach)
-					user.do_attack_animation(turf_before, visual_effect_icon = user.used_intent.animname)
+					user.do_attack_animation(turf_before, visual_effect_icon = user.used_intent.animname, used_intent = user.used_intent)
 				else
-					user.do_attack_animation(get_ranged_target_turf(user, get_dir(user, M), 1), visual_effect_icon = user.used_intent.animname)
+					user.do_attack_animation(get_ranged_target_turf(user, get_dir(user, M), 1), visual_effect_icon = user.used_intent.animname, used_intent = user.used_intent)
 		return
 	if(!user.used_intent.noaa)
 		if(get_dist(get_turf(user), get_turf(M)) <= user.used_intent.reach)
-			user.do_attack_animation(M, visual_effect_icon = user.used_intent.animname)
+			user.do_attack_animation(M, visual_effect_icon = user.used_intent.animname, used_intent = user.used_intent)
 		else
-			user.do_attack_animation(get_ranged_target_turf(user, get_dir(user, M), 1), visual_effect_icon = user.used_intent.animname)
+			user.do_attack_animation(get_ranged_target_turf(user, get_dir(user, M), 1), visual_effect_icon = user.used_intent.animname, used_intent = user.used_intent)
 	if(user.zone_selected == BODY_ZONE_PRECISE_R_INHAND)
 		var/offh = 0
 		var/obj/item/W = M.held_items[1]
@@ -225,13 +225,13 @@
 	if(item_flags & NOBLUDGEON)
 		return
 	if(O.attacked_by(src, user))
-		user.do_attack_animation(O)
+		user.do_attack_animation(O, used_intent = user.used_intent)
 		return TRUE
 
 /obj/item/proc/attack_turf(turf/T, mob/living/user)
 	if(T.max_integrity)
 		if(T.attacked_by(src, user))
-			user.do_attack_animation(T)
+			user.do_attack_animation(T, used_intent = user.used_intent)
 			return TRUE
 
 /atom/movable/proc/attacked_by()
@@ -518,9 +518,9 @@
 				adf = round(adf * 0.6)
 			user.changeNext_move(adf)
 			if(get_dist(get_turf(user), get_turf(target)) <= user.used_intent.reach)
-				user.do_attack_animation(target, visual_effect_icon = user.used_intent.animname)
+				user.do_attack_animation(target, visual_effect_icon = user.used_intent.animname, used_intent = user.used_intent)
 			else
-				user.do_attack_animation(get_ranged_target_turf(user, get_dir(user, target), 1), visual_effect_icon = user.used_intent.animname)
+				user.do_attack_animation(get_ranged_target_turf(user, get_dir(user, target), 1), visual_effect_icon = user.used_intent.animname, used_intent = user.used_intent)
 			playsound(get_turf(src), pick(swingsound), 100, FALSE, -1)
 			user.aftermiss()
 		if(!proximity_flag && ismob(target) && !user.used_intent?.noaa) //this block invokes miss cost clicking on seomone who isn't adjacent to you
@@ -531,9 +531,9 @@
 				adf = round(adf * 0.6)
 			user.changeNext_move(adf)
 			if(get_dist(get_turf(user), get_turf(target)) <= user.used_intent.reach)
-				user.do_attack_animation(target, visual_effect_icon = user.used_intent.animname)
+				user.do_attack_animation(target, visual_effect_icon = user.used_intent.animname, used_intent = user.used_intent)
 			else
-				user.do_attack_animation(get_ranged_target_turf(user, get_dir(user, target), 1), visual_effect_icon = user.used_intent.animname)
+				user.do_attack_animation(get_ranged_target_turf(user, get_dir(user, target), 1), visual_effect_icon = user.used_intent.animname, used_intent = user.used_intent)
 			playsound(get_turf(src), pick(swingsound), 100, FALSE, -1)
 			user.aftermiss()
 
