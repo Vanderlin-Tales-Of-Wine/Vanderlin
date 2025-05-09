@@ -10,8 +10,8 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	max_integrity = 9999
 	damage_deflection = 30
 	layer = ABOVE_MOB_LAYER
-	keylock = FALSE
-	locked = TRUE
+
+	lock = /datum/lock/locked
 
 	smoothing_flags = NONE
 	smoothing_groups = SMOOTH_GROUP_DOOR_SECRET
@@ -69,7 +69,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	open_phrase = open_word() + " " + magic_word()
 	. = ..()
 
-/obj/structure/door/secret/door_rattle()
+/obj/structure/door/secret/rattle()
 	return
 
 /obj/structure/door/secret/attack_hand(mob/user)
@@ -83,7 +83,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 
 //can't kick it open, but you can kick it closed
 /obj/structure/door/secret/onkick(mob/user)
-	if(locked)
+	if(locked())
 		return
 	..()
 
@@ -114,15 +114,12 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 			send_speech(span_purple("It is done, [flavor_name()]..."), speaking_distance, src, message_language = lang, message_mode = MODE_WHISPER)
 			return TRUE
 
-	if(findtext(message2recognize, open_phrase) && locked)
-		locked = FALSE
-		force_open()
+	if(findtext(message2recognize, open_phrase))
+		if(!door_opened)
+			force_open()
+		else
+			force_closed()
 		return TRUE
-	else if(findtext(message2recognize, open_phrase) && !locked)
-		force_closed()
-		locked = TRUE
-		return TRUE
-
 
 /obj/structure/door/secret/Open(silent = FALSE)
 	switching_states = TRUE
@@ -177,7 +174,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	air_update_turf(TRUE)
 	update_icon()
 	switching_states = FALSE
-	locked = TRUE
+	lock()
 
 /obj/structure/door/secret/force_closed()
 	switching_states = TRUE

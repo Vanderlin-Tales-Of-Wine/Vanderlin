@@ -300,6 +300,13 @@
 /obj/item/reagent_containers/food/snacks/jellycake_tangerine,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
+"da" = (
+/obj/structure/door/weak/bolt{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/naturalstone,
+/area/rogue/under/mountains/anvil/lower)
 "dg" = (
 /obj/structure/spider/nest,
 /turf/open/floor/hexstone,
@@ -461,6 +468,16 @@
 /obj/machinery/light/fueled/wallfire/candle/l,
 /turf/open/floor/hexstone,
 /area/rogue/indoors/villagegarrison)
+"ep" = (
+/obj/structure/door/viewport{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
+/turf/open/floor/metal{
+	icon_state = "plating2"
+	},
+/area/rogue/indoors/town/cell)
 "eq" = (
 /obj/effect/decal/cleanable/blood/gibs,
 /obj/item/natural/rock/mana_crystal,
@@ -970,6 +987,14 @@
 /obj/structure/window/solid,
 /turf/open/floor/wood,
 /area/rogue/indoors)
+"jE" = (
+/obj/structure/door/green{
+	name = "forrest warden bedroom"
+	},
+/obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/indoors/villagegarrison)
 "jI" = (
 /obj/structure/flora/grass/thorn_bush,
 /turf/open/floor/grass,
@@ -1427,14 +1452,6 @@
 	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/outdoors/mountains)
-"oe" = (
-/obj/structure/door/green{
-	name = "Salem Garrison"
-	},
-/obj/effect/mapping_helpers/door/locker,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
-/turf/open/floor/hexstone,
-/area/rogue/indoors/villagegarrison)
 "oA" = (
 /obj/effect/landmark/start/adventurerlate{
 	dir = 1
@@ -1661,14 +1678,6 @@
 	},
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/lower)
-"rr" = (
-/obj/structure/door/green{
-	name = "forrest warden bedroom"
-	},
-/obj/effect/mapping_helpers/door/locker,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
-/turf/open/floor/ruinedwood/darker,
-/area/rogue/indoors/villagegarrison)
 "rt" = (
 /obj/item/natural/rock,
 /turf/open/floor/cobble,
@@ -1732,16 +1741,6 @@
 /obj/structure/stairs,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/woods)
-"so" = (
-/obj/structure/door/viewport{
-	dir = 1
-	},
-/obj/effect/mapping_helpers/door/locker,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
-/area/rogue/indoors/town/cell)
 "sq" = (
 /obj/structure/bridge_stakes,
 /obj/structure/bridge_stakes{
@@ -1889,16 +1888,6 @@
 	},
 /turf/open/floor/grass,
 /area/rogue/outdoors/woods_safe)
-"tE" = (
-/obj/structure/door/viewport{
-	dir = 8
-	},
-/obj/effect/mapping_helpers/door/locker,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
-/area/rogue/indoors/town/cell)
 "tF" = (
 /obj/structure/fluff/railing/fence{
 	dir = 8
@@ -2217,6 +2206,14 @@
 	},
 /turf/open/floor/cobblerock,
 /area/rogue/indoors)
+"yc" = (
+/obj/structure/door/green{
+	name = "forrest garrison barracks"
+	},
+/obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/indoors/villagegarrison)
 "yd" = (
 /obj/effect/decal/cleanable/blood/gibs,
 /obj/item/mana_battery/mana_crystal/standard,
@@ -2756,30 +2753,16 @@
 	},
 /turf/open/transparent/openspace,
 /area/rogue/under/mountains/anvil/lower)
-"DR" = (
-/obj/structure/table/wood/plain_alt,
-/obj/item/bodypart/head/goblin{
-	pixel_x = 13;
-	pixel_y = 2
+"DS" = (
+/obj/structure/door/viewport{
+	dir = 1
 	},
-/obj/item/bodypart/head/goblin{
-	pixel_x = 11;
-	pixel_y = 12
+/obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
+/turf/open/floor/metal{
+	icon_state = "plating2"
 	},
-/obj/item/bodypart/head/goblin{
-	pixel_x = 1;
-	pixel_y = 15
-	},
-/obj/item/reagent_containers/glass/mortar{
-	pixel_x = 1;
-	pixel_y = 1
-	},
-/obj/item/pestle{
-	pixel_x = -9;
-	pixel_y = 2
-	},
-/turf/open/floor/naturalstone,
-/area/rogue/under/mountains/anvil/lower)
+/area/rogue/indoors/town/cell)
 "Ed" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4
@@ -3293,6 +3276,14 @@
 	dir = 8
 	},
 /area/rogue/outdoors/bog)
+"Jz" = (
+/obj/structure/door/green{
+	name = "Salem Garrison"
+	},
+/obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
+/turf/open/floor/hexstone,
+/area/rogue/indoors/villagegarrison)
 "JB" = (
 /obj/structure/flora/newtree,
 /turf/open/floor/grass,
@@ -3609,14 +3600,6 @@
 	},
 /turf/open/floor/cobble/alt,
 /area/rogue/under/mountains/anvil/lower)
-"MO" = (
-/obj/effect/mapping_helpers/door/locker,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
-/obj/structure/door/green{
-	name = "Salem Garrison"
-	},
-/turf/open/floor/hexstone,
-/area/rogue/indoors/villagegarrison)
 "MS" = (
 /obj/structure/fluff/statue/knight/interior/r,
 /turf/open/floor/hexstone,
@@ -3625,6 +3608,11 @@
 /obj/item/storage/backpack/backpack,
 /obj/item/mana_battery/mana_crystal/cut,
 /turf/open/floor/naturalstone,
+/area/rogue/under/mountains/anvil/lower)
+"MV" = (
+/obj/structure/door/iron/bars,
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/lower)
 "MX" = (
 /obj/structure/closet/crate/crafted_closet/crafted,
@@ -3696,13 +3684,6 @@
 /obj/effect/landmark/mapGenerator/anvil,
 /turf/closed,
 /area/rogue)
-"NY" = (
-/obj/structure/door/weak/bolt{
-	dir = 4
-	},
-/obj/effect/mapping_helpers/door/locker,
-/turf/open/floor/naturalstone,
-/area/rogue/under/mountains/anvil/lower)
 "Oc" = (
 /obj/structure/stairs/fancy/c{
 	dir = 1
@@ -3894,11 +3875,6 @@
 "PN" = (
 /turf/closed/wall/mineral/stone/moss,
 /area/rogue/indoors/villagegarrison)
-"PQ" = (
-/obj/structure/door/iron/bars,
-/obj/effect/mapping_helpers/door/locker,
-/turf/open/floor/cobble,
-/area/rogue/under/mountains/anvil/lower)
 "PW" = (
 /obj/structure/bed/mediocre,
 /obj/item/bedsheet/fabric,
@@ -3981,6 +3957,14 @@
 	},
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/upper)
+"QK" = (
+/obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
+/obj/structure/door/green{
+	name = "Salem Garrison"
+	},
+/turf/open/floor/hexstone,
+/area/rogue/indoors/villagegarrison)
 "QL" = (
 /obj/structure/bars,
 /turf/open/floor/blocks,
@@ -4174,14 +4158,6 @@
 /obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/floor/cobble,
 /area/rogue/indoors)
-"So" = (
-/obj/structure/door/green{
-	name = "forrest garrison barracks"
-	},
-/obj/effect/mapping_helpers/door/locker,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
-/turf/open/floor/ruinedwood/darker,
-/area/rogue/indoors/villagegarrison)
 "Sr" = (
 /obj/item/ore/coal{
 	pixel_x = 6;
@@ -4601,6 +4577,30 @@
 "WX" = (
 /turf/open/floor/dirt,
 /area/rogue/under/mountains/anvil/upper)
+"WZ" = (
+/obj/structure/table/wood/plain_alt,
+/obj/item/bodypart/head/goblin{
+	pixel_x = 13;
+	pixel_y = 2
+	},
+/obj/item/bodypart/head/goblin{
+	pixel_x = 11;
+	pixel_y = 12
+	},
+/obj/item/bodypart/head/goblin{
+	pixel_x = 1;
+	pixel_y = 15
+	},
+/obj/item/reagent_containers/glass/mortar{
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/obj/item/pestle{
+	pixel_x = -9;
+	pixel_y = 2
+	},
+/turf/open/floor/naturalstone,
+/area/rogue/under/mountains/anvil/lower)
 "Xc" = (
 /obj/item/reagent_containers/food/snacks/rotten/meat{
 	pixel_x = 4;
@@ -40366,7 +40366,7 @@ GX
 fk
 lD
 lD
-NY
+da
 lD
 lD
 GX
@@ -44819,7 +44819,7 @@ xo
 lD
 lD
 Df
-DR
+WZ
 TX
 Wv
 Df
@@ -71181,7 +71181,7 @@ LO
 LO
 LO
 LO
-So
+yc
 LO
 LO
 EF
@@ -71788,7 +71788,7 @@ eT
 Hi
 Hi
 Hi
-so
+DS
 Fy
 Fy
 Fy
@@ -72392,7 +72392,7 @@ pn
 YC
 YC
 QL
-tE
+ep
 QL
 YC
 EF
@@ -82379,7 +82379,7 @@ GX
 GX
 tH
 GX
-PQ
+MV
 GX
 GX
 bv
@@ -111986,7 +111986,7 @@ JV
 bx
 bx
 bx
-MO
+QK
 VM
 VM
 VM
@@ -112188,7 +112188,7 @@ Yc
 bx
 Re
 bx
-oe
+Jz
 eb
 eb
 eb
@@ -152587,7 +152587,7 @@ VL
 HK
 Dh
 Dh
-rr
+jE
 YG
 JI
 JI

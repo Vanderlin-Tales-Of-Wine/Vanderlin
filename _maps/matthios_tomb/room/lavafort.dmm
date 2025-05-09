@@ -321,10 +321,6 @@
 "yp" = (
 /turf/open/floor/dirt,
 /area/rogue/under/cavelava)
-"yC" = (
-/obj/structure/door/stone,
-/turf/open/floor/cobble,
-/area/rogue/under/cavelava)
 "yG" = (
 /obj/structure/closet/crate/chest/neu_fancy,
 /obj/item/weapon/sickle,
@@ -441,12 +437,6 @@
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/cobble,
 /area/rogue/under/cavelava)
-"HR" = (
-/obj/structure/rack/shelf/biggest,
-/obj/item/reagent_containers/glass/mortar,
-/obj/item/pestle,
-/turf/open/floor/hexstone,
-/area/rogue/under/cavelava)
 "HT" = (
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
@@ -468,6 +458,12 @@
 	dir = 5
 	},
 /turf/open/transparent/openspace,
+/area/rogue/under/cavelava)
+"IH" = (
+/obj/structure/rack/shelf/biggest,
+/obj/item/reagent_containers/glass/mortar,
+/obj/item/pestle,
+/turf/open/floor/hexstone,
 /area/rogue/under/cavelava)
 "Jf" = (
 /turf/open/floor/grass/red,
@@ -518,6 +514,10 @@
 /area/rogue/under/cavelava)
 "NO" = (
 /turf/open/lava,
+/area/rogue/under/cavelava)
+"NU" = (
+/obj/structure/door/stone,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/cavelava)
 "Om" = (
 /obj/structure/well,
@@ -615,10 +615,6 @@
 /mob/living/carbon/human/species/skeleton/npc/peasant,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/under/cavelava)
-"TD" = (
-/obj/structure/door/stone,
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/under/cavelava)
 "TN" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/flora/ausbushes/brflowers,
@@ -706,6 +702,10 @@
 /obj/item/neuFarm/seed/westleach,
 /obj/item/neuFarm/seed/wheat,
 /turf/open/floor/hexstone,
+/area/rogue/under/cavelava)
+"YR" = (
+/obj/structure/door/stone,
+/turf/open/floor/cobble,
 /area/rogue/under/cavelava)
 "Za" = (
 /obj/item/alch/magicdust,
@@ -1064,9 +1064,9 @@ lS
 HT
 Cv
 lS
-yC
+YR
 cr
-yC
+YR
 lS
 qh
 mY
@@ -1157,7 +1157,7 @@ JG
 NO
 NO
 JG
-yC
+YR
 jk
 CQ
 Uz
@@ -1165,7 +1165,7 @@ Hh
 Hh
 jk
 jk
-yC
+YR
 JG
 NO
 JG
@@ -1221,7 +1221,7 @@ JG
 NO
 JG
 JG
-yC
+YR
 jk
 CQ
 Uz
@@ -1229,7 +1229,7 @@ Hh
 Hh
 jk
 jk
-yC
+YR
 JG
 NO
 JG
@@ -1320,9 +1320,9 @@ lS
 HT
 Tc
 lS
-yC
+YR
 cr
-yC
+YR
 lS
 kU
 Fa
@@ -2022,7 +2022,7 @@ aj
 aj
 aj
 lS
-HR
+IH
 lq
 lS
 om
@@ -2158,7 +2158,7 @@ OY
 aj
 jk
 hi
-TD
+NU
 qh
 jk
 mF

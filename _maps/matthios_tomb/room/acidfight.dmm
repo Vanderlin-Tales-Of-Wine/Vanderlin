@@ -18,6 +18,9 @@
 /obj/structure/bars/pipe,
 /turf/open/transparent/openspace,
 /area/rogue/under/cavelava)
+"h" = (
+/turf/closed/wall/mineral/pipe,
+/area/rogue/indoors/shelter)
 "k" = (
 /obj/item/natural/poo/cow,
 /turf/open/floor/metal,
@@ -65,6 +68,13 @@
 /obj/structure/fluff/walldeco/chains,
 /turf/open/floor/metal,
 /area/rogue/under/cavelava)
+"w" = (
+/obj/structure/fluff/wallclock,
+/obj/item/flashlight/flare/torch/lantern/copper,
+/obj/structure/closet/crate/chest,
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/metal/barograte,
+/area/rogue/indoors/shelter)
 "x" = (
 /turf/open/transparent/openspace,
 /area/rogue/under/cavelava)
@@ -94,20 +104,9 @@
 /obj/item/natural/poo,
 /turf/open/floor/metal,
 /area/rogue/under/cavelava)
-"E" = (
-/turf/closed/wall/mineral/pipe,
-/area/rogue/indoors/shelter)
 "F" = (
 /turf/open/floor/dirt/road,
 /area/rogue/under/cavelava)
-"H" = (
-/obj/structure/fluff/wallclock,
-/obj/item/flashlight/flare/torch/lantern/copper,
-/obj/structure/closet/crate/chest{
-	locked = 1
-	},
-/turf/open/floor/metal/barograte,
-/area/rogue/indoors/shelter)
 "J" = (
 /obj/structure/ladder,
 /turf/open/floor/metal/barograte,
@@ -989,11 +988,11 @@ x
 x
 m
 m
-E
-E
-E
-E
-E
+h
+h
+h
+h
+h
 W
 "}
 (17,1,2) = {"
@@ -1033,8 +1032,8 @@ U
 m
 x
 m
-E
-H
+h
+w
 s
 s
 s
@@ -1055,7 +1054,7 @@ U
 m
 x
 x
-E
+h
 o
 s
 R

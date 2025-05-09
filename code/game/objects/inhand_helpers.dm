@@ -793,17 +793,3 @@ GLOBAL_LIST_INIT(IconStates_cache, list())
 			for(var/whole_screen in screens)
 				animate(whole_screen, transform = matrix(), time = 5, easing = QUAD_EASING)
 #endif
-
-#ifdef TESTING
-/client/verb/door_test_button()
-	set category = "DEBUGTEST"
-	set name = "door_test_button"
-	if(mob)
-		var/mob/M = mob
-		if(isturf(M.loc))
-			var/turf/T = M.loc
-			for(var/obj/structure/door/D in T)
-				to_chat(M, "DOOR - [D]")
-				to_chat(M, "LOCKID: [D.lockid]")
-				to_chat(M, "LOCKSTATUS: [D.locked]")
-#endif

@@ -11,6 +11,11 @@
 /obj/structure/flora/tree/evil,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
+"c" = (
+/obj/structure/door/violet,
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/blocks,
+/area/rogue/outdoors/caves)
 "d" = (
 /obj/structure/table/wood,
 /obj/item/flashlight/flare/torch/metal,
@@ -104,11 +109,6 @@
 	},
 /turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
-"x" = (
-/obj/structure/door/iron/bars,
-/obj/effect/mapping_helpers/door/locker,
-/turf/open/floor/herringbone,
-/area/rogue/outdoors/caves)
 "y" = (
 /obj/effect/decal/cleanable/dirt/cobweb,
 /turf/open/floor/naturalstone,
@@ -132,6 +132,11 @@
 "D" = (
 /turf/open/water/swamp,
 /area/rogue/outdoors/bog)
+"E" = (
+/obj/structure/door/iron/bars,
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/herringbone,
+/area/rogue/outdoors/caves)
 "F" = (
 /turf/open/water/swamp/deep,
 /area/rogue/outdoors/bog)
@@ -170,11 +175,6 @@
 /area/rogue/outdoors/caves)
 "O" = (
 /turf/closed/wall/mineral/craftstone,
-/area/rogue/outdoors/caves)
-"P" = (
-/obj/structure/door/violet,
-/obj/effect/mapping_helpers/door/locker,
-/turf/open/floor/blocks,
 /area/rogue/outdoors/caves)
 "Q" = (
 /obj/structure/fluff/railing/fence,
@@ -1010,7 +1010,7 @@ k
 q
 q
 j
-x
+E
 I
 f
 I
@@ -1135,7 +1135,7 @@ k
 k
 q
 q
-P
+c
 O
 O
 O

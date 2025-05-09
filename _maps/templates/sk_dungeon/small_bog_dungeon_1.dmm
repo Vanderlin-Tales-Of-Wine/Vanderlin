@@ -1,4 +1,8 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"al" = (
+/obj/structure/door/violet,
+/turf/open/floor/ruinedwood,
+/area/rogue/outdoors/bog)
 "aZ" = (
 /obj/structure/chair/bench/church/smallbench,
 /mob/living/carbon/human/species/skeleton/npc/peasant,
@@ -81,14 +85,6 @@
 	icon_state = "weird1"
 	},
 /area/rogue/outdoors/bog)
-"qE" = (
-/obj/structure/door/violet,
-/turf/open/floor/hexstone,
-/area/rogue/outdoors/bog)
-"rh" = (
-/obj/structure/door/iron/bars,
-/turf/open/floor/cobble/mossy,
-/area/rogue/outdoors/bog)
 "rt" = (
 /obj/structure/chair/bench/church/smallbench,
 /turf/open/floor/herringbone,
@@ -137,10 +133,6 @@
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/bog)
-"uV" = (
-/obj/structure/door/iron/bars,
-/turf/open/floor/blocks,
-/area/rogue/outdoors/bog)
 "uZ" = (
 /turf/open/floor/blocks/paving,
 /area/rogue/outdoors/bog)
@@ -176,6 +168,10 @@
 "xJ" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/open/floor/grass,
+/area/rogue/outdoors/bog)
+"Aa" = (
+/obj/structure/door/iron/bars,
+/turf/open/floor/blocks,
 /area/rogue/outdoors/bog)
 "Al" = (
 /obj/effect/spawner/map_spawner/grass_low,
@@ -234,16 +230,17 @@
 /mob/living/carbon/human/species/skeleton/npc/peasant,
 /turf/open/floor/blocks,
 /area/rogue/outdoors/bog)
+"Gs" = (
+/obj/structure/door/weak/bolt,
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/cobble/mossy,
+/area/rogue/outdoors/bog)
 "GU" = (
 /obj/structure/chair/bench/church/smallbench,
 /mob/living/carbon/human/species/skeleton/npc/peasant,
 /turf/open/floor/ruinedwood{
 	icon_state = "weird1"
 	},
-/area/rogue/outdoors/bog)
-"Hd" = (
-/obj/structure/door/violet,
-/turf/open/floor/ruinedwood,
 /area/rogue/outdoors/bog)
 "HR" = (
 /obj/structure/fluff/statue/psy,
@@ -260,6 +257,10 @@
 "IL" = (
 /obj/structure/chair/bench/ancientlog,
 /turf/open/floor/dirt/road,
+/area/rogue/outdoors/bog)
+"Jt" = (
+/obj/structure/door/violet,
+/turf/open/floor/hexstone,
 /area/rogue/outdoors/bog)
 "MK" = (
 /obj/structure/table/wood/plain,
@@ -339,11 +340,6 @@
 	icon_state = "weird1"
 	},
 /area/rogue/outdoors/bog)
-"Ty" = (
-/obj/structure/door/weak/bolt,
-/obj/effect/mapping_helpers/door/locker,
-/turf/open/floor/cobble/mossy,
-/area/rogue/outdoors/bog)
 "UI" = (
 /obj/structure/chair/bench/church/smallbench,
 /turf/open/floor/ruinedwood{
@@ -355,6 +351,10 @@
 	dir = 1;
 	icon_state = "vertw"
 	},
+/area/rogue/outdoors/bog)
+"Wk" = (
+/obj/structure/door/iron/bars,
+/turf/open/floor/cobble/mossy,
 /area/rogue/outdoors/bog)
 "Wo" = (
 /obj/structure/closet/crate/coffin,
@@ -1023,7 +1023,7 @@ Ci
 OM
 nW
 nW
-Hd
+al
 Sf
 Sf
 Sf
@@ -1135,7 +1135,7 @@ Rk
 lL
 Rk
 Rk
-Ty
+Gs
 Sf
 Sf
 fE
@@ -1177,7 +1177,7 @@ Rk
 Rk
 Rk
 Rk
-Ty
+Gs
 Sf
 Sf
 Sf
@@ -1231,7 +1231,7 @@ Rk
 Rk
 rC
 Rk
-rh
+Wk
 Sf
 Sf
 Sf
@@ -1242,7 +1242,7 @@ rR
 Sf
 Sf
 Sf
-Hd
+al
 nW
 nW
 nW
@@ -1273,7 +1273,7 @@ fE
 fE
 Rk
 Sf
-rh
+Wk
 Sf
 Sf
 Sf
@@ -1446,7 +1446,7 @@ df
 Qk
 uZ
 Ci
-qE
+Jt
 Ci
 uZ
 Ci
@@ -1485,7 +1485,7 @@ Rk
 Rk
 Ci
 vG
-uV
+Aa
 uZ
 Id
 uZ
@@ -1611,7 +1611,7 @@ lL
 Tp
 Ci
 ON
-uV
+Aa
 uZ
 uZ
 uZ
