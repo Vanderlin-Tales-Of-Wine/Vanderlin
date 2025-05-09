@@ -103,7 +103,7 @@
 /datum/orderless_slapcraft/pie/apple
 	name = "apple pie"
 	requirements = list(
-		/obj/item/reagent_containers/food/snacks/produce/apple = 3
+		/obj/item/reagent_containers/food/snacks/produce/fruit/apple = 3
 	)
 	overlay_state = "fill_apple"
 	pie_name = "applepie"
@@ -116,7 +116,7 @@
 /datum/orderless_slapcraft/pie/pear
 	name = "pear pie"
 	requirements = list(
-		/obj/item/reagent_containers/food/snacks/produce/pear = 3
+		/obj/item/reagent_containers/food/snacks/produce/fruit/pear = 3
 	)
 	overlay_state = "fill_pear"
 	pie_name = "pearpie"
@@ -130,8 +130,8 @@
 	name = "berry pie"
 	requirements = list(
 		list(
-			/obj/item/reagent_containers/food/snacks/produce/jacksberry/poison,
-			/obj/item/reagent_containers/food/snacks/produce/jacksberry) = 3
+			/obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry/poison,
+			/obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry) = 3
 	)
 	overlay_state = "fill_berry"
 	pie_name = "berry pie"
@@ -143,7 +143,7 @@
 
 /datum/orderless_slapcraft/pie/berry/step_process(mob/user, obj/item/attacking_item)
 	. = ..()
-	if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/produce/jacksberry/poison))
+	if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry/poison))
 		finished_cooked_type = /obj/item/reagent_containers/food/snacks/pie/cooked/poison
 
 /datum/orderless_slapcraft/pie/meat
@@ -173,8 +173,8 @@
 	skill_xp_gained = 2
 	requirements = list(
 		list(
-			/obj/item/reagent_containers/food/snacks/produce/jacksberry/poison,
-			/obj/item/reagent_containers/food/snacks/produce/jacksberry,
+			/obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry/poison,
+			/obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry,
 			/obj/item/reagent_containers/food/snacks/produce/swampweed) = 2
 	)
 	output_item = /obj/item/dye_pack/cheap

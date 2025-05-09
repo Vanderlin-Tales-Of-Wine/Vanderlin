@@ -2270,3 +2270,23 @@
 	return 1
 
 /mob/living/proc/encumbrance_to_speed()
+
+/mob/proc/food_tempted(/obj/item/W, mob/user)
+	return
+
+/mob/proc/taunted(mob/user)
+	for(var/mob/living/simple_animal/hostile/retaliate/A in view(7,src))
+		if(A.owner == user)
+			A.emote("aggro")
+			A.Retaliate()
+			A.GiveTarget(src)
+	return
+
+/mob/proc/shood(mob/user)
+	return
+
+/mob/proc/beckoned(mob/user)
+	return
+
+/mob/proc/get_punch_dmg()
+	return

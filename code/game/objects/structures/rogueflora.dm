@@ -287,8 +287,8 @@
 
 /obj/structure/flora/grass/bush/Initialize()
 	if(prob(88))
-		bushtype = pickweight(list(/obj/item/reagent_containers/food/snacks/produce/jacksberry=5,
-					/obj/item/reagent_containers/food/snacks/produce/jacksberry/poison=3,
+		bushtype = pickweight(list(/obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry=5,
+					/obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry/poison=3,
 					/obj/item/reagent_containers/food/snacks/produce/westleach=2))
 	loot_replenish()
 	pixel_x += rand(-3,3)
@@ -812,9 +812,9 @@
 			tobacco = FALSE
 			berries = TRUE
 			if(prob(60))
-				goodie = /obj/item/reagent_containers/food/snacks/produce/jacksberry
+				goodie = /obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry
 			else
-				goodie = /obj/item/reagent_containers/food/snacks/produce/jacksberry/poison
+				goodie = /obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry/poison
 	pixel_x += rand(-3,3)
 	if(prob(10))
 		trashie = /obj/item/natural/fibers

@@ -465,9 +465,9 @@
 	output = /obj/item/bait
 	requirements = list(
 		/obj/item/natural/cloth = 1,
-		/obj/item/reagent_containers/food/snacks/produce/wheat = 2,
+		/obj/item/reagent_containers/food/snacks/produce/grain/wheat = 2,
 	)
-	starting_atom = /obj/item/reagent_containers/food/snacks/produce/wheat
+	starting_atom = /obj/item/reagent_containers/food/snacks/produce/grain/wheat
 	attacked_atom = /obj/item/natural/cloth
 	uses_attacked_atom = TRUE
 
@@ -476,9 +476,9 @@
 	output = /obj/item/bait
 	requirements = list(
 		/obj/item/natural/cloth = 1,
-		/obj/item/reagent_containers/food/snacks/produce/oat = 2,
+		/obj/item/reagent_containers/food/snacks/produce/grain/oat = 2,
 	)
-	starting_atom = /obj/item/reagent_containers/food/snacks/produce/oat
+	starting_atom = /obj/item/reagent_containers/food/snacks/produce/grain/oat
 	attacked_atom = /obj/item/natural/cloth
 	uses_attacked_atom = TRUE
 
@@ -487,9 +487,9 @@
 	output = /obj/item/bait/sweet
 	requirements = list(
 		/obj/item/natural/cloth = 1,
-		/obj/item/reagent_containers/food/snacks/produce/apple = 2,
+		/obj/item/reagent_containers/food/snacks/produce/fruit/apple = 2,
 	)
-	starting_atom = /obj/item/reagent_containers/food/snacks/produce/apple
+	starting_atom = /obj/item/reagent_containers/food/snacks/produce/fruit/apple
 	attacked_atom = /obj/item/natural/cloth
 	uses_attacked_atom = TRUE
 
@@ -498,9 +498,9 @@
 	output = /obj/item/bait/sweet
 	requirements = list(
 		/obj/item/natural/cloth = 1,
-		/obj/item/reagent_containers/food/snacks/produce/jacksberry = 2,
+		/obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry = 2,
 	)
-	starting_atom = /obj/item/reagent_containers/food/snacks/produce/jacksberry
+	starting_atom = /obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry
 	attacked_atom = /obj/item/natural/cloth
 	uses_attacked_atom = TRUE
 	subtypes_allowed = TRUE

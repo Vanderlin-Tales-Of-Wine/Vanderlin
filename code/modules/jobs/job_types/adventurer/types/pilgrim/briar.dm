@@ -144,7 +144,7 @@
 	structurecraft = /obj/structure/fluff/psycross/crafted/shrine/dendor_saiga
 	reqs = list(/obj/item/reagent_containers/food/snacks/fish/eel = 1,
 				/obj/item/reagent_containers/food/snacks/produce/westleach = 1,
-				/obj/item/reagent_containers/food/snacks/produce/jacksberry = 1)
+				/obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry = 1)
 	result = /obj/item/blessing_of_dendor_stinging
 	verbage = "make"
 	verbage_tp = "make"

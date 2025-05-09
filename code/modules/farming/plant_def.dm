@@ -62,7 +62,7 @@
 /datum/plant_def/cabbage
 	name = "cabbage patch"
 	icon_state = "cabbage"
-	produce_type = /obj/item/reagent_containers/food/snacks/produce/cabbage
+	produce_type = /obj/item/reagent_containers/food/snacks/produce/vegetable/cabbage
 	produce_amount_min = 2
 	produce_amount_max = 3
 	maturation_time = FAST_GROWING
@@ -70,7 +70,7 @@
 /datum/plant_def/onion
 	name = "onion patch"
 	icon_state = "onion"
-	produce_type = /obj/item/reagent_containers/food/snacks/produce/onion
+	produce_type = /obj/item/reagent_containers/food/snacks/produce/vegetable/onion
 	produce_amount_min = 3
 	produce_amount_max = 4
 	maturation_time = FAST_GROWING
@@ -113,7 +113,7 @@
 /datum/plant_def/jacksberry
 	name = "jacksberry bush"
 	icon_state = "berry"
-	produce_type = /obj/item/reagent_containers/food/snacks/produce/jacksberry
+	produce_type = /obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry
 	uproot_loot = list(/obj/item/grown/log/tree/stick)
 	perennial = TRUE
 	produce_amount_min = 2
@@ -124,7 +124,7 @@
 /datum/plant_def/jacksberry_poison
 	name = "jacksberry bush"
 	icon_state = "berry"
-	produce_type = /obj/item/reagent_containers/food/snacks/produce/jacksberry/poison
+	produce_type = /obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry/poison
 	uproot_loot = list(/obj/item/grown/log/tree/stick)
 	perennial = TRUE
 	produce_amount_min = 2
@@ -135,7 +135,7 @@
 /datum/plant_def/strawberry
 	name = "strawberry bush"
 	icon_state = "strawberry"
-	produce_type = /obj/item/reagent_containers/food/snacks/produce/strawberry
+	produce_type = /obj/item/reagent_containers/food/snacks/produce/fruit/strawberry
 	uproot_loot = list(/obj/item/grown/log/tree/stick)
 	perennial = TRUE
 	produce_amount_min = 2
@@ -146,7 +146,7 @@
 /datum/plant_def/blackberry
 	name = "blackberry bush"
 	icon_state = "blackberry"
-	produce_type = /obj/item/reagent_containers/food/snacks/produce/blackberry
+	produce_type = /obj/item/reagent_containers/food/snacks/produce/fruit/blackberry
 	uproot_loot = list(/obj/item/grown/log/tree/stick)
 	perennial = TRUE
 	produce_amount_min = 2
@@ -157,7 +157,7 @@
 /datum/plant_def/raspberry
 	name = "raspberry bush"
 	icon_state = "raspberry"
-	produce_type = /obj/item/reagent_containers/food/snacks/produce/raspberry
+	produce_type = /obj/item/reagent_containers/food/snacks/produce/fruit/raspberry
 	uproot_loot = list(/obj/item/grown/log/tree/stick)
 	perennial = TRUE
 	produce_amount_min = 2
@@ -168,7 +168,7 @@
 /datum/plant_def/apple
 	name = "apple tree"
 	icon_state = "apple"
-	produce_type = /obj/item/reagent_containers/food/snacks/produce/apple
+	produce_type = /obj/item/reagent_containers/food/snacks/produce/fruit/apple
 	uproot_loot = list(/obj/item/grown/log/tree/small)
 	perennial = TRUE
 	produce_amount_min = 2
@@ -178,7 +178,7 @@
 /datum/plant_def/pear
 	name = "pear tree"
 	icon_state = "pear"
-	produce_type = /obj/item/reagent_containers/food/snacks/produce/pear
+	produce_type = /obj/item/reagent_containers/food/snacks/produce/fruit/pear
 	uproot_loot = list(/obj/item/grown/log/tree/small)
 	perennial = TRUE
 	produce_amount_min = 2
@@ -188,7 +188,7 @@
 /datum/plant_def/plum
 	name = "plum tree"
 	icon_state = "plumtree"
-	produce_type = /obj/item/reagent_containers/food/snacks/produce/plum
+	produce_type = /obj/item/reagent_containers/food/snacks/produce/fruit/plum
 	uproot_loot = list(/obj/item/grown/log/tree/small)
 	perennial = TRUE
 	produce_amount_min = 2
@@ -198,7 +198,7 @@
 /datum/plant_def/tangerine
 	name = "tangerine tree"
 	icon_state = "tangerinetree"
-	produce_type = /obj/item/reagent_containers/food/snacks/produce/tangerine
+	produce_type = /obj/item/reagent_containers/food/snacks/produce/fruit/tangerine
 	uproot_loot = list(/obj/item/grown/log/tree/small)
 	perennial = TRUE
 	produce_amount_min = 2
@@ -208,7 +208,7 @@
 /datum/plant_def/lime
 	name = "lime tree"
 	icon_state = "limetree"
-	produce_type = /obj/item/reagent_containers/food/snacks/produce/lime
+	produce_type = /obj/item/reagent_containers/food/snacks/produce/fruit/lime
 	uproot_loot = list(/obj/item/grown/log/tree/small)
 	perennial = TRUE
 	produce_amount_min = 2
@@ -218,7 +218,7 @@
 /datum/plant_def/lemon
 	name = "lemon tree"
 	icon_state = "lemontree"
-	produce_type = /obj/item/reagent_containers/food/snacks/produce/lemon
+	produce_type = /obj/item/reagent_containers/food/snacks/produce/fruit/lemon
 	uproot_loot = list(/obj/item/grown/log/tree/small)
 	perennial = TRUE
 	produce_amount_min = 2
@@ -238,7 +238,7 @@
 /datum/plant_def/potato
 	name = "potato plant"
 	icon_state = "potato"
-	produce_type = /obj/item/reagent_containers/food/snacks/produce/potato
+	produce_type = /obj/item/reagent_containers/food/snacks/produce/vegetable/potato
 	produce_amount_min = 3
 	produce_amount_max = 5
 	maturation_nutrition = HUNGRINESS_TINY
@@ -247,7 +247,7 @@
 /datum/plant_def/turnip
 	name = "turnip patch"
 	icon_state = "turnip"
-	produce_type = /obj/item/reagent_containers/food/snacks/produce/turnip
+	produce_type = /obj/item/reagent_containers/food/snacks/produce/vegetable/turnip
 	produce_amount_min = 4
 	produce_amount_max = 6
 	maturation_nutrition = HUNGRINESS_TINY

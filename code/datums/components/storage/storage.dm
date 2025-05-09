@@ -438,6 +438,7 @@
 
 /datum/component/storage/proc/close(mob/M)
 	hide_from(M)
+	SEND_SIGNAL(parent, COMSIG_STORAGE_CLOSED, M)
 
 /datum/component/storage/proc/close_all()
 	. = FALSE

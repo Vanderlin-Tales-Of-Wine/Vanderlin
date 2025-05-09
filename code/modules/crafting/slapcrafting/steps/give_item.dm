@@ -31,7 +31,7 @@
 
 /datum/slapcraft_step/item/jacksberry
 	desc = "Add some jacksberry."
-	item_types = list(/obj/item/reagent_containers/food/snacks/produce/jacksberry)
+	item_types = list(/obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry)
 
 /datum/slapcraft_step/item/dirtclod
 	desc = "Add some dirt."

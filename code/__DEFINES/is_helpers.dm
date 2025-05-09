@@ -151,8 +151,8 @@ GLOBAL_LIST_INIT(pointed_types, typecacheof(list(
 
 GLOBAL_LIST_INIT(RATS_DONT_EAT, typecacheof(list(
 	/obj/item/reagent_containers/food/snacks/smallrat,
-	/obj/item/reagent_containers/food/snacks/produce/onion,
-	/obj/item/reagent_containers/food/snacks/produce/jacksberry/poison
+	/obj/item/reagent_containers/food/snacks/produce/vegetable/onion,
+	/obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry/poison
 	)))
 
 // Jobs

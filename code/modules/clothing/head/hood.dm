@@ -98,7 +98,7 @@
 	GLOB.lordcolor -= src
 	return ..()
 
-/obj/item/clothing/head/roguehood/AdjustClothes(mob/user)
+/obj/item/clothing/head/roguehood/AdjustClothes(mob/living/carbon/user)
 	if(loc == user)
 		if(adjustable == CAN_CADJUST)
 			adjustable = CADJUSTED
@@ -118,6 +118,7 @@
 					var/mob/living/carbon/H = user
 					H.update_inv_head()
 		user.update_fov_angles()
+		user.regenerate_clothes()
 
 
 //............... Feldshers Hood ............... //

@@ -43,10 +43,10 @@
 	starting_atom = /obj/item/reagent_containers/food/snacks/meat/mince/fish
 	requirements = list(
 		/obj/item/reagent_containers/food/snacks/meat/mince/fish = 1,
-		/obj/item/reagent_containers/food/snacks/produce/jacksberry = 1,
+		/obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry = 1,
 		/obj/item/reagent_containers/powder/flour = 1,
 	)
-	attacked_atom = /obj/item/reagent_containers/food/snacks/produce/jacksberry
+	attacked_atom = /obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry
 
 /obj/item/grown/log/tree/stick
 

@@ -26,12 +26,12 @@
 /datum/supply_pack/food/potato
 	name = "Potato"
 	cost = 4
-	contains = /obj/item/reagent_containers/food/snacks/produce/potato
+	contains = /obj/item/reagent_containers/food/snacks/produce/vegetable/potato
 
 /datum/supply_pack/food/wheat
 	name = "Grain"
 	cost = 3
-	contains = /obj/item/reagent_containers/food/snacks/produce/wheat
+	contains = /obj/item/reagent_containers/food/snacks/produce/grain/wheat
 
 /datum/supply_pack/food/egg
 	name = "Egg"

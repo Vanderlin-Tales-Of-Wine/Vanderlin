@@ -78,12 +78,12 @@
 
 	health = FEMALE_GOTE_HEALTH
 	maxHealth = FEMALE_GOTE_HEALTH
-	food_type = list(/obj/item/reagent_containers/food/snacks/produce/wheat,
-					/obj/item/reagent_containers/food/snacks/produce/oat,
-					/obj/item/reagent_containers/food/snacks/produce/apple,
-					/obj/item/reagent_containers/food/snacks/produce/turnip,
-					/obj/item/reagent_containers/food/snacks/produce/cabbage,
-					/obj/item/reagent_containers/food/snacks/produce/jacksberry,
+	food_type = list(/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
+					/obj/item/reagent_containers/food/snacks/produce/grain/oat,
+					/obj/item/reagent_containers/food/snacks/produce/fruit/apple,
+					/obj/item/reagent_containers/food/snacks/produce/vegetable/turnip,
+					/obj/item/reagent_containers/food/snacks/produce/vegetable/cabbage,
+					/obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry,
 					/obj/structure/vine,
 					/obj/structure/kneestingers,
 					)
@@ -194,12 +194,12 @@
 
 	health = MALE_GOTE_HEALTH
 	maxHealth = MALE_GOTE_HEALTH
-	food_type = list(/obj/item/reagent_containers/food/snacks/produce/wheat,
-					/obj/item/reagent_containers/food/snacks/produce/oat,
-					/obj/item/reagent_containers/food/snacks/produce/apple,
-					/obj/item/reagent_containers/food/snacks/produce/turnip,
-					/obj/item/reagent_containers/food/snacks/produce/cabbage,
-					/obj/item/reagent_containers/food/snacks/produce/jacksberry,
+	food_type = list(/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
+					/obj/item/reagent_containers/food/snacks/produce/grain/oat,
+					/obj/item/reagent_containers/food/snacks/produce/fruit/apple,
+					/obj/item/reagent_containers/food/snacks/produce/vegetable/turnip,
+					/obj/item/reagent_containers/food/snacks/produce/vegetable/cabbage,
+					/obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry,
 					/obj/structure/vine,
 					/obj/structure/kneestingers,
 					)

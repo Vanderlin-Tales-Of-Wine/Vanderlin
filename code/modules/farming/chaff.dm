@@ -66,13 +66,13 @@
 /obj/item/natural/chaff/wheat
 	icon_state = "wheatchaff"
 	name = "wheat stalks"
-	foodextracted = /obj/item/reagent_containers/food/snacks/produce/wheat
+	foodextracted = /obj/item/reagent_containers/food/snacks/produce/grain/wheat
 	dropshrink = 0.8
 
 /obj/item/natural/chaff/oat
 	name = "oat stalks"
 	icon_state = "oatchaff"
-	foodextracted = /obj/item/reagent_containers/food/snacks/produce/oat
+	foodextracted = /obj/item/reagent_containers/food/snacks/produce/grain/oat
 /*
 /obj/item/natural/chaff/rice
 	name = "rice stalks"

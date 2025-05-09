@@ -311,6 +311,7 @@
 /atom/movable/screen/close/Click()
 	var/datum/component/storage/S = master
 	S.hide_from(usr)
+	SEND_SIGNAL(S.parent, COMSIG_STORAGE_CLOSED, usr)
 	return TRUE
 
 /atom/movable/screen/drop

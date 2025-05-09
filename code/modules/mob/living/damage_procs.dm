@@ -245,3 +245,37 @@
 		if(!amount)
 			break
 	. -= amount //if there's leftover healing, remove it from what we return
+
+/**
+ * Check if defense is possible against an attack
+ * @param datum/intent/intenty The intent used for the attack
+ * @param mob/living/user The attacker
+ * @return TRUE if defense successful, FALSE otherwise
+ */
+/mob/living/proc/checkdefense(datum/intent/intenty, mob/living/user)
+	testing("begin defense")
+	if(!cmode || stat || (!canparry && !candodge) || user == src || HAS_TRAIT(src, TRAIT_IMMOBILIZED))
+		return FALSE
+	if(client && used_intent && client.charging && used_intent.tranged && !used_intent.tshield)
+		return FALSE
+
+	var/prob2defend = user.defprob
+	if(src && user)
+		prob2defend = 0
+
+	if(!can_see_cone(user))
+		if(d_intent == INTENT_PARRY)
+			return FALSE
+		prob2defend = max(prob2defend - 15, 0)
+
+	if(m_intent == MOVE_INTENT_RUN)
+		prob2defend = max(prob2defend - 15, 0)
+
+	// Handle defense based on intent
+	switch(d_intent)
+		if(INTENT_PARRY)
+			return attempt_parry(intenty, user, prob2defend)
+		if(INTENT_DODGE)
+			return attempt_dodge(intenty, user)
+
+	return FALSE

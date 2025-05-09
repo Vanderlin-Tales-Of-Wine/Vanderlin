@@ -431,7 +431,7 @@ GLOBAL_LIST_INIT(t2buffrunerituallist, generate_t2buff_rituallist())
 	desc = "summons an fae sprite"
 	blacklisted = FALSE
 	tier = 1
-	required_atoms = list(/obj/item/reagent_containers/food/snacks/produce/manabloom = 1, /obj/item/reagent_containers/food/snacks/produce/jacksberry = 1)
+	required_atoms = list(/obj/item/reagent_containers/food/snacks/produce/manabloom = 1, /obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry = 1)
 	mob_to_summon = /mob/living/simple_animal/hostile/retaliate/fae/sprite
 
 /datum/runerituals/summoning/glimmer

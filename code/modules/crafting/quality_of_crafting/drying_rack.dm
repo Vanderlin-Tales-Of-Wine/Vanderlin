@@ -81,9 +81,9 @@
 /datum/repeatable_crafting_recipe/raisins
 	name = "raisins"
 	output = /obj/item/reagent_containers/food/snacks/raisins
-	starting_atom = /obj/item/reagent_containers/food/snacks/produce/jacksberry
+	starting_atom = /obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry
 	requirements = list(
-		/obj/item/reagent_containers/food/snacks/produce/jacksberry = 1,
+		/obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry = 1,
 	)
 	attacked_atom = /obj/machinery/tanningrack
 
@@ -91,15 +91,15 @@
 	crafting_message = "starts drying some jacksberries"
 	craftdiff = 0
 	pass_types_in_end = list(
-		/obj/item/reagent_containers/food/snacks/produce/jacksberry, //old craft blacklisted poison berries, cowards
+		/obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry, //old craft blacklisted poison berries, cowards
 	)
 
 /datum/repeatable_crafting_recipe/raisins_poison
 	name = "raisins"
 	output = /obj/item/reagent_containers/food/snacks/raisins/poison
-	starting_atom = /obj/item/reagent_containers/food/snacks/produce/jacksberry/poison
+	starting_atom = /obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry/poison
 	requirements = list(
-		/obj/item/reagent_containers/food/snacks/produce/jacksberry/poison = 1,
+		/obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry/poison = 1,
 	)
 	attacked_atom = /obj/machinery/tanningrack
 
@@ -107,15 +107,15 @@
 	crafting_message = "starts drying some jacksberries"
 	craftdiff = 0
 	pass_types_in_end = list(
-		/obj/item/reagent_containers/food/snacks/produce/jacksberry/poison,
+		/obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry/poison,
 	)
 
 /datum/repeatable_crafting_recipe/driedstrawberry
 	name = "dried strawberries"
 	output = /obj/item/reagent_containers/food/snacks/strawberry_dried
-	starting_atom = /obj/item/reagent_containers/food/snacks/produce/strawberry
+	starting_atom = /obj/item/reagent_containers/food/snacks/produce/fruit/strawberry
 	requirements = list(
-		/obj/item/reagent_containers/food/snacks/produce/strawberry = 1,
+		/obj/item/reagent_containers/food/snacks/produce/fruit/strawberry = 1,
 	)
 	attacked_atom = /obj/machinery/tanningrack
 
@@ -126,9 +126,9 @@
 /datum/repeatable_crafting_recipe/driedtangerine
 	name = "dried tangerine"
 	output = /obj/item/reagent_containers/food/snacks/tangerine_dried
-	starting_atom = /obj/item/reagent_containers/food/snacks/produce/tangerine
+	starting_atom = /obj/item/reagent_containers/food/snacks/produce/fruit/tangerine
 	requirements = list(
-		/obj/item/reagent_containers/food/snacks/produce/tangerine = 1,
+		/obj/item/reagent_containers/food/snacks/produce/fruit/tangerine = 1,
 	)
 	attacked_atom = /obj/machinery/tanningrack
 
@@ -139,9 +139,9 @@
 /datum/repeatable_crafting_recipe/driedplum
 	name = "dried plum"
 	output = /obj/item/reagent_containers/food/snacks/plum_dried
-	starting_atom = /obj/item/reagent_containers/food/snacks/produce/plum
+	starting_atom = /obj/item/reagent_containers/food/snacks/produce/fruit/plum
 	requirements = list(
-		/obj/item/reagent_containers/food/snacks/produce/plum = 1,
+		/obj/item/reagent_containers/food/snacks/produce/fruit/plum = 1,
 	)
 	attacked_atom = /obj/machinery/tanningrack
 
@@ -152,9 +152,9 @@
 /datum/repeatable_crafting_recipe/driedapple
 	name = "dried apple"
 	output = /obj/item/reagent_containers/food/snacks/apple_dried
-	starting_atom = /obj/item/reagent_containers/food/snacks/produce/apple
+	starting_atom = /obj/item/reagent_containers/food/snacks/produce/fruit/apple
 	requirements = list(
-		/obj/item/reagent_containers/food/snacks/produce/apple = 1,
+		/obj/item/reagent_containers/food/snacks/produce/fruit/apple = 1,
 	)
 	attacked_atom = /obj/machinery/tanningrack
 
@@ -165,9 +165,9 @@
 /datum/repeatable_crafting_recipe/driedpear
 	name = "dried pear"
 	output = /obj/item/reagent_containers/food/snacks/pear_dried
-	starting_atom = /obj/item/reagent_containers/food/snacks/produce/pear
+	starting_atom = /obj/item/reagent_containers/food/snacks/produce/fruit/pear
 	requirements = list(
-		/obj/item/reagent_containers/food/snacks/produce/pear = 1,
+		/obj/item/reagent_containers/food/snacks/produce/fruit/pear = 1,
 	)
 	attacked_atom = /obj/machinery/tanningrack
 

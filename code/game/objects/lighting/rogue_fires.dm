@@ -410,7 +410,7 @@
 
 /obj/machinery/light/fueled/hearth/attackby(obj/item/W, mob/living/user, params)
 	if(!attachment)
-		if(istype(W, /obj/item/cooking/pan) || istype(W, /obj/item/reagent_containers/glass/bucket/pot))
+		if(istype(W, /obj/item/cooking/pan) || istype(W, /obj/item/reagent_containers/glass/bucket/pot) || istype(W, /obj/item/reagent_containers/glass/bottle/teapot))
 			playsound(get_turf(user), 'sound/foley/dropsound/shovel_drop.ogg', 40, TRUE, -1)
 
 			if(user.transferItemToLoc(W, src, silent = TRUE))
@@ -443,20 +443,18 @@
 							playsound(src.loc, 'sound/misc/frying.ogg', 80, FALSE, extrarange = 5)
 					return
 
-		else if(istype(attachment, /obj/item/reagent_containers/glass/bucket/pot))
+		else if(istype(attachment, /obj/item/reagent_containers/glass/bucket/pot) || istype(attachment, /obj/item/reagent_containers/glass/bottle/teapot))
 			var/obj/item/reagent_containers/glass/bucket/pot/pot = attachment
-
-			if(!pot.reagents.has_reagent(/datum/reagent/water, 33))
-				to_chat(user, "<span class='notice'>Not enough water.</span>")
-				return TRUE
-
-			if(pot.reagents.chem_temp < 374)
-				to_chat(user, "<span class='warning'>[pot] isn't boiling!</span>")
-				return
-
-			pot.attempt_pot_recipes(W, user)
-
+			SEND_SIGNAL(pot, COMSIG_TRY_STORAGE_INSERT, W, user, null, TRUE, TRUE)
 	. = ..()
+
+/obj/machinery/light/fueled/hearth/MouseDrop(mob/over, src_location, over_location, src_control, over_control, params)
+	. = ..()
+	if(!istype(over))
+		return
+
+	if(attachment && over == usr && over.CanReach(src))
+		SEND_SIGNAL(attachment, COMSIG_TRY_STORAGE_SHOW, over, TRUE)
 
 //////////////////////////////////
 
@@ -469,7 +467,7 @@
 	cut_overlays()
 	icon_state = "[base_state][on]"
 	if(attachment)
-		if(istype(attachment, /obj/item/cooking/pan) || istype(attachment, /obj/item/reagent_containers/glass/bucket/pot))
+		if(istype(attachment, /obj/item/cooking/pan) || istype(attachment, /obj/item/reagent_containers/glass/bucket/pot) || istype(attachment, /obj/item/reagent_containers/glass/bottle/teapot))
 			var/obj/item/I = attachment
 			I.pixel_x = 0
 			I.pixel_y = 0
@@ -508,6 +506,13 @@
 			attachment = null
 			update_icon()
 			boilloop.stop()
+		if(istype(attachment, /obj/item/reagent_containers/glass/bottle/teapot))
+			if(!user.put_in_active_hand(attachment))
+				attachment.forceMove(user.loc)
+			attachment = null
+			update_icon()
+			boilloop.stop()
+
 	else
 		if(on)
 			var/mob/living/carbon/human/H = user

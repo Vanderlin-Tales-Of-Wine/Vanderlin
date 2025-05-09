@@ -1125,12 +1125,12 @@
 		if((is_priest_job(user.mind.assigned_role)) \
 			|| (is_monk_job(user.mind.assigned_role) && (user.patron.type == /datum/patron/divine/eora)))
 
-			if(istype(W, /obj/item/reagent_containers/food/snacks/produce/apple))
+			if(istype(W, /obj/item/reagent_containers/food/snacks/produce/fruit/apple))
 				if(!istype(get_area(user), /area/rogue/indoors/town/church/chapel))
 					to_chat(user, "<span class='warning'>I need to do this in the chapel.</span>")
 					return FALSE
 				var/marriage
-				var/obj/item/reagent_containers/food/snacks/produce/apple/A = W
+				var/obj/item/reagent_containers/food/snacks/produce/fruit/apple/A = W
 
 				//The MARRIAGE TEST BEGINS
 				if(A.bitten_names.len)

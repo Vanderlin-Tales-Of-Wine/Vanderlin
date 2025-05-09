@@ -141,6 +141,7 @@
 	icon_state = "frybird"
 	base_icon_state = "frybird"
 	biting = TRUE
+
 /obj/item/reagent_containers/food/snacks/cooked/frybird/attackby(obj/item/I, mob/living/user, params)
 	if(user.mind)
 		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))

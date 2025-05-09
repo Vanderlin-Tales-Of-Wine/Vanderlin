@@ -80,6 +80,10 @@
 			for(var/atom/sub_path as anything in subtypesof(path))
 				if(is_abstract(sub_path))
 					continue
+				if(ispath(sub_path, /datum/container_craft))
+					var/datum/container_craft/craft = sub_path
+					if(initial(craft.hides_from_books))
+						continue
 				html += "<a href='byond://?src=\ref[src];pick_recipe=[sub_path]'>[initial(sub_path.name)]</a> <br>"
 		else
 			html += "<a href='byond://?src=\ref[src];pick_recipe=[path]'>[initial(path.name)]</a> <br>"
@@ -106,8 +110,8 @@
 		else if(ispath(path, /datum/crafting_recipe))
 			var/datum/crafting_recipe/real_path = new path
 			real_path.show_menu(current_reader)
-		else if(ispath(path, /datum/pot_recipe))
-			var/datum/pot_recipe/real_path = new path
+		else if(ispath(path, /datum/container_craft))
+			var/datum/container_craft/real_path = new path
 			real_path.show_menu(current_reader)
 		else if(ispath(path, /datum/molten_recipe))
 			var/datum/molten_recipe/real_path = new path
@@ -209,7 +213,7 @@
 
 	types = list(
 		/datum/brewing_recipe,
-		/datum/pot_recipe/cooking,
+		/datum/container_craft/cooking,
 		/datum/repeatable_crafting_recipe/cooking,
 		/datum/repeatable_crafting_recipe/salami,
 		/datum/repeatable_crafting_recipe/coppiette,
@@ -252,7 +256,7 @@
 
 	types = list(
 		/datum/repeatable_crafting_recipe/narcotics,
-		/datum/pot_recipe/drugs,
+		/datum/container_craft/cooking/drugs,
 		/datum/repeatable_crafting_recipe/bomb,
 	)
 
@@ -326,6 +330,6 @@
 		/datum/book_entry/mana_sources,
 		/datum/repeatable_crafting_recipe/arcyne,
 		/datum/slapcraft_recipe/arcyne,
-		/datum/pot_recipe/arcyne,
+		/datum/container_craft/cooking/arcyne,
 		/datum/runerituals,
 	)

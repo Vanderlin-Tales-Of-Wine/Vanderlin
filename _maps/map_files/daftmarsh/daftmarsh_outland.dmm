@@ -492,11 +492,11 @@
 /turf/open/water/sewer,
 /area/rogue/under/mountains/anvil/lower)
 "ew" = (
-/obj/item/reagent_containers/food/snacks/produce/potato,
-/obj/item/reagent_containers/food/snacks/produce/potato,
-/obj/item/reagent_containers/food/snacks/produce/oat,
-/obj/item/reagent_containers/food/snacks/produce/oat,
-/obj/item/reagent_containers/food/snacks/produce/oat,
+/obj/item/reagent_containers/food/snacks/produce/vegetable/potato,
+/obj/item/reagent_containers/food/snacks/produce/vegetable/potato,
+/obj/item/reagent_containers/food/snacks/produce/grain/oat,
+/obj/item/reagent_containers/food/snacks/produce/grain/oat,
+/obj/item/reagent_containers/food/snacks/produce/grain/oat,
 /obj/item/reagent_containers/food/snacks/egg,
 /obj/item/reagent_containers/food/snacks/egg,
 /obj/item/reagent_containers/food/snacks/meat/steak,
@@ -510,11 +510,11 @@
 /area/rogue/under/mountains/anvil/lower)
 "eB" = (
 /obj/structure/closet/crate/chest,
-/obj/item/reagent_containers/food/snacks/produce/potato,
-/obj/item/reagent_containers/food/snacks/produce/potato,
-/obj/item/reagent_containers/food/snacks/produce/wheat,
-/obj/item/reagent_containers/food/snacks/produce/wheat,
-/obj/item/reagent_containers/food/snacks/produce/apple,
+/obj/item/reagent_containers/food/snacks/produce/vegetable/potato,
+/obj/item/reagent_containers/food/snacks/produce/vegetable/potato,
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
+/obj/item/reagent_containers/food/snacks/produce/fruit/apple,
 /turf/open/floor/woodturned/nosmooth,
 /area/rogue/indoors)
 "eH" = (
@@ -775,7 +775,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/lower)
 "hB" = (
-/obj/item/reagent_containers/food/snacks/produce/strawberry,
+/obj/item/reagent_containers/food/snacks/produce/fruit/strawberry,
 /turf/open/floor/grass/cold,
 /area/rogue/outdoors/woods)
 "hF" = (
@@ -2566,9 +2566,9 @@
 /area/rogue/outdoors/bog)
 "BV" = (
 /obj/structure/closet/crate/chest/wicker,
-/obj/item/reagent_containers/food/snacks/produce/oat,
-/obj/item/reagent_containers/food/snacks/produce/oat,
-/obj/item/reagent_containers/food/snacks/produce/oat,
+/obj/item/reagent_containers/food/snacks/produce/grain/oat,
+/obj/item/reagent_containers/food/snacks/produce/grain/oat,
+/obj/item/reagent_containers/food/snacks/produce/grain/oat,
 /turf/open/floor/cobble,
 /area/rogue/indoors)
 "BW" = (
@@ -3474,31 +3474,31 @@
 /area/rogue/indoors/villagegarrison)
 "LR" = (
 /obj/structure/closet/crate/chest,
-/obj/item/reagent_containers/food/snacks/produce/lime,
-/obj/item/reagent_containers/food/snacks/produce/lime,
-/obj/item/reagent_containers/food/snacks/produce/lime,
-/obj/item/reagent_containers/food/snacks/produce/lime,
-/obj/item/reagent_containers/food/snacks/produce/lime,
-/obj/item/reagent_containers/food/snacks/produce/pear,
-/obj/item/reagent_containers/food/snacks/produce/pear,
-/obj/item/reagent_containers/food/snacks/produce/pear,
-/obj/item/reagent_containers/food/snacks/produce/pear,
-/obj/item/reagent_containers/food/snacks/produce/pear,
-/obj/item/reagent_containers/food/snacks/produce/tangerine,
-/obj/item/reagent_containers/food/snacks/produce/tangerine,
-/obj/item/reagent_containers/food/snacks/produce/tangerine,
-/obj/item/reagent_containers/food/snacks/produce/tangerine,
-/obj/item/reagent_containers/food/snacks/produce/tangerine,
-/obj/item/reagent_containers/food/snacks/produce/apple,
-/obj/item/reagent_containers/food/snacks/produce/apple,
-/obj/item/reagent_containers/food/snacks/produce/apple,
-/obj/item/reagent_containers/food/snacks/produce/apple,
-/obj/item/reagent_containers/food/snacks/produce/apple,
-/obj/item/reagent_containers/food/snacks/produce/plum,
-/obj/item/reagent_containers/food/snacks/produce/plum,
-/obj/item/reagent_containers/food/snacks/produce/plum,
-/obj/item/reagent_containers/food/snacks/produce/plum,
-/obj/item/reagent_containers/food/snacks/produce/plum,
+/obj/item/reagent_containers/food/snacks/produce/fruit/lime,
+/obj/item/reagent_containers/food/snacks/produce/fruit/lime,
+/obj/item/reagent_containers/food/snacks/produce/fruit/lime,
+/obj/item/reagent_containers/food/snacks/produce/fruit/lime,
+/obj/item/reagent_containers/food/snacks/produce/fruit/lime,
+/obj/item/reagent_containers/food/snacks/produce/fruit/pear,
+/obj/item/reagent_containers/food/snacks/produce/fruit/pear,
+/obj/item/reagent_containers/food/snacks/produce/fruit/pear,
+/obj/item/reagent_containers/food/snacks/produce/fruit/pear,
+/obj/item/reagent_containers/food/snacks/produce/fruit/pear,
+/obj/item/reagent_containers/food/snacks/produce/fruit/tangerine,
+/obj/item/reagent_containers/food/snacks/produce/fruit/tangerine,
+/obj/item/reagent_containers/food/snacks/produce/fruit/tangerine,
+/obj/item/reagent_containers/food/snacks/produce/fruit/tangerine,
+/obj/item/reagent_containers/food/snacks/produce/fruit/tangerine,
+/obj/item/reagent_containers/food/snacks/produce/fruit/apple,
+/obj/item/reagent_containers/food/snacks/produce/fruit/apple,
+/obj/item/reagent_containers/food/snacks/produce/fruit/apple,
+/obj/item/reagent_containers/food/snacks/produce/fruit/apple,
+/obj/item/reagent_containers/food/snacks/produce/fruit/apple,
+/obj/item/reagent_containers/food/snacks/produce/fruit/plum,
+/obj/item/reagent_containers/food/snacks/produce/fruit/plum,
+/obj/item/reagent_containers/food/snacks/produce/fruit/plum,
+/obj/item/reagent_containers/food/snacks/produce/fruit/plum,
+/obj/item/reagent_containers/food/snacks/produce/fruit/plum,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
 "LS" = (
@@ -3816,7 +3816,7 @@
 	pixel_x = 8;
 	pixel_y = 10
 	},
-/obj/item/reagent_containers/food/snacks/produce/lime{
+/obj/item/reagent_containers/food/snacks/produce/fruit/lime{
 	pixel_x = 10;
 	pixel_y = -5
 	},
@@ -3992,7 +3992,7 @@
 /turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
 "QR" = (
-/obj/item/reagent_containers/food/snacks/produce/strawberry,
+/obj/item/reagent_containers/food/snacks/produce/fruit/strawberry,
 /turf/open/floor/snow,
 /area/rogue/outdoors/woods)
 "QS" = (

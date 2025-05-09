@@ -559,7 +559,7 @@
 /area/rogue/indoors/shelter)
 "xp" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/food/snacks/produce/wheat,
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
 /turf/open/floor/tile/checker,
 /area/rogue/indoors/shelter)
 "xy" = (
@@ -678,8 +678,8 @@
 /area/rogue/indoors/shelter)
 "Cy" = (
 /obj/structure/closet/crate/chest/crate,
-/obj/item/reagent_containers/food/snacks/produce/wheat,
-/obj/item/reagent_containers/food/snacks/produce/wheat,
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
 /turf/open/floor/hexstone,
 /area/rogue/indoors/shelter)
 "CD" = (

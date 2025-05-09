@@ -28,7 +28,7 @@
 
 /obj/structure/closet/crate/chest/steward/wheat/PopulateContents()
 	for(var/i in 1 to 5)
-		new /obj/item/reagent_containers/food/snacks/produce/wheat(src)
+		new /obj/item/reagent_containers/food/snacks/produce/grain/wheat(src)
 
 /datum/stock/import/watchman
 	name = "City Watchman Equipment Crate"
