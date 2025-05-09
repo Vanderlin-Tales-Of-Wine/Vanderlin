@@ -86,14 +86,3 @@
 	. = ..()
 	user.get_dead_say()
 	return TRUE
-
-/datum/keybinding/admin/toggle_rightclick_menu
-	hotkey_keys = list("F11")
-	name = "Toggle rmb menu"
-	full_name = "Toggle right click menu"
-	description = "Toggles the admin context menu."
-
-/datum/keybinding/admin/toggle_rightclick_menu/down(client/user)
-	. = ..()
-	user.toggle_context_menu()
-	return TRUE

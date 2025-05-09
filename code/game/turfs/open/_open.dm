@@ -179,5 +179,5 @@
 	if(ambient_temperature < 15 && (outdoor_effect?.weatherproof || !outdoor_effect))
 		ambient_temperature += 5
 	if(SSmapping.level_has_any_trait(z, list(ZTRAIT_CELLAR_LIKE)))
-		ambient_temperature = 11 + CEILING(ambient_temperature * 0.2, 1)
+		ambient_temperature = 11 + CEILING(ambient_temperature * 0.1, 1)
 	return temperature_modification + ambient_temperature

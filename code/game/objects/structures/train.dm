@@ -65,7 +65,7 @@
 	cryo_mob(departing_mob)
 
 /proc/cryo_mob(mob/departing_mob)
-	LAZYREMOVE(GLOB.actors_list, departing_mob.mobid) // mob cryod - get him outta here.
+	GLOB.actors_list -= departing_mob.mobid // mob cryod - get him outta here.
 	var/mob/dead/new_player/newguy = new()
 	newguy.ckey = departing_mob.ckey
 	var/mob_name = departing_mob.real_name

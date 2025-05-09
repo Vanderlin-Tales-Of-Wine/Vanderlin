@@ -1100,7 +1100,8 @@
 		flaggy.appearance_flags = RESET_TRANSFORM|KEEP_APART
 		flaggy.transform = null
 		flaggy.pixel_y = 12
-		flick_overlay_view(flaggy, src, 150)
+		flick_overlay_view(flaggy, 150)
+		drop_all_held_items()
 		Stun(150)
 		src.visible_message("<span class='notice'>[src] yields!</span>")
 		playsound(src, 'sound/misc/surrender.ogg', 100, FALSE, -1)

@@ -1271,23 +1271,18 @@ GLOBAL_VAR_INIT(mobids, 1)
 	return "[message_spans_start(spans)][input]</span>"
 
 /// Send a menu that allows for the selection of an item. Randomly selects one after time_limit. selection_list should be an associative list of string and typepath
-/mob/proc/select_equippable(client/player_client, selection_list = list(), time_limit = 20 SECONDS, message = "", title = "")
-	set waitfor = FALSE
-	if(!length(selection_list))
+/mob/proc/select_equippable(list/selection_list, time_limit = 20 SECONDS, message = "", title = "")
+	if(QDELETED(src))
 		return
-	var/client/client_to_use = player_client
-	if(!client_to_use)
-		client_to_use = client
-	if(!client_to_use)
+	if(!client || !mind)
 		return
-	var/random_choice = selection_list[pick(selection_list)]
-	var/timerid = addtimer(CALLBACK(src, PROC_REF(equip_to_appropriate_slot), new random_choice()), time_limit, TIMER_STOPPABLE)
-	var/choice = input(player_client, message, title) as anything in selection_list
-	if(SStimer.timer_id_dict[timerid])
-		deltimer(timerid)
-	else
+	if(!LAZYLEN(selection_list))
 		return
-	var/spawn_item = selection_list[choice]
+	var/choice = browser_input_list(src, message, title, selection_list, timeout = time_limit)
+	if(!choice)
+		choice = pick(selection_list)
+	var/spawn_item = LAZYACCESS(selection_list, choice)
 	if(!spawn_item)
-		spawn_item = selection_list[pick(selection_list)]
+		return choice
 	equip_to_appropriate_slot(new spawn_item(get_turf(src)))
+	return choice

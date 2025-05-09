@@ -142,23 +142,29 @@ All foods are distributed among various categories. Use common sense.
 		var/temp_modifier = 1.0
 		var/turf_temp =  T?.return_temperature()
 
+		var/obj/structure/closet/dirthole/dirtgrave = recursive_loc_check(src, /obj/structure/closet/dirthole)
+		var/obj/structure/closet/crate/chest/chest = recursive_loc_check(src, /obj/structure/closet/crate/chest)
+		if(dirtgrave && chest && !dirtgrave.opened && !chest.opened)
+			var/temp_mod = T.temperature_modification
+			var/amb_temp = turf_temp - temp_mod
+			amb_temp = 11 + CEILING(amb_temp * 0.1, 1) // chests in graves act as cellars
+			turf_temp = amb_temp + temp_mod
+
 		if(turf_temp)
 			if(turf_temp > 20)
 				// Each 10 degrees above room temp increases rot rate by 20%
 				temp_modifier = 1.0 + ((turf_temp - 20) / 10) * 0.2
 				temp_modifier = min(temp_modifier, 3.0) // Cap at 3x speed
 			else
-				// Each 10 degrees below room temp decreases rot rate by 20%
-				temp_modifier = max(0.2, 1.0 - ((20 -turf_temp) / 10) * 0.2)
+				// Each 5 degrees below room temp decreases rot rate by 20%
+				temp_modifier = max(0.2, 1.0 - ((20 -turf_temp) / 5) * 0.2)
 				// Minimum 0.2x speed (cold slows but doesn't completely stop rot)
 
-
-		var/obj/structure/closet/crate/chest/chest = locate(/obj/structure/closet/crate/chest) in get_turf(src)
 		var/obj/structure/fake_machine/vendor = locate(/obj/structure/fake_machine/vendor) in get_turf(src)
 		if(!istype(loc, /obj/item/storage/backpack/backpack/artibackpack))
 			var/obj/structure/table/located = locate(/obj/structure/table) in loc
 			if(located || vendor || chest)
-				warming -= 5 * temp_modifier
+				warming -= 4 * temp_modifier
 			else
 				warming -= 20 * temp_modifier //ssobj processing has a wait of 20
 			if(warming < (-1*rotprocess))

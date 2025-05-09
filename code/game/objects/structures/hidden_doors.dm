@@ -29,7 +29,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 
 	var/open_phrase = "open sesame"
 
-	var/speaking_distance = 2
+	var/speaking_distance = 1
 	var/lang = /datum/language/common
 	var/list/vip
 	var/vipmessage
@@ -103,15 +103,15 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 
 	if(is_type_in_list(H.mind?.assigned_role, vip)) //are they a VIP?
 		if(findtext(message2recognize, "help"))
-			send_speech(span_purple("'say phrase'... 'set phrase'..."), 2, src, message_language = lang)
+			send_speech(span_purple("'say phrase'... 'set phrase'..."), speaking_distance, src, message_language = lang, message_mode = MODE_WHISPER)
 			return TRUE
 		if(findtext(message2recognize, "say phrase"))
-			send_speech(span_purple("[open_phrase]..."), 2, src, message_language = lang)
+			send_speech(span_purple("[open_phrase]..."), speaking_distance, src, message_language = lang, message_mode = MODE_WHISPER)
 			return TRUE
 		if(findtext(message2recognize, "set phrase"))
 			var/new_pass = stripped_input(H, "What should the new close phrase be?")
 			open_phrase = new_pass
-			send_speech(span_purple("It is done, [flavor_name()]..."), 2, src, message_language = lang)
+			send_speech(span_purple("It is done, [flavor_name()]..."), speaking_distance, src, message_language = lang, message_mode = MODE_WHISPER)
 			return TRUE
 
 	if(findtext(message2recognize, open_phrase) && locked)

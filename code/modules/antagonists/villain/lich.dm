@@ -173,6 +173,7 @@
 			lich_mob = owner.current // current body is a human mob.
 
 	lich_mob.revive(TRUE, TRUE) // we live, yay.
+	lich_mob.ckey = owner.current.client.ckey
 
 	lich_mob.skeletonize(FALSE)
 
