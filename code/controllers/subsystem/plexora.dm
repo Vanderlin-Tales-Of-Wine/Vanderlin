@@ -285,7 +285,8 @@ SUBSYSTEM_DEF(plexora)
 	))
 
 /datum/controller/subsystem/plexora/proc/aticket_pm(datum/admin_help/ticket, message, admin_ckey = null)
-	if(!enabled) return
+	if(!enabled || QDELETED(ticket))
+		return
 	var/list/body = list();
 	body["id"] = ticket.id
 	body["roundid"] = GLOB.round_id

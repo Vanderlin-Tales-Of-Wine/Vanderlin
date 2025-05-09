@@ -41,10 +41,14 @@
 		var/list/names = list("Custom...")
 		if(ishuman(target))
 			var/mob/living/carbon/human/human_target
-			names += human_target.dna.species.random_name(target.gender, TRUE)
-		var/chosen_name = input(user, "Choose a new name to assign.", "Plastic Surgery") as null|anything in names
-		if(chosen_name == "Custom...")
-			chosen_name = input(user, "What name?", "Plastic surgery")
+			var/datum/species/species = human_target.dna?.species
+			if(species)
+				names += species.random_name(target.gender, TRUE)
+		var/chosen_name
+		if(length(names) < 1)
+			chosen_name = browser_input_list(user, "Choose a new name to assign.", "Plastic Surgery", names)
+		if(!chosen_name || chosen_name == "Custom...")
+			chosen_name = browser_input_text(user, "What name?", "Plastic surgery")
 		chosen_name = reject_bad_name(chosen_name)
 		if(!chosen_name)
 			return

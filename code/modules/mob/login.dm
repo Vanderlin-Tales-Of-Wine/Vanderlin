@@ -24,6 +24,8 @@
 
 
 /mob/Login()
+	if(QDELETED(src) || QDELETED(client))
+		return
 	GLOB.player_list |= src
 	lastKnownIP	= client.address
 	computer_id	= client.computer_id
