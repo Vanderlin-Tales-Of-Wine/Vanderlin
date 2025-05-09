@@ -248,7 +248,7 @@
 	//gloves
 	if(gloves && !(SLOT_GLOVES in obscured))
 		. += "[m3] [gloves.get_examine_string(user)] on [m2] hands."
-	else if(FR && length(FR.blood_DNA))
+	else if(GET_ATOM_BLOOD_DNA_LENGTH(src))
 		if(num_hands)
 			. += span_warning("[t_He] [t_has] [num_hands > 1 ? "" : "a"] blood-stained hand[num_hands > 1 ? "s" : ""]!")
 

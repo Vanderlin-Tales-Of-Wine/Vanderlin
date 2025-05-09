@@ -106,6 +106,7 @@
 /obj/effect/decal/cleanable/blood/replace_decal(obj/effect/decal/cleanable/C)
 	. = ..()
 	if(C)
+		C.add_blood_DNA(GET_ATOM_BLOOD_DNA(src))
 		C.alpha = initial(alpha)
 		C.bloodiness = initial(bloodiness)
 		C.name = initial(name)

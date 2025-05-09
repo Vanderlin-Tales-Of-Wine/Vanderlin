@@ -42,7 +42,7 @@
 	var/obj/item/I
 	I = mob.get_active_held_item()
 	if(I)
-		if(I.return_blood_DNA())
+		if(GET_ATOM_BLOOD_DNA(I))
 			testing("yep")
 		else
 			testing("nope")

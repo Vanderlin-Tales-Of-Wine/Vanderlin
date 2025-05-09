@@ -101,6 +101,9 @@
 	var/mutable_appearance/total_reflection_mask
 	var/shine = SHINE_MATTE
 
+	/// forensics datum, contains fingerprints, fibres, blood_dna and hiddenprints on this atom
+	var/datum/forensics/forensics
+
 /**
  * Called when an atom is created in byond (built in engine proc)
  *
@@ -224,6 +227,9 @@
 
 	if(reagents)
 		qdel(reagents)
+
+	if(forensics)
+		QDEL_NULL(forensics)
 
 	orbiters = null // The component is attached to us normaly and will be deleted elsewhere
 
@@ -574,9 +580,9 @@
 	var/new_blood_dna = L.get_blood_dna_list()
 	if(!new_blood_dna)
 		return FALSE
-	var/old_length = blood_DNA_length()
+	var/old_length = GET_ATOM_BLOOD_DNA_LENGTH(src)
 	add_blood_DNA(new_blood_dna)
-	if(blood_DNA_length() == old_length)
+	if(GET_ATOM_BLOOD_DNA_LENGTH(src) == old_length)
 		return FALSE
 	return TRUE
 
