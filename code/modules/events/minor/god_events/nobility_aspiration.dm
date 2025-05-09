@@ -21,7 +21,7 @@
 			continue
 		if(!H.patron || !istype(H.patron, /datum/patron/divine/astrata))
 			continue
-		if(H.is_noble() || H.mind?.assigned_role.title in GLOB.church_positions)
+		if(H.is_noble() || (H.mind?.assigned_role.title in GLOB.church_positions))
 			continue
 		return TRUE
 
