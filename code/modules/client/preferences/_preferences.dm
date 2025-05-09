@@ -1168,9 +1168,14 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 						print_special_text(user, next_special_trait)
 						return
 					to_chat(user, span_boldwarning("You will become special for one round, this could be something negative, positive or neutral and could have a high impact on your character and your experience. You cannot back out from or reroll this, and it will not carry over to other rounds."))
-					var/result = alert(user, "You'll receive a unique trait for one round\n You cannot back out from or reroll this\nDo you really want to be special?", "Be Special", "Yes", "No")
+					to_chat(user, span_boldwarning("THIS COSTS 3 TRIUMPHS"))
+					if(user.get_triumphs() < 3)
+						to_chat(user, span_bignotice("YOU DON'T HAVE ENOUGH TRIUMPHS."))
+						return
+					var/result = alert(user, "You'll receive a unique trait for one round\n You cannot back out from or reroll this\nDo you really want to spend 3 triumphs for it?", "Be Special", "Yes", "No")
 					if(result != "Yes")
 						return
+					user.adjust_triumphs(-3)
 					if(next_special_trait)
 						return
 					next_special_trait = roll_random_special(user.client)
