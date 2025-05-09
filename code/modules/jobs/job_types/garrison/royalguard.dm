@@ -1,4 +1,4 @@
-/datum/job/royalguard
+/datum/job/royalknight
 	title = "Royal Knight"
 	tutorial = "You are a knight of the royal garrison, elevated by your skill and steadfast devotion. \
 	Sworn to protect the royal family, you stand as their shield, upholding their rule with steel and sacrifice. \
@@ -7,7 +7,7 @@
 	flag = GUARDSMAN
 	department_flag = GARRISON
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
-	display_order = JDO_ROYALGUARD
+	display_order = JDO_ROYALKNIGHT
 	faction = FACTION_STATION
 	total_positions = 2
 	spawn_positions = 2
@@ -20,22 +20,22 @@
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 
 	advclass_cat_rolls = list(CTAG_ROYALKNIGHT = 20)
-	give_bank_account = 30
+	give_bank_account = 60
 	cmode_music = 'sound/music/cmode/nobility/CombatKnight.ogg'
 
-/datum/advclass/royalguard/knight
-	name = "Steel Knight"
+/datum/advclass/royalknight/knight
+	name = "Royal Knight"
 	tutorial = "The classic Knight in shining armor. Slightly more skilled then their Steam counterpart but has worse armor."
 
-	outfit = /datum/outfit/job/royalguard/knight
+	outfit = /datum/outfit/job/royalknight/knight
 
 	category_tags = list(CTAG_ROYALKNIGHT)
 
-/datum/outfit/job/royalguard
+/datum/outfit/job/royalknight
 	job_bitflag = BITFLAG_GARRISON
 	var/reduced_skill = FALSE
 
-/datum/outfit/job/royalguard/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/royalknight/pre_equip(mob/living/carbon/human/H)
 	..()
 	neck = /obj/item/clothing/neck/chaincoif
 	pants = /obj/item/clothing/pants/platelegs
@@ -69,7 +69,7 @@
 
 	H.change_stat(STATKEY_STR, 3)
 	H.change_stat(STATKEY_PER, 2)
-	H.change_stat(STATKEY_END, 3)
+	H.change_stat(STATKEY_END, 2)
 	H.change_stat(STATKEY_CON, 2)
 	H.change_stat(STATKEY_INT, 1)
 
@@ -80,7 +80,7 @@
 	if(H.dna?.species?.id == "human")
 		H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
 
-/datum/outfit/job/royalguard/post_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/job/royalknight/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
 	if(istype(H.cloak, /obj/item/clothing/cloak/tabard/knight/guard))
 		var/obj/item/clothing/S = H.cloak
@@ -135,28 +135,28 @@
 		if(!H.equip_to_appropriate_slot(shield))
 			qdel(shield)
 
-/datum/outfit/job/royalguard/knight/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/royalknight/knight/pre_equip(mob/living/carbon/human/H)
 	. = ..()
 	armor = /obj/item/clothing/armor/brigandine
 	shoes = /obj/item/clothing/shoes/boots/armor/light
 	gloves = /obj/item/clothing/gloves/chain
 	head = /obj/item/clothing/head/helmet/visored/knight
 
-/datum/advclass/royalguard/steam
+/datum/advclass/royalknight/steam
 	name = "Steam Knight"
 	tutorial = "The pinnacle of Vanderlin's steam technology. \
 	Start with a set of Steam Armor that requires steam to function. \
 	The suit is powerful when powered but will slow you down when not \
 	and has the cost of reducing your space for arms."
 
-	outfit = /datum/outfit/job/royalguard/steam
+	outfit = /datum/outfit/job/royalknight/steam
 
 	category_tags = list(CTAG_ROYALKNIGHT)
 
-/datum/outfit/job/royalguard/steam
+/datum/outfit/job/royalknight/steam
 	reduced_skill = TRUE
 
-/datum/outfit/job/royalguard/steam/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/royalknight/steam/pre_equip(mob/living/carbon/human/H)
 	. = ..()
 	backr = /obj/item/clothing/cloak/boiler
 	armor = /obj/item/clothing/armor/steam
@@ -165,7 +165,7 @@
 	head = /obj/item/clothing/head/helmet/heavy/steam
 
 	// Steam armour is complex
-	H.change_stat(STATKEY_INT, 1)
+	H.change_stat(STATKEY_INT, 2)
 	// Stronger armour than base RK
 	// Stat punishment for not having the armour active
 	H.change_stat(STATKEY_STR, -1)
@@ -174,9 +174,9 @@
 	// Way heavier
 	H.change_stat(STATKEY_SPD, -1)
 
-/datum/outfit/job/royalguard/steam/post_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/job/royalknight/steam/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
 	if(H.backr && istype(H.backr, /obj/item/clothing/cloak/boiler))
 		var/obj/item/clothing/cloak/boiler/B = H.backr
-		SEND_SIGNAL(B, COMSIG_ATOM_STEAM_INCREASE, 500)
+		SEND_SIGNAL(B, COMSIG_ATOM_STEAM_INCREASE, 1000)
 		B.update_armor()
