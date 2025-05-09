@@ -66,10 +66,6 @@
 /obj/structure/fluff/railing/border,
 /turf/open/transparent/openspace,
 /area/rogue/under/mountains/anvil/dungeon)
-"aU" = (
-/obj/structure/door/iron/bars,
-/turf/open/floor/naturalstone,
-/area/rogue/under/mountains/anvil/dungeon/lower)
 "aV" = (
 /obj/structure/stairs/fancy/c{
 	dir = 1
@@ -219,6 +215,10 @@
 	},
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/mountains/anvil/dungeon/lower)
+"cc" = (
+/obj/structure/door,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/mountains/anvil/dungeon)
 "ch" = (
 /obj/effect/decal/cleanable/blood/footprints{
 	pixel_y = 15;
@@ -227,6 +227,11 @@
 	},
 /turf/open/floor/blocks,
 /area/rogue/under/mountains/anvil/dungeon/lower)
+"ci" = (
+/obj/structure/door,
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/mountains/anvil/dungeon)
 "cm" = (
 /obj/item/bodypart/l_leg/goblin,
 /turf/open/floor/naturalstone,
@@ -336,10 +341,6 @@
 /obj/machinery/light/fueled/wallfire/candle/lamp,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon)
-"dk" = (
-/obj/structure/door,
-/turf/open/floor/naturalstone,
-/area/rogue/under/mountains/anvil/dungeon/lower)
 "dl" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 5
@@ -412,6 +413,10 @@
 	pixel_x = -10
 	},
 /turf/open/floor/wood/nosmooth,
+/area/rogue/under/mountains/anvil/dungeon/lower)
+"ef" = (
+/mob/living/simple_animal/hostile/retaliate/troll/axe,
+/turf/open/floor/dirt/road,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "eh" = (
 /mob/living/carbon/human/species/goblin/npc/cave,
@@ -537,12 +542,6 @@
 	},
 /turf/open/floor/churchmarble,
 /area/rogue/under/mountains/anvil/dungeon)
-"fP" = (
-/turf/closed/wall/mineral/pipe{
-	dir = 8;
-	icon_state = "iron_corner"
-	},
-/area/rogue/under/mountains/anvil/dungeon/lower)
 "fU" = (
 /obj/structure/table/wood/large/corner{
 	dir = 2
@@ -681,15 +680,6 @@
 "hT" = (
 /turf/open/floor/church,
 /area/rogue/under/mountains/anvil/dungeon/lower)
-"hV" = (
-/obj/structure/door{
-	lockid = "dormroom";
-	max_integrity = 3000;
-	name = "Dormitories"
-	},
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/ruinedwood/spiralfade,
-/area/rogue/under/mountains/anvil/dungeon)
 "if" = (
 /obj/item/natural/rock{
 	pixel_x = -26
@@ -801,18 +791,10 @@
 	},
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
-"ka" = (
-/obj/structure/door/stone,
-/turf/open/floor/cobble,
-/area/rogue/under/mountains/anvil/dungeon/lower)
 "kc" = (
 /obj/structure/closet/dirthole,
 /turf/open/floor/dirt,
 /area/rogue/under/mountains/anvil/dungeon)
-"ki" = (
-/obj/structure/door/stone,
-/turf/open/floor/church,
-/area/rogue/under/mountains/anvil/dungeon/lower)
 "kj" = (
 /obj/structure/bed/wool,
 /turf/open/floor/ruinedwood/spiralfade,
@@ -947,11 +929,6 @@
 /obj/item/coin/silver/pile,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/mountains/anvil/dungeon)
-"ms" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_line"
-	},
-/area/rogue/under/mountains/anvil/dungeon)
 "mt" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/naturalstone,
@@ -1037,11 +1014,9 @@
 	},
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
-"nI" = (
-/obj/structure/door/swing{
-	door_opened = 1
-	},
-/turf/open/floor/ruinedwood/spiralfade,
+"nG" = (
+/obj/structure/door/iron/bars,
+/turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "nJ" = (
 /obj/structure/ladder/earth,
@@ -1118,23 +1093,6 @@
 "oQ" = (
 /obj/structure/barricade/wooden,
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue/under/mountains/anvil/dungeon/lower)
-"oV" = (
-/obj/structure/door/fancy,
-/turf/open/floor/ruinedwood/spiralfade,
-/area/rogue/under/mountains/anvil/dungeon)
-"pb" = (
-/obj/structure/door/iron/bars{
-	max_integrity = 10000;
-	lockid = "pitentrance"
-	},
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/churchrough,
-/area/rogue/under/mountains/anvil/dungeon/lower)
-"ph" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_line"
-	},
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "pn" = (
 /obj/structure/rack/shelf/biggest,
@@ -1221,6 +1179,13 @@
 "ql" = (
 /turf/open/water/swamp,
 /area/rogue/under/mountains/anvil/dungeon/lower)
+"qm" = (
+/obj/structure/door/iron/bars{
+	lockid = "armory"
+	},
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/naturalstone,
+/area/rogue/under/mountains/anvil/dungeon)
 "qr" = (
 /obj/structure/stairs/stone/church{
 	dir = 1
@@ -1403,6 +1368,10 @@
 	},
 /turf/open/floor/churchmarble,
 /area/rogue/under/mountains/anvil/dungeon)
+"su" = (
+/obj/structure/door/stone,
+/turf/open/floor/church,
+/area/rogue/under/mountains/anvil/dungeon/lower)
 "sE" = (
 /obj/structure/fluff/railing/border{
 	dir = 4
@@ -1451,6 +1420,10 @@
 	},
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/mountains/anvil/dungeon/lower)
+"tl" = (
+/obj/structure/door,
+/turf/open/floor/wood/nosmooth,
+/area/rogue/under/mountains/anvil/dungeon)
 "tq" = (
 /obj/structure/table/wood/large/corner_blue,
 /obj/item/reagent_containers/food/snacks/rotten/mince{
@@ -1506,6 +1479,16 @@
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/wood/nosmooth,
 /area/rogue/under/mountains/anvil/dungeon)
+"tS" = (
+/obj/structure/door/swing{
+	door_opened = 1
+	},
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/mountains/anvil/dungeon/lower)
+"tX" = (
+/obj/structure/door/violet,
+/turf/open/floor/ruinedwood,
+/area/rogue/under/mountains/anvil/dungeon/lower)
 "ue" = (
 /turf/open/water,
 /area/rogue/under/mountains/anvil/dungeon)
@@ -1614,10 +1597,6 @@
 /obj/item/neuFarm/seed/onion,
 /turf/open/floor/ruinedwood,
 /area/rogue/under/mountains/anvil/dungeon/lower)
-"wB" = (
-/obj/structure/door,
-/turf/open/floor/ruinedwood/spiralfade,
-/area/rogue/under/mountains/anvil/dungeon)
 "wD" = (
 /obj/structure/fluff/railing/border{
 	dir = 4
@@ -1690,10 +1669,6 @@
 /obj/item/clothing/cloak/stabard/templar/malum,
 /turf/open/floor/wood/nosmooth,
 /area/rogue/under/mountains/anvil/dungeon/lower)
-"xs" = (
-/obj/structure/door,
-/turf/open/floor/ruinedwood/spiralfade,
-/area/rogue/under/mountains/anvil/dungeon/lower)
 "xv" = (
 /obj/item/clothing/armor/brigandine/coatplates,
 /turf/open/floor/naturalstone,
@@ -1762,6 +1737,17 @@
 /area/rogue/under/mountains/anvil/dungeon)
 "ym" = (
 /turf/open/floor/carpet/lord/right,
+/area/rogue/under/mountains/anvil/dungeon/lower)
+"yr" = (
+/obj/structure/door,
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 8
+	},
+/turf/open/floor/naturalstone,
+/area/rogue/under/mountains/anvil/dungeon/lower)
+"yu" = (
+/obj/structure/door/violet,
+/turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "yv" = (
 /obj/effect/decal/cleanable/blood/old{
@@ -2203,6 +2189,10 @@
 	},
 /turf/open/floor/ruinedwood,
 /area/rogue/under/mountains/anvil/dungeon/lower)
+"EF" = (
+/obj/structure/door,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/mountains/anvil/dungeon/lower)
 "EI" = (
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
 /turf/open/floor/naturalstone,
@@ -2350,12 +2340,6 @@
 /obj/effect/decal/remains/troll,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
-"GL" = (
-/turf/closed/wall/mineral/pipe{
-	dir = 4;
-	icon_state = "iron_line"
-	},
-/area/rogue/under/mountains/anvil/dungeon)
 "GO" = (
 /obj/item/bin/water,
 /obj/item/weapon/tongs,
@@ -2394,10 +2378,6 @@
 /obj/item/natural/rock,
 /turf/open/floor/churchrough,
 /area/rogue/under/mountains/anvil/dungeon/lower)
-"Hw" = (
-/obj/structure/door/violet,
-/turf/open/floor/church,
-/area/rogue/under/mountains/anvil/dungeon/lower)
 "Hy" = (
 /obj/structure/fluff/railing/border{
 	icon_state = "border";
@@ -2406,14 +2386,6 @@
 /obj/structure/chair/bench/church/smallbench,
 /turf/open/floor/churchmarble,
 /area/rogue/under/mountains/anvil/dungeon)
-"HM" = (
-/obj/structure/door/stone{
-	lockid = "tomb";
-	max_integrity = 10000
-	},
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/church,
-/area/rogue/under/mountains/anvil/dungeon/lower)
 "HN" = (
 /obj/item/natural/fur/mole,
 /turf/open/floor/wood/nosmooth,
@@ -2430,13 +2402,6 @@
 	pixel_y = 6
 	},
 /turf/open/floor/herringbone,
-/area/rogue/under/mountains/anvil/dungeon/lower)
-"Ic" = (
-/obj/structure/door,
-/obj/effect/decal/cleanable/blood/tracks{
-	dir = 8
-	},
-/turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Ie" = (
 /obj/structure/table/wood/large/corner{
@@ -2557,6 +2522,10 @@
 /obj/item/bodypart/r_arm/goblin,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon)
+"JH" = (
+/obj/structure/door/violet,
+/turf/open/floor/churchrough,
+/area/rogue/under/mountains/anvil/dungeon/lower)
 "JJ" = (
 /turf/open/floor/dirt/road,
 /area/rogue/under/mountains/anvil/dungeon/lower)
@@ -2618,23 +2587,11 @@
 /mob/living/carbon/human/species/orc/tribal,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
-"Kw" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_corner";
-	dir = 1
-	},
-/area/rogue/under/mountains/anvil/dungeon)
 "Kz" = (
 /obj/structure/table/wood{
 	icon_state = "tablewood_alt2"
 	},
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue/under/mountains/anvil/dungeon/lower)
-"KH" = (
-/turf/closed/wall/mineral/pipe{
-	dir = 1;
-	icon_state = "iron_corner"
-	},
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "KO" = (
 /turf/open/floor/concrete,
@@ -2664,6 +2621,14 @@
 	},
 /turf/open/floor/churchmarble,
 /area/rogue/under/mountains/anvil/dungeon)
+"Lf" = (
+/obj/structure/door/stone{
+	lockid = "tomb";
+	max_integrity = 10000
+	},
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/church,
+/area/rogue/under/mountains/anvil/dungeon/lower)
 "Li" = (
 /turf/closed/wall/mineral/wooddark/vertical,
 /area/rogue/under/mountains/anvil/dungeon)
@@ -2744,10 +2709,6 @@
 /obj/machinery/light/fueled/firebowl/stump,
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon)
-"Ma" = (
-/obj/structure/door/violet,
-/turf/open/floor/ruinedwood/spiralfade,
-/area/rogue/under/mountains/anvil/dungeon/lower)
 "Mb" = (
 /obj/structure/table/wood/plain_alt,
 /obj/item/candle/yellow/lit/infinite,
@@ -2756,10 +2717,6 @@
 "Me" = (
 /obj/machinery/light/fueled/wallfire/candle/l,
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue/under/mountains/anvil/dungeon/lower)
-"Mm" = (
-/mob/living/simple_animal/hostile/retaliate/troll/axe,
-/turf/open/floor/dirt/road,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Mo" = (
 /obj/structure/handcart{
@@ -2796,10 +2753,10 @@
 /obj/structure/bars,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
-"MS" = (
-/obj/structure/door,
-/turf/open/floor/wood/nosmooth,
-/area/rogue/under/mountains/anvil/dungeon)
+"ML" = (
+/obj/structure/door/iron/bars,
+/turf/open/floor/ruinedwood,
+/area/rogue/under/mountains/anvil/dungeon/lower)
 "MZ" = (
 /obj/item/natural/stone{
 	pixel_y = 7;
@@ -2825,10 +2782,6 @@
 /obj/effect/spawner/map_spawner/loot/common,
 /turf/open/floor/ruinedwood,
 /area/rogue/under/mountains/anvil/dungeon)
-"Nu" = (
-/obj/structure/door/violet,
-/turf/open/floor/churchrough,
-/area/rogue/under/mountains/anvil/dungeon/lower)
 "NG" = (
 /obj/structure/closet/crate/chest/crafted,
 /obj/item/natural/cloth,
@@ -2876,6 +2829,10 @@
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/wood/nosmooth,
 /area/rogue/under/mountains/anvil/dungeon)
+"Ox" = (
+/obj/structure/door/stone,
+/turf/open/floor/cobble,
+/area/rogue/under/mountains/anvil/dungeon/lower)
 "OD" = (
 /obj/item/natural/rock,
 /obj/item/natural/stone{
@@ -2933,6 +2890,10 @@
 /obj/item/candle/yellow/lit/infinite,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/mountains/anvil/dungeon/lower)
+"Pi" = (
+/obj/structure/door/fancy,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/mountains/anvil/dungeon)
 "Px" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/naturalstone,
@@ -3027,13 +2988,6 @@
 /obj/machinery/light/fueled/smelter,
 /turf/open/floor/blocks,
 /area/rogue/under/mountains/anvil/dungeon/lower)
-"Rc" = (
-/obj/structure/door/iron/bars{
-	lockid = "armory"
-	},
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/naturalstone,
-/area/rogue/under/mountains/anvil/dungeon)
 "Rh" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 10
@@ -3104,6 +3058,10 @@
 /obj/structure/fluff/railing/stonehedge,
 /turf/open/water,
 /area/rogue/under/mountains/anvil/dungeon/lower)
+"RN" = (
+/obj/structure/door/violet,
+/turf/open/floor/church,
+/area/rogue/under/mountains/anvil/dungeon/lower)
 "RQ" = (
 /obj/structure/closet/crate/coffin,
 /turf/open/floor/churchrough,
@@ -3117,6 +3075,10 @@
 "RT" = (
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon)
+"RV" = (
+/obj/structure/door,
+/turf/open/floor/naturalstone,
+/area/rogue/under/mountains/anvil/dungeon/lower)
 "Sd" = (
 /obj/machinery/light/fueled/hearth,
 /obj/item/cooking/pan,
@@ -3158,17 +3120,6 @@
 	},
 /turf/open/floor/churchrough,
 /area/rogue/under/mountains/anvil/dungeon/lower)
-"SU" = (
-/turf/closed/wall/mineral/pipe{
-	dir = 8;
-	icon_state = "iron_corner"
-	},
-/area/rogue/under/mountains/anvil/dungeon)
-"SW" = (
-/obj/structure/door,
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/ruinedwood/spiralfade,
-/area/rogue/under/mountains/anvil/dungeon)
 "Tb" = (
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon/lower)
@@ -3185,10 +3136,6 @@
 /obj/structure/closet/crate/drawer,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/mountains/anvil/dungeon)
-"Tj" = (
-/obj/structure/door/iron/bars,
-/turf/open/floor/ruinedwood,
-/area/rogue/under/mountains/anvil/dungeon/lower)
 "To" = (
 /obj/structure/closet/crate/chest/crate,
 /obj/item/clothing/shoes/shortboots,
@@ -3347,6 +3294,15 @@
 /obj/structure/spider/cocoon,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon)
+"Vr" = (
+/obj/structure/door{
+	lockid = "dormroom";
+	max_integrity = 3000;
+	name = "Dormitories"
+	},
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/mountains/anvil/dungeon)
 "Vv" = (
 /obj/structure/fluff/railing/border{
 	dir = 4
@@ -3501,6 +3457,14 @@
 "Xp" = (
 /obj/structure/table/wood/treestump/shroomstump,
 /turf/open/floor/dirt,
+/area/rogue/under/mountains/anvil/dungeon/lower)
+"Xv" = (
+/obj/structure/door/iron/bars{
+	max_integrity = 10000;
+	lockid = "pitentrance"
+	},
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/churchrough,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Xx" = (
 /obj/structure/rack/shelf/biggest,
@@ -3670,16 +3634,6 @@
 /obj/effect/decal/cleanable/blood/gibs/limb,
 /obj/item/weapon/hammer/iron,
 /turf/open/floor/blocks,
-/area/rogue/under/mountains/anvil/dungeon/lower)
-"Zm" = (
-/turf/closed/wall/mineral/pipe{
-	dir = 4;
-	icon_state = "iron_line"
-	},
-/area/rogue/under/mountains/anvil/dungeon/lower)
-"Zo" = (
-/obj/structure/door/violet,
-/turf/open/floor/ruinedwood,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Zq" = (
 /obj/effect/decal/cleanable/blood/gibs,
@@ -4009,7 +3963,7 @@ Dm
 UD
 Te
 Te
-Nu
+JH
 hT
 hT
 hT
@@ -4033,7 +3987,7 @@ hT
 hT
 hT
 hT
-Hw
+RN
 hT
 hT
 hT
@@ -4106,7 +4060,7 @@ hT
 hT
 hT
 hT
-ki
+su
 hT
 hT
 Te
@@ -4471,7 +4425,7 @@ UD
 Yk
 Te
 Te
-pb
+Xv
 rq
 rq
 rq
@@ -4566,9 +4520,9 @@ aV
 GT
 hT
 hT
-HM
+Lf
 hT
-HM
+Lf
 hT
 hT
 Ba
@@ -4632,9 +4586,9 @@ aV
 Dv
 hF
 hT
-HM
+Lf
 hT
-HM
+Lf
 hT
 hT
 aO
@@ -4878,7 +4832,7 @@ UD
 UD
 Dm
 MG
-aU
+nG
 MG
 Dm
 iZ
@@ -5096,7 +5050,7 @@ FT
 po
 po
 po
-ki
+su
 hT
 hT
 Te
@@ -5387,7 +5341,7 @@ wq
 tF
 JJ
 JJ
-Mm
+ef
 JJ
 JJ
 kl
@@ -5596,14 +5550,14 @@ tF
 Xf
 Xf
 Xf
-Ma
+yu
 Xf
 Xf
 Xf
 Xf
 Xf
 Kz
-nI
+tS
 rx
 WA
 iC
@@ -5614,7 +5568,7 @@ gE
 xy
 tN
 Ec
-xs
+EF
 WE
 WE
 WE
@@ -5645,8 +5599,8 @@ UD
 UD
 md
 rq
-KH
-ph
+uz
+uz
 cn
 Ex
 YP
@@ -5711,7 +5665,7 @@ UD
 UD
 md
 rq
-Zm
+uz
 Xf
 sZ
 VS
@@ -5777,7 +5731,7 @@ UD
 UD
 md
 rq
-Zm
+uz
 Xf
 sl
 tF
@@ -5843,7 +5797,7 @@ UD
 UD
 md
 rq
-Zm
+uz
 Xf
 Od
 Od
@@ -5865,7 +5819,7 @@ RF
 CY
 CY
 CY
-Ma
+yu
 vz
 rQ
 qb
@@ -5909,7 +5863,7 @@ UD
 UD
 md
 rq
-Zm
+uz
 Xf
 tF
 JJ
@@ -5975,21 +5929,21 @@ UD
 UD
 md
 rq
-Zm
+uz
 Xf
 JJ
 JJ
 JJ
 JJ
 JJ
-Tj
+ML
 tF
 Wh
 Wh
 Wh
 tF
 tF
-Zo
+tX
 CY
 CY
 gK
@@ -6041,7 +5995,7 @@ UD
 UD
 md
 rq
-Zm
+uz
 Xf
 tF
 JJ
@@ -6107,7 +6061,7 @@ UD
 UD
 md
 rq
-Zm
+uz
 Xf
 tF
 av
@@ -6173,7 +6127,7 @@ UD
 UD
 md
 rq
-Zm
+uz
 Xf
 Xf
 Xf
@@ -6193,7 +6147,7 @@ rq
 rq
 Xf
 Xf
-Zm
+uz
 Xf
 Xf
 iC
@@ -6239,7 +6193,7 @@ UD
 UD
 md
 rq
-Zm
+uz
 UD
 UD
 UD
@@ -6259,7 +6213,7 @@ rq
 md
 md
 rq
-Zm
+uz
 rq
 Xf
 iC
@@ -6279,7 +6233,7 @@ Dm
 Dm
 UD
 UD
-aU
+nG
 bk
 UD
 Dm
@@ -6305,9 +6259,9 @@ UD
 UD
 md
 rq
-fP
-ph
-ph
+uz
+uz
+uz
 UD
 cn
 cn
@@ -6326,8 +6280,8 @@ cC
 cC
 cC
 uz
-ph
-ph
+uz
+uz
 kw
 UD
 UD
@@ -7123,7 +7077,7 @@ cn
 cn
 cn
 XK
-ka
+Ox
 wZ
 wZ
 wZ
@@ -7335,7 +7289,7 @@ Dm
 Dm
 Dm
 Dm
-Ic
+yr
 Dm
 Dm
 mQ
@@ -7478,7 +7432,7 @@ Dm
 Dm
 Dm
 Dm
-dk
+RV
 Dm
 Dm
 Dm
@@ -9626,7 +9580,7 @@ go
 Hn
 go
 go
-hV
+Vr
 go
 go
 eU
@@ -9769,7 +9723,7 @@ go
 eU
 go
 go
-wB
+cc
 go
 go
 LT
@@ -9829,7 +9783,7 @@ go
 go
 iF
 Li
-wB
+cc
 Li
 Li
 iF
@@ -9967,7 +9921,7 @@ go
 go
 go
 go
-wB
+cc
 go
 go
 LT
@@ -10025,13 +9979,13 @@ go
 iF
 Li
 Li
-oV
+Pi
 Li
 iF
 Li
 Li
 Li
-wB
+cc
 Li
 iF
 Li
@@ -10086,7 +10040,7 @@ FI
 Li
 iF
 Li
-wB
+cc
 Li
 iF
 go
@@ -10150,7 +10104,7 @@ uE
 uE
 OD
 go
-wB
+cc
 go
 go
 UZ
@@ -10165,7 +10119,7 @@ go
 go
 go
 go
-wB
+cc
 gy
 RT
 RT
@@ -10213,8 +10167,8 @@ gy
 gy
 aQ
 uE
-Kw
-ms
+gN
+gN
 IX
 iF
 go
@@ -10279,7 +10233,7 @@ gy
 gy
 aQ
 uE
-GL
+gN
 FI
 Li
 iF
@@ -10348,7 +10302,7 @@ uE
 gN
 FI
 Xc
-SW
+ci
 go
 go
 go
@@ -10411,8 +10365,8 @@ FI
 FI
 FI
 uE
-SU
-ms
+gN
+gN
 IX
 iF
 hD
@@ -11690,7 +11644,7 @@ nB
 FV
 Ow
 FV
-MS
+tl
 FV
 FV
 qN
@@ -11818,7 +11772,7 @@ RT
 RT
 RT
 RT
-Rc
+qm
 WR
 WR
 FV

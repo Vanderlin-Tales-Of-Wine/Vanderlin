@@ -464,7 +464,8 @@
 			playsound(owner, 'sound/combat/newstuck.ogg', 100, vary = TRUE)
 		if(crit_message)
 			owner.next_attack_msg += " <span class='userdanger'>[embedder] runs through [owner]'s [src.name]!</span>"
-		update_disabled()
+		if(can_be_disabled)
+			update_disabled()
 	return TRUE
 
 /// Removes an embedded object from this bodypart
@@ -488,7 +489,8 @@
 		if(!owner.has_embedded_objects())
 			owner.clear_alert("embeddedobject")
 			SEND_SIGNAL(owner, COMSIG_CLEAR_MOOD_EVENT, "embedded")
-		update_disabled()
+		if(can_be_disabled)
+			update_disabled()
 	return TRUE
 
 /obj/item/bodypart/proc/try_bandage(obj/item/new_bandage)
@@ -545,6 +547,8 @@
 
 /// Applies a temporary paralysis effect to this bodypart
 /obj/item/bodypart/proc/temporary_crit_paralysis(duration = 60 SECONDS, brittle = TRUE)
+	if(!can_be_disabled)
+		return
 	if(HAS_TRAIT(src, TRAIT_BRITTLE))
 		return FALSE
 	ADD_TRAIT(src, TRAIT_PARALYSIS, CRIT_TRAIT)

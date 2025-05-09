@@ -6,7 +6,6 @@
 
 //	( + Pain Resist )
 //	( + Bleed Resist )
-//	( - Hunger )
 
 /mob/living/carbon/human/species/aasimar
 	race = /datum/species/aasimar
@@ -27,7 +26,6 @@
 	but their insides are just as mortal as any other."
 
 	skin_tone_wording = "Crafted With"
-	nutrition_mod = 2 // 200% higher hunger rate. Hungry, hungry aasimar
 	pain_mod = 0.9 // 10% less pain from wounds
 	bleed_mod = 0.8 // 20% less bleed rate from injuries
 
@@ -125,7 +123,7 @@
 		"Copper" = SKIN_COLOR_COPPER, // - (Orange)
 		"Gold" = SKIN_COLOR_GOLD, // - (Yellow)
 		"Rust" = SKIN_COLOR_RUST, // - (Red-brown)
-		"Obsidian" = SKIN_COLOR_OBSIDIAN, // - (Black)
+		"Onyx" = SKIN_COLOR_ONYX, // - (Black)
 		"Lapis" = SKIN_COLOR_LAPIS, // - (Deep blue)
 		"Basalt" = SKIN_COLOR_BASALT, // - (Dark grey)
 		"Larimar" = SKIN_COLOR_LARIMAR, // - (Cyan)

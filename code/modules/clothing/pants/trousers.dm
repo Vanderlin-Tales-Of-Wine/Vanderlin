@@ -5,7 +5,6 @@
 	gender = PLURAL
 	icon_state = "trou"
 	item_state = "trou"
-//	adjustable = CAN_CADJUST
 	sewrepair = TRUE
 	blocksound = SOFTHIT
 	blade_dulling = DULLING_BASHCHOP

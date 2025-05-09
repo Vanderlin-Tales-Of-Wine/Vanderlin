@@ -299,7 +299,7 @@
 	icon_state = "guardhelm"
 
 	body_parts_covered = COVERAGE_HEAD_NOSE
-	flags_inv = HIDEEARS|HIDEHAIR
+	flags_inv = HIDEEARS|HIDEHAIR|HIDEFACE
 	block2add = FOV_BEHIND
 	max_integrity = INTEGRITY_STANDARD
 	slot_flags = ITEM_SLOT_HEAD | ITEM_SLOT_HIP

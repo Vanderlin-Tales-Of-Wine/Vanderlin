@@ -29,8 +29,8 @@ SUBSYSTEM_DEF(fake_world)
 		gun.icon_state = "bow"
 
 	for(var/turf/closed/wall/mineral/underbrick/wall in fake_world_constructs)
-		wall.icon_state = "wood"
-		wall.icon = 'icons/turf/walls/roguewood.dmi'
+		wall.icon_state = "wood-0"
+		wall.icon = 'icons/turf/smooth/walls/wood.dmi'
 
 	for(var/turf/open/floor/plasteel/maniac/floor in fake_world_constructs)
 		floor.icon_state = "concretefloor1"

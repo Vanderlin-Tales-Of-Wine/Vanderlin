@@ -438,8 +438,9 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	if(!input)
 		return
 
-	var/turf/open/floor/T = get_turf(src.loc)
-	T.generateSigils(src, input)
+	var/turf/open/floor/T = get_turf(src)
+	if(istype(T))
+		T.generateSigils(src, input)
 
 /mob/living/carbon/human/proc/release_minion()
 	set name = "Release Lackey"

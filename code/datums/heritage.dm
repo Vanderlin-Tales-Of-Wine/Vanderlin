@@ -26,7 +26,7 @@
 		housename = new_name
 	dominant_species = majority_species
 	if(!majority_species && progenator)
-		dominant_species = progenator.dna.species.type
+		dominant_species = progenator.dna?.species?.type
 
 /*
 * Renames entire house. Useful for default houses.
@@ -37,7 +37,7 @@
 		gender_male = TRUE
 	addToHouse(person, gender_male ? FAMILY_FATHER : FAMILY_MOTHER)
 	housename = SurnameFormatting(person)
-	dominant_species = person.dna.species.type
+	dominant_species = person.dna?.species?.type
 
 /*
 * Adds someone to the family using a mob and a status.
@@ -45,22 +45,20 @@
 /datum/heritage/proc/addToHouse(mob/living/carbon/human/person, status)
 	//You are not a human. Get outta ere.
 	if(!ishuman(person))
-		testing("FAMTREE_ERROR:add1")
 		return
 	//Your already in the family. We dont have the system for more than one role.
 	if(family[person])
-		testing("FAMTREE_ERROR:add2")
 		return
 	//Species that are logical decendents.
 	var/list/heir_species = list(dominant_species)
 	if(matriarch)
-		heir_species += SpeciesHeirs(matriarch.dna.species)
+		heir_species += SpeciesHeirs(matriarch.dna?.species)
 	if(patriarch)
-		heir_species += SpeciesHeirs(patriarch.dna.species)
+		heir_species += SpeciesHeirs(patriarch.dna?.species)
 	//Make a seperate list so we not mistake the status for another duplicate status role.
 	var/list/temp_list = list()
 	if(status == FAMILY_PROGENY && heir_species)
-		if(person.dna.species.type in heir_species)
+		if(person.dna?.species?.type in heir_species)
 			//This has no purpose other than to add their TRUE PARENTS to their DNA/blood
 			person.MixDNA(patriarch, matriarch, override = TRUE)
 		else
@@ -126,7 +124,7 @@
 		if(familialrole_b == FAMILY_INLAW)
 			txt += "[p_He] is my [progeny_title] in law!"
 		if(familialrole_b == FAMILY_ADOPTED)
-			if(looker.dna.species.type == lookee.dna.species.type)
+			if(looker.dna?.species?.type == lookee.dna?.species?.type)
 				txt +="[p_He] is my bastard [progeny_title]."
 			else
 				txt += "[p_He] is my adopted [progeny_title]."
@@ -270,6 +268,8 @@
 * For calculating if this individual can lead to this species. One for One rather than Two for One calculation.
 */
 /datum/heritage/proc/SpeciesHeirs(datum/species/core_species)
+	if(QDELETED(core_species))
+		return
 	. = list(core_species.type)
 	if(istype(core_species, /datum/species/human/northern) || istype(core_species, /datum/species/elf))
 		. += /datum/species/human/halfelf
@@ -292,7 +292,7 @@
 	var/index = findtext(person.real_name, " ")
 	person.original_name = person.real_name
 	if(!index)
-		surname2use = person.dna.species.random_surname()
+		surname2use = person.dna?.species?.random_surname()
 	else
 		/*
 		* This code prevents inheriting the last name of
@@ -301,7 +301,7 @@
 		* have his bride become "Sarah of wolves".
 		*/
 		if(findtext(person.real_name, " of ") || findtext(person.real_name, " the "))
-			surname2use = person.dna.species.random_surname()
+			surname2use = person.dna?.species?.random_surname()
 		else
 			surname2use = copytext(person.real_name, index)
 	return surname2use

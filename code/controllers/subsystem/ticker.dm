@@ -189,9 +189,7 @@ SUBSYSTEM_DEF(ticker)
 			timeLeft -= wait
 
 			if(timeLeft <= 300 && !tipped)
-				#ifdef MATURESERVER
 				send_tip_of_the_round()
-				#endif
 				tipped = TRUE
 
 			if(timeLeft <= 0)
@@ -243,12 +241,9 @@ SUBSYSTEM_DEF(ticker)
 /datum/controller/subsystem/ticker/proc/checkreqroles()
 	var/list/readied_jobs = list()
 	var/list/required_jobs = list("Monarch")
-#ifdef DEPLOY_TEST
+#ifdef TESTING
 	required_jobs = list()
 	readied_jobs = list("Monarch")
-#endif
-#ifdef ROGUEWORLD
-	required_jobs = list()
 #endif
 	for(var/V in required_jobs)
 		for(var/mob/dead/new_player/player in GLOB.player_list)
@@ -270,21 +265,8 @@ SUBSYSTEM_DEF(ticker)
 		to_chat(world, "<span class='purple'>[pick(stuffy)]</span>")
 		return FALSE
 
-/*
-#ifdef DEPLOY_TEST
-	amt_ready = 999
-#endif
-*/
-#ifdef ROGUEWORLD
-	amt_ready = 999
-#endif
-
 	job_change_locked = TRUE
 	return TRUE
-
-/datum/controller/subsystem/ticker
-	var/isroguefight = FALSE
-	var/isrogueworld = FALSE
 
 /datum/controller/subsystem/ticker/proc/setup()
 	message_admins("<span class='boldannounce'>Starting game...</span>")
@@ -314,16 +296,15 @@ SUBSYSTEM_DEF(ticker)
 
 	CHECK_TICK
 	GLOB.start_landmarks_list = shuffle(GLOB.start_landmarks_list) //Shuffle the order of spawn points so they dont always predictably spawn bottom-up and right-to-left
-	if(!isrogueworld && !isroguefight)
-		create_characters() //Create player characters
-		log_game("GAME SETUP: create characters success")
-		collect_minds()
-		log_game("GAME SETUP: collect minds success")
-		equip_characters()
-		log_game("GAME SETUP: equip characters success")
 
-		transfer_characters()	//transfer keys to the new mobs
-		log_game("GAME SETUP: transfer characters success")
+	create_characters() //Create player characters
+	log_game("GAME SETUP: create characters success")
+	collect_minds()
+	log_game("GAME SETUP: collect minds success")
+	equip_characters()
+	log_game("GAME SETUP: equip characters success")
+	transfer_characters()	//transfer keys to the new mobs
+	log_game("GAME SETUP: transfer characters success")
 
 	for(var/I in round_start_events)
 		var/datum/callback/cb = I
@@ -332,23 +313,6 @@ SUBSYSTEM_DEF(ticker)
 	log_game("GAME SETUP: round start events success")
 	LAZYCLEARLIST(round_start_events)
 	CHECK_TICK
-	if(isrogueworld)
-		for(var/obj/structure/fluff/traveltile/TT in GLOB.traveltiles)
-			if(TT.aallmig)
-				TT.aportalgoesto = TT.aallmig
-		for(var/i in GLOB.mob_living_list)
-			var/mob/living/L = i
-			var/turf/T = get_turf(L)
-			if(!T || !(T.z in list(2,3,4,5)))
-				continue
-			qdel(L)
-		for(var/i in SSmachines.processing)
-			var/obj/machinery/light/L = i
-			if(istype(L))
-				var/turf/T = get_turf(L)
-				if(!T || !(T.z in list(2,3,4,5)))
-					continue
-				qdel(L)
 
 	log_game("GAME SETUP: Game start took [(world.timeofday - init_start)/10]s")
 	round_start_time = world.time

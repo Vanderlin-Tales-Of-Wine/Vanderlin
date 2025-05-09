@@ -47,10 +47,12 @@
 	return TRUE
 
 /datum/sprite_accessory/proc/generic_gender_feature_adjust(list/appearance_list, obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner, feature_male_key, feature_female_key)
-	if(!ishuman(owner))
+	if(QDELETED(owner) || !ishuman(owner))
 		return
 	var/mob/living/carbon/human/humie = owner
-	var/datum/species/species = owner.dna.species
+	var/datum/species/species = owner.dna?.species
+	if(!species)
+		return
 	for(var/mutable_appearance/appearance as anything in appearance_list)
 		var/list/offset_list
 		if(humie.age == AGE_CHILD)

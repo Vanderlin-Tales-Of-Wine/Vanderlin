@@ -809,7 +809,7 @@
 			I like to relax with the puff of a zig.")
 			)
 		if("Ozium")
-			backpack_contents = list(/obj/item/reagent_containers/powder/ozium = 2, /datum/supply_pack/tools/wpipe = 1, /obj/item/flint = 1)
+			backpack_contents = list(/obj/item/reagent_containers/powder/ozium = 2, /obj/item/clothing/face/cigarette/pipe/westman = 1, /obj/item/flint = 1)
 			to_chat(H,span_info("\
 			I smoke ozium.")
 			)

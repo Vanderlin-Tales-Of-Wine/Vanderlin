@@ -178,7 +178,7 @@ GLOBAL_LIST_INIT(primordial_wounds, init_primordial_wounds())
 /datum/wound/proc/on_bodypart_gain(obj/item/bodypart/affected)
 	if(bleed_rate && affected.bandage)
 		affected.bandage_expire() //new bleeding wounds always expire bandages, fuck you
-	if(disabling)
+	if(disabling && affected.can_be_disabled)
 		affected.update_disabled()
 
 /// Removes this wound from a given bodypart
@@ -196,7 +196,7 @@ GLOBAL_LIST_INIT(primordial_wounds, init_primordial_wounds())
 
 /// Effects when a wound is lost on a bodypart
 /datum/wound/proc/on_bodypart_loss(obj/item/bodypart/affected, mob/living/affected_mob)
-	if(disabling)
+	if(disabling && affected.can_be_disabled)
 		affected.update_disabled()
 
 /// Returns whether or not this wound can be applied to a given mob

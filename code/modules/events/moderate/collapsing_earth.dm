@@ -15,6 +15,12 @@ GLOBAL_LIST_INIT(mined_resource_loc, list())
 		TAG_WORK,
 	)
 
+/datum/round_event_control/collapsing_earth/canSpawnEvent(players_amt, gamemode, fake_check)
+	. = ..()
+	if(!.)
+		return FALSE
+	if(!LAZYLEN(GLOB.mined_resource_loc))
+		return FALSE
 
 /datum/round_event/collapsing_earth
 	var/static/list/weighted_rocks = list(

@@ -56,7 +56,9 @@
 			armor = /obj/item/clothing/shirt/robe/eora
 			H.cmode_music = 'sound/music/cmode/church/CombatEora.ogg'
 			ADD_TRAIT(H, TRAIT_BEAUTIFUL, TRAIT_GENERIC)
+			ADD_TRAIT(H, TRAIT_EMPATH, TRAIT_GENERIC)
 			H.virginity = FALSE
+			H.mind?.adjust_skillrank(/datum/skill/misc/music, 2, TRUE)
 		if(/datum/patron/divine/noc)
 			head = /obj/item/clothing/head/roguehood/nochood
 			neck = /obj/item/clothing/neck/psycross/noc
@@ -64,25 +66,56 @@
 			shoes = /obj/item/clothing/shoes/sandals
 			armor = /obj/item/clothing/shirt/robe/noc
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
+			var/language = pickweight(list("Dwarvish" = 1, "Elvish" = 1, "Hellspeak" = 1, "Zybantu" = 1, "Orcish" = 1,))
+			switch(language)
+				if("Dwarvish")
+					H.grant_language(/datum/language/dwarvish)
+					to_chat(H,span_info("\
+					I learned the tongue of the mountain dwellers.")
+					)
+				if("Elvish")
+					H.grant_language(/datum/language/elvish)
+					to_chat(H,span_info("\
+					I learned the tongue of the primordial race.")
+					)
+				if("Hellspeak")
+					H.grant_language(/datum/language/hellspeak)
+					to_chat(H,span_info("\
+					I learned the tongue of the hellspawn.")
+					)
+				if("Zybantu")
+					H.grant_language(/datum/language/zybantine)
+					to_chat(H,span_info("\
+					I learned the tongue of Zybantu.")
+					)
+				if("Orcish")
+					H.grant_language(/datum/language/orcish)
+					to_chat(H,span_info("\
+					I learned the tongue of the savages in my time.")
+					)
 		if(/datum/patron/divine/pestra)
 			head = /obj/item/clothing/head/padded/pestra
 			neck = /obj/item/clothing/neck/psycross/silver/pestra
 			shoes = /obj/item/clothing/shoes/sandals
 			armor = /obj/item/clothing/shirt/robe/pestra
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
+			backpack_contents = list(/obj/item/needle/blessed)
 		if(/datum/patron/divine/dendor)
 			head = /obj/item/clothing/head/padded/briarthorns
 			neck = /obj/item/clothing/neck/psycross/silver/dendor
 			shoes = /obj/item/clothing/shoes/sandals
 			armor = /obj/item/clothing/shirt/robe/dendor
 			H.cmode_music = 'sound/music/cmode/garrison/CombatForestGarrison.ogg'
+			H.mind?.adjust_skillrank(/datum/skill/labor/farming, 2, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/labor/taming, 1, TRUE)
+			ADD_TRAIT(H, TRAIT_SEEDKNOW, TRAIT_GENERIC)
 		if(/datum/patron/divine/abyssor)
 			head = /obj/item/clothing/head/roguehood/random
 			neck = /obj/item/clothing/neck/psycross/silver/abyssor
 			shoes = /obj/item/clothing/shoes/boots
 			armor = /obj/item/clothing/shirt/robe/plain
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
-			H.mind?.adjust_skillrank(/datum/skill/labor/fishing, 1, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/labor/fishing, 2, TRUE)
 		if(/datum/patron/divine/ravox)
 			head = /obj/item/clothing/head/roguehood/random
 			neck = /obj/item/clothing/neck/psycross/silver/ravox
@@ -97,6 +130,7 @@
 			armor = /obj/item/clothing/shirt/robe/plain
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
 			H.mind?.adjust_skillrank(/datum/skill/misc/stealing, 1, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/misc/music, 3, TRUE)
 		if(/datum/patron/divine/malum)
 			head = /obj/item/clothing/head/roguehood/random
 			neck = /obj/item/clothing/neck/psycross/silver/malum
@@ -104,6 +138,10 @@
 			armor = /obj/item/clothing/shirt/robe/plain
 			backpack_contents += /obj/item/weapon/hammer/iron
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
+			H.mind?.adjust_skillrank(/datum/skill/craft/blacksmithing, 1, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/craft/armorsmithing, 1, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/craft/weaponsmithing, 1, TRUE)
+			ADD_TRAIT(H, TRAIT_MALUMFIRE, TRAIT_GENERIC)
 		else // Failsafe
 			head = /obj/item/clothing/head/roguehood/random
 			neck = /obj/item/clothing/neck/psycross/silver

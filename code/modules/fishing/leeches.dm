@@ -99,7 +99,6 @@
 /obj/item/natural/worms/leech/on_embed_life(mob/living/user, obj/item/bodypart/bodypart)
 	if(!user)
 		return
-	user.adjustToxLoss(bodypart.has_wound(/datum/wound/slash/incision) ? toxin_healing * 2 : toxin_healing)
 	if(giving)
 		var/blood_given = min(BLOOD_VOLUME_MAXIMUM - user.blood_volume, blood_storage, blood_sucking)
 		user.blood_volume += blood_given
@@ -111,6 +110,7 @@
 				user.simple_remove_embedded_object(src)
 			return TRUE
 	else
+		user.adjustToxLoss(bodypart.has_wound(/datum/wound/slash/incision) ? toxin_healing * 1.5 : toxin_healing)
 		var/blood_extracted = min(blood_maximum - blood_storage, user.blood_volume, blood_sucking)
 		if(HAS_TRAIT(user, TRAIT_LEECHIMMUNE))
 			blood_extracted *= 0.05 // 95% drain reduction

@@ -466,6 +466,10 @@
 		return 0
 	return 1
 
+/obj/structure/fluff/clock/zizoclock
+	desc = "It tells the time... in morbid fashion!"
+	icon_state = "zizoclock"
+
 // Version thats dense. Should honestly be standard?
 /obj/structure/fluff/clock/dense
 	density = TRUE
@@ -777,6 +781,22 @@
 	icon_state = "3"
 	pixel_x = -32
 
+
+/obj/structure/fluff/statue/zizo
+	name = "statue of Zizo"
+	desc = "The Dark Lady. Even in stone, you feel unsettled looking at it."
+	icon = 'icons/roguetown/misc/64x128.dmi'
+	icon_state = "zizo"
+	max_integrity = 100
+	deconstructible = FALSE
+	density = TRUE
+	blade_dulling = DULLING_BASH
+	bound_width = 64
+
+/obj/structure/fluff/statue/zizo/Initialize()
+	. = ..()
+	set_light(1, 1, 1, l_color = COLOR_PURPLE)
+
 /obj/structure/fluff/statue/musician/OnCrafted(dirin, mob/user)
 	. = ..()
 	if(prob(20))
@@ -789,6 +809,14 @@
 	icon_state = "telescope"
 	density = TRUE
 	anchored = FALSE
+
+/obj/structure/fluff/stonecoffin
+	name = "stone coffin"
+	desc = "A damaged stone coffin..."
+	icon = 'icons/roguetown/misc/structure.dmi'
+	icon_state = "stonecoffin"
+	density = TRUE
+	anchored = TRUE
 
 /obj/structure/fluff/telescope/attack_hand(mob/user)
 	if(!ishuman(user))
@@ -1017,6 +1045,7 @@
 	buckle_requires_restraints = 1
 	buckle_prevents_pull = 1
 	var/shrine = FALSE	// used for some checks
+	var/divine = TRUE
 
 /obj/structure/fluff/psycross/Initialize()
 	. = ..()
@@ -1055,6 +1084,13 @@
 	break_sound = null
 	attacked_sound = list("sound/combat/hits/onmetal/metalimpact (1).ogg", "sound/combat/hits/onmetal/metalimpact (2).ogg")
 	chance2hear = 66
+
+/obj/structure/fluff/psycross/zizocross
+	name = "inverted cross"
+	desc = "An unholy symbol. Blasphemy for most, reverence for few."
+	icon_state = "zizoinvertedcross"
+	attacked_sound = list("sound/combat/hits/onmetal/metalimpact (1).ogg", "sound/combat/hits/onmetal/metalimpact (2).ogg")
+	divine = FALSE
 
 /obj/structure/fluff/psycross/crafted
 	name = "wooden pantheon cross"

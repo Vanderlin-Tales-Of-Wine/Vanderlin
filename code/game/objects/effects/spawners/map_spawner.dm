@@ -78,12 +78,6 @@
 	probby = 75
 	spawned = list(/obj/structure/table/wood/treestump)
 
-/obj/effect/spawner/map_spawner/shroud
-	icon_state = "shroud"
-	name = "shroud sp"
-	probby = 30
-	spawned = list(/turf/closed/wall/shroud)
-
 /obj/effect/spawner/map_spawner/hauntpile
 	icon_state = "hauntpile"
 	name = "hauntpile"

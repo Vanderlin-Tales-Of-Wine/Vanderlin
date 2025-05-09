@@ -50,12 +50,6 @@
 /obj/effect/decal/cleanable/blood/gibs/old,
 /turf/open/floor/cobblerock,
 /area/rogue/under/cavewet)
-"bS" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_end";
-	dir = 1
-	},
-/area/rogue/under/cavewet)
 "cE" = (
 /obj/structure/kneestingers{
 	icon_state = "glowshroom2"
@@ -113,10 +107,6 @@
 	pixel_x = -6
 	},
 /turf/open/floor/blocks/stonered/tiny,
-/area/rogue/under/cavewet)
-"fr" = (
-/obj/structure/barricade/wooden,
-/turf/open/floor/cobblerock,
 /area/rogue/under/cavewet)
 "fs" = (
 /obj/structure/stairs/stone/church,
@@ -224,12 +214,6 @@
 /obj/item/clothing/pants/trou,
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/under/cavewet)
-"ig" = (
-/obj/structure/door/viewport{
-	dir = 1
-	},
-/turf/open/floor/blocks/stonered/tiny,
-/area/rogue/under/cavewet)
 "iv" = (
 /obj/machinery/light/fueled/torchholder/r,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -296,6 +280,10 @@
 	},
 /turf/closed/wall/mineral/craftstone,
 /area/rogue/under/cavewet)
+"kI" = (
+/obj/structure/door/stone,
+/turf/open/floor/churchrough,
+/area/rogue/under/cavewet)
 "kJ" = (
 /obj/structure/fluff/railing/border{
 	dir = 9
@@ -323,11 +311,6 @@
 "lq" = (
 /turf/closed/wall/mineral/decostone/long{
 	dir = 1
-	},
-/area/rogue/under/cavewet)
-"lC" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_line"
 	},
 /area/rogue/under/cavewet)
 "ml" = (
@@ -545,6 +528,10 @@
 	},
 /turf/open/floor/church,
 /area/rogue/under/cavewet)
+"rk" = (
+/obj/structure/barricade/wooden,
+/turf/open/floor/blocks/stonered/tiny,
+/area/rogue/under/cavewet)
 "rm" = (
 /obj/machinery/light/fueled/torchholder/c,
 /turf/open/floor/churchrough,
@@ -597,6 +584,15 @@
 /area/rogue/under/cavewet)
 "to" = (
 /turf/open/floor/cobblerock,
+/area/rogue/under/cavewet)
+"tv" = (
+/obj/structure/door/viewport{
+	dir = 1
+	},
+/turf/open/floor/blocks/stonered/tiny,
+/area/rogue/under/cavewet)
+"tx" = (
+/turf/closed/wall/mineral/pipe,
 /area/rogue/under/cavewet)
 "tR" = (
 /obj/structure/fluff/railing/border{
@@ -776,10 +772,6 @@
 /obj/machinery/light/fueled/smelter,
 /obj/effect/decal/cleanable/dirt/cobweb,
 /turf/open/floor/church,
-/area/rogue/under/cavewet)
-"Cp" = (
-/obj/structure/door/stone,
-/turf/open/floor/churchrough,
 /area/rogue/under/cavewet)
 "CX" = (
 /obj/structure/fluff/railing/border{
@@ -1075,10 +1067,6 @@
 "Oz" = (
 /turf/open/floor/blocks/stonered,
 /area/rogue/under/cavewet)
-"OJ" = (
-/obj/structure/door/stone,
-/turf/open/floor/blocks/stonered/tiny,
-/area/rogue/under/cavewet)
 "OO" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/churchrough,
@@ -1215,6 +1203,10 @@
 /obj/machinery/light/fueled/torchholder/l,
 /obj/structure/spider/cocoon,
 /turf/open/floor/churchrough,
+/area/rogue/under/cavewet)
+"SW" = (
+/obj/structure/barricade/wooden,
+/turf/open/floor/cobblerock,
 /area/rogue/under/cavewet)
 "Tc" = (
 /obj/structure/chair/stool,
@@ -1431,6 +1423,10 @@
 	},
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/under/cavewet)
+"Xc" = (
+/obj/structure/door/stone,
+/turf/open/floor/blocks/stonered/tiny,
+/area/rogue/under/cavewet)
 "Xr" = (
 /obj/machinery/light/fueled/torchholder/r,
 /obj/structure/spider/cocoon,
@@ -1476,18 +1472,9 @@
 /obj/structure/closet/crate/chest/neu,
 /turf/open/floor/dirt/road,
 /area/rogue/under/cavewet)
-"Yb" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_end"
-	},
-/area/rogue/under/cavewet)
 "YB" = (
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cavewet)
-"Zn" = (
-/obj/structure/barricade/wooden,
-/turf/open/floor/blocks/stonered/tiny,
 /area/rogue/under/cavewet)
 "ZE" = (
 /obj/structure/kneestingers{
@@ -1636,11 +1623,11 @@ qM
 (5,1,1) = {"
 kY
 vs
-bS
-lC
+tx
+tx
 qy
-lC
-Yb
+tx
+tx
 wF
 bB
 kY
@@ -1764,11 +1751,11 @@ qM
 (9,1,1) = {"
 kY
 vs
-bS
-lC
+tx
+tx
 qy
-lC
-Yb
+tx
+tx
 wF
 bB
 vs
@@ -1877,7 +1864,7 @@ sP
 tX
 mt
 wx
-Cp
+kI
 dO
 PB
 lq
@@ -2675,8 +2662,8 @@ jA
 Tc
 cS
 kY
-OJ
-OJ
+Xc
+Xc
 qW
 mB
 TC
@@ -2734,7 +2721,7 @@ kJ
 UZ
 ME
 Sx
-Cp
+kI
 go
 go
 yS
@@ -2742,10 +2729,10 @@ uG
 go
 Un
 of
-ig
+tv
 Un
 uG
-ig
+tv
 Up
 Up
 Up
@@ -2766,7 +2753,7 @@ dO
 OO
 OO
 dO
-Cp
+kI
 Un
 Un
 go
@@ -2774,10 +2761,10 @@ go
 Un
 Un
 Un
-ig
+tv
 oo
 oo
-ig
+tv
 Up
 Up
 Up
@@ -2836,7 +2823,7 @@ kY
 go
 ZS
 Un
-OJ
+Xc
 Un
 Un
 vl
@@ -2859,15 +2846,15 @@ kY
 kY
 kY
 kY
-OJ
+Xc
 kY
 kY
 qC
 DY
 kY
-Cp
+kI
 LM
-Cp
+kI
 kY
 go
 Uu
@@ -2891,8 +2878,8 @@ qX
 qX
 qX
 kY
-Zn
-Zn
+rk
+rk
 Ny
 Jf
 ix
@@ -3150,7 +3137,7 @@ qM
 qM
 qM
 qM
-fr
+SW
 qM
 qM
 qM

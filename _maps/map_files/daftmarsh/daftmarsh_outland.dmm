@@ -39,10 +39,6 @@
 	},
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
-"aG" = (
-/obj/structure/door/stone,
-/turf/open/floor/cobble/alt,
-/area/rogue/under/mountains/anvil/lower)
 "aH" = (
 /obj/machinery/light/fueled/wallfire/candle/weak/r,
 /turf/open/floor/naturalstone,
@@ -109,6 +105,10 @@
 /obj/structure/stairs/stone,
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/lower)
+"bj" = (
+/obj/structure/door/green,
+/turf/open/floor/twig,
+/area/rogue/indoors)
 "bl" = (
 /turf/open/floor/naturalstone,
 /area/rogue/outdoors/rtfield)
@@ -123,13 +123,6 @@
 /obj/structure/stairs,
 /turf/open/floor/cobble,
 /area/rogue/outdoors/woods)
-"bt" = (
-/obj/structure/door/weak/bolt{
-	dir = 4
-	},
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/naturalstone,
-/area/rogue/under/mountains/anvil/lower)
 "bv" = (
 /turf/closed/mineral/random,
 /area/rogue/under/mountains/anvil/lower)
@@ -273,6 +266,10 @@
 	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/outdoors/mountains)
+"cK" = (
+/obj/structure/door/red,
+/turf/open/floor/wood,
+/area/rogue/indoors)
 "cL" = (
 /turf/open/floor/cobble,
 /area/rogue/indoors)
@@ -303,14 +300,16 @@
 /obj/item/reagent_containers/food/snacks/jellycake_tangerine,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
+"da" = (
+/obj/structure/door/weak/bolt{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/naturalstone,
+/area/rogue/under/mountains/anvil/lower)
 "dg" = (
 /obj/structure/spider/nest,
 /turf/open/floor/hexstone,
-/area/rogue/under/mountains/anvil/lower)
-"dm" = (
-/obj/structure/door/iron/bars,
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
 "dr" = (
 /mob/living/carbon/human/species/skeleton/npc/warrior,
@@ -469,6 +468,16 @@
 /obj/machinery/light/fueled/wallfire/candle/l,
 /turf/open/floor/hexstone,
 /area/rogue/indoors/villagegarrison)
+"ep" = (
+/obj/structure/door/viewport{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
+/turf/open/floor/metal{
+	icon_state = "plating2"
+	},
+/area/rogue/indoors/town/cell)
 "eq" = (
 /obj/effect/decal/cleanable/blood/gibs,
 /obj/item/natural/rock/mana_crystal,
@@ -757,10 +766,6 @@
 /obj/item/clothing/ring/gold,
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/lower)
-"hd" = (
-/obj/structure/door/green,
-/turf/open/floor/wood,
-/area/rogue/indoors)
 "hf" = (
 /obj/item/reagent_containers/powder/salt,
 /turf/open/floor/cobble,
@@ -923,10 +928,6 @@
 /obj/machinery/light/fueled/firebowl/stump,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/woods)
-"iP" = (
-/obj/structure/door/red,
-/turf/open/floor/wood,
-/area/rogue/indoors)
 "iQ" = (
 /obj/structure/rack,
 /turf/open/floor/herringbone,
@@ -986,6 +987,14 @@
 /obj/structure/window/solid,
 /turf/open/floor/wood,
 /area/rogue/indoors)
+"jE" = (
+/obj/structure/door/green{
+	name = "forrest warden bedroom"
+	},
+/obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/indoors/villagegarrison)
 "jI" = (
 /obj/structure/flora/grass/thorn_bush,
 /turf/open/floor/grass,
@@ -1125,13 +1134,6 @@
 /obj/effect/decal/cleanable/food/flour,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
-"kR" = (
-/obj/structure/door{
-	name = "Salem Smithy";
-	lockid = "oldsmith"
-	},
-/turf/open/floor/cobble,
-/area/rogue/indoors)
 "kS" = (
 /turf/closed/wall/mineral/craftstone,
 /area/rogue/indoors/villagegarrison)
@@ -1546,14 +1548,6 @@
 /obj/structure/bars/grille,
 /turf/open/floor/cobble/alt,
 /area/rogue/under/mountains/anvil/lower)
-"pE" = (
-/obj/structure/door/green{
-	name = "forrest garrison barracks"
-	},
-/obj/effect/mapping_helpers/access/locker,
-/obj/effect/mapping_helpers/access/keyset/garrison/forest,
-/turf/open/floor/ruinedwood/darker,
-/area/rogue/indoors/villagegarrison)
 "pF" = (
 /obj/structure/fluff/walldeco/chains,
 /turf/open/floor/dirt,
@@ -1628,6 +1622,13 @@
 /obj/structure/flora/tree,
 /turf/open/water/swamp,
 /area/rogue/outdoors/bog)
+"qB" = (
+/obj/structure/door{
+	name = "Salem Smithy";
+	lockid = "oldsmith"
+	},
+/turf/open/floor/cobble,
+/area/rogue/indoors)
 "qH" = (
 /obj/structure/closet/crate/chest/gold,
 /obj/effect/spawner/map_spawner/loot/rare,
@@ -1677,11 +1678,6 @@
 	},
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/lower)
-"rp" = (
-/obj/structure/door/red,
-/obj/structure/spider/stickyweb/solo,
-/turf/open/floor/ruinedwood/turned/darker,
-/area/rogue/under/mountains/anvil/lower)
 "rt" = (
 /obj/item/natural/rock,
 /turf/open/floor/cobble,
@@ -1694,11 +1690,6 @@
 "rD" = (
 /obj/structure/fluff/statue/knight/interior/gen,
 /turf/open/floor/naturalstone,
-/area/rogue/under/mountains/anvil/lower)
-"rF" = (
-/obj/structure/door/iron/bars,
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/lower)
 "rG" = (
 /obj/structure/flora/newtree/snow,
@@ -1999,14 +1990,6 @@
 /obj/structure/flora/grass,
 /turf/open/floor/grass/red,
 /area/rogue/under/mountains/anvil/lower)
-"uz" = (
-/obj/effect/mapping_helpers/access/locker,
-/obj/effect/mapping_helpers/access/keyset/garrison/forest,
-/obj/structure/door/green{
-	name = "Salem Garrison"
-	},
-/turf/open/floor/hexstone,
-/area/rogue/indoors/villagegarrison)
 "uA" = (
 /obj/structure/chair/wood/alt/chair_noble/red{
 	dir = 8
@@ -2052,13 +2035,6 @@
 	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/outdoors/mountains)
-"vu" = (
-/obj/structure/door/weak/bolt{
-	dir = 4;
-	name = "Salem Gate"
-	},
-/turf/open/floor/cobblerock,
-/area/rogue/outdoors/woods_safe)
 "vw" = (
 /obj/structure/chair/wood/alt/chair_noble/red{
 	dir = 8
@@ -2230,6 +2206,14 @@
 	},
 /turf/open/floor/cobblerock,
 /area/rogue/indoors)
+"yc" = (
+/obj/structure/door/green{
+	name = "forrest garrison barracks"
+	},
+/obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/indoors/villagegarrison)
 "yd" = (
 /obj/effect/decal/cleanable/blood/gibs,
 /obj/item/mana_battery/mana_crystal/standard,
@@ -2417,10 +2401,6 @@
 "zJ" = (
 /turf/open/floor/snow,
 /area/rogue/outdoors/woods)
-"zS" = (
-/obj/structure/door/stone,
-/turf/open/floor/herringbone,
-/area/rogue/under/mountains/anvil/lower)
 "zV" = (
 /turf/open/floor/cobblerock/snow,
 /area/rogue/outdoors/woods)
@@ -2562,6 +2542,13 @@
 /obj/effect/spawner/map_spawner/loot/weapon,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
+"BL" = (
+/obj/structure/door/weak/bolt{
+	dir = 4;
+	name = "Salem Gate"
+	},
+/turf/open/floor/cobblerock,
+/area/rogue/outdoors/woods_safe)
 "BM" = (
 /obj/structure/fluff/railing/fence,
 /turf/open/floor/grass,
@@ -2581,6 +2568,11 @@
 /obj/item/reagent_containers/food/snacks/produce/oat,
 /turf/open/floor/cobble,
 /area/rogue/indoors)
+"BW" = (
+/obj/structure/door/iron/bars,
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/naturalstone,
+/area/rogue/under/mountains/anvil/lower)
 "BX" = (
 /obj/machinery/tanningrack,
 /turf/open/floor/woodturned/nosmooth,
@@ -2597,10 +2589,6 @@
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/under/mountains/anvil/upper)
-"Ca" = (
-/obj/structure/door/green,
-/turf/open/floor/twig,
-/area/rogue/indoors)
 "Cb" = (
 /turf/open/water/marsh/deep,
 /area/rogue/under/mountains/anvil/lower)
@@ -2765,30 +2753,16 @@
 	},
 /turf/open/transparent/openspace,
 /area/rogue/under/mountains/anvil/lower)
-"DR" = (
-/obj/structure/table/wood/plain_alt,
-/obj/item/bodypart/head/goblin{
-	pixel_x = 13;
-	pixel_y = 2
+"DS" = (
+/obj/structure/door/viewport{
+	dir = 1
 	},
-/obj/item/bodypart/head/goblin{
-	pixel_x = 11;
-	pixel_y = 12
+/obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
+/turf/open/floor/metal{
+	icon_state = "plating2"
 	},
-/obj/item/bodypart/head/goblin{
-	pixel_x = 1;
-	pixel_y = 15
-	},
-/obj/item/reagent_containers/glass/mortar{
-	pixel_x = 1;
-	pixel_y = 1
-	},
-/obj/item/pestle{
-	pixel_x = -9;
-	pixel_y = 2
-	},
-/turf/open/floor/naturalstone,
-/area/rogue/under/mountains/anvil/lower)
+/area/rogue/indoors/town/cell)
 "Ed" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4
@@ -2967,6 +2941,10 @@
 	},
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/lower)
+"FP" = (
+/obj/structure/door/green,
+/turf/open/floor/wood,
+/area/rogue/indoors)
 "FS" = (
 /obj/structure/closet/crate/chest,
 /obj/item/reagent_containers/food/snacks/fat,
@@ -3047,12 +3025,20 @@
 	},
 /turf/open/floor/wood,
 /area/rogue/indoors/villagegarrison)
+"GF" = (
+/obj/structure/door/stone,
+/turf/open/floor/hexstone,
+/area/rogue/under/mountains/anvil/lower)
 "GG" = (
 /obj/item/weapon/polearm/spear/hoplite/winged,
 /obj/effect/decal/remains/human,
 /obj/effect/decal/cleanable/blood/gibs/body,
 /obj/effect/decal/cleanable/blood/gibs/core,
 /turf/open/floor/cobblerock,
+/area/rogue/under/mountains/anvil/lower)
+"GM" = (
+/obj/structure/door/stone,
+/turf/open/floor/cobble/alt,
 /area/rogue/under/mountains/anvil/lower)
 "GQ" = (
 /obj/structure/fluff/railing/wood{
@@ -3113,14 +3099,6 @@
 /obj/structure/flora/grass/herb/atropa,
 /turf/open/floor/grass,
 /area/rogue/outdoors/bog)
-"Hs" = (
-/obj/structure/door/green{
-	name = "forrest warden bedroom"
-	},
-/obj/effect/mapping_helpers/access/locker,
-/obj/effect/mapping_helpers/access/keyset/garrison/forest,
-/turf/open/floor/ruinedwood/darker,
-/area/rogue/indoors/villagegarrison)
 "Ht" = (
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/wood/nosmooth,
@@ -3193,16 +3171,6 @@
 /obj/structure/kneestingers,
 /turf/open/water/swamp,
 /area/rogue/outdoors/bog)
-"If" = (
-/obj/structure/door/viewport{
-	dir = 8
-	},
-/obj/effect/mapping_helpers/access/locker,
-/obj/effect/mapping_helpers/access/keyset/garrison/forest,
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
-/area/rogue/indoors/town/cell)
 "Il" = (
 /obj/structure/fluff/railing/border{
 	dir = 4
@@ -3283,6 +3251,13 @@
 /obj/structure/closet/crate/crafted_closet/inn,
 /turf/open/floor/wood,
 /area/rogue/indoors)
+"Ji" = (
+/obj/structure/door/weak/bolt{
+	dir = 8;
+	name = "Salem Gate"
+	},
+/turf/open/floor/cobble,
+/area/rogue/outdoors/woods_safe)
 "Jn" = (
 /obj/structure/fluff/railing/wood,
 /obj/structure/fluff/railing/wood{
@@ -3301,6 +3276,14 @@
 	dir = 8
 	},
 /area/rogue/outdoors/bog)
+"Jz" = (
+/obj/structure/door/green{
+	name = "Salem Garrison"
+	},
+/obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
+/turf/open/floor/hexstone,
+/area/rogue/indoors/villagegarrison)
 "JB" = (
 /obj/structure/flora/newtree,
 /turf/open/floor/grass,
@@ -3557,6 +3540,10 @@
 	},
 /turf/open/floor/twig,
 /area/rogue/under/mountains/anvil/lower)
+"Mj" = (
+/obj/structure/door/stone,
+/turf/open/floor/herringbone,
+/area/rogue/under/mountains/anvil/lower)
 "Mn" = (
 /obj/structure/stairs/stone,
 /turf/open/floor/naturalstone,
@@ -3621,6 +3608,11 @@
 /obj/item/storage/backpack/backpack,
 /obj/item/mana_battery/mana_crystal/cut,
 /turf/open/floor/naturalstone,
+/area/rogue/under/mountains/anvil/lower)
+"MV" = (
+/obj/structure/door/iron/bars,
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/lower)
 "MX" = (
 /obj/structure/closet/crate/crafted_closet/crafted,
@@ -3965,6 +3957,14 @@
 	},
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/upper)
+"QK" = (
+/obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
+/obj/structure/door/green{
+	name = "Salem Garrison"
+	},
+/turf/open/floor/hexstone,
+/area/rogue/indoors/villagegarrison)
 "QL" = (
 /obj/structure/bars,
 /turf/open/floor/blocks,
@@ -4226,14 +4226,6 @@
 /obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/hexstone,
 /area/rogue/indoors/villagegarrison)
-"SY" = (
-/obj/structure/door/green{
-	name = "Salem Garrison"
-	},
-/obj/effect/mapping_helpers/access/locker,
-/obj/effect/mapping_helpers/access/keyset/garrison/forest,
-/turf/open/floor/hexstone,
-/area/rogue/indoors/villagegarrison)
 "Tb" = (
 /obj/structure/stairs{
 	dir = 4;
@@ -4457,13 +4449,6 @@
 	},
 /turf/open/floor/woodturned/nosmooth,
 /area/rogue/indoors)
-"Vu" = (
-/obj/structure/door/weak/bolt{
-	dir = 8;
-	name = "Salem Gate"
-	},
-/turf/open/floor/cobble,
-/area/rogue/outdoors/woods_safe)
 "VB" = (
 /mob/living/carbon/human/species/goblin/npc/hell{
 	health = 0;
@@ -4592,6 +4577,30 @@
 "WX" = (
 /turf/open/floor/dirt,
 /area/rogue/under/mountains/anvil/upper)
+"WZ" = (
+/obj/structure/table/wood/plain_alt,
+/obj/item/bodypart/head/goblin{
+	pixel_x = 13;
+	pixel_y = 2
+	},
+/obj/item/bodypart/head/goblin{
+	pixel_x = 11;
+	pixel_y = 12
+	},
+/obj/item/bodypart/head/goblin{
+	pixel_x = 1;
+	pixel_y = 15
+	},
+/obj/item/reagent_containers/glass/mortar{
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/obj/item/pestle{
+	pixel_x = -9;
+	pixel_y = 2
+	},
+/turf/open/floor/naturalstone,
+/area/rogue/under/mountains/anvil/lower)
 "Xc" = (
 /obj/item/reagent_containers/food/snacks/rotten/meat{
 	pixel_x = 4;
@@ -4625,6 +4634,11 @@
 "Xn" = (
 /turf/closed/wall/mineral/decostone/center,
 /area/rogue/under/mountains/anvil/upper)
+"Xt" = (
+/obj/structure/door/red,
+/obj/structure/spider/stickyweb/solo,
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/mountains/anvil/lower)
 "Xv" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
@@ -4675,16 +4689,6 @@
 	},
 /turf/open/floor/carpet/lord/left,
 /area/rogue/under/mountains/anvil/lower)
-"XS" = (
-/obj/structure/door/viewport{
-	dir = 1
-	},
-/obj/effect/mapping_helpers/access/locker,
-/obj/effect/mapping_helpers/access/keyset/garrison/forest,
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
-/area/rogue/indoors/town/cell)
 "XT" = (
 /turf/open/floor/herringbone,
 /area/rogue/under/mountains/anvil/lower)
@@ -4737,10 +4741,6 @@
 	},
 /turf/open/floor/cobble,
 /area/rogue/indoors)
-"Yp" = (
-/obj/structure/door/stone,
-/turf/open/floor/hexstone,
-/area/rogue/under/mountains/anvil/lower)
 "Yu" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4
@@ -23606,7 +23606,7 @@ aT
 aT
 YF
 ZZ
-rp
+Xt
 mZ
 Mr
 YX
@@ -24015,7 +24015,7 @@ mr
 Mr
 Mr
 Mr
-rp
+Xt
 fk
 kc
 kc
@@ -24417,7 +24417,7 @@ IT
 MZ
 zv
 Mr
-rp
+Xt
 mF
 MZ
 lD
@@ -27847,8 +27847,8 @@ lD
 lD
 Dc
 lO
-Yp
-Yp
+GF
+GF
 lO
 Dc
 lD
@@ -40366,7 +40366,7 @@ GX
 fk
 lD
 lD
-bt
+da
 lD
 lD
 GX
@@ -42982,7 +42982,7 @@ lD
 Bt
 kc
 Qt
-dm
+BW
 be
 hi
 GX
@@ -44819,7 +44819,7 @@ xo
 lD
 lD
 Df
-DR
+WZ
 TX
 Wv
 Df
@@ -71181,7 +71181,7 @@ LO
 LO
 LO
 LO
-pE
+yc
 LO
 LO
 EF
@@ -71788,7 +71788,7 @@ eT
 Hi
 Hi
 Hi
-XS
+DS
 Fy
 Fy
 Fy
@@ -72292,8 +72292,8 @@ Dc
 Dc
 Dc
 Dc
-aG
-aG
+GM
+GM
 Dc
 PF
 PF
@@ -72392,7 +72392,7 @@ pn
 YC
 YC
 QL
-If
+ep
 QL
 YC
 EF
@@ -72695,7 +72695,7 @@ Bt
 Dc
 Ch
 XT
-zS
+Mj
 XT
 XT
 Dc
@@ -73907,7 +73907,7 @@ Bt
 Dc
 iQ
 XT
-zS
+Mj
 XT
 XT
 Dc
@@ -74312,8 +74312,8 @@ Dc
 Dc
 Dc
 Dc
-aG
-aG
+GM
+GM
 Dc
 PF
 PF
@@ -82379,7 +82379,7 @@ GX
 GX
 tH
 GX
-rF
+MV
 GX
 GX
 bv
@@ -108765,8 +108765,8 @@ ki
 Jd
 ki
 ki
-vu
-vu
+BL
+BL
 cO
 zB
 Ay
@@ -109563,7 +109563,7 @@ zB
 tW
 xL
 Xe
-iP
+cK
 fM
 fM
 eB
@@ -110372,8 +110372,8 @@ BM
 zB
 bw
 tW
-iP
-iP
+cK
+cK
 tW
 bw
 zB
@@ -110386,8 +110386,8 @@ Ay
 zB
 zB
 bw
-Ca
-Ca
+bj
+bj
 bw
 wg
 zB
@@ -111986,7 +111986,7 @@ JV
 bx
 bx
 bx
-uz
+QK
 VM
 VM
 VM
@@ -112188,7 +112188,7 @@ Yc
 bx
 Re
 bx
-SY
+Jz
 eb
 eb
 eb
@@ -113821,7 +113821,7 @@ zB
 bw
 tW
 tW
-hd
+FP
 tW
 bw
 zB
@@ -114008,8 +114008,8 @@ cL
 EX
 zb
 CZ
-kR
-kR
+qB
+qB
 CZ
 wg
 ki
@@ -115026,8 +115026,8 @@ fE
 sD
 sD
 Sc
-Vu
-Vu
+Ji
+Ji
 LW
 zB
 bw
@@ -152587,7 +152587,7 @@ VL
 HK
 Dh
 Dh
-Hs
+jE
 YG
 JI
 JI

@@ -90,7 +90,7 @@ GLOBAL_LIST_INIT(ghost_verbs, list(
 /mob/dead/observer/rogue/Move(n, direct)
 	if(world.time < next_gmove)
 		return
-	next_gmove = world.time + 3
+	next_gmove = world.time + 2
 	var/turf/T = n
 
 	setDir(direct)
@@ -101,14 +101,6 @@ GLOBAL_LIST_INIT(ghost_verbs, list(
 	if(istype(T))
 		if(T.density)
 			return
-		for(var/obj/structure/O in T)
-/*			if(istype(O, /obj/structure/fluff/psycross))
-				go2hell()
-				next_gmove = world.time + 30
-				return*/
-			if(O.density && !O.climbable)
-				if(!misting)
-					return
 		for(var/obj/item/reagent_containers/powder/salt/S in T)
 //			go2hell()
 //			next_gmove = world.time + 30
