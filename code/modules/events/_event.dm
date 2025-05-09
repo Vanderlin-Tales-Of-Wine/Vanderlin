@@ -403,7 +403,7 @@ GLOBAL_LIST_INIT(badomens, list())
 		if(OMEN_ROUNDSTART)
 			used = pick( \
 				"Zizo.", \
-				"Unholy invokations channel the will of Her.", \
+				"Unholy invocations channel the will of Her.", \
 				"Forbidden rituals cause echoes through the plane.", \
 				"Whispers of the Dark Lady in the shadows.", \
 				"The servants of Zizo undermine the Ten.", \
