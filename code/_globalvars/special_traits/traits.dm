@@ -173,11 +173,6 @@
 /datum/special_trait/bookworm/on_apply(mob/living/carbon/human/character, silent)
 	character.mind.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
 
-/datum/special_trait/limpdick
-	name = "Lazy Soldier"
-	greet_text = span_crit("My 'little soldier' can't seem to stand at attention! Curses!")
-	weight = 100
-
 /datum/special_trait/screenshake
 	name = "Tremors"
 	greet_text = span_crit("I'm not too steady any more...")
