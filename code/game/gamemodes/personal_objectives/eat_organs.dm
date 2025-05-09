@@ -1,10 +1,10 @@
 /datum/objective/consume_organs
 	name = "Consume Organs"
+	triumph_count = 0
 	var/organs_consumed = 0
 	var/hearts_consumed = 0
 	var/organs_required = 2
 	var/hearts_required = 1
-	triumph_count = 0
 
 /datum/objective/consume_organs/on_creation()
 	. = ..()

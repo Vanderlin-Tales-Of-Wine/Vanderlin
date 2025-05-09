@@ -1,8 +1,8 @@
 /datum/objective/steal_items
 	name = "Steal Items"
+	triumph_count = 0
 	var/stolen_count = 0
 	var/required_count = 3
-	triumph_count = 0
 
 /datum/objective/steal_items/on_creation()
 	. = ..()

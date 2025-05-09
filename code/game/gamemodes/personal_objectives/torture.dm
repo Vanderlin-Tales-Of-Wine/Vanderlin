@@ -1,8 +1,8 @@
 /datum/objective/torture
 	name = "Extract Truth Through Pain"
+	triumph_count = 0
 	var/torture_count = 0
 	var/required_count = 1
-	triumph_count = 0
 
 /datum/objective/torture/on_creation()
 	. = ..()
