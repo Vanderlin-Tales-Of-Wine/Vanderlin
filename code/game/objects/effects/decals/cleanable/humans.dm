@@ -89,7 +89,7 @@
 		return
 	var/list/reagents_to_add
 	var/datum/forensics/blood_decal_forensics = GET_ATOM_BLOOD_DNA(src)
-	var/list/all_dna = blood_decal_forensics.blood_DNA
+	var/list/all_dna = blood_decal_forensics?.blood_DNA
 	for(var/dna_sample as anything in all_dna)
 		var/datum/blood_type/blood = GLOB.blood_types[all_dna[dna_sample]]
 		if(blood)
