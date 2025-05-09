@@ -32874,7 +32874,7 @@
 "siQ" = (
 /obj/structure/fluff/walldeco/vinez/blue,
 /obj/effect/mapping_helpers/secret_door_creator/keep{
-	redstone_id = RosewoodPhys;
+	redstone_id = "RosewoodPhys";
 	floor_turf = /turf/open/floor/ruinedwood/spiral;
 	override_floor = 1
 	},
