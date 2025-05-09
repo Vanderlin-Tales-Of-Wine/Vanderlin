@@ -1,8 +1,4 @@
 //the way this file is organized is also cursed! Enjoy
-
-/mob/living/carbon/human
-	/// List of curses on this mob
-	var/list/curses = list()
 /datum/curse
 	var/name = "Debug Curse"
 	/// Whats shown to the player upon being cursed
@@ -237,7 +233,7 @@
 	if(!MOBTIMER_FINISHED(src, MT_FREAKOUT, 10 SECONDS))
 		flash_fullscreen("stressflash")
 		return
-		
+
 	MOBTIMER_SET(src, MT_FREAKOUT)
 	shake_camera(src, 1, 3)
 	flash_fullscreen("stressflash")

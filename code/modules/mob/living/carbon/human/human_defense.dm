@@ -664,8 +664,6 @@
 			head_clothes = head
 		if(head_clothes)
 			torn_items += head_clothes
-		else if(ears)
-			torn_items += ears
 
 	//CHEST//
 	if(!def_zone || def_zone == BODY_ZONE_CHEST)

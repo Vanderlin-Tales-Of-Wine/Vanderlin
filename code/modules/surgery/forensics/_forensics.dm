@@ -224,4 +224,4 @@
 	if(!length(blood_DNA))
 		return
 	var/atom/parent_atom = parent.resolve()
-	parent_atom.AddElement(/datum/element/decal/blood)
+	parent_atom.AddComponent(/datum/component/decal/blood)

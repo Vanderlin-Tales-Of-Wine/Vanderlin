@@ -156,7 +156,6 @@
 		head,
 		wear_mask,
 		wear_neck,
-		ears,
 		mouth,
 		)
 
@@ -195,8 +194,8 @@
 			update_inv_wrists()
 		if(SLOT_HEAD)
 
-			ears = I
-			update_inv_ears()
+			head = I
+			update_inv_head()
 		if(SLOT_GLOVES)
 
 			gloves = I
@@ -323,10 +322,6 @@
 		gloves = null
 		if(!QDELETED(src))
 			update_inv_gloves()
-	else if(I == ears)
-		ears = null
-		if(!QDELETED(src))
-			update_inv_ears()
 	else if(I == shoes)
 		shoes = null
 		if(!QDELETED(src))
@@ -398,7 +393,7 @@
 	if((I.flags_inv & (HIDEHAIR|HIDEFACIALHAIR)) || (initial(I.flags_inv) & (HIDEHAIR|HIDEFACIALHAIR)))
 		update_body()
 	if(I.flags_inv & HIDEEYES)
-		update_inv_glasses()
+		update_inv_wear_mask()
 	check_armor_class()
 	..()
 
@@ -410,7 +405,7 @@
 		if(istype(C) && C.dynamic_hair_suffix)
 			update_body()
 	if(I.flags_inv & HIDEEYES || forced)
-		update_inv_glasses()
+		update_inv_wear_mask()
 	if(I.flags_inv & HIDEEARS || forced)
 		update_body()
 	check_armor_class()
