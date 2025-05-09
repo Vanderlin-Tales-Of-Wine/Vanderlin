@@ -166,7 +166,7 @@
 		to_chat(user, span_info("I dissolve some of \the [name] in the water."))
 
 /obj/item/soap/proc/scrub_scrub(mob/living/carbon/human/target, mob/living/carbon/user)
-	wash_atom(target, CLEAN_SCRUB)
+	target.wash(clean_strength)
 	user.visible_message(span_info("[user] scrubs [target] with [src]."), span_info("I scrub [target] with [src]."))
 	decreaseUses(5)
 

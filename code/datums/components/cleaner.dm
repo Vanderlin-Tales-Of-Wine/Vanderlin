@@ -92,7 +92,7 @@
 		if(was_effective || downgrade_on_ineffective)
 			user.visible_message(span_small("[user] cleans [target]."), span_small("I clean [target]."))
 			if(clean_target)
-				wash_atom(target, was_effective ? cleaning_strength : cleaning_strength - 1)
+				target.wash(cleaning_strength)
 		if(!was_effective)
 			on_cleaned_ineffective_callback?.InvokeAsync(target, user)
 

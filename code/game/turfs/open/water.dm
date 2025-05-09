@@ -371,7 +371,7 @@
 			user.visible_message("<span class='info'>[user] starts to wash in [src].</span>")
 			if(do_after(L, 3 SECONDS, src))
 				if(wash_in)
-					wash_atom(user, CLEAN_SCRUB)
+					user.wash(CLEAN_WASH)
 				var/datum/reagents/reagents = new()
 				reagents.add_reagent(water_reagent, 4)
 				reagents.trans_to(L, reagents.total_volume, transfered_by = user, method = TOUCH)
@@ -386,7 +386,7 @@
 			user.visible_message("<span class='info'>[user] starts to wash [item2wash] in [src].</span>")
 			if(do_after(L, 3 SECONDS, src))
 				if(wash_in)
-					wash_atom(item2wash, CLEAN_STRONG)
+					item2wash.wash(CLEAN_WASH)
 				playsound(user, pick(wash), 100, FALSE)
 		return
 	..()

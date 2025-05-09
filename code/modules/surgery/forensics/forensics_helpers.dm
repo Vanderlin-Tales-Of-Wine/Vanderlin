@@ -36,10 +36,10 @@
 		if(suspect_gloves.transfer_blood > 1) //bloodied gloves transfer blood to touched objects
 			if(add_blood_DNA(GET_ATOM_BLOOD_DNA(suspect_gloves)) && GET_ATOM_BLOOD_DNA_LENGTH(suspect_gloves) > old) //only reduces the bloodiness of our gloves if the item wasn't already bloody
 				suspect_gloves.transfer_blood -= 1
-	else if(suspect.blood_in_hands > 1)
+	else if(suspect.bloody_hands > 1)
 		old = length(GET_ATOM_BLOOD_DNA(suspect))
 		if(add_blood_DNA(GET_ATOM_BLOOD_DNA(suspect)) && GET_ATOM_BLOOD_DNA_LENGTH(suspect) > old)
-			suspect.blood_in_hands -= 1
+			suspect.bloody_hands -= 1
 	if (isnull(forensics))
 		forensics = new(src)
 	forensics.add_fibers(suspect)
@@ -76,11 +76,11 @@
 		forensics = new(src, blood_DNA = blood_DNA_to_add)
 	return TRUE
 
-/obj/item/clothing/gloves/add_blood_DNA(list/blood_dna, list/datum/disease/diseases)
+/obj/item/clothing/gloves/add_blood_DNA(list/blood_dna)
 	transfer_blood = rand(2, 4)
 	return ..()
 
-/turf/add_blood_DNA(list/blood_dna, list/datum/disease/diseases)
+/turf/add_blood_DNA(list/blood_dna)
 	var/obj/effect/decal/cleanable/blood/splatter/blood_splatter = locate() in src
 	if(!blood_splatter)
 		blood_splatter = new /obj/effect/decal/cleanable/blood/splatter(src, diseases)
@@ -89,12 +89,12 @@
 		return TRUE //we bloodied the floor
 	return FALSE
 
-/mob/living/carbon/human/add_blood_DNA(list/blood_DNA_to_add, list/datum/disease/diseases)
-	if(wear_suit)
-		wear_suit.add_blood_DNA(blood_DNA_to_add)
+/mob/living/carbon/human/add_blood_DNA(list/blood_DNA_to_add)
+	if(wear_shirt)
+		wear_shirt.add_blood_DNA(blood_DNA_to_add)
 		update_inv_wear_suit()
-	else if(w_uniform)
-		w_uniform.add_blood_DNA(blood_DNA_to_add)
+	else if(wear_shirt)
+		wear_shirt.add_blood_DNA(blood_DNA_to_add)
 		update_inv_w_uniform()
 	if(gloves)
 		var/obj/item/clothing/gloves/mob_gloves = gloves
@@ -103,7 +103,7 @@
 		if (isnull(forensics))
 			forensics = new(src)
 		forensics.inherit_new(blood_DNA = blood_DNA_to_add)
-		blood_in_hands = rand(2, 4)
+		bloody_hands = rand(2, 4)
 	update_inv_gloves()
 	return TRUE
 

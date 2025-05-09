@@ -52,7 +52,6 @@
 
 	. = ..()
 
-	RegisterSignal(src, COMSIG_COMPONENT_CLEAN_ACT, PROC_REF(clean_blood))
 	AddComponent(/datum/component/personal_crafting)
 	AddComponent(/datum/component/footstep, footstep_type, 1, 2)
 	GLOB.human_list += src
@@ -336,17 +335,6 @@
 /mob/living/carbon/human/cuff_resist(obj/item/I)
 	if(..())
 		dropItemToGround(I)
-
-/mob/living/carbon/human/proc/clean_blood(datum/source, strength)
-	if(strength < CLEAN_STRENGTH_BLOOD)
-		return
-	if(gloves)
-		if(SEND_SIGNAL(gloves, COMSIG_COMPONENT_CLEAN_ACT, CLEAN_STRENGTH_BLOOD))
-			update_inv_gloves()
-	else
-		if(bloody_hands)
-			bloody_hands = 0
-			update_inv_gloves()
 
 //Turns a mob black, flashes a skeleton overlay
 //Just like a cartoon!
@@ -725,3 +713,34 @@
 		if(SSmapping.level_has_any_trait(turf.z, list(ZTRAIT_IGNORE_WEATHER_TRAIT)))
 			faction |= FACTION_MATTHIOS
 			SSmobs.matthios_mobs |= src
+
+/**
+ * Called when this human should be washed
+ */
+/mob/living/carbon/human/wash(clean_types)
+	. = ..()
+
+	// Wash equipped stuff that cannot be covered
+	if(wear_armor?.wash(clean_types))
+		update_inv_armor()
+		. = TRUE
+
+	if(belt?.wash(clean_types))
+		update_inv_belt()
+		. = TRUE
+
+	// Check and wash stuff that can be covered
+	var/obscured = check_obscured_slots()
+
+	if(!(obscured & ITEM_SLOT_ICLOTHING) && worn_shirt?.wash(clean_types))
+		update_inv_shirt()
+		. = TRUE
+
+	if(!is_mouth_covered())
+		. = TRUE
+
+	// Wash hands if exposed
+	if(!gloves && (clean_types & CLEAN_TYPE_BLOOD) && blood_in_hands > 0 && !(obscured & ITEM_SLOT_GLOVES))
+		blood_in_hands = 0
+		update_worn_gloves()
+		. = TRUE
