@@ -117,10 +117,9 @@
 	weight = 50
 
 /datum/special_trait/duelist/on_apply(mob/living/carbon/human/character, silent)
-	character.cmode_music = 'sound/music/combat_duelist.ogg'
 	character.change_stat("speed", 2)
 	character.mind.adjust_skillrank(/datum/skill/combat/swords, 6, TRUE) //will make a unique trait later on
-	character.mind.special_items["Rapier"] = /obj/item/rogueweapon/sword/rapier
+	character.mind.special_items["Rapier"] = /obj/item/weapon/sword/rapier
 
 /datum/special_trait/eagle_eyed
 	name = "Eagle Eyed"
@@ -132,7 +131,7 @@
 	character.mind.adjust_skillrank(/datum/skill/combat/crossbows, 5, TRUE)
 	character.mind.adjust_skillrank(/datum/skill/combat/bows, 4, TRUE)
 	character.mind.special_items["Crossbow"] = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
-	character.mind.special_items["Bolts"] = /obj/item/quiver/bolts
+	character.mind.special_items["Bolts"] = /obj/item/ammo_holder/quiver/bolts
 
 /datum/special_trait/mule
 	name = "Mule"
@@ -140,9 +139,9 @@
 	weight = 100
 
 /datum/special_trait/mule/on_apply(mob/living/carbon/human/character, silent)
-	character.mind.special_items["Stash One"] = /obj/item/storage/backpack/rogue/satchel/mule
-	character.mind.special_items["Stash Two"] = /obj/item/storage/backpack/rogue/satchel/mule
-	character.mind.special_items["Dagger"] = /obj/item/rogueweapon/huntingknife/idagger
+	character.mind.special_items["Stash One"] = /obj/item/storage/backpack/satchel/mule
+	character.mind.special_items["Stash Two"] = /obj/item/storage/backpack/satchel/mule
+	character.mind.special_items["Dagger"] = /obj/item/weapon/knife/dagger
 	character.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 
 /datum/special_trait/cunning_linguist
@@ -217,7 +216,7 @@
 	name = "Psydon's Drunkest Rider"
 	greet_text = span_notice("I ride! None of the laws shall stop me for that is Psydon's divine will!")
 	req_text = "Worship Psydon"
-	allowed_patrons = list(/datum/patron/old_god)
+	allowed_patrons = list(/datum/patron/psydon)
 	weight = 100
 
 /datum/special_trait/psydons_rider/on_apply(mob/living/carbon/human/character, silent)
@@ -266,7 +265,6 @@
 	character.grant_language(/datum/language/hellspeak)
 	character.grant_language(/datum/language/celestial)
 	character.grant_language(/datum/language/orcish)
-	character.grant_language(/datum/language/draconic)
 
 /datum/special_trait/civilizedbarbarian
 	name = "Tavern Brawler"
@@ -347,7 +345,7 @@
 	name = "Giant"
 	greet_text = span_notice("I've always been called a giant. I am valued for my stature, but, this world made for smaller folk has forced me to move cautiously.")
 	req_text = "Not a kobold, verminvolk or a dwarf"
-	restricted_races = list(/datum/species/anthromorphsmall, /datum/species/dwarf/mountain, /datum/species/kobold)
+	restricted_races = list(/datum/species/dwarf/mountain, /datum/species/kobold)
 	weight = 50
 
 /datum/special_trait/backproblems/on_apply(mob/living/carbon/human/character)
@@ -384,7 +382,7 @@
 	weight = 200
 
 /datum/special_trait/nopouch/on_apply(mob/living/carbon/human/character, silent)
-	var/obj/item/pouch = locate(/obj/item/storage/belt/rogue/pouch) in character
+	var/obj/item/pouch = locate(/obj/item/storage/belt/pouch) in character
 	if(character.wear_neck == pouch)
 		character.wear_neck = null
 	if(character.beltl == pouch)
@@ -403,6 +401,8 @@
 /datum/special_trait/hussite/on_apply(mob/living/carbon/human/character, silent)
 	GLOB.excommunicated_players += character.real_name
 
+// lol we don't have bounty machines
+/*
 /datum/special_trait/bounty
 	name = "Hunted Man"
 	greet_text = span_boldwarning("Someone put a bounty on my head!")
@@ -420,7 +420,7 @@
 		employer = pick(list("Baron", "Lord", "Nobleman", "Prince"))
 	else
 		employer = pick(list("Duchess", "Lady", "Noblelady", "Princess"))
-	employer = "[employer] [random_human_name(employer_gender, FALSE, FALSE)]"
+	employer = "[employer] Angstrem"
 	var/amount = rand(40,100)
 	switch(rand(1,7))
 		if(1)
@@ -440,14 +440,14 @@
 	add_bounty(character.real_name, amount, FALSE, reason, employer)
 	if(!silent)
 		to_chat(character, span_notice("Whether I done it or not, I have been accused of [reason], and the [employer] put a bounty on my head!"))
-
+*/
 /datum/special_trait/outlaw
 	name = "Known Outlaw"
 	greet_text = span_boldwarning("Whether for crimes I did or was accused of, I have been declared an outlaw!")
 	weight = 20
 
 /datum/special_trait/outlaw/on_apply(mob/living/carbon/human/character, silent)
-	make_outlaw(character.real_name, TRUE)
+	GLOB.outlawed_players += character.real_name
 
 /datum/special_trait/unlucky
 	name = "Unlucky"
@@ -533,7 +533,7 @@
 	QDEL_NULL(character.beltr)
 	QDEL_NULL(character.backr)
 	QDEL_NULL(character.head)
-	character.equip_to_slot_or_del(new /obj/item/clothing/tights/random(character), SLOT_PANTS)
+	character.equip_to_slot_or_del(new /obj/item/clothing/pants/tights/random(character), SLOT_PANTS)
 	character.equip_to_slot_or_del(new /obj/item/clothing/armor/chainmail(character), SLOT_ARMOR)
 	character.equip_to_slot_or_del(new /obj/item/storage/belt/leather(character), SLOT_BELT)
 	character.equip_to_slot_or_del(new /obj/item/storage/belt/pouch/coins/rich(character), SLOT_BELT_R)
