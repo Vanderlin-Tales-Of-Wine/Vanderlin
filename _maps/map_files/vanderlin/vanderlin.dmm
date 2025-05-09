@@ -665,8 +665,8 @@
 /area/rogue/indoors/soilsons)
 "atz" = (
 /obj/item/reagent_containers/glass/carafe/silver/redwine{
-	pixel_y = 12;
-	pixel_x = 9
+	pixel_x = 9;
+	pixel_y = 12
 	},
 /obj/item/reagent_containers/glass/cup/silver{
 	pixel_x = -6;
@@ -6563,9 +6563,9 @@
 /area/rogue/indoors/town)
 "ebb" = (
 /obj/effect/mapping_helpers/secret_door_creator/keep{
-	redstone_id = 614;
 	floor_turf = /turf/open/floor/ruinedwood/spiral;
-	override_floor = 1
+	override_floor = 1;
+	redstone_id = 614
 	},
 /turf/closed/wall/mineral/wood,
 /area/rogue/indoors/town/manor)
@@ -8773,9 +8773,9 @@
 /area/rogue/under/town/sewer)
 "fyD" = (
 /obj/effect/mapping_helpers/secret_door_creator/keep{
-	redstone_id = 514;
 	floor_turf = /turf/open/floor/ruinedwood/spiral;
-	override_floor = 1
+	override_floor = 1;
+	redstone_id = 514
 	},
 /turf/closed/wall/mineral/wood,
 /area/rogue/indoors/town/manor)
@@ -9272,6 +9272,10 @@
 	},
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/town/manorgate)
+"fPO" = (
+/obj/structure/flora/grass/herb/rosa,
+/turf/open/floor/grass/eora,
+/area/rogue/outdoors/eora)
 "fPW" = (
 /turf/open/floor/tile{
 	icon_state = "greenstone"
@@ -12551,8 +12555,8 @@
 /area/rogue/under/cave)
 "ibg" = (
 /obj/structure/door/violet{
-	name = "Waterfront III";
-	lockid = "waterfront3"
+	lockid = "waterfront3";
+	name = "Waterfront III"
 	},
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/wood,
@@ -17524,8 +17528,8 @@
 /area/rogue/indoors/town/clocktower)
 "lfD" = (
 /obj/structure/door/viewport{
-	name = "Steward";
-	dir = 1
+	dir = 1;
+	name = "Steward"
 	},
 /obj/effect/mapping_helpers/door/access/manor/steward,
 /turf/open/floor/wood,
@@ -22497,9 +22501,9 @@
 /area/rogue/indoors/town/orphanage)
 "ovH" = (
 /obj/effect/mapping_helpers/secret_door_creator/keep{
-	redstone_id = 515;
 	floor_turf = /turf/open/floor/ruinedwood/spiral;
-	override_floor = 1
+	override_floor = 1;
+	redstone_id = 515
 	},
 /turf/closed/wall/mineral/stonebrick,
 /area/rogue/indoors/town/manor)
@@ -24278,8 +24282,8 @@
 /area/rogue/indoors/town/manor)
 "pIQ" = (
 /obj/structure/door/viewport{
-	name = "Priest's Room";
-	dir = 4
+	dir = 4;
+	name = "Priest's Room"
 	},
 /obj/effect/mapping_helpers/door/access/church/priest,
 /obj/effect/mapping_helpers/door/locker,
@@ -24438,12 +24442,12 @@
 /turf/open/floor/dirt,
 /area/rogue/under/cavewet)
 "pOt" = (
-/obj/structure/fluff/walldeco/wantedposter{
-	pixel_y = 0;
-	pixel_x = 32
+/obj/structure/table/wood/plain_alt,
+/obj/item/reagent_containers/food/snacks/produce/sunflower,
+/turf/open/floor/blocks{
+	icon_state = "newstone2"
 	},
-/turf/open/floor/cobblerock,
-/area/rogue/outdoors/town)
+/area/rogue/indoors/town/church)
 "pOS" = (
 /obj/structure/closet/crate/chest/crafted,
 /turf/open/floor/wood,
@@ -32101,8 +32105,8 @@
 /area/rogue/indoors/town/bath)
 "uRo" = (
 /obj/structure/door/violet{
-	name = "Waterfront I";
-	lockid = "waterfront1"
+	lockid = "waterfront1";
+	name = "Waterfront I"
 	},
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/wood,
@@ -33423,8 +33427,8 @@
 /area/rogue/indoors/town/tavern)
 "vOk" = (
 /obj/structure/door/violet{
-	name = "Waterfront IV";
-	lockid = "waterfront4"
+	lockid = "waterfront4";
+	name = "Waterfront IV"
 	},
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/wood,
@@ -34901,8 +34905,8 @@
 /area/rogue/under/cavewet)
 "wMN" = (
 /obj/structure/door/violet{
-	name = "Waterfront II";
-	lockid = "waterfront2"
+	lockid = "waterfront2";
+	name = "Waterfront II"
 	},
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/wood,
@@ -35661,8 +35665,8 @@
 /area/rogue/outdoors/town/roofs)
 "xno" = (
 /obj/structure/door/violet{
-	name = "Waterfront V";
-	lockid = "waterfront5"
+	lockid = "waterfront5";
+	name = "Waterfront V"
 	},
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/wood,
@@ -36883,6 +36887,7 @@
 	pixel_x = 32;
 	pixel_y = 0
 	},
+/obj/item/reagent_containers/food/snacks/produce/sunflower,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/church)
 "yff" = (
@@ -102479,7 +102484,7 @@ ehF
 lsl
 lsl
 elp
-pOt
+qAt
 lsl
 nSA
 lsl
@@ -154714,7 +154719,7 @@ xMN
 voC
 voC
 voC
-cnf
+pOt
 vlf
 kcp
 izC
@@ -229199,7 +229204,7 @@ lWI
 kMc
 lWI
 lWI
-lWI
+fPO
 lWI
 bYM
 wUv
@@ -230409,7 +230414,7 @@ cAG
 lWI
 lWI
 fhg
-lWI
+fPO
 lWI
 lWI
 fbx
