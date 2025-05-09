@@ -268,7 +268,7 @@
 		STATS_PLANTS_HARVESTED = list("points" = 0.75, "capacity" = 140),
 		STATS_WEREVOLVES = list("points" = 15, "capacity" = 80),
 		STATS_DENDOR_SACRIFICES = list("points" = 15, "capacity" = 80),
-		STATS_FOREST_DEATHS = list("points" = 6, "capacity" = 100),
+		STATS_FOREST_DEATHS = list("points" = 6.5, "capacity" = 90),
 	)
 
 // INHUMEN
