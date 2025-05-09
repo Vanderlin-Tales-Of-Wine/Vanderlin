@@ -140,6 +140,8 @@ GLOBAL_LIST_INIT(traits_by_type, list(
 		"Tiny" = TRAIT_TINY,
 		"Foreigner" = TRAIT_FOREIGNER,
 		"Beautiful" = TRAIT_BEAUTIFUL,
+		"Bad Mood" = TRAIT_BAD_MOOD,
+		"Night Owl" = TRAIT_NIGHT_OWL,
 		"Ugly" = TRAIT_UGLY,
 		"Hollow Bones" = TRAIT_HOLLOWBONES,
 		"Light Load" = TRAIT_AMAZING_BACK,

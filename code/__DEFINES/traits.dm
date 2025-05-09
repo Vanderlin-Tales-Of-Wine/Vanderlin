@@ -74,6 +74,8 @@
 
 #define TRAIT_BASHDOORS "bashdoors"
 #define TRAIT_NOMOOD "no_mood"
+#define TRAIT_BAD_MOOD "Bad Mood"
+#define TRAIT_NIGHT_OWL "Night Owl"
 #define TRAIT_SIMPLE_WOUNDS "simple_wounds"
 #define TRAIT_SCHIZO_AMBIENCE "schizo_ambience" //replaces all ambience with creepy shit
 #define TRAIT_SCREENSHAKE "screenshake" //screen will always be shaking, you cannot stop it
@@ -158,6 +160,8 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_MISSING_NOSE = span_warning("I struggle to breathe."),
 	TRAIT_DISFIGURED = span_warning("No one can recognize me..."),
 	TRAIT_BEAUTIFUL = span_love("My face was shaped by the gods!"),
+	TRAIT_BAD_MOOD = span_warning("Everything just seems to piss me off"),
+	TRAIT_NIGHT_OWL = span_info("I enjoy spending my time in the night"),
 	TRAIT_UGLY = span_necrosis("Do not look in the mirror."),
 	TRAIT_SPELLBLOCK = span_warning("I cannot cast any spells."),
 	TRAIT_ANTIMAGIC = "I am immune to most forms of magic.",

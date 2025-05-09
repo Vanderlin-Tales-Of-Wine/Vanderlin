@@ -119,7 +119,7 @@
 /datum/special_trait/duelist/on_apply(mob/living/carbon/human/character, silent)
 	character.cmode_music = 'sound/music/combat_duelist.ogg'
 	character.change_stat("speed", 2)
-	character.mind.adjust_skillrank_up_to(/datum/skill/combat/swords, 6, TRUE) //will make a unique trait later on
+	character.mind.adjust_skillrank(/datum/skill/combat/swords, 6, TRUE) //will make a unique trait later on
 	character.mind.special_items["Rapier"] = /obj/item/rogueweapon/sword/rapier
 
 /datum/special_trait/eagle_eyed
@@ -129,8 +129,8 @@
 
 /datum/special_trait/eagle_eyed/on_apply(mob/living/carbon/human/character, silent)
 	character.change_stat("perception", 2)
-	character.mind.adjust_skillrank_up_to(/datum/skill/combat/crossbows, 5, TRUE)
-	character.mind.adjust_skillrank_up_to(/datum/skill/combat/bows, 4, TRUE)
+	character.mind.adjust_skillrank(/datum/skill/combat/crossbows, 5, TRUE)
+	character.mind.adjust_skillrank(/datum/skill/combat/bows, 4, TRUE)
 	character.mind.special_items["Crossbow"] = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
 	character.mind.special_items["Bolts"] = /obj/item/quiver/bolts
 
@@ -143,7 +143,7 @@
 	character.mind.special_items["Stash One"] = /obj/item/storage/backpack/rogue/satchel/mule
 	character.mind.special_items["Stash Two"] = /obj/item/storage/backpack/rogue/satchel/mule
 	character.mind.special_items["Dagger"] = /obj/item/rogueweapon/huntingknife/idagger
-	character.mind.adjust_skillrank_up_to(/datum/skill/combat/knives, 2, TRUE)
+	character.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 
 /datum/special_trait/cunning_linguist
 	name = "Cunning Linguist"
@@ -175,7 +175,7 @@
 	weight = 100
 
 /datum/special_trait/bookworm/on_apply(mob/living/carbon/human/character, silent)
-	character.mind.adjust_skillrank_up_to(/datum/skill/misc/reading, 4, TRUE)
+	character.mind.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
 
 /datum/special_trait/limpdick
 	name = "Lazy Soldier"
@@ -205,7 +205,7 @@
 /datum/special_trait/arsonist/on_apply(mob/living/carbon/human/character, silent)
 	character.mind.special_items["Firebomb One"] = /obj/item/bomb
 	character.mind.special_items["Firebomb Two"] = /obj/item/bomb
-	character.mind.adjust_skillrank_up_to(/datum/skill/craft/alchemy, 1, TRUE)
+	character.mind.adjust_skillrank(/datum/skill/craft/alchemy, 1, TRUE)
 
 /datum/special_trait/pineapple
 	name = "The safeword is \"Pineapple\""
@@ -214,7 +214,7 @@
 
 /datum/special_trait/pineapple/on_apply(mob/living/carbon/human/character, silent)
 	character.mind.special_items["Whip"] = /obj/item/rogueweapon/whip
-	character.mind.adjust_skillrank_up_to(/datum/skill/combat/whipsflails, 6, TRUE)
+	character.mind.adjust_skillrank(/datum/skill/combat/whipsflails, 6, TRUE)
 
 /datum/special_trait/psydons_rider
 	name = "Psydon's Drunkest Rider"
@@ -229,7 +229,7 @@
 		var/obj/item/bottle = new /obj/item/reagent_containers/glass/bottle/rogue/wine(get_turf(character))
 		character.put_in_hands(bottle, forced = TRUE)
 
-	character.mind.adjust_skillrank_up_to(/datum/skill/misc/riding, 4, TRUE)
+	character.mind.adjust_skillrank(/datum/skill/misc/riding, 4, TRUE)
 	new /mob/living/simple_animal/hostile/retaliate/rogue/saiga/tame/saddled(get_turf(character))
 
 /datum/special_trait/spring_in_my_step
@@ -254,9 +254,9 @@
 	weight = 100
 
 /datum/special_trait/thief/on_apply(mob/living/carbon/human/character, silent)
-	character.mind.adjust_skillrank_up_to(/datum/skill/misc/stealing, 5, TRUE)
-	character.mind.adjust_skillrank_up_to(/datum/skill/misc/sneaking, 4, TRUE)
-	character.mind.adjust_skillrank_up_to(/datum/skill/misc/climbing, 3, TRUE)
+	character.mind.adjust_skillrank(/datum/skill/misc/stealing, 5, TRUE)
+	character.mind.adjust_skillrank(/datum/skill/misc/sneaking, 4, TRUE)
+	character.mind.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
 
 /datum/special_trait/languagesavant
 	name = "Polyglot"
@@ -287,16 +287,16 @@
 	weight = 100
 
 /datum/special_trait/mastercraftsmen/on_apply(mob/living/carbon/human/character)
-	character.mind.adjust_skillrank_up_to(/datum/skill/craft/crafting, 2, TRUE)
-	character.mind.adjust_skillrank_up_to(/datum/skill/craft/weaponsmithing, 2, TRUE)
-	character.mind.adjust_skillrank_up_to(/datum/skill/craft/armorsmithing, 2, TRUE)
-	character.mind.adjust_skillrank_up_to(/datum/skill/craft/blacksmithing, 2, TRUE)
-	character.mind.adjust_skillrank_up_to(/datum/skill/craft/carpentry, 2, TRUE)
-	character.mind.adjust_skillrank_up_to(/datum/skill/craft/masonry, 2, TRUE)
-	character.mind.adjust_skillrank_up_to(/datum/skill/craft/traps, 2, TRUE)
-	character.mind.adjust_skillrank_up_to(/datum/skill/craft/cooking, 2, TRUE)
-	character.mind.adjust_skillrank_up_to(/datum/skill/craft/engineering, 2, TRUE)
-	character.mind.adjust_skillrank_up_to(/datum/skill/craft/tanning, 2, TRUE)
+	character.mind.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
+	character.mind.adjust_skillrank(/datum/skill/craft/weaponsmithing, 2, TRUE)
+	character.mind.adjust_skillrank(/datum/skill/craft/armorsmithing, 2, TRUE)
+	character.mind.adjust_skillrank(/datum/skill/craft/blacksmithing, 2, TRUE)
+	character.mind.adjust_skillrank(/datum/skill/craft/carpentry, 2, TRUE)
+	character.mind.adjust_skillrank(/datum/skill/craft/masonry, 2, TRUE)
+	character.mind.adjust_skillrank(/datum/skill/craft/traps, 2, TRUE)
+	character.mind.adjust_skillrank(/datum/skill/craft/cooking, 2, TRUE)
+	character.mind.adjust_skillrank(/datum/skill/craft/engineering, 2, TRUE)
+	character.mind.adjust_skillrank(/datum/skill/craft/tanning, 2, TRUE)
 
 /datum/special_trait/bleublood
 	name = "Noble Lineage"
@@ -306,7 +306,7 @@
 
 /datum/special_trait/bleublood/on_apply(mob/living/carbon/human/character, silent)
 	ADD_TRAIT(character, TRAIT_NOBLE, "[type]")
-	character.mind.adjust_skillrank_up_to(/datum/skill/misc/reading, 2, TRUE)
+	character.mind.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 
 /datum/special_trait/richpouch
 	name = "Rich Pouch"
@@ -523,7 +523,7 @@
 	greet_text = span_notice("I am quite rebellious for a princess. Screw Noble Customs!")
 	req_text = "Be a princess"
 	allowed_sexes = list(FEMALE)
-	allowed_jobs = list(/datum/job/roguetown/prince)
+	allowed_jobs = list(/datum/job/prince)
 	weight = 50
 
 /datum/special_trait/punkprincess/on_apply(mob/living/carbon/human/character, silent)
@@ -536,14 +536,13 @@
 	QDEL_NULL(character.beltr)
 	QDEL_NULL(character.backr)
 	QDEL_NULL(character.head)
-	character.equip_to_slot_or_del(new /obj/item/clothing/under/roguetown/tights/random(character), SLOT_PANTS)
-	character.equip_to_slot_or_del(new /obj/item/clothing/suit/roguetown/shirt/undershirt/guard(character), SLOT_SHIRT)
-	character.equip_to_slot_or_del(new /obj/item/clothing/suit/roguetown/armor/chainmail(character), SLOT_ARMOR)
-	character.equip_to_slot_or_del(new /obj/item/storage/belt/rogue/leather(character), SLOT_BELT)
-	character.equip_to_slot_or_del(new /obj/item/storage/belt/rogue/pouch/coins/rich(character), SLOT_BELT_R)
-	character.equip_to_slot_or_del(new /obj/item/storage/backpack/rogue/satchel(character), SLOT_BACK_R)
-	character.equip_to_slot_or_del(new /obj/item/clothing/shoes/roguetown/boots/nobleboot(character), SLOT_SHOES)
-	character.mind.adjust_skillrank(/datum/skill/combat/maces, 1, TRUE)
+	character.equip_to_slot_or_del(new /obj/item/clothing/tights/random(character), SLOT_PANTS)
+	character.equip_to_slot_or_del(new /obj/item/clothing/armor/chainmail(character), SLOT_ARMOR)
+	character.equip_to_slot_or_del(new /obj/item/storage/belt/leather(character), SLOT_BELT)
+	character.equip_to_slot_or_del(new /obj/item/storage/belt/pouch/coins/rich(character), SLOT_BELT_R)
+	character.equip_to_slot_or_del(new /obj/item/storage/backpack/satchel(character), SLOT_BACK_R)
+	character.equip_to_slot_or_del(new /obj/item/clothing/shoes/nobleboot(character), SLOT_SHOES)
+	character.mind.adjust_skillrank(/datum/skill/combat/axesmaces, 1, TRUE)
 	character.mind.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
 	character.mind.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
 	character.mind.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
@@ -558,14 +557,14 @@
 	name = "Vengant Bum"
 	greet_text = span_notice("I was once a nobleman, high on life until my father was murdered right in front of me. Thankfully, my mentor took me to safety and taught me all I needed to survive in these disgusting lands. They think I am a lowlife, but that's just an advantage.")
 	req_text = "Be a beggar"
-	allowed_jobs = list(/datum/job/roguetown/beggar)
+	allowed_jobs = list(/datum/job/vagrant)
 	weight = 7
 
 /datum/special_trait/vengantbum/on_apply(mob/living/carbon/human/character, silent)
 	ADD_TRAIT(character, TRAIT_DECEIVING_MEEKNESS, "[type]")
 	character.mind.adjust_skillrank(/datum/skill/combat/wrestling, 6, TRUE)
 	character.mind.adjust_skillrank(/datum/skill/combat/unarmed, 6, TRUE)
-	character.mind.adjust_skillrank_up_to(/datum/skill/misc/reading, 3, TRUE)
+	character.mind.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
 	character.STASTR = 20
 	character.STACON = 20
 	character.STAEND = 20
@@ -574,7 +573,7 @@
 	name = "My Precious"
 	greet_text = span_notice("The ring, it's so shiny.. so valuable, I can feel it's power. It's all mine!")
 	req_text = "Be a beggar"
-	allowed_jobs = list(/datum/job/roguetown/beggar)
+	allowed_jobs = list(/datum/job/vagrant)
 	weight = 50
 
 /datum/special_trait/my_precious/on_apply(mob/living/carbon/human/character, silent)
@@ -590,9 +589,9 @@
 	name = "Illicit Merchant"
 	greet_text = span_notice("I'm sick of working as an underling, I will start my own trade emporium. I've got my hands on a hidden merchant key and a curious magical device")
 	req_text = "Be a Shophand"
-	allowed_jobs = list(/datum/job/roguetown/shophand)
+	allowed_jobs = list(/datum/job/shophand)
 	weight = 50
 
 /datum/special_trait/illicit_merchant/on_apply(mob/living/carbon/human/character, silent)
-	character.mind.special_items["Merchant Key"] = /obj/item/roguekey/merchant
+	character.mind.special_items["Merchant Key"] = /obj/item/key/merchant
 	character.mind.special_items["GOLDFACE Gem"] = /obj/item/gem_device/goldface

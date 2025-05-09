@@ -47,49 +47,6 @@ GLOBAL_LIST_INIT(special_traits, build_special_traits())
 		player = character.client
 	apply_charflaw_equipment(character, player)
 	apply_prefs_special(character, player)
-	apply_prefs_virtue(character, player)
-	if(player.prefs.loadout)
-		character.mind.special_items[player.prefs.loadout.name] += player.prefs.loadout.path
-	if(player.prefs.loadout2)
-		character.mind.special_items[player.prefs.loadout2.name] += player.prefs.loadout2.path
-	if(player.prefs.loadout3)
-		character.mind.special_items[player.prefs.loadout3.name] += player.prefs.loadout3.path
-
-/proc/apply_prefs_virtue(mob/living/carbon/human/character, client/player)
-	if (!player)
-		player = character.client
-	if (!player)
-		return
-	if (!player.prefs)
-		return
-
-	var/virtuous = FALSE
-	var/heretic = FALSE
-	if(istype(player.prefs.selected_patron, /datum/patron/inhumen))
-		heretic = TRUE
-
-	if(player.prefs.statpack.name == "Virtuous")
-		virtuous = TRUE
-
-	var/datum/virtue/virtue_type = player.prefs.virtue
-	var/datum/virtue/virtuetwo_type = player.prefs.virtuetwo
-	if(virtue_type)
-		if(virtue_check(virtue_type, heretic))
-			apply_virtue(character, virtue_type)
-		else
-			to_chat(character, "Incorrect Virtue parameters! (Heretic virtue on a non-heretic) It will not be applied.")
-	if(virtuetwo_type && virtuous)
-		if(virtue_check(virtuetwo_type, heretic))
-			apply_virtue(character, virtuetwo_type)
-		else
-			to_chat(character, "Incorrect Second Virtue parameters! (Heretic virtue on a non-heretic) It will not be applied.")
-
-/proc/virtue_check(var/datum/virtue/V, heretic = FALSE)
-	if(V)
-		if(istype(V,/datum/virtue/heretic) && !heretic)
-			return FALSE
-		return TRUE
-	return FALSE
 
 /proc/apply_charflaw_equipment(mob/living/carbon/human/character, client/player)
 	if(character.charflaw)
