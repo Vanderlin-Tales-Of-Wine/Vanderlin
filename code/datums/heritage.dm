@@ -268,6 +268,8 @@
 * For calculating if this individual can lead to this species. One for One rather than Two for One calculation.
 */
 /datum/heritage/proc/SpeciesHeirs(datum/species/core_species)
+	if(QDELETED(core_species))
+		return
 	. = list(core_species.type)
 	if(istype(core_species, /datum/species/human/northern) || istype(core_species, /datum/species/elf))
 		. += /datum/species/human/halfelf
