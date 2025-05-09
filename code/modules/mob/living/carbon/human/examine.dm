@@ -244,7 +244,6 @@
 		if(!(I.item_flags & ABSTRACT))
 			. += "[m1] holding [I.get_examine_string(user)] in [m2] [get_held_index_name(get_held_index_of_item(I))]."
 
-	var/datum/component/forensics/FR = GetComponent(/datum/component/forensics)
 	//gloves
 	if(gloves && !(SLOT_GLOVES in obscured))
 		. += "[m3] [gloves.get_examine_string(user)] on [m2] hands."

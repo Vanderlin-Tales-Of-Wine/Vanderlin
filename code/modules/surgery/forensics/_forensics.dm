@@ -112,11 +112,6 @@
 	if(!isliving(suspect))
 		if(!iscameramob(suspect))
 			return
-		if(isaicamera(suspect))
-			var/mob/camera/ai_eye/ai_camera = suspect
-			if(!ai_camera.ai)
-				return
-			suspect = ai_camera.ai
 	add_hiddenprint(suspect)
 	if(ishuman(suspect))
 		var/mob/living/carbon/human/human_suspect = suspect
