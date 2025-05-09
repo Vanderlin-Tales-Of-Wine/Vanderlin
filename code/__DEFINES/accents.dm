@@ -8,7 +8,6 @@
 #define ACCENT_GRENZ "Grenzelhoft Acccent"
 #define ACCENT_PIRATE "Pirate Accent"
 #define ACCENT_MIDDLE_SPEAK "Middle Speak (Old Half-Orc)"
-#define ACCENT_ZYBANTINE "Arabic Accent"
 
 GLOBAL_LIST_INIT(accent_list, list(
 	ACCENT_NONE = list(),
@@ -21,5 +20,4 @@ GLOBAL_LIST_INIT(accent_list, list(
 	ACCENT_GRENZ = strings("accents/grenz_replacement.json", "grenz"),
 	ACCENT_PIRATE = strings("accents/pirate_replacement.json", "pirate"),
 	ACCENT_MIDDLE_SPEAK = strings("accents/middlespeak.json", "full"),
-	ACCENT_ZYBANTINE = strings("accents/zybantine_replacement.json", "arabic"),
 ))
