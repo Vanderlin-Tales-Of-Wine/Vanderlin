@@ -470,6 +470,7 @@
 			to_chat(usr, "<span class='warning'>[M] doesn't seem to have an active client.</span>")
 			return
 		log_admin("[key_name_admin(usr)] has sent [key_name(M)] back to the Lobby.")
+		message_admins("[key_name_admin(usr)] sent [key_name_admin(M)] back to the lobby")
 
 		var/mob/dead/new_player/NP = new()
 		NP.ckey = M.ckey
@@ -736,6 +737,7 @@
 		var/datum/skill/skill = href_list["skill"]
 		M.mind?.adjust_skillrank(text2path(skill), 1)
 		log_admin("[key_name_admin(usr)] increased [key_name_admin(M)]'s [initial(skill.name)] skill.")
+		message_admins("[key_name_admin(usr)] increased [key_name_admin(M)]'s [initial(skill.name)] skill.")
 		show_player_panel_next(M, "skills")
 
 	else if(href_list["decrease_skill"])
@@ -743,6 +745,7 @@
 		var/datum/skill/skill = href_list["skill"]
 		M.mind?.adjust_skillrank(text2path(skill), -1)
 		log_admin("[key_name_admin(usr)] decreased [key_name_admin(M)]'s [initial(skill.name)] skill.")
+		message_admins("[key_name_admin(usr)] decreased [key_name_admin(M)]'s [initial(skill.name)] skill.")
 		show_player_panel_next(M, "skills")
 
 	else if(href_list["add_language"])
@@ -750,6 +753,7 @@
 		var/datum/language/lang = text2path(href_list["language"])
 		M.grant_language(lang)
 		log_admin("[key_name_admin(usr)] added [lang] to [key_name_admin(M)].")
+		message_admins("[key_name_admin(usr)] added [lang] to [key_name_admin(M)].")
 		show_player_panel_next(M, "languages")
 
 	else if(href_list["remove_language"])
@@ -757,6 +761,7 @@
 		var/datum/language/lang = text2path(href_list["language"])
 		M.remove_language(lang)
 		log_admin("[key_name_admin(usr)] removed [lang] to [key_name_admin(M)].")
+		message_admins("[key_name_admin(usr)] removed [lang] to [key_name_admin(M)].")
 		show_player_panel_next(M, "languages")
 
 	else if(href_list["add_stat"])
@@ -764,6 +769,7 @@
 		var/statkey = href_list["stat"]
 		M.change_stat(statkey, 1)
 		log_admin("[key_name_admin(usr)] increased [key_name_admin(M)]'s [statkey].")
+		message_admins("[key_name_admin(usr)] increased [key_name_admin(M)]'s [statkey].")
 		show_player_panel_next(M, "stats")
 
 	else if(href_list["lower_stat"])
@@ -771,6 +777,7 @@
 		var/statkey = href_list["stat"]
 		M.change_stat(statkey, -1)
 		log_admin("[key_name_admin(usr)] decreased [key_name_admin(M)]'s [statkey].")
+		message_admins("[key_name_admin(usr)] decreased [key_name_admin(M)]'s [statkey].")
 		show_player_panel_next(M, "stats")
 
 	else if(href_list["sendmob"])
