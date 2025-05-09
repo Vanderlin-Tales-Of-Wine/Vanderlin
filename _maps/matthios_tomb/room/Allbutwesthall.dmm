@@ -1,260 +1,46 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"aa" = (
-/turf/closed/mineral/bedrock,
-/area/rogue/under/cave)
 "ab" = (
 /obj/structure/table/wood/counter/end{
 	dir = 8
 	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
-"ac" = (
-/obj/structure/fluff/railing/fence,
-/turf/open/floor/dirt,
-/area/rogue/under/cave)
-"ad" = (
-/obj/structure/closet/crate/chest/crafted,
-/obj/item/gun/ballistic/revolver/grenadelauncher/bow/long,
-/obj/item/ammo_holder/quiver/arrows,
-/obj/item/flashlight/flare/torch/lantern,
-/obj/effect/decal/cleanable/dirt/cobweb{
-	dir = 8
-	},
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/under/cave)
-"ae" = (
-/turf/open/transparent/openspace,
-/area/rogue/under/cave)
-"af" = (
-/obj/structure/fluff/railing/fence{
-	dir = 4
-	},
-/turf/open/floor/dirt,
-/area/rogue/under/cave)
-"ag" = (
-/obj/structure/ladder,
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/under/cave)
-"ah" = (
-/obj/structure/table/wood/counter,
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/under/cave)
 "ai" = (
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb)
-"aj" = (
-/turf/open/floor/dirt/road,
-/area/rogue/under/cave)
-"ak" = (
-/obj/structure/rack,
-/obj/item/weapon/shield/wood{
-	pixel_x = -5
-	},
-/obj/item/weapon/shield/wood{
-	pixel_x = 8
-	},
-/obj/item/weapon/shield/tower,
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/under/cave)
-"al" = (
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/under/cave)
 "am" = (
 /turf/open/floor/dirt/road,
 /area/rogue/under/tomb)
-"an" = (
-/obj/structure/table/wood/counter/end{
-	dir = 4
-	},
-/obj/item/clothing/ring/silver,
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/under/cave)
 "ao" = (
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb/cave)
-"ap" = (
-/turf/open/floor/naturalstone,
-/area/rogue/under/cave)
-"aq" = (
-/obj/structure/closet/crate/crafted_closet/inn/south,
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/under/cave)
-"ar" = (
-/obj/structure/closet/crate/drawer/inn,
-/obj/item/ingot/silver,
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/under/cave)
-"as" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
-/turf/open/floor/dirt/road,
-/area/rogue/under/cave)
-"at" = (
-/obj/effect/dungeon_directional_helper/north,
-/turf/open/floor/naturalstone,
-/area/rogue/under/cave)
-"au" = (
-/obj/structure/mineral_door/wood/green,
-/turf/open/floor/naturalstone,
-/area/rogue/under/cave)
 "av" = (
 /turf/closed/wall/mineral/wooddark,
 /area/rogue/under/tomb/indoors)
 "aw" = (
 /turf/closed/mineral/bedrock,
 /area/rogue/under/tomb/indoors)
-"ax" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/under/cave)
-"ay" = (
-/turf/open/floor/dirt,
-/area/rogue/under/cave)
-"az" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
-/turf/open/floor/dirt,
-/area/rogue/under/cave)
 "aA" = (
 /turf/closed/mineral/bedrock,
 /area/rogue/under/tomb/cave)
 "aB" = (
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb)
-"aC" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/under/cave)
-"aD" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/under/cave)
-"aE" = (
-/obj/effect/dungeon_directional_helper/south,
-/turf/open/floor/naturalstone,
-/area/rogue/under/cave)
 "aF" = (
 /obj/structure/ladder,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
-"aG" = (
-/obj/structure/fluff/railing/border{
-	dir = 1
-	},
-/turf/open/transparent/openspace,
-/area/rogue/under/cave)
 "aH" = (
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
-"aI" = (
-/turf/closed/wall/mineral/wooddark,
-/area/rogue/under/cave)
-"aJ" = (
-/obj/effect/dungeon_directional_helper/east,
-/turf/open/floor/naturalstone,
-/area/rogue/under/cave)
-"aK" = (
-/turf/closed/wall/mineral/wooddark/window,
-/area/rogue/under/cave)
-"aL" = (
-/obj/effect/decal/cleanable/dirt/cobweb{
-	dir = 8
-	},
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/under/cave)
-"aM" = (
-/obj/structure/bed/wool,
-/obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/under/cave)
-"aN" = (
-/obj/structure/mineral_door/wood/green,
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/under/cave)
-"aO" = (
-/obj/structure/fluff/railing/border{
-	dir = 8
-	},
-/turf/open/transparent/openspace,
-/area/rogue/under/cave)
-"aP" = (
-/obj/item/bomb{
-	pixel_x = 9;
-	pixel_y = 17
-	},
-/obj/item/bomb{
-	pixel_x = -1;
-	pixel_y = 17
-	},
-/obj/structure/rack/shelf/big,
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/under/cave)
-"aQ" = (
-/obj/structure/fluff/railing/border,
-/turf/open/transparent/openspace,
-/area/rogue/under/cave)
 "aR" = (
 /obj/structure/fluff/railing/fence,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb)
-"aS" = (
-/obj/structure/rack,
-/obj/item/clothing/armor/leather,
-/obj/item/clothing/pants/trou/leather{
-	pixel_x = 14;
-	pixel_y = -4
-	},
-/obj/item/clothing/wrists/bracers/leather{
-	pixel_y = -9;
-	pixel_x = -6
-	},
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/under/cave)
-"aT" = (
-/obj/structure/fluff/buysign,
-/obj/structure/fluff/buysign{
-	desc = " Store Closed"
-	},
-/turf/open/floor/naturalstone,
-/area/rogue/under/cave)
-"aU" = (
-/obj/structure/fluff/railing/fence,
-/turf/open/floor/naturalstone,
-/area/rogue/under/cave)
 "aV" = (
 /turf/open/floor/dirt,
 /area/rogue/under/tomb)
-"aW" = (
-/obj/structure/rack,
-/obj/item/weapon/sword/iron{
-	pixel_x = 10
-	},
-/obj/item/weapon/sword/iron{
-	pixel_x = 3
-	},
-/obj/item/weapon/sword/arming{
-	pixel_y = 3;
-	pixel_x = -1
-	},
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/under/cave)
-"aX" = (
-/obj/structure/fluff/railing/border{
-	dir = 9
-	},
-/turf/open/transparent/openspace,
-/area/rogue/under/cave)
-"aY" = (
-/obj/structure/fluff/railing/border{
-	dir = 10
-	},
-/turf/open/transparent/openspace,
-/area/rogue/under/cave)
-"aZ" = (
-/obj/structure/table/wood/counter/end{
-	dir = 8
-	},
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/under/cave)
 "cP" = (
 /mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/floor/ruinedwood/spiral,

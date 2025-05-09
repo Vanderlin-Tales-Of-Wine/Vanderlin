@@ -1,40 +1,4 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"aa" = (
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors/caves)
-"ab" = (
-/obj/structure/table/wood/nice/decorated,
-/obj/item/candle/yellow/lit/infinite/strong/skull,
-/obj/item/reagent_containers/glass/bottle/stronghealthpot,
-/obj/item/reagent_containers/glass/bottle/redwine,
-/obj/item/statue/gold,
-/turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
-"ac" = (
-/mob/living/carbon/human/species/orc/ambush,
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors/caves)
-"ad" = (
-/obj/structure/table/vtable/v2,
-/obj/item/book/godofdreamsandnightmares,
-/obj/item/natural/feather,
-/turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
-"ae" = (
-/obj/item/weapon/shield/tower/buckleriron,
-/obj/item/weapon/sword/khopesh,
-/obj/item/clothing/face/facemask/copper,
-/obj/item/clothing/neck/gorget/copper,
-/obj/item/clothing/wrists/bracers/copper,
-/obj/item/clothing/head/helmet/coppercap,
-/obj/item/clothing/armor/cuirass/copperchest,
-/obj/structure/closet/crate/chest,
-/turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/caves)
-"af" = (
-/obj/machinery/light/fueled/firebowl/standing,
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors/caves)
 "ag" = (
 /turf/closed/wall/mineral/wooddark/horizontal,
 /area/rogue/under/tomb/indoors)
@@ -53,53 +17,17 @@
 /obj/structure/closet/crate/chest,
 /turf/open/floor/cobblerock/alt,
 /area/rogue/under/tomb/indoors)
-"aj" = (
-/turf/closed/wall/mineral/wooddark/horizontal,
-/area/rogue/outdoors/caves)
 "ak" = (
 /obj/structure/door/fancy,
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/under/tomb/indoors)
-"al" = (
-/obj/effect/dungeon_directional_helper/south,
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors/caves)
-"am" = (
-/obj/effect/dungeon_directional_helper/north,
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors/caves)
 "an" = (
 /turf/open/floor/cobblerock/alt,
 /area/rogue/under/tomb/indoors)
-"ao" = (
-/obj/structure/bookcase/random/legends,
-/turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
-"ap" = (
-/obj/structure/table/vtable,
-/obj/item/paper/scroll,
-/obj/item/clothing/ring/gold,
-/turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
-"aq" = (
-/turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/caves)
-"ar" = (
-/obj/structure/mineral_door/wood/fancywood,
-/turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
-"as" = (
-/obj/structure/fermentation_keg/water,
-/turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
 "at" = (
 /mob/living/carbon/human/species/orc/ambush,
 /turf/open/floor/dirt/road,
 /area/rogue/under/tomb)
-"au" = (
-/obj/structure/fermentation_keg/beer,
-/turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
 "av" = (
 /obj/machinery/light/fueled/wallfire/candle/weak/l,
 /turf/open/floor/ruinedwood/chevron,
@@ -115,23 +43,9 @@
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/dirt/road,
 /area/rogue/under/tomb)
-"az" = (
-/turf/closed/mineral/bedrock,
-/area/rogue/outdoors/caves)
 "aA" = (
 /turf/closed/wall/mineral/wooddark/vertical,
 /area/rogue/under/tomb/indoors)
-"aB" = (
-/obj/structure/chair/wood,
-/turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
-"aC" = (
-/turf/closed/wall/mineral/wooddark/vertical,
-/area/rogue/outdoors/caves)
-"aD" = (
-/obj/machinery/light/fueled/wallfire/candle/weak/l,
-/turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
 "aE" = (
 /obj/structure/door/stone,
 /turf/open/floor/cobblerock/alt,
@@ -143,61 +57,20 @@
 "aG" = (
 /turf/closed/wall/mineral/wooddark/end,
 /area/rogue/under/tomb/indoors)
-"aH" = (
-/obj/structure/table/wood/nice/decorated,
-/obj/item/clothing/face/cigarette/pipe/westman,
-/obj/item/reagent_containers/food/snacks/produce/dry_westleach,
-/obj/item/reagent_containers/food/snacks/produce/dry_westleach,
-/obj/item/reagent_containers/food/snacks/produce/dry_westleach,
-/obj/item/reagent_containers/glass/cup/skull,
-/obj/item/reagent_containers/glass/cup/silver,
-/turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
 "aI" = (
 /obj/machinery/light/fueled/firebowl/standing,
 /turf/open/floor/dirt/road,
 /area/rogue/under/tomb)
-"aJ" = (
-/obj/machinery/light/fueled/wallfire/candle/r,
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
-/turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
-"aK" = (
-/obj/structure/table/wood/plain/alt,
-/obj/machinery/light/fueled/wallfire/candle/weak/l,
-/obj/item/reagent_containers/food/snacks/cheddar/aged,
-/obj/item/reagent_containers/glass/cup/skull,
-/turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/caves)
 "aL" = (
 /turf/open/floor/dirt/road,
 /area/rogue/under/tomb)
 "aM" = (
 /turf/closed/mineral/bedrock,
 /area/rogue/under/tomb/indoors)
-"aN" = (
-/turf/closed/wall/mineral/wooddark/end,
-/area/rogue/outdoors/caves)
-"aO" = (
-/obj/structure/chair/wood/alt/chair_noble/purple,
-/turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
-"aP" = (
-/obj/machinery/light/fueled/wallfire/candle/r,
-/turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
 "aQ" = (
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/dirt/road,
 /area/rogue/under/tomb)
-"aR" = (
-/obj/structure/bed/shit,
-/turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/caves)
-"aS" = (
-/obj/effect/dungeon_directional_helper/west,
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors/caves)
 "aT" = (
 /turf/closed/mineral/bedrock,
 /area/rogue/under/tomb)
@@ -205,21 +78,6 @@
 /obj/effect/dungeon_directional_helper/east,
 /turf/open/floor/dirt/road,
 /area/rogue/under/tomb)
-"aV" = (
-/turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
-"aW" = (
-/obj/structure/mineral_door/wood/donjon/stone,
-/turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/caves)
-"aX" = (
-/obj/structure/bed/inn/double,
-/turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
-"aY" = (
-/obj/effect/dungeon_directional_helper/east,
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors/caves)
 "aZ" = (
 /obj/structure/table/wood/plain/alt,
 /obj/machinery/light/fueled/wallfire/candle/weak/l,
