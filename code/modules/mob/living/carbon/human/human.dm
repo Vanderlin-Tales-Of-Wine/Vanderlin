@@ -735,7 +735,7 @@
 	if(!is_mouth_covered())
 		. = TRUE
 
-	if(!(obscured & ITEM_SLOT_ICLOTHING) && shirt?.wash(clean_types))
+	if(!(obscured & ITEM_SLOT_ICLOTHING) && wear_shirt?.wash(clean_types))
 		update_inv_shirt()
 		. = TRUE
 

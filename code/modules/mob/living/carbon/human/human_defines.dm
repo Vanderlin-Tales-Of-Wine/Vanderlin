@@ -129,15 +129,12 @@
 
 	rot_type = /datum/component/rot/corpse
 
-	/mob/living/carbon/human
 	blocks_emissive = EMISSIVE_BLOCK_UNIQUE
 	var/datum/charflaw/charflaw
 
-	/mob/living/carbon/human
 	/// List of curses on this mob
 	var/list/curses = list()
 
-	/mob/living/carbon/human
 	/// List of minions that this mob has control over. Used for things like the Lich's "Command Undead" spell.
 	var/list/mob/minions = list()
 

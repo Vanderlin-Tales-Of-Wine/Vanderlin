@@ -88,7 +88,7 @@
 	if(!reagents)
 		return
 	var/list/reagents_to_add
-	for(var/dna_sample as anything in all_dna)
+	for(var/dna_sample as anything in GET_ATOM_BLOOD_DNA())
 		var/datum/blood_type/blood = GLOB.blood_types[all_dna[dna_sample]]
 		if(blood)
 			LAZYADD(reagents_to_add, blood.reagent_type)
