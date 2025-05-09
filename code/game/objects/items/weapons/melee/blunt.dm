@@ -338,11 +338,13 @@
 	bigboy = FALSE
 	gripsprite = TRUE
 	slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_BELT
-	walking_stick = TRUE
 	max_integrity = 200
 	minstr = 8
 	sellprice = 5
 
+/obj/item/weapon/mace/goden/shillelagh/Initialize()
+	. = ..()
+	AddComponent(/datum/component/walking_stick)
 
 /obj/item/weapon/mace/goden/shillelagh/getonmobprop(tag)
 	. = ..()

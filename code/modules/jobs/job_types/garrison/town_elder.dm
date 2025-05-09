@@ -32,8 +32,8 @@
 
 	var/static/last_announcement_time = 0
 
-	if(world.time < last_announcement_time + 10 MINUTES)
-		var/time_left = round((last_announcement_time + 10 MINUTES - world.time) / 10)
+	if(world.time < last_announcement_time + 1 MINUTES)
+		var/time_left = round((last_announcement_time + 1 MINUTES - world.time) / 10)
 		to_chat(src, "<span class='warning'>You must wait [time_left] more seconds before making another announcement.</span>")
 		return
 
@@ -51,6 +51,8 @@
 	. = ..()
 	var/mob/living/carbon/human/H = spawned
 	ADD_TRAIT(H, TRAIT_OLDPARTY, TRAIT_GENERIC)
+	H.verbs |= /mob/living/carbon/human/proc/townannouncement
+
 
 /obj/effect/proc_holder/spell/self/convertrole/town_militia
 	name = "Recruit Militia"
@@ -433,7 +435,7 @@
 	outfit = /datum/outfit/job/town_elder/dreamwatcher
 
 	//Not a Magician nor an Acolyte, but something more, blessed by Noc since they were born, being capable of Visions and Feelings through dreams, they can feel the highest god influence or and get a hint about any of the active antags.
-	// category_tags = list(CTAG_TOWN_ELDER)
+	category_tags = list(CTAG_TOWN_ELDER)
 
 
 /datum/outfit/job/town_elder/dreamwatcher/pre_equip(mob/living/carbon/human/H)

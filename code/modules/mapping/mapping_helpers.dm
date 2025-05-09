@@ -47,10 +47,6 @@
 	else
 		thing.PlaceOnBottom(null, baseturf)
 
-/obj/effect/baseturf_helper/lava
-	name = "lava baseturf editor"
-	baseturf = /turf/open/lava/smooth
-
 /obj/effect/mapping_helpers
 	icon = 'icons/effects/mapping_helpers.dmi'
 	icon_state = ""
@@ -183,21 +179,21 @@ INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_lava)
 		log_mapping("[src] spawned outside of mapload!")
 		return
 
-	var/obj/structure/mineral_door/door = locate(/obj/structure/mineral_door) in loc
+	var/obj/structure/door/door = locate(/obj/structure/door) in loc
 	if(!door)
 		log_mapping("[src] failed to find a door at [AREACOORD(src)]")
 		return
 
 	payload(door)
 
-/obj/effect/mapping_helpers/door/proc/payload(obj/structure/mineral_door/payload)
+/obj/effect/mapping_helpers/door/proc/payload(obj/structure/door/payload)
 	return
 
 /obj/effect/mapping_helpers/door/locker
 	name = "door locker helper"
 	icon_state = "door_locker"
 
-/obj/effect/mapping_helpers/door/locker/payload(obj/structure/mineral_door/door)
+/obj/effect/mapping_helpers/door/locker/payload(obj/structure/door/door)
 	if(door.locked)
 		log_mapping("[src] at [AREACOORD(src)] tried to lock [door] but it's already locked!")
 		return

@@ -7,3 +7,4 @@
 */
 
 #include "..\..\_maps\map_files\rosewood\map_adjustment_rosewood.dm"
+#include "..\..\_maps\map_files\daftmarsh\map_adjustment_daftmarsh.dm"

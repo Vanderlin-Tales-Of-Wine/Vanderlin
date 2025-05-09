@@ -181,7 +181,7 @@
 			vol2use = 'sound/misc/bleed (2).ogg'
 		if(amt > 3)
 			vol2use = 'sound/misc/bleed (3).ogg'
-		if(lying || stat)
+		if(body_position == LYING_DOWN || stat)
 			vol2use = null
 		if(vol2use)
 			playsound(get_turf(src), vol2use, 100, FALSE)
@@ -189,11 +189,10 @@
 	updatehealth()
 
 /mob/living/carbon/human/bleed(amt)
-	amt *= physiology.bleed_mod
-	if(!(NOBLOOD in dna.species.species_traits))
+	if(physiology)
+		amt *= physiology.bleed_mod
+	if(!(NOBLOOD in dna?.species?.species_traits))
 		return ..()
-
-
 
 /mob/living/proc/restore_blood()
 	blood_volume = initial(blood_volume)
@@ -233,8 +232,6 @@
 	if(has_status_effect(/datum/status_effect/buff/lux_drained))
 		return LUX_DRAINED
 
-	if(istype(blood, /datum/blood_type/human/tiefling))
-		return LUX_FUCK_YOU_TIEFLING
 	return blood.contains_lux
 
 /mob/living/carbon/human/get_blood_type()

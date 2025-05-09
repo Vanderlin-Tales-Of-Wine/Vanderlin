@@ -147,7 +147,8 @@
 			to_chat(zombie, span_green("I no longer crave for flesh..."))
 	for(var/obj/item/bodypart/zombie_part as anything in zombie.bodyparts)
 		zombie_part.rotted = FALSE
-		zombie_part.update_disabled()
+		if(zombie_part.can_be_disabled)
+			zombie_part.update_disabled()
 		zombie_part.update_limb()
 	zombie.update_body()
 	zombie.remove_language(/datum/language/hellspeak)
@@ -203,7 +204,8 @@
 	for(var/obj/item/bodypart/zombie_part as anything in zombie.bodyparts)
 		if(!zombie_part.rotted && !zombie_part.skeletonized)
 			zombie_part.rotted = TRUE
-		zombie_part.update_disabled()
+		if(zombie_part.can_be_disabled)
+			zombie_part.update_disabled()
 	zombie.update_body()
 	zombie.cmode_music = 'sound/music/cmode/combat_weird.ogg'
 	zombie.set_patron(/datum/patron/inhumen/zizo)
@@ -265,7 +267,7 @@
 		zombie.heal_wounds(INFINITY) //Heal every wound that is not permanent
 	zombie.set_stat(UNCONSCIOUS) //Start unconscious
 	zombie.updatehealth() //then we check if the mob should wake up
-	zombie.update_mobility()
+	// zombie.update_mobility()
 	zombie.update_sight()
 	zombie.reload_fullscreen()
 	transform_zombie()

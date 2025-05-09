@@ -2,8 +2,8 @@
 
 /turf/open/lava
 	name = "lava"
-	icon_state = "lava"
 	icon = 'icons/turf/floors.dmi'
+	icon_state = "lava"
 	gender = PLURAL //"That's some lava."
 	baseturfs = /turf/open/lava //lava all the way down
 	slowdown = 2
@@ -17,9 +17,10 @@
 	barefootstep = FOOTSTEP_LAVA
 	clawfootstep = FOOTSTEP_LAVA
 	heavyfootstep = FOOTSTEP_LAVA
-	smooth = SMOOTH_TRUE
-	canSmoothWith = list(/turf/closed, /turf/open/floor/volcanic, /turf/open/floor/dirt, /turf/open/floor/dirt/road,/turf/open/floor/naturalstone)
-	neighborlay_override = "lavedge"
+	smoothing_flags = SMOOTH_EDGE
+	smoothing_groups = SMOOTH_GROUP_FLOOR_LIQUID
+	smoothing_list = SMOOTH_GROUP_OPEN_FLOOR
+	neighborlay_self = "lavedge"
 	turf_flags = NONE
 	var/flow = FALSE
 	/// How much fire damage we deal to living mobs stepping on us
@@ -35,7 +36,6 @@
 
 /turf/open/lava/flow
 	icon_state = "flowing-lava"
-
 	flow = TRUE
 
 /turf/open/lava/Initialize()
@@ -43,10 +43,6 @@
 	if(flow)
 		return
 	dir = pick(GLOB.cardinals)
-
-/turf/open/lava/cardinal_smooth(adjacencies)
-	smooth(adjacencies)
-
 
 /turf/open/lava/ex_act(severity, target)
 	contents_explosion(severity, target)
@@ -186,6 +182,8 @@
 		if(burn_obj.armor?.getRating("fire") > 50) //obj with 100% fire armor still get slowly burned away.
 			burn_obj.armor.setRating(fire = 50)
 		burn_obj.fire_act(temperature_damage, 1000 * seconds_per_tick)
+		if(QDELETED(burn_obj))
+			return FALSE
 		burn_obj.take_damage(burn_obj.max_integrity * 0.1, BURN, "fire", 0) // fire_act damage is clamped
 		if(istype(burn_obj, /obj/structure/closet))
 			for(var/burn_content in burn_target)
@@ -203,14 +201,6 @@
 		return TRUE
 
 	return FALSE
-
-/turf/open/lava/smooth
-	name = "lava"
-	baseturfs = /turf/open/lava/smooth
-	icon = 'icons/turf/floors/lava.dmi'
-	icon_state = "unsmooth"
-	smooth = SMOOTH_MORE | SMOOTH_BORDER
-	canSmoothWith = list(/turf/open/lava/smooth)
 
 /turf/open/lava/acid
 	name = "acid"

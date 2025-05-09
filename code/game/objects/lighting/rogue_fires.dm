@@ -62,9 +62,21 @@
 	base_state = "stumpfireb"
 	bulb_colour = "#6cfdff"
 
+/obj/machinery/light/fueled/firebowl/blackfire
+	desc = "A fire, black as death."
+	icon_state = "blackfire1"
+	base_state = "blackfire"
+	bulb_colour = "#8468ff"
+
 /obj/machinery/light/fueled/firebowl/church
 	icon_state = "churchfire1"
 	base_state = "churchfire"
+
+/obj/machinery/light/fueled/firebowl/church/unholyfire
+	desc = "This fire burns yet it is cold..."
+	icon_state = "unholyfire1"
+	base_state = "unholyfire"
+	bulb_colour = "#8468ff"
 
 /obj/machinery/light/fueled/firebowl/standing
 	name = "standing fire"
@@ -114,6 +126,7 @@
 	fueluse = 0
 	crossfire = FALSE
 	cookonme = TRUE
+	temperature_change = 35
 
 /obj/machinery/light/fueled/wallfire/candle
 	name = "candles"
@@ -124,6 +137,7 @@
 	cookonme = FALSE
 	pixel_y = 32
 	soundloop = null
+	temperature_change = 0
 
 /obj/machinery/light/fueled/wallfire/candle/OnCrafted(dirin, mob/user)
 	pixel_x = 0
@@ -171,6 +185,25 @@
 	pixel_y = 0
 	pixel_x = -32
 
+/obj/machinery/light/fueled/wallfire/candle/skull
+	bulb_colour = "#8d73ff"
+	icon_state = "skullwallcandle1"
+	base_state = "skullwallcandle"
+
+/obj/machinery/light/fueled/wallfire/candle/skull/extinguish()
+	return FALSE
+
+/obj/machinery/light/fueled/wallfire/candle/skull/burn_out()
+	return FALSE
+
+/obj/machinery/light/fueled/wallfire/candle/skull/r
+	pixel_y = 0
+	pixel_x = 32
+
+/obj/machinery/light/fueled/wallfire/candle/skull/l
+	pixel_y = 0
+	pixel_x = -32
+
 /obj/machinery/light/fueled/wallfire/candle/weak
 	light_power = 0.9
 	light_outer_range =  6
@@ -202,6 +235,7 @@
 	crossfire = FALSE
 	plane = GAME_PLANE_UPPER
 	cookonme = FALSE
+	temperature_change = 0
 
 /obj/machinery/light/fueled/torchholder/c
 	pixel_y = 32
@@ -340,6 +374,7 @@
 	soundloop = null
 	crossfire = FALSE
 	obj_flags = CAN_BE_HIT | BLOCK_Z_OUT_DOWN | BLOCK_Z_IN_UP
+	temperature_change = 5
 
 /obj/machinery/light/fueled/chand/attack_hand(mob/user)
 	if(isliving(user) && on)
@@ -362,6 +397,7 @@
 	on = FALSE
 	cookonme = TRUE
 	soundloop = /datum/looping_sound/fireloop
+	temperature_change = 45
 	var/heat_time = 100
 	var/obj/item/attachment = null
 	var/obj/item/reagent_containers/food/snacks/food = null
@@ -538,6 +574,8 @@
 	cookonme = TRUE
 	max_integrity = 30
 	soundloop = /datum/looping_sound/fireloop
+
+	temperature_change = 35
 
 /obj/machinery/light/fueled/campfire/process()
 	..()

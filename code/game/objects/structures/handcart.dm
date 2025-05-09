@@ -59,7 +59,7 @@
 	if(!Adjacent(user) || !user.Adjacent(O))
 		return
 	if(user == O) //try to climb into or onto it
-		if(!(user.mobility_flags & MOBILITY_STAND))
+		if(user.body_position == LYING_DOWN)
 			if(!do_after(user, 2 SECONDS, src))
 				return FALSE
 			if(put_in(O))

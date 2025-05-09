@@ -94,7 +94,7 @@
 		return
 
 	for(var/obj/structure/soil/soil in view(7, loc))
-		var/distance = get_dist(loc, soil)
+		var/distance = max(1, get_dist(loc, soil))
 		soil.process_growth(round(2 / distance, 0.1))
 
 	for(var/mob/living/carbon/L in hearers(7, loc))
@@ -150,6 +150,8 @@
 /obj/item/instrument/attack_self(mob/living/user)
 	. = ..()
 	if(.)
+		return
+	if(!isliving(user) || user.stat || (HAS_TRAIT(user, TRAIT_RESTRAINED)))
 		return
 	user.changeNext_move(CLICK_CD_MELEE)
 	if(playing)

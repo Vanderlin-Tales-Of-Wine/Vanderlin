@@ -32,8 +32,7 @@
 	sight |= SEE_TURFS
 
 	new_player_panel()
-	if(client)
-		client.playtitlemusic()
+	client?.playtitlemusic()
 	if(SSticker.current_state < GAME_STATE_SETTING_UP)
 		var/tl = SSticker.GetTimeLeft()
 		var/postfix
@@ -47,6 +46,6 @@
 			var/list/thinz = list("takes [client.p_their()] seat.", "settles in.", "joins the session", "joins the table.", "becomes a player.")
 			SEND_TEXT(world, "<span class='notice'>[usedkey] [pick(thinz)]</span>")
 
-	client.change_view(8)
+	client?.change_view(8)
 	sleep(1 SECONDS)
-	client.change_view(CONFIG_GET(string/default_view))
+	client?.change_view(CONFIG_GET(string/default_view))

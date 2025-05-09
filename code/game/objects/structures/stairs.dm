@@ -88,6 +88,7 @@
 		if(!stairs)
 			stairs = new /obj/structure/stairs(partner)
 		stairs.dir = dir
+	record_featured_stat(FEATURED_STATS_CRAFTERS, user)
 	add_abstract_elastic_data(ELASCAT_CRAFTING, "[name]", 1)
 	return
 
@@ -101,6 +102,7 @@
 		if(!stairs)
 			stairs = new /obj/structure/stairs/stone(partner)
 		stairs.dir = dir
+	record_featured_stat(FEATURED_STATS_CRAFTERS, user)
 	add_abstract_elastic_data(ELASCAT_CRAFTING, "[name]", 1)
 	return
 
@@ -174,7 +176,7 @@
 		L.start_pulling(pulling, supress_message = TRUE)
 		if(was_pulled_buckled)
 			var/mob/living/M = pulling
-			if(M.mobility_flags & MOBILITY_STAND)	// piggyback carry
+			if(M.body_position != LYING_DOWN)	// piggyback carry
 				L.buckle_mob(pulling, TRUE, TRUE, FALSE, 0, 0)
 			else				// fireman carry
 				L.buckle_mob(pulling, TRUE, TRUE, 90, 0, 0)

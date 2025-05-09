@@ -190,8 +190,8 @@
 	var/list/decoded_books = SSlibrarian.pull_player_book_titles()
 	var/index = 0
 	for(var/list/book in books)
-		index++
 		dat += "<tr><td>[book["author"]]</td><td>[book["book_title"]]</td><td>[book["category"]]</td><td><a href='byond://?src=[REF(src)];print=1;id=[decoded_books[index]]'>Print</a></td></tr>"
+		index++
 	if (!length(books))
 		dat += "<tr><td colspan='4'>No results found.</td></tr>"
 

@@ -165,7 +165,7 @@
 /obj/structure/chair/wood/alt/CanPass(atom/movable/mover, turf/target)
 	if(isliving(mover))
 		var/mob/living/M = mover
-		if((M.mobility_flags & MOBILITY_STAND))
+		if((M.body_position != LYING_DOWN))
 			if(isturf(loc))
 				var/movefrom = get_dir(M.loc, loc)
 				if(movefrom == dir && item_chair != null)
@@ -192,7 +192,7 @@
 /obj/structure/chair/wood/alt/CheckExit(atom/movable/O, turf/target)
 	if(isliving(O))
 		var/mob/living/M = O
-		if((M.mobility_flags & MOBILITY_STAND))
+		if((M.body_position != LYING_DOWN))
 			if(isturf(loc))
 				var/movefrom = get_dir(M.loc, target)
 				if(movefrom == turn(dir, 180) && item_chair != null)
@@ -330,7 +330,7 @@
 // Inhumen boss bed. Sleeping on a bear! Kinda comfy, sort of
 /obj/structure/bed/bear
 	desc = "A hide of a slain bear. It looks like someone sleeps on it often."
-	icon = 'icons/turf/floors/bear.dmi'
+	icon = 'icons/obj/bear.dmi'
 	icon_state = "bear"
 	sleepy = 1
 
@@ -406,7 +406,7 @@
 
 /obj/structure/bed/post_buckle_mob(mob/living/M)
 	..()
-	M.set_mob_offsets("bed_buckle", _x = 0 + src.pixel_x, _y = 5 + src.pixel_y)
+	M.set_mob_offsets("bed_buckle", _x = 0 + src.pixel_x, _y = src.pixel_y)
 
 /obj/structure/bed/post_unbuckle_mob(mob/living/M)
 	..()

@@ -71,9 +71,9 @@
 		if(subset && !(A in subset))
 			continue
 		A.forceMove(T)
-		if(isliving(A))
-			var/mob/living/L = A
-			L.update_mobility()
+		// if(isliving(A))
+		// 	var/mob/living/L = A
+			// L.update_mobility()
 	occupant = null
 
 /obj/machinery/proc/can_be_occupant(atom/movable/am)
@@ -271,7 +271,7 @@
 			var/mob/living/simple_animal/A = L
 			if (!A.dextrous)
 				return
-		if(L.mobility_flags & MOBILITY_MOVE)
+		if(!HAS_TRAIT(L, TRAIT_IMMOBILIZED))
 			climb_structure(user)
 			return
 	if(!istype(O, /obj/item) || user.get_active_held_item() != O)
@@ -290,7 +290,7 @@
 /obj/machinery/proc/climb_structure(mob/living/user)
 	src.add_fingerprint(user)
 	var/adjusted_climb_time = climb_time
-	if(user.restrained()) //climbing takes twice as long when restrained.
+	if(HAS_TRAIT(user, TRAIT_HANDS_BLOCKED)) //climbing takes twice as long when restrained.
 		adjusted_climb_time *= 2
 	adjusted_climb_time -= user.STASPD * 2
 	adjusted_climb_time = max(adjusted_climb_time, 0)

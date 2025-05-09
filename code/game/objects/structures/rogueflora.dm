@@ -35,38 +35,20 @@
 						user.put_in_hands(I)
 			return
 
+/obj/structure/flora/tree/attacked_by(obj/item/I, mob/living/user)
+	var/was_destroyed = obj_destroyed
+	. = ..()
+	if(.)
+		if(!was_destroyed && obj_destroyed)
+			record_featured_stat(FEATURED_STATS_TREE_FELLERS, user)
+			GLOB.vanderlin_round_stats[STATS_TREES_CUT]++
+
 /obj/structure/flora/tree/fire_act(added, maxstacks)
 	if(added > 5)
 		return ..()
 
 /obj/structure/flora/tree/Initialize()
 	. = ..()
-
-/*
-	if(makevines)
-		var/turf/target = get_step_multiz(src, UP)
-		if(istype(target, /turf/open/transparent/openspace))
-			target.ChangeTurf(/turf/open/floor/shroud)
-			var/makecanopy = FALSE
-			for(var/D in GLOB.cardinals)
-				if(!makecanopy)
-					var/turf/NT = get_step(src, D)
-					for(var/obj/structure/flora/tree/R in NT)
-						if(R.makevines)
-							makecanopy = TRUE
-							break
-			if(makecanopy)
-				for(var/D in GLOB.cardinals)
-					var/turf/NT = get_step(target, D)
-					if(NT)
-						if(istype(NT, /turf/open/transparent/openspace) || istype(NT, /turf/open/floor/shroud))
-							NT.ChangeTurf(/turf/closed/wall/shroud)
-							for(var/X in GLOB.cardinals)
-								var/turf/NA = get_step(NT, X)
-								if(NA)
-									if(istype(NA, /turf/open/transparent/openspace))
-										NA.ChangeTurf(/turf/open/floor/shroud)
-*/
 
 	if(istype(loc, /turf/open/floor/grass))
 		var/turf/T = loc
@@ -75,9 +57,7 @@
 /obj/structure/flora/tree/obj_destruction(damage_flag)
 	if(stump_type)
 		new stump_type(loc)
-	GLOB.vanderlin_round_stats[STATS_TREES_CUT]++
 	. = ..()
-
 
 /obj/structure/flora/tree/Initialize()
 	. = ..()
@@ -329,10 +309,6 @@
 		user.changeNext_move(CLICK_CD_MELEE)
 		playsound(src.loc, "plantcross", 80, FALSE, -1)
 		if(do_after(L, rand(1,5) DECISECONDS, src))
-#ifndef MATURESERVER
-			if(!looty.len && (world.time > res_replenish))
-				loot_replenish()
-#endif
 			if(prob(50) && looty.len)
 				if(looty.len == 1)
 					res_replenish = world.time + 8 MINUTES
@@ -343,13 +319,8 @@
 					user.visible_message("<span class='notice'>[user] finds [B] in [src].</span>")
 					return
 			user.visible_message("<span class='warning'>[user] searches through [src].</span>")
-#ifdef MATURESERVER
 			if(!looty.len)
 				to_chat(user, "<span class='warning'>Picked clean.</span>")
-#else
-			if(!looty.len)
-				to_chat(user, "<span class='warning'>Picked clean... I should try later.</span>")
-#endif
 
 /obj/structure/flora/grass/bush/CanPass(atom/movable/mover, turf/target)
 	if(mover.throwing)
@@ -466,6 +437,15 @@
 	. = ..()
 	icon_state = "tallbush[pick(1,2)]_tundra"
 
+/obj/structure/flora/grass/bush/wall/tall/bog
+	desc = "A tall bush that has grown into a hedge... but this one seems diseased."
+	name = "bog great bush"
+	icon_state = "tallbush1_bog"
+
+/obj/structure/flora/grass/bush/wall/tall/bog/Initialize()
+	. = ..()
+	icon_state = "tallbush[pick(1,2)]_bog"
+
 // fyrituis bush
 /obj/structure/flora/grass/pyroclasticflowers
 	name = "odd group of flowers"
@@ -503,10 +483,6 @@
 		user.changeNext_move(CLICK_CD_MELEE)
 		playsound(src.loc, "plantcross", 80, FALSE, -1)
 		if(do_after(L, rand(1,5) DECISECONDS, src))
-#ifndef MATURESERVER
-			if(!looty2.len && (world.time > res_replenish2))
-				loot_replenish2()
-#endif
 			if(prob(50) && looty2.len)
 				if(looty2.len == 1)
 					res_replenish2 = world.time + 8 MINUTES
@@ -517,13 +493,8 @@
 					user.visible_message(span_notice("[user] finds [B] in [src]."))
 					return
 			user.visible_message(span_warning("[user] searches through [src]."))
-#ifdef MATURESERVER
 			if(!looty2.len)
 				to_chat(user, span_warning("Picked clean."))
-#else
-			if(!looty2.len)
-				to_chat(user, span_warning("Picked clean... I should try later."))
-#endif
 
 // swarmpweed bush
 /obj/structure/flora/grass/swampweed
@@ -563,10 +534,6 @@
 		user.changeNext_move(CLICK_CD_MELEE)
 		playsound(src.loc, "plantcross", 80, FALSE, -1)
 		if(do_after(L, rand(1,5) DECISECONDS, src))
-#ifndef MATURESERVER
-			if(!looty2.len && (world.time > res_replenish2))
-				loot_replenish2()
-#endif
 			if(prob(50) && looty2.len)
 				if(looty2.len == 1)
 					res_replenish2 = world.time + 8 MINUTES
@@ -577,13 +544,8 @@
 					user.visible_message("<span class='notice'>[user] finds [B] in [src].</span>")
 					return
 			user.visible_message("<span class='warning'>[user] searches through [src].</span>")
-#ifdef MATURESERVER
 			if(!looty2.len)
 				to_chat(user, "<span class='warning'>Picked clean.</span>")
-#else
-			if(!looty2.len)
-				to_chat(user, "<span class='warning'>Picked clean... I should try later.</span>")
-#endif
 
 // swarmweed looting
 /obj/structure/flora/grass/swampweed/attack_hand(mob/user)
@@ -592,10 +554,6 @@
 		user.changeNext_move(CLICK_CD_MELEE)
 		playsound(src.loc, "plantcross", 80, FALSE, -1)
 		if(do_after(L, rand(1,5) DECISECONDS, src))
-#ifndef MATURESERVER
-			if(!looty3.len && (world.time > res_replenish3))
-				loot_replenish3()
-#endif
 			if(prob(50) && looty3.len)
 				if(looty3.len == 1)
 					res_replenish3 = world.time + 8 MINUTES
@@ -606,13 +564,8 @@
 					user.visible_message("<span class='notice'>[user] finds [B] in [src].</span>")
 					return
 			user.visible_message("<span class='warning'>[user] searches through [src].</span>")
-#ifdef MATURESERVER
 			if(!looty3.len)
 				to_chat(user, "<span class='warning'>Picked clean.</span>")
-#else
-			if(!looty3.len)
-				to_chat(user, "<span class='warning'>Picked clean... I should try later.</span>")
-#endif
 
 // varients
 
@@ -837,6 +790,13 @@
 
 /obj/structure/flora/grass/bush_meagre/tundra/update_icon()
 	icon_state = "bush[rand(1,3)]_tundra"
+
+/obj/structure/flora/grass/bush_meagre/yellow
+	name = "bog bush"
+	icon_state = "bush1_bog"
+
+/obj/structure/flora/grass/bush_meagre/yellow/update_icon()
+	icon_state = "bush[rand(1,3)]_bog"
 
 /obj/structure/flora/grass/bush_meagre/Initialize()
 	if(silky)

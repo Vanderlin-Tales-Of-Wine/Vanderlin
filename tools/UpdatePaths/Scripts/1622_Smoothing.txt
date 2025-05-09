@@ -1,0 +1,2 @@
+/turf/closed/wall/mineral/pipe{dir = @ANY} : /turf/closed/wall/mineral/pipe
+/turf/closed/wall/mineral/pipe{icon_state = @ANY} : /turf/closed/wall/mineral/pipe

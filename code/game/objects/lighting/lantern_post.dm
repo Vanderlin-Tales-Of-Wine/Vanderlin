@@ -11,6 +11,7 @@
 	crossfire = FALSE
 	plane = GAME_PLANE_UPPER
 	cookonme = FALSE
+	temperature_change = 10
 	var/permanent
 
 /obj/machinery/light/fueled/lanternpost/fixed

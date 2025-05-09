@@ -212,8 +212,6 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 
 	var/breakpath
 
-	var/walking_stick = FALSE
-
 	var/mailer = null
 	var/mailedto = null
 
@@ -265,6 +263,18 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	var/datum/orderless_slapcraft/in_progress_slapcraft
 	///these are flags of what tools can interact with this atom useful to stop hard coding interactions
 	var/tool_flags = NONE
+
+	var/list/attunement_values
+	///this is in KG
+	var/item_weight = 0
+	///this is a multiplier to the weight of items inside of this items contents
+	var/carry_multiplier = 1
+
+	/// Artificers Recipe
+	var/datum/artificer_recipe/artrecipe
+
+	/// angle of the icon, these are used for attack animations
+	var/icon_angle = 50 // most of our icons are angled
 
 /obj/item/Initialize()
 	. = ..()
@@ -453,7 +463,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	set hidden = 1
 	set src in oview(1)
 
-	if(!isturf(loc) || usr.stat || usr.restrained())
+	if(!isturf(loc) || usr.stat != CONSCIOUS || HAS_TRAIT(usr, TRAIT_HANDS_BLOCKED))
 		return
 
 	if(isliving(usr))
@@ -552,7 +562,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	add_fingerprint(usr)
 	return ..()
 
-/obj/item/attack_hand(mob/user)
+/obj/item/attack_hand(mob/living/user)
 	. = ..()
 	if(.)
 		return
@@ -562,7 +572,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		return
 
 	if(twohands_required)
-		if(user.get_num_arms() < 2)
+		if(user.usable_hands < 2)
 			to_chat(user, "<span class='warning'>[src] is too bulky to carry in one hand!</span>")
 			return
 		if(get_dist(src,user) > 1)
@@ -805,7 +815,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	set hidden = 1
 	set name = "Pick up"
 
-	if(usr.incapacitated() || !Adjacent(usr))
+	if(usr.incapacitated(ignore_grab = TRUE) || !Adjacent(usr))
 		return
 
 	if(isliving(usr))
@@ -847,7 +857,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 
 	playsound(loc, src.hitsound, 30, TRUE, -1)
 
-	user.do_attack_animation(M)
+	user.do_attack_animation(M, used_intent = user.used_intent)
 
 	if(M != user)
 		M.visible_message("<span class='danger'>[user] has stabbed [M] in the eye with [src]!</span>", \
@@ -1280,7 +1290,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	if(user.get_inactive_held_item())
 		to_chat(user, "<span class='warning'>I need a free hand first.</span>")
 		return
-	if(user.get_num_arms() < 2)
+	if(user.usable_hands < 2)
 		to_chat(user, "<span class='warning'>I don't have enough hands.</span>")
 		return
 	wielded = TRUE
@@ -1296,6 +1306,22 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 			return
 	user.update_a_intents()
 	user.update_inv_hands()
+
+
+/obj/item/on_fall_impact(mob/living/impactee, fall_speed)
+	. = ..()
+	if(!item_weight)
+		return
+
+	var/target_zone = BODY_ZONE_HEAD
+	/*
+	if(impactee.lying)
+		target_zone = BODY_ZONE_CHEST
+	*/
+	playsound(impactee.loc, pick('sound/combat/gib (1).ogg','sound/combat/gib (2).ogg'), 200, FALSE, 3)
+	add_blood_DNA(impactee.return_blood_DNA())
+	impactee.visible_message(span_danger("[src] crashes into [impactee]'s [target_zone]!"), span_danger("A [src] hits you in your [target_zone]!"))
+	impactee.apply_damage(item_weight * fall_speed, BRUTE, target_zone, impactee.run_armor_check(target_zone, "blunt", damage = item_weight * fall_speed))
 
 /obj/item/attack_self(mob/user)
 	. = ..()
@@ -1322,9 +1348,9 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		return span_info("Value: [get_real_price()] mammon")
 	return FALSE
 
-/obj/item/proc/get_stored_weight()
+/obj/item/proc/get_stored_weight(has_trait)
 	var/held_weight = 0
 	for(var/obj/item/stored_item in contents)
 		held_weight += stored_item.item_weight * carry_multiplier
 
-	return held_weight
+	return has_trait ? held_weight * 0.5 : held_weight

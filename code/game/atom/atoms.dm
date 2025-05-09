@@ -86,6 +86,17 @@
 	///AI controller that controls this atom. type on init, then turned into an instance during runtime
 	var/datum/ai_controller/ai_controller
 
+	///Icon-smoothing behavior.
+	var/smoothing_flags = NONE
+	///Icon to use for smoothing, only required for secret doors
+	var/smoothing_icon
+	///What directions this is currently smoothing with. IMPORTANT: This uses the smoothing direction flags as defined in icon_smoothing.dm, instead of the BYOND flags.
+	var/smoothing_junction = null //This starts as null for us to know when it's first set, but after that it will hold a 8-bit mask ranging from 0 to 255.
+	///What smoothing groups does this atom belongs to, to match smoothing_list. If null, nobody can smooth with it.
+	var/list/smoothing_groups = null
+	///List of smoothing groups this atom can smooth with. If this is null and atom is smooth, it smooths only with itself.
+	var/list/smoothing_list = null
+
 	///how shiny we are
 	var/mutable_appearance/total_reflection_mask
 	var/shine = SHINE_MATTE
@@ -162,15 +173,14 @@
 	if(color)
 		add_atom_colour(color, FIXED_COLOUR_PRIORITY)
 
-	if (light_system == STATIC_LIGHT && light_power && (light_inner_range || light_outer_range))
+	if(light_system == STATIC_LIGHT && light_power && (light_inner_range || light_outer_range))
 		update_light()
 
-	if (opacity && isturf(loc))
+	if(opacity && isturf(loc))
 		var/turf/T = loc
 		T.has_opaque_atom = TRUE // No need to recalculate it in this case, it's guaranteed to be on afterwards anyways.
 
-	if (canSmoothWith)
-		canSmoothWith = typelist("canSmoothWith", canSmoothWith)
+	SETUP_SMOOTHING()
 
 	ComponentInitialize()
 	InitializeAIController()
@@ -222,6 +232,9 @@
 
 	QDEL_NULL(light)
 	QDEL_NULL(ai_controller)
+
+	if(smoothing_flags & SMOOTH_QUEUED)
+		SSicon_smooth.remove_from_queues(src)
 
 	return ..()
 
@@ -487,7 +500,7 @@
  * Default behaviour is to send a warning that the user can't move while buckled as long
  * as the buckle_message_cooldown has expired (50 ticks)
  */
-/atom/proc/relaymove(mob/user)
+/atom/proc/relaymove(mob/living/user, direction)
 	if(buckle_message_cooldown <= world.time)
 		buckle_message_cooldown = world.time + 50
 		to_chat(user, "<span class='warning'>I should try resisting.</span>")
@@ -574,8 +587,8 @@
 		return FALSE
 	return add_blood_DNA(blood_dna)
 
-///Called when gravity returns after floating I think
-/atom/proc/handle_fall()
+///Used for making a sound when a mob involuntarily falls into the ground.
+/atom/proc/handle_fall(mob/faller)
 	return
 
 /**
@@ -902,10 +915,6 @@
 /atom/Exited(atom/movable/AM, atom/newLoc)
 	SEND_SIGNAL(src, COMSIG_ATOM_EXITED, AM, newLoc)
 
-///Return atom temperature
-/atom/proc/return_temperature()
-	return
-
 /**
  *Tool behavior procedure. Redirects to tool-specific procs by default.
  *
@@ -1024,7 +1033,7 @@
 /atom/proc/log_talk(message, message_type, tag=null, log_globally=TRUE, forced_by=null)
 	var/prefix = tag ? "([tag]) " : ""
 	var/suffix = forced_by ? " FORCED by [forced_by]" : ""
-	log_message("[prefix]\"[message]\"[suffix]", message_type, log_globally=log_globally)
+	log_message("[prefix]\"[message]\"[suffix]", message_type, "#1900ff", log_globally)
 
 /// Helper for logging of messages with only one sender and receiver
 /proc/log_directed_talk(atom/source, atom/target, message, message_type, tag)
@@ -1202,3 +1211,38 @@
 /atom/proc/InitializeAIController()
 	if(ai_controller)
 		ai_controller = new ai_controller(src)
+
+/obj/proc/propagate_temp_change(value, weight, falloff = 0.5, max_depth = 3)
+	var/key = REF(src)
+	temperature_affected_turfs = list()
+	_propagate_turf_heat(src, get_turf(src), key, value, weight, falloff, max_depth)
+
+/obj/proc/remove_temp_effect()
+	var/key = REF(src)
+	for(var/turf/T in temperature_affected_turfs)
+		T.remove_turf_temperature(key)
+	temperature_affected_turfs = null
+
+/atom/proc/_propagate_turf_heat(obj/source, turf/start, key, value, weight, falloff, max_depth, depth = 0, seen = null)
+	if(!start || depth > max_depth || (abs(value) < 0.1 && weight < 0.1))
+		return
+	if(!seen)
+		seen = list()
+	if(start in seen)
+		return
+	seen += start
+	start.add_turf_temperature(key, value, weight)
+	if(!source.temperature_affected_turfs)
+		source.temperature_affected_turfs = list()
+	source.temperature_affected_turfs |= start
+
+	var/next_value = value * falloff
+	var/next_weight = weight * falloff
+
+	for(var/dir in GLOB.cardinals)
+		var/turf/adj = get_step(start, dir)
+		if(istype(adj))
+			// Check if there's a wall blocking propagation
+			if(!start.CanAtmosPass(adj))
+				continue
+			_propagate_turf_heat(source, adj, key, next_value, next_weight, falloff, max_depth, depth + 1, seen)

@@ -381,7 +381,7 @@
 	if(known_skills[skill_ref] >= old_level)
 		if(known_skills[skill_ref] > old_level)
 			to_chat(current, span_nicegreen("My proficiency in [skill_ref.name] grows to [SSskills.level_names[known_skills[skill_ref]]]!"))
-			skill_ref.skill_level_effect(src, known_skills[skill_ref])
+			skill_ref.skill_level_effect(known_skills[skill_ref], src)
 			GLOB.vanderlin_round_stats[STATS_SKILLS_LEARNED]++
 			if(istype(skill_ref, /datum/skill/combat))
 				GLOB.vanderlin_round_stats[STATS_COMBAT_SKILLS]++
@@ -497,7 +497,7 @@
  ** max - maximum amount up to which the skill will be changed
 */
 /datum/mind/proc/clamped_adjust_skillrank(skill, amt, max, silent)
-	adjust_skillrank(skill, clamp(max - get_skill_level(skill), 0, amt), silent)
+	adjust_skillrank(skill, clamp(abs(amt - get_skill_level(skill)), 0, max), silent)
 
 /**
  * sets the skill level to a specific amount

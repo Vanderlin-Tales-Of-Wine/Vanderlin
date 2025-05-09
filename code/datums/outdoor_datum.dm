@@ -23,6 +23,7 @@ Sunlight System
 	var/object_slowdown = 0
 	var/weatherproof = FALSE
 	var/weather = FALSE
+	var/list/temperature_affected_turfs
 
 /obj/proc/weather_act_on(weather_trait, severity)
 	return

@@ -41,6 +41,7 @@
 	if(!feature)
 		return
 	feature.hair_color = new_color
+	feature.accessory_colors = new_color
 	if(updates_body)
 		update_body_parts()
 

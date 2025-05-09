@@ -19,21 +19,11 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 	var/can_cover_up = TRUE
 	var/can_build_on = TRUE
 	dynamic_lighting = 1
-	canSmoothWith = list(/turf/closed/mineral,/turf/closed/wall/mineral, /turf/open/floor)
-	smooth = SMOOTH_MORE
-	neighborlay_override = "staticedge"
 	turf_flags = NONE
 
-/turf/open/transparent/openspace/cardinal_smooth(adjacencies)
-	smooth(adjacencies)
-
-/turf/open/transparent/openspace/smooth(adjacencies)
-	var/list/Yeah = ..()
-	for(var/O in Yeah)
-		var/mutable_appearance/M = mutable_appearance(icon, O)
-		M.layer = SPLASHSCREEN_LAYER + 0.01
-		M.plane = OPENSPACE_BACKDROP_PLANE + 0.01
-		add_overlay(M)
+/turf/open/transparent/openspace/debug/update_multiz()
+	..()
+	return TRUE
 
 ///No bottom level for openspace.
 /turf/open/transparent/openspace/show_bottom_level()

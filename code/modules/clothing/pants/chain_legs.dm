@@ -5,7 +5,6 @@
 	gender = PLURAL
 	icon_state = "chain_legs"
 	item_state = "chain_legs"
-//	adjustable = CAN_CADJUST
 	sewrepair = FALSE
 	resistance_flags = FIRE_PROOF
 	blocksound = CHAINHIT
