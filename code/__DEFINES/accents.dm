@@ -8,7 +8,7 @@
 #define ACCENT_GRENZ "Grenzelhoft Acccent"
 #define ACCENT_PIRATE "Pirate Accent"
 #define ACCENT_MIDDLE_SPEAK "Middle Speak (Old Half-Orc)"
-#define ACCENT_ZYBANTINE "Arabic Accent"
+#define ACCENT_ZYBANTINE "Zybantine Accent"
 
 GLOBAL_LIST_INIT(accent_list, list(
 	ACCENT_NONE = list(),
