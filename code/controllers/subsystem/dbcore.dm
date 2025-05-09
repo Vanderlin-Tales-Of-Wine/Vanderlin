@@ -125,7 +125,7 @@ SUBSYSTEM_DEF(dbcore)
 
 	var/user = CONFIG_GET(string/feedback_login)
 	var/pass = CONFIG_GET(string/feedback_password)
-	var/db = "monkestation"
+	var/db = "stonekeep"
 	var/address = CONFIG_GET(string/address)
 	var/port = CONFIG_GET(number/port)
 	var/timeout = max(CONFIG_GET(number/async_query_timeout), CONFIG_GET(number/blocking_query_timeout))
