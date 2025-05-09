@@ -159,7 +159,6 @@
 			RB.reagents.add_reagent(src.type, reac_volume)
 
 	else if(istype(O, /obj/item/natural/cloth))
-		var/obj/item/natural/cloth/clothy
 		O.wash(CLEAN_WASH)
 /*
  *	Water reaction to a mob
