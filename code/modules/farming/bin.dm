@@ -116,7 +116,7 @@
 			reagents.remove_reagent(removereg, 5)
 			var/list/wash = list('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg')
 			playsound(user, pick_n_take(wash), 100, FALSE)
-			var/item2wash = user.get_active_held_item()
+			var/obj/item/item2wash = user.get_active_held_item()
 			if(!item2wash)
 				user.visible_message("<span class='info'>[user] starts to wash in [src].</span>")
 				if(do_after(L, 3 SECONDS, src))

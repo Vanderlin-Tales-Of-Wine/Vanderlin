@@ -278,10 +278,6 @@
 	if(get_eye_color() == BLOODCULT_EYE)
 		. += "<span class='warning'><B>[capitalize(m2)] eyes are glowing an unnatural red!</B></span>"
 
-	//ears
-	if(ears && !(SLOT_HEAD in obscured))
-		. += "[m3] [ears.get_examine_string(user)] on [m2] ears."
-
 	//ID
 	if(wear_ring && !(SLOT_RING in obscured))
 		. += "[m3] [wear_ring.get_examine_string(user)]."

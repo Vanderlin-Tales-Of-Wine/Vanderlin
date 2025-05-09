@@ -1359,5 +1359,4 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 /obj/item/wash(clean_types)
 	. = ..()
 	if(ismob(loc))
-		var/mob/mob_loc = loc
-		mob_loc.update_clothing(slot_flags)
+		update_slot_icon()

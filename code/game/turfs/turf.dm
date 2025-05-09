@@ -590,5 +590,5 @@
 /turf/wash(clean_types, all_contents = FALSE)
 	. = ..()
 	for(var/atom/movable/to_clean as anything in src)
-		if(all_contents || HAS_TRAIT(to_clean, TRAIT_MOPABLE))
+		if(all_contents)
 			to_clean.wash(clean_types)

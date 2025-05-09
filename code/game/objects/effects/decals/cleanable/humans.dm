@@ -19,10 +19,21 @@
 	COOLDOWN_DECLARE(wash_cooldown)
 
 
-/obj/effect/decal/cleanable/blood/add_blood_DNA(list/blood_DNA, no_visuals = FALSE)
-	. = ..()
-	if(!no_visuals && length(blood_DNA))
-		color = get_blood_dna_color(blood_DNA)
+/obj/effect/decal/cleanable/blood/add_blood_DNA(list/blood_DNA_to_add, no_visuals = FALSE)
+	if(!..())
+		return FALSE
+
+	// Imperfect, ends up with some blood types being double-set-up, but harmless (for now)
+	for(var/new_blood in blood_DNA_to_add)
+		var/datum/blood_type/blood = GLOB.blood_types[blood_DNA_to_add[new_blood]]
+		blood?.set_up_blood(src, first_dna == 0)
+		var/datum/reagent/blood_reagent = blood?.reagent_type
+		if(initial(blood_reagent?.glows))
+			glows = TRUE
+
+	update_icon()
+	update_overlays()
+	return TRUE
 
 /obj/effect/decal/cleanable/blood/update_overlays()
 	. = ..()
@@ -76,7 +87,6 @@
 /obj/effect/decal/cleanable/blood/lazy_init_reagents()
 	if(!reagents)
 		return
-	var/list/all_dna = D?.blood_DNA
 	var/list/reagents_to_add
 	for(var/dna_sample as anything in all_dna)
 		var/datum/blood_type/blood = GLOB.blood_types[all_dna[dna_sample]]
