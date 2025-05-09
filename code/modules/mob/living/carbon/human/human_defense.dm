@@ -426,6 +426,7 @@
 		else
 			. = get_bodypart(BODY_ZONE_HEAD)
 			if(.)
+				damaged += .
 
 	//CHEST//
 	if(!bodyzone_hit || bodyzone_hit == BODY_ZONE_CHEST)
