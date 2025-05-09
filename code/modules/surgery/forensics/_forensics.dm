@@ -188,11 +188,6 @@
 	if(!isliving(suspect))
 		if(!iscameramob(suspect))
 			return
-		if(isaicamera(suspect))
-			var/mob/camera/ai_eye/ai_camera = suspect
-			if(!ai_camera.ai)
-				return
-			suspect = ai_camera.ai
 	if(!suspect.key)
 		return
 	var/has_gloves = ""

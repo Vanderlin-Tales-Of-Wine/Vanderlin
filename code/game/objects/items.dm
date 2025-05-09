@@ -1354,3 +1354,10 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		held_weight += stored_item.item_weight * carry_multiplier
 
 	return has_trait ? held_weight * 0.5 : held_weight
+
+// Update icons if this is being carried by a mob
+/obj/item/wash(clean_types)
+	. = ..()
+	if(ismob(loc))
+		var/mob/mob_loc = loc
+		mob_loc.update_clothing(slot_flags)

@@ -371,7 +371,7 @@
 			user.visible_message("<span class='info'>[user] starts to wash in [src].</span>")
 			if(do_after(L, 3 SECONDS, src))
 				if(wash_in)
-					wash_atom(user, CLEAN_STRONG)
+					wash_atom(user, CLEAN_SCRUB)
 				var/datum/reagents/reagents = new()
 				reagents.add_reagent(water_reagent, 4)
 				reagents.trans_to(L, reagents.total_volume, transfered_by = user, method = TOUCH)

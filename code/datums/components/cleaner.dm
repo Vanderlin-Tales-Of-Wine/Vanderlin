@@ -23,7 +23,7 @@
 
 /datum/component/cleaner/Initialize(
 	base_cleaning_duration = 3 SECONDS,
-	cleaning_strength = CLEAN_MEDIUM,
+	cleaning_strength = CLEAN_SCRUB,
 	cleaning_effectiveness = 100,
 	downgrade_on_ineffective = TRUE,
 	datum/callback/pre_clean_callback = null,
