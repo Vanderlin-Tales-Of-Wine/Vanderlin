@@ -152,7 +152,7 @@
 		if(!valid_mobtype)
 			return FALSE
 
-	if(lying_required && target.body_position == LYING_DOWN)
+	if(lying_required && target.body_position != LYING_DOWN)
 		return FALSE
 
 	if(iscarbon(target))

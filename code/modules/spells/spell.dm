@@ -413,7 +413,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 		if(istype(target))
 			var/lux_state = target.get_lux_status()
 			if(lux_state != LUX_HAS_LUX)
-				target.visible_message(span_danger("[target] recoils in disgust!"))
+				target.visible_message(span_warning("[target] recoils in disgust!"))
 
 	before_cast(targets)
 	invocation(user)

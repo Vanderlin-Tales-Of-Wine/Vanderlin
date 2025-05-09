@@ -71,6 +71,7 @@
 	surgery_flags_blocked = SURGERY_RETRACTED
 	skill_min = SKILL_LEVEL_JOURNEYMAN
 	skill_median = SKILL_LEVEL_JOURNEYMAN
+	preop_sound = 'sound/surgery/retractor1.ogg'
 
 /datum/surgery_step/retract/preop(mob/user, mob/living/target, target_zone, obj/item/tool, datum/intent/intent)
 	display_results(user, target, "<span class='notice'>I begin to retract [target]'s [parse_zone(target_zone)]...</span>",
@@ -152,6 +153,8 @@
 	surgery_flags_blocked = SURGERY_BROKEN
 	skill_min = SKILL_LEVEL_JOURNEYMAN
 	skill_median = SKILL_LEVEL_EXPERT
+	preop_sound = 'sound/surgery/scalpel1.ogg'
+	success_sound = 'sound/surgery/organ2.ogg'
 
 /datum/surgery_step/saw/preop(mob/user, mob/living/target, target_zone, obj/item/tool, datum/intent/intent)
 	display_results(user, target, "<span class='notice'>I begin to saw through the bone in [target]'s [parse_zone(target_zone)]...</span>",
