@@ -1497,13 +1497,11 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 	if(user.stamina >= user.maximum_stamina)
 		return FALSE
-	if(user.body_position == LYING_DOWN)
-		return FALSE
 	var/stander = TRUE
 	if(target.body_position == LYING_DOWN)
 		stander = FALSE
 	if(user.loc == target.loc)
-		if(!stander && (user.body_position != LYING_DOWN))
+		if(!stander)
 			target.lastattacker = user.real_name
 			target.lastattackerckey = user.ckey
 			if(target.mind)
@@ -1548,6 +1546,9 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			return 0
 
 		playsound(target, 'sound/combat/hits/kick/kick.ogg', 100, TRUE, -1)
+
+		if(target.pulling && target.grab_state < GRAB_AGGRESSIVE)
+			target.stop_pulling()
 
 		var/turf/target_oldturf = target.loc
 		var/shove_dir = get_dir(user.loc, target_oldturf)

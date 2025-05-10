@@ -287,7 +287,7 @@
 			return FALSE
 	return ..()
 
-/atom/movable/proc/start_pulling(atom/movable/AM, state, force = move_force, supress_message = FALSE, obj/item/item_override)
+/atom/movable/proc/start_pulling(atom/movable/AM, state, force = move_force, suppress_message = FALSE, obj/item/item_override)
 	testing("startpulling target: [AM]")
 	if(QDELETED(AM))
 		return FALSE
@@ -318,7 +318,7 @@
 		var/mob/M = AM
 		log_combat(src, M, "grabbed", addition="passive grab")
 		M.stop_all_doing()
-		if(!supress_message)
+		if(!suppress_message)
 			M.visible_message("<span class='warning'>[src] grabs [M].</span>", \
 				"<span class='danger'>[src] grabs you.</span>")
 	return TRUE
