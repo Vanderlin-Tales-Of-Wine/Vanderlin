@@ -132,6 +132,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	var/list/menuoptions
 
 	var/datum/migrant_pref/migrant
+	var/next_special_trait = null
 
 	var/action_buttons_screen_locs = list()
 
@@ -375,6 +376,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	dat += "<td width='33%' align='center'>"
 	var/mob/dead/new_player/N = user
 	if(istype(N))
+		dat += "<a href='?_src_=prefs;preference=bespecial'><b>[next_special_trait ? "<font color='red'>SPECIAL</font>" : "Be Special"]</b></a><BR>"
 		if(SSticker.current_state <= GAME_STATE_PREGAME)
 			switch(N.ready)
 				if(PLAYER_NOT_READY)
@@ -1161,6 +1163,29 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 						domhand = 2
 					else
 						domhand = 1
+				if("bespecial")
+					if(next_special_trait)
+						print_special_text(user, next_special_trait)
+						return
+					to_chat(user, span_boldwarning("You will become special for one round, this could be something negative, positive or neutral and could have a high impact on your character and your experience. You cannot back out from or reroll this, and it will not carry over to other rounds."))
+					to_chat(user, span_boldwarning("THIS COSTS 1 TRIUMPH"))
+					if(user.get_triumphs() < 1)
+						to_chat(user, span_bignotice("YOU DON'T HAVE ENOUGH TRIUMPHS."))
+						return
+					var/result = alert(user, "You'll receive a unique trait for one round\n You cannot back out from or reroll this\nDo you really want to spend 1 triumph for it?", "Be Special", "Yes", "No")
+					if(result != "Yes")
+						return
+					user.adjust_triumphs(-1)
+					if(next_special_trait)
+						return
+					next_special_trait = roll_random_special(user.client)
+					if(next_special_trait)
+						log_game("SPECIALS: Rolled [next_special_trait] for ckey: [user.ckey]")
+						print_special_text(user, next_special_trait)
+						user.playsound_local(user, 'sound/misc/alert.ogg', 100)
+						to_chat(user, span_warning("This will be applied on your next game join."))
+						to_chat(user, span_warning("You may switch your character and choose any role, if you don't meet the requirements (if any are specified) it won't be applied"))
+
 				if("family")
 					var/list/famtree_options_list = list(FAMILY_NONE, FAMILY_PARTIAL, FAMILY_NEWLYWED, FAMILY_FULL, "EXPLAIN THIS TO ME")
 					var/new_family = browser_input_list(user, "SELECT YOUR HERO'S BOND", "BLOOD IS THICKER THAN WATER", famtree_options_list, family)

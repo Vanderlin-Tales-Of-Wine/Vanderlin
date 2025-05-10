@@ -645,7 +645,6 @@ GLOBAL_VAR_INIT(mobids, 1)
 		if(machine && in_range(src, usr))
 			show_inv(machine)
 
-
 	if(href_list["item"] && usr.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
 		var/slot = text2num(href_list["item"])
 		var/hand_index = text2num(href_list["hand_index"])
