@@ -104,6 +104,9 @@
 /// Burns the target and makes the turf process (depending on the return value of do_burn()).
 #define LAVA_BE_BURNING 2
 
+/turf/open/lava/can_traverse_safely(atom/movable/traveler)
+	return ..() && !can_burn_stuff(traveler) // can traverse safely if you won't burn in it
+
 ///Proc that sets on fire something or everything on the turf that's not immune to lava. Returns TRUE to make the turf start processing.
 /turf/open/lava/proc/burn_stuff(atom/movable/to_burn, seconds_per_tick = 1)
 	if(is_safe())

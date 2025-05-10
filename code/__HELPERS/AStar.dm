@@ -35,24 +35,20 @@ Actual Adjacent procs :
 	var/nt
 	var/bf
 
-/datum/PathNode/New(s, p, pg, ph, pnt, _bf)
+/datum/PathNode/New(s,p,pg,ph,pnt,_bf)
 	source = s
-	prevNode = p
-	g = pg
-	h = ph
-	f = g + h * (1 + PF_TIEBREAKER)
-	nt = pnt
+	setp(p, pg, ph, pnt)
 	bf = _bf
 
-/datum/PathNode/proc/setp(p, pg, ph, pnt)
+/datum/PathNode/proc/setp(p,pg,ph,pnt)
 	prevNode = p
 	g = pg
 	h = ph
-	f = g + h * (1 + PF_TIEBREAKER)
+	calc_f()
 	nt = pnt
 
 /datum/PathNode/proc/calc_f()
-	f = g + h
+	f = g + h*(1 + PF_TIEBREAKER)
 
 /proc/PathWeightCompare(datum/PathNode/a, datum/PathNode/b)
 	return a.f - b.f
@@ -88,12 +84,12 @@ Actual Adjacent procs :
 	var/list/openc = new()
 	var/list/path = null
 
-	// Important: Initialize with bf=63 to enable all 6 directions (bits 0-5)
-	var/datum/PathNode/cur = new /datum/PathNode(start, null, 0, start.Distance3D(end), 0, 63)
+	var/const/ALL_DIRS = NORTH|SOUTH|EAST|WEST
+	var/datum/PathNode/cur = new /datum/PathNode(start, null, 0, start.Distance3D(end), 0, ALL_DIRS, 1)
 	open.Insert(cur)
 	openc[start] = cur
 
-	while (!open.IsEmpty() && !path)
+	while (requester && !open.IsEmpty() && !path)
 		cur = open.Pop()
 
 		// Destination check - must be exact match or valid closeenough on same Z-level
@@ -108,75 +104,42 @@ Actual Adjacent procs :
 				closeenough = cur.source.Distance3D(end) < 1
 
 		if (is_destination || closeenough)
-			path = new()
-			path.Add(cur.source)
+			path = list(cur.source)
 			while (cur.prevNode)
 				cur = cur.prevNode
 				path.Add(cur.source)
 			break
 
-		if (!maxnodedepth || cur.nt <= maxnodedepth)
-			// Process all 6 directions (bits 0-5)
-			for (var/i = 0 to 5)
-				var/f = 1 << i
-				if (cur.bf & f)
-					var/turf/T
+		if(maxnodedepth && (cur.nt > maxnodedepth)) //if too many steps, don't process that path
+			cur.bf = 0
+			CHECK_TICK
+			continue
 
-					if (i < 4) // Cardinal directions (bits 0-3)
-						T = get_step(cur.source, 1 << i)
-					else // Z-level movement (bits 4-5)
-						// Only process z-level movement if check_z_levels is TRUE
-						if (!check_z_levels)
-							continue
-						T = get_turf_zchange(cur.source, i)
-
-					if (!T || T == exclude)
-						continue
-
-					var/datum/PathNode/CN = openc[T]
-
-					// Calculate reverse direction (for 2D only; z-level is handled differently)
-					var/r
-					if (i < 4) // For cardinal directions
-						r = ((f & MASK_ODD) << 1) | ((f & MASK_EVEN) >> 1)
-					else // For z-level movement
-						r = 1 << (9 - i) // bit 4 (UP) corresponds to bit 5 (DOWN) and vice versa
-
-					var/newg = cur.g + cur.source.Distance3D(T)
-
-					// Check if the turf has objects with BLOCK_Z_OUT_DOWN flag
-					var/has_block_z_out_down = FALSE
-					for(var/obj/structure/O in T.contents)
-						if(O.obj_flags & BLOCK_Z_OUT_DOWN)
-							has_block_z_out_down = TRUE
-							break
-
-					// Only add path_weight if the turf doesn't have objects with BLOCK_Z_OUT_DOWN flag
-					if(!has_block_z_out_down)
-						newg += cur.source.path_weight
-
-					// Apply a larger penalty for changing z-levels to prefer same-level paths
-					if (i >= 4 && check_z_levels)
-						newg += 10 // Increased penalty to make same-level paths more preferred
-
-					if (CN)
-						if (i < 4)
-							CN.bf &= ~r // Clear reverse cardinal direction
-						else
-							CN.bf &= ~(1 << (9 - i)) // Clear reverse z-level direction
-
-						if (newg < CN.g && cur.source.reachableTurftest(requester, T, id, simulated_only))
-							CN.setp(cur, newg, CN.h, cur.nt + 1)
-							open.ReSort(CN)
-					else if (cur.source.reachableTurftest(requester, T, id, simulated_only))
-						// For new nodes, initialize with all directions except the one we came from
-						var/new_bf = 63
-						if (i < 4)
-							new_bf &= ~r
-						else
-							new_bf &= ~(1 << (9 - i))
-
-						CN = new(T, cur, newg, T.Distance3D(end), cur.nt + 1, new_bf)
+		for(var/dir_to_check in GLOB.cardinals)
+			if(!(cur.bf & dir_to_check)) // we can't proceed in this direction
+				continue
+			// get the turf we end up at if we move in dir_to_check; this may have special handling for multiz moves
+			var/T = get_step(cur.source, dir_to_check)
+			// when leaving a turf with stairs on it, we can change Z, so take that into account
+			// this handles both upwards and downwards moves depending on the dir
+			var/obj/structure/stairs/source_stairs = locate(/obj/structure/stairs) in cur.source
+			if(source_stairs)
+				T = source_stairs.get_transit_destination(dir_to_check)
+			if(T != exclude)
+				var/datum/PathNode/CN = openc[T]  //current checking turf
+				var/reverse = GLOB.reverse_dir[dir_to_check]
+				var/newg = cur.g + call(cur.source,dist)(T, requester) // add the travel distance between these two tiles to the distance so far
+				if(CN)
+				//is already in open list, check if it's a better way from the current turf
+					CN.bf &= ALL_DIRS^reverse //we have no closed, so just cut off exceed dir.00001111 ^ reverse_dir.We don't need to expand to checked turf.
+					if((newg < CN.g))
+						if(call(cur.source,adjacent)(requester, T, id))
+							CN.setp(cur,newg,CN.h,cur.nt+1)
+							open.ReSort(CN)//reorder the changed element in the list
+				else
+				//is not already in open list, so add it
+					if(call(cur.source,adjacent)(requester, T, id))
+						CN = new(T,cur,newg,call(T,dist)(end, requester),cur.nt+1, ALL_DIRS^reverse)
 						open.Insert(CN)
 						openc[T] = CN
 
@@ -190,102 +153,23 @@ Actual Adjacent procs :
 	openc = null
 	return path
 
-/proc/get_turf_zchange(turf/T, dir)
-	if (!T)
-		return null
-
-	// Check for up/down movement via stairs
-	if (dir == 4) // UP
-		// Look for stairs at current location
-		for (var/obj/structure/stairs/S in T.contents)
-			// Get the turf above in the stair's direction
-			var/turf/above = get_step_multiz(T, UP)
-			if (!above || !isopenturf(above))
-				continue
-
-			var/turf/dest = get_step(above, S.dir)
-			// Check for matching stairs in the destination
-			for (var/obj/structure/stairs/S2 in dest.contents)
-				if (S2.dir == S.dir)
-					return dest
-
-	else if (dir == 5) // DOWN
-		// Look for stairs at current location that lead down
-		var/turf/below = get_step_multiz(T, DOWN)
-		if (!below || !isopenturf(below))
-			return null
-
-		// First check if there are stairs in the current turf leading down
-		for (var/obj/structure/stairs/S in T.contents)
-			//Must approach from opposite direction of stair
-			var/turf/approach = get_step(T, turn(S.dir, 180))
-			if(!istransparentturf(approach))
-				continue
-
-			// Destination would be the turf below in the stair's direction
-			var/turf/dest = get_step(below, S.dir)
-			if (dest && !dest.density)
-				for (var/obj/structure/stairs/S2 in dest.contents)
-					if (S2.dir == S.dir)
-						return dest
-
-		// If no stairs in current turf, check for stairs in adjacent turfs that might lead to below
-		for (var/turf/adjacent in get_adjacent_open_turfs(T))
-			for (var/obj/structure/stairs/S in adjacent.contents)
-				var/turf/adjacent_below = get_step_multiz(adjacent, DOWN)
-				// If these stairs lead to our target floor
-				var/turf/dest = get_step(adjacent_below, GLOB.reverse_dir[S.dir])
-				if (dest && !dest.density)
-					return dest
-
-	return null
-
 /turf/proc/reachableTurftest(requester, turf/T, ID, simulated_only = TRUE, check_z_levels = TRUE)
-	if (!T || !istype(T))
+	if(!T || T.density)
 		return FALSE
-
-	if (T.density)
+	if(!T.can_traverse_safely(requester)) // dangerous turf! lava or openspace (or others in the future)
 		return FALSE
-
-	if (is_type_in_typecache(T, GLOB.dangerous_turfs))
-		// Check if there's an object with BLOCK_Z_OUT_DOWN flag on the turf
-		var/has_block_z_out_down = FALSE
-		for(var/obj/structure/O in T.contents)
-			if(O.obj_flags & BLOCK_Z_OUT_DOWN)
-				has_block_z_out_down = TRUE
-				break
-
-		// If it's a dangerous turf WITHOUT the BLOCK_Z_OUT_DOWN flag, handle as before
-		if(!has_block_z_out_down)
-			if(istype(T, /turf/open/transparent))
-				var/turf/open/below_turf = GET_TURF_BELOW(T)
-				var/obj/structure/stairs/S = locate(/obj/structure/stairs/) in below_turf.contents
-				if(!S)
-					return FALSE
-				var/required_dir = turn(S.dir, 180)
-				if(get_dir(src, T) != required_dir)
-					return FALSE
-			else
-				return FALSE
-
-	// Same z-level movement - use standard check
-	if (!check_z_levels || T.z == z)
+	var/z_distance = abs(T.z - z)
+	if(!z_distance) // standard check for same-z pathing
 		return !LinkBlockedWithAccess(T, requester, ID)
-
-	// Z-level transition - check if it's a valid stair transition
-	if (check_z_levels && abs(T.z - z) == 1)
-		if (T.z > z) // Moving up
-			// Check if we can reach T via stairs
-			var/turf/stair_dest = get_turf_zchange(src, 4) // 4 = UP
-			return (stair_dest == T) && !LinkBlockedWithAccess(T, requester, ID)
-		else // Moving down
-			// Check if we can reach T via stairs
-			var/turf/stair_dest = get_turf_zchange(src, 5) // 5 = DOWN
-
-			// Only consider the destination valid if it came from get_turf_zchange
-			// This prevents the pathfinder from considering direct below/above turfs as valid
-			return (stair_dest == T) && !LinkBlockedWithAccess(T, requester, ID)
-
+	if(z_distance != 1) // no single movement lets you move more than one z-level at a time (currently; update if this changes)
+		return FALSE
+	var/obj/structure/stairs/source_stairs = locate(/obj/structure/stairs) in src
+	if(T.z < z) // going down
+		if(source_stairs?.get_target_loc(GLOB.reverse_dir[source_stairs.dir]) == T)
+			return TRUE
+	else // heading DOWN stairs was handled earlier, so now handle going UP stairs
+		if(source_stairs?.get_target_loc(source_stairs.dir) == T)
+			return TRUE
 	return FALSE
 
 // Add a helper function to compute 3D Manhattan distance

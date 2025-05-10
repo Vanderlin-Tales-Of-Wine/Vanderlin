@@ -34,7 +34,6 @@
 	clawfootstep = null
 	heavyfootstep = null
 	landsound = 'sound/foley/jumpland/waterland.wav'
-	path_weight = 90
 	shine = SHINE_SHINY
 	var/datum/reagent/water_reagent = /datum/reagent/water
 	var/mapped = TRUE // infinite source of water
@@ -632,7 +631,6 @@
 	water_level = 3
 	slowdown = 20
 	swim_skill = TRUE
-	path_weight = 150
 	var/river_processing
 	var/river_processes = TRUE
 	swimdir = TRUE
@@ -656,6 +654,13 @@
 		water_top_overlay.color = water_reagent.color
 		water_top_overlay.icon_state = "rivertop"
 		water_top_overlay.dir = dir
+
+/turf/open/water/river/get_heuristic_slowdown(mob/traverser, travel_dir)
+	. = ..()
+	if(travel_dir & dir) // downriver
+		. -= 2 // faster!
+	else // upriver
+		. += 2 // slower
 
 /turf/open/water/river/LateInitialize()
 	. = ..()

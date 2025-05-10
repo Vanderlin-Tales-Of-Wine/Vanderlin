@@ -187,7 +187,7 @@
 
 			for(var/datum/queued_workorder/workorder in in_progress_workorders)
 				if(workorder.arg_1)
-					if(!length(get_path_to(mob, workorder.arg_1, /turf/proc/Distance3D, 32 + 1, 250,1)))
+					if(!length(get_path_to(mob, workorder.arg_1, TYPE_PROC_REF(/turf, Heuristic_cardinal_3d), 32 + 1, 250,1)))
 						continue
 				mob.controller_mind.set_current_task(workorder.work_path, workorder.arg_1, workorder.arg_2, workorder.arg_3, workorder.arg_4)
 				in_progress_workorders -= workorder

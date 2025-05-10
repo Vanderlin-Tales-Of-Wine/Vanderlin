@@ -313,6 +313,17 @@
 				else
 					addtimer(CALLBACK(src, PROC_REF(Close), FALSE), delay)
 
+/obj/structure/door/CanAStarPass(ID, to_dir, datum/caller)
+	. = ..()
+	if(.) // we can already go through it
+		return TRUE
+	if(!anchored)
+		return FALSE
+	if(HAS_TRAIT(caller, TRAIT_BASHDOORS))
+		return TRUE // bash into it!
+	// it's openable
+	return ishuman(caller) && !locked
+
 /obj/structure/door/CanPass(atom/movable/mover, turf/target)
 	if(istype(mover, /mob/camera))
 		return TRUE
