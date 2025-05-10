@@ -222,7 +222,7 @@
 
 	if(spawned.islatejoin && (job_flags & JOB_ANNOUNCE_ARRIVAL)) //to be moved somewhere more appropriate
 		var/used_title = get_informed_title(spawned)
-		scom_announce("[spawned.real_name] the [used_title] arrives from Kingsfield.")
+		scom_announce("[spawned.real_name] the [used_title] arrives from [SSmapping.config.immigrant_origin].")
 
 	if(give_bank_account)
 		if(give_bank_account > 1)

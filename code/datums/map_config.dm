@@ -17,6 +17,7 @@
 	var/map_name = "Vanderlin"
 	var/map_path = "map_files/vanderlin"
 	var/map_file = "vanderlin.dmm"
+	var/immigrant_origin = "Kingsfield"
 
 	var/traits = null
 	var/space_ruin_levels = 7
