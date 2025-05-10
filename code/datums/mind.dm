@@ -378,8 +378,11 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 			if(apprentice.mind.adjust_experience(skill, apprentice_amt, FALSE, FALSE))
 				current.add_stress(/datum/stressevent/apprentice_making_me_proud)
 
-	if(known_skills[skill_ref] == old_level)
-		return //same level or we just started earning xp towards the first level.
+	var/is_new_skill = !(skill_ref in known_skills)
+	if(isnull(old_level) && !is_new_skill)
+		old_level = SKILL_LEVEL_NONE
+	if((isnull(old_level) && is_new_skill) || known_skills[skill_ref] == old_level)
+		return
 	if(silent)
 		return
 	if(known_skills[skill_ref] >= old_level)
@@ -477,8 +480,11 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 			known_skills[skill_ref] = SKILL_LEVEL_NOVICE
 		if(0 to SKILL_EXP_NOVICE)
 			known_skills[skill_ref] = SKILL_LEVEL_NONE
-	if(isnull(old_level) || known_skills[skill_ref] == old_level)
-		return //same level or we just started earning xp towards the first level.
+	var/is_new_skill = !(skill_ref in known_skills)
+	if(isnull(old_level) && !is_new_skill)
+		old_level = SKILL_LEVEL_NONE
+	if((isnull(old_level) && is_new_skill) || known_skills[skill_ref] == old_level)
+		return
 	if(silent)
 		return
 	if(known_skills[skill_ref] >= old_level)
