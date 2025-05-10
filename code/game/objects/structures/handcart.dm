@@ -104,41 +104,40 @@
 	var/turf/T = get_turf(user)
 	if(isturf(T))
 		user.changeNext_move(CLICK_CD_MELEE)
-		var/fou
 
 		//First, we do ores.
-		if(put_in_ores_and_gems(T))
-			fou = TRUE
-		//Then, we try wood
-		else if(put_in_wood(T))
-			fou = TRUE
-		// Then, everything else.
-		else
-			for(var/obj/item/I in T)
-				//Only play the sound if success.
-				if(put_in(I))
-					fou = TRUE
-		if(fou)
-			playsound(loc, 'sound/foley/cartadd.ogg', 100, FALSE, -1)
+		var/list/ore_list = sieve_ores_and_gems(user,T)
+		if(ore_list.len != 0)
+			for(var/obj/item/I in ore_list)
+				if(!interruptable_put(user,I))
+					return
+			return
+		var/list/wood_list = sieve_wood(user, T)
+		if(wood_list.len != 0)
+			for(var/obj/item/I in wood_list)
+				if(!interruptable_put(user,I))
+					return
+			return
 
+		for(var/obj/item/I in T)
+			if(!interruptable_put(user, I))
+				return
 
 /**
  * @brief This allows you to sieve through objects on a given turf and insert
  * them into the cart if they match the given type.
  *
+ * @param user: The mob that clicked on the cart.
  * @param user_turf: The turf of the mob that clicked on this cart. This is checked by attack_hand, so
  * no need for much paranoia here.
  * @param types: Must be a list of type paths. Individually enforced for each item in the list.
  * This proc will partially succeed even if some of the typepaths in the typelist are bogus.
  *
- * @return bool: Whether this proc has inserted at least one item.
+ * @return sieved_items: A list containing the items on the user_turf that match any of the typepaths in types.
  */
-/obj/structure/handcart/proc/filtered_put(turf/user_turf, list/types)
-	//Turf check should be handled by caller.
-	var/have_inserted = FALSE
+/obj/structure/handcart/proc/item_sieve(mob/living/user, turf/user_turf, list/types)
+	var/list/sieved_items = list()
 
-	//Nothing especially fancy here. We just check for one of the types to match
-	// before letting the object be "put in".
 	for(var/obj/item/I in user_turf)
 		for(var/typepath in types)
 			//Make sure it's actually a path...
@@ -146,20 +145,38 @@
 				continue
 			//Check the type of the object and insert if match.
 			if(istype(I, typepath))
-				put_in(I)
-				have_inserted = TRUE
-	if(have_inserted)
-		playsound(loc, 'sound/foley/cartadd.ogg', 100, FALSE, -1)
+				sieved_items += I
+				break //No duplicate insertions! (e.g. [/obj/item/ore, /obj/item/ore/ore_subtype])
 
-	return have_inserted
+	return sieved_items
+
+/**
+ * @brief This function provides a put operation that takes some time for the user to complete.
+ * Used only in the "sieve" functions, which are used in the attack_hand proc.
+ *
+ * @param user: The mob that clicked on the cart.
+ * @param O: The object you wish to insert.
+ *
+ * @return bool: FALSE if do_after or put_in fail, TRUE otherwise.
+ */
+/obj/structure/handcart/proc/interruptable_put(mob/living/user, atom/movable/O)
+	if(!do_after(user, 0.5 SECONDS, src))
+		return FALSE
+	var/res = put_in(O, user)
+	if(!res)
+		return FALSE
+	playsound(loc, 'sound/foley/cartadd.ogg', 100, FALSE, -1)
+	return TRUE
+
 
 //Handles any object that's an ore or a gem (in the future, should change to raw gems if you add refinement steps)
-/obj/structure/handcart/proc/put_in_ores_and_gems(turf/user_turf)
-	return filtered_put(user_turf, list(/obj/item/ore, /obj/item/gem))
+/obj/structure/handcart/proc/sieve_ores_and_gems(mob/living/user, turf/user_turf)
+	return item_sieve(user, user_turf, list(/obj/item/ore, /obj/item/gem))
 
 //Handles logs (big, small), sticks. Big logs may run afoul of the cart's weight limits.
-/obj/structure/handcart/proc/put_in_wood(turf/user_turf)
-	return filtered_put(user_turf, list(/obj/item/grown/log/tree))
+/obj/structure/handcart/proc/sieve_wood(mob/living/user, turf/user_turf)
+	return item_sieve(user, user_turf, list(/obj/item/grown/log/tree, /obj/item/natural/bundle/stick))
+
 
 /obj/structure/handcart/proc/put_in(atom/movable/O, mob/user)
 	if(!insertion_allowed(O))
