@@ -23,6 +23,10 @@
 	cmode_music = 'sound/music/cmode/nobility/CombatCourtMagician.ogg'
 	magic_user = TRUE
 
+/datum/job/magician/New()
+	if(prob(5))
+		cmode_music = 'sound/music/cmode/antag/combat_evilwizard.ogg'
+
 /datum/outfit/job/magician
 	job_bitflag = BITFLAG_ROYALTY
 	allowed_patrons = list(/datum/patron/divine/noc, /datum/patron/inhumen/zizo)
