@@ -3,7 +3,6 @@
 #define COMSIG_LUX_EXTRACTED "lux_extracted" // from base of /datum/surgery_step/extract_lux/success() (victim)
 #define COMSIG_DRUG_SNIFFED "drug_sniffed" // from base of /obj/item/reagent_containers/powder/attack() (applier)
 #define COMSIG_ITEM_STOLEN "item_stolen" // from base of /mob/living/MiddleClickOn() (victim)
-#define COMSIG_SKILL_XP_GAINED "skill_xp_gained" // from base of /datum/mind/proc/adjust_experience() (skill_type, amount_gained, new_level)
 #define COMSIG_SKILL_RANK_INCREASED "skill_rank_increased" // from base of adjust_skillrank() (skill_type, new_rank)
 #define COMSIG_ITEM_CRAFTED "item_crafted" // from base of /atom/proc/OnCrafted() (user, craft_path)
 #define COMSIG_ORGAN_CONSUMED "organ_consumed" // from base of /obj/item/reagent_containers/food/snacks/organ/on_consume() (mob/living/consumer, organ_type)
