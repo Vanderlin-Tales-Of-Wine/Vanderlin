@@ -18,6 +18,7 @@
 	/// Multipliers for starting points.
 	var/list/starting_point_multipliers = list(
 		EVENT_TRACK_MUNDANE = 1,
+		EVENT_TRACK_PERSONAL = 1,
 		EVENT_TRACK_MODERATE = 1,
 		EVENT_TRACK_INTERVENTION = 1,
 		EVENT_TRACK_CHARACTER_INJECTION = 1,
@@ -27,6 +28,7 @@
 	/// Multipliers for point gains.
 	var/list/point_gains_multipliers = list(
 		EVENT_TRACK_MUNDANE = 1,
+		EVENT_TRACK_PERSONAL = 1,
 		EVENT_TRACK_MODERATE = 1,
 		EVENT_TRACK_INTERVENTION = 1,
 		EVENT_TRACK_CHARACTER_INJECTION = 1,

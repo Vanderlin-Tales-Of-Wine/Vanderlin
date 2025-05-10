@@ -1,8 +1,8 @@
 /datum/round_event_control/matthios_theft
 	name = "Thieving Task"
-	track = EVENT_TRACK_MUNDANE
+	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/matthios_theft
-	weight = 5
+	weight = 10
 	earliest_start = 10 MINUTES
 	max_occurrences = 1
 	min_players = 15

@@ -1,8 +1,8 @@
 /datum/round_event_control/eora_marriage
 	name = "Marriage Broker"
-	track = EVENT_TRACK_MUNDANE
+	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/eora_marriage
-	weight = 5
+	weight = 10
 	earliest_start = 5 MINUTES
 	max_occurrences = 1
 	min_players = 30

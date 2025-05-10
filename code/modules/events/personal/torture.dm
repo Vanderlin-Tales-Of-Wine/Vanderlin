@@ -2,7 +2,7 @@
 	name = "Demand of Cruelty"
 	track = EVENT_TRACK_MODERATE
 	typepath = /datum/round_event/zizo_torture
-	weight = 5
+	weight = 7
 	earliest_start = 20 MINUTES
 	max_occurrences = 1
 	min_players = 20

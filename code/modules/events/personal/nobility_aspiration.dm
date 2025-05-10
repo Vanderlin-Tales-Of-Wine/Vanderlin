@@ -1,8 +1,8 @@
 /datum/round_event_control/astrata_nobility
 	name = "Nobility Aspiration"
-	track = EVENT_TRACK_MUNDANE
+	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/astrata_nobility
-	weight = 5
+	weight = 10
 	earliest_start = 5 MINUTES
 	max_occurrences = 1
 	min_players = 15

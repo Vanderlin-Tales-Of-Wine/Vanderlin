@@ -1,8 +1,8 @@
 /datum/round_event_control/noc_baptism
 	name = "Baptism Desire"
-	track = EVENT_TRACK_MUNDANE
+	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/noc_baptism
-	weight = 5
+	weight = 10
 	earliest_start = 5 MINUTES
 	max_occurrences = 1
 	min_players = 25

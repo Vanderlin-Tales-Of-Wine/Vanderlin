@@ -2,7 +2,7 @@
 	name = "Feast of Organs"
 	track = EVENT_TRACK_MODERATE
 	typepath = /datum/round_event/graggar_organs
-	weight = 5
+	weight = 7
 	earliest_start = 20 MINUTES
 	max_occurrences = 1
 	min_players = 30

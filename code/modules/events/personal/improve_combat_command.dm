@@ -1,8 +1,8 @@
 /datum/round_event_control/ravox_combat
 	name = "Get Stronger Desire"
-	track = EVENT_TRACK_MUNDANE
+	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/ravox_combat
-	weight = 5
+	weight = 10
 	earliest_start = 5 MINUTES
 	max_occurrences = 1
 	min_players = 15

@@ -1,8 +1,8 @@
 /datum/round_event_control/pestra_lux
 	name = "Lux Extraction Demand"
-	track = EVENT_TRACK_MUNDANE
+	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/pestra_lux
-	weight = 5
+	weight = 10
 	earliest_start = 10 MINUTES
 	max_occurrences = 1
 	min_players = 25

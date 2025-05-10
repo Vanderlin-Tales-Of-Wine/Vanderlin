@@ -1,8 +1,8 @@
 /datum/round_event_control/abyssor_fish_release
 	name = "Fish Release Request"
-	track = EVENT_TRACK_MUNDANE
+	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/abyssor_fishing
-	weight = 5
+	weight = 10
 	earliest_start = 10 MINUTES
 	max_occurrences = 1
 	min_players = 15

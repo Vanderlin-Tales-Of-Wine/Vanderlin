@@ -1,8 +1,8 @@
 /datum/round_event_control/necra_burials
 	name = "Burial Demand"
-	track = EVENT_TRACK_MUNDANE
+	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/necra_burials
-	weight = 5
+	weight = 10
 	earliest_start = 15 MINUTES
 	max_occurrences = 1
 	min_players = 25

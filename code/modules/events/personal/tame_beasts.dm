@@ -1,8 +1,8 @@
 /datum/round_event_control/dendor_taming
 	name = "Taming Challenge"
-	track = EVENT_TRACK_MUNDANE
+	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/dendor_taming
-	weight = 5
+	weight = 10
 	earliest_start = 10 MINUTES
 	max_occurrences = 1
 	min_players = 15

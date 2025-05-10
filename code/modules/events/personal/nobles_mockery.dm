@@ -1,8 +1,8 @@
 /datum/round_event_control/xylix_mocking_nobles
 	name = "Mockery (Nobles)"
-	track = EVENT_TRACK_MUNDANE
+	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/xylix_mocking_nobles
-	weight = 5
+	weight = 10
 	earliest_start = 10 MINUTES
 	max_occurrences = 1
 	min_players = 20

@@ -2,7 +2,7 @@
 	name = "Mockery (Monarch)"
 	track = EVENT_TRACK_MODERATE
 	typepath = /datum/round_event/xylix_mocking
-	weight = 5
+	weight = 7
 	earliest_start = 15 MINUTES
 	max_occurrences = 1
 	min_players = 20
