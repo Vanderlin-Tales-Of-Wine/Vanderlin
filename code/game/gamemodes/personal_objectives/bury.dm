@@ -2,7 +2,7 @@
 	name = "Consecrate Graves"
 	triumph_count = 0
 	var/burials_completed = 0
-	var/required_burials = 2
+	var/required_burials = 1
 
 /datum/objective/proper_burial/on_creation()
 	. = ..()
@@ -24,14 +24,14 @@
 	if(burials_completed >= required_burials)
 		complete_objective()
 	else
-		to_chat(owner.current, span_notice("Grave consecrated! [required_burials - burials_completed] more to complete Necra's trial."))
+		to_chat(owner.current, span_notice("Grave consecrated! Consecrate [required_burials - burials_completed] more to complete Necra's trial."))
 
 /datum/objective/proper_burial/proc/complete_objective()
-	to_chat(owner.current, span_greentext("You have properly consecrated enough graves to satisfy Necra!"))
+	to_chat(owner.current, span_greentext("You have consecrated enough graves to earn Necra's approval!"))
 	owner.current.adjust_triumphs(1)
 	completed = TRUE
 	adjust_storyteller_influence("Necra", 15)
 	UnregisterSignal(owner.current, COMSIG_GRAVE_CONSECRATED)
 
 /datum/objective/proper_burial/update_explanation_text()
-	explanation_text = "Consecrate [required_burials] graves to earn Necra's approval."
+	explanation_text = "Consecrate [required_burials] grave\s to earn Necra's approval."

@@ -1,5 +1,5 @@
 /datum/round_event_control/necra_burials
-	name = "Burial Desire"
+	name = "Burial Demand"
 	track = EVENT_TRACK_MUNDANE
 	typepath = /datum/round_event/necra_burials
 	weight = 5
@@ -47,7 +47,7 @@
 	var/datum/objective/proper_burial/new_objective = new(owner = chosen_one.mind)
 	chosen_one.mind.add_personal_objective(new_objective)
 
-	to_chat(chosen_one, span_notice("Necra demands proper rites for the departed! Give two corpses proper burials to earn Necra's favor!"))
+	to_chat(chosen_one, span_notice("Necra demands proper rites for the departed! Give one corpse a proper burial to earn Necra's favor!"))
 	SEND_SOUND(chosen_one, 'sound/ambience/noises/genspooky (1).ogg')
 
 	chosen_one.mind.announce_personal_objectives()
