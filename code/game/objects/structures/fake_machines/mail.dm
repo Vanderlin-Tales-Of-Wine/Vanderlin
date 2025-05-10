@@ -423,12 +423,12 @@
 			cost = 8,
 			max_purchases = 1
 		),
-		"Psydonian Axe (4)" = list(
+		"Psydonian Axe (3)" = list(
 			list(type = /obj/item/weapon/axe/psydon, count = 1),
 			cost = 3,
 			max_purchases = 3
 		),
-		"Psydonian Dagger (4)" = list(
+		"Psydonian Dagger (3)" = list(
 			list(type = /obj/item/weapon/knife/dagger/psydon, count = 1),
 			cost = 3,
 			max_purchases = 3
