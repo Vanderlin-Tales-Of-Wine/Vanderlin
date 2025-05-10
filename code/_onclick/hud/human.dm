@@ -75,18 +75,6 @@
 
 	//Rogue Slots /////////////////////////////////
 
-	reads = new /atom/movable/screen/read
-	reads.hud = src
-	static_inventory += reads
-	textr = new /atom/movable/screen/readtext
-	textr.hud = src
-	static_inventory += textr
-	reads.textright = textr
-	textl = new /atom/movable/screen/readtext
-	textl.hud = src
-	static_inventory += textl
-	reads.textleft = textl
-
 	scannies = new /atom/movable/screen/scannies
 	scannies.hud = src
 	static_inventory += scannies
