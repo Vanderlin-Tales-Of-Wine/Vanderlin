@@ -29,7 +29,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/shields, pick(0,0,1), TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/tanning, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
@@ -44,7 +44,7 @@
 
 		H.merctype = 6
 
-		H.change_stat(STATKEY_PER, 3)
+		H.change_stat(STATKEY_PER, 2)
 		H.change_stat(STATKEY_END, 1)
 		H.change_stat(STATKEY_STR, 1)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)

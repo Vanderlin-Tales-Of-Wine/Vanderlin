@@ -65,7 +65,7 @@
 			H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, 3, TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/combat/bows, 4, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
@@ -76,6 +76,7 @@
 
 			H.change_stat(STATKEY_SPD, 2) //Speedier than a Steppesman, but not as tough or damaging.
 			H.change_stat(STATKEY_END, 1)
+			H.change_stat(STATKEY_PER, 2)
 
 			ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 

@@ -71,14 +71,14 @@
 		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE) // Backup
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE) // Guards should be going for less than lethal in reality. Unarmed would be a primary thing.
 		H.change_stat(STATKEY_STR, 1)
 		H.change_stat(STATKEY_END, 2)
 		H.change_stat(STATKEY_CON, 1)
 		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE) // Wrestling is cardio intensive, and guards wrestle with the populace a lot.
 		H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
@@ -115,7 +115,7 @@
 		H.change_stat(STATKEY_SPD, 2)
 		ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 4, TRUE) // Getting up onto vantage points is common for archers.
 		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
@@ -155,7 +155,7 @@
 	H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE) // Polearms use a lot of stamina. They'd be enduring.
 	H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 	H.change_stat(STATKEY_STR, 2)
