@@ -934,7 +934,7 @@ GLOBAL_VAR_INIT(pixel_diff, 12)
 GLOBAL_VAR_INIT(pixel_diff_time, 1)
 
 /atom/movable/proc/do_attack_animation(atom/attacked_atom, visual_effect_icon, obj/item/used_item, no_effect, item_animation_override = null, datum/intent/used_intent)
-	if(!no_effect && (visual_effect_icon || used_item))
+	if(used_item)
 		var/animation_type = item_animation_override || used_intent?.get_attack_animation_type()
 		do_item_attack_animation(attacked_atom, visual_effect_icon, used_item, animation_type = animation_type)
 
@@ -977,7 +977,6 @@ GLOBAL_VAR_INIT(pixel_diff_time, 1)
 		animate(attack, alpha = 175, transform = copy_transform.Scale(0.75), time = 0.3 SECONDS)
 		animate(time = 0.1 SECONDS)
 		animate(alpha = 0, time = 0.3 SECONDS, easing = BACK_EASING|EASE_OUT)
-		return
 
 	if (isnull(used_item))
 		return
