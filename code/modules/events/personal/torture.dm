@@ -1,6 +1,6 @@
 /datum/round_event_control/zizo_torture
 	name = "Demand of Cruelty"
-	track = EVENT_TRACK_MODERATE
+	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/zizo_torture
 	weight = 7
 	earliest_start = 20 MINUTES

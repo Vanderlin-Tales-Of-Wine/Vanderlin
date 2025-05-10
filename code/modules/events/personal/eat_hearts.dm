@@ -1,6 +1,6 @@
 /datum/round_event_control/graggar_organs
 	name = "Feast of Organs"
-	track = EVENT_TRACK_MODERATE
+	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/graggar_organs
 	weight = 7
 	earliest_start = 20 MINUTES
