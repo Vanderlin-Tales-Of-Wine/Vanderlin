@@ -25,14 +25,14 @@
 
 /// called upon job datum creation. Override this proc to change.
 /datum/map_adjustment/proc/job_change()
-	for(var/jobType as anything in blacklist)
-		change_job_position(jobType, 0)
-		var/datum/job/J = SSjob.GetJobType(jobType)
+	for(var/job as anything in blacklist)
+		change_job_position(job, 0)
+		var/datum/job/J = SSjob.GetJobType(job)
 		J?.job_flags &= ~(JOB_NEW_PLAYER_JOINABLE)
-	for(var/jobType as anything in slot_adjust)
-		change_job_position(jobType, adjusted_slots[jobType])
+	for(var/job as anything in slot_adjust)
+		change_job_position(job, slot_adjust[job])
 	for(var/job as anything in species_adjust)
-		var/datum/job/J = SSjob.GetJobType(jobType)
+		var/datum/job/J = SSjob.GetJobType(job)
 		J?.allowed_races = species_adjust[job]
 
 /**
