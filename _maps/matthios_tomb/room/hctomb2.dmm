@@ -2,23 +2,23 @@
 "ah" = (
 /obj/item/flashlight/flare/torch/metal,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "az" = (
 /obj/structure/closet/dirthole/closed,
 /mob/living/carbon/human/species/skeleton/npc/ambush,
 /obj/effect/spawner/map_spawner/loot/rare,
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "aG" = (
 /obj/item/natural/rock,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "aH" = (
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "aX" = (
 /turf/open/transparent/openspace,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "bd" = (
 /obj/structure/chair/stool,
 /mob/living/carbon/human/species/rousman/npc{
@@ -28,20 +28,20 @@
 /obj/item/kitchen/spoon/iron,
 /obj/item/kitchen/spoon/iron,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "bo" = (
 /obj/structure/pillory/double,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "cc" = (
 /obj/structure/closet/dirthole/grave,
 /obj/item/weapon/shovel,
 /turf/open/floor/dirt/road,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "dr" = (
 /obj/item/natural/stone,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "dE" = (
 /obj/structure/closet/dirthole/closed,
 /mob/living/carbon/human/species/skeleton/npc/no_equipment,
@@ -49,62 +49,62 @@
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/effect/spawner/map_spawner/loot/armor,
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "ew" = (
 /obj/structure/closet/dirthole/closed,
 /obj/item/clothing/neck/gorget/copper,
 /obj/item/clothing/head/helmet/coppercap,
 /mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "eK" = (
 /obj/item/natural/stone{
 	pixel_x = 2;
 	pixel_y = -8
 	},
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "eL" = (
 /obj/effect/spawner/map_spawner/beartrap,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "fm" = (
 /obj/item/natural/rock/random,
 /turf/open/floor/dirt/road,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "fy" = (
 /obj/structure/closet/dirthole,
 /turf/open/floor/dirt/road,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "gp" = (
 /obj/item/weapon/shovel,
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "gT" = (
 /obj/item/natural/rock/gold,
 /turf/open/floor/cobblerock,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "hQ" = (
 /obj/structure/flora/grass/bush_meagre,
 /turf/open/floor/grass/yel,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "hY" = (
 /obj/structure/closet/dirthole/closed,
 /obj/effect/spawner/map_spawner/loot/armor,
 /mob/living/carbon/human/species/skeleton/npc/ambush,
 /obj/structure/closet/burial_shroud,
 /turf/open/floor/dirt/road,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "if" = (
 /obj/structure/closet/dirthole/closed,
 /obj/structure/closet/burial_shroud,
 /mob/living/carbon/human/species/skeleton/npc/ambush,
 /obj/effect/spawner/map_spawner/loot/weapon,
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "in" = (
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "iv" = (
 /obj/structure/closet/dirthole/grave,
 /obj/structure/closet/crate/coffin,
@@ -114,26 +114,29 @@
 /obj/item/organ/tongue,
 /obj/item/organ/brain,
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "iL" = (
 /obj/structure/flora/grass/maneater,
 /turf/open/floor/dirt/road,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "iR" = (
 /turf/closed/mineral/bedrock,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "jc" = (
 /obj/effect/dungeon_directional_helper/east,
 /turf/open/floor/grass/yel,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "kh" = (
 /obj/structure/roguerock,
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
+"kp" = (
+/turf/open/water/swamp,
+/area/rogue/under/tomb)
 "lA" = (
 /obj/structure/closet/dirthole/grave,
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "mj" = (
 /obj/structure/closet/dirthole/closed,
 /obj/effect/spawner/map_spawner/loot/common,
@@ -141,28 +144,31 @@
 /obj/item/weapon/sword/coppermesser,
 /mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "mu" = (
 /obj/structure/roguerock,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "mJ" = (
 /obj/structure/flora/grass/herb/atropa,
 /turf/open/floor/grass/yel,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "mN" = (
 /obj/item/natural/stone{
 	pixel_x = 9;
 	pixel_y = 5
 	},
 /turf/open/floor/cobblerock,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
+"nB" = (
+/turf/closed/wall/mineral/decostone,
+/area/rogue/under/tomb)
 "oB" = (
 /obj/structure/stairs/stone{
 	dir = 1
 	},
 /turf/open/floor/herringbone,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "oM" = (
 /mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
 /obj/effect/spawner/map_spawner/loot/rare,
@@ -175,24 +181,24 @@
 	pixel_x = 9
 	},
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "pr" = (
 /turf/open/floor/herringbone,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "qA" = (
 /obj/structure/fluff/clodpile,
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "rp" = (
 /turf/closed/wall/mineral/decostone/end{
 	dir = 8
 	},
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "rr" = (
 /obj/structure/closet/dirthole/closed,
 /obj/item/clothing/armor/cuirass/copperchest,
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "rU" = (
 /obj/structure/closet/dirthole/closed,
 /obj/item/weapon/shield/tower,
@@ -200,78 +206,78 @@
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /mob/living/carbon/human/species/skeleton/npc/no_equipment,
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "si" = (
 /obj/structure/flora/ausbushes/reedbush,
 /turf/open/water/swamp,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "sF" = (
 /obj/structure/closet/dirthole/closed,
 /obj/item/weapon/mace/spiked,
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "tc" = (
 /turf/closed/wall/mineral/decostone/end{
 	dir = 4
 	},
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "tW" = (
 /obj/item/natural/stone{
 	pixel_x = -3;
 	pixel_y = 5
 	},
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "vd" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "vg" = (
 /turf/open/floor/cobblerock,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "vl" = (
 /obj/structure/kneestingers,
 /turf/open/water/swamp,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "vH" = (
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/dirt/road,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "wj" = (
 /obj/structure/kneestingers{
 	icon_state = "glowshroom2"
 	},
 /turf/open/water/swamp,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "wu" = (
 /obj/structure/closet/dirthole/closed,
 /mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "xc" = (
 /obj/structure/roguerock,
 /turf/open/floor/dirt/road,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "xy" = (
 /obj/structure/closet/dirthole/closed,
 /obj/effect/spawner/map_spawner/loot/common,
 /mob/living/carbon/human/species/skeleton/npc/warrior,
 /turf/open/floor/dirt/road,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "xP" = (
 /obj/structure/gravemarker,
 /obj/structure/closet/dirthole/closed/loot,
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "yG" = (
 /obj/structure/closet/dirthole/closed,
 /mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
 /obj/effect/spawner/map_spawner/loot/armor,
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "yN" = (
 /turf/closed/mineral,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "zU" = (
 /obj/item/natural/stone{
 	pixel_x = -6;
@@ -282,30 +288,30 @@
 	pixel_y = 5
 	},
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "AF" = (
 /obj/item/grown/log/tree/small,
 /turf/closed/mineral/bedrock,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "AG" = (
 /obj/structure/gravemarker,
 /obj/structure/closet/dirthole/closed/loot,
 /turf/open/floor/dirt/road,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "AQ" = (
 /obj/item/restraints/legcuffs/beartrap/armed/camouflage,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "Bh" = (
 /obj/structure/kneestingers{
 	icon_state = "glowshroom_A3"
 	},
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "BF" = (
 /obj/structure/roguerock,
 /turf/open/floor/cobblerock,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "Cj" = (
 /obj/item/ingot/gold,
 /obj/item/ingot/gold{
@@ -317,33 +323,36 @@
 	pixel_y = 3
 	},
 /turf/open/water/swamp/deep,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "Co" = (
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "Cq" = (
 /obj/item/natural/rock,
 /turf/open/floor/cobblerock,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "CI" = (
 /obj/structure/kneestingers,
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
+"CM" = (
+/turf/open/floor/dirt/road,
+/area/rogue/under/tomb/cave)
 "CZ" = (
 /obj/structure/closet/dirthole/closed,
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "Dz" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/cobblerock,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "DA" = (
 /obj/structure/closet/dirthole/grave,
 /obj/structure/closet/burial_shroud,
 /obj/item/weapon/shield/wood,
 /turf/open/floor/dirt/road,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "DH" = (
 /obj/item/natural/stone{
 	pixel_x = 6;
@@ -354,7 +363,7 @@
 	pixel_y = 7
 	},
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "Ei" = (
 /obj/item/kitchen/spoon/iron{
 	pixel_y = 3;
@@ -376,7 +385,7 @@
 	pixel_y = 3
 	},
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "Eq" = (
 /obj/item/natural/stone{
 	pixel_x = 9;
@@ -387,32 +396,32 @@
 	pixel_y = -7
 	},
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "EE" = (
 /obj/item/natural/dirtclod,
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "EP" = (
 /mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/water/swamp/deep,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "Ft" = (
 /mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/floor/dirt/road,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "Fy" = (
 /obj/structure/kneestingers{
 	icon_state = "glowshroom_A1"
 	},
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "GC" = (
 /turf/open/water/swamp/deep,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "GJ" = (
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/dirt/road,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "Hc" = (
 /mob/living/carbon/human/species/skeleton/npc/no_equipment,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
@@ -422,73 +431,73 @@
 /obj/item/clothing/head/padded/deathshroud,
 /obj/item/clothing/neck/psycross/silver/necra,
 /turf/open/floor/dirt/road,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "IB" = (
 /obj/item/natural/rock/random,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "IP" = (
 /obj/machinery/light/fueled/firebowl/standing/blue,
 /turf/open/floor/dirt/road,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "Lx" = (
 /obj/structure/closet/dirthole/grave,
 /turf/open/floor/dirt/road,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "Ly" = (
 /obj/structure/closet/dirthole/grave,
 /obj/structure/closet/burial_shroud,
 /mob/living/carbon/human/species/skeleton/npc/no_equipment,
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "MV" = (
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/spawner/map_spawner/beartrap,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "MX" = (
 /obj/structure/grindwheel,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "Nq" = (
 /turf/open/water/swamp,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "Nr" = (
 /obj/machinery/light/fueled/torchholder/r,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "NC" = (
 /turf/open/floor/grass/yel,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "Oh" = (
 /obj/item/natural/rock/gemerald,
 /turf/open/floor/cobblerock,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "OL" = (
 /obj/structure/kneestingers{
 	icon_state = "glowshroom_A2"
 	},
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "OW" = (
 /obj/structure/closet/dirthole/closed,
 /mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/floor/dirt/road,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "Pt" = (
 /obj/effect/spawner/map_spawner/beartrap,
 /turf/open/floor/cobblerock,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "PD" = (
 /obj/item/clothing/cloak/raincloak/mortus,
 /turf/open/floor/dirt/road,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "Qk" = (
 /obj/structure/closet/dirthole/closed,
 /obj/effect/landmark/chest_or_mimic,
 /obj/item/gem,
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "QX" = (
 /obj/item/clothing/head/jester,
 /obj/item/clothing/shoes/jester,
@@ -499,30 +508,33 @@
 /mob/living/carbon/human/species/skeleton/npc/no_equipment,
 /obj/item/kitchen/fork/iron,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "Rk" = (
 /obj/structure/closet/dirthole/closed,
 /obj/item/weapon/shield/wood,
 /turf/open/floor/dirt/road,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "Sk" = (
 /obj/structure/stairs/stone,
 /turf/open/floor/herringbone,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "SP" = (
 /obj/structure/kneestingers{
 	icon_state = "glowshroom2"
 	},
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "SY" = (
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/dirt/road,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
+"To" = (
+/turf/open/floor/dirt,
+/area/rogue/under/tomb/cave)
 "Vc" = (
 /obj/structure/flora/grass/bush,
 /turf/open/floor/grass/yel,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "Wk" = (
 /mob/living/carbon/human/species/skeleton/npc/no_equipment,
 /obj/item/weapon/shovel,
@@ -531,35 +543,35 @@
 /obj/item/clothing/pants/trou/leather/mourning,
 /obj/item/clothing/shirt/robe/necra,
 /turf/open/floor/dirt/road,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "WI" = (
 /obj/structure/kneestingers{
 	icon_state = "glowshroom3"
 	},
 /turf/open/water/swamp,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "Xc" = (
 /obj/item/grown/log/tree/small,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "XK" = (
 /turf/open/floor/dirt/road,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "XO" = (
 /obj/structure/flora/shroom_tree,
 /turf/open/water/swamp,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "XV" = (
 /obj/item/natural/dirtclod,
 /turf/open/floor/dirt/road,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "XW" = (
 /turf/closed/wall/mineral/decostone,
-/area/rogue/under/cave)
+/area/rogue/under/tomb/cave)
 "Yg" = (
 /obj/structure/closet/dirthole/closed,
 /turf/open/floor/dirt/road,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 
 (1,1,1) = {"
 iR
@@ -574,10 +586,10 @@ iR
 iR
 iR
 iR
-XK
-XK
+CM
+CM
 GJ
-XK
+CM
 iR
 iR
 iR
@@ -604,14 +616,14 @@ iR
 iR
 iR
 iR
-in
-in
-XK
-XK
-XK
-XK
-XK
-XK
+To
+To
+CM
+CM
+CM
+CM
+CM
+CM
 aH
 iR
 iR
@@ -639,10 +651,10 @@ iR
 iR
 Nq
 Nq
-in
-XK
-XK
-in
+To
+CM
+CM
+To
 aH
 iR
 iR
@@ -671,17 +683,17 @@ iR
 iR
 iR
 iR
+kp
+To
+CM
+CM
 Nq
-in
-XK
-XK
 Nq
-Nq
-in
+To
 iR
-in
+To
 aH
-XK
+CM
 iR
 iR
 iR
@@ -703,9 +715,9 @@ iR
 iR
 iR
 iR
-in
-in
-in
+To
+To
+To
 Nq
 Nq
 XO
@@ -746,7 +758,7 @@ aH
 aH
 aH
 aH
-in
+To
 iR
 iR
 iR
@@ -773,7 +785,7 @@ XO
 Nq
 Nq
 Nq
-in
+To
 Sk
 tc
 aH
@@ -804,8 +816,8 @@ iR
 iR
 Nq
 vl
-in
-XK
+To
+CM
 Sk
 rp
 aH
@@ -837,8 +849,8 @@ iR
 iR
 Nq
 aH
-XK
-XK
+CM
+CM
 aH
 aH
 iR
@@ -872,7 +884,7 @@ iR
 iR
 iR
 aH
-in
+To
 iR
 iR
 iR
@@ -1001,7 +1013,7 @@ in
 XK
 XK
 XK
-XW
+nB
 XK
 in
 qA
@@ -1097,7 +1109,7 @@ in
 in
 XK
 XK
-XW
+nB
 Lx
 XK
 qA
@@ -1193,7 +1205,7 @@ xP
 rr
 qA
 if
-XW
+nB
 iR
 iR
 iR
@@ -1258,8 +1270,8 @@ Nq
 iL
 iR
 iR
-XK
-in
+CM
+To
 Nq
 wj
 Nq
@@ -1287,13 +1299,13 @@ iR
 iR
 wj
 Nq
-XK
+CM
 iR
-XW
-XK
+nB
+CM
 tc
 oB
-in
+To
 iR
 iR
 "}
@@ -1318,14 +1330,14 @@ iR
 iR
 si
 Nq
-XK
-XK
-XK
+CM
+CM
+CM
 iR
-XK
+CM
 rp
 oB
-in
+To
 vl
 iR
 "}
@@ -1347,17 +1359,17 @@ aH
 iR
 iR
 iR
-XK
-XK
-XK
-XK
-XK
-XK
-XK
-XK
-XK
-in
-in
+CM
+CM
+CM
+CM
+CM
+CM
+CM
+CM
+CM
+To
+To
 Nq
 iR
 "}
@@ -1377,17 +1389,17 @@ vl
 Nq
 Nq
 Nq
-XK
+CM
 NC
 NC
-XK
-XK
-XK
-XK
-XK
-XK
-XK
-in
+CM
+CM
+CM
+CM
+CM
+CM
+CM
+To
 Nq
 iR
 iR
@@ -1404,18 +1416,18 @@ iR
 iR
 iR
 iR
-XK
+CM
 Nq
 WI
 Nq
-XK
+CM
 NC
 NC
 NC
 mJ
 NC
-XK
-XK
+CM
+CM
 iR
 iR
 Nq
@@ -1436,11 +1448,11 @@ iR
 iR
 iR
 iR
-XK
-XK
-XK
-XK
-XK
+CM
+CM
+CM
+CM
+CM
 NC
 hQ
 iR
@@ -1469,8 +1481,8 @@ iR
 iR
 iR
 iR
-XK
-XK
+CM
+CM
 NC
 NC
 NC
@@ -1480,7 +1492,7 @@ iR
 Vc
 hQ
 NC
-XK
+CM
 Nq
 Nq
 iR
@@ -1574,7 +1586,7 @@ aH
 aH
 aX
 aX
-in
+To
 Bh
 Bh
 Nq
@@ -1605,9 +1617,9 @@ aH
 aH
 aX
 aX
-in
-in
-XK
+To
+To
+CM
 OL
 Fy
 CI
@@ -1639,11 +1651,11 @@ aX
 aX
 aX
 aX
-in
-in
-in
+To
+To
+To
 SP
-XK
+CM
 iR
 iR
 GC
@@ -1673,9 +1685,9 @@ aX
 aX
 aX
 aX
-XK
-XK
-XK
+CM
+CM
+CM
 Nq
 iR
 iR
@@ -1697,7 +1709,7 @@ iR
 mu
 aH
 iR
-XK
+CM
 aX
 aX
 aX
@@ -1706,9 +1718,9 @@ aX
 aX
 aX
 aH
-XK
-XK
-XK
+CM
+CM
+CM
 Nq
 iR
 iR
@@ -1728,8 +1740,8 @@ iR
 iR
 iR
 aH
-in
-XK
+To
+CM
 iR
 iR
 aX
@@ -1740,7 +1752,7 @@ Sk
 pr
 pr
 pr
-in
+To
 Nq
 Nq
 iR
@@ -1761,7 +1773,7 @@ iR
 iR
 iR
 iR
-in
+To
 iR
 iR
 aX
@@ -1772,7 +1784,7 @@ Sk
 pr
 pr
 pr
-in
+To
 aG
 iR
 iR
@@ -1805,7 +1817,7 @@ iR
 pr
 pr
 aH
-in
+To
 aH
 iR
 iR
@@ -1909,9 +1921,9 @@ iR
 (13,1,2) = {"
 aH
 aH
-XK
-XK
-XK
+CM
+CM
+CM
 aH
 aH
 aH
@@ -1940,12 +1952,12 @@ iR
 "}
 (14,1,2) = {"
 aH
-XK
-XK
-XK
-XK
-XK
-XK
+CM
+CM
+CM
+CM
+CM
+CM
 aH
 aH
 aX
@@ -1971,12 +1983,12 @@ aH
 aH
 "}
 (15,1,2) = {"
-XK
-XK
-in
-in
+CM
+CM
+To
+To
 kh
-XK
+CM
 iR
 iR
 aX
@@ -2003,9 +2015,9 @@ aH
 aH
 "}
 (16,1,2) = {"
-in
-in
-in
+To
+To
+To
 iR
 iR
 iR
@@ -2035,9 +2047,9 @@ aX
 aH
 "}
 (17,1,2) = {"
-in
-XK
-XK
+To
+CM
+CM
 iR
 iR
 iR
@@ -2069,12 +2081,12 @@ aH
 (18,1,2) = {"
 iR
 iR
-XK
-XK
-XK
-XK
-in
-in
+CM
+CM
+CM
+CM
+To
+To
 aH
 ah
 iR
@@ -2104,10 +2116,10 @@ iR
 iR
 iR
 iR
-XK
-XK
-in
-in
+CM
+CM
+To
+To
 iR
 iR
 iR
@@ -2137,7 +2149,7 @@ iR
 iR
 iR
 aH
-XK
+CM
 fm
 iR
 iR

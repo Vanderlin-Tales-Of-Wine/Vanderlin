@@ -2,17 +2,17 @@
 "q" = (
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/hexstone,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "s" = (
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/hexstone,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "A" = (
 /turf/open/floor/hexstone,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 "Y" = (
 /turf/closed/wall/mineral/craftstone,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 
 (1,1,1) = {"
 Y

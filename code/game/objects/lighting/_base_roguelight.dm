@@ -176,7 +176,7 @@
 				if(!user.temporarilyRemoveItemFromInventory(W))
 					return
 				on = FALSE
-				set_light(0)
+				update()
 				update_icon()
 				qdel(W)
 				src.visible_message("<span class='warning'>[user] snuffs the fire.</span>")

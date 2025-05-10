@@ -970,6 +970,7 @@
 #include "code\game\area\roguetownareas.dm"
 #include "code\game\area\areas\centcom.dm"
 #include "code\game\area\areas\misc.dm"
+#include "code\game\area\areas\tomb.dm"
 #include "code\game\area\vanderlin\vanderlinareas.dm"
 #include "code\game\atom\atom_orbit.dm"
 #include "code\game\atom\atoms.dm"

@@ -1,253 +1,233 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"bO" = (
-/obj/structure/flora/shroom_tree,
-/turf/open/floor/dirt/ambush,
-/area/rogue/outdoors/caves)
-"bY" = (
-/turf/open/floor/dirt/ambush,
-/area/rogue/outdoors/caves)
-"cl" = (
-/obj/machinery/light/fueled/wallfire/candle/r,
-/obj/structure/fluff/statue/knight/interior/r,
-/turf/open/floor/tile/checkeralt,
-/area/rogue/outdoors/caves)
-"cm" = (
-/obj/structure/fluff/walldeco/painting/castle,
-/turf/closed/wall/mineral/wood,
-/area/rogue/outdoors/caves)
-"cP" = (
-/obj/structure/flora/shroom_tree,
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors/caves)
-"dv" = (
-/obj/structure/fluff/walldeco/painting/crown,
-/turf/closed/wall/mineral/wood,
-/area/rogue/outdoors/caves)
-"dE" = (
-/obj/structure/flora/grass/swampweed,
-/turf/open/floor/dirt/ambush,
-/area/rogue/outdoors/caves)
-"ec" = (
-/obj/machinery/light/fueled/torchholder/l,
-/obj/structure/flora/grass/swampweed,
-/turf/open/floor/dirt/ambush,
-/area/rogue/outdoors/caves)
-"en" = (
-/turf/closed/mineral/bedrock,
-/area/rogue/outdoors/caves)
-"eu" = (
-/mob/living/simple_animal/hostile/retaliate/trufflepig,
-/turf/open/water/swamp/deep,
-/area/rogue/outdoors/caves)
-"fl" = (
-/obj/structure/fluff/walldeco/painting,
-/turf/closed/wall/mineral/wood,
-/area/rogue/outdoors/caves)
-"gu" = (
+"al" = (
 /obj/machinery/light/fueled/torchholder/l,
 /turf/open/floor/dirt/road,
-/area/rogue/outdoors/caves)
-"gI" = (
-/obj/structure/table/wood/nice/decorated_alt,
-/obj/item/ore/gold,
-/obj/structure/closet/crate/chest/gold,
-/turf/open/floor/carpet,
-/area/rogue/outdoors/caves)
-"jB" = (
-/obj/effect/dungeon_directional_helper/north,
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors/caves)
-"kv" = (
-/obj/structure/fluff/statue/evil,
+/area/rogue/under/tomb/wilds/bog)
+"bh" = (
+/obj/machinery/light/fueled/wallfire/candle/l,
 /turf/open/floor/tile/checkeralt,
-/area/rogue/outdoors/caves)
-"mz" = (
-/obj/structure/flora/grass/swampweed,
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors/caves)
-"mY" = (
+/area/rogue/under/tomb/indoors/royal)
+"bE" = (
 /obj/machinery/light/fueled/torchholder/c,
 /turf/open/floor/dirt/road,
-/area/rogue/outdoors/caves)
-"nl" = (
+/area/rogue/under/tomb/wilds/bog)
+"cq" = (
+/obj/structure/table/wood/nice/decorated_alt,
+/obj/item/reagent_containers/glass/cup/golden,
+/obj/structure/closet/crate/chest/gold,
+/turf/open/floor/carpet,
+/area/rogue/under/tomb/indoors/royal)
+"cr" = (
+/turf/closed/mineral/bedrock,
+/area/rogue/under/tomb/wilds/bog)
+"cB" = (
+/obj/structure/fluff/walldeco/painting/queen,
+/turf/closed/wall/mineral/wood,
+/area/rogue/under/tomb/indoors/royal)
+"cG" = (
+/obj/structure/fluff/walldeco/painting/seraphina,
+/obj/structure/fluff/walldeco/painting/seraphina,
+/turf/closed/wall/mineral/wood,
+/area/rogue/under/tomb/indoors/royal)
+"cO" = (
+/obj/machinery/light/fueled/torchholder/c,
+/obj/structure/flora/grass/swampweed,
+/turf/open/floor/dirt/ambush,
+/area/rogue/under/tomb/wilds/bog)
+"dG" = (
+/turf/open/water/swamp/deep,
+/area/rogue/under/tomb/wilds/bog)
+"dV" = (
+/obj/machinery/light/fueled/wallfire/candle/l,
+/obj/structure/fluff/statue/knight/interior,
+/turf/open/floor/tile/checkeralt,
+/area/rogue/under/tomb/indoors/royal)
+"ey" = (
 /obj/structure/table/wood/plain/alt,
 /obj/item/weapon/pitchfork/copper,
 /obj/item/reagent_containers/glass/cup/wooden,
 /obj/item/clothing/face/cigarette/pipe,
 /obj/item/reagent_containers/food/snacks/produce/swampweed_dried,
 /turf/open/floor/blocks/paving/vert,
-/area/rogue/outdoors/caves)
-"pt" = (
-/obj/machinery/light/fueled/torchholder/c,
-/obj/structure/flora/grass/swampweed,
-/turf/open/floor/dirt/ambush,
-/area/rogue/outdoors/caves)
-"pv" = (
-/obj/machinery/light/fueled/torchholder/c,
-/obj/effect/dungeon_directional_helper/east,
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors/caves)
-"pY" = (
-/obj/machinery/light/fueled/torchholder/c,
-/turf/open/floor/dirt/ambush,
-/area/rogue/outdoors/caves)
-"rv" = (
-/obj/machinery/light/fueled/wallfire/candle/l,
-/obj/structure/fluff/statue/knight/interior,
-/turf/open/floor/tile/checkeralt,
-/area/rogue/outdoors/caves)
-"rJ" = (
-/obj/effect/dungeon_directional_helper/south,
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors/caves)
-"sj" = (
-/obj/machinery/light/fueled/wallfire/candle/l,
+/area/rogue/under/tomb/indoors)
+"gk" = (
 /turf/open/floor/carpet,
-/area/rogue/outdoors/caves)
-"sK" = (
+/area/rogue/under/tomb/indoors/royal)
+"gl" = (
 /obj/structure/table/wood/nice/decorated_alt,
 /obj/item/statue/gold/loot,
 /obj/structure/closet/crate/chest/gold,
 /turf/open/floor/carpet,
-/area/rogue/outdoors/caves)
-"te" = (
-/obj/machinery/light/fueled/torchholder/r,
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors/caves)
-"tg" = (
-/mob/living/simple_animal/hostile/retaliate/trufflepig,
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors/caves)
-"tx" = (
-/obj/structure/table/wood/nice/decorated_alt,
-/obj/item/statue/gold,
-/obj/structure/closet/crate/chest/gold,
-/turf/open/floor/carpet,
-/area/rogue/outdoors/caves)
-"uc" = (
-/obj/structure/table/wood/nice/decorated_alt,
-/obj/item/clothing/ring/gold,
-/obj/structure/closet/crate/chest/gold,
-/turf/open/floor/carpet,
-/area/rogue/outdoors/caves)
-"vp" = (
-/turf/open/floor/carpet,
-/area/rogue/outdoors/caves)
-"wC" = (
-/obj/structure/chair/stool,
-/turf/open/floor/blocks/paving/vert,
-/area/rogue/outdoors/caves)
-"wP" = (
+/area/rogue/under/tomb/indoors/royal)
+"iQ" = (
 /obj/machinery/light/fueled/torchholder/r,
 /turf/open/floor/dirt/ambush,
-/area/rogue/outdoors/caves)
-"xR" = (
-/obj/machinery/light/fueled/torchholder/c,
-/obj/effect/dungeon_directional_helper/west,
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors/caves)
-"xS" = (
-/obj/machinery/light/fueled/firebowl/standing,
-/turf/open/floor/carpet,
-/area/rogue/outdoors/caves)
-"yG" = (
-/turf/open/water/swamp,
-/area/rogue/outdoors/caves)
-"Ac" = (
-/mob/living/simple_animal/hostile/retaliate/minotaur/axe,
-/turf/open/floor/tile/checkeralt,
-/area/rogue/outdoors/caves)
-"AE" = (
-/mob/living/simple_animal/hostile/retaliate/trufflepig,
-/turf/open/floor/dirt/ambush,
-/area/rogue/outdoors/caves)
-"AH" = (
-/turf/open/floor/blocks/paving/vert,
-/area/rogue/outdoors/caves)
-"BJ" = (
-/obj/structure/bed/shit,
-/turf/open/floor/blocks/paving/vert,
-/area/rogue/outdoors/caves)
-"Da" = (
-/obj/machinery/light/fueled/wallfire/candle/r,
-/turf/open/floor/carpet,
-/area/rogue/outdoors/caves)
-"Fu" = (
-/obj/structure/door/stone,
-/turf/open/floor/blocks/paving/vert,
-/area/rogue/outdoors/caves)
-"Fv" = (
-/obj/machinery/light/fueled/wallfire/candle/l,
-/turf/open/floor/tile/checkeralt,
-/area/rogue/outdoors/caves)
-"Gb" = (
+/area/rogue/under/tomb/wilds/bog)
+"kc" = (
 /obj/machinery/light/fueled/torchholder/r,
 /obj/effect/landmark/chest_or_mimic,
 /obj/item/reagent_containers/glass/bottle/stronghealthpot,
 /obj/item/reagent_containers/food/snacks/cheddar/aged,
 /turf/open/floor/blocks/paving/vert,
-/area/rogue/outdoors/caves)
-"Gy" = (
-/obj/structure/fluff/walldeco/painting/seraphina,
-/obj/structure/fluff/walldeco/painting/seraphina,
+/area/rogue/under/tomb/indoors)
+"lX" = (
+/obj/machinery/light/fueled/torchholder/c,
+/turf/closed/mineral/bedrock,
+/area/rogue/under/tomb/wilds/bog)
+"mh" = (
+/obj/structure/bed/shit,
+/turf/open/floor/blocks/paving/vert,
+/area/rogue/under/tomb/indoors)
+"nj" = (
+/obj/structure/door/stone,
+/turf/open/floor/blocks/paving/vert,
+/area/rogue/under/tomb/indoors)
+"nZ" = (
+/mob/living/simple_animal/hostile/retaliate/trufflepig,
+/turf/open/water/swamp/deep,
+/area/rogue/under/tomb/wilds/bog)
+"oU" = (
+/turf/open/floor/blocks/paving/vert,
+/area/rogue/under/tomb/indoors)
+"pk" = (
+/turf/open/floor/tile/checkeralt,
+/area/rogue/under/tomb/indoors/royal)
+"pC" = (
+/obj/machinery/light/fueled/wallfire/candle/r,
+/turf/open/floor/tile/checkeralt,
+/area/rogue/under/tomb/indoors/royal)
+"pK" = (
+/obj/structure/fluff/walldeco/painting/castle,
 /turf/closed/wall/mineral/wood,
-/area/rogue/outdoors/caves)
-"HP" = (
+/area/rogue/under/tomb/indoors/royal)
+"pX" = (
+/obj/structure/chair/stool,
+/turf/open/floor/blocks/paving/vert,
+/area/rogue/under/tomb/indoors)
+"pZ" = (
 /obj/machinery/light/fueled/torchholder/l,
 /obj/structure/fermentation_keg/water,
 /turf/open/floor/blocks/paving/vert,
-/area/rogue/outdoors/caves)
-"Jp" = (
+/area/rogue/under/tomb/indoors)
+"sS" = (
+/mob/living/simple_animal/hostile/retaliate/minotaur/axe,
+/turf/open/floor/tile/checkeralt,
+/area/rogue/under/tomb/indoors/royal)
+"th" = (
 /obj/machinery/light/fueled/torchholder/c,
-/turf/closed/mineral/bedrock,
-/area/rogue/outdoors/caves)
-"JX" = (
-/obj/structure/flora/shroom_tree,
-/turf/closed/mineral/bedrock,
-/area/rogue/outdoors/caves)
-"Ke" = (
-/turf/open/water/swamp/deep,
-/area/rogue/outdoors/caves)
-"LB" = (
-/obj/structure/door/fancy,
+/turf/open/floor/dirt/ambush,
+/area/rogue/under/tomb/wilds/bog)
+"ty" = (
+/obj/structure/fluff/statue/evil,
+/turf/open/floor/tile/checkeralt,
+/area/rogue/under/tomb/indoors/royal)
+"tM" = (
+/obj/machinery/light/fueled/torchholder/l,
+/obj/structure/flora/grass/swampweed,
+/turf/open/floor/dirt/ambush,
+/area/rogue/under/tomb/wilds/bog)
+"vT" = (
+/turf/open/water/swamp,
+/area/rogue/under/tomb/wilds/bog)
+"wj" = (
+/obj/machinery/light/fueled/torchholder/r,
+/turf/open/floor/dirt/road,
+/area/rogue/under/tomb/wilds/bog)
+"wo" = (
+/obj/machinery/light/fueled/wallfire/candle/r,
+/obj/structure/fluff/statue/knight/interior/r,
+/turf/open/floor/tile/checkeralt,
+/area/rogue/under/tomb/indoors/royal)
+"xu" = (
+/obj/structure/table/wood/nice/decorated_alt,
+/obj/item/clothing/ring/gold,
+/obj/structure/closet/crate/chest/gold,
 /turf/open/floor/carpet,
-/area/rogue/outdoors/caves)
-"LS" = (
-/obj/structure/fluff/walldeco/painting/queen,
+/area/rogue/under/tomb/indoors/royal)
+"xQ" = (
+/obj/structure/fluff/walldeco/painting/skull,
 /turf/closed/wall/mineral/wood,
-/area/rogue/outdoors/caves)
-"OE" = (
+/area/rogue/under/tomb/indoors/royal)
+"yI" = (
+/obj/structure/fluff/walldeco/painting,
+/turf/closed/wall/mineral/wood,
+/area/rogue/under/tomb/indoors/royal)
+"Bv" = (
+/obj/structure/table/wood/nice/decorated_alt,
+/obj/item/statue/gold,
+/obj/structure/closet/crate/chest/gold,
+/turf/open/floor/carpet,
+/area/rogue/under/tomb/indoors/royal)
+"CP" = (
+/turf/closed/wall/mineral/wood,
+/area/rogue/under/tomb/indoors/royal)
+"CX" = (
+/obj/machinery/light/fueled/firebowl/standing,
+/turf/open/floor/carpet,
+/area/rogue/under/tomb/indoors/royal)
+"Eu" = (
+/obj/machinery/light/fueled/wallfire/candle/r,
+/turf/open/floor/carpet,
+/area/rogue/under/tomb/indoors/royal)
+"Hc" = (
+/mob/living/simple_animal/hostile/retaliate/trufflepig,
+/turf/open/floor/dirt/ambush,
+/area/rogue/under/tomb/wilds/bog)
+"HA" = (
+/obj/structure/fluff/walldeco/painting/crown,
+/turf/closed/wall/mineral/wood,
+/area/rogue/under/tomb/indoors/royal)
+"HM" = (
+/obj/structure/flora/grass/swampweed,
+/turf/open/floor/dirt/road,
+/area/rogue/under/tomb/wilds/bog)
+"If" = (
+/obj/machinery/light/fueled/torchholder/c,
+/obj/effect/dungeon_directional_helper/west,
+/turf/open/floor/dirt/road,
+/area/rogue/under/tomb/wilds/bog)
+"Ik" = (
 /obj/machinery/light/fueled/torchholder/c,
 /mob/living/simple_animal/hostile/retaliate/trufflepig,
 /turf/open/floor/dirt/ambush,
-/area/rogue/outdoors/caves)
-"Qf" = (
-/obj/structure/fluff/walldeco/painting/skull,
-/turf/closed/wall/mineral/wood,
-/area/rogue/outdoors/caves)
-"QX" = (
-/turf/closed/wall/mineral/wood,
-/area/rogue/outdoors/caves)
-"UY" = (
+/area/rogue/under/tomb/wilds/bog)
+"Iq" = (
 /obj/structure/table/wood/nice/decorated_alt,
-/obj/item/reagent_containers/glass/cup/golden,
+/obj/item/ore/gold,
 /obj/structure/closet/crate/chest/gold,
 /turf/open/floor/carpet,
-/area/rogue/outdoors/caves)
-"Vz" = (
-/obj/machinery/light/fueled/wallfire/candle/r,
-/turf/open/floor/tile/checkeralt,
-/area/rogue/outdoors/caves)
-"WO" = (
+/area/rogue/under/tomb/indoors/royal)
+"Lx" = (
+/obj/machinery/light/fueled/wallfire/candle/l,
+/turf/open/floor/carpet,
+/area/rogue/under/tomb/indoors/royal)
+"Ly" = (
+/obj/machinery/light/fueled/torchholder/c,
+/obj/effect/dungeon_directional_helper/east,
+/turf/open/floor/dirt/road,
+/area/rogue/under/tomb/wilds/bog)
+"Mq" = (
+/obj/structure/flora/shroom_tree,
+/turf/closed/mineral/bedrock,
+/area/rogue/under/tomb/wilds/bog)
+"NI" = (
+/turf/closed/mineral/bedrock,
+/area/rogue/under/tomb/indoors)
+"NT" = (
+/obj/structure/flora/shroom_tree,
+/turf/open/floor/dirt/ambush,
+/area/rogue/under/tomb/wilds/bog)
+"NY" = (
 /obj/structure/table/wood/nice/decorated_alt,
 /obj/item/ingot/gold,
 /obj/structure/closet/crate/chest/gold,
 /turf/open/floor/carpet,
-/area/rogue/outdoors/caves)
-"Yf" = (
-/turf/open/floor/tile/checkeralt,
-/area/rogue/outdoors/caves)
-"Yi" = (
+/area/rogue/under/tomb/indoors/royal)
+"Oa" = (
+/obj/structure/flora/grass/swampweed,
+/turf/open/floor/dirt/ambush,
+/area/rogue/under/tomb/wilds/bog)
+"Oc" = (
 /obj/structure/table/wood/nice/decorated_alt,
 /obj/item/clothing/face/facemask/goldmask,
 /obj/item/coin/gold/pile,
@@ -262,399 +242,422 @@
 /obj/item/lockpick,
 /obj/item/lockpickring,
 /turf/open/floor/carpet,
-/area/rogue/outdoors/caves)
-"YH" = (
+/area/rogue/under/tomb/indoors/royal)
+"RR" = (
+/obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/dirt/road,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/wilds/bog)
+"RW" = (
+/turf/open/floor/dirt/ambush,
+/area/rogue/under/tomb/wilds/bog)
+"Tr" = (
+/obj/structure/flora/shroom_tree,
+/turf/open/floor/dirt/road,
+/area/rogue/under/tomb/wilds/bog)
+"Vj" = (
+/obj/effect/dungeon_directional_helper/north,
+/turf/open/floor/dirt/road,
+/area/rogue/under/tomb/wilds/bog)
+"VK" = (
+/mob/living/simple_animal/hostile/retaliate/trufflepig,
+/turf/open/floor/dirt/road,
+/area/rogue/under/tomb/wilds/bog)
+"Wx" = (
+/turf/open/floor/dirt/road,
+/area/rogue/under/tomb/wilds/bog)
+"Yd" = (
+/obj/structure/door/fancy,
+/turf/open/floor/carpet,
+/area/rogue/under/tomb/indoors/royal)
 
 (1,1,1) = {"
-en
-en
-xR
-en
-en
-en
-en
-Jp
-en
-en
-Jp
-en
-en
+cr
+cr
+If
+cr
+cr
+cr
+cr
+lX
+cr
+cr
+lX
+cr
+cr
 "}
 (2,1,1) = {"
-en
-cP
-bY
-ec
-en
-en
-cP
-YH
-en
-en
-bY
-YH
-en
+cr
+Tr
+RW
+tM
+cr
+cr
+Tr
+Wx
+cr
+cr
+RW
+Wx
+cr
 "}
 (3,1,1) = {"
-en
-OE
-bY
-YH
-cP
-en
-tg
-YH
-cP
-en
-bO
-AE
-en
+cr
+Ik
+RW
+Wx
+Tr
+cr
+VK
+Wx
+Tr
+cr
+NT
+Hc
+cr
 "}
 (4,1,1) = {"
-en
-YH
-YH
-YH
-YH
-en
-en
-bY
-dE
-en
-mz
-te
-en
+cr
+Wx
+Wx
+Wx
+Wx
+cr
+cr
+RW
+Oa
+cr
+HM
+wj
+cr
 "}
 (5,1,1) = {"
-en
-en
-en
-yG
-yG
-yG
-gu
-bY
-en
-en
-bY
-en
-en
+NI
+NI
+NI
+vT
+vT
+vT
+al
+RW
+cr
+cr
+RW
+cr
+cr
 "}
 (6,1,1) = {"
-en
-BJ
-en
-en
-Ke
-en
-cP
-YH
-YH
-bY
-bY
-YH
-rJ
+NI
+mh
+NI
+NI
+dG
+cr
+Tr
+Wx
+Wx
+RW
+RW
+Wx
+RR
 "}
 (7,1,1) = {"
-en
-AH
-HP
-en
-en
-en
-en
-YH
-en
-en
-pt
-YH
-en
+NI
+oU
+pZ
+NI
+NI
+cr
+cr
+Wx
+cr
+cr
+cO
+Wx
+cr
 "}
 (8,1,1) = {"
-en
-AH
-AH
-AH
-Fu
-bY
-YH
-bY
-ec
-en
-cP
-YH
-en
+NI
+oU
+oU
+oU
+nj
+RW
+Wx
+RW
+tM
+cr
+Tr
+Wx
+cr
 "}
 (9,1,1) = {"
-en
-wC
-nl
-AH
-en
-pY
-yG
-yG
-yG
-en
-en
-YH
-en
+NI
+pX
+ey
+oU
+NI
+th
+vT
+vT
+vT
+cr
+cr
+Wx
+cr
 "}
 (10,1,1) = {"
-en
-Gb
-en
-en
-en
-YH
-en
-yG
-cP
-en
-en
-mY
-en
+NI
+kc
+NI
+NI
+NI
+Wx
+cr
+vT
+Tr
+cr
+cr
+bE
+cr
 "}
 (11,1,1) = {"
-en
-en
-en
-bO
-bY
-YH
-en
-yG
-en
-en
-bY
-tg
-en
+NI
+NI
+NI
+NT
+RW
+Wx
+cr
+vT
+cr
+cr
+RW
+VK
+cr
 "}
 (12,1,1) = {"
-jB
-YH
-YH
-bY
-wP
-bY
-en
-eu
-en
-bY
-bY
-JX
-en
+Vj
+Wx
+Wx
+RW
+iQ
+RW
+cr
+nZ
+cr
+RW
+RW
+Mq
+cr
 "}
 (13,1,1) = {"
-en
-Jp
-en
-en
-en
-en
-en
-en
-en
-pv
-en
-en
-en
+cr
+lX
+cr
+cr
+cr
+cr
+cr
+cr
+cr
+Ly
+cr
+cr
+cr
 "}
 
 (1,1,2) = {"
-QX
-QX
-LB
-QX
-QX
-LB
-QX
-dv
-LB
-QX
-QX
-LB
-QX
+CP
+CP
+Yd
+CP
+CP
+Yd
+CP
+HA
+Yd
+CP
+CP
+Yd
+CP
 "}
 (2,1,2) = {"
-LB
-sj
-vp
-Yf
-rv
-vp
-Fv
-Yf
-vp
-Fv
-Yf
-vp
-QX
+Yd
+Lx
+gk
+pk
+dV
+gk
+bh
+pk
+gk
+bh
+pk
+gk
+CP
 "}
 (3,1,2) = {"
-QX
-Yf
-sK
-vp
-vp
-vp
-xS
-vp
-vp
-vp
-tx
-vp
-LB
+CP
+pk
+gl
+gk
+gk
+gk
+CX
+gk
+gk
+gk
+Bv
+gk
+Yd
 "}
 (4,1,2) = {"
-LS
-Yf
-vp
-Yf
-vp
-Yf
-kv
-Yf
-vp
-Yf
-vp
-Yf
-QX
+cB
+pk
+gk
+pk
+gk
+pk
+ty
+pk
+gk
+pk
+gk
+pk
+CP
 "}
 (5,1,2) = {"
-LB
-vp
-vp
-vp
-WO
-vp
-vp
-vp
-UY
-vp
-vp
-Yf
-QX
+Yd
+gk
+gk
+gk
+NY
+gk
+gk
+gk
+cq
+gk
+gk
+pk
+CP
 "}
 (6,1,2) = {"
-QX
-Yf
-vp
-Yf
-vp
-Ac
-vp
-Yf
-vp
-Yf
-vp
-vp
-LB
+CP
+pk
+gk
+pk
+gk
+sS
+gk
+pk
+gk
+pk
+gk
+gk
+Yd
 "}
 (7,1,2) = {"
-fl
-Yf
-xS
-kv
-vp
-vp
-Yi
-vp
-vp
-kv
-xS
-Yf
-QX
+yI
+pk
+CX
+ty
+gk
+gk
+Oc
+gk
+gk
+ty
+CX
+pk
+CP
 "}
 (8,1,2) = {"
-LB
-vp
-vp
-Yf
-vp
-Yf
-vp
-Ac
-vp
-Yf
-vp
-Yf
-Gy
+Yd
+gk
+gk
+pk
+gk
+pk
+gk
+sS
+gk
+pk
+gk
+pk
+cG
 "}
 (9,1,2) = {"
-QX
-Yf
-vp
-vp
-uc
-vp
-vp
-vp
-WO
-vp
-vp
-vp
-LB
+CP
+pk
+gk
+gk
+xu
+gk
+gk
+gk
+NY
+gk
+gk
+gk
+Yd
 "}
 (10,1,2) = {"
-QX
-Yf
-vp
-Yf
-vp
-Yf
-kv
-Yf
-vp
-Yf
-vp
-Yf
-QX
+CP
+pk
+gk
+pk
+gk
+pk
+ty
+pk
+gk
+pk
+gk
+pk
+CP
 "}
 (11,1,2) = {"
-LB
-vp
-UY
-vp
-vp
-vp
-xS
-vp
-vp
-vp
-gI
-Yf
-Qf
+Yd
+gk
+cq
+gk
+gk
+gk
+CX
+gk
+gk
+gk
+Iq
+pk
+xQ
 "}
 (12,1,2) = {"
-QX
-vp
-Vz
-Yf
-vp
-Vz
-Yf
-vp
-cl
-Yf
-vp
-Da
-LB
+CP
+gk
+pC
+pk
+gk
+pC
+pk
+gk
+wo
+pk
+gk
+Eu
+Yd
 "}
 (13,1,2) = {"
-QX
-LB
-QX
-QX
-LB
-QX
-cm
-LB
-QX
-QX
-LB
-QX
-QX
+CP
+Yd
+CP
+CP
+Yd
+CP
+pK
+Yd
+CP
+CP
+Yd
+CP
+CP
 "}
