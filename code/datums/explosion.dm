@@ -354,7 +354,7 @@ GLOBAL_LIST_EMPTY(explosions)
 	var/heavy = 0
 	var/light = 0
 	var/list/choices = list("Small Bomb","Medium Bomb","Big Bomb","Custom Bomb")
-	var/choice = input("Bomb Size?") in choices
+	var/choice = browser_input_list("Bomb Size?", choices)
 	switch(choice)
 		if(null)
 			return 0

@@ -401,7 +401,7 @@ SUBSYSTEM_DEF(migrants)
 	. = TRUE
 	var/mob/user = usr
 	message_admins("Admin [key_name_admin(user)] is forcing the next migrant wave.")
-	var/picked_wave_type = input(user, "Choose migrant wave to force:", "Migrants")  as null|anything in GLOB.migrant_waves
+	var/picked_wave_type = browser_input_list(user, "Choose migrant wave to force:", "Migrants",  GLOB.migrant_waves)
 	if(!picked_wave_type)
 		return
 	message_admins("Admin [key_name_admin(user)] forced next migrant wave: [picked_wave_type] (Arrival: 1 Minute)")

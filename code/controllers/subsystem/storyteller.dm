@@ -1128,7 +1128,7 @@ SUBSYSTEM_DEF(gamemode)
 					for(var/storyteller_type in storytellers)
 						var/datum/storyteller/storyboy = storytellers[storyteller_type]
 						name_list[storyboy.name] = storyboy.type
-					var/new_storyteller_name = input(usr, "Choose new storyteller (circumvents voted one):", "Storyteller")  as null|anything in name_list
+					var/new_storyteller_name = browser_input_list(usr, "Choose new storyteller (circumvents voted one):", "Storyteller", name_list)
 					if(!new_storyteller_name)
 						message_admins("[key_name_admin(usr)] has cancelled picking a Storyteller.")
 						return
