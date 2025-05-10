@@ -13,6 +13,14 @@
 
 	smoothing_groups = SMOOTH_GROUP_OPEN
 
+	var/obj/effect/hotspot/active_hotspot
+
+	nomouseover = TRUE
+
+	appearance_flags = LONG_GLIDE | TILE_BOUND
+	/// Pollution of this turf
+	var/datum/pollution/pollution
+
 /turf/proc/get_slowdown(mob/user)
 	return 0
 
