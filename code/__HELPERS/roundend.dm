@@ -419,7 +419,7 @@
 	// Header
 	parts += "<div class='panel stationborder'>"
 	if(GLOB.personal_objective_minds.len)
-		parts += "<div style='text-align: center; font-size: 1.3em;'>GODS' CHOSEN:</div>"
+		parts += "<div style='text-align: center; font-size: 1.2em;'>GODS' CHOSEN:</div>"
 		parts += "<hr class='paneldivider'>"
 
 	// Process all minds with personal objectives
@@ -439,7 +439,7 @@
 		var/obj_count = 1
 		for(var/datum/objective/objective as anything in mind.personal_objectives)
 			var/result = objective.check_completion() ? span_greentext("SUCCESS") : span_redtext("FAIL")
-			parts += "[obj_count]. [objective.explanation_text] - [result]"
+			parts += "<B>Goal #[obj_count]</B>: [objective.explanation_text] - [result]"
 			obj_count++
 
 		parts += "<br>"
