@@ -70,6 +70,8 @@
 	map_name = json["map_name"]
 	CHECK_EXISTS("map_path")
 	map_path = json["map_path"]
+	CHECK_EXISTS("immigrant_origin")
+	immigrant_origin = json["immigrant_origin"]
 
 	map_file = json["map_file"]
 	if (istext(map_file))
