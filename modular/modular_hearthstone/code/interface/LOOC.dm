@@ -42,6 +42,9 @@
 	if(!mob)
 		return
 
+	if(mob.stat && !holder)
+		to_chat(src, span_danger("You are unconscious!"))
+
 	msg = copytext_char(sanitize(msg), 1, MAX_MESSAGE_LEN)
 	if(!msg)
 		return
