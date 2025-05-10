@@ -51,7 +51,7 @@ SUBSYSTEM_DEF(gamemode)
 	/// Point thresholds at which the events are supposed to be rolled, it is also the base cost for events.
 	var/list/point_thresholds = list(
 		EVENT_TRACK_MUNDANE = MUNDANE_POINT_THRESHOLD,
-		EVENT_TRACK_PERSONAL = MUNDANE_POINT_THRESHOLD * 1.5,
+		EVENT_TRACK_PERSONAL = MUNDANE_POINT_THRESHOLD,
 		EVENT_TRACK_MODERATE = MODERATE_POINT_THRESHOLD,
 		EVENT_TRACK_INTERVENTION = MAJOR_POINT_THRESHOLD,
 		EVENT_TRACK_CHARACTER_INJECTION = ROLESET_POINT_THRESHOLD,
@@ -850,7 +850,7 @@ SUBSYSTEM_DEF(gamemode)
 	min_pop_thresholds[EVENT_TRACK_RAIDS] = CONFIG_GET(number/objectives_min_pop)
 
 	point_thresholds[EVENT_TRACK_MUNDANE] = CONFIG_GET(number/mundane_point_threshold)
-	point_thresholds[EVENT_TRACK_PERSONAL] = CONFIG_GET(number/mundane_point_threshold) * 1.5
+	point_thresholds[EVENT_TRACK_PERSONAL] = CONFIG_GET(number/mundane_point_threshold)
 	point_thresholds[EVENT_TRACK_MODERATE] = CONFIG_GET(number/moderate_point_threshold)
 	point_thresholds[EVENT_TRACK_INTERVENTION] = CONFIG_GET(number/major_point_threshold)
 	point_thresholds[EVENT_TRACK_CHARACTER_INJECTION] = CONFIG_GET(number/roleset_point_threshold)
