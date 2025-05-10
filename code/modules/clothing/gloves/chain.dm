@@ -39,5 +39,4 @@
 /obj/item/clothing/gloves/chain/vampire
 	name = "ancient ceremonial gloves"
 	icon_state = "vgloves"
-	smeltresult = /obj/item/ingot/steel
 	item_weight = 6 * STEEL_MULTIPLIER

@@ -129,12 +129,8 @@
 /obj/item/clothing/shoes/boots/armor/vampire
 	name = "ancient ceremonial boots"
 	desc = "Antediluvian boots with ceremonial ornamets from ages past."
-	body_parts_covered = FEET
 	icon_state = "vboots"
 	item_state = "vboots"
 	prevent_crits = ALL_CRITICAL_HITS_VAMP
-	color = null
-	blocksound = PLATEHIT
-	smeltresult = /obj/item/ingot/steel
 	armor = ARMOR_PLATE_GOOD
 	item_weight = 5 * STEEL_MULTIPLIER

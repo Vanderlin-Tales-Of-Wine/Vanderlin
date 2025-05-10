@@ -125,45 +125,6 @@
 
 	max_integrity = INTEGRITY_STRONG
 
-
-//................ Ancient Haubergon ............... //
-/obj/item/clothing/armor/haubergon_vampire
-	name = "ancient haubergon"
-	desc = "A style of armor long out of use. Rests easy on the shoulders."
-	icon_state = "vunder"
-	blocksound = CHAINHIT
-	drop_sound = 'sound/foley/dropsound/chain_drop.ogg'
-	pickup_sound = 'sound/foley/equip/equip_armor_chain.ogg'
-	equip_sound = 'sound/foley/equip/equip_armor_chain.ogg'
-	anvilrepair = /datum/skill/craft/armorsmithing
-	smeltresult = /obj/item/ingot/steel
-	sellprice = VALUE_IRON_ARMOR_UNUSUAL
-
-	armor_class = AC_LIGHT
-	armor = ARMOR_SCALE
-	body_parts_covered = COVERAGE_ALL_BUT_LEGS
-	prevent_crits = ALL_EXCEPT_BLUNT
-	item_weight = 7 * IRON_MULTIPLIER
-
-// VAMPIRE ARMORS BELOW
-
-/obj/item/clothing/pants/platelegs/vampire
-	name = "ancient plate greaves"
-	desc = ""
-	gender = PLURAL
-	icon_state = "vpants"
-	item_state = "vpants"
-	sewrepair = FALSE
-	armor = ARMOR_PLATE_GOOD
-	prevent_crits = ALL_CRITICAL_HITS_VAMP // Vampire armors don't protect against lashing, Castlevania reference
-	blocksound = PLATEHIT
-	do_sound = FALSE
-	anvilrepair = /datum/skill/craft/armorsmithing
-	smeltresult = /obj/item/ingot/steel
-	r_sleeve_status = SLEEVE_NOMOD
-	l_sleeve_status = SLEEVE_NOMOD
-	item_weight = 5.5 * STEEL_MULTIPLIER
-
 /obj/item/clothing/shirt/vampire
 	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR
 	name = "regal silks"
