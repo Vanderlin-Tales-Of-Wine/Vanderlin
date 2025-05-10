@@ -25,10 +25,6 @@ GLOBAL_PROTECT(admin_verbs_default)
 	/client/proc/ghost_down,
 	/client/proc/jumptoarea,
 	/client/proc/jumptokey,
-	/datum/admins/proc/checkpq,
-	/datum/admins/proc/adjustpq,
-	/datum/admins/proc/checktriumphs,
-	/datum/admins/proc/adjusttriumphs,
 	/client/proc/jumptomob,
 	/client/proc/returntolobby,
 	/datum/verbs/menu/Admin/verb/playerpanel,
@@ -356,6 +352,18 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 	to_chat(src, "<span class='interface'>All of your adminverbs are now visible.</span>")
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Show Adminverbs") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+/client/proc/toggle_context_menu()
+	set category = "Admin"
+	set name = "Right-click Menu"
+	if(!holder)
+		return
+	if(show_popup_menus == FALSE)
+		show_popup_menus = TRUE
+		log_admin("[key_name(usr)] toggled context menu ON.")
+	else
+		show_popup_menus = FALSE
+		log_admin("[key_name(usr)] toggled context menu OFF.")
 
 /client/proc/toggle_aghost_invis()
 	set category = "GameMaster"

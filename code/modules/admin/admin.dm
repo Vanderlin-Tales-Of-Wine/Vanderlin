@@ -70,7 +70,10 @@
 	body +="</head>"
 	body += "<body><div id='container'>"
 	body += "<div id='left'>"
-	body += "<body>Options panel for <b>[M]</b>"
+	if(M.ckey)
+		body += "<body>\[<A href='byond://?_src_=holder;[HrefToken()];ppbyckey=[M.ckey];ppbyckeyorigmob=[REF(M)]'>Find Updated Panel</A>\] <br>"
+
+	body += "Options panel for <b>[M]</b>"
 	if(M.client)
 		body += " played by <b>[M.client]</b> "
 		body += "\[<A href='?_src_=holder;[HrefToken()];editrights=[(GLOB.admin_datums[M.client.ckey] || GLOB.deadmins[M.client.ckey]) ? "rank" : "add"];key=[M.key]'>[M.client.holder ? M.client.holder.rank : "Player"]</A>\]"
@@ -84,8 +87,8 @@
 
 	if(M.client)
 		body += "<br>\[<b>First Seen:</b> [M.client.player_join_date]\]"
-		body += "\[<b>Byond account registered on:</b> [M.client.account_join_date]\]"
-		body += "\[<b>IP:</b> [M.client.address]\]"
+		body += "<br>\[<b>Byond account registered on:</b> [M.client.account_join_date]\]"
+		body += "<br>\[<b>IP:</b> [M.client.address]\]"
 		body += "<br><br><b>CentCom Ban DB: </b> "
 		if(CONFIG_GET(string/centcom_ban_db))
 			body += "<a href='byond://?_src_=holder;[HrefToken()];centcomlookup=[M.client.ckey]'>Search</a>"
@@ -105,29 +108,28 @@
 		body += "<br>"
 		body += "<a href='?_src_=holder;[HrefToken()];roleban=add;mob=[REF(M)]'>\[Role Ban Panel\]</a> "
 
-		var/patron = "NA"
+		var/patron = ""
 		if(isliving(M))
 			var/mob/living/living = M
 			patron = initial(living.patron.name)
-		var/flaw = "NA"
+		var/flaw = ""
+		var/curse_string = ""
+		var/job = ""
 		if(ishuman(M))
 			var/mob/living/carbon/human/human_mob = M
 			flaw = human_mob.charflaw
-		body += "<br><br>Current Patron: [patron]"
-		body += "Current Flaw: [flaw]"
+			curse_string = human_mob.curses.Join(", ")
+			job = human_mob?.mind.assigned_role.title
 
-		var/curse_string = ""
-		if(ishuman(M))
-			var/mob/living/carbon/human/living = M
-			for(var/datum/curse/curse in living.curses)
-				curse_string += "<br> - [curse.name]"
-		body += "<br>Curses: [curse_string]"
+		body += "<br><br>Current Patron: <a href='?_src_=holder;[HrefToken()];changepatron=add;mob=[REF(M)]'>\[[patron ? patron : "NA"]\]</a>"
+		body += "<br>Current Flaw: <a href='?_src_=holder;[HrefToken()];changeflaw=add;mob=[REF(M)]'>\[[flaw ? flaw : "NA"]\]</a>"
+		body += "<br>Current Curses: <a href='?_src_=holder;[HrefToken()];modifycurses=add;mob=[REF(M)]'>\[[curse_string ? curse_string : "NA"]\]</a>"
+		body += "<br>Current Job: <a href='?_src_=holder;[HrefToken()];setjob=add;mob=[REF(M)]'>\[[job ? job : "NA"]\]</a>"
 
 		var/full_version = "Unknown"
 		if(M.client.byond_version)
 			full_version = "[M.client.byond_version].[M.client.byond_build ? M.client.byond_build : "xxx"]"
 		body += "<br>\[<b>Byond version:</b> [full_version]\]"
-
 
 	body += "<br><br>\["
 	body += "<a href='?_src_=vars;[HrefToken()];Vars=[REF(M)]'>VV</a> - "

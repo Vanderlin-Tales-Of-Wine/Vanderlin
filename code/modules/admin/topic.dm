@@ -516,6 +516,21 @@
 		var/mob/M = locate(href_list["adminplayeropts"])
 		show_player_panel(M)
 
+	else if(href_list["ppbyckey"])
+		var/target_ckey = href_list["ppbyckey"]
+		var/mob/original_mob = locate(href_list["ppbyckeyorigmob"]) in GLOB.mob_list
+		var/mob/target_mob = get_mob_by_ckey(target_ckey)
+		if(!target_mob)
+			to_chat(usr, span_warning("No mob found with that ckey."))
+			return
+
+		if(original_mob == target_mob)
+			to_chat(usr, span_warning("[target_ckey] is still in their original mob: [original_mob]."))
+			return
+
+		to_chat(usr, span_notice("Jumping to [target_ckey]'s new mob: [target_mob]!"))
+		show_player_panel(target_mob)
+
 	else if(href_list["adminplayerobservefollow"])
 		if(!isobserver(usr) && !check_rights(R_ADMIN))
 			return
@@ -1193,6 +1208,79 @@
 		M.adjust_triumphs(amt2change, FALSE, raisin)
 		message_admins("[key_name_admin(usr)] adjusted [M.key]'s triumphs by [amt2change] with [!raisin ? "no reason given" : "reason: [raisin]"].")
 		log_admin("[key_name_admin(usr)] adjusted [M.key]'s triumphs by [amt2change] with [!raisin ? "no reason given" : "reason: [raisin]"].")
+
+	else if(href_list["changepatron"])
+		if(!check_rights(R_ADMIN))
+			return
+
+		var/mob/M = (locate(href_list["mob"]) in GLOB.mob_list)
+
+		if(!ishuman(M))
+			return
+
+		var/patron_to_change_to = browser_input_list(usr, "Change to what patron?", "THE GODS", GLOB.patronlist)
+		if(!patron_to_change_to)
+			return
+
+		var/mob/living/carbon/human/being_changed = M
+
+		message_admins("[key_name_admin(usr)] changed [key_name_admin(M)]'s patron from [being_changed.patron] to [patron_to_change_to]")
+		log_admin("[key_name_admin(usr)] changed [key_name_admin(M)]'s patron from [being_changed.patron] to [patron_to_change_to]")
+
+		being_changed.set_patron(patron_to_change_to)
+
+	else if(href_list["changeflaw"])
+		if(!check_rights(R_ADMIN))
+			return
+
+		var/mob/M = (locate(href_list["mob"]) in GLOB.mob_list)
+
+		if(!ishuman(M))
+			return
+
+		var/list/flawslist = GLOB.character_flaws.Copy()
+		var/flaw_to_change_to = browser_input_list(usr, "Change to what flaw?", "EVERYONE HAS A VICE", flawslist)
+
+		if(!flaw_to_change_to)
+			return
+
+		flaw_to_change_to = flawslist[flaw_to_change_to]
+
+		var/mob/living/carbon/human/being_changed = M
+
+		message_admins("[key_name_admin(usr)] changed [key_name_admin(M)]'s flaw from [being_changed.charflaw ? being_changed.charflaw : "NA"] to [flaw_to_change_to]")
+		log_admin("[key_name_admin(usr)] changed [key_name_admin(M)]'s flaw from [being_changed.charflaw ? being_changed.charflaw : "NA"] to [flaw_to_change_to]")
+
+		var/datum/charflaw/C = new flaw_to_change_to()
+		being_changed.charflaw = C
+
+	else if(href_list["modifycurses"])
+
+		// admin rights checked in admin_curse
+		var/mob/M = (locate(href_list["mob"]) in GLOB.mob_list)
+
+		admin_curse(M)
+
+	else if(href_list["setjob"])
+		if(!check_rights(R_ADMIN))
+			return
+		var/mob/M = (locate(href_list["mob"]) in GLOB.mob_list)
+		if(!M?.mind)
+			return
+
+		var/list/jobslist = get_job_assignment_order()
+		var/job_to_change_to = browser_input_list(usr, "Change to what job?", "THEIR ROLE IN THIS WORLD", jobslist)
+
+		if(!job_to_change_to || !M.mind)
+			return
+
+		var/datum/job/new_job = job_to_change_to
+		var/datum/mind/mind_of_mob = M.mind
+
+		message_admins("[key_name_admin(usr)] changed [key_name_admin(M)]'s job from [mind_of_mob.assigned_role ? mind_of_mob.assigned_role.title : "NA"] to [new_job.title]")
+		log_admin("[key_name_admin(usr)] changed [key_name_admin(M)]'s job from [mind_of_mob.assigned_role ? mind_of_mob.assigned_role.title : "NA"] to [new_job.title]")
+
+		mind_of_mob.set_assigned_role(new_job)
 
 	else if(href_list["roleban"])
 		if(!check_rights(R_ADMIN))
