@@ -32,4 +32,4 @@
 	UnregisterSignal(owner.current, COMSIG_TORTURE_PERFORMED)
 
 /datum/objective/torture/update_explanation_text()
-	explanation_text = "Torture someone until they beg to please Zizo!"
+	explanation_text = "Torture someone until they beg for mercy to please Zizo!"

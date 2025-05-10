@@ -981,7 +981,7 @@
 #include "code\game\gamemodes\personal_objectives\baptism.dm"
 #include "code\game\gamemodes\personal_objectives\become_noble.dm"
 #include "code\game\gamemodes\personal_objectives\bury.dm"
-#include "code\game\gamemodes\personal_objectives\craft.dm"
+#include "code\game\gamemodes\personal_objectives\craft_shrine.dm"
 #include "code\game\gamemodes\personal_objectives\eat_organs.dm"
 #include "code\game\gamemodes\personal_objectives\fish_release.dm"
 #include "code\game\gamemodes\personal_objectives\improve_combat.dm"

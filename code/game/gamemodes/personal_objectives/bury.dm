@@ -34,4 +34,4 @@
 	UnregisterSignal(owner.current, COMSIG_GRAVE_CONSECRATED)
 
 /datum/objective/proper_burial/update_explanation_text()
-	explanation_text = "Consecrate [required_burials] grave\s to earn Necra's approval."
+	explanation_text = "Consecrate [required_burials] grave\s by building a grave marker or using funeral rites to earn Necra's approval."
