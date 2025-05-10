@@ -10,10 +10,6 @@
 		"I AM BEHIND SEVEN PHYLACTERIES!",
 		"YOU CANNOT KILL ME!",
 	)
-	var/list/phylacteries = list()
-	/// weak reference to the body so we can revive even if decapitated
-	var/datum/weakref/lich_body
-	var/out_of_lives = FALSE
 
 	innate_traits = list(
 		TRAIT_NOSTAMINA,
@@ -42,8 +38,6 @@
 /datum/antagonist/lich/on_gain()
 	SSmapping.retainer.liches |= owner
 	. = ..()
-	if(iscarbon(owner.current))
-		lich_body = WEAKREF(owner.current)
 	owner.special_role = name
 	move_to_spawnpoint()
 	remove_job()
@@ -144,7 +138,7 @@
 
 /datum/outfit/job/lich/post_equip(mob/living/carbon/human/H)
 	..()
-	var/datum/antagonist/lich/lichman = H.mind.has_antag_datum(/datum/antagonist/lich)
+	var/datum/mind/lichmind = H?.mind
 	for(var/i in 1 to 3)
 		var/obj/item/phylactery/new_phylactery = new(H.loc)
 		lichman.phylacteries += new_phylactery
@@ -196,10 +190,9 @@
 	light_system = MOVABLE_LIGHT
 	light_outer_range = 3
 	light_color = "#003300"
-	var/datum/antagonist/lich/possessor
 
 	var/resurrections = 0
-	var/datum/mind/mind
+	var/datum/mind/mind_posessor
 	var/respawn_time = 1800
 
 	var/static/active_phylacteries = 0
@@ -207,6 +200,9 @@
 /obj/item/phylactery/Initialize(mapload, datum/mind/newmind)
 	. = ..()
 	filters += filter(type="drop_shadow", x=0, y=0, size=1, offset=2, color=rgb(rand(1,255),rand(1,255),rand(1,255)))
+
+/obj/item/phylactery/proc/attach_mind(datum/mind/newmind)
+
 
 /obj/item/phylactery/proc/be_consumed(timer)
 	var/offset = prob(50) ? -2 : 2
