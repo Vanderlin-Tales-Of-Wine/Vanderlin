@@ -153,15 +153,6 @@
 	. = ..()
 	flags_1 |= CAN_BE_ATTACKED_1
 
-/turf/open/attack_hand(mob/user)
-	. = ..()
-	if(.)
-		return
-	for(var/obj/structure/door/possible_door as anything in contents) // we typecheck one line down
-		if(istype(possible_door))
-			possible_door.attack_hand(user) // if someone clicks an open turf with an empty hand, redirect it to a door on the tile.
-			return
-
 ///this will always use the highest value given depending on if set for negative
 /turf/proc/add_turf_temperature(key, value, weight = 1)
 	if(!temperature_sources)

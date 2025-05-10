@@ -120,6 +120,15 @@
 	set_init_layer()
 	if(keylock)
 		AddElement(/datum/element/lockpickable, list(/obj/item/lockpick), list(/obj/item/lockpick), lockid_to_lockpick_difficulty(lockid))
+	if(isopenturf(loc))
+		RegisterSignal(loc, COMSIG_ATOM_ATTACK_HAND, PROC_REF(redirect_attack)) // redirect the attack to the door
+
+/obj/structure/door/Destroy()
+	. = ..()
+	UnregisterSignal(loc, COMSIG_ATOM_ATTACK_HAND, PROC_REF(redirect_attack))
+
+/obj/structure/door/proc/redirect_attack(turf/source, mob/user)
+	attack_hand(user)
 
 /obj/structure/door/proc/set_init_layer()
 	if(density)
