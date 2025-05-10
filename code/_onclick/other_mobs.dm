@@ -452,6 +452,7 @@
 								to_chat(src, span_green("I stole [picked]!"))
 								exp_to_gain *= src.mind.get_learning_boon(thiefskill)
 								if(V.client && V.stat != DEAD)
+									SEND_SIGNAL(U, COMSIG_ITEM_STOLEN, V)
 									record_featured_stat(FEATURED_STATS_THIEVES, U)
 									record_featured_stat(FEATURED_STATS_CRIMINALS, U)
 									GLOB.vanderlin_round_stats[STATS_ITEMS_PICKPOCKETED]++

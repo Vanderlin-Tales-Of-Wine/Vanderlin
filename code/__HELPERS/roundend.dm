@@ -169,6 +169,8 @@
 
 	gamemode_report()
 
+	to_chat(world, personal_objectives_report())
+
 	sleep(10 SECONDS)
 
 	players_report()
@@ -308,6 +310,11 @@
 	parts += antag_report()
 
 	CHECK_TICK
+
+	//Personal objectives
+	parts += personal_objectives_report()
+
+	CHECK_TICK
 	//Medals
 	parts += medal_report()
 
@@ -404,6 +411,46 @@
 			parts += com
 		return "<div class='panel stationborder'>[parts.Join("<br>")]</div>"
 	return ""
+
+/datum/controller/subsystem/ticker/proc/personal_objectives_report()
+	var/list/parts = list()
+	var/has_objectives = FALSE
+
+	// Header
+	parts += "<div class='panel stationborder'>"
+	if(GLOB.personal_objective_minds.len)
+		parts += "<div style='text-align: center; font-size: 1.2em;'>GODS' CHOSEN:</div>"
+		parts += "<hr class='paneldivider'>"
+
+	// Process all minds with personal objectives
+	for(var/datum/mind/mind as anything in GLOB.personal_objective_minds)
+		if(!mind.personal_objectives || !mind.personal_objectives.len)
+			continue
+
+		has_objectives = TRUE
+		var/name_with_title
+		if(mind.current)
+			name_with_title = printplayer(mind)
+		else
+			name_with_title = "Unknown"
+
+		parts += "[name_with_title]"
+
+		var/obj_count = 1
+		for(var/datum/objective/objective as anything in mind.personal_objectives)
+			var/result = objective.check_completion() ? span_greentext("SUCCESS") : span_redtext("FAIL")
+			parts += "<B>Goal #[obj_count]</B>: [objective.explanation_text] - [result]"
+			obj_count++
+
+		parts += "<br>"
+		CHECK_TICK
+
+	if(!has_objectives)
+		parts += "<div style='text-align: center;'>No personal objectives were assigned this round.</div>"
+
+	parts += "</div>"
+
+	return parts.Join("<br>")
 
 /datum/controller/subsystem/ticker/proc/antag_report()
 	var/list/result = list()

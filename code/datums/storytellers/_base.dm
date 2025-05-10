@@ -1,7 +1,7 @@
 /// Standard follower modifier for storytellers, ie. how many points they get for each follower
 #define STANDARD_FOLLOWER_MODIFIER 20
 /// Special follower modifier for Astrata, who is a default patron
-#define ASTRATA_FOLLOWER_MODIFIER STANDARD_FOLLOWER_MODIFIER - 3
+#define ASTRATA_FOLLOWER_MODIFIER STANDARD_FOLLOWER_MODIFIER - 2
 
 ///The storyteller datum. He operates with the SSgamemode data to run events
 /datum/storyteller
@@ -18,6 +18,7 @@
 	/// Multipliers for starting points.
 	var/list/starting_point_multipliers = list(
 		EVENT_TRACK_MUNDANE = 1,
+		EVENT_TRACK_PERSONAL = 1,
 		EVENT_TRACK_MODERATE = 1,
 		EVENT_TRACK_INTERVENTION = 1,
 		EVENT_TRACK_CHARACTER_INJECTION = 1,
@@ -27,6 +28,7 @@
 	/// Multipliers for point gains.
 	var/list/point_gains_multipliers = list(
 		EVENT_TRACK_MUNDANE = 1,
+		EVENT_TRACK_PERSONAL = 1,
 		EVENT_TRACK_MODERATE = 1,
 		EVENT_TRACK_INTERVENTION = 1,
 		EVENT_TRACK_CHARACTER_INJECTION = 1,

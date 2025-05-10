@@ -263,6 +263,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	tame = TRUE
 	if(user)
 		befriend(user)
+		SEND_SIGNAL(user, COMSIG_ANIMAL_TAMED, src)
 	pet_passive = TRUE
 
 	if(ai_controller)

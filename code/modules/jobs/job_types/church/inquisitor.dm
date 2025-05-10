@@ -134,6 +134,7 @@
 		to_chat(src, span_warning("[H] is dead already..."))
 		return
 	if(H.add_stress(/datum/stressevent/tortured))
+		SEND_SIGNAL(src, COMSIG_TORTURE_PERFORMED, H)
 		var/static/list/torture_lines = list(
 			"CONFESS YOUR WRONGDOINGS!",
 			"TELL ME YOUR SECRETS!",
@@ -178,6 +179,7 @@
 		to_chat(src, span_warning("[H] is dead already..."))
 		return
 	if(H.add_stress(/datum/stressevent/tortured))
+		SEND_SIGNAL(src, COMSIG_TORTURE_PERFORMED, H)
 		var/static/list/faith_lines = list(
 			"DO YOU DENY PSYDON AND THE TEN?",
 			"WHO IS YOUR GOD?",

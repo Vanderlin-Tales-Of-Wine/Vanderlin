@@ -1215,6 +1215,7 @@
 						priority_announce("[thegroom.real_name] has married [bridefirst]!", title = "Holy Union!", sound = 'sound/misc/bell.ogg')
 						thegroom.remove_stress(/datum/stressevent/eora_matchmaking)
 						thebride.remove_stress(/datum/stressevent/eora_matchmaking)
+						SEND_GLOBAL_SIGNAL(COMSIG_GLOBAL_MARRIAGE, thegroom, thebride)
 						GLOB.vanderlin_round_stats[STATS_MARRIAGES]++
 						marriage = TRUE
 						qdel(A)

@@ -136,7 +136,7 @@
 	var/fishchance = 25 + (fisher.STALUC * 3)
 	if(prob(fishchance))
 		playsound(fisher.loc, 'sound/items/Fish_out.ogg', 100, TRUE)
-		var/obj/item/reagent_containers/food/snacks/caughtfish = new fishtype(get_turf(fisher))
+		var/obj/item/reagent_containers/food/snacks/fish/caughtfish = new fishtype(get_turf(fisher))
 		var/raritydesc
 		var/sizedesc
 
@@ -154,15 +154,19 @@
 		switch(fishrarity)
 			if("rare")
 				raritydesc = "rare"
+				caughtfish.rarity_rank = 1
 				caughtfish.raritymod = list("com"= -30)//some incentive to use rarer tiny fish as bait
 			if("ultra")
 				raritydesc = "ultra-rare"
+				caughtfish.rarity_rank = 2
 				caughtfish.raritymod = list("com"= -50)
 			if("gold")
 				raritydesc = "legendary"
+				caughtfish.rarity_rank = 3
 				caughtfish.raritymod = list("com"= -70, "rare" = -20)
 			else
 				raritydesc = "common"
+				caughtfish.rarity_rank = 0
 		caughtfish.icon_state = "[caughtfish.icon_state][fishrarity]"
 		if(fishrarity != "com")
 			switch(fishtype)

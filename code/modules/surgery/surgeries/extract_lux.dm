@@ -49,6 +49,7 @@
 			"[user] extracts lux from [target]'s innards.")
 		new /obj/item/reagent_containers/lux(target.loc)
 		target.apply_status_effect(/datum/status_effect/buff/lux_drained)
+		SEND_SIGNAL(user, COMSIG_LUX_EXTRACTED, target)
 		record_featured_stat(FEATURED_STATS_CRIMINALS, user)
 		GLOB.vanderlin_round_stats[STATS_LUX_HARVESTED]++
 	return TRUE

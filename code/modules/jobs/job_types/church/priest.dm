@@ -276,7 +276,7 @@
 	if(!recruit.mind)
 		return FALSE
 	//only orphans who aren't apprentices
-	if(recruit.mind.assigned_role == "Orphan" && !recruit.mind.apprentice)
+	if(istype(recruit.mind.assigned_role, /datum/job/orphan) && !recruit.mind.apprentice)
 		return FALSE
 	//need to see their damn face
 	if(!recruit.get_face_name(null))
