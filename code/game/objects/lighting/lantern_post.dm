@@ -11,6 +11,8 @@
 	crossfire = FALSE
 	plane = GAME_PLANE_UPPER
 	cookonme = FALSE
+	temperature_change = 10
+	fog_parter_effect = null
 	var/permanent
 
 /obj/machinery/light/fueled/lanternpost/fixed
@@ -21,6 +23,12 @@
 	desc = "The lamptern can be added to and removed from this one."
 	permanent = FALSE
 	on = FALSE
+
+/obj/machinery/light/fueled/lanternpost/seton(s)
+	. = ..()
+	if(!torchy || torchy.fuel <= 0)
+		on = FALSE
+		set_light_on(on)
 
 /obj/machinery/light/fueled/lanternpost/fire_act(added, maxstacks)
 	if(torchy)
@@ -60,7 +68,7 @@
 			torchy.forceMove(loc)
 		torchy = null
 		on = FALSE
-		set_light(0)
+		update()
 		update_icon()
 		playsound(src.loc, 'sound/foley/torchfixturetake.ogg', 100)
 

@@ -3,7 +3,7 @@
 	icon_state = "access_helper"
 	var/access_string = null
 
-/obj/effect/mapping_helpers/door/access/payload(obj/structure/mineral_door/door)
+/obj/effect/mapping_helpers/door/access/payload(obj/structure/door/door)
 	if(door.lockid != null)
 		log_mapping("[src] at [AREACOORD(src)] tried to set lockid, but lockid was already set!")
 		return
@@ -24,6 +24,9 @@
 
 /obj/effect/mapping_helpers/door/access/town/artificer
 	access_string = ACCESS_ARTIFICER
+
+/obj/effect/mapping_helpers/door/access/town/miner
+	access_string = ACCESS_MINER
 
 /obj/effect/mapping_helpers/door/access/town/inn
 	access_string = ACCESS_INN
@@ -137,3 +140,6 @@
 
 /obj/effect/mapping_helpers/door/access/manor/guest
 	access_string = ACCESS_GUEST
+
+/obj/effect/mapping_helpers/door/access/manor/physician
+	access_string = ACCESS_PHYSICIAN

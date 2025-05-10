@@ -73,8 +73,6 @@
 	if(client)
 		client.change_view(CONFIG_GET(string/default_view)) // Resets the client.view in case it was changed.
 
-		client.show_popup_menus = FALSE
-
 		if(client.player_details.player_actions.len)
 			for(var/datum/action/A in client.player_details.player_actions)
 				A.Grant(src)
@@ -98,6 +96,7 @@
 
 	if(QDELETED(client?.patreon))
 		client?.patreon = new(client)
+	resend_all_uis()
 
 /mob/proc/send_pref_messages()
 	if(client?.prefs)

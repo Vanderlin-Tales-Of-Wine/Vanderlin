@@ -41,7 +41,6 @@ GLOBAL_PROTECT(tracy_init_reason)
 /world/proc/Genesis(tracy_initialized = FALSE)
 	RETURN_TYPE(/datum/controller/master)
 
-	// monkestation edit: some tracy refactoring
 	if(!tracy_initialized)
 		GLOB.tracy_initialized = FALSE
 #ifndef OPENDREAM
@@ -114,8 +113,6 @@ GLOBAL_PROTECT(tracy_init_reason)
 	load_crownlist()
 
 	load_bypassage()
-
-	load_patreons()
 
 //	GLOB.timezoneOffset = text2num(time2text(0,"hh")) * 36000
 
@@ -347,9 +344,7 @@ GLOBAL_PROTECT(tracy_init_reason)
 			log_admin("[key_name(usr)] Has requested an immediate world restart via client side debugging tools")
 			message_admins("[key_name_admin(usr)] Has requested an immediate world restart via client side debugging tools")
 		to_chat(world, span_boldannounce("Rebooting World immediately due to host request."))
-		SSplexora._Shutdown(PLEXORA_SHUTDOWN_HARDEST, usr ? key_name(usr) : null)
 	else
-		SSplexora._Shutdown(PLEXORA_SHUTDOWN_HARD, usr ? key_name(usr) : null)
 		to_chat(world, "Please be patient as the server restarts. You will be automatically reconnected in about 60 seconds.")
 		Master.Shutdown() //run SS shutdowns
 
@@ -381,10 +376,12 @@ GLOBAL_PROTECT(tracy_init_reason)
 			log_world("World hard rebooted at [time_stamp()]")
 			shutdown_logging() // See comment below.
 			shutdown_byond_tracy()
+			SSplexora._Shutdown()
 			TgsEndProcess()
 	else
 		testing("tgsavailable [TgsAvailable()]")
 
+	SSplexora._Shutdown()
 	log_world("World rebooted at [time_stamp()]")
 	shutdown_logging() // Past this point, no logging procs can be used, at risk of data loss.
 
@@ -395,24 +392,13 @@ GLOBAL_PROTECT(tracy_init_reason)
 /world/proc/update_status()
 	var/s = ""
 	s += "<center><a href=\"https://discord.gg/zNAGFDcQ\">"
-#ifdef MATURESERVER
 	s += "<big><b>Vanderlin - Now 24/7 (Hosted by Monkestation)</b></big></a><br>"
 	s += "<b>Dark Medieval Fantasy Roleplay<b><br>"
-
-#else
-	s += "<big><b>ROGUEWORLD</b></big></a><br>"
-	s += "<b>Fantasy Computer Survival Game</b></center><br>"
-#endif
-//	s += "<img src=\"https://i.imgur.com/shj547T.jpg\"></a></center>"
-
-//	s += "! <b>UPDATE 4.4</b> 4/22/2022<br><br>"
-#ifdef MATURESERVER
 	s += "\["
 	if(SSticker.current_state <= GAME_STATE_PREGAME)
 		s += "<b>GAME STATUS:</b> IN LOBBY"
 	else
 		s += "<b>GAME STATUS:</b> PLAYING"
-#endif
 	status = s
 	return s
 
@@ -565,7 +551,7 @@ GLOBAL_PROTECT(tracy_init_reason)
 		GLOB.tracy_initialized = TRUE
 		SEND_TEXT(world.log, "byond-tracy already initialized ([GLOB.tracy_log ? "logfile: [GLOB.tracy_log]" : "no logfile"])")
 	else if(init_result != "0")
-		GLOB.tracy_init_error = init_result // monkestation edit: log tracy errors
+		GLOB.tracy_init_error = init_result
 		SEND_TEXT(world.log, "Error initializing byond-tracy: [init_result]")
 		CRASH("Error initializing byond-tracy: [init_result]")
 	else

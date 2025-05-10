@@ -36,7 +36,7 @@
 
 	controller.set_blackboard_key(hiding_location_key, hiding_target)
 
-	basic_mob.face_atom()
+	basic_mob.face_atom(target)
 	var/list/possible_intents = list()
 	for(var/datum/intent/intent as anything in basic_mob.possible_a_intents)
 		if(istype(intent, /datum/intent/unarmed/help) || istype(intent, /datum/intent/unarmed/shove) || istype(intent, /datum/intent/unarmed/grab))
@@ -52,9 +52,9 @@
 		return
 
 	if(hiding_target) //Slap it!
-		controller.ai_interact(hiding_target, TRUE)
+		controller.ai_interact(hiding_target, TRUE, TRUE)
 	else
-		controller.ai_interact(target, TRUE)
+		controller.ai_interact(target, TRUE, TRUE)
 
 	if(sidesteps_after && prob(33)) //this is so fucking hacky, but going off og code this is exactly how it goes ignoring movetimers
 		if(!target || !isturf(target.loc) || !isturf(basic_mob.loc) || basic_mob.stat == DEAD)

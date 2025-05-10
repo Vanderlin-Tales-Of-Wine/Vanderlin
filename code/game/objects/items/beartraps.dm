@@ -40,13 +40,14 @@
 			add_mob_blood(C)
 			if(!BP.is_object_embedded(src))
 				BP.add_embedded_object(src)
-			close_trap()
+			close_trap(user)
 			C.visible_message("<span class='boldwarning'>[C] triggers \the [src].</span>", \
 					"<span class='userdanger'>I trigger \the [src]!</span>")
 			C.emote("agony")
 			C.Stun(80)
 			BP.add_wound(/datum/wound/fracture)
-			BP.update_disabled()
+			if(BP.can_be_disabled)
+				BP.update_disabled()
 			C.apply_damage(trap_damage, BRUTE, def_zone, C.run_armor_check(def_zone, "stab", damage = trap_damage))
 			C.update_sneak_invis(TRUE)
 			C.consider_ambush()
@@ -67,12 +68,13 @@
 				add_mob_blood(C)
 				if(!BP.is_object_embedded(src))
 					BP.add_embedded_object(src)
-				close_trap()
+				close_trap(user)
 				C.visible_message("<span class='boldwarning'>[C] triggers \the [src].</span>", \
 						"<span class='userdanger'>I trigger \the [src]!</span>")
 				C.emote("agony")
 				BP.add_wound(/datum/wound/fracture)
-				BP.update_disabled()
+				if(BP.can_be_disabled)
+					BP.update_disabled()
 				C.apply_damage(trap_damage, BRUTE, def_zone, C.run_armor_check(def_zone, "stab", damage = trap_damage))
 				C.update_sneak_invis(TRUE)
 				C.consider_ambush()
@@ -84,7 +86,7 @@
 		user.visible_message("<span class='warning'>[user] triggers \the [src] with [W].</span>", \
 				"<span class='danger'>I trigger \the [src] with [W]!</span>")
 		W.take_damage(20)
-		close_trap()
+		close_trap(user, W)
 		if(isliving(user))
 			var/mob/living/L = user
 			L.update_sneak_invis(TRUE)
@@ -114,9 +116,11 @@
 	return (BRUTELOSS)
 
 /obj/item/restraints/legcuffs/beartrap/attack_self(mob/user)
-	..()
+	. = ..()
+	if(!ishuman(user) || user.stat != CONSCIOUS || HAS_TRAIT(user, TRAIT_HANDS_BLOCKED))
+		return
 	var/boon = user?.mind?.get_learning_boon(/datum/skill/craft/traps)
-	if(ishuman(user) && !user.stat && !user.restrained())
+	if(ishuman(user) && !user.stat && !HAS_TRAIT(src, TRAIT_RESTRAINED))
 		var/mob/living/L = user
 		if(do_after(user, (5 SECONDS) - (L.STASTR*2), user))
 			if(prob(50 + (L.mind.get_skill_level(/datum/skill/craft/traps) * 10))) // 100% chance to set traps properly at Master trapping
@@ -127,7 +131,7 @@
 				update_icon()
 				src.alpha = 80 // Set lower visibility for everyone
 				L.mind?.adjust_experience(/datum/skill/craft/traps, L.STAINT * boon, FALSE) // We learn how to set them better, little by little.
-				to_chat(user, "<span class='notice'>I arm |the [src].</span>")
+				to_chat(user, "<span class='notice'>I arm \the [src].</span>")
 			else
 				if(old)
 					user.visible_message("<span class='warning'>The old [src.name] breaks under stress!</span>")
@@ -138,13 +142,13 @@
 					playsound(src.loc, 'sound/items/beartrap.ogg', 300, TRUE, -1)
 					return
 
-/obj/item/restraints/legcuffs/beartrap/proc/close_trap(atom/triggerer)
+/obj/item/restraints/legcuffs/beartrap/proc/close_trap(atom/triggerer, atom/item)
 	armed = FALSE
 	anchored = FALSE // Take it off the ground
 	alpha = 255
 	update_icon()
 	playsound(src.loc, 'sound/items/beartrap.ogg', 300, TRUE, -1)
-	triggerer.log_message("has stepped into the [src]!", LOG_ATTACK)
+	triggerer.log_message("has triggered the [src][item ? " with [item]" : ""]!", LOG_ATTACK)
 
 /obj/item/restraints/legcuffs/beartrap/Crossed(AM as mob|obj)
 	if(armed && isturf(loc))
@@ -166,7 +170,7 @@
 			var/def_zone = BODY_ZONE_CHEST
 			if(snap && iscarbon(L))
 				var/mob/living/carbon/C = L
-				if(C.mobility_flags & MOBILITY_STAND)
+				if(C.body_position == STANDING_UP)
 					def_zone = pick(BODY_ZONE_PRECISE_L_FOOT, BODY_ZONE_PRECISE_R_FOOT)
 					var/obj/item/bodypart/BP = C.get_bodypart(def_zone)
 					if(BP)

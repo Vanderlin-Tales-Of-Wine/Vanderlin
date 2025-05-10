@@ -12,6 +12,7 @@
 	light_color = LIGHT_COLOR_FIRE
 
 	mouse_opacity = FALSE
+	shine = SHINE_REFLECTIVE
 
 	var/datum/liquid_group/liquid_group
 	var/turf/my_turf
@@ -49,6 +50,7 @@
 
 /obj/effect/abstract/liquid_turf/update_icon()
 	. = ..()
+	make_unshiny()
 	var/new_overlay = ""
 	for(var/i in connected)
 		if(connected[i])
@@ -56,7 +58,21 @@
 	icon_state = "[new_overlay]"
 	if(!new_overlay)
 		icon_state = "puddle"
+	make_shiny(initial(shine))
 
+
+/obj/effect/abstract/liquid_turf/make_shiny(_shine = SHINE_REFLECTIVE)
+	if(total_reflection_mask)
+		if(shine != _shine)
+			cut_overlay(total_reflection_mask)
+		else
+			return
+	switch(_shine)
+		if(SHINE_MATTE)
+			return
+	total_reflection_mask = mutable_appearance(icon, "[icon_state]-puddle-reflective", plane = REFLECTIVE_DISPLACEMENT_PLANE)
+	add_overlay(total_reflection_mask)
+	shine = _shine
 
 /obj/effect/abstract/liquid_turf/Initialize(mapload, datum/liquid_group/group_to_add)
 	. = ..()
@@ -239,7 +255,7 @@
 	else if (isliving(AM))
 		var/mob/living/L = AM
 		if(liquid_group.slippery)
-			if(prob(7) && !(L.movement_type & FLYING) && !L.lying)
+			if(prob(7) && !(L.movement_type & FLYING) && L.body_position != LYING_DOWN)
 				L.slip(30, T, NO_SLIP_WHEN_WALKING, 0, TRUE)
 
 	if(fire_state)

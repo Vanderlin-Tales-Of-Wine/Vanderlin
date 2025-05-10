@@ -5,8 +5,8 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	roundend_category = "zizoid cultists"
 	antagpanel_category = "Zizoid Cult"
 	job_rank = ROLE_ZIZOIDCULTIST
-	antag_hud_type = ANTAG_HUD_TRAITOR
-	antag_hud_name = "cultist"
+	antag_hud_type = ANTAG_HUD_ZIZOID
+	antag_hud_name = "zizoid_lackey"
 	confess_lines = list(
 		"DEATH TO THE TEN!",
 		"PRAISE ZIZO!",
@@ -15,9 +15,23 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	)
 	var/islesser = TRUE
 
+	innate_traits = list(
+		TRAIT_STEELHEARTED,
+		TRAIT_VILLAIN,
+	)
+
 /datum/antagonist/zizocultist/leader
 	name = "Zizoid Cultist"
+	antag_hud_type = ANTAG_HUD_ZIZOID
+	antag_hud_name = "zizoid"
 	islesser = FALSE
+	innate_traits = list(
+		TRAIT_DECEIVING_MEEKNESS,
+		TRAIT_STEELHEARTED,
+		TRAIT_NOMOOD,
+		TRAIT_VILLAIN,
+		TRAIT_CRITICAL_RESISTANCE,
+	)
 
 #define iszizolackey(A) (A.mind?.has_antag_datum(/datum/antagonist/zizocultist))
 #define iszizocultist(A) (A.mind?.has_antag_datum(/datum/antagonist/zizocultist/leader))
@@ -42,23 +56,25 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	owner.current.playsound_local(get_turf(owner.current), 'sound/music/maniac.ogg', 80, FALSE, pressure_affected = FALSE)
 	owner.current.verbs |= /mob/living/carbon/human/proc/praise
 	owner.current.verbs |= /mob/living/carbon/human/proc/communicate
-	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_VILLAIN, TRAIT_GENERIC)
 
 	H.change_stat(STATKEY_STR, 2)
 
 	if(islesser)
 		add_objective(/datum/objective/zizoserve)
-		owner.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
+		owner.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+		owner.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
 		H.change_stat(STATKEY_INT, -2)
 	else
 		add_objective(/datum/objective/zizo)
-		owner.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-		owner.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
-		H.change_stat(STATKEY_STR, 1)
-		H.change_stat(STATKEY_END, 2)
-		H.change_stat(STATKEY_CON, 2)
-		H.change_stat(STATKEY_SPD, 1)
+		owner.clamped_adjust_skillrank(/datum/skill/combat/knives, 4, TRUE)
+		owner.clamped_adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
+		owner.clamped_adjust_skillrank(/datum/skill/combat/wrestling, 5, TRUE)
+		owner.clamped_adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
+		H.change_stat(STATKEY_STR, 2)
+		H.change_stat(STATKEY_END, 3)
+		H.change_stat(STATKEY_CON, 3)
+		H.change_stat(STATKEY_SPD, 4)
+		H.change_stat(STATKEY_INT, 5)
 		owner.special_role = ROLE_ZIZOIDCULTIST
 		owner.current.verbs |= /mob/living/carbon/human/proc/draw_sigil
 		owner.current.verbs |= /mob/living/carbon/human/proc/release_minion
@@ -200,6 +216,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	desc = "Strange runics."
 	icon_state = "center"
 	icon = 'icons/obj/sigils.dmi'
+	minimum_clean_strength = CLEAN_STRONG
 	var/sigil_type
 
 /obj/effect/decal/cleanable/sigil/examine(mob/user)
@@ -408,7 +425,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 /mob/living/carbon/human/proc/draw_sigil()
 	set name = "Draw Sigil"
 	set category = "ZIZO"
-	if(incapacitated() || stat >= UNCONSCIOUS)
+	if(incapacitated(ignore_grab = TRUE) || stat >= UNCONSCIOUS)
 		return
 
 	var/list/runes = list("Servantry", "Transmutation", "Fleshcrafting")
@@ -421,8 +438,9 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	if(!input)
 		return
 
-	var/turf/open/floor/T = get_turf(src.loc)
-	T.generateSigils(src, input)
+	var/turf/open/floor/T = get_turf(src)
+	if(istype(T))
+		T.generateSigils(src, input)
 
 /mob/living/carbon/human/proc/release_minion()
 	set name = "Release Lackey"
@@ -615,7 +633,6 @@ GLOBAL_LIST_EMPTY(ritualslist)
 				return
 			if(M.cmode)
 				user.electrocute_act(30)
-			H.electrocute_act(20)
 			H.Stun(10 SECONDS)
 			H.silent += 30
 			qdel(src)
@@ -681,8 +698,9 @@ GLOBAL_LIST_EMPTY(ritualslist)
 /obj/item/soap/cult
 	name = "accursed soap"
 	desc = "It is pulsating."
-	uses = 9
-	cleanspeed = 1
+	clean_speed = 1
+	clean_effectiveness = 100
+	clean_strength = CLEAN_STRONG
 
 /proc/criminalstool(mob/user, turf/C)
 	new /obj/item/soap/cult(C)
@@ -829,12 +847,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 
 /proc/darkeyes(mob/user, turf/C)
 	for(var/mob/living/carbon/human/H in C.contents)
-		var/obj/item/organ/eyes/eyes = H.getorganslot(ORGAN_SLOT_EYES)
-		if(eyes)
-			eyes.Remove(H,1)
-			QDEL_NULL(eyes)
-		eyes = new /obj/item/organ/eyes/night_vision/zombie
-		eyes.Insert(H)
+		H.grant_undead_eyes()
 		to_chat(H.mind, "<span class='notice'>I no longer fear the dark.</span>")
 		break
 

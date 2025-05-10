@@ -1,43 +1,49 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
 /turf/closed/mineral/bedrock,
-/area/rogue)
+/area/rogue/under/tomb/cave)
 "b" = (
 /obj/item/reagent_containers/glass/bottle/beer/ratkept,
 /obj/item/reagent_containers/glass/bottle/beer/ratkept,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/tomb/indoors)
 "d" = (
 /obj/item/natural/poo,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/tomb)
+"e" = (
+/turf/closed/mineral/bedrock,
+/area/rogue/under/tomb/indoors)
 "i" = (
 /obj/structure/bed/shit,
 /mob/living/carbon/human/species/zizombie/npc/GRENZEL,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/tomb/indoors)
 "l" = (
 /obj/structure/roguetent,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/tomb/indoors)
 "n" = (
 /obj/item/coin/silver,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/tomb)
+"q" = (
+/turf/open/floor/naturalstone,
+/area/rogue/under/tomb/indoors)
 "z" = (
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/tomb)
 "D" = (
 /obj/effect/decal/cleanable/vomit/old,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/tomb/indoors)
 "H" = (
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/tomb)
 "J" = (
 /obj/item/reagent_containers/glass/bottle/beer/ratkept,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/tomb/indoors)
 "K" = (
 /obj/structure/toilet,
 /obj/structure/flora/grass/maneater/real{
@@ -47,7 +53,10 @@
 	pixel_y = -2
 	},
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/tomb)
+"Q" = (
+/turf/open/floor/naturalstone,
+/area/rogue/under/tomb/cave)
 "U" = (
 /obj/item/paper{
 	pixel_y = 19
@@ -61,7 +70,7 @@
 	pixel_x = -4
 	},
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/tomb)
 
 (1,1,1) = {"
 a
@@ -121,7 +130,7 @@ H
 H
 H
 a
-H
+Q
 a
 a
 a
@@ -133,8 +142,8 @@ a
 a
 a
 a
-H
-H
+Q
+Q
 a
 H
 H
@@ -147,7 +156,7 @@ H
 a
 a
 a
-H
+Q
 a
 a
 "}
@@ -155,6 +164,8 @@ a
 a
 a
 a
+Q
+Q
 H
 H
 H
@@ -166,10 +177,8 @@ H
 H
 H
 H
-H
-H
-H
-H
+Q
+Q
 a
 a
 "}
@@ -177,8 +186,8 @@ a
 a
 a
 a
-H
-H
+Q
+Q
 H
 H
 H
@@ -191,7 +200,7 @@ H
 H
 H
 a
-H
+Q
 a
 a
 "}
@@ -213,7 +222,7 @@ H
 H
 H
 H
-H
+Q
 a
 a
 "}
@@ -332,7 +341,7 @@ a
 a
 a
 a
-H
+Q
 H
 H
 H
@@ -343,8 +352,8 @@ H
 H
 H
 a
-H
-H
+Q
+Q
 a
 a
 a
@@ -353,9 +362,9 @@ a
 a
 a
 a
-H
-H
-H
+Q
+Q
+Q
 a
 H
 H
@@ -364,9 +373,9 @@ H
 H
 H
 H
-H
-H
-H
+Q
+Q
+Q
 a
 a
 a
@@ -375,10 +384,10 @@ a
 a
 a
 a
-H
-H
-H
-H
+Q
+Q
+Q
+Q
 a
 H
 H
@@ -387,8 +396,8 @@ H
 a
 a
 a
-H
-H
+Q
+Q
 a
 a
 a
@@ -398,19 +407,19 @@ a
 a
 a
 a
+Q
+Q
+Q
+Q
 H
 H
 H
 H
-H
-H
-H
-H
-H
-H
+Q
+Q
 a
-H
-H
+Q
+Q
 a
 a
 a
@@ -420,19 +429,19 @@ a
 a
 a
 a
-H
-H
-H
-H
+Q
+Q
+Q
+Q
 H
 H
 H
 H
 a
-H
-H
-H
-H
+Q
+Q
+Q
+Q
 a
 a
 a
@@ -450,9 +459,9 @@ H
 H
 H
 H
-H
-H
-H
+Q
+Q
+Q
 a
 a
 a
@@ -505,13 +514,13 @@ a
 "}
 
 (1,1,2) = {"
-a
-a
-a
-a
-a
-a
-a
+e
+e
+e
+e
+e
+e
+e
 a
 H
 H
@@ -527,13 +536,13 @@ a
 a
 "}
 (2,1,2) = {"
-a
+e
 J
 b
 D
-H
-H
-a
+q
+q
+e
 a
 H
 H
@@ -549,78 +558,78 @@ a
 a
 "}
 (3,1,2) = {"
-a
+e
 J
 b
-H
+q
 D
+q
+e
 H
-a
-H
-H
-H
-H
-H
-a
 H
 H
 H
 H
+a
+Q
+Q
+Q
+Q
 a
 a
 a
 "}
 (4,1,2) = {"
-a
+e
 i
+q
+q
+q
+q
+e
 H
 H
 H
-H
-a
-H
-H
-H
-H
-H
-a
 H
 H
 a
+Q
+Q
 a
-H
+a
+Q
 a
 a
 "}
 (5,1,2) = {"
-a
-a
-a
-a
-a
+e
+e
+e
+e
+e
 l
+e
+H
+H
+H
+H
+H
+Q
+Q
+Q
 a
-H
-H
-H
-H
-H
-H
-H
-H
 a
-a
-H
+Q
 a
 a
 "}
 (6,1,2) = {"
 a
 a
-H
-H
-H
-H
+Q
+Q
+Q
+Q
 a
 H
 H
@@ -632,14 +641,14 @@ a
 a
 a
 a
-H
+Q
 a
 a
 "}
 (7,1,2) = {"
 a
 a
-H
+Q
 a
 a
 a
@@ -652,10 +661,10 @@ H
 H
 H
 a
-H
+Q
 a
-H
-H
+Q
+Q
 a
 "}
 (8,1,2) = {"
@@ -676,7 +685,7 @@ H
 H
 H
 H
-H
+Q
 a
 a
 "}
@@ -749,8 +758,8 @@ H
 (12,1,2) = {"
 a
 a
-H
-H
+Q
+Q
 H
 H
 H
@@ -772,7 +781,7 @@ a
 a
 a
 a
-H
+Q
 a
 a
 a
@@ -782,19 +791,19 @@ H
 H
 H
 a
-H
+Q
 a
 a
 a
 a
-H
+Q
 a
 "}
 (14,1,2) = {"
 a
 a
 a
-H
+Q
 a
 a
 a
@@ -804,21 +813,21 @@ H
 H
 H
 a
-H
-H
+Q
+Q
 a
-H
-H
-H
+Q
+Q
+Q
 a
 "}
 (15,1,2) = {"
 a
-H
-H
-H
-H
-H
+Q
+Q
+Q
+Q
+Q
 a
 H
 H
@@ -827,30 +836,30 @@ H
 H
 a
 a
-H
+Q
 a
-H
-H
+Q
+Q
 a
 a
 "}
 (16,1,2) = {"
 a
+Q
+a
+Q
+Q
+Q
+Q
+H
+H
+H
+H
 H
 a
-H
-H
-H
-H
-H
-H
-H
-H
-H
 a
-a
-H
-H
+Q
+Q
 a
 a
 a
@@ -858,21 +867,21 @@ a
 "}
 (17,1,2) = {"
 a
-H
+Q
+a
+a
+Q
 a
 a
 H
-a
-a
-H
 H
 H
 H
 H
 a
-H
-H
-H
+Q
+Q
+Q
 a
 a
 a
@@ -880,20 +889,20 @@ a
 "}
 (18,1,2) = {"
 a
+Q
+Q
+a
+Q
+Q
+Q
+H
+H
+H
 H
 H
 a
-H
-H
-H
-H
-H
-H
-H
-H
 a
-a
-H
+Q
 a
 a
 a
@@ -903,19 +912,19 @@ a
 (19,1,2) = {"
 a
 a
-H
+Q
 a
 a
 a
-H
+Q
 a
 a
 H
 H
 a
-H
-H
-H
+Q
+Q
+Q
 a
 a
 a

@@ -5,8 +5,13 @@ GLOBAL_LIST_EMPTY(all_huds)
 //GLOBAL HUD LIST
 GLOBAL_LIST_INIT(huds, list(
 	ROGUE_HUD_MARRIED = new/datum/atom_hud/antag(),
-	ANTAG_HUD_TRAITOR = new/datum/atom_hud/antag/hidden(),
+	ANTAG_HUD_HIDDEN = new/datum/atom_hud/antag/hidden(),
 	ANTAG_HUD_REV = new/datum/atom_hud/antag(),
+	ANTAG_HUD_NECROMANCY = new/datum/atom_hud/antag(),
+	ANTAG_HUD_VAMPIRE = new/datum/atom_hud/antag(),
+	ANTAG_HUD_WEREWOLF = new/datum/atom_hud/antag(),
+	ANTAG_HUD_ZIZOID = new/datum/atom_hud/antag(),
+	ANTAG_HUD_BANDIT = new/datum/atom_hud/antag(),
 	))
 
 /datum/atom_hud

@@ -1,48 +1,25 @@
 GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdrop, new)
 
 /atom/movable/openspace_backdrop
-	name			= "openspace_backdrop"
-
-	anchored		= TRUE
-
-	icon            = 'icons/turf/floors.dmi'
-	icon_state      = "grey"
-	plane           = OPENSPACE_BACKDROP_PLANE
-	mouse_opacity 	= MOUSE_OPACITY_TRANSPARENT
-	layer           = SPLASHSCREEN_LAYER
-	//I don't know why the others are aligned but I shall do the same.
-	vis_flags		= VIS_INHERIT_ID
-
-/atom/movable/openspace_backdrop/Initialize()
-	. = ..()
-//	filters += filter(type = "blur", size = 3)
+	name = "openspace_backdrop"
+	icon = 'icons/turf/floors.dmi'
+	icon_state = "grey"
+	anchored = TRUE
+	plane = OPENSPACE_BACKDROP_PLANE
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	layer = SPLASHSCREEN_LAYER
+	vis_flags = VIS_INHERIT_ID
 
 /turf/open/transparent/openspace
 	name = "open space"
 	desc = "My eyes can see far down below."
-	icon_state = "openspace"
+	icon_state = MAP_SWITCH("openspace", "openspacemap")
 	baseturfs = /turf/open/transparent/openspace
 	CanAtmosPassVertical = ATMOS_PASS_YES
-//	appearance_flags = KEEP_TOGETHER
-	//mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	var/can_cover_up = TRUE
 	var/can_build_on = TRUE
 	dynamic_lighting = 1
-	canSmoothWith = list(/turf/closed/mineral,/turf/closed/wall/mineral, /turf/open/floor)
-	smooth = SMOOTH_MORE
-	neighborlay_override = "staticedge"
 	turf_flags = NONE
-
-/turf/open/transparent/openspace/cardinal_smooth(adjacencies)
-	smooth(adjacencies)
-
-/turf/open/transparent/openspace/smooth(adjacencies)
-	var/list/Yeah = ..()
-	for(var/O in Yeah)
-		var/mutable_appearance/M = mutable_appearance(icon, O)
-		M.layer = SPLASHSCREEN_LAYER + 0.01
-		M.plane = OPENSPACE_BACKDROP_PLANE + 0.01
-		add_overlay(M)
 
 /turf/open/transparent/openspace/debug/update_multiz()
 	..()

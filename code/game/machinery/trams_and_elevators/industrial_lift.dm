@@ -13,7 +13,7 @@ GLOBAL_LIST_INIT(all_radial_directions, list(
 /obj/structure/industrial_lift
 	name = "lift platform"
 	desc = "A lightweight lift platform. It moves up and down."
-	icon = 'icons/turf/roguefloor.dmi'
+	icon = 'icons/turf/floors.dmi'
 	icon_state = "weird1"
 	density = FALSE
 	anchored = TRUE
@@ -579,7 +579,7 @@ GLOBAL_LIST_INIT(all_radial_directions, list(
 	if(!isliving(user))
 		return FALSE
 	// Gotta be awake and aware
-	if(user.incapacitated())
+	if(user.incapacitated(ignore_grab = TRUE))
 		return FALSE
 	// Gotta be by the lift
 	if(!user.Adjacent(src))
@@ -661,7 +661,7 @@ GLOBAL_LIST_INIT(all_radial_directions, list(
  * * boolean, FALSE if the menu should be closed, TRUE if the menu is clear to stay opened.
  */
 /obj/structure/industrial_lift/proc/check_menu(mob/user, starting_loc)
-	if(user.incapacitated() || !user.Adjacent(src) || starting_loc != src.loc)
+	if(user.incapacitated(ignore_grab = TRUE) || !user.Adjacent(src) || starting_loc != src.loc)
 		return FALSE
 	return TRUE
 
@@ -711,7 +711,6 @@ GLOBAL_LIST_INIT(all_radial_directions, list(
 
 // A subtype intended for "public use"
 /obj/structure/industrial_lift/public
-	canSmoothWith = null
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	warns_on_down_movement = TRUE
 	violent_landing = FALSE
@@ -767,7 +766,6 @@ GLOBAL_LIST_INIT(all_radial_directions, list(
 /obj/structure/industrial_lift/tram
 	name = "tram"
 	desc = "A tram for tramversing the station."
-	canSmoothWith = null
 	obj_flags = BLOCK_Z_OUT_DOWN
 	//kind of a centerpiece of the station, so pretty tough to destroy
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF

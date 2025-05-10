@@ -4,11 +4,18 @@
 	roundend_category = "bandits"
 	antagpanel_category = "Bandit"
 	job_rank = ROLE_BANDIT
-	antag_hud_type = ANTAG_HUD_TRAITOR
+	antag_hud_type = ANTAG_HUD_BANDIT
 	antag_hud_name = "bandit"
 	var/tri_amt
 	var/contrib
 	confess_lines = list("FREEDOM!!!", "I WILL NOT LIVE IN YOUR WALLS!", "I WILL NOT FOLLOW YOUR RULES!")
+
+	innate_traits = list(
+		TRAIT_BANDITCAMP,
+		TRAIT_SEEPRICES,
+		TRAIT_STEELHEARTED,
+		TRAIT_VILLAIN,
+	)
 
 /datum/antagonist/bandit/examine_friendorfoe(datum/antagonist/examined_datum,mob/examiner,mob/examined)
 	if(istype(examined_datum, /datum/antagonist/bandit))
@@ -18,6 +25,7 @@
 	owner.special_role = "Bandit"
 	owner.purge_combat_knowledge()
 	move_to_spawnpoint()
+	owner.current.roll_mob_stats()
 	forge_objectives()
 	. = ..()
 	finalize_bandit()
@@ -26,10 +34,6 @@
 /datum/antagonist/bandit/proc/finalize_bandit()
 	owner.current.playsound_local(get_turf(owner.current), 'sound/music/traitor.ogg', 80, FALSE, pressure_affected = FALSE)
 	var/mob/living/carbon/human/H = owner.current
-	ADD_TRAIT(H, TRAIT_BANDITCAMP, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_SEEPRICES, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_VILLAIN, TRAIT_GENERIC)
 	H.set_patron(/datum/patron/inhumen/matthios)
 
 /datum/antagonist/bandit/greet()
@@ -44,7 +48,7 @@
 /proc/isbandit(mob/living/M)
 	return istype(M) && M.mind && M.mind.has_antag_datum(/datum/antagonist/bandit)
 
-/datum/antagonist/bandit/proc/move_to_spawnpoint()
+/datum/antagonist/bandit/move_to_spawnpoint()
 	owner.current.forceMove(pick(GLOB.bandit_starts))
 
 /datum/antagonist/bandit/proc/equip_bandit()

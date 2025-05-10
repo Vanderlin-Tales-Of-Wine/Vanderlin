@@ -1,4 +1,4 @@
-environment = "stonekeep.dme"
+environment = "vanderlin.dme"
 
 [langserver]
 dreamchecker = true

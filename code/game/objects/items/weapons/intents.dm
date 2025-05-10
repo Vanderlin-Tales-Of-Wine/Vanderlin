@@ -53,6 +53,22 @@
 	var/item_damage_type = "blunt"
 	var/move_limit = 0
 
+	var/list/static/bonk_animation_types = list(
+		BCLASS_BLUNT,
+		BCLASS_SMASH,
+		BCLASS_DRILL,
+	)
+	var/list/static/swipe_animation_types = list(
+		BCLASS_CUT,
+		BCLASS_CHOP,
+
+	)
+	var/list/static/thrust_animation_types = list(
+		BCLASS_STAB,
+		BCLASS_SHOT,
+		BCLASS_PICK,
+	)
+
 /datum/intent/Destroy()
 	if(chargedloop)
 		chargedloop.stop()
@@ -61,6 +77,16 @@
 	mastermob = null
 	masteritem = null
 	return ..()
+
+/// returns the attack animation type this intent uses
+/datum/intent/proc/get_attack_animation_type()
+	if(blade_class in bonk_animation_types)
+		return ATTACK_ANIMATION_BONK
+	if(blade_class in swipe_animation_types)
+		return ATTACK_ANIMATION_SWIPE
+	if(blade_class in thrust_animation_types)
+		return ATTACK_ANIMATION_THRUST
+	return null
 
 /datum/intent/proc/examine(mob/user)
 	var/list/inspec = list("----------------------")
@@ -253,7 +279,6 @@
 	chargedrain = 0
 	chargetime = 0
 	noaa = TRUE
-	pointer = 'icons/effects/mousemice/human_give.dmi'
 
 /datum/intent/spell
 	name = "spell"
@@ -324,6 +349,17 @@
 	animname = "strike"
 	blade_class = BCLASS_PICK
 	chargetime = 0
+	swingdelay = 3
+
+/datum/intent/drill
+	name = "drill"
+	icon_state = "inpick"
+	attack_verb = list("drills","augers")
+	hitsound = list('sound/combat/hits/pick/genpick (1).ogg', 'sound/combat/hits/pick/genpick (2).ogg')
+	animname = "strike"
+	item_damage_type = "stab"
+	blade_class = BCLASS_DRILL
+	chargetime = 0.3
 	swingdelay = 3
 
 /datum/intent/shoot //shooting crossbows or other guns, no parrydrain

@@ -7,13 +7,15 @@
 	drag_slowdown = 2
 	//open_sound = 'sound/machines/trapdoor/trapdoor_open.ogg'
 	//close_sound = 'sound/machines/trapdoor/trapdoor_shut.ogg'
-	can_buckle = TRUE
 	buckle_lying = FALSE
 	horizontal = FALSE
+
 	/// Whether we're on a set of rails or just on the ground
 	var/on_rails = FALSE
 	/// How many turfs we are travelling, also functions as speed (more momentum = faster)
 	var/momentum = 0
+	///the id we just travelled to
+	var/last_travelled_to = ""
 
 /obj/structure/closet/crate/miningcar/Initialize(mapload)
 	. = ..()
@@ -46,7 +48,7 @@
 
 	// Handling running OVER people
 	for(var/mob/living/smacked in loc)
-		if(smacked.lying)
+		if(smacked.body_position == LYING_DOWN)
 			continue
 		if(momentum <= 8)
 			momentum = floor(momentum / 2)
@@ -95,7 +97,7 @@
 	//playsound(src, 'sound/effects/bang.ogg', 50, vary = TRUE)
 	take_damage(max_integrity * 0.05)
 	momentum = floor(momentum / momentum_mod)
-	if(smacked.lying)
+	if(smacked.body_position == LYING_DOWN)
 		smacked.Paralyze(4 SECONDS)
 		return
 
@@ -197,6 +199,9 @@
 	// Handling running INTO people
 	if(!isliving(bumped_atom) || momentum <= 0)
 		return
+	if(bumped_atom in buckled_mobs)
+		return
+
 	if(momentum <= 8)
 		momentum = floor(momentum / 2)
 		return
@@ -205,6 +210,15 @@
 /obj/structure/closet/crate/miningcar/Bumped(atom/movable/bumped_atom)
 	. = ..()
 	INVOKE_ASYNC(src, PROC_REF(shove_off), bumped_atom)
+
+/obj/structure/closet/crate/miningcar/relaymove(mob/user, direction)
+	if(!on_rails || momentum > 0)
+		return
+	if(user in buckled_mobs)
+		return
+	user.setDir(direction)
+
+	shove_off(user)
 
 /// Starts the cart moving automatically.
 /obj/structure/closet/crate/miningcar/proc/shove_off(atom/movable/bumped_atom)
@@ -267,14 +281,28 @@
 			momentum -= 3
 
 	for(var/obj/structure/fluff/traveltile/travel in get_turf(src))
+		if(travel.aportalgoesto == last_travelled_to)
+			break
 		for(var/turf/open/viable_turfs in travel.return_connected_turfs())
 			for(var/obj/structure/minecart_rail/rail in viable_turfs)
-				if(rail.dir & (dir|GLOB.reverse_dir[dir]))
-					forceMove(viable_turfs)
-					return NONE
+				forceMove(viable_turfs)
+				for(var/card in GLOB.cardinals)
+					var/turf/dir_step = get_step(rail, card)
+					var/obj/structure/minecart_rail/located = locate(/obj/structure/minecart_rail) in dir_step
+					if(!located)
+						continue
+					setDir(get_dir(rail, located))
+					var/datum/move_loop/minecart/loop = SSmove_manager.processing_on(src, SSminecarts)
+					loop.direction = get_dir(rail, located)
+				last_travelled_to = travel.aportalid
+				return MOVELOOP_SKIP_STEP
 
 	if(can_travel_on_turf(get_step(src, dir)))
+		var/obj/structure/fluff/traveltile/travel = locate(/obj/structure/fluff/traveltile) in get_turf(src)
+		if(!travel)
+			last_travelled_to = ""
 		return NONE
+
 	// Trying to turn
 	for(var/next_dir in shuffle(list(turn(dir, 90), turn(dir, -90))))
 		if(!can_travel_on_turf(get_step(src, next_dir), dir|next_dir))
@@ -287,7 +315,7 @@
 	// Can't go straight and cant turn = STOP
 	SSmove_manager.stop_looping(src, SSminecarts)
 	obj_flags &= ~BLOCK_Z_OUT_DOWN
-	if(momentum >= 8)
+	if(momentum >= 12)
 		visible_message(span_warning("[src] comes to a halt!"))
 		throw_contents()
 	else
@@ -368,8 +396,7 @@
 		for(var/turf/open/viable_turfs in travel.return_connected_turfs())
 			for(var/obj/structure/minecart_rail/rail in viable_turfs)
 				if(!located_rail || (located_rail?.dir in GLOB.cardinals))
-					if(rail.dir & (dir_to_check|GLOB.reverse_dir[dir_to_check]))
-						return TRUE
+					return TRUE
 				else
 					var/coming_dir = get_dir(src, next_turf)
 					switch(located_rail.dir)
@@ -452,14 +479,18 @@
 
 	var/throw_distance = clamp(ceil(momentum / 3) - 4, 1, 255)
 	var/turf/some_distant_turf = get_edge_target_turf(src, dir)
-	for(var/atom/movable/yeeten in to_yeet)
-		yeeten.throw_at(some_distant_turf, throw_distance, 3 + FLOOR(momentum * 0.01, 1))
+	if(throw_distance)
+		for(var/atom/movable/yeeten in to_yeet)
+			yeeten.throw_at(some_distant_turf, throw_distance, 3 + FLOOR(momentum * 0.01, 1))
 
 	if(was_open)
 		visible_message(span_warning("[src] spills its contents!"))
 	else
 		// Update this message if someone allows multiple people to ride one minecart
 		visible_message(span_warning("[src] breaks open, spilling its contents[yeet_rider ? " and throwing its rider":""]!"))
+
+	for(var/obj/structure/minecart_rail/rail in get_turf(src))
+		on_rails = TRUE
 
 /obj/structure/minecart_rail
 	name = "cart rail"
@@ -560,6 +591,10 @@
 	for(var/direction in GLOB.cardinals)
 		var/turf/step_back = get_step(src, direction)
 		for(var/obj/structure/structure in step_back.contents)
+			if(istype(structure, /obj/structure/minecart_rail))
+				if(direction != dir || direction != GLOB.reverse_dir[dir])
+					continue
+
 			if(direction == dir || direction == GLOB.reverse_dir[dir])
 				continue
 			if(structure.rotation_network)

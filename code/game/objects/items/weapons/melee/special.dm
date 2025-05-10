@@ -12,7 +12,7 @@
 	wlength = WLENGTH_NORMAL
 	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = ITEM_SLOT_HIP
-	resistance_flags = FIRE_PROOF|LAVA_PROOF // Nigh indestructible due to how important it is
+	resistance_flags = FIRE_PROOF|LAVA_PROOF|ACID_PROOF // Nigh indestructible due to how important it is
 	associated_skill = /datum/skill/combat/axesmaces
 	smeltresult = null // No
 	melting_material = null
@@ -98,15 +98,15 @@
 				user.Beam(target, icon_state = "lightning[rand(1, 12)]", time = 0.5 SECONDS) // LIGHTNING
 				playsound(user, 'sound/magic/lightningshock.ogg', 70, TRUE)
 				H.electrocute_act(5, src)
-				log_message("[HU] has shocked [H] with the master's rod!", LOG_ATTACK)
+				HU.log_message("has shocked [H] with the [src]!", LOG_ATTACK)
 				to_chat(H, "<span class='danger'>I'm electrocuted by the scepter!</span>")
 				return
 
 			if(istype(user.used_intent, /datum/intent/lord_silence))
-				HU.visible_message("<span class='warning'>[HU] silences [H] with \the [src].</span>")
+				HU.visible_message(span_warning("[HU] silences [H] with \the [src]."))
 				H.set_silence(20 SECONDS)
-				log_message("[HU] has silenced [H] with the master's rod!", LOG_ATTACK)
-				to_chat(H, "<span class='danger'>I'm silenced by the scepter!</span>")
+				HU.log_message("[HU] has silenced [H] with the master's rod!", LOG_ATTACK)
+				to_chat(H, span_danger("I'm silenced by the scepter!"))
 				return
 
 /obj/item/weapon/mace/stunmace

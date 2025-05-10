@@ -48,6 +48,7 @@ require only minor tweaks.
 #define ZTRAIT_DOWN "Down"
 #define ZTRAIT_IGNORE_WEATHER_TRAIT "NoDayorWeather"
 
+#define ZTRAIT_CELLAR_LIKE "Cellar"
 #define ZTRAIT_LEYLINES "Leylines"
 // enum - how space transitions should affect this level
 #define ZTRAIT_LINKAGE "Linkage"

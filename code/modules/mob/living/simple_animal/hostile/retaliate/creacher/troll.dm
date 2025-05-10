@@ -1,10 +1,10 @@
 /mob/living/simple_animal/hostile/retaliate/troll
-	icon = 'icons/roguetown/mob/monster/trolls.dmi'
 	name = "troll"
 	desc = "Elven legends say these monsters were servants of Dendor tasked to guard his realm; nowadays they are sometimes found in the company of orcs."
-	icon_state = "Troll"
-	icon_living = "Troll"
-	icon_dead = "Trolld"
+	icon = 'icons/mob/creacher/trolls/troll.dmi'
+	icon_state = "troll"
+	icon_living = "troll"
+	icon_dead = "troll_dead"
 	pixel_x = -16
 
 	faction = list(FACTION_ORCS)
@@ -22,14 +22,14 @@
 	vision_range = 6
 	aggro_vision_range = 6
 
-	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange = 1,
+	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange = 1, \
 						/obj/item/alch/horn = 1)
 	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange = 1,
-						/obj/item/natural/hide = 2,
+						/obj/item/natural/hide = 2, \
 						/obj/item/alch/horn = 2)
-	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange= 2,
-						/obj/item/natural/hide = 3,
-						/obj/item/alch/horn = 2,
+	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange= 2, \
+						/obj/item/natural/hide = 3, \
+						/obj/item/alch/horn = 2, \
 						/obj/item/natural/head/troll = 1)
 
 	health = TROLL_HEALTH
@@ -44,10 +44,10 @@
 	melee_damage_upper = 60
 	environment_smash = ENVIRONMENT_SMASH_STRUCTURES
 
-	TOTALCON = 16
-	TOTALSTR = 16
-	TOTALSPD = 2
-	TOTALEND = 17
+	base_constitution = 16
+	base_strength = 16
+	base_speed = 2
+	base_endurance = 17
 
 	retreat_distance = 0
 	minimum_distance = 0
@@ -60,24 +60,17 @@
 	food = 0
 	dodgetime = 50
 	aggressive = TRUE
-//	stat_attack = UNCONSCIOUS
+	dendor_taming_chance = DENDOR_TAME_PROB_HIGH
+
 	remains_type = /obj/effect/decal/remains/troll
-	body_eater = TRUE
 
 	ai_controller = /datum/ai_controller/troll
 	AIStatus = AI_OFF
 	can_have_ai = FALSE
 
-	var/critvuln = FALSE
-
 /mob/living/simple_animal/hostile/retaliate/troll/Initialize()
 	. = ..()
-	if(critvuln)
-		ADD_TRAIT(src, TRAIT_CRITICAL_WEAKNESS, TRAIT_GENERIC)
-
-/mob/living/simple_animal/hostile/retaliate/troll/death(gibbed)
-	..()
-	update_icon()
+	ADD_TRAIT(src, TRAIT_ACID_IMMUNE, TRAIT_GENERIC)
 
 /mob/living/simple_animal/hostile/retaliate/troll/get_sound(input)
 	switch(input)
@@ -92,17 +85,9 @@
 		if("cidle")
 			return pick('sound/vo/mobs/troll/cidle1.ogg','sound/vo/mobs/troll/aggro2.ogg')
 
-/mob/living/simple_animal/hostile/retaliate/troll/taunted(mob/user)
-	emote("aggro")
-	Retaliate()
-	GiveTarget(user)
-	return
 
 /mob/living/simple_animal/hostile/retaliate/troll/Life()
 	..()
-	if(pulledby)
-		Retaliate()
-		GiveTarget(pulledby)
 	if(fire_stacks + divine_fire_stacks <= 0)
 		adjustHealth(-rand(20,35))
 
@@ -148,13 +133,32 @@
 			return "foreleg"
 	return ..()
 
-/obj/effect/decal/remains/troll
-	name = "remains"
-	gender = PLURAL
-	icon_state = "Trolld"
+/mob/living/simple_animal/hostile/retaliate/troll/proc/hide()
+	flick("troll_hiding", src)
+	sleep(1 SECONDS)
+	icon_state = "troll_hide"
 
-//for keep use
-/mob/living/simple_animal/hostile/retaliate/troll/keep/get_sound(input)
+/mob/living/simple_animal/hostile/retaliate/troll/proc/ambush()
+	flick("troll_ambush", src)
+	sleep(1 SECONDS)
+	icon_state = initial(icon_state)
+
+/obj/effect/decal/remains/troll
+	icon_state = "troll_dead"
+
+/mob/living/simple_animal/hostile/retaliate/troll/after_creation()
+	. = ..()
+	var/obj/item/organ/eyes/eyes = src.getorganslot(ORGAN_SLOT_EYES)
+	if(eyes)
+		eyes.Remove(src, TRUE)
+		QDEL_NULL(eyes)
+	eyes = new /obj/item/organ/eyes/night_vision/nightmare
+	eyes.Insert(src)
+
+/mob/living/simple_animal/hostile/retaliate/troll/quiet
+	footstep_type = FOOTSTEP_MOB_BAREFOOT
+
+/mob/living/simple_animal/hostile/retaliate/troll/quiet/get_sound(input)
 	switch(input)
 		if("aggro")
 			return pick('sound/vo/mobs/troll/aggro1.ogg','sound/vo/mobs/troll/aggro2.ogg')
@@ -162,8 +166,87 @@
 			return pick('sound/vo/mobs/troll/pain1.ogg','sound/vo/mobs/troll/pain2.ogg')
 		if("death")
 			return pick('sound/vo/mobs/troll/death.ogg')
-		if("cidle")
-			return pick('sound/vo/mobs/troll/cidle1.ogg','sound/vo/mobs/troll/aggro2.ogg')
+
+/mob/living/simple_animal/hostile/retaliate/troll/bog
+	name = "bog troll"
+	ai_controller = /datum/ai_controller/bog_troll
+
+	health = BOGTROLL_HEALTH
+	maxHealth = BOGTROLL_HEALTH
+	food_type = list(/obj/item/reagent_containers/food/snacks/meat,
+					/obj/item/bodypart,
+					/obj/item/organ)
+
+	base_intents = list(/datum/intent/simple/headbutt, /datum/intent/simple/bigbite)
+	melee_damage_lower = 30
+	melee_damage_upper = 50
+
+	defprob = 25
+	defdrain = 13
+
+/mob/living/simple_animal/hostile/retaliate/troll/cave
+	name = "cave troll"
+	desc = "Dwarven tales of giants and trolls often contain these creatures, horrifying amalgamations of flesh and crystal who have long since abandoned Malum's ways."
+	icon = 'icons/mob/creacher/trolls/troll_cave.dmi'
+	health = CAVETROLL_HEALTH
+	maxHealth = CAVETROLL_HEALTH
+	ai_controller = /datum/ai_controller/troll/cave
+
+	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange = 1, \
+						/obj/item/alch/horn = 1, \
+						/obj/item/natural/rock/mana_crystal = 1)
+	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange = 1, \
+						/obj/item/natural/hide = 2, \
+						/obj/item/alch/horn = 2, \
+						/obj/item/natural/rock/mana_crystal = 2)
+	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange= 2, \
+						/obj/item/natural/hide = 3, \
+						/obj/item/alch/horn = 2, \
+						/obj/item/natural/head/troll/cave = 1, \
+						/obj/item/natural/rock/mana_crystal = 3)
+
+	dendor_taming_chance = DENDOR_TAME_PROB_LOW
+	defprob = 15
+
+	//stone chucking ability
+	var/datum/action/cooldown/mob_cooldown/stone_throw/throwing_stone
+
+/mob/living/simple_animal/hostile/retaliate/troll/cave/Initialize()
+	. = ..()
+	throwing_stone = new
+	throwing_stone.Grant(src)
+	ai_controller.set_blackboard_key(BB_TARGETED_ACTION, throwing_stone)
+
+/mob/living/simple_animal/hostile/retaliate/troll/cave/ambush
+	ai_controller = /datum/ai_controller/troll/ambush
+
+/mob/living/simple_animal/hostile/retaliate/troll/axe
+	name = "Troll Skull-Splitter"
+	desc = "This one seems smarter than the rest... And it's axe could cut a man in two."
+	icon = 'icons/mob/creacher/trolls/troll_axe.dmi'
+	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange = 2, \
+					/obj/item/natural/hide = 3, \
+					/obj/item/alch/horn = 2, \
+					/obj/item/natural/head/troll/axe = 1)
+	dendor_taming_chance = DENDOR_TAME_PROB_LOW
+	base_intents = list(/datum/intent/simple/troll_axe)
+	attack_sound = list('sound/combat/wooshes/blunt/wooshhuge (1).ogg','sound/combat/wooshes/blunt/wooshhuge (2).ogg','sound/combat/wooshes/blunt/wooshhuge (3).ogg')
+	loot = list(/obj/item/weapon/axe/iron/troll)
+	deathmessage = "As the creacher tumbles, it falls upon it's axe, snapping the handle."
+
+/datum/intent/simple/troll_axe
+	name = "troll axe"
+	icon_state = "instrike"
+	attack_verb = list("hacks at", "slashes", "chops", "crushes")
+	animname = "blank22"
+	hitsound = "genchop"
+	blade_class = BCLASS_CHOP
+	chargetime = 20
+	penfactor = 10
+	swingdelay = 3
+	candodge = TRUE
+	canparry = TRUE
+	item_damage_type = "slash"
 
 // You know I had to. Hostile, killer cabbit. Strong. Fast. But not as durable.
 // The most foul, cruel and bad tempered feline-rodent you ever set eyes on.
@@ -182,21 +265,21 @@
 	maxHealth = 160
 	move_to_delay = 3 // FAST.
 	attack_sound = list('sound/vo/mobs/rat/aggro (1).ogg', 'sound/vo/mobs/rat/aggro (2).ogg', 'sound/vo/mobs/rat/aggro (3).ogg')
-	TOTALCON = 5
-	TOTALSTR = 5
-	TOTALSPD = 10
-	TOTALEND = 5
+	base_constitution = 5
+	base_strength = 5
+	base_speed = 10
+	base_endurance = 5
 	remains_type = /obj/effect/decal/remains/cabbit
 	melee_damage_lower = 20
 	melee_damage_upper = 40
 	footstep_type = FOOTSTEP_MOB_BAREFOOT
 	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/steak = 1)
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/steak = 1,
-							/obj/item/alch/sinew = 1,
+	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/steak = 1, \
+							/obj/item/alch/sinew = 1, \
 							/obj/item/alch/bone = 1)
-	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/steak = 1,
-							/obj/item/alch/sinew = 2,
-							/obj/item/alch/bone = 1,
+	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/steak = 1, \
+							/obj/item/alch/sinew = 2, \
+							/obj/item/alch/bone = 1, \
 							/obj/item/natural/fur/cabbit = 1)
 
 /mob/living/simple_animal/hostile/retaliate/troll/caerbannog/get_sound(input)
@@ -213,4 +296,3 @@
 	gender = PLURAL
 	icon = 'icons/roguetown/mob/cabbit.dmi'
 	icon_state = "cabbit_remains"
-

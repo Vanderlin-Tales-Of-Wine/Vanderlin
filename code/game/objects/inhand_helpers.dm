@@ -705,16 +705,10 @@ GLOBAL_LIST_INIT(IconStates_cache, list())
 		if(!used_cat)
 			used_cat = "gen"
 
-		for(var/X in I.onprop)
-			if(X == used_cat)
-				var/list/L = I.onprop[X]
-				if(L.len)
-					if(!needtofind in L)
-						L += needtofind
-					for(var/P in L)
-						if(P == needtofind)
-							L[P] += 0.1
-							to_chat(LI, "[needtofind] = [L[P]]")
+		if(length(I.onprop?[used_cat]))
+			var/list/L = I.onprop[used_cat]
+			L[needtofind] += 0.1
+			to_chat(LI, "[needtofind] = [L[needtofind]]")
 	LI.update_inv_hands()
 	LI.update_inv_belt()
 	LI.update_inv_back()
@@ -749,17 +743,10 @@ GLOBAL_LIST_INIT(IconStates_cache, list())
 		if(!used_cat)
 			used_cat = "gen"
 
-		for(var/X in I.onprop)
-			if(X == used_cat)
-				var/list/L = I.onprop[X]
-				if(L.len)
-					if(!needtofind in L)
-						L += needtofind
-					for(var/P in L)
-						if(P == needtofind)
-							L[P] -= 0.1
-							to_chat(LI, "[needtofind] = [L[P]]")
-	LI.update_inv_hands()
+		if(length(I.onprop?[used_cat]))
+			var/list/L = I.onprop[used_cat]
+			L[needtofind] -= 0.1
+			to_chat(LI, "[needtofind] = [L[needtofind]]")
 	LI.update_inv_belt()
 	LI.update_inv_back()
 
@@ -815,7 +802,7 @@ GLOBAL_LIST_INIT(IconStates_cache, list())
 		var/mob/M = mob
 		if(isturf(M.loc))
 			var/turf/T = M.loc
-			for(var/obj/structure/mineral_door/D in T)
+			for(var/obj/structure/door/D in T)
 				to_chat(M, "DOOR - [D]")
 				to_chat(M, "LOCKID: [D.lockid]")
 				to_chat(M, "LOCKSTATUS: [D.locked]")

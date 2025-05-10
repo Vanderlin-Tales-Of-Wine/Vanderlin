@@ -2,7 +2,8 @@
 /particles/weather/snow
 	icon_state             = list("cross"=2, "snow_1"=5, "snow_2"=2, "snow_3"=2,)
 	color                  = "#ffffff"
-	position               = generator("box", list(-500,-500,5), list(500,500,0))
+	position               = generator("box", list(-500,-256,0), list(400,500,0))
+	grow			       = list(-0.01,-0.01)
 	spin                   = generator("num",-10,10)
 	gravity                = list(0, -2, 0.1)
 	drift                  = generator("circle", 0, 3) // Some random movement for variation
@@ -11,6 +12,7 @@
 	maxSpawning           = 100
 	minSpawning           = 20
 	wind                  = 2
+	transform 			   = null
 
 /datum/particle_weather/snow_gentle
 	name = "Rain"
@@ -28,7 +30,7 @@
 	immunity_type = TRAIT_SNOWSTORM_IMMUNE
 	probability = 1
 	target_trait = PARTICLEWEATHER_SNOW
-	weather_special_effect = /datum/weather_effect/snow
+	forecast_tag = "snow"
 
 //Makes you a little chilly
 /datum/particle_weather/snow_gentle/weather_act(mob/living/L)
@@ -47,20 +49,17 @@
 
 	minSeverity = 40
 	maxSeverity = 100
+
+	weather_duration_lower = 4 MINUTES
+	weather_duration_upper = 10 MINUTES
+
 	maxSeverityChange = 50
 	severitySteps = 50
 	immunity_type = TRAIT_SNOWSTORM_IMMUNE
 	probability = 1
 	target_trait = PARTICLEWEATHER_SNOW
 	weather_special_effect = /datum/weather_effect/snow
-
-/datum/weather_effect
-	var/name = "effect"
-	var/probability = 0
-	var/datum/particle_weather/initiator_ref
-
-/datum/weather_effect/proc/effect_affect(turf/target_turf)
-	return FALSE
+	forecast_tag = "snow"
 
 /datum/weather_effect/snow
 	name = "snow effect"
@@ -106,8 +105,8 @@
 /turf/proc/apply_weather_effect(datum/weather_effect/effect)
 	SIGNAL_HANDLER
 
-	if(locate(/obj/structure/mineral_door) in src)
-		var/obj/structure/mineral_door/door = locate(/obj/structure/mineral_door) in src
+	if(locate(/obj/structure/door) in src)
+		var/obj/structure/door/door = locate(/obj/structure/door) in src
 		if(door.density)
 			return
 	if(locate(/obj/structure/window) in src)
@@ -124,7 +123,7 @@
 	name = "Snow"
 	desc = "Big pile of snow"
 	icon = 'icons/effects/snow.dmi'
-	icon_state = "snow_1"
+	icon_state = MAP_SWITCH("blank", "snow_1")
 	var/icon_prefix = "snow"
 	anchored = TRUE
 	density = FALSE
@@ -138,7 +137,6 @@
 
 /obj/structure/snow/Initialize(mapload, bleed_layers)
 	. = ..()
-	icon_state = "blank"
 	bleed_layer = bleed_layers
 	if(!bleed_layer)
 		bleed_layer = rand(1, 3)
@@ -361,61 +359,6 @@
 /obj/structure/snow/proc/set_diged_ways(dir)
 	diged["[dir]"] = world.time + 1 MINUTES
 	update_overlays()
-
-/turf
-	var/list/wall_connections = list("0", "0", "0", "0")
-	var/neighbors_list = 0
-	var/special_icon = TRUE
-	var/list/blend_turfs = list()
-	var/list/noblend_turfs = list() //Turfs to avoid blending with
-	var/list/blend_objects = list() // Objects which to blend with
-	var/list/noblend_objects = list() //Objects to avoid blending with (such as children of listed blend objects.
-
-/turf/proc/update_connections(propagate = 0)
-	var/list/turf_dirs = list()
-
-	for(var/turf/turf in orange(src, 1))
-		switch(can_join_with(turf))
-			if(FALSE)
-				continue
-			if(TRUE)
-				turf_dirs += get_dir(src, turf)
-		if(propagate)
-			turf.update_connections()
-			turf.update_icon()
-
-	for(var/turf/turf in orange(src, 1))
-		var/success = 0
-		for(var/obj/obj in turf)
-			for(var/b_type in blend_objects)
-				if(istype(obj, b_type))
-					success = TRUE
-				for(var/nb_type in noblend_objects)
-					if(istype(obj, nb_type))
-						success = FALSE
-				if(success)
-					break
-			if(success)
-				break
-
-		if(success)
-			if(get_dir(src, turf) in GLOB.cardinals)
-				turf_dirs += get_dir(src, turf)
-
-	for(var/neighbor in turf_dirs)
-		neighbors_list |= neighbor
-	wall_connections = dirs_to_corner_states(turf_dirs)
-
-/turf/proc/can_join_with(turf/target_turf)
-	if(target_turf.type == type)
-		return TRUE
-	for(var/wb_type in blend_turfs)
-		for(var/nb_type in noblend_turfs)
-			if(istype(target_turf, nb_type))
-				return FALSE
-		if(istype(target_turf, wb_type))
-			return TRUE
-	return FALSE
 
 #define CORNER_NONE 0
 #define CORNER_COUNTERCLOCKWISE 1

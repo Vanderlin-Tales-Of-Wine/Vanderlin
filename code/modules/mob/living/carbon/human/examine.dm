@@ -24,6 +24,8 @@
 			user.add_stress(/datum/stressevent/ugly_self)
 		else
 			user.add_stress(/datum/stressevent/ugly)
+	if(HAS_TRAIT(src, TRAIT_OLDPARTY) && HAS_TRAIT(user, TRAIT_OLDPARTY) && user != src)
+		user.add_stress(/datum/stressevent/saw_old_party)
 
 /mob/living/carbon/human/examine(mob/user)
 //this is very slightly better than it was because you can use it more places. still can't do \his[src] though.
@@ -131,6 +133,16 @@
 			if(HAS_TRAIT(src, TRAIT_UGLY))
 				. += span_necrosis(span_bold("[self_inspect ? "I am" : "[t_He] is"] hideous."))
 
+		if(length(GLOB.tennite_schisms))
+			var/datum/tennite_schism/S = GLOB.tennite_schisms[1]
+			var/user_side = (WEAKREF(user) in S.supporters_astrata) ? "astrata" : (WEAKREF(user) in S.supporters_challenger) ? "challenger" : null
+			var/mob_side = (WEAKREF(src) in S.supporters_astrata) ? "astrata" : (WEAKREF(src) in S.supporters_challenger) ? "challenger" : null
+
+			if(user_side && mob_side)
+				var/datum/patron/their_god = (mob_side == "astrata") ? S.astrata_god.resolve() : S.challenger_god.resolve()
+				if(their_god)
+					. += (user_side == mob_side) ? span_notice("Fellow [their_god.name] supporter!") : span_userdanger("Vile [their_god.name] supporter!")
+
 		if(HAS_TRAIT(src, TRAIT_FOREIGNER) && !HAS_TRAIT(user, TRAIT_FOREIGNER))
 			. += span_phobia("A foreigner...")
 
@@ -141,23 +153,26 @@
 			. += span_userdanger("HERETIC! SHAME!")
 
 		if(real_name in GLOB.outlawed_players)
-			. += "<span class='userdanger'>OUTLAW!</span>"
+			. += span_userdanger("OUTLAW!")
 
 		if(iszizocultist(user) || iszizolackey(user))
 			if(virginity)
-				. += "<span class='userdanger'>VIRGIN!</span>"
+				. += span_userdanger("VIRGIN!")
 
 		if(mind && mind.special_role)
 			if(mind && mind.special_role == "Bandit" && HAS_TRAIT(user, TRAIT_KNOWBANDITS))
-				. += "<span class='userdanger'>BANDIT!</span>"
+				. += span_userdanger("BANDIT!")
 			if(mind && mind.special_role == "Vampire Lord")
-				. += "<span class='userdanger'>A MONSTER!</span>"
+				. += span_userdanger("A MONSTER!")
 
 		var/list/known_frumentarii = user.mind?.cached_frumentarii
 		if(name in known_frumentarii)
 			. += span_greentext("<b>[m1] an agent of the court!</b>")
 
 		if(user != src)
+			if(HAS_TRAIT(src, TRAIT_OLDPARTY) && HAS_TRAIT(user, TRAIT_OLDPARTY))
+				. += span_green("Ahh... my old friend!")
+
 			if(HAS_TRAIT(src, TRAIT_THIEVESGUILD) && HAS_TRAIT(user, TRAIT_THIEVESGUILD))
 				. += span_green("A member of the Thieves Guild.")
 
@@ -179,7 +194,7 @@
 					if(shit)
 						. += shit
 		if(user.mind?.has_antag_datum(/datum/antagonist/vampire))
-			. += "<span class='userdanger'>Blood Volume: [blood_volume]</span>"
+			. += span_userdanger("Blood Volume: [blood_volume]")
 		if(HAS_TRAIT(user, TRAIT_MATTHIOS_EYES))
 			var/atom/item = get_most_expensive()
 			if(item)
@@ -234,9 +249,8 @@
 	if(gloves && !(SLOT_GLOVES in obscured))
 		. += "[m3] [gloves.get_examine_string(user)] on [m2] hands."
 	else if(FR && length(FR.blood_DNA))
-		var/hand_number = get_num_arms(FALSE)
-		if(hand_number)
-			. += "[m3][hand_number > 1 ? "" : " a"] <span class='bloody'>blood-stained</span> hand[hand_number > 1 ? "s" : ""]!"
+		if(num_hands)
+			. += span_warning("[t_He] [t_has] [num_hands > 1 ? "" : "a"] blood-stained hand[num_hands > 1 ? "s" : ""]!")
 
 	//belt
 	if(belt && !(SLOT_BELT in obscured))
@@ -262,7 +276,7 @@
 	if(wear_neck && !(SLOT_NECK in obscured))
 		. += "[m3] [wear_neck.get_examine_string(user)] around [m2] neck."
 
-	if(eye_color == BLOODCULT_EYE)
+	if(get_eye_color() == BLOODCULT_EYE)
 		. += "<span class='warning'><B>[capitalize(m2)] eyes are glowing an unnatural red!</B></span>"
 
 	//ears
@@ -562,8 +576,9 @@
 		else
 			var/checked_zone = check_zone(user.zone_selected)
 			. += "<a href='byond://?src=[REF(src)];inspect_limb=[checked_zone]'>Inspect [parse_zone(checked_zone)]</a>"
-			if(!(mobility_flags & MOBILITY_STAND) && user != src && (user.zone_selected == BODY_ZONE_CHEST))
+			if(body_position == LYING_DOWN && user != src && (user.zone_selected == BODY_ZONE_CHEST))
 				. += "<a href='byond://?src=[REF(src)];check_hb=1'>Listen to Heartbeat</a>"
+		. += "<a href='byond://?src=[REF(src)];view_descriptors=1'>Look at Features</a>"
 
 	// Characters with the hunted flaw will freak out if they can't see someone's face.
 	if(!appears_dead)
@@ -571,11 +586,7 @@
 			user.add_stress(/datum/stressevent/hunted)
 
 	if(!obscure_name && (flavortext || (headshot_link && src.client?.patreon?.has_access(ACCESS_ASSISTANT_RANK)))) // only show flavor text if there is a flavor text and we show headshot
-		. += "<a href='?src=[REF(src)];task=view_flavor_text;'>Examine closer</a>"
-
-	var/list/lines = build_cool_description(get_mob_descriptors(obscure_name, user), src)
-	for(var/line in lines)
-		. += span_info(line)
+		. += "<a href='?src=[REF(src)];task=view_flavor_text;'>Examine Closer</a>"
 
 	var/trait_exam = common_trait_examine()
 	if(!isnull(trait_exam))

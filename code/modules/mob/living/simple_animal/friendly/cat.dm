@@ -2,7 +2,6 @@
 /mob/living/simple_animal/pet/cat
 	name = "parent roguecat"
 	desc = "If you're seeing this, someone forgot to set a mob desc or it spawned the parent mob. Report to the Creators."
-	TOTALSPD = 5
 	icon = 'icons/roguetown/mob/monster/pets.dmi'
 	icon_state = "cat2"
 	icon_living = "cat2"
@@ -39,10 +38,10 @@
 	response_disarm_simple = "gently push aside"
 	response_harm_continuous = "kicks"
 	response_harm_simple = "kick"
-	TOTALSTR = 3
-	TOTALEND = 4
-	TOTALSPD = 3
-	TOTALCON = 3
+	base_strength = 3
+	base_endurance = 4
+	base_speed = 3
+	base_constitution = 3
 	var/turns_since_scan = 0
 	gold_core_spawnable = FRIENDLY_SPAWN
 
@@ -54,14 +53,14 @@
 	. = ..()
 	verbs += /mob/living/proc/lay_down
 
-/mob/living/simple_animal/pet/cat/update_mobility()
-	..()
-	if(client && stat != DEAD)
-		if (resting)
-			icon_state = "[icon_living]_rest"
-		else
-			icon_state = "[icon_living]"
-	regenerate_icons()
+// /mob/living/simple_animal/pet/cat/update_mobility()
+// 	..()
+// 	if(client && stat != DEAD)
+// 		if (resting)
+// 			icon_state = "[icon_living]_rest"
+// 		else
+// 			icon_state = "[icon_living]"
+// 	regenerate_icons()
 
 
 /mob/living/simple_animal/pet/cat/Crossed(mob/living/L) // Gato Basado - makes it leave when people step too close
@@ -70,7 +69,7 @@
 		if(health > 1)
 			icon_state = "[icon_living]"
 			set_resting(FALSE)
-			update_mobility()
+			// update_mobility()
 			if(isturf(loc))
 				dir = pick(GLOB.cardinals)
 				step(src, dir)
@@ -200,7 +199,7 @@
 			visible_message("<span class='notice'>\The [src] hisses at [M] and recoils in disgust.</span>")
 			icon_state = "[icon_living]"
 			set_resting(FALSE)
-			update_mobility()
+			// update_mobility()
 			playsound(get_turf(src), 'sound/vo/mobs/cat/cathiss.ogg', 80, TRUE, -1)
 			dir = pick(GLOB.alldirs)
 			step(src, dir)
@@ -210,7 +209,7 @@
 				visible_message("<span class='notice'>\The [src] hisses at [M] and recoils in disgust.</span>")
 				icon_state = "[icon_living]"
 				set_resting(FALSE)
-				update_mobility()
+				// update_mobility()
 				playsound(get_turf(src), 'sound/vo/mobs/cat/cathiss.ogg', 80, TRUE, -1)
 				dir = pick(GLOB.alldirs)
 				step(src, dir)

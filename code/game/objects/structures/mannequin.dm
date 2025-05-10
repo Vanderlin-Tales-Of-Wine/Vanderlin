@@ -91,13 +91,19 @@
 	var/mapping_neck
 
 //Code//
-/obj/structure/mannequin/New(turf/loc, list/items_to_wear)
-	..()
-	MapEquip(items_to_wear)
+/obj/structure/mannequin/Initialize(mapload)
+	. = ..()
+	MapEquip()
+	if(mapload)
+		for(var/obj/item/clothing/clothing in get_turf(src))
+			var/slot = MannequinSlotHelper(clothing.slot_flags)
+			if(slot)
+				MannequinEquip(clothing, slot)
+
 	update_icon()
 
 /obj/structure/mannequin/attack_hand(mob/living/user)
-	if(user.cmode || user.a_intent == INTENT_HARM || user.a_intent == INTENT_DISARM)
+	if(user.a_intent.name == "punch")
 		if(!tipped_over)
 			TipOver()
 			return
@@ -121,7 +127,7 @@
 /obj/structure/mannequin/MouseDrop(atom/over_object)
 	. = ..()
 	var/mob/living/M = usr
-	if(!istype(M) || M.incapacitated() || !Adjacent(M) || unchangeable)
+	if(!istype(M) || M.incapacitated(ignore_grab = TRUE) || !Adjacent(M) || unchangeable)
 		return
 	ShowInventory(M)
 
@@ -138,7 +144,7 @@
 */
 /obj/structure/mannequin/Topic(href, href_list)
 	..()
-	if(tipped_over || !(iscarbon(usr)) || usr.incapacitated() || !Adjacent(usr))
+	if(tipped_over || !(iscarbon(usr)) || usr.incapacitated(ignore_grab = TRUE) || !Adjacent(usr))
 		return
 	var/mob/living/carbon/user = usr
 	switch(href_list["command"])
@@ -689,6 +695,34 @@
 			return SLOT_MANNEQUIN_GLOVES
 		if(BODY_ZONE_PRECISE_L_FOOT, BODY_ZONE_PRECISE_R_FOOT)
 			return SLOT_MANNEQUIN_FEET
+
+/obj/structure/mannequin/proc/MannequinSlotHelper(slots_flags)
+	if(slots_flags & ITEM_SLOT_HEAD)
+		return SLOT_MANNEQUIN_HEAD
+
+	if(slots_flags & ITEM_SLOT_NECK)
+		return SLOT_MANNEQUIN_CLOAK
+
+	if(slots_flags & ITEM_SLOT_MASK)
+		return SLOT_MANNEQUIN_MASK
+
+	if(slots_flags & ITEM_SLOT_ARMOR)
+		return SLOT_MANNEQUIN_ARMOR
+
+	if(slots_flags & ITEM_SLOT_SHIRT)
+		return SLOT_MANNEQUIN_SHIRT
+
+	if(slots_flags & ITEM_SLOT_BELT)
+		return SLOT_MANNEQUIN_BELT
+
+	if(slots_flags & ITEM_SLOT_PANTS)
+		return SLOT_MANNEQUIN_PANTS
+
+	if(slots_flags & ITEM_SLOT_GLOVES)
+		return SLOT_MANNEQUIN_GLOVES
+
+	if(slots_flags & ITEM_SLOT_SHOES)
+		return SLOT_MANNEQUIN_FEET
 
 ////Subtypes/////
 /obj/structure/mannequin/male

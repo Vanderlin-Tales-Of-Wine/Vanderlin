@@ -78,12 +78,6 @@
 	probby = 75
 	spawned = list(/obj/structure/table/wood/treestump)
 
-/obj/effect/spawner/map_spawner/shroud
-	icon_state = "shroud"
-	name = "shroud sp"
-	probby = 30
-	spawned = list(/turf/closed/wall/shroud)
-
 /obj/effect/spawner/map_spawner/hauntpile
 	icon_state = "hauntpile"
 	name = "hauntpile"
@@ -174,7 +168,8 @@
 		/obj/item/clothing/armor/plate = 8,
 		/obj/item/clothing/gloves/chain = 3,
 		/obj/item/clothing/neck/bevor = 3,
-		/obj/item/clothing/pants/chainlegs = 5
+		/obj/item/clothing/pants/chainlegs = 5,
+		/obj/item/clothing/pants/chainlegs/kilt = 5
 		)
 
 /obj/effect/spawner/map_spawner/loot/magic
@@ -270,6 +265,7 @@
 		/obj/item/clothing/head/helmet/coppercap = 15,
 		/obj/item/clothing/armor/cuirass/copperchest = 15,
 		/obj/item/clothing/pants/chainlegs/iron = 10,
+		/obj/item/clothing/pants/chainlegs/kilt/iron = 10,
 		/obj/item/clothing/armor/chainmail/iron = 10,
 		/obj/item/clothing/armor/plate/iron = 10,
 		/obj/item/clothing/head/helmet/heavy/ironplate = 10,
@@ -353,6 +349,7 @@
 		/obj/item/alch/benedictus = 5,
 		/obj/item/alch/valeriana = 5,
 		/obj/item/alch/artemisia = 5,
+		/obj/item/alch/rosa = 5,
 	)
 /obj/effect/spawner/map_spawner/loot/potion_stats
 	icon_state = "lootstatpot"

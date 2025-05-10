@@ -43,7 +43,7 @@
 	belt = /obj/item/storage/belt/leather
 	beltl = /obj/item/weapon/axe/iron
 	beltr = /obj/item/storage/belt/pouch/coins/rich
-	backr = /obj/item/weapon/polearm/halberd/bardiche/woodcutter
+	backr = /obj/item/weapon/polearm/halberd/bardiche/warcutter
 	backl = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/weapon/knife/hunting = 1, /obj/item/rope/chain = 1, /obj/item/key/forrestgarrison = 1, /obj/item/signal_horn = 1)
 	if(H.mind)
@@ -59,7 +59,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/lumberjacking, 5, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/lumberjacking, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/carpentry, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/tanning, 2, TRUE)

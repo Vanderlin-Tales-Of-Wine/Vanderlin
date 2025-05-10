@@ -1,5 +1,15 @@
 /datum/sprite_accessory
 	abstract_type = /datum/sprite_accessory
+	/// Name of the sprite accessories, which may be presented to pick from in the preferences menu
+	var/name
+	/// Icon file of the accessory
+	var/icon
+	/// Icon state of the accessory
+	var/icon_state
+	///our dynamic file used incases where we need to cull a specific portion like hair
+	var/dynamic_file
+	///this accessories gender
+	var/gender = NEUTER
 	/// Whether the states for this accessory have an extra state that will get overlayed ontop of the resulting state. Per layer, suffix "_extra"
 	var/extra_state = FALSE
 	/// Pixel x offset
@@ -37,16 +47,24 @@
 	return TRUE
 
 /datum/sprite_accessory/proc/generic_gender_feature_adjust(list/appearance_list, obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner, feature_male_key, feature_female_key)
-	if(!ishuman(owner))
+	if(QDELETED(owner) || !ishuman(owner))
 		return
 	var/mob/living/carbon/human/humie = owner
-	var/datum/species/species = owner.dna.species
+	var/datum/species/species = owner.dna?.species
+	if(!species)
+		return
 	for(var/mutable_appearance/appearance as anything in appearance_list)
 		var/list/offset_list
-		if(humie.gender == FEMALE)
-			offset_list = species.offset_features[feature_female_key]
+		if(humie.age == AGE_CHILD)
+			if(humie.gender == FEMALE)
+				offset_list = species.offset_features_child[feature_female_key]
+			else
+				offset_list = species.offset_features_child[feature_male_key]
 		else
-			offset_list = species.offset_features[feature_male_key]
+			if(humie.gender == FEMALE)
+				offset_list = species.offset_features[feature_female_key]
+			else
+				offset_list = species.offset_features[feature_male_key]
 		if(offset_list)
 			appearance.pixel_x += offset_list[1]
 			appearance.pixel_y += offset_list[2]
@@ -73,6 +91,8 @@
 		owner = organ.owner
 	else if (bodypart)
 		owner = bodypart.owner
+		if(!owner)
+			owner = bodypart.original_owner
 	else
 		return
 	if(!is_visible(organ, bodypart, owner))
@@ -208,40 +228,27 @@
 			return KEY_MUT_COLOR_THREE
 
 /proc/color_key_source_list_from_prefs(datum/preferences/prefs)
-	var/list/features = prefs.features
-	var/list/sources = list()
-	sources[KEY_MUT_COLOR_ONE] = features["mcolor"]
-	sources[KEY_MUT_COLOR_TWO] = features["mcolor2"]
-	sources[KEY_MUT_COLOR_THREE] = features["mcolor3"]
-	/// Read specific organ entries to deduce eye, hair and facial hair color
-	if(MUTCOLORS in prefs.pref_species.species_traits)
-		sources[KEY_SKIN_COLOR] = sources[KEY_MUT_COLOR_ONE]
-	else
+	if(istype(prefs))
+		var/list/sources = list()
 		sources[KEY_SKIN_COLOR] = prefs.skin_tone
-	sources[KEY_EYE_COLOR] = prefs.get_eye_color()
-	sources[KEY_HAIR_COLOR] = prefs.get_hair_color()
-	sources[KEY_FACE_HAIR_COLOR] = prefs.get_facial_hair_color()
-	sources[KEY_CHEST_COLOR] = sources[KEY_SKIN_COLOR]
-	var/chest_color = prefs.get_chest_color()
-	if(chest_color)
-		sources[KEY_CHEST_COLOR] = chest_color
-	return sources
+		sources[KEY_EYE_COLOR] = prefs.get_eye_color()
+		sources[KEY_HAIR_COLOR] = prefs.get_hair_color()
+		sources[KEY_FACE_HAIR_COLOR] = prefs.get_facial_hair_color()
+		sources[KEY_CHEST_COLOR] = sources[KEY_SKIN_COLOR]
+		var/chest_color = prefs.get_chest_color()
+		if(chest_color)
+			sources[KEY_CHEST_COLOR] = chest_color
+		return sources
+	else
+		return color_key_source_list_from_carbon(prefs)
+
 
 /proc/color_key_source_list_from_carbon(mob/living/carbon/carbon)
-	var/datum/dna/dna = carbon.dna
-	var/datum/species/species = dna.species
-	var/list/features = dna.features
 	var/list/sources = list()
-	sources[KEY_MUT_COLOR_ONE] = features["mcolor"]
-	sources[KEY_MUT_COLOR_TWO] = features["mcolor2"]
-	sources[KEY_MUT_COLOR_THREE] = features["mcolor3"]
 	/// Read specific organ DNA entries to deduce eye, hair and facial hair color
 	if(ishuman(carbon))
 		var/mob/living/carbon/human/human = carbon
-		if(MUTCOLORS in species.species_traits)
-			sources[KEY_SKIN_COLOR] = sources[KEY_MUT_COLOR_ONE]
-		else
-			sources[KEY_SKIN_COLOR] = human.skin_tone
+		sources[KEY_SKIN_COLOR] = human.skin_tone
 		sources[KEY_EYE_COLOR] = human.get_eye_color()
 		sources[KEY_HAIR_COLOR] = human.get_hair_color()
 		sources[KEY_FACE_HAIR_COLOR] = human.get_facial_hair_color()

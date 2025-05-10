@@ -2,8 +2,8 @@
 /mob/living/carbon/human/proc/change_name(new_name)
 	real_name = new_name
 
-/mob/living/carbon/human/restrained(ignore_grab)
-	. = ((wear_armor && wear_armor.breakouttime) || ..())
+// /mob/living/carbon/human/restrained(ignore_grab)
+// 	. = ((wear_armor && wear_armor.breakouttime) || ..())
 
 /mob/living/carbon/human/check_language_hear(language)
 	var/mob/living/carbon/V = src
@@ -18,10 +18,9 @@
 
 
 /mob/living/carbon/human/canBeHandcuffed()
-	if(get_num_arms(FALSE) >= 2)
-		return TRUE
-	else
+	if(num_hands < 2)
 		return FALSE
+	return TRUE
 
 //gets assignment from ID or ID inside PDA or PDA itself
 //Useful when player do something with computers
@@ -106,16 +105,20 @@
 		return TRUE
 
 /mob/living/carbon/human/get_punch_dmg()
-	var/damage = 12
+	if(QDELETED(src) || !ishuman(src))
+		return
 
+	var/damage = 12
 	var/used_str = STASTR
+
+	if(mind?.has_antag_datum(/datum/antagonist/werewolf))
+		return 30
 
 	if(domhand)
 		used_str = get_str_arms(used_hand)
 
 	if(used_str >= 11)
 		damage = max(damage + (damage * ((used_str - 10) * 0.3)), 1)
-
 	if(used_str <= 9)
 		damage = max(damage - (damage * ((10 - used_str) * 0.1)), 1)
 
@@ -123,11 +126,27 @@
 	if(istype(BP))
 		damage *= BP.punch_modifier
 
-	if(mind)
-		if(mind.has_antag_datum(/datum/antagonist/werewolf))
-			return 30
-
 	return damage
+
+/mob/living/carbon/human/proc/get_kick_damage(multiplier = 1)
+	if(QDELETED(src) || !ishuman(src))
+		return
+
+	var/damage = 12
+	var/used_str = STASTR
+
+	if(mind?.has_antag_datum(/datum/antagonist/werewolf))
+		return 30 * multiplier
+
+	if(used_str >= 11)
+		damage = max(damage + (damage * ((used_str - 10) * 0.3)), 1)
+	if(used_str <= 9)
+		damage = max(damage - (damage * ((10 - used_str) * 0.1)), 1)
+
+	if(shoes)
+		damage *= (1 + (shoes.armor_class * 0.2))
+
+	return damage * multiplier
 
 /// Fully randomizes everything in the character.
 // Reflect changes in [datum/preferences/proc/randomise_appearance_prefs]
@@ -148,26 +167,9 @@
 		underwear_color = random_short_color()
 	if(randomise_flags & RANDOMIZE_UNDERSHIRT)
 		undershirt = random_undershirt(gender)
-	if(randomise_flags & RANDOMIZE_SOCKS)
-		socks = random_socks()
-
-	if(randomise_flags & RANDOMIZE_HAIRSTYLE)
-		hairstyle = species.random_hairstyle(gender)
-	if(randomise_flags & RANDOMIZE_FACIAL_HAIRSTYLE)
-		facial_hairstyle = species.random_facial_hairstyle(gender)
-	if(randomise_flags & (RANDOMIZE_HAIR_COLOR | RANDOMIZE_FACIAL_HAIR_COLOR))
-		var/list/hairs
-		if(age == AGE_OLD && (OLDGREY in species.species_traits))
-			hairs = species.get_oldhc_list()
-		else
-			hairs = species.get_hairc_list()
-		hair_color = hairs[pick(hairs)]
-		facial_hair_color = hair_color
 	if(randomise_flags & RANDOMIZE_SKIN_TONE)
 		var/list/skin_list = species.get_skin_list()
 		skin_tone = skin_list[pick(skin_list)]
-	if(randomise_flags & RANDOMIZE_EYE_COLOR)
-		eye_color = random_eye_color()
 	if(randomise_flags & RANDOMIZE_FEATURES)
 		dna.features = random_features()
 

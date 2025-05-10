@@ -9,8 +9,8 @@
 	antagpanel_category = "Maniac"
 	antag_memory = "<b>Recently I've been visited by a lot of VISIONS. They're all about another WORLD, ANOTHER life. I will do EVERYTHING to know the TRUTH, and return to the REAL world.</b>"
 	job_rank = ROLE_MANIAC
-	antag_hud_type = ANTAG_HUD_TRAITOR
-	antag_hud_name = "villain"
+	antag_hud_type = ANTAG_HUD_MANIAC
+	antag_hud_name = "generic_villain"
 	confess_lines = list(
 		"I gave them no time to squeal.",
 		"I shant quit ripping them.",
@@ -18,7 +18,7 @@
 		"Do what thou wilt shall be the whole of the law.",
 	)
 	/// Traits we apply to the owner
-	var/static/list/applied_traits = list(
+	innate_traits = list(
 		TRAIT_DECEIVING_MEEKNESS,
 		TRAIT_NOSTINK,
 		TRAIT_EMPATH,
@@ -33,10 +33,6 @@
 		TRAIT_MANIAC_AWOKEN,
 		TRAIT_SCREENSHAKE,
 	)
-	/// Cached old stats in case we get removed
-	var/STASTR
-	var/STACON
-	var/STAEND
 	/// Weapons we can give to the dreamer
 	var/static/list/possible_weapons = list(
 		/obj/item/weapon/knife/cleaver,
@@ -95,25 +91,23 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 			owner.adjust_skillrank(/datum/skill/combat/wrestling, 5, TRUE)
 			owner.adjust_skillrank(/datum/skill/combat/unarmed, 5, TRUE)
 			owner.adjust_skillrank(/datum/skill/misc/medicine, 4, TRUE)
-			var/obj/item/organ/heart/heart = dreamer.getorganslot(ORGAN_SLOT_HEART)
 			for(var/datum/status_effect/effect in dreamer.status_effects) //necessary to prevent exploits
 				dreamer.remove_status_effect(effect)
-			STASTR = dreamer.STASTR
-			STACON = dreamer.STACON
-			STAEND = dreamer.STAEND
-			dreamer.change_stat(STATKEY_STR, 16, set_stat = TRUE)
-			dreamer.change_stat(STATKEY_CON, 16, set_stat = TRUE)
-			dreamer.change_stat(STATKEY_END, 16, set_stat = TRUE)
+			var/extra_strength = max(16 - dreamer.base_strength, 0)
+			var/extra_constitution = max(16 - dreamer.base_constitution, 0)
+			var/extra_endurance = max(16 - dreamer.base_endurance, 0)
+			dreamer.set_stat_modifier("[type]", STATKEY_STR, extra_strength)
+			dreamer.set_stat_modifier("[type]", STATKEY_CON, extra_constitution)
+			dreamer.set_stat_modifier("[type]", STATKEY_END, extra_endurance)
+			var/obj/item/organ/heart/heart = dreamer.getorganslot(ORGAN_SLOT_HEART)
 			if(heart) // clear any inscryptions, in case of being made maniac midround
 				heart.inscryptions = list()
 				heart.inscryption_keys = list()
 				heart.maniacs2wonder_ids = list()
 				heart.maniacs = list()
 			dreamer.remove_stress(/datum/stressevent/saw_wonder)
-			dreamer.remove_curse(/datum/curse/zizo, TRUE)
+			dreamer.remove_curse(/datum/curse/zizo)
 		//	dreamer.remove_client_colour(/datum/client_colour/maniac_marked)
-		for(var/trait in applied_traits)
-			ADD_TRAIT(owner.current, trait, "[type]")
 		hallucinations = owner.current.overlay_fullscreen("maniac", /atom/movable/screen/fullscreen/maniac)
 	LAZYINITLIST(owner.learned_recipes)
 	owner.learned_recipes |= recipe_progression[1]
@@ -132,14 +126,10 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 		if(ishuman(owner.current))
 			var/mob/living/carbon/human/dreamer = owner.current
 			dreamer.set_patron(/datum/patron/inhumen/zizo)
-			dreamer.change_stat(STATKEY_STR, STASTR - 16)
-			dreamer.change_stat(STATKEY_CON, STACON - 16)
-			dreamer.change_stat(STATKEY_END, STAEND - 16)
+			dreamer.remove_stat_modifier("[type]")
 			var/client/clinet = dreamer?.client
 			if(clinet) //clear screenshake animation
 				animate(clinet, dreamer.pixel_y)
-		for(var/trait in applied_traits)
-			REMOVE_TRAIT(owner.current, trait, "[type]")
 		for(var/trait in final_traits)
 			REMOVE_TRAIT(owner.current, trait, "[type]")
 		owner.current.clear_fullscreen("maniac")
@@ -195,13 +185,15 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 		trey_liam.fully_replace_character_name(trey_liam.name, "Trey Liam")
 		trey_liam.gender = MALE
 		trey_liam.skin_tone = "ffe0d1"
-		trey_liam.hair_color = "999999"
-		trey_liam.hairstyle = "Plain Long"
-		trey_liam.facial_hair_color = "999999"
-		trey_liam.facial_hairstyle = "Knowledge"
+
+		trey_liam.set_hair_color("#999999", FALSE)
+		trey_liam.set_facial_hair_color("#999999", FALSE)
+		trey_liam.set_hair_style(/datum/sprite_accessory/hair/head/thickcurly, FALSE)
+		trey_liam.set_facial_hair_style(/datum/sprite_accessory/hair/facial/know, FALSE)
 		trey_liam.age = AGE_OLD
 		trey_liam.equipOutfit(/datum/outfit/treyliam)
 		trey_liam.regenerate_icons()
+		trey_liam.update_body_parts()
 		for(var/obj/structure/chair/chair in spawnturf)
 			chair.buckle_mob(trey_liam)
 			break

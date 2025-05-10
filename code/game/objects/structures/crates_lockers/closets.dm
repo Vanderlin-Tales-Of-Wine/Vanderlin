@@ -42,6 +42,8 @@
 	throw_speed = 1
 	throw_range = 1
 	anchored = FALSE
+	/// true whenever someone with the strong pull component is dragging this, preventing opening
+	// var/strong_grab = FALSE
 
 /obj/structure/closet/pre_sell()
 	open()
@@ -110,6 +112,9 @@
 		if(user)
 			to_chat(user, "<span class='warning'>Locked.</span>" )
 		return FALSE
+	// if(strong_grab && pulledby != user)
+	// 	to_chat(user, span_danger("[pulledby] has an incredibly strong grip on [src], preventing it from opening."))
+	// 	return FALSE
 //	var/turf/T = get_turf(src)
 //	for(var/mob/living/L in T)
 //		if(L.anchored || horizontal && L.mob_size > MOB_SIZE_TINY && L.density)
@@ -360,7 +365,7 @@
 /obj/structure/closet/MouseDrop_T(atom/movable/O, mob/living/user)
 	if(!istype(O) || O.anchored || istype(O, /atom/movable/screen))
 		return
-	if(!istype(user) || user.incapacitated() || !(user.mobility_flags & MOBILITY_STAND))
+	if(!istype(user) || user.incapacitated() || user.body_position == LYING_DOWN)
 		return
 	if(!Adjacent(user) || !user.Adjacent(O))
 		return
@@ -406,7 +411,7 @@
 	. = ..()
 	if(.)
 		return
-	if(!(user.mobility_flags & MOBILITY_STAND) && get_dist(src, user) > 0)
+	if(user.body_position == LYING_DOWN && get_dist(src, user) > 0)
 		return
 	user.changeNext_move(CLICK_CD_MELEE)
 	toggle(user)
@@ -486,8 +491,3 @@
 
 /obj/structure/closet/AllowDrop()
 	return TRUE
-
-
-/obj/structure/closet/return_temperature()
-	return
-

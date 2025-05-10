@@ -85,6 +85,7 @@ have ways of interacting with a specific atom and control it. They posses a blac
 
 ///Sets the current movement target, with an optional param to override the movement behavior
 /datum/ai_controller/proc/set_movement_target(source, atom/target, datum/ai_movement/new_movement)
+	SEND_SIGNAL(pawn, COMSIG_AI_MOVEMENT_SET, current_movement_target, target)
 	movement_target_source = source
 	current_movement_target = target
 	if(new_movement)
@@ -156,7 +157,7 @@ have ways of interacting with a specific atom and control it. They posses a blac
 	return !QDELETED(pawn)
 
 ///Interact with objects
-/datum/ai_controller/proc/ai_interact(target, combat_mode, list/modifiers)
+/datum/ai_controller/proc/ai_interact(target, combat_mode, list/modifiers, nextmove = FALSE)
 	if(!ai_can_interact())
 		return FALSE
 
@@ -166,6 +167,14 @@ have ways of interacting with a specific atom and control it. They posses a blac
 		return FALSE
 	var/params = list2params(modifiers)
 	var/mob/living/living_pawn = pawn
+	if(nextmove && living_pawn.next_move > world.time)
+		return FALSE
+
+	if(living_pawn.body_position == LYING_DOWN)
+		living_pawn.aimheight_change(rand(1,9))
+	else
+		living_pawn.aimheight_change(rand(10,19))
+
 	if(isnull(combat_mode))
 		living_pawn.ClickOn(final_target, params)
 		return TRUE
@@ -266,6 +275,21 @@ have ways of interacting with a specific atom and control it. They posses a blac
 /datum/ai_controller/proc/reset_ai_status()
 	set_ai_status(get_expected_ai_status())
 
+/datum/ai_controller/proc/can_move()
+	var/mob/living/living_pawn = pawn
+	if(HAS_TRAIT(living_pawn, TRAIT_INCAPACITATED))
+		return FALSE
+	if(ai_traits & STOP_MOVING_WHEN_PULLED && living_pawn.pulledby)
+		return FALSE
+	if(!isturf(living_pawn.loc)) //No moving if not on a turf
+		return FALSE
+	if(HAS_TRAIT(living_pawn, TRAIT_IMMOBILIZED))
+		return FALSE
+	if(living_pawn.pulledby?.grab_state > GRAB_PASSIVE)
+		return FALSE
+
+	return TRUE
+
 /**
  * Gets the AI status we expect the AI controller to be on at this current moment.
  * Returns AI_STATUS_OFF if it's inhabited by a Client and shouldn't be, if it's dead and cannot act while dead, or is on a z level without clients.
@@ -280,7 +304,7 @@ have ways of interacting with a specific atom and control it. They posses a blac
 	if(!continue_processing_when_client && mob_pawn.client)
 		return AI_STATUS_OFF
 
-	if(mob_pawn.stat == DEAD)
+	if(mob_pawn.stat >= UNCONSCIOUS)
 		return AI_STATUS_OFF
 
 	var/turf/pawn_turf = get_turf(mob_pawn)
@@ -444,14 +468,14 @@ have ways of interacting with a specific atom and control it. They posses a blac
 	arguments[1] = src
 
 	if(LAZYACCESS(current_behaviors, behavior)) ///It's still in the plan, don't add it again to current_behaviors but do keep it in the planned behavior list so its not cancelled
-		LAZYADDASSOC(planned_behaviors, behavior, TRUE)
+		LAZYADDASSOCLIST(planned_behaviors, behavior, TRUE)
 		return
 
 	if(!behavior.setup(arglist(arguments)))
 		return
 
-	LAZYADDASSOC(current_behaviors, behavior, TRUE)
-	LAZYADDASSOC(planned_behaviors, behavior, TRUE)
+	LAZYADDASSOCLIST(current_behaviors, behavior, TRUE)
+	LAZYADDASSOCLIST(planned_behaviors, behavior, TRUE)
 
 	arguments.Cut(1, 2)
 	if(length(arguments))

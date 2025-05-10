@@ -2,7 +2,7 @@
 	name = "Dendor's Vines (Malus)"
 	track = EVENT_TRACK_INTERVENTION
 	typepath = /datum/round_event/dendor_vines
-	weight = 4
+	weight = 2
 	earliest_start = 0 SECONDS
 	max_occurrences = 2
 	min_players = 3
@@ -14,7 +14,7 @@
 
 	var/obj/structure/vine/SV = new()
 
-	for(var/area/rogue/outdoors/town/A in world)
+	for(var/area/rogue/outdoors/town/A as anything in GLOB.areas)
 		for(var/turf/open/F in A)
 			if(F.Enter(SV))
 				if(!istype(F, /turf/open/transparent/openspace))
@@ -35,7 +35,7 @@
 	track = EVENT_TRACK_INTERVENTION
 	typepath = /datum/round_event/dendor_vines_good
 	earliest_start = 0 SECONDS
-	weight = 4
+	weight = 2
 	max_occurrences = 2
 	min_players = 3
 	todreq = list("dusk", "night", "dawn", "day")
@@ -46,7 +46,7 @@
 
 	var/obj/structure/vine/SV = new()
 
-	for(var/area/rogue/outdoors/town/A in world)
+	for(var/area/rogue/outdoors/town/A as anything in GLOB.areas)
 		for(var/turf/open/F in A)
 			if(F.Enter(SV))
 				if(!istype(F, /turf/open/transparent/openspace))
@@ -66,7 +66,7 @@
 	name = "Dendor's Blessing"
 	track = EVENT_TRACK_INTERVENTION
 	typepath = /datum/round_event/dendor_fertility
-	weight = 4
+	weight = 2
 	earliest_start = 0 SECONDS
 	max_occurrences = 2
 	min_players = 3
@@ -79,7 +79,7 @@
 	name = "Dendor's Ire"
 	track = EVENT_TRACK_INTERVENTION
 	typepath = /datum/round_event/dendor_ire
-	weight = 4
+	weight = 2
 	earliest_start = 0 SECONDS
 	max_occurrences = 2
 	min_players = 3

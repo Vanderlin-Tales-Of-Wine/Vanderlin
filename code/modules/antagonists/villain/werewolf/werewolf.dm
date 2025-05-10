@@ -3,6 +3,8 @@
 	roundend_category = "Werewolves"
 	antagpanel_category = "Werewolf"
 	job_rank = ROLE_WEREWOLF
+	antag_hud_type = ANTAG_HUD_WEREWOLF
+	antag_hud_name = "werewolf"
 	confess_lines = list(
 		"THE BEAST INSIDE ME!",
 		"BEWARE THE BEAST!",
@@ -17,6 +19,8 @@
 
 /datum/antagonist/werewolf/lesser
 	name = "Lesser Verewolf"
+	antag_hud_type = ANTAG_HUD_WEREWOLF
+	antag_hud_name = "werewolf_lesser"
 	increase_votepwr = FALSE
 
 /datum/antagonist/werewolf/lesser/roundend_report()
@@ -161,7 +165,7 @@
 	item_damage_type = "slash"
 
 /obj/item/weapon/werewolf_claw
-	name = "Verevolf Claw"
+	name = "verevolf claw"
 	desc = ""
 	item_state = null
 	lefthand_file = null
@@ -184,7 +188,10 @@
 	parrysound = list('sound/combat/parry/parrygen.ogg')
 	embedding = list("embedded_pain_multiplier" = 0, "embed_chance" = 0, "embedded_fall_chance" = 0)
 	item_flags = DROPDEL
-	walking_stick = TRUE
+
+/obj/item/weapon/werewolf_claw/Initialize()
+	. = ..()
+	AddComponent(/datum/component/walking_stick)
 
 /obj/item/weapon/werewolf_claw/right
 	icon_state = "claw_r"

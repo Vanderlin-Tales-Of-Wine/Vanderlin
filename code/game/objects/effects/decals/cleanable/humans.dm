@@ -11,6 +11,8 @@
 	nomouseover = TRUE
 	appearance_flags = NO_CLIENT_COLOR
 	nomouseover = TRUE
+	minimum_clean_strength = CLEAN_STRENGTH_BLOOD
+
 	var/blood_timer
 	var/wash_precent = 0
 	var/glows = FALSE
@@ -85,18 +87,21 @@
 	bloodiness = 0
 
 /obj/effect/decal/cleanable/blood/lazy_init_reagents()
+	if(!reagents)
+		return
 	var/datum/component/forensics/D = GetComponent(/datum/component/forensics)
 	var/list/all_dna = D?.blood_DNA
-	var/list/reagents_to_add = list()
-	for(var/dna_sample in all_dna)
+	var/list/reagents_to_add
+	for(var/dna_sample as anything in all_dna)
 		var/datum/blood_type/blood = GLOB.blood_types[all_dna[dna_sample]]
-		reagents_to_add += blood.reagent_type
-
+		if(blood)
+			LAZYADD(reagents_to_add, blood.reagent_type)
+	if(!LAZYLEN(reagents_to_add))
+		return
 	reagents.remove_all(reagents.total_volume)
 	var/num_reagents = length(reagents_to_add)
-	for(var/reagent_type in reagents_to_add)
+	for(var/reagent_type as anything in reagents_to_add)
 		reagents.add_reagent(reagent_type, round((bloodiness * 0.1) / num_reagents, 0.01))
-
 
 /obj/effect/decal/cleanable/blood/replace_decal(obj/effect/decal/cleanable/C)
 	. = ..()
@@ -324,7 +329,8 @@
 	name = "footprints"
 	desc = ""
 	icon = 'icons/effects/footprints.dmi'
-	icon_state = "blood1"
+	// No icon on compile because appearance is made by overlays
+	icon_state = MAP_SWITCH("", "blood1")
 	random_icon_states = null
 	blood_state = BLOOD_STATE_HUMAN //the icon state to load images from
 	var/entered_dirs = 0
@@ -335,7 +341,6 @@
 
 /obj/effect/decal/cleanable/blood/footprints/Initialize(mapload)
 	. = ..()
-	icon_state = "" //All of the footprint visuals come from overlays
 	if(mapload)
 		entered_dirs |= dir //Keep the same appearance as in the map editor
 		update_icon()

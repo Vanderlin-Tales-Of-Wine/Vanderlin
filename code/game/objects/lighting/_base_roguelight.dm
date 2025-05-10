@@ -5,12 +5,16 @@
 	fueluse = 60 MINUTES
 	bulb_colour = "#f9ad80"
 	bulb_power = 1
-	var/datum/looping_sound/soundloop
+	var/datum/looping_sound/soundloop = null // = /datum/looping_sound/fireloop
 	pass_flags = LETPASSTHROW
 	flags_1 = NODECONSTRUCT_1
 	var/cookonme = FALSE
 	var/crossfire = TRUE
 	var/can_damage = FALSE
+
+	var/temperature_change = 25
+	var/temperature_weight = 1
+	var/temperature_falloff = 0.9
 
 /obj/machinery/light/fueled/Initialize()
 	if(soundloop)
@@ -21,7 +25,17 @@
 		fueluse = fueluse - (rand(fueluse*0.1,fueluse*0.3))
 	update_icon()
 	seton(TRUE)
+
 	. = ..()
+
+/obj/machinery/light/fueled/Destroy()
+	. = ..()
+	remove_temp_effect()
+
+/obj/machinery/light/fueled/seton(s)
+	. = ..()
+	if(temperature_change)
+		propagate_temp_change(temperature_change, temperature_weight, temperature_falloff)
 
 /obj/machinery/light/fueled/OnCrafted(dirin, mob/user)
 	. = ..()
@@ -58,6 +72,7 @@
 	if(on)
 		playsound(src.loc, 'sound/items/firesnuff.ogg', 100)
 	..()
+	remove_temp_effect()
 	update_icon()
 
 /obj/machinery/light/fueled/update_icon()
@@ -161,7 +176,7 @@
 				if(!user.temporarilyRemoveItemFromInventory(W))
 					return
 				on = FALSE
-				set_light(0)
+				update()
 				update_icon()
 				qdel(W)
 				src.visible_message("<span class='warning'>[user] snuffs the fire.</span>")

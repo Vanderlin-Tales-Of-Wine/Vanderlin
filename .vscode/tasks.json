@@ -3,10 +3,10 @@
     "tasks": [
         {
             "type": "dreammaker",
-            "dme": "stonekeep.dme",
+            "dme": "vanderlin.dme",
             "problemMatcher": ["$dreammaker"],
             "group": "build",
-            "label": "dm: build - stonekeep.dme"
+            "label": "DM Build"
         },
 
         {
@@ -58,6 +58,7 @@
             "dependsOn": "dm: reparse",
             "label": "Build All (low memory mode) no dungeons"
         },
+
         {
             "type": "process",
             "command": "tools/build/build",
@@ -82,6 +83,7 @@
             "dependsOn": "dm: reparse",
             "label": "Build All (unit tests)"
         },
+
         {
             "command": "${command:dreammaker.reparse}",
             "group": "build",

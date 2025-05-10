@@ -66,12 +66,13 @@
 		level.z_value,
 		no_changeturf = (SSatoms.initialized == INITIALIZATION_INSSATOMS),
 		place_on_top = TRUE,
+		new_z = TRUE
 	)
 	var/list/bounds = parsed.bounds
 	if(!bounds)
 		return FALSE
 
-	repopulate_sorted_areas()
+	require_area_resort()
 	//initialize things that are normally initialized after map load
 	parsed.initTemplateBounds()
 	smooth_zlevel(world.maxz)
@@ -105,7 +106,7 @@
 	if(!bounds)
 		return
 
-	repopulate_sorted_areas()
+	require_area_resort()
 
 	//initialize things that are normally initialized after map load
 	parsed.initTemplateBounds()

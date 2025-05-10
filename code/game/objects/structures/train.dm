@@ -16,12 +16,12 @@
 		/datum/job/prince,
 		/datum/job/consort,
 		/datum/job/priest,
-		/datum/job/captain,
+		/datum/job/captain,//Rest of these roles cannot cryo, as they must ahelp first before leaving the round.
 		/datum/job/gaffer //opening up the slot will break the gaffer ring code
 	)
 
 /obj/structure/train/MouseDrop_T(atom/dropping, mob/user)
-	if(!isliving(user) || user.incapacitated())
+	if(!isliving(user) || user.incapacitated(ignore_grab = TRUE))
 		return //No ghosts or incapacitated folk allowed to do this.
 	if(!ishuman(dropping))
 		return //Only humans have job slots to be freed.
@@ -40,7 +40,7 @@
 		return //prevents noble roles from cryoing as per request of Aberra
 	if(alert("Are you sure you want to [departing_mob == user ? "leave for Kingsfield (you" : "send this person to Kingfield (they"] will be removed from the current round, the job slot freed)?", "Departing", "Confirm", "Cancel") != "Confirm")
 		return //doublechecks that people actually want to leave the round
-	if(user.incapacitated() || QDELETED(departing_mob) || (departing_mob != user && departing_mob.client) || get_dist(src, dropping) > 2 || get_dist(src, user) > 2)
+	if(user.incapacitated(ignore_grab = TRUE) || QDELETED(departing_mob) || (departing_mob != user && departing_mob.client) || get_dist(src, dropping) > 2 || get_dist(src, user) > 2)
 		return //Things have changed since the alert happened.
 	say("[user] [departing_mob == user ? "is departing for Kingsfield" : "is sending [departing_mob] to Kingsfield!"]")
 	in_use = TRUE //Just sends a simple message to chat that some-one is leaving
@@ -50,9 +50,6 @@
 	in_use = FALSE
 	update_icon() //the section below handles roles and admin logging
 	var/dat = "[key_name(user)] has despawned [departing_mob == user ? "themselves" : departing_mob], job [departing_mob.job], at [AREACOORD(src)]. Contents despawned along:"
-	if(departing_mob.mind)
-		var/datum/job/mob_job = departing_mob.mind.assigned_role
-		mob_job.adjust_current_positions(-1)
 	if(!length(departing_mob.contents))
 		dat += " none."
 	else
@@ -65,6 +62,33 @@
 	message_admins(dat)
 	log_admin(dat)
 	say(span_notice("[departing_mob == user ? "Out of their own volition, " : "Ushered by [user], "][departing_mob] is departing from [SSmapping.config.map_name]."))
+	cryo_mob(departing_mob)
+
+/proc/cryo_mob(mob/departing_mob)
+	GLOB.actors_list -= departing_mob.mobid // mob cryod - get him outta here.
 	var/mob/dead/new_player/newguy = new()
 	newguy.ckey = departing_mob.ckey
+	var/mob_name = departing_mob.real_name
+	if(!ishuman(departing_mob))
+		qdel(departing_mob)
+		return "Cannot cryo [mob_name], must be human! Deleting instead!"
+	if(!departing_mob.mind)
+		qdel(departing_mob)
+		return "[mob_name] has no mind! Deleting instead!"
+	if(!departing_mob.mind.assigned_role || !is_unassigned_job(departing_mob.mind.assigned_role))
+		qdel(departing_mob)
+		return "[mob_name] has no assigned job! Deleting instead!"
+	if(departing_mob.mind)
+		var/datum/job/mob_job = departing_mob.mind.assigned_role
+		mob_job.adjust_current_positions(-1)
 	qdel(departing_mob)
+	return "[mob_name] successfully cryo'd!"
+
+/obj/structure/train/carriage //A temporary subform of the train that is just a carriage	name = "train"
+	desc = "A train carriage."
+	icon = 'icons/roguetown/items/train.dmi'
+	icon_state = "train2"
+	layer = TABLE_LAYER
+	density = TRUE
+	anchored = TRUE
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF

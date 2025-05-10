@@ -59,7 +59,10 @@
 	contents += "<BR>"
 
 	for(var/datum/stock/stockpile/R in SStreasury.stockpile_datums)
-		contents += "[R.name] - [R.payout_price] - [R.demand2word()]"
+		var/message = "[R.name] - Payout: [R.get_payout_price()] - Stockpiled: [R.held_items] - Oversupply at: [R.oversupply_amount]"
+		if(R.held_items >= R.oversupply_amount)
+			message += " - !OVERSUPPLIED!"
+		contents += message
 		contents += "<BR>"
 
 	return contents
@@ -88,17 +91,23 @@
 		if(istype(I, /obj/item/natural/bundle))
 			var/obj/item/natural/bundle/B = I
 			if(B.stacktype == R.item_type)
-				R.held_items += B.amount
+				var/amt = 0
+				if(istype(R, /datum/stock/stockpile))
+					for(var/i in 1 to B.amount)
+						amt += R.get_payout_price(I)
+						R.held_items++
+				else
+					amt = R.get_payout_price(I)
+				qdel(B)
 				if(message == TRUE)
 					stock_announce("[B.amount] units of [R.name] has been stockpiled.")
-				qdel(B)
 				if(sound == TRUE)
 					playsound(loc, 'sound/misc/hiss.ogg', 100, FALSE, -1)
-				var/amt = R.payout_price * B.amount
 				if(!SStreasury.give_money_account(amt, H, "+[amt] from [R.name] bounty") && message == TRUE)
 					say("No account found. Submit your fingers to a Meister for inspection.")
+				return amt
 			continue
-		else if(istype(I,R.item_type))
+		else if(I.type == R.item_type)
 			if(!R.check_item(I))
 				continue
 			var/amt = R.get_payout_price(I)
@@ -114,7 +123,6 @@
 				if(!A && message == TRUE)
 					say("Couldn't find where to send the submission.")
 					return
-				I.submitted_to_stockpile = TRUE
 				var/list/turfs = list()
 				for(var/turf/T in A)
 					turfs += T
@@ -126,7 +134,7 @@
 			if(amt)
 				if(!SStreasury.give_money_account(amt, H, "+[amt] from [R.name] bounty") && message == TRUE)
 					say("No account found. Submit your fingers to a Meister for inspection.")
-			return
+			return amt
 
 /obj/structure/fake_machine/stockpile/attackby(obj/item/P, mob/user, params)
 	if(ishuman(user))
@@ -138,11 +146,15 @@
 
 /obj/structure/fake_machine/stockpile/attack_right(mob/user)
 	if(ishuman(user))
+		var/total_value = 0
 		for(var/obj/I in get_turf(src))
-			attemptsell(I, user, FALSE, FALSE)
-		say("Bulk selling in progress...")
+			total_value += attemptsell(I, user, FALSE, FALSE)
 		playsound(loc, 'sound/misc/hiss.ogg', 100, FALSE, -1)
 		playsound(loc, 'sound/misc/disposalflush.ogg', 100, FALSE, -1)
+		if(user in SStreasury.bank_accounts)
+			say("Bulk sold for [total_value] mammon...")
+		else
+			say("No account found. Submit your fingers to a Meister for inspection.")
 
 /datum/withdraw_tab
 	var/stockpile_index = -1
@@ -167,7 +179,7 @@
 	if(compact)
 		for(var/datum/stock/stockpile/A in SStreasury.stockpile_datums)
 			if(!A.withdraw_disabled)
-				contents += "<b>[A.name]:</b> <a href='byond://?src=[REF(parent_structure)];withdraw=[REF(A)]'>LCL: [A.held_items] at [A.withdraw_price]m</a><BR>"
+				contents += "<b>[A.name]:</b> <a href='byond://?src=[REF(parent_structure)];withdraw=[REF(A)]'>AMT: [A.held_items] at [A.withdraw_price]m</a><BR>"
 
 			else
 				contents += "<b>[A.name]:</b> Withdrawing Disabled..."

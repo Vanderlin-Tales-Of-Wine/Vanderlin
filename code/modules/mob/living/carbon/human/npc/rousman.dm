@@ -134,7 +134,7 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 /datum/species/rousman
 	name = "rousman"
 	id = "rousman"
-	species_traits = list(NO_UNDERWEAR,NOEYESPRITES)
+	species_traits = list(NO_UNDERWEAR)
 	inherent_traits = list(TRAIT_RESISTCOLD,TRAIT_RESISTHIGHPRESSURE,TRAIT_RESISTLOWPRESSURE,TRAIT_RADIMMUNE, TRAIT_EASYDISMEMBER, TRAIT_CRITICAL_WEAKNESS, TRAIT_NASTY_EATER, TRAIT_LEECHIMMUNE, TRAIT_INHUMENCAMP)
 	no_equip = list(SLOT_SHIRT, SLOT_WEAR_MASK, SLOT_GLOVES, SLOT_SHOES, SLOT_PANTS, SLOT_S_STORE)
 	nojumpsuit = 1
@@ -211,7 +211,7 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 		if(headdy)
 			headdy.icon = 'icons/roguetown/mob/monster/rousman.dmi'
 			headdy.icon_state = "[src.dna.species.id]_head"
-			headdy.headprice = rand(5,15)
+			headdy.headprice = rand(7,20)
 	var/obj/item/organ/eyes/eyes = src.getorganslot(ORGAN_SLOT_EYES)
 	if(eyes)
 		eyes.Remove(src,1)
@@ -231,10 +231,14 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 
 /datum/component/rot/corpse/rousman/process()
 	var/amt2add = 10 //1 second
+	var/time_elapsed = last_process ? (world.time - last_process)/10 : 1
 	if(last_process)
 		amt2add = ((world.time - last_process)/10) * amt2add
 	last_process = world.time
 	amount += amt2add
+	if(has_world_trait(/datum/world_trait/pestra_mercy))
+		amount -= 5 * time_elapsed
+
 	var/mob/living/carbon/C = parent
 	if(!C)
 		qdel(src)
@@ -273,12 +277,12 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 
 /datum/outfit/job/npc/rousman/ambush/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.TOTALSTR = rand(6, 10)
-	H.TOTALPER = rand(6, 10)
-	H.TOTALINT = rand(2, 5)
-	H.TOTALCON = rand(4, 8)
-	H.TOTALEND = rand(7, 10)
-	H.TOTALSPD = rand(10, 15)
+	H.base_strength = rand(6, 10)
+	H.base_perception = rand(6, 10)
+	H.base_intelligence = rand(2, 5)
+	H.base_constitution = rand(4, 8)
+	H.base_endurance = rand(7, 10)
+	H.base_speed = rand(10, 15)
 
 	var/loadout = rand(1,4)
 	switch(loadout)

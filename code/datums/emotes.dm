@@ -11,7 +11,12 @@
 	var/message_param = "" //Message to display if a param was given
 	var/message_muffled = null //Message to display if the user is muffled
 	var/emote_type = EMOTE_VISIBLE //Whether the emote is visible or audible
-	var/restraint_check = FALSE //Checks if the mob is restrained before performing the emote
+	/// Checks if the mob is restrained before performing the emote
+	var/restraint_check = FALSE
+	/// Checks if the mob can use its hands before performing the emote.
+	var/hands_use_check = FALSE
+	/// Checks if the mob is not incapacitated before performing the emote.
+	var/incapacitated_check = FALSE
 	var/muzzle_ignore = FALSE //Will only work if the emote is EMOTE_AUDIBLE
 	var/list/mob_type_allowed_typecache = /mob //Types that are allowed to use that emote
 	var/list/mob_type_blacklist_typecache //Types that are NOT allowed to use that emote
@@ -219,18 +224,20 @@
 				if(DEAD)
 					to_chat(user, "<span class='warning'>I cannot [key] while dead!</span>")*/
 			return FALSE
-		if(restraint_check)
-			if(isliving(user))
-				var/mob/living/L = user
-				if(L.IsParalyzed() || L.IsStun())
-					if(!intentional)
-						return FALSE
-//					to_chat(user, "<span class='warning'>I cannot [key] while stunned!</span>")
-					return FALSE
-		if(restraint_check && user.restrained())
+		if(restraint_check && HAS_TRAIT(user, TRAIT_RESTRAINED))
 			if(!intentional)
 				return FALSE
-//			to_chat(user, "<span class='warning'>I cannot [key] while restrained!</span>")
+			to_chat(user, "<span class='warning'>I cannot [key] while restrained!</span>")
+			return FALSE
+		if(hands_use_check && HAS_TRAIT(user, TRAIT_HANDS_BLOCKED))
+			if(!intentional)
+				return FALSE
+			to_chat(user, "<span class='warning'>I cannot use my hands to [key] right now!</span>")
+			return FALSE
+		if(incapacitated_check && HAS_TRAIT(user, TRAIT_INCAPACITATED))
+			if(!intentional)
+				return FALSE
+			// to_chat(user, "<span class='warning'>You cannot use your hands to [key] right now!</span>")
 			return FALSE
 
 	if(isliving(user))

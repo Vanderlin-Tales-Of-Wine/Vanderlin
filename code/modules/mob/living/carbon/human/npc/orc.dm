@@ -26,6 +26,9 @@
 	. = ..()
 	AddComponent(/datum/component/combat_noise, list("aggro" = 2))
 
+/mob/living/carbon/human/species/orc/ambush
+	ai_controller = /datum/ai_controller/human_npc
+
 /mob/living/carbon/human/species/orc/ambush/after_creation()
 	..()
 	job = "Ambush Orc"
@@ -150,7 +153,7 @@
 /datum/species/orc
 	name = "orc"
 	id = "orc"
-	species_traits = list(NO_UNDERWEAR,NOEYESPRITES)
+	species_traits = list(NO_UNDERWEAR)
 	inherent_traits = list(TRAIT_RESISTCOLD,TRAIT_RESISTHIGHPRESSURE,TRAIT_RESISTLOWPRESSURE,TRAIT_RADIMMUNE,TRAIT_CRITICAL_WEAKNESS, TRAIT_NASTY_EATER, TRAIT_LEECHIMMUNE, TRAIT_INHUMENCAMP)
 	no_equip = list(SLOT_SHIRT, SLOT_WEAR_MASK, SLOT_GLOVES, SLOT_SHOES, SLOT_PANTS, SLOT_S_STORE)
 	nojumpsuit = 1
@@ -179,10 +182,14 @@
 
 /datum/component/rot/corpse/orc/process()
 	var/amt2add = 10 //1 second
+	var/time_elapsed = last_process ? (world.time - last_process)/10 : 1
 	if(last_process)
 		amt2add = ((world.time - last_process)/10) * amt2add
 	last_process = world.time
 	amount += amt2add
+	if(has_world_trait(/datum/world_trait/pestra_mercy))
+		amount -= 5 * time_elapsed
+
 	var/mob/living/carbon/C = parent
 	if(!C)
 		qdel(src)
@@ -222,10 +229,10 @@
 
 /datum/outfit/job/npc/orc/ambush/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.TOTALSTR = 13
-	H.TOTALSPD = 12
-	H.TOTALCON = 13
-	H.TOTALEND = 13
+	H.base_strength = 13
+	H.base_speed = 12
+	H.base_constitution = 13
+	H.base_endurance = 13
 	var/loadout = rand(1,5)
 	switch(loadout)
 		if(1) //Stolen Tool armed raider
@@ -300,6 +307,7 @@
 //NEW ORCS WITH DIFFERENT GEAR AND SHIT
 /mob/living/carbon/human/species/orc/tribal
 	name = "Tribal Orc"
+	ai_controller = /datum/ai_controller/human_npc
 	var/loadout = /datum/outfit/job/npc/orc/tribal
 	ambushable = FALSE
 
@@ -315,10 +323,10 @@
 
 /datum/outfit/job/npc/orc/tribal/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.TOTALSTR = 13
-	H.TOTALSPD = 13
-	H.TOTALCON = 13
-	H.TOTALEND = 13
+	H.base_strength = 13
+	H.base_speed = 13
+	H.base_constitution = 13
+	H.base_endurance = 13
 	var/loadout = rand(1,5)
 	switch(loadout)
 		if(1) //Dual Axe Warrior
@@ -349,6 +357,7 @@
 
 /mob/living/carbon/human/species/orc/warrior
 	name = "Warrior Orc"
+	ai_controller = /datum/ai_controller/human_npc
 	var/loadout = /datum/outfit/job/npc/orc/warrior
 	ambushable = FALSE
 
@@ -364,10 +373,10 @@
 
 /datum/outfit/job/npc/orc/warrior/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.TOTALSTR = 13
-	H.TOTALSPD = 13
-	H.TOTALCON = 14
-	H.TOTALEND = 14
+	H.base_strength = 13
+	H.base_speed = 13
+	H.base_constitution = 14
+	H.base_endurance = 14
 	var/loadout = rand(1,5)
 	switch(loadout)
 		if(1) //Marauder with Sword and Shield
@@ -419,6 +428,7 @@
 
 /mob/living/carbon/human/species/orc/marauder
 	name = "Marauder Orc"
+	ai_controller = /datum/ai_controller/human_npc
 	var/loadout = /datum/outfit/job/npc/orc/marauder
 	ambushable = FALSE
 
@@ -434,10 +444,10 @@
 
 /datum/outfit/job/npc/orc/marauder/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.TOTALSTR = 12
-	H.TOTALSPD = 12
-	H.TOTALCON = 13
-	H.TOTALEND = 13
+	H.base_strength = 12
+	H.base_speed = 12
+	H.base_constitution = 13
+	H.base_endurance = 13
 	var/loadout = rand(1,5)
 	switch(loadout)
 		if(1) //Marauder with Sword and Shield
@@ -472,6 +482,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////
 /mob/living/carbon/human/species/orc/warlord
 	name = "Warlord Orc"
+	ai_controller = /datum/ai_controller/human_npc
 	var/loadout = /datum/outfit/job/npc/orc/warlord
 	ambushable = FALSE
 
@@ -487,10 +498,10 @@
 
 /datum/outfit/job/npc/orc/warlord/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.TOTALSTR = 14
-	H.TOTALSPD = 14
-	H.TOTALCON = 14
-	H.TOTALEND = 14
+	H.base_strength = 14
+	H.base_speed = 14
+	H.base_constitution = 14
+	H.base_endurance = 14
 	var/loadout = rand(1,5)
 	switch(loadout)
 		if(1) //Halberd Warlord

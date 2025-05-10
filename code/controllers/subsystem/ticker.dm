@@ -45,7 +45,7 @@ SUBSYSTEM_DEF(ticker)
 	//376000 day
 	var/gametime_offset = 288001		//Deciseconds to add to world.time for station time.
 	var/station_time_rate_multiplier = 40		//factor of station time progressal vs real time.
-	var/time_until_vote = 120 MINUTES
+	var/time_until_vote = 135 MINUTES
 	var/last_vote_time = null
 	var/firstvote = TRUE
 
@@ -189,9 +189,7 @@ SUBSYSTEM_DEF(ticker)
 			timeLeft -= wait
 
 			if(timeLeft <= 300 && !tipped)
-				#ifdef MATURESERVER
 				send_tip_of_the_round()
-				#endif
 				tipped = TRUE
 
 			if(timeLeft <= 0)
@@ -221,6 +219,7 @@ SUBSYSTEM_DEF(ticker)
 
 			check_for_lord()
 			if(!roundend_check_paused && SSgamemode.check_finished(force_ending) || force_ending)
+				SSgamemode.refresh_alive_stats()
 				current_state = GAME_STATE_FINISHED
 				toggle_ooc(TRUE) // Turn it on
 				toggle_dooc(TRUE)
@@ -228,13 +227,13 @@ SUBSYSTEM_DEF(ticker)
 				Master.SetRunLevel(RUNLEVEL_POSTGAME)
 			if(firstvote)
 				if(world.time > round_start_time + time_until_vote)
-					SSvote.initiate_vote("restart", "The Gods")
+					SSvote.initiate_vote("endround", "The Gods")
 					time_until_vote = 40 MINUTES
 					last_vote_time = world.time
 					firstvote = FALSE
 			else
 				if(world.time > last_vote_time + time_until_vote)
-					SSvote.initiate_vote("restart", "The Gods")
+					SSvote.initiate_vote("endround", "The Gods")
 
 /datum/controller/subsystem/ticker
 	var/last_bot_update = 0
@@ -242,12 +241,9 @@ SUBSYSTEM_DEF(ticker)
 /datum/controller/subsystem/ticker/proc/checkreqroles()
 	var/list/readied_jobs = list()
 	var/list/required_jobs = list("Monarch")
-#ifdef DEPLOY_TEST
+#ifdef TESTING
 	required_jobs = list()
 	readied_jobs = list("Monarch")
-#endif
-#ifdef ROGUEWORLD
-	required_jobs = list()
 #endif
 	for(var/V in required_jobs)
 		for(var/mob/dead/new_player/player in GLOB.player_list)
@@ -269,21 +265,8 @@ SUBSYSTEM_DEF(ticker)
 		to_chat(world, "<span class='purple'>[pick(stuffy)]</span>")
 		return FALSE
 
-/*
-#ifdef DEPLOY_TEST
-	amt_ready = 999
-#endif
-*/
-#ifdef ROGUEWORLD
-	amt_ready = 999
-#endif
-
 	job_change_locked = TRUE
 	return TRUE
-
-/datum/controller/subsystem/ticker
-	var/isroguefight = FALSE
-	var/isrogueworld = FALSE
 
 /datum/controller/subsystem/ticker/proc/setup()
 	message_admins("<span class='boldannounce'>Starting game...</span>")
@@ -313,16 +296,15 @@ SUBSYSTEM_DEF(ticker)
 
 	CHECK_TICK
 	GLOB.start_landmarks_list = shuffle(GLOB.start_landmarks_list) //Shuffle the order of spawn points so they dont always predictably spawn bottom-up and right-to-left
-	if(!isrogueworld && !isroguefight)
-		create_characters() //Create player characters
-		log_game("GAME SETUP: create characters success")
-		collect_minds()
-		log_game("GAME SETUP: collect minds success")
-		equip_characters()
-		log_game("GAME SETUP: equip characters success")
 
-		transfer_characters()	//transfer keys to the new mobs
-		log_game("GAME SETUP: transfer characters success")
+	create_characters() //Create player characters
+	log_game("GAME SETUP: create characters success")
+	collect_minds()
+	log_game("GAME SETUP: collect minds success")
+	equip_characters()
+	log_game("GAME SETUP: equip characters success")
+	transfer_characters()	//transfer keys to the new mobs
+	log_game("GAME SETUP: transfer characters success")
 
 	for(var/I in round_start_events)
 		var/datum/callback/cb = I
@@ -331,23 +313,6 @@ SUBSYSTEM_DEF(ticker)
 	log_game("GAME SETUP: round start events success")
 	LAZYCLEARLIST(round_start_events)
 	CHECK_TICK
-	if(isrogueworld)
-		for(var/obj/structure/fluff/traveltile/TT in GLOB.traveltiles)
-			if(TT.aallmig)
-				TT.aportalgoesto = TT.aallmig
-		for(var/i in GLOB.mob_living_list)
-			var/mob/living/L = i
-			var/turf/T = get_turf(L)
-			if(!T || !(T.z in list(2,3,4,5)))
-				continue
-			qdel(L)
-		for(var/i in SSmachines.processing)
-			var/obj/machinery/light/L = i
-			if(istype(L))
-				var/turf/T = get_turf(L)
-				if(!T || !(T.z in list(2,3,4,5)))
-					continue
-				qdel(L)
 
 	log_game("GAME SETUP: Game start took [(world.timeofday - init_start)/10]s")
 	round_start_time = world.time
@@ -445,7 +410,7 @@ SUBSYSTEM_DEF(ticker)
 /datum/controller/subsystem/ticker/proc/select_ruler()
 	switch(rulertype)
 		if("Monarch")
-			for(var/mob/living/carbon/human/K in world)
+			for(var/mob/living/carbon/human/K as anything in GLOB.human_list)
 				if(istype(K, /mob/living/carbon/human/dummy))
 					continue
 				if(K.job == "Monarch")
@@ -697,13 +662,11 @@ SUBSYSTEM_DEF(ticker)
 
 	var/skip_delay = check_rights()
 	if(delay_end && !skip_delay)
-		to_chat(world, "<span class='boldannounce'>A game master has delayed the round end.</span>")
+		to_chat(world, span_boldannounce("A game master has delayed the round end."))
 		return
 
 	SStriumphs.end_triumph_saving_time()
-	to_chat(world, "<span class='boldannounce'>Rebooting World in [DisplayTimeText(delay)]. [reason]</span>")
-
-	to_chat(world, "<span class='boldannounce'>Rebooting World in [DisplayTimeText(delay)].</span>")
+	to_chat(world, span_boldannounce("Rebooting World in [DisplayTimeText(delay)]. [reason]"))
 
 	round_end = TRUE
 	var/start_wait = world.time
@@ -711,7 +674,7 @@ SUBSYSTEM_DEF(ticker)
 	sleep(delay - (world.time - start_wait))
 
 	if(delay_end && !skip_delay)
-		to_chat(world, "<span class='boldannounce'>Reboot was cancelled by an admin.</span>")
+		to_chat(world, span_boldannounce("Reboot was cancelled by an admin."))
 		round_end = FALSE
 		return
 	if(end_string)
@@ -720,14 +683,14 @@ SUBSYSTEM_DEF(ticker)
 	var/statspage = CONFIG_GET(string/roundstatsurl)
 	var/gamelogloc = CONFIG_GET(string/gamelogurl)
 	if(statspage)
-		to_chat(world, "<span class='info'>Round statistics and logs can be viewed <a href=\"[statspage][GLOB.round_id]\">at this website!</a></span>")
+		to_chat(world, span_info("Round statistics and logs can be viewed <a href=\"[statspage][GLOB.round_id]\">at this website!</a>"))
 	else if(gamelogloc)
-		to_chat(world, "<span class='info'>Round logs can be located <a href=\"[gamelogloc]\">at this website!</a></span>")
+		to_chat(world, span_info("Round logs can be located <a href=\"[gamelogloc]\">at this website!</a>"))
 
-	log_game("<span class='boldannounce'>Rebooting World. [reason]</span>")
+	log_game("Rebooting World. [reason]")
 
 	if(end_party)
-		to_chat(world, "<span class='boldannounce'>It's over!</span>")
+		to_chat(world, span_boldannounce("It's over!"))
 		world.Del()
 	else
 		world.Reboot()

@@ -8,6 +8,8 @@
 	var/list/reagent_requirements = list()
 	///this is a list of tool usage in their order which executes after requirements and reagents are fufilled these are assoc lists going path = list(text, self_text, sound)
 	var/list/tool_usage = list()
+	///these typepaths and their subtypes won't be considered as requirements for recipes
+	var/list/blacklisted_paths = list()
 
 	///do we need to be learned
 	var/requires_learning = FALSE
@@ -70,6 +72,10 @@
 	if(required_intent && user.used_intent.type != required_intent)
 		return FALSE
 
+	for(var/path in blacklisted_paths)
+		if(attacked_item in typesof(path))
+			return FALSE
+
 	var/obj/structure/table/table = locate(/obj/structure/table) in get_turf(attacked_atom)
 	if(required_table && !table)
 		return FALSE
@@ -111,15 +117,21 @@
 					usable_contents[item.type]++
 
 	var/list/total_list = usable_contents
+	var/list/all_blacklisted = list()
+	for(var/path in blacklisted_paths)
+		all_blacklisted |= typesof(path)
 	for(var/path as anything in total_list)
 		for(var/required_path as anything in requirements)
 			if(!ispath(path, required_path))
 				continue
 			if(!subtypes_allowed && (path in subtypesof(required_path)))
 				continue
-			if(total_list[path] < requirements[required_path])
-				return FALSE
-			copied_requirements -= required_path
+			if(path in all_blacklisted)
+				continue
+			copied_requirements[required_path] -= total_list[path]
+			if(copied_requirements[required_path] <= 0)
+				copied_requirements -= required_path
+			break
 
 	for(var/path as anything in total_list)
 		for(var/required_path as anything in tool_usage)
@@ -193,9 +205,14 @@
 
 	var/max_crafts = 10000
 	var/list/total_list = usable_contents
+	var/list/all_blacklisted = list()
+	for(var/path in blacklisted_paths)
+		all_blacklisted |= typesof(path)
 	for(var/path as anything in total_list)
 		for(var/required_path as anything in requirements)
 			if(!ispath(path, required_path))
+				continue
+			if(path in all_blacklisted)
 				continue
 			var/holder_max_crafts = FLOOR(total_list[path] / requirements[required_path], 1)
 			if(holder_max_crafts < max_crafts)
@@ -279,9 +296,11 @@
 		var/list/copied_reagent_requirements = reagent_requirements.Copy()
 		var/list/copied_tool_usage = tool_usage.Copy()
 		var/list/to_delete = list()
+		var/list/all_blacklisted = list()
+		for(var/path in blacklisted_paths)
+			all_blacklisted |= typesof(path)
 
 		var/obj/item/active_item = user.get_active_held_item()
-
 
 		if(put_items_in_hand)
 			if(!is_type_in_list(active_item, requirements))
@@ -292,89 +311,6 @@
 				if(active_item)
 					user.transferItemToLoc(active_item, get_turf(user), TRUE)
 					active_item = null
-
-		for(var/obj/item/item in usable_contents)
-			if(!length(copied_requirements))
-				break
-			if(!is_type_in_list(item, copied_requirements) && !istype(item, /obj/item/natural/bundle))
-				continue
-			if(istype(item, /obj/item/natural/bundle))
-				var/early_ass_break = FALSE
-				var/bundle_path = item:stacktype
-				for(var/path in copied_requirements)
-					if(QDELETED(item))
-						break
-					if(!ispath(bundle_path, path))
-						continue
-					for(var/i = 1 to item:amount)
-						if(QDELETED(item))
-							break
-						if(!(bundle_path in copied_requirements))
-							continue
-						if(early_ass_break)
-							break
-						item:amount--
-						var/obj/item/sub_item = new bundle_path(get_turf(item))
-						if(item:amount == 0)
-							usable_contents -= item
-							qdel(item)
-						user.visible_message(span_small("[user] starts grabbing \a [sub_item] from [item]."), span_small("I start grabbing \a [sub_item] from [item]."))
-						if(do_after(user, ground_use_time, sub_item, extra_checks = CALLBACK(user, TYPE_PROC_REF(/atom/movable, CanReach), sub_item)))
-							if(put_items_in_hand)
-								user.put_in_active_hand(sub_item)
-							for(var/requirement in copied_requirements)
-								if(!istype(sub_item, requirement))
-									continue
-								copied_requirements[requirement]--
-								to_delete += sub_item
-								sub_item.forceMove(locate(1,1,1)) ///the fucking void of items
-								if(copied_requirements[requirement] <= 0)
-									copied_requirements -= requirement
-									early_ass_break = TRUE
-									if(item:amount == 1) // to remove 1 count bundles
-										new bundle_path(get_turf(item))
-										usable_contents -= item
-										qdel(item)
-									break
-				continue
-
-			user.visible_message(span_small("[user] starts picking up [item]."), span_small("I start picking up [item]."))
-			if(do_after(user, ground_use_time, item, extra_checks = CALLBACK(user, TYPE_PROC_REF(/atom/movable, CanReach), item)))
-				if(put_items_in_hand)
-					user.put_in_active_hand(item)
-				for(var/requirement in copied_requirements)
-					if(!istype(item, requirement))
-						continue
-					copied_requirements[requirement]--
-					if(copied_requirements[requirement] <= 0)
-						copied_requirements -= requirement
-					usable_contents -= item
-					to_delete += item
-					item.forceMove(locate(1,1,1)) ///the fucking void of items
-			else
-				break
-
-		for(var/obj/item/item in storage_contents)
-			if(!length(copied_requirements))
-				break
-			if(!is_type_in_list(item, copied_requirements))
-				continue
-			to_chat(user, "You start grabbing [item] from your bag.")
-			if(do_after(user, storage_use_time, item))
-				SEND_SIGNAL(item.loc, COMSIG_TRY_STORAGE_TAKE, item, user.loc, TRUE)
-				if(put_items_in_hand)
-					user.put_in_active_hand(item)
-				for(var/requirement in copied_requirements)
-					if(!istype(item, requirement))
-						continue
-					copied_requirements[requirement]--
-					if(copied_requirements[requirement] <= 0)
-						copied_requirements -= requirement
-					storage_contents -= item
-					to_delete += item
-					item.forceMove(locate(1,1,1)) ///the fucking void of items
-			else
-				break
 
 		if(length(copied_reagent_requirements))
 			var/obj/item/inactive_held = user.get_inactive_held_item()
@@ -448,6 +384,94 @@
 							container.pixel_x = stored_pixel_x
 							container.pixel_y = stored_pixel_y
 
+		for(var/obj/item/item in usable_contents)
+			if(!length(copied_requirements))
+				break
+			if(!is_type_in_list(item, copied_requirements) && !istype(item, /obj/item/natural/bundle))
+				continue
+			if(item.type in all_blacklisted)
+				continue
+			if(istype(item, /obj/item/natural/bundle))
+				var/early_ass_break = FALSE
+				var/bundle_path = item:stacktype
+				if(bundle_path in all_blacklisted)
+					continue
+				for(var/path in copied_requirements)
+					if(QDELETED(item))
+						break
+					if(!ispath(bundle_path, path))
+						continue
+					for(var/i = 1 to item:amount)
+						if(QDELETED(item))
+							break
+						if(!(bundle_path in copied_requirements))
+							continue
+						if(early_ass_break)
+							break
+						item:amount--
+						var/obj/item/sub_item = new bundle_path(get_turf(item))
+						if(item:amount == 0)
+							usable_contents -= item
+							qdel(item)
+						user.visible_message(span_small("[user] starts grabbing \a [sub_item] from [item]."), span_small("I start grabbing \a [sub_item] from [item]."))
+						if(do_after(user, ground_use_time, sub_item, extra_checks = CALLBACK(user, TYPE_PROC_REF(/atom/movable, CanReach), sub_item)))
+							if(put_items_in_hand)
+								user.put_in_active_hand(sub_item)
+							for(var/requirement in copied_requirements)
+								if(!istype(sub_item, requirement))
+									continue
+								copied_requirements[requirement]--
+								to_delete += sub_item
+								sub_item.forceMove(locate(1,1,1)) ///the fucking void of items
+								if(copied_requirements[requirement] <= 0)
+									copied_requirements -= requirement
+									early_ass_break = TRUE
+									if(item:amount == 1) // to remove 1 count bundles
+										new bundle_path(get_turf(item))
+										usable_contents -= item
+										qdel(item)
+									break
+				continue
+
+			user.visible_message(span_small("[user] starts picking up [item]."), span_small("I start picking up [item]."))
+			if(do_after(user, ground_use_time, item, extra_checks = CALLBACK(user, TYPE_PROC_REF(/atom/movable, CanReach), item)))
+				if(put_items_in_hand)
+					user.put_in_active_hand(item)
+				for(var/requirement in copied_requirements)
+					if(!istype(item, requirement))
+						continue
+					copied_requirements[requirement]--
+					if(copied_requirements[requirement] <= 0)
+						copied_requirements -= requirement
+					usable_contents -= item
+					to_delete += item
+					item.forceMove(locate(1,1,1)) ///the fucking void of items
+			else
+				break
+
+		for(var/obj/item/item in storage_contents)
+			if(!length(copied_requirements))
+				break
+			if(!is_type_in_list(item, copied_requirements))
+				continue
+			if(item.type in all_blacklisted)
+				continue
+			to_chat(user, "You start grabbing [item] from your bag.")
+			if(do_after(user, storage_use_time, item))
+				SEND_SIGNAL(item.loc, COMSIG_TRY_STORAGE_TAKE, item, user.loc, TRUE)
+				if(put_items_in_hand)
+					user.put_in_active_hand(item)
+				for(var/requirement in copied_requirements)
+					if(!istype(item, requirement))
+						continue
+					copied_requirements[requirement]--
+					if(copied_requirements[requirement] <= 0)
+						copied_requirements -= requirement
+					storage_contents -= item
+					to_delete += item
+					item.forceMove(locate(1,1,1)) ///the fucking void of items
+			else
+				break
 
 		if(length(copied_tool_usage))
 			var/obj/item/inactive_held = user.get_inactive_held_item()
@@ -608,7 +632,11 @@
 					user.put_in_hands(item)
 					break
 	if(length(products))
-		user.put_in_hands(pick(products))
+		var/list/items_to_put
+		for(var/obj/item/item in products)
+			LAZYADD(items_to_put, item)
+		if(LAZYLEN(items_to_put))
+			user.put_in_hands(pick(items_to_put))
 
 /datum/repeatable_crafting_recipe/proc/generate_html(mob/user)
 	var/client/client = user

@@ -8,15 +8,6 @@ body:
     value: |
       Thanks for taking the time to fill out this bug report!
 
-- type: checkboxes
-  id: checks
-  attributes:
-    label: Checks
-    description: Verify that all of the following is true.
-    options:
-      - label: I have searched the bug with a few keywords, and I confirm this bug was not yet reported.
-        required: true
-
 - type: dropdown
   id: location
   attributes:
@@ -25,8 +16,7 @@ body:
     description: Where did the bug happen?
     options:
       - Vanderlin
-  validations:
-    required: true
+      - Rosewood
 
 - type: textarea
   id: issue-summary

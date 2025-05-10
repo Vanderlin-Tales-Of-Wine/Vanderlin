@@ -1,3 +1,6 @@
+
+
+
 /datum/sleep_adv
 	var/sleep_adv_cycle = 0
 	var/sleep_adv_points = 0
@@ -8,6 +11,10 @@
 	var/list/sleep_exp = list()
 	var/datum/mind/mind = null
 
+	//dream watcher stuff
+	
+	var/list/available_modes = list("one_truth", "one_lie", "two_truths", "two_lies", "truth_lie")
+	var/list/remaining_modes = list()
 /datum/sleep_adv/New(datum/mind/passed_mind)
 	. = ..()
 	mind = passed_mind
@@ -96,6 +103,20 @@
 		rolled_specials++
 	var/inspirations = 1
 	to_chat(mind.current, span_notice("My consciousness slips and I start dreaming..."))
+	var/dreamwatcher = FALSE
+	
+	if(HAS_TRAIT(mind.current, TRAIT_DREAM_WATCHER))
+		dreamwatcher = TRUE
+		
+		
+	if(dreamwatcher)
+		to_chat(mind.current, span_notice(pick(
+			"You feel the gaze of Noc before all else..",
+			"A silver thread weaves through your thoughts..",
+			"You step into a dream that feels... familiar.",
+			"Noc whispers, not in words, but in meaning.",
+		)))
+
 
 	var/dream_dust = retained_dust
 	dream_dust += BASE_DREAM_DUST
@@ -103,15 +124,25 @@
 		dream_dust += BASE_DREAM_DUST / 2
 
 	var/int = mind.current.STAINT
+
+	if(dreamwatcher)
+		int+= 2
+
 	dream_dust += mind.current.STAINT * DREAM_DUST_PER_INT //25% dream points for each int
-	if(int < 10)
+	if(dreamwatcher)
+		to_chat(mind.current, span_notice("I can feel Noc’s presence... symbols shift, forgotten places stir, and ancient beings whisper through the veil."))
+	else if(int < 10)
 		to_chat(mind.current, span_boldwarning("My shallow imagination makes them dull..."))
 	else if (int > 10)
 		to_chat(mind.current, span_notice("My creative thinking enhances them..."))
 
 	var/stress_median = stress_amount / stress_cycles
-
-	if(stress_median <= 1.0)
+	
+	if(dreamwatcher)
+		to_chat(mind.current, span_notice("Noc opens the dreamworld before me, a realm of impossible beauty and boundless thought."))
+		dream_dust += 100
+		inspirations++
+	else if(stress_median <= 1.0)
 		// Unstressed, happy
 		to_chat(mind.current, span_notice("With no stresses throughout the day I dream vividly..."))
 		dream_dust += 100
@@ -120,6 +151,33 @@
 		// Stressed, unhappy
 		to_chat(mind.current, span_boldwarning("Bothered by the stresses of the day my dreams are short..."))
 		dream_dust -= 100
+
+	if(dreamwatcher)
+		var/list/intro_lines = list(
+			span_boldwarning("Noc stirs beneath the surface of your dreams... the world around you distorts, familiar faces blur, and the stars themselves tremble in disquiet."),
+			span_boldwarning("The dreamscape writhes, pulling at the edges of reality... fleeting images dance across your vision, too tangled to grasp, too distant to recall."),
+			span_boldwarning("A shadow stretches across the stars, swallowing all that once was... whispers echo, but the words slip from your grasp like smoke."),
+			span_boldwarning("Noc’s touch lingers in the space between thoughts... your mind flickers like a dying ember, lost in the endless night."),
+			span_boldwarning("The fabric of dreams unravels around you... shapes and voices blur, an eternal puzzle without an answer."),
+			span_boldwarning("A ripple of thought trembles through the dreamworld... each shift a new question, each answer a fleeting illusion.")
+		)
+	
+		to_chat(mind.current, pick(intro_lines))
+		
+
+	//Most Influential God
+	var/datum/storyteller/most_influential = SSgamemode.get_most_influential()
+	if(dreamwatcher)
+		var/list/dreams = SSgamemode.god_dreams[most_influential.name]
+		if(!dreams)
+			dreams = SSgamemode.god_dreams["Unknown"]
+		var/message = pick(dreams)
+		//Pick one of the three messages randomly out of the god_dream list.
+		to_chat(mind.current, span_notice(message))
+
+		//RNG Stuff for the Antag dream
+		to_chat(mind.current, span_notice(generate_symbolic_dream()))
+		
 
 	grant_inspiration_xp(inspirations)
 
@@ -332,3 +390,140 @@
 	if(user.mind.sleep_adv.enough_sleep_xp_to_advance(skill_type, level_diff))
 		return FALSE
 	return TRUE
+
+/// Dream watcher procs
+
+
+///Pick the possible dreams, a mix of lies and truths
+/datum/sleep_adv/proc/generate_symbolic_dream()
+	var/list/truths = get_current_real_antags()
+	var/list/lies = get_possible_fake_antags_excluding(truths)
+
+	/// Reset remaining modes if empty
+	if(!remaining_modes.len)
+		remaining_modes = available_modes.Copy()
+
+	/// Pick a mode and remove it from remaining choices
+	var/mode = pick(remaining_modes)
+	remaining_modes -= mode
+
+	var/list/picked = list()
+
+	switch(mode)
+		if("one_truth")
+			picked += pick(truths)
+		if("one_lie")
+			picked += pick(lies)
+		if("two_truths")
+			if(truths.len >= 2)
+				shuffle(truths)
+				picked += truths[1]
+				picked += truths[2]
+			else 
+				picked += truths
+		if("two_lies")
+			if(lies.len >= 2)
+				shuffle(lies)
+				picked += lies[1]
+				picked += lies[2]
+			else 
+				picked += lies
+		if("truth_lie")
+			picked += pick(truths)
+			picked += pick(lies)
+
+	return assemble_symbolic_dream(picked)
+
+///Pick symbols
+/datum/sleep_adv/proc/assemble_symbolic_dream(list/antags)
+	var/emotion = pick("dread", "anticipation", "sorrow", "awe", "rage", "longing", "confusion", "ecstasy", "emptiness", "yearning")
+	var/scene = ""
+
+///Random emotion to give more randomness
+	switch(emotion)
+		if("dread")           scene += "...the air is thick... shadows coil at the edges of your vision"
+		if("anticipation")    scene += "...footsteps echo ahead... something waits, unseen"
+		if("sorrow")          scene += "...you stand beneath a dying tree... it weeps silently"
+		if("awe")             scene += "...the sky fractures with light... you kneel, unknowingly"
+		if("rage")            scene += "...flames lick the ground... a scream builds in your chest"
+		if("longing")         scene += "...you reach through mist... fingers graze something lost"
+		if("confusion")       scene += "...the world tilts sideways... nothing is where it should be"
+		if("ecstasy")         scene += "...a chorus sings behind your eyes... joy too bright to bear"
+		if("emptiness")       scene += "...you float above yourself... hollow... watching"
+		if("yearning")        scene += "...you reach for something in the dark... it slips through your fingers"
+
+	for(var/antag_type in antags)
+		scene += generate_symbol_for_antag(antag_type)
+
+///random suffix
+	var/list/suffixes = list(
+		"... then, silence...",
+		"... you awake with the taste of ash...",
+		"... a bell tolls, but no one hears it...",
+		"... you are not sure if you were watching... or being watched...",
+		"... the feeling lingers, heavy as dusk...",
+		"... your hands won’t stop trembling...",
+		"... you wake with your mouth full of names...",
+		"... the light behind your eyes is gone...",
+		"... you try to remember, but something remembers you instead...",
+		"... you are not alone in your skin...",
+		"... you wake gripping nothing... yet your hands ache...",
+		"... your pillow is damp with tears you didn’t cry...",
+		"... the shadows no longer flee the dawn...",
+		"... you remember less than you did before...",
+		"... someone else's name rests on your lips...",
+		"... the dream fades... but something remains behind..."
+	)
+
+	scene += pick(suffixes)
+	return scene
+
+
+/// Pick the messages for the antags
+/datum/sleep_adv/proc/generate_symbol_for_antag(datum/antagonist/antag)
+
+	var/list/antag_dreams = SSgamemode.antag_dreams
+		
+	if(antag_dreams[antag.type])
+		return pick(antag_dreams[antag.type])
+	else
+		return pick(antag_dreams["Unknown"])
+
+///Get antags
+/datum/sleep_adv/proc/get_current_real_antags()
+	var/list/truths = list()
+	for(var/datum/antagonist/A in GLOB.antagonists)
+		if(A.owner && A.owner.current.client) // Confirm the antag is active and controlled
+			truths += A
+	return truths
+	
+///All antags for the fake list
+/datum/sleep_adv/proc/get_possible_fake_antags_excluding(list/truths)
+	var/list/all_possible = list(
+		/datum/antagonist/vampire/lord,
+		/datum/antagonist/vampire,
+		/datum/antagonist/vampire/lesser,
+		/datum/antagonist/lich,
+		/datum/antagonist/werewolf,
+		/datum/antagonist/werewolf/lesser,
+		/datum/antagonist/zizocultist,
+		/datum/antagonist/zizocultist/leader,
+		/datum/antagonist/prebel,
+		/datum/antagonist/prebel/head,
+		/datum/antagonist/aspirant,
+		/datum/antagonist/bandit,
+		/datum/antagonist/assassin,
+		/datum/antagonist/maniac
+	)
+
+	/// Remove the true antag types from the possible lies
+	for(var/datum/antagonist/T in truths)
+		all_possible -= T.type
+
+	/// Instantiate new antag datums for the lies
+	var/list/lies = list()
+	for(var/antag_type in all_possible)
+		lies += new antag_type()
+
+	return lies
+

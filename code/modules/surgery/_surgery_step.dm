@@ -152,7 +152,7 @@
 		if(!valid_mobtype)
 			return FALSE
 
-	if(lying_required && (target.mobility_flags & MOBILITY_STAND))
+	if(lying_required && target.body_position != LYING_DOWN)
 		return FALSE
 
 	if(iscarbon(target))
@@ -301,7 +301,7 @@
 				to_chat(user, "<span class='warning'>Intentional surgery fail... [success_prob]%</span>")
 			else
 				to_chat(user, "<span class='warning'>Surgery fail... [success_prob]%</span>")
-				initiate(user, target, target_zone, tool, intent, try_to_fail)
+			initiate(user, target, target_zone, tool, intent, try_to_fail)
 		return FALSE
 
 	return FALSE
@@ -353,6 +353,8 @@
 	if(!target_detailed)
 		detailed_mobs -= target //The patient can't see well what's going on, unless it's something like getting cut
 	user.visible_message(detailed_message, self_message, vision_distance = 1, ignored_mobs = target_detailed ? null : target)
+	for(var/mob/mob in detailed_mobs)
+		testing("[mob]")
 	user.visible_message(vague_message, "", ignored_mobs = detailed_mobs)
 	return TRUE
 
@@ -395,7 +397,7 @@
 
 /datum/surgery_step/proc/get_location_modifier(mob/living/target)
 	var/turf/patient_turf = get_turf(target)
-	var/is_lying = !(target.mobility_flags & MOBILITY_STAND)
+	var/is_lying = (target.body_position == LYING_DOWN)
 	if(!is_lying)
 		return 0.6
 	if(locate(/obj/structure/table/optable) in patient_turf)

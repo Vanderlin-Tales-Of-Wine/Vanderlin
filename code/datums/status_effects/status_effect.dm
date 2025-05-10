@@ -1,17 +1,29 @@
-//Status effects are used to apply temporary or permanent effects to mobs. Mobs are aware of their status effects at all times.
-//This file contains their code, plus code for applying and removing them.
-//When making a new status effect, add a define to status_effects.dm in __DEFINES for ease of use!
+/**
+
+* Status effects are used to apply temporary or permanent effects to mobs. Mobs are aware of their status effects at all times.
+* * This file contains their code, plus code for applying and removing them.
+* * When making a new status effect, add a define to status_effects.dm in __DEFINES for ease of use!
+*/
 
 /datum/status_effect
-	var/id = "effect" //Used for screen alerts.
-	var/duration = -1 //How long the status effect lasts in DECISECONDS. Enter -1 for an effect that never ends unless removed through some means.
-	var/tick_interval = 10 //How many deciseconds between ticks, approximately. Leave at 10 for every second.
-	var/mob/living/owner //The mob affected by the status effect.
-	var/status_type = STATUS_EFFECT_UNIQUE //How many of the effect can be on one mob, and what happens when you try to add another
-	var/on_remove_on_mob_delete = FALSE //if we call on_remove() when the mob is deleted
-	var/examine_text //If defined, this text will appear when the mob is examined - to use he, she etc. use "SUBJECTPRONOUN" and replace it in the examines themselves
-	var/alert_type = /atom/movable/screen/alert/status_effect //the alert thrown by the status effect, contains name and description
-	var/atom/movable/screen/alert/status_effect/linked_alert = null //the alert itself, if it exists
+	/// Used for screen alerts.
+	var/id = "effect"
+	/// How long the status effect lasts in DECISECONDS. Enter -1 for an effect that never ends unless removed through some means.
+	var/duration = -1
+	/// How many deciseconds between ticks, approximately. Leave at 10 for every second.
+	var/tick_interval = 10
+	/// The mob affected by the status effect.
+	var/mob/living/owner
+	/// How many of the effect can be on one mob, and what happens when you try to add another
+	var/status_type = STATUS_EFFECT_UNIQUE
+	/// if we call on_remove() when the mob is deleted
+	var/on_remove_on_mob_delete = FALSE
+	/// If defined, this text will appear when the mob is examined - to use he, she etc. use "SUBJECTPRONOUN" and replace it in the examines themselves
+	var/examine_text
+	/// The alert thrown by the status effect, contains name and description
+	var/alert_type = /atom/movable/screen/alert/status_effect
+	/// The alert itself, if it exists
+	var/atom/movable/screen/alert/status_effect/linked_alert = null
 	var/list/effectedstats = list()
 
 /datum/status_effect/New(list/arguments)
@@ -57,20 +69,22 @@
 	if(duration != -1 && duration < world.time)
 		qdel(src)
 
-/datum/status_effect/proc/on_apply() //Called whenever the buff is applied; returning FALSE will cause it to autoremove itself.
-	for(var/S in effectedstats)
-		owner.change_stat(S, effectedstats[S])
+/// Called whenever the buff is applied; returning FALSE will cause it to autoremove itself.
+/datum/status_effect/proc/on_apply()
+	for(var/stat in effectedstats)
+		owner.set_stat_modifier("[id]", stat, effectedstats[stat])
 	return TRUE
 
-/datum/status_effect/proc/tick() //Called every tick.
+/// Called every tick.
+/datum/status_effect/proc/tick()
 
-/datum/status_effect/proc/on_remove() //Called whenever the buff expires or is removed; do note that at the point this is called, it is out of the owner's status_effects but owner is not yet null
-	for(var/S in effectedstats)
-		owner.change_stat(S, -(effectedstats[S]))
+/// Called whenever the buff expires or is removed; do note that at the point this is called, it is out of the owner's status_effects but owner is not yet null
+/datum/status_effect/proc/on_remove()
+	owner.remove_stat_modifier("[id]")
 
-/datum/status_effect/proc/be_replaced() //Called instead of on_remove when a status effect is replaced by itself or when a status effect with on_remove_on_mob_delete = FALSE has its mob deleted
-	for(var/S in effectedstats)
-		owner.change_stat(S, -(effectedstats[S]))
+/// Called instead of on_remove when a status effect is replaced by itself or when a status effect with on_remove_on_mob_delete = FALSE has its mob deleted
+/datum/status_effect/proc/be_replaced()
+	owner.remove_stat_modifier("[id]")
 	owner.clear_alert(id)
 	LAZYREMOVE(owner.status_effects, src)
 	owner = null
@@ -82,7 +96,7 @@
 		return
 	duration = world.time + original_duration
 
-//clickdelay/nextmove modifiers!
+/// clickdelay/nextmove modifiers!
 /datum/status_effect/proc/nextmove_modifier()
 	return 1
 
@@ -122,7 +136,8 @@
 // HELPER PROCS //
 //////////////////
 
-/mob/living/proc/apply_status_effect(effect, ...) //applies a given status effect to this mob, returning the effect if it was successful
+/// Applies a given status effect to this mob, returning the effect if it was successful
+/mob/living/proc/apply_status_effect(effect, ...)
 	. = FALSE
 	var/datum/status_effect/S1 = effect
 	LAZYINITLIST(status_effects)
@@ -140,7 +155,8 @@
 	S1 = new effect(arguments)
 	. = S1
 
-/mob/living/proc/remove_status_effect(effect) //removes all of a given status effect from this mob, returning TRUE if at least one was removed
+/// Removes all of a given status effect from this mob, returning TRUE if at least one was removed
+/mob/living/proc/remove_status_effect(effect)
 	. = FALSE
 	if(status_effects)
 		var/datum/status_effect/S1 = effect
@@ -149,7 +165,8 @@
 				qdel(S)
 				. = TRUE
 
-/mob/living/proc/has_status_effect(effect) //returns the effect if the mob calling the proc owns the given status effect
+/// Returns the effect if the mob calling the proc owns the given status effect
+/mob/living/proc/has_status_effect(effect)
 	. = FALSE
 	if(status_effects)
 		var/datum/status_effect/S1 = effect
@@ -157,7 +174,8 @@
 			if(initial(S1.id) == S.id)
 				return S
 
-/mob/living/proc/has_status_effect_list(effect) //returns a list of effects with matching IDs that the mod owns; use for effects there can be multiple of
+/// Returns a list of effects with matching IDs that the mod owns; use for effects there can be multiple of
+/mob/living/proc/has_status_effect_list(effect)
 	. = list()
 	if(status_effects)
 		var/datum/status_effect/S1 = effect
@@ -171,30 +189,45 @@
 
 /datum/status_effect/stacking
 	id = "stacking_base"
-	duration = -1 //removed under specific conditions
+	/// Removed under specific conditions
+	duration = -1
 	alert_type = null
-	var/stacks = 0 //how many stacks are accumulated, also is # of stacks that target will have when first applied
-	var/delay_before_decay //deciseconds until ticks start occuring, which removes stacks (first stack will be removed at this time plus tick_interval)
-	tick_interval = 10 //deciseconds between decays once decay starts
-	var/stack_decay = 1 //how many stacks are lost per tick (decay trigger)
-	var/stack_threshold //special effects trigger when stacks reach this amount
-	var/max_stacks //stacks cannot exceed this amount
-	var/consumed_on_threshold = TRUE //if status should be removed once threshold is crossed
-	var/threshold_crossed = FALSE //set to true once the threshold is crossed, false once it falls back below
+	/// How many stacks are accumulated, also is # of stacks that target will have when first applied
+	var/stacks = 0
+	/// Deciseconds until ticks start occuring, which removes stacks (first stack will be removed at this time plus tick_interval)
+	var/delay_before_decay
+	/// Deciseconds between decays once decay starts
+	tick_interval = 10
+	/// How many stacks are lost per tick (decay trigger)
+	var/stack_decay = 1
+	/// Special effects trigger when stacks reach this amount
+	var/stack_threshold
+	/// Stacks cannot exceed this amount
+	var/max_stacks
+	/// If status should be removed once threshold is crossed
+	var/consumed_on_threshold = TRUE
+	/// Set to true once the threshold is crossed, false once it falls back below
+	var/threshold_crossed = FALSE
 	var/overlay_file
 	var/underlay_file
-	var/overlay_state // states in .dmi must be given a name followed by a number which corresponds to a number of stacks. put the state name without the number in these state vars
-	var/underlay_state // the number is concatonated onto the string based on the number of stacks to get the correct state name
+	/// States in .dmi must be given a name followed by a number which corresponds to a number of stacks. put the state name without the number in these state vars
+	var/overlay_state
+	/// The number is concatenated onto the string based on the number of stacks to get the correct state name
+	var/underlay_state
 	var/mutable_appearance/status_overlay
 	var/mutable_appearance/status_underlay
 
-/datum/status_effect/stacking/proc/threshold_cross_effect() //what happens when threshold is crossed
+/// What happens when threshold is crossed
+/datum/status_effect/stacking/proc/threshold_cross_effect()
 
-/datum/status_effect/stacking/proc/stacks_consumed_effect() //runs if status is deleted due to threshold being crossed
+/// Runs if status is deleted due to threshold being crossed
+/datum/status_effect/stacking/proc/stacks_consumed_effect()
 
-/datum/status_effect/stacking/proc/fadeout_effect() //runs if status is deleted due to being under one stack
+/// Runs if status is deleted due to being under one stack
+/datum/status_effect/stacking/proc/fadeout_effect()
 
-/datum/status_effect/stacking/proc/stack_decay_effect() //runs every time tick() causes stacks to decay
+/// Runs every time tick() causes stacks to decay
+/datum/status_effect/stacking/proc/stack_decay_effect()
 
 /datum/status_effect/stacking/proc/on_threshold_cross()
 	threshold_cross_effect()

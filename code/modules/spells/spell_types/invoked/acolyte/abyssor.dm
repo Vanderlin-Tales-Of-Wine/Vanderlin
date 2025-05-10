@@ -110,7 +110,6 @@
 	max_integrity = INTEGRITY_WORST/2 // not meant for long-term combat
 	minstr = 7
 	dropshrink = 0.9
-	walking_stick = TRUE
 	thrown_bclass = BCLASS_STAB
 
 	throw_speed = 3
@@ -131,6 +130,7 @@
 	hook = new /obj/item/fishing/hook/abytrident(src)
 	line = new /obj/item/fishing/line/no_line(src)
 	baited = new /obj/item/fishing/bait/no_bait(src)
+	AddComponent(/datum/component/walking_stick)
 
 /obj/item/fishingrod/abyssor_trident/examine(mob/user)
 	. = ..()
@@ -203,6 +203,7 @@
 	antimagic_allowed = TRUE
 	recharge_time = 20 SECONDS
 	miracle = TRUE
+	healing_miracle = TRUE
 	devotion_cost = 50
 
 /obj/effect/proc_holder/spell/invoked/ocean_embrace/cast(list/targets, mob/living/user)
@@ -216,12 +217,16 @@
 		if(target.mob_biotypes & MOB_UNDEAD) //blasts with debuffs rather than direct damage
 			target.visible_message(span_danger("[target] is drowned by turbulent tides!"), span_userdanger("I'm being drowned by turbulent tides!"))
 			target.safe_throw_at(get_step(target, get_dir(user, target)), 1, 1, user, spin = TRUE, force = target.move_force)
+			var/already_dead = target.stat == DEAD ? TRUE : FALSE
 			target.adjustOxyLoss(80)
 			target.Knockdown(5)
 			target.Slowdown(60)
 			target.Dizzy(10)
 			target.blur_eyes(20)
 			target.emote("drown")
+			if(!already_dead)
+				if(target.stat == DEAD && target.client)
+					GLOB.vanderlin_round_stats[STATS_PEOPLE_DROWNED]++
 			return ..()
 
 		target.visible_message(span_info("A wave of replenishing water passes through [target]!"), span_notice("I'm engulfed in a wave of replenishing water!"))

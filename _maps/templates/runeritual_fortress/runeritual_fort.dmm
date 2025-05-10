@@ -10,7 +10,7 @@
 /turf/open/floor/greenstone,
 /area/rogue/outdoors)
 "d" = (
-/obj/structure/mineral_door/wood/deadbolt/arcyne/caster{
+/obj/structure/door/arcyne/bolt/caster{
 	dir = 8
 	},
 /turf/open/floor/greenstone,
@@ -19,13 +19,13 @@
 /turf/open/floor/greenstone/runed,
 /area/rogue/outdoors)
 "f" = (
-/obj/structure/mineral_door/wood/deadbolt/arcyne/caster{
+/obj/structure/door/arcyne/bolt/caster{
 	dir = 4
 	},
 /turf/open/floor/greenstone,
 /area/rogue/outdoors)
 "g" = (
-/obj/structure/mineral_door/wood/deadbolt/arcyne/caster,
+/obj/structure/door/arcyne/bolt/caster,
 /turf/open/floor/greenstone,
 /area/rogue/outdoors)
 "h" = (

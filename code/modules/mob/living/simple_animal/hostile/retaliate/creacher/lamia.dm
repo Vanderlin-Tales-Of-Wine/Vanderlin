@@ -30,9 +30,9 @@
 	food_type = list(/obj/item/reagent_containers/food/snacks/meat, /obj/item/bodypart, /obj/item/organ)
 	footstep_type = null
 	pooptype = null
-	TOTALCON = 6
-	TOTALSTR = 11
-	TOTALSPD = 12
+	base_constitution = 6
+	base_strength = 11
+	base_speed = 12
 	deaggroprob = 0
 	defprob = 35
 	defdrain = 5

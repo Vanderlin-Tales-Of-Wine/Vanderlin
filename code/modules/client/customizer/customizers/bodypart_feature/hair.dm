@@ -44,7 +44,15 @@
 	var/datum/customizer_entry/hair/hair_entry = entry
 	switch(href_list["customizer_task"])
 		if("hair_color")
-			var/new_color = color_pick_sanitized_lumi(user, "Choose your hair color:", "Character Preference", hair_entry.hair_color)
+			var/list/hairs
+			var/new_color
+			if(prefs.age == AGE_OLD && (OLDGREY in prefs.pref_species.species_traits))
+				hairs = prefs.pref_species.get_oldhc_list()
+			else
+				hairs = prefs.pref_species.get_hairc_list()
+			var/new_hair = browser_input_list(user, "SELECT YOUR HERO'S HAIR COLOR", "BARBER", hairs)
+			if(new_hair)
+				new_color = hairs[new_hair]
 			if(!new_color)
 				return
 			hair_entry.hair_color = sanitize_hexcolor(new_color, 6, TRUE)
@@ -52,7 +60,7 @@
 			if(!allows_natural_gradient)
 				return
 			var/list/choice_list = hair_gradient_name_to_type_list()
-			var/chosen_input = input(user, "Choose your natural gradient:", "Character Preference")  as null|anything in choice_list
+			var/chosen_input = browser_input_list(user, "Choose your natural gradient:", "Character Preference", choice_list)
 			if(!chosen_input)
 				return
 			hair_entry.natural_gradient = choice_list[chosen_input]
@@ -67,7 +75,7 @@
 			if(!allows_dye_gradient)
 				return
 			var/list/choice_list = hair_gradient_name_to_type_list()
-			var/chosen_input = input(user, "Choose your dye gradient:", "Character Preference")  as null|anything in choice_list
+			var/chosen_input = browser_input_list(user, "Choose your dye gradient:", "Character Preference", choice_list)
 			if(!chosen_input)
 				return
 			hair_entry.dye_gradient = choice_list[chosen_input]
@@ -102,7 +110,8 @@
 	name = "Facial Hair"
 
 /datum/customizer/bodypart_feature/hair/facial/is_allowed(datum/preferences/prefs)
-	return (prefs.gender == MALE)
+	var/datum/species/species = return_species(prefs)
+	return (prefs.gender == MALE) || istype(species, /datum/species/dwarf)
 
 /datum/customizer_choice/bodypart_feature/hair/facial
 	abstract_type = /datum/customizer_choice/bodypart_feature/hair/facial
@@ -113,30 +122,250 @@
 /datum/customizer/bodypart_feature/hair/head/humanoid
 	customizer_choices = list(/datum/customizer_choice/bodypart_feature/hair/head/humanoid)
 
+/datum/customizer_choice/bodypart_feature/hair/head/humanoid
+	sprite_accessories = list(
+		/datum/sprite_accessory/hair/head/bald,
+		/datum/sprite_accessory/hair/head/adventurer_human,
+		/datum/sprite_accessory/hair/head/berserker,
+		/datum/sprite_accessory/hair/head/bog,
+		/datum/sprite_accessory/hair/head/boss_dwarf,
+		/datum/sprite_accessory/hair/head/bowlcut,
+		/datum/sprite_accessory/hair/head/brother,
+		/datum/sprite_accessory/hair/head/cavehead,
+		/datum/sprite_accessory/hair/head/conscript,
+		/datum/sprite_accessory/hair/head/courtier,
+		/datum/sprite_accessory/hair/head/dark_knight,
+		/datum/sprite_accessory/hair/head/dave,
+		/datum/sprite_accessory/hair/head/dome,
+		/datum/sprite_accessory/hair/head/druid,
+		/datum/sprite_accessory/hair/head/fancy_elf,
+		/datum/sprite_accessory/hair/head/forester,
+		/datum/sprite_accessory/hair/head/foreigner_tief,
+		/datum/sprite_accessory/hair/head/forsaken_aas,
+		/datum/sprite_accessory/hair/head/forged,
+		/datum/sprite_accessory/hair/head/graceful,
+		/datum/sprite_accessory/hair/head/heroic,
+		/datum/sprite_accessory/hair/head/hunter,
+		/datum/sprite_accessory/hair/head/landlord,
+		/datum/sprite_accessory/hair/head/lover_tief,
+		/datum/sprite_accessory/hair/head/lion,
+		/datum/sprite_accessory/hair/head/monk,
+		/datum/sprite_accessory/hair/head/majestic_human,
+		/datum/sprite_accessory/hair/head/merc,
+		/datum/sprite_accessory/hair/head/miner_dwarf,
+		/datum/sprite_accessory/hair/head/nobility_human,
+		/datum/sprite_accessory/hair/head/nomadic_humtief,
+		/datum/sprite_accessory/hair/head/pirate,
+		/datum/sprite_accessory/hair/head/princely,
+		/datum/sprite_accessory/hair/head/rogue,
+		/datum/sprite_accessory/hair/head/romantic,
+		/datum/sprite_accessory/hair/head/scribe,
+		/datum/sprite_accessory/hair/head/southern_human,
+		/datum/sprite_accessory/hair/head/son,
+		/datum/sprite_accessory/hair/head/son_elf,
+		/datum/sprite_accessory/hair/head/squire_human,
+		/datum/sprite_accessory/hair/head/swain,
+		/datum/sprite_accessory/hair/head/top_aas,
+		/datum/sprite_accessory/hair/head/troubadour,
+		/datum/sprite_accessory/hair/head/tied,
+		/datum/sprite_accessory/hair/head/tied_long,
+		/datum/sprite_accessory/hair/head/tied_sidecut,
+		/datum/sprite_accessory/hair/head/trimmed,
+		/datum/sprite_accessory/hair/head/warrior,
+		/datum/sprite_accessory/hair/head/wildside,
+		/datum/sprite_accessory/hair/head/woodsman_elf,
+		/datum/sprite_accessory/hair/head/zybantu,
+		/datum/sprite_accessory/hair/head/vagabond,
+		/datum/sprite_accessory/hair/head/steward,
+		/datum/sprite_accessory/hair/head/amazon,
+		/datum/sprite_accessory/hair/head/archivist,
+		/datum/sprite_accessory/hair/head/barbarian,
+		/datum/sprite_accessory/hair/head/beartails,
+		/datum/sprite_accessory/hair/head/buns,
+		/datum/sprite_accessory/hair/head/lowbun,
+		/datum/sprite_accessory/hair/head/bob,
+		/datum/sprite_accessory/hair/head/curlyshort,
+		/datum/sprite_accessory/hair/head/conscriptf,
+		/datum/sprite_accessory/hair/head/emma,
+		/datum/sprite_accessory/hair/head/empress,
+		/datum/sprite_accessory/hair/head/fancy_femelf,
+		/datum/sprite_accessory/hair/head/felfhair_fatherless,
+		/datum/sprite_accessory/hair/head/grumpy_f,
+		/datum/sprite_accessory/hair/head/gnomish_f,
+		/datum/sprite_accessory/hair/head/hearth_f,
+		/datum/sprite_accessory/hair/head/homely,
+		/datum/sprite_accessory/hair/head/junia,
+		/datum/sprite_accessory/hair/head/lady,
+		/datum/sprite_accessory/hair/head/loosebraid,
+		/datum/sprite_accessory/hair/head/maiden,
+		/datum/sprite_accessory/hair/head/majestic_dwarf_F,
+		/datum/sprite_accessory/hair/head/majestic_f,
+		/datum/sprite_accessory/hair/head/messy,
+		/datum/sprite_accessory/hair/head/mysterious_elf,
+		/datum/sprite_accessory/hair/head/mystery,
+		/datum/sprite_accessory/hair/head/noblesse,
+		/datum/sprite_accessory/hair/head/orc,
+		/datum/sprite_accessory/hair/head/performer,
+		/datum/sprite_accessory/hair/head/pix,
+		/datum/sprite_accessory/hair/head/plain,
+		/datum/sprite_accessory/hair/head/ponytail8,
+		/datum/sprite_accessory/hair/head/queen,
+		/datum/sprite_accessory/hair/head/sideways_ponytail,
+		/datum/sprite_accessory/hair/head/shrine,
+		/datum/sprite_accessory/hair/head/soilbride,
+		/datum/sprite_accessory/hair/head/squire_f,
+		/datum/sprite_accessory/hair/head/tails,
+		/datum/sprite_accessory/hair/head/tied_pony,
+		/datum/sprite_accessory/hair/head/tiedup,
+		/datum/sprite_accessory/hair/head/tiedcutf,
+		/datum/sprite_accessory/hair/head/tomboy1,
+		/datum/sprite_accessory/hair/head/tomboy2,
+		/datum/sprite_accessory/hair/head/tomboy3,
+		/datum/sprite_accessory/hair/head/twintail_floor,
+		/datum/sprite_accessory/hair/head/updo,
+		/datum/sprite_accessory/hair/head/wildcutf,
+		/datum/sprite_accessory/hair/head/wisp,
+		/datum/sprite_accessory/hair/head/singlebraid,
+		/datum/sprite_accessory/hair/head/shorthime,
+		/datum/sprite_accessory/hair/head/spicy,
+		/datum/sprite_accessory/hair/head/stacy,
+		/datum/sprite_accessory/hair/head/stacybun,
+		/datum/sprite_accessory/hair/head/zoey,
+		/datum/sprite_accessory/hair/head/mediumbraid,
+		/datum/sprite_accessory/hair/head/martial,
+		/datum/sprite_accessory/hair/head/shaved,
+		/datum/sprite_accessory/hair/head/runt,
+		/datum/sprite_accessory/hair/head/majestic_elf,
+		/datum/sprite_accessory/hair/head/gloomy,
+		/datum/sprite_accessory/hair/head/gloomylong,
+		/datum/sprite_accessory/hair/head/shortmessy,
+		/datum/sprite_accessory/hair/head/mediumessy,
+		/datum/sprite_accessory/hair/head/inari,
+		/datum/sprite_accessory/hair/head/ziegler,
+		/datum/sprite_accessory/hair/head/gronnbraid,
+		/datum/sprite_accessory/hair/head/grenzelcut,
+		/datum/sprite_accessory/hair/head/fluffy,
+		/datum/sprite_accessory/hair/head/fluffyshort,
+		/datum/sprite_accessory/hair/head/fluffylong,
+		/datum/sprite_accessory/hair/head/jay,
+		/datum/sprite_accessory/hair/head/hairfre,
+		/datum/sprite_accessory/hair/head/dawn,
+		/datum/sprite_accessory/hair/head/morning,
+		/datum/sprite_accessory/hair/head/kobeni_1,
+		/datum/sprite_accessory/hair/head/kobeni_2,
+		/datum/sprite_accessory/hair/head/gloomy_short,
+		/datum/sprite_accessory/hair/head/gloomy_medium,
+		/datum/sprite_accessory/hair/head/gloomy_long,
+		/datum/sprite_accessory/hair/head/emo_long,
+		/datum/sprite_accessory/hair/head/dreadlocks_long,
+		/datum/sprite_accessory/hair/head/rows1,
+		/datum/sprite_accessory/hair/head/rows2,
+		/datum/sprite_accessory/hair/head/rowbraid,
+		/datum/sprite_accessory/hair/head/rowdualtail,
+		/datum/sprite_accessory/hair/head/rowbun,
+		/datum/sprite_accessory/hair/head/long_over_eye_alt,
+		/datum/sprite_accessory/hair/head/sabitsuki,
+		/datum/sprite_accessory/hair/head/cotton,
+		/datum/sprite_accessory/hair/head/cottonalt,
+		/datum/sprite_accessory/hair/head/bushy,
+		/datum/sprite_accessory/hair/head/bushy_alt,
+		/datum/sprite_accessory/hair/head/curtains,
+		/datum/sprite_accessory/hair/head/glamourh,
+		/datum/sprite_accessory/hair/head/wavylong,
+		/datum/sprite_accessory/hair/head/straightlong,
+		/datum/sprite_accessory/hair/head/fluffball,
+		/datum/sprite_accessory/hair/head/halfshave_long,
+		/datum/sprite_accessory/hair/head/halfshave_long_alt,
+		/datum/sprite_accessory/hair/head/halfshave_messy,
+		/datum/sprite_accessory/hair/head/halfshave_messylong,
+		/datum/sprite_accessory/hair/head/halfshave_messy_alt,
+		/datum/sprite_accessory/hair/head/halfshave_messylong_alt,
+		/datum/sprite_accessory/hair/head/halfshave_glamorous,
+		/datum/sprite_accessory/hair/head/halfshave_glamorous_alt,
+		/datum/sprite_accessory/hair/head/thicklong,
+		/datum/sprite_accessory/hair/head/thickshort,
+		/datum/sprite_accessory/hair/head/thickcurly,
+		/datum/sprite_accessory/hair/head/baum,
+		/datum/sprite_accessory/hair/head/highlander,
+		/datum/sprite_accessory/hair/head/royalcurls,
+		/datum/sprite_accessory/hair/head/dreadlocksmessy,
+		/datum/sprite_accessory/hair/head/suave,
+		/datum/sprite_accessory/hair/head/ponytailwitcher,
+		/datum/sprite_accessory/hair/head/countryponytailalt,
+		/datum/sprite_accessory/hair/head/kusanagi_alt,
+		/datum/sprite_accessory/hair/head/shorthair6,
+		/datum/sprite_accessory/hair/head/helmet,
+
+		)
+
 /datum/customizer_choice/bodypart_feature/hair/head/humanoid/get_random_accessory(datum/customizer_entry/entry, datum/preferences/prefs)
 	return pick(sprite_accessories)
 
 /datum/customizer_choice/bodypart_feature/hair/head/humanoid/on_randomize_entry(datum/customizer_entry/entry, datum/preferences/prefs)
 	var/datum/customizer_entry/hair/hair_entry = entry
-	var/color = pick(HAIR_COLOR_LIST)
-	hair_entry.hair_color = color
+	var/list/hairs
+	var/new_color
+	if(prefs.age == AGE_OLD)
+		hairs = GLOB.oldhc
+	else
+		hairs = GLOB.haircolor
+	new_color = hairs[pick(hairs)]
+	hair_entry.hair_color = sanitize_hexcolor(new_color, 6, TRUE)
 
 /datum/customizer/bodypart_feature/hair/head/humanoid/bald_default
 	customizer_choices = list(/datum/customizer_choice/bodypart_feature/hair/head/humanoid/bald_default)
 
 /datum/customizer_choice/bodypart_feature/hair/head/humanoid/bald_default/get_random_accessory(datum/customizer_entry/entry, datum/preferences/prefs)
+	return /datum/sprite_accessory/hair/head/bald
 
 /datum/customizer/bodypart_feature/hair/facial/humanoid
 	customizer_choices = list(/datum/customizer_choice/bodypart_feature/hair/facial/humanoid)
 
+/datum/customizer_choice/bodypart_feature/hair/facial/humanoid
+	sprite_accessories = list(
+		/datum/sprite_accessory/hair/facial/none,
+		/datum/sprite_accessory/hair/facial/shaved,
+		/datum/sprite_accessory/hair/facial/brew,
+		/datum/sprite_accessory/hair/facial/chops,
+		/datum/sprite_accessory/hair/facial/chin,
+		/datum/sprite_accessory/hair/facial/braided,
+		/datum/sprite_accessory/hair/facial/manly,
+		/datum/sprite_accessory/hair/facial/fullbeard,
+		/datum/sprite_accessory/hair/facial/cousin,
+		/datum/sprite_accessory/hair/facial/knightly,
+		/datum/sprite_accessory/hair/facial/know,
+		/datum/sprite_accessory/hair/facial/fiveoclockm,
+		/datum/sprite_accessory/hair/facial/pick,
+		/datum/sprite_accessory/hair/facial/pipe,
+		/datum/sprite_accessory/hair/facial/viking,
+		/datum/sprite_accessory/hair/facial/ranger,
+		/datum/sprite_accessory/hair/facial/vandyke,
+		/datum/sprite_accessory/hair/facial/burns,
+		/datum/sprite_accessory/hair/facial/hermit,
+
+		)
+
 /datum/customizer_choice/bodypart_feature/hair/facial/humanoid/get_random_accessory(datum/customizer_entry/entry, datum/preferences/prefs)
+	var/datum/species/species = return_species(prefs)
+
+	if((prefs.gender == MALE) || istype(species, /datum/species/dwarf))
+		return pick(sprite_accessories)
+	else
+		return /datum/sprite_accessory/hair/facial/shaved
 
 /datum/customizer_choice/bodypart_feature/hair/facial/humanoid/on_randomize_entry(datum/customizer_entry/entry, datum/preferences/prefs)
 	var/datum/customizer_entry/hair/hair_entry = entry
-	var/color = pick(HAIR_COLOR_LIST)
-	hair_entry.hair_color = color
+	var/list/hairs
+	var/new_color
+	if(prefs.age == AGE_OLD)
+		hairs = GLOB.oldhc
+	else
+		hairs = GLOB.haircolor
+	new_color = hairs[pick(hairs)]
+	hair_entry.hair_color = sanitize_hexcolor(new_color, 6, TRUE)
 
 /datum/customizer/bodypart_feature/hair/facial/humanoid/shaved_default
 	customizer_choices = list(/datum/customizer_choice/bodypart_feature/hair/facial/humanoid/shaved_default)
 
 /datum/customizer_choice/bodypart_feature/hair/facial/humanoid/shaved_default/get_random_accessory(datum/customizer_entry/entry, datum/preferences/prefs)
+	return /datum/sprite_accessory/hair/facial/shaved

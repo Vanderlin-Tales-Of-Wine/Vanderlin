@@ -84,6 +84,18 @@ GLOBAL_LIST_INIT(available_ui_styles, sortList(list(
 		// will fall back to the default if any of these are null
 		ui_style = ui_style2icon(owner.client && owner.client.prefs && owner.client.prefs.UI_style)
 
+	reads = new /atom/movable/screen/read
+	reads.hud = src
+	static_inventory += reads
+	textr = new /atom/movable/screen/readtext
+	textr.hud = src
+	static_inventory += textr
+	reads.textright = textr
+	textl = new /atom/movable/screen/readtext
+	textl.hud = src
+	static_inventory += textl
+	reads.textleft = textl
+
 //	hide_actions_toggle = new
 //	hide_actions_toggle.InitialiseIcon(src)
 //	if(mymob.client)
@@ -214,7 +226,6 @@ GLOBAL_LIST_INIT(available_ui_styles, sortList(list(
 	screenmob.update_action_buttons(1)
 	reorganize_alerts()
 	screenmob.reload_fullscreen()
-	update_parallax_pref(screenmob)
 
 	// ensure observers get an accurate and up-to-date view
 	if (!viewmob)

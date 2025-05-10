@@ -1,16 +1,12 @@
 /client
 	var/list/played_loops = list() //uses dlink to link to the sound
 
-
 /proc/playsound(atom/source, soundin, vol as num, vary, extrarange as num, falloff, frequency = null, channel, pressure_affected = FALSE, ignore_walls = TRUE, soundping = FALSE, repeat)
 	if(isarea(source))
 		CRASH("playsound(): source is an area")
 
 	var/turf/turf_source = get_turf(source)
-	if(isturf(source))
-		turf_source = source
-
-	if (!turf_source)
+	if(!turf_source)
 		return
 
 	//allocate a channel if necessary now so its the same for everyone
@@ -33,15 +29,8 @@
 		ping_sound(source)
 
 	var/list/muffled_listeners = list() //this is very rudimentary list of muffled listeners above and below to mimic sound muffling (this is done through modifying the playsounds for them)
-	if(!ignore_walls) //these sounds don't carry through walls
+	if(!ignore_walls) //these sounds don't carry through walls or vertically
 		listeners = listeners & hearers(maxdistance,turf_source)
-
-		if(above_turf)
-			muffled_listeners += hearers(maxdistance,above_turf)
-
-		if(below_turf)
-			muffled_listeners += hearers(maxdistance,below_turf)
-
 	else
 		if(above_turf)
 			listeners += SSmobs.clients_by_zlevel[above_turf.z]
@@ -63,7 +52,7 @@
 		if(get_dist(M, turf_source) <= maxdistance)
 			if(M.playsound_local(turf_source, soundin, vol, vary, frequency, falloff, channel, pressure_affected, S, repeat, muffled = TRUE))
 				. += M
-
+	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_SOUND_PLAYED, source, soundin)
 
 /proc/ping_sound(atom/A)
 	var/image/I = image(icon = 'icons/effects/effects.dmi', loc = A, icon_state = "emote", layer = ABOVE_MOB_LAYER)
@@ -74,7 +63,7 @@
 	flick_overlay(I, GLOB.clients, 6)
 
 
-/mob/proc/playsound_local(turf/turf_source, soundin, vol as num, vary, frequency, falloff, channel, pressure_affected = TRUE, sound/S, repeat, muffled)
+/mob/proc/playsound_local(atom/turf_source, soundin, vol as num, vary, frequency, falloff, channel, pressure_affected = TRUE, sound/S, repeat, muffled)
 	if(!client || !can_hear())
 		return FALSE
 
@@ -119,47 +108,44 @@
 		if(S.volume <= 0)
 			return FALSE //No sound
 
-		var/dx = turf_source.x - T.x // Hearing from the right/left
-		if(dx <= 1 && dx >= -1) //if we're  close enough we're heard in both ears
+		var/dx = turf_source.x - x
+		if(dx <= 1 && dx >= -1)
 			S.x = 0
 		else
 			S.x = dx
-		var/dz = turf_source.y - T.y // Hearing from infront/behind
-		if(dz <= 1 && dz >= -1) //if we're  close enough we're heard in both ears
+		var/dz = turf_source.y - y
+		if(dz <= 1 && dz >= -1)
 			S.z = 0
 		else
 			S.z = dz
-		var/dy = (turf_source.z - T.z) * 2 // Hearing from  above / below, multiplied by 5 because we assume height is further along coords.
+
+		var/dy = turf_source.z - z
 		S.y = dy
 
 		S.falloff = (falloff ? falloff : FALLOFF_SOUNDS)
 
-	if(repeat)
-		if(istype(repeat, /datum/looping_sound))
-			var/datum/looping_sound/D = repeat
-			if(src in D.thingshearing) //we are already hearing this loop
-				if(client.played_loops[D])
-					var/sound/DS = client.played_loops[D]["SOUND"]
-					if(DS)
-						var/volly = client.played_loops[D]["VOL"]
-						if(volly != S.volume)
-							DS.x = S.x
-							DS.y = S.y
-							DS.z = S.z
-							DS.falloff = S.falloff
-							client.played_loops[D]["VOL"] = S.volume
-							update_sound_volume(DS, S.volume)
-							if(client.played_loops[D]["MUTESTATUS"]) //we have sound so turn this off
-								client.played_loops[D]["MUTESTATUS"] = null
-						return TRUE
-			else
-				D.thingshearing += src
+	if(repeat && istype(repeat, /datum/looping_sound))
+		var/datum/looping_sound/D = repeat
+		if(src in D.thingshearing) //we are already hearing this loop
+			if(client.played_loops[D])
+				var/sound/DS = client.played_loops[D]["SOUND"]
+				if(DS)
+					var/volly = client.played_loops[D]["VOL"]
+					if(volly != S.volume)
+						DS.x = S.x
+						DS.y = S.y
+						DS.z = S.z
+						DS.falloff = S.falloff
+						client.played_loops[D]["VOL"] = S.volume
+						update_sound_volume(DS, S.volume)
+						if(client.played_loops[D]["MUTESTATUS"]) //we have sound so turn this off
+							client.played_loops[D]["MUTESTATUS"] = null
+		else
+			D.thingshearing += src
 			client.played_loops[D] = list()
 			client.played_loops[D]["SOUND"] = S
 			client.played_loops[D]["VOL"] = S.volume
 			client.played_loops[D]["MUTESTATUS"] = null
-//			if(D.persistent_loop) //shut up music because we're hearing ingame music
-//				play_ambience(get_area(src))
 			S.repeat = 1
 
 	SEND_SOUND(src, S)

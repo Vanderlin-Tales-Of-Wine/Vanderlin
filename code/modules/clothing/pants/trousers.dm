@@ -5,7 +5,6 @@
 	gender = PLURAL
 	icon_state = "trou"
 	item_state = "trou"
-//	adjustable = CAN_CADJUST
 	sewrepair = TRUE
 	blocksound = SOFTHIT
 	blade_dulling = DULLING_BASHCHOP
@@ -16,6 +15,7 @@
 	prevent_crits = MINOR_CRITICALS
 	salvage_amount = 1
 	salvage_result = /obj/item/natural/hide/cured
+	item_weight = 3
 
 /obj/item/clothing/pants/trou/leather
 	name = "leather trousers"

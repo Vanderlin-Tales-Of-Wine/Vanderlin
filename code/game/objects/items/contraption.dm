@@ -193,9 +193,9 @@
 		S.start()
 		return
 	var/skill = user.mind.get_skill_level(/datum/skill/craft/engineering)
-	if(istype(O, /obj/structure/mineral_door/wood)) //This is to ensure the new door will retain its lock
-		var/obj/structure/mineral_door/wood/I = O
-		var/obj/structure/mineral_door/wood/new_door = new I.metalizer_result(get_turf(I))
+	if(istype(O, /obj/structure/door)) //This is to ensure the new door will retain its lock
+		var/obj/structure/door/I = O
+		var/obj/structure/door/new_door = new I.metalizer_result(get_turf(I))
 		new_door.locked = I.locked
 		if(I.lockid)
 			new_door.lockid = I.lockid
@@ -339,7 +339,7 @@
 	playsound(get_turf(patient), 'sound/misc/ratchet.ogg', 20, TRUE)
 	if(patient.stat >= UNCONSCIOUS || patient.buckled || locate(/obj/structure/table/optable) in get_turf(patient))
 		amputation_speed_mod *= 0.5
-	if(patient.stat != DEAD && (patient.jitteriness || patient.mobility_flags & MOBILITY_STAND)) //jittering will make it harder to secure the shears, even if you can't otherwise move
+	if(patient.stat != DEAD && (patient.jitteriness || patient.body_position != LYING_DOWN)) //jittering will make it harder to secure the shears, even if you can't otherwise move
 		amputation_speed_mod *= 1.5 //15*0.5*1.5=11.25
 
 	var/skill_modifier = 1.5 - (user.mind?.get_skill_level(/datum/skill/craft/engineering) / 6)

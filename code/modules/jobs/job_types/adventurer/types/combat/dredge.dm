@@ -467,7 +467,7 @@
 			Like a wounded bird, I endure the rain with grace. With my sword I take fate into my own hands and strangle it.")
 			)
 		if("Mage")
-			H.mana_pool.set_intrinsic_recharge(MANA_ALL_LEYLINES)
+			H.mana_pool?.set_intrinsic_recharge(MANA_ALL_LEYLINES)
 			r_hand = /obj/item/weapon/polearm/woodstaff
 			head = /obj/item/clothing/head/roguehood/mage
 			armor = /obj/item/clothing/shirt/robe/mage
@@ -809,7 +809,7 @@
 			I like to relax with the puff of a zig.")
 			)
 		if("Ozium")
-			backpack_contents = list(/obj/item/reagent_containers/powder/ozium = 2, /datum/supply_pack/tools/wpipe = 1, /obj/item/flint = 1)
+			backpack_contents = list(/obj/item/reagent_containers/powder/ozium = 2, /obj/item/clothing/face/cigarette/pipe/westman = 1, /obj/item/flint = 1)
 			to_chat(H,span_info("\
 			I smoke ozium.")
 			)

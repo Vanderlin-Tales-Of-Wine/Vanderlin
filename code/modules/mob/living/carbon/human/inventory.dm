@@ -139,6 +139,7 @@
 			if(I.flags_inv & HIDEJUMPSUIT)
 				update_inv_shirt()
 			if(wear_armor.breakouttime) //when equipping a straightjacket
+				ADD_TRAIT(src, TRAIT_RESTRAINED, SUIT_TRAIT)
 				stop_pulling() //can't pull if restrained
 				update_action_buttons_icon() //certain action buttons will no longer be usable.
 			update_inv_armor()
@@ -229,6 +230,7 @@
 		if(s_store && invdrop)
 			dropItemToGround(s_store, TRUE, silent = silent) //It makes no sense for your suit storage to stay on you if you drop your suit.
 		if(wear_armor.breakouttime) //when unequipping a straightjacket
+			REMOVE_TRAIT(src, TRAIT_RESTRAINED, SUIT_TRAIT)
 			drop_all_held_items() //suit is restraining
 			update_action_buttons_icon() //certain action buttons may be usable again.
 		wear_armor = null
@@ -313,6 +315,7 @@
 		if(!QDELETED(src))
 			update_inv_mouth()
 	check_armor_class()
+	update_reflection()
 //	if(!QDELETED(src))
 //		if(I.eweight)
 //			encumbrance -= I.eweight
@@ -321,7 +324,7 @@
 
 /mob/living/carbon/human/wear_mask_update(obj/item/I, toggle_off = 1)
 	if((I.flags_inv & (HIDEHAIR|HIDEFACIALHAIR)) || (initial(I.flags_inv) & (HIDEHAIR|HIDEFACIALHAIR)))
-		update_hair()
+		update_body()
 	if(I.flags_inv & HIDEEYES)
 		update_inv_glasses()
 	check_armor_class()
@@ -329,11 +332,11 @@
 
 /mob/living/carbon/human/head_update(obj/item/I, forced)
 	if((I.flags_inv & (HIDEHAIR|HIDEFACIALHAIR)) || forced)
-		update_hair()
+		update_body()
 	else
 		var/obj/item/clothing/C = I
 		if(istype(C) && C.dynamic_hair_suffix)
-			update_hair()
+			update_body()
 	if(I.flags_inv & HIDEEYES || forced)
 		update_inv_glasses()
 	if(I.flags_inv & HIDEEARS || forced)
@@ -364,7 +367,7 @@
 		qdel(I)
 
 /mob/living/carbon/human/proc/smart_equipbag() // take most recent item out of bag or place held item in bag
-	if(incapacitated())
+	if(incapacitated(ignore_grab = TRUE))
 		return
 	var/obj/item/thing = get_active_held_item()
 	var/obj/item/equipped_back = get_item_by_slot(SLOT_BACK)
@@ -395,7 +398,7 @@
 	return
 
 /mob/living/carbon/human/proc/smart_equipbelt() // put held thing in belt or take most recent item out of belt
-	if(incapacitated())
+	if(incapacitated(ignore_grab = TRUE))
 		return
 	var/obj/item/thing = get_active_held_item()
 	var/obj/item/equipped_belt = get_item_by_slot(SLOT_BELT)

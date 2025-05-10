@@ -63,3 +63,43 @@
 	max_integrity = 250
 	anvilrepair = null
 	melting_material = null
+
+/obj/item/weapon/pick/drill
+	name = "clockwork drill"
+	desc = "A wonderfully complex work of engineering capable of shredding walls in seconds as opposed to hours."
+	force_wielded = 30
+	icon_state = "drill"
+	lefthand_file = 'icons/mob/inhands/weapons/hammers_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/weapons/hammers_righthand.dmi'
+	item_state = "drill"
+	possible_item_intents = list(/datum/intent/mace/smash)
+	gripped_intents = list(/datum/intent/drill)
+	experimental_inhand = FALSE
+	experimental_onback = FALSE
+	slot_flags = ITEM_SLOT_BACK
+	gripspriteonmob = TRUE
+	melting_material = /datum/material/steel
+	melt_amount = 150
+	gripsprite = TRUE
+
+/obj/item/weapon/pick/drill/Initialize()
+	. = ..()
+	START_PROCESSING(SSobj, src)
+	AddComponent(/datum/component/steam_storage, 300, 0)
+
+
+/obj/item/weapon/pick/drill/Destroy()
+	STOP_PROCESSING(SSobj, src)
+	return ..()
+
+/obj/item/weapon/pick/drill/afterattack(atom/target, mob/living/user, proximity_flag, click_parameters)
+	. = ..()
+	SEND_SIGNAL(src, COMSIG_ATOM_STEAM_USE, 5)
+
+/obj/item/weapon/pick/drill/process()
+	if(wielded)
+		if(!SEND_SIGNAL(src, COMSIG_ATOM_STEAM_USE, 1))
+			if(ismob(loc))
+				ungrip(loc, FALSE)
+			else
+				wielded = FALSE

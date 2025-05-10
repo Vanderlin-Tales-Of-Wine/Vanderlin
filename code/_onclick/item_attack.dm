@@ -144,9 +144,9 @@
 		return
 	if(user.get_active_held_item() != src)
 		return
-	if(user.incapacitated())
+	if(user.incapacitated(ignore_grab = TRUE))
 		return
-	if((M.mobility_flags & MOBILITY_STAND))
+	if((M.body_position != LYING_DOWN))
 		if(M.checkmiss(user))
 			return
 	if(istype(user.rmb_intent, /datum/rmb_intent/strong))
@@ -173,20 +173,20 @@
 		if(M.d_intent == INTENT_DODGE)
 			if(!user.used_intent.swingdelay)
 				if(get_dist(get_turf(user), get_turf(M)) <= user.used_intent.reach)
-					user.do_attack_animation(turf_before, visual_effect_icon = user.used_intent.animname)
+					user.do_attack_animation(turf_before, visual_effect_icon = user.used_intent.animname, used_intent = user.used_intent)
 				else
-					user.do_attack_animation(get_ranged_target_turf(user, get_dir(user, M), 1), visual_effect_icon = user.used_intent.animname)
+					user.do_attack_animation(get_ranged_target_turf(user, get_dir(user, M), 1), visual_effect_icon = user.used_intent.animname, used_intent = user.used_intent)
 		return
 	if(!user.used_intent.noaa)
 		if(get_dist(get_turf(user), get_turf(M)) <= user.used_intent.reach)
-			user.do_attack_animation(M, visual_effect_icon = user.used_intent.animname)
+			user.do_attack_animation(M, visual_effect_icon = user.used_intent.animname, used_intent = user.used_intent)
 		else
-			user.do_attack_animation(get_ranged_target_turf(user, get_dir(user, M), 1), visual_effect_icon = user.used_intent.animname)
+			user.do_attack_animation(get_ranged_target_turf(user, get_dir(user, M), 1), visual_effect_icon = user.used_intent.animname, used_intent = user.used_intent)
 	if(user.zone_selected == BODY_ZONE_PRECISE_R_INHAND)
 		var/offh = 0
 		var/obj/item/W = M.held_items[1]
 		if(W)
-			if(!(M.mobility_flags & MOBILITY_STAND))
+			if(M.body_position == LYING_DOWN)
 				M.throw_item(get_step(M,turn(M.dir, 90)), offhand = offh)
 			else
 				M.dropItemToGround(W)
@@ -198,7 +198,7 @@
 		var/offh = 0
 		var/obj/item/W = M.held_items[2]
 		if(W)
-			if(!(M.mobility_flags & MOBILITY_STAND))
+			if(M.body_position == LYING_DOWN)
 				M.throw_item(get_step(M,turn(M.dir, 270)), offhand = offh)
 			else
 				M.dropItemToGround(W)
@@ -225,13 +225,13 @@
 	if(item_flags & NOBLUDGEON)
 		return
 	if(O.attacked_by(src, user))
-		user.do_attack_animation(O)
+		user.do_attack_animation(O, used_intent = user.used_intent)
 		return TRUE
 
 /obj/item/proc/attack_turf(turf/T, mob/living/user)
 	if(T.max_integrity)
 		if(T.attacked_by(src, user))
-			user.do_attack_animation(T)
+			user.do_attack_animation(T, used_intent = user.used_intent)
 			return TRUE
 
 /atom/movable/proc/attacked_by()
@@ -292,7 +292,7 @@
 			switch(user.used_intent.blade_class)
 				if(BCLASS_CUT)
 					var/mob/living/lumberjacker = user
-					var/lumberskill = lumberjacker.mind.get_skill_level(/datum/skill/labor/lumberjacking)
+					var/lumberskill = lumberjacker.mind?.get_skill_level(/datum/skill/labor/lumberjacking)
 					if(!I.remove_bintegrity(1, user))
 						dullfactor = 0.2
 					else
@@ -321,6 +321,9 @@
 				if(BCLASS_SMASH)
 					dullfactor = 1.5
 					cont = TRUE
+				if(BCLASS_DRILL)
+					dullfactor = 10
+					cont = TRUE
 				if(BCLASS_PICK)
 					dullfactor = 1.5
 					cont = TRUE
@@ -341,24 +344,27 @@
 				if(BCLASS_SMASH)
 					dullfactor = 1.5
 					cont = TRUE
+				if(BCLASS_DRILL)
+					dullfactor = 10
+					cont = TRUE
 				if(BCLASS_BLUNT)
 					cont = TRUE
 				if(BCLASS_PICK)
 					var/mob/living/miner = user
-					var/mineskill = miner.mind.get_skill_level(/datum/skill/labor/mining)
+					var/mineskill = miner.mind?.get_skill_level(/datum/skill/labor/mining)
 					dullfactor = 1.6 - (mineskill * 0.1)
 					cont = TRUE
 			if(!cont)
 				return 0
 		if(DULLING_PICK) //cannot deal damage if not a pick item. aka rock walls
-			if(!(user.mobility_flags & MOBILITY_STAND))
+			if(user.body_position == LYING_DOWN)
 				to_chat(user, span_warning("I need to stand up to get a proper swing."))
 				return 0
-			if(user.used_intent.blade_class != BCLASS_PICK)
+			if(user.used_intent.blade_class != BCLASS_PICK && user.used_intent.blade_class != BCLASS_DRILL)
 				return 0
 			var/mob/living/miner = user
 			//Mining Skill force multiplier.
-			var/mineskill = miner.mind.get_skill_level(/datum/skill/labor/mining)
+			var/mineskill = miner.mind?.get_skill_level(/datum/skill/labor/mining)
 			newforce = newforce * (8+(mineskill*1.5))
 			// Pick quality multiplier. Affected by smithing, or material of the pick.
 			if(istype(I, /obj/item/weapon/pick))
@@ -381,7 +387,7 @@
 	if(user.used_intent.get_chargetime() && user.client?.chargedprog < 100)
 		newforce = newforce * round(user.client?.chargedprog / 100, 0.1)
 	// newforce = round(newforce, 1)
-	if(!(user.mobility_flags & MOBILITY_STAND))
+	if(user.body_position == LYING_DOWN)
 		newforce *= 0.5
 	if(user.has_status_effect(/datum/status_effect/divine_strike))
 		newforce += 5
@@ -512,9 +518,9 @@
 				adf = round(adf * 0.6)
 			user.changeNext_move(adf)
 			if(get_dist(get_turf(user), get_turf(target)) <= user.used_intent.reach)
-				user.do_attack_animation(target, visual_effect_icon = user.used_intent.animname)
+				user.do_attack_animation(target, visual_effect_icon = user.used_intent.animname, used_intent = user.used_intent)
 			else
-				user.do_attack_animation(get_ranged_target_turf(user, get_dir(user, target), 1), visual_effect_icon = user.used_intent.animname)
+				user.do_attack_animation(get_ranged_target_turf(user, get_dir(user, target), 1), visual_effect_icon = user.used_intent.animname, used_intent = user.used_intent)
 			playsound(get_turf(src), pick(swingsound), 100, FALSE, -1)
 			user.aftermiss()
 		if(!proximity_flag && ismob(target) && !user.used_intent?.noaa) //this block invokes miss cost clicking on seomone who isn't adjacent to you
@@ -525,9 +531,9 @@
 				adf = round(adf * 0.6)
 			user.changeNext_move(adf)
 			if(get_dist(get_turf(user), get_turf(target)) <= user.used_intent.reach)
-				user.do_attack_animation(target, visual_effect_icon = user.used_intent.animname)
+				user.do_attack_animation(target, visual_effect_icon = user.used_intent.animname, used_intent = user.used_intent)
 			else
-				user.do_attack_animation(get_ranged_target_turf(user, get_dir(user, target), 1), visual_effect_icon = user.used_intent.animname)
+				user.do_attack_animation(get_ranged_target_turf(user, get_dir(user, target), 1), visual_effect_icon = user.used_intent.animname, used_intent = user.used_intent)
 			playsound(get_turf(src), pick(swingsound), 100, FALSE, -1)
 			user.aftermiss()
 

@@ -3,13 +3,37 @@
 	roundend_category = "Lich"
 	antagpanel_category = "Lich"
 	job_rank = ROLE_LICH
+	antag_hud_type = ANTAG_HUD_NECROMANCY
+	antag_hud_name = "necromancer"
 	confess_lines = list(
 		"I WILL LIVE ETERNAL!",
 		"I AM BEHIND SEVEN PHYLACTERIES!",
 		"YOU CANNOT KILL ME!",
 	)
 	var/list/phylacteries = list()
+	/// weak reference to the body so we can revive even if decapitated
+	var/datum/weakref/lich_body
 	var/out_of_lives = FALSE
+
+	innate_traits = list(
+		TRAIT_NOSTAMINA,
+		TRAIT_NOHUNGER,
+		TRAIT_NOBREATH,
+		TRAIT_NOPAIN,
+		TRAIT_TOXIMMUNE,
+		TRAIT_STEELHEARTED,
+		TRAIT_NOSLEEP,
+		TRAIT_VAMPMANSION,
+		TRAIT_NOMOOD,
+		TRAIT_NOLIMBDISABLE,
+		TRAIT_SHOCKIMMUNE,
+		TRAIT_LIMBATTACHMENT,
+		TRAIT_SEEPRICES,
+		TRAIT_CRITICAL_RESISTANCE,
+		TRAIT_HEAVYARMOR,
+		TRAIT_CABAL,
+		TRAIT_DEATHSIGHT,
+	)
 
 /mob/living/carbon/human
 	/// List of minions that this mob has control over. Used for things like the Lich's "Command Undead" spell.
@@ -18,10 +42,14 @@
 /datum/antagonist/lich/on_gain()
 	SSmapping.retainer.liches |= owner
 	. = ..()
+	if(iscarbon(owner.current))
+		lich_body = WEAKREF(owner.current)
 	owner.special_role = name
+	move_to_spawnpoint()
+	remove_job()
+	owner.current?.roll_mob_stats()
 	skele_look()
 	equip_lich()
-	greet()
 	return ..()
 
 /datum/antagonist/lich/greet()
@@ -30,16 +58,13 @@
 	..()
 	owner.current.playsound_local(get_turf(owner.current), 'sound/music/lichintro.ogg', 80, FALSE, pressure_affected = FALSE)
 
-/datum/antagonist/lich/proc/move_to_spawnpoint()
+/datum/antagonist/lich/move_to_spawnpoint()
 	owner.current.forceMove(pick(GLOB.lich_starts))
 
 /datum/antagonist/lich/proc/skele_look()
 	var/mob/living/carbon/human/L = owner.current
-	L.hairstyle = "Bald"
-	L.facial_hairstyle = "Shaved"
-	L.update_body()
-	L.update_hair()
-	L.update_body_parts(redraw = TRUE)
+	L.skeletonize(FALSE)
+	L.skele_look()
 
 /datum/antagonist/lich/proc/equip_lich()
 	owner.unknow_all_people()
@@ -49,24 +74,8 @@
 
 	L.mana_pool.intrinsic_recharge_sources &= ~MANA_ALL_LEYLINES
 	L.mana_pool.set_intrinsic_recharge(MANA_SOULS)
+	L.mana_pool.ethereal_recharge_rate += 0.2
 
-	ADD_TRAIT(L, TRAIT_NOSTAMINA, "[type]")
-	ADD_TRAIT(L, TRAIT_NOHUNGER, "[type]")
-	ADD_TRAIT(L, TRAIT_NOBREATH, "[type]")
-	ADD_TRAIT(L, TRAIT_NOPAIN, "[type]")
-	ADD_TRAIT(L, TRAIT_TOXIMMUNE, "[type]")
-	ADD_TRAIT(L, TRAIT_STEELHEARTED, "[type]")
-	ADD_TRAIT(L, TRAIT_NOSLEEP, "[type]")
-	ADD_TRAIT(L, TRAIT_VAMPMANSION, "[type]")
-	ADD_TRAIT(L, TRAIT_NOMOOD, "[type]")
-	ADD_TRAIT(L, TRAIT_NOLIMBDISABLE, "[type]")
-	ADD_TRAIT(L, TRAIT_SHOCKIMMUNE, "[type]")
-	ADD_TRAIT(L, TRAIT_LIMBATTACHMENT, "[type]")
-	ADD_TRAIT(L, TRAIT_SEEPRICES, "[type]")
-	ADD_TRAIT(L, TRAIT_CRITICAL_RESISTANCE, "[type]")
-	ADD_TRAIT(L, TRAIT_HEAVYARMOR, "[type]")
-	ADD_TRAIT(L, TRAIT_CABAL, "[type]")
-	ADD_TRAIT(L, TRAIT_DEATHSIGHT, "[type]")
 	L.cmode_music = 'sound/music/cmode/antag/CombatLich.ogg'
 	if(prob(10))
 		L.cmode_music = 'sound/music/cmode/antag/combat_evilwizard.ogg'
@@ -75,14 +84,8 @@
 		QDEL_NULL(L.charflaw)
 	L.mob_biotypes |= MOB_UNDEAD
 	L.dna.species.species_traits |= NOBLOOD
-	var/obj/item/organ/eyes/eyes = L.getorganslot(ORGAN_SLOT_EYES)
-	if(eyes)
-		eyes.Remove(L,1)
-		QDEL_NULL(eyes)
-	eyes = new /obj/item/organ/eyes/night_vision/zombie
-	eyes.Insert(L)
-	for(var/obj/item/bodypart/B in L.bodyparts)
-		B.skeletonize(FALSE)
+	L.grant_undead_eyes()
+	L.skeletonize(FALSE)
 	L.unequip_everything()
 	L.equipOutfit(/datum/outfit/job/lich)
 	L.set_patron(/datum/patron/inhumen/zizo)
@@ -135,6 +138,7 @@
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/sickness)
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/fetch)
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/diagnose/secular)
+	H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/arcyne_eye)
 	H.dna.species.soundpack_m = new /datum/voicepack/lich()
 	H.ambushable = FALSE
 
@@ -155,24 +159,31 @@
 		phylacteries -= phyl
 		return TRUE
 
-/datum/antagonist/lich/proc/rise_anew()
-	var/mob/living/carbon/human/bigbad = owner.current
-	bigbad.revive(TRUE, TRUE)
+/datum/antagonist/lich/proc/rise_anew(location)
+	var/mob/living/carbon/human/lich_mob
+	if(isbrain(owner.current)) // we have been decapitated, let's reattach to our old body.
+		lich_mob = lich_body.resolve() // current body isn't a human mob, let's use the reference to our old body.
+		if(isnull(lich_mob))
+			return // the old body no longer exists, it's over.
+		var/mob/living/brain/lich_brain = owner.current
+		if(!istype(lich_brain.loc.loc, /obj/item/bodypart/head))
+			return // we have no head, it's over.
+		var/obj/item/bodypart/head/lich_head = lich_brain.loc.loc
+		lich_head.attach_limb(lich_mob)
+	else
+		if(ishuman(owner.current))
+			lich_mob = owner.current // current body is a human mob.
 
-	for(var/obj/item/bodypart/B in bigbad.bodyparts)
-		B.skeletonize(FALSE)
+	lich_mob.revive(TRUE, TRUE) // we live, yay.
+	lich_mob.ckey = owner.current.client.ckey
 
-	bigbad.faction = list(FACTION_UNDEAD)
-	if(bigbad.charflaw)
-		QDEL_NULL(bigbad.charflaw)
-	bigbad.mob_biotypes |= MOB_UNDEAD
-	var/obj/item/organ/eyes/eyes = bigbad.getorganslot(ORGAN_SLOT_EYES)
-	if(eyes)
-		eyes.Remove(bigbad,1)
-		QDEL_NULL(eyes)
-	eyes = new /obj/item/organ/eyes/night_vision/zombie
-	eyes.Insert(bigbad)
+	lich_mob.skeletonize(FALSE)
 
+	lich_mob.faction = list(FACTION_UNDEAD)
+	if(lich_mob.charflaw)
+		QDEL_NULL(lich_mob.charflaw)
+	lich_mob.mob_biotypes |= MOB_UNDEAD
+	lich_mob.grant_undead_eyes()
 
 /obj/item/phylactery
 	name = "phylactery"
@@ -204,6 +215,6 @@
 	animate(src, pixel_x = pixel_x + offset, time = 0.2, loop = -1) //start shaking
 	visible_message(span_warning("[src] begins to glow and shake violently!"))
 	spawn(timer)
-		possessor.owner.current.forceMove(get_turf(src))
 		possessor.rise_anew()
+		possessor.owner.current.forceMove(get_turf(src))
 		qdel(src)

@@ -43,17 +43,11 @@
 		qdel(O)
 	H.regenerate_limb(BODY_ZONE_R_ARM)
 	H.regenerate_limb(BODY_ZONE_L_ARM)
-	for(var/obj/item/bodypart/B in H.bodyparts)
-		B.skeletonize()
+	H.skeletonize()
 	H.base_intents = list(INTENT_HELP, INTENT_DISARM, INTENT_GRAB, /datum/intent/simple/claw)
 	H.update_a_intents()
 
-	var/obj/item/organ/eyes/eyes = H.getorganslot(ORGAN_SLOT_EYES)
-	if(eyes)
-		eyes.Remove(H, TRUE)
-		QDEL_NULL(eyes)
-	eyes = new /obj/item/organ/eyes/night_vision/zombie
-	eyes.Insert(H)
+	H.grant_undead_eyes()
 	H.ambushable = FALSE
 	H.underwear = "Nude"
 	if(H.charflaw)
@@ -74,10 +68,10 @@
 /datum/outfit/job/skeleton/pre_equip(mob/living/carbon/human/H)
 	..()
 
-	H.TOTALSTR = rand(8,10)
-	H.TOTALSPD = rand(7,10)
-	H.TOTALINT = 1
-	H.TOTALCON = 3
+	H.base_strength = rand(8,10)
+	H.base_speed = rand(7,10)
+	H.base_intelligence = 1
+	H.base_constitution = 3
 
 /* RAIDER SKELETONS */
 /datum/job/skeleton/raider
@@ -179,10 +173,10 @@
 
 /datum/outfit/job/skeleton/zizoid/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.TOTALSTR = rand(8,17)
-	H.TOTALSPD = rand(7,10)
-	H.TOTALINT = 1
-	H.TOTALCON = 3
+	H.base_strength = rand(8,17)
+	H.base_speed = rand(7,10)
+	H.base_intelligence = 1
+	H.base_constitution = 3
 
 	H.verbs |= /mob/living/carbon/human/proc/praise
 	H.verbs |= /mob/living/carbon/human/proc/communicate

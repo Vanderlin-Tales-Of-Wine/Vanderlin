@@ -9,8 +9,8 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	roundend_category = "Vampires"
 	antagpanel_category = "Vampire"
 	job_rank = ROLE_VAMPIRE
-	antag_hud_type = ANTAG_HUD_TRAITOR
-	antag_hud_name = "Vspawn"
+	antag_hud_type = ANTAG_HUD_VAMPIRE
+	antag_hud_name = "vamp"
 	confess_lines = list(
 		"I WANT YOUR BLOOD!",
 		"DRINK THE BLOOD!",
@@ -22,8 +22,8 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	/// If the vampire will autojoin on spawn.
 	var/autojoin_team = FALSE //! shouldn't exist, need to find a better method
 
-	/// TRAITs that the datum will grant. Static, should not be modified.
-	var/static/list/innate_traits = list(
+	/// TRAITs that the datum will grant.
+	innate_traits = list(
 		TRAIT_STRONGBITE,
 		TRAIT_NOSTAMINA,
 		TRAIT_NOHUNGER,
@@ -57,19 +57,9 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	if(istype(examined_datum, /datum/antagonist/skeleton))
 		return span_boldnotice("Another deadite.")
 
-/datum/antagonist/vampire/apply_innate_effects(mob/living/mob_override)
-	var/mob/living/M = mob_override || owner.current
-	add_antag_hud(antag_hud_type, antag_hud_name, M)
-	for(var/trait as anything in innate_traits)
-		ADD_TRAIT(M, trait, "[type]")
-
-/datum/antagonist/vampire/remove_innate_effects(mob/living/mob_override)
-	var/mob/living/M = mob_override || owner.current
-	remove_antag_hud(antag_hud_type, M)
-	for(var/trait as anything in innate_traits)
-		REMOVE_TRAIT(M, trait, "[type]")
-
 /datum/antagonist/vampire/on_gain()
+	owner.current.has_reflection = FALSE
+	owner.current.cut_overlay(owner.current.reflective_icon)
 	SSmapping.retainer.vampires |= owner
 	move_to_spawnpoint()
 	owner.special_role = name
@@ -91,13 +81,13 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	owner.current.verbs |= /mob/living/carbon/human/proc/disguise_button
 
 /datum/antagonist/vampire/on_removal()
+	owner.current.has_reflection = TRUE
+	owner.current.create_reflection()
+	owner.current.update_reflection()
 	if(!silent && owner.current)
 		to_chat(owner.current, span_danger("I am no longer a [job_rank]!"))
 	owner.special_role = null
 	return ..()
-
-/datum/antagonist/vampire/proc/move_to_spawnpoint()
-	return
 
 /datum/antagonist/vampire/proc/equip()
 	return
@@ -109,15 +99,18 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 
 /datum/antagonist/vampire/proc/vamp_look()
 	var/mob/living/carbon/human/V = owner.current
+	var/obj/item/organ/eyes/eyes = V.getorganslot(ORGAN_SLOT_EYES)
 	cache_skin = V.skin_tone
-	cache_eyes = V.eye_color
-	cache_hair = V.hair_color
+	cache_eyes = V.get_eye_color()
+	cache_hair = V.get_hair_color()
 	V.skin_tone = "c9d3de"
-	V.hair_color = "181a1d"
-	V.facial_hair_color = "181a1d"
-	V.eye_color = "ff0000"
+	V.set_hair_color("#181a1d", FALSE)
+	V.set_facial_hair_color("#181a1d", FALSE)
+
+	eyes.heterochromia = FALSE
+	eyes.eye_color = "#FF0000"
+
 	V.update_body()
-	V.update_hair()
 	V.update_body_parts(redraw = TRUE)
 	V.mob_biotypes = MOB_UNDEAD
 

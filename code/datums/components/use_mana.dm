@@ -137,7 +137,10 @@
 			attuned_cost = (mana_consumed * mult)
 			if (pool.amount < attuned_cost)
 				attuned_cost = (pool.amount)
-			mana_consumed -= SAFE_DIVIDE(pool.adjust_mana((attuned_cost)), mult)
+			var/mana_adjusted = SAFE_DIVIDE(pool.adjust_mana((attuned_cost)), mult) * (has_world_trait(/datum/world_trait/noc_wisdom) ? 0.8 : 1)
+			mana_consumed -= mana_adjusted
+			record_featured_stat(FEATURED_STATS_MAGES, user, abs(mana_adjusted))
+			GLOB.vanderlin_round_stats[STATS_MANA_SPENT] += abs(mana_adjusted)
 			if (available_pools.Find(pool) == available_pools.len && mana_consumed <= -0.05) // if we're at the end of the list and mana_consumed is not 0 or near 0 (floating points grrr)
 				stack_trace("cost: [mana_consumed] was not 0 after drain_mana on [src]! This could've been an infinite loop!")
 				mana_consumed = 0 // lets terminate the loop to be safe

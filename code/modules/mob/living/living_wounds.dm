@@ -135,6 +135,14 @@
 					added_wound = /datum/wound/puncture
 				if(1 to 10)
 					added_wound = /datum/wound/puncture/small
+		if(BCLASS_LASHING)
+			switch(dam)
+				if(20 to INFINITY)
+					added_wound = /datum/wound/lashing/large
+				if(10 to 20)
+					added_wound = /datum/wound/lashing
+				if(1 to 10)
+					added_wound = /datum/wound/lashing/small
 		if(BCLASS_BITE)
 			switch(dam)
 				if(20 to INFINITY)
@@ -189,7 +197,7 @@
 	for(var/wound_type in shuffle(attempted_wounds))
 		var/datum/wound/applied = simple_add_wound(wound_type, silent, crit_message)
 		if(applied)
-			if(user.client)
+			if(user?.client)
 				GLOB.vanderlin_round_stats[STATS_CRITS_MADE]++
 			return applied
 	return FALSE
@@ -219,7 +227,7 @@
 		return FALSE
 	LAZYREMOVE(simple_embedded_objects, embedder)
 	embedder.is_embedded = FALSE
-	embedder.unembedded()
+	embedder.unembedded(src)
 	if(!QDELETED(embedder))
 		var/drop_location = drop_location()
 		if(drop_location)

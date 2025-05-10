@@ -44,11 +44,20 @@
 		/obj/item/natural/elementalmote,
 		/obj/item/mana_battery/mana_crystal/standard,
 		/obj/item/mana_battery/mana_crystal/standard,
-		/obj/item/mana_battery/mana_crystal/standard,
 		/obj/item/natural/obsidian,
 		/obj/item/natural/obsidian,
 		/obj/item/natural/obsidian,
 		/obj/item/reagent_containers/food/snacks/produce/manabloom,
+		/obj/item/reagent_containers/food/snacks/produce/manabloom,
+		/obj/item/reagent_containers/food/snacks/produce/manabloom,
+	)
+
+/obj/item/storage/magebag/poor
+	populate_contents = list(
+		/obj/item/mana_battery/mana_crystal/standard,
+		/obj/item/mana_battery/mana_crystal/standard,
+		/obj/item/mana_battery/mana_crystal/small,
+		/obj/item/mana_battery/mana_crystal/small,
 		/obj/item/reagent_containers/food/snacks/produce/manabloom,
 		/obj/item/reagent_containers/food/snacks/produce/manabloom,
 	)
@@ -66,7 +75,6 @@
 	w_class = WEIGHT_CLASS_SMALL
 	grid_height = 32
 	grid_width = 32
-	var/rune_to_scribe = null
 	var/amount = 8
 
 /obj/item/chalk/natural
@@ -85,35 +93,35 @@
 	else
 		return ..()
 
-
 /obj/item/chalk/attack_self(mob/living/carbon/human/user)
 	if(!isarcyne(user))//We'll set up other items for other types of rune rituals
 		to_chat(user, span_cult("Nothing comes in mind to draw with the chalk."))
 		return
-	var/datum/ritual/pickrune
-	var/runenameinput = input(user, "Runes", "Tier 1&2 Runes") as null|anything in GLOB.t2rune_types
-	testing("runenameinput [runenameinput]")
+	var/obj/effect/decal/cleanable/roguerune/pickrune
+	var/runenameinput = browser_input_list(user, "Runes", "Tier 1&2 Runes", GLOB.t2rune_types)
 	pickrune = GLOB.rune_types[runenameinput]
-	rune_to_scribe = pickrune
-	if(rune_to_scribe == null)
+	if(!pickrune)
 		return
 	var/turf/Turf = get_turf(user)
 	if(locate(/obj/effect/decal/cleanable/roguerune) in Turf)
 		to_chat(user, span_cult("There is already a rune here."))
 		return
-	var/structures_in_way = check_for_structures_and_closed_turfs(loc, rune_to_scribe)
+	var/structures_in_way = check_for_structures_and_closed_turfs(loc, pickrune)
 	if(structures_in_way == TRUE)
 		to_chat(user, span_cult("There is a structure, rune or wall in the way."))
 		return
-	var/crafttime = (100 - ((user.mind?.get_skill_level(/datum/skill/magic/arcane))*5))
+	var/crafttime = (10 SECONDS - ((user.mind?.get_skill_level(/datum/skill/magic/arcane)) * 5))
 
-	user.visible_message(span_notice("I start drag the blade in the shape of symbols and sigils"))
+	user.visible_message(span_warning("[user] begins to scribe something [user.p_their()] [src]!"), \
+		span_notice("I start to drag the [src] in the shape of symbols and sigils"))
 	playsound(loc, 'sound/magic/chalkdraw.ogg', 100, TRUE)
 	if(do_after(user, crafttime, target = src))
-		user.visible_message(span_warning("[user] carves an arcyne rune with [user.p_their()] [src]!"), \
-		span_notice("I finish dragging the blade in symbols and circles, leaving behind an ritual rune"))
-		src.amount --
-		new rune_to_scribe(Turf)
+		if(QDELETED(src) || !pickrune)
+			return
+		user.visible_message(span_warning("[user] scribes an arcyne rune with [user.p_their()] [src]!"), \
+		span_notice("I finish dragging the [src] in symbols and circles, leaving behind a [pickrune.name]."))
+		src.amount--
+		new pickrune(Turf)
 	if(amount <= 0)
 		qdel(src)
 
@@ -132,13 +140,10 @@
 		//Return false if nothing in range was found
 	return FALSE
 
-
 /obj/item/weapon/knife/dagger/silver/arcyne
 	name = "glowing purple silver dagger"
 	desc = "This dagger glows a faint purple. Quicksilver runs across its blade."
 	var/is_bled = FALSE
-	var/obj/effect/decal/cleanable/roguerune/rune_to_scribe = null
-	var/chosen_keyword
 
 /obj/item/weapon/knife/dagger/silver/arcyne/Initialize()
 	. = ..()
@@ -158,52 +163,50 @@
 		return ..()
 
 /obj/item/weapon/knife/dagger/silver/arcyne/attack_self(mob/living/carbon/human/user)
-
 	if(!isarcyne(user))
 		return
-	if(!is_bled)
-		playsound(loc, get_sfx("genslash"), 100, TRUE)
-		user.visible_message(span_warning("[user] cuts open [user.p_their()] palm!"), \
-			span_cult("I slice open my palm!"))
-		if(user.blood_volume)
-			var/obj/effect/decal/cleanable/roguerune/rune = rune_to_scribe
-			user.apply_damage(initial(rune.scribe_damage), BRUTE, pick(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM))
-		is_bled = TRUE
-		return
-	var/datum/ritual/pickrune
-	var/runenameinput = input(user, "Runes", "Vanderlin") as null|anything in GLOB.t4rune_types
-	testing("runenameinput [runenameinput]")
+	var/obj/effect/decal/cleanable/roguerune/pickrune
+	var/runenameinput = browser_input_list(user, "Runes", "All Runes", GLOB.t4rune_types)
 	pickrune = GLOB.rune_types[runenameinput]
-	rune_to_scribe = pickrune
-	if(rune_to_scribe == null)
+	if(!pickrune)
 		return
 	var/turf/Turf = get_turf(user)
 	if(locate(/obj/effect/decal/cleanable/roguerune) in Turf)
 		to_chat(user, span_cult("There is already a rune here."))
 		return
-	var/structures_in_way = check_for_structures_and_closed_turfs(loc, rune_to_scribe)
+	var/structures_in_way = check_for_structures_and_closed_turfs(loc, pickrune)
 	if(structures_in_way == TRUE)
 		to_chat(user, span_cult("There is a structure, rune or wall in the way."))
 		return
-	if(initial(rune_to_scribe.req_keyword))
-		chosen_keyword = stripped_input(user, "Keyword for the new rune", "Vanderlin", max_length = MAX_NAME_LEN)
+	var/chosen_keyword
+	if(pickrune.req_keyword)
+		chosen_keyword = stripped_input(user, "Keyword for the new rune", "Runes", max_length = MAX_NAME_LEN)
 		if(!chosen_keyword)
 			return FALSE
-	var/crafttime = (100 - ((user.mind?.get_skill_level(/datum/skill/magic/arcane))*5))
+	if(!is_bled)
+		playsound(loc, get_sfx("genslash"), 100, TRUE)
+		user.visible_message(span_warning("[user] cuts open [user.p_their()] palm!"), \
+			span_cult("I slice open my palm!"))
+		if(user.blood_volume)
+			user.apply_damage(pickrune.scribe_damage, BRUTE, pick(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM))
+		is_bled = TRUE
+	var/crafttime = (10 SECONDS - ((user.mind?.get_skill_level(/datum/skill/magic/arcane)) * 5))
 
-	user.visible_message(span_notice("I start drag the blade in the shape of symbols and sigils"))
+	user.visible_message(span_warning("[user] begins to carve something with [user.p_their()] blade!"), \
+		span_notice("I start to drag the blade in the shape of symbols and sigils."))
 	playsound(loc, 'sound/magic/bladescrape.ogg', 100, TRUE)
 	if(do_after(user, crafttime, target = src))
+		if(QDELETED(src) || !pickrune)
+			return
 		user.visible_message(span_warning("[user] carves an arcyne rune with [user.p_their()] [src]!"), \
-		span_notice("I finish dragging the blade in symbols and circles, leaving behind an ritual rune"))
-		new rune_to_scribe(Turf, chosen_keyword)
+		span_notice("I finish dragging the blade in symbols and circles, leaving behind a [pickrune.name]."))
+		new pickrune(Turf, chosen_keyword)
 
 /obj/item/weapon/knife/dagger/proc/check_for_structures_and_closed_turfs(loc, obj/effect/decal/cleanable/roguerune/rune_to_scribe)
 	for(var/turf/T in range(loc, rune_to_scribe.runesize))
 		//check for /sturcture subtypes in the turf's contents
 		for(var/obj/structure/S in T.contents)
 			return TRUE		//Found a structure, no need to continue
-
 		//check if turf itself is a /turf/closed subtype
 		if(istype(T,/turf/closed))
 			return TRUE
@@ -212,8 +215,6 @@
 			return TRUE
 		//Return false if nothing in range was found
 	return FALSE
-
-
 
 /obj/item/gem/amethyst
 	name = "amythortz"
@@ -264,7 +265,6 @@
 		desc = target.desc
 		ready = FALSE
 		timing_id = addtimer(CALLBACK(src, PROC_REF(revert), user), duration,TIMER_STOPPABLE) // Minus two so we play the sound and decap faster
-
 
 /obj/item/hourglass/temporal
 	name = "temporal hourglass"
@@ -345,7 +345,6 @@
 	else
 		user.visible_message(span_warning("[user] stops looking through the [src]!"))
 		demagicify()
-
 
 /obj/item/clothing/ring/shimmeringlens/proc/activate(mob/user)
 	ADD_TRAIT(user, TRAIT_SEE_LEYLINES, "[type]")
@@ -561,7 +560,6 @@
 
 ////////////////////////////////////////Magic resources go below here////////////////////
 
-
 //mapfetchable items
 /obj/item/natural/obsidian
 	name = "obsidian fragment"
@@ -643,7 +641,7 @@
 	desc = "A melding of arcane fusion and voidstone. It pulses erratically, power coiled tightly within and dangerous. Many would be afraid of going near this, let alone holding it."
 
 
-/obj/item/soul
+/obj/structure/soul
 	name = "soul"
 	desc = "The soul of the dead"
 
@@ -651,31 +649,35 @@
 	icon_state = "soul"
 
 	plane = PLANE_LEYLINES
+	invisibility = INVISIBILITY_LEYLINES
 	anchored = TRUE
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 
 	var/mana_amount = 75
 
 	var/datum/weakref/drainer
 
-/obj/item/soul/New(loc, mob/living/dead_person)
+/obj/structure/soul/New(loc, mob/living/dead_person)
 	if(dead_person?.mana_pool)
 		mana_amount = dead_person.mana_pool.amount
 		drainer = WEAKREF(dead_person)
 	animate(src, pixel_y = 4, time = 1 SECONDS, loop = -1, flags = ANIMATION_RELATIVE)
 	animate(pixel_y = -4, time = 1 SECONDS, flags = ANIMATION_RELATIVE)
+	QDEL_IN(src, 10 MINUTES)
+	. = ..()
 
-/obj/item/soul/attack_hand(mob/living/user)
+/obj/structure/soul/attack_hand(mob/living/user)
 	. = ..()
 	if(user.mana_pool)
 		if(user.mana_pool.intrinsic_recharge_sources & MANA_SOULS)
 			drain_mana(user)
 
-/obj/item/soul/proc/drain_mana(mob/living/user)
+/obj/structure/soul/proc/drain_mana(mob/living/user)
 	var/datum/beam/transfer_beam = user.Beam(src, icon_state = "drain_life", time = INFINITY)
 
 	var/failed = FALSE
 	while(!failed)
-		var/mob/living/drained = drainer.resolve()
+		var/mob/living/drained = drainer?.resolve()
 		if(!do_after(user, 3 SECONDS, target = src))
 			qdel(transfer_beam)
 			failed = TRUE

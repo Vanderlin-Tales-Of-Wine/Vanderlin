@@ -100,11 +100,11 @@
 	W.after_creation()
 	W.stored_language = new
 	W.stored_language.copy_known_languages_from(src)
-	W.stored_skills = mind.known_skills.Copy()
-	W.stored_experience = mind.skill_experience.Copy()
-	mind.transfer_to(W)
-	W.mind.known_skills = list()
-	W.mind.skill_experience = list()
+	W.stored_skills = mind?.known_skills.Copy()
+	W.stored_experience = mind?.skill_experience.Copy()
+	mind?.transfer_to(W)
+	W.mind?.known_skills = list()
+	W.mind?.skill_experience = list()
 	W.grant_language(/datum/language/beast)
 
 	W.base_intents = list(INTENT_HELP, INTENT_DISARM, INTENT_GRAB)
@@ -113,13 +113,13 @@
 	to_chat(W, span_userdanger("I transform into a horrible beast!"))
 	W.emote("rage")
 
-	W.mind.adjust_skillrank(/datum/skill/combat/wrestling, 5, TRUE)
-	W.mind.adjust_skillrank(/datum/skill/combat/unarmed, 5, TRUE)
-	W.mind.adjust_skillrank(/datum/skill/misc/climbing, 6, TRUE)
+	W.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 5, TRUE)
+	W.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 5, TRUE)
+	W.mind?.adjust_skillrank(/datum/skill/misc/climbing, 6, TRUE)
 
-	W.TOTALSTR = 15
-	W.TOTALCON = 15
-	W.TOTALEND = 15
+	W.base_strength = 15
+	W.base_constitution = 15
+	W.base_endurance = 15
 	W.dodgetime = 36
 
 	W.AddSpell(new /obj/effect/proc_holder/spell/self/howl)

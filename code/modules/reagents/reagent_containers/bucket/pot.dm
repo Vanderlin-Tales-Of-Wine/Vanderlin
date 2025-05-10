@@ -295,6 +295,13 @@
 /datum/pot_recipe/drugs
 	abstract_type = /datum/pot_recipe/drugs
 
+/datum/pot_recipe/cooking/sugar
+	name = "boiled sugar"
+	cooking_time = 90 SECONDS
+	produced_reagent = /datum/reagent/consumable/sugar
+	required_items = list(/obj/item/reagent_containers/food/snacks/sugar = 1)
+	finished_smell = /datum/pollutant/food/sugar
+
 /datum/pot_recipe/drugs/drukqs
 	name = "drukqs"
 	cooking_time = 50 SECONDS
@@ -384,6 +391,64 @@
 	water_conversion = 0.6
 	produced_reagent = /datum/reagent/medicine/manapot/weak
 	required_items = list(/obj/item/reagent_containers/powder/manabloom = 2, /obj/item/mana_battery/mana_crystal/small = 1)
+	finished_smell = /datum/pollutant/food/druqks
+	pollute_amount = 100
+
+//teas go here
+/datum/pot_recipe/tea
+	abstract_type = /datum/pot_recipe/tea
+
+/datum/pot_recipe/tea/taraxamint
+	name = "Taraxacum-Mentha tea"
+	cooking_time = 60 SECONDS
+	water_conversion = 0.6
+	produced_reagent = /datum/reagent/consumable/tea/taraxamint
+	required_items = list(/obj/item/alch/taraxacum = 1, /obj/item/alch/mentha = 1)
+	finished_smell = /datum/pollutant/food/teas
+	pollute_amount = 100
+
+/datum/pot_recipe/tea/utricasalvia
+	name = "Urtica-Salvia tea"
+	cooking_time = 60 SECONDS
+	water_conversion = 0.6
+	produced_reagent = /datum/reagent/consumable/tea/utricasalvia
+	required_items = list(/obj/item/alch/urtica = 1, /obj/item/alch/salvia = 1)
+	finished_smell = /datum/pollutant/food/teas
+	pollute_amount = 100
+
+/datum/pot_recipe/tea/badidea
+	name = "westleach tar tea"
+	cooking_time = 40 SECONDS
+	water_conversion = 0.2
+	produced_reagent = /datum/reagent/consumable/tea/badidea
+	required_items = list(/obj/item/reagent_containers/food/snacks/produce/dry_westleach = 3)
+	finished_smell = /datum/pollutant/food/fried_rat
+	pollute_amount = 100
+
+/datum/pot_recipe/tea/fourtwenty
+	name = "swampweed brew"
+	cooking_time = 40 SECONDS
+	water_conversion = 0.6
+	produced_reagent = /datum/reagent/consumable/tea/fourtwenty
+	required_items = list(/obj/item/reagent_containers/food/snacks/produce/swampweed_dried = 2)
+	finished_smell = /datum/pollutant/food/druqks
+	pollute_amount = 100
+
+/datum/pot_recipe/tea/manabloom
+	name = "Manabloom tea"
+	cooking_time = 40 SECONDS
+	water_conversion = 0.6
+	produced_reagent = /datum/reagent/consumable/tea/manabloom
+	required_items = list(/obj/item/reagent_containers/food/snacks/produce/manabloom = 2) // weak, unrefined, crude manabloom extraction
+	finished_smell = /datum/pollutant/food/druqks
+	pollute_amount = 100
+
+/datum/pot_recipe/tea/compot
+	name = "Compot"
+	cooking_time = 90 SECONDS
+	water_conversion = 0.8
+	produced_reagent = /datum/reagent/consumable/tea/compot
+	required_items = list(/obj/item/reagent_containers/food/snacks/raisins = 2) // weak, unrefined, crude manabloom extraction
 	finished_smell = /datum/pollutant/food/druqks
 	pollute_amount = 100
 

@@ -18,7 +18,6 @@
 	sharpness = IS_BLUNT
 	wlength = WLENGTH_LONG
 	w_class = WEIGHT_CLASS_BULKY
-	walking_stick = TRUE
 	minstr = 6
 	gripsprite = TRUE
 	drop_sound = 'sound/foley/dropsound/wooden_drop.ogg'
@@ -105,6 +104,8 @@
 
 /obj/item/weapon/thresher/afterattack(obj/target, mob/user, proximity)
 	if(user.used_intent.type == /datum/intent/flailthresh)
+		if(!proximity)
+			return
 		if(isturf(target.loc))
 			var/turf/T = target.loc
 			var/found = FALSE
@@ -115,9 +116,9 @@
 				playsound(loc,"plantcross", 90, FALSE)
 				playsound(loc,"smashlimb", 35, FALSE)
 				apply_farming_fatigue(user, 10)
-				user.visible_message("<span class='notice'>[user] threshes the stalks!</span>", \
-									"<span class='notice'>I thresh the stalks.</span>")
-			return
+				user.visible_message(span_notice("[user] threshes the stalks!"), \
+									span_notice("I thresh the stalks."))
+		return
 	..()
 
 
@@ -223,7 +224,6 @@
 	slot_flags = ITEM_SLOT_BACK
 	minstr = 5
 	sharpness = IS_BLUNT
-	walking_stick = TRUE
 	drop_sound = 'sound/foley/dropsound/wooden_drop.ogg'
 	smeltresult = /obj/item/ingot/iron
 	possible_item_intents = list(POLEARM_BASH)
@@ -236,6 +236,10 @@
 	wlength = 66
 	var/time_multiplier = 1
 	max_integrity = 150
+
+/obj/item/weapon/hoe/Initialize()
+	. = ..()
+	AddComponent(/datum/component/walking_stick)
 
 /obj/item/weapon/hoe/getonmobprop(tag)
 	. = ..()
@@ -349,7 +353,6 @@
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BACK
 	blade_dulling = DULLING_BASHCHOP
-	walking_stick = TRUE
 	minstr = 6
 	var/list/forked = list()
 	drop_sound = 'sound/foley/dropsound/wooden_drop.ogg'
@@ -364,6 +367,10 @@
 	force_wielded = 22
 	wdefense = MEDIOCHRE_PARRY
 	wlength = WLENGTH_LONG
+
+/obj/item/weapon/pitchfork/Initialize()
+	. = ..()
+	AddComponent(/datum/component/walking_stick)
 
 /obj/item/weapon/pitchfork/getonmobprop(tag)
 	. = ..()

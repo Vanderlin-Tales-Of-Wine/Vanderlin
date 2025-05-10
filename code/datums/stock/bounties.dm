@@ -20,25 +20,6 @@
 	if(bounty_percent < 1)
 		return 0
 	return bounty_percent
-/*
-* This removed code seems to be for
-* the unused submitted_to_stockpile
-* variable. If you submitted a statue
-* and get paid the statue is labeled as
-* in stockpile. If you robbed the vault
-* and put the item back in you would get
-* no money. This seems like exploit prevention.
-
-	var/taxes_amount = bounty_percent * SStreasury.tax_value
-	taxes_amount = max(bounty_percent - taxes_amount, 0)
-	if(I.submitted_to_stockpile)
-		return 0
-	return taxes_amount
-*/
-
-/obj/item
-	var/submitted_to_stockpile
-	var/list/attunement_values
 
 /*
 * Weird proc that prevents

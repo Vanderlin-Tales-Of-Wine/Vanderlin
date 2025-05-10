@@ -90,3 +90,11 @@ SUBSYSTEM_DEF(lighting)
 /datum/controller/subsystem/lighting/Recover()
 	initialized = SSlighting.initialized
 	..()
+
+/datum/controller/subsystem/lighting/proc/create_all_lighting_objects()
+	for(var/area/area as anything in GLOB.areas)
+		for (var/list/zlevel_turfs as anything in area.get_zlevel_turf_lists())
+			for(var/turf/area_turf as anything in zlevel_turfs)
+				new /atom/movable/lighting_object(area_turf)
+			CHECK_TICK
+		CHECK_TICK

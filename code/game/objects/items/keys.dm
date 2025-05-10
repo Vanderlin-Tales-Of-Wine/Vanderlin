@@ -122,8 +122,8 @@
 		var/obj/structure/closet/C = target
 		if(C.masterkey)
 			lockid = C.lockid
-	if(istype(target, /obj/structure/mineral_door))
-		var/obj/structure/mineral_door/D = target
+	if(istype(target, /obj/structure/door))
+		var/obj/structure/door/D = target
 		if(D.masterkey)
 			lockid = D.lockid
 
@@ -133,8 +133,8 @@
 		var/obj/structure/closet/C = target
 		if(C.masterkey)
 			lockid = C.lockid
-	if(istype(target, /obj/structure/mineral_door))
-		var/obj/structure/mineral_door/D = target
+	if(istype(target, /obj/structure/door))
+		var/obj/structure/door/D = target
 		if(D.masterkey)
 			lockid = D.lockid
 
@@ -198,6 +198,12 @@
 	desc = "This bronze key should open the Artificer's guild."
 	icon_state = "brownkey"
 	lockid = ACCESS_ARTIFICER
+
+/obj/item/key/miner
+	name = "miner's key"
+	desc = "This bronze key should open the Miner's quarters."
+	icon_state = "brownkey"
+	lockid = ACCESS_MINER
 
 // Residents
 
@@ -341,6 +347,12 @@
 	desc = "The key to the manor's guest room. Given to visiting nobles."
 	icon_state = "greenkey"
 	lockid = ACCESS_GUEST
+
+/obj/item/key/courtphys
+	name = "court physician's key"
+	desc = "A key granted to the honored Court Physician."
+	icon_state = "ankhkey"
+	lockid = ACCESS_PHYSICIAN
 
 ////// CHURCH
 

@@ -122,7 +122,7 @@
 	if(mob.buckled)							//if we're buckled to something, tell it we moved.
 		return mob.buckled.relaymove(mob, direct)
 
-	if(!(L.mobility_flags & MOBILITY_MOVE))
+	if(HAS_TRAIT(L, TRAIT_IMMOBILIZED))
 		return FALSE
 
 	if(isobj(mob.loc) || ismob(mob.loc))	//Inside an object, tell it we moved
@@ -192,7 +192,7 @@
 	if(P)
 		if(isliving(P))
 			var/mob/living/M = P
-			if(!(M.mobility_flags & MOBILITY_STAND))
+			if(M.body_position == LYING_DOWN)
 				if(!M.buckled) //carrying/piggyback
 					mob.setDir(turn(mob.dir, 180))
 		else
@@ -230,11 +230,11 @@
 			move_delay = world.time + 10
 			to_chat(src, "<span class='warning'>I can't move!</span>")
 			return TRUE
-		else if(mob.incapacitated(ignore_restraints = 1))
+		else if(HAS_TRAIT(mob, TRAIT_INCAPACITATED))
 			move_delay = world.time + 10
 			to_chat(src, "<span class='warning'>I can't move!</span>")
 			return TRUE
-		else if(mob.restrained(ignore_grab = 1))
+		else if(HAS_TRAIT(mob, TRAIT_RESTRAINED))
 			move_delay = world.time + 10
 			to_chat(src, "<span class='warning'>I'm restrained! I can't move!</span>")
 			return TRUE
@@ -649,7 +649,7 @@
 					return
 				if(ishuman(L))
 					var/mob/living/carbon/human/H = L
-					if(!H.check_armor_skill())
+					if(H.get_encumbrance() >= 0.7)
 						to_chat(H, span_info("Your armor is too heavy to run in!"))
 						return
 			m_intent = MOVE_INTENT_RUN
@@ -658,50 +658,6 @@
 			selector.update_icon()
 	if(!silent)
 		playsound_local(src, 'sound/misc/click.ogg', 100)
-
-/mob/living/proc/check_armor_skill()
-	return TRUE
-
-/mob/living/carbon/human/check_armor_skill()
-	if(worn_armor_class == AC_HEAVY)
-		if(!HAS_TRAIT(src, TRAIT_HEAVYARMOR))
-			return FALSE
-	if(worn_armor_class == AC_MEDIUM)
-		if(!HAS_TRAIT(src, TRAIT_HEAVYARMOR))
-			if(!HAS_TRAIT(src, TRAIT_MEDIUMARMOR))
-				return FALSE
-	return TRUE
-
-/mob/living/proc/check_armor_weight()
-	return "Light"
-
-/mob/living/carbon/human/check_armor_weight() // Get the heaviest shirt/armor the mob is wearing.
-	var/heaviest = "Light"
-	if(istype(src.wear_armor, /obj/item/clothing))
-		var/obj/item/clothing/CL = src.wear_armor
-		if(CL.armor_class == AC_HEAVY && (heaviest == "Light" || heaviest == "Medium"))
-			heaviest = "Heavy"
-		if(CL.armor_class == AC_MEDIUM && heaviest == "Light")
-			heaviest = "Medium"
-	if(istype(src.wear_shirt, /obj/item/clothing))
-		var/obj/item/clothing/CL = src.wear_shirt
-		if(CL.armor_class == AC_HEAVY && (heaviest == "Light" || heaviest == "Medium"))
-			heaviest = "Heavy"
-		if(CL.armor_class == AC_MEDIUM && heaviest == "Light")
-			heaviest = "Medium"
-	return heaviest
-
-/mob/living/proc/check_dodge_skill()
-	return TRUE
-
-/mob/living/carbon/human/check_dodge_skill()
-	if(!HAS_TRAIT(src, TRAIT_DODGEEXPERT))
-		return FALSE
-	if(worn_armor_class == AC_HEAVY)
-		return FALSE
-	if(worn_armor_class == AC_MEDIUM)
-		return FALSE
-	return TRUE
 
 /mob/proc/toggle_eye_intent(mob/user) //clicking the fixeye button either makes you fixeye or clears your target
 	if(fixedeye)

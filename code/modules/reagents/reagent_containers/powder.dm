@@ -13,7 +13,7 @@
 
 /obj/item/reagent_containers/powder/throw_impact(atom/hit_atom, datum/thrownthing/thrownthing)
 	. = ..()
-	if(thrownthing.target_zone != BODY_ZONE_PRECISE_NOSE)
+	if(thrownthing?.target_zone != BODY_ZONE_PRECISE_NOSE)
 		return
 	if(iscarbon(hit_atom))
 		var/mob/living/carbon/C = hit_atom
@@ -50,6 +50,7 @@
 
 	if(reagents.total_volume)
 		reagents.trans_to(M, reagents.total_volume, transfered_by = user, method = "swallow")
+		record_featured_stat(FEATURED_STATS_CRIMINALS, user)
 		GLOB.vanderlin_round_stats[STATS_DRUGS_SNORTED]++
 	qdel(src)
 	return TRUE
@@ -244,15 +245,6 @@
 	M.playsound_local(get_turf(M), 'sound/misc/heroin_rush.ogg', 100, FALSE)
 	M.visible_message(span_warning("Blood runs from [M]'s nose."))
 
-/obj/item/reagent_containers/powder/blastpowder
-	name = "blastpowder"
-	desc = "explosive powder known to be produced by the dwarves. It's used in many explosives."
-	icon = 'icons/roguetown/items/produce.dmi'
-	icon_state = "blastpowder"
-	volume = 15
-	list_reagents = list(/datum/reagent/blastpowder = 15)
-	sellprice = 15
-
 /obj/item/reagent_containers/powder/manabloom
 	name = "manabloom dust"
 	desc = "Crushed manabloom useful as a combat measure against mages."
@@ -262,3 +254,47 @@
 	list_reagents = list(/datum/reagent/toxin/manabloom_juice = 5)
 	sellprice = 10
 	color = COLOR_CYAN
+
+/obj/item/reagent_containers/powder/blastpowder
+	name = "blastpowder"
+	desc = "explosive powder known to be produced by the dwarves. It's used in many explosives."
+	icon = 'icons/roguetown/items/produce.dmi'
+	icon_state = "blastpowder"
+	volume = 15
+	list_reagents = list(/datum/reagent/blastpowder = 15)
+	sellprice = 15
+	var/primed = FALSE
+
+/obj/item/reagent_containers/powder/blastpowder/spark_act()
+	fire_act()
+
+/obj/item/reagent_containers/powder/blastpowder/fire_act(added, maxstacks)
+	if(primed)
+		return
+	primed = TRUE
+	playsound(src, 'sound/items/fuse.ogg', 100)
+	addtimer(CALLBACK(src, PROC_REF(boom)), 5 SECONDS)
+	..()
+
+/obj/item/reagent_containers/powder/blastpowder/proc/boom()
+	var/turf/target_turf = get_turf(src)
+	var/exp_devi = 0
+	var/exp_heavy = 1
+	var/exp_light = 1
+	var/exp_flash = 3
+	var/explode_sound = 'sound/misc/explode/bomb.ogg'
+	explosion(target_turf, exp_devi, exp_heavy, exp_light, exp_flash, soundin = explode_sound)
+
+	if(!isturf(loc))
+		return
+
+	if(!istype(loc, /turf/open/floor/naturalstone) && !istype(loc, /turf/open/floor/blocks) && !istype(loc, /turf/open/floor/grass) && !istype(loc, /turf/open/floor/dirt))
+		return
+
+	var/turf/closed/below = GET_TURF_BELOW(target_turf)
+	if(istype(below))
+		below.ScrapeAway()
+
+	target_turf.ScrapeAway()
+
+	qdel(src)

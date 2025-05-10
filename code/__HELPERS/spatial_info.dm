@@ -1,7 +1,10 @@
 /turf
 	///what /mob/oranges_ear instance is already assigned to us as there should only ever be one.
 	///used for guaranteeing there is only one oranges_ear per turf when assigned, speeds up view() iteration
-	var/mob/oranges_ear/assigned_oranges_ear
+	var/tmp/mob/oranges_ear/assigned_oranges_ear
+	var/tmp/list/temperature_sources // If for some god awful reason you are saving turfs these CANNOT save since they are basically refs
+	var/tmp/temperature_modification = 0
+
 
 /** # Oranges Ear
  *

@@ -20,6 +20,7 @@
 	spells = list(/obj/effect/proc_holder/spell/self/convertrole/guard)
 	give_bank_account = 120
 	cmode_music = 'sound/music/cmode/antag/CombatSausageMaker.ogg'
+	noble_income = 11
 
 /datum/job/captain/after_spawn(mob/living/spawned, client/player_client)
 	..()
@@ -78,6 +79,10 @@
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
 	H.verbs |= /mob/proc/haltyell
+
+	if(H.dna?.species)
+		if(H.dna.species.id == "human")
+			H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
 
 /obj/effect/proc_holder/spell/self/convertrole
 	name = "Recruit Beggar"
@@ -177,3 +182,4 @@
 	recruitment_message = "Join the Forest Garrison, %RECRUIT!"
 	accept_message = "I swear to protect the forest!"
 	refuse_message = "I refuse."
+

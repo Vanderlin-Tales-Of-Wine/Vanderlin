@@ -18,12 +18,17 @@ GLOBAL_LIST_EMPTY(antagonists)
 	var/antag_hud_name
 	var/list/confess_lines
 
+	/// traits applied to the mob at on_gain() and removed at on_removal()
+	var/list/innate_traits = list()
+
 	//Antag panel properties
 	var/show_in_antagpanel = TRUE	//This will hide adding this antag type in antag panel, use only for internal subtypes that shouldn't be added directly but still show if possessed by mind
 	var/antagpanel_category = "Uncategorized"	//Antagpanel will display these together, REQUIRED
 	var/show_name_in_check_antagonists = FALSE //Will append antagonist name in admin listings - use for categories that share more than one antag type
 	var/increase_votepwr = TRUE
 	var/isgoodguy = FALSE // Some "antagonist" datums are granted to not inherently bad guys, this is to differentiate for the sake of bardic buffs.
+	/// Did the owner mob have pacifism as a character flaw
+	var/was_pacifist = FALSE
 
 	///flags used by storytellers
 	var/antag_flags = NONE
@@ -53,7 +58,7 @@ GLOBAL_LIST_EMPTY(antagonists)
 			return FALSE
 
 //This will be called in add_antag_datum before owner assignment.
-//Should return antag datum without owner.
+/// Should return antag datum without owner.
 /datum/antagonist/proc/specialization(datum/mind/new_owner)
 	return src
 
@@ -61,26 +66,39 @@ GLOBAL_LIST_EMPTY(antagonists)
 	remove_innate_effects(old_body)
 	apply_innate_effects(new_body)
 
-//This handles the application of antag huds/special abilities
+/// This handles the application of special abilities
 /datum/antagonist/proc/apply_innate_effects(mob/living/mob_override)
-	return
+	var/mob/living/M = mob_override || owner.current
+	for(var/trait as anything in innate_traits)
+		ADD_TRAIT(M, trait, "[type]")
 
-//This handles the removal of antag huds/special abilities
+/// This handles the removal of special abilities
 /datum/antagonist/proc/remove_innate_effects(mob/living/mob_override)
-	return
+	var/mob/living/M = mob_override || owner.current
+	if(!istype(M))
+		return
+	for(var/trait as anything in innate_traits)
+		REMOVE_TRAIT(M, trait, "[type]")
 
-// Adds the specified antag hud to the player. Usually called in an antag datum file
+/// Adds the specified antag hud to the player. Usually called in an antag datum file
 /datum/antagonist/proc/add_antag_hud(antag_hud_type, antag_hud_name, mob/living/mob_override)
+	if(!antag_hud_name || !antag_hud_type)
+		return
+	var/mob/living/M = mob_override || owner.current
+	if(!istype(M))
+		return
 	var/datum/atom_hud/antag/hud = GLOB.huds[antag_hud_type]
-	hud.join_hud(mob_override)
-	set_antag_hud(mob_override, antag_hud_name)
+	if(!hud)
+		return
+	hud.join_hud(M)
+	set_antag_hud(M, antag_hud_name)
 
-
-// Removes the specified antag hud from the player. Usually called in an antag datum file
-/datum/antagonist/proc/remove_antag_hud(antag_hud_type, mob/living/mob_override)
+/// Removes the specified antag hud from the player. Usually called in an antag datum file
+/datum/antagonist/proc/remove_antag_hud(antag_hud_type, antag_hud_name, mob/living/mob_override)
+	var/mob/living/M = mob_override || owner.current
 	var/datum/atom_hud/antag/hud = GLOB.huds[antag_hud_type]
-	hud.leave_hud(mob_override)
-	set_antag_hud(mob_override, null)
+	hud.leave_hud(M)
+	set_antag_hud(M, null)
 
 //Assign default team and creates one for one of a kind team antagonists
 /datum/antagonist/proc/create_team(datum/team/team)
@@ -92,7 +110,12 @@ GLOBAL_LIST_EMPTY(antagonists)
 		if(!silent)
 			greet()
 		apply_innate_effects()
+		add_antag_hud(antag_hud_type, antag_hud_name)
 		give_antag_moodies()
+		if(owner.current.has_flaw(/datum/charflaw/pacifist))
+			var/mob/living/carbon/human/human_user = owner.current
+			QDEL_NULL(human_user?.charflaw)
+			was_pacifist = TRUE
 		if(is_banned(owner.current) && replace_banned)
 			replace_banned_player()
 		else if(owner.current.client?.holder && (CONFIG_GET(flag/auto_deadmin_antagonists) || owner.current.client.prefs?.toggles & DEADMIN_ANTAGONIST))
@@ -120,10 +143,16 @@ GLOBAL_LIST_EMPTY(antagonists)
 /datum/antagonist/proc/on_removal()
 	remove_innate_effects()
 	clear_antag_moodies()
+	remove_antag_hud(antag_hud_type, antag_hud_name)
 	if(owner)
 		LAZYREMOVE(owner.antag_datums, src)
-		if(!silent && owner.current)
-			farewell()
+		if(owner.current)
+			if(was_pacifist)
+				var/mob/living/carbon/human/human_user = owner.current
+				human_user.charflaw = new /datum/charflaw/pacifist(human_user)
+				human_user.charflaw.after_spawn(human_user, TRUE)
+			if(!silent)
+				farewell()
 	var/datum/team/team = get_team()
 	if(team)
 		team.remove_member(owner)
@@ -245,6 +274,13 @@ GLOBAL_LIST_EMPTY(antagonists)
 		return
 	antag_memory = new_memo
 
+/// makes the owner's role unassigned and reopens their job slot
+/datum/antagonist/proc/remove_job()
+	if(owner.assigned_role)
+		owner.assigned_role.adjust_current_positions(1)
+	owner.assigned_role = /datum/job/unassigned
+	owner.current?.job = null
+
 //This one is created by admin tools for custom objectives
 /datum/antagonist/custom
 	antagpanel_category = "Custom"
@@ -264,3 +300,6 @@ GLOBAL_LIST_EMPTY(antagonists)
 	else
 		return
 	..()
+
+/datum/antagonist/proc/move_to_spawnpoint()
+	return

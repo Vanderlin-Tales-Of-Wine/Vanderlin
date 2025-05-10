@@ -14,7 +14,7 @@ Most of the time we only wish to update one overlay:
 In these cases, instead of updating every overlay using the old behaviour (regenerate_icons), we instead call
 the appropriate update_X proc.
 	e.g. - update_l_hand()
-	e.g.2 - update_hair()
+	e.g.2 - update_body()
 
 Note: Recent changes by aranclanos+carn:
 	update_icons() no longer needs to be called.
@@ -42,7 +42,7 @@ There are several things that need to be remembered:
 		update_body()				//Handles updating your mob's body layer and mutant bodyparts
 									as well as sprite-accessories that didn't really fit elsewhere (underwear, undershirts, socks, lips, eyes)
 									//NOTE: update_mutantrace() is now merged into this!
-		update_hair()				//Handles updating your hair overlay (used to be update_face, but mouth and
+		update_body()				//Handles updating your hair overlay (used to be update_face, but mouth and
 									eyes were merged into update_body())
 
 
@@ -57,14 +57,6 @@ There are several things that need to be remembered:
 		if(affecting.body_part == limbl)
 			jazz += 2
 	return jazz
-
-//HAIR OVERLAY
-/mob/living/carbon/human/update_hair()
-	dna?.species?.handle_hair(src)
-
-//used when putting/removing clothes that hide certain mutant body parts to just update those and not update the whole body.
-/mob/living/carbon/human/proc/update_mutant_bodyparts()
-	dna?.species?.handle_mutant_bodyparts(src)
 
 
 /mob/living/carbon/human/update_body()
@@ -133,7 +125,7 @@ There are several things that need to be remembered:
 		if(gender == FEMALE || dna.species.use_f)
 			g = BP.offset_f
 		if(BP.body_zone == BODY_ZONE_HEAD)
-			update_hair()
+			update_body()
 		var/bleed_checker = FALSE
 		var/list/wound_overlays
 		if(!BP.skeletonized)
@@ -265,23 +257,16 @@ There are several things that need to be remembered:
 /mob/living/carbon/human/regenerate_icons()
 	if(!..())
 		icon_render_key = null //invalidate bodyparts cache
-		if(dna.species)
-			if(dna.species.regenerate_icons(src))
-				return
+		if(dna?.species?.regenerate_icons(src))
+			return
 		update_body()
-		update_hair()
-//		update_inv_w_uniform()
 		update_inv_wear_id()
 		update_inv_gloves()
-//		update_inv_glasses()
-//		update_inv_ears()
 		update_inv_shoes()
-//		update_inv_s_store()
 		update_inv_wear_mask()
 		update_inv_head()
 		update_inv_belt()
 		update_inv_back()
-//		update_inv_wear_suit()
 		update_inv_armor()
 		update_inv_pockets()
 		update_inv_neck()
@@ -344,7 +329,7 @@ There are several things that need to be remembered:
 			overlays_standing[NECK_LAYER] = neck_overlay
 
 		update_hud_neck(wear_neck)
-	update_hair()
+	update_body()
 	apply_overlay(NECK_LAYER)
 
 /mob/living/carbon/human/update_inv_wear_id()
@@ -391,7 +376,7 @@ There are several things that need to be remembered:
 
 	if(!gloves && bloody_hands)
 		var/mutable_appearance/bloody_overlay = mutable_appearance('icons/effects/blood.dmi', "bloodyhands", -GLOVES_LAYER)
-		if(get_num_arms(FALSE) < 2)
+		if(num_hands < 2)
 			if(has_left_hand(FALSE))
 				bloody_overlay.icon_state = "bloodyhands_left"
 			else if(has_right_hand(FALSE))
@@ -600,7 +585,6 @@ There are several things that need to be remembered:
 
 	if(head)
 		update_hud_head(head)
-		update_mutant_bodyparts()
 //		var/G = (gender == FEMALE) ? "f" : "m"
 //		if(G == "f" || dna.species.use_f)
 //			overlays_standing[HEAD_LAYER] = head.build_worn_icon(age = age, default_layer = HEAD_LAYER, default_icon_file = 'icons/mob/clothing/feet.dmi', coom = "e")
@@ -620,7 +604,7 @@ There are several things that need to be remembered:
 			overlays_standing[HEAD_LAYER] = head_overlay
 		apply_overlay(HEAD_LAYER)
 
-	update_hair() //hoodies
+	update_body() //hoodies
 
 /mob/living/carbon/human/update_inv_belt()
 	remove_overlay(BELT_LAYER)
@@ -653,8 +637,8 @@ There are several things that need to be remembered:
 				if(beltr.force_reupdate_inhand)
 					prop = beltr.onprop?["onbelt"]
 					if(!prop)
-						beltr.onprop["onbelt"] = beltr.getonmobprop("onbelt")
-						prop = beltr.onprop["onbelt"]
+						prop = beltr.getonmobprop("onbelt")
+						LAZYSET(beltr.onprop, "onbelt", prop)
 				else
 					prop = beltr.getonmobprop("onbelt")
 				if(prop)
@@ -830,7 +814,6 @@ There are several things that need to be remembered:
 				mask_overlay.pixel_y += offsets[OFFSET_FACEMASK_F][2]
 		overlays_standing[MASK_LAYER] = mask_overlay
 		apply_overlay(MASK_LAYER)
-	update_mutant_bodyparts() //e.g. upgate needed because mask now hides lizard snout
 
 /mob/living/carbon/human/update_inv_back()
 	remove_overlay(BACK_LAYER)
@@ -918,7 +901,7 @@ There are several things that need to be remembered:
 					prop = backl.onprop?["onback"]
 					if(!prop)
 						prop = backl.getonmobprop("onback")
-						LAZYSET(backl.onprop, "onback", backl.getonmobprop("onback"))
+						LAZYSET(backl.onprop, "onback", prop)
 				else
 					prop = backl.getonmobprop("onback")
 				if(prop)
@@ -1176,8 +1159,7 @@ There are several things that need to be remembered:
 	if(gender == FEMALE && dna?.species)
 		update_body_parts(redraw = TRUE)
 		dna.species.handle_body(src)
-	update_hair()
-	update_mutant_bodyparts()
+	update_body()
 
 	apply_overlay(SHIRT_LAYER)
 	apply_overlay(SHIRTSLEEVE_LAYER)
@@ -1254,8 +1236,7 @@ There are several things that need to be remembered:
 	if(gender == FEMALE && dna?.species)
 		update_body_parts(redraw = TRUE)
 		dna.species.handle_body(src)
-	update_hair()
-	update_mutant_bodyparts()
+	update_body()
 	update_inv_shirt() // fix boob
 
 	apply_overlay(ARMOR_LAYER)
@@ -1328,8 +1309,7 @@ There are several things that need to be remembered:
 							S.pixel_y += offsets[OFFSET_PANTS_F][2]
 				overlays_standing[LEGSLEEVE_LAYER] = sleeves
 
-	update_hair()
-	update_mutant_bodyparts()
+	update_body()
 
 	apply_overlay(PANTS_LAYER)
 	apply_overlay(LEGSLEEVE_LAYER)
@@ -1366,7 +1346,6 @@ There are several things that need to be remembered:
 				mouth_overlay.pixel_y += offsets[OFFSET_MOUTH_F][2]
 		overlays_standing[MOUTH_LAYER] = mouth_overlay
 		apply_overlay(MOUTH_LAYER)
-	update_mutant_bodyparts()
 
 //endrogue
 
@@ -1722,10 +1701,6 @@ generate/load female uniform sprites matching all previously decided variables
 
 	if(dna.species.use_skintones)
 		. += "-coloured-[skin_tone]"
-	else if(dna.species.fixed_mut_color)
-		. += "-coloured-[dna.species.fixed_mut_color]"
-	else if(dna.features["mcolor"])
-		. += "-coloured-[dna.features["mcolor"]]"
 	else
 		. += "-not_coloured"
 
@@ -1739,8 +1714,6 @@ generate/load female uniform sprites matching all previously decided variables
 			. += "-organic"
 		else
 			. += "-robotic"
-		if(BP.use_digitigrade)
-			. += "-digitigrade[BP.use_digitigrade]"
 		if(BP.rotted)
 			. += "-rotted"
 		if(BP.skeletonized)
@@ -1748,12 +1721,15 @@ generate/load female uniform sprites matching all previously decided variables
 		if(BP.dmg_overlay_type)
 			. += "-[BP.dmg_overlay_type]"
 
+		for(var/datum/bodypart_feature/feature in BP.bodypart_features)
+			. += "-[feature.accessory_type]-[feature.accessory_colors]"
+
 	if(HAS_TRAIT(src, TRAIT_HUSK))
 		. += "-husk"
 
 /mob/living/carbon/human/load_limb_from_cache()
 	..()
-	update_hair()
+	update_body()
 
 
 
@@ -1860,31 +1836,6 @@ generate/load female uniform sprites matching all previously decided variables
 					lip_overlay.pixel_x += offsets[OFFSET_FACE][1]
 					lip_overlay.pixel_y += offsets[OFFSET_FACE][2]
 			add_overlay(lip_overlay)
-
-		// eyes
-		if(!(NOEYESPRITES in dna.species.species_traits))
-			var/obj/item/organ/eyes/E = getorganslot(ORGAN_SLOT_EYES)
-			var/mutable_appearance/eye_overlay
-			if(!E)
-				eye_overlay = mutable_appearance('icons/mob/human_face.dmi', "eyes_missing", -BODY_LAYER)
-			else
-				eye_overlay = mutable_appearance('icons/mob/human_face.dmi', E.eye_icon_state, -BODY_LAYER)
-			if((EYECOLOR in dna.species.species_traits) && E)
-				if(druggy)
-					eye_overlay = mutable_appearance('icons/mob/human_face.dmi', "[E.eye_icon_state]-r", -BODY_LAYER)
-				else
-					eye_overlay.color = "#" + eye_color
-			if(gender == FEMALE)
-				if(OFFSET_FACE_F in offsets)
-					eye_overlay.pixel_x += offsets[OFFSET_FACE_F][1]
-					eye_overlay.pixel_y += offsets[OFFSET_FACE_F][2]
-			else
-				if(OFFSET_FACE in offsets)
-					eye_overlay.pixel_x += offsets[OFFSET_FACE][1]
-					eye_overlay.pixel_y += offsets[OFFSET_FACE][2]
-			add_overlay(eye_overlay)
-
-	dna.species.handle_hair(src)
 
 	update_inv_head()
 	update_inv_wear_mask()

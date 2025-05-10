@@ -70,6 +70,7 @@
 		feedback = "Praise Dendor for our harvest is bountiful."
 		modifier += 3
 
+	record_featured_stat(FEATURED_STATS_FARMERS, user)
 	GLOB.vanderlin_round_stats[STATS_PLANTS_HARVESTED]++
 	to_chat(user, span_notice(feedback))
 	yield_produce(modifier)
@@ -103,3 +104,9 @@
 	incoming_type = /datum/plant_def/manabloom
 	. = ..()
 
+/obj/structure/wild_plant/nospread/poppy
+	icon_state = "poppy2"
+
+/obj/structure/wild_plant/nospread/poppy/New(loc, datum/plant_def/incoming_type, spread_chance)
+	incoming_type = /datum/plant_def/poppy
+	. = ..()

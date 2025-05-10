@@ -155,7 +155,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 				/turf/open/floor/grass)
 	ambush_mobs = list(
 				/mob/living/simple_animal/hostile/retaliate/wolf = 60,
-				/mob/living/simple_animal/hostile/retaliate/troll = 10,
+				/mob/living/simple_animal/hostile/retaliate/troll/axe = 10,
 				/mob/living/carbon/human/species/goblin/npc/ambush = 45,
 				/mob/living/simple_animal/hostile/retaliate/mole = 25)
 	first_time_text = "THE MURDERWOOD"
@@ -213,7 +213,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 				/mob/living/simple_animal/hostile/retaliate/bigrat = 20,
 				/mob/living/simple_animal/hostile/retaliate/spider = 80,
 				/mob/living/carbon/human/species/goblin/npc/ambush/sea = 50,
-				/mob/living/simple_animal/hostile/retaliate/trollbog = 35)	//Bogbugs bugged bigtime, so removed for now.
+				/mob/living/simple_animal/hostile/retaliate/troll/bog = 35)
 
 	first_time_text = "THE TERRORBOG"
 	custom_area_sound = "sound/misc/stings/BogSting.ogg"
@@ -605,6 +605,10 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound_dusk = null
 	droning_sound_night = null
 
+/area/rogue/indoors/town/town_elder/place
+	icon_state = "tavern"
+	first_time_text = "THE?"
+
 // so you can teleport to the farm
 /area/rogue/indoors/soilsons
 	name = "soilsons"
@@ -900,3 +904,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	name = "lair (Inhumen)"
 	droning_sound = 'sound/music/area/decap.ogg'
 	first_time_text = "THE DEEP BOG"
+
+/area/rogue/indoors/lich
+	name = "lair (Lich)"
+	droning_sound = 'sound/music/area/churchnight.ogg'

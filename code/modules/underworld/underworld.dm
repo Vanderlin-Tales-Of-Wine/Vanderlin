@@ -4,6 +4,8 @@
 	set category = "Options"
 	set hidden = 1
 
+	GLOB.actors_list -= mobid // admin removed - get him outta here.
+
 	if(key)
 		GLOB.respawntimes[key] = world.time
 
@@ -16,7 +18,6 @@
 		return
 	client.screen.Cut()
 	client.screen += client.void
-//	stop_all_loops()
 	SSdroning.kill_rain(src.client)
 	SSdroning.kill_loop(src.client)
 	SSdroning.kill_droning(src.client)
@@ -235,7 +236,6 @@
 	speak_emote = list("growls")
 	limb_destroyer = 1
 	del_on_death = TRUE
-	TOTALLUC = 11
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 0
 	faction = list(FACTION_UNDEAD)
@@ -244,6 +244,8 @@
 	defdrain = 20
 	canparry = TRUE
 	retreat_health = null
+
+	base_fortune = 11
 
 /mob/living/simple_animal/hostile/dragger/electrocute_act(shock_damage, source, siemens_coeff = 1, flags = NONE)
 	return FALSE

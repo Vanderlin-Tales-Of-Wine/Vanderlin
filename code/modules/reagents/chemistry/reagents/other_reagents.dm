@@ -182,7 +182,7 @@
 	taste_mult = 0 // apparently tasteless.
 
 /datum/reagent/mercury/on_mob_life(mob/living/carbon/M)
-	if((M.mobility_flags & MOBILITY_MOVE))
+	if(!HAS_TRAIT(M, TRAIT_IMMOBILIZED))
 		step(M, pick(GLOB.cardinals))
 	if(prob(5))
 		M.emote(pick("twitch","drool","moan"))
@@ -268,3 +268,32 @@
 	reagent_state = LIQUID
 	color = "#515151"
 	taste_description = "ash"
+
+/datum/reagent/soap
+	name = "Soap"
+	description = "A combination of ash and animal fats used for cleaning."
+	color = "#cbb165"
+	alpha = 180
+	taste_description = "soapy grease"
+	metabolization_rate = 0.5
+	glass_icon_state = "glass_clear"
+	glass_name = "glass"
+	evaporation_rate = 2
+	shot_glass_icon_state = "shotglassclear"
+	alpha = 100
+	taste_mult = 2 // yuck!
+
+/datum/reagent/soap/on_mob_life(mob/living/carbon/M)
+	..()
+	if(ishuman(M))
+		M.add_stress(/datum/stressevent/mouthsoap)
+
+/datum/reagent/soap/add_to_member(obj/effect/abstract/liquid_turf/adder)
+	. = ..()
+	if(!adder.GetComponent(/datum/component/slippery))
+		adder.AddComponent(/datum/component/slippery, 30)
+
+/datum/reagent/soap/remove_from_member(obj/effect/abstract/liquid_turf/remover)
+	. = ..()
+	var/datum/component/slipComp = remover.GetComponent(/datum/component/slippery)
+	slipComp?.Destroy()

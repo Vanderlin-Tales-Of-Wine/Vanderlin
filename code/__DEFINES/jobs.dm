@@ -126,12 +126,10 @@
 #define HAND		(1<<2)
 #define STEWARD		(1<<3)
 #define WIZARD		(1<<4)
-#define CAPTAIN		(1<<5)
-#define ARCHIVIST   (1<<6)
-#define MERCHANT	(1<<7)
-#define FELDSHER    (1<<8)
-#define NIGHTMAN    (1<<9)
-#define MINOR_NOBLE	(1<<10)
+#define PHYSICIAN	(1<<5)
+#define CAPTAIN		(1<<6)
+#define ARCHIVIST   (1<<7)
+#define MINOR_NOBLE	(1<<9)
 
 #define GARRISON		(1<<1)
 
@@ -139,7 +137,7 @@
 #define WATCHMAN	(1<<1)
 #define JAILOR	    (1<<2)
 #define DUNGEONEER	(1<<3)
-#define MAYOR       (1<<4)
+#define TOWN_ELDER	(1<<4)
 #define FORWARDEN   (1<<5)
 #define FORGUARD    (1<<6)
 #define GATEMASTER  (1<<7)
@@ -161,9 +159,10 @@
 #define TAILOR		(1<<4)
 #define ARTIFICER	(1<<5)
 #define MATRON 		(1<<6)
-#define PHYSICKER	(1<<7)
-#define SCRIBE		(1<<8)
-#define GAFFER		(1<<9)
+#define FELDSHER    (1<<7)
+#define NIGHTMAN    (1<<8)
+#define SCRIBE		(1<<9)
+#define GAFFER		(1<<10)
 
 #define PEASANTS		(1<<4)
 
@@ -175,13 +174,9 @@
 #define MINER		(1<<6)
 #define BUTLER		(1<<7)
 #define JESTER		(1<<8)
-#define ADVENTURER	(1<<9)
 #define COOK		(1<<10)
-#define GRABBER		(1<<11)
 #define BARD		(1<<12)
 #define CHEESEMAKER (1<<13)
-#define MIGRANT		(1<<16)
-#define BANDIT		(1<<17)
 
 #define APPRENTICES		(1<<5)
 
@@ -191,9 +186,24 @@
 #define PRINCE		(1<<3)
 
 #define YOUNGFOLK           (1<<6)
+
 #define INNKEEPCHILD    (1<<1)
 #define CHURCHLING      (1<<2)
 #define ORPHAN		    (1<<3)
+
+#define OUTSIDERS		(1<<7)
+
+#define PILGRIM		(1<<0)
+#define ADVENTURER	(1<<1)
+#define MERCENARY	(1<<2)
+#define MIGRANT		(1<<3)
+#define BANDIT		(1<<4)
+
+#define COMPANY			(1<<8)
+
+#define MERCHANT	(1<<0)
+#define SHOPHAND	(1<<1)
+#define GRABBER		(1<<2)
 
 #define UNDEAD		(1<<10)
 
@@ -215,16 +225,17 @@
 #define JDO_HAND 2
 #define JDO_STEWARD 3
 #define JDO_MINOR_NOBLE 3.5
+#define JDO_PHYSICIAN 3.7
 
 #define JDO_MAGICIAN 4
 #define JDO_WAPP 5
 
-#define JDO_FELDSHER 6
-#define JDO_PHYSICKER 6.1
+#define JDO_APOTHECARY 6
+#define JDO_FELDSHER 6.1
 
 #define JDO_CAPTAIN 7
 #define JDO_VET 7.1
-#define JDO_ROYALGUARD 7.2
+#define JDO_ROYALKNIGHT 7.2
 #define JDO_MENATARMS 8
 #define JDO_CITYWATCHMEN 8.1
 #define JDO_GATEMASTER 8.2
@@ -245,8 +256,10 @@
 #define JDO_TEMPLAR 17.1
 
 #define JDO_MERCHANT 18
-#define JDO_TAILOR 18.1
-#define JDO_GRABBER 19
+#define JDO_SHOPHAND 18.1
+#define JDO_GRABBER 18.2
+
+#define JDO_TAILOR 19
 
 #define JDO_ARMORER 20
 #define JDO_WSMITH 21
@@ -271,8 +284,6 @@
 #define JDO_MINER 28.8
 #define JDO_MATRON 28.9
 #define JDO_GRAVEMAN 29
-
-#define JDO_APOTHECARY 29.1
 
 #define JDO_JESTER 30
 #define JDO_BARD 30.1

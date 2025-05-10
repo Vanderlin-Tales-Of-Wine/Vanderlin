@@ -68,10 +68,6 @@
 
 	var/not_while_equipped = FALSE
 
-	//Vrell - Used for repair bypass clicks
-	var/being_repaired = FALSE
-
-
 /datum/component/storage/Initialize(datum/component/storage/concrete/master)
 	if(!isatom(parent))
 		return COMPONENT_INCOMPATIBLE
@@ -274,7 +270,7 @@
 
 /datum/component/storage/proc/quick_empty(mob/user) // Evidently this handles emptying sacks in Roguetown...
 	var/atom/A = parent
-	if(!user.canUseStorage() || !A.Adjacent(user) || user.incapacitated()) // Some sanity checks
+	if(!user.canUseStorage() || !A.Adjacent(user) || user.incapacitated(ignore_grab = TRUE)) // Some sanity checks
 		return
 	if(locked)
 //		to_chat(M, "<span class='warning'>[parent] seems to be locked!</span>")
@@ -534,12 +530,10 @@
 		if(istype(I, /obj/item/needle))
 			var/obj/item/needle/sewer = I
 			var/obj/item/storage/this_item = parent
-			if(sewer.can_repair && this_item.sewrepair && this_item.max_integrity && !this_item.obj_broken && this_item.obj_integrity < this_item.max_integrity && M.mind.get_skill_level(/datum/skill/misc/sewing) >= 1 && this_item.ontable() && !being_repaired)
-				being_repaired = TRUE
+			if(sewer.can_repair && this_item.sewrepair && this_item.max_integrity && !this_item.obj_broken && this_item.obj_integrity < this_item.max_integrity && this_item.ontable())
 				return FALSE
 		if(M.used_intent.type == /datum/intent/snip) //This makes it so we can salvage
 			return FALSE
-	being_repaired = FALSE
 
 	if(!can_be_inserted(I, FALSE, M))
 		var/atom/real_location = real_location()
@@ -582,7 +576,7 @@
 		return
 	if(!over_object)
 		return
-	if(M.incapacitated() || !M.canUseStorage())
+	if(M.incapacitated(ignore_grab = TRUE) || !M.canUseStorage())
 		return
 
 	if(ishuman(M))
@@ -644,7 +638,7 @@
 		var/obj/item/I = O
 		if(iscarbon(M))
 			var/mob/living/L = M
-			if(!L.incapacitated() && I == L.get_active_held_item())
+			if(!L.incapacitated(ignore_grab = TRUE) && I == L.get_active_held_item())
 				if(!SEND_SIGNAL(I, COMSIG_CONTAINS_STORAGE) && can_be_inserted(I, FALSE))	//If it has storage it should be trying to dump, not insert.
 					handle_item_insertion(I, FALSE, L)
 
@@ -930,7 +924,7 @@
 			playsound(A, rustle_sound, 50, TRUE, -5)
 		return
 
-	if(!user.incapacitated())
+	if(!user.incapacitated(ignore_grab = TRUE))
 		var/obj/item/I = locate() in real_location()
 		if(!I)
 			return

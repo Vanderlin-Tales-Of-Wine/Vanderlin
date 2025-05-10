@@ -23,11 +23,12 @@
 	outfit = /datum/outfit/job/gaffer
 	give_bank_account = 20
 	min_pq = 8
+	bypass_lastclass = TRUE
 	selection_color = "#3b150e"
 
 	spells = list(/obj/effect/proc_holder/spell/self/convertrole/mercenary)
 
-/datum/outfit/job/gaffer/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/gaffer/pre_equip(mob/living/carbon/human/H, visualsOnly)
 	..()
 
 
@@ -40,7 +41,10 @@
 	shirt = /obj/item/clothing/shirt/tunic/black
 	wrists = /obj/item/clothing/wrists/bracers/leather/advanced
 	armor = /obj/item/clothing/armor/leather/hide
-	ring = /obj/item/clothing/ring/gold/burden
+	if(!visualsOnly)
+		ring = /obj/item/clothing/ring/gold/burden
+	else
+		ring = /obj/item/clothing/ring/gold
 	pants = /obj/item/clothing/pants/trou/leather/advanced
 	shoes = /obj/item/clothing/shoes/nobleboot
 	cloak = /obj/item/clothing/cloak/raincloak/furcloak/black
@@ -50,6 +54,7 @@
 	ADD_TRAIT(H, TRAIT_BURDEN, type)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, type)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, type)
+	ADD_TRAIT(H, TRAIT_OLDPARTY, TRAIT_GENERIC)
 
 	H.change_stat("speed", 2)
 	H.change_stat("perception", 1)

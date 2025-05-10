@@ -140,7 +140,7 @@
 	screen_loc = ui_building
 
 /atom/movable/screen/area_creator/Click()
-	if(usr.incapacitated() || (isobserver(usr) && !IsAdminGhost(usr)))
+	if(usr.incapacitated(ignore_grab = TRUE) || (isobserver(usr) && !IsAdminGhost(usr)))
 		return TRUE
 	var/area/A = get_area(usr)
 	if(!A.outdoors)
@@ -177,7 +177,7 @@
 	if(world.time <= usr.next_move)
 		return TRUE
 
-	if(usr.incapacitated())
+	if(usr.incapacitated(ignore_grab = TRUE))
 		return TRUE
 
 	if(hud?.mymob && slot_id)
@@ -804,7 +804,7 @@
 			iris.icon_state = "oeye_fixed"
 		else
 			iris.icon_state = "oeye"
-	iris.color = "#" + human.eye_color
+	iris.color = "#[human.get_eye_color()]"
 	. += iris
 
 /atom/movable/screen/eye_intent/proc/toggle(mob/user)
@@ -905,7 +905,7 @@
 	if(modifiers["right"])
 		if(master)
 			var/obj/item/flipper = usr.get_active_held_item()
-			if((!usr.Adjacent(flipper) && !usr.DirectAccess(flipper)) || !isliving(usr) || usr.incapacitated())
+			if((!usr.Adjacent(flipper) && !usr.DirectAccess(flipper)) || !isliving(usr) || usr.incapacitated(ignore_grab = TRUE))
 				return
 			var/old_width = flipper.grid_width
 			var/old_height = flipper.grid_height
@@ -916,7 +916,7 @@
 
 	if(world.time <= usr.next_move)
 		return TRUE
-	if(usr.incapacitated())
+	if(usr.incapacitated(ignore_grab = TRUE))
 		return TRUE
 	if(master)
 		var/obj/item/I = usr.get_active_held_item()
@@ -1341,6 +1341,7 @@
 	if (ishuman(usr))
 		var/mob/living/carbon/human/H = usr
 		H.check_for_injuries(H)
+		to_chat(H, "I am [H.get_encumbrance() * 100]% Encumbered")
 
 /atom/movable/screen/mood
 	name = "mood"
@@ -1359,6 +1360,7 @@
 		var/mob/living/carbon/human/H = usr
 		if(modifiers["left"])
 			H.check_for_injuries(H)
+			to_chat(H, "I am [H.get_encumbrance() * 100]% Encumbered")
 		if(modifiers["right"])
 			if(!H.mind)
 				return

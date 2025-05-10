@@ -196,3 +196,7 @@
 	valid_input = /obj/item/alch/artemisia
 	valid_outputs = list(/obj/item/herbseed/artemisia = 1)
 
+/datum/alch_grind_recipe/rosa_seed
+	valid_input = /obj/item/alch/rosa
+	valid_outputs = list(/obj/item/herbseed/rosa = 1)
+

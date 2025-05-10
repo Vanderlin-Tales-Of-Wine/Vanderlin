@@ -9,7 +9,7 @@
 #define STATKEY_SPD "speed"
 #define STATKEY_LCK "fortune"
 
-#define MOBSTATS list(STATKEY_STR, STATKEY_PER, STATKEY_INT, STATKEY_CON, STATKEY_END, STATKEY_SPD , STATKEY_LCK)
+#define MOBSTATS list(STATKEY_STR, STATKEY_PER, STATKEY_INT, STATKEY_CON, STATKEY_END, STATKEY_SPD, STATKEY_LCK)
 
 //Misc mob defines
 
@@ -458,16 +458,34 @@
 #define SKIN_COLOR_DESERT "9c6f52" //Middle-east
 #define SKIN_COLOR_CRIMSONLANDS "4e3729" //Black
 
+#define SKIN_COLOR_GRENZELHOFT "fff0e9"
+#define SKIN_COLOR_HAMMERHOLD "ffe0d1"
+#define SKIN_COLOR_AVAR "fcccb3"
+#define SKIN_COLOR_ROCKHILL "edc6b3"
+#define SKIN_COLOR_OTAVA "e2b9a3"
+#define SKIN_COLOR_ETRUSCA "d9a284"
+#define SKIN_COLOR_GRONN "c9a893"
+#define SKIN_COLOR_GIZA "ba9882"
+#define SKIN_COLOR_SHALVISTINE "ac8369"
+#define SKIN_COLOR_LALVESTINE "9c6f52"
+#define SKIN_COLOR_NALEDI "4e3729"
+#define SKIN_COLOR_KAZENGUN "dbcca9"
+
 //AASIMAR SKIN TONES
-#define SKIN_COLOR_PLANETAR "474a4c" //Grey
-#define SKIN_COLOR_DEVA "b6f1f2" //Sky blue
-#define SKIN_COLOR_SOLAR "daeaeb" //WHITE
-#define SKIN_COLOR_EMPYREA "a9ded1" //Periwinkle blue
-#define SKIN_COLOR_GAEIA "db874f" //Orange
-#define SKIN_COLOR_CELESTIAL "e1c565" //Yellow
-#define SKIN_COLOR_OLYMPIA "c7f9cc" //Seafoam green
-#define SKIN_COLOR_NECRAL "19132a" //Black
-#define SKIN_COLOR_ABYSSAL "22577a" //Deep blue
+#define SKIN_COLOR_CORAL "ff96d6" //Pink
+#define SKIN_COLOR_SOAPSTONE "c7f9cc" //Seafoam green
+#define SKIN_COLOR_LIMESTONE "e6e4d8" //Tan
+#define SKIN_COLOR_SILVER "94B9C0" //Ice grey, at least that's what microsoft paint says
+#define SKIN_COLOR_COPPER "b87333" //Orange
+#define SKIN_COLOR_GOLD "d4af37" //Gold
+#define SKIN_COLOR_RUST "B71F1F" //Dark red
+#define SKIN_COLOR_ONYX "19132a" //Black
+#define SKIN_COLOR_LAPIS "26619C" //Deep blue
+#define SKIN_COLOR_BASALT "474a4c" //Dark grey
+#define SKIN_COLOR_MARBLE "E6E6E6" //White
+#define SKIN_COLOR_LARIMAR "a9ded1" //Cyan
+#define SKIN_COLOR_AMAZONITE "b6f1f2" //also Cyan
+#define SKIN_COLOR_ZINC "daeaeb" //Light aqua
 
 //HALF ELF SKIN TONES
 #define SKIN_COLOR_ZIZO_CURSED "fff0e9" //Pale as SHIT
@@ -508,3 +526,15 @@
 
 /// Humans are slowed by the difference between bodytemp and BODYTEMP_COLD_DAMAGE_LIMIT divided by this
 #define COLD_SLOWDOWN_FACTOR				20
+
+/// Possible value of [/atom/movable/buckle_lying]. If set to a different (positive-or-zero) value than this, the buckling thing will force a lying angle on the buckled.
+#define NO_BUCKLE_LYING -1
+
+/// Simple mob trait, indicating it may follow continuous move actions controlled by code instead of by user input.
+#define MOVES_ON_ITS_OWN (1<<0)
+
+// Body position defines.
+/// Mob is standing up, usually associated with lying_angle value of 0.
+#define STANDING_UP 0
+/// Mob is lying down, usually associated with lying_angle values of 90 or 270.
+#define LYING_DOWN 1

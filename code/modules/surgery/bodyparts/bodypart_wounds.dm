@@ -160,6 +160,14 @@
 					added_wound = /datum/wound/puncture
 				if(1 to 10)
 					added_wound = /datum/wound/puncture/small
+		if(BCLASS_LASHING)
+			switch(dam)
+				if(20 to INFINITY)
+					added_wound = /datum/wound/lashing/large
+				if(10 to 20)
+					added_wound = /datum/wound/lashing
+				if(1 to 10)
+					added_wound = /datum/wound/lashing/small
 		if(BCLASS_BITE)
 			switch(dam)
 				if(20 to INFINITY)
@@ -194,6 +202,8 @@
 		crit_classes += "fracture"
 	if(bclass in GLOB.artery_bclasses)
 		crit_classes += "artery"
+	if(bclass in GLOB.whipping_bclasses)
+		crit_classes += "scarring"
 
 	switch(pick(crit_classes))
 		if("dislocation")
@@ -223,11 +233,17 @@
 			used = round(damage_dividend * 20 + (dam / 6), 1)
 			if(prob(used))
 				attempted_wounds += /datum/wound/artery
+		if("scarring")
+			if(user && istype(user.rmb_intent, /datum/rmb_intent/strong))
+				dam += 10
+			used = round(damage_dividend * 20 + (dam / 6), 1)
+			if(prob(used))
+				attempted_wounds += /datum/wound/scarring
 
 	for(var/wound_type in shuffle(attempted_wounds))
 		var/datum/wound/applied = add_wound(wound_type, silent, crit_message)
 		if(applied)
-			if(user.client)
+			if(user?.client)
 				GLOB.vanderlin_round_stats[STATS_CRITS_MADE]++
 			return applied
 	return FALSE
@@ -250,6 +266,8 @@
 		crit_classes += "fracture"
 	if(bclass in GLOB.artery_bclasses)
 		crit_classes += "artery"
+	if(bclass in GLOB.whipping_bclasses)
+		crit_classes += "scarring"
 
 	switch(pick(crit_classes))
 		if("cbt")
@@ -284,11 +302,17 @@
 				if((zone_precise == BODY_ZONE_PRECISE_STOMACH) && !resistance)
 					attempted_wounds += /datum/wound/slash/disembowel
 				attempted_wounds += /datum/wound/artery/chest
+		if("scarring")
+			if(user && istype(user.rmb_intent, /datum/rmb_intent/strong))
+				dam += 10
+			used = round(damage_dividend * 20 + (dam / 6), 1)
+			if(prob(used))
+				attempted_wounds += /datum/wound/scarring
 
 	for(var/wound_type in shuffle(attempted_wounds))
 		var/datum/wound/applied = add_wound(wound_type, silent, crit_message)
 		if(applied)
-			if(user.client)
+			if(user?.client)
 				GLOB.vanderlin_round_stats[STATS_CRITS_MADE]++
 			return applied
 	return FALSE
@@ -318,6 +342,8 @@
 	if(bclass in GLOB.artery_bclasses)
 		crit_classes += "artery"
 
+	if(!length(crit_classes))
+		return FALSE
 	switch(pick(crit_classes))
 		if("dislocation")
 			if(damage_dividend >= 1)
@@ -414,7 +440,7 @@
 	for(var/wound_type in shuffle(attempted_wounds))
 		var/datum/wound/applied = add_wound(wound_type, silent, crit_message)
 		if(applied)
-			if(user.client)
+			if(user?.client)
 				GLOB.vanderlin_round_stats[STATS_CRITS_MADE]++
 			return applied
 	return FALSE
@@ -438,7 +464,8 @@
 			playsound(owner, 'sound/combat/newstuck.ogg', 100, vary = TRUE)
 		if(crit_message)
 			owner.next_attack_msg += " <span class='userdanger'>[embedder] runs through [owner]'s [src.name]!</span>"
-		update_disabled()
+		if(can_be_disabled)
+			update_disabled()
 	return TRUE
 
 /// Removes an embedded object from this bodypart
@@ -451,7 +478,7 @@
 		return FALSE
 	LAZYREMOVE(embedded_objects, embedder)
 	embedder.is_embedded = FALSE
-	embedder.unembedded()
+	embedder.unembedded(owner)
 	if(!QDELETED(embedder))
 		var/drop_location = owner?.drop_location() || drop_location()
 		if(drop_location)
@@ -462,7 +489,8 @@
 		if(!owner.has_embedded_objects())
 			owner.clear_alert("embeddedobject")
 			SEND_SIGNAL(owner, COMSIG_CLEAR_MOOD_EVENT, "embedded")
-		update_disabled()
+		if(can_be_disabled)
+			update_disabled()
 	return TRUE
 
 /obj/item/bodypart/proc/try_bandage(obj/item/new_bandage)
@@ -519,6 +547,8 @@
 
 /// Applies a temporary paralysis effect to this bodypart
 /obj/item/bodypart/proc/temporary_crit_paralysis(duration = 60 SECONDS, brittle = TRUE)
+	if(!can_be_disabled)
+		return
 	if(HAS_TRAIT(src, TRAIT_BRITTLE))
 		return FALSE
 	ADD_TRAIT(src, TRAIT_PARALYSIS, CRIT_TRAIT)

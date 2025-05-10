@@ -14,7 +14,7 @@
 	armor_class = AC_HEAVY
 	armor = ARMOR_PLATE_GOOD
 	body_parts_covered = COVERAGE_ALL_BUT_LEGS
-	prevent_crits = ALL_EXCEPT_STAB
+	prevent_crits = ALL_EXCEPT_BLUNT
 	max_integrity = INTEGRITY_STRONGEST
 
 /obj/item/clothing/armor/rare/Initialize()
@@ -33,17 +33,20 @@
 
 	armor_class = AC_MEDIUM // Elven craft, also a cuirass
 	body_parts_covered = COVERAGE_VEST
+	item_weight = 12 * STEEL_MULTIPLIER
 
 /obj/item/clothing/armor/rare/elfplate/welfplate
 	name = "elvish plate"
 	desc = "A suit of steel interwoven, through honed elven technique, with hardened bark plates."
 	icon_state = "welfchest"
+	item_weight = 12 * STEEL_MULTIPLIER
 
 /obj/item/clothing/armor/rare/dwarfplate
 	name = "dwarvish plate"
 	desc = "Plate armor made out of the sturdiest, finest dwarvish metal armor. It's as heavy and durable as it gets."
 	icon_state = "dwarfchest"
 	allowed_race = list("dwarf")
+	item_weight = 12 * STEEL_MULTIPLIER
 
 /obj/item/clothing/armor/rare/grenzelplate
 	name = "grenzelhoftian plate regalia"
@@ -51,6 +54,7 @@
 	icon_state = "human_swordchest"
 	allowed_race = list("human")
 	allowed_sex = list(MALE)
+	item_weight = 12 * STEEL_MULTIPLIER
 
 /obj/item/clothing/armor/rare/zybanplate
 	name = "kataphractoe scaleskin"
@@ -60,6 +64,7 @@
 	icon_state = "human_spearchest"
 	allowed_race = list("human")
 	allowed_sex = list(MALE)
+	item_weight = 12 * STEEL_MULTIPLIER
 
 // Aasimar hoplite armor, a very rare armor indeed
 /obj/item/clothing/armor/rare/hoplite
@@ -74,3 +79,4 @@
 	sellprice = VALUE_SNOWFLAKE_STEEL+BONUS_VALUE_MODEST // It has great value to historical collectors
 
 	body_parts_covered = COVERAGE_ALL_BUT_ARMS
+	item_weight = 7 * STEEL_MULTIPLIER

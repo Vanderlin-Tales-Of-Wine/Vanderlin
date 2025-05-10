@@ -80,11 +80,27 @@
 	else
 		newA = area_choice
 
-	for(var/i in 1 to turfs.len)
-		var/turf/thing = turfs[i]
-		var/area/old_area = thing.loc
-		newA.contents += thing
-		thing.change_area(old_area, newA)
+	/**
+	 * A list of all machinery tied to an area along with the area itself. key=area name,value=list(area,list of machinery)
+	 * we use this to keep track of what areas are affected by the blueprints & what machinery of these areas needs to be reconfigured accordingly
+	 */
+	var/list/area/affected_areas = list()
+	for(var/turf/the_turf as anything in turfs)
+		var/area/old_area = the_turf.loc
+
+		//keep rack of all areas affected by turf changes
+		affected_areas[old_area.name] = old_area
+
+		//move the turf to its new area and unregister it from the old one
+		the_turf.change_area(old_area, newA)
+
+		//inform atoms on the turf that their area has changed
+		for(var/atom/stuff as anything in the_turf)
+			//unregister the stuff from its old area
+			SEND_SIGNAL(stuff, COMSIG_EXIT_AREA, old_area)
+
+			SEND_SIGNAL(stuff, COMSIG_ENTER_AREA, newA)
+		the_turf.change_area(old_area, newA)
 
 	newA.reg_in_areas_in_z()
 

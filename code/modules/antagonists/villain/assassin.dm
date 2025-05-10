@@ -3,7 +3,7 @@
 	name = "Assassin"
 	roundend_category = "assassins"
 	antagpanel_category = "Assassin"
-	antag_hud_type = ANTAG_HUD_TRAITOR
+	antag_hud_type = ANTAG_HUD_ASSASSIN
 	antag_hud_name = "assassin"
 	show_name_in_check_antagonists = TRUE
 	confess_lines = list(
@@ -14,16 +14,19 @@
 	)
 	antag_flags = FLAG_FAKE_ANTAG
 
+	innate_traits = list(
+		TRAIT_ASSASSIN,
+		TRAIT_NOSTINK,
+		TRAIT_VILLAIN,
+		TRAIT_DODGEEXPERT,
+		TRAIT_STEELHEARTED,
+		TRAIT_STRONG_GRABBER,
+	)
+
 /datum/antagonist/assassin/on_gain()
 	owner.current.cmode_music = list('sound/music/cmode/antag/CombatThrall.ogg', 'sound/music/cmode/antag/combat_werewolf.ogg')
 	if(owner.current.job != "Drifter") // This code only runs if the assassin is assigned midround and is not a drifter.
 		owner.current.set_patron(/datum/patron/inhumen/graggar)
-		ADD_TRAIT(owner.current, TRAIT_ASSASSIN, TRAIT_GENERIC)
-		ADD_TRAIT(owner.current, TRAIT_NOSTINK, TRAIT_GENERIC)
-		ADD_TRAIT(owner.current, TRAIT_VILLAIN, TRAIT_GENERIC)
-		ADD_TRAIT(owner.current, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
-		ADD_TRAIT(owner.current, TRAIT_STEELHEARTED, TRAIT_GENERIC)
-		ADD_TRAIT(owner.current, TRAIT_STRONG_GRABBER, TRAIT_GENERIC)
 		var/old_knife_skill = owner.current.mind.get_skill_level(/datum/skill/combat/knives)
 		var/old_sneak_skill = owner.current.mind.get_skill_level(/datum/skill/misc/sneaking)
 		if(old_knife_skill < 4) // If the assassined player has less than 4 knife skill, get them to 4.
@@ -37,7 +40,7 @@
 
 /mob/living/carbon/human/proc/who_targets() // Verb for the assassin to remember their targets.
 	set name = "Remember Targets"
-	set category = "Memory"
+	set category = "Graggar"
 	if(!mind)
 		return
 	mind.recall_targets(src)

@@ -6,6 +6,11 @@
 	slot = ORGAN_SLOT_EYES
 	gender = PLURAL
 
+	visible_organ = TRUE
+
+	organ_dna_type = /datum/organ_dna/eyes
+	accessory_type = /datum/sprite_accessory/eyes/humanoid
+
 	healing_factor = STANDARD_ORGAN_HEALING
 	decay_factor = STANDARD_ORGAN_DECAY
 	maxHealth = 0.5 * STANDARD_ORGAN_THRESHOLD		//half the normal health max since we go blind at 30, a permanent blindness at 50 therefore makes sense unless medicine is administered
@@ -44,13 +49,11 @@
 
 /obj/item/organ/eyes/update_accessory_colors()
 	var/list/colors_list = list()
-	if(initial(eye_color))
+	colors_list += eye_color
+	if(heterochromia)
+		colors_list += second_color
+	else
 		colors_list += eye_color
-	if(initial(second_color))
-		if(heterochromia)
-			colors_list += second_color
-		else
-			colors_list += eye_color
 	accessory_colors = color_list_to_string(colors_list)
 
 /obj/item/organ/eyes/imprint_organ_dna(datum/organ_dna/organ_dna)
@@ -64,12 +67,8 @@
 	. = ..()
 	if(ishuman(owner))
 		var/mob/living/carbon/human/HMN = owner
-		old_eye_color = HMN.eye_color
-		if(initial(eye_color))
-			HMN.eye_color = eye_color
+		if(eye_color)
 			HMN.regenerate_icons()
-		else
-			eye_color = HMN.eye_color
 	for(var/datum/wound/facial/eyes/eye_wound as anything in M.get_wounds())
 		qdel(eye_wound)
 	M.update_tint()
@@ -77,11 +76,12 @@
 	if(M.has_dna() && ishuman(M))
 		M.dna.species.handle_body(M) //updates eye icon
 
+
+
 /obj/item/organ/eyes/Remove(mob/living/carbon/M, special = 0)
 	. = ..()
-	if(ishuman(M))
+	if(ishuman(M) && eye_color)
 		var/mob/living/carbon/human/HMN = M
-		HMN.eye_color = old_eye_color
 		HMN.regenerate_icons()
 	M.cure_blind(EYE_DAMAGE)
 	M.cure_nearsighted(EYE_DAMAGE)
@@ -169,6 +169,9 @@
 	desc = ""
 	see_in_dark = 3
 	lighting_alpha = LIGHTING_PLANE_ALPHA_LESSER_NV_TRAIT
+
+/obj/item/organ/eyes/no_render
+	accessory_type = null
 
 /proc/set_eye_color(mob/living/carbon/mob, color_one, color_two)
 	var/obj/item/organ/eyes/eyes = mob.getorganslot(ORGAN_SLOT_EYES)

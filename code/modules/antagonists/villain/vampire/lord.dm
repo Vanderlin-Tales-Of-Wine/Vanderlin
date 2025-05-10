@@ -1,6 +1,7 @@
 /datum/antagonist/vampire/lord
 	name = "Vampire Lord"
-	antag_hud_name = "vampire"
+	antag_hud_type = ANTAG_HUD_VAMPIRE
+	antag_hud_name = "vamplord"
 	autojoin_team = TRUE
 	confess_lines = list(
 		"I AM ANCIENT!",
@@ -24,11 +25,15 @@
 	REMOVE_TRAIT(M, TRAIT_HEAVYARMOR, "[type]")
 
 /datum/antagonist/vampire/lord/on_gain()
+	var/mob/living/carbon/vampire = owner.current
+	remove_job()
+	owner.current?.roll_mob_stats()
 	owner.purge_combat_knowledge()
 	. = ..()
 	portal = new()
 	owner.current.AddSpell(portal)
 	addtimer(CALLBACK(owner.current, TYPE_PROC_REF(/mob/living/carbon/human, choose_name_popup), "[name]"), 5 SECONDS)
+	vampire.grant_undead_eyes()
 
 /datum/antagonist/vampire/lord/after_gain()
 	owner.current.verbs |= /mob/living/carbon/human/proc/demand_submission
@@ -99,7 +104,7 @@
 
 /datum/outfit/job/vamplord/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.mind.adjust_skillrank(/datum/skill/magic/blood, 2, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/magic/blood, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 5, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)

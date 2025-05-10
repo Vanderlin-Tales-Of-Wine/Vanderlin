@@ -37,7 +37,7 @@
 		return 0
 	var/armor_protection = 0
 	if(damage_flag)
-		armor_protection = armor.getRating(damage_flag)
+		armor_protection = armor?.getRating(damage_flag)
 	if(armor_protection)		//Only apply weak-against-armor/hollowpoint effects if there actually IS armor.
 		armor_protection = CLAMP(armor_protection - armor_penetration, min(armor_protection, 0), 100)
 	return round(damage_amount * (100 - armor_protection)*0.01, DAMAGE_PRECISION)
@@ -61,7 +61,7 @@
 
 /obj/hitby(atom/movable/AM, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum, damage_type = "blunt")
 	..()
-	if(AM.throwforce > 5)
+	if(!QDELETED(src) && AM.throwforce > 5)
 		take_damage(AM.throwforce*0.1, BRUTE, damage_type, 1, get_dir(src, AM))
 
 /obj/ex_act(severity, target, epicenter, devastation_range, heavy_impact_range, light_impact_range, flame_range)
@@ -99,7 +99,7 @@
 		take_damage(P.damage, P.damage_type, P.flag, 0, turn(P.dir, 180), P.armor_penetration)
 
 /obj/proc/attack_generic(mob/user, damage_amount = 0, damage_type = BRUTE, damage_flag = 0, sound_effect = 1, armor_penetration = 0) //used by attack_alien, attack_animal, and attack_slime
-	user.do_attack_animation(src)
+	user.do_attack_animation(src, used_intent = user.used_intent)
 	user.changeNext_move(CLICK_CD_MELEE)
 	return take_damage(damage_amount, damage_type, damage_flag, sound_effect, get_dir(src, user), armor_penetration)
 
@@ -265,3 +265,7 @@ GLOBAL_DATUM_INIT(acid_overlay, /mutable_appearance, mutable_appearance('icons/e
 ///returns how much the object blocks an explosion. Used by subtypes.
 /obj/proc/GetExplosionBlock()
 	CRASH("Unimplemented GetExplosionBlock()")
+
+/obj/proc/on_fall_impact(mob/living/impactee, fall_speed)
+	SHOULD_CALL_PARENT(TRUE)
+	return
