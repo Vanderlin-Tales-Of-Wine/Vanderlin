@@ -23,7 +23,13 @@
 	if(!istype(skill_ref, /datum/skill/combat))
 		return
 
-	var/level_diff = new_level - old_level
+	var/real_old = (old_level == SKILL_LEVEL_NONE && !(skill_ref in owner.current.mind.known_skills)) ? SKILL_LEVEL_NONE : old_level
+
+	if(new_level <= real_old)
+		return
+
+	var/level_diff = new_level - real_old
+	levels_gained += level_diff
 
 	if(levels_gained >= required_levels)
 		to_chat(owner.current, span_greentext("You've improved your combat skills enough to satisfy Ravox!"))
@@ -31,9 +37,9 @@
 		completed = TRUE
 		adjust_storyteller_influence("Ravox", 15)
 		UnregisterSignal(owner.current, COMSIG_SKILL_RANK_INCREASED)
-	else if(level_diff > 0)
-		levels_gained += level_diff
-		to_chat(owner.current, span_notice("Combat skill improved! [required_levels - levels_gained] more levels needed to fulfill Ravox's task!"))
+	else
+		var/remaining = required_levels - levels_gained
+		to_chat(owner.current, span_notice("Combat skill improved! [remaining] more level[remaining == 1 ? "" : "s"] needed to fulfill Ravox's task!"))
 
 /datum/objective/improve_combat/update_explanation_text()
 	explanation_text = "Improve your combat skills by gaining [required_levels] new skill levels through practice or dreams. For Ravox!"
