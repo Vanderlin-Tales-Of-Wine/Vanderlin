@@ -248,6 +248,13 @@
 	var/list/all_teams = list()
 	var/list/all_antagonists = list()
 
+	var/list/header_parts
+	if(GLOB.antagonist_teams.len || GLOB.antagonists.len)
+		header_parts += "<br>"
+		header_parts += "<div style='text-align: center; font-size: 1.2em;'>VILLAINS:</div>"
+		header_parts += "<hr class='paneldivider'>"
+		to_chat(world, header_parts)
+
 	for(var/datum/team/A in GLOB.antagonist_teams)
 		all_teams |= A
 
@@ -438,7 +445,7 @@
 
 		var/obj_count = 1
 		for(var/datum/objective/objective as anything in mind.personal_objectives)
-			var/result = objective.check_completion() ? span_greentext("SUCCESS") : span_redtext("FAIL")
+			var/result = objective.check_completion() ? span_greentext("TRIUMPH!") : span_redtext("FAIL")
 			parts += "<B>Goal #[obj_count]</B>: [objective.explanation_text] - [result]"
 			obj_count++
 
@@ -495,7 +502,7 @@
 			currrent_category = antagonist.roundend_category
 			previous_category = antagonist
 		result += antagonist.roundend_report()
-		result += "<br><br>"
+		result += "<br>"
 		CHECK_TICK
 
 	if(all_antagonists.len)
