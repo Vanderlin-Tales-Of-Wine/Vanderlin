@@ -282,6 +282,15 @@
 	last_used = 0
 	is_silver = TRUE
 
+//................ Psydonian Dagger ............... //
+/obj/item/weapon/knife/dagger/psydon
+	name = "psydonian dagger"
+	desc = "A silver dagger favored by close range fighters of the inquisition."
+	icon_state = "psydagger"
+	melting_material = null
+	sellprice = 60
+	is_silver = TRUE
+
 //................ Profane Dagger ............... //
 /obj/item/weapon/knife/dagger/steel/profane
 	// name = "profane dagger"
