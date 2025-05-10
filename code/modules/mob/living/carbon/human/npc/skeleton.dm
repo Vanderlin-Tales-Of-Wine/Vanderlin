@@ -1,8 +1,7 @@
 /mob/living/carbon/human/species/skeleton
 	name = "skeleton"
-
 	icon = 'icons/roguetown/mob/monster/skeletons.dmi'
-	icon_state = "skeleton"
+	icon_state = MAP_SWITCH("", "skeleton")
 	race = /datum/species/human/northern
 	gender = MALE
 	bodyparts = list(/obj/item/bodypart/chest, /obj/item/bodypart/head, /obj/item/bodypart/l_arm,
@@ -17,10 +16,6 @@
 	possible_rmb_intents = list(/datum/rmb_intent/feint, /datum/rmb_intent/aimed, /datum/rmb_intent/strong, /datum/rmb_intent/weak)
 	stand_attempts = 4
 	cmode_music = 'sound/music/cmode/antag/combatskeleton.ogg'
-
-/mob/living/carbon/species/skeleton/Initialize()
-	. = ..()
-	ADD_TRAIT(src, TRAIT_NOSLEEP, TRAIT_GENERIC)
 
 /mob/living/carbon/human/species/skeleton/npc/no_equipment
 	skel_outfit = null
@@ -37,15 +32,18 @@
 
 /mob/living/carbon/human/species/skeleton/Initialize()
 	. = ..()
-	cut_overlays()
-	spawn(10)
-		after_creation()
-
-//	addtimer(CALLBACK(src, PROC_REF(after_creation)), 10)  fired loadout equip again, leading to duping inhands. Unclear why its here.
+	addtimer(CALLBACK(src, PROC_REF(after_creation)), 1 SECONDS)
 
 /mob/living/carbon/human/species/skeleton/after_creation()
 	..()
-	if(dna && dna.species)
+	name = "skeleton"
+	real_name = "skeleton"
+	underwear = "Nude"
+	mob_biotypes = MOB_UNDEAD
+	faction = list(FACTION_UNDEAD)
+	if(charflaw)
+		QDEL_NULL(charflaw)
+	if(dna?.species)
 		dna.species.species_traits |= NOBLOOD
 		dna.species.soundpack_m = new /datum/voicepack/skeleton()
 		dna.species.soundpack_f = new /datum/voicepack/skeleton()
@@ -54,32 +52,16 @@
 			headdy.icon = 'icons/roguetown/mob/monster/skeletons.dmi'
 			headdy.icon_state = "skull"
 			headdy.headprice = rand(5,15)
-	var/obj/item/bodypart/O = get_bodypart(BODY_ZONE_R_ARM)
-	if(O)
-		O.drop_limb()
-		qdel(O)
-	O = get_bodypart(BODY_ZONE_L_ARM)
-	if(O)
-		O.drop_limb()
-		qdel(O)
-	regenerate_limb(BODY_ZONE_R_ARM)
-	regenerate_limb(BODY_ZONE_L_ARM)
-	for(var/obj/item/bodypart/B in src.bodyparts)
+	for(var/obj/item/bodypart/B as anything in bodyparts)
 		B.skeletonize(FALSE)
 	grant_undead_eyes()
-	underwear = "Nude"
-	if(charflaw)
-		QDEL_NULL(charflaw)
 	update_body()
-	mob_biotypes = MOB_UNDEAD
-	faction = list(FACTION_UNDEAD)
-	name = "skeleton"
-	real_name = "skeleton"
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
-	ADD_TRAIT(src, TRAIT_EASYDISMEMBER, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOBREATH, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOPAIN, TRAIT_GENERIC)
+	ADD_TRAIT(src, TRAIT_NOSLEEP, TRAIT_GENERIC)
+	ADD_TRAIT(src, TRAIT_EASYDISMEMBER, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_TOXIMMUNE, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_LIMBATTACHMENT, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_CRITICAL_WEAKNESS, TRAIT_GENERIC)
@@ -88,10 +70,8 @@
 		if(OU)
 			equipOutfit(OU)
 
-
 /datum/outfit/job/npc/skeleton/random/pre_equip(mob/living/carbon/human/H)
 	..()
-
 	H.base_strength = 6
 	H.base_speed = 10
 	H.base_constitution = 8

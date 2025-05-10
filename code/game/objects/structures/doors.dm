@@ -108,7 +108,7 @@
 	metalizer_result = /obj/structure/door/iron
 	/// Handle bolting on right click
 	var/has_bolt = FALSE
-	/// Handle viewport toggle
+	/// Handle viewport toggle on right click
 	var/has_viewport = FALSE
 
 /obj/structure/door/Initialize()
@@ -116,7 +116,7 @@
 	if(has_bolt && has_viewport)
 		warning("[src] at [AREACOORD(src)] has both a deadbolt and a viewport, these will conflict as they both use attack_right.")
 	if(has_bolt && keylock)
-		warning("[src] at [AREACOORD(src)] has both a deadbolt and a keylock, while this will work it may produce intended behaviour.")
+		warning("[src] at [AREACOORD(src)] has both a deadbolt and a keylock, while this will work it may produce unintended behaviour.")
 	set_init_layer()
 	if(keylock)
 		AddElement(/datum/element/lockpickable, list(/obj/item/lockpick), list(/obj/item/lockpick), lockid_to_lockpick_difficulty(lockid))
