@@ -623,9 +623,7 @@
 	gripped_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust/long, /datum/intent/sword/strike, /datum/intent/sword/chop/long)
 	icon_state = "psysword"
 	name = "psydonian longsword"
-	desc = "A large silver-alloy sword made in a revisionist style, honoring Psydon. Best known as the prefered weapon of Inquisitorial Lodges."
-	max_blade_int = 300
-	max_integrity = 500
+	desc = "A large silver longsword forged in the shape of a psycross."
 	smeltresult = /obj/item/ingot/silver
 	wbalance = -1
 	wdefense = 5
