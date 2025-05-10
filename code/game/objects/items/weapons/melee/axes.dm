@@ -194,7 +194,7 @@
 	sellprice = 60
 	is_silver = TRUE
 
-/obj/item/weapon/axe/iron/getonmobprop(tag)
+/obj/item/weapon/axe/psydon/getonmobprop(tag)
 	. = ..()
 	if(tag)
 		switch(tag)
