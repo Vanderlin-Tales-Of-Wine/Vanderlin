@@ -404,7 +404,7 @@
 			max_purchases = 2
 		),
 		"Psydonian Greatsword (8)" = list(
-			list(type = /obj/item/weapon/sword/great/psydon, count = 1),
+			list(type = /obj/item/weapon/sword/long/greatsword/psydon, count = 1),
 			cost = 8,
 			max_purchases = 1
 		),
