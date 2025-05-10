@@ -56,6 +56,8 @@
 		H.remove_status_effect(S)
 	post_equip(H)
 
+	apply_character_post_equipment(H)
+
 /datum/advclass/proc/post_equip(mob/living/carbon/human/H)
 	addtimer(CALLBACK(SScrediticons, TYPE_PROC_REF(/datum/controller/subsystem/crediticons, add_credit), H), 2 SECONDS)
 	if(cmode_music)

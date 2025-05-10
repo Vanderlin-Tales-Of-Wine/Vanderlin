@@ -449,6 +449,8 @@ SUBSYSTEM_DEF(ticker)
 			living.notransform = TRUE
 			livings += living
 			GLOB.character_ckey_list[living.real_name] = living.ckey
+		if(ishuman(living))
+			try_apply_character_post_equipment(living)
 
 	if(livings.len)
 		addtimer(CALLBACK(src, PROC_REF(release_characters), livings), 30, TIMER_CLIENT_TIME)

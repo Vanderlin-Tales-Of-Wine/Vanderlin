@@ -4,12 +4,12 @@
 	Cast from your home for what is undoubtedly a heinous act of violence, your travels have washed you up upon this \
 	shiteheap. All you have are your possessions from your former life. Make some coin for yourself, lest you end up dead and gone."
 	allowed_sexes = list(MALE, FEMALE)
-	outfit = /datum/outfit/job/roguetown/adventurer/dredge
+	outfit = /datum/outfit/job/adventurer/dredge
 	category_tags = list(CTAG_ADVENTURER)
 	maximum_possible_slots = 7
 	min_pq = 0
 
-/datum/outfit/job/roguetown/adventurer/dredge/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/adventurer/dredge/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, pick (1,2), TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, pick (1,2), TRUE)
