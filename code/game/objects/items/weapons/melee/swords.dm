@@ -609,6 +609,8 @@
 	icon_state = "forgotten"
 	name = "forgotten blade"
 	desc = "A large silver-alloy sword made in a revisionist style, honoring Psydon. Best known as the prefered weapon of Inquisitorial Lodges."
+	max_blade_int = 240 // Integrity and blade retention is .8 of a steel sword
+	max_integrity = 400
 	smeltresult = /obj/item/ingot/silver
 	wbalance = -1
 	wdefense = 4
@@ -625,8 +627,6 @@
 	name = "psydonian longsword"
 	desc = "A large silver longsword forged in the shape of a psycross."
 	smeltresult = /obj/item/ingot/silver
-	wbalance = -1
-	wdefense = 5
 	sellprice = 100
 	last_used = 0
 	is_silver = TRUE
