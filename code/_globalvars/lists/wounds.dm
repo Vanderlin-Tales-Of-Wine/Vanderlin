@@ -14,6 +14,7 @@ GLOBAL_LIST_INIT(artery_bclasses, list(
 	BCLASS_PICK,
 	BCLASS_BITE,
 	BCLASS_SHOT,
+	BCLASS_PIERCE,
 ))
 
 GLOBAL_LIST_INIT(artery_strong_bclasses, list(
@@ -25,6 +26,7 @@ GLOBAL_LIST_INIT(artery_strong_bclasses, list(
 GLOBAL_LIST_INIT(artery_heart_bclasses, list(
 	BCLASS_PICK,
 	BCLASS_SHOT,
+	BCLASS_PIERCE,
 ))
 
 GLOBAL_LIST_INIT(dislocation_bclasses, list(
@@ -44,6 +46,7 @@ GLOBAL_LIST_INIT(stab_bclasses, list(
 	BCLASS_STAB,
 	BCLASS_SHOT,
 	BCLASS_PICK,
+	BCLASS_PIERCE,
 ))
 
 GLOBAL_LIST_INIT(charring_bclasses, list(
