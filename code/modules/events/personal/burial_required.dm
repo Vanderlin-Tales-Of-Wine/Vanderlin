@@ -21,7 +21,7 @@
 			continue
 		if(!H.patron || !istype(H.patron, /datum/patron/divine/necra))
 			continue
-		if(istype(H.mind?.assigned_role, /datum/job/undertaker) || H.job == "Graventeder" || H.is_noble())
+		if(H.is_noble())
 			continue
 		return TRUE
 
@@ -35,7 +35,7 @@
 			continue
 		if(!human_mob.patron || !istype(human_mob.patron, /datum/patron/divine/necra))
 			continue
-		if(istype(human_mob.mind?.assigned_role, /datum/job/undertaker) || human_mob.job == "Graventeder" || human_mob.is_noble())
+		if(human_mob.is_noble())
 			continue
 		valid_targets += human_mob
 
@@ -48,7 +48,7 @@
 	chosen_one.mind.add_personal_objective(new_objective)
 
 	to_chat(chosen_one, span_danger("YOU ARE GOD'S CHOSEN!"))
-	to_chat(chosen_one, span_notice("Necra demands proper rites for the departed! Give one corpse a proper burial to earn Necra's favor!"))
+	to_chat(chosen_one, span_notice("Necra demands proper rites for the departed! Give enough corpses a proper burial to earn Necra's favor!"))
 	SEND_SOUND(chosen_one, 'sound/ambience/noises/genspooky (1).ogg')
 
 	chosen_one.mind.announce_personal_objectives()
