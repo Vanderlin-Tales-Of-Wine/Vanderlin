@@ -713,6 +713,10 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/blocks,
 /area/rogue/under/mountains/anvil/lower/building)
+"kL" = (
+/obj/machinery/light/fueled/firebowl/blackfire,
+/turf/open/floor/dirt,
+/area/rogue/under/mountains/anvil/lower)
 "kN" = (
 /obj/structure/roguetent/preopen,
 /turf/open/floor/twig,
@@ -2331,6 +2335,10 @@
 	},
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/lower/building)
+"JV" = (
+/obj/machinery/light/fueled/firebowl/blackfire,
+/turf/open/floor/cobblerock,
+/area/rogue/under/mountains/anvil/lower)
 "JX" = (
 /obj/structure/bed/inn,
 /turf/open/floor/wood/nosmooth/saiga,
@@ -44248,7 +44256,7 @@ Oq
 Oq
 Wt
 EH
-ko
+JV
 np
 np
 np
@@ -44458,7 +44466,7 @@ YJ
 EH
 Wt
 Wt
-Xi
+kL
 ko
 ko
 ko
