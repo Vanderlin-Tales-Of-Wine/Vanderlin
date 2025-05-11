@@ -60,6 +60,7 @@
 	new /obj/item/natural/fairydust(deathspot)
 	new /obj/item/natural/fairydust(deathspot)
 	new /obj/item/natural/fairydust(deathspot)
+	new /obj/item/reagent_containers/food/snacks/produce/manabloom(deathspot)
 	update_icon()
 	spill_embedded_objects()
 	qdel(src)

@@ -77,6 +77,7 @@
 	new /obj/item/natural/infernalash(deathspot)
 	new /obj/item/natural/infernalash(deathspot)
 	new /obj/item/natural/infernalash(deathspot)
+	new /obj/item/natural/infernalash(deathspot)
 	update_icon()
 	sleep(1)
 	qdel(src)

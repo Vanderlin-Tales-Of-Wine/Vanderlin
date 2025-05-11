@@ -89,6 +89,7 @@
 	..()
 	var/turf/deathspot = get_turf(src)
 	new /obj/item/natural/sylvanessence(deathspot)
+	new /obj/item/natural/sylvanessence(deathspot)
 	new /obj/item/natural/fairydust(deathspot)
 	new /obj/item/natural/fairydust(deathspot)
 	new /obj/item/natural/melded/t2(deathspot)

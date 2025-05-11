@@ -59,6 +59,8 @@
 	new /obj/item/natural/fairydust(deathspot)
 	new /obj/item/natural/fairydust(deathspot)
 	new /obj/item/natural/fairydust(deathspot)
+	new /obj/item/natural/fairydust(deathspot)
+	new /obj/item/natural/fairydust(deathspot)
 	update_icon()
 	sleep(1)
 	qdel(src)

@@ -58,6 +58,7 @@
 	new /obj/item/natural/elementalfragment(deathspot)
 	new /obj/item/natural/elementalmote(deathspot)
 	new /obj/item/natural/elementalmote(deathspot)
+	new /obj/item/natural/elementalmote(deathspot)
 	update_icon()
 	spill_embedded_objects()
 	qdel(src)
