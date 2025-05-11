@@ -135,7 +135,7 @@
 	organ_type = /obj/item/organ/ears
 	generic_random_pick = TRUE
 	sprite_accessories = list(
-//		/datum/sprite_accessory/ears/cat,				Quality control ; Will not be re-added until sprite touchup.
+		/datum/sprite_accessory/ears/cat,				//Quality control ; Will not be re-added until sprite touchup. -Remains in with Ook request.
 //		/datum/sprite_accessory/ears/axolotl,  			QC
 		/datum/sprite_accessory/ears/bat,
 //		/datum/sprite_accessory/ears/bear,				QC
@@ -158,7 +158,7 @@
 		/datum/sprite_accessory/ears/fox,
 		/datum/sprite_accessory/ears/vulp,
 		/datum/sprite_accessory/ears/husky,
-///		/datum/sprite_accessory/ears/jellyfish,			WTF
+		/datum/sprite_accessory/ears/jellyfish,			//WTF but Ook requests to keep, so.
 		/datum/sprite_accessory/ears/kangaroo,
 		/datum/sprite_accessory/ears/lab,
 		/datum/sprite_accessory/ears/murid,
