@@ -421,12 +421,13 @@
 
 /datum/controller/subsystem/ticker/proc/personal_objectives_report()
 	var/list/parts = list()
-	var/has_objectives = FALSE
+	var/failed_chosen = 0
+	var/has_any_objectives = FALSE
 
 	// Header
 	parts += "<div class='panel stationborder'>"
 	if(GLOB.personal_objective_minds.len)
-		parts += "<div style='text-align: center; font-size: 1.2em;'>GODS' CHOSEN:</div>"
+		parts += "<div style='text-align: center; font-size: 1.2em;'>GODS' CHAMPIONS:</div>"
 		parts += "<hr class='paneldivider'>"
 
 	// Process all minds with personal objectives
@@ -437,7 +438,17 @@
 		if(!mind.personal_objectives || !mind.personal_objectives.len)
 			continue
 
-		has_objectives = TRUE
+		has_any_objectives = TRUE
+		var/any_success = FALSE
+		for(var/datum/objective/objective as anything in mind.personal_objectives)
+			if(objective.check_completion())
+				any_success = TRUE
+				break
+
+		if(!any_success)
+			failed_chosen++
+			continue
+
 		var/name_with_title
 		if(mind.current)
 			name_with_title = printplayer(mind)
@@ -456,8 +467,13 @@
 			parts += "<br>"
 		CHECK_TICK
 
-	if(!has_objectives)
+	if(!has_any_objectives)
 		parts += "<div style='text-align: center;'>No personal objectives were assigned this round.</div>"
+	else if(failed_chosen > 0)
+		if(failed_chosen == 1)
+			parts += "<div style='text-align: center;'>1 god's chosen has failed to become a champion.</div>"
+		else
+			parts += "<div style='text-align: center;'>[failed_chosen] gods' chosen have failed to become champions.</div>"
 
 	parts += "</div>"
 
