@@ -3309,10 +3309,6 @@
 "JI" = (
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/villagegarrison)
-"JK" = (
-/obj/effect/baseturf_helper/lava,
-/turf/open/floor/naturalstone,
-/area/rogue/under/mountains/anvil/lower)
 "JN" = (
 /turf/closed/wall/mineral/wooddark/vertical,
 /area/rogue/under/mountains/anvil/lower)
@@ -23547,7 +23543,7 @@ Bt
 Bt
 Bt
 kc
-JK
+GX
 GX
 GX
 lz
@@ -23749,8 +23745,8 @@ Bt
 Bt
 Bt
 Bt
-JK
-JK
+GX
+GX
 GX
 lz
 lz

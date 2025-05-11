@@ -3966,7 +3966,6 @@
 	},
 /area/rogue/outdoors/town)
 "ctI" = (
-/obj/structure/closet/crate/chest/neu_iron,
 /obj/item/key/manor,
 /obj/item/key/walls,
 /obj/item/key/blacksmith,
@@ -4006,6 +4005,7 @@
 	pixel_y = 3
 	},
 /obj/item/key/tailor,
+/obj/structure/closet/crate/crafted_closet/steward,
 /turf/open/floor/carpet/green,
 /area/rogue/indoors/town/steward)
 "cuc" = (
