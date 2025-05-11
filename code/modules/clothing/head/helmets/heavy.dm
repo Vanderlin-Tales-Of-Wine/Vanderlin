@@ -70,7 +70,6 @@
 	icon_state = "topfhelm_gold"
 	item_weight = 9 * GOLD_MULITPLIER
 
-
 // Vampire Lord is no longer as OP, but the armor should protect against dreaded stabs or it makes the vitae spent on it pointless.
 /obj/item/clothing/head/helmet/heavy/savoyard
 	name = "savoyard"
@@ -78,13 +77,11 @@
 	icon_state = "savoyard"
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	smeltresult = /obj/item/ingot/iron
-	sellprice = VALUE_IRON_HELMET+BONUS_VALUE_MODEST
+	sellprice = VALUE_IRON_HELMET + BONUS_VALUE_MODEST
 
-	armor = ARMOR_PLATE
 	prevent_crits = ALL_CRITICAL_HITS_VAMP
 	max_integrity = INTEGRITY_STRONG
 	item_weight = 6 * IRON_MULTIPLIER
-
 
 //............... Frog Helmet ............... //
 /obj/item/clothing/head/helmet/heavy/frog
@@ -105,6 +102,7 @@
 	name = "spangenhelm"
 	desc = "A steel helmet with built in eye and nose protection, commonly used by warriors of the north."
 	icon_state = "Spangenhelm_item"
+	item_state = "Spangenhelm_worn"
 	icon = 'icons/roguetown/clothing/special/spangenhelm_item.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/spangenhelm_worn.dmi'
 	body_parts_covered = HEAD|NOSE|EYES

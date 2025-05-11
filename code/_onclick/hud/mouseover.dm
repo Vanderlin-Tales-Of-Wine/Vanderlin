@@ -125,9 +125,6 @@
 		p.client.screen |= p.client.mouseovertext
 	return TRUE
 
-/turf/open
-	nomouseover = TRUE
-
 /turf/open/handle_mouseover(location, control, params)
 	var/mob/p = usr
 	if(p.client)

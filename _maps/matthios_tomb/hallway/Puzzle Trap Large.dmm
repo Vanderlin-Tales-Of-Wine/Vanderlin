@@ -1,1414 +1,1414 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"al" = (
-/obj/effect/waterfall,
-/turf/closed/wall/mineral/stone/moss,
-/area/rogue/indoors)
-"aD" = (
-/obj/structure/bookcase/random,
+"bI" = (
+/mob/living/simple_animal/hostile/retaliate/spider,
+/turf/open/floor/cobble,
+/area/rogue/under/tomb)
+"bU" = (
+/obj/structure/spider/stickyweb,
 /obj/structure/spider/stickyweb,
 /turf/open/floor/cobble,
-/area/rogue/indoors)
-"bt" = (
+/area/rogue/under/tomb)
+"cB" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/stickyweb/solo,
+/turf/open/floor/cobblerock,
+/area/rogue/under/tomb)
+"cN" = (
+/obj/structure/flora/grass/water/reeds,
+/turf/open/water/river,
+/area/rogue/under/tomb)
+"cP" = (
 /obj/structure/fluff/walldeco/vinez,
 /turf/closed/wall/mineral/stone/window,
-/area/rogue/indoors)
-"bx" = (
-/turf/open/water/river{
+/area/rogue/under/tomb)
+"ed" = (
+/obj/effect/spawner/map_spawner/loot/armor,
+/turf/open/floor/cobble,
+/area/rogue/under/tomb)
+"eO" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/stickyweb/solo,
+/turf/open/floor/cobble,
+/area/rogue/under/tomb)
+"eY" = (
+/obj/structure/bookcase/random,
+/obj/structure/spider/stickyweb{
 	dir = 8
 	},
-/area/rogue/indoors)
-"bX" = (
-/obj/structure/flora/grass/water,
-/turf/open/water/river{
-	dir = 4
-	},
-/area/rogue/indoors)
-"bZ" = (
-/obj/structure/flora/grass/water,
-/turf/open/water/river{
-	dir = 8
-	},
-/area/rogue/indoors)
-"cl" = (
+/turf/open/floor/cobblerock,
+/area/rogue/under/tomb)
+"fG" = (
+/obj/structure/door/stone,
+/obj/structure/fluff/walldeco/vinez,
+/obj/structure/fluff/walldeco/vinez,
+/turf/open/floor/cobblerock,
+/area/rogue/under/tomb)
+"gh" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/stickyweb/solo,
+/turf/open/floor/cobble,
+/area/rogue/under/tomb)
+"gR" = (
 /obj/structure/flora/grass/water/reeds,
 /turf/open/water/river{
 	dir = 1
 	},
-/area/rogue/indoors)
-"dx" = (
-/turf/closed/wall/mineral/stone,
-/area/rogue/indoors)
-"dS" = (
-/obj/structure/spider/stickyweb,
-/obj/structure/spider/stickyweb,
+/area/rogue/under/tomb)
+"iT" = (
+/obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/cobblerock,
-/area/rogue/indoors)
-"ef" = (
-/obj/structure/spider/stickyweb,
-/obj/structure/spider/stickyweb,
-/mob/living/simple_animal/hostile/retaliate/spider,
-/turf/open/floor/cobblerock,
-/area/rogue/indoors)
-"ep" = (
-/obj/structure/stairs/stone,
-/turf/open/floor/cobble,
-/area/rogue/indoors)
-"gz" = (
-/obj/effect/dungeon_directional_helper/north,
-/turf/open/floor/cobblerock,
-/area/rogue/indoors)
-"gJ" = (
-/obj/structure/flora/grass/water/reeds,
-/obj/structure/flora/grass/water/reeds,
-/turf/open/water/river{
-	dir = 8
+/area/rogue/under/tomb)
+"js" = (
+/obj/structure/stairs/stone{
+	dir = 1
 	},
-/area/rogue/indoors)
-"gY" = (
-/obj/structure/rack/shelf/biggest,
-/obj/structure/spider/stickyweb,
-/obj/effect/spawner/map_spawner/loot/common,
-/turf/open/floor/cobble,
-/area/rogue/indoors)
-"hr" = (
-/obj/structure/spider/stickyweb,
-/obj/structure/spider/stickyweb/solo,
-/turf/open/floor/cobble,
-/area/rogue/indoors)
-"ih" = (
-/obj/structure/closet/crate/chest,
-/obj/effect/spawner/map_spawner/loot/common,
-/obj/effect/spawner/map_spawner/loot/food,
-/turf/open/floor/cobble,
-/area/rogue/indoors)
-"ip" = (
-/obj/structure/rack/shelf/biggest,
-/obj/structure/spider/stickyweb,
-/obj/effect/spawner/map_spawner/loot,
 /turf/open/floor/cobblerock,
-/area/rogue/indoors)
-"iM" = (
+/area/rogue/under/tomb)
+"jC" = (
+/obj/structure/spider/stickyweb,
+/obj/machinery/light/fueled/wallfire/candle,
+/turf/open/floor/cobblerock,
+/area/rogue/under/tomb)
+"jP" = (
+/obj/effect/spawner/map_spawner/loot/rare,
+/turf/open/floor/cobblerock,
+/area/rogue/under/tomb)
+"kc" = (
+/obj/structure/flora/grass/water,
+/obj/structure/flora/grass/water/reeds,
 /turf/open/water/river,
-/area/rogue/indoors)
-"jf" = (
-/obj/structure/spider/stickyweb,
-/obj/structure/spider/stickyweb{
-	dir = 8
-	},
-/turf/open/floor/cobble,
-/area/rogue/indoors)
-"jv" = (
-/obj/structure/spider/stickyweb,
-/obj/structure/trap/spike,
-/turf/open/floor/cobblerock,
-/area/rogue/indoors)
-"jE" = (
-/obj/structure/door/stone,
-/obj/structure/fluff/walldeco/vinez,
-/turf/open/floor/cobblerock,
-/area/rogue/indoors)
-"ks" = (
+/area/rogue/under/tomb)
+"kA" = (
 /obj/structure/spider/stickyweb,
 /obj/structure/spider/stickyweb/solo,
 /obj/effect/spawner/map_spawner/loot/medium,
 /turf/open/floor/cobblerock,
-/area/rogue/indoors)
-"lx" = (
-/obj/structure/stairs/stone{
-	dir = 1
-	},
-/obj/structure/fluff/walldeco/vinez,
+/area/rogue/under/tomb)
+"kG" = (
+/turf/closed/wall/mineral/stone/window/moss,
+/area/rogue/under/tomb)
+"kU" = (
+/obj/structure/spider/cocoon,
+/obj/structure/spider/stickyweb,
 /turf/open/floor/cobble,
-/area/rogue/indoors)
-"lE" = (
-/obj/structure/door/stone,
-/obj/structure/trap/saw_blades,
+/area/rogue/under/tomb)
+"lf" = (
+/obj/effect/dungeon_directional_helper/east,
 /turf/open/floor/cobblerock,
-/area/rogue/indoors)
-"mA" = (
-/obj/structure/flora/grass/water,
-/obj/structure/flora/grass/water/reeds,
-/turf/open/water/river{
-	dir = 1
-	},
-/area/rogue/indoors)
-"mH" = (
-/obj/effect/spawner/map_spawner/loot/magic,
-/turf/open/floor/cobble,
-/area/rogue/indoors)
-"nt" = (
-/obj/structure/door/stone,
-/obj/machinery/light/fueled/wallfire/candle,
-/obj/structure/fluff/walldeco/vinez,
-/turf/open/floor/cobble,
-/area/rogue/indoors)
-"nF" = (
-/obj/structure/flora/grass/water,
-/turf/open/water/river{
-	dir = 1
-	},
-/area/rogue/indoors)
-"nS" = (
+/area/rogue/under/tomb)
+"lQ" = (
+/turf/open/transparent/openspace,
+/area/rogue/under/tomb)
+"ml" = (
 /turf/closed/wall/mineral/stone/moss,
-/area/rogue/indoors)
-"oU" = (
-/obj/structure/fluff/walldeco/vinez,
-/turf/open/floor/cobble,
-/area/rogue/indoors)
-"pA" = (
-/obj/structure/door/stone,
-/obj/machinery/light/fueled/wallfire/candle,
-/turf/open/floor/cobble,
-/area/rogue/indoors)
-"qu" = (
-/obj/effect/spawner/map_spawner/loot/weapon,
-/turf/open/floor/cobble,
-/area/rogue/indoors)
-"qv" = (
-/obj/structure/door/stone,
-/turf/open/floor/cobble,
-/area/rogue/indoors)
-"qD" = (
-/obj/structure/flora/grass/water,
-/obj/structure/flora/grass/water/reeds,
-/turf/open/water/river,
-/area/rogue/indoors)
-"rh" = (
-/obj/structure/closet/crate/coffin,
-/obj/structure/spider/stickyweb,
-/obj/effect/spawner/map_spawner/loot/weapon,
-/turf/open/floor/cobble,
-/area/rogue/indoors)
-"rJ" = (
-/obj/structure/door/stone,
-/obj/structure/fluff/walldeco/vinez,
-/obj/structure/fluff/walldeco/vinez,
-/turf/open/floor/cobblerock,
-/area/rogue/indoors)
-"rL" = (
-/turf/open/floor/cobblerock,
-/area/rogue/indoors)
-"sS" = (
-/obj/structure/fluff/walldeco/vinez,
-/obj/structure/fluff/walldeco/vinez,
-/turf/closed/wall/mineral/stone,
-/area/rogue/indoors)
-"tm" = (
-/obj/structure/spider/stickyweb,
-/turf/open/floor/cobble,
-/area/rogue/indoors)
-"tO" = (
-/obj/structure/spider/stickyweb,
-/obj/structure/spider/stickyweb{
+/area/rogue/under/tomb)
+"mM" = (
+/turf/open/water/river{
 	dir = 1
 	},
-/obj/structure/trap/fire,
-/turf/open/floor/cobble,
-/area/rogue/indoors)
-"uf" = (
-/turf/open/floor/cobble,
-/area/rogue/indoors)
-"uq" = (
+/area/rogue/under/tomb)
+"mZ" = (
+/turf/open/floor/cobblerock,
+/area/rogue/under/tomb)
+"nn" = (
 /obj/structure/spider/stickyweb,
-/obj/structure/spider/stickyweb,
+/obj/effect/spawner/map_spawner/loot,
+/turf/open/floor/cobblerock,
+/area/rogue/under/tomb)
+"oa" = (
 /obj/machinery/light/fueled/wallfire/candle,
+/obj/structure/fluff/walldeco/vinez,
+/turf/closed/wall/mineral/stone/moss,
+/area/rogue/under/tomb)
+"oF" = (
+/obj/effect/spawner/map_spawner/loot/weapon,
 /turf/open/floor/cobble,
-/area/rogue/indoors)
-"uK" = (
+/area/rogue/under/tomb)
+"pN" = (
 /obj/structure/flora/grass/water,
+/obj/structure/flora/grass/water/reeds,
 /obj/structure/flora/grass/water/reeds,
 /turf/open/water/river{
 	dir = 8
 	},
-/area/rogue/indoors)
-"xk" = (
-/obj/structure/spider/stickyweb,
-/obj/structure/spider/stickyweb/solo,
-/turf/open/floor/cobblerock,
-/area/rogue/indoors)
-"ym" = (
-/obj/structure/fluff/walldeco/vinez,
-/turf/closed/wall/mineral/stone,
-/area/rogue/indoors)
-"yL" = (
-/obj/effect/dungeon_directional_helper/south,
-/turf/open/floor/cobblerock,
-/area/rogue/indoors)
-"za" = (
+/area/rogue/under/tomb)
+"pS" = (
 /obj/structure/door/stone,
 /obj/structure/trap/saw_blades,
 /obj/structure/fluff/walldeco/vinez,
 /turf/open/floor/cobblerock,
-/area/rogue/indoors)
-"zz" = (
+/area/rogue/under/tomb)
+"qg" = (
+/obj/machinery/light/fueled/campfire/densefire,
+/turf/open/floor/cobblerock,
+/area/rogue/under/tomb)
+"qj" = (
 /obj/structure/spider/stickyweb,
 /obj/structure/spider/stickyweb{
-	dir = 4
+	dir = 8
 	},
 /turf/open/floor/cobblerock,
-/area/rogue/indoors)
-"zD" = (
-/obj/effect/spawner/map_spawner/loot/armor,
-/turf/open/floor/cobble,
-/area/rogue/indoors)
-"zW" = (
-/obj/machinery/light/fueled/wallfire/candle,
-/turf/open/floor/cobble,
-/area/rogue/indoors)
-"zY" = (
-/turf/open/transparent/openspace,
-/area/rogue/indoors)
-"Aq" = (
-/obj/structure/spider/stickyweb,
-/obj/machinery/light/fueled/wallfire/candle,
-/turf/open/floor/cobblerock,
-/area/rogue/indoors)
-"Ar" = (
-/obj/structure/stairs/stone{
+/area/rogue/under/tomb)
+"qH" = (
+/obj/structure/flora/grass/water,
+/obj/structure/flora/grass/water/reeds,
+/turf/open/water/river{
 	dir = 1
 	},
-/turf/open/floor/cobblerock,
-/area/rogue/indoors)
-"AV" = (
-/obj/structure/door/stone,
+/area/rogue/under/tomb)
+"qI" = (
+/obj/structure/fluff/walldeco/vinez,
+/turf/closed/wall/mineral/stone/moss,
+/area/rogue/under/tomb)
+"rD" = (
 /obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/cobblerock,
-/area/rogue/indoors)
-"Bi" = (
+/area/rogue/under/tomb)
+"rQ" = (
+/obj/structure/closet/crate/coffin,
+/obj/structure/spider/stickyweb,
+/obj/effect/spawner/map_spawner/loot/weapon,
+/turf/open/floor/cobble,
+/area/rogue/under/tomb)
+"rU" = (
+/obj/structure/flora/grass/water,
+/turf/open/water/river{
+	dir = 1
+	},
+/area/rogue/under/tomb)
+"sH" = (
+/obj/structure/flora/grass/water,
+/turf/open/water/river,
+/area/rogue/under/tomb)
+"sR" = (
+/obj/structure/rack/shelf/biggest,
+/obj/structure/spider/stickyweb,
+/obj/effect/spawner/map_spawner/loot/common,
+/turf/open/floor/cobble,
+/area/rogue/under/tomb)
+"tS" = (
 /obj/structure/flora/grass/water,
 /obj/structure/flora/grass/water/reeds,
 /turf/open/water/river{
 	dir = 4
 	},
-/area/rogue/indoors)
-"BF" = (
+/area/rogue/under/tomb)
+"ue" = (
 /obj/structure/flora/grass/water/reeds,
-/turf/open/water/river,
-/area/rogue/indoors)
-"CR" = (
-/obj/machinery/light/fueled/campfire/densefire,
-/turf/open/floor/cobblerock,
-/area/rogue/indoors)
-"Fs" = (
+/obj/structure/flora/grass/water/reeds,
+/turf/open/water/river{
+	dir = 1
+	},
+/area/rogue/under/tomb)
+"uh" = (
+/obj/structure/rack/shelf/biggest,
 /obj/structure/spider/stickyweb,
 /obj/effect/spawner/map_spawner/loot,
 /turf/open/floor/cobblerock,
-/area/rogue/indoors)
-"FY" = (
+/area/rogue/under/tomb)
+"un" = (
+/obj/effect/waterfall,
+/turf/open/transparent/openspace,
+/area/rogue/under/tomb)
+"uS" = (
 /obj/structure/spider/stickyweb,
 /obj/structure/spider/stickyweb,
 /obj/structure/spider/stickyweb{
 	dir = 4
 	},
 /turf/open/floor/cobble,
-/area/rogue/indoors)
-"GY" = (
+/area/rogue/under/tomb)
+"vb" = (
+/obj/effect/waterfall,
+/turf/open/water/river{
+	dir = 8
+	},
+/area/rogue/under/tomb)
+"wt" = (
 /turf/open/water/river{
 	dir = 4
 	},
-/area/rogue/indoors)
-"He" = (
-/obj/effect/waterfall,
-/turf/open/transparent/openspace,
-/area/rogue/indoors)
-"Ia" = (
-/obj/structure/spider/stickyweb,
-/obj/structure/spider/stickyweb,
-/obj/structure/spider/stickyweb/solo,
+/area/rogue/under/tomb)
+"wA" = (
+/obj/structure/bed/hay,
 /turf/open/floor/cobble,
-/area/rogue/indoors)
-"Ib" = (
-/obj/structure/spider/cocoon,
+/area/rogue/under/tomb)
+"wE" = (
 /obj/structure/spider/stickyweb,
 /turf/open/floor/cobble,
-/area/rogue/indoors)
-"Ip" = (
-/obj/structure/trap/shock,
+/area/rogue/under/tomb)
+"wG" = (
+/obj/structure/flora/grass/water,
+/turf/open/water/river{
+	dir = 8
+	},
+/area/rogue/under/tomb)
+"xc" = (
+/obj/structure/spider/stickyweb,
+/mob/living/simple_animal/hostile/retaliate/spider,
+/turf/open/floor/cobblerock,
+/area/rogue/under/tomb)
+"xd" = (
+/obj/structure/fluff/walldeco/vinez,
 /turf/open/floor/cobble,
-/area/rogue/indoors)
-"Jx" = (
+/area/rogue/under/tomb)
+"xw" = (
 /obj/structure/rack/shelf/biggest,
 /obj/structure/spider/stickyweb/solo,
 /obj/effect/spawner/map_spawner/loot/common,
 /turf/open/floor/cobble,
-/area/rogue/indoors)
-"JN" = (
+/area/rogue/under/tomb)
+"xG" = (
+/obj/structure/stairs/stone,
+/turf/open/floor/cobble,
+/area/rogue/under/tomb)
+"yj" = (
 /obj/effect/waterfall,
-/turf/open/water/river,
-/area/rogue/indoors)
-"Ki" = (
-/obj/structure/bed/hay,
+/turf/closed/wall/mineral/stone/moss,
+/area/rogue/under/tomb)
+"yD" = (
+/obj/structure/door/stone,
+/obj/structure/fluff/walldeco/vinez,
+/turf/open/floor/cobble,
+/area/rogue/under/tomb)
+"zk" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/trap/shock,
 /turf/open/floor/cobblerock,
-/area/rogue/indoors)
-"Kr" = (
-/obj/structure/flora/grass/water/reeds,
-/obj/structure/flora/grass/water/reeds,
-/turf/open/water/river{
+/area/rogue/under/tomb)
+"zQ" = (
+/obj/structure/door/stone,
+/obj/machinery/light/fueled/wallfire/candle,
+/obj/structure/fluff/walldeco/vinez,
+/turf/open/floor/cobble,
+/area/rogue/under/tomb)
+"Bj" = (
+/obj/structure/bookcase/random,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/cobble,
+/area/rogue/under/tomb)
+"Ct" = (
+/obj/structure/trap/shock,
+/turf/open/floor/cobble,
+/area/rogue/under/tomb)
+"CJ" = (
+/obj/structure/closet/crate/chest,
+/obj/effect/spawner/map_spawner/loot/common,
+/obj/effect/spawner/map_spawner/loot/food,
+/turf/open/floor/cobble,
+/area/rogue/under/tomb)
+"Db" = (
+/obj/machinery/light/fueled/wallfire/candle,
+/turf/open/transparent/openspace,
+/area/rogue/under/tomb)
+"Ee" = (
+/obj/machinery/light/fueled/wallfire/candle,
+/turf/open/floor/cobble,
+/area/rogue/under/tomb)
+"EL" = (
+/obj/structure/stairs/stone{
 	dir = 1
 	},
-/area/rogue/indoors)
-"Kv" = (
-/obj/effect/dungeon_directional_helper/east,
+/turf/open/floor/cobble,
+/area/rogue/under/tomb)
+"FX" = (
+/obj/structure/door/stone,
+/obj/structure/fluff/walldeco/vinez,
 /turf/open/floor/cobblerock,
-/area/rogue/indoors)
-"KF" = (
-/obj/effect/waterfall,
-/turf/open/water/river{
-	dir = 8
-	},
-/area/rogue/indoors)
-"KQ" = (
-/obj/effect/dungeon_directional_helper/west,
-/turf/open/floor/cobblerock,
-/area/rogue/indoors)
-"Lo" = (
+/area/rogue/under/tomb)
+"HX" = (
 /obj/structure/closet/crate/coffin,
 /obj/structure/spider/stickyweb,
 /obj/structure/spider/stickyweb{
 	dir = 4
 	},
 /turf/open/floor/cobble,
-/area/rogue/indoors)
-"LJ" = (
-/obj/structure/flora/grass/water/reeds,
-/obj/effect/waterfall,
-/turf/open/water/river{
+/area/rogue/under/tomb)
+"Ig" = (
+/obj/structure/spider/stickyweb,
+/turf/open/floor/cobblerock,
+/area/rogue/under/tomb)
+"Is" = (
+/obj/structure/door/stone,
+/obj/machinery/light/fueled/wallfire/candle,
+/turf/open/floor/cobblerock,
+/area/rogue/under/tomb)
+"Iu" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/stickyweb{
 	dir = 4
 	},
-/area/rogue/indoors)
-"LP" = (
-/turf/closed/wall/mineral/stone/window/moss,
-/area/rogue/indoors)
-"LU" = (
+/turf/open/floor/cobblerock,
+/area/rogue/under/tomb)
+"Jw" = (
 /obj/structure/spider/stickyweb,
 /obj/structure/spider/stickyweb,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/cobblerock,
+/area/rogue/under/tomb)
+"JF" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/trap/spike,
+/turf/open/floor/cobblerock,
+/area/rogue/under/tomb)
+"JM" = (
+/obj/structure/bed/hay,
+/turf/open/floor/cobblerock,
+/area/rogue/under/tomb)
+"JR" = (
+/obj/effect/dungeon_directional_helper/west,
+/turf/open/floor/cobblerock,
+/area/rogue/under/tomb)
+"Kg" = (
 /turf/open/floor/cobble,
-/area/rogue/indoors)
-"MG" = (
-/obj/structure/flora/grass/water/reeds,
-/turf/open/water/river{
-	dir = 8
-	},
-/area/rogue/indoors)
-"MO" = (
-/obj/structure/door/stone,
+/area/rogue/under/tomb)
+"Kk" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/stickyweb,
+/mob/living/simple_animal/hostile/retaliate/spider,
 /turf/open/floor/cobblerock,
-/area/rogue/indoors)
-"NB" = (
-/obj/structure/fluff/walldeco/vinez,
-/turf/open/floor/cobblerock,
-/area/rogue/indoors)
-"NG" = (
-/obj/structure/flora/grass/water,
-/turf/open/water/river,
-/area/rogue/indoors)
-"Oa" = (
+/area/rogue/under/tomb)
+"Lj" = (
 /obj/structure/spider/stickyweb,
 /obj/structure/spider/stickyweb{
 	dir = 4
 	},
 /turf/open/floor/cobble,
-/area/rogue/indoors)
-"OG" = (
+/area/rogue/under/tomb)
+"Lt" = (
+/obj/structure/flora/grass/water/reeds,
+/obj/effect/waterfall,
+/turf/open/water/river{
+	dir = 4
+	},
+/area/rogue/under/tomb)
+"LG" = (
 /obj/structure/spider/stickyweb,
-/mob/living/simple_animal/hostile/retaliate/spider,
-/turf/open/floor/cobblerock,
-/area/rogue/indoors)
-"OY" = (
-/obj/effect/spawner/map_spawner/loot/rare,
-/turf/open/floor/cobblerock,
-/area/rogue/indoors)
-"Pk" = (
-/obj/structure/fluff/walldeco/vinez,
-/turf/closed/wall/mineral/stone/window/moss,
-/area/rogue/indoors)
-"Qs" = (
+/obj/structure/spider/stickyweb,
 /obj/machinery/light/fueled/wallfire/candle,
+/turf/open/floor/cobble,
+/area/rogue/under/tomb)
+"MC" = (
+/obj/structure/fluff/walldeco/vinez,
+/turf/open/floor/cobblerock,
+/area/rogue/under/tomb)
+"NI" = (
+/obj/structure/stairs/stone{
+	dir = 1
+	},
+/obj/structure/fluff/walldeco/vinez,
+/turf/open/floor/cobble,
+/area/rogue/under/tomb)
+"NT" = (
+/obj/structure/flora/grass/water,
+/turf/open/water/river{
+	dir = 4
+	},
+/area/rogue/under/tomb)
+"NV" = (
+/obj/structure/fluff/walldeco/vinez,
+/turf/closed/wall/mineral/stone,
+/area/rogue/under/tomb)
+"NZ" = (
+/obj/structure/fluff/walldeco/vinez,
 /obj/structure/fluff/walldeco/vinez,
 /turf/closed/wall/mineral/stone/moss,
-/area/rogue/indoors)
-"Rh" = (
-/obj/structure/stairs/stone,
+/area/rogue/under/tomb)
+"Oz" = (
+/turf/closed/wall/mineral/stone,
+/area/rogue/under/tomb)
+"PH" = (
+/obj/structure/flora/grass/water/reeds,
+/turf/open/water/river{
+	dir = 4
+	},
+/area/rogue/under/tomb)
+"PO" = (
+/obj/structure/flora/grass/water/reeds,
+/obj/structure/flora/grass/water/reeds,
+/turf/open/water/river{
+	dir = 8
+	},
+/area/rogue/under/tomb)
+"Ra" = (
+/obj/effect/spawner/map_spawner/loot/magic,
+/turf/open/floor/cobble,
+/area/rogue/under/tomb)
+"RL" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/stickyweb{
+	dir = 8
+	},
+/turf/open/floor/cobble,
+/area/rogue/under/tomb)
+"Sb" = (
+/obj/structure/fluff/walldeco/vinez,
+/turf/closed/wall/mineral/stone/window/moss,
+/area/rogue/under/tomb)
+"Sz" = (
+/obj/structure/spider/cocoon,
 /turf/open/floor/cobblerock,
-/area/rogue/indoors)
-"Ri" = (
+/area/rogue/under/tomb)
+"SW" = (
+/obj/effect/dungeon_directional_helper/north,
+/turf/open/floor/cobblerock,
+/area/rogue/under/tomb)
+"TJ" = (
+/turf/open/water/river,
+/area/rogue/under/tomb)
+"TM" = (
+/obj/structure/door/stone,
+/turf/open/floor/cobble,
+/area/rogue/under/tomb)
+"TT" = (
+/turf/open/water/river{
+	dir = 8
+	},
+/area/rogue/under/tomb)
+"Ua" = (
+/obj/effect/waterfall,
+/turf/open/water/river,
+/area/rogue/under/tomb)
+"UL" = (
+/turf/closed/wall/mineral/stone/window,
+/area/rogue/under/tomb)
+"UR" = (
 /obj/structure/spider/stickyweb,
 /obj/structure/spider/stickyweb{
 	dir = 8
 	},
 /obj/structure/trap/fire,
 /turf/open/floor/cobblerock,
-/area/rogue/indoors)
-"Rr" = (
-/obj/structure/fluff/walldeco/vinez,
-/turf/closed/wall/mineral/stone/moss,
-/area/rogue/indoors)
-"Rz" = (
-/obj/structure/stairs/stone{
-	dir = 1
-	},
-/turf/open/floor/cobble,
-/area/rogue/indoors)
-"RU" = (
+/area/rogue/under/tomb)
+"UZ" = (
 /obj/structure/flora/grass/water/reeds,
 /turf/open/water/river{
-	dir = 4
+	dir = 8
 	},
-/area/rogue/indoors)
-"Uc" = (
-/obj/machinery/light/fueled/wallfire/candle,
-/turf/open/transparent/openspace,
-/area/rogue/indoors)
-"Us" = (
-/obj/structure/fluff/walldeco/vinez,
-/obj/structure/fluff/walldeco/vinez,
-/turf/closed/wall/mineral/stone/moss,
-/area/rogue/indoors)
-"UK" = (
+/area/rogue/under/tomb)
+"VF" = (
 /obj/structure/spider/stickyweb,
-/obj/structure/trap/shock,
+/obj/structure/spider/stickyweb{
+	dir = 1
+	},
+/obj/structure/trap/fire,
+/turf/open/floor/cobble,
+/area/rogue/under/tomb)
+"VX" = (
+/obj/structure/door/stone,
 /turf/open/floor/cobblerock,
-/area/rogue/indoors)
-"Vh" = (
-/obj/structure/bed/hay,
-/turf/open/floor/cobble,
-/area/rogue/indoors)
-"Vk" = (
-/mob/living/simple_animal/hostile/retaliate/spider,
-/turf/open/floor/cobble,
-/area/rogue/indoors)
-"Vt" = (
+/area/rogue/under/tomb)
+"WK" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/cobblerock,
+/area/rogue/under/tomb)
+"XE" = (
+/obj/structure/stairs/stone,
+/turf/open/floor/cobblerock,
+/area/rogue/under/tomb)
+"XH" = (
+/obj/structure/door/stone,
+/obj/structure/trap/saw_blades,
+/turf/open/floor/cobblerock,
+/area/rogue/under/tomb)
+"XV" = (
 /obj/structure/flora/grass/water,
 /obj/structure/flora/grass/water/reeds,
-/obj/structure/flora/grass/water/reeds,
 /turf/open/water/river{
 	dir = 8
 	},
-/area/rogue/indoors)
-"Vu" = (
-/obj/machinery/light/fueled/wallfire/candle,
-/turf/open/floor/cobblerock,
-/area/rogue/indoors)
-"Wu" = (
-/turf/closed/wall/mineral/stone/window,
-/area/rogue/indoors)
-"Wy" = (
-/obj/structure/spider/stickyweb,
-/turf/open/floor/cobblerock,
-/area/rogue/indoors)
-"WX" = (
-/obj/structure/spider/stickyweb,
-/obj/structure/spider/stickyweb{
-	dir = 8
-	},
-/turf/open/floor/cobblerock,
-/area/rogue/indoors)
-"Xv" = (
-/obj/structure/spider/stickyweb,
-/obj/structure/spider/stickyweb,
-/obj/structure/spider/stickyweb,
-/turf/open/floor/cobblerock,
-/area/rogue/indoors)
-"XF" = (
-/obj/structure/spider/cocoon,
-/turf/open/floor/cobblerock,
-/area/rogue/indoors)
-"Yi" = (
-/obj/structure/bookcase/random,
-/obj/structure/spider/stickyweb{
-	dir = 8
-	},
-/turf/open/floor/cobblerock,
-/area/rogue/indoors)
-"YE" = (
+/area/rogue/under/tomb)
+"Yg" = (
 /obj/structure/door/stone,
-/obj/structure/fluff/walldeco/vinez,
+/obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/cobble,
-/area/rogue/indoors)
-"Zk" = (
-/turf/open/water/river{
-	dir = 1
-	},
-/area/rogue/indoors)
+/area/rogue/under/tomb)
+"YT" = (
+/obj/structure/fluff/walldeco/vinez,
+/obj/structure/fluff/walldeco/vinez,
+/turf/closed/wall/mineral/stone,
+/area/rogue/under/tomb)
 
 (1,1,1) = {"
-dx
-dx
-dx
-ym
-Rr
-Rr
-nS
-dx
-uf
-KQ
-rL
-rL
-nS
-nS
-dx
-dx
-dx
-nS
-nS
-dx
+Oz
+Oz
+Oz
+NV
+qI
+qI
+ml
+Oz
+Kg
+JR
+mZ
+mZ
+ml
+ml
+Oz
+Oz
+Oz
+ml
+ml
+Oz
 "}
 (2,1,1) = {"
-dx
-dx
-ym
-rh
-tm
-rL
-uf
-dx
-uf
-rL
-rL
-uf
-ep
-nS
-rL
-uf
-uf
-rL
-zz
-nS
+Oz
+Oz
+NV
+rQ
+wE
+mZ
+Kg
+Oz
+Kg
+mZ
+mZ
+Kg
+xG
+ml
+mZ
+Kg
+Kg
+mZ
+Iu
+ml
 "}
 (3,1,1) = {"
-dx
-nS
-nS
-dx
-FY
-Lo
-rL
-ym
-uf
-rL
-uf
-uf
-ep
-nS
-rL
-uf
-dx
-WX
-Wy
-dx
+Oz
+ml
+ml
+Oz
+uS
+HX
+mZ
+NV
+Kg
+mZ
+Kg
+Kg
+xG
+ml
+mZ
+Kg
+Oz
+qj
+Ig
+Oz
 "}
 (4,1,1) = {"
-dx
-tm
-Rr
-Rr
-dx
-tm
-Wy
-za
-rL
-uf
-rL
-rL
-rL
-MO
-uf
-dx
-ym
-UK
-ym
-dx
+Oz
+wE
+qI
+qI
+Oz
+wE
+Ig
+pS
+mZ
+Kg
+mZ
+mZ
+mZ
+VX
+Kg
+Oz
+NV
+zk
+NV
+Oz
 "}
 (5,1,1) = {"
-dx
-Fs
-tm
-ym
-dx
-nS
-nS
-nS
-rL
-uf
-rL
-rL
-dx
-dx
-nS
-nS
-Ia
-jf
-ym
-dx
+Oz
+nn
+wE
+NV
+Oz
+ml
+ml
+ml
+mZ
+Kg
+mZ
+mZ
+Oz
+Oz
+ml
+ml
+eO
+RL
+NV
+Oz
 "}
 (6,1,1) = {"
-nS
-Wy
-rL
-uf
-dx
-iM
-LJ
-dx
-bZ
-bZ
-bx
-dx
-GY
-Zk
-Zk
-al
-uf
-tm
-tm
-dx
+ml
+Ig
+mZ
+Kg
+Oz
+TJ
+Lt
+Oz
+wG
+wG
+TT
+Oz
+wt
+mM
+mM
+yj
+Kg
+wE
+wE
+Oz
 "}
 (7,1,1) = {"
-nS
-aD
-Yi
-rL
-ym
-ym
-RU
-BF
-uK
-Rr
-bx
-Zk
-bX
-dx
-MG
-Rr
-rL
-rL
-uf
-nS
+ml
+Bj
+eY
+mZ
+NV
+NV
+PH
+cN
+XV
+qI
+TT
+mM
+NT
+Oz
+UZ
+qI
+mZ
+mZ
+Kg
+ml
 "}
 (8,1,1) = {"
-nS
-ym
-ym
-lE
-Rr
-bX
-Bi
-ym
-uK
-uK
-bx
-dx
-qD
-qD
-uK
-sS
-jE
-ym
-nS
-Rr
+ml
+NV
+NV
+XH
+qI
+NT
+tS
+NV
+XV
+XV
+TT
+Oz
+kc
+kc
+XV
+YT
+FX
+NV
+ml
+qI
 "}
 (9,1,1) = {"
-uf
-rL
-rL
-uf
-rL
-mA
-nF
-nF
-NG
-JN
-iM
-Bi
-qD
-Bi
-Rr
-rL
-rL
-rL
-uf
-uf
+Kg
+mZ
+mZ
+Kg
+mZ
+qH
+rU
+rU
+sH
+Ua
+TJ
+tS
+kc
+tS
+qI
+mZ
+mZ
+mZ
+Kg
+Kg
 "}
 (10,1,1) = {"
-uf
-rL
-rL
-rL
-rL
-mA
-dx
-bx
-bx
-ym
-Rr
-GY
-dx
-NG
-NG
-rL
-rL
-rL
-uf
-rL
+Kg
+mZ
+mZ
+mZ
+mZ
+qH
+Oz
+TT
+TT
+NV
+qI
+wt
+Oz
+sH
+sH
+mZ
+mZ
+mZ
+Kg
+mZ
 "}
 (11,1,1) = {"
-gz
-rL
-uf
-uf
-uf
-mA
-cl
-Zk
-MG
-dx
-nS
-GY
-iM
-iM
-iM
-rL
-uf
-uf
-rL
-yL
+SW
+mZ
+Kg
+Kg
+Kg
+qH
+gR
+mM
+UZ
+Oz
+ml
+wt
+TJ
+TJ
+TJ
+mZ
+Kg
+Kg
+mZ
+iT
 "}
 (12,1,1) = {"
-uf
-uf
-uf
-rL
-rL
-Rr
-bx
-nS
-MG
-Kr
-mA
-nF
-KF
-dx
-BF
-uf
-uf
-uf
-rL
-rL
+Kg
+Kg
+Kg
+mZ
+mZ
+qI
+TT
+ml
+UZ
+ue
+qH
+rU
+vb
+Oz
+cN
+Kg
+Kg
+Kg
+mZ
+mZ
 "}
 (13,1,1) = {"
-nS
-nS
-ym
-MO
-nS
-iM
-JN
-GY
-NG
-bX
-dx
-bX
-bZ
-Vt
-MG
-nS
-MO
-dx
-ym
-ym
+ml
+ml
+NV
+VX
+ml
+TJ
+Ua
+wt
+sH
+NT
+Oz
+NT
+wG
+pN
+UZ
+ml
+VX
+Oz
+NV
+NV
 "}
 (14,1,1) = {"
-Rr
-ym
-rL
-rL
-dx
-bZ
-dx
-Bi
-dx
-bX
-iM
-bX
-nS
-gJ
-nS
-Us
-rL
-rL
-jv
-Rr
+qI
+NV
+mZ
+mZ
+Oz
+wG
+Oz
+tS
+Oz
+NT
+TJ
+NT
+ml
+PO
+ml
+NZ
+mZ
+mZ
+JF
+qI
 "}
 (15,1,1) = {"
-ym
-rL
-rL
-uf
-nS
-uK
-mA
-mA
-bX
-GY
-dx
-GY
-Zk
-cl
-cl
-sS
-gY
-Wy
-tm
-Rr
+NV
+mZ
+mZ
+Kg
+ml
+XV
+qH
+qH
+NT
+wt
+Oz
+wt
+mM
+gR
+gR
+YT
+sR
+Ig
+wE
+qI
 "}
 (16,1,1) = {"
-dx
-tm
-Oa
-ym
-nS
-Rr
-ym
-dx
-uf
-uf
-rL
-rL
-dx
-Rr
-Rr
-nS
-dx
-ip
-uf
-nS
+Oz
+wE
+Lj
+NV
+ml
+qI
+NV
+Oz
+Kg
+Kg
+mZ
+mZ
+Oz
+qI
+qI
+ml
+Oz
+uh
+Kg
+ml
 "}
 (17,1,1) = {"
-dx
-ym
-tO
-ym
-dx
-uf
-jE
-rL
-rL
-rL
-uf
-rL
-MO
-uf
-uf
-Rr
-ym
-nS
-Jx
-dx
+Oz
+NV
+VF
+NV
+Oz
+Kg
+FX
+mZ
+mZ
+mZ
+Kg
+mZ
+VX
+Kg
+Kg
+qI
+NV
+ml
+xw
+Oz
 "}
 (18,1,1) = {"
-nS
-ym
-Wy
-Ri
-Wy
-uf
-sS
-Rz
-rL
-uf
-uf
-rL
-ym
-ih
-rL
-CR
-ym
-nS
-nS
-nS
+ml
+NV
+Ig
+UR
+Ig
+Kg
+YT
+EL
+mZ
+Kg
+Kg
+mZ
+NV
+CJ
+mZ
+qg
+NV
+ml
+ml
+ml
 "}
 (19,1,1) = {"
-nS
-ks
-Wy
-ym
-dx
-dx
-Rr
-lx
-rL
-rL
-uf
-uf
-dx
-Vh
-rL
-rL
-Ki
-Rr
-dx
-dx
+ml
+kA
+Ig
+NV
+Oz
+Oz
+qI
+NI
+mZ
+mZ
+Kg
+Kg
+Oz
+wA
+mZ
+mZ
+JM
+qI
+Oz
+Oz
 "}
 (20,1,1) = {"
-nS
-nS
-ym
-ym
-nS
-nS
-nS
-ym
-rL
-Kv
-rL
-uf
-dx
-dx
-Rr
-Rr
-Rr
-nS
-dx
-dx
+ml
+ml
+NV
+NV
+ml
+ml
+ml
+NV
+mZ
+lf
+mZ
+Kg
+Oz
+Oz
+qI
+qI
+qI
+ml
+Oz
+Oz
 "}
 
 (1,1,2) = {"
-nS
-nS
-Rr
-ym
-ym
-Rr
-nS
-nS
-uf
-rL
-rL
-rL
-nS
-nS
-Rr
-ym
-dx
-dx
-ym
-nS
+ml
+ml
+qI
+NV
+NV
+qI
+ml
+ml
+Kg
+mZ
+mZ
+mZ
+ml
+ml
+qI
+NV
+Oz
+Oz
+NV
+ml
 "}
 (2,1,2) = {"
-nS
-hr
-tm
-Wy
-jE
-rL
-rL
-uf
-rL
-rL
-rL
-uf
-zY
-Rh
-rL
-rJ
-rL
-Wy
-Wy
-Rr
+ml
+gh
+wE
+Ig
+FX
+mZ
+mZ
+Kg
+mZ
+mZ
+mZ
+Kg
+lQ
+XE
+mZ
+fG
+mZ
+Ig
+Ig
+qI
 "}
 (3,1,2) = {"
-nS
-Vk
-XF
-dS
-sS
-Vu
-uf
-nS
-rL
-rL
-uf
-uf
-zY
-Rh
-rL
-Rr
-Aq
-dS
-tm
-Rr
+ml
+bI
+Sz
+WK
+YT
+rD
+Kg
+ml
+mZ
+mZ
+Kg
+Kg
+lQ
+XE
+mZ
+qI
+jC
+WK
+wE
+qI
 "}
 (4,1,2) = {"
-ym
-rL
-dS
-Xv
-MO
-rL
-uf
-rL
-rL
-rL
-uf
-uf
-uf
-uf
-dS
-qv
-LU
-tm
-uf
-nS
+NV
+mZ
+WK
+Jw
+VX
+mZ
+Kg
+mZ
+mZ
+mZ
+Kg
+Kg
+Kg
+Kg
+WK
+TM
+bU
+wE
+Kg
+ml
 "}
 (5,1,2) = {"
-ym
-jE
-Rr
-pA
-dx
-Pk
-ym
-rL
-nS
-dx
-Qs
-oU
-Rr
-dx
-Pk
-ym
-MO
-ym
-nt
-ym
+NV
+FX
+qI
+Yg
+Oz
+Sb
+NV
+mZ
+ml
+Oz
+oa
+xd
+qI
+Oz
+Sb
+NV
+VX
+NV
+zQ
+NV
 "}
 (6,1,2) = {"
-nS
-rL
-Wy
-LU
-dx
-He
-zY
-rL
-zY
-zY
-zY
-uf
-zY
-zY
-He
-dx
-rL
-Wy
-Wy
-ym
+ml
+mZ
+Ig
+bU
+Oz
+un
+lQ
+mZ
+lQ
+lQ
+lQ
+Kg
+lQ
+lQ
+un
+Oz
+mZ
+Ig
+Ig
+NV
 "}
 (7,1,2) = {"
-Rr
-rL
-rL
-Wy
-hr
-Ip
-zY
-zY
-zY
-uf
-zY
-zY
-zY
-Ip
-zY
-LP
-rL
-rL
-Wy
-nS
+qI
+mZ
+mZ
+Ig
+gh
+Ct
+lQ
+lQ
+lQ
+Kg
+lQ
+lQ
+lQ
+Ct
+lQ
+kG
+mZ
+mZ
+Ig
+ml
 "}
 (8,1,2) = {"
-dx
-rL
-Rr
-rL
-Rr
-zY
-zY
-Ip
-zY
-zY
-zY
-rL
-zY
-zY
-zY
-dx
-rL
-nS
-rL
-nS
+Oz
+mZ
+qI
+mZ
+qI
+lQ
+lQ
+Ct
+lQ
+lQ
+lQ
+mZ
+lQ
+lQ
+lQ
+Oz
+mZ
+ml
+mZ
+ml
 "}
 (9,1,2) = {"
-rL
-rL
-uf
-uf
-Pk
-zY
-zY
-zY
-He
-zY
-zY
-zY
-zY
-zY
-rL
-rL
-rL
-uf
-uf
-rL
+mZ
+mZ
+Kg
+Kg
+Sb
+lQ
+lQ
+lQ
+un
+lQ
+lQ
+lQ
+lQ
+lQ
+mZ
+mZ
+mZ
+Kg
+Kg
+mZ
 "}
 (10,1,2) = {"
-rL
-uf
-uf
-uf
-Pk
-Uc
-uf
-zY
-zY
-qu
-OY
-zY
-uf
-zY
-zY
-dx
-zW
-uf
-rL
-rL
+mZ
+Kg
+Kg
+Kg
+Sb
+Db
+Kg
+lQ
+lQ
+oF
+jP
+lQ
+Kg
+lQ
+lQ
+Oz
+Ee
+Kg
+mZ
+mZ
 "}
 (11,1,2) = {"
-rL
-rL
-rL
-rL
-dx
-zY
-zY
-zY
-zY
-zD
-mH
-zY
-zY
-zY
-zY
-bt
-uf
-rL
-rL
-rL
+mZ
+mZ
+mZ
+mZ
+Oz
+lQ
+lQ
+lQ
+lQ
+ed
+Ra
+lQ
+lQ
+lQ
+lQ
+cP
+Kg
+mZ
+mZ
+mZ
 "}
 (12,1,2) = {"
-uf
-uf
-uf
-rL
-NB
-uf
-zY
-rL
-zY
-zY
-zY
-He
-zY
-Ip
-zY
-ym
-rL
-rL
-rL
-rL
+Kg
+Kg
+Kg
+mZ
+MC
+Kg
+lQ
+mZ
+lQ
+lQ
+lQ
+un
+lQ
+Ct
+lQ
+NV
+mZ
+mZ
+mZ
+mZ
 "}
 (13,1,2) = {"
-dx
-LU
-nS
-tm
-nS
-He
-zY
-zY
-zY
-zY
-Ip
-zY
-zY
-zY
-zY
-dx
-rL
-ym
-uf
-ym
+Oz
+bU
+ml
+wE
+ml
+un
+lQ
+lQ
+lQ
+lQ
+Ct
+lQ
+lQ
+lQ
+lQ
+Oz
+mZ
+NV
+Kg
+NV
 "}
 (14,1,2) = {"
-nS
-dS
-LU
-LU
-dx
-zY
-Ip
-zY
-rL
-zY
-zY
-zY
-uf
-zY
-uf
-rL
-rL
-uf
-uf
-dx
+ml
+WK
+bU
+bU
+Oz
+lQ
+Ct
+lQ
+mZ
+lQ
+lQ
+lQ
+Kg
+lQ
+Kg
+mZ
+mZ
+Kg
+Kg
+Oz
 "}
 (15,1,2) = {"
-nS
-rL
-Wy
-uf
-Rr
-zY
-zY
-zY
-zY
-zY
-uf
-zY
-zY
-zY
-zY
-dx
-rL
-uf
-uf
-nS
+ml
+mZ
+Ig
+Kg
+qI
+lQ
+lQ
+lQ
+lQ
+lQ
+Kg
+lQ
+lQ
+lQ
+lQ
+Oz
+mZ
+Kg
+Kg
+ml
 "}
 (16,1,2) = {"
-ym
-jE
-dx
-nt
-Rr
-Rr
-ym
-Wu
-nS
-nS
-Vu
-Rr
-Rr
-Wu
-Wu
-nS
-MO
-Rr
-AV
-nS
+NV
+FX
+Oz
+zQ
+qI
+qI
+NV
+UL
+ml
+ml
+rD
+qI
+qI
+UL
+UL
+ml
+VX
+qI
+Is
+ml
 "}
 (17,1,2) = {"
-ym
-rL
-rL
-rL
-jE
-rL
-rL
-uf
-rL
-rL
-rL
-uf
-uf
-uf
-Wy
-MO
-dS
-rL
-Wy
-dx
+NV
+mZ
+mZ
+mZ
+FX
+mZ
+mZ
+Kg
+mZ
+mZ
+mZ
+Kg
+Kg
+Kg
+Ig
+VX
+WK
+mZ
+Ig
+Oz
 "}
 (18,1,2) = {"
-Rr
-uf
-rL
-rL
-Rr
-Vu
-Ar
-zY
-uf
-rL
-rL
-rL
-ym
-LU
-Wy
-ym
-uq
-ef
-xk
-dx
+qI
+Kg
+mZ
+mZ
+qI
+rD
+js
+lQ
+Kg
+mZ
+mZ
+mZ
+NV
+bU
+Ig
+NV
+LG
+Kk
+cB
+Oz
 "}
 (19,1,2) = {"
-nS
-uf
-uf
-uf
-qv
-uf
-Ar
-zY
-uf
-uf
-rL
-rL
-dS
-LU
-uf
-YE
-uf
-Ib
-OG
-ym
+ml
+Kg
+Kg
+Kg
+TM
+Kg
+js
+lQ
+Kg
+Kg
+mZ
+mZ
+WK
+bU
+Kg
+yD
+Kg
+kU
+xc
+NV
 "}
 (20,1,2) = {"
-nS
-nS
-nS
-dx
-dx
-nS
-nS
-nS
-uf
-rL
-rL
-rL
-nS
-nS
-nS
-ym
-ym
-nS
-Rr
-Rr
+ml
+ml
+ml
+Oz
+Oz
+ml
+ml
+ml
+Kg
+mZ
+mZ
+mZ
+ml
+ml
+ml
+NV
+NV
+ml
+qI
+qI
 "}

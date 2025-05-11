@@ -236,6 +236,7 @@
 	plane = GAME_PLANE_UPPER
 	cookonme = FALSE
 	temperature_change = 0
+	fog_parter_effect = null
 
 /obj/machinery/light/fueled/torchholder/c
 	pixel_y = 32
@@ -245,6 +246,12 @@
 
 /obj/machinery/light/fueled/torchholder/l
 	dir = EAST
+
+/obj/machinery/light/fueled/torchholder/seton(s)
+	. = ..()
+	if(!torchy || torchy.fuel <= 0)
+		on = FALSE
+		set_light_on(on)
 
 /obj/machinery/light/fueled/torchholder/fire_act(added, maxstacks)
 	if(torchy)
@@ -291,7 +298,7 @@
 			torchy.forceMove(loc)
 		torchy = null
 		on = FALSE
-		set_light(0)
+		update()
 		update_icon()
 		playsound(src.loc, 'sound/foley/torchfixturetake.ogg', 70)
 

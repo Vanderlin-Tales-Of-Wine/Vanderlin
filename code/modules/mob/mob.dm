@@ -645,7 +645,6 @@ GLOBAL_VAR_INIT(mobids, 1)
 		if(machine && in_range(src, usr))
 			show_inv(machine)
 
-
 	if(href_list["item"] && usr.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
 		var/slot = text2num(href_list["item"])
 		var/hand_index = text2num(href_list["hand_index"])
@@ -1097,6 +1096,8 @@ GLOBAL_VAR_INIT(mobids, 1)
 
 ///Can this mob read (is literate and not blind)
 /mob/proc/can_read(obj/O, silent = FALSE)
+	if(isobserver(src))
+		return TRUE
 	if(is_blind(src) || eye_blurry)
 		if(!silent)
 			to_chat(src, span_warning("I'm too blind to read."))
