@@ -577,14 +577,14 @@
 	req_text = "Monarch, worship Noc or Zizo"
 	allowed_patrons = list(/datum/patron/divine/noc, /datum/patron/inhumen/zizo)
 	allowed_jobs = list(/datum/job/lord)
-	weight = 250000 //Should be fine.
+	weight = 25 //Should be fine.
 
 /datum/special_trait/thinker/on_apply(mob/living/carbon/human/character, silent)
 	character.change_stat("strength", -3)
 	character.change_stat("intelligence", 6)
 	character.change_stat("constitution", -1)
 	character.change_stat("endurance", -1)
-	character.mind.adjust_skillrank(/datum/skill/magic/arcane, pick(6,5), TRUE)
+	character.mind.adjust_skillrank(/datum/skill/magic/arcane, 5, TRUE)
 	character.mind.adjust_spellpoints(14) //Less points than Court Mage, why do Court mage get 17 points? what even?
 	character.mind.AddSpell(new /obj/effect/proc_holder/spell/self/learnspell)
 	character.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
@@ -612,3 +612,13 @@
 	ADD_TRAIT(character, TRAIT_NOPAIN, "[type]")
 	ADD_TRAIT(character, TRAIT_TOXIMMUNE, "[type]")
 	character.update_body()
+
+/datum/special_trait/graggazo
+	name = "Broken Mind"
+	greet_text = span_notice("My mind feels shambled, Was it Ast- No? Zizo? Just Who i am supposed to worship..?")
+	req_text = "Non-Church Role, Non-Court Role"
+	restricted_jobs = list(CHURCHMEN, NOBLEMEN)
+	weight = 10
+
+/datum/special_trait/graggazo/on_apply(mob/living/carbon/human/character, silent)
+	character.set_patron(/datum/patron/inhumen/graggar_zizo) //praying on my knees, please let someone try to pray with this god on.
