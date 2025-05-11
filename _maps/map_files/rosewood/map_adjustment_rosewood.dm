@@ -15,8 +15,8 @@
 
 /datum/map_adjustment/rosewood/job_change()
 	. = ..()
-	for(var/datum/job/elf in knifeEars)
-		var/datum/job/J = SSjob.GetJobType(elf)
+	for(var/jobType in knifeEars)
+		var/datum/job/J = SSjob.GetJobType(jobType)
 		J?.allowed_races = list(
 			"Elf",
 			"Half-Elf"
