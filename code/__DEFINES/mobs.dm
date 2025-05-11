@@ -401,7 +401,7 @@
 
 //skin tones defines
 
-//HALF ORK SKIN TONES
+//HALF ORC SKIN TONES
 #define SKIN_COLOR_BLOOD_AXE "A84C4F" //Clay red
 #define SKIN_COLOR_GROONN "50715C" //Mint
 #define SKIN_COLOR_BLACK_HAMMER "1B2B21" //Dark green
@@ -445,6 +445,26 @@
 #define SKIN_COLOR_SAND_ELF "5d4c41" //Black 1
 #define SKIN_COLOR_CRIMSON_ELF "4e3729" //Black 2
 
+//HALF ELF SKIN TONES
+#define SKIN_COLOR_TIMBER_GRONN "ffe0d1" //Pale
+#define SKIN_COLOR_SOLAR_HUE "fcccb3" //White
+#define SKIN_COLOR_WALNUT_STINE "edc6b3" //White
+#define SKIN_COLOR_AMBER_STAINED "e2b9a3" //White
+#define SKIN_COLOR_REDWOOD_ROOTED "c9a893" //Mediterranean 1
+#define SKIN_COLOR_DRIFTED_WOOD "ba9882" //Mediterranean 2
+#define SKIN_COLOR_VINE_WRAPPED "ac8369" //Latin 2
+#define SKIN_COLOR_JOSHUA_ALIGNED "9c6f52" //Middle-east
+#define SKIN_COLOR_ARID_BIRTHED "5a4a41" //Black
+#define SKIN_COLOR_SAGE_BLOOMED "4e3729" //Black 2
+
+//HALF DROW SKIN TONES
+#define SKIN_COLOR_ZIZO_CURSED "fff0e9" //Pale as SHIT
+#define SKIN_COLOUR_PARASITE_TAINTED "a191a1" //Light purple
+#define SKIN_COLOR_MUSHROOM_MINDED "897489" //Mid purple
+#define SKIN_COLOR_CAVE_ATTUNED "5f5f70" // Dark purple
+#define SKIN_COLOR_FUNGUS_STAINED "897489" //Pink
+#define SKIN_COLOR_DEPTH_DEPARTED "5f5f70" //Grey-blue
+
 //HUMEN SKIN TONES
 #define SKIN_COLOR_ICECAP "fff0e9" //Pale as SHIT!!
 #define SKIN_COLOR_ARCTIC "ffe0d1" //White 1
@@ -458,6 +478,7 @@
 #define SKIN_COLOR_DESERT "9c6f52" //Middle-east
 #define SKIN_COLOR_CRIMSONLANDS "4e3729" //Black
 
+//LEGACY HUMEN SKIN TONES (DOES NOT FIT VANDERLIN LORE)
 #define SKIN_COLOR_GRENZELHOFT "fff0e9"
 #define SKIN_COLOR_HAMMERHOLD "ffe0d1"
 #define SKIN_COLOR_AVAR "fcccb3"
@@ -486,18 +507,6 @@
 #define SKIN_COLOR_LARIMAR "a9ded1" //Cyan
 #define SKIN_COLOR_AMAZONITE "b6f1f2" //also Cyan
 #define SKIN_COLOR_ZINC "daeaeb" //Light aqua
-
-//HALF ELF SKIN TONES
-#define SKIN_COLOR_ZIZO_CURSED "fff0e9" //Pale as SHIT
-#define SKIN_COLOR_TIMBER_GRONN "ffe0d1" //Pale
-#define SKIN_COLOR_SOLAR_HUE "fcccb3" //White
-#define SKIN_COLOR_WALNUT_STINE "edc6b3" //White
-#define SKIN_COLOR_AMBER_STAINED "e2b9a3" //White
-#define SKIN_COLOR_JOSHUA_ALIGNED "9c6f52" //Middle-east
-#define SKIN_COLOR_ARID_BIRTHED "5a4a41" //Black
-#define SKIN_COLOUR_PARASITE_TAINTED "a191a1" //Light purple
-#define SKIN_COLOR_MUSHROOM_MINDED "897489" //Mid purple
-#define SKIN_COLOR_CAVE_ATTUNED "5f5f70" // Dark purple
 
 //TIEFLING SKIN TONES
 #define SKIN_COLOR_CRIMSON_LAND "cd2042" //Bright red

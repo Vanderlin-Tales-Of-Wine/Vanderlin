@@ -1,32 +1,26 @@
 	/*==============*
 	*				*
-	*	Half-Elf	*
+	*	Half-Drow	*
 	*				*
 	*===============*/
 
-/mob/living/carbon/human/species/human/halfelf
-	race = /datum/species/human/halfelf
+/mob/living/carbon/human/species/human/halfdrow
+	race = /datum/species/human/halfdrow
 
-/datum/species/human/halfelf
-	name = "Half-Elf"
+/datum/species/human/halfdrow
+	name = "Half-Drow"
 	id = "human"
-	desc = "The child of Elf and Humen. \
+	desc = "The child of a Dark Elf and Humen. \
 	\n\n\
-	Half-Elves are generally frowned upon by more conservative peoples, \
-	although as species tensions lower, more and more half-elves are being born. \
-	To the point that some scholars worry that someday, \
-	it may be impossible to distinguish the two species. \
+	The distinction between Half-Elves and 'Half-Drow' has been a subject of debate for centuries. \
+	While similar in physicality and longevity to their non-drow cousins, their origins cause them to face discrimination akin to their elven side. \
 	\n\n\
-	Half-Elves are extraordinarily diverse, as they combine both Humen and Elvish culture. \
-	It is widely considered that Half-Elf culture is simply a melting pot of \
-	various others condensing into one vibrant entity. \
-	\n\n\
-	Their longevity spanning too long for a human and short for an elf lead them to congregate together. \
-	Due to their heritage, Half-Elves tend to gain species traits \
-	depending on how strong their fathers, or mothers, genes were. \
-	Half-Elves also typically try to find identity."
+	Groups of half-elves and half-drow have been known to congregate together and consider themselves one species. \
+	According to some radical academic scholars, they might be one species indeed- yet the people of Psydonia certainly do not believe the same at large. \
+	\n\
+	THIS IS A DISCRIMINATED SPECIES. EXPECT A MORE DIFFICULT EXPERIENCE. <B>NOBLES EVEN MORE SO.</B> PLAY AT YOUR OWN RISK."
 
-	skin_tone_wording = "Half-Elven Identity"
+	skin_tone_wording = "Half-Drow Identity"
 
 	default_color = "FFFFFF"
 	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,STUBBLE,OLDGREY)
@@ -87,24 +81,20 @@
 		/datum/body_marking/tonage,
 	)
 
-/datum/species/human/halfelf/check_roundstart_eligible()
+/datum/species/human/halfdrow/check_roundstart_eligible()
 	return TRUE
 
-/datum/species/human/halfelf/get_skin_list()
+/datum/species/human/halfdrow/get_skin_list()
 	return sortList(list(
-		"Timber-Gronn" = SKIN_COLOR_TIMBER_GRONN, // - (White 1)
-		"Solar-Hue" = SKIN_COLOR_SOLAR_HUE, // - (White 2)
-		"Walnut-Stine" = SKIN_COLOR_WALNUT_STINE, // - (White 3)
-		"Amber-Stained" = SKIN_COLOR_AMBER_STAINED, // - (White 4)
-		"Joshua-Aligned" = SKIN_COLOR_JOSHUA_ALIGNED, // - (Middle-Eastern)
-		"Arid-Birthed" = SKIN_COLOR_ARID_BIRTHED, // - (Black)
-		"Redwood-Rooted" = SKIN_COLOR_REDWOOD_ROOTED, // - (Mediterranean 1)
-		"Drifted-Wood" = SKIN_COLOR_DRIFTED_WOOD, // - (Mediterranean 2)
-		"Vine-Wrapped" = SKIN_COLOR_VINE_WRAPPED, // - (Latin 2)
-		"Sage-Bloomed" = SKIN_COLOR_SAGE_BLOOMED, // - (Black 2)
+		"Zizo-Cursed" = SKIN_COLOR_ZIZO_CURSED, // - (Pale)
+		"Parasite-Taineted" = SKIN_COLOUR_PARASITE_TAINTED, // - (Light purple)
+		"Mushroom-Minded" = SKIN_COLOR_MUSHROOM_MINDED, // - (Mid purple)
+		"Cave-Attuned" = SKIN_COLOR_CAVE_ATTUNED, // - (Deep purple)
+		"Fungus-Stained" = SKIN_COLOR_FUNGUS_STAINED, //Pink
+		"Depth-Departed" = SKIN_COLOR_DEPTH_DEPARTED, //Grey-blue
 	))
 
-/datum/species/human/halfelf/get_hairc_list()
+/datum/species/human/halfdrow/get_hairc_list()
 	return sortList(list(
 	"black - oil" = "181a1d",
 	"black - cave" = "201616",
@@ -127,22 +117,26 @@
 	"blond - drywheat" = "d5ba7b",
 	"blond - strawberry" = "c69b71",
 
-	"green - leaf" = "2f3c2e",
-	"green - moss" = "3b3c2a"
+	"white - ice" = "f4f4f4",
+	"white - cavedew" = "dee9ed",
+	"white - spiderweb" = "f4f4f4"
+
 	))
 
-/datum/species/human/halfelf/get_possible_names(gender = MALE)
+/datum/species/human/halfdrow/get_possible_names(gender = MALE)
 	var/static/list/male_names = world.file2list('strings/rt/names/elf/elfwm.txt')
 	var/static/list/female_names = world.file2list('strings/rt/names/elf/elfwf.txt')
 	return (gender == FEMALE) ? female_names : male_names
 
-/datum/species/human/halfelf/get_possible_surnames(gender = MALE)
+/datum/species/human/halfdrow/get_possible_surnames(gender = MALE)
 	return null
 
-/datum/species/human/halfelf/after_creation(mob/living/carbon/human/C)
+/datum/species/human/halfdrow/after_creation(mob/living/carbon/human/C)
 	..()
+	if(C.skin_tone == SKIN_COLOR_ZIZO_CURSED)
+		exotic_bloodtype = /datum/blood_type/human/cursed_elf
 	C.grant_language(/datum/language/elvish)
 	to_chat(C, "<span class='info'>I can speak Elvish with ,e before my speech.</span>")
 
-/datum/species/human/halfelf/get_native_language()
+/datum/species/human/halfdrow/get_native_language()
 	return pick("Elfish", "Imperial")
