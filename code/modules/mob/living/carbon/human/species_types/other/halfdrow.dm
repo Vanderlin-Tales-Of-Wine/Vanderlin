@@ -90,8 +90,8 @@
 		"Parasite-Taineted" = SKIN_COLOUR_PARASITE_TAINTED, // - (Light purple)
 		"Mushroom-Minded" = SKIN_COLOR_MUSHROOM_MINDED, // - (Mid purple)
 		"Cave-Attuned" = SKIN_COLOR_CAVE_ATTUNED, // - (Deep purple)
-		"Fungus-Stained" = SKIN_COLOR_FUNGUS_STAINED, //Pink
-		"Depth-Departed" = SKIN_COLOR_DEPTH_DEPARTED, //Grey-blue
+		"Fungus-Stained" = SKIN_COLOR_FUNGUS_STAINED, // - (Pink)
+		"Depth-Departed" = SKIN_COLOR_DEPTH_DEPARTED, // - (Grey-blue)
 	))
 
 /datum/species/human/halfdrow/get_hairc_list()
