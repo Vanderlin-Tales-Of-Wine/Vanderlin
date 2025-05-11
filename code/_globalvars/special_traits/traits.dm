@@ -48,7 +48,7 @@
 	weight = 100
 
 /datum/special_trait/thickskin/on_apply(mob/living/carbon/human/character, silent)
-	ADD_TRAIT(character, TRAIT_BREADY, "[type]")
+	ADD_TRAIT(character, TRAIT_CRITICAL_RESISTANCE, "[type]")
 	character.change_stat("constitution", 2)
 
 /datum/special_trait/curseofcain
@@ -143,18 +143,6 @@
 	character.mind.special_items["Stash Two"] = /obj/item/storage/backpack/satchel/mule
 	character.mind.special_items["Dagger"] = /obj/item/weapon/knife/dagger
 	character.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-
-/datum/special_trait/cunning_linguist
-	name = "Cunning Linguist"
-	greet_text = span_notice("I know an extra language, and I can be quite seductive")
-	weight = 100
-
-/datum/special_trait/cunning_linguist/on_apply(mob/living/carbon/human/character, silent)
-	switch(rand(1,2))
-		if(1)
-			character.grant_language(/datum/language/elvish)
-		if(2)
-			character.grant_language(/datum/language/hellspeak)
 
 /datum/special_trait/corn_fed
 	name = "Corn Fed"
@@ -260,6 +248,9 @@
 	character.grant_language(/datum/language/hellspeak)
 	character.grant_language(/datum/language/celestial)
 	character.grant_language(/datum/language/orcish)
+	character.grant_language(/datum/language/oldpsydonic)
+	character.grant_language(/datum/language/zybantine)
+	character.grant_language(/datum/language/thievescant)
 
 /datum/special_trait/civilizedbarbarian
 	name = "Tavern Brawler"
@@ -350,16 +341,6 @@
 	character.transform = character.transform.Scale(1.25, 1.25)
 	character.transform = character.transform.Translate(0, (0.25 * 16))
 	character.update_transform()
-
-/datum/special_trait/atheism
-	name = "Godless"
-	greet_text = span_notice("Gods may exist, but know what? I care not.")
-	req_text = "Non-Church Role"
-	restricted_jobs = list(CHURCHMEN)
-	weight = 100
-
-/datum/special_trait/atheism/on_apply(mob/living/carbon/human/character, silent)
-	character.set_patron(/datum/patron/godless)
 
 //negative
 /datum/special_trait/nimrod
@@ -469,6 +450,8 @@
 /datum/special_trait/wild_night/on_apply(mob/living/carbon/human/character, silent)
 	var/turf/location = get_spawn_turf_for_job("Pilgrim")
 	character.forceMove(location)
+	character.reagents.add_reagent(pick(/datum/reagent/ozium, /datum/reagent/moondust, /datum/reagent/druqks), 15)
+	character.reagents.add_reagent(/datum/reagent/consumable/ethanol/beer, 72)
 	grant_lit_torch(character)
 
 /datum/special_trait/atrophy
@@ -587,3 +570,45 @@
 /datum/special_trait/illicit_merchant/on_apply(mob/living/carbon/human/character, silent)
 	character.mind.special_items["Merchant Key"] = /obj/item/key/merchant
 	character.mind.special_items["GOLDFACE Gem"] = /obj/item/gem_device/goldface
+
+/datum/special_trait/thinker
+	name = "The Thinker"
+	greet_text = span_notice("Physique, Endurance, Constitution. The trinity of what builds a great leader and an even greater kingdom... or whatever those nimrods were yapping about! <b>I cast FIREBALL!!!</b>")
+	req_text = "Monarch, worship Noc or Zizo"
+	allowed_patrons = list(/datum/patron/divine/noc, /datum/patron/inhumen/zizo)
+	allowed_jobs = list(/datum/job/lord)
+	weight = 250000 //Should be fine.
+
+/datum/special_trait/thinker/on_apply(mob/living/carbon/human/character, silent)
+	character.change_stat("strength", -3)
+	character.change_stat("intelligence", 6)
+	character.change_stat("constitution", -1)
+	character.change_stat("endurance", -1)
+	character.mind.adjust_skillrank(/datum/skill/magic/arcane, pick(6,5), TRUE)
+	character.mind.adjust_spellpoints(14) //Less points than Court Mage, why do Court mage get 17 points? what even?
+	character.mind.AddSpell(new /obj/effect/proc_holder/spell/self/learnspell)
+	character.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
+	character.generate_random_attunements(rand(4,6))
+	character.mana_pool.set_intrinsic_recharge(MANA_ALL_LEYLINES)
+	character.mana_pool.adjust_mana(100) //I don't know, they don't spawn with their full mana bar, so we give them a bit more mana at the start.
+	new /obj/item/book/granter/spellbook/master(get_turf(character))
+
+/datum/special_trait/skeleton
+	name = "Skeleton"
+	greet_text = span_boldwarning("I was- am afflicted with a curse that left me without my flesh..")
+	allowed_jobs = list(/datum/job/pilgrim, /datum/job/adventurer, /datum/job/bandit)
+	req_text = "Be a Adventurer, a Pilgrim or a bandit."
+	weight = 20
+
+/datum/special_trait/skeleton/on_apply(mob/living/carbon/human/character, silent)
+	character.skeletonize(FALSE)
+	character.skele_look()
+	character.grant_undead_eyes()
+	ADD_TRAIT(character, TRAIT_NOLIMBDISABLE, "[type]")
+	ADD_TRAIT(character, TRAIT_EASYDISMEMBER, "[type]")
+	ADD_TRAIT(character, TRAIT_LIMBATTACHMENT, "[type]")
+	ADD_TRAIT(character, TRAIT_NOHUNGER, "[type]")
+	ADD_TRAIT(character, TRAIT_NOBREATH, "[type]")
+	ADD_TRAIT(character, TRAIT_NOPAIN, "[type]")
+	ADD_TRAIT(character, TRAIT_TOXIMMUNE, "[type]")
+	character.update_body()
