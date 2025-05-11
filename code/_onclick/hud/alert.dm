@@ -365,6 +365,8 @@
 	var/mob/living/L = usr
 	if(!istype(L) || !L.can_resist())
 		return
+	if(!L.buckled)
+		return
 	L.changeNext_move(CLICK_CD_RESIST)
 	if(L.last_special <= world.time)
 		if(L.resist_buckle())

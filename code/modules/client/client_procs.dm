@@ -174,6 +174,17 @@ GLOBAL_LIST_EMPTY(respawncounts)
 
 	..()	//redirect to hsrc.Topic()
 
+/client/proc/set_right_click_menu_mode(ctrl_only)
+
+	if(ctrl_only)
+		winset(src, "mapwindow.map", "right-click=true")
+		winset(src, "CtrlUp", "is-disabled=false")
+		winset(src, "Ctrl", "is-disabled=false")
+	else
+		winset(src, "mapwindow.map", "right-click=false")
+		winset(src, "default.Ctrl", "is-disabled=true")
+		winset(src, "default.CtrlUp", "is-disabled=true")
+
 /// Shows round end popup with all kind of statistics
 /client/proc/show_round_stats(featured_stat)
 	if(SSticker.current_state != GAME_STATE_FINISHED && !check_rights(R_ADMIN))
@@ -865,6 +876,13 @@ GLOBAL_LIST_EMPTY(respawncounts)
 					else
 						message_admins("<span class='danger'><B>Notice: </B></span><span class='notice'>[key_name_admin(src)] has the same [matches] as [key_name_admin(C)] (no longer logged in). </span>")
 						log_access("Notice: [key_name(src)] has the same [matches] as [key_name(C)] (no longer logged in).")
+
+	show_popup_menus = FALSE
+
+	if(holder)
+		show_popup_menus = TRUE
+
+	set_right_click_menu_mode(TRUE)
 
 	var/reconnecting = FALSE
 	if(GLOB.player_details[ckey])

@@ -766,11 +766,8 @@
 /turf/open/water/sewer,
 /area/rogue/under/town/sewer)
 "awC" = (
-/obj/item/clothing/shoes/boots/armor/steam,
-/obj/item/clothing/armor/steam,
-/obj/item/clothing/head/helmet/heavy/steam,
-/obj/item/clothing/gloves/plate/steam,
 /obj/structure/rack,
+/obj/item/clothing/cloak/boiler,
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/under/town/basement)
 "awR" = (
@@ -12447,7 +12444,6 @@
 /area/rogue/indoors/town/tavern)
 "hWm" = (
 /obj/structure/steam_recharger,
-/obj/item/clothing/cloak/boiler,
 /turf/open/floor/blocks/stonered,
 /area/rogue/under/town/basement)
 "hXa" = (
