@@ -72,6 +72,7 @@
 	map_name = json["map_name"]
 	CHECK_EXISTS("map_path")
 	map_path = json["map_path"]
+	// Per-map flavour:
 	immigrant_origin = json["immigrant_origin"]
 	monarch_title = json["monarch_title"]
 	monarch_title_f = json["monarch_title_f"]
