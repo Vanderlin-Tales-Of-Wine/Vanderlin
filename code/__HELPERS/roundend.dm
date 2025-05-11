@@ -453,7 +453,7 @@
 		if(mind.current)
 			name_with_title = printplayer(mind)
 		else
-			name_with_title = "Unknown"
+			name_with_title = "<b>Unknown Champion</b>"
 
 		parts += "[name_with_title]"
 
