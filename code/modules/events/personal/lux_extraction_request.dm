@@ -48,6 +48,7 @@
 	var/datum/objective/lux_extraction/new_objective = new(owner = chosen_one.mind)
 	chosen_one.mind.add_personal_objective(new_objective)
 
+	to_chat(chosen_one, span_danger("YOU ARE GOD'S CHOSEN!"))
 	to_chat(chosen_one, span_notice("Pestra demands the essence of life! Extract lux from a living being to earn Pestra's favor!"))
 	SEND_SOUND(chosen_one, 'sound/magic/cosmic_expansion.ogg')
 

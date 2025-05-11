@@ -46,7 +46,7 @@
 
 	chosen_one.verbs |= /mob/living/carbon/human/proc/torture_victim
 
-
+	to_chat(chosen_one, span_danger("YOU ARE GOD'S CHOSEN!"))
 	to_chat(chosen_one, span_biginfo("Zizo demands suffering! Extract information through pain to earn Zizo's favor!"))
 	SEND_SOUND(chosen_one, 'sound/ambience/noises/genspooky (1).ogg')
 

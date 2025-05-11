@@ -51,6 +51,7 @@
 	var/obj/effect/proc_holder/spell/invoked/extract_heart/heart_spell = new()
 	chosen_one.mind.AddSpell(heart_spell)
 
+	to_chat(chosen_one, span_danger("YOU ARE GOD'S CHOSEN!"))
 	to_chat(chosen_one, span_biginfo("Graggar hungers! [new_objective.explanation_text]"))
 	SEND_SOUND(chosen_one, 'sound/ambience/noises/genspooky (1).ogg')
 

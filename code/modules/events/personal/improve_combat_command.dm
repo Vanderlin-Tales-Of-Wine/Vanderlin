@@ -43,6 +43,7 @@
 	var/datum/objective/improve_combat/new_objective = new(owner = chosen_one.mind)
 	chosen_one.mind.add_personal_objective(new_objective)
 
+	to_chat(chosen_one, span_danger("YOU ARE GOD'S CHOSEN!"))
 	to_chat(chosen_one, span_notice("Ravox demands you prove your might! Improve your combat skills to earn Ravox's favor!"))
 	SEND_SOUND(chosen_one, 'sound/vo/male/knight/rage (6).ogg')
 
