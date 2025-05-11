@@ -37,6 +37,7 @@
 	owner.current.adjust_triumphs(1)
 	completed = TRUE
 	adjust_storyteller_influence("Malum", 10)
+	escalate_objective()
 	UnregisterSignal(owner.current, COMSIG_ITEM_CRAFTED)
 
 /datum/objective/craft_shrine/update_explanation_text()

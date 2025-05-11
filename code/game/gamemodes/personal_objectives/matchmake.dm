@@ -21,6 +21,7 @@
 	owner.current.adjust_triumphs(1)
 	completed = TRUE
 	adjust_storyteller_influence("Eora", 15)
+	escalate_objective()
 	UnregisterSignal(SSdcs, COMSIG_GLOBAL_MARRIAGE)
 
 /datum/objective/marriage_broker/update_explanation_text()

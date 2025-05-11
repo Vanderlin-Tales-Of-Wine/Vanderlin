@@ -29,6 +29,7 @@
 		owner.current.adjust_triumphs(1)
 		completed = TRUE
 		adjust_storyteller_influence("Xylix", 15)
+		escalate_objective()
 		UnregisterSignal(owner.current, COMSIG_VICIOUSLY_MOCKED)
 
 /datum/objective/mock/monarch/update_explanation_text()
@@ -58,6 +59,7 @@
 			owner.current.adjust_triumphs(1)
 			completed = TRUE
 			adjust_storyteller_influence("Xylix", 10)
+			escalate_objective()
 			UnregisterSignal(owner.current, COMSIG_VICIOUSLY_MOCKED)
 		else
 			to_chat(owner.current, span_notice("Noble mocked! Viciously mock [required_count - mocked_targets] more noble to complete the objective!"))

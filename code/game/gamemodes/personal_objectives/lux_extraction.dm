@@ -22,6 +22,7 @@
 	owner.current.adjust_triumphs(1)
 	completed = TRUE
 	adjust_storyteller_influence("Pestra", 15)
+	escalate_objective()
 	UnregisterSignal(owner.current, COMSIG_LUX_EXTRACTED)
 
 /datum/objective/lux_extraction/update_explanation_text()

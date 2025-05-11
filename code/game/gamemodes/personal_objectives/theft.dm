@@ -26,6 +26,7 @@
 		owner.current.adjust_triumphs(1)
 		completed = TRUE
 		adjust_storyteller_influence("Matthios", 10)
+		escalate_objective()
 		UnregisterSignal(owner.current, COMSIG_ITEM_STOLEN)
 	else
 		to_chat(owner.current, span_notice("Item stolen! Steal [required_count - stolen_count] more to complete Matthios' objective."))

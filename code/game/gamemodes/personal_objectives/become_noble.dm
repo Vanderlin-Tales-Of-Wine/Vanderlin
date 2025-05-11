@@ -25,6 +25,7 @@
 	owner.current.adjust_triumphs(1)
 	completed = TRUE
 	adjust_storyteller_influence("Astrata", 15)
+	escalate_objective()
 	UnregisterSignal(owner.current, SIGNAL_ADDTRAIT(TRAIT_NOBLE))
 
 /datum/objective/nobility/update_explanation_text()

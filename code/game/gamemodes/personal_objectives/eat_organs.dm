@@ -38,6 +38,7 @@
 	owner.current.adjust_triumphs(1)
 	completed = TRUE
 	adjust_storyteller_influence("Graggar", 15)
+	escalate_objective()
 	UnregisterSignal(owner.current, COMSIG_ORGAN_CONSUMED)
 
 /datum/objective/consume_organs/update_explanation_text()

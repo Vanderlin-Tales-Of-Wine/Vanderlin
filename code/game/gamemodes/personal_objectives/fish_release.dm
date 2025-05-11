@@ -31,6 +31,7 @@
 	owner.current.adjust_triumphs(1)
 	completed = TRUE
 	adjust_storyteller_influence("Abyssor", 15)
+	escalate_objective()
 	UnregisterSignal(SSdcs, COMSIG_GLOBAL_FISH_RELEASED)
 
 /datum/objective/release_fish/update_explanation_text()

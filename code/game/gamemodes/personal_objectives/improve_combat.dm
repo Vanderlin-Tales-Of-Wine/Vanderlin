@@ -36,6 +36,7 @@
 		owner.current.adjust_triumphs(1)
 		completed = TRUE
 		adjust_storyteller_influence("Ravox", 15)
+		escalate_objective()
 		UnregisterSignal(owner.current, COMSIG_SKILL_RANK_INCREASED)
 	else
 		var/remaining = required_levels - levels_gained

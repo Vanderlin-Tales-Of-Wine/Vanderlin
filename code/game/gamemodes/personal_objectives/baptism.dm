@@ -25,6 +25,7 @@
 	owner.current.adjust_triumphs(1)
 	completed = TRUE
 	adjust_storyteller_influence("Noc", 15)
+	escalate_objective()
 	UnregisterSignal(owner.current, COMSIG_BAPTISM_RECEIVED)
 
 /datum/objective/baptism/update_explanation_text()

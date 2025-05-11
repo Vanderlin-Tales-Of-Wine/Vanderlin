@@ -33,6 +33,7 @@
 	owner.current.adjust_triumphs(1)
 	completed = TRUE
 	adjust_storyteller_influence("Necra", 15)
+	escalate_objective()
 	UnregisterSignal(owner.current, COMSIG_GRAVE_CONSECRATED)
 
 /datum/objective/proper_burial/update_explanation_text()

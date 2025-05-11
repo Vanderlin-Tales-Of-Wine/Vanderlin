@@ -29,6 +29,7 @@
 	owner.current.adjust_triumphs(1)
 	completed = TRUE
 	adjust_storyteller_influence("Zizo", 15)
+	escalate_objective()
 	UnregisterSignal(owner.current, COMSIG_TORTURE_PERFORMED)
 
 /datum/objective/torture/update_explanation_text()

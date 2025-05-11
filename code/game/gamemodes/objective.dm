@@ -30,6 +30,10 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 	if(owner)
 		. += owner
 
+/datum/objective/proc/escalate_objective(event_track = EVENT_TRACK_PERSONAL)
+	var/points_to_add = SSgamemode.point_thresholds[event_track] * 0.5
+	SSgamemode.event_track_points[event_track] += points_to_add
+
 /datum/objective/proc/admin_edit(mob/admin)
 	return
 

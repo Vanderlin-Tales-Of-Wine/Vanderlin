@@ -29,6 +29,7 @@
 	owner.current.adjust_triumphs(1)
 	completed = TRUE
 	adjust_storyteller_influence("Dendor", 15)
+	escalate_objective()
 	UnregisterSignal(owner.current, COMSIG_ANIMAL_TAMED)
 
 /datum/objective/tame_animal/update_explanation_text()

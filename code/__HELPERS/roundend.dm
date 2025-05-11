@@ -430,7 +430,10 @@
 		parts += "<hr class='paneldivider'>"
 
 	// Process all minds with personal objectives
+	var/last_index = length(GLOB.personal_objective_minds)
+	var/current_index = 0
 	for(var/datum/mind/mind as anything in GLOB.personal_objective_minds)
+		current_index++
 		if(!mind.personal_objectives || !mind.personal_objectives.len)
 			continue
 
@@ -449,7 +452,8 @@
 			parts += "<B>Goal #[obj_count]</B>: [objective.explanation_text] - [result]"
 			obj_count++
 
-		parts += "<br>"
+		if(current_index < last_index)
+			parts += "<br>"
 		CHECK_TICK
 
 	if(!has_objectives)

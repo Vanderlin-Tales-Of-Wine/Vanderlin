@@ -26,6 +26,7 @@
 		owner.current.adjust_triumphs(1)
 		completed = TRUE
 		adjust_storyteller_influence("Baotha", 10)
+		escalate_objective()
 		UnregisterSignal(owner.current, COMSIG_DRUG_SNIFFED)
 	else
 		to_chat(owner.current, span_notice("Drug sniffed! Sniff [required_count - sniff_count] more to complete Baotha's objective."))
