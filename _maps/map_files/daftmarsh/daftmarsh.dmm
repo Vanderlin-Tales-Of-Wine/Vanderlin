@@ -9246,6 +9246,10 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/carpet/lord/right,
 /area/rogue/under/town/sewer)
+"iNx" = (
+/obj/structure/flora/newtree,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors/rtfield/safe)
 "iOm" = (
 /turf/open/water,
 /area/rogue/under/cavewet)
@@ -162306,9 +162310,9 @@ dKR
 vFW
 vFW
 nZo
-oRk
-oRk
-oRk
+bBV
+bBV
+bBV
 nZo
 pnU
 pnU
@@ -162909,7 +162913,7 @@ dKR
 dKR
 dKR
 dKR
-cVu
+bBV
 twV
 twV
 gAs
@@ -162917,7 +162921,7 @@ lAZ
 twV
 eun
 twV
-cVu
+bBV
 dKR
 dKR
 dKR
@@ -163111,7 +163115,7 @@ dKR
 dKR
 dKR
 dKR
-cVu
+bBV
 bBV
 obu
 lAZ
@@ -163313,7 +163317,7 @@ dKR
 dKR
 dKR
 dKR
-cVu
+bBV
 bBV
 obu
 lAZ
@@ -163321,7 +163325,7 @@ xiV
 twV
 eun
 twV
-cVu
+bBV
 dKR
 dKR
 dKR
@@ -163922,9 +163926,9 @@ dKR
 dKR
 kdO
 nZo
-oRk
-oRk
-oRk
+bBV
+bBV
+bBV
 nZo
 eTc
 dKR
@@ -184940,7 +184944,7 @@ jio
 qsm
 qsm
 jDc
-jDc
+lgq
 lgq
 lgq
 lgq
@@ -185142,8 +185146,8 @@ cCM
 cCM
 cCM
 jio
-qsm
-jDc
+iNx
+lgq
 lgq
 uWn
 jjR
@@ -185547,7 +185551,7 @@ pLv
 pLv
 cCM
 cCM
-jDc
+lgq
 lgq
 lgq
 uhm
@@ -202707,9 +202711,9 @@ dKR
 vFW
 vFW
 nZo
-oRk
+bBV
 oDq
-oRk
+bBV
 nZo
 vFW
 eTc
@@ -203310,7 +203314,7 @@ dKR
 dKR
 dKR
 dKR
-cVu
+bBV
 ikG
 lAZ
 azr
@@ -203318,7 +203322,7 @@ gls
 azr
 lAZ
 mgr
-cVu
+bBV
 dKR
 dKR
 dKR
@@ -203714,7 +203718,7 @@ dKR
 dKR
 dKR
 dKR
-cVu
+bBV
 ehl
 twV
 azr
@@ -203722,7 +203726,7 @@ bCl
 azr
 lAZ
 mgr
-cVu
+bBV
 dKR
 dKR
 dKR
@@ -204323,9 +204327,9 @@ dKR
 dKR
 vFW
 nZo
-oRk
+bBV
 oDq
-oRk
+bBV
 nZo
 dKR
 dKR
