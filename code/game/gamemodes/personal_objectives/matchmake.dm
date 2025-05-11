@@ -25,4 +25,4 @@
 	UnregisterSignal(SSdcs, COMSIG_GLOBAL_MARRIAGE)
 
 /datum/objective/marriage_broker/update_explanation_text()
-	explanation_text = "Make any marriage happen to please Eora!"
+	explanation_text = "Be a matchmaker! Make any marriage happen to please Eora!"
