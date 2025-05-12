@@ -80,6 +80,7 @@ GLOBAL_LIST_EMPTY(antagonist_teams)
 				continue
 			member.current.playsound_local(get_turf(member.current), result_sound, 100, FALSE, pressure_affected = FALSE)
 			member.adjust_triumphs(triumph_count, TRUE)
+		report += "<br>"
 
 	return report.Join("<br>")
 

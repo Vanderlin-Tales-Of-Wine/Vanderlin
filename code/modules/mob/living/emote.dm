@@ -585,6 +585,7 @@
 		playsound(target.loc, pick('sound/vo/hug.ogg'), 100, FALSE, -1)
 
 		if(user.mind)
+			SEND_SIGNAL(user, COMSIG_MOB_HUGGED, H)
 			GLOB.vanderlin_round_stats[STATS_HUGS_MADE]++
 
 // ............... I ..................
