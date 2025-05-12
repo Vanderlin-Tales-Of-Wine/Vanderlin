@@ -251,7 +251,7 @@
 	if(HAS_TRAIT(caller, TRAIT_BASHDOORS))
 		return TRUE // bash into it!
 	// it's openable
-	return ishuman(caller) && !locked
+	return ishuman(caller) && !locked()
 
 /obj/structure/door/CanPass(atom/movable/mover, turf/target)
 	if(istype(mover, /mob/camera))
