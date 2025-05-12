@@ -1,6 +1,6 @@
 /datum/advclass/brigand //Strength class, starts with axe or flails and medium armor training
 	name = "Brigand"
-	tutorial = "Cast from society, you use your powerful physical might and endurance to take from those who are weaker from you."
+	tutorial = "Cast from society, you use your powerful physical might and endurance to take from those who are weaker from you. USE DEFEND INTENT IF YOU CHOOSE FLAIL/SHIELD"
 	allowed_sexes = list(MALE, FEMALE)
 	outfit = /datum/outfit/job/bandit/brigand
 	category_tags = list(CTAG_BANDIT)
@@ -10,6 +10,7 @@
 	..()
 	H.mind.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/axesmaces, 4, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/combat/shields, 4, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
@@ -25,15 +26,15 @@
 	H.mind.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
 	belt = /obj/item/storage/belt/leather
-	pants = /obj/item/clothing/pants/trou/leather
-	shirt = /obj/item/clothing/shirt/shortshirt/random
+	pants = /obj/item/clothing/pants/trou/leather/advanced
+	shirt = /obj/item/clothing/armor/chainmail
 	shoes = /obj/item/clothing/shoes/boots
 	backr = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/needle/thorn = 1, /obj/item/natural/cloth = 1)
 	mask = /obj/item/clothing/face/facemask/steel
-	neck = /obj/item/clothing/neck/coif
+	neck = /obj/item/clothing/neck/chaincoif/iron
 	head = /obj/item/clothing/head/helmet/leather/volfhelm
-	armor = /obj/item/clothing/armor/leather/hide
+	armor = /obj/item/clothing/armor/cuirass/iron
 	H.change_stat(STATKEY_STR, 3)
 	H.change_stat(STATKEY_END, 2)
 	H.change_stat(STATKEY_CON, 2)
