@@ -48,7 +48,7 @@
 	var/datum/objective/mock/monarch/new_objective = new(owner = chosen_one.mind)
 	chosen_one.mind.add_personal_objective(new_objective)
 
-	to_chat(chosen_one, span_danger("YOU ARE GOD'S CHOSEN!"))
+	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
 	to_chat(chosen_one, span_biginfo("Xylix demands great entertainment! Seek out and viciously mock the monarch to prove your devotion and earn Xylix's favor!"))
 	SEND_SOUND(chosen_one, 'sound/vo/male/evil/laugh (1).ogg')
 

@@ -47,7 +47,7 @@
 	var/datum/objective/proper_burial/new_objective = new(owner = chosen_one.mind)
 	chosen_one.mind.add_personal_objective(new_objective)
 
-	to_chat(chosen_one, span_danger("YOU ARE GOD'S CHOSEN!"))
+	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
 	to_chat(chosen_one, span_notice("Necra demands proper rites for the departed! Give enough corpses a proper burial to earn Necra's favor!"))
 	SEND_SOUND(chosen_one, 'sound/ambience/noises/genspooky (1).ogg')
 

@@ -47,7 +47,7 @@
 	var/datum/objective/craft_shrine/new_objective = new(owner = chosen_one.mind)
 	chosen_one.mind.add_personal_objective(new_objective)
 
-	to_chat(chosen_one, span_danger("YOU ARE GOD'S CHOSEN!"))
+	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
 	to_chat(chosen_one, span_notice("Malum demands a physical manifestation of devotion! Build 2 sacred pantheon crosses to earn Malum's favor!"))
 	SEND_SOUND(chosen_one, 'sound/magic/dwarf_chant01.ogg')
 

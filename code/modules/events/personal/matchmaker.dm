@@ -44,7 +44,7 @@
 	var/datum/objective/marriage_broker/new_objective = new(owner = chosen_one.mind)
 	chosen_one.mind.add_personal_objective(new_objective)
 
-	to_chat(chosen_one, span_danger("YOU ARE GOD'S CHOSEN!"))
+	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
 	to_chat(chosen_one, span_notice("Eora wishes to see love blossom! Arrange a marriage between any two people to earn Eora's favor!"))
 	SEND_SOUND(chosen_one, 'sound/vo/female/gen/giggle (1).ogg')
 
