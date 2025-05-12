@@ -179,6 +179,13 @@
 	requirements = list(/obj/item/natural/cloth = 3)
 	craftdiff = 1
 
+/datum/repeatable_crafting_recipe/sewing/clothbackpack
+	name = "cloth backpack"
+	output = /obj/item/storage/backpack/backpack/cloth
+	requirements = list(/obj/item/natural/cloth = 2,
+				/obj/item/natural/fibers = 3)
+	craftdiff = 1
+
 /datum/repeatable_crafting_recipe/sewing/pcoif
 	name = "cloth coif"
 	output = /obj/item/clothing/neck/coif/cloth
@@ -189,6 +196,14 @@
 	name = "cloth hood"
 	requirements = list(/obj/item/natural/cloth = 1, /obj/item/natural/fibers = 1,)
 	output = /obj/item/clothing/head/roguehood/uncolored
+	craftdiff = 1
+
+
+/datum/repeatable_crafting_recipe/sewing/clothpouch
+	name = "cloth pouch"
+	output = /obj/item/storage/belt/pouch/cloth
+	requirements = list(/obj/item/natural/cloth = 1,
+				/obj/item/natural/fibers = 1)
 	craftdiff = 1
 
 /datum/repeatable_crafting_recipe/sewing/clothtrou

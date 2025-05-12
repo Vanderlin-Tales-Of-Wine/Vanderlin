@@ -193,6 +193,13 @@
 		/obj/item/ammo_casing/caseless/bullet,
 	)
 
+
+/obj/item/storage/belt/pouch/cloth
+	name = "cloth pouch"
+	desc = "Usually used for holding small amount of coins."
+	icon_state = "clothpouch"
+	component_type = /datum/component/storage/concrete/grid/coin_pouch/cloth
+
 //Poison darts pouch
 /obj/item/storage/belt/pouch/pdarts
 	populate_contents = list(
@@ -258,6 +265,13 @@
 	equip_sound = 'sound/blank.ogg'
 	bloody_icon_state = "bodyblood"
 	component_type = /datum/component/storage/concrete/grid/backpack
+
+/obj/item/storage/backpack/backpack/cloth
+	name = "cloth backpack"
+	desc = "A rudimentary cloth sack strapped to the back for storing small amounts of items."
+	icon_state = "clothbackpack"
+	item_state = "clothbackpack"
+	component_type = /datum/component/storage/concrete/grid/backpack/cloth
 
 /obj/item/storage/backpack/backpack/artibackpack
 	name = "cooling backpack"
