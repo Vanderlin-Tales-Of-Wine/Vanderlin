@@ -1,110 +1,130 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"a" = (
+"aj" = (
 /turf/open/floor/cobble,
-/area/rogue/under/cave)
-"b" = (
-/obj/machinery/light/fueled/torchholder/c,
-/obj/effect/decal/cleanable/generic,
-/turf/open/floor/ruinedwood/darker,
-/area/rogue/under/cave)
-"c" = (
+/area/rogue/under/tomb)
+"aG" = (
 /turf/closed/wall/mineral/stone/moss,
-/area/rogue/under/cave)
-"d" = (
+/area/rogue/under/tomb)
+"aO" = (
+/obj/effect/dungeon_directional_helper/south,
+/turf/open/floor/cobble,
+/area/rogue/under/tomb)
+"aV" = (
+/turf/closed/mineral/bedrock,
+/area/rogue/under/tomb)
+"aZ" = (
 /turf/closed/wall/mineral/stone,
-/area/rogue/under/cave)
-"e" = (
+/area/rogue/under/tomb)
+"bi" = (
+/obj/effect/decal/cleanable/blood/old,
+/obj/effect/decal/remains/bigrat,
+/turf/open/floor/metal,
+/area/rogue/under/tomb)
+"bT" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/remains/bigrat,
+/turf/open/floor/cobble,
+/area/rogue/under/tomb)
+"dZ" = (
+/obj/effect/dungeon_directional_helper/north,
+/turf/open/floor/cobble,
+/area/rogue/under/tomb)
+"eB" = (
+/obj/effect/decal/cleanable/blood/old,
 /obj/machinery/light/fueled/torchholder/l,
 /turf/open/floor/cobble,
-/area/rogue/under/cave)
-"f" = (
-/obj/machinery/light/fueled/campfire/densefire,
+/area/rogue/under/tomb)
+"gQ" = (
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/metal,
+/area/rogue/under/tomb)
+"hV" = (
+/turf/open/floor/metal,
+/area/rogue/under/tomb)
+"it" = (
+/obj/structure/roguetent,
 /turf/open/floor/cobble,
-/area/rogue/under/cave)
-"g" = (
-/obj/effect/decal/cleanable/dirt,
+/area/rogue/under/tomb)
+"jC" = (
+/obj/machinery/light/fueled/torchholder/c,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/tomb)
+"ko" = (
+/mob/living/simple_animal/hostile/retaliate/troll/axe,
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/metal,
+/area/rogue/under/tomb)
+"kH" = (
+/obj/effect/decal/cleanable/blood,
 /turf/open/floor/cobble,
-/area/rogue/under/cave)
-"h" = (
+/area/rogue/under/tomb)
+"nf" = (
 /obj/structure/roguetent,
 /obj/effect/decal/cleanable/dirt/cobweb,
 /turf/open/floor/cobble,
-/area/rogue/under/cave)
-"i" = (
-/obj/machinery/light/fueled/torchholder/r,
-/turf/open/floor/ruinedwood/darker,
-/area/rogue/under/cave)
-"k" = (
-/turf/closed/mineral/bedrock,
-/area/rogue/under/cave)
-"l" = (
+/area/rogue/under/tomb)
+"pw" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/ruinedwood/darker,
-/area/rogue/under/cave)
-"m" = (
-/obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/cobble,
-/area/rogue/under/cave)
-"n" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/remains/bigrat,
+/area/rogue/under/tomb)
+"pG" = (
+/obj/effect/decal/remains/human,
 /turf/open/floor/cobble,
-/area/rogue/under/cave)
-"o" = (
-/obj/effect/decal/cleanable/blood/old,
-/obj/machinery/light/fueled/torchholder/l,
-/turf/open/floor/cobble,
-/area/rogue/under/cave)
-"p" = (
-/obj/machinery/light/fueled/torchholder/l,
-/turf/open/floor/ruinedwood/darker,
-/area/rogue/under/cave)
-"q" = (
+/area/rogue/under/tomb)
+"qf" = (
+/obj/structure/bars,
+/turf/open/floor/metal,
+/area/rogue/under/tomb)
+"qQ" = (
 /obj/effect/decal/cleanable/generic,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue/under/cave)
-"s" = (
-/obj/structure/fluff/walldeco/skullspike,
-/turf/open/floor/cobble,
-/area/rogue/under/cave)
-"t" = (
+/area/rogue/under/tomb)
+"rx" = (
 /obj/effect/decal/remains/human,
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/metal,
-/area/rogue/under/cave)
-"u" = (
-/obj/structure/roguetent,
-/turf/open/floor/cobble,
-/area/rogue/under/cave)
-"w" = (
-/mob/living/carbon/human/species/goblin/npc/cave,
-/turf/open/floor/cobble,
-/area/rogue/under/cave)
-"x" = (
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor/cobble,
-/area/rogue/under/cave)
-"y" = (
+/area/rogue/under/tomb)
+"ss" = (
 /obj/effect/decal/remains/bigrat,
 /turf/open/floor/cobble,
-/area/rogue/under/cave)
-"z" = (
-/turf/open/floor/ruinedwood/darker,
-/area/rogue/under/cave)
-"A" = (
-/obj/structure/closet/crate/chest/old_crate,
-/obj/item/reagent_containers/glass/bottle/healthpot,
-/obj/item/reagent_containers/food/snacks/meat/sausage,
-/obj/item/reagent_containers/food/snacks/meat/sausage,
-/obj/item/reagent_containers/food/snacks/meat/sausage,
-/obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
+/area/rogue/under/tomb)
+"sI" = (
+/mob/living/carbon/human/species/goblin/npc/cave,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/cobble,
-/area/rogue/under/cave)
-"B" = (
-/obj/structure/bars,
+/area/rogue/under/tomb)
+"wV" = (
+/obj/machinery/light/fueled/campfire/densefire,
+/turf/open/floor/cobble,
+/area/rogue/under/tomb)
+"yq" = (
+/obj/effect/decal/remains/human,
 /turf/open/floor/metal,
-/area/rogue/under/cave)
-"C" = (
+/area/rogue/under/tomb)
+"ys" = (
+/obj/machinery/light/fueled/torchholder/r,
+/turf/open/floor/cobble,
+/area/rogue/under/tomb)
+"yV" = (
+/obj/structure/door,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/tomb)
+"zd" = (
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/tomb)
+"Af" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/tomb)
+"Bt" = (
+/obj/structure/door/iron/bars,
+/turf/open/floor/metal,
+/area/rogue/under/tomb)
+"Ck" = (
+/obj/structure/fluff/walldeco/skullspike,
+/turf/open/floor/cobble,
+/area/rogue/under/tomb)
+"CW" = (
 /obj/item/skull,
 /obj/item/skull,
 /obj/item/skull{
@@ -123,435 +143,415 @@
 	pixel_y = 10
 	},
 /turf/open/floor/cobble,
-/area/rogue/under/cave)
-"D" = (
+/area/rogue/under/tomb)
+"DM" = (
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/metal,
-/area/rogue/under/cave)
-"E" = (
+/area/rogue/under/tomb)
+"Fq" = (
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/cobble,
-/area/rogue/under/cave)
-"F" = (
-/obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/cobble,
-/area/rogue/under/cave)
-"G" = (
-/obj/structure/door,
-/turf/open/floor/ruinedwood/darker,
-/area/rogue/under/cave)
-"H" = (
-/obj/machinery/light/fueled/torchholder/c,
-/turf/open/floor/ruinedwood/darker,
-/area/rogue/under/cave)
-"I" = (
-/obj/machinery/light/fueled/torchholder{
-	pixel_y = -32
-	},
-/turf/open/floor/ruinedwood/darker,
-/area/rogue/under/cave)
-"J" = (
+/area/rogue/under/tomb)
+"FU" = (
 /obj/machinery/light/fueled/torchholder/l,
-/obj/effect/decal/cleanable/generic,
+/turf/open/floor/cobble,
+/area/rogue/under/tomb)
+"Gc" = (
+/obj/machinery/light/fueled/torchholder/r,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue/under/cave)
-"K" = (
-/turf/open/floor/metal,
-/area/rogue/under/cave)
-"L" = (
+/area/rogue/under/tomb)
+"HK" = (
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/open/floor/cobble,
+/area/rogue/under/tomb)
+"NV" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 6
 	},
 /turf/open/floor/cobble,
-/area/rogue/under/cave)
-"M" = (
+/area/rogue/under/tomb)
+"OX" = (
 /obj/effect/decal/cleanable/blood/old,
-/obj/effect/decal/remains/bigrat,
-/turf/open/floor/metal,
-/area/rogue/under/cave)
-"N" = (
+/turf/open/floor/cobble,
+/area/rogue/under/tomb)
+"Tm" = (
+/obj/machinery/light/fueled/torchholder/l,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/tomb)
+"Uw" = (
+/obj/machinery/light/fueled/torchholder/l,
+/obj/effect/decal/cleanable/generic,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/tomb)
+"Vy" = (
+/mob/living/carbon/human/species/goblin/npc/cave,
+/turf/open/floor/cobble,
+/area/rogue/under/tomb)
+"Vz" = (
+/obj/machinery/light/fueled/torchholder/c,
+/obj/effect/decal/cleanable/generic,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/tomb)
+"Wd" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 4
 	},
 /turf/open/floor/cobble,
-/area/rogue/under/cave)
-"O" = (
-/obj/structure/door/iron/bars,
-/turf/open/floor/metal,
-/area/rogue/under/cave)
-"P" = (
-/obj/machinery/light/fueled/torchholder/r,
-/turf/open/floor/cobble,
-/area/rogue/under/cave)
-"Q" = (
-/obj/effect/decal/remains/human,
-/turf/open/floor/cobble,
-/area/rogue/under/cave)
-"R" = (
-/obj/effect/dungeon_directional_helper/north,
-/turf/open/floor/cobble,
-/area/rogue/under/cave)
-"S" = (
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor/metal,
-/area/rogue/under/cave)
-"T" = (
-/obj/effect/decal/remains/human,
-/turf/open/floor/metal,
-/area/rogue/under/cave)
-"U" = (
-/mob/living/carbon/human/species/goblin/npc/cave,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/cobble,
-/area/rogue/under/cave)
-"W" = (
+/area/rogue/under/tomb)
+"XA" = (
 /obj/effect/dungeon_directional_helper/east,
 /turf/open/floor/cobble,
-/area/rogue/under/cave)
-"X" = (
-/obj/effect/decal/cleanable/blood/splatter,
+/area/rogue/under/tomb)
+"Yp" = (
+/obj/machinery/light/fueled/torchholder{
+	pixel_y = -32
+	},
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/tomb)
+"YV" = (
+/obj/structure/closet/crate/chest/old_crate,
+/obj/item/reagent_containers/glass/bottle/healthpot,
+/obj/item/reagent_containers/food/snacks/meat/sausage,
+/obj/item/reagent_containers/food/snacks/meat/sausage,
+/obj/item/reagent_containers/food/snacks/meat/sausage,
+/obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
 /turf/open/floor/cobble,
-/area/rogue/under/cave)
-"Z" = (
-/mob/living/simple_animal/hostile/retaliate/troll/axe,
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor/metal,
-/area/rogue/under/cave)
+/area/rogue/under/tomb)
 
 (1,1,1) = {"
-k
-k
-k
-k
-k
-E
-a
-k
-k
-k
-k
-k
+aV
+aV
+aV
+aV
+aV
+Fq
+aj
+aV
+aV
+aV
+aV
+aV
 "}
 (2,1,1) = {"
-k
-c
-c
-d
-d
-a
-a
-d
-c
-d
-c
-k
+aV
+aG
+aG
+aZ
+aZ
+aj
+aj
+aZ
+aG
+aZ
+aG
+aV
 "}
 (3,1,1) = {"
-k
-c
-h
-e
-u
-F
-a
-s
-o
-y
-d
-k
+aV
+aG
+nf
+FU
+it
+OX
+aj
+Ck
+eB
+ss
+aZ
+aV
 "}
 (4,1,1) = {"
-k
-d
-Q
-F
-a
-a
-a
-a
-e
-g
-d
-k
+aV
+aZ
+pG
+OX
+aj
+aj
+aj
+aj
+FU
+pw
+aZ
+aV
 "}
 (5,1,1) = {"
-k
-d
-u
-a
-u
-a
-a
-a
-a
-n
-c
-k
+aV
+aZ
+it
+aj
+it
+aj
+aj
+aj
+aj
+bT
+aG
+aV
 "}
 (6,1,1) = {"
-R
-a
-g
-a
-a
-a
-x
-x
-F
-a
-a
-m
+dZ
+aj
+pw
+aj
+aj
+aj
+kH
+kH
+OX
+aj
+aj
+aO
 "}
 (7,1,1) = {"
-a
-a
-g
-a
-a
-F
-X
-X
-a
-a
-a
-a
+aj
+aj
+pw
+aj
+aj
+OX
+HK
+HK
+aj
+aj
+aj
+aj
 "}
 (8,1,1) = {"
-k
-c
-w
-a
-w
-g
-N
-F
-Q
-a
-d
-k
+aV
+aG
+Vy
+aj
+Vy
+pw
+Wd
+OX
+pG
+aj
+aZ
+aV
 "}
 (9,1,1) = {"
-k
-c
-a
-f
-w
-a
-N
-s
-C
-a
-c
-k
+aV
+aG
+aj
+wV
+Vy
+aj
+Wd
+Ck
+CW
+aj
+aG
+aV
 "}
 (10,1,1) = {"
-k
-c
-A
-g
-U
-a
-L
-a
-P
-g
-c
-k
+aV
+aG
+YV
+pw
+sI
+aj
+NV
+aj
+ys
+pw
+aG
+aV
 "}
 (11,1,1) = {"
-k
-d
-d
-d
-d
-a
-a
-c
-c
-c
-d
-k
+aV
+aZ
+aZ
+aZ
+aZ
+aj
+aj
+aG
+aG
+aG
+aZ
+aV
 "}
 (12,1,1) = {"
-k
-k
-k
-k
-k
-W
-a
-k
-k
-k
-k
-k
+aV
+aV
+aV
+aV
+aV
+XA
+aj
+aV
+aV
+aV
+aV
+aV
 "}
 
 (1,1,2) = {"
-k
-k
-k
-k
-k
-G
-G
-k
-k
-k
-k
-k
+aV
+aV
+aV
+aV
+aV
+yV
+yV
+aV
+aV
+aV
+aV
+aV
 "}
 (2,1,2) = {"
-k
-z
-z
-z
-p
-z
-z
-J
-z
-l
-l
-k
+aV
+zd
+zd
+zd
+Tm
+zd
+zd
+Uw
+zd
+Af
+Af
+aV
 "}
 (3,1,2) = {"
-k
-l
-l
-z
-z
-z
-z
-q
-z
-z
-z
-k
+aV
+Af
+Af
+zd
+zd
+zd
+zd
+qQ
+zd
+zd
+zd
+aV
 "}
 (4,1,2) = {"
-k
-z
-l
-B
-B
-B
-B
-B
-B
-z
-z
-k
+aV
+zd
+Af
+qf
+qf
+qf
+qf
+qf
+qf
+zd
+zd
+aV
 "}
 (5,1,2) = {"
-k
-H
-z
-B
-K
-Z
-K
-K
-B
-z
-I
-k
+aV
+jC
+zd
+qf
+hV
+ko
+hV
+hV
+qf
+zd
+Yp
+aV
 "}
 (6,1,2) = {"
-G
-z
-z
-O
-K
-t
-K
-D
-O
-z
-z
-G
+yV
+zd
+zd
+Bt
+hV
+rx
+hV
+DM
+Bt
+zd
+zd
+yV
 "}
 (7,1,2) = {"
-G
-z
-z
-O
-K
-K
-S
-T
-O
-z
-z
-G
+yV
+zd
+zd
+Bt
+hV
+hV
+gQ
+yq
+Bt
+zd
+zd
+yV
 "}
 (8,1,2) = {"
-k
-b
-z
-B
-D
-M
-D
-K
-B
-q
-I
-k
+aV
+Vz
+zd
+qf
+DM
+bi
+DM
+hV
+qf
+qQ
+Yp
+aV
 "}
 (9,1,2) = {"
-k
-z
-z
-B
-B
-B
-B
-B
-B
-l
-z
-k
+aV
+zd
+zd
+qf
+qf
+qf
+qf
+qf
+qf
+Af
+zd
+aV
 "}
 (10,1,2) = {"
-k
-z
-z
-q
-z
-z
-z
-z
-l
-l
-z
-k
+aV
+zd
+zd
+qQ
+zd
+zd
+zd
+zd
+Af
+Af
+zd
+aV
 "}
 (11,1,2) = {"
-k
-z
-q
-q
-i
-z
-z
-i
-z
-l
-z
-k
+aV
+zd
+qQ
+qQ
+Gc
+zd
+zd
+Gc
+zd
+Af
+zd
+aV
 "}
 (12,1,2) = {"
-k
-k
-k
-k
-k
-G
-G
-k
-k
-k
-k
-k
+aV
+aV
+aV
+aV
+aV
+yV
+yV
+aV
+aV
+aV
+aV
+aV
 "}

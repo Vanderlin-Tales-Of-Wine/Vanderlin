@@ -113,11 +113,6 @@ SUBSYSTEM_DEF(adjacent_air)
 	//Expose turf
 	liquids.liquid_group.expose_members_turf(liquids)
 
-
-/turf/open
-	var/obj/effect/hotspot/active_hotspot
-
-
 /turf/CanAtmosPass = ATMOS_PASS_NO
 /turf/CanAtmosPassVertical = ATMOS_PASS_NO
 

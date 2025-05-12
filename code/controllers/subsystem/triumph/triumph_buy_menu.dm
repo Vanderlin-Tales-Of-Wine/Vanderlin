@@ -89,27 +89,27 @@
 
 	if(current_category == TRIUMPH_CAT_ACTIVE_DATUMS)
 		// Mostly so we can stop the filler message from not being displayed if someone has a non-visible triumph buy, and theres nothing else in.
-		var/found_one_blank_sloppy_toppy = FALSE
+		var/found_one = FALSE
 		if(SStriumphs.active_triumph_buy_queue.len)
-			for(var/datum/triumph_buy/auugh in SStriumphs.active_triumph_buy_queue)
-				if(!auugh.visible_on_active_menu) // If we aren't set to be able to be visible on the main menu
+			for(var/datum/triumph_buy/found_triumph_buy in SStriumphs.active_triumph_buy_queue)
+				if(!found_triumph_buy.visible_on_active_menu || usr.ckey != found_triumph_buy.ckey_of_buyer) // If we aren't set to be able to be visible on the main menu
 					continue
 				data += {"
 					<tr class='triumph_text_row'>
-						<td class='triumph_text_desc'>[auugh.desc] | Bought by: [auugh.key_of_buyer]</td>
-						<td class='triumph_cost_wrapper'>[auugh.triumph_cost]</td>
+						<td class='triumph_text_desc'>[found_triumph_buy.desc]</td>
+						<td class='triumph_cost_wrapper'>[found_triumph_buy.triumph_cost]</td>
 				"}
-				if(SSticker.HasRoundStarted() && auugh.pre_round_only)
-					data += "<td class='triumph_buy_wrapper'><a class='triumph_text_buy' href='byond://?src=\ref[src];handle_buy_button=\ref[auugh];'><span class='strikethru_back'>ROUND STARTED</span></a></td>"
+				if(SSticker.HasRoundStarted() && found_triumph_buy.pre_round_only)
+					data += "<td class='triumph_buy_wrapper'><a class='triumph_text_buy' href='byond://?src=\ref[src];handle_buy_button=\ref[found_triumph_buy];'><span class='strikethru_back'>ROUND STARTED</span></a></td>"
 				else
-					data += "<td class='triumph_buy_wrapper'><a class='triumph_text_buy' href='byond://?src=\ref[src];handle_buy_button=\ref[auugh];'>UNBUY</a></td>"
+					data += "<td class='triumph_buy_wrapper'><a class='triumph_text_buy' href='byond://?src=\ref[src];handle_buy_button=\ref[found_triumph_buy];'>UNBUY</a></td>"
 
 				data += "</tr>"
 
-				found_one_blank_sloppy_toppy = TRUE // WE GOT ONE WOOHOO
+				found_one = TRUE // WE GOT ONE WOOHOO
 
 
-		if(!found_one_blank_sloppy_toppy) // We didn't find anything that could be visible, so cram in the mssage
+		if(!found_one) // We didn't find anything that could be visible, so cram in the mssage
 			data += {"
 				<tr class='triumph_text_row'>
 					<td class='triumph_text_desc'>CURRENTLY NOTHING</td>

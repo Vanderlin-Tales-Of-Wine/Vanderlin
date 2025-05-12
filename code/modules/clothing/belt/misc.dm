@@ -223,6 +223,18 @@
 		/obj/item/paper/heartfelt/random,
 	)
 
+/obj/item/storage/backpack/satchel/mule/PopulateContents()
+	for(var/i in 1 to 3)
+		switch(rand(1,4))
+			if(1)
+				new /obj/item/reagent_containers/powder/moondust_purest(src)
+			if(2)
+				new /obj/item/reagent_containers/powder/moondust_purest(src)
+			if(3)
+				new /obj/item/reagent_containers/powder/ozium(src)
+			if(4)
+				new /obj/item/reagent_containers/powder/spice(src)
+
 /obj/item/storage/backpack/satchel/black
 	color = CLOTHING_SOOT_BLACK
 

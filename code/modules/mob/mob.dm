@@ -645,7 +645,6 @@ GLOBAL_VAR_INIT(mobids, 1)
 		if(machine && in_range(src, usr))
 			show_inv(machine)
 
-
 	if(href_list["item"] && usr.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
 		var/slot = text2num(href_list["item"])
 		var/hand_index = text2num(href_list["hand_index"])
@@ -1097,6 +1096,8 @@ GLOBAL_VAR_INIT(mobids, 1)
 
 ///Can this mob read (is literate and not blind)
 /mob/proc/can_read(obj/O, silent = FALSE)
+	if(isobserver(src))
+		return TRUE
 	if(is_blind(src) || eye_blurry)
 		if(!silent)
 			to_chat(src, span_warning("I'm too blind to read."))
@@ -1271,23 +1272,18 @@ GLOBAL_VAR_INIT(mobids, 1)
 	return "[message_spans_start(spans)][input]</span>"
 
 /// Send a menu that allows for the selection of an item. Randomly selects one after time_limit. selection_list should be an associative list of string and typepath
-/mob/proc/select_equippable(client/player_client, selection_list = list(), time_limit = 20 SECONDS, message = "", title = "")
-	set waitfor = FALSE
-	if(!length(selection_list))
+/mob/proc/select_equippable(list/selection_list, time_limit = 20 SECONDS, message = "", title = "")
+	if(QDELETED(src))
 		return
-	var/client/client_to_use = player_client
-	if(!client_to_use)
-		client_to_use = client
-	if(!client_to_use)
+	if(!client || !mind)
 		return
-	var/random_choice = selection_list[pick(selection_list)]
-	var/timerid = addtimer(CALLBACK(src, PROC_REF(equip_to_appropriate_slot), new random_choice()), time_limit, TIMER_STOPPABLE)
-	var/choice = input(player_client, message, title) as anything in selection_list
-	if(SStimer.timer_id_dict[timerid])
-		deltimer(timerid)
-	else
+	if(!LAZYLEN(selection_list))
 		return
-	var/spawn_item = selection_list[choice]
+	var/choice = browser_input_list(src, message, title, selection_list, timeout = time_limit)
+	if(!choice)
+		choice = pick(selection_list)
+	var/spawn_item = LAZYACCESS(selection_list, choice)
 	if(!spawn_item)
-		spawn_item = selection_list[pick(selection_list)]
+		return choice
 	equip_to_appropriate_slot(new spawn_item(get_turf(src)))
+	return choice

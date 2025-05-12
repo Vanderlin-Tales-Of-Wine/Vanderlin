@@ -51,16 +51,25 @@
 	metalizer_result = /obj/structure/door/iron
 	/// Handle bolting on right click
 	var/has_bolt = FALSE
-	/// Handle viewport toggle
+	/// Handle viewport toggle on right click
 	var/has_viewport = FALSE
 
 /obj/structure/door/Initialize()
 	. = ..()
 	if(has_bolt && has_viewport)
 		warning("[src] at [AREACOORD(src)] has both a deadbolt and a viewport, these will conflict as they both use attack_right.")
-	if(has_bolt && lock.uses_key)
-		warning("[src] at [AREACOORD(src)] has both a deadbolt and a keylock, while this will work it may produce intended behaviour.")
+	if(has_bolt && keylock)
+		warning("[src] at [AREACOORD(src)] has both a deadbolt and a keylock, while this will work it may produce unintended behaviour.")
+	if(isopenturf(loc))
+		RegisterSignal(loc, COMSIG_ATOM_ATTACK_HAND, PROC_REF(redirect_attack)) // redirect the attack to the door
 	set_init_layer()
+
+/obj/structure/door/Destroy()
+	. = ..()
+	UnregisterSignal(loc, COMSIG_ATOM_ATTACK_HAND, PROC_REF(redirect_attack))
+
+/obj/structure/door/proc/redirect_attack(turf/source, mob/user)
+	attack_hand(user)>>>>>>> 65fd86d81a8cd64c32c7c4a92c0f614d7cfeefa6
 
 /obj/structure/door/proc/set_init_layer()
 	if(density)

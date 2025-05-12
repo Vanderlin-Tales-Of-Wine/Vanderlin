@@ -1,70 +1,38 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"a" = (
-/obj/structure/spider/stickyweb,
-/turf/open/floor/churchmarble,
-/area/rogue/outdoors/caves)
-"c" = (
-/turf/closed/wall/mineral/stonebrick/reddish,
-/area/rogue/outdoors/caves)
-"d" = (
-/obj/structure/chair/bench/couchablack/r,
-/turf/open/floor/churchmarble,
-/area/rogue/outdoors/caves)
-"f" = (
-/obj/structure/fluff/walldeco/vinez/l,
-/turf/closed/wall/mineral/stonebrick/reddish,
-/area/rogue/outdoors/caves)
-"g" = (
-/obj/structure/fluff/walldeco/vinez/r,
-/obj/machinery/light/fueled/wallfire/candle/blue/r,
-/obj/item/instrument/flute,
+"ab" = (
 /turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/caves)
-"i" = (
-/obj/structure/fluff/walldeco/vinez/l,
-/obj/structure/fluff/walldeco/vinez/r,
-/obj/structure/door/violet,
-/turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/caves)
-"l" = (
-/mob/living/simple_animal/hostile/retaliate/spider/mutated,
-/turf/open/floor/churchmarble,
-/area/rogue/outdoors/caves)
-"m" = (
+/area/rogue/under/tomb/cave)
+"ae" = (
 /obj/structure/fluff/walldeco/vinez/r,
 /obj/structure/fluff/walldeco/vinez/l,
 /obj/structure/door/violet,
 /turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/caves)
-"n" = (
+/area/rogue/under/tomb/cave)
+"ah" = (
+/obj/structure/fluff/walldeco/vinez/l,
+/obj/structure/fluff/walldeco/vinez/r,
+/obj/structure/door/violet,
+/turf/open/floor/cobblerock/alt,
+/area/rogue/under/tomb/cave)
+"aj" = (
 /obj/structure/fluff/walldeco/vinez/l,
 /obj/machinery/light/fueled/wallfire/candle/blue/l,
 /turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/caves)
-"o" = (
-/obj/machinery/light/fueled/wallfire/candle/blue/l,
-/turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/caves)
-"p" = (
-/obj/structure/chair/bench/couchablack,
-/turf/open/floor/churchmarble,
-/area/rogue/outdoors/caves)
-"q" = (
-/obj/structure/door/violet,
-/obj/effect/dungeon_directional_helper/west,
-/turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/caves)
-"s" = (
+/area/rogue/under/tomb/cave)
+"ak" = (
 /obj/structure/fluff/walldeco/vinez/r,
 /turf/closed/wall/mineral/stonebrick/reddish,
-/area/rogue/outdoors/caves)
-"t" = (
+/area/rogue/under/tomb/cave)
+"ar" = (
 /turf/closed/wall/mineral/stone/moss,
-/area/rogue/outdoors/caves)
-"v" = (
+/area/rogue/under/tomb/cave)
+"au" = (
+/obj/structure/fluff/walldeco/vinez/l,
+/obj/machinery/light/fueled/wallfire/candle/blue/l,
+/obj/item/reagent_containers/glass/bottle/whitewine,
 /turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/caves)
-"w" = (
+/area/rogue/under/tomb/cave)
+"aA" = (
 /obj/item/clothing/shirt/tunic/blue,
 /obj/item/gem/blue,
 /obj/item/clothing/shoes/boots,
@@ -78,8 +46,39 @@
 /mob/living/carbon/human/species/skeleton/npc/no_equipment,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/caves)
-"x" = (
+/area/rogue/under/tomb/cave)
+"aG" = (
+/obj/structure/door/violet,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/churchmarble,
+/area/rogue/under/tomb/cave)
+"aH" = (
+/obj/structure/door/violet,
+/obj/effect/dungeon_directional_helper/east,
+/turf/open/floor/cobblerock/alt,
+/area/rogue/under/tomb/cave)
+"aJ" = (
+/obj/structure/well,
+/obj/item/reagent_containers/glass/bucket/wooden,
+/turf/open/floor/cobblerock/alt,
+/area/rogue/under/tomb/cave)
+"aL" = (
+/obj/structure/spider/stickyweb,
+/turf/open/floor/churchmarble,
+/area/rogue/under/tomb/cave)
+"aM" = (
+/obj/machinery/light/fueled/wallfire/candle/blue/l,
+/turf/open/floor/cobblerock/alt,
+/area/rogue/under/tomb/cave)
+"aN" = (
+/obj/structure/fluff/walldeco/vinez/r,
+/obj/machinery/light/fueled/wallfire/candle/blue/r,
+/turf/open/floor/cobblerock/alt,
+/area/rogue/under/tomb/cave)
+"aP" = (
+/turf/closed/wall/mineral/stonebrick/reddish,
+/area/rogue/under/tomb/cave)
+"aQ" = (
 /obj/structure/table/vtable,
 /obj/item/clothing/gloves/rare/elfplate,
 /obj/item/clothing/head/rare/elfplate,
@@ -90,64 +89,37 @@
 /obj/item/clothing/neck/menears,
 /obj/item/clothing/neck/mercmedal/anthrax,
 /turf/open/floor/churchmarble,
-/area/rogue/outdoors/caves)
-"y" = (
-/obj/structure/spider/stickyweb,
-/obj/machinery/light/fueled/wallfire/candle/blue/l,
-/turf/open/floor/churchmarble,
-/area/rogue/outdoors/caves)
-"z" = (
-/turf/open/floor/churchmarble,
-/area/rogue/outdoors/caves)
-"B" = (
-/obj/structure/door/violet,
-/obj/structure/spider/stickyweb,
-/turf/open/floor/churchmarble,
-/area/rogue/outdoors/caves)
-"C" = (
-/obj/structure/door/violet,
-/obj/effect/dungeon_directional_helper/east,
+/area/rogue/under/tomb/cave)
+"aT" = (
+/obj/structure/fluff/walldeco/vinez/r,
+/obj/machinery/light/fueled/wallfire/candle/blue/r,
+/obj/item/instrument/flute,
 /turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/caves)
-"D" = (
+/area/rogue/under/tomb/cave)
+"aU" = (
+/obj/structure/door/violet,
+/obj/effect/dungeon_directional_helper/west,
+/turf/open/floor/cobblerock/alt,
+/area/rogue/under/tomb/cave)
+"aV" = (
+/obj/structure/fluff/walldeco/vinez/l,
+/turf/closed/wall/mineral/stonebrick/reddish,
+/area/rogue/under/tomb/cave)
+"aX" = (
 /obj/machinery/light/fueled/wallfire/candle/blue/r,
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/caves)
-"E" = (
+/area/rogue/under/tomb/cave)
+"aY" = (
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/caves)
-"F" = (
-/obj/structure/fluff/walldeco/vinez/r,
-/obj/machinery/light/fueled/wallfire/candle/blue/r,
-/turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/caves)
-"I" = (
-/obj/structure/chair/wood/alt/chair_noble,
-/turf/open/floor/churchmarble,
-/area/rogue/outdoors/caves)
-"K" = (
-/obj/structure/fluff/walldeco/vinez/l,
-/obj/machinery/light/fueled/wallfire/candle/blue/l,
-/obj/item/reagent_containers/glass/bottle/whitewine,
-/turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/caves)
-"O" = (
-/obj/structure/fluff/statue/spider,
-/turf/open/floor/churchmarble,
-/area/rogue/outdoors/caves)
-"R" = (
-/obj/structure/well,
-/obj/item/reagent_containers/glass/bucket/wooden,
-/turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/caves)
-"S" = (
+/area/rogue/under/tomb/cave)
+"cl" = (
 /obj/structure/spider/stickyweb,
-/obj/machinery/light/fueled/wallfire/candle/blue/r,
+/mob/living/simple_animal/hostile/retaliate/spider/mutated,
 /turf/open/floor/churchmarble,
-/area/rogue/outdoors/caves)
-"W" = (
+/area/rogue/under/tomb/cave)
+"eF" = (
 /obj/structure/table/vtable/v2,
 /obj/item/reagent_containers/glass/bottle/wine/sourwine,
 /obj/item/candle/yellow/lit/infinite/strong/skull,
@@ -159,111 +131,139 @@
 /obj/item/natural/cloth,
 /obj/item/natural/cloth,
 /turf/open/floor/churchmarble,
-/area/rogue/outdoors/caves)
-"Z" = (
+/area/rogue/under/tomb/cave)
+"ij" = (
 /obj/structure/spider/stickyweb,
+/obj/machinery/light/fueled/wallfire/candle/blue/l,
+/turf/open/floor/churchmarble,
+/area/rogue/under/tomb/cave)
+"pm" = (
 /mob/living/simple_animal/hostile/retaliate/spider/mutated,
 /turf/open/floor/churchmarble,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
+"rk" = (
+/obj/structure/fluff/statue/spider,
+/turf/open/floor/churchmarble,
+/area/rogue/under/tomb/cave)
+"rT" = (
+/turf/open/floor/churchmarble,
+/area/rogue/under/tomb/cave)
+"ue" = (
+/obj/structure/spider/stickyweb,
+/obj/machinery/light/fueled/wallfire/candle/blue/r,
+/turf/open/floor/churchmarble,
+/area/rogue/under/tomb/cave)
+"Fr" = (
+/obj/structure/chair/bench/couchablack/r,
+/turf/open/floor/churchmarble,
+/area/rogue/under/tomb/cave)
+"RZ" = (
+/obj/structure/chair/bench/couchablack,
+/turf/open/floor/churchmarble,
+/area/rogue/under/tomb/cave)
+"UN" = (
+/obj/structure/chair/wood/alt/chair_noble,
+/turf/open/floor/churchmarble,
+/area/rogue/under/tomb/cave)
 
 (1,1,1) = {"
-c
-c
-c
-q
-c
-c
-c
-c
+aP
+aP
+aP
+aU
+aP
+aP
+aP
+aP
 "}
 (2,1,1) = {"
-v
-f
-n
-v
-K
-f
-o
-E
+ab
+aV
+aj
+ab
+au
+aV
+aM
+aY
 "}
 (3,1,1) = {"
-D
-i
-w
-R
-v
-m
-v
-c
+aX
+ah
+aA
+aJ
+ab
+ae
+ab
+aP
 "}
 (4,1,1) = {"
-c
-s
-F
-v
-g
-s
-c
-c
+aP
+ak
+aN
+ab
+aT
+ak
+aP
+aP
 "}
 (5,1,1) = {"
-c
-c
-c
-C
-c
-c
-c
-c
+aP
+aP
+aP
+aH
+aP
+aP
+aP
+aP
 "}
 
 (1,1,2) = {"
-t
-t
-t
-B
-t
-t
-t
-t
+ar
+ar
+ar
+aG
+ar
+ar
+ar
+ar
 "}
 (2,1,2) = {"
-t
-p
-z
-Z
-y
-z
-a
-B
+ar
+RZ
+rT
+cl
+ij
+rT
+aL
+aG
 "}
 (3,1,2) = {"
-t
-d
-a
-O
-l
-a
-x
-t
+ar
+Fr
+aL
+rk
+pm
+aL
+aQ
+ar
 "}
 (4,1,2) = {"
-B
-Z
-z
-S
-a
-I
-W
-t
+aG
+cl
+rT
+ue
+aL
+UN
+eF
+ar
 "}
 (5,1,2) = {"
-t
-t
-t
-t
-B
-t
-t
-t
+ar
+ar
+ar
+ar
+aG
+ar
+ar
+ar
 "}

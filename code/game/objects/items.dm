@@ -857,7 +857,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 
 	playsound(loc, src.hitsound, 30, TRUE, -1)
 
-	user.do_attack_animation(M, used_intent = user.used_intent)
+	user.do_attack_animation(M, used_intent = user.used_intent, used_item = src)
 
 	if(M != user)
 		M.visible_message("<span class='danger'>[user] has stabbed [M] in the eye with [src]!</span>", \

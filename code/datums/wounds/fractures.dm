@@ -107,7 +107,8 @@
 
 /datum/wound/fracture/head/on_life()
 	. = ..()
-	owner.stuttering = max(owner.stuttering, 5)
+	if(owner)
+		owner.stuttering = max(owner.stuttering, 5)
 
 /datum/wound/fracture/head/brain
 	name = "depressed cranial fracture"

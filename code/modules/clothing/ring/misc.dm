@@ -336,3 +336,34 @@
 	SEND_GLOBAL_SIGNAL(COMSIG_GAFFER_RING_DESTROYED, src)
 	. = ..()
 
+
+
+/obj/item/clothing/ring/dragon_ring
+	name = "Dragon Ring"
+	icon_state = "ring_g" // supposed to have it's own sprite but I'm lazy asf
+	desc = "Carrying the likeness of a dragon, this glorious ring hums with a subtle energy."
+	sellprice = 666
+	var/active_item
+
+/obj/item/clothing/ring/dragon_ring/equipped(mob/living/user, slot)
+	. = ..()
+	if(active_item)
+		return
+	else if(slot == SLOT_RING)
+		active_item = TRUE
+		to_chat(user, span_notice("Here be dragons."))
+		user.change_stat("strength", 2)
+		user.change_stat("constitution", 2)
+		user.change_stat("endurance", 2)
+	return
+
+/obj/item/clothing/ring/dragon_ring/dropped(mob/living/user)
+	..()
+	if(active_item)
+		to_chat(user, span_notice("Gone is thy hoard."))
+		user.change_stat("strength", -2)
+		user.change_stat("constitution", -2)
+		user.change_stat("endurance", -2)
+		active_item = FALSE
+	return
+
