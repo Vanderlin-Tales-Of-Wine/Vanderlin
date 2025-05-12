@@ -585,6 +585,7 @@
 	character.change_stat("constitution", -1)
 	character.change_stat("endurance", -1)
 	character.mind.adjust_skillrank(/datum/skill/magic/arcane, 5, TRUE)
+	character.mind.set_skillrank(/datum/skill/combat/sword, 2, 2, TRUE) //Average only.
 	character.mind.adjust_spellpoints(14) //Less points than Court Mage, why do Court mage get 17 points? what even?
 	character.mind.AddSpell(new /obj/effect/proc_holder/spell/self/learnspell)
 	character.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
@@ -595,9 +596,9 @@
 
 /datum/special_trait/skeleton
 	name = "Skeleton"
-	greet_text = span_boldwarning("I was- am afflicted with a curse that left me without my flesh..")
-	allowed_jobs = list(/datum/job/pilgrim, /datum/job/adventurer, /datum/job/bandit)
-	req_text = "Be a Adventurer, a Pilgrim or a bandit."
+	greet_text = span_boldwarning("I was- am afflicted with a curse by a lich that left me without my flesh but i still retained controls..(This is not a antagonist role, expect to be attacked unless wearing something to cover your head.)")
+	allowed_jobs = list(/datum/job/pilgrim)
+	req_text = "Be a Pilgrim."
 	weight = 20
 
 /datum/special_trait/skeleton/on_apply(mob/living/carbon/human/character, silent)
@@ -612,13 +613,3 @@
 	ADD_TRAIT(character, TRAIT_NOPAIN, "[type]")
 	ADD_TRAIT(character, TRAIT_TOXIMMUNE, "[type]")
 	character.update_body()
-
-/datum/special_trait/graggazo
-	name = "Broken Mind"
-	greet_text = span_notice("My mind feels shambled, Was it Ast- No? Zizo? Just Who i am supposed to worship..?")
-	req_text = "Non-Church Role, Non-Court Role"
-	restricted_jobs = list(CHURCHMEN, NOBLEMEN)
-	weight = 10
-
-/datum/special_trait/graggazo/on_apply(mob/living/carbon/human/character, silent)
-	character.set_patron(/datum/patron/inhumen/graggar_zizo) //praying on my knees, please let someone try to pray with this god on.
