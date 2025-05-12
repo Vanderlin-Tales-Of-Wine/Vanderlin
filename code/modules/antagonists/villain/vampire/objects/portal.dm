@@ -6,9 +6,9 @@
 /obj/structure/vampire/portalmaker/attack_hand(mob/living/user)
 	var/list/possibleportals = list()
 	var/datum/antagonist/vampire/lord/lord_datum = user.mind.has_antag_datum(/datum/antagonist/vampire/lord)
-	var/datum/team/vampires/vamp_team = lord_datum.team
 	if(!lord_datum)
 		return
+	var/datum/team/vampires/vamp_team = lord_datum.team
 
 	. = TRUE
 

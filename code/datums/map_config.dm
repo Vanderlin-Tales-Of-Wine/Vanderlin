@@ -17,6 +17,7 @@
 	var/map_name = "Vanderlin"
 	var/map_path = "map_files/vanderlin"
 	var/map_file = "vanderlin.dmm"
+	var/immigrant_origin = "Kingsfield"
 
 	var/traits = null
 	var/space_ruin_levels = 7
@@ -69,6 +70,7 @@
 	map_name = json["map_name"]
 	CHECK_EXISTS("map_path")
 	map_path = json["map_path"]
+	immigrant_origin = json["immigrant_origin"]
 
 	map_file = json["map_file"]
 	if (istext(map_file))

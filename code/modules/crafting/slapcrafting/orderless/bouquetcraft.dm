@@ -47,7 +47,7 @@
 /datum/orderless_slapcraft/flowercrown/rosa
 	name = "Rosa Crown"
 	requirements = list(
-	/obj/item/alch/calendula = 2
+	/obj/item/alch/rosa = 2
 	)
 	output_item = /obj/item/clothing/head/flowercrown/rosa
 

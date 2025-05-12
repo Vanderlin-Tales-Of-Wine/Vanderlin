@@ -235,7 +235,7 @@
 
 #define JDO_CAPTAIN 7
 #define JDO_VET 7.1
-#define JDO_ROYALGUARD 7.2
+#define JDO_ROYALKNIGHT 7.2
 #define JDO_MENATARMS 8
 #define JDO_CITYWATCHMEN 8.1
 #define JDO_GATEMASTER 8.2

@@ -1100,7 +1100,8 @@
 		flaggy.appearance_flags = RESET_TRANSFORM|KEEP_APART
 		flaggy.transform = null
 		flaggy.pixel_y = 12
-		flick_overlay_view(flaggy, src, 150)
+		flick_overlay_view(flaggy, 150)
+		drop_all_held_items()
 		Stun(150)
 		src.visible_message("<span class='notice'>[src] yields!</span>")
 		playsound(src, 'sound/misc/surrender.ogg', 100, FALSE, -1)
@@ -2061,33 +2062,12 @@
 		return
 	changeNext_move(CLICK_CD_MELEE)
 	if(m_intent != MOVE_INTENT_SNEAK)
-		visible_message("<span class='info'>[src] looks up.</span>")
+		visible_message(span_info("[src] looks up."))
 	var/turf/ceiling = get_step_multiz(src, UP)
 	var/turf/T = get_turf(src)
-	if(!ceiling) //We are at the highest z-level.
-		if(T.can_see_sky())
-			switch(GLOB.forecast)
-				if("prerain")
-					to_chat(src, "<span class='warning'>Dark clouds gather...</span>")
-					return
-				if("rain")
-					to_chat(src, "<span class='warning'>A wet wind blows.</span>")
-					return
-				if("rainbow")
-					to_chat(src, "<span class='notice'>A beautiful rainbow!</span>")
-					return
-				if("fog")
-					to_chat(src, "<span class='warning'>I can't see anything, the fog has set in.</span>")
-					return
-			to_chat(src, "<span class='warning'>There is nothing special to say about this weather.</span>")
-			do_time_change()
+	if(!istransparentturf(ceiling)) //There is no turf we can look through above us
+		to_chat(src, span_warning("A ceiling above my head."))
 		return
-	else if(!istransparentturf(ceiling)) //There is no turf we can look through above us
-		to_chat(src, "<span class='warning'>A ceiling above my head.</span>")
-		return
-
-	if(T.can_see_sky())
-		do_time_change()
 
 	var/ttime = 1 SECONDS
 	if(STAPER > 5)
@@ -2099,6 +2079,22 @@
 		return
 	reset_perspective(ceiling)
 	update_cone_show()
+	if(T.can_see_sky())
+		switch(GLOB.forecast)
+			if("prerain")
+				to_chat(src, span_info("Dark clouds gather..."))
+				return
+			if("rain")
+				to_chat(src, span_info("The wet wind is blowing."))
+				return
+			if("rainbow")
+				to_chat(src, span_smallnotice("A beautiful rainbow!"))
+				return
+			if("fog")
+				to_chat(src, span_warning("I can't see anything, the fog has set in."))
+				return
+		to_chat(src, span_info("There is nothing special to say about this weather."))
+		do_time_change()
 
 /mob/living/proc/look_further(turf/T)
 	if(client.perspective != MOB_PERSPECTIVE)

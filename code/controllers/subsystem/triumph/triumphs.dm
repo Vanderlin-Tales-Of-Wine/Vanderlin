@@ -76,7 +76,7 @@ SUBSYSTEM_DEF(triumphs)
 	TRIUMPH BUY DATUM THINGS
 */
 
-	var/current_refund_percentage = 0.50 // Current refund percentage is 50%
+	var/current_refund_percentage = 1.00 // Current refund percentage is 100%
 	//this is basically the total list of triumph buy datums on init
 	var/list/triumph_buy_datums = list()
 
@@ -125,41 +125,33 @@ SUBSYSTEM_DEF(triumphs)
 	if(triumph_amount >= 0)
 		triumph_adjust(ref_datum.triumph_cost*-1, C.ckey)
 
-		var/datum/triumph_buy/stick_it_in = new ref_datum.type
+		var/datum/triumph_buy/triumph_buy = new ref_datum.type
 
-		stick_it_in.key_of_buyer = C.key
-		stick_it_in.ckey_of_buyer = C.ckey
-		active_triumph_buy_queue += stick_it_in
+		triumph_buy.key_of_buyer = C.key
+		triumph_buy.ckey_of_buyer = C.ckey
+		active_triumph_buy_queue += triumph_buy
 
 		// The thing someone is buying conflicts with things
-		if(stick_it_in.conflicts_with.len)
-			for(var/cur_check_path in stick_it_in.conflicts_with) // Time to refund anything already bought it personally hates
+		if(triumph_buy.conflicts_with.len)
+			for(var/cur_check_path in triumph_buy.conflicts_with) // Time to refund anything already bought it personally hates
 				for(var/datum/triumph_buy/active_datum in active_triumph_buy_queue)
 					if(ispath(cur_check_path, active_datum.type))
 						attempt_to_unbuy_triumph_condition(C, active_datum, reason = "CONFLICTS")
 
-		stick_it_in.on_buy()
+		triumph_buy.on_buy()
 		call_menu_refresh()
 /**
 	This occurs when you try to unbuy a triumph condition and removes it
 	Also used for refunding due to conflicts
  */
-/datum/controller/subsystem/triumphs/proc/attempt_to_unbuy_triumph_condition(client/C, datum/triumph_buy/pull_it_out, reason = "\improper UNBUY")
-	if(pull_it_out.ckey_of_buyer != C.ckey)
-		// We're being unbought by someone other than the original buyer?
-		// That costs extra, you know... (for some reason? I don't know, Macha wrote it that way)
-		if(get_triumphs(C.ckey) < pull_it_out.triumph_cost) // We're too broke!
-			to_chat(C, span_redtext("You don't have enough triumphs to unbuy that."))
-			return FALSE
-		triumph_adjust(-pull_it_out.triumph_cost, C.ckey)
-	// Give the person who originally bought it a 50% refund
-	var/ckey_prev_owna = pull_it_out.ckey_of_buyer
-	var/refund_amount = round(pull_it_out.triumph_cost * current_refund_percentage)
+/datum/controller/subsystem/triumphs/proc/attempt_to_unbuy_triumph_condition(client/C, datum/triumph_buy/triumph_buy, reason = "\improper UNBUY")
+	var/ckey_prev_owna = triumph_buy.ckey_of_buyer
+	var/refund_amount = round(triumph_buy.triumph_cost * current_refund_percentage)
 	triumph_adjust(refund_amount, ckey_prev_owna)
 	if(GLOB.directory[ckey_prev_owna]) // If they are still logged into the game, inform them they got refunded
 		to_chat(GLOB.directory[ckey_prev_owna], span_redtext("You were refunded [refund_amount] triumph\s due to \a [reason]."))
-	pull_it_out.on_removal()
-	active_triumph_buy_queue -= pull_it_out
+	triumph_buy.on_removal()
+	active_triumph_buy_queue -= triumph_buy
 	return TRUE
 
 // Same deal as the role class stuff, we are only really just caching this to update displays as people buy stuff.
@@ -168,10 +160,10 @@ SUBSYSTEM_DEF(triumphs)
 	if(!triumph_buys_enabled)
 		return
 	if(C)
-		var/datum/triumph_buy_menu/check_this = active_triumph_menus[C.ckey]
-		if(check_this)
-			check_this.linked_client = C
-			check_this.triumph_menu_startup_slop()
+		var/datum/triumph_buy_menu/triumph_buy = active_triumph_menus[C.ckey]
+		if(triumph_buy)
+			triumph_buy.linked_client = C
+			triumph_buy.triumph_menu_startup_slop()
 		else
 			var/datum/triumph_buy_menu/BIGBOY = new()
 			BIGBOY.linked_client = C
@@ -183,26 +175,26 @@ SUBSYSTEM_DEF(triumphs)
 */
 /datum/controller/subsystem/triumphs/proc/call_menu_refresh()
 	for(var/MENS in active_triumph_menus)
-		var/datum/triumph_buy_menu/current_view = active_triumph_menus[MENS]
-		if(!current_view) // Insure we actually have something yes?
+		var/datum/triumph_buy_menu/triumph_buy = active_triumph_menus[MENS]
+		if(!triumph_buy) // Insure we actually have something yes?
 			active_triumph_menus.Remove(MENS)
 			continue
 
-		if(!current_view.linked_client) // We have something and it has no client
+		if(!triumph_buy.linked_client) // We have something and it has no client
 			active_triumph_menus.Remove(MENS)
-			qdel(current_view)
+			qdel(triumph_buy)
 			continue
 
-		current_view.show_menu()
+		triumph_buy.show_menu()
 
 
 // We cleanup the datum thats just holding the stuff for displaying the menu.
 /datum/controller/subsystem/triumphs/proc/remove_triumph_buy_menu(client/C)
 	if(C && active_triumph_menus[C.ckey])
-		var/datum/triumph_buy_menu/me_local = active_triumph_menus[C.ckey]
+		var/datum/triumph_buy_menu/triumph_buy = active_triumph_menus[C.ckey]
 		C << browse(null, "window=triumph_buy_window")
 		active_triumph_menus.Remove(C.ckey)
-		qdel(me_local)
+		qdel(triumph_buy)
 
 // Called from the place its slopped in in SSticker, this will occur right after the gamemode starts ideally, aka roundstart.
 /datum/controller/subsystem/triumphs/proc/fire_on_PostSetup()

@@ -75,6 +75,7 @@
 
 /proc/isblood(mob/living/carbon/human/A)
 	return istype(A) && A.mind && (A.mind?.get_skill_level(/datum/skill/magic/blood) > SKILL_LEVEL_NONE)		//checks if person has blood magic skill
+
 GLOBAL_LIST_INIT(rune_types, generate_rune_types())
 GLOBAL_LIST_INIT(t1rune_types, generate_t1rune_types())
 GLOBAL_LIST_INIT(t2rune_types, generate_t2rune_types())
@@ -104,6 +105,7 @@ GLOBAL_LIST(teleport_runes)
 			continue
 		runes[initial(rune.name)] = rune // Uses the invoker name for displaying purposes
 	return runes
+
 /proc/generate_t2rune_types()
 	RETURN_TYPE(/list)
 	var/list/runes = list()
@@ -114,6 +116,7 @@ GLOBAL_LIST(teleport_runes)
 			continue
 		runes[initial(rune.name)] = rune // Uses the invoker name for displaying purposes
 	return runes
+
 /proc/generate_t3rune_types()
 	RETURN_TYPE(/list)
 	var/list/runes = list()
@@ -436,6 +439,7 @@ GLOBAL_LIST(teleport_runes)
 		active = FALSE
 		return
 	. = ..()
+
 /obj/effect/decal/cleanable/roguerune/arcyne/wall/invoke(list/invokers, datum/runerituals/runeritual)
 	if(!..())	//VERY important. Calls parent and checks if it fails. parent/invoke has all the checks for ingredients
 		return
@@ -578,7 +582,6 @@ GLOBAL_LIST(teleport_runes)
 /obj/effect/decal/cleanable/roguerune/arcyne/enchantment
 	invocation = "Vey’thralis en’kael dun’vora!"
 
-
 /obj/effect/decal/cleanable/roguerune/arcyne/teleport
 	name = "planar convergence matrix"
 	desc = "A large spiraling sigil that seems to thrum with power."
@@ -687,8 +690,6 @@ GLOBAL_LIST(teleport_runes)
 	else
 		fail_invoke()
 
-
-
 /obj/effect/decal/cleanable/roguerune/arcyne/summoning	//32x32 rune t1(one tile)
 	name = "confinement matrix"
 	desc = "A relatively basic confinement matrix used to hold small things when summoned."
@@ -753,9 +754,6 @@ GLOBAL_LIST(teleport_runes)
 			to_chat(living_invoker,  span_italics("[src] saps your strength!"))
 	do_invoke_glow()
 
-
-
-
 /obj/effect/decal/cleanable/roguerune/arcyne/summoning/mid// 96x96 rune t2(3x3 tile)
 	name = "sealate confinement matrix"
 	desc = "An adept confinement matrix improved with the addition of a sealate matrix; used to hold things when summoned."
@@ -793,41 +791,37 @@ GLOBAL_LIST(teleport_runes)
 	pixel_z = 0
 	can_be_scribed = TRUE
 
-/obj/effect/decal/cleanable/roguerune/arcyne/enchanting
-
-
-
+// /obj/effect/decal/cleanable/roguerune/arcyne/enchanting ??
 
 /obj/effect/decal/cleanable/roguerune/divine	//To be used for divine rituals.
 	magictype = "divine"
 	can_be_scribed = FALSE
+
 /obj/effect/decal/cleanable/roguerune/divine/attack_hand(mob/living/user)
 	if(!isdivine(user))
 		to_chat(user, span_warning("You aren't able to understand the words of [src]."))
 		return
 	. = ..()
 
-
-
 /obj/effect/decal/cleanable/roguerune/druid		//to be used with druid magick
 	magictype = "druid"
 	can_be_scribed = FALSE
+
 /obj/effect/decal/cleanable/roguerune/druid/attack_hand(mob/living/user)
 	if(!isdruid(user))
 		to_chat(user, span_warning("You aren't able to understand the words of [src]."))
 		return
 	. = ..()
 
-
 /obj/effect/decal/cleanable/roguerune/blood		//to be used with blood magick
 	magictype = "blood"
 	can_be_scribed = FALSE
+
 /obj/effect/decal/cleanable/roguerune/blood/attack_hand(mob/living/user)
 	if(!isblood(user))
 		to_chat(user, span_warning("You aren't able to understand the words of [src]."))
 		return
 	. = ..()
-
 
 /obj/effect/decal/cleanable/roguerune/arcyne/attunement
 	name = "arcyne attunement matrix"

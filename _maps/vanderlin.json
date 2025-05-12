@@ -2,6 +2,7 @@
 	"map_name": "Vanderlin",
 	"map_path": "map_files/vanderlin",
 	"map_file": "vanderlin.dmm",
+	"immigrant_origin": "Kingsfield",
 	"traits": [
 		{"Up": true, "Turf Weather Effects": true, "Cellar": true},
 		{"Up": true, "Down": true, "Turf Weather Effects": true, "Leylines": true},
