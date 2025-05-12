@@ -193,7 +193,6 @@
 		/obj/item/ammo_casing/caseless/bullet,
 	)
 
-
 /obj/item/storage/belt/pouch/cloth
 	name = "cloth pouch"
 	desc = "Usually used for holding small amount of coins."

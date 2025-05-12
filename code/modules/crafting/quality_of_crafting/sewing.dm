@@ -198,7 +198,6 @@
 	output = /obj/item/clothing/head/roguehood/uncolored
 	craftdiff = 1
 
-
 /datum/repeatable_crafting_recipe/sewing/clothpouch
 	name = "cloth pouch"
 	output = /obj/item/storage/belt/pouch/cloth
