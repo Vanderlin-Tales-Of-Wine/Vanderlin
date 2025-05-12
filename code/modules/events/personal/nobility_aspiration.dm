@@ -2,10 +2,10 @@
 	name = "Nobility Aspiration"
 	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/astrata_nobility
-	weight = 10
+	weight = 7
 	earliest_start = 5 MINUTES
 	max_occurrences = 1
-	min_players = 15
+	min_players = 20
 
 	tags = list(
 		TAG_BOON,

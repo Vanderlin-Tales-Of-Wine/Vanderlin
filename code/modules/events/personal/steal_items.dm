@@ -5,7 +5,7 @@
 	weight = 10
 	earliest_start = 10 MINUTES
 	max_occurrences = 1
-	min_players = 15
+	min_players = 20
 
 	tags = list(
 		TAG_TRICKERY,

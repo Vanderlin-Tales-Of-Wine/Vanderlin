@@ -2,8 +2,8 @@
 	name = "Marriage Broker"
 	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/eora_marriage
-	weight = 10
-	earliest_start = 5 MINUTES
+	weight = 5
+	earliest_start = 10 MINUTES
 	max_occurrences = 1
 	min_players = 30
 
