@@ -11,6 +11,11 @@
 	max_w_class = WEIGHT_CLASS_NORMAL
 	not_while_equipped = TRUE
 
+/datum/component/storage/concrete/grid/backpack/cloth
+	screen_max_rows = 3
+	screen_max_columns = 2
+	not_while_equipped = FALSE
+
 /datum/component/storage/concrete/grid/surgery_bag
 	screen_max_rows = 5
 	screen_max_columns = 4
@@ -26,6 +31,10 @@
 	screen_max_columns = 1
 	max_w_class = WEIGHT_CLASS_NORMAL
 	not_while_equipped = FALSE
+
+/datum/component/storage/concrete/grid/coin_pouch/cloth
+	screen_max_rows = 2
+	screen_max_columns = 1
 
 /datum/component/storage/concrete/grid/keyring
 	screen_max_rows = 4
