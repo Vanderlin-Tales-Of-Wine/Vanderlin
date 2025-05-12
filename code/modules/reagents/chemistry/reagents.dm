@@ -92,6 +92,7 @@ GLOBAL_LIST_INIT(name2reagent, build_name2reagent())
 			adjusted_metabolization_rate = adjusted_metabolization_rate * 0.5
 		holder.remove_reagent(type, adjusted_metabolization_rate) //By default it slowly disappears.
 		if(M.client)
+			record_featured_object_stat(FEATURED_STATS_DRINKS, name, adjusted_metabolization_rate)
 			if(istype(src, /datum/reagent/consumable/ethanol))
 				record_featured_stat(FEATURED_STATS_ALCOHOLICS, M, adjusted_metabolization_rate)
 				GLOB.vanderlin_round_stats[STATS_ALCOHOL_CONSUMED] += adjusted_metabolization_rate

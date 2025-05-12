@@ -582,6 +582,8 @@
 						new_item.CheckParts(parts)
 						new_item.OnCrafted(user.dir, user)
 						parts = null
+					else
+						new_item.OnCrafted(user.dir, user)
 
 					outputs += new_item
 

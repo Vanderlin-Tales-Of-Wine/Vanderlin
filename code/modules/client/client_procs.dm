@@ -263,7 +263,18 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	// Centered container with left-aligned content
 	data += "<div style='text-align: center;'>"
 	data += "<div style='display: inline-block; text-align: left; margin-left: auto; margin-right: auto;'>"
-	data += "[length(GLOB.featured_stats[current_featured]["entries"]) ? format_top_ten(current_featured) : "<div style='margin-top: 20px;'>Nobody</div>"]"
+
+	var/stat_is_object = GLOB.featured_stats[current_featured]["object_stat"]
+	var/has_entries = length(GLOB.featured_stats[current_featured]["entries"])
+
+	if(has_entries)
+		if(stat_is_object)
+			data += format_top_ten_objects(current_featured)
+		else
+			data += format_top_ten(current_featured)
+	else
+		data += "<div style='margin-top: 20px;'>[stat_is_object ? "None" : "Nobody"]</div>"
+
 	data += "</div>"
 	data += "</div>"
 	data += "</div>"
