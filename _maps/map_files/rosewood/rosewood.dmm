@@ -42306,11 +42306,11 @@
 /turf/open/floor/cobble,
 /area/rogue/outdoors/town)
 "xjZ" = (
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /obj/structure/door/fancy{
 	name = "Court Physician's Room"
 	},
-/obj/effect/mapping_helpers/door/access/manor/physician,
+/obj/effect/mapping_helpers/access/keyset/manor/physician,
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/manor)
 "xkr" = (

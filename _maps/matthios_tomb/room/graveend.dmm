@@ -1,22 +1,8 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"aa" = (
-/turf/closed/mineral/bedrock,
-/area/rogue/under/cave)
 "ab" = (
 /obj/structure/plasticflaps,
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb)
-"ac" = (
-/obj/structure/closet/dirthole/closed/loot,
-/turf/open/floor/dirt,
-/area/rogue/under/cave)
-"ad" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
-/turf/open/floor/hexstone,
-/area/rogue/under/cave)
-"ae" = (
-/turf/open/floor/dirt,
-/area/rogue/under/cave)
 "af" = (
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/hexstone,
@@ -46,186 +32,26 @@
 /mob/living/carbon/human/species/skeleton/npc/warrior,
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb)
-"am" = (
-/obj/effect/spawner/map_spawner/loot,
-/turf/open/floor/hexstone,
-/area/rogue/under/cave)
-"an" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
-/turf/open/floor/hexstone,
-/area/rogue/under/cave)
-"ao" = (
-/obj/item/statue/gold/loot,
-/turf/open/floor/hexstone,
-/area/rogue/under/cave)
-"ap" = (
-/turf/open/floor/hexstone,
-/area/rogue/under/cave)
-"aq" = (
-/obj/effect/decal/cleanable/blood/tracks,
-/turf/open/floor/hexstone,
-/area/rogue/under/cave)
-"ar" = (
-/obj/effect/decal/cleanable/blood/gibs,
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor/hexstone,
-/area/rogue/under/cave)
-"as" = (
-/obj/structure/chair/bench/throne,
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
-/turf/open/floor/hexstone,
-/area/rogue/under/cave)
-"at" = (
-/obj/effect/decal/cleanable/blood/gibs/core,
-/turf/open/floor/hexstone,
-/area/rogue/under/cave)
-"au" = (
-/obj/effect/decal/cleanable/blood/footprints{
-	dir = 4
-	},
-/turf/open/floor/hexstone,
-/area/rogue/under/cave)
-"av" = (
-/obj/effect/decal/cleanable/blood/gibs/down,
-/turf/open/floor/hexstone,
-/area/rogue/under/cave)
-"aw" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
-/turf/open/floor/dirt,
-/area/rogue/under/cave)
-"ax" = (
-/turf/closed/wall/mineral/stone/moss,
-/area/rogue/under/cave)
-"ay" = (
-/obj/effect/decal/cleanable/blood/gibs/up,
-/turf/open/floor/hexstone,
-/area/rogue/under/cave)
-"az" = (
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor/hexstone,
-/area/rogue/under/cave)
-"aA" = (
-/obj/effect/spawner/map_spawner/loot/common,
-/turf/open/floor/hexstone,
-/area/rogue/under/cave)
-"aB" = (
-/obj/effect/dungeon_directional_helper/west,
-/turf/open/floor/hexstone,
-/area/rogue/under/cave)
-"aC" = (
-/obj/structure/table/wood/plain/alt,
-/obj/item/storage/belt/leather/plaquegold,
-/turf/open/floor/hexstone,
-/area/rogue/under/cave)
 "aD" = (
 /obj/structure/closet/dirthole/closed/loot,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb)
-"aE" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
-/turf/open/floor/hexstone,
-/area/rogue/under/cave)
-"aF" = (
-/obj/structure/ladder,
-/turf/open/floor/hexstone,
-/area/rogue/under/cave)
-"aG" = (
-/obj/effect/decal/cleanable/blood/puddle,
-/obj/effect/decal/cleanable/blood/splatter,
-/turf/open/floor/hexstone,
-/area/rogue/under/cave)
-"aH" = (
-/obj/structure/plasticflaps,
-/turf/open/floor/hexstone,
-/area/rogue/under/cave)
-"aI" = (
-/obj/effect/decal/cleanable/blood/footprints{
-	dir = 8
-	},
-/turf/open/floor/hexstone,
-/area/rogue/under/cave)
-"aJ" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
-/turf/open/floor/hexstone,
-/area/rogue/under/cave)
-"aK" = (
-/obj/structure/closet/crate/coffin,
-/turf/open/floor/dirt,
-/area/rogue/under/cave)
 "aL" = (
 /obj/structure/closet/dirthole/closed/loot,
 /mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb)
-"aM" = (
-/obj/effect/decal/cleanable/blood/footprints,
-/turf/open/floor/hexstone,
-/area/rogue/under/cave)
 "aN" = (
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb)
 "aO" = (
 /turf/closed/wall/mineral/stone/moss,
 /area/rogue/under/tomb)
-"aP" = (
-/mob/living/simple_animal/hostile/demon{
-	name = "Bonetaker";
-	base_constitution = 15;
-	base_endurance = 15;
-	base_intelligence = 15;
-	base_fortune = 15;
-	base_perception = 15;
-	base_speed = 18;
-	base_strength = 20
-	},
-/obj/effect/decal/cleanable/blood/gibs/up,
-/turf/open/floor/hexstone,
-/area/rogue/under/cave)
-"aQ" = (
-/obj/structure/closet/crate/coffin,
-/mob/living/carbon/human/species/skeleton/npc/ambush,
-/turf/open/floor/dirt,
-/area/rogue/under/cave)
 "aR" = (
 /obj/structure/table/wood/plain/alt,
 /obj/item/storage/belt/leather/plaquegold,
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb)
-"aS" = (
-/obj/effect/decal/cleanable/blood/gibs/limb,
-/turf/open/floor/hexstone,
-/area/rogue/under/cave)
-"aT" = (
-/obj/structure/bars/cemetery,
-/turf/open/floor/hexstone,
-/area/rogue/under/cave)
-"aU" = (
-/obj/structure/closet/dirthole/closed/loot,
-/mob/living/carbon/human/species/skeleton/npc/ambush,
-/turf/open/floor/dirt,
-/area/rogue/under/cave)
-"aV" = (
-/obj/structure/door/viewport{
-	dir = 4
-	},
-/obj/effect/mapping_helpers/door/locker,
-/turf/open/floor/hexstone,
-/area/rogue/under/cave)
-"aW" = (
-/obj/structure/table/wood/plain/alt,
-/obj/item/reagent_containers/glass/cup/golden,
-/turf/open/floor/hexstone,
-/area/rogue/under/cave)
-"aX" = (
-/obj/structure/bars,
-/turf/open/floor/hexstone,
-/area/rogue/under/cave)
-"aY" = (
-/obj/structure/door/viewport{
-	dir = 4
-	},
-/turf/open/floor/hexstone,
-/area/rogue/under/cave)
 "aZ" = (
 /turf/open/floor/dirt,
 /area/rogue/under/tomb)

@@ -1,23 +1,4 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"aa" = (
-/turf/open/floor/naturalstone,
-/area/rogue/under/cavelava)
-"ab" = (
-/obj/structure/ladder,
-/turf/open/floor/naturalstone,
-/area/rogue/under/cavelava)
-"ac" = (
-/turf/open/floor/metal{
-	dir = 8
-	},
-/area/rogue/under/cavelava)
-"ad" = (
-/turf/open/floor/dirt,
-/area/rogue/under/cavelava)
-"ae" = (
-/obj/structure/bars/pipe,
-/turf/open/transparent/openspace,
-/area/rogue/under/cavelava)
 "af" = (
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb/cave/lava)
@@ -36,162 +17,16 @@
 /obj/item/natural/poo,
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb/cave/lava)
-"ak" = (
-/obj/item/natural/poo/cow,
-/turf/open/floor/metal,
-/area/rogue/under/cavelava)
-"al" = (
-/obj/structure/fluff/walldeco/chains,
-/obj/item/weapon/shield/tower/metal,
-/turf/open/floor/volcanic,
-/area/rogue/under/cavelava)
-"am" = (
-/turf/open/floor/metal,
-/area/rogue/under/cavelava)
-"an" = (
-/obj/effect/dungeon_directional_helper/west,
-/turf/open/floor/naturalstone,
-/area/rogue/under/cavelava)
-"ao" = (
-/obj/structure/bars/pipe/left,
-/turf/open/floor/metal/barograte,
-/area/rogue/indoors/shelter)
-"ap" = (
-/obj/structure/fluff/walldeco/chains,
-/turf/open/floor/naturalstone,
-/area/rogue/under/cavelava)
-"aq" = (
-/obj/item/weapon/mace/steel,
-/turf/open/floor/volcanic,
-/area/rogue/under/cavelava)
-"ar" = (
-/obj/effect/dungeon_directional_helper/east,
-/turf/open/floor/naturalstone,
-/area/rogue/under/cavelava)
-"as" = (
-/turf/open/floor/metal/barograte,
-/area/rogue/indoors/shelter)
-"at" = (
-/obj/item/natural/poo,
-/turf/open/floor/naturalstone,
-/area/rogue/under/cavelava)
-"au" = (
-/obj/structure/bed/shit,
-/turf/open/floor/metal/barograte,
-/area/rogue/indoors/shelter)
-"av" = (
-/obj/structure/fluff/walldeco/chains,
-/turf/open/floor/metal,
-/area/rogue/under/cavelava)
 "aw" = (
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/cave/lava)
-"ax" = (
-/turf/open/transparent/openspace,
-/area/rogue/under/cavelava)
-"ay" = (
-/turf/open/floor/metal{
-	dir = 4
-	},
-/area/rogue/under/cavelava)
-"az" = (
-/turf/open/lava/acid,
-/area/rogue/under/cavelava)
-"aA" = (
-/obj/effect/dungeon_directional_helper/south,
-/turf/open/floor/naturalstone,
-/area/rogue/under/cavelava)
-"aB" = (
-/obj/item/gun/ballistic/revolver/grenadelauncher/crossbow,
-/obj/effect/landmark/chest_or_mimic,
-/obj/item/dmusicbox,
-/turf/open/floor/metal/barograte,
-/area/rogue/under/cavelava)
-"aC" = (
-/obj/item/fishingrod,
-/turf/open/floor/volcanic,
-/area/rogue/under/cavelava)
-"aD" = (
-/obj/item/natural/poo,
-/turf/open/floor/metal,
-/area/rogue/under/cavelava)
-"aE" = (
-/turf/closed/wall/mineral/pipe,
-/area/rogue/indoors/shelter)
-"aF" = (
-/turf/open/floor/dirt/road,
-/area/rogue/under/cavelava)
 "aG" = (
 /obj/structure/fluff/walldeco/chains,
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb/cave/lava)
-"aH" = (
-/obj/structure/fluff/wallclock,
-/obj/item/flashlight/flare/torch/lantern/copper,
-/obj/structure/closet/crate/chest{
-	locked = 1
-	},
-/turf/open/floor/metal/barograte,
-/area/rogue/indoors/shelter)
 "aI" = (
 /turf/open/lava/acid,
 /area/rogue/under/tomb/cave/lava)
-"aJ" = (
-/obj/structure/ladder,
-/turf/open/floor/metal/barograte,
-/area/rogue/under/cavelava)
-"aK" = (
-/obj/structure/fluff/walldeco/chains,
-/turf/open/transparent/openspace,
-/area/rogue/under/cavelava)
-"aL" = (
-/turf/open/floor/volcanic,
-/area/rogue/under/cavelava)
-"aM" = (
-/obj/effect/dungeon_directional_helper/north,
-/turf/open/floor/dirt/road,
-/area/rogue/under/cavelava)
-"aN" = (
-/obj/structure/fluff/big_chain,
-/turf/open/floor/metal/barograte,
-/area/rogue/under/cavelava)
-"aO" = (
-/obj/item/ammo_holder/quiver/bolts,
-/turf/open/floor/metal/barograte,
-/area/rogue/under/cavelava)
-"aP" = (
-/obj/item/natural/worms{
-	pixel_y = 12
-	},
-/obj/item/natural/worms{
-	pixel_y = -2;
-	pixel_x = -6
-	},
-/obj/item/natural/worms{
-	pixel_y = -2;
-	pixel_x = 9
-	},
-/turf/open/floor/naturalstone,
-/area/rogue/under/cavelava)
-"aQ" = (
-/obj/structure/fluff/walldeco/chains,
-/obj/item/natural/poo,
-/turf/open/floor/naturalstone,
-/area/rogue/under/cavelava)
-"aR" = (
-/obj/item/gear{
-	pixel_x = -6
-	},
-/obj/item/gear{
-	pixel_y = -4;
-	pixel_x = 6
-	},
-/obj/item/gear{
-	pixel_x = 1;
-	pixel_y = 5
-	},
-/turf/open/floor/metal/barograte,
-/area/rogue/indoors/shelter)
 "aS" = (
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/naturalstone,
@@ -200,44 +35,6 @@
 /obj/item/weapon/mace/steel,
 /turf/open/floor/volcanic,
 /area/rogue/under/tomb/cave/lava)
-"aU" = (
-/turf/open/floor/metal/barograte,
-/area/rogue/under/cavelava)
-"aV" = (
-/obj/item/weapon/flail,
-/turf/open/floor/naturalstone,
-/area/rogue/under/cavelava)
-"aW" = (
-/turf/closed/mineral/bedrock,
-/area/rogue/under/cavelava)
-"aX" = (
-/obj/structure/fluff/walldeco/chains,
-/obj/structure/bars/pipe,
-/turf/open/transparent/openspace,
-/area/rogue/under/cavelava)
-"aY" = (
-/obj/item/ammo_casing/caseless/bolt{
-	pixel_x = -9
-	},
-/obj/item/ammo_casing/caseless/bolt{
-	pixel_y = 11
-	},
-/obj/item/ammo_casing/caseless/bolt{
-	pixel_y = 10;
-	pixel_x = -25
-	},
-/obj/item/ammo_casing/caseless/bolt{
-	pixel_y = -16
-	},
-/obj/item/ammo_casing/caseless/bolt{
-	pixel_x = 11
-	},
-/turf/open/floor/metal/barograte,
-/area/rogue/under/cavelava)
-"aZ" = (
-/obj/structure/floordoor,
-/turf/open/floor/metal,
-/area/rogue/indoors/shelter)
 "gp" = (
 /obj/effect/dungeon_directional_helper/east,
 /turf/open/floor/naturalstone,
