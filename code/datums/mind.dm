@@ -1,3 +1,5 @@
+GLOBAL_LIST_EMPTY(personal_objective_minds)
+
 /*	Note from Carnie:
 		The way datum/mind stuff works has been changed a lot.
 		Minds now represent IC characters rather than following a client around constantly.
@@ -144,6 +146,8 @@
 	var/list/apprentice_training_skills = list()
 
 	var/list/apprentices = list()
+	/// List of personal objectives not tied to the antag roles
+	var/list/personal_objectives = list()
 
 	var/has_studied = FALSE
 	/// Variable that lets the event picker see if someones getting chosen or not
@@ -374,12 +378,16 @@
 			if(apprentice.mind.adjust_experience(skill, apprentice_amt, FALSE, FALSE))
 				current.add_stress(/datum/stressevent/apprentice_making_me_proud)
 
-	if(known_skills[skill_ref] == old_level)
-		return //same level or we just started earning xp towards the first level.
+	var/is_new_skill = !(skill_ref in known_skills)
+	if(isnull(old_level) && !is_new_skill)
+		old_level = SKILL_LEVEL_NONE
+	if((isnull(old_level) && is_new_skill) || known_skills[skill_ref] == old_level)
+		return
 	if(silent)
 		return
 	if(known_skills[skill_ref] >= old_level)
 		if(known_skills[skill_ref] > old_level)
+			SEND_SIGNAL(current, COMSIG_SKILL_RANK_INCREASED, skill_ref, known_skills[skill_ref], old_level)
 			to_chat(current, span_nicegreen("My proficiency in [skill_ref.name] grows to [SSskills.level_names[known_skills[skill_ref]]]!"))
 			skill_ref.skill_level_effect(known_skills[skill_ref], src)
 			GLOB.vanderlin_round_stats[STATS_SKILLS_LEARNED]++
@@ -472,11 +480,15 @@
 			known_skills[skill_ref] = SKILL_LEVEL_NOVICE
 		if(0 to SKILL_EXP_NOVICE)
 			known_skills[skill_ref] = SKILL_LEVEL_NONE
-	if(isnull(old_level) || known_skills[skill_ref] == old_level)
-		return //same level or we just started earning xp towards the first level.
+	var/is_new_skill = !(skill_ref in known_skills)
+	if(isnull(old_level) && !is_new_skill)
+		old_level = SKILL_LEVEL_NONE
+	if((isnull(old_level) && is_new_skill) || known_skills[skill_ref] == old_level)
+		return
 	if(silent)
 		return
 	if(known_skills[skill_ref] >= old_level)
+		SEND_SIGNAL(current, COMSIG_SKILL_RANK_INCREASED, skill_ref, known_skills[skill_ref], old_level)
 		to_chat(current, span_nicegreen("I feel like I've become more proficient at [skill_ref.name]!"))
 		GLOB.vanderlin_round_stats[STATS_SKILLS_LEARNED]++
 		if(istype(skill_ref, /datum/skill/combat))
@@ -739,6 +751,13 @@
 	var/output = "<B>[current.real_name]'s Memories:</B><br>"
 	output += memory
 
+	if(personal_objectives.len)
+		output += "<B>Personal Objectives:</B>"
+		var/personal_count = 1
+		for(var/datum/objective/objective in personal_objectives)
+			output += "<br><B>Personal Goal #[personal_count]</B>: [objective.explanation_text][objective.completed ? " (COMPLETED)" : ""]"
+			personal_count++
+		output += "<br>"
 
 	var/list/all_objectives = list()
 	for(var/datum/antagonist/antag_datum_ref in antag_datums)
@@ -747,19 +766,14 @@
 
 	if(all_objectives.len)
 		output += "<B>Objectives:</B>"
-		var/obj_count = 1
+		var/antag_obj_count = 1
 		for(var/datum/objective/objective in all_objectives)
-			output += "<br><B>[objective.flavor] #[obj_count++]</B>: [objective.explanation_text]"
-//			var/list/datum/mind/other_owners = objective.get_owners() - src
-//			if(other_owners.len)
-//				output += "<ul>"
-//				for(var/datum/mind/M in other_owners)
-//					output += "<li>Conspirator: [M.name]</li>"
-//				output += "</ul>"
+			output += "<br><B>[objective.flavor] #[antag_obj_count]</B>: [objective.explanation_text][objective.completed ? " (COMPLETED)" : ""]"
+			antag_obj_count++
 
 	if(window)
 		recipient << browse(output,"window=memory")
-	else if(all_objectives.len || memory)
+	else if(all_objectives.len || memory || personal_objectives.len)
 		to_chat(recipient, "<i>[output]</i>")
 
 /// output current targets to the player
@@ -968,22 +982,45 @@
 		usr = current
 	traitor_panel()
 
-/// get all objectives of a mind
-/datum/mind/proc/get_all_objectives()
-	var/list/all_objectives = list()
+/// Gets only antagonist objectives
+/datum/mind/proc/get_antag_objectives()
+	var/list/antag_objectives = list()
 	for(var/datum/antagonist/antag_datum_ref in antag_datums)
-		all_objectives |= antag_datum_ref.objectives
-	return all_objectives
+		antag_objectives |= antag_datum_ref.objectives
+	return antag_objectives
 
-/// print out all objectives to a mind
-/datum/mind/proc/announce_objectives()
+/// Gets only personal objectives
+/datum/mind/proc/get_personal_objectives()
+	return personal_objectives?.Copy() || list()
+
+/// Gets all objectives (both types)
+/datum/mind/proc/get_all_objectives()
+	return get_personal_objectives() + get_antag_objectives()
+
+/// Announces only antagonist objectives
+/datum/mind/proc/announce_antagonist_objectives()
 	var/obj_count = 1
-	to_chat(current, span_notice("My current objectives:"))
-	for(var/objective in get_all_objectives())
-		var/datum/objective/O = objective
-		O.update_explanation_text()
-		to_chat(current, "<B>[O.flavor] #[obj_count]</B>: [O.explanation_text]")
-		obj_count++
+	for(var/datum/antagonist/antag_datum_ref in antag_datums)
+		if(length(antag_datum_ref.objectives))
+			to_chat(current, span_notice("Your [antag_datum_ref.name] objectives:"))
+			for(var/datum/objective/O in antag_datum_ref.objectives)
+				O.update_explanation_text()
+				to_chat(current, "<B>[O.flavor] #[obj_count]</B>: [O.explanation_text]")
+				obj_count++
+
+/// Announces only personal objectives
+/datum/mind/proc/announce_personal_objectives()
+	if(length(personal_objectives))
+		var/personal_count = 1
+		for(var/datum/objective/O in personal_objectives)
+			O.update_explanation_text()
+			to_chat(current, "<B>Personal Goal #[personal_count]</B>: [O.explanation_text]")
+			personal_count++
+
+/// Announce all objectives (both types)
+/datum/mind/proc/announce_objectives()
+	announce_personal_objectives()
+	announce_antagonist_objectives()
 
 /**
  * add a spell to a mind
@@ -1222,3 +1259,19 @@
 		title = apprentice_name
 	youngling.mind.our_apprentice_name = "[current.real_name]'s [title]"
 	to_chat(current, span_notice("[youngling.real_name] has become your apprentice."))
+
+/datum/mind/proc/add_personal_objective(datum/objective/O)
+	if(!istype(O))
+		return FALSE
+	personal_objectives += O
+	O.owner = src
+	return TRUE
+
+/datum/mind/proc/remove_personal_objective(datum/objective/O)
+	personal_objectives -= O
+	qdel(O)
+
+/datum/mind/proc/clear_personal_objectives()
+	for(var/O in personal_objectives)
+		qdel(O)
+	personal_objectives.Cut()

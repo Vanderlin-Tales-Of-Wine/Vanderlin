@@ -671,7 +671,7 @@
 		playsound(loc, 'sound/items/Fish_out.ogg', 100, TRUE)
 		fisher.mind.adjust_experience(/datum/skill/labor/fishing, clamp(difficulty, 1, 3) * fisher.STAINT)
 		if(ispath(fishtype, /obj/item/reagent_containers/food/snacks/fish))
-			var/obj/item/reagent_containers/food/snacks/caughtfish = new fishtype(get_turf(fisher))
+			var/obj/item/reagent_containers/food/snacks/fish/caughtfish = new fishtype(get_turf(fisher))
 			var/raritydesc
 			var/sizedesc
 
@@ -680,15 +680,19 @@
 					switch(fishrarity)
 						if("rare")
 							raritydesc = "rare"
+							caughtfish.rarity_rank = 1
 							caughtfish.raritymod = list("com"= -30)//some incentive to use rarer tiny fish as bait
 						if("ultra")
 							raritydesc = "ultra-rare"
+							caughtfish.rarity_rank = 2
 							caughtfish.raritymod = list("com"= -50)
 						if("gold")
 							raritydesc = "legendary"
+							caughtfish.rarity_rank = 3
 							caughtfish.raritymod = list("com"= -70, "rare" = -20)
 						else
 							raritydesc = "common"
+							caughtfish.rarity_rank = 0
 					caughtfish.icon_state = "[caughtfish.icon_state][fishrarity]"
 					if(fishrarity != "com")
 						switch(fishtype)
@@ -728,8 +732,9 @@
 				else
 					caughtfish.name = "[sizedesc] [raritydesc] [caughtfish.name]"
 					caughtfish.sellprice *= costmod
-			record_featured_stat(FEATURED_STATS_FISHERS, fisher)
-			GLOB.vanderlin_round_stats[STATS_FISH_CAUGHT]++
+			if(fisher.mind)
+				record_featured_stat(FEATURED_STATS_FISHERS, fisher)
+				GLOB.vanderlin_round_stats[STATS_FISH_CAUGHT]++
 		else//only occurs on special catch that most likely won't have special modifiers
 			if(turfcatch)
 				var/atom/caughtthing = new fishtype(targeted)
