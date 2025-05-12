@@ -3,7 +3,7 @@
 	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/noc_baptism
 	weight = 7
-	earliest_start = 5 MINUTES
+	earliest_start = 10 MINUTES
 	max_occurrences = 1
 	min_players = 30
 

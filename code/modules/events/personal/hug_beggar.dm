@@ -9,7 +9,6 @@
 
 	tags = list(
 		TAG_BOON,
-		TAG_WIDESPREAD,
 	)
 
 /datum/round_event_control/eora_compassion/canSpawnEvent(players_amt, gamemode, fake_check)
