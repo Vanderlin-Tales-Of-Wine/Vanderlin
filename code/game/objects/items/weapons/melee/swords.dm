@@ -666,6 +666,7 @@
 	smeltresult = /obj/item/ingot/silver
 	sellprice = 150
 	minstr = 12
+	is_silver = TRUE
 
 /obj/item/weapon/sword/long/greatsword/psydon/getonmobprop(tag)
 	. = ..()
