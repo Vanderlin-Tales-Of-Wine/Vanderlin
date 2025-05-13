@@ -274,7 +274,18 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	// Centered container with left-aligned content
 	data += "<div style='text-align: center;'>"
 	data += "<div style='display: inline-block; text-align: left; margin-left: auto; margin-right: auto;'>"
-	data += "[length(GLOB.featured_stats[current_featured]["entries"]) ? format_top_ten(current_featured) : "<div style='margin-top: 20px;'>Nobody</div>"]"
+
+	var/stat_is_object = GLOB.featured_stats[current_featured]["object_stat"]
+	var/has_entries = length(GLOB.featured_stats[current_featured]["entries"])
+
+	if(has_entries)
+		if(stat_is_object)
+			data += format_top_ten_objects(current_featured)
+		else
+			data += format_top_ten(current_featured)
+	else
+		data += "<div style='margin-top: 20px;'>[stat_is_object ? "None" : "Nobody"]</div>"
+
 	data += "</div>"
 	data += "</div>"
 	data += "</div>"
@@ -476,7 +487,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 
 	// Astrata
 	data += god_ui_block("ASTRATA", "#e7a962", "#642705", "\
-		Number of followers: [astrata_followers] ([get_colored_influence_value(astrata_followers * SSgamemode.get_storyteller_follower_modifier(astrata_storyteller))])<br>\
+		Number of followers: [astrata_followers] ([get_colored_influence_value(SSgamemode.get_follower_influence(astrata_storyteller))])<br>\
 		Holy revivals: [GLOB.vanderlin_round_stats[STATS_ASTRATA_REVIVALS]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(astrata_storyteller, STATS_ASTRATA_REVIVALS))])<br>\
 		Number of nobles: [GLOB.vanderlin_round_stats[STATS_ALIVE_NOBLES]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(astrata_storyteller, STATS_ALIVE_NOBLES))])<br>\
 		Noble deaths: [GLOB.vanderlin_round_stats[STATS_NOBLE_DEATHS]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(astrata_storyteller, STATS_NOBLE_DEATHS))])<br>\
@@ -485,7 +496,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 
 	// Dendor
 	data += god_ui_block("DENDOR", "#412938", "#66745c", "\
-		Number of followers: [dendor_followers] ([get_colored_influence_value(dendor_followers * SSgamemode.get_storyteller_follower_modifier(dendor_storyteller))])<br>\
+		Number of followers: [dendor_followers] ([get_colored_influence_value(SSgamemode.get_follower_influence(dendor_storyteller))])<br>\
 		Trees felled: [GLOB.vanderlin_round_stats[STATS_TREES_CUT]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(dendor_storyteller, STATS_TREES_CUT))])<br>\
 		Plants harvested: [GLOB.vanderlin_round_stats[STATS_PLANTS_HARVESTED]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(dendor_storyteller, STATS_PLANTS_HARVESTED))])<br>\
 		Forest deaths: [GLOB.vanderlin_round_stats[STATS_FOREST_DEATHS]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(dendor_storyteller, STATS_FOREST_DEATHS))])<br>\
@@ -494,7 +505,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 
 	// Ravox
 	data += god_ui_block("RAVOX", "#2c232d", "#710f0f", "\
-		Number of followers: [ravox_followers] ([get_colored_influence_value(ravox_followers * SSgamemode.get_storyteller_follower_modifier(ravox_storyteller))])<br>\
+		Number of followers: [ravox_followers] ([get_colored_influence_value(SSgamemode.get_follower_influence(ravox_storyteller))])<br>\
 		Combat skills learned: [GLOB.vanderlin_round_stats[STATS_COMBAT_SKILLS]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(ravox_storyteller, STATS_COMBAT_SKILLS))])<br>\
 		Parries made: [GLOB.vanderlin_round_stats[STATS_PARRIES]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(ravox_storyteller, STATS_PARRIES))])<br>\
 		Underworld duels: [GLOB.vanderlin_round_stats[STATS_UNDERWORLD_DUELS]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(ravox_storyteller, STATS_UNDERWORLD_DUELS))])<br>\
@@ -503,7 +514,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 
 	// Eora
 	data += god_ui_block("EORA", "#a95063", "#e7c3da", "\
-		Number of followers: [eora_followers] ([get_colored_influence_value(eora_followers * SSgamemode.get_storyteller_follower_modifier(eora_storyteller))])<br>\
+		Number of followers: [eora_followers] ([get_colored_influence_value(SSgamemode.get_follower_influence(eora_storyteller))])<br>\
 		Marriages made: [GLOB.vanderlin_round_stats[STATS_MARRIAGES]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(eora_storyteller, STATS_MARRIAGES))])<br>\
 		Number of parents: [GLOB.vanderlin_round_stats[STATS_PARENTS]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(eora_storyteller, STATS_PARENTS))])<br>\
 		Hugs made: [GLOB.vanderlin_round_stats[STATS_HUGS_MADE]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(eora_storyteller, STATS_HUGS_MADE))])<br>\
@@ -512,7 +523,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 
 	// Necra
 	data += god_ui_block("NECRA", "#2a2459", "#4c82a8", "\
-		Number of followers: [necra_followers] ([get_colored_influence_value(necra_followers * SSgamemode.get_storyteller_follower_modifier(necra_storyteller))])<br>\
+		Number of followers: [necra_followers] ([get_colored_influence_value(SSgamemode.get_follower_influence(necra_storyteller))])<br>\
 		Total deaths: [GLOB.vanderlin_round_stats[STATS_DEATHS]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(necra_storyteller, STATS_DEATHS))])<br>\
 		Graves consecrated: [GLOB.vanderlin_round_stats[STATS_GRAVES_CONSECRATED]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(necra_storyteller, STATS_GRAVES_CONSECRATED))])<br>\
 		Graves robbed: [GLOB.vanderlin_round_stats[STATS_GRAVES_ROBBED]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(necra_storyteller, STATS_GRAVES_ROBBED))])<br>\
@@ -525,7 +536,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 
 	// Noc
 	data += god_ui_block("NOC", "#4e72a1", "#282137", "\
-		Number of followers: [noc_followers] ([get_colored_influence_value(noc_followers * SSgamemode.get_storyteller_follower_modifier(noc_storyteller))])<br>\
+		Number of followers: [noc_followers] ([get_colored_influence_value(SSgamemode.get_follower_influence(noc_storyteller))])<br>\
 		Books printed: [GLOB.vanderlin_round_stats[STATS_BOOKS_PRINTED]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(noc_storyteller, STATS_BOOKS_PRINTED))])<br>\
 		Literacy taught: [GLOB.vanderlin_round_stats[STATS_LITERACY_TAUGHT]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(noc_storyteller, STATS_LITERACY_TAUGHT))])<br>\
 		Mana spent: [round(GLOB.vanderlin_round_stats[STATS_MANA_SPENT])] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(noc_storyteller, STATS_MANA_SPENT))])<br>\
@@ -534,7 +545,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 
 	// Abyssor
 	data += god_ui_block("ABYSSOR", "#50090f", "#bbace0", "\
-		Number of followers: [abyssor_followers] ([get_colored_influence_value(abyssor_followers * SSgamemode.get_storyteller_follower_modifier(abyssor_storyteller))])<br>\
+		Number of followers: [abyssor_followers] ([get_colored_influence_value(SSgamemode.get_follower_influence(abyssor_storyteller))])<br>\
 		Fish caught: [GLOB.vanderlin_round_stats[STATS_FISH_CAUGHT]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(abyssor_storyteller, STATS_FISH_CAUGHT))])<br>\
 		Water consumed: [round(GLOB.vanderlin_round_stats[STATS_WATER_CONSUMED])] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(abyssor_storyteller, STATS_WATER_CONSUMED))])<br>\
 		People drowned: [GLOB.vanderlin_round_stats[STATS_PEOPLE_DROWNED]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(abyssor_storyteller, STATS_PEOPLE_DROWNED))])<br>\
@@ -543,7 +554,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 
 	// Malum
 	data += god_ui_block("MALUM", "#3d4139", "#955454", "\
-		Number of followers: [malum_followers] ([get_colored_influence_value(malum_followers * SSgamemode.get_storyteller_follower_modifier(malum_storyteller))])<br>\
+		Number of followers: [malum_followers] ([get_colored_influence_value(SSgamemode.get_follower_influence(malum_storyteller))])<br>\
 		Masterworks forged: [GLOB.vanderlin_round_stats[STATS_MASTERWORKS_FORGED]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(malum_storyteller, STATS_MASTERWORKS_FORGED))])<br>\
 		Rocks mined: [GLOB.vanderlin_round_stats[STATS_ROCKS_MINED]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(malum_storyteller, STATS_ROCKS_MINED))])<br>\
 		Blacksteel smelted: [GLOB.vanderlin_round_stats[STATS_BLACKSTEEL_SMELTED]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(malum_storyteller, STATS_BLACKSTEEL_SMELTED))])<br>\
@@ -552,7 +563,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 
 	// Xylix
 	data += god_ui_block("XYLIX", "#7e632c", "#f6feff", "\
-		Number of followers: [xylix_followers] ([get_colored_influence_value(xylix_followers * SSgamemode.get_storyteller_follower_modifier(xylix_storyteller))])<br>\
+		Number of followers: [xylix_followers] ([get_colored_influence_value(SSgamemode.get_follower_influence(xylix_storyteller))])<br>\
 		Laughs had: [GLOB.vanderlin_round_stats[STATS_LAUGHS_MADE]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(xylix_storyteller, STATS_LAUGHS_MADE))])<br>\
 		Games rigged: [GLOB.vanderlin_round_stats[STATS_GAMES_RIGGED]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(xylix_storyteller, STATS_GAMES_RIGGED))])<br>\
 		Songs played: [GLOB.vanderlin_round_stats[STATS_SONGS_PLAYED]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(xylix_storyteller, STATS_SONGS_PLAYED))])<br>\
@@ -561,7 +572,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 
 	// Pestra
 	data += god_ui_block("PESTRA", "#517b27", "#1b2a2a", "\
-		Number of followers: [pestra_followers] ([get_colored_influence_value(pestra_followers * SSgamemode.get_storyteller_follower_modifier(pestra_storyteller))])<br>\
+		Number of followers: [pestra_followers] ([get_colored_influence_value(SSgamemode.get_follower_influence(pestra_storyteller))])<br>\
 		Potions brewed: [GLOB.vanderlin_round_stats[STATS_POTIONS_BREWED]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(pestra_storyteller, STATS_POTIONS_BREWED))])<br>\
 		Wounds sewed up: [GLOB.vanderlin_round_stats[STATS_WOUNDS_SEWED]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(pestra_storyteller, STATS_WOUNDS_SEWED))])<br>\
 		Food rotted: [GLOB.vanderlin_round_stats[STATS_FOOD_ROTTED]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(pestra_storyteller, STATS_FOOD_ROTTED))])<br>\
@@ -589,7 +600,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 
 	// Matthios
 	data += god_ui_block("MATTHIOS", "#20202e", "#99b2b1", "\
-		Number of followers: [matthios_followers] ([get_colored_influence_value(matthios_followers * SSgamemode.get_storyteller_follower_modifier(matthios_storyteller))])<br>\
+		Number of followers: [matthios_followers] ([get_colored_influence_value(SSgamemode.get_follower_influence(matthios_storyteller))])<br>\
 		Items pickpocketed: [GLOB.vanderlin_round_stats[STATS_ITEMS_PICKPOCKETED]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(matthios_storyteller, STATS_ITEMS_PICKPOCKETED))])<br>\
 		Locks picked: [GLOB.vanderlin_round_stats[STATS_LOCKS_PICKED]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(matthios_storyteller, STATS_LOCKS_PICKED))])<br>\
 		Dodges made: [GLOB.vanderlin_round_stats[STATS_DODGES]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(matthios_storyteller, STATS_DODGES))])<br>\
@@ -598,7 +609,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 
 	// Baotha
 	data += god_ui_block("BAOTHA", "#46254a", "#e2abee", "\
-		Number of followers: [baotha_followers] ([get_colored_influence_value(baotha_followers * SSgamemode.get_storyteller_follower_modifier(baotha_storyteller))])<br>\
+		Number of followers: [baotha_followers] ([get_colored_influence_value(SSgamemode.get_follower_influence(baotha_storyteller))])<br>\
 		Alcohol consumed: [round(GLOB.vanderlin_round_stats[STATS_ALCOHOL_CONSUMED])] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(baotha_storyteller, STATS_ALCOHOL_CONSUMED))])<br>\
 		Drugs snorted: [GLOB.vanderlin_round_stats[STATS_DRUGS_SNORTED]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(baotha_storyteller, STATS_DRUGS_SNORTED))])<br>\
 		Luxurious food eaten: [GLOB.vanderlin_round_stats[STATS_LUXURIOUS_FOOD_EATEN]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(baotha_storyteller, STATS_LUXURIOUS_FOOD_EATEN))])<br>\
@@ -607,7 +618,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 
 	// Graggar
 	data += god_ui_block("GRAGGAR", "#3b5e51", "#99bbc7", "\
-		Number of followers: [graggar_followers] ([get_colored_influence_value(graggar_followers * SSgamemode.get_storyteller_follower_modifier(graggar_storyteller))])<br>\
+		Number of followers: [graggar_followers] ([get_colored_influence_value(SSgamemode.get_follower_influence(graggar_storyteller))])<br>\
 		Successful assasinations: [GLOB.vanderlin_round_stats[STATS_ASSASSINATIONS]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(graggar_storyteller, STATS_ASSASSINATIONS))])<br>\
 		Blood spilt: [round(GLOB.vanderlin_round_stats[STATS_BLOOD_SPILT] / 100)] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(graggar_storyteller, STATS_BLOOD_SPILT))])<br>\
 		Limbs bitten: [GLOB.vanderlin_round_stats[STATS_LIMBS_BITTEN]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(graggar_storyteller, STATS_LIMBS_BITTEN))])<br>\
@@ -616,7 +627,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 
 	// Zizo
 	data += god_ui_block("ZIZO", "#661239", "#ed9da3", "\
-		Number of followers: [zizo_followers] ([get_colored_influence_value(zizo_followers * SSgamemode.get_storyteller_follower_modifier(zizo_storyteller))])<br>\
+		Number of followers: [zizo_followers] ([get_colored_influence_value(SSgamemode.get_follower_influence(zizo_storyteller))])<br>\
 		Zizo praised: [GLOB.vanderlin_round_stats[STATS_ZIZO_PRAISED]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(zizo_storyteller, STATS_ZIZO_PRAISED))])<br>\
 		Deadites woken up: [GLOB.vanderlin_round_stats[STATS_DEADITES_WOKEN_UP]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(zizo_storyteller, STATS_DEADITES_WOKEN_UP))])<br>\
 		Tortures performed: [GLOB.vanderlin_round_stats[STATS_TORTURES]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(zizo_storyteller, STATS_TORTURES))])<br>\

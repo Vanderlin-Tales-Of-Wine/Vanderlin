@@ -68,7 +68,7 @@
 		return
 
 	var/turf/turf = get_turf(user)
-	if(!isopenspace(turf))
+	if(isopenspace(GET_TURF_ABOVE(turf)))
 		turf = GET_TURF_ABOVE(turf)
 	user.movement_type |= FLYING
 	if(turf != get_turf(user))

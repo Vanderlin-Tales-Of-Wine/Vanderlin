@@ -160,6 +160,7 @@
 		record_featured_stat(FEATURED_STATS_CRIMINALS, eater)
 		GLOB.vanderlin_round_stats[STATS_ORGANS_EATEN]++
 		check_culling(eater)
+		SEND_SIGNAL(eater, COMSIG_ORGAN_CONSUMED, src.type)
 	. = ..()
 	eat_effect = initial(eat_effect)
 

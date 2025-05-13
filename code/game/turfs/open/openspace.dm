@@ -20,10 +20,24 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 	var/can_build_on = TRUE
 	dynamic_lighting = 1
 	turf_flags = NONE
+	path_weight = 500
 
 /turf/open/transparent/openspace/debug/update_multiz()
 	..()
 	return TRUE
+
+/turf/open/transparent/openspace/can_traverse_safely(atom/movable/traveler)
+	var/turf/destination = GET_TURF_BELOW(src)
+	if(!destination)
+		return TRUE // this shouldn't happen
+	for(var/obj/structure/O in contents)
+		if(O.obj_flags & BLOCK_Z_OUT_DOWN)
+			return TRUE
+	if(!traveler.can_zTravel(destination, DOWN, src)) // something is blocking their fall!
+		return TRUE
+	if(!traveler.can_zFall(src, DOWN, destination)) // they can't fall!
+		return TRUE
+	return FALSE
 
 ///No bottom level for openspace.
 /turf/open/transparent/openspace/show_bottom_level()
@@ -104,7 +118,7 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 			if(ismob(pulling))
 				user.pulling.forceMove(target)
 			user.forceMove(target)
-			user.start_pulling(pulling,supress_message = TRUE)
+			user.start_pulling(pulling,suppress_message = TRUE)
 
 /turf/open/transparent/openspace/attack_ghost(mob/dead/observer/user)
 	var/turf/target = get_step_multiz(src, DOWN)
