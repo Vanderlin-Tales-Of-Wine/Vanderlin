@@ -4,6 +4,7 @@
 #define STATS_ALIVE_DARK_ELVES "alive_dark_elves"
 #define STATS_ALIVE_SNOW_ELVES "alive_snow_elves"
 #define STATS_ALIVE_HALF_ELVES "alive_half_elves"
+#define STATS_ALIVE_HALF_DROWS "alive_half_drows"
 #define STATS_ALIVE_HALF_ORCS "alive_half_orcs"
 #define STATS_ALIVE_KOBOLDS "alive_kobolds"
 #define STATS_ALIVE_RAKSHARI "alive_rakshari"
@@ -219,6 +220,7 @@ GLOBAL_LIST_INIT(vanderlin_round_stats, list(
 	STATS_ALIVE_DARK_ELVES = 0,
 	STATS_ALIVE_SNOW_ELVES = 0,
 	STATS_ALIVE_HALF_ELVES = 0,
+	STATS_ALIVE_HALF_DROWS = 0,
 	STATS_ALIVE_HALF_ORCS = 0,
 	STATS_ALIVE_KOBOLDS = 0,
 	STATS_ALIVE_RAKSHARI = 0,
@@ -271,7 +273,7 @@ GLOBAL_LIST_EMPTY(patron_follower_counts)
 #define FEATURED_STATS_ALCOHOLICS "alcohol_drinkers"
 #define FEATURED_STATS_SPEAKERS "speakers"
 #define FEATURED_STATS_FISHERS "fishers"
-#define FEATURED_STATS_GOURMETS "gourmets"
+#define FEATURED_STATS_EATERS "eaters"
 #define FEATURED_STATS_SCREAMERS "screamers"
 #define FEATURED_STATS_MINERS "miners"
 #define FEATURED_STATS_CRIMINALS "criminals"
@@ -279,10 +281,17 @@ GLOBAL_LIST_EMPTY(patron_follower_counts)
 #define FEATURED_STATS_CRAFTERS "crafters"
 #define FEATURED_STATS_FARMERS "farmers"
 #define FEATURED_STATS_STORYTELLERS "storytellers"
+#define FEATURED_STATS_SMITHS "smiths"
+#define FEATURED_STATS_BLEEDERS "bleeders"
 
 // Featured objects stats
 #define FEATURED_STATS_CRAFTED_ITEMS "crafted_items"
+#define FEATURED_STATS_FORGED_ITEMS "forged_items"
 #define FEATURED_STATS_DRINKS "drinks"
+#define FEATURED_STATS_FOOD "food"
+#define FEATURED_STATS_SPELLS "spells"
+#define FEATURED_STATS_CROPS "crops"
+#define FEATURED_STATS_FLAWS "flaws"
 
 GLOBAL_LIST_INIT(featured_stats, list(
 	FEATURED_STATS_TREE_FELLERS = list(
@@ -315,21 +324,25 @@ GLOBAL_LIST_INIT(featured_stats, list(
 		"color" = "#3bac5d",
 		"entries" = list()
 	),
+	FEATURED_STATS_BLEEDERS = list(
+		"name" = "TOP 10 Bleeders",
+		"color" = "#d34747",
+		"entries" = list()
+	),
 	FEATURED_STATS_STORYTELLERS = list(
 		"name" = "TOP 10 Reigning Gods",
 		"color" = "#eeca2c",
 		"entries" = list()
 	),
-	FEATURED_STATS_GOURMETS = list(
-		"name" = "TOP 10 Gourmets",
-		"color" = "#6765cf",
+	FEATURED_STATS_EATERS = list(
+		"name" = "TOP 10 Eaters",
+		"color" = "#654dbe",
 		"entries" = list()
 	),
-	FEATURED_STATS_CRAFTED_ITEMS = list(
-		"name" = "TOP 10 Crafted Items",
-		"color" = "#a5953a",
-		"entries" = list(),
-		"object_stat" = TRUE
+	FEATURED_STATS_FOOD = list(
+		"name" = "TOP 10 Food",
+		"color" = "#73b647",
+		"entries" = list()
 	),
 	FEATURED_STATS_FISHERS = list(
 		"name" = "TOP 10 Fishers",
@@ -341,14 +354,42 @@ GLOBAL_LIST_INIT(featured_stats, list(
 		"color" = "#a8a24e",
 		"entries" = list()
 	),
+	FEATURED_STATS_CRAFTED_ITEMS = list(
+		"name" = "TOP 10 Crafted Items",
+		"color" = "#a5953a",
+		"entries" = list(),
+		"object_stat" = TRUE
+	),
+	FEATURED_STATS_SMITHS = list(
+		"name" = "TOP 10 Smiths",
+		"color" = "#bd742bcc",
+		"entries" = list()
+	),
+	FEATURED_STATS_FORGED_ITEMS = list(
+		"name" = "TOP 10 Forged Items",
+		"color" = "#c48c25",
+		"entries" = list(),
+		"object_stat" = TRUE
+	),
 	FEATURED_STATS_FARMERS = list(
 		"name" = "TOP 10 Farmers",
 		"color" = "#50eb77",
 		"entries" = list()
 	),
+	FEATURED_STATS_CROPS = list(
+		"name" = "TOP 10 Crops",
+		"color" = "#a3db59",
+		"entries" = list(),
+		"object_stat" = TRUE
+	),
+	FEATURED_STATS_ALCOHOLICS = list(
+		"name" = "TOP 10 Alcoholics",
+		"color" = "#945d96",
+		"entries" = list()
+	),
 	FEATURED_STATS_DRINKS = list(
 		"name" = "TOP 10 Beverages",
-		"color" = "#5487c0",
+		"color" = "#6a8dc2",
 		"entries" = list(),
 		"object_stat" = TRUE
 	),
@@ -362,15 +403,22 @@ GLOBAL_LIST_INIT(featured_stats, list(
 		"color" = "#6e4a25",
 		"entries" = list()
 	),
-	FEATURED_STATS_ALCOHOLICS = list(
-		"name" = "TOP 10 Alcoholics",
-		"color" = "#945d96",
-		"entries" = list()
-	),
 	FEATURED_STATS_MAGES = list(
 		"name" = "TOP 10 Mages",
 		"color" = "#9eaceb",
 		"entries" = list()
+	),
+	FEATURED_STATS_SPELLS = list(
+		"name" = "TOP 10 Spells",
+		"color" = "#6375c5",
+		"entries" = list(),
+		"object_stat" = TRUE
+	),
+	FEATURED_STATS_FLAWS = list(
+		"name" = "TOP 10 Flaws",
+		"color" = "#c7c569",
+		"entries" = list(),
+		"object_stat" = TRUE
 	),
 ))
 
