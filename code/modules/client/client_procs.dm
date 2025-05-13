@@ -280,9 +280,9 @@ GLOBAL_LIST_EMPTY(respawncounts)
 
 	if(has_entries)
 		if(stat_is_object)
-			data += format_top_ten_objects(current_featured)
+			data += format_top_stats_objects(current_featured)
 		else
-			data += format_top_ten(current_featured)
+			data += format_top_stats(current_featured)
 	else
 		data += "<div style='margin-top: 20px;'>[stat_is_object ? "None" : "Nobody"]</div>"
 

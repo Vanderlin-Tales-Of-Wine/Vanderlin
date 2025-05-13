@@ -33,7 +33,7 @@
 
 	influence_factors = list(
 		STATS_LAWS_AND_DECREES_MADE = list("points" = 2.75,"capacity" = 45),
-		STATS_ALIVE_NOBLES = list("points" = 4,"capacity" = 75),
+		STATS_ALIVE_NOBLES = list("points" = 3.5,"capacity" = 75),
 		STATS_NOBLE_DEATHS = list("points" = -5,"capacity" = -75),
 		STATS_ASTRATA_REVIVALS = list("points" = 6, "capacity" = 75),
 		STATS_TAXES_COLLECTED = list("points" = 0.175,"capacity" = 90),
@@ -163,8 +163,8 @@
 	)
 
 	influence_factors = list(
-		STATS_DEATHS = list("points" = 1.4, "capacity" = 110),
-		STATS_GRAVES_CONSECRATED = list("points" = 7, "capacity" = 100),
+		STATS_DEATHS = list("points" = 1.35, "capacity" = 110),
+		STATS_GRAVES_CONSECRATED = list("points" = 6.5, "capacity" = 100),
 		STATS_GRAVES_ROBBED = list("points" = -4, "capacity" = -40),
 		STATS_DEADITES_KILLED = list("points" = 6, "capacity" = 90),
 		STATS_VAMPIRES_KILLED = list("points" = 12, "capacity" = 70),
@@ -274,7 +274,7 @@
 		STATS_PLANTS_HARVESTED = list("points" = 0.75, "capacity" = 130),
 		STATS_WEREVOLVES = list("points" = 15, "capacity" = 80),
 		STATS_DENDOR_SACRIFICES = list("points" = 15, "capacity" = 80),
-		STATS_FOREST_DEATHS = list("points" = 6, "capacity" = 90),
+		STATS_FOREST_DEATHS = list("points" = 6.5, "capacity" = 90),
 	)
 
 // INHUMEN

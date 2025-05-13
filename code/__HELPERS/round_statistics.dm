@@ -295,134 +295,134 @@ GLOBAL_LIST_EMPTY(patron_follower_counts)
 
 GLOBAL_LIST_INIT(featured_stats, list(
 	FEATURED_STATS_TREE_FELLERS = list(
-		"name" = "TOP 10 Lumberjacks",
+		"name" = "TOP Lumberjacks",
 		"color" = "#9b6937",
 		"entries" = list()
 	),
 	FEATURED_STATS_TAX_PAYERS = list(
-		"name" = "TOP 10 Tax Payers",
+		"name" = "TOP Tax Payers",
 		"color" = "#f1e35d",
 		"entries" = list()
 	),
 	FEATURED_STATS_CRIMINALS = list(
-		"name" = "TOP 10 Criminals",
+		"name" = "TOP Criminals",
 		"color" = "#bb6976",
 		"entries" = list()
 	),
 	FEATURED_STATS_SPEAKERS = list(
-		"name" = "TOP 10 Speakers",
+		"name" = "TOP Speakers",
 		"color" = "#93cabe",
 		"entries" = list()
 	),
 	FEATURED_STATS_MINERS = list(
-		"name" = "TOP 10 Miners",
+		"name" = "TOP Miners",
 		"color" = "#bd8e60",
 		"entries" = list()
 	),
 	FEATURED_STATS_ALCHEMISTS = list(
-		"name" = "TOP 10 Alchemists",
+		"name" = "TOP Alchemists",
 		"color" = "#3bac5d",
 		"entries" = list()
 	),
 	FEATURED_STATS_BLEEDERS = list(
-		"name" = "TOP 10 Bleeders",
+		"name" = "TOP Bleeders",
 		"color" = "#d34747",
 		"entries" = list()
 	),
 	FEATURED_STATS_STORYTELLERS = list(
-		"name" = "TOP 10 Reigning Gods",
+		"name" = "TOP Reigning Gods",
 		"color" = "#eeca2c",
 		"entries" = list()
 	),
 	FEATURED_STATS_EATERS = list(
-		"name" = "TOP 10 Eaters",
+		"name" = "TOP Eaters",
 		"color" = "#654dbe",
 		"entries" = list()
 	),
 	FEATURED_STATS_FOOD = list(
-		"name" = "TOP 10 Food",
+		"name" = "TOP Food",
 		"color" = "#73b647",
 		"entries" = list()
 	),
 	FEATURED_STATS_FISHERS = list(
-		"name" = "TOP 10 Fishers",
+		"name" = "TOP Fishers",
 		"color" = "#559bbb",
 		"entries" = list()
 	),
 	FEATURED_STATS_CRAFTERS = list(
-		"name" = "TOP 10 Crafters",
+		"name" = "TOP Crafters",
 		"color" = "#a59f4e",
 		"entries" = list()
 	),
 	FEATURED_STATS_CRAFTED_ITEMS = list(
-		"name" = "TOP 10 Crafted Items",
+		"name" = "TOP Crafted Items",
 		"color" = "#cfb834",
 		"entries" = list(),
 		"object_stat" = TRUE
 	),
 	FEATURED_STATS_SMITHS = list(
-		"name" = "TOP 10 Smiths",
+		"name" = "TOP Smiths",
 		"color" = "#cc945c",
 		"entries" = list()
 	),
 	FEATURED_STATS_FORGED_ITEMS = list(
-		"name" = "TOP 10 Forged Items",
+		"name" = "TOP Forged Items",
 		"color" = "#c08924",
 		"entries" = list(),
 		"object_stat" = TRUE
 	),
 	FEATURED_STATS_FARMERS = list(
-		"name" = "TOP 10 Farmers",
+		"name" = "TOP Farmers",
 		"color" = "#50eb77",
 		"entries" = list()
 	),
 	FEATURED_STATS_CROPS = list(
-		"name" = "TOP 10 Crops",
+		"name" = "TOP Crops",
 		"color" = "#a3db59",
 		"entries" = list(),
 		"object_stat" = TRUE
 	),
 	FEATURED_STATS_ALCOHOLICS = list(
-		"name" = "TOP 10 Alcoholics",
+		"name" = "TOP Alcoholics",
 		"color" = "#945d96",
 		"entries" = list()
 	),
 	FEATURED_STATS_DRINKS = list(
-		"name" = "TOP 10 Beverages",
+		"name" = "TOP Beverages",
 		"color" = "#6a8dc2",
 		"entries" = list(),
 		"object_stat" = TRUE
 	),
 	FEATURED_STATS_SCREAMERS = list(
-		"name" = "TOP 10 Screamers",
+		"name" = "TOP Screamers",
 		"color" = "#d34747",
 		"entries" = list()
 	),
 	FEATURED_STATS_THIEVES = list(
-		"name" = "TOP 10 Thieves",
+		"name" = "TOP Thieves",
 		"color" = "#6e4a25",
 		"entries" = list()
 	),
 	FEATURED_STATS_MAGES = list(
-		"name" = "TOP 10 Mages",
+		"name" = "TOP Mages",
 		"color" = "#9eaceb",
 		"entries" = list()
 	),
 	FEATURED_STATS_SPELLS = list(
-		"name" = "TOP 10 Spells",
+		"name" = "TOP Spells",
 		"color" = "#6375c5",
 		"entries" = list(),
 		"object_stat" = TRUE
 	),
 	FEATURED_STATS_FLAWS = list(
-		"name" = "TOP 10 Flaws",
+		"name" = "TOP Flaws",
 		"color" = "#c7c569",
 		"entries" = list(),
 		"object_stat" = TRUE
 	),
 ))
 
-/proc/format_top_ten(stat_category)
+/proc/format_top_stats(stat_category)
 	var/list/stat_data = GLOB.featured_stats[stat_category]
 	if(!stat_data || !stat_data["entries"])
 		return "Nobody"
@@ -441,7 +441,7 @@ GLOBAL_LIST_INIT(featured_stats, list(
 
 	return result.Join("<br>")
 
-/proc/format_top_ten_objects(stat_category)
+/proc/format_top_stats_objects(stat_category)
 	var/list/stat_data = GLOB.featured_stats[stat_category]
 	if(!stat_data || !stat_data["entries"])
 		return "None"

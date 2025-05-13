@@ -463,16 +463,17 @@
 			parts += "<B>Goal #[obj_count]</B>: [objective.explanation_text] - [result]"
 			obj_count++
 
-		if(current_index < last_index)
-			parts += "<br>"
 		CHECK_TICK
 
 	if(!has_any_objectives)
+		parts += "<br>"
 		parts += "<div style='text-align: center;'>No personal objectives were assigned this round.</div>"
 	else if(failed_chosen > 0)
 		if(failed_chosen == 1)
+			parts += "<br>"
 			parts += "<div style='text-align: center;'>1 god's chosen has failed to become a champion.</div>"
 		else
+			parts += "<br>"
 			parts += "<div style='text-align: center;'>[failed_chosen] gods' chosen have failed to become champions.</div>"
 
 	parts += "</div>"
