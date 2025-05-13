@@ -1404,7 +1404,7 @@ SUBSYSTEM_DEF(gamemode)
 				if(AGE_IMMORTAL)
 					GLOB.vanderlin_round_stats[STATS_IMMORTAL_POPULATION]++
 			if(human_mob.charflaw)
-				GLOB.featured_stats[FEATURED_STATS_FLAWS]["entries"][human_mob.charflaw] += 1
+				record_featured_object_stat(FEATURED_STATS_FLAWS, human_mob.charflaw.name)
 			if(human_mob.is_noble())
 				GLOB.vanderlin_round_stats[STATS_ALIVE_NOBLES]++
 			if(human_mob.mind.assigned_role.title in GLOB.garrison_positions)
