@@ -179,9 +179,9 @@
 	requirements = list(/obj/item/natural/cloth = 3)
 	craftdiff = 1
 
-/datum/repeatable_crafting_recipe/sewing/clothbackpack
-	name = "cloth backpack"
-	output = /obj/item/storage/backpack/backpack/cloth
+/datum/repeatable_crafting_recipe/sewing/clothknapsack
+	name = "cloth knapsack"
+	output = /obj/item/storage/backpack/satchel/cloth
 	requirements = list(/obj/item/natural/cloth = 2,
 				/obj/item/natural/fibers = 3)
 	craftdiff = 1
