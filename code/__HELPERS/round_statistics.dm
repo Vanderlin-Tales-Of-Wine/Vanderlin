@@ -351,18 +351,18 @@ GLOBAL_LIST_INIT(featured_stats, list(
 	),
 	FEATURED_STATS_CRAFTERS = list(
 		"name" = "TOP 10 Crafters",
-		"color" = "#a8a24e",
+		"color" = "#a59f4e",
 		"entries" = list()
 	),
 	FEATURED_STATS_CRAFTED_ITEMS = list(
 		"name" = "TOP 10 Crafted Items",
-		"color" = "#a5953a",
+		"color" = "#cfb834",
 		"entries" = list(),
 		"object_stat" = TRUE
 	),
 	FEATURED_STATS_SMITHS = list(
 		"name" = "TOP 10 Smiths",
-		"color" = "#c58545",
+		"color" = "#cc945c",
 		"entries" = list()
 	),
 	FEATURED_STATS_FORGED_ITEMS = list(
