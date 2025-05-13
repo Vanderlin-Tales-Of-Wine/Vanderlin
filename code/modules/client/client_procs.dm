@@ -394,7 +394,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	data += "</div>"
 
 	src.mob << browse(null, "window=vanderlin_influences")
-	var/datum/browser/popup = new(src.mob, "vanderlin_stats", "<center>End Round Statistics</center>", 1050, 750)
+	var/datum/browser/popup = new(src.mob, "vanderlin_stats", "<center>End Round Statistics</center>", 1050, 745)
 	popup.set_content(data.Join())
 	popup.open()
 

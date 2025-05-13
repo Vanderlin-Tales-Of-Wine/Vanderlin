@@ -362,12 +362,12 @@ GLOBAL_LIST_INIT(featured_stats, list(
 	),
 	FEATURED_STATS_SMITHS = list(
 		"name" = "TOP 10 Smiths",
-		"color" = "#bd742bcc",
+		"color" = "#c58545",
 		"entries" = list()
 	),
 	FEATURED_STATS_FORGED_ITEMS = list(
 		"name" = "TOP 10 Forged Items",
-		"color" = "#c48c25",
+		"color" = "#c08924",
 		"entries" = list(),
 		"object_stat" = TRUE
 	),
