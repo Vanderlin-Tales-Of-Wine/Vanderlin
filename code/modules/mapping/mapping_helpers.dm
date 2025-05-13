@@ -171,9 +171,9 @@ INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_lava)
 /obj/effect/mapping_helpers/access
 	name = "access helper parent"
 	layer = DOOR_HELPER_LAYER
+	late = TRUE
 
-/obj/effect/mapping_helpers/access/Initialize()
-	. = ..()
+/obj/effect/mapping_helpers/access/LateInitialize()
 	var/static/list/valid = list(
 		/obj/structure/door, \
 		/obj/structure/closet, \
@@ -185,9 +185,11 @@ INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_lava)
 		var/obj/found = locate(thing) in loc
 		if(found)
 			payload(found)
+			qdel(src)
 			return
 
 	log_mapping("[src] failed to find a target at [AREACOORD(src)]")
+	qdel(src)
 
 /obj/effect/mapping_helpers/access/proc/payload(obj/payload)
 	return
