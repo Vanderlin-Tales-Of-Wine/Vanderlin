@@ -280,6 +280,10 @@ GLOBAL_LIST_EMPTY(patron_follower_counts)
 #define FEATURED_STATS_FARMERS "farmers"
 #define FEATURED_STATS_STORYTELLERS "storytellers"
 
+// Featured objects stats
+#define FEATURED_STATS_CRAFTED_ITEMS "crafted_items"
+#define FEATURED_STATS_DRINKS "drinks"
+
 GLOBAL_LIST_INIT(featured_stats, list(
 	FEATURED_STATS_TREE_FELLERS = list(
 		"name" = "TOP 10 Lumberjacks",
@@ -321,6 +325,12 @@ GLOBAL_LIST_INIT(featured_stats, list(
 		"color" = "#6765cf",
 		"entries" = list()
 	),
+	FEATURED_STATS_CRAFTED_ITEMS = list(
+		"name" = "TOP 10 Crafted Items",
+		"color" = "#a5953a",
+		"entries" = list(),
+		"object_stat" = TRUE
+	),
 	FEATURED_STATS_FISHERS = list(
 		"name" = "TOP 10 Fishers",
 		"color" = "#559bbb",
@@ -335,6 +345,12 @@ GLOBAL_LIST_INIT(featured_stats, list(
 		"name" = "TOP 10 Farmers",
 		"color" = "#50eb77",
 		"entries" = list()
+	),
+	FEATURED_STATS_DRINKS = list(
+		"name" = "TOP 10 Beverages",
+		"color" = "#5487c0",
+		"entries" = list(),
+		"object_stat" = TRUE
 	),
 	FEATURED_STATS_SCREAMERS = list(
 		"name" = "TOP 10 Screamers",
@@ -377,6 +393,25 @@ GLOBAL_LIST_INIT(featured_stats, list(
 
 	return result.Join("<br>")
 
+/proc/format_top_ten_objects(stat_category)
+	var/list/stat_data = GLOB.featured_stats[stat_category]
+	if(!stat_data || !stat_data["entries"])
+		return "None"
+
+	var/list/entries = list()
+	for(var/key in stat_data["entries"])
+		entries += list(list("name" = key, "count" = stat_data["entries"][key]))
+
+	entries = sortList(entries, /proc/cmp_stat_count_desc)
+
+	var/list/result = list()
+	for(var/i in 1 to min(10, entries.len))
+		var/list/entry = entries[i]
+		var/rounded_count = round(entry["count"])
+		result += "[i]. [entry["name"]] - [rounded_count]"
+
+	return result.Join("<br>")
+
 /proc/cmp_stat_count_desc(list/a, list/b)
 	return b["count"] - a["count"]
 
@@ -394,10 +429,8 @@ GLOBAL_LIST_INIT(featured_stats, list(
 			job_title = " ([user.mind.assigned_role.title])"
 	else if(user.mind?.special_role)
 		job_title = " ([user.mind.special_role])"
-	else if(user.job)
+	else if(user.job && user.job != "Unassigned")
 		job_title = " ([user.job])"
-	else
-		job_title = " (Jobless)"
 
 	var/key = "[user.real_name][job_title]"
 
@@ -405,3 +438,14 @@ GLOBAL_LIST_INIT(featured_stats, list(
 		stat_data["entries"] = list()
 
 	stat_data["entries"][key] = (stat_data["entries"][key] || 0) + increment
+
+/proc/record_featured_object_stat(stat_category, object_name, increment = 1)
+	if(!stat_category || !object_name || !GLOB.featured_stats[stat_category])
+		return
+
+	var/list/stat_data = GLOB.featured_stats[stat_category]
+
+	if(!stat_data["entries"])
+		stat_data["entries"] = list()
+
+	stat_data["entries"][object_name] = (stat_data["entries"][object_name] || 0) + increment

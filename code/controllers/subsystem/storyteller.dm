@@ -31,6 +31,7 @@ SUBSYSTEM_DEF(gamemode)
 	/// Associative list of even track points.
 	var/list/event_track_points = list(
 		EVENT_TRACK_MUNDANE = 0,
+		EVENT_TRACK_PERSONAL = 0,
 		EVENT_TRACK_MODERATE = 0,
 		EVENT_TRACK_INTERVENTION = 0,
 		EVENT_TRACK_CHARACTER_INJECTION = 0,
@@ -40,6 +41,7 @@ SUBSYSTEM_DEF(gamemode)
 	/// Last point amount gained of each track. Those are recorded for purposes of estimating how long until next event.
 	var/list/last_point_gains = list(
 		EVENT_TRACK_MUNDANE = 0,
+		EVENT_TRACK_PERSONAL = 0,
 		EVENT_TRACK_MODERATE = 0,
 		EVENT_TRACK_INTERVENTION = 0,
 		EVENT_TRACK_CHARACTER_INJECTION = 0,
@@ -49,6 +51,7 @@ SUBSYSTEM_DEF(gamemode)
 	/// Point thresholds at which the events are supposed to be rolled, it is also the base cost for events.
 	var/list/point_thresholds = list(
 		EVENT_TRACK_MUNDANE = MUNDANE_POINT_THRESHOLD,
+		EVENT_TRACK_PERSONAL = MUNDANE_POINT_THRESHOLD,
 		EVENT_TRACK_MODERATE = MODERATE_POINT_THRESHOLD,
 		EVENT_TRACK_INTERVENTION = MAJOR_POINT_THRESHOLD,
 		EVENT_TRACK_CHARACTER_INJECTION = ROLESET_POINT_THRESHOLD,
@@ -59,6 +62,7 @@ SUBSYSTEM_DEF(gamemode)
 	/// Minimum population thresholds for the tracks to fire off events.
 	var/list/min_pop_thresholds = list(
 		EVENT_TRACK_MUNDANE = MUNDANE_MIN_POP,
+		EVENT_TRACK_PERSONAL = MODERATE_MIN_POP,
 		EVENT_TRACK_MODERATE = MODERATE_MIN_POP,
 		EVENT_TRACK_INTERVENTION = MAJOR_MIN_POP,
 		EVENT_TRACK_CHARACTER_INJECTION = CHARACTER_INJECTION_MIN_POP,
@@ -69,6 +73,7 @@ SUBSYSTEM_DEF(gamemode)
 	/// Configurable multipliers for point gain over time.
 	var/list/point_gain_multipliers = list(
 		EVENT_TRACK_MUNDANE = 1,
+		EVENT_TRACK_PERSONAL = 1,
 		EVENT_TRACK_MODERATE = 1,
 		EVENT_TRACK_INTERVENTION = 1,
 		EVENT_TRACK_CHARACTER_INJECTION = 1,
@@ -78,6 +83,7 @@ SUBSYSTEM_DEF(gamemode)
 	/// Configurable multipliers for roundstart points.
 	var/list/roundstart_point_multipliers = list(
 		EVENT_TRACK_MUNDANE = 1,
+		EVENT_TRACK_PERSONAL = 1,
 		EVENT_TRACK_MODERATE = 1,
 		EVENT_TRACK_INTERVENTION = 1,
 		EVENT_TRACK_CHARACTER_INJECTION = 1,
@@ -90,6 +96,7 @@ SUBSYSTEM_DEF(gamemode)
 	/// Associative list of pop scale thresholds.
 	var/list/pop_scale_thresholds = list(
 		EVENT_TRACK_MUNDANE = MUNDANE_POP_SCALE_THRESHOLD,
+		EVENT_TRACK_PERSONAL = MODERATE_POP_SCALE_THRESHOLD,
 		EVENT_TRACK_MODERATE = MODERATE_POP_SCALE_THRESHOLD,
 		EVENT_TRACK_INTERVENTION = MAJOR_POP_SCALE_THRESHOLD,
 		EVENT_TRACK_CHARACTER_INJECTION = ROLESET_POP_SCALE_THRESHOLD,
@@ -100,6 +107,7 @@ SUBSYSTEM_DEF(gamemode)
 	/// Associative list of pop scale penalties.
 	var/list/pop_scale_penalties = list(
 		EVENT_TRACK_MUNDANE = MUNDANE_POP_SCALE_PENALTY,
+		EVENT_TRACK_PERSONAL = MODERATE_POP_SCALE_PENALTY,
 		EVENT_TRACK_MODERATE = MODERATE_POP_SCALE_PENALTY,
 		EVENT_TRACK_INTERVENTION = MAJOR_POP_SCALE_PENALTY,
 		EVENT_TRACK_CHARACTER_INJECTION = ROLESET_POP_SCALE_PENALTY,
@@ -110,6 +118,7 @@ SUBSYSTEM_DEF(gamemode)
 	/// Associative list of active multipliers from pop scale penalty.
 	var/list/current_pop_scale_multipliers = list(
 		EVENT_TRACK_MUNDANE = 1,
+		EVENT_TRACK_PERSONAL = 1,
 		EVENT_TRACK_MODERATE = 1,
 		EVENT_TRACK_INTERVENTION = 1,
 		EVENT_TRACK_CHARACTER_INJECTION = 1,
@@ -571,6 +580,9 @@ SUBSYSTEM_DEF(gamemode)
 			if(EVENT_TRACK_MUNDANE)
 				base_amt = ROUNDSTART_MUNDANE_BASE
 				gain_amt = ROUNDSTART_MUNDANE_GAIN
+			if(EVENT_TRACK_PERSONAL)
+				base_amt = ROUNDSTART_PERSONAL_BASE
+				gain_amt = ROUNDSTART_PERSONAL_GAIN
 			if(EVENT_TRACK_MODERATE)
 				base_amt = ROUNDSTART_MODERATE_BASE
 				gain_amt = ROUNDSTART_MODERATE_GAIN
@@ -814,6 +826,7 @@ SUBSYSTEM_DEF(gamemode)
 /// Loads config values from game_options.txt
 /datum/controller/subsystem/gamemode/proc/load_config_vars()
 	point_gain_multipliers[EVENT_TRACK_MUNDANE] = CONFIG_GET(number/mundane_point_gain_multiplier)
+	point_gain_multipliers[EVENT_TRACK_PERSONAL] = CONFIG_GET(number/moderate_point_gain_multiplier)
 	point_gain_multipliers[EVENT_TRACK_MODERATE] = CONFIG_GET(number/moderate_point_gain_multiplier)
 	point_gain_multipliers[EVENT_TRACK_INTERVENTION] = CONFIG_GET(number/major_point_gain_multiplier)
 	point_gain_multipliers[EVENT_TRACK_CHARACTER_INJECTION] = CONFIG_GET(number/roleset_point_gain_multiplier)
@@ -821,6 +834,7 @@ SUBSYSTEM_DEF(gamemode)
 	point_gain_multipliers[EVENT_TRACK_RAIDS] = 1
 
 	roundstart_point_multipliers[EVENT_TRACK_MUNDANE] = CONFIG_GET(number/mundane_roundstart_point_multiplier)
+	roundstart_point_multipliers[EVENT_TRACK_PERSONAL] = CONFIG_GET(number/moderate_roundstart_point_multiplier)
 	roundstart_point_multipliers[EVENT_TRACK_MODERATE] = CONFIG_GET(number/moderate_roundstart_point_multiplier)
 	roundstart_point_multipliers[EVENT_TRACK_INTERVENTION] = CONFIG_GET(number/major_roundstart_point_multiplier)
 	roundstart_point_multipliers[EVENT_TRACK_CHARACTER_INJECTION] = CONFIG_GET(number/roleset_roundstart_point_multiplier)
@@ -828,6 +842,7 @@ SUBSYSTEM_DEF(gamemode)
 	roundstart_point_multipliers[EVENT_TRACK_RAIDS] = 1
 
 	min_pop_thresholds[EVENT_TRACK_MUNDANE] = CONFIG_GET(number/mundane_min_pop)
+	min_pop_thresholds[EVENT_TRACK_PERSONAL] = CONFIG_GET(number/moderate_min_pop)
 	min_pop_thresholds[EVENT_TRACK_MODERATE] = CONFIG_GET(number/moderate_min_pop)
 	min_pop_thresholds[EVENT_TRACK_INTERVENTION] = CONFIG_GET(number/major_min_pop)
 	min_pop_thresholds[EVENT_TRACK_CHARACTER_INJECTION] = CONFIG_GET(number/roleset_min_pop)
@@ -835,6 +850,7 @@ SUBSYSTEM_DEF(gamemode)
 	min_pop_thresholds[EVENT_TRACK_RAIDS] = CONFIG_GET(number/objectives_min_pop)
 
 	point_thresholds[EVENT_TRACK_MUNDANE] = CONFIG_GET(number/mundane_point_threshold)
+	point_thresholds[EVENT_TRACK_PERSONAL] = CONFIG_GET(number/mundane_point_threshold)
 	point_thresholds[EVENT_TRACK_MODERATE] = CONFIG_GET(number/moderate_point_threshold)
 	point_thresholds[EVENT_TRACK_INTERVENTION] = CONFIG_GET(number/major_point_threshold)
 	point_thresholds[EVENT_TRACK_CHARACTER_INJECTION] = CONFIG_GET(number/roleset_point_threshold)
@@ -1439,13 +1455,30 @@ SUBSYSTEM_DEF(gamemode)
 			if(isharpy(human_mob))
 				GLOB.vanderlin_round_stats[STATS_ALIVE_HARPIES]++
 
-/// Returns follower modifier for the given storyteller
-/datum/controller/subsystem/gamemode/proc/get_storyteller_follower_modifier(datum/storyteller/chosen_storyteller)
-	var/datum/storyteller/initalized_storyteller = storytellers[chosen_storyteller]
-	if(!initalized_storyteller)
-		return
+/// Returns total follower influence for the given storyteller
+/datum/controller/subsystem/gamemode/proc/get_follower_influence(datum/storyteller/chosen_storyteller)
+	var/datum/storyteller/initialized_storyteller = storytellers[chosen_storyteller]
+	if(!initialized_storyteller)
+		return 0
 
-	return initalized_storyteller.follower_modifier
+	var/follower_count = GLOB.patron_follower_counts[initialized_storyteller.name] || 0
+	var/base_mod = initialized_storyteller.follower_modifier
+	var/diminish_threshold = 4
+	var/second_diminish_threshold = 9
+	var/min_mod = 15
+	var/second_min_mod = 10
+
+	// Calculate total influence with diminishing returns
+	var/total_influence = 0
+	for(var/i in 1 to follower_count)
+		if(i <= diminish_threshold)
+			total_influence += base_mod
+		else if(i <= second_diminish_threshold)
+			total_influence += max(min_mod, base_mod - (i - diminish_threshold))
+		else
+			total_influence += max(second_min_mod, base_mod - (i - diminish_threshold))
+
+	return total_influence
 
 /// Returns influence value for a given storyteller for his given statistic
 /datum/controller/subsystem/gamemode/proc/calculate_specific_influence(datum/storyteller/chosen_storyteller, statistic)
@@ -1471,9 +1504,10 @@ SUBSYSTEM_DEF(gamemode)
 /datum/controller/subsystem/gamemode/proc/calculate_storyteller_influence(datum/storyteller/chosen_storyteller)
 	var/datum/storyteller/initialized_storyteller = storytellers[chosen_storyteller]
 	if(!initialized_storyteller)
-		return
+		return 0
 
-	var/total_influence = GLOB.patron_follower_counts[initialized_storyteller.name] * initialized_storyteller.follower_modifier
+	var/total_influence = get_follower_influence(chosen_storyteller)
+
 	for(var/influence_factor in initialized_storyteller.influence_factors)
 		total_influence += calculate_specific_influence(chosen_storyteller, influence_factor)
 
