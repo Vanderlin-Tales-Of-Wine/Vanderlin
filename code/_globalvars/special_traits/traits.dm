@@ -585,7 +585,7 @@
 	character.change_stat("constitution", -1)
 	character.change_stat("endurance", -1)
 	character.mind.adjust_skillrank(/datum/skill/magic/arcane, 5, TRUE)
-	character.mind.set_skillrank(/datum/skill/combat/sword, 2, 2, TRUE) //Average only.
+	character.mind.set_skillrank(/datum/skill/combat/swords, 2, 2, TRUE) //Average only.
 	character.mind.adjust_spellpoints(14) //Less points than Court Mage, why do Court mage get 17 points? what even?
 	character.mind.AddSpell(new /obj/effect/proc_holder/spell/self/learnspell)
 	character.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
