@@ -665,7 +665,7 @@
 	icon_state = "psygsword"
 	smeltresult = /obj/item/ingot/silver
 	sellprice = 150
-	minstr = 12
+	minstr = 11
 	is_silver = TRUE
 
 /obj/item/weapon/sword/long/greatsword/psydon/getonmobprop(tag)
