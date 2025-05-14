@@ -112,9 +112,9 @@
 	max_integrity = 500
 	sellprice = 35
 
-/obj/item/weapon/flail/sflail/necraflail
+/obj/item/weapon/flail/sflailnecraflail
 	name = "swift journey"
-	desc = "The striking head is full of teeth, rattling viciously with ever strike, with every rotation. Each set coming from one the wielder has laid to rest. Carried alongside them as a great show of respect."
+	desc = "The striking head resembles Necra's original skull, striking true with a sculpted emblem of love and sacrifice. Perhaps one of the few Psydonic-designed emblems of The Ten left."
 	icon_state = "necraflail"
 
 //................ Peasant Flail ............... // A little confusing still
