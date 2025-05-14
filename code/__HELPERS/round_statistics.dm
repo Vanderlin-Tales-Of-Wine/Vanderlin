@@ -475,10 +475,12 @@ GLOBAL_LIST_INIT(featured_stats, list(
 			job_title = " ([user.mind.assigned_role.f_title])"
 		else
 			job_title = " ([user.mind.assigned_role.title])"
-	else if(user.mind?.special_role)
-		job_title = " ([user.mind.special_role])"
 	else if(user.job && user.job != "Unassigned")
 		job_title = " ([user.job])"
+	else if(user.mind?.special_role)
+		job_title = " ([user.mind.special_role])"
+	else
+		job_title = " (Jobless)"
 
 	var/key = "[user.real_name][job_title]"
 
