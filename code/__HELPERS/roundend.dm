@@ -423,6 +423,7 @@
 	var/list/parts = list()
 	var/failed_chosen = 0
 	var/has_any_objectives = FALSE
+	var/showed_any_champions = FALSE
 
 	// Header
 	parts += "<div class='panel stationborder'>"
@@ -431,10 +432,7 @@
 		parts += "<hr class='paneldivider'>"
 
 	// Process all minds with personal objectives
-	var/last_index = length(GLOB.personal_objective_minds)
-	var/current_index = 0
 	for(var/datum/mind/mind as anything in GLOB.personal_objective_minds)
-		current_index++
 		if(!mind.personal_objectives || !mind.personal_objectives.len)
 			continue
 
@@ -449,13 +447,9 @@
 			failed_chosen++
 			continue
 
-		var/name_with_title
-		if(mind.current)
-			name_with_title = printplayer(mind)
-		else
-			name_with_title = "<b>Unknown Champion</b>"
-
-		parts += "[name_with_title]"
+		showed_any_champions = TRUE
+		var/name_with_title = mind.current ? printplayer(mind) : "<b>Unknown Champion</b>"
+		parts += name_with_title
 
 		var/obj_count = 1
 		for(var/datum/objective/objective as anything in mind.personal_objectives)
@@ -466,18 +460,13 @@
 		CHECK_TICK
 
 	if(!has_any_objectives)
-		parts += "<br>"
 		parts += "<div style='text-align: center;'>No personal objectives were assigned this round.</div>"
 	else if(failed_chosen > 0)
-		if(failed_chosen == 1)
+		if(showed_any_champions)
 			parts += "<br>"
-			parts += "<div style='text-align: center;'>1 god's chosen has failed to become a champion.</div>"
-		else
-			parts += "<br>"
-			parts += "<div style='text-align: center;'>[failed_chosen] gods' chosen have failed to become champions.</div>"
+		parts += "<div style='text-align: center;'>[failed_chosen] god's chosen [failed_chosen == 1 ? "has" : "have"] failed to become [failed_chosen == 1 ? "a champion" : "champions"].</div>"
 
 	parts += "</div>"
-
 	return parts.Join("<br>")
 
 /datum/controller/subsystem/ticker/proc/antag_report()
