@@ -64,6 +64,7 @@
 			//add new lord and state objectives
 			lord = new_member
 			lord_protect.target = lord
+			lord.special_role = span_redtext("Vampire Lord") // Team member is added before antag datum is
 			for(var/datum/mind/member as anything in members)
 				member.announce_objectives()
 			return
