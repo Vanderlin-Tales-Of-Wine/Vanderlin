@@ -112,6 +112,11 @@
 	max_integrity = 500
 	sellprice = 35
 
+/obj/item/weapon/flail/sflail/necraflail
+	name = "swift journey"
+	desc = "The striking head is full of teeth, rattling viciously with ever strike, with every rotation. Each set coming from one the wielder has laid to rest. Carried alongside them as a great show of respect."
+	icon_state = "necraflail"
+
 //................ Peasant Flail ............... // A little confusing still
 /obj/item/weapon/flail/peasant
 	force = DAMAGE_NORMAL_FLAIL

@@ -36,6 +36,9 @@
 	chargetime = 1
 	item_damage_type = "slash"
 
+/datum/intent/axe/chop/scythe //Unique intent for Dendorite Templar
+	reach = 2
+
 
 /*------------\
 | Cut intent |	small AP

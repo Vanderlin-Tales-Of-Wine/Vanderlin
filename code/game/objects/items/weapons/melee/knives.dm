@@ -263,6 +263,12 @@
 	icon_state = "sdaggeralt"
 	desc = "A dagger of refined steel, and even more refined appearance."
 
+/obj/item/weapon/knife/dagger/steel/pestrasickle
+	name ="plaguebringer sickle"
+	desc = "A wicked edge brings feculent delights."
+	icon_state = "pestrasickle"
+	max_integrity = 200
+
 //................ Fanged dagger ............... //
 /obj/item/weapon/knife/dagger/steel/dirk
 	name = "fanged dagger"

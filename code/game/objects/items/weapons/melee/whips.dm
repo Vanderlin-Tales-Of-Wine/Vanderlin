@@ -110,3 +110,11 @@
 
 /datum/intent/whip/crack/metal
 	penfactor = 20
+
+
+//................ Xylix Whip ............... //
+/obj/item/weapon/whip/xylix
+	name = "cackle lash"
+	force = DAMAGE_WHIP+4
+	desc = "The chimes of this whip are said to sound as the trickster's laughter itself."
+	icon_state = "xylixwhip"
