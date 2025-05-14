@@ -27,11 +27,6 @@
 	M.adjustFireLoss(35, 0)
 	..()
 
-/datum/reagent/phlogiston/on_mob_life(mob/living/carbon/M)
-	M.adjustFireLoss(35, 0)
-	..()
-	return TRUE
-
 /datum/reagent/blastpowder
 	name = "Blastpowder"
 	description = "."

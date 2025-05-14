@@ -305,6 +305,7 @@
 \-------------*/	// These are for the pot, if more vegetables are added and need to be integrated into the pot brewing you need to add them here
 
 /datum/reagent/consumable/soup // so you get hydrated without the flavor system messing it up. Works like water with less hydration
+	name = "soup"
 	var/hydration = 5
 
 /datum/reagent/consumable/soup/on_mob_life(mob/living/carbon/M)
@@ -352,6 +353,7 @@
 	taste_description = "boiled turnip"
 
 /datum/reagent/consumable/soup/egg
+	name = "egg soup"
 	color = "#dedbaf"
 	taste_description = "egg soup"
 	nutriment_factor = 12
