@@ -9879,10 +9879,6 @@
 /obj/machinery/light/fueledstreet,
 /turf/open/floor/cobble,
 /area/rogue/outdoors/town)
-"gpm" = (
-/obj/structure/window/solid,
-/turf/open/floor/cobble,
-/area/rogue/indoors/town)
 "gpr" = (
 /obj/structure/fluff/railing/wood{
 	dir = 8;
@@ -13637,10 +13633,6 @@
 	icon_state = "weird1"
 	},
 /area/rogue/indoors/town/magician)
-"iJF" = (
-/obj/structure/window/solid,
-/turf/closed/basic,
-/area/rogue/indoors/town)
 "iJI" = (
 /obj/structure/stairs,
 /turf/open/floor/wood,
@@ -99724,7 +99716,7 @@ aPs
 qqE
 uQo
 cXw
-iJF
+eOu
 elp
 dtq
 dtq
@@ -99926,7 +99918,7 @@ pKx
 coU
 mWR
 bLC
-gpm
+eOu
 elp
 dtq
 aLY
@@ -100128,7 +100120,7 @@ kmq
 coU
 coU
 brF
-gpm
+eOu
 ehF
 fhi
 ocA
