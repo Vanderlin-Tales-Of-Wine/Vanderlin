@@ -126,7 +126,7 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 		if(!selected_priest)
 			for(var/datum/weakref/supporter_ref in supporters_challenger)
 				var/mob/living/carbon/human/human_mob = supporter_ref.resolve()
-				if(human_mob && human_mob.stat != DEAD && human_mob.client && human_mob.patron == challenger && (human_mob.dna?.species in RACES_PLAYER_NONHERETICAL) && !human_mob.is_noble() && human_mob.age != AGE_CHILD && !(human_mob.mind?.assigned_role.title in GLOB.garrison_positions) && !(human_mob.mind?.assigned_role.title in GLOB.allmig_positions))
+				if(human_mob && human_mob.stat != DEAD && human_mob.client && human_mob.patron == challenger && (human_mob.dna?.species.type in RACES_PLAYER_NONHERETICAL) && !human_mob.is_noble() && human_mob.age != AGE_CHILD && !(human_mob.mind?.assigned_role.title in GLOB.garrison_positions) && !(human_mob.mind?.assigned_role.title in GLOB.allmig_positions))
 					selected_priest = human_mob
 					was_supporter = TRUE
 					break
