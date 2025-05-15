@@ -215,7 +215,7 @@
 		STATS_ROCKS_MINED = list("points" = 0.25, "capacity" = 100),
 		STATS_CRAFT_SKILLS = list("points" = 0.6, "capacity" = 90),
 		STATS_BEARDS_SHAVED = list("points" = -4, "capacity" = -40),
-		STATS_BLACKSTEEL_SMELTED = list("points" = 7, "capacity" = 65),
+		STATS_BLACKSTEEL_SMELTED = list("points" = 6, "capacity" = 65),
 	)
 
 /datum/storyteller/eora
