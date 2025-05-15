@@ -531,7 +531,13 @@ GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/SDQL2_VV_all, new(null
 			if(length(select_text))
 				var/text = islist(select_text)? select_text.Join() : select_text
 				var/static/result_offset = 0
-				showmob << browse(text, "window=SDQL-result-[result_offset++]")
+				var/list/dat = list()
+
+				dat += text
+
+				var/datum/browser/popup = new(showmob, "sdql-window")
+				popup.set_content(dat.Join())
+				popup.open()
 	show_next_to_key = null
 	if(qdel_on_finish)
 		qdel(src)
