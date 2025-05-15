@@ -204,9 +204,9 @@
 		return
 
 	MOBTIMER_SET(owner, MT_CURSE_GRAGGAR)
-	for(var/mob/living/carbon/humanoid in view(1, owner))
+	for(var/mob/living/carbon/humanoid/viewer in view(1, owner))
 		owner.emote("rage")
-		human.attacked_by(owner.get_active_held_item(), owner)
+		viewer.attacked_by(owner.get_active_held_item(), owner)
 		owner.cursed_freak_out()
 		break
 
