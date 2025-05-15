@@ -145,13 +145,6 @@ SUBSYSTEM_DEF(triumphs)
 	Also used for refunding due to conflicts
  */
 /datum/controller/subsystem/triumphs/proc/attempt_to_unbuy_triumph_condition(client/C, datum/triumph_buy/triumph_buy, reason = "\improper UNBUY")
-	if(pull_it_out.ckey_of_buyer != C.ckey)
-		// We're being unbought by someone other than the original buyer?
-		// That costs extra, you know... (for some reason? I don't know, Macha wrote it that way)
-		if(get_triumphs(C.ckey) < pull_it_out.triumph_cost) // We're too broke!
-			to_chat(C, span_redtext("You don't have enough triumphs to unbuy that."))
-			return FALSE
-		triumph_adjust(-pull_it_out.triumph_cost, C.ckey)
 	// Give the person who originally bought it a 50% refund
 	var/ckey_prev_owna = triumph_buy.ckey_of_buyer
 	var/refund_amount = round(triumph_buy.triumph_cost * current_refund_percentage)
