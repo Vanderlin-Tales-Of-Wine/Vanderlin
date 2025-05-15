@@ -123,7 +123,6 @@
 	needed_item_text = null
 
 /datum/anvil_recipe/proc/handle_creation(obj/item/I)
-	record_featured_object_stat(FEATURED_STATS_FORGED_ITEMS, I.name)
 	numberofhits = ceil(numberofhits / num_of_materials) // Divide the hits equally among the number of bars required, rounded up.
 	if(numberofbreakthroughs) // Hitting the bar the perfect way should be rewarding quality-wise
 		numberofhits -= numberofbreakthroughs
