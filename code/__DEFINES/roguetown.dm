@@ -356,6 +356,7 @@ Thing can move up or down an armor class by significant changes to coverage & cr
 #define ARMOR_PLATE_BAD		list("blunt" = 75, "slash" = 75, "stab" = 75, "piercing" = 55, "fire" = 0, "acid" = 0)
 #define ARMOR_PLATE			list("blunt" = 85, "slash" = 85, "stab" = 85, "piercing" = 70, "fire" = 0, "acid" = 0)
 #define ARMOR_PLATE_GOOD	list("blunt" = 90, "slash" = 90, "stab" = 90, "piercing" = 85, "fire" = 0, "acid" = 0)
+#define ARMOR_PLATE_BLACKSTEEL	list("blunt" = 95, "slash" = 95, "stab" = 95, "piercing" = 95, "fire" = 0, "acid" = 0) // Do not give this to anything but blacksteel - Captain Obvious
 
 
 /*-----------------------\
