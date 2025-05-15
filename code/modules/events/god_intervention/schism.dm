@@ -109,7 +109,7 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 				to_chat(supporter, span_userdanger("INCOMPETENT IMBECILES!"))
 				supporter.electrocute_act(5, astrata)
 
-		addtimer(CALLBACK(src, .proc/select_and_announce_vice_priest, challenger), 20 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(select_and_announce_vice_priest), challenger), 20 SECONDS)
 
 /datum/tennite_schism/proc/select_and_announce_vice_priest(datum/patron/challenger)
 	var/mob/living/carbon/human/selected_priest = null
