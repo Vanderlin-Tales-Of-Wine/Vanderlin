@@ -1390,3 +1390,9 @@
 
 	eyes = new /obj/item/organ/eyes/night_vision/zombie
 	eyes.Insert(src)
+
+/mob/living/carbon/get_lux_status()
+	. = ..()
+
+	if(dna?.species.name in RACES_PLAYER_LUXLESS)
+		return LUX_HAS_LUX

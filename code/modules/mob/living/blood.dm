@@ -233,9 +233,6 @@
 	if(has_status_effect(/datum/status_effect/buff/lux_drained))
 		return LUX_DRAINED
 
-	if(dna?.species.name in RACES_PLAYER_LUXLESS)
-		return LUX_HAS_LUX
-
 /mob/living/carbon/human/get_blood_type()
 	RETURN_TYPE(/datum/blood_type)
 	if(HAS_TRAIT(src, TRAIT_HUSK) || isnull(dna))
