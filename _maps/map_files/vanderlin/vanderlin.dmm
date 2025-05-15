@@ -6909,12 +6909,8 @@
 /area/rogue/indoors/town/merc_guild)
 "emE" = (
 /obj/machinery/light/fueled/wallfire/candle/blue,
-/obj/structure/lever{
-	redstone_id = "arenaentrance";
-	name = "Arena Entrance Lever";
-	pixel_x = 2;
-	pixel_y = 0
-	},
+/obj/structure/table/wood,
+/obj/item/reagent_containers/glass/cup/steel,
 /turf/open/floor/carpet/lord/right,
 /area/rogue/under/town/basement)
 "emI" = (
@@ -9258,9 +9254,9 @@
 /area/rogue/indoors/town/orphanage)
 "fQX" = (
 /obj/structure/lever{
-	redstone_id = "arenaexit";
-	name = "Arena Exit Lever";
-	pixel_x = -107;
+	redstone_id = "arenaentrance";
+	name = "Arena Entrance Lever";
+	pixel_x = 2;
 	pixel_y = 0
 	},
 /turf/open/floor/blocks,
@@ -16639,6 +16635,10 @@
 /obj/effect/mapping_helpers/door/access/manor/vault,
 /turf/open/floor/blocks,
 /area/rogue/under/town/basement)
+"kCM" = (
+/obj/machinery/light/fueled/firebowl,
+/turf/open/floor/hexstone,
+/area/rogue/under/town/basement)
 "kDi" = (
 /turf/open/floor/rooftop,
 /area/rogue/indoors/town)
@@ -21561,6 +21561,14 @@
 	},
 /turf/open/transparent/openspace,
 /area/rogue/indoors/town)
+"nRp" = (
+/obj/structure/lever{
+	redstone_id = "arenaexit";
+	name = "Arena Exit Lever";
+	pixel_y = 0
+	},
+/turf/open/floor/cobblerock,
+/area/rogue/under/town/basement)
 "nRZ" = (
 /turf/closed/mineral/random,
 /area/rogue/under/town/sewer)
@@ -61407,12 +61415,12 @@ sch
 sch
 sch
 jZU
+kCM
 rVp
 rVp
 rVp
 rVp
-rVp
-rVp
+kCM
 jZU
 uKq
 bET
@@ -62619,12 +62627,12 @@ aWT
 kjH
 lsT
 jZU
+kCM
 rVp
 rVp
 rVp
 rVp
-rVp
-rVp
+kCM
 jZU
 prp
 bET
@@ -62817,7 +62825,7 @@ cDP
 cDP
 kqi
 bUM
-sch
+nRp
 sch
 sch
 bUM
