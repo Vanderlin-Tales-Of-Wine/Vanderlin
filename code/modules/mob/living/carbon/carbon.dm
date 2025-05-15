@@ -1393,7 +1393,7 @@
 
 /mob/living/carbon/get_lux_status()
 	. = ..()
-	if(!.)
+	if(. == LUX_DRAINED)
 		return .
 
 	if(dna?.species.name in RACES_PLAYER_LUXLESS)
