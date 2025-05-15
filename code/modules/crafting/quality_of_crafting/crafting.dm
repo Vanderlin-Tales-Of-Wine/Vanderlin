@@ -516,3 +516,18 @@
 	attacked_atom = /obj/item/natural/cloth
 	uses_attacked_atom = TRUE
 	subtypes_allowed = TRUE
+
+/datum/repeatable_crafting_recipe/crafting/manabloom_powder
+	name = "manabloom powder"
+	reagent_requirements = list()
+	tool_usage = list()
+	requirements = list(
+		/obj/item/reagent_containers/food/snacks/produce/manabloom = 1,
+	)
+	tool_usage = list(
+		/obj/item/weapon/hammer = list("starts to crush the manabloom", "start to crush the manabloom")
+	)
+	output = /obj/item/reagent_containers/powder/manabloom
+	attacked_atom = /obj/item/reagent_containers/food/snacks/produce/manabloom
+	starting_atom = /obj/item/weapon/hammer
+	uses_attacked_atom = FALSE
