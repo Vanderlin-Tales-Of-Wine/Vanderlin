@@ -2333,6 +2333,18 @@
 	},
 /turf/open/floor/blocks/stonered,
 /area/rogue/indoors/town/manor)
+"brF" = (
+/obj/machinery/light/fueled/wallfire/candle{
+	pixel_x = 32;
+	pixel_y = 0
+	},
+/obj/structure/table/wood/plain_alt,
+/obj/item/needle/thorn{
+	pixel_y = -3;
+	pixel_x = 15
+	},
+/turf/open/floor/tile/masonic/single,
+/area/rogue/indoors/town)
 "brP" = (
 /obj/item/clothing/face/spectacles,
 /obj/item/clothing/face/spectacles/golden,
@@ -2968,6 +2980,22 @@
 /obj/structure/bars/bent,
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/town/shop)
+"bLC" = (
+/obj/structure/table/wood/plain_alt,
+/obj/item/natural/fibers{
+	pixel_y = 3;
+	pixel_x = -1
+	},
+/obj/item/natural/fibers{
+	pixel_y = -5;
+	pixel_x = -5
+	},
+/obj/item/clothing/head/knitcap{
+	pixel_x = 17;
+	pixel_y = 5
+	},
+/turf/open/floor/tile/masonic/single,
+/area/rogue/indoors/town)
 "bLS" = (
 /obj/structure/fluff/wallclock{
 	pixel_y = -32
@@ -4833,6 +4861,22 @@
 /obj/item/recipe_book/underworld,
 /obj/item/reagent_containers/glass/mortar,
 /turf/open/floor/cobble,
+/area/rogue/indoors/town)
+"cXw" = (
+/obj/structure/rack/shelf/biggest,
+/obj/item/clothing/head/strawhat{
+	pixel_x = 5;
+	pixel_y = -6
+	},
+/obj/item/clothing/head/hatfur{
+	pixel_x = 8;
+	pixel_y = 4
+	},
+/obj/item/clothing/head/hatblu{
+	pixel_x = -6;
+	pixel_y = 9
+	},
+/turf/open/floor/tile/masonic/single,
 /area/rogue/indoors/town)
 "cYh" = (
 /turf/open/floor/metal/barograte,
@@ -7624,6 +7668,7 @@
 /area/rogue/outdoors/river)
 "eLO" = (
 /obj/structure/chair/bench/ultimacouch,
+/obj/effect/landmark/start/tailor_servant,
 /turf/open/floor/carpet/green,
 /area/rogue/indoors/town)
 "eLP" = (
@@ -9834,6 +9879,10 @@
 /obj/machinery/light/fueledstreet,
 /turf/open/floor/cobble,
 /area/rogue/outdoors/town)
+"gpm" = (
+/obj/structure/window/solid,
+/turf/open/floor/cobble,
+/area/rogue/indoors/town)
 "gpr" = (
 /obj/structure/fluff/railing/wood{
 	dir = 8;
@@ -12931,6 +12980,15 @@
 "iqh" = (
 /turf/closed/wall/mineral/wooddark/vertical,
 /area/rogue/indoors/town/smithy)
+"iqj" = (
+/obj/machinery/light/fueled/wallfire/candle{
+	pixel_y = -32
+	},
+/obj/effect/landmark/start/tailor_servant{
+	dir = 8
+	},
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/indoors/town)
 "irf" = (
 /obj/structure/flora/grass/bush_meagre,
 /turf/open/floor/dirt,
@@ -13579,6 +13637,10 @@
 	icon_state = "weird1"
 	},
 /area/rogue/indoors/town/magician)
+"iJF" = (
+/obj/structure/window/solid,
+/turf/closed/basic,
+/area/rogue/indoors/town)
 "iJI" = (
 /obj/structure/stairs,
 /turf/open/floor/wood,
@@ -20109,11 +20171,8 @@
 /turf/open/transparent/openspace,
 /area/rogue/indoors/town/clocktower)
 "mWR" = (
-/obj/structure/mannequin/male,
-/obj/machinery/light/fueled/wallfire/candle{
-	pixel_x = 16;
-	pixel_y = -32
-	},
+/obj/effect/landmark/start/tailor_servant,
+/obj/structure/chair/stool,
 /turf/open/floor/tile/masonic/single,
 /area/rogue/indoors/town)
 "mXk" = (
@@ -31940,23 +31999,7 @@
 /turf/closed/wall/mineral/roofwall/middle,
 /area/rogue/indoors/town/manor)
 "uQo" = (
-/obj/structure/rack/shelf/biggest,
-/obj/item/clothing/head/hatblu{
-	pixel_x = -6;
-	pixel_y = 9
-	},
-/obj/item/clothing/head/hatfur{
-	pixel_x = 8;
-	pixel_y = 4
-	},
-/obj/item/clothing/head/knitcap{
-	pixel_x = -7;
-	pixel_y = -3
-	},
-/obj/item/clothing/head/strawhat{
-	pixel_x = 5;
-	pixel_y = -6
-	},
+/obj/structure/mannequin/male,
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town)
 "uQu" = (
@@ -98478,11 +98521,11 @@ nlk
 nlk
 rnJ
 elp
+elp
 dtq
 dtq
 dtq
 dtq
-ehF
 lsl
 jdS
 elp
@@ -98674,6 +98717,7 @@ rnJ
 elp
 ehF
 ehF
+ehF
 elp
 elp
 ehF
@@ -98685,7 +98729,6 @@ bbB
 ett
 dtq
 ehF
-elp
 elp
 elp
 jvH
@@ -98874,6 +98917,7 @@ ivd
 qqE
 nlk
 ehF
+elp
 dtq
 dtq
 dtq
@@ -98887,7 +98931,6 @@ iGx
 iGx
 dtq
 ehF
-elp
 uSV
 elp
 oln
@@ -99076,6 +99119,7 @@ aoL
 xEm
 nlk
 ehF
+ehF
 dtq
 aLY
 oPy
@@ -99089,7 +99133,6 @@ iGx
 iGx
 dtq
 ehF
-elp
 elp
 elp
 fOL
@@ -99278,6 +99321,7 @@ iWg
 nlk
 rnJ
 elp
+ehF
 tOJ
 ocA
 ocA
@@ -99291,7 +99335,6 @@ iGx
 lja
 dtq
 bCJ
-lsl
 elp
 elp
 fOL
@@ -99478,7 +99521,8 @@ nlk
 rjm
 qqE
 aEX
-nlk
+rnJ
+rnJ
 elp
 kkI
 bLg
@@ -99493,7 +99537,6 @@ rqe
 hKR
 dtq
 ehF
-elp
 elp
 elp
 fOL
@@ -99680,7 +99723,8 @@ nlk
 aPs
 qqE
 uQo
-nlk
+cXw
+iJF
 elp
 dtq
 dtq
@@ -99695,7 +99739,6 @@ dtq
 dtq
 dtq
 ehF
-lsl
 lsl
 elp
 obe
@@ -99882,7 +99925,8 @@ fvJ
 pKx
 coU
 mWR
-nlk
+bLC
+gpm
 elp
 dtq
 aLY
@@ -99897,7 +99941,6 @@ rqe
 hKR
 dtq
 ehF
-lsl
 elp
 elp
 qcE
@@ -100083,9 +100126,10 @@ feg
 fvJ
 kmq
 coU
-kmq
-nlk
-lsl
+coU
+brF
+gpm
+ehF
 fhi
 ocA
 ocA
@@ -100099,7 +100143,6 @@ iGx
 lja
 dtq
 bCJ
-lsl
 elp
 elp
 fOL
@@ -100286,7 +100329,8 @@ fvJ
 pKx
 coU
 pKx
-nlk
+rnJ
+rnJ
 lsl
 dtq
 iWW
@@ -100301,7 +100345,6 @@ iGx
 iGx
 dtq
 ehF
-lsl
 hNk
 elp
 fOL
@@ -100490,6 +100533,7 @@ coU
 uJs
 nlk
 lsl
+ehF
 dtq
 dtq
 kkI
@@ -100503,7 +100547,6 @@ iGx
 iGx
 dtq
 ehF
-lsl
 elp
 elp
 fOL
@@ -100692,6 +100735,7 @@ eOu
 eOu
 rnJ
 ehF
+lsl
 cyv
 ehF
 ehF
@@ -100705,7 +100749,6 @@ nVP
 ett
 dtq
 ehF
-elp
 lsl
 elp
 qcE
@@ -100894,6 +100937,7 @@ elp
 elp
 elp
 elp
+elp
 lsl
 elp
 elp
@@ -100907,7 +100951,6 @@ dtq
 dtq
 dtq
 sBx
-elp
 lsl
 elp
 fOL
@@ -101097,6 +101140,7 @@ nOJ
 uSV
 elp
 elp
+elp
 ohB
 elp
 elp
@@ -101109,7 +101153,6 @@ elp
 sSw
 lsl
 tHF
-elp
 elp
 lsl
 qKb
@@ -138883,7 +138926,7 @@ jjT
 jjT
 jjT
 jjT
-acx
+jjT
 acx
 acx
 acx
@@ -139085,7 +139128,7 @@ iBK
 iBK
 iBK
 jjT
-acx
+jjT
 acx
 acx
 acx
@@ -139287,7 +139330,7 @@ cjt
 thu
 iBK
 iBK
-acx
+jjT
 acx
 acx
 acx
@@ -139489,7 +139532,7 @@ aJu
 iBK
 iBK
 iBK
-acx
+iBK
 acx
 acx
 acx
@@ -139691,7 +139734,7 @@ qEb
 iBK
 iBK
 iBK
-acx
+iBK
 acx
 acx
 acx
@@ -139878,7 +139921,7 @@ qEb
 fTE
 ocA
 vQq
-uGx
+iqj
 erd
 nDY
 erd
@@ -139893,7 +139936,7 @@ erd
 iBK
 iBK
 iBK
-acx
+iBK
 acx
 acx
 acx
@@ -140095,7 +140138,7 @@ cjt
 iBK
 iBK
 iBK
-acx
+iBK
 acx
 acx
 acx
@@ -140297,7 +140340,7 @@ aJu
 iBK
 iBK
 iBK
-acx
+iBK
 acx
 acx
 acx
@@ -140499,7 +140542,7 @@ qEb
 iBK
 iBK
 iBK
-acx
+iBK
 acx
 acx
 acx
@@ -140701,7 +140744,7 @@ erd
 iBK
 iBK
 iBK
-acx
+iBK
 acx
 acx
 acx
@@ -140903,7 +140946,7 @@ cjt
 thu
 iBK
 iBK
-acx
+hVd
 acx
 acx
 acx
@@ -141105,7 +141148,7 @@ hVd
 iBK
 iBK
 hVd
-acx
+hVd
 acx
 acx
 acx
@@ -141301,13 +141344,13 @@ acx
 hhO
 acx
 acx
-acx
-acx
 hVd
 hVd
 hVd
 hVd
-acx
+hVd
+hVd
+hVd
 acx
 acx
 acx

@@ -392,6 +392,10 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	name = "Innkeepers Son"
 	icon_state = "arrow"
 
+/obj/effect/landmark/start/tailor_servant
+	name = "Needle Servant"
+	icon_state = "arrow"
+
 /obj/effect/landmark/start/evilskeleton	// Trying to make EVIL SKELTON actually spawn
 	name = "Skeleton"
 	icon = 'icons/mob/actions/roguespells.dmi'
