@@ -464,6 +464,8 @@ GLOBAL_LIST_INIT(featured_stats, list(
 	return b["count"] - a["count"]
 
 /proc/record_featured_stat(stat_category, mob/living/user, increment = 1)
+	if(SSticker.current_state == GAME_STATE_FINISHED)
+		return
 	if(!stat_category || !user?.real_name || !GLOB.featured_stats[stat_category])
 		return
 
@@ -490,6 +492,8 @@ GLOBAL_LIST_INIT(featured_stats, list(
 	stat_data["entries"][key] = (stat_data["entries"][key] || 0) + increment
 
 /proc/record_featured_object_stat(stat_category, object_name, increment = 1)
+	if(SSticker.current_state == GAME_STATE_FINISHED)
+		return
 	if(!stat_category || !object_name || !GLOB.featured_stats[stat_category])
 		return
 
