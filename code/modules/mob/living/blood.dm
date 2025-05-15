@@ -227,12 +227,14 @@
 	return GLOB.blood_types[/datum/blood_type/animal]
 
 /mob/living/proc/get_lux_status()
-	var/datum/blood_type/blood = get_blood_type()
+
+	. = LUX_NO_LUX
 
 	if(has_status_effect(/datum/status_effect/buff/lux_drained))
 		return LUX_DRAINED
 
-	return blood.contains_lux
+	if(dna?.species.name in RACES_PLAYER_LUXLESS)
+		return LUX_HAS_LUX
 
 /mob/living/carbon/human/get_blood_type()
 	RETURN_TYPE(/datum/blood_type)
