@@ -472,7 +472,7 @@ GLOBAL_LIST_INIT(featured_stats, list(
 	var/list/stat_data = GLOB.featured_stats[stat_category]
 	var/job_title = ""
 
-	if(user.mind?.assigned_role && !is_unassigned_job(user.mind.assigned_role))
+	if(user.mind?.assigned_role.title != "Unassigned" && !is_unassigned_job(user.mind?.assigned_role))
 		if(user.gender == FEMALE && user.mind.assigned_role.f_title)
 			job_title = " ([user.mind.assigned_role.f_title])"
 		else
