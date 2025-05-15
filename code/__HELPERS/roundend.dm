@@ -431,7 +431,7 @@
 		parts += "<div style='text-align: center; font-size: 1.2em;'>GODS' CHAMPIONS:</div>"
 		parts += "<hr class='paneldivider'>"
 
-	// Process all minds with personal objectives
+	var/list/successful_champions = list()
 	for(var/datum/mind/mind as anything in GLOB.personal_objective_minds)
 		if(!mind.personal_objectives || !mind.personal_objectives.len)
 			continue
@@ -443,10 +443,15 @@
 				any_success = TRUE
 				break
 
-		if(!any_success)
+		if(any_success)
+			successful_champions += mind
+		else
 			failed_chosen++
-			continue
 
+	var/last_index = length(successful_champions)
+	var/current_index = 0
+	for(var/datum/mind/mind as anything in successful_champions)
+		current_index++
 		showed_any_champions = TRUE
 		var/name_with_title = mind.current ? printplayer(mind) : "<b>Unknown Champion</b>"
 		parts += name_with_title
@@ -457,6 +462,8 @@
 			parts += "<B>Goal #[obj_count]</B>: [objective.explanation_text] - [result]"
 			obj_count++
 
+		if(current_index < last_index)
+			parts += "<br>"
 		CHECK_TICK
 
 	if(!has_any_objectives)
