@@ -229,9 +229,6 @@
 /mob/living/proc/get_lux_status()
 	. = LUX_NO_LUX
 
-	if(has_status_effect(/datum/status_effect/buff/lux_drained))
-		return LUX_DRAINED
-
 /mob/living/carbon/human/get_blood_type()
 	RETURN_TYPE(/datum/blood_type)
 	if(HAS_TRAIT(src, TRAIT_HUSK) || isnull(dna))

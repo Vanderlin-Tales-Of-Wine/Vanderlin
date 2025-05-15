@@ -1393,8 +1393,9 @@
 
 /mob/living/carbon/get_lux_status()
 	. = ..()
-	if(. == LUX_DRAINED)
-		return .
+
+	if(has_status_effect(/datum/status_effect/buff/lux_drained))
+		return LUX_DRAINED
 
 	if(dna?.species.name in RACES_PLAYER_LUXLESS)
 		return LUX_HAS_LUX
