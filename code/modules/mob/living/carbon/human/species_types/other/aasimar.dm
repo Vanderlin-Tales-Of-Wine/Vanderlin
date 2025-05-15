@@ -7,7 +7,7 @@
 //	( + Pain Resist )
 //	( + Bleed Resist )
 
-/mob/living/carbon/human/species/aasimar
+/mob/living/carbon/humanoid/species/aasimar
 	race = /datum/species/aasimar
 
 /datum/species/aasimar

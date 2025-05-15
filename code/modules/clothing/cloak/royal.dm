@@ -47,7 +47,7 @@
 	. = ..()
 	AddComponent(/datum/component/storage/concrete/grid/cloak/lord)
 
-/obj/item/clothing/cloak/lordcloak/dropped(mob/living/carbon/human/user)
+/obj/item/clothing/cloak/lordcloak/dropped(mob/living/carbon/humanoid/user)
 	..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	if(STR)

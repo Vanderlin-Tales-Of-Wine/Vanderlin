@@ -212,7 +212,7 @@ SUBSYSTEM_DEF(migrants)
 
 	SSjob.EquipRank(character, job, character.client)
 	SSticker.minds += character.mind
-	var/mob/living/carbon/human/humanc
+	var/mob/living/carbon/humanoid/humanc
 	if(ishuman(character))
 		humanc = character	//Let's retypecast the var to be human,
 
@@ -258,7 +258,7 @@ SUBSYSTEM_DEF(migrants)
 		hugboxify_for_class_selection(character)
 	else
 		if(GLOB.adventurer_hugbox_duration)
-			addtimer(CALLBACK(character, TYPE_PROC_REF(/mob/living/carbon/human, adv_hugboxing_start)), 1)
+			addtimer(CALLBACK(character, TYPE_PROC_REF(/mob/living/carbon/humanoid, adv_hugboxing_start)), 1)
 
 /datum/controller/subsystem/migrants/proc/get_priority_players(list/players, role_type)
 	var/list/priority = list()
@@ -419,16 +419,16 @@ SUBSYSTEM_DEF(migrants)
 	landmarks = shuffle(landmarks)
 	return get_turf(pick(landmarks))
 
-/proc/hugboxify_for_class_selection(mob/living/carbon/human/character)
+/proc/hugboxify_for_class_selection(mob/living/carbon/humanoid/character)
 	character.advsetup = 1
 	character.invisibility = INVISIBILITY_MAXIMUM
 	character.become_blind("advsetup")
 
 	if(GLOB.adventurer_hugbox_duration)
 		///FOR SOME FUCKING REASON THIS REFUSED TO WORK WITHOUT A FUCKING TIMER IT JUST FUCKED SHIT UP
-		addtimer(CALLBACK(character, TYPE_PROC_REF(/mob/living/carbon/human, adv_hugboxing_start)), 1)
+		addtimer(CALLBACK(character, TYPE_PROC_REF(/mob/living/carbon/humanoid, adv_hugboxing_start)), 1)
 
-/proc/grant_lit_torch(mob/living/carbon/human/character)
+/proc/grant_lit_torch(mob/living/carbon/humanoid/character)
 	var/obj/item/flashlight/flare/torch/torch = new()
 	torch.spark_act()
 	character.put_in_hands(torch, forced = TRUE)

@@ -101,7 +101,7 @@
 /obj/item/gun/ballistic/revolver/grenadelauncher/pistol/MiddleClick(mob/user, params)
 	. = ..()
 	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+		var/mob/living/carbon/humanoid/H = user
 		if(rod)
 			H.put_in_hands(rod)
 			rod = null

@@ -347,7 +347,7 @@
 		items += wear_neck
 	return items
 
-/mob/living/carbon/human/get_equipped_items(include_pockets = FALSE)
+/mob/living/carbon/humanoid/get_equipped_items(include_pockets = FALSE)
 	var/list/items = ..()
 	if(belt)
 		items += belt
@@ -488,7 +488,7 @@
 		hud_used.build_hand_slots()
 
 
-/mob/living/carbon/human/change_number_of_hands(amt)
+/mob/living/carbon/humanoid/change_number_of_hands(amt)
 	var/old_limbs = held_items.len
 	if(amt < old_limbs)
 		for(var/i in hand_bodyparts.len to amt step -1)

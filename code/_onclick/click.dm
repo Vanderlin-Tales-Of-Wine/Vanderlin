@@ -375,7 +375,7 @@
 
 /mob/proc/aftermiss()
 	if(ishuman(src))
-		var/mob/living/carbon/human/H = src
+		var/mob/living/carbon/humanoid/H = src
 		H.adjust_stamina(used_intent.misscost)
 
 //Is the atom obscured by a PREVENT_CLICK_UNDER_1 object above it

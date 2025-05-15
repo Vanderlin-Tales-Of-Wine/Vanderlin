@@ -14,7 +14,7 @@
 	restraint_check = FALSE
 	emote_type = EMOTE_VISIBLE
 
-/mob/living/carbon/human/verb/emote_pray()
+/mob/living/carbon/humanoid/verb/emote_pray()
 	set name = "Pray"
 	set category = "Emotes"
 
@@ -153,7 +153,7 @@
 	key = "attnwhistle"
 	message = "whistles for attention!"
 	emote_type = EMOTE_AUDIBLE
-/mob/living/carbon/human/verb/emote_attnwhistle()
+/mob/living/carbon/humanoid/verb/emote_attnwhistle()
 	set name = "Attnwhistle"
 	set category = "Noises"
 	emote("attnwhistle", intentional = TRUE)
@@ -197,7 +197,7 @@
 	message_param = "bows to %t."
 	restraint_check = TRUE
 	emote_type = EMOTE_VISIBLE
-/mob/living/carbon/human/verb/emote_bow()
+/mob/living/carbon/humanoid/verb/emote_bow()
 	set name = "Bow"
 	set category = "Emotes"
 	emote("bow", intentional = TRUE)
@@ -209,7 +209,7 @@
 	message_muffled = "makes a muffled noise."
 	emote_type = EMOTE_AUDIBLE
 
-/mob/living/carbon/human/verb/emote_burp()
+/mob/living/carbon/humanoid/verb/emote_burp()
 	set name = "Burp"
 	set category = "Noises"
 	emote("burp", intentional = TRUE)
@@ -223,7 +223,7 @@
 	message_muffled = "makes a muffled noise."
 	emote_type = EMOTE_AUDIBLE
 
-/mob/living/carbon/human/verb/emote_chuckle()
+/mob/living/carbon/humanoid/verb/emote_chuckle()
 	set name = "Chuckle"
 	set category = "Noises"
 	emote("chuckle", intentional = TRUE)
@@ -234,7 +234,7 @@
 	message = "chokes!"
 	emote_type = EMOTE_AUDIBLE
 	ignore_silent = TRUE
-/mob/living/carbon/human/verb/emote_choke()
+/mob/living/carbon/humanoid/verb/emote_choke()
 	set name = "Choke"
 	set category = "Noises"
 	emote("choke", intentional = TRUE)
@@ -245,7 +245,7 @@
 	message = "crosses their arms."
 	restraint_check = TRUE
 	emote_type = EMOTE_VISIBLE
-/mob/living/carbon/human/verb/emote_crossarms()
+/mob/living/carbon/humanoid/verb/emote_crossarms()
 	set name = "Crossarms"
 	set category = "Emotes"
 	emote("crossarms", intentional = TRUE)
@@ -275,7 +275,7 @@
 	message_muffled = "makes a muffled noise."
 	emote_type = EMOTE_AUDIBLE
 
-/mob/living/carbon/human/verb/emote_cough()
+/mob/living/carbon/humanoid/verb/emote_cough()
 	set name = "Cough"
 	set category = "Noises"
 	emote("cough", intentional = TRUE)
@@ -287,7 +287,7 @@
 	message_muffled = "makes a muffled noise."
 	emote_type = EMOTE_AUDIBLE
 
-/mob/living/carbon/human/verb/emote_clearthroat()
+/mob/living/carbon/humanoid/verb/emote_clearthroat()
 	set name = "Clearthroat"
 	set category = "Noises"
 	emote("clearthroat", intentional = TRUE)
@@ -299,7 +299,7 @@
 	message = "dances."
 	restraint_check = TRUE
 	emote_type = EMOTE_VISIBLE
-/mob/living/carbon/human/verb/emote_dance()
+/mob/living/carbon/humanoid/verb/emote_dance()
 	set name = "Dance"
 	set category = "Emotes"
 	emote("dance", intentional = TRUE)
@@ -338,7 +338,7 @@
 	key_third_person = "drools"
 	message = "drools."
 	emote_type = EMOTE_VISIBLE
-/mob/living/carbon/human/verb/emote_drool()
+/mob/living/carbon/humanoid/verb/emote_drool()
 	set name = "Drool"
 	set category = "Emotes"
 	emote("drool", intentional = TRUE)
@@ -363,7 +363,7 @@
 	key_third_person = "faints"
 	message = "faints."
 	emote_type = EMOTE_VISIBLE
-/mob/living/carbon/human/verb/emote_faint()
+/mob/living/carbon/humanoid/verb/emote_faint()
 	set name = "Faint"
 	set category = "Emotes"
 	emote("faint", intentional = TRUE)
@@ -388,7 +388,7 @@
 	key_third_person = "frowns"
 	message = "frowns."
 	emote_type = EMOTE_VISIBLE
-/mob/living/carbon/human/verb/emote_frown()
+/mob/living/carbon/humanoid/verb/emote_frown()
 	set name = "Frown"
 	set category = "Emotes"
 	emote("frown", intentional = TRUE)
@@ -406,7 +406,7 @@
 	message = "gags."
 	emote_type = EMOTE_AUDIBLE
 	ignore_silent = TRUE
-/mob/living/carbon/human/verb/emote_gag()
+/mob/living/carbon/humanoid/verb/emote_gag()
 	set name = "Gag"
 	set category = "Noises"
 	emote("gag", intentional = TRUE)
@@ -417,7 +417,7 @@
 	message = "gasps!"
 	emote_type = EMOTE_AUDIBLE
 	stat_allowed = UNCONSCIOUS
-/mob/living/carbon/human/verb/emote_gasp()
+/mob/living/carbon/humanoid/verb/emote_gasp()
 	set name = "Gasp"
 	set category = "Noises"
 	emote("gasp", intentional = TRUE)
@@ -434,7 +434,7 @@
 	message = "giggles."
 	message_mime = "giggles silently!"
 	emote_type = EMOTE_AUDIBLE
-/mob/living/carbon/human/verb/emote_giggle()
+/mob/living/carbon/humanoid/verb/emote_giggle()
 	set name = "Giggle"
 	set category = "Noises"
 	emote("giggle", intentional = TRUE)
@@ -451,7 +451,7 @@
 	message = "glares."
 	message_param = "glares at %t."
 	emote_type = EMOTE_VISIBLE
-/mob/living/carbon/human/verb/emote_glare()
+/mob/living/carbon/humanoid/verb/emote_glare()
 	set name = "Glare"
 	set category = "Emotes"
 	emote("glare", intentional = TRUE)
@@ -462,7 +462,7 @@
 	message = "grins."
 	emote_type = EMOTE_VISIBLE
 
-/mob/living/carbon/human/verb/emote_grin()
+/mob/living/carbon/humanoid/verb/emote_grin()
 	set name = "Grin"
 	set category = "Emotes"
 	emote("grin", intentional = TRUE)
@@ -474,7 +474,7 @@
 	message_muffled = "makes a muffled groan."
 	emote_type = EMOTE_AUDIBLE
 
-/mob/living/carbon/human/verb/emote_groan()
+/mob/living/carbon/humanoid/verb/emote_groan()
 	set name = "Groan"
 	set category = "Noises"
 	emote("groan", intentional = TRUE)
@@ -484,7 +484,7 @@
 	key_third_person = "grimaces"
 	message = "grimaces."
 	emote_type = EMOTE_VISIBLE
-/mob/living/carbon/human/verb/emote_grimace()
+/mob/living/carbon/humanoid/verb/emote_grimace()
 	set name = "Grimace"
 	set category = "Emotes"
 	emote("grimace", intentional = TRUE)
@@ -507,7 +507,7 @@
 	key_third_person = "hmms"
 	message = "hmms."
 	emote_type = EMOTE_AUDIBLE
-/mob/living/carbon/human/verb/emote_hmm()
+/mob/living/carbon/humanoid/verb/emote_hmm()
 	set name = "Hmm"
 	set category = "Noises"
 	emote("hmm", intentional = TRUE)
@@ -525,7 +525,7 @@
 	emote_type = EMOTE_AUDIBLE
 	nomsg = TRUE
 
-/mob/living/carbon/human/verb/emote_huh()
+/mob/living/carbon/humanoid/verb/emote_huh()
 	set name = "Huh"
 	set category = "Noises"
 	emote("huh", intentional = TRUE)
@@ -537,7 +537,7 @@
 	message_muffled = "makes a muffled hum."
 	emote_type = EMOTE_AUDIBLE
 
-/mob/living/carbon/human/verb/emote_hum()
+/mob/living/carbon/humanoid/verb/emote_hum()
 	set name = "Hum"
 	set category = "Noises"
 	emote("hum", intentional = TRUE)
@@ -550,7 +550,7 @@
 	emote_type = EMOTE_VISIBLE
 	restraint_check = TRUE
 
-/mob/living/carbon/human/verb/emote_hug()
+/mob/living/carbon/humanoid/verb/emote_hug()
 	set name = "Hug"
 	set category = "Emotes"
 	emote("hug", intentional = TRUE, targetted = TRUE)
@@ -558,7 +558,7 @@
 /datum/emote/living/hug/can_run_emote(mob/living/user, status_check = TRUE , intentional)
 	. = ..()
 	if(HAS_TRAIT(user, TRAIT_EORA_CURSE))
-		var/mob/living/carbon/human/H = user
+		var/mob/living/carbon/humanoid/H = user
 		to_chat(H, "<span class='warning'>The idea repulses me!</span>")
 		H.cursed_freak_out()
 		return FALSE
@@ -568,7 +568,7 @@
 	if(!user || !target)
 		return
 	if(ishuman(target))
-		var/mob/living/carbon/human/H = target
+		var/mob/living/carbon/humanoid/H = target
 		// cursed is the one being hugged
 		if(HAS_TRAIT(H, TRAIT_EORA_CURSE))
 			to_chat(H, "<span class='warning'>I feel unexplicably repelled!</span>")
@@ -617,12 +617,12 @@
 /datum/emote/living/kiss/can_run_emote(mob/living/user, status_check = TRUE , intentional)
 	. = ..()
 	if(HAS_TRAIT(user, TRAIT_EORA_CURSE))
-		var/mob/living/carbon/human/H = user
+		var/mob/living/carbon/humanoid/H = user
 		to_chat(H, "<span class='warning'>The idea repulses me!</span>")
 		H.cursed_freak_out()
 		return FALSE
 
-/mob/living/carbon/human/verb/emote_kiss()
+/mob/living/carbon/humanoid/verb/emote_kiss()
 	set name = "Kiss"
 	set category = "Emotes"
 	emote("kiss", intentional = TRUE, targetted = TRUE)
@@ -633,8 +633,8 @@
 	if(!user || !target)
 		return
 	if(ishuman(user) && ishuman(target))
-		var/mob/living/carbon/human/H = user
-		var/mob/living/carbon/human/E = target
+		var/mob/living/carbon/humanoid/H = user
+		var/mob/living/carbon/humanoid/E = target
 
 		// cursed is the one being kissed
 		if(HAS_TRAIT(E, TRAIT_EORA_CURSE))
@@ -693,7 +693,7 @@
 	if(. && user.mind)
 		GLOB.vanderlin_round_stats[STATS_LAUGHS_MADE]++
 
-/mob/living/carbon/human/verb/emote_laugh()
+/mob/living/carbon/humanoid/verb/emote_laugh()
 	set name = "Laugh"
 	set category = "Noises"
 	emote("laugh", intentional = TRUE)
@@ -727,7 +727,7 @@
 	restraint_check = FALSE
 	emote_type = EMOTE_VISIBLE
 
-/mob/living/carbon/human/verb/emote_meditate()
+/mob/living/carbon/humanoid/verb/emote_meditate()
 	set name = "Meditate"
 	set hidden = 1
 
@@ -756,7 +756,7 @@
 	message = "nods."
 	message_param = "nods at %t."
 	emote_type = EMOTE_VISIBLE
-/mob/living/carbon/human/verb/emote_nod()
+/mob/living/carbon/humanoid/verb/emote_nod()
 	set name = "Nod"
 	set category = "Emotes"
 	emote("nod", intentional = TRUE)
@@ -777,10 +777,10 @@
 	if(!user || !target)
 		return
 	if(ishuman(target))
-		var/mob/living/carbon/human/H = target
+		var/mob/living/carbon/humanoid/H = target
 		H.flash_fullscreen("redflash1")
 
-/mob/living/carbon/human/verb/emote_pinch()
+/mob/living/carbon/humanoid/verb/emote_pinch()
 	set name = "Pinch"
 	set category = "Emotes"
 	emote("pinch", intentional = TRUE, targetted = TRUE)
@@ -794,7 +794,7 @@
 /datum/emote/living/point/run_emote(mob/user, params, type_override, intentional)
 	message_param = initial(message_param) // reset
 	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+		var/mob/living/carbon/humanoid/H = user
 		if(H.usable_hands == 0)
 			if(H.usable_legs != 0)
 				message_param = "tries to point at %t with a leg, <span class='danger'>falling down</span> in the process!"
@@ -819,7 +819,7 @@
 /datum/emote/living/scream/painscream/run_emote(mob/user, params, type_override, intentional, targetted)
 	. = ..()
 	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+		var/mob/living/carbon/humanoid/H = user
 		if(H.has_flaw(/datum/charflaw/addiction/masochist))
 			H.sate_addiction()
 
@@ -832,7 +832,7 @@
 /datum/emote/living/screan/agony/run_emote(mob/user, params, type_override, intentional, targetted)
 	. = ..()
 	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+		var/mob/living/carbon/humanoid/H = user
 		if(H.has_flaw(/datum/charflaw/addiction/masochist))
 			H.sate_addiction()
 
@@ -845,7 +845,7 @@
 /datum/emote/living/scream/firescream/run_emote(mob/user, params, type_override, intentional, targetted)
 	. = ..()
 	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+		var/mob/living/carbon/humanoid/H = user
 		if(H.has_flaw(/datum/charflaw/addiction/masochist))
 			H.sate_addiction()
 
@@ -894,7 +894,7 @@
 	if(. && user.mind)
 		GLOB.vanderlin_round_stats[STATS_WARCRIES]++
 
-/mob/living/carbon/human/verb/emote_rage()
+/mob/living/carbon/humanoid/verb/emote_rage()
 	set name = "Rage"
 	set category = "Noises"
 	emote("rage", intentional = TRUE)
@@ -906,13 +906,13 @@
 	message = "spits on the ground."
 	message_param = "spits on %t."
 	emote_type = EMOTE_VISIBLE
-/mob/living/carbon/human/verb/emote_spit()
+/mob/living/carbon/humanoid/verb/emote_spit()
 	set name = "Spit"
 	set category = "Emotes"
 	emote("spit", intentional = TRUE, targetted = TRUE)
 /datum/emote/living/spit/run_emote(mob/user, params, type_override, intentional)
 	message_param = initial(message_param) // reset
-	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/humanoid/H = user
 	if(ishuman(user))
 		if(H.mouth)
 			if(H.mouth.spitoutmouth)
@@ -944,8 +944,8 @@
 	if(!user || !target)
 		return
 	if(ishuman(target) && ishuman(user))
-		var/mob/living/carbon/human/H = user
-		var/mob/living/carbon/human/E = target
+		var/mob/living/carbon/humanoid/H = user
+		var/mob/living/carbon/humanoid/E = target
 		if(H.zone_selected == BODY_ZONE_PRECISE_GROIN)
 		// anti pedophile logging
 			var/log_msg
@@ -960,12 +960,12 @@
 /datum/emote/living/slap/run_emote(mob/user, params, type_override, intentional)
 	message_param = initial(message_param) // reset
 	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+		var/mob/living/carbon/humanoid/H = user
 		if(H.zone_selected == BODY_ZONE_PRECISE_GROIN)
 			message_param = "slaps %t on the ass!"
 
 	..()
-/mob/living/carbon/human/verb/emote_slap()
+/mob/living/carbon/humanoid/verb/emote_slap()
 	set name = "Slap"
 	set category = "Emotes"
 	emote("slap", intentional = TRUE, targetted = TRUE)
@@ -975,7 +975,7 @@
 	if(!user || !target)
 		return
 	if(ishuman(target))
-		var/mob/living/carbon/human/H = target
+		var/mob/living/carbon/humanoid/H = target
 		H.flash_fullscreen("redflash3")
 		H.AdjustSleeping(-50)
 		playsound(target.loc, pick('sound/foley/slap (1).ogg','sound/foley/slap (2).ogg'), 50, FALSE, -1)
@@ -988,7 +988,7 @@
 	message_mime = "acts out a scream!"
 	emote_type = EMOTE_AUDIBLE
 
-/mob/living/carbon/human/verb/emote_scream()
+/mob/living/carbon/humanoid/verb/emote_scream()
 	set name = "Scream"
 	set category = "Noises"
 	emote("scream", intentional = TRUE)
@@ -1018,7 +1018,7 @@
 	key_third_person = "shakeshead"
 	message = "shakes their head."
 	emote_type = EMOTE_VISIBLE
-/mob/living/carbon/human/verb/emote_shakehead()
+/mob/living/carbon/humanoid/verb/emote_shakehead()
 	set name = "Shakehead"
 	set category = "Emotes"
 	emote("shakehead", intentional = TRUE)
@@ -1028,7 +1028,7 @@
 	key_third_person = "shiver"
 	message = "shivers."
 	emote_type = EMOTE_VISIBLE
-/mob/living/carbon/human/verb/emote_shiver()
+/mob/living/carbon/humanoid/verb/emote_shiver()
 	set name = "Shiver"
 	set category = "Emotes"
 	emote("shiver", intentional = TRUE)
@@ -1040,7 +1040,7 @@
 	message_muffled = "makes a muffled sigh."
 	emote_type = EMOTE_AUDIBLE
 
-/mob/living/carbon/human/verb/emote_sigh()
+/mob/living/carbon/humanoid/verb/emote_sigh()
 	set name = "Sigh"
 	set category = "Noises"
 	emote("sigh", intentional = TRUE)
@@ -1082,7 +1082,7 @@
 	message_muffled = "makes a muffled shh."
 	emote_type = EMOTE_AUDIBLE
 
-/mob/living/carbon/human/verb/emote_shh()
+/mob/living/carbon/humanoid/verb/emote_shh()
 	set name = "Shh"
 	set category = "Noises"
 	emote("shh", intentional = TRUE)
@@ -1103,7 +1103,7 @@
 	key_third_person = "smiles"
 	message = "smiles."
 	emote_type = EMOTE_VISIBLE
-/mob/living/carbon/human/verb/emote_smile()
+/mob/living/carbon/humanoid/verb/emote_smile()
 	set name = "Smile"
 	set category = "Emotes"
 	emote("smile", intentional = TRUE)
@@ -1130,7 +1130,7 @@
 	key = "twitch_s"
 	message = "twitches."
 	stat_allowed = UNCONSCIOUS
-	mob_type_ignore_stat_typecache = list(/mob/living/carbon/human)
+	mob_type_ignore_stat_typecache = list(/mob/living/carbon/humanoid)
 
 // ............... U ..................
 
@@ -1156,7 +1156,7 @@
 	message_muffled = "makes a muffled whimper."
 	message_mime = "appears hurt."
 
-/mob/living/carbon/human/verb/emote_whimper()
+/mob/living/carbon/humanoid/verb/emote_whimper()
 	set name = "Whimper"
 	set category = "Noises"
 	emote("whimper", intentional = TRUE)
@@ -1168,7 +1168,7 @@
 	message_muffled = "makes a muffled noise."
 	emote_type = EMOTE_AUDIBLE
 
-/mob/living/carbon/human/verb/emote_whistle()
+/mob/living/carbon/humanoid/verb/emote_whistle()
 	set name = "Whistle"
 	set category = "Noises"
 	emote("whistle", intentional = TRUE)
@@ -1200,7 +1200,7 @@
 	message_muffled = "makes a muffled yawn."
 	emote_type = EMOTE_AUDIBLE
 
-/mob/living/carbon/human/verb/emote_yawn()
+/mob/living/carbon/humanoid/verb/emote_yawn()
 	set name = "Yawn"
 	set category = "Noises"
 	emote("yawn", intentional = TRUE)

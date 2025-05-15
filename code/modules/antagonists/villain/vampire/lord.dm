@@ -32,12 +32,12 @@
 	. = ..()
 	portal = new()
 	owner.current.AddSpell(portal)
-	addtimer(CALLBACK(owner.current, TYPE_PROC_REF(/mob/living/carbon/human, choose_name_popup), "[name]"), 5 SECONDS)
+	addtimer(CALLBACK(owner.current, TYPE_PROC_REF(/mob/living/carbon/humanoid, choose_name_popup), "[name]"), 5 SECONDS)
 	vampire.grant_undead_eyes()
 
 /datum/antagonist/vampire/lord/after_gain()
-	owner.current.verbs |= /mob/living/carbon/human/proc/demand_submission
-	owner.current.verbs |= /mob/living/carbon/human/proc/punish_spawn
+	owner.current.verbs |= /mob/living/carbon/humanoid/proc/demand_submission
+	owner.current.verbs |= /mob/living/carbon/humanoid/proc/punish_spawn
 
 /datum/antagonist/vampire/lord/on_removal()
 	if(!isnull(batform))
@@ -48,8 +48,8 @@
 		owner.current.RemoveSpell(portal)
 		QDEL_NULL(portal)
 
-	owner.current.verbs -= /mob/living/carbon/human/proc/demand_submission
-	owner.current.verbs -= /mob/living/carbon/human/proc/punish_spawn
+	owner.current.verbs -= /mob/living/carbon/humanoid/proc/demand_submission
+	owner.current.verbs -= /mob/living/carbon/humanoid/proc/punish_spawn
 
 	. = ..()
 
@@ -71,7 +71,7 @@
 		owner.person_knows_me(MF)
 
 
-	var/mob/living/carbon/human/H = owner.current
+	var/mob/living/carbon/humanoid/H = owner.current
 	H.equipOutfit(/datum/outfit/job/vamplord)
 	H.set_patron(/datum/patron/godless)
 
@@ -84,7 +84,7 @@
 	. = ..()
 
 /datum/antagonist/vampire/lord/exposed_to_sunlight()
-	var/mob/living/carbon/human/H = owner.current
+	var/mob/living/carbon/humanoid/H = owner.current
 	to_chat(H, span_warning("ASTRATA spurns me! I must get out of Her rays!")) // VLord is more punished for daylight excursions.
 	var/turf/N = H.loc
 	if(N.can_see_sky())
@@ -102,7 +102,7 @@
 /datum/antagonist/vampire/lord/move_to_spawnpoint()
 	owner.current.forceMove(pick(GLOB.vlord_starts))
 
-/datum/outfit/job/vamplord/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/vamplord/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	H.mind.adjust_skillrank(/datum/skill/magic/blood, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 5, TRUE)
@@ -125,7 +125,7 @@
 /*------VERBS-----*/
 
 // NEW VERBS
-/mob/living/carbon/human/proc/demand_submission()
+/mob/living/carbon/humanoid/proc/demand_submission()
 	set name = "Demand Submission"
 	set category = "VAMPIRE"
 	if(SSmapping.retainer.king_submitted)
@@ -149,7 +149,7 @@
 			to_chat(ruler, span_boldnotice("I refuse!"))
 			to_chat(src, span_boldnotice("[p_they(TRUE)] refuse[ruler.p_s()]!"))
 
-/mob/living/carbon/human/proc/punish_spawn()
+/mob/living/carbon/humanoid/proc/punish_spawn()
 	set name = "Punish Minion"
 	set category = "VAMPIRE"
 
@@ -162,7 +162,7 @@
 	var/name_choice = input(src, "Who to punish?", "PUNISHMENT") as null|anything in possible
 	if(!name_choice)
 		return
-	var/mob/living/carbon/human/choice = possible[name_choice]
+	var/mob/living/carbon/humanoid/choice = possible[name_choice]
 	if(!choice || QDELETED(choice))
 		return
 	var/punishmentlevels = list("Pause", "Pain", "DESTROY")

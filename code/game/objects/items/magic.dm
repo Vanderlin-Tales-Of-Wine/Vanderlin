@@ -44,7 +44,7 @@
 	if(!user.mind || !user.mind.do_i_know(name=input))
 		to_chat(user, "<span class='warning'>I don't know anyone by that name.</span>")
 		return
-	for(var/mob/living/carbon/human/HL in GLOB.human_list)
+	for(var/mob/living/carbon/humanoid/HL in GLOB.human_list)
 		if(HL.real_name == input)
 			var/turf/T = get_turf(HL)
 			if(!T)

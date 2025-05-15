@@ -28,7 +28,7 @@
 /datum/antagonist/prebel/on_gain()
 	. = ..()
 	owner.special_role = ROLE_PREBEL
-	var/mob/living/carbon/human/H = owner.current
+	var/mob/living/carbon/humanoid/H = owner.current
 	H.cmode_music = 'sound/music/cmode/antag/CombatSausageMaker.ogg'
 	H.add_stress(/datum/stressevent/prebel)
 	ADD_TRAIT(H, TRAIT_VILLAIN, TRAIT_GENERIC)
@@ -122,10 +122,10 @@
 	if(inputty)
 		user.say(inputty, forced = "spell")
 		var/datum/antagonist/prebel/PR = user.mind.has_antag_datum(/datum/antagonist/prebel)
-		for(var/mob/living/carbon/human/L in get_hearers_in_view(6, get_turf(user)))
-			addtimer(CALLBACK(L,TYPE_PROC_REF(/mob/living/carbon/human, rev_ask), user,PR,inputty),1)
+		for(var/mob/living/carbon/humanoid/L in get_hearers_in_view(6, get_turf(user)))
+			addtimer(CALLBACK(L,TYPE_PROC_REF(/mob/living/carbon/humanoid, rev_ask), user,PR,inputty),1)
 
-/mob/living/carbon/human/proc/rev_ask(mob/living/carbon/human/guy,datum/antagonist/prebel/mind_datum,offer)
+/mob/living/carbon/humanoid/proc/rev_ask(mob/living/carbon/humanoid/guy,datum/antagonist/prebel/mind_datum,offer)
 	if(!guy || !mind_datum || !offer)
 		return
 	if(!mind)

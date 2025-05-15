@@ -48,7 +48,7 @@
 
 /datum/objective/mock/noble/on_mock_used(datum/source, mob/living/victim)
 	. = ..()
-	var/mob/living/carbon/human/human_victim = victim
+	var/mob/living/carbon/humanoid/human_victim = victim
 	if(!istype(human_victim) || human_victim.stat == DEAD || human_victim == source)
 		return
 

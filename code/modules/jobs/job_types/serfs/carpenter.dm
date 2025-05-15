@@ -19,7 +19,7 @@
 /datum/outfit/job/carpenter
 	job_bitflag = BITFLAG_CONSTRUCTOR
 
-/datum/outfit/job/carpenter/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/carpenter/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)

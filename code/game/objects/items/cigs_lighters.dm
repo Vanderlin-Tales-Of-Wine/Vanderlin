@@ -599,7 +599,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 				user.visible_message("<span class='notice'>Without even breaking stride, [user] flips open and lights [src] in one smooth movement.</span>", "<span class='notice'>Without even breaking stride, you flip open and light [src] in one smooth movement.</span>")
 			else
 				var/prot = FALSE
-				var/mob/living/carbon/human/H = user
+				var/mob/living/carbon/humanoid/H = user
 
 				if(istype(H) && H.gloves)
 					var/obj/item/clothing/gloves/G = H.gloves

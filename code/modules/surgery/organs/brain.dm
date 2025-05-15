@@ -63,7 +63,7 @@
 		transfer_identity(C)
 	C.update_body()
 
-/obj/item/organ/brain/prepare_eat(mob/living/carbon/human/H)
+/obj/item/organ/brain/prepare_eat(mob/living/carbon/humanoid/H)
 	if( HAS_TRAIT(H, TRAIT_ROTMAN))//braaaaaains... otherwise, too important to eat.
 		return ..()
 	return FALSE

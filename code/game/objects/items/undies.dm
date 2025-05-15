@@ -22,7 +22,7 @@
 
 /obj/item/undies/attack(mob/M, mob/user, def_zone)
 	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+		var/mob/living/carbon/humanoid/H = M
 		if(H.gender != gendered)
 			return
 		if(H.underwear == "Nude" && H.cached_underwear != "Nude")

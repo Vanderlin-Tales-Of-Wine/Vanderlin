@@ -62,14 +62,14 @@ SUBSYSTEM_DEF(death_arena)
 
 	var/mob/living/carbon/spirit/first = pick(waiting_fighters)
 	remove_fighter(first)
-	var/mob/living/carbon/human/species/skeleton/first_skeleton = new /mob/living/carbon/human/species/skeleton/death_arena(get_turf(first_spawn))
+	var/mob/living/carbon/humanoid/species/skeleton/first_skeleton = new /mob/living/carbon/humanoid/species/skeleton/death_arena(get_turf(first_spawn))
 	first_skeleton.name = first.livingname
 	first_skeleton.ckey = first.ckey
 	RegisterSignal(first_skeleton, COMSIG_LIVING_DEATH, PROC_REF(open_death_gate))
 
 	var/mob/living/carbon/spirit/second = pick(waiting_fighters)
 	remove_fighter(second)
-	var/mob/living/carbon/human/species/skeleton/second_skeleton = new /mob/living/carbon/human/species/skeleton/death_arena(get_turf(second_spawn))
+	var/mob/living/carbon/humanoid/species/skeleton/second_skeleton = new /mob/living/carbon/humanoid/species/skeleton/death_arena(get_turf(second_spawn))
 	second_skeleton.name = second.livingname
 	second_skeleton.ckey = second.ckey
 	RegisterSignal(second_skeleton, COMSIG_LIVING_DEATH, PROC_REF(open_death_gate))
@@ -174,7 +174,7 @@ SUBSYSTEM_DEF(death_arena)
 		second_spawn = get_turf(movable)
 		return
 
-/datum/outfit/job/arena_skeleton/pre_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/job/arena_skeleton/pre_equip(mob/living/carbon/humanoid/H, visualsOnly)
 	..()
 
 	H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)

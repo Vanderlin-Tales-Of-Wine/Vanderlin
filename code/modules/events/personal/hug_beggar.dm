@@ -17,7 +17,7 @@
 		return FALSE
 
 	var/beggar_count = 0
-	for(var/mob/living/carbon/human/H in GLOB.player_list)
+	for(var/mob/living/carbon/humanoid/H in GLOB.player_list)
 		if(!istype(H) || H.stat == DEAD || !H.client)
 			continue
 		if(H.job == "Beggar" || istype(H.mind?.assigned_role, /datum/job/vagrant))
@@ -28,7 +28,7 @@
 	if(beggar_count < 2)
 		return FALSE
 
-	for(var/mob/living/carbon/human/H in GLOB.player_list)
+	for(var/mob/living/carbon/humanoid/H in GLOB.player_list)
 		if(!istype(H) || H.stat == DEAD || !H.client)
 			continue
 		if(H.patron && istype(H.patron, /datum/patron/divine/eora))
@@ -39,7 +39,7 @@
 /datum/round_event/eora_compassion/start()
 	var/list/valid_targets = list()
 
-	for(var/mob/living/carbon/human/H in GLOB.player_list)
+	for(var/mob/living/carbon/humanoid/H in GLOB.player_list)
 		if(!istype(H) || H.stat == DEAD || !H.client)
 			continue
 		if(H.patron && istype(H.patron, /datum/patron/divine/eora))
@@ -48,7 +48,7 @@
 	if(!length(valid_targets))
 		return
 
-	var/mob/living/carbon/human/chosen_one = pick(valid_targets)
+	var/mob/living/carbon/humanoid/chosen_one = pick(valid_targets)
 	var/datum/objective/hug_beggar/new_objective = new(owner = chosen_one.mind)
 	chosen_one.mind.add_personal_objective(new_objective)
 

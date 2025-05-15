@@ -1,7 +1,7 @@
 /datum/material_trait/silver_bane
 	name = "Silver Bane"
 
-/datum/material_trait/silver_bane/proc/touch_bane(mob/living/carbon/human/user)
+/datum/material_trait/silver_bane/proc/touch_bane(mob/living/carbon/humanoid/user)
 	var/datum/antagonist/vampire/vamp_datum = user.mind.has_antag_datum(/datum/antagonist/vampire)
 	var/datum/antagonist/werewolf/wolf_datum = user.mind.has_antag_datum(/datum/antagonist/werewolf)
 	if(!vamp_datum || !wolf_datum)

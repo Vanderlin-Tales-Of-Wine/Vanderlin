@@ -110,12 +110,12 @@ fi;
 # Disabled until someone ports the consistent human type or adds more unit test greps.
 # section "unit tests"
 # unit_test_files="code/modules/unit_tests/**/**.dm"
-# part "mob/living/carbon/human usage"
-# if $grep 'allocate\(/mob/living/carbon/human[,\)]' $unit_test_files ||
-# 	$grep 'new /mob/living/carbon/human\s?\(' $unit_test_files ||
-# 	$grep 'var/mob/living/carbon/human/\w+\s?=\s?new' $unit_test_files ; then
+# part "mob/living/carbon/humanoid usage"
+# if $grep 'allocate\(/mob/living/carbon/humanoid[,\)]' $unit_test_files ||
+# 	$grep 'new /mob/living/carbon/humanoid\s?\(' $unit_test_files ||
+# 	$grep 'var/mob/living/carbon/humanoid/\w+\s?=\s?new' $unit_test_files ; then
 # 	echo
-# 	echo -e "${RED}ERROR: Usage of mob/living/carbon/human detected in a unit test, please use mob/living/carbon/human/consistent.${NC}"
+# 	echo -e "${RED}ERROR: Usage of mob/living/carbon/humanoid detected in a unit test, please use mob/living/carbon/humanoid/consistent.${NC}"
 # 	st=1
 # fi;
 

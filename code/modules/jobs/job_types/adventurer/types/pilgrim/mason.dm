@@ -19,7 +19,7 @@
 	category_tags = list(CTAG_PILGRIM)
 	apprentice_name = "Mason Apprentice"
 
-/datum/outfit/job/adventurer/mason/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/adventurer/mason/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 
 	H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)

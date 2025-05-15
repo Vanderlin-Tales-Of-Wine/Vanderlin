@@ -59,7 +59,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 /datum/outfit/job/lord
 	job_bitflag = BITFLAG_ROYALTY
 
-/datum/outfit/job/lord/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/lord/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	head = /obj/item/clothing/head/crown/serpcrown
 	backr = /obj/item/storage/backpack/satchel
@@ -127,7 +127,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	spawn_positions = 0
 	display_order = JDO_LORD
 
-/proc/give_lord_surname(mob/living/carbon/human/family_guy, preserve_original = FALSE)
+/proc/give_lord_surname(mob/living/carbon/humanoid/family_guy, preserve_original = FALSE)
 	if(!GLOB.lordsurname)
 		return
 	if(preserve_original)
@@ -158,7 +158,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	if(!granted_title)
 		return
 	var/list/recruitment = list()
-	for(var/mob/living/carbon/human/village_idiot in (get_hearers_in_view(title_range, user) - user))
+	for(var/mob/living/carbon/humanoid/village_idiot in (get_hearers_in_view(title_range, user) - user))
 		//not allowed
 		if(!can_title(village_idiot))
 			continue
@@ -168,7 +168,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 		return
 	var/inputty = input(user, "Select an honorary!", "[name]") as anything in recruitment
 	if(inputty)
-		var/mob/living/carbon/human/recruit = recruitment[inputty]
+		var/mob/living/carbon/humanoid/recruit = recruitment[inputty]
 		if(!QDELETED(recruit) && (recruit in get_hearers_in_view(title_range, user)))
 			INVOKE_ASYNC(src, PROC_REF(village_idiotify), recruit, user, granted_title)
 		else
@@ -176,7 +176,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	else
 		to_chat(user, span_warning("Honorific cancelled."))
 
-/obj/effect/proc_holder/spell/self/grant_title/proc/can_title(mob/living/carbon/human/recruit)
+/obj/effect/proc_holder/spell/self/grant_title/proc/can_title(mob/living/carbon/humanoid/recruit)
 	//wtf
 	if(QDELETED(recruit))
 		return FALSE
@@ -188,7 +188,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 		return FALSE
 	return TRUE
 
-/obj/effect/proc_holder/spell/self/grant_title/proc/village_idiotify(mob/living/carbon/human/recruit, mob/living/carbon/human/recruiter, granted_title)
+/obj/effect/proc_holder/spell/self/grant_title/proc/village_idiotify(mob/living/carbon/humanoid/recruit, mob/living/carbon/humanoid/recruiter, granted_title)
 	if(QDELETED(recruit) || QDELETED(recruiter) || !granted_title)
 		return FALSE
 	if(GLOB.lord_titles[recruit.real_name])
@@ -211,7 +211,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 /obj/effect/proc_holder/spell/self/grant_nobility/cast(list/targets, mob/user = usr)
 	. = ..()
 	var/list/recruitment = list()
-	for(var/mob/living/carbon/human/village_idiot in (get_hearers_in_view(nobility_range, user) - user))
+	for(var/mob/living/carbon/humanoid/village_idiot in (get_hearers_in_view(nobility_range, user) - user))
 		//not allowed
 		if(!can_nobility(village_idiot))
 			continue
@@ -221,7 +221,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 		return
 	var/inputty = input(user, "Select an honorary!", "[name]") as anything in recruitment
 	if(inputty)
-		var/mob/living/carbon/human/recruit = recruitment[inputty]
+		var/mob/living/carbon/humanoid/recruit = recruitment[inputty]
 		if(!QDELETED(recruit) && (recruit in get_hearers_in_view(nobility_range, user)))
 			INVOKE_ASYNC(src, PROC_REF(grant_nobility), recruit, user)
 		else
@@ -229,7 +229,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	else
 		to_chat(user, span_warning("Honorific cancelled."))
 
-/obj/effect/proc_holder/spell/self/grant_nobility/proc/can_nobility(mob/living/carbon/human/recruit)
+/obj/effect/proc_holder/spell/self/grant_nobility/proc/can_nobility(mob/living/carbon/humanoid/recruit)
 	//wtf
 	if(QDELETED(recruit))
 		return FALSE
@@ -241,7 +241,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 		return FALSE
 	return TRUE
 
-/obj/effect/proc_holder/spell/self/grant_nobility/proc/grant_nobility(mob/living/carbon/human/recruit, mob/living/carbon/human/recruiter)
+/obj/effect/proc_holder/spell/self/grant_nobility/proc/grant_nobility(mob/living/carbon/humanoid/recruit, mob/living/carbon/humanoid/recruiter)
 	if(QDELETED(recruit) || QDELETED(recruiter))
 		return FALSE
 	if(HAS_TRAIT(recruit, TRAIT_NOBLE))

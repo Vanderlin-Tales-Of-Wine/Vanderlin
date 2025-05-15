@@ -5,7 +5,7 @@
 	var/list/stored_access
 	var/update_id_name = FALSE //If the name of the human is same as the name on the id they're wearing we'll update provided id when equipping
 
-/datum/outfit/varedit/pre_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/varedit/pre_equip(mob/living/carbon/humanoid/H, visualsOnly)
 	H.delete_equipment() //Applying VV to wrong objects is not reccomended.
 	. = ..()
 
@@ -54,7 +54,7 @@
 			vedits[varname] = I.vars[varname]
 		return vedits
 
-/mob/living/carbon/human/proc/copy_outfit()
+/mob/living/carbon/humanoid/proc/copy_outfit()
 	var/datum/outfit/varedit/O = new
 
 	//Copy equipment
@@ -102,7 +102,7 @@
 	GLOB.custom_outfits += O
 	to_chat(usr,"Outfit registered, use select equipment to equip it.")
 
-/datum/outfit/varedit/post_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/varedit/post_equip(mob/living/carbon/humanoid/H, visualsOnly)
 	. = ..()
 	//Apply VV
 	for(var/slot in vv_values)

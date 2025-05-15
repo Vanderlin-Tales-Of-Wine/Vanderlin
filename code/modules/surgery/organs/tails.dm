@@ -9,7 +9,7 @@
 	var/can_wag = TRUE
 	var/wagging = FALSE
 
-/obj/item/organ/tail/Remove(mob/living/carbon/human/H,  special = 0)
+/obj/item/organ/tail/Remove(mob/living/carbon/humanoid/H,  special = 0)
 	..()
 	if(H && H.dna && H.dna.species)
 		H.dna.species.stop_wagging_tail(H)

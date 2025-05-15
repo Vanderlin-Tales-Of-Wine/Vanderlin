@@ -88,7 +88,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	..()
 
 /obj/structure/door/secret/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode, original_message)
-	var/mob/living/carbon/human/H = speaker
+	var/mob/living/carbon/humanoid/H = speaker
 	if(speaker == src) //door speaking to itself
 		return FALSE
 	var/distance = get_dist(speaker, src)
@@ -305,7 +305,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 /obj/structure/door/secret/keep/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode)
 	if(!..())
 		return FALSE
-	var/mob/living/carbon/human/H = speaker
+	var/mob/living/carbon/humanoid/H = speaker
 
 	var/message2recognize = sanitize_hear_message(raw_message)
 	if(is_type_in_list(H.mind?.assigned_role, vip) && findtext(message2recognize, "set phrase"))
@@ -322,7 +322,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	if(HAS_TRAIT(user, TRAIT_KNOWKEEPPLANS))
 		..()
 
-/proc/know_keep_door_password(mob/living/carbon/human/H)
+/proc/know_keep_door_password(mob/living/carbon/humanoid/H)
 	var/obj/structure/door/secret/D = GLOB.keep_doors[1]
 	to_chat(H, span_notice("The keep's secret doors answer to: '[D.open_phrase]'"))
 
@@ -343,7 +343,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 /obj/structure/door/secret/thieves_guild/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode)
 	if(!..())
 		return FALSE
-	var/mob/living/carbon/human/H = speaker
+	var/mob/living/carbon/humanoid/H = speaker
 
 	var/message2recognize = sanitize_hear_message(raw_message)
 	if((is_type_in_list(H.mind?.assigned_role, vip)) && findtext(message2recognize, "set phrase"))

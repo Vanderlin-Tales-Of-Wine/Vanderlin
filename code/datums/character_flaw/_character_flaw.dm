@@ -57,7 +57,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 /mob/proc/get_flaw(flaw_type)
 	return
 
-/mob/living/carbon/human/get_flaw(flaw_type)
+/mob/living/carbon/humanoid/get_flaw(flaw_type)
 	if(!flaw_type)
 		return
 	if(charflaw != flaw_type)
@@ -70,7 +70,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 /mob/proc/has_flaw(flaw)
 	return
 
-/mob/living/carbon/human/has_flaw(flaw)
+/mob/living/carbon/humanoid/has_flaw(flaw)
 	if(!flaw)
 		return
 	if(istype(charflaw, flaw))
@@ -80,7 +80,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 /mob/proc/get_random_flaw()
 	return
 
-/mob/living/carbon/human/get_random_flaw()
+/mob/living/carbon/humanoid/get_random_flaw()
 	var/list/flaws = GLOB.character_flaws.Copy() - list(/datum/charflaw/randflaw, /datum/charflaw/noflaw)
 	var/new_charflaw = pick_n_take(flaws)
 	new_charflaw = GLOB.character_flaws[new_charflaw]
@@ -97,7 +97,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	if(!nochekk)
 		return
 	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+		var/mob/living/carbon/humanoid/H = user
 		if(H.ckey)
 			nochekk = FALSE
 			if(prob(50))
@@ -118,7 +118,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	if(!nochekk)
 		return
 	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+		var/mob/living/carbon/humanoid/H = user
 		if(H.ckey)
 			if(H.get_triumphs() < 3)
 				nochekk = FALSE
@@ -142,14 +142,14 @@ GLOBAL_LIST_INIT(character_flaws, list(
 
 /datum/charflaw/badsight/after_spawn(mob/user)
 	. = ..()
-	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/humanoid/H = user
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 
 /datum/charflaw/badsight/flaw_on_life(mob/user)
 	if(!ishuman(user))
 		return
-	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/humanoid/H = user
 	if(H.wear_mask)
 		if(isclothing(H.wear_mask))
 			if(istype(H.wear_mask, /obj/item/clothing/face/spectacles))
@@ -169,7 +169,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	..()
 	if(!ishuman(user))
 		return
-	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/humanoid/H = user
 	if(!H.wear_mask)
 		H.equip_to_slot_or_del(new /obj/item/clothing/face/spectacles(H), SLOT_WEAR_MASK)
 	else
@@ -187,14 +187,14 @@ GLOBAL_LIST_INIT(character_flaws, list(
 		return
 	last_check = world.time
 	var/cnt = 0
-	for(var/mob/living/carbon/human/L in hearers(7, user))
+	for(var/mob/living/carbon/humanoid/L in hearers(7, user))
 		if(L == src)
 			continue
 		if(L.stat)
 			continue
 		if(L.dna?.species)
 			if(ishuman(user))
-				var/mob/living/carbon/human/H = user
+				var/mob/living/carbon/humanoid/H = user
 				if(L.dna.species.id != H.dna.species.id)
 					cnt++
 		if(cnt > 2)
@@ -223,7 +223,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 		return
 	last_check = world.time
 	var/cnt = 0
-	for(var/mob/living/carbon/human/L in hearers(7, user))
+	for(var/mob/living/carbon/humanoid/L in hearers(7, user))
 		if(L == src)
 			continue
 		if(L.stat)
@@ -249,7 +249,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 		return
 	last_check = world.time
 	var/cnt = 0
-	for(var/mob/living/carbon/human/L in hearers(7, user))
+	for(var/mob/living/carbon/humanoid/L in hearers(7, user))
 		if(L == src)
 			continue
 		if(L.stat)
@@ -270,7 +270,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	..()
 	if(!ishuman(user))
 		return
-	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/humanoid/H = user
 	if(!H.wear_mask)
 		H.equip_to_slot_or_del(new /obj/item/clothing/face/eyepatch(H), SLOT_WEAR_MASK)
 	var/obj/item/bodypart/head/head = H.get_bodypart(BODY_ZONE_HEAD)
@@ -285,7 +285,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	..()
 	if(!ishuman(user))
 		return
-	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/humanoid/H = user
 	if(!H.wear_mask)
 		H.equip_to_slot_or_del(new /obj/item/clothing/face/eyepatch/left(H), SLOT_WEAR_MASK)
 	var/obj/item/bodypart/head/head = H.get_bodypart(BODY_ZONE_HEAD)
@@ -304,7 +304,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 			desc = "I lost my left eye long ago. But it made me great at noticing things."
 			if(!ishuman(user))
 				return
-			var/mob/living/carbon/human/H = user
+			var/mob/living/carbon/humanoid/H = user
 			if(!H.wear_mask)
 				H.equip_to_slot_or_del(new /obj/item/clothing/face/eyepatch/left(H), SLOT_WEAR_MASK)
 			var/obj/item/bodypart/head/head = H.get_bodypart(BODY_ZONE_HEAD)
@@ -315,7 +315,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 			desc = "I lost my right eye long ago. But it made me great at noticing things."
 			if(!ishuman(user))
 				return
-			var/mob/living/carbon/human/H = user
+			var/mob/living/carbon/humanoid/H = user
 			if(!H.wear_mask)
 				H.equip_to_slot_or_del(new /obj/item/clothing/face/eyepatch(H), SLOT_WEAR_MASK)
 			var/obj/item/bodypart/head/head = H.get_bodypart(BODY_ZONE_HEAD)
@@ -330,7 +330,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	. = ..()
 	if(!ishuman(user))
 		return
-	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/humanoid/H = user
 	var/obj/item/bodypart/head/head = H.get_bodypart(BODY_ZONE_HEAD)
 	head?.add_wound(/datum/wound/facial/tongue/permanent)
 
@@ -344,7 +344,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 /datum/charflaw/hunted/flaw_on_life(mob/user)
 	if(!ishuman(user))
 		return
-	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/humanoid/H = user
 	if(logged == FALSE)
 		if(H.name) // If you don't check this, the log entry wont have a name as flaw_on_life is checked at least once before the name is set.
 			log_hunted("[H.ckey] playing as [H.name] had the hunted flaw by vice.")
@@ -374,12 +374,12 @@ GLOBAL_LIST_INIT(character_flaws, list(
 		mammon_increase(user)
 	mammon_check(user)
 
-/datum/charflaw/greedy/proc/determine_starting_mammons(mob/living/carbon/human/user)
+/datum/charflaw/greedy/proc/determine_starting_mammons(mob/living/carbon/humanoid/user)
 	var/starting_mammons = get_mammons_in_atom(user)
 	required_mammons = round(starting_mammons * 0.7)
 	extra_increment_value = round(starting_mammons * 0.15)
 
-/datum/charflaw/greedy/proc/mammon_increase(mob/living/carbon/human/user)
+/datum/charflaw/greedy/proc/mammon_increase(mob/living/carbon/humanoid/user)
 	if(last_passed_check + (50 MINUTES) < world.time) //If we spend a REALLY long time without being able to satisfy, then pity downgrade
 		required_mammons -= rand(10, 20)
 		to_chat(user, span_blue("Maybe a little less mammons is enough..."))
@@ -395,7 +395,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 
 	last_checked_mammons = current_mammons
 
-/datum/charflaw/greedy/proc/mammon_check(mob/living/carbon/human/user)
+/datum/charflaw/greedy/proc/mammon_check(mob/living/carbon/humanoid/user)
 	var/new_mammon_amount = get_mammons_in_atom(user)
 	var/ascending = (new_mammon_amount > last_checked_mammons)
 
@@ -444,7 +444,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	concious_timer = rand(7 MINUTES, 15 MINUTES)
 	pain_pity_charges = rand(2,4)
 
-/datum/charflaw/narcoleptic/flaw_on_life(mob/living/carbon/human/user)
+/datum/charflaw/narcoleptic/flaw_on_life(mob/living/carbon/humanoid/user)
 	if(user.stat != CONSCIOUS)
 		reset_timer()
 		return
@@ -493,10 +493,10 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	var/next_paincrave = 0
 	var/last_pain_threshold = NONE
 
-/datum/charflaw/masochist/on_mob_creation(mob/living/carbon/human/user)
+/datum/charflaw/masochist/on_mob_creation(mob/living/carbon/humanoid/user)
 	next_paincrave = world.time + rand(15 MINUTES, 25 MINUTES)
 
-/datum/charflaw/masochist/flaw_on_life(mob/living/carbon/human/user)
+/datum/charflaw/masochist/flaw_on_life(mob/living/carbon/humanoid/user)
 	if(next_paincrave > world.time)
 		last_pain_threshold = NONE
 		return
@@ -555,7 +555,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	desc = "I don't want to harm other living beings!"
 
 /datum/charflaw/pacifist/after_spawn(mob/user, force = FALSE)
-	var/mob/living/carbon/human/human_user = user
+	var/mob/living/carbon/humanoid/human_user = user
 	if(!force && ((human_user.mind in GLOB.pre_setup_antags) || human_user.mind.has_antag_datum(/datum/antagonist)))
 		human_user.get_random_flaw()
 		human_user?.charflaw.after_spawn(human_user)

@@ -160,7 +160,7 @@
 	new /obj/effect/temp_visual/monkeyify/humanify(loc)
 	sleep(22)
 
-	var/mob/living/carbon/human/O = new( loc )
+	var/mob/living/carbon/humanoid/O = new( loc )
 	for(var/obj/item/C in O.loc)
 		if(C.anchored)
 			continue
@@ -253,7 +253,7 @@
 
 	qdel(src)
 
-/mob/living/carbon/human/Animalize()
+/mob/living/carbon/humanoid/Animalize()
 
 	var/list/mobtypes = typesof(/mob/living/simple_animal)
 	var/mobpath = input("Which type of mob should [src] turn into?", "Choose a type") in sortList(mobtypes, GLOBAL_PROC_REF(cmp_typepaths_asc))

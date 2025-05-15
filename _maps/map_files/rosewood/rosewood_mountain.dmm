@@ -170,7 +170,7 @@
 /turf/open/floor/snow/rough,
 /area/rogue/indoors/mountains/anvil/surface/building)
 "bH" = (
-/mob/living/carbon/human/species/orc/tribal,
+/mob/living/carbon/humanoid/species/orc/tribal,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/lower)
 "bJ" = (
@@ -198,7 +198,7 @@
 /turf/open/floor/herringbone,
 /area/rogue/under/mountains/anvil/dungeon)
 "bQ" = (
-/mob/living/carbon/human/species/zizombie/npc/GRENZEL,
+/mob/living/carbon/humanoid/species/zizombie/npc/GRENZEL,
 /turf/open/floor/carpet/purple,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "bX" = (
@@ -231,7 +231,7 @@
 "cm" = (
 /obj/structure/closet/crate/coffin,
 /obj/effect/spawner/map_spawner/loot/medium,
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/lower)
 "co" = (
@@ -662,7 +662,7 @@
 	},
 /area/rogue/outdoors/mountains/anvil/snowyforest)
 "fr" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/church,
 /area/rogue/under/mountains/anvil/lower)
 "fs" = (
@@ -983,7 +983,7 @@
 /turf/open/floor/cobble,
 /area/rogue/outdoors/mountains/anvil/snowyforest)
 "hA" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
 "hC" = (
@@ -1368,7 +1368,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/upper)
 "kI" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/churchrough,
 /area/rogue/under/mountains/anvil/lower)
 "kL" = (
@@ -1849,7 +1849,7 @@
 /turf/open/floor/carpet/purple,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "oL" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/twig,
 /area/rogue/under/mountains/anvil/lower)
 "oP" = (
@@ -2054,7 +2054,7 @@
 	},
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "qA" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/lower)
 "qD" = (
@@ -2118,7 +2118,7 @@
 /turf/open/floor/herringbone,
 /area/rogue/under/mountains/anvil/dungeon)
 "rh" = (
-/mob/living/carbon/human/species/orc/tribal,
+/mob/living/carbon/humanoid/species/orc/tribal,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
 "rl" = (
@@ -2238,7 +2238,7 @@
 /turf/open/floor/herringbone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "rU" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/lower)
 "rV" = (
@@ -2342,7 +2342,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
 "sJ" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/lower)
 "sN" = (
@@ -2487,7 +2487,7 @@
 /turf/open/floor/volcanic,
 /area/rogue/under/mountains/anvil/dungeon)
 "ug" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
 "uj" = (
@@ -2698,7 +2698,7 @@
 /turf/open/floor/volcanic,
 /area/rogue/under/mountains/anvil/dungeon)
 "vQ" = (
-/mob/living/carbon/human/species/zizombie/npc/GRENZEL,
+/mob/living/carbon/humanoid/species/zizombie/npc/GRENZEL,
 /turf/open/floor/herringbone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "vU" = (
@@ -2759,7 +2759,7 @@
 /turf/open/floor/herringbone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "ww" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
 "wB" = (
@@ -3024,7 +3024,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon)
 "yE" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/carpet/purple,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "yF" = (
@@ -3239,7 +3239,7 @@
 /area/rogue/indoors/mountains/anvil/surface/building)
 "Ar" = (
 /obj/structure/fluff/nest,
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/twig,
 /area/rogue/under/mountains/anvil/lower)
 "At" = (
@@ -4177,7 +4177,7 @@
 "Ib" = (
 /obj/structure/closet/crate/coffin,
 /obj/effect/spawner/map_spawner/loot/common,
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/lower)
 "Id" = (
@@ -4203,7 +4203,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/lower)
 "Im" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/herringbone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Ip" = (
@@ -4327,7 +4327,7 @@
 /area/rogue/under/mountains/anvil/dungeon)
 "Ji" = (
 /obj/structure/chair/stool,
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/twig,
 /area/rogue/under/mountains/anvil/lower)
 "Jl" = (
@@ -4971,7 +4971,7 @@
 /turf/closed/mineral/bedrock/cold,
 /area/rogue/under/mountains/anvil/upper)
 "NR" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/carpet/red,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "NT" = (
@@ -5153,7 +5153,7 @@
 "Pz" = (
 /obj/structure/table/optable,
 /obj/structure/closet/burial_shroud,
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/lower)
 "PA" = (
@@ -5214,7 +5214,7 @@
 "PT" = (
 /obj/structure/closet/crate/coffin,
 /obj/effect/spawner/map_spawner/loot/medium,
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/lower)
 "PU" = (
@@ -5456,7 +5456,7 @@
 "Ru" = (
 /obj/structure/closet/crate/coffin,
 /obj/item/clothing/ring/silver/calm,
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/lower)
 "RB" = (
@@ -5518,7 +5518,7 @@
 /turf/open/floor/grass/red,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Sb" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /obj/machinery/light/fueled/wallfire/candle/blue/l,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/lower)
@@ -5527,7 +5527,7 @@
 /turf/open/floor/carpet/purple,
 /area/rogue/under/mountains/anvil/upper)
 "Sf" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment,
 /obj/item/clothing/head/crown/circlet/vision,
 /obj/item/clothing/shirt/robe/mage,
 /obj/item/weapon/polearm/woodstaff/quarterstaff/steel,
@@ -5791,7 +5791,7 @@
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/mountains/anvil/surface/building)
 "Ud" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
 "Ue" = (
@@ -5954,7 +5954,7 @@
 /turf/open/floor/grass/red,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Vx" = (
-/mob/living/carbon/human/species/orc/tribal,
+/mob/living/carbon/humanoid/species/orc/tribal,
 /turf/open/floor/twig,
 /area/rogue/under/mountains/anvil/lower)
 "Vz" = (

@@ -332,7 +332,7 @@
 	new /mob/living/simple_animal/hostile/retaliate/voidstoneobelisk(src.loc)
 	qdel(src)
 
-/obj/structure/voidstoneobelisk/attack_hand(mob/living/carbon/human/user)
+/obj/structure/voidstoneobelisk/attack_hand(mob/living/carbon/humanoid/user)
 	to_chat(user, span_notice("You reach out to touch the abberant obelisk..."))
 	if(do_after(user, 3 SECONDS, target = src))
 		user.visible_message(span_danger("[src] comes to life, archaic stone shifting into position!"))

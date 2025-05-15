@@ -31,7 +31,7 @@
 /datum/outfit/job/cook
 	job_bitflag = BITFLAG_CONSTRUCTOR
 
-/datum/outfit/job/cook/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/cook/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)

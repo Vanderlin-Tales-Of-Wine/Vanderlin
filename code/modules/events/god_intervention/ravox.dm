@@ -16,9 +16,9 @@
 		return FALSE
 
 /datum/round_event/ravox_resolve/start()
-	var/mob/living/carbon/human/weakest
+	var/mob/living/carbon/humanoid/weakest
 	var/weakest_stat
-	for(var/mob/living/carbon/human/human_mob in GLOB.player_list)
+	for(var/mob/living/carbon/humanoid/human_mob in GLOB.player_list)
 		if(!istype(human_mob) || human_mob.stat == DEAD || !human_mob.client)
 			continue
 

@@ -13,7 +13,7 @@
 	if(B)
 		B.suicided = suicide_state
 
-/mob/living/carbon/human/verb/suicide()
+/mob/living/carbon/humanoid/verb/suicide()
 	set hidden = 1
 	if(!usr.client.holder)
 		return
@@ -156,7 +156,7 @@
 /mob/living/proc/suicide_log()
 	log_message("committed suicide as [src.type]", LOG_ATTACK)
 
-/mob/living/carbon/human/suicide_log()
+/mob/living/carbon/humanoid/suicide_log()
 	log_message("(job: [src.job ? "[src.job]" : "None"]) committed suicide", LOG_ATTACK)
 
 /mob/living/proc/canSuicide()

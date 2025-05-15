@@ -78,7 +78,7 @@
 				if(!possible_targets.len)
 					return
 				var/cume = 0
-				for(var/mob/living/carbon/human/L in viewers(src, 7))
+				for(var/mob/living/carbon/humanoid/L in viewers(src, 7))
 					if(L.stat == CONSCIOUS)
 						cume++
 				if(!cume)

@@ -34,7 +34,7 @@
 	. = ..()
 	if(user.Adjacent(src))
 		if(ishuman(user))
-			var/mob/living/carbon/human/H = user
+			var/mob/living/carbon/humanoid/H = user
 			if(!isbandit(user))
 				to_chat(H, "<b>I now know the faces of the local bandits.</b>")
 				ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)

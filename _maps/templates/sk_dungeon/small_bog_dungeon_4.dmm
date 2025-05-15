@@ -21,7 +21,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "f" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/herringbone,
 /area/rogue/outdoors/caves)
 "g" = (

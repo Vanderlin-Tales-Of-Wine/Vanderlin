@@ -25,7 +25,7 @@
 		fertile = FALSE
 
 
-/obj/item/reagent_containers/food/snacks/egg/Crossed(mob/living/carbon/human/H)
+/obj/item/reagent_containers/food/snacks/egg/Crossed(mob/living/carbon/humanoid/H)
 	..()
 	if(istype(H))
 		var/turf/T = get_turf(src)

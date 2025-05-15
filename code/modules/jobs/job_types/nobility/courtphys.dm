@@ -22,7 +22,7 @@
 /datum/outfit/job/courtphys
 	job_bitflag = BITFLAG_ROYALTY
 
-/datum/outfit/job/courtphys/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/courtphys/pre_equip(mob/living/carbon/humanoid/H)
 	. = ..()
 	H.virginity = TRUE
 	shoes = /obj/item/clothing/shoes/shortboots

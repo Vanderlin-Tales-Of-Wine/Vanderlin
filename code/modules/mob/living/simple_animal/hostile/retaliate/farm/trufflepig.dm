@@ -208,7 +208,7 @@
 				qdel(M)
 				break
 
-/mob/living/simple_animal/hostile/retaliate/trufflepig/attack_hand(mob/living/carbon/human/M)
+/mob/living/simple_animal/hostile/retaliate/trufflepig/attack_hand(mob/living/carbon/humanoid/M)
 	. = ..()
 	hangry_meter += 1
 	if(hangry_meter > 9)

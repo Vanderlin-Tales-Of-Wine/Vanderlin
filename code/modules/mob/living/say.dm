@@ -208,7 +208,7 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	if(language)
 		var/datum/language/L = GLOB.language_datum_instances[language]
 		if(ishuman(src))
-			var/mob/living/carbon/human/H = src
+			var/mob/living/carbon/humanoid/H = src
 			if(H.dna?.species)
 				var/list/stuff = H.dna.species.get_span_language(L)
 				if(stuff)

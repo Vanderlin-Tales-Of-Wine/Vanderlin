@@ -4,7 +4,7 @@
 /turf/closed/wall/mineral/tent,
 /area/rogue/outdoors/bog)
 "aS" = (
-/mob/living/carbon/human/species/goblin/npc/ambush{
+/mob/living/carbon/humanoid/species/goblin/npc/ambush{
 	name = "Tighty"
 	},
 /turf/open/floor/dirt,
@@ -14,7 +14,7 @@
 /turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
 "co" = (
-/mob/living/carbon/human/species/goblin/npc/ambush{
+/mob/living/carbon/humanoid/species/goblin/npc/ambush{
 	name = "Grippy"
 	},
 /turf/open/floor/twig,
@@ -32,7 +32,7 @@
 /turf/open/water/swamp,
 /area/rogue/outdoors/bog)
 "ed" = (
-/mob/living/carbon/human/species/goblin/npc/ambush{
+/mob/living/carbon/humanoid/species/goblin/npc/ambush{
 	name = "Loopy"
 	},
 /turf/open/floor/dirt,
@@ -62,7 +62,7 @@
 /turf/open/floor/twig,
 /area/rogue/outdoors/bog)
 "hA" = (
-/mob/living/carbon/human/species/orc/ambush{
+/mob/living/carbon/humanoid/species/orc/ambush{
 	name = "Grog"
 	},
 /turf/open/floor/twig,
@@ -110,7 +110,7 @@
 /turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
 "mt" = (
-/mob/living/carbon/human/species/goblin/npc/ambush{
+/mob/living/carbon/humanoid/species/goblin/npc/ambush{
 	name = "Goony"
 	},
 /turf/open/floor/dirt,
@@ -165,7 +165,7 @@
 /turf/closed/wall/mineral/tent,
 /area/rogue/outdoors/bog)
 "pQ" = (
-/mob/living/carbon/human/species/goblin/npc/ambush{
+/mob/living/carbon/humanoid/species/goblin/npc/ambush{
 	name = "Mork"
 	},
 /turf/open/floor/grass,
@@ -225,7 +225,7 @@
 /turf/open/floor/grass,
 /area/rogue/outdoors/bog)
 "tU" = (
-/mob/living/carbon/human/species/goblin/npc/ambush{
+/mob/living/carbon/humanoid/species/goblin/npc/ambush{
 	name = "Blarg"
 	},
 /turf/open/floor/dirt,
@@ -238,7 +238,7 @@
 /turf/open/water/swamp,
 /area/rogue/outdoors/bog)
 "vX" = (
-/mob/living/carbon/human/species/goblin/npc/ambush{
+/mob/living/carbon/humanoid/species/goblin/npc/ambush{
 	name = "Whitey"
 	},
 /turf/open/floor/twig,
@@ -360,7 +360,7 @@
 /turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
 "Ei" = (
-/mob/living/carbon/human/species/orc/warlord/skilled{
+/mob/living/carbon/humanoid/species/orc/warlord/skilled{
 	name = "Gragnar, the Knight Slayer"
 	},
 /turf/open/floor/twig,
@@ -370,7 +370,7 @@
 /turf/open/floor/grass,
 /area/rogue/outdoors/bog)
 "Fu" = (
-/mob/living/carbon/human/species/goblin/npc/ambush{
+/mob/living/carbon/humanoid/species/goblin/npc/ambush{
 	name = "Twigie"
 	},
 /turf/open/floor/dirt,
@@ -415,26 +415,26 @@
 /turf/open/floor/twig,
 /area/rogue/outdoors/bog)
 "JF" = (
-/mob/living/carbon/human/species/goblin/npc/ambush{
+/mob/living/carbon/humanoid/species/goblin/npc/ambush{
 	name = "Gobbie"
 	},
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/bog)
 "Kl" = (
 /obj/effect/decal/cleanable/blood/old,
-/mob/living/carbon/human/species/orc/marauder{
+/mob/living/carbon/humanoid/species/orc/marauder{
 	name = "Blarg"
 	},
 /turf/open/floor/twig,
 /area/rogue/outdoors/bog)
 "KF" = (
-/mob/living/carbon/human/species/goblin/npc/ambush{
+/mob/living/carbon/humanoid/species/goblin/npc/ambush{
 	name = "Zeekie"
 	},
 /turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
 "Lc" = (
-/mob/living/carbon/human/species/orc/warrior{
+/mob/living/carbon/humanoid/species/orc/warrior{
 	name = "Twarg"
 	},
 /turf/open/floor/grass,
@@ -470,7 +470,7 @@
 /turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
 "Oh" = (
-/mob/living/carbon/human/species/orc/tribal{
+/mob/living/carbon/humanoid/species/orc/tribal{
 	name = "Yloz"
 	},
 /turf/open/floor/dirt,
@@ -490,7 +490,7 @@
 /turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
 "Tg" = (
-/mob/living/carbon/human/species/goblin/npc/ambush{
+/mob/living/carbon/humanoid/species/goblin/npc/ambush{
 	name = "Zookie"
 	},
 /turf/open/floor/dirt,
@@ -515,7 +515,7 @@
 /turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
 "XD" = (
-/mob/living/carbon/human/species/goblin/npc/ambush{
+/mob/living/carbon/humanoid/species/goblin/npc/ambush{
 	name = "Rippy"
 	},
 /turf/open/floor/twig,
@@ -533,7 +533,7 @@
 /turf/open/floor/grass,
 /area/rogue/outdoors/bog)
 "Zr" = (
-/mob/living/carbon/human/species/goblin/npc/ambush{
+/mob/living/carbon/humanoid/species/goblin/npc/ambush{
 	name = "Sloppy"
 	},
 /turf/open/floor/dirt,

@@ -35,7 +35,7 @@ SUBSYSTEM_DEF(fire_burning)
 			if(!(O.resistance_flags & FIRE_PROOF))
 				// Minimum of 8 burn per tick. Config for max fire damage per tick found in game_options.
 				O.take_damage((2 * fire_multiplier) + CLAMP(fire_intensity, 0, max_fire_damage_per_tick), BURN, "fire", 0)
-				for(var/mob/living/carbon/human/H in view(2, O))
+				for(var/mob/living/carbon/humanoid/H in view(2, O))
 					if(H.has_flaw(/datum/charflaw/addiction/pyromaniac))
 						H.sate_addiction()
 			else

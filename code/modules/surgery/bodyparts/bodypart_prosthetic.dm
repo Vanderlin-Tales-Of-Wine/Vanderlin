@@ -1,4 +1,4 @@
-/obj/item/bodypart/proc/prosthetic_attachment(mob/living/carbon/human/H, mob/user)
+/obj/item/bodypart/proc/prosthetic_attachment(mob/living/carbon/humanoid/H, mob/user)
 	if(!ishuman(H))
 		return
 

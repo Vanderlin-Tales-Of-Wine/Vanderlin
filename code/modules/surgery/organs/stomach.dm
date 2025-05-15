@@ -18,7 +18,7 @@
 	var/disgust_metabolism = 1
 
 /obj/item/organ/stomach/on_life()
-	var/mob/living/carbon/human/H = owner
+	var/mob/living/carbon/humanoid/H = owner
 	var/datum/reagent/Nutri
 
 	..()
@@ -42,7 +42,7 @@
 			H.vomit(damage)
 			to_chat(H, "<span class='warning'>My stomach reels in pain as you're incapable of holding down all that food!</span>")
 
-/obj/item/organ/stomach/proc/handle_disgust(mob/living/carbon/human/H)
+/obj/item/organ/stomach/proc/handle_disgust(mob/living/carbon/humanoid/H)
 	if(H.disgust)
 		var/pukeprob = 5 + 0.05 * H.disgust
 		if(H.disgust >= DISGUST_LEVEL_GROSS)
@@ -78,7 +78,7 @@
 			SEND_SIGNAL(H, COMSIG_ADD_MOOD_EVENT, "disgust", /datum/mood_event/disgusted)
 
 /obj/item/organ/stomach/Remove(mob/living/carbon/M, special = 0)
-	var/mob/living/carbon/human/H = owner
+	var/mob/living/carbon/humanoid/H = owner
 	if(istype(H))
 		H.clear_alert("disgust")
 		SEND_SIGNAL(H, COMSIG_CLEAR_MOOD_EVENT, "disgust")

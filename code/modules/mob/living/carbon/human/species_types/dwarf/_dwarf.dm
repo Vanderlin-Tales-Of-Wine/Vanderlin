@@ -1,4 +1,4 @@
-/mob/living/carbon/human/species/dwarf
+/mob/living/carbon/humanoid/species/dwarf
 	race = /datum/species/dwarf
 
 /datum/species/dwarf

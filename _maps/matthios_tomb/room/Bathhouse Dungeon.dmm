@@ -310,7 +310,7 @@
 /area/rogue/under/tomb/indoors/royal)
 "hN" = (
 /obj/item/instrument/lute,
-/mob/living/carbon/human/species/rousman/ambush,
+/mob/living/carbon/humanoid/species/rousman/ambush,
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/under/tomb/indoors/royal)
 "hP" = (
@@ -327,12 +327,12 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors)
 "iw" = (
-/mob/living/carbon/human/species/zizombie/npc/ambush,
+/mob/living/carbon/humanoid/species/zizombie/npc/ambush,
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors)
 "iz" = (
 /obj/machinery/light/fueled/wallfire/candle/weak,
-/mob/living/carbon/human/species/rousman/ambush,
+/mob/living/carbon/humanoid/species/rousman/ambush,
 /turf/open/floor/blocks/green,
 /area/rogue/under/tomb/indoors)
 "iE" = (
@@ -455,12 +455,12 @@
 /turf/open/floor/blocks,
 /area/rogue/under/tomb/indoors/royal)
 "mm" = (
-/mob/living/carbon/human/species/rousman/ambush,
+/mob/living/carbon/humanoid/species/rousman/ambush,
 /obj/effect/decal/cleanable/blood/gibs,
 /turf/open/floor/church,
 /area/rogue/under/tomb/indoors)
 "mu" = (
-/mob/living/carbon/human/species/rousman/ambush,
+/mob/living/carbon/humanoid/species/rousman/ambush,
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/sewer)
 "mw" = (
@@ -474,7 +474,7 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors)
 "mP" = (
-/mob/living/carbon/human/species/rousman/ambush,
+/mob/living/carbon/humanoid/species/rousman/ambush,
 /turf/open/floor/tile/masonic/inverted,
 /area/rogue/under/tomb/indoors/royal)
 "mU" = (
@@ -544,7 +544,7 @@
 /turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors/royal)
 "oi" = (
-/mob/living/carbon/human/species/zizombie/npc/GRENZEL,
+/mob/living/carbon/humanoid/species/zizombie/npc/GRENZEL,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/under/tomb/indoors/royal)
 "ol" = (
@@ -625,7 +625,7 @@
 /turf/open/floor/churchmarble,
 /area/rogue/under/tomb/indoors)
 "pI" = (
-/mob/living/carbon/human/species/rousman/ambush,
+/mob/living/carbon/humanoid/species/rousman/ambush,
 /obj/effect/decal/cleanable/blood/gibs/up,
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/tile/masonic/inverted,
@@ -793,7 +793,7 @@
 /turf/open/floor/herringbone,
 /area/rogue/under/tomb/indoors)
 "ty" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/under/tomb/indoors/royal)
 "tG" = (
@@ -847,7 +847,7 @@
 /turf/open/floor/grass,
 /area/rogue/under/tomb/wilds)
 "uU" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/churchmarble,
 /area/rogue/under/tomb/indoors)
 "uY" = (
@@ -875,7 +875,7 @@
 /area/rogue/under/tomb/indoors/magic)
 "vo" = (
 /obj/structure/chair/wood/alt/chair_noble/purple,
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/under/tomb/indoors/royal)
 "vr" = (
@@ -921,7 +921,7 @@
 /turf/open/floor/grass,
 /area/rogue/under/tomb/wilds)
 "wi" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/churchmarble,
 /area/rogue/under/tomb/indoors)
@@ -1238,7 +1238,7 @@
 /area/rogue/under/tomb/indoors)
 "DS" = (
 /obj/item/reagent_containers/glass/bucket/wooden,
-/mob/living/carbon/human/species/rousman/ambush,
+/mob/living/carbon/humanoid/species/rousman/ambush,
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/sewer)
 "DU" = (
@@ -1317,7 +1317,7 @@
 /turf/open/floor/churchmarble,
 /area/rogue/under/tomb/indoors)
 "Fl" = (
-/mob/living/carbon/human/species/zizombie/npc/GRENZEL,
+/mob/living/carbon/humanoid/species/zizombie/npc/GRENZEL,
 /turf/open/floor/blocks,
 /area/rogue/under/tomb/indoors/royal)
 "Fo" = (
@@ -1582,7 +1582,7 @@
 /area/rogue/under/tomb/indoors)
 "KP" = (
 /obj/effect/decal/cleanable/food/plant_smudge,
-/mob/living/carbon/human/species/rousman/ambush,
+/mob/living/carbon/humanoid/species/rousman/ambush,
 /turf/open/floor/tile/kitchen,
 /area/rogue/under/tomb/indoors)
 "Lc" = (
@@ -1610,7 +1610,7 @@
 	},
 /area/rogue/under/tomb/sewer)
 "Lq" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/blocks,
 /area/rogue/under/tomb/indoors/royal)
 "Lt" = (
@@ -1738,7 +1738,7 @@
 /turf/open/floor/churchmarble,
 /area/rogue/under/tomb)
 "Nx" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/blocks,
 /area/rogue/under/tomb/indoors/royal)
 "NC" = (
@@ -1893,7 +1893,7 @@
 /turf/closed/wall/mineral/decostone,
 /area/rogue/under/tomb/indoors/royal)
 "Qz" = (
-/mob/living/carbon/human/species/rousman/ambush,
+/mob/living/carbon/humanoid/species/rousman/ambush,
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors)
 "QS" = (
@@ -2023,7 +2023,7 @@
 /turf/open/water/bath,
 /area/rogue/under/tomb/indoors/royal)
 "Tm" = (
-/mob/living/carbon/human/species/rousman/ambush,
+/mob/living/carbon/humanoid/species/rousman/ambush,
 /turf/open/floor/church,
 /area/rogue/under/tomb/indoors)
 "Tp" = (
@@ -2130,7 +2130,7 @@
 /turf/open/floor/metal/barograte,
 /area/rogue/under/tomb/indoors/magic)
 "Vu" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors/royal)
 "Vy" = (
@@ -2144,7 +2144,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 4
 	},
-/mob/living/carbon/human/species/rousman/ambush,
+/mob/living/carbon/humanoid/species/rousman/ambush,
 /turf/open/floor/tile/masonic/inverted,
 /area/rogue/under/tomb/indoors/royal)
 "VD" = (
@@ -2193,7 +2193,7 @@
 /obj/structure/chair/wood/alt/chair_noble/purple{
 	dir = 4
 	},
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors/royal)
 "WB" = (
@@ -2206,7 +2206,7 @@
 /turf/open/floor/blocks,
 /area/rogue/under/tomb/indoors/royal)
 "WO" = (
-/mob/living/carbon/human/species/rousman/ambush,
+/mob/living/carbon/humanoid/species/rousman/ambush,
 /turf/open/floor/herringbone,
 /area/rogue/under/tomb/indoors)
 "WW" = (
@@ -2268,7 +2268,7 @@
 /turf/open/floor/blocks,
 /area/rogue/under/tomb/indoors/royal)
 "Yj" = (
-/mob/living/carbon/human/species/zizombie/npc/ambush,
+/mob/living/carbon/humanoid/species/zizombie/npc/ambush,
 /turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors/royal)
 "Yl" = (

@@ -32,7 +32,7 @@
 /datum/outfit/job/gatemaster
 	job_bitflag = BITFLAG_GARRISON
 
-/datum/outfit/job/gatemaster/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/gatemaster/pre_equip(mob/living/carbon/humanoid/H)
 	. = ..()
 	head = /obj/item/clothing/head/helmet/townwatch/alt
 	cloak = /obj/item/clothing/cloak/stabard/surcoat/guard
@@ -42,7 +42,7 @@
 
 /datum/job/gatemaster/after_spawn(mob/living/spawned, client/player_client)
 	..()
-	var/mob/living/carbon/human/H = spawned
+	var/mob/living/carbon/humanoid/H = spawned
 	H.advsetup = TRUE
 	H.invisibility = INVISIBILITY_MAXIMUM
 	H.become_blind("advsetup")
@@ -66,7 +66,7 @@
 
 	category_tags = list(CTAG_GATEMASTER)
 
-/datum/outfit/job/gatemaster/whip/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/gatemaster/whip/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	neck = /obj/item/clothing/neck/gorget
 	armor = /obj/item/clothing/armor/leather/advanced
@@ -106,7 +106,7 @@
 	outfit = /datum/outfit/job/gatemaster/mace
 	category_tags = list(CTAG_GATEMASTER)
 
-/datum/outfit/job/gatemaster/mace/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/gatemaster/mace/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	neck = /obj/item/clothing/neck/gorget
 	armor = /obj/item/clothing/armor/cuirass
@@ -144,7 +144,7 @@
 
 	category_tags = list(CTAG_GATEMASTER)
 
-/datum/outfit/job/gatemaster/bow/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/gatemaster/bow/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	neck = /obj/item/clothing/neck/chaincoif/iron
 	armor = /obj/item/clothing/armor/leather/hide

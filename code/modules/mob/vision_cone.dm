@@ -7,7 +7,7 @@
 /mob
 	var/fovangle
 
-/mob/living/carbon/human
+/mob/living/carbon/humanoid
 	fovangle = FOV_DEFAULT
 
 //Procs
@@ -254,7 +254,7 @@
 	if(client.pixel_x || client.pixel_y)
 		return hide_cone()
 	if(ishuman(src))
-		var/mob/living/carbon/human/H = src
+		var/mob/living/carbon/humanoid/H = src
 		if(H.resting || H.body_position == LYING_DOWN)
 			return hide_cone()
 	return show_cone()
@@ -262,7 +262,7 @@
 /mob/proc/update_fov_angles()
 	fovangle = initial(fovangle)
 	if(ishuman(src) && fovangle)
-		var/mob/living/carbon/human/H = src
+		var/mob/living/carbon/humanoid/H = src
 		if(H.head)
 			if(H.head.block2add)
 				fovangle |= H.head.block2add

@@ -179,12 +179,12 @@
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
 	tint = TINT_BLIND
 
-/obj/item/clothing/head/sack/equipped(mob/living/carbon/human/user, slot)
+/obj/item/clothing/head/sack/equipped(mob/living/carbon/humanoid/user, slot)
 	. = ..()
 	if(slot == ITEM_SLOT_HEAD)
 		user.become_blind("blindfold[REF(src)]")
 
-/obj/item/clothing/head/sack/dropped(mob/living/carbon/human/user)
+/obj/item/clothing/head/sack/dropped(mob/living/carbon/humanoid/user)
 	..()
 	user.cure_blind("blindfold_[REF(src)]")
 
@@ -195,7 +195,7 @@
 	target.visible_message("<span class='warning'>[user] forces [src] onto [target]'s head!</span>", \
 	"<span class='danger'>[target] forces [src] onto your head!</span>", "<i>I cant see anything.</i>")
 	if(ishuman(target)) // If the target is human and not in combat mode, stun them the same way a feint would.
-		var/mob/living/carbon/human/T = target
+		var/mob/living/carbon/humanoid/T = target
 		if(!T.cmode)
 			T.emote("whimper", intentional = FALSE)
 			T.changeNext_move(8)

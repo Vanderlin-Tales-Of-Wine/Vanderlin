@@ -1,8 +1,8 @@
-/mob/living/carbon/human/can_equip(obj/item/I, slot, disable_warning = FALSE, bypass_equip_delay_self = FALSE)
+/mob/living/carbon/humanoid/can_equip(obj/item/I, slot, disable_warning = FALSE, bypass_equip_delay_self = FALSE)
 	return dna?.species?.can_equip(I, slot, disable_warning, src, bypass_equip_delay_self)
 
 // Return the item currently in the slot ID
-/mob/living/carbon/human/get_item_by_slot(slot_id)
+/mob/living/carbon/humanoid/get_item_by_slot(slot_id)
 	switch(slot_id)
 		if(SLOT_BACK)
 			return back
@@ -52,10 +52,10 @@
 			return s_store
 	return null
 
-/mob/living/carbon/human/proc/get_all_slots()
+/mob/living/carbon/humanoid/proc/get_all_slots()
 	. = get_head_slots() | get_body_slots()
 
-/mob/living/carbon/human/proc/get_body_slots()
+/mob/living/carbon/humanoid/proc/get_body_slots()
 	return list(
 		back,
 		s_store,
@@ -79,7 +79,7 @@
 		mouth
 		)
 
-/mob/living/carbon/human/proc/get_head_slots()
+/mob/living/carbon/humanoid/proc/get_head_slots()
 	return list(
 		head,
 		wear_mask,
@@ -88,7 +88,7 @@
 		mouth,
 		)
 
-/mob/living/carbon/human/proc/get_storage_slots()
+/mob/living/carbon/humanoid/proc/get_storage_slots()
 	return list(
 		back,
 		belt,
@@ -104,7 +104,7 @@
 
 //This is an UNSAFE proc. Use mob_can_equip() before calling this one! Or rather use equip_to_slot_if_possible() or advanced_equip_to_slot_if_possible()
 // Initial is used to indicate whether or not this is the initial equipment (job datums etc) or just a player doing it
-/mob/living/carbon/human/equip_to_slot(obj/item/I, slot, initial)
+/mob/living/carbon/humanoid/equip_to_slot(obj/item/I, slot, initial)
 	if(!..()) //a check failed or the item has already found its slot
 		return
 
@@ -213,13 +213,13 @@
 
 	return not_handled //For future deeper overrides
 
-/mob/living/carbon/human/equipped_speed_mods()
+/mob/living/carbon/humanoid/equipped_speed_mods()
 	. = ..()
 	for(var/sloties in get_all_slots())
 		var/obj/item/thing = sloties
 		. += thing?.slowdown
 
-/mob/living/carbon/human/doUnEquip(obj/item/I, force, newloc, no_move, invdrop = TRUE, silent = FALSE)
+/mob/living/carbon/humanoid/doUnEquip(obj/item/I, force, newloc, no_move, invdrop = TRUE, silent = FALSE)
 	var/index = get_held_index_of_item(I)
 	. = ..() //See mob.dm for an explanation on this and some rage about people copypasting instead of calling ..() like they should.
 	if(!. || !I)
@@ -322,7 +322,7 @@
 //			if(encumbrance < 0)
 //				encumbrance = 0
 
-/mob/living/carbon/human/wear_mask_update(obj/item/I, toggle_off = 1)
+/mob/living/carbon/humanoid/wear_mask_update(obj/item/I, toggle_off = 1)
 	if((I.flags_inv & (HIDEHAIR|HIDEFACIALHAIR)) || (initial(I.flags_inv) & (HIDEHAIR|HIDEFACIALHAIR)))
 		update_body()
 	if(I.flags_inv & HIDEEYES)
@@ -330,7 +330,7 @@
 	check_armor_class()
 	..()
 
-/mob/living/carbon/human/head_update(obj/item/I, forced)
+/mob/living/carbon/humanoid/head_update(obj/item/I, forced)
 	if((I.flags_inv & (HIDEHAIR|HIDEFACIALHAIR)) || forced)
 		update_body()
 	else
@@ -344,7 +344,7 @@
 	check_armor_class()
 	..()
 
-/mob/living/carbon/human/proc/equipOutfit(outfit, visualsOnly = FALSE)
+/mob/living/carbon/humanoid/proc/equipOutfit(outfit, visualsOnly = FALSE)
 	var/datum/outfit/O = null
 
 	if(ispath(outfit))
@@ -360,13 +360,13 @@
 
 
 //delete all equipment without dropping anything
-/mob/living/carbon/human/proc/delete_equipment()
+/mob/living/carbon/humanoid/proc/delete_equipment()
 	for(var/slot in get_all_slots())//order matters, dependant slots go first
 		qdel(slot)
 	for(var/obj/item/I in held_items)
 		qdel(I)
 
-/mob/living/carbon/human/proc/smart_equipbag() // take most recent item out of bag or place held item in bag
+/mob/living/carbon/humanoid/proc/smart_equipbag() // take most recent item out of bag or place held item in bag
 	if(incapacitated(ignore_grab = TRUE))
 		return
 	var/obj/item/thing = get_active_held_item()
@@ -397,7 +397,7 @@
 	stored.attack_hand(src) // take out thing from backpack
 	return
 
-/mob/living/carbon/human/proc/smart_equipbelt() // put held thing in belt or take most recent item out of belt
+/mob/living/carbon/humanoid/proc/smart_equipbelt() // put held thing in belt or take most recent item out of belt
 	if(incapacitated(ignore_grab = TRUE))
 		return
 	var/obj/item/thing = get_active_held_item()

@@ -7,7 +7,7 @@
 	category_tags = list(CTAG_MERCENARY)
 	maximum_possible_slots = 5
 
-/datum/outfit/job/mercenary/blackoak/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/mercenary/blackoak/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	shoes = /obj/item/clothing/shoes/boots/leather
 	cloak = /obj/item/clothing/cloak/half/red

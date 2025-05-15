@@ -182,7 +182,7 @@
 			var/dat = "<B>Showing DNA from blood.</B><HR>"
 			dat += "<table cellspacing=5><tr><th>Name</th><th>DNA</th><th>Blood Type</th></tr>"
 			for(var/i in GLOB.human_list)
-				var/mob/living/carbon/human/H = i
+				var/mob/living/carbon/humanoid/H = i
 				if(H.ckey)
 					dat += "<tr><td>[H]</td><td>[H.dna.unique_enzymes]</td><td>[H.dna.human_blood_type]</td></tr>"
 			dat += "</table>"
@@ -193,7 +193,7 @@
 			var/dat = "<B>Showing Fingerprints.</B><HR>"
 			dat += "<table cellspacing=5><tr><th>Name</th><th>Fingerprints</th></tr>"
 			for(var/i in GLOB.human_list)
-				var/mob/living/carbon/human/H = i
+				var/mob/living/carbon/humanoid/H = i
 				if(H.ckey)
 					dat += "<tr><td>[H]</td><td>[md5(H.dna.uni_identity)]</td></tr>"
 			dat += "</table>"
@@ -204,7 +204,7 @@
 				return
 			SSblackbox.record_feedback("nested tally", "admin_secrets_fun_used", 1, list("Monkeyize All Humans"))
 			for(var/i in GLOB.human_list)
-				var/mob/living/carbon/human/H = i
+				var/mob/living/carbon/humanoid/H = i
 				INVOKE_ASYNC(H, TYPE_PROC_REF(/mob/living/carbon, monkeyize))
 			ok = 1
 
@@ -218,7 +218,7 @@
 				message_admins("\blue [key_name_admin(usr)] turned all humans into [result]")
 				var/newtype = GLOB.species_list[result]
 				for(var/i in GLOB.human_list)
-					var/mob/living/carbon/human/H = i
+					var/mob/living/carbon/humanoid/H = i
 					H.set_species(newtype)
 		if("changebombcap")
 			if(!check_rights(R_FUN))
@@ -246,7 +246,7 @@
 			SSblackbox.record_feedback("nested tally", "admin_secrets_fun_used", 1, list("Chinese Cartoons"))
 			message_admins("[key_name_admin(usr)] made everything kawaii.")
 			for(var/i in GLOB.human_list)
-				var/mob/living/carbon/human/H = i
+				var/mob/living/carbon/humanoid/H = i
 				SEND_SOUND(H, sound('sound/blank.ogg'))
 
 				if(H.dna.species.id == "human")
@@ -275,7 +275,7 @@
 			if(!check_rights(R_FUN))
 				return
 			SSblackbox.record_feedback("nested tally", "admin_secrets_fun_used", 1, list("Mass Braindamage"))
-			for(var/mob/living/carbon/human/H in GLOB.player_list)
+			for(var/mob/living/carbon/humanoid/H in GLOB.player_list)
 				to_chat(H, "<span class='boldannounce'>I suddenly feel stupid.</span>")
 				H.adjustOrganLoss(ORGAN_SLOT_BRAIN, 60, 80)
 			message_admins("[key_name_admin(usr)] made everybody stupid (Mass Braindamage)")
@@ -328,7 +328,7 @@
 				spawnedMob.key = chosen.key
 			players -= chosen
 		if (ishuman(spawnedMob) && ispath(humanoutfit, /datum/outfit))
-			var/mob/living/carbon/human/H = spawnedMob
+			var/mob/living/carbon/humanoid/H = spawnedMob
 			H.equipOutfit(humanoutfit)
 	var/turf/T = get_step(loc, SOUTHWEST)
 	flick_overlay_static(portal_appearance, T, 15)

@@ -12,7 +12,7 @@
 
 /datum/outfit/job/adventurer/monk
 
-/datum/outfit/job/adventurer/monk/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/adventurer/monk/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	head = /obj/item/clothing/head/roguehood/brown
 	neck = /obj/item/clothing/neck/psycross/silver/ravox

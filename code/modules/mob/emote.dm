@@ -64,7 +64,7 @@
 	mob_type_allowed_typecache = list(/mob/living, /mob/dead/observer)
 	mob_type_ignore_stat_typecache = list(/mob/dead/observer)
 
-/datum/emote/living/carbon/human/flip/can_run_emote(mob/user, status_check = TRUE , intentional)
+/datum/emote/living/carbon/humanoid/flip/can_run_emote(mob/user, status_check = TRUE , intentional)
 	return FALSE
 
 /datum/emote/flip/run_emote(mob/user, params, type_override, intentional)
@@ -80,7 +80,7 @@
 	mob_type_ignore_stat_typecache = list(/mob/dead/observer)
 	mute_time = 5 SECONDS
 
-/mob/living/carbon/human/verb/emote_spin()
+/mob/living/carbon/humanoid/verb/emote_spin()
 	set name = "Spin"
 	set category = "Emotes"
 	emote("spin", intentional = TRUE)

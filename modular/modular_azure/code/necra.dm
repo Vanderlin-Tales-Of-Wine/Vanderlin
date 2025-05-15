@@ -19,7 +19,7 @@
 		"Some vast, immeasurably distant figure looms beyond my perception - I feel it, more than I see. It waits. It watches.",
 	)
 
-/obj/effect/proc_holder/spell/invoked/avert/cast(list/targets, mob/living/carbon/human/user)
+/obj/effect/proc_holder/spell/invoked/avert/cast(list/targets, mob/living/carbon/humanoid/user)
 	. = ..()
 	var/atom/target = targets[1]
 	if (!isliving(target))

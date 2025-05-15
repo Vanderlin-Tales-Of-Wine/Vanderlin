@@ -113,7 +113,7 @@
 /obj/effect/mapping_helpers/outfit_handler{
 	outfit_to_equip = /datum/outfit/job/adventurer/barbarian
 	},
-/mob/living/carbon/human/species/orc/npc,
+/mob/living/carbon/humanoid/species/orc/npc,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/tomb/indoors)
 "nC" = (
@@ -237,7 +237,7 @@
 /turf/closed/wall/mineral/decowood/vert,
 /area/rogue/under/tomb/indoors)
 "Bz" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/water/bath,
 /area/rogue/under/tomb/indoors)
 "BZ" = (
@@ -259,7 +259,7 @@
 /area/rogue/under/tomb/indoors)
 "Do" = (
 /obj/structure/bars/pipe/left,
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/water/bath,
 /area/rogue/under/tomb/indoors)
 "Du" = (
@@ -375,7 +375,7 @@
 /area/rogue/under/tomb)
 "Rh" = (
 /obj/structure/toilet,
-/mob/living/carbon/human/species/orc/npc,
+/mob/living/carbon/humanoid/species/orc/npc,
 /obj/effect/mapping_helpers/outfit_handler{
 	outfit_to_equip = /datum/outfit/job/adventurer/barbarian
 	},

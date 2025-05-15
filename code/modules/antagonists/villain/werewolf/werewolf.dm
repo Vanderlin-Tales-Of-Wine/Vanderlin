@@ -84,7 +84,7 @@
 	owner.announce_objectives()
 	return ..()
 
-/mob/living/carbon/human/proc/can_werewolf()
+/mob/living/carbon/humanoid/proc/can_werewolf()
 	if(!mind)
 		return FALSE
 	if(mind.has_antag_datum(/datum/antagonist/vampire))
@@ -95,7 +95,7 @@
 		return FALSE
 	return TRUE
 
-/mob/living/carbon/human/proc/werewolf_check(werewolf_type = /datum/antagonist/werewolf/lesser)
+/mob/living/carbon/humanoid/proc/werewolf_check(werewolf_type = /datum/antagonist/werewolf/lesser)
 	if(!mind)
 		return
 	var/already_wolfy = mind.has_antag_datum(/datum/antagonist/werewolf)
@@ -105,7 +105,7 @@
 		return
 	return mind.add_antag_datum(werewolf_type)
 
-/mob/living/carbon/human/proc/werewolf_infect_attempt()
+/mob/living/carbon/humanoid/proc/werewolf_infect_attempt()
 	var/datum/antagonist/werewolf/wolfy = werewolf_check()
 	if(!wolfy)
 		return
@@ -116,7 +116,7 @@
 	vomit(1, blood = TRUE, stun = FALSE)
 	return wolfy
 
-/mob/living/carbon/human/proc/werewolf_feed(mob/living/carbon/human/target, healing_amount = 10)
+/mob/living/carbon/humanoid/proc/werewolf_feed(mob/living/carbon/humanoid/target, healing_amount = 10)
 	if(!istype(target))
 		return
 	if(src.has_status_effect(/datum/status_effect/debuff/silver_curse))

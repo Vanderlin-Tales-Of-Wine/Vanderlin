@@ -16,7 +16,7 @@
 	var/list/datum/mind/linked_minds = list()
 
 	// If the body is destroyed, what do we spawn for them
-	var/mob_type = /mob/living/carbon/human
+	var/mob_type = /mob/living/carbon/humanoid
 
 	// If the respawned person is given a specific outfit
 	var/datum/outfit/outfit

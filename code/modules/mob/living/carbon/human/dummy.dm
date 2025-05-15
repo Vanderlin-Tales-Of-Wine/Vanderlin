@@ -1,31 +1,31 @@
 
-/mob/living/carbon/human/dummy
+/mob/living/carbon/humanoid/dummy
 	real_name = "Test Dummy"
 	status_flags = GODMODE|CANPUSH
 	mouse_drag_pointer = MOUSE_INACTIVE_POINTER
 	var/in_use = FALSE
 
-INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
+INITIALIZE_IMMEDIATE(/mob/living/carbon/humanoid/dummy)
 
-/mob/living/carbon/human/dummy/Initialize()
+/mob/living/carbon/humanoid/dummy/Initialize()
 	. = ..()
 	GLOB.human_list -= src //we dont want dummies in this list
 	GLOB.carbon_list -= src
 	GLOB.mob_living_list -= src
 	GLOB.alive_mob_list -= src
 
-/mob/living/carbon/human/dummy/Destroy()
+/mob/living/carbon/humanoid/dummy/Destroy()
 	in_use = FALSE
 	return ..()
 
-/mob/living/carbon/human/dummy/Life()
+/mob/living/carbon/humanoid/dummy/Life()
 	return
 
-/mob/living/carbon/human/dummy/proc/wipe_state()
+/mob/living/carbon/humanoid/dummy/proc/wipe_state()
 	delete_equipment()
 	cut_overlays(TRUE)
 
-/mob/living/carbon/human/dummy/setup_human_dna()
+/mob/living/carbon/humanoid/dummy/setup_human_dna()
 	create_dna(src)
 	randomize_human(src)
 	dna.initialize_dna(skip_index = TRUE) //Skip stuff that requires full round init.
@@ -36,8 +36,8 @@ GLOBAL_LIST_EMPTY(dummy_mob_list)
 
 /proc/generate_or_wait_for_human_dummy(slotkey)
 	if(!slotkey)
-		return new /mob/living/carbon/human/dummy
-	var/mob/living/carbon/human/dummy/D = GLOB.human_dummy_list[slotkey]
+		return new /mob/living/carbon/humanoid/dummy
+	var/mob/living/carbon/humanoid/dummy/D = GLOB.human_dummy_list[slotkey]
 	if(istype(D))
 		UNTIL(!D.in_use)
 	if(QDELETED(D))
@@ -50,7 +50,7 @@ GLOBAL_LIST_EMPTY(dummy_mob_list)
 /proc/unset_busy_human_dummy(slotnumber)
 	if(!slotnumber)
 		return
-	var/mob/living/carbon/human/dummy/D = GLOB.human_dummy_list[slotnumber]
+	var/mob/living/carbon/humanoid/dummy/D = GLOB.human_dummy_list[slotnumber]
 	if(istype(D))
 		D.wipe_state()
 		D.in_use = FALSE

@@ -658,7 +658,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 
 /obj/item/proc/allow_attack_hand_drop(mob/user)
 	if(ishuman(user))
-		var/mob/living/carbon/human/C = user
+		var/mob/living/carbon/humanoid/C = user
 		if(!(src in C.held_items) && unequip_delay_self)
 			if(unequip_delay_self >= 10)
 				C.visible_message(span_smallnotice("[C] starts taking off [src]..."), span_smallnotice("I start taking off [src]..."))
@@ -692,14 +692,14 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 
 // afterattack() and attack() prototypes moved to _onclick/item_attack.dm for consistency
 
-/obj/item/proc/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
+/obj/item/proc/hit_reaction(mob/living/carbon/humanoid/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	SEND_SIGNAL(src, COMSIG_ITEM_HIT_REACT, args)
 	if(prob(final_block_chance))
 		owner.visible_message("<span class='danger'>[owner] blocks [attack_text] with [src]!</span>")
 		return 1
 	return 0
 
-/obj/item/proc/hit_response(mob/living/carbon/human/owner, mob/living/carbon/human/attacker)
+/obj/item/proc/hit_response(mob/living/carbon/humanoid/owner, mob/living/carbon/humanoid/attacker)
 	SEND_SIGNAL(src, COMSIG_ITEM_HIT_RESPONSE, owner, attacker)		//sends signal for Magic_items. Used to call enchantments effects for worn items
 
 /obj/item/proc/talk_into(mob/M, input, channel, spans, datum/language/language)
@@ -868,7 +868,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 			"<span class='danger'>I stab myself in the eyes with [src]!</span>" \
 		)
 	if(is_human_victim)
-		var/mob/living/carbon/human/U = M
+		var/mob/living/carbon/humanoid/U = M
 		U.apply_damage(7, BRUTE, affecting)
 
 	else
@@ -955,7 +955,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	if(!ismob(loc))
 		return
 	var/mob/owner = loc
-	var/mob/living/carbon/human/H
+	var/mob/living/carbon/humanoid/H
 	if(ishuman(owner))
 		H = owner
 	var/flags = slot_flags
@@ -1142,7 +1142,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	var/skill_modifier = 1
 
 	if(tool_behaviour == TOOL_MINING && ishuman(user))
-		var/mob/living/carbon/human/H = user
+		var/mob/living/carbon/humanoid/H = user
 		skill_modifier = H.mind.get_skill_speed_modifier(/datum/skill/labor/mining)
 
 	delay *= toolspeed * skill_modifier

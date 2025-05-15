@@ -35,7 +35,7 @@
 		var/obj/O = targets[1]
 		if(O.fire_act())
 			user.visible_message("<font color='yellow'>[user] points at [O], igniting it with sacred flames!</font>")
-			var/mob/living/carbon/human/C = user
+			var/mob/living/carbon/humanoid/C = user
 			var/datum/devotion/cleric_holder/D = C.cleric
 			D.update_devotion(25)
 			return ..()

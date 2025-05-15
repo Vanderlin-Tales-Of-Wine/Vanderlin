@@ -91,7 +91,7 @@
 /area/rogue/under/tomb/indoors/church)
 "oj" = (
 /obj/structure/chair/bench/church/mid,
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/carpet/lord/center,
 /area/rogue/under/tomb/indoors/church)
 "oB" = (
@@ -146,7 +146,7 @@
 /area/rogue/under/tomb/indoors/church)
 "vD" = (
 /obj/structure/chair/bench/church/r,
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/carpet/lord/right,
 /area/rogue/under/tomb/indoors/church)
 "yg" = (
@@ -192,7 +192,7 @@
 /area/rogue/under/tomb/indoors/church)
 "Gk" = (
 /obj/structure/chair/bench/church,
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/carpet/lord/left,
 /area/rogue/under/tomb/indoors/church)
 "GQ" = (
@@ -212,7 +212,7 @@
 	pixel_y = -13;
 	pixel_x = -9
 	},
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled{
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled{
 	name = "Wine Drenched Skeleton"
 	},
 /turf/open/floor/hexstone,

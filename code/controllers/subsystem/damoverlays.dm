@@ -15,7 +15,7 @@ SUBSYSTEM_DEF(damoverlays)
 	var/list/currentrun = src.currentrun
 
 	while(currentrun.len)
-		var/mob/living/carbon/human/thing = currentrun[currentrun.len]
+		var/mob/living/carbon/humanoid/thing = currentrun[currentrun.len]
 		currentrun.len--
 		if (!thing || QDELETED(thing))
 			processing -= thing

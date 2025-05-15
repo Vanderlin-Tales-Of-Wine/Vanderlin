@@ -18,10 +18,10 @@
 #define THERMAL_PROTECTION_HAND_LEFT	0.025
 #define THERMAL_PROTECTION_HAND_RIGHT	0.025
 
-/mob/living/carbon/human
+/mob/living/carbon/humanoid
 	var/allmig_reward = 0
 
-/mob/living/carbon/human/Life()
+/mob/living/carbon/humanoid/Life()
 //	set invisibility = 0
 	if (notransform)
 		return
@@ -93,7 +93,7 @@
 	if(stat != DEAD)
 		return 1
 
-/mob/living/carbon/human/DeadLife()
+/mob/living/carbon/humanoid/DeadLife()
 	set invisibility = 0
 
 	if(notransform)
@@ -106,7 +106,7 @@
 	. = ..()
 	name = get_visible_name()
 
-/mob/living/carbon/human/proc/on_daypass()
+/mob/living/carbon/humanoid/proc/on_daypass()
 	if(stat < 3) //not dead
 		if(dna?.species)
 			if(STUBBLE in dna.species.species_traits)
@@ -116,7 +116,7 @@
 						update_body()
 
 
-/mob/living/carbon/human/handle_traits()
+/mob/living/carbon/humanoid/handle_traits()
 	if (getOrganLoss(ORGAN_SLOT_BRAIN) >= 60)
 		SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "brain_damage", /datum/mood_event/brain_damage)
 	else
@@ -126,11 +126,11 @@
 /mob/living/proc/handle_environment()
 	return
 
-/mob/living/carbon/human/handle_environment()
+/mob/living/carbon/humanoid/handle_environment()
 	dna?.species.handle_environment(src)
 
 ///FIRE CODE
-/mob/living/carbon/human/handle_fire()
+/mob/living/carbon/humanoid/handle_fire()
 	. = ..()
 	if(.) //if the mob isn't on fire anymore
 		return
@@ -145,7 +145,7 @@
 		update_fire()
 
 
-/mob/living/carbon/human/proc/get_thermal_protection()
+/mob/living/carbon/humanoid/proc/get_thermal_protection()
 	var/thermal_protection = 0 //Simple check to estimate how protected we are against multiple temperatures
 	if(wear_armor)
 		if(wear_armor.max_heat_protection_temperature >= 30000)
@@ -156,7 +156,7 @@
 	thermal_protection = round(thermal_protection)
 	return thermal_protection
 
-/mob/living/carbon/human/IgniteMob()
+/mob/living/carbon/humanoid/IgniteMob()
 	//If have no DNA or can be Ignited, call parent handling to light user
 	//If firestacks are high enough
 	if(!dna || dna.species.CanIgniteMob(src))
@@ -169,12 +169,12 @@
 		return ..()
 	. = FALSE //No ignition
 
-/mob/living/carbon/human/ExtinguishMob()
+/mob/living/carbon/humanoid/ExtinguishMob()
 	if(!dna || !dna.species.ExtinguishMob(src))
 		last_fire_update = null
 		..()
 
-/mob/living/carbon/human/SoakMob(locations)
+/mob/living/carbon/humanoid/SoakMob(locations)
 	. = ..()
 	var/coverhead
 	//add belt slots to this for rusting
@@ -194,7 +194,7 @@
 
 
 //This proc returns a number made up of the flags for body parts which you are protected on. (such as HEAD, CHEST, GROIN, etc. See setup.dm for the full list)
-/mob/living/carbon/human/proc/get_heat_protection_flags(temperature) //Temperature is the temperature you're being exposed to.
+/mob/living/carbon/humanoid/proc/get_heat_protection_flags(temperature) //Temperature is the temperature you're being exposed to.
 	var/thermal_protection_flags = 0
 	//Handle normal clothing
 	if(head)
@@ -218,7 +218,7 @@
 
 	return thermal_protection_flags
 
-/mob/living/carbon/human/proc/get_heat_protection(temperature) //Temperature is the temperature you're being exposed to.
+/mob/living/carbon/humanoid/proc/get_heat_protection(temperature) //Temperature is the temperature you're being exposed to.
 	var/thermal_protection_flags = get_heat_protection_flags(temperature)
 
 	var/thermal_protection = 0
@@ -250,7 +250,7 @@
 	return min(1,thermal_protection)
 
 //See proc/get_heat_protection_flags(temperature) for the description of this proc.
-/mob/living/carbon/human/proc/get_cold_protection_flags(temperature)
+/mob/living/carbon/humanoid/proc/get_cold_protection_flags(temperature)
 	var/thermal_protection_flags = 0
 	//Handle normal clothing
 
@@ -275,7 +275,7 @@
 
 	return thermal_protection_flags
 
-/mob/living/carbon/human/proc/get_cold_protection(temperature)
+/mob/living/carbon/humanoid/proc/get_cold_protection(temperature)
 	temperature = max(temperature, 2.7) //There is an occasional bug where the temperature is miscalculated in ares with a small amount of gas on them, so this is necessary to ensure that that bug does not affect this calculation. Space's temperature is 2.7K and most suits that are intended to protect against any cold, protect down to 2.0K.
 	var/thermal_protection_flags = get_cold_protection_flags(temperature)
 
@@ -306,7 +306,7 @@
 
 	return min(1,thermal_protection)
 
-/mob/living/carbon/human/handle_random_events()
+/mob/living/carbon/humanoid/handle_random_events()
 	..()
 	//Puke if toxloss is too high
 	if(!stat)
@@ -314,7 +314,7 @@
 			MOBTIMER_SET(src, MT_PUKE)
 			vomit(1, blood = TRUE)
 
-/mob/living/carbon/human/has_smoke_protection()
+/mob/living/carbon/humanoid/has_smoke_protection()
 	if(wear_mask)
 		if(wear_mask.clothing_flags & BLOCK_GAS_SMOKE_EFFECT)
 			return TRUE
@@ -324,7 +324,7 @@
 			return TRUE
 	return ..()
 
-/mob/living/carbon/human/proc/handle_heart()
+/mob/living/carbon/humanoid/proc/handle_heart()
 	var/we_breath = !HAS_TRAIT_FROM(src, TRAIT_NOBREATH, SPECIES_TRAIT)
 
 	if(!undergoing_cardiac_arrest())
@@ -336,7 +336,7 @@
 	// Tissues die without blood circulation
 	adjustBruteLoss(2)
 
-/mob/living/carbon/human/proc/handle_vamp_dreams()
+/mob/living/carbon/humanoid/proc/handle_vamp_dreams()
 	if(!HAS_TRAIT(src, TRAIT_VAMP_DREAMS))
 		return
 	if(!mind)

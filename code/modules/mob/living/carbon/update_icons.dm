@@ -91,7 +91,7 @@
 	remove_overlay(HANDS_BEHIND_LAYER)
 	var/age = AGE_ADULT
 	if(ishuman(src))
-		var/mob/living/carbon/human/human = src
+		var/mob/living/carbon/humanoid/human = src
 		age = human.age
 
 	if (handcuffed)
@@ -159,7 +159,7 @@
 			behindhand_overlay = center_image(behindhand_overlay, I.inhand_x_dimension, I.inhand_y_dimension)
 
 			if(ishuman(src))
-				var/mob/living/carbon/human/H = src
+				var/mob/living/carbon/humanoid/H = src
 				if(H.dna && H.dna.species)
 					var/list/offsets = H.dna.species.offset_features
 					if(H.age == AGE_CHILD)
@@ -185,7 +185,7 @@
 				icon_file = I.righthand_file
 			inhand_overlay = I.build_worn_icon(age = age, default_layer = HANDS_LAYER, default_icon_file = icon_file, isinhands = TRUE)
 			if(ishuman(src))
-				var/mob/living/carbon/human/H = src
+				var/mob/living/carbon/humanoid/H = src
 				if(H.dna && H.dna.species.sexes)
 					var/list/offsets = H.dna.species.offset_features
 					if(H.age == AGE_CHILD)
@@ -259,7 +259,7 @@
 	remove_overlay(MASK_LAYER)
 	var/age = AGE_ADULT
 	if(ishuman(src))
-		var/mob/living/carbon/human/human = src
+		var/mob/living/carbon/humanoid/human = src
 		age = human.age
 
 	if(!get_bodypart(BODY_ZONE_HEAD)) //Decapitated
@@ -280,7 +280,7 @@
 	remove_overlay(NECK_LAYER)
 	var/age = AGE_ADULT
 	if(ishuman(src))
-		var/mob/living/carbon/human/human = src
+		var/mob/living/carbon/humanoid/human = src
 		age = human.age
 
 	if(client && hud_used && hud_used.inv_slots[SLOT_NECK])
@@ -298,7 +298,7 @@
 	remove_overlay(BACK_LAYER)
 	var/age = AGE_ADULT
 	if(ishuman(src))
-		var/mob/living/carbon/human/human = src
+		var/mob/living/carbon/humanoid/human = src
 		age = human.age
 
 	if(client && hud_used && hud_used.inv_slots[SLOT_BACK])
@@ -316,7 +316,7 @@
 
 	var/age = AGE_ADULT
 	if(ishuman(src))
-		var/mob/living/carbon/human/human = src
+		var/mob/living/carbon/humanoid/human = src
 		age = human.age
 
 	if(!get_bodypart(BODY_ZONE_HEAD)) //Decapitated
@@ -338,7 +338,7 @@
 	if(handcuffed)
 		var/mutable_appearance/inhand_overlay = mutable_appearance('icons/roguetown/mob/bodies/cuffed.dmi', "[handcuffed.name]up", -HANDCUFF_LAYER)
 		if(ishuman(src))
-			var/mob/living/carbon/human/H = src
+			var/mob/living/carbon/humanoid/H = src
 			if(H.dna && H.dna.species.sexes)
 				var/list/offsets = H.dna.species.offset_features
 				if(H.age == AGE_CHILD)

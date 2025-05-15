@@ -1,4 +1,4 @@
-/mob/living/carbon/human/species/demihuman
+/mob/living/carbon/humanoid/species/demihuman
 	race = /datum/species/demihuman
 
 /datum/species/demihuman
@@ -122,7 +122,7 @@
 //	languages(foreign)
 
 /*
-/datum/species/demihuman/proc/languages(mob/living/carbon/human/foreign)
+/datum/species/demihuman/proc/languages(mob/living/carbon/humanoid/foreign)
 	if(foreign.skin_tone == SKIN_COLOR_GRENZELHOFT)
 		foreign.grant_language(/datum/language/grenzelhoftian)
 */

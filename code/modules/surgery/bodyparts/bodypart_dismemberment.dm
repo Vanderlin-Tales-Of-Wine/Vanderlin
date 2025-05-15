@@ -36,7 +36,7 @@
 	if(HAS_TRAIT(C, TRAIT_NODISMEMBER))
 		return FALSE
 	if(ishuman(owner))
-		var/mob/living/carbon/human/human_owner = owner
+		var/mob/living/carbon/humanoid/human_owner = owner
 		if(human_owner.checkcritarmor(zone_precise, bclass))
 			return FALSE
 
@@ -198,7 +198,7 @@
 	forceMove(LB)
 	return TRUE
 
-/obj/item/organ/brain/transfer_to_limb(obj/item/bodypart/head/LB, mob/living/carbon/human/C)
+/obj/item/organ/brain/transfer_to_limb(obj/item/bodypart/head/LB, mob/living/carbon/humanoid/C)
 	Remove(C) //Changeling brain concerns are now handled in Remove
 	forceMove(LB)
 	if(istype(LB))
@@ -210,17 +210,17 @@
 	brainmob = null
 	return TRUE
 
-/obj/item/organ/eyes/transfer_to_limb(obj/item/bodypart/head/LB, mob/living/carbon/human/C)
+/obj/item/organ/eyes/transfer_to_limb(obj/item/bodypart/head/LB, mob/living/carbon/humanoid/C)
 	if(istype(LB))
 		LB.eyes = src
 	return ..()
 
-/obj/item/organ/ears/transfer_to_limb(obj/item/bodypart/head/LB, mob/living/carbon/human/C)
+/obj/item/organ/ears/transfer_to_limb(obj/item/bodypart/head/LB, mob/living/carbon/humanoid/C)
 	if(istype(LB))
 		LB.ears = src
 	return ..()
 
-/obj/item/organ/tongue/transfer_to_limb(obj/item/bodypart/head/LB, mob/living/carbon/human/C)
+/obj/item/organ/tongue/transfer_to_limb(obj/item/bodypart/head/LB, mob/living/carbon/humanoid/C)
 	if(istype(LB))
 		LB.tongue = src
 	return ..()
@@ -390,7 +390,7 @@
 		eyes = null
 
 	if(ishuman(C))
-		var/mob/living/carbon/human/H = C
+		var/mob/living/carbon/humanoid/H = C
 		H.lip_style = lip_style
 		H.lip_color = lip_color
 	if(real_name)

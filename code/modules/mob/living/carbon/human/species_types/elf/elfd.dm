@@ -6,7 +6,7 @@
 
 //	( + Night Vision Plus )
 
-/mob/living/carbon/human/species/elf/dark
+/mob/living/carbon/humanoid/species/elf/dark
 	race = /datum/species/elf/dark
 
 /datum/species/elf/dark

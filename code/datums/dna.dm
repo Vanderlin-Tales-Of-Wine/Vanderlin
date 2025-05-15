@@ -62,7 +62,7 @@
 		else
 			L[DNA_GENDER_BLOCK] = construct_block(G_PLURAL, 3)
 	if(ishuman(holder))
-		var/mob/living/carbon/human/H = holder
+		var/mob/living/carbon/humanoid/H = holder
 		L[DNA_SKIN_TONE_BLOCK] = H.skin_tone
 		L[DNA_EYE_COLOR_BLOCK] = H.get_eye_color()
 
@@ -86,7 +86,7 @@
 /datum/dna/proc/update_ui_block(blocknumber)
 	if(!blocknumber || !ishuman(holder))
 		return
-	var/mob/living/carbon/human/H = holder
+	var/mob/living/carbon/humanoid/H = holder
 	switch(blocknumber)
 		if(DNA_SKIN_TONE_BLOCK)
 			setblock(uni_identity, blocknumber, sanitize_hexcolor(H.skin_tone))
@@ -154,7 +154,7 @@
 			dna.body_markings = deepCopyList(pref_load.body_markings)
 		dna.species.on_species_gain(src, old_species, pref_load)
 
-/mob/living/carbon/human/set_species(datum/species/mrace, icon_update = TRUE, datum/preferences/pref_load = null)
+/mob/living/carbon/humanoid/set_species(datum/species/mrace, icon_update = TRUE, datum/preferences/pref_load = null)
 	if(pref_load)
 		skin_tone = pref_load.skin_tone
 	..()
@@ -169,7 +169,7 @@
 	return dna
 
 
-/mob/living/carbon/human/proc/hardset_dna(ui, list/mutation_index, newreal_name, newblood_type, datum/species/mrace, newfeatures, list/mutations, force_transfer_mutations)
+/mob/living/carbon/humanoid/proc/hardset_dna(ui, list/mutation_index, newreal_name, newblood_type, datum/species/mrace, newfeatures, list/mutations, force_transfer_mutations)
 //Do not use force_transfer_mutations for stuff like cloners without some precautions, otherwise some conditional mutations could break (timers, drill hat etc)
 	if(newfeatures)
 		dna.features = newfeatures
@@ -213,7 +213,7 @@
 		else
 			gender = PLURAL
 
-/mob/living/carbon/human/updateappearance(icon_update=1, mutcolor_update=0, mutations_overlay_update=0)
+/mob/living/carbon/humanoid/updateappearance(icon_update=1, mutcolor_update=0, mutations_overlay_update=0)
 	..()
 	if(icon_update)
 		update_body()
@@ -271,6 +271,6 @@
 		value = values
 	return value
 
-/mob/living/carbon/human/proc/MixDNA(mob/living/carbon/human/father = "", mob/living/carbon/human/mother = "", override = FALSE)
+/mob/living/carbon/humanoid/proc/MixDNA(mob/living/carbon/humanoid/father = "", mob/living/carbon/humanoid/mother = "", override = FALSE)
 	if(override == FALSE && dna.parent_mix)
 		dna.parent_mix = "[father]/[mother]"

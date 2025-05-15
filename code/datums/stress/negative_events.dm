@@ -71,7 +71,7 @@
 
 /datum/stressevent/viewdeath/get_desc(mob/living/user)
 	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+		var/mob/living/carbon/humanoid/H = user
 		if(H.dna?.species)
 			return "<span class='red'>Another [H.dna.species.id] perished.</span>"
 	return desc

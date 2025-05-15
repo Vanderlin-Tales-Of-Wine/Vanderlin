@@ -1,6 +1,6 @@
 /mob/living/carbon/monkey/help_shake_act(mob/living/carbon/M)
 	if(health < 0 && ishuman(M))
-		var/mob/living/carbon/human/H = M
+		var/mob/living/carbon/humanoid/H = M
 		H.do_cpr(src)
 	else
 		..()
@@ -17,7 +17,7 @@
 			var/dmg = rand(1, 5)
 			apply_damage(dmg, BRUTE, affecting)
 
-/mob/living/carbon/monkey/attack_hand(mob/living/carbon/human/M)
+/mob/living/carbon/monkey/attack_hand(mob/living/carbon/humanoid/M)
 	if(..())	//To allow surgery to return properly.
 		return
 

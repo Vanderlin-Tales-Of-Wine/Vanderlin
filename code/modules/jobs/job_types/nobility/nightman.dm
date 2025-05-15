@@ -23,7 +23,7 @@
 /datum/outfit/job/apothecary
 	job_bitflag = BITFLAG_ROYALTY | BITFLAG_CONSTRUCTOR
 
-/datum/outfit/job/apothecary/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/apothecary/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	armor = /obj/item/clothing/armor/gambeson/apothecary
 	shoes = /obj/item/clothing/shoes/apothboots

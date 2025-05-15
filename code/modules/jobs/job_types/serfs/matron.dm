@@ -22,7 +22,7 @@
 	can_have_apprentices = TRUE
 	cmode_music = 'sound/music/cmode/nobility/CombatSpymaster.ogg'
 
-/datum/outfit/job/matron/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/matron/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 3, TRUE)

@@ -118,7 +118,7 @@
 	icon_state = "minerslamp[on]"
 	item_state = "minerslamp[on]"
 	if(ishuman(loc))
-		var/mob/living/carbon/human/H = loc
+		var/mob/living/carbon/humanoid/H = loc
 		H.update_inv_head()
 	for(var/X in actions)
 		var/datum/action/A = X

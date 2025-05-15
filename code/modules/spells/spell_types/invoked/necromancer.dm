@@ -94,23 +94,23 @@
  * * targets: list of mobs that are targetted.
  * * user: spell caster.
  */
-/obj/effect/proc_holder/spell/invoked/raise_undead/cast(list/targets, mob/living/carbon/human/user)
+/obj/effect/proc_holder/spell/invoked/raise_undead/cast(list/targets, mob/living/carbon/humanoid/user)
 	. = ..()
 
 	user.say("Hgf'ant'kthar!")
 
 	var/obj = targets[1]
 
-	if(!obj || !istype(obj, /mob/living/carbon/human))
+	if(!obj || !istype(obj, /mob/living/carbon/humanoid))
 		to_chat(user, span_warning("I need to cast this spell on a corpse."))
 		return FALSE
 
 	// bandaid until goblin skeleton immortality is fixed
-	if(istype(obj, /mob/living/carbon/human/species/goblin))
+	if(istype(obj, /mob/living/carbon/humanoid/species/goblin))
 		to_chat(user, span_warning("I cannot raise goblins."))
 		return FALSE
 
-	var/mob/living/carbon/human/target = obj
+	var/mob/living/carbon/humanoid/target = obj
 
 	if(target.stat != DEAD)
 		to_chat(user, span_warning("I cannot raise the living."))
@@ -167,7 +167,7 @@
  * * master: master of the minion.
  * * ckey (optional): ckey of the player that will control the minion.
  */
-/mob/living/carbon/human/proc/turn_to_minion(mob/living/carbon/human/master, ckey)
+/mob/living/carbon/humanoid/proc/turn_to_minion(mob/living/carbon/humanoid/master, ckey)
 
 	if(!master)
 		return FALSE
@@ -278,7 +278,7 @@
 	if(!message)
 		return
 
-	var/mob/living/carbon/human/lich_player = user
+	var/mob/living/carbon/humanoid/lich_player = user
 
 	to_chat(lich_player, span_boldannounce("Lich [lich_player.real_name] commands: [message]"))
 	message_admins("[lich_player.real_name], the Lich, commands his minions: [message]")

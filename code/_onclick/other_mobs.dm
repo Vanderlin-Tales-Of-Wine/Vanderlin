@@ -99,7 +99,7 @@
 
 	if(!user.get_active_held_item() && !user.cmode && src.givingto != user)
 		if(ishuman(src) && ishuman(user))
-			var/mob/living/carbon/human/target = src
+			var/mob/living/carbon/humanoid/target = src
 			var/datum/job/job = SSjob.GetJob(target.job)
 			if(length(user.mind?.apprentices) >= user.mind?.max_apprentices)
 				return
@@ -137,7 +137,7 @@
 /mob/living/ongive(mob/user, params)
 	if(!ishuman(user) || src == user)
 		return
-	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/humanoid/H = user
 	if(givingto == H && !H.get_active_held_item()) //take item being offered
 		if(world.time > lastgibto + 100) //time out give after a while
 			givingto = null
@@ -173,10 +173,10 @@
 /atom/proc/onbite(mob/user)
 	return
 
-/mob/living/onbite(mob/living/carbon/human/user)
+/mob/living/onbite(mob/living/carbon/humanoid/user)
 	return
 
-/mob/living/carbon/onbite(mob/living/carbon/human/user)
+/mob/living/carbon/onbite(mob/living/carbon/humanoid/user)
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
 		to_chat(user, span_warning("I don't want to harm [src]!"))
 		return FALSE
@@ -233,8 +233,8 @@
 
 	if(!nodmg)
 		playsound(src, "smallslash", 100, TRUE, -1)
-		if(istype(src, /mob/living/carbon/human))
-			var/mob/living/carbon/human/H = src
+		if(istype(src, /mob/living/carbon/humanoid))
+			var/mob/living/carbon/humanoid/H = src
 			if(user?.mind && mind)
 				if(user.dna?.species && istype(user.dna.species, /datum/species/werewolf))
 					if(caused_wound)
@@ -242,7 +242,7 @@
 					if(prob(30))
 						user.werewolf_feed(src)
 				if(user.mind.has_antag_datum(/datum/antagonist/zombie) && !src.mind.has_antag_datum(/datum/antagonist/zombie))
-					INVOKE_ASYNC(H, TYPE_PROC_REF(/mob/living/carbon/human, zombie_infect_attempt))
+					INVOKE_ASYNC(H, TYPE_PROC_REF(/mob/living/carbon/humanoid, zombie_infect_attempt))
 
 	var/obj/item/grabbing/bite/B = new()
 	user.equip_to_slot_or_del(B, SLOT_MOUTH)
@@ -319,7 +319,7 @@
 						return
 					if(!M.checkdefense(mmb_intent, src))
 						if(ishuman(M))
-							var/mob/living/carbon/human/H = M
+							var/mob/living/carbon/humanoid/H = M
 							H.dna.species.kicked(src, H)
 						else
 							M.onkick(src)
@@ -370,7 +370,7 @@
 					jadded = 20
 					jrange = 2
 				if(ishuman(src))
-					var/mob/living/carbon/human/H = src
+					var/mob/living/carbon/humanoid/H = src
 					jadded += H.get_complex_pain()/50
 					if(H.get_encumbrance() >= 0.7)
 						jadded += 50
@@ -416,8 +416,8 @@
 				if(A == src)
 					return
 				if(ishuman(A))
-					var/mob/living/carbon/human/U = src
-					var/mob/living/carbon/human/V = A
+					var/mob/living/carbon/humanoid/U = src
+					var/mob/living/carbon/humanoid/V = A
 					var/thiefskill = src.mind.get_skill_level(/datum/skill/misc/stealing) + (has_world_trait(/datum/world_trait/matthios_fingers) ? 1 : 0)
 					var/stealroll = roll("[thiefskill]d6")
 					var/targetperception = (V.STAPER)
@@ -541,7 +541,7 @@
 	return FALSE
 
 
-/mob/living/carbon/human/RangedAttack(atom/A, mouseparams)
+/mob/living/carbon/humanoid/RangedAttack(atom/A, mouseparams)
 	. = ..()
 	if(gloves)
 		var/obj/item/clothing/gloves/G = gloves
@@ -599,7 +599,7 @@
 		var/mob/living/carbon/victim = A
 		var/obj/item/bodypart/affecting = null
 		if(ishuman(victim))
-			var/mob/living/carbon/human/human_victim = victim
+			var/mob/living/carbon/humanoid/human_victim = victim
 			affecting = human_victim.get_bodypart(pick(BODY_ZONE_CHEST, BODY_ZONE_PRECISE_L_HAND, BODY_ZONE_PRECISE_R_HAND, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG))
 		var/armor = victim.run_armor_check(affecting, "melee")
 		if(prob(25))

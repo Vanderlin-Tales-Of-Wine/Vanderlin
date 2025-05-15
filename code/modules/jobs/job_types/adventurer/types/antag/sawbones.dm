@@ -6,7 +6,7 @@
 	category_tags = list(CTAG_BANDIT)
 	cmode_music = 'sound/music/cmode/antag/CombatBandit3.ogg'
 
-/datum/outfit/job/bandit/sawbones/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/bandit/sawbones/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	mask = /obj/item/clothing/face/facemask/steel
 	head = /obj/item/clothing/head/tophat

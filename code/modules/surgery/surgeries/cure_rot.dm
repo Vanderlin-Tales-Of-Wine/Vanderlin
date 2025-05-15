@@ -5,7 +5,7 @@
 		/datum/surgery_step/burn_rot,
 		/datum/surgery_step/cauterize
 	)
-	target_mobtypes = list(/mob/living/carbon/human, /mob/living/carbon/monkey)
+	target_mobtypes = list(/mob/living/carbon/humanoid, /mob/living/carbon/monkey)
 	possible_locs = list(BODY_ZONE_CHEST)
 
 /datum/surgery_step/burn_rot
@@ -16,7 +16,7 @@
 		TOOL_WELDER = 70,
 		TOOL_HOT = 35,
 	)
-	target_mobtypes = list(/mob/living/carbon/human, /mob/living/carbon/monkey)
+	target_mobtypes = list(/mob/living/carbon/humanoid, /mob/living/carbon/monkey)
 	time = 8 SECONDS
 	surgery_flags = SURGERY_INCISED
 	skill_min = SKILL_LEVEL_APPRENTICE
@@ -66,7 +66,7 @@
 		"[user] burns the rot within [target].",
 		"[user] takes a [tool] to [target]'s innards.")
 	if(ishuman(target))
-		var/mob/living/carbon/human/human = target
+		var/mob/living/carbon/humanoid/human = target
 		if(human.funeral)
 			if(human.client)
 				to_chat(human, span_warning("My funeral rites were undone!"))

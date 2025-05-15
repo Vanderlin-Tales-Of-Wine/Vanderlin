@@ -13,7 +13,7 @@
 
 	cmode_music = 'sound/music/cmode/nobility/combat_physician.ogg'
 
-/datum/outfit/job/adventurer/physicker/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/adventurer/physicker/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	mask = /obj/item/clothing/face/phys
 	head = /obj/item/clothing/head/roguehood/phys

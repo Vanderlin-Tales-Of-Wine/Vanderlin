@@ -22,8 +22,8 @@ Updated by Skie -- Still not perfect but better!
 Stuff you can't do:
 Call proc /mob/proc/Dizzy() for some player
 Because if you select a player mob as owner it tries to do the proc for
-/mob/living/carbon/human/ instead. And that gives a run-time error.
-But you can call procs that are of type /mob/living/carbon/human/proc/ for that player.
+/mob/living/carbon/humanoid/ instead. And that gives a run-time error.
+But you can call procs that are of type /mob/living/carbon/humanoid/proc/ for that player.
 */
 
 /client/proc/cmd_admin_animalize(mob/M in GLOB.mob_list)
@@ -244,9 +244,9 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 		return
 
 	var/delete_pocket
-	var/mob/living/carbon/human/H
+	var/mob/living/carbon/humanoid/H
 	if(isobserver(M))
-		H = M.change_mob_type(/mob/living/carbon/human, null, null, TRUE)
+		H = M.change_mob_type(/mob/living/carbon/humanoid, null, null, TRUE)
 	else
 		H = M
 		if(H.l_store || H.r_store || H.s_store) //saves a lot of time for admins and coders alike

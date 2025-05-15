@@ -498,7 +498,7 @@
 	can_buckle = 1
 	buckle_lying = NO_BUCKLE_LYING
 	buckle_requires_restraints = 1
-	var/mob/living/carbon/human/patient = null
+	var/mob/living/carbon/humanoid/patient = null
 
 /obj/structure/table/optable/Initialize()
 	. = ..()
@@ -510,7 +510,7 @@
 	check_patient()
 
 /obj/structure/table/optable/proc/check_patient()
-	var/mob/living/carbon/human/M = locate(/mob/living/carbon/human, loc)
+	var/mob/living/carbon/humanoid/M = locate(/mob/living/carbon/humanoid, loc)
 	if(M)
 		if(M.resting)
 			patient = M

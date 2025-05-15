@@ -24,7 +24,7 @@
 	return resisting || pickpocketing || disposing_body
 
 // blocks
-// taken from /mob/living/carbon/human/interactive/
+// taken from /mob/living/carbon/humanoid/interactive/
 /mob/living/carbon/spirit/proc/walk2derpless(target)
 	if(!target || IsStandingStill())
 		return 0
@@ -48,7 +48,7 @@
 
 	return 0
 
-// taken from /mob/living/carbon/human/interactive/
+// taken from /mob/living/carbon/humanoid/interactive/
 /mob/living/carbon/spirit/proc/IsDeadOrIncap(checkDead = TRUE)
 	// if(!(mobility_flags & MOBILITY_FLAGS_INTERACTION))
 	// 	return 1

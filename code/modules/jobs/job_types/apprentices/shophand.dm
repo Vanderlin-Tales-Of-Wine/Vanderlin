@@ -21,7 +21,7 @@
 	bypass_lastclass = TRUE
 	can_have_apprentices = FALSE
 
-/datum/outfit/job/shophand/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/shophand/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	ADD_TRAIT(H, TRAIT_SEEPRICES, type)
 	if(H.gender == FEMALE)

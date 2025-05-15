@@ -4,7 +4,7 @@
 	pixel_x = 32;
 	pixel_y = 0
 	},
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors/magic)
 "aR" = (
@@ -103,7 +103,7 @@
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/cave/lava)
 "iH" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/cave/lava)
 "jm" = (
@@ -255,7 +255,7 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors)
 "qL" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/under/tomb/cave/lava)
 "rj" = (
@@ -297,7 +297,7 @@
 /obj/machinery/light/fueled/wallfire/candle/blue{
 	pixel_y = -32
 	},
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors)
 "tv" = (
@@ -441,7 +441,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 10
 	},
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/under/tomb/indoors)
 "Ac" = (
@@ -449,7 +449,7 @@
 /obj/structure/fluff/walldeco/church/line{
 	dir = 4
 	},
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors/magic)
 "Af" = (
@@ -535,7 +535,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 4
 	},
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/under/tomb/indoors/magic)
 "Go" = (
@@ -599,7 +599,7 @@
 /turf/closed/wall/mineral/stone/window,
 /area/rogue/under/tomb/indoors/magic)
 "JS" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/under/tomb/cave/lava)
 "Kp" = (
@@ -662,7 +662,7 @@
 /area/rogue/under/tomb/indoors)
 "Qa" = (
 /obj/machinery/light/fueled/wallfire/candle/blue/l,
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/under/tomb/indoors)
 "QM" = (
@@ -699,7 +699,7 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors)
 "Ts" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/under/tomb/indoors/magic)
 "TA" = (
@@ -778,7 +778,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 6
 	},
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/under/tomb/indoors)
 

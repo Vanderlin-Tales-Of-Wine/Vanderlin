@@ -39,7 +39,7 @@
 /obj/item/clothing/armor/worn_overlays(isinhands = FALSE)
 	. = list()
 	if(!isinhands)
-		var/mob/living/carbon/human/M = loc
+		var/mob/living/carbon/humanoid/M = loc
 		if(ishuman(M) && M.wear_pants)
 			var/obj/item/clothing/pants/U = M.wear_pants
 			if(istype(U) && U.attached_accessory)

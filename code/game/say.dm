@@ -56,7 +56,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 		namepart = "[speaker.get_alt_name()]"
 	var/colorpart = "<span style='text-shadow:-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000;'>"
 	if(ishuman(speaker))
-		var/mob/living/carbon/human/H = speaker
+		var/mob/living/carbon/humanoid/H = speaker
 		if(face_name)
 			namepart = "[H.get_face_name()]" //So "fake" speaking like in hallucinations does not give the speaker away if disguised
 		if(H.voice_color)

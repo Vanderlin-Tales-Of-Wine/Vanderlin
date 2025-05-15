@@ -1,6 +1,6 @@
 
 
-/mob/living/simple_animal/attack_hand(mob/living/carbon/human/M)
+/mob/living/simple_animal/attack_hand(mob/living/carbon/humanoid/M)
 	. = ..()
 	switch(M.used_intent.type)
 		if(INTENT_HELP)
@@ -38,7 +38,7 @@
 			return TRUE
 
 		if(INTENT_DISARM)
-			var/mob/living/carbon/human/user = M
+			var/mob/living/carbon/humanoid/user = M
 			var/mob/living/simple_animal/target = src
 			if(HAS_TRAIT(src, TRAIT_FLOORED))
 				return FALSE
@@ -156,7 +156,7 @@
 
 /mob/living/simple_animal/onkick(mob/M)
 	var/mob/living/simple_animal/target = src
-	var/mob/living/carbon/human/user = M
+	var/mob/living/carbon/humanoid/user = M
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
 		to_chat(user, "<span class='warning'>I don't want to harm [target]!</span>")
 		return FALSE

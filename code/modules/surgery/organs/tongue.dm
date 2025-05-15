@@ -90,7 +90,7 @@
 	modifies_speech = TRUE
 	var/mothership
 
-/obj/item/organ/tongue/abductor/attack_self(mob/living/carbon/human/H)
+/obj/item/organ/tongue/abductor/attack_self(mob/living/carbon/humanoid/H)
 	if(!istype(H))
 		return
 
@@ -117,10 +117,10 @@
 /obj/item/organ/tongue/abductor/handle_speech(datum/source, list/speech_args)
 	//Hacks
 	var/message = speech_args[SPEECH_MESSAGE]
-	var/mob/living/carbon/human/user = usr
+	var/mob/living/carbon/humanoid/user = usr
 	var/rendered = "<span class='abductor'><b>[user.real_name]:</b> [message]</span>"
 	user.log_talk(message, LOG_SAY, tag="abductor")
-	for(var/mob/living/carbon/human/H in GLOB.alive_mob_list)
+	for(var/mob/living/carbon/humanoid/H in GLOB.alive_mob_list)
 		var/obj/item/organ/tongue/abductor/T = H.getorganslot(ORGAN_SLOT_TONGUE)
 		if(!istype(T))
 			continue

@@ -23,7 +23,7 @@
 	var/displays_adv_job = TRUE
 	var/apprentice_name //Must be set to give apprentices the correct title. Note that pilgrims cannot have apprentices.
 
-/datum/advclass/proc/equipme(mob/living/carbon/human/H)
+/datum/advclass/proc/equipme(mob/living/carbon/humanoid/H)
 	// input sleeps....
 	set waitfor = FALSE
 	if(!H)
@@ -58,7 +58,7 @@
 
 	apply_character_post_equipment(H)
 
-/datum/advclass/proc/post_equip(mob/living/carbon/human/H)
+/datum/advclass/proc/post_equip(mob/living/carbon/humanoid/H)
 	addtimer(CALLBACK(SScrediticons, TYPE_PROC_REF(/datum/controller/subsystem/crediticons, add_credit), H), 2 SECONDS)
 	if(cmode_music)
 		H.cmode_music = cmode_music
@@ -71,7 +71,7 @@
 	Whoa! we are checking requirements here!
 	On the datum! Wow!
 */
-/datum/advclass/proc/check_requirements(mob/living/carbon/human/H)
+/datum/advclass/proc/check_requirements(mob/living/carbon/humanoid/H)
 
 	var/list/local_allowed_sexes = list()
 	if(length(allowed_sexes))
@@ -101,10 +101,10 @@
 
 // Basically the handler has a chance to plus up a class, heres a generic proc you can override to handle behavior related to it.
 // For now you just get an extra stat in everything depending on how many plusses you managed to get.
-/datum/advclass/proc/boost_by_plus_power(plus_factor, mob/living/carbon/human/H)
+/datum/advclass/proc/boost_by_plus_power(plus_factor, mob/living/carbon/humanoid/H)
 	for(var/S in MOBSTATS)
 		H.change_stat(S, plus_factor)
 
 
 //Final proc in the set for really dumb shit
-///datum/advclass/proc/extra_slop_proc_ending(mob/living/carbon/human/H)
+///datum/advclass/proc/extra_slop_proc_ending(mob/living/carbon/humanoid/H)

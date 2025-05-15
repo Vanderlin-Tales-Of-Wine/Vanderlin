@@ -85,7 +85,7 @@
 /obj/effect/decal/cleanable/Crossed(atom/movable/O)
 	..()
 	if(ishuman(O))
-		var/mob/living/carbon/human/H = O
+		var/mob/living/carbon/humanoid/H = O
 		if(H.shoes && blood_state && bloodiness)
 			var/obj/item/clothing/shoes/S = H.shoes
 			if(!S.can_be_bloody)

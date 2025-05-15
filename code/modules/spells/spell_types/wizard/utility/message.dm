@@ -20,7 +20,7 @@
 	if(!user.mind || !user.mind.do_i_know(name=input))
 		to_chat(user, span_warning("I don't know anyone by that name."))
 		return FALSE
-	for(var/mob/living/carbon/human/HL in GLOB.human_list)
+	for(var/mob/living/carbon/humanoid/HL in GLOB.human_list)
 		if(HL.real_name == input)
 			var/message = input(user, "You make a connection. What are you trying to say?")
 			if(!message)

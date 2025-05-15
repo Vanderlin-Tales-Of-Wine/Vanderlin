@@ -25,7 +25,7 @@
 /datum/outfit/job/feldsher
 	job_bitflag = BITFLAG_ROYALTY
 
-/datum/outfit/job/feldsher/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/feldsher/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	shoes = /obj/item/clothing/shoes/shortboots
 	shirt = /obj/item/clothing/shirt/undershirt/red

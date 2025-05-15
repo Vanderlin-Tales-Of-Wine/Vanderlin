@@ -14,7 +14,7 @@
 	pickprob = 15
 	category_tags = list(CTAG_PILGRIM)
 
-/datum/outfit/job/adventurer/masterblacksmith/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/adventurer/masterblacksmith/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	beltr = /obj/item/weapon/hammer/iron
 	backl = /obj/item/storage/backpack/backpack

@@ -87,7 +87,7 @@
 	living_target.visible_message(span_warning("The strike from [user]'s weapon causes [living_target] to go stiff!"), vision_distance = COMBAT_MESSAGE_RANGE)
 	qdel(src)
 
-/datum/status_effect/divine_strike/proc/hand_attack(datum/source, mob/living/carbon/human/M, mob/living/carbon/human/H, datum/martial_art/attacker_style)
+/datum/status_effect/divine_strike/proc/hand_attack(datum/source, mob/living/carbon/humanoid/M, mob/living/carbon/humanoid/H, datum/martial_art/attacker_style)
 	if(!istype(M))
 		return
 	if(!istype(H))
@@ -149,7 +149,7 @@
 
 		if(target.mob_biotypes & MOB_UNDEAD)
 			if(ishuman(target)) //BLEED AND PAIN
-				var/mob/living/carbon/human/human_target = target
+				var/mob/living/carbon/humanoid/human_target = target
 				var/datum/physiology/phy = human_target.physiology
 				phy.bleed_mod *= 1.5
 				phy.pain_mod *= 1.5

@@ -18,7 +18,7 @@
 
 /datum/reagent/consumable/on_mob_life(mob/living/carbon/M)
 	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+		var/mob/living/carbon/humanoid/H = M
 		if(!HAS_TRAIT(H, TRAIT_NOHUNGER))
 			H.adjust_nutrition(nutriment_factor * metabolization_rate)
 			H.adjust_hydration(hydration_factor * metabolization_rate)
@@ -26,7 +26,7 @@
 
 /datum/reagent/consumable/reaction_mob(mob/living/M, method=TOUCH, reac_volume)
 	if (method == INGEST && ishuman(M))
-		var/mob/living/carbon/human/HM = M
+		var/mob/living/carbon/humanoid/HM = M
 		if (quality)
 			switch (quality)
 				if (DRINK_NICE)

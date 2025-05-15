@@ -1,13 +1,13 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "ac" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/lower)
 "ah" = (
 /obj/structure/chair/wood/alt{
 	dir = 8
 	},
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/church,
 /area/rogue/under/mountains/anvil/lower)
 "ak" = (
@@ -294,7 +294,7 @@
 /turf/closed/mineral/random/med,
 /area/rogue/outdoors/mountains/anvil/lavaexposed)
 "eZ" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/lower)
 "fc" = (
@@ -406,7 +406,7 @@
 /area/rogue/under/mountains/anvil/lower/building)
 "gz" = (
 /obj/structure/chair/bench/church/r,
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/church,
 /area/rogue/under/mountains/anvil/lower)
 "gB" = (
@@ -525,7 +525,7 @@
 /area/rogue/under/mountains/anvil/lower)
 "if" = (
 /obj/structure/chair/stool,
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/lower/building)
 "ih" = (
@@ -770,7 +770,7 @@
 /area/rogue/under/mountains/anvil/lower)
 "lO" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/church,
 /area/rogue/under/mountains/anvil/lower)
 "lU" = (
@@ -915,7 +915,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/lower/building)
 "nC" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/churchmarble,
 /area/rogue/under/mountains/anvil/lower)
@@ -1035,12 +1035,12 @@
 /turf/closed/wall/mineral/stone,
 /area/rogue/outdoors/mountains/anvil/lavaexposed)
 "oZ" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/dirt,
 /area/rogue/under/mountains/anvil/lower)
 "pa" = (
 /obj/structure/chair/bench/church,
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/church,
 /area/rogue/under/mountains/anvil/lower)
 "pg" = (
@@ -1057,7 +1057,7 @@
 /turf/open/floor/twig,
 /area/rogue/outdoors/mountains/anvil/snowyforest)
 "pv" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower/building)
 "px" = (
@@ -1094,7 +1094,7 @@
 /turf/open/floor/wood/nosmooth/saiga,
 /area/rogue/indoors/mountains/anvil/surface/building)
 "qh" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/blocks/green,
 /area/rogue/under/mountains/anvil/lower/building)
 "qp" = (
@@ -1288,7 +1288,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower/building)
 "sT" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/tile/kitchen,
 /area/rogue/under/mountains/anvil/lower/building)
 "sW" = (
@@ -1518,7 +1518,7 @@
 /turf/open/floor/blocks,
 /area/rogue/under/mountains/anvil/lower/building)
 "wE" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/dirt,
 /area/rogue/under/mountains/anvil/lower/building)
 "wG" = (
@@ -1562,7 +1562,7 @@
 /turf/closed/wall/mineral/decowood/vert,
 /area/rogue/indoors/mountains/anvil/surface/building)
 "xy" = (
-/mob/living/carbon/human/species/goblin{
+/mob/living/carbon/humanoid/species/goblin{
 	name = "Corner Licker"
 	},
 /turf/open/floor/metal/barograte,
@@ -1595,7 +1595,7 @@
 /turf/open/floor/twig,
 /area/rogue/outdoors/mountains/anvil/snowyforest)
 "xS" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/tile/kitchen,
 /area/rogue/under/mountains/anvil/lower/building)
 "xT" = (
@@ -1656,7 +1656,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
 "yT" = (
-/mob/living/carbon/human/species/orc/tribal,
+/mob/living/carbon/humanoid/species/orc/tribal,
 /obj/structure/stairs/stone,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower/building)
@@ -1706,7 +1706,7 @@
 /turf/open/floor/dirt,
 /area/rogue/outdoors/mountains/anvil/lavaexposed)
 "zV" = (
-/mob/living/carbon/human/species/orc/tribal,
+/mob/living/carbon/humanoid/species/orc/tribal,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower/building)
 "zY" = (
@@ -1741,7 +1741,7 @@
 /turf/open/floor/dirt,
 /area/rogue/under/mountains/anvil/lower)
 "AW" = (
-/mob/living/carbon/human/species/orc/tribal,
+/mob/living/carbon/humanoid/species/orc/tribal,
 /turf/open/water/cleanshallow,
 /area/rogue/under/mountains/anvil/lower/building)
 "AZ" = (
@@ -1930,7 +1930,7 @@
 /turf/open/floor/twig,
 /area/rogue/under/mountains/anvil/lower/building)
 "DI" = (
-/mob/living/carbon/human/species/orc/marauder,
+/mob/living/carbon/humanoid/species/orc/marauder,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower/building)
 "DJ" = (
@@ -2065,7 +2065,7 @@
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/under/mountains/anvil/lower/building)
 "Gn" = (
-/mob/living/carbon/human/species/orc/tribal,
+/mob/living/carbon/humanoid/species/orc/tribal,
 /turf/open/floor/blocks,
 /area/rogue/under/mountains/anvil/lower/building)
 "Gq" = (
@@ -2149,7 +2149,7 @@
 /obj/item/alch/matricaria{
 	pixel_x = 14
 	},
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment,
 /obj/structure/closet/dirthole/grave,
 /obj/effect/spawner/map_spawner/loot/medium,
 /turf/open/floor/blocks,
@@ -2360,7 +2360,7 @@
 /turf/closed/wall/mineral/roofwall/center,
 /area/rogue/outdoors/mountains/anvil/snowyforest)
 "KG" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/blocks/green,
 /area/rogue/under/mountains/anvil/lower/building)
 "KH" = (
@@ -2575,7 +2575,7 @@
 /turf/closed/indestructible/wooddark,
 /area/rogue/under/mountains/anvil/lower)
 "Nw" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/mountains/anvil/surface/building)
 "Nx" = (
@@ -2931,7 +2931,7 @@
 /obj/structure/chair/wood/alt/chair_noble{
 	dir = 4
 	},
-/mob/living/carbon/human/species/orc/warlord,
+/mob/living/carbon/humanoid/species/orc/warlord,
 /turf/open/floor/blocks,
 /area/rogue/under/mountains/anvil/lower/building)
 "St" = (
@@ -3161,7 +3161,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/under/mountains/anvil/lower/building)
 "Wn" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /obj/effect/decal/cleanable/blood/puddle,
 /turf/open/floor/tile/kitchen,
 /area/rogue/under/mountains/anvil/lower/building)
@@ -3321,7 +3321,7 @@
 /obj/item/alch/matricaria{
 	pixel_x = 14
 	},
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment,
 /obj/structure/closet/dirthole/grave,
 /obj/effect/spawner/map_spawner/loot/common,
 /turf/open/floor/blocks,
@@ -3362,7 +3362,7 @@
 "YZ" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/bed/mediocre,
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment,
 /turf/open/floor/blocks,
 /area/rogue/under/mountains/anvil/lower/building)
 "Zb" = (

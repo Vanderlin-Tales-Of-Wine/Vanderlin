@@ -329,7 +329,7 @@
 	var/defending_item = W
 	var/attacking_item = user.get_active_held_item()
 	if(ishuman(src))
-		var/mob/living/carbon/human/H = src
+		var/mob/living/carbon/humanoid/H = src
 		if(H.adjust_stamina(parrydrain))
 			if(W)
 				playsound(get_turf(src), pick(W.parrysound), 100, FALSE)
@@ -363,7 +363,7 @@
 /mob/proc/do_unarmed_parry(parrydrain as num, mob/living/user)
 	var/attacking_item = user.get_active_held_item()
 	if(ishuman(src))
-		var/mob/living/carbon/human/H = src
+		var/mob/living/carbon/humanoid/H = src
 		if(H.adjust_stamina(parrydrain))
 			playsound(get_turf(src), pick(parry_sound), 100, FALSE)
 			src.visible_message("<span class='warning'><b>[src]</b> parries [user] with their hands!</span>")
@@ -392,9 +392,9 @@
 	/// attacking mob
 	var/mob/living/attacking_mob = user
 	/// defending human
-	var/mob/living/carbon/human/defending_human
+	var/mob/living/carbon/humanoid/defending_human
 	/// attacking human
-	var/mob/living/carbon/human/attacking_human
+	var/mob/living/carbon/humanoid/attacking_human
 	/// the item used to attack
 	var/obj/item/attacking_item
 	var/obj/item/defending_item = defending_mob.get_active_held_item()
@@ -556,7 +556,7 @@
 	set_antag_hud(src, null)
 
 
-/mob/living/carbon/human/proc/is_noble()
+/mob/living/carbon/humanoid/proc/is_noble()
 	var/noble = FALSE
 	if (job in GLOB.noble_positions)
 		noble = TRUE
@@ -565,8 +565,8 @@
 
 	return noble
 
-/mob/living/carbon/human/proc/is_yeoman()
+/mob/living/carbon/humanoid/proc/is_yeoman()
 	return FALSE
 
-/mob/living/carbon/human/proc/is_courtier()
+/mob/living/carbon/humanoid/proc/is_courtier()
 	return FALSE

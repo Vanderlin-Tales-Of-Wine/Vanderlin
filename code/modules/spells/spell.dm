@@ -291,7 +291,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 
 	if(ishuman(user))
 
-		var/mob/living/carbon/human/H = user
+		var/mob/living/carbon/humanoid/H = user
 
 		if((invocation_type == "whisper" || invocation_type == "shout") && !H.can_speak_vocal())
 			to_chat(user, "<span class='warning'>I can't get the words out!</span>")
@@ -486,7 +486,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 
 /obj/effect/proc_holder/spell/proc/cast(list/targets,mob/user = usr)
 	if(miracle)
-		var/mob/living/carbon/human/C = user
+		var/mob/living/carbon/humanoid/C = user
 		var/datum/devotion/cleric_holder/D = C.cleric
 		D.update_devotion(-devotion_cost)
 	return TRUE
@@ -686,7 +686,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 	school = "restoration"
 	sound = 'sound/blank.ogg'
 
-/obj/effect/proc_holder/spell/self/basic_heal/cast(mob/living/carbon/human/user) //Note the lack of "list/targets" here. Instead, use a "user" var depending on mob requirements.
+/obj/effect/proc_holder/spell/self/basic_heal/cast(mob/living/carbon/humanoid/user) //Note the lack of "list/targets" here. Instead, use a "user" var depending on mob requirements.
 	//Also, notice the lack of a "for()" statement that looks through the targets. This is, again, because the spell can only have a single target.
 	user.visible_message("<span class='warning'>A wreath of gentle light passes over [user]!</span>", "<span class='notice'>I wreath myself in healing light!</span>")
 	user.adjustBruteLoss(-10)

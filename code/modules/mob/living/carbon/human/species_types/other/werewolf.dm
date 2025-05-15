@@ -1,4 +1,4 @@
-/mob/living/carbon/human/species/werewolf
+/mob/living/carbon/humanoid/species/werewolf
 	race = /datum/species/werewolf
 	footstep_type = FOOTSTEP_MOB_HEAVY
 	var/datum/language_holder/stored_language
@@ -6,13 +6,13 @@
 	var/list/stored_experience
 	flags_1 = PREVENT_CONTENTS_EXPLOSION_1
 
-/mob/living/carbon/human/species/werewolf/male
+/mob/living/carbon/humanoid/species/werewolf/male
 	gender = MALE
 
-/mob/living/carbon/human/species/werewolf/female
+/mob/living/carbon/humanoid/species/werewolf/female
 	gender = FEMALE
 
-/mob/living/carbon/human/species/werewolf/child
+/mob/living/carbon/humanoid/species/werewolf/child
 	age = AGE_CHILD
 
 /datum/species/werewolf
@@ -48,10 +48,10 @@
 	bleed_mod = 0.2
 	pain_mod = 0.2
 
-/datum/species/werewolf/send_voice(mob/living/carbon/human/H)
+/datum/species/werewolf/send_voice(mob/living/carbon/humanoid/H)
 	playsound(get_turf(H), pick('sound/vo/mobs/wwolf/wolftalk1.ogg','sound/vo/mobs/wwolf/wolftalk2.ogg'), 100, TRUE, -1)
 
-/datum/species/werewolf/regenerate_icons(mob/living/carbon/human/H)
+/datum/species/werewolf/regenerate_icons(mob/living/carbon/humanoid/H)
 	H.icon = 'icons/roguetown/mob/monster/werewolf.dmi'
 	H.base_intents = list(INTENT_HELP, INTENT_DISARM, INTENT_GRAB, /datum/intent/simple/wereclaw, /datum/intent/simple/werebite)
 	if(H.gender == MALE)
@@ -69,7 +69,7 @@
 	C.remove_all_languages()
 	C.grant_language(/datum/language/beast)
 
-/datum/species/werewolf/update_damage_overlays(mob/living/carbon/human/H)
+/datum/species/werewolf/update_damage_overlays(mob/living/carbon/humanoid/H)
 	H.remove_overlay(DAMAGE_LAYER)
 	var/list/hands = list()
 	var/mutable_appearance/inhand_overlay = mutable_appearance("[H.icon_state]-dam", layer=-DAMAGE_LAYER)

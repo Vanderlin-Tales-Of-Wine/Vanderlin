@@ -236,7 +236,7 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/cavewet)
 "aT" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/sea,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/sea,
 /turf/open/floor/metal/barograte/open,
 /area/rogue/under/cavewet)
 "aU" = (
@@ -304,7 +304,7 @@
 /turf/open/floor/metal/barograte/open,
 /area/rogue/under/tomb/sewer)
 "Mg" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/sea,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/sea,
 /turf/open/floor/metal/barograte/open,
 /area/rogue/under/tomb/sewer)
 

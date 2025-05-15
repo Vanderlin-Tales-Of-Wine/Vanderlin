@@ -40,14 +40,14 @@
 /datum/job/hand/after_spawn(mob/living/spawned, client/player_client)
 	. = ..()
 	SSfamilytree.AddRoyal(spawned, FAMILY_OMMER)
-	var/mob/living/carbon/human/H = spawned
+	var/mob/living/carbon/humanoid/H = spawned
 
 	if(GLOB.keep_doors.len > 0)
 		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(know_keep_door_password), H), 50)
 	ADD_TRAIT(H, TRAIT_KNOWKEEPPLANS, TRAIT_GENERIC)
 	addtimer(CALLBACK(src, PROC_REF(know_agents), H), 50)
 
-/datum/job/hand/proc/know_agents(mob/living/carbon/human/H)
+/datum/job/hand/proc/know_agents(mob/living/carbon/humanoid/H)
 	if(!GLOB.roundstart_court_agents.len)
 		to_chat(H, span_notice("You begun the week with no agents."))
 	else
@@ -67,7 +67,7 @@
 	cmode_music = 'sound/music/cmode/nobility/combat_noble.ogg'
 
 //Classical hand start - same as before, nothing changed.
-/datum/outfit/job/hand/handclassic/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/hand/handclassic/pre_equip(mob/living/carbon/humanoid/H)
 	shirt = /obj/item/clothing/shirt/undershirt/fancy
 	backr = /obj/item/storage/backpack/satchel/black
 	backpack_contents = list(/obj/item/weapon/knife/dagger/steel = 1, /obj/item/storage/keyring/hand = 1, /obj/item/paper/scroll/frumentarii/roundstart = 1)
@@ -92,7 +92,7 @@
 		H.change_stat(STATKEY_INT, 3)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
-	H.verbs |= /mob/living/carbon/human/proc/torture_victim
+	H.verbs |= /mob/living/carbon/humanoid/proc/torture_victim
 
 /datum/advclass/hand/spymaster
 	name = "Spymaster"
@@ -103,7 +103,7 @@
 	cmode_music = 'sound/music/cmode/nobility/CombatSpymaster.ogg'
 
 //Spymaster start. More similar to the rogue adventurer - loses heavy armor and sword skills for more sneaky stuff.
-/datum/outfit/job/hand/spymaster/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/hand/spymaster/pre_equip(mob/living/carbon/humanoid/H)
 	backr = /obj/item/storage/backpack/satchel/black
 	backpack_contents = list(/obj/item/weapon/knife/dagger/steel/special = 1, /obj/item/storage/keyring/hand = 1, /obj/item/lockpickring/mundane = 1, /obj/item/paper/scroll/frumentarii/roundstart = 1)
 	if(!istype(H.dna.species, /datum/species/dwarf))
@@ -141,7 +141,7 @@
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
-	H.verbs |= /mob/living/carbon/human/proc/torture_victim
+	H.verbs |= /mob/living/carbon/humanoid/proc/torture_victim
 
 /datum/advclass/hand/advisor
 	name = "Advisor"
@@ -154,7 +154,7 @@
 	cmode_music = 'sound/music/cmode/nobility/combat_noble.ogg'
 
 //Advisor start. Trades combat skills for more knowledge and skills - for older hands, hands that don't do combat - people who wanna play wizened old advisors.
-/datum/outfit/job/hand/advisor/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/hand/advisor/pre_equip(mob/living/carbon/humanoid/H)
 	shirt = /obj/item/clothing/shirt/undershirt/fancy
 	backr = /obj/item/storage/backpack/satchel/black
 	backpack_contents = list(/obj/item/weapon/knife/dagger/steel = 1, /obj/item/storage/keyring/hand = 1, /obj/item/reagent_containers/glass/bottle/poison = 1, /obj/item/paper/scroll/frumentarii/roundstart = 1) //starts with a vial of poison, like all wizened evil advisors do!
@@ -182,4 +182,4 @@
 		H.change_stat(STATKEY_PER, 1)
 
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
-	H.verbs |= /mob/living/carbon/human/proc/torture_victim
+	H.verbs |= /mob/living/carbon/humanoid/proc/torture_victim

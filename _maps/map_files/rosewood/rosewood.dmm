@@ -1402,7 +1402,7 @@
 /turf/open/floor/snow/rough,
 /area/rogue/outdoors/town)
 "aRl" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/tile/masonic/inverted,
 /area/rogue/indoors/town)
 "aRr" = (
@@ -2453,7 +2453,7 @@
 /area/rogue/under/cavewet)
 "bvG" = (
 /obj/structure/fluff/nest,
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave)
 "bvL" = (
@@ -3317,7 +3317,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town)
 "bSj" = (
-/mob/living/carbon/human/species/goblin/npc/hell,
+/mob/living/carbon/humanoid/species/goblin/npc/hell,
 /obj/structure/fluff/railing/border{
 	dir = 4
 	},
@@ -5511,7 +5511,7 @@
 /area/rogue/indoors/villagegarrison)
 "cYH" = (
 /obj/machinery/light/fueled/wallfire/candle/blue,
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/cobblerock,
 /area/rogue/under/town/sewer)
 "cYJ" = (
@@ -6388,7 +6388,7 @@
 /turf/open/floor/carpet,
 /area/rogue/indoors/town)
 "dxI" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/tile/masonic/inverted,
 /area/rogue/indoors/town)
 "dxJ" = (
@@ -8814,7 +8814,7 @@
 /area/rogue/indoors/town/dwarfin)
 "eSo" = (
 /obj/item/rope/chain,
-/mob/living/carbon/human/species/rousman/ambush,
+/mob/living/carbon/humanoid/species/rousman/ambush,
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town)
 "eSr" = (
@@ -12570,7 +12570,7 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/town/smithy)
 "gWF" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/cobble,
 /area/rogue/under/town/sewer)
 "gWU" = (
@@ -18081,7 +18081,7 @@
 /turf/closed/wall/mineral/decorstone,
 /area/rogue/under/cavewet)
 "kbS" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/water/cleanshallow,
 /area/rogue/under/town/sewer)
 "kbV" = (
@@ -18284,7 +18284,7 @@
 /turf/open/floor/tile/bfloorz,
 /area/rogue/indoors/town/bath)
 "kjn" = (
-/mob/living/carbon/human/species/human/northern/bum/ambush,
+/mob/living/carbon/humanoid/species/human/northern/bum/ambush,
 /obj/item/weapon/sword/long/rider/copper,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /turf/open/floor/carpet/red,
@@ -18631,7 +18631,7 @@
 /turf/open/floor/tile/bath,
 /area/rogue/indoors/town/tavern)
 "krV" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/naturalstone,
 /area/rogue/under/town/sewer)
 "krY" = (
@@ -18732,7 +18732,7 @@
 	},
 /area/rogue/indoors/town/smithy)
 "kvI" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/greenstone,
 /area/rogue/under/cave)
 "kvJ" = (
@@ -18786,7 +18786,7 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town)
 "kxw" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/indoors/town)
 "kxB" = (
@@ -19365,7 +19365,7 @@
 /area/rogue/indoors/town)
 "kOm" = (
 /obj/structure/circle_protection,
-/mob/living/carbon/human/species/zizombie/npc/peasant,
+/mob/living/carbon/humanoid/species/zizombie/npc/peasant,
 /turf/open/floor/hexstone,
 /area/rogue/under/town/sewer)
 "kOw" = (
@@ -20099,7 +20099,7 @@
 /turf/open/floor/ruinedwood/turned,
 /area/rogue/indoors/town/manor)
 "liQ" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town)
 "liW" = (
@@ -24871,7 +24871,7 @@
 /area/rogue/outdoors/town/roofs)
 "nRA" = (
 /obj/structure/fluff/nest,
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush,
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave)
 "nRH" = (
@@ -24900,7 +24900,7 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/tavern)
 "nSk" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/indoors/town)
 "nSl" = (
@@ -26256,7 +26256,7 @@
 /turf/open/floor/carpet/lord/right,
 /area/rogue/indoors/town/manor)
 "oze" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled{
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled{
 	desc = "Would you like a cask of amontillado?"
 	},
 /turf/open/floor/ruinedwood/spiral,
@@ -28251,7 +28251,7 @@
 /turf/open/floor/dirt,
 /area/rogue/indoors/town/cell)
 "pAs" = (
-/mob/living/carbon/human/species/rousman/ambush,
+/mob/living/carbon/humanoid/species/rousman/ambush,
 /turf/open/floor/greenstone,
 /area/rogue/under/town/sewer)
 "pAB" = (
@@ -31513,7 +31513,7 @@
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town/church/chapel)
 "rtq" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town)
 "rtF" = (
@@ -34235,7 +34235,7 @@
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/church/inquisition)
 "sRL" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/cobblerock,
 /area/rogue/under/town/sewer)
 "sRN" = (
@@ -34799,7 +34799,7 @@
 /turf/open/floor/cobble,
 /area/rogue/outdoors/town)
 "tgl" = (
-/mob/living/carbon/human/species/rousman/ambush,
+/mob/living/carbon/humanoid/species/rousman/ambush,
 /turf/open/floor/blocks/paving,
 /area/rogue/under/town/sewer)
 "tgv" = (
@@ -35224,7 +35224,7 @@
 /area/rogue/indoors/town/manor)
 "toB" = (
 /obj/structure/fluff/nest,
-/mob/living/carbon/human/species/goblin/npc/ambush/moon,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/moon,
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave)
 "toF" = (
@@ -36137,7 +36137,7 @@
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/church)
 "tPj" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment{
 	base_speed = 15;
 	base_perception = 13;
 	base_fortune = 12;
@@ -36358,7 +36358,7 @@
 "tVg" = (
 /obj/structure/closet/dirthole/closed/loot,
 /obj/structure/gravemarker,
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/exposed/church)
 "tVu" = (
@@ -36878,7 +36878,7 @@
 /area/rogue/under/cave)
 "uoF" = (
 /obj/structure/closet/dirthole/grave,
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/dirt,
 /area/rogue/under/town/sewer)
 "uoP" = (
@@ -38589,7 +38589,7 @@
 /area/rogue/outdoors/town)
 "vfM" = (
 /obj/effect/decal/cleanable/sigil/NE,
-/mob/living/carbon/human/species/zizombie,
+/mob/living/carbon/humanoid/species/zizombie,
 /turf/open/floor/naturalstone,
 /area/rogue/outdoors/mountains)
 "vfN" = (
@@ -39169,7 +39169,7 @@
 /area/rogue/outdoors/town)
 "vvc" = (
 /obj/machinery/light/fueled/wallfire/candle/blue/l,
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town)
 "vvq" = (
@@ -40519,7 +40519,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/indoors/town/manor)
 "whU" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town)
 "whV" = (
@@ -40798,7 +40798,7 @@
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/church)
 "wpG" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/cobble,
 /area/rogue/under/town/sewer)
 "wpJ" = (
@@ -41165,7 +41165,7 @@
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town)
 "wzs" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/dirt,
 /area/rogue/under/town/sewer)
 "wzv" = (

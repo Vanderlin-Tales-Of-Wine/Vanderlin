@@ -24,7 +24,7 @@
 
 /datum/job/captain/after_spawn(mob/living/spawned, client/player_client)
 	..()
-	var/mob/living/carbon/human/H = spawned
+	var/mob/living/carbon/humanoid/H = spawned
 	var/prev_real_name = H.real_name
 	var/prev_name = H.name
 	var/honorary = "Sir"
@@ -36,7 +36,7 @@
 /datum/outfit/job/captain
 	job_bitflag = BITFLAG_ROYALTY | BITFLAG_GARRISON
 
-/datum/outfit/job/captain/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/captain/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	head = /obj/item/clothing/head/helmet/visored/captain
 	gloves = /obj/item/clothing/gloves/plate
@@ -110,7 +110,7 @@
 /obj/effect/proc_holder/spell/self/convertrole/cast(list/targets,mob/user = usr)
 	. = ..()
 	var/list/recruitment = list()
-	for(var/mob/living/carbon/human/recruit in (get_hearers_in_view(recruitment_range, user) - user))
+	for(var/mob/living/carbon/humanoid/recruit in (get_hearers_in_view(recruitment_range, user) - user))
 		//not allowed
 		if(!can_convert(recruit))
 			continue
@@ -120,7 +120,7 @@
 		return
 	var/inputty = input(user, "Select a potential recruit!", "[name]") as null|anything in recruitment
 	if(inputty)
-		var/mob/living/carbon/human/recruit = recruitment[inputty]
+		var/mob/living/carbon/humanoid/recruit = recruitment[inputty]
 		if(!QDELETED(recruit) && (recruit in get_hearers_in_view(recruitment_range, user)))
 			INVOKE_ASYNC(src, PROC_REF(convert), recruit, user)
 		else
@@ -128,7 +128,7 @@
 	else
 		to_chat(user, span_warning("Recruitment cancelled."))
 
-/obj/effect/proc_holder/spell/self/convertrole/proc/can_convert(mob/living/carbon/human/recruit)
+/obj/effect/proc_holder/spell/self/convertrole/proc/can_convert(mob/living/carbon/humanoid/recruit)
 	//wtf
 	if(QDELETED(recruit))
 		return FALSE
@@ -144,7 +144,7 @@
 		return FALSE
 	return TRUE
 
-/obj/effect/proc_holder/spell/self/convertrole/proc/convert(mob/living/carbon/human/recruit, mob/living/carbon/human/recruiter)
+/obj/effect/proc_holder/spell/self/convertrole/proc/convert(mob/living/carbon/humanoid/recruit, mob/living/carbon/humanoid/recruiter)
 	if(QDELETED(recruit) || QDELETED(recruiter))
 		return FALSE
 	recruiter.say(replacetext(recruitment_message, "%RECRUIT", "[recruit]"), forced = "[name]")
@@ -172,7 +172,7 @@
 	accept_message = "I swear fealty to the Crown and its garrison!"
 	refuse_message = "I refuse."
 
-/obj/effect/proc_holder/spell/self/convertrole/guard/convert(mob/living/carbon/human/recruit, mob/living/carbon/human/recruiter)
+/obj/effect/proc_holder/spell/self/convertrole/guard/convert(mob/living/carbon/humanoid/recruit, mob/living/carbon/humanoid/recruiter)
 	. = ..()
 	if(!.)
 		return

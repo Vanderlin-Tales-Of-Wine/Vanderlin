@@ -69,8 +69,8 @@
 			M.attack_same = FALSE
 			M.del_on_deaggro = 44 SECONDS
 			M.GiveTarget(src)
-		if(istype(spawnedmob, /mob/living/carbon/human))
-			var/mob/living/carbon/human/H = spawnedmob
+		if(istype(spawnedmob, /mob/living/carbon/humanoid))
+			var/mob/living/carbon/humanoid/H = spawnedmob
 			H.del_on_deaggro = 44 SECONDS
 			H.last_aggro_loss = world.time
 			H.ai_controller?.set_blackboard_key(BB_BASIC_MOB_CURRENT_TARGET, src)

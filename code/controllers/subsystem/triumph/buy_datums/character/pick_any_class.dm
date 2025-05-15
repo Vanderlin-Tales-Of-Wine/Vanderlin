@@ -45,7 +45,7 @@
 
 	outfit = null
 
-/datum/advclass/pick_everything/post_equip(mob/living/carbon/human/H)
+/datum/advclass/pick_everything/post_equip(mob/living/carbon/humanoid/H)
 	..()
 	var/list/possible_classes = list()
 	for(var/datum/advclass/CHECKS in SSrole_class_handler.sorted_class_categories[CTAG_ALLCLASS])

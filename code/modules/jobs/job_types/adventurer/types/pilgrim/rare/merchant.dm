@@ -20,7 +20,7 @@
 	min_pq = 0
 
 
-/datum/outfit/job/adventurer/merchant/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/adventurer/merchant/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)

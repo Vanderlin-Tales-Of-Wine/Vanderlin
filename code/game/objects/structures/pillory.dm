@@ -115,7 +115,7 @@
 		to_chat(usr, span_warning("Unlock it first!"))
 		return FALSE
 
-	if (!istype(M, /mob/living/carbon/human))
+	if (!istype(M, /mob/living/carbon/humanoid))
 		to_chat(usr, span_warning("It doesn't look like [M.p_they()] can fit into this properly!"))
 		return FALSE // Can't hold non-humanoids
 
@@ -132,10 +132,10 @@
 	return FALSE
 
 /obj/structure/pillory/post_buckle_mob(mob/living/M)
-	if (!istype(M, /mob/living/carbon/human))
+	if (!istype(M, /mob/living/carbon/humanoid))
 		return
 
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/humanoid/H = M
 
 	if (H.dna)
 		if (H.dna.species)

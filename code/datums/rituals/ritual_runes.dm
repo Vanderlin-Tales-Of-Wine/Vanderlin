@@ -64,16 +64,16 @@
 	var/associated_ritual = null	//Associated ritual for runes with only 1 ritual. Use in tandom with ritual_number
 	var/takes_all_items = FALSE
 
-/proc/isarcyne(mob/living/carbon/human/A)
+/proc/isarcyne(mob/living/carbon/humanoid/A)
 	return istype(A) && A.mind && (A.mind?.get_skill_level(/datum/skill/magic/arcane) > SKILL_LEVEL_NONE)	//checks if person has arcane skill
 
-/proc/isdivine(mob/living/carbon/human/A)
+/proc/isdivine(mob/living/carbon/humanoid/A)
 	return istype(A) && A.mind && (A.mind?.get_skill_level(/datum/skill/magic/holy) > SKILL_LEVEL_NONE)	//checks if person has holy/divine skill
 
-/proc/isdruid(mob/living/carbon/human/A)
+/proc/isdruid(mob/living/carbon/humanoid/A)
 	return istype(A) && A.mind && (A.mind?.get_skill_level(/datum/skill/magic/druidic) > SKILL_LEVEL_NONE)	//checks if person has druidic skill
 
-/proc/isblood(mob/living/carbon/human/A)
+/proc/isblood(mob/living/carbon/humanoid/A)
 	return istype(A) && A.mind && (A.mind?.get_skill_level(/datum/skill/magic/blood) > SKILL_LEVEL_NONE)		//checks if person has blood magic skill
 
 GLOBAL_LIST_INIT(rune_types, generate_rune_types())

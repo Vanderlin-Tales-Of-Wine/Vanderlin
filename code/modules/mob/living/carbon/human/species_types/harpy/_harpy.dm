@@ -1,4 +1,4 @@
-/mob/living/carbon/human/species/harpy
+/mob/living/carbon/humanoid/species/harpy
 	race = /datum/species/harpy
 
 /datum/species/harpy
@@ -129,7 +129,7 @@
 //	languages(foreign)
 
 /*
-/datum/species/harpy/proc/languages(mob/living/carbon/human/foreign)
+/datum/species/harpy/proc/languages(mob/living/carbon/humanoid/foreign)
 	if(foreign.skin_tone == SKIN_COLOR_GRENZELHOFT)
 		foreign.grant_language(/datum/language/grenzelhoftian)
 */

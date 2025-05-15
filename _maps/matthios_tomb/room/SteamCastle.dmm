@@ -1,7 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "ad" = (
 /obj/item/chair,
-/mob/living/carbon/human/species/orc/ambush,
+/mob/living/carbon/humanoid/species/orc/ambush,
 /turf/open/floor/tile/masonic/inverted,
 /area/rogue/under/tomb/indoors)
 "ai" = (
@@ -46,7 +46,7 @@
 /turf/open/floor/carpet/red,
 /area/rogue/under/tomb/indoors)
 "aC" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment{
 	base_strength = 15;
 	base_speed = 15;
 	base_constitution = 14;
@@ -99,7 +99,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb)
 "bj" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/tile/kitchen,
 /area/rogue/under/tomb/indoors)
 "bk" = (
@@ -156,7 +156,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb/indoors/royal)
 "bV" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/hell,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/hell,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/blocks,
 /area/rogue/under/tomb/indoors)
@@ -180,7 +180,7 @@
 /turf/open/floor/wood/nosmooth/saiga,
 /area/rogue/under/tomb/indoors)
 "cv" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/tile/bath,
 /area/rogue/under/tomb/indoors)
 "cw" = (
@@ -223,7 +223,7 @@
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/wilds)
 "dd" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment{
 	base_strength = 15;
 	base_speed = 15;
 	base_constitution = 14;
@@ -249,7 +249,7 @@
 /turf/open/floor/tile/masonic/inverted,
 /area/rogue/under/tomb/indoors)
 "di" = (
-/mob/living/carbon/human/species/orc/ambush,
+/mob/living/carbon/humanoid/species/orc/ambush,
 /turf/open/floor/metal/barograte,
 /area/rogue/under/tomb)
 "dk" = (
@@ -276,7 +276,7 @@
 /area/rogue/under/tomb/wilds)
 "du" = (
 /obj/structure/chair/bench/coucha/r,
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/under/tomb/indoors)
 "dv" = (
@@ -350,12 +350,12 @@
 /turf/open/floor/churchbrick,
 /area/rogue/under/tomb/indoors/royal)
 "es" = (
-/mob/living/carbon/human/species/orc/marauder,
+/mob/living/carbon/humanoid/species/orc/marauder,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/cobble,
 /area/rogue/under/tomb/wilds)
 "ey" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb)
 "ez" = (
@@ -410,7 +410,7 @@
 /area/rogue/under/tomb/indoors)
 "fc" = (
 /obj/item/natural/stone,
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb/indoors)
 "fk" = (
@@ -418,7 +418,7 @@
 /turf/open/floor/tile/masonic/inverted,
 /area/rogue/under/tomb/indoors)
 "fp" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/tile/kitchen,
 /area/rogue/under/tomb/indoors)
 "fr" = (
@@ -582,7 +582,7 @@
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/wilds)
 "hh" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/under/tomb/indoors)
 "hj" = (
@@ -592,7 +592,7 @@
 /area/rogue/under/tomb/indoors)
 "hn" = (
 /obj/item/kitchen/platter,
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors)
@@ -633,7 +633,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb)
 "hK" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/tile/masonic/inverted,
 /area/rogue/under/tomb/indoors)
 "hL" = (
@@ -676,11 +676,11 @@
 /obj/structure/fluff/railing/border{
 	dir = 6
 	},
-/mob/living/carbon/human/species/goblin/npc/ambush/hell,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/hell,
 /turf/open/floor/tile/masonic/inverted,
 /area/rogue/under/tomb/indoors)
 "if" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb)
 "ik" = (
@@ -738,7 +738,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/tomb/indoors/royal)
 "iP" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/wood/nosmooth,
 /area/rogue/under/tomb/indoors)
 "iS" = (
@@ -761,11 +761,11 @@
 /turf/open/floor/herringbone,
 /area/rogue/under/tomb/indoors)
 "ja" = (
-/mob/living/carbon/human/species/goblin/npc/hell,
+/mob/living/carbon/humanoid/species/goblin/npc/hell,
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb)
 "jb" = (
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush,
 /turf/open/floor/cobble,
 /area/rogue/under/tomb)
 "jc" = (
@@ -824,7 +824,7 @@
 /turf/open/floor/tile/kitchen,
 /area/rogue/under/tomb/indoors)
 "jV" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "jZ" = (
@@ -834,7 +834,7 @@
 /turf/open/floor/carpet/red,
 /area/rogue/under/tomb/indoors)
 "kb" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment{
 	base_strength = 15;
 	base_speed = 15;
 	base_constitution = 14;
@@ -857,7 +857,7 @@
 /turf/open/floor/tile/masonic/inverted,
 /area/rogue/under/tomb/indoors)
 "kf" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "kh" = (
@@ -925,7 +925,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb)
 "kM" = (
-/mob/living/carbon/human/species/orc/warlord/skilled{
+/mob/living/carbon/humanoid/species/orc/warlord/skilled{
 	base_strength = 20;
 	base_constitution = 15;
 	base_endurance = 15;
@@ -964,7 +964,7 @@
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/wilds)
 "lc" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /obj/structure/rack/shelf/big,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/tomb/indoors)
@@ -1068,7 +1068,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "ml" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment{
 	base_strength = 15;
 	base_speed = 15;
 	base_constitution = 14;
@@ -1156,7 +1156,7 @@
 /turf/open/floor/carpet/red,
 /area/rogue/under/tomb/indoors)
 "mP" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment{
 	base_strength = 15;
 	base_speed = 15;
 	base_constitution = 14;
@@ -1198,7 +1198,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb/indoors)
 "nd" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/twig,
 /area/rogue/under/tomb/indoors)
 "ng" = (
@@ -1214,7 +1214,7 @@
 "nj" = (
 /obj/effect/decal/remains/human,
 /obj/effect/decal/cleanable/blood,
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/herringbone,
 /area/rogue/under/tomb/indoors)
 "nl" = (
@@ -1229,7 +1229,7 @@
 /area/rogue/under/tomb)
 "nt" = (
 /obj/structure/chair/stool,
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb)
 "nw" = (
@@ -1274,7 +1274,7 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/tomb/indoors)
 "nI" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment{
 	base_strength = 15;
 	base_speed = 15;
 	base_constitution = 14;
@@ -1340,7 +1340,7 @@
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/under/tomb/indoors)
 "nR" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb)
 "nT" = (
@@ -1400,7 +1400,7 @@
 /area/rogue/under/tomb/indoors)
 "oB" = (
 /obj/effect/spawner/map_spawner/loot/medium,
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/cobble,
 /area/rogue/under/tomb/indoors)
 "oC" = (
@@ -1434,7 +1434,7 @@
 /turf/open/floor/twig,
 /area/rogue/under/tomb/indoors)
 "oX" = (
-/mob/living/carbon/human/species/goblin/cave,
+/mob/living/carbon/humanoid/species/goblin/cave,
 /turf/open/floor/herringbone,
 /area/rogue/under/tomb/indoors)
 "pf" = (
@@ -1582,7 +1582,7 @@
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/under/tomb/indoors)
 "qP" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/under/tomb/indoors)
 "qR" = (
@@ -1632,11 +1632,11 @@
 /turf/open/floor/tile,
 /area/rogue/under/tomb/indoors/royal)
 "rw" = (
-/mob/living/carbon/human/species/orc/ambush,
+/mob/living/carbon/humanoid/species/orc/ambush,
 /turf/open/floor/carpet/red,
 /area/rogue/under/tomb/indoors)
 "rA" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/carpet/purple,
 /area/rogue/under/tomb/indoors)
 "rC" = (
@@ -1707,7 +1707,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb)
 "rT" = (
-/mob/living/carbon/human/species/orc/marauder,
+/mob/living/carbon/humanoid/species/orc/marauder,
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb)
 "rV" = (
@@ -1770,11 +1770,11 @@
 /turf/open/floor/tile/bath,
 /area/rogue/under/tomb/indoors)
 "sE" = (
-/mob/living/carbon/human/species/orc/ambush,
+/mob/living/carbon/humanoid/species/orc/ambush,
 /turf/open/floor/twig,
 /area/rogue/under/tomb/indoors)
 "sF" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment{
 	base_strength = 15;
 	base_speed = 15;
 	base_constitution = 14;
@@ -1807,14 +1807,14 @@
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb)
 "sJ" = (
-/mob/living/carbon/human/species/orc/marauder,
+/mob/living/carbon/humanoid/species/orc/marauder,
 /turf/open/floor/cobble,
 /area/rogue/under/tomb)
 "sQ" = (
 /turf/open/floor/cobble,
 /area/rogue/under/tomb/indoors)
 "sV" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/tile/bath,
 /area/rogue/under/tomb/indoors)
 "sX" = (
@@ -1863,7 +1863,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/tomb)
 "tQ" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/herringbone,
 /area/rogue/under/tomb/indoors)
 "tS" = (
@@ -1935,7 +1935,7 @@
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/under/tomb/indoors)
 "uO" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/hexstone,
@@ -1990,7 +1990,7 @@
 /turf/open/floor/blocks,
 /area/rogue/under/tomb/indoors)
 "vA" = (
-/mob/living/carbon/human/species/orc/ambush,
+/mob/living/carbon/humanoid/species/orc/ambush,
 /turf/open/floor/tile/masonic/inverted,
 /area/rogue/under/tomb/indoors)
 "vH" = (
@@ -2025,7 +2025,7 @@
 /turf/open/floor/twig,
 /area/rogue/under/tomb/indoors)
 "vZ" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/tile/masonic/inverted,
 /area/rogue/under/tomb/indoors)
 "wa" = (
@@ -2085,7 +2085,7 @@
 /area/rogue/under/tomb/wilds)
 "wR" = (
 /obj/structure/fluff/nest,
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/twig,
 /area/rogue/under/tomb/indoors)
 "wS" = (
@@ -2136,7 +2136,7 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors)
 "xo" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb)
 "xp" = (
@@ -2170,7 +2170,7 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/tomb/indoors)
 "xH" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/wilds)
 "xJ" = (
@@ -2199,7 +2199,7 @@
 /area/rogue/under/tomb/indoors/royal)
 "yd" = (
 /obj/effect/decal/cleanable/blood/gibs/old,
-/mob/living/carbon/human/species/orc/marauder,
+/mob/living/carbon/humanoid/species/orc/marauder,
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb)
 "yj" = (
@@ -2285,7 +2285,7 @@
 /turf/open/floor/blocks,
 /area/rogue/under/tomb/indoors)
 "yQ" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/cobble,
 /area/rogue/under/tomb)
 "yS" = (
@@ -2299,7 +2299,7 @@
 /turf/open/floor/carpet/purple,
 /area/rogue/under/tomb/indoors)
 "yW" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/cobble,
 /area/rogue/under/tomb/indoors)
 "za" = (
@@ -2465,7 +2465,7 @@
 /area/rogue/under/tomb)
 "AF" = (
 /obj/item/natural/rock,
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/cobble,
 /area/rogue/under/tomb/wilds)
 "AL" = (
@@ -2504,7 +2504,7 @@
 	pixel_x = -32;
 	pixel_y = 0
 	},
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /obj/structure/spider/stickyweb,
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/under/tomb/indoors)
@@ -2537,7 +2537,7 @@
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/item/clothing/ring/silver/dorpel,
 /obj/item/clothing/cloak/half/guardsecond,
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment{
 	base_strength = 15;
 	base_speed = 15;
 	base_constitution = 14;
@@ -2581,7 +2581,7 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/tomb/indoors)
 "BN" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/carpet/red,
 /area/rogue/under/tomb/indoors)
 "BV" = (
@@ -2634,7 +2634,7 @@
 /turf/open/floor/churchmarble,
 /area/rogue/under/tomb/indoors/royal)
 "CK" = (
-/mob/living/carbon/human/species/orc/warlord/skilled,
+/mob/living/carbon/humanoid/species/orc/warlord/skilled,
 /turf/open/floor/metal/barograte,
 /area/rogue/under/tomb)
 "CL" = (
@@ -2677,7 +2677,7 @@
 /area/rogue/under/tomb/indoors)
 "Dc" = (
 /obj/effect/decal/cleanable/blood,
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb)
 "De" = (
@@ -2705,7 +2705,7 @@
 /turf/open/floor/grass/red,
 /area/rogue/under/tomb/wilds)
 "Ds" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb/indoors)
 "Dv" = (
@@ -2840,11 +2840,11 @@
 /turf/open/floor/cobble,
 /area/rogue/under/tomb/indoors)
 "ES" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors)
 "ET" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors)
 "EU" = (
@@ -2858,7 +2858,7 @@
 /area/rogue/under/tomb/indoors)
 "Fk" = (
 /obj/item/ammo_casing/caseless/arrow,
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/tomb/indoors)
 "Fm" = (
@@ -2880,7 +2880,7 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/under/tomb/indoors)
 "FA" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb)
 "FJ" = (
@@ -2913,7 +2913,7 @@
 /turf/open/floor/tile/masonic/single,
 /area/rogue/under/tomb/indoors/magic)
 "FV" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/cobble,
 /area/rogue/under/tomb/indoors)
 "FY" = (
@@ -2926,7 +2926,7 @@
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/under/tomb/indoors)
 "Ga" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb)
 "Gb" = (
@@ -2967,7 +2967,7 @@
 /area/rogue/under/tomb)
 "GF" = (
 /obj/effect/decal/cleanable/blood,
-/mob/living/carbon/human/species/orc/ambush,
+/mob/living/carbon/humanoid/species/orc/ambush,
 /turf/open/floor/herringbone,
 /area/rogue/under/tomb/indoors)
 "GH" = (
@@ -3039,7 +3039,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/tomb/indoors)
 "Hw" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "Hy" = (
@@ -3052,7 +3052,7 @@
 /area/rogue/under/tomb/indoors)
 "HA" = (
 /obj/structure/bed/hay,
-/mob/living/carbon/human/species/orc/ambush,
+/mob/living/carbon/humanoid/species/orc/ambush,
 /turf/open/floor/twig,
 /area/rogue/under/tomb/indoors)
 "HB" = (
@@ -3109,7 +3109,7 @@
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/under/tomb/indoors)
 "IG" = (
-/mob/living/carbon/human/species/orc/warrior,
+/mob/living/carbon/humanoid/species/orc/warrior,
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb)
 "II" = (
@@ -3119,7 +3119,7 @@
 /turf/open/floor/carpet/lord/right,
 /area/rogue/under/tomb/indoors/royal)
 "IK" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors)
@@ -3312,7 +3312,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/tomb)
 "Lw" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment{
 	base_strength = 15;
 	base_speed = 15;
 	base_constitution = 14;
@@ -3418,7 +3418,7 @@
 /turf/open/floor/metal/barograte,
 /area/rogue/under/tomb)
 "Mp" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/under/tomb/indoors)
 "Mq" = (
@@ -3456,7 +3456,7 @@
 /turf/open/floor/carpet/red,
 /area/rogue/under/tomb/indoors)
 "MH" = (
-/mob/living/carbon/human/species/orc/marauder,
+/mob/living/carbon/humanoid/species/orc/marauder,
 /turf/open/floor/twig,
 /area/rogue/under/tomb/indoors)
 "MI" = (
@@ -3501,7 +3501,7 @@
 /area/rogue/under/tomb/indoors/royal)
 "Nm" = (
 /obj/item/chair/chair3,
-/mob/living/carbon/human/species/goblin/npc/ambush/hell,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/hell,
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors)
 "Np" = (
@@ -3515,7 +3515,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/tomb/wilds)
 "Nx" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment{
 	base_strength = 15;
 	base_speed = 15;
 	base_constitution = 14;
@@ -3744,7 +3744,7 @@
 /turf/open/floor/blocks,
 /area/rogue/under/tomb/indoors)
 "Qc" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/carpet/red,
 /area/rogue/under/tomb/indoors)
 "Qf" = (
@@ -3786,7 +3786,7 @@
 /turf/open/floor/grass/red,
 /area/rogue/under/tomb/wilds)
 "QD" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment{
 	base_strength = 15;
 	base_speed = 15;
 	base_constitution = 14;
@@ -3848,11 +3848,11 @@
 /obj/structure/stairs{
 	dir = 8
 	},
-/mob/living/carbon/human/species/goblin/npc/ambush/hell,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/hell,
 /turf/open/floor/tile/masonic/inverted,
 /area/rogue/under/tomb/indoors)
 "Rm" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment{
 	real_name = "Forgotten King";
 	base_speed = 20;
 	base_perception = 12;
@@ -3897,7 +3897,7 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors)
 "RG" = (
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush,
 /turf/open/floor/twig,
 /area/rogue/under/tomb/indoors)
 "RH" = (
@@ -3924,7 +3924,7 @@
 /turf/open/floor/churchbrick,
 /area/rogue/under/tomb/indoors/royal)
 "RT" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/tomb/indoors)
 "RV" = (
@@ -3943,7 +3943,7 @@
 /turf/open/floor/carpet/purple,
 /area/rogue/under/tomb/indoors)
 "Sc" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment{
 	base_strength = 18;
 	base_speed = 15;
 	base_constitution = 16;
@@ -3996,7 +3996,7 @@
 /turf/closed/mineral/bedrock,
 /area/rogue/under/tomb)
 "Sw" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb)
 "Sx" = (
@@ -4007,7 +4007,7 @@
 /turf/open/floor/churchmarble,
 /area/rogue/under/tomb/indoors/royal)
 "SE" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment{
 	base_strength = 15;
 	base_speed = 15;
 	base_constitution = 14;
@@ -4097,7 +4097,7 @@
 /turf/open/floor/tile,
 /area/rogue/under/tomb/indoors/royal)
 "Tu" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/tomb/indoors)
 "Tw" = (
@@ -4152,7 +4152,7 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/tomb/indoors)
 "Ub" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment{
 	base_strength = 15;
 	base_speed = 15;
 	base_constitution = 14;
@@ -4172,7 +4172,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb/wilds)
 "Uh" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment{
 	base_strength = 15;
 	base_speed = 15;
 	base_constitution = 14;
@@ -4249,7 +4249,7 @@
 /area/rogue/under/tomb/indoors)
 "Vc" = (
 /obj/structure/stairs/stone,
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/herringbone,
 /area/rogue/under/tomb/indoors)
 "Vk" = (
@@ -4314,7 +4314,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb)
 "VO" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/tile/masonic/inverted,
 /area/rogue/under/tomb/indoors)
 "VU" = (
@@ -4359,7 +4359,7 @@
 /turf/open/floor/tile/masonic/single,
 /area/rogue/under/tomb/indoors/magic)
 "WF" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment{
 	base_strength = 15;
 	base_speed = 15;
 	base_constitution = 14;
@@ -4444,7 +4444,7 @@
 /turf/open/water/bath,
 /area/rogue/under/tomb/indoors)
 "Xt" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment{
 	base_strength = 15;
 	base_speed = 15;
 	base_constitution = 14;
@@ -4524,7 +4524,7 @@
 /area/rogue/under/tomb/wilds)
 "XI" = (
 /obj/machinery/light/fueled/chand,
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment{
 	real_name = "Forgotten King";
 	base_speed = 20;
 	base_perception = 12;
@@ -4547,7 +4547,7 @@
 /turf/open/floor/metal/barograte,
 /area/rogue/under/tomb)
 "XO" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/item/clothing/pants/trou/artipants,
 /obj/item/clothing/shirt/undershirt/artificer,
@@ -4591,7 +4591,7 @@
 /turf/open/floor/tile/kitchen,
 /area/rogue/under/tomb/indoors)
 "XU" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment{
 	base_strength = 15;
 	base_speed = 15;
 	base_constitution = 14;
@@ -4663,7 +4663,7 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors)
 "YM" = (
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush,
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb)
 "YP" = (
@@ -4681,7 +4681,7 @@
 /turf/open/lava,
 /area/rogue/under/tomb)
 "Zc" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment{
 	base_strength = 15;
 	base_speed = 15;
 	base_constitution = 14;
@@ -4730,7 +4730,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "ZE" = (
-/mob/living/carbon/human/species/orc/marauder,
+/mob/living/carbon/humanoid/species/orc/marauder,
 /turf/open/floor/cobble,
 /area/rogue/under/tomb/wilds)
 "ZG" = (
@@ -4755,7 +4755,7 @@
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/wilds)
 "ZM" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment{
 	base_strength = 15;
 	base_speed = 15;
 	base_constitution = 14;

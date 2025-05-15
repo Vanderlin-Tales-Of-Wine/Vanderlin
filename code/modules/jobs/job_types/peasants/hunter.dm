@@ -24,7 +24,7 @@
 /datum/outfit/job/hunter
 	job_bitflag = BITFLAG_CONSTRUCTOR
 
-/datum/outfit/job/hunter/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/hunter/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	pants = /obj/item/clothing/pants/tights/random
 	shirt = /obj/item/clothing/shirt/shortshirt/random

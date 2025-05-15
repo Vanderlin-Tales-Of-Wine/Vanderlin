@@ -886,7 +886,7 @@
 /**
  * Heal a robotic body part on a mob
  */
-/proc/item_heal_robotic(mob/living/carbon/human/H, mob/user, brute_heal, burn_heal)
+/proc/item_heal_robotic(mob/living/carbon/humanoid/H, mob/user, brute_heal, burn_heal)
 	var/obj/item/bodypart/affecting = H.get_bodypart(check_zone(user.zone_selected))
 	if(affecting && affecting.status == BODYPART_ROBOTIC)
 		var/dam //changes repair text based on how much brute/burn was supplied
@@ -1036,7 +1036,7 @@
 /mob/proc/can_see_reagents()
 	return stat == DEAD || has_unlimited_silicon_privilege //Dead guys and silicons can always see reagents
 
-/mob/living/carbon/human/proc/get_role_title()
+/mob/living/carbon/humanoid/proc/get_role_title()
 	var/used_title
 	if(migrant_type)
 		var/datum/migrant_role/migrant = MIGRANT_ROLE(migrant_type)

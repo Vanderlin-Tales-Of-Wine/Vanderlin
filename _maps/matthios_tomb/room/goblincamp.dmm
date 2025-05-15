@@ -9,7 +9,7 @@
 /turf/open/floor/ruinedwood,
 /area/rogue/under/tomb/cave)
 "aN" = (
-/mob/living/carbon/human/species/goblin/npc/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/cave,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/wilds)
 "bZ" = (
@@ -45,7 +45,7 @@
 /obj/effect/spawner/map_spawner/loot/coin/absurd,
 /obj/effect/spawner/map_spawner/loot/potion_vitals,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
-/mob/living/carbon/human/species/goblin/npc{
+/mob/living/carbon/humanoid/species/goblin/npc{
 	base_constitution = 20;
 	base_endurance = 20;
 	base_intelligence = 20;
@@ -93,7 +93,7 @@
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/wilds)
 "lZ" = (
-/mob/living/carbon/human/species/goblin/npc/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/cave,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/cave)
 "ml" = (
@@ -224,7 +224,7 @@
 /area/rogue/under/tomb/wilds)
 "AA" = (
 /obj/structure/bed/shit,
-/mob/living/carbon/human/species/goblin/npc/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/cave,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/indoors)
 "AK" = (
@@ -366,7 +366,7 @@
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/wilds)
 "Rc" = (
-/mob/living/carbon/human/species/goblin/npc/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/cave,
 /turf/open/floor/grass/cold,
 /area/rogue/under/tomb/wilds)
 "RK" = (

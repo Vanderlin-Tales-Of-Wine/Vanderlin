@@ -78,8 +78,8 @@ SUBSYSTEM_DEF(familytree)
 * In order for us to use age in sorting of generations we would need to
 * make the king & queen older than the prince.
 */
-/datum/controller/subsystem/familytree/proc/AddLocal(mob/living/carbon/human/H, status)
-	if(!H || !status || istype(H, /mob/living/carbon/human/dummy))
+/datum/controller/subsystem/familytree/proc/AddLocal(mob/living/carbon/humanoid/H, status)
+	if(!H || !status || istype(H, /mob/living/carbon/humanoid/dummy))
 		return
 	//Exclude princes and princesses from having their parentage calculated.
 	if(H.job in excluded_jobs)
@@ -107,7 +107,7 @@ SUBSYSTEM_DEF(familytree)
 * Assigns lord and lady to the royal family.
 * If they are father or mother they claim the house in their name.
 */
-/datum/controller/subsystem/familytree/proc/AddRoyal(mob/living/carbon/human/H, status)
+/datum/controller/subsystem/familytree/proc/AddRoyal(mob/living/carbon/humanoid/H, status)
 	if(status == FAMILY_FATHER || status == FAMILY_MOTHER)
 		if(!ruling_family.housename)
 			ruling_family.ClaimHouse(H)
@@ -121,7 +121,7 @@ SUBSYSTEM_DEF(familytree)
 * Assigns people randomly as heirs to one of the major
 * famlies of Rockhill based on their species.
 */
-/datum/controller/subsystem/familytree/proc/AssignToHouse(mob/living/carbon/human/H)
+/datum/controller/subsystem/familytree/proc/AssignToHouse(mob/living/carbon/humanoid/H)
 	//If no human and they are older than adult age.
 	if(!H)
 		return
@@ -170,7 +170,7 @@ SUBSYSTEM_DEF(familytree)
 * male and female since it makes
 * species calulcation easier on me.
 */
-/datum/controller/subsystem/familytree/proc/AssignToFamily(mob/living/carbon/human/H)
+/datum/controller/subsystem/familytree/proc/AssignToFamily(mob/living/carbon/humanoid/H)
 	if(!H)
 		return
 	var/our_species = H.dna.species.type
@@ -182,7 +182,7 @@ SUBSYSTEM_DEF(familytree)
 		if(I.matriarch && I.patriarch)
 			continue
 		//The accursed setspouse code so people can preset their spouses
-		var/mob/living/carbon/human/spouse_to_be
+		var/mob/living/carbon/humanoid/spouse_to_be
 		if(ishuman(I.matriarch))
 			spouse_to_be = I.matriarch
 		if(ishuman(I.patriarch))
@@ -227,8 +227,8 @@ SUBSYSTEM_DEF(familytree)
 			if(3)
 				what_we_checkin = low_priority_houses
 		for(var/datum/heritage/eligable_house in what_we_checkin)
-			var/mob/living/carbon/human/mat = eligable_house.matriarch
-			var/mob/living/carbon/human/pat = eligable_house.patriarch
+			var/mob/living/carbon/humanoid/mat = eligable_house.matriarch
+			var/mob/living/carbon/humanoid/pat = eligable_house.patriarch
 			if(!eligable_house.housename)
 				eligable_house.ClaimHouse(H)
 				return
@@ -247,7 +247,7 @@ SUBSYSTEM_DEF(familytree)
 /*
 * For marrying two people together based on spousename.
 */
-/datum/controller/subsystem/familytree/proc/AssignNewlyWed(mob/living/carbon/human/H)
+/datum/controller/subsystem/familytree/proc/AssignNewlyWed(mob/living/carbon/humanoid/H)
 	viable_spouses.Add(H)
 	var/list/high_priority_lover = list()
 	var/list/mid_priority_lover = list()
@@ -256,7 +256,7 @@ SUBSYSTEM_DEF(familytree)
 		//Thats no one.
 		if(!vs || !ishuman(vs))
 			continue
-		var/mob/living/carbon/human/L = vs
+		var/mob/living/carbon/humanoid/L = vs
 		//Thats you dude.
 		if(L == H)
 			continue
@@ -309,7 +309,7 @@ SUBSYSTEM_DEF(familytree)
 /*
 * Assings people as uncles and aunts.
 */
-/datum/controller/subsystem/familytree/proc/AssignAuntUncle(mob/living/carbon/human/H)
+/datum/controller/subsystem/familytree/proc/AssignAuntUncle(mob/living/carbon/humanoid/H)
 	var/species = H.dna.species.type
 	var/inlaw = FALSE
 	var/datum/heritage/chosen_house

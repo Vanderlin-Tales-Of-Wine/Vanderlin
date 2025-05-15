@@ -95,7 +95,7 @@
 	range = 7
 	hitsound = 'sound/blank.ogg'
 
-/obj/projectile/magic/moondagger/on_hit(mob/living/carbon/human/target, blocked = FALSE)
+/obj/projectile/magic/moondagger/on_hit(mob/living/carbon/humanoid/target, blocked = FALSE)
 	. = ..()
 	if(!ishuman(target))
 		return

@@ -377,7 +377,7 @@
 /obj/item/clothing/gloves/plate/rust,
 /obj/item/weapon/sword/scimitar/falchion,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment{
 	base_constitution = 15;
 	base_endurance = 15;
 	base_speed = 15;
@@ -410,7 +410,7 @@
 /area/rogue/under/tomb/indoors/magic)
 "rq" = (
 /obj/structure/trap/shock,
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /obj/effect/particle_effect/steam,
 /turf/open/water/bath,
 /area/rogue/under/tomb/indoors/magic)
@@ -431,7 +431,7 @@
 /turf/open/floor/tile,
 /area/rogue/under/tomb/indoors/magic)
 "rN" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/under/tomb/indoors/magic)
 "su" = (
@@ -566,7 +566,7 @@
 /turf/open/floor/churchbrick,
 /area/rogue/under/tomb/indoors/magic)
 "yj" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors/magic)
 "ys" = (
@@ -690,7 +690,7 @@
 /area/rogue/under/tomb/indoors/magic)
 "CI" = (
 /obj/structure/flora/grass/herb/random,
-/mob/living/carbon/human/species/zizombie/ambush,
+/mob/living/carbon/humanoid/species/zizombie/ambush,
 /turf/open/floor/grass/cold,
 /area/rogue/under/tomb/indoors/magic)
 "CK" = (
@@ -798,7 +798,7 @@
 /area/rogue/under/tomb/indoors/magic)
 "Hv" = (
 /obj/item/rope/chain,
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/blocks,
 /area/rogue/under/tomb/indoors/magic)
 "Hz" = (
@@ -849,7 +849,7 @@
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/under/tomb/indoors/magic)
 "Ir" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/blocks,
 /area/rogue/under/tomb/indoors/magic)
 "Iv" = (
@@ -943,7 +943,7 @@
 "Mc" = (
 /obj/item/natural/wood/plank,
 /obj/item/grown/log/tree/stick,
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/churchbrick,
 /area/rogue/under/tomb/indoors/magic)
 "Mj" = (
@@ -1027,7 +1027,7 @@
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/under/tomb/indoors/magic)
 "NQ" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/under/tomb/indoors/magic)
 "Oa" = (
@@ -1094,11 +1094,11 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors/magic)
 "Qn" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/churchbrick,
 /area/rogue/under/tomb/indoors/magic)
 "QQ" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment{
 	base_constitution = 15;
 	base_endurance = 15;
 	base_strength = 15;
@@ -1359,7 +1359,7 @@
 	},
 /obj/effect/decal/cleanable/blood,
 /obj/item/clothing/ring/gold/rontz,
-/mob/living/carbon/human/species/zizombie/npc/ambush,
+/mob/living/carbon/humanoid/species/zizombie/npc/ambush,
 /turf/open/floor/carpet/green,
 /area/rogue/under/tomb/indoors/magic)
 "Yj" = (
@@ -1376,7 +1376,7 @@
 /turf/open/floor/churchrough,
 /area/rogue/under/tomb/indoors/magic)
 "Yu" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/blocks,
 /area/rogue/under/tomb/indoors/magic)
 "YJ" = (
@@ -1404,7 +1404,7 @@
 /obj/item/weapon/sword/arming,
 /obj/item/weapon/shield/tower/buckleriron,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment{
 	base_constitution = 15;
 	candodge = 0
 	},

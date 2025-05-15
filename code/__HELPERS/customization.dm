@@ -1,22 +1,22 @@
-/mob/living/carbon/human/proc/get_hair_color()
+/mob/living/carbon/humanoid/proc/get_hair_color()
 	var/datum/bodypart_feature/hair/feature = get_bodypart_feature_of_slot(BODYPART_FEATURE_HAIR)
 	if(!feature)
 		return "FFFFFF"
 	return feature.hair_color
 
-/mob/living/carbon/human/proc/get_facial_hair_color()
+/mob/living/carbon/humanoid/proc/get_facial_hair_color()
 	var/datum/bodypart_feature/hair/feature = get_bodypart_feature_of_slot(BODYPART_FEATURE_FACIAL_HAIR)
 	if(!feature)
 		return "FFFFFF"
 	return feature.hair_color
 
-/mob/living/carbon/human/proc/get_eye_color()
+/mob/living/carbon/humanoid/proc/get_eye_color()
 	var/obj/item/organ/eyes/eyes = getorganslot(ORGAN_SLOT_EYES)
 	if(!eyes)
 		return "FFFFFF"
 	return eyes.eye_color
 
-/mob/living/carbon/human/proc/get_chest_color()
+/mob/living/carbon/humanoid/proc/get_chest_color()
 	var/obj/item/bodypart/chest = get_bodypart(BODY_ZONE_CHEST)
 	if(!chest)
 		return null
@@ -36,7 +36,7 @@
 	return null
 
 
-/mob/living/carbon/human/proc/set_hair_color(new_color, updates_body = TRUE)
+/mob/living/carbon/humanoid/proc/set_hair_color(new_color, updates_body = TRUE)
 	var/datum/bodypart_feature/hair/feature = get_bodypart_feature_of_slot(BODYPART_FEATURE_HAIR)
 	if(!feature)
 		return
@@ -45,7 +45,7 @@
 	if(updates_body)
 		update_body_parts()
 
-/mob/living/carbon/human/proc/set_facial_hair_color(new_color, updates_body = TRUE)
+/mob/living/carbon/humanoid/proc/set_facial_hair_color(new_color, updates_body = TRUE)
 	var/datum/bodypart_feature/hair/feature = get_bodypart_feature_of_slot(BODYPART_FEATURE_FACIAL_HAIR)
 	if(!feature)
 		return
@@ -53,7 +53,7 @@
 	if(updates_body)
 		update_body_parts()
 
-/mob/living/carbon/human/proc/set_eye_color(new_color, new_secondary_color, updates_body = TRUE)
+/mob/living/carbon/humanoid/proc/set_eye_color(new_color, new_secondary_color, updates_body = TRUE)
 	var/obj/item/organ/eyes/eyes = getorganslot(ORGAN_SLOT_EYES)
 	if(!eyes)
 		return
@@ -63,7 +63,7 @@
 	if(updates_body)
 		update_body_parts()
 
-/mob/living/carbon/human/proc/set_hair_style(datum/sprite_accessory/hair/head/style, updates_body = TRUE)
+/mob/living/carbon/humanoid/proc/set_hair_style(datum/sprite_accessory/hair/head/style, updates_body = TRUE)
 	if(!ispath(style) && !istype(style))
 		return
 	if(istype(style))
@@ -75,7 +75,7 @@
 	if(updates_body)
 		update_body_parts()
 
-/mob/living/carbon/human/proc/set_facial_hair_style(datum/sprite_accessory/hair/facial/style, updates_body = TRUE)
+/mob/living/carbon/humanoid/proc/set_facial_hair_style(datum/sprite_accessory/hair/facial/style, updates_body = TRUE)
 	if(!ispath(style) && !istype(style))
 		return
 	if(istype(style))

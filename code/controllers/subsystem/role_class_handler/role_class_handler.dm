@@ -77,7 +77,7 @@ SUBSYSTEM_DEF(role_class_handler)
 	We setup the class handler here, aka the menu
 	We will cache it per server session via an assc list with a ckey leading to the datum.
 */
-/datum/controller/subsystem/role_class_handler/proc/setup_class_handler(mob/living/carbon/human/H, advclass_rolls_override = null)
+/datum/controller/subsystem/role_class_handler/proc/setup_class_handler(mob/living/carbon/humanoid/H, advclass_rolls_override = null)
 	if(!H)
 		CRASH("setup_class_handler was called without a passed mob in args!")
 	// insure they somehow aren't closing the datum they got and opening a new one w rolls
@@ -118,7 +118,7 @@ SUBSYSTEM_DEF(role_class_handler)
 	Attempt to finish the class handling ordeal, aka they picked something
 	Since this is class handler related, might as well also have the class handler send itself into the params
 */
-/datum/controller/subsystem/role_class_handler/proc/finish_class_handler(mob/living/carbon/human/H, datum/advclass/picked_class, datum/class_select_handler/related_handler, plus_factor, special_session_queue)
+/datum/controller/subsystem/role_class_handler/proc/finish_class_handler(mob/living/carbon/humanoid/H, datum/advclass/picked_class, datum/class_select_handler/related_handler, plus_factor, special_session_queue)
 	if(!picked_class || !related_handler || !H) // Extreme edge case but is possible, likely href exploit or late activation
 		return FALSE
 	if(picked_class.maximum_possible_slots != -1)
@@ -158,7 +158,7 @@ SUBSYSTEM_DEF(role_class_handler)
 				if(target_datum in found_menu.rolled_classes) // We found the target datum in one of the classes they rolled aka in the list of options they got visible,
 					found_menu.rolled_class_is_full(target_datum) //  inform the datum of its error.
 
-/datum/controller/subsystem/role_class_handler/proc/cancel_class_handler(mob/living/carbon/human/H)
+/datum/controller/subsystem/role_class_handler/proc/cancel_class_handler(mob/living/carbon/humanoid/H)
 	H.advsetup = FALSE
 	H.invisibility = 0
 	var/atom/movable/screen/advsetup/GET_IT_OUT = locate() in H.hud_used.static_inventory //locate() still iterates over contents

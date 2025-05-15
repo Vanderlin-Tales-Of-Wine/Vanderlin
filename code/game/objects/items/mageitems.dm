@@ -93,7 +93,7 @@
 	else
 		return ..()
 
-/obj/item/chalk/attack_self(mob/living/carbon/human/user)
+/obj/item/chalk/attack_self(mob/living/carbon/humanoid/user)
 	if(!isarcyne(user))//We'll set up other items for other types of rune rituals
 		to_chat(user, span_cult("Nothing comes in mind to draw with the chalk."))
 		return
@@ -162,7 +162,7 @@
 	else
 		return ..()
 
-/obj/item/weapon/knife/dagger/silver/arcyne/attack_self(mob/living/carbon/human/user)
+/obj/item/weapon/knife/dagger/silver/arcyne/attack_self(mob/living/carbon/humanoid/user)
 	if(!isarcyne(user))
 		return
 	var/obj/effect/decal/cleanable/roguerune/pickrune
@@ -238,7 +238,7 @@
 	var/ready = TRUE
 	var/timing_id
 
-/obj/item/mimictrinket/attack_self(mob/living/carbon/human/user)
+/obj/item/mimictrinket/attack_self(mob/living/carbon/humanoid/user)
 	revert()
 
 /obj/item/mimictrinket/proc/revert()
@@ -313,7 +313,7 @@
 	var/cdtime = 30 MINUTES
 	var/ready = TRUE
 
-/obj/item/clothing/ring/arcanesigil/attack_self(mob/living/carbon/human/user)
+/obj/item/clothing/ring/arcanesigil/attack_self(mob/living/carbon/humanoid/user)
 	if(ready)
 		if(do_after(user, 25, target = src))
 			to_chat(user,span_notice("[src] heats up to an almost burning temperature, flooding you with overwhelming arcane knowledge!"))
@@ -418,7 +418,7 @@
 	.=..()
 	src.filters += filter(type="drop_shadow", x=0, y=0, size=1, offset=2, color=rgb(rand(1,255),rand(1,255),rand(1,255)))
 
-/obj/item/rope/chain/bindingshackles/attackby(obj/item/P, mob/living/carbon/human/user, params)
+/obj/item/rope/chain/bindingshackles/attackby(obj/item/P, mob/living/carbon/humanoid/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(istype(P, /obj/item/natural/melded/t2))
 		if(isturf(loc)&& (found_table))
@@ -437,7 +437,7 @@
 	name = "greater planar binding shackles"
 	tier = 2
 
-/obj/item/rope/chain/bindingshackles/t2/attackby(obj/item/P, mob/living/carbon/human/user, params)
+/obj/item/rope/chain/bindingshackles/t2/attackby(obj/item/P, mob/living/carbon/humanoid/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(istype(P, /obj/item/natural/melded/t3))
 		if(isturf(loc)&& (found_table))
@@ -456,7 +456,7 @@
 	name = "woven planar binding shackles"
 	tier = 3
 
-/obj/item/rope/chain/bindingshackles/t3/attackby(obj/item/P, mob/living/carbon/human/user, params)
+/obj/item/rope/chain/bindingshackles/t3/attackby(obj/item/P, mob/living/carbon/humanoid/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(istype(P, /obj/item/natural/melded/t4))
 		if(isturf(loc)&& (found_table))
@@ -475,7 +475,7 @@
 	name = "confluent planar binding shackles"
 	tier = 4
 
-/obj/item/rope/chain/bindingshackles/t4/attackby(obj/item/P, mob/living/carbon/human/user, params)
+/obj/item/rope/chain/bindingshackles/t4/attackby(obj/item/P, mob/living/carbon/humanoid/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(istype(P, /obj/item/natural/melded/t5))
 		if(isturf(loc)&& (found_table))
@@ -540,7 +540,7 @@
 		return FALSE
 	return FALSE
 
-/mob/living/simple_animal/hostile/retaliate/proc/awaken_summon(mob/living/carbon/human/master, ckey)
+/mob/living/simple_animal/hostile/retaliate/proc/awaken_summon(mob/living/carbon/humanoid/master, ckey)
 	if(!master)
 		return FALSE
 	if(ckey) //player

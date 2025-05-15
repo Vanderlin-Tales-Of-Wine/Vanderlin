@@ -72,7 +72,7 @@
 			body_parts_covered |= CHEST
 
 	if(mutantrace_variation && ishuman(user))
-		var/mob/living/carbon/human/H = user
+		var/mob/living/carbon/humanoid/H = user
 		H.update_inv_w_uniform()
 
 	if(slot == SLOT_PANTS && freshly_laundered)
@@ -80,7 +80,7 @@
 		SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "fresh_laundry", /datum/mood_event/fresh_laundry)
 
 	if(attached_accessory && slot != SLOT_HANDS && ishuman(user))
-		var/mob/living/carbon/human/H = user
+		var/mob/living/carbon/humanoid/H = user
 		attached_accessory.on_uniform_equip(src, user)
 		if(attached_accessory.above_suit)
 			H.update_inv_wear_suit()
@@ -89,7 +89,7 @@
 	if(attached_accessory)
 		attached_accessory.on_uniform_dropped(src, user)
 		if(ishuman(user))
-			var/mob/living/carbon/human/H = user
+			var/mob/living/carbon/humanoid/H = user
 			if(attached_accessory.above_suit)
 				H.update_inv_wear_suit()
 
@@ -121,7 +121,7 @@
 			accessory_overlay.color = attached_accessory.color
 
 			if(ishuman(loc))
-				var/mob/living/carbon/human/H = loc
+				var/mob/living/carbon/humanoid/H = loc
 				H.update_inv_w_uniform()
 				H.update_inv_wear_suit()
 
@@ -142,7 +142,7 @@
 			to_chat(user, "<span class='notice'>I detach [A] from [src] and it falls on the floor.</span>")
 
 		if(ishuman(loc))
-			var/mob/living/carbon/human/H = loc
+			var/mob/living/carbon/humanoid/H = loc
 			H.update_inv_w_uniform()
 			H.update_inv_wear_suit()
 
@@ -165,7 +165,7 @@
 	else
 		to_chat(usr, "<span class='notice'>I adjust the suit back to normal.</span>")
 	if(ishuman(usr))
-		var/mob/living/carbon/human/H = usr
+		var/mob/living/carbon/humanoid/H = usr
 		H.update_inv_w_uniform()
 		H.update_body()
 

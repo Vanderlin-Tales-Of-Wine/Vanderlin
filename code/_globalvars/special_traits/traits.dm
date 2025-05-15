@@ -15,10 +15,10 @@
 	var/list/restricted_races
 	var/list/restricted_jobs
 
-/datum/special_trait/proc/can_apply(mob/living/carbon/human/character)
+/datum/special_trait/proc/can_apply(mob/living/carbon/humanoid/character)
 	return TRUE
 
-/datum/special_trait/proc/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/proc/on_apply(mob/living/carbon/humanoid/character, silent)
 	return
 
 
@@ -34,7 +34,7 @@
 	greet_text = span_notice("I can easily see in the dark.")
 	weight = 100
 
-/datum/special_trait/nightvision/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/nightvision/on_apply(mob/living/carbon/humanoid/character, silent)
 	var/obj/item/organ/eyes/eyes = character.getorganslot(ORGAN_SLOT_EYES)
 	if(!eyes)
 		return
@@ -47,7 +47,7 @@
 	greet_text = span_notice("I feel it. Thick Skin. Dense Flesh. Durable Bones. I'm a punch-taking machine.")
 	weight = 100
 
-/datum/special_trait/thickskin/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/thickskin/on_apply(mob/living/carbon/humanoid/character, silent)
 	ADD_TRAIT(character, TRAIT_BREADY, "[type]")
 	character.change_stat("constitution", 2)
 
@@ -56,7 +56,7 @@
 	greet_text = span_notice("I feel like I don't need to eat anymore, and my veins feel empty... Is this normal?")
 	weight = 25
 
-/datum/special_trait/curseofcain/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/curseofcain/on_apply(mob/living/carbon/humanoid/character, silent)
 	ADD_TRAIT(character, TRAIT_NOHUNGER, "[type]")
 	ADD_TRAIT(character, TRAIT_NOBREATH, "[type]")
 
@@ -65,7 +65,7 @@
 	greet_text = span_notice("Ever since <b>it</b> happened, I've never been able to feel anything. Inside or out")
 	weight = 25
 
-/datum/special_trait/deadened/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/deadened/on_apply(mob/living/carbon/humanoid/character, silent)
 	ADD_TRAIT(character, TRAIT_NOMOOD, "[type]")
 	ADD_TRAIT(character, TRAIT_CRITICAL_RESISTANCE, "[type]")
 
@@ -74,7 +74,7 @@
 	greet_text = span_notice("I have innate magical potential.")
 	weight = 25
 
-/datum/special_trait/latentmagic/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/latentmagic/on_apply(mob/living/carbon/humanoid/character, silent)
 	character.mind.adjust_skillrank(/datum/skill/magic/arcane, 1, TRUE)
 
 /datum/special_trait/value
@@ -83,7 +83,7 @@
 	weight = 100
 	restricted_traits = list(TRAIT_SEEPRICES)
 
-/datum/special_trait/value/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/value/on_apply(mob/living/carbon/humanoid/character, silent)
 	ADD_TRAIT(character, TRAIT_SEEPRICES, "[type]")
 
 /datum/special_trait/lightstep
@@ -91,7 +91,7 @@
 	greet_text = span_notice("I am quiet, nobody can hear my steps.")
 	weight = 100
 
-/datum/special_trait/lightstep/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/lightstep/on_apply(mob/living/carbon/humanoid/character, silent)
 	ADD_TRAIT(character, TRAIT_LIGHT_STEP, "[type]")
 
 /datum/special_trait/night_owl
@@ -99,7 +99,7 @@
 	greet_text = span_notice("I've always preferred Noc over his other half.")
 	weight = 100
 
-/datum/special_trait/night_owl/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/night_owl/on_apply(mob/living/carbon/humanoid/character, silent)
 	ADD_TRAIT(character, TRAIT_NIGHT_OWL, "[type]")
 
 /datum/special_trait/beautiful
@@ -107,7 +107,7 @@
 	greet_text = span_notice("My face is a work of art")
 	weight = 100
 
-/datum/special_trait/beautiful/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/beautiful/on_apply(mob/living/carbon/humanoid/character, silent)
 	ADD_TRAIT(character, TRAIT_BEAUTIFUL, "[type]")
 
 //positive
@@ -116,7 +116,7 @@
 	greet_text = span_notice("I was the student of a legendary sword master, my skill is rivalled by few! I've also hidden a rapier.")
 	weight = 50
 
-/datum/special_trait/duelist/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/duelist/on_apply(mob/living/carbon/humanoid/character, silent)
 	character.change_stat("speed", 2)
 	character.mind.adjust_skillrank(/datum/skill/combat/swords, 6, TRUE) //will make a unique trait later on
 	character.mind.special_items["Rapier"] = /obj/item/weapon/sword/rapier
@@ -126,7 +126,7 @@
 	greet_text = span_notice("With my sharp aim I could always hit distant targets, I've also hidden a crossbow and some bolts.")
 	weight = 50
 
-/datum/special_trait/eagle_eyed/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/eagle_eyed/on_apply(mob/living/carbon/humanoid/character, silent)
 	character.change_stat("perception", 2)
 	character.mind.adjust_skillrank(/datum/skill/combat/crossbows, 5, TRUE)
 	character.mind.adjust_skillrank(/datum/skill/combat/bows, 4, TRUE)
@@ -138,7 +138,7 @@
 	greet_text = span_notice("I've been dealing drugs and I have a stash hidden away")
 	weight = 100
 
-/datum/special_trait/mule/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/mule/on_apply(mob/living/carbon/humanoid/character, silent)
 	character.mind.special_items["Stash One"] = /obj/item/storage/backpack/satchel/mule
 	character.mind.special_items["Stash Two"] = /obj/item/storage/backpack/satchel/mule
 	character.mind.special_items["Dagger"] = /obj/item/weapon/knife/dagger
@@ -149,7 +149,7 @@
 	greet_text = span_notice("I know an extra language, and I can be quite seductive")
 	weight = 100
 
-/datum/special_trait/cunning_linguist/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/cunning_linguist/on_apply(mob/living/carbon/humanoid/character, silent)
 	switch(rand(1,2))
 		if(1)
 			character.grant_language(/datum/language/elvish)
@@ -161,7 +161,7 @@
 	greet_text = span_notice("My diet was quite rich in corn.")
 	weight = 100
 
-/datum/special_trait/corn_fed/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/corn_fed/on_apply(mob/living/carbon/humanoid/character, silent)
 	character.change_stat("constitution", 2)
 	character.change_stat("intelligence", -2)
 
@@ -170,7 +170,7 @@
 	greet_text = span_notice("I'm a fan of books and I enjoy reading them regularly.")
 	weight = 100
 
-/datum/special_trait/bookworm/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/bookworm/on_apply(mob/living/carbon/humanoid/character, silent)
 	character.mind.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
 
 /datum/special_trait/screenshake
@@ -193,7 +193,7 @@
 	greet_text = span_notice("I like seeing things combust and burn. I have hidden around two firebombs.")
 	weight = 100
 
-/datum/special_trait/arsonist/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/arsonist/on_apply(mob/living/carbon/humanoid/character, silent)
 	character.mind.special_items["Firebomb One"] = /obj/item/bomb
 	character.mind.special_items["Firebomb Two"] = /obj/item/bomb
 	character.mind.adjust_skillrank(/datum/skill/craft/alchemy, 1, TRUE)
@@ -203,7 +203,7 @@
 	greet_text = span_notice("I enjoy whipping people until they squirm and whine, their pain makes my pleasure. I also have a hidden a whip")
 	weight = 50
 
-/datum/special_trait/pineapple/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/pineapple/on_apply(mob/living/carbon/humanoid/character, silent)
 	character.mind.special_items["Whip"] = /obj/item/weapon/whip/antique
 	character.mind.adjust_skillrank(/datum/skill/combat/whipsflails, 6, TRUE)
 
@@ -214,7 +214,7 @@
 	allowed_patrons = list(/datum/patron/psydon)
 	weight = 100
 
-/datum/special_trait/psydons_rider/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/psydons_rider/on_apply(mob/living/carbon/humanoid/character, silent)
 	character.drunkenness = 50
 	for(var/i in 1 to 2)
 		var/obj/item/bottle = new /obj/item/reagent_containers/glass/bottle/wine(get_turf(character))
@@ -228,7 +228,7 @@
 	greet_text = span_notice("My legs are quite strong and where most have to climb, I can just jump")
 	weight = 25
 
-/datum/special_trait/spring_in_my_step/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/spring_in_my_step/on_apply(mob/living/carbon/humanoid/character, silent)
 	ADD_TRAIT(character, TRAIT_ZJUMP, "[type]")
 
 /datum/special_trait/tolerant
@@ -236,7 +236,7 @@
 	greet_text = span_notice("I dream of an ideal future, one with peace between all races")
 	weight = 100
 
-/datum/special_trait/tolerant/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/tolerant/on_apply(mob/living/carbon/humanoid/character, silent)
 	ADD_TRAIT(character, TRAIT_TOLERANT, "[type]")
 
 /datum/special_trait/thief
@@ -244,7 +244,7 @@
 	greet_text = span_notice("Life's not easy around here, but I've made mine a little easier by taking things of others")
 	weight = 100
 
-/datum/special_trait/thief/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/thief/on_apply(mob/living/carbon/humanoid/character, silent)
 	character.mind.adjust_skillrank(/datum/skill/misc/stealing, 5, TRUE)
 	character.mind.adjust_skillrank(/datum/skill/misc/sneaking, 4, TRUE)
 	character.mind.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
@@ -254,7 +254,7 @@
 	greet_text = span_notice("I have always picked up on languages easily, even those that are forbidden to mortals... except that accursed beastial chatter. What even is that nonsense?")
 	weight = 100
 
-/datum/special_trait/languagesavant/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/languagesavant/on_apply(mob/living/carbon/humanoid/character, silent)
 	character.grant_language(/datum/language/dwarvish)
 	character.grant_language(/datum/language/elvish)
 	character.grant_language(/datum/language/hellspeak)
@@ -266,7 +266,7 @@
 	greet_text = span_notice("My fists feel heavier!")
 	weight = 100
 
-/datum/special_trait/civilizedbarbarian/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/civilizedbarbarian/on_apply(mob/living/carbon/humanoid/character, silent)
 	ADD_TRAIT(character, TRAIT_CIVILIZEDBARBARIAN, TRAIT_GENERIC) //Need to make trait improve hitting people with chairs, mugs, goblets.
 
 /datum/special_trait/mastercraftsmen
@@ -276,7 +276,7 @@
 	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD)
 	weight = 100
 
-/datum/special_trait/mastercraftsmen/on_apply(mob/living/carbon/human/character)
+/datum/special_trait/mastercraftsmen/on_apply(mob/living/carbon/humanoid/character)
 	character.mind.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
 	character.mind.adjust_skillrank(/datum/skill/craft/weaponsmithing, 2, TRUE)
 	character.mind.adjust_skillrank(/datum/skill/craft/armorsmithing, 2, TRUE)
@@ -294,7 +294,7 @@
 	restricted_traits = list(TRAIT_NOBLE)
 	weight = 100
 
-/datum/special_trait/bleublood/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/bleublood/on_apply(mob/living/carbon/humanoid/character, silent)
 	ADD_TRAIT(character, TRAIT_NOBLE, "[type]")
 	character.mind.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 
@@ -303,7 +303,7 @@
 	greet_text = span_notice("I've recently found a pouch filled with mammons, probably belonging to some noble.")
 	weight = 100
 
-/datum/special_trait/richpouch/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/richpouch/on_apply(mob/living/carbon/humanoid/character, silent)
 	var/obj/item/pouch = new /obj/item/storage/belt/pouch/coins/rich(get_turf(character))
 	character.put_in_hands(pouch, forced = TRUE)
 
@@ -312,7 +312,7 @@
 	greet_text = span_notice("I feel like the fastest person alive and I can probably dodge anything, as long as I'm not weighed down by medium or heavy armor")
 	weight = 50
 
-/datum/special_trait/swift/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/swift/on_apply(mob/living/carbon/humanoid/character, silent)
 	ADD_TRAIT(character, TRAIT_DODGEEXPERT, "[type]")
 	character.mind.adjust_skillrank(/datum/skill/misc/athletics, 6, TRUE)
 	character.change_stat("speed", 3)
@@ -322,7 +322,7 @@
 	greet_text = span_notice("I can eat even the most spoiled, raw, or toxic food and water as if they were delicacies..")
 	weight = 100
 
-/datum/special_trait/gourmand/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/gourmand/on_apply(mob/living/carbon/humanoid/character, silent)
 	ADD_TRAIT(character, TRAIT_NASTY_EATER, "[type]")
 
 /datum/special_trait/lucky
@@ -332,7 +332,7 @@
 	allowed_patrons = list(/datum/patron/divine/xylix)
 	weight = 7
 
-/datum/special_trait/lucky/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/lucky/on_apply(mob/living/carbon/humanoid/character, silent)
 	character.STALUC = rand(15, 20) //In other words, In the next round following the special, you are effectively lucky.
 
 //neutral
@@ -343,7 +343,7 @@
 	restricted_races = list(/datum/species/dwarf/mountain, /datum/species/kobold)
 	weight = 50
 
-/datum/special_trait/backproblems/on_apply(mob/living/carbon/human/character)
+/datum/special_trait/backproblems/on_apply(mob/living/carbon/humanoid/character)
 	character.change_stat("strength", 2)
 	character.change_stat("constitution", 1)
 	character.change_stat("speed", -2)
@@ -358,7 +358,7 @@
 	restricted_jobs = list(CHURCHMEN)
 	weight = 100
 
-/datum/special_trait/atheism/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/atheism/on_apply(mob/living/carbon/humanoid/character, silent)
 	character.set_patron(/datum/patron/godless)
 
 //negative
@@ -367,7 +367,7 @@
 	greet_text = span_boldwarning("In the past I learned slower than my peers, and I tend to be clumsy.")
 	weight = 100
 
-/datum/special_trait/nimrod/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/nimrod/on_apply(mob/living/carbon/humanoid/character, silent)
 	character.change_stat("speed", -2)
 	character.change_stat("intelligence", -4)
 
@@ -376,7 +376,7 @@
 	greet_text = span_boldwarning("I lost my pouch recently, I'm without a zenny..")
 	weight = 200
 
-/datum/special_trait/nopouch/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/nopouch/on_apply(mob/living/carbon/humanoid/character, silent)
 	var/obj/item/pouch = locate(/obj/item/storage/belt/pouch) in character
 	if(character.wear_neck == pouch)
 		character.wear_neck = null
@@ -393,7 +393,7 @@
 	weight = 20
 	restricted_jobs = list(CHURCHMEN)
 
-/datum/special_trait/hussite/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/hussite/on_apply(mob/living/carbon/humanoid/character, silent)
 	GLOB.excommunicated_players += character.real_name
 
 // lol we don't have bounty machines
@@ -403,7 +403,7 @@
 	greet_text = span_boldwarning("Someone put a bounty on my head!")
 	weight = 20
 
-/datum/special_trait/bounty/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/bounty/on_apply(mob/living/carbon/humanoid/character, silent)
 	var/reason = ""
 	var/employer = "unknown employer"
 	var/employer_gender
@@ -441,7 +441,7 @@
 	greet_text = span_boldwarning("Whether for crimes I did or was accused of, I have been declared an outlaw!")
 	weight = 20
 
-/datum/special_trait/outlaw/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/outlaw/on_apply(mob/living/carbon/humanoid/character, silent)
 	GLOB.outlawed_players += character.real_name
 
 /datum/special_trait/unlucky
@@ -449,7 +449,7 @@
 	greet_text = span_boldwarning("Ever since you knocked over that glass vase, you just feel... off")
 	weight = 100
 
-/datum/special_trait/unlucky/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/unlucky/on_apply(mob/living/carbon/humanoid/character, silent)
 	character.STALUC = rand(1, 10)
 
 
@@ -458,7 +458,7 @@
 	greet_text = span_boldwarning("I have a severe, irrational fear of Jesters")
 	weight = 50
 
-/datum/special_trait/jesterphobia/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/jesterphobia/on_apply(mob/living/carbon/humanoid/character, silent)
 	ADD_TRAIT(character, TRAIT_JESTERPHOBIA, "[type]")
 
 /datum/special_trait/wild_night
@@ -466,7 +466,7 @@
 	greet_text = span_boldwarning("I don't remember what I did last night, and now I'm lost!")
 	weight = 200
 
-/datum/special_trait/wild_night/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/wild_night/on_apply(mob/living/carbon/humanoid/character, silent)
 	var/turf/location = get_spawn_turf_for_job("Pilgrim")
 	character.forceMove(location)
 	grant_lit_torch(character)
@@ -476,7 +476,7 @@
 	greet_text = span_boldwarning("When growing up I could barely feed myself... this left me weak and fragile")
 	weight = 50
 
-/datum/special_trait/atrophy/on_apply(mob/living/carbon/human/character)
+/datum/special_trait/atrophy/on_apply(mob/living/carbon/humanoid/character)
 	character.change_stat("strength", -2)
 	character.change_stat("constitution", -2)
 	character.change_stat("endurance", -1)
@@ -486,7 +486,7 @@
 	greet_text = span_boldwarning("I don't care, never did")
 	weight = 50
 
-/datum/special_trait/lazy/on_apply(mob/living/carbon/human/character)
+/datum/special_trait/lazy/on_apply(mob/living/carbon/humanoid/character)
 	character.change_stat("strength", -1)
 	character.change_stat("constitution", -1)
 	character.change_stat("endurance", -1)
@@ -498,7 +498,7 @@
 	greet_text = span_boldwarning("Everything just seems to piss me off")
 	weight = 100
 
-/datum/special_trait/bad_week/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/bad_week/on_apply(mob/living/carbon/humanoid/character, silent)
 	ADD_TRAIT(character, TRAIT_BAD_MOOD, "[type]")
 
 /datum/special_trait/nude_sleeper
@@ -506,7 +506,7 @@
 	greet_text = span_boldwarning("I just can't seem to fall asleep unless I'm <i>truly</i> comfortable...")
 	weight = 25
 
-/datum/special_trait/nude_sleeper/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/nude_sleeper/on_apply(mob/living/carbon/humanoid/character, silent)
 	ADD_TRAIT(character, TRAIT_NUDE_SLEEPER, "[type]")
 
 //job specials
@@ -518,7 +518,7 @@
 	allowed_jobs = list(/datum/job/prince)
 	weight = 50
 
-/datum/special_trait/punkprincess/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/punkprincess/on_apply(mob/living/carbon/humanoid/character, silent)
 	QDEL_NULL(character.wear_pants)
 	QDEL_NULL(character.wear_shirt)
 	QDEL_NULL(character.wear_armor)
@@ -552,7 +552,7 @@
 	allowed_jobs = list(/datum/job/vagrant)
 	weight = 7
 
-/datum/special_trait/vengantbum/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/vengantbum/on_apply(mob/living/carbon/humanoid/character, silent)
 	ADD_TRAIT(character, TRAIT_DECEIVING_MEEKNESS, "[type]")
 	character.mind.adjust_skillrank(/datum/skill/combat/wrestling, 6, TRUE)
 	character.mind.adjust_skillrank(/datum/skill/combat/unarmed, 6, TRUE)
@@ -568,7 +568,7 @@
 	allowed_jobs = list(/datum/job/vagrant)
 	weight = 50
 
-/datum/special_trait/my_precious/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/my_precious/on_apply(mob/living/carbon/humanoid/character, silent)
 	QDEL_NULL(character.wear_pants)
 	QDEL_NULL(character.wear_shirt)
 	QDEL_NULL(character.wear_armor)
@@ -584,6 +584,6 @@
 	allowed_jobs = list(/datum/job/shophand)
 	weight = 50
 
-/datum/special_trait/illicit_merchant/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/illicit_merchant/on_apply(mob/living/carbon/humanoid/character, silent)
 	character.mind.special_items["Merchant Key"] = /obj/item/key/merchant
 	character.mind.special_items["GOLDFACE Gem"] = /obj/item/gem_device/goldface

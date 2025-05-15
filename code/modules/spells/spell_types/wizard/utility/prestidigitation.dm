@@ -72,7 +72,7 @@
 			if (handle_mote(user))
 				handle_xp(user, fatigue_used)
 
-/obj/item/melee/touch_attack/prestidigitation/proc/gather_thing(atom/target, mob/living/carbon/human/user)
+/obj/item/melee/touch_attack/prestidigitation/proc/gather_thing(atom/target, mob/living/carbon/humanoid/user)
 	// adjusted from /obj/item/soap in clown_items.dm, some duplication unfortunately (needed for flavor)
 
 	// let's adjust the clean speed based on our skill level
@@ -83,7 +83,7 @@
 			to_chat(user, span_notice("I mold a handful of oozing lava  with my arcane power, rapidly hardening it!"))
 			new /obj/item/natural/obsidian(user.loc)
 
-/obj/item/melee/touch_attack/prestidigitation/proc/handle_cost(mob/living/carbon/human/user, action)
+/obj/item/melee/touch_attack/prestidigitation/proc/handle_cost(mob/living/carbon/humanoid/user, action)
 	// handles fatigue/stamina deduction, this stuff isn't free - also returns the cost we took to use for xp calculations
 	var/obj/effect/proc_holder/spell/targeted/touch/prestidigitation/base_spell = attached_spell
 	var/fatigue_used = base_spell.get_fatigue_drain() //note that as our skills/stats increases, our fatigue drain DECREASES, so this means less xp, too. which is what we want since this is a basic spell, not a spam-for-xp-forever kinda beat
@@ -104,7 +104,7 @@
 
 	return fatigue_used
 
-/obj/item/melee/touch_attack/prestidigitation/proc/handle_xp(mob/living/carbon/human/user, fatigue, ignore_cooldown = TRUE)
+/obj/item/melee/touch_attack/prestidigitation/proc/handle_xp(mob/living/carbon/humanoid/user, fatigue, ignore_cooldown = TRUE)
 	if (!ignore_cooldown)
 		if (world.time < xp_cooldown + xp_interval)
 			return
@@ -115,7 +115,7 @@
 	if (user)
 		adjust_experience(user, base_spell.associated_skill, fatigue)
 
-/obj/item/melee/touch_attack/prestidigitation/proc/handle_mote(mob/living/carbon/human/user)
+/obj/item/melee/touch_attack/prestidigitation/proc/handle_mote(mob/living/carbon/humanoid/user)
 	// adjusted from /obj/item/wisp_lantern & /obj/item/wisp
 	if (!mote)
 		return // should really never happen
@@ -138,7 +138,7 @@
 		mote.forceMove(src)
 		return TRUE
 
-/obj/item/melee/touch_attack/prestidigitation/proc/create_spark(mob/living/carbon/human/user)
+/obj/item/melee/touch_attack/prestidigitation/proc/create_spark(mob/living/carbon/humanoid/user)
 	// adjusted from /obj/item/flint
 	if (world.time < spark_cd + sparkspeed)
 		return
@@ -153,7 +153,7 @@
 	S.set_up(1, 1, front)
 	S.start()
 
-/obj/item/melee/touch_attack/prestidigitation/proc/clean_thing(atom/target, mob/living/carbon/human/user)
+/obj/item/melee/touch_attack/prestidigitation/proc/clean_thing(atom/target, mob/living/carbon/humanoid/user)
 	// adjusted from /obj/item/soap in clown_items.dm, some duplication unfortunately (needed for flavor)
 
 	// let's adjust the clean speed based on our skill level

@@ -260,7 +260,7 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 	throwforce += bonus_force // It gets added to throw damage too
 	possible_item_intents = given_intent_list // And heres ur new extra intents too
 
-/obj/item/natural/stone/equipped(mob/living/carbon/human/user, slot)
+/obj/item/natural/stone/equipped(mob/living/carbon/humanoid/user, slot)
 	. = ..()
 	if(HAS_TRAIT(user, TRAIT_ROTMAN))
 		to_chat(user, span_info("The [src] slips through dead fingers..."))

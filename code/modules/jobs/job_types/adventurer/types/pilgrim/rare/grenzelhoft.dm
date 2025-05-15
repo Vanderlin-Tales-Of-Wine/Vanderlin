@@ -11,7 +11,7 @@
 
 	cmode_music = 'sound/music/cmode/combat_grenzelhoft.ogg'
 
-/datum/outfit/job/adventurer/grenzelhoft/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/adventurer/grenzelhoft/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	shoes = /obj/item/clothing/shoes/grenzelhoft
 	gloves = /obj/item/clothing/gloves/angle/grenzel

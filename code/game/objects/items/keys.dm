@@ -108,7 +108,7 @@
 
 /obj/item/key/lord/Initialize()
 	. = ..()
-	if(!istype(loc, /mob/living/carbon/human/dummy))
+	if(!istype(loc, /mob/living/carbon/humanoid/dummy))
 		SSroguemachine.key = src
 
 /obj/item/key/lord/proc/anti_stall()

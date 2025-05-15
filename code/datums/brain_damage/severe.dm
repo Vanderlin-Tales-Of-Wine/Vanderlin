@@ -214,7 +214,7 @@
 				owner.adjustOxyLoss(8)
 			else
 				if(prob(15) && ishuman(owner))
-					var/mob/living/carbon/human/H = owner
+					var/mob/living/carbon/humanoid/H = owner
 					H.set_heartattack(TRUE)
 					to_chat(H, "<span class='danger'>I feel a stabbing pain in my heart!</span>")
 				else

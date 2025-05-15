@@ -1,9 +1,9 @@
-/mob/living/carbon/human
+/mob/living/carbon/humanoid
 	var/mob/stored_mob = null
 
 /datum/antagonist/werewolf/on_life(mob/user)
 	if(!user) return
-	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/humanoid/H = user
 	if(H.stat == DEAD) return
 	if(H.advsetup) return
 
@@ -57,10 +57,10 @@
 				to_chat(H, span_warning("Daylight shines around me... the curse begins to fade."))
 
 
-/mob/living/carbon/human/species/werewolf/death(gibbed)
+/mob/living/carbon/humanoid/species/werewolf/death(gibbed)
 	werewolf_untransform(TRUE, gibbed)
 
-/mob/living/carbon/human/proc/werewolf_transform()
+/mob/living/carbon/humanoid/proc/werewolf_transform()
 	if(!mind)
 		log_runtime("NO MIND ON [src.name] WHEN TRANSFORMING")
 	Paralyze(1, ignore_canstun = TRUE)
@@ -79,11 +79,11 @@
 
 	var/ww_path
 	if(gender == MALE)
-		ww_path = /mob/living/carbon/human/species/werewolf/male
+		ww_path = /mob/living/carbon/humanoid/species/werewolf/male
 	else
-		ww_path = /mob/living/carbon/human/species/werewolf/female
+		ww_path = /mob/living/carbon/humanoid/species/werewolf/female
 
-	var/mob/living/carbon/human/species/werewolf/W = new ww_path(loc)
+	var/mob/living/carbon/humanoid/species/werewolf/W = new ww_path(loc)
 
 	W.set_patron(src.patron)
 	W.gender = gender
@@ -149,7 +149,7 @@
 	invisibility = oldinv
 
 
-/mob/living/carbon/human/proc/werewolf_untransform(dead,gibbed)
+/mob/living/carbon/humanoid/proc/werewolf_untransform(dead,gibbed)
 	if(!stored_mob)
 		return
 	if(!mind)
@@ -160,7 +160,7 @@
 	icon = null
 	invisibility = INVISIBILITY_MAXIMUM
 
-	var/mob/living/carbon/human/W = stored_mob
+	var/mob/living/carbon/humanoid/W = stored_mob
 	stored_mob = null
 	REMOVE_TRAIT(W, TRAIT_NOSLEEP, TRAIT_GENERIC)
 	if(dead)
@@ -172,7 +172,7 @@
 
 	mind.transfer_to(W)
 
-	var/mob/living/carbon/human/species/werewolf/WA = src
+	var/mob/living/carbon/humanoid/species/werewolf/WA = src
 	W.copy_known_languages_from(WA.stored_language)
 	W.mind.known_skills = WA.stored_skills.Copy()
 	W.mind.skill_experience = WA.stored_experience.Copy()

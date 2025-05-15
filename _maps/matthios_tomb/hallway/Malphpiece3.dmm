@@ -43,7 +43,7 @@
 /obj/item/clothing/head/hatblu,
 /obj/item/clothing/cloak/raincloak/blue,
 /obj/item/clothing/gloves/leather/black,
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /turf/open/floor/cobblerock/alt,
 /area/rogue/under/tomb/cave)

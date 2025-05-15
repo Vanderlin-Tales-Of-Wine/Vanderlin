@@ -655,7 +655,7 @@ will handle it, but:
 			washgloves = TRUE
 
 		if(ishuman(M))
-			var/mob/living/carbon/human/H = M
+			var/mob/living/carbon/humanoid/H = M
 
 			if(H.wear_armor && wash_obj(H.wear_armor,clean))
 				H.update_inv_armor()

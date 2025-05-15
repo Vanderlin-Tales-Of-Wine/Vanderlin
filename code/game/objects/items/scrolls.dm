@@ -34,7 +34,7 @@
 		return
 	if (!ishuman(usr))
 		return 1
-	var/mob/living/carbon/human/H = usr
+	var/mob/living/carbon/humanoid/H = usr
 	if(H.is_holding(src))
 		H.set_machine(src)
 		if (href_list["spell_teleport"])

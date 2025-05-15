@@ -64,14 +64,14 @@
 
 
 	if(ishuman(user))
-		var/mob/living/carbon/human/HU = user
+		var/mob/living/carbon/humanoid/HU = user
 
 		if(!is_lord_job(HU.mind?.assigned_role))
 			to_chat(user, "<span class='danger'>The rod doesn't obey me.</span>")
 			return
 
 		if(ishuman(target))
-			var/mob/living/carbon/human/H = target
+			var/mob/living/carbon/humanoid/H = target
 
 			user.visible_message("<span class='warning'>[user] points [src] at [target].</span>")
 

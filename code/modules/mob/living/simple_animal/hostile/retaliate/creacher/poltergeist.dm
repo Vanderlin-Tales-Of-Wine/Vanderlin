@@ -60,7 +60,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/poltergeist/proc/polter()
 	if(stat != DEAD)
-		for(var/mob/living/carbon/human/H in view(15, src))
+		for(var/mob/living/carbon/humanoid/H in view(15, src))
 			var/most_violent = -1
 			var/obj/item/throwing
 			for(var/obj/item/I in view(15, get_turf(H)))

@@ -9,7 +9,7 @@
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "am" = (
 /obj/structure/bed/shit,
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush,
 /turf/open/floor/twig,
 /area/rogue/under/mountains/anvil/dungeon)
 "au" = (
@@ -65,7 +65,7 @@
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "bN" = (
 /obj/structure/chair/wood/alt,
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon)
 "bQ" = (
@@ -263,7 +263,7 @@
 /area/rogue/under/mountains/anvil/dungeon)
 "eG" = (
 /obj/structure/bed/sleepingbag,
-/mob/living/carbon/human/species/orc/warrior,
+/mob/living/carbon/humanoid/species/orc/warrior,
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon)
 "eH" = (
@@ -332,7 +332,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon)
 "fS" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "fT" = (
@@ -374,7 +374,7 @@
 	icon_state = "chair2"
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "gt" = (
@@ -392,7 +392,7 @@
 /area/rogue/under/mountains/anvil/dungeon)
 "gE" = (
 /obj/structure/chair/wood/alt,
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/carpet,
 /area/rogue/under/mountains/anvil/dungeon)
@@ -496,7 +496,7 @@
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "ip" = (
 /obj/structure/bed/sleepingbag,
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon)
@@ -536,7 +536,7 @@
 /area/rogue/under/mountains/anvil/dungeon)
 "iU" = (
 /obj/structure/bed/shit,
-/mob/living/carbon/human/species/goblin,
+/mob/living/carbon/humanoid/species/goblin,
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon)
 "iV" = (
@@ -623,12 +623,12 @@
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "jS" = (
 /obj/structure/bed/sleepingbag,
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush,
 /turf/open/floor/churchrough,
 /area/rogue/under/mountains/anvil/dungeon)
 "jW" = (
 /obj/structure/bed/sleepingbag,
-/mob/living/carbon/human/species/goblin/npc,
+/mob/living/carbon/humanoid/species/goblin/npc,
 /obj/item/weapon/pick,
 /obj/item/flashlight/flare/torch/lantern,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
@@ -640,7 +640,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "kf" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /obj/item/weapon/mace/woodclub,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /turf/open/floor/cobble,
@@ -849,7 +849,7 @@
 /area/rogue/under/mountains/anvil/dungeon)
 "mn" = (
 /obj/structure/bed/sleepingbag,
-/mob/living/carbon/human/species/goblin/npc,
+/mob/living/carbon/humanoid/species/goblin/npc,
 /obj/item/flashlight/flare/torch/lantern,
 /obj/item/weapon/pick,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
@@ -905,7 +905,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon)
 "mN" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment,
 /obj/item/clothing/cloak/apron/brown,
 /obj/item/clothing/pants/trou/leather,
 /obj/item/clothing/shirt/undershirt,
@@ -930,7 +930,7 @@
 /area/rogue/under/mountains/anvil/dungeon)
 "mX" = (
 /obj/structure/chair/stool,
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/item/weapon/polearm/spear/stone,
 /turf/open/floor/cobble,
@@ -961,7 +961,7 @@
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "nP" = (
 /obj/item/instrument/harp,
-/mob/living/carbon/human/species/skeleton/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/no_equipment{
 	real_name = "Shard"
 	},
 /obj/item/clothing/head/bardhat,
@@ -1106,7 +1106,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon)
 "pl" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon)
@@ -1124,7 +1124,7 @@
 	icon_state = "chair2"
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "pr" = (
@@ -1230,7 +1230,7 @@
 /area/rogue/under/mountains/anvil/dungeon)
 "qZ" = (
 /obj/item/instrument/drum,
-/mob/living/carbon/human/species/skeleton/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/no_equipment{
 	real_name = "Shriek"
 	},
 /obj/item/clothing/head/bardhat,
@@ -1299,12 +1299,12 @@
 /area/rogue/under/mountains/anvil/dungeon)
 "rQ" = (
 /obj/effect/decal/cleanable/blood,
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "rR" = (
 /obj/item/instrument/accord,
-/mob/living/carbon/human/species/skeleton/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/no_equipment{
 	real_name = "Hollow"
 	},
 /obj/item/clothing/head/bardhat,
@@ -1364,7 +1364,7 @@
 /area/rogue/under/mountains/anvil/dungeon)
 "st" = (
 /obj/item/instrument/flute,
-/mob/living/carbon/human/species/skeleton/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/no_equipment{
 	real_name = "Clatter"
 	},
 /obj/item/clothing/head/bardhat,
@@ -1472,7 +1472,7 @@
 "tY" = (
 /obj/item/alch/bone,
 /obj/effect/decal/cleanable/dirt/dust,
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/item/weapon/knife/cleaver,
 /turf/open/floor/cobble,
@@ -1514,7 +1514,7 @@
 /obj/structure/chair/wood/alt{
 	dir = 1
 	},
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/item/weapon/knife/hunting,
 /turf/open/floor/cobble,
@@ -1525,7 +1525,7 @@
 /area/rogue/under/mountains/anvil/dungeon)
 "ur" = (
 /obj/structure/chair/wood/alt,
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/item/weapon/knife/cleaver,
 /turf/open/floor/cobble,
@@ -1536,7 +1536,7 @@
 /area/rogue/under/mountains/anvil/dungeon)
 "uw" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon)
 "uA" = (
@@ -1601,7 +1601,7 @@
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "vz" = (
 /obj/item/instrument/guitar,
-/mob/living/carbon/human/species/skeleton/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/no_equipment{
 	real_name = "Grin"
 	},
 /obj/item/clothing/head/bardhat,
@@ -1717,7 +1717,7 @@
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "xn" = (
 /obj/item/instrument/lute,
-/mob/living/carbon/human/species/skeleton/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/no_equipment{
 	real_name = "Rattle"
 	},
 /obj/item/clothing/head/bardhat,
@@ -1785,7 +1785,7 @@
 	dir = 8;
 	icon_state = "chair2"
 	},
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "yl" = (
@@ -1866,7 +1866,7 @@
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "zA" = (
 /obj/structure/bed/sleepingbag,
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush,
 /obj/structure/fluff/walldeco/skullspike,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/cobblerock,
@@ -1988,7 +1988,7 @@
 /area/rogue/under/mountains/anvil/dungeon)
 "Bb" = (
 /obj/effect/decal/cleanable/blood,
-/mob/living/carbon/human/species/orc/ambush,
+/mob/living/carbon/humanoid/species/orc/ambush,
 /turf/open/floor/twig,
 /area/rogue/under/mountains/anvil/dungeon)
 "Bl" = (
@@ -2055,7 +2055,7 @@
 /area/rogue/under/mountains/anvil/dungeon)
 "Cd" = (
 /obj/structure/chair/stool,
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/item/weapon/axe/iron,
 /turf/open/floor/cobble,
@@ -2130,7 +2130,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Dx" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "DB" = (
@@ -2140,7 +2140,7 @@
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "DD" = (
 /obj/structure/bed/sleepingbag,
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush,
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon)
 "DE" = (
@@ -2234,7 +2234,7 @@
 /obj/structure/chair/wood/alt{
 	dir = 1
 	},
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/item/weapon/knife/dagger,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -2259,7 +2259,7 @@
 /turf/open/floor/carpet,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "ET" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon)
 "EU" = (
@@ -2356,7 +2356,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Gg" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment,
 /obj/item/clothing/head/helmet/horned,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/item/clothing/cloak/raincloak/furcloak/brown,
@@ -2371,7 +2371,7 @@
 /area/rogue/under/mountains/anvil/dungeon)
 "Gm" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Go" = (
@@ -2465,7 +2465,7 @@
 /obj/item/clothing/wrists/nocwrappings,
 /obj/item/clothing/neck/psycross/noc,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment,
 /turf/open/floor/carpet/purple,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "HB" = (
@@ -2511,7 +2511,7 @@
 	dir = 4;
 	icon_state = "chair2"
 	},
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
@@ -2558,7 +2558,7 @@
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Ip" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/item/weapon/mace/cudgel,
 /turf/open/floor/cobble,
@@ -2575,7 +2575,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "IG" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/item/clothing/head/helmet/leather/minershelm,
 /obj/item/weapon/pick,
@@ -2675,7 +2675,7 @@
 /obj/structure/chair/wood/alt{
 	dir = 1
 	},
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/item/weapon/knife/hunting,
 /turf/open/floor/cobblerock,
@@ -2712,7 +2712,7 @@
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "JV" = (
 /obj/structure/chair/stool,
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon)
 "Kd" = (
@@ -2759,13 +2759,13 @@
 /area/rogue/under/mountains/anvil/dungeon)
 "KG" = (
 /obj/structure/chair/bench/church,
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "KH" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/carpet/purple,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "KI" = (
@@ -2846,7 +2846,7 @@
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "LI" = (
 /obj/structure/chair/bench/church/r,
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/item/weapon/flail/peasant,
 /turf/open/floor/cobble,
@@ -2907,7 +2907,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon)
 "MH" = (
-/mob/living/carbon/human/species/orc/warlord,
+/mob/living/carbon/humanoid/species/orc/warlord,
 /obj/structure/bed/sleepingbag,
 /obj/item/clothing/wrists/bracers,
 /obj/item/clothing/cloak/cape,
@@ -2922,7 +2922,7 @@
 "MJ" = (
 /obj/structure/chair/bench/throne,
 /obj/item/clothing/shirt/tunic,
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment{
 	real_name = "Prince of Ruin"
 	},
 /obj/item/weapon/sword/sabre/scythe,
@@ -2938,7 +2938,7 @@
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "ML" = (
 /obj/structure/bed/sleepingbag,
-/mob/living/carbon/human/species/goblin/npc,
+/mob/living/carbon/humanoid/species/goblin/npc,
 /obj/item/flashlight/flare/torch/lantern,
 /obj/item/weapon/pick,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
@@ -3020,7 +3020,7 @@
 /obj/structure/chair/wood/alt{
 	dir = 1
 	},
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/carpet,
 /area/rogue/under/mountains/anvil/dungeon)
 "Oi" = (
@@ -3052,7 +3052,7 @@
 /obj/item/clothing/shoes/boots/armor/light,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/item/storage/belt/leather,
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment,
 /turf/open/floor/carpet,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "OB" = (
@@ -3066,7 +3066,7 @@
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "OC" = (
 /obj/structure/chair/wood/alt,
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/carpet,
 /area/rogue/under/mountains/anvil/dungeon)
 "OD" = (
@@ -3145,7 +3145,7 @@
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "PG" = (
 /obj/structure/bed/sleepingbag,
-/mob/living/carbon/human/species/orc/marauder,
+/mob/living/carbon/humanoid/species/orc/marauder,
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon)
 "PL" = (
@@ -3207,7 +3207,7 @@
 /turf/open/floor/grass,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Qn" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /obj/item/weapon/pick,
 /obj/item/clothing/head/helmet/leather/minershelm,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
@@ -3242,7 +3242,7 @@
 /area/rogue/under/mountains/anvil/dungeon)
 "QS" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/item/weapon/knife/cleaver,
 /turf/open/floor/cobble,
@@ -3269,7 +3269,7 @@
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Rr" = (
 /obj/structure/chair/wood/alt,
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/item/weapon/knife/cleaver/combat,
 /turf/open/floor/carpet,
@@ -3302,7 +3302,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Sa" = (
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush,
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon)
 "Sg" = (
@@ -3346,7 +3346,7 @@
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "SI" = (
 /obj/structure/chair/wood/alt,
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/item/weapon/knife/dagger/steel,
 /turf/open/floor/carpet,
@@ -3531,7 +3531,7 @@
 /turf/closed/mineral/bedrock,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "US" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/item/weapon/knife/cleaver/combat,
 /turf/open/floor/cobble,
@@ -3550,7 +3550,7 @@
 /area/rogue/under/mountains/anvil/dungeon)
 "UU" = (
 /obj/structure/chair/wood/alt,
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/item/weapon/knife/cleaver,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -3635,7 +3635,7 @@
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Wh" = (
 /obj/structure/chair/bench/church/mid,
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
@@ -3662,7 +3662,7 @@
 /obj/structure/chair/wood/alt{
 	dir = 1
 	},
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/item/weapon/knife/cleaver,
 /turf/open/floor/cobble,
@@ -3724,7 +3724,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon)
 "Xr" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment,
 /obj/item/clothing/shirt/robe/noc,
 /obj/item/clothing/neck/psycross/noc,
 /obj/item/clothing/head/roguehood/nochood,
@@ -3751,7 +3751,7 @@
 	dir = 4;
 	icon_state = "chair2"
 	},
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "XP" = (
@@ -3810,7 +3810,7 @@
 /area/rogue/under/mountains/anvil/dungeon)
 "Yq" = (
 /obj/structure/bed/hay,
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon)
 "Yw" = (

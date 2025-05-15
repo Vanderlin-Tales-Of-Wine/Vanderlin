@@ -38,7 +38,7 @@
 		to_chat(owner.current, "<span class='danger'>I've blended in well up until this point, but it's time for the Hunted of Graggar to perish. I must get my dagger from where I hid it.</span>")
 	return ..()
 
-/mob/living/carbon/human/proc/who_targets() // Verb for the assassin to remember their targets.
+/mob/living/carbon/humanoid/proc/who_targets() // Verb for the assassin to remember their targets.
 	set name = "Remember Targets"
 	set category = "Graggar"
 	if(!mind)
@@ -55,8 +55,8 @@
 /datum/antagonist/assassin/on_life(mob/user)
 	if(!user)
 		return
-	var/mob/living/carbon/human/H = user
-	H.verbs |= /mob/living/carbon/human/proc/who_targets
+	var/mob/living/carbon/humanoid/H = user
+	H.verbs |= /mob/living/carbon/humanoid/proc/who_targets
 
 /datum/antagonist/assassin/roundend_report()
 	var/traitorwin = FALSE

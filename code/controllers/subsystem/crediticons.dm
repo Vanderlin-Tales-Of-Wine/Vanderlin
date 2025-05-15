@@ -16,7 +16,7 @@ SUBSYSTEM_DEF(crediticons)
 	var/list/currentrun = src.currentrun
 
 	while (currentrun.len)
-		var/mob/living/carbon/human/thing = currentrun[currentrun.len]
+		var/mob/living/carbon/humanoid/thing = currentrun[currentrun.len]
 		currentrun.len--
 		if (!thing || QDELETED(thing))
 			processing -= thing
@@ -28,7 +28,7 @@ SUBSYSTEM_DEF(crediticons)
 		if(MC_TICK_CHECK)
 			return
 
-/datum/controller/subsystem/crediticons/proc/add_credit(mob/living/carbon/human/actor)
+/datum/controller/subsystem/crediticons/proc/add_credit(mob/living/carbon/humanoid/actor)
 	if(!actor.mind || !actor.client)
 		return
 	var/datum/mind/actor_mind = actor.mind

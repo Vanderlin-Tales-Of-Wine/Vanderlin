@@ -694,7 +694,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	var/list/human_mobs = GLOB.human_list.Copy()
 	for(var/real_name in selections)
 		var/ckey =  GLOB.character_ckey_list[real_name]
-		var/mob/living/carbon/human/H
+		var/mob/living/carbon/humanoid/H
 		for(var/mob/mob in human_mobs)
 			if(mob?.real_name == real_name)
 				H = mob

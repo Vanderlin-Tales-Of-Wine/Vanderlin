@@ -280,7 +280,7 @@ GLOBAL_LIST_INIT(IconStates_cache, list())
 	set name = "Output Variables"
 	set desc = ""
 
-	var/mob/living/carbon/human/LI = mob
+	var/mob/living/carbon/humanoid/LI = mob
 	var/obj/item/I = LI.get_active_held_item()
 	if(!I)
 		I = LI.beltr
@@ -307,7 +307,7 @@ GLOBAL_LIST_INIT(IconStates_cache, list())
 
 	if(!isliving(mob))
 		return
-	var/mob/living/carbon/human/LI = mob
+	var/mob/living/carbon/humanoid/LI = mob
 
 	var/needtofind
 	switch(LI.dir)
@@ -358,7 +358,7 @@ GLOBAL_LIST_INIT(IconStates_cache, list())
 
 	if(!isliving(mob))
 		return
-	var/mob/living/carbon/human/LI = mob
+	var/mob/living/carbon/humanoid/LI = mob
 
 	var/needtofind
 	switch(LI.dir)
@@ -409,7 +409,7 @@ GLOBAL_LIST_INIT(IconStates_cache, list())
 
 	if(!isliving(mob))
 		return
-	var/mob/living/carbon/human/LI = mob
+	var/mob/living/carbon/humanoid/LI = mob
 
 	var/needtofind
 	switch(LI.dir)
@@ -460,7 +460,7 @@ GLOBAL_LIST_INIT(IconStates_cache, list())
 
 	if(!isliving(mob))
 		return
-	var/mob/living/carbon/human/LI = mob
+	var/mob/living/carbon/humanoid/LI = mob
 
 	var/needtofind
 	switch(LI.dir)
@@ -511,7 +511,7 @@ GLOBAL_LIST_INIT(IconStates_cache, list())
 
 	if(!isliving(mob))
 		return
-	var/mob/living/carbon/human/LI = mob
+	var/mob/living/carbon/humanoid/LI = mob
 
 	var/needtofind
 	switch(LI.dir)
@@ -575,7 +575,7 @@ GLOBAL_LIST_INIT(IconStates_cache, list())
 
 	if(!isliving(mob))
 		return
-	var/mob/living/carbon/human/LI = mob
+	var/mob/living/carbon/humanoid/LI = mob
 
 	var/needtofind
 	switch(LI.dir)
@@ -628,7 +628,7 @@ GLOBAL_LIST_INIT(IconStates_cache, list())
 
 	if(!isliving(mob))
 		return
-	var/mob/living/carbon/human/LI = mob
+	var/mob/living/carbon/humanoid/LI = mob
 
 	var/needtofind
 	switch(LI.dir)
@@ -681,7 +681,7 @@ GLOBAL_LIST_INIT(IconStates_cache, list())
 
 	if(!isliving(mob))
 		return
-	var/mob/living/carbon/human/LI = mob
+	var/mob/living/carbon/humanoid/LI = mob
 
 	var/needtofind = "shrink"
 
@@ -719,7 +719,7 @@ GLOBAL_LIST_INIT(IconStates_cache, list())
 
 	if(!isliving(mob))
 		return
-	var/mob/living/carbon/human/LI = mob
+	var/mob/living/carbon/humanoid/LI = mob
 
 	var/needtofind = "shrink"
 

@@ -6,7 +6,7 @@
 		return SUBTREE_RETURN_FINISH_PLANNING //IM NOT DOING ANYTHING ELSE BUT EXTINGUISH MYSELF, GOOD GOD HAVE MERCY.
 
 /datum/ai_behavior/stand/perform(seconds_per_tick, datum/ai_controller/controller)
-	var/mob/living/carbon/human/living_pawn = controller.pawn
+	var/mob/living/carbon/humanoid/living_pawn = controller.pawn
 	living_pawn.npc_stand()
 	finish_action(controller, TRUE)
 	return TRUE

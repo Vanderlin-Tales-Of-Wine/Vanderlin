@@ -7,7 +7,7 @@
 		TOOL_SCALPEL = 80,
 		TOOL_SHARP = 60,
 	) // 60% success with any sharp item.
-	target_mobtypes = list(/mob/living/carbon/human, /mob/living/carbon/monkey)
+	target_mobtypes = list(/mob/living/carbon/humanoid, /mob/living/carbon/monkey)
 	time = 1.6 SECONDS
 	surgery_flags = SURGERY_BLOODY
 	surgery_flags_blocked = SURGERY_INCISED

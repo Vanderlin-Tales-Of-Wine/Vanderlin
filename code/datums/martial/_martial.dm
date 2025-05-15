@@ -10,30 +10,30 @@
 	var/allow_temp_override = TRUE //if this martial art can be overridden by temporary martial arts
 	var/smashes_tables = FALSE //If the martial art smashes tables when performing table slams and head smashes
 
-/datum/martial_art/proc/disarm_act(mob/living/carbon/human/A, mob/living/carbon/human/D)
+/datum/martial_art/proc/disarm_act(mob/living/carbon/humanoid/A, mob/living/carbon/humanoid/D)
 	return FALSE
 
-/datum/martial_art/proc/harm_act(mob/living/carbon/human/A, mob/living/carbon/human/D)
+/datum/martial_art/proc/harm_act(mob/living/carbon/humanoid/A, mob/living/carbon/humanoid/D)
 	return FALSE
 
-/datum/martial_art/proc/grab_act(mob/living/carbon/human/A, mob/living/carbon/human/D)
+/datum/martial_art/proc/grab_act(mob/living/carbon/humanoid/A, mob/living/carbon/humanoid/D)
 	return FALSE
 
-/datum/martial_art/proc/can_use(mob/living/carbon/human/H)
+/datum/martial_art/proc/can_use(mob/living/carbon/humanoid/H)
 	return TRUE
 
-/datum/martial_art/proc/add_to_streak(element,mob/living/carbon/human/D)
+/datum/martial_art/proc/add_to_streak(element,mob/living/carbon/humanoid/D)
 	if(D != current_target)
 		reset_streak(D)
 	streak = streak+element
 	if(length(streak) > max_streak_length)
 		streak = copytext(streak,2)
 
-/datum/martial_art/proc/reset_streak(mob/living/carbon/human/new_target)
+/datum/martial_art/proc/reset_streak(mob/living/carbon/humanoid/new_target)
 	current_target = new_target
 	streak = ""
 
-/datum/martial_art/proc/teach(mob/living/carbon/human/H,make_temporary=FALSE)
+/datum/martial_art/proc/teach(mob/living/carbon/humanoid/H,make_temporary=FALSE)
 	if(!istype(H) || !H.mind)
 		return FALSE
 	if(H.mind.martial_art)
@@ -50,14 +50,14 @@
 	H.mind.martial_art = src
 	return TRUE
 
-/datum/martial_art/proc/store(datum/martial_art/M,mob/living/carbon/human/H)
+/datum/martial_art/proc/store(datum/martial_art/M,mob/living/carbon/humanoid/H)
 	M.on_remove(H)
 	if(M.base) //Checks if M is temporary, if so it will not be stored.
 		base = M.base
 	else //Otherwise, M is stored.
 		base = M
 
-/datum/martial_art/proc/remove(mob/living/carbon/human/H)
+/datum/martial_art/proc/remove(mob/living/carbon/humanoid/H)
 	if(!istype(H) || !H.mind || H.mind.martial_art != src)
 		return
 	on_remove(H)
@@ -67,11 +67,11 @@
 		var/datum/martial_art/X = H.mind.default_martial_art
 		X.teach(H)
 
-/datum/martial_art/proc/on_remove(mob/living/carbon/human/H)
+/datum/martial_art/proc/on_remove(mob/living/carbon/humanoid/H)
 	if(help_verb)
 		H.verbs -= help_verb
 	return
 
 ///Gets called when a projectile hits the owner. Returning anything other than BULLET_ACT_HIT will stop the projectile from hitting the mob.
-/datum/martial_art/proc/on_projectile_hit(mob/living/carbon/human/A, obj/projectile/P, def_zone)
+/datum/martial_art/proc/on_projectile_hit(mob/living/carbon/humanoid/A, obj/projectile/P, def_zone)
 	return BULLET_ACT_HIT

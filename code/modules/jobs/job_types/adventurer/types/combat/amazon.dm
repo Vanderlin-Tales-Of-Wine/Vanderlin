@@ -10,7 +10,7 @@
 	category_tags = list(CTAG_ADVENTURER)
 	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander.ogg'
 
-/datum/outfit/job/adventurer/amazon/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/adventurer/amazon/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)

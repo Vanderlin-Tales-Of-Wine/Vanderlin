@@ -5837,7 +5837,7 @@
 /turf/open/floor/church,
 /area/rogue/indoors/town/church)
 "dGW" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/naturalstone,
 /area/rogue/outdoors/river)
 "dGZ" = (
@@ -6028,8 +6028,8 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/town/church/chapel)
 "dNm" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/town)
 "dND" = (
@@ -9484,7 +9484,7 @@
 /turf/open/floor/dirt,
 /area/rogue/outdoors/river)
 "gcl" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/naturalstone,
 /area/rogue/outdoors/river)
 "gcv" = (
@@ -9611,7 +9611,7 @@
 /turf/closed/mineral/random/low_nonval,
 /area/rogue/outdoors/town)
 "gfP" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/churchrough,
 /area/rogue/under/town/sewer)
 "gfS" = (
@@ -10047,7 +10047,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/town/caverogue)
 "gvo" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/tile{
 	icon_state = "greenstone"
 	},
@@ -18288,7 +18288,7 @@
 /area/rogue/outdoors/town)
 "lOb" = (
 /obj/structure/closet/crate/coffin,
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/churchbrick,
 /area/rogue/under/town/sewer)
 "lOd" = (
@@ -23531,7 +23531,7 @@
 /area/rogue/indoors/town/manor)
 "plV" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/churchbrick,
 /area/rogue/under/town/sewer)
 "pmc" = (
@@ -23575,7 +23575,7 @@
 /turf/open/floor/blocks,
 /area/rogue/under/town/basement)
 "poL" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/twig,
 /area/rogue/under/town/sewer)
 "poO" = (
@@ -23824,7 +23824,7 @@
 	name = "King Ass Ripper's big ass shit";
 	pixel_y = 8
 	},
-/mob/living/carbon/human/species/goblin/npc/ambush{
+/mob/living/carbon/humanoid/species/goblin/npc/ambush{
 	name = "King Ass Ripper"
 	},
 /turf/open/floor/tile/masonic/spiral,
@@ -26179,7 +26179,7 @@
 /turf/open/floor/dirt,
 /area/rogue/outdoors/rtfield/safe)
 "rcC" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/cobble/alt,
 /area/rogue/under/town/sewer)
 "rcO" = (
@@ -28667,7 +28667,7 @@
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town/smithy)
 "sJt" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/blocks,
 /area/rogue/under/town/sewer)
 "sJx" = (
@@ -35957,7 +35957,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/indoors/town)
 "xDY" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/churchbrick,
 /area/rogue/under/town/sewer)
 "xEm" = (

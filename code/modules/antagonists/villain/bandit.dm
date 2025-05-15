@@ -33,7 +33,7 @@
 
 /datum/antagonist/bandit/proc/finalize_bandit()
 	owner.current.playsound_local(get_turf(owner.current), 'sound/music/traitor.ogg', 80, FALSE, pressure_affected = FALSE)
-	var/mob/living/carbon/human/H = owner.current
+	var/mob/living/carbon/humanoid/H = owner.current
 	H.set_patron(/datum/patron/inhumen/matthios)
 
 /datum/antagonist/bandit/greet()
@@ -67,7 +67,7 @@
 		var/amt = tri_amt
 		var/the_name = owner.name
 		if(ishuman(owner.current))
-			var/mob/living/carbon/human/H = owner.current
+			var/mob/living/carbon/humanoid/H = owner.current
 			the_name = H.real_name
 		if(!amt)
 			to_chat(world, "[the_name] was a bandit.")

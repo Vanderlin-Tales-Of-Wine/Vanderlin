@@ -10,7 +10,7 @@
 	category_tags = list(CTAG_ADVENTURER)
 	cmode_music = 'sound/music/cmode/church/CombatGravekeeper.ogg'
 
-/datum/outfit/job/adventurer/gravedigger/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/adventurer/gravedigger/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	pants = /obj/item/clothing/pants/tights/black
 	armor = /obj/item/clothing/armor/leather/vest/black

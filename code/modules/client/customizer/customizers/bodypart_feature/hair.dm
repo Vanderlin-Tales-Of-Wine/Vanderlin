@@ -8,7 +8,7 @@
 	var/allows_natural_gradient = TRUE
 	var/allows_dye_gradient = TRUE
 
-/datum/customizer_choice/bodypart_feature/hair/customize_feature(datum/bodypart_feature/feature, mob/living/carbon/human/human, datum/preferences/prefs, datum/customizer_entry/hair/entry)
+/datum/customizer_choice/bodypart_feature/hair/customize_feature(datum/bodypart_feature/feature, mob/living/carbon/humanoid/human, datum/preferences/prefs, datum/customizer_entry/hair/entry)
 	var/datum/bodypart_feature/hair/hair_feature = feature
 	hair_feature.hair_color = entry.hair_color
 	hair_feature.accessory_colors = entry.hair_color

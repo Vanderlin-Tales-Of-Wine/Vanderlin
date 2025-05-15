@@ -12,7 +12,7 @@
 	category_tags = list(CTAG_ADVENTURER)
 	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander3.ogg'
 
-/datum/outfit/job/adventurer/lancer/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/adventurer/lancer/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)

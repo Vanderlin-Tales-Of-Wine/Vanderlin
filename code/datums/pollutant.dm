@@ -36,7 +36,7 @@
 
 /datum/pollutant/fragrance/on_life(parent)
 	. = ..()
-	for(var/mob/living/carbon/human/H in view(1, parent))
+	for(var/mob/living/carbon/humanoid/H in view(1, parent))
 		if(!H)
 			continue
 		if(!considered_alive(H.mind))

@@ -220,7 +220,7 @@
 	if(slot_flags & slotdefine2slotbit(slot))
 		if(M.gender in allowed_sex)
 			if(ishuman(M))
-				var/mob/living/carbon/human/H = M
+				var/mob/living/carbon/humanoid/H = M
 				if(H.dna)
 					if(H.dna.species.id in allowed_race)
 						return TRUE
@@ -468,7 +468,7 @@ BLIND     // can't see anything
 /obj/item/clothing/proc/ToggleHood()
 	if(!hoodtoggled)
 		if(ishuman(src.loc))
-			var/mob/living/carbon/human/H = src.loc
+			var/mob/living/carbon/humanoid/H = src.loc
 			if(hood.color != color)
 				hood.color = color
 			if(slot_flags == ITEM_SLOT_ARMOR)

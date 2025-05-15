@@ -1,7 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aZ" = (
 /obj/structure/chair/bench/church/smallbench,
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/herringbone,
 /area/rogue/outdoors/bog)
 "bA" = (
@@ -67,7 +67,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/bog)
 "mE" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/ruinedwood{
 	icon_state = "weird1"
 	},
@@ -98,19 +98,19 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/bog)
 "rJ" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/cobble/mossy,
 /area/rogue/outdoors/bog)
 "rL" = (
 /obj/structure/bed/hay,
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/outdoors/bog)
 "rR" = (
 /turf/open/floor/blocks/green,
 /area/rogue/outdoors/bog)
 "sa" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/bog)
 "sl" = (
@@ -182,7 +182,7 @@
 /turf/open/floor/grass,
 /area/rogue/outdoors/bog)
 "An" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/cobble/mossy,
 /area/rogue/outdoors/bog)
 "Av" = (
@@ -231,12 +231,12 @@
 /area/rogue/outdoors/bog)
 "Dr" = (
 /obj/structure/chair/bench/church/smallbench,
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/blocks,
 /area/rogue/outdoors/bog)
 "GU" = (
 /obj/structure/chair/bench/church/smallbench,
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/ruinedwood{
 	icon_state = "weird1"
 	},
@@ -250,7 +250,7 @@
 /turf/open/floor/blocks/green,
 /area/rogue/outdoors/bog)
 "Id" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/blocks/paving,
 /area/rogue/outdoors/bog)
 "Ix" = (

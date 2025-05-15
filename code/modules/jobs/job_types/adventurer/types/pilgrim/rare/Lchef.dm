@@ -14,7 +14,7 @@
 	category_tags = list(CTAG_PILGRIM, CTAG_TOWNER)
 	apprentice_name = "Chef Apprentice"
 
-/datum/outfit/job/adventurer/masterchef/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/adventurer/masterchef/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)

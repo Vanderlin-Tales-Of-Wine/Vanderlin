@@ -300,7 +300,7 @@
 /obj/item/weapon/knife/dagger/steel/profane/pickup(mob/living/M)
 	. = ..()
 	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+		var/mob/living/carbon/humanoid/H = M
 		if (!HAS_TRAIT(H, TRAIT_ASSASSIN)) // Non-assassins don't like holding the profane dagger.
 			H.add_stress(/datum/stressevent/profane)
 			to_chat(M, "<span class='danger'>Your breath chills as you pick up the dagger. You feel a sense of morbid wrongness!</span>")
@@ -328,7 +328,7 @@
 //			H.visible_message("profane dagger whispers, \"[message]\"")
 			to_chat(M, "profane dagger whispers, \"[message]\"")
 
-/obj/item/weapon/knife/dagger/steel/profane/pre_attack(mob/living/carbon/human/target, mob/living/user = usr, params)
+/obj/item/weapon/knife/dagger/steel/profane/pre_attack(mob/living/carbon/humanoid/target, mob/living/user = usr, params)
 	if(!istype(target))
 		return FALSE
 	if(target.has_flaw(/datum/charflaw/hunted) || HAS_TRAIT(target, TRAIT_ZIZOID_HUNTED)) // Check to see if the dagger will do 20 damage or 14
@@ -337,7 +337,7 @@
 		force = 14
 	return FALSE
 
-/obj/item/weapon/knife/dagger/steel/profane/afterattack(mob/living/carbon/human/target, mob/living/user = usr, proximity)
+/obj/item/weapon/knife/dagger/steel/profane/afterattack(mob/living/carbon/humanoid/target, mob/living/user = usr, proximity)
 	. = ..()
 	if(!ishuman(target))
 		return
@@ -350,7 +350,7 @@
 				user.adjust_triumphs(1)
 				init_profane_soul(target, user) //If they are still in their body, send them to the dagger!
 
-/obj/item/weapon/knife/dagger/steel/profane/proc/init_profane_soul(mob/living/carbon/human/target, mob/user)
+/obj/item/weapon/knife/dagger/steel/profane/proc/init_profane_soul(mob/living/carbon/humanoid/target, mob/user)
 	record_featured_stat(FEATURED_STATS_CRIMINALS, user)
 	GLOB.vanderlin_round_stats[STATS_ASSASSINATIONS]++
 	var/mob/dead/observer/profane/S = new /mob/dead/observer/profane(src)
@@ -366,7 +366,7 @@
 	src.blade_int = src.max_blade_int // Stealing a soul successfully sharpens the blade.
 	src.obj_integrity = src.max_integrity // And fixes the dagger. No blacksmith required!
 
-/obj/item/weapon/knife/dagger/steel/profane/proc/get_profane_ghost(mob/living/carbon/human/target, mob/user)
+/obj/item/weapon/knife/dagger/steel/profane/proc/get_profane_ghost(mob/living/carbon/humanoid/target, mob/user)
 	var/mob/dead/observer/chosen_ghost
 	var/mob/living/carbon/spirit/underworld_spirit = target.get_spirit() //Check if a soul has already gone to the underworld
 	if(underworld_spirit) // If they are in the underworld, pull them back to the real world and make them a normal ghost. Necra can't save you now!

@@ -1,6 +1,6 @@
 GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 
-/mob/living/carbon/human/species/rousman
+/mob/living/carbon/humanoid/species/rousman
 	name = "rousman"
 
 	icon = 'icons/roguetown/mob/monster/rousman.dmi'
@@ -15,7 +15,7 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 	possible_rmb_intents = list()
 	vitae_pool = 200
 
-/mob/living/carbon/human/species/rousman/Initialize()
+/mob/living/carbon/humanoid/species/rousman/Initialize()
 	. = ..()
 	//Eyes glow in the dark
 	if(stat != DEAD)
@@ -24,7 +24,7 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 		eye_overlay.layer = 19
 		add_overlay(eye_overlay)
 
-/mob/living/carbon/human/species/rousman/death(gibbed)
+/mob/living/carbon/humanoid/species/rousman/death(gibbed)
 	..()
 	//Stop glowing in the dark when dead
 	var/mutable_appearance/eye_overlay = mutable_appearance('icons/roguetown/mob/monster/rousman.dmi', "rousman_eyes")
@@ -33,21 +33,21 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 	eye_overlay.layer = 19
 	add_overlay(eye_overlay)
 
-/mob/living/carbon/human/species/rousman/npc
+/mob/living/carbon/humanoid/species/rousman/npc
 	ai_controller = /datum/ai_controller/human_npc
 	dodgetime = 13
 	canparry = TRUE
 	flee_in_pain = TRUE
 	wander = FALSE
 
-/mob/living/carbon/human/species/rousman/npc/Initialize()
+/mob/living/carbon/humanoid/species/rousman/npc/Initialize()
 	. = ..()
 	AddComponent(/datum/component/combat_noise, list("scream" = 5, "laugh" = 1))
 
-/mob/living/carbon/human/species/rousman/ambush
+/mob/living/carbon/humanoid/species/rousman/ambush
 	ai_controller = /datum/ai_controller/human_npc
 
-/mob/living/carbon/human/species/rousman/ambush/after_creation()
+/mob/living/carbon/humanoid/species/rousman/ambush/after_creation()
 	. = ..()
 	job = "Ambusher Rousman"
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
@@ -144,10 +144,10 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | RACE_SWAP | SLIME_EXTRACT
 	var/raceicon = "rousman"
 
-/datum/species/rousman/update_damage_overlays(mob/living/carbon/human/H)
+/datum/species/rousman/update_damage_overlays(mob/living/carbon/humanoid/H)
 	return
 
-/datum/species/rousman/regenerate_icons(mob/living/carbon/human/H)
+/datum/species/rousman/regenerate_icons(mob/living/carbon/humanoid/H)
 	H.icon_state = ""
 	if(H.notransform)
 		return 1
@@ -156,12 +156,12 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 	H.update_inv_legcuffed()
 	H.update_fire()
 	H.update_body()
-	var/mob/living/carbon/human/species/rousman/R = H
+	var/mob/living/carbon/humanoid/species/rousman/R = H
 	R.update_wearable()
 	H.update_transform()
 	return TRUE
 
-/mob/living/carbon/human/species/rousman/update_body()
+/mob/living/carbon/humanoid/species/rousman/update_body()
 	remove_overlay(BODY_LAYER)
 	if(!dna || !dna.species)
 		return
@@ -192,16 +192,16 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 	apply_overlay(BODY_LAYER)
 	dna.species.update_damage_overlays()
 
-/mob/living/carbon/human/species/rousman/update_inv_head()
+/mob/living/carbon/humanoid/species/rousman/update_inv_head()
 	update_wearable()
-/mob/living/carbon/human/species/rousman/update_inv_armor()
+/mob/living/carbon/humanoid/species/rousman/update_inv_armor()
 	update_wearable()
 
-/mob/living/carbon/human/species/rousman/Initialize()
+/mob/living/carbon/humanoid/species/rousman/Initialize()
 	. = ..()
 	addtimer(CALLBACK(src, PROC_REF(after_creation)), 1 SECONDS)
 
-/mob/living/carbon/human/species/rousman/after_creation()
+/mob/living/carbon/humanoid/species/rousman/after_creation()
 	..()
 	gender = MALE
 	if(src.dna && src.dna.species)
@@ -275,7 +275,7 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 /////////////////////
 /////////////////////
 
-/datum/outfit/job/npc/rousman/ambush/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/npc/rousman/ambush/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	H.base_strength = rand(6, 10)
 	H.base_perception = rand(6, 10)
@@ -373,12 +373,12 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 	GLOB.rousman_ambush_objects -= src
 	return ..()
 
-/obj/structure/rousman_hole/proc/ambush(mob/living/carbon/human/ambushed_mob)
+/obj/structure/rousman_hole/proc/ambush(mob/living/carbon/humanoid/ambushed_mob)
 	if(already_ambushed == TRUE)
 		return
 	var/num_mobs = rand(1, skulking_vermin)
 	for(var/i = 1; i <= num_mobs; i++)
-		var/mob/living/carbon/human/species/rousman/ambush/A = new /mob/living/carbon/human/species/rousman/ambush(get_turf(src))
+		var/mob/living/carbon/humanoid/species/rousman/ambush/A = new /mob/living/carbon/humanoid/species/rousman/ambush(get_turf(src))
 		A.del_on_deaggro = 1 MINUTES
 		A.ai_controller?.set_blackboard_key(BB_BASIC_MOB_CURRENT_TARGET, ambushed_mob)
 	ambushed_mob.playsound_local(ambushed_mob, pick('sound/misc/jumphumans (1).ogg','sound/misc/jumphumans (2).ogg','sound/misc/jumphumans (3).ogg','sound/misc/jumpscare (1).ogg','sound/misc/jumpscare (2).ogg','sound/misc/jumpscare (3).ogg','sound/misc/jumpscare (4).ogg'), 100)
@@ -404,7 +404,7 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 
 /obj/structure/rousman_alarm/Crossed(atom/movable/AM)
 	. = ..()
-	if(istype(AM, /mob/living/carbon/human))
-		var/mob/living/carbon/human/H = AM
+	if(istype(AM, /mob/living/carbon/humanoid))
+		var/mob/living/carbon/humanoid/H = AM
 		if(H.ambushable == TRUE && hole.already_ambushed == FALSE)
 			hole.ambush(H)

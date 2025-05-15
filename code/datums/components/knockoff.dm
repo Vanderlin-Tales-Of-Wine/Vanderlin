@@ -20,7 +20,7 @@
 
 /datum/component/knockoff/proc/Knockoff(mob/living/attacker,zone)
 	var/obj/item/I = parent
-	var/mob/living/carbon/human/wearer = I.loc
+	var/mob/living/carbon/humanoid/wearer = I.loc
 	if(!istype(wearer))
 		return
 	if(target_zones && !(zone in target_zones))
@@ -32,7 +32,7 @@
 
 	wearer.visible_message("<span class='warning'>[attacker] knocks off [wearer]'s [I.name]!</span>","<span class='danger'>[attacker] knocks off your [I.name]!</span>")
 
-/datum/component/knockoff/proc/OnEquipped(datum/source, mob/living/carbon/human/H,slot)
+/datum/component/knockoff/proc/OnEquipped(datum/source, mob/living/carbon/humanoid/H,slot)
 	if(!istype(H))
 		return
 	if(slots_knockoffable && !(slot in slots_knockoffable))

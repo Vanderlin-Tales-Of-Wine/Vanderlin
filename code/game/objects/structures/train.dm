@@ -27,7 +27,7 @@
 		return //Only humans have job slots to be freed.
 	if(in_use) // Someone's already going in.
 		return
-	var/mob/living/carbon/human/departing_mob = dropping
+	var/mob/living/carbon/humanoid/departing_mob = dropping
 	if(departing_mob != user && departing_mob.client)
 		to_chat(user, span_warning("This one retains their free will. It's their choice if they want to leave for [SSmapping.config.immigrant_origin] or not."))
 		return //prevents people from forceghosting others

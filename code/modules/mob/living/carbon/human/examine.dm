@@ -1,4 +1,4 @@
-/mob/living/carbon/human/proc/on_examine_face(mob/living/carbon/human/user)
+/mob/living/carbon/humanoid/proc/on_examine_face(mob/living/carbon/humanoid/user)
 	if(!istype(user))
 		return
 	if(!isdarkelf(user) && isdarkelf(src))
@@ -27,7 +27,7 @@
 	if(HAS_TRAIT(src, TRAIT_OLDPARTY) && HAS_TRAIT(user, TRAIT_OLDPARTY) && user != src)
 		user.add_stress(/datum/stressevent/saw_old_party)
 
-/mob/living/carbon/human/examine(mob/user)
+/mob/living/carbon/humanoid/examine(mob/user)
 //this is very slightly better than it was because you can use it more places. still can't do \his[src] though.
 	var/t_He = p_they(TRUE)
 	var/t_his = p_their()
@@ -107,7 +107,7 @@
 						break
 			var/slop_lore_string = "."
 			if(ishumannorthern(user))
-				var/mob/living/carbon/human/racist = user
+				var/mob/living/carbon/humanoid/racist = user
 				var/list/user_skin_tones = racist.dna.species.get_skin_list()
 //				var/user_skin_tone_seen = "incomprehensible"	gives unused warning now, sick of seeing it
 				for(var/tone in user_skin_tones)
@@ -117,7 +117,7 @@
 			. += "<span class='info'>[capitalize(m2)] [skin_tone_wording] is [skin_tone_seen][slop_lore_string]</span>"
 
 		if(ishuman(user))
-			var/mob/living/carbon/human/stranger = user
+			var/mob/living/carbon/humanoid/stranger = user
 			var/is_male = FALSE
 			if(gender == MALE)
 				is_male = TRUE

@@ -28,7 +28,7 @@
 
 	spells = list(/obj/effect/proc_holder/spell/self/convertrole/mercenary)
 
-/datum/outfit/job/gaffer/pre_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/job/gaffer/pre_equip(mob/living/carbon/humanoid/H, visualsOnly)
 	..()
 
 

@@ -6,7 +6,7 @@
 			if(zone2covered(location, equipped_item.body_parts_covered))
 				return FALSE
 		if(ishuman(carbon_victim))
-			var/mob/living/carbon/human/human_victim = carbon_victim
+			var/mob/living/carbon/humanoid/human_victim = carbon_victim
 			if(!skipundies)
 				if(human_victim.underwear != "Nude")
 					covered_locations |= GROIN

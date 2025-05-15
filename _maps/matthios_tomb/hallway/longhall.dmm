@@ -24,7 +24,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb)
 "m" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb)
 "n" = (

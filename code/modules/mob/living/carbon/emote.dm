@@ -10,7 +10,7 @@
 	message = "gasps out their last breath."
 	message_simple =  "falls limp."
 	stat_allowed = UNCONSCIOUS
-	mob_type_ignore_stat_typecache = list(/mob/living/carbon/human)
+	mob_type_ignore_stat_typecache = list(/mob/living/carbon/humanoid)
 
 /datum/emote/living/carbon/airguitar
 	key = "airguitar"
@@ -84,7 +84,7 @@
 	key = "signal"
 	key_third_person = "signals"
 	message_param = "raises %t fingers."
-	mob_type_allowed_typecache = list(/mob/living/carbon/human)
+	mob_type_allowed_typecache = list(/mob/living/carbon/humanoid)
 	hands_use_check = TRUE
 
 /datum/emote/living/carbon/tail

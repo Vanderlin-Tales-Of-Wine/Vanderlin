@@ -6,7 +6,7 @@
 	category_tags = list(CTAG_DISABLED)
 	apprentice_name = "Weaver"
 
-/datum/outfit/job/adventurer/seamstress/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/adventurer/seamstress/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 4, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)

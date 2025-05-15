@@ -24,7 +24,7 @@
 	return resisting || pickpocketing || disposing_body
 
 // blocks
-// taken from /mob/living/carbon/human/interactive/
+// taken from /mob/living/carbon/humanoid/interactive/
 /mob/living/carbon/monkey/proc/walk2derpless(target)
 	if(!target || IsStandingStill())
 		return 0
@@ -48,7 +48,7 @@
 
 	return 0
 
-// taken from /mob/living/carbon/human/interactive/
+// taken from /mob/living/carbon/humanoid/interactive/
 /mob/living/carbon/monkey/proc/IsDeadOrIncap(checkDead = TRUE)
 	// if(!(mobility_flags & MOBILITY_FLAGS_INTERACTION))
 	// 	return 1
@@ -170,7 +170,7 @@
 				if(I && !blacklistItems[I])
 					pickupTarget = I
 				else
-					var/mob/living/carbon/human/H = locate(/mob/living/carbon/human/) in oview(2,src)
+					var/mob/living/carbon/humanoid/H = locate(/mob/living/carbon/humanoid/) in oview(2,src)
 					if(H)
 						pickupTarget = pick(H.held_items)
 
@@ -376,7 +376,7 @@
 	if(istype(AM, /obj/item))
 		var/obj/item/I = AM
 		if(I.throwforce < src.health && I.thrownby && ishuman(I.thrownby))
-			var/mob/living/carbon/human/H = I.thrownby
+			var/mob/living/carbon/humanoid/H = I.thrownby
 			retaliate(H)
 	..()
 

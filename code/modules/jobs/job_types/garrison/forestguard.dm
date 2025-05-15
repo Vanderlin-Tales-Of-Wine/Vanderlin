@@ -31,7 +31,7 @@
 /datum/outfit/job/forestguard
 	job_bitflag = BITFLAG_GARRISON
 
-/datum/outfit/job/forestguard/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/forestguard/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	if(SSmapping.config.map_name == "Rosewood")
 		cloak = /obj/item/clothing/cloak/forrestercloak/snow
@@ -57,7 +57,7 @@
 	outfit = /datum/outfit/job/forestguard/infantry
 	category_tags = list(CTAG_FORGARRISON)
 
-/datum/outfit/job/forestguard/infantry/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/forestguard/infantry/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	neck = /obj/item/clothing/neck/gorget
 	beltl = /obj/item/weapon/mace/steel/morningstar
@@ -95,7 +95,7 @@
 	outfit = /datum/outfit/job/forestguard/ranger
 	category_tags = list(CTAG_FORGARRISON)
 
-/datum/outfit/job/forestguard/ranger/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/forestguard/ranger/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	neck = /obj/item/clothing/neck/chaincoif
 	beltl = /obj/item/weapon/knife/cleaver/combat
@@ -134,7 +134,7 @@
 	outfit = /datum/outfit/job/forestguard/reaver
 	category_tags = list(CTAG_FORGARRISON)
 
-/datum/outfit/job/forestguard/reaver/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/forestguard/reaver/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	neck = /obj/item/clothing/neck/chaincoif
 	beltl = /obj/item/weapon/mace/steel/morningstar

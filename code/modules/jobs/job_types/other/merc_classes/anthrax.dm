@@ -9,7 +9,7 @@
 
 	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander3.ogg'
 
-/datum/outfit/job/mercenary/anthrax/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/mercenary/anthrax/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	shoes = /obj/item/clothing/shoes/boots
 	belt = /obj/item/storage/belt/leather/black
@@ -28,7 +28,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
 
 		ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
-		H.verbs |= /mob/living/carbon/human/proc/torture_victim //Secret police training owing to their origins.
+		H.verbs |= /mob/living/carbon/humanoid/proc/torture_victim //Secret police training owing to their origins.
 
 		if(H.gender == FEMALE) //Melee defense-oriented brute, heavy lean towards non-lethal takedowns and capture.
 			armor = /obj/item/clothing/armor/cuirass/iron/shadowplate

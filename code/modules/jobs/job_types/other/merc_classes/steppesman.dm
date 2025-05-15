@@ -13,7 +13,7 @@
 
 	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander2.ogg'
 
-/datum/outfit/job/mercenary/steppesman/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/mercenary/steppesman/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	shoes = /obj/item/clothing/shoes/boots/leather
 	head = /obj/item/clothing/head/papakha

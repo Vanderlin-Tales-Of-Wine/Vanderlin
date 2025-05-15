@@ -27,7 +27,7 @@
 		return
 
 	if(on)
-		var/mob/living/carbon/human/H = user
+		var/mob/living/carbon/humanoid/H = user
 
 		if(istype(H))
 			H.visible_message("<span class='info'>[H] warms \his hand over the fire.</span>")
@@ -517,7 +517,7 @@
 			boilloop.stop()
 	else
 		if(on)
-			var/mob/living/carbon/human/H = user
+			var/mob/living/carbon/humanoid/H = user
 			if(istype(H))
 				H.visible_message("<span class='info'>[H] warms \his hand over the embers.</span>")
 				if(do_after(H, 5 SECONDS, src))
@@ -603,7 +603,7 @@
 		return
 
 	if(on)
-		var/mob/living/carbon/human/H = user
+		var/mob/living/carbon/humanoid/H = user
 
 		if(istype(H))
 			H.visible_message("<span class='info'>[H] warms \his hand near the fire.</span>")

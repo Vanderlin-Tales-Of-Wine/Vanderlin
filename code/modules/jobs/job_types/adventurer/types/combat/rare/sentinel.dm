@@ -14,13 +14,13 @@
 	category_tags = list(CTAG_ADVENTURER)
 	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander.ogg'
 
-/datum/advclass/combat/sentinel/equipme(mob/living/carbon/human/H)
+/datum/advclass/combat/sentinel/equipme(mob/living/carbon/humanoid/H)
 	if(H.gender == FEMALE)
 		horse = /mob/living/simple_animal/hostile/retaliate/saiga/tame/saddled
 	return ..()
 
 
-/datum/outfit/job/adventurer/sentinel/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/adventurer/sentinel/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)

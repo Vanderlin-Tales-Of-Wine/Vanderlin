@@ -34,7 +34,7 @@
 		animate(mob.get_filter(MOB_MOVING_EFFECT_MASK), y = -32, time = 0)
 		if(ismob(mob))
 			mob.update_vision_cone()
-		for(var/mob/living/carbon/human/human in view(mob, 7))
+		for(var/mob/living/carbon/humanoid/human in view(mob, 7))
 			human.update_vision_cone()
 	UnregisterSignal(target, COMSIG_ITEM_PICKUP)
 
@@ -63,14 +63,14 @@
 		arrived_mob.add_filter(MOB_MOVING_EFFECT_MASK, 1, alpha_mask_filter(0, mask_y_offset + offset, icon('icons/effects/icon_cutter.dmi', "icon_cutter"), null, MASK_INVERSE))
 		if(isliving(arrived_mob))
 			arrived_mob.update_vision_cone()
-		for(var/mob/living/carbon/human/human in view(arrived_mob, 7))
+		for(var/mob/living/carbon/humanoid/human in view(arrived_mob, 7))
 			human.update_vision_cone()
 	else
 		if(effect_alpha)
 			arrived_mob.add_filter(MOB_MOVING_EFFECT_MASK, 1, alpha_mask_filter(0, mask_y_offset + offset, icon('icons/effects/icon_cutter.dmi', "icon_cutter"), null, MASK_INVERSE))
 			if(isliving(arrived_mob))
 				arrived_mob.update_vision_cone()
-			for(var/mob/living/carbon/human/human in view(arrived_mob, 7))
+			for(var/mob/living/carbon/humanoid/human in view(arrived_mob, 7))
 				human.update_vision_cone()
 		RegisterSignal(arrived_mob, COMSIG_ITEM_PICKUP, TYPE_PROC_REF(/datum/element/mob_overlay_effect, on_remove_proxy), override = TRUE)
 

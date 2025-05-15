@@ -1,4 +1,4 @@
-/mob/living/carbon/human
+/mob/living/carbon/humanoid
 	name = "Unknown"
 	real_name = "Unknown"
 	icon = 'icons/mob/human.dmi'
@@ -72,7 +72,7 @@
 
 	var/list/datum/bioware = list()
 
-	var/static/list/can_ride_typecache = typecacheof(list(/mob/living/carbon/human, /mob/living/simple_animal/parrot))
+	var/static/list/can_ride_typecache = typecacheof(list(/mob/living/carbon/humanoid, /mob/living/simple_animal/parrot))
 	var/lastpuke = 0
 	var/last_fire_update
 	var/account_id //! DEPRECATED
@@ -131,7 +131,7 @@
 
 //Checking the highest armor class worn
 //Limb armors use the second highest armor class
-/mob/living/carbon/human/proc/check_armor_class()
+/mob/living/carbon/humanoid/proc/check_armor_class()
 	//Get Torso values
 	var/shirt_ac
 	var/chest_ac

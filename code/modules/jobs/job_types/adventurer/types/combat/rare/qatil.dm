@@ -18,7 +18,7 @@
 
 	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander3.ogg'
 
-/datum/outfit/job/adventurer/qatil/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/adventurer/qatil/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 4, TRUE)

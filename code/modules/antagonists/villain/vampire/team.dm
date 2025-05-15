@@ -54,7 +54,7 @@
 
 	vamp_datum?.objectives |= objectives
 	knight_datum?.objectives |= objectives
-	new_member.current.verbs |= /mob/living/carbon/human/proc/vampire_telepathy
+	new_member.current.verbs |= /mob/living/carbon/humanoid/proc/vampire_telepathy
 
 	if(istype(vamp_datum, /datum/antagonist/vampire/lord))
 		if(lord)
@@ -85,7 +85,7 @@
 
 	vamp_datum?.objectives -= objectives
 	knight_datum?.objectives -= objectives
-	member.current.verbs -= /mob/living/carbon/human/proc/vampire_telepathy
+	member.current.verbs -= /mob/living/carbon/humanoid/proc/vampire_telepathy
 
 	LAZYREMOVE(thralls, member)
 	member.current.verbs -= thrall_verbs
@@ -106,7 +106,7 @@
 			to_chat(lord, "<font color='red'>I am refreshed and have grown stronger. The visage of the bat is once again available to me. I can also once again access my portals.</font>")
 
 		if(2)
-			lord.current.verbs |= /mob/living/carbon/human/proc/vamp_regenerate
+			lord.current.verbs |= /mob/living/carbon/humanoid/proc/vamp_regenerate
 			lord.current.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/bloodsteal)
 			lord.current.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/bloodlightning)
 			lord.adjust_skillrank(/datum/skill/magic/blood, 2, TRUE)
@@ -117,8 +117,8 @@
 			to_chat(lord, "<font color='red'>My power is returning. I can once again access my spells. I have also regained usage of my mist form.</font>")
 
 		if(3)
-			lord.current.verbs |= /mob/living/carbon/human/proc/blood_strength
-			lord.current.verbs |= /mob/living/carbon/human/proc/blood_celerity
+			lord.current.verbs |= /mob/living/carbon/humanoid/proc/blood_strength
+			lord.current.verbs |= /mob/living/carbon/humanoid/proc/blood_celerity
 			lord.current.RemoveSpell(/obj/effect/proc_holder/spell/targeted/transfix)
 			lord.current.AddSpell(new /obj/effect/proc_holder/spell/targeted/transfix/master)
 			for(var/S in MOBSTATS)
@@ -132,9 +132,9 @@
 			lord_datum.ascended = TRUE
 			SSmapping.retainer.ascended = TRUE
 
-			thrall_verbs |= /mob/living/carbon/human/proc/blood_strength
-			thrall_verbs |= /mob/living/carbon/human/proc/blood_celerity
-			thrall_verbs |= /mob/living/carbon/human/proc/vamp_regenerate
+			thrall_verbs |= /mob/living/carbon/humanoid/proc/blood_strength
+			thrall_verbs |= /mob/living/carbon/humanoid/proc/blood_celerity
+			thrall_verbs |= /mob/living/carbon/humanoid/proc/vamp_regenerate
 
 			for(var/datum/mind/thrall in thralls)
 				thrall.current.verbs |= thrall_verbs

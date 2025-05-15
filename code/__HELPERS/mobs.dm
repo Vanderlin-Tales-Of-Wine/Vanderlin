@@ -308,7 +308,7 @@ GLOBAL_LIST_INIT(oldhc, sortList(list(
 /proc/is_species(A, species_datum)
 	. = FALSE
 	if(ishuman(A))
-		var/mob/living/carbon/human/H = A
+		var/mob/living/carbon/humanoid/H = A
 		if(H.dna && istype(H.dna.species, species_datum))
 			. = TRUE
 

@@ -15,7 +15,7 @@
 	ADD_TRAIT(spawned, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(spawned, TRAIT_CRITICAL_WEAKNESS, TRAIT_GENERIC)
 
-/datum/outfit/job/deathknight/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/deathknight/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)

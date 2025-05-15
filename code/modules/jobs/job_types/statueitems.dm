@@ -1,4 +1,4 @@
-/proc/give_special_items(mob/living/carbon/human/H)
+/proc/give_special_items(mob/living/carbon/humanoid/H)
 	if(!H.mind)
 		return
 	switch(H.ckey)

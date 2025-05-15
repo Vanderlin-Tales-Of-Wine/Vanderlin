@@ -23,7 +23,7 @@
 				var/mob/living/L = m
 				mob_data += list("location" = get_area(L), "health" = L.health)
 				if(ishuman(L))
-					var/mob/living/carbon/human/H = L
+					var/mob/living/carbon/humanoid/H = L
 					category = "humans"
 					mob_data += list("job" = H.mind.assigned_role.title, "species" = H.dna.species.name)
 			else
@@ -144,7 +144,7 @@
 			key_list += C.ckey
 //	if(key_list.len)
 //		add_roundplayed(key_list)
-	for(var/mob/living/carbon/human/H in GLOB.player_list)
+	for(var/mob/living/carbon/humanoid/H in GLOB.player_list)
 		if(H.stat != DEAD)
 			if(H.get_triumphs() < 0)
 				H.adjust_triumphs(1)

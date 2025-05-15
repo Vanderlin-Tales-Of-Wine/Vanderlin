@@ -22,7 +22,7 @@
 	if(length(contents))
 		. += span_notice("[length(contents)] thing[length(contents) > 1 ? "s" : ""] in [src].")
 
-/obj/item/storage/sack/equipped(mob/living/carbon/human/user, slot)
+/obj/item/storage/sack/equipped(mob/living/carbon/humanoid/user, slot)
 	. = ..()
 	if(slot == SLOT_HEAD)
 		user.become_blind("blindfold_[REF(src)]")
@@ -30,7 +30,7 @@
 		to_chat(user, span_info("The [src] slips through dead fingers..."))
 		user.dropItemToGround(src, TRUE)
 
-/obj/item/storage/sack/dropped(mob/living/carbon/human/user)
+/obj/item/storage/sack/dropped(mob/living/carbon/humanoid/user)
 	..()
 	user.cure_blind("blindfold_[REF(src)]")
 

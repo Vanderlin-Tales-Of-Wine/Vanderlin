@@ -54,13 +54,13 @@
 	admin_headset_message(M)
 
 /client/proc/admin_headset_message(mob/M in GLOB.mob_list, sender = null)
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/humanoid/H = M
 
 	if(!check_rights(R_ADMIN))
 		return
 
 	if(!istype(H))
-		to_chat(usr, "This can only be used on instances of type /mob/living/carbon/human")
+		to_chat(usr, "This can only be used on instances of type /mob/living/carbon/humanoid")
 		return
 
 	if (!sender)
@@ -349,7 +349,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 
 	//Ok, it's not a xeno or a monkey. So, spawn a human.
-	var/mob/living/carbon/human/new_character = new//The mob being spawned.
+	var/mob/living/carbon/humanoid/new_character = new//The mob being spawned.
 	SSjob.SendToLateJoin(new_character)
 
 	var/datum/data/record/record_found			//Referenced to later to either randomize or not randomize the character.
@@ -730,7 +730,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 			T.Beam(target, icon_state="lightning[rand(1,12)]", time = 5)
 			target.adjustFireLoss(75)
 			if(ishuman(target))
-				var/mob/living/carbon/human/H = target
+				var/mob/living/carbon/humanoid/H = target
 				H.electrocution_animation(40)
 			to_chat(target, "<span class='danger'>The gods have punished you for your sins!</span>")
 		if(ADMIN_PUNISHMENT_BRAINDAMAGE)
@@ -774,7 +774,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 			if(!ishuman(target))
 				to_chat(usr,"<span class='warning'>Target must be human!</span>")
 				return
-			var/mob/living/carbon/human/humie = target
+			var/mob/living/carbon/humanoid/humie = target
 			var/obj/item/bodypart/affecting = humie.get_bodypart(BODY_ZONE_CHEST)
 			if(!affecting)
 				to_chat(usr,"<span class='warning'>Target must have a chest!</span>")
@@ -784,7 +784,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 			if(!ishuman(target))
 				to_chat(usr,"<span class='warning'>Target must be human!</span>")
 				return
-			var/mob/living/carbon/human/humie = target
+			var/mob/living/carbon/humanoid/humie = target
 			var/obj/item/bodypart/affecting = humie.get_bodypart(BODY_ZONE_HEAD)
 			if(!affecting)
 				to_chat(usr,"<span class='warning'>Target must have a head!</span>")

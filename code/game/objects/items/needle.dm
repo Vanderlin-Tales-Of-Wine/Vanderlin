@@ -118,7 +118,7 @@
 	if(!istype(user))
 		return FALSE
 	var/mob/living/doctor = user
-	var/mob/living/carbon/human/patient = target
+	var/mob/living/carbon/humanoid/patient = target
 	var/boon = doctor?.mind?.get_learning_boon(/datum/skill/misc/medicine)
 	if(stringamt < 1)
 		to_chat(user, "<span class='warning'>The needle has no thread left!</span>")

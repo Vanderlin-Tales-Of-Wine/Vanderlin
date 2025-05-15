@@ -305,7 +305,7 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/mountains/anvil/lower)
 "dr" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/hexstone,
 /area/rogue/under/mountains/anvil/lower)
 "du" = (
@@ -743,7 +743,7 @@
 /turf/closed/wall/mineral/wooddark/slitted,
 /area/rogue/under/mountains/anvil/lower)
 "gZ" = (
-/mob/living/carbon/human/species/goblin/moon,
+/mob/living/carbon/humanoid/species/goblin/moon,
 /obj/structure/bed/sleepingbag,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/item/clothing/ring/gold,
@@ -823,7 +823,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/lower)
 "hS" = (
-/mob/living/carbon/human/species/goblin/npc/hell,
+/mob/living/carbon/humanoid/species/goblin/npc/hell,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
 "hV" = (
@@ -976,7 +976,7 @@
 /area/rogue/outdoors/bog)
 "jP" = (
 /obj/effect/decal/cleanable/blood,
-/mob/living/carbon/human/species/goblin,
+/mob/living/carbon/humanoid/species/goblin,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
 "jR" = (
@@ -1057,7 +1057,7 @@
 /area/rogue/outdoors/woods_safe)
 "kp" = (
 /obj/structure/bed/shit,
-/mob/living/carbon/human/species/goblin/npc/hell,
+/mob/living/carbon/humanoid/species/goblin/npc/hell,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
 "kq" = (
@@ -1552,7 +1552,7 @@
 /obj/structure/chair/wood/alt{
 	dir = 1
 	},
-/mob/living/carbon/human/species/goblin/npc/hell,
+/mob/living/carbon/humanoid/species/goblin/npc/hell,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
 "pY" = (
@@ -1632,7 +1632,7 @@
 /obj/structure/chair/wood/alt{
 	dir = 4
 	},
-/mob/living/carbon/human/species/goblin/npc/hell,
+/mob/living/carbon/humanoid/species/goblin/npc/hell,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
 "qS" = (
@@ -1910,7 +1910,7 @@
 /turf/open/floor/cobble,
 /area/rogue/outdoors/mountains)
 "tH" = (
-/mob/living/carbon/human/species/goblin/npc/hell,
+/mob/living/carbon/humanoid/species/goblin/npc/hell,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/lower)
 "tJ" = (
@@ -2220,10 +2220,10 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
 "yh" = (
-/mob/living/carbon/human/species/orc/warlord/skilled,
-/mob/living/carbon/human/species/orc/warlord/skilled,
-/mob/living/carbon/human/species/orc/warlord/skilled,
-/mob/living/carbon/human/species/orc/warlord/skilled{
+/mob/living/carbon/humanoid/species/orc/warlord/skilled,
+/mob/living/carbon/humanoid/species/orc/warlord/skilled,
+/mob/living/carbon/humanoid/species/orc/warlord/skilled,
+/mob/living/carbon/humanoid/species/orc/warlord/skilled{
 	name = "Chef Fleshrender"
 	},
 /obj/effect/mapping_helpers/floor_clothing_equipper,
@@ -2405,7 +2405,7 @@
 /turf/open/floor/cobblerock/snow,
 /area/rogue/outdoors/woods)
 "zX" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/lower)
 "Aa" = (
@@ -2442,7 +2442,7 @@
 /area/rogue/under/mountains/anvil/lower)
 "Au" = (
 /obj/structure/chair/wood/alt,
-/mob/living/carbon/human/species/goblin/npc/hell,
+/mob/living/carbon/humanoid/species/goblin/npc/hell,
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/lower)
 "Av" = (
@@ -2636,7 +2636,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/mountains)
 "Cw" = (
-/mob/living/carbon/human/species/goblin,
+/mob/living/carbon/humanoid/species/goblin,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
 "Cy" = (
@@ -2788,7 +2788,7 @@
 /obj/structure/fluff/railing/wood{
 	dir = 1
 	},
-/mob/living/carbon/human/species/goblin/npc/hell,
+/mob/living/carbon/humanoid/species/goblin/npc/hell,
 /turf/open/floor/twig,
 /area/rogue/under/mountains/anvil/lower)
 "Eo" = (
@@ -2812,7 +2812,7 @@
 /turf/closed/mineral/random,
 /area/rogue/under/town/caverogue)
 "EJ" = (
-/mob/living/carbon/human/species/goblin/npc/hell,
+/mob/living/carbon/humanoid/species/goblin/npc/hell,
 /obj/item/natural/poo{
 	pixel_x = 3;
 	pixel_y = -9
@@ -2841,7 +2841,7 @@
 /area/rogue/outdoors/woods_safe)
 "ET" = (
 /obj/structure/closet/crate/coffin,
-/mob/living/carbon/human/species/skeleton,
+/mob/living/carbon/humanoid/species/skeleton,
 /obj/effect/spawner/map_spawner/loot/rare,
 /obj/machinery/light/fueled/wallfire/candle/weak/r,
 /turf/open/floor/naturalstone,
@@ -2877,7 +2877,7 @@
 /area/rogue/outdoors/woods_safe)
 "Fc" = (
 /obj/structure/bed/hay,
-/mob/living/carbon/human/species/goblin/npc/hell,
+/mob/living/carbon/humanoid/species/goblin/npc/hell,
 /turf/open/floor/twig,
 /area/rogue/under/mountains/anvil/lower)
 "Fi" = (
@@ -3007,7 +3007,7 @@
 /area/rogue/indoors)
 "Gu" = (
 /obj/structure/closet/crate/coffin,
-/mob/living/carbon/human/species/skeleton,
+/mob/living/carbon/humanoid/species/skeleton,
 /obj/effect/spawner/map_spawner/loot/medium,
 /obj/machinery/light/fueled/wallfire/candle/weak/l,
 /turf/open/floor/cobble,
@@ -3142,7 +3142,7 @@
 /turf/closed/mineral/salt,
 /area/rogue/under/mountains/anvil/lower)
 "HJ" = (
-/mob/living/carbon/human/species/goblin/npc/hell,
+/mob/living/carbon/humanoid/species/goblin/npc/hell,
 /turf/open/floor/twig,
 /area/rogue/under/mountains/anvil/lower)
 "HK" = (
@@ -3233,7 +3233,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
 "II" = (
-/mob/living/carbon/human/species/goblin/npc/hell,
+/mob/living/carbon/humanoid/species/goblin/npc/hell,
 /obj/structure/bed/shit,
 /obj/structure/bed/shit,
 /turf/open/floor/naturalstone,
@@ -3277,7 +3277,7 @@
 /obj/structure/fluff/railing/wood{
 	dir = 8
 	},
-/mob/living/carbon/human/species/goblin/npc/hell,
+/mob/living/carbon/humanoid/species/goblin/npc/hell,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/item/paint_brush,
 /obj/item/paint_palette/filled,
@@ -3459,7 +3459,7 @@
 /area/rogue/under/mountains/anvil/lower)
 "LN" = (
 /obj/structure/chair/wood/alt,
-/mob/living/carbon/human/species/goblin/npc/hell,
+/mob/living/carbon/humanoid/species/goblin/npc/hell,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
 "LO" = (
@@ -3568,7 +3568,7 @@
 /area/rogue/outdoors/bog)
 "My" = (
 /obj/structure/toilet,
-/mob/living/carbon/human/species/goblin/npc/hell,
+/mob/living/carbon/humanoid/species/goblin/npc/hell,
 /obj/item/natural/poo,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
@@ -3703,7 +3703,7 @@
 /turf/open/floor/carpet/lord/center,
 /area/rogue/under/mountains/anvil/lower)
 "Od" = (
-/mob/living/carbon/human/species/goblin/npc/hell{
+/mob/living/carbon/humanoid/species/goblin/npc/hell{
 	name = "Troll Keeper"
 	},
 /turf/open/floor/naturalstone,
@@ -3817,7 +3817,7 @@
 /area/rogue/under/mountains/anvil/lower)
 "Pp" = (
 /obj/structure/chair/wood/alt,
-/mob/living/carbon/human/species/goblin/npc/hell{
+/mob/living/carbon/humanoid/species/goblin/npc/hell{
 	name = "birthday goblin"
 	},
 /turf/open/floor/naturalstone,
@@ -3922,7 +3922,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
 "Qo" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/lower)
 "Qq" = (
@@ -4210,7 +4210,7 @@
 /area/rogue/outdoors/mountains)
 "SJ" = (
 /obj/structure/bed/hay,
-/mob/living/carbon/human/species/goblin/npc/hell,
+/mob/living/carbon/humanoid/species/goblin/npc/hell,
 /turf/open/floor/twig/platform,
 /area/rogue/under/mountains/anvil/lower)
 "SK" = (
@@ -4342,7 +4342,7 @@
 /turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
 "TX" = (
-/mob/living/carbon/human/species/orc/warlord/skilled{
+/mob/living/carbon/humanoid/species/orc/warlord/skilled{
 	name = "Skullcarver the Dustlord"
 	},
 /turf/open/floor/naturalstone,
@@ -4467,7 +4467,7 @@
 /turf/open/floor/woodturned/nosmooth,
 /area/rogue/indoors)
 "VB" = (
-/mob/living/carbon/human/species/goblin/npc/hell{
+/mob/living/carbon/humanoid/species/goblin/npc/hell{
 	health = 0;
 	blood_volume = 0;
 	bruteloss = 200
@@ -4532,7 +4532,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/woods_safe)
 "Wn" = (
-/mob/living/carbon/human/species/goblin/npc/hell,
+/mob/living/carbon/humanoid/species/goblin/npc/hell,
 /obj/structure/chair/wood/alt,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
@@ -4741,7 +4741,7 @@
 /obj/structure/chair/wood/alt{
 	dir = 8
 	},
-/mob/living/carbon/human/species/goblin/npc/hell,
+/mob/living/carbon/humanoid/species/goblin/npc/hell,
 /turf/open/floor/twig,
 /area/rogue/under/mountains/anvil/lower)
 "Yx" = (

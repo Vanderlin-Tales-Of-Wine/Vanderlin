@@ -29,7 +29,7 @@
 /datum/outfit/job/forestwarden
 	job_bitflag = BITFLAG_GARRISON
 
-/datum/outfit/job/forestwarden/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/forestwarden/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	cloak = /obj/item/clothing/cloak/wardencloak
 	armor = /obj/item/clothing/armor/plate

@@ -119,7 +119,7 @@
 		jadded = 10
 		jrange = 2
 	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+		var/mob/living/carbon/humanoid/H = user
 		jadded += H.get_complex_pain()/50
 		if(H.get_encumbrance() > 0.6)
 			jadded += 50

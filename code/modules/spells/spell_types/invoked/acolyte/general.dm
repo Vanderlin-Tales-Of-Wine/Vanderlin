@@ -260,7 +260,7 @@
 				return FALSE
 		else
 			if(ishuman(user))
-				var/mob/living/carbon/human/B = user
+				var/mob/living/carbon/humanoid/B = user
 				message = pick_list_replacements("bard.json", "[B.dna.species.id]_mockery")
 			else
 				message = "Boo!" //That's a failsafe.

@@ -21,7 +21,7 @@
 /datum/outfit/job/fisher
 	job_bitflag = BITFLAG_CONSTRUCTOR
 
-/datum/outfit/job/fisher/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/fisher/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)

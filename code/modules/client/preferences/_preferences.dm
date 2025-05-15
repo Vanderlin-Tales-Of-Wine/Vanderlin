@@ -1408,14 +1408,14 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 
 /// Applies the randomization prefs, sanitizes the result and then applies the preference to the human mob.
 /// This is good if you are applying prefs to a mob as if they were joining the round.
-/datum/preferences/proc/safe_transfer_prefs_to(mob/living/carbon/human/character, icon_updates = TRUE, is_antag = FALSE)
+/datum/preferences/proc/safe_transfer_prefs_to(mob/living/carbon/humanoid/character, icon_updates = TRUE, is_antag = FALSE)
 	apply_character_randomization_prefs(is_antag)
 	sanitize_chosen_prefs()
 	apply_prefs_to(character, icon_updates)
 
 /// Applies the given preferences to a human mob. Calling this directly will skip sanitisation.
 /// This is good if you are applying prefs to a mob as if you were cloning them.
-/datum/preferences/proc/apply_prefs_to(mob/living/carbon/human/character, icon_updates = TRUE)
+/datum/preferences/proc/apply_prefs_to(mob/living/carbon/humanoid/character, icon_updates = TRUE)
 	if(QDELETED(character) || !ishuman(character))
 		return
 	character.set_species(pref_species.type, icon_update = FALSE, pref_load = src)

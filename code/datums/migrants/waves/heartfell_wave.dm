@@ -6,7 +6,7 @@
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	grant_lit_torch = TRUE
 
-/datum/outfit/job/heartfelt/lord/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/heartfelt/lord/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	H.mana_pool.set_intrinsic_recharge(MANA_ALL_LEYLINES)
 	shirt = /obj/item/clothing/shirt/undershirt
@@ -54,7 +54,7 @@
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	grant_lit_torch = TRUE
 
-/datum/outfit/job/heartfelt/lady/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/heartfelt/lady/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	head = /obj/item/clothing/head/hennin
 	neck = /obj/item/storage/belt/pouch/coins/rich
@@ -96,7 +96,7 @@
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	grant_lit_torch = TRUE
 
-/datum/outfit/job/heartfelt/hand/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/heartfelt/hand/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	shirt = /obj/item/clothing/shirt/undershirt
 	belt = /obj/item/storage/belt/leather/black
@@ -136,7 +136,7 @@
 	outfit = /datum/outfit/job/heartfelt/knight
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	grant_lit_torch = TRUE
-/datum/outfit/job/heartfelt/knight/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/heartfelt/knight/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	head = /obj/item/clothing/head/helmet
 	gloves = /obj/item/clothing/gloves/plate
@@ -182,7 +182,7 @@
 /datum/migrant_role/heartfelt/knight/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
 	..()
 	if(ishuman(L))
-		var/mob/living/carbon/human/H = L
+		var/mob/living/carbon/humanoid/H = L
 		if(istype(H.cloak, /obj/item/clothing/cloak/tabard/knight/guard))
 			var/obj/item/clothing/S = H.cloak
 			var/index = findtext(H.real_name, " ")
@@ -207,7 +207,7 @@
 
 /datum/outfit/job/heartfelt/magos
 	allowed_patrons = list(/datum/patron/divine/noc)
-/datum/outfit/job/heartfelt/magos/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/heartfelt/magos/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	neck = /obj/item/clothing/neck/talkstone
 	cloak = /obj/item/clothing/cloak/black_cloak
@@ -261,7 +261,7 @@
 	grant_lit_torch = TRUE
 /datum/outfit/job/heartfelt/prior
 	allowed_patrons = list(/datum/patron/divine/astrata)
-/datum/outfit/job/heartfelt/prior/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/heartfelt/prior/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	H.virginity = TRUE
 	neck = /obj/item/clothing/neck/psycross/silver
@@ -294,7 +294,7 @@
 		H.change_stat(STATKEY_SPD, -1)
 	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(H, H.patron)
 	C.grant_spells_priest(H)
-	H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
+	H.verbs += list(/mob/living/carbon/humanoid/proc/devotionreport, /mob/living/carbon/humanoid/proc/clericpray)
 	H.cmode_music = 'sound/music/cmode/church/CombatInquisitor.ogg'
 
 /datum/migrant_wave/heartfelt

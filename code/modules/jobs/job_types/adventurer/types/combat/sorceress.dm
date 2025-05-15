@@ -12,7 +12,7 @@
 /datum/outfit/job/adventurer/sorceress
 	allowed_patrons = list(/datum/patron/divine/noc, /datum/patron/inhumen/zizo)
 
-/datum/outfit/job/adventurer/sorceress/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/adventurer/sorceress/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	H.mana_pool?.set_intrinsic_recharge(MANA_ALL_LEYLINES)
 	shoes = /obj/item/clothing/shoes/simpleshoes

@@ -29,6 +29,6 @@
 			if(_T)
 				_T = get_turf(_T)
 				if(isfloorturf(_T))
-					new /mob/living/carbon/human/species/skeleton/npc(_T)
+					new /mob/living/carbon/humanoid/species/skeleton/npc(_T)
 
 	return

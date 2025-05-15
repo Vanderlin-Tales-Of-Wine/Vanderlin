@@ -154,11 +154,11 @@
 		return
 	qdel(src)
 
-/mob/living/carbon/human
-	var/mob/living/carbon/human/hostagetaker //Stores the person that took us hostage in a var, allows us to force them to attack the mob and such
-	var/mob/living/carbon/human/hostage //What hostage we have
+/mob/living/carbon/humanoid
+	var/mob/living/carbon/humanoid/hostagetaker //Stores the person that took us hostage in a var, allows us to force them to attack the mob and such
+	var/mob/living/carbon/humanoid/hostage //What hostage we have
 
-/mob/living/carbon/human/proc/attackhostage()
+/mob/living/carbon/humanoid/proc/attackhostage()
 	if(!istype(hostagetaker.get_active_held_item(), /obj/item/weapon))
 		return
 	var/obj/item/weapon/WP = hostagetaker.get_active_held_item()
@@ -247,8 +247,8 @@
 				return FALSE
 			if(limb_grabbed && grab_state > GRAB_PASSIVE) //this implies a carbon victim
 				if(ishuman(M) && M != user)
-					var/mob/living/carbon/human/H = M
-					var/mob/living/carbon/human/U = user
+					var/mob/living/carbon/humanoid/H = M
+					var/mob/living/carbon/humanoid/U = user
 					if(U.cmode)
 						if(H.cmode)
 							to_chat(U, "<span class='warning'>[H] is too prepared for combat to be taken hostage.</span>")
@@ -419,7 +419,7 @@
 	C.next_attack_msg.Cut()
 	log_combat(user, C, "limbtwisted [sublimb_grabbed] ")
 
-/obj/item/grabbing/proc/headbutt(mob/living/carbon/human/H)
+/obj/item/grabbing/proc/headbutt(mob/living/carbon/humanoid/H)
 	var/mob/living/carbon/C = grabbed
 	var/obj/item/bodypart/Chead = C.get_bodypart(BODY_ZONE_HEAD)
 	var/obj/item/bodypart/Hhead = H.get_bodypart(BODY_ZONE_HEAD)
@@ -668,7 +668,7 @@
 		if(user.mind)
 			//TODO: Werewolf Signal
 			if(user.mind.has_antag_datum(/datum/antagonist/werewolf))
-				var/mob/living/carbon/human/human = user
+				var/mob/living/carbon/humanoid/human = user
 				if(istype(caused_wound))
 					caused_wound?.werewolf_infect_attempt()
 				if(prob(30))
@@ -676,9 +676,9 @@
 
 			// TODO: Zombie Signal
 			if(user.mind.has_antag_datum(/datum/antagonist/zombie))
-				var/mob/living/carbon/human/H = C
+				var/mob/living/carbon/humanoid/H = C
 				if(istype(H))
-					INVOKE_ASYNC(H, TYPE_PROC_REF(/mob/living/carbon/human, zombie_infect_attempt))
+					INVOKE_ASYNC(H, TYPE_PROC_REF(/mob/living/carbon/humanoid, zombie_infect_attempt))
 				if(C.stat)
 					if(istype(limb_grabbed, /obj/item/bodypart/head))
 						var/obj/item/bodypart/head/HE = limb_grabbed
@@ -730,7 +730,7 @@
 		to_chat(user, "<span class='warning'>Sigh. No blood.</span>")
 		return
 	if(ishuman(C))
-		var/mob/living/carbon/human/H = C
+		var/mob/living/carbon/humanoid/H = C
 		if(istype(H.wear_neck, /obj/item/clothing/neck/psycross/silver))
 			to_chat(user, "<span class='userdanger'>SILVER! HISSS!!!</span>")
 			return
@@ -755,7 +755,7 @@
 				else if(C.vitae_pool > 500)
 					C.blood_volume = max(C.blood_volume-45, 0)
 					if(ishuman(C))
-						var/mob/living/carbon/human/H = C
+						var/mob/living/carbon/humanoid/H = C
 						if(H.virginity)
 							to_chat(user, "<span class='love'>Virgin blood, delicious!</span>")
 							var/mob/living/carbon/V = user

@@ -23,7 +23,7 @@
 /datum/outfit/job/archivist
 	job_bitflag = BITFLAG_ROYALTY
 
-/datum/outfit/job/archivist/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/archivist/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	H.mana_pool?.set_intrinsic_recharge(MANA_ALL_LEYLINES)
 	if(H.dna.species.id == "Dwarf")

@@ -27,7 +27,7 @@
 /turf/open/floor/blocks/stonered,
 /area/rogue/under/tomb/indoors/church)
 "ci" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment,
 /turf/open/floor/cobble,
 /area/rogue/under/tomb)
 "cD" = (
@@ -70,7 +70,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/tomb)
 "hM" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/cobble,
 /area/rogue/under/tomb)
 "hQ" = (
@@ -202,7 +202,7 @@
 /area/rogue/under/tomb)
 "tt" = (
 /obj/structure/fluff/walldeco/chains,
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/cobble,
 /area/rogue/under/tomb)
 "tu" = (
@@ -387,7 +387,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/tomb/indoors/church)
 "Ld" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/cobble/alt,
 /area/rogue/under/tomb)
 "LN" = (
@@ -482,7 +482,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/tomb/cave/wet)
 "Sy" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/cobble,
 /area/rogue/under/tomb)
 "SE" = (
@@ -551,7 +551,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/tomb)
 "YJ" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/cobble/alt,
 /area/rogue/under/tomb)
 "YZ" = (

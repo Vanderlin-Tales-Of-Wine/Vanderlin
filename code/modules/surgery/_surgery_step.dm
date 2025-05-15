@@ -288,7 +288,7 @@
 	var/success = !try_to_fail && (prob(success_prob)) && chem_check(target)
 	if(success && success(user, target, target_zone, tool, intent))
 		if(ishuman(user))
-			var/mob/living/carbon/human/doctor = user
+			var/mob/living/carbon/humanoid/doctor = user
 			user.mind.add_sleep_experience(/datum/skill/misc/medicine, doctor.STAINT * (skill_min/3))
 		play_success_sound(user, target, target_zone, tool)
 		if(repeating && can_do_step(user, target, target_zone, tool, intent, try_to_fail))

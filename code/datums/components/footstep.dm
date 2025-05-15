@@ -99,7 +99,7 @@
 	var/mob/living/LM = parent
 	if(!T)
 		return
-	var/mob/living/carbon/human/H = parent
+	var/mob/living/carbon/humanoid/H = parent
 	var/feetCover = (H.wear_armor && (H.wear_armor.body_parts_covered & FEET)) || (H.wear_pants && (H.wear_pants.body_parts_covered & FEET))
 
 	var/used_sound

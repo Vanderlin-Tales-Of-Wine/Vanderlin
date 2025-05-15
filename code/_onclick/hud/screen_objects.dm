@@ -87,7 +87,7 @@
 		var/mob/living/L = usr
 		to_chat(L, "*----*")
 		if(ishuman(usr))
-			var/mob/living/carbon/human/M = usr
+			var/mob/living/carbon/humanoid/M = usr
 			if(M.charflaw)
 				to_chat(M, "<span class='info'>[M.charflaw.desc]</span>")
 				to_chat(M, "*----*")
@@ -111,7 +111,7 @@
 		return
 
 	if(ishuman(usr))
-		var/mob/living/carbon/human/H = usr
+		var/mob/living/carbon/humanoid/H = usr
 		H.mind.print_levels(H)
 
 /atom/movable/screen/craft
@@ -125,7 +125,7 @@
 		return
 	lastclick = world.time
 	if(ishuman(usr))
-		var/mob/living/carbon/human/H = usr
+		var/mob/living/carbon/humanoid/H = usr
 		H.playsound_local(H, 'sound/misc/click.ogg', 100)
 		if(H.craftingthing)
 			last_craft = world.time
@@ -714,7 +714,7 @@
 	if(!ishuman(hud.mymob))
 		qdel(src)
 		return
-	var/mob/living/carbon/human/H = hud.mymob
+	var/mob/living/carbon/humanoid/H = hud.mymob
 	if(H.mind && H.mind.antag_datums)
 		for(var/datum/antagonist/D in H.mind.antag_datums)
 			if(istype(D, /datum/antagonist/vampire))
@@ -732,7 +732,7 @@
 	if(!ishuman(hud.mymob))
 		qdel(src)
 		return
-	var/mob/living/carbon/human/H = hud.mymob
+	var/mob/living/carbon/humanoid/H = hud.mymob
 	if(!H.advsetup)
 		qdel(src)
 		return
@@ -794,7 +794,7 @@
 
 /atom/movable/screen/eye_intent/update_overlays()
 	. = ..()
-	var/mob/living/carbon/human/human = hud.mymob
+	var/mob/living/carbon/humanoid/human = hud.mymob
 	if(!istype(human))
 		return
 	var/mutable_appearance/iris = mutable_appearance(src.icon, "oeye")
@@ -972,7 +972,7 @@
 		return 1
 
 	if(PL["right"] && ishuman(hud.mymob))
-		var/mob/living/carbon/human/H = hud.mymob
+		var/mob/living/carbon/humanoid/H = hud.mymob
 		return H.check_limb_for_injuries(H, choice = check_zone(choice))
 	else
 		return set_selected_zone(choice, usr)
@@ -1286,7 +1286,7 @@
 	icon_state = "[hud.mymob.gender == "male" ? "m" : "f"]-zone_sel"
 
 	if(hud.mymob.stat != DEAD && ishuman(hud.mymob))
-		var/mob/living/carbon/human/H = hud.mymob
+		var/mob/living/carbon/humanoid/H = hud.mymob
 		for(var/X in H.bodyparts)
 			var/obj/item/bodypart/BP = X
 			if(BP.body_zone in H.get_missing_limbs())
@@ -1342,7 +1342,7 @@
 
 /atom/movable/screen/healthdoll/Click(location, control, params)
 	if (ishuman(usr))
-		var/mob/living/carbon/human/H = usr
+		var/mob/living/carbon/humanoid/H = usr
 		H.check_for_injuries(H)
 		to_chat(H, "I am [H.get_encumbrance() * 100]% Encumbered")
 
@@ -1360,7 +1360,7 @@
 /atom/movable/screen/healths/blood/Click(location, control, params)
 	var/list/modifiers = params2list(params)
 	if(ishuman(usr))
-		var/mob/living/carbon/human/H = usr
+		var/mob/living/carbon/humanoid/H = usr
 		if(modifiers["left"])
 			H.check_for_injuries(H)
 			to_chat(H, "I am [H.get_encumbrance() * 100]% Encumbered")
@@ -1537,7 +1537,7 @@
 	cut_overlays()
 	var/state2use = "stress1"
 	if(ishuman(usr))
-		var/mob/living/carbon/human/H = usr
+		var/mob/living/carbon/humanoid/H = usr
 		if(!HAS_TRAIT(H, TRAIT_NOMOOD))
 			var/stress_amt = H.get_stress_amount()
 			if(stress_amt > STRESS_BAD)
@@ -1565,7 +1565,7 @@
 	var/list/modifiers = params2list(params)
 
 	if(ishuman(usr))
-		var/mob/living/carbon/human/M = usr
+		var/mob/living/carbon/humanoid/M = usr
 		if(modifiers["left"])
 			if(M.charflaw)
 				to_chat(M, "*----*")

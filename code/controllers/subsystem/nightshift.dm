@@ -62,7 +62,7 @@ SUBSYSTEM_DEF(nightshift)
 /mob/living/proc/update_tod(todd)
 	return
 
-/mob/living/carbon/human/update_tod(todd)
+/mob/living/carbon/humanoid/update_tod(todd)
 	if(client)
 		var/area/areal = get_area(src)
 		if(!cmode)

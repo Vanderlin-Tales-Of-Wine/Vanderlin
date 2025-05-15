@@ -335,7 +335,7 @@ GLOBAL_LIST_INIT(primordial_wounds, init_primordial_wounds())
 		return FALSE
 	if(werewolf_infection_timer || !ishuman(owner) || !prob(werewolf_infection_probability))
 		return
-	var/mob/living/carbon/human/human_owner = owner
+	var/mob/living/carbon/humanoid/human_owner = owner
 	if(!human_owner.can_werewolf())
 		return
 	if(human_owner.stat >= DEAD) //forget it
@@ -354,7 +354,7 @@ GLOBAL_LIST_INIT(primordial_wounds, init_primordial_wounds())
 		return FALSE
 	if(!ishuman(owner))
 		return FALSE
-	var/mob/living/carbon/human/human_owner = owner
+	var/mob/living/carbon/humanoid/human_owner = owner
 	var/datum/antagonist/werewolf/wolfy = human_owner.werewolf_check()
 	if(!wolfy)
 		return FALSE

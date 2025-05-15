@@ -27,13 +27,13 @@
 
 /datum/job/bandit/after_spawn(mob/living/spawned, client/player_client)
 	..()
-	var/mob/living/carbon/human/H = spawned
+	var/mob/living/carbon/humanoid/H = spawned
 	var/datum/antagonist/new_antag = new /datum/antagonist/bandit()
 	H.mind.add_antag_datum(new_antag)
 	if(!H.mind)
 		return
 	H.ambushable = FALSE
 
-/datum/outfit/job/bandit/post_equip(mob/living/carbon/human/H)
+/datum/outfit/job/bandit/post_equip(mob/living/carbon/humanoid/H)
 	..()
-	addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, choose_name_popup), "BANDIT"), 5 SECONDS)
+	addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/humanoid, choose_name_popup), "BANDIT"), 5 SECONDS)

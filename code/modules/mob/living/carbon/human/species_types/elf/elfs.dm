@@ -7,7 +7,7 @@
 //	( + Night Vision )
 
 
-/mob/living/carbon/human/species/elf/snow
+/mob/living/carbon/humanoid/species/elf/snow
 	race = /datum/species/elf/snow
 
 /datum/species/elf/snow

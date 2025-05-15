@@ -25,7 +25,7 @@
 #define FOOTSTEP_MOB_BAREFOOT 2
 #define FOOTSTEP_MOB_HEAVY 3
 #define FOOTSTEP_MOB_SHOE 4
-#define FOOTSTEP_MOB_HUMAN 5 //Warning: Only works on /mob/living/carbon/human
+#define FOOTSTEP_MOB_HUMAN 5 //Warning: Only works on /mob/living/carbon/humanoid
 #define FOOTSTEP_MOB_SLIME 6
 
 /*

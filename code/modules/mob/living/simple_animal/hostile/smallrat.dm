@@ -16,7 +16,7 @@
 	sellprice = 0
 	rotprocess = null
 
-/obj/item/reagent_containers/food/snacks/smallrat/onbite(mob/living/carbon/human/user)
+/obj/item/reagent_containers/food/snacks/smallrat/onbite(mob/living/carbon/humanoid/user)
 	if(loc == user)
 		if(user.mind && user.mind.has_antag_datum(/datum/antagonist/vampire))
 			if(dead)

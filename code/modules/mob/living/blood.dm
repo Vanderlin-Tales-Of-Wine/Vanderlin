@@ -188,7 +188,7 @@
 
 	updatehealth()
 
-/mob/living/carbon/human/bleed(amt)
+/mob/living/carbon/humanoid/bleed(amt)
 	if(physiology)
 		amt *= physiology.bleed_mod
 	if(!(NOBLOOD in dna?.species?.species_traits))
@@ -197,7 +197,7 @@
 /mob/living/proc/restore_blood()
 	blood_volume = initial(blood_volume)
 
-/mob/living/carbon/human/restore_blood()
+/mob/living/carbon/humanoid/restore_blood()
 	blood_volume = BLOOD_VOLUME_NORMAL
 	bleed_rate = 0
 
@@ -234,7 +234,7 @@
 
 	return blood.contains_lux
 
-/mob/living/carbon/human/get_blood_type()
+/mob/living/carbon/humanoid/get_blood_type()
 	RETURN_TYPE(/datum/blood_type)
 	if(HAS_TRAIT(src, TRAIT_HUSK) || isnull(dna))
 		return null
@@ -326,6 +326,6 @@
 			splatter.transfer_mob_blood_dna(src)
 			splatter.update_icon()
 
-/mob/living/carbon/human/add_splatter_floor(turf/T, small_drip)
+/mob/living/carbon/humanoid/add_splatter_floor(turf/T, small_drip)
 	if(!(NOBLOOD in dna.species.species_traits))
 		..()

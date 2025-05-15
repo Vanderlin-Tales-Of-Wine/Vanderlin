@@ -539,7 +539,7 @@
 /area/rogue/under/tomb/indoors)
 "tv" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/mob/living/carbon/human/species/rousman/ambush,
+/mob/living/carbon/humanoid/species/rousman/ambush,
 /turf/open/floor/churchrough,
 /area/rogue/under/tomb/indoors)
 "tC" = (
@@ -762,7 +762,7 @@
 /turf/open/floor/church,
 /area/rogue/under/tomb/indoors)
 "Ar" = (
-/mob/living/carbon/human/species/rousman/ambush,
+/mob/living/carbon/humanoid/species/rousman/ambush,
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/under/tomb/indoors)
 "Aw" = (
@@ -1021,7 +1021,7 @@
 /turf/open/floor/church,
 /area/rogue/under/tomb/indoors)
 "JE" = (
-/mob/living/carbon/human/species/rousman/ambush,
+/mob/living/carbon/humanoid/species/rousman/ambush,
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb/cave/wet)
 "JG" = (
@@ -1220,7 +1220,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 6
 	},
-/mob/living/carbon/human/species/rousman/ambush,
+/mob/living/carbon/humanoid/species/rousman/ambush,
 /obj/structure/fluff/walldeco/church/line{
 	dir = 8
 	},
@@ -1269,7 +1269,7 @@
 "Pt" = (
 /obj/structure/fluff/railing/border,
 /obj/effect/decal/cleanable/dirt/dust,
-/mob/living/carbon/human/species/rousman/ambush,
+/mob/living/carbon/humanoid/species/rousman/ambush,
 /turf/open/floor/churchmarble,
 /area/rogue/under/tomb/indoors)
 "PA" = (
@@ -1360,7 +1360,7 @@
 /turf/open/floor/churchrough,
 /area/rogue/under/tomb/indoors)
 "Sp" = (
-/mob/living/carbon/human/species/rousman/ambush,
+/mob/living/carbon/humanoid/species/rousman/ambush,
 /turf/open/water/bath,
 /area/rogue/under/tomb)
 "Ss" = (

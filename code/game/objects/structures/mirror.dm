@@ -30,7 +30,7 @@
 
 	if(!ishuman(user))
 		return
-	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/humanoid/H = user
 
 
 	var/list/options = list("hairstyle", "facial hairstyle", "hair color", "skin", "detail", "eye color")

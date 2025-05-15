@@ -89,7 +89,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/tomb)
 "sI" = (
-/mob/living/carbon/human/species/goblin/npc/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/cave,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/cobble,
 /area/rogue/under/tomb)
@@ -184,7 +184,7 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/tomb)
 "Vy" = (
-/mob/living/carbon/human/species/goblin/npc/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/cave,
 /turf/open/floor/cobble,
 /area/rogue/under/tomb)
 "Vz" = (

@@ -6,7 +6,7 @@
 	/// Steps to be performed in order
 	var/list/steps = list()
 	/// Acceptable mob types
-	var/list/target_mobtypes = list(/mob/living/carbon/human)
+	var/list/target_mobtypes = list(/mob/living/carbon/humanoid)
 	/// Acceptable body zones
 	var/list/possible_locs = list()
 	/// Surgery available only when a bodypart is present

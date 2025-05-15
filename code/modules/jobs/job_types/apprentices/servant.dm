@@ -22,7 +22,7 @@
 
 	can_have_apprentices = FALSE
 
-/datum/outfit/job/servant/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/servant/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	shoes = /obj/item/clothing/shoes/simpleshoes
 	pants = /obj/item/clothing/pants/tights/uncolored
@@ -70,7 +70,7 @@
 
 	can_have_apprentices = FALSE
 
-/datum/outfit/job/tapster/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/tapster/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	shoes = /obj/item/clothing/shoes/simpleshoes
 	pants = /obj/item/clothing/pants/tights/uncolored
@@ -118,7 +118,7 @@
 
 	can_have_apprentices = FALSE
 
-/datum/outfit/job/matron_assistant/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/matron_assistant/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	shoes = /obj/item/clothing/shoes/simpleshoes
 	pants = /obj/item/clothing/pants/tights/uncolored
@@ -164,7 +164,7 @@
 	outfit = /datum/outfit/job/gaffer_assistant
 	give_bank_account = TRUE
 
-/datum/outfit/job/gaffer_assistant/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/gaffer_assistant/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	shoes = /obj/item/clothing/shoes/simpleshoes
 	pants = /obj/item/clothing/pants/tights/uncolored

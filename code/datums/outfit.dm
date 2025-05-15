@@ -6,7 +6,7 @@
  *
  * You can also specify an outfit datum on a job to have it auto equipped to the mob on join
  *
- * /mob/living/carbon/human/proc/equipOutfit(outfit) is the mob level proc to equip an outfit
+ * /mob/living/carbon/humanoid/proc/equipOutfit(outfit) is the mob level proc to equip an outfit
  * and you pass it the relevant datum outfit
  *
  * outfits can also be saved as json blobs downloadable by a client and then can be uploaded
@@ -115,7 +115,7 @@
  *
  * If visualsOnly is true, you can omit any work that doesn't visually appear on the character sprite
  */
-/datum/outfit/proc/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/proc/pre_equip(mob/living/carbon/humanoid/H, visualsOnly = FALSE)
 	//to be overridden for customization depending on client prefs,species etc
 	return
 
@@ -130,7 +130,7 @@
  *
  * If visualsOnly is true, you can omit any work that doesn't visually appear on the character sprite
  */
-/datum/outfit/proc/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/proc/post_equip(mob/living/carbon/humanoid/H, visualsOnly = FALSE)
 	//to be overridden for toggling internals, id binding, access etc
 	return
 
@@ -142,7 +142,7 @@
  *
  * If visualsOnly is true, you can omit any work that doesn't visually appear on the character sprite
  */
-/datum/outfit/proc/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/proc/equip(mob/living/carbon/humanoid/H, visualsOnly = FALSE)
 	pre_equip(H, visualsOnly)
 
 	if(belt)
@@ -237,7 +237,7 @@
 
 /client/proc/test_spawn_outfits()
 	for(var/path in subtypesof(/datum/outfit/job))
-		var/mob/living/carbon/human/new_human = new(mob.loc)
+		var/mob/living/carbon/humanoid/new_human = new(mob.loc)
 		var/datum/outfit/new_outfit = new path()
 		new_outfit.equip(new_human)
 /**
@@ -247,7 +247,7 @@
  * essentially calls add_fingerprint to every defined item on the human
  *
  */
-/datum/outfit/proc/apply_fingerprints(mob/living/carbon/human/H)
+/datum/outfit/proc/apply_fingerprints(mob/living/carbon/humanoid/H)
 	if(!istype(H))
 		return
 	if(H.back)

@@ -158,7 +158,7 @@
 			animate(movable.get_filter("mob_moving_effect_mask"), y = -32, time = 0)
 			if(ismob(movable))
 				movable:update_vision_cone()
-			for(var/mob/living/carbon/human/human in view(movable, 7))
+			for(var/mob/living/carbon/humanoid/human in view(movable, 7))
 				human.update_vision_cone()
 
 	STOP_PROCESSING(SSslowobj, src)

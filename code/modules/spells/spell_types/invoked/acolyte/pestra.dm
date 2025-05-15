@@ -29,7 +29,7 @@
 
 /obj/effect/proc_holder/spell/invoked/diagnose/cast(list/targets, mob/living/user)
 	if(ishuman(targets[1]))
-		var/mob/living/carbon/human/human_target = targets[1]
+		var/mob/living/carbon/humanoid/human_target = targets[1]
 		human_target.check_for_injuries(user, additional = TRUE)
 		return ..()
 	return FALSE
@@ -114,7 +114,7 @@
 // consider adding functionality to regrow one entire organ or limb per casting?
 /obj/effect/proc_holder/spell/invoked/attach_bodypart/cast(list/targets, mob/living/user)
 	if(ishuman(targets[1]))
-		var/mob/living/carbon/human/human_target = targets[1]
+		var/mob/living/carbon/humanoid/human_target = targets[1]
 		for(var/obj/item/bodypart/limb as anything in get_limbs(human_target, user))
 			if(!limb?.attach_limb(human_target))
 				continue
@@ -200,7 +200,7 @@
 		else
 			target.visible_message("<span class='warning'>The rot fails to leave [target]'s body!</span>", "<span class='warning'>I feel no different...</span>")
 		if(ishuman(target))
-			var/mob/living/carbon/human/human = target
+			var/mob/living/carbon/humanoid/human = target
 			if(human.funeral)
 				if(human.client)
 					to_chat(human, span_warning("My funeral rites were undone!"))

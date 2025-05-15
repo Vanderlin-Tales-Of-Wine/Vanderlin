@@ -23,7 +23,7 @@
 /datum/outfit/job/beastmaster
 	job_bitflag = BITFLAG_CONSTRUCTOR
 
-/datum/outfit/job/beastmaster/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/beastmaster/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 
 	belt = /obj/item/storage/belt/leather

@@ -11,7 +11,7 @@
 	category_tags = list(CTAG_MERCENARY)
 	maximum_possible_slots = 5
 
-/datum/outfit/job/mercenary/underdweller/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/mercenary/underdweller/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 
 	var/shirt_type = pickweight(list(

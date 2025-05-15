@@ -1,4 +1,4 @@
-/mob/living/carbon/human/get_movespeed_modifiers()
+/mob/living/carbon/humanoid/get_movespeed_modifiers()
 	var/list/considering = ..()
 	. = considering
 	if(HAS_TRAIT(src, TRAIT_IGNORESLOWDOWN))
@@ -7,7 +7,7 @@
 			if(data[MOVESPEED_DATA_INDEX_FLAGS] & IGNORE_NOSLOW)
 				.[id] = data
 
-/mob/living/carbon/human/slip(knockdown_amount, obj/O, lube, paralyze, forcedrop)
+/mob/living/carbon/humanoid/slip(knockdown_amount, obj/O, lube, paralyze, forcedrop)
 	if(HAS_TRAIT(src, TRAIT_NOSLIPALL))
 		return 0
 	if (!(lube&GALOSHES_DONT_HELP))
@@ -19,16 +19,16 @@
 				return 0
 	return ..()
 
-/mob/living/carbon/human/mob_has_gravity()
+/mob/living/carbon/humanoid/mob_has_gravity()
 	. = ..()
 	if(!.)
 		if(mob_negates_gravity())
 			. = 1
 
-/mob/living/carbon/human/mob_negates_gravity()
+/mob/living/carbon/humanoid/mob_negates_gravity()
 	return ((shoes && shoes.negates_gravity()) || (dna?.species?.negates_gravity(src)))
 
-/mob/living/carbon/human/Move(NewLoc, direct)
+/mob/living/carbon/humanoid/Move(NewLoc, direct)
 /*	if(fixedeye || tempfixeye)
 		switch(dir)
 			if(NORTH)
@@ -108,7 +108,7 @@
 						if(prob(effective))
 							dropItemToGround(I, silent = FALSE)
 
-/mob/living/carbon/human/Process_Spacemove(movement_dir = 0) //Temporary laziness thing. Will change to handles by species reee.
+/mob/living/carbon/humanoid/Process_Spacemove(movement_dir = 0) //Temporary laziness thing. Will change to handles by species reee.
 	if(dna?.species?.space_move(src))
 		return TRUE
 	return ..()

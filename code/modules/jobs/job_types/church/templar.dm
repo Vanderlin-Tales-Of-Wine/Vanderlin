@@ -26,7 +26,7 @@
 	allowed_patrons = ALL_TEMPLAR_PATRONS
 	job_bitflag = BITFLAG_CHURCH
 
-/datum/outfit/job/templar/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/templar/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	head = /obj/item/clothing/head/helmet/heavy/necked
 	cloak = /obj/item/clothing/cloak/tabard/crusader/tief
@@ -126,7 +126,7 @@
 	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(H, H.patron)
 	//Max devotion limit - Templars are stronger but cannot pray to gain more abilities beyond t1
 	C.grant_spells_templar(H)
-	H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
+	H.verbs += list(/mob/living/carbon/humanoid/proc/devotionreport, /mob/living/carbon/humanoid/proc/clericpray)
 	if(H.dna?.species)
 		if(H.dna.species.id == "human")
 			H.dna.species.soundpack_m = new /datum/voicepack/male/knight()

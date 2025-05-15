@@ -16,7 +16,7 @@
 /obj/structure/fake_machine/mail/attack_hand(mob/user)
 	if(SSroguemachine.hermailermaster && ishuman(user))
 		var/obj/item/roguemachine/mastermail/M = SSroguemachine.hermailermaster
-		var/mob/living/carbon/human/H = user
+		var/mob/living/carbon/humanoid/H = user
 		var/addl_mail = FALSE
 		for(var/obj/item/I in M.contents)
 			if(I.mailedto == H.real_name)
@@ -109,7 +109,7 @@
 		if(!ishuman(user))
 			to_chat(user, span_warning("I do not know what this is, and I do not particularly care."))
 
-		var/mob/living/carbon/human/H = user
+		var/mob/living/carbon/humanoid/H = user
 		if(is_merchant_job(H.mind.assigned_role) || is_gaffer_job(H.mind.assigned_role))
 			to_chat(H, span_warning("This is of no use to me - I may give this to a mercenary so they may send it themselves."))
 			return
@@ -342,7 +342,7 @@
 			STR.remove_from_storage(I, get_turf(src))
 	return ..()
 
-/obj/structure/fake_machine/mail/proc/process_confession(mob/living/carbon/human/user, P)
+/obj/structure/fake_machine/mail/proc/process_confession(mob/living/carbon/humanoid/user, P)
 	var/obj/item/paper/confession/C = P
 	if(C.signed)
 		if(C.signed == user.real_name) // If the Inquisitor is the one who signed the confession, they can't use it.
@@ -362,7 +362,7 @@
 		visible_message("<span class='warning'>[user] sends something.</span>")
 		playsound(loc, 'sound/magic/forgotten_bell.ogg', 80, FALSE, -1)
 		playsound(loc, 'sound/misc/disposalflush.ogg', 100, FALSE, -1)
-		for(var/mob/living/carbon/human/I in GLOB.human_list) // Find all the living Inquisitors and Adepts and give them a triumph for the confession.
+		for(var/mob/living/carbon/humanoid/I in GLOB.human_list) // Find all the living Inquisitors and Adepts and give them a triumph for the confession.
 			if(I.mind && (is_inquisitor_job(I.mind.assigned_role) || is_adept_job(I.mind.assigned_role)) && !(I.stat == DEAD))
 				if(is_inquisitor_job(I.mind.assigned_role))
 					I.confession_points += 5 // Increase the Inquisitor's confession count.
@@ -370,7 +370,7 @@
 				to_chat(I, "<span class='warning'>A sense of grim satisfaction fills your heart. One confession down, a million remain.</span>")
 				I.adjust_triumphs(1)
 
-/obj/structure/fake_machine/mail/proc/show_inquisitor_shop(mob/living/carbon/human/user)
+/obj/structure/fake_machine/mail/proc/show_inquisitor_shop(mob/living/carbon/humanoid/user)
 	var/list/options = list()
 
 	// Ensure the user is an Inquisitor

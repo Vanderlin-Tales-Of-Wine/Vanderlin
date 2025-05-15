@@ -160,7 +160,7 @@
 	SSdroning.play_loop(this_area, owner.client)
 
 	if(ishuman(owner) && sleptonground)
-		var/mob/living/carbon/human/human_owner = owner
+		var/mob/living/carbon/humanoid/human_owner = owner
 		if(HAS_TRAIT(human_owner, TRAIT_NOBLE))
 			human_owner.add_stress(/datum/stressevent/sleepfloornoble)
 		else
@@ -172,7 +172,7 @@
 		return
 
 	var/mob/living/carbon/carbon_owner = iscarbon(owner) ? owner : null
-	var/mob/living/carbon/human/human_owner = ishuman(owner) ? owner : null
+	var/mob/living/carbon/humanoid/human_owner = ishuman(owner) ? owner : null
 
 	if(!sleptonground)
 		if(!(locate(/obj/structure/bed) in owner.loc) && !(locate(/obj/structure/table) in owner.loc))
@@ -265,7 +265,7 @@
 	duration = -1
 
 /datum/status_effect/neck_slice/tick()
-	var/mob/living/carbon/human/H = owner
+	var/mob/living/carbon/humanoid/H = owner
 	if(H.stat == DEAD || H.bleed_rate <= 8)
 		H.remove_status_effect(/datum/status_effect/neck_slice)
 	if(prob(10))

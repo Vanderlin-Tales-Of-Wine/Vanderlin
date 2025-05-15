@@ -4,7 +4,7 @@
 	*				*
 	*===============*/
 
-/mob/living/carbon/human/species/human/halfdrow
+/mob/living/carbon/humanoid/species/human/halfdrow
 	race = /datum/species/human/halfdrow
 
 /datum/species/human/halfdrow
@@ -131,7 +131,7 @@
 /datum/species/human/halfdrow/get_possible_surnames(gender = MALE)
 	return null
 
-/datum/species/human/halfdrow/after_creation(mob/living/carbon/human/C)
+/datum/species/human/halfdrow/after_creation(mob/living/carbon/humanoid/C)
 	..()
 	if(C.skin_tone == SKIN_COLOR_ZIZO_CURSED)
 		exotic_bloodtype = /datum/blood_type/human/cursed_elf

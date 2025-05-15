@@ -59,11 +59,11 @@ There are several things that need to be remembered:
 	return jazz
 
 
-/mob/living/carbon/human/update_body()
+/mob/living/carbon/humanoid/update_body()
 	dna?.species?.handle_body(src) //create destroy moment
 	..()
 
-/mob/living/carbon/human/update_fire()
+/mob/living/carbon/humanoid/update_fire()
 	if(fire_stacks + divine_fire_stacks < 10)
 		return ..("Generic_mob_burning")
 	else
@@ -73,10 +73,10 @@ There are several things that need to be remembered:
 		return ..(burning)
 
 
-/mob/living/carbon/human/update_damage_overlays()
+/mob/living/carbon/humanoid/update_damage_overlays()
 	START_PROCESSING(SSdamoverlays,src)
 
-/mob/living/carbon/human/proc/update_damage_overlays_real()
+/mob/living/carbon/humanoid/proc/update_damage_overlays_real()
 	if(dna?.species)
 		if(dna.species.update_damage_overlays(src))
 			return
@@ -254,7 +254,7 @@ There are several things that need to be remembered:
 
 /* --------------------------------------- */
 //For legacy support.
-/mob/living/carbon/human/regenerate_icons()
+/mob/living/carbon/humanoid/regenerate_icons()
 	if(!..())
 		icon_render_key = null //invalidate bodyparts cache
 		if(dna?.species?.regenerate_icons(src))
@@ -280,7 +280,7 @@ There are several things that need to be remembered:
 
 /mob/proc/regenerate_clothes()
 	return
-/mob/living/carbon/human/regenerate_clothes()
+/mob/living/carbon/humanoid/regenerate_clothes()
 	update_inv_wear_id()
 	update_inv_gloves()
 	update_inv_shoes()
@@ -299,11 +299,11 @@ There are several things that need to be remembered:
 /* --------------------------------------- */
 //vvvvvv UPDATE_INV PROCS vvvvvv
 
-/mob/living/carbon/human/update_inv_w_uniform()
+/mob/living/carbon/humanoid/update_inv_w_uniform()
 	return
 
 
-/mob/living/carbon/human/update_inv_neck()
+/mob/living/carbon/humanoid/update_inv_neck()
 	remove_overlay(NECK_LAYER)
 	var/list/offsets = dna?.species?.offset_features
 	if(age == AGE_CHILD)
@@ -332,7 +332,7 @@ There are several things that need to be remembered:
 	update_body()
 	apply_overlay(NECK_LAYER)
 
-/mob/living/carbon/human/update_inv_wear_id()
+/mob/living/carbon/humanoid/update_inv_wear_id()
 	remove_overlay(RING_LAYER)
 	var/list/offsets = dna?.species?.offset_features
 	if(age == AGE_CHILD)
@@ -363,7 +363,7 @@ There are several things that need to be remembered:
 	apply_overlay(RING_LAYER)
 
 
-/mob/living/carbon/human/update_inv_gloves()
+/mob/living/carbon/humanoid/update_inv_gloves()
 	remove_overlay(GLOVES_LAYER)
 	remove_overlay(GLOVESLEEVE_LAYER)
 	var/list/offsets = dna?.species?.offset_features
@@ -442,7 +442,7 @@ There are several things that need to be remembered:
 	apply_overlay(GLOVES_LAYER)
 	apply_overlay(GLOVESLEEVE_LAYER)
 
-/mob/living/carbon/human/update_inv_wrists()
+/mob/living/carbon/humanoid/update_inv_wrists()
 	remove_overlay(WRISTS_LAYER)
 	remove_overlay(WRISTSLEEVE_LAYER)
 	var/list/offsets = dna?.species?.offset_features
@@ -505,15 +505,15 @@ There are several things that need to be remembered:
 	apply_overlay(WRISTS_LAYER)
 	apply_overlay(WRISTSLEEVE_LAYER)
 
-/mob/living/carbon/human/update_inv_glasses()
+/mob/living/carbon/humanoid/update_inv_glasses()
 	return
 
 
-/mob/living/carbon/human/update_inv_ears()
+/mob/living/carbon/humanoid/update_inv_ears()
 	return
 
 
-/mob/living/carbon/human/update_inv_shoes()
+/mob/living/carbon/humanoid/update_inv_shoes()
 	remove_overlay(SHOES_LAYER)
 	remove_overlay(SHOESLEEVE_LAYER)
 	var/list/offsets = dna?.species?.offset_features
@@ -565,11 +565,11 @@ There are several things that need to be remembered:
 	apply_overlay(SHOES_LAYER)
 	apply_overlay(SHOESLEEVE_LAYER)
 
-/mob/living/carbon/human/update_inv_s_store()
+/mob/living/carbon/humanoid/update_inv_s_store()
 	return
 
 
-/mob/living/carbon/human/update_inv_head()
+/mob/living/carbon/humanoid/update_inv_head()
 	remove_overlay(HEAD_LAYER)
 
 	if(!get_bodypart(BODY_ZONE_HEAD)) //Decapitated
@@ -606,7 +606,7 @@ There are several things that need to be remembered:
 
 	update_body() //hoodies
 
-/mob/living/carbon/human/update_inv_belt()
+/mob/living/carbon/humanoid/update_inv_belt()
 	remove_overlay(BELT_LAYER)
 	remove_overlay(BELT_BEHIND_LAYER)
 
@@ -647,7 +647,7 @@ There are several things that need to be remembered:
 					onbelt_overlay = center_image(onbelt_overlay, beltr.inhand_x_dimension, beltr.inhand_y_dimension)
 					onbelt_behind = center_image(onbelt_behind, beltr.inhand_x_dimension, beltr.inhand_y_dimension)
 					if(ishuman(src))
-						var/mob/living/carbon/human/H = src
+						var/mob/living/carbon/humanoid/H = src
 						if(H.dna && H.dna.species)
 							var/list/offsets = H.dna.species.offset_features
 							if(H.age == AGE_CHILD)
@@ -708,7 +708,7 @@ There are several things that need to be remembered:
 					onbelt_overlay = center_image(onbelt_overlay, beltl.inhand_x_dimension, beltl.inhand_y_dimension)
 					onbelt_behind = center_image(onbelt_behind, beltl.inhand_x_dimension, beltl.inhand_y_dimension)
 					if(ishuman(src))
-						var/mob/living/carbon/human/H = src
+						var/mob/living/carbon/humanoid/H = src
 						if(H.dna && H.dna.species)
 							var/list/offsets = H.dna.species.offset_features
 							if(H.age == AGE_CHILD)
@@ -784,13 +784,13 @@ There are several things that need to be remembered:
 
 
 
-/mob/living/carbon/human/update_inv_wear_suit()
+/mob/living/carbon/humanoid/update_inv_wear_suit()
 	return
 
-/mob/living/carbon/human/update_inv_pockets()
+/mob/living/carbon/humanoid/update_inv_pockets()
 	return
 
-/mob/living/carbon/human/update_inv_wear_mask()
+/mob/living/carbon/humanoid/update_inv_wear_mask()
 	..()
 	var/list/offsets = dna?.species?.offset_features
 	if(age == AGE_CHILD)
@@ -815,7 +815,7 @@ There are several things that need to be remembered:
 		overlays_standing[MASK_LAYER] = mask_overlay
 		apply_overlay(MASK_LAYER)
 
-/mob/living/carbon/human/update_inv_back()
+/mob/living/carbon/humanoid/update_inv_back()
 	remove_overlay(BACK_LAYER)
 	remove_overlay(BACK_BEHIND_LAYER)
 	remove_overlay(UNDER_CLOAK_LAYER)
@@ -851,7 +851,7 @@ There are several things that need to be remembered:
 					back_overlay = center_image(back_overlay, backr.inhand_x_dimension, backr.inhand_y_dimension)
 					behindback_overlay = center_image(behindback_overlay, backr.inhand_x_dimension, backr.inhand_y_dimension)
 					if(ishuman(src))
-						var/mob/living/carbon/human/H = src
+						var/mob/living/carbon/humanoid/H = src
 						if(H.dna && H.dna.species)
 							var/list/offsets = H.dna.species.offset_features
 							if(H.age == AGE_CHILD)
@@ -910,7 +910,7 @@ There are several things that need to be remembered:
 					back_overlay = center_image(back_overlay, backl.inhand_x_dimension, backl.inhand_y_dimension)
 					behindback_overlay = center_image(behindback_overlay, backl.inhand_x_dimension, backl.inhand_y_dimension)
 					if(ishuman(src))
-						var/mob/living/carbon/human/H = src
+						var/mob/living/carbon/humanoid/H = src
 						if(H.dna && H.dna.species)
 							var/list/offsets = H.dna.species.offset_features
 							if(H.age == AGE_CHILD)
@@ -958,7 +958,7 @@ There are several things that need to be remembered:
 	apply_overlay(BACK_BEHIND_LAYER)
 	apply_overlay(UNDER_CLOAK_LAYER)
 
-/mob/living/carbon/human/update_inv_cloak()
+/mob/living/carbon/humanoid/update_inv_cloak()
 	remove_overlay(CLOAK_LAYER)
 	remove_overlay(CLOAK_BEHIND_LAYER)
 	remove_overlay(TABARD_LAYER)
@@ -1083,7 +1083,7 @@ There are several things that need to be remembered:
 	apply_overlay(CLOAK_BEHIND_LAYER)
 	apply_overlay(CLOAK_LAYER)
 
-/mob/living/carbon/human/update_inv_shirt()
+/mob/living/carbon/humanoid/update_inv_shirt()
 	remove_overlay(SHIRT_LAYER)
 	remove_overlay(SHIRTSLEEVE_LAYER)
 
@@ -1164,7 +1164,7 @@ There are several things that need to be remembered:
 	apply_overlay(SHIRT_LAYER)
 	apply_overlay(SHIRTSLEEVE_LAYER)
 
-/mob/living/carbon/human/update_inv_armor()
+/mob/living/carbon/humanoid/update_inv_armor()
 	remove_overlay(ARMOR_LAYER)
 	remove_overlay(ARMORSLEEVE_LAYER)
 
@@ -1242,7 +1242,7 @@ There are several things that need to be remembered:
 	apply_overlay(ARMOR_LAYER)
 	apply_overlay(ARMORSLEEVE_LAYER)
 
-/mob/living/carbon/human/update_inv_pants()
+/mob/living/carbon/humanoid/update_inv_pants()
 	remove_overlay(PANTS_LAYER)
 	remove_overlay(LEGSLEEVE_LAYER)
 
@@ -1314,7 +1314,7 @@ There are several things that need to be remembered:
 	apply_overlay(PANTS_LAYER)
 	apply_overlay(LEGSLEEVE_LAYER)
 
-/mob/living/carbon/human/update_inv_mouth()
+/mob/living/carbon/humanoid/update_inv_mouth()
 	remove_overlay(MOUTH_LAYER)
 	var/list/offsets = dna?.species?.offset_features
 	if(age == AGE_CHILD)
@@ -1350,7 +1350,7 @@ There are several things that need to be remembered:
 //endrogue
 
 
-/mob/living/carbon/human/update_inv_legcuffed()
+/mob/living/carbon/humanoid/update_inv_legcuffed()
 	remove_overlay(LEGCUFF_LAYER)
 	clear_alert("legcuffed")
 	if(legcuffed)
@@ -1373,7 +1373,7 @@ There are several things that need to be remembered:
 	return mutable_appearance(GLOB.dismembered_clothing_icons[index], layer = -layer)
 
 
-/mob/living/carbon/human/proc/get_overlays_copy(list/unwantedLayers)
+/mob/living/carbon/humanoid/proc/get_overlays_copy(list/unwantedLayers)
 	var/list/out = new
 	for(var/i in 1 to TOTAL_LAYERS)
 		if(overlays_standing[i])
@@ -1386,7 +1386,7 @@ There are several things that need to be remembered:
 //human HUD updates for items in our inventory
 
 //update whether our head item appears on our hud.
-/mob/living/carbon/human/update_hud_head(obj/item/I)
+/mob/living/carbon/humanoid/update_hud_head(obj/item/I)
 	I.screen_loc = rogueui_head
 	if(client && hud_used && hud_used.hud_shown)
 		if(hud_used.inventory_shown)
@@ -1394,14 +1394,14 @@ There are several things that need to be remembered:
 	update_observer_view(I,1)
 
 //update whether our mask item appears on our hud.
-/mob/living/carbon/human/update_hud_wear_mask(obj/item/I)
+/mob/living/carbon/humanoid/update_hud_wear_mask(obj/item/I)
 	I.screen_loc = rogueui_mask
 	if(client && hud_used && hud_used.hud_shown)
 		if(hud_used.inventory_shown)
 			client.screen += I
 	update_observer_view(I,1)
 
-/mob/living/carbon/human/update_hud_mouth(obj/item/I)
+/mob/living/carbon/humanoid/update_hud_mouth(obj/item/I)
 	I.screen_loc = rogueui_mouth
 	if(client && hud_used && hud_used.hud_shown)
 		if(hud_used.inventory_shown)
@@ -1409,7 +1409,7 @@ There are several things that need to be remembered:
 	update_observer_view(I,1)
 
 //update whether our neck item appears on our hud.
-/mob/living/carbon/human/update_hud_neck(obj/item/I)
+/mob/living/carbon/humanoid/update_hud_neck(obj/item/I)
 	I.screen_loc = rogueui_neck
 	if(client && hud_used && hud_used.hud_shown)
 		if(hud_used.inventory_shown)
@@ -1417,14 +1417,14 @@ There are several things that need to be remembered:
 	update_observer_view(I,1)
 
 //update whether our back item appears on our hud.
-/mob/living/carbon/human/update_hud_back(obj/item/I)
+/mob/living/carbon/humanoid/update_hud_back(obj/item/I)
 	I.screen_loc = ui_back
 	if(client && hud_used && hud_used.hud_shown)
 		client.screen += I
 	update_observer_view(I)
 
 //update whether our back item appears on our hud.
-/mob/living/carbon/human/update_hud_backr(obj/item/I)
+/mob/living/carbon/humanoid/update_hud_backr(obj/item/I)
 	if(I.bigboy)
 		I.screen_loc = "WEST-4:-16,SOUTH+5:-16"
 	else
@@ -1434,7 +1434,7 @@ There are several things that need to be remembered:
 	update_observer_view(I)
 
 //update whether our back item appears on our hud.
-/mob/living/carbon/human/update_hud_backl(obj/item/I)
+/mob/living/carbon/humanoid/update_hud_backl(obj/item/I)
 	if(I.bigboy)
 		I.screen_loc = "WEST-2:-16,SOUTH+5:-16"
 	else
@@ -1695,7 +1695,7 @@ generate/load female uniform sprites matching all previously decided variables
 			return list("x" = 0, "y" = 0)//Handle held offsets
 
 //produces a key based on the human's limbs
-/mob/living/carbon/human/generate_icon_render_key()
+/mob/living/carbon/humanoid/generate_icon_render_key()
 	. = "[dna.species.limbs_id]"
 
 
@@ -1727,13 +1727,13 @@ generate/load female uniform sprites matching all previously decided variables
 	if(HAS_TRAIT(src, TRAIT_HUSK))
 		. += "-husk"
 
-/mob/living/carbon/human/load_limb_from_cache()
+/mob/living/carbon/humanoid/load_limb_from_cache()
 	..()
 	update_body()
 
 
 
-/mob/living/carbon/human/proc/update_observer_view(obj/item/I, inventory)
+/mob/living/carbon/humanoid/proc/update_observer_view(obj/item/I, inventory)
 	if(observers && observers.len)
 		for(var/M in observers)
 			var/mob/dead/observe = M
@@ -1748,7 +1748,7 @@ generate/load female uniform sprites matching all previously decided variables
 					observers = null
 					break
 
-/mob/living/carbon/human/update_body_parts(redraw = FALSE)
+/mob/living/carbon/humanoid/update_body_parts(redraw = FALSE)
 	//CHECK FOR UPDATE
 	var/oldkey = icon_render_key
 	icon_render_key = generate_icon_render_key()
@@ -1799,7 +1799,7 @@ generate/load female uniform sprites matching all previously decided variables
 	return
 
 // Only renders the head of the human
-/mob/living/carbon/human/update_body_parts_head_only()
+/mob/living/carbon/humanoid/update_body_parts_head_only()
 	if (!dna)
 		return
 

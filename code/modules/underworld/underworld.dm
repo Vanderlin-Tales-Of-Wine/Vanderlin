@@ -341,6 +341,6 @@
 
 /obj/effect/landmark/underworldsafe/Crossed(atom/movable/AM, oldloc)
 	if(istype(AM, /mob/living/simple_animal/hostile/dragger))
-		for(var/mob/living/carbon/human/A in view(4))
+		for(var/mob/living/carbon/humanoid/A in view(4))
 			to_chat(A, "The monster's form dematerializes as it nears the Carriage.")
 		qdel(AM)

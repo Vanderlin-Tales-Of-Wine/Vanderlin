@@ -77,7 +77,7 @@
 		terminate_playing(loc)
 		return PROCESS_KILL
 
-	var/mob/living/carbon/human/user = loc
+	var/mob/living/carbon/humanoid/user = loc
 	if(!user.has_status_effect(/datum/status_effect/buff/playing_music)) //someone that isnt't the musician is somehow holding it
 		terminate_playing(loc)
 		return PROCESS_KILL

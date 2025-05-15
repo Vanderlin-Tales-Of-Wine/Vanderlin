@@ -11,12 +11,12 @@
 /datum/heritage
 	var/housename
 	var/datum/species/dominant_species
-	var/mob/living/carbon/human/matriarch
-	var/mob/living/carbon/human/patriarch
+	var/mob/living/carbon/humanoid/matriarch
+	var/mob/living/carbon/humanoid/patriarch
 	var/list/family = list()
 	var/list/family_icons = list()
 
-/datum/heritage/New(mob/living/carbon/human/progenator, new_name, majority_species)
+/datum/heritage/New(mob/living/carbon/humanoid/progenator, new_name, majority_species)
 	if(progenator)
 		if(!new_name)
 			ClaimHouse(progenator)
@@ -31,7 +31,7 @@
 /*
 * Renames entire house. Useful for default houses.
 */
-/datum/heritage/proc/ClaimHouse(mob/living/carbon/human/person)
+/datum/heritage/proc/ClaimHouse(mob/living/carbon/humanoid/person)
 	var/gender_male
 	if(person.gender == MALE)
 		gender_male = TRUE
@@ -42,7 +42,7 @@
 /*
 * Adds someone to the family using a mob and a status.
 */
-/datum/heritage/proc/addToHouse(mob/living/carbon/human/person, status)
+/datum/heritage/proc/addToHouse(mob/living/carbon/humanoid/person, status)
 	//You are not a human. Get outta ere.
 	if(!ishuman(person))
 		return
@@ -92,7 +92,7 @@
 * based on their familial relation to
 * The Looker.
 */
-/datum/heritage/proc/ReturnRelation(mob/living/carbon/human/lookee, mob/living/carbon/human/looker)
+/datum/heritage/proc/ReturnRelation(mob/living/carbon/humanoid/lookee, mob/living/carbon/humanoid/looker)
 	if(lookee == looker)
 		return
 	/*
@@ -158,7 +158,7 @@
 * Transfers someone from another family to
 * our family.
 */
-/datum/heritage/proc/TransferFamilies(mob/living/carbon/human/outsider, status, expel = FALSE)
+/datum/heritage/proc/TransferFamilies(mob/living/carbon/humanoid/outsider, status, expel = FALSE)
 	var/datum/heritage/old_house = outsider.family_datum
 	if(old_house && expel)
 		old_house.ExpelFromHouse(outsider)
@@ -170,7 +170,7 @@
 * Expels a family member from the family.
 * What this means is upto the expeller.
 */
-/datum/heritage/proc/ExpelFromHouse(mob/living/carbon/human/shunned)
+/datum/heritage/proc/ExpelFromHouse(mob/living/carbon/humanoid/shunned)
 	family.Remove(shunned)
 	to_chat(src, "You're no longer part of the [housename] household.")
 
@@ -180,7 +180,7 @@
 * so that admins can click a verb and see
 * all families.
 */
-/datum/heritage/proc/ListFamily(mob/living/carbon/human/checker)
+/datum/heritage/proc/ListFamily(mob/living/carbon/humanoid/checker)
 	if(!checker)
 		return
 	if(!family.len)
@@ -215,7 +215,7 @@
 /datum/heritage/proc/BloodTies()
 	if(!patriarch || !matriarch)
 		return
-	for(var/mob/living/carbon/human/H in family)
+	for(var/mob/living/carbon/humanoid/H in family)
 		var/our_role = family[H]
 		if(our_role == FAMILY_FATHER || our_role == FAMILY_MOTHER)
 			continue
@@ -230,7 +230,7 @@
 * matriarch and patriarch as their
 * biological parents.
 */
-/datum/heritage/proc/BloodRevelation(mob/living/carbon/human/progeny)
+/datum/heritage/proc/BloodRevelation(mob/living/carbon/humanoid/progeny)
 	progeny.MixDNA(patriarch, matriarch)
 
 /*
@@ -286,7 +286,7 @@
 * Taken from marriage alter. This formats a name into its surname
 * if there is one.
 */
-/datum/heritage/proc/SurnameFormatting(mob/living/carbon/human/person)
+/datum/heritage/proc/SurnameFormatting(mob/living/carbon/humanoid/person)
 	//Alright now for the boring surname formatting.
 	var/surname2use
 	var/index = findtext(person.real_name, " ")
@@ -312,7 +312,7 @@
 * Prince and his household name was "Glimmals" then he would
 * become Dan Glimmals.
 */
-/datum/heritage/proc/ForceSurname(mob/living/carbon/human/person, surname2use = housename)
+/datum/heritage/proc/ForceSurname(mob/living/carbon/humanoid/person, surname2use = housename)
 	if(findtext(person.real_name, surname2use))
 		return
 	//Alright now for the boring surname formatting.
@@ -331,10 +331,10 @@
 * If a human is removed from the family while these icons are up
 * there is a chance that the icon will remain and be unremovable.
 */
-/datum/heritage/proc/ApplyUI(mob/living/carbon/human/iconer, toggle_true = FALSE)
+/datum/heritage/proc/ApplyUI(mob/living/carbon/humanoid/iconer, toggle_true = FALSE)
 	if(!iconer.client)
 		return FALSE
-	for(var/mob/living/carbon/human/H in family_icons)
+	for(var/mob/living/carbon/humanoid/H in family_icons)
 		if(toggle_true)
 			iconer.client.images.Remove(family_icons[H])
 			continue
@@ -343,13 +343,13 @@
 		iconer.client.images.Add(family_icons[H])
 
 //Sloppy bandaid way to apply latejoin family member icons.
-/datum/heritage/proc/LateJoinAddToUI(mob/living/carbon/human/new_fam)
-	for(var/mob/living/carbon/human/H in family)
+/datum/heritage/proc/LateJoinAddToUI(mob/living/carbon/humanoid/new_fam)
+	for(var/mob/living/carbon/humanoid/H in family)
 		if(H.family_UI && H.client)
 			H.client.images.Add(family_icons[new_fam])
 
 //Adds family icon to the list.
-/datum/heritage/proc/AddFamilyIcon(mob/living/carbon/human/famicon)
+/datum/heritage/proc/AddFamilyIcon(mob/living/carbon/humanoid/famicon)
 	var/family_role = family[famicon]
 	var/newfamly_icon = CalcFamilyIcon(family_role)
 	if(!family_role)
@@ -361,7 +361,7 @@
 	family_icons[famicon] = I
 	return list(famicon = I)
 
-/mob/living/carbon/human/proc/ApplySpouseUI(toggle_true = FALSE)
+/mob/living/carbon/humanoid/proc/ApplySpouseUI(toggle_true = FALSE)
 	if(!spouse_mob)
 		return
 	if(!spouse_indicator)
@@ -379,7 +379,7 @@
 		return "adopted"
 
 //Lists the users family. Unsure where to put this other than here.
-/mob/living/carbon/human/verb/ReturnFamilyList()
+/mob/living/carbon/humanoid/verb/ReturnFamilyList()
 	set name = "List Family"
 	set category = "Memory"
 	if(spouse_mob)
@@ -390,7 +390,7 @@
 		to_chat(src, "Your not part of any notable family.")
 
 //Applies UI indicators for family members.
-/mob/living/carbon/human/verb/ToggleFamilyUI()
+/mob/living/carbon/humanoid/verb/ToggleFamilyUI()
 	set name = "Toggle Family UI"
 	set category = "Memory"
 	if(spouse_mob)

@@ -143,7 +143,7 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 	var/datum/mind/receiver = pick(get_owners())
 	if(receiver && receiver.current)
 		if(ishuman(receiver.current))
-			var/mob/living/carbon/human/H = receiver.current
+			var/mob/living/carbon/humanoid/H = receiver.current
 			var/list/slots = list("backpack" = SLOT_IN_BACKPACK)
 			for(var/eq_path in special_equipment)
 				var/obj/O = new eq_path
@@ -424,7 +424,7 @@ GLOBAL_LIST_EMPTY(possible_items)
 /datum/objective/capture/check_completion()//Basically runs through all the mobs in the area to determine how much they are worth.
 	var/captured_amount = 0
 	var/area/centcom/holding/A = GLOB.areas_by_type[/area/centcom/holding]
-	for(var/mob/living/carbon/human/M in A)//Humans.
+	for(var/mob/living/carbon/humanoid/M in A)//Humans.
 		if(M.stat == DEAD)//Dead folks are worth less.
 			captured_amount+=0.5
 			continue

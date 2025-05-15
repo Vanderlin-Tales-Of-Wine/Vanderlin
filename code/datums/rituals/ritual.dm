@@ -199,7 +199,7 @@ GLOBAL_LIST_INIT(t2buffrunerituallist, generate_t2buff_rituallist())
 
 /datum/runerituals/proc/parse_required_item(atom/item_path, number_of_things)
 	// If we need a human, there is a high likelihood we actually need a (dead) body
-	if(ispath(item_path, /mob/living/carbon/human))
+	if(ispath(item_path, /mob/living/carbon/humanoid))
 		return "bod[number_of_things > 1 ? "ies" : "y"]"
 	if(ispath(item_path, /mob/living))
 		return "carcass[number_of_things > 1 ? "es" : ""] of any kind"

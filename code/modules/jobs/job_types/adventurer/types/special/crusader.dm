@@ -19,7 +19,7 @@
 /datum/outfit/job/adventurer/crusader
 	allowed_patrons = list(/datum/patron/divine/astrata, /datum/patron/divine/necra, /datum/patron/psydon)
 
-/datum/outfit/job/adventurer/crusader/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/adventurer/crusader/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 
 	head = /obj/item/clothing/head/helmet/heavy/crusader
@@ -94,7 +94,7 @@
 /datum/outfit/job/adventurer/crusader // Reminder message
 	var/tutorial = "<br><br><font color='#bdc34a'><span class='bold'>You have been sent from the Totod Order on a mission to aid your struggle against the Blood Barons somehow. The details of your mission may vary, perhaps to find allies, funding, or a agent of the enemy...</span></font><br><br>"
 
-/datum/outfit/job/adventurer/crusader/post_equip(mob/living/carbon/human/H)
+/datum/outfit/job/adventurer/crusader/post_equip(mob/living/carbon/humanoid/H)
 	..()
 	to_chat(H, tutorial)
 
@@ -151,7 +151,7 @@
 		return TRUE
 	..()
 
-/obj/item/clothing/cloak/cape/crusader/dropped(mob/living/carbon/human/user)
+/obj/item/clothing/cloak/cape/crusader/dropped(mob/living/carbon/humanoid/user)
 	..()
 	if(QDELETED(src))
 		return

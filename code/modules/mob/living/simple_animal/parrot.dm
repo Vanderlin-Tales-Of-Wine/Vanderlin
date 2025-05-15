@@ -669,7 +669,7 @@
 		return
 
 	if(!buckled)
-		for(var/mob/living/carbon/human/H in view(src,1))
+		for(var/mob/living/carbon/humanoid/H in view(src,1))
 			if(H.has_buckled_mobs() && H.buckled_mobs.len >= H.max_buckled_mobs) //Already has a parrot, or is being eaten by a slime
 				continue
 			perch_on_human(H)
@@ -687,7 +687,7 @@
 
 
 
-/mob/living/simple_animal/parrot/proc/perch_on_human(mob/living/carbon/human/H)
+/mob/living/simple_animal/parrot/proc/perch_on_human(mob/living/carbon/humanoid/H)
 	if(!H)
 		return
 	forceMove(get_turf(H))
@@ -835,7 +835,7 @@
 			Possess(parrot_interest)
 	..()
 
-/mob/living/simple_animal/parrot/Poly/ghost/proc/Possess(mob/living/carbon/human/H)
+/mob/living/simple_animal/parrot/Poly/ghost/proc/Possess(mob/living/carbon/humanoid/H)
 	if(!ishuman(H))
 		return
 	parrot_interest = null

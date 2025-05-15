@@ -16,7 +16,7 @@
 	allowed_races = RACES_PLAYER_ALL
 	outfit = /datum/outfit/job/bard
 
-/datum/outfit/job/bard/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/bard/pre_equip(mob/living/carbon/humanoid/H)
 	. = ..()
 	H.mind?.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
@@ -56,7 +56,7 @@
 	H.change_stat(STATKEY_SPD, 2)
 	H.change_stat(STATKEY_STR, -1)
 
-/datum/outfit/job/bard/post_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/job/bard/post_equip(mob/living/carbon/humanoid/H, visualsOnly)
 	. = ..()
 	H.select_equippable(list( \
 		"Harp" = /obj/item/instrument/harp, \

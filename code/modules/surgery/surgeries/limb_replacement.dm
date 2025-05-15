@@ -7,7 +7,7 @@
 		/datum/surgery_step/saw,
 		/datum/surgery_step/replace_limb,
 	)
-	target_mobtypes = list(/mob/living/carbon/human)
+	target_mobtypes = list(/mob/living/carbon/humanoid)
 
 /datum/surgery_step/replace_limb
 	name = "Replace limb"

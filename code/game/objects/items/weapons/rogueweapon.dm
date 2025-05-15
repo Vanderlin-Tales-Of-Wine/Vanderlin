@@ -45,14 +45,14 @@
 		destroy_message = "<span class='warning'>[yea]</span>"
 
 /obj/item/weapon/attack_hand(mob/user)
-	if(istype(user, /mob/living/carbon/human/species/werewolf)) //slop fix
+	if(istype(user, /mob/living/carbon/humanoid/species/werewolf)) //slop fix
 		return TRUE
 	. = ..()
 
 /obj/item/weapon/pickup(mob/user)
 	. = ..()
 	if(HAS_TRAIT(user, TRAIT_RAVOX_CURSE))
-		var/mob/living/carbon/human/H = user
+		var/mob/living/carbon/humanoid/H = user
 		to_chat(H, span_warning("The idea repulses me!"))
 		H.cursed_freak_out()
 		H.Paralyze(20)

@@ -206,7 +206,7 @@
 		return FALSE
 	// funeral + buried will make Journey to Underworld function as return to lobby
 	if(ishuman(corpse))
-		var/mob/living/carbon/human/human_corpse = corpse
+		var/mob/living/carbon/humanoid/human_corpse = corpse
 		human_corpse.funeral = TRUE
 	corpse.mind.remove_antag_datum(/datum/antagonist/zombie)
 	var/mob/dead/observer/ghost
@@ -218,7 +218,7 @@
 			ghost = corpse.get_spirit()
 			if(ghost && ishuman(corpse))
 				var/mob/living/carbon/spirit/spirit = ghost
-				var/mob/living/carbon/human/human_corpse = corpse
+				var/mob/living/carbon/humanoid/human_corpse = corpse
 				if(istype(human_corpse.mouth, /obj/item/coin) && !HAS_TRAIT(corpse, TRAIT_BURIED_COIN_GIVEN))
 					ADD_TRAIT(human_corpse, TRAIT_BURIED_COIN_GIVEN, TRAIT_GENERIC)
 					if(spirit.beingmoved)

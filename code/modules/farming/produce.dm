@@ -17,7 +17,7 @@
 	pixel_x = rand(-5, 5)
 	pixel_y = rand(-5, 5)
 
-/obj/item/reagent_containers/food/snacks/produce/Crossed(mob/living/carbon/human/H)
+/obj/item/reagent_containers/food/snacks/produce/Crossed(mob/living/carbon/humanoid/H)
 	..()
 	if(prob(20))
 		if(istype(H))
@@ -109,11 +109,11 @@
 /obj/item/reagent_containers/food/snacks/produce/apple/on_consume(mob/living/eater)
 	..()
 	if(ishuman(eater))
-		var/mob/living/carbon/human/H = eater
+		var/mob/living/carbon/humanoid/H = eater
 		if(!(H.real_name in bitten_names))
 			bitten_names += H.real_name
 
-/obj/item/reagent_containers/food/snacks/produce/apple/blockproj(mob/living/carbon/human/H)
+/obj/item/reagent_containers/food/snacks/produce/apple/blockproj(mob/living/carbon/humanoid/H)
 	testing("APPLEHITBEGIN")
 	if(prob(98))
 		H.visible_message(span_notice("[H] is saved by the apple!"))
@@ -126,7 +126,7 @@
 /obj/item/reagent_containers/food/snacks/produce/apple/equipped(mob/M)
 	..()
 	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+		var/mob/living/carbon/humanoid/H = M
 		if(H.head == src)
 			testing("equipped applz")
 			equippedloc = H.loc
@@ -135,7 +135,7 @@
 /obj/item/reagent_containers/food/snacks/produce/apple/process()
 	. = ..()
 	if(ishuman(loc))
-		var/mob/living/carbon/human/H = loc
+		var/mob/living/carbon/humanoid/H = loc
 		if(H.head == src)
 			if(equippedloc != H.loc)
 				H.dropItemToGround(H.head)

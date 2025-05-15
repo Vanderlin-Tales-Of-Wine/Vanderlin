@@ -15,7 +15,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb)
 "i" = (
-/mob/living/carbon/human/species/skeleton,
+/mob/living/carbon/humanoid/species/skeleton,
 /obj/effect/landmark/chest_or_mimic,
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb)
@@ -73,7 +73,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb)
 "y" = (
-/mob/living/carbon/human/species/skeleton/npc,
+/mob/living/carbon/humanoid/species/skeleton/npc,
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb)
 "z" = (
@@ -87,7 +87,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb)
 "B" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /obj/effect/landmark/chest_or_mimic,
 /obj/item/clothing/ring/silver/rontz,
 /turf/open/floor/naturalstone,
@@ -124,7 +124,7 @@
 /area/rogue/under/tomb)
 "Q" = (
 /obj/item/weapon/polearm/spear,
-/mob/living/carbon/human/species/skeleton/npc,
+/mob/living/carbon/humanoid/species/skeleton/npc,
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb)
 "R" = (

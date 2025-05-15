@@ -174,7 +174,7 @@
 		return
 	if(!usr.canUseTopic(src, BE_CLOSE) || locked)
 		return
-	var/mob/living/carbon/human/human_mob = usr
+	var/mob/living/carbon/humanoid/human_mob = usr
 	if(href_list["buy"])
 		var/path = text2path(href_list["buy"])
 		if(!ispath(path, /datum/supply_pack))
@@ -245,7 +245,7 @@
 	contents = "<center>GOLDFACE - In the name of greed.<BR>"
 	contents += "<a href='byond://?src=[REF(src)];change=1'>MAMMON LOADED:</a> [budget]<BR>"
 
-	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/humanoid/H = user
 	if(H.job == "Merchant")
 		if(canread)
 			contents += "<a href='byond://?src=[REF(src)];secrets=1'>Secrets</a>"

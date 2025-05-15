@@ -3,7 +3,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb/cave/lava)
 "b" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /obj/structure/fluff/nest,
 /turf/open/floor/volcanic,
 /area/rogue/under/tomb/cave/lava)
@@ -23,7 +23,7 @@
 "f" = (
 /obj/effect/decal/cleanable/blood/gibs/torso,
 /obj/effect/decal/cleanable/blood,
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb/cave/lava)
 "g" = (
@@ -31,7 +31,7 @@
 /turf/open/floor/volcanic,
 /area/rogue/under/tomb/cave/lava)
 "h" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/volcanic,
 /area/rogue/under/tomb/cave/lava)
 "i" = (
@@ -61,7 +61,7 @@
 /area/rogue/under/tomb/cave/lava)
 "r" = (
 /obj/item/natural/rock/random_ore,
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb/cave/lava)
 "t" = (
@@ -76,7 +76,7 @@
 /area/rogue/under/tomb/cave/lava)
 "y" = (
 /obj/item/natural/rock/random_ore,
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/volcanic,
 /area/rogue/under/tomb/cave/lava)
 "A" = (
@@ -111,7 +111,7 @@
 "I" = (
 /obj/effect/decal/cleanable/blood/gibs/down,
 /obj/effect/decal/cleanable/blood,
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb/cave/lava)
 "J" = (

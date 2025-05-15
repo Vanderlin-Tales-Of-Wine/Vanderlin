@@ -37,7 +37,7 @@
 			spawn_turf = get_step(spawn_turf, EAST)
 
 
-		var/mob/living/carbon/human/species/human/northern/human = new(spawn_turf)
+		var/mob/living/carbon/humanoid/species/human/northern/human = new(spawn_turf)
 
 		human.skin_tone = "#9d8d6e"
 		human.set_hair_style(hair, FALSE)

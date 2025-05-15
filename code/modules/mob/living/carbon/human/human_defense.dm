@@ -1,4 +1,4 @@
-/mob/living/carbon/human/getarmor(def_zone, type, damage, armor_penetration, blade_dulling)
+/mob/living/carbon/humanoid/getarmor(def_zone, type, damage, armor_penetration, blade_dulling)
 	var/armorval = 0
 	var/organnum = 0
 
@@ -14,7 +14,7 @@
 	return (armorval/max(organnum, 1))
 
 
-/mob/living/carbon/human/proc/checkarmor(def_zone, d_type, damage, armor_penetration, blade_dulling)
+/mob/living/carbon/humanoid/proc/checkarmor(def_zone, d_type, damage, armor_penetration, blade_dulling)
 	if(!d_type)
 		return 0
 	if(isbodypart(def_zone))
@@ -67,7 +67,7 @@
 		protection += physiology.armor.getRating(d_type)
 	return protection
 
-/mob/living/carbon/human/proc/checkcritarmor(def_zone, d_type)
+/mob/living/carbon/humanoid/proc/checkcritarmor(def_zone, d_type)
 	if(!d_type)
 		return 0
 	if(isbodypart(def_zone))
@@ -84,12 +84,12 @@
 					if(d_type in C.prevent_crits)
 						return TRUE
 
-/mob/living/carbon/human/on_hit(obj/projectile/P)
+/mob/living/carbon/humanoid/on_hit(obj/projectile/P)
 	if(dna && dna.species)
 		dna.species.on_hit(P, src)
 
 
-/mob/living/carbon/human/bullet_act(obj/projectile/P, def_zone = BODY_ZONE_CHEST)
+/mob/living/carbon/humanoid/bullet_act(obj/projectile/P, def_zone = BODY_ZONE_CHEST)
 	if(dna && dna.species)
 		var/spec_return = dna.species.bullet_act(P, src, def_zone)
 		if(spec_return)
@@ -135,7 +135,7 @@
 			return BULLET_ACT_HIT
 	return ..(P, def_zone)
 
-/mob/living/carbon/human/proc/check_reflect(def_zone) //Reflection checks for anything in my l_hand, r_hand, or wear_armor based on the reflection chance of the object
+/mob/living/carbon/humanoid/proc/check_reflect(def_zone) //Reflection checks for anything in my l_hand, r_hand, or wear_armor based on the reflection chance of the object
 	if(wear_armor)
 		if(wear_armor.IsReflect(def_zone) == 1)
 			return 1
@@ -144,7 +144,7 @@
 			return 1
 	return 0
 
-/mob/living/carbon/human/proc/check_shields(atom/AM, damage, attack_text = "the attack", attack_type = MELEE_ATTACK, armor_penetration = 0)
+/mob/living/carbon/humanoid/proc/check_shields(atom/AM, damage, attack_text = "the attack", attack_type = MELEE_ATTACK, armor_penetration = 0)
 	var/block_chance_modifier = round(damage / -3)
 
 	for(var/obj/item/I in held_items)
@@ -170,13 +170,13 @@
 			return TRUE
 	return FALSE
 
-/mob/living/carbon/human/proc/check_block()
+/mob/living/carbon/humanoid/proc/check_block()
 	if(mind)
 		if(mind.martial_art && prob(mind.martial_art.block_chance) && mind.martial_art.can_use(src) && in_throw_mode && !incapacitated(FALSE, TRUE))
 			return TRUE
 	return FALSE
 
-/mob/living/carbon/human/hitby(atom/movable/AM, skipcatch = FALSE, hitpush = TRUE, blocked = FALSE, datum/thrownthing/throwingdatum, damage_type = "blunt")
+/mob/living/carbon/humanoid/hitby(atom/movable/AM, skipcatch = FALSE, hitpush = TRUE, blocked = FALSE, datum/thrownthing/throwingdatum, damage_type = "blunt")
 	if(dna && dna.species)
 		var/spec_return = dna.species.spec_hitby(AM, src)
 		if(spec_return)
@@ -207,13 +207,13 @@
 
 	return ..()
 
-/mob/living/carbon/human/grippedby(mob/living/user, instant = FALSE)
+/mob/living/carbon/humanoid/grippedby(mob/living/user, instant = FALSE)
 	if(wear_pants)
 		wear_pants.add_fingerprint(user)
 	. = ..()
 
 
-/mob/living/carbon/human/attacked_by(obj/item/I, mob/living/user)
+/mob/living/carbon/humanoid/attacked_by(obj/item/I, mob/living/user)
 	if(!I || !user)
 		return 0
 
@@ -239,14 +239,14 @@
 	// the attacked_by code varies among species
 	return dna.species.spec_attacked_by(I, user, affecting, used_intent, src, useder)
 
-/mob/living/carbon/human/attack_hand(mob/user)
+/mob/living/carbon/humanoid/attack_hand(mob/user)
 	if(..())	//to allow surgery to return properly.
 		return
 	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+		var/mob/living/carbon/humanoid/H = user
 		dna.species.spec_attack_hand(H, src)
 
-/mob/living/carbon/human/attack_paw(mob/living/carbon/monkey/M)
+/mob/living/carbon/humanoid/attack_paw(mob/living/carbon/monkey/M)
 	var/dam_zone = pick(BODY_ZONE_CHEST, BODY_ZONE_PRECISE_L_HAND, BODY_ZONE_PRECISE_R_HAND, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
 	var/obj/item/bodypart/affecting = get_bodypart(ran_zone(dam_zone))
 	if(!affecting)
@@ -290,7 +290,7 @@
 		return 1
 
 
-/mob/living/carbon/human/attack_animal(mob/living/simple_animal/M)
+/mob/living/carbon/humanoid/attack_animal(mob/living/simple_animal/M)
 	. = ..()
 	if(.)
 		var/damage = rand(M.melee_damage_lower, M.melee_damage_upper)
@@ -321,7 +321,7 @@
 		if(nodmg)
 			return FALSE
 
-/mob/living/carbon/human/ex_act(severity, target, epicenter, devastation_range, heavy_impact_range, light_impact_range, flame_range)
+/mob/living/carbon/humanoid/ex_act(severity, target, epicenter, devastation_range, heavy_impact_range, light_impact_range, flame_range)
 	..()
 	if (!severity)
 		return
@@ -387,7 +387,7 @@
 					break
 
 ///Calculates the siemens coeff based on clothing and species, can also restart hearts.
-/mob/living/carbon/human/electrocute_act(shock_damage, source, siemens_coeff = 1, flags = NONE)
+/mob/living/carbon/humanoid/electrocute_act(shock_damage, source, siemens_coeff = 1, flags = NONE)
 	//Calculates the siemens coeff based on clothing. Completely ignores the arguments
 	if(flags & SHOCK_TESLA) //I hate this entire block. This gets the siemens_coeff for tesla shocks
 		if(gloves && gloves.siemens_coefficient <= 0)
@@ -409,7 +409,7 @@
 		return
 	electrocution_animation(40)
 
-/mob/living/carbon/human/acid_act(acidpwr, acid_volume, bodyzone_hit) //todo: update this to utilize check_obscured_slots() //and make sure it's check_obscured_slots(TRUE) to stop aciding through visors etc
+/mob/living/carbon/humanoid/acid_act(acidpwr, acid_volume, bodyzone_hit) //todo: update this to utilize check_obscured_slots() //and make sure it's check_obscured_slots(TRUE) to stop aciding through visors etc
 	var/list/damaged = list()
 	var/list/inventory_items_to_kill = list()
 	var/acidity = acidpwr * min(acid_volume*0.005, 0.1)
@@ -546,7 +546,7 @@
 		I.acid_act(acidpwr, acid_volume)
 	return 1
 
-/mob/living/carbon/human/help_shake_act(mob/living/carbon/M)
+/mob/living/carbon/humanoid/help_shake_act(mob/living/carbon/M)
 	if(!istype(M))
 		return
 
@@ -567,7 +567,7 @@
 
 	return ..()
 
-/mob/living/carbon/human/proc/check_for_injuries(mob/user = src, advanced = FALSE, silent = FALSE, additional = FALSE)
+/mob/living/carbon/humanoid/proc/check_for_injuries(mob/user = src, advanced = FALSE, silent = FALSE, additional = FALSE)
 	var/list/examination = list("<span class='info'>ø ------------ ø")
 	var/m1
 	var/deep_examination = advanced
@@ -633,7 +633,7 @@
 		to_chat(user, examination.Join("\n"))
 	return examination
 
-/mob/living/carbon/human/proc/check_limb_for_injuries(mob/user = src, choice = BODY_ZONE_CHEST, advanced = FALSE, silent = FALSE)
+/mob/living/carbon/humanoid/proc/check_limb_for_injuries(mob/user = src, choice = BODY_ZONE_CHEST, advanced = FALSE, silent = FALSE)
 	choice = check_zone(choice)
 	var/list/examination = list("<span class='info'>ø ------------ ø")
 	var/deep_examination = advanced
@@ -658,7 +658,7 @@
 		to_chat(user, examination.Join("\n"))
 	return examination
 
-/mob/living/carbon/human/damage_clothes(damage_amount, damage_type = BRUTE, damage_flag = 0, def_zone)
+/mob/living/carbon/humanoid/damage_clothes(damage_amount, damage_type = BRUTE, damage_flag = 0, def_zone)
 	if(damage_type != BRUTE && damage_type != BURN)
 		return
 	damage_amount *= 0.5 //0.5 multiplier for balance reason, we don't want clothes to be too easily destroyed

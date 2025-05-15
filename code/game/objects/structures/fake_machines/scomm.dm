@@ -120,7 +120,7 @@
 		return
 	if(!ishuman(speaker))
 		return
-	var/mob/living/carbon/human/H = speaker
+	var/mob/living/carbon/humanoid/H = speaker
 	if(!listening)
 		return
 	var/usedcolor = H.voice_color
@@ -246,7 +246,7 @@
 		return
 	if(!ishuman(speaker))
 		return
-	var/mob/living/carbon/human/H = speaker
+	var/mob/living/carbon/humanoid/H = speaker
 	if(!listening)
 		return
 	var/usedcolor = H.voice_color

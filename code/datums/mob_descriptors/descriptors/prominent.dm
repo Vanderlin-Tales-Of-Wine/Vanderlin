@@ -109,7 +109,7 @@
 /datum/mob_descriptor/prominent/thick_tail/can_describe(mob/living/described)
 	if(!ishuman(described))
 		return TRUE
-	var/mob/living/carbon/human/human = described
+	var/mob/living/carbon/humanoid/human = described
 	if(!human.getorganslot(ORGAN_SLOT_TAIL))
 		return FALSE
 	return TRUE

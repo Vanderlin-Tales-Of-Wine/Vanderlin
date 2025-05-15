@@ -182,7 +182,7 @@ GLOBAL_LIST_INIT(ghost_verbs, list(
 
 		if(draw_icon)
 			if(ishuman(body))
-//				var/mob/living/carbon/human/body_human = body
+//				var/mob/living/carbon/humanoid/body_human = body
 //				var/icon/out_icon = icon('icons/effects/effects.dmi', "nothing")
 //				var/od = body_human.dir
 //				for(var/D in GLOB.cardinals)
@@ -354,7 +354,7 @@ Works together with spawning an observer, noted above.
 		ghost.add_client_colour(/datum/client_colour/monochrome)
 		return ghost
 
-/mob/living/carbon/human/ghostize(can_reenter_corpse = 1, force_respawn = FALSE, drawskip = FALSE)
+/mob/living/carbon/humanoid/ghostize(can_reenter_corpse = 1, force_respawn = FALSE, drawskip = FALSE)
 	if(mind)
 		if(mind.has_antag_datum(/datum/antagonist/zombie))
 			if(force_respawn)
@@ -582,7 +582,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	var/skipprocess = FALSE
 /*
 /mob/dead/observer/proc/jumptorandom()
-	var/mob/living/carbon/human/target = pick(gethaunt())
+	var/mob/living/carbon/humanoid/target = pick(gethaunt())
 	if(myfriends)
 		for(var/A in myfriends)
 			if(target.real_name && A == target.real_name)
@@ -846,7 +846,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 	var/list/possessible = list()
 	for(var/mob/living/L in GLOB.alive_mob_list)
-		if(istype(L,/mob/living/carbon/human/dummy) || !get_turf(L)) //Haha no.
+		if(istype(L,/mob/living/carbon/humanoid/dummy) || !get_turf(L)) //Haha no.
 			continue
 		if(!(L in GLOB.player_list) && !L.mind)
 			possessible += L
@@ -1056,7 +1056,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 /mob/dead/observer/CtrlShiftClick(mob/user)
 	if(isobserver(user) && check_rights(R_SPAWN))
-		change_mob_type( /mob/living/carbon/human , null, null, TRUE) //always delmob, ghosts shouldn't be left lingering
+		change_mob_type( /mob/living/carbon/humanoid , null, null, TRUE) //always delmob, ghosts shouldn't be left lingering
 
 /mob/dead/observer/examine(mob/user)
 	. = ..()

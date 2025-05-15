@@ -34,7 +34,7 @@
 			return
 	..()
 
-/obj/structure/fluff/millstone/attack_right(mob/living/carbon/human/user)
+/obj/structure/fluff/millstone/attack_right(mob/living/carbon/humanoid/user)
 	. = ..()
 	var/obj/item/item = input("Choose an item to remove") as anything in millable_contents
 	if(!item)

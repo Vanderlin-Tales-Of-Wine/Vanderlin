@@ -43,7 +43,7 @@
 		looted = TRUE
 		switch(lootroll)
 			if(1)
-				new /mob/living/carbon/human/species/skeleton/npc(mastert)
+				new /mob/living/carbon/humanoid/species/skeleton/npc(mastert)
 				new /obj/structure/closet/crate/chest/lootbox(mastert)
 			if(2)
 				new /obj/structure/closet/crate/chest/lootbox(mastert)
@@ -251,11 +251,11 @@
 		return FALSE
 	take_contents()
 	for(var/mob/A in contents)
-		if((A.stat) && (istype(A, /mob/living/carbon/human)))
-			var/mob/living/carbon/human/B = A
+		if((A.stat) && (istype(A, /mob/living/carbon/humanoid)))
+			var/mob/living/carbon/humanoid/B = A
 			B.buried = TRUE
 	for(var/obj/structure/closet/crate/coffin/C in contents)
-		for(var/mob/living/carbon/human/D in C.contents)
+		for(var/mob/living/carbon/humanoid/D in C.contents)
 			D.buried = TRUE
 	opened = FALSE
 //	update_icon()
@@ -263,8 +263,8 @@
 
 /obj/structure/closet/dirthole/dump_contents()
 	for(var/mob/A in contents)
-		if((!A.stat) && (istype(A, /mob/living/carbon/human)))
-			var/mob/living/carbon/human/B = A
+		if((!A.stat) && (istype(A, /mob/living/carbon/humanoid)))
+			var/mob/living/carbon/humanoid/B = A
 			B.buried = FALSE
 	..()
 

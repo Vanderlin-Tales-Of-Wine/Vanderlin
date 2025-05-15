@@ -106,7 +106,7 @@
 	var/aspirant
 
 /datum/objective/aspirant/coup/two/check_completion()
-	var/mob/living/carbon/human/kin = initialruler
+	var/mob/living/carbon/humanoid/kin = initialruler
 	if(!initialruler)
 		return FALSE
 	if(!kin.stat)

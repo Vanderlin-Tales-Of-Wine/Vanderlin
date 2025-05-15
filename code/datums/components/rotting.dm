@@ -96,7 +96,7 @@
 	if(shouldupdate)
 		if(findonerotten)
 			if(ishuman(C))
-				var/mob/living/carbon/human/H = C
+				var/mob/living/carbon/humanoid/H = C
 				H.skin_tone = "878f79" //elf ears
 			if(soundloop && soundloop.stopped && !is_zombie)
 				soundloop.start()

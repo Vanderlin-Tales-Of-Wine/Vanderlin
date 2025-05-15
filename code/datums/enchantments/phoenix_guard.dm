@@ -3,7 +3,7 @@
 	examine_text = "It gives off radiant heat."
 	var/last_used
 
-/datum/enchantment/phoenix_guard/on_hit_response(obj/item/I, mob/living/carbon/human/owner, mob/living/carbon/human/attacker)
+/datum/enchantment/phoenix_guard/on_hit_response(obj/item/I, mob/living/carbon/humanoid/owner, mob/living/carbon/humanoid/attacker)
 	if(world.time < src.last_used + 100)
 		return
 	attacker.adjust_fire_stacks(5)

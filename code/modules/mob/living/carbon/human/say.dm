@@ -1,16 +1,16 @@
-/mob/living/carbon/human/say_mod(input, message_mode)
+/mob/living/carbon/humanoid/say_mod(input, message_mode)
 	verb_say = dna.species.say_mod
 	if(slurring)
 		return "slurs"
 	else
 		. = ..()
 
-/mob/living/carbon/human/GetVoice()
+/mob/living/carbon/humanoid/GetVoice()
 	if(GetSpecialVoice())
 		return GetSpecialVoice()
 	return real_name
 
-/mob/living/carbon/human/IsVocal()
+/mob/living/carbon/humanoid/IsVocal()
 	// how do species that don't breathe talk? magic, that's what.
 	if(!HAS_TRAIT_FROM(src, TRAIT_NOBREATH, SPECIES_TRAIT) && !getorganslot(ORGAN_SLOT_LUNGS))
 		return FALSE
@@ -18,19 +18,19 @@
 		return !mind.miming
 	return TRUE
 
-/mob/living/carbon/human/proc/SetSpecialVoice(new_voice)
+/mob/living/carbon/humanoid/proc/SetSpecialVoice(new_voice)
 	if(new_voice)
 		special_voice = new_voice
 	return
 
-/mob/living/carbon/human/proc/UnsetSpecialVoice()
+/mob/living/carbon/humanoid/proc/UnsetSpecialVoice()
 	special_voice = ""
 	return
 
-/mob/living/carbon/human/proc/GetSpecialVoice()
+/mob/living/carbon/humanoid/proc/GetSpecialVoice()
 	return special_voice
 
-/mob/living/carbon/human/radio(message, message_mode, list/spans, language)
+/mob/living/carbon/humanoid/radio(message, message_mode, list/spans, language)
 	. = ..()
 	if(. != 0)
 		return .
@@ -53,11 +53,11 @@
 
 	return 0
 
-/mob/living/carbon/human/get_alt_name()
+/mob/living/carbon/humanoid/get_alt_name()
 	if(name != GetVoice())
 		return "Unknown [(gender == FEMALE) ? "Woman" : "Man"]"
 
-/mob/living/carbon/human/proc/forcesay(list/append) //this proc is at the bottom of the file because quote fuckery makes notepad++ cri
+/mob/living/carbon/humanoid/proc/forcesay(list/append) //this proc is at the bottom of the file because quote fuckery makes notepad++ cri
 	if(stat == CONSCIOUS)
 		if(client)
 			var/virgin = 1	//has the text been modified yet?
@@ -88,13 +88,13 @@
 					say(temp)
 				winset(client, "input", "text=[null]")
 
-/mob/living/carbon/human/send_speech(message, message_range = 6, obj/source = src, bubble_type = bubble_icon, list/spans, datum/language/message_language=null, message_mode, original_message)
+/mob/living/carbon/humanoid/send_speech(message, message_range = 6, obj/source = src, bubble_type = bubble_icon, list/spans, datum/language/message_language=null, message_mode, original_message)
 	. = ..()
 	if(message_mode != MODE_WHISPER)
 		send_voice(message)
 
 /*
-/mob/living/carbon/human/proc/send_voice(message, skip_thingy)
+/mob/living/carbon/humanoid/proc/send_voice(message, skip_thingy)
 	if(!message || !length(message))
 		return
 	var/numessage = message
@@ -128,11 +128,11 @@
 			sleep(1)
 */
 
-/mob/living/carbon/human/proc/send_voice(message, skip_thingy)
+/mob/living/carbon/humanoid/proc/send_voice(message, skip_thingy)
 	if(!message || !length(message))
 		return
 	if(dna.species)
 		dna.species.send_voice(src)
 
-/datum/species/proc/send_voice(mob/living/carbon/human/H)
+/datum/species/proc/send_voice(mob/living/carbon/humanoid/H)
 	playsound(get_turf(H), 'sound/misc/talk.ogg', 100, FALSE, -1)

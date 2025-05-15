@@ -16,11 +16,11 @@
 		else
 			L += job
 		for(var/J in L)
-			for(var/mob/living/carbon/human/X in GLOB.human_list)
+			for(var/mob/living/carbon/humanoid/X in GLOB.human_list)
 				if(X.job == J)
 					names_to |= X.real_name
 	if(names_to.len)
-		for(var/mob/living/carbon/human/X in GLOB.human_list)
+		for(var/mob/living/carbon/humanoid/X in GLOB.human_list)
 			if(X.real_name in names_to)
 				if(!X.stat)
 					to_chat(X, "<span class='info'>[msg]</span>")
@@ -90,7 +90,7 @@ SUBSYSTEM_DEF(treasury)
 		amt_to_generate = amt_to_generate - (amt_to_generate * queens_tax)
 		amt_to_generate = round(amt_to_generate)
 		give_money_treasury(amt_to_generate, "Wealth Horde")
-		for(var/mob/living/carbon/human/X in GLOB.human_list)
+		for(var/mob/living/carbon/humanoid/X in GLOB.human_list)
 			if(!X.mind)
 				continue
 			if(is_lord_job(X.mind.assigned_role) || is_consort_job(X.mind.assigned_role) || is_steward_job(X.mind.assigned_role))
@@ -172,8 +172,8 @@ SUBSYSTEM_DEF(treasury)
 		return
 	amt = floor(amt)
 	var/target_name = target
-	if(istype(target,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = target
+	if(istype(target,/mob/living/carbon/humanoid))
+		var/mob/living/carbon/humanoid/H = target
 		target_name = H.real_name
 	var/found_account
 	for(var/X in bank_accounts)
@@ -212,7 +212,7 @@ SUBSYSTEM_DEF(treasury)
 ///@param amt: The amount of money to deposit.
 ///@param character: The character making the deposit.
 ///@return a list(original deposit, taxed amount) if the money was successfully deposited, FALSE otherwise.
-/datum/controller/subsystem/treasury/proc/generate_money_account(amt, mob/living/carbon/human/character)
+/datum/controller/subsystem/treasury/proc/generate_money_account(amt, mob/living/carbon/humanoid/character)
 	if(!amt)
 		return FALSE
 	if(!character)
@@ -239,8 +239,8 @@ SUBSYSTEM_DEF(treasury)
 	if(!amt)
 		return
 	var/target_name = target
-	if(istype(target_name,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = target_name
+	if(istype(target_name,/mob/living/carbon/humanoid))
+		var/mob/living/carbon/humanoid/H = target_name
 		target_name = H.real_name
 	var/found_account
 	for(var/X in bank_accounts)

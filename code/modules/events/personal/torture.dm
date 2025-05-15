@@ -17,7 +17,7 @@
 	if(!.)
 		return FALSE
 
-	for(var/mob/living/carbon/human/H in GLOB.player_list)
+	for(var/mob/living/carbon/humanoid/H in GLOB.player_list)
 		if(!istype(H) || H.stat == DEAD || !H.client)
 			continue
 		if(!H.patron || !istype(H.patron, /datum/patron/inhumen/zizo))
@@ -29,7 +29,7 @@
 /datum/round_event/zizo_torture/start()
 	var/list/valid_targets = list()
 
-	for(var/mob/living/carbon/human/human_mob in GLOB.player_list)
+	for(var/mob/living/carbon/humanoid/human_mob in GLOB.player_list)
 		if(!istype(human_mob) || human_mob.stat == DEAD || !human_mob.client)
 			continue
 		if(!human_mob.patron || !istype(human_mob.patron, /datum/patron/inhumen/zizo))
@@ -39,12 +39,12 @@
 	if(!valid_targets.len)
 		return
 
-	var/mob/living/carbon/human/chosen_one = pick(valid_targets)
+	var/mob/living/carbon/humanoid/chosen_one = pick(valid_targets)
 
 	var/datum/objective/torture/new_objective = new(owner = chosen_one.mind)
 	chosen_one.mind.add_personal_objective(new_objective)
 
-	chosen_one.verbs |= /mob/living/carbon/human/proc/torture_victim
+	chosen_one.verbs |= /mob/living/carbon/humanoid/proc/torture_victim
 
 	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
 	to_chat(chosen_one, span_biginfo("Zizo demands suffering! Extract information through pain to earn Zizo's favor!"))

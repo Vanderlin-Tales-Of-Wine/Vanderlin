@@ -24,7 +24,7 @@
 
 /datum/job/guardsman/after_spawn(mob/living/spawned, client/player_client)
 	..()
-	var/mob/living/carbon/human/H = spawned
+	var/mob/living/carbon/humanoid/H = spawned
 	if(istype(H.cloak, /obj/item/clothing/cloak/half/guard))
 		var/obj/item/clothing/S = H.cloak
 		var/index = findtext(H.real_name, " ")
@@ -35,7 +35,7 @@
 		S.name = "guard's half cloak ([index])"
 
 //................. City Watchmen Base .............. //
-/datum/outfit/job/guardsman/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/guardsman/pre_equip(mob/living/carbon/humanoid/H)
 	. = ..()
 	cloak = pick(/obj/item/clothing/cloak/half/guard, /obj/item/clothing/cloak/half/guardsecond)
 	head = /obj/item/clothing/head/helmet/townwatch
@@ -55,7 +55,7 @@
 	outfit = /datum/outfit/job/guardsman/footman
 	category_tags = list(CTAG_GARRISON)
 
-/datum/outfit/job/guardsman/footman/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/guardsman/footman/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	neck = /obj/item/clothing/neck/gorget
 	armor = /obj/item/clothing/armor/chainmail
@@ -92,7 +92,7 @@
 	outfit = /datum/outfit/job/guardsman/archer
 	category_tags = list(CTAG_GARRISON)
 
-/datum/outfit/job/guardsman/archer/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/guardsman/archer/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	neck = /obj/item/clothing/neck/chaincoif
 	armor = /obj/item/clothing/armor/gambeson/heavy
@@ -135,7 +135,7 @@
 
 	category_tags = list(CTAG_GARRISON)
 
-/datum/outfit/job/guardsman/pikeman/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/guardsman/pikeman/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	armor = /obj/item/clothing/armor/chainmail
 	shirt = /obj/item/clothing/armor/gambeson

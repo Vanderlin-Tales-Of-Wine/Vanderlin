@@ -14,7 +14,7 @@
 		"PSYDON LIVES!",
 	)
 
-/datum/patron/psydon/can_pray(mob/living/carbon/human/follower)
+/datum/patron/psydon/can_pray(mob/living/carbon/humanoid/follower)
 	//We just kind of assume the follower is a human here
 	if(istype(follower.wear_neck, /obj/item/clothing/neck/psycross))
 		return TRUE

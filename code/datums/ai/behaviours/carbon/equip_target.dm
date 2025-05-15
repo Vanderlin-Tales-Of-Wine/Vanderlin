@@ -11,7 +11,7 @@
 /datum/ai_behavior/equip_target/perform(seconds_per_tick, datum/ai_controller/controller, target_key)
 	. = ..()
 	var/obj/item/target = controller.blackboard[target_key]
-	var/mob/living/carbon/human/pawn = controller.pawn
+	var/mob/living/carbon/humanoid/pawn = controller.pawn
 	if(!isturf(target.loc))
 		finish_action(controller, FALSE, target_key)
 		return

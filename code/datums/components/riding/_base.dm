@@ -205,7 +205,7 @@
 		vehicle_move_delay = vehicle_move_delay - slowvalue
 		slowed = FALSE
 
-/datum/component/riding/proc/equip_buckle_inhands(mob/living/carbon/human/user, amount_required = 1, riding_target_override = null)
+/datum/component/riding/proc/equip_buckle_inhands(mob/living/carbon/humanoid/user, amount_required = 1, riding_target_override = null)
 	var/atom/movable/AM = parent
 	var/amount_equipped = 0
 	for(var/amount_needed = amount_required, amount_needed > 0, amount_needed--)

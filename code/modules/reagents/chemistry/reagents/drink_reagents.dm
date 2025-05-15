@@ -12,7 +12,7 @@
 		M.heal_bodypart_damage(1,0, 0)
 		. = 1
 	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+		var/mob/living/carbon/humanoid/H = M
 		if(!HAS_TRAIT(H, TRAIT_NOHUNGER))
 			H.adjust_hydration(10)
 		if(H.blood_volume < BLOOD_VOLUME_NORMAL)

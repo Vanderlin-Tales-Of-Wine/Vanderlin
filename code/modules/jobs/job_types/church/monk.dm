@@ -26,7 +26,7 @@
 	allowed_patrons = ALL_TEMPLE_PATRONS
 	job_bitflag = BITFLAG_CHURCH
 
-/datum/outfit/job/monk/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/monk/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	H.virginity = TRUE
 	belt = /obj/item/storage/belt/leather/rope
@@ -171,5 +171,5 @@
 			to_chat(H, "<span class='info'>I can speak Celestial with ,c before my speech.</span>")
 
 	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(H, H.patron)
-	H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
+	H.verbs += list(/mob/living/carbon/humanoid/proc/devotionreport, /mob/living/carbon/humanoid/proc/clericpray)
 	C.grant_spells(H)

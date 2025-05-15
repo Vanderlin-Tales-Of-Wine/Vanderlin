@@ -6,7 +6,7 @@
 		/datum/surgery_step/heal,
 		/datum/surgery_step/cauterize,
 	)
-	target_mobtypes = list(/mob/living/carbon/human, /mob/living/carbon/monkey)
+	target_mobtypes = list(/mob/living/carbon/humanoid, /mob/living/carbon/monkey)
 	possible_locs = list(BODY_ZONE_CHEST)
 
 /datum/surgery_step/heal
@@ -17,7 +17,7 @@
 		TOOL_IMPROVISED_HEMOSTAT = 50,
 		TOOL_SCREWDRIVER = 50,
 	)
-	target_mobtypes = list(/mob/living/carbon/human, /mob/living/carbon/monkey)
+	target_mobtypes = list(/mob/living/carbon/humanoid, /mob/living/carbon/monkey)
 	time = 4 SECONDS
 	requires_tech = TRUE
 	replaced_by = /datum/surgery_step

@@ -26,7 +26,7 @@
 /datum/outfit/job/dungeoneer
 	job_bitflag = BITFLAG_GARRISON
 
-/datum/outfit/job/dungeoneer/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/dungeoneer/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	head = /obj/item/clothing/head/menacing
 	neck = /obj/item/storage/belt/pouch/coins/poor	// Small storage. N.
@@ -60,4 +60,4 @@
 	if(H.dna?.species)
 		if(H.dna.species.id == "human")
 			H.dna.species.soundpack_m = new /datum/voicepack/male/warrior()
-	H.verbs |= /mob/living/carbon/human/proc/torture_victim
+	H.verbs |= /mob/living/carbon/humanoid/proc/torture_victim

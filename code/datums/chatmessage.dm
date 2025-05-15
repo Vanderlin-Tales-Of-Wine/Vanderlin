@@ -83,7 +83,7 @@
 
 	// Calculate target color if not already present
 	if(ishuman(target))
-		var/mob/living/carbon/human/H = target
+		var/mob/living/carbon/humanoid/H = target
 		if(H.voice_color && (target.chat_color != H.voice_color))
 			target.chat_color = "#[H.voice_color]"
 			target.chat_color_darkened = target.chat_color

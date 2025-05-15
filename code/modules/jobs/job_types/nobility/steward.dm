@@ -25,7 +25,7 @@
 /datum/outfit/job/steward
 	job_bitflag = BITFLAG_ROYALTY
 
-/datum/outfit/job/steward/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/steward/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	H.virginity = TRUE
 	if(H.gender == FEMALE)

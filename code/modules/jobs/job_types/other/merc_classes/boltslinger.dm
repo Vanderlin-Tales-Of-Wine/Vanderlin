@@ -8,7 +8,7 @@
 	maximum_possible_slots = 5
 
 
-/datum/outfit/job/mercenary/boltslinger/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/mercenary/boltslinger/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	shoes = /obj/item/clothing/shoes/boots/leather
 	cloak = /obj/item/clothing/cloak/half

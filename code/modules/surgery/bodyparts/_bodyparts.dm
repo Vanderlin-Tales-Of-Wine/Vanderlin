@@ -132,7 +132,7 @@
 		qdel(wound)
 	return ..()
 
-/obj/item/bodypart/onbite(mob/living/carbon/human/user)
+/obj/item/bodypart/onbite(mob/living/carbon/humanoid/user)
 	if((user.mind && user.mind.has_antag_datum(/datum/antagonist/zombie)) || istype(user.dna.species, /datum/species/werewolf))
 		if(user.has_status_effect(/datum/status_effect/debuff/silver_curse))
 			to_chat(user, span_notice("My power is weakened, I cannot heal!"))
@@ -184,7 +184,7 @@
 
 /obj/item/bodypart/attack(mob/living/carbon/C, mob/user)
 	if(ishuman(C))
-		var/mob/living/carbon/human/H = C
+		var/mob/living/carbon/humanoid/H = C
 		if(HAS_TRAIT(C, TRAIT_LIMBATTACHMENT))
 			if(!H.get_bodypart(body_zone) && !animal_origin)
 				if(H == user)
@@ -521,7 +521,7 @@
 		return
 
 	if(!animal_origin)
-		var/mob/living/carbon/human/H = C
+		var/mob/living/carbon/humanoid/H = C
 		should_draw_greyscale = FALSE
 		if(!H.dna || !H.dna.species)
 			return

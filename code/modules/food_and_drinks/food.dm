@@ -34,7 +34,7 @@
 /obj/item/reagent_containers/food/proc/checkLiked(fraction, mob/M)
 	if(last_check_time + 50 < world.time)
 		if(ishuman(M))
-			var/mob/living/carbon/human/H = M
+			var/mob/living/carbon/humanoid/H = M
 			if(foodtype & H.dna.species.toxic_food)
 				to_chat(H,"<span class='warning'>What the hell was that thing?!</span>")
 				H.adjust_disgust(25 + 30 * fraction)

@@ -35,7 +35,7 @@
 	job_bitflag = BITFLAG_GARRISON
 	var/reduced_skill = FALSE
 
-/datum/outfit/job/royalknight/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/royalknight/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	neck = /obj/item/clothing/neck/chaincoif
 	pants = /obj/item/clothing/pants/platelegs
@@ -80,7 +80,7 @@
 	if(H.dna?.species?.id == "human")
 		H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
 
-/datum/outfit/job/royalknight/post_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/job/royalknight/post_equip(mob/living/carbon/humanoid/H, visualsOnly)
 	. = ..()
 	if(istype(H.cloak, /obj/item/clothing/cloak/tabard/knight/guard))
 		var/obj/item/clothing/S = H.cloak
@@ -135,7 +135,7 @@
 		if(!H.equip_to_appropriate_slot(shield))
 			qdel(shield)
 
-/datum/outfit/job/royalknight/knight/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/royalknight/knight/pre_equip(mob/living/carbon/humanoid/H)
 	. = ..()
 	armor = /obj/item/clothing/armor/brigandine
 	shoes = /obj/item/clothing/shoes/boots/armor/light
@@ -156,7 +156,7 @@
 /datum/outfit/job/royalknight/steam
 	reduced_skill = TRUE
 
-/datum/outfit/job/royalknight/steam/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/royalknight/steam/pre_equip(mob/living/carbon/humanoid/H)
 	. = ..()
 	backr = /obj/item/clothing/cloak/boiler
 	armor = /obj/item/clothing/armor/steam
@@ -174,7 +174,7 @@
 	// Way heavier
 	H.change_stat(STATKEY_SPD, -1)
 
-/datum/outfit/job/royalknight/steam/post_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/job/royalknight/steam/post_equip(mob/living/carbon/humanoid/H, visualsOnly)
 	. = ..()
 	if(H.backr && istype(H.backr, /obj/item/clothing/cloak/boiler))
 		var/obj/item/clothing/cloak/boiler/B = H.backr

@@ -29,7 +29,7 @@
 	allowed_patrons = ALL_TEMPLE_PATRONS
 	job_bitflag = BITFLAG_CHURCH
 
-/datum/outfit/job/churchling/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/churchling/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/misc/climbing, 4, TRUE)
@@ -79,4 +79,4 @@
 
 	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(H, H.patron)
 	C.grant_spells_churchling(H)
-	H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
+	H.verbs += list(/mob/living/carbon/humanoid/proc/devotionreport, /mob/living/carbon/humanoid/proc/clericpray)

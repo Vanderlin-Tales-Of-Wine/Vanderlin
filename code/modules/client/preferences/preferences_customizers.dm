@@ -127,7 +127,7 @@
 			continue
 		customizer_choice.customize_organ(organ, entry)
 
-/datum/preferences/proc/apply_customizers_to_character(mob/living/carbon/human/human)
+/datum/preferences/proc/apply_customizers_to_character(mob/living/carbon/humanoid/human)
 	for(var/datum/customizer_entry/entry as anything in customizer_entries)
 		var/datum/customizer_choice/customizer_choice = CUSTOMIZER_CHOICE(entry.customizer_choice_type)
 		var/datum/customizer/customizer = CUSTOMIZER(entry.customizer_type)

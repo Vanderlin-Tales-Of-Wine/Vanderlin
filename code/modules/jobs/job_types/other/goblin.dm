@@ -13,14 +13,14 @@
 	outfit = /datum/outfit/job/npc/goblin
 	give_bank_account = FALSE
 
-/datum/outfit/job/goblin/equip(mob/living/carbon/human/H, visualsOnly, announce, latejoin, datum/outfit/outfit_override, client/preference_source)
+/datum/outfit/job/goblin/equip(mob/living/carbon/humanoid/H, visualsOnly, announce, latejoin, datum/outfit/outfit_override, client/preference_source)
 	. = ..()
-	return  H.change_mob_type(/mob/living/carbon/human/species/goblin/cave, delete_old_mob = TRUE)
+	return  H.change_mob_type(/mob/living/carbon/humanoid/species/goblin/cave, delete_old_mob = TRUE)
 
 /datum/job/goblin/after_spawn(mob/living/spawned, client/player_client)
 	..()
 
-	var/mob/living/carbon/human/H = spawned
+	var/mob/living/carbon/humanoid/H = spawned
 	H.set_species(/datum/species/goblin/cave)
 	if(spawned.mind)
 		spawned.mind.special_role = "goblin"

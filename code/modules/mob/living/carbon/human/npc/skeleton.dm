@@ -1,4 +1,4 @@
-/mob/living/carbon/human/species/skeleton
+/mob/living/carbon/humanoid/species/skeleton
 	name = "skeleton"
 	icon = 'icons/roguetown/mob/monster/skeletons.dmi'
 	icon_state = MAP_SWITCH("", "skeleton")
@@ -17,24 +17,24 @@
 	stand_attempts = 4
 	cmode_music = 'sound/music/cmode/antag/combatskeleton.ogg'
 
-/mob/living/carbon/human/species/skeleton/npc/no_equipment
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment
 	skel_outfit = null
 
-/mob/living/carbon/human/species/skeleton/no_equipment
+/mob/living/carbon/humanoid/species/skeleton/no_equipment
 	skel_outfit = null
 
-/mob/living/carbon/human/species/skeleton/npc
+/mob/living/carbon/humanoid/species/skeleton/npc
 	ai_controller = /datum/ai_controller/human_npc
 	simpmob_attack = 40
 	simpmob_defend = 0
 	wander = TRUE
 	attack_speed = -10
 
-/mob/living/carbon/human/species/skeleton/Initialize()
+/mob/living/carbon/humanoid/species/skeleton/Initialize()
 	. = ..()
 	addtimer(CALLBACK(src, PROC_REF(after_creation)), 1 SECONDS)
 
-/mob/living/carbon/human/species/skeleton/after_creation()
+/mob/living/carbon/humanoid/species/skeleton/after_creation()
 	..()
 	name = "skeleton"
 	real_name = "skeleton"
@@ -70,7 +70,7 @@
 		if(OU)
 			equipOutfit(OU)
 
-/datum/outfit/job/npc/skeleton/random/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/npc/skeleton/random/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	H.base_strength = 6
 	H.base_speed = 10
@@ -78,7 +78,7 @@
 	H.base_endurance = 8
 	H.base_intelligence = 1
 
-/datum/outfit/job/greater_skeleton/pre_equip(mob/living/carbon/human/H) //equipped onto Summon Greater Undead player skeletons only after the mind is added
+/datum/outfit/job/greater_skeleton/pre_equip(mob/living/carbon/humanoid/H) //equipped onto Summon Greater Undead player skeletons only after the mind is added
 	..()
 	wrists = /obj/item/clothing/wrists/bracers/leather
 	armor = /obj/item/clothing/armor/chainmail/iron
@@ -130,7 +130,7 @@
 
 ///////////////////////////////////////////////////////////// EVENTMIN SKELETONGS
 
-/mob/living/carbon/human/species/skeleton/npc/peasant/after_creation()
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant/after_creation()
 	..()
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
@@ -142,7 +142,7 @@
 	flee_in_pain = FALSE
 	wander = TRUE
 
-/datum/outfit/job/species/skeleton/npc/peasant/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/species/skeleton/npc/peasant/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	H.base_strength = 6
 	H.base_speed = 8
@@ -177,7 +177,7 @@
 
 
 ///////////////////////////////////////////////////////////// EVENTMIN SKELETONGS
-/mob/living/carbon/human/species/skeleton/npc/ambush/after_creation()
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush/after_creation()
 	..()
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
@@ -190,7 +190,7 @@
 	flee_in_pain = FALSE
 	wander = TRUE
 
-/datum/outfit/job/species/skeleton/npc/random/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/species/skeleton/npc/random/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	if(prob(50))
 		wrists = /obj/item/clothing/wrists/bracers/leather
@@ -215,7 +215,7 @@
 
 ///////////////////////////////////////////////////////////// EVENTMIN SKELETONGS
 
-/mob/living/carbon/human/species/skeleton/npc/warrior/after_creation()
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/after_creation()
 	..()
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
@@ -228,7 +228,7 @@
 	flee_in_pain = FALSE
 	wander = TRUE
 
-/datum/outfit/job/species/skeleton/npc/warrior/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/species/skeleton/npc/warrior/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	H.base_strength = 10
 	H.base_speed = 7
@@ -294,7 +294,7 @@
 			head = /obj/item/clothing/head/helmet/skullcap
 
 
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled/after_creation()
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled/after_creation()
 	..()
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
@@ -306,7 +306,7 @@
 	wander = TRUE
 	configure_mind()
 
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled/proc/configure_mind()
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled/proc/configure_mind()
 	if(!mind)
 		mind = new /datum/mind(src)
 
@@ -318,7 +318,7 @@
 	mind.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
 	mind.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
 
-/mob/living/carbon/human/species/skeleton/death_arena/after_creation()
+/mob/living/carbon/humanoid/species/skeleton/death_arena/after_creation()
 	..()
 	equipOutfit(new /datum/outfit/job/arena_skeleton)
 	ADD_TRAIT(src, TRAIT_CRITICAL_WEAKNESS, TRAIT_GENERIC)
@@ -330,5 +330,5 @@
 	base_endurance = 8
 	base_intelligence = 1
 
-/mob/living/carbon/human/species/skeleton/death_arena/roll_mob_stats()
+/mob/living/carbon/humanoid/species/skeleton/death_arena/roll_mob_stats()
 	return

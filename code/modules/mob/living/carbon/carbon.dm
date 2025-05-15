@@ -1326,7 +1326,7 @@
 /mob/living/carbon/get_encumbrance()
 	return round(get_total_weight() / get_carry_capacity(), 0.01)
 
-/mob/living/carbon/human/dummy/get_total_weight()
+/mob/living/carbon/humanoid/dummy/get_total_weight()
 	return 0
 
 /mob/living/carbon/get_total_weight()

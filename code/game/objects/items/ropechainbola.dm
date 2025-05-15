@@ -24,7 +24,7 @@
 			if(!do_after(M, 1.5 SECONDS, src))
 				return FALSE
 
-/obj/item/rope/equipped(mob/living/carbon/human/user, slot)
+/obj/item/rope/equipped(mob/living/carbon/humanoid/user, slot)
 	. = ..()
 	if(slot == SLOT_BELT)
 		user.temporarilyRemoveItemFromInventory(src)

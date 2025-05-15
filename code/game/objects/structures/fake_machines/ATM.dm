@@ -10,7 +10,7 @@
 /obj/structure/fake_machine/atm/attack_hand(mob/user)
 	if(!ishuman(user))
 		return
-	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/humanoid/H = user
 
 	if(HAS_TRAIT(user, TRAIT_MATTHIOS_CURSE))
 		to_chat(H, "<span class='warning'>The idea repulses me!</span>")
@@ -80,7 +80,7 @@
 /obj/structure/fake_machine/atm/attackby(obj/item/P, mob/user, params)
 	if(ishuman(user))
 		if(istype(P, /obj/item/coin))
-			var/mob/living/carbon/human/H = user
+			var/mob/living/carbon/humanoid/H = user
 			if(HAS_TRAIT(user, TRAIT_MATTHIOS_CURSE))
 				to_chat(H, "<span class='warning'>The idea repulses me!</span>")
 				H.cursed_freak_out()

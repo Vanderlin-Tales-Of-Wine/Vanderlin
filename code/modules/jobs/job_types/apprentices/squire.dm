@@ -43,7 +43,7 @@
 
 	category_tags = list(CTAG_SQUIRE)
 
-/datum/outfit/job/squire/lancer/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/squire/lancer/pre_equip(mob/living/carbon/humanoid/H)
 	r_hand = /obj/item/weapon/polearm/spear
 	armor = /obj/item/clothing/armor/chainmail
 	gloves = /obj/item/clothing/gloves/leather
@@ -81,7 +81,7 @@
 
 	category_tags = list(CTAG_SQUIRE)
 
-/datum/outfit/job/squire/footman/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/squire/footman/pre_equip(mob/living/carbon/humanoid/H)
 	armor = /obj/item/clothing/armor/chainmail
 	gloves = /obj/item/clothing/gloves/leather
 	wrists = /obj/item/clothing/wrists/bracers/leather
@@ -118,7 +118,7 @@
 
 	category_tags = list(CTAG_SQUIRE)
 
-/datum/outfit/job/squire/skirmisher/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/squire/skirmisher/pre_equip(mob/living/carbon/humanoid/H)
 	beltr = /obj/item/ammo_holder/quiver/arrows
 	armor = /obj/item/clothing/armor/chainmail
 	backl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve

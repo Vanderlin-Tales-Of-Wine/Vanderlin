@@ -210,7 +210,7 @@
 		return
 	if(usr.stat || !ishuman(usr))
 		return
-	var/mob/living/carbon/human/cardUser = usr
+	var/mob/living/carbon/humanoid/cardUser = usr
 	if(!(cardUser.mobility_flags & MOBILITY_USE))
 		return
 	if(href_list["pick"] && HAS_TRAIT(cardUser, TRAIT_BLACKLEG))
@@ -300,7 +300,7 @@
 		return
 	if(usr.stat || !ishuman(usr))
 		return
-	var/mob/living/carbon/human/cardUser = usr
+	var/mob/living/carbon/humanoid/cardUser = usr
 	if(!(cardUser.mobility_flags & MOBILITY_USE))
 		return
 	var/O = src
@@ -379,7 +379,7 @@
 /obj/item/toy/cards/singlecard/examine(mob/user)
 	. = ..()
 	if(ishuman(user))
-		var/mob/living/carbon/human/cardUser = user
+		var/mob/living/carbon/humanoid/cardUser = user
 		if(cardUser.is_holding(src))
 			cardUser.visible_message(span_notice("[cardUser] checks [cardUser.p_their()] card."), span_notice("The card reads: [cardname]."))
 		else if(HAS_TRAIT(user, TRAIT_BLACKLEG))
@@ -444,7 +444,7 @@
 	else
 		return ..()
 
-/obj/item/toy/cards/singlecard/attack_self(mob/living/carbon/human/user)
+/obj/item/toy/cards/singlecard/attack_self(mob/living/carbon/humanoid/user)
 	if(!ishuman(user) || !(user.mobility_flags & MOBILITY_USE))
 		return
 	Flip()

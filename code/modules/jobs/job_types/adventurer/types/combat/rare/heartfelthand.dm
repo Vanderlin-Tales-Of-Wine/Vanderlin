@@ -10,7 +10,7 @@
 	pickprob = 50
 	category_tags = list(CTAG_DISABLED)
 
-/datum/outfit/job/adventurer/heartfelthand/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/adventurer/heartfelthand/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	shirt = /obj/item/clothing/shirt/undershirt
 	belt = /obj/item/storage/belt/leather/black

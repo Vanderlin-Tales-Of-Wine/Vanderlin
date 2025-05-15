@@ -52,7 +52,7 @@
 	outfit = /datum/outfit/job/heir/daring
 	category_tags = list(CTAG_HEIR)
 
-/datum/outfit/job/heir/daring/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/heir/daring/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	pants = /obj/item/clothing/pants/tights
 	shirt = /obj/item/clothing/shirt/undershirt/guard
@@ -91,7 +91,7 @@
 	outfit = /datum/outfit/job/heir/aristocrat
 	category_tags = list(CTAG_HEIR)
 
-/datum/outfit/job/heir/aristocrat/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/heir/aristocrat/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
@@ -137,7 +137,7 @@
 	outfit = /datum/outfit/job/heir/inbred
 	category_tags = list(CTAG_HEIR)
 
-/datum/outfit/job/heir/inbred/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/heir/inbred/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_CRITICAL_WEAKNESS, TRAIT_GENERIC)

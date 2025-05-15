@@ -208,13 +208,13 @@
 			handle_marking(target, user, FALSE)
 
 /datum/proc/handle_marking(atom/target, mob/living/carbon/user, apply)
-	if (!istype(target, /mob/living/carbon/human/))
+	if (!istype(target, /mob/living/carbon/humanoid/))
 	{
 		to_chat(user, "The spell fizzles without a valid target.")
 		return
 	}
 	var/mob/living/mob_target = target
-	if (istype(mob_target, /mob/living/carbon/human/species/skeleton) || istype(mob_target, /mob/living/carbon/human/species/goblin))// prevents taming of monsters
+	if (istype(mob_target, /mob/living/carbon/humanoid/species/skeleton) || istype(mob_target, /mob/living/carbon/humanoid/species/goblin))// prevents taming of monsters
 	{
 		to_chat(user, "<font color='red'>[mob_target] is incompatible with the Treefather's mark.")
 		return

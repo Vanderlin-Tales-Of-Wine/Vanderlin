@@ -8,7 +8,7 @@
 	category_tags = list(CTAG_ADVENTURER)
 	cmode_music = 'sound/music/cmode/adventurer/CombatRogue.ogg'
 
-/datum/outfit/job/adventurer/rogue/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/adventurer/rogue/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/swords, pick(0,0,1), TRUE)
@@ -45,7 +45,7 @@
 	H.grant_language(/datum/language/thievescant)
 	to_chat(H, "<span class='info'>I can gesture in thieves' cant with ,t before my speech.</span>")
 
-/datum/outfit/job/adventurer/rogue/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/adventurer/rogue/post_equip(mob/living/carbon/humanoid/H, visualsOnly = FALSE)
 	..()
 	// Give them their cloak- as well as the ability to choose what color they want.
 	var/list/thiefcloak_colors = list(\

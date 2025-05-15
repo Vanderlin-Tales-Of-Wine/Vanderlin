@@ -13,7 +13,7 @@
 	category_tags = list(CTAG_PILGRIM, CTAG_TOWNER)
 	apprentice_name = "Fisher Apprentice"
 
-/datum/outfit/job/adventurer/fishermaster/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/adventurer/fishermaster/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	if(H.gender == MALE)
 		pants = /obj/item/clothing/pants/trou

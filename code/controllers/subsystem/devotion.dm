@@ -11,7 +11,7 @@
 // Cleric Holder Datums
 
 /datum/devotion/cleric_holder
-	var/mob/living/carbon/human/holder_mob = null
+	var/mob/living/carbon/humanoid/holder_mob = null
 	var/datum/patron/patron = null
 	var/devotion = 0
 	var/max_devotion = 1000
@@ -25,7 +25,7 @@
 	/// How much devotion is gained per prayer cycle
 	var/prayer_effectiveness = 2
 
-/datum/devotion/cleric_holder/New(mob/living/carbon/human/holder, god)
+/datum/devotion/cleric_holder/New(mob/living/carbon/humanoid/holder, god)
 	. = ..()
 	holder_mob = holder
 	holder.cleric = src
@@ -90,7 +90,7 @@
 			return
 
 
-/datum/devotion/cleric_holder/proc/grant_spells_churchling(mob/living/carbon/human/H)
+/datum/devotion/cleric_holder/proc/grant_spells_churchling(mob/living/carbon/humanoid/H)
 	if(!H || !H.mind || !patron)
 		return
 
@@ -105,7 +105,7 @@
 	max_progression = CLERIC_REQ_1
 
 // Priest Spell Spawner
-/datum/devotion/cleric_holder/proc/grant_spells_priest(mob/living/carbon/human/H)
+/datum/devotion/cleric_holder/proc/grant_spells_priest(mob/living/carbon/humanoid/H)
 	if(!H || !H.mind)
 		return
 
@@ -121,7 +121,7 @@
 	START_PROCESSING(SSprocessing, src)
 
 //Acolyte Spell Spawner
-/datum/devotion/cleric_holder/proc/grant_spells(mob/living/carbon/human/H)
+/datum/devotion/cleric_holder/proc/grant_spells(mob/living/carbon/humanoid/H)
 	if(!H || !H.mind)
 		return
 
@@ -134,7 +134,7 @@
 	level = CLERIC_T1
 
 //Cleric Spell Spawner
-/datum/devotion/cleric_holder/proc/grant_spells_cleric(mob/living/carbon/human/H)
+/datum/devotion/cleric_holder/proc/grant_spells_cleric(mob/living/carbon/humanoid/H)
 	if(!H || !H.mind)
 		return
 
@@ -150,7 +150,7 @@
 	update_devotion(50, 50)
 
 //Templar Spell Spawner
-/datum/devotion/cleric_holder/proc/grant_spells_templar(mob/living/carbon/human/H)
+/datum/devotion/cleric_holder/proc/grant_spells_templar(mob/living/carbon/humanoid/H)
 	if(!H || !H.mind)
 		return
 
@@ -177,7 +177,7 @@
 	max_progression = 230
 	update_devotion(50, 50)
 
-/mob/living/carbon/human/proc/devotionreport()
+/mob/living/carbon/humanoid/proc/devotionreport()
 	set name = "Check Devotion"
 	set category = "Cleric"
 
@@ -187,7 +187,7 @@
 	to_chat(src,"My devotion is [C.devotion].")
 
 // Debug verb
-/mob/living/carbon/human/proc/devotionchange()
+/mob/living/carbon/humanoid/proc/devotionchange()
 	set name = "(DEBUG)Change Devotion"
 	set category = "Special Verbs"
 
@@ -199,7 +199,7 @@
 
 // Generation Procs
 
-/mob/living/carbon/human/proc/clericpray()
+/mob/living/carbon/humanoid/proc/clericpray()
 	set name = "Give Prayer"
 	set category = "Cleric"
 

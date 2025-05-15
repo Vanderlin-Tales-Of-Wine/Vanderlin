@@ -1,4 +1,4 @@
-/mob/living/carbon/human/proc/vampire_telepathy()
+/mob/living/carbon/humanoid/proc/vampire_telepathy()
 	set name = "Telepathy"
 	set category = "VAMPIRE"
 
@@ -59,7 +59,7 @@
 	user.say(msg)
 	if(powerful)
 		user.visible_message("<font color='red'>[user]'s eyes glow a ghastly red as they project their will outwards!</font>")
-	for(var/mob/living/carbon/human/L in targets)
+	for(var/mob/living/carbon/humanoid/L in targets)
 		if(L.stat)
 			continue
 		var/datum/antagonist/vampire/VD = L.mind?.has_antag_datum(/datum/antagonist/vampire)
@@ -133,7 +133,7 @@
 	max_targets = 0
 	powerful = TRUE
 
-/mob/living/carbon/human/proc/disguise_button()
+/mob/living/carbon/humanoid/proc/disguise_button()
 	set name = "Disguise"
 	set category = "VAMPIRE"
 
@@ -154,7 +154,7 @@
 		VD.last_transform = world.time
 		vampire_disguise(VD)
 
-/mob/living/carbon/human/proc/vampire_disguise(datum/antagonist/vampire/VD)
+/mob/living/carbon/humanoid/proc/vampire_disguise(datum/antagonist/vampire/VD)
 	if(!VD)
 		return
 	VD.disguised = TRUE
@@ -169,7 +169,7 @@
 	update_body_parts(redraw = TRUE)
 	to_chat(src, span_notice("My true form is hidden."))
 
-/mob/living/carbon/human/proc/vampire_undisguise(datum/antagonist/vampire/VD)
+/mob/living/carbon/humanoid/proc/vampire_undisguise(datum/antagonist/vampire/VD)
 	if(!VD)
 		return
 	VD.disguised = FALSE
@@ -186,7 +186,7 @@
 	to_chat(src, span_danger("My true form is revealed."))
 
 
-/mob/living/carbon/human/proc/blood_strength()
+/mob/living/carbon/humanoid/proc/blood_strength()
 	set name = "Night Muscles"
 	set category = "VAMPIRE"
 
@@ -209,7 +209,7 @@
 		to_chat(src, span_warning("I can't cast it yet!"))
 
 	// Gain experience towards blood magic
-	var/mob/living/carbon/human/licker = usr
+	var/mob/living/carbon/humanoid/licker = usr
 	var/boon = usr.mind?.get_learning_boon(/datum/skill/magic/blood)
 	var/amt2raise = licker.STAINT*2
 	usr.mind.adjust_experience(/datum/skill/magic/blood, floor(amt2raise * boon), FALSE)
@@ -233,7 +233,7 @@
 	desc = ""
 	icon_state = "bleed1"
 
-/mob/living/carbon/human/proc/blood_celerity()
+/mob/living/carbon/humanoid/proc/blood_celerity()
 	set name = "Quickening"
 	set category = "VAMPIRE"
 
@@ -255,7 +255,7 @@
 	if(cooldown)
 		to_chat(src, "<span class='warning'>I can't cast it yet!</span>")
 	// Gain experience towards blood magic
-	var/mob/living/carbon/human/licker = usr
+	var/mob/living/carbon/humanoid/licker = usr
 	var/boon = usr.mind?.get_learning_boon(/datum/skill/magic/blood)
 	var/amt2raise = licker.STAINT*2
 	usr.mind.adjust_experience(/datum/skill/magic/blood, floor(amt2raise * boon), FALSE)
@@ -282,7 +282,7 @@
 	desc = ""
 	icon_state = "bleed1"
 
-/mob/living/carbon/human/proc/blood_fortitude()
+/mob/living/carbon/humanoid/proc/blood_fortitude()
 	set name = "Armor of Darkness"
 	set category = "VAMPIRE"
 	var/cooldown = FALSE
@@ -303,7 +303,7 @@
 	if(cooldown)
 		to_chat(src, "<span class='warning'>I can't cast it yet!</span>")
 	// Gain experience towards blood magic
-	var/mob/living/carbon/human/licker = usr
+	var/mob/living/carbon/humanoid/licker = usr
 	var/boon = usr.mind?.get_learning_boon(/datum/skill/magic/blood)
 	var/amt2raise = licker.STAINT*2
 	usr.mind.adjust_experience(/datum/skill/magic/blood, floor(amt2raise * boon), FALSE)
@@ -330,14 +330,14 @@
 /datum/status_effect/buff/fortitude/on_apply()
 	. = ..()
 	if(ishuman(owner))
-		var/mob/living/carbon/human/H = owner
+		var/mob/living/carbon/humanoid/H = owner
 		QDEL_NULL(H.skin_armor)
 		H.skin_armor = new /obj/item/clothing/armor/skin_armor/vampire_fortitude(H)
 	owner.add_stress(/datum/stressevent/weed)
 
 /datum/status_effect/buff/fortitude/on_remove()
 	if(ishuman(owner))
-		var/mob/living/carbon/human/H = owner
+		var/mob/living/carbon/humanoid/H = owner
 		if(istype(H.skin_armor, /obj/item/clothing/armor/skin_armor/vampire_fortitude))
 			QDEL_NULL(H.skin_armor)
 	. = ..()
@@ -355,7 +355,7 @@
 	sewrepair = TRUE
 	max_integrity = 0
 
-/mob/living/carbon/human/proc/vamp_regenerate()
+/mob/living/carbon/humanoid/proc/vamp_regenerate()
 	set name = "Regenerate"
 	set category = "VAMPIRE"
 	var/cooldown = FALSE
@@ -383,7 +383,7 @@
 	src.playsound_local(get_turf(src), 'sound/misc/vampirespell.ogg', 100, FALSE, pressure_affected = FALSE)
 	VD.adjust_vitae(-500)
 	// Gain experience towards blood magic
-	var/mob/living/carbon/human/licker = usr
+	var/mob/living/carbon/humanoid/licker = usr
 	var/boon = usr.mind?.get_learning_boon(/datum/skill/magic/blood)
 	var/amt2raise = licker.STAINT*2
 	usr.mind.adjust_experience(/datum/skill/magic/blood, floor(amt2raise * boon), FALSE)

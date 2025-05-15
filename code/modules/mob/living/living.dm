@@ -81,10 +81,10 @@
 	add_overlay(reflective_icon)
 	update_vision_cone()
 
-/mob/living/carbon/human/dummy
+/mob/living/carbon/humanoid/dummy
 	has_reflection = FALSE
 
-/mob/living/carbon/human/dummy/update_reflection()
+/mob/living/carbon/humanoid/dummy/update_reflection()
 	return
 
 /mob/living/proc/update_reflection()
@@ -837,7 +837,7 @@
 				spell.updateButtonIcon()
 			mind.remove_antag_datum(/datum/antagonist/zombie)
 		if(ishuman(src))
-			var/mob/living/carbon/human/human = src
+			var/mob/living/carbon/humanoid/human = src
 			human.funeral = FALSE
 		client?.verbs -= /client/proc/descend
 
@@ -906,7 +906,7 @@
 		return FALSE
 
 
-/mob/living/carbon/human/can_be_revived()
+/mob/living/carbon/humanoid/can_be_revived()
 	. = ..()
 	var/obj/item/bodypart/head/H = get_bodypart(BODY_ZONE_HEAD)
 	if(H)
@@ -1033,7 +1033,7 @@
 						TH.add_overlay(image('icons/effects/blood.dmi', trail_type, dir = newdir))
 						TH.transfer_mob_blood_dna(src)
 
-/mob/living/carbon/human/makeTrail(turf/T)
+/mob/living/carbon/humanoid/makeTrail(turf/T)
 	if((NOBLOOD in dna.species.species_traits) || !bleed_rate || bleedsuppress)
 		return
 	..()
@@ -1207,12 +1207,12 @@
 		playsound(src.loc, 'sound/combat/grabstruggle.ogg', 50, TRUE, -1)
 		return TRUE
 
-/mob/living/carbon/human/resist_grab(moving_resist)
+/mob/living/carbon/humanoid/resist_grab(moving_resist)
 	var/mob/living/L = pulledby
 	if(hostagetaker)
 		attackhostage()
 	if(ishuman(L))
-		var/mob/living/carbon/human/H = L
+		var/mob/living/carbon/humanoid/H = L
 		if(HAS_TRAIT(H, TRAIT_NOSEGRAB) && !HAS_TRAIT(src, TRAIT_MISSING_NOSE))
 			var/obj/item/bodypart/head = get_bodypart(BODY_ZONE_HEAD)
 			for(var/obj/item/grabbing/G in grabbedby)

@@ -746,7 +746,7 @@ SUBSYSTEM_DEF(gamemode)
 
 
 ///Handles late-join antag assignments
-/datum/controller/subsystem/gamemode/proc/make_antag_chance(mob/living/carbon/human/character)
+/datum/controller/subsystem/gamemode/proc/make_antag_chance(mob/living/carbon/humanoid/character)
 	return
 
 /datum/controller/subsystem/gamemode/proc/check_finished(force_ending) //to be called by SSticker
@@ -759,7 +759,7 @@ SUBSYSTEM_DEF(gamemode)
 	if(ttime >= GLOB.round_timer)
 		if(roundvoteend)
 			if(ttime >= round_ends_at)
-				// for(var/mob/living/carbon/human/H in GLOB.human_list)
+				// for(var/mob/living/carbon/humanoid/H in GLOB.human_list)
 				// 	if(H.stat != DEAD)
 				// 		if(H.allmig_reward)
 				// 			H.adjust_triumphs(H.allmig_reward)
@@ -1376,7 +1376,7 @@ SUBSYSTEM_DEF(gamemode)
 		if(living.mind.has_antag_datum(/datum/antagonist/zombie) || living.mind.has_antag_datum(/datum/antagonist/skeleton) || living.mind.has_antag_datum(/datum/antagonist/lich))
 			GLOB.vanderlin_round_stats[STATS_DEADITES_ALIVE]++
 		if(ishuman(living))
-			var/mob/living/carbon/human/human_mob = client.mob
+			var/mob/living/carbon/humanoid/human_mob = client.mob
 			GLOB.vanderlin_round_stats[STATS_TOTAL_POPULATION]++
 			for(var/obj/item/clothing/neck/current_item in human_mob.get_equipped_items(TRUE))
 				if(current_item.type in list(/obj/item/clothing/neck/psycross, /obj/item/clothing/neck/psycross/silver, /obj/item/clothing/neck/psycross/g))

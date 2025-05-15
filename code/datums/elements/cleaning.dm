@@ -25,7 +25,7 @@
 				var/mob/M = I.loc
 				M.regenerate_icons()
 		else if(ishuman(A))
-			var/mob/living/carbon/human/cleaned_human = A
+			var/mob/living/carbon/humanoid/cleaned_human = A
 			if(cleaned_human.body_position == LYING_DOWN)
 				if(cleaned_human.head)
 					SEND_SIGNAL(cleaned_human.head, COMSIG_COMPONENT_CLEAN_ACT, CLEAN_STRENGTH_BLOOD)

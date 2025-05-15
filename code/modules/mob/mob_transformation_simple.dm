@@ -46,7 +46,7 @@
 		C.dna.transfer_identity(D)
 		D.updateappearance(mutcolor_update=1, mutations_overlay_update=1)
 	else if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+		var/mob/living/carbon/humanoid/H = M
 		client.prefs.safe_transfer_prefs_to(H)
 		H.dna.update_dna_identity()
 

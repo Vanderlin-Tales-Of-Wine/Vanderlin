@@ -40,7 +40,7 @@
 	else
 		var/list/names = list("Custom...")
 		if(ishuman(target))
-			var/mob/living/carbon/human/human_target
+			var/mob/living/carbon/humanoid/human_target
 			var/datum/species/species = human_target.dna?.species
 			if(species)
 				names += species.random_name(target.gender, TRUE)

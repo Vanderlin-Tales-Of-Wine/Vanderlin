@@ -116,7 +116,7 @@
 
 // Base version - place these on maps/templates.
 /obj/effect/mob_spawn/human
-	mob_type = /mob/living/carbon/human
+	mob_type = /mob/living/carbon/humanoid
 	//Human specific stuff.
 	var/mob_species = null		//Set to make them a mutant race such as lizard or skeleton. Uses the datum typepath instead of the ID.
 	var/datum/outfit/outfit = /datum/outfit	//If this is a path, it will be instanced in Initialize()
@@ -160,7 +160,7 @@
 		outfit = new /datum/outfit
 	return ..()
 
-/obj/effect/mob_spawn/human/equip(mob/living/carbon/human/H)
+/obj/effect/mob_spawn/human/equip(mob/living/carbon/humanoid/H)
 	if(mob_species)
 		H.set_species(mob_species)
 	H.cure_husk()

@@ -37,7 +37,7 @@
 		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(know_keep_door_password), H), 50)
 
 
-/datum/outfit/job/butler/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/butler/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	backpack_contents = list(/obj/item/book/manners = 1)
 	mask = /obj/item/clothing/face/spectacles

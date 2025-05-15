@@ -1,4 +1,4 @@
-/mob/living/carbon/human/MiddleClick(mob/user, params)
+/mob/living/carbon/humanoid/MiddleClick(mob/user, params)
 	..()
 	if(!user)
 		return
@@ -34,7 +34,7 @@
 				else
 					held_item.melee_attack_chain(user, src, params)
 
-/mob/living/carbon/human/Initialize()
+/mob/living/carbon/humanoid/Initialize()
 	// verbs += /mob/living/proc/mob_sleep
 	verbs += /mob/living/proc/lay_down
 
@@ -59,7 +59,7 @@
 	if(ai_controller && flee_in_pain)
 		AddElement(/datum/element/ai_flee_while_in_pain)
 
-/mob/living/carbon/human/ZImpactDamage(turf/T, levels)
+/mob/living/carbon/humanoid/ZImpactDamage(turf/T, levels)
 	var/mob/living/carbon/V = src
 	var/obj/item/bodypart/affecting
 	var/dam = levels * rand(10,50)
@@ -98,23 +98,23 @@
 
 	AdjustKnockdown(levels * 15)
 
-/mob/living/carbon/human/proc/setup_human_dna()
+/mob/living/carbon/humanoid/proc/setup_human_dna()
 	//initialize dna. for spawned humans; overwritten by other code
 	create_dna(src)
 	randomize_human(src)
 	dna.initialize_dna()
 
-/mob/living/carbon/human/ComponentInitialize()
+/mob/living/carbon/humanoid/ComponentInitialize()
 	. = ..()
 	if(!CONFIG_GET(flag/disable_human_mood))
 		AddComponent(/datum/component/mood)
 
-/mob/living/carbon/human/Destroy()
+/mob/living/carbon/humanoid/Destroy()
 	QDEL_NULL(physiology)
 	GLOB.human_list -= src
 	return ..()
 
-/mob/living/carbon/human/Stat()
+/mob/living/carbon/humanoid/Stat()
 	..()
 	if(!client)
 		return
@@ -125,7 +125,7 @@
 				stat("Vitae:",VD.vitae)
 	return
 
-/mob/living/carbon/human/show_inv(mob/user)
+/mob/living/carbon/humanoid/show_inv(mob/user)
 	user.set_machine(src)
 	var/list/obscured = check_obscured_slots()
 	var/list/dat = list()
@@ -262,14 +262,14 @@
 
 // called when something steps onto a human
 // this could be made more general, but for now just handle mulebot
-/mob/living/carbon/human/Crossed(atom/movable/AM)
+/mob/living/carbon/humanoid/Crossed(atom/movable/AM)
 	. = ..()
 	spreadFire(AM)
 
-/mob/living/carbon/human/proc/canUseHUD()
+/mob/living/carbon/humanoid/proc/canUseHUD()
 	return (mobility_flags & MOBILITY_USE)
 
-/mob/living/carbon/human/can_inject(mob/user, error_msg, target_zone, penetrate_thick = 0)
+/mob/living/carbon/humanoid/can_inject(mob/user, error_msg, target_zone, penetrate_thick = 0)
 	. = 1 // Default to returning true.
 	if(user && !target_zone)
 		target_zone = user.zone_selected
@@ -292,7 +292,7 @@
 		// Might need re-wording.
 		to_chat(user, "<span class='alert'>There is no exposed flesh or thin material [above_neck(target_zone) ? "on [p_their()] head" : "on [p_their()] body"].</span>")
 
-/mob/living/carbon/human/proc/do_cpr(mob/living/carbon/C)
+/mob/living/carbon/humanoid/proc/do_cpr(mob/living/carbon/C)
 	CHECK_DNA_AND_SPECIES(C)
 
 	if(C.stat == DEAD || (HAS_TRAIT(C, TRAIT_FAKEDEATH)))
@@ -333,11 +333,11 @@
 		else
 			to_chat(C, "<span class='unconscious'>I feel a breath of fresh air... which is a sensation you don't recognise...</span>")
 
-/mob/living/carbon/human/cuff_resist(obj/item/I)
+/mob/living/carbon/humanoid/cuff_resist(obj/item/I)
 	if(..())
 		dropItemToGround(I)
 
-/mob/living/carbon/human/proc/clean_blood(datum/source, strength)
+/mob/living/carbon/humanoid/proc/clean_blood(datum/source, strength)
 	if(strength < CLEAN_STRENGTH_BLOOD)
 		return
 	if(gloves)
@@ -350,7 +350,7 @@
 
 //Turns a mob black, flashes a skeleton overlay
 //Just like a cartoon!
-/mob/living/carbon/human/proc/electrocution_animation(anim_duration)
+/mob/living/carbon/humanoid/proc/electrocution_animation(anim_duration)
 	//Handle mutant parts if possible
 	if(dna && dna.species)
 		add_atom_colour("#000000", TEMPORARY_COLOUR_PRIORITY)
@@ -364,17 +364,17 @@
 	else //or just do a generic animation
 		flick_overlay_view(image(icon,src,"electrocuted_generic",ABOVE_MOB_LAYER), src, anim_duration)
 
-/mob/living/carbon/human/proc/end_electrocution_animation(mutable_appearance/MA)
+/mob/living/carbon/humanoid/proc/end_electrocution_animation(mutable_appearance/MA)
 	remove_atom_colour(TEMPORARY_COLOUR_PRIORITY, "#000000")
 	cut_overlay(MA)
 
-/mob/living/carbon/human/canUseTopic(atom/movable/M, be_close=FALSE, no_dexterity=TRUE, no_tk=FALSE) //changed so humans by default have dexterity
+/mob/living/carbon/humanoid/canUseTopic(atom/movable/M, be_close=FALSE, no_dexterity=TRUE, no_tk=FALSE) //changed so humans by default have dexterity
 	if(!(mobility_flags & MOBILITY_UI))
 		to_chat(src, "<span class='warning'>I can't do that right now!</span>")
 		return FALSE
 	return ..()
 
-/mob/living/carbon/human/resist_restraints()
+/mob/living/carbon/humanoid/resist_restraints()
 	if(wear_armor && wear_armor.breakouttime)
 		changeNext_move(CLICK_CD_BREAKOUT)
 		last_special = world.time + CLICK_CD_BREAKOUT
@@ -382,19 +382,19 @@
 	else
 		..()
 
-/mob/living/carbon/human/replace_records_name(oldname,newname) // Only humans have records right now, move this up if changed.
+/mob/living/carbon/humanoid/replace_records_name(oldname,newname) // Only humans have records right now, move this up if changed.
 	for(var/list/L in list(GLOB.data_core.general,GLOB.data_core.medical,GLOB.data_core.security,GLOB.data_core.locked))
 		var/datum/data/record/R = find_record("name", oldname, L)
 		if(R)
 			R.fields["name"] = newname
 
-/mob/living/carbon/human/update_tod_hud()
+/mob/living/carbon/humanoid/update_tod_hud()
 	if(!client || !hud_used)
 		return
 	if(hud_used.clock)
 		hud_used.clock.update_icon()
 
-/mob/living/carbon/human/update_health_hud(stamina_only = FALSE)
+/mob/living/carbon/humanoid/update_health_hud(stamina_only = FALSE)
 	if(!client || !hud_used)
 		return
 	if(dna?.species?.update_health_hud())
@@ -493,7 +493,7 @@
 	if(hud_used.zone_select && !stamina_only)
 		hud_used.zone_select.update_icon()
 
-/mob/living/carbon/human/fully_heal(admin_revive = FALSE)
+/mob/living/carbon/humanoid/fully_heal(admin_revive = FALSE)
 	dna?.species.spec_fully_heal(src)
 	if(admin_revive)
 		regenerate_limbs()
@@ -503,12 +503,12 @@
 	drunkenness = 0
 	..()
 
-/mob/living/carbon/human/check_weakness(obj/item/weapon, mob/living/attacker)
+/mob/living/carbon/humanoid/check_weakness(obj/item/weapon, mob/living/attacker)
 	. = ..()
 	if (dna && dna.species)
 		. += dna.species.check_species_weakness(weapon, attacker, src)
 
-/mob/living/carbon/human/is_literate()
+/mob/living/carbon/humanoid/is_literate()
 	if(mind)
 		if(mind.get_skill_level(/datum/skill/misc/reading) > 0)
 			return TRUE
@@ -516,15 +516,15 @@
 			return FALSE
 	return TRUE
 
-/mob/living/carbon/human/can_hold_items()
+/mob/living/carbon/humanoid/can_hold_items()
 	return TRUE
 
-/mob/living/carbon/human/update_gravity(has_gravity,override = 0)
+/mob/living/carbon/humanoid/update_gravity(has_gravity,override = 0)
 	if(dna && dna.species) //prevents a runtime while a human is being monkeyfied
 		override = dna.species.override_float
 	..()
 
-/mob/living/carbon/human/vomit(lost_nutrition = 10, blood = 0, stun = 1, distance = 0, message = 1, toxic = 0)
+/mob/living/carbon/humanoid/vomit(lost_nutrition = 10, blood = 0, stun = 1, distance = 0, message = 1, toxic = 0)
 	if(blood && (NOBLOOD in dna.species.species_traits) && !HAS_TRAIT(src, TRAIT_TOXINLOVER))
 		if(message)
 			visible_message("<span class='warning'>[src] dry heaves!</span>", \
@@ -534,13 +534,13 @@
 		return 1
 	..()
 
-/mob/living/carbon/human/vv_get_dropdown()
+/mob/living/carbon/humanoid/vv_get_dropdown()
 	. = ..()
 	VV_DROPDOWN_OPTION("", "---------")
 	VV_DROPDOWN_OPTION(VV_HK_COPY_OUTFIT, "Copy Outfit")
 	VV_DROPDOWN_OPTION(VV_HK_SET_SPECIES, "Set Species")
 
-/mob/living/carbon/human/vv_do_topic(list/href_list)
+/mob/living/carbon/humanoid/vv_do_topic(list/href_list)
 	. = ..()
 	if(href_list[VV_HK_COPY_OUTFIT])
 		if(!check_rights(R_SPAWN))
@@ -555,7 +555,7 @@
 			admin_ticket_log("[key_name_admin(usr)] has modified the bodyparts of [src] to [result]")
 			set_species(newtype)
 
-/mob/living/carbon/human/MouseDrop_T(mob/living/target, mob/living/user)
+/mob/living/carbon/humanoid/MouseDrop_T(mob/living/target, mob/living/user)
 	if(pulling == target && stat == CONSCIOUS)
 		//If they dragged themselves and we're currently aggressively grabbing them try to piggyback
 		if(user == target && can_piggyback(target))
@@ -581,13 +581,13 @@
 	return GLOB.accent_list[accent]
 
 //src is the user that will be carrying, target is the mob to be carried
-/mob/living/carbon/human/proc/can_piggyback(mob/living/carbon/target)
+/mob/living/carbon/humanoid/proc/can_piggyback(mob/living/carbon/target)
 	return (istype(target) && target.stat == CONSCIOUS)
 
-/mob/living/carbon/human/proc/can_be_firemanned(mob/living/carbon/target)
+/mob/living/carbon/humanoid/proc/can_be_firemanned(mob/living/carbon/target)
 	return (ishuman(target) && target.body_position == LYING_DOWN)
 
-/mob/living/carbon/human/proc/fireman_carry(mob/living/carbon/target)
+/mob/living/carbon/humanoid/proc/fireman_carry(mob/living/carbon/target)
 	var/carrydelay = 5 SECONDS //if you have latex you are faster at grabbing
 
 	var/backnotshoulder = FALSE
@@ -608,7 +608,7 @@
 				return
 	to_chat(src, "<span class='warning'>I fail to carry [target].</span>")
 
-/mob/living/carbon/human/proc/piggyback(mob/living/carbon/target)
+/mob/living/carbon/humanoid/proc/piggyback(mob/living/carbon/target)
 	if(can_piggyback(target))
 		visible_message("<span class='notice'>[target] starts to climb onto [src]...</span>")
 		if(do_after(target, 1.5 SECONDS, src))
@@ -620,7 +620,7 @@
 	else
 		to_chat(target, "<span class='warning'>I can't piggyback ride [src].</span>")
 
-/mob/living/carbon/human/buckle_mob(mob/living/target, force = FALSE, check_loc = TRUE, lying_buckle = FALSE, hands_needed = 0, target_hands_needed = 0)
+/mob/living/carbon/humanoid/buckle_mob(mob/living/target, force = FALSE, check_loc = TRUE, lying_buckle = FALSE, hands_needed = 0, target_hands_needed = 0)
 	if(!force)//humans are only meant to be ridden through piggybacking and special cases
 		return
 	if(!is_type_in_typecache(target, can_ride_typecache))
@@ -653,7 +653,7 @@
 	riding_datum.handle_vehicle_layer()
 	. = ..(target, force, check_loc)
 
-/mob/living/carbon/human/proc/is_shove_knockdown_blocked() //If you want to add more things that block shove knockdown, extend this
+/mob/living/carbon/humanoid/proc/is_shove_knockdown_blocked() //If you want to add more things that block shove knockdown, extend this
 	var/list/body_parts = list(head, wear_mask, wear_armor, wear_pants, back, gloves, shoes, belt, s_store, ears, wear_ring) //Everything but pockets. Pockets are l_store and r_store. (if pockets were allowed, putting something armored, gloves or hats for example, would double up on the armor)
 	for(var/bp in body_parts)
 		if(istype(bp, /obj/item/clothing))
@@ -662,17 +662,17 @@
 				return TRUE
 	return FALSE
 
-/mob/living/carbon/human/proc/clear_shove_slowdown()
+/mob/living/carbon/humanoid/proc/clear_shove_slowdown()
 	remove_movespeed_modifier(MOVESPEED_ID_SHOVE)
 	var/active_item = get_active_held_item()
 	if(is_type_in_typecache(active_item, GLOB.shove_disarming_types))
 		visible_message("<span class='warning'>[src.name] regains their grip on \the [active_item]!</span>", "<span class='warning'>I regain your grip on \the [active_item]</span>", null, COMBAT_MESSAGE_RANGE)
 
-/mob/living/carbon/human/do_after_coefficent()
+/mob/living/carbon/humanoid/do_after_coefficent()
 	. = ..()
 	. *= physiology.do_after_speed
 
-/mob/living/carbon/human/updatehealth()
+/mob/living/carbon/humanoid/updatehealth()
 	. = ..()
 	dna?.species.spec_updatehealth(src)
 	if(HAS_TRAIT(src, TRAIT_IGNOREDAMAGESLOWDOWN))
@@ -687,41 +687,41 @@
 		remove_movespeed_modifier(MOVESPEED_ID_DAMAGE_SLOWDOWN)
 		remove_movespeed_modifier(MOVESPEED_ID_DAMAGE_SLOWDOWN_FLYING)
 
-/mob/living/carbon/human/proc/skele_look()
+/mob/living/carbon/humanoid/proc/skele_look()
 	dna.species.go_bald()
 	update_body_parts(redraw = TRUE)
 	underwear = "Nude"
 
-/mob/living/carbon/human/adjust_nutrition(change) //Honestly FUCK the oldcoders for putting nutrition on /mob someone else can move it up because holy hell I'd have to fix SO many typechecks
+/mob/living/carbon/humanoid/adjust_nutrition(change) //Honestly FUCK the oldcoders for putting nutrition on /mob someone else can move it up because holy hell I'd have to fix SO many typechecks
 	if(HAS_TRAIT(src, TRAIT_NOHUNGER))
 		return FALSE
 	return ..()
 
-/mob/living/carbon/human/set_nutrition(change) //Seriously fuck you oldcoders.
+/mob/living/carbon/humanoid/set_nutrition(change) //Seriously fuck you oldcoders.
 	if(HAS_TRAIT(src, TRAIT_NOHUNGER))
 		return FALSE
 	return ..()
 
-/mob/living/carbon/human/adjust_hydration(change)
+/mob/living/carbon/humanoid/adjust_hydration(change)
 	if(HAS_TRAIT(src, TRAIT_NOHUNGER))
 		return FALSE
 	return ..()
 
-/mob/living/carbon/human/set_hydration(change)
+/mob/living/carbon/humanoid/set_hydration(change)
 	if(HAS_TRAIT(src, TRAIT_NOHUNGER))
 		return FALSE
 	return ..()
 
-/mob/living/carbon/human/species
+/mob/living/carbon/humanoid/species
 	var/race = null
 
-/mob/living/carbon/human/species/Initialize()
+/mob/living/carbon/humanoid/species/Initialize()
 	. = ..()
 	if(race)
 		set_species(race)
 	return INITIALIZE_HINT_LATELOAD
 
-/mob/living/carbon/human/species/LateInitialize()
+/mob/living/carbon/humanoid/species/LateInitialize()
 	. = ..()
 	var/turf/turf = get_turf(loc)
 	if(turf)

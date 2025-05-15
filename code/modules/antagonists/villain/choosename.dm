@@ -1,4 +1,4 @@
-/mob/living/carbon/human/proc/choose_name_popup(input)
+/mob/living/carbon/humanoid/proc/choose_name_popup(input)
 	if(QDELETED(src))
 		return
 	var/old_name = real_name

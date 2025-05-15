@@ -6,7 +6,7 @@
 /datum/charflaw/limbloss/on_mob_creation(mob/user)
 	if(!ishuman(user))
 		return
-	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/humanoid/H = user
 	var/obj/item/bodypart/O = H.get_bodypart(lost_zone)
 	if(O)
 		O.drop_limb()
@@ -22,7 +22,7 @@
 	..()
 	if(!ishuman(user))
 		return
-	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/humanoid/H = user
 	var/obj/item/bodypart/r_arm/prosthetic/wood/L = new()
 	L.attach_limb(H)
 
@@ -35,6 +35,6 @@
 	..()
 	if(!ishuman(user))
 		return
-	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/humanoid/H = user
 	var/obj/item/bodypart/l_arm/prosthetic/wood/L = new()
 	L.attach_limb(H)

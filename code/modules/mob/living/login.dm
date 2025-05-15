@@ -62,7 +62,7 @@
 		if(L?.stat >= DEAD)
 			client.verbs |= /client/proc/descend
 			if(ishuman(L))
-				var/mob/living/carbon/human/D = L
+				var/mob/living/carbon/humanoid/D = L
 				if(D.funeral)
 					to_chat(src, span_rose("My soul has found peace buried in consecrated ground."))
 

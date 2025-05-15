@@ -113,7 +113,7 @@ GLOBAL_LIST_EMPTY(antagonists)
 		add_antag_hud(antag_hud_type, antag_hud_name)
 		give_antag_moodies()
 		if(owner.current.has_flaw(/datum/charflaw/pacifist))
-			var/mob/living/carbon/human/human_user = owner.current
+			var/mob/living/carbon/humanoid/human_user = owner.current
 			QDEL_NULL(human_user?.charflaw)
 			was_pacifist = TRUE
 		if(is_banned(owner.current) && replace_banned)
@@ -148,7 +148,7 @@ GLOBAL_LIST_EMPTY(antagonists)
 		LAZYREMOVE(owner.antag_datums, src)
 		if(owner.current)
 			if(was_pacifist)
-				var/mob/living/carbon/human/human_user = owner.current
+				var/mob/living/carbon/humanoid/human_user = owner.current
 				human_user.charflaw = new /datum/charflaw/pacifist(human_user)
 				human_user.charflaw.after_spawn(human_user, TRUE)
 			if(!silent)

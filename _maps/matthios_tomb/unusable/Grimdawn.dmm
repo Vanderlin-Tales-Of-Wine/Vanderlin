@@ -16,7 +16,7 @@
 /area/rogue/under/tomb/indoors)
 "i" = (
 /obj/structure/bed/shit,
-/mob/living/carbon/human/species/zizombie/npc/GRENZEL,
+/mob/living/carbon/humanoid/species/zizombie/npc/GRENZEL,
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb/indoors)
 "l" = (

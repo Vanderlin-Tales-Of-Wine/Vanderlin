@@ -83,7 +83,7 @@
 /mob/living/carbon/after_manapool_init()
 	generate_random_attunements()
 
-/mob/living/carbon/human/dummy
+/mob/living/carbon/humanoid/dummy
 	has_initial_mana_pool = FALSE
 
 /datum/mana_pool/mob

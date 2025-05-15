@@ -29,7 +29,7 @@
 
 /datum/job/consort/after_spawn(mob/living/spawned, client/player_client)
 	..()
-	var/mob/living/carbon/human/H = spawned
+	var/mob/living/carbon/humanoid/H = spawned
 	SSfamilytree.AddRoyal(H, (H.gender == FEMALE) ? FAMILY_MOTHER : FAMILY_FATHER)
 	if(GLOB.keep_doors.len > 0)
 		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(know_keep_door_password), H), 50)
@@ -61,7 +61,7 @@
 
 	category_tags = list(CTAG_CONSORT)
 
-/datum/outfit/job/consort/highborn/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/consort/highborn/pre_equip(mob/living/carbon/humanoid/H)
 	. = ..()
 	if(H.gender == MALE)
 		pants = /obj/item/clothing/pants/tights/black
@@ -102,7 +102,7 @@
 
 	category_tags = list(CTAG_CONSORT)
 
-/datum/outfit/job/consort/courtesan/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/consort/courtesan/pre_equip(mob/living/carbon/humanoid/H)
 	. = ..()
 	if(H.gender == MALE)
 		pants = /obj/item/clothing/pants/tights/black
@@ -143,7 +143,7 @@
 
 	category_tags = list(CTAG_CONSORT)
 
-/datum/outfit/job/consort/lowborn/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/consort/lowborn/pre_equip(mob/living/carbon/humanoid/H)
 	. = ..()
 	if(H.gender == MALE)
 		pants = /obj/item/clothing/pants/tights/green
@@ -192,7 +192,7 @@
 	spawn_positions = 0
 	display_order = JDO_CONSORT
 
-/datum/outfit/job/consort/courtesan/spy/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/consort/courtesan/spy/pre_equip(mob/living/carbon/humanoid/H)
 	. = ..()
 	H.grant_language(/datum/language/thievescant)
 	to_chat(H, "<span class='info'>I can gesture in thieves' cant with ,t before my speech.</span>")

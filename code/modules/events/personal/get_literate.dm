@@ -17,7 +17,7 @@
 		return FALSE
 
 	var/has_valid_target = FALSE
-	for(var/mob/living/carbon/human/H in GLOB.player_list)
+	for(var/mob/living/carbon/humanoid/H in GLOB.player_list)
 		if(!istype(H) || H.stat == DEAD || !H.client)
 			continue
 		if(!H.is_literate() && H.patron && istype(H.patron, /datum/patron/divine/noc))
@@ -29,7 +29,7 @@
 /datum/round_event/noc_literacy/start()
 	var/list/illiterate_noc_followers = list()
 
-	for(var/mob/living/carbon/human/H in GLOB.player_list)
+	for(var/mob/living/carbon/humanoid/H in GLOB.player_list)
 		if(!istype(H) || H.stat == DEAD || !H.client)
 			continue
 		if(!H.is_literate() && H.patron && istype(H.patron, /datum/patron/divine/noc))
@@ -38,7 +38,7 @@
 	if(!length(illiterate_noc_followers))
 		return
 
-	var/mob/living/carbon/human/chosen_illiterate = pick(illiterate_noc_followers)
+	var/mob/living/carbon/humanoid/chosen_illiterate = pick(illiterate_noc_followers)
 	var/datum/objective/literacy/new_objective = new(owner = chosen_illiterate.mind)
 	chosen_illiterate.mind.add_personal_objective(new_objective)
 

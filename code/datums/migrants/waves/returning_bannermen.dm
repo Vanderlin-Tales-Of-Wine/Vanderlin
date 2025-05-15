@@ -7,7 +7,7 @@
 	is_foreigner = FALSE
 	outfit = /datum/outfit/job/serjeant_at_arms
 
-/datum/outfit/job/serjeant_at_arms/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/serjeant_at_arms/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	head = /obj/item/clothing/head/helmet/leather
 	pants = /obj/item/clothing/pants/trou/leather
@@ -60,7 +60,7 @@
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	grant_lit_torch = TRUE
 	is_foreigner = FALSE
-/datum/outfit/job/archer_bannerman/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/archer_bannerman/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	pants = /obj/item/clothing/pants/trou/leather
 	armor = /obj/item/clothing/armor/leather/hide
@@ -108,7 +108,7 @@
 	grant_lit_torch = TRUE
 	is_foreigner = FALSE
 
-/datum/outfit/job/crossbow_bannerman/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/crossbow_bannerman/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	pants = /obj/item/clothing/pants/trou/leather
 	armor = /obj/item/clothing/armor/leather/hide
@@ -157,7 +157,7 @@
 	grant_lit_torch = TRUE
 	is_foreigner = FALSE
 
-/datum/outfit/job/footman_bannerman/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/footman_bannerman/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	armor = /obj/item/clothing/armor/cuirass
 	shirt = /obj/item/clothing/armor/chainmail
@@ -197,7 +197,7 @@
 	grant_lit_torch = TRUE
 	is_foreigner = FALSE
 
-/datum/outfit/job/pikeman_bannerman/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/pikeman_bannerman/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	armor = /obj/item/clothing/armor/chainmail
 	shirt = /obj/item/clothing/armor/gambeson

@@ -24,7 +24,7 @@
 /datum/outfit/job/innkeep_son
 	job_bitflag = BITFLAG_CONSTRUCTOR
 
-/datum/outfit/job/innkeep_son/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/innkeep_son/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)

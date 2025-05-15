@@ -92,7 +92,7 @@
 /mob/living/carbon/proc/handle_roguebreath()
 	return
 
-/mob/living/carbon/human/handle_roguebreath()
+/mob/living/carbon/humanoid/handle_roguebreath()
 	..()
 	if(HAS_TRAIT(src, TRAIT_NOBREATH))
 		return TRUE
@@ -137,7 +137,7 @@
 		reagents.add_reagent(W.water_reagent, 2)
 		reagents.trans_to(src, reagents.total_volume, transfered_by = src, method = INGEST)
 
-/mob/living/carbon/human/handle_inwater()
+/mob/living/carbon/humanoid/handle_inwater()
 	. = ..()
 	if(body_position != LYING_DOWN)
 		if(istype(loc, /turf/open/water/bath))
@@ -164,7 +164,7 @@
 		amt += ((BPinteg) * dna?.species?.pain_mod)
 	return amt
 
-/mob/living/carbon/human/get_complex_pain()
+/mob/living/carbon/humanoid/get_complex_pain()
 	. = ..()
 	if(physiology)
 		. *= physiology.pain_mod
@@ -530,7 +530,7 @@ GLOBAL_LIST_INIT(ballmer_windows_me_msg, list("Yo man, what if, we like, uh, put
 				dust(TRUE, TRUE)
 				chest.skeletonized = TRUE
 				if(ishuman(src))
-					var/mob/living/carbon/human/H = src
+					var/mob/living/carbon/humanoid/H = src
 					H.underwear = "Nude"
 				should_update_body = TRUE
 				if(dna && dna.species)

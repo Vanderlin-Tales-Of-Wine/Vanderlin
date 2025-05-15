@@ -11,7 +11,7 @@
 	var/list/ingredients = list()
 	var/maxingredients = 4
 	var/brewing = 0
-	var/mob/living/carbon/human/lastuser
+	var/mob/living/carbon/humanoid/lastuser
 	fueluse = 20 MINUTES
 	crossfire = FALSE
 

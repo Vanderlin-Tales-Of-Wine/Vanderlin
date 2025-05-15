@@ -28,7 +28,7 @@
 	cmode_music = 'sound/music/cmode/towner/CombatPrisoner.ogg'
 	can_have_apprentices = FALSE
 
-/datum/outfit/job/prisoner/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/prisoner/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	pants = /obj/item/clothing/pants/loincloth/brown
 	mask = /obj/item/clothing/face/facemask/prisoner

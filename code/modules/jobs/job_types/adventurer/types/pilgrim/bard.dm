@@ -11,7 +11,7 @@
 	category_tags = list(CTAG_PILGRIM)
 	apprentice_name = "Aspiring Bard"
 
-/datum/outfit/job/adventurer/bard/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/adventurer/bard/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	H.mind?.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)

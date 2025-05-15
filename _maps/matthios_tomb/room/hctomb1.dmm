@@ -1,6 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aq" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment,
 /obj/effect/decal/cleanable/vomit/old{
 	icon_state = "vomit_4-old"
 	},
@@ -31,7 +31,7 @@
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/cave)
 "cx" = (
-/mob/living/carbon/human/species/orc/ambush,
+/mob/living/carbon/humanoid/species/orc/ambush,
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb/cave)
 "dc" = (
@@ -74,7 +74,7 @@
 /area/rogue/under/tomb)
 "ef" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "ey" = (
@@ -198,7 +198,7 @@
 /obj/structure/chair/wood/alt/chair3{
 	dir = 8
 	},
-/mob/living/carbon/human/species/orc/ambush,
+/mob/living/carbon/humanoid/species/orc/ambush,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/tomb/indoors)
 "lS" = (
@@ -313,7 +313,7 @@
 /turf/open/floor/metal/barograte,
 /area/rogue/under/tomb/indoors)
 "tb" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "tK" = (
@@ -350,7 +350,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "vl" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
@@ -379,7 +379,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb)
 "wG" = (
-/mob/living/carbon/human/species/orc/ambush,
+/mob/living/carbon/humanoid/species/orc/ambush,
 /turf/open/floor/dirt/road,
 /area/rogue/under/tomb/cave)
 "wQ" = (
@@ -398,14 +398,14 @@
 /turf/open/floor/metal/barograte,
 /area/rogue/under/tomb/indoors)
 "xb" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb/cave)
 "xc" = (
 /turf/open/floor/dirt/road,
 /area/rogue/under/tomb/cave)
 "xk" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/tomb/indoors)
 "xl" = (
@@ -463,7 +463,7 @@
 /turf/open/floor/ruinedwood/turned,
 /area/rogue/under/tomb/cave)
 "AP" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/concrete,
 /area/rogue/under/tomb/indoors)
 "AW" = (
@@ -587,7 +587,7 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/tomb/indoors)
 "Hd" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment,
 /turf/open/floor/cobblerock/alt,
 /area/rogue/under/tomb/indoors)
 "Hy" = (
@@ -601,7 +601,7 @@
 /turf/open/floor/metal,
 /area/rogue/under/tomb/indoors)
 "Iz" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/moon,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/moon,
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb/cave)
 "IN" = (
@@ -695,7 +695,7 @@
 /turf/open/floor/cobble/alt,
 /area/rogue/under/tomb/indoors)
 "Pl" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/cave)
 "PC" = (
@@ -815,7 +815,7 @@
 /obj/structure/fluff/railing/wood{
 	dir = 4
 	},
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/ruinedwood/turned,
 /area/rogue/under/tomb/cave)
 "Vf" = (
@@ -970,7 +970,7 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/tomb/indoors)
 "ZO" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/tomb/indoors)

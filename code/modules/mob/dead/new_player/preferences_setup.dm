@@ -1,5 +1,5 @@
 /// Randomizes our character preferences according to enabled bitflags.
-// Reflect changes in [mob/living/carbon/human/proc/randomize_human_appearance]
+// Reflect changes in [mob/living/carbon/humanoid/proc/randomize_human_appearance]
 /datum/preferences/proc/randomise_appearance_prefs(randomise_flags = ALL)
 	if(!length(GLOB.roundstart_races))
 		generate_selectable_species()
@@ -78,7 +78,7 @@
 			highest_pref = job_preferences[job]
 
 	// Set up the dummy for its photoshoot
-	var/mob/living/carbon/human/dummy/mannequin = generate_or_wait_for_human_dummy(DUMMY_HUMAN_SLOT_PREFERENCES)
+	var/mob/living/carbon/humanoid/dummy/mannequin = generate_or_wait_for_human_dummy(DUMMY_HUMAN_SLOT_PREFERENCES)
 	apply_prefs_to(mannequin, TRUE)
 
 	if(previewJob)

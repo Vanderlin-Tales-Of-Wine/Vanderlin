@@ -128,7 +128,7 @@
 	if(damage > high_threshold)
 		. += span_warning("[src] is starting to look discolored.")
 
-/obj/item/organ/proc/prepare_eat(mob/living/carbon/human/user)
+/obj/item/organ/proc/prepare_eat(mob/living/carbon/humanoid/user)
 	var/obj/item/reagent_containers/food/snacks/organ/S = new food_type()
 	S.name = name
 	S.desc = desc
@@ -183,8 +183,8 @@
 	for(var/datum/culling_duel/D in GLOB.graggar_cullings)
 		var/obj/item/organ/heart/d_challenger_heart = D.challenger_heart?.resolve()
 		var/obj/item/organ/heart/d_target_heart = D.target_heart?.resolve()
-		var/mob/living/carbon/human/challenger = D.challenger?.resolve()
-		var/mob/living/carbon/human/target = D.target?.resolve()
+		var/mob/living/carbon/humanoid/challenger = D.challenger?.resolve()
+		var/mob/living/carbon/humanoid/target = D.target?.resolve()
 
 		if(organ_inside == d_target_heart && eater == challenger)
 			D.process_win(winner = eater, loser = target)
@@ -214,7 +214,7 @@
 
 /obj/item/organ/attack(mob/living/carbon/M, mob/user)
 	if(M == user && ishuman(user))
-		var/mob/living/carbon/human/H = user
+		var/mob/living/carbon/humanoid/H = user
 		if(status == ORGAN_ORGANIC)
 			var/obj/item/reagent_containers/food/snacks/S = prepare_eat(H)
 			if(S && H.put_in_active_hand(S))

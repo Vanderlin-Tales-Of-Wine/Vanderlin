@@ -9,7 +9,7 @@
 
 	cmode_music = 'sound/music/cmode/combat_grenzelhoft.ogg'
 
-/datum/outfit/job/mercenary/grenzelhoft/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/mercenary/grenzelhoft/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)

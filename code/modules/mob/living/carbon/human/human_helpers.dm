@@ -1,11 +1,11 @@
 
-/mob/living/carbon/human/proc/change_name(new_name)
+/mob/living/carbon/humanoid/proc/change_name(new_name)
 	real_name = new_name
 
-// /mob/living/carbon/human/restrained(ignore_grab)
+// /mob/living/carbon/humanoid/restrained(ignore_grab)
 // 	. = ((wear_armor && wear_armor.breakouttime) || ..())
 
-/mob/living/carbon/human/check_language_hear(language)
+/mob/living/carbon/humanoid/check_language_hear(language)
 	var/mob/living/carbon/V = src
 	if(!language)
 		return
@@ -17,23 +17,23 @@
 			V.add_stress(/datum/stressevent/paratalk)
 
 
-/mob/living/carbon/human/canBeHandcuffed()
+/mob/living/carbon/humanoid/canBeHandcuffed()
 	if(num_hands < 2)
 		return FALSE
 	return TRUE
 
 //gets assignment from ID or ID inside PDA or PDA itself
 //Useful when player do something with computers
-/mob/living/carbon/human/proc/get_assignment(if_no_id = "No id", if_no_job = "No job", hand_first = TRUE)
+/mob/living/carbon/humanoid/proc/get_assignment(if_no_id = "No id", if_no_job = "No job", hand_first = TRUE)
 	return if_no_job
 
 //gets name from ID or ID inside PDA or PDA itself
 //Useful when player do something with computers
-/mob/living/carbon/human/proc/get_authentification_name(if_no_id = "Unknown")
+/mob/living/carbon/humanoid/proc/get_authentification_name(if_no_id = "Unknown")
 	return if_no_id
 
 //repurposed proc. Now it combines get_id_name() and get_face_name() to determine a mob's name variable. Made into a separate proc as it'll be useful elsewhere
-/mob/living/carbon/human/get_visible_name()
+/mob/living/carbon/humanoid/get_visible_name()
 	var/face_name = get_face_name("")
 	var/id_name = get_id_name("")
 	if(name_override)
@@ -47,7 +47,7 @@
 	return "Unknown"
 
 //Returns "Unknown" if facially disfigured and real_name if not. Useful for setting name when Fluacided or when updating a human's name variable
-/mob/living/carbon/human/proc/get_face_name(if_no_face="Unknown")
+/mob/living/carbon/humanoid/proc/get_face_name(if_no_face="Unknown")
 	if( wear_mask && (wear_mask.flags_inv&HIDEFACE) )	//Wearing a mask which hides our face, use id-name if possible
 		return if_no_face
 	if( head && (head.flags_inv&HIDEFACE) )
@@ -59,21 +59,21 @@
 
 //gets name from ID or PDA itself, ID inside PDA doesn't matter
 //Useful when player is being seen by other mobs
-/mob/living/carbon/human/proc/get_id_name(if_no_id = "Unknown")
+/mob/living/carbon/humanoid/proc/get_id_name(if_no_id = "Unknown")
 	. = if_no_id	//to prevent null-names making the mob unclickable
 	return
 
-/mob/living/carbon/human/IsAdvancedToolUser()
+/mob/living/carbon/humanoid/IsAdvancedToolUser()
 	if(HAS_TRAIT(src, TRAIT_MONKEYLIKE))
 		return FALSE
 	return TRUE//Humans can use guns and such
 
-/mob/living/carbon/human/reagent_check(datum/reagent/R)
+/mob/living/carbon/humanoid/reagent_check(datum/reagent/R)
 	return dna.species.handle_chemicals(R,src)
 	// if it returns 0, it will run the usual on_mob_life for that reagent. otherwise, it will stop after running handle_chemicals for the species.
 
 
-/mob/living/carbon/human/can_track(mob/living/user)
+/mob/living/carbon/humanoid/can_track(mob/living/user)
 	if(istype(head, /obj/item/clothing/head))
 		var/obj/item/clothing/head/hat = head
 		if(hat.blockTracking)
@@ -81,7 +81,7 @@
 
 	return ..()
 
-/mob/living/carbon/human/can_use_guns(obj/item/G)
+/mob/living/carbon/humanoid/can_use_guns(obj/item/G)
 	. = ..()
 	if(G.trigger_guard == TRIGGER_GUARD_NORMAL)
 		if(HAS_TRAIT(src, TRAIT_CHUNKYFINGERS))
@@ -91,11 +91,11 @@
 		to_chat(src, "<span class='warning'>I can't bring myself to use a ranged weapon!</span>")
 		return FALSE
 
-/mob/living/carbon/human/get_policy_keywords()
+/mob/living/carbon/humanoid/get_policy_keywords()
 	. = ..()
 	. += "[dna.species.type]"
 
-/mob/living/carbon/human/can_see_reagents()
+/mob/living/carbon/humanoid/can_see_reagents()
 	. = ..()
 	if(.) //No need to run through all of this if it's already true.
 		return
@@ -104,7 +104,7 @@
 	if(isclothing(wear_mask) && (wear_mask.clothing_flags & SCAN_REAGENTS))
 		return TRUE
 
-/mob/living/carbon/human/get_punch_dmg()
+/mob/living/carbon/humanoid/get_punch_dmg()
 	if(QDELETED(src) || !ishuman(src))
 		return
 
@@ -128,7 +128,7 @@
 
 	return damage
 
-/mob/living/carbon/human/proc/get_kick_damage(multiplier = 1)
+/mob/living/carbon/humanoid/proc/get_kick_damage(multiplier = 1)
 	if(QDELETED(src) || !ishuman(src))
 		return
 
@@ -150,7 +150,7 @@
 
 /// Fully randomizes everything in the character.
 // Reflect changes in [datum/preferences/proc/randomise_appearance_prefs]
-/mob/living/carbon/human/proc/randomize_human_appearance(randomise_flags = ALL)
+/mob/living/carbon/humanoid/proc/randomize_human_appearance(randomise_flags = ALL)
 	if(randomise_flags & RANDOMIZE_SPECIES)
 		set_species(GLOB.species_list[pick(GLOB.roundstart_races)], FALSE)
 	var/datum/species/species = dna.species
@@ -180,18 +180,18 @@
 * the process. They check with these procs that
 * i can edit from here. -IP
 */
-/mob/living/carbon/human/proc/RomanticPartner(mob/living/carbon/human/H)
+/mob/living/carbon/humanoid/proc/RomanticPartner(mob/living/carbon/humanoid/H)
 	if(!ishuman(H))
 		return
 	if(spouse_mob == H)
 		return TRUE
 
-/mob/living/carbon/human/proc/IsWedded(mob/living/carbon/human/wedder)
+/mob/living/carbon/humanoid/proc/IsWedded(mob/living/carbon/humanoid/wedder)
 	if(spouse_mob)
 		return TRUE
 
 //Instead of putting the spouse variable everywhere its all funneled through this proc.
-/mob/living/carbon/human/proc/MarryTo(mob/living/carbon/human/spouse)
+/mob/living/carbon/humanoid/proc/MarryTo(mob/living/carbon/humanoid/spouse)
 	if(!ishuman(spouse))
 		return
 	var/datum/heritage/brides_family = spouse.family_datum
@@ -207,8 +207,8 @@
 	//Im going to use this wacky tech to shorten the code. -IP
 	var/checkgender = bridemale
 	var/datum/heritage/checkfamdat = family_datum
-	var/mob/living/carbon/human/who_we_check1 = src
-	var/mob/living/carbon/human/who_we_transfer = spouse
+	var/mob/living/carbon/humanoid/who_we_check1 = src
+	var/mob/living/carbon/humanoid/who_we_transfer = spouse
 	for(var/cycle = 1 to 2)
 		//If cycle one is done then run again but with cycle 2 variables.
 		if(cycle == 2)
@@ -228,5 +228,5 @@
 	return checkfamdat
 
 //Perspective stranger looks at --> src
-/mob/living/carbon/human/proc/ReturnRelation(mob/living/carbon/human/stranger)
+/mob/living/carbon/humanoid/proc/ReturnRelation(mob/living/carbon/humanoid/stranger)
 	return family_datum.ReturnRelation(src, stranger)

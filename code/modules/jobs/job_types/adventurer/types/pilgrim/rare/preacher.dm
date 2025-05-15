@@ -13,7 +13,7 @@
 
 	cmode_music = 'sound/music/cmode/church/CombatInquisitor.ogg'
 
-/datum/outfit/job/adventurer/preacher/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/adventurer/preacher/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	shoes = /obj/item/clothing/shoes/shortboots
 	belt = /obj/item/storage/belt/leather/rope

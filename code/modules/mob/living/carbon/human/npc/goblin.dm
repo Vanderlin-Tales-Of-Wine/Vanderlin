@@ -1,4 +1,4 @@
-/mob/living/carbon/human/species/goblin
+/mob/living/carbon/humanoid/species/goblin
 	name = "goblin"
 
 	icon = 'icons/roguetown/mob/monster/goblins.dmi'
@@ -18,31 +18,31 @@
 	stand_attempts = 6
 	vitae_pool = 250 // Small, frail creechers with not so much vitality to gain from.
 
-/mob/living/carbon/human/species/goblin/npc
+/mob/living/carbon/humanoid/species/goblin/npc
 	ai_controller = /datum/ai_controller/human_npc
 	dodgetime = 30 //they can dodge easily, but have a cooldown on it
 	flee_in_pain = TRUE
 
 	wander = FALSE
 
-/mob/living/carbon/human/species/rousman/npc/Initialize()
+/mob/living/carbon/humanoid/species/rousman/npc/Initialize()
 	. = ..()
 	AddComponent(/datum/component/combat_noise, list("laugh" = 2))
 
-/mob/living/carbon/human/species/goblin/npc/ambush
+/mob/living/carbon/humanoid/species/goblin/npc/ambush
 	simpmob_attack = 35
 	simpmob_defend = 25
 	wander = TRUE
 	attack_speed = 2
 
-/mob/living/carbon/human/species/goblin/npc/hell
+/mob/living/carbon/humanoid/species/goblin/npc/hell
 	name = "hell goblin"
 	race = /datum/species/goblin/hell
 
-/mob/living/carbon/human/species/goblin/npc/hell
+/mob/living/carbon/humanoid/species/goblin/npc/hell
 	race = /datum/species/goblin/hell
 
-/mob/living/carbon/human/species/goblin/npc/ambush/hell
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/hell
 	race = /datum/species/goblin/hell
 
 /datum/species/goblin/hell
@@ -50,43 +50,43 @@
 	id = "goblin_hell"
 	raceicon = "goblin_hell"
 
-/mob/living/carbon/human/species/goblin/cave
+/mob/living/carbon/humanoid/species/goblin/cave
 	name = "cave goblin"
 	race = /datum/species/goblin/cave
 
-/mob/living/carbon/human/species/goblin/npc/cave
+/mob/living/carbon/humanoid/species/goblin/npc/cave
 	race = /datum/species/goblin/cave
 
-/mob/living/carbon/human/species/goblin/npc/ambush/cave
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave
 	race = /datum/species/goblin/cave
 
 /datum/species/goblin/cave
 	id = "goblin_cave"
 	raceicon = "goblin_cave"
 
-/mob/living/carbon/human/species/goblin/sea
+/mob/living/carbon/humanoid/species/goblin/sea
 	name = "sea goblin"
 	race = /datum/species/goblin/sea
-/mob/living/carbon/human/species/goblin/npc/sea
+/mob/living/carbon/humanoid/species/goblin/npc/sea
 	race = /datum/species/goblin/sea
-/mob/living/carbon/human/species/goblin/npc/ambush/sea
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/sea
 	race = /datum/species/goblin/sea
 /datum/species/goblin/sea
 	raceicon = "goblin_sea"
 	id = "goblin_sea"
 
-/mob/living/carbon/human/species/goblin/moon
+/mob/living/carbon/humanoid/species/goblin/moon
 	name = "moon goblin"
 	race = /datum/species/goblin/moon
-/mob/living/carbon/human/species/goblin/npc/moon
+/mob/living/carbon/humanoid/species/goblin/npc/moon
 	race = /datum/species/goblin/moon
-/mob/living/carbon/human/species/goblin/npc/ambush/moon
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/moon
 	race = /datum/species/goblin/moon
 /datum/species/goblin/moon
 	id = "goblin_moon"
 	raceicon = "goblin_moon"
 
-/datum/species/goblin/moon/spec_death(gibbed, mob/living/carbon/human/H)
+/datum/species/goblin/moon/spec_death(gibbed, mob/living/carbon/humanoid/H)
 	new /obj/item/reagent_containers/powder/moondust_purest(get_turf(H))
 	H.visible_message("<span class='blue'>Moondust falls from [H]!</span>")
 //	qdel(H)
@@ -131,7 +131,7 @@
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | RACE_SWAP | SLIME_EXTRACT
 	var/raceicon = "goblin"
 
-/datum/species/goblin/regenerate_icons(mob/living/carbon/human/H)
+/datum/species/goblin/regenerate_icons(mob/living/carbon/humanoid/H)
 //	H.cut_overlays()
 	H.icon_state = ""
 	if(H.notransform)
@@ -141,12 +141,12 @@
 	H.update_inv_legcuffed()
 	H.update_fire()
 	H.update_body()
-	var/mob/living/carbon/human/species/goblin/G = H
+	var/mob/living/carbon/humanoid/species/goblin/G = H
 	G.update_wearable()
 	H.update_transform()
 	return TRUE
 
-/mob/living/carbon/human/species/goblin/update_body()
+/mob/living/carbon/humanoid/species/goblin/update_body()
 	remove_overlay(BODY_LAYER)
 	if(!dna || !dna.species)
 		return
@@ -177,7 +177,7 @@
 	apply_overlay(BODY_LAYER)
 	dna.species.update_damage_overlays()
 
-/mob/living/carbon/human/proc/update_wearable()
+/mob/living/carbon/humanoid/proc/update_wearable()
 	remove_overlay(ARMOR_LAYER)
 
 	var/list/standing = list()
@@ -196,19 +196,19 @@
 	apply_overlay(ARMOR_LAYER)
 
 
-/mob/living/carbon/human/species/goblin/update_inv_head()
+/mob/living/carbon/humanoid/species/goblin/update_inv_head()
 	update_wearable()
-/mob/living/carbon/human/species/goblin/update_inv_armor()
+/mob/living/carbon/humanoid/species/goblin/update_inv_armor()
 	update_wearable()
 
-/datum/species/goblin/update_damage_overlays(mob/living/carbon/human/H)
+/datum/species/goblin/update_damage_overlays(mob/living/carbon/humanoid/H)
 	return
 
-/mob/living/carbon/human/species/goblin/Initialize()
+/mob/living/carbon/humanoid/species/goblin/Initialize()
 	. = ..()
 	addtimer(CALLBACK(src, PROC_REF(after_creation)), 1 SECONDS)
 
-/mob/living/carbon/human/species/goblin/after_creation()
+/mob/living/carbon/humanoid/species/goblin/after_creation()
 	..()
 	gender = MALE
 	if(src.dna && src.dna.species)
@@ -293,7 +293,7 @@
 ////
 ///
 
-/datum/outfit/job/npc/goblin/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/npc/goblin/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	H.base_strength = rand(6, 10)
 	H.base_perception = rand(5, 10)
@@ -405,7 +405,7 @@
 		to_chat(user, "<span class='danger'>Too many Gobs.</span>")
 		return
 	gobs++
-	var/mob/living/carbon/human/species/goblin/npc/N = new (get_turf(src))
+	var/mob/living/carbon/humanoid/species/goblin/npc/N = new (get_turf(src))
 	N.key = user.key
 	qdel(user)
 
@@ -423,9 +423,9 @@
 			else
 				moon_goblins = 2
 	if(moon_goblins == 1)
-		new /mob/living/carbon/human/species/goblin/npc/moon(get_turf(src))
+		new /mob/living/carbon/humanoid/species/goblin/npc/moon(get_turf(src))
 	else
-		new /mob/living/carbon/human/species/goblin/npc(get_turf(src))
+		new /mob/living/carbon/humanoid/species/goblin/npc(get_turf(src))
 	gobs++
 	update_icon()
 	if(living_player_count() < 10)

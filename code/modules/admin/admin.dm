@@ -116,7 +116,7 @@
 		var/curse_string = ""
 		var/job = ""
 		if(ishuman(M))
-			var/mob/living/carbon/human/human_mob = M
+			var/mob/living/carbon/humanoid/human_mob = M
 			flaw = human_mob.charflaw
 			curse_string = human_mob.curses.Join(", ")
 			job = human_mob?.mind.assigned_role.title
@@ -269,7 +269,7 @@
 	message_admins("<span class='danger'>Admin [key_name_admin(usr)] healed / revived [key_name_admin(M)]!</span>")
 	log_admin("[key_name(usr)] healed / Revived [key_name(M)].")
 
-/datum/admins/proc/admin_curse(mob/living/carbon/human/M in GLOB.mob_list)
+/datum/admins/proc/admin_curse(mob/living/carbon/humanoid/M in GLOB.mob_list)
 	set name = "Curse"
 	set desc = "Curse or lift a curse from a character"
 	set category = "GameMaster"
@@ -905,7 +905,7 @@
 	set category = "Debug"
 	set name = "Return to Lobby"
 
-	var/mob/living/carbon/human/H = mob
+	var/mob/living/carbon/humanoid/H = mob
 	H.returntolobby()
 
 /client/proc/spawn_liquid()
@@ -980,7 +980,7 @@
 	message_admins("[ADMIN_LOOKUPFLW(usr)] spawned pollution at [epicenter.loc] ([choice] - [amount_choice]).")
 	log_admin("[key_name(usr)] spawned pollution at [epicenter.loc] ([choice] - [amount_choice]).")
 
-/datum/admins/proc/anoint_priest(mob/living/carbon/human/M in GLOB.human_list)
+/datum/admins/proc/anoint_priest(mob/living/carbon/humanoid/M in GLOB.human_list)
 	set category = "GameMaster"
 	set name = "Anoint New Priest"
 	set desc = "Choose a new priest. The previous one will be excommunicated."
@@ -999,7 +999,7 @@
 
 	var/datum/job/priest_job = SSjob.GetJobType(/datum/job/priest)
 	//demote the old priest
-	for(var/mob/living/carbon/human/HL in GLOB.human_list)
+	for(var/mob/living/carbon/humanoid/HL in GLOB.human_list)
 		//TODO: this fucking sucks, just locate the priest
 		if(!HL.mind)
 			continue
@@ -1009,10 +1009,10 @@
 			HL.job = "Ex-Priest"
 
 
-			HL.verbs -= /mob/living/carbon/human/proc/coronate_lord
-			HL.verbs -= /mob/living/carbon/human/proc/churchexcommunicate
-			HL.verbs -= /mob/living/carbon/human/proc/churchcurse
-			HL.verbs -= /mob/living/carbon/human/proc/churchannouncement
+			HL.verbs -= /mob/living/carbon/humanoid/proc/coronate_lord
+			HL.verbs -= /mob/living/carbon/humanoid/proc/churchexcommunicate
+			HL.verbs -= /mob/living/carbon/humanoid/proc/churchcurse
+			HL.verbs -= /mob/living/carbon/humanoid/proc/churchannouncement
 			priest_job?.remove_spells(HL)
 			GLOB.excommunicated_players |= HL.real_name
 			HL.cleric?.excommunicate()
@@ -1023,11 +1023,11 @@
 	M.set_patron(/datum/patron/divine/astrata)
 	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(M, M.patron)
 	C.grant_spells_priest(M)
-	M.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
-	M.verbs |= /mob/living/carbon/human/proc/coronate_lord
-	M.verbs |= /mob/living/carbon/human/proc/churchexcommunicate
-	M.verbs |= /mob/living/carbon/human/proc/churchcurse
-	M.verbs |= /mob/living/carbon/human/proc/churchannouncement
+	M.verbs += list(/mob/living/carbon/humanoid/proc/devotionreport, /mob/living/carbon/humanoid/proc/clericpray)
+	M.verbs |= /mob/living/carbon/humanoid/proc/coronate_lord
+	M.verbs |= /mob/living/carbon/humanoid/proc/churchexcommunicate
+	M.verbs |= /mob/living/carbon/humanoid/proc/churchcurse
+	M.verbs |= /mob/living/carbon/humanoid/proc/churchannouncement
 	removeomen(OMEN_NOPRIEST)
 	priority_announce("Astrata has anointed [M.real_name] as the new head of the Church of the Ten!", title = "Astrata Shines!", sound = 'sound/misc/bell.ogg')
 

@@ -22,7 +22,7 @@
 /datum/outfit/job/artificer
 	job_bitflag = BITFLAG_CONSTRUCTOR
 
-/datum/outfit/job/artificer/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/artificer/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)

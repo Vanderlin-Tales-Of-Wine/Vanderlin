@@ -29,7 +29,7 @@
 	outfit = /datum/outfit/job/merchant
 	give_bank_account = 100
 
-/datum/outfit/job/merchant/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/merchant/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 
 	neck = /obj/item/clothing/neck/horus

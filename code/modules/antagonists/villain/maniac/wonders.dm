@@ -143,7 +143,7 @@
 	. = ..()
 	var/list/viewers = view(7, src)
 	if(!QDELETED(dream_master))
-		for(var/mob/living/carbon/human/victim in viewers)
+		for(var/mob/living/carbon/humanoid/victim in viewers)
 			var/manniaq = victim.mind?.has_antag_datum(/datum/antagonist/maniac)
 			if(!victim.mind || (victim.stat == DEAD) || manniaq)
 				continue
@@ -152,7 +152,7 @@
 				mark_victim(victim)
 				break
 
-/obj/structure/wonder/proc/mark_victim(mob/living/carbon/human/V)
+/obj/structure/wonder/proc/mark_victim(mob/living/carbon/humanoid/V)
 	var/obj/item/organ/heart/H = V.getorganslot(ORGAN_SLOT_HEART)
 	if(H && !QDELETED(dream_master))
 		if(!length(H.maniacs))

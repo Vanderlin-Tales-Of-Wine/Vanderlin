@@ -26,7 +26,7 @@
 /turf/closed/wall/mineral/craftstone,
 /area/rogue/outdoors/bog)
 "l" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/blocks{
 	icon_state = "paving"
 	},

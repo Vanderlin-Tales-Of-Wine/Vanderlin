@@ -43,7 +43,7 @@
 /area/rogue/indoors/shelter/bog)
 "aM" = (
 /obj/structure/bed/shit,
-/mob/living/carbon/human/species/human/northern/bum/ambush,
+/mob/living/carbon/humanoid/species/human/northern/bum/ambush,
 /turf/open/floor/concrete,
 /area/rogue/indoors/shelter/bog)
 "aS" = (
@@ -67,7 +67,7 @@
 /turf/open/floor/twig,
 /area/rogue/indoors/shelter/bog)
 "aX" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/moon,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/moon,
 /turf/open/floor/naturalstone,
 /area/rogue/indoors/cave)
 "aY" = (
@@ -100,7 +100,7 @@
 /obj/item/clothing/pants/trou/shadowpants,
 /obj/item/clothing/shoes/boots,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment,
 /obj/item/clothing/head/crown/circlet/vision,
 /turf/open/floor/carpet,
 /area/rogue/indoors/shelter/bog)
@@ -109,7 +109,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/indoors/shelter/bog)
 "bu" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/shelter/bog)
@@ -118,7 +118,7 @@
 /turf/open/floor/dirt,
 /area/rogue/indoors/shelter/bog)
 "bE" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/sea,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/sea,
 /turf/open/floor/naturalstone,
 /area/rogue/outdoors/bog)
 "bL" = (
@@ -242,7 +242,7 @@
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/shelter/bog)
 "ds" = (
-/mob/living/carbon/human/species/orc/ambush,
+/mob/living/carbon/humanoid/species/orc/ambush,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/bog)
 "du" = (
@@ -336,7 +336,7 @@
 /turf/closed/mineral/random/high,
 /area/rogue/outdoors/bog)
 "eg" = (
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush,
 /turf/open/floor/dirt,
 /area/rogue/indoors/shelter/bog)
 "eh" = (
@@ -353,7 +353,7 @@
 /turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
 "en" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter/bog)
 "es" = (
@@ -362,7 +362,7 @@
 /area/rogue/indoors/shelter/bog)
 "ey" = (
 /obj/structure/bed/shit,
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter/bog)
 "ez" = (
@@ -435,7 +435,7 @@
 /turf/open/floor/twig,
 /area/rogue/indoors/shelter/bog)
 "fj" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
 "fl" = (
@@ -644,7 +644,7 @@
 /area/rogue/indoors/shelter/bog)
 "hO" = (
 /obj/item/chair/stool/bar,
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/dirt,
 /area/rogue/indoors/shelter/bog)
 "hP" = (
@@ -714,7 +714,7 @@
 /area/rogue/outdoors/bog)
 "iv" = (
 /obj/structure/chair/bench/church/r,
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/shelter/bog)
@@ -726,7 +726,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter/bog)
 "iz" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/shelter/bog)
 "iA" = (
@@ -966,7 +966,7 @@
 /turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
 "mc" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/woodturned/nosmooth,
 /area/rogue/indoors/shelter/bog)
 "mi" = (
@@ -1018,7 +1018,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter/bog)
 "na" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/sea,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/sea,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/bog)
 "nk" = (
@@ -1136,7 +1136,7 @@
 /obj/structure/stairs{
 	dir = 4
 	},
-/mob/living/carbon/human/species/orc/warrior,
+/mob/living/carbon/humanoid/species/orc/warrior,
 /turf/open/transparent/openspace,
 /area/rogue/indoors/shelter/bog)
 "oJ" = (
@@ -1172,7 +1172,7 @@
 /turf/open/floor/wood/nosmooth,
 /area/rogue/indoors/shelter/bog)
 "pt" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/shelter/bog)
@@ -1282,7 +1282,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter/bog)
 "qE" = (
-/mob/living/carbon/human/species/orc/marauder,
+/mob/living/carbon/humanoid/species/orc/marauder,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/bog)
 "qG" = (
@@ -1410,7 +1410,7 @@
 /turf/closed/wall/mineral/stone/moss,
 /area/rogue/outdoors/bog)
 "ss" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment{
 	real_name = "Drowned";
 	custom_descriptors = "A skeleton whose ribcage is filled with leeches."
 	},
@@ -1426,7 +1426,7 @@
 "sF" = (
 /obj/structure/bed/wool,
 /obj/item/bedsheet/cloth,
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/dirt,
 /area/rogue/indoors/shelter/bog)
 "sI" = (
@@ -1590,7 +1590,7 @@
 /turf/open/floor/ruinedwood/turned,
 /area/rogue/indoors/shelter/bog)
 "uO" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/churchmarble,
 /area/rogue/outdoors/mountains)
 "uX" = (
@@ -1626,11 +1626,11 @@
 /turf/open/floor/grass,
 /area/rogue/outdoors/bog)
 "vk" = (
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/bog)
 "vn" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/naturalstone,
 /area/rogue/indoors/cave)
 "vo" = (
@@ -1723,7 +1723,7 @@
 /turf/open/floor/churchmarble,
 /area/rogue/outdoors/mountains)
 "wB" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/woodturned/nosmooth,
 /area/rogue/indoors/shelter/bog)
 "wC" = (
@@ -1741,7 +1741,7 @@
 /turf/open/floor/grass,
 /area/rogue/outdoors/bog)
 "wQ" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/naturalstone,
 /area/rogue/indoors/cave)
 "xc" = (
@@ -1782,11 +1782,11 @@
 /area/rogue/indoors/shelter/bog)
 "xr" = (
 /obj/structure/toilet,
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/shelter/bog)
 "xs" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment{
 	real_name = "Drowned";
 	custom_descriptors = "A skeleton whose ribcage is filled with leeches."
 	},
@@ -1807,7 +1807,7 @@
 "xC" = (
 /obj/structure/closet/dirthole/closed/loot,
 /obj/structure/gravemarker,
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
 "xD" = (
@@ -1856,7 +1856,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter/bog)
 "yd" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/churchmarble,
 /area/rogue/outdoors/mountains)
 "yi" = (
@@ -1918,7 +1918,7 @@
 /turf/open/floor/wood/nosmooth,
 /area/rogue/indoors/shelter/bog)
 "zd" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/sea,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/sea,
 /turf/open/floor/wood/nosmooth,
 /area/rogue/indoors/shelter/bog)
 "zl" = (
@@ -1938,7 +1938,7 @@
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/shelter/bog)
 "zD" = (
-/mob/living/carbon/human/species/human/northern/bum/ambush,
+/mob/living/carbon/humanoid/species/human/northern/bum/ambush,
 /turf/open/floor/concrete,
 /area/rogue/indoors/shelter/bog)
 "zJ" = (
@@ -1999,7 +1999,7 @@
 /area/rogue/outdoors/bog)
 "Ak" = (
 /obj/structure/chair/wood/alt/chair_noble/red,
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment,
 /turf/open/floor/carpet,
 /area/rogue/indoors/shelter/bog)
 "As" = (
@@ -2049,7 +2049,7 @@
 /turf/open/floor/cobble,
 /area/rogue/outdoors/bog)
 "AW" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/sea,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/sea,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
 "AZ" = (
@@ -2234,7 +2234,7 @@
 /area/rogue/outdoors/bog)
 "DH" = (
 /obj/structure/chair/stool,
-/mob/living/carbon/human/species/goblin/npc/ambush/moon,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/moon,
 /turf/open/floor/naturalstone,
 /area/rogue/indoors/cave)
 "DO" = (
@@ -2305,7 +2305,7 @@
 /turf/closed/wall/mineral/stone/window,
 /area/rogue/indoors/shelter/bog)
 "Ew" = (
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
 "EG" = (
@@ -2336,7 +2336,7 @@
 /turf/open/floor/carpet,
 /area/rogue/indoors/shelter/bog)
 "Fg" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/woodturned/nosmooth,
 /area/rogue/indoors/shelter/bog)
 "Ft" = (
@@ -2358,7 +2358,7 @@
 /obj/machinery/light/fueled/torchholder{
 	dir = 4
 	},
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush,
 /turf/open/floor/dirt/road,
 /area/rogue/indoors/shelter/bog)
 "FC" = (
@@ -2372,7 +2372,7 @@
 /area/rogue/outdoors/bog)
 "FE" = (
 /obj/machinery/light/fueled/torchholder/l,
-/mob/living/carbon/human/species/human/northern/bum/ambush,
+/mob/living/carbon/humanoid/species/human/northern/bum/ambush,
 /turf/open/floor/concrete,
 /area/rogue/indoors/shelter/bog)
 "FG" = (
@@ -2456,7 +2456,7 @@
 /turf/closed/mineral/random/med,
 /area/rogue/outdoors/bog)
 "Hc" = (
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush,
 /turf/open/floor/twig,
 /area/rogue/indoors/shelter/bog)
 "Hd" = (
@@ -2495,7 +2495,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/indoors/cave)
 "HE" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/shelter/bog)
 "HF" = (
@@ -2575,7 +2575,7 @@
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/shelter/bog)
 "IX" = (
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush,
 /turf/open/floor/ruinedwood/turned,
 /area/rogue/indoors/shelter/bog)
 "IY" = (
@@ -2637,7 +2637,7 @@
 /area/rogue/outdoors/bog)
 "Kf" = (
 /obj/item/reagent_containers/glass/bucket/wooden,
-/mob/living/carbon/human/species/human/northern/bum/ambush,
+/mob/living/carbon/humanoid/species/human/northern/bum/ambush,
 /turf/open/floor/concrete,
 /area/rogue/indoors/shelter/bog)
 "Kh" = (
@@ -2840,7 +2840,7 @@
 /area/rogue/outdoors/bog)
 "Nw" = (
 /obj/structure/chair/bench/church,
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/shelter/bog)
 "Ny" = (
@@ -2923,7 +2923,7 @@
 /area/rogue/outdoors/bog)
 "OB" = (
 /obj/structure/chair/bench/church/mid,
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/shelter/bog)
 "OC" = (
@@ -3041,7 +3041,7 @@
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/shelter/bog)
 "Qm" = (
-/mob/living/carbon/human/species/orc/ambush,
+/mob/living/carbon/humanoid/species/orc/ambush,
 /turf/open/floor/ruinedwood/turned,
 /area/rogue/indoors/shelter/bog)
 "Qn" = (
@@ -3174,7 +3174,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter/bog)
 "RW" = (
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush,
 /turf/open/floor/grass,
 /area/rogue/outdoors/bog)
 "RY" = (
@@ -3357,7 +3357,7 @@
 /area/rogue/outdoors/mountains)
 "Ud" = (
 /obj/structure/chair/stool,
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
 "Ue" = (
@@ -3374,7 +3374,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/bog)
 "Ul" = (
-/mob/living/carbon/human/species/orc/tribal,
+/mob/living/carbon/humanoid/species/orc/tribal,
 /turf/open/floor/twig,
 /area/rogue/indoors/shelter/bog)
 "Uv" = (
@@ -3444,14 +3444,14 @@
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/mountains)
 "Vb" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment,
 /turf/open/floor/naturalstone,
 /area/rogue/indoors/shelter/bog)
 "Vd" = (
 /turf/closed/wall/mineral/decostone,
 /area/rogue/indoors/shelter/bog)
 "Vf" = (
-/mob/living/carbon/human/species/orc/warrior,
+/mob/living/carbon/humanoid/species/orc/warrior,
 /turf/open/floor/dirt/road,
 /area/rogue/indoors/shelter/bog)
 "Vg" = (
@@ -3501,7 +3501,7 @@
 	},
 /area/rogue/outdoors/bog)
 "VO" = (
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush,
 /turf/open/floor/cobblerock,
 /area/rogue/indoors/shelter/bog)
 "VP" = (
@@ -3578,7 +3578,7 @@
 /area/rogue/indoors/shelter/bog)
 "WM" = (
 /obj/structure/chair/stool,
-/mob/living/carbon/human/species/goblin/npc/ambush/sea,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/sea,
 /turf/open/floor/wood/nosmooth,
 /area/rogue/indoors/shelter/bog)
 "WO" = (
@@ -3641,7 +3641,7 @@
 /turf/open/floor/dirt,
 /area/rogue/indoors/shelter/bog)
 "Xt" = (
-/mob/living/carbon/human/species/orc/tribal,
+/mob/living/carbon/humanoid/species/orc/tribal,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/bog)
 "Xu" = (
@@ -3690,7 +3690,7 @@
 /area/rogue/outdoors/bog)
 "XW" = (
 /obj/structure/chair/bench/throne,
-/mob/living/carbon/human/species/orc/warlord,
+/mob/living/carbon/humanoid/species/orc/warlord,
 /turf/open/floor/twig,
 /area/rogue/indoors/shelter/bog)
 "XZ" = (

@@ -101,7 +101,7 @@
 /obj/item/book/granter/spellbook/attack_right(mob/user)
 	if(!picked)
 		var/list/designlist = list("green", "yellow", "brown")
-		var/mob/living/carbon/human/gamer = user
+		var/mob/living/carbon/humanoid/gamer = user
 		if(gamer.job == "Court Magician")
 			designlist = list("steel", "gem", "skin", "mimic")
 		var/the_time = world.time
@@ -135,7 +135,7 @@
 	to_chat(user, span_notice("Arcyne mysteries abound in this enigmatic tome, gift of Noc..."))
 
 /obj/item/book/granter/spellbook/on_reading_finished(mob/user)
-	var/mob/living/carbon/human/gamer = user
+	var/mob/living/carbon/humanoid/gamer = user
 	if(gamer != owner && !allowed_readers.Find(gamer))
 		to_chat(user, span_notice("What was that gibberish? Even for the arcyne it was completely illegible!"))
 		recoil(user)
@@ -188,7 +188,7 @@
 	var/mob/living/gamer = user
 	gamer.electrocute_act(5, src)
 
-/obj/item/book/granter/spellbook/attack(mob/living/M, mob/living/carbon/human/user)
+/obj/item/book/granter/spellbook/attack(mob/living/M, mob/living/carbon/humanoid/user)
 	if (M.stat != DEAD)
 		if(user == M)
 			to_chat(user, span_warning("I'm already chained to this tome!"))
@@ -264,7 +264,7 @@
 	icon_state = "spellbook_unfinished"
 	desc = "A fully bound tome of scroll paper. It's lacking a certain arcyne energy."
 
-/obj/item/natural/hide/attackby(obj/item/P, mob/living/carbon/human/user, params)
+/obj/item/natural/hide/attackby(obj/item/P, mob/living/carbon/humanoid/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(istype(P, /obj/item/paper/scroll))
 		if(isturf(loc)&& (found_table))
@@ -280,7 +280,7 @@
 	else
 		return ..()
 
-/obj/item/spellbook_unfinished/attackby(obj/item/P, mob/living/carbon/human/user, params)
+/obj/item/spellbook_unfinished/attackby(obj/item/P, mob/living/carbon/humanoid/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(istype(P, /obj/item/paper/scroll))
 		if(isturf(loc)&& (found_table))
@@ -305,7 +305,7 @@
 	else
 		return ..()
 
-/obj/item/spellbook_unfinished/pre_arcyne/attackby(obj/item/P, mob/living/carbon/human/user, params)
+/obj/item/spellbook_unfinished/pre_arcyne/attackby(obj/item/P, mob/living/carbon/humanoid/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(istype(P, /obj/item/gem/amethyst))
 		user.visible_message(span_notice("I run my arcyne energy into the crystal. It's artifical lattices pulse and then fall dormant. It must not be strong enough to make a spellbook with!"))
@@ -515,7 +515,7 @@
 
 
 
-/obj/item/book/granter/spellbook/attackby(obj/item/P, mob/living/carbon/human/user, params)
+/obj/item/book/granter/spellbook/attackby(obj/item/P, mob/living/carbon/humanoid/user, params)
 	if(istype(P, /obj/item/gem))
 		if(!stored_gem)
 			if(isarcyne(user))
@@ -540,5 +540,5 @@
 
 /obj/item/book/granter/spellbook/magician/Initialize()
 	. = ..()
-	var/mob/living/carbon/human/L = loc
+	var/mob/living/carbon/humanoid/L = loc
 	owner = L

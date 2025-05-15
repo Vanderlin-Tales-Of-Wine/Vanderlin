@@ -29,7 +29,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/under/tomb)
 "v" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/dirt/road,
 /area/rogue/under/tomb)
 "y" = (

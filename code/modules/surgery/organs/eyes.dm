@@ -66,7 +66,7 @@
 /obj/item/organ/eyes/Insert(mob/living/carbon/M, special = FALSE, drop_if_replaced = FALSE, initialising)
 	. = ..()
 	if(ishuman(owner))
-		var/mob/living/carbon/human/HMN = owner
+		var/mob/living/carbon/humanoid/HMN = owner
 		if(eye_color)
 			HMN.regenerate_icons()
 	for(var/datum/wound/facial/eyes/eye_wound as anything in M.get_wounds())
@@ -81,7 +81,7 @@
 /obj/item/organ/eyes/Remove(mob/living/carbon/M, special = 0)
 	. = ..()
 	if(ishuman(M) && eye_color)
-		var/mob/living/carbon/human/HMN = M
+		var/mob/living/carbon/humanoid/HMN = M
 		HMN.regenerate_icons()
 	M.cure_blind(EYE_DAMAGE)
 	M.cure_nearsighted(EYE_DAMAGE)

@@ -21,7 +21,7 @@
 /datum/outfit/job/tailor
 	job_bitflag = BITFLAG_CONSTRUCTOR
 
-/datum/outfit/job/tailor/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/tailor/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 
 	shoes = /obj/item/clothing/shoes/nobleboot

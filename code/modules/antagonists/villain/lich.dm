@@ -35,7 +35,7 @@
 		TRAIT_DEATHSIGHT,
 	)
 
-/mob/living/carbon/human
+/mob/living/carbon/humanoid
 	/// List of minions that this mob has control over. Used for things like the Lich's "Command Undead" spell.
 	var/list/mob/minions = list()
 
@@ -62,7 +62,7 @@
 	owner.current.forceMove(pick(GLOB.lich_starts))
 
 /datum/antagonist/lich/proc/skele_look()
-	var/mob/living/carbon/human/L = owner.current
+	var/mob/living/carbon/humanoid/L = owner.current
 	L.skeletonize(FALSE)
 	L.skele_look()
 
@@ -70,7 +70,7 @@
 	owner.unknow_all_people()
 	for(var/datum/mind/MF in get_minds())
 		owner.become_unknown_to(MF)
-	var/mob/living/carbon/human/L = owner.current
+	var/mob/living/carbon/humanoid/L = owner.current
 
 	L.mana_pool.intrinsic_recharge_sources &= ~MANA_ALL_LEYLINES
 	L.mana_pool.set_intrinsic_recharge(MANA_SOULS)
@@ -88,7 +88,7 @@
 	L.equipOutfit(/datum/outfit/job/lich)
 	L.set_patron(/datum/patron/inhumen/zizo)
 
-/datum/outfit/job/lich/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/lich/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	head = /obj/item/clothing/head/helmet/skullcap/cult
 	pants = /obj/item/clothing/pants/chainlegs
@@ -140,9 +140,9 @@
 	H.dna.species.soundpack_m = new /datum/voicepack/lich()
 	H.ambushable = FALSE
 
-	addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, choose_name_popup), "LICH"), 5 SECONDS)
+	addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/humanoid, choose_name_popup), "LICH"), 5 SECONDS)
 
-/datum/outfit/job/lich/post_equip(mob/living/carbon/human/H)
+/datum/outfit/job/lich/post_equip(mob/living/carbon/humanoid/H)
 	..()
 	var/datum/antagonist/lich/lichman = H.mind.has_antag_datum(/datum/antagonist/lich)
 	for(var/i in 1 to 3)
@@ -158,7 +158,7 @@
 		return TRUE
 
 /datum/antagonist/lich/proc/rise_anew(location)
-	var/mob/living/carbon/human/lich_mob
+	var/mob/living/carbon/humanoid/lich_mob
 	if(isbrain(owner.current)) // we have been decapitated, let's reattach to our old body.
 		lich_mob = lich_body.resolve() // current body isn't a human mob, let's use the reference to our old body.
 		if(isnull(lich_mob))

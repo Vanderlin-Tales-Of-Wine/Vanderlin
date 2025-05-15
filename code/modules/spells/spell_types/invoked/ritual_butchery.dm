@@ -17,7 +17,7 @@
 	var/extraction_time = 15 SECONDS
 
 /obj/effect/proc_holder/spell/invoked/extract_heart/cast(list/targets, mob/living/user)
-	var/mob/living/carbon/human/target = targets[1]
+	var/mob/living/carbon/humanoid/target = targets[1]
 
 	if(!istype(target))
 		to_chat(user, "<span class='warning'>Only proper flesh is worthy of Graggar's attention!</span>")

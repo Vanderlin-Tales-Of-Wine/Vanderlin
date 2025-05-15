@@ -110,7 +110,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb/cave/lava)
 "nm" = (
-/mob/living/carbon/human/species/rousman/ambush,
+/mob/living/carbon/humanoid/species/rousman/ambush,
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb/cave/lava)
 "np" = (
@@ -168,7 +168,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb/cave/lava)
 "sb" = (
-/mob/living/carbon/human/species/rousman/ambush,
+/mob/living/carbon/humanoid/species/rousman/ambush,
 /turf/open/floor/cobble,
 /area/rogue/under/tomb/cave/lava)
 "sp" = (
@@ -179,11 +179,11 @@
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/indoors)
 "uk" = (
-/mob/living/carbon/human/species/rousman/ambush,
+/mob/living/carbon/humanoid/species/rousman/ambush,
 /turf/open/floor/dirt/road,
 /area/rogue/under/tomb/cave/lava)
 "uw" = (
-/mob/living/carbon/human/species/rousman/ambush,
+/mob/living/carbon/humanoid/species/rousman/ambush,
 /turf/open/floor/metal,
 /area/rogue/under/tomb/cave/lava)
 "uE" = (
@@ -200,7 +200,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb/cave/lava)
 "zf" = (
-/mob/living/carbon/human/species/rousman/ambush,
+/mob/living/carbon/humanoid/species/rousman/ambush,
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb/indoors)
 "zW" = (
@@ -222,7 +222,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb/cave/lava)
 "FD" = (
-/mob/living/carbon/human/species/rousman/ambush,
+/mob/living/carbon/humanoid/species/rousman/ambush,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/tomb/cave/lava)
 "FI" = (
@@ -248,7 +248,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb/cave/lava)
 "Hq" = (
-/mob/living/carbon/human/species/rousman/ambush,
+/mob/living/carbon/humanoid/species/rousman/ambush,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/indoors)
 "Hs" = (
@@ -269,7 +269,7 @@
 /turf/open/water/cleanshallow,
 /area/rogue/under/tomb/cave/lava)
 "Ie" = (
-/mob/living/carbon/human/species/rousman/ambush,
+/mob/living/carbon/humanoid/species/rousman/ambush,
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb/cave/lava)
 "ID" = (

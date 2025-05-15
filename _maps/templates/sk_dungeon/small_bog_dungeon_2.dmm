@@ -17,7 +17,7 @@
 /turf/open/water/swamp,
 /area/rogue/outdoors/bog)
 "ci" = (
-/mob/living/carbon/human/species/orc/warlord/skilled,
+/mob/living/carbon/humanoid/species/orc/warlord/skilled,
 /turf/open/floor/twig,
 /area/rogue/outdoors/bog)
 "cj" = (
@@ -58,7 +58,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/bog)
 "mC" = (
-/mob/living/carbon/human/species/orc/tribal,
+/mob/living/carbon/humanoid/species/orc/tribal,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/bog)
 "mG" = (
@@ -150,7 +150,7 @@
 /turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
 "DJ" = (
-/mob/living/carbon/human/species/orc/marauder,
+/mob/living/carbon/humanoid/species/orc/marauder,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/bog)
 "DQ" = (
@@ -197,7 +197,7 @@
 /turf/open/floor/twig,
 /area/rogue/outdoors/bog)
 "Mi" = (
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush,
 /turf/open/floor/twig,
 /area/rogue/outdoors/bog)
 "NP" = (
@@ -205,7 +205,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/bog)
 "OF" = (
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/bog)
 "OO" = (
@@ -253,7 +253,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/bog)
 "YY" = (
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/bog)
 

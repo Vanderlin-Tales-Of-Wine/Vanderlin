@@ -19,7 +19,7 @@
 /datum/outfit/job/miner
 	job_bitflag = BITFLAG_CONSTRUCTOR
 
-/datum/outfit/job/miner/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/miner/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	head = /obj/item/clothing/head/armingcap
 	pants = /obj/item/clothing/pants/trou

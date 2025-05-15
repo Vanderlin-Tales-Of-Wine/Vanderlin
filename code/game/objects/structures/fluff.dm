@@ -822,7 +822,7 @@
 	if(!ishuman(user))
 		return
 
-	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/humanoid/H = user
 	var/random_message = rand(1,5)
 	var/message2send = ""
 	switch(random_message)
@@ -862,7 +862,7 @@
 	if(!ishuman(user))
 		return
 
-	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/humanoid/H = user
 	var/random_message = pick("You spin the globe!", "You land on Rockhill!", "You land on Vanderlin!", "You land on Heartfelt!", "You land on Zybantu!", "You land on Port Thornvale!", "You land on Grenzelhoft!", "You land on Valoria!", "You land on the Fog Islands!")
 	to_chat(H, "<span class='notice'>[random_message]</span>")
 
@@ -896,7 +896,7 @@
 						W.remove_bintegrity(5, user)
 					if(!L.adjust_stamina(rand(4,6)))
 						if(ishuman(L))
-							var/mob/living/carbon/human/H = L
+							var/mob/living/carbon/humanoid/H = L
 							if(H.tiredness >= 50)
 								H.apply_status_effect(/datum/status_effect/debuff/trainsleep)
 						probby = 0
@@ -1120,7 +1120,7 @@
 	desc = "The life force of a Gote has consecrated this holy place.<br/> Present poppies, swampweed leaves, and silk grubs for crafting a worthy sacrifice."
 	icon_state = "shrine_dendor_gote"
 
-/obj/structure/fluff/psycross/attackby(obj/item/W, mob/living/carbon/human/user, params)
+/obj/structure/fluff/psycross/attackby(obj/item/W, mob/living/carbon/humanoid/user, params)
 	if(user.mind)
 		if((is_priest_job(user.mind.assigned_role)) \
 			|| (is_monk_job(user.mind.assigned_role) && (user.patron.type == /datum/patron/divine/eora)))
@@ -1136,8 +1136,8 @@
 				if(A.bitten_names.len)
 					if(A.bitten_names.len == 2)
 						//Groom provides the surname that the bride will take
-						var/mob/living/carbon/human/thegroom
-						var/mob/living/carbon/human/thebride
+						var/mob/living/carbon/humanoid/thegroom
+						var/mob/living/carbon/humanoid/thebride
 						//Did anyone get cold feet on the wedding?
 						for(var/mob/M in viewers(src, 2))
 							testing("check [M]")
@@ -1145,7 +1145,7 @@
 								break
 							if(!ishuman(M))
 								continue
-							var/mob/living/carbon/human/C = M
+							var/mob/living/carbon/humanoid/C = M
 							/*
 							* This is for making the first biters name
 							* always be applied to the groom.

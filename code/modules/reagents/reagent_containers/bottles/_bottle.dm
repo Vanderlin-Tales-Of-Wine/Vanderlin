@@ -53,7 +53,7 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 		return ..()
 	if(!reagents.total_volume && istype(I, /obj/item/paper/scroll))
 		if(ishuman(user))
-			var/mob/living/carbon/human/H = user
+			var/mob/living/carbon/humanoid/H = user
 			var/obj/item/paper/scroll/P = I
 			var/obj/item/bottlemessage/BM = new
 			BM.icon_state = "[icon_state]_message"
@@ -204,7 +204,7 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 	if(!contained)
 		return
 	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+		var/mob/living/carbon/humanoid/H = user
 		var/obj/item/reagent_containers/glass/bottle/btle = new
 		btle.icon_state = replacetext("[icon_state]","_message","")
 		btle.closed = FALSE

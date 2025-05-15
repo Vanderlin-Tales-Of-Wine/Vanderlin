@@ -258,7 +258,7 @@
 
 /datum/status_effect/buff/duration_modification/darkvision/on_apply()
 	. = ..()
-	var/mob/living/carbon/human/H = owner
+	var/mob/living/carbon/humanoid/H = owner
 	var/obj/item/organ/eyes/eyes = H.getorgan(/obj/item/organ/eyes)
 	if (!eyes || eyes.lighting_alpha)
 		return
@@ -377,7 +377,7 @@
 
 /datum/status_effect/buff/beastsense/on_apply()
 	. = ..()
-	var/mob/living/carbon/human/H = owner
+	var/mob/living/carbon/humanoid/H = owner
 	var/obj/item/organ/eyes/eyes = H.getorgan(/obj/item/organ/eyes)
 	if (!eyes || eyes.lighting_alpha)
 		return
@@ -417,7 +417,7 @@
 /datum/status_effect/buff/trollshape/on_apply()
 	. = ..()
 	if(iscarbon(owner))
-		var/mob/living/carbon/human/C = owner
+		var/mob/living/carbon/humanoid/C = owner
 		C.resize = 1.2
 		C.update_transform()
 		C.AddComponent(/datum/component/footstep, FOOTSTEP_MOB_HEAVY, 1, 2)
@@ -425,7 +425,7 @@
 /datum/status_effect/buff/trollshape/on_remove()
 	. = ..()
 	if(iscarbon(owner))
-		var/mob/living/carbon/human/C = owner
+		var/mob/living/carbon/humanoid/C = owner
 		C.emote("pain", forced = TRUE)
 		playsound(get_turf(C), 'sound/gore/flesh_eat_03.ogg', 100, TRUE)
 		to_chat(C, span_warning("Dendors transformation fades, flesh shrinking back. My body aches..."))
@@ -583,7 +583,7 @@
 	name = "Awaken!"
 
 /datum/status_effect/bardicbuff/awaken/tick()
-	for (var/mob/living/carbon/human/H in hearers(7, owner))
+	for (var/mob/living/carbon/humanoid/H in hearers(7, owner))
 		if (!H.client)
 			continue
 		if(!H.can_hear())
@@ -720,7 +720,7 @@
 	name = "Awaken!"
 
 /datum/status_effect/bardicbuff/awaken/tick()
-	for (var/mob/living/carbon/human/H in hearers(7, owner))
+	for (var/mob/living/carbon/humanoid/H in hearers(7, owner))
 		if (!H.client)
 			continue
 		if(!H.can_hear())
@@ -790,7 +790,7 @@
 /datum/status_effect/buff/nocblessed
 	id = "nocblessed"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/nocblessed
-	effectedstats = list("intelligence" = 3, "perception" = 2) 
+	effectedstats = list("intelligence" = 3, "perception" = 2)
 	duration = 300 MINUTES
 
 /atom/movable/screen/alert/status_effect/buff/nocblessed

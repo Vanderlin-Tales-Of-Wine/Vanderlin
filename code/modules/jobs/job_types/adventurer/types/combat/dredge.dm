@@ -9,7 +9,7 @@
 	maximum_possible_slots = 7
 	min_pq = 0
 
-/datum/outfit/job/adventurer/dredge/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/adventurer/dredge/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, pick (1,2), TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, pick (1,2), TRUE)
@@ -670,7 +670,7 @@
 		if("Torturer")
 			H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/craft/traps, 2, TRUE)
-			H.verbs |= /mob/living/carbon/human/proc/torture_victim
+			H.verbs |= /mob/living/carbon/humanoid/proc/torture_victim
 			H.change_stat(STATKEY_INT, -1)
 			to_chat(H,span_info("\
 			I like to collect teeth. Torturing people was once my livelihood.")

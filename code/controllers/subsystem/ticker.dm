@@ -410,8 +410,8 @@ SUBSYSTEM_DEF(ticker)
 /datum/controller/subsystem/ticker/proc/select_ruler()
 	switch(rulertype)
 		if("Monarch")
-			for(var/mob/living/carbon/human/K as anything in GLOB.human_list)
-				if(istype(K, /mob/living/carbon/human/dummy))
+			for(var/mob/living/carbon/humanoid/K as anything in GLOB.human_list)
+				if(istype(K, /mob/living/carbon/humanoid/dummy))
 					continue
 				if(K.job == "Monarch")
 					rulermob = K
@@ -429,7 +429,7 @@ SUBSYSTEM_DEF(ticker)
 		if(!isliving(new_player_mob.new_character))
 			CHECK_TICK
 			continue
-		var/mob/living/carbon/human/new_player_living = new_player_mob.new_character
+		var/mob/living/carbon/humanoid/new_player_living = new_player_mob.new_character
 		if(!new_player_living.mind || is_unassigned_job(new_player_living.mind.assigned_role))
 			CHECK_TICK
 			continue

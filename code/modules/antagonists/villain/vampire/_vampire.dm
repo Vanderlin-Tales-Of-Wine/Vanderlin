@@ -65,7 +65,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	owner.special_role = name
 
 	if(ishuman(owner.current))
-		var/mob/living/carbon/human/vampdude = owner.current
+		var/mob/living/carbon/humanoid/vampdude = owner.current
 		vampdude.adv_hugboxing_cancel()
 
 
@@ -78,7 +78,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	after_gain()
 
 /datum/antagonist/vampire/proc/after_gain()
-	owner.current.verbs |= /mob/living/carbon/human/proc/disguise_button
+	owner.current.verbs |= /mob/living/carbon/humanoid/proc/disguise_button
 
 /datum/antagonist/vampire/on_removal()
 	owner.current.has_reflection = TRUE
@@ -98,7 +98,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	. = ..()
 
 /datum/antagonist/vampire/proc/vamp_look()
-	var/mob/living/carbon/human/V = owner.current
+	var/mob/living/carbon/humanoid/V = owner.current
 	var/obj/item/organ/eyes/eyes = V.getorganslot(ORGAN_SLOT_EYES)
 	cache_skin = V.skin_tone
 	cache_eyes = V.get_eye_color()
@@ -117,7 +117,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 /datum/antagonist/vampire/on_life(mob/user)
 	if(!user)
 		return
-	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/humanoid/H = user
 	if(H.stat == DEAD)
 		return
 	if(H.advsetup)

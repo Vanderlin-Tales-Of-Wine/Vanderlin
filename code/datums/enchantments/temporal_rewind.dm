@@ -17,7 +17,7 @@
 		do_teleport(user, target_turf, channel = TELEPORT_CHANNEL_QUANTUM)
 		src.last_used = world.time
 
-/datum/enchantment/rewind/on_hit_response(obj/item/I, mob/living/carbon/human/owner, mob/living/carbon/human/attacker)
+/datum/enchantment/rewind/on_hit_response(obj/item/I, mob/living/carbon/humanoid/owner, mob/living/carbon/humanoid/attacker)
 	if(world.time < src.last_used + 100)
 		return
 	if(!active_item)

@@ -6,7 +6,7 @@
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	grant_lit_torch = TRUE
 	is_foreigner = FALSE
-/datum/outfit/job/rockhill/mayor/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/rockhill/mayor/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	shirt = /obj/item/clothing/shirt/undershirt
 	belt = /obj/item/storage/belt/leather/black
@@ -64,7 +64,7 @@
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	grant_lit_torch = TRUE
 	advjob_examine = FALSE
-/datum/outfit/job/rockhill/knight/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/rockhill/knight/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	head = /obj/item/clothing/head/helmet
 	gloves = /obj/item/clothing/gloves/plate
@@ -110,7 +110,7 @@
 /datum/migrant_role/heartfelt/knight/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
 	..()
 	if(ishuman(L))
-		var/mob/living/carbon/human/H = L
+		var/mob/living/carbon/humanoid/H = L
 		if(istype(H.cloak, /obj/item/clothing/cloak/tabard/knight/guard))
 			var/obj/item/clothing/S = H.cloak
 			var/index = findtext(H.real_name, " ")
@@ -136,7 +136,7 @@
 	advjob_examine = FALSE
 	outfit = /datum/outfit/job/rockhill/serjeant_at_arms
 
-/datum/outfit/job/rockhill/serjeant_at_arms/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/rockhill/serjeant_at_arms/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	head = /obj/item/clothing/head/helmet/leather
 	pants = /obj/item/clothing/pants/trou/leather

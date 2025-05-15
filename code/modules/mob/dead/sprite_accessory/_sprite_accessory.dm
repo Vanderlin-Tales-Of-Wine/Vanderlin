@@ -49,7 +49,7 @@
 /datum/sprite_accessory/proc/generic_gender_feature_adjust(list/appearance_list, obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner, feature_male_key, feature_female_key)
 	if(QDELETED(owner) || !ishuman(owner))
 		return
-	var/mob/living/carbon/human/humie = owner
+	var/mob/living/carbon/humanoid/humie = owner
 	var/datum/species/species = owner.dna?.species
 	if(!species)
 		return
@@ -247,7 +247,7 @@
 	var/list/sources = list()
 	/// Read specific organ DNA entries to deduce eye, hair and facial hair color
 	if(ishuman(carbon))
-		var/mob/living/carbon/human/human = carbon
+		var/mob/living/carbon/humanoid/human = carbon
 		sources[KEY_SKIN_COLOR] = human.skin_tone
 		sources[KEY_EYE_COLOR] = human.get_eye_color()
 		sources[KEY_HAIR_COLOR] = human.get_hair_color()

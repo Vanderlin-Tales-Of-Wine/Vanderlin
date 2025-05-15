@@ -23,9 +23,9 @@
 				/turf/open/floor/cobblerock)
 	ambush_mobs = list(
 				/mob/living/simple_animal/hostile/retaliate/mole = 40,
-				/mob/living/carbon/human/species/goblin/npc/ambush/cave = 30,
-				/mob/living/carbon/human/species/rousman/ambush = 30,
-				/mob/living/carbon/human/species/orc/ambush = 20,
+				/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave = 30,
+				/mob/living/carbon/humanoid/species/rousman/ambush = 30,
+				/mob/living/carbon/humanoid/species/orc/ambush = 20,
 				/mob/living/simple_animal/hostile/retaliate/troll/cave = 10)
 
 /area/rogue/under/mountains/anvil/upper
@@ -35,8 +35,8 @@
 				/turf/open/floor/naturalstone)
 	ambush_mobs = list(
 				/mob/living/simple_animal/hostile/retaliate/mole = 60,
-				/mob/living/carbon/human/species/rousman/ambush = 20,
-				/mob/living/carbon/human/species/goblin/npc/ambush/cave = 30,
+				/mob/living/carbon/humanoid/species/rousman/ambush = 20,
+				/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave = 30,
 				/mob/living/simple_animal/hostile/retaliate/troll/cave = 5)
 
 /area/rogue/under/mountains/anvil/lower/building
@@ -101,9 +101,9 @@
 				/turf/open/floor/snow/patchy)
 	ambush_mobs = list(
 				/mob/living/simple_animal/hostile/retaliate/wolf = 40,
-				/mob/living/carbon/human/species/goblin/npc/ambush = 30,
-				/mob/living/carbon/human/species/rousman/ambush = 20,
-				/mob/living/carbon/human/species/orc/ambush = 20)
+				/mob/living/carbon/humanoid/species/goblin/npc/ambush = 30,
+				/mob/living/carbon/humanoid/species/rousman/ambush = 20,
+				/mob/living/carbon/humanoid/species/orc/ambush = 20)
 
 /area/rogue/outdoors/mountains/anvil/castle
 	name = "malum's anvil castle"
@@ -114,9 +114,9 @@
 	ambush_types = list(
 				/turf/open/floor/cobblerock)
 	ambush_mobs = list(
-				/mob/living/carbon/human/species/goblin/npc/ambush = 30,
-				/mob/living/carbon/human/species/rousman/ambush = 20,
-				/mob/living/carbon/human/species/orc/ambush = 20)
+				/mob/living/carbon/humanoid/species/goblin/npc/ambush = 30,
+				/mob/living/carbon/humanoid/species/rousman/ambush = 20,
+				/mob/living/carbon/humanoid/species/orc/ambush = 20)
 
 /area/rogue/outdoors/mountains/anvil/grove
 	name = "malum's anvil hidden grove"

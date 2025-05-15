@@ -15,7 +15,7 @@
 /obj/item/debug/human_spawner/afterattack(atom/target, mob/user, proximity)
 	..()
 	if(isturf(target))
-		var/mob/living/carbon/human/H = new /mob/living/carbon/human(target)
+		var/mob/living/carbon/humanoid/H = new /mob/living/carbon/humanoid(target)
 		if(selected_species)
 			H.set_species(selected_species)
 

@@ -50,7 +50,7 @@
 		return
 
 	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+		var/mob/living/carbon/humanoid/H = M
 		if(H.is_mouth_covered())
 			to_chat(user, "<span class='warning'>Remove [ H == user ? "your" : "[H.p_their()]" ] mask!</span>")
 			return
@@ -82,7 +82,7 @@
 			return
 
 		if(ishuman(M))
-			var/mob/living/carbon/human/H = M
+			var/mob/living/carbon/humanoid/H = M
 			if(!H.lip_style)
 				return
 			if(H == user)

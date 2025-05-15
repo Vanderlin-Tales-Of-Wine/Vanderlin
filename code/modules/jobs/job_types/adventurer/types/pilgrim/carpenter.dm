@@ -9,7 +9,7 @@
 	category_tags = list(CTAG_PILGRIM)
 	apprentice_name = "Carpenter Apprentice"
 
-/datum/outfit/job/adventurer/carpenter/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/adventurer/carpenter/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)

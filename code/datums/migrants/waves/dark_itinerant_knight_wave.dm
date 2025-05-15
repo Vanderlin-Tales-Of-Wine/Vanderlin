@@ -7,7 +7,7 @@
 	allowed_races = list("Dark Elf")
 	grant_lit_torch = TRUE
 
-/datum/outfit/job/dark_itinerant_knight/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/dark_itinerant_knight/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	head = /obj/item/clothing/head/rare/elfplate
 	cloak = /obj/item/clothing/cloak/half/shadowcloak
@@ -57,7 +57,7 @@
 	allowed_races = list("Dark Elf")
 	grant_lit_torch = TRUE
 
-/datum/outfit/job/dark_itinerant_squire/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/dark_itinerant_squire/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	shirt = /obj/item/clothing/shirt/dress/gen/black
 	pants = /obj/item/clothing/pants/chainlegs/iron

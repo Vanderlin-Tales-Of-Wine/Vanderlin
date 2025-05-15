@@ -193,7 +193,7 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 		return
 	var/datum/mind/M = person
 	if(ishuman(M.current))
-		var/mob/living/carbon/human/H = M.current
+		var/mob/living/carbon/humanoid/H = M.current
 		if(!known_people[H.real_name])
 			known_people[H.real_name] = list()
 		known_people[H.real_name]["VCOLOR"] = H.voice_color
@@ -213,7 +213,7 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 	var/datum/mind/M = person
 	if(M.known_people)
 		if(ishuman(current))
-			var/mob/living/carbon/human/H = current
+			var/mob/living/carbon/humanoid/H = current
 			if(!M.known_people[H.real_name])
 				M.known_people[H.real_name] = list()
 			M.known_people[H.real_name]["VCOLOR"] = H.voice_color
@@ -232,7 +232,7 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 	if(!person && !name)
 		return
 	if(person)
-		var/mob/living/carbon/human/H = person.current
+		var/mob/living/carbon/humanoid/H = person.current
 		if(!istype(H))
 			return
 		for(var/P in known_people)
@@ -250,7 +250,7 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 	if(person == src)
 		return
 	var/datum/mind/M = person
-	var/mob/living/carbon/human/H = current
+	var/mob/living/carbon/humanoid/H = current
 	if(M.known_people && istype(H))
 		if(M.known_people[H.real_name])
 			M.known_people[H.real_name] = null
@@ -780,7 +780,7 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 /datum/mind/proc/recall_targets(mob/recipient, window=1)
 	var/output = "<B>[recipient.real_name]'s Hitlist:</B><br>"
 	for (var/mob/living/carbon in GLOB.mob_living_list) // Iterate through all mobs in the world
-		if ((carbon.real_name != recipient.real_name) && ((carbon.has_flaw(/datum/charflaw/hunted) || HAS_TRAIT(carbon, TRAIT_ZIZOID_HUNTED)) && (!istype(carbon, /mob/living/carbon/human/dummy))))//To be on the list they must be hunted, not be the user and not be a dummy (There is a dummy that has all vices for some reason)
+		if ((carbon.real_name != recipient.real_name) && ((carbon.has_flaw(/datum/charflaw/hunted) || HAS_TRAIT(carbon, TRAIT_ZIZOID_HUNTED)) && (!istype(carbon, /mob/living/carbon/humanoid/dummy))))//To be on the list they must be hunted, not be the user and not be a dummy (There is a dummy that has all vices for some reason)
 			output += "<br>[carbon.real_name]"
 			if (carbon.job)
 				output += " - [carbon.job]"
@@ -792,8 +792,8 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 /datum/mind/proc/recall_culling(mob/recipient, window=1)
 	var/output = "<B>[recipient.real_name]'s Rival:</B><br>"
 	for(var/datum/culling_duel/D in GLOB.graggar_cullings)
-		var/mob/living/carbon/human/challenger = D.challenger.resolve()
-		var/mob/living/carbon/human/target = D.target.resolve()
+		var/mob/living/carbon/humanoid/challenger = D.challenger.resolve()
+		var/mob/living/carbon/humanoid/target = D.target.resolve()
 		var/obj/item/organ/heart/target_heart = D.target_heart.resolve()
 		var/obj/item/organ/heart/challenger_heart = D.challenger_heart.resolve()
 		var/target_heart_location
@@ -1183,7 +1183,7 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
  ** skill - associated skill
 */
 /datum/mind/proc/get_learning_boon(skill)
-	var/mob/living/carbon/human/H = current
+	var/mob/living/carbon/humanoid/H = current
 	if(!istype(H))
 		return 1
 	var/boon = 1 // Can't teach an old dog new tricks. Most old jobs start with higher skill too.
@@ -1218,7 +1218,7 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 			if(apprentice.mind.get_skill_level(skill) <= (get_skill_level(skill) - 1))
 				multiplier += 0.25 //this means a base 35% of your xp is also given to nearby apprentices plus skill modifiers.
 			if(ishuman(current))
-				var/mob/living/carbon/human/H = current
+				var/mob/living/carbon/humanoid/H = current
 				if(HAS_TRAIT(H, TRAIT_TUTELAGE)) //Base 50% of your xp is given to nearby apprentice
 					multiplier += 0.15
 			var/apprentice_amt = amt * 0.1 + multiplier

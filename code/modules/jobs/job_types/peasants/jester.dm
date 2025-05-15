@@ -21,7 +21,7 @@
 	spells = list(/obj/effect/proc_holder/spell/self/telljoke,/obj/effect/proc_holder/spell/self/telltragedy,/obj/effect/proc_holder/spell/self/fart)
 	give_bank_account = TRUE
 
-/datum/outfit/job/jester/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/jester/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	shoes = /obj/item/clothing/shoes/jester
 	pants = /obj/item/clothing/pants/tights
@@ -64,15 +64,15 @@
 	else
 		H.cmode_music = pick('sound/music/cmode/nobility/CombatJester1.ogg', 'sound/music/cmode/nobility/CombatJester2.ogg')
 
-	H.verbs |= /mob/living/carbon/human/proc/ventriloquate
-	H.verbs |= /mob/living/carbon/human/proc/ear_trick
+	H.verbs |= /mob/living/carbon/humanoid/proc/ventriloquate
+	H.verbs |= /mob/living/carbon/humanoid/proc/ear_trick
 	ADD_TRAIT(H, TRAIT_EMPATH, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NUTCRACKER, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_ZJUMP, TRAIT_GENERIC)
 
 //Ventriloquism! Make things speak!
 
-/mob/living/carbon/human/proc/ventriloquate()
+/mob/living/carbon/humanoid/proc/ventriloquate()
 	set name = "Ventriloquism"
 	set category = "Japes"
 
@@ -88,12 +88,12 @@
 
 // Ear Trick! Pull objects from behind someone's ear by the will of Xylix!
 
-/mob/living/carbon/human/proc/ear_trick()
+/mob/living/carbon/humanoid/proc/ear_trick()
 	set name = "Ear Trick"
 	set category = "Japes"
 
 	var/obj/item/grabbing/I = get_active_held_item()
-	var/mob/living/carbon/human/H
+	var/mob/living/carbon/humanoid/H
 	var/obj/item/japery_obj
 	japery_obj = get_japery()
 	var/obj/item/J = new japery_obj(get_turf(H))
@@ -113,7 +113,7 @@
 	src.visible_message("<span class='notice'>[src] reaches behind [H]'s ear with a grin, shaking their closed hand for a moment before revealing [J] held in it!</span>")
 	MOBTIMER_SET(src, MT_LASTTRICK)
 
-/mob/living/carbon/human/proc/get_japery()
+/mob/living/carbon/humanoid/proc/get_japery()
 	var/japery_list = list(
 		/obj/item/coin/copper,
 		/obj/item/natural/dirtclod,

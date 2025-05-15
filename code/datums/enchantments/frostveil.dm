@@ -12,7 +12,7 @@
 		targeted.visible_message(span_danger("[source] chills [targeted]!"))
 		src.last_used = world.time
 
-/datum/enchantment/frostveil/on_hit_response(obj/item/I, mob/living/carbon/human/owner, mob/living/carbon/human/attacker)
+/datum/enchantment/frostveil/on_hit_response(obj/item/I, mob/living/carbon/humanoid/owner, mob/living/carbon/humanoid/attacker)
 	if(world.time < src.last_used + 100)
 		return
 	if(isliving(attacker))

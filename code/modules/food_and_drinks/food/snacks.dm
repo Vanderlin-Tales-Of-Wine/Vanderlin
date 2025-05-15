@@ -285,7 +285,7 @@ All foods are distributed among various categories. Use common sense.
 	var/apply_effect = TRUE
 	// check to see if what we're eating is appropriate fare for our "social class" (aka nobles shouldn't be eating sticks of butter you troglodytes)
 	if (ishuman(eater))
-		var/mob/living/carbon/human/human_eater = eater
+		var/mob/living/carbon/humanoid/human_eater = eater
 		if (!HAS_TRAIT(human_eater, TRAIT_NASTY_EATER))
 			if (human_eater.is_noble())
 				if (!portable)

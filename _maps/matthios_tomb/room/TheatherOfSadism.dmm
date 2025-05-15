@@ -33,7 +33,7 @@
 /turf/open/floor/blocks/stonered,
 /area/rogue/under/tomb/indoors/royal)
 "bU" = (
-/mob/living/carbon/human/species/orc/tribal,
+/mob/living/carbon/humanoid/species/orc/tribal,
 /obj/effect/decal/cleanable/blood,
 /turf/open/water/swamp,
 /area/rogue/under/tomb)
@@ -113,7 +113,7 @@
 /turf/open/floor/blocks/stonered,
 /area/rogue/under/tomb)
 "gN" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment,
 /obj/item/clothing/shoes/nobleboot,
 /obj/item/clothing/shirt/tunic/noblecoat,
 /obj/item/clothing/head/fancyhat,
@@ -204,7 +204,7 @@
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/under/tomb)
 "je" = (
-/mob/living/carbon/human/species/orc/tribal,
+/mob/living/carbon/humanoid/species/orc/tribal,
 /obj/item/organ/guts,
 /obj/effect/decal/cleanable/blood/gibs/down,
 /obj/effect/decal/cleanable/blood,
@@ -278,7 +278,7 @@
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/under/tomb)
 "le" = (
-/mob/living/carbon/human/species/orc/tribal,
+/mob/living/carbon/humanoid/species/orc/tribal,
 /turf/open/water/swamp,
 /area/rogue/under/tomb)
 "lx" = (
@@ -472,7 +472,7 @@
 /turf/open/floor/blocks/stonered,
 /area/rogue/under/tomb/indoors/royal)
 "tp" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/blocks/stonered,
 /area/rogue/under/tomb/indoors/royal)
 "tq" = (
@@ -536,11 +536,11 @@
 /turf/open/water/swamp,
 /area/rogue/under/tomb)
 "wC" = (
-/mob/living/carbon/human/species/orc/warlord/skilled,
+/mob/living/carbon/humanoid/species/orc/warlord/skilled,
 /turf/open/floor/tile/checker,
 /area/rogue/under/tomb/indoors)
 "wL" = (
-/mob/living/carbon/human/species/orc/marauder,
+/mob/living/carbon/humanoid/species/orc/marauder,
 /turf/open/floor/blocks/stonered,
 /area/rogue/under/tomb)
 "wS" = (
@@ -641,7 +641,7 @@
 /obj/structure/chair/wood/alt{
 	dir = 8
 	},
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/under/tomb)
 "CF" = (
@@ -793,7 +793,7 @@
 /turf/open/floor/carpet/lord/center,
 /area/rogue/under/tomb/indoors/royal)
 "Or" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb)
 "PQ" = (

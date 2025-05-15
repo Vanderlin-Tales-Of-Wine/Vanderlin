@@ -1,4 +1,4 @@
-/mob/living/carbon/human/species/elf
+/mob/living/carbon/humanoid/species/elf
 	race = /datum/species/elf
 
 /datum/species/elf

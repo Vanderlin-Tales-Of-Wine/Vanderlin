@@ -9,7 +9,7 @@
 	return TRUE
 
 /datum/mob_descriptor/age/get_description(mob/living/described)
-	var/mob/living/carbon/human/human = described
+	var/mob/living/carbon/humanoid/human = described
 	switch(human.age)
 		if(AGE_OLD)
 			return "old"

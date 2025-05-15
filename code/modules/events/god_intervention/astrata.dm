@@ -17,7 +17,7 @@
 		return FALSE
 
 /datum/round_event/astrata_grandeur/start()
-	for(var/mob/living/carbon/human/human_mob in GLOB.player_list)
+	for(var/mob/living/carbon/humanoid/human_mob in GLOB.player_list)
 		if(!istype(human_mob) || human_mob.stat == DEAD || !human_mob.client)
 			continue
 

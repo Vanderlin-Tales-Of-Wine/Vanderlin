@@ -139,7 +139,7 @@
 /area/rogue/under/tomb/wilds)
 "uc" = (
 /obj/structure/flora/ausbushes/sparsegrass,
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush,
 /turf/open/floor/grass,
 /area/rogue/under/tomb/wilds)
 "ux" = (
@@ -270,7 +270,7 @@
 /area/rogue/under/tomb/wilds)
 "Je" = (
 /obj/structure/flora/ausbushes/sparsegrass,
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush,
 /turf/open/floor/cobble/mossy,
 /area/rogue/under/tomb/wilds)
 "Jw" = (
@@ -401,7 +401,7 @@
 /turf/open/floor/grass/mixyel,
 /area/rogue/under/tomb/wilds)
 "YT" = (
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush,
 /turf/open/floor/grass/mixyel,
 /area/rogue/under/tomb/wilds)
 "Zj" = (

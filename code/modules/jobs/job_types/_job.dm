@@ -36,7 +36,7 @@
 	var/selection_color = "#dbdce3"
 
 	/// What kind of mob type joining players with this job as their assigned role are spawned as.
-	var/spawn_type = /mob/living/carbon/human
+	var/spawn_type = /mob/living/carbon/humanoid
 
 	/// If this is set to TRUE, a text is printed to the player when jobs are assigned, telling him that he should let admins know that he has to disconnect.
 	var/req_admin_notify
@@ -193,7 +193,7 @@
 	roundstart_experience = skills
 
 	if(roundstart_experience)
-		var/mob/living/carbon/human/experiencer = spawned
+		var/mob/living/carbon/humanoid/experiencer = spawned
 		for(var/i in roundstart_experience)
 			experiencer.mind.adjust_experience(i, roundstart_experience[i], TRUE)
 
@@ -242,7 +242,7 @@
 	if(!(type in actors_list_blacklist)) //don't show these.
 		GLOB.actors_list[spawned.mobid] = "[spawned.real_name] as [spawned.mind.assigned_role.get_informed_title(spawned)]<BR>"
 
-	var/mob/living/carbon/human/humanguy = spawned
+	var/mob/living/carbon/humanoid/humanguy = spawned
 
 	var/datum/job/target_job = humanguy?.mind?.assigned_role
 	if(target_job?.forced_flaw)
@@ -262,7 +262,7 @@
 	if(head_announce)
 		announce_head(joining_mob, head_announce)
 
-/datum/job/proc/announce_head(mob/living/carbon/human/H, channels) //tells the given channel that the given mob is the new department head. See communications.dm for valid channels.
+/datum/job/proc/announce_head(mob/living/carbon/humanoid/H, channels) //tells the given channel that the given mob is the new department head. See communications.dm for valid channels.
 	//RT: UNIMPLEMENTED
 
 //Used for a special check of whether to allow a client to latejoin as this job.
@@ -277,7 +277,7 @@
 /mob/living/proc/on_job_equipping(datum/job/equipping)
 	return
 
-/mob/living/carbon/human/on_job_equipping(datum/job/equipping)
+/mob/living/carbon/humanoid/on_job_equipping(datum/job/equipping)
 	//could be a deprecated system? it was here before the refactor too, so
 	var/datum/bank_account/bank_account = new(real_name, equipping)
 	bank_account.payday(STARTING_PAYCHECKS, TRUE)
@@ -288,7 +288,7 @@
 /mob/living/proc/dress_up_as_job(datum/job/equipping, visual_only = FALSE)
 	return
 
-/mob/living/carbon/human/dress_up_as_job(datum/job/equipping, visual_only = FALSE)
+/mob/living/carbon/humanoid/dress_up_as_job(datum/job/equipping, visual_only = FALSE)
 	dna.species.pre_equip_species_outfit(equipping, src, visual_only)
 	var/datum/outfit/chosen_outfit = (gender == FEMALE && equipping.outfit_female) ? equipping.outfit_female : equipping.outfit
 	equipOutfit(chosen_outfit, visual_only)
@@ -327,7 +327,7 @@
 	///this is our bitflag
 	var/job_bitflag = NONE
 
-/datum/outfit/job/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/pre_equip(mob/living/carbon/humanoid/H, visualsOnly = FALSE)
 	. = ..()
 	var/datum/patron/old_patron = H.patron // Store the initial patron selected before spawning on this var
 	if(length(allowed_patrons) && (!old_patron || !(old_patron.type in allowed_patrons)))
@@ -358,7 +358,7 @@
 	H.underwear_color = null
 	H.update_body()
 
-/datum/outfit/job/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/post_equip(mob/living/carbon/humanoid/H, visualsOnly = FALSE)
 	if(visualsOnly)
 		return
 
@@ -431,7 +431,7 @@
 /// Applies the preference options to the spawning mob, taking the job into account. Assumes the client has the proper mind.
 /mob/living/proc/apply_prefs_job(client/player_client, datum/job/job)
 
-/mob/living/carbon/human/apply_prefs_job(client/player_client, datum/job/job)
+/mob/living/carbon/humanoid/apply_prefs_job(client/player_client, datum/job/job)
 	var/fully_randomize = is_banned_from(player_client.ckey, "Appearance")
 	if(!player_client)
 		return // Disconnected while checking for the appearance ban.

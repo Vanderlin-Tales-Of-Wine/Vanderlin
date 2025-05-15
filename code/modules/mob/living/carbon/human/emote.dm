@@ -1,62 +1,62 @@
-/datum/emote/living/carbon/human
-	mob_type_allowed_typecache = list(/mob/living/carbon/human)
+/datum/emote/living/carbon/humanoid
+	mob_type_allowed_typecache = list(/mob/living/carbon/humanoid)
 
-/datum/emote/living/carbon/human/cry
+/datum/emote/living/carbon/humanoid/cry
 	key = "cry"
 	key_third_person = "cries"
 	message = "cries."
 	emote_type = EMOTE_AUDIBLE
 
-/mob/living/carbon/human/verb/emote_cry()
+/mob/living/carbon/humanoid/verb/emote_cry()
 	set name = "Cry"
 	set category = "Noises"
 
 	emote("cry", intentional = TRUE)
 
-/datum/emote/living/carbon/human/cry/can_run_emote(mob/living/user, status_check = TRUE , intentional)
+/datum/emote/living/carbon/humanoid/cry/can_run_emote(mob/living/user, status_check = TRUE , intentional)
 	. = ..()
 	if(. && iscarbon(user))
 		var/mob/living/carbon/C = user
 		if(C.silent || !C.can_speak())
 			message = "makes a noise. Tears stream down their face."
 
-/datum/emote/living/carbon/human/eyebrow
+/datum/emote/living/carbon/humanoid/eyebrow
 	key = "eyebrow"
 	message = "raises an eyebrow."
 	emote_type = EMOTE_VISIBLE
 
-/mob/living/carbon/human/verb/emote_eyebrow()
+/mob/living/carbon/humanoid/verb/emote_eyebrow()
 	set name = "Raise Eyebrow"
 	set category = "Emotes"
 
 	emote("eyebrow", intentional = TRUE)
 
-/datum/emote/living/carbon/human/psst
+/datum/emote/living/carbon/humanoid/psst
 	key = "psst"
 	key_third_person = "pssts"
 	emote_type = EMOTE_AUDIBLE
 	nomsg = TRUE
 
-/mob/living/carbon/human/verb/emote_psst()
+/mob/living/carbon/humanoid/verb/emote_psst()
 	set name = "Psst"
 	set category = "Noises"
 
 	emote("psst", intentional = TRUE)
 
-/datum/emote/living/carbon/human/grumble
+/datum/emote/living/carbon/humanoid/grumble
 	key = "grumble"
 	key_third_person = "grumbles"
 	message = "grumbles."
 	message_muffled = "makes a grumbling noise."
 	emote_type = EMOTE_AUDIBLE
 
-/mob/living/carbon/human/verb/emote_grumble()
+/mob/living/carbon/humanoid/verb/emote_grumble()
 	set name = "Grumble"
 	set category = "Noises"
 
 	emote("grumble", intentional = TRUE)
 
-/datum/emote/living/carbon/human/handshake
+/datum/emote/living/carbon/humanoid/handshake
 	key = "handshake"
 	message = "shakes their own hands."
 	message_param = "shakes hands with %t."
@@ -64,44 +64,44 @@
 	emote_type = EMOTE_AUDIBLE
 
 
-/datum/emote/living/carbon/human/mumble
+/datum/emote/living/carbon/humanoid/mumble
 	key = "mumble"
 	key_third_person = "mumbles"
 	message = "mumbles."
 	emote_type = EMOTE_AUDIBLE
 
-/datum/emote/living/carbon/human/pale
+/datum/emote/living/carbon/humanoid/pale
 	key = "pale"
 	message = "goes pale for a second."
 
-/datum/emote/living/carbon/human/raise
+/datum/emote/living/carbon/humanoid/raise
 	key = "raise"
 	key_third_person = "raises"
 	message = "raises a hand."
 	hands_use_check = TRUE
 
-/datum/emote/living/carbon/human/salute
+/datum/emote/living/carbon/humanoid/salute
 	key = "salute"
 	key_third_person = "salutes"
 	message = "salutes."
 	message_param = "salutes to %t."
 	hands_use_check = TRUE
 
-/datum/emote/living/carbon/human/shrug
+/datum/emote/living/carbon/humanoid/shrug
 	key = "shrug"
 	key_third_person = "shrugs"
 	message = "shrugs."
 
-/datum/emote/living/carbon/human/wag
+/datum/emote/living/carbon/humanoid/wag
 	key = "wag"
 	key_third_person = "wags"
 	message = "wags their tail."
 
-/datum/emote/living/carbon/human/wag/run_emote(mob/user, params, type_override, intentional)
+/datum/emote/living/carbon/humanoid/wag/run_emote(mob/user, params, type_override, intentional)
 	. = ..()
 	if(!.)
 		return
-	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/humanoid/H = user
 	if(!istype(H) || !H.dna || !H.dna.species || !H.dna.species.can_wag_tail(H))
 		return
 	if(!H.dna.species.is_wagging_tail())
@@ -109,15 +109,15 @@
 	else
 		H.dna.species.stop_wagging_tail(H)
 
-/datum/emote/living/carbon/human/wag/can_run_emote(mob/user, status_check = TRUE , intentional)
+/datum/emote/living/carbon/humanoid/wag/can_run_emote(mob/user, status_check = TRUE , intentional)
 	if(!..())
 		return FALSE
-	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/humanoid/H = user
 	return H.dna && H.dna.species && H.dna.species.can_wag_tail(user)
 
-/datum/emote/living/carbon/human/wag/select_message_type(mob/user, intentional)
+/datum/emote/living/carbon/humanoid/wag/select_message_type(mob/user, intentional)
 	. = ..()
-	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/humanoid/H = user
 	if(!H.dna || !H.dna.species)
 		return
 	if(H.dna.species.is_wagging_tail())

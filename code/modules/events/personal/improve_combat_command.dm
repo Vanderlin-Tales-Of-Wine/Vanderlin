@@ -16,7 +16,7 @@
 	if(!.)
 		return FALSE
 
-	for(var/mob/living/carbon/human/H in GLOB.player_list)
+	for(var/mob/living/carbon/humanoid/H in GLOB.player_list)
 		if(!istype(H) || H.stat == DEAD || !H.client)
 			continue
 		if(!H.patron || !istype(H.patron, /datum/patron/divine/ravox))
@@ -28,7 +28,7 @@
 /datum/round_event/ravox_combat/start()
 	var/list/valid_targets = list()
 
-	for(var/mob/living/carbon/human/human_mob in GLOB.player_list)
+	for(var/mob/living/carbon/humanoid/human_mob in GLOB.player_list)
 		if(!istype(human_mob) || human_mob.stat == DEAD || !human_mob.client)
 			continue
 		if(!human_mob.patron || !istype(human_mob.patron, /datum/patron/divine/ravox))
@@ -38,7 +38,7 @@
 	if(!valid_targets.len)
 		return
 
-	var/mob/living/carbon/human/chosen_one = pick(valid_targets)
+	var/mob/living/carbon/humanoid/chosen_one = pick(valid_targets)
 
 	var/datum/objective/improve_combat/new_objective = new(owner = chosen_one.mind)
 	chosen_one.mind.add_personal_objective(new_objective)

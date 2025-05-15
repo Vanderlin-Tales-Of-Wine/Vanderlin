@@ -40,7 +40,7 @@
 	throw_speed = 1
 	throw_range = 3
 
-/obj/item/clothing/head/peaceflower/equipped(mob/living/carbon/human/user, slot)
+/obj/item/clothing/head/peaceflower/equipped(mob/living/carbon/humanoid/user, slot)
 	. = ..()
 	if(slot == SLOT_HEAD)
 		RegisterSignal(user, COMSIG_MOB_UNEQUIPPED_ITEM, PROC_REF(item_removed))
@@ -92,14 +92,14 @@
 	throw_speed = 1
 	throw_range = 3
 
-/obj/item/clothing/head/corruptflower/equipped(mob/living/carbon/human/user, slot)
+/obj/item/clothing/head/corruptflower/equipped(mob/living/carbon/humanoid/user, slot)
 	. = ..()
 	if(slot == SLOT_HEAD)
 		ADD_TRAIT(user, TRAIT_CRACKHEAD, "corruptflower_[REF(src)]")
 		user.add_curse(/datum/curse/baotha)
 		to_chat(user, "<span class='userdanger'>FUCK YES. Party on!</b></span>")
 
-/obj/item/clothing/head/corruptflower/proc/item_removed(mob/living/carbon/human/wearer, obj/item/dropped_item)
+/obj/item/clothing/head/corruptflower/proc/item_removed(mob/living/carbon/humanoid/wearer, obj/item/dropped_item)
 	SIGNAL_HANDLER
 	if(dropped_item != src)
 		return
@@ -145,8 +145,8 @@
 
 /obj/effect/proc_holder/spell/invoked/bud/cast(list/targets, mob/living/user)
 	var/target = targets[1]
-	if(istype(target, /mob/living/carbon/human)) //Putting flower on head check
-		var/mob/living/carbon/human/C = target
+	if(istype(target, /mob/living/carbon/humanoid)) //Putting flower on head check
+		var/mob/living/carbon/humanoid/C = target
 		if(!C.cmode && !C.get_item_by_slot(SLOT_HEAD))
 			var/obj/item/clothing/head/peaceflower/F = new(get_turf(C))
 			C.equip_to_slot_if_possible(F, SLOT_HEAD, TRUE, TRUE)

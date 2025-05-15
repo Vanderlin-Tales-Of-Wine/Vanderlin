@@ -19,7 +19,7 @@ GLOBAL_DATUM_INIT(default_state, /datum/ui_state/default, new)
 	if(. == UI_INTERACTIVE) // Non-human living mobs can only look, not touch.
 		return UI_UPDATE
 
-/mob/living/carbon/human/default_can_use_topic(src_object)
+/mob/living/carbon/humanoid/default_can_use_topic(src_object)
 	. = shared_ui_interaction(src_object)
 	if(. > UI_CLOSE)
 		. = min(., shared_living_ui_distance(src_object)) // Check the distance...

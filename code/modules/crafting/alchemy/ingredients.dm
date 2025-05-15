@@ -337,7 +337,7 @@
 	med_pot = /datum/alch_cauldron_recipe/end_potion
 	minor_pot = /datum/alch_cauldron_recipe/antidote
 
-/obj/item/alch/rosa/equipped(mob/living/carbon/human/user, slot)
+/obj/item/alch/rosa/equipped(mob/living/carbon/humanoid/user, slot)
 	. = ..()
 	if(slot == SLOT_MOUTH)
 		icon_state = "rosa_mouth"

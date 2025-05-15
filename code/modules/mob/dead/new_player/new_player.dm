@@ -369,7 +369,7 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 
 	SSjob.EquipRank(character, job, character.client)
 	SSticker.minds += character.mind
-	var/mob/living/carbon/human/humanc
+	var/mob/living/carbon/humanoid/humanc
 	if(ishuman(character))
 		humanc = character	//Let's retypecast the var to be human,
 
@@ -525,7 +525,7 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 /mob/proc/after_creation()
 	return
 
-/mob/living/carbon/human/after_creation()
+/mob/living/carbon/humanoid/after_creation()
 	if(dna?.species)
 		dna.species.after_creation(src)
 	roll_mob_stats()

@@ -5,7 +5,7 @@
 	item_state = "leather"
 	equip_sound = 'sound/blank.ogg'
 
-/obj/item/storage/belt/leather/dropped(mob/living/carbon/human/user)
+/obj/item/storage/belt/leather/dropped(mob/living/carbon/humanoid/user)
 	..()
 	if(QDELETED(src))
 		return

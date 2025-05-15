@@ -21,7 +21,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb/indoors)
 "dA" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/indoors)
 "ew" = (
@@ -140,7 +140,7 @@
 /turf/open/floor/plank/h,
 /area/rogue/under/tomb)
 "rj" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/under/tomb/indoors)
 "rs" = (
@@ -333,7 +333,7 @@
 /area/rogue/under/tomb/indoors)
 "Nt" = (
 /obj/item/clothing/head/hatblu,
-/mob/living/carbon/human/species/zizombie/ambush,
+/mob/living/carbon/humanoid/species/zizombie/ambush,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/under/tomb/indoors)
 "NL" = (

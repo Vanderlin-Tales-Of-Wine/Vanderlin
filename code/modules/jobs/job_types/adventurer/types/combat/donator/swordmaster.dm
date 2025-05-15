@@ -11,7 +11,7 @@
 	cmode_music = 'sound/music/cmode/combat_grenzelhoft.ogg'
 
 
-/datum/outfit/job/adventurer/swordmaster/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/adventurer/swordmaster/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)

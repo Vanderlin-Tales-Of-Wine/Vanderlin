@@ -19,7 +19,7 @@
 	name = "Alchemist"
 	jobtype = /datum/job/alchemist
 
-/datum/outfit/job/alchemist/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/alchemist/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)

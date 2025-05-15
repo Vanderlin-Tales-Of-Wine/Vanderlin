@@ -1,4 +1,4 @@
-/mob/living/carbon/human/species/rakshari
+/mob/living/carbon/humanoid/species/rakshari
 	race = /datum/species/rakshari
 
 /datum/species/rakshari

@@ -12,12 +12,12 @@
 	pickprob = 30
 	maximum_possible_slots = 1
 
-/datum/advclass/combat/vaquero/equipme(mob/living/carbon/human/H)
+/datum/advclass/combat/vaquero/equipme(mob/living/carbon/humanoid/H)
 	if(H.gender == FEMALE)
 		horse = /mob/living/simple_animal/hostile/retaliate/saiga/tame/saddled
 	return ..()
 
-/datum/outfit/job/adventurer/vaquero/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/adventurer/vaquero/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)

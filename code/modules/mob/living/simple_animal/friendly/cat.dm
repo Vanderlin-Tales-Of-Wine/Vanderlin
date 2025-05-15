@@ -192,7 +192,7 @@
 
 
 
-/mob/living/simple_animal/pet/cat/attack_hand(mob/living/carbon/human/M) // Gato Basado - not all pets are welcome
+/mob/living/simple_animal/pet/cat/attack_hand(mob/living/carbon/humanoid/M) // Gato Basado - not all pets are welcome
 	. = ..()
 	if(stat != DEAD) // Don't do this if they're dead!!! Jeez!!
 		if(M.mind && M.mind.has_antag_datum(/datum/antagonist/vampire)) // Cats always hiss at vampires

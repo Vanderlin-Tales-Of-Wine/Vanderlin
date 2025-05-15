@@ -135,7 +135,7 @@
 "pH" = (
 /obj/structure/flora/grass,
 /obj/structure/flora/ausbushes/sparsegrass,
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush,
 /turf/open/floor/grass,
 /area/rogue/under/tomb/wilds)
 "pT" = (
@@ -224,7 +224,7 @@
 /area/rogue/under/tomb/wilds)
 "yj" = (
 /obj/structure/flora/grass,
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush,
 /turf/open/floor/grass,
 /area/rogue/under/tomb/wilds)
 "zK" = (
@@ -389,7 +389,7 @@
 /area/rogue/under/tomb/wilds)
 "Ok" = (
 /obj/structure/flora/ausbushes/fullgrass,
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush,
 /turf/open/floor/grass,
 /area/rogue/under/tomb/wilds)
 "Oo" = (

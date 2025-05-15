@@ -369,7 +369,7 @@
 		to_chat(L, span_warning("I cut myself on [src]'s thorns."))
 		L.apply_damage(5, BRUTE)
 	else
-		var/mob/living/carbon/human/H = L
+		var/mob/living/carbon/humanoid/H = L
 		var/obj/item/bodypart/BP = pick(H.bodyparts)
 		BP.receive_damage(10)
 		var/was_hard_collision = (H.m_intent == MOVE_INTENT_RUN || H.throwing || H.atom_flags & Z_FALLING)
@@ -743,7 +743,7 @@
 				to_chat(L, "<span class='warning'>I'm cut on a thorn!</span>")
 				L.apply_damage(5, BRUTE)
 			else
-				var/mob/living/carbon/human/H = L
+				var/mob/living/carbon/humanoid/H = L
 				if(prob(80))
 					if(!HAS_TRAIT(src, TRAIT_PIERCEIMMUNE))
 						var/obj/item/bodypart/BP = pick(H.bodyparts)
@@ -836,7 +836,7 @@
 				L.apply_damage(5, BRUTE)
 				L.Immobilize(5)
 			else
-				var/mob/living/carbon/human/H = L
+				var/mob/living/carbon/humanoid/H = L
 				if(prob(20))
 					if(!HAS_TRAIT(src, TRAIT_PIERCEIMMUNE))
 						var/obj/item/bodypart/BP = pick(H.bodyparts)

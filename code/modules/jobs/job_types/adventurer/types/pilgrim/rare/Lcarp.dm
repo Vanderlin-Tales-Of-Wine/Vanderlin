@@ -13,7 +13,7 @@
 	pickprob = 15
 	apprentice_name = "Carpenter Apprentice"
 
-/datum/outfit/job/adventurer/mastercarpenter/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/adventurer/mastercarpenter/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 
 	H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)

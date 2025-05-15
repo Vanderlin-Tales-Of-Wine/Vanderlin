@@ -27,7 +27,7 @@
 	allowed_patrons = list(/datum/patron/divine/necra)
 	job_bitflag = BITFLAG_CHURCH
 
-/datum/outfit/job/undertaker/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/undertaker/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	head = /obj/item/clothing/head/padded/deathshroud
 	neck = /obj/item/clothing/neck/psycross/silver/necra
@@ -59,5 +59,5 @@
 	ADD_TRAIT(H, TRAIT_GRAVEROBBER, TRAIT_GENERIC) // In case they need to move tombs or anything.
 
 	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(H, H.patron)
-	H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
+	H.verbs += list(/mob/living/carbon/humanoid/proc/devotionreport, /mob/living/carbon/humanoid/proc/clericpray)
 	C.grant_spells(H)

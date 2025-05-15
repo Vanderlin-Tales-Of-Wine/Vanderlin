@@ -6,7 +6,7 @@
 
 //	( + Poison Resistance )
 
-/mob/living/carbon/human/species/dwarf/mountain
+/mob/living/carbon/humanoid/species/dwarf/mountain
 	race = /datum/species/dwarf/mountain
 
 /datum/species/dwarf/mountain

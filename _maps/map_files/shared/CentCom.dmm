@@ -4472,7 +4472,7 @@
 "AM" = (
 /obj/structure/closet/dirthole/closed,
 /obj/structure/flora/ausbushes/sparsegrass,
-/mob/living/carbon/human/species/skeleton/npc,
+/mob/living/carbon/humanoid/species/skeleton/npc,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/bog/inhumen_camp)
 "AN" = (
@@ -4546,7 +4546,7 @@
 /area/rogue/outdoors/bog/inhumen_camp)
 "Bq" = (
 /obj/structure/closet/dirthole/closed,
-/mob/living/carbon/human/species/skeleton/npc,
+/mob/living/carbon/humanoid/species/skeleton/npc,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/bog/inhumen_camp)
 "Bv" = (
@@ -7375,7 +7375,7 @@
 "VC" = (
 /obj/structure/closet/dirthole/closed,
 /obj/item/weapon/shovel,
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/bog/inhumen_camp)
 "VF" = (

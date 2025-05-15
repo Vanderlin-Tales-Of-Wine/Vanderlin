@@ -6,7 +6,7 @@
 	category_tags = list(CTAG_BANDIT)
 	cmode_music = 'sound/music/cmode/antag/combat_bandit_brigand.ogg'
 
-/datum/outfit/job/bandit/brigand/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/bandit/brigand/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	H.mind.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/axesmaces, 4, TRUE)

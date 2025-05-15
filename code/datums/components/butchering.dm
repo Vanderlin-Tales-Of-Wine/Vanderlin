@@ -33,7 +33,7 @@
 			return COMPONENT_ITEM_NO_ATTACK
 
 	if(ishuman(M) && source.force && source.get_sharpness())
-		var/mob/living/carbon/human/H = M
+		var/mob/living/carbon/humanoid/H = M
 		if((H.health <= H.crit_threshold || (user.pulling == H && user.grab_state >= GRAB_NECK) || H.IsSleeping()) && user.zone_selected == BODY_ZONE_HEAD) // Only sleeping, neck grabbed, or crit, can be sliced.
 			if(H.has_status_effect(/datum/status_effect/neck_slice))
 				user.show_message("<span class='warning'>[H]'s neck has already been already cut, you can't make the bleeding any worse!</span>", MSG_VISUAL, \
@@ -49,7 +49,7 @@
 	if(do_after(user, speed, M) && M.Adjacent(source))
 		Butcher(user, M)
 
-/datum/component/butchering/proc/startNeckSlice(obj/item/source, mob/living/carbon/human/H, mob/living/user)
+/datum/component/butchering/proc/startNeckSlice(obj/item/source, mob/living/carbon/humanoid/H, mob/living/user)
 	user.visible_message("<span class='danger'>[user] is slitting [H]'s throat!</span>", \
 					"<span class='danger'>I start slicing [H]'s throat!</span>", \
 					"<span class='hear'>I hear a cutting noise!</span>", ignored_mobs = H)

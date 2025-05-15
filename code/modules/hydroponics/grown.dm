@@ -41,7 +41,7 @@
 			return
 	..()
 
-/obj/item/reagent_containers/food/snacks/grown/Crossed(mob/living/carbon/human/H)
+/obj/item/reagent_containers/food/snacks/grown/Crossed(mob/living/carbon/humanoid/H)
 	..()
 	if(prob(33))
 		if(istype(H))

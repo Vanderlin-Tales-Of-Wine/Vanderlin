@@ -82,7 +82,7 @@
 
 // I hope to god you have a client before you call this, cause the checks on the SS
 /datum/class_select_handler/proc/assemble_the_CLASSES()
-	var/mob/living/carbon/human/H = linked_client.mob
+	var/mob/living/carbon/humanoid/H = linked_client.mob
 
 	// Time to sort and find our viable classes depending on what conditions we gotta deal w
 	if(class_cat_alloc_attempts && class_cat_alloc_attempts.len)
@@ -219,7 +219,7 @@
 		<div id='class_select_box_div'>
 	"}
 
-	var/mob/living/carbon/human/H = linked_client.mob
+	var/mob/living/carbon/humanoid/H = linked_client.mob
 	if(!H.job)
 		return
 

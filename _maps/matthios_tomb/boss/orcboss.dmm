@@ -35,18 +35,18 @@
 /area/rogue/under/tomb/indoors)
 "lo" = (
 /obj/structure/chair/stool,
-/mob/living/carbon/human/species/orc/tribal,
+/mob/living/carbon/humanoid/species/orc/tribal,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "mA" = (
 /obj/structure/chair/bench/throne,
 /obj/item/clothing/ring/active/nomag,
-/mob/living/carbon/human/species/orc/warlord/skilled,
+/mob/living/carbon/humanoid/species/orc/warlord/skilled,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "ni" = (
-/mob/living/carbon/human/species/orc/warrior,
+/mob/living/carbon/humanoid/species/orc/warrior,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "pF" = (
@@ -127,7 +127,7 @@
 /obj/item/natural/poo{
 	pixel_x = -4
 	},
-/mob/living/carbon/human/species/orc/ambush,
+/mob/living/carbon/humanoid/species/orc/ambush,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/indoors)
 "wR" = (
@@ -136,7 +136,7 @@
 /area/rogue/under/tomb/indoors)
 "xz" = (
 /obj/structure/chair/stool,
-/mob/living/carbon/human/species/orc/tribal,
+/mob/living/carbon/humanoid/species/orc/tribal,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb)
 "yI" = (
@@ -161,14 +161,14 @@
 /area/rogue/under/tomb/indoors)
 "Dx" = (
 /obj/structure/bed/shit,
-/mob/living/carbon/human/species/orc/ambush,
+/mob/living/carbon/humanoid/species/orc/ambush,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/indoors)
 "DI" = (
 /turf/closed/mineral/bedrock,
 /area/rogue/under/tomb)
 "EV" = (
-/mob/living/carbon/human/species/orc/marauder,
+/mob/living/carbon/humanoid/species/orc/marauder,
 /turf/open/floor/dirt/road,
 /area/rogue/under/tomb)
 "Fq" = (
@@ -227,7 +227,7 @@
 /turf/open/floor/dirt,
 /area/rogue/under/tomb)
 "Qw" = (
-/mob/living/carbon/human/species/orc/warrior,
+/mob/living/carbon/humanoid/species/orc/warrior,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb)
 "Qy" = (
@@ -260,7 +260,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "TO" = (
-/mob/living/carbon/human/species/orc/ambush,
+/mob/living/carbon/humanoid/species/orc/ambush,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb)
 "Ug" = (

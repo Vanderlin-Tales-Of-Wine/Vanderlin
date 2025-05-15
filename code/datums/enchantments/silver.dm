@@ -23,7 +23,7 @@
 		return AFFECTED
 	return UNAFFECTED
 
-/datum/enchantment/silver/on_hit(obj/item/source, mob/living/carbon/human/target, mob/living/carbon/human/user, proximity_flag, click_parameters)
+/datum/enchantment/silver/on_hit(obj/item/source, mob/living/carbon/humanoid/target, mob/living/carbon/humanoid/user, proximity_flag, click_parameters)
 	if(!ishuman(target))
 		return
 	if(world.time < (src.last_used[source] + (1 MINUTES + 40 SECONDS))) //thanks borbop
@@ -54,7 +54,7 @@
 		to_chat(user, span_userdanger("The silver enchantment fails!"))
 		target.visible_message(span_userdanger("[user] suddenly bursts into flames!"), span_greentextbig("Feeble metal cannot hurt me, I AM THE ANCIENT!"))
 
-/datum/enchantment/silver/on_equip(obj/item/i, mob/living/carbon/human/user)
+/datum/enchantment/silver/on_equip(obj/item/i, mob/living/carbon/humanoid/user)
 	var/affected = affected_by_bane(user)
 	if(!affected)
 		return
@@ -67,7 +67,7 @@
 		user.adjustFireLoss(25)
 		user.fire_act(1, 10)
 
-/datum/enchantment/silver/on_pickup(obj/item/i, mob/living/carbon/human/user)
+/datum/enchantment/silver/on_pickup(obj/item/i, mob/living/carbon/humanoid/user)
 	. = ..()
 	var/affected = affected_by_bane(user)
 	if(!affected)

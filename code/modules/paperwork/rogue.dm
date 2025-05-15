@@ -12,7 +12,7 @@
 	var/old_render = TRUE
 
 
-/obj/item/paper/scroll/attackby(obj/item/P, mob/living/carbon/human/user, params)
+/obj/item/paper/scroll/attackby(obj/item/P, mob/living/carbon/humanoid/user, params)
 	if(istype(P, /obj/item/natural/thorn) || istype(P, /obj/item/natural/feather))
 		if(!open)
 			to_chat(user, "<span class='warning'>Open me.</span>")
@@ -149,7 +149,7 @@
 		name = "scroll"
 
 
-/obj/item/paper/scroll/cargo/attackby(obj/item/P, mob/living/carbon/human/user, params)
+/obj/item/paper/scroll/cargo/attackby(obj/item/P, mob/living/carbon/humanoid/user, params)
 	if(istype(P, /obj/item/natural/feather))
 		if(user.is_literate() && open)
 			if(signedname)
@@ -228,7 +228,7 @@
 		return
 	icon_state = "confession"
 
-/obj/item/paper/confession/proc/attempt_confession(mob/living/carbon/human/M, mob/user)
+/obj/item/paper/confession/proc/attempt_confession(mob/living/carbon/humanoid/M, mob/user)
 	if(!ishuman(M))
 		return
 	var/input = alert(M, "Sign the confession of your true nature?", "CONFESSION OF [confession_type == "antag" ? "VILLAINY" : "FAITH"]", "Yes", "Lie", "No")
@@ -322,7 +322,7 @@
 	else
 		. += span_info("SIGNEE: [signee], [signeejob] of Vanderlin.")
 
-/obj/item/merctoken/attackby(obj/item/P, mob/living/carbon/human/user, params)
+/obj/item/merctoken/attackby(obj/item/P, mob/living/carbon/humanoid/user, params)
 	if(istype(P, /obj/item/natural/thorn) || istype(P, /obj/item/natural/feather))
 		if(!user.can_read(src))
 			to_chat(user, span_warning("Even a reader would find these verba incomprehensible."))
@@ -385,7 +385,7 @@
 	rebuild_info()
 
 
-/obj/item/paper/scroll/frumentarii/attackby(obj/item/P, mob/living/carbon/human/user, params)
+/obj/item/paper/scroll/frumentarii/attackby(obj/item/P, mob/living/carbon/humanoid/user, params)
 	. = ..()
 	if(istype(P, /obj/item/natural/thorn) || istype(P, /obj/item/natural/feather))
 		var/remove = input(user,"Who are we removing from the fingers","Binding Contract",null) as null|anything in real_names

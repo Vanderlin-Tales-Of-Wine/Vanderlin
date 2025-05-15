@@ -24,7 +24,7 @@
 	can_have_apprentices = FALSE
 
 
-/mob/living/carbon/human/proc/townannouncement()
+/mob/living/carbon/humanoid/proc/townannouncement()
 	set name = "Announcement"
 	set category = "Town Elder"
 	if(stat)
@@ -49,9 +49,9 @@
 
 /datum/job/town_elder/after_spawn(mob/living/spawned, client/player_client)
 	. = ..()
-	var/mob/living/carbon/human/H = spawned
+	var/mob/living/carbon/humanoid/H = spawned
 	ADD_TRAIT(H, TRAIT_OLDPARTY, TRAIT_GENERIC)
-	H.verbs |= /mob/living/carbon/human/proc/townannouncement
+	H.verbs |= /mob/living/carbon/humanoid/proc/townannouncement
 
 
 /obj/effect/proc_holder/spell/self/convertrole/town_militia
@@ -85,7 +85,7 @@
 
 
 
-/datum/outfit/job/town_elder/mayor/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/town_elder/mayor/pre_equip(mob/living/carbon/humanoid/H)
 
 
 	pants = /obj/item/clothing/pants/trou/leather
@@ -139,7 +139,7 @@
 
 
 
-/datum/outfit/job/town_elder/mayor/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/town_elder/mayor/post_equip(mob/living/carbon/humanoid/H, visualsOnly = FALSE)
 	. = ..()
 	H.advsetup = 1
 	H.invisibility = INVISIBILITY_MAXIMUM
@@ -177,7 +177,7 @@
 	category_tags = list(CTAG_TOWN_ELDER)
 
 
-/datum/outfit/job/town_elder/master_of_crafts_and_labor/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/town_elder/master_of_crafts_and_labor/pre_equip(mob/living/carbon/humanoid/H)
 
 	head = /obj/item/clothing/head/hatblu
 	armor = /obj/item/clothing/armor/leather/vest/random
@@ -269,7 +269,7 @@
 /datum/outfit/job/town_elder/hearth_acolyte
 	allowed_patrons = ALL_TEMPLE_PATRONS
 
-/datum/outfit/job/town_elder/hearth_acolyte/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/town_elder/hearth_acolyte/pre_equip(mob/living/carbon/humanoid/H)
 	head = /obj/item/clothing/head/roguehood/random
 	armor = /obj/item/clothing/shirt/robe
 	shoes = /obj/item/clothing/shoes/sandals
@@ -344,7 +344,7 @@
 
 
 	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(H, H.patron)
-	H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
+	H.verbs += list(/mob/living/carbon/humanoid/proc/devotionreport, /mob/living/carbon/humanoid/proc/clericpray)
 	C.grant_spells(H)
 
 
@@ -357,7 +357,7 @@
 
 	category_tags = list(CTAG_TOWN_ELDER)
 
-/datum/outfit/job/town_elder/lorekeeper/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/town_elder/lorekeeper/pre_equip(mob/living/carbon/humanoid/H)
 	head = /obj/item/clothing/head/bardhat
 	shoes = /obj/item/clothing/shoes/boots
 	pants = /obj/item/clothing/pants/trou/leather
@@ -401,7 +401,7 @@
 	ADD_TRAIT(H, TRAIT_BARDIC_TRAINING, TRAIT_GENERIC)
 	H.mind?.AddSpell(new /obj/effect/proc_holder/spell/invoked/mockery)
 
-/datum/outfit/job/town_elder/lorekeeper/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/town_elder/lorekeeper/post_equip(mob/living/carbon/humanoid/H, visualsOnly = FALSE)
 	. = ..()
 	H.advsetup = 1
 	H.invisibility = INVISIBILITY_MAXIMUM
@@ -438,7 +438,7 @@
 	category_tags = list(CTAG_TOWN_ELDER)
 
 
-/datum/outfit/job/town_elder/dreamwatcher/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/town_elder/dreamwatcher/pre_equip(mob/living/carbon/humanoid/H)
 	head = /obj/item/clothing/head/softcap
 	armor = /obj/item/clothing/shirt/robe/black
 	shoes = /obj/item/clothing/shoes/sandals

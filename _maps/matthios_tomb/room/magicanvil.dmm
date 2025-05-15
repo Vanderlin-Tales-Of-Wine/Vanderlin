@@ -14,7 +14,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb/cave/lava)
 "f" = (
-/mob/living/carbon/human/species/goblin/npc/hell,
+/mob/living/carbon/humanoid/species/goblin/npc/hell,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/item/clothing/pants/trou/leather/advanced,
 /obj/item/clothing/wrists/bracers/leather,
@@ -29,11 +29,11 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb/cave/lava)
 "k" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/hell,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/hell,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/cave/lava)
 "l" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/hell,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/hell,
 /turf/open/floor/cobble,
 /area/rogue/under/tomb/cave/lava)
 "m" = (
@@ -68,7 +68,7 @@
 	dir = 8;
 	pixel_y = -1
 	},
-/mob/living/carbon/human/species/goblin/npc/ambush/hell,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/hell,
 /turf/open/floor/cobble,
 /area/rogue/under/tomb/cave/lava)
 "u" = (
@@ -84,7 +84,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/tomb/cave/lava)
 "w" = (
-/mob/living/carbon/human/species/goblin/npc/hell,
+/mob/living/carbon/humanoid/species/goblin/npc/hell,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/item/clothing/pants/trou/leather/advanced,
 /obj/item/clothing/wrists/bracers/leather,
@@ -115,18 +115,18 @@
 /area/rogue/under/tomb/cave/lava)
 "C" = (
 /obj/structure/fluff/railing/wood,
-/mob/living/carbon/human/species/goblin/npc/ambush/hell,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/hell,
 /turf/open/floor/cobble,
 /area/rogue/under/tomb/cave/lava)
 "E" = (
-/mob/living/carbon/human/species/orc/warrior,
+/mob/living/carbon/humanoid/species/orc/warrior,
 /obj/structure/fluff/railing/wood{
 	dir = 4
 	},
 /turf/open/floor/cobble,
 /area/rogue/under/tomb/cave/lava)
 "F" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/hell,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/hell,
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb/cave/lava)
 "G" = (
@@ -137,14 +137,14 @@
 /turf/open/floor/cobble,
 /area/rogue/under/tomb/cave/lava)
 "H" = (
-/mob/living/carbon/human/species/orc/marauder,
+/mob/living/carbon/humanoid/species/orc/marauder,
 /turf/open/floor/cobble,
 /area/rogue/under/tomb/cave/lava)
 "I" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4
 	},
-/mob/living/carbon/human/species/orc/marauder,
+/mob/living/carbon/humanoid/species/orc/marauder,
 /turf/open/floor/cobble,
 /area/rogue/under/tomb/cave/lava)
 "J" = (
@@ -210,7 +210,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/tomb/cave/lava)
 "U" = (
-/mob/living/carbon/human/species/orc/warlord/skilled,
+/mob/living/carbon/humanoid/species/orc/warlord/skilled,
 /turf/open/floor/cobble,
 /area/rogue/under/tomb/cave/lava)
 "V" = (
@@ -237,7 +237,7 @@
 /area/rogue/under/tomb/cave/lava)
 "Z" = (
 /obj/structure/fluff/railing/wood,
-/mob/living/carbon/human/species/orc/marauder,
+/mob/living/carbon/humanoid/species/orc/marauder,
 /turf/open/floor/cobble,
 /area/rogue/under/tomb/cave/lava)
 

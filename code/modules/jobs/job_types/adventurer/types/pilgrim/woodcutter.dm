@@ -7,7 +7,7 @@
 	category_tags = list(CTAG_DISABLED)
 	apprentice_name = "Woodcutter"
 
-/datum/outfit/job/adventurer/woodcutter/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/adventurer/woodcutter/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)

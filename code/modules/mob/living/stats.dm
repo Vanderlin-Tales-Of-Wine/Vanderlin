@@ -72,7 +72,7 @@
 	base_fortune += (prob(33) && pick(-1, 1))
 
 	if(ishuman(src))
-		var/mob/living/carbon/human/H = src
+		var/mob/living/carbon/humanoid/H = src
 		if(H.dna?.species)
 			var/datum/species/species = H.dna.species
 			var/list/specstat_list = (gender == FEMALE) ? species.specstats_f : species.specstats

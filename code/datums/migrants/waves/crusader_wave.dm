@@ -5,7 +5,7 @@
 	outfit = /datum/outfit/job/specialinquisitor
 	allowed_races = RACES_PLAYER_GRENZ
 
-/datum/outfit/job/specialinquisitor/pre_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/job/specialinquisitor/pre_equip(mob/living/carbon/humanoid/H, visualsOnly)
 	. = ..()
 	wrists = /obj/item/clothing/neck/psycross/silver
 	neck = /obj/item/clothing/neck/bevor
@@ -53,8 +53,8 @@
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
-	H.verbs |= /mob/living/carbon/human/proc/torture_victim
-	H.verbs |= /mob/living/carbon/human/proc/faith_test
+	H.verbs |= /mob/living/carbon/humanoid/proc/torture_victim
+	H.verbs |= /mob/living/carbon/humanoid/proc/faith_test
 	to_chat(H,span_info("I can speak Old Psydonic with ,m before my speech."))
 	H.mind?.teach_crafting_recipe(/datum/repeatable_crafting_recipe/reading/confessional)
 

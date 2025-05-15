@@ -121,7 +121,7 @@
 			trait_bans |= trait
 	return trait_bans
 
-/proc/apply_trait_bans(mob/living/carbon/human/character, ckey)
+/proc/apply_trait_bans(mob/living/carbon/humanoid/character, ckey)
 	for(var/trait in get_trait_bans(ckey))
 		ADD_TRAIT(character, trait, TRAIT_BAN_PUNISHMENT)
 

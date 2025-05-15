@@ -5,7 +5,7 @@
 	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	grant_lit_torch = TRUE
 	advjob_examine = FALSE
-/datum/outfit/job/itinerant_knight/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/itinerant_knight/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	head = /obj/item/clothing/head/helmet/visored/sallet
 	wrists = /obj/item/clothing/wrists/bracers
@@ -58,7 +58,7 @@
 	grant_lit_torch = TRUE
 	advjob_examine = FALSE
 
-/datum/outfit/job/itinerant_squire/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/itinerant_squire/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	shirt = /obj/item/clothing/shirt/dress/gen/black
 	pants = /obj/item/clothing/pants/chainlegs/iron

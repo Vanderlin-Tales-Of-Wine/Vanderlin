@@ -70,7 +70,7 @@
 
 /datum/enchantment/proc/projectile_hit(atom/fired_from, atom/movable/firer, atom/target, Angle)	//effects when shooting a protectile from an enchanted item
 
-/datum/enchantment/proc/on_hit_response(obj/item/I, mob/living/carbon/human/owner, mob/living/carbon/human/attacker)//use for worn items such as armor to have effects on hit.
+/datum/enchantment/proc/on_hit_response(obj/item/I, mob/living/carbon/humanoid/owner, mob/living/carbon/humanoid/attacker)//use for worn items such as armor to have effects on hit.
 
 /datum/enchantment/proc/remove_item(datum/weakref/weakref)
 	var/atom/item

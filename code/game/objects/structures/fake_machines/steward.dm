@@ -214,7 +214,7 @@
 			return
 		if(findtext(num2text(amount_to_pay), "."))
 			return
-		for(var/mob/living/carbon/human/H in GLOB.human_list)
+		for(var/mob/living/carbon/humanoid/H in GLOB.human_list)
 			if(H.job == job_to_pay)
 				SStreasury.give_money_account(amount_to_pay, H)
 	if(href_list["compact"])
@@ -298,9 +298,9 @@
 			contents += "Treasury: [SStreasury.treasury_value]m</center><BR>"
 			contents += "<a href='byond://?src=\ref[src];payroll=1'>\[Pay by Class\]</a><BR><BR>"
 			if(compact)
-				for(var/mob/living/carbon/human/A in SStreasury.bank_accounts)
+				for(var/mob/living/carbon/humanoid/A in SStreasury.bank_accounts)
 					if(ishuman(A))
-						var/mob/living/carbon/human/tmp = A
+						var/mob/living/carbon/humanoid/tmp = A
 						contents += "[tmp.real_name] ([tmp.get_role_title()]) - [SStreasury.bank_accounts[A]]m"
 					else
 						contents += "[A.real_name] - [SStreasury.bank_accounts[A]]m "
@@ -308,7 +308,7 @@
 			else
 				for(var/mob/living/A in SStreasury.bank_accounts)
 					if(ishuman(A))
-						var/mob/living/carbon/human/tmp = A
+						var/mob/living/carbon/humanoid/tmp = A
 						contents += "[tmp.real_name] ([tmp.get_role_title()]) - [SStreasury.bank_accounts[A]]m<BR>"
 					else
 						contents += "[A.real_name] - [SStreasury.bank_accounts[A]]m<BR>"

@@ -49,13 +49,13 @@
 "aL" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/blood,
-/mob/living/carbon/human/species/orc/marauder{
+/mob/living/carbon/humanoid/species/orc/marauder{
 	oxyloss = 500
 	},
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "aM" = (
-/mob/living/carbon/human/species/orc/tribal,
+/mob/living/carbon/humanoid/species/orc/tribal,
 /turf/open/floor/wood/nosmooth,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "aO" = (
@@ -251,7 +251,7 @@
 /turf/open/floor/churchrough,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "cr" = (
-/mob/living/carbon/human/species/orc/marauder{
+/mob/living/carbon/humanoid/species/orc/marauder{
 	oxyloss = 300
 	},
 /turf/open/floor/wood/nosmooth,
@@ -352,7 +352,7 @@
 /obj/structure/bars/pipe{
 	dir = 4
 	},
-/mob/living/carbon/human/species/goblin,
+/mob/living/carbon/humanoid/species/goblin,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "dA" = (
@@ -386,7 +386,7 @@
 	dir = 1;
 	icon_state = "longtable_mid"
 	},
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "dX" = (
@@ -412,7 +412,7 @@
 /turf/open/floor/wood/nosmooth,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "eh" = (
-/mob/living/carbon/human/species/goblin/npc/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/cave,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "ek" = (
@@ -643,7 +643,7 @@
 /area/rogue/under/mountains/anvil/dungeon)
 "hq" = (
 /obj/effect/decal/cleanable/blood,
-/mob/living/carbon/human/species/orc/tribal{
+/mob/living/carbon/humanoid/species/orc/tribal{
 	wander = 0
 	},
 /turf/open/floor/naturalstone,
@@ -741,13 +741,13 @@
 	},
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "jr" = (
-/mob/living/carbon/human/species/orc/warlord{
+/mob/living/carbon/humanoid/species/orc/warlord{
 	wander = 0
 	},
 /turf/open/floor/churchmarble,
 /area/rogue/under/mountains/anvil/dungeon)
 "js" = (
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush,
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "jv" = (
@@ -758,7 +758,7 @@
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "jB" = (
-/mob/living/carbon/human/species/orc/tribal,
+/mob/living/carbon/humanoid/species/orc/tribal,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon)
 "jH" = (
@@ -791,7 +791,7 @@
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "jW" = (
-/mob/living/carbon/human/species/orc/marauder{
+/mob/living/carbon/humanoid/species/orc/marauder{
 	oxyloss = 300
 	},
 /turf/open/floor/naturalstone,
@@ -1008,7 +1008,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon)
 "nr" = (
-/mob/living/carbon/human/species/orc/warlord{
+/mob/living/carbon/humanoid/species/orc/warlord{
 	wander = 0
 	},
 /turf/open/floor/churchrough,
@@ -1097,7 +1097,7 @@
 /turf/open/floor/wood/nosmooth,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "oD" = (
-/mob/living/carbon/human/species/goblin/npc/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/cave,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon)
 "oI" = (
@@ -1179,7 +1179,7 @@
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 9
 	},
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush,
 /turf/open/floor/blocks,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "qb" = (
@@ -1189,7 +1189,7 @@
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "qc" = (
-/mob/living/carbon/human/species/orc/tribal{
+/mob/living/carbon/humanoid/species/orc/tribal{
 	wander = 0
 	},
 /turf/open/floor/churchmarble,
@@ -1250,7 +1250,7 @@
 /turf/closed/wall/mineral/wood,
 /area/rogue/under/mountains/anvil/dungeon)
 "qO" = (
-/mob/living/carbon/human/species/goblin/npc/hell,
+/mob/living/carbon/humanoid/species/goblin/npc/hell,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon)
 "qS" = (
@@ -1338,7 +1338,7 @@
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/mountains/anvil/dungeon)
 "rH" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/dirt,
 /area/rogue/under/mountains/anvil/dungeon)
 "rJ" = (
@@ -1489,7 +1489,7 @@
 	dir = 9
 	},
 /obj/item/ammo_casing/caseless/bolt,
-/mob/living/carbon/human/species/orc/tribal{
+/mob/living/carbon/humanoid/species/orc/tribal{
 	oxyloss = 500;
 	bruteloss = 50
 	},
@@ -1504,7 +1504,7 @@
 /turf/open/water,
 /area/rogue/under/mountains/anvil/dungeon)
 "uh" = (
-/mob/living/carbon/human/species/orc/marauder{
+/mob/living/carbon/humanoid/species/orc/marauder{
 	wander = 0
 	},
 /turf/open/floor/churchmarble,
@@ -1521,7 +1521,7 @@
 /turf/open/floor/churchrough,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "uy" = (
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush,
 /turf/open/floor/blocks,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "uz" = (
@@ -1574,7 +1574,7 @@
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "vD" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/woodturned,
 /area/rogue/under/mountains/anvil/dungeon)
 "vH" = (
@@ -1854,7 +1854,7 @@
 /turf/open/floor/ruinedwood,
 /area/rogue/under/mountains/anvil/dungeon)
 "zy" = (
-/mob/living/carbon/human/species/goblin/npc/hell{
+/mob/living/carbon/humanoid/species/goblin/npc/hell{
 	dir = 1
 	},
 /turf/open/floor/cobblerock,
@@ -1868,7 +1868,7 @@
 /turf/open/floor/churchrough,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "zN" = (
-/mob/living/carbon/human/species/goblin/npc/hell,
+/mob/living/carbon/humanoid/species/goblin/npc/hell,
 /turf/open/floor/blocks{
 	icon_state = "bluestone"
 	},
@@ -1992,7 +1992,7 @@
 	},
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "BI" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "BX" = (
@@ -2044,7 +2044,7 @@
 	},
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "CA" = (
-/mob/living/carbon/human/species/orc/tribal{
+/mob/living/carbon/humanoid/species/orc/tribal{
 	wander = 0
 	},
 /turf/open/floor/wood/nosmooth,
@@ -2128,7 +2128,7 @@
 /turf/open/floor/carpet/lord/center,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Dx" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled{
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled{
 	wander = 0
 	},
 /turf/open/floor/church,
@@ -2244,7 +2244,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Fd" = (
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Fg" = (
@@ -2252,7 +2252,7 @@
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Fn" = (
-/mob/living/carbon/human/species/orc/marauder,
+/mob/living/carbon/humanoid/species/orc/marauder,
 /turf/open/floor/churchmarble,
 /area/rogue/under/mountains/anvil/dungeon)
 "Fp" = (
@@ -2587,13 +2587,13 @@
 /turf/open/floor/church,
 /area/rogue/under/mountains/anvil/dungeon)
 "Kh" = (
-/mob/living/carbon/human/species/orc/tribal{
+/mob/living/carbon/humanoid/species/orc/tribal{
 	wander = 0
 	},
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Ko" = (
-/mob/living/carbon/human/species/orc/tribal,
+/mob/living/carbon/humanoid/species/orc/tribal,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Kz" = (
@@ -2641,7 +2641,7 @@
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 8
 	},
-/mob/living/carbon/human/species/orc/marauder{
+/mob/living/carbon/humanoid/species/orc/marauder{
 	oxyloss = 300
 	},
 /turf/open/floor/blocks,
@@ -2804,7 +2804,7 @@
 /turf/open/floor/wood/nosmooth,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "NN" = (
-/mob/living/carbon/human/species/orc/marauder{
+/mob/living/carbon/humanoid/species/orc/marauder{
 	wander = 0
 	},
 /turf/open/floor/ruinedwood/spiralfade,
@@ -2871,7 +2871,7 @@
 /turf/open/floor/churchrough,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "OI" = (
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush,
 /turf/open/floor/metal,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "OJ" = (
@@ -3098,7 +3098,7 @@
 /turf/open/floor/tile/kitchen,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Sh" = (
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush,
 /turf/open/floor/churchmarble,
 /area/rogue/under/mountains/anvil/dungeon)
 "Sm" = (
@@ -3167,7 +3167,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Tt" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /obj/item/natural/rock{
 	pixel_x = 9;
 	pixel_y = -1
@@ -3194,7 +3194,7 @@
 /turf/open/floor/tile/kitchen,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "TB" = (
-/mob/living/carbon/human/species/orc/warlord,
+/mob/living/carbon/humanoid/species/orc/warlord,
 /turf/open/floor/church,
 /area/rogue/under/mountains/anvil/dungeon)
 "TC" = (
@@ -3257,7 +3257,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon)
 "UI" = (
-/mob/living/carbon/human/species/orc/marauder,
+/mob/living/carbon/humanoid/species/orc/marauder,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon)
 "US" = (
@@ -3315,7 +3315,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 4
 	},
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush,
 /turf/open/floor/churchmarble,
 /area/rogue/under/mountains/anvil/dungeon)
 "VD" = (
@@ -3397,7 +3397,7 @@
 /turf/open/floor/wood/nosmooth,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Wo" = (
-/mob/living/carbon/human/species/orc/marauder{
+/mob/living/carbon/humanoid/species/orc/marauder{
 	oxyloss = 300
 	},
 /turf/open/floor/concrete,
@@ -3451,7 +3451,7 @@
 /turf/open/floor/wood/nosmooth,
 /area/rogue/under/mountains/anvil/dungeon)
 "Xc" = (
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/mountains/anvil/dungeon)
 "Xf" = (
@@ -3558,7 +3558,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Yl" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon)
 "Yo" = (
@@ -3653,11 +3653,11 @@
 	icon_state = "border";
 	dir = 1
 	},
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush,
 /turf/open/floor/churchmarble,
 /area/rogue/under/mountains/anvil/dungeon)
 "ZG" = (
-/mob/living/carbon/human/species/orc/warlord{
+/mob/living/carbon/humanoid/species/orc/warlord{
 	wander = 0
 	},
 /turf/open/floor/ruinedwood/spiralfade,

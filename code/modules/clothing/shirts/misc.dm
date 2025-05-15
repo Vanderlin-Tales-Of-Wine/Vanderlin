@@ -86,7 +86,7 @@
 	"WHITE"="#ffffff",
 	"ORANGE"="#b86f0c",
 	"Royal Majenta"="#962e5c")
-	var/mob/living/carbon/human/L = loc
+	var/mob/living/carbon/humanoid/L = loc
 	var/choice = input(L, "Choose a color.", "GRENZELHOFTIAN COLORPLEX") as anything in colors
 	var/playerchoice = colors[choice]
 	picked = TRUE
@@ -102,7 +102,7 @@
 /obj/item/clothing/shirt/grenzelhoft/Initialize()
 	. = ..()
 	if(!picked)
-		var/mob/living/carbon/human/L = loc
+		var/mob/living/carbon/humanoid/L = loc
 		if(!istype(L))
 			return
 		if(!L.client)

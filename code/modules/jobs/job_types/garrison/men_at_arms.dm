@@ -28,7 +28,7 @@
 /datum/outfit/job/watchman
 	job_bitflag = BITFLAG_GARRISON
 
-/datum/outfit/job/watchman/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/watchman/pre_equip(mob/living/carbon/humanoid/H)
 	. = ..()
 	wrists = /obj/item/clothing/wrists/bracers/leather
 	pants = /obj/item/clothing/pants/trou/leather/guard
@@ -49,7 +49,7 @@
 
 	category_tags = list(CTAG_MENATARMS)
 
-/datum/outfit/job/watchman/pikeman/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/watchman/pikeman/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	head = /obj/item/clothing/head/helmet/kettle
 	cloak = /obj/item/clothing/cloak/stabard/guard
@@ -91,7 +91,7 @@
 	outfit = /datum/outfit/job/watchman/swordsmen
 	category_tags = list(CTAG_MENATARMS)
 
-/datum/outfit/job/watchman/swordsmen/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/watchman/swordsmen/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	head = pick(/obj/item/clothing/head/roguehood/guard, /obj/item/clothing/head/roguehood/guardsecond)
 	cloak = /obj/item/clothing/cloak/stabard/guard
@@ -129,7 +129,7 @@
 
 	category_tags = list(CTAG_MENATARMS)
 
-/datum/outfit/job/watchman/ranger/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/watchman/ranger/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	head = /obj/item/clothing/head/helmet/kettle
 	cloak = /obj/item/clothing/cloak/stabard/guard

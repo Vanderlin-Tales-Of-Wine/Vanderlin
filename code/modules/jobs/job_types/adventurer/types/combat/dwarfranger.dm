@@ -9,7 +9,7 @@
 	min_pq = 0
 	category_tags = list(CTAG_ADVENTURER)
 
-/datum/outfit/job/adventurer/dranger/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/adventurer/dranger/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	head = /obj/item/clothing/head/roguehood/uncolored
 	pants = /obj/item/clothing/pants/trou/leather

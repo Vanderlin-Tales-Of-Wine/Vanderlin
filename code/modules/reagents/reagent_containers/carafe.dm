@@ -62,7 +62,7 @@
 /obj/item/reagent_containers/glass/carafe/silver/mob_can_equip(mob/living/M, mob/living/equipper, slot, disable_warning = FALSE, bypass_equip_delay_self = FALSE)
 	. = ..()
 	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+		var/mob/living/carbon/humanoid/H = M
 		if(H.dna && H.dna.species)
 			if(istype(H.dna.species, /datum/species/werewolf))
 				return FALSE

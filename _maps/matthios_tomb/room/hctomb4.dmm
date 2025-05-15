@@ -15,7 +15,7 @@
 /turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors/magic)
 "aR" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/item/clothing/shoes/nobleboot,
 /obj/item/clothing/neck/gorget,
@@ -57,7 +57,7 @@
 /area/rogue/under/tomb/indoors)
 "bC" = (
 /obj/structure/chair/wood/alt/chair3,
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors)
 "ch" = (
@@ -167,7 +167,7 @@
 /obj/structure/chair/wood/alt/chair_noble/red{
 	dir = 1
 	},
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /obj/machinery/light/fueled/wallfire/candle/blue{
 	pixel_y = -32
 	},
@@ -213,7 +213,7 @@
 /area/rogue/under/tomb/indoors)
 "hq" = (
 /obj/structure/chair/stool,
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/ruinedwood,
 /area/rogue/under/tomb/indoors)
 "hN" = (
@@ -495,7 +495,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb)
 "sz" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors)
 "sF" = (
@@ -699,7 +699,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb/cave)
 "Ay" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/blocks/newstone/alt,
 /area/rogue/under/tomb/indoors)
 "AK" = (
@@ -758,7 +758,7 @@
 /turf/open/floor/ruinedwood,
 /area/rogue/under/tomb/indoors)
 "Cv" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/carpet/green{
 	icon_state = "carpet"
 	},
@@ -834,7 +834,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "EB" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/carpet/green{
 	icon_state = "carpet"
 	},
@@ -895,7 +895,7 @@
 "Hq" = (
 /obj/structure/chair/wood/alt/chair_noble,
 /obj/machinery/light/fueled/wallfire/candle/blue,
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors)
 "HG" = (
@@ -925,7 +925,7 @@
 /area/rogue/under/tomb/indoors)
 "Kz" = (
 /obj/structure/chair/wood/alt/chair_noble,
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors)
 "KE" = (
@@ -979,7 +979,7 @@
 /area/rogue/under/tomb/indoors)
 "Mp" = (
 /obj/structure/chair/wood/alt/chair_noble,
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors)
 "Mv" = (
@@ -1038,7 +1038,7 @@
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/under/tomb/indoors)
 "NM" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/twig,
 /area/rogue/under/tomb/indoors)
 "OZ" = (
@@ -1053,7 +1053,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/under/tomb)
 "Ph" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/tile/checker,
 /area/rogue/under/tomb/indoors)
 "Pu" = (
@@ -1328,7 +1328,7 @@
 /turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors/magic)
 "Zj" = (
-/mob/living/carbon/human/species/rousman/npc,
+/mob/living/carbon/humanoid/species/rousman/npc,
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/under/tomb/indoors)
 "Zr" = (

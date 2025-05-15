@@ -23,7 +23,7 @@
 /datum/outfit/job/noble
 	job_bitflag = BITFLAG_ROYALTY
 
-/datum/outfit/job/noble/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/noble/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	var/prev_real_name = H.real_name
 	var/prev_name = H.name

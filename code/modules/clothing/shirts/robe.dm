@@ -190,7 +190,7 @@
 /obj/item/clothing/shirt/robe/newmage/ToggleHood()
 	if(!hoodtoggled)
 		if(ishuman(src.loc))
-			var/mob/living/carbon/human/H = src.loc
+			var/mob/living/carbon/humanoid/H = src.loc
 			if(slot_flags == ITEM_SLOT_ARMOR)
 				if(H.wear_armor != src)
 					to_chat(H, span_warning("I should put that on first."))

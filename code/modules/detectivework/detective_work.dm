@@ -38,7 +38,7 @@
 	if(length(fibertext))
 		. = AddComponent(/datum/component/forensics, null, null, null, fibertext)
 
-/atom/proc/add_fibers(mob/living/carbon/human/M)
+/atom/proc/add_fibers(mob/living/carbon/humanoid/M)
 	var/old = 0
 	if(M.gloves && istype(M.gloves, /obj/item/clothing))
 		var/obj/item/clothing/gloves/G = M.gloves
@@ -106,7 +106,7 @@
 	B.add_blood_DNA(blood_dna) //give blood info to the blood decal.
 	return TRUE //we bloodied the floor
 
-/mob/living/carbon/human/add_blood_DNA(list/blood_dna)
+/mob/living/carbon/humanoid/add_blood_DNA(list/blood_dna)
 	if(cloak)
 		cloak.add_blood_DNA(blood_dna)
 		update_inv_cloak()

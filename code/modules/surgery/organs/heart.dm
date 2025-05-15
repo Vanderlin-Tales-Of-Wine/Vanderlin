@@ -13,7 +13,7 @@
 	now_fixed = "<span class='info'>My heart begins to beat again.</span>"
 	high_threshold_cleared = "<span class='info'>The pain in my chest has died down, and my breathing becomes more relaxed.</span>"
 
-	// Heart attack code is in code/modules/mob/living/carbon/human/life.dm
+	// Heart attack code is in code/modules/mob/living/carbon/humanoid/life.dm
 	var/beating = 1
 	var/icon_base = "heart"
 	attack_verb = list("beat", "thumped")
@@ -107,7 +107,7 @@
 	update_icon()
 	return 1
 
-/obj/item/organ/heart/prepare_eat(mob/living/carbon/human/user)
+/obj/item/organ/heart/prepare_eat(mob/living/carbon/humanoid/user)
 	var/obj/item/reagent_containers/food/snacks/organ/S = ..()
 	S.icon_state = "heart-off"
 	var/nothing = FALSE
@@ -174,7 +174,7 @@
 	var/heal_oxy = 0
 
 
-/obj/item/organ/heart/cursed/attack(mob/living/carbon/human/H, mob/living/carbon/human/user, obj/target)
+/obj/item/organ/heart/cursed/attack(mob/living/carbon/humanoid/H, mob/living/carbon/humanoid/user, obj/target)
 	if(H == user && istype(H))
 		playsound(user,'sound/blank.ogg',40,TRUE)
 		user.temporarilyRemoveItemFromInventory(src, TRUE)
@@ -185,7 +185,7 @@
 /obj/item/organ/heart/cursed/on_life()
 	if(world.time > (last_pump + pump_delay))
 		if(ishuman(owner) && owner.client) //While this entire item exists to make people suffer, they can't control disconnects.
-			var/mob/living/carbon/human/H = owner
+			var/mob/living/carbon/humanoid/H = owner
 			if(H.dna && !(NOBLOOD in H.dna.species.species_traits))
 				H.blood_volume = max(H.blood_volume - blood_loss, 0)
 				to_chat(H, "<span class='danger'>I have to keep pumping my blood!</span>")
@@ -221,7 +221,7 @@
 		playsound(owner,'sound/blank.ogg',40,TRUE)
 		to_chat(owner, "<span class='notice'>My heart beats.</span>")
 
-		var/mob/living/carbon/human/H = owner
+		var/mob/living/carbon/humanoid/H = owner
 		if(istype(H))
 			if(H.dna && !(NOBLOOD in H.dna.species.species_traits))
 				H.blood_volume = min(H.blood_volume + cursed_heart.blood_loss*0.5, BLOOD_VOLUME_MAXIMUM)

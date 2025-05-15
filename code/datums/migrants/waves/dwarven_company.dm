@@ -6,7 +6,7 @@
 	allowed_races = list("Dwarf")
 	grant_lit_torch = TRUE
 
-/datum/outfit/job/dwarven_company/captain/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/dwarven_company/captain/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	armor = /obj/item/clothing/armor/cuirass
 	cloak = /obj/item/clothing/cloak/raincloak/furcloak
@@ -58,7 +58,7 @@
 	allowed_races = list("Dwarf")
 	grant_lit_torch = TRUE
 
-/datum/outfit/job/dwarven_company/weaponsmith/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/dwarven_company/weaponsmith/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	ring = /obj/item/clothing/ring/silver/makers_guild
 	head = /obj/item/clothing/head/hatfur
@@ -117,7 +117,7 @@
 	allowed_races = list("Dwarf")
 	grant_lit_torch = TRUE
 
-/datum/outfit/job/dwarven_company/armorsmith/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/dwarven_company/armorsmith/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	ring = /obj/item/clothing/ring/silver/makers_guild
 	head = /obj/item/clothing/head/hatfur

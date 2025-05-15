@@ -1,6 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "bm" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "bN" = (
@@ -67,19 +67,19 @@
 /turf/open/floor/tile,
 /area/rogue/under/tomb/indoors)
 "mY" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "nk" = (
 /obj/item/soap/bath{
 	pixel_y = -5
 	},
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/water/bath,
 /area/rogue/under/tomb/indoors)
 "nv" = (
 /obj/structure/bed/shit,
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "og" = (
@@ -91,7 +91,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "re" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "ry" = (
@@ -168,7 +168,7 @@
 /area/rogue/under/tomb/indoors)
 "zB" = (
 /obj/effect/decal/cleanable/sigil/W,
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "zZ" = (
@@ -186,7 +186,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "Bw" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/water/bath,
 /area/rogue/under/tomb/indoors)
 "BK" = (
@@ -261,7 +261,7 @@
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/cave/wet)
 "LA" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/tile,
 /area/rogue/under/tomb/indoors)
 "LR" = (
@@ -277,7 +277,7 @@
 /turf/open/floor/tile,
 /area/rogue/under/tomb/indoors)
 "Nj" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/water/swamp/deep,
 /area/rogue/under/tomb/cave/wet)
 "Np" = (
@@ -292,7 +292,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "OT" = (
-/mob/living/carbon/human/species/zizombie/npc/militiamen,
+/mob/living/carbon/humanoid/species/zizombie/npc/militiamen,
 /obj/item/clothing/ring/gold/gemerald,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /turf/open/floor/ruinedwood/spiral,
@@ -315,7 +315,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "QJ" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "Tc" = (
@@ -339,7 +339,7 @@
 /turf/open/floor/tile,
 /area/rogue/under/tomb/indoors)
 "Vp" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/water/swamp/deep,
 /area/rogue/under/tomb/cave)
 "Wj" = (

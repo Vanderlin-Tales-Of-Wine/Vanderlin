@@ -42,7 +42,7 @@
 /turf/open/floor/dirt,
 /area/rogue/under/tomb)
 "cP" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "dX" = (
@@ -75,7 +75,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb)
 "nA" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "ow" = (
@@ -88,7 +88,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb)
 "qK" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/dirt/road,
 /area/rogue/under/tomb)
 "rG" = (
@@ -118,7 +118,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb)
 "uU" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb)
 "wK" = (
@@ -129,7 +129,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "xt" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb)
 "xF" = (
@@ -151,7 +151,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "Eb" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "Gc" = (

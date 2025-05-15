@@ -31,7 +31,7 @@
 	shoes = /obj/item/clothing/shoes/boots
 	neck = /obj/item/clothing/neck/psycross/silver/abyssor
 
-/datum/outfit/job/adventurer/swashbuckler/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/adventurer/swashbuckler/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	if(H.mind)
 		if(H.patron != /datum/patron/divine/abyssor)

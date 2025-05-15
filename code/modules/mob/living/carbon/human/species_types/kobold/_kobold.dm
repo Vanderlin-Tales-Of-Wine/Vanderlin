@@ -6,7 +6,7 @@
 
 //	( + Poison Resistance )
 
-/mob/living/carbon/human/species/kobold
+/mob/living/carbon/humanoid/species/kobold
 	race = /datum/species/kobold
 
 /datum/species/kobold

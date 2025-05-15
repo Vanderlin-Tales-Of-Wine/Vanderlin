@@ -5,7 +5,7 @@
 /area/rogue/under/tomb/cave)
 "az" = (
 /obj/structure/closet/dirthole/closed,
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /obj/effect/spawner/map_spawner/loot/rare,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb)
@@ -21,7 +21,7 @@
 /area/rogue/under/tomb/cave)
 "bd" = (
 /obj/structure/chair/stool,
-/mob/living/carbon/human/species/rousman/npc{
+/mob/living/carbon/humanoid/species/rousman/npc{
 	name = "Spoon Sharpener"
 	},
 /obj/effect/mapping_helpers/floor_clothing_equipper,
@@ -44,7 +44,7 @@
 /area/rogue/under/tomb/cave)
 "dE" = (
 /obj/structure/closet/dirthole/closed,
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment,
 /obj/effect/spawner/map_spawner/loot/weapon,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/effect/spawner/map_spawner/loot/armor,
@@ -54,7 +54,7 @@
 /obj/structure/closet/dirthole/closed,
 /obj/item/clothing/neck/gorget/copper,
 /obj/item/clothing/head/helmet/coppercap,
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb)
 "eK" = (
@@ -91,14 +91,14 @@
 "hY" = (
 /obj/structure/closet/dirthole/closed,
 /obj/effect/spawner/map_spawner/loot/armor,
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /obj/structure/closet/burial_shroud,
 /turf/open/floor/dirt/road,
 /area/rogue/under/tomb)
 "if" = (
 /obj/structure/closet/dirthole/closed,
 /obj/structure/closet/burial_shroud,
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /obj/effect/spawner/map_spawner/loot/weapon,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb)
@@ -142,7 +142,7 @@
 /obj/effect/spawner/map_spawner/loot/common,
 /obj/structure/closet/burial_shroud,
 /obj/item/weapon/sword/coppermesser,
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb)
 "mu" = (
@@ -170,7 +170,7 @@
 /turf/open/floor/herringbone,
 /area/rogue/under/tomb/cave)
 "oM" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /obj/effect/spawner/map_spawner/loot/rare,
 /obj/structure/closet/dirthole/closed,
 /obj/item/clothing/head/peaceflower{
@@ -204,7 +204,7 @@
 /obj/item/weapon/shield/tower,
 /obj/item/weapon/mace/copperbludgeon,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb)
 "si" = (
@@ -251,7 +251,7 @@
 /area/rogue/under/tomb/cave)
 "wu" = (
 /obj/structure/closet/dirthole/closed,
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb)
 "xc" = (
@@ -261,7 +261,7 @@
 "xy" = (
 /obj/structure/closet/dirthole/closed,
 /obj/effect/spawner/map_spawner/loot/common,
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/dirt/road,
 /area/rogue/under/tomb)
 "xP" = (
@@ -271,7 +271,7 @@
 /area/rogue/under/tomb)
 "yG" = (
 /obj/structure/closet/dirthole/closed,
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /obj/effect/spawner/map_spawner/loot/armor,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb)
@@ -402,11 +402,11 @@
 /turf/open/floor/dirt,
 /area/rogue/under/tomb)
 "EP" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/water/swamp/deep,
 /area/rogue/under/tomb/cave)
 "Ft" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/dirt/road,
 /area/rogue/under/tomb)
 "Fy" = (
@@ -423,7 +423,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/under/tomb/cave)
 "Hc" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/item/weapon/shovel,
 /obj/item/clothing/pants/trou/leather/mourning,
@@ -447,7 +447,7 @@
 "Ly" = (
 /obj/structure/closet/dirthole/grave,
 /obj/structure/closet/burial_shroud,
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb)
 "MV" = (
@@ -481,7 +481,7 @@
 /area/rogue/under/tomb/cave)
 "OW" = (
 /obj/structure/closet/dirthole/closed,
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/dirt/road,
 /area/rogue/under/tomb)
 "Pt" = (
@@ -505,7 +505,7 @@
 /obj/item/clothing/pants/tights/jester,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/item/handheld_bell,
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment,
 /obj/item/kitchen/fork/iron,
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb/cave)
@@ -536,7 +536,7 @@
 /turf/open/floor/grass/yel,
 /area/rogue/under/tomb/cave)
 "Wk" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment,
 /obj/item/weapon/shovel,
 /obj/item/clothing/head/padded/deathshroud,
 /obj/effect/mapping_helpers/floor_clothing_equipper,

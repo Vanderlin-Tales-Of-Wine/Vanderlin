@@ -11,9 +11,9 @@
 /datum/antagonist/vampire/lesser/on_gain()
 	. = ..()
 
-	addtimer(CALLBACK(owner.current, TYPE_PROC_REF(/mob/living/carbon/human, spawn_pick_class), "[type]"), 5 SECONDS)
+	addtimer(CALLBACK(owner.current, TYPE_PROC_REF(/mob/living/carbon/humanoid, spawn_pick_class), "[type]"), 5 SECONDS)
 
-/mob/living/carbon/human/proc/spawn_pick_class()
+/mob/living/carbon/humanoid/proc/spawn_pick_class()
 	//! TODO: This should just be an advclass spawn
 	var/list/classoptions = list("Bard", "Fisher", "Hunter", "Miner", "Peasant", "Carpenter", "Cheesemaker", "Blacksmith", "Carpenter", "Thief", "Treasure Hunter", "Mage")
 	var/list/visoptions = list()
@@ -51,7 +51,7 @@
 
 /datum/antagonist/vampire/lesser/vamp_look()
 	. = ..()
-	var/mob/living/carbon/human/V = owner.current
+	var/mob/living/carbon/humanoid/V = owner.current
 	V.vampire_disguise()
 
 /datum/antagonist/vampire/lesser/move_to_spawnpoint()

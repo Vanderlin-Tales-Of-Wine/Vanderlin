@@ -16,7 +16,7 @@
 		"Half-Orc")
 
 
-/datum/outfit/job/gaoler/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/gaoler/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	head = /obj/item/clothing/head/menacing
 	neck = /obj/item/storage/belt/pouch/coins/poor
@@ -51,14 +51,14 @@
 		if(H.dna.species.id == "human")
 			H.dna.species.soundpack_m = new /datum/voicepack/male/warrior()
 	H.cmode_music = 'sound/music/cmode/nobility/CombatDungeoneer.ogg'
-	H.verbs |= /mob/living/carbon/human/proc/torture_victim
+	H.verbs |= /mob/living/carbon/humanoid/proc/torture_victim
 
 /datum/migrant_role/mig_prisoner
 	name = "Prisoner"
 	greet_text = "You had fled Vanderlin, took refuge in Heartfelt yet the lords over there caught you and thus handed you over to those who seeked you before."
 	outfit = /datum/outfit/job/mig_prisoner
 
-/datum/outfit/job/mig_prisoner/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/mig_prisoner/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	pants = /obj/item/clothing/pants/loincloth/brown
 	mask = /obj/item/clothing/face/facemask/prisoner
@@ -90,7 +90,7 @@
 	grant_lit_torch = TRUE
 	is_foreigner = FALSE
 
-/datum/outfit/job/mig_guard/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/mig_guard/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	armor = /obj/item/clothing/armor/cuirass
 	shirt = /obj/item/clothing/armor/chainmail

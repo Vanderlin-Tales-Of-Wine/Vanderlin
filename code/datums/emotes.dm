@@ -116,7 +116,7 @@
 /mob/living/proc/get_emote_pitch()
 	return clamp(voice_pitch, 0.5, 2)
 
-/mob/living/carbon/human/get_emote_pitch()
+/mob/living/carbon/humanoid/get_emote_pitch()
 	var/final_pitch = ..()
 	var/pitch_modifier = 0
 	if(STASTR > 10)
@@ -133,7 +133,7 @@
 
 /datum/emote/living/get_env(mob/living/user)
 	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+		var/mob/living/carbon/humanoid/H = user
 		if(H.head)
 			var/obj/item/clothing/I = H.head
 			if(I.emote_environment)
@@ -148,7 +148,7 @@
 		return sound
 	else
 		if(ishuman(user))
-			var/mob/living/carbon/human/H = user
+			var/mob/living/carbon/humanoid/H = user
 			var/used_sound
 			var/possible_sounds
 			var/modifier

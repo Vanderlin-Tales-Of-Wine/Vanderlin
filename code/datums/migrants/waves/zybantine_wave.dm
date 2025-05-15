@@ -12,7 +12,7 @@
 	outfit = /datum/outfit/job/zybantine_migration/emir
 	grant_lit_torch = TRUE
 
-/datum/outfit/job/zybantine_migration/emir/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/zybantine_migration/emir/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	shoes = /obj/item/clothing/shoes/shalal
 	gloves = /obj/item/clothing/gloves/leather
@@ -76,7 +76,7 @@
 	outfit = /datum/outfit/job/zybantine_migration/amirah
 	grant_lit_torch = TRUE
 
-/datum/outfit/job/zybantine_migration/amirah/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/zybantine_migration/amirah/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	shoes = /obj/item/clothing/shoes/shalal
 	gloves = /obj/item/clothing/gloves/leather
@@ -135,7 +135,7 @@
 	outfit = /datum/outfit/job/zybantine_migration/furusiyya
 	grant_lit_torch = TRUE
 
-/datum/outfit/job/zybantine_migration/furusiyya/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/zybantine_migration/furusiyya/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
@@ -197,7 +197,7 @@
 	outfit = /datum/outfit/job/zybantine_migration/zybantine_guard
 	grant_lit_torch = TRUE
 
-/datum/outfit/job/zybantine_migration/zybantine_guard/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/zybantine_migration/zybantine_guard/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	shoes = /obj/item/clothing/shoes/shalal
 	head = /obj/item/clothing/head/helmet/sallet/zybantine
@@ -249,7 +249,7 @@
 	)
 	outfit = /datum/outfit/job/zybantine_migration/qatil
 
-/datum/outfit/job/zybantine_migration/qatil/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/zybantine_migration/qatil/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 4, TRUE)

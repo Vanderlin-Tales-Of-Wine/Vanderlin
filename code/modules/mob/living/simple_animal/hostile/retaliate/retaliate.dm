@@ -62,7 +62,7 @@
 	//taming vars
 	var/dendor_taming_chance = DENDOR_TAME_PROB_GURANTEED
 
-/mob/living/simple_animal/hostile/retaliate/onbite(mob/living/carbon/human/user)
+/mob/living/simple_animal/hostile/retaliate/onbite(mob/living/carbon/humanoid/user)
 	visible_message(span_danger("[user] bites [src]!"))
 	playsound(src, "smallslash", 100, TRUE, -1)
 	var/bite_power = 3
@@ -79,7 +79,7 @@
 		return FALSE
 	..()
 
-/mob/living/simple_animal/hostile/retaliate/attack_hand(mob/living/carbon/human/M)
+/mob/living/simple_animal/hostile/retaliate/attack_hand(mob/living/carbon/humanoid/M)
 	. = ..()
 	if(M.used_intent.type == INTENT_HELP)
 		if(tame)

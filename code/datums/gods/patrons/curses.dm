@@ -1,6 +1,6 @@
 //the way this file is organized is also cursed! Enjoy
 
-/mob/living/carbon/human
+/mob/living/carbon/humanoid
 	/// List of curses on this mob
 	var/list/curses = list()
 /datum/curse
@@ -14,7 +14,7 @@
 /datum/curse/proc/on_death()
 	return
 
-/datum/curse/proc/on_gain(mob/living/carbon/human/owner, silent = FALSE)
+/datum/curse/proc/on_gain(mob/living/carbon/humanoid/owner, silent = FALSE)
 	ADD_TRAIT(owner, trait, TRAIT_CURSE)
 	if(!silent)
 		to_chat(owner, span_userdanger("Something is wrong... I feel cursed."))
@@ -22,19 +22,19 @@
 	owner.playsound_local(get_turf(owner), 'sound/misc/cursed.ogg', 80, FALSE, pressure_affected = FALSE)
 	return
 
-/datum/curse/proc/on_loss(mob/living/carbon/human/owner)
+/datum/curse/proc/on_loss(mob/living/carbon/humanoid/owner)
 	REMOVE_TRAIT(owner, trait, TRAIT_CURSE)
 	to_chat(owner, span_userdanger("Something has changed... I feel relieved."))
 	owner.playsound_local(get_turf(owner), 'sound/misc/curse_lifted.ogg', 80, FALSE, pressure_affected = FALSE)
 	qdel(src)
 	return
 
-/mob/living/carbon/human/proc/handle_curses()
+/mob/living/carbon/humanoid/proc/handle_curses()
 	for(var/curse in curses)
 		var/datum/curse/C = curse
 		C.on_life(src)
 
-/mob/living/carbon/human/proc/add_curse(datum/curse/C, silent = FALSE)
+/mob/living/carbon/humanoid/proc/add_curse(datum/curse/C, silent = FALSE)
 	if(is_cursed(C))
 		return FALSE
 	C = new C()
@@ -42,7 +42,7 @@
 	C.on_gain(src, silent)
 	return TRUE
 
-/mob/living/carbon/human/proc/remove_curse(datum/curse/C)
+/mob/living/carbon/humanoid/proc/remove_curse(datum/curse/C)
 	if(!is_cursed(C))
 		return FALSE
 
@@ -53,7 +53,7 @@
 			return TRUE
 	return FALSE
 
-/mob/living/carbon/human/proc/is_cursed(datum/curse/C)
+/mob/living/carbon/humanoid/proc/is_cursed(datum/curse/C)
 	if(!C)
 		return FALSE
 	for(var/datum/curse/curse in curses)
@@ -139,36 +139,36 @@
 //////////////////////
 /// ON GAIN / LOSS ///
 //////////////////////
-/datum/curse/atheism/on_gain(mob/living/carbon/human/owner)
+/datum/curse/atheism/on_gain(mob/living/carbon/humanoid/owner)
 	. = ..()
 	old_patron = owner.patron
 	owner.set_patron(/datum/patron/godless)
 	owner.gain_trauma(/datum/brain_trauma/mild/phobia/religion)
 
-/datum/curse/atheism/on_loss(mob/living/carbon/human/owner)
+/datum/curse/atheism/on_loss(mob/living/carbon/humanoid/owner)
 	. = ..()
 	owner.set_patron(old_patron)
 	owner.cure_trauma_type(/datum/brain_trauma/mild/phobia/religion)
 
-/datum/curse/zizo/on_gain(mob/living/carbon/human/owner)
+/datum/curse/zizo/on_gain(mob/living/carbon/humanoid/owner)
 	. = ..()
 	hallucinations = owner.overlay_fullscreen("maniac", /atom/movable/screen/fullscreen/maniac)
-/datum/curse/zizo/on_loss(mob/living/carbon/human/owner)
+/datum/curse/zizo/on_loss(mob/living/carbon/humanoid/owner)
 	. = ..()
 	hallucinations = null
 
-/datum/curse/xylix/on_gain(mob/living/carbon/human/owner)
+/datum/curse/xylix/on_gain(mob/living/carbon/humanoid/owner)
 	. = ..()
 	owner.STALUC -= 10
 
-/datum/curse/xylix/on_loss(mob/living/carbon/human/owner)
+/datum/curse/xylix/on_loss(mob/living/carbon/humanoid/owner)
 	. = ..()
 	owner.STALUC += 10
 
 //////////////////////
 ///    ON LIFE     ///
 //////////////////////
-/datum/curse/pestra/on_life(mob/living/carbon/human/owner)
+/datum/curse/pestra/on_life(mob/living/carbon/humanoid/owner)
 	. = ..()
 	if(!MOBTIMER_FINISHED(owner, MT_CURSE_PESTRA, rand(30, 60) SECONDS)) //this isn't how mob timers work
 		return
@@ -189,7 +189,7 @@
 			owner.playsound_local(get_turf(owner), 'sound/foley/butcher.ogg', 80, FALSE, pressure_affected = FALSE)
 			owner.regenerate_icons()
 
-/datum/curse/baotha/on_life(mob/living/carbon/human/owner)
+/datum/curse/baotha/on_life(mob/living/carbon/humanoid/owner)
 	. = ..()
 	if(!MOBTIMER_FINISHED(owner, MT_CURSE_BAOTHA, rand(15, 60) SECONDS)) //this isn't how mob timers work
 		return
@@ -198,27 +198,27 @@
 
 	owner.reagents.add_reagent(/datum/reagent/druqks, 3)
 
-/datum/curse/graggar/on_life(mob/living/carbon/human/owner)
+/datum/curse/graggar/on_life(mob/living/carbon/humanoid/owner)
 	. = ..()
 	if(!MOBTIMER_FINISHED(owner, MT_CURSE_GRAGGAR, rand(15, 60) SECONDS)) //this isn't how mob timers work
 		return
 
 	MOBTIMER_SET(owner, MT_CURSE_GRAGGAR)
-	for(var/mob/living/carbon/human in view(1, owner))
+	for(var/mob/living/carbon/humanoid in view(1, owner))
 		owner.emote("rage")
 		human.attacked_by(owner.get_active_held_item(), owner)
 		owner.cursed_freak_out()
 		break
 
 // Currently calls maniac hallucinations
-/datum/curse/zizo/on_life(mob/living/carbon/human/owner)
+/datum/curse/zizo/on_life(mob/living/carbon/humanoid/owner)
 	. = ..()
 	handle_maniac_visions(owner, hallucinations)
 	handle_maniac_hallucinations(owner)
 	//handle_maniac_floors(owner)
 	handle_maniac_walls(owner)
 
-/datum/curse/schizophrenic/on_life(mob/living/carbon/human/owner)
+/datum/curse/schizophrenic/on_life(mob/living/carbon/humanoid/owner)
 	. = ..()
 	if(prob(0.5))
 		INVOKE_ASYNC(owner, GLOBAL_PROC_REF(handle_maniac_mob_hallucination), owner)

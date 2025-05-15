@@ -250,7 +250,7 @@
 			var/mob/living/carbon/C = AM
 			C.apply_status_effect(/datum/status_effect/water_affected)
 		if(isliving(AM))
-			var/mob/living/carbon/human/stepped_human = AM
+			var/mob/living/carbon/humanoid/stepped_human = AM
 			liquid_group.expose_atom(stepped_human, 1, TOUCH)
 	else if (isliving(AM))
 		var/mob/living/L = AM

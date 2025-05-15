@@ -70,7 +70,7 @@
 		return "<span class='boldnotice'>Another kind of deadite.</span>"
 
 /datum/antagonist/zombie/on_gain()
-	var/mob/living/carbon/human/zombie = owner?.current
+	var/mob/living/carbon/humanoid/zombie = owner?.current
 	if(!zombie)
 		qdel(src)
 		return
@@ -105,12 +105,12 @@
 	return ..()
 
 /datum/antagonist/zombie/on_removal()
-	var/mob/living/carbon/human/zombie = owner?.current
+	var/mob/living/carbon/humanoid/zombie = owner?.current
 	if(!zombie)
 		return
 
 	zombie.cut_overlay(rotflies)
-	zombie.verbs -= /mob/living/carbon/human/proc/zombie_seek
+	zombie.verbs -= /mob/living/carbon/humanoid/proc/zombie_seek
 	zombie.mind?.special_role = special_role
 	zombie.ambushable = ambushable
 	if(zombie.dna?.species)
@@ -162,7 +162,7 @@
 	return ..()
 
 /datum/antagonist/zombie/proc/transform_zombie()
-	var/mob/living/carbon/human/zombie = owner.current
+	var/mob/living/carbon/humanoid/zombie = owner.current
 	if(!zombie)
 		qdel(src)
 		return
@@ -200,7 +200,7 @@
 	zombie.faction += FACTION_UNDEAD
 	zombie.faction -= FACTION_STATION
 	zombie.faction -= FACTION_NEUTRAL
-	zombie.verbs |= /mob/living/carbon/human/proc/zombie_seek
+	zombie.verbs |= /mob/living/carbon/humanoid/proc/zombie_seek
 	for(var/obj/item/bodypart/zombie_part as anything in zombie.bodyparts)
 		if(!zombie_part.rotted && !zombie_part.skeletonized)
 			zombie_part.rotted = TRUE
@@ -235,7 +235,7 @@
 		return
 	if(user.stat == DEAD)
 		return
-	var/mob/living/carbon/human/zombie = user
+	var/mob/living/carbon/humanoid/zombie = user
 	if(world.time > next_idle_sound)
 		zombie.emote("zmoan")
 		next_idle_sound = world.time + rand(20 SECONDS, 40 SECONDS)
@@ -246,7 +246,7 @@
 	testing("WAKEZOMBIE")
 	if(!owner.current)
 		return
-	var/mob/living/carbon/human/zombie = owner.current
+	var/mob/living/carbon/humanoid/zombie = owner.current
 	if(!zombie || !istype(zombie))
 		return
 	var/obj/item/bodypart/head = zombie.get_bodypart(BODY_ZONE_HEAD)
@@ -275,7 +275,7 @@
 		//could not revive
 		qdel(src)
 
-/mob/living/carbon/human/proc/zombie_seek()
+/mob/living/carbon/humanoid/proc/zombie_seek()
 	set name = "Seek Brains"
 	set category = "ZOMBIE"
 
@@ -285,7 +285,7 @@
 		return FALSE
 	var/closest_dist
 	var/the_dir
-	for(var/mob/living/carbon/human/humie as anything in GLOB.human_list)
+	for(var/mob/living/carbon/humanoid/humie as anything in GLOB.human_list)
 		if(humie == src)
 			continue
 		if(humie.mob_biotypes & MOB_UNDEAD)
@@ -310,7 +310,7 @@
  * This occurs when one zombie infects a living human, going into instadeath from here is kind of shit and confusing
  * We instead just transform at the end
  */
-/mob/living/carbon/human/proc/zombie_infect_attempt()
+/mob/living/carbon/humanoid/proc/zombie_infect_attempt()
 	if(!prob(7))
 		return
 	var/datum/antagonist/zombie/zombie_antag = zombie_check()
@@ -325,7 +325,7 @@
 	addtimer(CALLBACK(src, PROC_REF(wake_zombie)), 1 MINUTES)
 	return zombie_antag
 
-/mob/living/carbon/human/proc/wake_zombie()
+/mob/living/carbon/humanoid/proc/wake_zombie()
 	var/datum/antagonist/zombie/zombie_antag = mind?.has_antag_datum(/datum/antagonist/zombie)
 	if(!zombie_antag)
 		return FALSE

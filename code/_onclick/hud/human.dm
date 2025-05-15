@@ -27,7 +27,7 @@
 	icon_state = "act_equip"
 
 /atom/movable/screen/human/equip/Click()
-	var/mob/living/carbon/human/H = usr
+	var/mob/living/carbon/humanoid/H = usr
 	H.quick_equip()
 
 /atom/movable/screen/devil
@@ -59,7 +59,7 @@
 /atom/movable/screen/devil/soul_counter/proc/clear()
 	invisibility = INVISIBILITY_ABSTRACT
 
-/datum/hud/human/New(mob/living/carbon/human/owner)
+/datum/hud/human/New(mob/living/carbon/humanoid/owner)
 
 	..()
 	owner.overlay_fullscreen("see_through_darkness", /atom/movable/screen/fullscreen/see_through_darkness)
@@ -409,7 +409,7 @@
 /datum/hud/human/update_locked_slots()
 	if(!mymob)
 		return
-	var/mob/living/carbon/human/H = mymob
+	var/mob/living/carbon/humanoid/H = mymob
 	if(!istype(H) || !H.dna)
 		return
 	var/datum/species/S = H.dna.species
@@ -425,7 +425,7 @@
 /datum/hud/human/hidden_inventory_update(mob/viewer)
 	if(!mymob)
 		return
-	var/mob/living/carbon/human/H = mymob
+	var/mob/living/carbon/humanoid/H = mymob
 
 	var/mob/screenmob = viewer || H
 
@@ -490,7 +490,7 @@
 	if(!mymob)
 		return
 	..()
-	var/mob/living/carbon/human/H = mymob
+	var/mob/living/carbon/humanoid/H = mymob
 
 	var/mob/screenmob = viewer || H
 
@@ -527,7 +527,7 @@
 			screenmob.client.screen -= I
 
 
-/mob/living/carbon/human/verb/toggle_hotkey_verbs()
+/mob/living/carbon/humanoid/verb/toggle_hotkey_verbs()
 	set category = "OOC"
 	set name = "Toggle hotkey buttons"
 	set desc = ""

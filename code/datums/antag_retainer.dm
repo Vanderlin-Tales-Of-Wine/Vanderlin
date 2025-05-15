@@ -12,7 +12,7 @@
 	var/head_rebel_decree = FALSE
 
 	///vampire stuff
-	var/mob/living/carbon/human/vampire_lord
+	var/mob/living/carbon/humanoid/vampire_lord
 	var/king_submitted = FALSE
 	var/ascended = FALSE
 
@@ -28,7 +28,7 @@
 /proc/vampire_werewolf()
 	var/vampyr = 0
 	var/wwoelf = 0
-	for(var/mob/living/carbon/human/player in GLOB.human_list)
+	for(var/mob/living/carbon/humanoid/player in GLOB.human_list)
 		if(player.mind)
 			if(player.stat != DEAD)
 				if(isbrain(player)) //also technically dead
@@ -55,7 +55,7 @@
 	SSticker.next_lord_check = world.time + 1 MINUTES
 	var/lord_found = FALSE
 	var/lord_dead = FALSE
-	for(var/mob/living/carbon/human/H in GLOB.human_list)
+	for(var/mob/living/carbon/humanoid/H in GLOB.human_list)
 		if(H.mind)
 			if(H.job == "Monarch")
 				lord_found = TRUE

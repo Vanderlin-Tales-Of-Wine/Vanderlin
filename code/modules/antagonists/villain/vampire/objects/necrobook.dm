@@ -7,7 +7,7 @@
 	var/list/useoptions = list("Create Death Knight", "Steal the Sun")
 	var/sunstolen = FALSE
 
-/obj/structure/vampire/necromanticbook/attack_hand(mob/living/carbon/human/user)
+/obj/structure/vampire/necromanticbook/attack_hand(mob/living/carbon/humanoid/user)
 	var/datum/antagonist/vampire/lord/lord_datum = user.mind.has_antag_datum(/datum/antagonist/vampire/lord)
 	if(!lord_datum)
 		return
@@ -62,7 +62,7 @@
 				sunstolen = FALSE
 			priority_announce("The Sun is torn from the sky!", "Terrible Omen", 'sound/misc/astratascream.ogg')
 			addomen(OMEN_SUNSTEAL)
-			for(var/mob/living/carbon/human/astrater as anything in GLOB.human_list)
+			for(var/mob/living/carbon/humanoid/astrater as anything in GLOB.human_list)
 				if(!istype(astrater.patron, /datum/patron/divine/astrata))
 					continue
 				to_chat(astrater, span_userdanger("You feel the pain of [astrater.patron]!"))

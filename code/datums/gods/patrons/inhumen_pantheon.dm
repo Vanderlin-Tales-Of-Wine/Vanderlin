@@ -35,8 +35,8 @@
 	)
 	storyteller = /datum/storyteller/zizo
 	added_verbs = list(
-		/mob/living/carbon/human/proc/draw_sigil,
-		/mob/living/carbon/human/proc/praise,
+		/mob/living/carbon/humanoid/proc/draw_sigil,
+		/mob/living/carbon/humanoid/proc/praise,
 	)
 
 /datum/patron/inhumen/graggar

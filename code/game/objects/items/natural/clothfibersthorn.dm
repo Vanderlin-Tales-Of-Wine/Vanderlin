@@ -131,7 +131,7 @@
 			if(!do_after(M, 1.5 SECONDS, src))
 				return FALSE
 
-/obj/item/natural/cloth/equipped(mob/living/carbon/human/user, slot)
+/obj/item/natural/cloth/equipped(mob/living/carbon/humanoid/user, slot)
 	. = ..()
 	if(slot == SLOT_WEAR_MASK)
 		user.become_blind("blindfold_[REF(src)]")
@@ -140,7 +140,7 @@
 		user.equip_to_slot_if_possible(new /obj/item/storage/belt/leather/cloth(get_turf(user)), SLOT_BELT)
 		qdel(src)
 
-/obj/item/natural/cloth/dropped(mob/living/carbon/human/user)
+/obj/item/natural/cloth/dropped(mob/living/carbon/humanoid/user)
 	..()
 	user.cure_blind("blindfold_[REF(src)]")
 
@@ -250,7 +250,7 @@
 		return
 	if(!ishuman(M))
 		return
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/humanoid/H = M
 	var/obj/item/bodypart/affecting = H.get_bodypart(check_zone(user.zone_selected))
 	if(!affecting)
 		return

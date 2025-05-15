@@ -51,7 +51,7 @@
 				if(is_type_in_typecache(O, trigger_objs))
 					freak_out(O)
 					return
-			for(var/mob/living/carbon/human/HU in seen_atoms) //check equipment for trigger items
+			for(var/mob/living/carbon/humanoid/HU in seen_atoms) //check equipment for trigger items
 				for(var/X in HU.get_all_slots() | HU.held_items)
 					var/obj/I = X
 					if(!QDELETED(I) && is_type_in_typecache(I, trigger_objs))
@@ -72,7 +72,7 @@
 					return
 
 				else if(ishuman(M)) //check their species
-					var/mob/living/carbon/human/H = M
+					var/mob/living/carbon/humanoid/H = M
 
 					if(LAZYLEN(trigger_species) && H.dna && H.dna.species && is_type_in_typecache(H.dna.species, trigger_species))
 						freak_out(H)

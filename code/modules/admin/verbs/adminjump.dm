@@ -172,7 +172,7 @@
 	if(!warp_place)
 		return
 
-	var/mob/living/carbon/human/new_human = new (warp_place)
+	var/mob/living/carbon/humanoid/new_human = new (warp_place)
 
 	var/datum/outfit/outfit = new /datum/outfit/job/tailor
 	outfit.equip(new_human)

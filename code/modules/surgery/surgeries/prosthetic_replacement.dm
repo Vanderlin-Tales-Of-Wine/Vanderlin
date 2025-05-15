@@ -3,7 +3,7 @@
 	steps = list(
 		/datum/surgery_step/add_prosthetic,
 	)
-	target_mobtypes = list(/mob/living/carbon/human, /mob/living/carbon/monkey)
+	target_mobtypes = list(/mob/living/carbon/humanoid, /mob/living/carbon/monkey)
 	possible_locs = list(
 		BODY_ZONE_R_ARM,
 		BODY_ZONE_L_ARM,
@@ -20,7 +20,7 @@
 	implements = list(
 		/obj/item/bodypart = 80,
 	)
-	target_mobtypes = list(/mob/living/carbon/human, /mob/living/carbon/monkey)
+	target_mobtypes = list(/mob/living/carbon/humanoid, /mob/living/carbon/monkey)
 	possible_locs = list(
 		BODY_ZONE_R_ARM,
 		BODY_ZONE_L_ARM,
@@ -104,7 +104,7 @@
 	steps = list(
 		/datum/surgery_step/remove_prosthetic
 	)
-	target_mobtypes = list(/mob/living/carbon/human, /mob/living/carbon/monkey)
+	target_mobtypes = list(/mob/living/carbon/humanoid, /mob/living/carbon/monkey)
 	possible_locs = list(
 		BODY_ZONE_R_ARM,
 		BODY_ZONE_L_ARM,
@@ -120,7 +120,7 @@
 		TOOL_SAW = 90,
 		TOOL_IMPROVISED_SAW = 60,
 	)
-	target_mobtypes = list(/mob/living/carbon/human, /mob/living/carbon/monkey)
+	target_mobtypes = list(/mob/living/carbon/humanoid, /mob/living/carbon/monkey)
 	possible_locs = list(
 		BODY_ZONE_R_ARM,
 		BODY_ZONE_L_ARM,

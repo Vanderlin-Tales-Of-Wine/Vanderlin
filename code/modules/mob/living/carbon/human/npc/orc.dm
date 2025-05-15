@@ -1,4 +1,4 @@
-/mob/living/carbon/human/species/orc
+/mob/living/carbon/humanoid/species/orc
 	name = "orc"
 
 	icon = 'icons/roguetown/mob/monster/Orc.dmi'
@@ -14,7 +14,7 @@
 	possible_rmb_intents = list()
 	vitae_pool = 1000 // Not as much vitae from them as humans to avoid vampires cheesing mobs
 
-/mob/living/carbon/human/species/orc/npc
+/mob/living/carbon/humanoid/species/orc/npc
 	ai_controller = /datum/ai_controller/human_npc
 	dodgetime = 15 //they can dodge easily, but have a cooldown on it
 	canparry = TRUE
@@ -22,14 +22,14 @@
 
 	wander = FALSE
 
-/mob/living/carbon/human/species/orc/npc/Initialize()
+/mob/living/carbon/humanoid/species/orc/npc/Initialize()
 	. = ..()
 	AddComponent(/datum/component/combat_noise, list("aggro" = 2))
 
-/mob/living/carbon/human/species/orc/ambush
+/mob/living/carbon/humanoid/species/orc/ambush
 	ai_controller = /datum/ai_controller/human_npc
 
-/mob/living/carbon/human/species/orc/ambush/after_creation()
+/mob/living/carbon/humanoid/species/orc/ambush/after_creation()
 	..()
 	job = "Ambush Orc"
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
@@ -62,7 +62,7 @@
 	icon_state = "orc_skel_head"
 	headprice = 2
 
-/mob/living/carbon/human/species/orc/update_body()
+/mob/living/carbon/humanoid/species/orc/update_body()
 	remove_overlay(BODY_LAYER)
 	if(!dna || !dna.species)
 		return
@@ -93,16 +93,16 @@
 	apply_overlay(BODY_LAYER)
 	dna.species.update_damage_overlays()
 
-/mob/living/carbon/human/species/orc/update_inv_head()
+/mob/living/carbon/humanoid/species/orc/update_inv_head()
 	update_wearable()
-/mob/living/carbon/human/species/orc/update_inv_armor()
+/mob/living/carbon/humanoid/species/orc/update_inv_armor()
 	update_wearable()
 
-/mob/living/carbon/human/species/orc/Initialize()
+/mob/living/carbon/humanoid/species/orc/Initialize()
 	. = ..()
 	addtimer(CALLBACK(src, PROC_REF(after_creation)), 1 SECONDS)
 
-/mob/living/carbon/human/species/orc/proc/configure_mind()
+/mob/living/carbon/humanoid/species/orc/proc/configure_mind()
 	if(!mind)
 		mind = new /datum/mind(src)
 	mind.current = src
@@ -114,7 +114,7 @@
 	mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 	mind.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
 
-/mob/living/carbon/human/species/orc/after_creation()
+/mob/living/carbon/humanoid/species/orc/after_creation()
 	..()
 	gender = MALE
 	if(src.dna && src.dna.species)
@@ -162,10 +162,10 @@
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | RACE_SWAP | SLIME_EXTRACT
 	var/raceicon = "orc"
 
-/datum/species/orc/update_damage_overlays(mob/living/carbon/human/H)
+/datum/species/orc/update_damage_overlays(mob/living/carbon/humanoid/H)
 	return
 
-/datum/species/orc/regenerate_icons(mob/living/carbon/human/H)
+/datum/species/orc/regenerate_icons(mob/living/carbon/humanoid/H)
 //	H.cut_overlays()
 	H.icon_state = ""
 	if(H.notransform)
@@ -175,7 +175,7 @@
 	H.update_inv_legcuffed()
 	H.update_fire()
 	H.update_body()
-	var/mob/living/carbon/human/species/orc/G = H
+	var/mob/living/carbon/humanoid/species/orc/G = H
 	G.update_wearable()
 	H.update_transform()
 	return TRUE
@@ -227,7 +227,7 @@
 ////
 ///
 
-/datum/outfit/job/npc/orc/ambush/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/npc/orc/ambush/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	H.base_strength = 13
 	H.base_speed = 12
@@ -305,13 +305,13 @@
 				head = /obj/item/clothing/head/helmet/orc
 
 //NEW ORCS WITH DIFFERENT GEAR AND SHIT
-/mob/living/carbon/human/species/orc/tribal
+/mob/living/carbon/humanoid/species/orc/tribal
 	name = "Tribal Orc"
 	ai_controller = /datum/ai_controller/human_npc
 	var/loadout = /datum/outfit/job/npc/orc/tribal
 	ambushable = FALSE
 
-/mob/living/carbon/human/species/orc/tribal/after_creation()
+/mob/living/carbon/humanoid/species/orc/tribal/after_creation()
 	..()
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
@@ -321,7 +321,7 @@
 	flee_in_pain = FALSE
 	wander = TRUE
 
-/datum/outfit/job/npc/orc/tribal/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/npc/orc/tribal/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	H.base_strength = 13
 	H.base_speed = 13
@@ -355,13 +355,13 @@
 
 //////////////////////////////////////////////////////////
 
-/mob/living/carbon/human/species/orc/warrior
+/mob/living/carbon/humanoid/species/orc/warrior
 	name = "Warrior Orc"
 	ai_controller = /datum/ai_controller/human_npc
 	var/loadout = /datum/outfit/job/npc/orc/warrior
 	ambushable = FALSE
 
-/mob/living/carbon/human/species/orc/warrior/after_creation()
+/mob/living/carbon/humanoid/species/orc/warrior/after_creation()
 	..()
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
@@ -371,7 +371,7 @@
 	flee_in_pain = FALSE
 	wander = TRUE
 
-/datum/outfit/job/npc/orc/warrior/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/npc/orc/warrior/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	H.base_strength = 13
 	H.base_speed = 13
@@ -426,13 +426,13 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////
 
-/mob/living/carbon/human/species/orc/marauder
+/mob/living/carbon/humanoid/species/orc/marauder
 	name = "Marauder Orc"
 	ai_controller = /datum/ai_controller/human_npc
 	var/loadout = /datum/outfit/job/npc/orc/marauder
 	ambushable = FALSE
 
-/mob/living/carbon/human/species/orc/marauder/after_creation()
+/mob/living/carbon/humanoid/species/orc/marauder/after_creation()
 	..()
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
@@ -442,7 +442,7 @@
 	flee_in_pain = FALSE
 	wander = TRUE
 
-/datum/outfit/job/npc/orc/marauder/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/npc/orc/marauder/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	H.base_strength = 12
 	H.base_speed = 12
@@ -480,13 +480,13 @@
 
 
 ///////////////////////////////////////////////////////////////////////////////////////
-/mob/living/carbon/human/species/orc/warlord
+/mob/living/carbon/humanoid/species/orc/warlord
 	name = "Warlord Orc"
 	ai_controller = /datum/ai_controller/human_npc
 	var/loadout = /datum/outfit/job/npc/orc/warlord
 	ambushable = FALSE
 
-/mob/living/carbon/human/species/orc/warlord/after_creation()
+/mob/living/carbon/humanoid/species/orc/warlord/after_creation()
 	..()
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
@@ -496,7 +496,7 @@
 	flee_in_pain = FALSE
 	wander = TRUE
 
-/datum/outfit/job/npc/orc/warlord/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/npc/orc/warlord/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	H.base_strength = 14
 	H.base_speed = 14
@@ -527,7 +527,7 @@
 			armor = /obj/item/clothing/armor/plate/orc/warlord
 			head = /obj/item/clothing/head/helmet/orc/warlord
 
-/mob/living/carbon/human/species/orc/warlord/skilled/after_creation() //these ones dont parry, but still get good weapon skills
+/mob/living/carbon/humanoid/species/orc/warlord/skilled/after_creation() //these ones dont parry, but still get good weapon skills
 	..()
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)

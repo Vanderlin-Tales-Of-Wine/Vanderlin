@@ -29,7 +29,7 @@
 	. = ..()
 	peopleknowme = list()
 
-/datum/outfit/job/vagrant/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/vagrant/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	if(prob(20))
 		head = /obj/item/clothing/head/knitcap

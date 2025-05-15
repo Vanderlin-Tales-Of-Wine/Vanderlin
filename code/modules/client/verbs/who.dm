@@ -20,7 +20,7 @@
 
 			else
 				if(ishuman(C.mob))
-					var/mob/living/carbon/human/H = C.mob
+					var/mob/living/carbon/humanoid/H = C.mob
 					entry += " - Playing as [C.mob.real_name][H.job ? " ([H.job])" : ""]"
 				else
 					entry += " - Playing as [C.mob.real_name]"

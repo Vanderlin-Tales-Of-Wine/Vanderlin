@@ -193,7 +193,7 @@
 /datum/wound/fracture/neck/on_mob_gain(mob/living/affected)
 	. = ..()
 	//fuck this is stupid
-	if(!istype(affected, /mob/living/carbon/human/species/skeleton/death_arena))
+	if(!istype(affected, /mob/living/carbon/humanoid/species/skeleton/death_arena))
 		ADD_TRAIT(affected, TRAIT_PARALYSIS, "[type]")
 		ADD_TRAIT(affected, TRAIT_NOPAIN, "[type]")
 	// if(iscarbon(affected))

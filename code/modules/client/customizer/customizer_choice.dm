@@ -29,7 +29,7 @@
 		var/mob/living/carbon/carbon = prefs
 		return carbon?.dna?.species
 
-/datum/customizer_choice/proc/apply_customizer_to_character(mob/living/carbon/human/human, datum/preferences/prefs, datum/customizer_entry/entry)
+/datum/customizer_choice/proc/apply_customizer_to_character(mob/living/carbon/humanoid/human, datum/preferences/prefs, datum/customizer_entry/entry)
 	return
 
 /datum/customizer_choice/proc/make_default_customizer_entry(datum/preferences/prefs, customizer_type, changed_entry = TRUE)

@@ -12,7 +12,7 @@
 	var/list/eligible_males = list()
 	var/list/eligible_females = list()
 
-	for(var/mob/living/carbon/human/human_mob in GLOB.player_list)
+	for(var/mob/living/carbon/humanoid/human_mob in GLOB.player_list)
 		if(!istype(human_mob) || human_mob.stat == DEAD || !human_mob.client)
 			continue
 
@@ -47,8 +47,8 @@
 	for(var/i in 1 to max_pairs)
 		var/found_pair = FALSE
 
-		for(var/mob/living/carbon/human/male in eligible_males)
-			for(var/mob/living/carbon/human/female in eligible_females)
+		for(var/mob/living/carbon/humanoid/male in eligible_males)
+			for(var/mob/living/carbon/humanoid/female in eligible_females)
 				if(male.family_datum != female.family_datum)
 					selected_pairs += list(list(male, female))
 					eligible_males -= male
@@ -63,8 +63,8 @@
 			break
 
 	for(var/pair in selected_pairs)
-		var/mob/living/carbon/human/male = pair[1]
-		var/mob/living/carbon/human/female = pair[2]
+		var/mob/living/carbon/humanoid/male = pair[1]
+		var/mob/living/carbon/humanoid/female = pair[2]
 
 		male.add_stress(/datum/stressevent/eora_matchmaking)
 		female.add_stress(/datum/stressevent/eora_matchmaking)

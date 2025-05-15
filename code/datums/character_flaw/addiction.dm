@@ -1,12 +1,12 @@
 
-/mob/living/carbon/human
+/mob/living/carbon/humanoid
 	blocks_emissive = EMISSIVE_BLOCK_UNIQUE
 	var/datum/charflaw/charflaw
 
 /mob/proc/sate_addiction()
 	return
 
-/mob/living/carbon/human/sate_addiction()
+/mob/living/carbon/humanoid/sate_addiction()
 	if(istype(charflaw, /datum/charflaw/addiction))
 		var/datum/charflaw/addiction/A = charflaw
 		remove_stress(list(/datum/stressevent/vice1,/datum/stressevent/vice2,/datum/stressevent/vice3))
@@ -42,7 +42,7 @@
 		for(var/datum/antagonist/D in user.mind?.antag_datums)
 			if(istype(D, /datum/antagonist/vampire) || istype(D, /datum/antagonist/werewolf) || istype(D, /datum/antagonist/skeleton) || istype(D, /datum/antagonist/zombie))
 				return
-	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/humanoid/H = user
 	var/oldsated = sated
 	if(oldsated)
 		if(next_sate)

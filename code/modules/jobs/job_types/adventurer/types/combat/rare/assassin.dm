@@ -11,7 +11,7 @@
 	displays_adv_job = FALSE //this prevents advjob from being set back to "Assassin" in equipme
 	min_pq = 10
 
-/datum/outfit/job/adventurer/assassin/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/adventurer/assassin/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 4, TRUE)

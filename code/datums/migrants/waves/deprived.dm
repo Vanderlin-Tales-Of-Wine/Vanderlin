@@ -4,7 +4,7 @@
 	outfit = /datum/outfit/job/deprived
 	grant_lit_torch = TRUE
 
-/datum/outfit/job/deprived/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/deprived/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	head = /obj/item/clothing/head/menacing
 	pants = /obj/item/clothing/pants/trou

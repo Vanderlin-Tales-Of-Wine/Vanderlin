@@ -41,18 +41,18 @@
 /area/rogue/under/tomb)
 "aR" = (
 /obj/structure/closet/dirthole/closed/loot,
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb)
 "aV" = (
 /turf/closed/mineral/bedrock,
 /area/rogue/under/tomb)
 "aY" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb)
 "aZ" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb)
 "ci" = (
@@ -65,7 +65,7 @@
 /area/rogue/under/tomb)
 "fe" = (
 /obj/structure/closet/crate/coffin,
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb)
 "iE" = (
@@ -83,7 +83,7 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb)
 "lL" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb)
 "mg" = (
@@ -128,12 +128,12 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb)
 "Ev" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb)
 "FB" = (
 /obj/structure/chair/bench/throne,
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb)
 "Hm" = (
@@ -153,7 +153,7 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb)
 "Nv" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb)
 "NQ" = (

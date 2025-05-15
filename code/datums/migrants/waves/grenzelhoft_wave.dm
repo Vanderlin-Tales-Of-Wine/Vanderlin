@@ -7,7 +7,7 @@
 	grant_lit_torch = TRUE
 	is_foreigner = FALSE
 
-/datum/outfit/job/grenzelhoft_migration/count/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/grenzelhoft_migration/count/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	shoes = /obj/item/clothing/shoes/grenzelhoft
 	gloves = /obj/item/clothing/gloves/angle/grenzel
@@ -64,7 +64,7 @@
 	grant_lit_torch = TRUE
 	is_foreigner = FALSE
 
-/datum/outfit/job/grenzelhoft_migration/countess/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/grenzelhoft_migration/countess/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	shoes = /obj/item/clothing/shoes/grenzelhoft
 	gloves = /obj/item/clothing/gloves/angle/grenzel
@@ -115,7 +115,7 @@
 	outfit = /datum/outfit/job/grenzelhoft_migration/grenzelhoft_knight
 	is_foreigner = FALSE
 
-/datum/outfit/job/grenzelhoft_migration/grenzelhoft_knight/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/grenzelhoft_migration/grenzelhoft_knight/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
@@ -166,7 +166,7 @@
 	outfit = /datum/outfit/job/grenzelhoft_migration/grenzelhoft_men_at_arms
 	is_foreigner = FALSE
 
-/datum/outfit/job/grenzelhoft_migration/grenzelhoft_men_at_arms/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/grenzelhoft_migration/grenzelhoft_men_at_arms/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)

@@ -8,7 +8,7 @@
 	category_tags = list(CTAG_PILGRIM)
 	apprentice_name = "Blacksmith Apprentice"
 
-/datum/outfit/job/adventurer/blacksmith/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/adventurer/blacksmith/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	belt = /obj/item/storage/belt/leather
 

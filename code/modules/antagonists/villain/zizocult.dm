@@ -46,7 +46,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 
 /datum/antagonist/zizocultist/on_gain()
 	. = ..()
-	var/mob/living/carbon/human/H = owner.current
+	var/mob/living/carbon/humanoid/H = owner.current
 	SSmapping.retainer.cultists |= owner
 	H.set_patron(/datum/patron/inhumen/zizo)
 
@@ -54,7 +54,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	H.cmode_music = 'sound/music/cmode/antag/combat_cult.ogg'
 	owner.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
 	owner.current.playsound_local(get_turf(owner.current), 'sound/music/maniac.ogg', 80, FALSE, pressure_affected = FALSE)
-	owner.current.verbs |= /mob/living/carbon/human/proc/communicate
+	owner.current.verbs |= /mob/living/carbon/humanoid/proc/communicate
 
 	H.change_stat(STATKEY_STR, 2)
 
@@ -75,7 +75,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 		H.change_stat(STATKEY_SPD, 4)
 		H.change_stat(STATKEY_INT, 5)
 		owner.special_role = ROLE_ZIZOIDCULTIST
-		owner.current.verbs |= /mob/living/carbon/human/proc/release_minion
+		owner.current.verbs |= /mob/living/carbon/humanoid/proc/release_minion
 
 /datum/antagonist/zizocultist/greet()
 	to_chat(owner, span_danger("I'm a lackey to the LEADER. A new future begins."))
@@ -174,7 +174,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 
 // VERBS
 
-/mob/living/carbon/human/proc/praise()
+/mob/living/carbon/humanoid/proc/praise()
 	set name = "Praise the Dark Lady!"
 	set category = "ZIZO"
 
@@ -185,14 +185,14 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	playsound(src.loc, 'sound/vo/cult/praise.ogg', 45, 1)
 	log_say("[src] has praised zizo! (zizo cultist verb)")
 
-/mob/living/carbon/human/proc/communicate()
+/mob/living/carbon/humanoid/proc/communicate()
 	set name = "Communicate with Cult"
 	set category = "ZIZO"
 
 	if(stat >= UNCONSCIOUS || !can_speak_vocal())
 		return
 
-	var/mob/living/carbon/human/H = src
+	var/mob/living/carbon/humanoid/H = src
 	var/speak = input("What do you speak of?", "VANDERLIN") as text|null
 	if(!speak)
 		return
@@ -223,7 +223,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 		return
 
 	if(ishuman(user))
-		var/mob/living/carbon/human/human_user = user
+		var/mob/living/carbon/humanoid/human_user = user
 		if(human_user.patron.type == /datum/patron/inhumen/zizo)
 			to_chat(user, "It is of the [sigil_type] circle.")
 
@@ -425,7 +425,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 
 			new sigil(floor)
 
-/mob/living/carbon/human/proc/draw_sigil()
+/mob/living/carbon/humanoid/proc/draw_sigil()
 	set name = "Draw Sigil"
 	set category = "ZIZO"
 	if(incapacitated(ignore_grab = TRUE) || stat >= UNCONSCIOUS)
@@ -445,16 +445,16 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	if(istype(T))
 		T.generateSigils(src, input)
 
-/mob/living/carbon/human/proc/release_minion()
+/mob/living/carbon/humanoid/proc/release_minion()
 	set name = "Release Lackey"
 	set category = "ZIZO"
 
-	var/list/mob/living/carbon/human/possible = list()
+	var/list/mob/living/carbon/humanoid/possible = list()
 	for(var/datum/mind/V in SSmapping.retainer.cultists)
 		if(V.special_role == "Zizoid Lackey")
 			possible |= V.current
 
-	var/mob/living/carbon/human/choice = input(src, "Whom do you no longer have use for?", "VANDERLIN") as null|anything in possible
+	var/mob/living/carbon/humanoid/choice = input(src, "Whom do you no longer have use for?", "VANDERLIN") as null|anything in possible
 	if(choice)
 		var/alert = alert(src, "Are you sure?", "VANDERLIN", "Yes", "Cancel")
 		if(alert == "Yes")
@@ -486,7 +486,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 /datum/ritual/convert
 	name = "Convert"
 	circle = "Servantry"
-	center_requirement = /mob/living/carbon/human
+	center_requirement = /mob/living/carbon/humanoid
 
 	function = /proc/convert_cultist
 	is_cultist_ritual = TRUE
@@ -494,7 +494,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 /proc/convert_cultist(mob/user, turf/C)
 	testing("NOW TESTING CONVERT")
 
-	for(var/mob/living/carbon/human/H in C.contents)
+	for(var/mob/living/carbon/humanoid/H in C.contents)
 		if(H != user)
 			if(iszizocultist(H) || iszizolackey(H))
 				return
@@ -528,7 +528,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 /datum/ritual/skeletaljaunt
 	name = "Skeletal Jaunt"
 	circle = "Servantry"
-	center_requirement = /mob/living/carbon/human
+	center_requirement = /mob/living/carbon/humanoid
 
 	n_req = /obj/item/organ/heart
 
@@ -537,7 +537,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	function = /proc/skeletaljaunt
 
 /proc/skeletaljaunt(mob/user, turf/C)
-	for(var/mob/living/carbon/human/target in C.contents)
+	for(var/mob/living/carbon/humanoid/target in C.contents)
 		if(target == user)
 			return
 		if(iszizocultist(target))
@@ -568,7 +568,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 		if(!user.mind || !user.mind.do_i_know(name=P.info))
 			to_chat(user.mind, "<span class='warning'>I don't know anyone by that name.</span>")
 			return
-		for(var/mob/living/carbon/human/HL in GLOB.human_list)
+		for(var/mob/living/carbon/humanoid/HL in GLOB.human_list)
 			if(HL.real_name == P.info)
 				if(HL.has_status_effect(/datum/status_effect/debuff/sleepytime))
 					if(HL.mind.assigned_role.title in GLOB.church_positions)
@@ -591,7 +591,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 /datum/ritual/falseappearance
 	name = "Falsified Appearance"
 	circle = "Servantry"
-	center_requirement = /mob/living/carbon/human
+	center_requirement = /mob/living/carbon/humanoid
 
 	n_req = /obj/item/bodypart/head
 	s_req = /obj/item/natural/glass/shard
@@ -601,7 +601,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	function = /proc/falseappearance
 
 /proc/falseappearance(mob/user, turf/C)
-	for(var/mob/living/carbon/human/H in C.contents)
+	for(var/mob/living/carbon/humanoid/H in C.contents)
 		var/datum/preferences/A = new()//Randomize appearance for the guy
 		var/first_names = GLOB.first_names
 		if(H.gender == FEMALE)
@@ -630,7 +630,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 
 /obj/item/corruptedheart/attack(mob/living/M, mob/living/user)
 	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+		var/mob/living/carbon/humanoid/H = M
 		if(user.patron.type == /datum/patron/inhumen/zizo)
 			H.blood_volume = BLOOD_VOLUME_MAXIMUM
 			to_chat(H, "<span class='notice'>My elixir of life is stagnant once again.</span>")
@@ -661,7 +661,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 		if(!user.mind || !user.mind.do_i_know(name=P.info))
 			to_chat(user, "<span class='warning'>I don't know anyone by that name.</span>")
 			return
-		for(var/mob/living/carbon/human/HL in GLOB.human_list)
+		for(var/mob/living/carbon/humanoid/HL in GLOB.human_list)
 			if(HL.real_name == P.info)
 				for (var/mob/living/carbon/carbon in GLOB.carbon_list) // Iterate through all mobs in the world
 					if (HAS_TRAIT(carbon, TRAIT_ASSASSIN) && !(carbon.stat == DEAD)) //Check if they are an assassin and alive
@@ -729,7 +729,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 /datum/ritual/falseidol
 	name = "False Idol"
 	circle = "Transmutation"
-	center_requirement = /mob/living/carbon/human
+	center_requirement = /mob/living/carbon/humanoid
 	w_req = /obj/item/paper
 	s_req = /obj/item/natural/feather
 
@@ -746,7 +746,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	qdel(src)
 
 /proc/falseidol(mob/user, turf/C)
-	for(var/mob/living/carbon/human/H in C.contents)
+	for(var/mob/living/carbon/humanoid/H in C.contents)
 		var/obj/effect/dummy/falseidol/idol = new(C)
 		var/datum/icon_snapshot/entry = new
 		entry.name = H.name
@@ -774,7 +774,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 		var/input = stripped_input(user, "To whom do we send this message?", "VANDERLIN")
 		if(!input)
 			return
-		for(var/mob/living/carbon/human/HL in GLOB.human_list)
+		for(var/mob/living/carbon/humanoid/HL in GLOB.human_list)
 			if(HL.real_name == input)
 				qdel(P)
 				to_chat(HL, "<i>You hear a voice in your head... <b>[info]</i></b>")
@@ -813,7 +813,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 /datum/ritual/bunnylegs
 	name = "Saliendo Pedes"
 	circle = "Fleshcrafting"
-	center_requirement = /mob/living/carbon/human
+	center_requirement = /mob/living/carbon/humanoid
 
 	w_req = /obj/item/bodypart/l_leg
 	e_req = /obj/item/bodypart/r_leg
@@ -824,7 +824,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	is_cultist_ritual = TRUE
 
 /proc/bunnylegs(mob/user, turf/C)
-	for(var/mob/living/carbon/human/H in C.contents)
+	for(var/mob/living/carbon/humanoid/H in C.contents)
 		ADD_TRAIT(H, TRAIT_ZJUMP, TRAIT_GENERIC)
 		to_chat(H.mind, "<span class='notice'>I feel like my legs have become stronger.</span>")
 		break
@@ -832,13 +832,13 @@ GLOBAL_LIST_EMPTY(ritualslist)
 /datum/ritual/fleshmend
 	name = "Fleshmend"
 	circle = "Fleshcrafting"
-	center_requirement = /mob/living/carbon/human
+	center_requirement = /mob/living/carbon/humanoid
 	n_req =  /obj/item/reagent_containers/food/snacks/meat
 
 	function = /proc/fleshmend
 
 /proc/fleshmend(mob/user, turf/C)
-	for(var/mob/living/carbon/human/H in C.contents)
+	for(var/mob/living/carbon/humanoid/H in C.contents)
 		H.playsound_local(C, 'sound/misc/vampirespell.ogg', 100, FALSE, pressure_affected = FALSE)
 		H.fully_heal()
 		to_chat(H.mind, "<span class='notice'>ZIZO EMPOWERS ME!</span>")
@@ -847,7 +847,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 /datum/ritual/darkeyes
 	name = "Darkened Eyes"
 	circle = "Fleshcrafting"
-	center_requirement = /mob/living/carbon/human
+	center_requirement = /mob/living/carbon/humanoid
 
 	w_req = /obj/item/organ/eyes
 	e_req = /obj/item/organ/eyes
@@ -856,7 +856,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	function = /proc/darkeyes
 
 /proc/darkeyes(mob/user, turf/C)
-	for(var/mob/living/carbon/human/H in C.contents)
+	for(var/mob/living/carbon/humanoid/H in C.contents)
 		H.grant_undead_eyes()
 		to_chat(H.mind, "<span class='notice'>I no longer fear the dark.</span>")
 		break
@@ -864,7 +864,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 /datum/ritual/nopain
 	name = "Painless Battle"
 	circle = "Fleshcrafting"
-	center_requirement = /mob/living/carbon/human
+	center_requirement = /mob/living/carbon/humanoid
 
 	w_req = /obj/item/organ/heart
 	e_req = /obj/item/organ/brain
@@ -873,7 +873,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	function = /proc/nopain
 
 /proc/nopain(mob/user, turf/C)
-	for(var/mob/living/carbon/human/H in C.contents)
+	for(var/mob/living/carbon/humanoid/H in C.contents)
 		ADD_TRAIT(user, TRAIT_NOPAIN, TRAIT_GENERIC)
 		to_chat(H.mind, "<span class='notice'>I no longer feel pain, but it has come at a terrible cost.</span>")
 		H.change_stat(STATKEY_STR, -2)
@@ -883,7 +883,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 /datum/ritual/fleshform
 	name = "Stronger Form"
 	circle = "Fleshcrafting"
-	center_requirement = /mob/living/carbon/human
+	center_requirement = /mob/living/carbon/humanoid
 
 	w_req = /obj/item/organ/guts
 	e_req = /obj/item/organ/guts
@@ -895,7 +895,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	is_cultist_ritual = TRUE
 
 /proc/fleshform(mob/user, turf/C)
-	for(var/mob/living/carbon/human/H in C.contents)
+	for(var/mob/living/carbon/humanoid/H in C.contents)
 		if(iszizocultist(H))
 			to_chat(H.mind, "<span class='danger'>\"I'm not letting my strongest follower become a mindless brute.\"</span>")
 			return
@@ -909,12 +909,12 @@ GLOBAL_LIST_EMPTY(ritualslist)
 /datum/ritual/gutted
 	name = "Gutted Fish"
 	circle = "Fleshcrafting"
-	center_requirement = /mob/living/carbon/human // One to be gutted.human
+	center_requirement = /mob/living/carbon/humanoid // One to be gutted.human
 
 	function = /proc/guttedlikeafish
 
 /proc/guttedlikeafish(mob/user, turf/C)
-	for(var/mob/living/carbon/human/H in C.contents)
+	for(var/mob/living/carbon/humanoid/H in C.contents)
 		if(H.stat == DEAD)
 			H.take_overall_damage(500)
 			C.visible_message("<span class='danger'>[H.real_name] is lifted up into the air and multiple scratches, incisions and deep cuts start etching themselves into their skin as all of their internal organs spill on the floor below!</span>")
@@ -931,14 +931,14 @@ GLOBAL_LIST_EMPTY(ritualslist)
 /datum/ritual/badomen
 	name = "Bad Omen"
 	circle = "Fleshcrafting"
-	center_requirement = /mob/living/carbon/human
+	center_requirement = /mob/living/carbon/humanoid
 
 	function = /proc/badomenzizo
 
 	is_cultist_ritual = TRUE
 
 /proc/badomenzizo(mob/user, turf/C)
-	for(var/mob/living/carbon/human/H in C.contents)
+	for(var/mob/living/carbon/humanoid/H in C.contents)
 		if(H.stat == DEAD)
 			H.gib(FALSE, FALSE, FALSE)
 			addomen(OMEN_ROUNDSTART)
@@ -946,25 +946,25 @@ GLOBAL_LIST_EMPTY(ritualslist)
 /datum/ritual/ascend
 	name = "ASCEND!"
 	circle = "Fleshcrafting"
-	center_requirement = /mob/living/carbon/human // cult leader
+	center_requirement = /mob/living/carbon/humanoid // cult leader
 
-	n_req = /mob/living/carbon/human // the ruler
-	s_req = /mob/living/carbon/human // virgin
+	n_req = /mob/living/carbon/humanoid // the ruler
+	s_req = /mob/living/carbon/humanoid // virgin
 
 	function = /proc/ascend
 	is_cultist_ritual = TRUE
 
 /proc/ascend(mob/user, turf/C)
-	for(var/mob/living/carbon/human/H in C.contents)
+	for(var/mob/living/carbon/humanoid/H in C.contents)
 		if(!iszizocultist(H))
 			return
-		for(var/mob/living/carbon/human/RULER in get_step(C, NORTH))
-		for(var/mob/living/carbon/human/RULER in get_step(C, NORTH))
+		for(var/mob/living/carbon/humanoid/RULER in get_step(C, NORTH))
+		for(var/mob/living/carbon/humanoid/RULER in get_step(C, NORTH))
 			if(RULER != SSticker.rulermob && RULER.stat != DEAD)
 				break
 			RULER.gib()
-		for(var/mob/living/carbon/human/VIRGIN in get_step(C, SOUTH))
-		for(var/mob/living/carbon/human/VIRGIN in get_step(C, SOUTH))
+		for(var/mob/living/carbon/humanoid/VIRGIN in get_step(C, SOUTH))
+		for(var/mob/living/carbon/humanoid/VIRGIN in get_step(C, SOUTH))
 			if(!VIRGIN.virginity && VIRGIN.stat != DEAD)
 				break
 			VIRGIN.gib()
@@ -975,7 +975,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 		trl.ckey = H.ckey
 		H.gib()
 		to_chat(world, "\n<font color='purple'>15 minutes remain.</font>")
-		for(var/mob/living/carbon/human/V in GLOB.human_list)
+		for(var/mob/living/carbon/humanoid/V in GLOB.human_list)
 			if(V.mind in SSmapping.retainer.cultists)
 				V.add_stress(/datum/stressevent/lovezizo)
 			else

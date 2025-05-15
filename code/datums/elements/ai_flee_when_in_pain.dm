@@ -17,7 +17,7 @@
 	UnregisterSignal(source, COMSIG_LIVING_HEALTH_UPDATE)
 
 /// When the mob's health changes, check what the blackboard state should be
-/datum/element/ai_flee_while_in_pain/proc/on_health_changed(mob/living/carbon/human/source)
+/datum/element/ai_flee_while_in_pain/proc/on_health_changed(mob/living/carbon/humanoid/source)
 	SIGNAL_HANDLER
 
 	if (!source.ai_controller)

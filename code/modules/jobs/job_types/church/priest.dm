@@ -27,13 +27,13 @@
 		/obj/effect/proc_holder/spell/self/convertrole/churchling,
 	)
 
-/datum/outfit/job/priest/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/priest/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	H.virginity = TRUE
-	H.verbs |= /mob/living/carbon/human/proc/coronate_lord
-	H.verbs |= /mob/living/carbon/human/proc/churchexcommunicate
-	H.verbs |= /mob/living/carbon/human/proc/churchcurse
-	H.verbs |= /mob/living/carbon/human/proc/churchannouncement
+	H.verbs |= /mob/living/carbon/humanoid/proc/coronate_lord
+	H.verbs |= /mob/living/carbon/humanoid/proc/churchexcommunicate
+	H.verbs |= /mob/living/carbon/humanoid/proc/churchcurse
+	H.verbs |= /mob/living/carbon/humanoid/proc/churchannouncement
 	neck = /obj/item/clothing/neck/psycross/silver/astrata
 	head = /obj/item/clothing/head/priestmask
 	shirt = /obj/item/clothing/shirt/undershirt/priest
@@ -75,7 +75,7 @@
 			H.grant_language(/datum/language/celestial)
 			to_chat(H, "<span class='info'>I can speak Celestial with ,c before my speech.</span>")
 	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(H, H.patron) // This creates the cleric holder used for devotion spells
-	H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
+	H.verbs += list(/mob/living/carbon/humanoid/proc/devotionreport, /mob/living/carbon/humanoid/proc/clericpray)
 	C.grant_spells_priest(H)
 
 	H.update_icons()
@@ -100,7 +100,7 @@
 	total_positions = 0
 	spawn_positions = 0
 
-/mob/living/carbon/human/proc/coronate_lord()
+/mob/living/carbon/humanoid/proc/coronate_lord()
 	set name = "Coronate"
 	set category = "Priest"
 	if(!mind)
@@ -129,7 +129,7 @@
 
 	var/datum/job/lord_job = SSjob.GetJobType(/datum/job/lord)
 	var/datum/job/consort_job = SSjob.GetJobType(/datum/job/consort)
-	for(var/mob/living/carbon/human/HL in GLOB.human_list)
+	for(var/mob/living/carbon/humanoid/HL in GLOB.human_list)
 		//this sucks ass. refactor to locate the current ruler/consort
 		if(HL.mind)
 			if(is_lord_job(HL.mind.assigned_role) || is_consort_job(HL.mind.assigned_role))
@@ -151,7 +151,7 @@
 	priority_announce("[real_name] the [mind.assigned_role.get_informed_title(src)] has named [coronated.real_name] the inheritor of [SSmapping.config.map_name]!", \
 	title = "Long Live [lord_job.get_informed_title(coronated)] [coronated.real_name]!", sound = 'sound/misc/bell.ogg')
 
-/mob/living/carbon/human/proc/churchexcommunicate()
+/mob/living/carbon/humanoid/proc/churchexcommunicate()
 	set name = "Excommunicate"
 	set category = "Priest"
 	if(stat)
@@ -164,7 +164,7 @@
 		if(inputty in GLOB.excommunicated_players)
 			GLOB.excommunicated_players -= inputty
 			priority_announce("[real_name] has forgiven [inputty]. The Ten hear their prayers once more!", title = "Hail the Ten!", sound = 'sound/misc/bell.ogg')
-			for(var/mob/living/carbon/human/H in GLOB.player_list)
+			for(var/mob/living/carbon/humanoid/H in GLOB.player_list)
 				if(H.real_name == inputty)
 					H.cleric?.recommunicate()
 			return
@@ -172,7 +172,7 @@
 			to_chat(src, span_warning("I cannot excommunicate anyone during the schism!"))
 			return FALSE
 		var/found = FALSE
-		for(var/mob/living/carbon/human/H in GLOB.player_list)
+		for(var/mob/living/carbon/humanoid/H in GLOB.player_list)
 			if(H.real_name == inputty)
 				found = TRUE
 				H.cleric?.excommunicate()
@@ -182,7 +182,7 @@
 		GLOB.excommunicated_players += inputty
 		priority_announce("[real_name] has excommunicated [inputty]! The Ten have turned away from them!", title = "SHAME", sound = 'sound/misc/excomm.ogg')
 
-/mob/living/carbon/human/proc/churchcurse()
+/mob/living/carbon/humanoid/proc/churchcurse()
 	set name = "Curse"
 	set category = "Priest"
 	if(stat)
@@ -212,7 +212,7 @@
 		GLOB.heretical_players += inputty
 		priority_announce("[real_name] has put Xylix's curse of woe on [inputty] for offending the church!", title = "SHAME", sound = 'sound/misc/excomm.ogg')
 
-/mob/living/carbon/human/proc/churchannouncement()
+/mob/living/carbon/humanoid/proc/churchannouncement()
 	set name = "Announcement"
 	set category = "Priest"
 	if(stat)
@@ -234,13 +234,13 @@
 	accept_message = "FOR THE TEN!"
 	refuse_message = "I refuse."
 
-/obj/effect/proc_holder/spell/self/convertrole/templar/convert(mob/living/carbon/human/recruit, mob/living/carbon/human/recruiter)
+/obj/effect/proc_holder/spell/self/convertrole/templar/convert(mob/living/carbon/humanoid/recruit, mob/living/carbon/humanoid/recruiter)
 	. = ..()
 	if(!.)
 		return
 	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(recruit, recruit.patron)
 	C.grant_spells_templar(recruit)
-	recruit.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
+	recruit.verbs += list(/mob/living/carbon/humanoid/proc/devotionreport, /mob/living/carbon/humanoid/proc/clericpray)
 
 /obj/effect/proc_holder/spell/self/convertrole/monk
 	name = "Recruit Acolyte"
@@ -251,13 +251,13 @@
 	accept_message = "FOR THE TEN!"
 	refuse_message = "I refuse."
 
-/obj/effect/proc_holder/spell/self/convertrole/monk/convert(mob/living/carbon/human/recruit, mob/living/carbon/human/recruiter)
+/obj/effect/proc_holder/spell/self/convertrole/monk/convert(mob/living/carbon/humanoid/recruit, mob/living/carbon/humanoid/recruiter)
 	. = ..()
 	if(!.)
 		return
 	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(recruit, recruit.patron)
 	C.grant_spells(recruit)
-	recruit.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
+	recruit.verbs += list(/mob/living/carbon/humanoid/proc/devotionreport, /mob/living/carbon/humanoid/proc/clericpray)
 
 /obj/effect/proc_holder/spell/self/convertrole/churchling
 	name = "Recruit Churchling"
@@ -268,7 +268,7 @@
 	accept_message = "FOR THE TEN!"
 	refuse_message = "I refuse."
 
-/obj/effect/proc_holder/spell/self/convertrole/churchling/can_convert(mob/living/carbon/human/recruit)
+/obj/effect/proc_holder/spell/self/convertrole/churchling/can_convert(mob/living/carbon/humanoid/recruit)
 	//wtf
 	if(QDELETED(recruit))
 		return FALSE
@@ -283,10 +283,10 @@
 		return FALSE
 	return TRUE
 
-/obj/effect/proc_holder/spell/self/convertrole/churchling/convert(mob/living/carbon/human/recruit, mob/living/carbon/human/recruiter)
+/obj/effect/proc_holder/spell/self/convertrole/churchling/convert(mob/living/carbon/humanoid/recruit, mob/living/carbon/humanoid/recruiter)
 	. = ..()
 	if(!.)
 		return
 	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(recruit, recruit.patron)
 	C.grant_spells_churchling(recruit)
-	recruit.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
+	recruit.verbs += list(/mob/living/carbon/humanoid/proc/devotionreport, /mob/living/carbon/humanoid/proc/clericpray)

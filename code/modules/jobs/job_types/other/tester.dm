@@ -16,7 +16,7 @@
 
 	outfit = /datum/outfit/job/tester
 
-/datum/outfit/job/tester/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/tester/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	shoes = /obj/item/clothing/shoes/boots/leather
 	wrists = /obj/item/clothing/wrists/bracers

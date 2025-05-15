@@ -8,7 +8,7 @@
 	pixel_x = 3;
 	pixel_y = 20
 	},
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/carbon/humanoid/species/goblin/npc/ambush,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/indoors)
 "e" = (

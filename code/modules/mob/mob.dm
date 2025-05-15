@@ -1081,7 +1081,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 					obj.update_explanation_text()
 	return TRUE
 
-///Updates GLOB.data_core records with new name , see mob/living/carbon/human
+///Updates GLOB.data_core records with new name , see mob/living/carbon/humanoid
 /mob/proc/replace_records_name(oldname,newname)
 	return
 

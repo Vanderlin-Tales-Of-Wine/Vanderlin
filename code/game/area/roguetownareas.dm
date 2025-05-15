@@ -84,8 +84,8 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 				/turf/open/floor/dirt)
 	ambush_mobs = list(
 				/mob/living/simple_animal/hostile/retaliate/troll = 30,
-				/mob/living/carbon/human/species/skeleton/npc/ambush = 30,
-				/mob/living/carbon/human/species/goblin/npc/ambush/cave = 60)
+				/mob/living/carbon/humanoid/species/skeleton/npc/ambush = 30,
+				/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave = 60)
 
 /area/rogue/outdoors/mountains/decap
 	name = "mt decapitation"
@@ -94,8 +94,8 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 				/turf/open/floor/dirt)
 	ambush_mobs = list(
 				/mob/living/simple_animal/hostile/retaliate/troll = 30,
-				/mob/living/carbon/human/species/skeleton/npc/ambush = 90,
-				/mob/living/carbon/human/species/goblin/npc/ambush/cave = 20)
+				/mob/living/carbon/humanoid/species/skeleton/npc/ambush = 90,
+				/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave = 20)
 	droning_sound = 'sound/music/area/decap.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
@@ -118,9 +118,9 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 				/turf/open/floor/grass)
 	ambush_mobs = list(
 				/mob/living/simple_animal/hostile/retaliate/wolf = 60,
-				/mob/living/carbon/human/species/goblin/npc/ambush/hell = 50,
-				/mob/living/carbon/human/species/goblin/npc/ambush/sea = 50,
-				/mob/living/carbon/human/species/goblin/npc/ambush = 50)
+				/mob/living/carbon/humanoid/species/goblin/npc/ambush/hell = 50,
+				/mob/living/carbon/humanoid/species/goblin/npc/ambush/sea = 50,
+				/mob/living/carbon/humanoid/species/goblin/npc/ambush = 50)
 	droning_sound = 'sound/music/area/field.ogg'
 	droning_sound_dusk = 'sound/music/area/septimus.ogg'
 	droning_sound_night = 'sound/music/area/sleeping.ogg'
@@ -156,7 +156,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	ambush_mobs = list(
 				/mob/living/simple_animal/hostile/retaliate/wolf = 60,
 				/mob/living/simple_animal/hostile/retaliate/troll/axe = 10,
-				/mob/living/carbon/human/species/goblin/npc/ambush = 45,
+				/mob/living/carbon/humanoid/species/goblin/npc/ambush = 45,
 				/mob/living/simple_animal/hostile/retaliate/mole = 25)
 	first_time_text = "THE MURDERWOOD"
 	custom_area_sound = "sound/misc/stings/ForestSting.ogg"
@@ -212,7 +212,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	ambush_mobs = list(
 				/mob/living/simple_animal/hostile/retaliate/bigrat = 20,
 				/mob/living/simple_animal/hostile/retaliate/spider = 80,
-				/mob/living/carbon/human/species/goblin/npc/ambush/sea = 50,
+				/mob/living/carbon/humanoid/species/goblin/npc/ambush/sea = 50,
 				/mob/living/simple_animal/hostile/retaliate/troll/bog = 35)
 
 	first_time_text = "THE TERRORBOG"
@@ -276,8 +276,8 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 				/turf/open/floor/dirt)
 	ambush_mobs = list(
 				/mob/living/simple_animal/hostile/retaliate/bigrat = 30,
-				/mob/living/carbon/human/species/goblin/npc/ambush/cave = 20,
-				/mob/living/carbon/human/species/skeleton/npc/ambush = 10)
+				/mob/living/carbon/humanoid/species/goblin/npc/ambush/cave = 20,
+				/mob/living/carbon/humanoid/species/skeleton/npc/ambush = 10)
 	converted_type = /area/rogue/outdoors/caves
 
 /area/rogue/outdoors/caves
@@ -300,9 +300,9 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	ambush_types = list(
 				/turf/open/floor/dirt)
 	ambush_mobs = list(
-				/mob/living/carbon/human/species/skeleton/npc/ambush = 10,
+				/mob/living/carbon/humanoid/species/skeleton/npc/ambush = 10,
 				/mob/living/simple_animal/hostile/retaliate/bigrat = 30,
-				/mob/living/carbon/human/species/goblin/npc/sea = 20)
+				/mob/living/carbon/humanoid/species/goblin/npc/sea = 20)
 	converted_type = /area/rogue/outdoors/caves
 
 /area/rogue/under/cave/spider
@@ -350,8 +350,8 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 				/turf/open/floor/dirt)
 	ambush_mobs = list(
 				/mob/living/simple_animal/hostile/retaliate/bigrat = 30,
-				/mob/living/carbon/human/species/skeleton/npc/ambush = 10,
-				/mob/living/carbon/human/species/goblin/npc/hell = 20)
+				/mob/living/carbon/humanoid/species/skeleton/npc/ambush = 10,
+				/mob/living/carbon/humanoid/species/goblin/npc/hell = 20)
 	droning_sound = 'sound/music/area/decap.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null

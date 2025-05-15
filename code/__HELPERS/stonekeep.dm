@@ -33,7 +33,7 @@
 		compiled_list[marking_set.name] = marking_set
 	return compiled_list
 
-/proc/apply_markings_to_body_parts(list/list/markings, mob/living/carbon/human/human)
+/proc/apply_markings_to_body_parts(list/list/markings, mob/living/carbon/humanoid/human)
 	for(var/obj/item/bodypart/bp as anything in human.bodyparts)
 		var/zone = bp.body_zone
 		var/aux_zone = bp.aux_zone
@@ -72,7 +72,7 @@
 			return key
 	return null
 
-/proc/is_human_part_visible(mob/living/carbon/human/human, flags_inv)
+/proc/is_human_part_visible(mob/living/carbon/humanoid/human, flags_inv)
 	if(!human)
 		return TRUE
 	if(flags_inv == NONE)
@@ -83,7 +83,7 @@
 			return FALSE
 	return TRUE
 
-/proc/get_all_worn_items(mob/living/carbon/human/human)
+/proc/get_all_worn_items(mob/living/carbon/humanoid/human)
 	var/static/list/all_item_slots = ALL_ITEM_SLOTS
 	var/list/worn_items = list()
 	for(var/slot in all_item_slots)

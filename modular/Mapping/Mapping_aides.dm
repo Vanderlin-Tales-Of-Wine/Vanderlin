@@ -204,7 +204,7 @@
 	var/depleted
 /obj/structure/circle_protection/attack_hand(mob/user)
 	. = ..()
-	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/humanoid/H = user
 	if(depleted)
 		to_chat(user, "<span class='notice'>The salt circle has been damaged...</span>")
 		return
@@ -262,7 +262,7 @@
 	var/last_scry
 /obj/structure/nocdevice/attack_hand(mob/user)
 	. = ..()
-	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/humanoid/H = user
 	if(H.virginity)
 		if(world.time < last_scry + 30 SECONDS)
 			to_chat(user, "<span class='warning'>I peer into the sky but cannot focus the lens on the face of Noc. Maybe I should wait.</span>")
@@ -278,7 +278,7 @@
 		if(!user.mind || !user.mind.do_i_know(name=input))
 			to_chat(user, "<span class='warning'>I don't know anyone by that name.</span>")
 			return
-		for(var/mob/living/carbon/human/HL in GLOB.human_list)
+		for(var/mob/living/carbon/humanoid/HL in GLOB.human_list)
 			if(HL.real_name == input)
 				var/turf/T = get_turf(HL)
 				if(!T)
@@ -335,7 +335,7 @@
 	max_integrity = 500
 	density = TRUE
 
-/obj/structure/innocent_bush/attack_hand(mob/living/carbon/human/user)
+/obj/structure/innocent_bush/attack_hand(mob/living/carbon/humanoid/user)
 //	playsound(src.loc, "plantcross", 80, FALSE, -1)
 //	user.visible_message(span_noticesmall("[user] searches through [src]."))
 //	shake_camera(user, 2, 2)
@@ -385,7 +385,7 @@
 	if(!safe_rock && prob(50))
 		fake_rock = TRUE // 50/50 of it being real. have fun :)
 
-/obj/structure/innouous_rock/attack_hand(mob/living/carbon/human/user)
+/obj/structure/innouous_rock/attack_hand(mob/living/carbon/humanoid/user)
 	if(fake_rock)
 		spawn_troll()
 		return

@@ -4,7 +4,7 @@
 	*				*
 	*===============*/
 
-/mob/living/carbon/human/species/tieberian
+/mob/living/carbon/humanoid/species/tieberian
 	race = /datum/species/tieberian
 
 /datum/species/tieberian

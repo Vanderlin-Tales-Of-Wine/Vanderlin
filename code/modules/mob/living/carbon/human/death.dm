@@ -1,16 +1,16 @@
-/mob/living/carbon/human/gib_animation()
+/mob/living/carbon/humanoid/gib_animation()
 	new /obj/effect/temp_visual/gib_animation(loc, "gibbed-h")
 
-/mob/living/carbon/human/dust_animation()
+/mob/living/carbon/humanoid/dust_animation()
 	new /obj/effect/temp_visual/dust_animation(loc, "dust-h")
 
-/mob/living/carbon/human/spawn_gibs(with_bodyparts)
+/mob/living/carbon/humanoid/spawn_gibs(with_bodyparts)
 	if(with_bodyparts)
 		new /obj/effect/gibspawner/human(drop_location(), src)
 	else
 		new /obj/effect/gibspawner/human/bodypartless(drop_location(), src)
 
-/mob/living/carbon/human/spawn_dust(just_ash = FALSE)
+/mob/living/carbon/humanoid/spawn_dust(just_ash = FALSE)
 	if(just_ash)
 		for(var/i in 1 to 5)
 			new /obj/item/ash(loc)
@@ -27,7 +27,7 @@
 			if(HAS_TRAIT(L, TRAIT_BLIND))
 				. -= L
 
-/mob/living/carbon/human/death(gibbed)
+/mob/living/carbon/humanoid/death(gibbed)
 	if(stat == DEAD)
 		return
 
@@ -105,19 +105,19 @@
 					tris2take += -2
 				if(real_name in GLOB.outlawed_players)
 					yeae = FALSE
-		if(istype(src, /mob/living/carbon/human/species/skeleton/death_arena))
+		if(istype(src, /mob/living/carbon/humanoid/species/skeleton/death_arena))
 			tris2take = 0
 		if(tris2take)
 			adjust_triumphs(tris2take)
 		else
-			if(!istype(src, /mob/living/carbon/human/species/skeleton/death_arena) && get_triumphs() > 0)
+			if(!istype(src, /mob/living/carbon/humanoid/species/skeleton/death_arena) && get_triumphs() > 0)
 				adjust_triumphs(-1)
 
 		if(mind && yeae)
 			// Omens are handled here
 			if((is_lord_job(mind.assigned_role)))
 				addomen(OMEN_NOLORD)
-				for(var/mob/living/carbon/human/HU in GLOB.player_list)
+				for(var/mob/living/carbon/humanoid/HU in GLOB.player_list)
 					if(HU.stat <= CONSCIOUS && is_in_roguetown(HU))
 						HU.playsound_local(get_turf(HU), 'sound/music/lorddeath.ogg', 80, FALSE, pressure_affected = FALSE)
 
@@ -125,7 +125,7 @@
 				addomen(OMEN_NOPRIEST)
 
 		if(!gibbed && yeae)
-			for(var/mob/living/carbon/human/HU in viewers(7, src))
+			for(var/mob/living/carbon/humanoid/HU in viewers(7, src))
 				if(HU.RomanticPartner(src))
 					HU.adjust_triumphs(-1)
 				if(HU != src && !HAS_TRAIT(HU, TRAIT_BLIND))
@@ -149,7 +149,7 @@
 		SSblackbox.ReportDeath(src)
 		log_message("has died (BRUTE: [src.getBruteLoss()], BURN: [src.getFireLoss()], TOX: [src.getToxLoss()], OXY: [src.getOxyLoss()], CLONE: [src.getCloneLoss()])", LOG_ATTACK)
 
-/mob/living/carbon/human/proc/zombie_check()
+/mob/living/carbon/humanoid/proc/zombie_check()
 	if(!mind)
 		return
 	if(mind.has_antag_datum(/datum/antagonist/vampire))
@@ -164,9 +164,9 @@
 		return
 	return mind.add_antag_datum(/datum/antagonist/zombie)
 
-/mob/living/carbon/human/gib(no_brain, no_organs, no_bodyparts, safe_gib = FALSE)
+/mob/living/carbon/humanoid/gib(no_brain, no_organs, no_bodyparts, safe_gib = FALSE)
 	GLOB.vanderlin_round_stats[STATS_PEOPLE_GIBBED]++
-	for(var/mob/living/carbon/human/CA in viewers(7, src))
+	for(var/mob/living/carbon/humanoid/CA in viewers(7, src))
 		if(CA != src && !HAS_TRAIT(CA, TRAIT_BLIND))
 			if(HAS_TRAIT(CA, TRAIT_STEELHEARTED))
 				continue
@@ -180,7 +180,7 @@
 			V.add_stress(/datum/stressevent/viewgib)
 	. = ..()
 
-/mob/living/carbon/human/revive(full_heal, admin_revive)
+/mob/living/carbon/humanoid/revive(full_heal, admin_revive)
 	. = ..()
 	if(!.)
 		return

@@ -29,14 +29,14 @@
 	..()
 	if(density)
 		if(ishuman(AM))
-			var/mob/living/carbon/human/H = AM
+			var/mob/living/carbon/humanoid/H = AM
 			if(H.dir == get_dir(H,src) && H.m_intent == MOVE_INTENT_RUN && H.body_position != LYING_DOWN)
 				H.Immobilize(10)
 				H.apply_damage(15, BRUTE, "chest", H.run_armor_check("chest", "blunt", damage = 15))
 				H.toggle_rogmove_intent(MOVE_INTENT_WALK, TRUE)
 				playsound(src, "genblunt", 100, TRUE)
 				H.visible_message("<span class='warning'>[H] runs into [src]!</span>", "<span class='warning'>I run into [src]!</span>")
-				addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, Knockdown), 10), 10)
+				addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/humanoid, Knockdown), 10), 10)
 
 /obj/structure/Destroy()
 	if(isturf(loc))

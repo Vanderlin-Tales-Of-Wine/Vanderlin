@@ -1,4 +1,4 @@
-/mob/living/carbon/human/species/zizombie
+/mob/living/carbon/humanoid/species/zizombie
 	name = "rotten zizombie"
 
 	icon = 'icons/roguetown/mob/monster/zizombie.dmi'
@@ -12,21 +12,21 @@
 	base_intents = list(INTENT_HELP, INTENT_DISARM, INTENT_GRAB, /datum/intent/unarmed/claw, /datum/intent/simple/bite, /datum/intent/kick)
 	possible_rmb_intents = list()
 
-/mob/living/carbon/human/species/zizombie/npc
+/mob/living/carbon/humanoid/species/zizombie/npc
 	ai_controller = /datum/ai_controller/human_npc
 	dodgetime = 15 //they can dodge easily, but have a cooldown on it
 	canparry = TRUE
 	flee_in_pain = FALSE
 	wander = FALSE
 
-/mob/living/carbon/human/species/zizombie/npc/Initialize()
+/mob/living/carbon/humanoid/species/zizombie/npc/Initialize()
 	. = ..()
 	AddComponent(/datum/component/combat_noise, list("rage" = 1, "scream" = 1))
 
-/mob/living/carbon/human/species/zizombie/ambush
+/mob/living/carbon/humanoid/species/zizombie/ambush
 	ai_controller = /datum/ai_controller/human_npc
 
-/mob/living/carbon/human/species/zizombie/ambush/after_creation()
+/mob/living/carbon/humanoid/species/zizombie/ambush/after_creation()
 	..()
 	job = "Ambush zizombie"
 	AddComponent(/datum/component/combat_noise, list("rage" = 1, "scream" = 1))
@@ -61,7 +61,7 @@
 	icon_state = "zizombie_head_s"
 	headprice = 2
 
-/mob/living/carbon/human/species/zizombie/update_body()
+/mob/living/carbon/humanoid/species/zizombie/update_body()
 	remove_overlay(BODY_LAYER)
 	if(!dna || !dna.species)
 		return
@@ -92,11 +92,11 @@
 	apply_overlay(BODY_LAYER)
 	dna.species.update_damage_overlays()
 
-/mob/living/carbon/human/species/zizombie/Initialize()
+/mob/living/carbon/humanoid/species/zizombie/Initialize()
 	. = ..()
 	addtimer(CALLBACK(src, PROC_REF(after_creation)), 1 SECONDS)
 
-/mob/living/carbon/human/species/zizombie/proc/configure_mind()
+/mob/living/carbon/humanoid/species/zizombie/proc/configure_mind()
 	if(!mind)
 		mind = new /datum/mind(src)
 
@@ -107,7 +107,7 @@
 	mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 	mind.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
 
-/mob/living/carbon/human/species/zizombie/after_creation()
+/mob/living/carbon/humanoid/species/zizombie/after_creation()
 	..()
 	gender = MALE
 	if(src.dna && src.dna.species)
@@ -155,10 +155,10 @@
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | RACE_SWAP | SLIME_EXTRACT
 	var/raceicon = "zizombie"
 
-/datum/species/zizombie/update_damage_overlays(mob/living/carbon/human/H)
+/datum/species/zizombie/update_damage_overlays(mob/living/carbon/humanoid/H)
 	return
 
-/datum/species/zizombie/regenerate_icons(mob/living/carbon/human/H)
+/datum/species/zizombie/regenerate_icons(mob/living/carbon/humanoid/H)
 //	H.cut_overlays()
 	H.icon_state = ""
 	if(H.notransform)
@@ -168,7 +168,7 @@
 	H.update_inv_legcuffed()
 	H.update_fire()
 	H.update_body()
-	var/mob/living/carbon/human/species/zizombie/G = H
+	var/mob/living/carbon/humanoid/species/zizombie/G = H
 	G.update_wearable()
 	H.update_transform()
 	return TRUE
@@ -215,7 +215,7 @@
 
 ///////////////////////////////////////////////////////////// EVENTMIN ZIZOMBIES
 
-/mob/living/carbon/human/species/zizombie/npc/peasant/after_creation()
+/mob/living/carbon/humanoid/species/zizombie/npc/peasant/after_creation()
 	..()
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
@@ -226,7 +226,7 @@
 	flee_in_pain = FALSE
 	wander = TRUE
 
-/datum/outfit/job/species/zizombie/npc/peasant/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/species/zizombie/npc/peasant/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	H.base_strength = 9
 	H.base_speed = 7
@@ -254,7 +254,7 @@
 
 
 ///////////////////////////////////////////////////////////// EVENTMIN ZIZOMBIES
-/mob/living/carbon/human/species/zizombie/npc/ambush/after_creation()
+/mob/living/carbon/humanoid/species/zizombie/npc/ambush/after_creation()
 	..()
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
@@ -266,7 +266,7 @@
 	flee_in_pain = FALSE
 	wander = TRUE
 
-/datum/outfit/job/species/zizombie/npc/random/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/species/zizombie/npc/random/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	if(prob(50))
 		wrists = /obj/item/clothing/wrists/bracers/leather
@@ -293,7 +293,7 @@
 
 ///////////////////////////////////////////////////////////// EVENTMIN SKELETONGS
 
-/mob/living/carbon/human/species/zizombie/npc/warrior/after_creation()
+/mob/living/carbon/humanoid/species/zizombie/npc/warrior/after_creation()
 	..()
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
@@ -305,7 +305,7 @@
 	flee_in_pain = FALSE
 	wander = TRUE
 
-/datum/outfit/job/species/zizombie/npc/warrior/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/species/zizombie/npc/warrior/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	H.base_strength = 10
 	H.base_speed = 7
@@ -377,7 +377,7 @@
 			head = /obj/item/clothing/head/helmet/skullcap
 
 ///////////////////////////////////////////////////////////// EVENTMIN ZOMBIE MILITIA
-/mob/living/carbon/human/species/zizombie/npc/militiamen/after_creation()
+/mob/living/carbon/humanoid/species/zizombie/npc/militiamen/after_creation()
 	..()
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
@@ -389,7 +389,7 @@
 	flee_in_pain = FALSE
 	wander = TRUE
 
-/datum/outfit/job/species/zizombie/npc/militiamen/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/species/zizombie/npc/militiamen/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	H.base_strength = 10
 	H.base_speed = 7
@@ -454,7 +454,7 @@
 			head = /obj/item/clothing/head/helmet/kettle
 
 ///////////////////////////////////////////////////////////// EVENTMIN ZOMBIE GRENZELHOFT MERCENARIES
-/mob/living/carbon/human/species/zizombie/npc/GRENZEL/after_creation()
+/mob/living/carbon/humanoid/species/zizombie/npc/GRENZEL/after_creation()
 	..()
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
@@ -469,7 +469,7 @@
 
 
 
-/datum/outfit/job/species/zizombie/npc/GRENZEL/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/species/zizombie/npc/GRENZEL/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	H.base_strength = 12
 	H.base_speed = 7

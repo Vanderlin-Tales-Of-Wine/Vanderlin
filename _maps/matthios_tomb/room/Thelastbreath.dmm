@@ -45,7 +45,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb/cave)
 "aS" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/churchbrick,
 /area/rogue/under/tomb/indoors)
 "aU" = (
@@ -191,7 +191,7 @@
 /obj/structure/floordoor/gatehatch/inner{
 	redstone_id = "trap1"
 	},
-/mob/living/carbon/human/species/rousman/ambush,
+/mob/living/carbon/humanoid/species/rousman/ambush,
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb/indoors)
 "dq" = (
@@ -213,7 +213,7 @@
 /turf/open/floor/church,
 /area/rogue/under/tomb/indoors/church)
 "dB" = (
-/mob/living/carbon/human/species/rousman/ambush,
+/mob/living/carbon/humanoid/species/rousman/ambush,
 /turf/open/floor/church,
 /area/rogue/under/tomb/indoors)
 "dI" = (
@@ -353,7 +353,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb/cave/lava)
 "ft" = (
-/mob/living/carbon/human/species/rousman/ambush,
+/mob/living/carbon/humanoid/species/rousman/ambush,
 /obj/effect/spawner/map_spawner/loot/common,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/indoors)
@@ -621,7 +621,7 @@
 /turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors)
 "jc" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors/royal)
 "jd" = (
@@ -655,7 +655,7 @@
 /obj/item/clothing/neck/chaincoif,
 /obj/item/clothing/ring/gold/rontz,
 /obj/item/clothing/armor/cuirass/iron/rust,
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment{
 	base_speed = 15;
 	base_strength = 15;
 	base_constitution = 12;
@@ -895,11 +895,11 @@
 /turf/open/floor/church,
 /area/rogue/under/tomb/indoors/church)
 "mU" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/churchbrick,
 /area/rogue/under/tomb/indoors/church)
 "nk" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "no" = (
@@ -927,7 +927,7 @@
 /obj/item/clothing/armor/chainmail,
 /obj/item/clothing/ring/gold/rontz,
 /obj/item/clothing/neck/psycross/g,
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment{
 	base_speed = 12;
 	base_strength = 15;
 	base_constitution = 14;
@@ -956,7 +956,7 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/tomb/indoors)
 "nO" = (
-/mob/living/carbon/human/species/rousman/ambush,
+/mob/living/carbon/humanoid/species/rousman/ambush,
 /turf/open/floor/tile,
 /area/rogue/under/tomb/indoors)
 "nP" = (
@@ -977,7 +977,7 @@
 /turf/closed/wall/mineral/decostone,
 /area/rogue/under/tomb/indoors/church)
 "oj" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/cobble,
 /area/rogue/under/tomb/indoors)
 "ot" = (
@@ -1175,7 +1175,7 @@
 /obj/structure/kybraxor{
 	redstone_id = "trap1"
 	},
-/mob/living/carbon/human/species/rousman/ambush,
+/mob/living/carbon/humanoid/species/rousman/ambush,
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb/indoors)
 "rh" = (
@@ -1237,7 +1237,7 @@
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "se" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb)
 "sf" = (
@@ -1432,7 +1432,7 @@
 /turf/open/floor/church,
 /area/rogue/under/tomb/indoors/church)
 "vj" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/item/clothing/gloves/leather/phys,
 /obj/item/clothing/head/roguehood/phys,
@@ -1455,7 +1455,7 @@
 /turf/closed/mineral/bedrock,
 /area/rogue/under/tomb/cave/lava)
 "vH" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment{
 	real_name = "Strange Skeleton"
 	},
 /obj/item/clothing/head/peaceflower,
@@ -1625,7 +1625,7 @@
 /area/rogue/under/tomb/indoors)
 "yg" = (
 /obj/structure/fluff/nest,
-/mob/living/carbon/human/species/rousman/ambush,
+/mob/living/carbon/humanoid/species/rousman/ambush,
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/under/tomb/indoors)
 "yh" = (
@@ -1748,11 +1748,11 @@
 /turf/closed/wall/mineral/decostone,
 /area/rogue/under/tomb/indoors)
 "Al" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/tile/kitchen,
 /area/rogue/under/tomb/indoors)
 "Ao" = (
-/mob/living/carbon/human/species/rousman/ambush,
+/mob/living/carbon/humanoid/species/rousman/ambush,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/indoors)
 "Ap" = (
@@ -1789,7 +1789,7 @@
 /turf/open/floor/grass,
 /area/rogue/under/tomb)
 "AJ" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/blocks,
 /area/rogue/under/tomb/indoors)
 "AK" = (
@@ -1819,7 +1819,7 @@
 /obj/item/clothing/ring/gold/rontz,
 /obj/item/clothing/armor/cuirass/iron/rust,
 /obj/item/weapon/sword/long/greatsword/flamberge,
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment{
 	base_speed = 11;
 	base_strength = 18;
 	base_constitution = 15;
@@ -1875,7 +1875,7 @@
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "BH" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/cobble,
 /area/rogue/under/tomb)
 "BK" = (
@@ -1933,7 +1933,7 @@
 /obj/item/clothing/shoes/shortboots,
 /obj/item/clothing/head/crown/circlet,
 /obj/item/clothing/ring/gold/gemerald,
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment{
 	base_speed = 17;
 	base_strength = 14;
 	base_fortune = 14;
@@ -1952,7 +1952,7 @@
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/under/tomb/indoors)
 "Cl" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior,
 /turf/open/floor/blocks,
 /area/rogue/under/tomb/indoors)
 "Cr" = (
@@ -1978,7 +1978,7 @@
 /area/rogue/under/tomb/indoors)
 "Cy" = (
 /obj/structure/fluff/nest,
-/mob/living/carbon/human/species/rousman/ambush,
+/mob/living/carbon/humanoid/species/rousman/ambush,
 /obj/effect/decal/cleanable/food/pie_smudge,
 /turf/open/floor/tile,
 /area/rogue/under/tomb/indoors)
@@ -2100,7 +2100,7 @@
 /obj/item/clothing/ring/gold/rontz,
 /obj/item/clothing/armor/cuirass/iron/rust,
 /obj/item/weapon/polearm/halberd,
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment{
 	base_strength = 18;
 	base_speed = 12;
 	base_constitution = 14;
@@ -2319,7 +2319,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb/indoors)
 "Hl" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/humanoid/species/skeleton/npc/ambush,
 /turf/open/floor/church,
 /area/rogue/under/tomb/indoors/church)
 "Hm" = (
@@ -2334,7 +2334,7 @@
 /area/rogue/under/tomb/cave/lava)
 "Ht" = (
 /obj/structure/fluff/nest,
-/mob/living/carbon/human/species/rousman/ambush,
+/mob/living/carbon/humanoid/species/rousman/ambush,
 /turf/open/floor/tile,
 /area/rogue/under/tomb/indoors)
 "Hu" = (
@@ -2403,7 +2403,7 @@
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/under/tomb/indoors)
 "It" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/blocks,
 /area/rogue/under/tomb/indoors)
 "Iu" = (
@@ -2800,7 +2800,7 @@
 /obj/item/clothing/neck/chaincoif,
 /obj/item/clothing/ring/gold/rontz,
 /obj/item/clothing/armor/cuirass/iron/rust,
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment{
 	base_speed = 15;
 	base_strength = 15;
 	base_constitution = 12;
@@ -2832,7 +2832,7 @@
 /obj/item/clothing/neck/chaincoif,
 /obj/item/clothing/ring/gold/rontz,
 /obj/item/clothing/armor/cuirass/iron/rust,
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment{
 	base_strength = 15;
 	base_speed = 15;
 	base_constitution = 12;
@@ -3045,7 +3045,7 @@
 /area/rogue/under/tomb)
 "QY" = (
 /obj/structure/table/wood/plain,
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "Rv" = (
@@ -3163,7 +3163,7 @@
 /obj/item/weapon/shield/tower/metal,
 /obj/item/weapon/mace/steel,
 /obj/item/clothing/ring/silver/toper,
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment{
 	base_speed = 15;
 	base_constitution = 18;
 	base_endurance = 15;
@@ -3511,7 +3511,7 @@
 /obj/structure/floordoor/gatehatch/outer{
 	redstone_id = "trap1"
 	},
-/mob/living/carbon/human/species/rousman/ambush,
+/mob/living/carbon/humanoid/species/rousman/ambush,
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb/indoors)
 "XD" = (
@@ -3591,7 +3591,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "YI" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb/indoors)
 "YO" = (
@@ -3661,7 +3661,7 @@
 /obj/item/clothing/ring/gold/saffira,
 /obj/item/weapon/sword/sabre/scythe,
 /obj/item/weapon/shield/tower/buckleriron,
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment{
 	base_speed = 15;
 	base_perception = 15;
 	base_strength = 15;

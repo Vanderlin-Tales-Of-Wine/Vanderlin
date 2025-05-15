@@ -4,7 +4,7 @@
 	*				*
 	*===============*/
 
-/mob/living/carbon/human/species/human/halfelf
+/mob/living/carbon/humanoid/species/human/halfelf
 	race = /datum/species/human/halfelf
 
 /datum/species/human/halfelf
@@ -139,7 +139,7 @@
 /datum/species/human/halfelf/get_possible_surnames(gender = MALE)
 	return null
 
-/datum/species/human/halfelf/after_creation(mob/living/carbon/human/C)
+/datum/species/human/halfelf/after_creation(mob/living/carbon/humanoid/C)
 	..()
 	C.grant_language(/datum/language/elvish)
 	to_chat(C, "<span class='info'>I can speak Elvish with ,e before my speech.</span>")

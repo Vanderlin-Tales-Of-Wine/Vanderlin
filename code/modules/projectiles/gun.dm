@@ -153,7 +153,7 @@
 	else
 		return ..()
 
-/obj/item/gun/proc/handle_suicide(mob/living/carbon/human/user, mob/living/carbon/human/target, params, bypass_timer)
+/obj/item/gun/proc/handle_suicide(mob/living/carbon/humanoid/user, mob/living/carbon/humanoid/target, params, bypass_timer)
 	if(!ishuman(user) || !ishuman(target))
 		return
 

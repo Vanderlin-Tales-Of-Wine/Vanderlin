@@ -111,7 +111,7 @@
 #define VV_HK_GIVE_TRAUMA "give_trauma"
 #define VV_HK_CURE_TRAUMA "cure_trauma"
 
-// /mob/living/carbon/human
+// /mob/living/carbon/humanoid
 #define VV_HK_COPY_OUTFIT "copy_outfit"
 #define VV_HK_SET_SPECIES "setspecies"
 

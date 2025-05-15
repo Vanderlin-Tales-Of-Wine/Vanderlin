@@ -167,7 +167,7 @@
 		return
 	if(!HAS_TRAIT(user, required_trait))
 		return
-	for(var/mob/living/carbon/human/H in view(6,src))
+	for(var/mob/living/carbon/humanoid/H in view(6,src))
 		if(!HAS_TRAIT(H, required_trait) && !HAS_TRAIT(H, TRAIT_BLIND))
 			to_chat(H, "<b>I discover a well hidden entrance</b>")
 			ADD_TRAIT(H, required_trait, TRAIT_GENERIC)

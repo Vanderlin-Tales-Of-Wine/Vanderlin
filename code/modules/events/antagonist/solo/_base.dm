@@ -168,11 +168,11 @@
 	var/datum/round_event_control/event = pickweight(extra_spawned_events)
 	event?.runEvent(random = FALSE)
 
-/datum/round_event/antagonist/solo/proc/create_human_mob_copy(turf/create_at, mob/living/carbon/human/old_mob, qdel_old_mob = TRUE)
+/datum/round_event/antagonist/solo/proc/create_human_mob_copy(turf/create_at, mob/living/carbon/humanoid/old_mob, qdel_old_mob = TRUE)
 	if(!old_mob?.client)
 		return
 
-	var/mob/living/carbon/human/new_character = new(create_at)
+	var/mob/living/carbon/humanoid/new_character = new(create_at)
 	if(!create_at)
 		SSjob.SendToLateJoin(new_character)
 
@@ -225,7 +225,7 @@
 
 		if(!candidate.mind)
 			candidate.mind = new /datum/mind(candidate.key)
-		var/mob/living/carbon/human/new_human = make_body(candidate)
+		var/mob/living/carbon/humanoid/new_human = make_body(candidate)
 		new_human.mind.special_role = antag_flag
 		new_human.mind.restricted_roles = restricted_roles
 		setup_minds += new_human.mind
@@ -239,7 +239,7 @@
 		return
 
 	//First we spawn a dude.
-	var/mob/living/carbon/human/new_character = new//The mob being spawned.
+	var/mob/living/carbon/humanoid/new_character = new//The mob being spawned.
 	SSjob.SendToLateJoin(new_character)
 
 	ghost_player.client.prefs.safe_transfer_prefs_to(new_character)

@@ -24,7 +24,7 @@
 	. = ..()
 	peopleknowme = list()
 
-/datum/outfit/job/orphan/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/orphan/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	// The guaranteed clothing they wear.
 	if(prob(50))

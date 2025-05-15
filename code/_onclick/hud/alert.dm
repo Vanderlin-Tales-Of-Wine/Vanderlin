@@ -248,7 +248,7 @@
 /atom/movable/screen/alert/embeddedobject/Click()
 	if(!..())
 		if(ishuman(usr))
-			var/mob/living/carbon/human/H = usr
+			var/mob/living/carbon/humanoid/H = usr
 			var/list/msg = list("***\n")
 			for(var/X in H.bodyparts)
 				var/obj/item/bodypart/BP = X

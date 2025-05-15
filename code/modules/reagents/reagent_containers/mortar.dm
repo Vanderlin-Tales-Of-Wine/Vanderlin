@@ -39,7 +39,7 @@
 		to_grind = null
 		to_chat(user, "<span class='notice'>I eject the item inside.</span>")
 
-/obj/item/reagent_containers/glass/mortar/attackby(obj/item/I, mob/living/carbon/human/user)
+/obj/item/reagent_containers/glass/mortar/attackby(obj/item/I, mob/living/carbon/humanoid/user)
 	if(istype(I,/obj/item/pestle))
 		if(!to_grind)
 			if(user.try_recipes(src, I, user))

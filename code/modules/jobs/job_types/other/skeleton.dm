@@ -25,7 +25,7 @@
 /datum/job/skeleton/after_spawn(mob/living/spawned, client/player_client)
 	..()
 
-	var/mob/living/carbon/human/H = spawned
+	var/mob/living/carbon/humanoid/H = spawned
 	if(spawned.mind)
 		spawned.mind.special_role = "Skeleton"
 		spawned.job = null //?
@@ -65,7 +65,7 @@
 	ADD_TRAIT(H, TRAIT_NOSLEEP, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_SHOCKIMMUNE, TRAIT_GENERIC)
 
-/datum/outfit/job/skeleton/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/skeleton/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 
 	H.base_strength = rand(8,10)
@@ -94,7 +94,7 @@
 	spawned.mind.add_antag_datum(new_antag)
 
 
-/datum/outfit/job/skeleton/raider/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/skeleton/raider/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	wrists = /obj/item/clothing/wrists/bracers/leather
 	if(prob(50))
@@ -166,17 +166,17 @@
 /datum/job/skeleton/zizoid/after_spawn(mob/living/spawned, client/player_client)
 	..()
 
-	var/mob/living/carbon/human/H = spawned
+	var/mob/living/carbon/humanoid/H = spawned
 	H.mind?.special_role = "Cult Summon"
 	H.mind?.current.job = null
 	H.set_patron(/datum/patron/inhumen/zizo)
 
-/datum/outfit/job/skeleton/zizoid/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/skeleton/zizoid/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	H.base_strength = rand(8,17)
 	H.base_speed = rand(7,10)
 	H.base_intelligence = 1
 	H.base_constitution = 3
 
-	H.verbs |= /mob/living/carbon/human/proc/praise
-	H.verbs |= /mob/living/carbon/human/proc/communicate
+	H.verbs |= /mob/living/carbon/humanoid/proc/praise
+	H.verbs |= /mob/living/carbon/humanoid/proc/communicate

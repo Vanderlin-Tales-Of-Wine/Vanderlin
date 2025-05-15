@@ -163,7 +163,7 @@
 				var/posttransformoutfit = usr.client.robust_dress_shop()
 				if (!posttransformoutfit)
 					return
-				var/mob/living/carbon/human/newmob = M.change_mob_type( /mob/living/carbon/human , null, null, delmob )
+				var/mob/living/carbon/humanoid/newmob = M.change_mob_type( /mob/living/carbon/humanoid , null, null, delmob )
 				if(posttransformoutfit && istype(newmob))
 					newmob.equipOutfit(posttransformoutfit)
 			if("monkey")
@@ -398,9 +398,9 @@
 		if(!check_rights(R_SPAWN))
 			return
 
-		var/mob/living/carbon/human/H = locate(href_list["monkeyone"])
+		var/mob/living/carbon/humanoid/H = locate(href_list["monkeyone"])
 		if(!istype(H))
-			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/human.")
+			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/humanoid.")
 			return
 
 		log_admin("[key_name_admin(usr)] attempting to monkeyize [key_name(H)].")
@@ -703,9 +703,9 @@
 		if(!check_rights(R_ADMIN|R_FUN))
 			return
 
-		var/mob/living/carbon/human/H = locate(href_list["adminsmite"]) in GLOB.mob_list
+		var/mob/living/carbon/humanoid/H = locate(href_list["adminsmite"]) in GLOB.mob_list
 		if(!H || !istype(H))
-			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/human")
+			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/humanoid")
 			return
 
 		usr.client.smite(H)
@@ -1222,7 +1222,7 @@
 		if(!patron_to_change_to)
 			return
 
-		var/mob/living/carbon/human/being_changed = M
+		var/mob/living/carbon/humanoid/being_changed = M
 
 		message_admins("[key_name_admin(usr)] changed [key_name_admin(M)]'s patron from [being_changed.patron] to [patron_to_change_to]")
 		log_admin("[key_name_admin(usr)] changed [key_name_admin(M)]'s patron from [being_changed.patron] to [patron_to_change_to]")
@@ -1246,7 +1246,7 @@
 
 		flaw_to_change_to = flawslist[flaw_to_change_to]
 
-		var/mob/living/carbon/human/being_changed = M
+		var/mob/living/carbon/humanoid/being_changed = M
 
 		message_admins("[key_name_admin(usr)] changed [key_name_admin(M)]'s flaw from [being_changed.charflaw ? being_changed.charflaw : "NA"] to [flaw_to_change_to]")
 		log_admin("[key_name_admin(usr)] changed [key_name_admin(M)]'s flaw from [being_changed.charflaw ? being_changed.charflaw : "NA"] to [flaw_to_change_to]")

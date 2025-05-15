@@ -106,5 +106,5 @@
 		return UI_DISABLED
 	return UI_CLOSE // Otherwise, we got nothing.
 
-/mob/living/carbon/human/shared_living_ui_distance(atom/movable/src_object)
+/mob/living/carbon/humanoid/shared_living_ui_distance(atom/movable/src_object)
 	return ..()

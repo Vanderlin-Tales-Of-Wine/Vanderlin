@@ -87,7 +87,7 @@ SUBSYSTEM_DEF(droning)
 		frenq = -1
 
 	if(ishuman(dreamer.mob))
-		var/mob/living/carbon/human/H = dreamer.mob
+		var/mob/living/carbon/humanoid/H = dreamer.mob
 		if(H.has_status_effect(/datum/status_effect/buff/moondust))
 			frenq = 2
 		if(H.has_status_effect(/datum/status_effect/buff/weed))

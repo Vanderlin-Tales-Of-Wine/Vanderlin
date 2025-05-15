@@ -11,7 +11,7 @@
 
 	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander2.ogg'
 
-/datum/outfit/job/mercenary/exiled/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/mercenary/exiled/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)

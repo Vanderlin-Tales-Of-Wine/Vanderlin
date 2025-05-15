@@ -580,7 +580,7 @@
 		return
 
 	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+		var/mob/living/carbon/humanoid/H = M
 		var/atom/A = parent
 		if(not_while_equipped)
 			if(H.backl == A)
@@ -815,7 +815,7 @@
 		playsound(A, rustle_sound, 50, TRUE, -5)
 
 	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+		var/mob/living/carbon/humanoid/H = user
 		if(not_while_equipped)
 			if(H.backl == A)
 				if(!H.get_active_held_item())
@@ -861,7 +861,7 @@
 		playsound(A, rustle_sound, 50, TRUE, -5)
 
 	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+		var/mob/living/carbon/humanoid/H = user
 		if(not_while_equipped)
 			if(H.backl == A)
 				if(!H.get_active_held_item())

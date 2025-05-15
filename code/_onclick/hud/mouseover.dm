@@ -164,7 +164,7 @@
 		var/list/PM = list("screen-loc" = "[offset_x]:0,[offset_y]:0")
 		var/mousecolor = "#c1aaaa"
 		if(ishuman(src))
-			var/mob/living/carbon/human/H = src
+			var/mob/living/carbon/humanoid/H = src
 			if(H.voice_color)
 				if(H.name != "Unknown")
 					mousecolor = "#[H.voice_color]"

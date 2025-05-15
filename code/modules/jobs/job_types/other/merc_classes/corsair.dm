@@ -20,7 +20,7 @@
 	beltr = /obj/item/weapon/knife/dagger
 	shoes = /obj/item/clothing/shoes/boots
 
-/datum/outfit/job/adventurer/corsair/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/adventurer/corsair/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	if(H.mind)
 

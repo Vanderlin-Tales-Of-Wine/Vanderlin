@@ -5,7 +5,7 @@
 	allowed_races = list("Humen")
 	grant_lit_torch = TRUE
 
-/datum/outfit/job/daywalker/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/daywalker/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	wrists = /obj/item/clothing/wrists/bracers/leather
 	neck = /obj/item/clothing/neck/psycross/silver/astrata
@@ -45,7 +45,7 @@
 	H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
-	H.verbs |= /mob/living/carbon/human/proc/torture_victim //ARE YOU A FUCKING VAMPIRE?
+	H.verbs |= /mob/living/carbon/humanoid/proc/torture_victim //ARE YOU A FUCKING VAMPIRE?
 	H.cmode_music = 'sound/music/cmode/antag/CombatThrall.ogg'
 
 /datum/migrant_wave/daywalker

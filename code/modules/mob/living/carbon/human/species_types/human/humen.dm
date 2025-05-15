@@ -6,7 +6,7 @@
 
 //	( +1 Fortune )
 
-/mob/living/carbon/human/species/human/northern
+/mob/living/carbon/humanoid/species/human/northern
 	race = /datum/species/human/northern
 
 /datum/species/human/northern

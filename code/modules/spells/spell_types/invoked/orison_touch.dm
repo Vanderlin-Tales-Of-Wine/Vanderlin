@@ -39,7 +39,7 @@
 /obj/item/melee/touch_attack/orison/attack_self()
 	qdel(src)
 
-/obj/item/melee/touch_attack/orison/proc/handle_xp(mob/living/carbon/human/user, fatigue, ignore_cooldown = FALSE)
+/obj/item/melee/touch_attack/orison/proc/handle_xp(mob/living/carbon/humanoid/user, fatigue, ignore_cooldown = FALSE)
 	if (!ignore_cooldown)
 		if (world.time < xp_cooldown + xp_interval)
 			return
@@ -59,7 +59,7 @@
 		user.visible_message(span_notice("[user] closes [user.p_their()] eyes, and the holy light surrounding them retreats into their chest and disappears."), span_notice("I relinquish the gift of [user.patron.name]'s light."))
 		return
 
-/obj/item/melee/touch_attack/orison/afterattack(atom/target, mob/living/carbon/human/user, proximity)
+/obj/item/melee/touch_attack/orison/afterattack(atom/target, mob/living/carbon/humanoid/user, proximity)
 	var/fatigue_used
 	switch (user.used_intent.type)
 		if (/datum/intent/fill)
@@ -131,7 +131,7 @@
 	owner.remove_filter(BLESSINGOFLIGHT_FILTER)
 	remove_light(owner)
 
-/obj/item/melee/touch_attack/orison/proc/cast_light(atom/thing, mob/living/carbon/human/user)
+/obj/item/melee/touch_attack/orison/proc/cast_light(atom/thing, mob/living/carbon/humanoid/user)
 	var/holy_skill = user.mind?.get_skill_level(attached_spell.associated_skill)
 	var/cast_time = 35 - (holy_skill * 3)
 	if (!thing.Adjacent(user))
@@ -187,7 +187,7 @@
 	UnregisterSignal(owner, COMSIG_MOB_SAY)
 	owner.remove_status_effect(/datum/status_effect/thaumaturgy)
 
-/obj/item/melee/touch_attack/orison/proc/thaumaturgy(thing, mob/living/carbon/human/user)
+/obj/item/melee/touch_attack/orison/proc/thaumaturgy(thing, mob/living/carbon/humanoid/user)
 	var/holy_skill = user.mind?.get_skill_level(attached_spell.associated_skill)
 	if (thing == user)
 		// give us a buff that makes our next spoken thing really loud and also cause any linked, un-muted scom to shriek out the phrase at a 15% chance
@@ -304,7 +304,7 @@
 				M.update_damage_overlays()
 		M.adjust_stamina(0.5*REM)
 
-/obj/item/melee/touch_attack/orison/proc/create_water(atom/thing, mob/living/carbon/human/user)
+/obj/item/melee/touch_attack/orison/proc/create_water(atom/thing, mob/living/carbon/humanoid/user)
 	// normally we wouldn't use fatigue here to keep in line w/ other holy magic, but we have to since water is a persistent resource
 	if (!thing.Adjacent(user))
 		to_chat(user, span_info("I need to be closer to [thing] in order to try filling it with water."))
@@ -362,7 +362,7 @@
 /obj/item/melee/touch_attack/orison/MiddleClick(mob/living/user, params)
 	return
 
-/obj/item/melee/touch_attack/orison/lesser/create_water(atom/thing, mob/living/carbon/human/user)
+/obj/item/melee/touch_attack/orison/lesser/create_water(atom/thing, mob/living/carbon/humanoid/user)
 	// normally we wouldn't use fatigue here to keep in line w/ other holy magic, but we have to since water is a persistent resource
 	if (!thing.Adjacent(user))
 		to_chat(user, span_info("I need to be closer to [thing] in order to try filling it with water."))

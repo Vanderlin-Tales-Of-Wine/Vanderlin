@@ -2,7 +2,7 @@
 	name = "Eye of Night"
 	icon_state = "scrying"
 
-/obj/structure/vampire/scryingorb/attack_hand(mob/living/carbon/human/user)
+/obj/structure/vampire/scryingorb/attack_hand(mob/living/carbon/humanoid/user)
 	if(user.mind.special_role == "Vampire Lord")
 		user.visible_message("<font color='red'>[user]'s eyes turn dark red, as they channel the [src]</font>", "<font color='red'>I begin to channel my consciousness into a Predator's Eye.</font>")
 		if(do_after(user, 6 SECONDS, src))
@@ -17,7 +17,7 @@
 	see_invisible = SEE_INVISIBLE_GHOST
 
 	misting = 0
-	var/mob/living/carbon/human/vampirelord = null
+	var/mob/living/carbon/humanoid/vampirelord = null
 	icon_state = "arcaneeye"
 	draw_icon = FALSE
 	hud_type = /datum/hud/eye
@@ -75,8 +75,8 @@
 		to_chat(src, "My body has been destroyed! I'm trapped!")
 
 /mob/dead/observer/rogue/arcaneeye/Crossed(mob/living/L)
-	if(istype(L, /mob/living/carbon/human))
-		var/mob/living/carbon/human/V = L
+	if(istype(L, /mob/living/carbon/humanoid))
+		var/mob/living/carbon/humanoid/V = L
 		var/holyskill = V.mind.get_skill_level(/datum/skill/magic/holy)
 		var/magicskill = V.mind.get_skill_level(/datum/skill/magic/arcane)
 		if(magicskill >= 2)

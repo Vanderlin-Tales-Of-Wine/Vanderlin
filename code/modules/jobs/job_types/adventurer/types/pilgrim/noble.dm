@@ -11,7 +11,7 @@
 	apprentice_name = "Servant"
 
 
-/datum/outfit/job/adventurer/noble/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/adventurer/noble/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	var/prev_real_name = H.real_name
 	var/prev_name = H.name

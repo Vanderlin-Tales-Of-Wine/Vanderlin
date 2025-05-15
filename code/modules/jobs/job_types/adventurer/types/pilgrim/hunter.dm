@@ -9,7 +9,7 @@
 	category_tags = list(CTAG_PILGRIM)
 	apprentice_name = "Hunter Apprentice"
 
-/datum/outfit/job/adventurer/hunter/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/adventurer/hunter/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	pants = /obj/item/clothing/pants/tights/random
 	shirt = /obj/item/clothing/shirt/shortshirt/random

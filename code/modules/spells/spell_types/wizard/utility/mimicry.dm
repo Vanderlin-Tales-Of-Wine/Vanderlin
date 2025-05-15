@@ -24,7 +24,7 @@
 	var/old_gender
 	var/transformed = FALSE
 
-/obj/effect/proc_holder/spell/invoked/mimicry/on_gain(mob/living/carbon/human/user)
+/obj/effect/proc_holder/spell/invoked/mimicry/on_gain(mob/living/carbon/humanoid/user)
 	. = ..()
 	var/datum/bodypart_feature/hair/feature = user.get_bodypart_feature_of_slot(BODYPART_FEATURE_HAIR)
 	var/datum/bodypart_feature/hair/facial = user.get_bodypart_feature_of_slot(BODYPART_FEATURE_FACIAL_HAIR)
@@ -48,7 +48,7 @@
 
 	return FALSE
 
-/obj/effect/proc_holder/spell/invoked/mimicry/proc/try_transform(mob/living/carbon/human/target, mob/living/carbon/human/user)
+/obj/effect/proc_holder/spell/invoked/mimicry/proc/try_transform(mob/living/carbon/humanoid/target, mob/living/carbon/humanoid/user)
 	visible_message("[user]'s skin starts to shift.")
 	if(!do_after(user, 10 SECONDS, target = user))
 		return
@@ -91,7 +91,7 @@
 
 	user.updateappearance(mutcolor_update = TRUE)
 
-/obj/effect/proc_holder/spell/invoked/mimicry/proc/return_to_normal(mob/living/carbon/human/user)
+/obj/effect/proc_holder/spell/invoked/mimicry/proc/return_to_normal(mob/living/carbon/humanoid/user)
 	visible_message("[user]'s skin starts to shift.")
 	user.Immobilize(4 SECONDS)
 	if(!do_after(user, 10 SECONDS, target = user))

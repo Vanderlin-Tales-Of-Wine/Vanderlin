@@ -73,7 +73,7 @@
 			return
 	add_hiddenprint(M)
 	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+		var/mob/living/carbon/humanoid/H = M
 		add_fibers(H)
 		if(H.gloves) //Check if the gloves (if any) hide fingerprints
 			var/obj/item/clothing/gloves/G = H.gloves
@@ -94,7 +94,7 @@
 		fibers[i] = i
 	return TRUE
 
-/datum/component/forensics/proc/add_fibers(mob/living/carbon/human/M)
+/datum/component/forensics/proc/add_fibers(mob/living/carbon/humanoid/M)
 	var/fibertext
 	var/item_multiplier = isitem(src)?1.2:1
 	if(M.wear_armor)
@@ -142,7 +142,7 @@
 		return
 	var/hasgloves = ""
 	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+		var/mob/living/carbon/humanoid/H = M
 		if(H.gloves)
 			hasgloves = "(gloves)"
 	var/current_time = time_stamp()

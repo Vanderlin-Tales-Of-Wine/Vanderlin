@@ -237,7 +237,7 @@
 		return TRUE //successful attack
 
 //ATTACK HAND IGNORING PARENT RETURN VALUE
-/mob/living/carbon/attack_hand(mob/living/carbon/human/user)
+/mob/living/carbon/attack_hand(mob/living/carbon/humanoid/user)
 	if(SEND_SIGNAL(src, COMSIG_ATOM_ATTACK_HAND, user) & COMPONENT_NO_ATTACK_HAND)
 		. = TRUE
 

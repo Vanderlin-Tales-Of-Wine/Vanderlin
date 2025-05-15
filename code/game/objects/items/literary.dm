@@ -95,7 +95,7 @@
 	if(!skilltoteach)
 		return
 	if(user.mind && ishuman(user))
-		var/mob/living/carbon/human/H = user
+		var/mob/living/carbon/humanoid/H = user
 		var/userskill = H.mind.get_skill_level(skilltoteach)
 		var/intbonus = H.STAINT - 10
 		var/true_experience = exppercycle + intbonus

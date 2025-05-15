@@ -17,7 +17,7 @@
 	if(!.)
 		return FALSE
 
-	for(var/mob/living/carbon/human/H in GLOB.player_list)
+	for(var/mob/living/carbon/humanoid/H in GLOB.player_list)
 		if(!istype(H) || H.stat == DEAD || !H.client || is_lord_job(H.mind?.assigned_role))
 			continue
 		if(!H.patron || !istype(H.patron, /datum/patron/divine/xylix))
@@ -31,7 +31,7 @@
 /datum/round_event/xylix_mocking/start()
 	var/list/valid_targets = list()
 
-	for(var/mob/living/carbon/human/human_mob in GLOB.player_list)
+	for(var/mob/living/carbon/humanoid/human_mob in GLOB.player_list)
 		if(!istype(human_mob) || human_mob.stat == DEAD || !human_mob.client || is_lord_job(human_mob.mind?.assigned_role))
 			continue
 		if(!human_mob.patron || !istype(human_mob.patron, /datum/patron/divine/xylix))
@@ -43,7 +43,7 @@
 	if(!valid_targets.len)
 		return
 
-	var/mob/living/carbon/human/chosen_one = pick(valid_targets)
+	var/mob/living/carbon/humanoid/chosen_one = pick(valid_targets)
 
 	var/datum/objective/mock/monarch/new_objective = new(owner = chosen_one.mind)
 	chosen_one.mind.add_personal_objective(new_objective)

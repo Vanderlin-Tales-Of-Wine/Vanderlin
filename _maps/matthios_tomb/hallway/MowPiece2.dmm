@@ -36,7 +36,7 @@
 /turf/open/floor/herringbone,
 /area/rogue/under/tomb)
 "bU" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/humanoid/species/skeleton/npc/warrior/skilled,
 /obj/structure/bed/mediocre,
 /obj/item/organ/eyes,
 /obj/effect/decal/cleanable/blood,
@@ -50,7 +50,7 @@
 /area/rogue/under/tomb)
 "eB" = (
 /obj/effect/decal/cleanable/blood,
-/mob/living/carbon/human/species/orc/tribal,
+/mob/living/carbon/humanoid/species/orc/tribal,
 /turf/open/floor/ruinedwood,
 /area/rogue/under/tomb)
 "eI" = (
@@ -127,14 +127,14 @@
 /area/rogue/under/tomb)
 "sO" = (
 /obj/structure/bed/shit,
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/blood/gibs/old,
 /turf/open/floor/blocks,
 /area/rogue/under/tomb)
 "to" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /obj/structure/bed/mediocre,
 /obj/item/reagent_containers/food/snacks/hardtack,
 /obj/effect/decal/cleanable/blood/gibs/old,
@@ -180,7 +180,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/under/tomb)
 "Hf" = (
-/mob/living/carbon/human/species/orc/tribal,
+/mob/living/carbon/humanoid/species/orc/tribal,
 /turf/open/floor/dirt/road,
 /area/rogue/under/tomb)
 "Ig" = (
@@ -189,7 +189,7 @@
 /area/rogue/under/tomb)
 "Kb" = (
 /obj/effect/decal/cleanable/blood,
-/mob/living/carbon/human/species/orc/tribal,
+/mob/living/carbon/humanoid/species/orc/tribal,
 /turf/open/floor/dirt/road,
 /area/rogue/under/tomb)
 "Kr" = (
@@ -261,7 +261,7 @@
 /area/rogue/under/tomb)
 "Tw" = (
 /obj/structure/bed/shit,
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/carbon/humanoid/species/skeleton/npc/peasant,
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb)
 "TS" = (

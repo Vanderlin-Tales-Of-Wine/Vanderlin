@@ -75,7 +75,7 @@
 /obj/effect/gibspawner/human
 	gibtypes = list(/obj/effect/decal/cleanable/blood/gibs/up, /obj/effect/decal/cleanable/blood/gibs/down, /obj/effect/decal/cleanable/blood/gibs, /obj/effect/decal/cleanable/blood/gibs, /obj/effect/decal/cleanable/blood/gibs/body, /obj/effect/decal/cleanable/blood/gibs/limb, /obj/effect/decal/cleanable/blood/gibs/core)
 	gibamounts = list(1, 1, 1, 1, 1, 1, 1)
-	gib_mob_type = /mob/living/carbon/human
+	gib_mob_type = /mob/living/carbon/humanoid
 	sound_vol = 50
 
 /obj/effect/gibspawner/human/Initialize()

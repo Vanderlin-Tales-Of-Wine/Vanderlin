@@ -21,7 +21,7 @@
 /datum/outfit/job/armorsmith
 	job_bitflag = BITFLAG_CONSTRUCTOR
 
-/datum/outfit/job/armorsmith/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/armorsmith/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	ring = /obj/item/clothing/ring/silver/makers_guild
 	head = /obj/item/clothing/head/hatfur
@@ -92,7 +92,7 @@
 /datum/outfit/job/weaponsmith
 	job_bitflag = BITFLAG_CONSTRUCTOR
 
-/datum/outfit/job/weaponsmith/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/weaponsmith/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	ring = /obj/item/clothing/ring/silver/makers_guild
 	head = /obj/item/clothing/head/hatfur

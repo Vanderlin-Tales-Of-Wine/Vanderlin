@@ -655,7 +655,7 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/tomb/indoors)
 "qQ" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment,
 /obj/item/clothing/shirt/undershirt/sailor,
 /obj/item/clothing/pants/tights/sailor,
 /obj/item/clothing/shoes/boots/leather,
@@ -807,7 +807,7 @@
 /turf/open/water,
 /area/rogue/under/tomb/lake)
 "vT" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment{
 	base_constitution = 15;
 	base_endurance = 15;
 	candodge = 0
@@ -862,7 +862,7 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/tomb/indoors)
 "wB" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment,
 /obj/item/clothing/shirt/undershirt/sailor/red,
 /obj/item/clothing/pants/tights/sailor,
 /obj/item/clothing/shoes/boots/leather,
@@ -1093,7 +1093,7 @@
 /turf/closed/indestructible/wooddark/hull,
 /area/rogue/under/tomb/indoors)
 "Cx" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment,
 /obj/item/clothing/shirt/undershirt/sailor/red,
 /obj/item/clothing/pants/tights/sailor,
 /obj/item/clothing/shoes/boots/leather,
@@ -1306,7 +1306,7 @@
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/item/weapon/sword/khopesh,
 /obj/item/weapon/sword/sabre/shalal,
-/mob/living/carbon/human/species/zizombie/npc{
+/mob/living/carbon/humanoid/species/zizombie/npc{
 	candodge = 0
 	},
 /turf/open/floor/carpet/lord/center,
@@ -1661,7 +1661,7 @@
 /obj/item/clothing/shoes/boots/armor/blkknight/death,
 /obj/item/weapon/sword/long/death,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment{
 	base_constitution = 15;
 	base_endurance = 15;
 	candodge = 0
@@ -1924,7 +1924,7 @@
 /turf/open/floor/ruinedwood,
 /area/rogue/under/tomb/indoors)
 "XY" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/mob/living/carbon/humanoid/species/skeleton/npc/no_equipment,
 /obj/item/clothing/shirt/undershirt/sailor,
 /obj/item/clothing/pants/tights/sailor,
 /obj/item/clothing/shoes/boots/leather,

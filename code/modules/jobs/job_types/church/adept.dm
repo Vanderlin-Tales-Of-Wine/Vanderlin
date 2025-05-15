@@ -47,7 +47,7 @@
 	cmode_music = 'sound/music/cmode/church/CombatInquisitor.ogg'
 	maximum_possible_slots = 2
 
-/datum/outfit/job/adept/bzealot/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/adept/bzealot/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	//Armor for class
 	armor = /obj/item/clothing/armor/chainmail
@@ -90,7 +90,7 @@
 	cmode_music = 'sound/music/cmode/adventurer/CombatRogue.ogg'
 	maximum_possible_slots = 2
 
-/datum/outfit/job/adept/rthief/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/adept/rthief/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	//Armor for class
 	armor = /obj/item/clothing/armor/leather/splint
@@ -126,7 +126,7 @@
 	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
 
 
-/datum/outfit/job/adept/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/adept/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	if(H.mind)
 		if(H.mind.has_antag_datum(/datum/antagonist))
@@ -134,8 +134,8 @@
 		var/datum/antagonist/new_antag = new /datum/antagonist/purishep()
 		H.mind.add_antag_datum(new_antag)
 		H.set_patron(/datum/patron/psydon)
-		H.verbs |= /mob/living/carbon/human/proc/torture_victim
-		H.verbs |= /mob/living/carbon/human/proc/faith_test
+		H.verbs |= /mob/living/carbon/humanoid/proc/torture_victim
+		H.verbs |= /mob/living/carbon/humanoid/proc/faith_test
 		if(!H.has_language(/datum/language/oldpsydonic))
 			H.grant_language(/datum/language/oldpsydonic)
 			to_chat(H, "<span class='info'>I can speak Old Psydonic with ,m before my speech.</span>")

@@ -84,7 +84,7 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 	owner.special_items["Surgical Kit"] = /obj/item/storage/backpack/satchel/surgbag
 	if(owner.current)
 		if(ishuman(owner.current))
-			var/mob/living/carbon/human/dreamer = owner.current
+			var/mob/living/carbon/humanoid/dreamer = owner.current
 			dreamer.set_patron(/datum/patron/inhumen/graggar_zizo)
 			dreamer.cmode_music = 'sound/music/cmode/antag/combat_maniac.ogg'
 			owner.adjust_skillrank(/datum/skill/combat/knives, 6, TRUE)
@@ -124,7 +124,7 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 		if(!silent)
 			to_chat(owner.current,span_danger("I am no longer a MANIAC!"))
 		if(ishuman(owner.current))
-			var/mob/living/carbon/human/dreamer = owner.current
+			var/mob/living/carbon/humanoid/dreamer = owner.current
 			dreamer.set_patron(/datum/patron/inhumen/zizo)
 			dreamer.remove_stat_modifier("[type]")
 			var/client/clinet = dreamer?.client
@@ -181,7 +181,7 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 	if(trey)
 		spawnturf = get_turf(trey)
 	if(spawnturf)
-		var/mob/living/carbon/human/trey_liam = new /mob/living/carbon/human/species/human/northern(spawnturf)
+		var/mob/living/carbon/humanoid/trey_liam = new /mob/living/carbon/humanoid/species/human/northern(spawnturf)
 		trey_liam.fully_replace_character_name(trey_liam.name, "Trey Liam")
 		trey_liam.gender = MALE
 		trey_liam.skin_tone = "ffe0d1"
@@ -227,7 +227,7 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 	// 		continue
 	// 	SEND_SOUND(connected_player, sound(null))
 	// 	SEND_SOUND(connected_player, 'sound/villain/dreamer_win.ogg')
-	var/mob/living/carbon/human/trey_liam = spawn_trey_liam()
+	var/mob/living/carbon/humanoid/trey_liam = spawn_trey_liam()
 	if(trey_liam)
 		owner.adjust_triumphs(4) // Adjust triumphs here instead of at roundend
 		owner.transfer_to(trey_liam)

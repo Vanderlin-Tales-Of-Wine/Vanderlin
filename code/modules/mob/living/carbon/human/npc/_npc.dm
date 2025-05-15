@@ -1,6 +1,6 @@
 #define MAX_RANGE_FIND 32
 
-/mob/living/carbon/human
+/mob/living/carbon/humanoid
 	var/resisting = FALSE
 	var/pickpocketing = FALSE
 	var/del_on_deaggro = null
@@ -14,10 +14,10 @@
 
 	var/returning_home = FALSE
 
-/mob/living/carbon/human/proc/IsStandingStill()
+/mob/living/carbon/humanoid/proc/IsStandingStill()
 	return resisting || pickpocketing
 
-/mob/living/carbon/human/proc/npc_stand()
+/mob/living/carbon/humanoid/proc/npc_stand()
 	// the sane way to do this would be to try and check if we can even realistically stand
 	resisting = TRUE
 	if(stand_up())
@@ -29,8 +29,8 @@
 		resisting = FALSE
 		return FALSE
 
-// taken from /mob/living/carbon/human/interactive/
-/mob/living/carbon/human/proc/IsDeadOrIncap(checkDead = TRUE)
+// taken from /mob/living/carbon/humanoid/interactive/
+/mob/living/carbon/humanoid/proc/IsDeadOrIncap(checkDead = TRUE)
 	// if(!(mobility_flags & MOBILITY_FLAGS_INTERACTION))
 	// 	return 1
 	if(health <= 0 && checkDead)
@@ -42,7 +42,7 @@
 	return 0
 
 
-/mob/living/carbon/human/proc/equip_item(obj/item/I)
+/mob/living/carbon/humanoid/proc/equip_item(obj/item/I)
 	if(I.loc == src)
 		return TRUE
 
@@ -62,17 +62,17 @@
 
 	return FALSE
 
-/mob/living/carbon/human/proc/pickup_and_wear(obj/item/clothing/C)
+/mob/living/carbon/humanoid/proc/pickup_and_wear(obj/item/clothing/C)
 	if(!equip_to_appropriate_slot(C))
 		monkeyDrop(get_item_by_slot(C)) // remove the existing item if worn
 		addtimer(CALLBACK(src, PROC_REF(equip_to_appropriate_slot), C), 5)
 	return TRUE
 
-/mob/living/carbon/human/proc/monkeyDrop(obj/item/A)
+/mob/living/carbon/humanoid/proc/monkeyDrop(obj/item/A)
 	if(A)
 		dropItemToGround(A, TRUE)
 
-/mob/living/carbon/human/resist_restraints()
+/mob/living/carbon/humanoid/resist_restraints()
 	var/obj/item/I = null
 	if(handcuffed)
 		I = handcuffed
@@ -84,7 +84,7 @@
 		cuff_resist(I)
 
 // attack using a held weapon otherwise bite the enemy, then if we are angry there is a chance we might calm down a little
-/mob/living/carbon/human/proc/monkey_attack(mob/living/L)
+/mob/living/carbon/humanoid/proc/monkey_attack(mob/living/L)
 	if(next_move > world.time)
 		return
 	var/obj/item/Weapon = get_active_held_item()

@@ -9,7 +9,7 @@
 	cmode_music = 'sound/music/cmode/combat_dendor.ogg'
 	maximum_possible_slots = 4	// to be lowered to 2? once testing is done
 
-/datum/outfit/job/adventurer/briar/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/adventurer/briar/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	ADD_TRAIT(H, TRAIT_KNEESTINGER_IMMUNITY, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_SEEDKNOW, TRAIT_GENERIC)
@@ -62,7 +62,7 @@
 		H.mind.teach_crafting_recipe(/datum/crafting_recipe/dendor/sacrifice_devouring)
 
 	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(H, H.patron)
-	H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
+	H.verbs += list(/mob/living/carbon/humanoid/proc/devotionreport, /mob/living/carbon/humanoid/proc/clericpray)
 	C.grant_spells(H)
 	/*
 	if((H.facial_hairstyle == "Wise Hermit") || (H.facial_hairstyle == "Knightly") || (H.facial_hairstyle == "Raider") || (H.facial_hairstyle == "Rumata") || (H.facial_hairstyle == "Choppe") || (H.facial_hairstyle == "Full Beard") || (H.facial_hairstyle == "Fullest Beard") || (H.facial_hairstyle == "Drinker") || (H.facial_hairstyle == "Knowledge") || (H.facial_hairstyle == "Brew") || (H.facial_hairstyle == "Ranger"))
@@ -71,7 +71,7 @@
 /datum/outfit/job/adventurer/briar
 	var/tutorial = "<br><br><font color='#44720e'><span class='bold'>You know well how to make a shrine to Dendor, wood, thorns, and the head of a favored animal.<br><br>Choose a path stinging, devouring or growing, and make your sacrifices...<br><br>Remember - Dendor will only grant special powers from Blessing the first time you do recieve it, and only those mastering all his Miracles can unlock their full potential.  </span></font><br><br>"
 
-/datum/outfit/job/adventurer/briar/post_equip(mob/living/carbon/human/H)
+/datum/outfit/job/adventurer/briar/post_equip(mob/living/carbon/humanoid/H)
 	..()
 	to_chat(H, tutorial)
 
@@ -168,7 +168,7 @@
 	layer = 4.2
 	alpha = 155
 	anchored = TRUE
-/obj/item/blessing_of_dendor_growing/attack_hand(mob/living/carbon/human/user)
+/obj/item/blessing_of_dendor_growing/attack_hand(mob/living/carbon/humanoid/user)
 	if(user.patron.type == /datum/patron/divine/dendor)
 		icon_state = "dendor_grow_end"
 		if(HAS_TRAIT(user, TRAIT_BLESSED))
@@ -202,7 +202,7 @@
 	layer = 4.2
 	alpha = 155
 	anchored = TRUE
-/obj/item/blessing_of_dendor_stinging/attack_hand(mob/living/carbon/human/user)
+/obj/item/blessing_of_dendor_stinging/attack_hand(mob/living/carbon/humanoid/user)
 	if(user.patron.type == /datum/patron/divine/dendor)
 		icon_state = "dendor_sting_end"
 		if(HAS_TRAIT(user, TRAIT_BLESSED))
@@ -236,7 +236,7 @@
 	layer = 4.2
 	alpha = 155
 	anchored = TRUE
-/obj/item/blessing_of_dendor_devouring/attack_hand(mob/living/carbon/human/user)
+/obj/item/blessing_of_dendor_devouring/attack_hand(mob/living/carbon/humanoid/user)
 	if(user.patron.type == /datum/patron/divine/dendor)
 		icon_state = "dendor_consume_end"
 		if(HAS_TRAIT(user, TRAIT_BLESSED))

@@ -19,7 +19,7 @@
 
 	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander.ogg' //Forgive me, Combat_DesertRider, I'm sorry, I'll miss you.
 
-/datum/outfit/job/mercenary/zybantine/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/mercenary/zybantine/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	shoes = /obj/item/clothing/shoes/shalal
 	head = /obj/item/clothing/head/helmet/sallet/zybantine

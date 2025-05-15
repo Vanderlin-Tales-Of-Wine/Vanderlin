@@ -17,7 +17,7 @@
 
 	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander.ogg'
 
-/datum/outfit/job/adventurer/zybantine/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/adventurer/zybantine/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	shoes = /obj/item/clothing/shoes/shalal
 	gloves = /obj/item/clothing/gloves/leather

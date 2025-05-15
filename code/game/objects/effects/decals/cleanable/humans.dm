@@ -52,7 +52,7 @@
 /obj/effect/decal/cleanable/blood/attack_hand(mob/living/user)
 	. = ..()
 	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
+		var/mob/living/carbon/humanoid/H = user
 		to_chat(H, "<span class='notice'>I get my hands bloody.</span>")
 		H.bloody_hands++
 		H.update_inv_gloves()
@@ -370,7 +370,7 @@
 /obj/effect/decal/cleanable/blood/footprints/Crossed(atom/movable/O)
 	..()
 	if(ishuman(O))
-		var/mob/living/carbon/human/H = O
+		var/mob/living/carbon/humanoid/H = O
 		var/obj/item/clothing/shoes/S = H.shoes
 		if(S && S.bloody_shoes[blood_state])
 			S.bloody_shoes[blood_state] = max(S.bloody_shoes[blood_state] - BLOOD_LOSS_PER_STEP, 0)
@@ -383,7 +383,7 @@
 /obj/effect/decal/cleanable/blood/footprints/Uncrossed(atom/movable/O)
 	..()
 	if(ishuman(O))
-		var/mob/living/carbon/human/H = O
+		var/mob/living/carbon/humanoid/H = O
 		var/obj/item/clothing/shoes/S = H.shoes
 		if(S && S.bloody_shoes[blood_state])
 			S.bloody_shoes[blood_state] = max(S.bloody_shoes[blood_state] - BLOOD_LOSS_PER_STEP, 0)

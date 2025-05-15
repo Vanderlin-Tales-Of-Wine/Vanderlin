@@ -26,7 +26,7 @@
 	can_have_apprentices = FALSE
 
 
-/datum/outfit/job/wapprentice/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/wapprentice/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/magic/arcane, pick(1,2), TRUE)

@@ -26,7 +26,7 @@
 /datum/outfit/job/jailor
 	job_bitflag = BITFLAG_GARRISON
 
-/datum/outfit/job/jailor/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/jailor/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	head = /obj/item/clothing/head/roguehood/black
 	neck = /obj/item/clothing/neck/coif
@@ -58,4 +58,4 @@
 	H.change_stat(STATKEY_SPD, -4) // To balance out how strong he is
 	H.change_stat(STATKEY_INT, pick(-4,-5,-6)) // He's stupid
 	H.change_stat(STATKEY_PER, pick(-3,-3,-4)) // Yeah he's stupid- he's not going to notice small things
-	H.verbs |= /mob/living/carbon/human/proc/torture_victim // I don't think they need it, but here we go anyways.
+	H.verbs |= /mob/living/carbon/humanoid/proc/torture_victim // I don't think they need it, but here we go anyways.

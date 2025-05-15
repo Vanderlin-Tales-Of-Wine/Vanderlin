@@ -124,7 +124,7 @@
 	if(!bclass || !dam || !owner || (owner.status_flags & GODMODE))
 		return FALSE
 	if(ishuman(owner))
-		var/mob/living/carbon/human/human_owner = owner
+		var/mob/living/carbon/humanoid/human_owner = owner
 		if(human_owner.checkcritarmor(zone_precise, bclass))
 			return FALSE
 	var/do_crit = TRUE

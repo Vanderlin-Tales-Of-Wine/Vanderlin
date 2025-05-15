@@ -6,13 +6,13 @@
 	RegisterSignal(parent, COMSIG_HUMAN_MELEE_UNARMED_ATTACK, PROC_REF(on_host_unarmed_melee))
 
 /datum/component/riding/human/vehicle_mob_unbuckle(datum/source, mob/living/M, force = FALSE)
-	var/mob/living/carbon/human/H = parent
+	var/mob/living/carbon/humanoid/H = parent
 	H.remove_movespeed_modifier(MOVESPEED_ID_HUMAN_CARRYING)
 	. = ..()
 
 /datum/component/riding/human/vehicle_mob_buckle(datum/source, mob/living/M, force = FALSE)
 	. = ..()
-	var/mob/living/carbon/human/H = parent
+	var/mob/living/carbon/humanoid/H = parent
 	var/amt2use = HUMAN_CARRY_SLOWDOWN
 	var/reqstrength = 10
 	if(H.r_grab && H.l_grab)
@@ -24,7 +24,7 @@
 	H.add_movespeed_modifier(MOVESPEED_ID_HUMAN_CARRYING, multiplicative_slowdown = amt2use)
 
 /datum/component/riding/human/proc/on_host_unarmed_melee(atom/target)
-	var/mob/living/carbon/human/H = parent
+	var/mob/living/carbon/humanoid/H = parent
 	if(H.used_intent.type == INTENT_DISARM && (target in H.buckled_mobs))
 		force_dismount(target)
 
@@ -47,7 +47,7 @@
 		AM.layer = MOB_LAYER
 
 /datum/component/riding/human/get_offsets(pass_index)
-	var/mob/living/carbon/human/H = parent
+	var/mob/living/carbon/humanoid/H = parent
 	if(H.buckle_lying)
 		return list(TEXT_NORTH = list(0, 6), TEXT_SOUTH = list(0, 6), TEXT_EAST = list(0, 6), TEXT_WEST = list(0, 6))
 	else

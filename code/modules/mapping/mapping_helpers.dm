@@ -108,7 +108,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_lava)
 		log_mapping("[src] at [x],[y] could not find any morgues.")
 		return
 	for (var/i = 1 to bodycount)
-		var/mob/living/carbon/human/h = new /mob/living/carbon/human(get_turf(src), 1)
+		var/mob/living/carbon/humanoid/h = new /mob/living/carbon/humanoid(get_turf(src), 1)
 		h.death()
 		for (var/part in h.internal_organs) //randomly remove organs from each body, set those we keep to be in stasis
 			if (prob(40))
@@ -140,7 +140,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_lava)
 	if(!outfit_to_equip)
 		qdel(src)
 		return
-	var/mob/living/carbon/human/located = locate(/mob/living/carbon/human) in get_turf(src)
+	var/mob/living/carbon/humanoid/located = locate(/mob/living/carbon/humanoid) in get_turf(src)
 	if(!located)
 		qdel(src)
 		return
@@ -156,7 +156,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_lava)
 
 
 /obj/effect/mapping_helpers/floor_clothing_equipper/LateInitialize()
-	var/mob/living/carbon/human/located = locate(/mob/living/carbon/human) in get_turf(src)
+	var/mob/living/carbon/humanoid/located = locate(/mob/living/carbon/humanoid) in get_turf(src)
 	if(!located)
 		qdel(src)
 		return

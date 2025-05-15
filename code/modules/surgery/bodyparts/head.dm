@@ -124,7 +124,7 @@
 		lip_style = null
 
 	else if(!animal_origin)
-		var/mob/living/carbon/human/H = C
+		var/mob/living/carbon/humanoid/H = C
 		if(!H.dna || !H.dna.species)
 			return ..()
 		var/datum/species/S = H.dna.species

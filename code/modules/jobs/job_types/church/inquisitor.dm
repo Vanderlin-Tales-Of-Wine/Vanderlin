@@ -36,7 +36,7 @@
 	allowed_patrons = list(/datum/patron/psydon)
 	job_bitflag = BITFLAG_CHURCH
 
-/datum/outfit/job/inquisitor/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/inquisitor/pre_equip(mob/living/carbon/humanoid/H)
 	..()
 	shirt = /obj/item/clothing/armor/gambeson/heavy/dark
 	belt = /obj/item/storage/belt/leather/black
@@ -93,8 +93,8 @@
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
-	H.verbs |= /mob/living/carbon/human/proc/torture_victim
-	H.verbs |= /mob/living/carbon/human/proc/faith_test
+	H.verbs |= /mob/living/carbon/humanoid/proc/torture_victim
+	H.verbs |= /mob/living/carbon/humanoid/proc/faith_test
 	to_chat(H,span_info("\
 		-I can speak Old Psydonic with ,m before my speech.\n\
 		-The Holy Bishop of the Inquisition has sent you here on a task to root out evil within this town. Make The Holy Bishop proud!\n\
@@ -102,12 +102,12 @@
 		)
 	H.mind?.teach_crafting_recipe(/datum/repeatable_crafting_recipe/reading/confessional)
 
-/mob/living/carbon/human/proc/torture_victim()
+/mob/living/carbon/humanoid/proc/torture_victim()
 	set name = "Extract Confession"
 	set category = "Inquisition"
 
 	var/obj/item/grabbing/I = get_active_held_item()
-	var/mob/living/carbon/human/H
+	var/mob/living/carbon/humanoid/H
 	if(!istype(I) || !ishuman(I.grabbed))
 		return
 	H = I.grabbed
@@ -147,12 +147,12 @@
 		H.emote("painscream")
 		H.confession_time("antag", src)
 
-/mob/living/carbon/human/proc/faith_test()
+/mob/living/carbon/humanoid/proc/faith_test()
 	set name = "Test Faith"
 	set category = "Inquisition"
 
 	var/obj/item/grabbing/I = get_active_held_item()
-	var/mob/living/carbon/human/H
+	var/mob/living/carbon/humanoid/H
 	if(!istype(I) || !ishuman(I.grabbed))
 		return
 	H = I.grabbed
@@ -190,7 +190,7 @@
 		H.emote("painscream")
 		H.confession_time("patron", src)
 
-/mob/living/carbon/human/proc/confession_time(confession_type = "antag", mob/living/carbon/human/user)
+/mob/living/carbon/humanoid/proc/confession_time(confession_type = "antag", mob/living/carbon/humanoid/user)
 	var/timerid = addtimer(CALLBACK(src, PROC_REF(confess_sins), confession_type, FALSE, user), 3 SECONDS, TIMER_STOPPABLE)
 	var/responsey = alert(src, "Resist torture?","TEST OF PAIN","Yes","No")
 	testing("Sent resist request to [src].")
@@ -208,7 +208,7 @@
 		testing("[src] gave into torture.")
 		confess_sins(confession_type, resist=FALSE, interrogator=user)
 
-/mob/living/carbon/human/proc/confess_sins(confession_type = "antag", resist, mob/living/carbon/human/interrogator, torture=TRUE, obj/item/paper/confession/confession_paper, false_result)
+/mob/living/carbon/humanoid/proc/confess_sins(confession_type = "antag", resist, mob/living/carbon/humanoid/interrogator, torture=TRUE, obj/item/paper/confession/confession_paper, false_result)
 	if(stat == DEAD)
 		return
 	var/static/list/innocent_lines = list(

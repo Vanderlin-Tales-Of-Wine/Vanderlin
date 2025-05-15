@@ -49,7 +49,7 @@
 	else
 		if(isitem(target))
 			var/obj/item/I = target
-			var/mob/living/carbon/human/carbon_firer
+			var/mob/living/carbon/humanoid/carbon_firer
 			if (ishuman(firer))
 				carbon_firer = firer
 				if (carbon_firer?.can_catch_item())

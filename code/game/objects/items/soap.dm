@@ -80,7 +80,7 @@
 	qdel(src)
 
 
-/obj/item/soap/attack(mob/living/carbon/human/target, mob/living/carbon/user)
+/obj/item/soap/attack(mob/living/carbon/humanoid/target, mob/living/carbon/user)
 	user.changeNext_move(CLICK_CD_MELEE)
 
 	if(ishuman(target) && user.zone_selected == BODY_ZONE_PRECISE_MOUTH)
@@ -165,7 +165,7 @@
 		reagents.trans_to(O, reagents.total_volume, transfered_by = user, method = TOUCH)
 		to_chat(user, span_info("I dissolve some of \the [name] in the water."))
 
-/obj/item/soap/proc/scrub_scrub(mob/living/carbon/human/target, mob/living/carbon/user)
+/obj/item/soap/proc/scrub_scrub(mob/living/carbon/humanoid/target, mob/living/carbon/user)
 	wash_atom(target, CLEAN_STRONG)
 	user.visible_message(span_info("[user] scrubs [target] with [src]."), span_info("I scrub [target] with [src]."))
 	decreaseUses(5)
@@ -177,7 +177,7 @@
 	uses = 40
 
 //Only get the buff if you use the good stuff
-/obj/item/soap/bath/scrub_scrub(mob/living/carbon/human/target, mob/living/carbon/user)
+/obj/item/soap/bath/scrub_scrub(mob/living/carbon/humanoid/target, mob/living/carbon/user)
 	. = ..()
 	to_chat(target, span_green("I feel so relaxed and clean!"))
 	if(user != target)

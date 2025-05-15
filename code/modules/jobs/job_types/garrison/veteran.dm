@@ -26,7 +26,7 @@
 
 /datum/job/veteran/after_spawn(mob/living/spawned, client/player_client)
 	. = ..()
-	var/mob/living/carbon/human/H = spawned
+	var/mob/living/carbon/humanoid/H = spawned
 	if(istype(H.cloak, /obj/item/clothing/cloak/half/vet))
 		var/obj/item/clothing/S = H.cloak
 		var/index = findtext(H.real_name, " ")
@@ -49,7 +49,7 @@
 /datum/outfit/job/vet
 	job_bitflag = BITFLAG_GARRISON
 
-/datum/outfit/job/vet/battlemaster/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/vet/battlemaster/pre_equip(mob/living/carbon/humanoid/H)
 	neck = /obj/item/clothing/neck/bevor
 	armor = /obj/item/clothing/armor/plate
 	shirt = /obj/item/clothing/armor/chainmail
@@ -104,7 +104,7 @@
 
 // No hero, just a normal guy who happened to survive war.
 
-/datum/outfit/job/vet/footman/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/vet/footman/pre_equip(mob/living/carbon/humanoid/H)
 	neck = /obj/item/clothing/neck/gorget
 	armor = /obj/item/clothing/armor/plate // Meant to be better than man-at-arms, but worse than knight. No heavy armor!! This is a cuirass, not half-plate.
 	shirt = /obj/item/clothing/armor/gambeson/heavy
@@ -162,7 +162,7 @@
 
 // You get a SAIGA. Saigas are pretty good, you lose out on your legendary weapon skills and you suck more on foot though.
 
-/datum/outfit/job/vet/calvaryman/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/vet/calvaryman/pre_equip(mob/living/carbon/humanoid/H)
 	neck = /obj/item/clothing/neck/chaincoif
 	armor = /obj/item/clothing/armor/plate/	////Former knights should have knightly armour.
 	shirt = /obj/item/clothing/armor/chainmail
@@ -242,7 +242,7 @@
 
 // Normal veteran start, from the olden days
 
-/datum/outfit/job/vet/merc/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/vet/merc/pre_equip(mob/living/carbon/humanoid/H)
 	neck = /obj/item/clothing/neck/gorget
 	wrists = /obj/item/clothing/wrists/bracers
 	shirt = /obj/item/clothing/shirt/grenzelhoft // You do NOT get the BLACKSTEEL CUIRASS because yours BROKE & I hate you. Go on a personal quest to replace it or something.

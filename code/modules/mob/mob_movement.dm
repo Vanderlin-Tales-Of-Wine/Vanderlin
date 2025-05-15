@@ -648,7 +648,7 @@
 				if(L.energy <= 0)
 					return
 				if(ishuman(L))
-					var/mob/living/carbon/human/H = L
+					var/mob/living/carbon/humanoid/H = L
 					if(H.get_encumbrance() >= 0.7)
 						to_chat(H, span_info("Your armor is too heavy to run in!"))
 						return

@@ -26,5 +26,5 @@
 	return
 
 // We fire this on activate
-/datum/triumph_buy/proc/on_activate(mob/living/carbon/human/H)
+/datum/triumph_buy/proc/on_activate(mob/living/carbon/humanoid/H)
 	return

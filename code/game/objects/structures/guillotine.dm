@@ -60,7 +60,7 @@
 		return
 
 	if (LAZYLEN(buckled_mobs))
-		var/mob/living/carbon/human/H = buckled_mobs[1]
+		var/mob/living/carbon/humanoid/H = buckled_mobs[1]
 
 		if(H == user)
 			return
@@ -114,7 +114,7 @@
 
 /obj/structure/guillotine/proc/drop_blade(mob/user)
 	if (buckled_mobs.len && blade_sharpness)
-		var/mob/living/carbon/human/H = buckled_mobs[1]
+		var/mob/living/carbon/humanoid/H = buckled_mobs[1]
 
 		if (!H)
 			return
@@ -207,7 +207,7 @@
 	if (!anchored)
 		return FALSE
 
-	if (!istype(M, /mob/living/carbon/human))
+	if (!istype(M, /mob/living/carbon/humanoid))
 		to_chat(usr, "<span class='warning'>It doesn't look like [M.p_they()] can fit into this properly!</span>")
 		return FALSE // Can't decapitate non-humans
 
@@ -228,10 +228,10 @@
 	return FALSE
 
 /obj/structure/guillotine/post_buckle_mob(mob/living/M)
-	if (!istype(M, /mob/living/carbon/human))
+	if (!istype(M, /mob/living/carbon/humanoid))
 		return
 
-	var/mob/living/carbon/human/H = M
+	var/mob/living/carbon/humanoid/H = M
 
 	if (H.dna)
 		if (H.dna.species)
