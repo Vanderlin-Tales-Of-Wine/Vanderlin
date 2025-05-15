@@ -227,7 +227,6 @@
 	return GLOB.blood_types[/datum/blood_type/animal]
 
 /mob/living/proc/get_lux_status()
-
 	. = LUX_NO_LUX
 
 	if(has_status_effect(/datum/status_effect/buff/lux_drained))
