@@ -64,3 +64,4 @@
 	item_weight = 9 * BLACKSTEEL_MULTIPLIER
 	max_integrity = INTEGRITY_STRONGEST
 	prevent_crits = ALL
+	smeltresult = /obj/item/ingot/blacksteel
