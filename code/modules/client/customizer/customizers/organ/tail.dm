@@ -90,9 +90,10 @@
 	allows_disabling = TRUE
 
 /datum/customizer_choice/organ/tail/harpy
-	name = "Harpy Plummage"
+	name = "Harpy Plumage"
 	organ_type = /obj/item/organ/tail
 	generic_random_pick = TRUE
+	allows_accessory_color_customization = FALSE
 	sprite_accessories = list(
 		/datum/sprite_accessory/tail/hawk,
 		)
