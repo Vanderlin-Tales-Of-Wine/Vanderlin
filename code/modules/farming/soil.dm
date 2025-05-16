@@ -82,6 +82,7 @@
 		modifier += 3
 
 	record_featured_stat(FEATURED_STATS_FARMERS, user)
+	record_featured_object_stat(FEATURED_STATS_CROPS, plant.name)
 	GLOB.vanderlin_round_stats[STATS_PLANTS_HARVESTED]++
 	to_chat(user, span_notice(feedback))
 	yield_produce(modifier)

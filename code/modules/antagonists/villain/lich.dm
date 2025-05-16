@@ -77,6 +77,8 @@
 	L.mana_pool.ethereal_recharge_rate += 0.2
 
 	L.cmode_music = 'sound/music/cmode/antag/CombatLich.ogg'
+	if(prob(10))
+		L.cmode_music = 'sound/music/cmode/antag/combat_evilwizard.ogg'
 	L.faction = list(FACTION_UNDEAD)
 	if(L.charflaw)
 		QDEL_NULL(L.charflaw)

@@ -29,6 +29,10 @@
 	if(target.stat == DEAD)
 		to_chat(user, "They're dead!")
 		return FALSE
+	var/lux_state = target.get_lux_status()
+	if(lux_state != LUX_HAS_LUX)
+		to_chat(user, "They do not have any lux to extract!")
+		return FALSE
 
 /datum/surgery_step/extract_lux/preop(mob/user, mob/living/target, target_zone, obj/item/tool, datum/intent/intent)
 	display_results(user, target, span_notice("I begin to scrape lux from [target]'s heart..."),

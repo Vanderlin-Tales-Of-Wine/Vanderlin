@@ -314,8 +314,9 @@ All foods are distributed among various categories. Use common sense.
 	eater.taste(reagents)
 
 	if(!reagents.total_volume)
+		record_featured_stat(FEATURED_STATS_EATERS, eater)
+		record_featured_object_stat(FEATURED_STATS_FOOD, name)
 		if(faretype == FARE_LAVISH || faretype == FARE_FINE)
-			record_featured_stat(FEATURED_STATS_GOURMETS, eater)
 			GLOB.vanderlin_round_stats[STATS_LUXURIOUS_FOOD_EATEN]++
 		var/atom/current_loc = loc
 		qdel(src)

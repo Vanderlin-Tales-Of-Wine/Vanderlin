@@ -206,7 +206,6 @@
 					else if(blacksteelalloy == 7)
 						testing("BLACKSTEEL ALLOYED")
 						alloy = /obj/item/ingot/blacksteel
-						GLOB.vanderlin_round_stats[STATS_BLACKSTEEL_SMELTED]++
 					else
 						alloy = null
 					if(alloy)
@@ -221,6 +220,8 @@
 						floor_mean_quality = floor(floor_mean_quality/ore_deleted)
 						for(var/i in 1 to maxore)
 							var/obj/item/R = new alloy(src, floor_mean_quality)
+							if(alloy == /obj/item/ingot/blacksteel)
+								GLOB.vanderlin_round_stats[STATS_BLACKSTEEL_SMELTED]++
 							ore += R
 					else
 						for(var/obj/item/I in ore)

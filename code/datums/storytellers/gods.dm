@@ -33,7 +33,7 @@
 
 	influence_factors = list(
 		STATS_LAWS_AND_DECREES_MADE = list("points" = 2.75,"capacity" = 45),
-		STATS_ALIVE_NOBLES = list("points" = 4,"capacity" = 75),
+		STATS_ALIVE_NOBLES = list("points" = 3.5,"capacity" = 75),
 		STATS_NOBLE_DEATHS = list("points" = -5,"capacity" = -75),
 		STATS_ASTRATA_REVIVALS = list("points" = 6, "capacity" = 75),
 		STATS_TAXES_COLLECTED = list("points" = 0.175,"capacity" = 90),
@@ -163,8 +163,8 @@
 	)
 
 	influence_factors = list(
-		STATS_DEATHS = list("points" = 1.4, "capacity" = 110),
-		STATS_GRAVES_CONSECRATED = list("points" = 7, "capacity" = 100),
+		STATS_DEATHS = list("points" = 1.35, "capacity" = 110),
+		STATS_GRAVES_CONSECRATED = list("points" = 6.5, "capacity" = 100),
 		STATS_GRAVES_ROBBED = list("points" = -4, "capacity" = -40),
 		STATS_DEADITES_KILLED = list("points" = 6, "capacity" = 90),
 		STATS_VAMPIRES_KILLED = list("points" = 12, "capacity" = 70),
@@ -211,11 +211,11 @@
 	)
 
 	influence_factors = list(
-		STATS_MASTERWORKS_FORGED = list("points" = 3.5, "capacity" = 85),
+		STATS_MASTERWORKS_FORGED = list("points" = 2.25, "capacity" = 85),
 		STATS_ROCKS_MINED = list("points" = 0.25, "capacity" = 100),
 		STATS_CRAFT_SKILLS = list("points" = 0.6, "capacity" = 90),
 		STATS_BEARDS_SHAVED = list("points" = -4, "capacity" = -40),
-		STATS_BLACKSTEEL_SMELTED = list("points" = 9, "capacity" = 65),
+		STATS_BLACKSTEEL_SMELTED = list("points" = 5, "capacity" = 65),
 	)
 
 /datum/storyteller/eora
@@ -274,7 +274,7 @@
 		STATS_PLANTS_HARVESTED = list("points" = 0.75, "capacity" = 130),
 		STATS_WEREVOLVES = list("points" = 15, "capacity" = 80),
 		STATS_DENDOR_SACRIFICES = list("points" = 15, "capacity" = 80),
-		STATS_FOREST_DEATHS = list("points" = 6, "capacity" = 90),
+		STATS_FOREST_DEATHS = list("points" = 6.5, "capacity" = 90),
 	)
 
 // INHUMEN
@@ -305,7 +305,7 @@
 	)
 
 	influence_factors = list(
-		STATS_ZIZO_PRAISED = list("points" = 0.2, "capacity" = 40),
+		STATS_ZIZO_PRAISED = list("points" = 0.25, "capacity" = 40),
 		STATS_NOBLE_DEATHS = list("points" = 5, "capacity" = 80),
 		STATS_DEADITES_WOKEN_UP = list("points" = 3, "capacity" = 90),
 		STATS_CLERGY_DEATHS = list("points" = 9, "capacity" = 80),
@@ -410,7 +410,7 @@
 		STATS_ITEMS_PICKPOCKETED = list("points" = 5, "capacity" = 85),
 		STATS_SHRINE_VALUE = list("points" = 0.1, "capacity" = 70),
 		STATS_GREEDY_PEOPLE = list("points" = 8, "capacity" = 70),
-		STATS_DODGES = list("points" = 0.0875, "capacity" = 100),
+		STATS_DODGES = list("points" = 0.0865, "capacity" = 100),
 		STATS_LOCKS_PICKED = list("points" = 4, "capacity" = 85),
 	)
 

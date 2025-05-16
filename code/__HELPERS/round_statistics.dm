@@ -4,6 +4,7 @@
 #define STATS_ALIVE_DARK_ELVES "alive_dark_elves"
 #define STATS_ALIVE_SNOW_ELVES "alive_snow_elves"
 #define STATS_ALIVE_HALF_ELVES "alive_half_elves"
+#define STATS_ALIVE_HALF_DROWS "alive_half_drows"
 #define STATS_ALIVE_HALF_ORCS "alive_half_orcs"
 #define STATS_ALIVE_KOBOLDS "alive_kobolds"
 #define STATS_ALIVE_RAKSHARI "alive_rakshari"
@@ -219,6 +220,7 @@ GLOBAL_LIST_INIT(vanderlin_round_stats, list(
 	STATS_ALIVE_DARK_ELVES = 0,
 	STATS_ALIVE_SNOW_ELVES = 0,
 	STATS_ALIVE_HALF_ELVES = 0,
+	STATS_ALIVE_HALF_DROWS = 0,
 	STATS_ALIVE_HALF_ORCS = 0,
 	STATS_ALIVE_KOBOLDS = 0,
 	STATS_ALIVE_RAKSHARI = 0,
@@ -271,7 +273,7 @@ GLOBAL_LIST_EMPTY(patron_follower_counts)
 #define FEATURED_STATS_ALCOHOLICS "alcohol_drinkers"
 #define FEATURED_STATS_SPEAKERS "speakers"
 #define FEATURED_STATS_FISHERS "fishers"
-#define FEATURED_STATS_GOURMETS "gourmets"
+#define FEATURED_STATS_EATERS "eaters"
 #define FEATURED_STATS_SCREAMERS "screamers"
 #define FEATURED_STATS_MINERS "miners"
 #define FEATURED_STATS_CRIMINALS "criminals"
@@ -279,102 +281,148 @@ GLOBAL_LIST_EMPTY(patron_follower_counts)
 #define FEATURED_STATS_CRAFTERS "crafters"
 #define FEATURED_STATS_FARMERS "farmers"
 #define FEATURED_STATS_STORYTELLERS "storytellers"
+#define FEATURED_STATS_SMITHS "smiths"
+#define FEATURED_STATS_BLEEDERS "bleeders"
 
 // Featured objects stats
 #define FEATURED_STATS_CRAFTED_ITEMS "crafted_items"
+#define FEATURED_STATS_FORGED_ITEMS "forged_items"
 #define FEATURED_STATS_DRINKS "drinks"
+#define FEATURED_STATS_FOOD "food"
+#define FEATURED_STATS_SPELLS "spells"
+#define FEATURED_STATS_CROPS "crops"
+#define FEATURED_STATS_FLAWS "flaws"
 
 GLOBAL_LIST_INIT(featured_stats, list(
 	FEATURED_STATS_TREE_FELLERS = list(
-		"name" = "TOP 10 Lumberjacks",
+		"name" = "TOP Lumberjacks",
 		"color" = "#9b6937",
 		"entries" = list()
 	),
 	FEATURED_STATS_TAX_PAYERS = list(
-		"name" = "TOP 10 Tax Payers",
+		"name" = "TOP Tax Payers",
 		"color" = "#f1e35d",
 		"entries" = list()
 	),
 	FEATURED_STATS_CRIMINALS = list(
-		"name" = "TOP 10 Criminals",
+		"name" = "TOP Criminals",
 		"color" = "#bb6976",
 		"entries" = list()
 	),
 	FEATURED_STATS_SPEAKERS = list(
-		"name" = "TOP 10 Speakers",
+		"name" = "TOP Speakers",
 		"color" = "#93cabe",
 		"entries" = list()
 	),
 	FEATURED_STATS_MINERS = list(
-		"name" = "TOP 10 Miners",
+		"name" = "TOP Miners",
 		"color" = "#bd8e60",
 		"entries" = list()
 	),
 	FEATURED_STATS_ALCHEMISTS = list(
-		"name" = "TOP 10 Alchemists",
+		"name" = "TOP Alchemists",
 		"color" = "#3bac5d",
 		"entries" = list()
 	),
+	FEATURED_STATS_BLEEDERS = list(
+		"name" = "TOP Bleeders",
+		"color" = "#d34747",
+		"entries" = list()
+	),
 	FEATURED_STATS_STORYTELLERS = list(
-		"name" = "TOP 10 Reigning Gods",
+		"name" = "TOP Reigning Gods",
 		"color" = "#eeca2c",
 		"entries" = list()
 	),
-	FEATURED_STATS_GOURMETS = list(
-		"name" = "TOP 10 Gourmets",
-		"color" = "#6765cf",
+	FEATURED_STATS_EATERS = list(
+		"name" = "TOP Eaters",
+		"color" = "#654dbe",
 		"entries" = list()
 	),
-	FEATURED_STATS_CRAFTED_ITEMS = list(
-		"name" = "TOP 10 Crafted Items",
-		"color" = "#a5953a",
-		"entries" = list(),
-		"object_stat" = TRUE
+	FEATURED_STATS_FOOD = list(
+		"name" = "TOP Food",
+		"color" = "#73b647",
+		"entries" = list()
 	),
 	FEATURED_STATS_FISHERS = list(
-		"name" = "TOP 10 Fishers",
+		"name" = "TOP Fishers",
 		"color" = "#559bbb",
 		"entries" = list()
 	),
 	FEATURED_STATS_CRAFTERS = list(
-		"name" = "TOP 10 Crafters",
-		"color" = "#a8a24e",
+		"name" = "TOP Crafters",
+		"color" = "#a59f4e",
 		"entries" = list()
 	),
+	FEATURED_STATS_CRAFTED_ITEMS = list(
+		"name" = "TOP Crafted Items",
+		"color" = "#cfb834",
+		"entries" = list(),
+		"object_stat" = TRUE
+	),
+	FEATURED_STATS_SMITHS = list(
+		"name" = "TOP Smiths",
+		"color" = "#cc945c",
+		"entries" = list()
+	),
+	FEATURED_STATS_FORGED_ITEMS = list(
+		"name" = "TOP Forged Items",
+		"color" = "#c08924",
+		"entries" = list(),
+		"object_stat" = TRUE
+	),
 	FEATURED_STATS_FARMERS = list(
-		"name" = "TOP 10 Farmers",
+		"name" = "TOP Farmers",
 		"color" = "#50eb77",
 		"entries" = list()
 	),
+	FEATURED_STATS_CROPS = list(
+		"name" = "TOP Crops",
+		"color" = "#a3db59",
+		"entries" = list(),
+		"object_stat" = TRUE
+	),
+	FEATURED_STATS_ALCOHOLICS = list(
+		"name" = "TOP Alcoholics",
+		"color" = "#945d96",
+		"entries" = list()
+	),
 	FEATURED_STATS_DRINKS = list(
-		"name" = "TOP 10 Beverages",
-		"color" = "#5487c0",
+		"name" = "TOP Beverages",
+		"color" = "#6a8dc2",
 		"entries" = list(),
 		"object_stat" = TRUE
 	),
 	FEATURED_STATS_SCREAMERS = list(
-		"name" = "TOP 10 Screamers",
+		"name" = "TOP Screamers",
 		"color" = "#d34747",
 		"entries" = list()
 	),
 	FEATURED_STATS_THIEVES = list(
-		"name" = "TOP 10 Thieves",
+		"name" = "TOP Thieves",
 		"color" = "#6e4a25",
 		"entries" = list()
 	),
-	FEATURED_STATS_ALCOHOLICS = list(
-		"name" = "TOP 10 Alcoholics",
-		"color" = "#945d96",
-		"entries" = list()
-	),
 	FEATURED_STATS_MAGES = list(
-		"name" = "TOP 10 Mages",
+		"name" = "TOP Mages",
 		"color" = "#9eaceb",
 		"entries" = list()
 	),
+	FEATURED_STATS_SPELLS = list(
+		"name" = "TOP Spells",
+		"color" = "#6375c5",
+		"entries" = list(),
+		"object_stat" = TRUE
+	),
+	FEATURED_STATS_FLAWS = list(
+		"name" = "TOP Flaws",
+		"color" = "#c7c569",
+		"entries" = list(),
+		"object_stat" = TRUE
+	),
 ))
 
-/proc/format_top_ten(stat_category)
+/proc/format_top_stats(stat_category)
 	var/list/stat_data = GLOB.featured_stats[stat_category]
 	if(!stat_data || !stat_data["entries"])
 		return "Nobody"
@@ -386,14 +434,14 @@ GLOBAL_LIST_INIT(featured_stats, list(
 	entries = sortList(entries, /proc/cmp_stat_count_desc)
 
 	var/list/result = list()
-	for(var/i in 1 to min(10, entries.len))
+	for(var/i in 1 to min(11, entries.len))
 		var/list/entry = entries[i]
 		var/rounded_count = round(entry["count"])
 		result += "[i]. [entry["name"]] - [rounded_count]"
 
 	return result.Join("<br>")
 
-/proc/format_top_ten_objects(stat_category)
+/proc/format_top_stats_objects(stat_category)
 	var/list/stat_data = GLOB.featured_stats[stat_category]
 	if(!stat_data || !stat_data["entries"])
 		return "None"
@@ -405,7 +453,7 @@ GLOBAL_LIST_INIT(featured_stats, list(
 	entries = sortList(entries, /proc/cmp_stat_count_desc)
 
 	var/list/result = list()
-	for(var/i in 1 to min(10, entries.len))
+	for(var/i in 1 to min(11, entries.len))
 		var/list/entry = entries[i]
 		var/rounded_count = round(entry["count"])
 		result += "[i]. [entry["name"]] - [rounded_count]"
@@ -416,21 +464,25 @@ GLOBAL_LIST_INIT(featured_stats, list(
 	return b["count"] - a["count"]
 
 /proc/record_featured_stat(stat_category, mob/living/user, increment = 1)
+	if(SSticker.current_state == GAME_STATE_FINISHED)
+		return
 	if(!stat_category || !user?.real_name || !GLOB.featured_stats[stat_category])
 		return
 
 	var/list/stat_data = GLOB.featured_stats[stat_category]
 	var/job_title = ""
 
-	if(user.mind?.assigned_role && !is_unassigned_job(user.mind.assigned_role))
+	if(user.mind?.assigned_role.title != "Unassigned" && !is_unassigned_job(user.mind?.assigned_role))
 		if(user.gender == FEMALE && user.mind.assigned_role.f_title)
 			job_title = " ([user.mind.assigned_role.f_title])"
 		else
 			job_title = " ([user.mind.assigned_role.title])"
-	else if(user.mind?.special_role)
-		job_title = " ([user.mind.special_role])"
 	else if(user.job && user.job != "Unassigned")
 		job_title = " ([user.job])"
+	else if(user.mind?.special_role)
+		job_title = " ([user.mind.special_role])"
+	else
+		job_title = " (Jobless)"
 
 	var/key = "[user.real_name][job_title]"
 
@@ -440,6 +492,8 @@ GLOBAL_LIST_INIT(featured_stats, list(
 	stat_data["entries"][key] = (stat_data["entries"][key] || 0) + increment
 
 /proc/record_featured_object_stat(stat_category, object_name, increment = 1)
+	if(SSticker.current_state == GAME_STATE_FINISHED)
+		return
 	if(!stat_category || !object_name || !GLOB.featured_stats[stat_category])
 		return
 
