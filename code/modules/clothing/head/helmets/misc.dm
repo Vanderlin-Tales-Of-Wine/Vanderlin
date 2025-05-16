@@ -341,7 +341,7 @@
 	armor = ARMOR_PLATE_BLACKSTEEL
 	prevent_crits = ALL
 	block2add = FOV_RIGHT|FOV_LEFT
-	max_integrity = 425
+	integrity = INTEGRITY_STRONGEST
 	anvilrepair = /datum/skill/craft/blacksmithing
 	smeltresult = /obj/item/ingot/blacksteel
 	item_weight = 6 * BLACKSTEEL_MULTIPLIER
