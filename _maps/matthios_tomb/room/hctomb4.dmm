@@ -1256,8 +1256,8 @@
 /area/rogue/under/tomb/indoors)
 "WU" = (
 /obj/structure/closet/crate/chest/neu,
-/obj/item/reagent_containers/food/snacks/produce/wheat,
-/obj/item/reagent_containers/food/snacks/produce/wheat,
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
 /obj/item/alch/bone,
 /turf/open/floor/blocks/newstone/alt,
 /area/rogue/under/tomb/indoors)

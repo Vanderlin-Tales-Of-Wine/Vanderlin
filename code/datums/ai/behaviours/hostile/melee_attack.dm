@@ -55,6 +55,8 @@
 		controller.ai_interact(hiding_target, TRUE, TRUE)
 	else
 		controller.ai_interact(target, TRUE, TRUE)
+	if(basic_mob.next_click < world.time) //oopsie I hate that roguecode fucks change_nextMove
+		basic_mob.next_click = world.time + basic_mob.melee_attack_cooldown
 
 	if(sidesteps_after && prob(33)) //this is so fucking hacky, but going off og code this is exactly how it goes ignoring movetimers
 		if(!target || !isturf(target.loc) || !isturf(basic_mob.loc) || basic_mob.stat == DEAD)

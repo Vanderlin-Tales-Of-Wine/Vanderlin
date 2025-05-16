@@ -109,7 +109,7 @@
 			lord.current.verbs |= /mob/living/carbon/human/proc/vamp_regenerate
 			lord.current.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/bloodsteal)
 			lord.current.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/bloodlightning)
-			lord.adjust_skillrank(/datum/skill/magic/blood, 2, TRUE)
+			lord.current.adjust_skillrank(/datum/skill/magic/blood, 2, TRUE)
 			lord_datum.gas = new
 			lord.current.AddSpell(lord_datum.gas)
 			for(var/S in MOBSTATS)

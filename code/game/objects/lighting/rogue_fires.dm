@@ -417,7 +417,7 @@
 
 /obj/machinery/light/fueled/hearth/attackby(obj/item/W, mob/living/user, params)
 	if(!attachment)
-		if(istype(W, /obj/item/cooking/pan) || istype(W, /obj/item/reagent_containers/glass/bucket/pot))
+		if(istype(W, /obj/item/cooking/pan) || istype(W, /obj/item/reagent_containers/glass/bucket/pot) || istype(W, /obj/item/reagent_containers/glass/bottle/teapot))
 			playsound(get_turf(user), 'sound/foley/dropsound/shovel_drop.ogg', 40, TRUE, -1)
 
 			if(user.transferItemToLoc(W, src, silent = TRUE))
@@ -429,41 +429,17 @@
 		if(istype(W, /obj/item/reagent_containers/glass/bowl))
 			to_chat(user, "<span class='notice'>Remove the pot from the hearth first.</span>")
 			return
-
-		if(istype(attachment, /obj/item/cooking/pan))
-			if(W.type in subtypesof(/obj/item/reagent_containers/food/snacks))
-				var/obj/item/reagent_containers/food/snacks/S = W
-
-				if(istype(W, /obj/item/reagent_containers/food/snacks/egg))
-					if(W.icon_state != "rawegg")
-						playsound(get_turf(user), 'sound/foley/eggbreak.ogg', 100, TRUE, -1)
-						if(!do_after(user, 25))
-							return
-						W.icon_state = "rawegg"
-					rawegg = TRUE
-
-				if(!food)
-					if(user.transferItemToLoc(S, src, silent = TRUE))
-						food = S
-						update_icon()
-						if(on)
-							playsound(src.loc, 'sound/misc/frying.ogg', 80, FALSE, extrarange = 5)
-					return
-
-		else if(istype(attachment, /obj/item/reagent_containers/glass/bucket/pot))
-			var/obj/item/reagent_containers/glass/bucket/pot/pot = attachment
-
-			if(!pot.reagents.has_reagent(/datum/reagent/water, 33))
-				to_chat(user, "<span class='notice'>Not enough water.</span>")
-				return TRUE
-
-			if(pot.reagents.chem_temp < 374)
-				to_chat(user, "<span class='warning'>[pot] isn't boiling!</span>")
-				return
-
-			pot.attempt_pot_recipes(W, user)
-
+		else
+			SEND_SIGNAL(attachment, COMSIG_TRY_STORAGE_INSERT, W, user, null, TRUE, TRUE)
 	. = ..()
+
+/obj/machinery/light/fueled/hearth/MouseDrop(mob/over, src_location, over_location, src_control, over_control, params)
+	. = ..()
+	if(!istype(over))
+		return
+
+	if(attachment && over == usr && over.CanReach(src))
+		SEND_SIGNAL(attachment, COMSIG_TRY_STORAGE_SHOW, over, TRUE)
 
 //////////////////////////////////
 
@@ -476,7 +452,7 @@
 	cut_overlays()
 	icon_state = "[base_state][on]"
 	if(attachment)
-		if(istype(attachment, /obj/item/cooking/pan) || istype(attachment, /obj/item/reagent_containers/glass/bucket/pot))
+		if(istype(attachment, /obj/item/cooking/pan) || istype(attachment, /obj/item/reagent_containers/glass/bucket/pot) || istype(attachment, /obj/item/reagent_containers/glass/bottle/teapot))
 			var/obj/item/I = attachment
 			I.pixel_x = 0
 			I.pixel_y = 0
@@ -493,38 +469,16 @@
 		return
 
 	if(attachment)
-		if(istype(attachment, /obj/item/cooking/pan))
-			if(food)
-				if(rawegg)
-					to_chat(user, "<span class='notice'>You throw away the raw egg.</span>")
-					rawegg = FALSE
-					qdel(food)
-					update_icon()
-				if(!user.put_in_active_hand(food))
-					food.forceMove(user.loc)
-				food = null
-				update_icon()
-			else
-				if(!user.put_in_active_hand(attachment))
-					attachment.forceMove(user.loc)
-				attachment = null
-				update_icon()
-		if(istype(attachment, /obj/item/reagent_containers/glass/bucket/pot))
-			if(!user.put_in_active_hand(attachment))
-				attachment.forceMove(user.loc)
-			attachment = null
-			update_icon()
-			boilloop.stop()
+		if(!user.put_in_active_hand(attachment))
+			attachment.forceMove(user.loc)
+		attachment = null
+		update_icon()
 	else
 		if(on)
 			var/mob/living/carbon/human/H = user
 			if(istype(H))
 				H.visible_message("<span class='info'>[H] warms \his hand over the embers.</span>")
 				if(do_after(H, 5 SECONDS, src))
-					// var/obj/item/bodypart/affecting = H.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
-					// to_chat(H, "<span class='warning'>HOT!</span>")
-					// if(affecting && affecting.receive_damage( 0, 5 ))		// 5 burn damage
-					// 	H.update_damage_overlays()
 					H.adjust_bodytemperature(40)
 			return TRUE
 

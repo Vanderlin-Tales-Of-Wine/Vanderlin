@@ -184,9 +184,9 @@
 	var/skill_diff = 0
 	var/combat_modifier = 1
 	if(user.mind)
-		skill_diff += (user.mind.get_skill_level(/datum/skill/combat/wrestling))
+		skill_diff += (user.get_skill_level(/datum/skill/combat/wrestling))
 	if(M.mind)
-		skill_diff -= (M.mind.get_skill_level(/datum/skill/combat/wrestling))
+		skill_diff -= (M.get_skill_level(/datum/skill/combat/wrestling))
 
 	if(M.surrendering)																//If the target has surrendered
 		combat_modifier = 2
@@ -347,7 +347,7 @@
 			if(I)
 				if(M.mind)
 					if(I.associated_skill)
-						probby -= M.mind.get_skill_level(I.associated_skill) * 5
+						probby -= M.get_skill_level(I.associated_skill) * 5
 				if(I.wielded)
 					probby -= 20
 				if(prob(probby))

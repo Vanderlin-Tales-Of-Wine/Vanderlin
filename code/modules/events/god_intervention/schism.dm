@@ -88,6 +88,8 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 				to_chat(supporter, span_userdanger("NEVER DEFY ME AGAIN!"))
 				supporter.electrocute_act(5, astrata)
 
+		cleanup_schism()
+
 	else if(challenger_count > astrata_count)
 		priority_announce("[challenger.name]'s challenge succeeds against Astrata's tyranny! The Sun Queen is grudgingly forced to share power with [challenger.name]...", "[challenger.name] RULES!", 'sound/magic/inspire_02.ogg')
 		adjust_storyteller_influence(challenger.name, 300)
@@ -101,70 +103,76 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 				to_chat(supporter, span_notice("[challenger.name]'s challenge succeeds against Astrata's tyranny! Your support is rewarded with a triumph."))
 				supporter.adjust_triumphs(1)
 
-		var/mob/living/carbon/human/selected_priest = null
-		var/was_supporter = FALSE
-		var/was_clergy = FALSE
-
-		// First try to find a challenger supporter who is also clergy
-		for(var/datum/weakref/supporter_ref in supporters_challenger)
-			var/mob/living/carbon/human/human_mob = supporter_ref.resolve()
-			if(human_mob && human_mob.stat != DEAD && human_mob.client && (human_mob.mind?.assigned_role.title in GLOB.church_positions) && human_mob.patron == challenger)
-				selected_priest = human_mob
-				was_supporter = TRUE
-				was_clergy = TRUE
-				break
-
-		// If no supporter found, fall back to any clergy member who has the challenger as his patron
-		if(!selected_priest)
-			for(var/mob/living/carbon/human/human_mob in GLOB.player_list)
-				if(human_mob.stat != DEAD && human_mob.client && (human_mob.mind?.assigned_role.title in GLOB.church_positions) && human_mob.patron == challenger)
-					selected_priest = human_mob
-					was_clergy = TRUE
-					break
-
-		// As a last resort, pick someone who has the challenger as his patron, is nonheretical species, is adult and is not a noble, garrison or a migrant
-		if(!selected_priest)
-			for(var/datum/weakref/supporter_ref in supporters_challenger)
-				var/mob/living/carbon/human/human_mob = supporter_ref.resolve()
-				if(human_mob && human_mob.stat != DEAD && human_mob.client && human_mob.patron == challenger && (human_mob.dna?.species in RACES_PLAYER_NONHERETICAL) && !human_mob.is_noble() && human_mob.age != AGE_CHILD && !(human_mob.mind?.assigned_role.title in GLOB.garrison_positions) && !(human_mob.mind?.assigned_role.title in GLOB.allmig_positions))
-					selected_priest = human_mob
-					was_supporter = TRUE
-					break
-
-		// Promote the selected priest if we found one
-		if(selected_priest)
-			var/male
-			if(selected_priest.gender == FEMALE)
-				selected_priest.job = "Vice Priestess"
-				selected_priest.advjob = "Vice Priestess"
-				male = FALSE
-			else
-				selected_priest.job = "Vice Priest"
-				selected_priest.advjob = "Vice Priest"
-				male = TRUE
-			selected_priest.migrant_type = null
-			if(!was_clergy)
-				var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(selected_priest, selected_priest.patron)
-				C.grant_spells(selected_priest)
-				selected_priest.verbs |= /mob/living/carbon/human/proc/devotionreport
-				selected_priest.verbs |= /mob/living/carbon/human/proc/clericpray
-			selected_priest.verbs |= /mob/living/carbon/human/proc/churchexcommunicate
-			selected_priest.verbs |= /mob/living/carbon/human/proc/churchcurse
-			selected_priest.verbs |= /mob/living/carbon/human/proc/churchannouncement
-
-			if(was_supporter)
-				to_chat(selected_priest, span_green("[challenger.name] smiles upon you! Your faithful support during the schism has been rewarded with the position of a [male ? "Vice Priest" : "Vice Priestess"]!"))
-			else
-				to_chat(selected_priest, span_green("Though you did not openly support [challenger.name] during the schism, you have been chosen to serve as a [male ? "Vice Priest" : "Vice Priestess"]!"))
-
-			priority_announce("[challenger.name] has selected [selected_priest.real_name] as a [male ? "Vice Priest" : "Vice Priestess"]! Power sharing begins!", "[male ? "Vice Priest" : "Vice Priestess"] rises")
-
 		for(var/datum/weakref/supporter_ref in supporters_astrata)
 			var/mob/living/carbon/human/supporter = supporter_ref.resolve()
 			if(supporter)
 				to_chat(supporter, span_userdanger("INCOMPETENT IMBECILES!"))
 				supporter.electrocute_act(5, astrata)
 
+		addtimer(CALLBACK(src, PROC_REF(select_and_announce_vice_priest), challenger), 20 SECONDS)
+
+/datum/tennite_schism/proc/select_and_announce_vice_priest(datum/patron/challenger)
+	var/mob/living/carbon/human/selected_priest = null
+	var/was_supporter = FALSE
+	var/was_clergy = FALSE
+
+	// First try to find a challenger supporter who is also clergy
+	for(var/datum/weakref/supporter_ref in supporters_challenger)
+		var/mob/living/carbon/human/human_mob = supporter_ref.resolve()
+		if(human_mob && human_mob.stat != DEAD && human_mob.client && (human_mob.mind?.assigned_role.title in GLOB.church_positions) && human_mob.patron == challenger)
+			selected_priest = human_mob
+			was_supporter = TRUE
+			was_clergy = TRUE
+			break
+
+	// If no supporter found, fall back to any clergy member who has the challenger as his patron
+	if(!selected_priest)
+		for(var/mob/living/carbon/human/human_mob in GLOB.player_list)
+			if(human_mob.stat != DEAD && human_mob.client && (human_mob.mind?.assigned_role.title in GLOB.church_positions) && human_mob.patron == challenger)
+				selected_priest = human_mob
+				was_clergy = TRUE
+				break
+
+	// As a last resort, pick someone who has the challenger as his patron, is nonheretical species, is adult and is not a noble, garrison or a migrant
+	if(!selected_priest)
+		for(var/datum/weakref/supporter_ref in supporters_challenger)
+			var/mob/living/carbon/human/human_mob = supporter_ref.resolve()
+			if(human_mob && human_mob.stat != DEAD && human_mob.client && human_mob.patron == challenger && (human_mob.dna?.species.name in RACES_PLAYER_NONHERETICAL) && !human_mob.is_noble() && human_mob.age != AGE_CHILD && !(human_mob.mind?.assigned_role.title in GLOB.garrison_positions) && !(human_mob.mind?.assigned_role.title in GLOB.allmig_positions))
+				selected_priest = human_mob
+				was_supporter = TRUE
+				break
+
+	// Promote the selected priest if we found one
+	if(selected_priest)
+		var/male
+		if(selected_priest.gender == FEMALE)
+			selected_priest.job = "Vice Priestess"
+			selected_priest.advjob = "Vice Priestess"
+			male = FALSE
+		else
+			selected_priest.job = "Vice Priest"
+			selected_priest.advjob = "Vice Priest"
+			male = TRUE
+		selected_priest.migrant_type = null
+		if(!was_clergy)
+			var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(selected_priest, selected_priest.patron)
+			C.grant_spells(selected_priest)
+			selected_priest.verbs |= /mob/living/carbon/human/proc/devotionreport
+			selected_priest.verbs |= /mob/living/carbon/human/proc/clericpray
+		selected_priest.verbs |= /mob/living/carbon/human/proc/churchexcommunicate
+		selected_priest.verbs |= /mob/living/carbon/human/proc/churchcurse
+		selected_priest.verbs |= /mob/living/carbon/human/proc/churchannouncement
+
+		priority_announce("[challenger.name] has selected [selected_priest.real_name] as a new [male ? "Vice Priest" : "Vice Priestess"]! Power sharing begins!", "[male ? "Vice Priest" : "Vice Priestess"] rises", 'sound/magic/inspire_02.ogg')
+
+		if(was_supporter)
+			to_chat(selected_priest, span_green("[challenger.name] smiles upon you! Your faithful support during the schism has been rewarded with the position of a [male ? "Vice Priest" : "Vice Priestess"]!"))
+		else
+			to_chat(selected_priest, span_green("Though you did not openly support [challenger.name] during the schism, you have been chosen to serve as a [male ? "Vice Priest" : "Vice Priestess"]!"))
+
+	cleanup_schism()
+
+/datum/tennite_schism/proc/cleanup_schism()
 	for(var/mob/living/carbon/human/H in GLOB.human_list)
 		if(!H.mind)
 			continue

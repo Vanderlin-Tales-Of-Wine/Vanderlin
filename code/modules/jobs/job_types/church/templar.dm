@@ -30,6 +30,55 @@
 	..()
 	head = /obj/item/clothing/head/helmet/heavy/necked
 	cloak = /obj/item/clothing/cloak/tabard/crusader/tief
+	switch(H.patron?.type)
+		if(/datum/patron/divine/astrata)
+			neck = /obj/item/clothing/neck/psycross/silver/astrata
+			head = /obj/item/clothing/head/helmet/heavy/necked/astrata
+			cloak = /obj/item/clothing/cloak/stabard/templar/astrata
+			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
+		if(/datum/patron/divine/noc)
+			neck = /obj/item/clothing/neck/psycross/noc
+			head = /obj/item/clothing/head/helmet/heavy/necked/noc
+			cloak = /obj/item/clothing/cloak/stabard/templar/noc
+			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
+		if(/datum/patron/divine/dendor)
+			neck = /obj/item/clothing/neck/psycross/silver/dendor
+			head = /obj/item/clothing/head/helmet/heavy/necked/dendorhelm
+			cloak = /obj/item/clothing/cloak/stabard/templar/dendor
+			H.cmode_music = 'sound/music/cmode/garrison/CombatForestGarrison.ogg'
+		if(/datum/patron/divine/necra)
+			neck = /obj/item/clothing/neck/psycross/silver/necra
+			head = /obj/item/clothing/head/helmet/heavy/necked/necra
+			cloak = /obj/item/clothing/cloak/stabard/templar/necra
+			H.cmode_music = 'sound/music/cmode/church/CombatGravekeeper.ogg'
+		if(/datum/patron/divine/pestra)
+			neck = /obj/item/clothing/neck/psycross/silver/pestra
+			head = /obj/item/clothing/head/helmet/heavy/necked/pestrahelm
+			cloak = /obj/item/clothing/cloak/stabard/templar/pestra
+			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
+		if(/datum/patron/divine/eora)
+			head = /obj/item/clothing/head/helmet/sallet/eoran
+			wrists = /obj/item/clothing/neck/psycross/silver/eora
+			neck = /obj/item/clothing/neck/chaincoif
+			cloak = /obj/item/clothing/cloak/stabard/templar/eora
+			H.cmode_music = 'sound/music/cmode/church/CombatEora.ogg'
+			H.virginity = FALSE
+			ADD_TRAIT(H, TRAIT_BEAUTIFUL, TRAIT_GENERIC)
+		if(/datum/patron/divine/ravox)
+			wrists = /obj/item/clothing/neck/psycross/silver/ravox
+			head = /obj/item/clothing/head/helmet/heavy/necked/ravox
+			cloak = /obj/item/clothing/cloak/stabard/templar/ravox
+			H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander2.ogg'
+		if(/datum/patron/divine/malum)
+			wrists = /obj/item/clothing/neck/psycross/silver/malum
+			head = /obj/item/clothing/head/helmet/heavy/necked/malumhelm
+			cloak = /obj/item/clothing/cloak/stabard/templar/malum
+			H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander2.ogg'
+		if(/datum/patron/divine/abyssor)
+			wrists = /obj/item/clothing/neck/psycross/silver/abyssor
+			cloak = /obj/item/clothing/cloak/stabard/templar/abyssor
+			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
+			H.adjust_skillrank(/datum/skill/labor/fishing, 1, TRUE)
 	armor = /obj/item/clothing/armor/chainmail/hauberk
 	shirt = /obj/item/clothing/armor/gambeson
 	pants = /obj/item/clothing/pants/chainlegs
@@ -41,23 +90,22 @@
 	beltl = /obj/item/storage/belt/pouch/coins/poor
 	ring = /obj/item/clothing/ring/silver
 	gloves = /obj/item/clothing/gloves/chain
-	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/magic/holy, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
-		H.change_stat(STATKEY_STR, 2)
-		H.change_stat(STATKEY_CON, 2)
-		H.change_stat(STATKEY_END, 2)
-		H.change_stat(STATKEY_SPD, -1)
-		if(!H.has_language(/datum/language/celestial)) // For discussing church matters with the other Clergy
-			H.grant_language(/datum/language/celestial)
-			to_chat(H, "<span class='info'>I can speak Celestial with ,c before my speech.</span>")
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/magic/holy, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
+	H.change_stat(STATKEY_STR, 2)
+	H.change_stat(STATKEY_CON, 2)
+	H.change_stat(STATKEY_END, 2)
+	H.change_stat(STATKEY_SPD, -1)
+	if(!H.has_language(/datum/language/celestial)) // For discussing church matters with the other Clergy
+		H.grant_language(/datum/language/celestial)
+		to_chat(H, "<span class='info'>I can speak Celestial with ,c before my speech.</span>")
 	switch(H.patron?.type) //this is a ridiculous way of doing it and it is annoying.
 		if(/datum/patron/divine/astrata)
 			neck = /obj/item/clothing/neck/psycross/silver/astrata

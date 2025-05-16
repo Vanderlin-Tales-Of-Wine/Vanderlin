@@ -43,6 +43,7 @@
 	related_skill = /datum/skill/misc/sewing
 	skill_xp_gained = 5
 	action_time = 5 SECONDS
+	category = "Hat"
 
 /datum/orderless_slapcraft/flowercrown/rosa
 	name = "Rosa Crown"

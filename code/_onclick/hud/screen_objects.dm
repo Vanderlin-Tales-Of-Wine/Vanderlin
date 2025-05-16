@@ -112,7 +112,7 @@
 
 	if(ishuman(usr))
 		var/mob/living/carbon/human/H = usr
-		H.mind.print_levels(H)
+		H.print_levels(H)
 
 /atom/movable/screen/craft
 	name = "crafting menu"
@@ -314,6 +314,7 @@
 /atom/movable/screen/close/Click()
 	var/datum/component/storage/S = master
 	S.hide_from(usr)
+	SEND_SIGNAL(S.parent, COMSIG_STORAGE_CLOSED, usr)
 	return TRUE
 
 /atom/movable/screen/drop

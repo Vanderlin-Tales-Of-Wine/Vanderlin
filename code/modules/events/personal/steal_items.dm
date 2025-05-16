@@ -24,7 +24,7 @@
 			continue
 		if(istype(H.mind?.assigned_role, /datum/job/bandit) || H.job == "Bandit")
 			continue
-		if(H.mind?.get_skill_level(/datum/skill/misc/stealing) < 2)
+		if(H.get_skill_level(/datum/skill/misc/stealing) < 2)
 			continue
 		return TRUE
 
@@ -40,7 +40,7 @@
 			continue
 		if(istype(human_mob.mind?.assigned_role, /datum/job/bandit) || human_mob.job == "Bandit")
 			continue
-		if(human_mob.mind?.get_skill_level(/datum/skill/misc/stealing) < 2)
+		if(human_mob.get_skill_level(/datum/skill/misc/stealing) < 2)
 			continue
 		valid_targets += human_mob
 

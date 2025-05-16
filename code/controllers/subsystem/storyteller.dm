@@ -1310,6 +1310,8 @@ SUBSYSTEM_DEF(gamemode)
 
 	GLOB.patron_follower_counts.Cut()
 
+	GLOB.featured_stats[FEATURED_STATS_FLAWS]["entries"] = list()
+
 	GLOB.vanderlin_round_stats[STATS_TOTAL_POPULATION] = 0
 	GLOB.vanderlin_round_stats[STATS_PSYCROSS_USERS] = 0
 	GLOB.vanderlin_round_stats[STATS_ALIVE_NOBLES] = 0
@@ -1347,6 +1349,7 @@ SUBSYSTEM_DEF(gamemode)
 	GLOB.vanderlin_round_stats[STATS_ALIVE_DARK_ELVES] = 0
 	GLOB.vanderlin_round_stats[STATS_ALIVE_SNOW_ELVES] = 0
 	GLOB.vanderlin_round_stats[STATS_ALIVE_HALF_ELVES] = 0
+	GLOB.vanderlin_round_stats[STATS_ALIVE_HALF_DROWS] = 0
 	GLOB.vanderlin_round_stats[STATS_ALIVE_HALF_ORCS] = 0
 	GLOB.vanderlin_round_stats[STATS_ALIVE_KOBOLDS] = 0
 	GLOB.vanderlin_round_stats[STATS_ALIVE_RAKSHARI] = 0
@@ -1400,6 +1403,8 @@ SUBSYSTEM_DEF(gamemode)
 					GLOB.vanderlin_round_stats[STATS_ELDERLY_POPULATION]++
 				if(AGE_IMMORTAL)
 					GLOB.vanderlin_round_stats[STATS_IMMORTAL_POPULATION]++
+			if(human_mob.charflaw)
+				record_featured_object_stat(FEATURED_STATS_FLAWS, human_mob.charflaw.name)
 			if(human_mob.is_noble())
 				GLOB.vanderlin_round_stats[STATS_ALIVE_NOBLES]++
 			if(human_mob.mind.assigned_role.title in GLOB.garrison_positions)
@@ -1442,6 +1447,8 @@ SUBSYSTEM_DEF(gamemode)
 				GLOB.vanderlin_round_stats[STATS_ALIVE_SNOW_ELVES]++
 			if(ishalfelf(human_mob))
 				GLOB.vanderlin_round_stats[STATS_ALIVE_HALF_ELVES]++
+			if(ishalfdrow(human_mob))
+				GLOB.vanderlin_round_stats[STATS_ALIVE_HALF_DROWS]++
 			if(ishalforc(human_mob))
 				GLOB.vanderlin_round_stats[STATS_ALIVE_HALF_ORCS]++
 			if(iskobold(human_mob))

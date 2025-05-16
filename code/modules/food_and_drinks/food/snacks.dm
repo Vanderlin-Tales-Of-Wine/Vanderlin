@@ -42,6 +42,7 @@ All foods are distributed among various categories. Use common sense.
 	foodtype = GRAIN
 	list_reagents = list(/datum/reagent/consumable/nutriment = 1)
 	w_class = WEIGHT_CLASS_SMALL
+	var/transfers_tastes = FALSE
 	var/bitesize = 3 // how many times you need to bite to consume it fully
 	var/bitecount = 0
 	var/trash = null
@@ -54,8 +55,6 @@ All foods are distributed among various categories. Use common sense.
 	var/dry = 0
 	var/dunkable = FALSE // for dunkable food, make true
 	var/dunk_amount = 10 // how much reagent is transferred per dunk
-	var/cooked_type = null  //for overn cooking
-	var/fried_type = null	//instead of becoming
 	var/filling_color = "#FFFFFF" //color to use when added to custom food.
 	var/custom_food_type = null  //for food customizing. path of the custom food to create
 	var/junkiness = 0  //for junk food. used to lower human satiety.
@@ -128,8 +127,6 @@ All foods are distributed among various categories. Use common sense.
 /obj/item/reagent_containers/food/snacks/Initialize()
 	if(rotprocess)
 		SSticker.OnRoundstart(CALLBACK(src, PROC_REF(begin_rotting)))
-	if(cooked_type || fried_type)
-		cooktime = 30 SECONDS
 	..()
 
 /obj/item/reagent_containers/food/snacks/proc/begin_rotting()
@@ -156,8 +153,8 @@ All foods are distributed among various categories. Use common sense.
 				temp_modifier = 1.0 + ((turf_temp - 20) / 10) * 0.2
 				temp_modifier = min(temp_modifier, 3.0) // Cap at 3x speed
 			else
-				// Each 5 degrees below room temp decreases rot rate by 20%
-				temp_modifier = max(0.2, 1.0 - ((20 -turf_temp) / 5) * 0.2)
+				// Each 3 degrees below room temp decreases rot rate by 20%
+				temp_modifier = max(0.2, 1.0 - ((20 -turf_temp) / 3) * 0.2)
 				// Minimum 0.2x speed (cold slows but doesn't completely stop rot)
 
 		var/obj/structure/fake_machine/vendor = locate(/obj/structure/fake_machine/vendor) in get_turf(src)
@@ -223,26 +220,6 @@ All foods are distributed among various categories. Use common sense.
 	burning(input)
 
 /obj/item/reagent_containers/food/snacks/heating_act(atom/A)
-	if(istype(A,/obj/machinery/light/fueled/oven))
-		var/obj/item/result
-		if(cooked_type)
-			result = new cooked_type(A)
-			if(cooked_smell)
-				result.AddComponent(/datum/component/temporary_pollution_emission, cooked_smell, 20, 5 MINUTES)
-		else
-			result = new /obj/item/reagent_containers/food/snacks/badrecipe(A)
-		initialize_cooked_food(result, 1)
-		return result
-	if(istype(A,/obj/machinery/light/fueled/hearth) || istype(A,/obj/machinery/light/fueled/firebowl) || istype(A,/obj/machinery/light/fueled/campfire))
-		var/obj/item/result
-		if(fried_type)
-			result = new fried_type(A)
-			if(cooked_smell)
-				result.AddComponent(/datum/component/temporary_pollution_emission, cooked_smell, 20, 5 MINUTES)
-		else
-			result = new /obj/item/reagent_containers/food/snacks/badrecipe(A)
-		initialize_cooked_food(result, 1)
-		return result
 	var/obj/item/result = new /obj/item/reagent_containers/food/snacks/badrecipe(A)
 	initialize_cooked_food(result, 1)
 	return result
@@ -337,8 +314,9 @@ All foods are distributed among various categories. Use common sense.
 	eater.taste(reagents)
 
 	if(!reagents.total_volume)
+		record_featured_stat(FEATURED_STATS_EATERS, eater)
+		record_featured_object_stat(FEATURED_STATS_FOOD, name)
 		if(faretype == FARE_LAVISH || faretype == FARE_FINE)
-			record_featured_stat(FEATURED_STATS_GOURMETS, eater)
 			GLOB.vanderlin_round_stats[STATS_LUXURIOUS_FOOD_EATEN]++
 		var/atom/current_loc = loc
 		qdel(src)
@@ -482,7 +460,7 @@ All foods are distributed among various categories. Use common sense.
 
 	if(user.mind)
 		if(foodbuff_skillcheck)		// cooks with less than 3 skill don´t add bonus buff
-			if(user.mind.get_skill_level(/datum/skill/craft/cooking) <= 1) // cooks with 0 skill make shitty meals when trying to be fancy
+			if(user.get_skill_level(/datum/skill/craft/cooking) <= 1) // cooks with 0 skill make shitty meals when trying to be fancy
 				tastes = list("blandness" = 1)
 				quality = 0
 				switch(rand(1,6))
@@ -504,10 +482,10 @@ All foods are distributed among various categories. Use common sense.
 					if(6)
 						name = "bland [name]"
 						desc = "Is this food?"
-			if(user.mind.get_skill_level(/datum/skill/craft/cooking) >= 2)
+			if(user.get_skill_level(/datum/skill/craft/cooking) >= 2)
 				eat_effect = /datum/status_effect/buff/foodbuff
 				quality = 2
-			if(user.mind.get_skill_level(/datum/skill/craft/cooking) == 4)
+			if(user.get_skill_level(/datum/skill/craft/cooking) == 4)
 				quality = 3
 				switch(rand(1,7))
 					if(1)
@@ -531,7 +509,7 @@ All foods are distributed among various categories. Use common sense.
 					if(7)
 						name = "flavorful [name]"
 						desc = "[desc] It looks like good eating."
-			if(user.mind.get_skill_level(/datum/skill/craft/cooking) >= 5)
+			if(user.get_skill_level(/datum/skill/craft/cooking) >= 5)
 				quality = 4
 				switch(rand(1,5))
 					if(1)
@@ -637,6 +615,11 @@ All foods are distributed among various categories. Use common sense.
 				S.reagents.add_reagent(r_id, amount)
 			else
 				S.reagents.add_reagent(r_id, amount)
+
+	if(transfers_tastes)
+		S.foodtype |= foodtype
+		S.tastes |= tastes
+
 	S.filling_color = filling_color
 	S.update_snack_overlays(src)
 

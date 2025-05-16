@@ -3,6 +3,7 @@
 	i_type = "Armor"
 	craftdiff = 1
 	abstract_type = /datum/anvil_recipe/armor
+	category = "Armor"
 
 // --------- COPPER -----------
 

@@ -23,7 +23,7 @@
 	if(!istype(skill_ref, /datum/skill/combat))
 		return
 
-	var/real_old = (old_level == SKILL_LEVEL_NONE && !(skill_ref in owner.current.mind.known_skills)) ? SKILL_LEVEL_NONE : old_level
+	var/real_old = (old_level == SKILL_LEVEL_NONE && !(skill_ref in owner.current.skills?.known_skills)) ? SKILL_LEVEL_NONE : old_level
 
 	if(new_level <= real_old)
 		return

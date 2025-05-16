@@ -154,11 +154,11 @@
 			if(!skeletonized)
 				var/used_time = 21 SECONDS
 				if(user.mind)
-					used_time -= (user.mind.get_skill_level(/datum/skill/labor/butchering) * 3 SECONDS)
+					used_time -= (user.get_skill_level(/datum/skill/labor/butchering) * 3 SECONDS)
 				visible_message("[user] begins to butcher \the [src].")
 				playsound(src, 'sound/foley/gross.ogg', 100, FALSE)
 				var/steaks = 0
-				switch(user.mind.get_skill_level(/datum/skill/labor/butchering))
+				switch(user.get_skill_level(/datum/skill/labor/butchering))
 					if(3)
 						steaks = 1
 					if(4 to 5)
@@ -176,7 +176,7 @@
 					if(rotted)
 						steak.become_rotten()
 					new /obj/effect/decal/cleanable/blood/splatter(get_turf(src))
-					user.mind.adjust_experience(/datum/skill/labor/butchering, amt2raise, FALSE)
+					user.adjust_experience(/datum/skill/labor/butchering, amt2raise, FALSE)
 					qdel(src)
 			else
 				to_chat(user, span_warning("[src] has no meat to butcher."))

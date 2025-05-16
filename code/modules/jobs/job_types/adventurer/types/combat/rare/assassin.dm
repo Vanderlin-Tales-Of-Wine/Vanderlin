@@ -14,23 +14,23 @@
 /datum/outfit/job/adventurer/assassin/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/bows, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 5)
-		H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, 5, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/stealing, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/traps, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE) // Used for leaving notes after your evil work.
+		H.adjust_skillrank(/datum/skill/combat/knives, 4, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/bows, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/crossbows, 4, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/climbing, 5)
+		H.adjust_skillrank(/datum/skill/misc/sneaking, 5, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/stealing, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/lockpicking, 4, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/craft/traps, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE) // Used for leaving notes after your evil work.
 		var/datum/antagonist/new_antag = new /datum/antagonist/assassin() // Adds the assassin antag label.
 		H.ambushable = FALSE
 		H.mind.add_antag_datum(new_antag)
@@ -46,7 +46,7 @@
 
 	switch(disguisechoice)
 		if("Bard")
-			H.mind?.adjust_skillrank(/datum/skill/misc/music, 1, TRUE) //Have to know to "PLAY" the part... Eh? Eh?
+			H.adjust_skillrank(/datum/skill/misc/music, 1, TRUE) //Have to know to "PLAY" the part... Eh? Eh?
 			head = /obj/item/clothing/head/bardhat
 			shoes = /obj/item/clothing/shoes/boots
 			pants = /obj/item/clothing/pants/tights/random
@@ -76,7 +76,7 @@
 				pants = /obj/item/clothing/pants/tights/vagrant
 				shirt = /obj/item/clothing/shirt/undershirt/vagrant
 		if("Fisher")
-			H.mind?.adjust_skillrank(/datum/skill/labor/fishing, 1, TRUE) //Have to know to play the part.
+			H.adjust_skillrank(/datum/skill/labor/fishing, 1, TRUE) //Have to know to play the part.
 			if(H.gender == MALE)
 				pants = /obj/item/clothing/pants/tights/random
 				shirt = /obj/item/clothing/shirt/shortshirt/random
@@ -104,8 +104,8 @@
 				beltl = /obj/item/flint
 				backpack_contents = list(/obj/item/weapon/knife/hunting = 1, /obj/item/natural/worms = 1, /obj/item/weapon/shovel/small = 1)
 		if("Hunter")
-			H.mind?.adjust_skillrank(/datum/skill/combat/bows, 2, TRUE) //The assassin trades their crossbow abilities to match their disguise.
-			H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, -2, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/bows, 2, TRUE) //The assassin trades their crossbow abilities to match their disguise.
+			H.adjust_skillrank(/datum/skill/combat/crossbows, -2, TRUE)
 			pants = /obj/item/clothing/pants/tights/random
 			shirt = /obj/item/clothing/shirt/shortshirt/random
 			shoes = /obj/item/clothing/shoes/boots/leather
@@ -119,9 +119,9 @@
 			backpack_contents = list(/obj/item/flint = 1, /obj/item/bait = 1, /obj/item/weapon/knife/hunting = 1)
 			gloves = /obj/item/clothing/gloves/leather
 		if("Miner")
-			H.mind?.adjust_skillrank(/datum/skill/labor/mining, 1, TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE) //Use the pickaxe...
-			H.mind?.adjust_skillrank(/datum/skill/combat/swords, -2, TRUE)
+			H.adjust_skillrank(/datum/skill/labor/mining, 1, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE) //Use the pickaxe...
+			H.adjust_skillrank(/datum/skill/combat/swords, -2, TRUE)
 			head = /obj/item/clothing/head/armingcap
 			pants = /obj/item/clothing/pants/trou
 			armor = /obj/item/clothing/armor/gambeson/light/striped
@@ -148,7 +148,7 @@
 			belt = /obj/item/storage/belt/leather/assassin
 			ring = /obj/item/clothing/ring/silver
 			if(H.gender == MALE)
-				H.mind?.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE) //The male noble's sword is less useful than the female noble's bow, so no downside.
+				H.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE) //The male noble's sword is less useful than the female noble's bow, so no downside.
 				pants = /obj/item/clothing/pants/tights/black
 				shirt = /obj/item/clothing/shirt/tunic/random
 				cloak = /obj/item/clothing/cloak/raincloak/furcloak
@@ -158,8 +158,8 @@
 				beltl = /obj/item/ammo_holder/quiver/arrows
 				backpack_contents = list(/obj/item/reagent_containers/glass/bottle/wine = 1, /obj/item/reagent_containers/glass/cup/silver = 1)
 			else
-				H.mind?.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE) //Female nobles get the male noble's bow, but are less trained than an Assassin disguising as a Hunter. Balance.
-				H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, -1, TRUE)
+				H.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE) //Female nobles get the male noble's bow, but are less trained than an Assassin disguising as a Hunter. Balance.
+				H.adjust_skillrank(/datum/skill/combat/crossbows, -1, TRUE)
 				shirt = /obj/item/clothing/shirt/dress/silkdress/random
 				head = /obj/item/clothing/head/hatfur
 				cloak = /obj/item/clothing/cloak/raincloak/furcloak
@@ -168,7 +168,7 @@
 				beltl = /obj/item/ammo_holder/quiver/arrows
 				backpack_contents = list(/obj/item/reagent_containers/glass/bottle/wine = 1, /obj/item/reagent_containers/glass/cup/silver = 1)
 		if("Peasant")
-			H.mind?.adjust_skillrank(/datum/skill/labor/farming, 1, TRUE)
+			H.adjust_skillrank(/datum/skill/labor/farming, 1, TRUE)
 			belt = /obj/item/storage/belt/leather/assassin
 			shirt = /obj/item/clothing/shirt/undershirt/random
 			pants = /obj/item/clothing/pants/trou
@@ -190,8 +190,8 @@
 				pants = null
 			backpack_contents = list(/obj/item/neuFarm/seed/wheat=1,/obj/item/neuFarm/seed/apple=1,/obj/item/ash=1,/obj/item/weapon/knife/villager=1)
 		if("Carpenter")
-			H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE) //Use the axe...
-			H.mind?.adjust_skillrank(/datum/skill/combat/swords, -2, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE) //Use the axe...
+			H.adjust_skillrank(/datum/skill/combat/swords, -2, TRUE)
 			belt = /obj/item/storage/belt/leather/assassin
 			shirt = /obj/item/clothing/shirt/undershirt/random
 			pants = /obj/item/clothing/pants/trou

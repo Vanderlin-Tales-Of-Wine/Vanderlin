@@ -193,6 +193,12 @@
 		/obj/item/ammo_casing/caseless/bullet,
 	)
 
+/obj/item/storage/belt/pouch/cloth
+	name = "cloth pouch"
+	desc = "Usually used for holding small amount of coins."
+	icon_state = "clothpouch"
+	component_type = /datum/component/storage/concrete/grid/coin_pouch/cloth
+
 //Poison darts pouch
 /obj/item/storage/belt/pouch/pdarts
 	populate_contents = list(
@@ -216,6 +222,14 @@
 	bloody_icon_state = "bodyblood"
 	alternate_worn_layer = UNDER_CLOAK_LAYER
 	component_type = /datum/component/storage/concrete/grid/satchel
+
+
+/obj/item/storage/backpack/satchel/cloth
+	name = "cloth knapsack"
+	desc = "A rudimentary cloth sack strapped to the back for storing small amounts of items."
+	icon_state = "clothbackpack"
+	item_state = "clothbackpack"
+	component_type = /datum/component/storage/concrete/grid/satchel/cloth
 
 /obj/item/storage/backpack/satchel/heartfelt
 	populate_contents = list(

@@ -17,18 +17,21 @@
 	requirements = list(/obj/item/natural/cloth = 1,
 				/obj/item/natural/silk = 1)
 	craftdiff = 1
+	category = "Mask"
 
 /datum/repeatable_crafting_recipe/sewing/weaving/rags
 	name = "shirt (webbed)"
 	output = /obj/item/clothing/shirt/undershirt/webs
 	requirements = list(/obj/item/natural/silk = 1)
 	craftdiff = 1
+	category = "Undershirt"
 
 /datum/repeatable_crafting_recipe/sewing/weaving/webbing
 	name = "trousers (webbed)"
 	output = /obj/item/clothing/pants/webs
 	requirements = list(/obj/item/natural/silk = 2)
 	craftdiff = 1
+	category = "Pants"
 
 /* craftdif of 2 = APPRENTICE */
 
@@ -38,6 +41,7 @@
 	requirements = list(/obj/item/natural/cloth = 1,
 				/obj/item/natural/silk = 1)
 	craftdiff = 2
+	category = "Gloves"
 
 /* craftdif of 3 = JOURNEYMAN */
 
@@ -47,6 +51,7 @@
 	requirements = list(/obj/item/natural/cloth = 1,
 				/obj/item/natural/silk = 1)
 	craftdiff = 3
+	category = "Cloak"
 
 /datum/repeatable_crafting_recipe/sewing/weaving/nochood
 	name = "hood (moon/Noc)"
@@ -54,6 +59,7 @@
 	requirements = list(/obj/item/natural/cloth = 2,
 				/obj/item/natural/silk = 1)
 	craftdiff = 3
+	category = "Hat"
 
 /datum/repeatable_crafting_recipe/sewing/weaving/necrahood
 	name = "hood (Necra)"
@@ -61,6 +67,7 @@
 	requirements = list(/obj/item/natural/cloth = 2,
 				/obj/item/natural/silk = 1)
 	craftdiff = 3
+	category = "Hat"
 
 /datum/repeatable_crafting_recipe/sewing/weaving/eoramask
 	name = "mask (Eora)"
@@ -68,6 +75,7 @@
 	requirements = list(/obj/item/ingot/silver = 1,
 				/obj/item/natural/silk = 4)
 	craftdiff = 3
+	category = "Hat"
 
 /datum/repeatable_crafting_recipe/sewing/weaving/astratahood
 	name = "hood (solar/Astrata)"
@@ -75,12 +83,14 @@
 	requirements = list(/obj/item/natural/cloth = 2,
 				/obj/item/natural/silk = 1)
 	craftdiff = 3
+	category = "Hat"
 
 /datum/repeatable_crafting_recipe/sewing/weaving/shirt
 	name = "shirt (formal silks)"
 	output = /obj/item/clothing/shirt/undershirt/puritan
 	requirements = list(/obj/item/natural/silk = 5)
 	craftdiff = 3
+	category = "Undershirt"
 
 /datum/repeatable_crafting_recipe/sewing/weaving/noblecoat
 	name = "coat (fancy)"
@@ -94,6 +104,7 @@
 	output = /obj/item/clothing/head/nun
 	requirements = list(/obj/item/natural/silk = 2)
 	craftdiff = 3
+	category = "Hat"
 
 /datum/repeatable_crafting_recipe/sewing/weaving/nunrobe
 	name = "robes (nun)"
@@ -108,6 +119,7 @@
 	requirements = list(/obj/item/natural/silk = 4)
 	craftdiff = 3
 	sellprice = 35
+	category = "Cloak"
 
 /* craftdif of 4 = EXPERT */
 
@@ -117,6 +129,7 @@
 	requirements = list(/obj/item/natural/cloth = 2,
 				/obj/item/natural/silk = 3)
 	craftdiff = 4
+	category = "Cloak"
 
 /datum/repeatable_crafting_recipe/sewing/weaving/shadowshirt
 	name = "shirt (dark)"
@@ -131,6 +144,7 @@
 	requirements = list(/obj/item/natural/cloth = 1,
 				/obj/item/natural/silk = 2)
 	craftdiff = 4
+	category = "Hat"
 
 /datum/repeatable_crafting_recipe/sewing/weaving/shadowpants
 	name = "pants (dark)"
@@ -138,6 +152,7 @@
 	requirements = list(/obj/item/natural/cloth = 1,
 				/obj/item/natural/silk = 3)
 	craftdiff = 4
+	category = "Pants"
 
 /datum/repeatable_crafting_recipe/sewing/weaving/astratarobe
 	name = "robes (Astrata)"
@@ -180,6 +195,7 @@
 	requirements = list(/obj/item/natural/cloth = 6,
 				/obj/item/natural/fibers = 4)
 	craftdiff = 4
+	category = "Armor"
 
 /datum/repeatable_crafting_recipe/sewing/weaving/armordress
 	name = "padded dress"
@@ -189,6 +205,7 @@
 				/obj/item/natural/hide/cured = 1)
 	craftdiff = 4
 	sellprice = 80
+	category = "Armor"
 
 /* craftdif of 5 = MASTER */
 
@@ -200,6 +217,7 @@
 				/obj/item/natural/fur = 2)
 	craftdiff = 5
 	sellprice = 60
+	category = "Armor"
 
 /datum/repeatable_crafting_recipe/sewing/weaving/eorastraps
 	name = "straps (eora)"
@@ -217,6 +235,7 @@
 	requirements = list(/obj/item/natural/cloth = 2,
 				/obj/item/natural/silk = 2)
 	craftdiff = 5
+	category = "Dress"
 
 /datum/repeatable_crafting_recipe/sewing/weaving/silkdress
 	name = "dress (chemise, silk)"
@@ -224,6 +243,7 @@
 	requirements = list(/obj/item/natural/fibers = 2,
 				/obj/item/natural/silk = 3)
 	craftdiff = 5
+	category = "Dress"
 
 /* craftdif of 6 = LEGENDARY */
 // IDK how to balance these
@@ -234,6 +254,7 @@
 				/obj/item/natural/silk = 4)
 	craftdiff = 6
 	sellprice = 85
+	category = "Dress"
 
 /datum/repeatable_crafting_recipe/sewing/weaving/summergown
 	name = "gown (summer)"
@@ -243,6 +264,7 @@
 				/obj/item/natural/silk = 3)
 	craftdiff = 6
 	sellprice = 70
+	category = "Dress"
 
 /datum/repeatable_crafting_recipe/sewing/weaving/fallgown
 	name = "gown (fall, silk)"
@@ -252,6 +274,7 @@
 				/obj/item/natural/cloth = 2)
 	craftdiff = 6
 	sellprice = 75
+	category = "Dress"
 
 /datum/repeatable_crafting_recipe/sewing/weaving/wintergown
 	name = "gown (winter)"
@@ -261,3 +284,4 @@
 				/obj/item/natural/fur/cabbit = 1)
 	craftdiff = 6
 	sellprice = 90
+	category = "Dress"

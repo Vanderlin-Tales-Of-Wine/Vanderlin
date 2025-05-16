@@ -2,6 +2,7 @@
 	i_type = "Utilities"
 	craftdiff = 1
 	abstract_type = /datum/anvil_recipe/tools
+	category = "Tools"
 
 /datum/anvil_recipe/tools/blankeys
 	name = "3x Blank Custom Keys"

@@ -301,7 +301,10 @@
 			if(prob(used))
 				if((zone_precise == BODY_ZONE_PRECISE_STOMACH) && !resistance)
 					attempted_wounds += /datum/wound/slash/disembowel
-				attempted_wounds += /datum/wound/artery/chest
+				if(owner.has_wound(/datum/wound/fracture/chest) || (bclass in GLOB.artery_heart_bclasses))
+					attempted_wounds += /datum/wound/artery/chest
+				else
+					attempted_wounds += /datum/wound/artery
 		if("scarring")
 			if(user && istype(user.rmb_intent, /datum/rmb_intent/strong))
 				dam += 10

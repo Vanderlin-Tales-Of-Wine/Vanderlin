@@ -9,6 +9,34 @@
 	var/list/pipe_reagents = list()
 	var/seed
 	var/bitesize_mod = 0
+	var/crop_quality = 1
+
+/obj/item/reagent_containers/food/snacks/produce/proc/set_quality(quality)
+	crop_quality = quality
+	update_overlays()
+
+/obj/item/reagent_containers/food/snacks/produce/update_overlays()
+	. = ..()
+	// Add quality overlay to the food item
+	if(crop_quality > 1)
+		var/list/quality_icons = list(
+			null, // Regular has no overlay
+			"bronze",
+			"silver",
+			"gold",
+			"diamond",
+		)
+		if(crop_quality <= length(quality_icons) && quality_icons[crop_quality])
+			overlays += mutable_appearance('icons/effects/crop_quality.dmi', quality_icons[crop_quality])
+
+/obj/item/reagent_containers/food/snacks/produce/fruit
+	name = "fruit"
+
+/obj/item/reagent_containers/food/snacks/produce/vegetable
+	name = "vegetable"
+
+/obj/item/reagent_containers/food/snacks/produce/grain
+	name = "grain"
 
 /obj/item/reagent_containers/food/snacks/produce/Initialize(mapload)
 	. = ..()
@@ -48,9 +76,9 @@
 			return ..()
 	..()
 
-/obj/item/reagent_containers/food/snacks/produce/wheat
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat
 	seed = /obj/item/neuFarm/seed/wheat
-	name = "grain"
+	name = "wheat grain"
 	desc = ""
 	icon_state = "wheat"
 	gender = PLURAL
@@ -62,15 +90,15 @@
 	dropshrink = 0.9
 	mill_result = /obj/item/reagent_containers/powder/flour
 
-/obj/item/reagent_containers/food/snacks/produce/wheat/examine(mob/user)
-	var/farminglvl = user.mind?.get_skill_level(/datum/skill/labor/farming)
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat/examine(mob/user)
+	var/farminglvl = user.get_skill_level(/datum/skill/labor/farming)
 	. += ..()
 	if(farminglvl >= 0)
 		. += "I can easily tell that these are wheat grains."
 
-/obj/item/reagent_containers/food/snacks/produce/oat
+/obj/item/reagent_containers/food/snacks/produce/grain/oat
 	seed = /obj/item/neuFarm/seed/oat
-	name = "grain"
+	name = "oat grain"
 	desc = ""
 	icon_state = "oat"
 	gender = PLURAL
@@ -79,14 +107,14 @@
 	foodtype = GRAIN
 	tastes = list("oat" = 1)
 	grind_results = list(/datum/reagent/flour = 10)
-/obj/item/reagent_containers/food/snacks/produce/oat/examine(mob/user)
-	var/farminglvl = user.mind?.get_skill_level(/datum/skill/labor/farming)
+/obj/item/reagent_containers/food/snacks/produce/grain/oat/examine(mob/user)
+	var/farminglvl = user.get_skill_level(/datum/skill/labor/farming)
 	. += ..()
 	if(farminglvl >= 0)
 		. += "I can easily tell that these are oat groats."
 
 // ^ PSA: next time you want to do this, make and run an updatepaths migration in tools/UpdatePaths
-/obj/item/reagent_containers/food/snacks/produce/apple
+/obj/item/reagent_containers/food/snacks/produce/fruit/apple
 	seed = /obj/item/neuFarm/seed/apple
 	name = "apple"
 	desc = "The humble apple. A sweet and nutritious fruit."
@@ -106,14 +134,14 @@
 	var/equippedloc = null
 	var/list/bitten_names = list()
 
-/obj/item/reagent_containers/food/snacks/produce/apple/on_consume(mob/living/eater)
+/obj/item/reagent_containers/food/snacks/produce/fruit/apple/on_consume(mob/living/eater)
 	..()
 	if(ishuman(eater))
 		var/mob/living/carbon/human/H = eater
 		if(!(H.real_name in bitten_names))
 			bitten_names += H.real_name
 
-/obj/item/reagent_containers/food/snacks/produce/apple/blockproj(mob/living/carbon/human/H)
+/obj/item/reagent_containers/food/snacks/produce/fruit/apple/blockproj(mob/living/carbon/human/H)
 	testing("APPLEHITBEGIN")
 	if(prob(98))
 		H.visible_message(span_notice("[H] is saved by the apple!"))
@@ -123,7 +151,7 @@
 		H.dropItemToGround(H.head)
 		return 0
 
-/obj/item/reagent_containers/food/snacks/produce/apple/equipped(mob/M)
+/obj/item/reagent_containers/food/snacks/produce/fruit/apple/equipped(mob/M)
 	..()
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
@@ -132,7 +160,7 @@
 			equippedloc = H.loc
 			START_PROCESSING(SSobj, src)
 
-/obj/item/reagent_containers/food/snacks/produce/apple/process()
+/obj/item/reagent_containers/food/snacks/produce/fruit/apple/process()
 	. = ..()
 	if(ishuman(loc))
 		var/mob/living/carbon/human/H = loc
@@ -140,7 +168,7 @@
 			if(equippedloc != H.loc)
 				H.dropItemToGround(H.head)
 
-/obj/item/reagent_containers/food/snacks/produce/strawberry
+/obj/item/reagent_containers/food/snacks/produce/fruit/strawberry
 	seed = /obj/item/neuFarm/seed/strawberry
 	name = "strawberry"
 	desc = "A delectable strawberry."
@@ -154,7 +182,7 @@
 	sellprice = 0 // spoil too quickly to export
 
 
-/obj/item/reagent_containers/food/snacks/produce/raspberry
+/obj/item/reagent_containers/food/snacks/produce/fruit/raspberry
 	seed = /obj/item/neuFarm/seed/raspberry
 	name = "raspberry"
 	desc = "A delectable raspberry."
@@ -168,7 +196,7 @@
 	sellprice = 0 // spoil too quickly to export
 
 
-/obj/item/reagent_containers/food/snacks/produce/blackberry
+/obj/item/reagent_containers/food/snacks/produce/fruit/blackberry
 	seed = /obj/item/neuFarm/seed/blackberry
 	name = "blackberry"
 	desc = "A delectable blackberry."
@@ -181,7 +209,7 @@
 	rotprocess = SHELFLIFE_SHORT
 	sellprice = 0 // spoil too quickly to export
 
-/obj/item/reagent_containers/food/snacks/produce/jacksberry
+/obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry
 	seed = /obj/item/neuFarm/seed/berry
 	name = "jacksberries"
 	desc = "Common berries found throughout Enigma and surrounding lands. A traveler's repast, or Dendor's wrath."
@@ -196,7 +224,7 @@
 	sellprice = 0 // spoil too quickly to export
 	var/poisonous = FALSE
 
-/obj/item/reagent_containers/food/snacks/produce/jacksberry/Initialize()
+/obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry/Initialize()
 	if(GLOB.berrycolors[color_index])
 		filling_color = GLOB.berrycolors[color_index]
 	else
@@ -209,11 +237,11 @@
 	update_icon()
 	..()
 
-/obj/item/reagent_containers/food/snacks/produce/jacksberry/on_consume(mob/living/eater)
+/obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry/on_consume(mob/living/eater)
 	..()
 	update_icon()
 
-/obj/item/reagent_containers/food/snacks/produce/jacksberry/update_icon()
+/obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry/update_icon()
 	cut_overlays()
 	var/used_state = "berriesc0"
 	if(bitecount == 1)
@@ -228,7 +256,7 @@
 	item_overlay.color = filling_color
 	add_overlay(item_overlay)
 
-/obj/item/reagent_containers/food/snacks/produce/jacksberry/poison
+/obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry/poison
 	seed = /obj/item/neuFarm/seed/poison_berries
 	icon_state = "berries"
 	tastes = list("berry" = 1)
@@ -237,8 +265,8 @@
 	color_index = "bad"
 	poisonous = TRUE
 
-/obj/item/reagent_containers/food/snacks/produce/jacksberry/examine(mob/user)
-	var/farminglvl = user.mind?.get_skill_level(/datum/skill/labor/farming)
+/obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry/examine(mob/user)
+	var/farminglvl = user.get_skill_level(/datum/skill/labor/farming)
 	. = ..()
 	// Foragers can always detect if a berry is safe or poisoned
 	if(HAS_TRAIT(user, TRAIT_FORAGER))
@@ -313,7 +341,7 @@
 
 
 /*	..................   Cabbage   ................... */
-/obj/item/reagent_containers/food/snacks/produce/cabbage
+/obj/item/reagent_containers/food/snacks/produce/vegetable/cabbage
 	name = "cabbage"
 	desc = "A vegetable with thick leaves, seen as a symbol of prosperity by some elves."
 	seed = /obj/item/neuFarm/seed/cabbage
@@ -329,7 +357,7 @@
 	chopping_sound = TRUE
 
 /*	..................   Onions   ................... */
-/obj/item/reagent_containers/food/snacks/produce/onion
+/obj/item/reagent_containers/food/snacks/produce/vegetable/onion
 	name = "onion"
 	desc = "A wonderful vegetable with many layers and a broad flavor profile."
 	seed = /obj/item/neuFarm/seed/onion
@@ -345,7 +373,7 @@
 	chopping_sound = TRUE
 	rotprocess = SHELFLIFE_LONG
 
-/obj/item/reagent_containers/food/snacks/produce/onion/slice(accuracy, obj/item/W, mob/living/user) // ROGTODO watering eyes
+/obj/item/reagent_containers/food/snacks/produce/vegetable/onion/slice(accuracy, obj/item/W, mob/living/user) // ROGTODO watering eyes
 	var/datum/effect_system/smoke_spread/chem/transparent/S = new	//Since the onion is destroyed when it's sliced,
 	var/splat_location = get_turf(src)	//we need to set up the smoke beforehand
 	S.attach(splat_location)
@@ -357,7 +385,7 @@
 
 
 /*	..................   Potato   ................... */
-/obj/item/reagent_containers/food/snacks/produce/potato
+/obj/item/reagent_containers/food/snacks/produce/vegetable/potato
 	name = "potato"
 	desc = "A spud, dwarven icon of growth."
 	seed = /obj/item/neuFarm/seed/potato
@@ -366,8 +394,6 @@
 	filling_color = "#d8d8b6"
 	slices_num = 1
 	slice_path = /obj/item/reagent_containers/food/snacks/veg/potato_sliced
-	cooked_type = /obj/item/reagent_containers/food/snacks/potato/baked
-	cooked_smell = /datum/pollutant/food/baked_potato
 	eat_effect = null
 	foodtype = VEGETABLES
 	chopping_sound = TRUE
@@ -376,7 +402,7 @@
 	rotprocess = null
 
 /*	..................  Pear   ................... */ // for cider or eating raw
-/obj/item/reagent_containers/food/snacks/produce/pear
+/obj/item/reagent_containers/food/snacks/produce/fruit/pear
 	name = "pear"
 	seed = /obj/item/neuFarm/seed/pear
 	desc = "Too sweet for many, a favored treat for little ones. Dwarves do love them."
@@ -386,7 +412,7 @@
 	tastes = list("pear" = 1)
 	rotprocess = SHELFLIFE_DECENT
 
-/obj/item/reagent_containers/food/snacks/produce/lemon
+/obj/item/reagent_containers/food/snacks/produce/fruit/lemon
 	name = "lemon"
 	seed = /obj/item/neuFarm/seed/lemon
 	desc = "Too sweet for many, a favored treat for little ones. Dwarves do love them."
@@ -396,7 +422,7 @@
 	tastes = list("lemon" = 1)
 	rotprocess = SHELFLIFE_DECENT
 
-/obj/item/reagent_containers/food/snacks/produce/lime
+/obj/item/reagent_containers/food/snacks/produce/fruit/lime
 	name = "lime"
 	seed = /obj/item/neuFarm/seed/lime
 	desc = "Too sweet for many, a favored treat for little ones. Dwarves do love them."
@@ -406,7 +432,7 @@
 	tastes = list("lime" = 1)
 	rotprocess = SHELFLIFE_DECENT
 
-/obj/item/reagent_containers/food/snacks/produce/tangerine
+/obj/item/reagent_containers/food/snacks/produce/fruit/tangerine
 	name = "tangerine"
 	seed = /obj/item/neuFarm/seed/tangerine
 	desc = "Too sweet for many, a favored treat for little ones. Dwarves do love them."
@@ -416,7 +442,7 @@
 	tastes = list("tangerine" = 1)
 	rotprocess = SHELFLIFE_DECENT
 
-/obj/item/reagent_containers/food/snacks/produce/plum
+/obj/item/reagent_containers/food/snacks/produce/fruit/plum
 	name = "plum"
 	seed = /obj/item/neuFarm/seed/plum
 	desc = "Too sweet for many, a favored treat for little ones. Dwarves do love them."
@@ -427,7 +453,7 @@
 	rotprocess = SHELFLIFE_DECENT
 
 /*	..................   Turnip   ................... */ // only for veggie soup
-/obj/item/reagent_containers/food/snacks/produce/turnip
+/obj/item/reagent_containers/food/snacks/produce/vegetable/turnip
 	name = "turnip"
 	desc = "A shield against hunger, naught else."
 	seed = /obj/item/neuFarm/seed/turnip
@@ -458,8 +484,6 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 0)
 	dropshrink = 0.8
 	rotprocess = null
-	fried_type = /obj/item/reagent_containers/food/snacks/roastseeds
-	cooked_smell = /datum/pollutant/food/roasted_seeds
 
 
 /obj/item/reagent_containers/food/snacks/produce/sugarcane
