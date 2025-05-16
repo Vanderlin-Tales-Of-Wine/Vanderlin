@@ -4745,7 +4745,6 @@
 /area/rogue/indoors/mountains)
 "BL" = (
 /obj/structure/table/stone_small,
-/obj/structure/table/stone_small,
 /obj/item/bodypart/head/orc,
 /obj/item/organ/eyes/night_vision/nightmare,
 /turf/open/floor/cobble,
@@ -7958,12 +7957,6 @@
 	},
 /turf/open/floor/naturalstone,
 /area/rogue/indoors/cave)
-"Vu" = (
-/obj/structure/door,
-/obj/structure/door/arcyne,
-/obj/effect/mapping_helpers/door/locker,
-/turf/open/floor/ruinedwood,
-/area/rogue/indoors/mountains)
 "Vv" = (
 /obj/effect/decal/remains/saiga,
 /turf/open/floor/naturalstone,
@@ -52837,7 +52830,7 @@ kJ
 kJ
 rJ
 kJ
-Vu
+jn
 kJ
 kJ
 dy
@@ -58432,7 +58425,7 @@ Av
 PE
 JB
 PE
-Vu
+jn
 PE
 PE
 Av
