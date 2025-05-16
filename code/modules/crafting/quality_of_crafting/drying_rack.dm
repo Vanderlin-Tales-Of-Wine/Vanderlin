@@ -199,6 +199,7 @@
 	name = "tiefling sugar"
 	output = /obj/item/reagent_containers/food/snacks/tiefsugar
 	output_amount = 1
+	starting_atom = /obj/item/reagent_containers/food/snacks/sugar
 	requirements = list(
 		/obj/item/reagent_containers/food/snacks/sugar = 1,
 	)
