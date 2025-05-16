@@ -37,3 +37,10 @@
 	sellprice = VALUE_IRON_ARMOR/2
 	armor = ARMOR_PLATE_BAD
 	max_integrity = INTEGRITY_STANDARD
+
+/obj/item/clothing/gloves/plate/blk
+	armor = ARMOR_PLATE_BLACKSTEEL
+	item_weight = 7 * BLACKSTEEL_MULTIPLIER
+	max_integrity = INTEGRITY_STRONGEST
+	prevent_crits = ALL
+	smeltresult = /obj/item/ingot/blacksteel
