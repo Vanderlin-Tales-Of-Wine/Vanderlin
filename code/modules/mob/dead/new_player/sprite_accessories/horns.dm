@@ -3,6 +3,7 @@
 	icon = 'icons/mob/sprite_accessory/horns/horns.dmi'
 	color_key_name = "Horns"
 	relevant_layers = list(BODY_FRONT_LAYER)
+	default_colors = list("#575b68")
 
 /datum/sprite_accessory/horns/is_visible(obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
 	return is_human_part_visible(owner, HIDEEARS|HIDEHAIR)

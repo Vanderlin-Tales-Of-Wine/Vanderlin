@@ -23,20 +23,19 @@
 /datum/outfit/job/grabber/pre_equip(mob/living/carbon/human/H)
 	..()
 
-	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/shields, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE) // You get a cudgel for nonlethal self defense and that's it.
-		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)//they can use the merchant machine and that's it
-		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/labor/mathematics, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/firearms, 1, TRUE) // TALLY HO
-		H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/shields, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE) // You get a cudgel for nonlethal self defense and that's it.
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)//they can use the merchant machine and that's it
+	H.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/swimming, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/labor/mathematics, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/firearms, 1, TRUE) // TALLY HO
+	H.adjust_skillrank(/datum/skill/combat/crossbows, 1, TRUE)
 
 	H.change_stat(STATKEY_STR, 1)
 	H.change_stat(STATKEY_END, 1)

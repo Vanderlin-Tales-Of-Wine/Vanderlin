@@ -10,8 +10,6 @@
 	obj_flags = CAN_BE_HIT
 	var/dead = FALSE
 	eat_effect = /datum/status_effect/debuff/uncookedfood
-	fried_type = /obj/item/reagent_containers/food/snacks/friedrat
-	cooked_smell = /datum/pollutant/food/fried_rat
 	max_integrity = 10
 	sellprice = 0
 	rotprocess = null

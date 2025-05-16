@@ -578,7 +578,7 @@
 /obj/structure/fluff/signage/examine(mob/user)
 	. = ..()
 	if(!user.is_literate())
-		user.mind.adjust_experience(/datum/skill/misc/reading, 2, FALSE)
+		user.adjust_experience(/datum/skill/misc/reading, 2, FALSE)
 		. += "I have no idea what it says."
 	else
 		. += "It says something."
@@ -591,7 +591,7 @@
 /obj/structure/fluff/buysign/examine(mob/user)
 	. = ..()
 	if(!user.is_literate())
-		user.mind.adjust_experience(/datum/skill/misc/reading, 2, FALSE)
+		user.adjust_experience(/datum/skill/misc/reading, 2, FALSE)
 		. += "I have no idea what it says."
 	else
 		. += "It says something."
@@ -604,7 +604,7 @@
 /obj/structure/fluff/sellsign/examine(mob/user)
 	. = ..()
 	if(!user.is_literate())
-		user.mind.adjust_experience(/datum/skill/misc/reading, 2, FALSE)
+		user.adjust_experience(/datum/skill/misc/reading, 2, FALSE)
 		. += "I have no idea what it says."
 	else
 		. += "It says something."
@@ -623,7 +623,7 @@
 	. = ..()
 	if(wrotesign)
 		if(!user.is_literate())
-			user.mind.adjust_experience(/datum/skill/misc/reading, 2, FALSE)
+			user.adjust_experience(/datum/skill/misc/reading, 2, FALSE)
 			. += "I have no idea what it says."
 		else
 			. += "It says \"[wrotesign]\"."
@@ -906,18 +906,18 @@
 						probby = 0
 					if(prob(probby) && !L.has_status_effect(/datum/status_effect/debuff/trainsleep) && !user.buckled)
 						user.visible_message("<span class='info'>[user] trains on [src]!</span>")
-						var/boon = user.mind.get_learning_boon(W.associated_skill)
+						var/boon = user.get_learning_boon(W.associated_skill)
 						var/amt2raise = L.STAINT/2
-						if(user.mind?.get_skill_level(W.associated_skill) >= 2)
+						if(user.get_skill_level(W.associated_skill) >= 2)
 							if(!HAS_TRAIT(user, TRAIT_INTRAINING))
 								to_chat(user, "<span class='warning'>I've learned all I can from doing this, it's time for the real thing.</span>")
 								amt2raise = 0
 							else
-								if(user.mind?.get_skill_level(W.associated_skill) >= 3)
+								if(user.get_skill_level(W.associated_skill) >= 3)
 									to_chat(user, "<span class='warning'>I've learned all I can from doing this, it's time for the real thing.</span>")
 									amt2raise = 0
 						if(amt2raise > 0)
-							user.mind.adjust_experience(W.associated_skill, amt2raise * boon, FALSE)
+							user.adjust_experience(W.associated_skill, amt2raise * boon, FALSE)
 						playsound(loc,pick('sound/combat/hits/onwood/education1.ogg','sound/combat/hits/onwood/education2.ogg','sound/combat/hits/onwood/education3.ogg'), rand(50,100), FALSE)
 					else
 						user.visible_message("<span class='danger'>[user] trains on [src], but [src] ripostes!</span>")
@@ -1003,11 +1003,11 @@
 						if(4)
 							I = new /obj/item/clothing/head/helmet/horned(user.loc)
 						if(6)
-							if(user.mind.get_skill_level(/datum/skill/combat/polearms) > 2)
+							if(user.get_skill_level(/datum/skill/combat/polearms) > 2)
 								I = new /obj/item/weapon/polearm/spear/billhook(user.loc)
-							else if(user.mind.get_skill_level(/datum/skill/combat/bows) > 2)
+							else if(user.get_skill_level(/datum/skill/combat/bows) > 2)
 								I = new /obj/item/gun/ballistic/revolver/grenadelauncher/bow/long(user.loc)
-							else if(user.mind.get_skill_level(/datum/skill/combat/swords) > 2)
+							else if(user.get_skill_level(/datum/skill/combat/swords) > 2)
 								I = new /obj/item/weapon/sword/long(user.loc)
 							else
 								I = new /obj/item/weapon/mace/steel(user.loc)
@@ -1125,12 +1125,12 @@
 		if((is_priest_job(user.mind.assigned_role)) \
 			|| (is_monk_job(user.mind.assigned_role) && (user.patron.type == /datum/patron/divine/eora)))
 
-			if(istype(W, /obj/item/reagent_containers/food/snacks/produce/apple))
+			if(istype(W, /obj/item/reagent_containers/food/snacks/produce/fruit/apple))
 				if(!istype(get_area(user), /area/rogue/indoors/town/church/chapel))
 					to_chat(user, "<span class='warning'>I need to do this in the chapel.</span>")
 					return FALSE
 				var/marriage
-				var/obj/item/reagent_containers/food/snacks/produce/apple/A = W
+				var/obj/item/reagent_containers/food/snacks/produce/fruit/apple/A = W
 
 				//The MARRIAGE TEST BEGINS
 				if(A.bitten_names.len)

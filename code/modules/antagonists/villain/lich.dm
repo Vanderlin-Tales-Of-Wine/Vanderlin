@@ -77,6 +77,8 @@
 	L.mana_pool.ethereal_recharge_rate += 0.2
 
 	L.cmode_music = 'sound/music/cmode/antag/CombatLich.ogg'
+	if(prob(10))
+		L.cmode_music = 'sound/music/cmode/antag/combat_evilwizard.ogg'
 	L.faction = list(FACTION_UNDEAD)
 	if(L.charflaw)
 		QDEL_NULL(L.charflaw)
@@ -105,21 +107,21 @@
 	r_hand = /obj/item/weapon/polearm/woodstaff
 
 	H.mind.purge_combat_knowledge(TRUE) // purge all their combat skills first
-	H.mind.set_skillrank(/datum/skill/misc/reading, 6, TRUE)
-	H.mind.set_skillrank(/datum/skill/craft/alchemy, 5, TRUE)
-	H.mind.set_skillrank(/datum/skill/magic/arcane, 5, TRUE)
-	H.mind.set_skillrank(/datum/skill/misc/riding, 4, TRUE)
-	H.mind.set_skillrank(/datum/skill/combat/polearms, 1, TRUE)
-	H.mind.set_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-	H.mind.set_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
-	H.mind.set_skillrank(/datum/skill/misc/swimming, 1, TRUE)
-	H.mind.set_skillrank(/datum/skill/misc/climbing, 1, TRUE)
-	H.mind.set_skillrank(/datum/skill/misc/athletics, 1, TRUE)
-	H.mind.set_skillrank(/datum/skill/combat/swords, 2, TRUE)
-	H.mind.set_skillrank(/datum/skill/combat/knives, 5, TRUE)
-	H.mind.set_skillrank(/datum/skill/craft/crafting, 1, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 4, TRUE)
-	//H.mind.set_skillrank(/datum/skill/misc/treatment, 4, TRUE)
+	H.set_skillrank(/datum/skill/misc/reading, 6, TRUE)
+	H.set_skillrank(/datum/skill/craft/alchemy, 5, TRUE)
+	H.set_skillrank(/datum/skill/magic/arcane, 5, TRUE)
+	H.set_skillrank(/datum/skill/misc/riding, 4, TRUE)
+	H.set_skillrank(/datum/skill/combat/polearms, 1, TRUE)
+	H.set_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+	H.set_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
+	H.set_skillrank(/datum/skill/misc/swimming, 1, TRUE)
+	H.set_skillrank(/datum/skill/misc/climbing, 1, TRUE)
+	H.set_skillrank(/datum/skill/misc/athletics, 1, TRUE)
+	H.set_skillrank(/datum/skill/combat/swords, 2, TRUE)
+	H.set_skillrank(/datum/skill/combat/knives, 5, TRUE)
+	H.set_skillrank(/datum/skill/craft/crafting, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/labor/mathematics, 4, TRUE)
+	//H.set_skillrank(/datum/skill/misc/treatment, 4, TRUE)
 
 	H.change_stat(STATKEY_STR, -1)
 	H.change_stat(STATKEY_INT, 5)

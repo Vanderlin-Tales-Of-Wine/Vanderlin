@@ -35,48 +35,47 @@
 	sprite_accessories = list(
 		/datum/sprite_accessory/tail/cat,
 		/datum/sprite_accessory/tail/monkey,
-		/datum/sprite_accessory/tail/axolotl,
-		/datum/sprite_accessory/tail/batl,
-		/datum/sprite_accessory/tail/bats,
-		/datum/sprite_accessory/tail/bee,
+//		/datum/sprite_accessory/tail/axolotl,		Clipping issues.
+		/datum/sprite_accessory/tail/batl,			//Clipping - Ook request to remain.
+		/datum/sprite_accessory/tail/bats,			//Clipping - Ook request to remain.
+//		/datum/sprite_accessory/tail/bee,			Clipping
 		/datum/sprite_accessory/tail/catbig,
 		/datum/sprite_accessory/tail/twocat,
-		/datum/sprite_accessory/tail/corvid,
-		/datum/sprite_accessory/tail/cow,
-		/datum/sprite_accessory/tail/eevee,
+//		/datum/sprite_accessory/tail/corvid,		For harpies instead?
+//		/datum/sprite_accessory/tail/cow,			Clipping
+//		/datum/sprite_accessory/tail/eevee,			Clipping
 		/datum/sprite_accessory/tail/fennec,
-		/datum/sprite_accessory/tail/fish,
+//		/datum/sprite_accessory/tail/fish,			Clipping
 		/datum/sprite_accessory/tail/fox,
-		/datum/sprite_accessory/tail/fox2,
-		/datum/sprite_accessory/tail/horse,
+		/datum/sprite_accessory/tail/fox2,			//Clipping - Ook request to keep in.
+//		/datum/sprite_accessory/tail/horse,			Clipping
 		/datum/sprite_accessory/tail/husky,
-		/datum/sprite_accessory/tail/insect,
+//		/datum/sprite_accessory/tail/insect,		Clipping
 		/datum/sprite_accessory/tail/kangaroo,
 		/datum/sprite_accessory/tail/kitsune,
-		/datum/sprite_accessory/tail/lab,
+//		/datum/sprite_accessory/tail/lab,			Bad quality.
 		/datum/sprite_accessory/tail/murid,
-		/datum/sprite_accessory/tail/orca,
-		/datum/sprite_accessory/tail/otie,
-		/datum/sprite_accessory/tail/rabbit,
-		/datum/sprite_accessory/tail/redpanda,
-		/datum/sprite_accessory/tail/pede,
-		/datum/sprite_accessory/tail/sergal,
+//		/datum/sprite_accessory/tail/orca,			Clipping
+//		/datum/sprite_accessory/tail/otie,			Clipping
+		/datum/sprite_accessory/tail/rabbit,		//Clipping - Ook request to keep in.
+//		/datum/sprite_accessory/tail/redpanda,		Clipping + intrusive
+//		/datum/sprite_accessory/tail/pede,			Clipping
 		/datum/sprite_accessory/tail/shark,
-		/datum/sprite_accessory/tail/shepherd,
+//		/datum/sprite_accessory/tail/shepherd,		Clipping
 		/datum/sprite_accessory/tail/australian_shepherd,
-		/datum/sprite_accessory/tail/skunk,
-		/datum/sprite_accessory/tail/stripe,
+//		/datum/sprite_accessory/tail/skunk,			Clipping
+//		/datum/sprite_accessory/tail/stripe,		Clipping
 		/datum/sprite_accessory/tail/straighttail,
 		/datum/sprite_accessory/tail/squirrel,
 		/datum/sprite_accessory/tail/tamamo_kitsune,
 		/datum/sprite_accessory/tail/tiger,
 		/datum/sprite_accessory/tail/wolf,
-		/datum/sprite_accessory/tail/guilmon,
+//		/datum/sprite_accessory/tail/guilmon,		Clipping
 		/datum/sprite_accessory/tail/sharknofin,
 		/datum/sprite_accessory/tail/raptor,
-		/datum/sprite_accessory/tail/spade,
-		/datum/sprite_accessory/tail/leopard,
-		/datum/sprite_accessory/tail/deer,
+//		/datum/sprite_accessory/tail/spade,			Clipping also should be tief exclusive.
+//		/datum/sprite_accessory/tail/leopard,		Clipping
+//		/datum/sprite_accessory/tail/deer,			Clipping
 		/datum/sprite_accessory/tail/raccoon,
 		/datum/sprite_accessory/tail/sabresune,
 		/datum/sprite_accessory/tail/lizard/smooth,

@@ -47,7 +47,7 @@
 	hitsound = 'sound/combat/hits/hi_arrow2.ogg'
 	embedchance = 100
 	armor_penetration = BOLT_PENETRATION
-	woundclass = BCLASS_STAB
+	woundclass = BCLASS_PIERCE
 	flag =  "piercing"
 	speed = 0.3
 	accuracy = 85 //Crossbows have higher accuracy
@@ -174,7 +174,7 @@
 	hitsound = 'sound/combat/hits/hi_arrow2.ogg'
 	embedchance = 100
 	armor_penetration = ARROW_PENETRATION
-	woundclass = BCLASS_STAB
+	woundclass = BCLASS_PIERCE
 	flag =  "piercing"
 	speed = 0.4
 	var/piercing = FALSE

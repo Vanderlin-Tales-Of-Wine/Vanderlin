@@ -156,7 +156,7 @@
 	if(user.used_intent.type == /datum/intent/snip && istype(O, /obj/item))
 		var/obj/item/item = O
 		if(item.sewrepair && item.salvage_result) // We can only salvage objects which can be sewn!
-			var/skill_level = user.mind.get_skill_level(/datum/skill/misc/sewing)
+			var/skill_level = user.get_skill_level(/datum/skill/misc/sewing)
 			var/salvage_time = (7 SECONDS - (skill_level * 10))
 			if(!do_after(user, salvage_time, user))
 				return
@@ -280,6 +280,15 @@
 	max_integrity = 240 // .8 of steel
 	sellprice = 45
 	last_used = 0
+	is_silver = TRUE
+
+//................ Psydonian Dagger ............... //
+/obj/item/weapon/knife/dagger/psydon
+	name = "psydonian dagger"
+	desc = "A silver dagger favored by close range fighters of the inquisition."
+	icon_state = "psydagger"
+	melting_material = null
+	sellprice = 60
 	is_silver = TRUE
 
 //................ Profane Dagger ............... //

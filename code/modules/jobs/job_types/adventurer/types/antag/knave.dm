@@ -8,27 +8,27 @@
 
 /datum/outfit/job/bandit/knave/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.mind.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/craft/carpentry, 1, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/climbing, 5, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/sneaking, 4, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/stealing, 4, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/lockpicking, 4, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/craft/traps, 3, TRUE)
-	//H.mind.adjust_skillrank(/datum/skill/misc/tracking, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/carpentry, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/climbing, 5, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/sneaking, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/stealing, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/lockpicking, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/traps, 3, TRUE)
+	//H.adjust_skillrank(/datum/skill/misc/tracking, 3, TRUE)
 	belt = /obj/item/storage/belt/leather
 	pants = /obj/item/clothing/pants/trou/leather
 	shirt = /obj/item/clothing/shirt/shortshirt/random
@@ -52,14 +52,14 @@
 			beltl = /obj/item/weapon/knife/dagger/steel
 			backr = /obj/item/storage/backpack/satchel
 			backpack_contents = list(/obj/item/needle/thorn = 1, /obj/item/natural/cloth = 1, /obj/item/lockpickring/mundane = 1) //rogue gets lockpicks
-			H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 1, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/crossbows, 1, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
 		if("Bow & Sword") //Poacher
 			backl= /obj/item/weapon/shield/tower/buckleriron
 			beltr = /obj/item/weapon/sword/short //steel sword like literally every adventurer gets
 			head = /obj/item/clothing/head/helmet/leather/volfhelm //cool hat
 			backr = /obj/item/storage/backpack/satchel
 			backpack_contents = list(/obj/item/needle/thorn = 1, /obj/item/natural/cloth = 1, /obj/item/restraints/legcuffs/beartrap = 2) //poacher gets mantraps
-			H.mind.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
 			ADD_TRAIT(H, TRAIT_FORAGER, TRAIT_GENERIC)

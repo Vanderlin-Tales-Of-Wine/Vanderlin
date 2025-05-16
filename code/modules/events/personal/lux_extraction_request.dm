@@ -22,7 +22,7 @@
 			continue
 		if(!H.patron || !istype(H.patron, /datum/patron/divine/pestra))
 			continue
-		if(H.mind?.get_skill_level(/datum/skill/misc/medicine) < 3)
+		if(H.get_skill_level(/datum/skill/misc/medicine) < 3)
 			continue
 		return TRUE
 
@@ -36,7 +36,7 @@
 			continue
 		if(!human_mob.patron || !istype(human_mob.patron, /datum/patron/divine/pestra))
 			continue
-		if(human_mob.mind?.get_skill_level(/datum/skill/misc/medicine) < 3)
+		if(human_mob.get_skill_level(/datum/skill/misc/medicine) < 3)
 			continue
 		valid_targets += human_mob
 

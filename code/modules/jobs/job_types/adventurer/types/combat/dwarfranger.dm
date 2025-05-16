@@ -29,19 +29,19 @@
 	if(prob(23))
 		shoes = /obj/item/clothing/shoes/boots/leather
 	cloak = /obj/item/clothing/cloak/raincloak/brown
-	H.mind?.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE) // In line with basic combat classes
-	H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/craft/tanning, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE) // In line with basic combat classes
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/tanning, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/sewing, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 	H.change_stat(STATKEY_PER, 3)
 	H.change_stat(STATKEY_SPD, 1) // Fast... for a dwarf
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC) // Dwarf rangers are no good at dodging, but can wear heavier armor than typical rangers

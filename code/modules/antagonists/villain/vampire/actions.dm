@@ -54,7 +54,7 @@
 	if(length(msg) < 10)
 		to_chat(user, span_userdanger("This not enough to ensnare their mind!"))
 		return FALSE
-	var/bloodskill = user.mind?.get_skill_level(/datum/skill/magic/blood)
+	var/bloodskill = user.get_skill_level(/datum/skill/magic/blood)
 	var/bloodroll = roll(bloodskill, blood_dice)
 	user.say(msg)
 	if(powerful)
@@ -118,8 +118,8 @@
 		to_chat(user, span_userdanger("I fail to ensnare their mind!"))
 
 		if(!powerful && knowledgable)
-			var/holypower = L.mind?.get_skill_level(/datum/skill/magic/holy)
-			var/magicpower = round(L.mind?.get_skill_level(/datum/skill/magic/arcane) * 0.6, 1)
+			var/holypower = L.get_skill_level(/datum/skill/magic/holy)
+			var/magicpower = round(L.get_skill_level(/datum/skill/magic/arcane) * 0.6, 1)
 			var/roll = roll(1 + holypower + magicpower, 5)
 			if(roll > bloodroll)
 				to_chat(L, "I feel like the unholy magic came from [user]. I should use my magic or miracles on them.")
@@ -210,9 +210,9 @@
 
 	// Gain experience towards blood magic
 	var/mob/living/carbon/human/licker = usr
-	var/boon = usr.mind?.get_learning_boon(/datum/skill/magic/blood)
+	var/boon = usr.get_learning_boon(/datum/skill/magic/blood)
 	var/amt2raise = licker.STAINT*2
-	usr.mind.adjust_experience(/datum/skill/magic/blood, floor(amt2raise * boon), FALSE)
+	usr.adjust_experience(/datum/skill/magic/blood, floor(amt2raise * boon), FALSE)
 	VD.adjust_vitae(-500)
 	apply_status_effect(/datum/status_effect/buff/bloodstrength)
 	to_chat(src, "<span class='greentext'>! NIGHT MUSCLES !</span>")
@@ -256,9 +256,9 @@
 		to_chat(src, "<span class='warning'>I can't cast it yet!</span>")
 	// Gain experience towards blood magic
 	var/mob/living/carbon/human/licker = usr
-	var/boon = usr.mind?.get_learning_boon(/datum/skill/magic/blood)
+	var/boon = usr.get_learning_boon(/datum/skill/magic/blood)
 	var/amt2raise = licker.STAINT*2
-	usr.mind.adjust_experience(/datum/skill/magic/blood, floor(amt2raise * boon), FALSE)
+	usr.adjust_experience(/datum/skill/magic/blood, floor(amt2raise * boon), FALSE)
 	VD.adjust_vitae(-500)
 	apply_status_effect(/datum/status_effect/buff/celerity)
 	to_chat(src, "<span class='greentext'>! QUICKENING !</span>")
@@ -304,9 +304,9 @@
 		to_chat(src, "<span class='warning'>I can't cast it yet!</span>")
 	// Gain experience towards blood magic
 	var/mob/living/carbon/human/licker = usr
-	var/boon = usr.mind?.get_learning_boon(/datum/skill/magic/blood)
+	var/boon = usr.get_learning_boon(/datum/skill/magic/blood)
 	var/amt2raise = licker.STAINT*2
-	usr.mind.adjust_experience(/datum/skill/magic/blood, floor(amt2raise * boon), FALSE)
+	usr.adjust_experience(/datum/skill/magic/blood, floor(amt2raise * boon), FALSE)
 	VD.adjust_vitae(-500)
 	apply_status_effect(/datum/status_effect/buff/fortitude)
 	to_chat(src, "<span class='greentext'>! ARMOR OF DARKNESS !</span>")
@@ -384,9 +384,9 @@
 	VD.adjust_vitae(-500)
 	// Gain experience towards blood magic
 	var/mob/living/carbon/human/licker = usr
-	var/boon = usr.mind?.get_learning_boon(/datum/skill/magic/blood)
+	var/boon = usr.get_learning_boon(/datum/skill/magic/blood)
 	var/amt2raise = licker.STAINT*2
-	usr.mind.adjust_experience(/datum/skill/magic/blood, floor(amt2raise * boon), FALSE)
+	usr.adjust_experience(/datum/skill/magic/blood, floor(amt2raise * boon), FALSE)
 	fully_heal(admin_revive = TRUE)
 	licker.grant_undead_eyes()
 	cooldown = TRUE

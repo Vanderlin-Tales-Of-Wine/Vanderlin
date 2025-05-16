@@ -58,6 +58,17 @@
 ///what we're going to eat next
 #define BB_FOOD_TARGET "bb_food_target"
 
+#define BB_MINIONS_TO_SPAWN "fishboss_minions_to_spawn"
+#define BB_NEXT_SUMMON "fishboss_next_summon"
+#define BB_SPAWNED_MOBS "fishboss_spawned_mobs"
+#define BB_RANGED_COOLDOWN "ranged_cooldown"
+#define BB_RAGE_PHASE "fishboss_rage_phase"
+#define BB_FISHBOSS_SPECIAL_COOLDOWN "fishboss_special_cooldown"
+#define BB_FISHBOSS_TIDAL_WAVE_COOLDOWN "fishboss_tidal_wave_cooldown"
+#define BB_FISHBOSS_WHIRLPOOL_COOLDOWN "fishboss_whirlpool_cooldown"
+#define BB_FISHBOSS_DEEP_CALL_COOLDOWN "fishboss_deep_call_cooldown"
+
+
 ///Baby-making blackboard
 ///Types of animal we can make babies with.
 #define BB_BABIES_PARTNER_TYPES "BB_babies_partner"

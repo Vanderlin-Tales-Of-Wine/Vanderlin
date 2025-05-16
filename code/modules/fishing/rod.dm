@@ -338,7 +338,7 @@
 	attacheditems += line
 	attacheditems += baited
 	if(fisher.mind)
-		skillmod = fisher.mind.get_skill_level(/datum/skill/labor/fishing)
+		skillmod = fisher.get_skill_level(/datum/skill/labor/fishing)
 	difficulty = -skillmod
 	linehealth = skillmod + 6
 	hookwindow = skillmod*3 + 4 + average_ping
@@ -485,7 +485,7 @@
 	acceleration = max(acceleration, 1)
 
 
-	var/sl = user.mind.get_skill_level(/datum/skill/labor/fishing) // User's skill level
+	var/sl = user.get_skill_level(/datum/skill/labor/fishing) // User's skill level
 	var/fishing_time = 12 SECONDS //Time to get a catch, in ticks
 	var/fpp =  100 - (40 + (sl * 10)) // Fishing power penalty based on fishing skill level
 
@@ -522,10 +522,10 @@
 							playsound(src.loc, 'sound/items/fishing_plouf.ogg', 100, TRUE)
 							if(!do_after(user, opportunity_window, target))
 								var/mob/living/fisherman = user
-								var/boon = user.mind.get_learning_boon(/datum/skill/labor/fishing)
+								var/boon = user.get_learning_boon(/datum/skill/labor/fishing)
 								caught = TRUE
 								to_chat(user, "<span class='warning'>Reel 'em in!</span>")
-								user.mind.adjust_experience(/datum/skill/labor/fishing, round(fisherman.STAINT * boon, 1), FALSE) // Level up!
+								user.adjust_experience(/datum/skill/labor/fishing, round(fisherman.STAINT * boon, 1), FALSE) // Level up!
 								playsound(src.loc, 'sound/items/Fish_out.ogg', 100, TRUE)
 								if(prob(80 - (sl * 10))) // Higher skill levels make you less likely to lose your bait
 									to_chat(user, "<span class='warning'>Damn, it ate my bait.</span>")
@@ -669,9 +669,11 @@
 	else
 		to_chat(user, "<span class = 'notice'>I pull something out of the water!</span>")
 		playsound(loc, 'sound/items/Fish_out.ogg', 100, TRUE)
-		fisher.mind.adjust_experience(/datum/skill/labor/fishing, clamp(difficulty, 1, 3) * fisher.STAINT)
+		fisher.adjust_experience(/datum/skill/labor/fishing, clamp(difficulty, 1, 3) * fisher.STAINT)
 		if(ispath(fishtype, /obj/item/reagent_containers/food/snacks/fish))
 			var/obj/item/reagent_containers/food/snacks/fish/caughtfish = new fishtype(get_turf(fisher))
+			if(fishrarity != "com")
+				caughtfish.rare = TRUE
 			var/raritydesc
 			var/sizedesc
 
@@ -694,20 +696,6 @@
 							raritydesc = "common"
 							caughtfish.rarity_rank = 0
 					caughtfish.icon_state = "[caughtfish.icon_state][fishrarity]"
-					if(fishrarity != "com")
-						switch(fishtype)
-							if(/obj/item/reagent_containers/food/snacks/fish/carp)
-								caughtfish.fried_type = /obj/item/reagent_containers/food/snacks/fryfish/carp/rare
-								caughtfish.cooked_type = /obj/item/reagent_containers/food/snacks/fryfish/carp/rare
-							if(/obj/item/reagent_containers/food/snacks/fish/eel)
-								caughtfish.fried_type = /obj/item/reagent_containers/food/snacks/fryfish/eel/rare
-								caughtfish.cooked_type = /obj/item/reagent_containers/food/snacks/fryfish/eel/rare
-							if(/obj/item/reagent_containers/food/snacks/fish/angler)
-								caughtfish.fried_type = /obj/item/reagent_containers/food/snacks/fryfish/angler/rare
-								caughtfish.cooked_type = /obj/item/reagent_containers/food/snacks/fryfish/angler/rare
-							if(/obj/item/reagent_containers/food/snacks/fish/clownfish)
-								caughtfish.fried_type = /obj/item/reagent_containers/food/snacks/fryfish/clownfish/rare
-								caughtfish.cooked_type = /obj/item/reagent_containers/food/snacks/fryfish/clownfish/rare
 				else
 					raritydesc = fishrarity
 

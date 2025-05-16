@@ -1,6 +1,7 @@
 /datum/reagent/miasmagas
-	name = "miasmagas"
+	name = "Miasma"
 	description = "."
+	reagent_state = GAS
 	color = "#801E28" // rgb: 128, 30, 40
 	taste_description = "ugly"
 	metabolization_rate = 1
@@ -15,7 +16,7 @@
 	return ..()
 
 /datum/reagent/rogueacid
-	name = "rogueacid"
+	name = "Acid"
 	description = "."
 	reagent_state = LIQUID
 	color = "#5eff00"
@@ -26,14 +27,10 @@
 	M.adjustFireLoss(35, 0)
 	..()
 
-/datum/reagent/phlogiston/on_mob_life(mob/living/carbon/M)
-	M.adjustFireLoss(35, 0)
-	..()
-	return TRUE
-
 /datum/reagent/blastpowder
-	name = "blastpowder"
+	name = "Blastpowder"
 	description = "."
+	reagent_state = SOLID
 	color = "#6b0000"
 	taste_description = "spicy"
 	self_consuming = TRUE

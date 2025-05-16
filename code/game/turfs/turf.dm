@@ -225,7 +225,7 @@
 		return FALSE
 	if(isliving(A))
 		var/mob/living/O = A
-		var/dex_save = O.mind?.get_skill_level(/datum/skill/misc/climbing)
+		var/dex_save = O.get_skill_level(/datum/skill/misc/climbing)
 		if(dex_save >= 5)
 			if(O.m_intent != MOVE_INTENT_SNEAK) // If we're sneaking, don't show a message to anybody, shhh!
 				O.visible_message("<span class='danger'>[A] gracefully lands on top of [src]!</span>")

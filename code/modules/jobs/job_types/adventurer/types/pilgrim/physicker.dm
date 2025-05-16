@@ -26,12 +26,12 @@
 	neck = /obj/item/clothing/neck/phys
 	belt = /obj/item/storage/belt/leather/rope
 
-	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/craft/alchemy, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/medicine, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/alchemy, 1, TRUE)
 	H.change_stat(STATKEY_INT, -1)
 	H.change_stat(STATKEY_SPD, 1)
 	ADD_TRAIT(H, TRAIT_EMPATH, TRAIT_GENERIC)

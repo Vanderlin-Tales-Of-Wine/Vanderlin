@@ -30,10 +30,10 @@
 
 	health = FEMALE_MOOBEAST_HEALTH
 	maxHealth = FEMALE_MOOBEAST_HEALTH
-	food_type = list(/obj/item/reagent_containers/food/snacks/produce/wheat,
-					/obj/item/reagent_containers/food/snacks/produce/oat,
-					/obj/item/reagent_containers/food/snacks/produce/turnip,
-					/obj/item/reagent_containers/food/snacks/produce/cabbage)
+	food_type = list(/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
+					/obj/item/reagent_containers/food/snacks/produce/grain/oat,
+					/obj/item/reagent_containers/food/snacks/produce/vegetable/turnip,
+					/obj/item/reagent_containers/food/snacks/produce/vegetable/cabbage)
 	pooptype = /obj/item/natural/poo/cow
 	milk_reagent = /datum/reagent/consumable/milk
 	tame_chance = 25
@@ -191,10 +191,10 @@
 
 	health = MALE_MOOBEAST_HEALTH
 	maxHealth = MALE_MOOBEAST_HEALTH
-	food_type = list(/obj/item/reagent_containers/food/snacks/produce/wheat,
-					/obj/item/reagent_containers/food/snacks/produce/oat,
-					/obj/item/reagent_containers/food/snacks/produce/turnip,
-					/obj/item/reagent_containers/food/snacks/produce/cabbage)
+	food_type = list(/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
+					/obj/item/reagent_containers/food/snacks/produce/grain/oat,
+					/obj/item/reagent_containers/food/snacks/produce/vegetable/turnip,
+					/obj/item/reagent_containers/food/snacks/produce/vegetable/cabbage)
 	pooptype = /obj/item/natural/poo/cow
 
 	base_intents = list(/datum/intent/simple/headbutt)

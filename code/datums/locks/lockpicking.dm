@@ -30,7 +30,7 @@
 		to_chat(src, span_notice("I need a wedge in order to lockpick \the [P]."))
 		return FALSE
 
-	client.spawn_lockpicking_UI(P, src, L, the_wedge, difficulty, KL.get_string_difficulty(), mind?.get_skill_level(/datum/skill/misc/lockpicking))
+	client.spawn_lockpicking_UI(P, src, L, the_wedge, difficulty, KL.get_string_difficulty(), user.get_skill_level(/datum/skill/misc/lockpicking))
 	visible_message(span_warning("[src] starts to pick the lock of \the [P]!"), span_notice("I start to pick the lock of \the [P]..."))
 	return TRUE
 
