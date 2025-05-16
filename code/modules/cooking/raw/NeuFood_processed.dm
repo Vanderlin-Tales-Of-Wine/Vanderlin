@@ -50,7 +50,7 @@
 // -------------- TIEFLING SUGAR -----------------
 /obj/item/reagent_containers/food/snacks/tiefsugar
 	name = "Tiefling Sugar"
-	desc ="Sugar that has had tiefling blood dried into it, would make a nice tea"
+	desc ="Originating from subterra, Tiefling blood that has been expertly dried and mixed into a sugar base, sweetens when boiled."
 	icon = 'icons/roguetown/items/produce.dmi'
 	icon_state = "tsugar"
 	tastes = list("sweet" = 1)
