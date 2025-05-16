@@ -62,5 +62,5 @@
 	name = "blacksteel chausses"
 	armor = ARMOR_PLATE_BLACKSTEEL
 	item_weight = 9 * BLACKSTEEL_MULTIPLIER
-	integrity = INTEGRITY_STRONGEST
+	max_integrity = INTEGRITY_STRONGEST
 	prevent_crits = ALL
