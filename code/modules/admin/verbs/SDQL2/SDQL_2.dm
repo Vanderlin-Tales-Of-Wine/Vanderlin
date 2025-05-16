@@ -531,7 +531,22 @@ GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/SDQL2_VV_all, new(null
 			if(length(select_text))
 				var/text = islist(select_text)? select_text.Join() : select_text
 				var/static/result_offset = 0
-				showmob << browse(text, "window=SDQL-result-[result_offset++]")
+				var/dat
+				dat = {"
+				<!DOCTYPE html>
+				<html lang="en">
+				<meta charset='UTF-8'>
+				<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'/>
+				<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+
+				<html>
+				<head><title>SDQL-result</title></head>
+				<body>
+				[text]
+				</body>
+				</html>
+				"}
+				showmob << browse(dat,"window=SDQL-result-[result_offset++]")
 	show_next_to_key = null
 	if(qdel_on_finish)
 		qdel(src)
