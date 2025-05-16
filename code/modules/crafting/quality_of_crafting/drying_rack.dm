@@ -194,3 +194,19 @@
 	craft_time = 1.5 SECONDS
 	crafting_message = "starts making some parchment"
 	craftdiff = 0
+
+/datum/repeatable_crafting_recipe/tiefsugar
+	name = "tiefling sugar"
+	output = /obj/item/reagent_containers/food/snacks/tiefsugar
+	output_amount = 1
+	requirements = list(
+		/obj/item/reagent_containers/food/snacks/sugar = 1,
+	)
+	reagent_requirements = list(
+		/datum/reagent/blood/tiefling = 11
+	)
+	attacked_atom = /obj/machinery/tanningrack
+
+	craft_time = 2.5 SECONDS
+	crafting_message = "starts mixing the blood"
+	craftdiff = 1
