@@ -79,7 +79,7 @@
 	finished_smell = /datum/pollutant/food/druqks
 
 /datum/container_craft/cooking/tea/tiefbloodtea
-		name = "Tiefing Blood Tea"
+	name = "Tiefing Blood Tea"
 	crafting_time = 120 SECONDS
 	water_conversion = 0.8
 	created_reagent = /datum/reagent/consumable/tea/tiefbloodtea
