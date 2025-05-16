@@ -357,12 +357,6 @@
 /obj/structure/spider/stickyweb,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cavewet)
-"it" = (
-/obj/structure/mineral_door/wood{
-	lockid = "Ship3"
-	},
-/turf/open/floor/ruinedwood/darker,
-/area/rogue/under/cavewet)
 "iz" = (
 /obj/structure/fermentation_keg,
 /obj/structure/spider/stickyweb{
@@ -582,8 +576,8 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cavewet)
 "nw" = (
-/obj/structure/mineral_door/wood,
 /obj/machinery/light/fueled/wallfire/candle,
+/obj/structure/door/red,
 /turf/open/floor/ruinedwood,
 /area/rogue/under/cavewet)
 "nz" = (
@@ -690,7 +684,7 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cavewet)
 "qT" = (
-/obj/structure/mineral_door/wood,
+/obj/structure/door/red,
 /turf/open/floor/ruinedwood,
 /area/rogue/under/cavewet)
 "rh" = (
@@ -1816,7 +1810,7 @@
 	},
 /area/rogue/under/cavewet)
 "TN" = (
-/obj/structure/mineral_door/wood,
+/obj/structure/door/red,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cavewet)
 "TW" = (
@@ -1903,7 +1897,7 @@
 /area/rogue/under/cavewet)
 "Vz" = (
 /obj/effect/mapping_helpers/secret_door_creator{
-	redstone_id = "Ship1";
+	redstone_id = "Ship2";
 	floor_turf = /turf/open/floor/ruinedwood
 	},
 /turf/closed/wall/mineral/wooddark,
@@ -1985,12 +1979,6 @@
 /obj/effect/spawner/map_spawner/loot/common,
 /obj/effect/spawner/map_spawner/loot/common,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue/under/cavewet)
-"Yb" = (
-/obj/structure/mineral_door/wood{
-	lockid = "Ship3"
-	},
-/turf/open/floor/ruinedwood,
 /area/rogue/under/cavewet)
 "Ym" = (
 /obj/item/bin/water,
@@ -2798,7 +2786,7 @@ cF
 Ky
 Ky
 Ky
-it
+TN
 Ky
 Ky
 Ky
@@ -3634,7 +3622,7 @@ ro
 eN
 mL
 cF
-TN
+sc
 Ky
 Ky
 Ky
@@ -3642,7 +3630,7 @@ Ky
 Ky
 Ky
 Ky
-TN
+sc
 cF
 mL
 mL
@@ -3762,10 +3750,10 @@ mL
 cF
 Zl
 Ky
-it
+TN
 Ky
 Ky
-Yb
+qT
 Ky
 Ky
 Te
@@ -3847,10 +3835,10 @@ cF
 cF
 Ky
 KY
-Yb
+qT
 Ky
 Ky
-Yb
+qT
 Ky
 pe
 cF
