@@ -1146,7 +1146,7 @@
 "Do" = (
 /obj/structure/window/openclose,
 /obj/machinery/light/fueled/wallfire/candle/blue,
-/turf/closed/indestructible/wooddark/hull,
+/turf/closed/basic,
 /area/rogue/under/cavewet)
 "Dq" = (
 /obj/structure/statue/bone/skull/half,
@@ -1788,7 +1788,7 @@
 /area/rogue/under/cavewet)
 "Tj" = (
 /obj/structure/window/openclose,
-/turf/closed/indestructible/wooddark/hull,
+/turf/closed/basic,
 /area/rogue/under/cavewet)
 "Tp" = (
 /obj/structure/fluff/railing/border{
