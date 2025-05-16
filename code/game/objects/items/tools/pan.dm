@@ -16,7 +16,7 @@
 
 /obj/item/cooking/pan/Initialize()
 	. = ..()
-	AddComponent(/datum/component/storage/concrete/grid/pan)
+	AddComponent(/datum/component/storage/concrete/grid/food/cooking/pan)
 	AddComponent(/datum/component/container_craft, subtypesof(/datum/container_craft/pan))
 	AddComponent(/datum/component/food_burner, 2 MINUTES, TRUE, CALLBACK(src, PROC_REF(can_burn)))
 
@@ -49,3 +49,17 @@
 		var/obj/item/our_item = contents[i]
 		src.add_to_visible(our_item)
 
+/obj/item/cooking/pan/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
+	. = ..()
+	if(.)
+		return
+	var/list/obj/item/oldContents = contents.Copy()
+	if(!length(oldContents))
+		return
+	SEND_SIGNAL(src, COMSIG_TRY_STORAGE_QUICK_EMPTY)
+	var/generator/scatter_gen = generator(GEN_CIRCLE, 0, 48, NORMAL_RAND)
+	for(var/obj/item/scattered_item as anything in oldContents)
+		var/list/scatter_vector = scatter_gen.Rand()
+		scattered_item.pixel_x = scatter_vector[1]
+		scattered_item.pixel_y = scatter_vector[2]
+		scattered_item.throw_impact(hit_atom, throwingdatum)

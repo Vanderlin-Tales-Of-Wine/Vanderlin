@@ -20,7 +20,7 @@
 		recipe_list -= /datum/container_craft/cooking/generic_meat_stew
 		recipe_list += /datum/container_craft/cooking/generic_meat_stew
 
-	AddComponent(/datum/component/storage/concrete/grid/pan)
+	AddComponent(/datum/component/storage/concrete/grid/food/cooking/pot)
 	AddComponent(/datum/component/container_craft, recipe_list, TRUE)
 
 /obj/item/reagent_containers/glass/bucket/pot/copper
