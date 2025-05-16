@@ -168,7 +168,7 @@
 /obj/structure/door/attackby(obj/item/I, mob/user)
 	if(switching_states)
 		return
-	if(repairable && (user.mind?.get_skill_level(repair_skill) > 0) && ((istype(I, repair_cost_first)) || (istype(I, repair_cost_second)))) // At least 1 skill level needed
+	if(repairable && (user.get_skill_level(repair_skill) > 0) && ((istype(I, repair_cost_first)) || (istype(I, repair_cost_second)))) // At least 1 skill level needed
 		repairdoor(I, user)
 		return
 	return ..()

@@ -30,7 +30,7 @@
 		to_chat(src, span_notice("I need a wedge in order to lockpick \the [P]."))
 		return FALSE
 
-	client.spawn_lockpicking_UI(P, src, L, the_wedge, difficulty, KL.get_string_difficulty(), user.get_skill_level(/datum/skill/misc/lockpicking))
+	client.spawn_lockpicking_UI(P, src, L, the_wedge, difficulty, KL.get_string_difficulty(), get_skill_level(/datum/skill/misc/lockpicking))
 	visible_message(span_warning("[src] starts to pick the lock of \the [P]!"), span_notice("I start to pick the lock of \the [P]..."))
 	return TRUE
 
@@ -50,8 +50,8 @@
 	playsound(loc, 'sound/items/LPWin.ogg', 150 - (15 * skill_level))
 
 	var/amt2raise = user.STAINT + (50 / difficulty)
-	var/boon = user.mind?.get_learning_boon(/datum/skill/misc/lockpicking)
-	user.mind?.adjust_experience(/datum/skill/misc/lockpicking, amt2raise * boon)
+	var/boon = user.get_learning_boon(/datum/skill/misc/lockpicking)
+	user.adjust_experience(/datum/skill/misc/lockpicking, amt2raise * boon)
 	return TRUE
 
 /obj/proc/finish_lockpicking(mob/living/user)
