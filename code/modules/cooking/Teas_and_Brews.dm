@@ -134,7 +134,7 @@
 	color = "#bd201b"
 	nutriment_factor = 1
 	metabolization_rate = 0.6 // 60% of normal metab
-	taste_description = "delightfully sweet, with a smoky after-taste"
+	taste_description = "something delightfully sweet, with a smoky aftertaste"
 	taste_mult = 4
 	hydration_factor = 1
 	nutriment_factor = 2
