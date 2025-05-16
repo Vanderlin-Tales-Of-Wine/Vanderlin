@@ -69,6 +69,7 @@
 	anvilrepair = /datum/skill/craft/blacksmithing
 	smeltresult = /obj/item/ingot/blacksteel
 	item_weight = 12 * BLACKSTEEL_MULTIPLIER
+	armor = ARMOR_PLATE_BLACKSTEEL
 
 //................ Deccorated Half-plate ............... //
 
