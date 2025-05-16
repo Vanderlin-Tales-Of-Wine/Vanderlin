@@ -57,3 +57,10 @@
 	armor = ARMOR_PLATE_GOOD
 	prevent_crits = ALL_CRITICAL_HITS_VAMP // Vampire armors don't protect against lashing, Castlevania reference
 	item_weight = 5.5 * STEEL_MULTIPLIER
+
+/obj/item/clothing/pants/platelegs/blk
+	name = "blacksteel chausses"
+	armor = ARMOR_PLATE_BLACKSTEEL
+	item_weight = 9 * BLACKSTEEL_MULTIPLIER
+	integrity = INTEGRITY_STRONGEST
+	prevent_crits = ALL
