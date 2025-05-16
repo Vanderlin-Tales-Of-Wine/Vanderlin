@@ -69,6 +69,7 @@
 	smeltresult = /obj/item/ingot/blacksteel
 	item_weight = 12 * BLACKSTEEL_MULTIPLIER
 	armor = ARMOR_PLATE_BLACKSTEEL
+	prevent_crits = ALL
 
 //................ Deccorated Half-plate ............... //
 
