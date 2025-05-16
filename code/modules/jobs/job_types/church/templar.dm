@@ -112,7 +112,7 @@
 			head = /obj/item/clothing/head/helmet/heavy/necked/astrata
 			cloak = /obj/item/clothing/cloak/stabard/templar/astrata
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
-			H.mind?.adjust_skillrank(/datum/skill/combat/swords, 5, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/swords, 5, TRUE)
 			var/obj/item/weapon/sword/long/exe/astrata/P = new()
 			H.equip_to_appropriate_slot(P)
 		if(/datum/patron/divine/noc)
@@ -120,7 +120,7 @@
 			head = /obj/item/clothing/head/helmet/heavy/necked/noc
 			cloak = /obj/item/clothing/cloak/stabard/templar/noc
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
-			H.mind?.adjust_skillrank(/datum/skill/combat/swords, 5, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/swords, 5, TRUE)
 			var/obj/item/weapon/sword/sabre/noc/P = new()
 			H.equip_to_appropriate_slot(P)
 		if(/datum/patron/divine/dendor)
@@ -128,7 +128,7 @@
 			head = /obj/item/clothing/head/helmet/heavy/necked/dendorhelm
 			cloak = /obj/item/clothing/cloak/stabard/templar/dendor
 			H.cmode_music = 'sound/music/cmode/garrison/CombatForestGarrison.ogg'
-			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 5, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/polearms, 5, TRUE)
 			var/obj/item/weapon/polearm/halberd/bardiche/dendor/P = new()
 			H.equip_to_appropriate_slot(P)
 		if(/datum/patron/divine/necra)
@@ -136,7 +136,7 @@
 			head = /obj/item/clothing/head/helmet/heavy/necked/necra
 			cloak = /obj/item/clothing/cloak/stabard/templar/necra
 			H.cmode_music = 'sound/music/cmode/church/CombatGravekeeper.ogg'
-			H.mind?.adjust_skillrank(/datum/skill/combat/whipsflails, 5, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/whipsflails, 5, TRUE)
 			var/obj/item/weapon/flail/sflail/necraflail/P = new()
 			H.equip_to_appropriate_slot(P)
 		if(/datum/patron/divine/pestra)
@@ -145,8 +145,8 @@
 			cloak = /obj/item/clothing/cloak/stabard/templar/pestra
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
 			beltr = /obj/item/reagent_containers/glass/bottle/poison //Jackberry poison, Pestrans are Alchemists, Physicians.
-			H.mind?.adjust_skillrank(/datum/skill/combat/knives, 5, TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/craft/alchemy, 2, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/knives, 5, TRUE)
+			H.adjust_skillrank(/datum/skill/craft/alchemy, 2, TRUE)
 			var/obj/item/weapon/knife/dagger/steel/pestrasickle/P = new()
 			H.equip_to_appropriate_slot(P)
 			var/obj/item/weapon/knife/dagger/steel/pestrasickle/L = new()
@@ -159,7 +159,7 @@
 			H.cmode_music = 'sound/music/cmode/church/CombatEora.ogg'
 			H.virginity = FALSE
 			ADD_TRAIT(H, TRAIT_BEAUTIFUL, TRAIT_GENERIC)
-			H.mind?.adjust_skillrank(/datum/skill/combat/swords, 5, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/swords, 5, TRUE)
 			var/obj/item/weapon/sword/rapier/eora/P = new()
 			H.equip_to_appropriate_slot(P)
 		if(/datum/patron/divine/ravox)
@@ -167,7 +167,7 @@
 			head = /obj/item/clothing/head/helmet/heavy/necked/ravox
 			cloak = /obj/item/clothing/cloak/stabard/templar/ravox
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander2.ogg'
-			H.mind?.adjust_skillrank(/datum/skill/combat/swords, 5, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/swords, 5, TRUE)
 			var/obj/item/weapon/sword/long/ravox/P = new()
 			H.equip_to_appropriate_slot(P)
 		if(/datum/patron/divine/malum)
@@ -175,20 +175,20 @@
 			head = /obj/item/clothing/head/helmet/heavy/necked/malumhelm
 			cloak = /obj/item/clothing/cloak/stabard/templar/malum
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander2.ogg'
-			H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 5, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/axesmaces, 5, TRUE)
 			var/obj/item/weapon/mace/goden/steel/malum/P = new()
 			H.put_in_hands(P, forced = TRUE)
 		if(/datum/patron/divine/abyssor)
 			wrists = /obj/item/clothing/neck/psycross/silver/abyssor
 			cloak = /obj/item/clothing/cloak/stabard/templar/abyssor
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
-			H.mind?.adjust_skillrank(/datum/skill/labor/fishing, 1, TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 5, TRUE)
+			H.adjust_skillrank(/datum/skill/labor/fishing, 1, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/polearms, 5, TRUE)
 			var/obj/item/weapon/polearm/spear/abyssor/P = new()
 			H.equip_to_appropriate_slot(P)
 		if(/datum/patron/divine/xylix)
 			wrists = /obj/item/clothing/neck/psycross/silver/xylix
-			H.mind?.adjust_skillrank(/datum/skill/combat/whipsflails, 5, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/whipsflails, 5, TRUE)
 			var/obj/item/weapon/whip/xylix/P = new()
 			H.equip_to_appropriate_slot(P)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
