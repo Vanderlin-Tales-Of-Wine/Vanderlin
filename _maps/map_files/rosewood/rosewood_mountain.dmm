@@ -507,6 +507,9 @@
 /obj/structure/fluff/railing/border,
 /turf/open/floor/herringbone,
 /area/rogue/under/mountains/anvil/dungeon)
+"eo" = (
+/turf/closed,
+/area/rogue/under/mountains/anvil/lower)
 "ep" = (
 /obj/structure/fluff/walldeco/vinez/blue,
 /turf/closed/wall/mineral/decostone/long,
@@ -3778,6 +3781,13 @@
 /obj/structure/bars/cemetery,
 /turf/open/floor/grass/red,
 /area/rogue/under/mountains/anvil/dungeon/lower)
+"EP" = (
+/obj/structure/fluff/traveltile{
+	aportalid = "Rosewood_mountain1";
+	aportalgoesto = "Rosewood_marsh1"
+	},
+/turf/open/floor/naturalstone,
+/area/rogue/under/mountains/anvil/lower)
 "ER" = (
 /obj/structure/spider/stickyweb{
 	dir = 1
@@ -45280,13 +45290,13 @@ Bk
 Bk
 Bk
 Bk
-Bk
-az
-az
-az
-Bk
-Bk
-Bk
+iK
+iK
+iK
+iK
+iK
+iK
+iK
 Bk
 Bk
 az
@@ -45484,12 +45494,12 @@ az
 az
 az
 az
-Bk
-az
-az
-az
-az
-az
+iK
+iK
+iK
+iK
+iK
+iK
 az
 Bk
 Bk
@@ -45685,12 +45695,12 @@ az
 az
 az
 Bk
-Bk
-Bk
-Bk
-Bk
-az
-az
+iK
+iK
+iK
+iK
+iK
+iK
 az
 az
 Bk
@@ -45886,13 +45896,13 @@ az
 az
 az
 Bk
-az
-az
-az
-az
-az
-az
-az
+iK
+iK
+iK
+iK
+iK
+iK
+iK
 az
 az
 az
@@ -46088,12 +46098,12 @@ az
 az
 az
 Bk
-Bk
-Bk
-Bk
-Bk
-Bk
-Bk
+iK
+iK
+iK
+iK
+iK
+iK
 Bk
 Bk
 Bk
@@ -46291,11 +46301,11 @@ Bk
 Bk
 Bk
 az
-az
-az
-az
-Bk
-az
+iK
+iK
+iK
+iK
+iK
 az
 az
 az
@@ -46493,11 +46503,11 @@ Bk
 Bk
 Bk
 Bk
-Bk
-Bk
-Bk
-Bk
-Bk
+aD
+EP
+EP
+EP
+aD
 Bk
 Bk
 Bk
@@ -46696,9 +46706,9 @@ aD
 aD
 aD
 aD
-aD
-aD
-aD
+eo
+eo
+eo
 aD
 aD
 aD

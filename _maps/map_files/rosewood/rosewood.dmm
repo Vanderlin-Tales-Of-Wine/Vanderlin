@@ -258,12 +258,12 @@
 /turf/open/floor/hexstone,
 /area/rogue/indoors/villagegarrison)
 "ahW" = (
+/mob/living/simple_animal/hostile/retaliate/spider,
 /obj/structure/spider/stickyweb,
-/obj/structure/spider/stickyweb/solo,
 /obj/structure/spider/stickyweb{
-	dir = 8
+	dir = 1
 	},
-/turf/open/floor/greenstone,
+/turf/open/water/sewer,
 /area/rogue/under/town/sewer)
 "aia" = (
 /obj/structure/chair/wood/alt/chair3,
@@ -7281,9 +7281,9 @@
 "egJ" = (
 /obj/structure/spider/stickyweb,
 /obj/structure/spider/stickyweb{
-	dir = 8
+	dir = 1
 	},
-/turf/open/floor/blocks/paving,
+/turf/open/floor/greenstone,
 /area/rogue/under/town/sewer)
 "egM" = (
 /obj/structure/bed/wool,
@@ -8023,9 +8023,10 @@
 /turf/open/floor/cobblerock/snow,
 /area/rogue/outdoors/town/roofs)
 "eEG" = (
-/obj/structure/spider/stickyweb,
-/obj/structure/spider/stickyweb/solo,
-/turf/open/floor/greenstone,
+/obj/structure/spider/stickyweb{
+	dir = 1
+	},
+/turf/open/floor/blocks/paving,
 /area/rogue/under/town/sewer)
 "eEH" = (
 /obj/machinery/light/fueled/torchholder{
@@ -15953,6 +15954,9 @@
 	pixel_x = 10;
 	pixel_y = -4
 	},
+/obj/structure/fake_machine/atm{
+	pixel_y = -32
+	},
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/steward)
 "jjI" = (
@@ -21018,14 +21022,10 @@
 /turf/closed/wall/mineral/pipe,
 /area/rogue/indoors/town/tavern)
 "mgv" = (
-/obj/structure/spider/stickyweb,
 /obj/structure/spider/stickyweb{
-	dir = 8
+	dir = 1
 	},
-/obj/structure/spider/stickyweb{
-	dir = 8
-	},
-/turf/open/floor/blocks/paving,
+/turf/open/water/sewer,
 /area/rogue/under/town/sewer)
 "mgx" = (
 /obj/structure/door/iron/bars,
@@ -23228,10 +23228,7 @@
 /area/rogue/outdoors/town/roofs)
 "nrC" = (
 /obj/structure/spider/stickyweb,
-/obj/structure/spider/stickyweb{
-	dir = 8
-	},
-/turf/open/floor/greenstone,
+/turf/open/floor/blocks/paving,
 /area/rogue/under/town/sewer)
 "nsn" = (
 /obj/structure/chair/wood/alt/chair_noble/purple{
@@ -23679,6 +23676,17 @@
 	},
 /turf/open/floor/tile/bfloorz,
 /area/rogue/indoors/town/bath)
+"nFj" = (
+/obj/structure/table/wood{
+	dir = 9;
+	icon_state = "largetable"
+	},
+/obj/item/book{
+	name = "Mythos of Dekseer";
+	desc = "This book holds the tale of a terrible Dracolich. Behold his rotting meat, his white bones, and his grinning teeth. Long past are the days of this dragon's flight for which the one who shall not be named has claimed this dragon in its death and has brought it to undeath! The creature of death is nothing more than a brute, a hulk, a monster who hurls rocks and rages like a troll. Long gone are the graceful movements of this dragon, now it resides in that marsh awaiting its swift death from a mighty hero!"
+	},
+/turf/open/floor/carpet,
+/area/rogue/indoors/town/tavern)
 "nFk" = (
 /obj/machinery/light/fueled/firebowl/standing,
 /turf/open/floor/dirt,
@@ -24918,9 +24926,9 @@
 "oll" = (
 /obj/structure/spider/stickyweb,
 /obj/structure/spider/stickyweb{
-	dir = 8
+	dir = 1
 	},
-/turf/open/water/sewer,
+/turf/open/floor/blocks/paving,
 /area/rogue/under/town/sewer)
 "olm" = (
 /obj/structure/door/fancy{
@@ -29339,6 +29347,12 @@
 "qJl" = (
 /turf/closed/mineral,
 /area/rogue/under/cave)
+"qJo" = (
+/obj/structure/spider/stickyweb{
+	dir = 1
+	},
+/turf/open/floor/greenstone,
+/area/rogue/under/town/sewer)
 "qJr" = (
 /obj/effect/mapping_helpers/door/locker,
 /obj/structure/door{
@@ -29870,9 +29884,8 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town)
 "qXS" = (
-/obj/structure/spider/stickyweb,
 /mob/living/simple_animal/hostile/retaliate/spider,
-/turf/open/floor/greenstone,
+/turf/open/water/sewer,
 /area/rogue/under/town/sewer)
 "qXY" = (
 /obj/structure/stairs,
@@ -35568,10 +35581,9 @@
 "uhc" = (
 /obj/structure/spider/stickyweb,
 /obj/structure/spider/stickyweb{
-	dir = 8
+	dir = 1
 	},
-/mob/living/simple_animal/hostile/retaliate/spider,
-/turf/open/floor/greenstone,
+/turf/open/water/sewer,
 /area/rogue/under/town/sewer)
 "uhq" = (
 /obj/structure/fluff/walldeco/painting{
@@ -42629,7 +42641,7 @@
 	},
 /obj/item/book{
 	name = "Mythos of Tsere";
-	desc = "A mythos book describing of a red dragon named Tsere and how this dragon destroyed an ancient city in the mountains nearby."
+	desc = "The book holds a tale of a dragon. Tsere the mighty and tyrant, her rule ended many of those who fell before her gaze of fire. Her strength is stronger than any other dragon. She is the beholder of all that she sees in the mountains. Her tyranny is bound to the endless maze like city that she resides in. It was the last good thing those ancient elves did before they kicked the bucket."
 	},
 /turf/open/floor/carpet,
 /area/rogue/indoors/town/tavern)
@@ -63406,7 +63418,7 @@ tbq
 rbI
 rbI
 rbI
-ids
+nrC
 ids
 qRF
 qRF
@@ -63606,9 +63618,9 @@ qRF
 qRF
 qRF
 qRF
-qRF
-ids
-ids
+mRh
+oll
+oll
 qRF
 qRF
 qRF
@@ -63809,10 +63821,10 @@ ids
 ids
 qRF
 qRF
-qRF
-qRF
-qRF
-qRF
+mRh
+uhc
+uhc
+uhc
 wDN
 qRF
 qRF
@@ -64012,9 +64024,9 @@ ids
 qRF
 qRF
 qRF
-qRF
-qRF
-qRF
+mRh
+uhc
+uhc
 wDN
 wDN
 wDN
@@ -64214,10 +64226,10 @@ ids
 tuM
 qRF
 qRF
-qRF
-qRF
-qRF
-tuM
+mRh
+mRh
+uhc
+egJ
 rbI
 wDN
 rLE
@@ -64413,13 +64425,13 @@ uqd
 uqd
 wDN
 wDN
-tuM
-tuM
+utg
+egJ
+uhc
+mRh
 qRF
 qRF
-qRF
-qRF
-tuM
+iOT
 wDN
 wDN
 rLE
@@ -64616,12 +64628,12 @@ uqd
 sKt
 wDN
 rbI
-tuM
+egJ
+mRh
 qRF
 qRF
-qRF
-qRF
-tuM
+mRh
+egJ
 wDN
 rbI
 rLE
@@ -64818,12 +64830,12 @@ uqd
 sKt
 wDN
 rbI
-tuM
+egJ
 qRF
 qRF
 qRF
-qRF
-tuM
+uhc
+egJ
 wDN
 rbI
 rbI
@@ -65023,9 +65035,9 @@ tuM
 tuM
 qRF
 qRF
-qRF
-qRF
-tuM
+mRh
+uhc
+egJ
 wDN
 rbI
 rbI
@@ -65220,13 +65232,13 @@ fWZ
 hDC
 uqd
 rbI
+utg
 tuM
-tuM
 qRF
 qRF
-qRF
-qRF
-qRF
+mgv
+uhc
+ahW
 rbI
 wDN
 rbI
@@ -65421,14 +65433,14 @@ mdy
 lUP
 uqd
 uqd
-tuM
-tuM
-qRF
-qRF
-qRF
-ids
-qRF
-qRF
+utg
+egJ
+uhc
+qXS
+mRh
+nrC
+mRh
+mRh
 rbI
 wDN
 wDN
@@ -65625,10 +65637,10 @@ tuM
 tuM
 tuM
 qRF
-qRF
-qRF
-ids
-ids
+uhc
+uhc
+nrC
+nrC
 rbI
 rbI
 rbI
@@ -65828,8 +65840,8 @@ qRF
 qRF
 qRF
 qRF
-ids
-ids
+eEG
+oll
 rbI
 rbI
 rbI
@@ -66031,7 +66043,7 @@ qRF
 qRF
 qRF
 tuM
-tuM
+qJo
 rbI
 rbI
 wZR
@@ -66832,8 +66844,8 @@ qRF
 tuM
 tuM
 tuM
-qXS
-xsU
+tuM
+tuM
 wDN
 wDN
 wDN
@@ -67034,9 +67046,9 @@ qRF
 qRF
 qRF
 qRF
-mRh
-nrC
-ahW
+qRF
+tuM
+tuM
 rbI
 wDN
 wDN
@@ -67235,8 +67247,8 @@ qRF
 qRF
 ids
 ids
-utg
-oll
+tuM
+qRF
 qRF
 tuM
 tuM
@@ -67437,8 +67449,8 @@ qRF
 qRF
 ids
 rbI
-nrC
-utg
+tuM
+tuM
 qRF
 qRF
 tuM
@@ -67843,7 +67855,7 @@ rbI
 rbI
 rbI
 rbI
-iOT
+tuM
 qRF
 tuM
 wDN
@@ -68249,7 +68261,7 @@ ids
 ids
 qRF
 qRF
-nrC
+tuM
 wDN
 rbI
 tuM
@@ -68446,12 +68458,12 @@ tuM
 qRF
 qRF
 tuM
-nrC
-eEG
+tuM
+tuM
 qRF
 qRF
-utg
-nrC
+tuM
+tuM
 wDN
 wDN
 tuM
@@ -68649,10 +68661,10 @@ qRF
 qRF
 qRF
 qRF
-mRh
+qRF
 qRF
 tuM
-uhc
+tuM
 rbI
 rbI
 wDN
@@ -68851,8 +68863,8 @@ qRF
 qRF
 tuM
 ids
-mgv
-egJ
+ids
+ids
 ids
 rbI
 wDN
@@ -99564,7 +99576,7 @@ ajT
 lDc
 gDj
 gDj
-nyl
+nFj
 cgg
 wZA
 jyc
