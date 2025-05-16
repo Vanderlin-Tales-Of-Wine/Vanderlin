@@ -59,7 +59,7 @@
 	item_weight = 12 * IRON_MULTIPLIER
 
 /obj/item/clothing/armor/plate/blkknight
-	name = "blacksteel plate"
+	name = "blacksteel cuirass"
 	body_parts_covered = COVERAGE_ALL_BUT_LEGS
 	icon_state = "bkarmor"
 	icon = 'icons/roguetown/clothing/special/blkknight.dmi'
