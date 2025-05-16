@@ -156,7 +156,7 @@
 	if(user.used_intent.type == /datum/intent/snip && istype(O, /obj/item))
 		var/obj/item/item = O
 		if(item.sewrepair && item.salvage_result) // We can only salvage objects which can be sewn!
-			var/skill_level = user.mind.get_skill_level(/datum/skill/misc/sewing)
+			var/skill_level = user.get_skill_level(/datum/skill/misc/sewing)
 			var/salvage_time = (7 SECONDS - (skill_level * 10))
 			if(!do_after(user, salvage_time, user))
 				return

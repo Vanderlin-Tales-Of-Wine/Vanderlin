@@ -128,8 +128,85 @@
 						break
 				if(foundstab)
 					var/prob2spoil = 33
-					if(user.mind.get_skill_level(/datum/skill/craft/cooking))
+					if(user.get_skill_level(/datum/skill/craft/cooking))
 						prob2spoil = 1
+
+					// Check for container craft recipes first
+					var/list/possible_recipes = list()
+					for(var/recipe_type in subtypesof(/datum/container_craft/pan))
+						var/datum/container_craft/recipe = new recipe_type
+						if(recipe.used_skill != /datum/skill/craft/cooking)
+							continue // Only want cooking recipes
+
+						// Check if our food item matches any recipe requirement
+						var/matches_recipe = FALSE
+						if(length(recipe.requirements) == 1)
+							for(var/required_type in recipe.requirements)
+								if(istype(W, required_type))
+									matches_recipe = TRUE
+									break
+
+						if(!matches_recipe && length(recipe.wildcard_requirements) == 1)
+							for(var/wildcard_path in recipe.wildcard_requirements)
+								if(istype(W, wildcard_path))
+									matches_recipe = TRUE
+									break
+
+						if(matches_recipe)
+							possible_recipes += recipe
+
+					// If we found valid recipes, let the user choose
+					if(length(possible_recipes))
+						var/datum/container_craft/chosen_recipe
+						if(length(possible_recipes) == 1)
+							chosen_recipe = possible_recipes[1]
+						else
+							var/list/recipe_names = list()
+							for(var/datum/container_craft/R in possible_recipes)
+								recipe_names[R.name] = R
+
+							var/choice
+							if(length(recipe_names) > 1)
+								choice = input(user, "Choose a recipe to make:", "Recipe Selection") as null|anything in recipe_names
+							else
+								choice = recipe_names[1]
+							if(!choice)
+								return FALSE
+							chosen_recipe = recipe_names[choice]
+
+						user.visible_message("<span class='notice'>[user] starts to cook [W] over [src].</span>")
+						if(do_after(user, chosen_recipe.crafting_time || (4 SECONDS), src))
+							var/obj/item/result
+							if(prob(prob2spoil))
+								var/obj/item/reagent_containers/food/snacks/S = W
+								user.visible_message("<span class='warning'>[user] burns [S].</span>")
+								if(user.client?.prefs.showrolls)
+									to_chat(user, "<span class='warning'>Critfail... [prob2spoil]%.</span>")
+								result = S.cooking(1000, null)
+							else if(chosen_recipe.output)
+								result = new chosen_recipe.output(get_turf(user))
+
+								if(istype(result, /obj/item/reagent_containers/food/snacks))
+									var/obj/item/reagent_containers/food/snacks/food_result = result
+									var/skill_modifier = 1.0
+									var/skill_level = user.get_skill_level(chosen_recipe.used_skill)
+
+									if(skill_level)
+										skill_modifier += (skill_level * 0.2) // Increase quality by 20% per skill level
+
+									// Apply the recipe's quality modifier alongside skill
+									food_result.quality = food_result.quality * skill_modifier * chosen_recipe.quality_modifier
+
+								user.dropItemToGround(W, TRUE)
+								qdel(W)
+
+								user.put_in_hands(result)
+								user.visible_message("<span class='notice'>[user] finishes cooking [result].</span>")
+								to_chat(user, "<span class='notice'>[chosen_recipe.complete_message]</span>")
+								return TRUE
+						return FALSE
+
+					// Fall back to normal cooking if no container recipe matches
 					user.visible_message("<span class='notice'>[user] starts to cook [W] over [src].</span>")
 					for(var/i in 1 to 6)
 						if(do_after(user, 3 SECONDS, src))
@@ -150,7 +227,7 @@
 								break
 						else
 							break
-					return
+					return TRUE
 	if(W.firefuel)
 		if(initial(fueluse))
 			if(fueluse > initial(fueluse) - 5 SECONDS)

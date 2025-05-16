@@ -137,7 +137,7 @@
 	if(!user.hud_used.reads)
 		return
 	if(!user.can_read(src))
-		user.mind.adjust_experience(/datum/skill/misc/reading, 4, FALSE)
+		user.adjust_experience(/datum/skill/misc/reading, 4, FALSE)
 		return
 	if(in_range(user, src) || isobserver(user))
 		if(!pages.len)
@@ -307,7 +307,7 @@
 	if(!user.hud_used.reads)
 		return
 	if(!user.can_read(src))
-		user.mind.adjust_experience(/datum/skill/misc/reading, 4, FALSE)
+		user.adjust_experience(/datum/skill/misc/reading, 4, FALSE)
 		return
 	if(in_range(user, src) || isobserver(user))
 		user.changeNext_move(CLICK_CD_MELEE)
@@ -663,7 +663,7 @@
 		return
 	if(!user.can_read(src))
 		to_chat(span_warning("I study [src], but this verba still eludes me..."))
-		user.mind.adjust_experience(/datum/skill/misc/reading, 4, FALSE) //?
+		user.adjust_experience(/datum/skill/misc/reading, 4, FALSE) //?
 		return
 	if(!in_range(user, src) && !isobserver(user))
 		to_chat(user, span_warning("I am too far away to read [src]."))
@@ -862,7 +862,7 @@ ____________End of Example*/
 	if(!user.hud_used.reads)
 		return
 	if(!user.can_read(src))
-		user.mind.adjust_experience(/datum/skill/misc/reading, 4, FALSE)
+		user.adjust_experience(/datum/skill/misc/reading, 4, FALSE)
 		return
 	if(in_range(user, src) || isobserver(user))
 		user.changeNext_move(CLICK_CD_MELEE)

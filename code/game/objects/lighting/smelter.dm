@@ -31,10 +31,10 @@
 				if(user.mind && isliving(user) && T.held_item?:smeltresult) // Prevents an exploit with coal and runtimes with everything else
 					if(!istype(T.held_item, /obj/item/ore) && T.held_item?:smelted) // Burning items to ash won't level smelting.
 						var/mob/living/L = user
-						var/boon = user.mind.get_learning_boon(/datum/skill/craft/smelting)
+						var/boon = user.get_learning_boon(/datum/skill/craft/smelting)
 						var/amt2raise = L.STAINT*2 // Smelting is already a timesink, this is justified to accelerate levelling
 						if(amt2raise > 0)
-							user.mind.adjust_experience(/datum/skill/craft/smelting, amt2raise * boon, FALSE)
+							user.adjust_experience(/datum/skill/craft/smelting, amt2raise * boon, FALSE)
 				user.visible_message("<span class='info'>[user] retrieves [I] from [src].</span>")
 				if(on)
 					var/tyme = world.time
@@ -79,8 +79,7 @@
 			if(!isliving(user) || !user.mind)
 				ore[W] = SMELTERY_LEVEL_SPOIL
 			else
-				var/datum/mind/smelter_mind = user.mind // Who smelted the ore?
-				var/smelter_exp = smelter_mind.get_skill_level(/datum/skill/craft/smelting) // 0 to 6
+				var/smelter_exp = user.get_skill_level(/datum/skill/craft/smelting) // 0 to 6
 				if(smelter_exp < 6)
 					ore[W] = floor(rand(smelter_exp*15, max(63, smelter_exp*25))/25) // Math explained below
 				else

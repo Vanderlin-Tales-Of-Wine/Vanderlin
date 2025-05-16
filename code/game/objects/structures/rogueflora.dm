@@ -118,6 +118,48 @@
 	. = ..()
 	icon_state = "screaming[rand(1,3)]"
 
+/obj/structure/flora/tree/stump/pine
+	name = "pine stump"
+	icon_state = "dead4"
+	icon = 'icons/obj/flora/pines.dmi'
+	static_debris = list(/obj/item/ore/coal/charcoal = 1)
+	stump_type = null
+	pixel_x = -32
+
+/obj/structure/flora/tree/stump/pine/Initialize()
+	. = ..()
+	icon_state = "dead[rand(4,5)]"
+
+/obj/structure/flora/tree/pine
+	name = "pine tree"
+	icon_state = "pine1"
+	desc = ""
+	icon = 'icons/obj/flora/pines.dmi'
+	pixel_w = -24
+	density = 0
+	max_integrity = 100
+	static_debris = list(/obj/item/grown/log/tree = 2)
+	stump_type = null
+
+/obj/structure/flora/tree/pine/Initialize()
+	. = ..()
+	icon_state = "pine[rand(1, 4)]"
+
+/obj/structure/flora/tree/pine/burn()
+	new /obj/structure/flora/tree/pine/dead(get_turf(src))
+	qdel(src)
+
+/obj/structure/flora/tree/pine/dead
+	name = "burnt pine tree"
+	icon_state = "dead1"
+	max_integrity = 50
+	static_debris = list(/obj/item/ore/coal/charcoal = 1)
+	resistance_flags = FIRE_PROOF
+	stump_type = /obj/structure/flora/tree/stump/pine
+
+/obj/structure/flora/tree/pine/dead/Initialize()
+	. = ..()
+	icon_state = "dead[rand(1, 3)]"
 
 /*	.............  Treestump   ................ */	// Treestumps are now tables, so you can tablecraft with them and so on.
 /obj/structure/table/wood/treestump
@@ -215,6 +257,11 @@
 	AddComponent(/datum/component/grass)
 	. = ..()
 
+/obj/structure/flora/grass/Destroy()
+	if(prob(5))
+		new /obj/item/neuFarm/seed/mixed_seed(get_turf(src))
+	. = ..()
+
 /obj/structure/flora/grass/update_icon()
 	icon_state = "grass[rand(1, 6)]"
 
@@ -287,8 +334,8 @@
 
 /obj/structure/flora/grass/bush/Initialize()
 	if(prob(88))
-		bushtype = pickweight(list(/obj/item/reagent_containers/food/snacks/produce/jacksberry=5,
-					/obj/item/reagent_containers/food/snacks/produce/jacksberry/poison=3,
+		bushtype = pickweight(list(/obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry=5,
+					/obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry/poison=3,
 					/obj/item/reagent_containers/food/snacks/produce/westleach=2))
 	loot_replenish()
 	pixel_x += rand(-3,3)
@@ -812,9 +859,9 @@
 			tobacco = FALSE
 			berries = TRUE
 			if(prob(60))
-				goodie = /obj/item/reagent_containers/food/snacks/produce/jacksberry
+				goodie = /obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry
 			else
-				goodie = /obj/item/reagent_containers/food/snacks/produce/jacksberry/poison
+				goodie = /obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry/poison
 	pixel_x += rand(-3,3)
 	if(prob(10))
 		trashie = /obj/item/natural/fibers

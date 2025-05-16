@@ -47,9 +47,6 @@
 	icon_state = "mushroom1_full"
 	base_icon_state = "mushroom1_full"
 	list_reagents = list(/datum/reagent/consumable/nutriment = 5)
-	cooked_type = /obj/item/reagent_containers/food/snacks/cooked/truffle
-	fried_type = /obj/item/reagent_containers/food/snacks/cooked/truffle
-	cooked_smell = /datum/pollutant/food/truffles
 	color = "#ab7d6f"
 	tastes = list("mushroom" = 1)
 	sellprice = 30
@@ -73,9 +70,6 @@
 	icon_state = "mushroom1_full"
 	base_icon_state = "mushroom1_full"
 	list_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/berrypoison = 5)
-	cooked_type = /obj/item/reagent_containers/food/snacks/cooked/truffle_toxic
-	fried_type = /obj/item/reagent_containers/food/snacks/cooked/truffle_toxic
-	cooked_smell = /datum/pollutant/food/truffles
 	color = "#ab7d6f"
 	tastes = list("mushroom" = 1)
 	biting = TRUE

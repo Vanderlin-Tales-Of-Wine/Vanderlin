@@ -124,7 +124,7 @@
 			realchance += 15
 		if(realchance)
 			if(user.mind)
-				realchance += (user.mind.get_skill_level(/datum/skill/labor/taming) * 20)
+				realchance += (user.get_skill_level(/datum/skill/labor/taming) * 20)
 			if(prob(realchance))
 				tamed(user)
 			else

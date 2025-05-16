@@ -31,7 +31,11 @@
 
 	if(!length(recipes))
 		return FALSE
-	var/datum/recipe  = input(src, "Choose a recipe to craft", "Recipes") as null|anything in recipes
+	var/datum/recipe
+	if(length(recipes) == 1)
+		recipe = recipes[1]
+	else
+		recipe = input(src, "Choose a recipe to craft", "Recipes") as null|anything in recipes
 	if(!recipe)
 		return TRUE
 	return execute_recipe(recipe, starting_atom, attacked_atom)

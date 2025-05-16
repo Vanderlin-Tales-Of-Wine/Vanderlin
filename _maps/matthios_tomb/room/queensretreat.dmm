@@ -119,8 +119,8 @@
 /area/rogue/under/tomb/indoors/royal)
 "dD" = (
 /obj/structure/closet/crate/chest/crate,
-/obj/item/reagent_containers/food/snacks/produce/wheat,
-/obj/item/reagent_containers/food/snacks/produce/wheat,
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors/royal)
 "dI" = (
@@ -246,7 +246,7 @@
 /area/rogue/under/tomb/indoors/royal)
 "jx" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/food/snacks/produce/wheat,
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
 /turf/open/floor/tile/checker,
 /area/rogue/under/tomb/indoors/royal)
 "jV" = (

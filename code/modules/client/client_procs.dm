@@ -1020,6 +1020,11 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	check_overwatch()
 	validate_key_in_db()
 
+	// If we aren't already generating a ban cache, fire off a build request
+	// This way hopefully any users of request_ban_cache will never need to yield
+	if(!ban_cache_start && SSban_cache?.query_started)
+		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(build_ban_cache), src)
+
 //	send_resources()
 
 

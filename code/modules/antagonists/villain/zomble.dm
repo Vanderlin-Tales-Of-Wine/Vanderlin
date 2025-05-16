@@ -90,10 +90,10 @@
 	base_intents = zombie.base_intents
 	old_cmode_music = zombie.cmode_music
 	patron = zombie.patron
-	stored_skills = owner.known_skills.Copy()
-	stored_experience = owner.skill_experience.Copy()
-	owner.known_skills = list()
-	owner.skill_experience = list()
+	stored_skills = owner.current.ensure_skills().known_skills.Copy()
+	stored_experience = owner.current.skills?.skill_experience.Copy()
+	owner.current.skills?.known_skills = list()
+	owner.current.skills?.skill_experience = list()
 	zombie.cmode_music ='sound/music/cmode/combat_weird.ogg'
 	zombie.vitae_pool = 0 // Deadites have no vitae to drain from
 	var/datum/language_holder/mob_language = zombie.get_language_holder()
@@ -124,8 +124,8 @@
 	zombie.remove_stat_modifier("[type]")
 	zombie.cmode_music = old_cmode_music
 	zombie.set_patron(patron)
-	owner.known_skills = stored_skills
-	owner.skill_experience = stored_experience
+	owner.current.skills?.known_skills = stored_skills
+	owner.current.skills?.skill_experience = stored_experience
 	for(var/trait in traits_zombie)
 		REMOVE_TRAIT(zombie, trait, "[type]")
 	zombie.remove_client_colour(/datum/client_colour/monochrome)

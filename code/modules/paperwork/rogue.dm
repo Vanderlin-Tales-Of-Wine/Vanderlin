@@ -277,7 +277,7 @@
 		return
 	if(!user.can_read(src))
 		if(info)
-			user.mind.adjust_experience(/datum/skill/misc/reading, 2, FALSE)
+			user.adjust_experience(/datum/skill/misc/reading, 2, FALSE)
 		return
 	/*font-size: 125%;*/
 	if(in_range(user, src) || isobserver(user))

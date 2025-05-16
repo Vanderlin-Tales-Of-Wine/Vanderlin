@@ -116,7 +116,7 @@
 	if(HAS_TRAIT(src, TRAIT_NOFALLDAMAGE1))
 		if(levels <= 2)
 			return
-	var/dex_save = src.mind?.get_skill_level(/datum/skill/misc/climbing)
+	var/dex_save = src.get_skill_level(/datum/skill/misc/climbing)
 	var/sneak_fall = FALSE // If we're sneaking, don't announce it to our surroundings
 	if(dex_save >= 5) // Master climbers can fall down 2 levels without hurting themselves
 		if(levels <= 2)
@@ -254,8 +254,8 @@
 
 			var/mob/living/L = M
 
-			var/self_points = FLOOR((STACON + STASTR + mind.get_skill_level(/datum/skill/misc/athletics))/2, 1)
-			var/target_points = FLOOR((L.STAEND + L.STASTR + L.mind?.get_skill_level(/datum/skill/misc/athletics))/2, 1)
+			var/self_points = FLOOR((STACON + STASTR + get_skill_level(/datum/skill/misc/athletics))/2, 1)
+			var/target_points = FLOOR((L.STAEND + L.STASTR + L.get_skill_level(/datum/skill/misc/athletics))/2, 1)
 
 			switch(sprint_distance)
 				// Point blank
@@ -1143,9 +1143,9 @@
 	var/combat_modifier = 1
 
 	if(mind)
-		wrestling_diff += (mind.get_skill_level(/datum/skill/combat/wrestling)) //NPCs don't use this
+		wrestling_diff += (get_skill_level(/datum/skill/combat/wrestling)) //NPCs don't use this
 	if(L.mind)
-		wrestling_diff -= (L.mind.get_skill_level(/datum/skill/combat/wrestling))
+		wrestling_diff -= (L.get_skill_level(/datum/skill/combat/wrestling))
 
 	if(HAS_TRAIT(src, TRAIT_RESTRAINED))
 		combat_modifier -= 0.25
@@ -1192,8 +1192,8 @@
 		pulledby.stop_pulling()
 
 		var/wrestling_cooldown_reduction = 0
-		if(pulledby?.mind?.get_skill_level(/datum/skill/combat/wrestling))
-			wrestling_cooldown_reduction = 0.2 SECONDS * pulledby.mind.get_skill_level(/datum/skill/combat/wrestling)
+		if(pulledby?.get_skill_level(/datum/skill/combat/wrestling))
+			wrestling_cooldown_reduction = 0.2 SECONDS * pulledby.get_skill_level(/datum/skill/combat/wrestling)
 		TIMER_COOLDOWN_START(src, "broke_free", max(0, 2.5 SECONDS - wrestling_cooldown_reduction))
 		playsound(src.loc, 'sound/combat/grabbreak.ogg', 50, TRUE, -1)
 		return FALSE
@@ -1997,7 +1997,7 @@
 				continue
 			var/probby = 3 * STAPER
 			if(M.mind)
-				probby -= (M.mind.get_skill_level(/datum/skill/misc/sneaking) * 10)
+				probby -= (M.get_skill_level(/datum/skill/misc/sneaking) * 10)
 			probby = (max(probby, 5))
 			if(prob(probby))
 				found_ping(get_turf(M), client, "hidden")
@@ -2270,3 +2270,23 @@
 	return 1
 
 /mob/living/proc/encumbrance_to_speed()
+
+/mob/proc/food_tempted(/obj/item/W, mob/user)
+	return
+
+/mob/proc/taunted(mob/user)
+	for(var/mob/living/simple_animal/hostile/retaliate/A in view(7,src))
+		if(A.owner == user)
+			A.emote("aggro")
+			A.Retaliate()
+			A.GiveTarget(src)
+	return
+
+/mob/proc/shood(mob/user)
+	return
+
+/mob/proc/beckoned(mob/user)
+	return
+
+/mob/proc/get_punch_dmg()
+	return

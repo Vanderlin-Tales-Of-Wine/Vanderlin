@@ -3,6 +3,7 @@
 
 /datum/artificer_recipe/general
 	i_type = "General"
+	category = "General"
 
 /datum/artificer_recipe/general/woodcog //This looks a bit silly but due to how these datums work is necessary for other things to inherit from it
 	name = "Wooden Cog"
@@ -80,6 +81,7 @@
 
 /datum/artificer_recipe/tools
 	i_type = "Tools"
+	category = "Tools"
 
 /datum/artificer_recipe/tools/lamptern
 	name = "Bronze Lamptern"
@@ -105,6 +107,7 @@
 
 /datum/artificer_recipe/contraptions
 	i_type = "Contraptions"
+	category = "Contraptions"
 
 /datum/artificer_recipe/contraptions/metalizer
 	name = "Wood Metalizer (+1 Wooden Cog)"
@@ -158,6 +161,7 @@
 
 /datum/artificer_recipe/ammo
 	i_type = "Ammo"
+	category = "Ammo"
 
 /datum/artificer_recipe/ammo/lead_bullet
 	name = "Lead Bullets 2x"
@@ -189,6 +193,7 @@
 
 /datum/artificer_recipe/prosthetics
 	i_type = "Prosthetics"
+	category = "Prosthetics"
 
 /datum/artificer_recipe/prosthetics/wood
 	name = "Left Wooden Arm (+1 Plank)"
@@ -294,6 +299,7 @@
 
 /datum/artificer_recipe/psycross
 	i_type = "Psycross"
+	category = "Psycross"
 
 /datum/artificer_recipe/psycross/silver
 	name = "silver Psycross"

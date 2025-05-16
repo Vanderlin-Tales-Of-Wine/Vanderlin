@@ -41,25 +41,25 @@
 	..()
 	backpack_contents = list(/obj/item/book/manners = 1)
 	mask = /obj/item/clothing/face/spectacles
-	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE) // A well educated head of servants should at least have skilled literacy level
-		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/butchering, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/farming, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/stealing, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/music, pick(1,1,2,3), TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE) // Privilege of living a life raising nobility. Knows the very basics about riding a mount
-		H.change_stat(STATKEY_STR, -1)
-		H.change_stat(STATKEY_INT, 2)
-		H.change_stat(STATKEY_PER, 1)
-		H.change_stat(STATKEY_END, 1)
-		ADD_TRAIT(H, TRAIT_KNOWKEEPPLANS, TRAIT_GENERIC)
 
+	H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE) // A well educated head of servants should at least have skilled literacy level
+	H.adjust_skillrank(/datum/skill/craft/cooking, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/labor/butchering, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/labor/farming, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/sewing, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/sneaking, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/stealing, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/music, pick(1,1,2,3), TRUE)
+	H.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE) // Privilege of living a life raising nobility. Knows the very basics about riding a mount
+	H.change_stat(STATKEY_STR, -1)
+	H.change_stat(STATKEY_INT, 2)
+	H.change_stat(STATKEY_PER, 1)
+	H.change_stat(STATKEY_END, 1)
+	ADD_TRAIT(H, TRAIT_KNOWKEEPPLANS, TRAIT_GENERIC)
+	backpack_contents = list(/obj/item/recipe_book/cooking = 1)
 
 	if(H.gender == MALE)
 		pants = /obj/item/clothing/pants/tights

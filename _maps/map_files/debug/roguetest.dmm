@@ -9,6 +9,9 @@
 /obj/structure/rotation_piece{
 	dir = 8
 	},
+/obj/effect/decal/carpet/square{
+	pixel_y = -13
+	},
 /turf/open/floor/blocks,
 /area/rogue/indoors)
 "ae" = (

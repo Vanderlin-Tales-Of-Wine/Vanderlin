@@ -17,15 +17,15 @@
 	backl = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/key/mercenary, /obj/item/storage/belt/pouch/coins/poor, /obj/item/weapon/knife/dagger/steel/dirk)
 	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
 
 		ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 		H.verbs |= /mob/living/carbon/human/proc/torture_victim //Secret police training owing to their origins.
@@ -39,9 +39,9 @@
 			backr = /obj/item/weapon/shield/tower/spidershield
 			beltr = /obj/item/weapon/whip/spiderwhip
 
-			H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
 
 			H.change_stat(STATKEY_STR, 2) //Grenz merc statline but with maluses.
 			H.change_stat(STATKEY_CON, 1)
@@ -62,17 +62,17 @@
 			beltr = /obj/item/ammo_holder/quiver/arrows
 			beltl = /obj/item/weapon/sword/sabre/stalker
 
-			H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, 3, TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/combat/bows, 4, TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE) //Spread-out support skills, but inferior to Steppesman/Boltslinger.
-			H.mind?.adjust_skillrank(/datum/skill/craft/traps, 3, TRUE)
+			H.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
+			H.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
+			H.adjust_skillrank(/datum/skill/misc/lockpicking, 3, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/bows, 4, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
+			H.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
+			H.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
+			H.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
+			H.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE) //Spread-out support skills, but inferior to Steppesman/Boltslinger.
+			H.adjust_skillrank(/datum/skill/craft/traps, 3, TRUE)
 
 			H.change_stat(STATKEY_SPD, 2) //Speedier than a Steppesman, but not as tough or damaging.
 			H.change_stat(STATKEY_END, 1)

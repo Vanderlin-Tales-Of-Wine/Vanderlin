@@ -4,6 +4,12 @@
 #define MAX_PLANT_WEEDS 100
 #define SOIL_DECAY_TIME 20 MINUTES
 
+#define QUALITY_REGULAR 1
+#define QUALITY_BRONZE 2
+#define QUALITY_SILVER 3
+#define QUALITY_GOLD 4
+#define QUALITY_DIAMOND 5
+
 /obj/structure/soil
 	name = "soil"
 	desc = "Dirt, ready to give life like a womb."
@@ -38,6 +44,10 @@
 	var/blessed_time = 0
 	/// Time remaining for the soil to decay and destroy itself, only applicable when its out of water and nutriments and has no plant
 	var/soil_decay_time = SOIL_DECAY_TIME
+	/// Current quality tier of the crop (1-5, regular to diamond)
+	var/crop_quality = QUALITY_REGULAR
+	/// Tracks quality points that accumulate toward quality tier increases
+	var/quality_points = 0
 
 /obj/structure/soil/Crossed(atom/movable/AM)
 	. = ..()
@@ -50,7 +60,7 @@
 	apply_farming_fatigue(user, 4)
 	add_sleep_experience(user, /datum/skill/labor/farming, user.STAINT * 2)
 
-	var/farming_skill = user.mind.get_skill_level(/datum/skill/labor/farming)
+	var/farming_skill = user.get_skill_level(/datum/skill/labor/farming)
 	var/chance_to_ruin = 50 - (farming_skill * 25)
 	if(prob(chance_to_ruin))
 		ruin_produce()
@@ -87,9 +97,19 @@
 	return FALSE
 
 /obj/structure/soil/proc/try_handle_seed_planting(obj/item/attacking_item, mob/user, params)
+	var/obj/item/old_item
+	if(istype(attacking_item, /obj/item/storage/sack))
+		var/list/seeds = list()
+		for(var/obj/item/neuFarm/seed/seed in attacking_item.contents)
+			seeds |= seed
+		old_item = attacking_item
+		attacking_item = pick(seeds)
+
 	if(istype(attacking_item, /obj/item/neuFarm/seed) || istype(attacking_item, /obj/item/herbseed)) //SLOP OBJECT PROC SHARING
 		playsound(src, pick('sound/foley/touch1.ogg','sound/foley/touch2.ogg','sound/foley/touch3.ogg'), 170, TRUE)
 		if(do_after(user, get_farming_do_time(user, 15), src))
+			if(old_item)
+				SEND_SIGNAL(old_item, COMSIG_TRY_STORAGE_TAKE, attacking_item, get_turf(user), TRUE)
 			var/obj/item/neuFarm/seed/seeds = attacking_item
 			seeds.try_plant_seed(user, src)
 		return TRUE
@@ -474,7 +494,58 @@
 		return
 	process_plant_nutrition(dt)
 	process_plant_health(dt)
+	if(matured && !produce_ready)
+		process_crop_quality(dt)
 
+
+/obj/structure/soil/proc/process_crop_quality(dt)
+	if(!plant || plant_dead || !matured || produce_ready)
+		return
+
+	// Base rate for quality improvement
+	var/quality_rate = 1.0
+
+	// Factors that improve quality
+	if(tilled_time > 0)
+		quality_rate *= 1.5
+	if(blessed_time > 0)
+		quality_rate *= 2.0
+	if(has_world_trait(/datum/world_trait/dendor_fertility))
+		quality_rate *= 1.5
+
+	// Perfect growing conditions boost quality
+	if(plant_health >= MAX_PLANT_HEALTH * 0.9)
+		quality_rate *= 1.25
+
+	// Nutrition levels affect quality
+	if(nutrition >= MAX_PLANT_NUTRITION * 0.7)
+		quality_rate *= 1.2
+
+	// Water levels affect quality
+	if(water >= MAX_PLANT_WATER * 0.7)
+		quality_rate *= 1.2
+
+	// Weeds negatively affect quality
+	if(weeds >= MAX_PLANT_WEEDS * 0.3)
+		quality_rate *= 0.8
+	if(weeds >= MAX_PLANT_WEEDS * 0.6)
+		quality_rate *= 0.7
+
+	// Adjust quality points
+	quality_points += dt * quality_rate * 0.1
+
+	// Determine quality tier based on accumulated points
+	// The thresholds are designed to make higher qualities progressively harder to achieve
+	if(quality_points >= 40)
+		crop_quality = QUALITY_DIAMOND
+	else if(quality_points >= 20)
+		crop_quality = QUALITY_GOLD
+	else if(quality_points >= 10)
+		crop_quality = QUALITY_SILVER
+	else if(quality_points >= 5)
+		crop_quality = QUALITY_BRONZE
+	else
+		crop_quality = QUALITY_REGULAR
 
 /obj/structure/soil/proc/process_plant_health(dt)
 	if(!plant)
@@ -633,14 +704,42 @@
 /obj/structure/soil/proc/yield_produce(modifier = 0)
 	if(!produce_ready)
 		return
+
+	// Base yield calculation
 	var/base_amount = rand(plant.produce_amount_min, plant.produce_amount_max)
-	var/spawn_amount = max(base_amount + modifier, 1)
+
+	// Quality modifiers
+	var/quality_modifier = 0
+	switch(crop_quality)
+		if(QUALITY_BRONZE)
+			quality_modifier = 1
+		if(QUALITY_SILVER)
+			quality_modifier = 2
+		if(QUALITY_GOLD)
+			quality_modifier = 3
+		if(QUALITY_DIAMOND)
+			quality_modifier = 4
+
+	// Calculate final yield amount
+	var/spawn_amount = max(base_amount + modifier + quality_modifier, 1)
+
 	for(var/i in 1 to spawn_amount)
-		new plant.produce_type(loc)
+		var/obj/item/produce = new plant.produce_type(loc)
+		if(produce && istype(produce, /obj/item/reagent_containers/food/snacks/produce))
+			produce:set_quality(crop_quality)
+
+	// Reset produce state
 	produce_ready = FALSE
 	if(!plant.perennial)
 		uproot(loot = FALSE)
+
+	// Reset quality for next growth cycle if plant is perennial
+	if(plant.perennial)
+		crop_quality = QUALITY_REGULAR
+		quality_points = 0
+
 	update_icon()
+
 
 /obj/structure/soil/proc/insert_plant(datum/plant_def/new_plant)
 	if(plant)
@@ -652,13 +751,16 @@
 	matured = FALSE
 	produce_ready = FALSE
 	plant_dead = FALSE
+	// Reset quality values
+	crop_quality = QUALITY_REGULAR
+	quality_points = 0
 	update_icon()
 
 /obj/structure/soil/debug_soil
 	var/obj/item/neuFarm/seed/seed_to_grow
 
 /obj/structure/soil/debug_soil/random/Initialize()
-	seed_to_grow = pick(subtypesof(/obj/item/neuFarm/seed))
+	seed_to_grow = pick(subtypesof(/obj/item/neuFarm/seed) - /obj/item/neuFarm/seed/mixed_seed)
 	. = ..()
 
 /obj/structure/soil/debug_soil/Initialize()

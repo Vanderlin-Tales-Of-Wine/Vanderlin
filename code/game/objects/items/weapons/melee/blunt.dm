@@ -301,6 +301,16 @@
 			if("onbelt")
 				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
 
+/obj/item/weapon/mace/goden/deepduke
+	name = "deep duke's staff"
+	desc = "A staff made of seaglass and sturdy but unusual metal, holding no power after its misled owner's death. More useful as a bashing tool than a magic focus."
+	icon = 'icons/roguetown/mob/monster/pufferboss.dmi'
+	icon_state = "pufferprod"
+	force = 15
+	force_wielded = 35
+	minstr = 11
+	max_integrity = 900
+
 //................ Grand mace ............... //
 /obj/item/weapon/mace/goden/steel
 	gripped_intents = list(/datum/intent/mace/smash/heavy) // It's a 2h flanged mace, not a goedendag.

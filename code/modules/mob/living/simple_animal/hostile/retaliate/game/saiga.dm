@@ -67,10 +67,10 @@
 
 	health = FEMALE_SAIGA_HEALTH
 	maxHealth = FEMALE_SAIGA_HEALTH
-	food_type = list(/obj/item/reagent_containers/food/snacks/produce/wheat,
-					/obj/item/reagent_containers/food/snacks/produce/oat,
-					/obj/item/reagent_containers/food/snacks/produce/jacksberry,
-					/obj/item/reagent_containers/food/snacks/produce/apple)
+	food_type = list(/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
+					/obj/item/reagent_containers/food/snacks/produce/grain/oat,
+					/obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry,
+					/obj/item/reagent_containers/food/snacks/produce/fruit/apple)
 	tame_chance = 25
 	bonus_tame_chance = 15
 	pooptype = /obj/item/natural/poo/horse
@@ -190,10 +190,10 @@
 
 	health = MALE_SAIGA_HEALTH
 	maxHealth = MALE_SAIGA_HEALTH
-	food_type = list(/obj/item/reagent_containers/food/snacks/produce/wheat,
-					/obj/item/reagent_containers/food/snacks/produce/oat,
-					/obj/item/reagent_containers/food/snacks/produce/jacksberry,
-					/obj/item/reagent_containers/food/snacks/produce/apple)
+	food_type = list(/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
+					/obj/item/reagent_containers/food/snacks/produce/grain/oat,
+					/obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry,
+					/obj/item/reagent_containers/food/snacks/produce/fruit/apple)
 	pooptype = /obj/item/natural/poo/horse
 
 	base_intents = list(/datum/intent/simple/headbutt)

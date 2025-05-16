@@ -31,18 +31,18 @@
 	beltl = /obj/item/key/tailor
 	backr = /obj/item/storage/backpack/satchel
 	neck = /obj/item/storage/belt/pouch/coins/mid
-	backpack_contents = list(/obj/item/needle = 1, /obj/item/natural/bundle/cloth = 2, /obj/item/natural/bundle/fibers = 1, /obj/item/dye_pack/luxury = 1, /obj/item/book/advice_weaving = 1, /obj/item/weapon/knife/villager = 1)
+	backpack_contents = list(/obj/item/needle = 1, /obj/item/natural/bundle/cloth = 2, /obj/item/natural/bundle/fibers = 1, /obj/item/dye_pack/luxury = 1, /obj/item/recipe_book/sewing = 1, /obj/item/weapon/knife/villager = 1)
 
-	H.mind?.adjust_skillrank(/datum/skill/misc/sewing, pick(4,5), TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/craft/tanning, pick(3,4), TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/craft/carpentry, 1, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/stealing, 1, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/sewing, pick(4,5), TRUE)
+	H.adjust_skillrank(/datum/skill/craft/tanning, pick(3,4), TRUE)
+	H.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/carpentry, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/stealing, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE)
 	ADD_TRAIT(H, TRAIT_SEEPRICES, TRAIT_GENERIC)
 	if(H.gender == MALE)
 		pants = /obj/item/clothing/pants/tights/red

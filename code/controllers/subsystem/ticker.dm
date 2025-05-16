@@ -319,7 +319,7 @@ SUBSYSTEM_DEF(ticker)
 	SEND_SIGNAL(src, COMSIG_TICKER_ROUND_STARTING, world.time)
 	round_start_irl = REALTIMEOFDAY
 
-	SSdbcore.SetRoundStart()
+	INVOKE_ASYNC(SSdbcore, /datum/controller/subsystem/dbcore/proc/SetRoundStart)
 
 	message_admins("<span class='notice'><B>Welcome to [station_name()], enjoy your stay!</B></span>")
 

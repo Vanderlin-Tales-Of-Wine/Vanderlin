@@ -33,7 +33,7 @@
 	if(already_known(user))
 		to_chat(user, "<span class='notice'>I already know this spell.</span>")
 		return FALSE
-	if(!user.mind?.get_skill_level(/datum/skill/magic/arcane))
+	if(!user.get_skill_level(/datum/skill/magic/arcane))
 		to_chat(user, "<span class='warning'>I don't have the knowledge to learn this spell.</span>")
 		return FALSE
 	on_start(user)
@@ -69,11 +69,11 @@
 		to_chat(user, "<span class='notice'>The power of [spellname] is emblazened in your mind!</span>")
 		var/obj/effect/proc_holder/spell/S = new spell
 		user.mind.AddSpell(S)
-		if(user.mind.get_skill_level(/datum/skill/magic/arcane) <= 5)
-			user.mind.adjust_experience(/datum/skill/magic/arcane, 100, FALSE)
-	else if(user.mind.get_skill_level(/datum/skill/magic/arcane) <= 5)
+		if(user.get_skill_level(/datum/skill/magic/arcane) <= 5)
+			user.adjust_experience(/datum/skill/magic/arcane, 100, FALSE)
+	else if(user.get_skill_level(/datum/skill/magic/arcane) <= 5)
 		to_chat(user, "<span class='notice'>Arcane power is emblazened in your mind!</span>")
-		user.mind.adjust_experience(/datum/skill/magic/arcane, 150, FALSE)
+		user.adjust_experience(/datum/skill/magic/arcane, 150, FALSE)
 	user.visible_message("<span class='warning'>[src] glows dark, and then crumbles!</span>")
 	qdel(src)
 

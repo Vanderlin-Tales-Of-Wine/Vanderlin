@@ -1143,7 +1143,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 
 	if(tool_behaviour == TOOL_MINING && ishuman(user))
 		var/mob/living/carbon/human/H = user
-		skill_modifier = H.mind.get_skill_speed_modifier(/datum/skill/labor/mining)
+		skill_modifier = H.get_skill_speed_modifier(/datum/skill/labor/mining)
 
 	delay *= toolspeed * skill_modifier
 

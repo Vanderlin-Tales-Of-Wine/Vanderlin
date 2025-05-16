@@ -81,7 +81,7 @@
 			if(C.domhand)
 				used_str = C.get_str_arms(C.used_hand)
 			C.adjust_stamina(max(30 - (used_str * 3), 0))
-		var/total_chance = 7 * user.mind.get_skill_level(hingot.currecipe.appro_skill)
+		var/total_chance = 7 * user.get_skill_level(hingot.currecipe.appro_skill)
 		var/breakthrough = 0
 		if(prob(1 + total_chance))
 			user.flash_fullscreen("whiteflash")

@@ -487,17 +487,7 @@
 	..()
 	var/found_table = locate(/obj/structure/table) in (loc)
 	var/obj/item/reagent_containers/glass/R = I
-	if(user.mind)
-		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*7))
 	if(isturf(loc)&& (found_table))
-		if(istype(I, /obj/item/reagent_containers/food/snacks/dough_base))
-			playsound(get_turf(user), 'sound/foley/kneading.ogg', 100, TRUE, -1)
-			to_chat(user, span_notice("Kneading in more flour..."))
-			if(do_after(user, short_cooktime, src))
-				new /obj/item/reagent_containers/food/snacks/dough(loc)
-				qdel(I)
-				qdel(src)
-				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 		if(!istype(R) || (water_added))
 			return ..()
 		if(!R.reagents.has_reagent(/datum/reagent/water, 10))
@@ -505,7 +495,7 @@
 			return TRUE
 		to_chat(user, span_notice("Adding water, now its time to knead it..."))
 		playsound(get_turf(user), 'sound/foley/splishy.ogg', 100, TRUE, -1)
-		if(do_after(user,15, src))
+		if(do_after(user, 1.5 SECONDS, src))
 			name = "wet flour"
 			desc = "Destined for greatness, at your hands."
 			R.reagents.remove_reagent(/datum/reagent/water, 10)
@@ -516,7 +506,7 @@
 
 /obj/item/reagent_containers/powder/flour/attack_hand(mob/living/user)
 	if(water_added)
-		short_cooktime = (40 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*5))
+		short_cooktime = (40 - ((user.get_skill_level(/datum/skill/craft/cooking))*5))
 		playsound(get_turf(user), 'sound/foley/kneading_alt.ogg', 90, TRUE, -1)
 		if(do_after(user, short_cooktime, src))
 			new /obj/item/reagent_containers/food/snacks/dough_base(get_turf(src))

@@ -12,18 +12,18 @@
 /datum/outfit/job/mercenary/grenzelhoft/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)	//Big sword user so - really helps them.
-		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/whipsflails, pick(1,1,2), TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, pick(2,3), TRUE) // Equal chance between skilled and average, can use a cudgel to beat less dangerous targets into submission
-		H.mind?.adjust_skillrank(/datum/skill/combat/shields, pick(0,0,1), TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/sneaking, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)	//Big sword user so - really helps them.
+		H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/whipsflails, pick(1,1,2), TRUE)
+		H.adjust_skillrank(/datum/skill/combat/axesmaces, pick(2,3), TRUE) // Equal chance between skilled and average, can use a cudgel to beat less dangerous targets into submission
+		H.adjust_skillrank(/datum/skill/combat/shields, pick(0,0,1), TRUE)
+		H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 
 	if(H.gender == FEMALE)
 		H.underwear = "Femleotard"
