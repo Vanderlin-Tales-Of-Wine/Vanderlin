@@ -61,7 +61,7 @@ GLOBAL_LIST_EMPTY_TYPED(schizohelps, /datum/schizohelp)
 	return "[adjective] [noun]"
 
 /client/proc/answer_schizohelp(datum/schizohelp/schizo)
-	if(QDELETED(schizo))
+	if(QDELETED(schizo) || QDELETED(schizo.owner))
 		to_chat(src, span_warning("This meditation can no longer be answered..."))
 		return
 	if(schizo.owner == src.mob)

@@ -133,6 +133,7 @@
 			lord_datum.ascended = TRUE
 			SSmapping.retainer.ascended = TRUE
 
+			LAZYINITLIST(thrall_verbs)
 			thrall_verbs |= /mob/living/carbon/human/proc/blood_strength
 			thrall_verbs |= /mob/living/carbon/human/proc/blood_celerity
 			thrall_verbs |= /mob/living/carbon/human/proc/vamp_regenerate

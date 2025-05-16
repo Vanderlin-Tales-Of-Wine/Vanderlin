@@ -146,6 +146,9 @@
 				// If we're nearing the end of our path, preemptively generate the next path
 				// Only do this if we have a valid current path and aren't already generating a future path
 				if(!generate_path && remaining_path_length <= repath_anticipation_distance && !future_path && COOLDOWN_FINISHED(controller, repath_cooldown))
+					// Target doesnt exist anymore or we picked it up already
+					if(QDELETED(controller.current_movement_target) || controller.current_movement_target.loc == movable_pawn)
+						continue
 					COOLDOWN_START(controller, repath_cooldown, 1 SECONDS) // Shorter cooldown for anticipatory pathing
 					// Generate the future path and store it in the controller's blackboard
 					var/list/new_future_path = get_path_to(movable_pawn, controller.current_movement_target, TYPE_PROC_REF(/turf, Heuristic_cardinal_3d),
@@ -163,7 +166,9 @@
 				if(controller.pathing_attempts >= max_pathing_attempts)
 					controller.CancelActions()
 					continue
-
+				// Target doesnt exist anymore or we picked it up already
+				if(QDELETED(controller.current_movement_target) || controller.current_movement_target.loc == movable_pawn)
+					continue
 				COOLDOWN_START(controller, repath_cooldown, 1.5 SECONDS) // Reduced from 2 seconds
 				controller.movement_path = get_path_to(movable_pawn, controller.current_movement_target, TYPE_PROC_REF(/turf, Heuristic_cardinal_3d),
 					max_path_distance + 1, 250, minimum_distance, id=controller.get_access())

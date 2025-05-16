@@ -115,7 +115,7 @@
 	crit_message = list(
 		"The cranium is fractured!",
 		"The cranium is cracked!",
-		"The cranium is torn!",
+		"The cranium is shattered!",
 	)
 	whp = 150
 	paralysis = TRUE
