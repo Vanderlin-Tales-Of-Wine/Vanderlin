@@ -2,14 +2,14 @@
 #define ALL_RACES_LIST					list("human", "demihuman", "harpy","rakshari", "dwarf", "elf", "tiefling", "aasimar", "halforc", "orc", "zizombie", "kobold")
 
 /// All playable races from character selection menu.
-#define RACES_PLAYER_ALL				list("Humen", "Hollow-Kin", "Harpies", "Rakshari", "Half-Elf", "Half-Drow", "Dark Elf", "Elf", "Dwarf", "Tiefling", "Half-Orc", "Aasimar", "Kobold")
+#define RACES_PLAYER_ALL				list("Humen", "Hollow-Kin", "Harpy", "Rakshari", "Half-Elf", "Half-Drow", "Dark Elf", "Elf", "Dwarf", "Tiefling", "Half-Orc", "Aasimar", "Kobold")
 
 /// Races not considered discriminated against in Vanderlin. Used for nobility, guards, etc.
 #define RACES_PLAYER_NONDISCRIMINATED	list("Humen", "Half-Elf", "Elf", "Dwarf", "Aasimar")
 /// Races who are nonheretical to the church. Excluded races typically have an inhumen god associated, like Zizo. Used for church/faith roles.
-#define RACES_PLAYER_NONHERETICAL		list("Humen", "Half-Elf", "Elf", "Dwarf", "Aasimar")
+#define RACES_PLAYER_NONHERETICAL		list("Humen", "Half-Elf", "Elf", "Dwarf", "Aasimar", "Harpy")
 /// Races who are non-exotic to Vanderlin. These are races from foreign lands with no local pull or uncommon races. Used in miscellaneous cases, when they would not be that role.
-#define RACES_PLAYER_NONEXOTIC			list("Humen", "Hollow-Kin", "Harpies", "Half-Elf", "Half-Drow", "Dark Elf", "Elf", "Dwarf", "Tiefling", "Half-Orc", "Aasimar")
+#define RACES_PLAYER_NONEXOTIC			list("Humen", "Hollow-Kin", "Harpy", "Half-Elf", "Half-Drow", "Dark Elf", "Elf", "Dwarf", "Tiefling", "Half-Orc", "Aasimar")
 ///Races that lack lux
 #define RACES_PLAYER_LUXLESS			list("Kobold", "Hollow-Kin", "Rakshari")
 
@@ -24,7 +24,7 @@
 #define RACES_PLAYER_PATREON			list("Kobold", "Hollow-Kin")
 
 /// Guard Races - No Orcs
-#define RACES_PLAYER_GUARD				list("Humen", "Rakshari", "Half-Elf", "Half-Drow", "Elf", "Dwarf", "Tiefling", "Aasimar", "Harpies")
+#define RACES_PLAYER_GUARD				list("Humen", "Rakshari", "Half-Elf", "Half-Drow", "Elf", "Dwarf", "Tiefling", "Aasimar", "Harpy")
 
 
 #define ALL_TEMPLE_PATRONS 		list(/datum/patron/divine/astrata, /datum/patron/divine/noc, /datum/patron/divine/dendor, /datum/patron/divine/abyssor, /datum/patron/divine/necra, /datum/patron/divine/ravox, /datum/patron/divine/xylix, /datum/patron/divine/pestra, /datum/patron/divine/malum, /datum/patron/divine/eora)

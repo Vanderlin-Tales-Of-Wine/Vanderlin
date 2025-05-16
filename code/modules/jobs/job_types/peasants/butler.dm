@@ -24,7 +24,8 @@
 		"Dwarf",
 		"Dark Elf",
 		"Tiefling",
-		"Aasimar"
+		"Aasimar",
+		"Harpy"
 	)
 
 	outfit = /datum/outfit/job/butler

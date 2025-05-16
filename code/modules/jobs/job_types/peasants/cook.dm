@@ -20,7 +20,8 @@
 		"Dwarf",
 		"Tiefling",
 		"Dark Elf",
-		"Aasimar"
+		"Aasimar",
+		"Harpy"
 	)
 
 	outfit = /datum/outfit/job/cook

@@ -5,7 +5,7 @@
 
 /obj/item/organ/vocal_cords //organs that are activated through speech with the :x/MODE_KEY_VOCALCORDS channel
 	name = "vocal cords"
-	icon_state = "appendix"
+	icon_state = "vocal_cords"
 	zone = BODY_ZONE_PRECISE_MOUTH
 	slot = ORGAN_SLOT_VOICE
 	gender = PLURAL
@@ -21,3 +21,8 @@
 
 /obj/item/organ/vocal_cords/proc/handle_speech(message) //actually say the message
 	owner.say(message, spans = spans, sanitize = FALSE)
+
+/obj/item/organ/vocal_cords/harpy
+	name = "harpy's song"
+	icon_state = "harpysong"		//Pulsating heart energy thing.
+	desc = "The blessed essence of harpysong. How did you get this... you monster!"
