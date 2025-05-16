@@ -34,7 +34,11 @@
 	item_weight = 7 * STEEL_MULTIPLIER
 
 /obj/item/clothing/shoes/boots/armor/blkknight
-
+	armor = ARMOR_PLATE_BLACKSTEEL
+	item_weight = 7 * BLACKSTEEL_MULTIPLIER
+	max_integrity = INTEGRITY_STRONGEST
+	prevent_crits = ALL
+	smeltresult = /obj/item/ingot/blacksteel
 
 /obj/item/clothing/shoes/boots/armor/light
 	name = "light plate boots"
