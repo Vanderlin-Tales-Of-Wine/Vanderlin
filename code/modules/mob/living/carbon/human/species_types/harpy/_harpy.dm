@@ -70,7 +70,7 @@
 		/datum/customizer/bodypart_feature/accessory,
 		/datum/customizer/bodypart_feature/face_detail,
 
-		/datum/customizer/organ/ears/harpy,
+//		/datum/customizer/organ/ears/harpy,
 		/datum/customizer/organ/tail/harpy,
 		/datum/customizer/organ/wings/harpy,
 //		/datum/customizer/organ/snout/harpy,		Ook asked to remove.

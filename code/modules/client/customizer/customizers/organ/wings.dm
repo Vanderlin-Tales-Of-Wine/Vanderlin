@@ -25,7 +25,7 @@
 /obj/effect/proc_holder/spell/self/flight
 	name = "Take Flight"
 	desc = ""
-	overlay_state = "orison"
+	overlay_state = "flight"
 	antimagic_allowed = TRUE
 	invocation_type = "none"
 	var/flying = FALSE
