@@ -4691,8 +4691,8 @@
 /area/rogue/indoors/town/smithy)
 "cRr" = (
 /obj/structure/closet/crate/crafted_closet/lord,
-/obj/item/clothing/armor/plate/blkknight,
-/obj/item/clothing/head/helmet/blacksteel/bucket,
+/obj/item/clothing/armor/plate/knight,
+/obj/item/clothing/head/helmet/heavy/blkknight,
 /obj/item/weapon/sword/rapier/dec/lord,
 /turf/open/floor/tile,
 /area/rogue/indoors/town/manor)
