@@ -106,7 +106,7 @@
 #define TRAIT_MALUMFIRE "Professional Smith"
 #define TRAIT_CRATEMOVER "Crate Mover"
 #define TRAIT_BURDEN "Burdened" //Gaffer stuff
-#define TRAIT_OLDPARTY "Old_party"
+#define TRAIT_OLDPARTY "Old Party"
 
 // PATRON CURSE TRAITS
 #define TRAIT_CURSE "Curse" //source

@@ -2326,6 +2326,7 @@
 #include "code\modules\spells\spell_types\invoked\_invoked.dm"
 #include "code\modules\spells\spell_types\invoked\confessor.dm"
 #include "code\modules\spells\spell_types\invoked\jester.dm"
+#include "code\modules\spells\spell_types\invoked\matron.dm"
 #include "code\modules\spells\spell_types\invoked\monk.dm"
 #include "code\modules\spells\spell_types\invoked\necromancer.dm"
 #include "code\modules\spells\spell_types\invoked\orison_touch.dm"
