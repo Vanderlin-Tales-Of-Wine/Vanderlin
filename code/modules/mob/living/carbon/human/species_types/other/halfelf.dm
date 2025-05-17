@@ -127,6 +127,9 @@
 	"blond - drywheat" = "d5ba7b",
 	"blond - strawberry" = "c69b71",
 
+	"white - snow" = "dee9ed",
+	"white - ice" = "f4f4f4",
+
 	"green - leaf" = "2f3c2e",
 	"green - moss" = "3b3c2a"
 	))
