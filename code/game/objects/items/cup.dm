@@ -34,6 +34,7 @@
 	name = "wooden cup"
 	desc = "A wooden cup that has seen it's fair share of use and barfights."
 	resistance_flags = FLAMMABLE
+	grid_height = 32
 	icon_state = "wooden"
 	drop_sound = 'sound/foley/dropsound/wooden_drop.ogg'
 	metalizer_result = /obj/item/reagent_containers/glass/cup
