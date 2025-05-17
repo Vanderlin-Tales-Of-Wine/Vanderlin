@@ -401,4 +401,4 @@
 /datum/stressevent/friend_calling
 	timer = 30 SECONDS
 	stressadd = 1
-	desc = "That voice.. That old thief is calling for me, what is it now?"
+	desc = span_red("That voice.. That old thief is calling for me, what is it now?")

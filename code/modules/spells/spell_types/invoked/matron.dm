@@ -9,7 +9,7 @@
 /obj/effect/proc_holder/spell/targeted/seek_orphan/cast(list/targets, mob/user = usr)
 	. = ..()
 	var/list/orphans = list()
-	for(var/mob/living/carbon/human/H in GLOB.mob_list)
+	for(var/mob/living/carbon/human/H in GLOB.human_list)
 		if(!H.client)
 			continue
 		if(!HAS_TRAIT(H, TRAIT_ORPHAN))
@@ -69,7 +69,7 @@
 	overlay_state = "message"
 
 /obj/effect/proc_holder/spell/self/hag_call/cast(list/targets, mob/user)
-	var/input = input(user, "Which one of those brats am I trying to call?")
+	var/input = browser_input_text(user, "Which one of those brats am I trying to call?", "Hag's Call")
 	if(!input)
 		return FALSE
 	if(!user.mind)
