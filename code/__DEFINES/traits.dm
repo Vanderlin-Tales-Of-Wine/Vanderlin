@@ -56,7 +56,8 @@
 #define TRAIT_DREAM_WATCHER				"Noc Blessed" //Unique Trait of the Dream Watcher Town Elder Class, they have a chance to know about antags or gods influences.
 #define TRAIT_HOLLOWBONES				"Hollow Bones"
 #define TRAIT_AMAZING_BACK				"Light Load"
-#define TRAIT_ORPHAN 					"Orphan" //Does nothing except for trait check
+/// applied to orphans
+#define TRAIT_ORPHAN 					"Orphan"
 
 // Divine patron trait bonuses:
 #define TRAIT_SOUL_EXAMINE				"Blessing of Necra"  //can check bodies to see if they have departed
