@@ -15940,12 +15940,11 @@
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement)
 "jlq" = (
+/obj/effect/mapping_helpers/access/keyset/town/apothecary,
 /obj/structure/door/weak/bolt{
 	name = "bathroom";
-	dir = 4;
-	
+	dir = 4
 	},
-/obj/effect/mapping_helpers/access/keyset/town/apothecary,
 /turf/open/floor/greenstone,
 /area/rogue/indoors/town/bath)
 "jlD" = (
@@ -20397,6 +20396,14 @@
 /obj/structure/kneestingers,
 /turf/open/water/cleanshallow,
 /area/rogue/under/cavewet)
+"lPf" = (
+/obj/structure/door/weak/bolt{
+	name = "bathroom";
+	dir = 4
+	},
+/obj/effect/mapping_helpers/access/keyset/town/apothecary,
+/turf/open/floor/greenstone,
+/area/rogue/indoors/town/bath)
 "lPh" = (
 /obj/structure/chair/wood/alt/chair_noble/red{
 	dir = 8
@@ -38226,8 +38233,7 @@
 "vJv" = (
 /obj/structure/door/weak/bolt{
 	name = "bathroom";
-	dir = 4;
-	
+	dir = 4
 	},
 /obj/effect/mapping_helpers/access/keyset/church/general,
 /turf/open/floor/church,
@@ -54869,7 +54875,7 @@ qJl
 qJl
 vqa
 vqa
-jlq
+lPf
 vqa
 vqa
 vqa
