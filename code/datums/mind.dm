@@ -405,7 +405,7 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 	var/datum/team/antag_team = antag_datum_ref.get_team()
 	if(antag_team)
 		antag_team.add_member(src)
-	antag_datum_ref.on_gain()
+	INVOKE_ASYNC(antag_datum_ref, TYPE_PROC_REF(/datum/antagonist, on_gain))
 	log_game("[key_name(src)] has gained antag datum [antag_datum_ref.name]([antag_datum_ref.type])")
 	var/client/picked_client = src.current?.client
 	picked_client?.mob?.mind.picking = FALSE

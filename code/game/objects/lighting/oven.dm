@@ -12,7 +12,7 @@
 
 /obj/machinery/light/fueled/oven/Initialize()
 	. = ..()
-	AddComponent(/datum/component/storage/concrete/grid/pan)
+	AddComponent(/datum/component/storage/concrete/grid/food/cooking/oven)
 	AddComponent(/datum/component/container_craft, subtypesof(/datum/container_craft/oven))
 	AddComponent(/datum/component/food_burner, 2 MINUTES, TRUE, CALLBACK(src, PROC_REF(can_burn)))
 

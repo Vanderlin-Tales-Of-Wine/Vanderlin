@@ -163,7 +163,7 @@
 	. = ..()
 	if(.)
 		if(istype(user) && user.mind)
-			var/modifier = 1/(spread+1)
+			var/modifier = 1.25/(spread+1)
 			var/boon = user.get_learning_boon(/datum/skill/combat/crossbows)
 			var/amt2raise = user.STAINT/2
 			user.adjust_experience(/datum/skill/combat/crossbows, amt2raise * boon * modifier, FALSE)

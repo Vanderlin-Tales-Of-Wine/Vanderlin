@@ -47,6 +47,16 @@
 	tastes = list("sweetness and spiderwebs" = 1)
 	faretype = FARE_FINE
 
+// -------------- TIEFLING SUGAR -----------------
+/obj/item/reagent_containers/food/snacks/tiefsugar
+	name = "Tiefling Sugar"
+	desc ="Originating from subterra, Tiefling blood that has been expertly dried and mixed into a sugar base, sweetens when boiled."
+	icon = 'icons/roguetown/items/produce.dmi'
+	icon_state = "tsugar"
+	tastes = list("sweet" = 1)
+	list_reagents = list(/datum/reagent/blood/tiefling = 11)
+
+
 // -------------- CHOCOLATE -----------------
 /obj/item/reagent_containers/food/snacks/chocolate
 	name = "chocolate bar"
