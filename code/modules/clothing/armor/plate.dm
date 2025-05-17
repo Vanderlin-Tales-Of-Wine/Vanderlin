@@ -70,6 +70,7 @@
 	item_weight = 12 * BLACKSTEEL_MULTIPLIER
 	armor = ARMOR_PLATE_BLACKSTEEL
 	prevent_crits = ALL
+	armor_class = AC_HEAVY
 
 //................ Deccorated Half-plate ............... //
 
