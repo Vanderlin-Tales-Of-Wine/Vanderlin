@@ -14,6 +14,7 @@
 #define COMSIG_ROTTEN_FOOD_EATEN "rotten_food_eaten" // from base of /obj/item/reagent_containers/food/snacks/on_consume() (/obj/item/reagent_containers/food/snacks/eaten_food)
 #define COMSIG_LUX_TASTED "lux_tasted" // from base of /datum/status_effect/buff/lux_drank/on_apply() ()
 #define COMSIG_HEAD_PUNCHED "head_punched" // from base of //mob/living/carbon/monkey/attack_hand() (victim)
+#define COMSIG_TREE_TRANSFORMED "tree_transformed" // from base of /obj/effect/proc_holder/spell/invoked/transform_tree/cast() ()
 #define COMSIG_GLOBAL_MARRIAGE "global_marriage" // from base of /obj/structure/fluff/psycross/attackby() (bride, groom)
 #define COMSIG_GLOBAL_FISH_RELEASED "global_fish_released" // from base of /turf/open/water/Entered() (fish_type, fish_rarity)
 #define COMSIG_GLOB_ROLE_CONVERTED "role_converted" // from base of /obj/effect/proc_holder/spell/self/convertrole/proc/convert()() (mob/living/carbon/human/recruiter, mob/living/carbon/human/recruit, newrole)
