@@ -47,7 +47,7 @@
 	var/datum/objective/taste_lux/new_objective = new(owner = chosen_one.mind)
 	chosen_one.mind.add_personal_objective(new_objective)
 
-	to_chat(chosen_one, span_userdanger("BAOTHA WISHES YOU TO KNOW HER ESSENCE!"))
+	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
 	to_chat(chosen_one, span_notice("Seek out and taste Lux to experience Baotha's divine nature firsthand!"))
 	SEND_SOUND(chosen_one, 'sound/ambience/noises/genspooky (1).ogg')
 

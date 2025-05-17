@@ -52,7 +52,7 @@
 	var/obj/effect/proc_holder/spell/invoked/transform_tree/tree_spell = new()
 	chosen_one.mind.AddSpell(tree_spell)
 
-	to_chat(chosen_one, span_userdanger("DENDOR CALLS YOU TO ACTION!"))
+	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
 	to_chat(chosen_one, span_biginfo("Dendor seeks wisdom in the forests! [new_objective.explanation_text]"))
 	SEND_SOUND(chosen_one, 'sound/ambience/noises/genspooky (1).ogg')
 

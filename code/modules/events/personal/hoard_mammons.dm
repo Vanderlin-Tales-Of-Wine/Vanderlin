@@ -1,5 +1,5 @@
 /datum/round_event_control/matthios_hoard
-	name = "Matthios' Golden Demand"
+	name = "Golden Demand"
 	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/matthios_hoard
 	weight = 10
@@ -43,7 +43,7 @@
 	var/datum/objective/hoard_mammons/new_objective = new(owner = chosen_one.mind)
 	chosen_one.mind.add_personal_objective(new_objective)
 
-	to_chat(chosen_one, span_userdanger("MATTHIOS DEMANDS A SHOW OF WEALTH!"))
+	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
 	to_chat(chosen_one, span_notice("Accumulate [new_objective.target_amount] mammons to prove your devotion to commerce and wealth!"))
 	SEND_SOUND(chosen_one, 'sound/items/matidol2.ogg')
 

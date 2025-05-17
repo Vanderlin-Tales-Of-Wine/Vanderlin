@@ -38,15 +38,15 @@
 	explanation_text = "Construct [target_count] profane shrine[target_count > 1 ? "s" : ""] to spread Zizo's corruption."
 
 /datum/crafting_recipe/zizo_shrine
-	name = "Profane Shrine to Zizo"
+	name = "Profane Shrine"
 	always_availible = FALSE
 	reqs = list(
 		/obj/item/grown/log/tree/small = 1,
-		/obj/item/ingot/copper = 1,
+		/obj/item/natural/stone = 2,
 		/obj/item/grown/log/tree/stake = 3
 	)
 	result = /obj/structure/fluff/psycross/zizocross
-	craftdiff = 2
+	craftdiff = 1
 	verbage = "construct"
 	verbage_tp = "constructs"
 	craftsound = 'sound/foley/Building-01.ogg'
