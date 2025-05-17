@@ -102,6 +102,9 @@
 	misscost = 10
 	item_damage_type = "slash"
 
+/datum/intent/spear/cut/bardiche/scythe //Unique intent for Dendorite Templar
+	reach = 2
+
 /*------------\
 | Chop intent |
 \------------*/
@@ -215,6 +218,14 @@
 			if("wielded")
 				return list("shrink" = 0.6,"sx" = 5,"sy" = -3,"nx" = -5,"ny" = -2,"wx" = -5,"wy" = -1,"ex" = 3,"ey" = -2,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 7,"sturn" = -7,"wturn" = 16,"eturn" = -22,"nflip" = 8,"sflip" = 0,"wflip" = 8,"eflip" = 0)
 
+
+/obj/item/weapon/polearm/spear/abyssor
+	name = "depthseeker"
+	desc = "An instrument of Abyssor's wrath to punish the ignorant."
+	force_wielded = DAMAGE_SPEAR_WIELD+2
+	throwforce = DAMAGE_SPEAR_WIELD
+	icon_state = "gsspear"
+
 //................ Psydonian Spear ............... //
 /obj/item/weapon/polearm/spear/psydon
 	force = DAMAGE_SPEAR
@@ -238,6 +249,7 @@
 				return list("shrink" = 0.6,"sx" = -7,"sy" = 2,"nx" = 7,"ny" = 3,"wx" = -2,"wy" = 1,"ex" = 1,"ey" = 1,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = -38,"sturn" = 37,"wturn" = 30,"eturn" = -30,"nflip" = 0,"sflip" = 8,"wflip" = 8,"eflip" = 0)
 			if("wielded")
 				return list("shrink" = 0.6,"sx" = 5,"sy" = -3,"nx" = -5,"ny" = -2,"wx" = -5,"wy" = -1,"ex" = 3,"ey" = -2,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 7,"sturn" = -7,"wturn" = 16,"eturn" = -22,"nflip" = 8,"sflip" = 0,"wflip" = 8,"eflip" = 0)
+
 
 //................ Billhook ............... //
 /obj/item/weapon/polearm/spear/billhook
@@ -381,6 +393,12 @@
 	wdefense = AVERAGE_PARRY
 	axe_cut = 10
 	sellprice = 30
+
+/obj/item/weapon/polearm/halberd/bardiche/dendor
+	name = "summer scythe"
+	desc = "Summer's verdancy runs through the head of this scythe. All the more to sow."
+	icon_state = "dendorscythe"
+	gripped_intents = list(POLEARM_THRUST, /datum/intent/spear/cut/bardiche/scythe, /datum/intent/axe/chop/scythe, POLEARM_BASH)
 
 //................ Eagle Beak ............... //
 /obj/item/weapon/polearm/eaglebeak

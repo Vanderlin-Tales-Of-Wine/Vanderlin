@@ -336,6 +336,14 @@
 			if("onbelt")
 				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0)
 
+
+/obj/item/weapon/mace/goden/steel/malum
+	name = "Forgefiend"
+	desc = "This hammer's creation took a riddle in its own making. A great sacrifice for perfect quality"
+	icon_state = "malumhammer"
+	gripped_intents = list(/datum/intent/mace/strike, /datum/intent/mace/smash/heavy)
+	max_integrity = 200
+
 //................ Psydonian Grand Mace ............... //
 /obj/item/weapon/mace/goden/psydon
 	name = "psydonian grand mace"
@@ -360,6 +368,7 @@
 				return list("shrink" = 0.7,"sx" = 5,"sy" = -2,"nx" = -5,"ny" = -2,"wx" = -5,"wy" = -2,"ex" = 5,"ey" = -2,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 7,"sturn" = -7,"wturn" = 16,"eturn" = -24,"nflip" = 8,"sflip" = 0,"wflip" = 8,"eflip" = 0)
 			if("onbelt")
 				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0)
+
 
 //................ Shillelagh ............... //
 /obj/item/weapon/mace/goden/shillelagh		// The Briar signature weapon. Sturdy oak war club.

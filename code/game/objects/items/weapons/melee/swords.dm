@@ -240,6 +240,13 @@
 	desc = "A once elegant blade of mythril, diminishing under the suns gaze"
 	icon_state = "spidersaber"
 
+/obj/item/weapon/sword/sabre/noc
+	name = "moonlight khopesh"
+	icon_state = "nockhopesh"
+	desc = "Glittering moonlight upon blued steel."
+	possible_item_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust/short, /datum/intent/sword/chop)
+	max_integrity = 200
+
 //................ Cutlass ............... //
 /obj/item/weapon/sword/sabre/cutlass
 	name = "cutlass"
@@ -446,6 +453,12 @@
 	last_used = 0
 	is_silver = TRUE
 
+/obj/item/weapon/sword/rapier/eora
+	name = "The Heartstring"
+	desc = "For when soft words cannot be spoken more, and hearts are to be pierced."
+	icon_state = "eorarapier"
+	max_blade_int = 200
+
 // Hoplite Kophesh
 /obj/item/weapon/sword/khopesh
 	name = "ancient khopesh"
@@ -618,6 +631,14 @@
 	last_used = 0
 	is_silver = TRUE
 
+
+/obj/item/weapon/sword/long/ravox
+	name = "duel settler"
+	desc = "The tenets of ravoxian duels are enscribed upon the blade of this sword."
+	icon_state = "ravoxflamberge"
+	force = DAMAGE_SWORD+2
+	force_wielded = DAMAGE_SWORD_WIELD+2
+
 //................ Psydonian Longsword ............... //
 /obj/item/weapon/sword/long/psydon
 	force_wielded = DAMAGE_LONGSWORD_WIELD
@@ -630,6 +651,7 @@
 	sellprice = 100
 	last_used = 0
 	is_silver = TRUE
+
 
 //................ Greatsword ............... //
 /obj/item/weapon/sword/long/greatsword
@@ -751,6 +773,14 @@
 				return list("shrink" = 0.6,"sx" = 9,"sy" = -4,"nx" = -7,"ny" = 1,"wx" = -9,"wy" = 2,"ex" = 10,"ey" = 2,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 5,"sturn" = -190,"wturn" = -170,"eturn" = -10,"nflip" = 8,"sflip" = 8,"wflip" = 1,"eflip" = 0)
 			if("onback")
 				return list("shrink" = 0.6,"sx" = -1,"sy" = 3,"nx" = -1,"ny" = 2,"wx" = 3,"wy" = 4,"ex" = -1,"ey" = 5,"nturn" = 0,"sturn" = 0,"wturn" = 70,"eturn" = 20,"nflip" = 1,"sflip" = 1,"wflip" = 1,"eflip" = 1,"northabove" = 1,"southabove" = 0,"eastabove" = 0,"westabove" = 0)
+
+/obj/item/weapon/sword/long/exe/astrata
+	name = "solar judge"
+	desc = "This wicked executioner's blade calls for order."
+	icon_state = "astratasword"
+	max_integrity = 200
+	possible_item_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust, /datum/intent/sword/strike)
+	gripped_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust, /datum/intent/sword/strike, /datum/intent/sword/chop)
 
 //................ Terminus Est ............... //
 /obj/item/weapon/sword/long/exe/cloth
