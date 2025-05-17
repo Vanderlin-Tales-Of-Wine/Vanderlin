@@ -55,6 +55,7 @@
 	to_chat(H, "<span class='info'>I can gesture in thieves' cant with ,t before my speech.</span>")
 	ADD_TRAIT(H, TRAIT_THIEVESGUILD, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_OLDPARTY, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_EARGRAB, TRAIT_GENERIC)
 	H.mind?.AddSpell(new /obj/effect/proc_holder/spell/targeted/seek_orphan)
 	H.mind?.AddSpell(new /obj/effect/proc_holder/spell/self/hag_call)
 	shirt = /obj/item/clothing/shirt/dress/gen/black
