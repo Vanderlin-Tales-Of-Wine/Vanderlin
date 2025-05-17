@@ -392,3 +392,13 @@
 	stressadd = 1
 	desc = span_red("I must eat my opponent's heart before he eats MINE!")
 	timer = INFINITY
+
+/datum/stressevent/mother_calling
+	timer = 1 MINUTES
+	stressadd = 2
+	desc = span_red("The Matron is calling for me by my full name..")
+
+/datum/stressevent/friend_calling
+	timer = 30 SECONDS
+	stressadd = 1
+	desc = span_red("That voice.. That old thief is calling for me, what is it now?")
