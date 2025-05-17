@@ -207,7 +207,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_DREAM_WATCHER = span_notice("I'm blessed by Noc, my dreams tell more than the average person.."),
 	TRAIT_AMAZING_BACK = span_notice("I'm able to carry far more on my back!"),
 	TRAIT_HOLLOWBONES = span_danger("My bones are light as air, Its hard to wear armor."),
-	TRAIT_EARGRAB = span_info("I know how to keep a tight grip on the ear of one of my unruly child."),
+	TRAIT_EARGRAB = span_info("I can keep a tight grip on the ear of unruly children."),
 	))
 
 #define SIGNAL_ADDTRAIT(trait_ref) ("addtrait " + trait_ref)
