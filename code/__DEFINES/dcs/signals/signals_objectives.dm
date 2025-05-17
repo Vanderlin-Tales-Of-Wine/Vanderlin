@@ -10,5 +10,6 @@
 #define COMSIG_GRAVE_CONSECRATED "grave_consecrated" // from base of /obj/structure/gravemarker/OnCrafted() (mob/living/consecrator, obj/container)
 #define COMSIG_ANIMAL_TAMED "animal_tamed" // from base of /mob/living/simple_animal/proc/tamed() (mob/living/tamer, mob/living/simple_animal)
 #define COMSIG_MOB_HUGGED "mob_hugged" // from base of /datum/emote/living/hug/adjacentaction() (target)
+#define COMSIG_ABYSSOID_CREATED "abyssoid_created" // from base of /obj/effect/proc_holder/spell/self/create_abyssoid/cast() ()
 #define COMSIG_GLOBAL_MARRIAGE "global_marriage" // from base of /obj/structure/fluff/psycross/attackby() (bride, groom)
 #define COMSIG_GLOBAL_FISH_RELEASED "global_fish_released" // from base of /turf/open/water/Entered() (fish_type, fish_rarity)
