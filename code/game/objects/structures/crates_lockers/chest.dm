@@ -7,7 +7,6 @@
 	drag_slowdown = 2
 	open_sound = 'sound/misc/chestopen.ogg'
 	close_sound = 'sound/misc/chestclose.ogg'
-	lock = null
 	sellprice = 1 // crate recycling program
 	max_integrity = 200
 	blade_dulling = DULLING_BASHCHOP
