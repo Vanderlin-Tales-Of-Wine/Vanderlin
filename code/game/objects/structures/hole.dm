@@ -16,6 +16,8 @@
 	max_integrity = 0
 	buckle_lying = 90
 	layer = 2.8
+	lock = null
+	can_add_lock = FALSE
 
 /obj/structure/closet/dirthole/grave
 	stage = 3
@@ -28,7 +30,6 @@
 	climb_offset = 10
 	icon_state = "gravecovered"
 	opened = FALSE
-	locked = TRUE
 
 /obj/structure/closet/dirthole/closed/loot/Initialize()
 	. = ..()
@@ -68,16 +69,12 @@
 	return
 
 /obj/structure/closet/dirthole/proc/attemptwatermake(mob/living/user, obj/item/reagent_containers/bucket)
-	testing("attempting to make water proc called")
 	if(user.used_intent.type == /datum/intent/splash)
-		testing("intent check complete")
 		if(bucket.reagents)
-			testing("reagent check complete")
 			var/datum/reagent/master_reagent = bucket.reagents.get_master_reagent()
 			var/reagent_volume = master_reagent.volume
 			if(do_after(user, 10 SECONDS, src))
 				if(bucket.reagents.remove_reagent(master_reagent.type, clamp(master_reagent.volume, 1, 100)))
-					testing("remove reagent proc complete")
 					var/turf/structure_turf = get_turf(src)
 					var/turf/open/water/W = structure_turf.PlaceOnTop(/turf/open/water/river/creatable)
 					if(!W) // how did this happen
@@ -86,8 +83,7 @@
 					W.water_volume = clamp(reagent_volume, 1, 100)
 					W.update_icon()
 					playsound(W, 'sound/foley/waterenter.ogg', 100, FALSE)
-					QDEL_NULL(src) // Somehow this actually makes it disappear. Hilarious.
-	testing("proc ended")
+					QDEL_NULL(src)
 
 /obj/structure/closet/dirthole/attackby(obj/item/attacking_item, mob/user, params)
 	if(!istype(attacking_item, /obj/item/weapon/shovel))
@@ -108,7 +104,6 @@
 				return
 			stage = 4
 			climb_offset = 10
-			locked = TRUE
 			close()
 			var/founds
 			for(var/atom/A in contents)
@@ -117,7 +112,6 @@
 			if(!founds)
 				stage = 2
 				climb_offset = 0
-				locked = FALSE
 				open()
 			update_icon()
 		else if(stage < 4)
@@ -142,15 +136,6 @@
 				playsound(mastert,'sound/items/dig_shovel.ogg', 100, TRUE)
 				mastert.ChangeTurf(/turf/open/transparent/openspace)
 				return
-//					for(var/D in GLOB.cardinals)
-//						var/turf/T = get_step(mastert, D)
-//						if(T)
-//							if(istype(T, /turf/open/water))
-//								attacking_shovel.heldclod = new(attacking_shovel)
-//								attacking_shovel.update_icon()
-//								playsound(mastert,'sound/items/dig_shovel.ogg', 100, TRUE)
-//								mastert.ChangeTurf(T.type, flags = CHANGETURF_INHERIT_AIR)
-//								return
 			to_chat(user, "<span class='warning'>I think that's deep enough.</span>")
 			return
 		var/used_str = 10
@@ -172,7 +157,6 @@
 				return
 			stage = 3
 			climb_offset = 0
-			locked = FALSE
 			open()
 			for(var/obj/structure/gravemarker/G in loc)
 				record_featured_stat(FEATURED_STATS_CRIMINALS, user)
@@ -347,10 +331,9 @@
 /obj/structure/closet/dirthole/relaymove(mob/user)
 	if(user.stat || !isturf(loc) || !isliving(user))
 		return
-	if(locked && !user.mind?.has_antag_datum(/datum/antagonist/zombie))
+	if(!user.mind?.has_antag_datum(/datum/antagonist/zombie))
 		if(message_cooldown <= world.time)
 			message_cooldown = world.time + 50
 			to_chat(user, "<span class='warning'>I'm trapped!</span>")
 		return
-	locked = FALSE
 	container_resist(user)

@@ -143,6 +143,12 @@
 	add_abstract_elastic_data(ELASCAT_CRAFTING, "[name]", 1)
 	return
 
+/obj/OnCrafted(dirin, mob/user)
+	if(lock)
+		QDEL_NULL(lock)
+		can_add_lock = TRUE
+	. = ..()
+
 /obj/structure/OnCrafted(dirin, mob/user)
 	obj_flags |= CAN_BE_HIT
 	. = ..()

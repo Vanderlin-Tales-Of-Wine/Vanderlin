@@ -54,11 +54,12 @@
 	. = ..()
 	if(.)
 		return
-//	if(structureclimber && structureclimber != user)
-//		user.changeNext_move(CLICK_CD_MELEE)
-//		user.do_attack_animation(src)
-//		structureclimber.Paralyze(40)
-//		structureclimber.visible_message("<span class='warning'>[structureclimber] has been knocked off [src].", "You're knocked off [src]!", "You see [structureclimber] get knocked off [src].</span>")
+
+/obj/structure/pre_lock_interact(mob/user)
+	if(broken)
+		to_chat(user, span_notice("[src] is broken, I cannot do this."))
+		return FALSE
+	return ..()
 
 /obj/structure/Crossed(atom/movable/AM)
 	. = ..()

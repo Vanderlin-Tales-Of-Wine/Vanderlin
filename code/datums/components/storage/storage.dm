@@ -811,7 +811,7 @@
 	if((user.active_storage == src) && A.Adjacent(user)) //if you're already looking inside the storage item
 		user.active_storage.close(user)
 		close(user)
-		. = COMPONENT_NO_ATTACK_HAND
+		. = COMPONENT_NO_ATTACK_RIGHT
 		return
 
 	if(rustle_sound)
@@ -842,7 +842,7 @@
 				return
 
 	if(A.Adjacent(user))
-		. = COMPONENT_NO_ATTACK_HAND
+		. = COMPONENT_NO_ATTACK_RIGHT
 		if(locked || !allow_look_inside)
 //			to_chat(user, "<span class='warning'>[parent] seems to be locked!</span>")
 			return

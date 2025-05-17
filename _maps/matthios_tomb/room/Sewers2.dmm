@@ -1,87 +1,18 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"aa" = (
-/turf/open/water/swamp,
-/area/rogue/under/cavewet)
-"ab" = (
-/obj/structure/bars/pipe/left{
-	pixel_x = 1;
-	pixel_y = 14
-	},
-/turf/open/floor/metal,
-/area/rogue/under/cavewet)
-"ac" = (
-/turf/closed/wall/mineral/stonebrick/reddish,
-/area/rogue/under/cavewet)
 "ad" = (
 /turf/open/floor/plank,
 /area/rogue/under/tomb/sewer)
-"ae" = (
-/obj/effect/dungeon_directional_helper/south,
-/turf/open/floor/concrete,
-/area/rogue/under/cavewet)
-"af" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_line"
-	},
-/area/rogue/under/cavewet)
-"ag" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_joint";
-	dir = 1
-	},
-/area/rogue/under/cavewet)
-"ah" = (
-/obj/item/flashlight/flare/torch/lantern,
-/turf/open/floor/metal,
-/area/rogue/under/cavewet)
 "ai" = (
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/concrete,
 /area/rogue/under/tomb/sewer)
-"aj" = (
-/obj/item/natural/worms/leech/propaganda,
-/turf/open/floor/concrete,
-/area/rogue/under/cavewet)
-"ak" = (
-/obj/effect/dungeon_directional_helper/west,
-/turf/open/floor/concrete,
-/area/rogue/under/cavewet)
-"al" = (
-/turf/open/floor/plank,
-/area/rogue/under/cavewet)
 "am" = (
 /turf/closed/wall/mineral/pipe,
 /area/rogue/under/tomb/sewer)
-"an" = (
-/turf/open/transparent/openspace,
-/area/rogue/under/cavewet)
-"ao" = (
-/obj/effect/dungeon_directional_helper/east,
-/turf/open/floor/concrete,
-/area/rogue/under/cavewet)
-"ap" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_line";
-	dir = 4
-	},
-/area/rogue/under/cavewet)
-"aq" = (
-/turf/open/floor/tile,
-/area/rogue/under/cavewet)
 "ar" = (
 /obj/structure/ladder,
 /turf/open/water/swamp,
 /area/rogue/under/tomb/sewer)
-"as" = (
-/obj/structure/guillotine,
-/obj/effect/decal/cleanable/blood/old,
-/obj/effect/decal/cleanable/blood/gibs/old,
-/turf/open/floor/metal,
-/area/rogue/under/cavewet)
-"at" = (
-/obj/effect/dungeon_directional_helper/north,
-/turf/open/floor/concrete,
-/area/rogue/under/cavewet)
 "au" = (
 /mob/living/simple_animal/hostile/retaliate/bigrat,
 /turf/open/water/swamp,
@@ -90,34 +21,10 @@
 /obj/effect/dungeon_directional_helper/east,
 /turf/open/floor/concrete,
 /area/rogue/under/tomb/sewer)
-"aw" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_joint";
-	dir = 4
-	},
-/area/rogue/under/cavewet)
-"ax" = (
-/mob/living/simple_animal/hostile/retaliate/bigrat,
-/turf/open/water/swamp,
-/area/rogue/under/cavewet)
-"ay" = (
-/obj/item/natural/worms/leech/propaganda,
-/turf/open/floor/metal,
-/area/rogue/under/cavewet)
 "az" = (
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/concrete,
 /area/rogue/under/tomb/sewer)
-"aA" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_corner";
-	dir = 4
-	},
-/area/rogue/under/cavewet)
-"aB" = (
-/obj/structure/bars/pipe,
-/turf/open/transparent/openspace,
-/area/rogue/under/cavewet)
 "aC" = (
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/concrete,
@@ -129,95 +36,28 @@
 	},
 /turf/open/water/swamp,
 /area/rogue/under/tomb/sewer)
-"aE" = (
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor/metal,
-/area/rogue/under/cavewet)
-"aF" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_joint";
-	dir = 8
-	},
-/area/rogue/under/cavewet)
 "aG" = (
 /obj/item/natural/worms/leech/propaganda,
 /turf/open/floor/concrete,
 /area/rogue/under/tomb/sewer)
-"aH" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_corner"
-	},
-/area/rogue/under/cavewet)
-"aI" = (
-/turf/open/floor/concrete,
-/area/rogue/under/cavewet)
 "aJ" = (
 /turf/open/water/swamp,
 /area/rogue/under/tomb/sewer)
-"aK" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_corner";
-	dir = 1
-	},
-/area/rogue/under/cavewet)
-"aL" = (
-/obj/structure/ladder,
-/turf/open/floor/metal,
-/area/rogue/under/cavewet)
 "aM" = (
 /turf/open/floor/tile,
 /area/rogue/under/tomb/sewer)
 "aN" = (
 /turf/open/floor/metal,
 /area/rogue/under/tomb/sewer)
-"aO" = (
-/obj/structure/fluff/walldeco/chains,
-/turf/open/transparent/openspace,
-/area/rogue/under/cavewet)
-"aP" = (
-/obj/structure/fluff/walldeco/chains,
-/obj/structure/bars/pipe,
-/obj/structure/bars/pipe,
-/turf/open/transparent/openspace,
-/area/rogue/under/cavewet)
-"aQ" = (
-/turf/open/floor/metal,
-/area/rogue/under/cavewet)
 "aR" = (
 /turf/open/floor/concrete,
 /area/rogue/under/tomb/sewer)
-"aS" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_joint"
-	},
-/area/rogue/under/cavewet)
-"aT" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_corner";
-	dir = 8
-	},
-/area/rogue/under/cavewet)
-"aU" = (
-/obj/structure/bars/pipe,
-/turf/open/floor/metal,
-/area/rogue/under/cavewet)
 "aV" = (
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb/sewer)
 "aW" = (
 /turf/closed/wall/mineral/stonebrick/reddish,
 /area/rogue/under/tomb/sewer)
-"aX" = (
-/obj/structure/fluff/walldeco/bath/wallpipes{
-	pixel_x = 22;
-	pixel_y = 26
-	},
-/turf/open/water/swamp,
-/area/rogue/under/cavewet)
-"aY" = (
-/obj/structure/ladder,
-/turf/open/water/swamp,
-/area/rogue/under/cavewet)
 "aZ" = (
 /obj/structure/fluff/walldeco/chains,
 /turf/open/transparent/openspace,

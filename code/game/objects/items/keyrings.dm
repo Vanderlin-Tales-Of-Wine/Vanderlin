@@ -10,12 +10,13 @@
 	w_class = WEIGHT_CLASS_TINY
 	dropshrink = 0
 	throwforce = 0
-	var/list/keys = list() //Used to generate starting keys on initialization, check contents instead for actual keys
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_NECK|ITEM_SLOT_MOUTH|ITEM_SLOT_WRISTS
 	experimental_inhand = FALSE
 	dropshrink = 0.7
 	drop_sound = 'sound/foley/dropsound/chain_drop.ogg'
 	component_type = /datum/component/storage/concrete/grid/keyring
+	var/list/keys = list() //Used to generate starting keys on initialization, check contents instead for actual keys
+	var/list/combined_access
 
 /obj/item/storage/keyring/Initialize()
 	. = ..()
@@ -40,7 +41,7 @@
 
 /obj/item/storage/keyring/update_icon()
 	. = ..()
-	switch(contents.len)
+	switch(length(contents))
 		if(0)
 			icon_state = "keyring0"
 		if(1)
@@ -62,13 +63,34 @@
 	for(var/obj/item/key/KE in contents)
 		desc += span_info("\n- [KE.name ? "\A [KE.name]." : "An unknown key."]")
 
+/obj/item/storage/keyring/proc/refresh_keys()
+	LAZYCLEARLIST(combined_access)
+
+	if(!length(contents))
+		return
+
+	LAZYINITLIST(combined_access)
+
+	for(var/obj/item/key/K in contents)
+		if(!length(K.lockids))
+			continue
+
+		combined_access |= K.get_access()
+
+/obj/item/storage/keyring/get_access()
+	if(LAZYLEN(combined_access))
+		return combined_access.Copy()
+	return null
+
 /obj/item/storage/keyring/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	. = ..()
 	update_desc()
+	refresh_keys()
 
 /obj/item/storage/keyring/Exited(atom/movable/gone, direction)
 	. = ..()
 	update_desc()
+	refresh_keys()
 
 /obj/item/storage/keyring/getonmobprop(tag)
 	. = ..()

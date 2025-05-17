@@ -432,6 +432,18 @@
 	},
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors)
+"yq" = (
+/obj/structure/fluff/railing/wood,
+/obj/structure/closet/crate/chest/neu,
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
+/obj/item/reagent_containers/food/snacks/cheese_wedge/aged,
+/obj/item/reagent_containers/food/snacks/cheese_wedge/aged,
+/obj/effect/spawner/map_spawner/loot/food,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/tomb/indoors)
 "yx" = (
 /obj/effect/decal/cobbleedge/alt{
 	dir = 1
@@ -529,11 +541,6 @@
 /obj/machinery/light/fueled/campfire/densefire,
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb/cave)
-"DK" = (
-/obj/structure/door/green,
-/obj/effect/mapping_helpers/door/locker,
-/turf/open/floor/hexstone,
-/area/rogue/under/tomb/indoors)
 "EH" = (
 /obj/structure/stairs/stone/reddish,
 /turf/open/floor/cobblerock/alt,
@@ -714,6 +721,11 @@
 /obj/structure/stairs/stone{
 	dir = 1
 	},
+/turf/open/floor/hexstone,
+/area/rogue/under/tomb/indoors)
+"QC" = (
+/obj/structure/door/green,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors)
 "QD" = (
@@ -913,18 +925,6 @@
 	pixel_y = -11
 	},
 /turf/open/floor/ruinedwood/darker,
-/area/rogue/under/tomb/indoors)
-"Yn" = (
-/obj/structure/fluff/railing/wood,
-/obj/structure/closet/crate/chest/neu,
-/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
-/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
-/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
-/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
-/obj/item/reagent_containers/food/snacks/cheese_wedge/aged,
-/obj/item/reagent_containers/food/snacks/cheese_wedge/aged,
-/obj/effect/spawner/map_spawner/loot/food,
-/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "Yr" = (
 /turf/open/floor/ruinedwood/spiral,
@@ -1349,7 +1349,7 @@ vr
 YK
 vr
 vr
-DK
+QC
 vr
 vr
 pT
@@ -2570,7 +2570,7 @@ aV
 ET
 xk
 iQ
-Yn
+yq
 YG
 RU
 TZ

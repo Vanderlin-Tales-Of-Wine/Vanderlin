@@ -461,7 +461,7 @@
 			. += 1 // extra tile penalty
 			break
 	var/obj/structure/door/door = locate() in src
-	if(door && door.density && !door.locked && door.anchored) // door will have to be opened
+	if(door && door.density && !door.locked() && door.anchored) // door will have to be opened
 		. += 2 // try to avoid closed doors where possible
 
 	for(var/obj/structure/O in contents)

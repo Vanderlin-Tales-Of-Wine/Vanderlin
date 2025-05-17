@@ -46,6 +46,25 @@
 
 	var/animate_dmg = TRUE
 
+	// See /code/datums/locks
+
+	/**
+	 * A list of lockids for keys and locks
+	 * If something has a lock it's used to set access of the lock then nulled
+	 */
+	var/list/lockids
+	/// A lock datum that handles access and lockpicking
+	var/datum/lock/lock
+	/// If we don't have a lock datum, can we add one?
+	var/can_add_lock = FALSE
+	/// This is depreciated but I don't want to replace it yet
+	var/lockid
+
+	var/lock_sound = 'sound/foley/lock.ogg'
+	var/unlock_sound = 'sound/foley/unlock.ogg'
+	/// Sound we play when a key fails to unlock
+	var/rattle_sound = 'sound/foley/lockrattle.ogg'
+
 	vis_flags = VIS_INHERIT_PLANE
 
 /obj/vv_edit_var(vname, vval)
@@ -63,16 +82,24 @@
 	return ..()
 
 /obj/Initialize(mapload, ...)
-	if (islist(armor))
+	if(islist(armor))
 		armor = getArmor(arglist(armor))
-	else if (!armor)
+	else if(!armor)
 		armor = getArmor()
-	else if (!istype(armor, /datum/armor))
+	else if(!istype(armor, /datum/armor))
 		stack_trace("Invalid type [armor.type] found in .armor during /obj Initialize()")
 	if(main_material)
 		set_material_information()
 	if(obj_integrity == null)
 		obj_integrity = max_integrity
+	if(lockid)
+		log_mapping("[src] at [AREACOORD(src)] has a depreciated lockid varedit.")
+	if(lock)
+		if(lockid && !lockids)
+			lockids = list(lockid)
+			lockid = null
+		lock = new lock(src, lockids)
+		lockids = null
 
 	. = ..() //Do this after, else mat datums is mad.
 
