@@ -61,7 +61,7 @@
 /obj/item/clothing/armor/plate/blkknight
 	name = "blacksteel plate"
 	body_parts_covered = COVERAGE_ALL_BUT_LEGS
-	armor_class = AC_MEDIUM
+	armor_class = AC_HEAVY
 	icon_state = "bkarmor"
 	icon = 'icons/roguetown/clothing/special/blkknight.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/blkknight.dmi'
