@@ -109,7 +109,7 @@
 #define TRAIT_CRATEMOVER "Crate Mover"
 #define TRAIT_BURDEN "Burdened" //Gaffer stuff
 #define TRAIT_OLDPARTY "Old Party"
-#define TRAIT_EARGRAB "Motherly's Touch"
+#define TRAIT_EARGRAB "Ear Grab"
 
 // PATRON CURSE TRAITS
 #define TRAIT_CURSE "Curse" //source
