@@ -26,7 +26,7 @@
 		return
 
 	var/message = where_orphan(user, tracked_orphan)
-	to_chat(user, span_blue("Hmm, That brat is [message]."))
+	to_chat(user, span_blue("That brat is [message]."))
 
 /obj/effect/proc_holder/spell/targeted/seek_orphan/proc/where_orphan(mob/user, mob/living/carbon/human/tracked_orphan)
 	var/turf/our_turf = get_turf(user)
@@ -58,9 +58,9 @@
 
 	if(our_z != their_z)
 		var/z_text = our_z > their_z ? "below me" : "above me"
-		return "[distance_text] to the [dir_text], [z_text]"
+		return "[distance_text]...and to the [dir_text], [z_text]"
 
-	return "[distance_text], to the [dir_text]"
+	return "[distance_text]...and to the [dir_text]"
 
 /obj/effect/proc_holder/spell/self/hag_call
 	name = "Hag's Call"
