@@ -273,6 +273,9 @@
 	. = ..()
 	if(has_bolt || has_viewport)
 		dir = turn(dirin, 180)
+	if(has_bolt)
+		lock = new /datum/lock(src)
+		can_add_lock = FALSE
 
 /obj/structure/door/fire_act(added, maxstacks)
 	if(!added)
