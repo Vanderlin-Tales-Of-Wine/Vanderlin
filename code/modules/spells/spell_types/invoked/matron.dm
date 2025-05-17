@@ -12,7 +12,7 @@
 	for(var/mob/living/carbon/human/H in GLOB.mob_list)
 		if(!H.client)
 			continue
-		if(H.job != "Orphan")
+		if(!HAS_TRAIT(H, TRAIT_ORPHAN))
 			continue
 		orphans += H
 
@@ -77,11 +77,11 @@
 		return FALSE
 	for(var/mob/living/carbon/human/HL in GLOB.human_list)
 		if(HL.real_name == input && HL.mind)
-			if(HL.job == "Orphan" || HAS_TRAIT(HL, TRAIT_OLDPARTY))
+			if(HAS_TRAIT(HL, TRAIT_ORPHAN) || HAS_TRAIT(HL, TRAIT_OLDPARTY))
 				to_chat(HL, span_reallybig("[HL.real_name]!"))
 				HL.visible_message(span_notice("Someone is calling for me!"))
 				user.say("[HL.real_name]!!", spans = list("reallybig"))
-				if(HL.job == "Orphan")
+				if(HAS_TRAIT(HL, TRAIT_ORPHAN))
 					HL.add_stress(/datum/stressevent/mother_calling)
 				else
 					HL.add_stress(/datum/stressevent/friend_calling)
