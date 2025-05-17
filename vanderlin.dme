@@ -2266,6 +2266,7 @@
 #include "code\modules\procedural_mapping\mapGeneratorModules\mountains.dm"
 #include "code\modules\procedural_mapping\mapGeneratorModules\rogueoutdoors.dm"
 #include "code\modules\procedural_mapping\mapGenerators\cellular.dm"
+#include "code\modules\procedural_mapping\rosewood\bog.dm"
 #include "code\modules\procedural_mapping\rosewood\cave.dm"
 #include "code\modules\procedural_mapping\rosewood\field.dm"
 #include "code\modules\procedural_mapping\rosewood\forest.dm"

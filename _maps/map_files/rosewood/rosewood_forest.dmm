@@ -806,8 +806,8 @@
 /area/rogue/outdoors/woods)
 "yr" = (
 /obj/structure/fluff/traveltile{
-	aportalgoesto = "rosewood-bog_cave-forest";
-	aportalid = "rosewood-forest-bog_cave"
+	aportalgoesto = "rosewood-forest-bog_cave";
+	aportalid = "rosewood-bog_cave-forest"
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/under/cave)
