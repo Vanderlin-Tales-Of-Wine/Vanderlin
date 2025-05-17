@@ -64,7 +64,6 @@
 
 /obj/effect/proc_holder/spell/self/hag_call
 	name = "Hag's Call"
-	desc = "Scream out the name of an orphan under your care, reducing their mood and alerting them that you're looking for them.."
 	recharge_time = 5 MINUTES
 	warnie = "spellwarning"
 	overlay_state = "message"
