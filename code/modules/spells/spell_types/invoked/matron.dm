@@ -20,7 +20,7 @@
 		to_chat(user, span_red("..There isn't any"))
 		return
 
-	var/mob/living/carbon/human/tracked_orphan = input(user, "Which One?", "Seek Orphan") as null|anything in orphans
+	var/mob/living/carbon/human/tracked_orphan = browser_input_list(user, "Which One?", "Seek Orphan", orphans)
 	if(!tracked_orphan)
 		to_chat(user, span_warning("I can't find any of those brats.."))
 		return
