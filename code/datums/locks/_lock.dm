@@ -67,10 +67,13 @@
 		lockid_list = lockids
 	RegisterSignal(src.holder, COMSIG_PARENT_EXAMINE, PROC_REF(examine))
 	RegisterSignal(src.holder, COMSIG_PARENT_ATTACKBY, PROC_REF(attack_by))
-	RegisterSignal(src.holder, COMSIG_ATOM_ATTACK_RIGHT, PROC_REF(attack_right))
+	if(requires_turning)
+		RegisterSignal(src.holder, COMSIG_ATOM_ATTACK_RIGHT, PROC_REF(attack_right))
 
 /datum/lock/key/Destroy()
-	UnregisterSignal(src.holder, list(COMSIG_PARENT_ATTACKBY, COMSIG_PARENT_EXAMINE, COMSIG_ATOM_ATTACK_RIGHT))
+	UnregisterSignal(src.holder, list(COMSIG_PARENT_ATTACKBY, COMSIG_PARENT_EXAMINE))
+	if(requires_turning)
+		UnregisterSignal(src.holder, COMSIG_ATOM_ATTACK_RIGHT)
 	return ..()
 
 /datum/lock/key/proc/examine(obj/source, mob/user, list/examine_list)

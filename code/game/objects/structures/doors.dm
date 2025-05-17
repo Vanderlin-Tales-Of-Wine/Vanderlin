@@ -185,24 +185,25 @@
 	if(switching_states)
 		return
 	user.changeNext_move(CLICK_CD_FAST)
-	if(has_bolt)
-		if(obj_broken)
-			to_chat(user, span_warning("The bolt has nothing to latch to!"))
+	if(!user.get_active_held_item())
+		if(has_bolt)
+			if(obj_broken)
+				to_chat(user, span_warning("The bolt has nothing to latch to!"))
+				return
+			if(get_dir(src, user) == dir)
+				lock?.toggle(user)
+				return
+			to_chat(user, span_notice("I can't reach the bolt from this side."))
 			return
-		if(get_dir(src, user) == dir)
-			lock?.toggle(user)
+		if(has_viewport)
+			if(obj_broken)
+				to_chat(user, span_warning("The viewport is broken!"))
+				return
+			if(get_dir(src, user) == dir)
+				viewport_toggle(user)
+				return
+			to_chat(user, span_notice("The viewport does not open from this side."))
 			return
-		to_chat(user, span_notice("I can't reach the bolt from this side."))
-		return
-	if(has_viewport)
-		if(obj_broken)
-			to_chat(user, span_warning("The viewport is broken!"))
-			return
-		if(get_dir(src, user) == dir)
-			viewport_toggle(user)
-			return
-		to_chat(user, span_notice("The viewport does not open from this side."))
-		return
 	return ..()
 
 /obj/structure/door/attack_ghost(mob/dead/observer/user)	// lets ghosts click on windows to transport across
