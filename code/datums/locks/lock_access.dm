@@ -1,23 +1,3 @@
-/obj
-	/**
-	 * A list of lockids for keys and locks
-	 * If something has a lock it's used to set access of the lock then nulled
-	 */
-	var/list/lockids
-	/// A lock datum that handles access and lockpicking
-	var/datum/lock/lock
-	/// If we don't have a lock datum, can we add one?
-	var/can_add_lock = FALSE
-	/// If we have a lock datum, can we remove it?
-	var/can_remove_lock = FALSE
-	/// This is depreciated but I don't want to replace it
-	var/lockid
-
-	var/lock_sound = 'sound/foley/lock.ogg'
-	var/unlock_sound = 'sound/foley/unlock.ogg'
-	/// Sound we play when a key fails to unlock
-	var/rattle_sound = 'sound/foley/lockrattle.ogg'
-
 /// Check if obj has a lock datum and optionally if it uses a key
 /obj/proc/lock_check(key = FALSE)
 	if(!lock || !istype(lock, /datum/lock))
@@ -80,9 +60,9 @@
 /obj/proc/on_unlock(mob/user, silent = FALSE)
 	if(!silent && unlock_sound)
 		playsound(get_turf(src), unlock_sound, 100)
-		user.visible_message(span_notice("[user] unlocks [src]."), span_notice("I unlock \the [src]"), span_notice("I hear a click."))
+		user.visible_message(span_notice("[user] unlocks \the [src]."), span_notice("I unlock \the [src]"), span_notice("I hear a click."))
 		return
-	to_chat(user, span_notice("I unlock [src]."))
+	to_chat(user, span_notice("I unlock \the [src]."))
 
 /// Somethings might care when a lock is added to them
 /obj/proc/on_lock_add(mob/user)
