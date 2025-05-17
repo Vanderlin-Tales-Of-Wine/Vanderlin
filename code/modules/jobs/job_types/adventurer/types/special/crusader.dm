@@ -33,7 +33,7 @@
 	backr = /obj/item/weapon/shield/tower/metal
 	belt = /obj/item/storage/belt/leather/plaquesilver
 	beltl = /obj/item/weapon/sword/silver
-
+	beltr = /obj/item/storage/belt/pouch/coins/rich
 	switch(H.patron?.name)
 		if("Astrata")
 			cloak = /obj/item/clothing/cloak/stabard/crusader // Gold for Astrata regardless of gender
@@ -54,9 +54,9 @@
 	H.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/riding, 4, TRUE)
@@ -70,21 +70,8 @@
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 
-	// Females are crossbow and dagger based
-	if(H.gender == FEMALE)
-		head = /obj/item/clothing/head/helmet/heavy/crusader/t
-		backr = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
-		beltl = /obj/item/weapon/knife/dagger/silver
-		beltr = /obj/item/ammo_holder/quiver/bolts
-		H.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
-		H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-		backl = /obj/item/storage/backpack/satchel/black
-		backpack_contents = list(/obj/item/storage/belt/pouch/coins/rich = 1)
-	// Males are sword and shield based
-	else
-		H.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
-		H.adjust_skillrank(/datum/skill/combat/shields, 1, TRUE)
-		beltr = /obj/item/storage/belt/pouch/coins/rich
+
+		
 	// Finally, grant us the language
 
 	if(!H.has_language(/datum/language/oldpsydonic))
