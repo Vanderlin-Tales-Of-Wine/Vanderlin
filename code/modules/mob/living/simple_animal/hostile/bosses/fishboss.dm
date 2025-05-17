@@ -51,6 +51,7 @@
 
 /mob/living/simple_animal/hostile/boss/fishboss/Initialize()
 	. = ..()
+	AddComponent(/datum/component/ai_aggro_system)
 	RegisterSignal(src, COMSIG_LIVING_HEALTH_UPDATE, PROC_REF(check_phase_transition))
 	// Create unique name from list of possibilities
 	var/list/possible_titles = list(

@@ -50,6 +50,7 @@
 					var/mob/living/carbon/H = user
 					H.update_inv_neck()
 					H.update_inv_head()
+		user.regenerate_clothes()
 
 /obj/item/clothing/neck/coif/cloth
 	name = "padded coif"
@@ -117,6 +118,7 @@
 					H.update_inv_neck()
 					H.update_inv_head()
 
+	user.regenerate_clothes()
 
 /obj/item/clothing/neck/chaincoif/iron
 	icon_state = "ichaincoif"
@@ -233,6 +235,7 @@
 				if(ishuman(user))
 					var/mob/living/carbon/H = user
 					H.update_inv_neck()
+		user.regenerate_clothes()
 
 /obj/item/clothing/neck/highcollier/iron
 	name = "iron high collier"

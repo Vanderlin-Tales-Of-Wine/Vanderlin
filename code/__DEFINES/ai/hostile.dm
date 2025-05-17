@@ -68,3 +68,8 @@
 
 ///List of mobs who have damaged us
 #define BB_BASIC_MOB_RETALIATE_LIST "BB_basic_mob_shitlist"
+
+#define BB_GATOR_IN_WATER "BB_gator_in_water"
+#define BB_GATOR_AMBUSH_COOLDOWN "BB_gator_ambush_cooldown"
+#define BB_GATOR_DEATH_ROLL_COOLDOWN "BB_gator_death_roll_cooldown"
+#define BB_GATOR_PREFERRED_TERRITORY "BB_gator_preferred_territory"

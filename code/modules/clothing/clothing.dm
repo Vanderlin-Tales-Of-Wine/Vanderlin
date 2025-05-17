@@ -422,7 +422,7 @@ BLIND     // can't see anything
 		if(loc == user)
 			AdjustClothes(user)
 
-/obj/item/clothing/proc/AdjustClothes(mob/user)
+/obj/item/clothing/proc/AdjustClothes(mob/usFer)
 	return //override this in the clothing item itself so we can update the right inv
 
 /obj/item/clothing/proc/ResetAdjust(mob/user)

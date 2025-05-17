@@ -234,10 +234,6 @@
 				H.update_inv_head()
 		else if(adjustable == CADJUSTED)
 			ResetAdjust(user)
-//			body_parts_covered = FULL_HEAD
-//			prevent_crits = ALL_CRITICAL_HITS
-//			flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
-//			flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH
 			if(user)
 				if(ishuman(user))
 					var/mob/living/carbon/H = user

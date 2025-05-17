@@ -46,6 +46,10 @@
 	dodgetime = 30
 	aggressive = 1
 
+	ai_controller = /datum/ai_controller/imp
+	AIStatus = AI_OFF
+	can_have_ai = FALSE
+
 /obj/projectile/magic/firebolt
 	name = "ball of fire"
 	icon_state = "fireball"
@@ -67,6 +71,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/infernal/imp/Initialize()
 	. = ..()
+	AddComponent(/datum/component/ai_aggro_system)
 
 /mob/living/simple_animal/hostile/retaliate/infernal/imp/death(gibbed)
 	..()

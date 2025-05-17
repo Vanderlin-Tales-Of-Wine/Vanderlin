@@ -102,6 +102,7 @@
 	zombie.grant_language(/datum/language/hellspeak)
 
 	zombie.ai_controller = new /datum/ai_controller/zombie(zombie)
+	zombie.AddComponent(/datum/component/ai_aggro_system)
 	return ..()
 
 /datum/antagonist/zombie/on_removal()
@@ -189,6 +190,7 @@
 	zombie.update_a_intents()
 	if(!zombie.client)
 		zombie.ai_controller = new /datum/ai_controller/zombie(zombie)
+		zombie.AddComponent(/datum/component/ai_aggro_system)
 
 	zombie.grant_undead_eyes()
 	ambushable = zombie.ambushable

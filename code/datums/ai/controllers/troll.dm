@@ -11,7 +11,7 @@
 	planning_subtrees = list(
 		/datum/ai_planning_subtree/flee_target,
 
-		/datum/ai_planning_subtree/simple_find_target/troll,
+		/datum/ai_planning_subtree/aggro_find_target,
 		/datum/ai_planning_subtree/find_food/troll,
 		/datum/ai_planning_subtree/basic_melee_attack_subtree,
 
@@ -32,7 +32,7 @@
 	)
 
 	planning_subtrees = list(
-		/datum/ai_planning_subtree/simple_find_target/bog_troll,
+		/datum/ai_planning_subtree/aggro_find_target,
 		/datum/ai_planning_subtree/basic_melee_attack_subtree/bog_troll,
 
 		/datum/ai_planning_subtree/find_dead_bodies/bog_troll,
@@ -55,7 +55,7 @@
 	planning_subtrees = list(
 		/datum/ai_planning_subtree/flee_target,
 
-		/datum/ai_planning_subtree/simple_find_target/troll,
+		/datum/ai_planning_subtree/aggro_find_target,
 		/datum/ai_planning_subtree/find_food/troll,
 		/datum/ai_planning_subtree/targeted_mob_ability,
 		/datum/ai_planning_subtree/basic_melee_attack_subtree,
@@ -77,7 +77,7 @@
 	)
 
 	planning_subtrees = list(
-		/datum/ai_planning_subtree/simple_find_target/bog_troll,
+		/datum/ai_planning_subtree/aggro_find_target,
 		/datum/ai_planning_subtree/targeted_mob_ability,
 		/datum/ai_planning_subtree/basic_melee_attack_subtree/bog_troll,
 

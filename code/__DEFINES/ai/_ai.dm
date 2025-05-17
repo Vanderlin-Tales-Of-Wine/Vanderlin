@@ -129,3 +129,22 @@ F
 
 #define BB_RESISTING "BB_resisting"
 #define BB_FUTURE_MOVEMENT_PATH "BB_future_path"
+
+#define BB_MOB_AGGRO_TABLE "aggro_table" // Associative list of [mob] -> threat_level
+#define BB_AGGRO_DECAY_TIMER "aggro_decay_timer"
+#define BB_HIGHEST_THREAT_MOB "highest_threat_mob"
+#define BB_THREAT_THRESHOLD "threat_threshold" // Minimum threat to be considered hostile
+#define BB_AGGRO_RANGE "aggro_range" // Range at which mobs can detect and add threats
+#define BB_AGGRO_MAINTAIN_RANGE "aggro_maintain_range" // Range at which target is dropped if exceeded
+#define BB_HEALING_SOURCE "healing_source" // Who last healed the mob
+#define BB_SNEAKING "bb_sneaking"
+#define BB_SNEAK_COOLDOWN "bb_sneak_cooldown"
+
+///key holds the world timer for swimming
+#define BB_KEY_SWIM_TIME "key_swim_time"
+///key holds the water or land target turf
+#define BB_SWIM_ALTERNATE_TURF "swim_alternate_turf"
+///key holds our state of swimming
+#define BB_CURRENTLY_SWIMMING "currently_swimming"
+///key holds how long we will be swimming for
+#define BB_KEY_SWIMMER_COOLDOWN "key_swimmer_cooldown"

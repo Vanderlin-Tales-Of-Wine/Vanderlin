@@ -95,7 +95,7 @@
 		to_chat(src, span_danger("Your suffering has not gone unnoticed, your patron has [paid ? "paid for your toll" : "rewarded you with your toll"]."))
 	playsound(src, 'sound/combat/caught.ogg', 80, TRUE, -1)
 
-/mob/living/carbon/spirit/updatehealth()
+/mob/living/carbon/spirit/updatehealth(amount)
 	. = ..()
 	var/slow = 0
 	if(!HAS_TRAIT(src, TRAIT_IGNOREDAMAGESLOWDOWN))

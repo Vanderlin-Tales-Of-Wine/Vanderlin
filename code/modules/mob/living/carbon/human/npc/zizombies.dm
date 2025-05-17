@@ -21,6 +21,7 @@
 
 /mob/living/carbon/human/species/zizombie/npc/Initialize()
 	. = ..()
+	AddComponent(/datum/component/ai_aggro_system)
 	AddComponent(/datum/component/combat_noise, list("rage" = 1, "scream" = 1))
 
 /mob/living/carbon/human/species/zizombie/ambush
@@ -28,6 +29,7 @@
 
 /mob/living/carbon/human/species/zizombie/ambush/after_creation()
 	..()
+	AddComponent(/datum/component/ai_aggro_system)
 	job = "Ambush zizombie"
 	AddComponent(/datum/component/combat_noise, list("rage" = 1, "scream" = 1))
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)

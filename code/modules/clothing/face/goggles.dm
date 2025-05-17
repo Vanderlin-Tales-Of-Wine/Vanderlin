@@ -29,6 +29,7 @@
 					var/mob/living/carbon/H = user
 					H.update_inv_wear_mask()
 					H.update_inv_head()
+		user.regenerate_clothes()
 
 /obj/item/clothing/face/goggles/dropped(mob/user)
 	. = ..()

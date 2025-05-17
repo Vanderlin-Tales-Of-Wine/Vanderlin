@@ -178,6 +178,7 @@
 		src.ckey = ckey
 	else //npc
 		ai_controller = new /datum/ai_controller/human_npc(src)
+		AddComponent(/datum/component/ai_aggro_system)
 		wander = TRUE
 
 	if(!mind)

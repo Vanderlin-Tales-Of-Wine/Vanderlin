@@ -294,7 +294,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 //	if(stat == DEAD)
 //		. += "<span class='deadsay'>Upon closer examination, [p_they()] appear[p_s()] to be dead.</span>"
 
-/mob/living/simple_animal/updatehealth()
+/mob/living/simple_animal/updatehealth(amount)
 	..()
 	update_damage_overlays()
 
@@ -302,7 +302,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	var/retreating
 	var/melee_attack_cooldown = 1.4 SECONDS
 
-/mob/living/simple_animal/hostile/updatehealth()
+/mob/living/simple_animal/hostile/updatehealth(amount)
 	..()
 	if(!retreating)
 		if(target)

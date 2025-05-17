@@ -804,7 +804,7 @@
 	. = health
 	health = min(new_value, maxHealth)
 
-/mob/living/proc/updatehealth()
+/mob/living/proc/updatehealth(amount = 0)
 	if(status_flags & GODMODE)
 		return
 	set_health(maxHealth - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss() - getCloneLoss())
@@ -813,7 +813,7 @@
 		if(blood_volume <= 0)
 			set_health(NONE)
 	update_stat()
-	SEND_SIGNAL(src, COMSIG_LIVING_HEALTH_UPDATE)
+	SEND_SIGNAL(src, COMSIG_LIVING_HEALTH_UPDATE, amount)
 
 //Proc used to resuscitate a mob, for full_heal see fully_heal()
 /mob/living/proc/revive(full_heal = FALSE, admin_revive = FALSE)

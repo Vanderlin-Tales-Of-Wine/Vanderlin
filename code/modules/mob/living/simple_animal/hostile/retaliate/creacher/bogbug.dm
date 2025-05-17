@@ -65,6 +65,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/bogbug/Initialize()
 	. = ..()
+	AddComponent(/datum/component/ai_aggro_system)
 	gender = MALE
 	ai_controller.set_blackboard_key(BB_BASIC_FOODS, food_type)
 

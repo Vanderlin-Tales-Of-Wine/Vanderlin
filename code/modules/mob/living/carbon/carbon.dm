@@ -665,7 +665,7 @@
 		remove_movespeed_modifier(MOVESPEED_ID_CARBON_CRAWLING, TRUE)
 
 //Updates the mob's health from bodyparts and mob damage variables
-/mob/living/carbon/updatehealth()
+/mob/living/carbon/updatehealth(amount)
 	if(status_flags & GODMODE)
 		return
 	var/total_burn	= 0

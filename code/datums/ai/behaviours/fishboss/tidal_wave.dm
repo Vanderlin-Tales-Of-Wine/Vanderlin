@@ -15,11 +15,6 @@
 	// Set cooldown
 	controller.set_blackboard_key(BB_FISHBOSS_TIDAL_WAVE_COOLDOWN, world.time + 30 SECONDS)
 
-	// Visual effect
-	var/datum/effect_system/smoke_spread/FS = new()
-	FS.set_up(5,  boss.loc, 0)
-	FS.start()
-
 	// Damage wave effect
 	for(var/i = 1 to 3)
 		INVOKE_ASYNC(src, PROC_REF(create_wave), boss, i)

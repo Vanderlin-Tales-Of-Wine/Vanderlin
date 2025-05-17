@@ -84,6 +84,9 @@ SUBSYSTEM_DEF(dungeon_generator)
 	if(!try_pickedtype_first(picked_type, direction, creator, looking_for_love))
 		var/list/true_list = created_types.Copy()
 		while(picking)
+			if(!GET_TURF_ABOVE(creator))
+				message_admins("[ADMIN_JMP(creator)] A dungeon piece was set to spawn on a top level z. This is not intended, their is a bad template.")
+				return
 			if(!length(true_list))
 				return
 			var/datum/map_template/dungeon/template = pickweight(true_list)

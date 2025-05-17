@@ -87,7 +87,7 @@
 
 /datum/container_craft/oven/pie/create_item(obj/item/crafter, mob/initiator, list/found_optional_requirements, list/found_optional_wildcards, list/found_optional_reagents, list/removing_items)
 	var/create_path = output
-	if(initiator.get_skill_level(/datum/skill/craft/cooking) >= 2)
+	if((initiator.get_skill_level(/datum/skill/craft/cooking) >= 2 )&& good_path)
 		create_path = good_path
 
 	for(var/j = 1 to output_amount)

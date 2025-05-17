@@ -9,7 +9,7 @@
 	)
 
 	planning_subtrees = list(
-		/datum/ai_planning_subtree/simple_find_target,
+		/datum/ai_planning_subtree/aggro_find_target,
 		/datum/ai_planning_subtree/basic_melee_attack_subtree/opportunistic,
 		/datum/ai_planning_subtree/move_to_cardinal/void_obelisk,
 		/datum/ai_planning_subtree/targeted_mob_ability/void_obelisk,

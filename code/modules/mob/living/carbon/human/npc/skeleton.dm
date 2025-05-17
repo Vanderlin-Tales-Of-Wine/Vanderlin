@@ -32,6 +32,7 @@
 
 /mob/living/carbon/human/species/skeleton/Initialize()
 	. = ..()
+	AddComponent(/datum/component/ai_aggro_system)
 	addtimer(CALLBACK(src, PROC_REF(after_creation)), 1 SECONDS)
 
 /mob/living/carbon/human/species/skeleton/after_creation()

@@ -34,3 +34,60 @@
 
 /datum/ai_planning_subtree/basic_melee_attack_subtree/mimic
 	melee_attack_behavior = /datum/ai_behavior/basic_melee_attack/mimic
+
+
+/datum/ai_planning_subtree/basic_hybrid_attack
+	var/datum/ai_behavior/basic_hybrid_attack/melee_attack_behavior = /datum/ai_behavior/basic_hybrid_attack
+	/// Is this the last thing we do? (if we set a movement target, this will usually be yes)
+	var/end_planning = TRUE
+
+/datum/ai_planning_subtree/basic_hybrid_attack/SelectBehaviors(datum/ai_controller/controller, delta_time)
+	. = ..()
+	var/atom/target = controller.blackboard[BB_BASIC_MOB_CURRENT_TARGET]
+	if(QDELETED(target))
+		return
+	controller.queue_behavior(melee_attack_behavior, BB_BASIC_MOB_CURRENT_TARGET, BB_TARGETTING_DATUM, BB_BASIC_MOB_CURRENT_TARGET_HIDING_LOCATION)
+	if (end_planning)
+		return SUBTREE_RETURN_FINISH_PLANNING //we are going into battle...no distractions.
+
+/datum/ai_planning_subtree/basic_melee_attack_subtree/gator_attack
+	melee_attack_behavior = /datum/ai_behavior/basic_melee_attack/gator_attack
+
+/datum/ai_behavior/basic_melee_attack/gator_attack
+	action_cooldown = 0.5 SECONDS
+	var/death_roll_chance = 15 // Chance to perform a death roll on attack
+	var/death_roll_damage = 15 // Extra damage from death roll
+	var/death_roll_cooldown = 45 SECONDS // Time between death rolls
+
+/datum/ai_behavior/basic_melee_attack/gator_attack/perform(delta_time, datum/ai_controller/controller, target_key, targetting_datum_key, hiding_location_key)
+	. = ..()
+	var/mob/living/simple_animal/hostile/retaliate/gator/gator_pawn = controller.pawn
+	var/atom/target = controller.blackboard[target_key]
+
+	if(!istype(gator_pawn) || QDELETED(target) || !isliving(target))
+		return
+
+	var/death_roll_cooldown_time = controller.blackboard[BB_GATOR_DEATH_ROLL_COOLDOWN]
+
+	// Check if we can perform a death roll
+	if(prob(death_roll_chance) && death_roll_cooldown_time <= world.time && isliving(target))
+		var/mob/living/L = target
+		if(L.stat != DEAD)
+			perform_death_roll(controller, gator_pawn, L)
+
+// Death roll implementation
+/datum/ai_behavior/basic_melee_attack/gator_attack/proc/perform_death_roll(datum/ai_controller/controller, mob/living/simple_animal/hostile/retaliate/gator/gator_pawn, mob/living/target)
+	gator_pawn.visible_message("<span class='danger'>[gator_pawn] grabs [target] and performs a vicious death roll!</span>")
+
+	target.apply_damage(death_roll_damage, BRUTE, "chest")
+	target.Paralyze(3 SECONDS)
+	var/matrix/M = matrix()
+	for(var/i in 1 to 3)
+		animate(gator_pawn, transform = turn(M, 90 * i), time = 1)
+		sleep(1)
+	animate(gator_pawn, transform = M, time = 1)
+
+	playsound(get_turf(gator_pawn), 'sound/vo/mobs/gator/gatordeath.ogg', 70, TRUE)
+
+	// Set cooldown
+	controller.set_blackboard_key(BB_GATOR_DEATH_ROLL_COOLDOWN, world.time + death_roll_cooldown)
