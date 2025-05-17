@@ -494,7 +494,7 @@
 "dm" = (
 /obj/structure/rack/underworld,
 /obj/item/weapon/flail/militia,
-/obj/item/weapon/sword/scimitar/messer,
+/obj/effect/spawner/map_spawner/loot/weapon,
 /turf/open/floor/twig,
 /area/rogue/indoors/mountains)
 "dn" = (
@@ -598,6 +598,7 @@
 	icon_state = "border"
 	},
 /obj/structure/table/wood/plain,
+/obj/effect/spawner/map_spawner/loot/armor,
 /turf/open/floor/cobblerock,
 /area/rogue/indoors/lich)
 "dS" = (
@@ -736,6 +737,10 @@
 /mob/living/carbon/human/species/zizombie/npc/peasant,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/mountains)
+"eE" = (
+/obj/effect/spawner/map_spawner/loot/armor,
+/turf/open/floor/cobblerock,
+/area/rogue/indoors/lich)
 "eK" = (
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_y = -32;
@@ -793,6 +798,13 @@
 	},
 /turf/open/floor/tile/masonic/single,
 /area/rogue/indoors/lich)
+"fc" = (
+/obj/structure/dungeon_entry/center{
+	pixel_x = -48;
+	pixel_y = 0
+	},
+/turf/closed/mineral/bedrock/cold,
+/area/rogue/outdoors/bog)
 "fd" = (
 /obj/effect/landmark/hammer/dev_text,
 /turf/open/floor/grass/cold,
@@ -803,6 +815,25 @@
 "ff" = (
 /obj/structure/arcyne_wall/greater,
 /turf/closed/mineral/random/cold,
+/area/rogue/outdoors/bog)
+"fg" = (
+/obj/structure/fluff/walldeco/vinez/blue{
+	pixel_x = -6;
+	pixel_y = 1
+	},
+/obj/structure/fluff/walldeco/vinez/blue{
+	pixel_x = -11;
+	pixel_y = 38
+	},
+/obj/structure/fluff/walldeco/vinez/blue{
+	pixel_x = -29;
+	pixel_y = 15
+	},
+/obj/structure/fluff/walldeco/vinez/blue{
+	pixel_x = -38;
+	pixel_y = 44
+	},
+/turf/closed/mineral/bedrock/cold,
 /area/rogue/outdoors/bog)
 "fh" = (
 /mob/living/simple_animal/hostile/retaliate/spider,
@@ -845,6 +876,11 @@
 	},
 /turf/open/floor/church/purple,
 /area/rogue/indoors/lich)
+"ft" = (
+/obj/structure/fluff/nest,
+/obj/effect/spawner/map_spawner/loot/armor,
+/turf/open/floor/twig,
+/area/rogue/indoors/mountains)
 "fw" = (
 /obj/machinery/light/fueled/firebowl/blackfire,
 /turf/open/floor/dirt,
@@ -983,16 +1019,20 @@
 	dir = 8
 	},
 /obj/effect/spawner/map_spawner/loot/magic{
-	pixel_x = 10;
-	pixel_y = -4
+	pixel_x = 20;
+	pixel_y = -1
 	},
 /obj/effect/spawner/map_spawner/loot/magic{
-	pixel_x = -3;
-	pixel_y = 6
+	pixel_x = -7;
+	pixel_y = 10
 	},
 /obj/item/gem/diamond{
-	pixel_x = -9;
+	pixel_x = -10;
 	pixel_y = 0
+	},
+/obj/item/statue/silver/gnome{
+	pixel_x = 5;
+	pixel_y = 7
 	},
 /turf/open/floor/churchbrick,
 /area/rogue/indoors/lich)
@@ -1356,6 +1396,11 @@
 /obj/structure/fluff/railing/fence,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
+"ii" = (
+/obj/effect/decal/remains/wolf,
+/obj/effect/spawner/map_spawner/loot/weapon,
+/turf/open/floor/dirt,
+/area/rogue/outdoors/bog)
 "ij" = (
 /turf/open/floor/church,
 /area/rogue/outdoors/bog)
@@ -1596,6 +1641,11 @@
 /obj/structure/flora/tree,
 /turf/open/floor/grass/cold,
 /area/rogue/indoors/lich)
+"jD" = (
+/obj/structure/rack/shelf/biggest,
+/obj/effect/spawner/map_spawner/loot/armor,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/indoors/mountains)
 "jG" = (
 /obj/effect/landmark/hammer/dev_text,
 /turf/open/water/swamp,
@@ -1759,6 +1809,10 @@
 /obj/structure/trap/shock,
 /turf/open/floor/churchrough,
 /area/rogue/indoors/cave)
+"kS" = (
+/obj/effect/spawner/map_spawner/loot/weapon,
+/turf/open/water/blood,
+/area/rogue/indoors/lich)
 "kX" = (
 /obj/structure/spider/stickyweb,
 /obj/structure/spider/stickyweb{
@@ -2042,6 +2096,7 @@
 "mQ" = (
 /obj/structure/rack,
 /obj/item/weapon/flail/towner,
+/obj/effect/spawner/map_spawner/loot/weapon,
 /turf/open/floor/dirt,
 /area/rogue/indoors/mountains)
 "mR" = (
@@ -2421,6 +2476,11 @@
 /obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/grass/cold,
 /area/rogue/outdoors/bog)
+"oU" = (
+/obj/effect/decal/cleanable/blood,
+/obj/effect/spawner/map_spawner/loot/weapon,
+/turf/open/floor/cobble,
+/area/rogue/indoors/lich)
 "oV" = (
 /mob/living/carbon/human/species/zizombie/npc/militiamen,
 /turf/open/floor/ruinedwood,
@@ -2611,8 +2671,8 @@
 	dir = 4
 	},
 /obj/item/scrying{
-	pixel_x = 3;
-	pixel_y = 6
+	pixel_x = 8;
+	pixel_y = 1
 	},
 /turf/open/floor/churchbrick,
 /area/rogue/indoors/lich)
@@ -2650,6 +2710,10 @@
 /obj/effect/decal/cleanable/food/flour,
 /turf/open/floor/naturalstone,
 /area/rogue/indoors/mountains)
+"qz" = (
+/obj/structure/bonepile,
+/turf/open/floor/grass/cold,
+/area/rogue/outdoors/bog)
 "qA" = (
 /mob/living/carbon/human/species/zizombie/npc/GRENZEL,
 /turf/open/floor/dirt,
@@ -2872,10 +2936,10 @@
 	icon_state = "dragon";
 	icon_dead = "dragon_dead";
 	faction = list("Undead");
-	health = 2000;
+	health = 3000;
 	name = "Dekseer The DracoLich";
 	desc = "This beast of rotting flesh is a testament to Zizo's power, ALL MUST BOW BEFORE ZIZO!";
-	maxHealth = 2000
+	maxHealth = 3000
 	},
 /turf/open/floor/churchrough/purple,
 /area/rogue/indoors/lich)
@@ -2911,6 +2975,7 @@
 /obj/item/clothing/shirt/tunic/random,
 /obj/item/clothing/shirt/undershirt/random,
 /obj/item/clothing/shirt/dress/silkdress/random,
+/obj/effect/spawner/map_spawner/loot/armor,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/mountains)
 "sj" = (
@@ -3030,6 +3095,7 @@
 /obj/item/ingot/silver,
 /obj/item/clothing/ring/gold/dorpel,
 /obj/item/gem/green,
+/obj/item/clothing/ring/silver,
 /turf/open/floor/church/purple,
 /area/rogue/indoors/lich)
 "sS" = (
@@ -3227,6 +3293,7 @@
 "tS" = (
 /obj/structure/rack/shelf/biggest,
 /obj/item/clothing/armor/leather/hide/orc,
+/obj/effect/spawner/map_spawner/loot/armor,
 /turf/open/floor/twig,
 /area/rogue/indoors/mountains)
 "tT" = (
@@ -3452,7 +3519,7 @@
 	icon_state = "tome";
 	icon = 'icons/roguetown/topadd/death/vamp-lord.dmi';
 	pixel_x = 0;
-	pixel_y = 45;
+	pixel_y = 42;
 	name = "Book of Zizo";
 	desc = "A horrible book that contains untold power. This book is currently in use to darken this area in the void."
 	},
@@ -3668,6 +3735,7 @@
 /area/rogue/indoors/lich)
 "vQ" = (
 /obj/structure/closet/crate/crafted_closet/inn/south,
+/obj/effect/spawner/map_spawner/loot/armor,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/mountains)
 "vR" = (
@@ -3813,6 +3881,10 @@
 	},
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/lich)
+"wD" = (
+/obj/structure/bonepile,
+/turf/open/floor/dirt,
+/area/rogue/outdoors/bog)
 "wE" = (
 /obj/structure/chair/bench/throne,
 /obj/effect/temp_visual/curse{
@@ -3843,6 +3915,11 @@
 /obj/structure/bars,
 /turf/open/floor/cobble,
 /area/rogue/indoors/mountains)
+"wM" = (
+/obj/structure/closet/dirthole/grave,
+/obj/effect/spawner/map_spawner/loot/weapon,
+/turf/open/floor/dirt,
+/area/rogue/outdoors/bog)
 "wN" = (
 /mob/living/carbon/human/species/skeleton/npc/warrior,
 /turf/open/floor/churchmarble,
@@ -4200,8 +4277,9 @@
 /area/rogue/indoors/mountains)
 "yL" = (
 /obj/structure/rack/underworld,
-/obj/item/weapon/hammer/sledgehammer,
+/obj/effect/spawner/map_spawner/loot/weapon,
 /obj/item/weapon/sword/scimitar/falchion,
+/obj/effect/spawner/map_spawner/loot/weapon,
 /turf/open/floor/twig,
 /area/rogue/indoors/mountains)
 "yM" = (
@@ -4590,6 +4668,10 @@
 /obj/item/reagent_containers/glass/bottle,
 /turf/open/floor/tile/kitchen,
 /area/rogue/indoors/lich)
+"AL" = (
+/obj/effect/spawner/map_spawner/loot/armor,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/indoors/mountains)
 "AM" = (
 /obj/structure/spider/cocoon,
 /turf/open/floor/naturalstone,
@@ -4656,6 +4738,11 @@
 "Bh" = (
 /obj/structure/stairs/stone,
 /turf/open/floor/tile,
+/area/rogue/indoors/lich)
+"Bj" = (
+/obj/effect/decal/cleanable/blood,
+/obj/effect/spawner/map_spawner/loot/armor,
+/turf/open/floor/cobble,
 /area/rogue/indoors/lich)
 "Bk" = (
 /obj/structure/flora/tree/burnt,
@@ -4961,6 +5048,11 @@
 	},
 /turf/open/floor/tile/kitchen,
 /area/rogue/indoors/lich)
+"CX" = (
+/obj/machinery/light/fueled/wallfire/candle/blue/l,
+/obj/effect/spawner/map_spawner/loot/armor,
+/turf/open/floor/tile,
+/area/rogue/indoors/lich)
 "CY" = (
 /obj/item/clothing/ring/silver/calm,
 /obj/effect/decal/cleanable/sigil,
@@ -5011,6 +5103,10 @@
 /obj/item/ingot/gold,
 /obj/item/ingot/gold,
 /obj/item/ingot/gold,
+/obj/item/clothing/ring/silver,
+/obj/item/clothing/ring/silver/gemerald,
+/obj/item/ingot/silver,
+/obj/item/ingot/silver,
 /turf/open/floor/churchrough/purple,
 /area/rogue/indoors/lich)
 "Dj" = (
@@ -5152,6 +5248,8 @@
 /area/rogue/indoors/lich)
 "Eb" = (
 /obj/structure/rack/shelf/biggest,
+/obj/effect/spawner/map_spawner/loot/armor,
+/obj/effect/spawner/map_spawner/loot/armor,
 /turf/open/floor/grass/cold,
 /area/rogue/indoors/mountains)
 "Ef" = (
@@ -5469,6 +5567,7 @@
 /obj/item/perfume/random,
 /obj/item/clothing/head/fancyhat,
 /obj/item/clothing/shoes/nobleboot,
+/obj/effect/spawner/map_spawner/loot/armor,
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/lich)
 "Gi" = (
@@ -5574,7 +5673,7 @@
 /area/rogue/indoors/mountains)
 "GL" = (
 /obj/structure/rack,
-/obj/item/weapon/mace/steel,
+/obj/effect/spawner/map_spawner/loot/weapon,
 /turf/open/floor/twig,
 /area/rogue/indoors/mountains)
 "GO" = (
@@ -5993,6 +6092,7 @@
 /area/rogue/indoors/lich)
 "Jn" = (
 /obj/structure/table/wood/crafted,
+/obj/effect/spawner/map_spawner/loot/armor,
 /turf/open/floor/twig,
 /area/rogue/indoors/mountains)
 "Js" = (
@@ -6274,6 +6374,11 @@
 /mob/living/carbon/human/species/goblin/npc/ambush,
 /turf/open/floor/grass/cold,
 /area/rogue/indoors/mountains)
+"KJ" = (
+/obj/structure/table/wood/crafted,
+/obj/effect/spawner/map_spawner/loot/armor,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/indoors/mountains)
 "KK" = (
 /obj/structure/stairs/stone{
 	dir = 4
@@ -6326,6 +6431,10 @@
 /mob/living/carbon/human/species/zizombie/npc/militiamen,
 /turf/open/floor/tile/masonic/inverted,
 /area/rogue/indoors/lich)
+"Lf" = (
+/obj/effect/spawner/map_spawner/loot/armor,
+/turf/open/floor/twig,
+/area/rogue/indoors/mountains)
 "Lg" = (
 /obj/structure/fluff/railing/border{
 	dir = 9;
@@ -6345,6 +6454,10 @@
 	},
 /turf/open/floor/cobble,
 /area/rogue/outdoors/bog)
+"Lo" = (
+/obj/structure/bonepile,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/indoors/mountains)
 "Lq" = (
 /obj/structure/fluff/railing/fence,
 /turf/open/floor/cobble,
@@ -6853,6 +6966,11 @@
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/ruinedwood,
 /area/rogue/outdoors/bog)
+"OI" = (
+/obj/structure/table/wood/plain,
+/obj/effect/spawner/map_spawner/loot/armor,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/indoors/mountains)
 "OL" = (
 /obj/effect/decal/cleanable/food/pie_smudge,
 /turf/open/floor/tile/kitchen,
@@ -6912,6 +7030,25 @@
 "OP" = (
 /mob/living/carbon/human/species/zizombie/npc/GRENZEL,
 /turf/open/floor/cobble,
+/area/rogue/outdoors/bog)
+"OQ" = (
+/obj/structure/fluff/walldeco/vinez/blue{
+	pixel_x = 20;
+	pixel_y = -3
+	},
+/obj/structure/fluff/walldeco/vinez/blue{
+	pixel_x = 13;
+	pixel_y = 28
+	},
+/obj/structure/fluff/walldeco/vinez/blue{
+	pixel_x = -6;
+	pixel_y = 0
+	},
+/obj/structure/fluff/walldeco/vinez/blue{
+	pixel_x = 31;
+	pixel_y = 52
+	},
+/turf/closed/mineral/bedrock/cold,
 /area/rogue/outdoors/bog)
 "OT" = (
 /obj/structure/bookcase/random,
@@ -7825,6 +7962,7 @@
 "UC" = (
 /obj/structure/rack/underworld,
 /obj/item/weapon/pick/steel,
+/obj/effect/spawner/map_spawner/loot/weapon,
 /turf/open/floor/twig,
 /area/rogue/indoors/mountains)
 "UE" = (
@@ -7906,6 +8044,7 @@
 	},
 /obj/structure/table/wood/plain,
 /obj/item/statue/steel,
+/obj/effect/spawner/map_spawner/loot/armor,
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/mountains)
 "Vd" = (
@@ -8636,6 +8775,7 @@
 "ZM" = (
 /obj/structure/rack,
 /obj/item/weapon/mace/woodclub,
+/obj/effect/spawner/map_spawner/loot/weapon,
 /turf/open/floor/grass/cold,
 /area/rogue/indoors/mountains)
 "ZN" = (
@@ -8643,6 +8783,7 @@
 /obj/item/clothing/shirt/dress/silkdress/random,
 /obj/item/clothing/shirt/dress/silkdress/random,
 /obj/item/clothing/shirt/dress/silkdress/random,
+/obj/effect/spawner/map_spawner/loot/armor,
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/mountains)
 "ZO" = (
@@ -18506,7 +18647,7 @@ fA
 Av
 bD
 Av
-Av
+qz
 bD
 dy
 dy
@@ -21944,7 +22085,7 @@ BA
 xJ
 Df
 SJ
-ov
+OI
 xS
 Bk
 bD
@@ -22285,7 +22426,7 @@ qY
 KV
 SJ
 KV
-KV
+Lo
 xS
 bD
 Av
@@ -25750,7 +25891,7 @@ gZ
 CH
 YP
 NN
-Wx
+oU
 nr
 Ge
 CH
@@ -25904,7 +26045,7 @@ mL
 BA
 BA
 PM
-Av
+qz
 bD
 Av
 bD
@@ -26151,7 +26292,7 @@ TD
 qr
 Oo
 bd
-CH
+eE
 Uo
 NN
 hE
@@ -27168,7 +27309,7 @@ bd
 qr
 hE
 CH
-Wx
+Bj
 dE
 xd
 WT
@@ -27765,7 +27906,7 @@ WT
 xd
 dE
 Tm
-qr
+kS
 qr
 qr
 CH
@@ -29765,7 +29906,7 @@ Av
 bD
 Bk
 bD
-bD
+wD
 WT
 WT
 WT
@@ -33621,7 +33762,7 @@ dE
 ke
 dE
 am
-jd
+CX
 am
 pd
 jd
@@ -41064,7 +41205,7 @@ bD
 ST
 bD
 bD
-Hl
+wM
 ST
 bD
 WT
@@ -41665,7 +41806,7 @@ WT
 WT
 bD
 bD
-bD
+UY
 Hl
 bD
 bD
@@ -42479,7 +42620,7 @@ bD
 Oq
 bD
 jL
-BO
+ii
 bD
 WT
 WT
@@ -52974,7 +53115,7 @@ Av
 GS
 Av
 bD
-Av
+qz
 ls
 bD
 BA
@@ -59864,7 +60005,7 @@ bD
 Av
 bD
 bD
-Av
+qz
 dy
 dy
 dy
@@ -62534,7 +62675,7 @@ Av
 Av
 Av
 Av
-Av
+qz
 dy
 dy
 Av
@@ -81829,7 +81970,7 @@ mR
 rf
 SD
 SD
-SD
+Lf
 pv
 Av
 bD
@@ -84653,7 +84794,7 @@ vN
 vN
 vN
 xJ
-Ds
+KJ
 SJ
 bG
 SJ
@@ -92587,7 +92728,7 @@ SJ
 SJ
 KV
 Ki
-dV
+jD
 xS
 Oi
 Oi
@@ -97155,8 +97296,8 @@ Gy
 Gy
 IC
 IC
-IC
-Av
+OQ
+zJ
 Av
 bD
 bD
@@ -97169,7 +97310,7 @@ bD
 Av
 Av
 JI
-fY
+bD
 Av
 Av
 Av
@@ -97360,7 +97501,7 @@ IC
 IC
 Av
 Av
-PM
+Av
 bD
 bD
 Av
@@ -97559,7 +97700,7 @@ Gy
 Gy
 IC
 IC
-Av
+fc
 Av
 bD
 Av
@@ -97761,7 +97902,7 @@ Gy
 Gy
 IC
 IC
-Av
+IC
 Av
 bD
 Av
@@ -97963,8 +98104,8 @@ Gy
 Gy
 IC
 IC
-IC
-Av
+fg
+zJ
 Av
 Av
 Av
@@ -110005,7 +110146,7 @@ Oi
 Oi
 Oi
 mK
-KV
+AL
 KV
 KV
 Ey
@@ -118566,7 +118707,7 @@ Gy
 (145,1,3) = {"
 Gy
 IC
-mR
+ft
 nJ
 SD
 CN
@@ -123302,7 +123443,7 @@ jz
 jz
 sO
 Kb
-tK
+PY
 Bv
 qe
 qe
@@ -123504,7 +123645,7 @@ uY
 jz
 uY
 Bv
-qe
+Wn
 qe
 jb
 Bv
