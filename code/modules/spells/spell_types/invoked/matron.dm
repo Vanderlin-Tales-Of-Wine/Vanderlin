@@ -64,7 +64,7 @@
 
 /obj/effect/proc_holder/spell/self/hag_call
 	name = "Hag's Call"
-	recharge_time = 5 MINUTES
+	recharge_time = 1 MINUTES
 	warnie = "spellwarning"
 	overlay_state = "message"
 
