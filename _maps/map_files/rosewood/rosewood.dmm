@@ -15943,8 +15943,9 @@
 /obj/structure/door/weak/bolt{
 	name = "bathroom";
 	dir = 4;
-	lockdir = "nightmaiden"
+	
 	},
+/obj/effect/mapping_helpers/access/keyset/town/apothecary,
 /turf/open/floor/greenstone,
 /area/rogue/indoors/town/bath)
 "jlD" = (
@@ -16187,9 +16188,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/town/basement)
 "jsc" = (
-/obj/structure/door/swing{
-	keylock = 1
-	},
+/obj/structure/door/swing,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/soilsons)
 "jsh" = (
@@ -28106,9 +28105,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/town/sewer)
 "qbQ" = (
-/obj/structure/door/swing{
-	keylock = 1
-	},
+/obj/structure/door/swing,
 /turf/open/floor/dirt,
 /area/rogue/indoors/soilsons)
 "qbU" = (
@@ -38230,8 +38227,9 @@
 /obj/structure/door/weak/bolt{
 	name = "bathroom";
 	dir = 4;
-	lockdir = "priest"
+	
 	},
+/obj/effect/mapping_helpers/access/keyset/church/general,
 /turf/open/floor/church,
 /area/rogue/indoors/town/church)
 "vKI" = (
@@ -38906,9 +38904,7 @@
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/indoors/town)
 "waV" = (
-/obj/structure/door/swing{
-	keylock = 1
-	},
+/obj/structure/door/swing,
 /obj/effect/mapping_helpers/access/keyset/town/butcher,
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/grass/cold,
