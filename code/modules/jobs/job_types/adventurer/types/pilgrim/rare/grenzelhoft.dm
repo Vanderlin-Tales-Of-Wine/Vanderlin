@@ -27,9 +27,6 @@
 	pants = /obj/item/clothing/pants/grenzelpants
 	neck = /obj/item/clothing/neck/gorget
 	backpack_contents = list(/obj/item/storage/belt/pouch/coins/veryrich)
-	if(H.gender == FEMALE)
-		armor = /obj/item/clothing/armor/gambeson/heavy/dress/alt
-		beltl = /obj/item/weapon/sword/rapier/dec
 	if(H.mind)
 		H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
