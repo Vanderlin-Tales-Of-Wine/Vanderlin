@@ -41,7 +41,7 @@
 	if(TU)
 		if(horse)
 			new horse(TU)
-	H.mind?.apprentice_name = apprentice_name
+	H.set_apprentice_name(apprentice_name)
 
 /*	for(var/trait in traits_applied)
 		ADD_TRAIT(H, trait, ADVENTURER_TRAIT) */

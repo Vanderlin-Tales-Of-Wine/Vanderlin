@@ -309,7 +309,7 @@
 		var/obj/item/lockpick/P = I
 		var/mob/living/L = user
 
-		var/pickskill = user.mind.get_skill_level(/datum/skill/misc/lockpicking)
+		var/pickskill = user.get_skill_level(/datum/skill/misc/lockpicking)
 		var/perbonus = L.STAPER/5
 		var/picktime = 70
 		var/pickchance = 35
@@ -337,8 +337,8 @@
 				to_chat(user, "<span class='warning'>Click...</span>")
 				if(L.mind)
 					var/amt2raise = L.STAINT
-					var/boon = L.mind.get_learning_boon(/datum/skill/misc/lockpicking)
-					L.mind.adjust_experience(/datum/skill/misc/lockpicking, amt2raise * boon)
+					var/boon = L.get_learning_boon(/datum/skill/misc/lockpicking)
+					L.adjust_experience(/datum/skill/misc/lockpicking, amt2raise * boon)
 				if(lockprogress >= locktreshold)
 					to_chat(user, "<span class='deadsay'>The locking mechanism gives way.</span>")
 					togglelock(user)

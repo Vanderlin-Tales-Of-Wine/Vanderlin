@@ -989,7 +989,7 @@
 /area/rogue/under/mountains/anvil/dungeon)
 "nk" = (
 /obj/item/storage/sack,
-/obj/item/reagent_containers/food/snacks/potato/baked{
+/obj/item/reagent_containers/food/snacks/produce/vegetable/potato/baked{
 	pixel_x = -6
 	},
 /obj/structure/table/wood/plain_alt,
@@ -1986,7 +1986,7 @@
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "BH" = (
 /obj/structure/rack/shelf/biggest,
-/obj/item/reagent_containers/food/snacks/produce/onion,
+/obj/item/reagent_containers/food/snacks/produce/vegetable/onion,
 /turf/open/floor/blocks{
 	icon_state = "bluestone"
 	},
@@ -3061,8 +3061,8 @@
 /turf/open/floor/ruinedwood,
 /area/rogue/under/mountains/anvil/dungeon)
 "RF" = (
-/obj/item/reagent_containers/food/snacks/produce/potato,
-/obj/item/reagent_containers/food/snacks/produce/potato{
+/obj/item/reagent_containers/food/snacks/produce/vegetable/potato,
+/obj/item/reagent_containers/food/snacks/produce/vegetable/potato{
 	pixel_x = 10;
 	pixel_y = 3
 	},
@@ -3366,7 +3366,7 @@
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "VU" = (
 /obj/structure/rack/shelf/biggest,
-/obj/item/reagent_containers/food/snacks/produce/wheat,
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
 /turf/open/floor/blocks{
 	icon_state = "bluestone"
 	},

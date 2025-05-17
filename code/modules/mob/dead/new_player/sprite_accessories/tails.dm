@@ -114,6 +114,7 @@
 /datum/sprite_accessory/tail/hawk
 	name = "Hawk"
 	icon_state = "hawk"
+	color_key_defaults = list(KEY_HAIR_COLOR)
 
 /datum/sprite_accessory/tail/horse
 	name = "Horse"

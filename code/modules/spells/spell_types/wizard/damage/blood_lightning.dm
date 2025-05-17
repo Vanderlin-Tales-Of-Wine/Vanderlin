@@ -49,7 +49,7 @@
 			var/mob/living/L = target
 			L.electrocute_act(1, src)
 			// Experience gain!
-			var/boon = sender.mind?.get_learning_boon(/datum/skill/magic/blood)
+			var/boon = sender.get_learning_boon(/datum/skill/magic/blood)
 			var/amt2raise = sender.STAINT*2
-			sender.mind?.adjust_experience(/datum/skill/magic/blood, floor(amt2raise * boon), FALSE)
+			sender.adjust_experience(/datum/skill/magic/blood, floor(amt2raise * boon), FALSE)
 	qdel(src)

@@ -438,6 +438,7 @@
 
 /datum/component/storage/proc/close(mob/M)
 	hide_from(M)
+	SEND_SIGNAL(parent, COMSIG_STORAGE_CLOSED, M)
 
 /datum/component/storage/proc/close_all()
 	. = FALSE
@@ -733,6 +734,8 @@
 	. = master.handle_item_insertion_from_slave(src, I, prevent_warning, M)
 
 /datum/component/storage/proc/mob_item_insertion_feedback(mob/user, mob/M, obj/item/I, override = FALSE)
+	if(!length(is_using))
+		SEND_SIGNAL(parent, COMSIG_STORAGE_CLOSED, M)
 	if(silent && !override)
 		return
 	if(rustle_sound)

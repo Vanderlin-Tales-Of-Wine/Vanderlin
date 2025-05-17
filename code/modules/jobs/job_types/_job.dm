@@ -195,7 +195,7 @@
 	if(roundstart_experience)
 		var/mob/living/carbon/human/experiencer = spawned
 		for(var/i in roundstart_experience)
-			experiencer.mind.adjust_experience(i, roundstart_experience[i], TRUE)
+			experiencer.adjust_experience(i, roundstart_experience[i], TRUE)
 
 	/* V: PAST THIS POINT */
 
@@ -203,9 +203,9 @@
 		ADD_TRAIT(spawned, TRAIT_FOREIGNER, TRAIT_GENERIC)
 
 	if(can_have_apprentices)
-		spawned.mind.apprentice_training_skills = trainable_skills.Copy()
-		spawned.mind.max_apprentices = max_apprentices
-		spawned.mind.apprentice_name = apprentice_name
+		spawned.set_apprentice_training_skills(trainable_skills.Copy())
+		spawned.set_max_apprentices(max_apprentices)
+		spawned.set_apprentice_name(apprentice_name)
 
 	add_spells(spawned)
 
@@ -352,9 +352,9 @@
 			H.dna.species.random_underwear(H.gender)
 			if(H.dna.species)
 				if(H.dna.species.id == "elf")
-					H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
+					H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 				if(H.dna.species.id == "dwarf")
-					H.mind?.adjust_skillrank(/datum/skill/labor/mining, 1, TRUE)
+					H.adjust_skillrank(/datum/skill/labor/mining, 1, TRUE)
 	H.underwear_color = null
 	H.update_body()
 

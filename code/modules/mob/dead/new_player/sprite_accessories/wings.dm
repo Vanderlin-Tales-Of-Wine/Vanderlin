@@ -47,3 +47,4 @@
 /datum/sprite_accessory/wings/large/harpyswept
 	name = "Harpy (Swept)"
 	icon_state = "harpys"
+	color_key_defaults = list(KEY_HAIR_COLOR)

@@ -92,6 +92,16 @@
 	sellprice = 5
 	item_weight = 6.2
 
+/obj/item/ore/coal/charcoal
+	name = "charcoal"
+	icon_state = "oreada"
+	desc = "Burnt lumps of wood."
+	dropshrink = 0.8
+	color = "#929292"
+	firefuel = 15 MINUTES
+	smeltresult = /obj/item/ore/coal/charcoal
+	sellprice = 1
+
 /obj/item/ingot
 	name = "ingot"
 	desc = "A parent bar of metal. If you see this, report it on github."

@@ -22,21 +22,28 @@ GLOBAL_LIST_INIT(animal_migration_points, list())
 		TAG_BOON,
 	)
 
+// For animals traveling into town
 /datum/round_event/animal_migration
 	var/list/animals = list()
+	var/static/list/valid_travel_points = \
+	list("vanderlin-forest_town-town", "vanderlin-mountain_town-town", "vanderlin-bog_town-town", \
+	"Rosewood_Howling", "rosewood-town-forest", \
+	"daftmarsh-town-to-outlands", "daftmarsh-forest-to-outlands", "daftmarsh-basin-to-outlands", "daftmarsh-cave-to-outlands")
 
 /datum/round_event/animal_migration/start()
 	. = ..()
 	var/list/tiles = list()
 	for(var/obj/structure/fluff/traveltile/tile in GLOB.traveltiles)
-		if(tile.aportalid != "vanderlin-forest_town-town")
+		if(!(tile.aportalid in valid_travel_points))
 			continue
 		tiles |= tile
 
+	if(!length(tiles) || !length(GLOB.animal_migration_points))
+		return
 	var/turf/start_turf = get_turf(pick(tiles))
 	var/turf/end_turf = get_turf(pick(GLOB.animal_migration_points))
 	var/mob/living/simple_animal/hostile/retaliate/animal = pick(animals)
-	for(var/i = 1 to rand(3, 5))
+	for(var/i = 1 to rand(1, 3))
 		var/mob/living/simple_animal/hostile/retaliate/created = new animal(start_turf)
 		if(created.ai_controller)
 			created.ai_controller.set_blackboard_key(BB_WANDER_POINT, end_turf)

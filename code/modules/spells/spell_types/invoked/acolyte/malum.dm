@@ -62,7 +62,7 @@
 	charging_slowdown = 3
 	chargedloop = /datum/looping_sound/invokegen
 	devotion_cost = 75
-	var/static/list/hammer_weapons = typecacheof(list(/obj/item/weapon/hammer, /obj/item/weapon/mace/goden/steel/warhammer, /obj/item/weapon/mace/warhammer))
+	var/static/list/hammer_weapons = typecacheof(list(/obj/item/weapon/hammer, /obj/item/weapon/mace/goden/steel/warhammer, /obj/item/weapon/mace/warhammer, /obj/item/weapon/mace/goden/steel/malum))
 
 /obj/effect/proc_holder/spell/invoked/hammerfall/cast(list/targets, mob/user = usr)
 	var/atom/A = targets[1]

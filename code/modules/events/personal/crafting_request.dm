@@ -21,7 +21,7 @@
 			continue
 		if(!H.patron || !istype(H.patron, /datum/patron/divine/malum))
 			continue
-		if(H.mind?.get_skill_level(/datum/skill/craft/crafting) < 3)
+		if(H.get_skill_level(/datum/skill/craft/crafting) < 3)
 			continue
 		return TRUE
 
@@ -35,7 +35,7 @@
 			continue
 		if(!human_mob.patron || !istype(human_mob.patron, /datum/patron/divine/malum))
 			continue
-		if(human_mob.mind?.get_skill_level(/datum/skill/craft/crafting) < 3)
+		if(human_mob.get_skill_level(/datum/skill/craft/crafting) < 3)
 			continue
 		valid_targets += human_mob
 

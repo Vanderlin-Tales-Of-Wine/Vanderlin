@@ -60,45 +60,27 @@
 /obj/item/reagent_containers/food/snacks/fish/carp
 	name = "carp"
 	icon_state = "carp"
-	fried_type = /obj/item/reagent_containers/food/snacks/fryfish/carp
-	cooked_type = /obj/item/reagent_containers/food/snacks/fryfish/carp
-	cooked_smell = /datum/pollutant/food/baked_carp
-
 
 /obj/item/reagent_containers/food/snacks/fish/clownfish
 	name = "clownfish"
 	icon_state = "clownfish"
 	sellprice = 40
-	fried_type = /obj/item/reagent_containers/food/snacks/fryfish/clownfish
-	cooked_type = /obj/item/reagent_containers/food/snacks/fryfish/clownfish
-	cooked_smell = /datum/pollutant/food/baked_clownfish
-
 
 /obj/item/reagent_containers/food/snacks/fish/angler
 	name = "anglerfish"
 	icon_state = "angler"
 	sellprice = 15
-	fried_type = /obj/item/reagent_containers/food/snacks/fryfish/angler
-	cooked_type = /obj/item/reagent_containers/food/snacks/fryfish/angler
-	cooked_smell = /datum/pollutant/food/baked_angler
-
 
 /obj/item/reagent_containers/food/snacks/fish/eel
 	name = "eel"
 	icon_state = "eel"
 	sellprice = 5
-	fried_type = /obj/item/reagent_containers/food/snacks/fryfish/eel
-	cooked_type = /obj/item/reagent_containers/food/snacks/fryfish/eel
-	cooked_smell = /datum/pollutant/food/baked_eel
 
 /obj/item/reagent_containers/food/snacks/fish/shrimp
 	name = "shrimp"
 	desc = "As shrimple as that."
 	icon_state = "shrimp"
 	sellprice = 2
-	fried_type = /obj/item/reagent_containers/food/snacks/fryfish/shrimp
-	cooked_type = /obj/item/reagent_containers/food/snacks/fryfish/shrimp
-	cooked_smell = /datum/pollutant/food/baked_shrimp
 
 /obj/item/reagent_containers/food/snacks/fryfish
 	icon = 'icons/roguetown/misc/fish.dmi'
@@ -167,7 +149,7 @@
 /obj/item/reagent_containers/food/snacks/fryfish/carp/attackby(obj/item/I, mob/living/user, params)
 	..()
 	if(user.mind)
-		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
+		short_cooktime = (50 - ((user.get_skill_level(/datum/skill/craft/cooking))*8))
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(isturf(loc)&& (found_table))
 		if(istype(I, /obj/item/reagent_containers/food/snacks/chocolate))

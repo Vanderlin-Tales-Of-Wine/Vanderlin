@@ -423,6 +423,7 @@
 	var/list/parts = list()
 	var/failed_chosen = 0
 	var/has_any_objectives = FALSE
+	var/showed_any_champions = FALSE
 
 	// Header
 	parts += "<div class='panel stationborder'>"
@@ -430,11 +431,8 @@
 		parts += "<div style='text-align: center; font-size: 1.2em;'>GODS' CHAMPIONS:</div>"
 		parts += "<hr class='paneldivider'>"
 
-	// Process all minds with personal objectives
-	var/last_index = length(GLOB.personal_objective_minds)
-	var/current_index = 0
+	var/list/successful_champions = list()
 	for(var/datum/mind/mind as anything in GLOB.personal_objective_minds)
-		current_index++
 		if(!mind.personal_objectives || !mind.personal_objectives.len)
 			continue
 
@@ -445,17 +443,18 @@
 				any_success = TRUE
 				break
 
-		if(!any_success)
-			failed_chosen++
-			continue
-
-		var/name_with_title
-		if(mind.current)
-			name_with_title = printplayer(mind)
+		if(any_success)
+			successful_champions += mind
 		else
-			name_with_title = "<b>Unknown Champion</b>"
+			failed_chosen++
 
-		parts += "[name_with_title]"
+	var/last_index = length(successful_champions)
+	var/current_index = 0
+	for(var/datum/mind/mind as anything in successful_champions)
+		current_index++
+		showed_any_champions = TRUE
+		var/name_with_title = mind.current ? printplayer(mind) : "<b>Unknown Champion</b>"
+		parts += name_with_title
 
 		var/obj_count = 1
 		for(var/datum/objective/objective as anything in mind.personal_objectives)
@@ -470,13 +469,11 @@
 	if(!has_any_objectives)
 		parts += "<div style='text-align: center;'>No personal objectives were assigned this round.</div>"
 	else if(failed_chosen > 0)
-		if(failed_chosen == 1)
-			parts += "<div style='text-align: center;'>1 god's chosen has failed to become a champion.</div>"
-		else
-			parts += "<div style='text-align: center;'>[failed_chosen] gods' chosen have failed to become champions.</div>"
+		if(showed_any_champions)
+			parts += "<br>"
+		parts += "<div style='text-align: center;'>[failed_chosen] god's chosen [failed_chosen == 1 ? "has" : "have"] failed to become [failed_chosen == 1 ? "a champion" : "champions"].</div>"
 
 	parts += "</div>"
-
 	return parts.Join("<br>")
 
 /datum/controller/subsystem/ticker/proc/antag_report()
@@ -569,7 +566,9 @@
 
 /proc/printplayer(datum/mind/ply, fleecheck)
 	var/jobtext = ""
-	if(ply.assigned_role && ply.current)
+	if(ply.special_role)
+		jobtext = " the <b>[ply.special_role]</b>"
+	else if(ply.assigned_role && ply.current)
 		jobtext = " the <b>[ply.assigned_role.get_informed_title(ply.current)]</b>"
 	var/usede = get_display_ckey(ply.key)
 	var/text = "<b>[usede]</b> was <b>[ply.name]</b>[jobtext] and"

@@ -9,8 +9,8 @@
 	icon = 'icons/mob/human_parts.dmi'
 	icon_state = ""
 	layer = BELOW_MOB_LAYER //so it isn't hidden behind objects when on the floor
-	var/mob/living/carbon/owner = 0
-	var/mob/living/carbon/original_owner = 0
+	var/mob/living/carbon/owner
+	var/mob/living/carbon/original_owner
 	var/status = BODYPART_ORGANIC
 
 	var/static_icon = FALSE
@@ -154,11 +154,11 @@
 			if(!skeletonized)
 				var/used_time = 21 SECONDS
 				if(user.mind)
-					used_time -= (user.mind.get_skill_level(/datum/skill/labor/butchering) * 3 SECONDS)
+					used_time -= (user.get_skill_level(/datum/skill/labor/butchering) * 3 SECONDS)
 				visible_message("[user] begins to butcher \the [src].")
 				playsound(src, 'sound/foley/gross.ogg', 100, FALSE)
 				var/steaks = 0
-				switch(user.mind.get_skill_level(/datum/skill/labor/butchering))
+				switch(user.get_skill_level(/datum/skill/labor/butchering))
 					if(3)
 						steaks = 1
 					if(4 to 5)
@@ -176,7 +176,7 @@
 					if(rotted)
 						steak.become_rotten()
 					new /obj/effect/decal/cleanable/blood/splatter(get_turf(src))
-					user.mind.adjust_experience(/datum/skill/labor/butchering, amt2raise, FALSE)
+					user.adjust_experience(/datum/skill/labor/butchering, amt2raise, FALSE)
 					qdel(src)
 			else
 				to_chat(user, span_warning("[src] has no meat to butcher."))
@@ -411,9 +411,12 @@
 				))
 	if(owner)
 		if(initial(can_be_disabled))
-			if(HAS_TRAIT(owner, TRAIT_NOLIMBDISABLE))
+			if(HAS_TRAIT(owner, TRAIT_NOLIMBDISABLE)) // owner is new_owner, don't listen to owner TRAIT_PARALYSIS signals if TRAIT_NOLIMBDISABLE
 				set_can_be_disabled(FALSE)
 				needs_update_disabled = FALSE
+			else
+				RegisterSignal(new_owner, SIGNAL_ADDTRAIT(TRAIT_PARALYSIS), PROC_REF(on_paralysis_trait_gain))
+				RegisterSignal(new_owner, SIGNAL_REMOVETRAIT(TRAIT_PARALYSIS), PROC_REF(on_paralysis_trait_loss))
 			RegisterSignal(new_owner, SIGNAL_REMOVETRAIT(TRAIT_NOLIMBDISABLE), PROC_REF(on_owner_nolimbdisable_trait_loss))
 			RegisterSignal(new_owner, SIGNAL_ADDTRAIT(TRAIT_NOLIMBDISABLE), PROC_REF(on_owner_nolimbdisable_trait_gain))
 
@@ -847,7 +850,7 @@
 		if(bodypart_disabled)
 			owner.set_usable_hands(owner.usable_hands - 1)
 			if(owner.stat < UNCONSCIOUS)
-				to_chat(owner, "<span class='userdanger'>Your lose control of your [name]!</span>")
+				to_chat(owner, "<span class='userdanger'>You lose control of your [name]!</span>")
 			if(held_index)
 				owner.dropItemToGround(owner.get_item_for_held_index(held_index))
 	else if(!bodypart_disabled)
@@ -941,7 +944,7 @@
 		if(bodypart_disabled)
 			owner.set_usable_hands(owner.usable_hands - 1)
 			if(owner.stat < UNCONSCIOUS)
-				to_chat(owner, "<span class='userdanger'>Your lose control of your [name]!</span>")
+				to_chat(owner, "<span class='userdanger'>You lose control of your [name]!</span>")
 			if(held_index)
 				owner.dropItemToGround(owner.get_item_for_held_index(held_index))
 	else if(!bodypart_disabled)
@@ -1029,7 +1032,7 @@
 		if(bodypart_disabled)
 			owner.set_usable_legs(owner.usable_legs - 1)
 			if(owner.stat < UNCONSCIOUS)
-				to_chat(owner, "<span class='userdanger'>Your lose control of your [name]!</span>")
+				to_chat(owner, "<span class='userdanger'>You lose control of your [name]!</span>")
 	else if(!bodypart_disabled)
 		owner.set_usable_legs(owner.usable_legs + 1)
 
@@ -1111,7 +1114,7 @@
 		if(bodypart_disabled)
 			owner.set_usable_legs(owner.usable_legs - 1)
 			if(owner.stat < UNCONSCIOUS)
-				to_chat(owner, "<span class='userdanger'>Your lose control of your [name]!</span>")
+				to_chat(owner, "<span class='userdanger'>You lose control of your [name]!</span>")
 	else if(!bodypart_disabled)
 		owner.set_usable_legs(owner.usable_legs + 1)
 

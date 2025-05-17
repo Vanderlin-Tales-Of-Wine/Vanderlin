@@ -29,7 +29,7 @@
 	grid_height = 64
 
 /obj/item/restraints/legcuffs/beartrap/attack_hand(mob/user)
-	var/boon = user?.mind?.get_learning_boon(/datum/skill/craft/traps)
+	var/boon = user?.get_learning_boon(/datum/skill/craft/traps)
 	if(iscarbon(user) && armed && isturf(loc))
 		var/mob/living/carbon/C = user
 		var/def_zone = "[(C.active_hand_index == 2) ? "r" : "l" ]_arm"
@@ -54,7 +54,7 @@
 			return FALSE
 		else
 			if(C.mind)
-				used_time -= max((C.mind.get_skill_level(/datum/skill/craft/traps) * 2 SECONDS), 2 SECONDS)
+				used_time -= max((C.get_skill_level(/datum/skill/craft/traps) * 2 SECONDS), 2 SECONDS)
 			if(do_after(user, used_time, src))
 				armed = FALSE
 				anchored = FALSE
@@ -62,7 +62,7 @@
 				src.alpha = 255
 				C.visible_message("<span class='notice'>[C] disarms \the [src].</span>", \
 						"<span class='notice'>I disarm \the [src].</span>")
-				C.mind?.adjust_experience(/datum/skill/craft/traps, C.STAINT * boon, FALSE)
+				C.adjust_experience(/datum/skill/craft/traps, C.STAINT * boon, FALSE)
 				return FALSE
 			else
 				add_mob_blood(C)
@@ -119,18 +119,18 @@
 	. = ..()
 	if(!ishuman(user) || user.stat != CONSCIOUS || HAS_TRAIT(user, TRAIT_HANDS_BLOCKED))
 		return
-	var/boon = user?.mind?.get_learning_boon(/datum/skill/craft/traps)
+	var/boon = user?.get_learning_boon(/datum/skill/craft/traps)
 	if(ishuman(user) && !user.stat && !HAS_TRAIT(src, TRAIT_RESTRAINED))
 		var/mob/living/L = user
 		if(do_after(user, (5 SECONDS) - (L.STASTR*2), user))
-			if(prob(50 + (L.mind.get_skill_level(/datum/skill/craft/traps) * 10))) // 100% chance to set traps properly at Master trapping
+			if(prob(50 + (L.get_skill_level(/datum/skill/craft/traps) * 10))) // 100% chance to set traps properly at Master trapping
 				armed = TRUE // Impossible to use in hand if it's armed
 				L.log_message("has armed the [src]!", LOG_ATTACK)
 				L.dropItemToGround(src) // We drop it instantly on the floor beneath us
 				anchored = TRUE // And anchor it so that it can't be carried inside chests (prevents exploit)
 				update_icon()
 				src.alpha = 80 // Set lower visibility for everyone
-				L.mind?.adjust_experience(/datum/skill/craft/traps, L.STAINT * boon, FALSE) // We learn how to set them better, little by little.
+				L.adjust_experience(/datum/skill/craft/traps, L.STAINT * boon, FALSE) // We learn how to set them better, little by little.
 				to_chat(user, "<span class='notice'>I arm \the [src].</span>")
 			else
 				if(old)
