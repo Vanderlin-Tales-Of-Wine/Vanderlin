@@ -250,7 +250,26 @@
 		var/mob/living/carbon/V = user
 		if(prob(5))
 			GLOB.vanderlin_round_stats[STATS_ZIZO_PRAISED]++
-			V.say(pick("PRAISE ZIZO!", "DEATH TO THE TEN..."))
+			V.say(pick( \
+				"PRAISE ZIZO!", \
+				"DEATH TO THE TEN...", \
+				"Astrata will fail!", \
+				"The Ten cannot stop me!", \
+				"Zizo shows the way!", \
+				"The Dark Lady has shown me the truth!", \
+				"My life for Zizo...", \
+				"Curse your Beast God!", \
+				"Noc's magick is nothing to Zizo!", \
+				"Abyssor is but a grain of salt!", \
+				"Pestra is the most foul of goddesses!", \
+				"Ravox's justice is flawed and dull!", \
+				"Rip the Sun Tyrant from the sky!", \
+				"Xylix is the tongue that must be severed off!", \
+				"Cast Malum into the fires of hell!", \
+				"The only truth there is lies with the Dark Elves!", \
+				"I will defile Necra's dead, a thousand times!", \
+				"I will butcher the Ten like Necra butchered Psydon!", \
+				"Snuff out the beating hearts of Eora!"))
 		V.add_stress(/datum/stressevent/leechcult)
 
 #undef MAX_LEECH_EVILNESS

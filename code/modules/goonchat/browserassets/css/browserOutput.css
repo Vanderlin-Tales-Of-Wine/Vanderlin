@@ -351,6 +351,11 @@ h1.alert, h2.alert	{color: #c9c1ba;font-family: Pterra, TrueType;}
 
 .alert					{color: #d82020;}
 
+.alert_holder{
+	border: 0.1rem solid #FFF;
+	border-radius: 0.6rem;
+}
+
 .emote					{color: #b1bb9f; font-size: 75%;}
 
 .crit					{color: #c71d76;}
