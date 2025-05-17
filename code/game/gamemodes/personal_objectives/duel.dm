@@ -80,7 +80,7 @@
 		if(target.stat >= SOFT_CRIT || target.surrendering)
 			current_duel.end_duel(user)
 			break
-		sleep(1 SECONDS)
+		sleep(2 SECONDS)
 
 	return TRUE
 
