@@ -52,8 +52,11 @@
 	return TRUE
 
 /// Called when our key fails to toggle the lock
-/obj/proc/lock_failed(mob/user, silent = FALSE)
-	to_chat(user, span_notice("This isn't the right key for [src]."))
+/obj/proc/lock_failed(mob/user, silent = FALSE, message)
+	var/used_message = "This isn't the right key for [src]."
+	if(message)
+		used_message = message
+	to_chat(user, span_notice(used_message))
 	rattle(silent)
 
 /// Shake a bit make a noise

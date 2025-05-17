@@ -113,6 +113,8 @@
 #define COMSIG_ATOM_ATTACK_HAND "atom_attack_hand"				//from base of atom/attack_hand(): (mob/user)
 #define COMSIG_ATOM_ATTACK_PAW "atom_attack_paw"				//from base of atom/attack_paw(): (mob/user)
 	#define COMPONENT_NO_ATTACK_HAND 1							//works on all 3.
+#define COMSIG_ATOM_ATTACK_RIGHT "atom_attack_right"			//from base of atom/attack_right(): (mob/user)
+	#define COMPONENT_NO_ATTACK_RIGHT 2
 ///from base of atom/animal_attack(): (/mob/user)
 #define COMSIG_ATOM_ATTACK_ANIMAL "attack_animal"
 ///from relay_attackers element: (atom/attacker, attack_flags)

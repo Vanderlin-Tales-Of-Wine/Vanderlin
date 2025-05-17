@@ -58,16 +58,19 @@
 	var/list/wedges = list(/obj/item/weapon/knife/dagger, /obj/item/lockpick) //when we add more thieves tools check this
 	/// Can we be picked
 	var/pickable = TRUE
+	/// Requires left/right inputs for key turning
+	var/requires_turning = TRUE
 
 /datum/lock/key/New(obj/holder, list/lockids)
 	. = ..()
 	if(lockids && islist(lockids))
 		lockid_list = lockids
 	RegisterSignal(src.holder, COMSIG_PARENT_EXAMINE, PROC_REF(examine))
-	RegisterSignal(src.holder, COMSIG_PARENT_ATTACKBY, PROC_REF(attackby))
+	RegisterSignal(src.holder, COMSIG_PARENT_ATTACKBY, PROC_REF(attack_by))
+	RegisterSignal(src.holder, COMSIG_ATOM_ATTACK_RIGHT, PROC_REF(attack_right))
 
 /datum/lock/key/Destroy()
-	UnregisterSignal(src.holder, list(COMSIG_PARENT_ATTACKBY, COMSIG_PARENT_EXAMINE))
+	UnregisterSignal(src.holder, list(COMSIG_PARENT_ATTACKBY, COMSIG_PARENT_EXAMINE, COMSIG_ATOM_ATTACK_RIGHT))
 	return ..()
 
 /datum/lock/key/proc/examine(obj/source, mob/user, list/examine_list)
@@ -75,23 +78,39 @@
 	if(tampered)
 		examine_list += span_notice("[source] has been tampered with.")
 
-/datum/lock/key/proc/attackby(obj/source, obj/item/I, mob/living/user)
+/datum/lock/key/proc/attack_by(obj/source, obj/item/I, mob/living/user)
 	SIGNAL_HANDLER
+	return attack_wrap(source, I, user)
+
+/datum/lock/key/proc/attack_right(obj/source, mob/living/user)
+	SIGNAL_HANDLER
+	var/obj/item/I = user.get_active_held_item()
+	if(QDELETED(I))
+		return FALSE
+	return attack_wrap(source, I, user, FALSE)
+
+/datum/lock/key/proc/attack_wrap(obj/source, obj/item/I, mob/living/user, is_left = TRUE)
 	if(I.has_access() && source.pre_lock_interact(user))
-		try_toggle(I, user)
+		try_toggle(I, user, is_left)
 		return TRUE
 	if(is_type_in_list(I, lockpicks))
 		if(source.pre_lock_interact(user) && user.try_pick(source, I, lockpicks, wedges, difficulty))
 			return TRUE
 
 /// Try to toggle the lock with I
-/datum/lock/key/proc/try_toggle(obj/item/I, mob/user)
+/datum/lock/key/proc/try_toggle(obj/item/I, mob/user, is_left)
 	var/silent = user?.m_intent == MOVE_INTENT_SNEAK
 	if(!check_access(I))
 		holder?.lock_failed(user, silent)
-		return FALSE
+		return
+	if(requires_turning)
+		if(locked && !is_left)
+			holder?.lock_failed(user, silent, "It won't turn this way, try turning it to the left.")
+			return
+		if(!locked && is_left)
+			holder?.lock_failed(user, silent, "It won't turn this way, try turning it to the right.")
+			return
 	toggle(user, silent)
-	return TRUE
 
 /datum/lock/key/proc/set_pick_difficulty(difficulty)
 	src.difficulty = CLAMP(difficulty, 1, 6)
