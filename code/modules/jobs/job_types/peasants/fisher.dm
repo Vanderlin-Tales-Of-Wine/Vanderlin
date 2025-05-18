@@ -23,21 +23,20 @@
 
 /datum/outfit/job/fisher/pre_equip(mob/living/carbon/human/H)
 	..()
-	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, pick(1,2), TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/fishing, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, pick(2,2,3), TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
-		if(H.age == AGE_OLD)
-			H.mind?.adjust_skillrank(/datum/skill/labor/fishing, 1, TRUE)
-			H.change_stat(STATKEY_CON, 1)
-			H.change_stat(STATKEY_PER, 1)
-		else
-			H.change_stat(STATKEY_CON, 2)
+	H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/cooking, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/crafting, pick(1,2), TRUE)
+	H.adjust_skillrank(/datum/skill/labor/fishing, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, pick(2,2,3), TRUE)
+	H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
+	if(H.age == AGE_OLD)
+		H.adjust_skillrank(/datum/skill/labor/fishing, 1, TRUE)
+		H.change_stat(STATKEY_CON, 1)
+		H.change_stat(STATKEY_PER, 1)
+	else
+		H.change_stat(STATKEY_CON, 2)
 	if(H.gender == MALE)
 		pants = /obj/item/clothing/pants/tights/random
 		shirt = /obj/item/clothing/shirt/shortshirt/random
@@ -50,7 +49,7 @@
 		backr = /obj/item/fishingrod/fisher
 		beltr = /obj/item/cooking/pan
 		beltl = /obj/item/flint
-		backpack_contents = list(/obj/item/weapon/knife/villager = 1, /obj/item/natural/worms = 1, /obj/item/weapon/shovel/small = 1)
+		backpack_contents = list(/obj/item/weapon/knife/villager = 1, /obj/item/natural/worms = 1, /obj/item/weapon/shovel/small = 1, /obj/item/recipe_book/survival = 1)
 
 	else
 		shirt = /obj/item/clothing/shirt/dress/gen/random

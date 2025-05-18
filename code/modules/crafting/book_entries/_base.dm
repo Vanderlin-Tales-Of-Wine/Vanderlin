@@ -1,6 +1,7 @@
 /datum/book_entry
 	abstract_type = /datum/book_entry
 	var/name = "Generic Information"
+	var/category = "Knowledge"
 
 
 /datum/book_entry/proc/generate_html(mob/user)
@@ -36,14 +37,14 @@
 			}
 			h1 {
 				text-align: center;
-				font-size: 2.5em;
+				font-size: 2em;
 				border-bottom: 2px solid #3e2723;
 				padding-bottom: 10px;
-				margin-bottom: 20px;
+				margin-bottom: 10px;
 			}
 			.icon {
-				width: 96px;
-				height: 96px;
+				width: 64px;
+				height: 64px;
 				vertical-align: middle;
 				margin-right: 10px;
 			}

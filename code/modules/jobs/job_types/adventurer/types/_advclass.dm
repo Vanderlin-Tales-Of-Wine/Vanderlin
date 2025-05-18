@@ -41,7 +41,7 @@
 	if(TU)
 		if(horse)
 			new horse(TU)
-	H.mind?.apprentice_name = apprentice_name
+	H.set_apprentice_name(apprentice_name)
 
 /*	for(var/trait in traits_applied)
 		ADD_TRAIT(H, trait, ADVENTURER_TRAIT) */
@@ -55,6 +55,8 @@
 	for(var/datum/status_effect/incapacitating/stun/S in H.status_effects)
 		H.remove_status_effect(S)
 	post_equip(H)
+
+	apply_character_post_equipment(H)
 
 /datum/advclass/proc/post_equip(mob/living/carbon/human/H)
 	addtimer(CALLBACK(SScrediticons, TYPE_PROC_REF(/datum/controller/subsystem/crediticons, add_credit), H), 2 SECONDS)

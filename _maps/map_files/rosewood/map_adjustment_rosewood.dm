@@ -4,20 +4,18 @@
 	These 'map_adjustment.dm' files shouldn't be included in 'dme'
 */
 
+#define POINTY_EARS list(\
+	"Elf",\
+	"Half-Elf"\
+)
+
 /datum/map_adjustment/rosewood
 	map_file_name = "rosewood.dmm"
-	var/list/knifeEars = list(
-		/datum/job/lord,
-		/datum/job/prince,
-		/datum/job/hand,
-		/datum/job/captain
+	species_adjust = list(
+		/datum/job/lord = POINTY_EARS,
+		/datum/job/prince = POINTY_EARS,
+		/datum/job/hand = POINTY_EARS,
+		/datum/job/captain = POINTY_EARS
 	)
 
-/datum/map_adjustment/rosewood/job_change()
-	. = ..()
-	for(var/datum/job/elf in knifeEars)
-		var/datum/job/J = SSjob.GetJobType(elf)
-		J?.allowed_races = list(
-			"Elf",
-			"Half-Elf"
-		)
+#undef POINTY_EARS

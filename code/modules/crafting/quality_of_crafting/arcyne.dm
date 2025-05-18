@@ -21,22 +21,6 @@
 	subtypes_allowed = TRUE // so you can use any subtype of knife
 	reagent_subtypes_allowed = TRUE // so normal mana potions can be used as well as weak ones.
 
-/datum/repeatable_crafting_recipe/arcyne/manabloom_powder
-	name = "manabloom powder"
-	reagent_requirements = list()
-	tool_usage = list()
-	requirements = list(
-		/obj/item/reagent_containers/food/snacks/produce/manabloom = 1,
-	)
-	tool_usage = list(
-		/obj/item/weapon/hammer = list("starts to crush the manabloom", "start to crush the manabloom")
-	)
-	output = /obj/item/reagent_containers/powder/manabloom
-	attacked_atom = /obj/item/reagent_containers/food/snacks/produce/manabloom
-	starting_atom = /obj/item/weapon/hammer
-	uses_attacked_atom = FALSE
-
-
 /datum/repeatable_crafting_recipe/arcyne/infernal_feather
 	name = "infernal feather"
 	reagent_requirements = list()
@@ -110,6 +94,7 @@
 	starting_atom = /obj/item/natural/glass
 	attacked_atom = /obj/item/natural/melded/t2
 	uses_attacked_atom = TRUE
+	subtypes_allowed = TRUE
 	craftdiff = 3
 
 /datum/repeatable_crafting_recipe/arcyne/shimmeringlens

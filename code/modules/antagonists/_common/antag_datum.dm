@@ -201,6 +201,7 @@ GLOBAL_LIST_EMPTY(antagonists)
 	else
 		testing("redtext")
 		report += "<span class='redtext big'>The [name] has failed!</span>"
+	report += "<br>"
 
 	return report.Join("<br>")
 
@@ -278,7 +279,7 @@ GLOBAL_LIST_EMPTY(antagonists)
 /datum/antagonist/proc/remove_job()
 	if(owner.assigned_role)
 		owner.assigned_role.adjust_current_positions(1)
-	owner.assigned_role = /datum/job/unassigned
+	owner.assigned_role = SSjob.GetJobType(/datum/job/unassigned)
 	owner.current?.job = null
 
 //This one is created by admin tools for custom objectives

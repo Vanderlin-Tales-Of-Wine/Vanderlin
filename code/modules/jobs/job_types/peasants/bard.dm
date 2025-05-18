@@ -18,20 +18,20 @@
 
 /datum/outfit/job/bard/pre_equip(mob/living/carbon/human/H)
 	. = ..()
-	H.mind?.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/stealing, 1, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, 1, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/music, 4, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/sneaking, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/stealing, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/lockpicking, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/music, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 	H.mind?.AddSpell(new /obj/effect/proc_holder/spell/invoked/mockery)
 	head = /obj/item/clothing/head/bardhat
 	shoes = /obj/item/clothing/shoes/boots
@@ -56,10 +56,10 @@
 	H.change_stat(STATKEY_SPD, 2)
 	H.change_stat(STATKEY_STR, -1)
 
-/datum/job/bard/after_spawn(mob/living/carbon/spawned, client/player_client)
+/datum/outfit/job/bard/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
-	spawned.select_equippable(player_client, \
-		list("Harp" = /obj/item/instrument/harp, \
+	H.select_equippable(list( \
+		"Harp" = /obj/item/instrument/harp, \
 		"Lute" = /obj/item/instrument/lute, \
 		"Accordion" = /obj/item/instrument/accord, \
 		"Guitar" = /obj/item/instrument/guitar, \

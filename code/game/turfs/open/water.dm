@@ -34,7 +34,6 @@
 	clawfootstep = null
 	heavyfootstep = null
 	landsound = 'sound/foley/jumpland/waterland.wav'
-	path_weight = 90
 	shine = SHINE_SHINY
 	var/datum/reagent/water_reagent = /datum/reagent/water
 	var/mapped = TRUE // infinite source of water
@@ -281,7 +280,7 @@
 				if(get_dir(src, newloc) == dir)
 					return
 			if(user.mind && !user.buckled)
-				var/drained = max(15 - (user.mind.get_skill_level(/datum/skill/misc/swimming) * 5), 1)
+				var/drained = max(15 - (user.get_skill_level(/datum/skill/misc/swimming) * 5), 1)
 //				drained += (user.checkwornweight()*2)
 				drained += user.get_encumbrance() * 50
 				if(!user.adjust_stamina(drained))
@@ -299,6 +298,11 @@
 			return
 	if(water_volume < 10)
 		return
+	if(istype(AM, /obj/item/reagent_containers/food/snacks/fish))
+		var/obj/item/reagent_containers/food/snacks/fish/F = AM
+		SEND_GLOBAL_SIGNAL(COMSIG_GLOBAL_FISH_RELEASED, F.type, F.rarity_rank)
+		F.visible_message("<span class='warning'>[F] dives into \the [src] and disappears!</span>")
+		qdel(F)
 	if(isliving(AM) && !AM.throwing)
 		var/mob/living/L = AM
 		if(L.body_position == LYING_DOWN || water_level == 3)
@@ -434,7 +438,7 @@
 		return 0
 	var/returned = slowdown
 	if(user.mind && swim_skill)
-		returned = returned - (user.mind.get_skill_level(/datum/skill/misc/swimming))
+		returned = returned - (user.get_skill_level(/datum/skill/misc/swimming))
 	return returned
 /*	..................   Bath & Pool   ................... */
 /turf/open/water/bath
@@ -632,7 +636,6 @@
 	water_level = 3
 	slowdown = 20
 	swim_skill = TRUE
-	path_weight = 150
 	var/river_processing
 	var/river_processes = TRUE
 	swimdir = TRUE
@@ -656,6 +659,13 @@
 		water_top_overlay.color = water_reagent.color
 		water_top_overlay.icon_state = "rivertop"
 		water_top_overlay.dir = dir
+
+/turf/open/water/river/get_heuristic_slowdown(mob/traverser, travel_dir)
+	. = ..()
+	if(travel_dir & dir) // downriver
+		. -= 2 // faster!
+	else // upriver
+		. += 2 // slower
 
 /turf/open/water/river/LateInitialize()
 	. = ..()

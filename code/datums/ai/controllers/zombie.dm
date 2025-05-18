@@ -21,9 +21,6 @@
 		/datum/ai_planning_subtree/simple_find_target,
 		/datum/ai_planning_subtree/basic_melee_attack_subtree,
 
-		/datum/ai_planning_subtree/find_dead_bodies,
-		/datum/ai_planning_subtree/eat_dead_body,
-
 	)
 
 	idle_behavior = /datum/idle_behavior/idle_random_walk

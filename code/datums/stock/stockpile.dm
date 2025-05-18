@@ -84,7 +84,7 @@
 /datum/stock/stockpile/grain
 	name = "Grain"
 	desc = "Wheat grains primed for milling."
-	item_type = /obj/item/reagent_containers/food/snacks/produce/wheat
+	item_type = /obj/item/reagent_containers/food/snacks/produce/grain/wheat
 	held_items = 5
 	payout_price = 2
 	withdraw_price = 6
@@ -94,7 +94,7 @@
 /datum/stock/stockpile/oat
 	name = "Oat"
 	desc = "Oat grains primed for milling."
-	item_type = /obj/item/reagent_containers/food/snacks/produce/oat
+	item_type = /obj/item/reagent_containers/food/snacks/produce/grain/oat
 	held_items = 5
 	payout_price = 2
 	withdraw_price = 6
@@ -104,7 +104,7 @@
 /datum/stock/stockpile/turnip
 	name = "Turnips"
 	desc = "A hearty root vegetable fit for soup."
-	item_type = /obj/item/reagent_containers/food/snacks/produce/turnip
+	item_type = /obj/item/reagent_containers/food/snacks/produce/vegetable/turnip
 	held_items = 2
 	payout_price = 2
 	withdraw_price = 5
@@ -114,7 +114,7 @@
 /datum/stock/stockpile/potato
 	name = "Potatoes"
 	desc = "A reliable if tough vegetable of Dwarven popularity."
-	item_type = /obj/item/reagent_containers/food/snacks/produce/potato
+	item_type = /obj/item/reagent_containers/food/snacks/produce/vegetable/potato
 	held_items = 2
 	payout_price = 2
 	withdraw_price = 6

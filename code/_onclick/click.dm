@@ -278,7 +278,7 @@
 */
 
 	// Allows you to click on a box's contents, if that box is on the ground, but no deeper than that
-	if(isturf(A) || isturf(A.loc) || (A.loc && isturf(A.loc.loc)))
+	if(isturf(A) || isturf(A.loc) || (A.loc && (isturf(A.loc.loc) || isturf(A.loc.loc.loc))))
 		if(CanReach(A) || CanReach(A, W))
 			if(isopenturf(A))
 				var/turf/T = A
@@ -305,7 +305,7 @@
 					if(!used_intent.noaa)
 						changeNext_move(CLICK_CD_MELEE)
 						if(get_dist(get_turf(src), T) <= used_intent.reach)
-							do_attack_animation(T, visual_effect_icon = used_intent.animname)
+							do_attack_animation(T, visual_effect_icon = used_intent.animname, used_intent = used_intent)
 						else
 							do_attack_animation(get_ranged_target_turf(src, get_dir(src, T), 1), visual_effect_icon = used_intent.animname)
 						if(W)
@@ -693,7 +693,7 @@
 			setDir(WEST)
 
 /mob/face_atom(atom/A)
-	if(!canface())
+	if(!canface(A))
 		return FALSE
 	..()
 

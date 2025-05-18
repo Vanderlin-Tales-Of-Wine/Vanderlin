@@ -17,6 +17,10 @@
 		H.cursed_freak_out()
 		return
 
+	if(user.real_name in GLOB.outlawed_players)
+		say("OUTLAW DETECTED! REFUSING SERVICE!")
+		return
+
 	if(H in SStreasury.bank_accounts)
 		var/amt = SStreasury.bank_accounts[H]
 		if(!amt)
@@ -84,6 +88,10 @@
 			if(HAS_TRAIT(user, TRAIT_MATTHIOS_CURSE))
 				to_chat(H, "<span class='warning'>The idea repulses me!</span>")
 				H.cursed_freak_out()
+				return
+
+			if(user.real_name in GLOB.outlawed_players)
+				say("OUTLAW DETECTED! REFUSING SERVICE!")
 				return
 
 			if(H in SStreasury.bank_accounts)

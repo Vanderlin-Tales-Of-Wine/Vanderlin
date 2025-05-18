@@ -25,7 +25,7 @@
 /obj/effect/proc_holder/spell/self/flight
 	name = "Take Flight"
 	desc = ""
-	overlay_state = "orison"
+	overlay_state = "flight"
 	antimagic_allowed = TRUE
 	invocation_type = "none"
 	var/flying = FALSE
@@ -68,7 +68,7 @@
 		return
 
 	var/turf/turf = get_turf(user)
-	if(!isopenspace(turf))
+	if(isopenspace(GET_TURF_ABOVE(turf)))
 		turf = GET_TURF_ABOVE(turf)
 	user.movement_type |= FLYING
 	if(turf != get_turf(user))
@@ -136,6 +136,7 @@
 /datum/customizer_choice/organ/wings/harpy
 	name = "Wings"
 	organ_type = /obj/item/organ/wings/flight
+	allows_accessory_color_customization = FALSE
 	sprite_accessories = list(
 		/datum/sprite_accessory/wings/large/harpyswept,
 		)

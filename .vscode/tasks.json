@@ -6,7 +6,7 @@
             "dme": "vanderlin.dme",
             "problemMatcher": ["$dreammaker"],
             "group": "build",
-            "label": "DM Build"
+            "label": "dm: build - vanderlin.dme"
         },
 
         {

@@ -95,9 +95,9 @@
 					record_featured_stat(FEATURED_STATS_ALCHEMISTS, lastuser)
 					GLOB.vanderlin_round_stats[STATS_POTIONS_BREWED]++
 					//give xp for /datum/skill/craft/alchemy
-					var/boon = lastuser.mind?.get_learning_boon(/datum/skill/craft/alchemy)
+					var/boon = lastuser.get_learning_boon(/datum/skill/craft/alchemy)
 					var/amt2raise = lastuser.STAINT*2
-					lastuser?.mind?.adjust_experience(/datum/skill/craft/alchemy, amt2raise * boon, FALSE)
+					lastuser?.adjust_experience(/datum/skill/craft/alchemy, amt2raise * boon, FALSE)
 					playsound(src, "bubbles", 100, TRUE)
 					playsound(src,'sound/misc/smelter_fin.ogg', 30, FALSE)
 					ingredients = list()

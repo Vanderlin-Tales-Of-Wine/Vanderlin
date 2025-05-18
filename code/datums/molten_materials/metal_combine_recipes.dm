@@ -3,6 +3,7 @@ GLOBAL_LIST_INIT(molten_recipes, list())
 /datum/molten_recipe
 	abstract_type = /datum/molten_recipe
 	var/name = "Generic Molten Recipe"
+	var/category = "Metallurgy"
 
 	var/list/materials_required = list()
 	var/list/output = list()
@@ -69,14 +70,14 @@ GLOBAL_LIST_INIT(molten_recipes, list())
 			}
 			h1 {
 				text-align: center;
-				font-size: 2.5em;
+				font-size: 2em;
 				border-bottom: 2px solid #3e2723;
 				padding-bottom: 10px;
-				margin-bottom: 20px;
+				margin-bottom: 10px;
 			}
 			.icon {
-				width: 96px;
-				height: 96px;
+				width: 64px;
+				height: 64px;
 				vertical-align: middle;
 				margin-right: 10px;
 			}
@@ -85,7 +86,7 @@ GLOBAL_LIST_INIT(molten_recipes, list())
 		  <div>
 		    <h1>[name]</h1>
 		    <div>
-		      <strong>Requirements</strong>
+		      <h2>Requirements</h2>
 			  <br>
 		"}
 	for(var/atom/path as anything in materials_required)

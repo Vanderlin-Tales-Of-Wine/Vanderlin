@@ -53,6 +53,22 @@
 	var/item_damage_type = "blunt"
 	var/move_limit = 0
 
+	var/list/static/bonk_animation_types = list(
+		BCLASS_BLUNT,
+		BCLASS_SMASH,
+		BCLASS_DRILL,
+	)
+	var/list/static/swipe_animation_types = list(
+		BCLASS_CUT,
+		BCLASS_CHOP,
+
+	)
+	var/list/static/thrust_animation_types = list(
+		BCLASS_STAB,
+		BCLASS_SHOT,
+		BCLASS_PICK,
+	)
+
 /datum/intent/Destroy()
 	if(chargedloop)
 		chargedloop.stop()
@@ -61,6 +77,16 @@
 	mastermob = null
 	masteritem = null
 	return ..()
+
+/// returns the attack animation type this intent uses
+/datum/intent/proc/get_attack_animation_type()
+	if(blade_class in bonk_animation_types)
+		return ATTACK_ANIMATION_BONK
+	if(blade_class in swipe_animation_types)
+		return ATTACK_ANIMATION_SWIPE
+	if(blade_class in thrust_animation_types)
+		return ATTACK_ANIMATION_THRUST
+	return null
 
 /datum/intent/proc/examine(mob/user)
 	var/list/inspec = list("----------------------")

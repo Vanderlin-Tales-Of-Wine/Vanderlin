@@ -127,3 +127,15 @@
 	hydration_factor = 6 //a hydrating, nutritious and convinient drink made of raisins
 	nutriment_factor = 6
 	quality = 3
+
+/datum/reagent/consumable/tea/tiefbloodtea
+	name = "Tiefling Blood Tea"
+	description = "If you see this, stop using moondust"
+	color = "#bd201b"
+	nutriment_factor = 1
+	metabolization_rate = 0.6 // 60% of normal metab
+	taste_description = "something delightfully sweet, with a smoky aftertaste"
+	taste_mult = 4
+	hydration_factor = 1
+	nutriment_factor = 2
+	quality = 4

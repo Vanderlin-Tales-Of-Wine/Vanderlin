@@ -188,7 +188,7 @@
 /obj/item/weapon/surgery/hammer/pre_attack(atom/A, mob/living/user, params)
 	if(!istype(user.a_intent, /datum/intent/use))
 		return ..()
-	if(user.mind.get_skill_level(/datum/skill/misc/medicine) < 1)
+	if(user.get_skill_level(/datum/skill/misc/medicine) < 1)
 		return ..()
 	if(ishuman(A))
 		if(A == user)

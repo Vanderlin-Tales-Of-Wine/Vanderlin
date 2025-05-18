@@ -102,6 +102,9 @@
 	misscost = 10
 	item_damage_type = "slash"
 
+/datum/intent/spear/cut/bardiche/scythe //Unique intent for Dendorite Templar
+	reach = 2
+
 /*------------\
 | Chop intent |
 \------------*/
@@ -215,6 +218,39 @@
 			if("wielded")
 				return list("shrink" = 0.6,"sx" = 5,"sy" = -3,"nx" = -5,"ny" = -2,"wx" = -5,"wy" = -1,"ex" = 3,"ey" = -2,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 7,"sturn" = -7,"wturn" = 16,"eturn" = -22,"nflip" = 8,"sflip" = 0,"wflip" = 8,"eflip" = 0)
 
+
+/obj/item/weapon/polearm/spear/abyssor
+	name = "depthseeker"
+	desc = "An instrument of Abyssor's wrath to punish the ignorant."
+	force_wielded = DAMAGE_SPEAR_WIELD+2
+	throwforce = DAMAGE_SPEAR_WIELD
+	icon_state = "gsspear"
+
+//................ Psydonian Spear ............... //
+/obj/item/weapon/polearm/spear/psydon
+	force = DAMAGE_SPEAR
+	force_wielded = DAMAGE_SPEAR_WIELD
+	name = "psydonian spear"
+	desc = "A polearm with a twisting trident head perfect for mangling the bodies of the impure."
+	icon_state = "psyspear"
+	drop_sound = 'sound/foley/dropsound/blade_drop.ogg'
+	melting_material = /datum/material/silver
+	max_integrity = INTEGRITY_STRONG
+	wdefense = AVERAGE_PARRY
+	wbalance = EASY_TO_DODGE
+	sellprice = 60
+	is_silver = TRUE
+
+/obj/item/weapon/polearm/spear/psydon/getonmobprop(tag)
+	. = ..()
+	if(tag)
+		switch(tag)
+			if("gen")
+				return list("shrink" = 0.6,"sx" = -7,"sy" = 2,"nx" = 7,"ny" = 3,"wx" = -2,"wy" = 1,"ex" = 1,"ey" = 1,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = -38,"sturn" = 37,"wturn" = 30,"eturn" = -30,"nflip" = 0,"sflip" = 8,"wflip" = 8,"eflip" = 0)
+			if("wielded")
+				return list("shrink" = 0.6,"sx" = 5,"sy" = -3,"nx" = -5,"ny" = -2,"wx" = -5,"wy" = -1,"ex" = 3,"ey" = -2,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 7,"sturn" = -7,"wturn" = 16,"eturn" = -22,"nflip" = 8,"sflip" = 0,"wflip" = 8,"eflip" = 0)
+
+
 //................ Billhook ............... //
 /obj/item/weapon/polearm/spear/billhook
 	name = "billhook"
@@ -309,6 +345,33 @@
 			if("onbelt")
 				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
 
+//................ Psydonian Halberd ............... //
+/obj/item/weapon/polearm/halberd/psydon
+	force = DAMAGE_SPEAR
+	force_wielded = DAMAGE_HALBERD_WIELD
+	name = "psydonian halberd"
+	desc = "A mighty halberd capable of cutting down the heretical with remarkable ease, be it effigy, man, or beast."
+	icon_state = "psyhalberd"
+	melting_material = /datum/material/silver
+	melt_amount = 150
+	swingsound = BLADEWOOSH_MED
+	max_blade_int = 250
+	max_integrity = INTEGRITY_STRONG
+	minstr = 11
+	axe_cut = 10
+	sellprice = 100
+	is_silver = TRUE
+
+/obj/item/weapon/polearm/halberd/psydon/getonmobprop(tag)
+	. = ..()
+	if(tag)
+		switch(tag)
+			if("gen")
+				return list("shrink" = 0.6,"sx" = -7,"sy" = 2,"nx" = 7,"ny" = 3,"wx" = -2,"wy" = 1,"ex" = 1,"ey" = 1,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = -38,"sturn" = 37,"wturn" = 30,"eturn" = -30,"nflip" = 0,"sflip" = 8,"wflip" = 8,"eflip" = 0)
+			if("wielded")
+				return list("shrink" = 0.6,"sx" = 5,"sy" = -3,"nx" = -5,"ny" = -2,"wx" = -5,"wy" = -1,"ex" = 3,"ey" = -2,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 7,"sturn" = -7,"wturn" = 16,"eturn" = -22,"nflip" = 8,"sflip" = 0,"wflip" = 8,"eflip" = 0)
+			if("onbelt")
+				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
 
 //................ Bardiche ............... //
 /obj/item/weapon/polearm/halberd/bardiche
@@ -330,6 +393,12 @@
 	wdefense = AVERAGE_PARRY
 	axe_cut = 10
 	sellprice = 30
+
+/obj/item/weapon/polearm/halberd/bardiche/dendor
+	name = "summer scythe"
+	desc = "Summer's verdancy runs through the head of this scythe. All the more to sow."
+	icon_state = "dendorscythe"
+	gripped_intents = list(POLEARM_THRUST, /datum/intent/spear/cut/bardiche/scythe, /datum/intent/axe/chop/scythe, POLEARM_BASH)
 
 //................ Eagle Beak ............... //
 /obj/item/weapon/polearm/eaglebeak

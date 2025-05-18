@@ -4,7 +4,7 @@
 	set category = "Options"
 	set hidden = 1
 
-	LAZYREMOVE(GLOB.actors_list, mobid) // admin removed - get him outta here.
+	GLOB.actors_list -= mobid // admin removed - get him outta here.
 
 	if(key)
 		GLOB.respawntimes[key] = world.time

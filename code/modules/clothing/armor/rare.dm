@@ -52,7 +52,7 @@
 	name = "grenzelhoftian plate regalia"
 	desc = "Engraved on this masterwork of humen metallurgy lies \"Thrice Slain, Thrice Risen, Thrice Pronged\" alongside the symbol of Psydon in its neck guard."
 	icon_state = "human_swordchest"
-	allowed_race = list("human")
+	allowed_race = list("human","aasimar")
 	allowed_sex = list(MALE)
 	item_weight = 12 * STEEL_MULTIPLIER
 

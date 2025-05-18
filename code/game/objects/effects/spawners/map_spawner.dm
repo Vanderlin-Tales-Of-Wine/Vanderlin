@@ -291,7 +291,7 @@
 		/obj/item/reagent_containers/food/snacks/cooked/frybird = 10,
 		/obj/item/reagent_containers/food/snacks/cooked/ham = 10,
 		/obj/item/reagent_containers/food/snacks/cooked/sausage = 10,
-		/obj/item/reagent_containers/food/snacks/potato/baked = 10,
+		/obj/item/reagent_containers/food/snacks/produce/vegetable/potato/baked = 10,
 		/obj/item/reagent_containers/food/snacks/onion_fried = 10,
 		/obj/item/reagent_containers/food/snacks/raisins = 10,
 		/obj/item/reagent_containers/food/snacks/meat/salami = 10,

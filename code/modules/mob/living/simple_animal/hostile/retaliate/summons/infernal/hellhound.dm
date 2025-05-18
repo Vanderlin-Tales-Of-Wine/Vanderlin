@@ -75,6 +75,8 @@
 		return
 	if(world.time >= src.flame_cd + 100)
 		var/mob/living/targetted = target
+		if(!isliving(target))
+			return
 		targetted.adjust_fire_stacks(5)
 		targetted.IgniteMob()
 		targetted.visible_message(span_danger("[src] sets [target] on fire!"))

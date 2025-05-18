@@ -55,5 +55,3 @@
 /// From /mob/living/unfriend() : (mob/living/old_friend)
 #define COMSIG_LIVING_UNFRIENDED "living_unfriended"
 
-/// From /mob/living/on_floored_start()
-#define COMSIG_LIVING_ON_FLOORED_START "living_on_floored"

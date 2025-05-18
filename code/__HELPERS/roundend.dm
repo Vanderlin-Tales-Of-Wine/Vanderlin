@@ -169,6 +169,8 @@
 
 	gamemode_report()
 
+	to_chat(world, personal_objectives_report())
+
 	sleep(10 SECONDS)
 
 	players_report()
@@ -246,6 +248,13 @@
 	var/list/all_teams = list()
 	var/list/all_antagonists = list()
 
+	var/list/header_parts
+	if(GLOB.antagonist_teams.len || GLOB.antagonists.len)
+		header_parts += "<br>"
+		header_parts += "<div style='text-align: center; font-size: 1.2em;'>VILLAINS:</div>"
+		header_parts += "<hr class='paneldivider'>"
+		to_chat(world, header_parts)
+
 	for(var/datum/team/A in GLOB.antagonist_teams)
 		all_teams |= A
 
@@ -306,6 +315,11 @@
 
 	//Antagonists
 	parts += antag_report()
+
+	CHECK_TICK
+
+	//Personal objectives
+	parts += personal_objectives_report()
 
 	CHECK_TICK
 	//Medals
@@ -405,6 +419,63 @@
 		return "<div class='panel stationborder'>[parts.Join("<br>")]</div>"
 	return ""
 
+/datum/controller/subsystem/ticker/proc/personal_objectives_report()
+	var/list/parts = list()
+	var/failed_chosen = 0
+	var/has_any_objectives = FALSE
+	var/showed_any_champions = FALSE
+
+	// Header
+	parts += "<div class='panel stationborder'>"
+	if(GLOB.personal_objective_minds.len)
+		parts += "<div style='text-align: center; font-size: 1.2em;'>GODS' CHAMPIONS:</div>"
+		parts += "<hr class='paneldivider'>"
+
+	var/list/successful_champions = list()
+	for(var/datum/mind/mind as anything in GLOB.personal_objective_minds)
+		if(!mind.personal_objectives || !mind.personal_objectives.len)
+			continue
+
+		has_any_objectives = TRUE
+		var/any_success = FALSE
+		for(var/datum/objective/objective as anything in mind.personal_objectives)
+			if(objective.check_completion())
+				any_success = TRUE
+				break
+
+		if(any_success)
+			successful_champions += mind
+		else
+			failed_chosen++
+
+	var/last_index = length(successful_champions)
+	var/current_index = 0
+	for(var/datum/mind/mind as anything in successful_champions)
+		current_index++
+		showed_any_champions = TRUE
+		var/name_with_title = mind.current ? printplayer(mind) : "<b>Unknown Champion</b>"
+		parts += name_with_title
+
+		var/obj_count = 1
+		for(var/datum/objective/objective as anything in mind.personal_objectives)
+			var/result = objective.check_completion() ? span_greentext("TRIUMPH!") : span_redtext("FAIL")
+			parts += "<B>Goal #[obj_count]</B>: [objective.explanation_text] - [result]"
+			obj_count++
+
+		if(current_index < last_index)
+			parts += "<br>"
+		CHECK_TICK
+
+	if(!has_any_objectives)
+		parts += "<div style='text-align: center;'>No personal objectives were assigned this round.</div>"
+	else if(failed_chosen > 0)
+		if(showed_any_champions)
+			parts += "<br>"
+		parts += "<div style='text-align: center;'>[failed_chosen] god's chosen [failed_chosen == 1 ? "has" : "have"] failed to become [failed_chosen == 1 ? "a champion" : "champions"].</div>"
+
+	parts += "</div>"
+	return parts.Join("<br>")
+
 /datum/controller/subsystem/ticker/proc/antag_report()
 	var/list/result = list()
 	var/list/all_teams = list()
@@ -448,7 +519,7 @@
 			currrent_category = antagonist.roundend_category
 			previous_category = antagonist
 		result += antagonist.roundend_report()
-		result += "<br><br>"
+		result += "<br>"
 		CHECK_TICK
 
 	if(all_antagonists.len)
@@ -495,7 +566,9 @@
 
 /proc/printplayer(datum/mind/ply, fleecheck)
 	var/jobtext = ""
-	if(ply.assigned_role && ply.current)
+	if(ply.special_role)
+		jobtext = " the <b>[ply.special_role]</b>"
+	else if(ply.assigned_role && ply.current)
 		jobtext = " the <b>[ply.assigned_role.get_informed_title(ply.current)]</b>"
 	var/usede = get_display_ckey(ply.key)
 	var/text = "<b>[usede]</b> was <b>[ply.name]</b>[jobtext] and"

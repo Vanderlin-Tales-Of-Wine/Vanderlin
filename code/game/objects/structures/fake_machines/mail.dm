@@ -386,7 +386,7 @@
 	// Define the available items, their costs, and max purchases
 	var/list/items = list(
 		// Weapons
-		"Puffer Pistol- 4 Lead Balls- Powder Flask  (10)" = list(
+		"Puffer Pistol- 4 Lead Balls- Powder Flask  (8)" = list(
 			list(type = /obj/item/gun/ballistic/revolver/grenadelauncher/pistol, count = 1),
 			list(type = /obj/item/storage/belt/pouch/bullets, count = 1),
 			list(type = /obj/item/reagent_containers/glass/bottle/aflask, count = 1),
@@ -398,6 +398,41 @@
 			cost = 5,
 			max_purchases = 1
 		),
+		"Psydonian Longsword (8)" = list(
+			list(type = /obj/item/weapon/sword/long/psydon, count = 1),
+			cost = 8,
+			max_purchases = 2
+		),
+		"Psydonian Greatsword (8)" = list(
+			list(type = /obj/item/weapon/sword/long/greatsword/psydon, count = 1),
+			cost = 8,
+			max_purchases = 1
+		),
+		"Psydonian Spear (8)" = list(
+			list(type = /obj/item/weapon/polearm/spear/psydon, count = 1),
+			cost = 8,
+			max_purchases = 1
+		),
+		"Psydonian Halberd (8)" = list(
+			list(type = /obj/item/weapon/polearm/halberd/psydon, count = 1),
+			cost = 8,
+			max_purchases = 1
+		),
+		"Psydonian Grand Mace (8)" = list(
+			list(type = /obj/item/weapon/mace/goden/psydon, count = 1),
+			cost = 8,
+			max_purchases = 1
+		),
+		"Psydonian Axe (3)" = list(
+			list(type = /obj/item/weapon/axe/psydon, count = 1),
+			cost = 3,
+			max_purchases = 3
+		),
+		"Psydonian Dagger (3)" = list(
+			list(type = /obj/item/weapon/knife/dagger/psydon, count = 1),
+			cost = 3,
+			max_purchases = 3
+		),
 		"Spare Powder Flask (2)" = list(
 			list(type = /obj/item/reagent_containers/glass/bottle/aflask, count = 1),
 			cost = 2,
@@ -406,11 +441,6 @@
 		"Battle Bomb (3)" = list(
 			list(type = /obj/item/bomb, count = 1),
 			cost = 3,
-			max_purchases = 2
-		),
-		"Silver Dagger (5)" = list(
-			list(type = /obj/item/weapon/knife/dagger/silver, count = 1),
-			cost = 5,
 			max_purchases = 2
 		),
 		"Spiked Mace (2)" = list(
@@ -463,6 +493,11 @@
 		"Inquisitorial Hat (2)" = list(
 			list(type = /obj/item/clothing/head/leather/inqhat, count = 1),
 			cost = 2,
+			max_purchases = 1
+		),
+		"Crimson Spectacles (1)" = list(
+			list(type = /obj/item/clothing/face/spectacles/inqglasses, count = 1),
+			cost = 1,
 			max_purchases = 1
 		),
 		"Inquisitorial Duster (3)" = list(

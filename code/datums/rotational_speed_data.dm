@@ -38,7 +38,7 @@
 
 /obj/structure/proc/start_deconstruct(mob/living/user, obj/item/rotation_contraption/type)
 	user.visible_message(span_notice("[user] starts to disassemble [src]."), span_notice("You start to disassemble [src]."))
-	if(!do_after(user, 1.5 SECONDS  - (user.mind?.get_skill_level(/datum/skill/craft/engineering) * 2), src))
+	if(!do_after(user, 1.5 SECONDS  - (user.get_skill_level(/datum/skill/craft/engineering) * 2), src))
 		return
 	new type(get_turf(src))
 	qdel(src)
@@ -49,6 +49,10 @@
 		rotation_network.remove_connection(src)
 		old_network.reassess_group(src)
 	. = ..()
+
+// You can path over a dense structure if it's climbable.
+/obj/structure/CanAStarPass(ID, to_dir, caller)
+	. = climbable || ..()
 
 /obj/structure/return_rotation_chat(atom/movable/screen/movable/mouseover/mouseover)
 	mouseover.maptext_height = 96
@@ -380,7 +384,7 @@
 			return
 
 	visible_message("[user] starts placing down [src].", "You start to place [src].")
-	if(!do_after(user, 1.2 SECONDS - user.mind?.get_skill_level(/datum/skill/craft/engineering), T))
+	if(!do_after(user, 1.2 SECONDS - user.get_skill_level(/datum/skill/craft/engineering), T))
 		return
 	var/obj/structure/structure = new placed_type(T)
 	if(directional)

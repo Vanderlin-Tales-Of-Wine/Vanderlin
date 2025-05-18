@@ -88,7 +88,9 @@
 		if(!stairs)
 			stairs = new /obj/structure/stairs(partner)
 		stairs.dir = dir
+	SEND_SIGNAL(user, COMSIG_ITEM_CRAFTED, user, type)
 	record_featured_stat(FEATURED_STATS_CRAFTERS, user)
+	record_featured_object_stat(FEATURED_STATS_CRAFTED_ITEMS, name)
 	add_abstract_elastic_data(ELASCAT_CRAFTING, "[name]", 1)
 	return
 
@@ -102,7 +104,9 @@
 		if(!stairs)
 			stairs = new /obj/structure/stairs/stone(partner)
 		stairs.dir = dir
+	SEND_SIGNAL(user, COMSIG_ITEM_CRAFTED, user, type)
 	record_featured_stat(FEATURED_STATS_CRAFTERS, user)
+	record_featured_object_stat(FEATURED_STATS_CRAFTED_ITEMS, name)
 	add_abstract_elastic_data(ELASCAT_CRAFTING, "[name]", 1)
 	return
 
@@ -116,54 +120,43 @@
 	if(!newloc || !AM)
 		return ..()
 	var/moved = get_dir(src, newloc)
-	if(moved == dir)
-		if(stair_ascend(AM,moved))
-			return FALSE
-	if(moved == turn(dir, 180))
-		if(stair_descend(AM,moved))
-			return FALSE
+	if(user_walk_into_target_loc(AM, moved))
+		return FALSE
 	return ..()
 
-/obj/structure/stairs/proc/stair_ascend(atom/movable/AM, dirmove)
-	var/turf/checking = get_step_multiz(get_turf(src), UP)
-	if(!istype(checking))
-		return
-//	if(!checking.zPassIn(AM, UP, get_turf(src)))
-//		return
-	var/turf/target = get_step_multiz(get_turf(src), UP)
-	if(!istype(target))
-		return
-	return user_walk_into_target_loc(AM, dirmove, target)
+/// From a cardinal direction, returns the resulting turf we'll end up at if we're uncrossing the stairs. Used for pathfinding, mostly.
+/obj/structure/stairs/proc/get_transit_destination(dirmove)
+	return get_target_loc(dirmove) || get_step(src, dirmove) // just normal movement if we failed to find a matching stair
 
-/obj/structure/stairs/proc/stair_descend(atom/movable/AM, dirmove)
-	var/turf/checking = get_step_multiz(get_turf(src), DOWN)
-	if(!istype(checking))
-		return
-//	if(!checking.zPassIn(AM, DOWN, get_turf(src)))
-//		return
-	var/turf/target = get_step_multiz(get_turf(src), DOWN)
-	if(!istype(target))
-		return
-	return user_walk_into_target_loc(AM, dirmove, target)
+/// Get the turf above/below us corresponding to the direction we're moving on the stairs.
+/obj/structure/stairs/proc/get_target_loc(dirmove)
+	var/turf/zturf
+	if(dirmove == dir)
+		zturf = GET_TURF_ABOVE(get_turf(src))
+	else if(dirmove == GLOB.reverse_dir[dir])
+		zturf = GET_TURF_BELOW(get_turf(src))
+	if(!zturf)
+		return // not moving up or down
+	var/turf/newtarg = get_step(zturf, dirmove)
+	if(!newtarg)
+		return // nowhere to move to???
+	for(var/obj/structure/stairs/partner in newtarg)
+		if(partner.dir == dir) // partner matches our dir
+			return newtarg
 
-/obj/structure/stairs/proc/user_walk_into_target_loc(atom/movable/AM, dirmove, turf/target)
-	var/based = FALSE
-	var/turf/newtarg = get_step(target, dirmove)
-	for(var/obj/structure/stairs/S in newtarg.contents)
-		if(S.dir == dir)
-			based = TRUE
-	if(based)
-		if(isliving(AM))
-			mob_move_travel_z_level(AM, newtarg)
-		else
-			AM.forceMove(newtarg)
+/obj/structure/stairs/proc/user_walk_into_target_loc(atom/movable/AM, dirmove)
+	var/turf/newtarg = get_target_loc(dirmove)
+	if(newtarg)
+		movable_travel_z_level(AM, newtarg)
 		return TRUE
 	return FALSE
 
-/obj/structure/stairs/intercept_zImpact(atom/movable/AM, levels = 1)
-	. = ..()
-
-/proc/mob_move_travel_z_level(mob/living/L, turf/newtarg)
+/// A helper proc to handle chained atoms moving across Z-levels. Currently only handles mobs pulling movables.
+/proc/movable_travel_z_level(atom/movable/AM, turf/newtarg)
+	if(!isliving(AM))
+		AM.forceMove(newtarg)
+		return
+	var/mob/living/L = AM
 	var/atom/movable/pulling = L.pulling
 	var/was_pulled_buckled = FALSE
 	if(pulling)
@@ -173,7 +166,7 @@
 	if(pulling)
 		L.stop_pulling()
 		pulling.forceMove(newtarg)
-		L.start_pulling(pulling, supress_message = TRUE)
+		L.start_pulling(pulling, suppress_message = TRUE)
 		if(was_pulled_buckled)
 			var/mob/living/M = pulling
 			if(M.body_position != LYING_DOWN)	// piggyback carry

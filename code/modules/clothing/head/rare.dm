@@ -55,7 +55,7 @@
 			It has been proven with severe battle-testing that a wearer's head would crack before the helmet chips."
 	icon_state = "human_swordhead"
 	allowed_sex = list(MALE)
-	allowed_race = list("human")
+	allowed_race = list("human","aasimar")
 	flags_inv = HIDEEARS
 	clothing_flags = CANT_SLEEP_IN
 	body_parts_covered = HEAD|EARS|HAIR
