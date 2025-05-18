@@ -4,7 +4,7 @@
 	allowed_sexes = list(MALE, FEMALE)
 	outfit = /datum/outfit/job/bandit/knave
 	category_tags = list(CTAG_BANDIT)
-	cmode_music = 'sound/music/cmode/antag/CombatBandit3.ogg'
+	cmode_music = 'sound/music/cmode/antag/CombatBandit1.ogg'
 
 /datum/outfit/job/bandit/knave/pre_equip(mob/living/carbon/human/H)
 	..()

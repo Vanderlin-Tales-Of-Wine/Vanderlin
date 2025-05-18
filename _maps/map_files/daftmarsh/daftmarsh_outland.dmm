@@ -359,6 +359,11 @@
 	},
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
+"dN" = (
+/obj/structure/door/iron/bars,
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/cobble,
+/area/rogue/under/mountains/anvil/lower)
 "dO" = (
 /obj/item/natural/stoneblock{
 	pixel_x = -5;
@@ -974,6 +979,24 @@
 /obj/structure/flora/grass/thorn_bush,
 /turf/open/floor/grass,
 /area/rogue/outdoors/bog)
+"jJ" = (
+/obj/structure/door/viewport{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
+/turf/open/floor/metal{
+	icon_state = "plating2"
+	},
+/area/rogue/indoors/town/cell)
+"jL" = (
+/obj/structure/door/green{
+	name = "forrest warden bedroom"
+	},
+/obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/indoors/villagegarrison)
 "jP" = (
 /obj/effect/decal/cleanable/blood,
 /mob/living/carbon/human/species/goblin,
@@ -1427,14 +1450,6 @@
 	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/outdoors/mountains)
-"oe" = (
-/obj/structure/door/green{
-	name = "Salem Garrison"
-	},
-/obj/effect/mapping_helpers/door/locker,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
-/turf/open/floor/hexstone,
-/area/rogue/indoors/villagegarrison)
 "oA" = (
 /obj/effect/landmark/start/adventurerlate{
 	dir = 1
@@ -1661,14 +1676,6 @@
 	},
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/lower)
-"rr" = (
-/obj/structure/door/green{
-	name = "forrest warden bedroom"
-	},
-/obj/effect/mapping_helpers/door/locker,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
-/turf/open/floor/ruinedwood/darker,
-/area/rogue/indoors/villagegarrison)
 "rt" = (
 /obj/item/natural/rock,
 /turf/open/floor/cobble,
@@ -1732,16 +1739,6 @@
 /obj/structure/stairs,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/woods)
-"so" = (
-/obj/structure/door/viewport{
-	dir = 1
-	},
-/obj/effect/mapping_helpers/door/locker,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
-/area/rogue/indoors/town/cell)
 "sq" = (
 /obj/structure/bridge_stakes,
 /obj/structure/bridge_stakes{
@@ -1889,16 +1886,6 @@
 	},
 /turf/open/floor/grass,
 /area/rogue/outdoors/woods_safe)
-"tE" = (
-/obj/structure/door/viewport{
-	dir = 8
-	},
-/obj/effect/mapping_helpers/door/locker,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
-/area/rogue/indoors/town/cell)
 "tF" = (
 /obj/structure/fluff/railing/fence{
 	dir = 8
@@ -2001,6 +1988,24 @@
 /obj/structure/flora/grass,
 /turf/open/floor/grass/red,
 /area/rogue/under/mountains/anvil/lower)
+"uu" = (
+/obj/structure/door/green{
+	name = "forrest garrison barracks"
+	},
+/obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/indoors/villagegarrison)
+"uw" = (
+/obj/structure/door/viewport{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
+/turf/open/floor/metal{
+	icon_state = "plating2"
+	},
+/area/rogue/indoors/town/cell)
 "uA" = (
 /obj/structure/chair/wood/alt/chair_noble/red{
 	dir = 8
@@ -3602,14 +3607,6 @@
 	},
 /turf/open/floor/cobble/alt,
 /area/rogue/under/mountains/anvil/lower)
-"MO" = (
-/obj/effect/mapping_helpers/door/locker,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
-/obj/structure/door/green{
-	name = "Salem Garrison"
-	},
-/turf/open/floor/hexstone,
-/area/rogue/indoors/villagegarrison)
 "MS" = (
 /obj/structure/fluff/statue/knight/interior/r,
 /turf/open/floor/hexstone,
@@ -3689,13 +3686,6 @@
 /obj/effect/landmark/mapGenerator/anvil,
 /turf/closed,
 /area/rogue)
-"NY" = (
-/obj/structure/door/weak/bolt{
-	dir = 4
-	},
-/obj/effect/mapping_helpers/door/locker,
-/turf/open/floor/naturalstone,
-/area/rogue/under/mountains/anvil/lower)
 "Oc" = (
 /obj/structure/stairs/fancy/c{
 	dir = 1
@@ -3822,6 +3812,14 @@
 	},
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
+"Pq" = (
+/obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
+/obj/structure/door/green{
+	name = "Salem Garrison"
+	},
+/turf/open/floor/hexstone,
+/area/rogue/indoors/villagegarrison)
 "Pr" = (
 /obj/structure/fluff/walldeco/vinez/red,
 /turf/closed/wall/mineral/wooddark/vertical,
@@ -3887,11 +3885,6 @@
 "PN" = (
 /turf/closed/wall/mineral/stone/moss,
 /area/rogue/indoors/villagegarrison)
-"PQ" = (
-/obj/structure/door/iron/bars,
-/obj/effect/mapping_helpers/door/locker,
-/turf/open/floor/cobble,
-/area/rogue/under/mountains/anvil/lower)
 "PW" = (
 /obj/structure/bed/mediocre,
 /obj/item/bedsheet/fabric,
@@ -4104,6 +4097,14 @@
 	},
 /turf/open/floor/herringbone,
 /area/rogue/under/mountains/anvil/lower)
+"RY" = (
+/obj/structure/door/green{
+	name = "Salem Garrison"
+	},
+/obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
+/turf/open/floor/hexstone,
+/area/rogue/indoors/villagegarrison)
 "RZ" = (
 /obj/structure/stairs/stone,
 /turf/open/floor/naturalstone,
@@ -4167,14 +4168,6 @@
 /obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/floor/cobble,
 /area/rogue/indoors)
-"So" = (
-/obj/structure/door/green{
-	name = "forrest garrison barracks"
-	},
-/obj/effect/mapping_helpers/door/locker,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
-/turf/open/floor/ruinedwood/darker,
-/area/rogue/indoors/villagegarrison)
 "Sr" = (
 /obj/item/ore/coal{
 	pixel_x = 6;
@@ -4370,6 +4363,13 @@
 "Uc" = (
 /turf/open/floor/dirt,
 /area/rogue/indoors/town/cell)
+"Uk" = (
+/obj/structure/door/weak/bolt{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/naturalstone,
+/area/rogue/under/mountains/anvil/lower)
 "Us" = (
 /obj/machinery/light/fueled/oven/south,
 /obj/effect/decal/cleanable/blood/gibs/limb,
@@ -40359,7 +40359,7 @@ GX
 fk
 lD
 lD
-NY
+Uk
 lD
 lD
 GX
@@ -71174,7 +71174,7 @@ LO
 LO
 LO
 LO
-So
+uu
 LO
 LO
 EF
@@ -71781,7 +71781,7 @@ eT
 Hi
 Hi
 Hi
-so
+uw
 Fy
 Fy
 Fy
@@ -72385,7 +72385,7 @@ pn
 YC
 YC
 QL
-tE
+jJ
 QL
 YC
 EF
@@ -82372,7 +82372,7 @@ GX
 GX
 tH
 GX
-PQ
+dN
 GX
 GX
 bv
@@ -111979,7 +111979,7 @@ JV
 bx
 bx
 bx
-MO
+Pq
 VM
 VM
 VM
@@ -112181,7 +112181,7 @@ Yc
 bx
 Re
 bx
-oe
+RY
 eb
 eb
 eb
@@ -152580,7 +152580,7 @@ VL
 HK
 Dh
 Dh
-rr
+jL
 YG
 JI
 JI

@@ -1,52 +1,3 @@
-/proc/lockid_to_lockpick_difficulty(lockid)
-	if(!lockid)
-		return 5
-	var/static/list/lock_difficulties = list(
-		ACCESS_VAULT = 1,
-		ACCESS_LORD = 1,
-		ACCESS_MANOR = 2,
-		ACCESS_GUEST = 2,
-		ACCESS_DUNGEON = 2,
-		ACCESS_FOREST = 2,
-		ACCESS_GARRISON = 2,
-		ACCESS_FARM = 4,
-		ACCESS_WAREHOUSE = 3,
-		ACCESS_CAPTAIN = 3,
-		ACCESS_MERCHANT = 5,
-		ACCESS_INN = 5,
-		ACCESS_SMITH = 3,
-		ACCESS_BUTCHER = 3,
-		ACCESS_MANOR_GATE = 2,
-		ACCESS_PRIEST = 2,
-		ACCESS_CHURCH = 3,
-		ACCESS_TOWER = 3,
-		ACCESS_MAGE = 2,
-		ACCESS_ARTIFICER = 4,
-		ACCESS_HAND = 1,
-		ACCESS_STEWARD = 2,
-		ACCESS_FELDSHER = 3,
-		"roomi" = 6,
-		"roomii" = 6,
-		"roomiii" = 6,
-		"roomiv" = 6,
-		"roomv" = 6,
-		"roomvi" = 6,
-		"medroomi" = 5,
-		"medroomii" = 5,
-		"medroomiii" = 5,
-		"medroomiv" = 5,
-		"medroomv" = 5,
-		"medroomvi" = 5,
-		"luxroomi" = 3,
-		"luxroomii" = 3,
-		"luxroomiii" = 3,
-		"luxroomiv" = 3,
-		"luxroomv" = 3,
-		"luxroomvi" = 3
-	)
-
-	return lock_difficulties[lockid] || 5
-
 /obj/structure/door
 	name = "wooden door"
 	desc = "A door that can open and close."
@@ -64,6 +15,8 @@
 	CanAtmosPass = ATMOS_PASS_DENSITY
 	break_sound = 'sound/combat/hits/onwood/destroywalldoor.ogg'
 	attacked_sound = list('sound/combat/hits/onwood/woodimpact (1).ogg', 'sound/combat/hits/onwood/woodimpact (2).ogg')
+	lock = /datum/lock/key
+	can_add_lock = TRUE
 
 	/// Can people riding go through without falling off their mount
 	var/ridethrough = FALSE
@@ -83,18 +36,8 @@
 	var/windowed = FALSE
 	/// Last bump time
 	var/last_bump = null
-	var/locked = FALSE
-	var/keylock = TRUE
-	var/lockid = null
-	var/lock_sound = 'sound/foley/doors/woodlock.ogg'
-	var/unlock_sound = 'sound/foley/doors/woodlock.ogg'
-	/// If the masterky can open regardless
-	var/rattle_sound = 'sound/foley/doors/lockrattle.ogg'
-	var/masterkey = TRUE
 	/// Initial value is STR requirement to kick, then var is used as how many kicks to force open
 	var/kickthresh = 15
-	/// Can we add a custom lock
-	var/can_add_lock = TRUE
 	/// Can we knock on the door
 	var/can_knock = TRUE
 	/// Are ghosts prevented from passing through
@@ -115,13 +58,11 @@
 	. = ..()
 	if(has_bolt && has_viewport)
 		warning("[src] at [AREACOORD(src)] has both a deadbolt and a viewport, these will conflict as they both use attack_right.")
-	if(has_bolt && keylock)
+	if(has_bolt && lock?.uses_key)
 		warning("[src] at [AREACOORD(src)] has both a deadbolt and a keylock, while this will work it may produce unintended behaviour.")
-	set_init_layer()
-	if(keylock)
-		AddElement(/datum/element/lockpickable, list(/obj/item/lockpick), list(/obj/item/lockpick), lockid_to_lockpick_difficulty(lockid))
 	if(isopenturf(loc))
 		RegisterSignal(loc, COMSIG_ATOM_ATTACK_HAND, PROC_REF(redirect_attack)) // redirect the attack to the door
+	set_init_layer()
 
 /obj/structure/door/Destroy()
 	. = ..()
@@ -148,7 +89,7 @@
 		. += span_info("It has a built-in viewport.")
 	if(has_bolt)
 		. += span_info("It's lock is a deadbolt.")
-	if(keylock)
+	if(lock?.uses_key)
 		. += span_info("There is a keyhole below the handle.")
 	if(!repairable)
 		return
@@ -169,7 +110,7 @@
 			span_notice("I kick [src] shut!"))
 		force_closed()
 		return
-	if(!locked)
+	if(!locked())
 		playsound(get_turf(src), pick(attacked_sound), 100)
 		user.visible_message(span_warning("[user] kicks [src] open!"), \
 			span_notice("I kick [src] open!"))
@@ -186,7 +127,7 @@
 			playsound(get_turf(src), pick(attacked_sound), 100)
 			user.visible_message(span_warning("[user] kicks open [src]!"), \
 				span_notice("I kick open [src]!"))
-			locked = FALSE
+			unlock()
 			force_open()
 			return
 		playsound(get_turf(src), pick(attacked_sound), 100)
@@ -202,7 +143,7 @@
 		return
 	if(obj_broken || switching_states)
 		return
-	if(!locked)
+	if(!locked())
 		return TryToSwitchState(user)
 	if(user.used_intent.type == /datum/intent/unarmed/claw)
 		user.changeNext_move(CLICK_CD_MELEE)
@@ -220,25 +161,23 @@
 			user.visible_message(span_warning("[user] knocks on [src]."), \
 				span_notice("I knock on [src]."))
 			return
-		door_rattle()
+		rattle()
 		user.visible_message(span_warning("[user] tries the handle, but the door does not move."), \
 			span_notice("I try the handle, but the door does not move."))
+
+/obj/structure/door/pre_lock_interact(mob/user)
+	if(switching_states)
+		return FALSE
+	if(door_opened)
+		to_chat(user, span_notice("I cannot lock \the [src] while it is open."))
+		return FALSE
+	return ..()
 
 /obj/structure/door/attackby(obj/item/I, mob/user)
 	if(switching_states)
 		return
-	user.changeNext_move(CLICK_CD_FAST)
-	if(keylock && (istype(I, /obj/item/key) || istype(I, /obj/item/storage/keyring)))
-		if(obj_broken)
-			to_chat(user, span_warning("The keyhole is missing!"))
-			return
-		if(!locked)
-			to_chat(user, span_warning("It won't turn this way. Try turning to the right."))
-			door_rattle()
-			return
-		trykeylock(I, user)
 	if(repairable && (user.get_skill_level(repair_skill) > 0) && ((istype(I, repair_cost_first)) || (istype(I, repair_cost_second)))) // At least 1 skill level needed
-		repairdoor(I,user)
+		repairdoor(I, user)
 		return
 	return ..()
 
@@ -246,35 +185,25 @@
 	if(switching_states)
 		return
 	user.changeNext_move(CLICK_CD_FAST)
-	var/obj/item = user.get_active_held_item()
-	if(keylock && (istype(item, /obj/item/key) || istype(item, /obj/item/storage/keyring)))
-		if(obj_broken)
-			to_chat(user, span_warning("The keyhole is missing!"))
+	if(!user.get_active_held_item())
+		if(has_bolt)
+			if(obj_broken)
+				to_chat(user, span_warning("The bolt has nothing to latch to!"))
+				return
+			if(get_dir(src, user) == dir)
+				lock?.toggle(user)
+				return
+			to_chat(user, span_notice("I can't reach the bolt from this side."))
 			return
-		if(locked)
-			to_chat(user, span_warning("It won't turn this way. Try turning to the left."))
-			door_rattle()
+		if(has_viewport)
+			if(obj_broken)
+				to_chat(user, span_warning("The viewport is broken!"))
+				return
+			if(get_dir(src, user) == dir)
+				viewport_toggle(user)
+				return
+			to_chat(user, span_notice("The viewport does not open from this side."))
 			return
-		trykeylock(item, user)
-		return
-	if(has_bolt)
-		if(obj_broken)
-			to_chat(user, span_warning("The bolt has nothing to latch to!"))
-			return
-		if(get_dir(src, user) == dir)
-			lock_toggle(user)
-			return
-		to_chat(user, span_notice("The bolt is on the other side."))
-		return
-	if(has_viewport)
-		if(obj_broken)
-			to_chat(user, span_warning("The viewport is broken!"))
-			return
-		if(get_dir(src, user) == dir)
-			viewport_toggle(user)
-			return
-		to_chat(user, span_notice("The viewport does not open from this side."))
-		return
 	return ..()
 
 /obj/structure/door/attack_ghost(mob/dead/observer/user)	// lets ghosts click on windows to transport across
@@ -293,7 +222,7 @@
 	if(ismob(AM))
 		var/mob/user = AM
 		if(HAS_TRAIT(user, TRAIT_BASHDOORS))
-			if(locked)
+			if(locked())
 				user.visible_message(span_warning("[user] bashes into [src]!"))
 				take_damage(200, BRUTE, BCLASS_BLUNT, TRUE)
 			else
@@ -302,7 +231,7 @@
 				user.visible_message(span_warning("[user] smashes through [src]!"))
 			return
 		if(HAS_TRAIT(user, TRAIT_ROTMAN))
-			if(locked)
+			if(locked())
 				user.visible_message(span_warning("The deadite bashes into [src]!"))
 				take_damage(50, BRUTE, BCLASS_BLUNT, TRUE)
 			else
@@ -310,8 +239,8 @@
 				force_open()
 				user.visible_message(span_warning("The deadite smashes through [src]!"))
 			return
-		if(locked)
-			door_rattle()
+		if(locked())
+			rattle()
 			return
 		if(TryToSwitchState(AM))
 			if(isliving(AM) && bump_closed)
@@ -331,7 +260,7 @@
 	if(HAS_TRAIT(caller, TRAIT_BASHDOORS))
 		return TRUE // bash into it!
 	// it's openable
-	return ishuman(caller) && !locked
+	return ishuman(caller) && !locked()
 
 /obj/structure/door/CanPass(atom/movable/mover, turf/target)
 	if(istype(mover, /mob/camera))
@@ -346,14 +275,16 @@
 
 /obj/structure/door/obj_break(damage_flag, mapload)
 	. = ..()
-	locked = FALSE
+	unlock()
 	force_open()
 
 /obj/structure/door/OnCrafted(dirin, user)
 	. = ..()
-	keylock = FALSE
 	if(has_bolt || has_viewport)
 		dir = turn(dirin, 180)
+	if(has_bolt)
+		lock = new /datum/lock(src)
+		can_add_lock = FALSE
 
 /obj/structure/door/fire_act(added, maxstacks)
 	if(!added)
@@ -447,46 +378,6 @@
 	update_icon()
 	switching_states = FALSE
 
-/obj/structure/door/proc/trykeylock(obj/item/I, mob/user)
-	if(door_opened || switching_states)
-		return
-	user.changeNext_move(CLICK_CD_MELEE)
-	if(istype(I, /obj/item/storage/keyring))
-		var/obj/item/storage/keyring/R = I
-		if(!length(R.contents))
-			to_chat(user, span_info("You have no keys."))
-			return
-		for(var/obj/item/key/K as anything in shuffle(R.contents.Copy()))
-			var/combat = user.cmode
-			if(combat && !do_after(user, 1 SECONDS, src))
-				door_rattle()
-				break
-			if(K.lockid == lockid)
-				lock_toggle(user)
-				break
-			if(combat)
-				door_rattle()
-		return
-	var/obj/item/key/K = I
-	if(K.lockid != lockid)
-		door_rattle()
-		return
-	lock_toggle(user)
-
-/obj/structure/door/proc/lock_toggle(mob/user)
-	if(switching_states || door_opened)
-		return
-	if(locked)
-		user.visible_message(span_warning("[user] unlocks [src]."), \
-			span_notice("I unlock [src]."))
-		playsound(src, unlock_sound, 100)
-		locked = FALSE
-		return
-	user.visible_message(span_warning("[user] locks [src]."), \
-		span_notice("I lock [src]."))
-	playsound(src, lock_sound, 100)
-	locked = TRUE
-
 /obj/structure/door/proc/viewport_toggle(mob/user)
 	if(switching_states || door_opened)
 		return
@@ -500,13 +391,6 @@
 	windowed = FALSE
 	set_opacity(TRUE)
 	playsound(src, 'sound/foley/doors/windowup.ogg', 100)
-
-/obj/structure/door/proc/door_rattle()
-	playsound(src, rattle_sound, 100)
-	var/oldx = pixel_x
-	animate(src, pixel_x = oldx+1, time = 0.5)
-	animate(pixel_x = oldx-1, time = 0.5)
-	animate(pixel_x = oldx, time = 0.5)
 
 /obj/structure/door/proc/repairdoor(obj/item/I, mob/user)
 	if(!obj_broken)
@@ -566,9 +450,9 @@
 	icon_state = MAP_SWITCH("donjon", "donjondir")
 	max_integrity = 2000
 	has_viewport = TRUE
-	lock_sound = 'sound/foley/doors/lockmetal.ogg'
-	unlock_sound = 'sound/foley/doors/lockmetal.ogg'
-	rattle_sound = 'sound/foley/doors/lockrattlemetal.ogg'
+	lock_sound = 'sound/foley/lockmetal.ogg'
+	unlock_sound = 'sound/foley/lockmetal.ogg'
+	rattle_sound = 'sound/foley/lockrattlemetal.ogg'
 	attacked_sound = list("sound/combat/hits/onmetal/metalimpact (1).ogg", "sound/combat/hits/onmetal/metalimpact (2).ogg")
 	repair_cost_second = /obj/item/ingot/iron
 	metalizer_result = null
@@ -579,7 +463,7 @@
 	icon_state = "swing"
 	windowed = TRUE
 	opacity = FALSE
-	keylock = FALSE
+	lock = null
 	metalizer_result = /obj/structure/door/iron/bars
 	bump_closed = TRUE
 	close_delay =  1 SECONDS
@@ -596,7 +480,7 @@
 /obj/structure/door/weak/bolt
 	icon_state = MAP_SWITCH("wood", "wooddir")
 	has_bolt = TRUE
-	keylock = FALSE
+	lock = /datum/lock
 
 /obj/structure/door/weak/bolt/shutter
 	name = "serving hatch"
@@ -606,7 +490,7 @@
 	open_sound = 'sound/foley/blindsopen.ogg'
 	close_sound = 'sound/foley/blindsclose.ogg'
 	dir = NORTH
-	locked = TRUE
+	lock = /datum/lock/locked
 	animate_time = 2.1 SECONDS
 
 /obj/structure/door/iron
@@ -619,9 +503,9 @@
 	blade_dulling = DULLING_BASH
 	open_sound = 'sound/foley/doors/ironopen.ogg'
 	close_sound = 'sound/foley/doors/ironclose.ogg'
-	lock_sound = 'sound/foley/doors/lockmetal.ogg'
-	unlock_sound = 'sound/foley/doors/lockmetal.ogg'
-	rattle_sound = 'sound/foley/doors/lockrattlemetal.ogg'
+	lock_sound = 'sound/foley/lockmetal.ogg'
+	unlock_sound = 'sound/foley/lockmetal.ogg'
+	rattle_sound = 'sound/foley/lockrattlemetal.ogg'
 	attacked_sound = list("sound/combat/hits/onmetal/metalimpact (1).ogg", "sound/combat/hits/onmetal/metalimpact (2).ogg")
 	repair_cost_first = /obj/item/ingot/iron
 	repair_cost_second = /obj/item/ingot/iron

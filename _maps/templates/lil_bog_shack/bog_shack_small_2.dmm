@@ -54,15 +54,6 @@
 	icon_state = "weird1"
 	},
 /area/rogue/indoors/shelter/bog)
-"l" = (
-/obj/structure/door{
-	lockid = "artificer"
-	},
-/obj/effect/mapping_helpers/door/locker,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
-/area/rogue/indoors/shelter/bog)
 "m" = (
 /obj/structure/flora/grass,
 /turf/open/floor/dirt,
@@ -134,6 +125,15 @@
 	icon_state = "plating2"
 	},
 /area/rogue/outdoors/bog)
+"U" = (
+/obj/structure/door{
+	lockid = "artificer"
+	},
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/ruinedwood{
+	icon_state = "weird1"
+	},
+/area/rogue/indoors/shelter/bog)
 
 (1,1,1) = {"
 a
@@ -212,7 +212,7 @@ a
 b
 b
 f
-l
+U
 f
 p
 s
