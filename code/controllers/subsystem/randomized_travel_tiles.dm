@@ -5,7 +5,7 @@ SUBSYSTEM_DEF(random_travel_tiles)
 	init_order = INIT_ORDER_RANDOM_TILES
 
 /datum/controller/subsystem/random_travel_tiles/Initialize()
-	while(GLOB.traveltile_spawners.len > 0)
+	while(length(GLOB.traveltile_spawners) > 0)
 		var/obj/effect/traveltile_spawner/picked_spawner = pick(GLOB.traveltile_spawners)
 		picked_spawner.spawn_tiles()
 		for(var/obj/effect/traveltile_spawner/killed_spawner as anything in GLOB.traveltile_spawners)
