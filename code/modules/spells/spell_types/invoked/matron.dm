@@ -10,7 +10,7 @@
 	. = ..()
 	var/list/orphans = list()
 	for(var/mob/living/carbon/human/H in GLOB.human_list)
-		if(!H.client)
+		if(!H.mind)
 			continue
 		if(!HAS_TRAIT(H, TRAIT_ORPHAN))
 			continue
