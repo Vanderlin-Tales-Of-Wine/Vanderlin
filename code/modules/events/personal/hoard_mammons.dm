@@ -50,6 +50,6 @@
 
 	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
 	to_chat(chosen_one, span_notice("Accumulate [new_objective.target_amount] mammons to prove your greed to Matthios!"))
-	SEND_SOUND(chosen_one, 'sound/items/matidol2.ogg')
+	chosen_one.playsound_local(chosen_one, 'sound/items/matidol2.ogg')
 
 	chosen_one.mind.announce_personal_objectives()

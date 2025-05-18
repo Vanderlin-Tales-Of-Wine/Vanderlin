@@ -46,6 +46,6 @@
 
 	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
 	to_chat(chosen_one, span_notice("Ravox wants you to challenge others to honor duels using your new ability. Win [new_objective.duels_required] duels to prove your worth!"))
-	SEND_SOUND(chosen_one, 'sound/vo/male/knight/rage (6).ogg')
+	chosen_one.playsound_local(chosen_one, 'sound/vo/male/knight/rage (6).ogg', 70)
 
 	chosen_one.mind.announce_personal_objectives()

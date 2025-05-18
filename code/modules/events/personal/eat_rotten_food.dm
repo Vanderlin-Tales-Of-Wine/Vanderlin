@@ -45,6 +45,6 @@
 
 	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
 	to_chat(chosen_one, span_notice("Everything can be reused. Consume rotten food to earn Pestra's favor!"))
-	SEND_SOUND(chosen_one, 'sound/magic/cosmic_expansion.ogg')
+	chosen_one.playsound_local(chosen_one, 'sound/magic/cosmic_expansion.ogg')
 
 	chosen_one.mind.announce_personal_objectives()

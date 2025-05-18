@@ -53,6 +53,6 @@
 
 	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
 	to_chat(chosen_one, span_notice("Astrata wishes you to ascend in status! Become a part of the nobility to earn Astrata's favor!"))
-	SEND_SOUND(chosen_one, 'sound/magic/bless.ogg')
+	chosen_one.playsound_local(chosen_one, 'sound/magic/bless.ogg')
 
 	chosen_one.mind.announce_personal_objectives()

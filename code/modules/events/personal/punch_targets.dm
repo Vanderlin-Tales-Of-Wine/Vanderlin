@@ -46,6 +46,6 @@
 
 	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
 	to_chat(chosen_one, span_biginfo("[new_objective.explanation_text]"))
-	SEND_SOUND(chosen_one, 'sound/ambience/noises/genspooky (1).ogg')
+	chosen_one.playsound_local(chosen_one, 'sound/ambience/noises/genspooky (1).ogg')
 
 	chosen_one.mind.announce_personal_objectives()

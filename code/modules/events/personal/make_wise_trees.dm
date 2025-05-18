@@ -54,7 +54,7 @@
 
 	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
 	to_chat(chosen_one, span_biginfo("Dendor wants you to choose suitable trees, which are to become guardians of the forest! [new_objective.explanation_text]"))
-	SEND_SOUND(chosen_one, 'sound/ambience/noises/genspooky (1).ogg')
+	chosen_one.playsound_local(chosen_one, 'sound/ambience/noises/genspooky (1).ogg')
 
 	to_chat(chosen_one, span_notice("Dendor grants you the power to transform trees into wise trees!"))
 
