@@ -9,6 +9,7 @@
 
 	tags = list(
 		TAG_LOOT,
+		TAG_CORRUPTION,
 	)
 
 /datum/round_event_control/matthios_hoard/canSpawnEvent(players_amt, gamemode, fake_check)
@@ -20,6 +21,8 @@
 		if(!istype(H) || H.stat == DEAD || !H.client)
 			continue
 		if(!H.patron || !istype(H.patron, /datum/patron/inhumen/matthios))
+			continue
+		if(H.is_noble())
 			continue
 		return TRUE
 
@@ -33,6 +36,8 @@
 			continue
 		if(!human_mob.patron || !istype(human_mob.patron, /datum/patron/inhumen/matthios))
 			continue
+		if(human_mob.is_noble())
+			continue
 		valid_targets += human_mob
 
 	if(!valid_targets.len)
@@ -44,7 +49,7 @@
 	chosen_one.mind.add_personal_objective(new_objective)
 
 	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
-	to_chat(chosen_one, span_notice("Accumulate [new_objective.target_amount] mammons to prove your devotion to commerce and wealth!"))
+	to_chat(chosen_one, span_notice("Accumulate [new_objective.target_amount] mammons to prove your greed to Matthios!"))
 	SEND_SOUND(chosen_one, 'sound/items/matidol2.ogg')
 
 	chosen_one.mind.announce_personal_objectives()
