@@ -34,7 +34,7 @@
 
 	if(title && length(title) > 0)
 		announcement += "<h1 class='alert'><center><u>[title]</u></h1></center>"
-	announcement += "<center>[span_alert(text)]</div></center><br>"
+	announcement += "<center>[span_alert(text)]</center><br></div>"
 
 	if(!players)
 		players = GLOB.player_list
