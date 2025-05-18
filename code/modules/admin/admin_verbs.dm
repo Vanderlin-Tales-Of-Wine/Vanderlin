@@ -32,6 +32,7 @@ GLOBAL_PROTECT(admin_verbs_default)
 	/client/proc/admin_force_next_migrant_wave,
 	/client/proc/cmd_admin_say,
 	/client/proc/deadmin,				/*destroys our own admin datum so we can play as a regular player*/
+	/client/proc/toggle_context_menu,
 	/client/proc/delete_player_book,
 	/client/proc/manage_paintings,
 	/client/proc/ShowAllFamilies,
