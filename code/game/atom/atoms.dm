@@ -101,6 +101,9 @@
 	var/mutable_appearance/total_reflection_mask
 	var/shine = SHINE_MATTE
 
+	/// Current neighborlays, associative "DIR" = Overlay, neighborlays are always handled by the smoothing atom not what it smoothed with
+	var/list/neighborlay_list
+
 /**
  * Called when an atom is created in byond (built in engine proc)
  *
