@@ -596,3 +596,19 @@
 				/obj/item/natural/fibers = 3)
 	craftdiff = 6
 	category = "Dress"
+
+/datum/repeatable_crafting_recipe/sewing/ornatedress
+	name = "ornate dress"
+	output = /obj/item/clothing/shirt/ornate/dress
+	requirements = list(/obj/item/natural/cloth = 6,
+				/obj/item/natural/fibers = 3)
+	craftdiff = 6
+	category = "Dress"
+
+/datum/repeatable_crafting_recipe/sewing/ornatetunic
+	name = "ornate tunic"
+	output = /obj/item/clothing/shirt/ornate/tunic
+	requirements = list(/obj/item/natural/cloth = 6,
+				/obj/item/natural/fibers = 3)
+	craftdiff = 6
+	category = "Undershirt"
