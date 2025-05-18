@@ -1854,10 +1854,6 @@
 /obj/effect/decal/cleanable/blood/gibs/old,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/lower)
-"CK" = (
-/obj/effect/traveltile_spawner/vertical/vampire,
-/turf/open/floor/cobblerock,
-/area/rogue/under/mountains/anvil/lower)
 "CN" = (
 /obj/structure/fluff/railing/fence{
 	dir = 8
@@ -3416,6 +3412,10 @@
 "Zo" = (
 /obj/item/natural/rock,
 /turf/open/floor/cobblerock,
+/area/rogue/under/mountains/anvil/lower)
+"Zs" = (
+/obj/effect/traveltile_spawner/vertical/vampire,
+/turf/open/floor/dirt,
 /area/rogue/under/mountains/anvil/lower)
 "Zu" = (
 /turf/closed/wall/mineral/stone/moss,
@@ -44379,9 +44379,9 @@ Oq
 Oq
 Oq
 Oq
-ko
-CK
-ko
+Oq
+Oq
+Oq
 Oq
 Oq
 Oq
@@ -44582,7 +44582,7 @@ ko
 ko
 ko
 Xi
-Xi
+Zs
 Xi
 ko
 ko
