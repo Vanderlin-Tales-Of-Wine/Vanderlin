@@ -2312,6 +2312,7 @@
 #include "code\modules\spatial_grid\cell_tracking.dm"
 #include "code\modules\spells\spell.dm"
 #include "code\modules\spells\spell_types\aimed.dm"
+#include "code\modules\spells\spell_types\blindness.dm"
 #include "code\modules\spells\spell_types\conjure.dm"
 #include "code\modules\spells\spell_types\ethereal_jaunt.dm"
 #include "code\modules\spells\spell_types\godhand.dm"
