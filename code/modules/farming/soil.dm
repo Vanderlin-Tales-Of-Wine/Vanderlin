@@ -104,7 +104,8 @@
 		for(var/obj/item/neuFarm/seed/seed in attacking_item.contents)
 			seeds |= seed
 		old_item = attacking_item
-		attacking_item = pick(seeds)
+		if(LAZYLEN(seeds))
+			attacking_item = pick(seeds)
 
 	if(istype(attacking_item, /obj/item/neuFarm/seed) || istype(attacking_item, /obj/item/herbseed)) //SLOP OBJECT PROC SHARING
 		playsound(src, pick('sound/foley/touch1.ogg','sound/foley/touch2.ogg','sound/foley/touch3.ogg'), 170, TRUE)
@@ -727,20 +728,20 @@
 	for(var/i in 1 to spawn_amount)
 		var/obj/item/produce = new plant.produce_type(loc)
 		if(produce && istype(produce, /obj/item/reagent_containers/food/snacks/produce))
-			produce:set_quality(crop_quality)
+			var/obj/item/reagent_containers/food/snacks/produce/P = produce
+			P.set_quality(crop_quality)
 
 	// Reset produce state
 	produce_ready = FALSE
-	if(!plant.perennial)
+	if(!plant?.perennial)
 		uproot(loot = FALSE)
 
 	// Reset quality for next growth cycle if plant is perennial
-	if(plant.perennial)
+	if(plant?.perennial)
 		crop_quality = QUALITY_REGULAR
 		quality_points = 0
 
 	update_icon()
-
 
 /obj/structure/soil/proc/insert_plant(datum/plant_def/new_plant)
 	if(plant)
