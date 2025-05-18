@@ -7,6 +7,7 @@
 	range = 7
 	warnie = "sydwarning"
 	movement_interrupt = FALSE
+	sound = 'sound/magic/churn.ogg'
 	req_items = list(/obj/item/clothing/neck/psycross/noc)
 	invocation = "Noc blinds thee of thy sins!"
 	invocation_type = "shout" //can be none, whisper, emote and shout
