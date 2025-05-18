@@ -23,6 +23,8 @@
 			continue
 		if(H.is_noble() || (H.mind?.assigned_role.title in GLOB.church_positions))
 			continue
+		if(!(H.dna?.species.name in RACES_PLAYER_NONHERETICAL))
+			continue
 		return TRUE
 
 	return FALSE
@@ -36,6 +38,8 @@
 		if(!human_mob.patron || !istype(human_mob.patron, /datum/patron/divine/astrata))
 			continue
 		if(human_mob.is_noble())
+			continue
+		if(!(human_mob.dna?.species.name in RACES_PLAYER_NONHERETICAL))
 			continue
 		valid_targets += human_mob
 
