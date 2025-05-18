@@ -1,7 +1,7 @@
 /datum/objective/hoard_mammons
 	name = "Hoard Mammons"
 	triumph_count = 1
-	var/target_mammons = 0
+	var/target_mammons = 400
 	var/current_amount = 0
 	var/check_cooldown = 20 SECONDS
 	var/next_check = 0
