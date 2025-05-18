@@ -2763,6 +2763,12 @@
 /obj/item/reagent_containers/food/snacks/truffles,
 /obj/item/reagent_containers/food/snacks/produce/vegetable/potato,
 /obj/item/reagent_containers/food/snacks/produce/vegetable/potato,
+/obj/structure/fake_machine/stockpile{
+	pixel_x = -32;
+	pixel_y = 0
+	},
+/obj/item/reagent_containers/food/snacks/produce/vegetable/cabbage,
+/obj/item/reagent_containers/food/snacks/produce/vegetable/cabbage,
 /turf/open/floor/blocks/stonered,
 /area/rogue/indoors/town/manor)
 "cCL" = (
@@ -4797,6 +4803,19 @@
 /obj/structure/fluff/railing/border{
 	dir = 10
 	},
+/obj/item/plate/tray{
+	pixel_x = 0;
+	pixel_y = 5
+	},
+/obj/item/plate/tray{
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/obj/item/plate/tray{
+	pixel_x = 0;
+	pixel_y = -6
+	},
+/obj/structure/rack/shelf/biggest,
 /turf/open/floor/wood,
 /area/rogue/under/town/basement)
 "eCE" = (
@@ -7162,6 +7181,13 @@
 /obj/item/reagent_containers/glass/bowl/iron,
 /obj/item/reagent_containers/glass/bowl/iron,
 /obj/item/reagent_containers/glass/bowl/iron,
+/obj/item/reagent_containers/glass/bowl/iron,
+/obj/item/kitchen/fork/iron,
+/obj/item/kitchen/fork/iron,
+/obj/item/kitchen/fork/iron,
+/obj/item/kitchen/fork/iron,
+/obj/item/kitchen/fork/iron,
+/obj/item/kitchen/fork/iron,
 /turf/open/floor/blocks/stonered,
 /area/rogue/indoors/town/manor)
 "gUu" = (
@@ -7675,6 +7701,22 @@
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_x = -32;
 	pixel_y = 0
+	},
+/obj/item/reagent_containers/food/snacks/produce/sunflower{
+	pixel_x = 13;
+	pixel_y = 2
+	},
+/obj/item/reagent_containers/food/snacks/produce/sunflower{
+	pixel_x = 1;
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/food/snacks/produce/sunflower{
+	pixel_x = 4;
+	pixel_y = -6
+	},
+/obj/item/reagent_containers/food/snacks/produce/sunflower{
+	pixel_x = -9;
+	pixel_y = -3
 	},
 /turf/open/floor/churchrough,
 /area/rogue/indoors/town/church/chapel)
@@ -12689,6 +12731,16 @@
 	},
 /turf/open/floor/woodturned,
 /area/rogue/outdoors/town)
+"mlr" = (
+/obj/machinery/light/fueled/wallfire/candle{
+	pixel_y = -32
+	},
+/obj/item/plate/silver,
+/obj/item/plate/silver,
+/obj/item/plate/silver,
+/obj/item/plate/silver,
+/turf/open/floor/cobble,
+/area/rogue/under/town/basement)
 "mlF" = (
 /turf/closed/wall/mineral/wooddark/window,
 /area/rogue/indoors/butchershop)
@@ -14269,13 +14321,14 @@
 /obj/item/reagent_containers/food/snacks/meat/steak,
 /obj/item/reagent_containers/food/snacks/meat/steak,
 /obj/item/reagent_containers/food/snacks/meat/poultry,
-/obj/item/reagent_containers/food/snacks/spiderhoney,
 /obj/item/reagent_containers/food/snacks/butter,
 /obj/item/reagent_containers/food/snacks/fat,
 /obj/item/reagent_containers/food/snacks/cheese,
 /obj/item/reagent_containers/food/snacks/cheese,
 /obj/item/reagent_containers/food/snacks/cheese,
 /obj/item/reagent_containers/food/snacks/cheese,
+/obj/item/reagent_containers/food/snacks/spiderhoney/honey,
+/obj/item/reagent_containers/food/snacks/spiderhoney/honey,
 /turf/open/floor/blocks/stonered,
 /area/rogue/indoors/town/manor)
 "nXw" = (
@@ -14414,6 +14467,28 @@
 /obj/machinery/light/fueled/torchholder/l,
 /turf/open/floor/wood,
 /area/rogue/indoors/soilsons)
+"ocO" = (
+/obj/structure/closet/crate/chest/crate{
+	lockid = "butler"
+	},
+/obj/item/reagent_containers/food/snacks/egg,
+/obj/item/reagent_containers/food/snacks/egg,
+/obj/item/reagent_containers/food/snacks/egg,
+/obj/item/reagent_containers/food/snacks/meat/steak,
+/obj/item/reagent_containers/food/snacks/meat/steak,
+/obj/item/reagent_containers/food/snacks/meat/steak,
+/obj/item/reagent_containers/food/snacks/meat/steak,
+/obj/item/reagent_containers/food/snacks/meat/poultry,
+/obj/item/reagent_containers/food/snacks/spiderhoney,
+/obj/item/reagent_containers/food/snacks/butter,
+/obj/item/reagent_containers/food/snacks/fat,
+/obj/item/reagent_containers/food/snacks/cheese,
+/obj/item/reagent_containers/food/snacks/cheese,
+/obj/item/reagent_containers/food/snacks/cheese,
+/obj/item/reagent_containers/food/snacks/cheese,
+/obj/item/reagent_containers/food/snacks/spiderhoney,
+/turf/open/floor/blocks/stonered,
+/area/rogue/indoors/town/manor)
 "ocQ" = (
 /obj/structure/chair/stool,
 /turf/open/floor/dirt,
@@ -17138,6 +17213,7 @@
 	icon_state = "longtable";
 	dir = 1
 	},
+/obj/item/plate/gold,
 /turf/open/floor/tile/bfloorz,
 /area/rogue/indoors/town/manor)
 "qPn" = (
@@ -25210,6 +25286,8 @@
 /obj/item/reagent_containers/food/snacks/produce/vegetable/potato,
 /obj/item/reagent_containers/food/snacks/produce/vegetable/potato,
 /obj/machinery/light/fueled/wallfire/candle/l,
+/obj/item/reagent_containers/food/snacks/produce/vegetable/cabbage,
+/obj/item/reagent_containers/food/snacks/produce/vegetable/cabbage,
 /turf/open/floor/blocks/stonered,
 /area/rogue/indoors/town/manor)
 "ykY" = (
@@ -82318,7 +82396,7 @@ wMB
 mtX
 hOf
 hOf
-htR
+mlr
 wMB
 uNN
 xUl
@@ -123309,7 +123387,7 @@ rIi
 tfy
 cCE
 yjl
-nXe
+ocO
 nXe
 iDy
 oPB
