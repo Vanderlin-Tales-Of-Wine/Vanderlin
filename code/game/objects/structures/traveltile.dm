@@ -49,7 +49,8 @@
 
 /obj/structure/fluff/traveltile/Initialize()
 	GLOB.traveltiles += src
-	hide_if_needed()
+	//hide_if_needed()
+	// uncomment when figure out how to show to people that have the trait on spawn.
 	. = ..()
 
 /obj/structure/fluff/traveltile/Destroy()
