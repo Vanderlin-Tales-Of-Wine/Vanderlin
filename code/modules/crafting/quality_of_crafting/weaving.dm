@@ -285,3 +285,21 @@
 	craftdiff = 6
 	sellprice = 90
 	category = "Dress"
+
+/datum/repeatable_crafting_recipe/sewing/weaving/ornatedress
+	name = "ornate dress"
+	output = /obj/item/clothing/shirt/ornate/dress
+	requirements = list(/obj/item/natural/fibers = 2,
+				/obj/item/natural/silk = 3,
+				/obj/item/natural/cloth = 2)
+	craftdiff = 6
+	category = "Dress"
+
+/datum/repeatable_crafting_recipe/sewing/weaving/ornatetunic
+	name = "ornate tunic"
+	output = /obj/item/clothing/shirt/ornate/tunic
+	requirements = list(/obj/item/natural/fibers = 2,
+				/obj/item/natural/silk = 3,
+				/obj/item/natural/cloth = 2)
+	craftdiff = 6
+	category = "Undershirt"
