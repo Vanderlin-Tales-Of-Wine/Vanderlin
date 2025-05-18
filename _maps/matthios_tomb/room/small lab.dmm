@@ -24,17 +24,6 @@
 /mob/living/carbon/human/species/skeleton/npc/peasant,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/indoors)
-"ek" = (
-/obj/structure/closet/crate/chest/wicker,
-/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
-/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
-/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
-/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
-/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
-/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
-/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
-/turf/open/floor/ruinedwood/turned/darker,
-/area/rogue/under/tomb/indoors)
 "ew" = (
 /obj/structure/closet/crate/chest/wicker,
 /obj/item/alch/horn,
@@ -83,6 +72,14 @@
 /obj/structure/closet/crate/drawer/inn,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/under/tomb/indoors)
+"jw" = (
+/obj/structure/closet/crate/chest/wicker,
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/tomb/indoors)
 "jy" = (
 /obj/structure/bed/shit,
 /turf/open/floor/ruinedwood/turned/darker,
@@ -93,11 +90,6 @@
 /area/rogue/under/tomb)
 "lb" = (
 /turf/open/floor/plank/h,
-/area/rogue/under/tomb/indoors)
-"lo" = (
-/obj/structure/door/iron/bars,
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/under/tomb/indoors)
 "ly" = (
 /obj/structure/table/wood/counter,
@@ -110,29 +102,33 @@
 	},
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/under/tomb/indoors)
-"mV" = (
-/obj/structure/closet/crate/chest/wicker,
-/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
-/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
-/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
-/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
-/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
-/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
+"nP" = (
+/obj/item/alch/golddust,
+/obj/structure/closet/crate/chest/neu_fancy{
+	locked = 1
+	},
+/obj/item/reagent_containers/powder/blastpowder,
+/obj/item/reagent_containers/powder/blastpowder,
+/obj/item/reagent_containers/powder/blastpowder,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/under/tomb/indoors)
-"oZ" = (
-/obj/structure/closet/crate/chest/wicker,
-/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
-/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
-/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
-/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
-/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
-/obj/item/reagent_containers/food/snacks/raisins,
-/obj/item/reagent_containers/food/snacks/raisins,
-/obj/item/reagent_containers/food/snacks/raisins,
-/obj/item/reagent_containers/food/snacks/raisins,
-/obj/item/reagent_containers/food/snacks/raisins,
-/obj/item/reagent_containers/food/snacks/raisins,
+"oz" = (
+/obj/structure/closet/crate/chest/neu_fancy{
+	locked = 1
+	},
+/obj/item/weapon/knife/dagger/silver,
+/obj/item/reagent_containers/powder/moondust_purest,
+/obj/item/reagent_containers/powder/moondust_purest{
+	pixel_y = -4;
+	pixel_x = -3
+	},
+/obj/item/reagent_containers/powder/moondust_purest{
+	pixel_x = 6
+	},
+/obj/item/reagent_containers/powder/ozium{
+	pixel_y = -8;
+	pixel_x = -1
+	},
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/under/tomb/indoors)
 "qw" = (
@@ -147,6 +143,31 @@
 /mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/under/tomb/indoors)
+"rs" = (
+/obj/structure/closet/crate/chest/wicker,
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/tomb/indoors)
+"sc" = (
+/obj/structure/closet/crate/chest/wicker,
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
+/obj/item/reagent_containers/food/snacks/raisins,
+/obj/item/reagent_containers/food/snacks/raisins,
+/obj/item/reagent_containers/food/snacks/raisins,
+/obj/item/reagent_containers/food/snacks/raisins,
+/obj/item/reagent_containers/food/snacks/raisins,
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/tomb/indoors)
 "sO" = (
 /obj/structure/fluff/walldeco/vinez,
 /turf/open/floor/dirt,
@@ -159,6 +180,21 @@
 /obj/item/alch/golddust,
 /obj/item/alch/silverdust,
 /obj/item/alch/irondust,
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/tomb/indoors)
+"tP" = (
+/obj/structure/closet/crate/chest/wicker,
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
+/obj/item/reagent_containers/food/snacks/raisins,
+/obj/item/reagent_containers/food/snacks/raisins,
+/obj/item/reagent_containers/food/snacks/raisins,
+/obj/item/reagent_containers/food/snacks/raisins,
+/obj/item/reagent_containers/food/snacks/raisins,
+/obj/item/reagent_containers/food/snacks/raisins,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/under/tomb/indoors)
 "uk" = (
@@ -182,6 +218,11 @@
 	},
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/under/tomb/indoors)
+"vM" = (
+/obj/structure/door/iron/bars,
+/obj/effect/mapping_helpers/door/locker,
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/tomb/indoors)
 "wO" = (
 /obj/structure/well,
 /turf/open/floor/cobblerock,
@@ -199,30 +240,23 @@
 	},
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/indoors)
+"xI" = (
+/obj/structure/closet/crate/chest{
+	locked = 1
+	},
+/obj/item/reagent_containers/glass/bottle/healthpot,
+/obj/item/reagent_containers/glass/bottle/healthpot,
+/obj/item/reagent_containers/glass/bottle/healthpot{
+	pixel_x = -8
+	},
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/tomb/indoors)
 "xM" = (
 /obj/structure/table/wood/counter/end{
 	dir = 8
 	},
 /obj/structure/bars/alt,
 /turf/open/floor/cobblerock,
-/area/rogue/under/tomb/indoors)
-"xQ" = (
-/obj/structure/closet/crate/chest/neu_fancy,
-/obj/effect/mapping_helpers/access/locker,
-/obj/item/weapon/knife/dagger/silver,
-/obj/item/reagent_containers/powder/moondust_purest,
-/obj/item/reagent_containers/powder/moondust_purest{
-	pixel_y = -4;
-	pixel_x = -3
-	},
-/obj/item/reagent_containers/powder/moondust_purest{
-	pixel_x = 6
-	},
-/obj/item/reagent_containers/powder/ozium{
-	pixel_y = -8;
-	pixel_x = -1
-	},
-/turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/under/tomb/indoors)
 "yC" = (
 /turf/open/floor/dirt,
@@ -282,16 +316,6 @@
 	},
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb/indoors)
-"Gj" = (
-/obj/structure/closet/crate/chest,
-/obj/effect/mapping_helpers/access/locker,
-/obj/item/reagent_containers/glass/bottle/healthpot,
-/obj/item/reagent_containers/glass/bottle/healthpot,
-/obj/item/reagent_containers/glass/bottle/healthpot{
-	pixel_x = -8
-	},
-/turf/open/floor/ruinedwood/turned/darker,
-/area/rogue/under/tomb/indoors)
 "HN" = (
 /obj/structure/kneestingers{
 	pixel_y = 11
@@ -306,19 +330,6 @@
 /obj/effect/landmark/chest_or_mimic,
 /obj/item/reagent_containers/glass/bottle/stronghealthpot,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue/under/tomb/indoors)
-"Lq" = (
-/obj/structure/closet/crate/chest/wicker,
-/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
-/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
-/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
-/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
-/turf/open/floor/ruinedwood/turned/darker,
-/area/rogue/under/tomb/indoors)
-"Ns" = (
-/obj/structure/door/violet,
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/cobblerock,
 /area/rogue/under/tomb/indoors)
 "Nt" = (
 /obj/item/clothing/head/hatblu,
@@ -375,24 +386,20 @@
 /obj/structure/bars,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/under/tomb/indoors)
-"Rv" = (
-/obj/structure/fluff/walldeco/vinez/offset,
-/turf/open/floor/cobblerock,
-/area/rogue/under/tomb)
-"RK" = (
+"Ro" = (
 /obj/structure/closet/crate/chest/wicker,
 /obj/item/reagent_containers/food/snacks/produce/grain/wheat,
 /obj/item/reagent_containers/food/snacks/produce/grain/wheat,
 /obj/item/reagent_containers/food/snacks/produce/grain/wheat,
 /obj/item/reagent_containers/food/snacks/produce/grain/wheat,
 /obj/item/reagent_containers/food/snacks/produce/grain/wheat,
-/obj/item/reagent_containers/food/snacks/raisins,
-/obj/item/reagent_containers/food/snacks/raisins,
-/obj/item/reagent_containers/food/snacks/raisins,
-/obj/item/reagent_containers/food/snacks/raisins,
-/obj/item/reagent_containers/food/snacks/raisins,
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/under/tomb/indoors)
+"Rv" = (
+/obj/structure/fluff/walldeco/vinez/offset,
+/turf/open/floor/cobblerock,
+/area/rogue/under/tomb)
 "RO" = (
 /obj/item/reagent_containers/glass/bucket/wooden,
 /turf/open/floor/cobblerock,
@@ -431,19 +438,15 @@
 "Yi" = (
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb)
-"Yr" = (
-/obj/item/alch/golddust,
-/obj/structure/closet/crate/chest/neu_fancy,
-/obj/effect/mapping_helpers/access/locker,
-/obj/item/reagent_containers/powder/blastpowder,
-/obj/item/reagent_containers/powder/blastpowder,
-/obj/item/reagent_containers/powder/blastpowder,
-/turf/open/floor/ruinedwood/turned/darker,
-/area/rogue/under/tomb/indoors)
 "YY" = (
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb)
+"ZM" = (
+/obj/structure/door/violet,
+/obj/effect/mapping_helpers/door/locker,
+/turf/open/floor/cobblerock,
+/area/rogue/under/tomb/indoors)
 
 (1,1,1) = {"
 zM
@@ -571,7 +574,7 @@ uJ
 Pr
 iK
 iK
-Gj
+xI
 UM
 yC
 yC
@@ -637,7 +640,7 @@ UM
 cE
 ly
 xM
-Ns
+ZM
 uJ
 yC
 yC
@@ -813,7 +816,7 @@ Wu
 uJ
 sQ
 Cl
-Lq
+jw
 UM
 Wu
 Wu
@@ -1011,7 +1014,7 @@ Yi
 UM
 tb
 rj
-lo
+vM
 iK
 UM
 Yi
@@ -1032,7 +1035,7 @@ Yi
 Yi
 UM
 zf
-Yr
+nP
 Ra
 iK
 UM
@@ -1122,7 +1125,7 @@ UM
 aJ
 iK
 iK
-xQ
+oz
 UM
 Yi
 Yi
@@ -1155,10 +1158,10 @@ zM
 Yi
 Yi
 UM
-ek
-mV
-oZ
-RK
+rs
+Ro
+tP
+sc
 UM
 Yi
 Yi

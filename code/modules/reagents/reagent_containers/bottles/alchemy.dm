@@ -83,12 +83,6 @@
 /obj/item/reagent_containers/glass/bottle/vial/antidote
 	list_reagents = list(/datum/reagent/medicine/antidote = 30)
 
-/obj/item/reagent_containers/glass/bottle/vial/healthpot
-	list_reagents = list(/datum/reagent/medicine/healthpot = 30)
-
-/obj/item/reagent_containers/glass/bottle/vial/stronghealthpot
-	list_reagents = list(/datum/reagent/medicine/stronghealth = 30)
-
 //////////////////////////
 /// ALCOHOLIC BOTTLES ///	- add fancy var to retain custom descriptions when corking
 //////////////////////////

@@ -74,7 +74,7 @@
 	icon_state = "arcyne"
 	blade_dulling = DULLING_BASH
 	resistance_flags = FIRE_PROOF
-	lock = /datum/lock
+	keylock = FALSE
 	can_add_lock = FALSE
 	max_integrity = 2000
 

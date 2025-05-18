@@ -494,10 +494,12 @@
 
 /atom/proc/attack_right(mob/user)
 	. = FALSE
-	if(!(interaction_flags_atom & INTERACT_ATOM_NO_FINGERPRINT_ATTACK_RIGHT))
+	if(!(interaction_flags_atom & INTERACT_ATOM_NO_FINGERPRINT_ATTACK_HAND))
 		add_fingerprint(user)
-	if(SEND_SIGNAL(src, COMSIG_ATOM_ATTACK_RIGHT, user) & COMPONENT_NO_ATTACK_RIGHT)
+	if(SEND_SIGNAL(src, COMSIG_ATOM_ATTACK_HAND, user) & COMPONENT_NO_ATTACK_HAND)
 		. = TRUE
+	if(interaction_flags_atom & INTERACT_ATOM_ATTACK_HAND)
+		. = _try_interact(user)
 
 //Return a non FALSE value to cancel whatever called this from propagating, if it respects it.
 /atom/proc/_try_interact(mob/user)

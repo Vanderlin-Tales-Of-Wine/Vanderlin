@@ -37,7 +37,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb/cave/lava)
 "D" = (
-/obj/effect/dungeon_directional_helper/south,
+/obj/effect/dungeon_directional_helper,
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb/cave/lava)
 "G" = (

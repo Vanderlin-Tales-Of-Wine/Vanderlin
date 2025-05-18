@@ -395,30 +395,12 @@ GLOBAL_LIST_INIT(badomens, list())
 	testing("Omen removed: [input]")
 	GLOB.badomens -= input
 
+
 /datum/round_event_control/proc/badomen(eventreason)
-	var/used = "Zizo."
-	var/title = "Bad Omen"
-	var/sound = 'sound/misc/evilevent.ogg'
+	var/used
 	switch(eventreason)
 		if(OMEN_ROUNDSTART)
-			used = pick( \
-				"Zizo.", \
-				"Unholy invocations channel the will of Her.", \
-				"Forbidden rituals cause echoes through the plane.", \
-				"Whispers of the Dark Lady in the shadows.", \
-				"The servants of Zizo undermine the Ten.", \
-				"Her influence becomes more tangible...", \
-				"A foul curse temporarily takes the land.", \
-				"The dead churn and dig at their graves.", \
-			)
-			title = pick( \
-				"Zizo Sneers", \
-				"The Dark Lady Watches", \
-				"Zizo's Attention", \
-				"She Peers", \
-				"Zizo Smirks", \
-			)
-			sound = 'sound/misc/badomenzizo.ogg'
+			used = "Zizo."
 		if(OMEN_NOLORD)
 			used = "The Monarch is dead! We need a new ruler."
 		if(OMEN_NOPRIEST)
@@ -433,8 +415,5 @@ GLOBAL_LIST_INIT(badomens, list())
 			used = "Zizo will rise once again."
 		if("psycross")
 			used = "You have angered the gods!"
-	if(!eventreason)
-		return
-	if(!used || !title || !sound)
-		return
-	priority_announce(used, title, sound)
+	if(eventreason && used)
+		priority_announce(used, "Bad Omen", 'sound/misc/evilevent.ogg')

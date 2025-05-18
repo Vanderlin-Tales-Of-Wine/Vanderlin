@@ -15,7 +15,9 @@
 		new /obj/item/reagent_containers/food/snacks/hardtack(src)
 
 /obj/structure/closet/crate/chest/steward
-	lock = /datum/lock/key/steward
+	lockid = "steward"
+	locked = TRUE
+	masterkey = TRUE
 
 /datum/stock/import/wheat
 	name = "Crate of Wheat"
