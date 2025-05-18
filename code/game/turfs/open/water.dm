@@ -118,13 +118,11 @@
 
 /turf/open/water/proc/dryup()
 	if(water_volume < 10)
+		smoothing_flags = NONE
+		remove_neighborlays()
 		QDEL_NULL(water_overlay)
 		QDEL_NULL(water_top_overlay)
-		for(var/obj/effect/overlay/water/water in contents)
-			qdel(water)
 		make_unshiny()
-		shine = 0
-		we_cut = TRUE
 		var/mutable_appearance/dirty = mutable_appearance('icons/turf/floors.dmi', "dirt")
 		add_overlay(dirty)
 		for(var/obj/structure/waterwheel/rotator in contents)
@@ -145,7 +143,8 @@
 			water_overlay = new(src)
 		if(!water_top_overlay)
 			water_top_overlay = new(src)
-			QUEUE_SMOOTH(src)
+		smoothing_flags = SMOOTH_EDGE
+		QUEUE_SMOOTH(src)
 
 	if(!river_processes)
 		icon_state = "together"
@@ -247,7 +246,8 @@
 			water_overlay = new()
 		if(!water_top_overlay)
 			water_top_overlay = new()
-			QUEUE_SMOOTH(src)
+		smoothing_flags = SMOOTH_EDGE
+		QUEUE_SMOOTH(src)
 
 	if(water_overlay)
 		water_overlay.color = water_reagent.color
@@ -683,7 +683,8 @@
 			water_overlay = new(src)
 		if(!water_top_overlay)
 			water_top_overlay = new(src)
-			QUEUE_SMOOTH(src)
+		smoothing_flags = SMOOTH_EDGE
+		QUEUE_SMOOTH(src)
 
 	if(water_overlay)
 		water_overlay.color = water_reagent.color
