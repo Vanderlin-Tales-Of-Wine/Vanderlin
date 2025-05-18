@@ -37,6 +37,14 @@
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/patron_robes.dmi'
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/sleeves_patron_robes.dmi'
 
+/obj/item/clothing/shirt/robe/abyssor
+	name = "sea robe"
+	desc = "Dark green robes with a hood attached to the back, you feel like you're drowning in sweat just being in these."
+	icon_state = "abyssrobe"
+	icon = 'icons/roguetown/clothing/patron_robes.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/patron_robes.dmi'
+	sleeved = 'icons/roguetown/clothing/onmob/patron_robes.dmi'
+
 /obj/item/clothing/shirt/robe/astrata
 	name = "sun robe"
 	desc = "The cloth of a follower of Astrata."
