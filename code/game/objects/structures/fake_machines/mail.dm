@@ -495,6 +495,11 @@
 			cost = 2,
 			max_purchases = 1
 		),
+		"Crimson Spectacles (1)" = list(
+			list(type = /obj/item/clothing/face/spectacles/inqglasses, count = 1),
+			cost = 1,
+			max_purchases = 1
+		),
 		"Inquisitorial Duster (3)" = list(
 			list(type = /obj/item/clothing/armor/medium/scale/inqcoat, count = 1),
 			cost = 3,
