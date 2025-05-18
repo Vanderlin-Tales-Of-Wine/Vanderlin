@@ -1,172 +1,52 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"aa" = (
-/turf/open/floor/naturalstone,
-/area/rogue/under/cavelava)
-"ab" = (
-/obj/structure/ladder,
-/turf/open/floor/naturalstone,
-/area/rogue/under/cavelava)
-"ac" = (
-/turf/open/floor/metal{
-	dir = 8
-	},
-/area/rogue/under/cavelava)
-"ad" = (
-/turf/open/floor/dirt,
-/area/rogue/under/cavelava)
-"ae" = (
-/obj/structure/bars/pipe,
-/turf/open/transparent/openspace,
-/area/rogue/under/cavelava)
 "af" = (
-/turf/open/floor/volcanic,
+/turf/open/floor/naturalstone,
 /area/rogue/under/tomb/cave/lava)
 "ag" = (
-/turf/open/lava/acid,
+/obj/structure/fluff/walldeco/chains,
+/obj/item/weapon/shield/tower/metal,
+/turf/open/floor/volcanic,
 /area/rogue/under/tomb/cave/lava)
 "ah" = (
-/obj/structure/fluff/walldeco/chains,
-/turf/open/floor/naturalstone,
+/turf/closed/mineral/bedrock,
 /area/rogue/under/tomb/cave/lava)
 "ai" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_line";
-	dir = 4
-	},
-/area/rogue/indoors/shelter)
+/turf/open/floor/volcanic,
+/area/rogue/under/tomb/cave/lava)
 "aj" = (
 /obj/item/natural/poo,
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb/cave/lava)
-"ak" = (
-/obj/item/natural/poo/cow,
-/turf/open/floor/metal,
-/area/rogue/under/cavelava)
-"al" = (
-/obj/structure/fluff/walldeco/chains,
-/obj/item/weapon/shield/tower/metal,
-/turf/open/floor/volcanic,
-/area/rogue/under/cavelava)
-"am" = (
-/turf/open/floor/metal,
-/area/rogue/under/cavelava)
-"an" = (
-/obj/effect/dungeon_directional_helper/west,
-/turf/open/floor/naturalstone,
-/area/rogue/under/cavelava)
-"ao" = (
-/obj/structure/bars/pipe/left,
-/turf/open/floor/metal/barograte,
-/area/rogue/indoors/shelter)
-"ap" = (
+"aw" = (
+/turf/open/floor/dirt,
+/area/rogue/under/tomb/cave/lava)
+"aG" = (
 /obj/structure/fluff/walldeco/chains,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cavelava)
-"aq" = (
+/area/rogue/under/tomb/cave/lava)
+"aI" = (
+/turf/open/lava/acid,
+/area/rogue/under/tomb/cave/lava)
+"aS" = (
+/obj/effect/dungeon_directional_helper/south,
+/turf/open/floor/naturalstone,
+/area/rogue/under/tomb/cave/lava)
+"aT" = (
 /obj/item/weapon/mace/steel,
 /turf/open/floor/volcanic,
-/area/rogue/under/cavelava)
-"ar" = (
+/area/rogue/under/tomb/cave/lava)
+"gp" = (
 /obj/effect/dungeon_directional_helper/east,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cavelava)
-"as" = (
-/turf/open/floor/metal/barograte,
-/area/rogue/indoors/shelter)
-"at" = (
-/obj/item/natural/poo,
-/turf/open/floor/naturalstone,
-/area/rogue/under/cavelava)
-"au" = (
-/obj/structure/bed/shit,
-/turf/open/floor/metal/barograte,
-/area/rogue/indoors/shelter)
-"av" = (
-/obj/structure/fluff/walldeco/chains,
-/turf/open/floor/metal,
-/area/rogue/under/cavelava)
-"aw" = (
-/obj/effect/dungeon_directional_helper/south,
-/turf/open/floor/naturalstone,
 /area/rogue/under/tomb/cave/lava)
-"ax" = (
-/turf/open/transparent/openspace,
-/area/rogue/under/cavelava)
-"ay" = (
-/turf/open/floor/metal{
-	dir = 4
-	},
-/area/rogue/under/cavelava)
-"az" = (
-/turf/open/lava/acid,
-/area/rogue/under/cavelava)
-"aA" = (
-/obj/effect/dungeon_directional_helper/south,
-/turf/open/floor/naturalstone,
-/area/rogue/under/cavelava)
-"aB" = (
-/obj/item/gun/ballistic/revolver/grenadelauncher/crossbow,
-/obj/effect/landmark/chest_or_mimic,
-/obj/item/dmusicbox,
-/turf/open/floor/metal/barograte,
-/area/rogue/under/cavelava)
-"aC" = (
-/obj/item/fishingrod,
-/turf/open/floor/volcanic,
-/area/rogue/under/cavelava)
-"aD" = (
-/obj/item/natural/poo,
-/turf/open/floor/metal,
-/area/rogue/under/cavelava)
-"aE" = (
-/turf/closed/wall/mineral/pipe{
-	icon_state = "iron_line"
-	},
-/area/rogue/indoors/shelter)
-"aF" = (
-/turf/open/floor/dirt/road,
-/area/rogue/under/cavelava)
-"aG" = (
-/turf/closed/wall/mineral/pipe{
-	dir = 1;
-	icon_state = "iron_corner"
-	},
-/area/rogue/indoors/shelter)
-"aH" = (
-/obj/structure/fluff/wallclock,
-/obj/item/flashlight/flare/torch/lantern/copper,
-/obj/structure/closet/crate/chest{
-	locked = 1
-	},
-/turf/open/floor/metal/barograte,
-/area/rogue/indoors/shelter)
-"aI" = (
+"hA" = (
 /turf/closed/mineral/bedrock,
-/area/rogue/under/tomb/cave/lava)
-"aJ" = (
-/obj/structure/ladder,
-/turf/open/floor/metal/barograte,
-/area/rogue/under/cavelava)
-"aK" = (
-/obj/structure/fluff/walldeco/chains,
-/turf/open/transparent/openspace,
-/area/rogue/under/cavelava)
-"aL" = (
-/turf/open/floor/volcanic,
-/area/rogue/under/cavelava)
-"aM" = (
-/obj/effect/dungeon_directional_helper/north,
-/turf/open/floor/dirt/road,
-/area/rogue/under/cavelava)
-"aN" = (
+/area/rogue/under/tomb/indoors)
+"kF" = (
 /obj/structure/fluff/big_chain,
 /turf/open/floor/metal/barograte,
-/area/rogue/under/cavelava)
-"aO" = (
-/obj/item/ammo_holder/quiver/bolts,
-/turf/open/floor/metal/barograte,
-/area/rogue/under/cavelava)
-"aP" = (
+/area/rogue/under/tomb/cave/lava)
+"lG" = (
 /obj/item/natural/worms{
 	pixel_y = 12
 	},
@@ -179,48 +59,62 @@
 	pixel_x = 9
 	},
 /turf/open/floor/naturalstone,
-/area/rogue/under/cavelava)
-"aQ" = (
+/area/rogue/under/tomb/cave/lava)
+"lO" = (
 /obj/structure/fluff/walldeco/chains,
 /obj/item/natural/poo,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cavelava)
-"aR" = (
-/obj/item/gear{
-	pixel_x = -6
-	},
-/obj/item/gear{
-	pixel_y = -4;
-	pixel_x = 6
-	},
-/obj/item/gear{
-	pixel_x = 1;
-	pixel_y = 5
-	},
-/turf/open/floor/metal/barograte,
-/area/rogue/indoors/shelter)
-"aS" = (
-/turf/open/floor/naturalstone,
 /area/rogue/under/tomb/cave/lava)
-"aT" = (
-/turf/open/floor/dirt,
-/area/rogue/under/tomb/cave/lava)
-"aU" = (
+"nA" = (
+/obj/structure/bars/pipe/left,
 /turf/open/floor/metal/barograte,
-/area/rogue/under/cavelava)
-"aV" = (
-/obj/item/weapon/flail,
-/turf/open/floor/naturalstone,
-/area/rogue/under/cavelava)
-"aW" = (
-/turf/closed/mineral/bedrock,
-/area/rogue/under/cavelava)
-"aX" = (
+/area/rogue/under/tomb/indoors)
+"nC" = (
+/obj/structure/ladder,
+/turf/open/floor/metal/barograte,
+/area/rogue/under/tomb/cave/lava)
+"oB" = (
+/obj/item/gun/ballistic/revolver/grenadelauncher/crossbow,
+/obj/effect/landmark/chest_or_mimic,
+/obj/item/dmusicbox,
+/turf/open/floor/metal/barograte,
+/area/rogue/under/tomb/cave/lava)
+"rg" = (
+/turf/open/floor/metal/barograte,
+/area/rogue/under/tomb/cave/lava)
+"rS" = (
+/obj/effect/dungeon_directional_helper/north,
+/turf/open/floor/dirt/road,
+/area/rogue/under/tomb/cave/lava)
+"so" = (
+/turf/open/floor/metal{
+	dir = 4
+	},
+/area/rogue/under/tomb/cave/lava)
+"to" = (
+/obj/structure/bed/shit,
+/turf/open/floor/metal/barograte,
+/area/rogue/under/tomb/indoors)
+"tq" = (
 /obj/structure/fluff/walldeco/chains,
 /obj/structure/bars/pipe,
 /turf/open/transparent/openspace,
-/area/rogue/under/cavelava)
-"aY" = (
+/area/rogue/under/tomb/cave/lava)
+"uy" = (
+/obj/structure/fluff/wallclock,
+/obj/item/flashlight/flare/torch/lantern/copper,
+/obj/structure/closet/crate/chest,
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/metal/barograte,
+/area/rogue/under/tomb/indoors)
+"uR" = (
+/obj/structure/fluff/walldeco/chains,
+/turf/open/floor/metal,
+/area/rogue/under/tomb/cave/lava)
+"uV" = (
+/turf/open/transparent/openspace,
+/area/rogue/under/tomb/cave/lava)
+"wj" = (
 /obj/item/ammo_casing/caseless/bolt{
 	pixel_x = -9
 	},
@@ -238,1069 +132,957 @@
 	pixel_x = 11
 	},
 /turf/open/floor/metal/barograte,
-/area/rogue/under/cavelava)
-"aZ" = (
-/obj/structure/floordoor,
+/area/rogue/under/tomb/cave/lava)
+"wo" = (
+/obj/item/fishingrod,
+/turf/open/floor/volcanic,
+/area/rogue/under/tomb/cave/lava)
+"zY" = (
+/obj/structure/ladder,
+/turf/open/floor/naturalstone,
+/area/rogue/under/tomb/cave/lava)
+"Ar" = (
 /turf/open/floor/metal,
-/area/rogue/indoors/shelter)
-"ce" = (
-/turf/closed/mineral/bedrock,
-/area/rogue/under/tomb/indoors)
-"db" = (
+/area/rogue/under/tomb/cave/lava)
+"Av" = (
+/obj/structure/fluff/walldeco/chains,
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb/cave/lava)
-"fp" = (
-/obj/structure/ladder,
-/turf/open/floor/metal/barograte,
+"AC" = (
+/turf/closed/wall/mineral/pipe,
+/area/rogue/under/tomb/indoors)
+"Ji" = (
+/turf/open/floor/dirt/road,
 /area/rogue/under/tomb/cave/lava)
-"fW" = (
-/obj/item/ammo_holder/quiver/bolts,
-/turf/open/floor/metal/barograte,
-/area/rogue/under/tomb/cave/lava)
-"kN" = (
+"OZ" = (
 /obj/structure/floordoor,
 /turf/open/floor/metal,
 /area/rogue/under/tomb/indoors)
-"kX" = (
-/obj/item/gun/ballistic/revolver/grenadelauncher/crossbow,
-/obj/effect/landmark/chest_or_mimic,
-/obj/item/dmusicbox,
-/turf/open/floor/metal/barograte,
+"PL" = (
+/obj/structure/bars/pipe,
+/turf/open/transparent/openspace,
 /area/rogue/under/tomb/cave/lava)
-"mf" = (
-/obj/structure/fluff/walldeco/chains,
-/obj/item/natural/poo,
-/turf/open/floor/naturalstone,
-/area/rogue/under/tomb/cave/lava)
-"mj" = (
-/turf/open/floor/dirt/road,
-/area/rogue/under/tomb/cave/lava)
-"nu" = (
-/obj/item/natural/worms{
-	pixel_y = 12
-	},
-/obj/item/natural/worms{
-	pixel_y = -2;
+"Rl" = (
+/obj/item/gear{
 	pixel_x = -6
 	},
-/obj/item/natural/worms{
-	pixel_y = -2;
-	pixel_x = 9
+/obj/item/gear{
+	pixel_y = -4;
+	pixel_x = 6
 	},
+/obj/item/gear{
+	pixel_x = 1;
+	pixel_y = 5
+	},
+/turf/open/floor/metal/barograte,
+/area/rogue/under/tomb/indoors)
+"RX" = (
+/turf/open/floor/metal/barograte,
+/area/rogue/under/tomb/indoors)
+"Sk" = (
+/obj/item/weapon/flail,
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb/cave/lava)
-"qh" = (
+"Vk" = (
 /turf/open/floor/metal{
 	dir = 8
 	},
 /area/rogue/under/tomb/cave/lava)
-"rk" = (
-/obj/item/weapon/mace/steel,
-/turf/open/floor/volcanic,
-/area/rogue/under/tomb/cave/lava)
-"rl" = (
+"WZ" = (
 /obj/item/natural/poo/cow,
 /turf/open/floor/metal,
 /area/rogue/under/tomb/cave/lava)
-"zB" = (
-/obj/effect/dungeon_directional_helper/north,
-/turf/open/floor/dirt/road,
-/area/rogue/under/tomb/cave/lava)
-"Ab" = (
-/obj/effect/dungeon_directional_helper/east,
-/turf/open/floor/naturalstone,
-/area/rogue/under/tomb/cave/lava)
-"Ar" = (
-/obj/structure/ladder,
-/turf/open/floor/naturalstone,
-/area/rogue/under/tomb/cave/lava)
-"Dx" = (
-/turf/open/floor/metal/barograte,
-/area/rogue/under/tomb/indoors)
-"FT" = (
-/obj/structure/bars/pipe,
-/turf/open/transparent/openspace,
-/area/rogue/under/tomb/cave/lava)
-"FV" = (
-/turf/open/floor/metal,
-/area/rogue/under/tomb/cave/lava)
-"Hy" = (
-/obj/structure/fluff/walldeco/chains,
-/turf/open/floor/metal,
-/area/rogue/under/tomb/cave/lava)
-"HV" = (
-/obj/structure/bars/pipe/left,
-/turf/open/floor/metal/barograte,
-/area/rogue/under/tomb/indoors)
-"IC" = (
-/obj/item/weapon/flail,
-/turf/open/floor/naturalstone,
-/area/rogue/under/tomb/cave/lava)
-"JM" = (
-/obj/structure/fluff/walldeco/chains,
-/obj/item/weapon/shield/tower/metal,
-/turf/open/floor/volcanic,
-/area/rogue/under/tomb/cave/lava)
-"JT" = (
-/turf/open/floor/metal{
-	dir = 4
-	},
-/area/rogue/under/tomb/cave/lava)
-"Ki" = (
-/obj/structure/fluff/walldeco/chains,
-/turf/open/transparent/openspace,
-/area/rogue/under/tomb/cave/lava)
-"MA" = (
-/obj/effect/dungeon_directional_helper/west,
-/turf/open/floor/naturalstone,
-/area/rogue/under/tomb/cave/lava)
-"MU" = (
-/obj/structure/bed/shit,
-/turf/open/floor/metal/barograte,
-/area/rogue/under/tomb/indoors)
-"QB" = (
-/obj/item/fishingrod,
-/turf/open/floor/volcanic,
-/area/rogue/under/tomb/cave/lava)
-"QT" = (
-/obj/item/ammo_casing/caseless/bolt{
-	pixel_x = -9
-	},
-/obj/item/ammo_casing/caseless/bolt{
-	pixel_y = 11
-	},
-/obj/item/ammo_casing/caseless/bolt{
-	pixel_y = 10;
-	pixel_x = -25
-	},
-/obj/item/ammo_casing/caseless/bolt{
-	pixel_y = -16
-	},
-/obj/item/ammo_casing/caseless/bolt{
-	pixel_x = 11
-	},
-/turf/open/floor/metal/barograte,
-/area/rogue/under/tomb/cave/lava)
-"RY" = (
-/obj/structure/fluff/big_chain,
-/turf/open/floor/metal/barograte,
-/area/rogue/under/tomb/cave/lava)
-"Uv" = (
-/obj/structure/fluff/wallclock,
-/obj/item/flashlight/flare/torch/lantern/copper,
-/obj/structure/closet/crate/chest{
-	locked = 1
-	},
-/turf/open/floor/metal/barograte,
-/area/rogue/under/tomb/indoors)
-"Xk" = (
-/obj/structure/fluff/walldeco/chains,
-/obj/structure/bars/pipe,
-/turf/open/transparent/openspace,
-/area/rogue/under/tomb/cave/lava)
-"XX" = (
-/obj/item/gear{
-	pixel_x = -6
-	},
-/obj/item/gear{
-	pixel_y = -4;
-	pixel_x = 6
-	},
-/obj/item/gear{
-	pixel_x = 1;
-	pixel_y = 5
-	},
-/turf/open/floor/metal/barograte,
-/area/rogue/under/tomb/indoors)
-"Yj" = (
-/turf/open/floor/metal/barograte,
-/area/rogue/under/tomb/cave/lava)
-"Zi" = (
+"Xv" = (
 /obj/item/natural/poo,
 /turf/open/floor/metal,
 /area/rogue/under/tomb/cave/lava)
-"Zy" = (
-/turf/closed/wall/mineral/pipe,
-/area/rogue/under/tomb/indoors)
+"YL" = (
+/obj/effect/dungeon_directional_helper/west,
+/turf/open/floor/naturalstone,
+/area/rogue/under/tomb/cave/lava)
+"ZG" = (
+/obj/item/ammo_holder/quiver/bolts,
+/turf/open/floor/metal/barograte,
+/area/rogue/under/tomb/cave/lava)
 
 (1,1,1) = {"
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aS
-MA
-aS
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+af
+YL
+af
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
 "}
 (2,1,1) = {"
-aI
-aS
-aS
-aS
-aS
-ag
-aS
-aS
-aT
-aS
-aS
-aS
-aS
-aS
-aS
 ah
-aS
-aS
-aS
+af
+af
+af
+af
 aI
+af
+af
+aw
+af
+af
+af
+af
+af
+af
+aG
+af
+af
+af
+ah
 "}
 (3,1,1) = {"
-aI
-aS
-aS
 ah
-aS
-ag
-ag
-aS
-aS
-aS
-aT
-aS
-aS
-aS
-aS
-aS
-aS
-aS
-aS
+af
+af
+aG
+af
 aI
+aI
+af
+af
+af
+aw
+af
+af
+af
+af
+af
+af
+af
+af
+ah
 "}
 (4,1,1) = {"
+ah
+af
+af
+af
+af
+af
 aI
-aS
-aS
-aS
-aS
-aS
-ag
-aS
-aS
-aS
-mf
-aS
-ag
-ag
-ag
-ag
-ag
-ag
-ag
+af
+af
+af
+lO
+af
 aI
+aI
+aI
+aI
+aI
+aI
+aI
+ah
 "}
 (5,1,1) = {"
-aI
-aS
-aS
-aS
-aS
-aS
-ag
-ag
-ag
-aS
-ag
-ag
-ag
+ah
 af
 af
-ag
-ag
-aS
-aS
+af
+af
+af
 aI
+aI
+aI
+af
+aI
+aI
+aI
+ai
+ai
+aI
+aI
+af
+af
+ah
 "}
 (6,1,1) = {"
+ah
 aI
-ag
-ag
-ag
-ag
-ag
-ag
-af
-ag
-ag
-ag
-af
-af
-af
-af
-af
-ag
-ag
-aS
 aI
+aI
+aI
+aI
+aI
+ai
+aI
+aI
+aI
+ai
+ai
+ai
+ai
+ai
+aI
+aI
+af
+ah
 "}
 (7,1,1) = {"
+ah
+af
+ai
+ai
 aI
-aS
 af
 af
-ag
-aS
-aS
-aS
-nu
-QB
-ag
-ag
-rk
 af
-JM
-af
-ag
-ag
-aS
+lG
+wo
 aI
+aI
+aT
+ai
+ag
+ai
+aI
+aI
+af
+ah
 "}
 (8,1,1) = {"
-aI
-aS
 ah
-aS
-ag
 af
-aS
-IC
-aT
-aS
-aS
-ag
-ag
+aG
 af
-af
-af
-ag
-af
-aS
 aI
+ai
+af
+Sk
+aw
+af
+af
+aI
+aI
+ai
+ai
+ai
+aI
+ai
+af
+ah
 "}
 (9,1,1) = {"
-mj
-mj
+Ji
+Ji
+ai
 af
-aS
-ag
-ag
-aS
-aS
-aS
-ah
-aS
-aS
-ag
+aI
+aI
 af
 af
 af
-ag
-aS
-aS
-aS
+aG
+af
+af
+aI
+ai
+ai
+ai
+aI
+af
+af
+af
 "}
 (10,1,1) = {"
-zB
-mj
-aT
-aS
-ag
-ag
-af
-aS
-aT
-Ar
-aT
-af
-ag
-ag
-ag
-ag
-ag
-af
-aS
+rS
+Ji
 aw
+af
+aI
+aI
+ai
+af
+aw
+zY
+aw
+ai
+aI
+aI
+aI
+aI
+aI
+ai
+af
+aS
 "}
 (11,1,1) = {"
-mj
-mj
-aS
-aS
+Ji
+Ji
 af
-ag
-aS
-aS
-aS
-ah
-aS
-aS
-ag
-ag
-aS
-ag
-aS
-aS
-aS
-aS
+af
+ai
+aI
+af
+af
+af
+aG
+af
+af
+aI
+aI
+af
+aI
+af
+af
+af
+af
 "}
 (12,1,1) = {"
-aI
-aS
-aS
-ag
-ag
-ag
-ag
-aS
-aS
-IC
-aS
+ah
 af
-ag
-aS
-aS
-aS
-aS
-aS
-aT
+af
 aI
+aI
+aI
+aI
+af
+af
+Sk
+af
+ai
+aI
+af
+af
+af
+af
+af
+aw
+ah
 "}
 (13,1,1) = {"
+ah
 aI
-ag
-ag
-ag
-aS
-aS
-ag
+aI
+aI
 af
 af
-aS
-aS
-aS
-ag
-ag
-ag
-ag
-ag
-aS
-aS
 aI
+ai
+ai
+af
+af
+af
+aI
+aI
+aI
+aI
+aI
+af
+af
+ah
 "}
 (14,1,1) = {"
+ah
 aI
-ag
-ag
-af
-aS
-aS
-ag
-ag
-aS
-af
-aS
-ag
-ag
-aS
-aS
-aS
-ag
-aS
-aS
 aI
+ai
+af
+af
+aI
+aI
+af
+ai
+af
+aI
+aI
+af
+af
+af
+aI
+af
+af
+ah
 "}
 (15,1,1) = {"
+ah
+af
+af
 aI
-aS
-aS
-ag
-aS
-aS
-ag
-ag
-ag
-ag
-ag
-ag
-aS
-aS
-aT
-aS
-ag
-ag
-ag
+af
+af
 aI
+aI
+aI
+aI
+aI
+aI
+af
+af
+aw
+af
+aI
+aI
+aI
+ah
 "}
 (16,1,1) = {"
-aI
-aS
-aS
-aS
-mf
-aS
-ag
-aS
-ag
-aS
-aS
-ag
-aS
-aS
 ah
-aS
-aS
-aS
-aS
+af
+af
+af
+lO
+af
 aI
+af
+aI
+af
+af
+aI
+af
+af
+aG
+af
+af
+af
+af
+ah
 "}
 (17,1,1) = {"
+ah
+af
+af
+af
+af
+af
 aI
-aS
-aS
-aS
-aS
-aS
-ag
-aS
-aS
-aS
-aS
-ag
-ag
-ag
-aS
-aS
-aS
-aS
-aS
+af
+af
+af
+af
 aI
+aI
+aI
+af
+af
+af
+af
+af
+ah
 "}
 (18,1,1) = {"
+ah
+af
+af
+af
+af
+af
 aI
-aS
-aS
-aS
-aS
-aS
-ag
-aS
-aS
-aS
-aS
-aS
-aS
-ag
-aS
-aS
-aS
+af
+af
+af
+af
+af
+af
+aI
+af
+af
+af
 aj
-aS
-aI
+af
+ah
 "}
 (19,1,1) = {"
+ah
+af
+af
+af
+af
+af
 aI
-aS
-aS
-aS
-aS
-aS
-ag
-aS
-aS
-aS
-aS
-aS
-aS
-ag
-aS
-aS
-aS
-aS
-aS
+af
+af
+af
+af
+af
+af
 aI
+af
+af
+af
+af
+af
+ah
 "}
 (20,1,1) = {"
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aS
-Ab
-aS
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+af
+gp
+af
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
 "}
 
 (1,1,2) = {"
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-Yj
-Yj
-Yj
-Yj
-Yj
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-aI
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+rg
+rg
+rg
+rg
+rg
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
 "}
 (2,1,2) = {"
-aI
-db
-db
-db
-db
-db
-db
-FV
-Yj
-Yj
-Yj
-FV
-db
-db
-db
-db
-db
-FT
-db
-aI
+ah
+uV
+uV
+uV
+uV
+uV
+uV
+Ar
+rg
+rg
+rg
+Ar
+uV
+uV
+uV
+uV
+uV
+PL
+uV
+ah
 "}
 (3,1,2) = {"
-aI
-db
-db
-FV
-FV
-db
-db
-FV
-Yj
-RY
-Yj
-FV
-FV
-FV
-Hy
-db
-db
-FT
-db
-aI
+ah
+uV
+uV
+Ar
+Ar
+uV
+uV
+Ar
+rg
+kF
+rg
+Ar
+Ar
+Ar
+uR
+uV
+uV
+PL
+uV
+ah
 "}
 (4,1,2) = {"
-aI
-db
-FV
-Yj
-RY
-FV
-db
-FT
-FV
-FV
-FV
-db
-db
-db
-FV
-db
-db
-FT
-db
-aI
+ah
+uV
+Ar
+rg
+kF
+Ar
+uV
+PL
+Ar
+Ar
+Ar
+uV
+uV
+uV
+Ar
+uV
+uV
+PL
+uV
+ah
 "}
 (5,1,2) = {"
-aI
-db
-db
-FV
-FV
-db
-db
-FT
-db
-FV
-db
-db
-db
-db
-FV
-db
-db
-FT
-db
-aI
+ah
+uV
+uV
+Ar
+Ar
+uV
+uV
+PL
+uV
+Ar
+uV
+uV
+uV
+uV
+Ar
+uV
+uV
+PL
+uV
+ah
 "}
 (6,1,2) = {"
-aI
-db
-db
-db
-FT
-db
-db
-Xk
-db
-db
-db
-db
-db
-FV
-RY
-FV
-db
-FT
-db
-aI
+ah
+uV
+uV
+uV
+PL
+uV
+uV
+tq
+uV
+uV
+uV
+uV
+uV
+Ar
+kF
+Ar
+uV
+PL
+uV
+ah
 "}
 (7,1,2) = {"
-aI
-JT
-JT
-db
-FT
-db
-db
-FT
-db
-FV
-db
-db
-db
-FV
-Yj
-FV
-db
-FT
-db
-aI
+ah
+so
+so
+uV
+PL
+uV
+uV
+PL
+uV
+Ar
+uV
+uV
+uV
+Ar
+rg
+Ar
+uV
+PL
+uV
+ah
 "}
 (8,1,2) = {"
-Yj
-Yj
-RY
-JT
-db
-db
-db
-FV
-qh
-FV
-FV
-db
-db
-FV
-RY
-FV
-db
-FT
-db
-aI
+rg
+rg
+kF
+so
+uV
+uV
+uV
+Ar
+Vk
+Ar
+Ar
+uV
+uV
+Ar
+kF
+Ar
+uV
+PL
+uV
+ah
 "}
 (9,1,2) = {"
-Yj
-Yj
-Yj
-JT
-db
-db
-FV
-RY
-QT
-Yj
-RY
-FV
-db
-db
-FV
-db
-db
-FV
-FV
-FV
+rg
+rg
+rg
+so
+uV
+uV
+Ar
+kF
+wj
+rg
+kF
+Ar
+uV
+uV
+Ar
+uV
+uV
+Ar
+Ar
+Ar
 "}
 (10,1,2) = {"
-Yj
-Yj
-Yj
-JT
-db
-FV
-JT
-kX
-Yj
-fp
-Yj
-FV
-rl
-db
-FV
-FV
-FV
-RY
-Yj
-Yj
+rg
+rg
+rg
+so
+uV
+Ar
+so
+oB
+rg
+nC
+rg
+Ar
+WZ
+uV
+Ar
+Ar
+Ar
+kF
+rg
+rg
 "}
 (11,1,2) = {"
-Yj
-Yj
-Yj
-JT
-db
-db
-FV
-RY
-fW
-Yj
-RY
-FV
-db
-db
-db
-db
-FV
-RY
-Yj
-Yj
+rg
+rg
+rg
+so
+uV
+uV
+Ar
+kF
+ZG
+rg
+kF
+Ar
+uV
+uV
+uV
+uV
+Ar
+kF
+rg
+rg
 "}
 (12,1,2) = {"
-Yj
-Yj
-RY
-JT
-db
-db
-db
-FV
-FV
-FV
-FV
-db
-db
-db
-db
-db
-FT
-FV
-FV
-FV
+rg
+rg
+kF
+so
+uV
+uV
+uV
+Ar
+Ar
+Ar
+Ar
+uV
+uV
+uV
+uV
+uV
+PL
+Ar
+Ar
+Ar
 "}
 (13,1,2) = {"
-aI
-JT
-JT
-db
-db
-db
-db
-FV
-db
-db
-db
-db
-FV
-FV
-db
-db
-FT
-db
-db
-aI
+ah
+so
+so
+uV
+uV
+uV
+uV
+Ar
+uV
+uV
+uV
+uV
+Ar
+Ar
+uV
+uV
+PL
+uV
+uV
+ah
 "}
 (14,1,2) = {"
-aI
-db
-FV
-db
-db
-db
-db
-Ki
-db
-db
-FV
-FV
-Yj
-Yj
-FV
-db
-FT
-db
-db
-aI
+ah
+uV
+Ar
+uV
+uV
+uV
+uV
+Av
+uV
+uV
+Ar
+Ar
+rg
+rg
+Ar
+uV
+PL
+uV
+uV
+ah
 "}
 (15,1,2) = {"
-aI
-db
-FV
-FV
-FV
-db
-db
-Zi
-db
-db
-db
-FV
-RY
-Yj
-FV
-db
-FT
-db
-db
-aI
+ah
+uV
+Ar
+Ar
+Ar
+uV
+uV
+Xv
+uV
+uV
+uV
+Ar
+kF
+rg
+Ar
+uV
+PL
+uV
+uV
+ah
 "}
 (16,1,2) = {"
-aI
-FV
-Yj
-Yj
-Yj
-FV
-FV
-FV
-FV
-db
-db
-db
-FV
-FV
-Zy
-Zy
-Zy
-Zy
-Zy
-ce
+ah
+Ar
+rg
+rg
+rg
+Ar
+Ar
+Ar
+Ar
+uV
+uV
+uV
+Ar
+Ar
+AC
+AC
+AC
+AC
+AC
+hA
 "}
 (17,1,2) = {"
-aI
-FV
-Yj
-RY
-Yj
-FV
-db
-db
-FV
-FV
-FV
-db
-db
-FV
-kN
-Dx
-Dx
-Dx
-Dx
-ce
+ah
+Ar
+rg
+kF
+rg
+Ar
+uV
+uV
+Ar
+Ar
+Ar
+uV
+uV
+Ar
+OZ
+RX
+RX
+RX
+RX
+hA
 "}
 (18,1,2) = {"
-aI
-FV
-Yj
-Yj
-Yj
-FV
-db
-FV
-Yj
-RY
-Yj
-FV
-db
-FV
-Zy
-Uv
-Dx
-Dx
-Dx
-ce
+ah
+Ar
+rg
+rg
+rg
+Ar
+uV
+Ar
+rg
+kF
+rg
+Ar
+uV
+Ar
+AC
+uy
+RX
+RX
+RX
+hA
 "}
 (19,1,2) = {"
-aI
-db
-FV
-FV
-FV
-db
-db
-FV
-Yj
-Yj
-Yj
-FV
-db
-db
-Zy
-HV
-Dx
-XX
-MU
-ce
+ah
+uV
+Ar
+Ar
+Ar
+uV
+uV
+Ar
+rg
+rg
+rg
+Ar
+uV
+uV
+AC
+nA
+RX
+Rl
+to
+hA
 "}
 (20,1,2) = {"
-aI
-aI
-aI
-aI
-aI
-aI
-aI
-Yj
-Yj
-Yj
-Yj
-Yj
-aI
-aI
-ce
-ce
-ce
-ce
-ce
-ce
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+rg
+rg
+rg
+rg
+rg
+ah
+ah
+hA
+hA
+hA
+hA
+hA
+hA
 "}

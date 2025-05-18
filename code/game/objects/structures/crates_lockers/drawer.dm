@@ -8,13 +8,12 @@
 	drag_slowdown = 2
 	open_sound = 'sound/misc/chestopen.ogg'
 	close_sound = 'sound/misc/chestclose.ogg'
-	keylock = FALSE
-	locked = FALSE
 	sellprice = 1
 	max_integrity = 50
 	blade_dulling = DULLING_BASHCHOP
 	mob_storage_capacity = 1
 	allow_dense = FALSE
+	lock = null
 
 /obj/structure/closet/crate/drawer/inn
 	name = "drawer"

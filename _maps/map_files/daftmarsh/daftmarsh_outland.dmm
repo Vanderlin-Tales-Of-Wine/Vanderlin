@@ -29,6 +29,14 @@
 /obj/structure/flora/newtree/snow,
 /turf/open/floor/grass,
 /area/rogue/outdoors/rtfield)
+"aB" = (
+/obj/structure/door/green{
+	name = "forrest warden bedroom"
+	},
+/obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/indoors/villagegarrison)
 "aC" = (
 /obj/structure/stairs/stone,
 /turf/open/transparent/openspace,
@@ -67,6 +75,16 @@
 "aU" = (
 /turf/open/water/swamp,
 /area/rogue/outdoors/bog)
+"aV" = (
+/obj/structure/door/viewport{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
+/turf/open/floor/metal{
+	icon_state = "plating2"
+	},
+/area/rogue/indoors/town/cell)
 "aW" = (
 /obj/structure/flora/newtree,
 /turf/open/floor/grass/cold,
@@ -300,6 +318,35 @@
 /obj/item/reagent_containers/food/snacks/jellycake_tangerine,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
+"cZ" = (
+/obj/structure/closet/crate/chest,
+/obj/item/reagent_containers/food/snacks/produce/fruit/lime,
+/obj/item/reagent_containers/food/snacks/produce/fruit/lime,
+/obj/item/reagent_containers/food/snacks/produce/fruit/lime,
+/obj/item/reagent_containers/food/snacks/produce/fruit/lime,
+/obj/item/reagent_containers/food/snacks/produce/fruit/lime,
+/obj/item/reagent_containers/food/snacks/produce/fruit/pear,
+/obj/item/reagent_containers/food/snacks/produce/fruit/pear,
+/obj/item/reagent_containers/food/snacks/produce/fruit/pear,
+/obj/item/reagent_containers/food/snacks/produce/fruit/pear,
+/obj/item/reagent_containers/food/snacks/produce/fruit/pear,
+/obj/item/reagent_containers/food/snacks/produce/fruit/tangerine,
+/obj/item/reagent_containers/food/snacks/produce/fruit/tangerine,
+/obj/item/reagent_containers/food/snacks/produce/fruit/tangerine,
+/obj/item/reagent_containers/food/snacks/produce/fruit/tangerine,
+/obj/item/reagent_containers/food/snacks/produce/fruit/tangerine,
+/obj/item/reagent_containers/food/snacks/produce/fruit/apple,
+/obj/item/reagent_containers/food/snacks/produce/fruit/apple,
+/obj/item/reagent_containers/food/snacks/produce/fruit/apple,
+/obj/item/reagent_containers/food/snacks/produce/fruit/apple,
+/obj/item/reagent_containers/food/snacks/produce/fruit/apple,
+/obj/item/reagent_containers/food/snacks/produce/fruit/plum,
+/obj/item/reagent_containers/food/snacks/produce/fruit/plum,
+/obj/item/reagent_containers/food/snacks/produce/fruit/plum,
+/obj/item/reagent_containers/food/snacks/produce/fruit/plum,
+/obj/item/reagent_containers/food/snacks/produce/fruit/plum,
+/turf/open/floor/naturalstone,
+/area/rogue/under/mountains/anvil/lower)
 "dg" = (
 /obj/structure/spider/nest,
 /turf/open/floor/hexstone,
@@ -405,6 +452,15 @@
 	},
 /turf/open/floor/wood,
 /area/rogue/indoors/villagegarrison)
+"dR" = (
+/obj/structure/closet/crate/chest,
+/obj/item/reagent_containers/food/snacks/produce/vegetable/potato,
+/obj/item/reagent_containers/food/snacks/produce/vegetable/potato,
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
+/obj/item/reagent_containers/food/snacks/produce/fruit/apple,
+/turf/open/floor/woodturned/nosmooth,
+/area/rogue/indoors)
 "dS" = (
 /turf/open/floor/wood,
 /area/rogue/outdoors/mountains)
@@ -491,32 +547,21 @@
 /obj/item/natural/poo/horse,
 /turf/open/water/sewer,
 /area/rogue/under/mountains/anvil/lower)
-"ew" = (
-/obj/item/reagent_containers/food/snacks/produce/vegetable/potato,
-/obj/item/reagent_containers/food/snacks/produce/vegetable/potato,
-/obj/item/reagent_containers/food/snacks/produce/grain/oat,
-/obj/item/reagent_containers/food/snacks/produce/grain/oat,
-/obj/item/reagent_containers/food/snacks/produce/grain/oat,
-/obj/item/reagent_containers/food/snacks/egg,
-/obj/item/reagent_containers/food/snacks/egg,
-/obj/item/reagent_containers/food/snacks/meat/steak,
-/obj/structure/closet/crate/chest/old_crate,
-/turf/open/floor/tile/kitchen,
-/area/rogue/indoors/villagegarrison)
 "eA" = (
 /obj/structure/spider/stickyweb,
 /obj/structure/spider/nest,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
-"eB" = (
-/obj/structure/closet/crate/chest,
-/obj/item/reagent_containers/food/snacks/produce/vegetable/potato,
-/obj/item/reagent_containers/food/snacks/produce/vegetable/potato,
-/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
-/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
-/obj/item/reagent_containers/food/snacks/produce/fruit/apple,
-/turf/open/floor/woodturned/nosmooth,
-/area/rogue/indoors)
+"eF" = (
+/obj/structure/door/viewport{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
+/turf/open/floor/metal{
+	icon_state = "plating2"
+	},
+/area/rogue/indoors/town/cell)
 "eH" = (
 /obj/effect/waterfall,
 /turf/closed/mineral/random,
@@ -774,10 +819,6 @@
 /obj/item/natural/rock/salt,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/lower)
-"hB" = (
-/obj/item/reagent_containers/food/snacks/produce/fruit/strawberry,
-/turf/open/floor/grass/cold,
-/area/rogue/outdoors/woods)
 "hF" = (
 /obj/structure/fluff/railing/border{
 	dir = 4
@@ -1427,14 +1468,6 @@
 	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/outdoors/mountains)
-"oe" = (
-/obj/structure/door/green{
-	name = "Salem Garrison"
-	},
-/obj/effect/mapping_helpers/door/locker,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
-/turf/open/floor/hexstone,
-/area/rogue/indoors/villagegarrison)
 "oA" = (
 /obj/effect/landmark/start/adventurerlate{
 	dir = 1
@@ -1584,6 +1617,13 @@
 	dir = 8
 	},
 /area/rogue/outdoors/bog)
+"qm" = (
+/obj/structure/door/weak/bolt{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/naturalstone,
+/area/rogue/under/mountains/anvil/lower)
 "qr" = (
 /turf/closed/mineral/random/med,
 /area/rogue/outdoors/bog)
@@ -1661,13 +1701,13 @@
 	},
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/lower)
-"rr" = (
+"rs" = (
+/obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
 /obj/structure/door/green{
-	name = "forrest warden bedroom"
+	name = "Salem Garrison"
 	},
-/obj/effect/mapping_helpers/door/locker,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
-/turf/open/floor/ruinedwood/darker,
+/turf/open/floor/hexstone,
 /area/rogue/indoors/villagegarrison)
 "rt" = (
 /obj/item/natural/rock,
@@ -1732,16 +1772,6 @@
 /obj/structure/stairs,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/woods)
-"so" = (
-/obj/structure/door/viewport{
-	dir = 1
-	},
-/obj/effect/mapping_helpers/door/locker,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
-/area/rogue/indoors/town/cell)
 "sq" = (
 /obj/structure/bridge_stakes,
 /obj/structure/bridge_stakes{
@@ -1889,16 +1919,6 @@
 	},
 /turf/open/floor/grass,
 /area/rogue/outdoors/woods_safe)
-"tE" = (
-/obj/structure/door/viewport{
-	dir = 8
-	},
-/obj/effect/mapping_helpers/door/locker,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
-/area/rogue/indoors/town/cell)
 "tF" = (
 /obj/structure/fluff/railing/fence{
 	dir = 8
@@ -2183,6 +2203,30 @@
 	},
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
+"xv" = (
+/obj/structure/table/wood/plain,
+/obj/item/reagent_containers/food/snacks/tangerine_dried{
+	pixel_x = -11;
+	pixel_y = 6
+	},
+/obj/item/reagent_containers/food/snacks/pear_dried{
+	pixel_x = -9;
+	pixel_y = -6
+	},
+/obj/item/reagent_containers/food/snacks/plum_dried{
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/obj/item/reagent_containers/food/snacks/apple_dried{
+	pixel_x = 8;
+	pixel_y = 10
+	},
+/obj/item/reagent_containers/food/snacks/produce/fruit/lime{
+	pixel_x = 10;
+	pixel_y = -5
+	},
+/turf/open/floor/naturalstone,
+/area/rogue/under/mountains/anvil/lower)
 "xy" = (
 /obj/structure/spider/nest,
 /turf/open/floor/naturalstone,
@@ -2401,6 +2445,13 @@
 "zJ" = (
 /turf/open/floor/snow,
 /area/rogue/outdoors/woods)
+"zT" = (
+/obj/structure/closet/crate/chest/wicker,
+/obj/item/reagent_containers/food/snacks/produce/grain/oat,
+/obj/item/reagent_containers/food/snacks/produce/grain/oat,
+/obj/item/reagent_containers/food/snacks/produce/grain/oat,
+/turf/open/floor/cobble,
+/area/rogue/indoors)
 "zV" = (
 /turf/open/floor/cobblerock/snow,
 /area/rogue/outdoors/woods)
@@ -2496,6 +2547,11 @@
 "Bc" = (
 /turf/open/floor/rooftop/green,
 /area/rogue/outdoors/mountains)
+"Bd" = (
+/obj/structure/door/iron/bars,
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/cobble,
+/area/rogue/under/mountains/anvil/lower)
 "Bf" = (
 /obj/structure/flora/newtree,
 /turf/open/floor/dirt,
@@ -2561,13 +2617,6 @@
 /obj/effect/spawner/map_spawner/treeorstump,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
-"BV" = (
-/obj/structure/closet/crate/chest/wicker,
-/obj/item/reagent_containers/food/snacks/produce/grain/oat,
-/obj/item/reagent_containers/food/snacks/produce/grain/oat,
-/obj/item/reagent_containers/food/snacks/produce/grain/oat,
-/turf/open/floor/cobble,
-/area/rogue/indoors)
 "BW" = (
 /obj/structure/door/iron/bars,
 /obj/effect/decal/cleanable/blood,
@@ -3117,6 +3166,10 @@
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/wood/nosmooth,
 /area/rogue/outdoors/mountains)
+"Hu" = (
+/obj/item/reagent_containers/food/snacks/produce/fruit/strawberry,
+/turf/open/floor/snow,
+/area/rogue/outdoors/woods)
 "Hv" = (
 /obj/structure/chair/wood/alt,
 /turf/open/floor/naturalstone,
@@ -3465,35 +3518,6 @@
 "LO" = (
 /turf/closed/wall/mineral/stone,
 /area/rogue/indoors/villagegarrison)
-"LR" = (
-/obj/structure/closet/crate/chest,
-/obj/item/reagent_containers/food/snacks/produce/fruit/lime,
-/obj/item/reagent_containers/food/snacks/produce/fruit/lime,
-/obj/item/reagent_containers/food/snacks/produce/fruit/lime,
-/obj/item/reagent_containers/food/snacks/produce/fruit/lime,
-/obj/item/reagent_containers/food/snacks/produce/fruit/lime,
-/obj/item/reagent_containers/food/snacks/produce/fruit/pear,
-/obj/item/reagent_containers/food/snacks/produce/fruit/pear,
-/obj/item/reagent_containers/food/snacks/produce/fruit/pear,
-/obj/item/reagent_containers/food/snacks/produce/fruit/pear,
-/obj/item/reagent_containers/food/snacks/produce/fruit/pear,
-/obj/item/reagent_containers/food/snacks/produce/fruit/tangerine,
-/obj/item/reagent_containers/food/snacks/produce/fruit/tangerine,
-/obj/item/reagent_containers/food/snacks/produce/fruit/tangerine,
-/obj/item/reagent_containers/food/snacks/produce/fruit/tangerine,
-/obj/item/reagent_containers/food/snacks/produce/fruit/tangerine,
-/obj/item/reagent_containers/food/snacks/produce/fruit/apple,
-/obj/item/reagent_containers/food/snacks/produce/fruit/apple,
-/obj/item/reagent_containers/food/snacks/produce/fruit/apple,
-/obj/item/reagent_containers/food/snacks/produce/fruit/apple,
-/obj/item/reagent_containers/food/snacks/produce/fruit/apple,
-/obj/item/reagent_containers/food/snacks/produce/fruit/plum,
-/obj/item/reagent_containers/food/snacks/produce/fruit/plum,
-/obj/item/reagent_containers/food/snacks/produce/fruit/plum,
-/obj/item/reagent_containers/food/snacks/produce/fruit/plum,
-/obj/item/reagent_containers/food/snacks/produce/fruit/plum,
-/turf/open/floor/naturalstone,
-/area/rogue/under/mountains/anvil/lower)
 "LS" = (
 /obj/structure/rack/shelf/biggest,
 /obj/machinery/light/fueled/torchholder/r,
@@ -3566,6 +3590,18 @@
 "Mu" = (
 /turf/closed/wall/mineral/wooddark,
 /area/rogue/outdoors/bog)
+"Mv" = (
+/obj/item/reagent_containers/food/snacks/produce/vegetable/potato,
+/obj/item/reagent_containers/food/snacks/produce/vegetable/potato,
+/obj/item/reagent_containers/food/snacks/produce/grain/oat,
+/obj/item/reagent_containers/food/snacks/produce/grain/oat,
+/obj/item/reagent_containers/food/snacks/produce/grain/oat,
+/obj/item/reagent_containers/food/snacks/egg,
+/obj/item/reagent_containers/food/snacks/egg,
+/obj/item/reagent_containers/food/snacks/meat/steak,
+/obj/structure/closet/crate/chest/old_crate,
+/turf/open/floor/tile/kitchen,
+/area/rogue/indoors/villagegarrison)
 "My" = (
 /obj/structure/toilet,
 /mob/living/carbon/human/species/goblin/npc/hell,
@@ -3602,14 +3638,6 @@
 	},
 /turf/open/floor/cobble/alt,
 /area/rogue/under/mountains/anvil/lower)
-"MO" = (
-/obj/effect/mapping_helpers/door/locker,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
-/obj/structure/door/green{
-	name = "Salem Garrison"
-	},
-/turf/open/floor/hexstone,
-/area/rogue/indoors/villagegarrison)
 "MS" = (
 /obj/structure/fluff/statue/knight/interior/r,
 /turf/open/floor/hexstone,
@@ -3689,13 +3717,6 @@
 /obj/effect/landmark/mapGenerator/anvil,
 /turf/closed,
 /area/rogue)
-"NY" = (
-/obj/structure/door/weak/bolt{
-	dir = 4
-	},
-/obj/effect/mapping_helpers/door/locker,
-/turf/open/floor/naturalstone,
-/area/rogue/under/mountains/anvil/lower)
 "Oc" = (
 /obj/structure/stairs/fancy/c{
 	dir = 1
@@ -3791,30 +3812,6 @@
 	},
 /turf/open/floor/grass,
 /area/rogue/outdoors/woods_safe)
-"Pn" = (
-/obj/structure/table/wood/plain,
-/obj/item/reagent_containers/food/snacks/tangerine_dried{
-	pixel_x = -11;
-	pixel_y = 6
-	},
-/obj/item/reagent_containers/food/snacks/pear_dried{
-	pixel_x = -9;
-	pixel_y = -6
-	},
-/obj/item/reagent_containers/food/snacks/plum_dried{
-	pixel_x = 0;
-	pixel_y = 0
-	},
-/obj/item/reagent_containers/food/snacks/apple_dried{
-	pixel_x = 8;
-	pixel_y = 10
-	},
-/obj/item/reagent_containers/food/snacks/produce/fruit/lime{
-	pixel_x = 10;
-	pixel_y = -5
-	},
-/turf/open/floor/naturalstone,
-/area/rogue/under/mountains/anvil/lower)
 "Pp" = (
 /obj/structure/chair/wood/alt,
 /mob/living/carbon/human/species/goblin/npc/hell{
@@ -3863,6 +3860,14 @@
 /mob/living/simple_animal/hostile/retaliate/spider,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
+"PE" = (
+/obj/structure/door/green{
+	name = "forrest garrison barracks"
+	},
+/obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/indoors/villagegarrison)
 "PF" = (
 /turf/open/transparent/openspace,
 /area/rogue/under/mountains/anvil/lower)
@@ -3887,11 +3892,6 @@
 "PN" = (
 /turf/closed/wall/mineral/stone/moss,
 /area/rogue/indoors/villagegarrison)
-"PQ" = (
-/obj/structure/door/iron/bars,
-/obj/effect/mapping_helpers/door/locker,
-/turf/open/floor/cobble,
-/area/rogue/under/mountains/anvil/lower)
 "PW" = (
 /obj/structure/bed/mediocre,
 /obj/item/bedsheet/fabric,
@@ -3915,6 +3915,10 @@
 /obj/structure/table/wood/treestump/shroomstump,
 /turf/open/floor/grass/red,
 /area/rogue/under/mountains/anvil/lower)
+"Ql" = (
+/obj/item/reagent_containers/food/snacks/produce/fruit/strawberry,
+/turf/open/floor/grass/cold,
+/area/rogue/outdoors/woods)
 "Qm" = (
 /obj/structure/chair/wood/alt{
 	dir = 1
@@ -3984,10 +3988,6 @@
 	},
 /turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
-"QR" = (
-/obj/item/reagent_containers/food/snacks/produce/fruit/strawberry,
-/turf/open/floor/snow,
-/area/rogue/outdoors/woods)
 "QS" = (
 /obj/structure/spider/stickyweb,
 /turf/open/floor/hexstone,
@@ -4167,14 +4167,6 @@
 /obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/floor/cobble,
 /area/rogue/indoors)
-"So" = (
-/obj/structure/door/green{
-	name = "forrest garrison barracks"
-	},
-/obj/effect/mapping_helpers/door/locker,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
-/turf/open/floor/ruinedwood/darker,
-/area/rogue/indoors/villagegarrison)
 "Sr" = (
 /obj/item/ore/coal{
 	pixel_x = 6;
@@ -4717,6 +4709,14 @@
 	},
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/woods_safe)
+"Yh" = (
+/obj/structure/door/green{
+	name = "Salem Garrison"
+	},
+/obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
+/turf/open/floor/hexstone,
+/area/rogue/indoors/villagegarrison)
 "Yl" = (
 /obj/structure/table/wood/counter,
 /obj/item/plate/tray,
@@ -40359,7 +40359,7 @@ GX
 fk
 lD
 lD
-NY
+qm
 lD
 lD
 GX
@@ -71174,7 +71174,7 @@ LO
 LO
 LO
 LO
-So
+PE
 LO
 LO
 EF
@@ -71781,7 +71781,7 @@ eT
 Hi
 Hi
 Hi
-so
+eF
 Fy
 Fy
 Fy
@@ -72385,7 +72385,7 @@ pn
 YC
 YC
 QL
-tE
+aV
 QL
 YC
 EF
@@ -80179,7 +80179,7 @@ yh
 dW
 fm
 GX
-LR
+cZ
 qU
 SK
 "}
@@ -80580,7 +80580,7 @@ qU
 qU
 Kx
 Eu
-Pn
+xv
 Xi
 fk
 Dd
@@ -82372,7 +82372,7 @@ GX
 GX
 tH
 GX
-PQ
+Bd
 GX
 GX
 bv
@@ -109559,7 +109559,7 @@ Xe
 cK
 fM
 fM
-eB
+dR
 xs
 wg
 zB
@@ -109973,7 +109973,7 @@ eb
 zB
 zB
 jC
-BV
+zT
 cL
 Ai
 Ai
@@ -111979,7 +111979,7 @@ JV
 bx
 bx
 bx
-MO
+rs
 VM
 VM
 VM
@@ -112181,7 +112181,7 @@ Yc
 bx
 Re
 bx
-oe
+Yh
 eb
 eb
 eb
@@ -141985,7 +141985,7 @@ xe
 xe
 xe
 xe
-hB
+Ql
 zJ
 VV
 VV
@@ -148824,7 +148824,7 @@ xe
 Lc
 zJ
 zJ
-QR
+Hu
 VV
 VV
 VV
@@ -151841,7 +151841,7 @@ zV
 xe
 xe
 xe
-hB
+Ql
 VV
 VV
 VV
@@ -152175,7 +152175,7 @@ Cv
 LO
 zs
 Dh
-ew
+Mv
 LO
 YP
 Ao
@@ -152580,7 +152580,7 @@ VL
 HK
 Dh
 Dh
-rr
+aB
 YG
 JI
 JI
@@ -155907,7 +155907,7 @@ xe
 xe
 ze
 ze
-hB
+Ql
 xe
 VV
 VV
@@ -160979,7 +160979,7 @@ xe
 xe
 fD
 xe
-hB
+Ql
 VV
 VV
 DG
