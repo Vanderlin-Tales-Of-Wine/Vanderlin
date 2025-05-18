@@ -49,8 +49,7 @@
 
 /obj/structure/fluff/traveltile/Initialize()
 	GLOB.traveltiles += src
-	//hide_if_needed()
-	// uncomment when figure out how to show to people that have the trait on spawn.
+	hide_if_needed()
 	. = ..()
 
 /obj/structure/fluff/traveltile/Destroy()
@@ -61,7 +60,7 @@
 	if(invis_without_trait && required_trait)
 		invisibility = INVISIBILITY_OBSERVER
 		var/image/I = image(icon = 'icons/turf/floors.dmi', icon_state = "travel", layer = ABOVE_OPEN_TURF_LAYER, loc = src)
-		add_alt_appearance(/datum/atom_hud/alternate_appearance/basic, required_trait, I)
+		add_alt_appearance(/datum/atom_hud/alternate_appearance/basic/traveltile, required_trait, I)
 
 /obj/structure/fluff/traveltile/proc/get_other_end_turf(return_travel = FALSE)
 	if(!aportalgoesto)
@@ -200,7 +199,7 @@
 * on map load it will pick one marker for each travel_type and spawn travel tiles there,
 * then delete itself and others of its type.
 
-** must be assigned a travel_tile
+** must be assigned a travel_tile and horizontal value.
 
 **/
 /obj/effect/traveltile_spawner
