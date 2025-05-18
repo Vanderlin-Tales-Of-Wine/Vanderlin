@@ -16,7 +16,7 @@
 	miracle = TRUE
 	devotion_cost = 30
 
-/obj/effect/proc_holder/spell/invoked/blindness/cast(list/targets, mob/user = usr)
+/obj/effect/proc_holder/spell/invoked/blindness/miracle/cast(list/targets, mob/user = usr)
 	if(isliving(targets[1]))
 		var/mob/living/target = targets[1]
 		if(target.anti_magic_check(TRUE, TRUE))
