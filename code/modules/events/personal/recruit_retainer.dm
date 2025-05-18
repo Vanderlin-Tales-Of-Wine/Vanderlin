@@ -62,6 +62,6 @@
 
 	to_chat(noble, span_userdanger("YOU ARE GOD'S CHOSEN!"))
 	to_chat(noble, span_notice("Astrata wants you to demonstrate your ability to lead as a proper noble! Recruit at least one retainer to serve you!"))
-	noble.playsound_local(noble, 'sound/magic/bless.ogg')
+	noble.playsound_local(noble, 'sound/magic/bless.ogg', 100)
 
 	noble.mind.announce_personal_objectives()

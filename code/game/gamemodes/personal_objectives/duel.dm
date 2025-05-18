@@ -60,10 +60,10 @@
 
 	user.visible_message(span_notice("[user] and [target] prepare for an honor duel!"), span_notice("The duel begins!"))
 	to_chat(user, span_notice("The duel begins! Combat ends at unconsciousness or when a fighter yields (RMB on Combat Mode button)."))
-	user.playsound_local(user, 'sound/magic/inspire_02.ogg')
+	user.playsound_local(user, 'sound/magic/inspire_02.ogg', 100)
 
 	to_chat(target, span_notice("The duel begins! Combat ends at unconsciousness or when a fighter yields (RMB on Combat Mode button)."))
-	target.playsound_local(target, 'sound/magic/inspire_02.ogg')
+	target.playsound_local(target, 'sound/magic/inspire_02.ogg', 100)
 
 	var/datum/duel/current_duel = new(user, target)
 	var/start_time = world.time

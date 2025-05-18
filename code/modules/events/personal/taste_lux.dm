@@ -48,7 +48,7 @@
 	chosen_one.mind.add_personal_objective(new_objective)
 
 	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
-	to_chat(chosen_one, span_notice("Seek out and taste Lux to experience true pleasure and make Baotha proud!"))
-	chosen_one.playsound_local(chosen_one, 'sound/ambience/noises/genspooky (1).ogg')
+	to_chat(chosen_one, span_notice("Seek out and taste Lux to experience true pleasure and make Baotha proud! You might need to grind it first though..."))
+	chosen_one.playsound_local(chosen_one, 'sound/ambience/noises/genspooky (1).ogg', 100)
 
 	chosen_one.mind.announce_personal_objectives()
