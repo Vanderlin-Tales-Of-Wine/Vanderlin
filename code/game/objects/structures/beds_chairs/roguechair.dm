@@ -325,7 +325,6 @@
 /obj/structure/bed/mediocre
 	icon_state = "shitbed2"
 	sleepy = 1
-	metalizer_result = null
 
 // Inhumen boss bed. Sleeping on a bear! Kinda comfy, sort of
 /obj/structure/bed/bear
@@ -338,9 +337,9 @@
 // ------------ UNCOMFORTABLE BEDS ----------------------
 /obj/structure/bed/shit
 	name = "uncomfortable bed"
+	desc = "Slightly better then a patch of grass"
 	icon_state = "shitbed"
 	sleepy = 0.75
-	metalizer_result = null
 
 /obj/structure/bed/sleepingbag
 	name = "bedroll"
