@@ -407,7 +407,7 @@ GLOBAL_LIST_INIT(badomens, list())
 				"Forbidden rituals cause echoes through the plane.", \
 				"Whispers of the Dark Lady in the shadows.", \
 				"The servants of Zizo undermine the Ten.", \
-				"Her influence becomes more tangiable...", \
+				"Her influence becomes more tangible...", \
 				"A foul curse temporarily takes the land.", \
 				"The dead churn and dig at their graves.", \
 			)
