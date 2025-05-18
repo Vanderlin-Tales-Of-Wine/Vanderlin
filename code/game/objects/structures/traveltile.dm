@@ -233,19 +233,19 @@
 	var/turf/current_turf = loc
 	new travel_tile(current_turf)
 	if(horizontal)
-		for(var/i in 1 to range)
+		for(var/i = 0, i < range, i++)
 			current_turf = get_step(current_turf, EAST)
 			new travel_tile(current_turf)
 		current_turf = loc
-		for(var/i in 1 to range)
+		for(var/i = 0, i < range, i++)
 			current_turf = get_step(current_turf, WEST)
 			new travel_tile(current_turf)
 	else
-		for(var/i in 1 to range)
+		for(var/i = 0, i < range, i++)
 			current_turf = get_step(current_turf, NORTH)
 			new travel_tile(current_turf)
 		current_turf = loc
-		for(var/i in 1 to range)
+		for(var/i = 0, i < range, i++)
 			current_turf = get_step(current_turf, SOUTH)
 			new travel_tile(current_turf)
 	qdel(src)
