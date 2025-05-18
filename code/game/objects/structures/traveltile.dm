@@ -49,6 +49,7 @@
 
 /obj/structure/fluff/traveltile/Initialize()
 	GLOB.traveltiles += src
+	hide_if_needed()
 	. = ..()
 
 /obj/structure/fluff/traveltile/Destroy()
