@@ -39,7 +39,7 @@
 		bodypart.remove_wound(/datum/wound/facial/disfigurement)
 		return TRUE
 	var/list/names = list("Custom...")
-	if(ishuman(target))
+	if(target && ishuman(target))
 		var/mob/living/carbon/human/human_target = target
 		var/datum/species/species = human_target?.dna?.species
 		if(species)
