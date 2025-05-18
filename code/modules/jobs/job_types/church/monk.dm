@@ -110,10 +110,10 @@
 			H.adjust_skillrank(/datum/skill/labor/taming, 1, TRUE)
 			ADD_TRAIT(H, TRAIT_SEEDKNOW, TRAIT_GENERIC)
 		if(/datum/patron/divine/abyssor)
-			head = /obj/item/clothing/head/padded/abyssor
+			head = /obj/item/clothing/head/roguehood/random
 			neck = /obj/item/clothing/neck/psycross/silver/abyssor
 			shoes = /obj/item/clothing/shoes/boots
-			armor = /obj/item/clothing/shirt/robe/abyssor
+			armor = /obj/item/clothing/shirt/robe/plain
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
 			H.adjust_skillrank(/datum/skill/labor/fishing, 2, TRUE)
 		if(/datum/patron/divine/ravox)
