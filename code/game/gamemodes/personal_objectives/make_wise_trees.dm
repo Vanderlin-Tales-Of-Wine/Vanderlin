@@ -1,6 +1,6 @@
 /datum/objective/wise_trees
 	name = "Create Wise Trees"
-	triumph_count = 1
+	triumph_count = 0
 	var/trees_transformed = 0
 	var/trees_required = 3
 
@@ -21,7 +21,7 @@
 		return
 
 	trees_transformed++
-	to_chat(owner.current, span_notice("Tree transformed! [trees_required - trees_transformed] more tree\s needed."))
+	to_chat(owner.current, span_green("Tree transformed! [trees_required - trees_transformed] more tree\s needed."))
 
 	if(trees_transformed >= trees_required)
 		complete_objective()

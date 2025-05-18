@@ -1,8 +1,8 @@
 /datum/objective/punch_women
 	name = "Punch Women"
-	triumph_count = 1
+	triumph_count = 0
 	var/punches_done = 0
-	var/punches_required = 2
+	var/punches_required = 3
 
 /datum/objective/punch_women/on_creation()
 	. = ..()
@@ -21,7 +21,9 @@
 		return
 
 	punches_done++
-	to_chat(owner.current, span_notice("Woman punched in the face! [punches_required - punches_done] more face punches needed."))
+
+	if(punches_done < punches_required)
+		to_chat(owner.current, span_notice("Woman punched in the face! [punches_required - punches_done] more face punches needed."))
 
 	if(punches_done >= punches_required)
 		complete_objective()
