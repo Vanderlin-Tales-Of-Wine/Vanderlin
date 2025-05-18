@@ -108,3 +108,25 @@
 		if(!L.client)
 			return
 		INVOKE_ASYNC(src, PROC_REF(get_player_input))
+
+/obj/item/clothing/shirt/ornate
+	name = "ornate base"
+	desc = "If you see this, someone messed up and either spawned the wrong item or mapped in the wrong item, yell at them!"
+	icon = 'icons/roguetown/clothing/ornate_tunic.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/ornate_tunic.dmi'
+	sleeved = 'icons/roguetown/clothing/onmob/ornate_tunic.dmi'
+	boobed = TRUE
+
+/obj/item/clothing/shirt/ornate/tunic
+	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR
+	name = "ornate tunic"
+	desc = "A red tunic with gold accents, fit for nobility."
+	icon_state = "ornatetunic"
+	sellprice = 150
+
+/obj/item/clothing/shirt/ornate/dress
+	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR
+	name = "ornate dress"
+	desc = "A red dress with gold accents, fit for nobility."
+	icon_state = "ornatedress"
+	sellprice = 150
