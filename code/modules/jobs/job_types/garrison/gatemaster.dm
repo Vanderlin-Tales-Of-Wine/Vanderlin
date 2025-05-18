@@ -35,10 +35,16 @@
 /datum/outfit/job/gatemaster/pre_equip(mob/living/carbon/human/H)
 	. = ..()
 	head = /obj/item/clothing/head/helmet/townwatch/alt
-	cloak = /obj/item/clothing/cloak/stabard/surcoat/guard
 	wrists = /obj/item/clothing/wrists/bracers/leather
 	belt = /obj/item/storage/belt/leather/black
 	pants = /obj/item/clothing/pants/trou/leather/guard
+
+/datum/outfit/job/gatemaster/post_equip(mob/living/carbon/human/H)
+	. = ..()
+	if(!H.cloak)
+		var/obj/item/clothing/cloak/guard_cloak = new /obj/item/clothing/cloak/stabard/surcoat/guard(get_turf(H.loc))
+		guard_cloak.name = "[guard_cloak.name]"+" "+"([H.real_name])"
+		H.equip_to_slot(guard_cloak, SLOT_CLOAK, TRUE)
 
 /datum/job/gatemaster/after_spawn(mob/living/spawned, client/player_client)
 	..()
@@ -46,15 +52,6 @@
 	H.advsetup = TRUE
 	H.invisibility = INVISIBILITY_MAXIMUM
 	H.become_blind("advsetup")
-
-	if(istype(H.cloak, /obj/item/clothing/cloak/stabard/surcoat/guard))
-		var/obj/item/clothing/S = H.cloak
-		var/index = findtext(H.real_name, " ")
-		if(index)
-			index = copytext(H.real_name, 1,index)
-		if(!index)
-			index = H.real_name
-		S.name = "gatemaster jupon ([index])"
 
 /datum/advclass/gatemaster/gatemaster_whip
 	name = "Chainguard Gatemaster"
