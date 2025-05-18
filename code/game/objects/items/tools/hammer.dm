@@ -48,13 +48,13 @@
 			to_chat(user, span_warning("There is nothing to further repair on [attacked_prosthetic]."))
 			return
 
-		if(blacksmith_mind.get_skill_level(attacked_prosthetic.anvilrepair) <= 0)
+		if(user.get_skill_level(attacked_prosthetic.anvilrepair) <= 0)
 			if(prob(30))
 				repair_percent = 0.01
 			else
 				repair_percent = 0
 		else
-			repair_percent *= blacksmith_mind.get_skill_level(attacked_prosthetic.anvilrepair)
+			repair_percent *= user.get_skill_level(attacked_prosthetic.anvilrepair)
 
 		playsound(src,'sound/items/bsmith3.ogg', 100, FALSE)
 		if(repair_percent)
@@ -82,13 +82,13 @@
 			to_chat(user, span_warning("[attacked_item] cannot be repaired any further."))
 			return
 
-		if(blacksmith_mind.get_skill_level(attacked_item.anvilrepair) <= 0)
+		if(user.get_skill_level(attacked_item.anvilrepair) <= 0)
 			if(prob(30))
 				repair_percent = 0.01
 			else
 				repair_percent = 0
 		else
-			repair_percent *= blacksmith_mind.get_skill_level(attacked_item.anvilrepair)
+			repair_percent *= user.get_skill_level(attacked_item.anvilrepair)
 
 		playsound(src,'sound/items/bsmithfail.ogg', 40, FALSE)
 		if(repair_percent)
@@ -111,11 +111,11 @@
 		if(!attacked_structure.hammer_repair || !attacked_structure.max_integrity || attacked_structure.obj_broken)
 			to_chat(user, span_warning("[attacked_structure] cannot be repaired any further."))
 			return
-		if(blacksmith_mind.get_skill_level(attacked_structure.hammer_repair) <= 0)
+		if(user.get_skill_level(attacked_structure.hammer_repair) <= 0)
 			to_chat(user, span_warning("I don't know how to repair this.."))
 			return
 		var/amt2raise = floor(user.STAINT * 0.25)
-		repair_percent *= blacksmith_mind.get_skill_level(attacked_structure.hammer_repair) * attacked_structure.max_integrity
+		repair_percent *= user.get_skill_level(attacked_structure.hammer_repair) * attacked_structure.max_integrity
 		attacked_structure.obj_integrity = min(attacked_structure.obj_integrity + repair_percent, attacked_structure.max_integrity)
 		blacksmith_mind.add_sleep_experience(attacked_structure.hammer_repair, amt2raise)
 		playsound(src,'sound/items/bsmithfail.ogg', 100, FALSE)

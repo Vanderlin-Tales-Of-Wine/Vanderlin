@@ -55,14 +55,14 @@
 		if(user.STAEND > 10) // Every point over 10 END adds 10% damage
 			BB.damage = BB.damage * (user.STAEND / 10)
 		BB.damage *= damfactor // Apply blow's inherent damage multiplier regardless of PER
-		BB.bonus_accuracy += (user.mind.get_skill_level(/datum/skill/combat/bows) * 5) //+5 accuracy per level in bows. Bonus accuracy will not drop-off.
+		BB.bonus_accuracy += (user.get_skill_level(/datum/skill/combat/bows) * 5) //+5 accuracy per level in bows. Bonus accuracy will not drop-off.
 	. = ..()
 	if(.)
 		if(istype(user) && user.mind)
 			var/modifier = 1/(spread+1)
-			var/boon = user.mind.get_learning_boon(/datum/skill/combat/bows)
+			var/boon = user.get_learning_boon(/datum/skill/combat/bows)
 			var/amt2raise = user.STAINT/2
-			user.mind.adjust_experience(/datum/skill/combat/bows, amt2raise * boon * modifier, FALSE)
+			user.adjust_experience(/datum/skill/combat/bows, amt2raise * boon * modifier, FALSE)
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/blowgun/update_icon()
 	. = ..()
@@ -102,7 +102,7 @@
 	if(mastermob && chargetime)
 		var/newtime = 0
 		newtime = newtime + 3 SECONDS
-		newtime = newtime - (mastermob.mind.get_skill_level(/datum/skill/combat/bows) * (5))- (mastermob.STAEND * 0.5)
+		newtime = newtime - (mastermob.get_skill_level(/datum/skill/combat/bows) * (5))- (mastermob.STAEND * 0.5)
 		if(newtime > 0)
 			return newtime
 		else
@@ -129,7 +129,7 @@
 		var/newtime = 0
 		//skill block
 		newtime = newtime + 10
-		newtime = newtime - (mastermob.mind.get_skill_level(/datum/skill/combat/bows) * (10/6))
+		newtime = newtime - (mastermob.get_skill_level(/datum/skill/combat/bows) * (10/6))
 		//end block //rtd replace 10 with drawdiff on bows that are hard and scale end more (10/20 = 0.5)
 		newtime = newtime + 10
 		newtime = newtime - (mastermob.STAEND * (10/20))

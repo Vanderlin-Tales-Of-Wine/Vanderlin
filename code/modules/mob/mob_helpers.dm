@@ -1048,6 +1048,6 @@
 		if(!J)
 			return "Unknown"
 		used_title = J.get_informed_title(src)
-	if(mind?.apprentice)
-		used_title = mind.our_apprentice_name
+	if(is_apprentice())
+		used_title = return_our_apprentice_name()
 	return used_title

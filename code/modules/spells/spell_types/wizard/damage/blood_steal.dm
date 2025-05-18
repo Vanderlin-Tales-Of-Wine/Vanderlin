@@ -50,9 +50,9 @@
 			if(H.vitae_pool >= 500) // You'll only get vitae IF they have vitae.
 				H.vitae_pool -= 500
 				VDrinker.adjust_vitae(500)
-			var/boon = sender.mind?.get_learning_boon(/datum/skill/magic/blood)
+			var/boon = sender.get_learning_boon(/datum/skill/magic/blood)
 			var/amt2raise = sender.STAINT*2
-			sender.mind?.adjust_experience(/datum/skill/magic/blood, floor(amt2raise * boon), FALSE)
+			sender.adjust_experience(/datum/skill/magic/blood, floor(amt2raise * boon), FALSE)
 			H.handle_blood()
 			H.visible_message(span_danger("[target] has their blood ripped from their body!"), \
 					span_userdanger("My blood erupts from my body!"), span_hear("..."), COMBAT_MESSAGE_RANGE, target)

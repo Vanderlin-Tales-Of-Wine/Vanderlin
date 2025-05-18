@@ -54,7 +54,7 @@
 	if(!istype(user, /mob/living))
 		return
 	var/mob/living/player = user
-	var/skill = player.mind.get_skill_level(/datum/skill/craft/engineering)
+	var/skill = player.get_skill_level(/datum/skill/craft/engineering)
 	if(current_charge)
 		. += span_warning("The contraption has [current_charge] charges left.")
 	if(!current_charge)
@@ -192,7 +192,7 @@
 		S.set_up(1, 1, front)
 		S.start()
 		return
-	var/skill = user.mind.get_skill_level(/datum/skill/craft/engineering)
+	var/skill = user.get_skill_level(/datum/skill/craft/engineering)
 	if(istype(O, /obj/structure/door)) //This is to ensure the new door will retain its lock
 		var/obj/structure/door/I = O
 		var/obj/structure/door/new_door = new I.metalizer_result(get_turf(I))
@@ -285,7 +285,7 @@
 	return
 
 /obj/item/contraption/smelter/proc/smelt_part2(obj/O, mob/living/user)
-	var/skill = user.mind.get_skill_level(/datum/skill/craft/engineering)
+	var/skill = user.get_skill_level(/datum/skill/craft/engineering)
 	var/turf/turf = get_turf(O)
 	playsound(O, pick('sound/combat/hits/burn (1).ogg','sound/combat/hits/burn (2).ogg'), 100)
 	O.moveToNullspace()
@@ -342,7 +342,7 @@
 	if(patient.stat != DEAD && (patient.jitteriness || patient.body_position != LYING_DOWN)) //jittering will make it harder to secure the shears, even if you can't otherwise move
 		amputation_speed_mod *= 1.5 //15*0.5*1.5=11.25
 
-	var/skill_modifier = 1.5 - (user.mind?.get_skill_level(/datum/skill/craft/engineering) / 6)
+	var/skill_modifier = 1.5 - (user.get_skill_level(/datum/skill/craft/engineering) / 6)
 	if(do_after(user, 15 SECONDS * amputation_speed_mod * skill_modifier, target = patient))
 		playsound(get_turf(patient), 'sound/misc/guillotine.ogg', 20, TRUE)
 		limb_snip_candidate.drop_limb()
@@ -373,14 +373,14 @@
 
 /obj/item/contraption/linker/examine(mob/user)
 	. = ..()
-	if(HAS_TRAIT(user, TRAIT_ENGINEERING_GOGGLES) || user.mind?.get_skill_level(/datum/skill/craft/engineering) >= 1)
+	if(HAS_TRAIT(user, TRAIT_ENGINEERING_GOGGLES) || user.get_skill_level(/datum/skill/craft/engineering) >= 1)
 		. += span_notice("Its buffer [buffer ? "contains [buffer]." : "is empty."]")
 	else
 		. += span_notice("All you can make out is a bunch of gibberish.")
 
 /obj/item/contraption/linker/attack_self(mob/user)
 	. = ..()
-	if(user.mind?.get_skill_level(/datum/skill/craft/engineering) >= 1)
+	if(user.get_skill_level(/datum/skill/craft/engineering) >= 1)
 		to_chat(user, "You wipe [src] of its stored buffer.")
 		remove_buffer(src)
 	else

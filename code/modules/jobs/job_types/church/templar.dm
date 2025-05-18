@@ -78,7 +78,7 @@
 			wrists = /obj/item/clothing/neck/psycross/silver/abyssor
 			cloak = /obj/item/clothing/cloak/stabard/templar/abyssor
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
-			H.mind?.adjust_skillrank(/datum/skill/labor/fishing, 1, TRUE)
+			H.adjust_skillrank(/datum/skill/labor/fishing, 1, TRUE)
 
 
 	armor = /obj/item/clothing/armor/chainmail/hauberk
@@ -92,32 +92,32 @@
 	beltl = /obj/item/storage/belt/pouch/coins/poor
 	ring = /obj/item/clothing/ring/silver
 	gloves = /obj/item/clothing/gloves/chain
-	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/magic/holy, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
-		H.change_stat(STATKEY_STR, 2)
-		H.change_stat(STATKEY_CON, 2)
-		H.change_stat(STATKEY_END, 2)
-		H.change_stat(STATKEY_SPD, -1)
-		if(!H.has_language(/datum/language/celestial)) // For discussing church matters with the other Clergy
-			H.grant_language(/datum/language/celestial)
-			to_chat(H, "<span class='info'>I can speak Celestial with ,c before my speech.</span>")
+
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/magic/holy, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
+	H.change_stat(STATKEY_STR, 2)
+	H.change_stat(STATKEY_CON, 2)
+	H.change_stat(STATKEY_END, 2)
+	H.change_stat(STATKEY_SPD, -1)
+	if(!H.has_language(/datum/language/celestial)) // For discussing church matters with the other Clergy
+		H.grant_language(/datum/language/celestial)
+		to_chat(H, "<span class='info'>I can speak Celestial with ,c before my speech.</span>")
 	switch(H.patron?.type)
 		if(/datum/patron/divine/abyssor)
-			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
 			backl = /obj/item/weapon/polearm/spear/billhook
 		if(/datum/patron/divine/malum)
-			H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 4, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/axesmaces, 4, TRUE)
 			beltr = /obj/item/weapon/mace/warhammer/steel
 		else
-			H.mind?.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
 			beltr = /obj/item/weapon/sword/long
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)

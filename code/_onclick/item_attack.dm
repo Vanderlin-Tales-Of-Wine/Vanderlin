@@ -12,11 +12,11 @@
 		var/mob/living/G = user.pulledby
 		var/mob/living/U = user
 		var/userskill = 1
-		if(U?.mind?.get_skill_level(/datum/skill/combat/wrestling))
-			userskill = ((U.mind.get_skill_level(/datum/skill/combat/wrestling) * 0.1) + 1)
+		if(U?.get_skill_level(/datum/skill/combat/wrestling))
+			userskill = ((U.get_skill_level(/datum/skill/combat/wrestling) * 0.1) + 1)
 		var/grabberskill = 1
-		if(G?.mind?.get_skill_level(/datum/skill/combat/wrestling))
-			grabberskill = ((G.mind.get_skill_level(/datum/skill/combat/wrestling) * 0.1) + 1)
+		if(G?.get_skill_level(/datum/skill/combat/wrestling))
+			grabberskill = ((G.get_skill_level(/datum/skill/combat/wrestling) * 0.1) + 1)
 		if(((U.STASTR + rand(1, 6)) * userskill) < ((G.STASTR + rand(1, 6)) * grabberskill))
 			to_chat(user, span_notice("I can't move my arm!"))
 			user.changeNext_move(CLICK_CD_GRABBING)
@@ -292,7 +292,7 @@
 			switch(user.used_intent.blade_class)
 				if(BCLASS_CUT)
 					var/mob/living/lumberjacker = user
-					var/lumberskill = lumberjacker.mind?.get_skill_level(/datum/skill/labor/lumberjacking)
+					var/lumberskill = lumberjacker.get_skill_level(/datum/skill/labor/lumberjacking)
 					if(!I.remove_bintegrity(1, user))
 						dullfactor = 0.2
 					else
@@ -351,7 +351,7 @@
 					cont = TRUE
 				if(BCLASS_PICK)
 					var/mob/living/miner = user
-					var/mineskill = miner.mind?.get_skill_level(/datum/skill/labor/mining)
+					var/mineskill = miner.get_skill_level(/datum/skill/labor/mining)
 					dullfactor = 1.6 - (mineskill * 0.1)
 					cont = TRUE
 			if(!cont)
@@ -364,14 +364,14 @@
 				return 0
 			var/mob/living/miner = user
 			//Mining Skill force multiplier.
-			var/mineskill = miner.mind?.get_skill_level(/datum/skill/labor/mining)
+			var/mineskill = miner.get_skill_level(/datum/skill/labor/mining)
 			newforce = newforce * (8+(mineskill*1.5))
 			// Pick quality multiplier. Affected by smithing, or material of the pick.
 			if(istype(I, /obj/item/weapon/pick))
 				var/obj/item/weapon/pick/P = I
 				newforce *= P.pickmult
 			shake_camera(user, 1, 0.1)
-			miner.mind.adjust_experience(/datum/skill/labor/mining, (miner.STAINT*0.2))
+			miner.adjust_experience(/datum/skill/labor/mining, (miner.STAINT*0.2))
 	/*
 	* Ill be honest this final thing is extremely confusing.
 	* Newforce after being altered by strength stat is then

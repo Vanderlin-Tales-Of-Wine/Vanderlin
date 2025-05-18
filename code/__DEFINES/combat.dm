@@ -198,6 +198,7 @@
 #define BCLASS_CUT			"slash"
 #define BCLASS_CHOP			"chopping"
 #define BCLASS_STAB			"stab"
+#define BCLASS_PIERCE		"pierce"
 #define BCLASS_SHOT			"shot"
 #define BCLASS_PICK			"stab"
 #define BCLASS_TWIST		"twist"

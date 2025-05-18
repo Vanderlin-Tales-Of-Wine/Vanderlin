@@ -9,6 +9,7 @@
 	subcategory = SLAP_SUBCAT_STRUCTURE
 	assembly_weight_class = WEIGHT_CLASS_HUGE
 	craftsound = 'sound/foley/Building-01.ogg'
+	category = "Structure"
 
 /datum/slapcraft_recipe/carpentry/structure/check_craft_requirements(mob/user, turf/T)
 	if(istype(T,/turf/open/transparent/openspace))
@@ -39,6 +40,7 @@
 	anchor_craft = TRUE
 	subcategory = SLAP_SUBCAT_STRUCTURE
 	craftsound = 'sound/foley/Building-02.ogg'
+	category = "Structure"
 
 /datum/slapcraft_recipe/masonry/structure/check_craft_requirements(mob/user, turf/T)
 	if(istype(T,/turf/open/transparent/openspace))
@@ -68,6 +70,7 @@
 	anchor_craft = TRUE
 	subcategory = SLAP_SUBCAT_STRUCTURE
 	craftsound = 'sound/foley/Building-01.ogg'
+	category = "Structure"
 
 /datum/slapcraft_recipe/engineering/structure/check_craft_requirements(mob/user, turf/T)
 	if(istype(T,/turf/open/transparent/openspace))

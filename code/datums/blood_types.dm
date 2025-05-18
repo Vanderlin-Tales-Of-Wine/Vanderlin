@@ -100,6 +100,14 @@ GLOBAL_LIST_INIT_TYPED(blood_types, /datum/blood_type, init_subtypes_w_path_keys
 	reagent_type = /datum/reagent/blood
 	contains_lux = FALSE
 
+/datum/blood_type/human/demihuman
+	name = "Hollow-Kin"
+	compatible_types = list(
+		/datum/blood_type/human/o_minus,
+	)
+	reagent_type = /datum/reagent/blood
+	contains_lux = FALSE
+
 /datum/blood_type/human/horc
 	name = "Half-Orc"
 	compatible_types = list(

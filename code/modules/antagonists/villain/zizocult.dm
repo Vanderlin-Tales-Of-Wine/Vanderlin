@@ -52,7 +52,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 
 	owner.special_role = "Zizoid Lackey"
 	H.cmode_music = 'sound/music/cmode/antag/combat_cult.ogg'
-	owner.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
+	owner.current.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
 	owner.current.playsound_local(get_turf(owner.current), 'sound/music/maniac.ogg', 80, FALSE, pressure_affected = FALSE)
 	owner.current.verbs |= /mob/living/carbon/human/proc/communicate
 
@@ -60,15 +60,15 @@ GLOBAL_LIST_EMPTY(ritualslist)
 
 	if(islesser)
 		add_objective(/datum/objective/zizoserve)
-		owner.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-		owner.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
+		owner.current.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+		owner.current.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
 		H.change_stat(STATKEY_INT, -2)
 	else
 		add_objective(/datum/objective/zizo)
-		owner.clamped_adjust_skillrank(/datum/skill/combat/knives, 4, TRUE)
-		owner.clamped_adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
-		owner.clamped_adjust_skillrank(/datum/skill/combat/wrestling, 5, TRUE)
-		owner.clamped_adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
+		owner.current.clamped_adjust_skillrank(/datum/skill/combat/knives, 4, TRUE)
+		owner.current.clamped_adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
+		owner.current.clamped_adjust_skillrank(/datum/skill/combat/wrestling, 5, TRUE)
+		owner.current.clamped_adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 		H.change_stat(STATKEY_STR, 2)
 		H.change_stat(STATKEY_END, 3)
 		H.change_stat(STATKEY_CON, 3)

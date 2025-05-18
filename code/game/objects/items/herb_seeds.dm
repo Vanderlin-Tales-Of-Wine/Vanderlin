@@ -21,7 +21,7 @@
 		if(HAS_TRAIT(living, TRAIT_SEEDKNOW) || HAS_TRAIT(living,TRAIT_LEGENDARY_ALCHEMIST))
 			show_real_identity = TRUE
 		// Alchemy seeds, so they would know them
-		else if(living.mind.get_skill_level(/datum/skill/craft/alchemy) >= 2 || living.mind.get_skill_level(/datum/skill/labor/farming) >= 2)
+		else if(living.get_skill_level(/datum/skill/craft/alchemy) >= 2 || living.get_skill_level(/datum/skill/labor/farming) >= 2)
 			show_real_identity = TRUE
 	else
 		show_real_identity = TRUE

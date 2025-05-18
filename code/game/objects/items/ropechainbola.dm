@@ -72,7 +72,7 @@
 					C.visible_message(span_warning("[user] ties [C]' arms with [src.name]."), \
 										span_danger("[user] ties my arms up with [src.name]."))
 					SSblackbox.record_feedback("tally", "handcuffs", 1, type)
-					user.mind?.adjust_experience(/datum/skill/craft/traps, C.STAINT, FALSE)
+					user.adjust_experience(/datum/skill/craft/traps, C.STAINT, FALSE)
 					log_combat(user, C, "handcuffed")
 				else
 					to_chat(user, span_warning("I fail to tie up [C]'s arms!</span>"))
@@ -88,7 +88,7 @@
 					C.visible_message(span_warning("[user] ties [C]' legs with [src.name]."), \
 										span_danger("[user] ties my legs up with [src.name]."))
 					SSblackbox.record_feedback("tally", "legcuffs", 1, type)
-					user.mind?.adjust_experience(/datum/skill/craft/traps, C.STAINT, FALSE)
+					user.adjust_experience(/datum/skill/craft/traps, C.STAINT, FALSE)
 					log_combat(user, C, "legcuffed")
 				else
 					to_chat(user, span_warning("I fail to tie up [C]'s legs!</span>"))

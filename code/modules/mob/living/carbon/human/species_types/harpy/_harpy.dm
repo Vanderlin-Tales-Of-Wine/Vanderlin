@@ -2,7 +2,7 @@
 	race = /datum/species/harpy
 
 /datum/species/harpy
-	name = "Harpies"
+	name = "Harpy"
 	id = "harpy"
 	desc = "Harpies, or less ceremoniously known as 'magpies,' resemble the despised hollow-kin in appearance at first glance. \
 	One would rightfully assume they are similar in nature- with accuracy even, much to the harpies' chagrin. \
@@ -13,12 +13,12 @@
 	Harpies tend to live and gather in colonies at the tops of great sequoia forests and in nearby cliffs. Due to their burden, they must employ use of updrafts and proximity to large objects or structures to bolster their limited flight and air-dancing performances. \
 	Their serene songs and blissful music can be heard echoing far below, guiding travelers and thieves both to respite... or treasure. For as lifted into grace as they might be, these 'magpies' earn such a nickname from Matthiosan greed and love for anything that shines. \
 	Yet if one can work past that distrust and compensate them well, harpies make for unparalleled couriers. "
-	skin_tone_wording = "Ancestry"
+	skin_tone_wording = "Heritage"
 	default_color = "FFFFFF"
 	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,STUBBLE,OLDGREY)
 	default_features = MANDATORY_FEATURE_LIST
 	use_skintones = TRUE
-	possible_ages = ALL_AGES_LIST
+	possible_ages = list(AGE_CHILD, AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD)
 	disliked_food = NONE
 	liked_food = NONE
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | RACE_SWAP | SLIME_EXTRACT
@@ -56,6 +56,7 @@
 		ORGAN_SLOT_LIVER = /obj/item/organ/liver,
 		ORGAN_SLOT_STOMACH = /obj/item/organ/stomach,
 		ORGAN_SLOT_APPENDIX = /obj/item/organ/appendix,
+		ORGAN_SLOT_VOICE = /obj/item/organ/vocal_cords/harpy,
 		ORGAN_SLOT_TAIL = /obj/item/organ/tail,
 		)
 	bodypart_features = list(
@@ -69,10 +70,10 @@
 		/datum/customizer/bodypart_feature/accessory,
 		/datum/customizer/bodypart_feature/face_detail,
 
-		/datum/customizer/organ/ears/harpy,
+//		/datum/customizer/organ/ears/harpy,
 		/datum/customizer/organ/tail/harpy,
 		/datum/customizer/organ/wings/harpy,
-		/datum/customizer/organ/snout/harpy,
+//		/datum/customizer/organ/snout/harpy,		Ook asked to remove.
 
 		)
 
@@ -117,7 +118,7 @@
 	))
 
 /datum/species/harpy/check_roundstart_eligible()
-	return FALSE
+	return TRUE
 
 /datum/species/harpy/qualifies_for_rank(rank, list/features)
 	return TRUE
@@ -126,13 +127,6 @@
 	..()
 	foreign.AddComponent(/datum/component/abberant_eater, list(/obj/item/herbseed, /obj/item/neuFarm/seed))
 	foreign.grant_language(/datum/language/common)
-//	languages(foreign)
-
-/*
-/datum/species/harpy/proc/languages(mob/living/carbon/human/foreign)
-	if(foreign.skin_tone == SKIN_COLOR_GRENZELHOFT)
-		foreign.grant_language(/datum/language/grenzelhoftian)
-*/
 
 /datum/species/harpy/get_skin_list()
 	return sortList(list(

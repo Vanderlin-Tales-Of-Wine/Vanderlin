@@ -20,7 +20,8 @@
 		"Dwarf",
 		"Tiefling",
 		"Dark Elf",
-		"Aasimar"
+		"Aasimar",
+		"Harpy"
 	)
 
 	outfit = /datum/outfit/job/cook
@@ -33,17 +34,16 @@
 
 /datum/outfit/job/cook/pre_equip(mob/living/carbon/human/H)
 	..()
-	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/butchering, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/taming, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/farming, 1, TRUE)
-		if(H.age == AGE_OLD)
-			H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/cooking, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/labor/butchering, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/labor/taming, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/labor/farming, 1, TRUE)
+	if(H.age == AGE_OLD)
+		H.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 	belt = /obj/item/storage/belt/leather/rope
 	beltl = /obj/item/key/tavern
 	beltr = /obj/item/weapon/knife/villager
@@ -64,3 +64,4 @@
 		shoes = /obj/item/clothing/shoes/simpleshoes
 		neck = /obj/item/storage/belt/pouch/coins/poor
 		H.change_stat(STATKEY_CON, 2)
+	backpack_contents = list(/obj/item/recipe_book/cooking)
