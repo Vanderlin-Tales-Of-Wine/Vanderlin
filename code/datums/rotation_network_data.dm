@@ -34,7 +34,9 @@
 
 /datum/rotation_network/proc/breakdown()
 	overstressed = TRUE
-	for(var/obj/structure/child in connected)
+	for(var/obj/structure/child as anything in connected)
+		if(QDELETED(child))
+			continue
 		child.MakeParticleEmitter(/particles/sparks, FALSE, 1 SECONDS)
 	update_animation_effect()
 

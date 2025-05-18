@@ -277,10 +277,10 @@
 /obj/structure/proc/rotation_break()
 	visible_message(span_warning("[src] breaks apart from the opposing directions!"))
 	playsound(src, 'sound/foley/cartdump.ogg', 75)
-	qdel(src)
 	for(var/obj/item/rotation_contraption/item as anything in subtypesof(/obj/item/rotation_contraption))
 		if(type == initial(item.placed_type))
 			new item(get_turf(src))
+			qdel(src)
 			return
 
 /obj/structure/proc/set_rotations_per_minute(speed)
