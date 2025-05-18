@@ -441,7 +441,7 @@
 /area/rogue/indoors/lich)
 "cZ" = (
 /obj/structure/door/iron/bars/cell,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/mountains)
 "db" = (
@@ -627,7 +627,7 @@
 /area/rogue/indoors/mountains)
 "ec" = (
 /obj/structure/door/stone,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/churchrough,
 /area/rogue/indoors/cave)
 "ed" = (
@@ -678,7 +678,7 @@
 /area/rogue/indoors/mountains)
 "el" = (
 /obj/structure/door/fancy,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/herringbone,
 /area/rogue/indoors/lich)
 "em" = (
@@ -1604,7 +1604,7 @@
 /area/rogue/outdoors/bog)
 "jn" = (
 /obj/structure/door,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/mountains)
 "jq" = (
@@ -2739,7 +2739,7 @@
 /area/rogue/indoors/mountains)
 "qO" = (
 /obj/structure/door/fancy,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/tile/kitchen,
 /area/rogue/indoors/lich)
 "qR" = (
@@ -2926,7 +2926,7 @@
 /area/rogue/indoors/lich)
 "rT" = (
 /obj/structure/door/iron/bars,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/churchrough,
 /area/rogue/indoors/cave)
 "rU" = (
@@ -3745,7 +3745,7 @@
 "vS" = (
 /obj/structure/door,
 /obj/structure/spider/stickyweb/solo,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/mountains)
 "vV" = (
@@ -4392,7 +4392,7 @@
 /area/rogue/outdoors/bog)
 "zz" = (
 /obj/structure/door/stone,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/church,
 /area/rogue/indoors/cave)
 "zA" = (
@@ -4925,7 +4925,7 @@
 /area/rogue/indoors/mountains)
 "Cj" = (
 /obj/structure/door/fancy,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/tile/masonic/single,
 /area/rogue/indoors/lich)
 "Co" = (
@@ -6051,7 +6051,7 @@
 /area/rogue/outdoors/bog)
 "IZ" = (
 /obj/structure/door/fancy,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/cobblerock,
 /area/rogue/indoors/lich)
 "Ja" = (
@@ -6603,7 +6603,7 @@
 /area/rogue/indoors/mountains)
 "Mk" = (
 /obj/structure/door/fancy,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/tile/bath,
 /area/rogue/indoors/lich)
 "Mm" = (
@@ -6652,7 +6652,7 @@
 /area/rogue/indoors/lich)
 "MD" = (
 /obj/structure/door/fancy,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/indoors/lich)
 "ME" = (
@@ -7201,7 +7201,7 @@
 /area/rogue/outdoors/bog)
 "PN" = (
 /obj/structure/door/iron/bars/cell,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/cobblerock,
 /area/rogue/indoors/mountains)
 "PP" = (
@@ -7228,7 +7228,7 @@
 /area/rogue/indoors/lich)
 "PW" = (
 /obj/structure/door/fancy,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/mountains)
 "PY" = (
@@ -7685,7 +7685,7 @@
 /area/rogue/indoors/lich)
 "Tn" = (
 /obj/structure/door/iron/bars,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/church,
 /area/rogue/indoors/cave)
 "To" = (
@@ -8734,7 +8734,7 @@
 /area/rogue/indoors/mountains)
 "Zz" = (
 /obj/structure/door/fancy,
-/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/lich)
 "ZA" = (
