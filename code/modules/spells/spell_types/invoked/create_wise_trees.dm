@@ -4,6 +4,8 @@
 	invocation_type = "none"
 	action_icon_state = "tree_transform"
 	action_background_icon_state = "bg_dendor"
+	range = 1
+	recharge_time = 20 SECONDS
 	var/uses = 3
 
 /obj/effect/proc_holder/spell/invoked/transform_tree/cast(list/targets, mob/user = usr)
@@ -11,9 +13,26 @@
 	if(!istype(H))
 		return
 
-	var/obj/structure/flora/tree/target = locate() in get_turf(H)
-	if(!istype(target) || istype(target, /obj/structure/flora/tree/wise))
-		to_chat(H, span_warning("You must be standing on a normal tree to transform it!"))
+	var/atom/target_atom = targets[1]
+	var/obj/structure/flora/target
+
+	if(istype(target_atom, /obj/structure/flora/tree) && !istype(target_atom, /obj/structure/flora/tree/wise) && !istype(target_atom, /obj/structure/flora/tree/stump))
+		target = target_atom
+	else if(istype(target_atom, /obj/structure/flora/newtree))
+		target = target_atom
+	else if(target_atom.loc && (get_dist(user, target_atom.loc) <= 1))
+		for(var/obj/structure/flora/tree/T in target_atom.loc)
+			if(!istype(T, /obj/structure/flora/tree/wise) && !istype(T, /obj/structure/flora/tree/stump))
+				target = T
+				break
+		if(!target)
+			for(var/obj/structure/flora/newtree/NT in target_atom.loc)
+				if(!NT.burnt)
+					target = NT
+					break
+
+	if(!target)
+		to_chat(H, span_warning("You must target a normal, living tree adjacent to you!"))
 		return
 
 	if(uses <= 0)
@@ -21,19 +40,41 @@
 		H.mind.RemoveSpell(src)
 		return
 
-	target.name = "wise tree"
-	target.desc = "Dendor's favored."
-	target.icon_state = "mystical"
-	target.alpha = 255
-	target.max_integrity = initial(target.max_integrity) * 1.5
-	target.resistance_flags = FIRE_PROOF
-	target.transform = matrix() // Reset any transformations
-	target.set_light(2, 2, "#66FF99")
+	H.visible_message(span_notice("[H] begins chanting to transform the tree."), \
+					span_notice("You begin the transformation ritual..."))
+
+	if(!do_after(H, 10 SECONDS, target = target))
+		to_chat(H, span_warning("The ritual was interrupted!"))
+		return
+
+	var/turf/T = get_turf(target)
+	var/obj/structure/flora/tree/wise/new_wise_tree = new(T)
+	new_wise_tree.activated = TRUE
+	new_wise_tree.set_light(2, 2, 2, l_color = "#66FF99")
+
+	if(istype(target, /obj/structure/flora/newtree))
+		for(var/turf/adjacent in range(1, T))
+			for(var/obj/structure/flora/newbranch/B in adjacent)
+				qdel(B)
+			for(var/obj/structure/flora/newleaf/L in adjacent)
+				qdel(L)
+		var/turf/above = get_step_multiz(T, UP)
+		if(istype(above, /turf/open/transparent/openspace))
+			for(var/obj/structure/flora/newtree/upper_tree in above)
+				qdel(upper_tree)
+
+	qdel(target)
 
 	uses--
 	SEND_SIGNAL(user, COMSIG_TREE_TRANSFORMED)
-	to_chat(H, span_notice("You transform the tree into a wise tree. [uses] use\s remaining."))
+	if(uses > 0)
+		to_chat(H, span_notice("You transform the tree into a wise tree. [uses] use\s remaining."))
+	else
+		to_chat(H, span_notice("You transform the tree into a wise tree."))
+	playsound(T, 'sound/ambience/noises/mystical (4).ogg', 50, TRUE)
 
 	if(uses <= 0)
 		to_chat(H, span_warning("Dendor's blessing fades from you."))
 		H.mind.RemoveSpell(src)
+
+	return TRUE

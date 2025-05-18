@@ -35,4 +35,4 @@
 	UnregisterSignal(owner.current, COMSIG_TREE_TRANSFORMED)
 
 /datum/objective/wise_trees/update_explanation_text()
-	explanation_text = "Transform [trees_required] normal trees into wise trees using Dendor's blessing."
+	explanation_text = "Transform [trees_required] normal trees into powerful wise trees using Dendor's blessing."

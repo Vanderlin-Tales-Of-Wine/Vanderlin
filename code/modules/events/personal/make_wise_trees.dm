@@ -1,16 +1,16 @@
 
 /datum/round_event_control/dendor_trees
-	name = "Dendor's Arboreal Calling"
+	name = "Make Wise Trees"
 	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/dendor_trees
 	weight = 7
-	earliest_start = 20 MINUTES
+	earliest_start = 15 MINUTES
 	max_occurrences = 1
-	min_players = 30
+	min_players = 20
 
 	tags = list(
 		TAG_NATURE,
-		TAG_MAGIC
+		TAG_MAGIC,
 	)
 
 /datum/round_event_control/dendor_trees/canSpawnEvent(players_amt, gamemode, fake_check)
@@ -53,7 +53,7 @@
 	chosen_one.mind.AddSpell(tree_spell)
 
 	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
-	to_chat(chosen_one, span_biginfo("Dendor seeks wisdom in the forests! [new_objective.explanation_text]"))
+	to_chat(chosen_one, span_biginfo("Dendor wants you to choose suitable trees, which are to become guardians of the forest! [new_objective.explanation_text]"))
 	SEND_SOUND(chosen_one, 'sound/ambience/noises/genspooky (1).ogg')
 
 	to_chat(chosen_one, span_notice("Dendor grants you the power to transform trees into wise trees!"))
