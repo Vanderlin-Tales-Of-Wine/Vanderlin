@@ -20,13 +20,17 @@
 	anchored = TRUE
 
 	rotation_structure = TRUE
-	stress_use = 64
+	initialize_dirs = CONN_DIR_FORWARD | CONN_DIR_FLIP | CONN_DIR_LEFT | CONN_DIR_RIGHT
 
 	var/obj/item/natural/clay/stored_clay
 	var/datum/pottery_recipe/in_progress
 
 	var/static/list/recipes = list()
+	var/true_rotations = 1
 
+/obj/structure/pottery_lathe/examine(mob/user)
+	. = ..()
+	. = span_info("The speed of [src] is set to [true_rotations] RPM.")
 
 /obj/structure/pottery_lathe/update_overlays()
 	. = ..()
@@ -59,16 +63,24 @@
 	. = ..()
 	start_spinning_pottery(user)
 
+/obj/structure/pottery_lathe/attack_right(mob/user)
+	. = ..()
+	var/choice = input(user, "Set the speed of the lathe.", src) as null|num
+	if(!choice)
+		return
+	true_rotations = min(abs(choice), max(1, rotations_per_minute))
+	to_chat(user, span_info("You set the speed of [src] to [true_rotations] RPM."))
+
 /obj/structure/pottery_lathe/proc/start_spinning_pottery(mob/user)
 	update_overlays()
 	if(!stored_clay)
 		return
 
 	visible_message("[user] starts shaping some clay.", "You start shaping some clay.")
-	if(!do_after(user, in_progress.get_delay(user, rotations_per_minute), src))
+	if(!do_after(user, in_progress.get_delay(user, true_rotations), src))
 		return
 
-	if(in_progress.update_step(user, rotations_per_minute))
+	if(in_progress.update_step(user, true_rotations))
 		finish_item(user)
 
 /obj/structure/pottery_lathe/proc/finish_item(mob/user)
@@ -93,3 +105,14 @@
 	in_progress = new choice.type
 	return TRUE
 
+/obj/structure/pottery_lathe/set_rotations_per_minute(speed)
+	. = ..()
+	if(!.)
+		return
+	set_stress_use(16 * (speed / 8))
+
+/obj/structure/pottery_lathe/update_animation_effect()
+	if(!rotation_network || length(rotation_network) == 1)
+		animate(src, icon_state = "wheel", time = 1)
+		return
+	animate(src, icon_state = "wheel1", time = 1)

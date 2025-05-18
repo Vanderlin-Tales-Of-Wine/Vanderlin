@@ -1,7 +1,7 @@
 /obj/structure/water_pump
-	name = "water pump"
+	name = "fluid pump"
 	rotation_structure = TRUE
-	stress_use = 64
+	initialize_dirs = CONN_DIR_NONE
 	icon_state = "p1"
 	icon = 'icons/obj/rotation_machines.dmi'
 	layer = 5
@@ -16,34 +16,37 @@
 /obj/structure/water_pump/find_rotation_network()
 
 	for(var/direction in GLOB.cardinals)
+		if(direction == dir || direction == REVERSE_DIR(dir))
+			continue
 		var/turf/step_back = get_step(src, direction)
 		for(var/obj/structure/structure in step_back.contents)
-			if(direction == dir || direction == GLOB.reverse_dir[dir])
+			if(!structure.rotation_network || !structure.dpdir)
 				continue
 			if(!istype(structure, /obj/structure/rotation_piece/cog))
 				continue
-			if(structure.dir != dir && structure.dir != GLOB.reverse_dir[dir])
+			if(structure.dir != dir && structure.dir != GLOB.reverse_dir[dir]) // cogs not oriented in same direction
 				continue
-			if(structure.rotation_network)
-				if(rotation_network)
-					if(!structure.try_network_merge(src))
-						rotation_break()
-				else
-					if(!structure.try_connect(src))
-						rotation_break()
+			if(rotation_network)
+				if(!structure.try_network_merge(src))
+					rotation_break()
+			else
+				if(!structure.try_connect(src))
+					rotation_break()
 
 	if(!rotation_network)
 		rotation_network = new
 		rotation_network.add_connection(src)
+		last_stress_added = 0
+		set_stress_use(stress_use)
 
 /obj/structure/water_pump/return_surrounding_rotation(datum/rotation_network/network)
 	var/list/surrounding = list()
 
 	for(var/direction in GLOB.cardinals)
+		if(!(direction & dpdir))
+			continue
 		var/turf/step_back = get_step(src, direction)
 		for(var/obj/structure/structure in step_back.contents)
-			if(direction == dir || direction == GLOB.reverse_dir[dir])
-				continue
 			if(!istype(structure, /obj/structure/rotation_piece/cog))
 				continue
 			if(structure.dir != dir && structure.dir != GLOB.reverse_dir[dir])
@@ -53,33 +56,46 @@
 			surrounding |= structure
 	return surrounding
 
+/obj/structure/water_pump/Destroy()
+	STOP_PROCESSING(SSobj, src)
+	var/turf/open/pipe_turf = get_step(src, dir)
+	var/obj/structure/water_pipe/pipe  = locate(/obj/structure/water_pipe) in pipe_turf
+	if(pipe && last_provided)
+		pipe.remove_provider(last_provided, 0)
+	. = ..()
+
 /obj/structure/water_pump/set_rotations_per_minute(speed)
+	. = ..()
+	if(!.)
+		return
 	set_stress_use(64 * (speed / 8))
 	if(speed > 0)
 		START_PROCESSING(SSobj, src)
 	else
+		STOP_PROCESSING(SSobj, src)
 		var/turf/open/pipe_turf = get_step(src, dir)
 		var/obj/structure/water_pipe/pipe  = locate(/obj/structure/water_pipe) in pipe_turf
 		if(pipe && last_provided)
-			pipe.remove_provider(last_provided, last_provided_pressure)
-		STOP_PROCESSING(SSobj, src)
+			pipe.remove_provider(last_provided, 0)
 		pumping_from = null
 		last_provided_pressure = 0
 		stop_spray()
-	. = ..()
 
 /obj/structure/water_pump/return_rotation_chat(atom/movable/screen/movable/mouseover/mouseover)
-	mouseover.maptext_height = 128
+	if(!rotation_network)
+		return
+	mouseover.maptext_height = 144
 
 	return {"<span style='font-size:8pt;font-family:"Pterra";color:#808000;text-shadow:0 0 1px #fff, 0 0 2px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;' class='center maptext '>
-			Pressure:[last_provided_pressure]
-			Fluid:[pumping_from ? initial(pumping_from.water_reagent.name) : "Nothing"]
+			Pressure: [last_provided_pressure]
+			Fluid: [pumping_from ? initial(pumping_from.water_reagent.name) : "Nothing"]
 	<span style='font-size:8pt;font-family:"Pterra";color:#e6b120;text-shadow:0 0 1px #fff, 0 0 2px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;' class='center maptext '>
-			RPM:[rotations_per_minute ? rotations_per_minute : "0"]
-			[rotation_network.overstressed ? "Overstressed" : "Stress:[round(((rotation_network?.used_stress / max(1, rotation_network?.total_stress)) * 100), 1)]%"]</span>"}
+			RPM: [rotations_per_minute ? rotations_per_minute : "0"]
+			[rotation_network.total_stress ? "[rotation_network.overstressed ? "OVER:" : "STRESS:"][round(((rotation_network?.used_stress / max(1, rotation_network?.total_stress)) * 100), 1)]%" : "Stress: [rotation_network.used_stress]"]
+			DIR: [rotation_direction == 4 ? "CW" : rotation_direction == 8 ? "CCW" : ""]</span>"}
 
 /obj/structure/water_pump/can_connect(obj/structure/connector)
-	if(connector.rotation_direction && connector.rotation_direction != rotation_direction)
+	if(connector.rotation_direction && rotation_direction && (connector.rotation_direction != rotation_direction))
 		if(!istype(connector, /obj/structure/rotation_piece/cog) && !istype(connector, /obj/structure/water_pump))
 			if(connector.rotations_per_minute && rotations_per_minute)
 				return FALSE
@@ -121,9 +137,9 @@
 
 
 	var/new_pressure = rotations_per_minute
-	if(last_provided_pressure != new_pressure)
-		pipe.make_provider(pumping_from.water_reagent, new_pressure, src)
-		last_provided_pressure = new_pressure
+	// if(last_provided_pressure != new_pressure)
+	pipe.make_provider(pumping_from.water_reagent, new_pressure, src)
+	last_provided_pressure = new_pressure
 
 /obj/structure/water_pump/use_water_pressure(pressure)
 	pumping_from.adjust_originate_watervolume(pressure)

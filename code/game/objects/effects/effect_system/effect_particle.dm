@@ -2,10 +2,10 @@
 	var/list/particle_emitters = list()
 
 /atom/Destroy()
-	. = ..()
 	for(var/obj/particle_emitter/emitter in particle_emitters)
 		qdel(emitter)
 	particle_emitters = null
+	. = ..()
 
 /atom/movable/proc/AddParticles(type, create_new = FALSE)
 	if (ispath(type))

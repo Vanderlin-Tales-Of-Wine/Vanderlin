@@ -19,9 +19,10 @@
 		. += placed_atom.examine()
 
 /obj/structure/steam_recharger/valid_water_connection(direction, obj/structure/water_pipe/pipe)
-	if(direction == dir)
+	if(!input)
 		input = pipe
 		return TRUE
+	return FALSE
 
 /obj/structure/steam_recharger/process()
 	if(!placed_atom)
@@ -41,6 +42,10 @@
 
 /obj/structure/steam_recharger/return_rotation_chat(atom/movable/screen/movable/mouseover/mouseover)
 	mouseover.maptext_height = 128
+
+	if(!input || !ispath(input.carrying_reagent, /datum/reagent/steam))
+		return {"<span style='font-size:8pt;font-family:"Pterra";color:#808000;text-shadow:0 0 1px #fff, 0 0 2px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;' class='center maptext '>
+			NO STEAM INPUT"}
 
 	return {"<span style='font-size:8pt;font-family:"Pterra";color:#808000;text-shadow:0 0 1px #fff, 0 0 2px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;' class='center maptext '>
 			Input Pressure:[input ? input.water_pressure : "0"] "}
