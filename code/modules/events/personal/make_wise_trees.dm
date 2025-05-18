@@ -1,6 +1,6 @@
 
 /datum/round_event_control/dendor_trees
-	name = "Make Wise Trees"
+	name = "Wise Trees Propagation"
 	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/dendor_trees
 	weight = 7

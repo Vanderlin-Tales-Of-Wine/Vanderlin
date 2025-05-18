@@ -26,7 +26,7 @@
 
 /obj/effect/proc_holder/spell/targeted/ravox_challenge
 	name = "Challenge to Duel"
-	overlay_state = "ravox_challenge"
+	overlay_state = "call_to_arms"
 	antimagic_allowed = TRUE
 	recharge_time = 20 SECONDS
 	range = 7

@@ -13,7 +13,7 @@
 
 /obj/effect/proc_holder/spell/self/embrace_death
 	name = "Embrace Death"
-	overlay_state = "necra_gift"
+	overlay_state = "necra"
 	antimagic_allowed = TRUE
 	recharge_time = 0
 	invocation = "NECRA, I AM READY!"

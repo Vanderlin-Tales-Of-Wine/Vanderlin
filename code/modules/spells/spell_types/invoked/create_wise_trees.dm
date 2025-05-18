@@ -1,9 +1,8 @@
 /obj/effect/proc_holder/spell/invoked/transform_tree
 	name = "Transform Tree"
 	desc = "Transform a normal tree into a wise tree of Dendor."
-	invocation_type = "none"
-	action_icon_state = "tree_transform"
-	action_background_icon_state = "bg_dendor"
+	invocation_type = "whisper"
+	overlay_state = "entangle"
 	range = 1
 	recharge_time = 20 SECONDS
 	var/uses = 3

@@ -9,6 +9,7 @@
 
 	tags = list(
 		TAG_COMBAT,
+		TAG_BATTLE,
 	)
 
 /datum/round_event_control/ravox_duel/canSpawnEvent(players_amt, gamemode, fake_check)

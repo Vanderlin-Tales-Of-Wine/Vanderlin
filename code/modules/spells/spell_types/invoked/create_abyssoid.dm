@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/self/create_abyssoid
 	name = "Create Abyssoid"
-	overlay_state = "curse"
+	overlay_state = "bloodsteal"
 	chargedrain = 0
 	chargetime = 0
 	range = -1
