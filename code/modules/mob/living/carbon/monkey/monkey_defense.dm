@@ -45,8 +45,6 @@
 				var/obj/item/bodypart/affecting = get_bodypart(ran_zone(M.zone_selected))
 				if(!affecting)
 					affecting = get_bodypart(BODY_ZONE_CHEST)
-				else if(affecting.body_zone == BODY_ZONE_HEAD)
-					SEND_SIGNAL(M, COMSIG_HEAD_PUNCHED, src)
 				apply_damage(damage, BRUTE, affecting)
 				log_combat(M, src, "attacked")
 

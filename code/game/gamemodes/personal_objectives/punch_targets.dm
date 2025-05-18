@@ -21,13 +21,13 @@
 		return
 
 	punches_done++
-	to_chat(owner.current, span_notice("Woman punched! [punches_required - punches_done] more punches needed."))
+	to_chat(owner.current, span_notice("Woman punched in the face! [punches_required - punches_done] more face punches needed."))
 
 	if(punches_done >= punches_required)
 		complete_objective()
 
 /datum/objective/punch_women/proc/complete_objective()
-	to_chat(owner.current, span_greentext("You have punched enough women to satisfy Graggar!"))
+	to_chat(owner.current, span_greentext("You have punched enough women in the face to satisfy Graggar!"))
 	owner.current.adjust_triumphs(triumph_count)
 	completed = TRUE
 	adjust_storyteller_influence("Graggar", 15)
@@ -35,4 +35,4 @@
 	UnregisterSignal(owner.current, COMSIG_HEAD_PUNCHED)
 
 /datum/objective/punch_women/update_explanation_text()
-	explanation_text = "Punch [punches_required] women in the head to demonstrate your devotion to Graggar!"
+	explanation_text = "Punch [punches_required] women in the face to demonstrate your devotion to Graggar!"
