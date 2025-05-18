@@ -1,19 +1,11 @@
-/obj/effect/proc_holder/spell/invoked/blindness
+/obj/effect/proc_holder/spell/invoked/blindness/miracle
 	name = "Blindness"
 	overlay_state = "blindness"
-	releasedrain = 30
-	chargedrain = 0
-	chargetime = 0
-	range = 7
-	warnie = "sydwarning"
-	movement_interrupt = FALSE
-	sound = 'sound/magic/churn.ogg'
 	req_items = list(/obj/item/clothing/neck/psycross/noc)
 	invocation = "Noc blinds thee of thy sins!"
 	invocation_type = "shout" //can be none, whisper, emote and shout
 	associated_skill = /datum/skill/magic/holy
-	antimagic_allowed = TRUE
-	recharge_time = 2 MINUTES
+	miracle = TRUE
 	devotion_cost = 30
 
 /obj/effect/proc_holder/spell/invoked/blindness/cast(list/targets, mob/user = usr)
