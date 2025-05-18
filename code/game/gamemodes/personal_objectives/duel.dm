@@ -18,8 +18,6 @@
 		completed = TRUE
 		adjust_storyteller_influence("Ravox", 25)
 		escalate_objective()
-	else
-		to_chat(owner.current, span_greentext("You have won one duel needed to prove your worth to Ravox!"))
 
 /datum/objective/ravox_duel/update_explanation_text()
 	explanation_text = "Win [duels_required] honor duels against other warriors to prove your might!"
@@ -53,31 +51,39 @@
 		return FALSE
 
 	var/challenge_message = "[user] challenges you to an honor duel! Do you accept?"
+	user.visible_message(span_notice("[user] challenges [target] to an honor duel!"), span_notice("You challenge [target] to a duel!"))
 	if(alert(target, challenge_message, "Duel Challenge", "Accept", "Refuse") != "Accept")
 		to_chat(user, span_warning("[target] has refused your challenge!"))
 		to_chat(target, span_warning("You refuse [user]'s challenge."))
+		user.visible_message(span_warning("[target] refuses [user]'s duel challenge."))
 		return FALSE
 
-	to_chat(user, span_green("The duel begins! Fight until yield or unconsciousness!"))
-	to_chat(target, span_green("The duel begins! Fight until yield or unconsciousness!"))
+	user.visible_message(span_notice("[user] and [target] prepare for an honor duel!"), span_notice("The duel begins!"))
+	to_chat(user, span_notice("The duel begins! Combat ends at unconsciousness or when a fighter yields (RMB on Combat Mode button)."))
+	user.playsound_local(user, 'sound/magic/inspire_02.ogg')
+
+	to_chat(target, span_notice("The duel begins! Combat ends at unconsciousness or when a fighter yields (RMB on Combat Mode button)."))
+	target.playsound_local(target, 'sound/magic/inspire_02.ogg')
 
 	var/datum/duel/current_duel = new(user, target)
 	var/start_time = world.time
-	var/max_duel_duration = 10 MINUTES
+	var/max_duel_duration = 8 MINUTES
 
 	while(current_duel && current_duel.ongoing)
 		CHECK_TICK
 
 		if(world.time > start_time + max_duel_duration)
-			to_chat(user, span_warning("The duel has gone on too long and is declared a draw!"))
-			to_chat(target, span_warning("The duel has gone on too long and is declared a draw!"))
+			to_chat(user, span_notice("The duel has gone on too long and is declared a draw!"))
+			to_chat(target, span_notice("The duel has gone on too long and is declared a draw!"))
 			qdel(current_duel)
 			break
 
 		if(user.stat >= SOFT_CRIT || user.surrendering)
+			target.visible_message(span_notice("[target] defeats [user] in the honor duel!"))
 			current_duel.end_duel(target)
 			break
 		if(target.stat >= SOFT_CRIT || target.surrendering)
+			user.visible_message(span_notice("[user] defeats [target] in the honor duel!"))
 			current_duel.end_duel(user)
 			break
 		sleep(2 SECONDS)
