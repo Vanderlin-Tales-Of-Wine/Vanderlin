@@ -212,7 +212,7 @@
 			pants = /obj/item/clothing/pants/trou/leather
 			shoes = /obj/item/clothing/shoes/boots
 			backl = /obj/item/storage/backpack/satchel
-			belt = /obj/item/storage/belt/leather
+			belt = /obj/item/storage/belt/leather/assassin
 			beltr = /obj/item/weapon/mace/cudgel
 			beltl = /obj/item/storage/belt/pouch/coins/poor
 			cloak = /obj/item/clothing/cloak/raincloak/mortus
@@ -230,7 +230,7 @@
 			else
 				gloves = /obj/item/clothing/gloves/fingerless
 			wrists = /obj/item/clothing/wrists/bracers/leather
-			belt = /obj/item/storage/belt/leather
+			belt = /obj/item/storage/belt/leather/assassin
 			armor = /obj/item/clothing/armor/leather/hide
 			cloak = /obj/item/clothing/cloak/raincloak/brown
 			if(prob(33))
@@ -250,7 +250,7 @@
 			shoes = /obj/item/clothing/shoes/simpleshoes
 			pants = /obj/item/clothing/pants/tights/uncolored
 			shirt = /obj/item/clothing/shirt/undershirt/uncolored
-			belt = /obj/item/storage/belt/leather/rope
+			belt = /obj/item/storage/belt/leather/assassin
 			beltl = /obj/item/storage/belt/pouch/coins/poor
 			if(H.gender == MALE)
 				armor = /obj/item/clothing/armor/leather/vest/black
@@ -263,7 +263,7 @@
 			pants = /obj/item/clothing/pants/tights/uncolored
 			shoes = /obj/item/clothing/shoes/boots
 			backl = /obj/item/storage/backpack/satchel
-			belt = /obj/item/storage/belt/leather
+			belt = /obj/item/storage/belt/leather/assassin
 			beltl = /obj/item/storage/belt/pouch/coins/poor
 			beltr = /obj/item/weapon/knife/dagger/steel
 			cloak = /obj/item/clothing/cloak/raincloak
