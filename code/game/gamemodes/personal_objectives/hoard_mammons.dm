@@ -1,13 +1,14 @@
 /datum/objective/hoard_mammons
 	name = "Hoard Mammons"
 	triumph_count = 1
+	var/target_mammons = 0
 	var/current_amount = 0
-	var/check_cooldown = 30 SECONDS // Check every 30 seconds to balance performance
+	var/check_cooldown = 20 SECONDS
 	var/next_check = 0
 
 /datum/objective/hoard_mammons/on_creation()
 	. = ..()
-	START_PROCESSING(SSprocessing, src) // Add to processing subsystem
+	START_PROCESSING(SSprocessing, src)
 	update_explanation_text()
 
 /datum/objective/hoard_mammons/Destroy()
@@ -27,7 +28,7 @@
 		return
 
 	var/mammon_count = get_mammons_in_atom(user)
-	if(mammon_count >= target_amount && !completed)
+	if(mammon_count >= target_mammons && !completed)
 		to_chat(user, span_greentext("You have accumulated [mammon_count] mammons, completing Matthios' objective!"))
 		user.adjust_triumphs(triumph_count)
 		completed = TRUE
@@ -36,9 +37,8 @@
 		STOP_PROCESSING(SSprocessing, src)
 
 /datum/objective/hoard_mammons/update_explanation_text()
-	explanation_text = "Accumulate at least [target_amount] mammons in your possession to demonstrate your devotion to Matthios."
+	explanation_text = "Accumulate at least [target_mammons] mammons in your possession to demonstrate your greediness to Matthios."
 
-// In mammon currency code, add this to trigger checks on relevant actions
 /obj/item/stack/currency/mammon/afterattack(atom/target, mob/living/user, proximity_flag, click_parameters)
 	. = ..()
 	if(proximity_flag && istype(user))

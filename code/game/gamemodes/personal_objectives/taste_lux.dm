@@ -23,4 +23,4 @@
 	UnregisterSignal(owner.current, COMSIG_LUX_TASTED)
 
 /datum/objective/taste_lux/update_explanation_text()
-	explanation_text = "Experience the divine by tasting Lux essence to understand Baotha's nature."
+	explanation_text = "Experience the divine by tasting Lux essence to understand true pleasure and earn Baotha's favor."

@@ -1,5 +1,5 @@
 /datum/round_event_control/baotha_lux_tasting
-	name = "Baotha's Essence Experience"
+	name = "Lux Experience"
 	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/baotha_lux_tasting
 	weight = 10
@@ -48,7 +48,7 @@
 	chosen_one.mind.add_personal_objective(new_objective)
 
 	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
-	to_chat(chosen_one, span_notice("Seek out and taste Lux to experience Baotha's divine nature firsthand!"))
+	to_chat(chosen_one, span_notice("Seek out and taste Lux to experience true pleasure and make Baotha proud!"))
 	SEND_SOUND(chosen_one, 'sound/ambience/noises/genspooky (1).ogg')
 
 	chosen_one.mind.announce_personal_objectives()
