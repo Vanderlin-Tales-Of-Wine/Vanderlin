@@ -16,7 +16,7 @@
 /datum/objective/taste_lux/proc/on_lux_tasted()
 	SIGNAL_HANDLER
 	to_chat(owner.current, span_greentext("You have tasted the divine essence, completing Baotha's objective!"))
-	owner.current.adjust_triumphs(triumph_count)
+	owner.current.adjust_triumphs(1)
 	completed = TRUE
 	adjust_storyteller_influence("Baotha", 15)
 	escalate_objective()
