@@ -2,7 +2,7 @@
 	name = "Punch Women"
 	triumph_count = 0
 	var/punches_done = 0
-	var/punches_required = 3
+	var/punches_required = 4
 
 /datum/objective/punch_women/on_creation()
 	. = ..()
@@ -29,7 +29,7 @@
 		complete_objective()
 
 /datum/objective/punch_women/proc/complete_objective()
-	to_chat(owner.current, span_greentext("You have punched enough women in the face to satisfy Graggar!"))
+	to_chat(owner.current, span_greentext("You have dealt enough face punches to satisfy Graggar!"))
 	owner.current.adjust_triumphs(1)
 	completed = TRUE
 	adjust_storyteller_influence("Graggar", 15)
@@ -37,4 +37,4 @@
 	UnregisterSignal(owner.current, COMSIG_HEAD_PUNCHED)
 
 /datum/objective/punch_women/update_explanation_text()
-	explanation_text = "Punch [punches_required] women in the face to demonstrate your devotion to Graggar!"
+	explanation_text = "Punch a woman [punches_required] time\s in the face to demonstrate your devotion to Graggar!"
