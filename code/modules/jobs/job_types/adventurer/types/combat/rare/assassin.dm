@@ -154,7 +154,7 @@
 				cloak = /obj/item/clothing/cloak/raincloak/furcloak
 				head = /obj/item/clothing/head/fancyhat
 				backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
-				beltr = /obj/item/weapon/sword/rapier/dec
+				beltr = /obj/item/weapon/sword/iron
 				beltl = /obj/item/ammo_holder/quiver/arrows
 				backpack_contents = list(/obj/item/reagent_containers/glass/bottle/wine = 1, /obj/item/reagent_containers/glass/cup/silver = 1)
 			else

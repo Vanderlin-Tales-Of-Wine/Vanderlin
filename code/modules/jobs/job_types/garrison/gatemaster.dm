@@ -70,7 +70,7 @@
 	..()
 	neck = /obj/item/clothing/neck/gorget
 	armor = /obj/item/clothing/armor/leather/advanced
-	shirt = /obj/item/clothing/armor/chainmail
+	shirt = /obj/item/clothing/armor/chainmail/iron
 	gloves = /obj/item/clothing/gloves/chain
 	shoes = /obj/item/clothing/shoes/boots
 	beltr = /obj/item/weapon/mace/cudgel
@@ -110,7 +110,7 @@
 	..()
 	neck = /obj/item/clothing/neck/gorget
 	armor = /obj/item/clothing/armor/cuirass
-	shirt = /obj/item/clothing/armor/chainmail
+	shirt = /obj/item/clothing/armor/chainmail/iron
 	gloves = /obj/item/clothing/gloves/chain
 	shoes = /obj/item/clothing/shoes/boots/armor/light
 	beltr = /obj/item/weapon/mace/steel

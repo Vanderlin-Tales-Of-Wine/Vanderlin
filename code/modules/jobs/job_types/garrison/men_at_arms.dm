@@ -53,14 +53,14 @@
 	..()
 	head = /obj/item/clothing/head/helmet/kettle
 	cloak = /obj/item/clothing/cloak/stabard/guard
-	armor = /obj/item/clothing/armor/cuirass
-	shirt = /obj/item/clothing/armor/chainmail
+	armor = /obj/item/clothing/armor/cuirass/iron
+	shirt = /obj/item/clothing/armor/chainmail/iron
 	neck = /obj/item/clothing/neck/chaincoif/iron
 	gloves = /obj/item/clothing/gloves/chain
-	beltr = /obj/item/weapon/sword/arming
+	beltr = /obj/item/weapon/sword/iron
 	backr = /obj/item/weapon/polearm/spear/billhook
 	backl = /obj/item/storage/backpack/satchel
-	backpack_contents = list(/obj/item/weapon/knife/dagger/steel/special)
+	backpack_contents = list(/obj/item/weapon/knife/dagger)
 	H.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
@@ -81,16 +81,16 @@
 	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 
-/datum/advclass/menatarms/watchman_swordsmen
-	name = "Fencer Men-At-Arms"
+/datum/advclass/menatarms/watchman_doorbreaker
+	name = "Doorbreaker Men-At-Arms"
 	tutorial = "You once warded the town, beating the poor and killing the senseless. \
-	You were quite a good dancer, you've blended that skill with your blade- \
-	exanguinated personally by one of the Monarch's best. \
-	You are poor, and your belly is yet full."
-	outfit = /datum/outfit/job/watchman/swordsmen
+	You were known for your strength and ability to weild heavy weaponary- \
+	you are trusted with aiding the Monarch in tax collection. \
+	No door may stand before your wrath."
+	outfit = /datum/outfit/job/watchman/doorbreaker
 	category_tags = list(CTAG_MENATARMS)
 
-/datum/outfit/job/watchman/swordsmen/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/watchman/doorbreaker/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = pick(/obj/item/clothing/head/roguehood/guard, /obj/item/clothing/head/roguehood/guardsecond)
 	cloak = /obj/item/clothing/cloak/stabard/guard
@@ -98,13 +98,14 @@
 	shirt = /obj/item/clothing/armor/gambeson
 	neck = /obj/item/clothing/neck/gorget
 	gloves = /obj/item/clothing/gloves/chain
-	beltr = /obj/item/weapon/sword/rapier
+	beltr = /obj/item/weapon/mace/steel
+	backr = /obj/item/weapon/polearm/eaglebeak/lucerne
 	backl = /obj/item/storage/backpack/satchel
-	backpack_contents = list(/obj/item/weapon/knife/dagger/steel/special)
+	backpack_contents = list(/obj/item/weapon/knife/dagger)
 	if(H.mind)
-		H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
-		H.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/axesmaces, 4, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)

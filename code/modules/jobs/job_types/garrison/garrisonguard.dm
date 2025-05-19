@@ -58,7 +58,7 @@
 /datum/outfit/job/guardsman/footman/pre_equip(mob/living/carbon/human/H)
 	..()
 	neck = /obj/item/clothing/neck/gorget
-	armor = /obj/item/clothing/armor/chainmail
+	armor = /obj/item/clothing/armor/chainmail/iron
 	shirt = /obj/item/clothing/armor/gambeson
 	backr = /obj/item/weapon/shield/heater
 	backl = /obj/item/storage/backpack/satchel
@@ -95,7 +95,7 @@
 
 /datum/outfit/job/guardsman/archer/pre_equip(mob/living/carbon/human/H)
 	..()
-	neck = /obj/item/clothing/neck/chaincoif
+	neck = /obj/item/clothing/neck/coif/cloth
 	armor = /obj/item/clothing/armor/gambeson/heavy
 	shirt = pick(/obj/item/clothing/shirt/undershirt/guard, /obj/item/clothing/shirt/undershirt/guardsecond)
 	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
@@ -138,7 +138,7 @@
 
 /datum/outfit/job/guardsman/pikeman/pre_equip(mob/living/carbon/human/H)
 	..()
-	armor = /obj/item/clothing/armor/chainmail
+	armor = /obj/item/clothing/armor/chainmail/iron
 	shirt = /obj/item/clothing/armor/gambeson
 	neck = /obj/item/clothing/neck/gorget
 	backl = /obj/item/storage/backpack/satchel
