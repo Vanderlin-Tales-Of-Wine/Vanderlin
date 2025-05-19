@@ -30,7 +30,7 @@
 
 /datum/outfit/job/watchman/pre_equip(mob/living/carbon/human/H)
 	. = ..()
-	wrists = /obj/item/clothing/wrists/bracers/leather
+	wrists = /obj/item/clothing/wrists/bracers/leather/advanced
 	pants = /obj/item/clothing/pants/trou/leather/guard
 	shoes = /obj/item/clothing/shoes/boots
 	belt = /obj/item/storage/belt/leather
@@ -56,11 +56,11 @@
 	armor = /obj/item/clothing/armor/cuirass/iron
 	shirt = /obj/item/clothing/armor/chainmail/iron
 	neck = /obj/item/clothing/neck/chaincoif/iron
-	gloves = /obj/item/clothing/gloves/chain
+	gloves = /obj/item/clothing/gloves/chain/iron
 	beltr = /obj/item/weapon/sword/iron
 	backr = /obj/item/weapon/polearm/spear/billhook
 	backl = /obj/item/storage/backpack/satchel
-	backpack_contents = list(/obj/item/weapon/knife/dagger)
+	backpack_contents = list(/obj/item/weapon/knife/dagger/steel)
 	H.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
@@ -84,7 +84,7 @@
 /datum/advclass/menatarms/watchman_doorbreaker
 	name = "Doorbreaker Men-At-Arms"
 	tutorial = "You once warded the town, beating the poor and killing the senseless. \
-	You were known for your strength and ability to weild heavy weaponary- \
+	You were known for your strength and ability to wield heavy weaponry- \
 	you are trusted with aiding the Monarch in tax collection. \
 	No door may stand before your wrath."
 	outfit = /datum/outfit/job/watchman/doorbreaker
@@ -92,31 +92,31 @@
 
 /datum/outfit/job/watchman/doorbreaker/pre_equip(mob/living/carbon/human/H)
 	..()
-	head = pick(/obj/item/clothing/head/roguehood/guard, /obj/item/clothing/head/roguehood/guardsecond)
+	head = /obj/item/clothing/head/helmet/heavy/ironplate
 	cloak = /obj/item/clothing/cloak/stabard/guard
-	armor = /obj/item/clothing/armor/leather/advanced
-	shirt = /obj/item/clothing/armor/gambeson
-	neck = /obj/item/clothing/neck/gorget
+	armor = /obj/item/clothing/armor/plate/iron
+	shirt = /obj/item/clothing/armor/chainmail/iron
+	neck = /obj/item/clothing/neck/chaincoif/iron
 	gloves = /obj/item/clothing/gloves/chain
 	beltr = /obj/item/weapon/mace/steel
 	backr = /obj/item/weapon/polearm/eaglebeak/lucerne
 	backl = /obj/item/storage/backpack/satchel
-	backpack_contents = list(/obj/item/weapon/knife/dagger)
+	backpack_contents = list(/obj/item/weapon/knife/dagger/steel)
 	if(H.mind)
 		H.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-		H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 		H.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
-		H.change_stat(STATKEY_END, 2)
-		H.change_stat(STATKEY_SPD, 2)
-		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
-		ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
+		H.change_stat(STATKEY_STR, 2)
+		H.change_stat(STATKEY_CON, 2)
+		H.change_stat(STATKEY_SPD, -2)
+		ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
 		H.verbs |= /mob/proc/haltyell
 
