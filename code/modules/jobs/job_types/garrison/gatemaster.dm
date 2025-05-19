@@ -43,7 +43,7 @@
 /datum/outfit/job/gatemaster/post_equip(mob/living/carbon/human/H)
 	. = ..()
 	if(H.cloak)
-		H.cloak.name = "[guard_cloak.name]"+" "+"([H.real_name])"
+		H.cloak.name = "[H.cloak.name]"+" "+"([H.real_name])"
 
 /datum/job/gatemaster/after_spawn(mob/living/spawned, client/player_client)
 	..()

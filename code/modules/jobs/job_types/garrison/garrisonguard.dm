@@ -36,7 +36,7 @@
 /datum/outfit/job/guardsman/post_equip(mob/living/carbon/human/H)
 	. = ..()
 	if(H.cloak)
-		H.cloak.name = "[guard_cloak.name]"+" "+"([H.real_name])"
+		H.cloak.name = "[H.cloak.name]"+" "+"([H.real_name])"
 
 // EVERY TOWN GUARD SHOULD HAVE AT LEAST THREE CLUB SKILL
 
