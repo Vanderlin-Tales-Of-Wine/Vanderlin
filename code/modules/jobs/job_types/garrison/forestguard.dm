@@ -137,7 +137,6 @@
 /datum/outfit/job/forestguard/reaver/pre_equip(mob/living/carbon/human/H)
 	..()
 	neck = /obj/item/clothing/neck/coif/cloth
-	beltl = /obj/item/weapon/mace
 	backr = /obj/item/weapon/polearm/halberd/bardiche/woodcutter
 	beltr = /obj/item/weapon/mace
 	backpack_contents = list(/obj/item/weapon/knife/hunting = 1, /obj/item/rope/chain = 1, /obj/item/key/forrestgarrison = 1, /obj/item/storage/belt/pouch/coins/poor)
