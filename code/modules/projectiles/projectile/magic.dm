@@ -215,10 +215,6 @@
 	icon_state = magic_icon
 	update_icon()
 
-/obj/structure/closet/decay/after_weld(weld_state)
-	if(weld_state)
-		unmagify()
-
 /obj/structure/closet/decay/proc/decay()
 	animate(src, alpha = 0, time = 30)
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel), src), 30)

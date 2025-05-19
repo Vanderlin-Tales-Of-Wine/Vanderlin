@@ -1020,6 +1020,16 @@
 "kc" = (
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/lower)
+"kd" = (
+/obj/structure/door/viewport{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
+/turf/open/floor/metal{
+	icon_state = "plating2"
+	},
+/area/rogue/indoors/town/cell)
 "kf" = (
 /obj/machinery/light/fueled/campfire/densefire,
 /obj/item/cooking/pan{
@@ -1112,6 +1122,16 @@
 "kS" = (
 /turf/closed/wall/mineral/craftstone,
 /area/rogue/indoors/villagegarrison)
+"kW" = (
+/obj/structure/door/viewport{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
+/turf/open/floor/metal{
+	icon_state = "plating2"
+	},
+/area/rogue/indoors/town/cell)
 "li" = (
 /obj/structure/rack,
 /obj/item/weapon/hammer/wood,
@@ -1341,6 +1361,14 @@
 /obj/structure/flora/grass/herb/euphrasia,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
+"nh" = (
+/obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
+/obj/structure/door/green{
+	name = "Salem Garrison"
+	},
+/turf/open/floor/hexstone,
+/area/rogue/indoors/villagegarrison)
 "nj" = (
 /obj/structure/roguetent,
 /turf/open/floor/twig,
@@ -1406,6 +1434,13 @@
 /obj/item/natural/rock,
 /turf/open/floor/grass/red,
 /area/rogue/under/mountains/anvil/lower)
+"nQ" = (
+/obj/structure/door/weak/bolt{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/naturalstone,
+/area/rogue/under/mountains/anvil/lower)
 "nX" = (
 /turf/open/floor/grass,
 /area/rogue/outdoors/bog)
@@ -1427,14 +1462,6 @@
 	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/outdoors/mountains)
-"oe" = (
-/obj/structure/door/green{
-	name = "Salem Garrison"
-	},
-/obj/effect/mapping_helpers/door/locker,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
-/turf/open/floor/hexstone,
-/area/rogue/indoors/villagegarrison)
 "oA" = (
 /obj/effect/landmark/start/adventurerlate{
 	dir = 1
@@ -1661,14 +1688,6 @@
 	},
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/lower)
-"rr" = (
-/obj/structure/door/green{
-	name = "forrest warden bedroom"
-	},
-/obj/effect/mapping_helpers/door/locker,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
-/turf/open/floor/ruinedwood/darker,
-/area/rogue/indoors/villagegarrison)
 "rt" = (
 /obj/item/natural/rock,
 /turf/open/floor/cobble,
@@ -1732,16 +1751,6 @@
 /obj/structure/stairs,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/woods)
-"so" = (
-/obj/structure/door/viewport{
-	dir = 1
-	},
-/obj/effect/mapping_helpers/door/locker,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
-/area/rogue/indoors/town/cell)
 "sq" = (
 /obj/structure/bridge_stakes,
 /obj/structure/bridge_stakes{
@@ -1762,6 +1771,11 @@
 /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow,
 /obj/effect/decal/remains/human,
 /turf/open/floor/naturalstone,
+/area/rogue/under/mountains/anvil/lower)
+"sy" = (
+/obj/structure/door/iron/bars,
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/lower)
 "sD" = (
 /obj/structure/fluff/railing/fence{
@@ -1889,16 +1903,6 @@
 	},
 /turf/open/floor/grass,
 /area/rogue/outdoors/woods_safe)
-"tE" = (
-/obj/structure/door/viewport{
-	dir = 8
-	},
-/obj/effect/mapping_helpers/door/locker,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
-/area/rogue/indoors/town/cell)
 "tF" = (
 /obj/structure/fluff/railing/fence{
 	dir = 8
@@ -2160,6 +2164,14 @@
 	},
 /turf/open/floor/wood,
 /area/rogue/indoors)
+"xl" = (
+/obj/structure/door/green{
+	name = "forrest warden bedroom"
+	},
+/obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/indoors/villagegarrison)
 "xp" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
@@ -3185,6 +3197,14 @@
 /obj/structure/kneestingers,
 /turf/open/water/swamp,
 /area/rogue/outdoors/bog)
+"Ig" = (
+/obj/structure/door/green{
+	name = "Salem Garrison"
+	},
+/obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
+/turf/open/floor/hexstone,
+/area/rogue/indoors/villagegarrison)
 "Il" = (
 /obj/structure/fluff/railing/border{
 	dir = 4
@@ -3242,6 +3262,14 @@
 /obj/structure/fluff/statue/gargoyle/moss,
 /obj/machinery/light/fueled/torchholder,
 /turf/open/floor/cobble,
+/area/rogue/indoors/villagegarrison)
+"IO" = (
+/obj/structure/door/green{
+	name = "forrest garrison barracks"
+	},
+/obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/garrison/forest,
+/turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/villagegarrison)
 "IP" = (
 /turf/open/floor/dirt,
@@ -3602,14 +3630,6 @@
 	},
 /turf/open/floor/cobble/alt,
 /area/rogue/under/mountains/anvil/lower)
-"MO" = (
-/obj/effect/mapping_helpers/door/locker,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
-/obj/structure/door/green{
-	name = "Salem Garrison"
-	},
-/turf/open/floor/hexstone,
-/area/rogue/indoors/villagegarrison)
 "MS" = (
 /obj/structure/fluff/statue/knight/interior/r,
 /turf/open/floor/hexstone,
@@ -3689,13 +3709,6 @@
 /obj/effect/landmark/mapGenerator/anvil,
 /turf/closed,
 /area/rogue)
-"NY" = (
-/obj/structure/door/weak/bolt{
-	dir = 4
-	},
-/obj/effect/mapping_helpers/door/locker,
-/turf/open/floor/naturalstone,
-/area/rogue/under/mountains/anvil/lower)
 "Oc" = (
 /obj/structure/stairs/fancy/c{
 	dir = 1
@@ -3887,11 +3900,6 @@
 "PN" = (
 /turf/closed/wall/mineral/stone/moss,
 /area/rogue/indoors/villagegarrison)
-"PQ" = (
-/obj/structure/door/iron/bars,
-/obj/effect/mapping_helpers/door/locker,
-/turf/open/floor/cobble,
-/area/rogue/under/mountains/anvil/lower)
 "PW" = (
 /obj/structure/bed/mediocre,
 /obj/item/bedsheet/fabric,
@@ -4167,14 +4175,6 @@
 /obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/floor/cobble,
 /area/rogue/indoors)
-"So" = (
-/obj/structure/door/green{
-	name = "forrest garrison barracks"
-	},
-/obj/effect/mapping_helpers/door/locker,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
-/turf/open/floor/ruinedwood/darker,
-/area/rogue/indoors/villagegarrison)
 "Sr" = (
 /obj/item/ore/coal{
 	pixel_x = 6;
@@ -40359,7 +40359,7 @@ GX
 fk
 lD
 lD
-NY
+nQ
 lD
 lD
 GX
@@ -71174,7 +71174,7 @@ LO
 LO
 LO
 LO
-So
+IO
 LO
 LO
 EF
@@ -71781,7 +71781,7 @@ eT
 Hi
 Hi
 Hi
-so
+kd
 Fy
 Fy
 Fy
@@ -72385,7 +72385,7 @@ pn
 YC
 YC
 QL
-tE
+kW
 QL
 YC
 EF
@@ -82372,7 +82372,7 @@ GX
 GX
 tH
 GX
-PQ
+sy
 GX
 GX
 bv
@@ -111979,7 +111979,7 @@ JV
 bx
 bx
 bx
-MO
+nh
 VM
 VM
 VM
@@ -112181,7 +112181,7 @@ Yc
 bx
 Re
 bx
-oe
+Ig
 eb
 eb
 eb
@@ -152580,7 +152580,7 @@ VL
 HK
 Dh
 Dh
-rr
+xl
 YG
 JI
 JI
