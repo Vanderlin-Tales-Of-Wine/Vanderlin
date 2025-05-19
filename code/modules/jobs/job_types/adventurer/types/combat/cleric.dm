@@ -23,7 +23,7 @@
 	pants = /obj/item/clothing/pants/trou/leather
 	shoes = /obj/item/clothing/shoes/boots/leather
 	belt = /obj/item/storage/belt/leather
-	beltl = /obj/item/weapon/mace/iron
+	beltl = /obj/item/weapon/mace
 	beltr = /obj/item/storage/belt/pouch/coins/poor
 
 	switch(H.patron?.type)
