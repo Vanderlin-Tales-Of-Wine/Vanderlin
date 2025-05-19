@@ -337,7 +337,7 @@
 // ------------ UNCOMFORTABLE BEDS ----------------------
 /obj/structure/bed/shit
 	name = "uncomfortable bed"
-	desc = "Slightly better then a patch of grass"
+	desc = "Slightly better than a patch of grass"
 	icon_state = "shitbed"
 	sleepy = 0.75
 
