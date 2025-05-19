@@ -35,7 +35,7 @@
 	shoes = /obj/item/clothing/shoes/boots
 	mask = /obj/item/clothing/face/facemask/steel
 	wrists = /obj/item/clothing/wrists/bracers/leather/advanced
-	neck = /obj/item/clothing/neck/coif/iron
+	neck = /obj/item/clothing/neck/chaincoif/iron
 	armor = /obj/item/clothing/armor/leather/advanced
 	H.change_stat(STATKEY_END, 1)
 	H.change_stat(STATKEY_PER, 2)
