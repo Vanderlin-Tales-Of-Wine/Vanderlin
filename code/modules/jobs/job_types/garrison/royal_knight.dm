@@ -82,7 +82,8 @@
 /datum/outfit/job/royalknight/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
 	if(H.cloak)
-		H.cloak.name = "[H.cloak.name]"+" "+"([H.real_name])"
+		if(!findtext(H.cloak.name,"([H.real_name])"))
+			H.cloak.name = "[H.cloak.name]"+" "+"([H.real_name])"
 
 	var/prev_real_name = H.real_name
 	var/prev_name = H.name
