@@ -30,7 +30,7 @@
 	var/mammon_count = get_mammons_in_atom(user)
 	if(mammon_count >= target_mammons && !completed)
 		to_chat(user, span_greentext("You have accumulated [mammon_count] mammons, completing Matthios' objective!"))
-		user.adjust_triumphs(triumph_count)
+		user.adjust_triumphs(1)
 		completed = TRUE
 		adjust_storyteller_influence("Matthios", 15)
 		escalate_objective()
