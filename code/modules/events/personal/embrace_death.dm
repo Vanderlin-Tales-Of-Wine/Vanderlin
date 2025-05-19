@@ -23,9 +23,9 @@
 			continue
 		if(!H.patron || !is_tennite(H))
 			continue
-		if(istype(H.patron, /datum/patron/divine/necra))
-			return TRUE
-	return TRUE
+		return TRUE
+
+	return FALSE
 
 /datum/round_event/necra_embrace/start()
 	var/list/necra_targets = list()
