@@ -106,8 +106,8 @@
 
 	influence_factors = list(
 		STATS_WATER_CONSUMED = list("points" = 0.0125, "capacity" = 90),
-		STATS_FISH_CAUGHT = list("points" = 2, "capacity" = 90),
-		STATS_ABYSSOR_REMEMBERED = list("points" = 1.25, "capacity" = 45),
+		STATS_FISH_CAUGHT = list("points" = 1.8, "capacity" = 90),
+		STATS_ABYSSOR_REMEMBERED = list("points" = 0.75, "capacity" = 40),
 		STATS_LEECHES_EMBEDDED = list("points" = 0.175, "capacity" = 70),
 		STATS_PEOPLE_DROWNED = list("points" = 9, "capacity" = 75),
 	)
