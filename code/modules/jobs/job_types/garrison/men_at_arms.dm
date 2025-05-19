@@ -30,6 +30,7 @@
 
 /datum/outfit/job/watchman/pre_equip(mob/living/carbon/human/H)
 	. = ..()
+	cloak = /obj/item/clothing/cloak/stabard/guard
 	wrists = /obj/item/clothing/wrists/bracers/leather
 	pants = /obj/item/clothing/pants/trou/leather/guard
 	shoes = /obj/item/clothing/shoes/boots
@@ -38,10 +39,8 @@
 
 /datum/outfit/job/watchman/post_equip(mob/living/carbon/human/H)
 	. = ..()
-	if(!H.cloak)
-		var/obj/item/clothing/cloak/guard_cloak = new /obj/item/clothing/cloak/stabard/guard(get_turf(H.loc))
-		guard_cloak.name = "[guard_cloak.name]"+" "+"([H.real_name])"
-		H.equip_to_slot(guard_cloak, SLOT_CLOAK, TRUE)
+	if(H.cloak)
+		H.cloak.name = "[guard_cloak.name]"+" "+"([H.real_name])"
 
 /datum/job/men_at_arms/after_spawn(mob/living/carbon/spawned, client/player_client)
 	..()

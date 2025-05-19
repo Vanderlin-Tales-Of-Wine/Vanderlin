@@ -35,16 +35,15 @@
 /datum/outfit/job/gatemaster/pre_equip(mob/living/carbon/human/H)
 	. = ..()
 	head = /obj/item/clothing/head/helmet/townwatch/alt
+	cloak = /obj/item/clothing/cloak/stabard/surcoat/guard
 	wrists = /obj/item/clothing/wrists/bracers/leather
 	belt = /obj/item/storage/belt/leather/black
 	pants = /obj/item/clothing/pants/trou/leather/guard
 
 /datum/outfit/job/gatemaster/post_equip(mob/living/carbon/human/H)
 	. = ..()
-	if(!H.cloak)
-		var/obj/item/clothing/cloak/guard_cloak = new /obj/item/clothing/cloak/stabard/surcoat/guard(get_turf(H.loc))
-		guard_cloak.name = "[guard_cloak.name]"+" "+"([H.real_name])"
-		H.equip_to_slot(guard_cloak, SLOT_CLOAK, TRUE)
+	if(H.cloak)
+		H.cloak.name = "[guard_cloak.name]"+" "+"([H.real_name])"
 
 /datum/job/gatemaster/after_spawn(mob/living/spawned, client/player_client)
 	..()

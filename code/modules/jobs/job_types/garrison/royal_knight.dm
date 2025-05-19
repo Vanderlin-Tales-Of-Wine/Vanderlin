@@ -39,6 +39,7 @@
 	..()
 	neck = /obj/item/clothing/neck/chaincoif
 	pants = /obj/item/clothing/pants/platelegs
+	cloak = /obj/item/clothing/cloak/tabard/knight/guard
 	shirt = /obj/item/clothing/armor/gambeson/arming
 	belt = /obj/item/storage/belt/leather
 	beltr = /obj/item/weapon/sword/arming
@@ -80,10 +81,8 @@
 
 /datum/outfit/job/royalknight/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
-	if(!H.cloak)
-		var/obj/item/clothing/cloak/guard_cloak = new /obj/item/clothing/cloak/tabard/knight/guard(get_turf(H.loc))
-		guard_cloak.name = "[guard_cloak.name]"+" "+"([H.real_name])"
-		H.equip_to_slot(guard_cloak, SLOT_CLOAK, TRUE)
+	if(H.cloak)
+		H.cloak.name = "[guard_cloak.name]"+" "+"([H.real_name])"
 
 	var/prev_real_name = H.real_name
 	var/prev_name = H.name

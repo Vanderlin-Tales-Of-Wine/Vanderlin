@@ -25,6 +25,7 @@
 //................. City Watchmen Base .............. //
 /datum/outfit/job/guardsman/pre_equip(mob/living/carbon/human/H)
 	. = ..()
+	cloak = pick(/obj/item/clothing/cloak/half/guard, /obj/item/clothing/cloak/half/guardsecond)
 	head = /obj/item/clothing/head/helmet/townwatch
 	pants = /obj/item/clothing/pants/trou/leather
 	wrists = /obj/item/rope/chain
@@ -34,10 +35,8 @@
 
 /datum/outfit/job/guardsman/post_equip(mob/living/carbon/human/H)
 	. = ..()
-	if(!H.cloak)
-		var/obj/item/clothing/cloak/guard_cloak = new /obj/item/clothing/cloak/half/guard(get_turf(H.loc))
-		guard_cloak.name = "[guard_cloak.name]"+" "+"([H.real_name])"
-		H.equip_to_slot(guard_cloak, SLOT_CLOAK, TRUE)
+	if(H.cloak)
+		H.cloak.name = "[guard_cloak.name]"+" "+"([H.real_name])"
 
 // EVERY TOWN GUARD SHOULD HAVE AT LEAST THREE CLUB SKILL
 
