@@ -60,7 +60,7 @@
 /datum/outfit/job/forestguard/infantry/pre_equip(mob/living/carbon/human/H)
 	..()
 	neck = /obj/item/clothing/neck/gorget
-	beltl = /obj/item/weapon/mace/goden
+	beltl = /obj/item/weapon/mace
 	beltr = /obj/item/weapon/axe/iron
 	backpack_contents = list(/obj/item/weapon/knife/hunting = 1, /obj/item/rope/chain = 1, /obj/item/key/forrestgarrison = 1, /obj/item/storage/belt/pouch/coins/poor)
 	H.verbs |= /mob/proc/haltyell
@@ -137,9 +137,9 @@
 /datum/outfit/job/forestguard/reaver/pre_equip(mob/living/carbon/human/H)
 	..()
 	neck = /obj/item/clothing/neck/coif/cloth
-	beltl = /obj/item/weapon/mace/goden
+	beltl = /obj/item/weapon/mace
 	backr = /obj/item/weapon/polearm/halberd/bardiche/woodcutter
-	beltr = /obj/item/weapon/mace/goden
+	beltr = /obj/item/weapon/mace
 	backpack_contents = list(/obj/item/weapon/knife/hunting = 1, /obj/item/rope/chain = 1, /obj/item/key/forrestgarrison = 1, /obj/item/storage/belt/pouch/coins/poor)
 	H.verbs |= /mob/proc/haltyell
 	if(H.mind)

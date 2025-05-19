@@ -95,7 +95,7 @@
 
 /datum/outfit/job/guardsman/archer/pre_equip(mob/living/carbon/human/H)
 	..()
-	neck = /obj/item/clothing/neck/coif/cloth
+	neck = /obj/item/clothing/neck/gorget
 	armor = /obj/item/clothing/armor/gambeson/heavy
 	shirt = pick(/obj/item/clothing/shirt/undershirt/guard, /obj/item/clothing/shirt/undershirt/guardsecond)
 	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
