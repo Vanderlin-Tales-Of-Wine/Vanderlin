@@ -46,7 +46,7 @@
 		to_chat(user, span_warning("You don't have enough blood to complete the ritual!"))
 		return FALSE
 
-	user.blood_volume = max(user.blood_volume - 60, 0)
+	user.blood_volume = max(user.blood_volume - 70, 0)
 	var/obj/item/natural/worms/leech/abyssoid/new_leech = new(user.drop_location())
 	qdel(target)
 	user.put_in_hands(new_leech)

@@ -274,7 +274,7 @@
 		return
 	if(iscarbon(user))
 		var/mob/living/carbon/V = user
-		if(prob(5))
+		if(prob(3))
 			V.say(pick("PRAISE ABYSSOR!", "REMEMBER ABYSSOR!", "ABYSSOR LIVES!", "GLORY TO ABYSSOR!", "ABYSSOR IS COMING!"))
 
 #undef MAX_LEECH_EVILNESS
