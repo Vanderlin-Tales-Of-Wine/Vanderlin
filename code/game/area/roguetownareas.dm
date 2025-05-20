@@ -8,6 +8,15 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	has_gravity = STANDARD_GRAVITY
 	ambientsounds = null
 	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
+	var/forest_area = FALSE // Defines forest areas
+
+/area/rogue/Entered(mob/living/carbon/human) // Applies the forestguard debuff if someone in the forest garrison enters an area with forest_area = FALSE
+	. = ..()
+	if(HAS_TRAIT(human, TRAIT_FORESTGUARD))
+		if(src.forest_area == FALSE)
+			human.apply_status_effect(/datum/status_effect/debuff/forestguard)
+		else if(human.has_status_effect(/datum/status_effect/debuff/forestguard))
+			human.remove_status_effect(/datum/status_effect/debuff/forestguard)
 
 /area/rogue/indoors
 	name = "indoors rt"
@@ -50,6 +59,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound_dusk = 'sound/music/area/septimus.ogg'
 	droning_sound_night = 'sound/music/area/sleeping.ogg'
 	converted_type = /area/rogue/indoors/shelter
+	forest_area = TRUE
 
 /area/rogue/indoors/shelter
 	icon_state = "shelter"
@@ -75,6 +85,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound = 'sound/music/area/townstreets.ogg'
 	droning_sound_dusk = 'sound/music/area/septimus.ogg'
 	droning_sound_night = 'sound/music/area/sleeping.ogg'
+	forest_area = TRUE
 
 /area/rogue/outdoors/mountains/deception
 	name = "deception"
@@ -138,6 +149,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound = 'sound/music/area/field.ogg'
 	droning_sound_dusk = 'sound/music/area/septimus.ogg'
 	droning_sound_night = 'sound/music/area/sleeping.ogg'
+	forest_area = TRUE
 
 /area/rogue/outdoors/woods
 	name = "wilderness"
@@ -167,6 +179,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound = 'sound/music/area/forest.ogg'
 	droning_sound_dusk = 'sound/music/area/septimus.ogg'
 	droning_sound_night = 'sound/music/area/forestnight.ogg'
+	forest_area = TRUE
 
 /area/rogue/outdoors/woods_safe
 	name = "woods"
@@ -389,6 +402,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound = 'sound/music/area/towngen.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = 'sound/music/area/deliverer.ogg'
+	forest_area = FALSE
 
 /area/rogue/indoors/town/manor
 	name = "Manor"
@@ -414,6 +428,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound = 'sound/music/area/manor.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
+	forest_area = FALSE
 
 /area/rogue/indoors/town/magician
 	name = "Wizard's Tower"
@@ -430,6 +445,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound = 'sound/music/area/magiciantower.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
+	forest_area = FALSE
 
 /area/rogue/indoors/town/shop
 	name = "Shop"
@@ -442,6 +458,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 /area/rogue/outdoors/exposed/shop
 	icon_state = "shop"
 	droning_sound = 'sound/music/area/shop.ogg'
+	forest_area = FALSE
 
 /area/rogue/indoors/town/bath
 	name = "Baths"
@@ -454,6 +471,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 /area/rogue/outdoors/exposed/bath
 	icon_state = "bath"
 	droning_sound = 'sound/music/area/bath.ogg'
+	forest_area = FALSE
 
 /*	..................   Areas to play with the music a bit   ................... */
 /area/rogue/indoors/town/bath/redhouse // lets try something different
@@ -462,6 +480,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 
 /area/rogue/outdoors/exposed/bath/redhouse
 	droning_sound = 'sound/music/area/Fulminate.ogg'
+	forest_area = FALSE
 
 /area/rogue/indoors/town/tavern/saiga
 	droning_sound = 'sound/music/area/Folia1490.ogg'
@@ -471,6 +490,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 /area/rogue/outdoors/exposed/tavern/saiga
 	droning_sound = 'sound/music/area/Folia1490.ogg'
 	droning_sound_night = 'sound/music/area/LeTourdion.ogg'
+	forest_area = FALSE
 
 /area/rogue/indoors/town/garrison
 	name = "Garrison"
@@ -505,6 +525,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 
 /area/rogue/outdoors/exposed/tavern
 	icon_state = "tavern"
+	forest_area = FALSE
 
 /area/rogue/indoors/town/church
 	name = "church"
@@ -604,6 +625,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound = 'sound/music/area/dwarf.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
+	forest_area = FALSE
 
 /area/rogue/indoors/town/town_elder/place
 	icon_state = "tavern"
@@ -644,6 +666,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound_dusk = 'sound/music/area/septimus.ogg'
 	droning_sound_night = 'sound/music/area/deliverer.ogg'
 	converted_type = /area/rogue/indoors/shelter/town
+	forest_area = FALSE
 
 /area/rogue/outdoors/town/Initialize()
 	. = ..()
@@ -714,6 +737,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound = 'sound/music/area/catacombs.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
+	forest_area = FALSE
 
 /area/rogue/under/town/sewer
 	name = "sewer"
@@ -896,15 +920,19 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 
 /area/rogue/indoors/bandit_lair
 	name = "lair (Bandits)"
+	forest_area = TRUE
 
 /area/rogue/indoors/vampire_manor
 	name = "lair (Vampire Lord)"
+	forest_area = TRUE
 
 /area/rogue/outdoors/bog/inhumen_camp
 	name = "lair (Inhumen)"
 	droning_sound = 'sound/music/area/decap.ogg'
 	first_time_text = "THE DEEP BOG"
+	forest_area = TRUE
 
 /area/rogue/indoors/lich
 	name = "lair (Lich)"
 	droning_sound = 'sound/music/area/churchnight.ogg'
+	forest_area = TRUE
