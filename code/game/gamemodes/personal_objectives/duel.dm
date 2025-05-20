@@ -1,5 +1,5 @@
 /datum/objective/ravox_duel
-	name = "Prove Your Might"
+	name = "Honor Duels"
 	triumph_count = 0
 	var/duels_won = 0
 	var/duels_required = 2

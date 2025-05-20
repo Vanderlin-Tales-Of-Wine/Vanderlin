@@ -35,7 +35,7 @@
 	UnregisterSignal(owner.current, COMSIG_ITEM_CRAFTED)
 
 /datum/objective/build_zizo_shrine/update_explanation_text()
-	explanation_text = "Construct [target_count] profane shrine[target_count > 1 ? "s" : ""] to spread Zizo's corruption."
+	explanation_text = "Construct [target_count] profane shrine[target_count > 1 ? "s" : ""] to spread Zizo's corruption!"
 
 /datum/crafting_recipe/zizo_shrine
 	name = "Profane Shrine"

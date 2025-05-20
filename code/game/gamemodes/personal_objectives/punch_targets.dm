@@ -2,7 +2,7 @@
 	name = "Punch Women"
 	triumph_count = 0
 	var/punches_done = 0
-	var/punches_required = 4
+	var/punches_required = 3
 
 /datum/objective/punch_women/on_creation()
 	. = ..()
@@ -37,4 +37,4 @@
 	UnregisterSignal(owner.current, COMSIG_HEAD_PUNCHED)
 
 /datum/objective/punch_women/update_explanation_text()
-	explanation_text = "Punch a woman [punches_required] time\s in the face to demonstrate your devotion to Graggar!"
+	explanation_text = "Punch women [punches_required] time\s in the face to demonstrate your devotion to Graggar!"

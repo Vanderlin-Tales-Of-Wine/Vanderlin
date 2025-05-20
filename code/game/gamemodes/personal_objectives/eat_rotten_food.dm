@@ -2,7 +2,7 @@
 	name = "Rotten Feast"
 	triumph_count = 0
 	var/meals_eaten = 0
-	var/meals_required = 3
+	var/meals_required = 2
 
 /datum/objective/rotten_feast/on_creation()
 	. = ..()

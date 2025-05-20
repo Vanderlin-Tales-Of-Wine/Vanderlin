@@ -2,7 +2,7 @@
 	name = "Create Abyssoids"
 	triumph_count = 0
 	var/abyssoids_created = 0
-	var/abyssoids_required = 4
+	var/abyssoids_required = 5
 
 /datum/objective/create_abyssoids/on_creation()
 	. = ..()

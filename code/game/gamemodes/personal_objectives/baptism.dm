@@ -22,7 +22,7 @@
 		return
 
 	to_chat(owner.current, span_greentext("You have been baptized and completed Noc's objective!"))
-	owner.current.adjust_triumphs(1)
+	owner.current.adjust_triumphs(2)
 	completed = TRUE
 	adjust_storyteller_influence("Noc", 15)
 	escalate_objective()

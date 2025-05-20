@@ -30,7 +30,7 @@
 	escalate_objective()
 
 /datum/objective/retainer/update_explanation_text()
-	explanation_text = "Recruit atleast one retainer to serve you and to demonstrate your ability to lead for Astrata."
+	explanation_text = "Recruit atleast one retainer to serve you and to demonstrate your ability to lead to Astrata."
 
 /obj/effect/proc_holder/spell/self/convertrole/retainer
 	name = "Recruit Retainer"
