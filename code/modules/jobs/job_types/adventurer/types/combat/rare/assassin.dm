@@ -263,7 +263,7 @@
 			pants = /obj/item/clothing/pants/tights/uncolored
 			shoes = /obj/item/clothing/shoes/boots
 			backl = /obj/item/storage/backpack/satchel
-			belt = /obj/item/storage/belt/leather/knifebelt/black/steel
+			belt = /obj/item/storage/belt/leather/knifebelt/black/iron
 			beltl = /obj/item/storage/belt/pouch/coins/poor
 			beltr = /obj/item/weapon/knife/dagger/steel
 			armor = /obj/item/clothing/shirt/tunic/noblecoat
