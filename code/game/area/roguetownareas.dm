@@ -10,13 +10,13 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
 	var/forest_area = FALSE // Defines forest areas
 
-	/area/rogue/Entered(mob/living/carbon/human) // Applies the forestguard debuff if someone in the forest garrison enters an area with forest_area = FALSE
-		. = ..()
-		if(HAS_TRAIT(human, TRAIT_FORESTGUARD))
-			if(src.forest_area == FALSE)
-				human.apply_status_effect(/datum/status_effect/debuff/forestguard)
-			else if(human.has_status_effect(/datum/status_effect/debuff/forestguard))
-				human.remove_status_effect(/datum/status_effect/debuff/forestguard)
+/area/rogue/Entered(mob/living/carbon/human) // Applies the forestguard debuff if someone in the forest garrison enters an area with forest_area = FALSE
+	. = ..()
+	if(HAS_TRAIT(human, TRAIT_FORESTGUARD))
+		if(src.forest_area == FALSE)
+			human.apply_status_effect(/datum/status_effect/debuff/forestguard)
+		else if(human.has_status_effect(/datum/status_effect/debuff/forestguard))
+			human.remove_status_effect(/datum/status_effect/debuff/forestguard)
 
 /area/rogue/indoors
 	name = "indoors rt"
