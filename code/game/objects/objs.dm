@@ -94,7 +94,7 @@
 		obj_integrity = max_integrity
 	if(lockid)
 		log_mapping("[src] ([type]) at [AREACOORD(src)] has a depreciated lockid varedit.")
-		if(!lock && !lockids)
+		if(!lockids)
 			lockids = list(lockid)
 			lockid = null
 	if(lock)
