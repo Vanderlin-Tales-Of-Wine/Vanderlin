@@ -32,7 +32,7 @@
 	backr = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/needle/thorn = 1, /obj/item/natural/cloth = 1)
 	mask = /obj/item/clothing/face/facemask/steel
-	neck = /obj/item/clothing/neck/chaincoif
+	neck = /obj/item/clothing/neck/chaincoif/iron
 	head = /obj/item/clothing/head/helmet/leather/volfhelm
 	armor = /obj/item/clothing/armor/cuirass/iron
 	H.change_stat(STATKEY_STR, 2)
