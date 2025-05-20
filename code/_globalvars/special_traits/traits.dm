@@ -240,7 +240,7 @@
 /datum/special_trait/languagesavant
 	name = "Polyglot"
 	greet_text = span_notice("I have always picked up on languages easily, even those that are forbidden to mortals... except that accursed beastial chatter. What even is that nonsense?")
-	weight = 100
+	weight = 50
 
 /datum/special_trait/languagesavant/on_apply(mob/living/carbon/human/character, silent)
 	character.grant_language(/datum/language/dwarvish)
