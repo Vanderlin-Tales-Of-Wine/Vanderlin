@@ -22,7 +22,7 @@
 		var/mob/living/target = targets[1]
 		if(target.anti_magic_check(TRUE, TRUE))
 			return FALSE
-		target.visible_message("<span class='warning'>[user] points at [target]'s eyes!</span>","<span class='warning'>My eyes are covered in darkness!</span>")
+		user.visible_message(span_warning("[user] points at [target]'s eyes!"), span_warning("My eyes are covered in darkness!"))
 		target.blind_eyes(3)
 		return ..()
 	return FALSE
