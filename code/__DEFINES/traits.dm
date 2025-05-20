@@ -108,8 +108,7 @@
 #define TRAIT_MALUMFIRE "Professional Smith"
 #define TRAIT_CRATEMOVER "Crate Mover"
 #define TRAIT_BURDEN "Burdened" //Gaffer stuff
-#define TRAIT_OLDPARTY "Old Party"
-#define TRAIT_EARGRAB "Ear Grab"
+#define TRAIT_OLDPARTY "Old_party"
 #define TRAIT_FORESTGUARD "Forester"
 
 // PATRON CURSE TRAITS
@@ -208,8 +207,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_DREAM_WATCHER = span_notice("I'm blessed by Noc, my dreams tell more than the average person.."),
 	TRAIT_AMAZING_BACK = span_notice("I'm able to carry far more on my back!"),
 	TRAIT_HOLLOWBONES = span_danger("My bones are light as air, Its hard to wear armor."),
-	TRAIT_EARGRAB = span_info("I can keep a tight grip on the ear of unruly children."),
-	TRAIT_FORESTGUARD = span_info("I don't feel right when I'm not in the forest, its unknown to me.")
+	TRAIT_FORESTGUARD = span_notice("I don't feel right when I'm not in the forest, its unknown to me.")
 	))
 
 #define SIGNAL_ADDTRAIT(trait_ref) ("addtrait " + trait_ref)
