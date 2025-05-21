@@ -39,12 +39,11 @@
 	..()
 	neck = /obj/item/clothing/neck/chaincoif
 	pants = /obj/item/clothing/pants/platelegs
-	cloak = /obj/item/clothing/cloak/tabard/knight/guard
+	cloak = /obj/item/clothing/cloak/tabard/knight/guard  // Wear the King's colors
 	shirt = /obj/item/clothing/armor/gambeson/arming
 	belt = /obj/item/storage/belt/leather
 	beltr = /obj/item/weapon/sword/arming
 	backl = /obj/item/storage/backpack/satchel
-	wrists = /obj/item/clothing/wrists/bracers
 	backpack_contents = list(/obj/item/storage/keyring/manorguard = 1)
 
 	H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
@@ -100,7 +99,7 @@
 		"Sabre" = /obj/item/weapon/sword/sabre/dec, \
 		"Unarmed" = /obj/item/weapon/knife/dagger/steel \
 		)
-	var/choice = H.select_equippable(selectable, message = "Choose Your Specialisation", title = "KNIGHT")
+	var/choice = H.select_equippable(H, selectable, message = "Choose Your Specialisation", title = "KNIGHT")
 	if(!choice)
 		return
 	var/grant_shield = TRUE
@@ -132,10 +131,10 @@
 
 /datum/outfit/job/royalknight/knight/pre_equip(mob/living/carbon/human/H)
 	. = ..()
-	armor = /obj/item/clothing/armor/brigandine
-	shoes = /obj/item/clothing/shoes/boots/armor/light
-	gloves = /obj/item/clothing/gloves/chain
+	armor = /obj/item/clothing/armor/plate/full
 	head = /obj/item/clothing/head/helmet/visored/knight
+	gloves = /obj/item/clothing/gloves/plate
+	shoes = /obj/item/clothing/shoes/boots/armor
 
 /datum/advclass/royalknight/steam
 	name = "Steam Knight"

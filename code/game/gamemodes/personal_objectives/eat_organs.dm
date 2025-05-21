@@ -3,7 +3,7 @@
 	triumph_count = 0
 	var/organs_consumed = 0
 	var/hearts_consumed = 0
-	var/organs_required = 2
+	var/organs_required = 3
 	var/hearts_required = 1
 
 /datum/objective/consume_organs/on_creation()

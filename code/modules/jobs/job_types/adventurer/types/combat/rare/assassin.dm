@@ -38,7 +38,7 @@
 	H.become_blind("TRAIT_GENERIC")
 	H.advjob = "Assassin"
 	// Assassin now spawns disguised as one of the non-combat drifters. You never know who will stab you in the back.
-	var/disguises = list("Bard", "Beggar", "Fisher", "Hunter", "Miner", "Noble", "Peasant", "Carpenter")
+	var/disguises = list("Bard", "Beggar", "Fisher", "Hunter", "Miner", "Noble", "Peasant", "Carpenter", "Thief", "Ranger", "Servant", "Assassin")
 	var/disguisechoice = input("Choose your cover", "Available disguises") as anything in disguises
 
 	if(disguisechoice)
@@ -206,6 +206,70 @@
 			backr = /obj/item/weapon/axe/iron
 			backl = /obj/item/storage/backpack/backpack
 			backpack_contents = list(/obj/item/flint = 1, /obj/item/weapon/knife/villager = 1)
+		if("Thief")
+			shirt = /obj/item/clothing/shirt/undershirt/black
+			gloves = /obj/item/clothing/gloves/fingerless
+			pants = /obj/item/clothing/pants/trou/leather
+			shoes = /obj/item/clothing/shoes/boots
+			backl = /obj/item/storage/backpack/satchel
+			belt = /obj/item/storage/belt/leather/assassin
+			beltr = /obj/item/weapon/mace/cudgel
+			beltl = /obj/item/storage/belt/pouch/coins/poor
+			cloak = /obj/item/clothing/cloak/raincloak/mortus
+		if("Ranger")
+			if(H.gender == MALE)
+				pants = /obj/item/clothing/pants/trou/leather
+				shirt = /obj/item/clothing/shirt/undershirt
+			else
+				pants = /obj/item/clothing/pants/tights
+				if(prob(50))
+					pants = /obj/item/clothing/pants/tights/black
+				shirt = /obj/item/clothing/shirt/undershirt
+			if(prob(23))
+				gloves = /obj/item/clothing/gloves/leather
+			else
+				gloves = /obj/item/clothing/gloves/fingerless
+			wrists = /obj/item/clothing/wrists/bracers/leather
+			belt = /obj/item/storage/belt/leather/assassin
+			armor = /obj/item/clothing/armor/leather/hide
+			cloak = /obj/item/clothing/cloak/raincloak/brown
+			if(prob(33))
+				cloak = /obj/item/clothing/cloak/raincloak/green
+			backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
+			backl = /obj/item/storage/backpack/satchel
+			beltr = /obj/item/flashlight/flare/torch/lantern
+			backpack_contents = list(/obj/item/bait = 1, /obj/item/weapon/knife/hunting = 1)
+			beltl = /obj/item/ammo_holder/quiver/arrows
+			shoes = /obj/item/clothing/shoes/boots/leather
+			H.adjust_skillrank(/datum/skill/combat/bows, 2, TRUE) //Once more, the assassin trades their crossbow abilities to match their disguise.
+			H.adjust_skillrank(/datum/skill/combat/crossbows, -2, TRUE)
+		if("Servant") // You think you're safe? No keys to the keep though. Hopefully less people pick Noble with this in mind.
+			H.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
+			H.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
+			H.adjust_skillrank(/datum/skill/craft/cooking, 3, TRUE) // Trustworthy poisoner.
+			shoes = /obj/item/clothing/shoes/simpleshoes
+			pants = /obj/item/clothing/pants/tights/uncolored
+			shirt = /obj/item/clothing/shirt/undershirt/uncolored
+			belt = /obj/item/storage/belt/leather/assassin
+			beltl = /obj/item/storage/belt/pouch/coins/poor
+			if(H.gender == MALE)
+				armor = /obj/item/clothing/armor/leather/vest/black
+			else
+				cloak = /obj/item/clothing/cloak/apron
+			backpack_contents = list(/obj/item/recipe_book/cooking = 1)
+		if("Assassin") // Sacrifice the disguise for drip.
+			shirt = /obj/item/clothing/shirt/undershirt/fancy
+			gloves = /obj/item/clothing/gloves/fingerless
+			pants = /obj/item/clothing/pants/tights/uncolored
+			shoes = /obj/item/clothing/shoes/boots
+			backl = /obj/item/storage/backpack/satchel
+			belt = /obj/item/storage/belt/leather/assassin
+			beltl = /obj/item/storage/belt/pouch/coins/poor
+			beltr = /obj/item/weapon/knife/dagger/steel
+			cloak = /obj/item/clothing/cloak/raincloak
+			mask = /obj/item/clothing/face/spectacles/sglasses
+			ring = /obj/item/clothing/ring/silver/gemerald
+			H.set_hair_style(/datum/sprite_accessory/hair/head/bald, FALSE)
 
 	H.cure_blind("TRAIT_GENERIC")
 

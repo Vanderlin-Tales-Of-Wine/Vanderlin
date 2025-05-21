@@ -83,13 +83,39 @@
 
 /obj/structure/flora/tree/wise
 	name = "wise tree"
-	desc = "Dendor's favored."
+	desc = "Dendor's favored. It seems to watch you with ancient awareness."
 	icon_state = "mystical"
-	var/activated = 0
+	var/activated = FALSE
+	var/cooldown = FALSE
+	var/retaliation_messages = list(
+		"LEAVE FOREST ALONE!",
+		"DENDOR PROTECTS!",
+		"NATURE'S WRATH!",
+		"BEGONE, INTERLOPER!"
+	)
 
 /obj/structure/flora/tree/wise/Initialize()
 	. = ..()
 	icon_state = "mystical"
+
+/obj/structure/flora/tree/wise/attackby(obj/item/I, mob/user, params)
+	. = ..()
+	if(activated && !cooldown)
+		retaliate(user)
+
+/obj/structure/flora/tree/wise/proc/retaliate(mob/living/target)
+	if(cooldown || !istype(target) || !activated)
+		return
+
+	cooldown = TRUE
+	addtimer(VARSET_CALLBACK(src, cooldown, FALSE), 5 SECONDS)
+
+	var/message = pick(retaliation_messages)
+	say(span_danger("[message]"))
+
+	var/atom/throw_target = get_edge_target_turf(src, get_dir(src, target))
+	target.throw_at(throw_target, 4, 2)
+	target.adjustBruteLoss(8)
 
 /obj/structure/flora/tree/burnt
 	name = "burnt tree"

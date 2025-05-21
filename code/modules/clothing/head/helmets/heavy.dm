@@ -97,6 +97,40 @@
 	prevent_crits = ALL_CRITICAL_HITS
 	item_weight = 9 * IRON_MULTIPLIER
 
+//............... Zizo Frog Helmet ............... //
+
+/obj/item/clothing/head/helmet/heavy/zizo
+	name = "darksteel frog helmet"
+	desc = "A darksteel frog helmet. This one has an adjustable visor. Called forth from the edge of what should be known. In Her name."
+	adjustable = CAN_CADJUST
+	icon_state = "zizofrogmouth"
+	icon = 'icons/roguetown/clothing/special/evilarmor.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/evilarmor.dmi'
+	armor = ARMOR_PLATE
+	prevent_crits = ALL_CRITICAL_HITS
+	item_weight = 5 * STEEL_MULTIPLIER
+	block2add = FOV_BEHIND
+	sellprice = 0 // Incredibly evil Zizoid armor, this should be burnt, nobody wants this
+
+//............... Matthios Helmet ............... //
+
+/obj/item/clothing/head/helmet/heavy/matthios
+	name = "gilded visage"
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/64x64/head.dmi'
+	desc = "A sinister visage. So that your crimes are never brought to you."
+	icon_state = "matthioshelm"
+	icon = 'icons/roguetown/clothing/special/evilarmor.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/evilarmor64x64.dmi'
+	armor = ARMOR_PLATE
+	prevent_crits = ALL_CRITICAL_HITS
+	item_weight = 5 * STEEL_MULTIPLIER
+	block2add = FOV_BEHIND
+	sellprice = 0 // See above comment
+	bloody_icon = 'icons/effects/blood64x64.dmi'
+	bloody_icon_state = "helmetblood_big"
+	worn_x_dimension = 64
+	worn_y_dimension = 64
+
 //............... Spangenhelm ............... //
 /obj/item/clothing/head/helmet/heavy/viking
 	name = "spangenhelm"

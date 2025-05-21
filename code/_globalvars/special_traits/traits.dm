@@ -111,15 +111,6 @@
 	ADD_TRAIT(character, TRAIT_BEAUTIFUL, "[type]")
 
 //positive
-/datum/special_trait/duelist
-	name = "Swordmaster Apprentice"
-	greet_text = span_notice("I was the student of a legendary sword master, my skill is rivalled by few! I've also hidden a rapier.")
-	weight = 50
-
-/datum/special_trait/duelist/on_apply(mob/living/carbon/human/character, silent)
-	character.change_stat("speed", 2)
-	character.adjust_skillrank(/datum/skill/combat/swords, 6, TRUE) //will make a unique trait later on
-	character.mind.special_items["Rapier"] = /obj/item/weapon/sword/rapier
 
 /datum/special_trait/eagle_eyed
 	name = "Eagle Eyed"

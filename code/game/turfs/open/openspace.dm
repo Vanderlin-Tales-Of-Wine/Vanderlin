@@ -21,6 +21,10 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 	dynamic_lighting = 1
 	turf_flags = NONE
 	path_weight = 500
+	smoothing_flags = SMOOTH_EDGE
+	smoothing_groups = SMOOTH_GROUP_FLOOR_OPEN_SPACE
+	smoothing_list = SMOOTH_GROUP_OPEN_FLOOR + SMOOTH_GROUP_CLOSED_WALL
+	neighborlay_self = "staticedge"
 
 /turf/open/transparent/openspace/debug/update_multiz()
 	..()
@@ -38,6 +42,33 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 	if(!traveler.can_zFall(src, DOWN, destination)) // they can't fall!
 		return TRUE
 	return FALSE
+
+/turf/open/transparent/openspace/add_neighborlay(dir, edgeicon, offset = FALSE)
+	var/add
+	var/y = 0
+	var/x = 0
+	switch(dir)
+		if(NORTH)
+			add = "[edgeicon]-n"
+			y = -32
+		if(SOUTH)
+			add = "[edgeicon]-s"
+			y = 32
+		if(EAST)
+			add = "[edgeicon]-e"
+			x = -32
+		if(WEST)
+			add = "[edgeicon]-w"
+			x = 32
+
+	if(!add)
+		return
+
+	var/image/overlay = image(icon, src, add, SPLASHSCREEN_LAYER + 0.01, pixel_x = offset ? x : 0, pixel_y = offset ? y : 0 )
+	overlay.plane = OPENSPACE_BACKDROP_PLANE + 0.01
+
+	LAZYADDASSOC(neighborlay_list, "[dir]", overlay)
+	add_overlay(overlay)
 
 ///No bottom level for openspace.
 /turf/open/transparent/openspace/show_bottom_level()

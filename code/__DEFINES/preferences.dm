@@ -136,3 +136,6 @@
 							ALIGNMENT_LE,\
 							ALIGNMENT_NE,\
 							ALIGNMENT_CE)
+
+#define UI_PREFERENCE_LIGHT_MODE "light mode"
+#define UI_PREFERENCE_DARK_MODE "dark mode"

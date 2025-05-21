@@ -42,15 +42,16 @@
 	belt = /obj/item/storage/belt/leather/black
 	shoes = /obj/item/clothing/shoes/otavan/inqboots
 	pants = /obj/item/clothing/pants/trou/leather
-	cloak = /obj/item/clothing/cloak/cape/puritan
-	head = /obj/item/clothing/head/helmet/leather/inquisitor
+	cloak = /obj/item/clothing/cloak/cape/inquisitor
+	head = /obj/item/clothing/head/leather/inqhat
 	gloves = /obj/item/clothing/gloves/otavan/inqgloves
 	wrists = /obj/item/clothing/neck/psycross/silver
 	backr = /obj/item/storage/backpack/satchel
 	backl = /obj/item/weapon/sword/long/forgotten
 	beltl = /obj/item/flashlight/flare/torch/lantern
 	neck = /obj/item/clothing/neck/bevor
-	armor = /obj/item/clothing/armor/leather/splint
+	mask = /obj/item/clothing/face/spectacles/inqglasses
+	armor = /obj/item/clothing/armor/medium/scale/inqcoat
 	backpack_contents = list(/obj/item/storage/keyring/inquisitor = 1, /obj/item/storage/belt/pouch/coins/rich)
 	var/prev_real_name = H.real_name
 	var/prev_name = H.name

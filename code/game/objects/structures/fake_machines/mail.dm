@@ -428,6 +428,11 @@
 			cost = 3,
 			max_purchases = 3
 		),
+		"Tossblade Belt (Silver) (4)" = list(
+			list(type = /obj/item/storage/belt/leather/knifebelt/black/psydon, count = 1),
+			cost = 4,
+			max_purchases = 1
+		),
 		"Psydonian Dagger (3)" = list(
 			list(type = /obj/item/weapon/knife/dagger/psydon, count = 1),
 			cost = 3,
@@ -493,6 +498,11 @@
 		"Inquisitorial Hat (2)" = list(
 			list(type = /obj/item/clothing/head/leather/inqhat, count = 1),
 			cost = 2,
+			max_purchases = 1
+		),
+		"Crimson Spectacles (1)" = list(
+			list(type = /obj/item/clothing/face/spectacles/inqglasses, count = 1),
+			cost = 1,
 			max_purchases = 1
 		),
 		"Inquisitorial Duster (3)" = list(
