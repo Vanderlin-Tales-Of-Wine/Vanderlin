@@ -277,12 +277,13 @@
 			pants = /obj/item/clothing/pants/trou/leather
 			shoes = /obj/item/clothing/shoes/boots
 			backl = /obj/item/storage/backpack/satchel
-			belt = /obj/item/storage/belt/leather/assassin
+			belt = /obj/item/storage/belt/leather/knifebelt/black/steel
 			beltl = /obj/item/storage/belt/pouch/coins/poor
 			beltr = /obj/item/weapon/knife/dagger/steel
 			cloak = /obj/item/clothing/cloak/faceless
 			shirt = /obj/item/clothing/shirt/undershirt/black
 			mask = /obj/item/clothing/face/lordmask/faceless
+			backpack_contents = list(/obj/item/reagent_containers/glass/bottle/poison, /obj/item/weapon/knife/dagger/steel/profane, /obj/item/lockpick, /obj/item/storage/fancy/cigarettes/zig, /obj/item/flint)
 			ADD_TRAIT(H, TRAIT_FACELESS, TRAIT_GENERIC)
 			if(H.dna.species.id == "rakshari" && prob(10))
 				H.real_name = "Furless One"
