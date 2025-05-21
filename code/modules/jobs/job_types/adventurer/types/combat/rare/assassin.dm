@@ -285,14 +285,7 @@
 			mask = /obj/item/clothing/face/lordmask/faceless
 			backpack_contents = list(/obj/item/reagent_containers/glass/bottle/poison, /obj/item/weapon/knife/dagger/steel/profane, /obj/item/lockpick, /obj/item/storage/fancy/cigarettes/zig, /obj/item/flint)
 			ADD_TRAIT(H, TRAIT_FACELESS, TRAIT_GENERIC)
-			if(H.dna.species.id == "rakshari" && prob(10))
-				H.real_name = "Furless One"
-			if(H.dna.species.id == "harpy" && prob(10)) //Why do you play assassin as a harpy
-				H.real_name = "Featherless One"
-			if(H.dna.species.id == "kobold" && prob(10)) //idem
-				H.real_name = "Scaleless One"
-			else
-				H.real_name = "Faceless One"
+			H.real_name = get_faceless_name(H)
 
 	H.cure_blind("TRAIT_GENERIC")
 
@@ -310,3 +303,16 @@
 			H.dna.species.soundpack_m = new /datum/voicepack/male/assassin()
 		else
 			H.dna.species.soundpack_f = new /datum/voicepack/female/assassin()
+
+
+/datum/outfit/job/adventurer/assassin/proc/get_faceless_name(mob/living/carbon/human/H)
+	if(is_species(H, /datum/species/rakshari) && prob(10))
+		return "Furless One"
+	else if(is_species(H, /datum/species/harpy) && prob(10))
+		return "Featherless One"
+	else if(is_species(H, /datum/species/kobold) && prob(10))
+		return "Scaleless One"
+	else if(prob(1))
+		return pick("Friendless One", "Maidenless One", "Fatherless One", "Kinless One")
+	else
+		return "Faceless One"
