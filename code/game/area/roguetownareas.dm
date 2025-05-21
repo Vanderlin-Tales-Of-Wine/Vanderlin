@@ -13,7 +13,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 /area/rogue/Entered(mob/living/carbon/human) // Applies the forestguard debuff if someone in the forest garrison enters an area with forest_area = FALSE
 	. = ..()
 	if(HAS_TRAIT(human, TRAIT_FORESTGUARD))
-		if(human.z > 1 && human.z <= 6 && !forest_area)
+		if(is_station_level(human.z) && !forest_area)
 			human.apply_status_effect(/datum/status_effect/debuff/forestguard)
 		else if(human.has_status_effect(/datum/status_effect/debuff/forestguard))
 			human.remove_status_effect(/datum/status_effect/debuff/forestguard)
@@ -405,7 +405,6 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound = 'sound/music/area/towngen.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = 'sound/music/area/deliverer.ogg'
-
 
 /area/rogue/indoors/town/manor
 	name = "Manor"
@@ -914,19 +913,19 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 
 /area/rogue/indoors/bandit_lair
 	name = "lair (Bandits)"
-	forest_area = TRUE
+
 
 /area/rogue/indoors/vampire_manor
 	name = "lair (Vampire Lord)"
-	forest_area = TRUE
+
 
 /area/rogue/outdoors/bog/inhumen_camp
 	name = "lair (Inhumen)"
 	droning_sound = 'sound/music/area/decap.ogg'
 	first_time_text = "THE DEEP BOG"
-	forest_area = TRUE
+
 
 /area/rogue/indoors/lich
 	name = "lair (Lich)"
 	droning_sound = 'sound/music/area/churchnight.ogg'
-	forest_area = TRUE
+
