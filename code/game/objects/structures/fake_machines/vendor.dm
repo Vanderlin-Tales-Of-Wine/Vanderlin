@@ -30,7 +30,7 @@
 /obj/structure/fake_machine/vendor/on_lock_add()
 	update_icon()
 
-/obj/structure/fake_machine/vendor/obj_break(damage_flag)
+/obj/structure/fake_machine/vendor/obj_break(damage_flag, silent)
 	. = ..()
 	for(var/obj/item/I as anything in held_items)
 		I.forceMove(loc)
