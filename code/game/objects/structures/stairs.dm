@@ -2,7 +2,6 @@
 #define STAIR_TERMINATOR_NO 1
 #define STAIR_TERMINATOR_YES 2
 
-// dir determines the direction of travel to go upwards (due to lack of sprites, currently only 1 and 2 make sense)
 // stairs require /turf/open/transparent/openspace as the tile above them to work
 // multiple stair objects can be chained together; the Z level transition will happen on the final stair object in the chain
 
@@ -116,7 +115,11 @@
 /obj/structure/stairs/proc/on_exit(datum/source, atom/movable/leaving, atom/new_location)
 	SIGNAL_HANDLER
 
-	if(INVOKE_ASYNC(src, PROC_REF(user_walk_into_target_loc), leaving, new_location))
+	if(isobserver(leaving))
+		return
+
+	if(user_walk_into_target_loc(leaving, get_dir(src, new_location)))
+		leaving.Bump(src)
 		return COMPONENT_ATOM_BLOCK_EXIT
 
 /// From a cardinal direction, returns the resulting turf we'll end up at if we're uncrossing the stairs. Used for pathfinding, mostly.
@@ -128,7 +131,7 @@
 	var/turf/zturf
 	if(dirmove == dir)
 		zturf = GET_TURF_ABOVE(get_turf(src))
-	else if(dirmove == GLOB.reverse_dir[dir])
+	else if(dirmove == REVERSE_DIR(dir))
 		zturf = GET_TURF_BELOW(get_turf(src))
 	if(!zturf)
 		return // not moving up or down
@@ -142,7 +145,7 @@
 /obj/structure/stairs/proc/user_walk_into_target_loc(atom/movable/AM, dirmove)
 	var/turf/newtarg = get_target_loc(dirmove)
 	if(newtarg)
-		movable_travel_z_level(AM, newtarg)
+		INVOKE_ASYNC(src, GLOBAL_PROC_REF(movable_travel_z_level), AM, newtarg)
 		return TRUE
 	return FALSE
 
