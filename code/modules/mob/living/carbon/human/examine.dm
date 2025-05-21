@@ -186,7 +186,7 @@
 		. += span_necrosis("A LEPER...")
 
 	if(HAS_TRAIT(src, TRAIT_FACELESS))
-		. += span_userdanger("FACELESS!")
+		. += span_userdanger("FACELESS?! AN ASSASSIN!")
 
 	if(user != src)
 		var/datum/mind/Umind = user.mind
