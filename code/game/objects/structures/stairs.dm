@@ -18,6 +18,9 @@
 
 /obj/structure/stairs/Initialize(mapload)
 	. = ..()
+	var/static/list/loc_connections = list(COMSIG_ATOM_EXIT = PROC_REF(on_exit))
+	AddElement(/datum/element/connect_loc, loc_connections)
+
 	if(should_sink)
 		obj_flags &= ~IGNORE_SINK
 
@@ -110,19 +113,11 @@
 	add_abstract_elastic_data(ELASCAT_CRAFTING, "[name]", 1)
 	return
 
-/obj/structure/stairs/Initialize(mapload)
-	return ..()
+/obj/structure/stairs/proc/on_exit(datum/source, atom/movable/leaving, atom/new_location)
+	SIGNAL_HANDLER
 
-/obj/structure/stairs/Destroy()
-	return ..()
-
-/obj/structure/stairs/Uncross(atom/movable/AM, turf/newloc)
-	if(!newloc || !AM)
-		return ..()
-	var/moved = get_dir(src, newloc)
-	if(user_walk_into_target_loc(AM, moved))
-		return FALSE
-	return ..()
+	if(INVOKE_ASYNC(src, PROC_REF(user_walk_into_target_loc), leaving, new_location))
+		return COMPONENT_ATOM_BLOCK_EXIT
 
 /// From a cardinal direction, returns the resulting turf we'll end up at if we're uncrossing the stairs. Used for pathfinding, mostly.
 /obj/structure/stairs/proc/get_transit_destination(dirmove)

@@ -225,7 +225,7 @@
 	var/total_processed = 0
 	var/process_cap = 500
 
-	var/datum/proximity_monitor/advanced/spider_nest/field
+	var/datum/proximity_monitor/proximity_monitor
 
 	var/last_disturbed = 0
 
@@ -243,17 +243,14 @@
 
 /obj/structure/spider/nest/Initialize()
 	. = ..()
+	proximity_monitor = new(src, 2)
 	AddComponent(/datum/component/mob_home, 6)
 	START_PROCESSING(SSobj, src)
-	return INITIALIZE_HINT_LATELOAD
-
-/obj/structure/spider/nest/LateInitialize()
-	. = ..()
-	field = make_field(/datum/proximity_monitor/advanced/spider_nest, list("parent" = src, "host" = src))
 
 /obj/structure/spider/nest/Destroy()
-	. = ..()
+	QDEL_NULL(proximity_monitor)
 	STOP_PROCESSING(SSobj, src)
+	return ..()
 
 /obj/structure/spider/nest/examine(mob/user)
 	. = ..()
@@ -274,7 +271,7 @@
 
 /obj/structure/spider/nest/attackby(obj/item/I, mob/user, params)
 	. = ..()
-	check_crossed(user)
+	disturb(user)
 
 /obj/structure/spider/nest/process()
 	if(total_processed >= process_cap)
@@ -285,7 +282,10 @@
 	to_process -= process_amount
 	total_processed += process_amount
 
-/obj/structure/spider/nest/proc/check_crossed(atom/movable/movable)
+/obj/structure/spider/nest/HasProximity(atom/movable/movable)
+	disturb(movable)
+
+/obj/structure/spider/nest/proc/disturb(atom/movable/movable)
 	if(last_disturbed > world.time)
 		return
 	if(!isliving(movable))
@@ -305,17 +305,3 @@
 		spider.ai_controller.queue_behavior(/datum/ai_behavior/basic_melee_attack, BB_BASIC_MOB_CURRENT_TARGET, BB_PET_TARGETING_DATUM)
 
 	last_disturbed = world.time + 12 SECONDS
-
-/datum/proximity_monitor/advanced/spider_nest
-	field_shape = FIELD_SHAPE_RADIUS_SQUARE
-	current_range = 2
-
-	setup_field_turfs = TRUE
-	setup_edge_turfs = TRUE
-
-	var/obj/structure/spider/nest/parent
-
-
-/datum/proximity_monitor/advanced/spider_nest/field_turf_crossed(atom/movable/AM, obj/effect/abstract/proximity_checker/advanced/field_turf/F)
-	. = ..()
-	parent.check_crossed(AM)
