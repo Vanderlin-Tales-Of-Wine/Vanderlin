@@ -44,6 +44,9 @@
 		H.adjust_skillrank(/datum/skill/misc/stealing, 2, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/sneaking, 1, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/lockpicking, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE) //She is a old thief.
+		H.change_stat(STATKEY_SPD, 1) //this is to counter the negative spd/end stats from being old so they can chase the orphans in case they're not listening, the other stats are left untouched.
+		H.change_stat(STATKEY_END, 1)
 	H.change_stat(STATKEY_STR, -1)
 	H.change_stat(STATKEY_INT, 2)
 	H.change_stat(STATKEY_PER, 1)
@@ -52,6 +55,9 @@
 	to_chat(H, "<span class='info'>I can gesture in thieves' cant with ,t before my speech.</span>")
 	ADD_TRAIT(H, TRAIT_THIEVESGUILD, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_OLDPARTY, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_EARGRAB, TRAIT_GENERIC)
+	H.mind?.AddSpell(new /obj/effect/proc_holder/spell/targeted/seek_orphan)
+	H.mind?.AddSpell(new /obj/effect/proc_holder/spell/self/hag_call)
 	shirt = /obj/item/clothing/shirt/dress/gen/black
 	armor = /obj/item/clothing/armor/leather/vest/black
 	pants = /obj/item/clothing/pants/trou/beltpants

@@ -319,6 +319,8 @@ All foods are distributed among various categories. Use common sense.
 		record_featured_object_stat(FEATURED_STATS_FOOD, name)
 		if(faretype == FARE_LAVISH || faretype == FARE_FINE)
 			GLOB.vanderlin_round_stats[STATS_LUXURIOUS_FOOD_EATEN]++
+		if(eat_effect == /datum/status_effect/debuff/rotfood)
+			SEND_SIGNAL(eater, COMSIG_ROTTEN_FOOD_EATEN, src)
 		var/atom/current_loc = loc
 		qdel(src)
 		if(isliving(current_loc))
