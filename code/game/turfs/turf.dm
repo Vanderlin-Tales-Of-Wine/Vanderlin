@@ -311,7 +311,6 @@
 				return FALSE		//We were deleted, do not attempt to proceed with movement.
 			if(thing == mover || thing == mover.loc) // Multi tile objects and moving out of other objects
 				continue
-			var/atom/movable/thing = i
 			if(!thing.Cross(mover))
 				if(QDELETED(mover))		//Mover deleted from Cross/CanPass, do not proceed.
 					return FALSE
