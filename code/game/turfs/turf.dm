@@ -306,10 +306,10 @@
 	var/atom/firstbump
 	var/canPassSelf = CanPass(mover, src)
 	if(canPassSelf || CHECK_BITFIELD(mover.movement_type, UNSTOPPABLE))
-		for(var/i in contents)
+		for(var/atom/movable/thing as anything in contents)
 			if(QDELETED(mover))
 				return FALSE		//We were deleted, do not attempt to proceed with movement.
-			if(i == mover || i == mover.loc) // Multi tile objects and moving out of other objects
+			if(thing == mover || thing == mover.loc) // Multi tile objects and moving out of other objects
 				continue
 			var/atom/movable/thing = i
 			if(!thing.Cross(mover))
