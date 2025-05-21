@@ -383,7 +383,7 @@
 
 			playsound( // and anotha one
 				user,
-				"changeling_absorb"
+				get_sfx("changeling_absorb")
 			)
 
 			if(!do_after(user, 3 SECONDS, target = target))
