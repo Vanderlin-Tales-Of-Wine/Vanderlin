@@ -38,7 +38,7 @@
 	H.become_blind("TRAIT_GENERIC")
 	H.advjob = "Assassin"
 	// Assassin now spawns disguised as one of the non-combat drifters. You never know who will stab you in the back.
-	var/disguises = list("Bard", "Beggar", "Fisher", "Hunter", "Miner", "Noble", "Peasant", "Carpenter", "Thief", "Ranger", "Servant", "Assassin")
+	var/disguises = list("Bard", "Beggar", "Fisher", "Hunter", "Miner", "Noble", "Peasant", "Carpenter", "Thief", "Ranger", "Servant", "Assassin", "Faceless One")
 	var/disguisechoice = input("Choose your cover", "Available disguises") as anything in disguises
 
 	if(disguisechoice)
@@ -270,6 +270,28 @@
 			mask = /obj/item/clothing/face/spectacles/sglasses
 			ring = /obj/item/clothing/ring/silver/gemerald
 			H.set_hair_style(/datum/sprite_accessory/hair/head/bald, FALSE)
+		if("Faceless One") //Sacrifice the disguise and marked for valid for even more drip.
+			head = /obj/item/clothing/head/faceless
+			armor = /obj/item/clothing/shirt/robe/faceless
+			gloves = /obj/item/clothing/gloves/leather/black
+			pants = /obj/item/clothing/pants/trou/leather
+			shoes = /obj/item/clothing/shoes/boots
+			backl = /obj/item/storage/backpack/satchel
+			belt = /obj/item/storage/belt/leather/assassin
+			beltl = /obj/item/storage/belt/pouch/coins/poor
+			beltr = /obj/item/weapon/knife/dagger/steel
+			cloak = /obj/item/clothing/cloak/faceless
+			shirt = /obj/item/clothing/shirt/undershirt/black
+			mask = /obj/item/clothing/face/lordmask/faceless
+			ADD_TRAIT(H, TRAIT_FACELESS, TRAIT_GENERIC)
+			if(H.dna.species.id == "rakshari" && prob(10))
+				H.real_name = "Furless One"
+			if(H.dna.species.id == "harpy" && prob(10)) //Why do you play assassin as a harpy
+				H.real_name = "Featherless One"
+			if(H.dna.species.id == "kobold" && prob(10)) //idem
+				H.real_name = "Scaleless One"
+			else
+				H.real_name = "Faceless One"
 
 	H.cure_blind("TRAIT_GENERIC")
 

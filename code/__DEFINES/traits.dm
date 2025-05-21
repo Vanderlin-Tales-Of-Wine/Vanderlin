@@ -110,6 +110,7 @@
 #define TRAIT_BURDEN "Burdened" //Gaffer stuff
 #define TRAIT_OLDPARTY "Old Party"
 #define TRAIT_EARGRAB "Ear Grab"
+#define TRAIT_FACELESS "Faceless One"
 
 // PATRON CURSE TRAITS
 #define TRAIT_CURSE "Curse" //source
@@ -208,6 +209,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_AMAZING_BACK = span_notice("I'm able to carry far more on my back!"),
 	TRAIT_HOLLOWBONES = span_danger("My bones are light as air, Its hard to wear armor."),
 	TRAIT_EARGRAB = span_info("I can keep a tight grip on the ear of unruly children."),
+	TRAIT_FACELESS = span_danger("I am faceless, the others will recognise me for what i am.")
 	))
 
 #define SIGNAL_ADDTRAIT(trait_ref) ("addtrait " + trait_ref)
