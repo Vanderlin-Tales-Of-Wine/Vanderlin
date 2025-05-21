@@ -439,5 +439,5 @@
 
 /atom/movable/screen/alert/status_effect/debuff/forestguard
 	name = "Foreign Lands"
-	desc = span_warning("I'm in unknown territory, this isn't the forest!\n")
+	desc = span_warning("Goblins hide in the alleys! I must return to the forest!\n")
 	icon_state = "debuff"
