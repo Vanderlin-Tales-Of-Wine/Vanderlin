@@ -330,9 +330,12 @@
 				soundin = pick('sound/combat/wooshes/blunt/wooshlarge (1).ogg','sound/combat/wooshes/blunt/wooshlarge (2).ogg','sound/combat/wooshes/blunt/wooshlarge (3).ogg')
 			if("punchwoosh")
 				soundin = pick('sound/combat/wooshes/punch/punchwoosh (1).ogg','sound/combat/wooshes/punch/punchwoosh (2).ogg','sound/combat/wooshes/punch/punchwoosh (3).ogg')
-
-
-
-
-
+			if("changeling_absorb") // turn these into defines
+				soundin = pick(
+					'sound/surgery/changeling_absorb/changeling_absorb1.ogg',
+					'sound/surgery/changeling_absorb/changeling_absorb2.ogg',
+					'sound/surgery/changeling_absorb/changeling_absorb3.ogg',
+					'sound/surgery/changeling_absorb/changeling_absorb4.ogg',
+					'sound/surgery/changeling_absorb/changeling_absorb5.ogg',
+				)
 	return soundin
