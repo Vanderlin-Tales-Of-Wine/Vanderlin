@@ -2178,7 +2178,6 @@
 "na" = (
 /obj/structure/fluff/railing/border,
 /obj/machinery/light/fueled/wallfire/candle/skull/l,
-/mob/living/carbon/human/species/zizombie/npc/warrior,
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/indoors/lich)
 "nb" = (
@@ -8382,7 +8381,7 @@
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/lich)
 "Xq" = (
-/mob/living/carbon/human/species/zizombie/npc/warrior,
+/mob/living/simple_animal/hostile/retaliate/blood,
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/indoors/lich)
 "Xr" = (
