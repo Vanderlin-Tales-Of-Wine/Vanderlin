@@ -19,7 +19,7 @@
 		animate(pixel_x = oldx-1, time = 0.5)
 		animate(pixel_x = oldx, time = 0.5)
 	if(!obj_broken && integrity_failure && obj_integrity <= integrity_failure * max_integrity)
-		obj_break(damage_flag, silent)
+		obj_break(damage_flag)
 	if(!obj_destroyed && obj_integrity <= 0)
 		obj_destruction(damage_flag)
 
