@@ -79,7 +79,7 @@
 		log_game("Cannot cyro [mob_name] ([departing_mob.type]): no assigned job. Deleting early.")
 		qdel(departing_mob)
 		return "Cannot cyro [mob_name] ([departing_mob.type]): no assigned job. Deleting early."
-	log_game("Cryo successful for [mob_name]. Adjusting job [departing_mob.job.type].")
+	log_game("Cryo successful for [mob_name]. Adjusting job [departing_mob.job].")
 	var/datum/job/mob_job = SSjob.GetJob(departing_mob.job)
 	mob_job.adjust_current_positions(-1)
 	qdel(departing_mob)
