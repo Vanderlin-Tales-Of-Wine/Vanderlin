@@ -77,10 +77,10 @@
 		qdel(departing_mob)
 		return "Cannot cryo [mob_name] ([departing_mob.type]): must be human. Deleting early."
 	if(!J || (J == /datum/job/unassigned))
-		log_game("Cannot cryo [mob_name] ([departing_mob.type]): no assigned job. Deleting early.")
+		log_game("Cannot cryo [mob_name]: no assigned job. Deleting early.")
 		qdel(departing_mob)
-		return "Cannot cryo [mob_name] ([departing_mob.type]): no assigned job. Deleting early."
-	log_game("Cryo successful for [mob_name]. Adjusting job [J.title].")
+		return "Cannot cryo [mob_name]: no assigned job. Deleting early."
+	log_game("Cryo successful for [mob_name], adjusting job [J.title].")
 	J.adjust_current_positions(-1)
 	qdel(departing_mob)
 	return "[mob_name] successfully cryo'd!"
