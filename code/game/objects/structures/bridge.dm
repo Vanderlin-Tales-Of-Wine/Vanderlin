@@ -15,6 +15,8 @@
 
 /obj/structure/bridge/Initialize(mapload)
 	. = ..()
+	var/static/list/loc_connections = list(COMSIG_ATOM_EXIT = PROC_REF(on_exit))
+	AddElement(/datum/element/connect_loc, loc_connections)
 	// Shift sprite down when going east/west so that people properly walk on the bridge
 	if(dir == EAST || dir == WEST)
 		pixel_y = -7
@@ -66,13 +68,14 @@
 		return FALSE
 	return TRUE
 
-/obj/structure/bridge/CheckExit(atom/movable/O, turf/target)
-	if(istype(O, /mob/camera))
-		return TRUE
-	var/direction = get_dir(loc, target)
-	if(direction != dir && direction != GLOB.reverse_dir[dir])
-		return FALSE
-	return TRUE
+/obj/structure/bridge/proc/on_exit(datum/source, atom/movable/leaving, atom/new_location)
+	SIGNAL_HANDLER
+	if(istype(leaving, /mob/camera))
+		return
+	var/direction = get_dir(loc, new_location)
+	if(direction != dir && direction != REVERSE_DIR(dir))
+		leaving.Bump(src)
+		return COMPONENT_ATOM_BLOCK_EXIT
 
 /obj/structure/bridge/CanAStarPass(ID, to_dir, requester)
 	if(to_dir != dir && to_dir != GLOB.reverse_dir[dir])

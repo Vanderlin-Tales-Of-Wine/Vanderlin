@@ -1,5 +1,5 @@
 /obj/structure/water_pipe
-	name = "water pipe"
+	name = "fluid pipe"
 	desc = ""
 	icon_state = "base"
 	icon = 'icons/roguetown/misc/pipes.dmi'
@@ -11,6 +11,7 @@
 	attacked_sound = list('sound/combat/hits/onmetal/grille (1).ogg', 'sound/combat/hits/onmetal/grille (2).ogg', 'sound/combat/hits/onmetal/grille (3).ogg')
 	smeltresult = /obj/item/ingot/bronze
 	obj_flags = CAN_BE_HIT | BLOCK_Z_OUT_DOWN
+	accepts_water_input = TRUE
 
 	var/water_pressure
 	var/datum/reagent/carrying_reagent
@@ -23,17 +24,19 @@
 
 /obj/structure/water_pipe/Initialize()
 	. = ..()
-	for(var/direction in GLOB.cardinals)
-		var/turf/cardinal_turf = get_step(src, direction)
+	for(var/direction in GLOB.cardinals_multiz)
+		var/turf/cardinal_turf = get_step_multiz(src, direction)
 		for(var/obj/structure/water_pipe/pipe in cardinal_turf)
 			if(!istype(pipe))
 				return
-			set_connection(get_dir(src, pipe))
-			pipe.set_connection(get_dir(pipe, src))
+			set_connection(get_dir_multiz(src, pipe))
+			pipe.set_connection(get_dir_multiz(pipe, src))
 			pipe.update_overlays()
 			if(pipe.check_id && !check_id)
 				check_id = pipe.check_id
 
+		if(!(direction & ALL_CARDINALS))
+			continue
 		for(var/obj/structure/structure in cardinal_turf)
 			if(!structure.accepts_water_input)
 				continue
@@ -42,20 +45,28 @@
 			set_connection(get_dir(src, structure))
 
 	update_overlays()
-	START_PROCESSING(SSobj, src)
+	// START_PROCESSING(SSobj, src)
 
 /obj/structure/water_pipe/Destroy()
 	var/turf/old_turf = get_turf(src)
 	. = ..()
 	var/list/directional_pipes = list()
-	for(var/direction in GLOB.cardinals)
-		var/turf/cardinal_turf = get_step(old_turf, direction)
+	for(var/direction in GLOB.cardinals_multiz)
+		var/turf/cardinal_turf = get_step_multiz(old_turf, direction)
 		for(var/obj/structure/water_pipe/pipe in cardinal_turf)
 			if(!istype(pipe))
 				continue
-			pipe.unset_connection(get_dir(pipe, src))
+			pipe.unset_connection(get_dir_multiz(pipe, old_turf))
 			pipe.update_overlays()
 			directional_pipes |= pipe
+
+		if(!(direction & ALL_CARDINALS))
+			continue
+		for(var/obj/structure/structure in cardinal_turf)
+			if(structure.input == src)
+				structure.input = null
+			if(structure.output == src)
+				structure.output = null
 
 	var/list/orphaned_pipes = directional_pipes
 	var/list/last_connected_pipes = list()
@@ -76,8 +87,8 @@
 /obj/structure/water_pipe/return_rotation_chat(atom/movable/screen/movable/mouseover/mouseover)
 	mouseover.maptext_height = 96
 	return {"<span style='font-size:8pt;font-family:"Pterra";color:#808000;text-shadow:0 0 1px #fff, 0 0 2px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;' class='center maptext '>
-			Pressure:[water_pressure]
-			Fluid:[carrying_reagent ? initial(carrying_reagent.name) : "Nothing"]</span>"}
+			Pressure: [water_pressure]
+			Fluid: [carrying_reagent ? initial(carrying_reagent.name) : "Nothing"]</span>"}
 
 /obj/structure/water_pipe/proc/make_provider(datum/reagent/reagent, pressure, obj/structure/giver)
 	check_id++
@@ -103,8 +114,8 @@
 /obj/structure/water_pipe/proc/check_adjacency(list/checked, id)
 	check_id = id
 	checked |= src
-	for(var/direction in GLOB.cardinals)
-		var/turf/cardinal_turf = get_step(src, direction)
+	for(var/direction in GLOB.cardinals_multiz)
+		var/turf/cardinal_turf = get_step_multiz(src, direction)
 		for(var/obj/structure/water_pipe/pipe in cardinal_turf)
 			if(!istype(pipe))
 				continue
@@ -121,15 +132,16 @@
 		if(length(providers))
 			for(var/obj/structure/water_pipe/pipe in providers)
 				if(pipe.carrying_reagent != id)
-					visible_message("[src] bursts from the clashing pipe streams!")
+					visible_message(span_warning("[src] bursts from the clashing pipe streams!"))
+					playsound(src, 'sound/foley/cartdump.ogg', 75)
 					qdel(src)
 					return
 		providers |= added_provider
 	if(removed_provider)
 		providers -= removed_provider
 
-	for(var/direction in GLOB.cardinals)
-		var/turf/cardinal_turf = get_step(src, direction)
+	for(var/direction in GLOB.cardinals_multiz)
+		var/turf/cardinal_turf = get_step_multiz(src, direction)
 		for(var/obj/structure/water_pipe/pipe in cardinal_turf)
 			if(!istype(pipe))
 				continue
@@ -150,11 +162,22 @@
 	. = ..()
 	var/new_overlay = ""
 	for(var/i in connected)
+		if(!(text2num(i) & ALL_CARDINALS))
+			continue
 		if(connected[i])
 			new_overlay += i
 	icon_state = "[new_overlay]"
 	if(!new_overlay)
 		icon_state = "base"
+	cut_overlays()
+	for(var/i in connected)
+		if(!connected[i])
+			continue
+		var/num = text2num(i)
+		if(num & UP)
+			add_overlay(image(icon=icon,icon_state="up"))
+		else if(num & DOWN)
+			add_overlay(image(icon=icon,icon_state="down"))
 
 	manipulate_possible_steam_creaks()
 
@@ -179,3 +202,7 @@
 		if("24")
 			for(var/obj/particle_emitter/stored in particle_emitters)
 				RemoveEmitter(stored)
+
+// /obj/structure/water_pipe/process()
+// 	if(!input)
+// 		return

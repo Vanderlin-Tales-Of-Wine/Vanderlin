@@ -20,7 +20,7 @@
 	RegisterSignal(target, COMSIG_MOB_OVERLAY_FORCE_REMOVE, TYPE_PROC_REF(/datum/element/mob_overlay_effect, on_remove), override = TRUE)
 	RegisterSignal(target, COMSIG_MOB_OVERLAY_FORCE_UPDATE, TYPE_PROC_REF(/datum/element/mob_overlay_effect, on_add), override = TRUE)
 
-/datum/element/mob_overlay_effect/Detach(datum/source, force)
+/datum/element/mob_overlay_effect/Detach(datum/source)
 	. = ..()
 	UnregisterSignal(get_turf(source), COMSIG_TURF_EXITED)
 	UnregisterSignal(get_turf(source), COMSIG_TURF_ENTERED)

@@ -16,6 +16,10 @@
 	var/list/eatablez = list(/obj/item/bodypart, /obj/item/organ, /obj/item/reagent_containers/food/snacks/meat)
 	var/aggroed = FALSE
 	var/last_eat
+	var/aggroed = FALSE
+
+	///Proximity monitor associated with this atom, needed for proximity checks.
+	var/datum/proximity_monitor/proximity_monitor
 
 /obj/structure/flora/grass/maneater/real/Initialize()
 	. = ..()
@@ -159,6 +163,7 @@
 				playsound(src,'sound/misc/eat.ogg', rand(30,60), TRUE)
 				qdel(AM)
 				return
+
 /obj/structure/flora/grass/maneater/real/attackby(obj/item/W, mob/user, params)
 	. = ..()
 	aggroed = world.time

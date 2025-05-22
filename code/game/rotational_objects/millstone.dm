@@ -2,7 +2,7 @@
 	name = "millstone"
 	desc = ""
 	icon = 'icons/obj/rotation_machines.dmi'
-	icon_state = "millstone6"
+	icon_state = "millstone"
 	density = TRUE
 	anchored = TRUE
 	blade_dulling = DULLING_BASH
@@ -10,6 +10,7 @@
 
 	rotation_structure = TRUE
 	stress_use = 64
+	initialize_dirs = CONN_DIR_FORWARD | CONN_DIR_FLIP | CONN_DIR_LEFT | CONN_DIR_RIGHT
 
 	var/mill_progress = 0
 	var/list/millable_contents = list()
@@ -60,10 +61,15 @@
 
 /obj/structure/fluff/millstone/set_rotations_per_minute(speed)
 	. = ..()
+	if(!.)
+		return
 	set_stress_use(64 * (speed / 8))
 
 /obj/structure/fluff/millstone/update_animation_effect()
-	if(!rotation_network || rotation_network?.overstressed || !rotations_per_minute || !rotation_network?.total_stress)
+	if(!rotation_network || length(rotation_network) == 1)
+		animate(src, icon_state = "millstone", time = 1)
+		return
+	if(rotation_network?.overstressed || !rotations_per_minute || !rotation_network?.total_stress)
 		animate(src, icon_state = "millstone1", time = 1)
 		return
 	var/frame_stage = 1 / ((rotations_per_minute / 60) * 6)

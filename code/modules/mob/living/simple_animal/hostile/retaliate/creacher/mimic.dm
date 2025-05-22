@@ -82,7 +82,6 @@
 	// Drop loot onto tile.
 	for(var/obj/O in src)
 		O.forceMove(loc)
-	QDEL_NULL(proximity_monitor)
 	..()
 
 /mob/living/simple_animal/hostile/retaliate/mimic/get_sound(input)
