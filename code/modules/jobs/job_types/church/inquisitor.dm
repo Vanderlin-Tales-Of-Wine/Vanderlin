@@ -202,7 +202,7 @@
 		to_chat(src, span_warning("Too late..."))
 		testing("Torture timer ran out.")
 		return
-	if(responsey == "Yes")
+	if(responsey == "RESIST!!")
 		testing("[src] resisted torture.")
 		confess_sins(confession_type, resist=TRUE, interrogator=user)
 	else
