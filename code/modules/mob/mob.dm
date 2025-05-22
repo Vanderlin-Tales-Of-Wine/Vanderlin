@@ -325,7 +325,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 	if(!slot_priority)
 		slot_priority = DEFAULT_SLOT_PRIORITY
 
-	for(var/slot in slot_priority)
+	for(var/slot as anything in slot_priority)
 		if(equip_to_slot_if_possible(W, slot, FALSE, TRUE, TRUE)) //qdel_on_fail = 0; disable_warning = 1; redraw_mob = 1
 			return TRUE
 
