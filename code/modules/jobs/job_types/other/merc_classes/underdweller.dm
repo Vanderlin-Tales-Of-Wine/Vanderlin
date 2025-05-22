@@ -49,7 +49,7 @@
 
 	if(H.dna.species.id == "dwarf")
 		H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander2.ogg'
-		H.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/axesmaces, 4, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
 		H.adjust_skillrank(/datum/skill/craft/bombs, 4, TRUE) // Dwarves get to make bombs.
 		head = /obj/item/clothing/head/helmet/leather/minershelm
