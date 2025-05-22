@@ -436,8 +436,11 @@ GLOBAL_VAR_INIT(mobids, 1)
 /// possibly delayed verb that finishes the pointing process starting in [/mob/verb/pointed()].
 /// either called immediately or in the tick after pointed() was called, as per the [DEFAULT_QUEUE_OR_CALL_VERB()] macro
 /mob/proc/_pointed(atom/A)
-	if(!src || !isturf(src.loc) || !(A in view(client.view, src)))
+	if(!src || !isturf(src.loc))
 		return FALSE
+	if(client && !(A in view(client.view, src)))
+		return FALSE
+
 	if(istype(A, /obj/effect/temp_visual/point))
 		return FALSE
 

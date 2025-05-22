@@ -44,7 +44,6 @@
 	deaggroprob = 0
 	defprob = 35
 	defdrain = 5
-	attack_same = FALSE
 	retreat_health = 0.2
 
 	aggressive = TRUE
@@ -52,8 +51,8 @@
 	body_eater = TRUE
 
 	ai_controller = /datum/ai_controller/spider
-	AIStatus = AI_OFF
-	can_have_ai = FALSE
+
+
 
 	var/static/list/pet_commands = list(
 		/datum/pet_command/idle,
@@ -91,7 +90,7 @@
 
 	AddComponent(/datum/component/obeys_commands, pet_commands)
 	AddElement(/datum/element/ai_flee_while_injured, 0.75, retreat_health)
-	ai_controller.set_blackboard_key(BB_BASIC_FOODS, food_type)
+
 	ADD_TRAIT(src, TRAIT_WEBWALK, TRAIT_GENERIC)
 
 /mob/living/simple_animal/hostile/retaliate/spider/UnarmedAttack(atom/A)
@@ -105,11 +104,6 @@
 		var/mob/living/L = target
 		if(L.reagents)
 			L.reagents.add_reagent(/datum/reagent/toxin/venom, 1)
-
-/mob/living/simple_animal/hostile/retaliate/spider/find_food()
-	. = ..()
-	if(!.)
-		return eat_bodies()
 
 /mob/living/simple_animal/hostile/retaliate/spider/try_tame(obj/item/O, mob/user)
 	if(!stat)
@@ -158,8 +152,6 @@
 
 /mob/living/simple_animal/hostile/retaliate/spider/taunted(mob/user)
 	emote("aggro")
-	Retaliate()
-	GiveTarget(user)
 	return
 
 /mob/living/simple_animal/hostile/retaliate/spider/simple_limb_hit(zone)

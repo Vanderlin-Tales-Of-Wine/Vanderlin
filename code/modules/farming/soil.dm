@@ -42,6 +42,8 @@
 	var/tilled_time = 0
 	/// The time remaining in which the soil was blessed and will help the plant grow, and make weeds decay
 	var/blessed_time = 0
+	///the time remaining in which the soil is pollinated.
+	var/pollination_time = 0
 	/// Time remaining for the soil to decay and destroy itself, only applicable when its out of water and nutriments and has no plant
 	var/soil_decay_time = SOIL_DECAY_TIME
 	/// Current quality tier of the crop (1-5, regular to diamond)
@@ -454,6 +456,8 @@
 	// Blessed feedback
 	if(blessed_time > 0)
 		. += span_good("The soil seems blessed.")
+	if(pollination_time > 0)
+		. += span_good("The soil has been pollinated.")
 
 #define BLESSING_WEED_DECAY_RATE 10 / (1 MINUTES)
 #define WEED_GROWTH_RATE 3 / (1 MINUTES)
@@ -499,55 +503,78 @@
 	if(matured && !produce_ready)
 		process_crop_quality(dt)
 
-
 /obj/structure/soil/proc/process_crop_quality(dt)
 	if(!plant || plant_dead || !matured || produce_ready)
 		return
 
-	// Base rate for quality improvement
-	var/quality_rate = 1.0
+	// Get the baseline quality potential from the plant_def
+	var/quality_potential = 1.0
 
-	// Factors that improve quality
+	// Factor in growth time - shorter growing crops get higher potential
+	// Base formula creates a range from ~0.5 to ~1.5 based on maturation time
+	// 3 MINUTES would get ~1.5 potential, 12 MINUTES would get ~0.5 potential
+	quality_potential = clamp(1 + (1 - (plant.maturation_time / (12 MINUTES))), 0.5, 1.5)
+
+	// Calculate current conditions quality multiplier
+	var/conditions_quality = 1.0
+
 	if(tilled_time > 0)
-		quality_rate *= 1.5
+		conditions_quality *= 1.1
+	if(pollination_time > 0)
+		conditions_quality *= 1.3
 	if(blessed_time > 0)
-		quality_rate *= 2.0
+		conditions_quality *= 1.5
 	if(has_world_trait(/datum/world_trait/dendor_fertility))
-		quality_rate *= 1.5
+		conditions_quality *= 1.5
 
-	// Perfect growing conditions boost quality
-	if(plant_health >= MAX_PLANT_HEALTH * 0.9)
-		quality_rate *= 1.25
-
-	// Nutrition levels affect quality
-	if(nutrition >= MAX_PLANT_NUTRITION * 0.7)
-		quality_rate *= 1.2
+	if(nutrition >= MAX_PLANT_NUTRITION * 0.9)
+		conditions_quality *= 1.3
+	else if(nutrition >= MAX_PLANT_NUTRITION * 0.7)
+		conditions_quality *= 1.1
+	else if(nutrition < MAX_PLANT_NUTRITION * 0.4)
+		conditions_quality *= 0.7
 
 	// Water levels affect quality
-	if(water >= MAX_PLANT_WATER * 0.7)
-		quality_rate *= 1.2
+	if(water >= MAX_PLANT_WATER * 0.9)
+		conditions_quality *= 1.2
+	else if(water >= MAX_PLANT_WATER * 0.7)
+		conditions_quality *= 1.1
+	else if(water < MAX_PLANT_WATER * 0.5)
+		conditions_quality *= 0.8
+	else if(water < MAX_PLANT_WATER * 0.3)
+		conditions_quality *= 0.6
 
 	// Weeds negatively affect quality
 	if(weeds >= MAX_PLANT_WEEDS * 0.3)
-		quality_rate *= 0.8
+		conditions_quality *= 0.9
 	if(weeds >= MAX_PLANT_WEEDS * 0.6)
-		quality_rate *= 0.7
+		conditions_quality *= 0.8
 
-	// Adjust quality points
-	quality_points += dt * quality_rate * 0.1
+	// Final quality rate combines potential and conditions
+	var/quality_rate = quality_potential * conditions_quality
 
-	// Determine quality tier based on accumulated points
-	// The thresholds are designed to make higher qualities progressively harder to achieve
-	if(quality_points >= 40)
+	// Maximum quality points scaled by maturation time
+	// This prevents long-growing crops from guaranteed max quality
+	var/max_quality_points = 30 * (plant.maturation_time / (6 MINUTES))
+
+	// Add quality points, but apply diminishing returns as we approach the max
+	var/progress_ratio = quality_points / max_quality_points
+	var/diminishing_returns = 1 - (progress_ratio * 0.7)
+
+	quality_points += dt * quality_rate * 0.03 * diminishing_returns
+	quality_points = min(quality_points, max_quality_points)  // Cap at the maximum
+
+	if(quality_points >= max_quality_points * 0.9)
 		crop_quality = QUALITY_DIAMOND
-	else if(quality_points >= 20)
+	else if(quality_points >= max_quality_points * 0.7)
 		crop_quality = QUALITY_GOLD
-	else if(quality_points >= 10)
+	else if(quality_points >= max_quality_points * 0.5)
 		crop_quality = QUALITY_SILVER
-	else if(quality_points >= 5)
+	else if(quality_points >= max_quality_points * 0.3)
 		crop_quality = QUALITY_BRONZE
 	else
 		crop_quality = QUALITY_REGULAR
+
 
 /obj/structure/soil/proc/process_plant_health(dt)
 	if(!plant)
@@ -592,6 +619,10 @@
 	if(blessed_time > 0)
 		growth_multiplier *= 2.0
 		nutriment_eat_mutliplier *= 0.4
+
+	if(pollination_time > 0)
+		growth_multiplier *= 1.75
+		nutriment_eat_mutliplier *= 0.6
 
 	if(has_world_trait(/datum/world_trait/dendor_fertility))
 		growth_multiplier *= 2.0
@@ -675,6 +706,7 @@
 
 	tilled_time = max(tilled_time - dt, 0)
 	blessed_time = max(blessed_time - dt, 0)
+	pollination_time = max(pollination_time - dt, 0)
 
 /obj/structure/soil/proc/decay_soil()
 	uproot()

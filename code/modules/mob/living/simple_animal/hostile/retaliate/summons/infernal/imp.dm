@@ -40,11 +40,15 @@
 	del_on_deaggro = 44 SECONDS
 	retreat_health = 0.3
 	food = 0
-	attack_sound = 'sound/combat/hits/bladed/smallslash (1).ogg'
+	attack_sound = list('sound/combat/hits/bladed/smallslash (1).ogg')
 	attack_verb_continuous = "claws"
 	attack_verb_simple = "claw"
 	dodgetime = 30
 	aggressive = 1
+
+	ai_controller = /datum/ai_controller/imp
+
+
 
 /obj/projectile/magic/firebolt
 	name = "ball of fire"
@@ -67,6 +71,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/infernal/imp/Initialize()
 	. = ..()
+	AddComponent(/datum/component/ai_aggro_system)
 
 /mob/living/simple_animal/hostile/retaliate/infernal/imp/death(gibbed)
 	..()
@@ -84,12 +89,4 @@
 
 /mob/living/simple_animal/hostile/retaliate/infernal/imp/taunted(mob/user)
 	emote("aggro")
-	Retaliate()
-	GiveTarget(user)
 	return
-
-/mob/living/simple_animal/hostile/retaliate/infernal/imp/Life()
-	..()
-	if(pulledby)
-		Retaliate()
-		GiveTarget(pulledby)

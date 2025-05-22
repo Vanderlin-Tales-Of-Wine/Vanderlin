@@ -99,6 +99,7 @@
 				if(ishuman(user))
 					var/mob/living/carbon/H = user
 					H.update_inv_wear_mask()
+		user.regenerate_clothes()
 
 /obj/item/clothing/face/shepherd/rag
 	icon_state = "ragmask"

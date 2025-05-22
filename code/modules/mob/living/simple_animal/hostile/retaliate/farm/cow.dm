@@ -51,8 +51,8 @@
 					/mob/living/simple_animal/hostile/retaliate/cow/cowlet/bullet = 5)
 	remains_type = /obj/effect/decal/remains/cow
 
-	can_have_ai = FALSE
-	AIStatus = AI_OFF
+
+
 	ai_controller = /datum/ai_controller/basic_controller/cow
 	var/can_breed = TRUE
 	var/can_tip = TRUE
@@ -68,7 +68,7 @@
 			CALLBACK(src, PROC_REF(after_cow_tipped)),\
 			CALLBACK(src, PROC_REF(after_cow_untipped)))
 
-	ai_controller.set_blackboard_key(BB_BASIC_FOODS, food_type)
+
 	if(can_breed)
 		AddComponent(\
 			/datum/component/breed,\
@@ -209,13 +209,13 @@
 	base_speed = 2
 	remains_type = /obj/effect/decal/remains/cow
 
-	can_have_ai = FALSE
-	AIStatus = AI_OFF
+
+
 	ai_controller = /datum/ai_controller/basic_controller/cow
 
 /mob/living/simple_animal/hostile/retaliate/bull/Initialize()
 	. = ..()
-	ai_controller.set_blackboard_key(BB_BASIC_FOODS, food_type)
+
 	AddComponent(\
 		/datum/component/breed,\
 		list(/mob/living/simple_animal/hostile/retaliate/cow, /mob/living/simple_animal/hostile/retaliate/bull),\
@@ -241,8 +241,6 @@
 
 /mob/living/simple_animal/hostile/retaliate/bull/taunted(mob/user)
 	emote("aggro")
-	Retaliate()
-	GiveTarget(user)
 	return
 
 /mob/living/simple_animal/hostile/retaliate/bull/simple_limb_hit(zone)

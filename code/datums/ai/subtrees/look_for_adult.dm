@@ -1,13 +1,14 @@
 /datum/ai_planning_subtree/look_for_adult
 	///how far we must be from the mom
 	var/minimum_distance = 2
+	var/datum/ai_behavior/find_mom/find_mom = /datum/ai_behavior/find_mom
 
 /datum/ai_planning_subtree/look_for_adult/SelectBehaviors(datum/ai_controller/controller, seconds_per_tick)
 	var/mob/target = controller.blackboard[BB_FOUND_MOM]
 	var/mob/baby = controller.pawn
 
 	if(QDELETED(target))
-		controller.queue_behavior(/datum/ai_behavior/find_mom, BB_FIND_MOM_TYPES, BB_IGNORE_MOM_TYPES, BB_FOUND_MOM)
+		controller.queue_behavior(find_mom, BB_FIND_MOM_TYPES, BB_IGNORE_MOM_TYPES, BB_FOUND_MOM)
 		return
 
 	if(get_dist(target, baby) > minimum_distance)
@@ -23,3 +24,6 @@
 		controller.queue_behavior(/datum/ai_behavior/perform_emote, "dances around their parent!")
 
 	return SUBTREE_RETURN_FINISH_PLANNING
+
+/datum/ai_planning_subtree/look_for_adult/kitten
+	find_mom = /datum/ai_behavior/find_mom/kitten
