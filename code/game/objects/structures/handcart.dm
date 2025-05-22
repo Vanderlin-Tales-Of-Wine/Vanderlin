@@ -66,14 +66,18 @@
 				playsound(loc, 'sound/foley/cartadd.ogg', 100, FALSE, -1)
 			return TRUE
 		return ..()
-	//only these intents should be able to move objects into handcarts
-	if(user.used_intent.type == INTENT_HELP || user.used_intent.type == /datum/intent/grab/move)
-		if(isliving(AM))
-			if(!do_after(user, 2 SECONDS, AM))
-				return FALSE
-		if(put_in(AM))
-			playsound(loc, 'sound/foley/cartadd.ogg', 100, FALSE, -1)
-		return TRUE
+
+	if(isliving(AM))
+		var/mob/living/L = AM
+		// Require strong grab for living
+		if(L.stat == CONSCIOUS && user.used_intent.type != /datum/intent/grab/move)
+			return FALSE
+		if(!do_after(user, 2 SECONDS, AM))
+			return FALSE
+
+	if(put_in(user, AM))
+		playsound(loc, 'sound/foley/cartadd.ogg', 100, FALSE, -1)
+	return TRUE
 
 /obj/structure/handcart/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/gear/wood))
@@ -191,7 +195,7 @@
 		if((current_capacity + arbitrary_living_creature_weight) > maximum_capacity)
 			return FALSE
 		weight = arbitrary_living_creature_weight
-	if(!user?.transferItemToLoc(AM, src))
+	if(isitem(AM) && !user?.transferItemToLoc(AM, src))
 		return FALSE
 	else
 		AM.forceMove(src)
@@ -241,18 +245,16 @@
 			if(L.density)
 				return FALSE
 		L.stop_pulling()
-	else if(isobj(AM))
+		return TRUE
+	if(isobj(AM))
 		if((AM.density) || AM.anchored || AM.has_buckled_mobs() || iseffect(AM))
 			return FALSE
-		else
-			if(isitem(AM))
-				var/obj/item/I = AM
-				if(HAS_TRAIT(I, TRAIT_NODROP) || I.item_flags & ABSTRACT)
-					return FALSE
-	else // not a mob or object
-		return FALSE
-
-	return TRUE
+		if(isitem(AM))
+			var/obj/item/I = AM
+			if(HAS_TRAIT(I, TRAIT_NODROP) || I.item_flags & ABSTRACT)
+				return FALSE
+		return TRUE
+	return FALSE
 
 /obj/structure/handcart/Move(atom/newloc, direct, glide_size_override)
 	. = ..()
