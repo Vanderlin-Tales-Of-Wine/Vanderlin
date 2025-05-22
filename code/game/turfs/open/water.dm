@@ -116,13 +116,6 @@
 	else
 		check_surrounding_water()
 
-/turf/open/water/proc/dryup()
-	if(water_volume < 10)
-		smoothing_flags = NONE
-		remove_neighborlays()
-		QDEL_NULL(water_overlay)
-		QDEL_NULL(water_top_overlay)
-
 /turf/open/water/proc/dryup(forced = FALSE)
 	if(!forced && water_volume < 10)
 		smoothing_flags = NONE
