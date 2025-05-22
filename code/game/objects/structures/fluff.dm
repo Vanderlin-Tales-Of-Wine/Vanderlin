@@ -1038,7 +1038,6 @@
 	dir = NORTH
 	buckle_requires_restraints = 1
 	buckle_prevents_pull = 1
-	var/shrine = FALSE	// used for some checks
 	var/divine = TRUE
 
 /obj/structure/fluff/psycross/Initialize()
@@ -1059,17 +1058,12 @@
 /obj/structure/fluff/psycross/CanPass(atom/movable/mover, turf/target)
 	if(istype(mover, /mob/camera))
 		return TRUE
-	if(shrine)
-		return
-	else if(get_dir(loc, mover) == dir)
-		return 0
-	else
-		return !density
+	if(get_dir(loc, mover) == dir)
+		return FALSE
+	return !density
 
 /obj/structure/fluff/psycross/proc/on_exit(datum/source, atom/movable/leaving, atom/new_location)
 	SIGNAL_HANDLER
-	if(shrine)
-		return COMPONENT_ATOM_BLOCK_EXIT
 	if(get_dir(leaving.loc, new_location) == dir)
 		leaving.Bump(src)
 		return COMPONENT_ATOM_BLOCK_EXIT
@@ -1094,12 +1088,11 @@
 	chance2hear = 10
 
 /obj/structure/fluff/psycross/crafted/shrine
-	density = TRUE
-	plane = -3	// to keep the 3d effect when mob behind it
-	layer = 4.1
+	plane = GAME_PLANE_UPPER
+	layer = ABOVE_MOB_LAYER
 	can_buckle = FALSE
+	density = TRUE
 	dir = SOUTH
-	shrine = TRUE
 
 /obj/structure/fluff/psycross/crafted/shrine/dendor_volf
 	name = "shrine to Dendor"
