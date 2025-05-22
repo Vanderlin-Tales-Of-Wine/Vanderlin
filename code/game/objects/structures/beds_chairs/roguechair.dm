@@ -53,7 +53,7 @@
 	SIGNAL_HANDLER
 	if(istype(leaving, /obj/projectile))
 		return
-	if(get_dir(loc, new_location) == dir && density)
+	if(get_dir(new_location, leaving.loc) == dir)
 		leaving.Bump(src)
 		return COMPONENT_ATOM_BLOCK_EXIT
 
@@ -205,7 +205,7 @@
 	var/mob/living/M = leaving
 	if(M.body_position == LYING_DOWN)
 		return
-	if(get_dir(loc, new_location) == REVERSE_DIR(dir))
+	if(get_dir(leaving.loc, new_location) == REVERSE_DIR(dir))
 		playsound(loc, 'sound/foley/chairfall.ogg', 100, FALSE)
 		var/obj/item/I = new item_chair(loc)
 		item_chair = null

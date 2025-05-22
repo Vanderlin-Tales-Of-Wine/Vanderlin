@@ -35,11 +35,14 @@
 
 /obj/structure/fluff/railing/Initialize()
 	. = ..()
-	var/static/list/loc_connections = list(COMSIG_ATOM_EXIT = PROC_REF(on_exit))
-	AddElement(/datum/element/connect_loc, loc_connections)
+	init_connect_loc_element()
 	var/lay = getwlayer(dir)
 	if(lay)
 		layer = lay
+
+/obj/structure/fluff/railing/proc/init_connect_loc_element()
+	var/static/list/loc_connections = list(COMSIG_ATOM_EXIT = PROC_REF(on_exit))
+	AddElement(/datum/element/connect_loc, loc_connections)
 
 /obj/structure/fluff/railing/proc/getwlayer(dirin)
 	switch(dirin)
@@ -108,6 +111,8 @@
 
 /obj/structure/fluff/railing/proc/on_exit(datum/source, atom/movable/leaving, atom/new_location)
 	SIGNAL_HANDLER
+	if(dir in CORNERDIRS)
+		return
 	if(istype(leaving, /obj/projectile))
 		return
 	if(leaving.throwing)
@@ -116,25 +121,11 @@
 		return
 	if(leaving.movement_type & FLYING)
 		return
-	if(isliving(leaving))
+	if(passcrawl && isliving(leaving))
 		var/mob/living/M = leaving
-		if(passcrawl && M.body_position == LYING_DOWN)
+		if(M.body_position == LYING_DOWN)
 			return
-	if(dir in CORNERDIRS)
-		var/list/baddirs = list()
-		switch(dir)
-			if(SOUTHEAST)
-				baddirs = list(SOUTHEAST, SOUTH, EAST)
-			if(SOUTHWEST)
-				baddirs = list(SOUTHWEST, SOUTH, WEST)
-			if(NORTHEAST)
-				baddirs = list(NORTHEAST, NORTH, EAST)
-			if(NORTHWEST)
-				baddirs = list(NORTHWEST, NORTH, WEST)
-		if(get_dir(loc, new_location) in baddirs)
-			leaving.Bump(src)
-			return COMPONENT_ATOM_BLOCK_EXIT
-	else if(get_dir(loc, new_location) == dir && density)
+	if(get_dir(leaving.loc, new_location) == dir)
 		leaving.Bump(src)
 		return COMPONENT_ATOM_BLOCK_EXIT
 
@@ -144,6 +135,12 @@
 	if(lay)
 		layer = lay
 	. = ..()
+
+/obj/structure/fluff/railing/corner
+	icon_state = "railing_corner"
+
+/obj/structure/fluff/railing/corner/init_connect_loc_element()
+	return
 
 /obj/structure/fluff/railing/wood
 	icon_state = "woodrailing"
@@ -453,7 +450,7 @@
 
 /obj/structure/fluff/clock/proc/on_exit(datum/source, atom/movable/leaving, atom/new_location)
 	SIGNAL_HANDLER
-	if(get_dir(loc, new_location) == dir && density)
+	if(get_dir(leaving.loc, new_location) == dir)
 		leaving.Bump(src)
 		return COMPONENT_ATOM_BLOCK_EXIT
 
@@ -676,7 +673,7 @@
 
 /obj/structure/fluff/statue/proc/on_exit(datum/source, atom/movable/leaving, atom/new_location)
 	SIGNAL_HANDLER
-	if(get_dir(loc, new_location) == dir && density)
+	if(get_dir(leaving.loc, new_location) == dir)
 		leaving.Bump(src)
 		return COMPONENT_ATOM_BLOCK_EXIT
 
@@ -1073,7 +1070,7 @@
 	SIGNAL_HANDLER
 	if(shrine)
 		return COMPONENT_ATOM_BLOCK_EXIT
-	if(get_dir(loc, new_location) == dir && density)
+	if(get_dir(leaving.loc, new_location) == dir)
 		leaving.Bump(src)
 		return COMPONENT_ATOM_BLOCK_EXIT
 
