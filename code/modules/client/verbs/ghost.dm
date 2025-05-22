@@ -55,6 +55,10 @@
 			O.set_patron(prefs.selected_patron)
 			SSdeath_arena.add_fighter(O, mind?.last_death)
 
+			if(HAS_TRAIT(mind?.current, TRAIT_BURIED_COIN_GIVEN))
+				O.paid = TRUE
+				to_chat(O, span_biginfo("Necra has guaranteed your passage to the next life. Your toll has been already paid."))
+
 			var/area/rogue/underworld/underworld = get_area(spawn_loc)
 			underworld.Entered(O, null)
 			verbs -= /client/proc/descend

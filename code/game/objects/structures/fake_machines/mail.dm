@@ -428,6 +428,11 @@
 			cost = 3,
 			max_purchases = 3
 		),
+		"Tossblade Belt (Silver) (4)" = list(
+			list(type = /obj/item/storage/belt/leather/knifebelt/black/psydon, count = 1),
+			cost = 4,
+			max_purchases = 1
+		),
 		"Psydonian Dagger (3)" = list(
 			list(type = /obj/item/weapon/knife/dagger/psydon, count = 1),
 			cost = 3,

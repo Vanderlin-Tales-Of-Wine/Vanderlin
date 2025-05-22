@@ -596,3 +596,4 @@
 				/obj/item/natural/fibers = 3)
 	craftdiff = 6
 	category = "Dress"
+

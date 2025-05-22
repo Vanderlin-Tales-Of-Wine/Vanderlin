@@ -8,8 +8,8 @@
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_ARTIFICER
 	faction = FACTION_STATION
-	total_positions = 2
-	spawn_positions = 2
+	total_positions = 3
+	spawn_positions = 3
 	min_pq = -50
 	bypass_lastclass = TRUE
 

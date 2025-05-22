@@ -27,4 +27,4 @@
 		human_mob.set_stat_modifier("xylix_fortune", STATKEY_LCK, luck_roll)
 
 		to_chat(human_mob, span_biginfo("You have caught Xylix's attention! Whether you'll laugh or weep about that later... well, that's part of the fun!"))
-		SEND_SOUND(human_mob, 'sound/vo/male/evil/laugh (1).ogg')
+		human_mob.playsound_local(human_mob, 'sound/vo/male/evil/laugh (1).ogg', 100)

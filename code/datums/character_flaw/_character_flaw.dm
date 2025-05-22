@@ -165,15 +165,16 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	effectedstats = list(STATKEY_PER = -20, STATKEY_SPD = -5, STATKEY_LCK = -20)
 	duration = 100
 
-/datum/charflaw/badsight/on_mob_creation(mob/user)
-	..()
+/datum/charflaw/badsight/after_spawn(mob/user)
+	. = ..()
 	if(!ishuman(user))
 		return
 	var/mob/living/carbon/human/H = user
-	if(!H.wear_mask)
-		H.equip_to_slot_or_del(new /obj/item/clothing/face/spectacles(H), SLOT_WEAR_MASK)
-	else
-		new /obj/item/clothing/face/spectacles(get_turf(H))
+	if(H.wear_mask)
+		var/type = H.wear_mask.type
+		QDEL_NULL(H.wear_mask)
+		H.put_in_hands(new type(get_turf(H)))
+	H.equip_to_slot_or_del(new /obj/item/clothing/face/spectacles(H), SLOT_WEAR_MASK)
 
 /datum/charflaw/paranoid
 	name = "Paranoid"
@@ -266,13 +267,17 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	name = "Cyclops (R)"
 	desc = "I lost my right eye long ago. But it made me great at noticing things."
 
-/datum/charflaw/noeyer/on_mob_creation(mob/user)
+/datum/charflaw/noeyer/after_spawn(mob/user)
 	..()
 	if(!ishuman(user))
 		return
 	var/mob/living/carbon/human/H = user
-	if(!H.wear_mask)
-		H.equip_to_slot_or_del(new /obj/item/clothing/face/eyepatch(H), SLOT_WEAR_MASK)
+	if(H.wear_mask)
+		var/type = H.wear_mask.type
+		QDEL_NULL(H.wear_mask)
+		H.put_in_hands(new type(get_turf(H)))
+	H.equip_to_slot_or_del(new /obj/item/clothing/face/eyepatch(H), SLOT_WEAR_MASK)
+
 	var/obj/item/bodypart/head/head = H.get_bodypart(BODY_ZONE_HEAD)
 	head?.add_wound(/datum/wound/facial/eyes/right/permanent)
 	H.update_fov_angles()
@@ -281,46 +286,36 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	name = "Cyclops (L)"
 	desc = "I lost my left eye long ago. But it made me great at noticing things."
 
-/datum/charflaw/noeyel/on_mob_creation(mob/user)
+/datum/charflaw/noeyel/after_spawn(mob/user)
 	..()
 	if(!ishuman(user))
 		return
 	var/mob/living/carbon/human/H = user
-	if(!H.wear_mask)
-		H.equip_to_slot_or_del(new /obj/item/clothing/face/eyepatch/left(H), SLOT_WEAR_MASK)
+
+	if(H.wear_mask)
+		var/type = H.wear_mask.type
+		QDEL_NULL(H.wear_mask)
+		H.put_in_hands(new type(get_turf(H)))
+	H.equip_to_slot_or_del(new /obj/item/clothing/face/eyepatch/left(H), SLOT_WEAR_MASK)
+
 	var/obj/item/bodypart/head/head = H.get_bodypart(BODY_ZONE_HEAD)
 	head?.add_wound(/datum/wound/facial/eyes/left/permanent)
 	H.update_fov_angles()
 
 /datum/charflaw/noeyerandom
-	name = "Cyclops (L)"
-	desc = "I lost my left eye long ago. But it made me great at noticing things."
+	name = "Cyclops (Random)"
+	desc = "I lost my eye long ago. But it made me great at noticing things."
 
-/datum/charflaw/noeyerandom/on_mob_creation(mob/user)
+/datum/charflaw/noeyerandom/after_spawn(mob/user)
 	. = ..()
-	switch(rand(1,2))
-		if(1)
-			name = "Cyclops (L)"
-			desc = "I lost my left eye long ago. But it made me great at noticing things."
-			if(!ishuman(user))
-				return
-			var/mob/living/carbon/human/H = user
-			if(!H.wear_mask)
-				H.equip_to_slot_or_del(new /obj/item/clothing/face/eyepatch/left(H), SLOT_WEAR_MASK)
-			var/obj/item/bodypart/head/head = H.get_bodypart(BODY_ZONE_HEAD)
-			head?.add_wound(/datum/wound/facial/eyes/left/permanent)
-			H.update_fov_angles()
-		else
-			name = "Cyclops (R)"
-			desc = "I lost my right eye long ago. But it made me great at noticing things."
-			if(!ishuman(user))
-				return
-			var/mob/living/carbon/human/H = user
-			if(!H.wear_mask)
-				H.equip_to_slot_or_del(new /obj/item/clothing/face/eyepatch(H), SLOT_WEAR_MASK)
-			var/obj/item/bodypart/head/head = H.get_bodypart(BODY_ZONE_HEAD)
-			head?.add_wound(/datum/wound/facial/eyes/right/permanent)
-			H.update_fov_angles()
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		switch(rand(1,2))
+			if(1)
+				H.charflaw = new /datum/charflaw/noeyel(H)
+			else
+				H.charflaw = new /datum/charflaw/noeyer(H)
+	qdel(src)
 
 /datum/charflaw/tongueless
 	name = "Tongueless"

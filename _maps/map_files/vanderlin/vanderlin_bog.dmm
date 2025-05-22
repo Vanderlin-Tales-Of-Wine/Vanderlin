@@ -1117,6 +1117,10 @@
 /obj/item/ore/iron,
 /turf/open/floor/dirt,
 /area/rogue/indoors/shelter/bog)
+"oz" = (
+/obj/effect/traveltile_spawner/horizontal/bandit,
+/turf/open/floor/dirt,
+/area/rogue/outdoors/bog)
 "oB" = (
 /turf/open/transparent/openspace,
 /area/rogue/indoors/shelter/bog)
@@ -1311,6 +1315,10 @@
 /obj/structure/fluff/railing/border,
 /turf/open/floor/wood/nosmooth,
 /area/rogue/indoors/shelter/bog)
+"re" = (
+/obj/effect/traveltile_spawner/vertical/bandit,
+/turf/open/floor/grass,
+/area/rogue/outdoors/bog)
 "rf" = (
 /obj/structure/bookcase/random{
 	name = "strange bookcase"
@@ -1355,6 +1363,10 @@
 /obj/structure/bed/shit,
 /turf/open/floor/woodturned/nosmooth,
 /area/rogue/indoors/shelter/bog)
+"rC" = (
+/obj/effect/traveltile_spawner/vertical/vampire,
+/turf/open/floor/dirt,
+/area/rogue/outdoors/bog)
 "rF" = (
 /obj/machinery/light/fueled/wallfire/candle/blue/l,
 /turf/open/floor/churchmarble,
@@ -1439,6 +1451,10 @@
 /area/rogue/indoors/shelter/bog)
 "sS" = (
 /turf/open/floor/naturalstone,
+/area/rogue/outdoors/bog)
+"sZ" = (
+/obj/effect/traveltile_spawner/horizontal/bandit,
+/turf/open/floor/grass,
 /area/rogue/outdoors/bog)
 "td" = (
 /obj/structure/flora/grass/bush/wall/tall{
@@ -1565,6 +1581,10 @@
 /obj/item/reagent_containers/glass/cup/wooden,
 /turf/open/floor/ruinedwood/turned,
 /area/rogue/indoors/shelter/bog)
+"uJ" = (
+/obj/effect/traveltile_spawner/vertical/inhumen,
+/turf/open/floor/dirt,
+/area/rogue/outdoors/bog)
 "uO" = (
 /mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/floor/churchmarble,
@@ -2749,6 +2769,10 @@
 /obj/item/weapon/knife/cleaver,
 /turf/open/floor/wood/nosmooth,
 /area/rogue/indoors/shelter/bog)
+"LV" = (
+/obj/effect/traveltile_spawner/horizontal/inhumen,
+/turf/open/floor/dirt,
+/area/rogue/outdoors/bog)
 "LX" = (
 /obj/machinery/light/fueled/firebowl,
 /turf/open/floor/ruinedwood/spiral,
@@ -3543,6 +3567,10 @@
 /obj/structure/bonepile,
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/shelter/bog)
+"Wk" = (
+/obj/effect/traveltile_spawner/horizontal/vampire,
+/turf/open/floor/grass,
+/area/rogue/outdoors/bog)
 "Wn" = (
 /obj/item/restraints/legcuffs/beartrap/armed,
 /turf/open/floor/dirt/road,
@@ -3697,10 +3725,6 @@
 /obj/structure/closet/crate/crafted_closet/dark,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter/bog)
-"Yk" = (
-/obj/structure/fluff/traveltile/to_inhumen_tribe,
-/turf/open/floor/dirt,
-/area/rogue/outdoors/bog)
 "Yl" = (
 /obj/structure/roguetent,
 /turf/open/floor/dirt,
@@ -3990,11 +4014,11 @@ MQ
 MQ
 MQ
 MQ
-RK
-RK
-RK
-RK
-RK
+MQ
+MQ
+MQ
+MQ
+MQ
 MQ
 MQ
 MQ
@@ -4046,7 +4070,7 @@ La
 La
 kZ
 kZ
-La
+rC
 kZ
 La
 La
@@ -4190,21 +4214,21 @@ tg
 tg
 tg
 tg
-La
-MQ
-MQ
-Yk
-Yk
-Yk
-MQ
-MQ
+tg
+tg
+tg
+tg
+tg
+tg
+tg
+tg
 tg
 tg
 tg
 tg
 La
+uJ
 La
-tg
 tg
 tg
 tg
@@ -13310,7 +13334,7 @@ MQ
 "}
 (48,1,1) = {"
 MQ
-kZ
+sZ
 kZ
 La
 La
@@ -23203,7 +23227,7 @@ kZ
 La
 kZ
 kZ
-La
+LV
 MQ
 "}
 (97,1,1) = {"
@@ -33510,7 +33534,7 @@ MQ
 "}
 (148,1,1) = {"
 MQ
-kZ
+Wk
 La
 kZ
 Ue
@@ -35929,7 +35953,7 @@ kZ
 kZ
 kZ
 kZ
-La
+oz
 MQ
 "}
 (160,1,1) = {"
@@ -43879,7 +43903,7 @@ La
 La
 kZ
 kZ
-kZ
+re
 La
 kZ
 kZ

@@ -30,6 +30,14 @@
 /obj/structure/fake_machine/vendor/on_lock_add()
 	update_icon()
 
+/obj/structure/fake_machine/vendor/on_lock(mob/user, silent)
+	. = ..()
+	update_icon()
+
+/obj/structure/fake_machine/vendor/on_unlock(mob/user, silent)
+	. = ..()
+	update_icon()
+
 /obj/structure/fake_machine/vendor/obj_break(damage_flag)
 	. = ..()
 	for(var/obj/item/I as anything in held_items)
@@ -65,27 +73,37 @@
 
 /obj/structure/fake_machine/vendor/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/coin))
+		if(!lock_check())
+			to_chat(user, span_notice("There is no lock on \the [src]! It is not ready to sell!"))
+			return
 		var/money = I.get_real_price()
 		budget += money
 		qdel(I)
 		to_chat(user, span_info("I put [money] mammon in \the [src]."))
 		playsound(get_turf(src), 'sound/misc/machinevomit.ogg', 100, TRUE, -1)
-		return attack_hand(user)
+		attack_hand(user)
+		return
+	return ..()
 
 /obj/structure/fake_machine/vendor/attack_right(mob/user)
 	. = ..()
+	if(!lock_check())
+		to_chat(user, span_notice("There is no lock on \the [src]! I won't be able to sell this!"))
+		return
 	var/held = user.get_active_held_item()
 	add_merchandise(held, user)
 
 /obj/structure/fake_machine/vendor/proc/add_merchandise(obj/item/I, mob/user)
+	if(QDELETED(I) || !isitem(I))
+		return
 	if(locked())
-		to_chat(user, span_info("I cannot put [I] in [src] while it's locked."))
+		to_chat(user, span_info("I cannot put [I] in \the [src] while it's locked."))
 		return
 	if(I.w_class > WEIGHT_CLASS_BULKY)
-		to_chat(user, span_info("[I] is too big for [src]!"))
+		to_chat(user, span_info("[I] is too big for \the [src]!"))
 		return
 	if(length(held_items) > max_merchanise)
-		to_chat(user, span_info("[src] is full!"))
+		to_chat(user, span_info("\The [src] is full!"))
 		return
 	held_items[I] = list()
 	held_items[I]["NAME"] = I.name

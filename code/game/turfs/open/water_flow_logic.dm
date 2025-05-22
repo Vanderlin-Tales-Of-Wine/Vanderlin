@@ -27,9 +27,11 @@
 	water_volume = parent.water_volume - 10
 	water_reagent = parent.water_reagent
 	if(istype(src, /turf/open/water/river/creatable))
-		dir = get_dir(parent, src)
+		dir = get_dir(src, parent)
+		if(!(dir & ALL_CARDINALS))
+			return
 		for(var/obj/structure/waterwheel/potential_rotator in contents)
-			if(potential_rotator.stress_generation == 1024 && potential_rotator.rotation_direction == dir)
+			if(potential_rotator.last_stress_generation == 1024)
 				continue
 			potential_rotator.set_rotational_direction_and_speed(dir, 8)
 			potential_rotator.set_stress_generation(1024)

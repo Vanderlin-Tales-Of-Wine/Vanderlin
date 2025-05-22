@@ -826,7 +826,7 @@
 			to_chat(usr, "This can only be used on instances of type /mob.")
 			return
 
-		show_individual_logging_panel(M, href_list["log_src"], href_list["log_type"])
+		show_individual_logging_panel(usr.client, M, href_list["log_src"], href_list["log_type"])
 	else if(href_list["languagemenu"])
 		if(!check_rights(R_ADMIN))
 			return
@@ -1265,13 +1265,13 @@
 		if(!check_rights(R_ADMIN))
 			return
 		var/mob/M = (locate(href_list["mob"]) in GLOB.mob_list)
-		if(!M?.mind)
+		if(isnull(M?.mind))
 			return
 
 		var/list/jobslist = get_job_assignment_order()
 		var/job_to_change_to = browser_input_list(usr, "Change to what job?", "THEIR ROLE IN THIS WORLD", jobslist)
 
-		if(!job_to_change_to || !M.mind)
+		if(!job_to_change_to || isnull(M.mind))
 			return
 
 		var/datum/job/new_job = job_to_change_to
