@@ -1,7 +1,5 @@
 /mob/living/carbon/get_item_by_slot(slot_id)
 	switch(slot_id)
-		if(SLOT_BACK)
-			return back
 		if(SLOT_WEAR_MASK)
 			return wear_mask
 		if(SLOT_NECK)
@@ -50,9 +48,6 @@
 	I.appearance_flags |= NO_CLIENT_COLOR
 	var/not_handled = FALSE
 	switch(slot)
-		if(SLOT_BACK)
-			back = I
-			update_inv_back()
 		if(SLOT_WEAR_MASK)
 			wear_mask = I
 			wear_mask_update(I, toggle_off = 0)
@@ -106,10 +101,6 @@
 		head = null
 		if(!QDELETED(src))
 			head_update(I)
-	else if(I == back)
-		back = null
-		if(!QDELETED(src))
-			update_inv_back()
 	else if(I == wear_mask)
 		wear_mask = null
 		if(!QDELETED(src))

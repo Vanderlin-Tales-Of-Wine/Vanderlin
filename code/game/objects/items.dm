@@ -1264,10 +1264,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	if(altgripped)
 		altgripped = FALSE
 	update_transform()
-	if(user.get_item_by_slot(SLOT_BACK) == src)
-		user.update_inv_back()
-	else
-		user.update_inv_hands()
+	user.update_inv_hands()
 	if(show_message)
 		to_chat(user, "<span class='notice'>I wield [src] normally.</span>")
 	if(user.get_active_held_item() == src)

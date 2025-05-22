@@ -274,14 +274,12 @@
 	resistance_flags = NONE
 	armor = list("blunt" = 10, "slash" = 10, "stab" = 10,  "piercing" = 0, "fire" = 75, "acid" = 50) //Weak melee protection, because you can wear it on your head
 	slot_equipment_priority = list( \
-		SLOT_BACK, SLOT_RING,\
+		SLOT_RING,\
 		SLOT_PANTS, SLOT_ARMOR,\
 		SLOT_WEAR_MASK, SLOT_HEAD, SLOT_NECK,\
 		SLOT_SHOES, SLOT_GLOVES,\
 		SLOT_HEAD,\
-		SLOT_BELT, SLOT_S_STORE,\
-		SLOT_L_STORE, SLOT_R_STORE,\
-		SLOT_GENERC_DEXTROUS_STORAGE
+		SLOT_BELT,\
 	)
 
 /obj/item/reagent_containers/glass/bucket/equipped(mob/user, slot)
