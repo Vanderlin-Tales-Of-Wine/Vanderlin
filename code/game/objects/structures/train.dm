@@ -71,17 +71,17 @@
 	var/mob/dead/new_player/newguy = new()
 	newguy.ckey = departing_mob.ckey
 	var/mob_name = departing_mob.real_name
+	var/datum/job/J = SSjob.GetJob(departing_mob.job)
 	if(!ishuman(departing_mob))
 		log_game("Cannot cryo [mob_name] ([departing_mob.type]): must be human. Deleting early.")
 		qdel(departing_mob)
 		return "Cannot cryo [mob_name] ([departing_mob.type]): must be human. Deleting early."
-	if(!departing_mob.job || SSjob.GetJobType(departing_mob.job) == /datum/job/unassigned)
+	if(!J || (J == /datum/job/unassigned))
 		log_game("Cannot cryo [mob_name] ([departing_mob.type]): no assigned job. Deleting early.")
 		qdel(departing_mob)
 		return "Cannot cryo [mob_name] ([departing_mob.type]): no assigned job. Deleting early."
-	log_game("Cryo successful for [mob_name]. Adjusting job [departing_mob.job].")
-	var/datum/job/mob_job = SSjob.GetJob(departing_mob.job)
-	mob_job.adjust_current_positions(-1)
+	log_game("Cryo successful for [mob_name]. Adjusting job [J.title].")
+	J.adjust_current_positions(-1)
 	qdel(departing_mob)
 	return "[mob_name] successfully cryo'd!"
 
