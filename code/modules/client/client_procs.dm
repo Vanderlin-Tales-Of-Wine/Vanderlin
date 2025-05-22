@@ -1742,11 +1742,11 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		to_chat(src, span_danger("They no longer exist!"))
 		return
 
-	if(offerer.prefs.chosen_brother)
+	if(offerer.prefs.chosen_hand)
 		to_chat(src, span_danger("You were too late."))
 		return
 
-	offerer.prefs.chosen_brother = ckey
+	offerer.prefs.chosen_hand = ckey
 
 	to_chat(src, span_nicegreen("Accepted."))
 	to_chat(offerer, span_nicegreen("[ckey] has accepted your offer."))

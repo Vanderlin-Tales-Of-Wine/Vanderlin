@@ -233,7 +233,7 @@ SUBSYSTEM_DEF(job)
 	if(chosen_monarch) // FUCK
 		return pick(candidates)
 	var/chosen_dude
-	var/the_chosen_one_in_prefs = chosen_monarch?.client.prefs.chosen_brother
+	var/the_chosen_one_in_prefs = chosen_monarch?.client.prefs.chosen_hand
 	if(!the_chosen_one_in_prefs) // massive L
 		return pick(candidates)
 	for(var/mob/dead/new_player/candidate as anything in candidates)

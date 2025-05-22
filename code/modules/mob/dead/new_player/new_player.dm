@@ -187,17 +187,17 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 		popup.set_content(dat.Join())
 		popup.open()
 
-/mob/dead/new_player/verb/choose_brother()
+/mob/dead/new_player/verb/choosen_hand()
 	set name = "Choose Brother"
 	set category = "OOC"
-	set desc = "Choose the one who will be your hand in reign."
+	set desc = "Choose your second in command."
 
 	if(SSticker.HasRoundStarted())
 		to_chat(src, span_danger("The round has already begun!"))
 		return
 
-	if(client.prefs.chosen_brother)
-		to_chat(src, span_danger("You already chose [client.prefs.chosen_brother] as your brother!"))
+	if(client.prefs.chosen_hand)
+		to_chat(src, span_danger("You already chose [client.prefs.chosen_hand] as your hand!"))
 		return
 
 	var/list/list_without_user =  GLOB.directory.Copy()
@@ -209,6 +209,9 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 
 	var/client/chosen = GLOB.directory[browser_input_list(src, "Who will stand by your side when no one else will?", "MY RIGHT HAND", list_without_user)]
 
+	if(!chosen)
+		return
+
 	if(!(chosen in GLOB.clients))
 		to_chat(src, span_danger("They are no longer here."))
 		return
@@ -217,8 +220,8 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 		to_chat(src, span_danger("The round has already begun!"))
 		return
 
-	if(client.prefs.chosen_brother)
-		to_chat(src, span_danger("[client.prefs.chosen_brother] has already accepted to be your brother!"))
+	if(client.prefs.chosen_hand)
+		to_chat(src, span_danger("[client.prefs.chosen_hand] has already accepted to be your hand!"))
 		return
 
 	chosen.offered_hand(client)
