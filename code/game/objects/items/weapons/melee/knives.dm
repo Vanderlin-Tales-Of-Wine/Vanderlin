@@ -374,7 +374,8 @@
 
 			playsound(
 				user,
-				"changeling_absorb" //todo: turn sound keys into defines.
+				get_sfx("changeling_absorb"), //todo: turn sound keys into defines.
+				100,
 			)
 			to_chat(user, span_danger("I start absorbing [target]'s identity."))
 			if(!do_after(user, 3 SECONDS, target = target))
@@ -383,7 +384,8 @@
 
 			playsound( // and anotha one
 				user,
-				get_sfx("changeling_absorb")
+				get_sfx("changeling_absorb"),
+				100,
 			)
 
 			if(!do_after(user, 3 SECONDS, target = target))

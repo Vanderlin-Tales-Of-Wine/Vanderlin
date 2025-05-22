@@ -1,6 +1,22 @@
 /client
 	var/list/played_loops = list() //uses dlink to link to the sound
 
+/**
+ * playsound is a proc used to play a 3D sound in a specific range. This uses SOUND_RANGE + extra_range to determine that.
+ *
+ * Arguments:
+ * * source - Origin of sound.
+ * * soundin - Either a file, or a string that can be used to get an SFX.
+ * * vol - The volume of the sound, excluding falloff and pressure affection.
+ * * vary - bool that determines if the sound changes pitch every time it plays.
+ * * extrarange - modifier for sound range. This gets added on top of SOUND_RANGE.
+ * * falloff_exponent - Rate of falloff for the audio. Higher means quicker drop to low volume. Should generally be over 1 to indicate a quick dive to 0 rather than a slow dive.
+ * * frequency - playback speed of audio.
+ * * channel - The channel the sound is played at.
+ * * pressure_affected - Whether or not difference in pressure affects the sound (E.g. if you can hear in space).
+ * * ignore_walls - Whether or not the sound can pass through walls.
+ * * falloff_distance - Distance at which falloff begins. Sound is at peak volume (in regards to falloff) aslong as it is in this range.
+ */
 /proc/playsound(atom/source, soundin, vol as num, vary, extrarange as num, falloff, frequency = null, channel, pressure_affected = FALSE, ignore_walls = TRUE, soundping = FALSE, repeat)
 	if(isarea(source))
 		CRASH("playsound(): source is an area")
