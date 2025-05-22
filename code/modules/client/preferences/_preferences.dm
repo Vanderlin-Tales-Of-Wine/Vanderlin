@@ -161,7 +161,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	///our selected accent
 	var/selected_accent = ACCENT_DEFAULT
 	/// the player we have chosen as our hand
-	var/chosen_brother
+	var/chosen_hand
 
 /datum/preferences/New(client/C)
 	parent = C
