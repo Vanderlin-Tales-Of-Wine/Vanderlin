@@ -65,22 +65,23 @@
 	cryo_mob(departing_mob)
 
 /proc/cryo_mob(mob/departing_mob)
+	if(QDELETED(departing_mob))
+		return "Tried to cryo a deleted mob!"
 	GLOB.actors_list -= departing_mob.mobid // mob cryod - get him outta here.
 	var/mob/dead/new_player/newguy = new()
 	newguy.ckey = departing_mob.ckey
 	var/mob_name = departing_mob.real_name
 	if(!ishuman(departing_mob))
+		log_game("Cannot cyro [mob_name] ([departing_mob.type]): must be human. Deleting early.")
 		qdel(departing_mob)
-		return "Cannot cryo [mob_name], must be human! Deleting instead!"
-	if(!departing_mob.mind)
+		return "Cannot cyro [mob_name] ([departing_mob.type]): must be human. Deleting early."
+	if(!departing_mob.job || SSjob.GetJobType(departing_mob.job) == /datum/job/unassigned)
+		log_game("Cannot cyro [mob_name] ([departing_mob.type]): no assigned job. Deleting early.")
 		qdel(departing_mob)
-		return "[mob_name] has no mind! Deleting instead!"
-	if(!departing_mob.mind.assigned_role || !is_unassigned_job(departing_mob.mind.assigned_role))
-		qdel(departing_mob)
-		return "[mob_name] has no assigned job! Deleting instead!"
-	if(departing_mob.mind)
-		var/datum/job/mob_job = departing_mob.mind.assigned_role
-		mob_job.adjust_current_positions(-1)
+		return "Cannot cyro [mob_name] ([departing_mob.type]): no assigned job. Deleting early."
+	log_game("Cryo successful for [mob_name]. Adjusting job [departing_mob.job.type].")
+	var/datum/job/mob_job = SSjob.GetJob(departing_mob.job)
+	mob_job.adjust_current_positions(-1)
 	qdel(departing_mob)
 	return "[mob_name] successfully cryo'd!"
 
