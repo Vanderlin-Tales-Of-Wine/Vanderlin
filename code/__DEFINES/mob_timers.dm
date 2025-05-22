@@ -40,6 +40,7 @@
 	#define MT_FOUNDSNEAK "found_sneak"
 
 	#define MT_MADELOVE "made_love" // sexerlin //unused
+	#define MT_RESIST_GRAB "resist_grab" // SORRY FINGER
 
 /* SPECIAL MOBTIMERS */
 	// These use timers as you would think mobtimers should be used.
