@@ -959,16 +959,8 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	if(ishuman(owner))
 		H = owner
 	var/flags = slot_flags
-//	if(flags & ITEM_SLOT_OCLOTHING)
-//		owner.update_inv_wear_suit()
-//	if(flags & ITEM_SLOT_ICLOTHING)
-//		owner.update_inv_w_uniform()
 	if(flags & ITEM_SLOT_GLOVES)
 		owner.update_inv_gloves()
-//	if(flags & ITEM_SLOT_HEAD)
-//		owner.update_inv_glasses()
-//	if(flags & ITEM_SLOT_HEAD)
-//		owner.update_inv_ears()
 	if(flags & ITEM_SLOT_MASK)
 		owner.update_inv_wear_mask()
 	if(flags & ITEM_SLOT_SHOES)

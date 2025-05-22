@@ -814,10 +814,10 @@ There are several things that need to be remembered:
 	var/list/overcloaks = list()
 	var/list/undercloaks = list()
 	var/list/backbehind = list()
-	if(client && hud_used && hud_used.inv_slots[SLOT_BACK_R])
+	if(client && hud_used?.inv_slots[SLOT_BACK_R])
 		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_BACK_R]
 		inv.update_icon()
-	if(client && hud_used?.inv_slots(SLOT_BACK_L))
+	if(client && hud_used?.inv_slots[SLOT_BACK_L])
 		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_BACK_L]
 		inv.update_icon()
 	if(backr)

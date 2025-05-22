@@ -89,6 +89,24 @@
 	SLOT_LEGCUFFED,\
 )
 
+#define DEFAULT_SLOT_PRIORITY list(\
+	SLOT_HEAD,\
+	SLOT_ARMOR,\
+	SLOT_SHIRT,\
+	SLOT_GLOVES,\
+	SLOT_WEAR_MASK,\
+	SLOT_WRISTS,\
+	SLOT_CLOAK,\
+	SLOT_BACK_L,\
+	SLOT_BACK_R,\
+	SLOT_BELT_L,\
+	SLOT_BELT_R,\
+	SLOT_MOUTH,\
+	SLOT_NECK,\
+	SLOT_RING,\
+	SLOT_HANDS,\
+)
+
 //I hate that this has to exist
 /proc/slotdefine2slotbit(slotdefine) //Keep this up to date with the value of SLOT BITMASKS and SLOTS (the two define sections above)
 	. = 0

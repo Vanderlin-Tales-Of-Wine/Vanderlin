@@ -31,6 +31,9 @@
 /mob/proc/update_inv_w_uniform()
 	return
 
+/mob/proc/update_inv_back()
+	return
+
 /mob/proc/update_inv_belt()
 	return
 
