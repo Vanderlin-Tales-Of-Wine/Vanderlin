@@ -64,7 +64,7 @@
 			0.5 SECONDS, \
 			0.5 SECONDS, \
 			rand(25 SECONDS, 50 SECONDS), \
-			null,
+			null,\
 			CALLBACK(src, PROC_REF(after_cow_tipped)),\
 			CALLBACK(src, PROC_REF(after_cow_untipped)))
 
@@ -73,7 +73,7 @@
 		AddComponent(\
 			/datum/component/breed,\
 			list(/mob/living/simple_animal/hostile/retaliate/cow, /mob/living/simple_animal/hostile/retaliate/bull),\
-			3 MINUTES,
+			3 MINUTES,\
 			list(/mob/living/simple_animal/hostile/retaliate/cow/cowlet = 95, /mob/living/simple_animal/hostile/retaliate/cow/cowlet/bullet = 5),\
 			CALLBACK(src, PROC_REF(after_birth)),\
 		)
@@ -219,7 +219,7 @@
 	AddComponent(\
 		/datum/component/breed,\
 		list(/mob/living/simple_animal/hostile/retaliate/cow, /mob/living/simple_animal/hostile/retaliate/bull),\
-		3 MINUTES,
+		3 MINUTES,\
 		list(/mob/living/simple_animal/hostile/retaliate/cow/cowlet = 95, /mob/living/simple_animal/hostile/retaliate/cow/cowlet/bullet = 5),\
 		CALLBACK(src, PROC_REF(after_birth)),\
 	)

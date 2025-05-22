@@ -1,6 +1,6 @@
 /obj/item/bottle_kit
 	name = "bottlin' kit"
-	desc = "A parcel of bottles, with some labels"
+	desc = "A parcel of colored bottles and some labels."
 	icon = 'icons/obj/brewing.dmi'
 	icon_state = "bottler_box"
 	w_class = WEIGHT_CLASS_NORMAL

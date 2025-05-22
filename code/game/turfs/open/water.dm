@@ -116,10 +116,12 @@
 	else
 		check_surrounding_water()
 
-/turf/open/water/proc/dryup()
-	if(water_volume < 10)
-		QDEL_NULL(water_overlay)
-		QDEL_NULL(water_top_overlay)
+/turf/open/water/proc/dryup(forced = FALSE)
+	if(!forced && water_volume < 10)
+		if(water_overlay)
+			QDEL_NULL(water_overlay)
+		if(water_top_overlay)
+			QDEL_NULL(water_top_overlay)
 		for(var/obj/effect/overlay/water/water in contents)
 			qdel(water)
 		make_unshiny()
@@ -128,7 +130,7 @@
 		var/mutable_appearance/dirty = mutable_appearance('icons/turf/floors.dmi', "dirt")
 		add_overlay(dirty)
 		for(var/obj/structure/waterwheel/rotator in contents)
-			rotator.set_rotational_speed(0)
+			rotator.set_rotational_direction_and_speed(null, 0)
 			rotator.set_stress_generation(0)
 
 /turf/open/water/river/creatable
@@ -455,10 +457,7 @@
 
 /turf/open/water/Destroy()
 	. = ..()
-	if(water_overlay)
-		QDEL_NULL(water_overlay)
-	if(water_top_overlay)
-		QDEL_NULL(water_top_overlay)
+	dryup(forced = TRUE)
 
 /turf/open/water/hitby(atom/movable/AM, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum, damage_type = "blunt")
 	if(water_volume < 10)
