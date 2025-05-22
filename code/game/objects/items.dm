@@ -420,7 +420,6 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	if(max_blade_int && !blade_int) //set blade integrity to randomized 60% to 100% if not already set
 		blade_int = max_blade_int + rand(-(max_blade_int * 0.4), 0)
 
-		if(max_integrity) // same thing for durability
 		obj_integrity = max_integrity + rand(-(max_integrity * 0.4), 0)
 
 /obj/item/Destroy()
