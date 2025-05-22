@@ -14,7 +14,6 @@
 	buckle_lying = FALSE
 	buckle_prevents_pull = TRUE
 	var/list/eatablez = list(/obj/item/bodypart, /obj/item/organ, /obj/item/reagent_containers/food/snacks/meat)
-	var/aggroed = FALSE
 	var/last_eat
 	var/aggroed = FALSE
 
