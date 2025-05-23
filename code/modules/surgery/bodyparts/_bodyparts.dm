@@ -149,12 +149,7 @@
 
 /obj/item/bodypart/MiddleClick(mob/living/user, params)
 	var/obj/item/held_item = user.get_active_held_item()
-	var/meattype = /obj/item/reagent_containers/food/snacks/meat/steak
-	switch(species_icon)	//When we add tritons, they should butcher into fish.
-		if('icons/roguetown/mob/bodies/m/harpy.dmi', 'icons/roguetown/mob/bodies/f/harpy.dmi')					//Bird-type species, add medicators here once added.
-			meattype = /obj/item/reagent_containers/food/snacks/meat/poultry/cutlet
-		if('icons/roguetown/mob/bodies/m/mt_muscular.dmi', 'icons/roguetown/mob/bodies/f/ft_muscular.dmi')		//Half-orcs.
-			meattype = /obj/item/reagent_containers/food/snacks/meat/strange
+	var/datum/species/S = original_owner.dna.species
 	if(held_item)
 		if(held_item.get_sharpness() && held_item.wlength == WLENGTH_SHORT)
 			if(!skeletonized)
@@ -175,7 +170,7 @@
 				if(do_after(user, used_time, src))
 					var/obj/item/reagent_containers/food/snacks/meat/steak/steak
 					for(steaks, steaks>0, steaks--)
-						steak = new meattype(get_turf(src))
+						steak = new S.meat(get_turf(src))	//Meat depends on species.
 						if(rotted)
 							steak.become_rotten()
 					new /obj/effect/decal/cleanable/blood/splatter(get_turf(src))

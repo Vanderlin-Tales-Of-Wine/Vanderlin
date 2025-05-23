@@ -45,7 +45,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 	var/use_skintones = 0	// does it use skintones or not? (spoiler alert this is only used by humans)
 	var/datum/blood_type/exotic_bloodtype //If my race uses a non standard bloodtype (A+, O-, AB-, etc)
-	var/meat = /obj/item/reagent_containers/food/snacks/meat/human //What the species drops on gibbing
+	var/meat = /obj/item/reagent_containers/food/snacks/meat/steak //What the species drops on gibbing
 	var/liked_food = NONE
 	var/disliked_food = GROSS
 	var/toxic_food = TOXIC

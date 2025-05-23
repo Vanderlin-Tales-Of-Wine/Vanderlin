@@ -54,6 +54,7 @@
 	specstats_f = list(STATKEY_STR = 2, STATKEY_PER = -2, STATKEY_INT = -1, STATKEY_CON = 1, STATKEY_END = 1, STATKEY_SPD = 0, STATKEY_LCK = 0)
 	enflamed_icon = "widefire"
 	exotic_bloodtype = /datum/blood_type/human/horc
+	meat = /obj/item/reagent_containers/food/snacks/meat/strange
 
 	customizers = list(
 		/datum/customizer/organ/ears/halforc,

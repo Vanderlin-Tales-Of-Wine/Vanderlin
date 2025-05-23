@@ -59,6 +59,7 @@
 		ORGAN_SLOT_VOICE = /obj/item/organ/vocal_cords/harpy,
 		ORGAN_SLOT_TAIL = /obj/item/organ/tail,
 		)
+	meat = /obj/item/reagent_containers/food/snacks/meat/poultry/cutlet
 	bodypart_features = list(
 		/datum/bodypart_feature/hair/head,
 		/datum/bodypart_feature/hair/facial,
