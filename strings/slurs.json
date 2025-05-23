@@ -3,8 +3,6 @@
         "Humen": [
             "spoon ear",
             "round ear",
-            "monkey",
-            "ape",
             "psydon's mistake",
             "psydon's last"
         ],
@@ -45,7 +43,8 @@
             "half breed",
             "half bad",
             "half good",
-            "mule"
+            "mule",
+            "all useless"
         ],
         "Half-Drow": [
             "mutt",
@@ -53,6 +52,7 @@
             "half bad",
             "half good",
             "mule",
+            "all evil",
             "cursed blood",
             "zizo cursed",
             "zizo dominated",
@@ -73,7 +73,12 @@
             "stone shitter",
             "tunnel rat",
             "spud",
-            "keg belly"
+            "keg belly",
+            "gold eater"
+        ],
+        "Aasimar": [
+            "god's pet",
+            "talking dirt"
         ],
         "Half-Orc": [
             "greenskin",
@@ -85,7 +90,9 @@
             "tusky",
             "tusker",
             "scumbreed",
-            "graggarspawn"
+            "graggarspawn",
+            "pig man",
+            "pig woman"
         ],
         "Tiefling": [
             "hellspawn",
@@ -97,9 +104,22 @@
             "hell touched",
             "thiefling"
         ],
+        "Rakshari": [
+            "bald thief",
+            "housecat"
+        ],
         "Kobold": [
             "rock eater",
-            "stunted wyrm"
+            "stunted wyrm",
+            "scaly gnome",
+            "scales",
+            "fly eater",
+            "forked tongue",
+            "dragon refuse",
+            "troglodyte",
+            "lizard",
+            "scaleback",
+            "scaleskin"
         ],
         "Hollow-Kin": [
             "zizo's pet",
