@@ -4021,6 +4021,10 @@
 /obj/structure/fermentation_keg,
 /turf/open/water/swamp,
 /area/rogue/under/town/sewer)
+"dQR" = (
+/obj/effect/traveltile_spawner/horizontal/vampire,
+/turf/open/floor/cobblerock,
+/area/rogue/outdoors/woods)
 "dRD" = (
 /obj/structure/closet/crate/chest/old_crate,
 /obj/item/grown/log/tree/stick,
@@ -4923,6 +4927,10 @@
 /obj/machinery/light/fueled/torchholder/r,
 /turf/open/floor/carpet/lord/right,
 /area/rogue/indoors/town/manor)
+"eOf" = (
+/obj/effect/traveltile_spawner/vertical/inhumen,
+/turf/open/floor/cobblerock,
+/area/rogue/outdoors/woods)
 "eOt" = (
 /obj/structure/fluff/railing/wood{
 	dir = 1;
@@ -5719,6 +5727,10 @@
 	},
 /turf/open/floor/wood,
 /area/rogue/indoors/town/orphanage)
+"fBz" = (
+/mob/living/simple_animal/hostile/retaliate/gator,
+/turf/open/water/marsh,
+/area/rogue/outdoors/rtfield)
 "fBY" = (
 /obj/structure/table/wood/counter{
 	dir = 1
@@ -7250,6 +7262,10 @@
 /obj/effect/mapping_helpers/access/keyset/manor/mage,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/magician)
+"gZS" = (
+/obj/effect/traveltile_spawner/horizontal/vampire,
+/turf/open/floor/cobblerock,
+/area/rogue/outdoors/rtfield)
 "gZZ" = (
 /obj/structure/stairs/stone{
 	dir = 8
@@ -10105,6 +10121,10 @@
 	},
 /turf/open/floor/wood,
 /area/rogue/indoors/town/manor)
+"jGQ" = (
+/obj/effect/traveltile_spawner/horizontal/vampire,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors/rtfield)
 "jHs" = (
 /obj/structure/table/wood/reinforced,
 /obj/item/book/rogue/howtogaffer,
@@ -14416,7 +14436,7 @@
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/manor)
 "nYG" = (
-/obj/structure/fluff/traveltile/bandit,
+/obj/effect/traveltile_spawner/horizontal/bandit,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/woods)
 "nYI" = (
@@ -18426,6 +18446,10 @@
 	},
 /turf/open/floor/wood,
 /area/rogue/indoors/town/church/chapel)
+"rTZ" = (
+/mob/living/simple_animal/hostile/retaliate/gator,
+/turf/open/water/marsh/deep,
+/area/rogue/outdoors/town)
 "rUh" = (
 /obj/effect/landmark/start/farmer{
 	dir = 8
@@ -23269,6 +23293,10 @@
 /obj/structure/industrial_lift/tram,
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/town)
+"wop" = (
+/mob/living/simple_animal/hostile/retaliate/gator,
+/turf/open/water/marsh/deep,
+/area/rogue/outdoors/rtfield)
 "woM" = (
 /obj/structure/stairs{
 	dir = 4
@@ -23881,6 +23909,10 @@
 	icon_state = "weird1"
 	},
 /area/rogue/indoors/town/clinic_large)
+"wSM" = (
+/obj/effect/traveltile_spawner/horizontal/bandit,
+/turf/open/floor/cobblerock,
+/area/rogue/outdoors/rtfield)
 "wTd" = (
 /obj/structure/closet/crate/crafted_closet,
 /obj/effect/spawner/map_spawner/loot/medium,
@@ -66893,7 +66925,7 @@ vbR
 vbR
 vbR
 vbR
-vbR
+wop
 vbR
 vbR
 vbR
@@ -67727,7 +67759,7 @@ vbR
 vbR
 vbR
 vbR
-vbR
+wop
 vbR
 vbR
 vbR
@@ -67985,7 +68017,7 @@ vbR
 vbR
 vbR
 vbR
-vbR
+wop
 vbR
 vbR
 vbR
@@ -69742,7 +69774,7 @@ vbR
 vbR
 vbR
 vbR
-vbR
+wop
 vbR
 vbR
 vbR
@@ -72200,7 +72232,7 @@ iAO
 iAO
 iAO
 iAO
-iAO
+rTZ
 iAO
 iAO
 iAO
@@ -75456,7 +75488,7 @@ iAO
 iAO
 vbR
 vbR
-vbR
+wop
 vbR
 vbR
 vbR
@@ -78674,6 +78706,7 @@ iAO
 iAO
 iAO
 iAO
+rTZ
 iAO
 iAO
 iAO
@@ -78688,7 +78721,6 @@ iAO
 iAO
 iAO
 iAO
-iAO
 vbR
 vbR
 vbR
@@ -78706,7 +78738,7 @@ vbR
 vbR
 vbR
 vbR
-vbR
+wop
 vbR
 vbR
 vbR
@@ -80132,7 +80164,7 @@ qVr
 vbR
 vbR
 vbR
-vbR
+wop
 vbR
 vbR
 vbR
@@ -80955,7 +80987,7 @@ vbR
 vbR
 vbR
 vbR
-vbR
+wop
 vbR
 vbR
 vbR
@@ -83563,7 +83595,7 @@ apV
 "}
 (89,1,2) = {"
 qVr
-xgY
+wSM
 xgY
 xgY
 xqc
@@ -91441,7 +91473,7 @@ apV
 "}
 (128,1,2) = {"
 qVr
-xgY
+gZS
 xgY
 xgY
 xgY
@@ -93117,7 +93149,7 @@ vbR
 vbR
 vbR
 vbR
-vbR
+wop
 vbR
 vbR
 vbR
@@ -93697,7 +93729,7 @@ vbR
 vbR
 vbR
 vbR
-vbR
+wop
 vbR
 vbR
 vbR
@@ -95080,7 +95112,7 @@ qVr
 vbR
 vbR
 vbR
-vbR
+wop
 vbR
 vbR
 vbR
@@ -95896,7 +95928,7 @@ vbR
 vbR
 vbR
 vbR
-vbR
+wop
 vbR
 vbR
 vbR
@@ -96130,7 +96162,7 @@ vbR
 vbR
 vbR
 vbR
-hlw
+fBz
 hlw
 hlw
 hlw
@@ -96332,7 +96364,7 @@ vbR
 vbR
 vbR
 vbR
-hlw
+fBz
 hlw
 hlw
 hlw
@@ -99925,7 +99957,7 @@ apV
 "}
 (170,1,2) = {"
 qVr
-xqc
+jGQ
 aTl
 aTl
 aTl
@@ -101436,7 +101468,7 @@ vbR
 vbR
 vbR
 vbR
-vbR
+wop
 vbR
 vbR
 vbR
@@ -104048,7 +104080,7 @@ aTl
 aTl
 hlw
 hlw
-hlw
+fBz
 vbR
 vbR
 vbR
@@ -105473,7 +105505,7 @@ hlw
 hlw
 vbR
 vbR
-vbR
+wop
 hlw
 tpv
 hlw
@@ -115682,7 +115714,7 @@ gxS
 "}
 (48,1,3) = {"
 gxS
-nYG
+mbl
 mbl
 mbl
 vxp
@@ -116086,7 +116118,7 @@ gxS
 "}
 (50,1,3) = {"
 gxS
-nYG
+mbl
 wlJ
 mbl
 mbl
@@ -146810,7 +146842,7 @@ vdG
 chE
 tut
 mbl
-mbl
+eOf
 mbl
 tut
 chE
@@ -147599,7 +147631,7 @@ bYx
 "}
 (6,1,4) = {"
 gmU
-mbl
+dQR
 wvS
 mbl
 mbl

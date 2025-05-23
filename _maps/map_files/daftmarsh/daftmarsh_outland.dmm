@@ -592,6 +592,10 @@
 "fk" = (
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/lower)
+"fl" = (
+/obj/effect/traveltile_spawner/horizontal/vampire,
+/turf/open/floor/cobblerock,
+/area/rogue/outdoors/bog)
 "fm" = (
 /obj/structure/table/wood/plain,
 /obj/item/reagent_containers/glass/bottle/sugar{
@@ -2906,6 +2910,14 @@
 	},
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/upper)
+"Fs" = (
+/mob/living/simple_animal/hostile/retaliate/gator,
+/turf/open/water/marsh/deep,
+/area/rogue/outdoors/woods)
+"Fu" = (
+/obj/effect/traveltile_spawner/horizontal/bandit,
+/turf/open/floor/cobblerock,
+/area/rogue/outdoors/bog)
 "Fy" = (
 /turf/open/floor/dirt/road,
 /area/rogue/indoors/town/cell)
@@ -3929,6 +3941,10 @@
 	},
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
+"Qn" = (
+/mob/living/simple_animal/hostile/retaliate/gator,
+/turf/open/water/marsh/deep,
+/area/rogue/outdoors/bog)
 "Qo" = (
 /mob/living/carbon/human/species/skeleton/npc/warrior,
 /turf/open/floor/cobblerock,
@@ -4537,7 +4553,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
 "Wq" = (
-/obj/structure/fluff/traveltile/vampire,
+/obj/effect/traveltile_spawner/horizontal/vampire,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/woods)
 "Wv" = (
@@ -4822,7 +4838,7 @@
 /turf/open/floor/woodturned/nosmooth,
 /area/rogue/indoors)
 "Zz" = (
-/obj/structure/fluff/traveltile/inhumen,
+/obj/effect/traveltile_spawner/vertical/inhumen,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/bog)
 "ZV" = (
@@ -20257,9 +20273,9 @@ pn
 XU
 XU
 XU
+mp
 Zz
-Zz
-Zz
+mp
 XU
 XU
 XU
@@ -34936,7 +34952,7 @@ SK
 "}
 (150,1,1) = {"
 SK
-mp
+fl
 mp
 mp
 pg
@@ -39986,7 +40002,7 @@ SK
 "}
 (175,1,1) = {"
 SK
-mp
+Fu
 mp
 mp
 mp
@@ -43824,7 +43840,7 @@ SK
 "}
 (194,1,1) = {"
 SK
-mp
+Fu
 mp
 mp
 pg
@@ -46673,7 +46689,7 @@ vL
 vL
 vL
 vL
-vL
+Fs
 vL
 vL
 vL
@@ -47741,7 +47757,7 @@ vL
 vL
 vL
 vL
-vL
+Fs
 vL
 vL
 vQ
@@ -49481,7 +49497,7 @@ SK
 "}
 (22,1,2) = {"
 SK
-Wq
+Kg
 yF
 Kg
 yF
@@ -49885,7 +49901,7 @@ SK
 "}
 (24,1,2) = {"
 SK
-Wq
+Kg
 Kg
 Kg
 Kg
@@ -51377,7 +51393,7 @@ vL
 vL
 vL
 vL
-vL
+Fs
 vL
 vL
 vL
@@ -51759,7 +51775,7 @@ vL
 vL
 vL
 vL
-vL
+Fs
 vL
 vL
 vL
@@ -54136,7 +54152,7 @@ vL
 vL
 vL
 vL
-vL
+Fs
 vL
 vL
 vL
@@ -55776,7 +55792,7 @@ vL
 vL
 vL
 vL
-vL
+Fs
 vL
 vL
 vL
@@ -58777,7 +58793,7 @@ uR
 uR
 uR
 uR
-uR
+Qn
 uR
 uR
 uR
@@ -61412,7 +61428,7 @@ uR
 uR
 uR
 uR
-uR
+Qn
 uR
 uR
 uR
@@ -61614,7 +61630,7 @@ uR
 uR
 uR
 uR
-uR
+Qn
 uR
 uR
 uR
@@ -64433,7 +64449,7 @@ uR
 uR
 uR
 uR
-uR
+Qn
 uR
 uR
 uR
@@ -64635,7 +64651,7 @@ uR
 uR
 uR
 uR
-uR
+Qn
 uR
 uR
 uR
@@ -67661,7 +67677,7 @@ SK
 "}
 (112,1,2) = {"
 SK
-mp
+fl
 mp
 mp
 mp
@@ -70691,7 +70707,7 @@ SK
 "}
 (127,1,2) = {"
 SK
-mp
+Fu
 mp
 pg
 pg
