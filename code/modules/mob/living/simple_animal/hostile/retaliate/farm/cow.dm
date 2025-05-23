@@ -51,8 +51,8 @@
 					/mob/living/simple_animal/hostile/retaliate/cow/cowlet/bullet = 5)
 	remains_type = /obj/effect/decal/remains/cow
 
-	can_have_ai = FALSE
-	AIStatus = AI_OFF
+
+
 	ai_controller = /datum/ai_controller/basic_controller/cow
 	var/can_breed = TRUE
 	var/can_tip = TRUE
@@ -64,16 +64,16 @@
 			0.5 SECONDS, \
 			0.5 SECONDS, \
 			rand(25 SECONDS, 50 SECONDS), \
-			null,
+			null,\
 			CALLBACK(src, PROC_REF(after_cow_tipped)),\
 			CALLBACK(src, PROC_REF(after_cow_untipped)))
 
-	ai_controller.set_blackboard_key(BB_BASIC_FOODS, food_type)
+
 	if(can_breed)
 		AddComponent(\
 			/datum/component/breed,\
 			list(/mob/living/simple_animal/hostile/retaliate/cow, /mob/living/simple_animal/hostile/retaliate/bull),\
-			3 MINUTES,
+			3 MINUTES,\
 			list(/mob/living/simple_animal/hostile/retaliate/cow/cowlet = 95, /mob/living/simple_animal/hostile/retaliate/cow/cowlet/bullet = 5),\
 			CALLBACK(src, PROC_REF(after_birth)),\
 		)
@@ -209,17 +209,17 @@
 	base_speed = 2
 	remains_type = /obj/effect/decal/remains/cow
 
-	can_have_ai = FALSE
-	AIStatus = AI_OFF
+
+
 	ai_controller = /datum/ai_controller/basic_controller/cow
 
 /mob/living/simple_animal/hostile/retaliate/bull/Initialize()
 	. = ..()
-	ai_controller.set_blackboard_key(BB_BASIC_FOODS, food_type)
+
 	AddComponent(\
 		/datum/component/breed,\
 		list(/mob/living/simple_animal/hostile/retaliate/cow, /mob/living/simple_animal/hostile/retaliate/bull),\
-		3 MINUTES,
+		3 MINUTES,\
 		list(/mob/living/simple_animal/hostile/retaliate/cow/cowlet = 95, /mob/living/simple_animal/hostile/retaliate/cow/cowlet/bullet = 5),\
 		CALLBACK(src, PROC_REF(after_birth)),\
 	)
@@ -241,8 +241,6 @@
 
 /mob/living/simple_animal/hostile/retaliate/bull/taunted(mob/user)
 	emote("aggro")
-	Retaliate()
-	GiveTarget(user)
 	return
 
 /mob/living/simple_animal/hostile/retaliate/bull/simple_limb_hit(zone)

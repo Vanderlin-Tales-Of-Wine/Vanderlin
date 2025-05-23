@@ -83,13 +83,39 @@
 
 /obj/structure/flora/tree/wise
 	name = "wise tree"
-	desc = "Dendor's favored."
+	desc = "Dendor's favored. It seems to watch you with ancient awareness."
 	icon_state = "mystical"
-	var/activated = 0
+	var/activated = FALSE
+	var/cooldown = FALSE
+	var/retaliation_messages = list(
+		"LEAVE FOREST ALONE!",
+		"DENDOR PROTECTS!",
+		"NATURE'S WRATH!",
+		"BEGONE, INTERLOPER!"
+	)
 
 /obj/structure/flora/tree/wise/Initialize()
 	. = ..()
 	icon_state = "mystical"
+
+/obj/structure/flora/tree/wise/attackby(obj/item/I, mob/user, params)
+	. = ..()
+	if(activated && !cooldown)
+		retaliate(user)
+
+/obj/structure/flora/tree/wise/proc/retaliate(mob/living/target)
+	if(cooldown || !istype(target) || !activated)
+		return
+
+	cooldown = TRUE
+	addtimer(VARSET_CALLBACK(src, cooldown, FALSE), 5 SECONDS)
+
+	var/message = pick(retaliation_messages)
+	say(span_danger("[message]"))
+
+	var/atom/throw_target = get_edge_target_turf(src, get_dir(src, target))
+	target.throw_at(throw_target, 4, 2)
+	target.adjustBruteLoss(8)
 
 /obj/structure/flora/tree/burnt
 	name = "burnt tree"
@@ -379,21 +405,6 @@
 		return TRUE
 	return FALSE
 
-/obj/structure/flora/grass/bush/CheckExit(atom/movable/mover, turf/target)
-	if(mover.throwing) //you are now stuck
-		return FALSE
-	if(istype(mover) && (mover.pass_flags & PASSGRILLE))
-		return TRUE
-	if(isdead(mover))
-		return TRUE
-	if(isliving(mover))
-		var/mob/living/living_mover = mover
-		if(living_mover.stat > CONSCIOUS && !living_mover.pulledby)
-			to_chat(living_mover, span_warning("I don't have the strength to free myself from [src]..."))
-			return FALSE
-		return TRUE
-	return FALSE
-
 // bush crossing
 /obj/structure/flora/grass/bush/Crossed(atom/movable/AM)
 	. = ..()
@@ -660,6 +671,8 @@
 	if(icon_state == "mush5")
 		static_debris = list(/obj/item/natural/thorn=1, /obj/item/grown/log/tree/small = 1)
 	pixel_x += rand(8,-8)
+	var/static/list/loc_connections = list(COMSIG_ATOM_EXIT = PROC_REF(on_exit))
+	AddElement(/datum/element/connect_loc, loc_connections)
 
 /obj/structure/flora/shroom_tree/CanPass(atom/movable/mover, turf/target)
 	if(istype(mover) && (mover.pass_flags & PASSGRILLE))
@@ -668,12 +681,11 @@
 		return 0
 	return 1
 
-/obj/structure/flora/shroom_tree/CheckExit(atom/movable/mover as mob|obj, turf/target)
-	if(istype(mover) && (mover.pass_flags & PASSGRILLE))
-		return 1
-	if(get_dir(mover.loc, target) == dir)
-		return 0
-	return 1
+/obj/structure/flora/shroom_tree/proc/on_exit(datum/source, atom/movable/leaving, atom/new_location)
+	SIGNAL_HANDLER
+	if(get_dir(leaving.loc, new_location) == dir)
+		leaving.Bump(src)
+		return COMPONENT_ATOM_BLOCK_EXIT
 
 /obj/structure/flora/shroom_tree/fire_act(added, maxstacks)
 	if(added > 5)
@@ -683,7 +695,6 @@
 	var/obj/structure/S = new /obj/structure/table/wood/treestump/shroomstump(loc)
 	S.icon_state = "[icon_state]stump"
 	. = ..()
-
 
 /obj/structure/table/wood/treestump/shroomstump
 	name = "shroom stump"

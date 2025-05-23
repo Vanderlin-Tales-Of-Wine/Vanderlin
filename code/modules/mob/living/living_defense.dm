@@ -167,15 +167,6 @@
 	if(!user.pulling || user.pulling == src)
 		user.start_pulling(src, suppress_message = suppress_message, item_override = item_override)
 		return
-/*
-	if(!(status_flags & CANPUSH) || HAS_TRAIT(src, TRAIT_PUSHIMMUNE))
-		to_chat(user, "<span class='warning'>[src] can't be grabbed more aggressively!</span>")
-		return FALSE
-
-	if(user.grab_state >= GRAB_AGGRESSIVE && HAS_TRAIT(user, TRAIT_PACIFISM))
-		to_chat(user, "<span class='warning'>I don't want to risk hurting [src]!</span>")
-		return FALSE
-	grippedby(user)*/
 
 //proc to upgrade a simple pull into a more aggressive grab.
 /mob/living/proc/grippedby(mob/living/carbon/user, instant = FALSE)
@@ -241,7 +232,8 @@
 		if(user.l_grab)
 			user.l_grab.grab_state = GRAB_AGGRESSIVE
 
-	user.update_grab_intents()
+	if(iscarbon(user))
+		user.update_grab_intents()
 
 	var/add_log = ""
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))

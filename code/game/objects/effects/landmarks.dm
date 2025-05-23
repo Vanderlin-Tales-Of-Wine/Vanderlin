@@ -419,7 +419,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	jobspawn_override = list("Lich")
 	delete_after_roundstart = FALSE
 
-/obj/effect/landmark/start/bandit/Initialize()
+/obj/effect/landmark/start/lich/Initialize()
 	. = ..()
 	GLOB.lich_starts += loc
 

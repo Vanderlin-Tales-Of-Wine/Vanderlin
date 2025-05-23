@@ -53,7 +53,7 @@
 
 	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
 	to_chat(chosen_one, span_biginfo("Graggar hungers! [new_objective.explanation_text]"))
-	SEND_SOUND(chosen_one, 'sound/ambience/noises/genspooky (1).ogg')
+	chosen_one.playsound_local(chosen_one, 'sound/ambience/noises/genspooky (1).ogg', 100)
 
 	to_chat(chosen_one, span_notice("Graggar grants you a power to extract hearts from the dead!"))
 

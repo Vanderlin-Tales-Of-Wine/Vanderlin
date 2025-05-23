@@ -5,6 +5,6 @@
 	"traits": [
         {"Up": true, "Leylines": true},
         {"Up": true, "Down": true, "Leylines": true},
-        {"Down": true}
+        {"Down": true, "Leylines": true}
     ]
 }

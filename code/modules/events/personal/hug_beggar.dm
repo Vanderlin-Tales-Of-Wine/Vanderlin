@@ -54,6 +54,6 @@
 
 	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
 	to_chat(chosen_one, span_notice("Eora wishes to see compassion! Show kindness to the less fortunate by hugging a beggar to earn Eora's favor!"))
-	SEND_SOUND(chosen_one, 'sound/vo/female/gen/giggle (1).ogg')
+	chosen_one.playsound_local(chosen_one, 'sound/vo/female/gen/giggle (1).ogg', 100)
 
 	chosen_one.mind.announce_personal_objectives()

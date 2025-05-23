@@ -672,7 +672,7 @@
 	. = ..()
 	. *= physiology.do_after_speed
 
-/mob/living/carbon/human/updatehealth()
+/mob/living/carbon/human/updatehealth(amount)
 	. = ..()
 	dna?.species.spec_updatehealth(src)
 	if(HAS_TRAIT(src, TRAIT_IGNOREDAMAGESLOWDOWN))

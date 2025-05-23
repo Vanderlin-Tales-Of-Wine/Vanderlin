@@ -9,14 +9,16 @@
 	return
 
 /obj/structure/flora/grass/maneater/real
-	var/aggroed = 0
-	max_integrity = 100
+	max_integrity = 40
 	integrity_failure = 0.15
 	attacked_sound = list('sound/vo/mobs/plant/pain (1).ogg','sound/vo/mobs/plant/pain (2).ogg','sound/vo/mobs/plant/pain (3).ogg','sound/vo/mobs/plant/pain (4).ogg')
+	buckle_lying = FALSE
+	buckle_prevents_pull = TRUE
 	var/list/eatablez = list(/obj/item/bodypart, /obj/item/organ, /obj/item/reagent_containers/food/snacks/meat)
 	var/last_eat
-	buckle_lying = 0
-	buckle_prevents_pull = 1
+	var/aggroed = TRUE
+	///Proximity monitor associated with this atom, needed for proximity checks.
+	var/datum/proximity_monitor/proximity_monitor
 
 /obj/structure/flora/grass/maneater/real/Initialize()
 	. = ..()
@@ -160,6 +162,7 @@
 				playsound(src,'sound/misc/eat.ogg', rand(30,60), TRUE)
 				qdel(AM)
 				return
+
 /obj/structure/flora/grass/maneater/real/attackby(obj/item/W, mob/user, params)
 	. = ..()
 	aggroed = world.time
