@@ -15,17 +15,17 @@
 	)
 	planning_subtrees = list(
 		/datum/ai_planning_subtree/fishboss_check_environment,
-		/datum/ai_planning_subtree/simple_find_target,
+		/datum/ai_planning_subtree/aggro_find_target,
 		/datum/ai_planning_subtree/fishboss_check_phase,
 		/datum/ai_planning_subtree/fishboss_summon_minions,
 		/datum/ai_planning_subtree/fishboss_special_ability,
+		/datum/ai_planning_subtree/basic_melee_attack_subtree/opportunistic,
 		/datum/ai_planning_subtree/basic_ranged_attack_subtree,
-		/datum/ai_planning_subtree/basic_melee_attack_subtree,
 	)
 	idle_behavior = /datum/idle_behavior/idle_random_walk
 
 
-// Deep water tile - slows movement and can be used by the boss to heal
+// Deep water tile - slows movement and can be used by the boss to heal pretty much used in the arena.
 /obj/effect/deep_water
 	name = "deep water"
 	desc = "Unnaturally dark water that seems to be deeper than it appears."
@@ -52,7 +52,7 @@
 			F.adjustHealth(-heal_amount)
 			if(prob(30))
 				new /obj/effect/temp_visual/heal(get_turf(F))
-		else if(!L.faction_check_mob(L, "deepone"))
+		else if( !("deepone" in L.faction))
 			// Slow down players/non-deep ones
 			L.add_movespeed_modifier("deep_water", 2)
 
@@ -63,10 +63,10 @@
 
 /obj/effect/deep_water/Crossed(atom/movable/AM)
 	. = ..()
-	if(isliving(AM) && !AM.faction_check_mob(AM, "deepone"))
+	if(isliving(AM) && !("deepone" in AM:faction))
 		to_chat(AM, "<span class='warning'>The water is surprisingly deep and difficult to move through!</span>")
 
 /obj/effect/deep_water/Uncrossed(atom/movable/AM)
 	. = ..()
-	if(isliving(AM) && !AM.faction_check_mob(AM, "deepone"))
+	if(isliving(AM) && !("deepone" in AM:faction))
 		AM:remove_movespeed_modifier("deep_water", 2)

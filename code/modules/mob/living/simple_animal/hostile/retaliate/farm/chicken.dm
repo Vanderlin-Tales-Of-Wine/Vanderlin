@@ -59,8 +59,8 @@
 	base_speed = 5
 	tame = TRUE
 
-	AIStatus = AI_OFF
-	can_have_ai = FALSE
+
+
 	ai_controller = /datum/ai_controller/basic_controller/chicken
 
 	var/chicken_init = TRUE
@@ -115,7 +115,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/chicken/Initialize()
 	. = ..()
-	ai_controller.set_blackboard_key(BB_BASIC_FOODS, food_type)
+
 	if(chicken_init)
 		if(!body_color)
 			body_color = pick(validColors)
@@ -133,15 +133,13 @@
 /mob/living/simple_animal/hostile/retaliate/chicken/Life()
 	..()
 	if(!stat && (production > 29) && egg_type && isturf(loc) && !enemies.len)
-		if(!stop_automated_movement)
-			//look for nests
-			var/list/foundnests = list()
-			for(var/obj/structure/fluff/nest/N in oview(src))
-				foundnests += N
-			//if no nests, look for chaff and build one
-			if(!foundnests.len)
-				new /obj/structure/fluff/nest(loc)
-				visible_message("<span class='notice'>[src] builds a nest.</span>")
+		var/list/foundnests = list()
+		for(var/obj/structure/fluff/nest/N in oview(src))
+			foundnests += N
+		//if no nests, look for chaff and build one
+		if(!foundnests.len)
+			new /obj/structure/fluff/nest(loc)
+			visible_message("<span class='notice'>[src] builds a nest.</span>")
 
 /mob/living/simple_animal/hostile/retaliate/chicken/proc/hatch_eggs()
 	for(var/obj/item/reagent_containers/food/snacks/egg/egg in loc)

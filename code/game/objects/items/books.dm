@@ -216,71 +216,477 @@
 	title = "Catatoma"
 	dat = "To create a shipping order, use a scroll on me."
 	var/fence = FALSE
+	var/mob/current_reader
+	var/current_category = "All"
+	var/search_query = ""
+	var/list/categories = list("All")
+	var/list/types = list()
+	var/list/cart = list() // Track items in cart
+	// Removed selected_item variable as we're not using it anymore
 
-/obj/item/book/secret/ledger/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/paper/scroll/cargo))
-		if(!open)
-			to_chat(user, "<span class='info'>Open me first.</span>")
-			return FALSE
-		var/obj/item/paper/scroll/cargo/C = I
-		if(C.orders.len >= 6)
-			to_chat(user, "<span class='warning'>Too much order.</span>")
-			return
-		var/picked_cat = input(user, "Categories", "Shipping Ledger") as null|anything in sortList(SSmerchant.supply_cats)
-		if(!picked_cat)
-			testing("yeye")
-			return
-		var/list/pax = list()
+/obj/item/book/secret/ledger/Initialize()
+	. = ..()
+	// Populate categories and types from SSmerchant.supply_cats and SSmerchant.supply_packs
+	categories += SSmerchant.supply_cats
+	for(var/pack in SSmerchant.supply_packs)
+		var/datum/supply_pack/PA = SSmerchant.supply_packs[pack]
+		if(!PA.contraband) // You can add a var to control whether to show contraband
+			types += PA
+
+/obj/item/book/secret/ledger/attack_self(mob/user)
+	. = ..()
+	current_reader = user
+	current_reader << browse(generate_html(user),"window=ledger;size=800x810")
+
+/obj/item/book/secret/ledger/proc/generate_html(mob/user)
+	if(!length(types))
 		for(var/pack in SSmerchant.supply_packs)
 			var/datum/supply_pack/PA = SSmerchant.supply_packs[pack]
-			if(PA.contraband && !fence)
-				continue
-			if(PA.group == picked_cat)
-				pax += PA
+			if(!PA.contraband) // You can add a var to control whether to show contraband
+				types += PA
 
-		var/datum/supply_pack/picked_pack = input(user, "Shipments", "Shipping Ledger") as null|anything in sortList(pax)
-		if(!picked_pack)
-			return
-		var/amount = input(user, "How many [picked_pack.name] to order?", null, 1) as null|num
-		amount = clamp(amount, 0, 100)
-		if(!amount)
-			return
-		C.orders[picked_pack] += amount
-		C.rebuild_info()
-		return
-	if(I.type == /obj/item/paper/scroll)
-		if(!open)
-			to_chat(user, "<span class='info'>Open me first.</span>")
-			return FALSE
-		var/obj/item/paper/scroll/P = I
-		if(P.info)
-			to_chat(user, "<span class='warning'>Something is written here already.</span>")
-			return
-		var/picked_cat = input(user, "Categories", "Shipping Ledger") as null|anything in sortList(SSmerchant.supply_cats)
-		if(!picked_cat)
-			return
-		var/list/pax = list()
-		for(var/pack in SSmerchant.supply_packs)
-			var/datum/supply_pack/PA = SSmerchant.supply_packs[pack]
-			if(PA.contraband && !fence)
-				continue
-			if(PA.group == picked_cat)
-				pax += PA
-		var/datum/supply_pack/picked_pack = input(user, "Shipments", "Shipping Ledger") as null|anything in sortList(pax)
-		if(!picked_pack)
-			return
-		var/amount = input(user, "How many [picked_pack.name] to order?", null, 1) as null|num
-		amount = clamp(amount, 0, 100)
-		if(!amount)
-			return
-		var/obj/item/paper/scroll/cargo/C = new(user.loc)
+	var/client/client = user
+	if(!istype(client))
+		client = user.client
+	SSassets.transport.send_assets(client, list("try4_border.png", "try4.png", "slop_menustyle2.css"))
+	user << browse_rsc('html/book.png')
 
-		C.orders[picked_pack] += amount
-		C.rebuild_info()
-		user.dropItemToGround(P)
-		qdel(P)
-		user.put_in_active_hand(C)
+	var/html = {"
+		<!DOCTYPE html>
+		<html lang="en">
+		<meta charset='UTF-8'>
+		<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'/>
+		<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Charm:wght@700&display=swap');
+			body {
+				font-family: "Charm", cursive;
+				font-size: 1.2em;
+				text-align: center;
+				margin: 20px;
+				color: #3e2723;
+				background-color: rgb(31, 20, 24);
+				background:
+					url('[SSassets.transport.get_asset_url("try4_border.png")]'),
+					url('book.png');
+				background-repeat: no-repeat;
+				background-attachment: fixed;
+				background-size: 100% 100%;
+			}
+			h1 {
+				text-align: center;
+				font-size: 2em;
+				border-bottom: 2px solid #3e2723;
+				padding-bottom: 10px;
+				margin-bottom: 20px;
+			}
+			.book-content {
+				display: flex;
+				height: 85%;
+			}
+			.sidebar {
+				width: 30%;
+				padding: 10px;
+				border-right: 2px solid #3e2723;
+				overflow-y: auto;
+				max-height: 600px;
+			}
+			.main-content {
+				width: 70%;
+				padding: 10px;
+				overflow-y: auto;
+				max-height: 600px;
+				text-align: left;
+			}
+			.categories {
+				margin-bottom: 15px;
+			}
+			.category-btn {
+				margin: 2px;
+				padding: 5px;
+				background-color: #d2b48c;
+				border: 1px solid #3e2723;
+				border-radius: 5px;
+				cursor: pointer;
+				font-family: "Charm", cursive;
+			}
+			.category-btn.active {
+				background-color: #8b4513;
+				color: white;
+			}
+			.search-box {
+				width: 90%;
+				padding: 5px;
+				margin-bottom: 15px;
+				border: 1px solid #3e2723;
+				border-radius: 5px;
+				font-family: "Charm", cursive;
+			}
+			.recipe-list {
+				text-align: left;
+			}
+			.item-link {
+				display: block;
+				padding: 5px;
+				color: #3e2723;
+				text-decoration: none;
+				border-bottom: 1px dotted #d2b48c;
+			}
+			.item-link:hover {
+				background-color: rgba(210, 180, 140, 0.3);
+			}
+			.add-to-cart-btn {
+				float: right;
+				padding: 2px 5px;
+				background-color: #8b4513;
+				color: white;
+				border: 1px solid #3e2723;
+				border-radius: 3px;
+				cursor: pointer;
+				font-size: 0.8em;
+				margin-left: 5px;
+			}
+			.item-content {
+				padding: 10px;
+			}
+			.back-btn {
+				margin-top: 10px;
+				padding: 5px 10px;
+				background-color: #d2b48c;
+				border: 1px solid #3e2723;
+				border-radius: 5px;
+				cursor: pointer;
+				font-family: "Charm", cursive;
+			}
+			.icon {
+				width: 96px;
+				height: 96px;
+				vertical-align: middle;
+				margin-right: 10px;
+			}
+			.result-icon {
+				text-align: center;
+				margin: 15px 0;
+			}
+			.order-button {
+				display: inline-block;
+				margin: 10px 0;
+				padding: 8px 15px;
+				background-color: #8b4513;
+				color: white;
+				border: 1px solid #3e2723;
+				border-radius: 5px;
+				cursor: pointer;
+				font-family: "Charm", cursive;
+				text-decoration: none;
+			}
+			.quantity-input {
+				width: 60px;
+				padding: 5px;
+				text-align: center;
+				font-family: "Charm", cursive;
+			}
+			.no-matches {
+				font-style: italic;
+				color: #8b4513;
+				padding: 10px;
+				text-align: center;
+				display: none;
+			}
+			.cart-content {
+				margin-top: 20px;
+				border-top: 2px solid #3e2723;
+				padding-top: 15px;
+			}
+			.cart-item {
+				justify-content: space-between;
+				padding: 5px 0;
+				border-bottom: 1px dotted #d2b48c;
+			}
+			.remove-item {
+				color: #8b4513;
+				cursor: pointer;
+				font-weight: bold;
+			}
+			.checkout-button {
+				display: block;
+				width: 80%;
+				margin: 20px auto;
+				padding: 10px;
+				background-color: #8b4513;
+				color: white;
+				border: 1px solid #3e2723;
+				border-radius: 5px;
+				cursor: pointer;
+				font-family: "Charm", cursive;
+				text-decoration: none;
+				font-size: 1.2em;
+			}
+			table {
+				margin: 10px auto;
+				border-collapse: collapse;
+				width: 100%;
+			}
+			table, th, td {
+				border: 1px solid #3e2723;
+			}
+			th, td {
+				padding: 8px;
+				text-align: left;
+			}
+			th {
+				background-color: rgba(210, 180, 140, 0.3);
+			}
+			.hidden {
+				display: none;
+			}
+			.item-details {
+				margin: 15px 0;
+				padding: 15px;
+				border: 1px solid #3e2723;
+				border-radius: 5px;
+				background-color: rgba(210, 180, 140, 0.1);
+			}
+			.item-description {
+				margin: 15px 0;
+				font-style: italic;
+			}
+			.add-to-cart {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin: 15px 0;
+			}
+			.add-btn {
+				padding: 8px 15px;
+				background-color: #8b4513;
+				color: white;
+				border: 1px solid #3e2723;
+				border-radius: 5px;
+				cursor: pointer;
+				font-family: "Charm", cursive;
+				margin-left: 10px;
+			}
+			.order-section {
+				width: 100%;
+			}
+			.cart-table {
+				width: 100%;
+			}
+			.cart-actions {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+			.cart-quantity {
+				width: 60px;
+				padding: 5px;
+				text-align: center;
+			}
+		</style>
+
+		<body>
+			<h1>Catacoma</h1>
+
+			<div class="book-content">
+				<div class="sidebar">
+					<!-- Search box -->
+					<input type="text" class="search-box" id="searchInput"
+						placeholder="Search items..." value="[search_query]">
+
+					<!-- Categories -->
+					<div class="categories">
+	"}
+
+	for(var/category in categories)
+		var/active_class = category == current_category ? "active" : ""
+		html += "<button class='category-btn [active_class]' onclick=\"location.href='byond://?src=\ref[src];action=set_category&category=[url_encode(category)]'\">[category]</button>"
+
+	html += {"
+					</div>
+
+					<!-- Item List -->
+					<div class="recipe-list" id="itemList">
+	"}
+
+	for(var/datum/supply_pack/pack in types)
+		var/should_show = TRUE
+		if(pack.contraband && !fence)
+			should_show = FALSE
+		if(current_category != "All")
+			if(pack.group != current_category)
+				should_show = FALSE
+
+		var/display_style = should_show ? "" : "display: none;"
+
+		html += "<a class='item-link [display_style]' href='byond://?src=\ref[src];action=add_to_cart&item=\ref[pack]&quantity=1' style='[display_style]'>[pack.name] ([pack.cost] mammons)</a>"
+
+	html += {"
+						<div id="noMatchesMsg" class="no-matches">No matching items found.</div>
+					</div>
+				</div>
+
+				<div class="main-content" id="mainContent">
+					<div class='item-content'>
+						<div class="order-section">
+	"}
+
+	// Display cart items
+	if(length(cart) > 0)
+		html += "<table class='cart-table'><tr><th>Item</th><th>Quantity</th><th>Cost</th><th>Actions</th></tr>"
+		var/total_cost = 0
+
+		for(var/datum/supply_pack/pack in cart)
+			var/item_quantity = cart[pack]
+			var/item_cost = pack.cost * item_quantity
+			total_cost += item_cost
+
+			html += "<tr class='cart-item'>"
+			html += "<td>[pack.name]</td>"
+			html += "<td>"
+			html += "<form class='cart-actions' action='byond://?src=\ref[src];action=update_cart&item=\ref[pack]' method='get'>"
+			html += "<input type='hidden' name='src' value='\ref[src]'>"
+			html += "<input type='hidden' name='action' value='update_cart'>"
+			html += "<input type='hidden' name='item' value='\ref[pack]'>"
+			html += "<input type='number' name='quantity' value='[item_quantity]' min='1' max='100' class='cart-quantity'>"
+			html += "<input type='submit' value='Update' class='add-btn' style='padding: 3px 8px; font-size: 0.8em;'>"
+			html += "</form>"
+			html += "</td>"
+			html += "<td>[item_cost] mammons</td>"
+			html += "<td><span class='remove-item' onclick=\"location.href='byond://?src=\ref[src];action=remove_from_cart&item=\ref[pack]'\">✖</span></td>"
+			html += "</tr>"
+
+		html += "<tr><td colspan='2'><strong>Total:</strong></td><td colspan='2'><strong>[total_cost] mammons</strong></td></tr>"
+		html += "</table>"
+		html += "<button class='checkout-button' onclick=\"location.href='byond://?src=\ref[src];action=checkout'\">Create Order Scroll</button>"
+
+	else
+		html += "<p>Your cart is empty. Click the 'Add' button next to items to add them to your order.</p>"
+
+	html += {"
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<script>
+				// Live search functionality with debouncing
+				let searchTimeout;
+				document.getElementById('searchInput').addEventListener('keyup', function(e) {
+					clearTimeout(searchTimeout);
+
+					// Debounce the search to improve performance
+					searchTimeout = setTimeout(function() {
+						const query = document.getElementById('searchInput').value.toLowerCase();
+						filterItems(query);
+					}, 300);
+				});
+
+				function filterItems(query) {
+					const itemLinks = document.querySelectorAll('.item-link');
+					const currentCategory = "[current_category]";
+					let anyVisible = false;
+
+					itemLinks.forEach(function(link) {
+						const itemName = link.textContent.toLowerCase();
+
+						// Check if it matches the search query
+						const matchesQuery = query === '' || itemName.includes(query);
+
+						// If we have both a query and active category, respect both filters
+						if (matchesQuery) {
+							link.style.display = 'block';
+							anyVisible = true;
+						} else {
+							link.style.display = 'none';
+						}
+					});
+
+					// Show a message if no items match
+					const noMatchesMsg = document.getElementById('noMatchesMsg');
+					noMatchesMsg.style.display = anyVisible ? 'none' : 'block';
+
+					// Remember the query
+					window.location.replace(`byond://?src=\\ref[src];action=remember_query&query=${encodeURIComponent(query)}`);
+				}
+
+				// Initialize search based on any current query
+				if ("[search_query]" !== "") {
+					filterItems("[search_query]".toLowerCase());
+				}
+			</script>
+		</body>
+		</html>
+	"}
+
+	return html
+
+/obj/item/book/secret/ledger/Topic(href, href_list)
 	..()
+
+	if(!current_reader)
+		return
+
+	if(!istype(current_reader) || current_reader.stat || !in_range(src, current_reader))
+		return
+
+	if(href_list["action"])
+		switch(href_list["action"])
+			if("set_category")
+				current_category = url_decode(href_list["category"])
+				search_query = "" // Reset search when changing category
+
+			if("remember_query")
+				search_query = url_decode(href_list["query"])
+
+			if("add_to_cart")
+				var/datum/supply_pack/item = locate(href_list["item"])
+				var/quantity = text2num(href_list["quantity"])
+
+				if(item && quantity > 0)
+					if(cart[item])
+						cart[item] += quantity
+					else
+						cart[item] = quantity
+
+			if("update_cart")
+				var/datum/supply_pack/item = locate(href_list["item"])
+				var/quantity = text2num(href_list["quantity"])
+
+				if(item && quantity > 0)
+					cart[item] = quantity
+				else if(quantity <= 0)
+					cart.Remove(item)
+
+			if("remove_from_cart")
+				var/datum/supply_pack/item = locate(href_list["item"])
+				if(item && cart[item])
+					cart.Remove(item)
+
+			if("checkout")
+				create_order_scroll()
+				return
+
+	current_reader << browse(generate_html(current_reader), "window=ledger;size=900x810")
+
+/obj/item/book/secret/ledger/proc/create_order_scroll()
+	if(!current_reader || !length(cart))
+		return
+
+	var/obj/item/paper/scroll/cargo/C = new(current_reader.loc)
+
+	for(var/datum/supply_pack/pack in cart)
+		C.orders[pack] += cart[pack]
+
+	C.rebuild_info()
+
+	// Clear cart after creating order
+	cart.Cut()
+	current_reader.put_in_hands(C)
+	to_chat(current_reader, "<span class='notice'>Your order has been written on a scroll.</span>")
+	current_reader << browse(generate_html(current_reader), "window=ledger;size=800x810")
 
 /obj/item/book/secret/ledger/fence
 	name = "Smuggler's Manifest"

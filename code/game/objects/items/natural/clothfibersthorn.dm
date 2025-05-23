@@ -84,13 +84,13 @@
 
 /obj/item/natural/cloth/ComponentInitialize()
 	. = ..()
-	cleaner_component = AddComponent(/datum/component/cleaner,
-									clean_speed,
-									CLEAN_MEDIUM,
-									100,
-									TRUE,
-									CALLBACK(src, PROC_REF(on_pre_clean)),
-									CALLBACK(src, PROC_REF(on_clean_success)),
+	cleaner_component = AddComponent(/datum/component/cleaner, \
+									clean_speed, \
+									CLEAN_MEDIUM, \
+									100, \
+									TRUE, \
+									CALLBACK(src, PROC_REF(on_pre_clean)), \
+									CALLBACK(src, PROC_REF(on_clean_success)), \
 									)
 
 /obj/item/natural/cloth/proc/on_pre_clean(datum/cleaning_source, atom/atom_to_clean, mob/living/cleaner)

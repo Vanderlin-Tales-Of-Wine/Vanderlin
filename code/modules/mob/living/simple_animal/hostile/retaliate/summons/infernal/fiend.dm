@@ -52,9 +52,15 @@
 	rapid = TRUE
 	projectiletype = /obj/projectile/magic/aoe/fireball/rogue
 	ranged_message = "throws fire"
-	var/flame_cd = 0
-	var/summon_cd = 0
 
+	ai_controller = /datum/ai_controller/fiend
+
+
+
+/mob/living/simple_animal/hostile/retaliate/infernal/fiend/Initialize()
+	. = ..()
+	AddComponent(/datum/component/minion_tracker)
+	AddComponent(/datum/component/ai_aggro_system)
 
 /mob/living/simple_animal/hostile/retaliate/infernal/fiend/death(gibbed)
 	..()
@@ -68,53 +74,3 @@
 	update_icon()
 	spill_embedded_objects()
 	qdel(src)
-
-/mob/living/simple_animal/hostile/retaliate/infernal/fiend/OpenFire(atom/A)
-	if(CheckFriendlyFire(A))
-		return
-	visible_message(span_danger("<b>[src]</b> [ranged_message] at [A]!"))
-
-	if(world.time >= src.flame_cd + 250)
-		var/mob/living/targetted = target
-		create_meteors(targetted)
-		src.flame_cd = world.time
-
-	if(world.time >= src.summon_cd + 250)
-		callforbackup()
-
-		src.summon_cd = world.time
-
-	if(rapid > 1)
-		var/datum/callback/cb = CALLBACK(src, PROC_REF(Shoot), A)
-		for(var/i in 1 to rapid)
-			addtimer(cb, (i - 1)*rapid_fire_delay)
-	else
-		Shoot(A)
-	ranged_cooldown = world.time + ranged_cooldown_time
-
-
-/mob/living/simple_animal/hostile/retaliate/infernal/fiend/proc/create_meteors(atom/target)
-	if(!target)
-		return
-	target.visible_message(span_boldwarning("Fire rains from the sky!"))
-	var/turf/targetturf = get_turf(target)
-	for(var/turf/turf as anything in RANGE_TURFS(4,targetturf))
-		if(prob(20))
-			new /obj/effect/temp_visual/target(turf)
-
-/mob/living/simple_animal/hostile/retaliate/infernal/fiend/proc/callforbackup()
-	var/list/spawnLists = list(/mob/living/simple_animal/hostile/retaliate/infernal/imp,/mob/living/simple_animal/hostile/retaliate/infernal/imp, /mob/living/simple_animal/hostile/retaliate/infernal/hellhound, /mob/living/simple_animal/hostile/retaliate/infernal/hellhound)
-	var/reinforcement_count = 3
-	src.visible_message(span_notice("[src] summons reinforcements from the infernal abyss."))
-	while(reinforcement_count > 0)
-		var/list/turflist = list()
-		for(var/turf/t in RANGE_TURFS(1, src))
-			turflist += t
-
-		var/turf/picked = pick(turflist)
-
-
-		var/spawnTypes = pick_n_take(spawnLists)
-		new spawnTypes(picked)
-		reinforcement_count--
-		continue

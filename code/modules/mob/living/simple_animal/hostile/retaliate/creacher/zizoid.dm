@@ -41,8 +41,13 @@
 	remains_type = /obj/effect/decal/remains/troll // Placeholder until Troll remains are sprited.
 	body_eater = TRUE
 
+	ai_controller = /datum/ai_controller/zizoid
+
+
+
 /mob/living/simple_animal/hostile/retaliate/blood/Initialize()
 	. = ..()
+	AddComponent(/datum/component/ai_aggro_system)
 	ADD_TRAIT(src, TRAIT_BLOODLOSS_IMMUNE, TRAIT_GENERIC)
 
 /mob/living/simple_animal/hostile/retaliate/blood/ascended
@@ -110,15 +115,8 @@
 
 /mob/living/simple_animal/hostile/retaliate/blood/taunted(mob/user)
 	emote("aggro")
-	Retaliate()
-	GiveTarget(user)
 	return
 
-/mob/living/simple_animal/hostile/retaliate/blood/Life()
-	..()
-	if(pulledby)
-		Retaliate()
-		GiveTarget(pulledby)
 
 /mob/living/simple_animal/hostile/retaliate/blood/simple_limb_hit(zone)
 	if(!zone)

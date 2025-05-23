@@ -585,10 +585,6 @@ There are several things that need to be remembered:
 
 	if(head)
 		update_hud_head(head)
-//		var/G = (gender == FEMALE) ? "f" : "m"
-//		if(G == "f" || dna.species.use_f)
-//			overlays_standing[HEAD_LAYER] = head.build_worn_icon(age = age, default_layer = HEAD_LAYER, default_icon_file = 'icons/mob/clothing/feet.dmi', coom = "e")
-//		else
 		overlays_standing[HEAD_LAYER] = head.build_worn_icon(age = age, default_layer = HEAD_LAYER, default_icon_file = 'icons/roguetown/clothing/onmob/head.dmi', coom = FALSE)
 		var/mutable_appearance/head_overlay = overlays_standing[HEAD_LAYER]
 		if(head_overlay)
@@ -1156,9 +1152,8 @@ There are several things that need to be remembered:
 							S.pixel_y += offsets[OFFSET_SHIRT_F][2]
 				overlays_standing[SHIRTSLEEVE_LAYER] = sleeves
 
-	if(gender == FEMALE && dna?.species)
-		update_body_parts(redraw = TRUE)
-		dna.species.handle_body(src)
+	update_body_parts(redraw = TRUE)
+	dna.species.handle_body(src)
 	update_body()
 
 	apply_overlay(SHIRT_LAYER)

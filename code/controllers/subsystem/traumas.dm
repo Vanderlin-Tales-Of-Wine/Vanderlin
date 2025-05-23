@@ -29,7 +29,6 @@ SUBSYSTEM_DEF(traumas)
 	)
 
 	phobia_mobs = list(
-		"birds"            = typecacheof(list(/mob/living/simple_animal/parrot))
 	)
 
 	phobia_objs = list(

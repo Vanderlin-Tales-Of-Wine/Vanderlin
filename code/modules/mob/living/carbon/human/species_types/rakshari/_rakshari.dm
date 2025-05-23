@@ -35,7 +35,7 @@
 	custom_clothes = FALSE
 	possible_ages = list(AGE_CHILD, AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD)
 	species_traits = list(EYECOLOR,OLDGREY)
-	inherent_traits = list(TRAIT_NOMOBSWAP)
+	inherent_traits = list(TRAIT_NOMOBSWAP, TRAIT_KITTEN_MOM)
 	exotic_bloodtype = /datum/blood_type/human/rakshari
 
 	customizers = list(

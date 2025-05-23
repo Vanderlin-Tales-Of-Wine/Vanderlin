@@ -14,7 +14,7 @@
 	if(!SPT_PROB(chance, seconds_per_tick))
 		return
 	var/mob/living/simple_animal/mob = controller.pawn
-	if(mob.food < mob.food_max * 0.5)
+	if(mob.food < mob.food_max * 0.15)
 		return
 	if(controller.blackboard_key_exists(BB_BABIES_TARGET))
 		controller.queue_behavior(reproduce_behavior, BB_BABIES_TARGET, BB_BABIES_CHILD_TYPES)

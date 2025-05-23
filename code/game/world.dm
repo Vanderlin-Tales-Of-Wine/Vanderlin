@@ -495,7 +495,6 @@ GLOBAL_PROTECT(tracy_init_reason)
 /world/proc/incrementMaxZ()
 	maxz++
 	SSmobs.MaxZChanged()
-	SSidlenpcpool.MaxZChanged()
 	SSai_controllers.on_max_z_changed()
 
 

@@ -35,6 +35,7 @@
 /datum/lock/key/vendor
 	locked = TRUE
 	difficulty = 3
+	requires_turning = FALSE
 
 /datum/lock/key/goldface
 	lockid_list = list(ACCESS_MERCHANT)

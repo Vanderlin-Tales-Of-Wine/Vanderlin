@@ -42,16 +42,20 @@
 	del_on_deaggro = 44 SECONDS
 	retreat_health = 0.3
 	food = 0
-	attack_sound = 'sound/combat/hits/bladed/smallslash (1).ogg'
+	attack_sound = list('sound/foley/plantcross1.ogg','sound/foley/plantcross2.ogg','sound/foley/plantcross3.ogg','sound/foley/plantcross4.ogg')
 	attack_verb_continuous = "jabs"
 	attack_verb_simple = "jab"
 	dodgetime = 60
 	aggressive = 1
-	var/drug_cd
+
+	ai_controller = /datum/ai_controller/sprite
+
 
 
 /mob/living/simple_animal/hostile/retaliate/fae/sprite/Initialize()
 	. = ..()
+	AddElement(/datum/element/ai_flee_while_injured, 0.75, retreat_health)
+	AddComponent(/datum/component/ai_aggro_system)
 
 /mob/living/simple_animal/hostile/retaliate/fae/sprite/death(gibbed)
 	..()
@@ -65,6 +69,4 @@
 
 /mob/living/simple_animal/hostile/retaliate/fae/sprite/taunted(mob/user)
 	emote("aggro")
-	Retaliate()
-	GiveTarget(user)
 	return

@@ -116,19 +116,19 @@
 	else
 		check_surrounding_water()
 
-/turf/open/water/proc/dryup()
-	if(water_volume < 10)
-		QDEL_NULL(water_overlay)
-		QDEL_NULL(water_top_overlay)
-		for(var/obj/effect/overlay/water/water in contents)
-			qdel(water)
+/turf/open/water/proc/dryup(forced = FALSE)
+	if(!forced && water_volume < 10)
+		smoothing_flags = NONE
+		remove_neighborlays()
+		if(water_overlay)
+			QDEL_NULL(water_overlay)
+		if(water_top_overlay)
+			QDEL_NULL(water_top_overlay)
 		make_unshiny()
-		shine = 0
-		we_cut = TRUE
 		var/mutable_appearance/dirty = mutable_appearance('icons/turf/floors.dmi', "dirt")
 		add_overlay(dirty)
 		for(var/obj/structure/waterwheel/rotator in contents)
-			rotator.set_rotational_speed(0)
+			rotator.set_rotational_direction_and_speed(null, 0)
 			rotator.set_stress_generation(0)
 
 /turf/open/water/river/creatable
@@ -140,12 +140,13 @@
 /turf/open/water/river/creatable/update_icon()
 	if(water_volume < 10)
 		dryup()
-	if(water_volume)
+	else if(water_volume)
 		if(!water_overlay)
 			water_overlay = new(src)
 		if(!water_top_overlay)
 			water_top_overlay = new(src)
-			QUEUE_SMOOTH(src)
+		smoothing_flags = SMOOTH_EDGE
+		QUEUE_SMOOTH(src)
 
 	if(!river_processes)
 		icon_state = "together"
@@ -242,12 +243,13 @@
 /turf/open/water/update_icon()
 	if(water_volume < 10)
 		dryup()
-	if(water_volume)
+	else if(water_volume)
 		if(!water_overlay)
 			water_overlay = new()
 		if(!water_top_overlay)
 			water_top_overlay = new()
-			QUEUE_SMOOTH(src)
+		smoothing_flags = SMOOTH_EDGE
+		QUEUE_SMOOTH(src)
 
 	if(water_overlay)
 		water_overlay.color = water_reagent.color
@@ -455,10 +457,7 @@
 
 /turf/open/water/Destroy()
 	. = ..()
-	if(water_overlay)
-		QDEL_NULL(water_overlay)
-	if(water_top_overlay)
-		QDEL_NULL(water_top_overlay)
+	dryup(forced = TRUE)
 
 /turf/open/water/hitby(atom/movable/AM, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum, damage_type = "blunt")
 	if(water_volume < 10)
@@ -678,12 +677,13 @@
 /turf/open/water/river/update_icon()
 	if(water_volume < 10)
 		dryup()
-	if(water_volume)
+	else if(water_volume)
 		if(!water_overlay)
 			water_overlay = new(src)
 		if(!water_top_overlay)
 			water_top_overlay = new(src)
-			QUEUE_SMOOTH(src)
+		smoothing_flags = SMOOTH_EDGE
+		QUEUE_SMOOTH(src)
 
 	if(water_overlay)
 		water_overlay.color = water_reagent.color

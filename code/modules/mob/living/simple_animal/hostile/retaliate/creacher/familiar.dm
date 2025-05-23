@@ -43,19 +43,3 @@
 /mob/living/simple_animal/hostile/retaliate/wolf/familiar/Destroy()
 	deltimer(despawn_timer)
 	. = ..()
-
-/mob/living/simple_animal/hostile/retaliate/wolf/familiar/PickTarget(list/Targets)//Step 3, pick amongst the possible, attackable targets
-	if(target != null)//If we already have a target, but are told to pick again, calculate the lowest distance between all possible, and pick from the lowest distance targets
-		for(var/pos_targ in Targets)
-			var/atom/A = pos_targ
-			var/target_dist = get_dist(targets_from, target)
-			var/possible_target_distance = get_dist(targets_from, A)
-			if(target_dist < possible_target_distance)
-				Targets -= A
-	for(var/pos_targ in Targets)//Excludes summoner from target
-		if(pos_targ == src.summoner)
-			Targets -= src.summoner
-	if(!Targets.len)//We didnt find nothin!
-		return
-	var/chosen_target = pick(Targets)//Pick the remaining targets (if any) at random
-	return chosen_target
