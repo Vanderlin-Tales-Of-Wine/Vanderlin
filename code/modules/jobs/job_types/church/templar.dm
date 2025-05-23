@@ -62,7 +62,7 @@
 			neck = /obj/item/clothing/neck/psycross/silver/astrata
 			head = /obj/item/clothing/head/helmet/heavy/necked/astrata
 			cloak = /obj/item/clothing/cloak/stabard/templar/astrata
-			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
+			H.cmode_music = 'sound/music/cmode/church/CombatAstrata.ogg'
 			H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
 			var/obj/item/weapon/sword/long/exe/astrata/P = new()
 			H.equip_to_appropriate_slot(P)
