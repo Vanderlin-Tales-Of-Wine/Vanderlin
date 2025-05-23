@@ -210,7 +210,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_AMAZING_BACK = span_notice("I'm able to carry far more on my back!"),
 	TRAIT_HOLLOWBONES = span_danger("My bones are light as air, Its hard to wear armor."),
 	TRAIT_EARGRAB = span_info("I can keep a tight grip on the ear of unruly children."),
-	TRAIT_FACELESS = span_danger("I am faceless, the others will recognise me for what i am.")
+	TRAIT_FACELESS = span_danger("I am faceless, the others will recognise me for what i am."),
 	TRAIT_KITTEN_MOM = span_info("Kittens love you, they see you are a parent.")
 	))
 
