@@ -87,10 +87,10 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 			var/mob/living/carbon/human/dreamer = owner.current
 			dreamer.set_patron(/datum/patron/inhumen/graggar_zizo)
 			dreamer.cmode_music = 'sound/music/cmode/antag/combat_maniac.ogg'
-			owner.adjust_skillrank(/datum/skill/combat/knives, 6, TRUE)
-			owner.adjust_skillrank(/datum/skill/combat/wrestling, 5, TRUE)
-			owner.adjust_skillrank(/datum/skill/combat/unarmed, 5, TRUE)
-			owner.adjust_skillrank(/datum/skill/misc/medicine, 4, TRUE)
+			dreamer.adjust_skillrank(/datum/skill/combat/knives, 6, TRUE)
+			dreamer.adjust_skillrank(/datum/skill/combat/wrestling, 5, TRUE)
+			dreamer.adjust_skillrank(/datum/skill/combat/unarmed, 5, TRUE)
+			dreamer.adjust_skillrank(/datum/skill/misc/medicine, 4, TRUE)
 			for(var/datum/status_effect/effect in dreamer.status_effects) //necessary to prevent exploits
 				dreamer.remove_status_effect(effect)
 			var/extra_strength = max(16 - dreamer.base_strength, 0)

@@ -9,3 +9,4 @@
 #define COMSIG_DO_AFTER_BEGAN "mob_do_after_began"
 /// Sent from /proc/do_after once a do_after action completes, whether via the bar filling or via interruption.
 #define COMSIG_DO_AFTER_ENDED "mob_do_after_ended"
+#define COMSIG_PHASE_CHANGE "phase_change"

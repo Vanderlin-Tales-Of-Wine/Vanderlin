@@ -10,8 +10,8 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	max_integrity = 9999
 	damage_deflection = 30
 	layer = ABOVE_MOB_LAYER
-	keylock = FALSE
-	locked = TRUE
+
+	lock = /datum/lock/locked
 
 	smoothing_flags = NONE
 	smoothing_groups = SMOOTH_GROUP_DOOR_SECRET
@@ -29,7 +29,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 
 	var/open_phrase = "open sesame"
 
-	var/speaking_distance = 2
+	var/speaking_distance = 1
 	var/lang = /datum/language/common
 	var/list/vip
 	var/vipmessage
@@ -69,7 +69,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	open_phrase = open_word() + " " + magic_word()
 	. = ..()
 
-/obj/structure/door/secret/door_rattle()
+/obj/structure/door/secret/rattle()
 	return
 
 /obj/structure/door/secret/attack_hand(mob/user)
@@ -83,7 +83,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 
 //can't kick it open, but you can kick it closed
 /obj/structure/door/secret/onkick(mob/user)
-	if(locked)
+	if(locked())
 		return
 	..()
 
@@ -103,26 +103,23 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 
 	if(is_type_in_list(H.mind?.assigned_role, vip)) //are they a VIP?
 		if(findtext(message2recognize, "help"))
-			send_speech(span_purple("'say phrase'... 'set phrase'..."), 2, src, message_language = lang)
+			send_speech(span_purple("'say phrase'... 'set phrase'..."), speaking_distance, src, message_language = lang, message_mode = MODE_WHISPER)
 			return TRUE
 		if(findtext(message2recognize, "say phrase"))
-			send_speech(span_purple("[open_phrase]..."), 2, src, message_language = lang)
+			send_speech(span_purple("[open_phrase]..."), speaking_distance, src, message_language = lang, message_mode = MODE_WHISPER)
 			return TRUE
 		if(findtext(message2recognize, "set phrase"))
 			var/new_pass = stripped_input(H, "What should the new close phrase be?")
 			open_phrase = new_pass
-			send_speech(span_purple("It is done, [flavor_name()]..."), 2, src, message_language = lang)
+			send_speech(span_purple("It is done, [flavor_name()]..."), speaking_distance, src, message_language = lang, message_mode = MODE_WHISPER)
 			return TRUE
 
-	if(findtext(message2recognize, open_phrase) && locked)
-		locked = FALSE
-		force_open()
+	if(findtext(message2recognize, open_phrase))
+		if(!door_opened)
+			force_open()
+		else
+			force_closed()
 		return TRUE
-	else if(findtext(message2recognize, open_phrase) && !locked)
-		force_closed()
-		locked = TRUE
-		return TRUE
-
 
 /obj/structure/door/secret/Open(silent = FALSE)
 	switching_states = TRUE
@@ -177,7 +174,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	air_update_turf(TRUE)
 	update_icon()
 	switching_states = FALSE
-	locked = TRUE
+	lock()
 
 /obj/structure/door/secret/force_closed()
 	switching_states = TRUE

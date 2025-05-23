@@ -107,14 +107,15 @@
 
 /datum/wound/fracture/head/on_life()
 	. = ..()
-	owner.stuttering = max(owner.stuttering, 5)
+	if(owner)
+		owner.stuttering = max(owner.stuttering, 5)
 
 /datum/wound/fracture/head/brain
 	name = "depressed cranial fracture"
 	crit_message = list(
 		"The cranium is fractured!",
 		"The cranium is cracked!",
-		"The cranium is torn!",
+		"The cranium is shattered!",
 	)
 	whp = 150
 	paralysis = TRUE

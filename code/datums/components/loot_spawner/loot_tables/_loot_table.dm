@@ -77,7 +77,7 @@
 	var/list/weighted_list = list()
 	var/list/pre_weight_list = loot_table[skill_type]
 
-	var/mob_skill_level = looter.mind?.get_skill_level(skill_type)
+	var/mob_skill_level = looter.get_skill_level(skill_type)
 	var/minimum_skill_level = 0
 	var/growth_factor = 1.05
 	if(skill_type in growth_factor_list)

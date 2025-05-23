@@ -30,7 +30,7 @@
 		return 0
 
 	if(myPath.len <= 0)
-		myPath = get_path_to(src, get_turf(target), /turf/proc/Distance3D, MAX_RANGE_FIND + 1, 250,1)
+		myPath = get_path_to(src, get_turf(target), TYPE_PROC_REF(/turf, Heuristic_cardinal_3d), MAX_RANGE_FIND + 1, 250,1)
 
 	if(myPath)
 		if(myPath.len > 0)
@@ -394,7 +394,7 @@
 		dropItemToGround(A, TRUE)
 		update_icons()
 
-/mob/living/carbon/monkey/grabbedby(mob/living/carbon/user, supress_message = FALSE, item_override)
+/mob/living/carbon/monkey/grabbedby(mob/living/carbon/user, suppress_message = FALSE, item_override)
 	. = ..()
 	if(!IsDeadOrIncap() && pulledby && (mode != MONKEY_IDLE || prob(MONKEY_PULL_AGGRO_PROB))) // nuh uh you don't pull me!
 		if(Adjacent(pulledby))

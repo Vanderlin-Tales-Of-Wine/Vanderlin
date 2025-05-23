@@ -1,6 +1,7 @@
 /datum/anvil_recipe
 	abstract_type = /datum/anvil_recipe
 	var/name
+	var/category = "Misc"
 	var/list/additional_items = list() // List of the object(s) we need to complete this recipe.
 	var/material_quality = 0 // Quality of the bar(s) used. Accumulated per added ingot.
 	var/num_of_materials = 1 // Total number of materials used. Quality divided among them.
@@ -29,7 +30,7 @@
 /datum/anvil_recipe/proc/advance(mob/user, breakthrough = FALSE)
 	var/moveup = 1
 	var/proab = 0 // Probability to not spoil the bar
-	var/skill_level	= user.mind.get_skill_level(appro_skill)
+	var/skill_level	= user.get_skill_level(appro_skill)
 	if(progress == 100)
 		to_chat(user, "<span class='info'>It's ready.</span>")
 		user.visible_message("<span class='warning'>[user] strikes the bar!</span>")
@@ -95,7 +96,7 @@
 		if(user.mind && isliving(user))
 			var/mob/living/L = user
 			var/amt2raise = L.STAINT // It would be impossible to level up otherwise
-			var/boon = user.mind.get_learning_boon(appro_skill)
+			var/boon = user.get_learning_boon(appro_skill)
 			if(amt2raise > 0)
 				if(!HAS_TRAIT(user, TRAIT_MALUMFIRE))
 					skill_quality += (rand(skill_level*6, skill_level*15) * moveup) // Lesser quality for self-learned non-professional smiths by trade
@@ -155,7 +156,7 @@
 		if(BLACKSMITH_LEVEL_LEGENDARY to INFINITY)
 			I.name = "masterwork [I.name]"
 			modifier = 1.3
-			GLOB.vanderlin_round_stats[STATS_MASTERWORKS_FORGED]++
+			GLOB.vanderlin_round_stats[STATS_MASTERWORKS_FORGED] += createmultiple ? createditem_num + 1 : 1
 
 	if(!modifier) // Sanity.
 		return
@@ -237,14 +238,14 @@
 			}
 			h1 {
 				text-align: center;
-				font-size: 2.5em;
+				font-size: 2em;
 				border-bottom: 2px solid #3e2723;
 				padding-bottom: 10px;
-				margin-bottom: 20px;
+				margin-bottom: 10px;
 			}
 			.icon {
-				width: 96px;
-				height: 96px;
+				width: 64px;
+				height: 64px;
 				vertical-align: middle;
 				margin-right: 10px;
 			}
@@ -253,8 +254,7 @@
 		  <div>
 		    <h1>[name]</h1>
 		    <div>
-		      <strong>Requirements</strong>
-			  <br>
+		      <h1>Steps</h1>
 		"}
 	html += "[icon2html(new req_bar, user)] Start with [initial(req_bar.name)] on an anvil.<br>"
 	html += "Hammer the material.<br>"

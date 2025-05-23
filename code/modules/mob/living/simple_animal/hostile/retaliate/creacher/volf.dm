@@ -61,8 +61,8 @@
 	body_eater = TRUE
 
 	///this mob was updated to new ai
-	AIStatus = AI_OFF
-	can_have_ai = FALSE
+
+
 	ai_controller = /datum/ai_controller/volf
 	var/static/list/pet_commands = list(
 		/datum/pet_command/fish,
@@ -86,6 +86,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/wolf/Initialize()
 	. = ..()
+	AddComponent(/datum/component/ai_aggro_system)
 	AddComponent(/datum/component/obeys_commands, pet_commands)
 	AddElement(/datum/element/ai_flee_while_injured, 0.75, retreat_health)
 
@@ -124,21 +125,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/wolf/taunted(mob/user)
 	emote("aggro")
-	Retaliate()
-	GiveTarget(user)
 	return
-
-/mob/living/simple_animal/hostile/retaliate/wolf/Life()
-	..()
-	if(pulledby)
-		Retaliate()
-		GiveTarget(pulledby)
-
-
-/mob/living/simple_animal/hostile/retaliate/wolf/find_food()
-	. = ..()
-	if(!.)
-		return eat_bodies()
 
 /mob/living/simple_animal/hostile/retaliate/wolf/simple_limb_hit(zone)
 	if(!zone)

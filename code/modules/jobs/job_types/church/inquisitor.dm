@@ -42,15 +42,16 @@
 	belt = /obj/item/storage/belt/leather/black
 	shoes = /obj/item/clothing/shoes/otavan/inqboots
 	pants = /obj/item/clothing/pants/trou/leather
-	cloak = /obj/item/clothing/cloak/cape/puritan
-	head = /obj/item/clothing/head/helmet/leather/inquisitor
+	cloak = /obj/item/clothing/cloak/cape/inquisitor
+	head = /obj/item/clothing/head/leather/inqhat
 	gloves = /obj/item/clothing/gloves/otavan/inqgloves
 	wrists = /obj/item/clothing/neck/psycross/silver
 	backr = /obj/item/storage/backpack/satchel
 	backl = /obj/item/weapon/sword/long/forgotten
 	beltl = /obj/item/flashlight/flare/torch/lantern
 	neck = /obj/item/clothing/neck/bevor
-	armor = /obj/item/clothing/armor/leather/splint
+	mask = /obj/item/clothing/face/spectacles/inqglasses
+	armor = /obj/item/clothing/armor/medium/scale/inqcoat
 	backpack_contents = list(/obj/item/storage/keyring/inquisitor = 1, /obj/item/storage/belt/pouch/coins/rich)
 	var/prev_real_name = H.real_name
 	var/prev_name = H.name
@@ -61,34 +62,34 @@
 	H.name = "[honorary] [prev_name]"
 	H.confession_points = 10 // Starting with 10 points
 	H.purchase_history = list() // Initialize as an empty list to track purchases
-	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/firearms, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE)
-		H.change_stat(STATKEY_INT, 2)
-		H.change_stat(STATKEY_STR, 1)
-		H.change_stat(STATKEY_PER, 2)
-		H.change_stat(STATKEY_SPD, 2)
-		H.change_stat(STATKEY_END, 1)
-		if(!H.has_language(/datum/language/oldpsydonic))
-			H.grant_language(/datum/language/oldpsydonic)
-		if(H.mind.has_antag_datum(/datum/antagonist))
-			return
-		var/datum/antagonist/new_antag = new /datum/antagonist/purishep()
-		H.mind.add_antag_datum(new_antag)
-		H.set_patron(/datum/patron/psydon)
+
+	H.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/climbing, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/lockpicking, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/firearms, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE)
+	H.change_stat(STATKEY_INT, 2)
+	H.change_stat(STATKEY_STR, 1)
+	H.change_stat(STATKEY_PER, 2)
+	H.change_stat(STATKEY_SPD, 2)
+	H.change_stat(STATKEY_END, 1)
+	if(!H.has_language(/datum/language/oldpsydonic))
+		H.grant_language(/datum/language/oldpsydonic)
+	if(H.mind?.has_antag_datum(/datum/antagonist))
+		return
+	var/datum/antagonist/new_antag = new /datum/antagonist/purishep()
+	H.mind?.add_antag_datum(new_antag)
+	H.set_patron(/datum/patron/psydon)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
@@ -134,6 +135,7 @@
 		to_chat(src, span_warning("[H] is dead already..."))
 		return
 	if(H.add_stress(/datum/stressevent/tortured))
+		SEND_SIGNAL(src, COMSIG_TORTURE_PERFORMED, H)
 		var/static/list/torture_lines = list(
 			"CONFESS YOUR WRONGDOINGS!",
 			"TELL ME YOUR SECRETS!",
@@ -178,6 +180,7 @@
 		to_chat(src, span_warning("[H] is dead already..."))
 		return
 	if(H.add_stress(/datum/stressevent/tortured))
+		SEND_SIGNAL(src, COMSIG_TORTURE_PERFORMED, H)
 		var/static/list/faith_lines = list(
 			"DO YOU DENY PSYDON AND THE TEN?",
 			"WHO IS YOUR GOD?",

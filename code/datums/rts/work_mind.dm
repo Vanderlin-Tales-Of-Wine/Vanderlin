@@ -4,11 +4,6 @@
 /mob/living/proc/made_into_controller_mob()
 	QDEL_NULL(ai_controller)
 
-/mob/living/simple_animal/hostile/made_into_controller_mob()
-	. = ..()
-	AIStatus = AI_OFF
-	can_have_ai = FALSE
-
 /datum/worker_mind
 	var/mob/camera/strategy_controller/master
 	var/mob/living/worker
@@ -65,10 +60,10 @@
 
 /datum/worker_mind/proc/head_to_target()
 	if(next_recalc < world.time)
-		current_path = get_path_to(worker, get_turf(movement_target), /turf/proc/Distance3D, 32 + 1, 250,1)
+		current_path = get_path_to(worker, get_turf(movement_target), TYPE_PROC_REF(/turf, Heuristic_cardinal_3d), 32 + 1, 250,1)
 		next_recalc = world.time + 2 SECONDS
 	if(!length(current_path) && !worker.CanReach(movement_target))
-		current_path = get_path_to(worker, get_turf(movement_target), /turf/proc/Distance3D, 32 + 1, 250,1)
+		current_path = get_path_to(worker, get_turf(movement_target), TYPE_PROC_REF(/turf, Heuristic_cardinal_3d), 32 + 1, 250,1)
 		if(!length(current_path))
 			current_task.stop_work()
 	if(length(current_path) >= 3)

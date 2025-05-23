@@ -26,7 +26,6 @@
 	attack_sound = 'sound/blank.ogg'
 	speak_emote = list("wails")
 	deathmessage = "wails, disintegrating into a pile of ectoplasm!"
-	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 0
 	maxbodytemp = 1500
 	movement_type = FLYING
@@ -74,7 +73,7 @@
 
 /obj/structure/spider/attacked_by(obj/item/I, mob/living/user) //Snipping action for webs, scissors turning webs into silk fast!
 	var/snip_time = 50
-	var/sewing_skill = user.mind.get_skill_level(/datum/skill/misc/sewing)
+	var/sewing_skill = user.get_skill_level(/datum/skill/misc/sewing)
 	var/amount = rand(1, 2)
 	if(user.used_intent.type == /datum/intent/snip)
 		snip_time = (50 - (sewing_skill * 10))

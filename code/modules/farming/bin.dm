@@ -211,6 +211,8 @@
 				while(R.createditem_num)
 					R.createditem_num--
 					var/obj/item/editme = new crafteditem(used_turf)
+					record_featured_stat(FEATURED_STATS_SMITHS, user)
+					record_featured_object_stat(FEATURED_STATS_FORGED_ITEMS, editme.name)
 					editme.name = newname
 					editme.max_integrity = newmaxinteg
 					editme.obj_integrity = newinteg
@@ -231,6 +233,8 @@
 						editme.equip_delay_self = newdelay
 			else // Just make one buddy
 				var/obj/item/IT = new crafteditem(used_turf)
+				record_featured_stat(FEATURED_STATS_SMITHS, user)
+				record_featured_object_stat(FEATURED_STATS_FORGED_ITEMS, IT.name)
 				R.handle_creation(IT)
 			playsound(src,pick('sound/items/quench_barrel1.ogg','sound/items/quench_barrel2.ogg'), 100, FALSE)
 			user.visible_message("<span class='info'>[user] tempers \the [T.held_item.name] in \the [src], hot metal sizzling.</span>")

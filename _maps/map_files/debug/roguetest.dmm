@@ -9,6 +9,9 @@
 /obj/structure/rotation_piece{
 	dir = 8
 	},
+/obj/effect/decal/carpet/square{
+	pixel_y = -13
+	},
 /turf/open/floor/blocks,
 /area/rogue/indoors)
 "ae" = (
@@ -2313,6 +2316,10 @@
 	pixel_x = 15;
 	pixel_y = 32
 	},
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
+"Yr" = (
+/obj/structure/rotation_piece/cog/large,
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
 "Ys" = (
@@ -17720,7 +17727,7 @@ ac
 ac
 at
 qc
-QN
+Yr
 xh
 hO
 ez
@@ -17977,7 +17984,7 @@ ac
 ac
 at
 at
-QN
+ez
 Ua
 Ua
 zA
@@ -18234,8 +18241,8 @@ ac
 ac
 ac
 at
-at
-at
+Yr
+xh
 Ua
 QN
 QN

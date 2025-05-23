@@ -95,7 +95,7 @@
 				E.budget2change(budgie)
 				budgie = 0
 		if(play_sound)
-			playsound(src.loc, 'sound/misc/hiss.ogg', 100, FALSE, -1)
+			playsound(loc, 'sound/misc/hiss.ogg', 100, FALSE, -1)
 
 /////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
@@ -120,59 +120,44 @@
 	max_integrity = 0
 	anchored = TRUE
 	layer = BELOW_OBJ_LAYER
+	rattle_sound = 'sound/misc/machineno.ogg'
+	unlock_sound = 'sound/misc/beep.ogg'
+	lock_sound = 'sound/misc/beep.ogg'
+	lock = /datum/lock/key/goldface
 	var/list/held_items = list()
-	var/locked = TRUE
 	var/budget = 0
 	var/upgrade_flags
 	var/current_cat = "1"
-	var/lockid = "merchant"
 
 /obj/structure/fake_machine/merchantvend/Initialize()
 	. = ..()
-	update_icon()
-
-/obj/structure/fake_machine/merchantvend/update_icon()
-	cut_overlays()
-	if(obj_broken)
-		set_light(0)
-		return
 	set_light(1, 1, 1, l_color =  "#1b7bf1")
-	add_overlay(mutable_appearance(icon, "vendor-merch"))
 
+/obj/structure/fake_machine/merchantvend/obj_break(damage_flag)
+	. = ..()
+	budget2change(budget)
+	set_light(0)
 
-/obj/structure/fake_machine/merchantvend/attackby(obj/item/P, mob/user, params)
-	if(istype(P, /obj/item/key))
-		var/obj/item/key/K = P
-		if(K.lockid == lockid)
-			locked = !locked
-			playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
-			update_icon()
-			return attack_hand(user)
-		else
-			playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
-			to_chat(user, "<span class='warning'>Wrong key.</span>")
-			return
-	if(istype(P, /obj/item/storage/keyring))
-		var/obj/item/storage/keyring/K = P
-		for(var/obj/item/key/KE in K.contents)
-			if(KE.lockid == lockid)
-				locked = !locked
-				playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
-				update_icon()
-				return attack_hand(user)
-	if(istype(P, /obj/item/coin))
-		budget += P.get_real_price()
-		qdel(P)
-		update_icon()
-		playsound(loc, 'sound/misc/machinevomit.ogg', 100, TRUE, -1)
+/obj/structure/fake_machine/merchantvend/Destroy()
+	. = ..()
+	budget2change(budget)
+	set_light(0)
+
+/obj/structure/fake_machine/merchantvend/attackby(obj/item/I, mob/user, params)
+	if(istype(I, /obj/item/coin))
+		var/money = I.get_real_price()
+		budget += money
+		qdel(I)
+		to_chat(user, span_info("I put [money] mammon in [src]."))
+		playsound(get_turf(src), 'sound/misc/machinevomit.ogg', 100, TRUE, -1)
 		return attack_hand(user)
-	..()
+	return ..()
 
 /obj/structure/fake_machine/merchantvend/Topic(href, href_list)
 	. = ..()
 	if(!ishuman(usr))
 		return
-	if(!usr.canUseTopic(src, BE_CLOSE) || locked)
+	if(!usr.canUseTopic(src, BE_CLOSE) || locked())
 		return
 	var/mob/living/carbon/human/human_mob = usr
 	if(href_list["buy"])
@@ -218,7 +203,7 @@
 		var/select = input(usr, "Please select an option.", "", null) as null|anything in options
 		if(!select)
 			return
-		if(!usr.canUseTopic(src, BE_CLOSE) || locked)
+		if(!usr.canUseTopic(src, BE_CLOSE) || locked())
 			return
 		switch(select)
 			if("Enable Paying Taxes")
@@ -235,7 +220,7 @@
 		return
 	if(!ishuman(user))
 		return
-	if(locked)
+	if(locked())
 		to_chat(user, "<span class='warning'>It's locked. Of course.</span>")
 		return
 	user.changeNext_move(CLICK_CD_MELEE)
@@ -281,22 +266,5 @@
 	var/datum/browser/popup = new(user, "VENDORTHING", "", 370, 400)
 	popup.set_content(contents)
 	popup.open()
-
-/obj/structure/fake_machine/merchantvend/obj_break(damage_flag)
-	..()
-	budget2change(budget)
-	set_light(0)
-	update_icon()
-	icon_state = "goldvendor0"
-
-/obj/structure/fake_machine/merchantvend/Destroy()
-	set_light(0)
-	return ..()
-
-/obj/structure/fake_machine/merchantvend/Initialize()
-	. = ..()
-	update_icon()
-//	held_items[/obj/item/reagent_containers/glass/bottle/wine] = list("PRICE" = rand(23,33),"NAME" = "vino")
-//	held_items[/obj/item/dmusicbox] = list("PRICE" = rand(444,777),"NAME" = "Music Box")
 
 #undef UPGRADE_NOTAX

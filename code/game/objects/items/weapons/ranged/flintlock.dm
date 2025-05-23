@@ -84,14 +84,14 @@
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/pistol/rmb_self(mob/user)
 	. = ..()
-	if(user.mind.get_skill_level(/datum/skill/combat/firearms) <= 0)
+	if(user.get_skill_level(/datum/skill/combat/firearms) <= 0)
 		to_chat(user, "<span class='warning'>I don't know how to do this!</span>")
 		return
 	if(wound)
 		to_chat(user, "<span class='info'>\The [src]'s mechanism is already wound!</span>")
 		return
 	var/windtime = 3.5
-	windtime = windtime - (user.mind.get_skill_level(/datum/skill/combat/firearms) / 2)
+	windtime = windtime - (user.get_skill_level(/datum/skill/combat/firearms) / 2)
 	if(do_after(user, windtime SECONDS, src) && !wound)
 		to_chat(user, "<span class='info'>I wind \the [src]'s mechanism.</span>")
 		playsound(src.loc, 'sound/foley/winding.ogg', 100, FALSE)
@@ -143,7 +143,7 @@
 			BB.bonus_accuracy += (user.STAPER - 8) //Also, increases bonus accuracy by 1, which cannot fall off due to distance.
 		if(user.STAPER > 10)
 			BB.damage = BB.damage * (user.STAPER / 10)
-		BB.bonus_accuracy += (user.mind.get_skill_level(/datum/skill/combat/firearms) * 3) //+3 accuracy per level in firearms
+		BB.bonus_accuracy += (user.get_skill_level(/datum/skill/combat/firearms) * 3) //+3 accuracy per level in firearms
 	playsound(src.loc, 'sound/combat/Ranged/muskclick.ogg', 100, FALSE)
 	cocked = FALSE
 	rammed = FALSE
@@ -166,11 +166,11 @@
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/pistol/attackby(obj/item/I, mob/user, params)
 	var/ramtime = 5.5
-	ramtime = ramtime - (user.mind.get_skill_level(/datum/skill/combat/firearms) / 2)
+	ramtime = ramtime - (user.get_skill_level(/datum/skill/combat/firearms) / 2)
 
 	// Check if the item used is a ramrod
 	if(istype(I, /obj/item/ramrod))
-		if(user.mind.get_skill_level(/datum/skill/combat/firearms) <= 0)
+		if(user.get_skill_level(/datum/skill/combat/firearms) <= 0)
 			to_chat(user, "<span class='warning'>I don't know how to do this!</span>")
 			return
 		if(!user.is_holding(src))
@@ -188,7 +188,7 @@
 	else
 		// Check if the item used is a reagent container
 		if(istype(I, /obj/item/reagent_containers))
-			if(user.mind.get_skill_level(/datum/skill/combat/firearms) <= 0)
+			if(user.get_skill_level(/datum/skill/combat/firearms) <= 0)
 				to_chat(user, "<span class='warning'>I don't know how to do this!</span>")
 				return
 			if(powdered)

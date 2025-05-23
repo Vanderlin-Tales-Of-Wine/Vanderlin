@@ -43,15 +43,22 @@ GLOBAL_LIST_EMPTY(preference_patrons) // Does not include patrons with preferenc
 	///our traits thats applied by set_patron and removed when changed
 	var/list/added_traits
 
+	///verbs applied by set_patron and removed when changed
+	var/list/added_verbs
+
 	var/datum/storyteller/storyteller
 
 /datum/patron/proc/on_gain(mob/living/pious)
 	for(var/trait in added_traits)
 		ADD_TRAIT(pious, trait, "[type]")
+	for(var/verb in added_verbs)
+		pious.verbs |= verb
 
 /datum/patron/proc/on_remove(mob/living/pious)
 	for(var/trait in added_traits)
 		REMOVE_TRAIT(pious, trait, "[type]")
+	for(var/verb in added_verbs)
+		pious.verbs -= verb
 
 /* -----PRAYERS----- */
 

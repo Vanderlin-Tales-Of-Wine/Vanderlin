@@ -1,6 +1,7 @@
 /datum/brewing_recipe
 	abstract_type = /datum/brewing_recipe
-	var/name = "Generic Recipe"
+	var/name = "Alcohols"
+	var/category = "Alcohols"
 	///the type path of the reagent
 	var/reagent_to_brew = /datum/reagent/consumable/ethanol
 	///pre-reqs: Essentially do we need past recipes made of this, uses the reagent_to_brew var to know if this has been done
@@ -70,14 +71,14 @@
 			}
 			h1 {
 				text-align: center;
-				font-size: 2.5em;
+				font-size: 2em;
 				border-bottom: 2px solid #3e2723;
 				padding-bottom: 10px;
-				margin-bottom: 20px;
+				margin-bottom: 10px;
 			}
 			.icon {
-				width: 96px;
-				height: 96px;
+				width: 64px;
+				height: 64px;
 				vertical-align: middle;
 				margin-right: 10px;
 			}
@@ -86,13 +87,11 @@
 		  <div>
 		    <h1>[name]</h1>
 		    <div>
-			  <strong>Brewing Time: [brew_time / 10] Seconds </strong>
-			  <br>
-			  <strong>Requirements</strong>
-			  <br>
+			  <h2>Brewing Time: [brew_time / 10] Seconds </h2>
+			  <h2>Requirements</h2>
 		"}
 	if(ages)
-		html += "<strong>Will Continue to age after brewing.</strong><br>"
+		html += "<h2>Will Continue to age after brewing.</h2>"
 	if(helpful_hints)
 		html += "<strong>[helpful_hints]</stong><br>"
 	if(pre_reqs)
@@ -101,7 +100,7 @@
 		html += "<strong>Requires that this be made in a distiller thats atleast [heat_required - 273.1]C.</stong><br>"
 
 	if(length(needed_crops) || length(needed_items))
-		html += "<strong>Items Required</strong><br>"
+		html += "<h3>Items Required</h3>"
 		for(var/atom/path as anything in needed_crops)
 			var/count = needed_crops[path]
 			html += "[icon2html(new path, user)] [count] parts [initial(path.name)]<br>"
@@ -110,7 +109,7 @@
 			html += "[count] parts [initial(path.name)]<br>"
 		html += "<br>"
 	if(length(needed_reagents))
-		html += "<strong>Liquids Required</strong><br>"
+		html += "<h3>Liquids Required</h3>"
 		for(var/atom/path as anything in needed_reagents)
 			var/count = needed_reagents[path]
 			html += "[FLOOR(count / 3, 1)] oz of [initial(path.name)]<br>"

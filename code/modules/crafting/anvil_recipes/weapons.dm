@@ -3,6 +3,7 @@
 	craftdiff = 1
 	i_type = "Weapons"
 	abstract_type = /datum/anvil_recipe/weapons
+	category = "Weapons"
 
 // SILVER - Harder to craft, does less damage and has less durability than steel, but banes undead.
 

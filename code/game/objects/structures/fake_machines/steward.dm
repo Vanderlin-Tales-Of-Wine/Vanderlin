@@ -15,44 +15,26 @@
 	max_integrity = 0
 	anchored = TRUE
 	layer = BELOW_OBJ_LAYER
-	var/locked = TRUE
+
+	rattle_sound = 'sound/misc/machineno.ogg'
+	unlock_sound = 'sound/misc/beep.ogg'
+	lock_sound = 'sound/misc/beep.ogg'
+	lock = /datum/lock/key/nerve
+
 	var/current_tab = TAB_MAIN
 	var/compact = FALSE
 
-/obj/structure/fake_machine/steward/attackby(obj/item/P, mob/user, params)
-	if(istype(P, /obj/item/key))
-		var/obj/item/key/K = P
-		if(K.lockid == "steward" || K.lockid == "lord")
-			locked = !locked
-			playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
-			update_icon()
-			return
-		else
-			playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
-			to_chat(user, "<span class='warning'>Wrong key.</span>")
-			return
-	if(istype(P, /obj/item/storage/keyring))
-		var/obj/item/storage/keyring/K = P
-		for(var/obj/item/key/KE in K.contents)
-			if(KE.lockid == "steward" || KE.lockid == "lord")
-				locked = !locked
-				playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
-				update_icon()
-				return
-		playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
-		to_chat(user, "<span class='warning'>Wrong key.</span>")
-		return
-	if(istype(P, /obj/item/coin))
-		SStreasury.give_money_treasury(P.get_real_price(), "NERVE MASTER deposit")
-		qdel(P)
+/obj/structure/fake_machine/steward/attackby(obj/item/I, mob/user, params)
+	if(istype(I, /obj/item/coin))
+		SStreasury.give_money_treasury(I.get_real_price(), "NERVE MASTER deposit")
+		qdel(I)
 		playsound(src, 'sound/misc/coininsert.ogg', 100, FALSE, -1)
 		return
 	return ..()
 
-
 /obj/structure/fake_machine/steward/Topic(href, href_list)
 	. = ..()
-	if(!usr.canUseTopic(src, BE_CLOSE) || locked)
+	if(!usr.canUseTopic(src, BE_CLOSE) || locked())
 		return
 	if(href_list["switchtab"])
 		current_tab = text2num(href_list["switchtab"])
@@ -99,7 +81,7 @@
 			return
 		if(!D.percent_bounty)
 			var/newamount = input(usr, "Set a new oversupply amount for [D.name]", src, D.oversupply_amount) as null|num
-			if(!usr.canUseTopic(src, BE_CLOSE) || locked)
+			if(!usr.canUseTopic(src, BE_CLOSE) || locked())
 				return
 			if(!isnum(newamount))
 				return
@@ -113,7 +95,7 @@
 			return
 		if(!D.percent_bounty)
 			var/newtax = input(usr, "Set a new oversupply price for [D.name]", src, D.oversupply_payout) as null|num
-			if(!usr.canUseTopic(src, BE_CLOSE) || locked)
+			if(!usr.canUseTopic(src, BE_CLOSE) || locked())
 				return
 			if(!isnum(newtax))
 				return
@@ -127,7 +109,7 @@
 			return
 		if(!D.percent_bounty)
 			var/newtax = input(usr, "Set a new price for [D.name]", src, D.payout_price) as null|num
-			if(!usr.canUseTopic(src, BE_CLOSE) || locked)
+			if(!usr.canUseTopic(src, BE_CLOSE) || locked())
 				return
 			if(!isnum(newtax))
 				return
@@ -139,7 +121,7 @@
 		else
 			var/newtax = input(usr, "Set a new percent for [D.name]", src, D.payout_price) as null|num
 			if(newtax)
-				if(!usr.canUseTopic(src, BE_CLOSE) || locked)
+				if(!usr.canUseTopic(src, BE_CLOSE) || locked())
 					return
 				if(findtext(num2text(newtax), "."))
 					return
@@ -154,7 +136,7 @@
 		if(!D.percent_bounty)
 			var/newtax = input(usr, "Set a new price to withdraw [D.name]", src, D.withdraw_price) as null|num
 			if(newtax)
-				if(!usr.canUseTopic(src, BE_CLOSE) || locked)
+				if(!usr.canUseTopic(src, BE_CLOSE) || locked())
 					return
 				if(findtext(num2text(newtax), "."))
 					return
@@ -167,7 +149,7 @@
 		for(var/mob/living/A in SStreasury.bank_accounts)
 			if(A == X)
 				var/newtax = input(usr, "How much to give [X]", src) as null|num
-				if(!usr.canUseTopic(src, BE_CLOSE) || locked)
+				if(!usr.canUseTopic(src, BE_CLOSE) || locked())
 					return
 				if(findtext(num2text(newtax), "."))
 					return
@@ -184,7 +166,7 @@
 		for(var/mob/living/A in SStreasury.bank_accounts)
 			if(A == X)
 				var/newtax = input(usr, "How much to fine [X]", src) as null|num
-				if(!usr.canUseTopic(src, BE_CLOSE) || locked)
+				if(!usr.canUseTopic(src, BE_CLOSE) || locked())
 					return
 				if(findtext(num2text(newtax), "."))
 					return
@@ -203,14 +185,14 @@
 		var/job_to_pay = input(usr, "Select a job", src) as null|anything in jobs
 		if(!job_to_pay)
 			return
-		if(!usr.canUseTopic(src, BE_CLOSE) || locked)
+		if(!usr.canUseTopic(src, BE_CLOSE) || locked())
 			return
 		var/amount_to_pay = input(usr, "How much to pay every [job_to_pay]", src) as null|num
 		if(!amount_to_pay)
 			return
 		if(amount_to_pay<1)
 			return
-		if(!usr.canUseTopic(src, BE_CLOSE) || locked)
+		if(!usr.canUseTopic(src, BE_CLOSE) || locked())
 			return
 		if(findtext(num2text(amount_to_pay), "."))
 			return
@@ -248,7 +230,7 @@
 	. = ..()
 	if(.)
 		return
-	if(locked)
+	if(locked())
 		to_chat(user, "<span class='warning'>It's locked. Of course.</span>")
 		return
 	user.changeNext_move(CLICK_CD_MELEE)

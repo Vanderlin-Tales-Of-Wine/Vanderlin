@@ -1,0 +1,5 @@
+/obj/effect/mapping_helpers/door/access/manor/manor : /obj/effect/mapping_helpers/door/access/manor/general
+/obj/effect/mapping_helpers/door/access/garrison/garrison : /obj/effect/mapping_helpers/door/access/garrison/general
+/obj/effect/mapping_helpers/door/access/church/church :/obj/effect/mapping_helpers/door/access/church/general
+/obj/effect/mapping_helpers/door/access/@SUBTYPES : /obj/effect/mapping_helpers/access/keyset/@SUBTYPES
+/obj/effect/mapping_helpers/door/locker : /obj/effect/mapping_helpers/access/locker

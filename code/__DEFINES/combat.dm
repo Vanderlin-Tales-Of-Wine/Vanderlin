@@ -76,7 +76,7 @@
 #define GRAB_KILL					3
 
 //Grab breakout odds
-#define BASE_GRAB_RESIST_CHANCE 	45
+#define BASE_GRAB_RESIST_CHANCE 	30
 
 //slowdown when in softcrit. Note that crawling slowdown will also apply at the same time!
 #define SOFTCRIT_ADD_SLOWDOWN 1
@@ -198,6 +198,7 @@
 #define BCLASS_CUT			"slash"
 #define BCLASS_CHOP			"chopping"
 #define BCLASS_STAB			"stab"
+#define BCLASS_PIERCE		"pierce"
 #define BCLASS_SHOT			"shot"
 #define BCLASS_PICK			"stab"
 #define BCLASS_TWIST		"twist"

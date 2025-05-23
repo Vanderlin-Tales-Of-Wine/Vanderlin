@@ -447,8 +447,11 @@ GLOBAL_VAR_INIT(mobids, 1)
 /// possibly delayed verb that finishes the pointing process starting in [/mob/verb/pointed()].
 /// either called immediately or in the tick after pointed() was called, as per the [DEFAULT_QUEUE_OR_CALL_VERB()] macro
 /mob/proc/_pointed(atom/A)
-	if(!src || !isturf(src.loc) || !(A in view(client.view, src)))
+	if(!src || !isturf(src.loc))
 		return FALSE
+	if(client && !(A in view(client.view, src)))
+		return FALSE
+
 	if(istype(A, /obj/effect/temp_visual/point))
 		return FALSE
 
@@ -656,7 +659,6 @@ GLOBAL_VAR_INIT(mobids, 1)
 		if(machine && in_range(src, usr))
 			show_inv(machine)
 
-
 	if(href_list["item"] && usr.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
 		var/slot = text2num(href_list["item"])
 		var/hand_index = text2num(href_list["hand_index"])
@@ -812,7 +814,7 @@ GLOBAL_VAR_INIT(mobids, 1)
  * * no transform not set
  * * we are not restrained
  */
-/mob/proc/canface()
+/mob/proc/canface(atom/A)
 	if(client)
 		if(world.time < client.last_turn)
 			return FALSE
@@ -829,13 +831,41 @@ GLOBAL_VAR_INIT(mobids, 1)
 	return TRUE
 
 ///Checks mobility move as well as parent checks
-/mob/living/canface()
+/mob/living/canface(atom/A)
 	if(HAS_TRAIT(src, TRAIT_IMMOBILIZED))
 		return FALSE
 	if(world.time < last_dir_change + 5)
 		return
-	if(pulledby && pulledby.grab_state >= GRAB_AGGRESSIVE) //the reason this isn't a mobility_flags check is because you want them to be able to change dir if you're passively grabbing them
-		return FALSE
+	if(A && pulledby && pulledby.grab_state >= GRAB_AGGRESSIVE) //the reason this isn't a mobility_flags check is because you want them to be able to change dir if you're passively grabbing them
+		// get_cardinal_dir is inconsistent, reuse face_atom code
+		var/dx = A.x - src.x
+		var/dy = A.y - src.y
+		var/dir
+		if(!dx && !dy) // Wall items are graphically shifted but on the floor
+			if(A.pixel_y > 16)
+				dir = NORTH
+			else if(A.pixel_y < -16)
+				dir = SOUTH
+			else if(A.pixel_x > 16)
+				dir = EAST
+			else if(A.pixel_x < -16)
+				dir = WEST
+		else
+			if(abs(dx) < abs(dy))
+				if(dy > 0)
+					dir = NORTH
+				else
+					dir = SOUTH
+			else
+				if(dx > 0)
+					dir = EAST
+				else
+					dir = WEST
+		if(dir == pulledby.dir) // can never face away from the person grabbing you
+			return FALSE
+		for(var/obj/item/grabbing/G in grabbedby) // only chokeholds prevent turning
+			if(G.chokehold)
+				return FALSE
 	if(IsImmobilized())
 		return FALSE
 	return ..()
@@ -846,7 +876,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 ///Hidden verb to turn east
 /mob/verb/eastface()
 	set hidden = TRUE
-	if(!canface())
+	if(!canface(get_step(src, EAST)))
 		return FALSE
 	setDir(EAST)
 	client.last_turn = world.time + MOB_FACE_DIRECTION_DELAY
@@ -855,7 +885,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 ///Hidden verb to turn west
 /mob/verb/westface()
 	set hidden = TRUE
-	if(!canface())
+	if(!canface(get_step(src, WEST)))
 		return FALSE
 	setDir(WEST)
 	client.last_turn = world.time + MOB_FACE_DIRECTION_DELAY
@@ -864,7 +894,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 ///Hidden verb to turn north
 /mob/verb/northface()
 	set hidden = TRUE
-	if(!canface())
+	if(!canface(get_step(src, NORTH)))
 		return FALSE
 	setDir(NORTH)
 	client.last_turn = world.time + MOB_FACE_DIRECTION_DELAY
@@ -873,7 +903,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 ///Hidden verb to turn south
 /mob/verb/southface()
 	set hidden = TRUE
-	if(!canface())
+	if(!canface(get_step(src, SOUTH)))
 		return FALSE
 	setDir(SOUTH)
 	client.last_turn = world.time + MOB_FACE_DIRECTION_DELAY
@@ -997,7 +1027,9 @@ GLOBAL_VAR_INIT(mobids, 1)
  *
  * If exact match is set, then all our factions must match exactly
  */
-/mob/proc/faction_check_mob(mob/target, exact_match)
+/atom/movable/proc/faction_check_mob(mob/target, exact_match)
+
+/mob/faction_check_mob(mob/target, exact_match)
 	if(exact_match) //if we need an exact match, we need to do some bullfuckery.
 		var/list/faction_src = faction.Copy()
 		var/list/faction_target = target.faction.Copy()
@@ -1108,6 +1140,8 @@ GLOBAL_VAR_INIT(mobids, 1)
 
 ///Can this mob read (is literate and not blind)
 /mob/proc/can_read(obj/O, silent = FALSE)
+	if(isobserver(src))
+		return TRUE
 	if(is_blind(src) || eye_blurry)
 		if(!silent)
 			to_chat(src, span_warning("I'm too blind to read."))
@@ -1282,23 +1316,17 @@ GLOBAL_VAR_INIT(mobids, 1)
 	return "[message_spans_start(spans)][input]</span>"
 
 /// Send a menu that allows for the selection of an item. Randomly selects one after time_limit. selection_list should be an associative list of string and typepath
-/mob/proc/select_equippable(client/player_client, selection_list = list(), time_limit = 20 SECONDS, message = "", title = "")
-	set waitfor = FALSE
-	if(!length(selection_list))
+/mob/proc/select_equippable(user_client, list/selection_list, time_limit = 20 SECONDS, message = "", title = "")
+	if(QDELETED(src) || !mind)
 		return
-	var/client/client_to_use = player_client
-	if(!client_to_use)
-		client_to_use = client
-	if(!client_to_use)
+	if(!LAZYLEN(selection_list))
 		return
-	var/random_choice = selection_list[pick(selection_list)]
-	var/timerid = addtimer(CALLBACK(src, PROC_REF(equip_to_appropriate_slot), new random_choice()), time_limit, TIMER_STOPPABLE)
-	var/choice = input(player_client, message, title) as anything in selection_list
-	if(SStimer.timer_id_dict[timerid])
-		deltimer(timerid)
-	else
-		return
-	var/spawn_item = selection_list[choice]
+	var/to_send = user_client ? user_client : src
+	var/choice = browser_input_list(to_send, message, title, selection_list, timeout = time_limit)
+	if(!choice)
+		choice = pick(selection_list)
+	var/spawn_item = LAZYACCESS(selection_list, choice)
 	if(!spawn_item)
-		spawn_item = selection_list[pick(selection_list)]
+		return choice
 	equip_to_appropriate_slot(new spawn_item(get_turf(src)))
+	return choice

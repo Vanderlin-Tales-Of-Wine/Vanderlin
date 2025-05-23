@@ -25,10 +25,6 @@ GLOBAL_PROTECT(admin_verbs_default)
 	/client/proc/ghost_down,
 	/client/proc/jumptoarea,
 	/client/proc/jumptokey,
-	/datum/admins/proc/checkpq,
-	/datum/admins/proc/adjustpq,
-	/datum/admins/proc/checktriumphs,
-	/datum/admins/proc/adjusttriumphs,
 	/client/proc/jumptomob,
 	/client/proc/returntolobby,
 	/datum/verbs/menu/Admin/verb/playerpanel,
@@ -115,6 +111,7 @@ GLOBAL_PROTECT(admin_verbs_admin)
 	/client/proc/set_personal_admin_ooc_color,
 	/client/proc/reset_personal_admin_ooc_color,
 	/client/proc/set_ghost_sprite,
+	/client/proc/set_ui_theme,
 	/client/proc/toggleadminhelpsound,
 	/client/proc/respawn_character,
 	/client/proc/discord_id_manipulation,
@@ -358,7 +355,6 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	to_chat(src, "<span class='interface'>All of your adminverbs are now visible.</span>")
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Show Adminverbs") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-
 /client/proc/toggle_context_menu()
 	set category = "Admin"
 	set name = "Right-click Menu"
@@ -407,7 +403,6 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 			M.density = initial(M.density)
 		ghost.can_reenter_corpse = 1 //force re-entering even when otherwise not possible
 		ghost.reenter_corpse()
-		show_popup_menus = FALSE
 		SSblackbox.record_feedback("tally", "admin_verb", 1, "Admin Reenter") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	else if(isnewplayer(mob))
 //		to_chat(src, "<font color='red'>Error: Aghost: Can't admin-ghost whilst in the lobby. Join or Observe first.</font>")
@@ -425,7 +420,6 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 		body.ghostize(1)
 		if(body && !body.key)
 			body.key = "@[key]"	//Haaaaaaaack. But the people have spoken. If it breaks; blame adminbus
-		show_popup_menus = TRUE
 		SSblackbox.record_feedback("tally", "admin_verb", 1, "Admin Ghost") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/invisimin()
@@ -718,6 +712,9 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	// Deactivate admin holder
 	holder.deactivate()
 
+	//they can no longer use right click menus
+	show_popup_menus = FALSE
+
 	// Ensure the admin stops hearing ghosts like a mortal
 	if(prefs)
 		prefs.chat_toggles &= ~CHAT_GHOSTEARS   // Explicitly remove ghost hearing
@@ -747,6 +744,9 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 			return
 
 	A.associate(src)
+
+	// they can now use right click menus
+	show_popup_menus = TRUE
 
 	if(!holder)
 		return //This can happen if an admin attempts to vv themself into somebody elses's deadmin datum by getting ref via brute force

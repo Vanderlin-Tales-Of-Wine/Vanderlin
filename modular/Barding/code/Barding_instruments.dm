@@ -82,13 +82,13 @@
 		terminate_playing(loc)
 		return PROCESS_KILL
 
-	if(user.get_inactive_held_item() && user.mind?.get_skill_level(/datum/skill/misc/music) < 4)
+	if(user.get_inactive_held_item() && user.get_skill_level(/datum/skill/misc/music) < 4)
 		terminate_playing(loc)
 		return PROCESS_KILL
 
 	user.apply_status_effect(/datum/status_effect/buff/playing_music) // Handles regular stress event in tick()
-	var/boon = user?.mind?.get_learning_boon(/datum/skill/misc/music)
-	user?.mind?.adjust_experience(/datum/skill/misc/music, ceil((user.STAINT*0.2) * boon) * 0.2) // And gain exp
+	var/boon = user?.get_learning_boon(/datum/skill/misc/music)
+	user?.adjust_experience(/datum/skill/misc/music, ceil((user.STAINT*0.2) * boon) * 0.2) // And gain exp
 
 	if(!HAS_TRAIT(user, TRAIT_BARDIC_TRAINING))
 		return
@@ -157,7 +157,7 @@
 	if(playing)
 		terminate_playing(user)
 		return
-	var/music_level = user.mind?.get_skill_level(/datum/skill/misc/music)
+	var/music_level = user.get_skill_level(/datum/skill/misc/music)
 	if(user.get_inactive_held_item() && music_level < 4) //DUAL WIELDING BARDS
 		return
 	for(var/obj/item/instrument/I in user.held_items) //sorry it's too annoying
