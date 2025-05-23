@@ -26,7 +26,7 @@
 			. = 1
 
 /mob/living/carbon/human/mob_negates_gravity()
-	return ((shoes && shoes.negates_gravity()) || (dna.species.negates_gravity(src)))
+	return ((shoes && shoes.negates_gravity()) || (dna?.species?.negates_gravity(src)))
 
 /mob/living/carbon/human/Move(NewLoc, direct)
 /*	if(fixedeye || tempfixeye)
@@ -109,6 +109,6 @@
 							dropItemToGround(I, silent = FALSE)
 
 /mob/living/carbon/human/Process_Spacemove(movement_dir = 0) //Temporary laziness thing. Will change to handles by species reee.
-	if(dna.species.space_move(src))
+	if(dna?.species?.space_move(src))
 		return TRUE
 	return ..()

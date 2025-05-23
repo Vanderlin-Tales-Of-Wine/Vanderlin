@@ -74,7 +74,7 @@
 	icon_state = "arcyne"
 	blade_dulling = DULLING_BASH
 	resistance_flags = FIRE_PROOF
-	keylock = FALSE
+	lock = /datum/lock
 	can_add_lock = FALSE
 	max_integrity = 2000
 
@@ -201,6 +201,7 @@
 		if(!do_after(user, 10 SECONDS, src))
 			return
 		grabbed.mana_pool.set_intrinsic_recharge(MANA_ALL_LEYLINES)
+		SEND_SIGNAL(grabbed, COMSIG_BAPTISM_RECEIVED, user)
 		playsound(user, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 80, FALSE)
 		return
 

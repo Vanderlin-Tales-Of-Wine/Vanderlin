@@ -15,3 +15,18 @@
 	if (!controller.blackboard[BB_BASIC_MOB_FLEEING])
 		return
 	controller.queue_behavior(/datum/ai_behavior/target_from_retaliate_list/nearest, BB_BASIC_MOB_RETALIATE_LIST, BB_BASIC_MOB_CURRENT_TARGET, BB_TARGETTING_DATUM, BB_BASIC_MOB_CURRENT_TARGET_HIDING_LOCATION)
+
+
+/// Find the nearest thing which we assume is hostile and set it as the flee target
+/datum/ai_planning_subtree/simple_find_nearest_target_to_flee/dragger
+
+/datum/ai_planning_subtree/simple_find_nearest_target_to_flee/dragger/SelectBehaviors(datum/ai_controller/controller, delta_time)
+	. = ..()
+	if(!controller.blackboard[BB_DRAGGER_VICTIM])
+		controller.set_blackboard_key(BB_BASIC_MOB_FLEEING, TRUE)
+	else
+		controller.set_blackboard_key(BB_BASIC_MOB_FLEEING, FALSE)
+
+	if (!controller.blackboard[BB_BASIC_MOB_FLEEING])
+		return
+	controller.queue_behavior(/datum/ai_behavior/find_potential_targets/nearest, BB_BASIC_MOB_CURRENT_TARGET, BB_TARGETTING_DATUM, BB_BASIC_MOB_CURRENT_TARGET_HIDING_LOCATION)

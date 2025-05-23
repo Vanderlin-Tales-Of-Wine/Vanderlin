@@ -19,21 +19,21 @@
 
 /datum/outfit/job/adventurer/vaquero/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/whipsflails, 2, TRUE) // Makes sense enough for an animal tamer
-	H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/riding, 5, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/labor/taming, 4, TRUE) // How did they not have this skill before?!
-	H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/stealing, 4, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, 1, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/music, rand(1,2), TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/whipsflails, 2, TRUE) // Makes sense enough for an animal tamer
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/riding, 5, TRUE)
+	H.adjust_skillrank(/datum/skill/labor/taming, 4, TRUE) // How did they not have this skill before?!
+	H.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/sneaking, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/stealing, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/lockpicking, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/music, rand(1,2), TRUE)
+	H.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 	head = /obj/item/clothing/head/bardhat
 	shoes = /obj/item/clothing/shoes/boots
 	pants = /obj/item/clothing/pants/tights/random

@@ -36,7 +36,7 @@
 	del_on_deaggro = 44 SECONDS
 	retreat_health = 0.3
 	food = 0
-	attack_sound = 'sound/combat/hits/onstone/wallhit.ogg'
+	attack_sound = list('sound/combat/hits/onstone/wallhit.ogg')
 	attack_verb_continuous = "pounds"
 	attack_verb_simple = "pounds"
 	dodgetime = 0
@@ -47,8 +47,13 @@
 	base_strength = 8
 	base_speed = 8
 
+	ai_controller = /datum/ai_controller/crawler
+
+
+
 /mob/living/simple_animal/hostile/retaliate/elemental/crawler/Initialize()
 	. = ..()
+	AddComponent(/datum/component/ai_aggro_system)
 
 /mob/living/simple_animal/hostile/retaliate/elemental/crawler/death(gibbed)
 	..()

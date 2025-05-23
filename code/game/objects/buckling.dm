@@ -15,8 +15,10 @@
 	if(.)
 		return
 	if(can_buckle && has_buckled_mobs())
-		if(buckled_mobs.len > 1)
+		if(length(buckled_mobs) > 1)
 			var/unbuckled = input(user, "Who do you wish to remove?","?") as null|mob in sortNames(buckled_mobs)
+			if(isnull(unbuckled))
+				return
 			if(user_unbuckle_mob(unbuckled,user))
 				return 1
 		else
@@ -33,10 +35,9 @@
 			return TRUE
 
 /atom/movable/proc/has_buckled_mobs()
-	if(!buckled_mobs)
-		return FALSE
-	if(buckled_mobs.len)
+	if(length(buckled_mobs))
 		return TRUE
+	return FALSE
 
 //procs that handle the actual buckling and unbuckling
 /atom/movable/proc/buckle_mob(mob/living/M, force = FALSE, check_loc = TRUE)

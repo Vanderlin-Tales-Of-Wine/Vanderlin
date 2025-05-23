@@ -79,7 +79,7 @@
 		if(completely_silent)
 			used_time = 0
 		else
-			used_time = (7 SECONDS - (H.mind.get_skill_level(/datum/skill/misc/medicine) * 1 SECONDS))/2
+			used_time = (7 SECONDS - (H.get_skill_level(/datum/skill/misc/medicine) * 1 SECONDS))/2
 		if(!do_after(user, used_time, H))
 			return
 		if(!H)
@@ -99,7 +99,6 @@
 /obj/item/natural/worms/leech/on_embed_life(mob/living/user, obj/item/bodypart/bodypart)
 	if(!user)
 		return
-	user.adjustToxLoss(bodypart.has_wound(/datum/wound/slash/incision) ? toxin_healing * 2 : toxin_healing)
 	if(giving)
 		var/blood_given = min(BLOOD_VOLUME_MAXIMUM - user.blood_volume, blood_storage, blood_sucking)
 		user.blood_volume += blood_given
@@ -111,6 +110,7 @@
 				user.simple_remove_embedded_object(src)
 			return TRUE
 	else
+		user.adjustToxLoss(bodypart.has_wound(/datum/wound/slash/incision) ? toxin_healing * 1.5 : toxin_healing)
 		var/blood_extracted = min(blood_maximum - blood_storage, user.blood_volume, blood_sucking)
 		if(HAS_TRAIT(user, TRAIT_LEECHIMMUNE))
 			blood_extracted *= 0.05 // 95% drain reduction
@@ -250,7 +250,50 @@
 		var/mob/living/carbon/V = user
 		if(prob(5))
 			GLOB.vanderlin_round_stats[STATS_ZIZO_PRAISED]++
-			V.say(pick("PRAISE ZIZO!", "DEATH TO THE TEN..."))
+			V.say(pick( \
+				"PRAISE ZIZO!", \
+				"DEATH TO THE TEN...", \
+				"Astrata will fail!", \
+				"The Ten cannot stop me!", \
+				"Zizo shows the way!", \
+				"The Dark Lady has shown me the truth!", \
+				"My life for Zizo...", \
+				"Curse your Beast God!", \
+				"Noc's magick is nothing to Zizo!", \
+				"Abyssor is but a grain of salt!", \
+				"Pestra is the most foul of goddesses!", \
+				"Ravox's justice is flawed and dull!", \
+				"Rip the Sun Tyrant from the sky!", \
+				"Xylix is the tongue that must be severed off!", \
+				"Cast Malum into the fires of hell!", \
+				"The only truth there is lies with the Dark Elves!", \
+				"I will defile Necra's dead, a thousand times!", \
+				"I will butcher the Ten like Necra butchered Psydon!", \
+				"Snuff out the beating hearts of Eora!"))
 		V.add_stress(/datum/stressevent/leechcult)
+
+/obj/item/natural/worms/leech/abyssoid
+	name = "abyssoid leech"
+	desc = "A holy leech sent by Abyssor himself."
+	icon_state = "leech"
+	drainage = 0
+	blood_sucking = 0
+	completely_silent = TRUE
+	embedding = list(
+		"embed_chance" = 100,
+		"embedded_unsafe_removal_time" = 0,
+		"embedded_pain_chance" = 0,
+		"embedded_fall_chance" = 0,
+		"embedded_bloodloss"= 0,
+	)
+
+/obj/item/natural/worms/leech/abyssoid/on_embed_life(mob/living/user, obj/item/bodypart/bodypart)
+	. = ..()
+	if(!user)
+		return
+	if(iscarbon(user))
+		var/mob/living/carbon/V = user
+		if(prob(3))
+			V.say(pick("PRAISE ABYSSOR!", "REMEMBER ABYSSOR!", "ABYSSOR LIVES!", "GLORY TO ABYSSOR!", "ABYSSOR IS COMING!"))
 
 #undef MAX_LEECH_EVILNESS

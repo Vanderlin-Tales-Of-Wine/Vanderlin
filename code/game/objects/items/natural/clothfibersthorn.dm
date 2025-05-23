@@ -84,13 +84,13 @@
 
 /obj/item/natural/cloth/ComponentInitialize()
 	. = ..()
-	cleaner_component = AddComponent(/datum/component/cleaner,
-									clean_speed,
-									CLEAN_MEDIUM,
-									100,
-									TRUE,
-									CALLBACK(src, PROC_REF(on_pre_clean)),
-									CALLBACK(src, PROC_REF(on_clean_success)),
+	cleaner_component = AddComponent(/datum/component/cleaner, \
+									clean_speed, \
+									CLEAN_MEDIUM, \
+									100, \
+									TRUE, \
+									CALLBACK(src, PROC_REF(on_pre_clean)), \
+									CALLBACK(src, PROC_REF(on_clean_success)), \
 									)
 
 /obj/item/natural/cloth/proc/on_pre_clean(datum/cleaning_source, atom/atom_to_clean, mob/living/cleaner)
@@ -259,7 +259,7 @@
 		return
 	var/used_time = 70
 	if(H.mind)
-		used_time -= (H.mind.get_skill_level(/datum/skill/misc/medicine) * 10)
+		used_time -= (H.get_skill_level(/datum/skill/misc/medicine) * 10)
 	playsound(loc, 'sound/foley/bandage.ogg', 100, FALSE)
 	if(!do_after(user, used_time, M))
 		return

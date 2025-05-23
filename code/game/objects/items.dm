@@ -264,6 +264,18 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	///these are flags of what tools can interact with this atom useful to stop hard coding interactions
 	var/tool_flags = NONE
 
+	var/list/attunement_values
+	///this is in KG
+	var/item_weight = 0
+	///this is a multiplier to the weight of items inside of this items contents
+	var/carry_multiplier = 1
+
+	/// Artificers Recipe
+	var/datum/artificer_recipe/artrecipe
+
+	/// angle of the icon, these are used for attack animations
+	var/icon_angle = 50 // most of our icons are angled
+
 /obj/item/Initialize()
 	. = ..()
 
@@ -845,7 +857,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 
 	playsound(loc, src.hitsound, 30, TRUE, -1)
 
-	user.do_attack_animation(M)
+	user.do_attack_animation(M, used_intent = user.used_intent, used_item = src)
 
 	if(M != user)
 		M.visible_message("<span class='danger'>[user] has stabbed [M] in the eye with [src]!</span>", \
@@ -1131,7 +1143,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 
 	if(tool_behaviour == TOOL_MINING && ishuman(user))
 		var/mob/living/carbon/human/H = user
-		skill_modifier = H.mind.get_skill_speed_modifier(/datum/skill/labor/mining)
+		skill_modifier = H.get_skill_speed_modifier(/datum/skill/labor/mining)
 
 	delay *= toolspeed * skill_modifier
 
@@ -1332,6 +1344,8 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	return
 
 /obj/item/proc/get_displayed_price(mob/user)
+	if(QDELETED(user))
+		return
 	if(get_real_price() > 0 && (HAS_TRAIT(user, TRAIT_SEEPRICES) || simpleton_price))
 		return span_info("Value: [get_real_price()] mammon")
 	return FALSE

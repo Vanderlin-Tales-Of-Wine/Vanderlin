@@ -142,12 +142,12 @@
 /datum/curse/atheism/on_gain(mob/living/carbon/human/owner)
 	. = ..()
 	old_patron = owner.patron
-	owner.patron = /datum/patron/godless
+	owner.set_patron(/datum/patron/godless)
 	owner.gain_trauma(/datum/brain_trauma/mild/phobia/religion)
 
 /datum/curse/atheism/on_loss(mob/living/carbon/human/owner)
 	. = ..()
-	owner.patron = old_patron
+	owner.set_patron(old_patron)
 	owner.cure_trauma_type(/datum/brain_trauma/mild/phobia/religion)
 
 /datum/curse/zizo/on_gain(mob/living/carbon/human/owner)
@@ -237,7 +237,7 @@
 	if(!MOBTIMER_FINISHED(src, MT_FREAKOUT, 10 SECONDS))
 		flash_fullscreen("stressflash")
 		return
-		
+
 	MOBTIMER_SET(src, MT_FREAKOUT)
 	shake_camera(src, 1, 3)
 	flash_fullscreen("stressflash")

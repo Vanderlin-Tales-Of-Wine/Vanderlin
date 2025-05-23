@@ -24,11 +24,13 @@
 	for(var/obj/structure/closet/crate/coffin/coffin in target_turf)
 		if(pacify_coffin(coffin, user))
 			user.visible_message(span_rose("[user] consecrates [coffin]."), span_rose("My funeral rites have been performed on [coffin]."))
+			SEND_SIGNAL(user, COMSIG_GRAVE_CONSECRATED, coffin)
 			GLOB.vanderlin_round_stats[STATS_GRAVES_CONSECRATED]++
 			return
 	for(var/obj/structure/closet/dirthole/hole in target_turf)
 		if(pacify_coffin(hole, user))
 			user.visible_message(span_rose("[user] consecrates [hole]."), span_rose("My funeral rites have been performed on [hole]."))
+			SEND_SIGNAL(user, COMSIG_GRAVE_CONSECRATED, hole)
 			GLOB.vanderlin_round_stats[STATS_GRAVES_CONSECRATED]++
 			return
 	to_chat(user, span_warning("I failed to perform the rites."))
@@ -47,7 +49,6 @@
 	invocation = "Undermaiden brooks thee respite, be heard, wanderer."
 	invocation_type = "whisper" //can be none, whisper, emote and shout
 	miracle = TRUE
-	healing_miracle = TRUE
 	devotion_cost = 40
 
 /obj/effect/proc_holder/spell/targeted/soulspeak/cast(list/targets,mob/user = usr)
@@ -66,10 +67,10 @@
 		return
 	for(var/mob/living/carbon/spirit/P in GLOB.spirit_list)
 		if(P.livingname == pickedsoul)
-			to_chat(P, "<font color='blue'>You feel yourself being pulled out of the Underworld.</font>")
+			to_chat(P, span_blue("You feel yourself being pulled out of the Underworld."))
 			sleep(2 SECONDS)
 			if(QDELETED(P) || P.summoned)
-				to_chat(user, "<font color='blue'>Your connection to the soul suddenly disappears!</font>")
+				to_chat(user, span_blue("Your connection to the soul suddenly disappears!"))
 				return
 			capturedsoul = P
 			break
@@ -79,17 +80,27 @@
 			capturedsoul.temporarilyRemoveItemFromInventory(I, force = TRUE)
 			itemstore += I.type
 			qdel(I)
-		capturedsoul.loc = user.loc
 		capturedsoul.summoned = TRUE
 		capturedsoul.beingmoved = TRUE
 		capturedsoul.invisibility = INVISIBILITY_OBSERVER
 		capturedsoul.status_flags |= GODMODE
 		capturedsoul.Stun(61 SECONDS)
 		capturedsoul.density = FALSE
+
+		var/list/icon_dimensions = get_icon_dimensions(user.icon)
+		var/orbitsize = (icon_dimensions["width"] + icon_dimensions["height"]) * 0.5
+		orbitsize -= (orbitsize/world.icon_size)*(world.icon_size*0.25)
+		capturedsoul.setDir(2)
+		capturedsoul.orbit(user, orbitsize, FALSE, 20, 36)
+
+		capturedsoul.update_cone()
+
 		addtimer(CALLBACK(src, PROC_REF(return_soul), user, capturedsoul, itemstore), 60 SECONDS)
 		addtimer(CALLBACK(src, PROC_REF(return_soul_warning), user, capturedsoul), 50 SECONDS)
-		to_chat(user, "<font color='blue'>I feel a cold chill run down my spine, a ghastly presence has arrived.</font>")
+		to_chat(user, span_blue("I feel a cold chill run down my spine, a ghastly presence has arrived."))
 		return ..()
+	to_chat(user, span_warning("I was unable to commune with a soul."))
+	return FALSE
 
 /obj/effect/proc_holder/spell/targeted/soulspeak/proc/return_soul_warning(mob/user, mob/living/carbon/spirit/soul)
 	if(!QDELETED(user))
@@ -98,13 +109,15 @@
 		to_chat(soul, span_warning("I'm starting to be pulled away..."))
 
 /obj/effect/proc_holder/spell/targeted/soulspeak/proc/return_soul(mob/user, mob/living/carbon/spirit/soul, list/itemstore)
-	to_chat(user, "<font color='blue'>The soul returns to the Underworld.</font>")
+	if(!QDELETED(user))
+		to_chat(user, span_blue("The soul returns to the Underworld."))
 	if(QDELETED(soul))
 		return
-	to_chat(soul, "<font color='blue'>You feel yourself being transported back to the Underworld.</font>")
+	to_chat(soul, span_blue("You feel yourself being transported back to the Underworld."))
+	soul.orbiting?.end_orbit()
 	soul.drop_all_held_items()
 	for(var/obj/effect/landmark/underworld/A in shuffle(GLOB.landmarks_list))
-		soul.loc = A.loc
+		soul.forceMove(A)
 		for(var/I in itemstore)
 			soul.put_in_hands(new I())
 		break
@@ -112,6 +125,7 @@
 	soul.fully_heal(FALSE)
 	soul.invisibility = initial(soul.invisibility)
 	soul.status_flags &= ~GODMODE
+	soul.update_cone()
 	soul.density = initial(soul.density)
 	SSdeath_arena.add_fighter(soul, soul.mind?.last_death)
 
@@ -135,7 +149,7 @@
 	var/prob2explode = 100
 	if(user && user.mind)
 		prob2explode = 0
-		for(var/i in 1 to user.mind.get_skill_level(/datum/skill/magic/holy))
+		for(var/i in 1 to user.get_skill_level(/datum/skill/magic/holy))
 			prob2explode += 80
 	for(var/mob/living/L in targets)
 		var/isvampire = FALSE
@@ -153,7 +167,7 @@
 				user.visible_message("<span class='warning'>[L] overpowers being churned!</span>", "<span class='userdanger'>[L] is too strong, I am churned!</span>")
 				user.Stun(50)
 				user.throw_at(get_ranged_target_turf(user, get_dir(user,L), 7), 7, 1, L, spin = FALSE)
-				return
+				continue
 		if((L.mob_biotypes & MOB_UNDEAD) || isvampire || iszombie)
 			var/undead_prob = prob2explode
 			if(isvampire)
@@ -162,6 +176,8 @@
 				L.visible_message("<span class='warning'>[L] HAS BEEN CHURNED BY NECRA'S GRIP!</span>", "<span class='danger'>I'VE BEEN CHURNED BY NECRA'S GRIP!</span>")
 				explosion(get_turf(L), light_impact_range = 1, flame_range = 1, smoke = FALSE)
 				L.Stun(50)
+				if(istype(L, /mob/living/simple_animal/hostile/retaliate/poltergeist))
+					L.gib()
 			else
 				L.visible_message("<span class='warning'>[L] resists being churned!</span>", "<span class='userdanger'>I resist being churned!</span>")
 	return ..()

@@ -43,11 +43,12 @@
 	related_skill = /datum/skill/misc/sewing
 	skill_xp_gained = 5
 	action_time = 5 SECONDS
+	category = "Hat"
 
 /datum/orderless_slapcraft/flowercrown/rosa
 	name = "Rosa Crown"
 	requirements = list(
-	/obj/item/alch/calendula = 2
+	/obj/item/alch/rosa = 2
 	)
 	output_item = /obj/item/clothing/head/flowercrown/rosa
 

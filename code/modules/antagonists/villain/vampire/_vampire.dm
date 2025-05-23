@@ -77,6 +77,10 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	equip()
 	after_gain()
 
+/datum/antagonist/vampire/lord/on_gain()
+	. = ..()
+	owner.special_role = span_redtext("[name]")
+
 /datum/antagonist/vampire/proc/after_gain()
 	owner.current.verbs |= /mob/living/carbon/human/proc/disguise_button
 

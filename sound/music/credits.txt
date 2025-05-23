@@ -10,7 +10,7 @@ combat_dwarf.ogg: Filip Lackovic - Drums of the Horde
 combat_assassin2.ogg: Fear & Hunger 2: Termina - Monologue With The Moon
 combat_noble.ogg: Aram Khachaturian - Masquerade Suite - Waltz
 combatskeleton.ogg: Storkrieg - Genocide Of The Fittest
-
+combat_evilwizard.ogg: Burialgoods - Low Income Barony
 
 roundend.ogg: Fear & Hunger 2: Termina - Dark Outside Extended
 accord (8).ogg: Tchaikovsky - Dance of the Sugar Plum Fairy. Cover by Amy Turk

@@ -112,6 +112,11 @@
 	max_integrity = 500
 	sellprice = 35
 
+/obj/item/weapon/flail/sflail/necraflail
+	name = "swift journey"
+	desc = "The striking head resembles Necra's original skull, striking true with a sculpted emblem of love and sacrifice. Perhaps one of the few Psydonic-designed emblems of The Ten left."
+	icon_state = "necraflail"
+
 //................ Peasant Flail ............... // A little confusing still
 /obj/item/weapon/flail/peasant
 	force = DAMAGE_NORMAL_FLAIL

@@ -2,7 +2,7 @@
 	name = "Astrata's Grandeur"
 	track = EVENT_TRACK_INTERVENTION
 	typepath = /datum/round_event/astrata_grandeur
-	weight = 4
+	weight = 8
 	earliest_start = 15 MINUTES
 	max_occurrences = 1
 	min_players = 20
@@ -31,4 +31,4 @@
 		human_mob.add_stress(/datum/stressevent/astrata_grandeur)
 
 		to_chat(human_mob, span_notice("Astrata shines brightly todae - and just as she leads the Ten, so must you guide others with a firm hand. The Sun Queen demands no less from those who bask in her glory."))
-		SEND_SOUND(human_mob, 'sound/magic/bless.ogg')
+		human_mob.playsound_local(human_mob, 'sound/magic/bless.ogg', 100)

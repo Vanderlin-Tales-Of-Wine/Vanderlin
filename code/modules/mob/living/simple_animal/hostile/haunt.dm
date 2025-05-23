@@ -1,3 +1,15 @@
+/datum/intent/simple/slash
+	name = "slash"
+	icon_state = "inchop"
+	attack_verb = list("cuts", "slashes")
+	animname = "slash"
+	blade_class = BCLASS_CHOP
+	hitsound = list('sound/combat/hits/bladed/genchop (1).ogg', 'sound/combat/hits/bladed/genchop (2).ogg', 'sound/combat/hits/bladed/genchop (3).ogg')
+	chargetime = 0
+	penfactor = 10
+	swingdelay = 3
+	item_damage_type = "slash"
+
 /mob/living/simple_animal/hostile/haunt
 	name = "haunt"
 	desc = ""
@@ -27,7 +39,6 @@
 	obj_damage = 1
 	melee_damage_lower = 15
 	melee_damage_upper = 20
-	attack_same = FALSE
 	attack_sound = 'sound/combat/wooshes/bladed/wooshmed (1).ogg'
 	dodge_sound = 'sound/combat/dodge.ogg'
 	parry_sound = "sword"
@@ -35,7 +46,6 @@
 	speak_emote = list("growls")
 	limb_destroyer = 1
 	del_on_death = TRUE
-	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 0
 	faction = list(FACTION_UNDEAD)
 	footstep_type = null
@@ -44,6 +54,14 @@
 	var/obj/structure/bonepile/slavepile
 
 	base_fortune = 11
+
+	ai_controller = /datum/ai_controller/haunt
+
+
+
+/mob/living/simple_animal/hostile/haunt/Initialize()
+	. = ..()
+	AddComponent(/datum/component/ai_aggro_system)
 
 /mob/living/simple_animal/hostile/haunt/electrocute_act(shock_damage, source, siemens_coeff = 1, flags = NONE)
 	return FALSE
@@ -140,6 +158,7 @@
 	spawning_haunt = FALSE
 	var/mob/living/simple_animal/hostile/haunt/H = new (get_turf(src))
 	H.slavepile = src
+	H.ai_controller.set_blackboard_key(BB_LEYLINE_SOURCE, src)
 	haunts += H
 	update_icon()
 
@@ -159,17 +178,6 @@
 	var/spawned = pick(/obj/item/reagent_containers/powder/spice)
 	new spawned(get_turf(src))
 	. = ..()
-
-/obj/structure/bonepile/attackby(obj/item/W, mob/user, params)
-	. = ..()
-	if(user)
-		for(var/H in haunts)
-			var/mob/living/simple_animal/hostile/haunt/D = H
-			D.GiveTarget(user)
-
-/mob/living/simple_animal/hostile/haunt/taunted(mob/user)
-	GiveTarget(user)
-	return
 
 /mob/living/simple_animal/hostile/haunt/Initialize()
 	. = ..()

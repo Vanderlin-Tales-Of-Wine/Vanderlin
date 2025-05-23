@@ -35,7 +35,8 @@ GLOBAL_DATUM_INIT(iconCache, /savefile, new("tmp/iconCache.sav")) //Cache of ico
 		broken = TRUE
 		message_admins("Couldn't start chat for [key_name_admin(owner)]!")
 		. = FALSE
-		alert(owner.mob, "Updated chat window does not exist. If you are using a custom skin file please allow the game to update.")
+		if(owner)
+			alert(owner.mob, "Updated chat window does not exist. If you are using a custom skin file please allow the game to update.")
 		return
 
 	if(!owner) // In case the client vanishes before winexists returns

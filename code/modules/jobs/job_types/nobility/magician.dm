@@ -23,6 +23,10 @@
 	cmode_music = 'sound/music/cmode/nobility/CombatCourtMagician.ogg'
 	magic_user = TRUE
 
+/datum/job/magician/New()
+	if(prob(5))
+		cmode_music = 'sound/music/cmode/antag/combat_evilwizard.ogg'
+
 /datum/outfit/job/magician
 	job_bitflag = BITFLAG_ROYALTY
 	allowed_patrons = list(/datum/patron/divine/noc, /datum/patron/inhumen/zizo)
@@ -40,43 +44,42 @@
 	backl = /obj/item/weapon/polearm/woodstaff
 	shoes = /obj/item/clothing/shoes/shortboots
 	backpack_contents = list(/obj/item/scrying = 1, /obj/item/chalk = 1,/obj/item/reagent_containers/glass/bottle/killersice = 1, /obj/item/book/granter/spellbook/master = 1, /obj/item/weapon/knife/dagger/silver/arcyne = 1, /obj/item/storage/keyring/mage = 1)
-	if(H.mind)
-		if(!(H.patron == /datum/patron/divine/noc || /datum/patron/inhumen/zizo))
-			H.set_patron(/datum/patron/divine/noc)
+	if(!(H.patron == /datum/patron/divine/noc || /datum/patron/inhumen/zizo))
+		H.set_patron(/datum/patron/divine/noc)
 
-		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 6, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/magic/arcane, pick(6,5), TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/alchemy, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 4, TRUE)
-		if(H.age == AGE_OLD)
-			armor = /obj/item/clothing/shirt/robe/courtmage
-			H.change_stat(STATKEY_SPD, -1)
-			H.change_stat(STATKEY_INT, 1)
-			if(H.dna.species.id == "human")
-				belt = /obj/item/storage/belt/leather/plaquegold
-				cloak = null
-				head = /obj/item/clothing/head/wizhat
-				if(H.gender == FEMALE)
-					armor = /obj/item/clothing/shirt/robe/courtmage
-				if(H.gender == MALE)
-					armor = /obj/item/clothing/shirt/robe/wizard
-					H.dna.species.soundpack_m = new /datum/voicepack/male/wizard()
-		ADD_TRAIT(H, TRAIT_SEEPRICES, TRAIT_GENERIC)
-		ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
-		ADD_TRAIT(H, TRAIT_OLDPARTY, TRAIT_GENERIC)
-		H.virginity = TRUE
-		H.change_stat(STATKEY_STR, -2)
-		H.change_stat(STATKEY_INT, 5)
-		H.change_stat(STATKEY_CON, -2)
-		H.change_stat(STATKEY_SPD, -2)
-		H.mind.adjust_spellpoints(17)
-		H.mind.AddSpell(new /obj/effect/proc_holder/spell/aoe_turf/knock)
-		H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/ethereal_jaunt)
-		H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/learnspell)
-		H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
+	H.adjust_skillrank(/datum/skill/misc/reading, 6, TRUE)
+	H.adjust_skillrank(/datum/skill/magic/arcane, pick(6,5), TRUE)
+	H.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/alchemy, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/labor/mathematics, 4, TRUE)
+	if(H.age == AGE_OLD)
+		armor = /obj/item/clothing/shirt/robe/courtmage
+		H.change_stat(STATKEY_SPD, -1)
+		H.change_stat(STATKEY_INT, 1)
+		if(H.dna.species.id == "human")
+			belt = /obj/item/storage/belt/leather/plaquegold
+			cloak = null
+			head = /obj/item/clothing/head/wizhat
+			if(H.gender == FEMALE)
+				armor = /obj/item/clothing/shirt/robe/courtmage
+			if(H.gender == MALE)
+				armor = /obj/item/clothing/shirt/robe/wizard
+				H.dna.species.soundpack_m = new /datum/voicepack/male/wizard()
+	ADD_TRAIT(H, TRAIT_SEEPRICES, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_OLDPARTY, TRAIT_GENERIC)
+	H.virginity = TRUE
+	H.change_stat(STATKEY_STR, -2)
+	H.change_stat(STATKEY_INT, 5)
+	H.change_stat(STATKEY_CON, -2)
+	H.change_stat(STATKEY_SPD, -2)
+	H.mind?.adjust_spellpoints(17)
+	H.mind?.AddSpell(new /obj/effect/proc_holder/spell/aoe_turf/knock)
+	H.mind?.AddSpell(new /obj/effect/proc_holder/spell/targeted/ethereal_jaunt)
+	H.mind?.AddSpell(new /obj/effect/proc_holder/spell/self/learnspell)
+	H.mind?.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
 
-		H.generate_random_attunements(rand(4,6))
+	H?.generate_random_attunements(rand(4,6))

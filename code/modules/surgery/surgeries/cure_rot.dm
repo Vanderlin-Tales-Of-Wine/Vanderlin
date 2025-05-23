@@ -20,6 +20,8 @@
 	time = 8 SECONDS
 	surgery_flags = SURGERY_INCISED
 	skill_min = SKILL_LEVEL_APPRENTICE
+	preop_sound = 'sound/surgery/cautery1.ogg'
+	success_sound = 'sound/surgery/cautery2.ogg'
 
 /datum/surgery_step/burn_rot/preop(mob/user, mob/living/target, target_zone, obj/item/tool, datum/intent/intent)
 	display_results(user, target, span_notice("I begin to burn the rot within [target]..."),
@@ -31,7 +33,7 @@
 /datum/surgery_step/burn_rot/success(mob/user, mob/living/target, target_zone, obj/item/tool, datum/intent/intent)
 	var/burndam = 20
 	if(user.mind)
-		burndam -= (user.mind.get_skill_level(/datum/skill/misc/medicine) * 3)
+		burndam -= (user.get_skill_level(/datum/skill/misc/medicine) * 3)
 	var/unzombification_pq = 0.1
 	var/datum/antagonist/zombie/was_zombie = target.mind?.has_antag_datum(/datum/antagonist/zombie)
 	var/has_rot = was_zombie
@@ -44,9 +46,7 @@
 	if(was_zombie)
 		was_zombie.become_rotman = FALSE
 		target.mind.remove_antag_datum(/datum/antagonist/zombie)
-		target.Unconscious(20 SECONDS)
-		target.emote("breathgasp")
-		target.Jitter(100)
+		target.death()
 		if(unzombification_pq && !HAS_TRAIT(target, TRAIT_IWASUNZOMBIFIED) && user?.ckey)
 			adjust_playerquality(unzombification_pq, user.ckey)
 			ADD_TRAIT(target, TRAIT_IWASUNZOMBIFIED, "[type]")
@@ -59,7 +59,8 @@
 			rotty.rotted = FALSE
 			rotty.skeletonized = FALSE
 			rotty.update_limb()
-			rotty.update_disabled()
+			if(rotty.can_be_disabled)
+				rotty.update_disabled()
 	target.update_body()
 	display_results(user, target, span_notice("You burn away the rot inside of [target]."),
 		"[user] burns the rot within [target].",

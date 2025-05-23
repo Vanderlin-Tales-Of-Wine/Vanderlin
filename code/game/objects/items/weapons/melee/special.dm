@@ -98,15 +98,15 @@
 				user.Beam(target, icon_state = "lightning[rand(1, 12)]", time = 0.5 SECONDS) // LIGHTNING
 				playsound(user, 'sound/magic/lightningshock.ogg', 70, TRUE)
 				H.electrocute_act(5, src)
-				log_message("[HU] has shocked [H] with the master's rod!", LOG_ATTACK)
+				HU.log_message("has shocked [H] with the [src]!", LOG_ATTACK)
 				to_chat(H, "<span class='danger'>I'm electrocuted by the scepter!</span>")
 				return
 
 			if(istype(user.used_intent, /datum/intent/lord_silence))
-				HU.visible_message("<span class='warning'>[HU] silences [H] with \the [src].</span>")
+				HU.visible_message(span_warning("[HU] silences [H] with \the [src]."))
 				H.set_silence(20 SECONDS)
-				log_message("[HU] has silenced [H] with the master's rod!", LOG_ATTACK)
-				to_chat(H, "<span class='danger'>I'm silenced by the scepter!</span>")
+				HU.log_message("[HU] has silenced [H] with the master's rod!", LOG_ATTACK)
+				to_chat(H, span_danger("I'm silenced by the scepter!"))
 				return
 
 /obj/item/weapon/mace/stunmace

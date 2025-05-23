@@ -170,6 +170,9 @@
 	see_in_dark = 3
 	lighting_alpha = LIGHTING_PLANE_ALPHA_LESSER_NV_TRAIT
 
+/obj/item/organ/eyes/no_render
+	accessory_type = null
+
 /proc/set_eye_color(mob/living/carbon/mob, color_one, color_two)
 	var/obj/item/organ/eyes/eyes = mob.getorganslot(ORGAN_SLOT_EYES)
 	if(!eyes)

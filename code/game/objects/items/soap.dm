@@ -19,14 +19,14 @@
 /obj/item/soap/ComponentInitialize()
 	. = ..()
 	AddComponent(/datum/component/slippery, 8, NONE, null, 0, FALSE, slip_chance)
-	AddComponent(/datum/component/cleaner,
-				clean_speed,
-				clean_strength,
-				clean_effectiveness,
-				TRUE,
-				CALLBACK(src, PROC_REF(should_clean)),
-				CALLBACK(src, PROC_REF(on_clean_success)),
-				CALLBACK(src, PROC_REF(on_clean_ineffective)),
+	AddComponent(/datum/component/cleaner, \
+				clean_speed, \
+				clean_strength, \
+				clean_effectiveness, \
+				TRUE, \
+				CALLBACK(src, PROC_REF(should_clean)), \
+				CALLBACK(src, PROC_REF(on_clean_success)), \
+				CALLBACK(src, PROC_REF(on_clean_ineffective)), \
 				)
 
 /obj/item/soap/proc/should_clean(datum/cleaning_source, atom/atom_to_clean, mob/living/cleaner)

@@ -45,7 +45,7 @@
 					user.visible_message(span_notice("[user] starts repairing [src]."), \
 					span_notice("I start repairing [src]."))
 					playsound(user, 'sound/misc/wood_saw.ogg', 100, TRUE)
-					if(do_after(user, (30 SECONDS / user.mind.get_skill_level(repair_skill)), src)) // 1 skill = 30 secs, 2 skill = 15 secs etc.
+					if(do_after(user, (30 SECONDS / user.get_skill_level(repair_skill)), src)) // 1 skill = 30 secs, 2 skill = 15 secs etc.
 						qdel(I)
 						playsound(user, 'sound/misc/wood_saw.ogg', 100, TRUE)
 						repair_state = 1
@@ -56,7 +56,7 @@
 					user.visible_message(span_notice("[user] starts repairing [src]."), \
 					span_notice("I start repairing [src]."))
 					playsound(user, 'sound/misc/wood_saw.ogg', 100, TRUE)
-					if(do_after(user, (30 SECONDS / user.mind.get_skill_level(repair_skill)), src)) // 1 skill = 30 secs, 2 skill = 15 secs etc.
+					if(do_after(user, (30 SECONDS / user.get_skill_level(repair_skill)), src)) // 1 skill = 30 secs, 2 skill = 15 secs etc.
 						qdel(I)
 						playsound(user, 'sound/misc/wood_saw.ogg', 100, TRUE)
 						icon_state = "[initial(icon_state)]"
@@ -74,7 +74,7 @@
 			user.visible_message(span_notice("[user] starts repairing [src]."), \
 			span_notice("I start repairing [src]."))
 			playsound(user, 'sound/misc/wood_saw.ogg', 100, TRUE)
-			if(do_after(user, (30 SECONDS / user.mind.get_skill_level(repair_skill)), src)) // 1 skill = 30 secs, 2 skill = 15 secs etc.
+			if(do_after(user, (30 SECONDS / user.get_skill_level(repair_skill)), src)) // 1 skill = 30 secs, 2 skill = 15 secs etc.
 				qdel(I)
 				playsound(user, 'sound/misc/wood_saw.ogg', 100, TRUE)
 				obj_integrity = obj_integrity + (max_integrity/2)

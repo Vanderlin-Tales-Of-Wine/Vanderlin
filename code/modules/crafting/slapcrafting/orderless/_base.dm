@@ -1,6 +1,6 @@
-///this is a super simple base compared to slapcrafting
 /datum/orderless_slapcraft
 	var/name = "Generic Recipe"
+	var/category
 	abstract_type = /datum/orderless_slapcraft
 
 	///if set we read this incases of creating radials
@@ -17,17 +17,32 @@
 	var/fallback = FALSE
 	var/action_time = 3 SECONDS
 
+	/// Quality tracking - list of ingredients and their qualities
+	var/list/used_ingredients = list()
+	/// Tracks the total freshness of ingredients
+	var/total_freshness = 0
+	/// Tracks number of ingredients with freshness
+	var/ingredient_count = 0
+	/// Tracks highest quality ingredient
+	var/highest_quality = 0
+
 /datum/orderless_slapcraft/New(loc, _source)
 	. = ..()
 	if(!_source)
 		return
 	hosted_source = _source
 	RegisterSignal(hosted_source, COMSIG_PARENT_QDELETING, PROC_REF(early_end))
+	// Initialize tracking lists
+	used_ingredients = list()
+	total_freshness = 0
+	ingredient_count = 0
+	highest_quality = 0
 
 /datum/orderless_slapcraft/Destroy(force, ...)
 	. = ..()
-	hosted_source.in_progress_slapcraft = null
+	hosted_source?.in_progress_slapcraft = null
 	hosted_source = null
+	used_ingredients = null
 
 /datum/orderless_slapcraft/proc/early_end()
 	qdel(src)
@@ -46,7 +61,10 @@
 
 /datum/orderless_slapcraft/proc/try_process_item(obj/item/attacking_item, mob/user)
 	var/return_value = FALSE
-	var/short_cooktime = (action_time - ((user?.mind?.get_skill_level(related_skill)) * 5))
+	var/short_cooktime = (action_time - ((user?.get_skill_level(related_skill)) * 5))
+
+	// Track ingredient quality and freshness before processing
+	track_ingredient_quality(attacking_item)
 
 	for(var/obj/item/item as anything in requirements)
 		if(islist(item))
@@ -83,6 +101,8 @@
 	if(!length(requirements) && finishing_item && !QDELETED(attacking_item))
 		if(!istype(attacking_item, finishing_item))
 			return FALSE
+		// Track the finishing item's quality as well
+		track_ingredient_quality(attacking_item)
 		playsound(get_turf(user), 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE, -1)
 		qdel(attacking_item)
 		try_finish(user)
@@ -93,10 +113,51 @@
 /datum/orderless_slapcraft/proc/step_process(mob/user, obj/item/attacking_item)
 	return
 
+/datum/orderless_slapcraft/proc/track_ingredient_quality(obj/item/food_item)
+	// Track the ingredient for quality calculation
+	used_ingredients += food_item
+
+	// Track freshness and quality
+	if(istype(food_item, /obj/item/reagent_containers/food/snacks) || istype(food_item, /obj/item/grown))
+		ingredient_count++
+
+		// Check warming value for freshness (higher means fresher)
+		if(istype(food_item, /obj/item/reagent_containers/food/snacks))
+			var/obj/item/reagent_containers/food/snacks/F = food_item
+			total_freshness += max(0, (F.warming + F.rotprocess))
+			highest_quality = max(highest_quality, F.quality)
+
+		// Handle crops/grown items
+		else if(istype(food_item, /obj/item/reagent_containers/food/snacks/produce))
+			var/obj/item/reagent_containers/food/snacks/produce/G = food_item
+			highest_quality = max(highest_quality, G.crop_quality - 1)
+
 /datum/orderless_slapcraft/proc/try_finish(mob/user)
 	var/turf/source_turf = get_turf(hosted_source)
 	if(output_item)
-		new output_item(source_turf)
+		var/obj/item/reagent_containers/food/snacks/new_item = new output_item(source_turf)
+
+		// Calculate average freshness
+		var/average_freshness = (ingredient_count > 0) ? (total_freshness / ingredient_count) : 0
+
+		// Get the user's cooking skill
+		var/cooking_skill = user.get_skill_level(/datum/skill/craft/cooking)
+
+		// Apply freshness to the new food item
+		new_item.warming = min(5 MINUTES, average_freshness)
+
+		// Calculate final quality based on ingredients, skill, and freshness
+		var/final_quality = calculate_food_quality(cooking_skill, highest_quality, average_freshness)
+		new_item.quality = round(final_quality)
+
+		// Apply descriptive modifications based on quality
+		apply_food_quality(new_item, final_quality)
+
+		// Handle item-specific post-processing by passing used ingredients
+		if(length(used_ingredients))
+			new_item.CheckParts(used_ingredients)
+			new_item.OnCrafted(user.dir, user)
+
 	qdel(hosted_source)
 
 /mob/living/proc/try_orderless_slapcraft(obj/item/attacking_item, obj/item/attacked_object)
@@ -155,14 +216,14 @@
 			}
 			h1 {
 				text-align: center;
-				font-size: 2.5em;
+				font-size: 2em;
 				border-bottom: 2px solid #3e2723;
 				padding-bottom: 10px;
-				margin-bottom: 20px;
+				margin-bottom: 10px;
 			}
 			.icon {
-				width: 96px;
-				height: 96px;
+				width: 64px;
+				height: 64px;
 				vertical-align: middle;
 				margin-right: 10px;
 			}
@@ -171,10 +232,8 @@
 		  <div>
 		    <h1>[name]</h1>
 		    <div>
-		      <strong>Requirements</strong>
-			  <br>
 		"}
-	html += "<strong class=class='scroll'>start the process with</strong> <br>[icon2html(new starting_item, user)] <br> [initial(starting_item.name)]<br>"
+	html += "[icon2html(new starting_item, user)] <strong class=class='scroll'>Start the process with [initial(starting_item.name)]</strong><br>"
 	html += "<strong> then add </strong> <br>"
 	for(var/atom/path as anything in requirements)
 		var/count = requirements[path]
@@ -182,9 +241,9 @@
 			var/first = TRUE
 			var/list/paths = path
 			for(var/atom/sub_path as anything in paths)
-				html += "[icon2html(new sub_path, user)] [count] of any [initial(sub_path.name)]<br>"
 				if(!first)
 					html += "or <br>"
+				html += "[icon2html(new sub_path, user)] [count] of any [initial(sub_path.name)]<br>"
 				first = FALSE
 		else
 			html += "[icon2html(new path, user)] [count] of any [initial(path.name)]<br>"
@@ -194,7 +253,8 @@
 		<div>
 		"}
 
-	html += "<strong class=class='scroll'>finish with</strong> <br> [icon2html(new finishing_item, user)] <br> any [initial(finishing_item.name)]<br>"
+	if(finishing_item)
+		html += "[icon2html(new finishing_item, user)] <strong class=class='scroll'>finish with any [initial(finishing_item.name)]</strong> <br>"
 
 
 	html += {"

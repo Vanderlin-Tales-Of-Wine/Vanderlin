@@ -18,10 +18,9 @@
 	if (!armor)
 		armor = list("blunt" = 0, "slash" = 0, "stab" = 0,  "piercing" = 0, "fire" = 50, "acid" = 50)
 	. = ..()
-	if(smooth)
-		queue_smooth(src)
-		queue_smooth_neighbors(src)
-		icon_state = ""
+	if(smoothing_flags & (SMOOTH_BITMASK|SMOOTH_BITMASK_CARDINALS))
+		QUEUE_SMOOTH(src)
+		QUEUE_SMOOTH_NEIGHBORS(src)
 	if(redstone_id)
 		GLOB.redstone_objs += src
 		. = INITIALIZE_HINT_LATELOAD
@@ -49,19 +48,18 @@
 			O.redstone_attached -= src
 			redstone_attached -= O
 		GLOB.redstone_objs -= src
-//	if(smooth)
-//		queue_smooth_neighbors(src)
 	return ..()
 
 /obj/structure/attack_hand(mob/user)
 	. = ..()
 	if(.)
 		return
-//	if(structureclimber && structureclimber != user)
-//		user.changeNext_move(CLICK_CD_MELEE)
-//		user.do_attack_animation(src)
-//		structureclimber.Paralyze(40)
-//		structureclimber.visible_message("<span class='warning'>[structureclimber] has been knocked off [src].", "You're knocked off [src]!", "You see [structureclimber] get knocked off [src].</span>")
+
+/obj/structure/pre_lock_interact(mob/user)
+	if(broken)
+		to_chat(user, span_notice("[src] is broken, I cannot do this."))
+		return FALSE
+	return ..()
 
 /obj/structure/Crossed(atom/movable/AM)
 	. = ..()

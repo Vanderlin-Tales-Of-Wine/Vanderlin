@@ -42,6 +42,7 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 
 /mob/living/carbon/human/species/rousman/npc/Initialize()
 	. = ..()
+	AddComponent(/datum/component/ai_aggro_system)
 	AddComponent(/datum/component/combat_noise, list("scream" = 5, "laugh" = 1))
 
 /mob/living/carbon/human/species/rousman/ambush
@@ -49,6 +50,7 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 
 /mob/living/carbon/human/species/rousman/ambush/after_creation()
 	. = ..()
+	AddComponent(/datum/component/ai_aggro_system)
 	job = "Ambusher Rousman"
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
@@ -134,7 +136,7 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 /datum/species/rousman
 	name = "rousman"
 	id = "rousman"
-	species_traits = list(NO_UNDERWEAR,NOEYESPRITES)
+	species_traits = list(NO_UNDERWEAR)
 	inherent_traits = list(TRAIT_RESISTCOLD,TRAIT_RESISTHIGHPRESSURE,TRAIT_RESISTLOWPRESSURE,TRAIT_RADIMMUNE, TRAIT_EASYDISMEMBER, TRAIT_CRITICAL_WEAKNESS, TRAIT_NASTY_EATER, TRAIT_LEECHIMMUNE, TRAIT_INHUMENCAMP)
 	no_equip = list(SLOT_SHIRT, SLOT_WEAR_MASK, SLOT_GLOVES, SLOT_SHOES, SLOT_PANTS, SLOT_S_STORE)
 	nojumpsuit = 1

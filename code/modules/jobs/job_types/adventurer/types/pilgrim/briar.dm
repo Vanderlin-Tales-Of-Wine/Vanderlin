@@ -31,26 +31,26 @@
 		if(H.patron != /datum/patron/divine/dendor)
 			H.set_patron(/datum/patron/divine/dendor)
 
-		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/magic/holy, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/taming, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/tanning, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/butchering, 5, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/farming, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/magic/holy, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/labor/taming, 4, TRUE)
+		H.adjust_skillrank(/datum/skill/craft/tanning, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/labor/butchering, 5, TRUE)
+		H.adjust_skillrank(/datum/skill/labor/farming, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
 		H.mind.teach_crafting_recipe(/datum/crafting_recipe/dendor/shillelagh)
 		H.mind.teach_crafting_recipe(/datum/crafting_recipe/dendor/forestdelight)
 
 		if(H.age == AGE_OLD)
-			H.mind?.adjust_skillrank(/datum/skill/magic/holy, 1, TRUE)
+			H.adjust_skillrank(/datum/skill/magic/holy, 1, TRUE)
 
 		// the unique Dendor crafting recipes. Dendor shrines (pantheon cross) and alt cosmetic helmet
 		H.mind.teach_crafting_recipe(/datum/crafting_recipe/dendor/visage)
@@ -144,7 +144,7 @@
 	structurecraft = /obj/structure/fluff/psycross/crafted/shrine/dendor_saiga
 	reqs = list(/obj/item/reagent_containers/food/snacks/fish/eel = 1,
 				/obj/item/reagent_containers/food/snacks/produce/westleach = 1,
-				/obj/item/reagent_containers/food/snacks/produce/jacksberry = 1)
+				/obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry = 1)
 	result = /obj/item/blessing_of_dendor_stinging
 	verbage = "make"
 	verbage_tp = "make"

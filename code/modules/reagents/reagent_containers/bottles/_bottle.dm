@@ -230,6 +230,7 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 	closed = TRUE
 	reagent_flags = TRANSPARENT
 	w_class = WEIGHT_CLASS_SMALL
+	grid_height = 32
 	drinksounds = list('sound/items/drink_bottle (1).ogg','sound/items/drink_bottle (2).ogg')
 	fillsounds = list('sound/items/fillcup.ogg')
 	poursounds = list('sound/items/fillbottle.ogg')
@@ -300,8 +301,9 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 	possible_transfer_amounts = list(8)
 	dropshrink = 1
 	can_label_bottle = FALSE
+	spillable = TRUE
 
-	fill_icon_thresholds = list()
+	fill_icon_thresholds = null
 
 
 /obj/item/reagent_containers/glass/bottle/decanter/set_material_information()
@@ -314,13 +316,24 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 
 	icon = 'icons/obj/handmade/teapot.dmi'
 	icon_state = "world"
-	volume = 50
+	volume = 99
 	amount_per_transfer_from_this = 6
 	possible_transfer_amounts = list(6)
 	dropshrink = 1
 	can_label_bottle = FALSE
+	spillable = TRUE
 
-	fill_icon_thresholds = list()
+	fill_icon_thresholds = null
+
+/obj/item/reagent_containers/glass/bottle/teapot/Initialize()
+	. = ..()
+	AddComponent(/datum/component/storage/concrete/grid/teapot)
+	AddComponent(/datum/component/container_craft, subtypesof(/datum/container_craft/cooking/tea), TRUE)
+
+/obj/item/reagent_containers/glass/bottle/teapot/random/Initialize()
+	. = ..()
+	main_material = pick(typesof(/datum/material/clay))
+	set_material_information()
 
 /obj/item/reagent_containers/glass/bottle/teapot/set_material_information()
 	. = ..()

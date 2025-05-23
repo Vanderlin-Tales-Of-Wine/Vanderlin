@@ -28,6 +28,11 @@
 	pass_flags = PASSTABLE | PASSGRILLE | PASSMOB
 	mob_size = MOB_SIZE_TINY
 	gold_core_spawnable = HOSTILE_SPAWN
+
+	ai_controller = /datum/ai_controller/frog
+
+
+
 	var/stepped_sound = 'sound/blank.ogg'
 
 /mob/living/simple_animal/hostile/retaliate/frog/Initialize()

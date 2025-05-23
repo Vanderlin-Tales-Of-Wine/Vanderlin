@@ -3,16 +3,17 @@
 
 /datum/artificer_recipe/general
 	i_type = "General"
+	category = "General"
 
 /datum/artificer_recipe/general/woodcog //This looks a bit silly but due to how these datums work is necessary for other things to inherit from it
-	name = "Wooden Cog"
+	name = "Wooden Gear"
 	required_item = /obj/item/natural/wood/plank
 	created_item = /obj/item/gear/wood/basic
 	hammers_per_item = 5
 	craftdiff = 1
 
 /datum/artificer_recipe/general/woodcogupgrade2
-	name = "Reliable Wooden Cog (+1 Essence of Lumber)"
+	name = "Reliable Wooden Gear (+1 Essence of Lumber)"
 	required_item = /obj/item/natural/wood/plank
 	created_item = /obj/item/gear/wood/reliable
 	additional_items = list(/obj/item/grown/log/tree/small/essence = 1)
@@ -20,7 +21,7 @@
 	craftdiff = 2
 
 /datum/artificer_recipe/general/unstable
-	name = "Unstable Wooden Cog (+1 Essence of Wilderness)"
+	name = "Unstable Wooden Gear (+1 Essence of Wilderness)"
 	required_item = /obj/item/natural/wood/plank
 	created_item = /obj/item/gear/wood/unstable
 	additional_items = list(/obj/item/natural/cured/essence = 1)
@@ -28,12 +29,23 @@
 	craftdiff = 3
 
 /datum/artificer_recipe/general/cog
-	name = "3x Cogs"
+	name = "3x Bronze Gears"
 	required_item = /obj/item/ingot/bronze
 	created_item = /obj/item/gear/metal/bronze
 	hammers_per_item = 10
 	craftdiff = 1
 	created_amount = 3
+
+/datum/artificer_recipe/general/cog/iron
+	name = "Iron Gear"
+	required_item = /obj/item/ingot/iron
+	created_item = /obj/item/gear/metal/iron
+	created_amount = 1
+
+/datum/artificer_recipe/general/cog/steel
+	name = "3x Steel Gears"
+	required_item = /obj/item/ingot/steel
+	created_item = /obj/item/gear/metal/steel
 
 /datum/artificer_recipe/general/locks
 	name = "5x Custom Locks"
@@ -80,6 +92,7 @@
 
 /datum/artificer_recipe/tools
 	i_type = "Tools"
+	category = "Tools"
 
 /datum/artificer_recipe/tools/lamptern
 	name = "Bronze Lamptern"
@@ -105,6 +118,7 @@
 
 /datum/artificer_recipe/contraptions
 	i_type = "Contraptions"
+	category = "Contraptions"
 
 /datum/artificer_recipe/contraptions/metalizer
 	name = "Wood Metalizer (+1 Wooden Cog)"
@@ -158,6 +172,7 @@
 
 /datum/artificer_recipe/ammo
 	i_type = "Ammo"
+	category = "Ammo"
 
 /datum/artificer_recipe/ammo/lead_bullet
 	name = "Lead Bullets 2x"
@@ -189,6 +204,7 @@
 
 /datum/artificer_recipe/prosthetics
 	i_type = "Prosthetics"
+	category = "Prosthetics"
 
 /datum/artificer_recipe/prosthetics/wood
 	name = "Left Wooden Arm (+1 Plank)"
@@ -294,6 +310,7 @@
 
 /datum/artificer_recipe/psycross
 	i_type = "Psycross"
+	category = "Psycross"
 
 /datum/artificer_recipe/psycross/silver
 	name = "silver Psycross"

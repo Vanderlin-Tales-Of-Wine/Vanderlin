@@ -402,7 +402,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		if(C.dna.organ_dna[slot])
 			var/datum/organ_dna/organ_dna = C.dna.organ_dna[slot]
 			if(organ_dna.can_create_organ())
-				neworgan = organ_dna.create_organ()
+				neworgan = organ_dna.create_organ(species = src)
 				if(slot_mutantorgans[slot])
 					if(!istype(neworgan, slot_mutantorgans[slot]))
 						var/new_type = slot_mutantorgans[slot]
@@ -1304,6 +1304,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			target.next_attack_msg += " <span class='warning'>Armor stops the damage.</span>"
 		else
 			affecting.bodypart_attacked_by(user.used_intent.blade_class, damage, user, selzone, crit_message = TRUE)
+			if(affecting.body_zone == BODY_ZONE_HEAD)
+				SEND_SIGNAL(user, COMSIG_HEAD_PUNCHED, target)
 		log_combat(user, target, "punched")
 		knockback(attacker_style, target, user, nodmg, actual_damage)
 
@@ -1484,10 +1486,10 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			var/mob/living/G = user.pulledby
 			var/userskill = 1
 			if(user.mind)
-				userskill = ((user.mind.get_skill_level(/datum/skill/combat/wrestling) * 0.1) + 1)
+				userskill = ((user.get_skill_level(/datum/skill/combat/wrestling) * 0.1) + 1)
 			var/grabberskill = 1
 			if(G?.mind)
-				grabberskill = ((G.mind.get_skill_level(/datum/skill/combat/wrestling) * 0.1) + 1)
+				grabberskill = ((G.get_skill_level(/datum/skill/combat/wrestling) * 0.1) + 1)
 			if(((user.STASTR + rand(1, 6)) * userskill) < ((G.STASTR + rand(1, 6)) * grabberskill))
 				to_chat(user, span_notice("I can't move my leg!"))
 				user.changeNext_move(CLICK_CD_GRABBING)
@@ -1497,13 +1499,11 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 	if(user.stamina >= user.maximum_stamina)
 		return FALSE
-	if(user.body_position == LYING_DOWN)
-		return FALSE
 	var/stander = TRUE
 	if(target.body_position == LYING_DOWN)
 		stander = FALSE
 	if(user.loc == target.loc)
-		if(!stander && (user.body_position != LYING_DOWN))
+		if(!stander)
 			target.lastattacker = user.real_name
 			target.lastattackerckey = user.ckey
 			if(target.mind)
@@ -1548,6 +1548,9 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			return 0
 
 		playsound(target, 'sound/combat/hits/kick/kick.ogg', 100, TRUE, -1)
+
+		if(target.pulling && target.grab_state < GRAB_AGGRESSIVE)
+			target.stop_pulling()
 
 		var/turf/target_oldturf = target.loc
 		var/shove_dir = get_dir(user.loc, target_oldturf)
@@ -2146,7 +2149,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/skill_modifier = 10
 	if(istype(starting_turf) && !QDELETED(starting_turf))
 		distance = get_dist(starting_turf, src)
-	skill_modifier *= mind?.get_skill_level(/datum/skill/misc/athletics)
+	skill_modifier *= get_skill_level(/datum/skill/misc/athletics)
 	var/modifier = -distance
 	if(!prob(STAEND+skill_modifier+modifier))
 		Knockdown(8)

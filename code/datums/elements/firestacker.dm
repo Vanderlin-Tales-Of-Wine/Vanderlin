@@ -19,7 +19,7 @@
 	if(amount) // If amount is not given we default to 1 and don't need to save it here
 		amount_by_owner[target] = amount
 
-/datum/element/firestacker/Detach(datum/source, force)
+/datum/element/firestacker/Detach(datum/source)
 	. = ..()
 	UnregisterSignal(source, list(COMSIG_MOVABLE_IMPACT, COMSIG_ITEM_ATTACK, COMSIG_ITEM_ATTACK_SELF))
 	amount_by_owner -= source

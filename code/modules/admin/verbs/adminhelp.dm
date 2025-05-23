@@ -392,7 +392,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 		return
 
 	var/msg = "<font color='red' size='4'><b>- AdminHelp marked as ingame mechanics issue! -</b></font><br>"
-	msg += "<font color='red'>My issue has been determined by an administrator to be related to ingame mechanics, For further resolution please use LOOC, the wiki, or vanderlin questions on Discord if nobody is responding to a meditation..</font>"
+	msg += "<font color='red'>My issue has been determined by an administrator to be related to ingame mechanics, For further resolution please use <a href='byond://winset?command=mentorhelp'>MENTOR HELP</span></a>, LOOC, the <a href='byond://winset?command=wiki'>WIKI</span></a>, or vanderlin questions on Discord if nobody is responding to a meditation..</font>"
 
 	if(initiator)
 		to_chat(initiator, msg)

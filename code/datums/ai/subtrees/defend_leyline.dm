@@ -1,0 +1,14 @@
+/datum/ai_planning_subtree/defend_leyline
+
+/datum/ai_planning_subtree/defend_leyline/SelectBehaviors(datum/ai_controller/controller, delta_time)
+	. = ..()
+	var/obj/structure/leyline/source = controller.blackboard[BB_LEYLINE_SOURCE]
+
+	if(QDELETED(source))
+		return
+
+	var/mob/living/simple_animal/hostile/retaliate/leylinelycan/lycan = controller.pawn
+
+	// If we're too far from our leyline and don't have a target, head back to it
+	if(get_dist(lycan, source) > 7 && !controller.blackboard[BB_BASIC_MOB_CURRENT_TARGET])
+		controller.set_movement_target(source)

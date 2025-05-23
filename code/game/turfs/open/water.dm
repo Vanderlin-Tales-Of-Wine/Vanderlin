@@ -2,14 +2,14 @@
 /obj/effect/overlay/water
 	icon = 'icons/turf/newwater.dmi'
 	icon_state = "bottom"
-	density = 0
-	mouse_opacity = 0
-	layer = BELOW_MOB_LAYER
+	density = FALSE
+	mouse_opacity = FALSE
+	layer = MID_TURF_LAYER
 	anchored = TRUE
 
 /obj/effect/overlay/water/top
 	icon_state = "top"
-	layer = BELOW_MOB_LAYER
+	layer = MID_TURF_LAYER
 
 
 /turf/open/water
@@ -25,15 +25,15 @@
 	var/obj/effect/overlay/water/top/water_top_overlay
 	bullet_sizzle = TRUE
 	bullet_bounce_sound = null //needs a splashing sound one day.
-	smooth = SMOOTH_MORE
-	canSmoothWith = list(/turf/closed/mineral,/turf/closed/wall/mineral, /turf/open/floor)
+	smoothing_flags = SMOOTH_EDGE
+	smoothing_groups = SMOOTH_GROUP_FLOOR_LIQUID
+	smoothing_list = SMOOTH_GROUP_OPEN_FLOOR + SMOOTH_GROUP_CLOSED
+	neighborlay_self = "edge"
 	footstep = null
 	barefootstep = null
 	clawfootstep = null
 	heavyfootstep = null
 	landsound = 'sound/foley/jumpland/waterland.wav'
-	neighborlay_override = "edge"
-	path_weight = 90
 	shine = SHINE_SHINY
 	var/datum/reagent/water_reagent = /datum/reagent/water
 	var/mapped = TRUE // infinite source of water
@@ -116,19 +116,19 @@
 	else
 		check_surrounding_water()
 
-/turf/open/water/proc/dryup()
-	if(water_volume < 10)
-		QDEL_NULL(water_overlay)
-		QDEL_NULL(water_top_overlay)
-		for(var/obj/effect/overlay/water/water in contents)
-			qdel(water)
+/turf/open/water/proc/dryup(forced = FALSE)
+	if(!forced && water_volume < 10)
+		smoothing_flags = NONE
+		remove_neighborlays()
+		if(water_overlay)
+			QDEL_NULL(water_overlay)
+		if(water_top_overlay)
+			QDEL_NULL(water_top_overlay)
 		make_unshiny()
-		shine = 0
-		we_cut = TRUE
 		var/mutable_appearance/dirty = mutable_appearance('icons/turf/floors.dmi', "dirt")
 		add_overlay(dirty)
 		for(var/obj/structure/waterwheel/rotator in contents)
-			rotator.set_rotational_speed(0)
+			rotator.set_rotational_direction_and_speed(null, 0)
 			rotator.set_stress_generation(0)
 
 /turf/open/water/river/creatable
@@ -140,12 +140,13 @@
 /turf/open/water/river/creatable/update_icon()
 	if(water_volume < 10)
 		dryup()
-	if(water_volume)
+	else if(water_volume)
 		if(!water_overlay)
 			water_overlay = new(src)
 		if(!water_top_overlay)
 			water_top_overlay = new(src)
-			queue_smooth(src)
+		smoothing_flags = SMOOTH_EDGE
+		QUEUE_SMOOTH(src)
 
 	if(!river_processes)
 		icon_state = "together"
@@ -242,12 +243,13 @@
 /turf/open/water/update_icon()
 	if(water_volume < 10)
 		dryup()
-	if(water_volume)
+	else if(water_volume)
 		if(!water_overlay)
 			water_overlay = new()
 		if(!water_top_overlay)
 			water_top_overlay = new()
-			queue_smooth(src)
+		smoothing_flags = SMOOTH_EDGE
+		QUEUE_SMOOTH(src)
 
 	if(water_overlay)
 		water_overlay.color = water_reagent.color
@@ -255,6 +257,40 @@
 	if(water_top_overlay)
 		water_top_overlay.color = water_reagent.color
 		water_top_overlay.icon_state = "top[water_level]"
+
+/turf/open/water/add_neighborlay(dir, edgeicon, offset = FALSE)
+	var/add
+	var/y = 0
+	var/x = 0
+	switch(dir)
+		if(NORTH)
+			add = "[edgeicon]-n"
+			y = -32
+		if(SOUTH)
+			add = "[edgeicon]-s"
+			y = 32
+		if(EAST)
+			add = "[edgeicon]-e"
+			x = -32
+		if(WEST)
+			add = "[edgeicon]-w"
+			x = 32
+
+	if(!add)
+		return
+
+	var/image/overlay = image(icon, water_overlay, add, ABOVE_MOB_LAYER + 0.01, pixel_x = offset ? x : 0, pixel_y = offset ? y : 0 )
+
+	if(water_overlay)
+		LAZYADDASSOC(water_overlay.neighborlay_list, "[dir]", overlay)
+		water_overlay.add_overlay(overlay)
+
+/turf/open/water/remove_neighborlays()
+	for(var/key as anything in water_overlay.neighborlay_list)
+		cut_overlay(water_overlay.neighborlay_list[key])
+		qdel(water_overlay.neighborlay_list[key])
+		water_overlay.neighborlay_list[key] = null
+		LAZYREMOVE(water_overlay.neighborlay_list, key)
 
 /turf/open/water/Exited(atom/movable/AM, atom/newloc)
 	. = ..()
@@ -280,7 +316,7 @@
 				if(get_dir(src, newloc) == dir)
 					return
 			if(user.mind && !user.buckled)
-				var/drained = max(15 - (user.mind.get_skill_level(/datum/skill/misc/swimming) * 5), 1)
+				var/drained = max(15 - (user.get_skill_level(/datum/skill/misc/swimming) * 5), 1)
 //				drained += (user.checkwornweight()*2)
 				drained += user.get_encumbrance() * 50
 				if(!user.adjust_stamina(drained))
@@ -291,23 +327,6 @@
 	..()
 	playsound(src, pick('sound/foley/water_land1.ogg','sound/foley/water_land2.ogg','sound/foley/water_land3.ogg'), 100, FALSE)
 
-
-/turf/open/water/cardinal_smooth(adjacencies)
-	smooth(adjacencies)
-
-/turf/open/water/smooth(adjacencies)
-	make_unshiny()
-	var/list/Yeah = ..()
-	if(water_overlay)
-		water_overlay.cut_overlays(TRUE)
-		if(Yeah)
-			water_overlay.add_overlay(Yeah)
-	if(water_top_overlay)
-		water_top_overlay.cut_overlays(TRUE)
-		if(Yeah)
-			water_top_overlay.add_overlay(Yeah)
-	make_shiny(initial(shine))
-
 /turf/open/water/Entered(atom/movable/AM, atom/oldLoc)
 	. = ..()
 	for(var/obj/structure/S in src)
@@ -315,6 +334,11 @@
 			return
 	if(water_volume < 10)
 		return
+	if(istype(AM, /obj/item/reagent_containers/food/snacks/fish))
+		var/obj/item/reagent_containers/food/snacks/fish/F = AM
+		SEND_GLOBAL_SIGNAL(COMSIG_GLOBAL_FISH_RELEASED, F.type, F.rarity_rank)
+		F.visible_message("<span class='warning'>[F] dives into \the [src] and disappears!</span>")
+		qdel(F)
 	if(isliving(AM) && !AM.throwing)
 		var/mob/living/L = AM
 		if(L.body_position == LYING_DOWN || water_level == 3)
@@ -433,10 +457,7 @@
 
 /turf/open/water/Destroy()
 	. = ..()
-	if(water_overlay)
-		QDEL_NULL(water_overlay)
-	if(water_top_overlay)
-		QDEL_NULL(water_top_overlay)
+	dryup(forced = TRUE)
 
 /turf/open/water/hitby(atom/movable/AM, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum, damage_type = "blunt")
 	if(water_volume < 10)
@@ -450,7 +471,7 @@
 		return 0
 	var/returned = slowdown
 	if(user.mind && swim_skill)
-		returned = returned - (user.mind.get_skill_level(/datum/skill/misc/swimming))
+		returned = returned - (user.get_skill_level(/datum/skill/misc/swimming))
 	return returned
 /*	..................   Bath & Pool   ................... */
 /turf/open/water/bath
@@ -648,7 +669,6 @@
 	water_level = 3
 	slowdown = 20
 	swim_skill = TRUE
-	path_weight = 150
 	var/river_processing
 	var/river_processes = TRUE
 	swimdir = TRUE
@@ -657,12 +677,13 @@
 /turf/open/water/river/update_icon()
 	if(water_volume < 10)
 		dryup()
-	if(water_volume)
+	else if(water_volume)
 		if(!water_overlay)
 			water_overlay = new(src)
 		if(!water_top_overlay)
 			water_top_overlay = new(src)
-			queue_smooth(src)
+		smoothing_flags = SMOOTH_EDGE
+		QUEUE_SMOOTH(src)
 
 	if(water_overlay)
 		water_overlay.color = water_reagent.color
@@ -672,6 +693,13 @@
 		water_top_overlay.color = water_reagent.color
 		water_top_overlay.icon_state = "rivertop"
 		water_top_overlay.dir = dir
+
+/turf/open/water/river/get_heuristic_slowdown(mob/traverser, travel_dir)
+	. = ..()
+	if(travel_dir & dir) // downriver
+		. -= 2 // faster!
+	else // upriver
+		. += 2 // slower
 
 /turf/open/water/river/LateInitialize()
 	. = ..()

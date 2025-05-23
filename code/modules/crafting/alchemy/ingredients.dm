@@ -40,7 +40,7 @@
 /obj/item/alch/examine(mob/user)
 	. = ..()
 	if(user.mind)
-		var/alch_skill = user.mind.get_skill_level(/datum/skill/craft/alchemy)
+		var/alch_skill = user.get_skill_level(/datum/skill/craft/alchemy)
 		var/perint = 0
 		if(isliving(user))
 			var/mob/living/lmob = user

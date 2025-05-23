@@ -180,9 +180,7 @@
 			if(was_zombie.become_rotman && prob(5)) //5% chance to NOT become a rotman
 				was_zombie.become_rotman = FALSE
 			target.mind.remove_antag_datum(/datum/antagonist/zombie)
-			target.Unconscious(20 SECONDS)
-			target.emote("breathgasp")
-			target.Jitter(100)
+			target.death()
 			if(!HAS_TRAIT(target, TRAIT_IWASUNZOMBIFIED))
 				ADD_TRAIT(target, TRAIT_IWASUNZOMBIFIED, "[type]")
 		var/datum/component/rot/rot = target.GetComponent(/datum/component/rot)
@@ -194,7 +192,8 @@
 				rotty.rotted = FALSE
 				rotty.skeletonized = FALSE
 				rotty.update_limb()
-				rotty.update_disabled()
+				if(rotty.can_be_disabled)
+					rotty.update_disabled()
 		target.update_body()
 		if(!HAS_TRAIT(target, TRAIT_ROTMAN))
 			target.visible_message("<span class='notice'>The rot leaves [target]'s body!</span>", "<span class='green'>I feel the rot leave my body!</span>")

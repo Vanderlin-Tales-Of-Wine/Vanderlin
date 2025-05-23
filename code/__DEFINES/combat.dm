@@ -76,7 +76,7 @@
 #define GRAB_KILL					3
 
 //Grab breakout odds
-#define BASE_GRAB_RESIST_CHANCE 	45
+#define BASE_GRAB_RESIST_CHANCE 	30
 
 //slowdown when in softcrit. Note that crawling slowdown will also apply at the same time!
 #define SOFTCRIT_ADD_SLOWDOWN 1
@@ -186,13 +186,19 @@
 
 #define INTENT_USE			/datum/intent/use
 
-//Intent blade class for dismember class
+// animation types
+#define ATTACK_ANIMATION_BONK "bonk"
+#define ATTACK_ANIMATION_SWIPE "swipe"
+#define ATTACK_ANIMATION_THRUST "thrust"
+
+//Intent blade class for dismember class, if you add more here - you need to update the lists get_attack_animation_type() uses
 #define BCLASS_BLUNT		"blunt"
 #define BCLASS_SMASH		"smashing"
 #define BCLASS_DRILL		"drilling"
 #define BCLASS_CUT			"slash"
 #define BCLASS_CHOP			"chopping"
 #define BCLASS_STAB			"stab"
+#define BCLASS_PIERCE		"pierce"
 #define BCLASS_SHOT			"shot"
 #define BCLASS_PICK			"stab"
 #define BCLASS_TWIST		"twist"

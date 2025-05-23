@@ -4,6 +4,7 @@
 	var/datum/language_holder/stored_language
 	var/list/stored_skills
 	var/list/stored_experience
+	flags_1 = PREVENT_CONTENTS_EXPLOSION_1
 
 /mob/living/carbon/human/species/werewolf/male
 	gender = MALE

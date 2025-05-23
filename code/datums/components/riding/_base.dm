@@ -37,6 +37,7 @@
 
 /datum/component/riding/proc/vehicle_mob_unbuckle(datum/source, mob/living/M, force = FALSE)
 	var/atom/movable/AM = parent
+	AM.ai_controller?.set_blackboard_key(BB_IS_BEING_RIDDEN, FALSE)
 	restore_position(M)
 	unequip_buckle_inhands(M)
 	M.updating_glide_size = TRUE
@@ -45,8 +46,10 @@
 
 /datum/component/riding/proc/vehicle_mob_buckle(datum/source, mob/living/M, force = FALSE)
 	var/atom/movable/AM = parent
+	AM.ai_controller?.set_blackboard_key(BB_IS_BEING_RIDDEN, TRUE)
 	M.set_glide_size(AM.glide_size)
 	M.updating_glide_size = FALSE
+
 	handle_vehicle_offsets()
 
 /datum/component/riding/proc/handle_vehicle_layer()

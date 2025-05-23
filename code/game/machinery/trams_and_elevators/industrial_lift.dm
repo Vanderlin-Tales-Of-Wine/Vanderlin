@@ -153,8 +153,9 @@ GLOBAL_LIST_INIT(all_radial_directions, list(
 	*/
 
 	lift_load += new_lift_contents
-	new_lift_contents.plane = 3
-	new_lift_contents.layer += 2
+	if(!iseffect(new_lift_contents))
+		new_lift_contents.plane = 3
+		new_lift_contents.layer += 2
 	ADD_TRAIT(new_lift_contents, TRAIT_TRAM_MOVER, REF(src))
 	RegisterSignal(new_lift_contents, COMSIG_PARENT_QDELETING, PROC_REF(RemoveItemFromLift))
 	RegisterSignal(new_lift_contents, COMSIG_MOVABLE_TURF_EXITED, PROC_REF(UncrossedAtomRemoveItemFromLift))
@@ -711,7 +712,6 @@ GLOBAL_LIST_INIT(all_radial_directions, list(
 
 // A subtype intended for "public use"
 /obj/structure/industrial_lift/public
-	canSmoothWith = null
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	warns_on_down_movement = TRUE
 	violent_landing = FALSE
@@ -767,7 +767,6 @@ GLOBAL_LIST_INIT(all_radial_directions, list(
 /obj/structure/industrial_lift/tram
 	name = "tram"
 	desc = "A tram for tramversing the station."
-	canSmoothWith = null
 	obj_flags = BLOCK_Z_OUT_DOWN
 	//kind of a centerpiece of the station, so pretty tough to destroy
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
