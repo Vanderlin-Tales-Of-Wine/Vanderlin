@@ -44,6 +44,7 @@
 #define STATS_DEADITES_ALIVE "deadites_alive"
 #define STATS_KLEPTOMANIACS "kleptomaniacs"
 #define STATS_LUX_REVIVALS "lux_revivals"
+#define STATS_TAXES_COLLECTED "taxes_collected"
 
 // Influence related statistics
 
@@ -57,7 +58,7 @@
 #define STATS_ALIVE_NOBLES "alive_nobles"
 #define STATS_NOBLE_DEATHS "noble_deaths"
 #define STATS_ASTRATA_REVIVALS "astrata_revivals"
-#define STATS_TAXES_COLLECTED "taxes_collected"
+#define STATS_SLURS_SPOKEN "slurs_spoken"
 
 // Noc
 #define STATS_BOOKS_PRINTED "books_printed"
@@ -261,6 +262,7 @@ GLOBAL_LIST_INIT(vanderlin_round_stats, list(
 	STATS_ALIVE_CLERGY = 0,
 	STATS_ALIVE_TRADESMEN = 0,
 	STATS_LUX_REVIVALS = 0,
+	STATS_SLURS_SPOKEN = 0,
 ))
 
 GLOBAL_LIST_EMPTY(patron_follower_counts)
@@ -272,6 +274,8 @@ GLOBAL_LIST_EMPTY(patron_follower_counts)
 #define FEATURED_STATS_TAX_PAYERS "tax_payers"
 #define FEATURED_STATS_ALCOHOLICS "alcohol_drinkers"
 #define FEATURED_STATS_SPEAKERS "speakers"
+#define FEATURED_STATS_SLURS "slurs"
+#define FEATURED_STATS_RACISTS "racists"
 #define FEATURED_STATS_FISHERS "fishers"
 #define FEATURED_STATS_EATERS "eaters"
 #define FEATURED_STATS_SCREAMERS "screamers"
@@ -312,6 +316,16 @@ GLOBAL_LIST_INIT(featured_stats, list(
 	FEATURED_STATS_SPEAKERS = list(
 		"name" = "TOP Speakers",
 		"color" = "#93cabe",
+		"entries" = list()
+	),
+	FEATURED_STATS_SLURS = list(
+		"name" = "TOP Slurs",
+		"color" = "#5d44af",
+		"entries" = list()
+	),
+	FEATURED_STATS_RACISTS = list(
+		"name" = "TOP Racists",
+		"color" = "#49eb14",
 		"entries" = list()
 	),
 	FEATURED_STATS_MINERS = list(

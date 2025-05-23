@@ -1,0 +1,127 @@
+{
+    "slurs": {
+        "Humen": [
+            "spoon ear",
+            "round ear",
+            "monkey",
+            "ape",
+            "psydon's mistake",
+            "psydon's last"
+        ],
+        "Elf": [
+            "knife ear",
+            "pointy ear",
+            "sharp ear",
+            "dagger ear",
+            "dagger head",
+            "tree hugger",
+            "leaf lover",
+            "bark sniffer",
+            "weed eater",
+            "tree fucker",
+            "pole-proportioned dendrophile",
+            "mushroom dancer"
+        ],
+        "Dark Elf": [
+            "knife ear",
+            "pointy ear",
+            "sharp ear",
+            "dagger ear",
+            "dagger head",
+            "cursed blood",
+            "zizo cursed",
+            "zizo dominated",
+            "drow",
+            "underscum",
+            "spider kisser",
+            "dirt elf",
+            "dirt elves",
+            "shroom sniffer",
+            "cave dweller",
+            "mushroom stain"
+        ],
+        "Half-Elf": [
+            "mutt",
+            "half breed",
+            "half bad",
+            "half good",
+            "mule"
+        ],
+        "Half-Drow": [
+            "mutt",
+            "half breed",
+            "half bad",
+            "half good",
+            "mule",
+            "cursed blood",
+            "zizo cursed",
+            "zizo dominated",
+            "drow"
+        ],
+        "Dwarf": [
+            "rocklicker",
+            "rock fucker",
+            "stonesucker",
+            "stone fucker",
+            "shortstack",
+            "roundie",
+            "step stool",
+            "stepping stool",
+            "beard goblin",
+            "flea-bearded alestain",
+            "stunty",
+            "stone shitter",
+            "tunnel rat",
+            "spud",
+            "keg belly"
+        ],
+        "Half-Orc": [
+            "greenskin",
+            "greenie",
+            "green skin",
+            "swamp skin",
+            "slime skin",
+            "tusk face",
+            "tusky",
+            "tusker",
+            "scumbreed",
+            "graggarspawn"
+        ],
+        "Tiefling": [
+            "hellspawn",
+            "demonspawn",
+            "devilspawn",
+            "half hell",
+            "half-hell",
+            "tall imp",
+            "hell touched",
+            "thiefling"
+        ],
+        "Kobold": [
+            "rock eater",
+            "stunted wyrm"
+        ],
+        "Hollow-Kin": [
+            "zizo's pet",
+            "drow pet",
+            "drow spawn",
+            "stray",
+            "flea bitten",
+            "homunculus"
+        ],
+        "Harpy": [
+            "birdbrain",
+            "egg layer",
+            "nest builder",
+            "feather head"
+        ],
+        "Generic": [
+            "whore",
+            "slut",
+            "hedon",
+            "harlot",
+            "zizo",
+            "zizite"
+        ]
+    }
+}
