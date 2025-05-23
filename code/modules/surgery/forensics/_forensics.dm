@@ -67,8 +67,9 @@
 	check_blood()
 
 /datum/forensics/Destroy(force, ...)
-	UnregisterSignal(parent, COMSIG_COMPONENT_CLEAN_ACT)
-	parent = null
+	var/atom/parent_atom = parent.resolve()
+	if (!isnull(parent_atom))
+		UnregisterSignal(parent_atom, list(COMSIG_COMPONENT_CLEAN_ACT))
 	return ..()
 
 /// Empties the fingerprints list
@@ -185,7 +186,7 @@
 /// Adds a single hiddenprint
 /datum/forensics/proc/add_hiddenprint(mob/suspect)
 	if(!isliving(suspect))
-		if(!iseyemob(suspect))
+		if(!iscameramob(suspect))
 			return
 	if(!suspect.key)
 		return
@@ -202,7 +203,8 @@
 		if(last_stamp_pos)
 			LAZYSET(hiddenprints, suspect.key, copytext(hiddenprints[suspect.key], 1, last_stamp_pos))
 		hiddenprints[suspect.key] += "\nLast: \[[current_time]\] \"[suspect.real_name]\"[has_gloves]. Ckey: [suspect.ckey]" //made sure to be existing by if(!LAZYACCESS);else
-	parent.fingerprintslast = suspect.ckey
+	var/atom/parent_atom = parent.resolve()
+	parent_atom.fingerprintslast = suspect.ckey
 	return TRUE
 
 /// Adds the given list into blood_DNA
@@ -217,8 +219,9 @@
 
 /// Updates the blood displayed on parent
 /datum/forensics/proc/check_blood()
-	if(!isitem(parent)) // organs don't spawn with blood decals by default
+	if(!isitem(parent?.resolve()))
 		return
 	if(!length(blood_DNA))
 		return
+	var/atom/parent_atom = parent.resolve()
 	parent_atom.AddComponent(/datum/component/decal/blood)
