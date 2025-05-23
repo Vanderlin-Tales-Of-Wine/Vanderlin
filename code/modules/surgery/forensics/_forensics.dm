@@ -143,17 +143,17 @@
 /datum/forensics/proc/add_fibers(mob/living/carbon/human/suspect)
 	var/fibertext
 	var/item_multiplier = isitem(src) ? ITEM_FIBER_MULTIPLIER : NON_ITEM_FIBER_MULTIPLIER
-	if(suspect.wear_shirt)
+	if(suspect?.wear_shirt)
 		fibertext = "Material from \a [suspect.wear_shirt]."
 		if(prob(10 * item_multiplier) && !LAZYACCESS(fibers, fibertext))
 			LAZYSET(fibers, fibertext, fibertext)
-		if(!(suspect.wear_armor?.body_parts_covered & CHEST))
-			if(suspect.wear_shirt)
+		if(!(suspect?.wear_armor.body_parts_covered & CHEST))
+			if(suspect?.wear_shirt)
 				fibertext = "Fibers from \a [suspect.wear_shirt]."
 				if(prob(12 * item_multiplier) && !LAZYACCESS(fibers, fibertext)) //Wearing a suit means less of the uniform exposed.
 					LAZYSET(fibers, fibertext, fibertext)
 		if(!(suspect?.wear_armor.body_parts_covered & HANDS))
-			if(suspect.gloves)
+			if(suspect?.gloves)
 				fibertext = "Material from a pair of [suspect.gloves.name]."
 				if(prob(20 * item_multiplier) && !LAZYACCESS(fibers, fibertext))
 					LAZYSET(fibers, fibertext, fibertext)
