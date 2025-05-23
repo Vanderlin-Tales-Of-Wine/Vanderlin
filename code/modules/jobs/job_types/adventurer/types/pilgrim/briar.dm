@@ -174,9 +174,8 @@
 		icon_state = "dendor_grow_end"
 
 		if(!do_after(user, 3 SECONDS, target = user))
-			return
-		else
 			icon_state = "dendor_grow"
+			return
 
 		if(HAS_TRAIT(user, TRAIT_BLESSED))
 			to_chat(user, span_info("Dendor will not grant more powers, but he still approves of the sacrifice, judging by the signs..."))
@@ -215,9 +214,8 @@
 		icon_state = "dendor_sting_end"
 
 		if(!do_after(user, 3 SECONDS, target = user))
-			return
-		else
 			icon_state = "dendor_sting"
+			return
 
 		if(HAS_TRAIT(user, TRAIT_BLESSED))
 			to_chat(user, span_info("Dendor will not grant more powers, but he still approves of the sacrifice, judging by the signs..."))
@@ -256,9 +254,8 @@
 		icon_state = "dendor_consume_end"
 
 		if(!do_after(user, 3 SECONDS, target = user))
-			return
-		else
 			icon_state = "dendor_consume"
+			return
 
 		if(HAS_TRAIT(user, TRAIT_BLESSED))
 			to_chat(user, span_info("Dendor will not grant more powers, but he still approves of the sacrifice, judging by the signs..."))
