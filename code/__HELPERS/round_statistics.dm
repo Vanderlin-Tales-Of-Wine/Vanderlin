@@ -275,7 +275,7 @@ GLOBAL_LIST_EMPTY(patron_follower_counts)
 #define FEATURED_STATS_ALCOHOLICS "alcohol_drinkers"
 #define FEATURED_STATS_SPEAKERS "speakers"
 #define FEATURED_STATS_SLURS "slurs"
-#define FEATURED_STATS_SLURERS "slurers"
+#define FEATURED_STATS_SPECIESISTS "speciesists"
 #define FEATURED_STATS_FISHERS "fishers"
 #define FEATURED_STATS_EATERS "eaters"
 #define FEATURED_STATS_SCREAMERS "screamers"
@@ -323,8 +323,8 @@ GLOBAL_LIST_INIT(featured_stats, list(
 		"color" = "#5d44af",
 		"entries" = list()
 	),
-	FEATURED_STATS_SLURERS = list(
-		"name" = "TOP Slurers",
+	FEATURED_STATS_SPECIESISTS = list(
+		"name" = "TOP Speciesists",
 		"color" = "#49eb14",
 		"entries" = list()
 	),

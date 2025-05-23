@@ -98,9 +98,11 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 			GLOB.vanderlin_round_stats[STATS_SLURS_SPOKEN]++
 			if(!LAZYLEN(GLOB.slur_groups) || !dna?.species)
 				continue
+			if(is_string_in_list(slur, GLOB.slur_groups["Generic"]))
+				continue
 			if(is_string_in_list(slur, GLOB.slur_groups[dna.species.name]))
 				continue
-			record_featured_stat(FEATURED_STATS_SLURERS, src)
+			record_featured_stat(FEATURED_STATS_SPECIESISTS, src)
 
 /mob/living/say(message, bubble_type,list/spans = list(), sanitize = TRUE, datum/language/language = null, ignore_spam = FALSE, forced = null)
 	var/static/list/crit_allowed_modes = list(MODE_WHISPER = TRUE, MODE_CHANGELING = TRUE, MODE_ALIEN = TRUE)

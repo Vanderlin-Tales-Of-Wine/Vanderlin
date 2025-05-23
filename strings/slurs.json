@@ -3,6 +3,8 @@
         "Humen": [
             "spoon ear",
             "round ear",
+            "humie",
+            "mayfly",
             "psydon's mistake",
             "psydon's last"
         ],
@@ -78,8 +80,12 @@
         ],
         "Aasimar": [
             "god's pet",
+            "god's leftovers",
             "talking dirt",
-            "golem"
+            "golem",
+            "gargolye",
+            "stone face",
+            "pot head"
         ],
         "Half-Orc": [
             "greenskin",
@@ -109,7 +115,13 @@
             "bald thief",
             "housecat",
             "stray",
-            "dune rat"
+            "dune rat",
+            "mole rat",
+            "ballsack",
+            "wrinkles",
+            "wrinkle wretch",
+            "rat eater",
+            "chain stain"
         ],
         "Kobold": [
             "rock eater",
@@ -146,7 +158,8 @@
             "hedon",
             "harlot",
             "zizo",
-            "zizite"
+            "zizite",
+            "zizoid"
         ]
     }
 }
