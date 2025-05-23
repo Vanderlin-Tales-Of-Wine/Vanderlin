@@ -78,7 +78,8 @@
         ],
         "Aasimar": [
             "god's pet",
-            "talking dirt"
+            "talking dirt",
+            "golem"
         ],
         "Half-Orc": [
             "greenskin",
@@ -106,7 +107,9 @@
         ],
         "Rakshari": [
             "bald thief",
-            "housecat"
+            "housecat",
+            "stray",
+            "rune rat"
         ],
         "Kobold": [
             "rock eater",
