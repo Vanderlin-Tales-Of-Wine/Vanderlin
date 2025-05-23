@@ -2458,9 +2458,7 @@
 	},
 /area/rogue/outdoors/town/roofs)
 "bvm" = (
-/obj/machinery/light/fueled/wallfire/candle/l{
-	pixel_x = 32
-	},
+/obj/structure/fake_machine/vendor/steward,
 /turf/closed/wall/mineral/stone,
 /area/rogue/indoors/town/steward)
 "bvE" = (
@@ -26661,6 +26659,15 @@
 "rtV" = (
 /turf/open/transparent/openspace,
 /area/rogue/indoors/town/church/chapel)
+"rug" = (
+/obj/structure/fluff/railing/border{
+	dir = 4
+	},
+/obj/machinery/light/fueled/wallfire/candle/r,
+/turf/open/floor/metal{
+	icon_state = "plating2"
+	},
+/area/rogue/outdoors/town)
 "rum" = (
 /obj/structure/bars/grille,
 /turf/open/water/river{
@@ -99192,8 +99199,8 @@ jdk
 xaa
 aPv
 ijE
-pYz
-bvm
+bIv
+xaa
 xYa
 xYa
 xYa
@@ -99395,7 +99402,7 @@ eZF
 jnz
 jnz
 jnz
-xaa
+bvm
 xYa
 xYa
 xYa
@@ -100001,7 +100008,7 @@ jvH
 dkS
 aOr
 dkS
-tDS
+rug
 tDS
 tDS
 tDS

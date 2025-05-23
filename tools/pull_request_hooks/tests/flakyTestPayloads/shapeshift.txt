@@ -1383,8 +1383,8 @@
 2022-11-22T05:57:57.0048399Z 	/obj/item/toy/figure/chef does not have an inhand_icon_state value - Possible matching sprites for "chef" found in: 'icons/mob/inhands/clothing/suits_righthand.dmi' & 'icons/mob/inhands/clothing/suits_lefthand.dmi'
 2022-11-22T05:57:57.0049430Z 	/obj/item/toy/figure/clown does not have an inhand_icon_state value - Possible matching sprites for "clown" found in: 'icons/mob/inhands/clothing/suits_righthand.dmi' & 'icons/mob/inhands/clothing/suits_lefthand.dmi'
 2022-11-22T05:57:57.0050554Z 	/obj/item/toy/figure/janitor does not have an inhand_icon_state value - Possible matching sprites for "janitor" found in: 'icons/mob/inhands/clothing/suits_righthand.dmi' & 'icons/mob/inhands/clothing/suits_lefthand.dmi'
-2022-11-22T05:57:57.0051561Z 	/obj/item/food/candy does not have an inhand_icon_state value - Possible matching sprites for "candy" found in: 'icons/mob/inhands/items/food_lefthand.dmi' & 'icons/mob/inhands/items/food_righthand.dmi'
-2022-11-22T05:57:57.0052539Z 	/obj/item/food/chips does not have an inhand_icon_state value - Possible matching sprites for "chips" found in: 'icons/mob/inhands/items/food_lefthand.dmi' & 'icons/mob/inhands/items/food_righthand.dmi'
+2022-11-22T05:57:57.0051561Z 	/obj/item/reagent_containers/food/candy does not have an inhand_icon_state value - Possible matching sprites for "candy" found in: 'icons/mob/inhands/items/food_lefthand.dmi' & 'icons/mob/inhands/items/food_righthand.dmi'
+2022-11-22T05:57:57.0052539Z 	/obj/item/reagent_containers/food/chips does not have an inhand_icon_state value - Possible matching sprites for "chips" found in: 'icons/mob/inhands/items/food_lefthand.dmi' & 'icons/mob/inhands/items/food_righthand.dmi'
 2022-11-22T05:57:57.0053552Z 	/obj/item/kitchen/fork does not have an inhand_icon_state value - Possible matching sprites for "fork" found in: 'icons/mob/inhands/equipment/kitchen_lefthand.dmi' & 'icons/mob/inhands/equipment/kitchen_righthand.dmi'
 2022-11-22T05:57:57.0054597Z 	/obj/item/kitchen/spoon does not have an inhand_icon_state value - Possible matching sprites for "spoon" found in: 'icons/mob/inhands/equipment/kitchen_lefthand.dmi' & 'icons/mob/inhands/equipment/kitchen_righthand.dmi'
 2022-11-22T05:57:57.0055672Z 	/obj/item/kitchen/spoon/plastic does not have an inhand_icon_state value - Possible matching sprites for "plastic_spoon" found in: 'icons/mob/inhands/equipment/kitchen_lefthand.dmi' & 'icons/mob/inhands/equipment/kitchen_righthand.dmi'
@@ -2051,7 +2051,7 @@
 2022-11-22T05:59:47.5687673Z 	158 - /obj/item/cane using invalid icon_state, "cane"
 2022-11-22T05:59:47.5690323Z 	159 - /obj/item/cane/white using invalid icon_state, "cane_white"
 2022-11-22T05:59:47.5692922Z 	160 - /obj/item/megaphone/clown using invalid icon_state, "megaphone-clown"
-2022-11-22T05:59:47.5711035Z 	161 - /obj/item/food/pie/cream using invalid icon_state, "pie"
+2022-11-22T05:59:47.5711035Z 	161 - /obj/item/reagent_containers/food/pie/cream using invalid icon_state, "pie"
 2022-11-22T05:59:47.5722637Z 	162 - /obj/item/instrument/bikehorn using invalid icon_state, "bike_horn"
 2022-11-22T05:59:47.5724979Z 	163 - /obj/item/reagent_containers/cup/soda_cans/canned_laughter using invalid icon_state, "laughter"
 2022-11-22T05:59:47.5740550Z 	164 - /obj/item/grown/bananapeel using invalid icon_state, "banana_peel" in worn_icon override file, 'icons/mob/clothing/head/hydroponics.dmi'
@@ -2059,11 +2059,11 @@
 2022-11-22T05:59:47.5741975Z 	166 - /obj/item/grown/bananapeel/mimanapeel using invalid icon_state, "mimana_peel" in worn_icon override file, 'icons/mob/clothing/head/hydroponics.dmi'
 2022-11-22T05:59:47.5742678Z 	167 - /obj/item/grown/bananapeel/bluespace using invalid icon_state, "bluenana_peel" in worn_icon override file, 'icons/mob/clothing/head/hydroponics.dmi'
 2022-11-22T05:59:47.5743387Z 	168 - /obj/item/grown/bananapeel/specialpeel using invalid icon_state, "banana_peel" in worn_icon override file, 'icons/mob/clothing/head/hydroponics.dmi'
-2022-11-22T05:59:47.5744054Z 	169 - /obj/item/food/grown/banana using invalid icon_state, "banana" in worn_icon override file, 'icons/mob/clothing/head/hydroponics.dmi'
-2022-11-22T05:59:47.5744727Z 	170 - /obj/item/food/grown/banana/bombanana using invalid icon_state, "banana" in worn_icon override file, 'icons/mob/clothing/head/hydroponics.dmi'
-2022-11-22T05:59:47.5745395Z 	171 - /obj/item/food/grown/banana/mime using invalid icon_state, "mimana" in worn_icon override file, 'icons/mob/clothing/head/hydroponics.dmi'
-2022-11-22T05:59:47.5746068Z 	172 - /obj/item/food/grown/banana/bluespace using invalid icon_state, "bluenana" in worn_icon override file, 'icons/mob/clothing/head/hydroponics.dmi'
-2022-11-22T05:59:47.5746753Z 	173 - /obj/item/food/grown/banana/bunch using invalid icon_state, "banana_bunch" in worn_icon override file, 'icons/mob/clothing/head/hydroponics.dmi'
+2022-11-22T05:59:47.5744054Z 	169 - /obj/item/reagent_containers/food/grown/banana using invalid icon_state, "banana" in worn_icon override file, 'icons/mob/clothing/head/hydroponics.dmi'
+2022-11-22T05:59:47.5744727Z 	170 - /obj/item/reagent_containers/food/grown/banana/bombanana using invalid icon_state, "banana" in worn_icon override file, 'icons/mob/clothing/head/hydroponics.dmi'
+2022-11-22T05:59:47.5745395Z 	171 - /obj/item/reagent_containers/food/grown/banana/mime using invalid icon_state, "mimana" in worn_icon override file, 'icons/mob/clothing/head/hydroponics.dmi'
+2022-11-22T05:59:47.5746068Z 	172 - /obj/item/reagent_containers/food/grown/banana/bluespace using invalid icon_state, "bluenana" in worn_icon override file, 'icons/mob/clothing/head/hydroponics.dmi'
+2022-11-22T05:59:47.5746753Z 	173 - /obj/item/reagent_containers/food/grown/banana/bunch using invalid icon_state, "banana_bunch" in worn_icon override file, 'icons/mob/clothing/head/hydroponics.dmi'
 2022-11-22T05:59:47.5748235Z 	174 - /obj/item/stack/spacecash/c1 using invalid icon_state, "spacecash1"
 2022-11-22T05:59:47.5749552Z 	175 - /obj/item/stack/spacecash/c10 using invalid icon_state, "spacecash10"
 2022-11-22T05:59:47.5750858Z 	176 - /obj/item/stack/spacecash/c20 using invalid icon_state, "spacecash20"

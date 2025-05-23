@@ -176,7 +176,7 @@ GLOBAL_LIST_INIT(ghost_verbs, list(
 				name = random_unique_name(gender)
 
 		mind = body.mind	//we don't transfer the mind but we keep a reference to it.
-		mind.current_ghost = src
+		mind?.current_ghost = src
 
 		set_suicide(body.suiciding) // Transfer whether they committed suicide.
 

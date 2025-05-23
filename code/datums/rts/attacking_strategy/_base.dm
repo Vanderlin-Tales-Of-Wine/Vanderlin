@@ -72,8 +72,6 @@
 /datum/worker_attack_strategy/proc/give_target(atom/new_target)
 	current_target = new_target
 	if(current_target)
-		if(ishostile(worker))
-			worker:approaching_target = TRUE
 		reset_patience()
 		worker.emote("aggro")
 		return TRUE
@@ -82,8 +80,6 @@
 /datum/worker_attack_strategy/proc/lose_target()
 	current_target = null
 	worker.controller_mind.stop_chase()
-	if(ishostile(worker))
-		worker:approaching_target = FALSE
 	deltimer(end_current_chase_id)
 
 /datum/worker_attack_strategy/proc/can_attack(mob/living/possible_target)

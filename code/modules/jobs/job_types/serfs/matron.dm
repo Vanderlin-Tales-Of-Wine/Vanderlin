@@ -56,6 +56,7 @@
 	ADD_TRAIT(H, TRAIT_THIEVESGUILD, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_OLDPARTY, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_EARGRAB, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_KITTEN_MOM, TRAIT_GENERIC)
 	H.mind?.AddSpell(new /obj/effect/proc_holder/spell/targeted/seek_orphan)
 	H.mind?.AddSpell(new /obj/effect/proc_holder/spell/self/hag_call)
 	shirt = /obj/item/clothing/shirt/dress/gen/black

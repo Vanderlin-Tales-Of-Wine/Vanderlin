@@ -129,3 +129,105 @@ F
 
 #define BB_RESISTING "BB_resisting"
 #define BB_FUTURE_MOVEMENT_PATH "BB_future_path"
+
+#define BB_MOB_AGGRO_TABLE "aggro_table" // Associative list of [mob] -> threat_level
+#define BB_AGGRO_DECAY_TIMER "aggro_decay_timer"
+#define BB_HIGHEST_THREAT_MOB "highest_threat_mob"
+#define BB_THREAT_THRESHOLD "threat_threshold" // Minimum threat to be considered hostile
+#define BB_AGGRO_RANGE "aggro_range" // Range at which mobs can detect and add threats
+#define BB_AGGRO_MAINTAIN_RANGE "aggro_maintain_range" // Range at which target is dropped if exceeded
+#define BB_HEALING_SOURCE "healing_source" // Who last healed the mob
+#define BB_SNEAKING "bb_sneaking"
+#define BB_SNEAK_COOLDOWN "bb_sneak_cooldown"
+
+///key holds the world timer for swimming
+#define BB_KEY_SWIM_TIME "key_swim_time"
+///key holds the water or land target turf
+#define BB_SWIM_ALTERNATE_TURF "swim_alternate_turf"
+///key holds our state of swimming
+#define BB_CURRENTLY_SWIMMING "currently_swimming"
+///key holds how long we will be swimming for
+#define BB_KEY_SWIMMER_COOLDOWN "key_swimmer_cooldown"
+
+#define BB_LEYLINE_SOURCE "leyline_source"
+#define BB_TELEPORT_COOLDOWN "teleport_cooldown"
+#define BB_ENERGY_SURGE_COOLDOWN "energy_surge_cooldown"
+#define BB_LEYLINE_ENERGY "leyline_energy"
+#define BB_SHOCKWAVE_COOLDOWN "shockwave_cooldown"
+#define BB_MAX_LEYLINE_ENERGY "max_leyline_energy"
+#define BB_ENERGY_REGEN_RATE "energy_regen"
+#define BB_BASIC_MOB_STOP_FLEEING "bb_stop_fleeing"
+
+#define BB_DRAGGER_HUNTING_COOLDOWN "dragger_hunting_cooldown"
+#define BB_DRAGGER_TELEPORT_COOLDOWN "dragger_teleport_cooldown"
+#define BB_DRAGGER_DRAG_COOLDOWN "dragger_drag_cooldown"
+#define BB_DRAGGER_DARKNESS_TARGET "dragger_darkness_target"
+#define BB_DRAGGER_VICTIM "dragger_victim"
+#define BB_DARKNESS_THRESHOLD "darkness_threshold"
+#define BB_DRAGGER_DUNGEONEER "dragger_dungeon"
+
+#define BB_HELLHOUND_FIRE "hellhound_fire"
+
+#define BB_FIEND_FLAME_CD "fiend_flame_cd"
+#define BB_FIEND_SUMMON_CD "fiend_summon_cd"
+#define BB_MINION_COUNT "minion_count"
+#define BB_MAX_MINIONS "max_minions"
+#define BB_SHROOM_COOLDOWN "shroom_cd"
+#define BB_DRUG_COOLDOWN "drug_cd"
+
+#define BB_QUAKE_COOLDOWN "quake_cooldown"
+#define BB_EARTHQUAKE_COOLDOWN "earthquake_cooldown"
+
+#define BB_CAT_REST_CHANCE "cat_rest"
+#define BB_CAT_SIT_CHANCE  "cat_sit"
+#define BB_CAT_GET_UP_CHANCE "cat_getup"
+#define BB_CAT_GROOM_CHANCE "cat_groom"
+#define BB_CAT_RACISM  "cat_racist"
+
+/// key that holds the target we will battle over our turf
+#define BB_TRESSPASSER_TARGET "tresspasser_target"
+/// key that holds angry meows
+#define BB_HOSTILE_MEOWS "hostile_meows"
+/// key that holds the mouse target
+#define BB_MOUSE_TARGET "mouse_target"
+/// key that holds our dinner target
+#define BB_CAT_FOOD_TARGET "cat_food_target"
+/// key that holds the food we must deliver
+#define BB_FOOD_TO_DELIVER "food_to_deliver"
+/// key that holds things we can hunt
+#define BB_HUNTABLE_PREY "huntable_prey"
+/// key that holds target kitten to feed
+#define BB_KITTEN_TO_FEED "kitten_to_feed"
+/// key that holds our hungry meows
+#define BB_HUNGRY_MEOW "hungry_meows"
+/// key that holds maximum distance food is to us so we can pursue it
+#define BB_MAX_DISTANCE_TO_FOOD "max_distance_to_food"
+/// key that holds the stove we must turn off
+#define BB_STOVE_TARGET "stove_target"
+/// key that holds the donut we will decorate
+#define BB_DONUT_TARGET "donut_target"
+/// key that holds our home...
+#define BB_CAT_HOME "cat_home"
+/// key that holds the human we will beg
+#define BB_HUMAN_BEG_TARGET "human_beg_target"
+
+#define BB_CAT_KITTEN_TARGET "BB_cat_kitten_target"
+#define BB_CAT_HOLDING_FOOD "BB_cat_holding_food"
+#define BB_KITTEN_FOOD_TARGET "BB_kitten_food_target"
+
+#define BB_MINOTAUR_RAGE_METER "minotaur_rage"
+#define BB_MINOTAUR_SLAM_COOLDOWN "minotaur_slam"
+#define BB_MINOTAUR_PHASE "minotaur_phase"
+#define BB_MINOTAUR_CHARGE_COOLDOWN "minotaur_charge"
+#define BB_MINOTAUR_FURY_COOLDOWN "minotaur_fury"
+#define BB_MINOTAUR_LAST_SPECIAL_ATTACK "minotaur_last_special"
+#define BB_MINOTAUR_ENRAGE_BONUS "minotaur_enrage"
+
+#define BB_FLESH_IS_REGENERATING "flesh_regenerating"
+#define BB_FLESH_FRENZY_ACTIVE "flesh_frenzy"
+#define BB_FLESH_HUNGER "flesh_hunger"
+#define BB_FLESH_LAST_HEALTH "flesh_last_health"
+#define BB_FLESH_AMBUSH_TARGET "flesh_ambush_target"
+#define BB_TEMP_FOOD_TARGET "temp_food_target"
+#define BB_FLESH_FRENZY_COOLDOWN "frenzy_cooldown"
+#define BB_FLESH_CONSUMED_BODIES "flesh_consumed_bodies"

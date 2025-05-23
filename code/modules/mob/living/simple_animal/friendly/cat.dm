@@ -22,8 +22,14 @@
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
 	minbodytemp = 200
 	maxbodytemp = 400
-	unsuitable_atmos_damage = 1
 	animal_species = /mob/living/simple_animal/pet/cat
+	base_intents = list(/datum/intent/simple/claw)
+
+	food_type = list(
+		/obj/item/reagent_containers/food/snacks/smallrat,
+		/obj/item/reagent_containers/food/snacks/fish,
+	)
+
 	childtype = list(/mob/living/simple_animal/pet/cat/kitten)
 	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/steak = 1)
 	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/steak = 1,
@@ -42,33 +48,39 @@
 	base_endurance = 4
 	base_speed = 3
 	base_constitution = 3
-	var/turns_since_scan = 0
 	gold_core_spawnable = FRIENDLY_SPAWN
+	tame_chance = 25
 
 	footstep_type = FOOTSTEP_MOB_CLAW
 
-	var/isracist = TRUE // Hisses at dark elves if they try to pet it
+	ai_controller = /datum/ai_controller/cat
+
+	var/obj/item/held_item
 
 /mob/living/simple_animal/pet/cat/Initialize()
 	. = ..()
+	if(prob(50))
+		gender = FEMALE
+	AddElement(/datum/element/ai_retaliate)
 	verbs += /mob/living/proc/lay_down
+	AddComponent(\
+			/datum/component/breed,\
+			list(/mob/living/simple_animal/pet/cat),\
+			3 MINUTES,\
+			list(/mob/living/simple_animal/pet/cat/kitten = 100),\
+			CALLBACK(src, PROC_REF(after_birth)),\
+		)
 
-// /mob/living/simple_animal/pet/cat/update_mobility()
-// 	..()
-// 	if(client && stat != DEAD)
-// 		if (resting)
-// 			icon_state = "[icon_living]_rest"
-// 		else
-// 			icon_state = "[icon_living]"
-// 	regenerate_icons()
-
+/mob/living/simple_animal/pet/cat/proc/drop_held_item()
+	held_item.forceMove(get_turf(src))
+	held_item = null
 
 /mob/living/simple_animal/pet/cat/Crossed(mob/living/L) // Gato Basado - makes it leave when people step too close
 	. = ..()
 	if(L)
 		if(health > 1)
 			icon_state = "[icon_living]"
-			set_resting(FALSE)
+			set_resting(FALSE, instant = TRUE)
 			// update_mobility()
 			if(isturf(loc))
 				dir = pick(GLOB.cardinals)
@@ -120,8 +132,6 @@
 	icon_state = "cat"
 	icon_living = "cat"
 	icon_dead = "cat_dead"
-	isracist = FALSE // Most gravekeepers are dark elves so this cat is chill with them.
-
 
 /mob/living/simple_animal/pet/cat/original
 	name = "Batsy"
@@ -135,47 +145,21 @@
 /mob/living/simple_animal/pet/cat/kitten
 	name = "kitten"
 	desc = ""
-	icon_state = "kitten"
-	icon_living = "kitten"
-	icon_dead = "kitten_dead"
 	density = FALSE
 	pass_flags = PASSMOB
 	mob_size = MOB_SIZE_SMALL
+	adult_growth = /mob/living/simple_animal/pet/cat
 
-/mob/living/simple_animal/pet/cat/Life()
-	if(!stat && !buckled && !client)
-		if(prob(1))
-			emote("me", 1, pick("stretches out for a belly rub.", "wags its tail.", "lies down."))
-			icon_state = "[icon_living]_rest"
-			set_resting(TRUE)
-		else if (prob(1))
-			emote("me", 1, pick("sits down.", "crouches on its hind legs.", "looks alert."))
-			icon_state = "[icon_living]_sit"
-			set_resting(TRUE)
-		else if (prob(2))
-			if (resting)
-				emote("me", 1, pick("gets up and meows.", "walks around.", "stops resting."))
-				icon_state = "[icon_living]"
-				set_resting(FALSE)
-			else
-				emote("me", 1, pick("grooms its fur.", "twitches its whiskers.", "shakes out its coat."))
-	..()
+	ai_controller = /datum/ai_controller/kitten
 
-	// Gato Basado - catches RT rats too when not too lazy
-	if((src.loc) && isturf(src.loc))
-		if(!resting && !buckled && stat != DEAD)
-			for(var/obj/item/reagent_containers/food/snacks/smallrat/M in view(1,src))
-				if(Adjacent(M))
-					if(!M.dead)
-						walk_towards(src, M, 1)
-						sleep(3)
-						visible_message("<span class='notice'>\The [src] kills the rat!</span>")
-						M.obj_destruction()
-						stop_automated_movement = 0
-						break
+/mob/living/simple_animal/pet/cat/kitten/Initialize()
+	. = ..()
+	var/matrix/matrix = matrix()
+	matrix.Scale(0.5, 0.5)
+	transform = matrix
 
-	make_babies()
-
+/mob/living/simple_animal/pet/cat/proc/after_birth(mob/living/simple_animal/pet/cat/kitten/baby, mob/living/partner)
+	return
 
 /mob/living/simple_animal/pet/cat/proc/wuv(change, mob/M)
 	if(change)
@@ -192,25 +176,32 @@
 
 
 
-/mob/living/simple_animal/pet/cat/attack_hand(mob/living/carbon/human/M) // Gato Basado - not all pets are welcome
+
+/mob/living/simple_animal/pet/cat/attack_hand(mob/living/carbon/human/M)
 	. = ..()
-	if(stat != DEAD) // Don't do this if they're dead!!! Jeez!!
-		if(M.mind && M.mind.has_antag_datum(/datum/antagonist/vampire)) // Cats always hiss at vampires
+	if(stat != DEAD)
+		// Handle vampire reaction
+		if(M.mind && M.mind.has_antag_datum(/datum/antagonist/vampire))
 			visible_message("<span class='notice'>\The [src] hisses at [M] and recoils in disgust.</span>")
 			icon_state = "[icon_living]"
 			set_resting(FALSE)
-			// update_mobility()
 			playsound(get_turf(src), 'sound/vo/mobs/cat/cathiss.ogg', 80, TRUE, -1)
 			dir = pick(GLOB.alldirs)
 			step(src, dir)
 			personal_space()
-		if(isracist) // But only judgemental ones hiss at dark elves.
-			if((isdarkelf(M)) || ishalforc(M) || istiefling(M))  // l´cursed bonbonbon
+			return
+
+		// Handle racist reaction if enabled
+		if(ai_controller.blackboard[BB_CAT_RACISM])
+			if((isdarkelf(M)) || ishalforc(M) || istiefling(M))
 				visible_message("<span class='notice'>\The [src] hisses at [M] and recoils in disgust.</span>")
 				icon_state = "[icon_living]"
 				set_resting(FALSE)
-				// update_mobility()
 				playsound(get_turf(src), 'sound/vo/mobs/cat/cathiss.ogg', 80, TRUE, -1)
 				dir = pick(GLOB.alldirs)
 				step(src, dir)
 				personal_space()
+				return
+
+		// Handle normal petting - trigger the wuv proc
+		wuv(1, M)
