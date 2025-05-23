@@ -38,12 +38,12 @@
 /datum/outfit/job/royalknight/pre_equip(mob/living/carbon/human/H)
 	..()
 	neck = /obj/item/clothing/neck/chaincoif
+	pants = /obj/item/clothing/pants/platelegs
 	cloak = /obj/item/clothing/cloak/tabard/knight/guard  // Wear the King's colors
 	shirt = /obj/item/clothing/armor/gambeson/arming
 	belt = /obj/item/storage/belt/leather
 	beltr = /obj/item/weapon/sword/arming
 	backl = /obj/item/storage/backpack/satchel
-	pants = /obj/item/clothing/pants/trou/leather
 	backpack_contents = list(/obj/item/storage/keyring/manorguard = 1)
 
 	H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
@@ -80,14 +80,10 @@
 
 /datum/outfit/job/royalknight/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
-	if(istype(H.cloak, /obj/item/clothing/cloak/tabard/knight/guard))
-		var/obj/item/clothing/S = H.cloak
-		var/index = findtext(H.real_name, " ")
-		if(index)
-			index = copytext(H.real_name, 1,index)
-		if(!index)
-			index = H.real_name
-		S.name = "knight's tabard ([index])"
+	if(H.cloak)
+		if(!findtext(H.cloak.name,"([H.real_name])"))
+			H.cloak.name = "[H.cloak.name]"+" "+"([H.real_name])"
+
 	var/prev_real_name = H.real_name
 	var/prev_name = H.name
 	var/honorary = "Sir"

@@ -1137,6 +1137,9 @@
 /mob/living/resist_grab(moving_resist)
 	. = TRUE
 
+	if(!MOBTIMER_FINISHED(pulledby, MT_RESIST_GRAB, 2 SECONDS))
+		return
+
 	var/wrestling_diff = 0
 	var/resist_chance = BASE_GRAB_RESIST_CHANCE
 	var/mob/living/L = pulledby
@@ -1179,11 +1182,14 @@
 	resist_chance *= combat_modifier
 	resist_chance = clamp(resist_chance, 7, 95)
 
-	// if(moving_resist && client) //we resisted by trying to move
-	client?.move_delay = world.time + 20
-	changeNext_move(CLICK_CD_RESIST)
+	if(moving_resist) //we resisted by trying to move
+		client?.move_delay = world.time + 20
+
 	adjust_stamina(rand(4,9))
 	pulledby.adjust_stamina(rand(2,5))
+
+	MOBTIMER_SET(pulledby, MT_RESIST_GRAB)
+
 	if(prob(resist_chance))
 		visible_message("<span class='warning'>[src] breaks free of [pulledby]'s grip!</span>", \
 						"<span class='notice'>I break free of [pulledby]'s grip!</span>", null, null, pulledby)
