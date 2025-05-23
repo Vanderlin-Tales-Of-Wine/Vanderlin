@@ -243,7 +243,7 @@
 		STATS_PARENTS = list("points" = 8, "capacity" = 90),
 		STATS_MARRIAGES = list("points" = 25, "capacity" = 75),
 		STATS_HUGS_MADE = list("points" = 1.75, "capacity" = 60),
-		STATS_CLINGY_PEOPLE = list("points" = 6, "capacity" = 75),
+		STATS_CLINGY_PEOPLE = list("points" = 2.5, "capacity" = 60),
 		STATS_PACIFISTS = list("points" = 10, "capacity" = 70),
 	)
 

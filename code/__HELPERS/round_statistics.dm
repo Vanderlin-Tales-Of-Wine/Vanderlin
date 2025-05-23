@@ -120,7 +120,7 @@
 #define STATS_PARENTS "parents"
 #define STATS_MARRIAGES "marriages"
 #define STATS_HUGS_MADE "hugs_made"
-#define STATS_CLINGY_PEOPLE "clingy_people"
+#define STATS_HANDS_HELD "hands_held"
 #define STATS_PACIFISTS "pacifists"
 
 // Zizo
@@ -202,7 +202,6 @@ GLOBAL_LIST_INIT(vanderlin_round_stats, list(
 	STATS_LEECHES_EMBEDDED = 0,
 	STATS_MARRIAGES = 0,
 	STATS_HUGS_MADE = 0,
-	STATS_CLINGY_PEOPLE = 0,
 	STATS_ZIZO_PRAISED = 0,
 	STATS_DEADITES_ALIVE = 0,
 	STATS_CLERGY_DEATHS = 0,
@@ -263,6 +262,7 @@ GLOBAL_LIST_INIT(vanderlin_round_stats, list(
 	STATS_ALIVE_TRADESMEN = 0,
 	STATS_LUX_REVIVALS = 0,
 	STATS_SLURS_SPOKEN = 0,
+	STATS_HANDS_HELD = 0,
 ))
 
 GLOBAL_LIST_EMPTY(patron_follower_counts)

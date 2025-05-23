@@ -314,6 +314,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	data += "<font color='#c24bc2'><span class='bold'>Drugs Snorted:</span></font> [GLOB.vanderlin_round_stats[STATS_DRUGS_SNORTED]]<br>"
 	data += "<font color='#90a037'><span class='bold'>Laughs Had:</span></font> [GLOB.vanderlin_round_stats[STATS_LAUGHS_MADE]]<br>"
 	data += "<font color='#f5c02e'><span class='bold'>Taxes Collected:</span></font> [GLOB.vanderlin_round_stats[STATS_TAXES_COLLECTED]]<br>"
+	data += "<font color='#5d44af'><span class='bold'>Slurs Spoken:</span></font> [GLOB.vanderlin_round_stats[STATS_SLURS_SPOKEN]]<br>"
 	data += "</div>"
 
 	// Right column
@@ -331,6 +332,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	data += "<font color='#af2323'><span class='bold'>Organs Eaten:</span></font> [GLOB.vanderlin_round_stats[STATS_ORGANS_EATEN]]<br>"
 	data += "<font color='#afa623'><span class='bold'>Locks Picked:</span></font> [GLOB.vanderlin_round_stats[STATS_LOCKS_PICKED]]<br>"
 	data += "<font color='#af2379'><span class='bold'>Kisses Made:</span></font> [GLOB.vanderlin_round_stats[STATS_KISSES_MADE]]<br>"
+	data += "<font color='#c02ef5'><span class='bold'>H*nds H*ld:</span></font> [GLOB.vanderlin_round_stats[STATS_HANDS_HELD]]<br>"
 	data += "</div>"
 	data += "</div></div>"
 	data += "</div>"
@@ -522,7 +524,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		Marriages made: [GLOB.vanderlin_round_stats[STATS_MARRIAGES]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(eora_storyteller, STATS_MARRIAGES))])<br>\
 		Number of parents: [GLOB.vanderlin_round_stats[STATS_PARENTS]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(eora_storyteller, STATS_PARENTS))])<br>\
 		Hugs made: [GLOB.vanderlin_round_stats[STATS_HUGS_MADE]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(eora_storyteller, STATS_HUGS_MADE))])<br>\
-		Clingy people: [GLOB.vanderlin_round_stats[STATS_CLINGY_PEOPLE]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(eora_storyteller, STATS_CLINGY_PEOPLE))])<br>\
+		H*nds h*ld: [GLOB.vanderlin_round_stats[STATS_HANDS_HELD]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(eora_storyteller, STATS_HANDS_HELD))])<br>\
 		Number of pacifists: [GLOB.vanderlin_round_stats[STATS_PACIFISTS]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(eora_storyteller, STATS_PACIFISTS))])", eora_storyteller)
 
 	// Necra
