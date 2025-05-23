@@ -108,6 +108,7 @@
 	. = ..()
 	current_reader = user
 	current_reader << browse(generate_html(user),"window=recipe;size=800x810")
+
 /obj/item/recipe_book/proc/generate_html(mob/user)
 	var/client/client = user
 	if(!istype(client))

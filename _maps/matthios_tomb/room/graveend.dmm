@@ -131,7 +131,7 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb)
 "Ll" = (
-/mob/living/simple_animal/hostile/demon{
+/mob/living/simple_animal/hostile/haunt{
 	name = "Bonetaker";
 	base_constitution = 15;
 	base_endurance = 15;

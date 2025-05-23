@@ -122,6 +122,7 @@
 					var/mob/living/carbon/H = user
 					H.update_inv_head()
 		user.update_fov_angles()
+		user.regenerate_clothes()
 
 /obj/item/clothing/head/roguehood/priest/equipped(mob/user, slot)
 	. = ..()

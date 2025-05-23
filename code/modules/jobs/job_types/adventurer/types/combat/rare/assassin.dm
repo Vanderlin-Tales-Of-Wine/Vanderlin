@@ -263,12 +263,14 @@
 			pants = /obj/item/clothing/pants/tights/uncolored
 			shoes = /obj/item/clothing/shoes/boots
 			backl = /obj/item/storage/backpack/satchel
-			belt = /obj/item/storage/belt/leather/assassin
+			belt = /obj/item/storage/belt/leather/knifebelt/black/steel
 			beltl = /obj/item/storage/belt/pouch/coins/poor
 			beltr = /obj/item/weapon/knife/dagger/steel
+			armor = /obj/item/clothing/shirt/tunic/noblecoat
 			cloak = /obj/item/clothing/cloak/raincloak
 			mask = /obj/item/clothing/face/spectacles/sglasses
 			ring = /obj/item/clothing/ring/silver/gemerald
+			backpack_contents = list(/obj/item/reagent_containers/glass/bottle/poison, /obj/item/weapon/knife/dagger/steel/profane, /obj/item/lockpick, /obj/item/storage/fancy/cigarettes/zig, /obj/item/flint)
 			H.set_hair_style(/datum/sprite_accessory/hair/head/bald, FALSE)
 
 	H.cure_blind("TRAIT_GENERIC")

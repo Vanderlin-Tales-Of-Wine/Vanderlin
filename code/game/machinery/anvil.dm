@@ -144,7 +144,7 @@
 	if(!valid_types.len)
 		return
 
-	var/i_type_choice = input(user, "Choose a category", "Anvil") as null|anything in valid_types
+	var/i_type_choice = browser_input_list(user, "Choose a category", "Anvil", valid_types)
 	if(!i_type_choice)
 		return
 
@@ -163,7 +163,7 @@
 			appro_recipe -= R
 
 	if(appro_recipe.len)
-		var/datum/chosen_recipe = input(user, "Choose what to start working on:", "Anvil") as null|anything in sortNames(appro_recipe.Copy())
+		var/datum/chosen_recipe = browser_input_list(user, "Choose what to start working on:", "Anvil", sortNames(appro_recipe.Copy()))
 		if(!hingot.currecipe && chosen_recipe)
 			hingot.currecipe = new chosen_recipe.type(hingot)
 			hingot.currecipe.material_quality += hingot.quality

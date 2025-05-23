@@ -3,13 +3,10 @@
 /////////
 /mob/living/simple_animal/hostile/retaliate/poltergeist
 	name = "poltergeist"
-//Newer sprite unused until we can get resize to properly work 100% of the time.
-//Maybe it does and I'm braindead, but I 'unno.
 	icon = 'icons/roguetown/mob/monster/poltergeist.dmi'
 	icon_state = "polter0"
 	icon_living = "polter0"
 	icon_dead = "polter_initial"
-//End of sprite rant.
 	gender = PLURAL
 	emote_hear = null
 	emote_see = null
@@ -37,43 +34,18 @@
 	defdrain = 10
 	dodgetime = 30
 	aggressive = 1
-//Can't hit most of the time with thrown objects against prone mobs, so it's commented out. Maybe return later.
-//	stat_attack = UNCONSCIOUS
-	var/timer = 0
-	var/flick_timer = 0
+
+	damage_coeff = list(BRUTE = 0, BURN = 0, TOX = 0, CLONE = 0, STAMINA = 0, OXY = 0)
+
+	ai_controller = /datum/ai_controller/polter
 
 /mob/living/simple_animal/hostile/retaliate/poltergeist/Initialize()
 	. = ..()
-	timer = rand(1,5)
-	flick_timer = rand(1,15)
+	addtimer(CALLBACK(src, PROC_REF(flicker)), rand(9, 33))
 
-/mob/living/simple_animal/hostile/retaliate/poltergeist/Life()
-	..()
-	timer--
-	flick_timer--
-	if(timer == 0)
-		polter()
-		timer = rand(1,5)
-	if(flick_timer == 0)
-		flick("polter1", src)
-		flick_timer = rand(1,15)
-
-/mob/living/simple_animal/hostile/retaliate/poltergeist/proc/polter()
-	if(stat != DEAD)
-		for(var/mob/living/carbon/human/H in view(15, src))
-			var/most_violent = -1
-			var/obj/item/throwing
-			for(var/obj/item/I in view(15, get_turf(H)))
-				if(I.anchored)
-					continue
-				if(I.throwforce > most_violent)
-					most_violent = I.throwforce
-					throwing = I
-			if(throwing)
-				playsound(src, pick('sound/vo/mobs/poltergeist/polter_damage0.ogg',
-							'sound/vo/mobs/poltergeist/polter_damage1.ogg',
-							'sound/vo/mobs/poltergeist/polter_damage2.ogg'))
-				throwing.throw_at(H, 8, 2)
+/mob/living/simple_animal/hostile/retaliate/poltergeist/proc/flicker()
+	flick("polter1", src)
+	addtimer(CALLBACK(src, PROC_REF(flicker)), rand(9, 33))
 
 /mob/living/simple_animal/hostile/retaliate/poltergeist/death()
 	..()
