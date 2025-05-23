@@ -725,7 +725,6 @@
 #include "code\datums\components\explodable.dm"
 #include "code\datums\components\food_burner.dm"
 #include "code\datums\components\footstep.dm"
-#include "code\datums\components\forensics.dm"
 #include "code\datums\components\igniter.dm"
 #include "code\datums\components\itembound.dm"
 #include "code\datums\components\jousting.dm"
