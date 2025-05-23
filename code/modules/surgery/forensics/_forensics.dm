@@ -147,25 +147,25 @@
 		fibertext = "Material from \a [suspect.wear_shirt]."
 		if(prob(10 * item_multiplier) && !LAZYACCESS(fibers, fibertext))
 			LAZYSET(fibers, fibertext, fibertext)
-		if(!(suspect.wear_armor.body_parts_covered & CHEST))
+		if(!(suspect.wear_armor?.body_parts_covered & CHEST))
 			if(suspect.wear_shirt)
 				fibertext = "Fibers from \a [suspect.wear_shirt]."
 				if(prob(12 * item_multiplier) && !LAZYACCESS(fibers, fibertext)) //Wearing a suit means less of the uniform exposed.
 					LAZYSET(fibers, fibertext, fibertext)
-		if(!(suspect.wear_armor.body_parts_covered & HANDS))
+		if(!(suspect?.wear_armor.body_parts_covered & HANDS))
 			if(suspect.gloves)
 				fibertext = "Material from a pair of [suspect.gloves.name]."
 				if(prob(20 * item_multiplier) && !LAZYACCESS(fibers, fibertext))
 					LAZYSET(fibers, fibertext, fibertext)
-	else if(suspect.wear_shirt)
+	else if(suspect?.wear_shirt)
 		fibertext = "Fibers from \a [suspect.wear_shirt]."
 		if(prob(15 * item_multiplier) && !LAZYACCESS(fibers, fibertext))
 			LAZYSET(fibers, fibertext, fibertext)
-		if(suspect.gloves)
+		if(suspect?.gloves)
 			fibertext = "Material from a pair of [suspect.gloves.name]."
 			if(prob(20 * item_multiplier) && !LAZYACCESS(fibers, fibertext))
 				LAZYSET(fibers, fibertext, fibertext)
-	else if(suspect.gloves)
+	else if(suspect?.gloves)
 		fibertext = "Material from a pair of [suspect.gloves.name]."
 		if(prob(20 * item_multiplier) && !LAZYACCESS(fibers, fibertext))
 			LAZYSET(fibers, fibertext, fibertext)
