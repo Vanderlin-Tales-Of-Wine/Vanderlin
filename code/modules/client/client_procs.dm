@@ -498,7 +498,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		Number of nobles: [GLOB.vanderlin_round_stats[STATS_ALIVE_NOBLES]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(astrata_storyteller, STATS_ALIVE_NOBLES))])<br>\
 		Noble deaths: [GLOB.vanderlin_round_stats[STATS_NOBLE_DEATHS]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(astrata_storyteller, STATS_NOBLE_DEATHS))])<br>\
 		Laws and decrees: [GLOB.vanderlin_round_stats[STATS_LAWS_AND_DECREES_MADE]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(astrata_storyteller, STATS_LAWS_AND_DECREES_MADE))])<br>\
-		Slurs Spoken: [GLOB.vanderlin_round_stats[STATS_SLURS_SPOKEN]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(astrata_storyteller, STATS_SLURS_SPOKEN))])", astrata_storyteller)
+		Slurs spoken: [GLOB.vanderlin_round_stats[STATS_SLURS_SPOKEN]] ([get_colored_influence_value(SSgamemode.calculate_specific_influence(astrata_storyteller, STATS_SLURS_SPOKEN))])", astrata_storyteller)
 
 	// Dendor
 	data += god_ui_block("DENDOR", "#412938", "#66745c", "\
