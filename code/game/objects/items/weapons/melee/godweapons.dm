@@ -2,114 +2,182 @@
 
 // god weapons should have 720 durability, and can reach 0 and become unusable but do not break and can be repaired
 
+#define GOREFEAST_UNWORTHY list(\
+	span_danger("Unworthy..."),\
+	span_danger("You are far too weak to be wielding me."),\
+	span_danger("How did you get your hands on me?"),\
+	span_danger("Find the nearest orc, and hand me to them."),\
+	span_danger("You are not prepared."),\
+)
+
+#define GOREFEAST_WORTHY list(\
+	span_danger("A worthy one!"),\
+	span_danger("Bathe me in their blood."),\
+	span_danger("You can smell their fear can't you?"),\
+	span_danger("Unleash your fury, soak the soil in their blood."),\
+	span_danger("Feast on their organs."),\
+	span_danger("Cull the world of the weak!"),\
+	span_danger("Fools to challenge us, warlord."),\
+)
+
+/obj/item/weapon
 
 
 //┌─────────────── GOREFEAST ───────────────┐//
 /obj/item/weapon/polearm/halberd/bardiche/woodcutter/gorefeast
-	force = DAMAGE_HEAVYAXE_WIELD
-	force_wielded = 35
-	name = "GoreFeast"
+	name = "gorefeast"
 	desc = "It is said that with this axe alone, Graggar slew a thousand men. With you, it will slay a thousand more."
 	icon = 'icons/roguetown/weapons/godweapons.dmi'
 	icon_state = "gorefeast"
-	max_blade_int = 200
-	possible_item_intents = list(/datum/intent/axe/cut, /datum/intent/axe/chop)
-	gripped_intents = list(/datum/intent/axe/cut,/datum/intent/axe/chop/great,/datum/intent/sword/strike,/datum/intent/use)
 	parrysound = "sword"
 	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
-	minstr = 12
+	max_blade_int = 200
 	max_integrity = 720
+	possible_item_intents = list(/datum/intent/axe/cut, /datum/intent/axe/chop)
+	gripped_intents = list(/datum/intent/axe/cut, /datum/intent/axe/chop/great, /datum/intent/sword/strike)
 	wdefense = GOOD_PARRY
+	force = DAMAGE_HEAVYAXE_WIELD
+	force_wielded = 35
+	minstr = 12
 	sellprice = 550
 
-/obj/item/weapon/polearm/halberd/bardiche/woodcutter/gorefeast/pickup(mob/living/M)
+/obj/item/weapon/polearm/halberd/bardiche/woodcutter/gorefeast/pickup(mob/user)
 	. = ..()
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
-		if (!HAS_TRAIT(H, TRAIT_ORGAN_EATER))
-			to_chat(M, "<span class='danger'>The Beating Heart of the blade seems to slow down at the sight of you...disinterested.</span>")
-			playsound_local(pick('sound/misc/godweapons/gorefeast1.ogg',
-			'sound/misc/godweapons/gorefeast2.ogg',
-			'sound/misc/godweapons/gorefeast3.ogg'), 100)
-			var/message =
-				pick(
-				"<span class='danger'>Unworthy...</span>",
-				"<span class='danger'>You are far too weak to be wielding me.</span>",
-				"<span class='danger'>How did you get your hands on me ?</span>",
-				"<span class='danger'>Find the nearest orc, and hand me to them.</span>",
-				"<span class='danger'>You are not prepared.</span>")
-		else
-			to_chat(M, "<span class='danger'>GoreFeast begins to thump, ecstatically upon your touch on the boney shaft.</span>")
-			playsound_local(pick('sound/misc/godweapons/gorefeast4.ogg',
-			'sound/misc/godweapons/gorefeast5.ogg',
-			'sound/misc/godweapons/gorefeast6.ogg'), 100)
-			var/message =
-				pick(
-				"<span class='danger'>A worthy one!</span>",
-				"<span class='danger'>Bathe me in their blood.</span>",
-				"<span class='danger'>Feed on their heart Graggirite!</span>",
-				"<span class='danger'>You can smell their fear can't you?</span>",
-				"<span class='danger'>Unleash your fury, soak the soil in their blood.</span>",
-				"<span class='danger'>Feast on their organs.</span>",
-				"<span class='danger'>Cull the world of the weak!</span>",
-				"<span class='danger'>Fools to challenge us, warlord.</span>",
-			)
+	var/message
+	if(!HAS_TRAIT(user, TRAIT_ORGAN_EATER))
+		to_chat(user, span_danger("The beating heart of the blade seems to slow down at the sight of you... disinterested."))
+		user.playsound_local(user, pick('sound/misc/godweapons/gorefeast1.ogg', 'sound/misc/godweapons/gorefeast2.ogg', 'sound/misc/godweapons/gorefeast3.ogg'), 100)
+		message = pick(GOREFEAST_UNWORTHY)
+	else
+		to_chat(user, span_danger("Gorefeast begins to thump, ecstatically upon your touch on the boney shaft."))
+		user.playsound_local(user, pick('sound/misc/godweapons/gorefeast4.ogg', 'sound/misc/godweapons/gorefeast5.ogg', 'sound/misc/godweapons/gorefeast6.ogg'), 100)
+		message = pick(GOREFEAST_WORTHY)
+	addtimer(CALLBACK(src, PROC_REF(do_message), message), 2 SECONDS)
 
-// speaks to you while attacking
-// rips out heart if heart crit (must have graggar's blessing) be graggarite
-// rips out heart on corpses
+/obj/item/weapon/polearm/halberd/bardiche/woodcutter/gorefeast/proc/do_message(message)
+	audible_message("gorefeast speaks, \"[message]\"", hearing_distance = 5)
+
+/obj/item/weapon/polearm/halberd/bardiche/woodcutter/gorefeast/pre_attack(atom/A, mob/living/user, params)
+	if(!HAS_TRAIT(user, TRAIT_ORGAN_EATER))
+		force = 13
+		force_wielded = 23
+	return ..()
+
+/obj/item/weapon/polearm/halberd/bardiche/woodcutter/gorefeast/afterattack(atom/target, mob/living/user, proximity_flag, click_parameters)
+	. = ..()
+	// if(prob(20))
+	// 	if(!HAS_TRAIT(user, TRAIT_ORGAN_EATER))
+	// 		user.playsound_local()
+	// 		to_chat(user)
+	//		return
+	// 	user.playsound_local()
+	// 	to_chat(user)
+
+	if(!ishuman(target))
+		return
+	if(check_zone(user.zone_selected) != BODY_ZONE_CHEST)
+		return
+	var/mob/living/carbon/human/H = target
+	var/heart_crit = H.has_wound(/datum/wound/artery/chest)
+	var/dead = H.stat == DEAD
+	if((H.health < H.crit_threshold) || heart_crit || dead)
+		var/fast = heart_crit || dead
+		var/obj/item/organ/heart/heart = H.getorganslot(ORGAN_SLOT_HEART)
+		if(!heart)
+			to_chat(user, span_warning("Only a hollow chest remains!"))
+			return FALSE
+		to_chat(user, span_notice("I begin to pull the heart from [H]..."))
+		if(do_after(user, fast ? 5 SECONDS : 10 SECONDS, H))
+			heart.Remove(H)
+			heart.forceMove(H.drop_location())
+
+			H.add_splatter_floor()
+			H.adjustBruteLoss(20)
+			to_chat(user, span_notice("I finish pulling the heart from [H]!"))
+
+#undef GOREFEAST_UNWORTHY
+#undef GOREFEAST_WORTHY
 
 //┌─────────────── NEANT ───────────────┐//
 /obj/item/weapon/polearm/neant
-	force = 20
-	force_wielded = 25
-	possible_item_intents = list(/datum/intent/polearm/cut)
-	gripped_intents = list(/datum/intent/polearm/cut, /datum/intent/polearm/chop, /datum/intent/flail/strike, /datum/intent/use)
-	name = "Neant"
+	name = "neant"
 	desc = "A dark scythe with a long chain, used to cut the life essence from people, or whip them into shape. The blade is an ominous purple."
 	icon_state = "neant"
 	icon = 'icons/roguetown/weapons/godweapons.dmi'
-	bigboy = TRUE
-	gripsprite = FALSE
-	wlength = WLENGTH_GREAT
-	w_class = WEIGHT_CLASS_BULKY
+	drop_sound = 'sound/foley/dropsound/blade_drop.ogg'
 	slot_flags = ITEM_SLOT_BACK
 	resistance_flags = FIRE_PROOF
+	dropshrink = 0.75
 	max_blade_int = 200
 	max_integrity = 720
-	minstr = 10
-	associated_skill = /datum/skill/combat/polearms
-	drop_sound = 'sound/foley/dropsound/blade_drop.ogg'
-	dropshrink = 0.75
-	blade_dulling = DULLING_BASHCHOP
-	wdefense = 2
+	possible_item_intents = list(/datum/intent/polearm/cut)
+	gripped_intents = list(/datum/intent/polearm/cut, /datum/intent/polearm/chop, /datum/intent/flail/strike, /datum/intent/use)
 	thrown_bclass = BCLASS_CUT
+	blade_dulling = DULLING_BASHCHOP
+	wdefense = GREAT_PARRY
+	force = 20
+	force_wielded = 25
 	throwforce = 25
+	minstr = 10
 	sellprice = 550
 
-//removes lux from corpses
+/obj/item/weapon/polearm/neant/afterattack(atom/target, mob/living/user, proximity_flag, click_parameters)
+	. = ..()
+	if(!HAS_TRAIT(user, TRAIT_CABAL))
+		return
+	if(!ishuman(target))
+		return
+	if(check_zone(user.zone_selected) != BODY_ZONE_CHEST)
+		return
+	var/mob/living/carbon/human/H = target
+	var/dead = H.stat == DEAD
+	if((H.health < H.crit_threshold) || dead)
+		var/speed = dead ? 4 SECONDS : 8 SECONDS
+		to_chat(user, span_notice("I begin to remove the lux of [target]..."))
+		if(!do_after(user, speed, H))
+			return
+		var/obj/item/bodypart/chest/C = H.get_bodypart(BODY_ZONE_CHEST)
+		C?.add_wound(/datum/wound/slash/incision)
+		if(C && !C.has_wound(/datum/wound/fracture/chest))
+			C.add_wound(/datum/wound/fracture/chest)
+		var/obj/item/reagent_containers/lux = new(get_turf(target))
+		user.put_in_hands(lux)
+
+		H.apply_status_effect(/datum/status_effect/buff/lux_drained)
+		SEND_SIGNAL(user, COMSIG_LUX_EXTRACTED, target)
+		record_featured_stat(FEATURED_STATS_CRIMINALS, user)
+		GLOB.vanderlin_round_stats[STATS_LUX_HARVESTED]++
+
+		H.add_splatter_floor()
+		H.adjustBruteLoss(20)
+		to_chat(user, span_notice("I finish removing the lux from [target]!"))
+
 // has a ranged attack on 4th intent travels 4 tiles does mild cut damage ( must be of the cabal ) be zizoid
 
 //┌─────────────── TURBULENTA ───────────────┐//
 
-/obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve/turbulenta
-	name = "Turbulenta"
+/obj/item/gun/ballistic/revolver/grenadelauncher/bow/turbulenta
+	name = "turbulenta"
 	desc = "Rarely does she even care about combat, but when she does... Baotha was quite the markswoman."
 	icon = 'icons/roguetown/weapons/godweapons.dmi'
 	icon_state = "turbulenta"
 	base_icon = "turbulenta"
-	possible_item_intents = list(/datum/intent/shoot/bow/recurve, /datum/intent/arc/bow/recurve, /datum/intent/use)
+	pixel_y = -16
+	pixel_x = -16
+	bigboy = TRUE
+	dropshrink = 0.75
+	possible_item_intents = list(/datum/intent/shoot/bow/turbulenta, /datum/intent/arc/bow/turbulenta, /datum/intent/use)
 	randomspread = 1
 	spread = 1
 	force = 9
 	damfactor = 0.9
 
-/datum/intent/shoot/bow/recurve/turbulenta
+/datum/intent/shoot/bow/turbulenta
 	chargetime = 0.75
 	chargedrain = 1.5
 	charging_slowdown = 2.5
 
-/datum/intent/arc/bow/recurve/turbulenta
+/datum/intent/arc/bow/turbulenta
 	chargetime = 0.75
 	chargedrain = 1.5
 	charging_slowdown = 2.5
@@ -119,26 +187,23 @@
 
 //┌─────────────── PLEONEXIA ───────────────┐//
 /obj/item/weapon/sword/long/pleonexia
-	force_wielded = DAMAGE_LONGSWORD_WIELD
-	possible_item_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust, /datum/intent/sword/strike)
-	gripped_intents = list(/datum/intent/use, /datum/intent/sword/thrust, /datum/intent/sword/strike, /datum/intent/sword/chop)
 	icon_state = "pleonexia"
 	icon = 'icons/roguetown/weapons/godweapons.dmi'
-	name = "Pleonexia"
+	name = "pleonexia"
 	desc = "A sword of legend. If they are true, then this blade is the blade of Matthios himself. Rumor has it, it steals space and time."
 	swingsound = BLADEWOOSH_LARGE
 	parrysound = "largeblade"
 	pickup_sound = "brandish_blade"
-	bigboy = TRUE
-	wlength = WLENGTH_LONG
-	gripsprite = TRUE
-	pixel_y = -16
-	pixel_x = -16
-	inhand_x_dimension = 64
-	inhand_y_dimension = 64
-	slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_HIP
-	dropshrink = 0.75
-	sellprice = 60
+	possible_item_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust, /datum/intent/sword/strike)
+	gripped_intents = list(/datum/intent/use, /datum/intent/sword/thrust, /datum/intent/sword/strike, /datum/intent/sword/chop)
+	sellprice = 550
+
+/obj/item/weapon/sword/long/pleonexia/pickup(mob/user)
+	. = ..()
+
+/obj/item/weapon/sword/long/pleonexia/dropped(mob/user, silent)
+	. = ..()
+
 
 // added as a spell
 // blinks you through two tiles ( same as a leap ) ahead past windows but not walls / must have matthios' eyes ( be matthiosite)

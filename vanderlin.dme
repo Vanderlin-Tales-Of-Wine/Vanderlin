@@ -1286,6 +1286,7 @@
 #include "code\game\objects\items\weapons\melee\axes.dm"
 #include "code\game\objects\items\weapons\melee\blunt.dm"
 #include "code\game\objects\items\weapons\melee\flail.dm"
+#include "code\game\objects\items\weapons\melee\godweapons.dm"
 #include "code\game\objects\items\weapons\melee\knives.dm"
 #include "code\game\objects\items\weapons\melee\polearms.dm"
 #include "code\game\objects\items\weapons\melee\special.dm"
