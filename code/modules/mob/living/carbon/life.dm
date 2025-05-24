@@ -615,7 +615,7 @@ GLOBAL_LIST_INIT(ballmer_windows_me_msg, list("Yo man, what if, we like, uh, put
 	var/list/equipped_items = get_equipped_items(FALSE)
 	if(HAS_TRAIT(src, TRAIT_NUDE_SLEEPER) && length(equipped_items))
 		cant_fall_asleep = TRUE
-		cause = "\I can't sleep in clothes, it's too uncomfortable.."
+		cause = "I can't sleep in clothes, it's too uncomfortable.."
 	else
 		for(var/obj/item/clothing/thing in equipped_items)
 			if(thing.clothing_flags & CANT_SLEEP_IN)
