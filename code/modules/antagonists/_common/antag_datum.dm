@@ -277,11 +277,16 @@ GLOBAL_LIST_EMPTY(antagonists)
 
 /// makes the owner's role unassigned and reopens their job slot
 /datum/antagonist/proc/remove_job()
-	if(owner?.current?.job)
+	var/mob/living/carbon/human/dude = owner.current
+	if(!istype(dude))
+		return
+	if(dude.job)
 		var/datum/job/J = SSjob.GetJob(owner.current.job)
 		J.adjust_current_positions(-1)
 		owner.current.job = null
 	owner?.set_assigned_role(SSjob.GetJobType(/datum/job/unassigned))
+
+	dude.adv_hugboxing_cancel()
 
 //This one is created by admin tools for custom objectives
 /datum/antagonist/custom

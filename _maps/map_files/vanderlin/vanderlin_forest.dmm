@@ -68,10 +68,6 @@
 	icon_state = "horzw"
 	},
 /area/rogue/indoors)
-"bu" = (
-/obj/effect/landmark/start/lich,
-/turf/open/floor/cobblerock,
-/area/rogue/outdoors/woods)
 "bz" = (
 /obj/structure/bed/shit,
 /obj/effect/decal/cleanable/dirt/cobweb{
@@ -1963,10 +1959,6 @@
 	icon_state = "horzw"
 	},
 /area/rogue/outdoors/woods)
-"GZ" = (
-/obj/effect/landmark/start/lich,
-/turf/open/floor/naturalstone,
-/area/rogue/indoors/cave)
 "Hd" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
@@ -2582,10 +2574,6 @@
 	},
 /turf/open/floor/cobble,
 /area/rogue/indoors)
-"RM" = (
-/obj/effect/landmark/start/lich,
-/turf/open/floor/grass,
-/area/rogue/outdoors/woods)
 "Sb" = (
 /turf/open/floor/cobble,
 /area/rogue/outdoors/mountains)
@@ -9807,7 +9795,7 @@ Wh
 Wh
 Nn
 Nn
-GZ
+Nn
 Nn
 Nn
 dk
@@ -14095,7 +14083,7 @@ wV
 UR
 UR
 UR
-RM
+UR
 UR
 tR
 tR
@@ -42226,7 +42214,7 @@ Zf
 Sy
 cA
 QC
-bu
+cA
 QC
 Gh
 wV

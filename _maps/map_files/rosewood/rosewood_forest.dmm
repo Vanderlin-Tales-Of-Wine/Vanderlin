@@ -1488,10 +1488,6 @@
 /obj/effect/falling_sakura,
 /turf/open/floor/snow,
 /area/rogue/outdoors/woods)
-"HD" = (
-/obj/effect/landmark/start/lich,
-/turf/open/floor/naturalstone,
-/area/rogue/under/cave)
 "HH" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
@@ -27609,7 +27605,7 @@ qH
 qH
 yU
 Wr
-HD
+Wr
 xn
 qH
 qH
