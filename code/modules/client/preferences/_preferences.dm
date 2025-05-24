@@ -1495,10 +1495,6 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	switch(name_id)
 		if("human")
 			return random_unique_name()
-		if("religion")
-			return DEFAULT_RELIGION
-		if("deity")
-			return DEFAULT_DEITY
 	return random_unique_name()
 
 /datum/preferences/proc/ask_for_custom_name(mob/user,name_id)
