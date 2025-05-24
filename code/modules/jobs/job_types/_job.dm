@@ -255,13 +255,6 @@
 		humanguy.invisibility = INVISIBILITY_MAXIMUM
 		humanguy.become_blind("advsetup")
 
-/datum/job/proc/announce_job(mob/living/joining_mob)
-	if(head_announce)
-		announce_head(joining_mob, head_announce)
-
-/datum/job/proc/announce_head(mob/living/carbon/human/H, channels) //tells the given channel that the given mob is the new department head. See communications.dm for valid channels.
-	//RT: UNIMPLEMENTED
-
 //Used for a special check of whether to allow a client to latejoin as this job.
 /datum/job/proc/special_check_latejoin(client/C)
 	return TRUE
