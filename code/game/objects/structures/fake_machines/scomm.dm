@@ -62,7 +62,7 @@
 	playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
 	var/canread = user.can_read(src, TRUE)
 	var/contents
-	contents += "<center>MONARCH'S DECREES<BR>"
+	contents += "<center>[get_informed_title(SSticker.rulermob)]'s DECREES<BR>"
 
 	contents += "-----------<BR><BR></center>"
 	for(var/i = GLOB.lord_decrees.len to 1 step -1)
