@@ -78,7 +78,6 @@ SUBSYSTEM_DEF(nightshift)
 	if(todd == "night")
 		if(HAS_TRAIT(src, TRAIT_NIGHT_OWL))
 			add_stress(/datum/stressevent/night_owl_night)
-
 		if(HAS_TRAIT(src, TRAIT_NOSTAMINA))
 			return ..()
 		if(HAS_TRAIT(src, TRAIT_NOSLEEP))
