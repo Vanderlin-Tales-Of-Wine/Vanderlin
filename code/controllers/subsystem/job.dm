@@ -87,60 +87,6 @@ SUBSYSTEM_DEF(job)
 	if(player.client && player.client.prefs)
 		player.client.prefs.has_spawned = TRUE
 
-/datum/controller/subsystem/job/proc/FindOccupationCandidates(datum/job/job, level, flag)
-	JobDebug("Running FOC, Job: [job], Level: [level], Flag: [flag]")
-	var/list/candidates = list()
-	for(var/mob/dead/new_player/player in unassigned)
-		if(is_role_banned(player.ckey, job.title) || QDELETED(player))
-			JobDebug("FOC isbanned failed, Player: [player]")
-			continue
-		if(!job.player_old_enough(player.client))
-			JobDebug("FOC player not old enough, Player: [player]")
-			continue
-		if(job.required_playtime_remaining(player.client))
-			JobDebug("FOC player not enough xp, Player: [player]")
-			continue
-		if(flag && (!(flag in player.client.prefs.be_special)))
-			JobDebug("FOC flag failed, Player: [player], Flag: [flag], ")
-			continue
-		if(player.mind && (job.title in player.mind.restricted_roles))
-			JobDebug("FOC incompatible with antagonist role, Player: [player]")
-			continue
-		if(length(job.allowed_races) && !(player.client.prefs.pref_species.name in job.allowed_races))
-			if(!(player.client.triumph_ids.Find("race_all")))
-				JobDebug("FOC incompatible with species, Player: [player], Job: [job.title], Race: [player.client.prefs.pref_species.name]")
-				continue
-		if(length(job.allowed_patrons) && !(player.client.prefs.selected_patron.type in job.allowed_patrons))
-			JobDebug("FOC incompatible with patron, Player: [player], Job: [job.title], Race: [player.client.prefs.pref_species.name]")
-			continue
-		if(get_playerquality(player.ckey) < job.min_pq)
-			continue
-		if(length(job.allowed_sexes) && !(player.client.prefs.gender in job.allowed_sexes))
-			JobDebug("FOC incompatible with sex, Player: [player], Job: [job.title]")
-			continue
-		if(length(job.allowed_ages) && !(player.client.prefs.age in job.allowed_ages))
-			JobDebug("FOC incompatible with age, Player: [player], Job: [job.title], Age: [player.client.prefs.age]")
-			continue
-		if(job.banned_leprosy && is_misc_banned(player.client.ckey, BAN_MISC_LEPROSY))
-			JobDebug("FOC incompatible with leprosy, Player: [player], Job: [job.title]")
-			continue
-		if(job.banned_lunatic && is_misc_banned(player.client.ckey, BAN_MISC_LUNATIC))
-			JobDebug("FOC incompatible with lunatic, Player: [player], Job: [job.title]")
-			continue
-		if((player.client.prefs.lastclass == job.title) && !job.bypass_lastclass)
-			JobDebug("FOC incompatible with lastclass, Player: [player], Job: [job.title]")
-			continue
-		if(!job.special_job_check(player))
-			JobDebug("FOC player did not pass special check, Player: [player], Job:[job.title]")
-			continue
-		if(CONFIG_GET(flag/usewhitelist))
-			if(job.whitelist_req && (!player.client.whitelisted()))
-				continue
-		if(player.client.prefs.job_preferences[job.title] == level)
-			JobDebug("FOC pass, Player: [player], Level:[level]")
-			candidates += player
-	return candidates
-
 /datum/controller/subsystem/job/proc/GiveRandomJob(mob/dead/new_player/player)
 	JobDebug("GRJ Giving random job, Player: [player]")
 	. = FALSE
@@ -329,8 +275,6 @@ SUBSYSTEM_DEF(job)
 	// Loop through all levels from high to low
 	var/list/shuffledoccupations = shuffle(joinable_occupations)
 	for(var/level in level_order)
-		//Check the head jobs first each level
-		//CheckHeadPositions(level)
 
 		// Loop through all unassigned players
 		for(var/mob/dead/new_player/player in unassigned)
