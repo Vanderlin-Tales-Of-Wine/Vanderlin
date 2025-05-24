@@ -175,7 +175,7 @@
 			lich_mob = owner.current // current body is a human mob.
 
 	lich_mob.revive(TRUE, TRUE) // we live, yay.
-	owner.transfer_to(lich_mob)
+	owner.transfer_to(lich_mob, TRUE)
 
 	lich_mob.skeletonize(FALSE)
 
