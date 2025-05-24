@@ -34,8 +34,8 @@
 	use_skintones = TRUE
 	disliked_food = NONE
 	liked_food = NONE
-	specstats = list(STATKEY_STR = 2, STATKEY_PER = -4, STATKEY_CON = 3, STATKEY_SPD = -3)
-	specstats_f = list(STATKEY_STR = -1, STATKEY_PER = -2, STATKEY_CON = -2, STATKEY_SPD = 1, STATKEY_INT = 2)
+	specstats = list(STATKEY_STR = -1, STATKEY_PER = -2, STATKEY_CON = -2, STATKEY_SPD = 1, STATKEY_INT = 2)
+	specstats_f = list(STATKEY_STR = 2, STATKEY_PER = -4, STATKEY_CON = 3, STATKEY_SPD = -3)
 	limbs_icon_m = 'icons/roguetown/mob/bodies/m/triton.dmi'
 	limbs_icon_f = 'icons/roguetown/mob/bodies/f/triton.dmi'
 	dam_icon = 'icons/roguetown/mob/bodies/dam/dam_female.dmi'
@@ -43,6 +43,7 @@
 	soundpack_m = /datum/voicepack/male
 	soundpack_f = /datum/voicepack/female
 	child_icon = null
+	can_be_youngling = FALSE
 	possible_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD)
 	species_traits = list(NOEYESPRITES, NO_UNDERWEAR, HAIR)
 	inherent_traits = list(TRAIT_NOMOBSWAP, TRAIT_NOBREATH, TRAIT_STRONGBITE)
@@ -153,8 +154,6 @@
 	))
 
 /datum/species/triton/get_hairc_list()
-	var/static/list/hair_colors = sortList(list(
+	return sortList(list(
 		"black - oil" = "181a1d",
 	))
-
-	return hair_colors
