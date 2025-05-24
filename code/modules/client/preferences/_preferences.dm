@@ -1492,9 +1492,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		character.update_body_parts(redraw = TRUE)
 
 /datum/preferences/proc/get_default_name(name_id)
-	switch(name_id)
-		if("human")
-			return random_unique_name()
+	// you can use name_id to add more here
 	return random_unique_name()
 
 /datum/preferences/proc/ask_for_custom_name(mob/user,name_id)
