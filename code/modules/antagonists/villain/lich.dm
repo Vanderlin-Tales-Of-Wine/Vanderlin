@@ -160,7 +160,7 @@
 		return TRUE
 
 /datum/antagonist/lich/proc/rise_anew(location)
-	var/mob/living/carbon/human/lich_mob
+	var/mob/living/carbon/human/lich_mob = owner.current // who cares about type safety anyways?
 	if(isbrain(owner.current)) // we have been decapitated, let's reattach to our old body.
 		lich_mob = lich_body.resolve() // current body isn't a human mob, let's use the reference to our old body.
 		if(isnull(lich_mob))
@@ -175,7 +175,7 @@
 			lich_mob = owner.current // current body is a human mob.
 
 	lich_mob.revive(TRUE, TRUE) // we live, yay.
-	lich_mob.ckey = owner.current.client.ckey
+	owner.transfer_to(lich_mob)
 
 	lich_mob.skeletonize(FALSE)
 
