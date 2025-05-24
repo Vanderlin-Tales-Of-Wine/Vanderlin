@@ -24,7 +24,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/patreon_req = FALSE
 
 	/// Associative list of FEATURE SLOT to PIXEL ADJUSTMENTS X/Y seperated by gender
-	var/list/offset_features = list(
+	var/list/offset_features_m = list(
 		OFFSET_RING = list(0,0),\
 		OFFSET_GLOVES = list(0,0),\
 		OFFSET_WRISTS = list(0,0),\
@@ -40,6 +40,9 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		OFFSET_PANTS = list(0,0),\
 		OFFSET_SHIRT = list(0,0),\
 		OFFSET_ARMOR = list(0,0),\
+	)
+
+	var/list/offset_features_f = list(
 		OFFSET_RING_F = list(0,0),\
 		OFFSET_GLOVES_F = list(0,0),\
 		OFFSET_WRISTS_F = list(0,0),\
@@ -99,8 +102,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/nojumpsuit = FALSE
 	/// Prefix for spoken messages
 	var/say_mod = "says"
-	/// Default mutant bodyparts for this species. Don't forget to set one for every mutant bodypart you allow this species to have.
-	var/list/default_features = MANDATORY_FEATURE_LIST
 
 	/// Multipler for how quickly nutrition decreases
 	var/nutrition_mod = 1
@@ -127,6 +128,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/list/inherent_traits_m
 	/// Generic traits tied to having the species and being female
 	var/list/inherent_traits_f
+	/// Associative list of skills to adjustments
+	var/list/inherent_skills = list()
 	/// Species-only traits used for drawing, can be found in DNA.dm
 	var/list/species_traits = list()
 	/// Components to add when spawning
@@ -161,6 +164,9 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 	/// List of customizer entries that appear in the features tab
 	var/list/customizer_entries = list()
+
+	/// Default mutant bodyparts for this species. Don't forget to set one for every mutant bodypart you allow this species to have.
+	var/list/default_features = MANDATORY_FEATURE_LIST
 
 	/// List of organs this species has.
 	var/list/organs = list(
@@ -231,22 +237,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		OFFSET_SHIRT = list(0,0),\
 		OFFSET_ARMOR = list(0,0),\
 		OFFSET_UNDIES = list(0,0),\
-		OFFSET_RING_F = list(0,0),\
-		OFFSET_GLOVES_F = list(0,0),\
-		OFFSET_WRISTS_F = list(0,0),\
-		OFFSET_HANDS_F = list(0,-3),\
-		OFFSET_CLOAK_F = list(0,-4),\
-		OFFSET_FACEMASK_F = list(0,-4),\
-		OFFSET_HEAD_F = list(0,-4),\
-		OFFSET_FACE_F = list(0,-4),\
-		OFFSET_BELT_F = list(0,0),\
-		OFFSET_BACK_F = list(0,0),\
-		OFFSET_NECK_F = list(0,-4),\
-		OFFSET_MOUTH_F = list(0,-4),\
-		OFFSET_PANTS_F = list(0,0),\
-		OFFSET_SHIRT_F = list(0,0),\
-		OFFSET_ARMOR_F = list(0,0),\
-		OFFSET_UNDIES_F = list(0,0),\
 	)
 
 	/// Amount of times we got autocorrected?? why is this a thing?
@@ -684,6 +674,9 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		for(var/trait as anything in inherent_traits_m)
 			ADD_TRAIT(C, trait, SPECIES_TRAIT)
 
+	for(var/skill as anything in inherent_skills)
+		C.adjust_skillrank(skill, inherent_skills[skill], TRUE)
+
 	for(var/component in components_to_add)
 		C.AddComponent(component)
 
@@ -731,11 +724,22 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	SEND_SIGNAL(C, COMSIG_SPECIES_LOSS, src)
 
 /datum/species/proc/handle_body(mob/living/carbon/human/H)
-	var/list/offsets = H.dna.species.offset_features
-	if(H.age == AGE_CHILD)
-		offsets = H.dna.species.offset_features_child
 	H.remove_overlay(BODY_LAYER)
 	H.remove_overlay(ABOVE_BODY_FRONT_LAYER)
+
+	var/datum/species/species = H.dna?.species
+	var/use_female_sprites = FALSE
+	if(species?.sexes)
+		if(H.gender == FEMALE && !species.swap_female_clothes)
+			use_female_sprites = FEMALE_BOOB
+		else if(H.gender == MALE && species.swap_male_clothes)
+			use_female_sprites = FEMALE_SPRITES
+
+	var/list/offsets
+	if(use_female_sprites)
+		offsets = (H.age == AGE_CHILD) ? species.offset_features_child : species.offset_features_f
+	else
+		offsets = (H.age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
 
 	var/list/standing = list()
 
@@ -746,56 +750,48 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		if(H.lip_style && (LIPS in species_traits))
 			var/mutable_appearance/lip_overlay = mutable_appearance('icons/mob/human_face.dmi', "lips_[H.lip_style]", -BODY_LAYER)
 			lip_overlay.color = H.lip_color
-			if(H.gender == MALE)
-				if(OFFSET_FACE in offsets)
-					lip_overlay.pixel_x += offsets[OFFSET_FACE][1]
-					lip_overlay.pixel_y += offsets[OFFSET_FACE][2]
-			else
-				if(OFFSET_FACE_F in offsets)
-					lip_overlay.pixel_x += offsets[OFFSET_FACE_F][1]
-					lip_overlay.pixel_y += offsets[OFFSET_FACE_F][2]
+			if(OFFSET_FACE in offsets)
+				lip_overlay.pixel_x += offsets[OFFSET_FACE][1]
+				lip_overlay.pixel_y += offsets[OFFSET_FACE][2]
 			standing += lip_overlay
 
-		if(H.dna.species.hairyness)
-			var/mutable_appearance/bodyhair_overlay
-			if(H.gender == MALE)
-				bodyhair_overlay = mutable_appearance(H.dna.species.limbs_icon_m, "[H.dna.species.hairyness]", -BODY_LAYER)
+		if(species?.hairyness)
+			var/limb_icon
+			if(use_female_sprites)
+				limb_icon = species?.limbs_icon_f
 			else
-				bodyhair_overlay = mutable_appearance(H.dna.species.limbs_icon_f, "[H.dna.species.hairyness]", -BODY_LAYER)
+				limb_icon = species?.limbs_icon_m
+			var/mutable_appearance/bodyhair_overlay = mutable_appearance(limb_icon, "[species?.hairyness]", -BODY_LAYER)
 			bodyhair_overlay.color = H.get_hair_color()
 			standing += bodyhair_overlay
 
-	//Underwear, Undershirts & Socks
+	//Underwear
 	if(!(NO_UNDERWEAR in species_traits))
 		var/hide_boob = FALSE
-		if(H.wear_armor)
-			var/obj/item/I = H.wear_armor
-			if(I.flags_inv & HIDEBOOB)
-				hide_boob = TRUE
+		if(H.wear_armor?.flags_inv & HIDEBOOB)
+			hide_boob = TRUE
 
-		if(H.wear_shirt)
-			var/obj/item/I = H.wear_shirt
-			if(I.flags_inv & HIDEBOOB)
-				hide_boob = TRUE
+		if(H.wear_shirt?.flags_inv & HIDEBOOB)
+			hide_boob = TRUE
+
+		if(H.cloak?.flags_inv & HIDEBOOB)
+			hide_boob = TRUE
 
 		if(H.underwear)
 			if(H.age == AGE_CHILD)
-				H.underwear = "Youngling"
-				if(H.gender == FEMALE)
+				hide_boob = TRUE
+				if(use_female_sprites)
 					H.underwear = "FemYoungling"
+				else
+					H.underwear = "Youngling"
 
 			var/datum/sprite_accessory/underwear/underwear = GLOB.underwear_list[H.underwear]
-			var/mutable_appearance/underwear_overlay
+
 			if(underwear)
-				underwear_overlay = mutable_appearance(underwear.icon, underwear.icon_state, -BODY_LAYER)
-				if(H.gender == FEMALE && H.age != AGE_CHILD)
-					if(OFFSET_FACE_F in offsets)
-						underwear_overlay.pixel_x += offsets[OFFSET_FACE_F][1]
-						underwear_overlay.pixel_y += offsets[OFFSET_FACE_F][2]
-				else if(H.age != AGE_CHILD)
-					if(OFFSET_FACE in offsets)
-						underwear_overlay.pixel_x += offsets[OFFSET_FACE][1]
-						underwear_overlay.pixel_y += offsets[OFFSET_FACE][2]
+				var/mutable_appearance/underwear_overlay = mutable_appearance(underwear.icon, underwear.icon_state, -BODY_LAYER)
+				if(OFFSET_UNDIES in offsets)
+					underwear_overlay.pixel_x += offsets[OFFSET_UNDIES][1]
+					underwear_overlay.pixel_y += offsets[OFFSET_UNDIES][2]
 				if(!underwear.use_static)
 					if(H.underwear_color)
 						underwear_overlay.color = H.underwear_color
@@ -803,11 +799,12 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 						H.underwear_color = "#755f46"
 						underwear_overlay.color = "#755f46"
 				standing += underwear_overlay
-				if(!hide_boob && H.gender == FEMALE)
+
+				if(!hide_boob && (use_female_sprites == FEMALE_BOOB))
 					underwear_overlay = mutable_appearance(underwear.icon, "[underwear.icon_state]_boob", -BODY_LAYER)
-					if(OFFSET_FACE_F in offsets)
-						underwear_overlay.pixel_x += offsets[OFFSET_FACE_F][1]
-						underwear_overlay.pixel_y += offsets[OFFSET_FACE_F][2]
+					if(OFFSET_UNDIES in offsets)
+						underwear_overlay.pixel_x += offsets[OFFSET_UNDIES][1]
+						underwear_overlay.pixel_y += offsets[OFFSET_UNDIES][2]
 					if(!underwear.use_static)
 						if(H.underwear_color)
 							underwear_overlay.color = H.underwear_color
@@ -815,12 +812,12 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 							H.underwear_color = "#755f46"
 							underwear_overlay.color = "#755f46"
 					standing += underwear_overlay
-	if(standing.len)
+
+	if(length(standing))
 		H.overlays_standing[BODY_LAYER] = standing
 
 	H.apply_overlay(BODY_LAYER)
 	H.apply_overlay(ABOVE_BODY_FRONT_LAYER)
-
 
 /datum/species/proc/spec_life(mob/living/carbon/human/H)
 	if(HAS_TRAIT(H, TRAIT_NOBREATH))

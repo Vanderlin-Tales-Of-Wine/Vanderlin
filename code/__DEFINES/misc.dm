@@ -12,7 +12,7 @@
 #define TEXT_WEST			"[WEST]"
 
 /// Use male sprites
-//#define MALE_SPRITES 	NONE
+#define MALE_SPRITES 	0
 /// Use female sprites only
 #define FEMALE_SPRITES 	1
 /// Use female sprites and boob

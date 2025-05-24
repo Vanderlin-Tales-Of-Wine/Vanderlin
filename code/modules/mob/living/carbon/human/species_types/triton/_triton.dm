@@ -48,10 +48,14 @@
 	species_traits = list(NOEYESPRITES, NO_UNDERWEAR, HAIR)
 	inherent_traits = list(TRAIT_NOMOBSWAP, TRAIT_NOBREATH)
 	inherent_traits_f = list(TRAIT_STRONGBITE)
+	inherent_skills = list(
+		/datum/skill/labor/fishing = 3,
+		/datum/skill/misc/swimming = 4,
+	)
 	exotic_bloodtype = /datum/blood_type/human/triton
 	enflamed_icon = "widefire"
 
-	offset_features = list(
+	offset_features_m = list(
 		OFFSET_RING = list(0,2),\
 		OFFSET_GLOVES = list(0,0),\
 		OFFSET_HANDS = list(0,2),\
@@ -68,6 +72,9 @@
 		OFFSET_SHIRT = list(0,2),\
 		OFFSET_ARMOR = list(0,2),\
 		OFFSET_UNDIES = list(0,0),\
+	)
+
+	offset_features_f = list(
 		OFFSET_RING_F = list(0,1),\
 		OFFSET_GLOVES_F = list(0,1),\
 		OFFSET_HANDS_F = list(0,1),\
@@ -112,7 +119,7 @@
 	)
 
 /datum/species/triton/on_species_gain(mob/living/carbon/C, datum/species/old_species)
-	..()
+	. = ..()
 	RegisterSignal(C, COMSIG_MOB_SAY, PROC_REF(handle_speech))
 	C.grant_language(/datum/language/common)
 

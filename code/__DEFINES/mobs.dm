@@ -299,23 +299,6 @@
 #define OFFSET_ARMOR "wear_armor"
 #define OFFSET_UNDIES "underwear"
 
-#define OFFSET_RING_F "wear_ringf"
-#define OFFSET_GLOVES_F "glovesf"
-#define OFFSET_WRISTS_F "wear_wristsf"
-#define OFFSET_HANDS_F "handsf"
-#define OFFSET_FACEMASK_F "maskf"
-#define OFFSET_HEAD_F "headf"
-#define OFFSET_FACE_F "facef"
-#define OFFSET_BELT_F "beltf"
-#define OFFSET_BACK_F "backf"
-#define OFFSET_NECK_F "neckf"
-#define OFFSET_CLOAK_F "cloakf"
-#define OFFSET_MOUTH_F "mouthf"
-#define OFFSET_PANTS_F "wear_pantsf"
-#define OFFSET_SHIRT_F "wear_shirtf"
-#define OFFSET_ARMOR_F "wear_armorf"
-#define OFFSET_UNDIES_F "underwearf"
-
 //MINOR TWEAKS/MISC
 #define AGE_MIN				18	//youngest a character can be
 #define AGE_MAX				85	//oldest a character can be
