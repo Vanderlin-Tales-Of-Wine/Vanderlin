@@ -194,3 +194,8 @@
 	icon_state = "tiebhornsalt"
 	specuse = list("tiefling")
 	color_key_defaults = list(KEY_SKIN_COLOR)
+
+/datum/sprite_accessory/horns/triton
+	icon = 'icons/mob/sprite_accessory/horns/triton.dmi'
+	icon_state = "teeth"
+	default_colors = list("#bfa488")

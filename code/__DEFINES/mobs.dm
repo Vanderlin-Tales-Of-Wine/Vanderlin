@@ -530,6 +530,20 @@
 #define SKIN_COLOR_MOONSHADE "C0C0C0" //Middle-eastern
 #define SKIN_COLOR_SANDSWEPT "fcccb3" //White - Tan
 
+//TRITON SKIN TONES
+/// Light blue
+#define SKIN_COLOR_SHALLOW "9cc2e2"
+/// Dark Blue
+#define SKIN_COLOR_DEEP_ONE "3f5f96"
+/// Pink
+#define SKIN_COLOR_REEF "e5aded"
+/// White/Pink
+#define SKIN_COLOR_JELLYFISH "dba6da"
+/// Grey/Purple
+#define SKIN_COLOR_URCHIN "9a8caa"
+/// Green
+#define SKIN_COLOR_ALGAE "6ebf4c"
+
 //SPECIAL SKIN TONES
 #define SKIN_COLOR_ROT "878f79" //Sickly green
 
