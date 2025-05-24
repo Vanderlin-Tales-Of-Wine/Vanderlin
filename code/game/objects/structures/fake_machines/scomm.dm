@@ -62,8 +62,7 @@
 	playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
 	var/canread = user.can_read(src, TRUE)
 	var/contents
-	if(SSticker.rulertype == "Monarch")
-		contents += "<center>MONARCH'S DECREES<BR>"
+	contents += "<center>MONARCH'S DECREES<BR>"
 
 	contents += "-----------<BR><BR></center>"
 	for(var/i = GLOB.lord_decrees.len to 1 step -1)
