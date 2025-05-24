@@ -289,14 +289,11 @@
 
 // Offsets defines
 
-#define OFFSET_UNIFORM "uniform"
-#define OFFSET_ID "wear_ring"
+#define OFFSET_RING "wear_ring"
 #define OFFSET_GLOVES "gloves"
 #define OFFSET_WRISTS "wear_wrists"
-#define OFFSET_GLASSES "glasses"
-#define OFFSET_EARS "ears"
+#define OFFSET_HANDS "hands"
 #define OFFSET_SHOES "shoes"
-#define OFFSET_S_STORE "s_store"
 #define OFFSET_FACEMASK "mask"
 #define OFFSET_HEAD "head"
 #define OFFSET_FACE "face" //facial hair and hair
@@ -309,12 +306,12 @@
 #define OFFSET_PANTS "wear_pants"
 #define OFFSET_SHIRT "wear_shirt"
 #define OFFSET_ARMOR "wear_armor"
-#define OFFSET_HANDS "hands"
 #define OFFSET_UNDIES "underwear"
 
-#define OFFSET_ID_F "wear_ringf"
+#define OFFSET_RING_F "wear_ringf"
 #define OFFSET_GLOVES_F "glovesf"
 #define OFFSET_WRISTS_F "wear_wristsf"
+#define OFFSET_HANDS_F "handsf"
 #define OFFSET_FACEMASK_F "maskf"
 #define OFFSET_HEAD_F "headf"
 #define OFFSET_FACE_F "facef"
@@ -326,7 +323,6 @@
 #define OFFSET_PANTS_F "wear_pantsf"
 #define OFFSET_SHIRT_F "wear_shirtf"
 #define OFFSET_ARMOR_F "wear_armorf"
-#define OFFSET_HANDS_F "handsf"
 #define OFFSET_UNDIES_F "underwearf"
 
 //MINOR TWEAKS/MISC
@@ -375,18 +371,8 @@
 #define HUMAN_CARRY_SLOWDOWN 0
 
 //Flags that control what things can spawn species (whitelist)
-//Badmin magic mirror
-#define MIRROR_BADMIN (1<<0)
-//Standard magic mirror (wizard)
-#define MIRROR_MAGIC  (1<<1)
-//Pride ruin mirror
-#define MIRROR_PRIDE  (1<<2)
-//Race swap wizard event
-#define RACE_SWAP     (1<<3)
-//xenobio black crossbreed
-#define SLIME_EXTRACT (1<<5)
 //Wabbacjack staff projectiles
-#define WABBAJACK     (1<<6)
+#define WABBAJACK     (1<<0)
 
 #define SLEEP_CHECK_DEATH(X) sleep(X); if(QDELETED(src) || stat == DEAD) return;
 

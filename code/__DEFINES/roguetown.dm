@@ -1,6 +1,12 @@
 //used in various places
 #define ALL_RACES_LIST					list("human", "demihuman", "harpy", "rakshari", "dwarf", "elf", "tiefling", "aasimar", "halforc", "orc", "zizombie", "kobold", "triton")
 
+/// Races where females get underwear, no underwear for kobold, rakshari and triton
+#define RACES_UNDERWEAR_FEMALE			list("human", "demihuman", "harpy", "dwarf", "elf", "tiefling", "aasimar", "halforc", "orc", "zizombie")
+
+/// Races where males get underwear, identical to above but elves and dwarves are handled seperately
+#define RACES_UNDERWEAR_MALE			list("human", "demihuman", "harpy", "tiefling", "aasimar", "halforc", "orc", "zizombie")
+
 /// All playable races from character selection menu.
 #define RACES_PLAYER_ALL				list("Humen", "Hollow-Kin", "Harpy", "Rakshari", "Half-Elf", "Half-Drow", "Dark Elf", "Elf", "Dwarf", "Tiefling", "Half-Orc", "Aasimar", "Kobold", "Triton")
 
@@ -25,10 +31,6 @@
 
 /// Guard Races - No Orcs
 #define RACES_PLAYER_GUARD				list("Humen", "Rakshari", "Half-Elf", "Half-Drow", "Elf", "Dwarf", "Tiefling", "Aasimar", "Harpy")
-
-#define RACES_UNDERWEAR_FEMALE			list("human", "demihuman", "harpy", "dwarf", "elf", "tiefling", "aasimar", "halforc", "orc", "zizombie")
-#define RACES_UNDERWEAR_MALE			list("demihuman", "harpy", "tiefling", "aasimar", "halforc", "orc", "zizombie")
-
 
 #define ALL_TEMPLE_PATRONS 		list(/datum/patron/divine/astrata, /datum/patron/divine/noc, /datum/patron/divine/dendor, /datum/patron/divine/abyssor, /datum/patron/divine/necra, /datum/patron/divine/ravox, /datum/patron/divine/xylix, /datum/patron/divine/pestra, /datum/patron/divine/malum, /datum/patron/divine/eora)
 #define ALL_CLERIC_PATRONS 		list(/datum/patron/divine/astrata, /datum/patron/divine/noc, /datum/patron/divine/dendor, /datum/patron/divine/abyssor, /datum/patron/divine/necra, /datum/patron/divine/ravox, /datum/patron/divine/xylix, /datum/patron/divine/pestra, /datum/patron/divine/malum, /datum/patron/divine/eora)

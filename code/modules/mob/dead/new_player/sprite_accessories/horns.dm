@@ -200,3 +200,6 @@
 	icon = 'icons/mob/sprite_accessory/horns/triton.dmi'
 	icon_state = "tusks"
 	use_static = TRUE
+
+/datum/sprite_accessory/horns/triton/is_visible(obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
+	return is_human_part_visible(owner, HIDEMASK)
