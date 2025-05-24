@@ -147,7 +147,7 @@
 /datum/species/zizombie
 	name = "zizombie"
 	id = "zizombie"
-	species_traits = list(NO_UNDERWEAR)
+	species_traits = list()
 	inherent_traits = list(TRAIT_RESISTCOLD,TRAIT_RESISTHIGHPRESSURE,TRAIT_RESISTLOWPRESSURE,TRAIT_RADIMMUNE)
 	nojumpsuit = 1
 	sexes = 1
