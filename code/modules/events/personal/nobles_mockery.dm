@@ -42,6 +42,6 @@
 
 	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
 	to_chat(chosen_one, span_notice("Xylix demands entertainment! Viciously mock [new_objective.required_count] nobles to prove your wit and earn Xylix's favor!"))
-	SEND_SOUND(chosen_one, 'sound/vo/male/evil/laugh (1).ogg')
+	chosen_one.playsound_local(chosen_one, 'sound/vo/male/evil/laugh (1).ogg', 100)
 
 	chosen_one.mind.announce_personal_objectives()

@@ -804,7 +804,7 @@
 	. = health
 	health = min(new_value, maxHealth)
 
-/mob/living/proc/updatehealth()
+/mob/living/proc/updatehealth(amount = 0)
 	if(status_flags & GODMODE)
 		return
 	set_health(maxHealth - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss() - getCloneLoss())
@@ -813,7 +813,7 @@
 		if(blood_volume <= 0)
 			set_health(NONE)
 	update_stat()
-	SEND_SIGNAL(src, COMSIG_LIVING_HEALTH_UPDATE)
+	SEND_SIGNAL(src, COMSIG_LIVING_HEALTH_UPDATE, amount)
 
 //Proc used to resuscitate a mob, for full_heal see fully_heal()
 /mob/living/proc/revive(full_heal = FALSE, admin_revive = FALSE)
@@ -1137,6 +1137,9 @@
 /mob/living/resist_grab(moving_resist)
 	. = TRUE
 
+	if(!MOBTIMER_FINISHED(pulledby, MT_RESIST_GRAB, 2 SECONDS))
+		return
+
 	var/wrestling_diff = 0
 	var/resist_chance = BASE_GRAB_RESIST_CHANCE
 	var/mob/living/L = pulledby
@@ -1179,11 +1182,14 @@
 	resist_chance *= combat_modifier
 	resist_chance = clamp(resist_chance, 7, 95)
 
-	// if(moving_resist && client) //we resisted by trying to move
-	client?.move_delay = world.time + 20
-	changeNext_move(CLICK_CD_RESIST)
+	if(moving_resist) //we resisted by trying to move
+		client?.move_delay = world.time + 20
+
 	adjust_stamina(rand(4,9))
 	pulledby.adjust_stamina(rand(2,5))
+
+	MOBTIMER_SET(pulledby, MT_RESIST_GRAB)
+
 	if(prob(resist_chance))
 		visible_message("<span class='warning'>[src] breaks free of [pulledby]'s grip!</span>", \
 						"<span class='notice'>I break free of [pulledby]'s grip!</span>", null, null, pulledby)
@@ -1213,14 +1219,21 @@
 		attackhostage()
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L
-		if(HAS_TRAIT(H, TRAIT_NOSEGRAB) && !HAS_TRAIT(src, TRAIT_MISSING_NOSE))
+		if((HAS_TRAIT(H, TRAIT_NOSEGRAB) && !HAS_TRAIT(src, TRAIT_MISSING_NOSE)) || (HAS_TRAIT(H, TRAIT_EARGRAB) && age == AGE_CHILD))
 			var/obj/item/bodypart/head = get_bodypart(BODY_ZONE_HEAD)
 			for(var/obj/item/grabbing/G in grabbedby)
 				if(G.limb_grabbed == head)
 					if(G.grabbee == pulledby)
-						if(G.sublimb_grabbed == BODY_ZONE_PRECISE_NOSE)
+						if(HAS_TRAIT(H, TRAIT_NOSEGRAB) && G.sublimb_grabbed == BODY_ZONE_PRECISE_NOSE)
 							visible_message("<span class='warning'>[src] struggles to break free from [pulledby]'s grip!</span>", \
 											"<span class='warning'>I struggle against [pulledby]'s grip!</span>", null, null, pulledby)
+							to_chat(pulledby, "<span class='warning'>[src] struggles against my grip!</span>")
+							playsound(src.loc, 'sound/combat/grabstruggle.ogg', 50, TRUE, -1)
+							client?.move_delay = world.time + 20
+							return TRUE
+						if(HAS_TRAIT(H, TRAIT_EARGRAB) && G.sublimb_grabbed == BODY_ZONE_PRECISE_EARS)
+							visible_message("<span class='warning'>[src] struggles to break free from [pulledby]'s grip!</span>", \
+												"<span class='warning'>I struggle against [pulledby]'s grip!</span>", null, null, pulledby)
 							to_chat(pulledby, "<span class='warning'>[src] struggles against my grip!</span>")
 							playsound(src.loc, 'sound/combat/grabstruggle.ogg', 50, TRUE, -1)
 							client?.move_delay = world.time + 20
@@ -1619,13 +1632,6 @@
 						//We don't set them directly on, for instances like AIs acting while dead and other cases that may exist in the future.
 						//This isn't a problem for AIs with a client since the client will prevent this from being called anyway.
 						controller.set_ai_status(controller.get_expected_ai_status())
-
-				for (var/I in length(SSidlenpcpool.idle_mobs_by_zlevel[new_z]) to 1 step -1) //Backwards loop because we're removing (guarantees optimal rather than worst-case performance), it's fine to use .len here but doesn't compile on 511
-					var/mob/living/simple_animal/SA = SSidlenpcpool.idle_mobs_by_zlevel[new_z][I]
-					if (SA)
-						SA.toggle_ai(AI_ON) // Guarantees responsiveness for when appearing right next to mobs
-					else
-						SSidlenpcpool.idle_mobs_by_zlevel[new_z] -= SA
 
 			registered_z = new_z
 		else
@@ -2278,8 +2284,6 @@
 	for(var/mob/living/simple_animal/hostile/retaliate/A in view(7,src))
 		if(A.owner == user)
 			A.emote("aggro")
-			A.Retaliate()
-			A.GiveTarget(src)
 	return
 
 /mob/proc/shood(mob/user)

@@ -86,7 +86,6 @@
 	L.dna.species.species_traits |= NOBLOOD
 	L.grant_undead_eyes()
 	L.skeletonize(FALSE)
-	L.unequip_everything()
 	L.equipOutfit(/datum/outfit/job/lich)
 	L.set_patron(/datum/patron/inhumen/zizo)
 

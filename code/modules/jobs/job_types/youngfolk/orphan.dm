@@ -55,3 +55,4 @@
 	H.change_stat(STATKEY_INT, round(rand(-4,4)))
 	H.change_stat(STATKEY_CON, -1)
 	H.change_stat(STATKEY_END, -1)
+	ADD_TRAIT(H, TRAIT_ORPHAN, TRAIT_GENERIC) //Affected by Matron's Eargrab.

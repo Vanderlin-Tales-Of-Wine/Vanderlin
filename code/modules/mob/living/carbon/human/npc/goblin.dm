@@ -25,8 +25,9 @@
 
 	wander = FALSE
 
-/mob/living/carbon/human/species/rousman/npc/Initialize()
+/mob/living/carbon/human/species/goblin/npc/Initialize()
 	. = ..()
+	AddComponent(/datum/component/ai_aggro_system)
 	AddComponent(/datum/component/combat_noise, list("laugh" = 2))
 
 /mob/living/carbon/human/species/goblin/npc/ambush

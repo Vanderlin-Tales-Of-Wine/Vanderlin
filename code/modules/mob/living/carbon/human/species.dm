@@ -85,7 +85,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/datum/blood_type/exotic_bloodtype
 
 	/// What meat do we get from butchering this species?
-	var/meat = /obj/item/reagent_containers/food/snacks/meat/human
+	var/meat = /obj/item/reagent_containers/food/snacks/meat/steak
 	/// Food we (SHOULD) get a mood buff from
 	var/liked_food = NONE
 	/// Food we (SHOULD) get a mood debuff from
@@ -1400,6 +1400,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			target.next_attack_msg += " <span class='warning'>Armor stops the damage.</span>"
 		else
 			affecting.bodypart_attacked_by(user.used_intent.blade_class, damage, user, selzone, crit_message = TRUE)
+			if(affecting.body_zone == BODY_ZONE_HEAD)
+				SEND_SIGNAL(user, COMSIG_HEAD_PUNCHED, target)
 		log_combat(user, target, "punched")
 		knockback(attacker_style, target, user, nodmg, actual_damage)
 

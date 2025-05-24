@@ -8,16 +8,32 @@
 	layer = 5
 	stress_generator = TRUE
 	rotation_structure = TRUE
-	directional = FALSE
+	initialize_dirs = CONN_DIR_FORWARD | CONN_DIR_FLIP
 
-/obj/structure/waterwheel/LateInitialize()
+/obj/structure/waterwheel/find_rotation_network()
 	. = ..()
-	var/turf/open/water/river/water = get_turf(src)
+	setup_rotation(get_turf(src))
+
+/obj/structure/waterwheel/proc/setup_rotation(turf/open/water/river/water)
+	if(!water)
+		water = get_turf(src)
 	if(!istype(water))
 		return
-	if(water.water_volume)
-		set_rotational_direction_and_speed(water.dir, 8)
-		set_stress_generation(1024)
+	if(water.water_volume < 10)
+		return
+	var/wheel_rotation_dir = water.dir
+	if(!(wheel_rotation_dir & ALL_CARDINALS))
+		return
+	if(dir == wheel_rotation_dir || dir == REVERSE_DIR(wheel_rotation_dir)) //incorrect orientation
+		return
+
+	if(EWCOMPONENT(wheel_rotation_dir))
+		wheel_rotation_dir = EWDIRFLIP(wheel_rotation_dir)
+	else // northern water is EAST rotation, southern water is WEST rotation
+		wheel_rotation_dir = turn(wheel_rotation_dir, -90)
+	set_stress_generation(1024)
+	set_rotational_direction_and_speed(wheel_rotation_dir, 8)
+	return TRUE
 
 /obj/structure/waterwheel/update_animation_effect()
 	if(!rotation_network || rotation_network?.overstressed || !rotations_per_minute || !rotation_network?.total_stress)
@@ -34,6 +50,3 @@
 		animate(icon_state = "3", time = frame_stage)
 		animate(icon_state = "2", time = frame_stage)
 		animate(icon_state = "1", time = frame_stage)
-
-/obj/structure/waterwheel/set_rotations_per_minute(speed)
-	. = ..()

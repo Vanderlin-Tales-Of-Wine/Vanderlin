@@ -216,6 +216,8 @@ DEFINE_BITFIELD(smoothing_junction, list(
 	add_overlay(overlay)
 
 /turf/proc/remove_neighborlays()
+	if(!LAZYLEN(neighborlay_list))
+		return
 	for(var/key as anything in neighborlay_list)
 		cut_overlay(neighborlay_list[key])
 		qdel(neighborlay_list[key])

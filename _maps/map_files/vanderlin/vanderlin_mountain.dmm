@@ -1805,6 +1805,10 @@
 	},
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
+"BR" = (
+/obj/effect/traveltile_spawner/vertical/bandit,
+/turf/open/floor/naturalstone,
+/area/rogue/under/mountains/anvil/lower)
 "BU" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/closed/indestructible/wooddark,
@@ -1994,6 +1998,10 @@
 "EH" = (
 /obj/structure/flora/grass/water/reeds,
 /turf/open/water/swamp,
+/area/rogue/under/mountains/anvil/lower)
+"EK" = (
+/obj/effect/traveltile_spawner/horizontal/inhumen,
+/turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/lower)
 "EO" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -3018,6 +3026,10 @@
 /obj/item/reagent_containers/food/snacks/hardtack,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/lower/building)
+"TQ" = (
+/obj/effect/traveltile_spawner/horizontal/vampire,
+/turf/open/floor/cobblerock,
+/area/rogue/under/mountains/anvil/lower)
 "TT" = (
 /obj/machinery/light/fueled/campfire/densefire,
 /turf/open/floor/dirt/road,
@@ -3359,6 +3371,10 @@
 /obj/item/clothing/ring/silver/makers_guild,
 /turf/open/floor/volcanic,
 /area/rogue/outdoors/mountains/anvil/snowyforest)
+"YV" = (
+/obj/effect/traveltile_spawner/vertical/bandit,
+/turf/open/floor/cobblerock,
+/area/rogue/under/mountains/anvil/lower)
 "YZ" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/bed/mediocre,
@@ -3396,6 +3412,10 @@
 "Zo" = (
 /obj/item/natural/rock,
 /turf/open/floor/cobblerock,
+/area/rogue/under/mountains/anvil/lower)
+"Zs" = (
+/obj/effect/traveltile_spawner/vertical/vampire,
+/turf/open/floor/dirt,
 /area/rogue/under/mountains/anvil/lower)
 "Zu" = (
 /turf/closed/wall/mineral/stone/moss,
@@ -44045,8 +44065,8 @@ hl
 Oq
 Oq
 ko
+YV
 ko
-Oq
 Oq
 Oq
 Oq
@@ -44320,7 +44340,7 @@ Oq
 Jv
 Jv
 Jv
-Jv
+BR
 Jv
 Jv
 Oq
@@ -44360,8 +44380,8 @@ Oq
 Oq
 Oq
 Oq
-ko
-ko
+Oq
+Oq
 Oq
 Oq
 Oq
@@ -44562,7 +44582,7 @@ ko
 ko
 ko
 Xi
-Xi
+Zs
 Xi
 ko
 ko
@@ -44958,7 +44978,7 @@ DR
 ko
 ko
 ko
-ko
+Oq
 ko
 ko
 ko
@@ -48253,7 +48273,7 @@ ko
 Xi
 ko
 ko
-DR
+ko
 DR
 DR
 DR
@@ -48455,8 +48475,8 @@ ko
 Xi
 ko
 ko
-DR
-DR
+ko
+ko
 DR
 DR
 VB
@@ -48657,10 +48677,10 @@ ko
 Xi
 ko
 ko
-DR
-DR
-DR
-DR
+ko
+ko
+ko
+ko
 VB
 VB
 rJ
@@ -48859,10 +48879,10 @@ ko
 Xi
 ko
 ko
-DR
-DR
-DR
-DR
+ko
+ko
+ko
+EK
 VB
 VB
 sk
@@ -49061,10 +49081,10 @@ Xi
 ko
 ko
 ko
-DR
-DR
-DR
-DR
+ko
+ko
+ko
+ko
 VB
 VB
 rJ
@@ -49263,9 +49283,9 @@ ko
 ko
 ko
 ko
-DR
-DR
-DR
+ko
+ko
+ko
 DR
 VB
 VB
@@ -49465,7 +49485,7 @@ ko
 ko
 ko
 ko
-DR
+ko
 DR
 DR
 DR
@@ -52123,7 +52143,7 @@ VB
 "}
 (42,1,2) = {"
 Oq
-ko
+TQ
 ko
 ko
 ko

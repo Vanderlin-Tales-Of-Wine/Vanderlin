@@ -590,6 +590,7 @@ There are several things that need to be remembered:
 		if(species?.sexes)
 			if(gender == FEMALE && !species.swap_female_clothes || gender == MALE && species.swap_male_clothes)
 				use_female_sprites = FEMALE_SPRITES
+
 		overlays_standing[HEAD_LAYER] = head.build_worn_icon(age = age, default_layer = HEAD_LAYER, default_icon_file = 'icons/roguetown/clothing/onmob/head.dmi', coom = FALSE)
 		var/mutable_appearance/head_overlay = overlays_standing[HEAD_LAYER]
 		if(head_overlay)
@@ -1127,9 +1128,8 @@ There are several things that need to be remembered:
 						S.pixel_y += offsets[OFFSET_SHIRT_F][2]
 			overlays_standing[SHIRTSLEEVE_LAYER] = sleeves
 
-	if(use_female_sprites)
-		update_body_parts(redraw = TRUE)
-		dna.species.handle_body(src)
+	update_body_parts(redraw = TRUE)
+	dna.species.handle_body(src)
 	update_body()
 
 	apply_overlay(SHIRT_LAYER)
@@ -1198,9 +1198,8 @@ There are several things that need to be remembered:
 						S.pixel_y += offsets[OFFSET_ARMOR_F][2]
 			overlays_standing[ARMORSLEEVE_LAYER] = sleeves
 
-	if(use_female_sprites)
-		update_body_parts(redraw = TRUE)
-		dna.species.handle_body(src)
+	update_body_parts(redraw = TRUE)
+	dna.species.handle_body(src)
 	update_body()
 	update_inv_shirt() // fix boob
 

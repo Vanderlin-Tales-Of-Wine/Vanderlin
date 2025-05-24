@@ -4754,7 +4754,7 @@
 /area/rogue)
 "Df" = (
 /obj/structure/fluff/traveltile/exit_inhumen,
-/turf/open/water/swamp,
+/turf/open/floor/cobblerock,
 /area/rogue/outdoors/bog/inhumen_camp)
 "Dg" = (
 /obj/machinery/light/fueled/torchholder/hotspring/standing{

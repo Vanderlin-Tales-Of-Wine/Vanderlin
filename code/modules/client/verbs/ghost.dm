@@ -32,7 +32,7 @@
 				return
 			var/datum/mind/mind = mob.mind
 			// Check if the player's job is hiv+
-			var/datum/job/target_job = mind?.assigned_role //this shouldn't possibly be null but it can be sometimes ???
+			var/datum/job/target_job = mind?.assigned_role
 			if(target_job)
 				if(target_job.job_reopens_slots_on_death)
 					target_job.adjust_current_positions(-1)
@@ -54,6 +54,10 @@
 			ADD_TRAIT(O, TRAIT_PACIFISM, TRAIT_GENERIC)
 			O.set_patron(prefs.selected_patron)
 			SSdeath_arena.add_fighter(O, mind?.last_death)
+
+			if(HAS_TRAIT(mind?.current, TRAIT_BURIED_COIN_GIVEN))
+				O.paid = TRUE
+				to_chat(O, span_biginfo("Necra has guaranteed your passage to the next life. Your toll has been already paid."))
 
 			var/area/rogue/underworld/underworld = get_area(spawn_loc)
 			underworld.Entered(O, null)
