@@ -414,7 +414,6 @@ SUBSYSTEM_DEF(job)
 	equipping.mind?.set_assigned_role(job)
 	equipping.on_job_equipping(job)
 	addtimer(CALLBACK(job, TYPE_PROC_REF(/datum/job, greet), equipping), 5 SECONDS) //TODO: REFACTOR OUT
-	job.announce_job(equipping)
 
 	if(player_client.holder)
 		if(CONFIG_GET(flag/auto_deadmin_players) || (player_client.prefs?.toggles & DEADMIN_ALWAYS))

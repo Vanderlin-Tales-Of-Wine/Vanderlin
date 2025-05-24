@@ -137,6 +137,7 @@
 
 // job display orders //
 
+#define JDO_DEFAULT 0
 #define JDO_LORD 1
 #define JDO_CONSORT 1.1
 #define JDO_PRINCE 1.2
