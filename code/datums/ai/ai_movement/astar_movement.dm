@@ -13,10 +13,8 @@
 		COOLDOWN_START(controller, movement_cooldown, controller.movement_delay)
 
 		var/atom/movable/movable_pawn = controller.pawn
-		if(!isturf(movable_pawn.loc)) //No moving if not on a turf
-			continue
 
-		if(controller.ai_traits & STOP_MOVING_WHEN_PULLED && movable_pawn.pulledby)
+		if(!controller.can_move())
 			continue
 
 		var/minimum_distance = controller.max_target_distance
@@ -53,7 +51,7 @@
 				continue
 
 			COOLDOWN_START(controller, repath_cooldown, 2 SECONDS)
-			controller.movement_path = get_path_to(movable_pawn, controller.current_movement_target, /turf/proc/Distance3D, max_path_distance + 1, 250,  minimum_distance, id=controller.get_access())
+			controller.movement_path = get_path_to(movable_pawn, controller.current_movement_target, TYPE_PROC_REF(/turf, Heuristic_cardinal_3d), max_path_distance + 1, 250,  minimum_distance, id=controller.get_access())
 
 /datum/ai_movement/astar/start_moving_towards(datum/ai_controller/controller, atom/current_movement_target)
 	controller.movement_path = null

@@ -5,6 +5,8 @@
 	Otherwise pretty standard.
 */
 /mob/living/carbon/UnarmedAttack(atom/A, proximity, params)
+	if(HAS_TRAIT(src, TRAIT_HANDS_BLOCKED))
+		return
 
 	if(!has_active_hand()) //can't attack without a hand.
 		to_chat(src, span_warning("I lack working hands."))
@@ -99,11 +101,11 @@
 		if(ishuman(src) && ishuman(user))
 			var/mob/living/carbon/human/target = src
 			var/datum/job/job = SSjob.GetJob(target.job)
-			if(length(user.mind?.apprentices) >= user.mind?.max_apprentices)
+			if(length(user.return_apprentices()) >= user.return_max_apprentices())
 				return
-			if((target.age == AGE_CHILD || job?.type == /datum/job/vagrant) && target.mind && !target.mind.apprentice)
+			if((target.age == AGE_CHILD || job?.type == /datum/job/vagrant) && target.mind && !target.is_apprentice())
 				to_chat(user, span_notice("You offer apprenticeship to [target]."))
-				user.mind?.make_apprentice(target)
+				user.make_apprentice(target)
 				return
 
 	if(user.cmode)
@@ -233,9 +235,10 @@
 		playsound(src, "smallslash", 100, TRUE, -1)
 		if(istype(src, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = src
-			if(user.mind && mind)
-				if(istype(user.dna.species, /datum/species/werewolf))
-					caused_wound?.werewolf_infect_attempt()
+			if(user?.mind && mind)
+				if(user.dna?.species && istype(user.dna.species, /datum/species/werewolf))
+					if(caused_wound)
+						caused_wound.werewolf_infect_attempt()
 					if(prob(30))
 						user.werewolf_feed(src)
 				if(user.mind.has_antag_datum(/datum/antagonist/zombie) && !src.mind.has_antag_datum(/datum/antagonist/zombie))
@@ -244,7 +247,7 @@
 	var/obj/item/grabbing/bite/B = new()
 	user.equip_to_slot_or_del(B, SLOT_MOUTH)
 	if(user.mouth == B)
-		var/used_limb = src.find_used_grab_limb(user)
+		var/used_limb = src.find_used_grab_limb(user, accurate = TRUE)
 		B.name = "[src]'s [parse_zone(used_limb)]"
 		var/obj/item/bodypart/BP = get_bodypart(check_zone(used_limb))
 		BP.grabbedby += B
@@ -274,15 +277,19 @@
 //				face_atom(A)
 //				A.ongive(src, params)
 			if(INTENT_KICK)
-				if(src.get_num_legs() < 2)
+				if(src.usable_legs < 2)
 					return
 				if(!A.Adjacent(src))
 					return
 				if(A == src)
-					return
-				if(ismob(A))
-					var/mob/M = A
-					if(lying && M.pulling != src)
+					var/list/mobs_here = list()
+					for(var/mob/M in get_turf(src))
+						if(M.invisibility || M == src)
+							continue
+						mobs_here += M
+					if(mobs_here.len)
+						A = pick(mobs_here)
+					if(A == src) //auto aim couldn't select another target
 						return
 				if(IsOffBalanced())
 					to_chat(src, span_warning("I haven't regained my balance yet."))
@@ -302,7 +309,7 @@
 							return
 						if(!M.Adjacent(src))
 							return
-						if(src.incapacitated())
+						if(src.incapacitated(ignore_grab = TRUE))
 							return
 						if(M.checkmiss(src))
 							return
@@ -327,7 +334,7 @@
 					return
 				if(A == src || A == src.loc)
 					return
-				if(src.get_num_legs() < 2)
+				if(src.usable_legs < 2)
 					return
 				if(pulledby && pulledby != src)
 					to_chat(src, span_warning("I'm being grabbed."))
@@ -336,7 +343,7 @@
 				if(IsOffBalanced())
 					to_chat(src, span_warning("I haven't regained my balance yet."))
 					return
-				if(lying)
+				if(lying_angle)
 					to_chat(src, span_warning("I should stand up first."))
 					return
 				if(!isatom(A))
@@ -391,7 +398,7 @@
 					return
 				if(A == src)
 					return
-				if(src.incapacitated())
+				if(src.incapacitated(ignore_grab = TRUE))
 					return
 				if(is_mouth_covered())
 					to_chat(src, span_warning("My mouth is blocked."))
@@ -411,7 +418,7 @@
 				if(ishuman(A))
 					var/mob/living/carbon/human/U = src
 					var/mob/living/carbon/human/V = A
-					var/thiefskill = src.mind.get_skill_level(/datum/skill/misc/stealing) + (has_world_trait(/datum/world_trait/matthios_fingers) ? 1 : 0)
+					var/thiefskill = src.get_skill_level(/datum/skill/misc/stealing) + (has_world_trait(/datum/world_trait/matthios_fingers) ? 1 : 0)
 					var/stealroll = roll("[thiefskill]d6")
 					var/targetperception = (V.STAPER)
 					var/exp_to_gain = STAINT
@@ -447,8 +454,11 @@
 								V.dropItemToGround(picked)
 								put_in_active_hand(picked)
 								to_chat(src, span_green("I stole [picked]!"))
-								exp_to_gain *= src.mind.get_learning_boon(thiefskill)
+								exp_to_gain *= src.get_learning_boon(thiefskill)
 								if(V.client && V.stat != DEAD)
+									SEND_SIGNAL(U, COMSIG_ITEM_STOLEN, V)
+									record_featured_stat(FEATURED_STATS_THIEVES, U)
+									record_featured_stat(FEATURED_STATS_CRIMINALS, U)
 									GLOB.vanderlin_round_stats[STATS_ITEMS_PICKPOCKETED]++
 								if(has_flaw(/datum/charflaw/addiction/kleptomaniac))
 									sate_addiction()
@@ -462,7 +472,7 @@
 					if(stealroll < targetperception)
 						exp_to_gain /= 5
 						to_chat(src, span_danger("I failed to pick the pocket!"))
-					src.mind.adjust_experience(/datum/skill/misc/stealing, exp_to_gain, FALSE)
+					src.adjust_experience(/datum/skill/misc/stealing, exp_to_gain, FALSE)
 					changeNext_move(mmb_intent.clickcd)
 				return
 			if(INTENT_SPELL)
@@ -484,12 +494,10 @@
 
 /atom/proc/attack_right(mob/user)
 	. = FALSE
-	if(!(interaction_flags_atom & INTERACT_ATOM_NO_FINGERPRINT_ATTACK_HAND))
+	if(!(interaction_flags_atom & INTERACT_ATOM_NO_FINGERPRINT_ATTACK_RIGHT))
 		add_fingerprint(user)
-	if(SEND_SIGNAL(src, COMSIG_ATOM_ATTACK_HAND, user) & COMPONENT_NO_ATTACK_HAND)
+	if(SEND_SIGNAL(src, COMSIG_ATOM_ATTACK_RIGHT, user) & COMPONENT_NO_ATTACK_RIGHT)
 		. = TRUE
-	if(interaction_flags_atom & INTERACT_ATOM_ATTACK_HAND)
-		. = _try_interact(user)
 
 //Return a non FALSE value to cancel whatever called this from propagating, if it respects it.
 /atom/proc/_try_interact(mob/user)
@@ -505,7 +513,7 @@
 	if((interaction_flags_atom & INTERACT_ATOM_REQUIRES_DEXTERITY) && !user.IsAdvancedToolUser())
 		to_chat(user, span_warning("I don't have the dexterity to do this!"))
 		return FALSE
-	if(!(interaction_flags_atom & INTERACT_ATOM_IGNORE_INCAPACITATED) && user.incapacitated((interaction_flags_atom & INTERACT_ATOM_IGNORE_RESTRAINED), !(interaction_flags_atom & INTERACT_ATOM_CHECK_GRAB)))
+	if(!(interaction_flags_atom & INTERACT_ATOM_IGNORE_INCAPACITATED) && user.incapacitated(ignore_restraints = (interaction_flags_atom & INTERACT_ATOM_IGNORE_RESTRAINED), ignore_grab = !(interaction_flags_atom & INTERACT_ATOM_CHECK_GRAB)))
 		return FALSE
 	return TRUE
 
@@ -530,13 +538,6 @@
 		return ui_interact(user)
 	return FALSE
 
-/*
-/mob/living/carbon/human/RestrainedClickOn(atom/A) ---carbons will handle this
-	return
-*/
-
-/mob/living/carbon/RestrainedClickOn(atom/A)
-	return 0
 
 /mob/living/carbon/human/RangedAttack(atom/A, mouseparams)
 	. = ..()
@@ -546,7 +547,7 @@
 			return
 	if(!used_intent.noaa && ismob(A))
 //		playsound(src, pick(GLOB.unarmed_swingmiss), 100, FALSE)
-		do_attack_animation(A, visual_effect_icon = used_intent.animname)
+		do_attack_animation(A, visual_effect_icon = used_intent.animname, used_intent = used_intent)
 		changeNext_move(used_intent.clickcd)
 //		src.emote("attackgrunt")
 		playsound(get_turf(src), used_intent.miss_sound, 100, FALSE)
@@ -584,53 +585,39 @@
 /atom/proc/attack_animal(mob/user)
 	SEND_SIGNAL(src, COMSIG_ATOM_ATTACK_ANIMAL, user)
 
-/mob/living/RestrainedClickOn(atom/A)
-	return
-
 /*
 	Monkeys
 */
 /mob/living/carbon/monkey/UnarmedAttack(atom/A)
+	if(HAS_TRAIT(src, TRAIT_HANDS_BLOCKED))
+		if(a_intent != INTENT_HARM || is_muzzled())
+			return
+		if(!iscarbon(A))
+			return
+		var/mob/living/carbon/victim = A
+		var/obj/item/bodypart/affecting = null
+		if(ishuman(victim))
+			var/mob/living/carbon/human/human_victim = victim
+			affecting = human_victim.get_bodypart(pick(BODY_ZONE_CHEST, BODY_ZONE_PRECISE_L_HAND, BODY_ZONE_PRECISE_R_HAND, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG))
+		var/armor = victim.run_armor_check(affecting, "melee")
+		if(prob(25))
+			victim.visible_message("<span class='danger'>[src]'s bite misses [victim]!</span>",
+				"<span class='danger'>You avoid [src]'s bite!</span>", "<span class='hear'>You hear jaws snapping shut!</span>", COMBAT_MESSAGE_RANGE, src)
+			to_chat(src, "<span class='danger'>Your bite misses [victim]!</span>")
+			return
+		victim.apply_damage(rand(1, 3), BRUTE, affecting, armor)
+		victim.visible_message("<span class='danger'>[name] bites [victim]!</span>",
+			"<span class='userdanger'>[name] bites you!</span>", "<span class='hear'>You hear a chomp!</span>", COMBAT_MESSAGE_RANGE, name)
+		to_chat(name, "<span class='danger'>You bite [victim]!</span>")
+		if(armor >= 2)
+			return
+		return
 	A.attack_paw(src)
 
 /atom/proc/attack_paw(mob/user)
 	if(SEND_SIGNAL(src, COMSIG_ATOM_ATTACK_PAW, user) & COMPONENT_NO_ATTACK_HAND)
 		return TRUE
 	return FALSE
-
-/*
-	Monkey RestrainedClickOn() was apparently the
-	one and only use of all of the restrained click code
-	(except to stop you from doing things while handcuffed);
-	moving it here instead of various hand_p's has simplified
-	things considerably
-*/
-/mob/living/carbon/monkey/RestrainedClickOn(atom/A)
-	if(..())
-		return
-	if(used_intent.type != INTENT_HARM || !ismob(A))
-		return
-	if(is_muzzled())
-		return
-	var/mob/living/carbon/ML = A
-	if(istype(ML))
-		var/dam_zone = pick(BODY_ZONE_CHEST, BODY_ZONE_PRECISE_L_HAND, BODY_ZONE_PRECISE_R_HAND, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
-		var/obj/item/bodypart/affecting = null
-		if(ishuman(ML))
-			var/mob/living/carbon/human/H = ML
-			affecting = H.get_bodypart(ran_zone(dam_zone))
-		var/armor = ML.run_armor_check(affecting, "stab")
-		if(prob(75))
-			ML.apply_damage(rand(1,3), BRUTE, affecting, armor)
-			ML.visible_message(span_danger("[name] bites [ML]!"), \
-							span_danger("[name] bites you!"), span_hear("I hear a chomp!"), COMBAT_MESSAGE_RANGE, name)
-			to_chat(name, span_danger("I bite [ML]!"))
-			if(armor >= 2)
-				return
-		else
-			ML.visible_message(span_danger("[src]'s bite misses [ML]!"), \
-							span_danger("I avoid [src]'s bite!"), span_hear("I hear jaws snapping shut!"), COMBAT_MESSAGE_RANGE, src)
-			to_chat(src, span_danger("My bite misses [ML]!"))
 
 /*
 	True Devil

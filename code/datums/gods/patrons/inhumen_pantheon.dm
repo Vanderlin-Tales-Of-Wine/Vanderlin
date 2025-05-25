@@ -11,7 +11,7 @@
 
 /datum/patron/inhumen/can_pray(mob/living/follower)
 	for(var/obj/structure/fluff/psycross/cross in view(7, get_turf(follower)))
-		if(!cross.obj_broken)
+		if(cross.divine && !cross.obj_broken)
 			to_chat(follower, span_danger("That accursed cross won't let me commune with the Forbidden One!"))
 			return FALSE
 
@@ -34,6 +34,10 @@
 		"ZIZO SHOWED ME THE WAY!",
 	)
 	storyteller = /datum/storyteller/zizo
+	added_verbs = list(
+		/mob/living/carbon/human/proc/draw_sigil,
+		/mob/living/carbon/human/proc/praise,
+	)
 
 /datum/patron/inhumen/graggar
 	name = "Graggar"

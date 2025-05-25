@@ -35,38 +35,20 @@
 						user.put_in_hands(I)
 			return
 
+/obj/structure/flora/tree/attacked_by(obj/item/I, mob/living/user)
+	var/was_destroyed = obj_destroyed
+	. = ..()
+	if(.)
+		if(!was_destroyed && obj_destroyed)
+			record_featured_stat(FEATURED_STATS_TREE_FELLERS, user)
+			GLOB.vanderlin_round_stats[STATS_TREES_CUT]++
+
 /obj/structure/flora/tree/fire_act(added, maxstacks)
 	if(added > 5)
 		return ..()
 
 /obj/structure/flora/tree/Initialize()
 	. = ..()
-
-/*
-	if(makevines)
-		var/turf/target = get_step_multiz(src, UP)
-		if(istype(target, /turf/open/transparent/openspace))
-			target.ChangeTurf(/turf/open/floor/shroud)
-			var/makecanopy = FALSE
-			for(var/D in GLOB.cardinals)
-				if(!makecanopy)
-					var/turf/NT = get_step(src, D)
-					for(var/obj/structure/flora/tree/R in NT)
-						if(R.makevines)
-							makecanopy = TRUE
-							break
-			if(makecanopy)
-				for(var/D in GLOB.cardinals)
-					var/turf/NT = get_step(target, D)
-					if(NT)
-						if(istype(NT, /turf/open/transparent/openspace) || istype(NT, /turf/open/floor/shroud))
-							NT.ChangeTurf(/turf/closed/wall/shroud)
-							for(var/X in GLOB.cardinals)
-								var/turf/NA = get_step(NT, X)
-								if(NA)
-									if(istype(NA, /turf/open/transparent/openspace))
-										NA.ChangeTurf(/turf/open/floor/shroud)
-*/
 
 	if(istype(loc, /turf/open/floor/grass))
 		var/turf/T = loc
@@ -75,9 +57,7 @@
 /obj/structure/flora/tree/obj_destruction(damage_flag)
 	if(stump_type)
 		new stump_type(loc)
-	GLOB.vanderlin_round_stats[STATS_TREES_CUT]++
 	. = ..()
-
 
 /obj/structure/flora/tree/Initialize()
 	. = ..()
@@ -103,13 +83,39 @@
 
 /obj/structure/flora/tree/wise
 	name = "wise tree"
-	desc = "Dendor's favored."
+	desc = "Dendor's favored. It seems to watch you with ancient awareness."
 	icon_state = "mystical"
-	var/activated = 0
+	var/activated = FALSE
+	var/cooldown = FALSE
+	var/retaliation_messages = list(
+		"LEAVE FOREST ALONE!",
+		"DENDOR PROTECTS!",
+		"NATURE'S WRATH!",
+		"BEGONE, INTERLOPER!"
+	)
 
 /obj/structure/flora/tree/wise/Initialize()
 	. = ..()
 	icon_state = "mystical"
+
+/obj/structure/flora/tree/wise/attackby(obj/item/I, mob/user, params)
+	. = ..()
+	if(activated && !cooldown)
+		retaliate(user)
+
+/obj/structure/flora/tree/wise/proc/retaliate(mob/living/target)
+	if(cooldown || !istype(target) || !activated)
+		return
+
+	cooldown = TRUE
+	addtimer(VARSET_CALLBACK(src, cooldown, FALSE), 5 SECONDS)
+
+	var/message = pick(retaliation_messages)
+	say(span_danger("[message]"))
+
+	var/atom/throw_target = get_edge_target_turf(src, get_dir(src, target))
+	target.throw_at(throw_target, 4, 2)
+	target.adjustBruteLoss(8)
 
 /obj/structure/flora/tree/burnt
 	name = "burnt tree"
@@ -138,6 +144,48 @@
 	. = ..()
 	icon_state = "screaming[rand(1,3)]"
 
+/obj/structure/flora/tree/stump/pine
+	name = "pine stump"
+	icon_state = "dead4"
+	icon = 'icons/obj/flora/pines.dmi'
+	static_debris = list(/obj/item/ore/coal/charcoal = 1)
+	stump_type = null
+	pixel_x = -32
+
+/obj/structure/flora/tree/stump/pine/Initialize()
+	. = ..()
+	icon_state = "dead[rand(4,5)]"
+
+/obj/structure/flora/tree/pine
+	name = "pine tree"
+	icon_state = "pine1"
+	desc = ""
+	icon = 'icons/obj/flora/pines.dmi'
+	pixel_w = -24
+	density = 0
+	max_integrity = 100
+	static_debris = list(/obj/item/grown/log/tree = 2)
+	stump_type = null
+
+/obj/structure/flora/tree/pine/Initialize()
+	. = ..()
+	icon_state = "pine[rand(1, 4)]"
+
+/obj/structure/flora/tree/pine/burn()
+	new /obj/structure/flora/tree/pine/dead(get_turf(src))
+	qdel(src)
+
+/obj/structure/flora/tree/pine/dead
+	name = "burnt pine tree"
+	icon_state = "dead1"
+	max_integrity = 50
+	static_debris = list(/obj/item/ore/coal/charcoal = 1)
+	resistance_flags = FIRE_PROOF
+	stump_type = /obj/structure/flora/tree/stump/pine
+
+/obj/structure/flora/tree/pine/dead/Initialize()
+	. = ..()
+	icon_state = "dead[rand(1, 3)]"
 
 /*	.............  Treestump   ................ */	// Treestumps are now tables, so you can tablecraft with them and so on.
 /obj/structure/table/wood/treestump
@@ -235,6 +283,11 @@
 	AddComponent(/datum/component/grass)
 	. = ..()
 
+/obj/structure/flora/grass/Destroy()
+	if(prob(5))
+		new /obj/item/neuFarm/seed/mixed_seed(get_turf(src))
+	. = ..()
+
 /obj/structure/flora/grass/update_icon()
 	icon_state = "grass[rand(1, 6)]"
 
@@ -307,8 +360,8 @@
 
 /obj/structure/flora/grass/bush/Initialize()
 	if(prob(88))
-		bushtype = pickweight(list(/obj/item/reagent_containers/food/snacks/produce/jacksberry=5,
-					/obj/item/reagent_containers/food/snacks/produce/jacksberry/poison=3,
+		bushtype = pickweight(list(/obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry=5,
+					/obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry/poison=3,
 					/obj/item/reagent_containers/food/snacks/produce/westleach=2))
 	loot_replenish()
 	pixel_x += rand(-3,3)
@@ -329,10 +382,6 @@
 		user.changeNext_move(CLICK_CD_MELEE)
 		playsound(src.loc, "plantcross", 80, FALSE, -1)
 		if(do_after(L, rand(1,5) DECISECONDS, src))
-#ifndef MATURESERVER
-			if(!looty.len && (world.time > res_replenish))
-				loot_replenish()
-#endif
 			if(prob(50) && looty.len)
 				if(looty.len == 1)
 					res_replenish = world.time + 8 MINUTES
@@ -343,13 +392,8 @@
 					user.visible_message("<span class='notice'>[user] finds [B] in [src].</span>")
 					return
 			user.visible_message("<span class='warning'>[user] searches through [src].</span>")
-#ifdef MATURESERVER
 			if(!looty.len)
 				to_chat(user, "<span class='warning'>Picked clean.</span>")
-#else
-			if(!looty.len)
-				to_chat(user, "<span class='warning'>Picked clean... I should try later.</span>")
-#endif
 
 /obj/structure/flora/grass/bush/CanPass(atom/movable/mover, turf/target)
 	if(mover.throwing)
@@ -358,21 +402,6 @@
 	if(mover.pass_flags & PASSGRILLE)
 		return TRUE
 	if(ismob(mover))
-		return TRUE
-	return FALSE
-
-/obj/structure/flora/grass/bush/CheckExit(atom/movable/mover, turf/target)
-	if(mover.throwing) //you are now stuck
-		return FALSE
-	if(istype(mover) && (mover.pass_flags & PASSGRILLE))
-		return TRUE
-	if(isdead(mover))
-		return TRUE
-	if(isliving(mover))
-		var/mob/living/living_mover = mover
-		if(living_mover.stat > CONSCIOUS && !living_mover.pulledby)
-			to_chat(living_mover, span_warning("I don't have the strength to free myself from [src]..."))
-			return FALSE
 		return TRUE
 	return FALSE
 
@@ -466,6 +495,15 @@
 	. = ..()
 	icon_state = "tallbush[pick(1,2)]_tundra"
 
+/obj/structure/flora/grass/bush/wall/tall/bog
+	desc = "A tall bush that has grown into a hedge... but this one seems diseased."
+	name = "bog great bush"
+	icon_state = "tallbush1_bog"
+
+/obj/structure/flora/grass/bush/wall/tall/bog/Initialize()
+	. = ..()
+	icon_state = "tallbush[pick(1,2)]_bog"
+
 // fyrituis bush
 /obj/structure/flora/grass/pyroclasticflowers
 	name = "odd group of flowers"
@@ -503,10 +541,6 @@
 		user.changeNext_move(CLICK_CD_MELEE)
 		playsound(src.loc, "plantcross", 80, FALSE, -1)
 		if(do_after(L, rand(1,5) DECISECONDS, src))
-#ifndef MATURESERVER
-			if(!looty2.len && (world.time > res_replenish2))
-				loot_replenish2()
-#endif
 			if(prob(50) && looty2.len)
 				if(looty2.len == 1)
 					res_replenish2 = world.time + 8 MINUTES
@@ -517,13 +551,8 @@
 					user.visible_message(span_notice("[user] finds [B] in [src]."))
 					return
 			user.visible_message(span_warning("[user] searches through [src]."))
-#ifdef MATURESERVER
 			if(!looty2.len)
 				to_chat(user, span_warning("Picked clean."))
-#else
-			if(!looty2.len)
-				to_chat(user, span_warning("Picked clean... I should try later."))
-#endif
 
 // swarmpweed bush
 /obj/structure/flora/grass/swampweed
@@ -563,10 +592,6 @@
 		user.changeNext_move(CLICK_CD_MELEE)
 		playsound(src.loc, "plantcross", 80, FALSE, -1)
 		if(do_after(L, rand(1,5) DECISECONDS, src))
-#ifndef MATURESERVER
-			if(!looty2.len && (world.time > res_replenish2))
-				loot_replenish2()
-#endif
 			if(prob(50) && looty2.len)
 				if(looty2.len == 1)
 					res_replenish2 = world.time + 8 MINUTES
@@ -577,13 +602,8 @@
 					user.visible_message("<span class='notice'>[user] finds [B] in [src].</span>")
 					return
 			user.visible_message("<span class='warning'>[user] searches through [src].</span>")
-#ifdef MATURESERVER
 			if(!looty2.len)
 				to_chat(user, "<span class='warning'>Picked clean.</span>")
-#else
-			if(!looty2.len)
-				to_chat(user, "<span class='warning'>Picked clean... I should try later.</span>")
-#endif
 
 // swarmweed looting
 /obj/structure/flora/grass/swampweed/attack_hand(mob/user)
@@ -592,10 +612,6 @@
 		user.changeNext_move(CLICK_CD_MELEE)
 		playsound(src.loc, "plantcross", 80, FALSE, -1)
 		if(do_after(L, rand(1,5) DECISECONDS, src))
-#ifndef MATURESERVER
-			if(!looty3.len && (world.time > res_replenish3))
-				loot_replenish3()
-#endif
 			if(prob(50) && looty3.len)
 				if(looty3.len == 1)
 					res_replenish3 = world.time + 8 MINUTES
@@ -606,13 +622,8 @@
 					user.visible_message("<span class='notice'>[user] finds [B] in [src].</span>")
 					return
 			user.visible_message("<span class='warning'>[user] searches through [src].</span>")
-#ifdef MATURESERVER
 			if(!looty3.len)
 				to_chat(user, "<span class='warning'>Picked clean.</span>")
-#else
-			if(!looty3.len)
-				to_chat(user, "<span class='warning'>Picked clean... I should try later.</span>")
-#endif
 
 // varients
 
@@ -660,6 +671,8 @@
 	if(icon_state == "mush5")
 		static_debris = list(/obj/item/natural/thorn=1, /obj/item/grown/log/tree/small = 1)
 	pixel_x += rand(8,-8)
+	var/static/list/loc_connections = list(COMSIG_ATOM_EXIT = PROC_REF(on_exit))
+	AddElement(/datum/element/connect_loc, loc_connections)
 
 /obj/structure/flora/shroom_tree/CanPass(atom/movable/mover, turf/target)
 	if(istype(mover) && (mover.pass_flags & PASSGRILLE))
@@ -668,12 +681,11 @@
 		return 0
 	return 1
 
-/obj/structure/flora/shroom_tree/CheckExit(atom/movable/mover as mob|obj, turf/target)
-	if(istype(mover) && (mover.pass_flags & PASSGRILLE))
-		return 1
-	if(get_dir(mover.loc, target) == dir)
-		return 0
-	return 1
+/obj/structure/flora/shroom_tree/proc/on_exit(datum/source, atom/movable/leaving, atom/new_location)
+	SIGNAL_HANDLER
+	if(get_dir(leaving.loc, new_location) == dir)
+		leaving.Bump(src)
+		return COMPONENT_ATOM_BLOCK_EXIT
 
 /obj/structure/flora/shroom_tree/fire_act(added, maxstacks)
 	if(added > 5)
@@ -683,7 +695,6 @@
 	var/obj/structure/S = new /obj/structure/table/wood/treestump/shroomstump(loc)
 	S.icon_state = "[icon_state]stump"
 	. = ..()
-
 
 /obj/structure/table/wood/treestump/shroomstump
 	name = "shroom stump"
@@ -838,6 +849,13 @@
 /obj/structure/flora/grass/bush_meagre/tundra/update_icon()
 	icon_state = "bush[rand(1,3)]_tundra"
 
+/obj/structure/flora/grass/bush_meagre/yellow
+	name = "bog bush"
+	icon_state = "bush1_bog"
+
+/obj/structure/flora/grass/bush_meagre/yellow/update_icon()
+	icon_state = "bush[rand(1,3)]_bog"
+
 /obj/structure/flora/grass/bush_meagre/Initialize()
 	if(silky)
 		goodie = /obj/item/natural/worms/grub_silk
@@ -852,9 +870,9 @@
 			tobacco = FALSE
 			berries = TRUE
 			if(prob(60))
-				goodie = /obj/item/reagent_containers/food/snacks/produce/jacksberry
+				goodie = /obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry
 			else
-				goodie = /obj/item/reagent_containers/food/snacks/produce/jacksberry/poison
+				goodie = /obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry/poison
 	pixel_x += rand(-3,3)
 	if(prob(10))
 		trashie = /obj/item/natural/fibers

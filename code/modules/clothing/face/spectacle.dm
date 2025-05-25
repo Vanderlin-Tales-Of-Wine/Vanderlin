@@ -19,10 +19,6 @@
 	resistance_flags = FIRE_PROOF
 	body_parts_covered = EYES
 
-/obj/item/clothing/face/spectacles/Initialize()
-	. = ..()
-	AddComponent(/datum/component/spill, null, 'sound/blank.ogg')
-
 /obj/item/clothing/face/spectacles/Crossed(mob/crosser)
 	if(isliving(crosser) && !obj_broken)
 		take_damage(11, BRUTE, "blunt", 1)
@@ -32,3 +28,8 @@
 	name = "crimson spectacles"
 	desc = "Spectacles evoking the stained glass of Grenzelhoftian cathedrals. See all evil."
 	icon_state = "bglasses"
+
+/obj/item/clothing/face/spectacles/sglasses
+	name = "smokey onyxa spectacles"
+	desc = "Death has come to your little town, Sheriff. Now, you can either ignore it, or you can help me to stop it."
+	icon_state = "sglasses"

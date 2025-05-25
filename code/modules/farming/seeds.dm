@@ -1,3 +1,11 @@
+/obj/item/neuFarm/seed/mixed_seed
+	name = "mixed seeds"
+
+/obj/item/neuFarm/seed/mixed_seed/Initialize()
+	plant_def_type = pick(GLOB.plant_defs)
+	seed_identity = "[plant_def_type.name] seed"
+	. = ..()
+
 /obj/item/neuFarm/seed
 	name = "seeds"
 	icon = 'icons/roguetown/items/produce.dmi'
@@ -5,7 +13,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	resistance_flags = FLAMMABLE
 	possible_item_intents = list(/datum/intent/use)
-	var/plant_def_type
+	var/datum/plant_def/plant_def_type
 	var/seed_identity = "some seed"
 
 /obj/item/neuFarm/seed/Initialize()
@@ -32,7 +40,7 @@
 		if(HAS_TRAIT(living, TRAIT_SEEDKNOW))
 			show_real_identity = TRUE
 		// Journeyman farmers know them too
-		else if(living.mind.get_skill_level(/datum/skill/labor/farming) >= 2)
+		else if(living.get_skill_level(/datum/skill/labor/farming) >= 2)
 			show_real_identity = TRUE
 	else
 		show_real_identity = TRUE
@@ -45,7 +53,7 @@
 		try_plant_seed(user, soil)
 		return
 	else if(istype(T, /turf/open/floor/dirt))
-		if(!(user.mind.get_skill_level(/datum/skill/labor/farming) >= SKILL_LEVEL_JOURNEYMAN))
+		if(!(user.get_skill_level(/datum/skill/labor/farming) >= SKILL_LEVEL_JOURNEYMAN))
 			to_chat(user, span_notice("I don't know enough to make a mound without tools."))
 			return
 		to_chat(user, span_notice("I begin making a mound for the seeds..."))

@@ -53,7 +53,7 @@
 		ghost.mind.transfer_to(target, TRUE)
 	target.grab_ghost(force = TRUE) // even suicides
 	target.emote("breathgasp")
-	target.Jitter(100)
+	target.reagents.add_reagent(/datum/reagent/medicine/atropine, 2)
 	target.update_body()
 	target.visible_message(span_notice("[target] is dragged back from Necra's hold!"), span_green("I awake from the void."))
 	qdel(tool)
@@ -62,6 +62,7 @@
 			adjust_playerquality(revive_pq, user.ckey)
 			ADD_TRAIT(target, TRAIT_IWASREVIVED, "[type]")
 	target.remove_status_effect(/datum/status_effect/buff/lux_drained)
+	GLOB.vanderlin_round_stats[STATS_LUX_REVIVALS]++
 	return TRUE
 
 /datum/surgery_step/infuse_lux/failure(mob/user, mob/living/target, target_zone, obj/item/tool, datum/intent/intent, success_prob)

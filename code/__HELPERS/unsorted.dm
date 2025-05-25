@@ -409,7 +409,7 @@ Turf and target are separate in case you want to teleport some distance from a t
 	return 0
 
 /proc/type2area(type)
-	for(var/area/A in world)
+	for(var/area/A as anything in GLOB.areas)
 		if(A.type == type)
 			return A
 
@@ -630,9 +630,6 @@ will handle it, but:
 		for(var/obj/item/I in M.held_items)
 			wash_obj(I)
 
-		if(M.back && wash_obj(M.back))
-			M.update_inv_back(0)
-
 		var/list/obscured = M.check_obscured_slots()
 
 		if(M.head && wash_obj(M.head,clean))
@@ -734,7 +731,7 @@ GLOBAL_LIST_INIT(WALLITEMS_INVERSE, typecacheof(list(
 	/*This can be used to add additional effects on interactions between mobs depending on how the mobs are facing each other, such as adding a crit damage to blows to the back of a guy's head.
 	Given how click code currently works (Nov '13), the initiating mob will be facing the target mob most of the time
 	That said, this proc should not be used if the change facing proc of the click code is overridden at the same time*/
-	if(!ismob(target) || !(target.mobility_flags & MOBILITY_STAND))
+	if(!isliving(target) || target.body_position == LYING_DOWN)
 	//Make sure we are not doing this for things that can't have a logical direction to the players given that the target would be on their side
 		return FALSE
 	if(initator.dir == target.dir) //mobs are facing the same direction

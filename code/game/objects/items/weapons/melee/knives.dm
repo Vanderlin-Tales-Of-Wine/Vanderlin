@@ -156,7 +156,7 @@
 	if(user.used_intent.type == /datum/intent/snip && istype(O, /obj/item))
 		var/obj/item/item = O
 		if(item.sewrepair && item.salvage_result) // We can only salvage objects which can be sewn!
-			var/skill_level = user.mind.get_skill_level(/datum/skill/misc/sewing)
+			var/skill_level = user.get_skill_level(/datum/skill/misc/sewing)
 			var/salvage_time = (7 SECONDS - (skill_level * 10))
 			if(!do_after(user, salvage_time, user))
 				return
@@ -263,6 +263,12 @@
 	icon_state = "sdaggeralt"
 	desc = "A dagger of refined steel, and even more refined appearance."
 
+/obj/item/weapon/knife/dagger/steel/pestrasickle
+	name ="plaguebringer sickle"
+	desc = "A wicked edge brings feculent delights."
+	icon_state = "pestrasickle"
+	max_integrity = 200
+	wdefense = GOOD_PARRY //They use a dagger, but it should be fine for them to also parry with it.
 //................ Fanged dagger ............... //
 /obj/item/weapon/knife/dagger/steel/dirk
 	name = "fanged dagger"
@@ -280,6 +286,15 @@
 	max_integrity = 240 // .8 of steel
 	sellprice = 45
 	last_used = 0
+	is_silver = TRUE
+
+//................ Psydonian Dagger ............... //
+/obj/item/weapon/knife/dagger/psydon
+	name = "psydonian dagger"
+	desc = "A silver dagger favored by close range fighters of the inquisition."
+	icon_state = "psydagger"
+	melting_material = null
+	sellprice = 60
 	is_silver = TRUE
 
 //................ Profane Dagger ............... //
@@ -351,6 +366,7 @@
 				init_profane_soul(target, user) //If they are still in their body, send them to the dagger!
 
 /obj/item/weapon/knife/dagger/steel/profane/proc/init_profane_soul(mob/living/carbon/human/target, mob/user)
+	record_featured_stat(FEATURED_STATS_CRIMINALS, user)
 	GLOB.vanderlin_round_stats[STATS_ASSASSINATIONS]++
 	var/mob/dead/observer/profane/S = new /mob/dead/observer/profane(src)
 	S.AddComponent(/datum/component/profaned, src)

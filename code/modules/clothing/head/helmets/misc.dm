@@ -234,10 +234,6 @@
 				H.update_inv_head()
 		else if(adjustable == CADJUSTED)
 			ResetAdjust(user)
-//			body_parts_covered = FULL_HEAD
-//			prevent_crits = ALL_CRITICAL_HITS
-//			flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
-//			flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH
 			if(user)
 				if(ishuman(user))
 					var/mob/living/carbon/H = user
@@ -299,7 +295,7 @@
 	icon_state = "guardhelm"
 
 	body_parts_covered = COVERAGE_HEAD_NOSE
-	flags_inv = HIDEEARS|HIDEHAIR
+	flags_inv = HIDEEARS|HIDEHAIR|HIDEFACE
 	block2add = FOV_BEHIND
 	max_integrity = INTEGRITY_STANDARD
 	slot_flags = ITEM_SLOT_HEAD | ITEM_SLOT_HIP
@@ -312,6 +308,17 @@
 	flags_inv = HIDEEARS|HIDEHAIR|HIDEFACE
 	desc = "An old archaic helmet of a symbol long forgotten. The shape resembles the bars of a gate."
 	icon_state = "gatehelm"
+
+//................. Zizo Barbute .............. //
+
+/obj/item/clothing/head/helmet/visored/zizo
+	name = "darksteel barbute"
+	desc = "A darksteel barbute. This one has an adjustable visor. Called forth from the edge of what should be known. In Her name."
+	icon_state = "zizobarbute"
+	icon = 'icons/roguetown/clothing/special/evilarmor.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/evilarmor.dmi'
+	sellprice = 0 // Incredibly evil Zizoid armor, this should be burnt, nobody wants this
+	item_weight = 5 * STEEL_MULTIPLIER
 
 //............... Feldshers Cage ............... //
 /obj/item/clothing/head/helmet/feld

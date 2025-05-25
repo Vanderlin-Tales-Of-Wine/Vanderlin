@@ -89,9 +89,12 @@
 /obj/item/coin/examine(mob/user)
 	. = ..()
 	var/denomination = quantity == 1 ? name : plural_name
+	if(isobserver(user))
+		. += span_info("[quantity_to_words(quantity)] [denomination] ([get_real_price()] mammon)")
+		return
 	var/intelligence = user.mind?.current.STAINT
 
-	if(quantity > 1 || isobserver(user))  // Just so you don't count single coins, observers don't need to count.
+	if(quantity > 1)  // Just so you don't count single coins, observers don't need to count.
 		var/list/skill_data = coin_skill(user, quantity)
 		var/fuzzy_quantity = CLAMP(quantity + skill_data["error"], 1,  (quantity > 20) ? INFINITY : 20) // Cap at 20 only for small stacks)
 		var/uncertainty_phrases = list("maybe","you think","roughly","perhaps","around","probably")
@@ -165,7 +168,7 @@
 	var/intelligence = user.mind?.current.STAINT
 	var/perception = user.mind?.current.STAPER
 	var/speed = user.mind?.current.STASPD
-	var/mathematics_skill = user.mind?.get_skill_level(/datum/skill/labor/mathematics) || 0
+	var/mathematics_skill = user.get_skill_level(/datum/skill/labor/mathematics) || 0
 	var/list/skill_data = list("delay" = 1.2 SECONDS,"error" = 0)
 
 	var/base_tier	// Base intelligence tiers

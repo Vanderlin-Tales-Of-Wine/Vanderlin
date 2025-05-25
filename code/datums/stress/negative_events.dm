@@ -383,7 +383,7 @@
 	desc = span_red("It mocks me, toys with my mind!")
 	timer = 1 MINUTES
 
-/datum/stressevent/eora_marriage_call
+/datum/stressevent/eora_matchmaking
 	stressadd = 2
 	desc = span_rose("Eora calls for me to be wed! I must find my destined partner before I die all alone...")
 	timer = 30 MINUTES
@@ -392,3 +392,18 @@
 	stressadd = 1
 	desc = span_red("I must eat my opponent's heart before he eats MINE!")
 	timer = INFINITY
+
+/datum/stressevent/mother_calling
+	timer = 1 MINUTES
+	stressadd = 2
+	desc = span_red("The Matron is calling for me by my full name..")
+
+/datum/stressevent/friend_calling
+	timer = 30 SECONDS
+	stressadd = 1
+	desc = span_red("That voice.. That old thief is calling for me, what is it now?")
+
+/datum/stressevent/night_owl_dawn
+	desc = span_warning("I don't like the dae..")
+	stressadd = 3
+	timer = 10 MINUTES

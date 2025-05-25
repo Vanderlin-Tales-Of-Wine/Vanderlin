@@ -18,10 +18,9 @@
 	if (!armor)
 		armor = list("blunt" = 0, "slash" = 0, "stab" = 0,  "piercing" = 0, "fire" = 50, "acid" = 50)
 	. = ..()
-	if(smooth)
-		queue_smooth(src)
-		queue_smooth_neighbors(src)
-		icon_state = ""
+	if(smoothing_flags & (SMOOTH_BITMASK|SMOOTH_BITMASK_CARDINALS))
+		QUEUE_SMOOTH(src)
+		QUEUE_SMOOTH_NEIGHBORS(src)
 	if(redstone_id)
 		GLOB.redstone_objs += src
 		. = INITIALIZE_HINT_LATELOAD
@@ -31,14 +30,13 @@
 	if(density)
 		if(ishuman(AM))
 			var/mob/living/carbon/human/H = AM
-			if(H.dir == get_dir(H,src) && H.m_intent == MOVE_INTENT_RUN && !H.lying)
+			if(H.dir == get_dir(H,src) && H.m_intent == MOVE_INTENT_RUN && H.body_position != LYING_DOWN)
 				H.Immobilize(10)
 				H.apply_damage(15, BRUTE, "chest", H.run_armor_check("chest", "blunt", damage = 15))
 				H.toggle_rogmove_intent(MOVE_INTENT_WALK, TRUE)
 				playsound(src, "genblunt", 100, TRUE)
 				H.visible_message("<span class='warning'>[H] runs into [src]!</span>", "<span class='warning'>I run into [src]!</span>")
 				addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, Knockdown), 10), 10)
-
 
 /obj/structure/Destroy()
 	if(isturf(loc))
@@ -50,19 +48,18 @@
 			O.redstone_attached -= src
 			redstone_attached -= O
 		GLOB.redstone_objs -= src
-//	if(smooth)
-//		queue_smooth_neighbors(src)
 	return ..()
 
 /obj/structure/attack_hand(mob/user)
 	. = ..()
 	if(.)
 		return
-//	if(structureclimber && structureclimber != user)
-//		user.changeNext_move(CLICK_CD_MELEE)
-//		user.do_attack_animation(src)
-//		structureclimber.Paralyze(40)
-//		structureclimber.visible_message("<span class='warning'>[structureclimber] has been knocked off [src].", "You're knocked off [src]!", "You see [structureclimber] get knocked off [src].</span>")
+
+/obj/structure/pre_lock_interact(mob/user)
+	if(broken)
+		to_chat(user, span_notice("[src] is broken, I cannot do this."))
+		return FALSE
+	return ..()
 
 /obj/structure/Crossed(atom/movable/AM)
 	. = ..()
@@ -92,7 +89,7 @@
 			var/mob/living/simple_animal/A = L
 			if (!A.dextrous)
 				return
-		if(L.mobility_flags & MOBILITY_MOVE)
+		if(!HAS_TRAIT(L, TRAIT_IMMOBILIZED))
 			climb_structure(user)
 			return
 	if(!istype(O, /obj/item) || user.get_active_held_item() != O)
@@ -111,7 +108,7 @@
 /obj/structure/proc/climb_structure(mob/living/user)
 	src.add_fingerprint(user)
 	var/adjusted_climb_time = climb_time
-	if(user.restrained()) //climbing takes twice as long when restrained.
+	if(HAS_TRAIT(user, TRAIT_HANDS_BLOCKED)) //climbing takes twice as long when restrained.
 		adjusted_climb_time *= 2
 	if(!ishuman(user))
 		adjusted_climb_time = 0 //simple mobs instantly climb

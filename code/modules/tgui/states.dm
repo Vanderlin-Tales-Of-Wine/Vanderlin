@@ -60,7 +60,7 @@
 		return UI_CLOSE
 	else if(stat) // Disable UIs if unconcious.
 		return UI_DISABLED
-	else if(incapacitated()) // Update UIs if incapicitated but concious.
+	else if(incapacitated(ignore_grab = TRUE)) // Update UIs if incapicitated but concious.
 		return UI_UPDATE
 	return UI_INTERACTIVE
 

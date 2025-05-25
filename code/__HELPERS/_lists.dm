@@ -203,6 +203,8 @@ if (length(L) < I) { \
 	. = list()
 	for(var/thing in atoms)
 		var/atom/A = thing
+		if(isnull(A))
+			continue
 		if (typecache[A.type])
 			. += A
 

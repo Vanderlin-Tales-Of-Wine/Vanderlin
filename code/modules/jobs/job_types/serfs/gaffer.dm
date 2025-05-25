@@ -28,7 +28,7 @@
 
 	spells = list(/obj/effect/proc_holder/spell/self/convertrole/mercenary)
 
-/datum/outfit/job/gaffer/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/gaffer/pre_equip(mob/living/carbon/human/H, visualsOnly)
 	..()
 
 
@@ -41,7 +41,10 @@
 	shirt = /obj/item/clothing/shirt/tunic/black
 	wrists = /obj/item/clothing/wrists/bracers/leather/advanced
 	armor = /obj/item/clothing/armor/leather/hide
-	ring = /obj/item/clothing/ring/gold/burden
+	if(!visualsOnly)
+		ring = /obj/item/clothing/ring/gold/burden
+	else
+		ring = /obj/item/clothing/ring/gold
 	pants = /obj/item/clothing/pants/trou/leather/advanced
 	shoes = /obj/item/clothing/shoes/nobleboot
 	cloak = /obj/item/clothing/cloak/raincloak/furcloak/black
@@ -50,39 +53,37 @@
 	ADD_TRAIT(H, TRAIT_SEEPRICES, type)
 	ADD_TRAIT(H, TRAIT_BURDEN, type)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, type)
-	ADD_TRAIT(H, TRAIT_DODGEEXPERT, type)
 	ADD_TRAIT(H, TRAIT_OLDPARTY, TRAIT_GENERIC)
 
 	H.change_stat("speed", 2)
 	H.change_stat("perception", 1)
 	H.change_stat("strength", 1)
 
-	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/combat/swords, pick(1,2), TRUE) //they are practicing with their fake ass shit sword but its clearly not paying off yet
-		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/bows, 5, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 5, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/traps, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/butchering, 5, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 5, TRUE)
-		if(H.age == AGE_OLD)
-			H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 1, TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE) //actual stealth archer
-			H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
-			H.change_stat("perception", 1)
+	H.adjust_skillrank(/datum/skill/combat/swords, pick(1,2), TRUE) //they are practicing with their fake ass shit sword but its clearly not paying off yet
+	H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/crossbows, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/bows, 5, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/climbing, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/reading, 5, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/cooking, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/traps, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/labor/butchering, 5, TRUE)
+	H.adjust_skillrank(/datum/skill/labor/mathematics, 5, TRUE)
+	if(H.age == AGE_OLD)
+		H.adjust_skillrank(/datum/skill/combat/crossbows, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE) //actual stealth archer
+		H.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
+		H.change_stat("perception", 1)
 
 /obj/effect/proc_holder/spell/self/convertrole/mercenary
 	name = "Recruit Mercenary"

@@ -30,6 +30,7 @@
 		return
 
 	//Breathing, if applicable
+	handle_temperature()
 	handle_breathing(times_fired)
 	if(HAS_TRAIT(src, TRAIT_SIMPLE_WOUNDS))
 		handle_wounds()
@@ -83,6 +84,9 @@
 	if(istype(loc, /turf/open/water))
 		handle_inwater(loc)
 
+/mob/living/proc/handle_temperature()
+	return
+
 /mob/living/proc/handle_breathing(times_fired)
 	return
 
@@ -96,7 +100,7 @@
 		return
 
 	var/probby = 53 - (STAEND * 2)
-	if(!(mobility_flags & MOBILITY_STAND))
+	if(body_position == LYING_DOWN)
 		probby = probby - 20
 	if(prob(probby))
 		MOBTIMER_SET(src, MT_PAINSTUN)
@@ -112,9 +116,7 @@
 	if(fire_stacks < 0) //If we've doused ourselves in water to avoid fire, dry off slowly
 		fire_stacks = min(0, fire_stacks + 1)//So we dry ourselves back to default, nonflammable.
 	if(!on_fire)
-//		testing("handlefyre0 [src]")
 		return TRUE //the mob is no longer on fire, no need to do the rest.
-//	testing("handlefyre1 [src]")
 	if(fire_stacks + divine_fire_stacks > 0)
 		adjust_divine_fire_stacks(-0.05)
 		if(fire_stacks > 0)

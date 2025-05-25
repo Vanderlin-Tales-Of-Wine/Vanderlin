@@ -134,7 +134,7 @@
 				break
 		if(!found_intent)
 			return FALSE
-	if(skill_used && skill_min && (user.mind?.get_skill_level(skill_used) < skill_min))
+	if(skill_used && skill_min && (user.get_skill_level(skill_used) < skill_min))
 		return FALSE
 	return TRUE
 
@@ -152,7 +152,7 @@
 		if(!valid_mobtype)
 			return FALSE
 
-	if(lying_required && (target.mobility_flags & MOBILITY_STAND))
+	if(lying_required && target.body_position != LYING_DOWN)
 		return FALSE
 
 	if(iscarbon(target))
@@ -261,7 +261,6 @@
 	return english_list(chems, and_text = require_all_chems ? " and " : " or ")
 
 /datum/surgery_step/proc/try_op(mob/user, mob/living/target, target_zone, obj/item/tool, datum/intent/intent, try_to_fail = FALSE)
-	testing("[user] doing surgery step [name] on [target] [target_zone || "body"] with tool [tool || "hands"] and [intent || "none"] intent")
 	if(!can_do_step(user, target, target_zone, tool, intent, try_to_fail))
 		return FALSE
 
@@ -353,6 +352,7 @@
 	if(!target_detailed)
 		detailed_mobs -= target //The patient can't see well what's going on, unless it's something like getting cut
 	user.visible_message(detailed_message, self_message, vision_distance = 1, ignored_mobs = target_detailed ? null : target)
+	for(var/mob/mob in detailed_mobs)
 	user.visible_message(vague_message, "", ignored_mobs = detailed_mobs)
 	return TRUE
 
@@ -383,7 +383,7 @@
 	if(!skill_used)
 		return 1
 	var/modifier = 1
-	var/skill_level = user.mind?.get_skill_level(skill_used) || 0
+	var/skill_level = user.get_skill_level(skill_used) || 0
 	var/skill_difference = skill_level - skill_median
 	if((skill_difference > 0) && length(skill_bonuses))
 		skill_difference = clamp(abs(skill_difference), 0, skill_bonuses.len)
@@ -395,7 +395,7 @@
 
 /datum/surgery_step/proc/get_location_modifier(mob/living/target)
 	var/turf/patient_turf = get_turf(target)
-	var/is_lying = !(target.mobility_flags & MOBILITY_STAND)
+	var/is_lying = (target.body_position == LYING_DOWN)
 	if(!is_lying)
 		return 0.6
 	if(locate(/obj/structure/table/optable) in patient_turf)

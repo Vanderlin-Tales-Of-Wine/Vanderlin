@@ -28,14 +28,14 @@
 		mod *= S.nextmove_modifier()
 		adj += S.nextmove_adjust()
 	if(!hand)
-		next_move = world.time + ((num + adj)*mod)
+		next_move = world.time + ((num + adj)*mod * (InCritical()? 3 : 1))
 		hud_used?.cdmid?.mark_dirty()
 		return
 	if(hand == 1)
-		next_lmove = world.time + ((num + adj)*mod)
+		next_lmove = world.time + ((num + adj)*mod * (InCritical()? 3 : 1))
 		hud_used?.cdleft?.mark_dirty()
 	else
-		next_rmove = world.time + ((num + adj)*mod)
+		next_rmove = world.time + ((num + adj)*mod * (InCritical()? 3 : 1))
 		hud_used?.cdright?.mark_dirty()
 
 /*
@@ -153,28 +153,16 @@
 					changeNext_move(used_intent.clickcd,used_hand)
 					return
 
-
-//	if(modifiers["shift"] && modifiers["middle"])
-//		changeNext_move(CLICK_CD_MELEE)
-//		ShiftMiddleClickOn(A)
-//		return
-//	if(modifiers["shift"] && modifiers["ctrl"])
-//		CtrlShiftClickOn(A)
-//		return
 	if(modifiers["shift"] && modifiers["right"])
 		ShiftRightClickOn(A, params)
 		return
 	if(modifiers["ctrl"] && modifiers["right"])
-//		face_atom(A)
 		CtrlRightClickOn(A, params)
 		return
 	if(modifiers["alt"] && modifiers["right"])
 		face_atom(A)
 		AltRightClickOn(A, params)
 		return
-//	if(modifiers["shift"] && modifiers["middle"])
-//		ShiftMiddleClickOn(A)
-//		return
 	if(modifiers["middle"])
 		MiddleClickOn(A, params)
 		return
@@ -188,12 +176,11 @@
 		CtrlClickOn(A)
 		return
 	if(modifiers["right"])
-		testing("right")
 		if(!oactive)
 			RightClickOn(A, params)
 			return
 
-	if(incapacitated(ignore_restraints = TRUE))
+	if(incapacitated(ignore_restraints = TRUE, ignore_grab = TRUE))
 		return
 
 	if(!atkswinging)
@@ -205,9 +192,9 @@
 	if(dir == get_dir(A,src)) //they are behind us and we are not facing them
 		return
 
-	if(restrained())
+	if(HAS_TRAIT(src, TRAIT_HANDS_BLOCKED))
 		changeNext_move(CLICK_CD_HANDCUFFED)   //Doing shit in cuffs shall be vey slow
-		RestrainedClickOn(A)
+		UnarmedAttack(A)
 		return
 
 	if(in_throw_mode)
@@ -278,7 +265,7 @@
 */
 
 	// Allows you to click on a box's contents, if that box is on the ground, but no deeper than that
-	if(isturf(A) || isturf(A.loc) || (A.loc && isturf(A.loc.loc)))
+	if(isturf(A) || isturf(A.loc) || (A.loc && (isturf(A.loc.loc) || isturf(A.loc.loc.loc))))
 		if(CanReach(A) || CanReach(A, W))
 			if(isopenturf(A))
 				var/turf/T = A
@@ -286,7 +273,6 @@
 					resolveAdjacentClick(A,W,params,used_hand)
 					return
 				if(T)
-					testing("beginautoaim")
 					var/list/mobs_here = list()
 					for(var/mob/M in T)
 						if(M.invisibility || M == src)
@@ -305,7 +291,7 @@
 					if(!used_intent.noaa)
 						changeNext_move(CLICK_CD_MELEE)
 						if(get_dist(get_turf(src), T) <= used_intent.reach)
-							do_attack_animation(T, visual_effect_icon = used_intent.animname)
+							do_attack_animation(T, visual_effect_icon = used_intent.animname, used_intent = used_intent)
 						else
 							do_attack_animation(get_ranged_target_turf(src, get_dir(src, T), 1), visual_effect_icon = used_intent.animname)
 						if(W)
@@ -500,14 +486,6 @@
 /mob/proc/RangedAttack(atom/A, params)
 	if(SEND_SIGNAL(src, COMSIG_MOB_ATTACK_RANGED, A, params) & COMPONENT_CANCEL_ATTACK_CHAIN)
 		return TRUE
-/*
-	Restrained ClickOn
-
-	Used when you are handcuffed and click things.
-	Not currently used by anything but could easily be.
-*/
-/mob/proc/RestrainedClickOn(atom/A)
-	return
 
 /**
  *Middle click
@@ -701,7 +679,7 @@
 			setDir(WEST)
 
 /mob/face_atom(atom/A)
-	if(!canface())
+	if(!canface(A))
 		return FALSE
 	..()
 

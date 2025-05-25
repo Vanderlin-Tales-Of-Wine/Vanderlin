@@ -71,7 +71,7 @@
 		update_icon()
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/process_fire(atom/target, mob/living/user, message = TRUE, params = null, zone_override = "", bonus_spread = 0)
-	if(user.get_num_arms(FALSE) < 2)
+	if(user.usable_hands < 2)
 		return FALSE
 	if(user.get_inactive_held_item())
 		return FALSE
@@ -98,14 +98,14 @@
 			if(user.STAPER > 10) // Every point over 10 PER adds 10% damage
 				BB.damage = BB.damage * (user.STAPER / 10)
 		BB.damage *= damfactor // Apply bow's inherent damage multiplier regardless of PER
-		BB.bonus_accuracy += (user.mind.get_skill_level(/datum/skill/combat/bows) * 5) //+5 accuracy per level in bows. Bonus accuracy will not drop-off.
+		BB.bonus_accuracy += (user.get_skill_level(/datum/skill/combat/bows) * 5) //+5 accuracy per level in bows. Bonus accuracy will not drop-off.
 	. = ..()
 	if(.)
 		if(istype(user) && user.mind)
-			var/modifier = 1/(spread+1)
-			var/boon = user.mind.get_learning_boon(/datum/skill/combat/bows)
+			var/modifier = 1.25/(spread+1)
+			var/boon = user.get_learning_boon(/datum/skill/combat/bows)
 			var/amt2raise = user.STAINT/2
-			user.mind.adjust_experience(/datum/skill/combat/bows, amt2raise * boon * modifier, FALSE)
+			user.adjust_experience(/datum/skill/combat/bows, amt2raise * boon * modifier, FALSE)
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/update_icon()
 	. = ..()
@@ -131,7 +131,7 @@
 
 /datum/intent/shoot/bow/can_charge()
 	if(mastermob)
-		if(mastermob.get_num_arms(FALSE) < 2)
+		if(mastermob.usable_hands < 2)
 			return FALSE
 		if(mastermob.get_inactive_held_item())
 			return FALSE
@@ -147,7 +147,7 @@
 		var/newtime = 0
 		//skill block
 		newtime = newtime + 10
-		newtime = newtime - (mastermob.mind?.get_skill_level(/datum/skill/combat/bows) * (10/6))
+		newtime = newtime - (mastermob.get_skill_level(/datum/skill/combat/bows) * (10/6))
 		//str block //rtd replace 10 with drawdiff on bows that are hard and scale str more (10/20 = 0.5)
 		newtime = newtime + 10
 		newtime = newtime - (mastermob.STASTR * (10/20))
@@ -167,7 +167,7 @@
 
 /datum/intent/arc/bow/can_charge()
 	if(mastermob)
-		if(mastermob.get_num_arms(FALSE) < 2)
+		if(mastermob.usable_hands < 2)
 			return FALSE
 		if(mastermob.get_inactive_held_item())
 			return FALSE
@@ -183,7 +183,7 @@
 		var/newtime = 0
 		//skill block
 		newtime = newtime + 10
-		newtime = newtime - (mastermob.mind?.get_skill_level(/datum/skill/combat/bows) * (10/6))
+		newtime = newtime - (mastermob.get_skill_level(/datum/skill/combat/bows) * (10/6))
 		//str block //rtd replace 10 with drawdiff on bows that are hard and scale str more (10/20 = 0.5)
 		newtime = newtime + 10
 		newtime = newtime - (mastermob.STASTR * (10/20))

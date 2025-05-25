@@ -71,7 +71,7 @@
 /turf/closed/wall/mineral/wood,
 /area/template_noop)
 "S" = (
-/obj/structure/mineral_door/swing_door,
+/obj/structure/door/swing,
 /turf/open/floor/carpet,
 /area/template_noop)
 "T" = (

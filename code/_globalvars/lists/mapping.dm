@@ -34,6 +34,7 @@ GLOBAL_LIST_EMPTY(underworld_coinpull_locs) //When picking up coin maze, warp he
 GLOBAL_LIST_EMPTY(hauntstart)
 GLOBAL_LIST_EMPTY(testportals)
 GLOBAL_LIST_EMPTY(traveltiles)
+GLOBAL_LIST_EMPTY(traveltile_spawners)
 GLOBAL_LIST_EMPTY(emergencyresponseteamspawn)
 GLOBAL_LIST_EMPTY(ruin_landmarks)
 

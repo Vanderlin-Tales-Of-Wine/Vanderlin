@@ -20,7 +20,6 @@ SUBSYSTEM_DEF(job)
 /datum/controller/subsystem/job/Initialize(timeofday)
 	if(!length(all_occupations))
 		SetupOccupations()
-	generate_selectable_species()
 	return ..()
 
 /datum/controller/subsystem/job/proc/SetupOccupations()
@@ -408,7 +407,6 @@ SUBSYSTEM_DEF(job)
 				if(player.client.prefs.job_preferences[job.title] == level)
 					// If the job isn't filled
 					if((job.current_positions < job.spawn_positions) || job.spawn_positions == -1)
-						testing("DO pass, Player: [player], Level:[level], Job:[job.title]")
 						AssignRole(player, job)
 						unassigned -= player
 						break

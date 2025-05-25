@@ -43,9 +43,11 @@
 		return
 
 	var/mob/living/LM = parent
-	if(!T.footstep || LM.buckled || LM.lying || !CHECK_MULTIPLE_BITFIELDS(LM.mobility_flags, MOBILITY_STAND | MOBILITY_MOVE) || LM.throwing || LM.movement_type & (VENTCRAWLING | FLYING))
-		if (LM.lying && !LM.buckled && !(!T.footstep || LM.movement_type & (VENTCRAWLING | FLYING))) //play crawling sound if we're lying
-			playsound(T, 'sound/blank.ogg', 15 * volume)
+	if(!T.footstep || LM.buckled || LM.throwing || LM.movement_type & (VENTCRAWLING | FLYING) || HAS_TRAIT(LM, TRAIT_IMMOBILIZED))
+		return
+
+	if(LM.body_position == LYING_DOWN) //play crawling sound if we're lying
+		playsound(LM, 'sound/foley/footsteps/crawl1.ogg', 15 * volume)
 		return
 
 	if(iscarbon(LM))
@@ -68,10 +70,11 @@
 
 /datum/component/footstep/proc/play_simplestep()
 	var/turf/open/T = prepare_step()
+	var/mob/living/LM = parent
 	if(!T)
 		return
 	if(isfile(footstep_sounds) || istext(footstep_sounds))
-		playsound(T, footstep_sounds, volume)
+		playsound(LM, footstep_sounds, volume)
 		return
 	var/turf_footstep
 	switch(footstep_type)
@@ -89,10 +92,11 @@
 	if(!footstep_sounds[turf_footstep] || (LAZYLEN(footstep_sounds) < 3))
 		testing("SOME silly guy GAVE AN INVALID FOOTSTEP [footstep_type] VALUE ([turf_footstep]) TO [T.type]!!! FIX THIS SHIT!!!")
 		return
-	playsound(T, pick(footstep_sounds[turf_footstep][1]), footstep_sounds[turf_footstep][2], FALSE, footstep_sounds[turf_footstep][3] + e_range)
+	playsound(LM, pick(footstep_sounds[turf_footstep][1]), footstep_sounds[turf_footstep][2], FALSE, footstep_sounds[turf_footstep][3] + e_range)
 
 /datum/component/footstep/proc/play_humanstep()
 	var/turf/open/T = prepare_step()
+	var/mob/living/LM = parent
 	if(!T)
 		return
 	var/mob/living/carbon/human/H = parent
@@ -116,7 +120,7 @@
 		if(!used_sound)
 			used_sound = last_sound
 		last_sound = used_sound
-		playsound(T, used_sound,
+		playsound(LM, used_sound,
 			GLOB.footstep[T.footstep][2],
 			FALSE,
 			GLOB.footstep[T.footstep][3] + e_range)
@@ -133,7 +137,7 @@
 		if(!used_sound)
 			used_sound = last_sound
 		last_sound = used_sound
-		playsound(T, used_sound,
+		playsound(LM, used_sound,
 			GLOB.barefootstep[T.barefootstep][2],
 			TRUE,
 			GLOB.barefootstep[T.barefootstep][3] + e_range)

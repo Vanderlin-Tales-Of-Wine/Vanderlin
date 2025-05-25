@@ -214,13 +214,13 @@
 	var/prayersesh = 0
 	visible_message("[src] kneels their head in prayer.", "I kneel my head in prayer to [patron.name].")
 	for(var/i in 1 to 50)
-		if(do_after(src, 3 SECONDS, timed_action_flags = (IGNORE_USER_DIR_CHANGE)))
+		if(do_after(src, 3 SECONDS, timed_action_flags = (IGNORE_USER_DIR_CHANGE), hidden = FALSE))
 			if(C.devotion >= C.max_devotion)
 				to_chat(src, "<font color='red'>I have reached the limit of my devotion...</font>")
 				break
 			var/devotion_multiplier = 1
 			if(mind)
-				devotion_multiplier += (mind.get_skill_level(/datum/skill/magic/holy) / 4)
+				devotion_multiplier += (get_skill_level(/datum/skill/magic/holy) / 4)
 			C.update_devotion(floor(C.prayer_effectiveness * devotion_multiplier), floor(C.prayer_effectiveness * devotion_multiplier))
 			prayersesh += floor(C.prayer_effectiveness * devotion_multiplier)
 		else

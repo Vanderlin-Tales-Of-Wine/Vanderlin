@@ -17,6 +17,10 @@
 		H.cursed_freak_out()
 		return
 
+	if(user.real_name in GLOB.outlawed_players)
+		say("OUTLAW DETECTED! REFUSING SERVICE!")
+		return
+
 	if(H in SStreasury.bank_accounts)
 		var/amt = SStreasury.bank_accounts[H]
 		if(!amt)
@@ -86,11 +90,16 @@
 				H.cursed_freak_out()
 				return
 
+			if(user.real_name in GLOB.outlawed_players)
+				say("OUTLAW DETECTED! REFUSING SERVICE!")
+				return
+
 			if(H in SStreasury.bank_accounts)
 				var/list/deposit_results = SStreasury.generate_money_account(P.get_real_price(), H)
 				if(islist(deposit_results))
 					if(deposit_results[2] != 0)
 						say("Your deposit was taxed [deposit_results[2]] mammon.")
+						record_featured_stat(FEATURED_STATS_TAX_PAYERS, H, deposit_results[2])
 						GLOB.vanderlin_round_stats[STATS_TAXES_COLLECTED] += deposit_results[2]
 				qdel(P)
 				playsound(src, 'sound/misc/coininsert.ogg', 100, FALSE, -1)

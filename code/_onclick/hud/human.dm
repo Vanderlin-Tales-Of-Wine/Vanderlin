@@ -75,18 +75,6 @@
 
 	//Rogue Slots /////////////////////////////////
 
-	reads = new /atom/movable/screen/read
-	reads.hud = src
-	static_inventory += reads
-	textr = new /atom/movable/screen/readtext
-	textr.hud = src
-	static_inventory += textr
-	reads.textright = textr
-	textl = new /atom/movable/screen/readtext
-	textl.hud = src
-	static_inventory += textl
-	reads.textleft = textl
-
 	scannies = new /atom/movable/screen/scannies
 	scannies.hud = src
 	static_inventory += scannies
@@ -386,6 +374,7 @@
 	using.screen_loc = rogueui_eye
 	using.hud = src
 	static_inventory += using
+	using.update_overlays()
 
 	set_advclass()
 
@@ -513,20 +502,11 @@
 			if(H.belt)
 				H.belt.screen_loc = ui_belt
 				screenmob.client.screen += H.belt
-			if(H.back)
-				H.back.screen_loc = ui_back
-				screenmob.client.screen += H.back
 		else
 			if(H.wear_ring)
 				screenmob.client.screen -= H.wear_ring
 			if(H.belt)
 				screenmob.client.screen -= H.belt
-			if(H.back)
-				screenmob.client.screen -= H.back
-			if(H.l_store)
-				screenmob.client.screen -= H.l_store
-			if(H.r_store)
-				screenmob.client.screen -= H.r_store
 
 	if(hud_version != HUD_STYLE_NOHUD)
 		for(var/obj/item/I in H.held_items)

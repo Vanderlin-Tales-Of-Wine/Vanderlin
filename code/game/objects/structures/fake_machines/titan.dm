@@ -156,7 +156,7 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 	. = ..()
 	become_hearing_sensitive()
 
-/obj/structure/fake_machine/titan/obj_break(damage_flag)
+/obj/structure/fake_machine/titan/obj_break(damage_flag, silent)
 	..()
 	cut_overlays()
 //	icon_state = "[icon_state]-br"
@@ -403,7 +403,7 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 	if(obj_broken)
 		return
 
-	var/sanitized_message = sanitize_hear_message(raw_message)
+	var/sanitized_message = sanitize_hear_message(original_message)
 
 	if(findtext(sanitized_message, "nevermind") || findtext(sanitized_message, "cancel"))
 		reset_mode()

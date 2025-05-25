@@ -15,17 +15,23 @@
 	implements = list(
 		TOOL_SCALPEL = 80,
 		TOOL_SHARP = 60,
-		/obj/item/kitchen/spoon = 80
+		/obj/item/kitchen/spoon = 40
 	)
 	target_mobtypes = list(/mob/living/carbon/human, /mob/living/carbon/monkey)
 	time = 8 SECONDS
 	surgery_flags = SURGERY_BLOODY | SURGERY_INCISED | SURGERY_CLAMPED | SURGERY_RETRACTED | SURGERY_BROKEN
 	skill_min = SKILL_LEVEL_JOURNEYMAN
+	preop_sound = 'sound/surgery/organ2.ogg'
+	success_sound = 'sound/surgery/organ1.ogg'
 
 /datum/surgery_step/extract_lux/validate_target(mob/user, mob/living/target, target_zone, datum/intent/intent)
 	. = ..()
 	if(target.stat == DEAD)
 		to_chat(user, "They're dead!")
+		return FALSE
+	var/lux_state = target.get_lux_status()
+	if(lux_state != LUX_HAS_LUX)
+		to_chat(user, "They do not have any lux to extract!")
 		return FALSE
 
 /datum/surgery_step/extract_lux/preop(mob/user, mob/living/target, target_zone, obj/item/tool, datum/intent/intent)
@@ -47,4 +53,7 @@
 			"[user] extracts lux from [target]'s innards.")
 		new /obj/item/reagent_containers/lux(target.loc)
 		target.apply_status_effect(/datum/status_effect/buff/lux_drained)
+		SEND_SIGNAL(user, COMSIG_LUX_EXTRACTED, target)
+		record_featured_stat(FEATURED_STATS_CRIMINALS, user)
+		GLOB.vanderlin_round_stats[STATS_LUX_HARVESTED]++
 	return TRUE

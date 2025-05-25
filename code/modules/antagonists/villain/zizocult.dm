@@ -25,6 +25,13 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	antag_hud_type = ANTAG_HUD_ZIZOID
 	antag_hud_name = "zizoid"
 	islesser = FALSE
+	innate_traits = list(
+		TRAIT_DECEIVING_MEEKNESS,
+		TRAIT_STEELHEARTED,
+		TRAIT_NOMOOD,
+		TRAIT_VILLAIN,
+		TRAIT_CRITICAL_RESISTANCE,
+	)
 
 #define iszizolackey(A) (A.mind?.has_antag_datum(/datum/antagonist/zizocultist))
 #define iszizocultist(A) (A.mind?.has_antag_datum(/datum/antagonist/zizocultist/leader))
@@ -45,27 +52,29 @@ GLOBAL_LIST_EMPTY(ritualslist)
 
 	owner.special_role = "Zizoid Lackey"
 	H.cmode_music = 'sound/music/cmode/antag/combat_cult.ogg'
-	owner.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
+	owner.current.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
 	owner.current.playsound_local(get_turf(owner.current), 'sound/music/maniac.ogg', 80, FALSE, pressure_affected = FALSE)
-	owner.current.verbs |= /mob/living/carbon/human/proc/praise
 	owner.current.verbs |= /mob/living/carbon/human/proc/communicate
 
 	H.change_stat(STATKEY_STR, 2)
 
 	if(islesser)
 		add_objective(/datum/objective/zizoserve)
-		owner.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
+		owner.current.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+		owner.current.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
 		H.change_stat(STATKEY_INT, -2)
 	else
 		add_objective(/datum/objective/zizo)
-		owner.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-		owner.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
-		H.change_stat(STATKEY_STR, 1)
-		H.change_stat(STATKEY_END, 2)
-		H.change_stat(STATKEY_CON, 2)
-		H.change_stat(STATKEY_SPD, 1)
+		owner.current.clamped_adjust_skillrank(/datum/skill/combat/knives, 4, TRUE)
+		owner.current.clamped_adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
+		owner.current.clamped_adjust_skillrank(/datum/skill/combat/wrestling, 5, TRUE)
+		owner.current.clamped_adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
+		H.change_stat(STATKEY_STR, 2)
+		H.change_stat(STATKEY_END, 3)
+		H.change_stat(STATKEY_CON, 3)
+		H.change_stat(STATKEY_SPD, 4)
+		H.change_stat(STATKEY_INT, 5)
 		owner.special_role = ROLE_ZIZOIDCULTIST
-		owner.current.verbs |= /mob/living/carbon/human/proc/draw_sigil
 		owner.current.verbs |= /mob/living/carbon/human/proc/release_minion
 
 /datum/antagonist/zizocultist/greet()
@@ -197,7 +206,6 @@ GLOBAL_LIST_EMPTY(ritualslist)
 		to_chat(V, "<span style = \"font-size:110%; font-weight:bold\"><span style = 'color:#8a13bd'>A message from </span><span style = 'color:#[H.voice_color]'>[src.real_name]</span>: [speak]</span>")
 		playsound_local(V.current, 'sound/vo/cult/skvor.ogg', 100)
 
-	testing("[key_name(src)] used cultist telepathy to say: [speak]")
 	log_telepathy("[key_name(src)] used cultist telepathy to say: [speak]")
 
 /obj/effect/decal/cleanable/sigil
@@ -213,19 +221,18 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	if(!sigil_type)
 		return
 
-	if(iszizocultist(user) || iszizolackey(user))
-		to_chat(user, "It is of the [sigil_type] circle.")
+	if(ishuman(user))
+		var/mob/living/carbon/human/human_user = user
+		if(human_user.patron.type == /datum/patron/inhumen/zizo)
+			to_chat(user, "It is of the [sigil_type] circle.")
 
 /obj/effect/decal/cleanable/sigil/Initialize(mapload)
 	. = ..()
 	if(!LAZYLEN(GLOB.ritualslist))
-		testing("initializing ritualslist")
 		GLOB.ritualslist = list()
 		var/static/list/rituals = subtypesof(/datum/ritual)
 		for(var/path in rituals)
 			var/datum/ritual/G = path
-			testing("now initializing: [path]")
-			testing("[G.name]")
 			GLOB.ritualslist[G.name] = G
 
 /obj/effect/decal/cleanable/sigil/proc/consume_ingredients(datum/ritual/R)
@@ -257,103 +264,100 @@ GLOBAL_LIST_EMPTY(ritualslist)
 
 /obj/effect/decal/cleanable/sigil/attack_hand(mob/living/user)
 	. = ..()
-	testing("clicked by [user]")
 	var/list/rituals = list()
 	if(icon_state != "center") // fucking awful but it has to be this way
 		return
-	if(iszizocultist(user) || iszizolackey(user))
-		for(var/G in GLOB.ritualslist)
-			var/datum/ritual/path = GLOB.ritualslist[G]
-			if(path.circle == sigil_type)
-				rituals |= path.name
-
-		var/ritualnameinput = input(user, "Rituals", "VANDERLIN") as null|anything in rituals
-		testing("ritualnameinput [ritualnameinput]")
-		var/datum/ritual/pickritual
-
-		pickritual = GLOB.ritualslist[ritualnameinput]
-		testing("pickritual [pickritual]")
-
-		var/cardinal_success = FALSE
-		var/center_success = FALSE
-
-		if(!pickritual)
-			return
-
-		var/dews = 0
-
-		if(pickritual.e_req)
-			for(var/atom/A in get_step(src, EAST))
-				if(istype(A, pickritual.e_req))
-					dews++
-					break
-				else
-					continue
-		else
-			dews++
-
-		if(pickritual.s_req)
-			for(var/atom/A in get_step(src, SOUTH))
-				if(istype(A, pickritual.s_req))
-					dews++
-					break
-				else
-					continue
-		else
-			dews++
-
-		if(pickritual.w_req)
-			for(var/atom/A in get_step(src, WEST))
-				if(istype(A, pickritual.w_req))
-					dews++
-					break
-				else
-					continue
-		else
-			dews++
-
-		if(pickritual.n_req)
-			for(var/atom/A in get_step(src, NORTH))
-				if(istype(A, pickritual.n_req))
-					dews++
-					break
-				else
-					continue
-		else
-			dews++
-
-		if(dews >= 4)
-			cardinal_success = TRUE
-			testing("CARDINAL SUCCESS!")
-
-		for(var/atom/A in loc.contents)
-			if(!istype(A, pickritual.center_requirement))
+	if(user.patron.type != /datum/patron/inhumen/zizo)
+		return
+	for(var/G in GLOB.ritualslist)
+		var/datum/ritual/path = GLOB.ritualslist[G]
+		if(path.circle == sigil_type)
+			if(path.is_cultist_ritual && !(iszizocultist(user) || iszizolackey(user))) // some rituals are cultist exclusive
 				continue
-			else
-				center_success = TRUE
-				testing("CENTER SUCCESS!")
+			rituals |= path.name
+
+	var/ritualnameinput = input(user, "Rituals", "VANDERLIN") as null|anything in rituals
+	var/datum/ritual/pickritual
+
+	pickritual = GLOB.ritualslist[ritualnameinput]
+
+	var/cardinal_success = FALSE
+	var/center_success = FALSE
+
+	if(!pickritual)
+		return
+
+	var/dews = 0
+
+	if(pickritual.e_req)
+		for(var/atom/A in get_step(src, EAST))
+			if(istype(A, pickritual.e_req))
+				dews++
 				break
+			else
+				continue
+	else
+		dews++
 
-		var/badritualpunishment = FALSE
-		if(cardinal_success != TRUE)
-			if(badritualpunishment)
-				return
-			to_chat(user.mind, "<span class='danger'>\"That's not how you do it, fool.\"</span>")
-			user.electrocute_act(10, src)
+	if(pickritual.s_req)
+		for(var/atom/A in get_step(src, SOUTH))
+			if(istype(A, pickritual.s_req))
+				dews++
+				break
+			else
+				continue
+	else
+		dews++
+
+	if(pickritual.w_req)
+		for(var/atom/A in get_step(src, WEST))
+			if(istype(A, pickritual.w_req))
+				dews++
+				break
+			else
+				continue
+	else
+		dews++
+
+	if(pickritual.n_req)
+		for(var/atom/A in get_step(src, NORTH))
+			if(istype(A, pickritual.n_req))
+				dews++
+				break
+			else
+				continue
+	else
+		dews++
+
+	if(dews >= 4)
+		cardinal_success = TRUE
+
+	for(var/atom/A in loc.contents)
+		if(!istype(A, pickritual.center_requirement))
+			continue
+		else
+			center_success = TRUE
+			break
+
+	var/badritualpunishment = FALSE
+	if(cardinal_success != TRUE)
+		if(badritualpunishment)
 			return
+		to_chat(user.mind, "<span class='danger'>\"That's not how you do it, fool.\"</span>")
+		user.electrocute_act(10, src)
+		return
 
-		if(center_success != TRUE)
-			if(badritualpunishment)
-				return
-			to_chat(user.mind, "<span class='danger'>\"That's not how you do it, fool.\"</span>")
-			user.electrocute_act(10, src)
+	if(center_success != TRUE)
+		if(badritualpunishment)
 			return
+		to_chat(user.mind, "<span class='danger'>\"That's not how you do it, fool.\"</span>")
+		user.electrocute_act(10, src)
+		return
 
-		testing("Now calling proc")
-		consume_ingredients(pickritual)
-		user.playsound_local(user, 'sound/vo/cult/tesa.ogg', 25)
-		user.whisper("O'vena tesa...")
-		call(pickritual.function)(user, loc)
+	consume_ingredients(pickritual)
+	user.playsound_local(user, 'sound/vo/cult/tesa.ogg', 25)
+	user.whisper("O'vena tesa...")
+	call(pickritual.function)(user, loc)
 
 /obj/effect/decal/cleanable/sigil/N
 	icon_state = "N"
@@ -414,7 +418,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 /mob/living/carbon/human/proc/draw_sigil()
 	set name = "Draw Sigil"
 	set category = "ZIZO"
-	if(incapacitated() || stat >= UNCONSCIOUS)
+	if(incapacitated(ignore_grab = TRUE) || stat >= UNCONSCIOUS)
 		return
 
 	var/list/runes = list("Servantry", "Transmutation", "Fleshcrafting")
@@ -427,8 +431,9 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	if(!input)
 		return
 
-	var/turf/open/floor/T = get_turf(src.loc)
-	T.generateSigils(src, input)
+	var/turf/open/floor/T = get_turf(src)
+	if(istype(T))
+		T.generateSigils(src, input)
 
 /mob/living/carbon/human/proc/release_minion()
 	set name = "Release Lackey"
@@ -463,6 +468,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	var/s_req = null
 	var/w_req = null
 	var/function // a proc
+	var/is_cultist_ritual = FALSE
 
 
 // SERVANTRY
@@ -473,9 +479,9 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	center_requirement = /mob/living/carbon/human
 
 	function = /proc/convert_cultist
+	is_cultist_ritual = TRUE
 
 /proc/convert_cultist(mob/user, turf/C)
-	testing("NOW TESTING CONVERT")
 
 	for(var/mob/living/carbon/human/H in C.contents)
 		if(H != user)
@@ -514,6 +520,8 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	center_requirement = /mob/living/carbon/human
 
 	n_req = /obj/item/organ/heart
+
+	is_cultist_ritual = TRUE
 
 	function = /proc/skeletaljaunt
 
@@ -612,7 +620,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 /obj/item/corruptedheart/attack(mob/living/M, mob/living/user)
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-		if(iszizocultist(H) || iszizolackey(H))
+		if(user.patron.type == /datum/patron/inhumen/zizo)
 			H.blood_volume = BLOOD_VOLUME_MAXIMUM
 			to_chat(H, "<span class='notice'>My elixir of life is stagnant once again.</span>")
 			qdel(src)
@@ -621,7 +629,6 @@ GLOBAL_LIST_EMPTY(ritualslist)
 				return
 			if(M.cmode)
 				user.electrocute_act(30)
-			H.electrocute_act(20)
 			H.Stun(10 SECONDS)
 			H.silent += 30
 			qdel(src)
@@ -768,6 +775,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	center_requirement = /obj/item/ingot/steel
 
 	function = /proc/summonweapons
+	is_cultist_ritual = TRUE
 
 /proc/summonweapons(mob/user, turf/C)
 	var/datum/effect_system/spark_spread/S = new(C)
@@ -801,6 +809,8 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	n_req = /obj/item/reagent_containers/food/snacks/meat
 
 	function = /proc/bunnylegs
+
+	is_cultist_ritual = TRUE
 
 /proc/bunnylegs(mob/user, turf/C)
 	for(var/mob/living/carbon/human/H in C.contents)
@@ -836,12 +846,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 
 /proc/darkeyes(mob/user, turf/C)
 	for(var/mob/living/carbon/human/H in C.contents)
-		var/obj/item/organ/eyes/eyes = H.getorganslot(ORGAN_SLOT_EYES)
-		if(eyes)
-			eyes.Remove(H,1)
-			QDEL_NULL(eyes)
-		eyes = new /obj/item/organ/eyes/night_vision/zombie
-		eyes.Insert(H)
+		H.grant_undead_eyes()
 		to_chat(H.mind, "<span class='notice'>I no longer fear the dark.</span>")
 		break
 
@@ -875,6 +880,8 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	s_req = /obj/item/reagent_containers/food/snacks/meat
 
 	function = /proc/fleshform
+
+	is_cultist_ritual = TRUE
 
 /proc/fleshform(mob/user, turf/C)
 	for(var/mob/living/carbon/human/H in C.contents)
@@ -917,6 +924,8 @@ GLOBAL_LIST_EMPTY(ritualslist)
 
 	function = /proc/badomenzizo
 
+	is_cultist_ritual = TRUE
+
 /proc/badomenzizo(mob/user, turf/C)
 	for(var/mob/living/carbon/human/H in C.contents)
 		if(H.stat == DEAD)
@@ -932,6 +941,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	s_req = /mob/living/carbon/human // virgin
 
 	function = /proc/ascend
+	is_cultist_ritual = TRUE
 
 /proc/ascend(mob/user, turf/C)
 	for(var/mob/living/carbon/human/H in C.contents)

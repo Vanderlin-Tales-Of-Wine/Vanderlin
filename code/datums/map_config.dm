@@ -17,6 +17,9 @@
 	var/map_name = "Vanderlin"
 	var/map_path = "map_files/vanderlin"
 	var/map_file = "vanderlin.dmm"
+	var/immigrant_origin = "Kingsfield"
+	var/monarch_title = "King"
+	var/monarch_title_f = "Queen"
 
 	var/traits = null
 	var/space_ruin_levels = 7
@@ -69,6 +72,10 @@
 	map_name = json["map_name"]
 	CHECK_EXISTS("map_path")
 	map_path = json["map_path"]
+	// Per-map flavour:
+	immigrant_origin = json["immigrant_origin"]
+	monarch_title = json["monarch_title"]
+	monarch_title_f = json["monarch_title_f"]
 
 	map_file = json["map_file"]
 	if (istext(map_file))

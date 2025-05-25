@@ -177,9 +177,11 @@
 			var/outcome = alert(user, "How do you want to shuffle the deck?","XYLIX","False Shuffle","Force Top Card","Play fair")
 			switch(outcome)
 				if("False Shuffle")
+					record_featured_stat(FEATURED_STATS_CRIMINALS, user)
 					GLOB.vanderlin_round_stats[STATS_GAMES_RIGGED]++
 					to_chat(user, span_notice("I shuffle the cards, then reverse the shuffle. Sneaky."))
 				if("Force Top Card")
+					record_featured_stat(FEATURED_STATS_CRIMINALS, user)
 					GLOB.vanderlin_round_stats[STATS_GAMES_RIGGED]++
 					user.set_machine(src)
 					interact(user)

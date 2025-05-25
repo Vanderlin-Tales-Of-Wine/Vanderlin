@@ -81,6 +81,29 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 
 	return new_msg
 
+/mob/living/proc/check_slur(text)
+	if(!LAZYLEN(GLOB.slurs_all))
+		return
+	for(var/slur as anything in GLOB.slurs_all)
+		if(findtext(text, slur))
+			record_featured_object_stat(FEATURED_STATS_SLURS, capitalize(slur))
+			GLOB.vanderlin_round_stats[STATS_SLURS_SPOKEN]++
+
+/mob/living/carbon/check_slur(text)
+	if(!LAZYLEN(GLOB.slurs_all))
+		return
+	for(var/slur as anything in GLOB.slurs_all)
+		if(findtext(text, slur))
+			record_featured_object_stat(FEATURED_STATS_SLURS, capitalize(slur))
+			GLOB.vanderlin_round_stats[STATS_SLURS_SPOKEN]++
+			if(!LAZYLEN(GLOB.slur_groups) || !dna?.species)
+				continue
+			if(is_string_in_list(slur, GLOB.slur_groups["Generic"]))
+				continue
+			if(is_string_in_list(slur, GLOB.slur_groups[dna.species.name]))
+				continue
+			record_featured_stat(FEATURED_STATS_SPECIESISTS, src)
+
 /mob/living/say(message, bubble_type,list/spans = list(), sanitize = TRUE, datum/language/language = null, ignore_spam = FALSE, forced = null)
 	var/static/list/crit_allowed_modes = list(MODE_WHISPER = TRUE, MODE_CHANGELING = TRUE, MODE_ALIEN = TRUE)
 	var/static/list/unconscious_allowed_modes = list(MODE_CHANGELING = TRUE, MODE_ALIEN = TRUE)
@@ -178,7 +201,7 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	if((InCritical() && !fullcrit) || message_mode == MODE_WHISPER)
 		message_range = 1
 		message_mode = MODE_WHISPER
-		src.log_talk(message, LOG_WHISPER)
+		src.log_talk("whispered: [message]", LOG_WHISPER)
 		if(fullcrit)
 			var/health_diff = round(-HEALTH_THRESHOLD_DEAD + health)
 			// If we cut our message short, abruptly end it with a-..
@@ -189,7 +212,7 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 			message_mode = MODE_WHISPER_CRIT
 			succumbed = TRUE
 	else
-		src.log_talk(message, LOG_SAY, forced_by=forced)
+		src.log_talk("said: [message]", LOG_SAY, forced_by=forced)
 
 	message = treat_message(message) // unfortunately we still need this
 	var/sigreturn = SEND_SIGNAL(src, COMSIG_MOB_SAY, args)
@@ -198,6 +221,9 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	if(!message)
 		return
 
+	if(client)
+		record_featured_stat(FEATURED_STATS_SPEAKERS, src)
+		INVOKE_ASYNC(src, PROC_REF(check_slur), message)
 	if(findtext(message, "Abyssor"))
 		GLOB.vanderlin_round_stats[STATS_ABYSSOR_REMEMBERED]++
 
@@ -271,6 +297,14 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 		create_chat_message(speaker, message_language, raw_message, spans, message_mode)
 	// Recompose message for AI hrefs, language incomprehension.
 	message = compose_message(speaker, message_language, raw_message, radio_freq, spans, message_mode)
+	// voice muffling
+	if(stat == UNCONSCIOUS)
+		message = "<I>... You can almost hear something ...</I>"
+	else
+		if(isliving(speaker))
+			var/mob/living/living_speaker = speaker
+			if(living_speaker != src && living_speaker.client && src.can_hear()) //src.client already checked above
+				log_message("heard [key_name(living_speaker)] say: [raw_message]", LOG_SAY, "#0978b8", FALSE)
 	show_message(message, MSG_AUDIBLE, deaf_message, deaf_type)
 	return message
 

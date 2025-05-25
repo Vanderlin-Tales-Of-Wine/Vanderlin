@@ -24,41 +24,47 @@
 
 /datum/outfit/job/matron/pre_equip(mob/living/carbon/human/H)
 	..()
-	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/stealing, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/traps, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/knives, 5, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-		if(H.age == AGE_OLD) // So that the role isn't roadkill
-			H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, 1, TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/misc/stealing, 2, TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, 1, TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, 1, TRUE)
-		H.change_stat(STATKEY_STR, -1)
-		H.change_stat(STATKEY_INT, 2)
-		H.change_stat(STATKEY_PER, 1)
-		H.change_stat(STATKEY_SPD, 2)
-		H.grant_language(/datum/language/thievescant)
-		to_chat(H, "<span class='info'>I can gesture in thieves' cant with ,t before my speech.</span>")
-		ADD_TRAIT(H, TRAIT_THIEVESGUILD, TRAIT_GENERIC)
-		ADD_TRAIT(H, TRAIT_OLDPARTY, TRAIT_GENERIC)
-		shirt = /obj/item/clothing/shirt/dress/gen/black
-		armor = /obj/item/clothing/armor/leather/vest/black
-		pants = /obj/item/clothing/pants/trou/beltpants
-		belt = /obj/item/storage/belt/leather/cloth/lady
-		shoes = /obj/item/clothing/shoes/boots/leather
-		beltl = /obj/item/storage/belt/pouch/coins/mid
-		backr = /obj/item/storage/backpack/satchel
-		cloak = /obj/item/clothing/cloak/matron
-		backpack_contents = list(/obj/item/weapon/knife/dagger/steel = 1, /obj/item/key/matron = 1)
+	H.adjust_skillrank(/datum/skill/misc/sewing, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/sneaking, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/stealing, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/lockpicking, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/traps, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/climbing, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/cooking, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/knives, 5, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+	if(H.age == AGE_OLD) // So that the role isn't roadkill
+		H.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/lockpicking, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/stealing, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/sneaking, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/lockpicking, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE) //She is a old thief.
+		H.change_stat(STATKEY_SPD, 1) //this is to counter the negative spd/end stats from being old so they can chase the orphans in case they're not listening, the other stats are left untouched.
+		H.change_stat(STATKEY_END, 1)
+	H.change_stat(STATKEY_STR, -1)
+	H.change_stat(STATKEY_INT, 2)
+	H.change_stat(STATKEY_PER, 1)
+	H.change_stat(STATKEY_SPD, 2)
+	H.grant_language(/datum/language/thievescant)
+	to_chat(H, "<span class='info'>I can gesture in thieves' cant with ,t before my speech.</span>")
+	ADD_TRAIT(H, TRAIT_THIEVESGUILD, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_OLDPARTY, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_EARGRAB, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_KITTEN_MOM, TRAIT_GENERIC)
+	H.mind?.AddSpell(new /obj/effect/proc_holder/spell/targeted/seek_orphan)
+	H.mind?.AddSpell(new /obj/effect/proc_holder/spell/self/hag_call)
+	shirt = /obj/item/clothing/shirt/dress/gen/black
+	armor = /obj/item/clothing/armor/leather/vest/black
+	pants = /obj/item/clothing/pants/trou/beltpants
+	belt = /obj/item/storage/belt/leather/cloth/lady
+	shoes = /obj/item/clothing/shoes/boots/leather
+	beltl = /obj/item/storage/belt/pouch/coins/mid
+	backr = /obj/item/storage/backpack/satchel
+	cloak = /obj/item/clothing/cloak/matron
+	backpack_contents = list(/obj/item/weapon/knife/dagger/steel = 1, /obj/item/key/matron = 1)

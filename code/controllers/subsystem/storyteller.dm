@@ -31,6 +31,7 @@ SUBSYSTEM_DEF(gamemode)
 	/// Associative list of even track points.
 	var/list/event_track_points = list(
 		EVENT_TRACK_MUNDANE = 0,
+		EVENT_TRACK_PERSONAL = 0,
 		EVENT_TRACK_MODERATE = 0,
 		EVENT_TRACK_INTERVENTION = 0,
 		EVENT_TRACK_CHARACTER_INJECTION = 0,
@@ -40,6 +41,7 @@ SUBSYSTEM_DEF(gamemode)
 	/// Last point amount gained of each track. Those are recorded for purposes of estimating how long until next event.
 	var/list/last_point_gains = list(
 		EVENT_TRACK_MUNDANE = 0,
+		EVENT_TRACK_PERSONAL = 0,
 		EVENT_TRACK_MODERATE = 0,
 		EVENT_TRACK_INTERVENTION = 0,
 		EVENT_TRACK_CHARACTER_INJECTION = 0,
@@ -49,6 +51,7 @@ SUBSYSTEM_DEF(gamemode)
 	/// Point thresholds at which the events are supposed to be rolled, it is also the base cost for events.
 	var/list/point_thresholds = list(
 		EVENT_TRACK_MUNDANE = MUNDANE_POINT_THRESHOLD,
+		EVENT_TRACK_PERSONAL = MUNDANE_POINT_THRESHOLD,
 		EVENT_TRACK_MODERATE = MODERATE_POINT_THRESHOLD,
 		EVENT_TRACK_INTERVENTION = MAJOR_POINT_THRESHOLD,
 		EVENT_TRACK_CHARACTER_INJECTION = ROLESET_POINT_THRESHOLD,
@@ -59,6 +62,7 @@ SUBSYSTEM_DEF(gamemode)
 	/// Minimum population thresholds for the tracks to fire off events.
 	var/list/min_pop_thresholds = list(
 		EVENT_TRACK_MUNDANE = MUNDANE_MIN_POP,
+		EVENT_TRACK_PERSONAL = MODERATE_MIN_POP,
 		EVENT_TRACK_MODERATE = MODERATE_MIN_POP,
 		EVENT_TRACK_INTERVENTION = MAJOR_MIN_POP,
 		EVENT_TRACK_CHARACTER_INJECTION = CHARACTER_INJECTION_MIN_POP,
@@ -69,6 +73,7 @@ SUBSYSTEM_DEF(gamemode)
 	/// Configurable multipliers for point gain over time.
 	var/list/point_gain_multipliers = list(
 		EVENT_TRACK_MUNDANE = 1,
+		EVENT_TRACK_PERSONAL = 1,
 		EVENT_TRACK_MODERATE = 1,
 		EVENT_TRACK_INTERVENTION = 1,
 		EVENT_TRACK_CHARACTER_INJECTION = 1,
@@ -78,6 +83,7 @@ SUBSYSTEM_DEF(gamemode)
 	/// Configurable multipliers for roundstart points.
 	var/list/roundstart_point_multipliers = list(
 		EVENT_TRACK_MUNDANE = 1,
+		EVENT_TRACK_PERSONAL = 1,
 		EVENT_TRACK_MODERATE = 1,
 		EVENT_TRACK_INTERVENTION = 1,
 		EVENT_TRACK_CHARACTER_INJECTION = 1,
@@ -90,6 +96,7 @@ SUBSYSTEM_DEF(gamemode)
 	/// Associative list of pop scale thresholds.
 	var/list/pop_scale_thresholds = list(
 		EVENT_TRACK_MUNDANE = MUNDANE_POP_SCALE_THRESHOLD,
+		EVENT_TRACK_PERSONAL = MODERATE_POP_SCALE_THRESHOLD,
 		EVENT_TRACK_MODERATE = MODERATE_POP_SCALE_THRESHOLD,
 		EVENT_TRACK_INTERVENTION = MAJOR_POP_SCALE_THRESHOLD,
 		EVENT_TRACK_CHARACTER_INJECTION = ROLESET_POP_SCALE_THRESHOLD,
@@ -100,6 +107,7 @@ SUBSYSTEM_DEF(gamemode)
 	/// Associative list of pop scale penalties.
 	var/list/pop_scale_penalties = list(
 		EVENT_TRACK_MUNDANE = MUNDANE_POP_SCALE_PENALTY,
+		EVENT_TRACK_PERSONAL = MODERATE_POP_SCALE_PENALTY,
 		EVENT_TRACK_MODERATE = MODERATE_POP_SCALE_PENALTY,
 		EVENT_TRACK_INTERVENTION = MAJOR_POP_SCALE_PENALTY,
 		EVENT_TRACK_CHARACTER_INJECTION = ROLESET_POP_SCALE_PENALTY,
@@ -110,6 +118,7 @@ SUBSYSTEM_DEF(gamemode)
 	/// Associative list of active multipliers from pop scale penalty.
 	var/list/current_pop_scale_multipliers = list(
 		EVENT_TRACK_MUNDANE = 1,
+		EVENT_TRACK_PERSONAL = 1,
 		EVENT_TRACK_MODERATE = 1,
 		EVENT_TRACK_INTERVENTION = 1,
 		EVENT_TRACK_CHARACTER_INJECTION = 1,
@@ -120,7 +129,7 @@ SUBSYSTEM_DEF(gamemode)
 
 	//Gods dreams for the dreamwatcher
 	var/list/god_dreams = list()
-	
+
 	//Antag dreams for the dreamwatcher
 	var/list/antag_dreams = list()
 
@@ -205,9 +214,10 @@ SUBSYSTEM_DEF(gamemode)
 			qdel(event)
 			continue // event isn't good for this map no point in trying to add it to the list
 		control += event //add it to the list of all events (controls)
-		//List of Possible dreams for the Dreamwatcher
+
+		///List of Possible influence dreams for the Dreamwatcher
 		god_dreams = list(
-		
+
 			//Divine Pantheon
 
 			"Psydon" = list(
@@ -215,13 +225,13 @@ SUBSYSTEM_DEF(gamemode)
 				"...a vast warmth flickers behind your closed eyes... broken pieces drift, searching for their whole...",
 				"...you walk among ruins humming with warmth... pieces of something divine lie scattered, each pulse a memory, each breath a promise..."
 			),
-		
+
 			"Astrata"= list(
 				"...radiance floods your dream... it’s not warmth, but judgment disguised as light...",
 				"...you dream of unending sunrise, gold pouring over endless skies... judgment walks in daylight’s shoes...",
 				"...a glare pierces your soul... you feel seen, judged, burned, yet safe... the light watches, unwavering and eternal..."
 			),
-		
+
 			"Noc" = list(
 				"...silver light spills across ink-black halls... you hear pages fluttering without wind, and a voice speaks in riddles...",
 				"...a tapestry of stars weaves itself in your mind... patterns emerge and vanish, revealing truths never spoken aloud...",
@@ -233,13 +243,13 @@ SUBSYSTEM_DEF(gamemode)
 				"...everything is still... you are the last heartbeat in a world already buried... a cold smile waits just past the veil...",
 				"...a quiet woman sits by a river made of ash... she nods once, counting your breath..."
 			),
-		
+
 			"Pestra"= list(
 				"...your dream wilts, then blooms. A garden of endings and beginnings surrounds you...",
 				"...you hold your own bones like seeds. Rain falls, and they whisper with life...",
 				"...you see a flower bloom in ash. It dies and returns, brighter, stranger. The rhythm of endings comforts you...",
 			),
-		
+
 			"Ravox"= list(
 				"...a sword rests beside a scale... neither tips...",
 				"...steel sings in your dreams... a verdict is written in blood and flame, but justice waits before it lands...",
@@ -251,146 +261,139 @@ SUBSYSTEM_DEF(gamemode)
 				"...your hands ache... you build something vast, but can never see the whole... sparks kiss your skin, and you smile...",
 				"...endless clanging fills your mind... with each strike, something within you hardens, reforged in smoke and effort..."
 			),
-		
+
 			"Dendor"= list(
 				"...animals scream in tongues you almost understand... trees whisper old pain, searching for their shepherd...",
 				"...vines coil around your limbs. Roots burst from your feet... the forest within you howls, a kingdom lost to madness...",
 				"...eyes glow among tangled thorns... something ancient, betrayed, hungers again..."
 			),
-		
+
 			"Abyssor"= list(
 				"...the sea invades your lungs... a storm of blood and salt rises...",
 				"...fins brush past your legs... the water tastes of fury and old wounds...",
 				"...tides drag you under... in the silence, you hear sobbing, not yours... the sea remembers every wound..."
 			),
 
-		
+
 			"Xylix"= list(
 				"...you laugh without knowing why... your reflection winks back as a stranger...",
 				"...you wear masks you’ve never owned... each one laughs in a new voice... you are a guest in your own skin...",
 				"...every path splits... every answer lies... yet you smile... trickery is truth when worn well..."
 			),
-		
+
 			"Eora"= list(
 				"...you dream in color,red threads, gold loops, blue knots... all pulling gently...",
 				"...a weaving surrounds you... every face you’ve loved or hated is there...",
 				"...your heart is a loom... dreams pass through it, weaving bonds to people you’ve never met, yet feel you’ve always known..."
 			),
-			
+
 			//Inhumen Pantheon
-			
+
 			"Matthios"= list(
 				"...a shadow slips your pocket open... you feel lighter in your dream...",
 				"...a purse vanishes from your belt... a laugh echoes in your ears... you check your pockets, your name is gone...",
 				"...you follow footprints that vanish behind you... no one walks beside you, yet you’re never alone..."
 			),
-		
+
 			"Baotha" = list(
 				"...everything glows with joy... then it melts, and you, giggle anyway...",
 				"...you float through a city of glass, laughter echoing in colors... you smile with no mouth and sing without sound...",
 				"...your body dances without thought... every breath tastes like honey and smoke... you forget, and it feels divine..."
 			),
-		
+
 			"Graggar"= list(
 				"...your mouth is not your own... it’s laughing, snarling, hungry...",
 				"...you tear through flesh with joy... your dream is soaked in red... hunger knows your name, and calls you friend...",
 				"...an ancient drum beats under your ribs... it demands violence in return for peace..."
 			),
-		
+
 			"Zizo"= list(
 				"...eyes stare from skulls that still weep... you cradle a child made of frost and ash... it whispers secrets backwards...",
 				"...your name is forgotten by everyone in your dream... only bones remember...",
 				"...a girl with white eyes smiles at you... her lullaby stitches flesh to spirit..."
 			),
-			
+
 			"Unknown" = list("You feel a presence watching your sleep... old, vast, and unknowable. You do not yet know their name.")
 		)
-	
-		//List of possible dreams for the dream watcher
-		antag_dreams = list(
-			"Vampire Lord"= list(
-				"...a crown of thorns drips blood in the dark, yet no shadow dares touch the sun...",
-				"...i dream of a king who rules the night, but cowers when Astrata stirs...",
-				"...a crown of blood weighs heavy on an unseen tyrant’s brow..."
-			),
-			
-			"Vampire "= list(
-				"...a shadow bends the knee, thirsting only to serve...",
-				"...a heartbeat muffled by obedience, but the hunger remains...",
-				"...fangs with no will, only command..."
-			),
-			
-			"Vampire Spawn"= list(
-				"...fangs glint in the dream-dark, but the face remains hidden...",
-				"...something thirsts nearby,quiet, obedient, waiting...",
-				"...a shadow follows another shadow... one leads... one feeds..."
-			),
-		
-			"Verevolf"= list(
-				"...something howls just beyond the treeline... it’s not the wind...",
-				"...the forest runs red. Pawprints, but no wolves in sight...",
-				"...i dream of teeth and torn flesh... the beast is closer tonight..."
-			),
-			
-			"Lesser Verewolf"= list(
-				"...smaller footsteps still leave trails of blood in the woods...",
-				"...the forest howls with sorrow and rage...",
-				"...something primal scratches at your mind..."
-			),
-			"Peasant Rebel"= list(
-				"...a whisper stirs in the tavern, torches and pitchforks by nightfall...",
-				"...mud-covered boots tread paths of insurrection...",
-				"...someone sharpens a scythe with justice on their lips..."
-			),
-			
-			"Peasant Head Rebel"= list(
-				"...a common man wears the crown of fury...",
-				"...a leader rises not from blood, but from rage...",
-				"...they chant a name... it is not your majesty..."
-			),
-			"Lich"= list(
-				"...a cold wind drags whispers from forgotten tombs...",
-				"...a black crown rests on brittle bone... the throne is not empty...",
-				"...every step in this dream leaves bones behind me..."
-			),
-				
-			"Aspirant"= list(
-				"...a noble sleeps with ambition burning like wildfire...",
-				"...the throne creaks under invisible weight...",
-				"...someone dreams not of peace, but of power..."
-			),
-				
-			"Zizoid Lackey"= list(
-				"...eyes flicker with borrowed madness...",
-				"...they serve a shape they dare not name...",
-				"...something alien tugs at their strings..."
-			),
-	
-			"Zizoid Cultist"= list(
-				"...a spiral burns behind my eyelids when I close them...",
-				"...a silver tongue hums a hymn to nothing, and you almost sing along...",
-				"...there’s a shape in the dream that shouldn’t exist..."
-			),
-		
-			"Bandit" = list(
-				"...coins rattle where no one stands...",
-				"...my pockets feel lighter here...",
-				"...something greedy walks this dream, smiling..."
-			),
-		
-			"Assassin"= list(
-				"...a knife glints, vanishes... who held it?",
-				"...a silent breath... a glint of steel... a name forgotten...",
-				"...there’s blood here... fresh, but I saw no violence..."
-			),
-		
-			"Dreamer"= list(
-				"...the dream bends unnaturally, as though something, or someone, believes the world is not real...",
-				"...a presence drifts through the dream, disjointed and frantic, as if seeking a truth no one else can see...",
-				"...flickers of false memories, impossible places... someone’s mind is unraveling inside the dream..."
-			)
-		)
 
+		///List of possible antag dreams for the dream watcher
+		antag_dreams = list(
+			/datum/antagonist/vampire/lord = list(
+					"... a pale figure watches from afar... its gaze weighs heavy on your soul",
+					"... red velvet, torn and trailing... a presence unseen but always near",
+					"... a name you cannot remember sits on your tongue... it tastes of blood and dust"
+				),
+			/datum/antagonist/vampire = list(
+					"... a hand reaches from the dark... obedient, yet trembling",
+					"... you kneel, not knowing why... the voice behind you compels it",
+					"... a collar of roses and rust... worn by the willing"
+				),
+			/datum/antagonist/vampire/lesser = list (
+					"... fangs bloom from cracked lips... hunger shudders through the air",
+					"... you see your reflection... it smiles with borrowed teeth",
+					"... a laugh beneath floorboards... young, broken, blood-wet"
+				),
+			/datum/antagonist/lich = list (
+					"... a cold wind whispers names no longer spoken",
+					"... the tower bleeds light... skeletal hands trace forbidden runes",
+					"... bones rattle in a jar... they whisper of eternity"
+				),
+			/datum/antagonist/werewolf = list(
+					"... fur and fury rise... the moon stains the sky",
+					"... howling splits the silence... your hands ache with claws",
+					"... you wake with dirt under your nails... and a taste of fur"
+				),
+			/datum/antagonist/werewolf/lesser = list(
+					"... bones snap in rhythm... hunger guides their paws",
+					"... they follow the alpha's scent... and dream of killing him",
+					"... a low growl rumbles under moonlight... fur and fury rise"
+				),
+			/datum/antagonist/zizocultist = list(
+					"...a circle chants beneath shifting stars... their eyes are wrong",
+					"...ink flows upward... the words burn in reverse",
+					"...your thoughts are not your own... they hum in unison"
+				),
+			/datum/antagonist/zizocultist/leader = list(
+					"... a silent servant tends to a spiral... it never ends",
+					"... you hand someone a book... you've never seen it before",
+					"... something stands just behind your shoulder... always just behind"
+				),
+			/datum/antagonist/prebel = list(
+					"... muddy boots march across broken fields... fire follows",
+					"... the crowd roars without faces... you hold the torch",
+					"... a scythe buried in stone... your hand fits its grip perfectly"
+				),
+			/datum/antagonist/prebel/head = list(
+					"... a crowned figure of burlap and ash... they speak with your voice",
+					"... a throne made of pitchforks... it wobbles with every heartbeat",
+					"... children chant in the ruins... the rhythm carries a blade"
+				),
+			/datum/antagonist/aspirant = list(
+					"...you climb a tower of mirrors... none reflect the same face",
+					"...a blade sings your name... but you've never heard it before",
+					"...the stars rearrange themselves... spelling failure"
+				),
+			/datum/antagonist/bandit = list(
+					"... coin clinks like bone... your pockets are never full",
+					"... a dagger flickers in the candlelight... too fast to see",
+					"... a mask laughs... the voice behind it is yours"
+				),
+			/datum/antagonist/assassin = list(
+					"... a shadow parts from your own... and doesn't return",
+					"... footsteps on the ceiling... you hold your breath",
+					"... ink-black gloves close around your throat... gently"
+				),
+			/datum/antagonist/maniac = list(
+					"... a door opens inside a room that shouldn't exist... behind it, a thousand mirrors... none show your face",
+					"... you hear the world breathe... a hiss, a code, a loop... someone is watching from behind the glass",
+					"... you see structures made of meat and bone... they form words you can almost understand... then collapse"
+				),
+			"Unknown" = list(
+					"... something lingers in the darkness",
+					"... you feel an unseen presence watching",
+					"... the air grows heavy with forgotten whispers"
+				)
+		)
 
 
 
@@ -577,6 +580,9 @@ SUBSYSTEM_DEF(gamemode)
 			if(EVENT_TRACK_MUNDANE)
 				base_amt = ROUNDSTART_MUNDANE_BASE
 				gain_amt = ROUNDSTART_MUNDANE_GAIN
+			if(EVENT_TRACK_PERSONAL)
+				base_amt = ROUNDSTART_PERSONAL_BASE
+				gain_amt = ROUNDSTART_PERSONAL_GAIN
 			if(EVENT_TRACK_MODERATE)
 				base_amt = ROUNDSTART_MODERATE_BASE
 				gain_amt = ROUNDSTART_MODERATE_GAIN
@@ -820,6 +826,7 @@ SUBSYSTEM_DEF(gamemode)
 /// Loads config values from game_options.txt
 /datum/controller/subsystem/gamemode/proc/load_config_vars()
 	point_gain_multipliers[EVENT_TRACK_MUNDANE] = CONFIG_GET(number/mundane_point_gain_multiplier)
+	point_gain_multipliers[EVENT_TRACK_PERSONAL] = CONFIG_GET(number/moderate_point_gain_multiplier)
 	point_gain_multipliers[EVENT_TRACK_MODERATE] = CONFIG_GET(number/moderate_point_gain_multiplier)
 	point_gain_multipliers[EVENT_TRACK_INTERVENTION] = CONFIG_GET(number/major_point_gain_multiplier)
 	point_gain_multipliers[EVENT_TRACK_CHARACTER_INJECTION] = CONFIG_GET(number/roleset_point_gain_multiplier)
@@ -827,6 +834,7 @@ SUBSYSTEM_DEF(gamemode)
 	point_gain_multipliers[EVENT_TRACK_RAIDS] = 1
 
 	roundstart_point_multipliers[EVENT_TRACK_MUNDANE] = CONFIG_GET(number/mundane_roundstart_point_multiplier)
+	roundstart_point_multipliers[EVENT_TRACK_PERSONAL] = CONFIG_GET(number/moderate_roundstart_point_multiplier)
 	roundstart_point_multipliers[EVENT_TRACK_MODERATE] = CONFIG_GET(number/moderate_roundstart_point_multiplier)
 	roundstart_point_multipliers[EVENT_TRACK_INTERVENTION] = CONFIG_GET(number/major_roundstart_point_multiplier)
 	roundstart_point_multipliers[EVENT_TRACK_CHARACTER_INJECTION] = CONFIG_GET(number/roleset_roundstart_point_multiplier)
@@ -834,6 +842,7 @@ SUBSYSTEM_DEF(gamemode)
 	roundstart_point_multipliers[EVENT_TRACK_RAIDS] = 1
 
 	min_pop_thresholds[EVENT_TRACK_MUNDANE] = CONFIG_GET(number/mundane_min_pop)
+	min_pop_thresholds[EVENT_TRACK_PERSONAL] = CONFIG_GET(number/moderate_min_pop)
 	min_pop_thresholds[EVENT_TRACK_MODERATE] = CONFIG_GET(number/moderate_min_pop)
 	min_pop_thresholds[EVENT_TRACK_INTERVENTION] = CONFIG_GET(number/major_min_pop)
 	min_pop_thresholds[EVENT_TRACK_CHARACTER_INJECTION] = CONFIG_GET(number/roleset_min_pop)
@@ -841,6 +850,7 @@ SUBSYSTEM_DEF(gamemode)
 	min_pop_thresholds[EVENT_TRACK_RAIDS] = CONFIG_GET(number/objectives_min_pop)
 
 	point_thresholds[EVENT_TRACK_MUNDANE] = CONFIG_GET(number/mundane_point_threshold)
+	point_thresholds[EVENT_TRACK_PERSONAL] = CONFIG_GET(number/mundane_point_threshold)
 	point_thresholds[EVENT_TRACK_MODERATE] = CONFIG_GET(number/moderate_point_threshold)
 	point_thresholds[EVENT_TRACK_INTERVENTION] = CONFIG_GET(number/major_point_threshold)
 	point_thresholds[EVENT_TRACK_CHARACTER_INJECTION] = CONFIG_GET(number/roleset_point_threshold)
@@ -906,9 +916,11 @@ SUBSYSTEM_DEF(gamemode)
 		message_admins("Attempted to set an invalid storyteller type: [passed_type], force setting to guide instead.")
 		current_storyteller = storytellers[/datum/storyteller/astrata] //if we dont have any then we brick, lets not do that
 		CRASH("Attempted to set an invalid storyteller type: [passed_type].")
+
 	var/datum/storyteller/chosen_storyteller = storytellers[passed_type]
 	chosen_storyteller.times_chosen++
-	current_storyteller = storytellers[passed_type]
+	GLOB.featured_stats[FEATURED_STATS_STORYTELLERS]["entries"][initial(chosen_storyteller.name)] = chosen_storyteller.times_chosen
+	current_storyteller = chosen_storyteller
 
 /// Panel containing information, variables and controls about the gamemode and scheduled event
 /datum/controller/subsystem/gamemode/proc/admin_panel(mob/user)
@@ -1268,14 +1280,14 @@ SUBSYSTEM_DEF(gamemode)
 	if(!highest)
 		return
 
-	if(storytellers_with_influence[highest] > 1)
-		highest.bonus_points -= 1
+	if(storytellers_with_influence[highest] > 1.25)
+		highest.bonus_points -= 1.25
 
-	lowest.bonus_points += 1
+	lowest.bonus_points += 1.25
 
 	set_storyteller(highest.type)
 
-//To get the most influential God
+/// To get the most influential God
 /datum/controller/subsystem/gamemode/proc/get_most_influential(roundstart = FALSE)
 	var/list/storytellers_with_influence = list()
 	var/datum/storyteller/highest
@@ -1291,25 +1303,58 @@ SUBSYSTEM_DEF(gamemode)
 		highest = initalized_storyteller
 	return highest
 
-
 /// Refreshes statistics regarding alive statuses of certain professions or antags, like nobles
 /datum/controller/subsystem/gamemode/proc/refresh_alive_stats(roundstart = FALSE)
 	if(SSticker.current_state == GAME_STATE_FINISHED)
 		return
 
 	GLOB.patron_follower_counts.Cut()
+
+	GLOB.featured_stats[FEATURED_STATS_FLAWS]["entries"] = list()
+
+	GLOB.vanderlin_round_stats[STATS_TOTAL_POPULATION] = 0
+	GLOB.vanderlin_round_stats[STATS_PSYCROSS_USERS] = 0
 	GLOB.vanderlin_round_stats[STATS_ALIVE_NOBLES] = 0
+	GLOB.vanderlin_round_stats[STATS_ALIVE_GARRISON] = 0
+	GLOB.vanderlin_round_stats[STATS_ALIVE_CLERGY] = 0
+	GLOB.vanderlin_round_stats[STATS_ALIVE_TRADESMEN] = 0
 	GLOB.vanderlin_round_stats[STATS_ILLITERATES] = 0
 	GLOB.vanderlin_round_stats[STATS_WEREVOLVES] = 0
+	GLOB.vanderlin_round_stats[STATS_VAMPIRES] = 0
 	GLOB.vanderlin_round_stats[STATS_DEADITES_ALIVE] = 0
-	GLOB.vanderlin_round_stats[STATS_CLINGY_PEOPLE] = 0
+
 	GLOB.vanderlin_round_stats[STATS_ALCOHOLICS] = 0
 	GLOB.vanderlin_round_stats[STATS_JUNKIES] = 0
 	GLOB.vanderlin_round_stats[STATS_KLEPTOMANIACS] = 0
 	GLOB.vanderlin_round_stats[STATS_GREEDY_PEOPLE] = 0
 	GLOB.vanderlin_round_stats[STATS_PARENTS] = 0
-	GLOB.vanderlin_round_stats[STATS_ALIVE_TIEFLINGS] = 0
 	GLOB.vanderlin_round_stats[STATS_PACIFISTS] = 0
+	GLOB.vanderlin_round_stats[STATS_MARRIED] = 0
+
+	GLOB.vanderlin_round_stats[STATS_MALE_POPULATION] = 0
+	GLOB.vanderlin_round_stats[STATS_FEMALE_POPULATION] = 0
+	GLOB.vanderlin_round_stats[STATS_OTHER_GENDER] = 0
+
+	GLOB.vanderlin_round_stats[STATS_CHILD_POPULATION] = 0
+	GLOB.vanderlin_round_stats[STATS_ADULT_POPULATION] = 0
+	GLOB.vanderlin_round_stats[STATS_MIDDLEAGED_POPULATION] = 0
+	GLOB.vanderlin_round_stats[STATS_ELDERLY_POPULATION] = 0
+	GLOB.vanderlin_round_stats[STATS_IMMORTAL_POPULATION] = 0
+
+	// Races count
+	GLOB.vanderlin_round_stats[STATS_ALIVE_TIEFLINGS] = 0
+	GLOB.vanderlin_round_stats[STATS_ALIVE_NORTHERN_HUMANS] = 0
+	GLOB.vanderlin_round_stats[STATS_ALIVE_DWARVES] = 0
+	GLOB.vanderlin_round_stats[STATS_ALIVE_DARK_ELVES] = 0
+	GLOB.vanderlin_round_stats[STATS_ALIVE_SNOW_ELVES] = 0
+	GLOB.vanderlin_round_stats[STATS_ALIVE_HALF_ELVES] = 0
+	GLOB.vanderlin_round_stats[STATS_ALIVE_HALF_DROWS] = 0
+	GLOB.vanderlin_round_stats[STATS_ALIVE_HALF_ORCS] = 0
+	GLOB.vanderlin_round_stats[STATS_ALIVE_KOBOLDS] = 0
+	GLOB.vanderlin_round_stats[STATS_ALIVE_RAKSHARI] = 0
+	GLOB.vanderlin_round_stats[STATS_ALIVE_AASIMAR] = 0
+	GLOB.vanderlin_round_stats[STATS_ALIVE_HOLLOWKINS] = 0
+	GLOB.vanderlin_round_stats[STATS_ALIVE_HARPIES] = 0
 
 	for(var/client/client in GLOB.clients)
 		if(roundstart)
@@ -1324,18 +1369,51 @@ SUBSYSTEM_DEF(gamemode)
 		if(!roundstart)
 			if(living.patron)
 				GLOB.patron_follower_counts[living.patron.name]++
+				if(living.job == "Monarch")
+					GLOB.vanderlin_round_stats[STATS_MONARCH_PATRON] = "[living.patron.name]"
 		if(living.mind.has_antag_datum(/datum/antagonist/werewolf))
 			GLOB.vanderlin_round_stats[STATS_WEREVOLVES]++
+		if(living.mind.has_antag_datum(/datum/antagonist/vampire))
+			GLOB.vanderlin_round_stats[STATS_VAMPIRES]++
 		if(living.mind.has_antag_datum(/datum/antagonist/zombie) || living.mind.has_antag_datum(/datum/antagonist/skeleton) || living.mind.has_antag_datum(/datum/antagonist/lich))
 			GLOB.vanderlin_round_stats[STATS_DEADITES_ALIVE]++
 		if(ishuman(living))
 			var/mob/living/carbon/human/human_mob = client.mob
+			GLOB.vanderlin_round_stats[STATS_TOTAL_POPULATION]++
+			for(var/obj/item/clothing/neck/current_item in human_mob.get_equipped_items(TRUE))
+				if(current_item.type in list(/obj/item/clothing/neck/psycross, /obj/item/clothing/neck/psycross/silver, /obj/item/clothing/neck/psycross/g))
+					GLOB.vanderlin_round_stats[STATS_PSYCROSS_USERS]++
+					break
+			switch(human_mob.gender)
+				if(MALE)
+					GLOB.vanderlin_round_stats[STATS_MALE_POPULATION]++
+				if(FEMALE)
+					GLOB.vanderlin_round_stats[STATS_FEMALE_POPULATION]++
+				else
+					GLOB.vanderlin_round_stats[STATS_OTHER_GENDER]++
+			switch(human_mob.age)
+				if(AGE_CHILD)
+					GLOB.vanderlin_round_stats[STATS_CHILD_POPULATION]++
+				if(AGE_ADULT)
+					GLOB.vanderlin_round_stats[STATS_ADULT_POPULATION]++
+				if(AGE_MIDDLEAGED)
+					GLOB.vanderlin_round_stats[STATS_MIDDLEAGED_POPULATION]++
+				if(AGE_OLD)
+					GLOB.vanderlin_round_stats[STATS_ELDERLY_POPULATION]++
+				if(AGE_IMMORTAL)
+					GLOB.vanderlin_round_stats[STATS_IMMORTAL_POPULATION]++
+			if(human_mob.charflaw)
+				record_featured_object_stat(FEATURED_STATS_FLAWS, human_mob.charflaw.name)
 			if(human_mob.is_noble())
 				GLOB.vanderlin_round_stats[STATS_ALIVE_NOBLES]++
+			if(human_mob.mind.assigned_role.title in GLOB.garrison_positions)
+				GLOB.vanderlin_round_stats[STATS_ALIVE_GARRISON]++
+			if(human_mob.mind.assigned_role.title in GLOB.church_positions)
+				GLOB.vanderlin_round_stats[STATS_ALIVE_CLERGY]++
+			if((human_mob.mind.assigned_role.title in GLOB.serf_positions) || (human_mob.mind.assigned_role.title in GLOB.peasant_positions) || (human_mob.mind.assigned_role.title in GLOB.company_positions))
+				GLOB.vanderlin_round_stats[STATS_ALIVE_TRADESMEN]++
 			if(!human_mob.is_literate())
 				GLOB.vanderlin_round_stats[STATS_ILLITERATES]++
-			if(human_mob.has_flaw(/datum/charflaw/clingy))
-				GLOB.vanderlin_round_stats[STATS_CLINGY_PEOPLE]++
 			if(human_mob.has_flaw(/datum/charflaw/addiction/alcoholic))
 				GLOB.vanderlin_round_stats[STATS_ALCOHOLICS]++
 			if(human_mob.has_flaw(/datum/charflaw/addiction/junkie))
@@ -1344,22 +1422,67 @@ SUBSYSTEM_DEF(gamemode)
 				GLOB.vanderlin_round_stats[STATS_KLEPTOMANIACS]++
 			if(human_mob.has_flaw(/datum/charflaw/greedy))
 				GLOB.vanderlin_round_stats[STATS_GREEDY_PEOPLE]++
-			if(HAS_TRAIT_NOT_FROM(src, TRAIT_PACIFISM, "hugbox"))
+			if(HAS_TRAIT_NOT_FROM(human_mob, TRAIT_PACIFISM, "hugbox"))
 				GLOB.vanderlin_round_stats[STATS_PACIFISTS]++
-			if(istiefling(human_mob))
-				GLOB.vanderlin_round_stats[STATS_ALIVE_TIEFLINGS]++
 			if(human_mob.family_datum)
 				var/family_role = human_mob.family_datum.family[human_mob]
 				if(family_role in list(FAMILY_FATHER, FAMILY_MOTHER))
 					GLOB.vanderlin_round_stats[STATS_PARENTS]++
+				if(human_mob.IsWedded() || (family_role in list(FAMILY_FATHER, FAMILY_MOTHER)))
+					GLOB.vanderlin_round_stats[STATS_MARRIED]++
 
-/// Returns follower modifier for the given storyteller
-/datum/controller/subsystem/gamemode/proc/get_storyteller_follower_modifier(datum/storyteller/chosen_storyteller)
-	var/datum/storyteller/initalized_storyteller = storytellers[chosen_storyteller]
-	if(!initalized_storyteller)
-		return
+			// Races
+			if(istiefling(human_mob))
+				GLOB.vanderlin_round_stats[STATS_ALIVE_TIEFLINGS]++
+			if(ishumannorthern(human_mob))
+				GLOB.vanderlin_round_stats[STATS_ALIVE_NORTHERN_HUMANS]++
+			if(isdwarf(human_mob))
+				GLOB.vanderlin_round_stats[STATS_ALIVE_DWARVES]++
+			if(isdarkelf(human_mob))
+				GLOB.vanderlin_round_stats[STATS_ALIVE_DARK_ELVES]++
+			if(issnowelf(human_mob))
+				GLOB.vanderlin_round_stats[STATS_ALIVE_SNOW_ELVES]++
+			if(ishalfelf(human_mob))
+				GLOB.vanderlin_round_stats[STATS_ALIVE_HALF_ELVES]++
+			if(ishalfdrow(human_mob))
+				GLOB.vanderlin_round_stats[STATS_ALIVE_HALF_DROWS]++
+			if(ishalforc(human_mob))
+				GLOB.vanderlin_round_stats[STATS_ALIVE_HALF_ORCS]++
+			if(iskobold(human_mob))
+				GLOB.vanderlin_round_stats[STATS_ALIVE_KOBOLDS]++
+			if(israkshari(human_mob))
+				GLOB.vanderlin_round_stats[STATS_ALIVE_RAKSHARI]++
+			if(isaasimar(human_mob))
+				GLOB.vanderlin_round_stats[STATS_ALIVE_AASIMAR]++
+			if(ishollowkin(human_mob))
+				GLOB.vanderlin_round_stats[STATS_ALIVE_HOLLOWKINS]++
+			if(isharpy(human_mob))
+				GLOB.vanderlin_round_stats[STATS_ALIVE_HARPIES]++
 
-	return initalized_storyteller.follower_modifier
+/// Returns total follower influence for the given storyteller
+/datum/controller/subsystem/gamemode/proc/get_follower_influence(datum/storyteller/chosen_storyteller)
+	var/datum/storyteller/initialized_storyteller = storytellers[chosen_storyteller]
+	if(!initialized_storyteller)
+		return 0
+
+	var/follower_count = GLOB.patron_follower_counts[initialized_storyteller.name] || 0
+	var/base_mod = initialized_storyteller.follower_modifier
+	var/diminish_threshold = 4
+	var/second_diminish_threshold = 9
+	var/min_mod = 15
+	var/second_min_mod = 10
+
+	// Calculate total influence with diminishing returns
+	var/total_influence = 0
+	for(var/i in 1 to follower_count)
+		if(i <= diminish_threshold)
+			total_influence += base_mod
+		else if(i <= second_diminish_threshold)
+			total_influence += max(min_mod, base_mod - (i - diminish_threshold))
+		else
+			total_influence += max(second_min_mod, base_mod - (i - diminish_threshold))
+
+	return total_influence
 
 /// Returns influence value for a given storyteller for his given statistic
 /datum/controller/subsystem/gamemode/proc/calculate_specific_influence(datum/storyteller/chosen_storyteller, statistic)
@@ -1385,15 +1508,32 @@ SUBSYSTEM_DEF(gamemode)
 /datum/controller/subsystem/gamemode/proc/calculate_storyteller_influence(datum/storyteller/chosen_storyteller)
 	var/datum/storyteller/initialized_storyteller = storytellers[chosen_storyteller]
 	if(!initialized_storyteller)
-		return
+		return 0
 
-	var/total_influence = GLOB.patron_follower_counts[initialized_storyteller.name] * initialized_storyteller.follower_modifier
+	var/total_influence = get_follower_influence(chosen_storyteller)
+
 	for(var/influence_factor in initialized_storyteller.influence_factors)
 		total_influence += calculate_specific_influence(chosen_storyteller, influence_factor)
 
 	total_influence += initialized_storyteller.bonus_points
 
 	return total_influence
+
+/// Adjusts bonus points of the storyteller, which is added to their total influence
+/proc/adjust_storyteller_influence(god_name, amount)
+	for(var/storyteller_type in SSgamemode.storytellers)
+		var/datum/storyteller/S = SSgamemode.storytellers[storyteller_type]
+		if(S.name == god_name)
+			S.bonus_points += amount
+			break
+
+/// Gets total storyteller influence by their name
+/proc/get_storyteller_influence(god_name)
+	for(var/storyteller_type in SSgamemode.storytellers)
+		var/datum/storyteller/S = SSgamemode.storytellers[storyteller_type]
+		if(S.name == god_name)
+			return SSgamemode.calculate_storyteller_influence(S.type)
+	return 0
 
 #undef DEFAULT_STORYTELLER_VOTE_OPTIONS
 #undef MAX_POP_FOR_STORYTELLER_VOTE

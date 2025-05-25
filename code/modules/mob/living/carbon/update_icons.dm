@@ -6,15 +6,15 @@
 	var/final_pixel_y = pixel_y
 	var/final_dir = dir
 	var/changed = 0
-	if(lying != lying_prev && rotate_on_lying)
+	if(lying_angle != lying_prev && rotate_on_lying)
 		changed++
-		ntransform.TurnTo(lying_prev , lying)
-		if(!lying) //Lying to standing
+		ntransform.TurnTo(lying_prev , lying_angle)
+		if(!lying_angle) //Lying to standing
 			final_pixel_y = get_standard_pixel_y_offset()
 		else //if(lying != 0)
 			if(lying_prev == 0) //Standing to lying
 				pixel_y = get_standard_pixel_y_offset()
-				final_pixel_y = get_standard_pixel_y_offset(lying)
+				final_pixel_y = get_standard_pixel_y_offset(lying_angle)
 				if(dir & (EAST|WEST)) //Facing east or west
 //					final_dir = pick(NORTH, SOUTH) //So you fall on your side rather than your face or ass
 					final_dir = SOUTH
@@ -33,7 +33,7 @@
 		update_vision_cone()
 	else
 		pixel_x = get_standard_pixel_x_offset()
-		pixel_y = get_standard_pixel_y_offset(lying)
+		pixel_y = get_standard_pixel_y_offset(lying_angle)
 
 /mob/living
 	var/list/overlays_standing[TOTAL_LAYERS]
@@ -59,32 +59,6 @@
 	update_inv_handcuffed()
 	update_inv_legcuffed()
 	update_fire()
-
-/*
-/proc/get_inhand_sprite(/obj/item/I, layer)
-	var/index = "[I.icon_state]"
-	var/icon/inhand_icon = GLOB.inhand_icons[index]
-	if(!inhand_icon) 	//Create standing/laying icons if they don't exist
-		generate_inhand_icon(I)
-	return mutable_appearance(GLOB.inhand_icons[index], layer = -layer)
-
-/proc/generate_inhand_icon(/obj/item/I)
-	testing("GDC [index]")
-	if(sleevetype)
-		var/icon/dismembered		= icon("icon"=icon, "icon_state"=t_color)
-		var/icon/r_mask				= icon("icon"='icons/roguetown/clothing/onmob/helpers/dismemberment.dmi', "icon_state"="r_[sleevetype]")
-		var/icon/l_mask				= icon("icon"='icons/roguetown/clothing/onmob/helpers/dismemberment.dmi', "icon_state"="l_[sleevetype]")
-		switch(sleeveindex)
-			if(1)
-				dismembered.Blend(r_mask, ICON_MULTIPLY)
-				dismembered.Blend(l_mask, ICON_MULTIPLY)
-			if(2)
-				dismembered.Blend(l_mask, ICON_MULTIPLY)
-			if(3)
-				dismembered.Blend(r_mask, ICON_MULTIPLY)
-		dismembered 			= fcopy_rsc(dismembered)
-		testing("GDC added [index]")
-		GLOB.dismembered_clothing_icons[index] = dismembered*/
 
 /mob/living/carbon/update_inv_hands()
 	remove_overlay(HANDS_LAYER)
@@ -294,23 +268,6 @@
 
 	apply_overlay(NECK_LAYER)
 
-/mob/living/carbon/update_inv_back()
-	remove_overlay(BACK_LAYER)
-	var/age = AGE_ADULT
-	if(ishuman(src))
-		var/mob/living/carbon/human/human = src
-		age = human.age
-
-	if(client && hud_used && hud_used.inv_slots[SLOT_BACK])
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_BACK]
-		inv.update_icon()
-
-	if(back)
-		overlays_standing[BACK_LAYER] = back.build_worn_icon(age = age, default_layer = BACK_LAYER, default_icon_file = 'icons/mob/clothing/back.dmi')
-		update_hud_back(back)
-
-	apply_overlay(BACK_LAYER)
-
 /mob/living/carbon/update_inv_head()
 	remove_overlay(HEAD_LAYER)
 
@@ -322,7 +279,7 @@
 	if(!get_bodypart(BODY_ZONE_HEAD)) //Decapitated
 		return
 
-	if(client && hud_used && hud_used.inv_slots[SLOT_BACK])
+	if(client && hud_used && hud_used.inv_slots[SLOT_HEAD])
 		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_HEAD]
 		inv.update_icon()
 
@@ -376,10 +333,6 @@
 
 //update whether our neck item appears on our hud.
 /mob/living/carbon/proc/update_hud_neck(obj/item/I)
-	return
-
-//update whether our back item appears on our hud.
-/mob/living/carbon/proc/update_hud_back(obj/item/I)
 	return
 
 //update whether our back item appears on our hud.

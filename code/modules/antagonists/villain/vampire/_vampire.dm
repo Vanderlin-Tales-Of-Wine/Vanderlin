@@ -68,14 +68,16 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 		var/mob/living/carbon/human/vampdude = owner.current
 		vampdude.adv_hugboxing_cancel()
 
-
-
 	owner.current.cmode_music = 'sound/music/cmode/antag/CombatThrall.ogg'
 	owner.current.AddSpell(new /obj/effect/proc_holder/spell/targeted/transfix)
 	vamp_look()
 	. = ..()
 	equip()
 	after_gain()
+
+/datum/antagonist/vampire/lord/on_gain()
+	. = ..()
+	owner.special_role = span_redtext("[name]")
 
 /datum/antagonist/vampire/proc/after_gain()
 	owner.current.verbs |= /mob/living/carbon/human/proc/disguise_button

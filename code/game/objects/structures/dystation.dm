@@ -157,7 +157,7 @@
 				return
 			if(!active_color)
 				return
-			if(user.mind?.get_skill_level(/datum/skill/misc/sewing) <= 2) // We're not letting people with 0 knowledge in sewing do dying, so they don't step on the toes of the seamstress
+			if(user.get_skill_level(/datum/skill/misc/sewing) <= 2) // We're not letting people with 0 knowledge in sewing do dying, so they don't step on the toes of the seamstress
 				to_chat(user, span_warning("I do not know enough about this craft..."))
 				return
 

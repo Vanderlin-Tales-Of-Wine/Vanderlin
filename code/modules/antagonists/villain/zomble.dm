@@ -90,10 +90,10 @@
 	base_intents = zombie.base_intents
 	old_cmode_music = zombie.cmode_music
 	patron = zombie.patron
-	stored_skills = owner.known_skills.Copy()
-	stored_experience = owner.skill_experience.Copy()
-	owner.known_skills = list()
-	owner.skill_experience = list()
+	stored_skills = owner.current.ensure_skills().known_skills.Copy()
+	stored_experience = owner.current.skills?.skill_experience.Copy()
+	owner.current.skills?.known_skills = list()
+	owner.current.skills?.skill_experience = list()
 	zombie.cmode_music ='sound/music/cmode/combat_weird.ogg'
 	zombie.vitae_pool = 0 // Deadites have no vitae to drain from
 	var/datum/language_holder/mob_language = zombie.get_language_holder()
@@ -102,6 +102,7 @@
 	zombie.grant_language(/datum/language/hellspeak)
 
 	zombie.ai_controller = new /datum/ai_controller/zombie(zombie)
+	zombie.AddComponent(/datum/component/ai_aggro_system)
 	return ..()
 
 /datum/antagonist/zombie/on_removal()
@@ -124,8 +125,8 @@
 	zombie.remove_stat_modifier("[type]")
 	zombie.cmode_music = old_cmode_music
 	zombie.set_patron(patron)
-	owner.known_skills = stored_skills
-	owner.skill_experience = stored_experience
+	owner.current.skills?.known_skills = stored_skills
+	owner.current.skills?.skill_experience = stored_experience
 	for(var/trait in traits_zombie)
 		REMOVE_TRAIT(zombie, trait, "[type]")
 	zombie.remove_client_colour(/datum/client_colour/monochrome)
@@ -147,7 +148,8 @@
 			to_chat(zombie, span_green("I no longer crave for flesh..."))
 	for(var/obj/item/bodypart/zombie_part as anything in zombie.bodyparts)
 		zombie_part.rotted = FALSE
-		zombie_part.update_disabled()
+		if(zombie_part.can_be_disabled)
+			zombie_part.update_disabled()
 		zombie_part.update_limb()
 	zombie.update_body()
 	zombie.remove_language(/datum/language/hellspeak)
@@ -188,9 +190,9 @@
 	zombie.update_a_intents()
 	if(!zombie.client)
 		zombie.ai_controller = new /datum/ai_controller/zombie(zombie)
+		zombie.AddComponent(/datum/component/ai_aggro_system)
 
-	var/obj/item/organ/eyes/eyes = new /obj/item/organ/eyes/night_vision/zombie
-	eyes.Insert(zombie, drop_if_replaced = FALSE)
+	zombie.grant_undead_eyes()
 	ambushable = zombie.ambushable
 	zombie.ambushable = FALSE
 
@@ -204,7 +206,8 @@
 	for(var/obj/item/bodypart/zombie_part as anything in zombie.bodyparts)
 		if(!zombie_part.rotted && !zombie_part.skeletonized)
 			zombie_part.rotted = TRUE
-		zombie_part.update_disabled()
+		if(zombie_part.can_be_disabled)
+			zombie_part.update_disabled()
 	zombie.update_body()
 	zombie.cmode_music = 'sound/music/cmode/combat_weird.ogg'
 	zombie.set_patron(/datum/patron/inhumen/zizo)
@@ -242,7 +245,6 @@
 //Infected wake param is just a transition from living to zombie, via zombie_infect()
 //Previously you just died without warning in 3 minutes, now you just become an antag
 /datum/antagonist/zombie/proc/wake_zombie(infected_wake = FALSE)
-	testing("WAKEZOMBIE")
 	if(!owner.current)
 		return
 	var/mob/living/carbon/human/zombie = owner.current
@@ -266,7 +268,7 @@
 		zombie.heal_wounds(INFINITY) //Heal every wound that is not permanent
 	zombie.set_stat(UNCONSCIOUS) //Start unconscious
 	zombie.updatehealth() //then we check if the mob should wake up
-	zombie.update_mobility()
+	// zombie.update_mobility()
 	zombie.update_sight()
 	zombie.reload_fullscreen()
 	transform_zombie()

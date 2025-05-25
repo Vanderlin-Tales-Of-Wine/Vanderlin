@@ -2,14 +2,15 @@
 	name = "Unknown"
 	real_name = "Unknown"
 	icon = 'icons/mob/human.dmi'
-	icon_state = "human_basic"
+	// Appearance is built by overlays
+	icon_state = MAP_SWITCH("", "human_basic")
 	appearance_flags = KEEP_TOGETHER|TILE_BOUND|PIXEL_SCALE
 	hud_possible = list(ANTAG_HUD)
 	hud_type = /datum/hud/human
 	base_intents = list(INTENT_HELP, INTENT_DISARM, INTENT_GRAB, INTENT_HARM)
 	possible_mmb_intents = list(INTENT_STEAL, INTENT_JUMP, INTENT_KICK, INTENT_BITE, INTENT_GIVE)
 	can_buckle = TRUE
-	buckle_lying = FALSE
+	buckle_lying = 0
 	mob_biotypes = MOB_ORGANIC|MOB_HUMANOID
 
 	ambushable = TRUE //! DEPRECATED VAR, USE TRAIT_NOAMBUSH
@@ -54,9 +55,6 @@
 	var/obj/item/beltr = null
 	var/obj/item/wear_ring = null
 	var/obj/item/wear_wrists = null
-	var/obj/item/r_store = null
-	var/obj/item/l_store = null
-	var/obj/item/s_store = null
 	var/obj/item/cloak = null
 	var/obj/item/clothing/wear_shirt = null
 
@@ -71,7 +69,7 @@
 
 	var/list/datum/bioware = list()
 
-	var/static/list/can_ride_typecache = typecacheof(list(/mob/living/carbon/human, /mob/living/simple_animal/parrot))
+	var/static/list/can_ride_typecache = typecacheof(list(/mob/living/carbon/human))
 	var/lastpuke = 0
 	var/last_fire_update
 	var/account_id //! DEPRECATED
@@ -149,7 +147,7 @@
 	torso_class = max(shirt_ac, chest_ac)			//Use heaviest Torso Armor Class
 
 	//Get Limb values, use heaviest pair
-	var/list/accessories = list(head, wear_mask, wear_wrists, wear_neck, cloak, wear_pants, gloves, shoes, belt, s_store)
+	var/list/accessories = list(head, wear_mask, wear_wrists, wear_neck, cloak, wear_pants, gloves, shoes, belt)
 	var/acc_class = ARMOR_CLASS_NONE
 	var/heavy_count = 0
 	var/medium_count = 0

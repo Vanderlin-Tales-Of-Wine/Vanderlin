@@ -55,7 +55,8 @@
 			for(var/obj/item/bodypart/rotty in stinky.bodyparts)
 				rotty.rotted = TRUE
 				rotty.update_limb()
-				rotty.update_disabled()
+				if(rotty.can_be_disabled)
+					rotty.update_disabled()
 		target.update_body()
 		if(HAS_TRAIT(target, TRAIT_ROTMAN))
 			target.visible_message(span_notice("[target]'s body rots!"), span_green("I feel rotten!"))

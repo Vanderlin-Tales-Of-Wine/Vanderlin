@@ -1,6 +1,6 @@
 /obj/item/clothing/armor/chainmail
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT
-	name = "Haubergeon"
+	name = "haubergeon"
 	desc = "Made out of interlocked steel rings. Offers superior resistance against arrows, stabs and cuts. \nUsually worn as padding for proper armor."
 	icon_state = "haubergeon"
 	blocksound = CHAINHIT
@@ -42,3 +42,15 @@
 	body_parts_covered = COVERAGE_FULL
 	do_sound_chain = TRUE
 	item_weight = 6 * IRON_MULTIPLIER
+
+//................ Ancient Haubergon ............... //
+/obj/item/clothing/armor/chainmail/hauberk/vampire
+	name = "ancient hauberk"
+	desc = "A style of armor long out of use, rests easy on the shoulders. Has sleeves but doesn't cover the legs."
+	icon_state = "vunder"
+	sellprice = VALUE_STEEL_ARMOR_FINE
+
+	armor_class = AC_LIGHT
+	armor = ARMOR_SCALE
+	body_parts_covered = COVERAGE_ALL_BUT_LEGS
+	item_weight = 7 * STEEL_MULTIPLIER

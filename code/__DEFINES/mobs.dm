@@ -236,15 +236,6 @@
 
 //Hostile simple animals
 //If you add a new status, be sure to add a list for it to the simple_animals global in _globalvars/lists/mobs.dm
-#define AI_ON		1
-#define AI_IDLE		2
-#define AI_OFF		3
-#define AI_Z_OFF	4
-
-#define AI_COMBAT	5
-#define AI_RETREAT	6
-#define AI_HUNT		7
-#define AI_FLEE		8
 
 //determines if a mob can smash through it
 #define ENVIRONMENT_SMASH_NONE			0
@@ -296,7 +287,6 @@
 #define OFFSET_GLASSES "glasses"
 #define OFFSET_EARS "ears"
 #define OFFSET_SHOES "shoes"
-#define OFFSET_S_STORE "s_store"
 #define OFFSET_FACEMASK "mask"
 #define OFFSET_HEAD "head"
 #define OFFSET_FACE "face" //facial hair and hair
@@ -401,7 +391,7 @@
 
 //skin tones defines
 
-//HALF ORK SKIN TONES
+//HALF ORC SKIN TONES
 #define SKIN_COLOR_BLOOD_AXE "A84C4F" //Clay red
 #define SKIN_COLOR_GROONN "50715C" //Mint
 #define SKIN_COLOR_BLACK_HAMMER "1B2B21" //Dark green
@@ -445,6 +435,26 @@
 #define SKIN_COLOR_SAND_ELF "5d4c41" //Black 1
 #define SKIN_COLOR_CRIMSON_ELF "4e3729" //Black 2
 
+//HALF ELF SKIN TONES
+#define SKIN_COLOR_TIMBER_GRONN "ffe0d1" //Pale
+#define SKIN_COLOR_SOLAR_HUE "fcccb3" //White
+#define SKIN_COLOR_WALNUT_STINE "edc6b3" //White
+#define SKIN_COLOR_AMBER_STAINED "e2b9a3" //White
+#define SKIN_COLOR_REDWOOD_ROOTED "c9a893" //Mediterranean 1
+#define SKIN_COLOR_DRIFTED_WOOD "ba9882" //Mediterranean 2
+#define SKIN_COLOR_VINE_WRAPPED "ac8369" //Latin 2
+#define SKIN_COLOR_JOSHUA_ALIGNED "9c6f52" //Middle-east
+#define SKIN_COLOR_ARID_BIRTHED "5a4a41" //Black
+#define SKIN_COLOR_SAGE_BLOOMED "4e3729" //Black 2
+
+//HALF DROW SKIN TONES
+#define SKIN_COLOR_ZIZO_CURSED "fff0e9" //Pale as SHIT
+#define SKIN_COLOUR_PARASITE_TAINTED "a191a1" //Light purple
+#define SKIN_COLOR_MUSHROOM_MINDED "897489" //Mid purple
+#define SKIN_COLOR_CAVE_ATTUNED "5f5f70" // Dark purple
+#define SKIN_COLOR_FUNGUS_STAINED "897489" //Pink
+#define SKIN_COLOR_DEPTH_DEPARTED "5f5f70" //Grey-blue
+
 //HUMEN SKIN TONES
 #define SKIN_COLOR_ICECAP "fff0e9" //Pale as SHIT!!
 #define SKIN_COLOR_ARCTIC "ffe0d1" //White 1
@@ -458,28 +468,35 @@
 #define SKIN_COLOR_DESERT "9c6f52" //Middle-east
 #define SKIN_COLOR_CRIMSONLANDS "4e3729" //Black
 
-//AASIMAR SKIN TONES
-#define SKIN_COLOR_PLANETAR "474a4c" //Grey
-#define SKIN_COLOR_DEVA "b6f1f2" //Sky blue
-#define SKIN_COLOR_SOLAR "daeaeb" //WHITE
-#define SKIN_COLOR_EMPYREA "a9ded1" //Periwinkle blue
-#define SKIN_COLOR_GAEIA "db874f" //Orange
-#define SKIN_COLOR_CELESTIAL "e1c565" //Yellow
-#define SKIN_COLOR_OLYMPIA "c7f9cc" //Seafoam green
-#define SKIN_COLOR_NECRAL "19132a" //Black
-#define SKIN_COLOR_ABYSSAL "22577a" //Deep blue
+//LEGACY HUMEN SKIN TONES (DOES NOT FIT VANDERLIN LORE)
+#define SKIN_COLOR_GRENZELHOFT "fff0e9"
+#define SKIN_COLOR_HAMMERHOLD "ffe0d1"
+#define SKIN_COLOR_AVAR "fcccb3"
+#define SKIN_COLOR_ROCKHILL "edc6b3"
+#define SKIN_COLOR_OTAVA "e2b9a3"
+#define SKIN_COLOR_ETRUSCA "d9a284"
+#define SKIN_COLOR_GRONN "c9a893"
+#define SKIN_COLOR_GIZA "ba9882"
+#define SKIN_COLOR_SHALVISTINE "ac8369"
+#define SKIN_COLOR_LALVESTINE "9c6f52"
+#define SKIN_COLOR_NALEDI "4e3729"
+#define SKIN_COLOR_KAZENGUN "dbcca9"
 
-//HALF ELF SKIN TONES
-#define SKIN_COLOR_ZIZO_CURSED "fff0e9" //Pale as SHIT
-#define SKIN_COLOR_TIMBER_GRONN "ffe0d1" //Pale
-#define SKIN_COLOR_SOLAR_HUE "fcccb3" //White
-#define SKIN_COLOR_WALNUT_STINE "edc6b3" //White
-#define SKIN_COLOR_AMBER_STAINED "e2b9a3" //White
-#define SKIN_COLOR_JOSHUA_ALIGNED "9c6f52" //Middle-east
-#define SKIN_COLOR_ARID_BIRTHED "5a4a41" //Black
-#define SKIN_COLOUR_PARASITE_TAINTED "a191a1" //Light purple
-#define SKIN_COLOR_MUSHROOM_MINDED "897489" //Mid purple
-#define SKIN_COLOR_CAVE_ATTUNED "5f5f70" // Dark purple
+//AASIMAR SKIN TONES
+#define SKIN_COLOR_CORAL "ff96d6" //Pink
+#define SKIN_COLOR_SOAPSTONE "c7f9cc" //Seafoam green
+#define SKIN_COLOR_LIMESTONE "e6e4d8" //Tan
+#define SKIN_COLOR_SILVER "94B9C0" //Ice grey, at least that's what microsoft paint says
+#define SKIN_COLOR_COPPER "b87333" //Orange
+#define SKIN_COLOR_GOLD "d4af37" //Gold
+#define SKIN_COLOR_RUST "B71F1F" //Dark red
+#define SKIN_COLOR_ONYX "19132a" //Black
+#define SKIN_COLOR_LAPIS "26619C" //Deep blue
+#define SKIN_COLOR_BASALT "474a4c" //Dark grey
+#define SKIN_COLOR_MARBLE "E6E6E6" //White
+#define SKIN_COLOR_LARIMAR "a9ded1" //Cyan
+#define SKIN_COLOR_AMAZONITE "b6f1f2" //also Cyan
+#define SKIN_COLOR_ZINC "daeaeb" //Light aqua
 
 //TIEFLING SKIN TONES
 #define SKIN_COLOR_CRIMSON_LAND "cd2042" //Bright red
@@ -508,3 +525,15 @@
 
 /// Humans are slowed by the difference between bodytemp and BODYTEMP_COLD_DAMAGE_LIMIT divided by this
 #define COLD_SLOWDOWN_FACTOR				20
+
+/// Possible value of [/atom/movable/buckle_lying]. If set to a different (positive-or-zero) value than this, the buckling thing will force a lying angle on the buckled.
+#define NO_BUCKLE_LYING -1
+
+/// Simple mob trait, indicating it may follow continuous move actions controlled by code instead of by user input.
+#define MOVES_ON_ITS_OWN (1<<0)
+
+// Body position defines.
+/// Mob is standing up, usually associated with lying_angle value of 0.
+#define STANDING_UP 0
+/// Mob is lying down, usually associated with lying_angle values of 90 or 270.
+#define LYING_DOWN 1

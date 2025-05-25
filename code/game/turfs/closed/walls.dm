@@ -9,17 +9,14 @@
 
 	baseturfs = list(/turf/open/floor/dirt/road)
 
+	smoothing_groups = SMOOTH_GROUP_CLOSED_WALL
+
 	var/hardness = 40 //lower numbers are harder. Used to determine the probability of a hulk smashing through.
 	var/slicing_duration = 100  //default time taken to slice the wall
 	var/sheet_type = null
 	var/sheet_amount = 2
 
-	canSmoothWith = list(
-	/turf/closed/wall)
-	smooth = SMOOTH_TRUE
-
 	var/list/dent_decals
-
 
 /turf/closed/wall/handle_ricochet(obj/projectile/P)			//A huge pile of shitcode!
 	var/turf/p_turf = get_turf(P)

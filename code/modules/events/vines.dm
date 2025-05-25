@@ -3,7 +3,7 @@
 
 	var/obj/structure/vine/SV = new()
 
-	for(var/area/rogue/outdoors/town/A in world)
+	for(var/area/rogue/outdoors/town/A as anything in GLOB.areas)
 		for(var/turf/open/F in A)
 			if(F.Enter(SV))
 				if(!istype(F, /turf/open/transparent/openspace))
@@ -226,18 +226,6 @@
 	dir = pick(GLOB.cardinals)
 	icon_state = "Light[rand(1,2)]"
 	add_atom_colour("#ffffff", FIXED_COLOUR_PRIORITY)
-
-/obj/structure/vine/examine(mob/user)
-	. = ..()/*
-	var/text = "This one is a"
-	if(mutations.len)
-		for(var/A in mutations)
-			var/datum/vine_mutation/SM = A
-			text += " [SM.name]"
-	else
-		text += " normal"
-	text += " vine."
-	. += text*/
 
 /obj/structure/vine/Destroy()
 	for(var/datum/vine_mutation/SM in mutations)

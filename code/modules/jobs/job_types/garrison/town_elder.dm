@@ -32,8 +32,8 @@
 
 	var/static/last_announcement_time = 0
 
-	if(world.time < last_announcement_time + 10 MINUTES)
-		var/time_left = round((last_announcement_time + 10 MINUTES - world.time) / 10)
+	if(world.time < last_announcement_time + 1 MINUTES)
+		var/time_left = round((last_announcement_time + 1 MINUTES - world.time) / 10)
 		to_chat(src, "<span class='warning'>You must wait [time_left] more seconds before making another announcement.</span>")
 		return
 
@@ -51,6 +51,32 @@
 	. = ..()
 	var/mob/living/carbon/human/H = spawned
 	ADD_TRAIT(H, TRAIT_OLDPARTY, TRAIT_GENERIC)
+	H.verbs |= /mob/living/carbon/human/proc/townannouncement
+
+/datum/outfit/job/town_elder/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	H.advsetup = 1
+	H.invisibility = INVISIBILITY_MAXIMUM
+	H.become_blind("bard_select")
+	var/instruments = list(
+		"Harp" = /obj/item/instrument/harp,
+		"Lute" = /obj/item/instrument/lute,
+		"Accordion" = /obj/item/instrument/accord,
+		"Guitar" = /obj/item/instrument/guitar,
+		"Flute" = /obj/item/instrument/flute,
+		"Drum" = /obj/item/instrument/drum,
+		"Hurdy-Gurdy" = /obj/item/instrument/hurdygurdy,
+		"Viola" = /obj/item/instrument/viola)
+	var/instrument_choice = input(usr, "Choose your instrument.", "XYLIX") as anything in instruments
+	var/spawn_instrument = instruments[instrument_choice]
+	if(!spawn_instrument)
+		spawn_instrument = /obj/item/instrument/lute
+	H.equip_to_slot_or_del(new spawn_instrument(H),SLOT_BACK_R, TRUE)
+	H.advsetup = 0
+	H.invisibility = initial(H.invisibility)
+	H.cure_blind("bard_select")
+	var/atom/movable/screen/advsetup/GET_IT_OUT = locate() in H.hud_used?.static_inventory
+	qdel(GET_IT_OUT)
 
 /obj/effect/proc_holder/spell/self/convertrole/town_militia
 	name = "Recruit Militia"
@@ -70,6 +96,7 @@
 	total_positions = 0
 	spawn_positions = 0
 	display_order = JDO_CITYWATCHMEN
+
 
 /datum/advclass/town_elder/mayor
 	name = "Mayor"
@@ -100,35 +127,33 @@
 	beltr = /obj/item/storage/keyring/elder
 	beltl = /obj/item/flashlight/flare/torch/lantern
 	r_hand = /obj/item/weapon/polearm/woodstaff/quarterstaff
-	if(H.mind)
+	H.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/labor/mathematics, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/music, 5, TRUE)
 
-		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/music, 5, TRUE)
+	H.AddSpell(new /obj/effect/proc_holder/spell/invoked/mockery)
 
-		H.mind?.AddSpell(new /obj/effect/proc_holder/spell/invoked/mockery)
+	H.change_stat(STATKEY_STR, -1)
+	H.change_stat(STATKEY_PER, 2)
+	H.change_stat(STATKEY_END, 1)
+	H.change_stat(STATKEY_INT, 2)
 
+	if(H.age == AGE_OLD)
+		H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/labor/mathematics, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
 		H.change_stat(STATKEY_STR, -1)
-		H.change_stat(STATKEY_PER, 2)
-		H.change_stat(STATKEY_END, 1)
-		H.change_stat(STATKEY_INT, 2)
-
-		if(H.age == AGE_OLD)
-			H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 1, TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
-			H.change_stat(STATKEY_STR, -1)
-			H.change_stat(STATKEY_PER, 1)
-			H.change_stat(STATKEY_INT, 1)
+		H.change_stat(STATKEY_PER, 1)
+		H.change_stat(STATKEY_INT, 1)
 
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_SEEPRICES, TRAIT_GENERIC)
@@ -137,37 +162,10 @@
 
 
 
-/datum/outfit/job/town_elder/mayor/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	H.advsetup = 1
-	H.invisibility = INVISIBILITY_MAXIMUM
-	H.become_blind("bard_select")
-	var/instruments = list(
-		"Harp" = /obj/item/instrument/harp,
-		"Lute" = /obj/item/instrument/lute,
-		"Accordion" = /obj/item/instrument/accord,
-		"Guitar" = /obj/item/instrument/guitar,
-		"Flute" = /obj/item/instrument/flute,
-		"Drum" = /obj/item/instrument/drum,
-		"Hurdy-Gurdy" = /obj/item/instrument/hurdygurdy,
-		"Viola" = /obj/item/instrument/viola)
-	var/instrument_choice = input(usr, "Choose your instrument.", "XYLIX") as anything in instruments
-	var/spawn_instrument = instruments[instrument_choice]
-	if(!spawn_instrument)
-		spawn_instrument = /obj/item/instrument/lute
-	H.equip_to_slot_or_del(new spawn_instrument(H),SLOT_BACK_R, TRUE)
-	H.advsetup = 0
-	H.invisibility = initial(H.invisibility)
-	H.cure_blind("bard_select")
-	var/atom/movable/screen/advsetup/GET_IT_OUT = locate() in H.hud_used?.static_inventory
-	qdel(GET_IT_OUT)
-
-
-
 /datum/advclass/town_elder/master_of_crafts_and_labor
 	name = "Master of Crafts and Labor"
 
-	tutorial = "You were one of the hardest-working individuals in the city, there isn’t a single job you haven’t done. From farming and butchery to alchemy, blacksmithing, cooking, and even medicine, your vast knowledge has made you a guiding light for the people. Recognizing your wisdom and experience, the townsfolk turned to you for guidance. Now, as the Master of Crafts and Labor, you oversee and aid all who contribute to the city's survival. Lead them well."
+	tutorial = "You were one of the hardest-working individuals in the city, there isn’t a single job you haven’t done. From farming and butchery to alchemy, blacksmithing, cooking, and even medicine, your vast knowledge made you a guiding light for the people. Yet amid your labors, it was your songs that bound the workers together: rhythmic chants in the forge, lullabies in the sick wards, ballads hummed in the fields. Your voice became a beacon of focus and unity. Recognizing both your wisdom and your spirit, the townsfolk turned to you for guidance. Now, as the Master of Crafts and Labor, you oversee and uplift all who contribute to the city’s survival. Lead them well."
 	outfit = /datum/outfit/job/town_elder/master_of_crafts_and_labor
 
 	//A Job meant to guide and help new players in multiple areas heavy RNG so it can range from Average to Master.
@@ -183,42 +181,41 @@
 	shirt = /obj/item/clothing/shirt/undershirt/random
 	shoes = /obj/item/clothing/shoes/boots/leather
 	belt = /obj/item/storage/belt/leather
-	beltr = /obj/item/weapon/hammer/steel
+	beltr = /obj/item/weapon/pick/paxe
 	beltl = /obj/item/flashlight/flare/torch/lantern
-	backr = /obj/item/weapon/pick/paxe
 	backl = /obj/item/storage/backpack/backpack
-	backpack_contents = list(/obj/item/storage/belt/pouch/coins/mid = 1, /obj/item/weapon/knife/hunting = 1, /obj/item/storage/keyring/master_of_crafts_and_labor = 1)
+	backpack_contents = list(/obj/item/storage/belt/pouch/coins/mid = 1, /obj/item/weapon/knife/hunting = 1, /obj/item/storage/keyring/master_of_crafts_and_labor = 1, /obj/item/weapon/hammer/steel = 1)
 
 	if(H.mind)
 
-		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE) // Heavy worker
-		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/music, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/labor/mathematics, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE) // Heavy worker
+		H.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/music, 3, TRUE)
 
-		H.mind?.adjust_skillrank(/datum/skill/labor/mining, pick(2,3,4), TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/lumberjacking,pick(2,3,4),TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/masonry, pick(2,3,4), TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, pick(2,3,4), TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/carpentry, pick(2,3,4), TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/engineering, pick(2,3,4), TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/smelting, pick(2,3,4), TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, pick(2,3,4), TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/farming, pick(2,3,4), TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/medicine, pick(2,3,4), TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/tanning, pick(2,3,4), TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/butchering, pick(2,3,4), TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/taming, pick(2,3,4), TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/alchemy, pick(2,3,4), TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/blacksmithing, pick(2,3,4), TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/armorsmithing, pick(2,3,4) ,TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/weaponsmithing, pick(2,3,4) ,TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, pick(2,3,4), TRUE)
+		H.adjust_skillrank(/datum/skill/labor/mining, pick(2,3,4), TRUE)
+		H.adjust_skillrank(/datum/skill/labor/lumberjacking,pick(2,3,4),TRUE)
+		H.adjust_skillrank(/datum/skill/craft/masonry, pick(2,3,4), TRUE)
+		H.adjust_skillrank(/datum/skill/craft/crafting, pick(2,3,4), TRUE)
+		H.adjust_skillrank(/datum/skill/craft/carpentry, pick(2,3,4), TRUE)
+		H.adjust_skillrank(/datum/skill/craft/engineering, pick(2,3,4), TRUE)
+		H.adjust_skillrank(/datum/skill/craft/smelting, pick(2,3,4), TRUE)
+		H.adjust_skillrank(/datum/skill/misc/sewing, pick(2,3,4), TRUE)
+		H.adjust_skillrank(/datum/skill/labor/farming, pick(2,3,4), TRUE)
+		H.adjust_skillrank(/datum/skill/misc/medicine, pick(2,3,4), TRUE)
+		H.adjust_skillrank(/datum/skill/craft/tanning, pick(2,3,4), TRUE)
+		H.adjust_skillrank(/datum/skill/labor/butchering, pick(2,3,4), TRUE)
+		H.adjust_skillrank(/datum/skill/labor/taming, pick(2,3,4), TRUE)
+		H.adjust_skillrank(/datum/skill/craft/alchemy, pick(2,3,4), TRUE)
+		H.adjust_skillrank(/datum/skill/craft/blacksmithing, pick(2,3,4), TRUE)
+		H.adjust_skillrank(/datum/skill/craft/armorsmithing, pick(2,3,4) ,TRUE)
+		H.adjust_skillrank(/datum/skill/craft/weaponsmithing, pick(2,3,4) ,TRUE)
+		H.adjust_skillrank(/datum/skill/craft/cooking, pick(2,3,4), TRUE)
 
 		H.change_stat(STATKEY_STR, 1)
 		H.change_stat(STATKEY_END, 2)
@@ -226,24 +223,24 @@
 
 
 		if(H.age == AGE_OLD)
-			H.mind?.adjust_skillrank(/datum/skill/labor/mining, pick(0,0,1), TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/labor/lumberjacking,pick(0,0,1), TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/craft/masonry, pick(0,0,1), TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/craft/crafting, pick(0,0,1), TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/craft/carpentry, pick(0,0,1), TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/craft/engineering, pick(0,0,1), TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/craft/smelting, pick(0,0,1), TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/misc/sewing, pick(0,0,1), TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/labor/farming, pick(0,0,1), TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/misc/medicine, pick(0,0,1), TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/craft/tanning, pick(0,0,1), TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/labor/butchering, pick(0,0,1), TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/labor/taming, pick(0,0,1),TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/craft/alchemy, pick(0,0,1), TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/craft/blacksmithing, pick(0,0,1), TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/craft/armorsmithing, pick(0,0,1), TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/craft/weaponsmithing, pick(0,0,1), TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/craft/cooking, pick(0,0,1), TRUE)
+			H.adjust_skillrank(/datum/skill/labor/mining, pick(0,0,1), TRUE)
+			H.adjust_skillrank(/datum/skill/labor/lumberjacking,pick(0,0,1), TRUE)
+			H.adjust_skillrank(/datum/skill/craft/masonry, pick(0,0,1), TRUE)
+			H.adjust_skillrank(/datum/skill/craft/crafting, pick(0,0,1), TRUE)
+			H.adjust_skillrank(/datum/skill/craft/carpentry, pick(0,0,1), TRUE)
+			H.adjust_skillrank(/datum/skill/craft/engineering, pick(0,0,1), TRUE)
+			H.adjust_skillrank(/datum/skill/craft/smelting, pick(0,0,1), TRUE)
+			H.adjust_skillrank(/datum/skill/misc/sewing, pick(0,0,1), TRUE)
+			H.adjust_skillrank(/datum/skill/labor/farming, pick(0,0,1), TRUE)
+			H.adjust_skillrank(/datum/skill/misc/medicine, pick(0,0,1), TRUE)
+			H.adjust_skillrank(/datum/skill/craft/tanning, pick(0,0,1), TRUE)
+			H.adjust_skillrank(/datum/skill/labor/butchering, pick(0,0,1), TRUE)
+			H.adjust_skillrank(/datum/skill/labor/taming, pick(0,0,1),TRUE)
+			H.adjust_skillrank(/datum/skill/craft/alchemy, pick(0,0,1), TRUE)
+			H.adjust_skillrank(/datum/skill/craft/blacksmithing, pick(0,0,1), TRUE)
+			H.adjust_skillrank(/datum/skill/craft/armorsmithing, pick(0,0,1), TRUE)
+			H.adjust_skillrank(/datum/skill/craft/weaponsmithing, pick(0,0,1), TRUE)
+			H.adjust_skillrank(/datum/skill/craft/cooking, pick(0,0,1), TRUE)
 
 			H.change_stat(STATKEY_END, 1)
 			H.change_stat(STATKEY_INT, 1)
@@ -257,7 +254,7 @@
 /datum/advclass/town_elder/hearth_acolyte
 	name = "Hearth Acolyte"
 
-	tutorial = "As an Acolyte, you dedicated your life to faith and service, expecting nothing in return. When you saved a noble, they repaid you with a home and gold, but you saw it as the will of the Ten. Stepping away from the Church, you found a new purpose, not in a grand temple, but among the people. Whether offering healing, wisdom, or guidance, your faith remains strong. Only now, your congregation is the town itself."
+	tutorial = "As an Acolyte, you dedicated your life to faith and service, expecting nothing in return. When you saved a noble, they repaid you with a home and gold, but you accepted it as the will of the Ten. Though you stepped away from the Church, you found a new purpose, not in grand temples, but in the rhythm of the streets. Your voice, once raised in hymns and prayers, now carries through alleyways and taverns, offering solace in melody and verse. Whether through healing, wisdom, or song, your faith endures. Only now, your congregation is the town itself."
 	outfit = /datum/outfit/job/town_elder/hearth_acolyte
 
 	//An acolyte that left the church and now serve and help the town people.
@@ -275,9 +272,8 @@
 	beltr = /obj/item/storage/keyring/elder
 	beltl = /obj/item/flashlight/flare/torch/lantern
 	backl = /obj/item/storage/backpack/satchel
+	
 	backpack_contents = list(/obj/item/storage/belt/pouch/coins/mid = 1, /obj/item/needle = 1 )
-
-
 
 	switch(H.patron?.type)
 		if(/datum/patron/divine/astrata)
@@ -290,42 +286,80 @@
 			neck = /obj/item/clothing/neck/psycross/silver/eora
 			H.cmode_music = 'sound/music/cmode/church/CombatEora.ogg'
 			ADD_TRAIT(H, TRAIT_BEAUTIFUL, TRAIT_GENERIC)
+			ADD_TRAIT(H, TRAIT_EMPATH, TRAIT_GENERIC)
+			H.virginity = FALSE
 		if(/datum/patron/divine/noc)
 			neck = /obj/item/clothing/neck/psycross/noc
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
+			var/language = pickweight(list("Dwarvish" = 1, "Elvish" = 1, "Hellspeak" = 1, "Zybantu" = 1, "Orcish" = 1,))
+			switch(language)
+				if("Dwarvish")
+					H.grant_language(/datum/language/dwarvish)
+					to_chat(H,span_info("\
+					I learned the tongue of the mountain dwellers.")
+					)
+				if("Elvish")
+					H.grant_language(/datum/language/elvish)
+					to_chat(H,span_info("\
+					I learned the tongue of the primordial race.")
+					)
+				if("Hellspeak")
+					H.grant_language(/datum/language/hellspeak)
+					to_chat(H,span_info("\
+					I learned the tongue of the hellspawn.")
+					)
+				if("Zybantu")
+					H.grant_language(/datum/language/zybantine)
+					to_chat(H,span_info("\
+					I learned the tongue of Zybantu.")
+					)
+				if("Orcish")
+					H.grant_language(/datum/language/orcish)
+					to_chat(H,span_info("\
+					I learned the tongue of the savages in my time.")
+					)
 		if(/datum/patron/divine/pestra)
 			neck = /obj/item/clothing/neck/psycross/silver/pestra
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
+			backpack_contents += /obj/item/needle/blessed
 		if(/datum/patron/divine/dendor)
 			neck = /obj/item/clothing/neck/psycross/silver/dendor
 			H.cmode_music = 'sound/music/cmode/garrison/CombatForestGarrison.ogg'
+			H.adjust_skillrank(/datum/skill/labor/farming, 2, TRUE)
+			H.adjust_skillrank(/datum/skill/labor/taming, 1, TRUE)
+			ADD_TRAIT(H, TRAIT_SEEDKNOW, TRAIT_GENERIC)
 		if(/datum/patron/divine/abyssor)
 			neck = /obj/item/clothing/neck/psycross/silver/abyssor
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
-			H.mind?.adjust_skillrank(/datum/skill/labor/fishing, 1, TRUE)
+			H.adjust_skillrank(/datum/skill/labor/fishing, 2, TRUE)
 		if(/datum/patron/divine/ravox)
 			neck = /obj/item/clothing/neck/psycross/silver/ravox
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander2.ogg'
-			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
 		if(/datum/patron/divine/xylix)
 			neck = /obj/item/clothing/neck/psycross/silver/xylix
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
-			H.mind?.adjust_skillrank(/datum/skill/misc/stealing, 1, TRUE)
+			H.adjust_skillrank(/datum/skill/misc/stealing, 1, TRUE)
 		if(/datum/patron/divine/malum)
 			neck = /obj/item/clothing/neck/psycross/silver/malum
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
+			backpack_contents += /obj/item/weapon/hammer/iron
+			H.adjust_skillrank(/datum/skill/craft/blacksmithing, 1, TRUE)
+			H.adjust_skillrank(/datum/skill/craft/armorsmithing, 1, TRUE)
+			H.adjust_skillrank(/datum/skill/craft/weaponsmithing, 1, TRUE)
+			ADD_TRAIT(H, TRAIT_MALUMFIRE, TRAIT_GENERIC)
 		else // Failsafe
 			neck = /obj/item/clothing/neck/psycross/silver
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
 	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/magic/holy, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/music, 4, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/medicine, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/magic/holy, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/music, 4, TRUE)
 
 		// More hand to hand focused
 		H.change_stat(STATKEY_STR, 2)
@@ -333,7 +367,7 @@
 		H.change_stat(STATKEY_END, 2)
 
 		if(H.age == AGE_OLD)
-			H.mind?.adjust_skillrank(/datum/skill/magic/holy, 1, TRUE)
+			H.adjust_skillrank(/datum/skill/magic/holy, 2, TRUE)
 			H.change_stat(STATKEY_END, 1)
 
 		if(!H.has_language(/datum/language/celestial))
@@ -371,18 +405,18 @@
 	backpack_contents = list(/obj/item/storage/belt/pouch/coins/mid = 1, /obj/item/storage/keyring/elder = 1, /obj/item/paper/scroll = 5, /obj/item/natural/feather = 1)
 
 
-	H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/riding, 4, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/music, 6, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/riding, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/music, 6, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 
 
 	H.change_stat(STATKEY_INT, 2)
@@ -390,50 +424,24 @@
 	H.change_stat(STATKEY_STR, 1)
 
 	if(H.age == AGE_OLD)
-		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 		H.change_stat(STATKEY_END, 1)
 		H.change_stat(STATKEY_INT, 1)
 
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_BARDIC_TRAINING, TRAIT_GENERIC)
-	H.mind?.AddSpell(new /obj/effect/proc_holder/spell/invoked/mockery)
-
-/datum/outfit/job/town_elder/lorekeeper/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	H.advsetup = 1
-	H.invisibility = INVISIBILITY_MAXIMUM
-	H.become_blind("bard_select")
-	var/instruments = list(
-		"Harp" = /obj/item/instrument/harp,
-		"Lute" = /obj/item/instrument/lute,
-		"Accordion" = /obj/item/instrument/accord,
-		"Guitar" = /obj/item/instrument/guitar,
-		"Flute" = /obj/item/instrument/flute,
-		"Drum" = /obj/item/instrument/drum,
-		"Hurdy-Gurdy" = /obj/item/instrument/hurdygurdy,
-		"Viola" = /obj/item/instrument/viola)
-	var/instrument_choice = input(usr, "Choose your instrument.", "XYLIX") as anything in instruments
-	var/spawn_instrument = instruments[instrument_choice]
-	if(!spawn_instrument)
-		spawn_instrument = /obj/item/instrument/lute
-	H.equip_to_slot_or_del(new spawn_instrument(H),SLOT_BACK_R, TRUE)
-	H.advsetup = 0
-	H.invisibility = initial(H.invisibility)
-	H.cure_blind("bard_select")
-	var/atom/movable/screen/advsetup/GET_IT_OUT = locate() in H.hud_used?.static_inventory
-	qdel(GET_IT_OUT)
-
+	H.AddSpell(new /obj/effect/proc_holder/spell/invoked/mockery)
 
 
 /datum/advclass/town_elder/dreamwatcher
 	name = "Dreamwatcher"
 
-	tutorial = "Your dreams have always been vivid, filled with colors, voices, and shadows that seemed to watch. As a child, you feared them. As an adult, you began to listen. The Church speaks of Noc as the keeper of magic, but to you, he is something deeper: a silent guide whose truths are written not in scripture, but in sleep. Now, as Elder of this town, you offer more than leadership. You help others find clarity in the quiet spaces of their hearts, through signs, symbols, and truths too easily ignored. Some call it intuition. Others call it wisdom. You know it simply as listening."
+	tutorial = "Your dreams have always been vivid, filled with colors, voices, and shadows that seemed to watch. As a child, you feared them. As an adult, you began to listen. The Church speaks of Noc as the keeper of magic, but to you, he is something deeper: a silent guide whose truths are not written in scripture, but in sleep. Over time, you learned to echo those truths in your own way, through murmured lullabies, whispered verses, and songs shaped from silence. Now, as Elder of this town, you offer more than leadership. You help others find clarity in the quiet spaces of their hearts, through signs, symbols, and melodies only the soul remembers. Some call it intuition. Others call it wisdom. You know it simply as listening.(Not all your dreams are true, some may lie)"
 	outfit = /datum/outfit/job/town_elder/dreamwatcher
 
 	//Not a Magician nor an Acolyte, but something more, blessed by Noc since they were born, being capable of Visions and Feelings through dreams, they can feel the highest god influence or and get a hint about any of the active antags.
-	// category_tags = list(CTAG_TOWN_ELDER)
+	category_tags = list(CTAG_TOWN_ELDER)
 
 
 /datum/outfit/job/town_elder/dreamwatcher/pre_equip(mob/living/carbon/human/H)
@@ -454,19 +462,19 @@
 	H.apply_status_effect(/datum/status_effect/buff/nocblessed)
 	// 3 INT and 2 PER buff, stats will be lowered because of that
 
-	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/music, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/music, 4, TRUE)
 
 	H.change_stat(STATKEY_INT, 2)
 	H.change_stat(STATKEY_SPD, 1)
 	H.change_stat(STATKEY_PER, 1)
 	if(H.age == AGE_OLD)
-		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
 		H.change_stat(STATKEY_INT, 1)
 		H.change_stat(STATKEY_END, 1)
 

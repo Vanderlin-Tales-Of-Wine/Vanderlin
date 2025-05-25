@@ -1,7 +1,5 @@
 /mob/living/carbon/get_item_by_slot(slot_id)
 	switch(slot_id)
-		if(SLOT_BACK)
-			return back
 		if(SLOT_WEAR_MASK)
 			return wear_mask
 		if(SLOT_NECK)
@@ -50,9 +48,6 @@
 	I.appearance_flags |= NO_CLIENT_COLOR
 	var/not_handled = FALSE
 	switch(slot)
-		if(SLOT_BACK)
-			back = I
-			update_inv_back()
 		if(SLOT_WEAR_MASK)
 			wear_mask = I
 			wear_mask_update(I, toggle_off = 0)
@@ -63,7 +58,7 @@
 			wear_neck = I
 			update_inv_neck(I)
 		if(SLOT_HANDCUFFED)
-			handcuffed = I
+			set_handcuffed(I)
 			update_handcuffed()
 		if(SLOT_LEGCUFFED)
 			legcuffed = I
@@ -74,11 +69,9 @@
 		if(SLOT_IN_BACKPACK)
 			not_handled = TRUE
 			if(backr)
-				testing("insert4")
 				if(SEND_SIGNAL(backr, COMSIG_TRY_STORAGE_INSERT, I, src, TRUE, !initial)) // If inital is true, item is from job datum and should be silent
 					not_handled = FALSE
 			if(backl && not_handled)
-				testing("insert5")
 				if(SEND_SIGNAL(backl, COMSIG_TRY_STORAGE_INSERT, I, src, TRUE, !initial)) // If inital is true, item is from job datum and should be silent
 					not_handled = FALSE
 
@@ -106,10 +99,6 @@
 		head = null
 		if(!QDELETED(src))
 			head_update(I)
-	else if(I == back)
-		back = null
-		if(!QDELETED(src))
-			update_inv_back()
 	else if(I == wear_mask)
 		wear_mask = null
 		if(!QDELETED(src))
@@ -119,7 +108,7 @@
 		if(!QDELETED(src))
 			update_inv_neck(I)
 	else if(I == handcuffed)
-		handcuffed = null
+		set_handcuffed(null)
 		if(buckled && buckled.buckle_requires_restraints)
 			buckled.unbuckle_mob(src)
 		if(!QDELETED(src))

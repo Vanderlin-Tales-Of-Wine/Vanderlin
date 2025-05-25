@@ -2,6 +2,9 @@
 #define TRAIT_WEBWALK 					"Webwalker"
 #define TRAIT_NOSTINK 					"Dead Nose"
 #define TRAIT_ZJUMP 					"High Jumping"
+#define TRAIT_JESTERPHOBIA 				"Jesterphobic"
+#define TRAIT_XENOPHOBIC 				"Xenophobic"
+#define TRAIT_TOLERANT 					"Tolerant"
 #define TRAIT_NOSEGRAB 				"Intimidating"
 #define TRAIT_NUTCRACKER 				"Nutcracker"
 #define TRAIT_STRONGBITE				"Strong Bite"
@@ -51,6 +54,11 @@
 #define TRAIT_FORAGER					"Foraging Knowledge" //Can tell which berries are good to eat when examining
 #define TRAIT_TINY 						"Tiny"
 #define TRAIT_DREAM_WATCHER				"Noc Blessed" //Unique Trait of the Dream Watcher Town Elder Class, they have a chance to know about antags or gods influences.
+#define TRAIT_HOLLOWBONES				"Hollow Bones"
+#define TRAIT_AMAZING_BACK				"Light Load"
+#define TRAIT_KITTEN_MOM				"Loved By Kittens"
+/// applied to orphans
+#define TRAIT_ORPHAN 					"Orphan"
 
 // Divine patron trait bonuses:
 #define TRAIT_SOUL_EXAMINE				"Blessing of Necra"  //can check bodies to see if they have departed
@@ -72,6 +80,8 @@
 
 #define TRAIT_BASHDOORS "bashdoors"
 #define TRAIT_NOMOOD "no_mood"
+#define TRAIT_BAD_MOOD "Bad Mood"
+#define TRAIT_NIGHT_OWL "Night Owl"
 #define TRAIT_SIMPLE_WOUNDS "simple_wounds"
 #define TRAIT_SCHIZO_AMBIENCE "schizo_ambience" //replaces all ambience with creepy shit
 #define TRAIT_SCREENSHAKE "screenshake" //screen will always be shaking, you cannot stop it
@@ -88,6 +98,8 @@
 #define TRAIT_IWASUNZOMBIFIED "iwasunzombified" //prevents PQ gain from curing a zombie twice
 #define TRAIT_ZIZOID_HUNTED "zizoidhunted" // Used to signal character has been marked by death by the Zizoid cult
 #define TRAIT_LEPROSY "Leprosy"
+#define TRAIT_NUDE_SLEEPER "Nude Sleeper"
+#define TRAIT_CIVILIZEDBARBARIAN "Civilized Barbarian"
 #define TRAIT_BEAUTIFUL "Beautiful"
 #define TRAIT_UGLY "Ugly"
 #define TRAIT_SCHIZO_FLAW "Schizophrenic"
@@ -97,7 +109,8 @@
 #define TRAIT_MALUMFIRE "Professional Smith"
 #define TRAIT_CRATEMOVER "Crate Mover"
 #define TRAIT_BURDEN "Burdened" //Gaffer stuff
-#define TRAIT_OLDPARTY "Old_party"
+#define TRAIT_OLDPARTY "Old Party"
+#define TRAIT_EARGRAB "Ear Grab"
 
 // PATRON CURSE TRAITS
 #define TRAIT_CURSE "Curse" //source
@@ -119,6 +132,9 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_WEBWALK = "I can move freely between webs.",
 	TRAIT_NOSTINK = span_dead("My nose is numb to the smell of decay."),
 	TRAIT_ZJUMP = "Time to reach a new height.",
+	TRAIT_JESTERPHOBIA = span_warning("I have a severe irrational fear of Jesters"),
+	TRAIT_XENOPHOBIC = span_warning("Lesser races pollute our land"),
+	TRAIT_TOLERANT = span_info("I dream of an ideal future, one with peace between all races"),
 	TRAIT_NOSEGRAB = "I love to grab idiots by their noses!",
 	TRAIT_NUTCRACKER = "I love kicking idiots on the nuts!",
 	TRAIT_SEEPRICES = "I can tell the prices of things down to the zenny.",
@@ -146,6 +162,8 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_ROT_EATER = span_necrosis("I can eat rotten food."),
 	TRAIT_ORGAN_EATER = span_bloody("I can eat organs and raw flesh."),
 	TRAIT_CRACKHEAD = span_love("I can use drugs as much as I want!"),
+	TRAIT_CIVILIZEDBARBARIAN = span_info("My rigorous training in the martial arts has turned me into a living weapon. No limb is out of reach for my fists and feet, and my unarmed strikes now have a higher chance to inflict critical damage."),
+	TRAIT_NUDE_SLEEPER = span_warning("I can't fall asleep unless I'm nude and in bed."),
 	TRAIT_SOUL_EXAMINE = span_deadsay("I know when someone's soul has departed after checking their heartbeat."),
 	TRAIT_CYCLOPS_LEFT = span_warning("My left eye has been poked out..."),
 	TRAIT_CYCLOPS_RIGHT = span_warning("My right eye has been poked out..."),
@@ -156,6 +174,8 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_MISSING_NOSE = span_warning("I struggle to breathe."),
 	TRAIT_DISFIGURED = span_warning("No one can recognize me..."),
 	TRAIT_BEAUTIFUL = span_love("My face was shaped by the gods!"),
+	TRAIT_BAD_MOOD = span_warning("Everything just seems to piss me off"),
+	TRAIT_NIGHT_OWL = span_info("I enjoy spending my time in the night"),
 	TRAIT_UGLY = span_necrosis("Do not look in the mirror."),
 	TRAIT_SPELLBLOCK = span_warning("I cannot cast any spells."),
 	TRAIT_ANTIMAGIC = "I am immune to most forms of magic.",
@@ -186,6 +206,10 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_BURDEN = "I carry the Burden of HEAD EATER's hunger...",
 	TRAIT_OLDPARTY = "In years long passed, me and a group of fellow adventurers saved this city!",
 	TRAIT_DREAM_WATCHER = span_notice("I'm blessed by Noc, my dreams tell more than the average person.."),
+	TRAIT_AMAZING_BACK = span_notice("I'm able to carry far more on my back!"),
+	TRAIT_HOLLOWBONES = span_danger("My bones are light as air, Its hard to wear armor."),
+	TRAIT_EARGRAB = span_info("I can keep a tight grip on the ear of unruly children."),
+	TRAIT_KITTEN_MOM = span_info("Kittens love you, they see you are a parent.")
 	))
 
 #define SIGNAL_ADDTRAIT(trait_ref) ("addtrait " + trait_ref)
@@ -268,6 +292,14 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_IMMOBILIZED		"immobilized" //! Prevents voluntary movement.
 #define TRAIT_KNOCKEDOUT		"knockedout" //! Forces the user to stay unconscious.
 #define TRAIT_FLOORED 			"floored" //! Prevents standing or staying up on its own.
+/// Prevents usage of manipulation appendages (picking, holding or using items, manipulating storage).
+#define TRAIT_HANDS_BLOCKED		"handsblocked"
+/// Inability to access UI hud elements. Turned into a trait from [MOBILITY_UI] to be able to track sources.
+#define TRAIT_UI_BLOCKED		"uiblocked"
+/// Inability to pull things. Turned into a trait from [MOBILITY_PULL] to be able to track sources.
+#define TRAIT_PULL_BLOCKED		"pullblocked"
+/// Abstract condition that prevents movement if being pulled and might be resisted against. Handcuffs and straight jackets, basically.
+#define TRAIT_RESTRAINED		"restrained"
 #define TRAIT_INCAPACITATED		"incapacitated"
 #define TRAIT_BLIND 			"blind"
 #define TRAIT_MUTE				"mute"
@@ -369,6 +401,9 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_NOEMBED			"noembed"
 #define TRAIT_NO_TELEPORT		"no-teleport" //you just can't
 
+/// Buckling yourself to objects with this trait won't immobilize you
+#define TRAIT_NO_IMMOBILIZE "no_immobilize"
+
 // common trait sources
 #define TRAIT_GENERIC "generic"
 #define UNCONSCIOUS_TRAIT "unconscious"
@@ -398,9 +433,17 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define CRIT_HEALTH_TRAIT "crit_health"
 #define OXYLOSS_TRAIT "oxyloss"
 #define BLOODLOSS_TRAIT "bloodloss"
-#define BUCKLED_TRAIT "buckled" //! trait associated to being buckled
-#define CHOKEHOLD_TRAIT "chokehold" //! trait associated to being held in a chokehold
-#define RESTING_TRAIT "resting" //! trait associated to resting
+/// Trait associated to being buckled
+#define BUCKLED_TRAIT "buckled"
+/// Trait associated to being held in a chokehold
+#define CHOKEHOLD_TRAIT "chokehold"
+/// trait associated to resting
+#define RESTING_TRAIT "resting"
+/// Trait associated to wearing a suit
+#define SUIT_TRAIT "suit"
+/// Trait associated to lying down (having a [lying_angle] of a different value than zero).
+#define LYING_DOWN_TRAIT "lying-down"
+
 /// trait associated to a stat value or range of
 #define STAT_TRAIT "stat"
 
@@ -451,3 +494,11 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_I_AM_INVISIBLE_ON_A_BOAT "invisible_on_tram"
 ///Trait given by /datum/element/relay_attacker
 #define TRAIT_RELAYING_ATTACKER "relaying_attacker"
+
+#define LACKING_LOCOMOTION_APPENDAGES_TRAIT "lacking-locomotion-appengades" //trait associated to not having locomotion appendages nor the ability to fly or float
+#define LACKING_MANIPULATION_APPENDAGES_TRAIT "lacking-manipulation-appengades" //trait associated to not having fine manipulation appendages such as hands
+#define HANDCUFFED_TRAIT "handcuffed"
+/// Trait applied by by [/datum/component/soulstoned]
+#define SOULSTONE_TRAIT "soulstone"
+/// Trait applied to brain mobs when they lack external aid for locomotion, such as being inside a mech.
+#define BRAIN_UNAIDED "brain-unaided"

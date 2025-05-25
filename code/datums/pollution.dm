@@ -10,12 +10,6 @@
 	appearance_flags = KEEP_APART|RESET_TRANSFORM|RESET_COLOR
 	vis_flags = NONE
 
-/turf/open
-	appearance_flags = LONG_GLIDE | TILE_BOUND
-	/// Pollution of this turf
-	var/datum/pollution/pollution
-
-
 /datum/pollution
 	/// Reference to the turf we're on
 	var/turf/open/my_turf

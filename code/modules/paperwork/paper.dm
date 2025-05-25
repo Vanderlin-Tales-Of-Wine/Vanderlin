@@ -144,23 +144,25 @@
 		return
 	if(!user.can_read(src))
 		if(info)
-			user.mind.adjust_experience(/datum/skill/misc/reading, 2, FALSE)
+			user.adjust_experience(/datum/skill/misc/reading, 2, FALSE)
 		return
 	if(mailer)
 		return
 	if(ignore_distance || in_range(user, src) || isobserver(user))
-//		var/obj/screen/read/R = user.hud_used.reads
-		var/dat = {"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">
-			<html><head><style type=\"text/css\">
-			body { background-image:url('book.png');background-repeat: repeat; }</style></head><body scroll=yes>"}
-		dat += info
-		dat += "<br>"
-		dat += "<a href='byond://?src=[REF(src)];close=1' style='position:absolute;right:50px'>Close</a>"
-		dat += "</body></html>"
-		user << browse(dat, "window=reading;size=500x400;can_close=1;can_minimize=0;can_maximize=0;can_resize=1;titlebar=0;border=0")
-		onclose(user, "reading", src)
+		show_paper_hud(user)
 	else
 		return span_warning("I'm too far away to read it.")
+
+/obj/item/paper/proc/show_paper_hud(mob/user)
+	var/dat = {"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">
+		<html><head><style type=\"text/css\">
+		body { background-image:url('book.png');background-repeat: repeat; }</style></head><body scroll=yes>"}
+	dat += info
+	dat += "<br>"
+	dat += "<a href='byond://?src=[REF(src)];close=1' style='position:absolute;right:50px'>Close</a>"
+	dat += "</body></html>"
+	user << browse(dat, "window=reading;size=500x400;can_close=1;can_minimize=0;can_maximize=0;can_resize=1;titlebar=0;border=0")
+	onclose(user, "reading", src)
 
 /*
 	if(in_range(user, src) || isobserver(user))
@@ -191,7 +193,7 @@
 	set hidden = 1
 	set src in usr
 
-	if(usr.incapacitated() || !usr.is_literate())
+	if(usr.incapacitated(ignore_grab = TRUE) || !usr.is_literate())
 		return
 	var/n_name = stripped_input(usr, "What would you like to label the paper?", "Paper Labelling", null, MAX_NAME_LEN)
 	if((loc == usr && usr.stat == CONSCIOUS))
@@ -394,8 +396,6 @@
 				addtofield(text2num(id), t) // He wants to edit a field, let him.
 			else
 				info += t // Oh, he wants to edit to the end of the file, let him.
-				testing("[length(info)]")
-				testing("[findtext(info, "\n")]")
 				updateinfolinks()
 			playsound(src, 'sound/items/write.ogg', 100, FALSE)
 			format_browse(info_links, usr)
@@ -409,7 +409,7 @@
 		return ..()
 
 	if(P.type == /obj/item/paper) //Make a manuscript
-		if(user.mind.get_skill_level(/datum/skill/misc/reading) <= 0)
+		if(user.get_skill_level(/datum/skill/misc/reading) <= 0)
 			to_chat(user, span_warning("I fumble with [src] and fail to form the manuscript!"))
 			user.changeNext_move(2 SECONDS, user.active_hand_index) //lmao
 			return

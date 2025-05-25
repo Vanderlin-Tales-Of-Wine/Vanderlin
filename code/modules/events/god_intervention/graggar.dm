@@ -58,7 +58,7 @@ GLOBAL_LIST_EMPTY(graggar_cullings)
 	to_chat(winner, span_notice("You have proven your strength to Graggar by consuming your rival's heart! Your rival's power is now YOURS!"))
 	winner.adjust_triumphs(2)
 	winner.add_stress(/datum/stressevent/graggar_culling_finished)
-	SEND_SOUND(winner, 'sound/ambience/noises/genspooky (1).ogg')
+	winner.playsound_local(winner, 'sound/ambience/noises/genspooky (1).ogg', 100)
 
 	if(loser)
 		loser.remove_stress(/datum/stressevent/graggar_culling_unfinished)
@@ -80,7 +80,7 @@ GLOBAL_LIST_EMPTY(graggar_cullings)
 	name = "Graggar's Culling"
 	track = EVENT_TRACK_INTERVENTION
 	typepath = /datum/round_event/graggar_culling
-	weight = 4
+	weight = 8
 	earliest_start = 25 MINUTES
 	max_occurrences = 1
 	min_players = 40
@@ -132,18 +132,20 @@ GLOBAL_LIST_EMPTY(graggar_cullings)
 		first_chosen.add_stress(/datum/stressevent/graggar_culling_unfinished)
 		first_chosen.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/extract_heart)
 		first_chosen.verbs |= /mob/living/carbon/human/proc/remember_culling
+		to_chat(first_chosen, span_userdanger("YOU ARE GRAGGAR'S CHOSEN!"))
 		to_chat(first_chosen, span_red("Weak should feed the strong, that is Graggar's will. Prove that you are not weak by eating the heart of [span_notice(second_chosen.real_name)], the [second_chosen.job] and gain unimaginable power in turn. Fail, and you will be the one eaten."))
 		to_chat(first_chosen, span_red("[span_notice("[second_chosen.real_name]")], the [second_chosen.job] is somewhere in [span_notice("[second_chosen_location]")]. Eat their heart before they eat yours!"))
 		if(grand_culling)
 			to_chat(first_chosen, span_notice("Graggar has decreed a GRAND CULLING! Many hearts will feed the strong todae!"))
-		SEND_SOUND(first_chosen, 'sound/magic/marked.ogg')
+		first_chosen.playsound_local(first_chosen, 'sound/magic/marked.ogg', 100)
 
 		// Notify second chosen
 		second_chosen.add_stress(/datum/stressevent/graggar_culling_unfinished)
 		second_chosen.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/extract_heart)
 		second_chosen.verbs |= /mob/living/carbon/human/proc/remember_culling
+		to_chat(second_chosen, span_userdanger("YOU ARE GRAGGAR'S CHOSEN!"))
 		to_chat(second_chosen, span_red("Weak should feed the strong, that is Graggar's will. Prove that you are not weak by eating the heart of [span_notice(first_chosen.real_name)], the [first_chosen.job] and gain unimaginable power in turn. Fail, and you will be the one eaten."))
 		to_chat(second_chosen, span_red("[span_notice("[first_chosen.real_name]")], the [first_chosen.job] is somewhere in [span_notice("[first_chosen_location]")]. Eat their heart before they eat yours!"))
 		if(grand_culling)
 			to_chat(second_chosen, span_notice("Graggar has decreed a GRAND CULLING! Many hearts will feed the strong todae!"))
-		SEND_SOUND(second_chosen, 'sound/magic/marked.ogg')
+		second_chosen.playsound_local(second_chosen, 'sound/magic/marked.ogg', 100)

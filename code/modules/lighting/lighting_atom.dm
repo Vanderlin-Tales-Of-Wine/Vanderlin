@@ -55,7 +55,7 @@
 		else
 			. = loc
 
-		if (light) // Update the light or create it if it does not exist.
+		if (!QDELETED(light)) // Update the light or create it if it does not exist.
 			light.update(.)
 		else
 			light = new/datum/light_source(src, .)
@@ -77,6 +77,7 @@
 	light_outer_range = new_outer_range
 	light_inner_range = new_inner_range
 	SEND_SIGNAL(src, COMSIG_ATOM_UPDATE_LIGHT_RANGE, old_inner_range, old_outer_range)
+	return TRUE
 
 /// Setter for this atom's light falloff curve.
 /atom/proc/set_light_curve(new_curve)

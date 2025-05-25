@@ -45,7 +45,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 	var/use_skintones = 0	// does it use skintones or not? (spoiler alert this is only used by humans)
 	var/datum/blood_type/exotic_bloodtype //If my race uses a non standard bloodtype (A+, O-, AB-, etc)
-	var/meat = /obj/item/reagent_containers/food/snacks/meat/human //What the species drops on gibbing
+	var/meat = /obj/item/reagent_containers/food/snacks/meat/steak //What the species drops on gibbing
 	var/liked_food = NONE
 	var/disliked_food = GROSS
 	var/toxic_food = TOXIC
@@ -402,11 +402,12 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		if(C.dna.organ_dna[slot])
 			var/datum/organ_dna/organ_dna = C.dna.organ_dna[slot]
 			if(organ_dna.can_create_organ())
-				neworgan = organ_dna.create_organ()
-				if(!istype(neworgan, slot_mutantorgans[slot]))
-					var/new_type = slot_mutantorgans[slot]
-					neworgan = new new_type()
-					organ_dna.imprint_organ(neworgan)
+				neworgan = organ_dna.create_organ(species = src)
+				if(slot_mutantorgans[slot])
+					if(!istype(neworgan, slot_mutantorgans[slot]))
+						var/new_type = slot_mutantorgans[slot]
+						neworgan = new new_type()
+						organ_dna.imprint_organ(neworgan)
 				if(pref_load)
 					pref_load.customize_organ(neworgan)
 		else
@@ -659,7 +660,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 					lip_overlay.pixel_y += offsets[OFFSET_FACE_F][2]
 			standing += lip_overlay
 
-#ifdef MATURESERVER
 		if(H.dna.species.hairyness)
 			var/mutable_appearance/bodyhair_overlay
 			if(H.gender == MALE)
@@ -668,7 +668,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 				bodyhair_overlay = mutable_appearance(H.dna.species.limbs_icon_f, "[H.dna.species.hairyness]", -BODY_LAYER)
 			bodyhair_overlay.color = H.get_hair_color()
 			standing += bodyhair_overlay
-#endif
 
 	//Underwear, Undershirts & Socks
 	if(!(NO_UNDERWEAR in species_traits))
@@ -748,9 +747,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		if(!I.species_exception || !is_type_in_list(src, I.species_exception))
 			return FALSE
 
-	var/num_arms = H.get_num_arms(FALSE)
-	var/num_legs = H.get_num_legs(FALSE)
-
 	switch(slot)
 		if(SLOT_HANDS)
 			if(H.get_empty_held_indexes())
@@ -778,12 +774,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			if( !(I.slot_flags & ITEM_SLOT_NECK) )
 				return FALSE
 			return TRUE
-		if(SLOT_BACK)
-			if(H.back)
-				return FALSE
-			if( !(I.slot_flags & ITEM_SLOT_BACK) )
-				return FALSE
-			return equip_delay_self_check(I, H, bypass_equip_delay_self)
 		if(SLOT_BACK_R)
 			if(H.backr)
 				return FALSE
@@ -824,7 +814,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 				return FALSE
 			if( !(I.slot_flags & ITEM_SLOT_GLOVES) )
 				return FALSE
-			if(num_arms < 1)
+			if(H.num_hands < 1)
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
 		if(SLOT_SHOES)
@@ -832,7 +822,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 				return FALSE
 			if( !(I.slot_flags & ITEM_SLOT_SHOES) )
 				return FALSE
-			if(num_legs < 1)
+			if(H.num_legs < 1)
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
 		if(SLOT_BELT)
@@ -923,57 +913,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			if( !(I.slot_flags & ITEM_SLOT_WRISTS) )
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
-		if(SLOT_L_STORE)
-			if(HAS_TRAIT(I, TRAIT_NODROP)) //Pockets aren't visible, so you can't move TRAIT_NODROP items into them.
-				return FALSE
-			if(H.l_store)
-				return FALSE
-
-			var/obj/item/bodypart/O = H.get_bodypart(BODY_ZONE_L_LEG)
-
-			if(!H.wear_pants && !nojumpsuit && (!O || O.status != BODYPART_ROBOTIC))
-				if(!disable_warning)
-					to_chat(H, "<span class='warning'>I need a jumpsuit before you can attach this [I.name]!</span>")
-				return FALSE
-			if(I.slot_flags & ITEM_SLOT_DENYPOCKET)
-				return FALSE
-			if( I.w_class <= WEIGHT_CLASS_SMALL || (I.slot_flags & ITEM_SLOT_POCKET) )
-				return TRUE
-		if(SLOT_R_STORE)
-			if(HAS_TRAIT(I, TRAIT_NODROP))
-				return FALSE
-			if(H.r_store)
-				return FALSE
-
-			var/obj/item/bodypart/O = H.get_bodypart(BODY_ZONE_R_LEG)
-
-			if(!H.wear_pants && !nojumpsuit && (!O || O.status != BODYPART_ROBOTIC))
-				if(!disable_warning)
-					to_chat(H, "<span class='warning'>I need a jumpsuit before you can attach this [I.name]!</span>")
-				return FALSE
-			if(I.slot_flags & ITEM_SLOT_DENYPOCKET)
-				return FALSE
-			if( I.w_class <= WEIGHT_CLASS_SMALL || (I.slot_flags & ITEM_SLOT_POCKET) )
-				return TRUE
-			return FALSE
-		if(SLOT_S_STORE)
-			if(HAS_TRAIT(I, TRAIT_NODROP))
-				return FALSE
-			if(H.s_store)
-				return FALSE
-			if(!H.wear_armor)
-				if(!disable_warning)
-					to_chat(H, "<span class='warning'>I need a suit before you can attach this [I.name]!</span>")
-				return FALSE
-			if(!H.wear_armor.allowed)
-				if(!disable_warning)
-					to_chat(H, "<span class='warning'>I somehow have a suit with no defined allowed items for suit storage, stop that.</span>")
-				return FALSE
-			if(I.w_class > WEIGHT_CLASS_BULKY)
-				if(!disable_warning)
-					to_chat(H, "<span class='warning'>The [I.name] is too big to attach!</span>") //should be src?
-				return FALSE
-			return FALSE
 		if(SLOT_HANDCUFFED)
 			if(H.handcuffed)
 				return FALSE
@@ -987,11 +926,10 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 				return FALSE
 			if(!I.breakouttime)
 				return FALSE
-			if(num_legs < 2)
+			if(H.num_legs < 2)
 				return FALSE
 			return TRUE
 		if(SLOT_IN_BACKPACK)
-			testing("STARTYES")
 			if(H.backr)
 				if(SEND_SIGNAL(H.backr, COMSIG_TRY_STORAGE_CAN_INSERT, I, H, TRUE))
 					return TRUE
@@ -1007,7 +945,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			if(H.belt)
 				if(SEND_SIGNAL(H.belt, COMSIG_TRY_STORAGE_CAN_INSERT, I, H, TRUE))
 					return TRUE
-			testing("NONONO")
 			return FALSE
 	return FALSE //Unsupported slot
 
@@ -1193,11 +1130,11 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 /datum/species/proc/help(mob/living/carbon/human/user, mob/living/carbon/human/target, datum/martial_art/attacker_style)
 //	if(!((target.health < 0 || HAS_TRAIT(target, TRAIT_FAKEDEATH)) && !(target.mobility_flags & MOBILITY_STAND)))
-	if(!(target.mobility_flags & MOBILITY_STAND))
+	if(target.body_position == LYING_DOWN)
 		target.help_shake_act(user)
 		if(target != user)
 			log_combat(user, target, "shaken")
-		return 1
+		return TRUE
 /*	else
 		var/we_breathe = !HAS_TRAIT(user, TRAIT_NOBREATH)
 		var/we_lung = user.getorganslot(ORGAN_SLOT_LUNGS)
@@ -1274,7 +1211,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			return FALSE
 		if(!target.Adjacent(user))
 			return
-		if(user.incapacitated())
+		if(user.incapacitated(ignore_grab = TRUE))
 			return
 
 		var/damage = user.get_punch_dmg()
@@ -1308,6 +1245,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			target.next_attack_msg += " <span class='warning'>Armor stops the damage.</span>"
 		else
 			affecting.bodypart_attacked_by(user.used_intent.blade_class, damage, user, selzone, crit_message = TRUE)
+			if(affecting.body_zone == BODY_ZONE_HEAD)
+				SEND_SIGNAL(user, COMSIG_HEAD_PUNCHED, target)
 		log_combat(user, target, "punched")
 		knockback(attacker_style, target, user, nodmg, actual_damage)
 
@@ -1347,7 +1286,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			target.apply_effect(knockdown_duration, EFFECT_KNOCKDOWN, armor_block)
 			target.forcesay(GLOB.hit_appends)
 			log_combat(user, target, "got a stun punch with their previous punch")*/
-		if(!(target.mobility_flags & MOBILITY_STAND))
+		if(target.body_position == LYING_DOWN)
 			target.forcesay(GLOB.hit_appends)
 		if(!nodmg)
 			playsound(target.loc, user.used_intent.hitsound, 100, FALSE)
@@ -1469,6 +1408,10 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 //shameless copypaste
 /datum/species/proc/kicked(mob/living/carbon/human/user, mob/living/carbon/human/target)
+	if(QDELETED(user) || QDELETED(target))
+		return
+	if(!ishuman(user) || !ishuman(target))
+		return
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
 		to_chat(user, "<span class='warning'>I don't want to harm [target]!</span>")
 		return FALSE
@@ -1484,10 +1427,10 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			var/mob/living/G = user.pulledby
 			var/userskill = 1
 			if(user.mind)
-				userskill = ((user.mind.get_skill_level(/datum/skill/combat/wrestling) * 0.1) + 1)
+				userskill = ((user.get_skill_level(/datum/skill/combat/wrestling) * 0.1) + 1)
 			var/grabberskill = 1
 			if(G?.mind)
-				grabberskill = ((G.mind.get_skill_level(/datum/skill/combat/wrestling) * 0.1) + 1)
+				grabberskill = ((G.get_skill_level(/datum/skill/combat/wrestling) * 0.1) + 1)
 			if(((user.STASTR + rand(1, 6)) * userskill) < ((G.STASTR + rand(1, 6)) * grabberskill))
 				to_chat(user, span_notice("I can't move my leg!"))
 				user.changeNext_move(CLICK_CD_GRABBING)
@@ -1497,22 +1440,18 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 	if(user.stamina >= user.maximum_stamina)
 		return FALSE
-	if(!(user.mobility_flags & MOBILITY_STAND))
-		return FALSE
 	var/stander = TRUE
-	if(!(target.mobility_flags & MOBILITY_STAND))
+	if(target.body_position == LYING_DOWN)
 		stander = FALSE
 	if(user.loc == target.loc)
-		if(!stander && (user.mobility_flags & MOBILITY_STAND))
+		if(!stander)
 			target.lastattacker = user.real_name
 			target.lastattackerckey = user.ckey
 			if(target.mind)
 				target.mind.attackedme[user.real_name] = world.time
 			var/selzone = accuracy_check(user.zone_selected, user, target, /datum/skill/combat/unarmed, user.used_intent)
 			var/obj/item/bodypart/affecting = target.get_bodypart(check_zone(selzone))
-			var/damage = (user.get_punch_dmg() * 1.4)
-			if(user.shoes)
-				damage *= (1 + (user.shoes.armor_class * 0.2))
+			var/damage = user.get_kick_damage(2.5)
 			var/armor_block = target.run_armor_check(selzone, "blunt", blade_dulling = BCLASS_BLUNT)
 			var/balance = 10
 			target.next_attack_msg.Cut()
@@ -1550,6 +1489,9 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			return 0
 
 		playsound(target, 'sound/combat/hits/kick/kick.ogg', 100, TRUE, -1)
+
+		if(target.pulling && target.grab_state < GRAB_AGGRESSIVE)
+			target.stop_pulling()
 
 		var/turf/target_oldturf = target.loc
 		var/shove_dir = get_dir(user.loc, target_oldturf)
@@ -1616,9 +1558,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		if(!affecting)
 			affecting = target.get_bodypart(BODY_ZONE_CHEST)
 		var/armor_block = target.run_armor_check(selzone, "blunt", blade_dulling = BCLASS_BLUNT)
-		var/damage = (user.get_punch_dmg() * 2.5)
-		if(user.shoes)
-			damage *= (1 + (user.shoes.armor_class * 0.2))
+		var/damage = user.get_kick_damage(1.4)
 		if(!target.apply_damage(damage, user.dna.species.attack_type, affecting, armor_block))
 			target.next_attack_msg += " <span class='warning'>Armor stops the damage.</span>"
 		else
@@ -2067,14 +2007,40 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 ////////////////
 
 /datum/species/proc/can_wag_tail(mob/living/carbon/human/H)
+	if(!H) //Somewhere in the core code we're getting those procs with H being null
+		return FALSE
+	var/obj/item/organ/tail/T = H.getorganslot(ORGAN_SLOT_TAIL)
+	if(!T)
+		return FALSE
+	if(T.can_wag)
+		return TRUE
 	return FALSE
 
 /datum/species/proc/is_wagging_tail(mob/living/carbon/human/H)
-	return FALSE
+	if(!H) //Somewhere in the core code we're getting those procs with H being null
+		return FALSE
+	var/obj/item/organ/tail/T = H.getorganslot(ORGAN_SLOT_TAIL)
+	if(!T)
+		return FALSE
+	return T.wagging
 
 /datum/species/proc/start_wagging_tail(mob/living/carbon/human/H)
+	if(!H) //Somewhere in the core code we're getting those procs with H being null
+		return
+	var/obj/item/organ/tail/T = H.getorganslot(ORGAN_SLOT_TAIL)
+	if(!T)
+		return FALSE
+	T.wagging = TRUE
+	H.update_body_parts(TRUE)
 
 /datum/species/proc/stop_wagging_tail(mob/living/carbon/human/H)
+	if(!H) //Somewhere in the core code we're getting those procs with H being null
+		return
+	var/obj/item/organ/tail/T = H.getorganslot(ORGAN_SLOT_TAIL)
+	if(!T)
+		return
+	T.wagging = FALSE
+	H.update_body_parts(TRUE)
 
 /datum/species/proc/knockback(obj/item/I, mob/living/target, mob/living/user, nodmg, actual_damage)
 	if(!istype(I))
@@ -2124,7 +2090,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/skill_modifier = 10
 	if(istype(starting_turf) && !QDELETED(starting_turf))
 		distance = get_dist(starting_turf, src)
-	skill_modifier *= mind?.get_skill_level(/datum/skill/misc/athletics)
+	skill_modifier *= get_skill_level(/datum/skill/misc/athletics)
 	var/modifier = -distance
 	if(!prob(STAEND+skill_modifier+modifier))
 		Knockdown(8)

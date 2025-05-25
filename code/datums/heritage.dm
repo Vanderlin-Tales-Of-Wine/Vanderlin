@@ -26,7 +26,7 @@
 		housename = new_name
 	dominant_species = majority_species
 	if(!majority_species && progenator)
-		dominant_species = progenator.dna.species.type
+		dominant_species = progenator.dna?.species?.type
 
 /*
 * Renames entire house. Useful for default houses.
@@ -37,7 +37,7 @@
 		gender_male = TRUE
 	addToHouse(person, gender_male ? FAMILY_FATHER : FAMILY_MOTHER)
 	housename = SurnameFormatting(person)
-	dominant_species = person.dna.species.type
+	dominant_species = person.dna?.species?.type
 
 /*
 * Adds someone to the family using a mob and a status.
@@ -45,22 +45,20 @@
 /datum/heritage/proc/addToHouse(mob/living/carbon/human/person, status)
 	//You are not a human. Get outta ere.
 	if(!ishuman(person))
-		testing("FAMTREE_ERROR:add1")
 		return
 	//Your already in the family. We dont have the system for more than one role.
 	if(family[person])
-		testing("FAMTREE_ERROR:add2")
 		return
 	//Species that are logical decendents.
 	var/list/heir_species = list(dominant_species)
 	if(matriarch)
-		heir_species += SpeciesHeirs(matriarch.dna.species)
+		heir_species += SpeciesHeirs(matriarch.dna?.species)
 	if(patriarch)
-		heir_species += SpeciesHeirs(patriarch.dna.species)
+		heir_species += SpeciesHeirs(patriarch.dna?.species)
 	//Make a seperate list so we not mistake the status for another duplicate status role.
 	var/list/temp_list = list()
 	if(status == FAMILY_PROGENY && heir_species)
-		if(person.dna.species.type in heir_species)
+		if(person.dna?.species?.type in heir_species)
 			//This has no purpose other than to add their TRUE PARENTS to their DNA/blood
 			person.MixDNA(patriarch, matriarch, override = TRUE)
 		else
@@ -118,40 +116,37 @@
 	if(lookee.gender == MALE)
 		is_male = TRUE
 		progeny_title = "son"
-	if(familialrole_a in list(FAMILY_FATHER, FAMILY_MOTHER))
-		if(familialrole_b in FAMILY_PROGENY)
-			txt += "[p_He] is my [progeny_title]!"
-		if(familialrole_b == FAMILY_OMMER)
-			txt += "[p_He] is my [progeny_title]!"
-		if(familialrole_b == FAMILY_INLAW)
-			txt += "[p_He] is my [progeny_title] in law!"
-		if(familialrole_b == FAMILY_ADOPTED)
-			if(looker.dna.species.type == lookee.dna.species.type)
-				txt +="[p_He] is my bastard [progeny_title]."
-			else
-				txt += "[p_He] is my adopted [progeny_title]."
 
-	//Perspective Offspring
-	if(familialrole_a in list(FAMILY_PROGENY, FAMILY_ADOPTED))
-		if(familialrole_b in list(FAMILY_PROGENY, FAMILY_ADOPTED))
-			txt += "[p_He] is my [is_male ? "brother" : "sister"]."
-		if(familialrole_b == FAMILY_FATHER)
-			txt += "[p_He] my father."
-		if(familialrole_b == FAMILY_MOTHER)
-			txt += "[p_He] my mother."
-		if(familialrole_b == FAMILY_OMMER)
-			switch(lookee.gender)
-				if(MALE)
-					txt += "[p_He] my uncle."
-				if(FEMALE)
-					txt += "[p_He] my aunt."
+	switch(familialrole_a)
+		if(FAMILY_FATHER, FAMILY_MOTHER)
+			switch(familialrole_b)
+				if(FAMILY_PROGENY)
+					txt = "[p_He] is my [progeny_title]!"
+				if(FAMILY_OMMER)
+					txt = "[p_He] is my [is_male ? "brother" : "sister"]."
+				if(FAMILY_INLAW)
+					txt = "[p_He] is my [progeny_title] in law!"
+				if(FAMILY_ADOPTED)
+					txt = "[p_He] is my [looker.dna?.species?.type == lookee.dna?.species?.type ? "bastard [progeny_title]" : "adopted [progeny_title]"]."
 
-	//Perspective Uncle/Aunt
-	if(familialrole_a == FAMILY_OMMER)
-		if(familialrole_b in list(FAMILY_FATHER, FAMILY_MOTHER, FAMILY_OMMER))
-			txt += "[p_He] is my [is_male ? "brother" : "sister"]."
-		if(familialrole_b in list(FAMILY_PROGENY, FAMILY_ADOPTED))
-			txt += "[p_He] is my [is_male ? "nephew" : "niece"]"
+		if(FAMILY_PROGENY, FAMILY_ADOPTED)
+			switch(familialrole_b)
+				if(FAMILY_PROGENY, FAMILY_ADOPTED)
+					txt = "[p_He] is my [is_male ? "brother" : "sister"]."
+				if(FAMILY_FATHER)
+					txt = "[p_He] is my father."
+				if(FAMILY_MOTHER)
+					txt = "[p_He] is my mother."
+				if(FAMILY_OMMER)
+					txt = "[p_He] is my [is_male ? "uncle" : "aunt"]."
+
+		if(FAMILY_OMMER)
+			switch(familialrole_b)
+				if(FAMILY_FATHER, FAMILY_MOTHER, FAMILY_OMMER)
+					txt = "[p_He] is my [is_male ? "brother" : "sister"]."
+				if(FAMILY_PROGENY, FAMILY_ADOPTED)
+					txt = "[p_He] is my [is_male ? "nephew" : "niece"]."
+
 	if(txt == "")
 		return
 	return span_love(span_bold("[txt]"))
@@ -204,9 +199,9 @@
 	var/house_title = "THE [household] HOUSE"
 	. = "<center>[household ? house_title : "Nameless House"]:</center><BR>"
 	. += "-----<br>"
-	for(var/P in family)
+	for(var/mob/living/carbon/human/person as anything in family)
 		. += "<B><font color=#[COLOR_RED];text-shadow:0 0 10px #8d5958, 0 0 20px #8d5958, 0 0 30px #8d5958, 0 0 40px #8d5958, 0 0 50px #e60073, 0 0 60px #8d5958, 0 0 70px #8d5958;>\
-			[P]</font></B> [capitalize(family[P])]<BR>"
+			[person.real_name]</font></B> [capitalize(family[person])]<BR>"
 	. += "----------<br>"
 
 /*
@@ -270,6 +265,8 @@
 * For calculating if this individual can lead to this species. One for One rather than Two for One calculation.
 */
 /datum/heritage/proc/SpeciesHeirs(datum/species/core_species)
+	if(QDELETED(core_species))
+		return
 	. = list(core_species.type)
 	if(istype(core_species, /datum/species/human/northern) || istype(core_species, /datum/species/elf))
 		. += /datum/species/human/halfelf
@@ -292,7 +289,7 @@
 	var/index = findtext(person.real_name, " ")
 	person.original_name = person.real_name
 	if(!index)
-		surname2use = person.dna.species.random_surname()
+		surname2use = person.dna?.species?.random_surname()
 	else
 		/*
 		* This code prevents inheriting the last name of
@@ -301,7 +298,7 @@
 		* have his bride become "Sarah of wolves".
 		*/
 		if(findtext(person.real_name, " of ") || findtext(person.real_name, " the "))
-			surname2use = person.dna.species.random_surname()
+			surname2use = person.dna?.species?.random_surname()
 		else
 			surname2use = copytext(person.real_name, index)
 	return surname2use
@@ -387,20 +384,23 @@
 	if(family_datum)
 		family_datum.ListFamily(src)
 	else
-		to_chat(src, "Your not part of any notable family.")
+		to_chat(src, "You're not part of any notable family.")
 
 //Applies UI indicators for family members.
 /mob/living/carbon/human/verb/ToggleFamilyUI()
 	set name = "Toggle Family UI"
 	set category = "Memory"
+	ShowFamilyUI(FALSE)
+
+/mob/living/carbon/human/proc/ShowFamilyUI(silent)
 	if(spouse_mob)
 		ApplySpouseUI(family_UI)
 	if(family_datum)
 		family_datum.ApplyUI(src, family_UI)
-	else
-		to_chat(src, "Your not part of any notable family.")
-	if(family_UI)
-		family_UI = FALSE
-	else
-		family_UI = TRUE
-	to_chat(src, "FamilyUI Toggled [family_UI ? "On" : "Off"]")
+	else if(!silent)
+		to_chat(src, "You're not part of any notable family.")
+
+	family_UI = !family_UI
+
+	if(!silent)
+		to_chat(src, "FamilyUI Toggled [family_UI ? "On" : "Off"]")

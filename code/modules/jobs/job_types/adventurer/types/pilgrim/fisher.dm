@@ -7,20 +7,21 @@
 	outfit = /datum/outfit/job/adventurer/fisher
 	category_tags = list(CTAG_PILGRIM)
 	apprentice_name = "Fisher Apprentice"
+	cmode_music = 'sound/music/cmode/towner/CombatTowner.ogg'
 
 /datum/outfit/job/adventurer/fisher/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, pick(1,2), TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/fishing, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, pick(2,2,3), TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/craft/cooking, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/craft/crafting, pick(1,2), TRUE)
+		H.adjust_skillrank(/datum/skill/labor/fishing, 4, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/athletics, pick(2,2,3), TRUE)
+		H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 		if(H.age == AGE_OLD)
-			H.mind?.adjust_skillrank(/datum/skill/labor/fishing, 1, TRUE)
+			H.adjust_skillrank(/datum/skill/labor/fishing, 1, TRUE)
 			H.change_stat(STATKEY_CON, 1)
 			H.change_stat(STATKEY_PER, 1)
 		else

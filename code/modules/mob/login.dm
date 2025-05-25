@@ -24,6 +24,8 @@
 
 
 /mob/Login()
+	if(QDELETED(src) || QDELETED(client))
+		return
 	GLOB.player_list |= src
 	lastKnownIP	= client.address
 	computer_id	= client.computer_id
@@ -72,8 +74,6 @@
 	update_mouse_pointer()
 	if(client)
 		client.change_view(CONFIG_GET(string/default_view)) // Resets the client.view in case it was changed.
-
-		client.show_popup_menus = FALSE
 
 		if(client.player_details.player_actions.len)
 			for(var/datum/action/A in client.player_details.player_actions)

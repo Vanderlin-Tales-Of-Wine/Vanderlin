@@ -1,8 +1,7 @@
 /mob/living/carbon/human/species/skeleton
 	name = "skeleton"
-
 	icon = 'icons/roguetown/mob/monster/skeletons.dmi'
-	icon_state = "skeleton"
+	icon_state = MAP_SWITCH("", "skeleton")
 	race = /datum/species/human/northern
 	gender = MALE
 	bodyparts = list(/obj/item/bodypart/chest, /obj/item/bodypart/head, /obj/item/bodypart/l_arm,
@@ -17,10 +16,7 @@
 	possible_rmb_intents = list(/datum/rmb_intent/feint, /datum/rmb_intent/aimed, /datum/rmb_intent/strong, /datum/rmb_intent/weak)
 	stand_attempts = 4
 	cmode_music = 'sound/music/cmode/antag/combatskeleton.ogg'
-
-/mob/living/carbon/species/skeleton/Initialize()
-	. = ..()
-	ADD_TRAIT(src, TRAIT_NOSLEEP, TRAIT_GENERIC)
+	var/should_have_aggro = TRUE
 
 /mob/living/carbon/human/species/skeleton/npc/no_equipment
 	skel_outfit = null
@@ -37,54 +33,38 @@
 
 /mob/living/carbon/human/species/skeleton/Initialize()
 	. = ..()
-	cut_overlays()
-	spawn(10)
-		after_creation()
-
-//	addtimer(CALLBACK(src, PROC_REF(after_creation)), 10)  fired loadout equip again, leading to duping inhands. Unclear why its here.
+	if(should_have_aggro)
+		AddComponent(/datum/component/ai_aggro_system)
+	addtimer(CALLBACK(src, PROC_REF(after_creation)), 1 SECONDS)
 
 /mob/living/carbon/human/species/skeleton/after_creation()
 	..()
-	if(src.dna && src.dna.species)
-		src.dna.species.species_traits |= NOBLOOD
-		src.dna.species.soundpack_m = new /datum/voicepack/skeleton()
-		src.dna.species.soundpack_f = new /datum/voicepack/skeleton()
+	name = "skeleton"
+	real_name = "skeleton"
+	underwear = "Nude"
+	mob_biotypes = MOB_UNDEAD
+	faction = list(FACTION_UNDEAD)
+	if(charflaw)
+		QDEL_NULL(charflaw)
+	if(dna?.species)
+		dna.species.species_traits |= NOBLOOD
+		dna.species.soundpack_m = new /datum/voicepack/skeleton()
+		dna.species.soundpack_f = new /datum/voicepack/skeleton()
 		var/obj/item/bodypart/head/headdy = get_bodypart("head")
 		if(headdy)
 			headdy.icon = 'icons/roguetown/mob/monster/skeletons.dmi'
 			headdy.icon_state = "skull"
 			headdy.headprice = rand(5,15)
-	var/obj/item/bodypart/O = src.get_bodypart(BODY_ZONE_R_ARM)
-	if(O)
-		O.drop_limb()
-		qdel(O)
-	O = src.get_bodypart(BODY_ZONE_L_ARM)
-	if(O)
-		O.drop_limb()
-		qdel(O)
-	src.regenerate_limb(BODY_ZONE_R_ARM)
-	src.regenerate_limb(BODY_ZONE_L_ARM)
-	for(var/obj/item/bodypart/B in src.bodyparts)
-		B.skeletonize()
-	var/obj/item/organ/eyes/eyes = src.getorganslot(ORGAN_SLOT_EYES)
-	if(eyes)
-		eyes.Remove(src,1)
-		QDEL_NULL(eyes)
-	eyes = new /obj/item/organ/eyes/night_vision/zombie
-	eyes.Insert(src)
-	src.underwear = "Nude"
-	if(src.charflaw)
-		QDEL_NULL(src.charflaw)
+	for(var/obj/item/bodypart/B as anything in bodyparts)
+		B.skeletonize(FALSE)
+	grant_undead_eyes()
 	update_body()
-	mob_biotypes = MOB_UNDEAD
-	faction = list(FACTION_UNDEAD)
-	name = "skeleton"
-	real_name = "skeleton"
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
-	ADD_TRAIT(src, TRAIT_EASYDISMEMBER, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOBREATH, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOPAIN, TRAIT_GENERIC)
+	ADD_TRAIT(src, TRAIT_NOSLEEP, TRAIT_GENERIC)
+	ADD_TRAIT(src, TRAIT_EASYDISMEMBER, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_TOXIMMUNE, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_LIMBATTACHMENT, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_CRITICAL_WEAKNESS, TRAIT_GENERIC)
@@ -93,16 +73,13 @@
 		if(OU)
 			equipOutfit(OU)
 
-
 /datum/outfit/job/npc/skeleton/random/pre_equip(mob/living/carbon/human/H)
 	..()
-
 	H.base_strength = 6
 	H.base_speed = 10
 	H.base_constitution = 8
 	H.base_endurance = 8
 	H.base_intelligence = 1
-
 
 /datum/outfit/job/greater_skeleton/pre_equip(mob/living/carbon/human/H) //equipped onto Summon Greater Undead player skeletons only after the mind is added
 	..()
@@ -123,20 +100,20 @@
 	H.base_intelligence = 1
 
 	//light labor skills for skeleton manual labor and some warrior-adventurer skills, equipment is still bad probably
-	H.mind?.adjust_skillrank(/datum/skill/craft/carpentry, 1, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/craft/masonry, 1, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/carpentry, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/masonry, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
 
-	H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
 
 	H.set_patron(/datum/patron/inhumen/zizo)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
@@ -336,13 +313,16 @@
 	if(!mind)
 		mind = new /datum/mind(src)
 
-	mind.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
-	mind.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
-	mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-	mind.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-	mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
-	mind.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
-	mind.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
+	adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
+	adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
+	adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+	adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
+	adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
+	adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
+	adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
+
+/mob/living/carbon/human/species/skeleton/death_arena
+	should_have_aggro = FALSE
 
 /mob/living/carbon/human/species/skeleton/death_arena/after_creation()
 	..()
@@ -355,3 +335,6 @@
 	base_constitution = 8
 	base_endurance = 8
 	base_intelligence = 1
+
+/mob/living/carbon/human/species/skeleton/death_arena/roll_mob_stats()
+	return

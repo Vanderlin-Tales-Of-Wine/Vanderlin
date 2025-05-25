@@ -1,46 +1,49 @@
 GLOBAL_LIST_EMPTY(keep_doors)
 GLOBAL_LIST_EMPTY(thieves_guild_doors)
 
-/obj/structure/mineral_door/secret
-	hover_color = "#607d65"
-
+/obj/structure/door/secret
 	name = "wall"
-	desc = ""
-	icon_state = "woodhandle" //change me
-	openSound = 'sound/foley/doors/creak.ogg'
-	closeSound = 'sound/foley/doors/shut.ogg'
-	resistance_flags = FLAMMABLE
+	icon = 'icons/turf/smooth/walls/stone_brick.dmi'
+	icon_state = MAP_SWITCH("stone_brick", "stone_brick-0")
+	hover_color = "#607d65"
+	resistance_flags = NONE
 	max_integrity = 9999
 	damage_deflection = 30
 	layer = ABOVE_MOB_LAYER
-	keylock = FALSE
-	locked = TRUE
-	icon = 'icons/roguetown/misc/doors.dmi'
-	blade_dulling = DULLING_BASHCHOP
-	break_sound = 'sound/combat/hits/onwood/destroywalldoor.ogg'
-	attacked_sound = list('sound/combat/hits/onwood/woodimpact (1).ogg','sound/combat/hits/onwood/woodimpact (2).ogg')
+
+	lock = /datum/lock/locked
+
+	smoothing_flags = NONE
+	smoothing_groups = SMOOTH_GROUP_DOOR_SECRET
+	smoothing_list = SMOOTH_GROUP_DOOR_SECRET +  SMOOTH_GROUP_CLOSED_WALL
 
 	can_add_lock = FALSE
 	can_knock = FALSE
 	redstone_structure = TRUE
 
+	repairable = FALSE
+	repair_cost_first = null
+	repair_cost_second = null
+	repair_skill = null
+	metalizer_result = null
+
 	var/open_phrase = "open sesame"
 
-	var/speaking_distance = 2
+	var/speaking_distance = 1
 	var/lang = /datum/language/common
 	var/list/vip
 	var/vipmessage
 
-/obj/structure/mineral_door/secret/redstone_triggered(mob/user)
+/obj/structure/door/secret/redstone_triggered(mob/user)
 	if(!door_opened)
 		force_open()
 	else
 		force_closed()
 
-/obj/structure/mineral_door/secret/update_icon()
+/obj/structure/door/secret/update_icon()
 
 ///// DOOR TYPES //////
-/obj/structure/mineral_door/secret/vault
+/obj/structure/door/secret/vault
 	vip = list(
 	/datum/job/lord,
 	/datum/job/consort,
@@ -48,31 +51,28 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	/datum/job/hand,
 	)
 
-/obj/structure/mineral_door/secret/merchant
+/obj/structure/door/secret/merchant
 	vip = list(
 		/datum/job/merchant,
 	)
 
-/obj/structure/mineral_door/secret/wizard //for wizard tower
+/obj/structure/door/secret/wizard //for wizard tower
 	vip = list(
 		/datum/job/magician,
 		/datum/job/wapprentice,
 		/datum/job/archivist,
 	)
 	//make me look like an arcane door
-	//icon = 'icons/turf/walls/stonebrick.dmi'
-	//icon_state = "stonebrick" //change me
 
-
-/obj/structure/mineral_door/secret/Initialize()
+/obj/structure/door/secret/Initialize()
 	become_hearing_sensitive()
 	open_phrase = open_word() + " " + magic_word()
 	. = ..()
 
-/obj/structure/mineral_door/secret/door_rattle()
+/obj/structure/door/secret/rattle()
 	return
 
-/obj/structure/mineral_door/secret/attack_hand(mob/user)
+/obj/structure/door/secret/attack_hand(mob/user)
 	. = ..()
 	if(.)
 		return
@@ -82,13 +82,12 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 		return
 
 //can't kick it open, but you can kick it closed
-/obj/structure/mineral_door/secret/onkick(mob/user)
-	if(locked)
+/obj/structure/door/secret/onkick(mob/user)
+	if(locked())
 		return
-	else
-		..()
+	..()
 
-/obj/structure/mineral_door/secret/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode, original_message)
+/obj/structure/door/secret/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode, original_message)
 	var/mob/living/carbon/human/H = speaker
 	if(speaker == src) //door speaking to itself
 		return FALSE
@@ -104,31 +103,28 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 
 	if(is_type_in_list(H.mind?.assigned_role, vip)) //are they a VIP?
 		if(findtext(message2recognize, "help"))
-			send_speech(span_purple("'say phrase'... 'set phrase'..."), 2, src, message_language = lang)
+			send_speech(span_purple("'say phrase'... 'set phrase'..."), speaking_distance, src, message_language = lang, message_mode = MODE_WHISPER)
 			return TRUE
 		if(findtext(message2recognize, "say phrase"))
-			send_speech(span_purple("[open_phrase]..."), 2, src, message_language = lang)
+			send_speech(span_purple("[open_phrase]..."), speaking_distance, src, message_language = lang, message_mode = MODE_WHISPER)
 			return TRUE
 		if(findtext(message2recognize, "set phrase"))
 			var/new_pass = stripped_input(H, "What should the new close phrase be?")
 			open_phrase = new_pass
-			send_speech(span_purple("It is done, [flavor_name()]..."), 2, src, message_language = lang)
+			send_speech(span_purple("It is done, [flavor_name()]..."), speaking_distance, src, message_language = lang, message_mode = MODE_WHISPER)
 			return TRUE
 
-	if(findtext(message2recognize, open_phrase) && locked)
-		locked = FALSE
-		force_open()
-		return TRUE
-	else if(findtext(message2recognize, open_phrase) && !locked)
-		force_closed()
-		locked = TRUE
+	if(findtext(message2recognize, open_phrase))
+		if(!door_opened)
+			force_open()
+		else
+			force_closed()
 		return TRUE
 
-
-/obj/structure/mineral_door/secret/Open(silent = FALSE)
-	isSwitchingStates = TRUE
+/obj/structure/door/secret/Open(silent = FALSE)
+	switching_states = TRUE
 	if(!silent)
-		playsound(src, openSound, 90)
+		playsound(src, open_sound, 90)
 	if(!windowed)
 		set_opacity(FALSE)
 	animate(src, pixel_x = -22, alpha = 50, time = animate_time)
@@ -136,15 +132,15 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	density = FALSE
 	door_opened = TRUE
 	layer = OPEN_DOOR_LAYER
-	air_update_turf(1)
+	air_update_turf(TRUE)
 	update_icon()
-	isSwitchingStates = FALSE
+	switching_states = FALSE
 
-	if(close_delay >= 0)
+	if(close_delay > 0)
 		addtimer(CALLBACK(src, PROC_REF(Close), silent), close_delay)
 
-/obj/structure/mineral_door/secret/force_open()
-	isSwitchingStates = TRUE
+/obj/structure/door/secret/force_open()
+	switching_states = TRUE
 	if(!windowed)
 		set_opacity(FALSE)
 	animate(src, pixel_x = -22, alpha = 50, time = animate_time)
@@ -152,16 +148,36 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	density = FALSE
 	door_opened = TRUE
 	layer = OPEN_DOOR_LAYER
-	air_update_turf(1)
+	air_update_turf(TRUE)
 	update_icon()
-	isSwitchingStates = FALSE
+	switching_states = FALSE
 
-	if(close_delay >= 0)
+	if(close_delay > 0)
 		addtimer(CALLBACK(src, PROC_REF(Close)), close_delay)
 
+/obj/structure/door/secret/Close(silent = FALSE)
+	if(switching_states || !door_opened)
+		return
+	var/turf/T = get_turf(src)
+	for(var/mob/living/L in T)
+		return
+	switching_states = TRUE
+	if(!silent)
+		playsound(src, close_sound, 90)
+	animate(src, pixel_x = 0, alpha = 255, time = animate_time)
+	sleep(animate_time)
+	density = TRUE
+	if(!windowed)
+		set_opacity(TRUE)
+	door_opened = FALSE
+	layer = CLOSED_DOOR_LAYER
+	air_update_turf(TRUE)
+	update_icon()
+	switching_states = FALSE
+	lock()
 
-/obj/structure/mineral_door/secret/force_closed()
-	isSwitchingStates = TRUE
+/obj/structure/door/secret/force_closed()
+	switching_states = TRUE
 	if(!windowed)
 		set_opacity(TRUE)
 	animate(src, pixel_x = 0, alpha = 255, time = animate_time)
@@ -169,30 +185,9 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	density = TRUE
 	door_opened = FALSE
 	layer = CLOSED_DOOR_LAYER
-	air_update_turf(1)
+	air_update_turf(TRUE)
 	update_icon()
-	isSwitchingStates = FALSE
-
-/obj/structure/mineral_door/secret/Close(silent = FALSE)
-	if(isSwitchingStates || !door_opened)
-		return
-	var/turf/T = get_turf(src)
-	for(var/mob/living/L in T)
-		return
-	isSwitchingStates = TRUE
-	if(!silent)
-		playsound(src, closeSound, 90)
-	animate(src, pixel_x = 0, alpha = 255, time = animate_time)
-	sleep(animate_time)
-	density = TRUE
-	if(!windowed)
-		set_opacity(TRUE)
-	door_opened = FALSE
-	layer = initial(layer)
-	air_update_turf(1)
-	update_icon()
-	isSwitchingStates = FALSE
-	locked = TRUE
+	switching_states = FALSE
 
 /proc/open_word()
 	var/list/open_word = list(
@@ -284,11 +279,11 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 		)
 	return pick(flavor_name)
 
-/obj/structure/mineral_door/secret/proc/set_phrase(new_phrase)
+/obj/structure/door/secret/proc/set_phrase(new_phrase)
 	open_phrase = new_phrase
 
 ///// KEEP DOORS /////
-/obj/structure/mineral_door/secret/keep
+/obj/structure/door/secret/keep
 	vip = list(
 		/datum/job/lord,
 		/datum/job/consort,
@@ -296,28 +291,26 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 		/datum/job/hand,
 		/datum/job/butler,
 	)
-	icon = 'icons/turf/walls/stonebrick.dmi'
-	icon_state = "stonebrick"
 
-/obj/structure/mineral_door/secret/keep/Initialize()
+/obj/structure/door/secret/keep/Initialize()
 	. = ..()
-	if(GLOB.keep_doors.len > 0)
-		var/obj/structure/mineral_door/secret/D = GLOB.keep_doors[1]
+	if(length(GLOB.keep_doors) > 0)
+		var/obj/structure/door/secret/D = GLOB.keep_doors[1]
 		open_phrase = D.open_phrase
 	GLOB.keep_doors += src
 
-/obj/structure/mineral_door/secret/keep/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode)
+/obj/structure/door/secret/keep/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode)
 	if(!..())
 		return FALSE
 	var/mob/living/carbon/human/H = speaker
 
 	var/message2recognize = sanitize_hear_message(raw_message)
 	if(is_type_in_list(H.mind?.assigned_role, vip) && findtext(message2recognize, "set phrase"))
-		for(var/obj/structure/mineral_door/secret/D in GLOB.keep_doors)
+		for(var/obj/structure/door/secret/D in GLOB.keep_doors)
 			D.set_phrase(open_phrase)
 	return TRUE
 
-/obj/structure/mineral_door/secret/keep/examine(mob/user)
+/obj/structure/door/secret/keep/examine(mob/user)
 	. = ..()
 	if(HAS_TRAIT(user, TRAIT_KNOWKEEPPLANS))
 		. += span_purple("There's a hidden wall here...")
@@ -327,33 +320,31 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 		..()
 
 /proc/know_keep_door_password(mob/living/carbon/human/H)
-	var/obj/structure/mineral_door/secret/D = GLOB.keep_doors[1]
+	var/obj/structure/door/secret/D = GLOB.keep_doors[1]
 	to_chat(H, span_notice("The keep's secret doors answer to: '[D.open_phrase]'"))
 
 ///// THIEVES GUILD DOORS /////
-/obj/structure/mineral_door/secret/thieves_guild
+/obj/structure/door/secret/thieves_guild
 	vip = list(
 		/datum/job/matron,
 	)
 	lang = /datum/language/thievescant
-	icon = 'icons/turf/walls/stonebrick.dmi'
-	icon_state = "stonebrick"
 
-/obj/structure/mineral_door/secret/thieves_guild/Initialize()
+/obj/structure/door/secret/thieves_guild/Initialize()
 	. = ..()
 	if(GLOB.thieves_guild_doors.len > 0)
-		var/obj/structure/mineral_door/secret/D = GLOB.thieves_guild_doors[1]
+		var/obj/structure/door/secret/D = GLOB.thieves_guild_doors[1]
 		open_phrase = D.open_phrase
 	GLOB.thieves_guild_doors += src
 
-/obj/structure/mineral_door/secret/thieves_guild/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode)
+/obj/structure/door/secret/thieves_guild/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode)
 	if(!..())
 		return FALSE
 	var/mob/living/carbon/human/H = speaker
 
 	var/message2recognize = sanitize_hear_message(raw_message)
 	if((is_type_in_list(H.mind?.assigned_role, vip)) && findtext(message2recognize, "set phrase"))
-		for(var/obj/structure/mineral_door/secret/D in GLOB.keep_doors)
+		for(var/obj/structure/door/secret/D in GLOB.keep_doors)
 			D.set_phrase(open_phrase)
 	return TRUE
 
@@ -366,7 +357,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 
 	var/redstone_id
 
-	var/obj/structure/mineral_door/secret/door_type = /obj/structure/mineral_door/secret
+	var/obj/structure/door/secret/door_type = /obj/structure/door/secret
 	var/datum/language/given_lang = /datum/language/thievescant //DEPRECATED
 	var/list/vips = list("Thief", "Matron") //DEPRECATED
 	var/vip_message = "Thief and Matron" //DEPRECATED
@@ -378,36 +369,20 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	if(!isclosedturf(get_turf(src)))
 		return ..()
 	var/turf/closed/source_turf = get_turf(src)
-	var/obj/structure/mineral_door/secret/new_door = new door_type(source_turf)
+	var/obj/structure/door/secret/new_door = new door_type(source_turf)
 
-	new_door.icon = source_turf.icon
-	new_door.icon_state = source_turf.icon_state
-	new_door.smooth = source_turf.smooth
-	new_door.canSmoothWith = source_turf.canSmoothWith
 	new_door.name = source_turf.name
 	new_door.desc = source_turf.desc
+	new_door.icon = source_turf.icon
+	new_door.icon_state = source_turf.icon_state
 
-	//assigns local smoothing to neighboring walls
-	//i can see this causing an issue under very specific door configuration.
-	for(var/dir in GLOB.cardinals)
-		var/turf/T = get_step(src, dir)
-		var/canDoorSmooth = FALSE
-		for(var/smoothType in new_door.canSmoothWith)
-			if(istype(T, smoothType))
-				canDoorSmooth = TRUE
-				break
-		if(!canDoorSmooth)
-			continue
-		var/smoothCompatible = FALSE
-		var/alreadyAdded = FALSE
-		for(var/smoothType in T.canSmoothWith)
-			if(istype(source_turf, smoothType))
-				smoothCompatible = TRUE
-			if(ispath(smoothType, /obj/structure/mineral_door/secret))
-				alreadyAdded = TRUE
-				break
-		if(smoothCompatible && !alreadyAdded)
-			T.canSmoothWith += /obj/structure/mineral_door/secret
+	var/smooth = source_turf.smoothing_flags
+
+	if(smooth)
+		new_door.smoothing_flags |= smooth
+		new_door.smoothing_icon = initial(source_turf.icon_state)
+		QUEUE_SMOOTH(new_door)
+		QUEUE_SMOOTH_NEIGHBORS(new_door)
 
 	if(redstone_id)
 		new_door.redstone_id = redstone_id
@@ -421,8 +396,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 
 	. = ..()
 
-
 /obj/effect/mapping_helpers/secret_door_creator/keep
 	name = "Keep Secret Door Creator"
-	door_type = /obj/structure/mineral_door/secret/keep
+	door_type = /obj/structure/door/secret/keep
 	override_floor = FALSE

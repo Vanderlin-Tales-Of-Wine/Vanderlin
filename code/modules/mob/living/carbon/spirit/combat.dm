@@ -30,7 +30,7 @@
 		return 0
 
 	if(myPath.len <= 0)
-		myPath = get_path_to(src, get_turf(target), /turf/proc/Distance3D, MAX_RANGE_FIND + 1, 250,1)
+		myPath = get_path_to(src, get_turf(target), TYPE_PROC_REF(/turf, Heuristic_cardinal_3d), MAX_RANGE_FIND + 1, 250,1)
 
 	if(myPath)
 		if(myPath.len > 0)
@@ -50,11 +50,11 @@
 
 // taken from /mob/living/carbon/human/interactive/
 /mob/living/carbon/spirit/proc/IsDeadOrIncap(checkDead = TRUE)
-	if(!(mobility_flags & MOBILITY_FLAGS_INTERACTION))
-		return 1
+	// if(!(mobility_flags & MOBILITY_FLAGS_INTERACTION))
+	// 	return 1
 	if(health <= 0 && checkDead)
 		return 1
-	if(IsStun() || IsParalyzed())
+	if(HAS_TRAIT(src, TRAIT_INCAPACITATED))
 		return 1
 	if(stat)
 		return 1

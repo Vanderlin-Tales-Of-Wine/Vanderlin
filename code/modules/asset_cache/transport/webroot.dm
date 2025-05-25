@@ -43,6 +43,8 @@
 	return "[url][get_asset_suffex(asset_cache_item)]"
 
 /datum/asset_transport/webroot/proc/get_asset_suffex(datum/asset_cache_item/asset_cache_item)
+	if(QDELETED(asset_cache_item))
+		return
 	var/base = ""
 	var/filename = "asset.[asset_cache_item.hash][asset_cache_item.ext]"
 	if (length(asset_cache_item.namespace))

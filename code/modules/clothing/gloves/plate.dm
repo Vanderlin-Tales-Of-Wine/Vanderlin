@@ -37,3 +37,23 @@
 	sellprice = VALUE_IRON_ARMOR/2
 	armor = ARMOR_PLATE_BAD
 	max_integrity = INTEGRITY_STANDARD
+
+	//............... Evil Gloves ............... //
+
+/obj/item/clothing/gloves/plate/zizo
+	name = "darksteel gauntlets"
+	desc = "darksteel plate gauntlets. Called forth from the edge of what should be known. In Her name."
+	icon_state = "zizogauntlets"
+	icon = 'icons/roguetown/clothing/special/evilarmor.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/evilarmor.dmi'
+	sleeved = 'icons/roguetown/clothing/special/onmob/evilarmor.dmi'
+	sellprice = 0 // Incredibly evil Zizoid armor, this should be burnt, nobody wants this
+
+/obj/item/clothing/gloves/plate/matthios
+	name = "gilded gauntlets"
+	desc = "Shimmering plate gauntelts. Many riches have been taken with these, and just as many lives."
+	icon_state = "matthiosgloves"
+	icon = 'icons/roguetown/clothing/special/evilarmor.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/evilarmor.dmi'
+	sleeved = 'icons/roguetown/clothing/special/onmob/evilarmor.dmi'
+	sellprice = 0 // See above comment

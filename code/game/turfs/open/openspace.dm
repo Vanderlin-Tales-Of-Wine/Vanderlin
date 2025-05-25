@@ -1,52 +1,74 @@
 GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdrop, new)
 
 /atom/movable/openspace_backdrop
-	name			= "openspace_backdrop"
-
-	anchored		= TRUE
-
-	icon            = 'icons/turf/floors.dmi'
-	icon_state      = "grey"
-	plane           = OPENSPACE_BACKDROP_PLANE
-	mouse_opacity 	= MOUSE_OPACITY_TRANSPARENT
-	layer           = SPLASHSCREEN_LAYER
-	//I don't know why the others are aligned but I shall do the same.
-	vis_flags		= VIS_INHERIT_ID
-
-/atom/movable/openspace_backdrop/Initialize()
-	. = ..()
-//	filters += filter(type = "blur", size = 3)
+	name = "openspace_backdrop"
+	icon = 'icons/turf/floors.dmi'
+	icon_state = "grey"
+	anchored = TRUE
+	plane = OPENSPACE_BACKDROP_PLANE
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	layer = SPLASHSCREEN_LAYER
+	vis_flags = VIS_INHERIT_ID
 
 /turf/open/transparent/openspace
 	name = "open space"
 	desc = "My eyes can see far down below."
-	icon_state = "openspace"
+	icon_state = MAP_SWITCH("openspace", "openspacemap")
 	baseturfs = /turf/open/transparent/openspace
 	CanAtmosPassVertical = ATMOS_PASS_YES
-//	appearance_flags = KEEP_TOGETHER
-	//mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	var/can_cover_up = TRUE
 	var/can_build_on = TRUE
 	dynamic_lighting = 1
-	canSmoothWith = list(/turf/closed/mineral,/turf/closed/wall/mineral, /turf/open/floor)
-	smooth = SMOOTH_MORE
-	neighborlay_override = "staticedge"
 	turf_flags = NONE
-
-/turf/open/transparent/openspace/cardinal_smooth(adjacencies)
-	smooth(adjacencies)
-
-/turf/open/transparent/openspace/smooth(adjacencies)
-	var/list/Yeah = ..()
-	for(var/O in Yeah)
-		var/mutable_appearance/M = mutable_appearance(icon, O)
-		M.layer = SPLASHSCREEN_LAYER + 0.01
-		M.plane = OPENSPACE_BACKDROP_PLANE + 0.01
-		add_overlay(M)
+	path_weight = 500
+	smoothing_flags = SMOOTH_EDGE
+	smoothing_groups = SMOOTH_GROUP_FLOOR_OPEN_SPACE
+	smoothing_list = SMOOTH_GROUP_OPEN_FLOOR + SMOOTH_GROUP_CLOSED_WALL
+	neighborlay_self = "staticedge"
 
 /turf/open/transparent/openspace/debug/update_multiz()
 	..()
 	return TRUE
+
+/turf/open/transparent/openspace/can_traverse_safely(atom/movable/traveler)
+	var/turf/destination = GET_TURF_BELOW(src)
+	if(!destination)
+		return TRUE // this shouldn't happen
+	for(var/obj/structure/O in contents)
+		if(O.obj_flags & BLOCK_Z_OUT_DOWN)
+			return TRUE
+	if(!traveler.can_zTravel(destination, DOWN, src)) // something is blocking their fall!
+		return TRUE
+	if(!traveler.can_zFall(src, DOWN, destination)) // they can't fall!
+		return TRUE
+	return FALSE
+
+/turf/open/transparent/openspace/add_neighborlay(dir, edgeicon, offset = FALSE)
+	var/add
+	var/y = 0
+	var/x = 0
+	switch(dir)
+		if(NORTH)
+			add = "[edgeicon]-n"
+			y = -32
+		if(SOUTH)
+			add = "[edgeicon]-s"
+			y = 32
+		if(EAST)
+			add = "[edgeicon]-e"
+			x = -32
+		if(WEST)
+			add = "[edgeicon]-w"
+			x = 32
+
+	if(!add)
+		return
+
+	var/image/overlay = image(icon, src, add, SPLASHSCREEN_LAYER + 0.01, pixel_x = offset ? x : 0, pixel_y = offset ? y : 0 )
+	overlay.plane = OPENSPACE_BACKDROP_PLANE + 0.01
+
+	LAZYADDASSOC(neighborlay_list, "[dir]", overlay)
+	add_overlay(overlay)
 
 ///No bottom level for openspace.
 /turf/open/transparent/openspace/show_bottom_level()
@@ -82,10 +104,8 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 	if(HAS_TRAIT(A, TRAIT_I_AM_INVISIBLE_ON_A_BOAT))
 		return FALSE
 	if(direction == DOWN)
-		testing("dir=down")
 		for(var/obj/O in contents)
 			if(O.obj_flags & BLOCK_Z_OUT_DOWN)
-				testing("noout")
 				return FALSE
 		return TRUE
 	if(direction == UP)
@@ -127,7 +147,7 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 			if(ismob(pulling))
 				user.pulling.forceMove(target)
 			user.forceMove(target)
-			user.start_pulling(pulling,supress_message = TRUE)
+			user.start_pulling(pulling,suppress_message = TRUE)
 
 /turf/open/transparent/openspace/attack_ghost(mob/dead/observer/user)
 	var/turf/target = get_step_multiz(src, DOWN)
@@ -150,14 +170,8 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 		return ..()
 	var/turf/target = get_step_multiz(src, DOWN)
 	if(target)
-		testing("canztrav")
-//		if(can_zFall(P, 2, target))
-//			testing("canztrue")
-//			P.zfalling = TRUE
 		P.forceMove(target)
-//			P.zfalling = FALSE
 		P.visible_message(span_danger("[P] flies down from above!"), vision_distance = COMBAT_MESSAGE_RANGE)
 		P.original = target
 		P.process_hit(target, P.select_target(target))
-		//bump
 		return BULLET_ACT_TURF

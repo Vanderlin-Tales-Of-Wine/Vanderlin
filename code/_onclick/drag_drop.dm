@@ -72,7 +72,7 @@
 	blockscharging = TRUE
 
 /client/MouseDown(object, location, control, params)
-	if(mob.incapacitated())
+	if(mob.incapacitated(ignore_grab = TRUE))
 		return
 	SEND_SIGNAL(src, COMSIG_CLIENT_MOUSEDOWN, object, location, control, params)
 	if(istype(object, /obj/abstract/visual_ui_element/hoverable/movable))
@@ -380,7 +380,7 @@
 
 /client/MouseDrag(src_object,atom/over_object,src_location,over_location,src_control,over_control,params)
 
-	if(mob.incapacitated())
+	if(mob.incapacitated(ignore_grab = TRUE))
 		return
 
 	var/list/L = params2list(params)

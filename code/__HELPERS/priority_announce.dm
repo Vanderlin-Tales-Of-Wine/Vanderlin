@@ -30,11 +30,11 @@
 		if(!length(text))
 			return
 
-	var/announcement
+	var/announcement = "<br><div class='alert_holder'>"
 
 	if(title && length(title) > 0)
-		announcement += "<h1 class='alert'>[title]</h1>"
-	announcement += "<br>[span_alert(text)]"
+		announcement += "<h1 class='alert'><center><u>[title]</u></h1></center>"
+	announcement += "<center>[span_alert(text)]</center><br></div>"
 
 	if(!players)
 		players = GLOB.player_list

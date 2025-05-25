@@ -13,21 +13,17 @@ Format:
 	votable (is this map votable)
 endmap
 
-map rosewood
-	minplayers 90
-	votable
-endmap
-
 map vanderlin
 	default
 	votable
 endmap
 
-#until vanderlin is working roguetown should be default
-map roguetown
-	disabled
+map rosewood
+	minplayers 90
+	votable
 endmap
 
-map dun_manor
-	disabled
+map daftmarsh
+	maxplayers 75
+	votable
 endmap

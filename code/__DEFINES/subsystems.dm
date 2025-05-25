@@ -127,6 +127,7 @@
 #define INIT_ORDER_LANGUAGE			25
 #define INIT_ORDER_MACHINES			20
 #define INIT_ORDER_SKILLS			15
+#define INIT_ORDER_RANDOM_TILES		7
 #define INIT_ORDER_TIMER			1
 #define INIT_ORDER_DEFAULT			0
 #define INIT_ORDER_AIR				-1
@@ -142,6 +143,7 @@
 #define INIT_ORDER_DISCORD			-60
 #define INIT_ORDER_PLEXORA 			-61
 #define INIT_ORDER_PERSISTENCE		-95
+#define INIT_ORDER_BAN_CACHE 		-98
 #define INIT_ORDER_CHAT				-100 //Should be last to ensure chat remains smooth during init.
 
 // Subsystem fire priority, from lowest to highest priority
@@ -167,7 +169,6 @@
 #define FIRE_PRIORITY_PROCESS		25
 #define FIRE_PRIORITY_THROWING		25
 #define FIRE_PRIORITY_SPACEDRIFT	30
-#define FIRE_PRIORITY_FIELDS		30
 #define FIRE_PRIORITY_SMOOTHING		35
 #define FIRE_PRIORITY_HUDS			40
 #define FIRE_PRIORITY_NETWORKS		40

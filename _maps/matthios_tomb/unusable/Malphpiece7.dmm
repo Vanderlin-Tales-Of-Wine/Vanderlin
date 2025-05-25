@@ -2,11 +2,11 @@
 "a" = (
 /obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/floor/hexstone,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "b" = (
 /obj/machinery/light/fueled/torchholder/r,
 /turf/open/floor/blocks/paving/vert,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/sewer)
 "d" = (
 /mob/living/simple_animal/hostile/retaliate/troll/axe,
 /obj/structure/fluff/nest,
@@ -22,30 +22,30 @@
 /obj/effect/decal/cleanable/blood/gibs,
 /obj/effect/decal/remains/human,
 /turf/open/floor/blocks/paving,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/sewer)
 "g" = (
 /turf/closed/wall/mineral/decostone/fluffstone/reddish,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "m" = (
 /obj/item/weapon/knife/copper,
 /obj/item/clothing/armor/leather/splint,
 /obj/item/weapon/shield/tower/buckleriron,
 /obj/effect/decal/remains/human,
 /turf/open/floor/blocks/paving/vert,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/sewer)
 "o" = (
 /turf/open/floor/hexstone,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "r" = (
 /turf/closed/wall/mineral/stone,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/sewer)
 "x" = (
 /obj/item/weapon/shield/tower,
 /obj/item/clothing/cloak/stabard/templar/dendor,
 /obj/item/weapon/mace/goden/shillelagh,
 /obj/effect/decal/remains/human,
 /turf/open/floor/blocks/paving,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/sewer)
 "B" = (
 /obj/structure/pillory,
 /obj/effect/spawner/map_spawner/hauntpile,
@@ -54,44 +54,44 @@
 /obj/item/natural/stone,
 /obj/item/rope/chain,
 /turf/open/floor/hexstone,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "C" = (
 /obj/item/natural/stone,
 /turf/open/floor/hexstone,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "D" = (
 /obj/machinery/light/fueled/wallfire/candle/l,
 /obj/item/natural/stone,
 /turf/open/floor/hexstone,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "F" = (
 /obj/machinery/light/fueled/torchholder/l,
 /turf/open/floor/blocks/paving/vert,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/sewer)
 "G" = (
 /obj/item/weapon/whip/antique,
 /obj/structure/fluff/wallclock/vampire,
 /turf/open/floor/hexstone,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "I" = (
 /obj/item/alch/bone,
 /obj/item/natural/fur/rous,
 /obj/effect/decal/remains/bigrat,
 /turf/open/floor/blocks/paving/vert,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/sewer)
 "O" = (
 /obj/machinery/light/fueled/wallfire/candle/l,
 /turf/open/floor/hexstone,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "Q" = (
 /turf/open/floor/blocks/paving,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/sewer)
 "V" = (
 /turf/closed/mineral/bedrock,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/cave)
 "W" = (
 /turf/open/floor/blocks/paving/vert,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/sewer)
 "X" = (
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve,
 /obj/item/ammo_holder/quiver/arrows,
@@ -99,7 +99,7 @@
 /obj/item/clothing/cloak/raincloak/green,
 /obj/effect/decal/remains/human,
 /turf/open/floor/blocks/paving,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/sewer)
 
 (1,1,1) = {"
 o

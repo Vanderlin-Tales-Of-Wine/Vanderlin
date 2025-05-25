@@ -68,3 +68,27 @@
 
 ///List of mobs who have damaged us
 #define BB_BASIC_MOB_RETALIATE_LIST "BB_basic_mob_shitlist"
+
+#define BB_GATOR_IN_WATER "BB_gator_in_water"
+#define BB_GATOR_AMBUSH_COOLDOWN "BB_gator_ambush_cooldown"
+#define BB_GATOR_DEATH_ROLL_COOLDOWN "BB_gator_death_roll_cooldown"
+#define BB_GATOR_PREFERRED_TERRITORY "BB_gator_preferred_territory"
+
+#define BB_DRAGON_ENRAGED "dragon_enraged"
+#define BB_DRAGON_SWOOPING "dragon_swooping"
+#define BB_DRAGON_RECOVERY_TIME "dragon_recovery_time"
+#define BB_DRAGON_ANGER_MODIFIER "dragon_anger_modifier"
+#define BB_DRAGON_ATTACK_TYPE "dragon_attack_type"
+#define BB_DRAGON_HEALTH_PERCENTAGE "dragon_health_percentage"
+#define BB_DRAGON_CL_COOLDOWN "dragon_cl_cooldown"
+#define BB_DRAGON_LIGHTNING_COOLDOWN "dragon_lightning_cooldown"
+#define BB_DRAGON_SUMMON_COOLDOWN "dragon_summon_cooldown"
+#define BB_DRAGON_SLAM_COOLDOWN "dragon_slam_cooldown"
+#define BB_DRAGON_SPECIAL_COOLDOWN "dragon_special_cooldown"
+#define BB_DRAGON_VOID_COOLDOWN "dragon_void_cooldown"
+#define BB_DRAGON_CLONE_COOLDOWN "dragon_clone_cooldown"
+#define BB_DRAGON_WING_COOLDOWN "dragon_wing_cooldown"
+#define BB_DRAGON_EXPLOSION_COOLDOWN "dragon_explosion_cooldown"
+#define BB_DRAGON_PHASE_COOLDOWN "dragon_ohase_cooldown"
+
+#define BB_IS_BEING_RIDDEN "bb_is_ridden"

@@ -36,6 +36,9 @@
 	chargetime = 1
 	item_damage_type = "slash"
 
+/datum/intent/axe/chop/scythe //Unique intent for Dendorite Templar
+	reach = 2
+
 
 /*------------\
 | Cut intent |	small AP
@@ -173,6 +176,38 @@
 	force_wielded = DAMAGE_HEAVYAXE_WIELD
 	minstr = 10
 	wdefense = AVERAGE_PARRY
+
+//................ Psydonian Axe ............... //
+/obj/item/weapon/axe/psydon
+	force = DAMAGE_AXE
+	force_wielded = DAMAGE_AXE_WIELD
+	possible_item_intents = list(/datum/intent/axe/cut,/datum/intent/axe/chop)
+	name = "psydonian axe"
+	desc = "An axe forged of silver with a small psycross attached, Dendor and his foul beastmen be damned."
+	icon_state = "psyaxe"
+	max_blade_int = 200
+	max_integrity = INTEGRITY_STANDARD
+	melting_material = /datum/material/iron
+	melt_amount = 75
+	gripped_intents = list(/datum/intent/axe/cut,/datum/intent/axe/chop)
+	parrysound = "sword"
+	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
+	wdefense = MEDIOCHRE_PARRY
+	minstr = 6
+	sellprice = 60
+	is_silver = TRUE
+
+/obj/item/weapon/axe/psydon/getonmobprop(tag)
+	. = ..()
+	if(tag)
+		switch(tag)
+			if("gen")
+				return list("shrink" = 0.6,"sx" = -12,"sy" = -10,"nx" = 12,"ny" = -10,"wx" = -8,"wy" = -7,"ex" = 3,"ey" = -9,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 90,"sturn" = -90,"wturn" = -90,"eturn" = 90,"nflip" = 0,"sflip" = 8,"wflip" = 8,"eflip" = 0)
+			if("wielded")
+				return list("shrink" = 0.6,"sx" = -12,"sy" = 3,"nx" = 12,"ny" = 2,"wx" = -8,"wy" = 2,"ex" = 4,"ey" = 2,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 8,"wflip" = 8,"eflip" = 0)
+			if("onbelt")
+				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0)
+
 
 //................ Pick Axe ............... //
 // Pickaxe-axe ; Technically both a tool and weapon, but it goes here due to weapon function.

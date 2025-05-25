@@ -26,7 +26,7 @@
 			. = 1
 
 /mob/living/carbon/human/mob_negates_gravity()
-	return ((shoes && shoes.negates_gravity()) || (dna.species.negates_gravity(src)))
+	return ((shoes && shoes.negates_gravity()) || (dna?.species?.negates_gravity(src)))
 
 /mob/living/carbon/human/Move(NewLoc, direct)
 /*	if(fixedeye || tempfixeye)
@@ -58,22 +58,22 @@
 			attackhostage()
 
 		if(wear_armor)
-			if(mobility_flags & MOBILITY_STAND)
+			if(body_position != LYING_DOWN)
 				var/obj/item/clothing/C = wear_armor
 				C.step_action()
 
 		if(wear_shirt)
-			if(mobility_flags & MOBILITY_STAND)
+			if(body_position != LYING_DOWN)
 				var/obj/item/clothing/C = wear_shirt
 				C.step_action()
 
 		if(cloak)
-			if(mobility_flags & MOBILITY_STAND)
+			if(body_position != LYING_DOWN)
 				var/obj/item/clothing/C = cloak
 				C.step_action()
 
 		if(shoes)
-			if(mobility_flags & MOBILITY_STAND)
+			if(body_position != LYING_DOWN)
 				var/obj/item/clothing/shoes/S = shoes
 
 				//Bloody footprints
@@ -109,6 +109,6 @@
 							dropItemToGround(I, silent = FALSE)
 
 /mob/living/carbon/human/Process_Spacemove(movement_dir = 0) //Temporary laziness thing. Will change to handles by species reee.
-	if(dna.species.space_move(src))
+	if(dna?.species?.space_move(src))
 		return TRUE
 	return ..()

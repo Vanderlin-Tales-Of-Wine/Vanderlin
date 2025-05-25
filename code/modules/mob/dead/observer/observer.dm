@@ -43,6 +43,9 @@ GLOBAL_LIST_INIT(ghost_verbs, list(
 	var/list/datahuds = list() //list of data HUDs shown to ghosts.
 	var/ghost_orbit = GHOST_ORBIT_CIRCLE
 
+	/// The POI we're orbiting
+	var/orbiting_ref
+
 	//These variables store hair data if the ghost originates from a species with head and/or facial hair.
 	var/hairstyle
 	var/hair_color
@@ -87,7 +90,7 @@ GLOBAL_LIST_INIT(ghost_verbs, list(
 /mob/dead/observer/rogue/Move(n, direct)
 	if(world.time < next_gmove)
 		return
-	next_gmove = world.time + 3
+	next_gmove = world.time + 2
 	var/turf/T = n
 
 	setDir(direct)
@@ -98,14 +101,6 @@ GLOBAL_LIST_INIT(ghost_verbs, list(
 	if(istype(T))
 		if(T.density)
 			return
-		for(var/obj/structure/O in T)
-/*			if(istype(O, /obj/structure/fluff/psycross))
-				go2hell()
-				next_gmove = world.time + 30
-				return*/
-			if(O.density && !O.climbable)
-				if(!misting)
-					return
 		for(var/obj/item/reagent_containers/powder/salt/S in T)
 //			go2hell()
 //			next_gmove = world.time + 30
@@ -154,18 +149,13 @@ GLOBAL_LIST_INIT(ghost_verbs, list(
 
 	updateallghostimages()
 
-	testing("BEGIN LOC [loc]")
-
 	var/turf/T
 	var/mob/body = loc
 	if(ismob(body))
 		T = get_turf(body)				//Where is the body located?
-		testing("body [body] loc [body.loc]")
 		if(!T)
-			testing("no t yyy")
 			if(istype(body, /mob/living/brain))
 				var/obj/Y = body.loc
-				testing("Y [Y] loc [Y.loc]")
 				T = get_turf(Y)
 
 		gender = body.gender
@@ -181,21 +171,12 @@ GLOBAL_LIST_INIT(ghost_verbs, list(
 				name = random_unique_name(gender)
 
 		mind = body.mind	//we don't transfer the mind but we keep a reference to it.
-		mind.current_ghost = src
+		mind?.current_ghost = src
 
 		set_suicide(body.suiciding) // Transfer whether they committed suicide.
 
 		if(draw_icon)
 			if(ishuman(body))
-//				var/mob/living/carbon/human/body_human = body
-//				var/icon/out_icon = icon('icons/effects/effects.dmi', "nothing")
-//				var/od = body_human.dir
-//				for(var/D in GLOB.cardinals)
-//					body_human.dir = D
-//					COMPILE_OVERLAYS(body)
-//					var/icon/partial = getFlatIcon(body, no_anim = TRUE, base_size = TRUE)
-//					out_icon.Insert(partial,dir=D)
-//				body_human.dir = od
 				var/image/MA = new(body)
 				MA.transform = null //so we are standing
 				appearance = MA
@@ -203,12 +184,10 @@ GLOBAL_LIST_INIT(ghost_verbs, list(
 				pixel_x = 0
 				pixel_y = 0
 				invisibility = INVISIBILITY_OBSERVER
-//				icon = out_icon
 				alpha = 100
 	update_icon()
 
 	if(!T)
-		testing("NO T")
 		T = SSmapping.get_station_center()
 
 	forceMove(T)

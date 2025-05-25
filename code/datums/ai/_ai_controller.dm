@@ -170,12 +170,19 @@ have ways of interacting with a specific atom and control it. They posses a blac
 	if(nextmove && living_pawn.next_move > world.time)
 		return FALSE
 
+	if(living_pawn.body_position == LYING_DOWN)
+		living_pawn.aimheight_change(rand(1,9))
+	else
+		living_pawn.aimheight_change(rand(10,19))
+
 	if(isnull(combat_mode))
+		SEND_SIGNAL(living_pawn, COMSIG_HOSTILE_PRE_ATTACKINGTARGET, final_target)
 		living_pawn.ClickOn(final_target, params)
 		return TRUE
 
 	var/old_combat_mode = living_pawn.cmode
 	living_pawn.cmode = combat_mode
+	SEND_SIGNAL(living_pawn, COMSIG_HOSTILE_PRE_ATTACKINGTARGET, final_target)
 	living_pawn.ClickOn(final_target, params)
 	living_pawn.cmode = old_combat_mode
 	return TRUE
@@ -272,13 +279,13 @@ have ways of interacting with a specific atom and control it. They posses a blac
 
 /datum/ai_controller/proc/can_move()
 	var/mob/living/living_pawn = pawn
-	if(living_pawn.IsStun() || living_pawn.IsParalyzed())
+	if(HAS_TRAIT(living_pawn, TRAIT_INCAPACITATED))
 		return FALSE
 	if(ai_traits & STOP_MOVING_WHEN_PULLED && living_pawn.pulledby)
 		return FALSE
 	if(!isturf(living_pawn.loc)) //No moving if not on a turf
 		return FALSE
-	if(!(living_pawn.mobility_flags & MOBILITY_MOVE))
+	if(HAS_TRAIT(living_pawn, TRAIT_IMMOBILIZED))
 		return FALSE
 	if(living_pawn.pulledby?.grab_state > GRAB_PASSIVE)
 		return FALSE
@@ -299,7 +306,7 @@ have ways of interacting with a specific atom and control it. They posses a blac
 	if(!continue_processing_when_client && mob_pawn.client)
 		return AI_STATUS_OFF
 
-	if(mob_pawn.stat == DEAD)
+	if(mob_pawn.stat >= UNCONSCIOUS)
 		return AI_STATUS_OFF
 
 	var/turf/pawn_turf = get_turf(mob_pawn)

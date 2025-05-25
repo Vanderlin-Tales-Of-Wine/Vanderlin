@@ -293,7 +293,7 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 	var/list/offhand_types = typecacheof(list(/obj/item/weapon/hammer, /obj/item/natural/stone, /obj/item/natural/stoneblock))
 	var/item = user.get_inactive_held_item()
 	if(user.used_intent.type == /datum/intent/chisel && is_type_in_typecache(item, offhand_types))
-		var/skill_level = user.mind.get_skill_level(/datum/skill/craft/masonry)
+		var/skill_level = user.get_skill_level(/datum/skill/craft/masonry)
 		var/work_time = (4 SECONDS - (skill_level * 5))
 		if(istype(W, /obj/item/weapon/chisel))
 			var/obj/item/weapon/chisel/chisel = W
@@ -350,6 +350,13 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 			L.consider_ambush()
 	..()
 
+/obj/item/natural/rock/attacked_by(obj/item/I, mob/living/user)
+	var/was_destroyed = obj_destroyed
+	. = ..()
+	if(.)
+		if(!was_destroyed && obj_destroyed)
+			record_featured_stat(FEATURED_STATS_MINERS, user)
+
 /obj/item/natural/rock/deconstruct(disassembled = FALSE)
 	if(!disassembled)
 		if(mineralType && mineralAmt)
@@ -391,7 +398,7 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 	var/list/offhand_types = typecacheof(list(/obj/item/weapon/hammer, /obj/item/natural/stone, /obj/item/natural/stoneblock))
 	var/item = user.get_inactive_held_item()
 	if(user.used_intent.type == /datum/intent/chisel && is_type_in_typecache(item, offhand_types))
-		var/skill_level = user.mind.get_skill_level(/datum/skill/craft/masonry)
+		var/skill_level = user.get_skill_level(/datum/skill/craft/masonry)
 		var/work_time = (10 SECONDS - (skill_level * 5))
 		if(istype(W, /obj/item/weapon/chisel))
 			var/obj/item/weapon/chisel/chisel = W

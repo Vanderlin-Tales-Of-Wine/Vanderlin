@@ -289,6 +289,22 @@
 	output = /obj/item/clothing/shoes/ridingboots
 	craftdiff = 3
 
+/datum/repeatable_crafting_recipe/leather/standalone/leathercoat
+	name = "leather coat"
+	output = /obj/item/clothing/armor/leather/jacket/leathercoat
+	attacked_atom = /obj/item/natural/hide/cured
+	requirements = list(/obj/item/natural/hide/cured = 2,
+				/obj/item/natural/fibers = 2)
+	craftdiff = 3
+
+/datum/repeatable_crafting_recipe/leather/standalone/leathercoat
+	name = "black leather coat"
+	output = /obj/item/clothing/armor/leather/jacket/leathercoat/black
+	attacked_atom = /obj/item/natural/hide/cured
+	requirements = list(/obj/item/natural/hide/cured = 2,
+				/obj/item/natural/fibers = 2)
+	craftdiff = 3
+
 /datum/repeatable_crafting_recipe/leather/nobleboots
 	name = "noble boots"
 	output = /obj/item/clothing/shoes/nobleboot
@@ -340,7 +356,8 @@
 	requirements = list(
 		/obj/item/natural/hide/cured = 1,
 	)
-	output = list(/obj/item/clothing/head/brimmed = 2)
+	output_amount = 2
+	output = /obj/item/clothing/head/brimmed
 	craftdiff = 1
 
 /datum/repeatable_crafting_recipe/leather/volfmantle

@@ -36,16 +36,12 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 	set category = "IC"
 	set hidden = 1
 
-#ifdef MATURESERVER
-
 	if(message)
 		if(client)
 			if(GLOB.ooc_allowed)
 				client.ooc(message)
 			else
 				client.lobbyooc(message)
-
-#endif
 
 /mob/dead/new_player/prepare_huds()
 	return
@@ -386,6 +382,9 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 	GLOB.joined_player_list += character.ckey
 	GLOB.respawncounts[character.ckey] += 1
 
+	if(humanc)
+		try_apply_character_post_equipment(humanc)
+
 	log_manifest(character.mind.key,character.mind,character,latejoin = TRUE)
 
 
@@ -411,7 +410,6 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 
 	for(var/list/category in omegalist)
 		if(!SSjob.name_occupations[category[1]])
-			testing("HELP NO THING FOUND FOR [category[1]]")
 			continue
 
 		var/list/available_jobs = list()

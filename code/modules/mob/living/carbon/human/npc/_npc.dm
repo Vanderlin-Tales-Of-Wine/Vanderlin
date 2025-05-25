@@ -31,11 +31,11 @@
 
 // taken from /mob/living/carbon/human/interactive/
 /mob/living/carbon/human/proc/IsDeadOrIncap(checkDead = TRUE)
-	if(!(mobility_flags & MOBILITY_FLAGS_INTERACTION))
-		return 1
+	// if(!(mobility_flags & MOBILITY_FLAGS_INTERACTION))
+	// 	return 1
 	if(health <= 0 && checkDead)
 		return 1
-	if(IsStun() || IsParalyzed())
+	if(HAS_TRAIT(src, TRAIT_INCAPACITATED))
 		return 1
 	if(stat)
 		return 1
@@ -98,7 +98,7 @@
 		swap_hand()
 		Weapon = get_active_held_item()
 		OffWeapon = get_inactive_held_item()
-	if(!(mobility_flags & MOBILITY_STAND))
+	if(body_position == LYING_DOWN)
 		aimheight_change(rand(1,10))
 	else
 		aimheight_change(rand(10,19))
@@ -136,10 +136,10 @@
 	if(target.mind)
 		if(target.has_status_effect(/datum/status_effect/invisibility))
 			// we're invisible as per the spell effect, so use the highest of our arcane magic (or holy) skill instead of our sneaking
-			sneak_bonus = (max(target.mind?.get_skill_level(/datum/skill/magic/arcane), target.mind?.get_skill_level(/datum/skill/magic/holy)) * 10)
+			sneak_bonus = (max(target.get_skill_level(/datum/skill/magic/arcane), target.get_skill_level(/datum/skill/magic/holy)) * 10)
 			probby -= 20 // also just a fat lump of extra difficulty for the npc since spells are hard, you know?
 		else
-			sneak_bonus = (target.mind?.get_skill_level(/datum/skill/misc/sneaking) * 5)
+			sneak_bonus = (target.get_skill_level(/datum/skill/misc/sneaking) * 5)
 		probby -= sneak_bonus
 
 	probby += 100 * target.get_encumbrance()

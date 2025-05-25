@@ -10,9 +10,13 @@
 */
 /datum/map_adjustment
 	/// key of map_adjustment. It is used to check if '/datum/map_config/var/map_file' is matched
-	var/map_file_name = "some_station_map.dmm" // change yourself
-	/// Jobs that this station map won't use
-	var/list/blacklisted_jobs
+	var/map_file_name // = "vanderlin.dmm"
+	/// Jobs that this map won't use
+	var/list/blacklist
+	/// Jobs that have slots changed /datum/job = num
+	var/list/slot_adjust
+	/// Jobs that have species adjustments /datum/job = list("humen")
+	var/list/species_adjust
 
 /// called on map config is loaded.
 /// You need to change things manually here.
@@ -21,11 +25,15 @@
 
 /// called upon job datum creation. Override this proc to change.
 /datum/map_adjustment/proc/job_change()
-	for(var/jobType in blacklisted_jobs)
-		change_job_position(jobType, 0)
-		var/datum/job/J = SSjob.GetJobType(jobType)
+	for(var/job as anything in blacklist)
+		change_job_position(job, 0)
+		var/datum/job/J = SSjob.GetJobType(job)
 		J?.job_flags &= ~(JOB_NEW_PLAYER_JOINABLE)
-	return
+	for(var/job as anything in slot_adjust)
+		change_job_position(job, slot_adjust[job])
+	for(var/job as anything in species_adjust)
+		var/datum/job/J = SSjob.GetJobType(job)
+		J?.allowed_races = species_adjust[job]
 
 /**
  * job_type`</datum/job/J>`: Type of the job that's being adjusted \

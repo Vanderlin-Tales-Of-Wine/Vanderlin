@@ -8,7 +8,7 @@
 	icon_state = "detective"
 	item_state = "gun"
 	flags_1 =  CONDUCT_1
-	slot_flags = ITEM_SLOT_BELT
+	slot_flags = ITEM_SLOT_HIP
 	w_class = WEIGHT_CLASS_NORMAL
 	possible_item_intents = list(INTENT_GENERIC, RANGED_FIRE)
 	throwforce = 5
@@ -75,9 +75,7 @@
 
 /obj/item/gun/afterattack(atom/target, mob/living/user, flag, params)
 	. = ..()
-	testing("gun afterattack")
 	if(!target)
-		testing("no target")
 		return
 	if(!user?.used_intent.tranged) //melee attack
 		return
@@ -85,7 +83,6 @@
 		if(target in user.contents) //can't shoot stuff inside us.
 			return
 		if(!ismob(target)) //melee attack
-			testing("gun with melee attack selected")
 			return
 		if(target == user && user.zone_selected != BODY_ZONE_PRECISE_MOUTH) //so we can't shoot ourselves (unless mouth selected)
 			return
@@ -104,8 +101,8 @@
 		shoot_with_empty_chamber(user)
 		return
 
-	if(user?.used_intent.arc_check() && target.z != user.z) //temporary fix for openspace arrow dupe
-		target = get_turf(locate(target.x, target.y, user.z))
+	if(user?.used_intent.arc_check())
+		target = get_turf(target)
 
 	return process_fire(target, user, TRUE, params, null, 0)
 

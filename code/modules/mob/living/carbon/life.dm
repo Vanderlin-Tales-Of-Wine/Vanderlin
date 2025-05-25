@@ -66,7 +66,7 @@
 			mob_timers[MT_PAINSTUN] = world.time + 10 SECONDS
 			var/probby = 40 - (STAEND * 2)
 			probby = max(probby, 10)
-			if(lying || HAS_TRAIT(src, TRAIT_FLOORED))
+			if(body_position == LYING_DOWN || HAS_TRAIT(src, TRAIT_FLOORED))
 				if(prob(3) && (painpercent >= 80) )
 					emote("painmoan")
 			else
@@ -111,7 +111,7 @@
 				T.pollution.smell_act(src)
 
 /mob/living/proc/handle_inwater(turf/open/water/W)
-	if(lying || W.water_level == 3)
+	if(body_position == LYING_DOWN || W.water_level == 3)
 		SoakMob(FULL_BODY)
 	else
 		if(W.water_level == 2)
@@ -127,7 +127,7 @@
 		var/datum/reagents/reagentstouch = new()
 		reagentstouch.add_reagent(W.water_reagent, 2)
 		reagentstouch.trans_to(src, reagents.total_volume, transfered_by = src, method = TOUCH)	*/
-	if(lying)
+	if(body_position == LYING_DOWN)
 		var/drown_damage = has_world_trait(/datum/world_trait/abyssor_rage) ? 10 : 5
 		adjustOxyLoss(drown_damage)
 		emote("drown")
@@ -139,7 +139,7 @@
 
 /mob/living/carbon/human/handle_inwater()
 	. = ..()
-	if(!lying)
+	if(body_position != LYING_DOWN)
 		if(istype(loc, /turf/open/water/bath))
 			if(!wear_armor && !wear_shirt && !wear_pants)
 				var/mob/living/carbon/V = src
@@ -166,11 +166,21 @@
 
 /mob/living/carbon/human/get_complex_pain()
 	. = ..()
-	. *= physiology.pain_mod
+	if(physiology)
+		. *= physiology.pain_mod
 
 ///////////////
 // BREATHING //
 ///////////////
+
+/mob/living/carbon/handle_temperature()
+	var/turf/open/turf = get_turf(src)
+	if(!istype(turf))
+		return
+	var/temp = turf.return_temperature()
+
+	if(temp < 0 )
+		snow_shiver = world.time + 3 SECONDS + abs(temp)
 
 //Start of a breath chain, calls breathe()
 /mob/living/carbon/handle_breathing(times_fired)
@@ -601,12 +611,17 @@ GLOBAL_LIST_INIT(ballmer_windows_me_msg, list("Yo man, what if, we like, uh, put
 	if(HAS_TRAIT(src, TRAIT_NOSLEEP))
 		return
 	var/cant_fall_asleep = FALSE
-	var/cause = " I just can't..."
-	for(var/obj/item/clothing/thing in get_equipped_items(FALSE))
-		if(thing.clothing_flags & CANT_SLEEP_IN)
-			cant_fall_asleep = TRUE
-			cause = " \The [thing] bothers me..."
-			break
+	var/cause = "I just can't..."
+	var/list/equipped_items = get_equipped_items(FALSE)
+	if(HAS_TRAIT(src, TRAIT_NUDE_SLEEPER) && length(equipped_items))
+		cant_fall_asleep = TRUE
+		cause = "I can't sleep in clothes, it's too uncomfortable.."
+	else
+		for(var/obj/item/clothing/thing in equipped_items)
+			if(thing.clothing_flags & CANT_SLEEP_IN)
+				cant_fall_asleep = TRUE
+				cause = "\The [thing] bothers me..."
+				break
 
 	//Healing while sleeping in a bed
 	if(stat >= UNCONSCIOUS)
@@ -652,7 +667,7 @@ GLOBAL_LIST_INIT(ballmer_windows_me_msg, list("Yo man, what if, we like, uh, put
 			else
 				adjust_energy(buckled.sleepy * (max_energy * 0.01))
 		// Resting on the ground (not sleeping or with eyes closed and about to fall asleep)
-		else if(!(mobility_flags & MOBILITY_STAND))
+		else if(body_position == LYING_DOWN)
 			if(eyesclosed && !cant_fall_asleep || (eyesclosed && !(fallingas >= 10 && cant_fall_asleep)))
 				if(!fallingas)
 					to_chat(src, span_warning("I'll fall asleep soon, although a bed would be more comfortable..."))

@@ -133,7 +133,6 @@
 			dam += 10
 		if(istype(user.rmb_intent, /datum/rmb_intent/weak))
 			do_crit = FALSE
-	testing("bodypart_attacked_by() dam [dam]")
 	var/added_wound
 	switch(bclass) //do stuff but only when we are a blade that adds wounds
 		if(BCLASS_SMASH, BCLASS_BLUNT)
@@ -152,7 +151,7 @@
 					added_wound = /datum/wound/slash
 				if(1 to 10)
 					added_wound = /datum/wound/slash/small
-		if(BCLASS_STAB, BCLASS_PICK, BCLASS_SHOT)
+		if(BCLASS_STAB, BCLASS_PICK, BCLASS_SHOT, BCLASS_PIERCE)
 			switch(dam)
 				if(20 to INFINITY)
 					added_wound = /datum/wound/puncture/large
@@ -160,6 +159,14 @@
 					added_wound = /datum/wound/puncture
 				if(1 to 10)
 					added_wound = /datum/wound/puncture/small
+		if(BCLASS_LASHING)
+			switch(dam)
+				if(20 to INFINITY)
+					added_wound = /datum/wound/lashing/large
+				if(10 to 20)
+					added_wound = /datum/wound/lashing
+				if(1 to 10)
+					added_wound = /datum/wound/lashing/small
 		if(BCLASS_BITE)
 			switch(dam)
 				if(20 to INFINITY)
@@ -180,10 +187,13 @@
 /obj/item/bodypart/proc/try_crit(bclass, dam, mob/living/user, zone_precise, silent = FALSE, crit_message = FALSE)
 	if(!bclass || !dam || (owner.status_flags & GODMODE))
 		return FALSE
-	var/used
-	var/damage_dividend = (get_damage() / max_damage)
+
+	if(dam < 5)
+		return FALSE
+
 	if(user?.stat_roll(STATKEY_LCK,2,10))
 		dam += 10
+
 	var/list/crit_classes
 	if(bclass in GLOB.dislocation_bclasses)
 		LAZYADD(crit_classes, "dislocation")
@@ -191,10 +201,14 @@
 		LAZYADD(crit_classes, "fracture")
 	if(bclass in GLOB.artery_bclasses)
 		LAZYADD(crit_classes, "artery")
+	if(bclass in GLOB.whipping_bclasses)
+		LAZYADD(crit_classes, "scarring")
 
 	if(!crit_classes)
 		return FALSE
 
+	var/used
+	var/damage_dividend = (get_damage() / max_damage)
 	var/list/attempted_wounds
 	switch(pick_shuffle(crit_classes))
 		if("dislocation")
@@ -205,9 +219,9 @@
 			used = round(damage_dividend * 20 + (dam / 6), 1)
 			if(prob(used))
 				if(HAS_TRAIT(src, TRAIT_BRITTLE))
-					LAZYADD(attempted_wounds, datum/wound/fracture)
+					LAZYADD(attempted_wounds, /datum/wound/fracture)
 				else
-					LAZYADD(attempted_wounds, datum/wound/dislocation)
+					LAZYADD(attempted_wounds, /datum/wound/dislocation)
 		if("fracture")
 			if(damage_dividend < 0.3)
 				return
@@ -218,9 +232,9 @@
 			used = round(damage_dividend * 20 + (dam / 6), 1)
 			if(prob(used))
 				if(damage_dividend >= 0.6)
-					LAZYADD(attempted_wounds, datum/wound/fracture)
+					LAZYADD(attempted_wounds, /datum/wound/fracture)
 				else
-					LAZYADD(attempted_wounds, datum/wound/dislocation)
+					LAZYADD(attempted_wounds, /datum/wound/dislocation)
 		if("artery")
 			if(user)
 				if((bclass in GLOB.artery_strong_bclasses) && istype(user.rmb_intent, /datum/rmb_intent/strong))
@@ -229,7 +243,13 @@
 					dam += 10
 			used = round(damage_dividend * 20 + (dam / 6), 1)
 			if(prob(used))
-				LAZYADD(attempted_wounds, datum/wound/artery)
+				LAZYADD(attempted_wounds, /datum/wound/artery)
+		if("scarring")
+			if(user && istype(user.rmb_intent, /datum/rmb_intent/strong))
+				dam += 10
+			used = round(damage_dividend * 20 + (dam / 6), 1)
+			if(prob(used))
+				LAZYADD(attempted_wounds, /datum/wound/scarring)
 
 	if(!attempted_wounds)
 		return FALSE
@@ -257,6 +277,8 @@
 		LAZYADD(crit_classes, "fracture")
 	if(bclass in GLOB.artery_bclasses)
 		LAZYADD(crit_classes, "artery")
+	if(bclass in GLOB.whipping_bclasses)
+		LAZYADD(crit_classes, "scarring")
 
 	if(!crit_classes)
 		return FALSE
@@ -296,8 +318,17 @@
 			used = round(damage_dividend * 20 + (dam / 6), 1)
 			if(prob(used))
 				if((zone_precise == BODY_ZONE_PRECISE_STOMACH) && !resistance)
-					LAZYADD(attempted_wounds, datum/wound/slash/disembowel)
-				LAZYADD(attempted_wounds, datum/wound/artery/chest)
+					LAZYADD(attempted_wounds, /datum/wound/slash/disembowel)
+				if(owner.has_wound(/datum/wound/fracture/chest) || (bclass in GLOB.artery_heart_bclasses))
+					LAZYADD(attempted_wounds, /datum/wound/artery/chest)
+				else
+					LAZYADD(attempted_wounds, datum/wound/artery)
+		if("scarring")
+			if(user && istype(user.rmb_intent, /datum/rmb_intent/strong))
+				dam += 10
+			used = round(damage_dividend * 20 + (dam / 6), 1)
+			if(prob(used))
+				LAZYADD(attempted_wounds, /datum/wound/scarring)
 
 	if(!attempted_wounds)
 		return FALSE
@@ -458,7 +489,8 @@
 			playsound(owner, 'sound/combat/newstuck.ogg', 100, vary = TRUE)
 		if(crit_message)
 			owner.next_attack_msg += " <span class='userdanger'>[embedder] runs through [owner]'s [src.name]!</span>"
-		update_disabled()
+		if(can_be_disabled)
+			update_disabled()
 	return TRUE
 
 /// Removes an embedded object from this bodypart
@@ -482,7 +514,8 @@
 		if(!owner.has_embedded_objects())
 			owner.clear_alert("embeddedobject")
 			SEND_SIGNAL(owner, COMSIG_CLEAR_MOOD_EVENT, "embedded")
-		update_disabled()
+		if(can_be_disabled)
+			update_disabled()
 	return TRUE
 
 /obj/item/bodypart/proc/try_bandage(obj/item/new_bandage)
@@ -516,7 +549,6 @@
 	return FALSE
 
 /obj/item/bodypart/proc/bandage_expire()
-	testing("expire bandage")
 	if(!owner)
 		return FALSE
 	if(!bandage)
@@ -539,6 +571,8 @@
 
 /// Applies a temporary paralysis effect to this bodypart
 /obj/item/bodypart/proc/temporary_crit_paralysis(duration = 60 SECONDS, brittle = TRUE)
+	if(!can_be_disabled)
+		return
 	if(HAS_TRAIT(src, TRAIT_BRITTLE))
 		return FALSE
 	ADD_TRAIT(src, TRAIT_PARALYSIS, CRIT_TRAIT)

@@ -13,7 +13,7 @@
 
 /obj/item/natural/head/examine(mob/user)
 	. = ..()
-	if(headprice > 0 && (HAS_TRAIT(user, TRAIT_BURDEN)))
+	if(headprice > 0 && (HAS_TRAIT(user, TRAIT_BURDEN) || is_gaffer_assistant_job(user.mind.assigned_role)))
 		. += "<span class='info'>HEADEATER value: [headprice]</span>"
 
 /obj/item/bodypart/head
@@ -28,7 +28,7 @@
 
 /obj/item/bodypart/head/examine(mob/user)
 	. = ..()
-	if(headprice > 0 && (HAS_TRAIT(user, TRAIT_BURDEN)))
+	if(headprice > 0 && (HAS_TRAIT(user, TRAIT_BURDEN) || is_gaffer_assistant_job(user.mind.assigned_role)))
 		. += "<span class='info'>HEADEATER value: [headprice]</span>"
 
 /obj/item/painting/lorehead
@@ -44,7 +44,7 @@
 
 /obj/item/painting/lorehead/examine(mob/user)
 	. = ..()
-	if(headprice > 0 && (HAS_TRAIT(user, TRAIT_BURDEN)))
+	if(headprice > 0 && (HAS_TRAIT(user, TRAIT_BURDEN) || is_gaffer_assistant_job(user.mind.assigned_role)))
 		. += "<span class='info'>HEADEATER value: [headprice]</span>"
 
 /obj/structure/fake_machine/headeater
@@ -70,7 +70,7 @@
 		to_chat(user, span_danger("It seems uninterested by the [H]"))
 		return
 
-	if(!HAS_TRAIT(user, TRAIT_BURDEN))
+	if(!HAS_TRAIT(user, TRAIT_BURDEN) && !is_gaffer_assistant_job(user.mind.assigned_role))
 		to_chat(user, span_danger("you can't feed the [src] without carrying his burden"))
 		return
 

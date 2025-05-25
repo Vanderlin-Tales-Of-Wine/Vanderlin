@@ -1,6 +1,6 @@
 
 /obj/item/breach_charge
-	name = "breach charge"
+	name = "breaching charge"
 	desc = "A sack of foul-smelling explosive powder designed to rip through walls."
 	icon_state = "breach_charge"
 	icon = 'icons/roguetown/items/misc.dmi'
@@ -133,7 +133,7 @@
 					for(var/turf/closed/mineral/turf in range(1, mineral_turf))
 						next_pass |= turf
 					mineral_turf.gets_drilled(detonator)
-				explode_chance -= 33
+				explode_chance -= 20
 
 				if(!length(turfs))
 					turfs = next_pass

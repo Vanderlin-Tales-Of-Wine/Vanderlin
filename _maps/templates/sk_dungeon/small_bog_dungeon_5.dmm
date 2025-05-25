@@ -84,7 +84,7 @@
 /turf/open/floor/grass,
 /area/rogue/outdoors/bog)
 "jJ" = (
-/obj/structure/mineral_door/wood/deadbolt{
+/obj/structure/door/weak/bolt{
 	dir = 8
 	},
 /turf/open/floor/grass,

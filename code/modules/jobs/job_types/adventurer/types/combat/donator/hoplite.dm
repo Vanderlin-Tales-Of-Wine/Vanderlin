@@ -14,12 +14,12 @@
 /datum/outfit/job/adventurer/hoplite/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/shields, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/shields, 4, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 		H.change_stat(STATKEY_STR, 2)
 		H.change_stat(STATKEY_END, 2)
 		H.change_stat(STATKEY_CON, 2)
@@ -41,13 +41,13 @@
 	switch(weapontype) // We either get a spear (winged or regular), or a khopesh sword. The weapon we get is what we get our training in
 		if("Khopesh")
 			beltl = /obj/item/weapon/sword/khopesh
-			H.mind?.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
 		if("Spear")
 			backr = /obj/item/weapon/polearm/spear/hoplite
-			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
 		if("WingedSpear")
 			backr = /obj/item/weapon/polearm/spear/hoplite/winged
-			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
 
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)

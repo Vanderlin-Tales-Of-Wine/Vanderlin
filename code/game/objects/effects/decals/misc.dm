@@ -23,10 +23,3 @@
 	icon = 'icons/obj/chempuff.dmi'
 	pass_flags = PASSTABLE | PASSGRILLE
 	layer = FLY_LAYER
-
-/obj/effect/decal/fakelattice
-	name = "lattice"
-	desc = ""
-	icon = 'icons/obj/smooth_structures/lattice.dmi'
-	icon_state = "lattice"
-	density = TRUE

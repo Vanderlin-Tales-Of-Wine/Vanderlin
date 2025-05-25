@@ -37,6 +37,7 @@
 
 /datum/component/riding/proc/vehicle_mob_unbuckle(datum/source, mob/living/M, force = FALSE)
 	var/atom/movable/AM = parent
+	AM.ai_controller?.set_blackboard_key(BB_IS_BEING_RIDDEN, FALSE)
 	restore_position(M)
 	unequip_buckle_inhands(M)
 	M.updating_glide_size = TRUE
@@ -45,8 +46,10 @@
 
 /datum/component/riding/proc/vehicle_mob_buckle(datum/source, mob/living/M, force = FALSE)
 	var/atom/movable/AM = parent
+	AM.ai_controller?.set_blackboard_key(BB_IS_BEING_RIDDEN, TRUE)
 	M.set_glide_size(AM.glide_size)
 	M.updating_glide_size = FALSE
+
 	handle_vehicle_offsets()
 
 /datum/component/riding/proc/handle_vehicle_layer()
@@ -74,7 +77,7 @@
 /datum/component/riding/proc/ride_check(mob/living/M)
 	var/atom/movable/AM = parent
 	var/mob/AMM = AM
-	if((ride_check_rider_restrained && M.restrained(TRUE)) || (ride_check_rider_incapacitated && M.incapacitated(FALSE, TRUE)) || (ride_check_ridden_incapacitated && istype(AMM) && AMM.incapacitated(FALSE, TRUE)))
+	if((ride_check_rider_restrained && HAS_TRAIT(M, TRAIT_RESTRAINED)) || (ride_check_rider_incapacitated && M.incapacitated(FALSE, TRUE)) || (ride_check_ridden_incapacitated && istype(AMM) && AMM.incapacitated(FALSE, TRUE)))
 		M.visible_message("<span class='warning'>[M] falls off of [AM]!</span>", \
 						"<span class='warning'>I fall off of [AM]!</span>")
 		AM.unbuckle_mob(M)
@@ -160,7 +163,7 @@
 
 /datum/component/riding/proc/handle_ride(mob/user, direction)
 	var/atom/movable/AM = parent
-	if(user.incapacitated())
+	if(user.incapacitated(ignore_grab = TRUE))
 		Unbuckle(user)
 		return
 
@@ -198,7 +201,7 @@
 	return override_allow_spacemove || AM.has_gravity()
 
 /datum/component/riding/proc/account_limbs(mob/living/M)
-	if(M.get_num_legs() < 2 && !slowed)
+	if(M.usable_legs < 2 && !slowed)
 		vehicle_move_delay = vehicle_move_delay + slowvalue
 		slowed = TRUE
 	else if(slowed)
