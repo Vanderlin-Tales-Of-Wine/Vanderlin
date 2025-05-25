@@ -750,7 +750,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		if(H.lip_style && (LIPS in species_traits))
 			var/mutable_appearance/lip_overlay = mutable_appearance('icons/mob/human_face.dmi', "lips_[H.lip_style]", -BODY_LAYER)
 			lip_overlay.color = H.lip_color
-			if(OFFSET_FACE in offsets)
+			if(LAZYACCESS(offsets, OFFSET_FACE))
 				lip_overlay.pixel_x += offsets[OFFSET_FACE][1]
 				lip_overlay.pixel_y += offsets[OFFSET_FACE][2]
 			standing += lip_overlay
@@ -789,7 +789,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 			if(underwear)
 				var/mutable_appearance/underwear_overlay = mutable_appearance(underwear.icon, underwear.icon_state, -BODY_LAYER)
-				if(OFFSET_UNDIES in offsets)
+				if(LAZYACCESS(offsets, OFFSET_UNDIES))
 					underwear_overlay.pixel_x += offsets[OFFSET_UNDIES][1]
 					underwear_overlay.pixel_y += offsets[OFFSET_UNDIES][2]
 				if(!underwear.use_static)
@@ -802,7 +802,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 				if(!hide_boob && (use_female_sprites == FEMALE_BOOB))
 					underwear_overlay = mutable_appearance(underwear.icon, "[underwear.icon_state]_boob", -BODY_LAYER)
-					if(OFFSET_UNDIES in offsets)
+					if(LAZYACCESS(offsets, OFFSET_UNDIES))
 						underwear_overlay.pixel_x += offsets[OFFSET_UNDIES][1]
 						underwear_overlay.pixel_y += offsets[OFFSET_UNDIES][2]
 					if(!underwear.use_static)

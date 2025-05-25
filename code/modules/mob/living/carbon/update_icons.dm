@@ -171,7 +171,7 @@
 			inhand_overlay = center_image(inhand_overlay, I.inhand_x_dimension, I.inhand_y_dimension)
 			behindhand_overlay = center_image(behindhand_overlay, I.inhand_x_dimension, I.inhand_y_dimension)
 
-			if(LAZYLEN(offsets) && (OFFSET_HANDS in offsets))
+			if(LAZYACCESS(offsets, OFFSET_HANDS))
 				inhand_overlay.pixel_x += offsets[OFFSET_HANDS][1]
 				inhand_overlay.pixel_y += offsets[OFFSET_HANDS][2]
 				behindhand_overlay.pixel_x += offsets[OFFSET_HANDS][1]
@@ -183,7 +183,7 @@
 			if(get_held_index_of_item(I) % 2 == 0)
 				icon_file = I.righthand_file
 			inhand_overlay = I.build_worn_icon(age = age, default_layer = HANDS_LAYER, default_icon_file = icon_file, isinhands = TRUE)
-			if(LAZYLEN(offsets) && (OFFSET_HANDS in offsets))
+			if(LAZYACCESS(offsets, OFFSET_HANDS))
 				inhand_overlay.pixel_x += offsets[OFFSET_HANDS][1]
 				inhand_overlay.pixel_y += offsets[OFFSET_HANDS][2]
 			hands += inhand_overlay
@@ -340,7 +340,7 @@
 			else
 				offsets = (H.age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
 
-			if(OFFSET_HANDS in offsets)
+			if(LAZYACCESS(offsets, OFFSET_HANDS))
 				inhand_overlay.pixel_x += offsets[OFFSET_HANDS][1]
 				inhand_overlay.pixel_y += offsets[OFFSET_HANDS][2]
 
