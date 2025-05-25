@@ -41,7 +41,6 @@ GLOBAL_VAR_INIT(mobids, 1)
 	for(var/cc in client_colours)
 		qdel(cc)
 	client_colours = null
-	testing("EPICWIN!! [src] [type]")
 	ghostize(drawskip=TRUE)
 	..()
 	return QDEL_HINT_HARDDEL
@@ -245,9 +244,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 	var/obj/item/W = get_active_held_item()
 
 	if(istype(W))
-		testing("clothes1")
 		if(equip_to_slot_if_possible(W, slot,0,0,0))
-			testing("clothes2")
 			return 1
 
 	if(!W)
@@ -319,27 +316,17 @@ GLOBAL_VAR_INIT(mobids, 1)
  */
 /mob/proc/equip_to_appropriate_slot(obj/item/W)
 	if(!istype(W))
-		return 0
+		return FALSE
 	var/slot_priority = W.slot_equipment_priority
 
 	if(!slot_priority)
-		slot_priority = list( \
-			SLOT_RING, SLOT_WRISTS,\
-			SLOT_PANTS, SLOT_ARMOR,\
-			SLOT_WEAR_MASK, SLOT_HEAD, SLOT_NECK,\
-			SLOT_SHOES, SLOT_GLOVES,\
-			SLOT_BELT,\
-			SLOT_MOUTH,SLOT_BACK_R,SLOT_BACK_L,SLOT_BELT_L,SLOT_BELT_R,SLOT_CLOAK,SLOT_SHIRT,\
-			SLOT_L_STORE, SLOT_R_STORE,\
-			SLOT_GENERC_DEXTROUS_STORAGE,\
-			SLOT_HANDS\
-		)
+		slot_priority = DEFAULT_SLOT_PRIORITY
 
-	for(var/slot in slot_priority)
-		if(equip_to_slot_if_possible(W, slot, 0, 1, 1)) //qdel_on_fail = 0; disable_warning = 1; redraw_mob = 1
-			return 1
+	for(var/slot as anything in slot_priority)
+		if(equip_to_slot_if_possible(W, slot, FALSE, TRUE, TRUE)) //qdel_on_fail = 0; disable_warning = 1; redraw_mob = 1
+			return TRUE
 
-	return 0
+	return FALSE
 /**
  * Reset the attached clients perspective (viewpoint)
  *

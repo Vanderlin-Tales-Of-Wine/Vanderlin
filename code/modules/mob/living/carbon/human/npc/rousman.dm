@@ -138,9 +138,11 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 	id = "rousman"
 	species_traits = list(NO_UNDERWEAR)
 	inherent_traits = list(TRAIT_RESISTCOLD,TRAIT_RESISTHIGHPRESSURE,TRAIT_RESISTLOWPRESSURE,TRAIT_RADIMMUNE, TRAIT_EASYDISMEMBER, TRAIT_CRITICAL_WEAKNESS, TRAIT_NASTY_EATER, TRAIT_LEECHIMMUNE, TRAIT_INHUMENCAMP)
-	no_equip = list(SLOT_SHIRT, SLOT_WEAR_MASK, SLOT_GLOVES, SLOT_SHOES, SLOT_PANTS, SLOT_S_STORE)
+
+	no_equip = list(SLOT_SHIRT, SLOT_WEAR_MASK, SLOT_GLOVES, SLOT_SHOES, SLOT_PANTS)
 	offset_features_m = list(OFFSET_HANDS = list(0,-4))
 	offset_features_f = list(OFFSET_HANDS = list(0,-4))
+
 	damage_overlay_type = ""
 	changesource_flags = WABBAJACK
 	var/raceicon = "rousman"
@@ -329,9 +331,9 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 
 /obj/structure/rousman_hole
 	name = "narrow hole"
-	desc = ""
+	desc = "Is that infernal squeaking coming from this?"
 	icon = 'icons/roguetown/topadd/rousman/structures.dmi'
-	icon_state = ""
+	icon_state = "rousman_hole_inactive"
 	layer = BELOW_OBJ_LAYER
 	density = FALSE
 	anchored = TRUE

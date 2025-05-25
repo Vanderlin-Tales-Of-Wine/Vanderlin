@@ -262,7 +262,7 @@ There are several things that need to be remembered:
 		update_inv_belt()
 		update_inv_back()
 		update_inv_armor()
-		update_inv_pockets()
+
 		update_inv_neck()
 		update_inv_cloak()
 		update_inv_pants()
@@ -283,7 +283,6 @@ There are several things that need to be remembered:
 	update_inv_belt()
 	update_inv_back()
 	update_inv_armor()
-	update_inv_pockets()
 	update_inv_neck()
 	update_inv_cloak()
 	update_inv_pants()
@@ -557,10 +556,6 @@ There are several things that need to be remembered:
 	apply_overlay(SHOES_LAYER)
 	apply_overlay(SHOESLEEVE_LAYER)
 
-/mob/living/carbon/human/update_inv_s_store()
-	return
-
-
 /mob/living/carbon/human/update_inv_head()
 	remove_overlay(HEAD_LAYER)
 
@@ -729,9 +724,6 @@ There are several things that need to be remembered:
 	apply_overlay(BELT_BEHIND_LAYER)
 
 /mob/living/carbon/human/update_inv_wear_suit()
-	return
-
-/mob/living/carbon/human/update_inv_pockets()
 	return
 
 /mob/living/carbon/human/update_inv_wear_mask()
@@ -1265,13 +1257,6 @@ There are several things that need to be remembered:
 		if(hud_used.inventory_shown)
 			client.screen += I
 	update_observer_view(I,1)
-
-//update whether our back item appears on our hud.
-/mob/living/carbon/human/update_hud_back(obj/item/I)
-	I.screen_loc = ui_back
-	if(client && hud_used?.hud_shown)
-		client.screen += I
-	update_observer_view(I)
 
 //update whether our back item appears on our hud.
 /mob/living/carbon/human/update_hud_backr(obj/item/I)

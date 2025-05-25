@@ -23,7 +23,7 @@
 	inherent_traits = list(TRAIT_NOSTAMINA, TRAIT_RESISTHEAT, TRAIT_RESISTCOLD, TRAIT_RESISTHIGHPRESSURE, TRAIT_RESISTLOWPRESSURE, TRAIT_RADIMMUNE, TRAIT_NODISMEMBER)
 	inherent_biotypes = MOB_HUMANOID
 
-	no_equip = list(SLOT_SHIRT, SLOT_HEAD, SLOT_WEAR_MASK, SLOT_ARMOR, SLOT_GLOVES, SLOT_SHOES, SLOT_PANTS, SLOT_CLOAK, SLOT_BELT, SLOT_BACK_R, SLOT_BACK_L, SLOT_S_STORE)
+	no_equip = list(SLOT_SHIRT, SLOT_HEAD, SLOT_WEAR_MASK, SLOT_ARMOR, SLOT_GLOVES, SLOT_SHOES, SLOT_PANTS, SLOT_CLOAK, SLOT_BELT, SLOT_BACK_R, SLOT_BACK_L)
 
 	offset_features_m = list(OFFSET_HANDS = list(0,2))
 	offset_features_f = list(OFFSET_HANDS = list(0,2))
@@ -100,7 +100,6 @@
 	if(brutech > usedloss)
 		usedloss = brutech
 	inhand_overlay.alpha = 255 * usedloss
-	testing("damalpha [inhand_overlay.alpha]")
 	hands += inhand_overlay
 	H.overlays_standing[DAMAGE_LAYER] = hands
 	H.apply_overlay(DAMAGE_LAYER)

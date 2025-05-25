@@ -124,9 +124,11 @@
 	id = "goblin"
 	species_traits = list(NO_UNDERWEAR)
 	inherent_traits = list(TRAIT_RESISTCOLD,TRAIT_RESISTHIGHPRESSURE,TRAIT_RESISTLOWPRESSURE,TRAIT_RADIMMUNE, TRAIT_EASYDISMEMBER, TRAIT_CRITICAL_WEAKNESS, TRAIT_NASTY_EATER, TRAIT_LEECHIMMUNE, TRAIT_INHUMENCAMP)
-	no_equip = list(SLOT_SHIRT, SLOT_WEAR_MASK, SLOT_GLOVES, SLOT_SHOES, SLOT_PANTS, SLOT_S_STORE)
+
+	no_equip = list(SLOT_SHIRT, SLOT_WEAR_MASK, SLOT_GLOVES, SLOT_SHOES, SLOT_PANTS)
 	offset_features_m = list(OFFSET_HANDS = list(0,-4))
 	offset_features_f = list(OFFSET_HANDS = list(0,-4))
+
 	damage_overlay_type = ""
 	changesource_flags = WABBAJACK
 	var/raceicon = "goblin"
