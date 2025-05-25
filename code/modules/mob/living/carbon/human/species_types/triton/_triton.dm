@@ -29,22 +29,12 @@
 	to consider themselves Noc's chosen. Due to their sexual dimorphism, \
 	males of this species are more likely to pursue magick with their weaker frames compared to their female counterparts."
 
+	possible_ages = NORMAL_AGES_LIST
+
 	skin_tone_wording = "Tribal Identity"
 	default_color = "9cc2e2"
 	use_skintones = TRUE
-	disliked_food = NONE
-	liked_food = NONE
-	specstats = list(STATKEY_STR = -1, STATKEY_PER = -2, STATKEY_CON = -2, STATKEY_SPD = 1, STATKEY_INT = 2)
-	specstats_f = list(STATKEY_STR = 2, STATKEY_PER = -4, STATKEY_CON = 3, STATKEY_SPD = -3)
-	limbs_icon_m = 'icons/roguetown/mob/bodies/m/triton.dmi'
-	limbs_icon_f = 'icons/roguetown/mob/bodies/f/triton.dmi'
-	dam_icon_m = 'icons/roguetown/mob/bodies/dam/dam_female.dmi'
-	dam_icon_f = 'icons/roguetown/mob/bodies/dam/dam_male.dmi'
-	soundpack_m = /datum/voicepack/male
-	soundpack_f = /datum/voicepack/female
-	swap_female_clothes = TRUE
-	swap_male_clothes = TRUE
-	possible_ages = NORMAL_AGES_LIST
+
 	species_traits = list(NOEYESPRITES, NO_UNDERWEAR, HAIR)
 	inherent_traits = list(TRAIT_NOMOBSWAP, TRAIT_NOBREATH)
 	inherent_traits_f = list(TRAIT_STRONGBITE)
@@ -52,10 +42,26 @@
 		/datum/skill/labor/fishing = 3,
 		/datum/skill/misc/swimming = 4,
 	)
+
+	specstats = list(STATKEY_STR = -1, STATKEY_PER = -2, STATKEY_CON = -2, STATKEY_SPD = 1, STATKEY_INT = 2)
+	specstats_f = list(STATKEY_STR = 2, STATKEY_PER = -4, STATKEY_CON = 3, STATKEY_SPD = -3)
+
+	limbs_icon_m = 'icons/roguetown/mob/bodies/m/triton.dmi'
+	limbs_icon_f = 'icons/roguetown/mob/bodies/f/triton.dmi'
+
+	dam_icon_m = 'icons/roguetown/mob/bodies/dam/dam_female.dmi'
+	dam_icon_f = 'icons/roguetown/mob/bodies/dam/dam_male.dmi'
+
+	soundpack_m = /datum/voicepack/female
+	soundpack_f = /datum/voicepack/male
+
+	swap_female_clothes = TRUE
+	swap_male_clothes = TRUE
+
 	exotic_bloodtype = /datum/blood_type/human/triton
 	enflamed_icon = "widefire"
 
-	// FEMALE
+	// FEMALE from Halforc
 	offset_features_m = list(
 		OFFSET_RING = list(0,1),\
 		OFFSET_GLOVES = list(0,1),\
@@ -75,7 +81,7 @@
 		OFFSET_UNDIES = list(0,1),\
 	)
 
-	// MALE
+	// MALE from Female Humen
 	offset_features_f = list(
 		OFFSET_RING = list(0,-1),\
 		OFFSET_GLOVES = list(0,0),\
