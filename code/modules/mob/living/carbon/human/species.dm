@@ -40,26 +40,26 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		OFFSET_PANTS = list(0,0),\
 		OFFSET_SHIRT = list(0,0),\
 		OFFSET_ARMOR = list(0,0),\
+		OFFSET_UNDIES = list(0,0),\
 	)
 
 	var/list/offset_features_f = list(
-		OFFSET_RING_F = list(0,0),\
-		OFFSET_GLOVES_F = list(0,0),\
-		OFFSET_WRISTS_F = list(0,0),\
-		OFFSET_HANDS_F = list(0,0),\
-		OFFSET_CLOAK_F = list(0,0),\
-		OFFSET_FACEMASK_F = list(0,0),\
-		OFFSET_HEAD_F = list(0,0),\
-		OFFSET_FACE_F = list(0,0),\
-		OFFSET_BELT_F = list(0,0),\
-		OFFSET_BACK_F = list(0,0),\
-		OFFSET_NECK_F = list(0,0),\
-		OFFSET_MOUTH_F = list(0,0),\
-		OFFSET_PANTS_F = list(0,0),\
-		OFFSET_SHIRT_F = list(0,0),\
-		OFFSET_ARMOR_F = list(0,0),\
+		OFFSET_RING = list(0,0),\
+		OFFSET_GLOVES = list(0,0),\
+		OFFSET_WRISTS = list(0,0),\
+		OFFSET_HANDS = list(0,0),\
+		OFFSET_CLOAK = list(0,0),\
+		OFFSET_FACEMASK = list(0,0),\
+		OFFSET_HEAD = list(0,0),\
+		OFFSET_FACE = list(0,0),\
+		OFFSET_BELT = list(0,0),\
+		OFFSET_BACK = list(0,0),\
+		OFFSET_NECK = list(0,0),\
+		OFFSET_MOUTH = list(0,0),\
+		OFFSET_PANTS = list(0,0),\
+		OFFSET_SHIRT = list(0,0),\
+		OFFSET_ARMOR = list(0,0),\
 		OFFSET_UNDIES = list(0,0),\
-		OFFSET_UNDIES_F = list(0,0),\
 	)
 
 	/// Type of damage overlay to use
