@@ -99,9 +99,6 @@
 		REMOVE_TRAIT(affected, TRAIT_DEAF, "[type]")
 		REMOVE_TRAIT(affected, TRAIT_NOPAIN, "[type]")
 		affected.cure_nearsighted()
-		// if(iscarbon(affected))
-		// 	var/mob/living/carbon/carbon_affected = affected
-			// carbon_affected.update_disabled_bodyparts()
 
 /datum/wound/fracture/head/on_life()
 	. = ..()
