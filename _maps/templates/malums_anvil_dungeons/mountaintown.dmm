@@ -848,7 +848,7 @@
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "kI" = (
 /obj/structure/stairs,
-/turf/open/transparent/openspace,
+/turf/open/floor/wood/nosmooth,
 /area/rogue/under/mountains/anvil/dungeon)
 "kJ" = (
 /obj/item/storage/backpack/backpack,
@@ -1193,12 +1193,6 @@
 "ql" = (
 /turf/open/water/swamp,
 /area/rogue/under/mountains/anvil/dungeon/lower)
-"qr" = (
-/obj/structure/stairs/stone/church{
-	dir = 1
-	},
-/turf/closed/mineral/bedrock,
-/area/rogue/under/mountains/anvil/dungeon)
 "qt" = (
 /obj/structure/chair/wood/alt/chair3,
 /turf/open/floor/ruinedwood/spiralfade,
@@ -8712,7 +8706,7 @@ dD
 dD
 RT
 RT
-qr
+ff
 gy
 dD
 dD

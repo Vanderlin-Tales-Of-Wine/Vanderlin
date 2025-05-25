@@ -1284,7 +1284,7 @@
 /area/rogue/indoors/town/magician)
 "aOy" = (
 /obj/structure/stairs,
-/turf/closed/basic,
+/turf/open/floor/hexstone,
 /area/rogue/indoors/town/garrison)
 "aOA" = (
 /obj/structure/fluff/railing/border{
@@ -18233,7 +18233,7 @@
 /obj/structure/stairs/stone{
 	dir = 4
 	},
-/turf/open/transparent/openspace,
+/turf/open/floor/blocks,
 /area/rogue/outdoors/town)
 "ksX" = (
 /obj/structure/closet/crate/chest,
@@ -18420,9 +18420,6 @@
 /obj/structure/hotspring/border/ten,
 /turf/open/floor/naturalstone,
 /area/rogue/outdoors/town)
-"kAl" = (
-/turf/closed/basic,
-/area/rogue/indoors/town)
 "kAF" = (
 /obj/structure/closet/crate/coffin,
 /obj/structure/table/wood/plain/alt,
@@ -27710,12 +27707,6 @@
 /obj/structure/bookcase/random_recipes,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/merc_guild)
-"pFr" = (
-/obj/structure/stairs/stone{
-	dir = 8
-	},
-/turf/closed/wall/mineral/decorstone,
-/area/rogue/under/town/basement)
 "pFv" = (
 /turf/open/floor/carpet/royalblack,
 /area/rogue/under/town/basement)
@@ -29787,7 +29778,7 @@
 /area/rogue/indoors/town/church/inquisition)
 "qQM" = (
 /obj/structure/stairs,
-/turf/open/transparent/openspace,
+/turf/open/floor/wood,
 /area/rogue/indoors/town)
 "qQN" = (
 /obj/structure/closet/crate/chest/crafted,
@@ -42659,10 +42650,6 @@
 	},
 /turf/open/floor/hexstone,
 /area/rogue/indoors/town/manor)
-"ybK" = (
-/obj/structure/stairs/stone,
-/turf/open/transparent/openspace,
-/area/rogue/indoors/town/magician)
 "ybO" = (
 /obj/structure/closet/crate/drawer,
 /obj/item/paper/scroll,
@@ -102846,7 +102833,7 @@ jyq
 dqz
 smS
 dqz
-pFr
+hZu
 hZu
 vvE
 vvE
@@ -133133,7 +133120,7 @@ kZb
 rUx
 cmQ
 cmQ
-ybK
+aBd
 xvu
 kZb
 kZb
@@ -147738,7 +147725,7 @@ tlw
 tlw
 qQM
 rdQ
-kAl
+tlw
 grI
 kTN
 fnp
