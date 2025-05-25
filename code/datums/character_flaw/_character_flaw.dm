@@ -499,7 +499,9 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	var/current_pain = user.get_complex_pain()
 	// Bloodloss makes the pain count as extra large to allow people to bloodlet themselves with cutting weapons to satisfy vice
 	var/bloodloss_factor = clamp(1.0 - (user.blood_volume / BLOOD_VOLUME_NORMAL), 0.0, 0.5)
-	var/new_pain_threshold = get_pain_threshold(current_pain * (1.0 + (bloodloss_factor * 1.4) * (user.STAEND / 10))) // Bloodloss factor goes up to 50%, and then counts at 140% value of that
+	var/new_pain_threshold = get_pain_threshold(current_pain * (1.0 + (bloodloss_factor * 1.4)) * clamp(2 - (user.STAEND / 10), 0.5, 1.5)) // Bloodloss factor goes up to 50%, and then counts at 140% value of that
+	to_chat(world, "PT: [new_pain_threshold] NewPain: [current_pain * (1.0 + (bloodloss_factor * 1.4)) * clamp(2 - (user.STAEND / 10), 0.5, 1.5)] CP: [current_pain] BL: [1.0 + (bloodloss_factor * 1.4)] EM: [clamp(2 - (user.STAEND / 10), 0.5, 1.5)]")
+
 	if(last_pain_threshold == NONE)
 		to_chat(user, span_boldwarning("I could really use some pain right now..."))
 	else if (new_pain_threshold != last_pain_threshold)
