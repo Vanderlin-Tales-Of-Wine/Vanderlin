@@ -85,8 +85,6 @@
 				set_stat_modifier("innate_age", STATKEY_CON, -2)
 				set_stat_modifier("innate_age", STATKEY_PER, -1)
 				set_stat_modifier("innate_age", STATKEY_END, -2)
-				set_stat_modifier("innate_age", STATKEY_LCK, -1)
-				set_stat_modifier("innate_age", STATKEY_SPD, round(rand(-1,-2)))
 			// nothing for adults/immortals,
 			if(AGE_MIDDLEAGED)
 				set_stat_modifier("innate_age", STATKEY_END, 1)
