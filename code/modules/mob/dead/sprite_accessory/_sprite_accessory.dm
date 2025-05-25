@@ -50,25 +50,22 @@
 	if(QDELETED(owner) || !ishuman(owner))
 		return
 
-	var/datum/species/species = owner.dna?.species
+	var/mob/living/carbon/human/H = owner
+	var/datum/species/species = H.dna?.species
+
 	if(!species)
 		return
 
-	var/age = AGE_ADULT
-	if(ishuman(src))
-		var/mob/living/carbon/human/H = src
-		age = H.age
-
 	var/use_female_sprites = FALSE
 	if(species?.sexes)
-		if(gender == FEMALE && !species.swap_female_clothes || gender == MALE && species.swap_male_clothes)
+		if(H.gender == FEMALE && !species.swap_female_clothes || H.gender == MALE && species.swap_male_clothes)
 			use_female_sprites = FEMALE_SPRITES
 
 	var/list/offsets
 	if(use_female_sprites)
-		offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_f
+		offsets = (H.age == AGE_CHILD) ? species.offset_features_child : species.offset_features_f
 	else
-		offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
+		offsets = (H.age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
 
 	for(var/mutable_appearance/appearance as anything in appearance_list)
 		if(LAZYACCESS(offsets, feature_key))

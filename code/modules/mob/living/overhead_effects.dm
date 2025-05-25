@@ -11,10 +11,7 @@
 	var/datum/species/species =	dna?.species
 	if(!species)
 		return
-	var/age = AGE_ADULT
-	if(ishuman(src))
-		var/mob/living/carbon/human/H = src
-		age = H.age
+	var/mob/living/carbon/human/H = src
 	if(stat < UNCONSCIOUS)
 		COOLDOWN_START(src, stress_indicator, 8 SECONDS)
 
@@ -23,13 +20,13 @@
 		if(public)
 			var/use_female_sprites = MALE_SPRITES
 			if(species.sexes)
-				if(gender == FEMALE && !species.swap_female_clothes || gender == MALE && species.swap_male_clothes)
+				if(H.gender == FEMALE && !species.swap_female_clothes || H.gender == MALE && species.swap_male_clothes)
 					use_female_sprites = FEMALE_SPRITES
 
 			if(use_female_sprites)
-				offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_f
+				offsets = (H.age == AGE_CHILD) ? species.offset_features_child : species.offset_features_f
 			else
-				offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
+				offsets = (H.age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
 
 			var/mutable_appearance/appearance = mutable_appearance(icon_path, overlay_name, overlay_layer)
 			if(LAZYACCESS(offsets, OFFSET_HEAD))
