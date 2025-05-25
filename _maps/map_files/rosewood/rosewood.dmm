@@ -128,9 +128,7 @@
 /area/rogue/indoors/town/smithy)
 "aef" = (
 /obj/item/coin/silver/pile,
-/turf/open/floor/tile{
-	icon_state = "glyph1"
-	},
+/turf/open/floor/greenstone/glyph1,
 /area/rogue/indoors/town/vault)
 "aeh" = (
 /obj/structure/meathook,
@@ -2720,9 +2718,7 @@
 /obj/structure/fluff/walldeco/painting{
 	pixel_y = 32
 	},
-/turf/open/floor/tile{
-	icon_state = "glyph5"
-	},
+/turf/open/floor/greenstone/glyph5,
 /area/rogue/indoors/town/vault)
 "bDL" = (
 /obj/structure/bookcase/random/thesis,
@@ -15153,9 +15149,7 @@
 /area/rogue/indoors/town/church/inquisition)
 "iHE" = (
 /obj/item/coin/gold/pile,
-/turf/open/floor/tile{
-	icon_state = "glyph3"
-	},
+/turf/open/floor/greenstone/glyph3,
 /area/rogue/indoors/town/vault)
 "iHJ" = (
 /obj/structure/bed/hay,
@@ -18750,9 +18744,7 @@
 /area/rogue/under/town/basement)
 "kKN" = (
 /obj/item/coin/gold/pile,
-/turf/open/floor/tile{
-	icon_state = "glyph4"
-	},
+/turf/open/floor/greenstone/glyph4,
 /area/rogue/indoors/town/vault)
 "kKS" = (
 /obj/structure/closet/crate/crafted_closet,
@@ -19206,9 +19198,7 @@
 /area/rogue/indoors/villagegarrison)
 "kXw" = (
 /obj/item/coin/silver/pile,
-/turf/open/floor/tile{
-	icon_state = "glyph6"
-	},
+/turf/open/floor/greenstone/glyph6,
 /area/rogue/indoors/town/vault)
 "kXy" = (
 /obj/structure/flora/grass/bush/wall/tall/tundra,
@@ -36478,9 +36468,7 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/outdoors/town/roofs)
 "uFt" = (
-/turf/open/floor/tile{
-	icon_state = "glyph2"
-	},
+/turf/open/floor/greenstone/glyph2,
 /area/rogue/indoors/town/vault)
 "uFx" = (
 /obj/structure/stairs{

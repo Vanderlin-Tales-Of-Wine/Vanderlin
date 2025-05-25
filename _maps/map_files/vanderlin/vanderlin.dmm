@@ -1765,9 +1765,7 @@
 /turf/open/floor/dirt,
 /area/rogue/outdoors/river)
 "aXm" = (
-/turf/open/floor/tile{
-	icon_state = "tavern"
-	},
+/turf/open/floor/tile/kitchen,
 /area/rogue/indoors/town/tavern)
 "aXL" = (
 /obj/structure/table/wood/plain_alt,
@@ -3079,9 +3077,7 @@
 /obj/item/reagent_containers/food/snacks/produce/grain/wheat,
 /obj/item/reagent_containers/food/snacks/produce/vegetable/onion,
 /obj/item/reagent_containers/food/snacks/produce/vegetable/onion,
-/turf/open/floor/tile{
-	icon_state = "tavern"
-	},
+/turf/open/floor/tile/kitchen,
 /area/rogue/indoors/town/tavern)
 "bPb" = (
 /obj/structure/fluff/walldeco/church/line{
@@ -4133,9 +4129,7 @@
 	pixel_x = -6;
 	pixel_y = 13
 	},
-/turf/open/floor/tile{
-	icon_state = "tavern"
-	},
+/turf/open/floor/tile/kitchen,
 /area/rogue/indoors/town/tavern)
 "cyW" = (
 /turf/closed/wall/mineral/wooddark/horizontal,
@@ -4740,9 +4734,7 @@
 /obj/item/reagent_containers/glass/bucket/pot{
 	pixel_y = 7
 	},
-/turf/open/floor/tile{
-	icon_state = "tavern"
-	},
+/turf/open/floor/tile/kitchen,
 /area/rogue/indoors/town/tavern)
 "cSR" = (
 /obj/structure/fluff/railing/wood,
@@ -5185,9 +5177,7 @@
 /area/rogue/under/town/basement)
 "djr" = (
 /obj/machinery/light/fueled/oven/south,
-/turf/open/floor/tile{
-	icon_state = "tavern"
-	},
+/turf/open/floor/tile/kitchen,
 /area/rogue/indoors/town/tavern)
 "djB" = (
 /obj/structure/bookcase/random,
@@ -6537,9 +6527,7 @@
 /obj/effect/landmark/start/cook{
 	dir = 1
 	},
-/turf/open/floor/tile{
-	icon_state = "tile"
-	},
+/turf/open/floor/tile/checkeralt,
 /area/rogue/indoors/town/tavern)
 "dYh" = (
 /obj/structure/fluff/walldeco/customflag,
@@ -6764,9 +6752,7 @@
 	pixel_x = 2;
 	pixel_y = 7
 	},
-/turf/open/floor/tile{
-	icon_state = "tavern"
-	},
+/turf/open/floor/tile/kitchen,
 /area/rogue/indoors/town/tavern)
 "ehe" = (
 /obj/structure/door{
@@ -10252,9 +10238,7 @@
 /area/rogue/under/town/sewer)
 "gye" = (
 /obj/item/coin/silver/pile,
-/turf/open/floor/tile{
-	icon_state = "glyph1"
-	},
+/turf/open/floor/greenstone/glyph1,
 /area/rogue/indoors/town/vault)
 "gyK" = (
 /turf/open/transparent/openspace,
@@ -10352,9 +10336,7 @@
 	icon_state = "largetable"
 	},
 /obj/item/kitchen/rollingpin,
-/turf/open/floor/tile{
-	icon_state = "tile"
-	},
+/turf/open/floor/tile/checkeralt,
 /area/rogue/indoors/town/tavern)
 "gBo" = (
 /obj/structure/fluff/railing/border,
@@ -14697,9 +14679,7 @@
 /turf/open/floor/hexstone,
 /area/rogue/indoors/town/steward)
 "jqq" = (
-/turf/open/floor/tile{
-	icon_state = "tile"
-	},
+/turf/open/floor/tile/checkeralt,
 /area/rogue/indoors/town/tavern)
 "jqE" = (
 /obj/structure/fluff/railing/border{
@@ -14756,9 +14736,7 @@
 	pixel_x = 32;
 	pixel_y = 0
 	},
-/turf/open/floor/tile{
-	icon_state = "tavern"
-	},
+/turf/open/floor/tile/kitchen,
 /area/rogue/indoors/town/tavern)
 "jrR" = (
 /obj/structure/lever/hidden{
@@ -14908,9 +14886,7 @@
 /obj/item/reagent_containers/food/snacks/produce/vegetable/potato,
 /obj/item/reagent_containers/food/snacks/produce/vegetable/potato,
 /obj/item/reagent_containers/food/snacks/produce/vegetable/onion,
-/turf/open/floor/tile{
-	icon_state = "tavern"
-	},
+/turf/open/floor/tile/kitchen,
 /area/rogue/indoors/town/tavern)
 "jzh" = (
 /obj/structure/closet/crate/crafted_closet/inn,
@@ -16304,9 +16280,7 @@
 /area/rogue/outdoors/town)
 "knL" = (
 /obj/machinery/tanningrack,
-/turf/open/floor/tile{
-	icon_state = "tavern"
-	},
+/turf/open/floor/tile/kitchen,
 /area/rogue/indoors/town/tavern)
 "kon" = (
 /obj/effect/decal/cleanable/dirt,
@@ -17380,9 +17354,7 @@
 /area/rogue/indoors/town/church)
 "kZi" = (
 /obj/structure/window/openclose,
-/turf/open/floor/tile{
-	icon_state = "tavern"
-	},
+/turf/open/floor/tile/kitchen,
 /area/rogue/indoors/town/tavern)
 "kZl" = (
 /turf/closed/wall/mineral/wooddark/slitted,
@@ -18060,9 +18032,7 @@
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_y = -32
 	},
-/turf/open/floor/tile{
-	icon_state = "tavern"
-	},
+/turf/open/floor/tile/kitchen,
 /area/rogue/indoors/town/tavern)
 "lzv" = (
 /obj/structure/table/wood/large_new{
@@ -20040,9 +20010,7 @@
 "mRh" = (
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /obj/item/coin/gold/pile,
-/turf/open/floor/tile{
-	icon_state = "glyph4"
-	},
+/turf/open/floor/greenstone/glyph4,
 /area/rogue/indoors/town/vault)
 "mRi" = (
 /obj/structure/chair/bench/coucha,
@@ -20120,9 +20088,7 @@
 /area/rogue/indoors/town/manor)
 "mTy" = (
 /obj/machinery/light/fueled/hearth,
-/turf/open/floor/tile{
-	icon_state = "tavern"
-	},
+/turf/open/floor/tile/kitchen,
 /area/rogue/indoors/town/tavern)
 "mTz" = (
 /obj/structure/fluff/railing/border{
@@ -20816,9 +20782,7 @@
 	icon_state = "largetable"
 	},
 /obj/item/weapon/knife/cleaver,
-/turf/open/floor/tile{
-	icon_state = "tile"
-	},
+/turf/open/floor/tile/checkeralt,
 /area/rogue/indoors/town/tavern)
 "nqp" = (
 /obj/structure/fluff/railing/border,
@@ -21765,9 +21729,7 @@
 /area/rogue/indoors/dungeon)
 "nXe" = (
 /obj/effect/landmark/start/cook,
-/turf/open/floor/tile{
-	icon_state = "tavern"
-	},
+/turf/open/floor/tile/kitchen,
 /area/rogue/indoors/town/tavern)
 "nXH" = (
 /obj/structure/bed/shit,
@@ -22702,9 +22664,7 @@
 /area/rogue/under/town/caverogue)
 "ozc" = (
 /obj/item/coin/gold/pile,
-/turf/open/floor/tile{
-	icon_state = "glyph3"
-	},
+/turf/open/floor/greenstone/glyph3,
 /area/rogue/indoors/town/vault)
 "ozp" = (
 /obj/structure/fluff/railing/wood{
@@ -22792,9 +22752,7 @@
 	dir = 4;
 	icon_state = "largetable"
 	},
-/turf/open/floor/tile{
-	icon_state = "tile"
-	},
+/turf/open/floor/tile/checkeralt,
 /area/rogue/indoors/town/tavern)
 "oDt" = (
 /turf/open/floor/blocks/stonered,
@@ -23097,9 +23055,7 @@
 /obj/structure/door/window,
 /obj/effect/mapping_helpers/access/locker,
 /obj/effect/mapping_helpers/access/keyset/town/inn,
-/turf/open/floor/tile{
-	icon_state = "tavern"
-	},
+/turf/open/floor/tile/kitchen,
 /area/rogue/indoors/town/tavern)
 "oOs" = (
 /obj/machinery/light/fueled/wallfire/candle/blue{
@@ -24196,9 +24152,7 @@
 	dir = 8;
 	icon_state = "largetable"
 	},
-/turf/open/floor/tile{
-	icon_state = "tile"
-	},
+/turf/open/floor/tile/checkeralt,
 /area/rogue/indoors/town/tavern)
 "pDW" = (
 /obj/structure/fluff/railing/wood{
@@ -24416,9 +24370,7 @@
 	pixel_y = 32
 	},
 /obj/item/coin/silver/pile,
-/turf/open/floor/tile{
-	icon_state = "glyph6"
-	},
+/turf/open/floor/greenstone/glyph6,
 /area/rogue/indoors/town/vault)
 "pLZ" = (
 /turf/closed/wall/mineral/wooddark/end,
@@ -25153,9 +25105,7 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/town/steward)
 "qny" = (
-/turf/open/floor/tile{
-	icon_state = "glyph5"
-	},
+/turf/open/floor/greenstone/glyph5,
 /area/rogue/indoors/town/vault)
 "qnH" = (
 /obj/structure/fluff/railing/wood{
@@ -25971,9 +25921,7 @@
 /obj/effect/landmark/start/cook{
 	dir = 8
 	},
-/turf/open/floor/tile{
-	icon_state = "tile"
-	},
+/turf/open/floor/tile/checkeralt,
 /area/rogue/indoors/town/tavern)
 "qQd" = (
 /obj/machinery/light/fueled/wallfire/candle/r,
@@ -26056,9 +26004,7 @@
 /obj/effect/landmark/start/cook{
 	dir = 4
 	},
-/turf/open/floor/tile{
-	icon_state = "tile"
-	},
+/turf/open/floor/tile/checkeralt,
 /area/rogue/indoors/town/tavern)
 "qRW" = (
 /obj/structure/door/stone{
@@ -27378,9 +27324,7 @@
 "rLi" = (
 /obj/structure/fermentation_keg/random/water,
 /obj/machinery/light/fueled/wallfire/candle,
-/turf/open/floor/tile{
-	icon_state = "tavern"
-	},
+/turf/open/floor/tile/kitchen,
 /area/rogue/indoors/town/tavern)
 "rLj" = (
 /obj/effect/decal/cleanable/blood/old,
@@ -27759,9 +27703,7 @@
 /turf/open/floor/cobble,
 /area/rogue/indoors/dungeon)
 "rXr" = (
-/turf/open/floor/tile{
-	icon_state = "glyph2"
-	},
+/turf/open/floor/greenstone/glyph2,
 /area/rogue/indoors/town/vault)
 "rXy" = (
 /obj/structure/door{
@@ -29201,9 +29143,7 @@
 	icon_state = "largetable"
 	},
 /obj/item/reagent_containers/peppermill,
-/turf/open/floor/tile{
-	icon_state = "tile"
-	},
+/turf/open/floor/tile/checkeralt,
 /area/rogue/indoors/town/tavern)
 "sTO" = (
 /obj/structure/rack/shelf/biggest,
@@ -33091,9 +33031,7 @@
 	pixel_y = 0
 	},
 /obj/structure/fermentation_keg/beer,
-/turf/open/floor/tile{
-	icon_state = "tavern"
-	},
+/turf/open/floor/tile/kitchen,
 /area/rogue/indoors/town/tavern)
 "vuT" = (
 /obj/structure/stairs{
@@ -34166,9 +34104,7 @@
 	layer = 2.81
 	},
 /obj/structure/table/wood/plain_alt,
-/turf/open/floor/tile{
-	icon_state = "tavern"
-	},
+/turf/open/floor/tile/kitchen,
 /area/rogue/indoors/town/tavern)
 "wif" = (
 /obj/structure/fluff/railing/wood{
@@ -34648,9 +34584,7 @@
 	},
 /obj/item/cooking/pan,
 /obj/machinery/light/fueled/wallfire/candle,
-/turf/open/floor/tile{
-	icon_state = "tavern"
-	},
+/turf/open/floor/tile/kitchen,
 /area/rogue/indoors/town/tavern)
 "wxl" = (
 /obj/structure/flora/grass/bush_meagre,
@@ -35368,9 +35302,7 @@
 	dir = 10;
 	icon_state = "largetable"
 	},
-/turf/open/floor/tile{
-	icon_state = "tile"
-	},
+/turf/open/floor/tile/checkeralt,
 /area/rogue/indoors/town/tavern)
 "wXr" = (
 /obj/structure/fluff/walldeco/painting,

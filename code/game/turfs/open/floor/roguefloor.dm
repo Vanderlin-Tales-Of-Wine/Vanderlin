@@ -486,6 +486,24 @@
 /turf/open/floor/greenstone/runed
 	icon_state = "greenstoneruned"
 
+/turf/open/floor/greenstone/glyph1
+	icon_state = "glyph1"
+
+/turf/open/floor/greenstone/glyph2
+	icon_state = "glyph2"
+
+/turf/open/floor/greenstone/glyph3
+	icon_state = "glyph3"
+
+/turf/open/floor/greenstone/glyph4
+	icon_state = "glyph4"
+
+/turf/open/floor/greenstone/glyph5
+	icon_state = "glyph5"
+
+/turf/open/floor/greenstone/glyph6
+	icon_state = "glyph6
+
 /turf/open/floor/hexstone
 	icon_state = "hexstone"
 	footstep = FOOTSTEP_STONE

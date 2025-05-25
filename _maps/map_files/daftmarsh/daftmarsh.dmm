@@ -4504,9 +4504,7 @@
 /turf/closed/wall/mineral/craftstone,
 /area/rogue/indoors/town/merc_guild)
 "etQ" = (
-/turf/open/floor/tile{
-	icon_state = "glyph2"
-	},
+/turf/open/floor/greenstone/glyph2,
 /area/rogue/under/town/sewer)
 "etU" = (
 /obj/structure/table/wood/large/corner_new{
@@ -5015,9 +5013,7 @@
 /area/rogue/indoors/town/manor)
 "eUV" = (
 /obj/item/coin/gold/pile,
-/turf/open/floor/tile{
-	icon_state = "glyph3"
-	},
+/turf/open/floor/greenstone/glyph3,
 /area/rogue/indoors/town/vault)
 "eVm" = (
 /obj/structure/closet/crate/crafted_closet,
@@ -5223,9 +5219,7 @@
 /turf/open/water/marsh,
 /area/rogue/outdoors/rtfield)
 "fhi" = (
-/turf/open/floor/tile{
-	icon_state = "glyph6"
-	},
+/turf/open/floor/greenstone/glyph6,
 /area/rogue/under/town/sewer)
 "fhj" = (
 /turf/open/floor/rooftop/green{
@@ -5583,9 +5577,7 @@
 /turf/open/floor/churchbrick,
 /area/rogue/indoors/town/clinic_large)
 "fyW" = (
-/turf/open/floor/tile{
-	icon_state = "glyph5"
-	},
+/turf/open/floor/greenstone/glyph5,
 /area/rogue/indoors/town/vault)
 "fzd" = (
 /obj/structure/fluff/railing/border{
@@ -12555,9 +12547,7 @@
 /area/rogue/indoors/town/magician)
 "mji" = (
 /obj/item/coin/silver/pile,
-/turf/open/floor/tile{
-	icon_state = "glyph1"
-	},
+/turf/open/floor/greenstone/glyph1,
 /area/rogue/indoors/town/vault)
 "mjj" = (
 /obj/structure/fluff/railing/border{
@@ -13095,9 +13085,7 @@
 "mKK" = (
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /obj/item/coin/gold/pile,
-/turf/open/floor/tile{
-	icon_state = "glyph4"
-	},
+/turf/open/floor/greenstone/glyph4,
 /area/rogue/indoors/town/vault)
 "mKS" = (
 /obj/machinery/light/fueled/wallfire/candle,
@@ -13584,9 +13572,7 @@
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/town/magician)
 "nmP" = (
-/turf/open/floor/tile{
-	icon_state = "glyph3"
-	},
+/turf/open/floor/greenstone/glyph3,
 /area/rogue/under/town/sewer)
 "nnL" = (
 /obj/structure/fake_machine/scomm/r,
@@ -13986,9 +13972,7 @@
 	pixel_y = 32
 	},
 /obj/item/coin/silver/pile,
-/turf/open/floor/tile{
-	icon_state = "glyph6"
-	},
+/turf/open/floor/greenstone/glyph6,
 /area/rogue/indoors/town/vault)
 "nJN" = (
 /obj/structure/fluff/railing/wood{
@@ -20361,9 +20345,7 @@
 /turf/open/floor/blocks/paving,
 /area/rogue/outdoors/town)
 "tUe" = (
-/turf/open/floor/tile{
-	icon_state = "glyph1"
-	},
+/turf/open/floor/greenstone/glyph1,
 /area/rogue/under/town/sewer)
 "tUn" = (
 /obj/machinery/light/fueled/torchholder/l,
@@ -22337,9 +22319,7 @@
 /obj/structure/fluff/walldeco/painting{
 	pixel_y = 32
 	},
-/turf/open/floor/tile{
-	icon_state = "glyph5"
-	},
+/turf/open/floor/greenstone/glyph5,
 /area/rogue/under/town/sewer)
 "vIS" = (
 /obj/structure/stairs{
@@ -23302,9 +23282,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/town/sewer)
 "wKs" = (
-/turf/open/floor/tile{
-	icon_state = "glyph2"
-	},
+/turf/open/floor/greenstone/glyph2,
 /area/rogue/indoors/town/vault)
 "wKz" = (
 /obj/machinery/light/fueled/wallfire/candle/blue{
@@ -24025,9 +24003,7 @@
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/town/church)
 "xpw" = (
-/turf/open/floor/tile{
-	icon_state = "glyph4"
-	},
+/turf/open/floor/greenstone/glyph4,
 /area/rogue/under/town/sewer)
 "xpN" = (
 /obj/structure/table/wood{

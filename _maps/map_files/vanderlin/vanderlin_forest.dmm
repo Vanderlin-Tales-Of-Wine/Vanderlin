@@ -2317,9 +2317,7 @@
 /turf/open/floor/wood,
 /area/rogue/indoors)
 "Ps" = (
-/turf/open/floor/rooftop{
-	icon_state = "roofg"
-	},
+/turf/open/floor/rooftop/green,
 /area/rogue/outdoors/mountains)
 "PI" = (
 /obj/effect/decal/cleanable/dirt/dust,
