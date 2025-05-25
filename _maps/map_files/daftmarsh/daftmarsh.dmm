@@ -5781,9 +5781,7 @@
 /obj/structure/stairs/fancy/r{
 	dir = 1
 	},
-/turf/open/floor/carpet/lord{
-	icon_state = "carpet_r"
-	},
+/turf/open/floor/carpet/lord/right,
 /area/rogue/under/town/sewer)
 "fHk" = (
 /obj/structure/closet/crate/drawer,
@@ -11836,9 +11834,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/carpet/lord{
-	icon_state = "carpet_l"
-	},
+/turf/open/floor/carpet/lord/left,
 /area/rogue/under/town/sewer)
 "lBK" = (
 /obj/structure/table/wood/counter{

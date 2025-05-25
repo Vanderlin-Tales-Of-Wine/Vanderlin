@@ -1041,7 +1041,6 @@
 /area/rogue/indoors)
 "rt" = (
 /turf/closed/wall/mineral/wooddark/end{
-	icon_state = "endwooddark";
 	dir = 1
 	},
 /area/rogue/indoors)

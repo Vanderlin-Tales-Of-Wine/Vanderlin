@@ -502,7 +502,7 @@
 	icon_state = "glyph5"
 
 /turf/open/floor/greenstone/glyph6
-	icon_state = "glyph6
+	icon_state = "glyph6"
 
 /turf/open/floor/hexstone
 	icon_state = "hexstone"
