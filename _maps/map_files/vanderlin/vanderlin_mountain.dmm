@@ -199,9 +199,7 @@
 	name = "Cursed Bell";
 	desc = "A small handheld bell. There is a picture of a chicken inscribed on the handle."
 	},
-/turf/open/floor/tile{
-	icon_state = "bfloorz"
-	},
+/turf/open/floor/tile/bfloorz,
 /area/rogue/under/mountains/anvil/lower/building)
 "dX" = (
 /obj/item/reagent_containers/food/snacks/hardtack,
@@ -457,9 +455,7 @@
 /area/rogue/outdoors/mountains/anvil/snowyforest)
 "hi" = (
 /obj/effect/decal/cleanable/blood/gibs/core,
-/turf/open/floor/tile{
-	icon_state = "bfloorz"
-	},
+/turf/open/floor/tile/bfloorz,
 /area/rogue/under/mountains/anvil/lower/building)
 "hj" = (
 /obj/structure/table/wood/treestump/shroomstump,
@@ -884,9 +880,7 @@
 /area/rogue/under/mountains/anvil/lower)
 "no" = (
 /obj/effect/decal/cleanable/blood/gibs,
-/turf/open/floor/tile{
-	icon_state = "bfloorz"
-	},
+/turf/open/floor/tile/bfloorz,
 /area/rogue/under/mountains/anvil/lower/building)
 "np" = (
 /turf/open/floor/cobble,
@@ -1011,9 +1005,7 @@
 /area/rogue/indoors/mountains/anvil/surface/building)
 "oO" = (
 /obj/effect/decal/cleanable/blood/gibs/down,
-/turf/open/floor/tile{
-	icon_state = "bfloorz"
-	},
+/turf/open/floor/tile/bfloorz,
 /area/rogue/under/mountains/anvil/lower/building)
 "oQ" = (
 /turf/open/floor/cobble,
@@ -1741,9 +1733,7 @@
 /obj/effect/spawner/map_spawner/loot/coin,
 /obj/effect/spawner/map_spawner/loot/coin,
 /obj/effect/spawner/map_spawner/loot/coin,
-/turf/open/floor/tile{
-	icon_state = "bfloorz"
-	},
+/turf/open/floor/tile/bfloorz,
 /area/rogue/under/mountains/anvil/lower/building)
 "Bg" = (
 /obj/item/natural/stone,
@@ -2202,9 +2192,7 @@
 /area/rogue/under/mountains/anvil/lower/building)
 "Is" = (
 /obj/item/natural/rock,
-/turf/open/floor/tile{
-	icon_state = "bfloorz"
-	},
+/turf/open/floor/tile/bfloorz,
 /area/rogue/under/mountains/anvil/lower/building)
 "Iu" = (
 /obj/structure/flora/shroom_tree,
@@ -2637,9 +2625,7 @@
 /area/rogue/under/mountains/anvil/lower)
 "Ow" = (
 /obj/effect/decal/cleanable/blood/gibs/body,
-/turf/open/floor/tile{
-	icon_state = "bfloorz"
-	},
+/turf/open/floor/tile/bfloorz,
 /area/rogue/under/mountains/anvil/lower/building)
 "Ox" = (
 /turf/closed/wall/mineral/roofwall/outercorner,
@@ -3193,9 +3179,7 @@
 /area/rogue/outdoors/mountains/anvil/lavaexposed)
 "WF" = (
 /obj/effect/decal/cleanable/blood,
-/turf/open/floor/tile{
-	icon_state = "bfloorz"
-	},
+/turf/open/floor/tile/bfloorz,
 /area/rogue/under/mountains/anvil/lower/building)
 "WJ" = (
 /obj/effect/decal/cleanable/blood/drip{
@@ -3349,9 +3333,7 @@
 /turf/open/floor/dirt,
 /area/rogue/under/mountains/anvil/lower/building)
 "YP" = (
-/turf/open/floor/tile{
-	icon_state = "bfloorz"
-	},
+/turf/open/floor/tile/bfloorz,
 /area/rogue/under/mountains/anvil/lower/building)
 "YS" = (
 /obj/item/clothing/ring/silver/makers_guild,

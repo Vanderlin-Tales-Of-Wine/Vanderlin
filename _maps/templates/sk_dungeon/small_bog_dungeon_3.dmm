@@ -27,9 +27,7 @@
 /area/rogue/outdoors/bog)
 "l" = (
 /mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
-/turf/open/floor/blocks{
-	icon_state = "paving"
-	},
+/turf/open/floor/blocks/paving,
 /area/rogue/outdoors/bog)
 "n" = (
 /obj/structure/bookcase,
@@ -85,9 +83,7 @@
 /turf/open/floor/blocks,
 /area/rogue/outdoors/bog)
 "z" = (
-/turf/open/floor/blocks{
-	icon_state = "paving"
-	},
+/turf/open/floor/blocks/paving,
 /area/rogue/outdoors/bog)
 "A" = (
 /obj/item/restraints/legcuffs/beartrap/armed/camouflage,

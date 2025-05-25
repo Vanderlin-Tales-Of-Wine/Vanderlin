@@ -5,9 +5,7 @@
 	},
 /obj/effect/mapping_helpers/access/keyset/church/inquisition,
 /obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/basement)
 "aaF" = (
 /obj/structure/fluff/railing/border{
@@ -597,9 +595,7 @@
 /area/rogue/outdoors/river)
 "arm" = (
 /obj/structure/fluff/railing/border,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/sewer)
 "arp" = (
 /obj/structure/roguerock{
@@ -1067,9 +1063,7 @@
 /obj/item/paper,
 /obj/item/paper,
 /obj/structure/closet/crate/chest/neu_fancy,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/basement)
 "aEd" = (
 /obj/structure/closet/crate/chest/neu,
@@ -1287,9 +1281,7 @@
 /area/rogue/outdoors/town/roofs)
 "aIG" = (
 /obj/item/gem/green,
-/turf/open/floor/tile{
-	icon_state = "linoleum"
-	},
+/turf/open/floor/tile/checker,
 /area/rogue/indoors/town/vault)
 "aII" = (
 /obj/effect/decal/cobbleedge{
@@ -1545,9 +1537,7 @@
 /area/rogue/indoors/town/clinic_large)
 "aQj" = (
 /obj/structure/bed/shit,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/sewer)
 "aQo" = (
 /obj/item/natural/stone,
@@ -1843,9 +1833,7 @@
 /obj/item/natural/cloth,
 /obj/item/natural/cloth,
 /obj/item/soap,
-/turf/open/floor/blocks{
-	icon_state = "paving"
-	},
+/turf/open/floor/blocks/paving,
 /area/rogue/indoors/town/orphanage)
 "baY" = (
 /turf/open/transparent/openspace,
@@ -2007,9 +1995,7 @@
 /area/rogue/indoors/town/cell)
 "bga" = (
 /obj/structure/flora/grass/water,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/outdoors/river)
 "bge" = (
 /obj/effect/decal/cleanable/blood/tracks{
@@ -2115,9 +2101,7 @@
 /obj/structure/door/weak/bolt{
 	name = "bathroom"
 	},
-/turf/open/floor/blocks{
-	icon_state = "paving"
-	},
+/turf/open/floor/blocks/paving,
 /area/rogue/indoors/town/orphanage)
 "bje" = (
 /obj/structure/rack/shelf/biggest,
@@ -2519,9 +2503,7 @@
 /area/rogue/indoors/town/church)
 "bwq" = (
 /obj/structure/bed/wool,
-/turf/open/floor/blocks{
-	icon_state = "bluestone"
-	},
+/turf/open/floor/blocks/newstone/alt,
 /area/rogue/indoors/town/church)
 "bwz" = (
 /obj/structure/rousman_hole,
@@ -2800,9 +2782,7 @@
 /obj/structure/bars/pipe{
 	dir = 10
 	},
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/indoors/town/clocktower)
 "bED" = (
 /obj/machinery/light/fueled/torchholder/l{
@@ -2845,9 +2825,7 @@
 /obj/structure/bars/pipe{
 	dir = 9
 	},
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/indoors/town/clocktower)
 "bFq" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -3326,9 +3304,7 @@
 	pixel_x = -32;
 	pixel_y = 0
 	},
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/basement)
 "bWs" = (
 /turf/open/floor/rooftop,
@@ -3565,9 +3541,7 @@
 /obj/structure/closet/crate/crafted_closet/dark,
 /obj/item/flashlight/flare/torch/lantern,
 /obj/item/flashlight/flare/torch/lantern,
-/turf/open/floor/blocks{
-	icon_state = "bluestone"
-	},
+/turf/open/floor/blocks/newstone/alt,
 /area/rogue/indoors/town/church)
 "ceM" = (
 /obj/structure/door,
@@ -3842,9 +3816,7 @@
 /area/rogue/indoors/town/manor)
 "cnf" = (
 /obj/structure/table/wood/plain_alt,
-/turf/open/floor/blocks{
-	icon_state = "newstone2"
-	},
+/turf/open/floor/blocks/newstone,
 /area/rogue/indoors/town/church)
 "cnl" = (
 /turf/closed/wall/mineral/stone,
@@ -3908,9 +3880,7 @@
 	},
 /obj/item/clothing/shirt/undershirt/priest,
 /obj/item/clothing/shirt/robe/priest,
-/turf/open/floor/blocks{
-	icon_state = "newstone2"
-	},
+/turf/open/floor/blocks/newstone,
 /area/rogue/indoors/town/church)
 "coU" = (
 /turf/open/floor/tile/masonic/single,
@@ -4709,9 +4679,7 @@
 	pixel_x = -32;
 	pixel_y = 0
 	},
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/indoors/town/orphanage)
 "cQl" = (
 /obj/structure/water_pipe,
@@ -4829,9 +4797,7 @@
 "cUG" = (
 /obj/structure/table/wood/plain_alt,
 /obj/item/clothing/neck/psycross/silver/astrata,
-/turf/open/floor/blocks{
-	icon_state = "newstone2"
-	},
+/turf/open/floor/blocks/newstone,
 /area/rogue/indoors/town/church)
 "cUL" = (
 /obj/machinery/light/fueled/wallfire/candle{
@@ -4899,9 +4865,7 @@
 /turf/open/floor/twig,
 /area/rogue/under/town/sewer)
 "cYv" = (
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/outdoors/river)
 "cYx" = (
 /obj/structure/door/weak/bolt{
@@ -5157,9 +5121,7 @@
 /area/rogue/outdoors/river)
 "dis" = (
 /obj/item/natural/worms/leech,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/sewer)
 "diF" = (
 /obj/machinery/light/fueled/wallfire/big_fireplace{
@@ -5590,9 +5552,7 @@
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
 	},
-/turf/open/floor/blocks{
-	icon_state = "bluestone"
-	},
+/turf/open/floor/blocks/newstone/alt,
 /area/rogue/indoors/town/church)
 "dwI" = (
 /obj/effect/decal/cobbleedge{
@@ -6237,9 +6197,7 @@
 /area/rogue/indoors/town/tavern)
 "dPK" = (
 /obj/item/gem,
-/turf/open/floor/tile{
-	icon_state = "linoleum"
-	},
+/turf/open/floor/tile/checker,
 /area/rogue/indoors/town/vault)
 "dQa" = (
 /obj/structure/rack/shelf/biggest,
@@ -6647,9 +6605,7 @@
 /area/rogue/indoors/town)
 "ean" = (
 /obj/structure/spider/cocoon,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/sewer)
 "eaL" = (
 /obj/structure/table/wood/large/corner,
@@ -6846,9 +6802,7 @@
 /area/rogue/outdoors/town)
 "eid" = (
 /obj/structure/bookcase/random_recipes,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/basement)
 "eig" = (
 /obj/structure/closet/crate/crafted_closet/inn,
@@ -6970,9 +6924,7 @@
 /area/rogue/outdoors/river)
 "ekO" = (
 /obj/structure/flora/grass/water,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/sewer)
 "ekU" = (
 /obj/machinery/light/fueled/wallfire/candle/l{
@@ -7076,9 +7028,7 @@
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/manor)
 "eqc" = (
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/indoors/town/clocktower)
 "eqp" = (
 /obj/machinery/light/fueled/torchholder{
@@ -7537,9 +7487,7 @@
 /area/rogue/under/town/sewer)
 "eFI" = (
 /obj/structure/fake_machine/scomm/l,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/indoors/town/merc_guild)
 "eFO" = (
 /obj/structure/closet/crate/chest/wicker,
@@ -8371,9 +8319,7 @@
 /area/rogue/outdoors/town/roofs)
 "fha" = (
 /obj/item/gem/yellow,
-/turf/open/floor/tile{
-	icon_state = "linoleum"
-	},
+/turf/open/floor/tile/checker,
 /area/rogue/indoors/town/vault)
 "fhg" = (
 /obj/item/clothing/head/peaceflower{
@@ -8654,9 +8600,7 @@
 /area/rogue/indoors/town)
 "fqc" = (
 /obj/structure/stairs/stone,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/sewer)
 "fqd" = (
 /obj/structure/chair/wood/alt/chair_noble/red{
@@ -9392,9 +9336,7 @@
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/town/manorgate)
 "fPW" = (
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/basement)
 "fQk" = (
 /obj/structure/bed/inn/double,
@@ -9932,9 +9874,7 @@
 	pixel_x = 32;
 	pixel_y = 0
 	},
-/turf/open/floor/blocks{
-	icon_state = "newstone2"
-	},
+/turf/open/floor/blocks/newstone,
 /area/rogue/indoors/town/church)
 "glW" = (
 /obj/item/ore/copper,
@@ -9974,9 +9914,7 @@
 /area/rogue/outdoors/rtfield)
 "gnn" = (
 /mob/living/simple_animal/hostile/retaliate/spider,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/basement)
 "gnv" = (
 /obj/structure/fluff/railing/border{
@@ -10256,9 +10194,7 @@
 /area/rogue/under/town/caverogue)
 "gvo" = (
 /mob/living/carbon/human/species/goblin/npc/ambush/cave,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/sewer)
 "gvu" = (
 /obj/structure/door/red{
@@ -10298,9 +10234,7 @@
 /obj/machinery/light/fueled/wallfire/candle/l{
 	pixel_x = 32
 	},
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/basement)
 "gxy" = (
 /turf/open/floor/rooftop{
@@ -10596,11 +10530,6 @@
 /obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/cobble/mossy,
 /area/rogue/outdoors/rtfield/safe)
-"gGR" = (
-/turf/open/floor/tile{
-	icon_state = "bfloorz"
-	},
-/area/rogue/indoors/town/manor)
 "gGT" = (
 /obj/structure/rack/shelf/biggest,
 /obj/item/weapon/pick,
@@ -10804,9 +10733,7 @@
 "gNt" = (
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/decal/cleanable/blood/footprints,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/indoors/town/merc_guild)
 "gNE" = (
 /turf/closed/wall/mineral/stone/window,
@@ -10954,9 +10881,7 @@
 /area/rogue/indoors/town/merc_guild)
 "gRJ" = (
 /obj/structure/bars,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/sewer)
 "gRX" = (
 /obj/structure/stairs/stone{
@@ -11145,9 +11070,7 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/villagegarrison)
 "gYy" = (
-/turf/open/floor/blocks{
-	icon_state = "paving"
-	},
+/turf/open/floor/blocks/paving,
 /area/rogue/indoors/town/orphanage)
 "gZg" = (
 /obj/structure/table/wood/large/corner{
@@ -11912,9 +11835,7 @@
 	pixel_x = 16;
 	pixel_y = 30
 	},
-/turf/open/floor/tile{
-	icon_state = "bfloorz"
-	},
+/turf/open/floor/tile/bfloorz,
 /area/rogue/indoors/town/manor)
 "hAu" = (
 /obj/structure/flora/grass/herb/taraxacum,
@@ -12503,9 +12424,7 @@
 /area/rogue/indoors/town/smithy)
 "hSG" = (
 /obj/machinery/light/fueled/lanternpost,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/sewer)
 "hSJ" = (
 /obj/machinery/light/fueled/firebowl/church,
@@ -12667,9 +12586,7 @@
 /area/rogue/indoors/soilsons)
 "hYF" = (
 /obj/structure/bookcase/random/myths,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/basement)
 "hZc" = (
 /obj/structure/table/wood/plain/alt,
@@ -12986,9 +12903,7 @@
 /area/rogue/indoors/town/garrison)
 "ima" = (
 /obj/machinery/light/fueled/campfire,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/sewer)
 "imu" = (
 /turf/closed/wall/mineral/wooddark/vertical,
@@ -13039,9 +12954,7 @@
 /obj/structure/door/weak/bolt{
 	dir = 8
 	},
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/indoors/town/orphanage)
 "ioU" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -13116,9 +13029,7 @@
 /area/rogue/indoors/town/clinic_large)
 "isf" = (
 /obj/machinery/tanningrack,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/sewer)
 "ish" = (
 /obj/structure/table/wood/large/corner{
@@ -13556,9 +13467,7 @@
 /area/rogue/indoors/town/garrison)
 "iDF" = (
 /obj/machinery/light/fueled/firebowl/standing/blue,
-/turf/open/floor/blocks{
-	icon_state = "bluestone"
-	},
+/turf/open/floor/blocks/newstone/alt,
 /area/rogue/indoors/town/church)
 "iDH" = (
 /obj/structure/roguerock{
@@ -13595,9 +13504,7 @@
 "iEh" = (
 /obj/structure/table/wood/plain_alt,
 /obj/item/clothing/head/priestmask,
-/turf/open/floor/blocks{
-	icon_state = "newstone2"
-	},
+/turf/open/floor/blocks/newstone,
 /area/rogue/indoors/town/church)
 "iEJ" = (
 /obj/structure/bars,
@@ -13795,9 +13702,7 @@
 /obj/structure/stairs/stone{
 	dir = 1
 	},
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/sewer)
 "iMD" = (
 /obj/structure/door/green{
@@ -14015,9 +13920,7 @@
 /area/rogue/outdoors/river)
 "iTc" = (
 /obj/structure/door/weak/bolt,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/basement)
 "iTh" = (
 /obj/structure/rack/shelf/big{
@@ -14387,9 +14290,7 @@
 	pixel_y = 10
 	},
 /obj/effect/decal/cleanable/blood/drip,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/indoors/town/merc_guild)
 "jeb" = (
 /obj/machinery/light/fueled/torchholder/r,
@@ -15709,9 +15610,7 @@
 /area/rogue/indoors/town/church/inquisition)
 "jUT" = (
 /obj/structure/mirror,
-/turf/open/floor/blocks{
-	icon_state = "paving"
-	},
+/turf/open/floor/blocks/paving,
 /area/rogue/indoors/town/orphanage)
 "jUW" = (
 /obj/structure/closet/crate/chest/neu,
@@ -16081,9 +15980,7 @@
 /obj/structure/window/openclose{
 	dir = 1
 	},
-/turf/open/floor/blocks{
-	icon_state = "bluestone"
-	},
+/turf/open/floor/blocks/newstone/alt,
 /area/rogue/indoors/town/manor)
 "kfI" = (
 /obj/effect/mapping_helpers/access/locker,
@@ -16164,9 +16061,7 @@
 /area/rogue/outdoors/town)
 "khJ" = (
 /obj/item/bin/water/gross,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/indoors/town/orphanage)
 "khR" = (
 /mob/living/simple_animal/pet/cat/inn{
@@ -16304,9 +16199,7 @@
 /area/rogue/outdoors/woods_safe)
 "kky" = (
 /obj/structure/kneestingers,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/outdoors/river)
 "kkI" = (
 /obj/structure/curtain/bounty{
@@ -16407,9 +16300,7 @@
 /obj/structure/stairs/stone{
 	dir = 1
 	},
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/outdoors/town)
 "knL" = (
 /obj/machinery/tanningrack,
@@ -16547,9 +16438,7 @@
 /turf/open/floor/dirt,
 /area/rogue/outdoors/rtfield/safe)
 "krR" = (
-/turf/open/floor/tile{
-	icon_state = "linoleum"
-	},
+/turf/open/floor/tile/checker,
 /area/rogue/indoors/town/vault)
 "ksa" = (
 /turf/open/floor/blocks/newstone/alt,
@@ -16600,9 +16489,7 @@
 /area/rogue/indoors/town/magician)
 "kuv" = (
 /obj/machinery/light/fueled/lanternpost/fixed,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/sewer)
 "kuC" = (
 /obj/structure/door/viewport{
@@ -17099,9 +16986,7 @@
 "kKy" = (
 /obj/machinery/light/fueled/wallfire/candle/l,
 /obj/structure/bookcase/random/apocrypha,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/basement)
 "kKF" = (
 /obj/structure/table/wood/large/corner_new,
@@ -17790,9 +17675,7 @@
 /obj/machinery/light/fueled/torchholder/l{
 	dir = 8
 	},
-/turf/open/floor/blocks{
-	icon_state = "paving"
-	},
+/turf/open/floor/blocks/paving,
 /area/rogue/under/town/basement)
 "lkF" = (
 /obj/effect/decal/cleanable/blood/drip,
@@ -17855,11 +17738,6 @@
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/churchbrick,
 /area/rogue/indoors/town/church/inquisition)
-"lmB" = (
-/turf/open/floor/blocks{
-	icon_state = "paving"
-	},
-/area/rogue/under/town/basement)
 "lmG" = (
 /obj/item/natural/rock/random_ore,
 /obj/structure/minecart_rail,
@@ -18252,9 +18130,7 @@
 /obj/machinery/light/fueled/lanternpost{
 	dir = 1
 	},
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/sewer)
 "lCT" = (
 /obj/structure/trap/spike,
@@ -18364,9 +18240,7 @@
 /area/rogue/indoors/town)
 "lFH" = (
 /obj/structure/spider/stickyweb,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/basement)
 "lFW" = (
 /obj/structure/fluff/railing/wood{
@@ -18662,9 +18536,7 @@
 /area/rogue/indoors/butchershop)
 "lPK" = (
 /mob/living/simple_animal/hostile/retaliate/spider,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/sewer)
 "lPR" = (
 /obj/structure/table/wood/counter/end,
@@ -18838,9 +18710,7 @@
 /obj/structure/stairs/stone{
 	dir = 4
 	},
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/sewer)
 "lVW" = (
 /obj/structure/flora/newtree/scorched,
@@ -19388,9 +19258,7 @@
 /area/rogue/outdoors/town/roofs)
 "mtO" = (
 /obj/structure/toilet,
-/turf/open/floor/blocks{
-	icon_state = "paving"
-	},
+/turf/open/floor/blocks/paving,
 /area/rogue/under/town/basement)
 "mtS" = (
 /obj/structure/chair/bench{
@@ -20244,9 +20112,7 @@
 /area/rogue/outdoors/mountains)
 "mTn" = (
 /obj/structure/bars,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/basement)
 "mTs" = (
 /obj/structure/fluff/clock,
@@ -20734,9 +20600,7 @@
 /area/rogue/outdoors/town)
 "nhr" = (
 /obj/effect/decal/cleanable/generic,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/sewer)
 "niE" = (
 /obj/structure/bed/wool,
@@ -21052,9 +20916,7 @@
 /area/rogue/under/town/basement)
 "nuh" = (
 /obj/structure/toilet,
-/turf/open/floor/blocks{
-	icon_state = "paving"
-	},
+/turf/open/floor/blocks/paving,
 /area/rogue/indoors/town/orphanage)
 "nul" = (
 /obj/structure/chair/bench{
@@ -21178,9 +21040,7 @@
 	pixel_x = -32;
 	pixel_y = 0
 	},
-/turf/open/floor/blocks{
-	icon_state = "newstone2"
-	},
+/turf/open/floor/blocks/newstone,
 /area/rogue/indoors/town/church)
 "nyS" = (
 /obj/structure/table/wood,
@@ -21265,9 +21125,7 @@
 /area/rogue/indoors/town/manor)
 "nAD" = (
 /obj/item/reagent_containers/food/snacks/truffles,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/sewer)
 "nAE" = (
 /obj/structure/table/wood/large/corner{
@@ -21784,9 +21642,7 @@
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
 	},
-/turf/open/floor/blocks{
-	icon_state = "bluestone"
-	},
+/turf/open/floor/blocks/newstone/alt,
 /area/rogue/indoors/town/church)
 "nQS" = (
 /obj/structure/fluff/railing/border{
@@ -21862,9 +21718,7 @@
 /area/rogue/indoors/town/garrison)
 "nVk" = (
 /obj/structure/spider/stickyweb,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/sewer)
 "nVm" = (
 /obj/structure/table/wood/counter,
@@ -22811,9 +22665,7 @@
 	},
 /obj/item/book/bibble,
 /obj/structure/table/wood/plain_alt,
-/turf/open/floor/blocks{
-	icon_state = "newstone2"
-	},
+/turf/open/floor/blocks/newstone,
 /area/rogue/indoors/town/church)
 "oyf" = (
 /obj/structure/chair/wood/alt/chair_noble/red,
@@ -22898,9 +22750,7 @@
 /area/rogue/indoors/town/manor)
 "oBk" = (
 /obj/machinery/light/fueled/firebowl,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/sewer)
 "oBu" = (
 /obj/structure/bars/pipe{
@@ -23030,9 +22880,7 @@
 /turf/open/floor/metal/barograte,
 /area/rogue/indoors/town/clocktower)
 "oGi" = (
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/sewer)
 "oGk" = (
 /obj/structure/table/wood{
@@ -23169,9 +23017,7 @@
 	pixel_x = 32;
 	pixel_y = 0
 	},
-/turf/open/floor/blocks{
-	icon_state = "newstone2"
-	},
+/turf/open/floor/blocks/newstone,
 /area/rogue/indoors/town/church)
 "oLq" = (
 /obj/structure/chair/wood/alt/chair_noble/red{
@@ -23417,9 +23263,7 @@
 /obj/machinery/light/fueled/lanternpost/fixed{
 	dir = 1
 	},
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/sewer)
 "oUZ" = (
 /obj/structure/ladder,
@@ -23687,9 +23531,7 @@
 /area/rogue/indoors/town)
 "pbT" = (
 /obj/structure/kneestingers,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/sewer)
 "pcl" = (
 /obj/structure/door{
@@ -24188,9 +24030,7 @@
 /area/rogue/indoors/town/magician)
 "pvl" = (
 /obj/machinery/light/fueled/wallfire/candle,
-/turf/open/floor/blocks{
-	icon_state = "paving"
-	},
+/turf/open/floor/blocks/paving,
 /area/rogue/indoors/town/orphanage)
 "pvw" = (
 /obj/structure/stairs{
@@ -25979,9 +25819,7 @@
 /area/rogue/indoors/town/dwarfin)
 "qLb" = (
 /obj/structure/bookcase/random/thesis,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/basement)
 "qLi" = (
 /obj/effect/mapping_helpers/secret_door_creator/keep{
@@ -26108,9 +25946,7 @@
 	pixel_x = -32;
 	pixel_y = 0
 	},
-/turf/open/floor/blocks{
-	icon_state = "newstone2"
-	},
+/turf/open/floor/blocks/newstone,
 /area/rogue/indoors/town/church)
 "qPt" = (
 /obj/structure/fluff/railing/wood{
@@ -26183,9 +26019,7 @@
 /obj/structure/closet/crate/chest,
 /obj/item/coin/copper/pile,
 /obj/item/coin/silver/pile,
-/turf/open/floor/tile{
-	icon_state = "linoleum"
-	},
+/turf/open/floor/tile/checker,
 /area/rogue/indoors/town/vault)
 "qQW" = (
 /obj/structure/fake_machine/scomm,
@@ -27091,9 +26925,7 @@
 /area/rogue/indoors/town/church)
 "rwM" = (
 /obj/structure/chair/stool,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/sewer)
 "rwR" = (
 /obj/structure/rack/shelf/biggest,
@@ -27729,9 +27561,7 @@
 "rRq" = (
 /obj/item/chair,
 /obj/effect/decal/cleanable/blood,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/indoors/town/merc_guild)
 "rRt" = (
 /obj/structure/fluff/railing/border{
@@ -28425,9 +28255,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 1
 	},
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/sewer)
 "sqh" = (
 /obj/structure/fluff/railing/wood{
@@ -28494,11 +28322,6 @@
 	},
 /turf/open/floor/wood,
 /area/rogue/indoors/town/manor)
-"srG" = (
-/turf/open/floor/blocks{
-	icon_state = "bluestone"
-	},
-/area/rogue/indoors/town/church)
 "srH" = (
 /obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/ruinedwood/turned/darker,
@@ -29412,17 +29235,13 @@
 /area/rogue/indoors/town/clinic_large)
 "sUS" = (
 /obj/structure/bookcase/random/legends,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/basement)
 "sVb" = (
 /obj/structure/bars/pipe{
 	dir = 4
 	},
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/indoors/town/clocktower)
 "sVf" = (
 /obj/machinery/light/fueled/torchholder/l,
@@ -29617,9 +29436,7 @@
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
 	},
-/turf/open/floor/blocks{
-	icon_state = "bluestone"
-	},
+/turf/open/floor/blocks/newstone/alt,
 /area/rogue/indoors/town/church)
 "tbo" = (
 /obj/structure/fluff/walldeco/church/line,
@@ -29929,9 +29746,7 @@
 /area/rogue/indoors/town/tavern)
 "tlC" = (
 /obj/structure/bookcase/random/apocrypha,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/basement)
 "tlS" = (
 /obj/machinery/light/fueled/wallfire/candle/blue/r,
@@ -30016,9 +29831,7 @@
 /obj/structure/bars/pipe{
 	dir = 5
 	},
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/indoors/town/clocktower)
 "ton" = (
 /obj/machinery/light/fueled/firebowl/standing,
@@ -30096,9 +29909,7 @@
 /area/rogue/indoors/town/magician)
 "trk" = (
 /obj/machinery/light/fueled/firebowl/standing/blue,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/indoors/town/clocktower)
 "tro" = (
 /obj/machinery/light/fueled/wallfire/candle/blue/l,
@@ -30666,9 +30477,7 @@
 /obj/structure/door/weak/bolt{
 	dir = 1
 	},
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/basement)
 "tIg" = (
 /obj/structure/fluff/railing/wood{
@@ -30818,9 +30627,7 @@
 /obj/item/clothing/cloak/raincloak/mortus,
 /obj/item/clothing/cloak/raincloak/mortus,
 /obj/item/clothing/head/padded/deathshroud,
-/turf/open/floor/blocks{
-	icon_state = "bluestone"
-	},
+/turf/open/floor/blocks/newstone/alt,
 /area/rogue/indoors/town/church)
 "tMa" = (
 /obj/structure/fluff/walldeco/church/line,
@@ -31055,9 +30862,7 @@
 	dir = 10;
 	icon_state = "tablewood2"
 	},
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/basement)
 "tRX" = (
 /obj/structure/fluff/walldeco/wantedposter{
@@ -31816,9 +31621,7 @@
 /area/rogue/indoors/town/clinic_large)
 "uva" = (
 /obj/item/gem/violet,
-/turf/open/floor/tile{
-	icon_state = "linoleum"
-	},
+/turf/open/floor/tile/checker,
 /area/rogue/indoors/town/vault)
 "uve" = (
 /obj/item/grown/log/tree/stick,
@@ -32194,9 +31997,7 @@
 /area/rogue/indoors/soilsons)
 "uFE" = (
 /obj/effect/decal/cleanable/blood/drip,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/indoors/town/merc_guild)
 "uFQ" = (
 /obj/effect/decal/cobblerockedge/alt,
@@ -32712,9 +32513,7 @@
 /obj/item/recipe_book/engineering,
 /obj/item/recipe_book/cooking,
 /obj/item/recipe_book/carpentry,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/basement)
 "uWl" = (
 /obj/machinery/light/fueled/wallfire{
@@ -33186,9 +32985,7 @@
 /area/rogue/under/town/caverogue)
 "vqr" = (
 /obj/structure/closet/crate/chest,
-/turf/open/floor/tile{
-	icon_state = "linoleum"
-	},
+/turf/open/floor/tile/checker,
 /area/rogue/indoors/town/vault)
 "vqP" = (
 /obj/machinery/light/fueled/wallfire/candle/blue{
@@ -33450,9 +33247,7 @@
 "vAb" = (
 /obj/structure/spider/stickyweb,
 /mob/living/simple_animal/hostile/retaliate/spider,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/sewer)
 "vAd" = (
 /obj/item/coin/copper/pile{
@@ -33499,9 +33294,7 @@
 /area/rogue/indoors/town)
 "vBn" = (
 /obj/item/chair/stool/bar,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/sewer)
 "vBq" = (
 /obj/structure/door,
@@ -33786,9 +33579,7 @@
 /obj/structure/door/iron/bars,
 /obj/effect/mapping_helpers/access/locker,
 /obj/effect/mapping_helpers/access/keyset/town/mercenary,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/sewer)
 "vLA" = (
 /obj/structure/stairs,
@@ -33929,9 +33720,7 @@
 /area/rogue/outdoors/eora)
 "vQx" = (
 /obj/item/gem/blue,
-/turf/open/floor/tile{
-	icon_state = "linoleum"
-	},
+/turf/open/floor/tile/checker,
 /area/rogue/indoors/town/vault)
 "vQY" = (
 /obj/structure/well/fountain{
@@ -34362,9 +34151,7 @@
 "whO" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/item/rope,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/indoors/town/merc_guild)
 "whU" = (
 /obj/machinery/light/fueled/oven{
@@ -34610,9 +34397,7 @@
 "woC" = (
 /obj/structure/closet/crate/chest,
 /obj/item/coin/copper/pile,
-/turf/open/floor/tile{
-	icon_state = "linoleum"
-	},
+/turf/open/floor/tile/checker,
 /area/rogue/indoors/town/vault)
 "woL" = (
 /obj/machinery/light/fueled/torchholder{
@@ -35094,12 +34879,6 @@
 /obj/item/coin/copper,
 /turf/open/floor/tile/kitchen,
 /area/rogue/indoors/town/orphanage)
-"wDQ" = (
-/obj/machinery/light/fueled/wallfire/candle,
-/turf/open/floor/tile{
-	icon_state = "bfloorz"
-	},
-/area/rogue/indoors/town/manor)
 "wDU" = (
 /obj/machinery/light/fueled/wallfire/candle/blue{
 	pixel_y = -32
@@ -35199,9 +34978,7 @@
 /area/rogue/indoors/town/orphanage)
 "wGS" = (
 /obj/structure/rousman_hole,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/sewer)
 "wHp" = (
 /obj/structure/fluff/railing/border{
@@ -35819,9 +35596,7 @@
 /area/rogue/indoors/town/manor)
 "xei" = (
 /obj/item/bin/water/gross,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/basement)
 "xem" = (
 /obj/structure/door/green{
@@ -36083,9 +35858,7 @@
 /turf/open/floor/tile/bfloorz,
 /area/rogue/indoors/town/bath)
 "xpr" = (
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/indoors/town/orphanage)
 "xpw" = (
 /obj/structure/fluff/railing/wood{
@@ -36724,9 +36497,7 @@
 "xKS" = (
 /obj/effect/decal/cleanable/generic,
 /obj/structure/spider/stickyweb,
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/basement)
 "xLc" = (
 /obj/effect/decal/remains/human,
@@ -36749,9 +36520,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 4
 	},
-/turf/open/floor/tile{
-	icon_state = "greenstone"
-	},
+/turf/open/floor/greenstone,
 /area/rogue/under/town/sewer)
 "xLz" = (
 /obj/structure/chair/wood/alt/chair_noble/purple,
@@ -36774,9 +36543,7 @@
 	},
 /area/rogue/indoors/town/manor)
 "xMN" = (
-/turf/open/floor/blocks{
-	icon_state = "newstone2"
-	},
+/turf/open/floor/blocks/newstone,
 /area/rogue/indoors/town/church)
 "xMX" = (
 /obj/machinery/light/fueled/wallfire/candle/l{
@@ -61174,9 +60941,9 @@ vgJ
 vgJ
 vgJ
 tHe
-lmB
-lmB
-lmB
+smD
+smD
+smD
 tIe
 iRT
 bET
@@ -61192,9 +60959,9 @@ iRT
 bET
 iRT
 iTc
-lmB
-lmB
-lmB
+smD
+smD
+smD
 tHe
 vgJ
 vgJ
@@ -61378,7 +61145,7 @@ vgJ
 tHe
 lkC
 mtO
-lmB
+smD
 tHe
 iRT
 iRT
@@ -61395,7 +61162,7 @@ obG
 iRT
 bUM
 lkC
-lmB
+smD
 mtO
 bUM
 vgJ
@@ -97549,8 +97316,8 @@ gOl
 gOl
 gOl
 cmP
-gGR
-gGR
+mfQ
+mfQ
 gOl
 vLT
 bvW
@@ -97751,8 +97518,8 @@ cGL
 cGL
 gOl
 gOl
-wDQ
-gGR
+sJo
+mfQ
 gOl
 dGe
 qWO
@@ -97954,7 +97721,7 @@ alu
 gOl
 jnv
 hAh
-gGR
+mfQ
 gOl
 vLT
 bvW
@@ -98155,8 +97922,8 @@ sru
 vte
 gOl
 fUh
-gGR
-gGR
+mfQ
+mfQ
 gOl
 bas
 bas
@@ -98357,8 +98124,8 @@ sru
 kbJ
 gOl
 gOl
-wDQ
-gGR
+sJo
+mfQ
 gOl
 kDl
 bas
@@ -98559,8 +98326,8 @@ vGf
 gOl
 gOl
 grN
-gGR
-gGR
+mfQ
+mfQ
 gOl
 faL
 faL
@@ -113164,9 +112931,9 @@ vgJ
 vgJ
 eJc
 ceH
-srG
+equ
 iDF
-srG
+equ
 tLS
 eJc
 ayy
@@ -113366,9 +113133,9 @@ vgJ
 vgJ
 eJc
 dww
-srG
+equ
 nQM
-srG
+equ
 taC
 eJc
 vgJ
@@ -113568,9 +113335,9 @@ vgJ
 vgJ
 eJc
 bwq
-srG
+equ
 bwq
-srG
+equ
 bwq
 eJc
 vgJ
