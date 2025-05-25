@@ -5,22 +5,6 @@
 	var/ntype = text2num(type)
 	var/dat = ""
 	var/datum/browser/individual_logs_panel = new(user, "Individual_logging_[M]", "Individual Logs Panel for [key_name(M)]", 400, 400)
-	var/log_type_to_text
-	switch(type) // this sux but I don't care
-		if(INDIVIDUAL_ATTACK_LOG)
-			log_type_to_text = "Attack Log"
-		if(INDIVIDUAL_SAY_LOG)
-			log_type_to_text = "Say Log"
-		if(INDIVIDUAL_EMOTE_LOG)
-			log_type_to_text = "Emote Log"
-		if(INDIVIDUAL_OOC_LOG)
-			log_type_to_text = "OOC Log"
-		if(INDIVIDUAL_LOOC_LOG)
-			log_type_to_text = "LOOC Log"
-		if(INDIVIDUAL_SHOW_ALL_LOG)
-			log_type_to_text = "Show All"
-
-	dat += user?.prefs.get_ui_theme_stylesheet()
 
 	if (M.client)
 		dat += {"
@@ -57,6 +41,37 @@
 
 	dat += "<hr style='border-top: 1px solid black;'>"
 
+	individual_logs_panel.set_content(dat)
+	individual_logs_panel.open(FALSE)
+
+/proc/individual_logging_panel_link(mob/M, log_type, log_src, label, selected_src, selected_type)
+	var/slabel = label
+	if(selected_type == log_type && selected_src == log_src)
+		slabel = "<b>\[[label]\]</b>"
+
+	return "<a href='?_src_=holder;[HrefToken()];showindividuallog=[REF(M)];log_type=[log_type];log_src=[log_src]'>[slabel]</a>"
+
+/proc/show_individual_logs(client/user, mob/M, source = LOGSRC_CLIENT, type = INDIVIDUAL_SHOW_ALL_LOG)
+	if (!M || !ismob(M))
+		return
+
+	var/ntype = text2num(type)
+
+	var/log_type_to_text
+	switch(type) // this sux but I don't care
+		if(INDIVIDUAL_ATTACK_LOG)
+			log_type_to_text = "Attack Log"
+		if(INDIVIDUAL_SAY_LOG)
+			log_type_to_text = "Say Log"
+		if(INDIVIDUAL_EMOTE_LOG)
+			log_type_to_text = "Emote Log"
+		if(INDIVIDUAL_OOC_LOG)
+			log_type_to_text = "OOC Log"
+		if(INDIVIDUAL_LOOC_LOG)
+			log_type_to_text = "LOOC Log"
+		if(INDIVIDUAL_SHOW_ALL_LOG)
+			log_type_to_text = "Show All"
+
 	var/log_source = M.logging
 	if (source == LOGSRC_CLIENT && M.client)
 		log_source = M.client.player_details.logging
@@ -69,20 +84,10 @@
 			for (var/entry in all_the_entrys)
 				concatenated_logs += "<b>[entry]</b><br>[all_the_entrys[entry]]"
 
-	var/datum/browser/logs_window = new(user, "logs_window_[log_type_to_text]_[M]", "[key_name(M)] [log_type_to_text]", 600, 600)
+	var/datum/browser/logs_window = new(user, "logs_window_[type]_[M]", "[key_name(M)] [log_type_to_text]", 600, 600)
 
 	if (length(concatenated_logs))
 		sortTim(concatenated_logs, cmp = GLOBAL_PROC_REF(cmp_text_dsc))
 		logs_window.set_content(concatenated_logs.Join("<br>"))
 
-	dat += "</html>"
-	individual_logs_panel.set_content(dat)
-	individual_logs_panel.open(FALSE)
 	logs_window.open(FALSE)
-
-/proc/individual_logging_panel_link(mob/M, log_type, log_src, label, selected_src, selected_type)
-	var/slabel = label
-	if(selected_type == log_type && selected_src == log_src)
-		slabel = "<b>\[[label]\]</b>"
-
-	return "<a href='?_src_=holder;[HrefToken()];individuallog=[REF(M)];log_type=[log_type];log_src=[log_src]'>[slabel]</a>"
