@@ -43,14 +43,14 @@
 		/datum/skill/misc/swimming = 4,
 	)
 
-	specstats = list(STATKEY_STR = -1, STATKEY_PER = -2, STATKEY_CON = -2, STATKEY_SPD = 1, STATKEY_INT = 2)
+	specstats_m = list(STATKEY_STR = -1, STATKEY_PER = -2, STATKEY_CON = -2, STATKEY_SPD = 1, STATKEY_INT = 2)
 	specstats_f = list(STATKEY_STR = 2, STATKEY_PER = -4, STATKEY_CON = 3, STATKEY_SPD = -3)
 
 	limbs_icon_m = 'icons/roguetown/mob/bodies/m/triton.dmi'
 	limbs_icon_f = 'icons/roguetown/mob/bodies/f/triton.dmi'
 
-	dam_icon_m = 'icons/roguetown/mob/bodies/dam/dam_female.dmi'
-	dam_icon_f = 'icons/roguetown/mob/bodies/dam/dam_male.dmi'
+	dam_icon_m = 'icons/roguetown/mob/bodies/dam/dam_male.dmi'
+	dam_icon_f = 'icons/roguetown/mob/bodies/dam/dam_female.dmi'
 
 	soundpack_m = /datum/voicepack/female
 	soundpack_f = /datum/voicepack/male

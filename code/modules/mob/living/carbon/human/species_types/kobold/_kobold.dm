@@ -27,7 +27,7 @@
 	species_traits = list(NOEYESPRITES, NO_UNDERWEAR)
 	inherent_traits = list(TRAIT_TINY)
 
-	specstats = list(STATKEY_STR = -4, STATKEY_PER = -2, STATKEY_INT = -2, STATKEY_CON = -4, STATKEY_END = 2, STATKEY_SPD = 2, STATKEY_LCK = 0)
+	specstats_m = list(STATKEY_STR = -4, STATKEY_PER = -2, STATKEY_INT = -2, STATKEY_CON = -4, STATKEY_END = 2, STATKEY_SPD = 2, STATKEY_LCK = 0)
 	specstats_f = list(STATKEY_STR = -4, STATKEY_PER = -2, STATKEY_INT = -2, STATKEY_CON = -4, STATKEY_END = 2, STATKEY_SPD = 2, STATKEY_LCK = 0)
 
 	possible_ages = NORMAL_AGES_LIST
@@ -38,7 +38,6 @@
 	limbs_icon_m = 'icons/roguetown/mob/bodies/f/kobold.dmi'
 	limbs_icon_f = 'icons/roguetown/mob/bodies/f/kobold.dmi'
 
-	dam_icon_m = 'icons/roguetown/mob/bodies/dam/dam_female.dmi'
 	dam_icon_f = 'icons/roguetown/mob/bodies/dam/dam_female.dmi'
 
 	soundpack_m = /datum/voicepack/male/dwarf

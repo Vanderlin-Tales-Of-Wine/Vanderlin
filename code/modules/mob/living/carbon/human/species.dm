@@ -72,11 +72,21 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/hairyness = null
 	/// Append species id to clothing sprite name
 	var/custom_clothes = FALSE
-	/// cCustom id for custom_clothes
+	/// Custom id for custom_clothes
 	var/custom_id
-	/// Males use female clothes
+	/**
+	 * Males use female clothes, offsets and damage icons.
+	 * Importantly males still use male limb icons.
+	 * This does not effect stats or inherent traits/skills.
+	 * Males will not get boob overlays from this.
+	 */
 	var/swap_male_clothes = FALSE
-	/// Females use male clothes
+	/**
+	 * Feales use male clothes, offsets and damage icons.
+	 * Importantly females still use female limb icons.
+	 * This does not effect stats or inherent traits/skills.
+	 * Females will lose their boob overlays.
+	 */
 	var/swap_female_clothes = FALSE
 
 	/// Sounds for males
@@ -207,7 +217,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/list/body_markings
 
 	///Statkey = bonus stat, - for malice.
-	var/list/specstats = list(STATKEY_STR = 0, STATKEY_PER = 0, STATKEY_END = 0,STATKEY_CON = 0, STATKEY_INT = 0, STATKEY_SPD = 0, STATKEY_LCK = 0)
+	var/list/specstats_m = list(STATKEY_STR = 0, STATKEY_PER = 0, STATKEY_END = 0,STATKEY_CON = 0, STATKEY_INT = 0, STATKEY_SPD = 0, STATKEY_LCK = 0)
 
 	///Statkey = bonus stat, - for malice.
 	var/list/specstats_f = list(STATKEY_STR = 0, STATKEY_PER = 0, STATKEY_END = 0,STATKEY_CON = 0, STATKEY_INT = 0, STATKEY_SPD = 0, STATKEY_LCK = 0)
@@ -757,10 +767,11 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 		if(species?.hairyness)
 			var/limb_icon
-			if(use_female_sprites)
-				limb_icon = species?.limbs_icon_f
+			// Not use_female_sprites for limb icons
+			if(H.gender == MALE)
+				limb_icon = species.limbs_icon_m
 			else
-				limb_icon = species?.limbs_icon_m
+				limb_icon = species.limbs_icon_f
 			var/mutable_appearance/bodyhair_overlay = mutable_appearance(limb_icon, "[species?.hairyness]", -BODY_LAYER)
 			bodyhair_overlay.color = H.get_hair_color()
 			standing += bodyhair_overlay

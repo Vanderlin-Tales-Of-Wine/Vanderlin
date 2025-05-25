@@ -68,7 +68,7 @@
 		OFFSET_UNDIES = list(0,-1),\
 	)
 
-	specstats = list(STAT_PERCEPTION = 1)
+	specstats_m = list(STAT_PERCEPTION = 1)
 	specstats_f = list(STAT_PERCEPTION = 1)
 
 	enflamed_icon = "widefire"
