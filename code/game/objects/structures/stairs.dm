@@ -2,7 +2,6 @@
 #define STAIR_TERMINATOR_NO 1
 #define STAIR_TERMINATOR_YES 2
 
-// dir determines the direction of travel to go upwards (due to lack of sprites, currently only 1 and 2 make sense)
 // stairs require /turf/open/transparent/openspace as the tile above them to work
 // multiple stair objects can be chained together; the Z level transition will happen on the final stair object in the chain
 
@@ -18,6 +17,9 @@
 
 /obj/structure/stairs/Initialize(mapload)
 	. = ..()
+	var/static/list/loc_connections = list(COMSIG_ATOM_EXIT = PROC_REF(on_exit))
+	AddElement(/datum/element/connect_loc, loc_connections)
+
 	if(should_sink)
 		obj_flags &= ~IGNORE_SINK
 
@@ -110,19 +112,15 @@
 	add_abstract_elastic_data(ELASCAT_CRAFTING, "[name]", 1)
 	return
 
-/obj/structure/stairs/Initialize(mapload)
-	return ..()
+/obj/structure/stairs/proc/on_exit(datum/source, atom/movable/leaving, atom/new_location)
+	SIGNAL_HANDLER
 
-/obj/structure/stairs/Destroy()
-	return ..()
+	if(isobserver(leaving))
+		return
 
-/obj/structure/stairs/Uncross(atom/movable/AM, turf/newloc)
-	if(!newloc || !AM)
-		return ..()
-	var/moved = get_dir(src, newloc)
-	if(user_walk_into_target_loc(AM, moved))
-		return FALSE
-	return ..()
+	if(user_walk_into_target_loc(leaving, get_dir(src, new_location)))
+		leaving.Bump(src)
+		return COMPONENT_ATOM_BLOCK_EXIT
 
 /// From a cardinal direction, returns the resulting turf we'll end up at if we're uncrossing the stairs. Used for pathfinding, mostly.
 /obj/structure/stairs/proc/get_transit_destination(dirmove)
@@ -133,7 +131,7 @@
 	var/turf/zturf
 	if(dirmove == dir)
 		zturf = GET_TURF_ABOVE(get_turf(src))
-	else if(dirmove == GLOB.reverse_dir[dir])
+	else if(dirmove == REVERSE_DIR(dir))
 		zturf = GET_TURF_BELOW(get_turf(src))
 	if(!zturf)
 		return // not moving up or down
@@ -147,7 +145,7 @@
 /obj/structure/stairs/proc/user_walk_into_target_loc(atom/movable/AM, dirmove)
 	var/turf/newtarg = get_target_loc(dirmove)
 	if(newtarg)
-		movable_travel_z_level(AM, newtarg)
+		INVOKE_ASYNC(src, GLOBAL_PROC_REF(movable_travel_z_level), AM, newtarg)
 		return TRUE
 	return FALSE
 

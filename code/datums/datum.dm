@@ -112,6 +112,14 @@
 			qdel(C, FALSE)
 		dc.Cut()
 
+	clear_signal_refs()
+	//END: ECS SHIT
+
+	return QDEL_HINT_QUEUE
+
+///Only override this if you know what you're doing. You do not know what you're doing
+///This is a threat
+/datum/proc/clear_signal_refs()
 	var/list/lookup = comp_lookup
 	if(lookup)
 		for(var/sig in lookup)
@@ -127,9 +135,6 @@
 
 	for(var/target in signal_procs)
 		UnregisterSignal(target, signal_procs[target])
-	//END: ECS SHIT
-
-	return QDEL_HINT_QUEUE
 
 #ifdef DATUMVAR_DEBUGGING_MODE
 /datum/proc/save_vars()
@@ -165,7 +170,7 @@
 ///Accepts a LIST from deserialize_datum. Should return src or another datum.
 /datum/proc/deserialize_list(json, list/options)
 	CRASH("Attempted to deserialize datum [src] of type [type] without deserialize_list being implemented!")
-	
+
 ///Serializes into JSON. Does not encode type.
 /datum/proc/serialize_json(list/options)
 	. = serialize_list(options)

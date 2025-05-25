@@ -44,7 +44,6 @@
 	belt = /obj/item/storage/belt/leather
 	beltr = /obj/item/weapon/sword/arming
 	backl = /obj/item/storage/backpack/satchel
-	wrists = /obj/item/clothing/wrists/bracers
 	backpack_contents = list(/obj/item/storage/keyring/manorguard = 1)
 
 	H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
@@ -81,14 +80,10 @@
 
 /datum/outfit/job/royalknight/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
-	if(istype(H.cloak, /obj/item/clothing/cloak/tabard/knight/guard))
-		var/obj/item/clothing/S = H.cloak
-		var/index = findtext(H.real_name, " ")
-		if(index)
-			index = copytext(H.real_name, 1,index)
-		if(!index)
-			index = H.real_name
-		S.name = "knight's tabard ([index])"
+	if(H.cloak)
+		if(!findtext(H.cloak.name,"([H.real_name])"))
+			H.cloak.name = "[H.cloak.name]"+" "+"([H.real_name])"
+
 	var/prev_real_name = H.real_name
 	var/prev_name = H.name
 	var/honorary = "Sir"
@@ -136,10 +131,10 @@
 
 /datum/outfit/job/royalknight/knight/pre_equip(mob/living/carbon/human/H)
 	. = ..()
-	armor = /obj/item/clothing/armor/brigandine
-	shoes = /obj/item/clothing/shoes/boots/armor/light
-	gloves = /obj/item/clothing/gloves/chain
+	armor = /obj/item/clothing/armor/plate/full
 	head = /obj/item/clothing/head/helmet/visored/knight
+	gloves = /obj/item/clothing/gloves/plate
+	shoes = /obj/item/clothing/shoes/boots/armor
 
 /datum/advclass/royalknight/steam
 	name = "Steam Knight"

@@ -26,9 +26,9 @@
 
 /datum/objective/torture/proc/complete_objective(mob/living/victim)
 	to_chat(owner.current, span_greentext("You have extracted the truth through pain, satisfying Zizo!"))
-	owner.current.adjust_triumphs(1)
+	owner.current.adjust_triumphs(2)
 	completed = TRUE
-	adjust_storyteller_influence("Zizo", 15)
+	adjust_storyteller_influence("Zizo", 20)
 	escalate_objective()
 	UnregisterSignal(owner.current, COMSIG_TORTURE_PERFORMED)
 

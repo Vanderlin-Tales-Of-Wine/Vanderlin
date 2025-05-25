@@ -15,3 +15,14 @@
 		return FALSE
 	. = ..()
 	finish_action(controller, TRUE, target_key) // Try doing something else
+
+
+/datum/ai_behavior/basic_melee_attack/opportunistic_watcher/perform(seconds_per_tick, datum/ai_controller/controller, target_key, targeting_strategy_key, hiding_location_key)
+	var/atom/movable/atom_pawn = controller.pawn
+	if(!atom_pawn.CanReach(controller.blackboard[target_key]))
+		finish_action(controller, TRUE, target_key) // Don't clear target
+		return FALSE
+	. = ..()
+	for(var/t in RANGE_TURFS(1, controller.pawn))
+		new /obj/effect/hotspot(t)
+		controller.pawn.visible_message(span_danger("[controller.pawn] emits a burst of flames from it's core!"))

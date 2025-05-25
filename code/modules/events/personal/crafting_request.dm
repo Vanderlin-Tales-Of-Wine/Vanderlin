@@ -2,7 +2,7 @@
 	name = "Crafting Request"
 	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/malum_crafting
-	weight = 10
+	weight = 7
 	earliest_start = 10 MINUTES
 	max_occurrences = 1
 	min_players = 15
@@ -49,6 +49,6 @@
 
 	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
 	to_chat(chosen_one, span_notice("Malum demands a physical manifestation of devotion! Build 2 sacred pantheon crosses to earn Malum's favor!"))
-	SEND_SOUND(chosen_one, 'sound/magic/dwarf_chant01.ogg')
+	chosen_one.playsound_local(chosen_one, 'sound/magic/dwarf_chant01.ogg', 100)
 
 	chosen_one.mind.announce_personal_objectives()

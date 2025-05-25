@@ -100,9 +100,3 @@
 		if(istype(controller.pawn, /mob/living/simple_animal/hostile/retaliate/troll))
 			var/mob/living/simple_animal/hostile/retaliate/troll/mob = controller.pawn
 			mob.ambush()
-
-/datum/ai_behavior/find_potential_targets/human/bum/finish_action(datum/ai_controller/controller, succeeded, ...)
-	. = ..()
-	if(succeeded)
-		var/mob/living/pawn = controller.pawn
-		pawn.say(pick(GLOB.bum_aggro))

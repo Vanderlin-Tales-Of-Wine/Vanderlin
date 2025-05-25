@@ -308,7 +308,7 @@
 			pic.color = get_detail_color()
 		add_overlay(pic)
 
-/obj/item/clothing/obj_break(damage_flag)
+/obj/item/clothing/obj_break(damage_flag, silent)
 	if(!damaged_clothes)
 		update_clothes_damaged_state(TRUE)
 	var/brokemessage = FALSE
@@ -420,7 +420,7 @@ BLIND     // can't see anything
 		if(loc == user)
 			AdjustClothes(user)
 
-/obj/item/clothing/proc/AdjustClothes(mob/user)
+/obj/item/clothing/proc/AdjustClothes(mob/usFer)
 	return //override this in the clothing item itself so we can update the right inv
 
 /obj/item/clothing/proc/ResetAdjust(mob/user)

@@ -519,6 +519,22 @@
 	miss_text = "thrusts their head at nothing!"
 	miss_sound = PUNCHWOOSH
 
+/datum/intent/simple/hind_kick
+	name = "kick"
+	icon_state = "instrike"
+	attack_verb = list("kicks", "rams")
+	animname = "smash"
+	blade_class = BCLASS_BLUNT
+	hitsound = "punch_hard"
+	chargetime = 0
+	penfactor = 13
+	swingdelay = 0
+	candodge = TRUE
+	canparry = TRUE
+	item_damage_type = "blunt"
+	miss_text = "thrusts their legs at nothing!"
+	miss_sound = PUNCHWOOSH
+
 /datum/intent/simple/claw
 	name = "claw"
 	icon_state = "inclaw"

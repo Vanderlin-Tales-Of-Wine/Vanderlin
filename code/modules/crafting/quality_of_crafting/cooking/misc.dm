@@ -75,7 +75,7 @@
 	var/highest_quality = 0
 
 	// Calculate average freshness and find highest quality ingredient
-	for(var/obj/item/food_item in to_delete)
+	for(var/obj/item/reagent_containers/food_item in to_delete)
 		if(istype(food_item, /obj/item/reagent_containers/food/snacks) || istype(food_item, /obj/item/grown))
 			ingredient_count++
 
@@ -119,7 +119,8 @@
 					continue
 				parts += listed
 			new_item.CheckParts(parts)
-			new_item.OnCrafted(user.dir, user)
+
+		new_item.OnCrafted(user.dir, user)
 
 		outputs += new_item
 
@@ -200,7 +201,8 @@
 					continue
 				parts += listed
 			new_item.CheckParts(parts)
-			new_item.OnCrafted(user.dir, user)
+
+		new_item.OnCrafted(user.dir, user)
 
 		outputs += new_item
 

@@ -124,7 +124,7 @@
 		return FALSE
 	bruteloss = CLAMP((bruteloss + (amount * CONFIG_GET(number/damage_multiplier))), 0, maxHealth * 2)
 	if(updating_health)
-		updatehealth()
+		updatehealth(amount)
 	return amount
 
 /mob/living/proc/getOxyLoss()
@@ -136,7 +136,7 @@
 	. = oxyloss
 	oxyloss = clamp((oxyloss + (amount * CONFIG_GET(number/damage_multiplier))), 0, maxHealth * 2)
 	if(updating_health)
-		updatehealth()
+		updatehealth(amount)
 
 /mob/living/proc/setOxyLoss(amount, updating_health = TRUE, forced = FALSE)
 	if(!forced && status_flags & GODMODE)
@@ -144,7 +144,7 @@
 	. = oxyloss
 	oxyloss = amount
 	if(updating_health)
-		updatehealth()
+		updatehealth(amount)
 
 /mob/living/proc/getToxLoss()
 	return toxloss
@@ -154,7 +154,7 @@
 		return
 	toxloss = clamp((toxloss + (amount * CONFIG_GET(number/damage_multiplier))), 0, maxHealth * 2)
 	if(updating_health)
-		updatehealth()
+		updatehealth(amount)
 	return amount
 
 /mob/living/proc/setToxLoss(amount, updating_health = TRUE, forced = FALSE)
@@ -162,7 +162,7 @@
 		return FALSE
 	toxloss = amount
 	if(updating_health)
-		updatehealth()
+		updatehealth(amount)
 	return amount
 
 /mob/living/proc/getFireLoss()
@@ -173,7 +173,7 @@
 		return FALSE
 	fireloss = CLAMP((fireloss + (amount * CONFIG_GET(number/damage_multiplier))), 0, maxHealth * 2)
 	if(updating_health)
-		updatehealth()
+		updatehealth(amount)
 	return amount
 
 /mob/living/proc/getCloneLoss()
@@ -184,7 +184,7 @@
 		return FALSE
 	cloneloss = CLAMP((cloneloss + (amount * CONFIG_GET(number/damage_multiplier))), 0, maxHealth * 2)
 	if(updating_health)
-		updatehealth()
+		updatehealth(amount)
 	return amount
 
 /mob/living/proc/setCloneLoss(amount, updating_health = TRUE, forced = FALSE)
@@ -192,7 +192,7 @@
 		return FALSE
 	cloneloss = amount
 	if(updating_health)
-		updatehealth()
+		updatehealth(amount)
 	return amount
 
 /mob/living/proc/adjustOrganLoss(slot, amount, maximum)
@@ -216,21 +216,21 @@
 	adjustBruteLoss(brute, FALSE) //zero as argument for no instant health update
 	adjustFireLoss(burn, FALSE)
 	if(updating_health)
-		updatehealth()
+		updatehealth(brute + burn)
 
 // heal MANY bodyparts, in random order
 /mob/living/proc/heal_overall_damage(brute = 0, burn = 0, required_status, updating_health = TRUE)
 	adjustBruteLoss(-brute, FALSE) //zero as argument for no instant health update
 	adjustFireLoss(-burn, FALSE)
 	if(updating_health)
-		updatehealth()
+		updatehealth(brute + burn)
 
 // damage MANY bodyparts, in random order
 /mob/living/proc/take_overall_damage(brute = 0, burn = 0, updating_health = TRUE, required_status = null)
 	adjustBruteLoss(brute, FALSE) //zero as argument for no instant health update
 	adjustFireLoss(burn, FALSE)
 	if(updating_health)
-		updatehealth()
+		updatehealth(brute + burn)
 
 //heal up to amount damage, in a given order
 /mob/living/proc/heal_ordered_damage(amount, list/damage_types)

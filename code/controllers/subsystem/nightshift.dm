@@ -70,8 +70,13 @@ SUBSYSTEM_DEF(nightshift)
 	if(todd == "dawn")
 		if(HAS_TRAIT(src, TRAIT_VAMP_DREAMS))
 			apply_status_effect(/datum/status_effect/debuff/vamp_dreams)
+		if(HAS_TRAIT(src, TRAIT_NIGHT_OWL))
+			add_stress(/datum/stressevent/night_owl_dawn)
+
 
 	if(todd == "night")
+		if(HAS_TRAIT(src, TRAIT_NIGHT_OWL))
+			add_stress(/datum/stressevent/night_owl_night)
 		if(HAS_TRAIT(src, TRAIT_NOSTAMINA))
 			return ..()
 		if(HAS_TRAIT(src, TRAIT_NOSLEEP))

@@ -8,7 +8,7 @@
 	icon_state = "detective"
 	item_state = "gun"
 	flags_1 =  CONDUCT_1
-	slot_flags = ITEM_SLOT_BELT
+	slot_flags = ITEM_SLOT_HIP
 	w_class = WEIGHT_CLASS_NORMAL
 	possible_item_intents = list(INTENT_GENERIC, RANGED_FIRE)
 	throwforce = 5
@@ -101,8 +101,8 @@
 		shoot_with_empty_chamber(user)
 		return
 
-	if(user?.used_intent.arc_check() && target.z != user.z) //temporary fix for openspace arrow dupe
-		target = get_turf(locate(target.x, target.y, user.z))
+	if(user?.used_intent.arc_check())
+		target = get_turf(target)
 
 	return process_fire(target, user, TRUE, params, null, 0)
 

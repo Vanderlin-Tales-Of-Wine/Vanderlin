@@ -50,22 +50,16 @@
 	projectiletype = /obj/projectile/magic/firebolt
 	ranged_message = "stares"
 
+	ai_controller = /datum/ai_controller/watcher
+
+
+
+/mob/living/simple_animal/hostile/retaliate/infernal/watcher/Initialize()
+	. = ..()
+	AddComponent(/datum/component/ai_aggro_system)
+
 /mob/living/simple_animal/hostile/retaliate/infernal/watcher/simple_add_wound(datum/wound/wound, silent = FALSE, crit_message = FALSE)	//no wounding the watcher
 	return
-
-/mob/living/simple_animal/hostile/retaliate/infernal/watcher/MeleeAction(patience = TRUE)
-	for(var/t in RANGE_TURFS(1, src))
-		new /obj/effect/hotspot(t)
-		src.visible_message(span_danger("[src] emits a burst of flames from it's core!"))
-	if(rapid_melee > 1)
-		var/datum/callback/cb = CALLBACK(src, PROC_REF(CheckAndAttack))
-		var/delay = SSnpcpool.wait / rapid_melee
-		for(var/i in 1 to rapid_melee)
-			addtimer(cb, (i - 1)*delay)
-	else
-		AttackingTarget()
-	if(patience)
-		GainPatience()
 
 /mob/living/simple_animal/hostile/retaliate/infernal/watcher/death(gibbed)
 	..()

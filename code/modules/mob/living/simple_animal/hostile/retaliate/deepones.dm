@@ -36,8 +36,8 @@
 	faction = list("deepone")
 	footstep_type = FOOTSTEP_MOB_BAREFOOT
 
-	can_have_ai = FALSE
-	AIStatus = AI_OFF
+
+
 
 	ai_controller = /datum/ai_controller/deepone
 
@@ -68,7 +68,6 @@
 	retreat_distance = 2
 	minimum_distance = 5
 	ranged_cooldown_time = 40
-	check_friendly_fire = 1
 	ai_controller = /datum/ai_controller/deepone_ranged
 
 /mob/living/simple_animal/hostile/deepone/wiz
@@ -84,14 +83,9 @@
 	retreat_distance = 2
 	minimum_distance = 5
 	ranged_cooldown_time = 70
-	check_friendly_fire = 1
 	ai_controller = /datum/ai_controller/deepone_ranged
 	var/allowed_projectile_types = list(/obj/projectile/magic/frostbolt, /obj/projectile/energy/rogue3, /obj/projectile/magic/repel)
 
-
-/mob/living/simple_animal/hostile/deepone/wiz/Shoot()
-	projectiletype = pick(allowed_projectile_types)
-	..()
 /mob/living/simple_animal/hostile/deepone/wiz/boss
 	wander = FALSE
 /mob/living/simple_animal/hostile/deepone/spit/boss

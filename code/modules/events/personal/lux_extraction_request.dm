@@ -2,7 +2,7 @@
 	name = "Lux Extraction Demand"
 	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/pestra_lux
-	weight = 10
+	weight = 7
 	earliest_start = 10 MINUTES
 	max_occurrences = 1
 	min_players = 25
@@ -50,6 +50,6 @@
 
 	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
 	to_chat(chosen_one, span_notice("Pestra demands the essence of life! Extract lux from a living being to earn Pestra's favor!"))
-	SEND_SOUND(chosen_one, 'sound/magic/cosmic_expansion.ogg')
+	chosen_one.playsound_local(chosen_one, 'sound/magic/cosmic_expansion.ogg', 100)
 
 	chosen_one.mind.announce_personal_objectives()

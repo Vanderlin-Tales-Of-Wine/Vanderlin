@@ -338,7 +338,7 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 
 		if(human_mob.patron == strongest_challenger)
 			to_chat(human_mob, span_notice("You hear a divine calling from your patron - the time has come to challenge Astrata's authority! Prepare for the coming schism!"))
-			SEND_SOUND(human_mob, 'sound/magic/marked.ogg')
+			human_mob.playsound_local(human_mob, 'sound/magic/marked.ogg', 100)
 
 	new /datum/tennite_schism(strongest_challenger)
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(announce_schism_start)), 2 MINUTES)
