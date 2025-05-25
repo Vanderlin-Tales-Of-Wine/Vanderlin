@@ -15,7 +15,7 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 	var/obj/item/contraption/linker/multitool = I
 	if(!multitool.current_charge)
 		return
-	if(user.mind?.get_skill_level(/datum/skill/craft/engineering) < 1)
+	if(user.get_skill_level(/datum/skill/craft/engineering) < 1)
 		to_chat(user, span_warning("I have no idea how to use [multitool]!"))
 		return
 	user.visible_message("[user] starts tinkering with [src].", "You start tinkering with [src].")
@@ -177,7 +177,7 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 
 /obj/structure/repeater/attack_hand(mob/user)
 	. = ..()
-	if(user.mind?.get_skill_level(/datum/skill/craft/engineering) < 1)
+	if(user.get_skill_level(/datum/skill/craft/engineering) < 1)
 		to_chat(user, span_warning("I have no idea how to use [src]!"))
 		return
 	if(user.used_intent.type == INTENT_HARM)
@@ -410,7 +410,7 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 	AddComponent(/datum/component/squeak, list('sound/foley/footsteps/FTMET_A1.ogg','sound/foley/footsteps/FTMET_A2.ogg','sound/foley/footsteps/FTMET_A3.ogg','sound/foley/footsteps/FTMET_A4.ogg'), 40)
 	return ..()
 */
-/obj/structure/floordoor/obj_break(damage_flag)
+/obj/structure/floordoor/obj_break(damage_flag, silent)
 	obj_flags = null
 	..()
 

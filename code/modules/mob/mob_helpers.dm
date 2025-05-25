@@ -372,6 +372,7 @@
 			for(var/j in 1 to rand(0, 2))
 				letter += pick("#","@","*","&","%","$","/", "<", ">", ";","*","*","*","*","*","*","*")
 		. += letter
+
 ///Shake the camera of the person viewing the mob SO REAL!
 /proc/shake_camera(mob/M, duration, strength=1)
 	if(!M || !M.client || duration < 1)
@@ -626,7 +627,6 @@
 		if(QINTENT_SPELL)
 			if(mmb_intent)
 				qdel(mmb_intent)
-			testing("spellselect [ranged_ability]")
 			mmb_intent = new INTENT_SPELL(src)
 			mmb_intent.releasedrain = ranged_ability.get_fatigue_drain()
 			mmb_intent.chargedrain = ranged_ability.chargedrain
@@ -913,8 +913,6 @@
 		return
 	if(!check_rights_for(user.client, R_ADMIN)) // Are they allowed?
 		return
-	if(!user.client.AI_Interact) // Do they have it enabled?
-		return
 	return TRUE
 
 /**
@@ -1050,6 +1048,6 @@
 		if(!J)
 			return "Unknown"
 		used_title = J.get_informed_title(src)
-	if(mind?.apprentice)
-		used_title = mind.our_apprentice_name
+	if(is_apprentice())
+		used_title = return_our_apprentice_name()
 	return used_title

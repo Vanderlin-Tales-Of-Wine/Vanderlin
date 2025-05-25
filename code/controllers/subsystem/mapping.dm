@@ -59,11 +59,19 @@ SUBSYSTEM_DEF(mapping)
 	config = load_map_config(error_if_missing = FALSE)
 #endif
 	// After assigning a config datum to var/config, we check which map ajudstment fits the current config
-	for(var/datum/map_adjustment/each_adjust as anything in subtypesof(/datum/map_adjustment))
-		if(config.map_file && initial(each_adjust.map_file_name) != config.map_file)
+	for(var/datum/map_adjustment/adjust as anything in subtypesof(/datum/map_adjustment))
+		if(!adjust.map_file_name)
 			continue
-		map_adjustment = new each_adjust() // map_adjustment has multiple procs that'll be called from needed places (i.e. job_change)
-		log_world("Loaded '[config.map_file]' map adjustment.")
+		var/map = config.map_file
+		if(!map)
+			break
+		if(map_adjustment)
+			stack_trace("[map] is trying to set map adjustments after they have been set!")
+			break
+		if(adjust.map_file_name != map)
+			continue
+		map_adjustment = new adjust() // map_adjustment has multiple procs that'll be called from needed places (i.e. job_change)
+		log_world("Loaded '[map]' map adjustment.")
 		break
 	return ..()
 
@@ -216,7 +224,11 @@ SUBSYSTEM_DEF(mapping)
 	#endif
 
 	//For all maps
-	otherZ += load_map_config("_maps/map_files/shared/underworld.json")
+
+	#ifndef LOWMEMORYMODE
+	otherZ += load_map_config("_maps/map_files/shared/underworld.json") // don't load underworld on lowmem
+	#endif
+
 	if(length(otherZ))
 		for(var/datum/map_config/OtherZ in otherZ)
 			LoadGroup(FailedZs, OtherZ.map_name, OtherZ.map_path, OtherZ.map_file, OtherZ.traits, ZTRAITS_STATION)

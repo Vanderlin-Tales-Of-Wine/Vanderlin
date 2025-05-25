@@ -44,28 +44,26 @@
 	belt = /obj/item/storage/belt/leather
 	beltr = /obj/item/weapon/sword/arming
 	backl = /obj/item/storage/backpack/satchel
-	wrists = /obj/item/clothing/wrists/bracers
 	backpack_contents = list(/obj/item/storage/keyring/manorguard = 1)
 
-	if(H.mind)
-		H.mind.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 
-		H.mind.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/crossbows, 4, TRUE)
 
-		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE)
 
 	H.change_stat(STATKEY_STR, 3)
 	H.change_stat(STATKEY_PER, 2)
@@ -82,14 +80,10 @@
 
 /datum/outfit/job/royalknight/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
-	if(istype(H.cloak, /obj/item/clothing/cloak/tabard/knight/guard))
-		var/obj/item/clothing/S = H.cloak
-		var/index = findtext(H.real_name, " ")
-		if(index)
-			index = copytext(H.real_name, 1,index)
-		if(!index)
-			index = H.real_name
-		S.name = "knight's tabard ([index])"
+	if(H.cloak)
+		if(!findtext(H.cloak.name,"([H.real_name])"))
+			H.cloak.name = "[H.cloak.name]"+" "+"([H.real_name])"
+
 	var/prev_real_name = H.real_name
 	var/prev_name = H.name
 	var/honorary = "Sir"
@@ -105,42 +99,42 @@
 		"Sabre" = /obj/item/weapon/sword/sabre/dec, \
 		"Unarmed" = /obj/item/weapon/knife/dagger/steel \
 		)
-	var/choice = H.select_equippable(selectable, message = "Choose Your Specialisation", title = "KNIGHT")
+	var/choice = H.select_equippable(H, selectable, message = "Choose Your Specialisation", title = "KNIGHT")
 	if(!choice)
 		return
 	var/grant_shield = TRUE
 	var/modifier = reduced_skill
 	switch(choice)
 		if("Flail")
-			H.mind?.adjust_skillrank(/datum/skill/combat/whipsflails, 2 - modifier, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/whipsflails, 2 - modifier, TRUE)
 		if("Halberd")
-			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 2 - modifier, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/polearms, 2 - modifier, TRUE)
 			grant_shield = FALSE
 		if("Longsword")
 			if(!reduced_skill)
-				H.mind?.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
+				H.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
 			grant_shield = FALSE
 		if("Sabre")
 			if(!reduced_skill)
-				H.mind?.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
+				H.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
 		if("Unarmed")
 			if(!reduced_skill)
-				H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+				H.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 			grant_shield = FALSE
 	if(grant_shield)
-		H.mind?.adjust_skillrank(/datum/skill/combat/shields, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/shields, 1, TRUE)
 		var/shield = new /obj/item/weapon/shield/tower/metal()
 		if(!H.equip_to_appropriate_slot(shield))
 			qdel(shield)
 
 /datum/outfit/job/royalknight/knight/pre_equip(mob/living/carbon/human/H)
 	. = ..()
-	armor = /obj/item/clothing/armor/brigandine
-	shoes = /obj/item/clothing/shoes/boots/armor/light
-	gloves = /obj/item/clothing/gloves/chain
+	armor = /obj/item/clothing/armor/plate/full
 	head = /obj/item/clothing/head/helmet/visored/knight
+	gloves = /obj/item/clothing/gloves/plate
+	shoes = /obj/item/clothing/shoes/boots/armor
 
 /datum/advclass/royalknight/steam
 	name = "Steam Knight"

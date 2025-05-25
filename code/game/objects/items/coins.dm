@@ -168,7 +168,7 @@
 	var/intelligence = user.mind?.current.STAINT
 	var/perception = user.mind?.current.STAPER
 	var/speed = user.mind?.current.STASPD
-	var/mathematics_skill = user.mind?.get_skill_level(/datum/skill/labor/mathematics) || 0
+	var/mathematics_skill = user.get_skill_level(/datum/skill/labor/mathematics) || 0
 	var/list/skill_data = list("delay" = 1.2 SECONDS,"error" = 0)
 
 	var/base_tier	// Base intelligence tiers

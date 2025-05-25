@@ -1,26 +1,12 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"a" = (
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors/caves)
-"b" = (
-/obj/structure/table/wood/nice/decorated,
-/obj/item/candle/yellow/lit/infinite/strong/skull,
-/obj/item/reagent_containers/glass/bottle/stronghealthpot,
-/obj/item/reagent_containers/glass/bottle/redwine,
-/obj/item/statue/gold,
+"ag" = (
+/turf/closed/wall/mineral/wooddark/horizontal,
+/area/rogue/under/tomb/indoors)
+"ah" = (
+/obj/structure/fermentation_keg/beer,
 /turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
-"c" = (
-/mob/living/carbon/human/species/orc/ambush,
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors/caves)
-"d" = (
-/obj/structure/table/vtable/v2,
-/obj/item/book/godofdreamsandnightmares,
-/obj/item/natural/feather,
-/turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
-"e" = (
+/area/rogue/under/tomb/indoors)
+"ai" = (
 /obj/item/weapon/shield/tower/buckleriron,
 /obj/item/weapon/sword/khopesh,
 /obj/item/clothing/face/facemask/copper,
@@ -30,62 +16,82 @@
 /obj/item/clothing/armor/cuirass/copperchest,
 /obj/structure/closet/crate/chest,
 /turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/caves)
-"f" = (
-/obj/machinery/light/fueled/firebowl/standing,
+/area/rogue/under/tomb/indoors)
+"ak" = (
+/obj/structure/door/fancy,
+/turf/open/floor/ruinedwood/chevron,
+/area/rogue/under/tomb/indoors)
+"an" = (
+/turf/open/floor/cobblerock/alt,
+/area/rogue/under/tomb/indoors)
+"at" = (
+/mob/living/carbon/human/species/orc/ambush,
 /turf/open/floor/dirt/road,
-/area/rogue/outdoors/caves)
-"j" = (
-/turf/closed/wall/mineral/wooddark/horizontal,
-/area/rogue/outdoors/caves)
-"l" = (
-/obj/effect/dungeon_directional_helper/south,
+/area/rogue/under/tomb)
+"av" = (
+/obj/machinery/light/fueled/wallfire/candle/weak/l,
+/turf/open/floor/ruinedwood/chevron,
+/area/rogue/under/tomb/indoors)
+"aw" = (
+/turf/open/floor/ruinedwood/chevron,
+/area/rogue/under/tomb/indoors)
+"ax" = (
+/obj/structure/bed/shit,
+/turf/open/floor/cobblerock/alt,
+/area/rogue/under/tomb/indoors)
+"ay" = (
+/obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/dirt/road,
-/area/rogue/outdoors/caves)
-"m" = (
+/area/rogue/under/tomb)
+"aA" = (
+/turf/closed/wall/mineral/wooddark/vertical,
+/area/rogue/under/tomb/indoors)
+"aE" = (
+/obj/structure/door/stone,
+/turf/open/floor/cobblerock/alt,
+/area/rogue/under/tomb/indoors)
+"aF" = (
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/dirt/road,
-/area/rogue/outdoors/caves)
-"o" = (
-/obj/structure/bookcase/random/legends,
-/turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
-"p" = (
+/area/rogue/under/tomb)
+"aG" = (
+/turf/closed/wall/mineral/wooddark/end,
+/area/rogue/under/tomb/indoors)
+"aI" = (
+/obj/machinery/light/fueled/firebowl/standing,
+/turf/open/floor/dirt/road,
+/area/rogue/under/tomb)
+"aL" = (
+/turf/open/floor/dirt/road,
+/area/rogue/under/tomb)
+"aM" = (
+/turf/closed/mineral/bedrock,
+/area/rogue/under/tomb/indoors)
+"aQ" = (
+/obj/effect/dungeon_directional_helper/south,
+/turf/open/floor/dirt/road,
+/area/rogue/under/tomb)
+"aT" = (
+/turf/closed/mineral/bedrock,
+/area/rogue/under/tomb)
+"aU" = (
+/obj/effect/dungeon_directional_helper/east,
+/turf/open/floor/dirt/road,
+/area/rogue/under/tomb)
+"aZ" = (
+/obj/structure/table/wood/plain/alt,
+/obj/machinery/light/fueled/wallfire/candle/weak/l,
+/obj/item/reagent_containers/food/snacks/cheddar/aged,
+/obj/item/reagent_containers/glass/cup/skull,
+/turf/open/floor/cobblerock/alt,
+/area/rogue/under/tomb/indoors)
+"fh" = (
 /obj/structure/table/vtable,
 /obj/item/paper/scroll,
 /obj/item/clothing/ring/gold,
 /turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
-"q" = (
-/turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/caves)
-"r" = (
-/obj/structure/door/fancy,
-/turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
-"s" = (
-/obj/structure/fermentation_keg/water,
-/turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
-"u" = (
-/obj/structure/fermentation_keg/beer,
-/turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
-"z" = (
-/turf/closed/mineral/bedrock,
-/area/rogue/outdoors/caves)
-"B" = (
-/obj/structure/chair/wood,
-/turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
-"C" = (
-/turf/closed/wall/mineral/wooddark/vertical,
-/area/rogue/outdoors/caves)
-"D" = (
-/obj/machinery/light/fueled/wallfire/candle/weak/l,
-/turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
-"H" = (
+/area/rogue/under/tomb/indoors)
+"iS" = (
 /obj/structure/table/wood/nice/decorated,
 /obj/item/clothing/face/cigarette/pipe/westman,
 /obj/item/reagent_containers/food/snacks/produce/dry_westleach,
@@ -94,212 +100,209 @@
 /obj/item/reagent_containers/glass/cup/skull,
 /obj/item/reagent_containers/glass/cup/silver,
 /turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
-"J" = (
+/area/rogue/under/tomb/indoors)
+"lx" = (
+/obj/structure/fermentation_keg/water,
+/turf/open/floor/ruinedwood/chevron,
+/area/rogue/under/tomb/indoors)
+"rm" = (
+/obj/structure/chair/wood,
+/turf/open/floor/ruinedwood/chevron,
+/area/rogue/under/tomb/indoors)
+"uR" = (
+/obj/structure/bed/inn/double,
+/turf/open/floor/ruinedwood/chevron,
+/area/rogue/under/tomb/indoors)
+"vD" = (
+/obj/structure/table/wood/nice/decorated,
+/obj/item/candle/yellow/lit/infinite/strong/skull,
+/obj/item/reagent_containers/glass/bottle/stronghealthpot,
+/obj/item/reagent_containers/glass/bottle/redwine,
+/obj/item/statue/gold,
+/turf/open/floor/ruinedwood/chevron,
+/area/rogue/under/tomb/indoors)
+"zA" = (
+/obj/machinery/light/fueled/wallfire/candle/r,
+/turf/open/floor/ruinedwood/chevron,
+/area/rogue/under/tomb/indoors)
+"HU" = (
+/obj/structure/table/vtable/v2,
+/obj/item/book/godofdreamsandnightmares,
+/obj/item/natural/feather,
+/turf/open/floor/ruinedwood/chevron,
+/area/rogue/under/tomb/indoors)
+"LZ" = (
+/obj/structure/bookcase/random/legends,
+/turf/open/floor/ruinedwood/chevron,
+/area/rogue/under/tomb/indoors)
+"QP" = (
+/obj/structure/chair/wood/alt/chair_noble/purple,
+/turf/open/floor/ruinedwood/chevron,
+/area/rogue/under/tomb/indoors)
+"TY" = (
 /obj/machinery/light/fueled/wallfire/candle/r,
 /mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
-"K" = (
-/obj/structure/table/wood/plain/alt,
-/obj/machinery/light/fueled/wallfire/candle/weak/l,
-/obj/item/reagent_containers/food/snacks/cheddar/aged,
-/obj/item/reagent_containers/glass/cup/skull,
-/turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/caves)
-"N" = (
-/turf/closed/wall/mineral/wooddark/end,
-/area/rogue/outdoors/caves)
-"O" = (
-/obj/structure/chair/wood/alt/chair_noble/purple,
-/turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
-"P" = (
-/obj/machinery/light/fueled/wallfire/candle/r,
-/turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
-"R" = (
-/obj/structure/bed/shit,
-/turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/caves)
-"S" = (
-/obj/effect/dungeon_directional_helper/west,
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors/caves)
-"V" = (
-/turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
-"W" = (
-/obj/structure/door/stone,
-/turf/open/floor/cobblerock/alt,
-/area/rogue/outdoors/caves)
-"X" = (
-/obj/structure/bed/inn/double,
-/turf/open/floor/ruinedwood/chevron,
-/area/rogue/outdoors/caves)
-"Y" = (
-/obj/effect/dungeon_directional_helper/east,
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors/caves)
+/area/rogue/under/tomb/indoors)
 
 (1,1,1) = {"
-z
-z
-S
-z
-z
-z
-z
-z
+aT
+aT
+ay
+aT
+aT
+aT
+aT
+aT
 "}
 (2,1,1) = {"
-z
-f
-a
-a
-a
-a
-a
-z
+aT
+aI
+aL
+aL
+aL
+aL
+aL
+aT
 "}
 (3,1,1) = {"
-m
-a
-a
-a
-c
-a
-a
-z
+aF
+aL
+aL
+aL
+at
+aL
+aL
+aT
 "}
 (4,1,1) = {"
-z
-z
-z
-z
-a
-a
-a
-l
+aM
+aM
+aM
+aM
+aL
+aL
+aL
+aQ
 "}
 (5,1,1) = {"
-z
-R
-K
-z
-a
-a
-a
-z
+aM
+ax
+aZ
+aM
+aL
+aL
+aL
+aT
 "}
 (6,1,1) = {"
-z
-q
-q
-z
-a
-a
-a
-z
+aM
+an
+an
+aM
+aL
+aL
+aL
+aT
 "}
 (7,1,1) = {"
-z
-e
-q
-W
-a
-a
-f
-z
+aM
+ai
+an
+aE
+aL
+aL
+aI
+aT
 "}
 (8,1,1) = {"
-z
-z
-z
-z
-z
-Y
-z
-z
+aM
+aM
+aM
+aM
+aT
+aU
+aT
+aT
 "}
 
 (1,1,2) = {"
-N
-C
-C
-C
-C
-C
-C
-N
+aG
+aA
+aA
+aA
+aA
+aA
+aA
+aG
 "}
 (2,1,2) = {"
-j
-b
-V
-V
-V
-r
-D
-j
+ag
+vD
+aw
+aw
+aw
+ak
+av
+ag
 "}
 (3,1,2) = {"
-j
-o
-V
-V
-p
-C
-V
-V
+ag
+LZ
+aw
+aw
+fh
+aA
+aw
+aw
 "}
 (4,1,2) = {"
-j
-X
-J
-O
-d
-C
-V
-j
+ag
+uR
+TY
+QP
+HU
+aA
+aw
+ag
 "}
 (5,1,2) = {"
-j
-C
-C
-C
-C
-C
-V
-j
+ag
+aA
+aA
+aA
+aA
+aA
+aw
+ag
 "}
 (6,1,2) = {"
-V
-V
-V
-V
-V
-V
-V
-j
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+ag
 "}
 (7,1,2) = {"
-j
-s
-P
-B
-H
-B
-u
-j
+ag
+lx
+zA
+rm
+iS
+rm
+ah
+ag
 "}
 (8,1,2) = {"
-N
-C
-C
-C
-C
-C
-C
-N
+aG
+aA
+aA
+aA
+aA
+aA
+aA
+aG
 "}

@@ -6,7 +6,7 @@
 	category_tags = list(CTAG_PILGRIM)
 	tutorial = "Stoic gardeners or flesh-eating predators, all can follow Dendors path. <br>His Briars scorn civilized living, many embracing their animal nature, being fickle and temperamental."
 //	allowed_patrons = list(/datum/patron/divine/dendor)		this doesn't work so long its a subclass type. Besides its preferable to forceswitch as it does to make selection less clunky.
-	cmode_music = 'sound/music/cmode/combat_dendor.ogg'
+	cmode_music = 'sound/music/cmode/garrison/CombatForestGarrison.ogg'
 	maximum_possible_slots = 4	// to be lowered to 2? once testing is done
 
 /datum/outfit/job/adventurer/briar/pre_equip(mob/living/carbon/human/H)
@@ -31,26 +31,26 @@
 		if(H.patron != /datum/patron/divine/dendor)
 			H.set_patron(/datum/patron/divine/dendor)
 
-		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/magic/holy, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/taming, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/tanning, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/butchering, 5, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/farming, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/magic/holy, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/labor/taming, 4, TRUE)
+		H.adjust_skillrank(/datum/skill/craft/tanning, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/labor/butchering, 5, TRUE)
+		H.adjust_skillrank(/datum/skill/labor/farming, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
 		H.mind.teach_crafting_recipe(/datum/crafting_recipe/dendor/shillelagh)
 		H.mind.teach_crafting_recipe(/datum/crafting_recipe/dendor/forestdelight)
 
 		if(H.age == AGE_OLD)
-			H.mind?.adjust_skillrank(/datum/skill/magic/holy, 1, TRUE)
+			H.adjust_skillrank(/datum/skill/magic/holy, 1, TRUE)
 
 		// the unique Dendor crafting recipes. Dendor shrines (pantheon cross) and alt cosmetic helmet
 		H.mind.teach_crafting_recipe(/datum/crafting_recipe/dendor/visage)
@@ -144,7 +144,7 @@
 	structurecraft = /obj/structure/fluff/psycross/crafted/shrine/dendor_saiga
 	reqs = list(/obj/item/reagent_containers/food/snacks/fish/eel = 1,
 				/obj/item/reagent_containers/food/snacks/produce/westleach = 1,
-				/obj/item/reagent_containers/food/snacks/produce/jacksberry = 1)
+				/obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry = 1)
 	result = /obj/item/blessing_of_dendor_stinging
 	verbage = "make"
 	verbage_tp = "make"
@@ -168,19 +168,24 @@
 	layer = 4.2
 	alpha = 155
 	anchored = TRUE
+
 /obj/item/blessing_of_dendor_growing/attack_hand(mob/living/carbon/human/user)
 	if(user.patron.type == /datum/patron/divine/dendor)
 		icon_state = "dendor_grow_end"
+
+		if(!do_after(user, 3 SECONDS, target = user))
+			icon_state = "dendor_grow"
+			return
+
 		if(HAS_TRAIT(user, TRAIT_BLESSED))
 			to_chat(user, span_info("Dendor will not grant more powers, but he still approves of the sacrifice, judging by the signs..."))
 			user.apply_status_effect(/datum/status_effect/buff/blessed)
-			sleep(10)
 			GLOB.vanderlin_round_stats[STATS_DENDOR_SACRIFICES]++
 			qdel(src)
 			return
+
 		playsound(get_turf(user), 'sound/vo/smokedrag.ogg', 100, TRUE)
 		playsound(get_turf(user), 'sound/misc/wind.ogg', 100, TRUE, -1)
-		sleep(30)
 		to_chat(user, span_notice("Plants grow rampant with your every step...things that constrain no longer does."))
 		user.emote("smile")
 		ADD_TRAIT(user, TRAIT_BLESSED, TRAIT_GENERIC)
@@ -190,6 +195,7 @@
 			user.apply_status_effect(/datum/status_effect/buff/calm)
 	else
 		to_chat(user, span_warning("Dendor finds me unworthy..."))
+
 	GLOB.vanderlin_round_stats[STATS_DENDOR_SACRIFICES]++
 	qdel(src)
 
@@ -202,19 +208,24 @@
 	layer = 4.2
 	alpha = 155
 	anchored = TRUE
+
 /obj/item/blessing_of_dendor_stinging/attack_hand(mob/living/carbon/human/user)
 	if(user.patron.type == /datum/patron/divine/dendor)
 		icon_state = "dendor_sting_end"
+
+		if(!do_after(user, 3 SECONDS, target = user))
+			icon_state = "dendor_sting"
+			return
+
 		if(HAS_TRAIT(user, TRAIT_BLESSED))
 			to_chat(user, span_info("Dendor will not grant more powers, but he still approves of the sacrifice, judging by the signs..."))
 			user.apply_status_effect(/datum/status_effect/buff/blessed)
-			sleep(10)
 			GLOB.vanderlin_round_stats[STATS_DENDOR_SACRIFICES]++
 			qdel(src)
 			return
+
 		playsound(get_turf(user), 'sound/vo/smokedrag.ogg', 100, TRUE)
 		playsound(get_turf(user), 'sound/misc/wind.ogg', 100, TRUE, -1)
-		sleep(30)
 		to_chat(user, span_notice("You feel as if light follows your every step...your foraging will be easier from now on, surely."))
 		user.emote("smile")
 		ADD_TRAIT(user, TRAIT_BLESSED, TRAIT_GENERIC)
@@ -224,6 +235,7 @@
 			user.apply_status_effect(/datum/status_effect/buff/calm)
 	else
 		to_chat(user, span_warning("Dendor finds me unworthy..."))
+
 	GLOB.vanderlin_round_stats[STATS_DENDOR_SACRIFICES]++
 	qdel(src)
 
@@ -236,32 +248,41 @@
 	layer = 4.2
 	alpha = 155
 	anchored = TRUE
+
 /obj/item/blessing_of_dendor_devouring/attack_hand(mob/living/carbon/human/user)
 	if(user.patron.type == /datum/patron/divine/dendor)
 		icon_state = "dendor_consume_end"
+
+		if(!do_after(user, 3 SECONDS, target = user))
+			icon_state = "dendor_consume"
+			return
+
 		if(HAS_TRAIT(user, TRAIT_BLESSED))
 			to_chat(user, span_info("Dendor will not grant more powers, but he still approves of the sacrifice, judging by the signs..."))
 			user.apply_status_effect(/datum/status_effect/buff/blessed)
-			sleep(10)
 			GLOB.vanderlin_round_stats[STATS_DENDOR_SACRIFICES]++
 			qdel(src)
 			return
+
 		playsound(get_turf(user), 'sound/vo/smokedrag.ogg', 100, TRUE)
-		sleep(30)
 		to_chat(user, span_notice("A volf howls far away...and your teeth begin to sear with pain. Your sacrifice was accepted!"))
 		playsound(get_turf(user), 'sound/vo/mobs/wwolf/idle (1).ogg', 50, TRUE)
-		user.Immobilize(20)
-		sleep(20)
+		user.Immobilize(2 SECONDS)
+		sleep(2 SECONDS)
+
 		user.emote("pain")
-		sleep(5)
+		sleep(0.5 SECONDS)
+
 		playsound(get_turf(user), 'sound/combat/fracture/fracturewet (1).ogg', 70, TRUE, -1)
 		user.Immobilize(30)
-		sleep(35)
+		sleep(3.5 SECONDS)
+
 		to_chat(user, span_warning("My incisors transform to predatory fangs!"))
 		playsound(get_turf(user), 'sound/combat/fracture/fracturewet (1).ogg', 70, TRUE, -1)
 		user.emote("rage", forced = TRUE)
 		ADD_TRAIT(user, TRAIT_STRONGBITE, TRAIT_GENERIC)
 		ADD_TRAIT(user, TRAIT_BLESSED, TRAIT_GENERIC)
+
 		if(user.mind)
 			if(user.mind.has_spell(/obj/effect/proc_holder/spell/targeted/blesscrop))
 				user.apply_status_effect(/datum/status_effect/buff/barbrage)
@@ -273,5 +294,6 @@
 				to_chat(user, span_warning("I no longer care for mending wounds, let my rage be heard!"))
 	else
 		to_chat(user, span_warning("Dendor finds me unworthy..."))
+
 	GLOB.vanderlin_round_stats[STATS_DENDOR_SACRIFICES]++
 	qdel(src)

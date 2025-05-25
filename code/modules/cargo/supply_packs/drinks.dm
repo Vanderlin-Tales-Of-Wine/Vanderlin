@@ -1,37 +1,3 @@
-/datum/supply_pack/food/healthpot
-	name = "Healing Potion"
-	cost = 24
-	contains = /obj/item/reagent_containers/glass/bottle/healthpot
-
-/datum/supply_pack/food/manapot
-	name = "Manna Potion"
-	cost = 18
-	contains = /obj/item/reagent_containers/glass/bottle/manapot
-
-/datum/supply_pack/food/stronghealthpot
-
-	name = "Strong Healing Potion"
-	cost = 38
-	contains = /obj/item/reagent_containers/glass/bottle/stronghealthpot
-
-/datum/supply_pack/food/strongmanapot
-
-	name = "Strong Manna Potion"
-	cost = 32
-	contains = /obj/item/reagent_containers/glass/bottle/strongmanapot
-
-/datum/supply_pack/food/antidote
-
-	name = "Antidote Potion"
-	cost = 16
-	contains = /obj/item/reagent_containers/glass/bottle/antidote
-
-/datum/supply_pack/food/diseasecure
-
-	name = "Disease Cure Potion"
-	cost = 32
-	contains = /obj/item/reagent_containers/glass/bottle/diseasecure
-
 /datum/supply_pack/food/water
 	name = "Water Bottle"
 	cost = 5

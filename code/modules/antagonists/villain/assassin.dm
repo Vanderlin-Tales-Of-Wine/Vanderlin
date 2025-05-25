@@ -24,15 +24,15 @@
 	)
 
 /datum/antagonist/assassin/on_gain()
-	owner.current.cmode_music = list('sound/music/cmode/antag/CombatThrall.ogg', 'sound/music/cmode/antag/combat_werewolf.ogg')
+	owner.current.cmode_music = list('sound/music/cmode/antag/CombatAssassin.ogg')
 	if(owner.current.job != "Drifter") // This code only runs if the assassin is assigned midround and is not a drifter.
 		owner.current.set_patron(/datum/patron/inhumen/graggar)
-		var/old_knife_skill = owner.current.mind.get_skill_level(/datum/skill/combat/knives)
-		var/old_sneak_skill = owner.current.mind.get_skill_level(/datum/skill/misc/sneaking)
+		var/old_knife_skill = owner.current.get_skill_level(/datum/skill/combat/knives)
+		var/old_sneak_skill = owner.current.get_skill_level(/datum/skill/misc/sneaking)
 		if(old_knife_skill < 4) // If the assassined player has less than 4 knife skill, get them to 4.
-			owner.current.mind.adjust_skillrank(/datum/skill/combat/knives, 4 - old_knife_skill, TRUE)
+			owner.current.adjust_skillrank(/datum/skill/combat/knives, 4 - old_knife_skill, TRUE)
 		if(old_sneak_skill < 5) // If the assassined player has less than 5 sneak skill, get them to 5.
-			owner.current.mind.adjust_skillrank(/datum/skill/misc/sneaking, 5 - old_sneak_skill, TRUE)
+			owner.current.adjust_skillrank(/datum/skill/misc/sneaking, 5 - old_sneak_skill, TRUE)
 		var/yea = /obj/item/weapon/knife/dagger/steel/profane
 		owner.special_items["Profane Dagger"] = yea // Assigned assassins can get their special dagger from right clicking certain objects.
 		to_chat(owner.current, "<span class='danger'>I've blended in well up until this point, but it's time for the Hunted of Graggar to perish. I must get my dagger from where I hid it.</span>")

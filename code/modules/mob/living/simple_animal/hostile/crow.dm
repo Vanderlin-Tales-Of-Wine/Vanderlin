@@ -10,14 +10,11 @@
 	obj_flags = CAN_BE_HIT
 	var/dead = FALSE
 	eat_effect = /datum/status_effect/debuff/uncookedfood
-	fried_type = null
 	max_integrity = 10
 	sellprice = 0
 	blade_dulling = DULLING_CUT
 	rotprocess = null
 	static_debris = list(/obj/item/natural/feather=1)
-	fried_type = /obj/item/reagent_containers/food/snacks/friedcrow
-	cooked_smell = /datum/pollutant/food/fried_crow
 
 /obj/item/reagent_containers/food/snacks/friedcrow
 	name = "fried zad"

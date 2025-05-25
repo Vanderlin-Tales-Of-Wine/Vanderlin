@@ -7,11 +7,11 @@
 	. = ..()
 	if(!nomouseover && name && ismob(usr))
 		handle_mouseover(location, control, params)
-	SEND_SIGNAL(usr, COMSIG_ATOM_MOUSE_ENTERED, src)
+	SEND_SIGNAL(usr, COMSIG_ATOM_MOUSE_ENTERED, src, params)
 
 /turf/MouseEntered(location, control, params)
 	. = ..()
-	SEND_SIGNAL(usr, COMSIG_MOUSE_ENTERED, src)
+	SEND_SIGNAL(usr, COMSIG_MOUSE_ENTERED, src, params)
 
 /atom/MouseExited(params)
 	. = ..()
@@ -125,9 +125,6 @@
 		p.client.screen |= p.client.mouseovertext
 	return TRUE
 
-/turf/open
-	nomouseover = TRUE
-
 /turf/open/handle_mouseover(location, control, params)
 	var/mob/p = usr
 	if(p.client)
@@ -201,7 +198,6 @@
 
 	//No screen-loc information? abort.
 	if(!PM || !PM["screen-loc"])
-//		testing("Can't find parameters for that mouseover.")
 		return
 
 	//Split screen-loc up into X+Pixel_X and Y+Pixel_Y

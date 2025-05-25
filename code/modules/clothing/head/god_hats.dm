@@ -40,6 +40,14 @@
 	icon_state = "pestrahood"
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
 
+/obj/item/clothing/head/padded/abyssor
+	name = "sea hood"
+	desc = "A green hood worn by the faithful of Abyssor."
+	icon_state = "abysshood"
+	icon = 'icons/roguetown/clothing/patron_hoods.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/patron_robes.dmi'
+	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
+
 /obj/item/clothing/head/padded/operavisage
 	name = "opera visage"
 	desc = "A painted wooden opera mask worn by the faithful of Eora, usually during their rituals."
@@ -114,6 +122,7 @@
 					var/mob/living/carbon/H = user
 					H.update_inv_head()
 		user.update_fov_angles()
+		user.regenerate_clothes()
 
 /obj/item/clothing/head/roguehood/priest/equipped(mob/user, slot)
 	. = ..()
@@ -156,3 +165,4 @@
 		return
 	else
 		. = ..()
+

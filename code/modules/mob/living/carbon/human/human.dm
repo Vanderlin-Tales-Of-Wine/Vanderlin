@@ -145,11 +145,6 @@
 
 	dat += "<tr><td><hr></td></tr>"
 
-//	if(has_breathable_mask && istype(back, /obj/item/tank))
-//		dat += "&nbsp;<A href='byond://?src=[REF(src)];internal=[SLOT_BACK]'>[internal ? "Disable Internals" : "Set Internals"]</A>"
-
-//	dat += "<tr><td><B>HEAD</B></td></tr>"
-
 	//head
 	if(SLOT_HEAD in obscured)
 		dat += "<tr><td><font color=grey>Obscured</font></td></tr>"
@@ -510,7 +505,7 @@
 
 /mob/living/carbon/human/is_literate()
 	if(mind)
-		if(mind.get_skill_level(/datum/skill/misc/reading) > 0)
+		if(get_skill_level(/datum/skill/misc/reading) > 0)
 			return TRUE
 		else
 			return FALSE
@@ -559,6 +554,9 @@
 	if(pulling == target && stat == CONSCIOUS)
 		//If they dragged themselves and we're currently aggressively grabbing them try to piggyback
 		if(user == target && can_piggyback(target))
+			if(cmode)
+				to_chat(target, span_warning("[src] is too alert to let you piggyback!"))
+				return FALSE
 			piggyback(target)
 			return TRUE
 		//If you dragged them to you and you're aggressively grabbing try to carry them
@@ -651,7 +649,7 @@
 	. = ..(target, force, check_loc)
 
 /mob/living/carbon/human/proc/is_shove_knockdown_blocked() //If you want to add more things that block shove knockdown, extend this
-	var/list/body_parts = list(head, wear_mask, wear_armor, wear_pants, back, gloves, shoes, belt, s_store, ears, wear_ring) //Everything but pockets. Pockets are l_store and r_store. (if pockets were allowed, putting something armored, gloves or hats for example, would double up on the armor)
+	var/list/body_parts = list(head, wear_mask, wear_armor, wear_pants, back, gloves, shoes, belt, ears, wear_ring)
 	for(var/bp in body_parts)
 		if(istype(bp, /obj/item/clothing))
 			var/obj/item/clothing/C = bp
@@ -669,7 +667,7 @@
 	. = ..()
 	. *= physiology.do_after_speed
 
-/mob/living/carbon/human/updatehealth()
+/mob/living/carbon/human/updatehealth(amount)
 	. = ..()
 	dna?.species.spec_updatehealth(src)
 	if(HAS_TRAIT(src, TRAIT_IGNOREDAMAGESLOWDOWN))

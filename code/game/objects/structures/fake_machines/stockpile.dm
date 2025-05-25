@@ -138,6 +138,9 @@
 
 /obj/structure/fake_machine/stockpile/attackby(obj/item/P, mob/user, params)
 	if(ishuman(user))
+		if(user.real_name in GLOB.outlawed_players)
+			say("OUTLAW DETECTED! REFUSING SERVICE!")
+			return
 		if(istype(P, /obj/item/coin))
 			withdraw_tab.insert_coins(P)
 			return attack_hand(user)
@@ -146,6 +149,9 @@
 
 /obj/structure/fake_machine/stockpile/attack_right(mob/user)
 	if(ishuman(user))
+		if(user.real_name in GLOB.outlawed_players)
+			say("OUTLAW DETECTED! REFUSING SERVICE!")
+			return
 		var/total_value = 0
 		for(var/obj/I in get_turf(src))
 			total_value += attemptsell(I, user, FALSE, FALSE)

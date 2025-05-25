@@ -50,11 +50,9 @@
 	if(.)
 		return
 	user.changeNext_move(CLICK_CD_MELEE)
-	testing("yea144")
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	var/list/things = STR.contents()
 	if(things.len)
-		testing("yea64")
 		var/obj/item/I = pick(things)
 		STR.remove_from_storage(I, get_turf(user))
 		user.put_in_hands(I)
@@ -103,7 +101,7 @@
 	desc = "A cloth and leather satchel for storing the fruit of one's hunt."
 	icon_state = "gamesatchel"
 	icon = 'icons/roguetown/clothing/storage.dmi'
-	slot_flags = ITEM_SLOT_BELT|ITEM_SLOT_BACK_L|ITEM_SLOT_BACK_R|ITEM_SLOT_HIP
+	slot_flags = ITEM_SLOT_BACK_L|ITEM_SLOT_BACK_R|ITEM_SLOT_HIP
 	w_class = WEIGHT_CLASS_NORMAL
 	resistance_flags = NONE
 	max_integrity = 300
@@ -114,11 +112,9 @@
 	if(.)
 		return
 	user.changeNext_move(CLICK_CD_MELEE)
-	testing("yea144")
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	var/list/things = STR.contents()
 	if(things.len)
-		testing("yea64")
 		var/obj/item/I = pick(things)
 		STR.remove_from_storage(I, get_turf(user))
 		user.put_in_hands(I)

@@ -5,7 +5,6 @@
 	var/duration_modification = 0
 
 /datum/status_effect/buff/duration_modification/on_creation(mob/living/new_owner, duration_increase)
-	testing("oncreation")
 	if(new_owner)
 		owner = new_owner
 	if(owner)
@@ -790,7 +789,7 @@
 /datum/status_effect/buff/nocblessed
 	id = "nocblessed"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/nocblessed
-	effectedstats = list("intelligence" = 3, "perception" = 2) 
+	effectedstats = list("intelligence" = 3, "perception" = 2)
 	duration = 300 MINUTES
 
 /atom/movable/screen/alert/status_effect/buff/nocblessed
@@ -836,6 +835,7 @@
 /datum/status_effect/buff/lux_drank/on_apply()
 	. = ..()
 	owner.add_stress(/datum/stressevent/high)
+	SEND_SIGNAL(owner, COMSIG_LUX_TASTED)
 
 /datum/status_effect/buff/lux_drank/on_remove()
 	owner.remove_stress(/datum/stressevent/high)

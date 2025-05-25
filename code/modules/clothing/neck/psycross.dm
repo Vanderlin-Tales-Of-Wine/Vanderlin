@@ -17,6 +17,7 @@
 	resistance_flags = FIRE_PROOF
 	sellprice = 50
 	smeltresult = /obj/item/ingot/silver
+	is_silver = TRUE
 
 // PANTHEON SILVER PSYCROSSES START
 

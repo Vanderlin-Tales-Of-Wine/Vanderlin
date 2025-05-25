@@ -85,3 +85,25 @@
 	name = "decorated halfplate with corset"
 	desc = "A halfplate decorated with an gold ornament on the chestplate and a fine silk corset. More for decoration then actual use."
 	icon_state = "halfplate_decorated_corset"
+
+//................ Zizo Armor ...............//
+
+/obj/item/clothing/armor/plate/full/zizo
+	name = "darksteel fullplate"
+	desc = "Full plate. Called forth from the edge of what should be known. In Her name."
+	icon_state = "zizoplate"
+	icon = 'icons/roguetown/clothing/special/evilarmor.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/evilarmor.dmi'
+	sleeved = 'icons/roguetown/clothing/special/onmob/evilarmor.dmi'
+	sellprice = 0 // Incredibly evil Zizoid armor, this should be burnt, nobody wants this
+
+//................ Matthios Armor ...............//
+
+/obj/item/clothing/armor/plate/full/matthios
+	name = "gilded fullplate"
+	desc = "Full plate. Tales told of men in armor such as this stealing many riches, or lives."
+	icon_state = "matthiosarmor"
+	icon = 'icons/roguetown/clothing/special/evilarmor.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/evilarmor.dmi'
+	sleeved = 'icons/roguetown/clothing/special/onmob/evilarmor.dmi'
+	sellprice = 0 // See above comment

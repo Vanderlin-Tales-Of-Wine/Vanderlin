@@ -74,7 +74,7 @@ GLOBAL_LIST_INIT(dungeon_exit, list())
 		playsound(src, 'sound/foley/ladder.ogg', 100, FALSE)
 		if(!do_after(user, 3 SECONDS, src))
 			return
-	mob_move_travel_z_level(user, get_turf(exit))
+	movable_travel_z_level(user, get_turf(exit))
 
 /obj/structure/dungeon_exit
 	name = "dungeon exit"
@@ -131,4 +131,4 @@ GLOBAL_LIST_INIT(dungeon_exit, list())
 		playsound(src, 'sound/foley/ladder.ogg', 100, FALSE)
 		if(!do_after(user, 3 SECONDS, src))
 			return
-	mob_move_travel_z_level(user, get_turf(entry))
+	movable_travel_z_level(user, get_turf(entry))

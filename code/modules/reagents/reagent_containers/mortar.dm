@@ -8,6 +8,7 @@
 	dropshrink = 0.9
 	grid_height = 64
 	grid_width = 32
+
 /obj/item/reagent_containers/glass/mortar
 	name = "mortar"
 	desc = "A versatile mortar for both alchemy and reagent processing."
@@ -19,6 +20,7 @@
 	reagent_flags = OPENCONTAINER
 	spillable = TRUE
 	var/obj/item/to_grind
+	var/grinding = FALSE
 	grid_height = 32
 	grid_width = 64
 	dropshrink = 0.9
@@ -50,7 +52,9 @@
 
 		// Check for alchemical recipe first
 		var/datum/alch_grind_recipe/foundrecipe = find_recipe()
-
+		if(grinding)
+			return
+		grinding = TRUE
 		var/choice
 		// If item has grind/juice results but no alchemical recipe, default to reagent processing
 		if((to_grind.grind_results || to_grind.juice_results))
@@ -58,6 +62,7 @@
 			if(foundrecipe) // If both options are valid
 				choice = input(user, "What would you like to do?", "Grinding Options") as null|anything in list("Alchemy", "Process")
 				if(!choice)
+					grinding = FALSE
 					return
 
 		if(choice == "Process")
@@ -70,15 +75,18 @@
 					if(to_grind.reagents) //food and pills
 						to_grind.reagents.trans_to(src, to_grind.reagents.total_volume, transfered_by = user)
 					QDEL_NULL(to_grind)
+					grinding = FALSE
 					return
 				to_grind.on_grind()
 				reagents.add_reagent_list(to_grind.grind_results)
 				to_chat(user, "<span class='notice'>I break [to_grind] into powder.</span>")
 				QDEL_NULL(to_grind)
+			grinding = FALSE
 			return
 
 		if(!foundrecipe)
 			to_chat(user, "<span class='warning'>You dont think that will work!</span>")
+			grinding = FALSE
 			return
 
 		// Process alchemical recipe
@@ -89,7 +97,7 @@
 				for(var/i in 1 to foundrecipe.valid_outputs[output])
 					new output(get_turf(src))
 			var/bonus_modifier = 1
-			switch(user.mind?.get_learning_boon(/datum/skill/craft/alchemy))
+			switch(user.get_learning_boon(/datum/skill/craft/alchemy))
 				if(SKILL_LEVEL_JOURNEYMAN)
 					bonus_modifier = 1.4
 				if(SKILL_LEVEL_EXPERT)
@@ -111,7 +119,8 @@
 				S.start()
 			QDEL_NULL(to_grind)
 			if(user.mind)
-				user.mind.adjust_experience(/datum/skill/craft/alchemy, user.STAINT * user.mind.get_learning_boon(/datum/skill/craft/alchemy), FALSE)
+				user.adjust_experience(/datum/skill/craft/alchemy, user.STAINT * user.get_learning_boon(/datum/skill/craft/alchemy), FALSE)
+		grinding = FALSE
 		return
 
 	if(to_grind)

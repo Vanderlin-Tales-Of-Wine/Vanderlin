@@ -87,4 +87,4 @@
 	else
 		destination = locate(well.x, well.y, well.z + 1)
 	if(isliving(user))
-		mob_move_travel_z_level(user, destination)
+		movable_travel_z_level(user, destination)

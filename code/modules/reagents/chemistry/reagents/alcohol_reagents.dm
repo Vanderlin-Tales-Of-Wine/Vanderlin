@@ -94,7 +94,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	name = "Pear Cider"
 
 /datum/reagent/consumable/ethanol/cider/strawberry
-	name = "Starwberry Cider"
+	name = "Strawberry Cider"
 	color = "#da4d4d"
 	taste_description = "strawberry cider"
 

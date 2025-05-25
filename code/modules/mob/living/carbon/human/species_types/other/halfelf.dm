@@ -92,16 +92,16 @@
 
 /datum/species/human/halfelf/get_skin_list()
 	return sortList(list(
-		"Zizo-Cursed" = SKIN_COLOR_ZIZO_CURSED, // - (Pale)
 		"Timber-Gronn" = SKIN_COLOR_TIMBER_GRONN, // - (White 1)
 		"Solar-Hue" = SKIN_COLOR_SOLAR_HUE, // - (White 2)
 		"Walnut-Stine" = SKIN_COLOR_WALNUT_STINE, // - (White 3)
 		"Amber-Stained" = SKIN_COLOR_AMBER_STAINED, // - (White 4)
 		"Joshua-Aligned" = SKIN_COLOR_JOSHUA_ALIGNED, // - (Middle-Eastern)
 		"Arid-Birthed" = SKIN_COLOR_ARID_BIRTHED, // - (Black)
-		"Parasite-Taineted" = SKIN_COLOUR_PARASITE_TAINTED, // - (Light purple)
-		"Mushroom-Minded" = SKIN_COLOR_MUSHROOM_MINDED, // - (Mid purple)
-		"Cave-Attuned" = SKIN_COLOR_CAVE_ATTUNED, // - (Deep purple)
+		"Redwood-Rooted" = SKIN_COLOR_REDWOOD_ROOTED, // - (Mediterranean 1)
+		"Drifted-Wood" = SKIN_COLOR_DRIFTED_WOOD, // - (Mediterranean 2)
+		"Vine-Wrapped" = SKIN_COLOR_VINE_WRAPPED, // - (Latin 2)
+		"Sage-Bloomed" = SKIN_COLOR_SAGE_BLOOMED, // - (Black 2)
 	))
 
 /datum/species/human/halfelf/get_hairc_list()
@@ -128,12 +128,7 @@
 	"blond - strawberry" = "c69b71",
 
 	"green - leaf" = "2f3c2e",
-	"green - moss" = "3b3c2a",
-
-	"white - ice" = "f4f4f4",
-	"white - cavedew" = "dee9ed",
-	"white - spiderweb" = "f4f4f4"
-
+	"green - moss" = "3b3c2a"
 	))
 
 /datum/species/human/halfelf/get_possible_names(gender = MALE)
@@ -146,10 +141,8 @@
 
 /datum/species/human/halfelf/after_creation(mob/living/carbon/human/C)
 	..()
-	if(C.skin_tone == SKIN_COLOR_ZIZO_CURSED)
-		exotic_bloodtype = /datum/blood_type/human/cursed_elf
 	C.grant_language(/datum/language/elvish)
-	to_chat(C, "<span class='info'>I can speak Elfish with ,e before my speech.</span>")
+	to_chat(C, "<span class='info'>I can speak Elvish with ,e before my speech.</span>")
 
 /datum/species/human/halfelf/get_native_language()
 	return pick("Elfish", "Imperial")

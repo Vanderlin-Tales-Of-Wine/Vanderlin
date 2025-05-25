@@ -66,7 +66,7 @@
 	var/umsg = "You succeed in fixing some of [target]'s wounds" //no period, add initial space to "addons"
 	var/tmsg = "[user] fixes some of [target]'s wounds" //see above
 	var/healing_multiplier = 1
-	switch(user.mind?.get_skill_level(skill_used))
+	switch(user.get_skill_level(skill_used))
 		if(SKILL_LEVEL_JOURNEYMAN)
 			healing_multiplier = 1.1
 		if(SKILL_LEVEL_EXPERT)

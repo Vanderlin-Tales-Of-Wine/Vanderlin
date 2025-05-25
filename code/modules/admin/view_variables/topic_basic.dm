@@ -69,7 +69,7 @@
 		lst.Insert(1, result)
 		if(result in componentsubtypes)
 			datumname = "component"
-			target.AddComponent(arglist(lst))
+			target._AddComponent(lst)
 		else
 			datumname = "element"
 			target._AddElement(lst)

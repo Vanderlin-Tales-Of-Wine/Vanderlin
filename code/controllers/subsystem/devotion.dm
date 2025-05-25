@@ -220,7 +220,7 @@
 				break
 			var/devotion_multiplier = 1
 			if(mind)
-				devotion_multiplier += (mind.get_skill_level(/datum/skill/magic/holy) / 4)
+				devotion_multiplier += (get_skill_level(/datum/skill/magic/holy) / 4)
 			C.update_devotion(floor(C.prayer_effectiveness * devotion_multiplier), floor(C.prayer_effectiveness * devotion_multiplier))
 			prayersesh += floor(C.prayer_effectiveness * devotion_multiplier)
 		else

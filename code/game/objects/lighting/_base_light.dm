@@ -62,6 +62,8 @@
 
 	var/fueluse = -1 // How much fuel the machinery starts with. At -1, it is never turned off with the passing of time.
 
+	var/obj/effect/fog_parter/fog_parter_effect = /obj/effect/fog_parter // set to null to remove fog parter
+
 /obj/machinery/light/broken
 	status = LIGHT_BROKEN
 	icon_state = "tube-broken"
@@ -114,6 +116,7 @@
 	addtimer(CALLBACK(src, PROC_REF(update), 0), 1)
 
 /obj/machinery/light/Destroy()
+	QDEL_NULL(fog_parter_effect)
 	var/area/A = get_area(src)
 	if(A)
 		on = FALSE
@@ -144,6 +147,7 @@
 // update the icon_state and luminosity of the light depending on its state
 /obj/machinery/light/proc/update(trigger = TRUE)
 	emergency_mode = FALSE
+	var/should_update_light = !isnull(set_light_on(on))
 	if(on)
 		var/BR = brightness
 		var/PO = bulb_power
@@ -184,6 +188,8 @@
 	else
 		emergency_mode = TRUE
 		START_PROCESSING(SSmachines, src)
+	if(should_update_light)
+		update_light()
 	update_icon()
 
 	broken_sparks(start_only=TRUE)
@@ -213,7 +219,7 @@
 /obj/machinery/light/proc/burn_out()
 	if(on)
 		on = FALSE
-		set_light(0)
+		update()
 		update_icon()
 
 // attempt to set the light's on/off status
@@ -327,3 +333,24 @@
 	brightness = 4
 	layer = 2.5
 	fitting = "bulb"
+
+// FOG RELATED PROC OVERRIDES
+
+/obj/machinery/light/set_light_on(new_value)
+	. = ..()
+	if(isnull(fog_parter_effect))
+		return
+	if(on)
+		if(!istype(fog_parter_effect))
+			fog_parter_effect = new fog_parter_effect(get_turf(src), light_outer_range)
+	else
+		if(istype(fog_parter_effect)) // to check if its initialized instead of a path
+			qdel(fog_parter_effect)
+		fog_parter_effect = initial(fog_parter_effect)
+
+/obj/machinery/light/set_light_range(new_inner_range, new_outer_range)
+	. = ..()
+	if(isnull(.))
+		return
+	if(istype(fog_parter_effect))
+		fog_parter_effect.set_range(light_outer_range)

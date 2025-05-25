@@ -252,3 +252,25 @@
 /obj/item/clothing/armor/leather/jacket/handjacket/Destroy()
 	GLOB.lordcolor -= src
 	return ..()
+
+/obj/item/clothing/armor/leather/jacket/leathercoat
+	name = "leather coat"
+	desc = "A tan and purple leather coat."
+	icon_state = "leathercoat"
+	icon = 'icons/roguetown/clothing/leathercoat.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/leathercoat.dmi'
+	sleeved = 'icons/roguetown/clothing/onmob/leathercoat.dmi'
+	boobed = TRUE
+	armor = ARMOR_LEATHER
+	body_parts_covered = COVERAGE_ALL_BUT_LEGS
+
+/obj/item/clothing/armor/leather/jacket/leathercoat/black
+	name = "black leather coat"
+	desc = "A black and purple leather coat."
+	icon_state = "bleathercoat"
+	icon = 'icons/roguetown/clothing/leathercoat.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/leathercoat.dmi'
+	sleeved = 'icons/roguetown/clothing/onmob/leathercoat.dmi'
+	boobed = TRUE
+	armor = ARMOR_LEATHER
+	body_parts_covered = COVERAGE_ALL_BUT_LEGS
