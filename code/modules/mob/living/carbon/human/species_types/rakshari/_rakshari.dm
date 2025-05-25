@@ -68,7 +68,7 @@
 /datum/species/rakshari/after_creation(mob/living/carbon/C)
 	..()
 	C.grant_language(/datum/language/common)
-	C.grant_language(/datum/language/thievescant)
+	C.grant_language(/datum/language/zybantine)
 
 /datum/species/rakshari/on_species_loss(mob/living/carbon/C)
 	. = ..()
