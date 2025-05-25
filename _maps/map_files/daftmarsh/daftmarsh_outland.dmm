@@ -1026,9 +1026,7 @@
 	},
 /obj/effect/mapping_helpers/access/locker,
 /obj/effect/mapping_helpers/access/keyset/garrison/forest,
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/indoors/town/cell)
 "kf" = (
 /obj/machinery/light/fueled/campfire/densefire,
@@ -1128,9 +1126,7 @@
 	},
 /obj/effect/mapping_helpers/access/locker,
 /obj/effect/mapping_helpers/access/keyset/garrison/forest,
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/indoors/town/cell)
 "li" = (
 /obj/structure/rack,

@@ -195,9 +195,7 @@
 /obj/structure/bars/passage/shutter/open{
 	redstone_id = "merchantvault"
 	},
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/indoors/town/shop)
 "agd" = (
 /obj/machinery/light/fueled/firebowl/standing/blue,
@@ -1444,9 +1442,7 @@
 /obj/structure/door/iron/bars,
 /obj/effect/mapping_helpers/access/keyset/manor/dungeon,
 /obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/under/town/basement)
 "aRO" = (
 /obj/machinery/light/fueled/wallfire{
@@ -5943,9 +5939,7 @@
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town/manor)
 "doN" = (
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/indoors/town/orphanage)
 "doO" = (
 /obj/structure/bonepile,
@@ -6205,9 +6199,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 8
 	},
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/outdoors/town)
 "dvG" = (
 /obj/structure/table/wood/plain_alt,
@@ -7011,9 +7003,7 @@
 	redstone_id = "keepgatenorth";
 	gid = "keepgatenorth"
 	},
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/outdoors/town)
 "dVP" = (
 /obj/structure/flora/newtree/snow,
@@ -8183,9 +8173,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 4
 	},
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/indoors/town/orphanage)
 "eGz" = (
 /obj/machinery/light/fueled/wallfire{
@@ -8367,9 +8355,7 @@
 /turf/closed/wall/mineral/tent,
 /area/rogue/outdoors/town)
 "eLB" = (
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/under/town/basement)
 "eLQ" = (
 /turf/closed/wall/mineral/stone,
@@ -10707,9 +10693,7 @@
 /turf/open/floor/hexstone,
 /area/rogue/indoors/town/shop)
 "gbo" = (
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/indoors/villagegarrison)
 "gbp" = (
 /obj/structure/fluff/walldeco/mageguild{
@@ -12606,9 +12590,7 @@
 /turf/open/floor/tile/checker_green,
 /area/rogue/indoors/villagegarrison)
 "hep" = (
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/outdoors/rtfield/safe)
 "heF" = (
 /obj/structure/door/iron/bars,
@@ -13426,9 +13408,7 @@
 	dir = 4
 	},
 /obj/structure/water_pipe,
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/under/town/basement)
 "hEf" = (
 /obj/structure/chair/bench/coucha,
@@ -19610,9 +19590,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/outdoors/town/roofs)
 "lhF" = (
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/indoors/town/manorgate)
 "lhK" = (
 /obj/structure/fluff/railing/wood{
@@ -22990,9 +22968,7 @@
 /obj/structure/bars/passage/shutter{
 	redstone_id = "merchantlockdown"
 	},
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/indoors/town/shop)
 "ndj" = (
 /obj/structure/closet/crate/chest/crate{
@@ -23664,9 +23640,7 @@
 	name = "Kybraxor's mouth lever"
 	},
 /obj/machinery/light/fueled/wallfire/candle/r,
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/indoors/town/manorgate)
 "nzE" = (
 /obj/structure/chair/stool,
@@ -25888,9 +25862,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 4
 	},
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/outdoors/rtfield)
 "oHe" = (
 /obj/structure/closet/crate/chest/neu,
@@ -26365,9 +26337,7 @@
 /obj/structure/bars/passage/shutter{
 	redstone_id = "merchantlockdown"
 	},
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/indoors/town/shop)
 "oTi" = (
 /turf/closed/wall/mineral/stonebrick,
@@ -26686,9 +26656,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 4
 	},
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/outdoors/town)
 "pds" = (
 /obj/structure/fluff/walldeco/bigpainting/lake,
@@ -29120,9 +29088,7 @@
 	dir = 8
 	},
 /obj/structure/noose/gallows,
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/outdoors/town)
 "qxg" = (
 /obj/structure/door/viewport{
@@ -30900,9 +30866,7 @@
 /area/rogue/indoors/town)
 "rym" = (
 /obj/structure/bars,
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/under/town/basement)
 "ryq" = (
 /obj/structure/table/wood/large/corner_new{
@@ -31306,9 +31270,7 @@
 	dir = 8
 	},
 /obj/structure/noose/gallows,
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/outdoors/town)
 "rIF" = (
 /obj/effect/decal/remains/human,
@@ -32206,9 +32168,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 8
 	},
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/outdoors/town)
 "siQ" = (
 /obj/structure/fluff/walldeco/vinez/blue,
@@ -32480,9 +32440,7 @@
 	pixel_y = 0
 	},
 /obj/structure/fake_machine/scomm,
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/indoors/town/manorgate)
 "sqA" = (
 /obj/machinery/light/fueled/wallfire/candle/r,
@@ -36677,9 +36635,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/cave)
 "uJD" = (
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/outdoors/town)
 "uJV" = (
 /obj/item/candle/lit,
@@ -38539,9 +38495,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 8
 	},
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/outdoors/rtfield)
 "vHt" = (
 /obj/structure/rack/shelf/biggest,
@@ -38722,9 +38676,7 @@
 /obj/structure/lever{
 	redstone_id = "orphanagelockdown"
 	},
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/indoors/town/orphanage)
 "vMj" = (
 /obj/structure/closet/crate/chest,
@@ -39114,9 +39066,7 @@
 /obj/structure/bars/passage/shutter{
 	redstone_id = "merchantlockdown"
 	},
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/indoors/town/shop)
 "vWM" = (
 /obj/structure/flora/grass/water,
@@ -42504,9 +42454,7 @@
 /area/rogue/indoors/town/tavern)
 "xXO" = (
 /obj/structure/water_pipe,
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/under/town/basement)
 "xXY" = (
 /obj/structure/table/wood/large/corner_new{

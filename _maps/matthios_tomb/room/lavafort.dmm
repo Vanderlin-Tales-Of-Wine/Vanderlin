@@ -596,9 +596,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 8
 	},
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/under/tomb/cave/lava)
 "LQ" = (
 /obj/structure/flora/grass/bush,
@@ -699,9 +697,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 4
 	},
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/under/tomb/cave/lava)
 "TU" = (
 /obj/machinery/light/fueled/wallfire/candle/blue{
@@ -773,9 +769,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb/cave/lava)
 "ZH" = (
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/under/tomb/cave/lava)
 "ZN" = (
 /obj/structure/chair/wood/alt/chair_noble,

@@ -657,9 +657,7 @@
 	dir = 8;
 	pixel_y = -1
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/outdoors/bog)
 "ib" = (
 /obj/structure/stairs/stone/church,
@@ -3338,9 +3336,7 @@
 /obj/structure/fluff/railing/wood{
 	dir = 4
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/outdoors/bog)
 "TM" = (
 /obj/structure/flora/grass,

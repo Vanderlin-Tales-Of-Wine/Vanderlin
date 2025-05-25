@@ -848,9 +848,7 @@
 /obj/structure/stairs{
 	dir = 4
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/vampire_manor)
 "cE" = (
 /obj/effect/decal/cleanable/blood/gibs/down,
@@ -4210,9 +4208,7 @@
 /area/rogue/indoors)
 "ze" = (
 /obj/structure/door,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/vampire_manor)
 "zf" = (
 /turf/closed/wall/mineral/craftstone,

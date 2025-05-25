@@ -18,13 +18,21 @@
 	. = ..()
 	ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
 
+/turf/open/floor/ruinedwood/alt
+	icon_state = "horzw"
+
 /turf/open/floor/ruinedwood/turned
 	icon_state = "wooden_floort"
 
+/turf/open/floor/ruinedwood/turned/alt
+	icon_state = "vertw"
+
 /turf/open/floor/ruinedwood/spiral
 	icon_state = "weird1"
+
 /turf/open/floor/ruinedwood/spiralfade
 	icon_state = "weird3"
+
 /turf/open/floor/ruinedwood/chevron
 	icon_state = "weird2"
 
@@ -778,6 +786,9 @@
 	max_integrity = 1400
 	attacked_sound = list('sound/combat/hits/onmetal/grille (1).ogg', 'sound/combat/hits/onmetal/grille (2).ogg', 'sound/combat/hits/onmetal/grille (3).ogg')
 
+/turf/open/floor/metal/alt
+	icon_state = "plating2"
+
 /turf/open/floor/metal/turf_destruction(damage_flag)
 	. = ..()
 	ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
@@ -788,6 +799,7 @@
 
 /turf/open/floor/metal/barograte
 	icon_state = "barograte"
+
 /turf/open/floor/metal/barograte/open
 	icon_state = "barograteopen"
 

@@ -118,9 +118,7 @@
 /area/rogue/indoors/town/church)
 "afm" = (
 /obj/structure/window/solid,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/bath)
 "afM" = (
 /obj/structure/table/wood/plain_alt,
@@ -645,9 +643,7 @@
 	pixel_x = 4;
 	pixel_y = -4
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/bath)
 "aKo" = (
 /obj/structure/fluff/railing/wood,
@@ -880,9 +876,7 @@
 "aTT" = (
 /obj/machinery/light/fueled/hearth,
 /obj/item/cooking/pan,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/magician)
 "aTU" = (
 /obj/structure/closet/crate/chest/neu,
@@ -1099,9 +1093,7 @@
 /turf/open/floor/churchbrick,
 /area/rogue/indoors/town/clinic_large)
 "bcw" = (
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/indoors/town/church)
 "bda" = (
 /obj/structure/roguerock{
@@ -1393,9 +1385,7 @@
 /obj/structure/closet/crate/crafted_closet/dark,
 /obj/item/reagent_containers/glass/bottle/wine,
 /obj/item/reagent_containers/glass/bottle/wine,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/magician)
 "brr" = (
 /turf/closed/wall/mineral/decorstone/moss,
@@ -1603,12 +1593,6 @@
 /obj/structure/chair/wood/alt,
 /turf/open/floor/carpet,
 /area/rogue/indoors/town/tavern)
-"bzU" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
-/area/rogue/under/town/sewer)
 "bzX" = (
 /obj/structure/stairs,
 /obj/machinery/light/fueled/wallfire/candle{
@@ -1756,9 +1740,7 @@
 /obj/item/reagent_containers/food/snacks/butter,
 /obj/item/reagent_containers/food/snacks/cheese,
 /obj/item/reagent_containers/food/snacks/cheese,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/tavern)
 "bGr" = (
 /obj/machinery/light/fueled/lanternpost/fixed{
@@ -2380,9 +2362,7 @@
 	dir = 8;
 	pixel_y = -1
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/outdoors/town/roofs)
 "chj" = (
 /obj/structure/bars,
@@ -3515,9 +3495,7 @@
 	pixel_y = 7
 	},
 /obj/machinery/light/fueled/wallfire/candle,
-/turf/open/floor/ruinedwood{
-	icon_state = "vertw"
-	},
+/turf/open/floor/ruinedwood/turned/alt,
 /area/rogue/indoors/town/tavern)
 "dsV" = (
 /obj/structure/stairs{
@@ -3692,9 +3670,7 @@
 /area/rogue/indoors/town/manor)
 "dEg" = (
 /obj/structure/water_pipe,
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/indoors/town/clocktower)
 "dEG" = (
 /obj/structure/window/openclose{
@@ -3742,9 +3718,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 4
 	},
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/outdoors/town)
 "dHH" = (
 /obj/effect/decal/remains/bigrat,
@@ -4365,9 +4339,7 @@
 	pixel_x = -32;
 	pixel_y = 0
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "vertw"
-	},
+/turf/open/floor/ruinedwood/turned/alt,
 /area/rogue/indoors/town/tavern)
 "ejv" = (
 /obj/effect/mapping_helpers/secret_door_creator/keep{
@@ -4782,9 +4754,7 @@
 /area/rogue/indoors/town/manor)
 "eDx" = (
 /obj/structure/fake_machine/scomm,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/magician)
 "eDJ" = (
 /turf/closed/wall/mineral/decostone/center,
@@ -4843,14 +4813,6 @@
 /obj/structure/fluff/clodpile,
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors/town)
-"eHe" = (
-/obj/machinery/light/fueled/wallfire{
-	pixel_y = 32
-	},
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
-/area/rogue/indoors/town)
 "eHI" = (
 /obj/structure/chair/stool,
 /obj/effect/landmark/start/vagrant{
@@ -4900,9 +4862,8 @@
 /area/rogue/indoors/town/clocktower)
 "eLJ" = (
 /obj/structure/chair/bench/coucha,
-/turf/open/floor/ruinedwood{
-	dir = 1;
-	icon_state = "vertw"
+/turf/open/floor/ruinedwood/turned/alt{
+	dir = 1
 	},
 /area/rogue/indoors/town/tavern)
 "eLK" = (
@@ -4979,9 +4940,7 @@
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/town/tavern)
 "eRl" = (
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/magician)
 "eRD" = (
 /obj/structure/table/wood/plain_alt,
@@ -5444,9 +5403,8 @@
 	name = "MEDIUM ROOM II"
 	},
 /obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/ruinedwood{
-	dir = 1;
-	icon_state = "vertw"
+/turf/open/floor/ruinedwood/turned/alt{
+	dir = 1
 	},
 /area/rogue/indoors/town/tavern)
 "foW" = (
@@ -5644,9 +5602,7 @@
 /obj/structure/table/wood/counter{
 	dir = 1
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "vertw"
-	},
+/turf/open/floor/ruinedwood/turned/alt,
 /area/rogue/indoors/town/tavern)
 "fxA" = (
 /obj/structure/stairs,
@@ -5953,9 +5909,7 @@
 	dir = 1;
 	pixel_y = 6
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/outdoors/town/roofs)
 "fNj" = (
 /obj/structure/fluff/nest,
@@ -6074,9 +6028,7 @@
 "fUH" = (
 /obj/machinery/light/fueled/cauldron,
 /obj/machinery/light/fueled/wallfire/candle/blue,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/magician)
 "fVc" = (
 /obj/structure/well/climb_up,
@@ -6151,9 +6103,7 @@
 	pixel_x = 32;
 	pixel_y = 0
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "vertw"
-	},
+/turf/open/floor/ruinedwood/turned/alt,
 /area/rogue/indoors/town/tavern)
 "fXh" = (
 /obj/structure/table/wood/large/corner_new{
@@ -6616,9 +6566,7 @@
 /obj/machinery/light/fueled/oven{
 	pixel_y = 31
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/magician)
 "gtd" = (
 /obj/structure/flora/grass/water,
@@ -7065,9 +7013,7 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/town/orphanage)
 "gOp" = (
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/clinic_large)
 "gOM" = (
 /obj/structure/flora/grass/bush/wall,
@@ -7226,9 +7172,7 @@
 	redstone_id = "keepgatenorth";
 	gid = "keepgatenorth"
 	},
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/outdoors/town)
 "gYB" = (
 /obj/structure/fluff/railing/border{
@@ -7311,9 +7255,7 @@
 /obj/structure/stairs{
 	dir = 4
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/tavern)
 "hbV" = (
 /obj/structure/fluff/walldeco/customflag{
@@ -7995,9 +7937,7 @@
 /obj/item/key/medroomi,
 /obj/item/key/medroomii,
 /obj/item/key/medroomiii,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/tavern)
 "hKs" = (
 /obj/machinery/light/fueled/wallfire/candle/blue,
@@ -8159,9 +8099,8 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/orphanage)
 "hQF" = (
-/turf/open/floor/ruinedwood{
-	dir = 1;
-	icon_state = "vertw"
+/turf/open/floor/ruinedwood/turned/alt{
+	dir = 1
 	},
 /area/rogue/indoors/town/tavern)
 "hRe" = (
@@ -8200,11 +8139,6 @@
 /obj/structure/fluff/statue/gaffer,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/merc_guild)
-"hRY" = (
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
-/area/rogue/indoors/town)
 "hSV" = (
 /obj/structure/roguerock{
 	icon_state = "rock2"
@@ -8286,9 +8220,7 @@
 /obj/structure/table/wood/counter/end{
 	dir = 1
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "vertw"
-	},
+/turf/open/floor/ruinedwood/turned/alt,
 /area/rogue/indoors/town/tavern)
 "hVT" = (
 /obj/structure/flora/newtree,
@@ -8669,9 +8601,7 @@
 /obj/item/key/apartments/apartment8,
 /obj/item/key/apartments/apartment8,
 /obj/structure/closet/crate/drawer,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town)
 "isQ" = (
 /obj/structure/fluff/walldeco/church/line{
@@ -8825,9 +8755,7 @@
 	},
 /obj/structure/table/wood/reinf_long,
 /obj/item/key/feldsher,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/clinic_large)
 "iyD" = (
 /obj/structure/table/wood/reinf_long,
@@ -9017,9 +8945,7 @@
 	name = "Apartment VIII"
 	},
 /obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town)
 "iGa" = (
 /obj/structure/bed/bear{
@@ -9316,9 +9242,7 @@
 	dir = 1
 	},
 /obj/item/natural/feather,
-/turf/open/floor/ruinedwood{
-	icon_state = "vertw"
-	},
+/turf/open/floor/ruinedwood/turned/alt,
 /area/rogue/indoors/town/tavern)
 "iVi" = (
 /obj/structure/door/window{
@@ -9439,9 +9363,7 @@
 	dir = 1;
 	pixel_y = 6
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/outdoors/town/roofs)
 "jbL" = (
 /turf/open/floor/woodturned,
@@ -9643,9 +9565,7 @@
 	pixel_x = -1;
 	pixel_y = -6
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/bath)
 "jkX" = (
 /obj/structure/chair/wood/alt/chair_noble{
@@ -9831,9 +9751,7 @@
 /obj/item/reagent_containers/food/snacks/fat,
 /obj/item/reagent_containers/food/snacks/meat/poultry,
 /obj/item/reagent_containers/food/snacks/meat/poultry,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/tavern)
 "jwd" = (
 /obj/structure/stairs{
@@ -9865,9 +9783,8 @@
 /obj/machinery/light/fueled/wallfire{
 	pixel_y = 32
 	},
-/turf/open/floor/ruinedwood{
-	dir = 1;
-	icon_state = "vertw"
+/turf/open/floor/ruinedwood/turned/alt{
+	dir = 1
 	},
 /area/rogue/indoors/town/tavern)
 "jxp" = (
@@ -10180,9 +10097,7 @@
 /area/rogue/outdoors/town)
 "jKE" = (
 /obj/structure/window/solid,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/clinic_large)
 "jKF" = (
 /obj/structure/closet/crate/crafted_closet,
@@ -10687,9 +10602,7 @@
 	pixel_x = 32
 	},
 /obj/structure/ladder,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/bath)
 "kgt" = (
 /turf/open/floor/dirt/road,
@@ -10811,9 +10724,7 @@
 	pixel_x = -7;
 	pixel_y = 6
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "vertw"
-	},
+/turf/open/floor/ruinedwood/turned/alt,
 /area/rogue/indoors/town/tavern)
 "kmA" = (
 /obj/structure/door/violet{
@@ -10837,15 +10748,11 @@
 	dir = 1;
 	pixel_y = 6
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/outdoors/town/roofs)
 "knZ" = (
 /obj/structure/fluff/walldeco/church/line,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/magician)
 "kod" = (
 /obj/structure/chair/wood/alt{
@@ -10978,9 +10885,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 8
 	},
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/outdoors/town)
 "kws" = (
 /obj/structure/closet/crate/crafted_closet,
@@ -11229,9 +11134,7 @@
 /obj/item/reagent_containers/glass/cup/silver,
 /obj/item/reagent_containers/glass/cup/silver,
 /obj/machinery/light/fueled/wallfire/candle/blue/r,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/magician)
 "kNk" = (
 /turf/closed/wall/mineral/decorstone/moss,
@@ -11373,9 +11276,7 @@
 /area/rogue/indoors/town/garrison)
 "kVF" = (
 /obj/structure/stairs,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/magician)
 "kVG" = (
 /obj/structure/stairs{
@@ -11518,9 +11419,7 @@
 /area/rogue/outdoors/town/roofs)
 "lcz" = (
 /obj/machinery/light/fueled/wallfire/candle/r,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/bath)
 "ldc" = (
 /obj/structure/fluff/walldeco/masonflag,
@@ -11903,9 +11802,7 @@
 	},
 /obj/item/reagent_containers/glass/mortar,
 /obj/item/pestle,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/magician)
 "luM" = (
 /obj/structure/fluff/railing/wood{
@@ -11974,9 +11871,8 @@
 	name = "MEDIUM ROOM III"
 	},
 /obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/ruinedwood{
-	dir = 1;
-	icon_state = "vertw"
+/turf/open/floor/ruinedwood/turned/alt{
+	dir = 1
 	},
 /area/rogue/indoors/town/tavern)
 "lzr" = (
@@ -12116,9 +12012,7 @@
 	},
 /obj/item/clothing/face/spectacles/golden,
 /obj/machinery/light/fueled/wallfire/candle/blue,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/magician)
 "lFq" = (
 /obj/structure/door/window{
@@ -12138,9 +12032,8 @@
 /area/rogue/outdoors/rtfield/safe)
 "lFW" = (
 /obj/structure/table/wood/plain_alt,
-/turf/open/floor/ruinedwood{
-	dir = 1;
-	icon_state = "vertw"
+/turf/open/floor/ruinedwood/turned/alt{
+	dir = 1
 	},
 /area/rogue/indoors/town/tavern)
 "lFZ" = (
@@ -12889,9 +12782,7 @@
 "mpn" = (
 /obj/structure/table/wood/counter/end,
 /obj/structure/trophy/deer,
-/turf/open/floor/ruinedwood{
-	icon_state = "vertw"
-	},
+/turf/open/floor/ruinedwood/turned/alt,
 /area/rogue/indoors/town/tavern)
 "mpp" = (
 /obj/machinery/light/fueled/wallfire/candle/l,
@@ -13161,9 +13052,8 @@
 /area/rogue/indoors/town/garrison)
 "mDT" = (
 /obj/structure/closet/crate/drawer,
-/turf/open/floor/ruinedwood{
-	dir = 1;
-	icon_state = "vertw"
+/turf/open/floor/ruinedwood/turned/alt{
+	dir = 1
 	},
 /area/rogue/indoors/town/tavern)
 "mEc" = (
@@ -13392,11 +13282,6 @@
 "mQa" = (
 /turf/open/floor/hexstone,
 /area/rogue/under/town/sewer)
-"mQr" = (
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
-/area/rogue/outdoors/town/roofs)
 "mQB" = (
 /obj/structure/stairs{
 	dir = 8
@@ -13531,9 +13416,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 9
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/bath)
 "mYb" = (
 /obj/structure/fluff/railing/wood{
@@ -13796,9 +13679,7 @@
 /area/rogue/under/town/sewer)
 "nnL" = (
 /obj/structure/fake_machine/scomm/r,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/clinic_large)
 "nnN" = (
 /obj/structure/fluff/railing/border{
@@ -14059,9 +13940,7 @@
 /turf/open/floor/tile,
 /area/rogue/under/town/sewer)
 "nDM" = (
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/indoors/town/clocktower)
 "nDU" = (
 /obj/structure/table/wood{
@@ -14076,9 +13955,7 @@
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_y = -32
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/bath)
 "nEf" = (
 /obj/structure/closet/crate/chest/wicker,
@@ -14292,9 +14169,7 @@
 /area/rogue/indoors/town/tavern)
 "nPl" = (
 /obj/machinery/light/fueled/torchholder/r,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town)
 "nPy" = (
 /obj/item/bin/water,
@@ -14331,9 +14206,7 @@
 /obj/structure/door,
 /obj/effect/mapping_helpers/access/keyset/town/clinic,
 /obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/bath)
 "nRy" = (
 /obj/structure/closet/crate/chest/neu,
@@ -14545,9 +14418,8 @@
 /area/rogue/indoors/town/manor)
 "odi" = (
 /obj/structure/chair/bench/coucha/r,
-/turf/open/floor/ruinedwood{
-	dir = 1;
-	icon_state = "vertw"
+/turf/open/floor/ruinedwood/turned/alt{
+	dir = 1
 	},
 /area/rogue/indoors/town/tavern)
 "odr" = (
@@ -14573,9 +14445,7 @@
 /obj/structure/table/wood/reinf_long{
 	dir = 1
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/clinic_large)
 "oej" = (
 /obj/structure/door{
@@ -14710,9 +14580,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/indoors/town/church)
 "old" = (
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/tavern)
 "olf" = (
 /obj/structure/stairs/stone,
@@ -14756,9 +14624,7 @@
 /obj/machinery/light/fueled/lanternpost/fixed{
 	dir = 1
 	},
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/outdoors/town)
 "onK" = (
 /obj/structure/fermentation_keg/water,
@@ -14939,9 +14805,7 @@
 /turf/open/floor/blocks/newstone,
 /area/rogue/under/town/basement)
 "oyk" = (
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/indoors/town/manorgate)
 "oyz" = (
 /obj/structure/bars/cemetery,
@@ -15600,9 +15464,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 8
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/magician)
 "pgo" = (
 /obj/effect/landmark/hammer/dev_text{
@@ -15877,9 +15739,8 @@
 	pixel_y = -32
 	},
 /obj/structure/closet/crate/drawer,
-/turf/open/floor/ruinedwood{
-	dir = 1;
-	icon_state = "vertw"
+/turf/open/floor/ruinedwood/turned/alt{
+	dir = 1
 	},
 /area/rogue/indoors/town/tavern)
 "ptC" = (
@@ -16270,9 +16131,7 @@
 /area/rogue/indoors/town/smithy)
 "pMZ" = (
 /obj/structure/closet/crate/crafted_closet/inn,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town)
 "pNw" = (
 /obj/structure/bed/wool,
@@ -16450,9 +16309,7 @@
 	dir = 8
 	},
 /obj/machinery/light/fueled/lanternpost/fixed,
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/outdoors/town)
 "pVP" = (
 /obj/structure/well/fountain{
@@ -16611,9 +16468,8 @@
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_y = -32
 	},
-/turf/open/floor/ruinedwood{
-	dir = 1;
-	icon_state = "vertw"
+/turf/open/floor/ruinedwood/turned/alt{
+	dir = 1
 	},
 /area/rogue/indoors/town/tavern)
 "qhg" = (
@@ -16896,11 +16752,6 @@
 /obj/machinery/light/fueled/chand,
 /turf/open/transparent/openspace,
 /area/rogue/indoors/town/tavern)
-"qwB" = (
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
-/area/rogue/under/town/sewer)
 "qwT" = (
 /obj/structure/closet/crate/chest/wicker,
 /obj/item/fishing/line/bobber,
@@ -17045,9 +16896,7 @@
 /area/rogue/indoors/town/manor)
 "qCe" = (
 /obj/structure/rack/shelf/biggest,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/tavern)
 "qCG" = (
 /obj/structure/table/wood/plain_alt,
@@ -17094,9 +16943,7 @@
 	pixel_x = -32;
 	pixel_y = -1
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/clinic_large)
 "qFJ" = (
 /obj/effect/decal/cleanable/blood/tracks{
@@ -17368,9 +17215,7 @@
 /obj/item/reagent_containers/food/snacks/produce/vegetable/potato,
 /obj/item/reagent_containers/food/snacks/produce/vegetable/potato,
 /obj/item/reagent_containers/food/snacks/produce/vegetable/onion,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/tavern)
 "qTJ" = (
 /obj/structure/table/wood/plain_alt,
@@ -18147,9 +17992,7 @@
 /area/rogue/indoors/town/smithy)
 "rJj" = (
 /obj/structure/ladder,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/clinic_large)
 "rJR" = (
 /obj/item/reagent_containers/glass/bottle/whitewine,
@@ -18187,9 +18030,7 @@
 	pixel_y = -1
 	},
 /obj/machinery/light/fueled/firebowl/standing,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/outdoors/town/roofs)
 "rKG" = (
 /obj/structure/rack/shelf/biggest,
@@ -18504,9 +18345,7 @@
 	dir = 8
 	},
 /obj/machinery/light/fueled/wallfire/candle,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/bath)
 "rXh" = (
 /obj/machinery/light/fueled/wallfire/candle{
@@ -19139,9 +18978,7 @@
 "suk" = (
 /obj/item/bin/water,
 /obj/machinery/light/fueled/torchholder/r,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/tavern)
 "svg" = (
 /turf/open/floor/wood,
@@ -19504,9 +19341,7 @@
 /area/rogue/indoors/town/garrison)
 "sNc" = (
 /obj/structure/fluff/wallclock,
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/indoors/town/manorgate)
 "sNK" = (
 /obj/structure/bed,
@@ -19627,9 +19462,7 @@
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_y = -32
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/bath)
 "sWm" = (
 /obj/machinery/light/fueled/wallfire/candle{
@@ -19795,9 +19628,7 @@
 /obj/machinery/light/fueled/wallfire/candle/blue/l,
 /obj/structure/rack/shelf/biggest,
 /obj/item/natural/bundle/stick,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/magician)
 "tbS" = (
 /obj/structure/flora/grass/water/reeds,
@@ -20325,9 +20156,7 @@
 /area/rogue/indoors/town/church/chapel)
 "tyd" = (
 /obj/structure/fluff/telescope,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/magician)
 "tyf" = (
 /obj/structure/table/wood/counter/end,
@@ -20335,9 +20164,7 @@
 	pixel_x = -32;
 	pixel_y = 0
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "vertw"
-	},
+/turf/open/floor/ruinedwood/turned/alt,
 /area/rogue/indoors/town/tavern)
 "tyg" = (
 /obj/machinery/light/fueled/wallfire/candle{
@@ -20787,9 +20614,7 @@
 /obj/item/plate/clay,
 /obj/item/plate/clay,
 /obj/item/plate/clay,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/tavern)
 "tXx" = (
 /obj/structure/flora/grass/thorn_bush,
@@ -21371,9 +21196,7 @@
 "uyh" = (
 /obj/structure/bed/wool/double,
 /obj/item/bedsheet/double_pelt,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town)
 "uyP" = (
 /obj/structure/table/wood{
@@ -21570,9 +21393,7 @@
 	dir = 8
 	},
 /obj/structure/fluff/walldeco/steward,
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/outdoors/town)
 "uJU" = (
 /obj/structure/flora/grass,
@@ -21653,9 +21474,7 @@
 	name = "Apprentice Quarters"
 	},
 /obj/effect/mapping_helpers/access/keyset/town/tower,
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/indoors/town/magician)
 "uOE" = (
 /obj/structure/lever/hidden/keep{
@@ -21940,9 +21759,7 @@
 /obj/structure/fake_machine/scomm{
 	pixel_y = -32
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/bath)
 "uZu" = (
 /obj/structure/bars/cemetery,
@@ -22327,9 +22144,7 @@
 /area/rogue/under/town/basement)
 "vqj" = (
 /obj/structure/fake_machine/mail,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/magician)
 "vqB" = (
 /obj/machinery/light/fueled/wallfire/candle{
@@ -22763,9 +22578,7 @@
 /area/rogue/under/town/basement)
 "vLz" = (
 /obj/structure/window/openclose,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/magician)
 "vLO" = (
 /obj/structure/window/openclose{
@@ -22916,9 +22729,8 @@
 	name = "MEDIUM ROOM I"
 	},
 /obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/ruinedwood{
-	dir = 1;
-	icon_state = "vertw"
+/turf/open/floor/ruinedwood/turned/alt{
+	dir = 1
 	},
 /area/rogue/indoors/town/tavern)
 "vUl" = (
@@ -23197,9 +23009,8 @@
 /area/rogue/indoors/town/manor)
 "whp" = (
 /obj/structure/closet/crate/crafted_closet/inn,
-/turf/open/floor/ruinedwood{
-	dir = 1;
-	icon_state = "vertw"
+/turf/open/floor/ruinedwood/turned/alt{
+	dir = 1
 	},
 /area/rogue/indoors/town/tavern)
 "wiU" = (
@@ -23275,9 +23086,7 @@
 "wmB" = (
 /obj/structure/door/violet,
 /obj/effect/mapping_helpers/access/keyset/manor/mage,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/magician)
 "wmJ" = (
 /turf/open/floor/concrete,
@@ -23504,9 +23313,7 @@
 /turf/closed/wall/mineral/decostone/center,
 /area/rogue/indoors/town/clinic_large)
 "wCS" = (
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/bath)
 "wDl" = (
 /obj/structure/steam_recharger,
@@ -23589,9 +23396,7 @@
 "wFI" = (
 /obj/machinery/tanningrack,
 /obj/machinery/light/fueled/wallfire/candle,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/bath)
 "wFU" = (
 /obj/machinery/light/fueled/chand,
@@ -23640,9 +23445,7 @@
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_y = -32
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/outdoors/town/roofs)
 "wJd" = (
 /obj/structure/flora/grass/water/reeds,
@@ -23846,9 +23649,7 @@
 	},
 /area/rogue/outdoors/town/roofs)
 "wRa" = (
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/outdoors/town)
 "wRo" = (
 /obj/structure/stairs{
@@ -23903,9 +23704,7 @@
 /area/rogue/under/cavelava)
 "wSx" = (
 /obj/machinery/light/fueled/wallfire/candle,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/clinic_large)
 "wSM" = (
 /obj/effect/traveltile_spawner/horizontal/bandit,
@@ -24551,9 +24350,7 @@
 /obj/item/reagent_containers/powder/spice,
 /obj/item/reagent_containers/powder/spice,
 /obj/structure/fluff/walldeco/church/line,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/magician)
 "xwE" = (
 /obj/structure/door{
@@ -24641,9 +24438,8 @@
 	pixel_y = 32
 	},
 /obj/structure/chair/bench/coucha/r,
-/turf/open/floor/ruinedwood{
-	dir = 1;
-	icon_state = "vertw"
+/turf/open/floor/ruinedwood/turned/alt{
+	dir = 1
 	},
 /area/rogue/indoors/town/tavern)
 "xzR" = (
@@ -24933,9 +24729,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 1
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/bath)
 "xMX" = (
 /obj/structure/lever/hidden/keep{
@@ -42286,9 +42080,9 @@ lOO
 glX
 glX
 ugZ
-bzU
+iIX
 ehQ
-qwB
+jKT
 ugZ
 tnk
 lOO
@@ -88366,8 +88160,8 @@ xVz
 gCw
 gCw
 mJG
-hRY
-hRY
+cLg
+cLg
 pMZ
 mJG
 lDE
@@ -88568,9 +88362,9 @@ xVz
 gCw
 gCw
 mJG
-eHe
-hRY
-hRY
+vps
+cLg
+cLg
 iFU
 lDE
 lDE
@@ -159459,7 +159253,7 @@ dKR
 dKR
 dKR
 rKy
-mQr
+ylc
 vwK
 gKj
 wIH
@@ -159664,7 +159458,7 @@ knE
 jHP
 sMz
 ttj
-mQr
+ylc
 nRt
 wCS
 wCS
@@ -160065,10 +159859,10 @@ gCA
 kGN
 vFW
 fMX
-mQr
-mQr
-mQr
-mQr
+ylc
+ylc
+ylc
+ylc
 afm
 oEA
 wCS

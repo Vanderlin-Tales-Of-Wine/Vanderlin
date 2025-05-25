@@ -104,9 +104,7 @@
 /area/rogue/under/tomb/indoors)
 "gd" = (
 /obj/structure/door,
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/under/tomb/indoors)
 "gl" = (
 /obj/structure/roguerock,
@@ -151,9 +149,7 @@
 /area/rogue/under/tomb/indoors)
 "hY" = (
 /obj/structure/bars,
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/under/tomb/indoors)
 "ic" = (
 /obj/structure/ladder,
@@ -384,9 +380,7 @@
 /area/rogue/under/tomb/cave)
 "wQ" = (
 /obj/structure/door/iron/bars,
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/under/tomb/indoors)
 "wU" = (
 /obj/structure/door/green,

@@ -165,9 +165,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
 "dx" = (
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/under/mountains/anvil/lower/building)
 "dy" = (
 /turf/open/floor/cobblerock,
@@ -229,9 +227,7 @@
 /turf/open/floor/church,
 /area/rogue/under/mountains/anvil/lower)
 "ep" = (
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/outdoors/mountains/anvil/snowyforest)
 "es" = (
 /obj/machinery/light/fueled/wallfire/candle{
