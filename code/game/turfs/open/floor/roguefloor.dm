@@ -734,21 +734,28 @@
 
 /turf/open/floor/tile/masonic
 	icon_state = "masonic"
+
 /turf/open/floor/tile/masonic/single
 	icon_state = "masonicsingle"
+
 /turf/open/floor/tile/masonic/inverted
 	icon_state = "masonicsingleinvert"
+
 /turf/open/floor/tile/masonic/spiral
 	icon_state = "masonicspiral"
 
 /turf/open/floor/tile/bath
 	icon_state = "bathtile"
+
 /turf/open/floor/tile/bfloorz
 	icon_state = "bfloorz"
+
 /turf/open/floor/tile/tilerg
 	icon_state = "tilerg"
+
 /turf/open/floor/tile/checker
 	icon_state = "linoleum"
+
 /turf/open/floor/tile/checkeralt
 	icon_state = "tile"
 
