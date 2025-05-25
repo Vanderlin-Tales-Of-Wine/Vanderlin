@@ -291,7 +291,7 @@
 				if(user && HAS_TRAIT(user, TRAIT_NUTCRACKER))
 					cbt_multiplier = 2
 				if(!resistance && prob(round(dam/5) * cbt_multiplier))
-					LAZYADD(attempted_wounds, datum/wound/cbt)
+					LAZYADD(attempted_wounds, /datum/wound/cbt)
 				if(prob(dam * cbt_multiplier))
 					owner.emote("groin", TRUE)
 					owner.Stun(10)
@@ -322,7 +322,7 @@
 				if(owner.has_wound(/datum/wound/fracture/chest) || (bclass in GLOB.artery_heart_bclasses))
 					LAZYADD(attempted_wounds, /datum/wound/artery/chest)
 				else
-					LAZYADD(attempted_wounds, datum/wound/artery)
+					LAZYADD(attempted_wounds, /datum/wound/artery)
 		if("scarring")
 			if(user && istype(user.rmb_intent, /datum/rmb_intent/strong))
 				dam += 10
@@ -374,9 +374,9 @@
 				used = round(damage_dividend * 20 + (dam / 6), 1)
 				if(prob(used))
 					if(HAS_TRAIT(src, TRAIT_BRITTLE))
-						LAZYADD(attempted_wounds, datum/wound/fracture/neck)
+						LAZYADD(attempted_wounds, /datum/wound/fracture/neck)
 					else
-						LAZYADD(attempted_wounds, datum/wound/dislocation/neck)
+						LAZYADD(attempted_wounds, /datum/wound/dislocation/neck)
 		if("fracture")
 			if(HAS_TRAIT(src, TRAIT_BRITTLE))
 				dam += 20
@@ -433,31 +433,31 @@
 					if(zone_precise in earstab_zones)
 						var/obj/item/organ/ears/my_ears = owner.getorganslot(ORGAN_SLOT_EARS)
 						if(!my_ears || has_wound(/datum/wound/facial/ears))
-							LAZYADD(attempted_wounds, datum/wound/fracture/head/ears)
+							LAZYADD(attempted_wounds, /datum/wound/fracture/head/ears)
 						else
-							LAZYADD(attempted_wounds, datum/wound/facial/ears)
+							LAZYADD(attempted_wounds, /datum/wound/facial/ears)
 					else if(zone_precise in eyestab_zones)
 						var/obj/item/organ/my_eyes = owner.getorganslot(ORGAN_SLOT_EYES)
 						if(!my_eyes || (has_wound(/datum/wound/facial/eyes/left) && has_wound(/datum/wound/facial/eyes/right)))
-							LAZYADD(attempted_wounds, datum/wound/fracture/head/eyes)
+							LAZYADD(attempted_wounds, /datum/wound/fracture/head/eyes)
 						else if(my_eyes)
 							if(zone_precise == BODY_ZONE_PRECISE_R_EYE)
-								LAZYADD(attempted_wounds, datum/wound/facial/eyes/right)
+								LAZYADD(attempted_wounds, /datum/wound/facial/eyes/right)
 							else if(zone_precise == BODY_ZONE_PRECISE_L_EYE)
-								LAZYADD(attempted_wounds, datum/wound/facial/eyes/left)
+								LAZYADD(attempted_wounds, /datum/wound/facial/eyes/left)
 					else if(zone_precise in tonguestab_zones)
 						var/obj/item/organ/tongue/tongue_up_my_asshole = owner.getorganslot(ORGAN_SLOT_TONGUE)
 						if(!tongue_up_my_asshole || has_wound(/datum/wound/facial/tongue))
-							LAZYADD(attempted_wounds, datum/wound/fracture/mouth)
+							LAZYADD(attempted_wounds, /datum/wound/fracture/mouth)
 						else
-							LAZYADD(attempted_wounds, datum/wound/facial/tongue)
+							LAZYADD(attempted_wounds, /datum/wound/facial/tongue)
 					else if(zone_precise in nosestab_zones)
 						if(has_wound(/datum/wound/facial/disfigurement/nose))
 							attempted_wounds +=/datum/wound/fracture/head/nose
 						else
-							LAZYADD(attempted_wounds, datum/wound/facial/disfigurement/nose)
+							LAZYADD(attempted_wounds, /datum/wound/facial/disfigurement/nose)
 					else if(zone_precise in knockout_zones)
-						LAZYADD(attempted_wounds, datum/wound/fracture/head/brain)
+						LAZYADD(attempted_wounds, /datum/wound/fracture/head/brain)
 
 	if(!attempted_wounds)
 		return FALSE
