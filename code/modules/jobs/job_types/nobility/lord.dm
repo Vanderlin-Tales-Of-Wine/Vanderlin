@@ -31,6 +31,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	)
 	outfit = /datum/outfit/job/lord
 	bypass_lastclass = TRUE
+	advclass_cat_rolls = list(CTAG_LORD = 20)
 	give_bank_account = 500
 	selection_color = "#7851A9"
 
@@ -68,6 +69,38 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	ring = /obj/item/clothing/ring/active/nomag
 	l_hand = /obj/item/weapon/lordscepter
 
+	H.change_stat(STATKEY_LCK, 5)
+
+	if(H.wear_mask)
+		if(istype(H.wear_mask, /obj/item/clothing/face/eyepatch))
+			qdel(H.wear_mask)
+			mask = /obj/item/clothing/face/lordmask
+		if(istype(H.wear_mask, /obj/item/clothing/face/eyepatch/left))
+			qdel(H.wear_mask)
+			mask = /obj/item/clothing/face/lordmask/l
+
+	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_NOSEGRAB, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_KNOWKEEPPLANS, TRAIT_GENERIC)
+
+/datum/advclass/lord // Start of the subclass stuff here, abandon all hope
+	displays_adv_job = FALSE
+
+/datum/advclass/lord/lord // Classic Monarch we all know and loathe.
+	name = "Lord"
+	tutorial = "I am Ozymandius, king of kings." // TODO: Replace this descriptor
+	outfit = /datum/outfit/job/lord/lord
+
+	category_tags = list(CTAG_LORD)
+
+/datum/outfit/job/lord/lord/pre_equip(mob/living/carbon/human/H)
+	..()
+	backr = /obj/item/storage/backpack/satchel
+	belt = /obj/item/storage/belt/leather/plaquegold
+	backpack_contents = list(/obj/item/weapon/knife/dagger/steel/special = 1)
+	ring = /obj/item/clothing/ring/active/nomag
+	l_hand = /obj/item/weapon/lordscepter
+
 	H.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
@@ -89,6 +122,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	H.change_stat(STATKEY_SPD, 1)
 	H.change_stat(STATKEY_PER, 2)
 	H.change_stat(STATKEY_LCK, 5)
+	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	if(H.gender == MALE)
 		pants = /obj/item/clothing/pants/tights/black
 		shirt = /obj/item/clothing/shirt/undershirt/black
@@ -113,10 +147,63 @@ GLOBAL_LIST_EMPTY(lord_titles)
 				qdel(H.wear_mask)
 				mask = /obj/item/clothing/face/lordmask/l
 
-	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_NOSEGRAB, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_KNOWKEEPPLANS, TRAIT_GENERIC)
+/datum/advclass/lord/bking // Barbarian King. Think Conan.
+	name = "Barbarian King"
+	tutorial = "What is best in life is to crush your enemies, see them driven before you, \
+	and to hear the lamentations of their women."
+	outfit = /datum/outfit/job/lord/bking
+
+	category_tags = list(CTAG_LORD)
+
+/datum/outfit/job/lord/bking/pre_equip(mob/living/carbon/human/H)
+	..()
+	shoes = /obj/item/clothing/shoes/boots/leather
+	wrists = /obj/item/clothing/wrists/bracers/leather
+	pants = /obj/item/clothing/pants/loincloth
+	gloves = /obj/item/clothing/gloves/leather
+	armor = /obj/item/clothing/armor/leather/hide
+	shirt = /obj/item/clothing/armor/gambeson
+	if (H.gender == MALE)
+		cloak = /obj/item/clothing/cloak/lordcloak
+	else
+		cloak = /obj/item/clothing/cloak/lordcloak/ladycloak
+
+	H.adjust_skillrank(/datum/skill/combat/axesmaces, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/bows, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/tanning, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
+	if(H.age == AGE_OLD)
+		H.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
+	H.change_stat(STATKEY_STR, 3)
+	H.change_stat(STATKEY_END, 2)
+	H.change_stat(STATKEY_CON, 3)
+	H.change_stat(STATKEY_INT, 3)
+	H.change_stat(STATKEY_LCK, 2)
+	H.change_stat(STATKEY_SPD, -2)
+	H.change_stat(STATKEY_PER, -2)
+	if(H.dna?.species)
+		H.dna.species.soundpack_m = new /datum/voicepack/male/warrior()
+	H.mind?.AddSpell(new /obj/effect/proc_holder/spell/self/barbrage)
+	ADD_TRAIT(H, TRAIT_CRITICAL_RESISTANCE, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_NOPAINSTUN, TRAIT_GENERIC)
+
+///datum/advclass/lord/pious // DEVOUTLY RELIGIOUS.
+//	name = "Pious Ruler"
+//	tutorial = "The seperation between church and state is a thin line that teeters upon severance, weighted down by \\
+//your mighty boot. You and your bloodline have been deemed right to rule by Astrata herself, and so you reign \\
+//by the power of the Ten Undivided."
+//	outfit = /datum/outfit/job/lord/pious
+//
+//	category_tags = list(CTAG_LORD)
 
 /datum/job/exlord //just used to change the lords title
 	title = "Ex-Monarch"
