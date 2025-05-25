@@ -642,12 +642,6 @@
 /mob/living/carbon/human/species/skeleton/npc/peasant,
 /turf/open/floor/dirt,
 /area/rogue/indoors/shelter/bog)
-"hP" = (
-/obj/structure/stairs{
-	dir = 1
-	},
-/turf/open/transparent/openspace,
-/area/rogue/indoors/shelter/bog)
 "hQ" = (
 /obj/effect/decal/cobbleedge/alt{
 	dir = 10
@@ -1136,7 +1130,7 @@
 	dir = 4
 	},
 /mob/living/carbon/human/species/orc/warrior,
-/turf/open/transparent/openspace,
+/turf/open/floor/ruinedwood/turned,
 /area/rogue/indoors/shelter/bog)
 "oJ" = (
 /obj/structure/window/solid,
@@ -84224,7 +84218,7 @@ hh
 ml
 dH
 ac
-hP
+wC
 oB
 on
 ac
@@ -84426,7 +84420,7 @@ hh
 ml
 Rx
 ac
-hP
+wC
 oB
 hv
 gd

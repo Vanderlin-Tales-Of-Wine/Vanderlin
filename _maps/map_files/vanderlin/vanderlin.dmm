@@ -709,7 +709,7 @@
 /obj/structure/fluff/railing/wood{
 	dir = 1
 	},
-/turf/open/transparent/openspace,
+/turf/open/floor/wood,
 /area/rogue/indoors/town/tavern)
 "auu" = (
 /obj/structure/fake_machine/atm,
@@ -8224,10 +8224,6 @@
 /obj/structure/fluff/walldeco/customflag,
 /turf/closed/wall/mineral/stone,
 /area/rogue/indoors/town/steward)
-"eZS" = (
-/obj/structure/stairs,
-/turf/open/transparent/openspace,
-/area/rogue/indoors/town/clocktower)
 "faq" = (
 /obj/machinery/light/fueled/torchholder/l,
 /obj/structure/fluff/railing/border{
@@ -9405,7 +9401,7 @@
 /obj/structure/stairs{
 	dir = 4
 	},
-/turf/open/transparent/openspace,
+/turf/open/floor/wood,
 /area/rogue/indoors/town/tavern)
 "fOC" = (
 /obj/structure/bed/shit,
@@ -9733,7 +9729,7 @@
 /area/rogue/indoors/butchershop)
 "gcE" = (
 /obj/structure/stairs/stone,
-/turf/open/transparent/openspace,
+/turf/open/floor/cobble,
 /area/rogue/under/town/caverogue)
 "gcJ" = (
 /obj/machinery/light/fueled/firebowl/standing/blue,
@@ -15772,7 +15768,7 @@
 /area/rogue/indoors/town/magician)
 "jTr" = (
 /obj/structure/stairs,
-/turf/open/transparent/openspace,
+/turf/open/floor/ruinedwood/turned,
 /area/rogue/outdoors/town)
 "jTt" = (
 /obj/structure/table/wood/large_new{
@@ -24443,10 +24439,6 @@
 	},
 /turf/open/floor/cobble/mossy,
 /area/rogue/outdoors/town)
-"pAp" = (
-/obj/structure/stairs,
-/turf/closed/wall/mineral/wooddark,
-/area/rogue/outdoors/town)
 "pAK" = (
 /turf/open/floor/ruinedwood/turned,
 /area/rogue/indoors/town)
@@ -25522,12 +25514,6 @@
 	},
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/town/roofs)
-"qnN" = (
-/obj/structure/stairs{
-	dir = 1
-	},
-/turf/open/transparent/openspace,
-/area/rogue/indoors/town/clocktower)
 "qnQ" = (
 /obj/structure/table/wood{
 	dir = 1;
@@ -99918,7 +99904,7 @@ tVj
 elp
 ehF
 wja
-pAp
+vee
 vee
 tTU
 cUs
@@ -179485,7 +179471,7 @@ mwJ
 wnl
 mwJ
 mwJ
-eZS
+tSK
 wBB
 oGe
 lfC
@@ -180695,7 +180681,7 @@ acx
 lfC
 aVK
 bUw
-qnN
+pvw
 mwJ
 pTw
 ceb

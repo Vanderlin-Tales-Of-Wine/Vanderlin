@@ -278,20 +278,8 @@
 "eU" = (
 /turf/closed/mineral/random/med,
 /area/rogue/outdoors/woods)
-"eY" = (
-/obj/structure/stairs{
-	dir = 8
-	},
-/turf/open/transparent/openspace,
-/area/rogue/indoors)
 "eZ" = (
 /obj/effect/decal/cleanable/dirt/cobweb{
-	dir = 4
-	},
-/turf/open/transparent/openspace,
-/area/rogue/indoors)
-"ff" = (
-/obj/structure/stairs{
 	dir = 4
 	},
 /turf/open/transparent/openspace,
@@ -463,13 +451,6 @@
 	},
 /turf/open/floor/dirt,
 /area/rogue/outdoors/woods)
-"hD" = (
-/obj/structure/stairs/stone{
-	dir = 1;
-	icon_state = "stonestairs"
-	},
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/mountains)
 "hJ" = (
 /obj/structure/chair/wood/alt,
 /turf/open/floor/wood,
@@ -1130,7 +1111,7 @@
 /obj/structure/stairs/stone{
 	dir = 1
 	},
-/turf/open/transparent/openspace,
+/turf/open/floor/cobble,
 /area/rogue/outdoors/mountains)
 "sw" = (
 /turf/open/floor/cobblerock,
@@ -2998,10 +2979,6 @@
 	icon_state = "horzw"
 	},
 /area/rogue/indoors)
-"ZD" = (
-/obj/structure/stairs/stone,
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/mountains)
 "ZH" = (
 /obj/structure/fake_machine/scomm,
 /turf/open/floor/dirt/road,
@@ -62058,14 +62035,14 @@ Rh
 Rh
 Rh
 Rh
-ZD
+gy
 Sb
 Sb
 Sb
 Sb
 Sb
 Sb
-hD
+NM
 Rh
 Rh
 Rh
@@ -62260,14 +62237,14 @@ Rh
 Rh
 Rh
 Rh
-ZD
+gy
 Sb
 Sb
 Sb
 Sb
 Sb
 Sb
-hD
+NM
 Rh
 Rh
 Rh
@@ -62462,14 +62439,14 @@ Rh
 Rh
 Rh
 Rh
-ZD
+gy
 Sb
 Sb
 Sb
 Sb
 Sb
 Sb
-hD
+NM
 Rh
 Rh
 Rh
@@ -64608,7 +64585,7 @@ Rh
 Rh
 Rh
 YY
-eY
+gD
 hg
 np
 Rh
@@ -72555,7 +72532,7 @@ Rh
 Rh
 Rh
 Rh
-ZD
+gy
 Sb
 Rh
 Rh
@@ -72611,7 +72588,7 @@ Rh
 Rh
 Rh
 Rh
-ZD
+gy
 Sb
 Sb
 Sb
@@ -72757,7 +72734,7 @@ Rh
 Rh
 Rh
 Rh
-ZD
+gy
 Sb
 Sb
 Rh
@@ -72813,7 +72790,7 @@ Rh
 Rh
 Rh
 Rh
-ZD
+gy
 Sb
 Sb
 Sb
@@ -73015,14 +72992,14 @@ Rh
 Rh
 Rh
 Rh
-ZD
+gy
 Sb
 Sb
 Sb
 Sb
 Sb
 Sb
-hD
+NM
 Rh
 Rh
 Rh
@@ -73224,7 +73201,7 @@ Sb
 Sb
 Sb
 Sb
-hD
+NM
 Rh
 Rh
 Rh
@@ -73426,7 +73403,7 @@ Rh
 Rh
 Sb
 Sb
-hD
+NM
 Rh
 Rh
 Rh
@@ -75574,7 +75551,7 @@ Rh
 Rh
 Rh
 VE
-ff
+MK
 fh
 jB
 Fy

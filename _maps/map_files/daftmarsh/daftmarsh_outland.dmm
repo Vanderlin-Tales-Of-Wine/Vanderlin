@@ -29,10 +29,6 @@
 /obj/structure/flora/newtree/snow,
 /turf/open/floor/grass,
 /area/rogue/outdoors/rtfield)
-"aC" = (
-/obj/structure/stairs/stone,
-/turf/open/transparent/openspace,
-/area/rogue/under/mountains/anvil/lower)
 "aE" = (
 /obj/structure/chair/wood/alt{
 	dir = 8
@@ -1766,7 +1762,7 @@
 /obj/structure/stairs/stone{
 	dir = 8
 	},
-/turf/open/transparent/openspace,
+/turf/open/floor/herringbone,
 /area/rogue/under/mountains/anvil/lower)
 "su" = (
 /obj/item/chair,
@@ -2767,7 +2763,7 @@
 /obj/structure/stairs/stone{
 	dir = 4
 	},
-/turf/open/transparent/openspace,
+/turf/open/floor/herringbone,
 /area/rogue/under/mountains/anvil/lower)
 "DR" = (
 /obj/structure/table/wood/plain_alt,
@@ -46435,7 +46431,7 @@ bv
 PF
 PF
 PF
-aC
+Mn
 GX
 GX
 GX
@@ -46637,7 +46633,7 @@ bv
 PF
 PF
 PF
-aC
+Mn
 GX
 kc
 GX

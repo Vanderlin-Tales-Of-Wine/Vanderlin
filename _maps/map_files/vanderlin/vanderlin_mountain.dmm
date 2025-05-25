@@ -106,7 +106,7 @@
 /obj/structure/stairs{
 	dir = 1
 	},
-/turf/open/transparent/openspace,
+/turf/open/floor/twig,
 /area/rogue/outdoors/mountains/anvil/snowyforest)
 "cy" = (
 /obj/structure/bed/mediocre,
@@ -671,12 +671,6 @@
 /obj/item/reagent_containers/food/snacks/rotten/meat,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower/building)
-"kf" = (
-/obj/structure/stairs{
-	dir = 8
-	},
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/mountains/anvil/snowyforest)
 "kg" = (
 /obj/effect/decal/cleanable/blood,
 /obj/structure/stairs/stone{
@@ -726,7 +720,7 @@
 /obj/structure/fluff/railing/stonehedge{
 	dir = 4
 	},
-/turf/open/transparent/openspace,
+/turf/open/floor/cobble,
 /area/rogue/outdoors/mountains/anvil/snowyforest)
 "kQ" = (
 /obj/structure/fluff/statue/tdummy,
@@ -858,7 +852,7 @@
 /obj/structure/stairs{
 	dir = 4
 	},
-/turf/open/transparent/openspace,
+/turf/open/floor/twig,
 /area/rogue/outdoors/mountains/anvil/snowyforest)
 "mS" = (
 /obj/structure/table/wood/plain,
@@ -1162,7 +1156,7 @@
 /obj/structure/fluff/railing/stonehedge{
 	dir = 4
 	},
-/turf/open/transparent/openspace,
+/turf/open/floor/cobble,
 /area/rogue/outdoors/mountains/anvil/snowyforest)
 "qS" = (
 /obj/structure/stairs/stone,
@@ -1435,7 +1429,7 @@
 /obj/structure/fluff/railing/stonehedge{
 	dir = 8
 	},
-/turf/open/transparent/openspace,
+/turf/open/floor/cobble,
 /area/rogue/outdoors/mountains/anvil/snowyforest)
 "ve" = (
 /turf/open/floor/tile/masonic/spiral,
@@ -2145,6 +2139,7 @@
 /obj/structure/fluff/railing/wood{
 	dir = 4
 	},
+/obj/structure/stairs,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/outdoors/mountains/anvil/snowyforest)
 "Hv" = (
@@ -2768,6 +2763,7 @@
 /obj/structure/fluff/railing/wood{
 	dir = 8
 	},
+/obj/structure/stairs,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/outdoors/mountains/anvil/snowyforest)
 "PU" = (
@@ -2810,12 +2806,6 @@
 	},
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/lower/building)
-"Qs" = (
-/obj/structure/stairs/stone{
-	dir = 1
-	},
-/turf/closed/mineral/random/med,
-/area/rogue/under/mountains/anvil/lower)
 "Qu" = (
 /obj/structure/fluff/railing/wood,
 /obj/structure/fluff/railing/wood{
@@ -2990,7 +2980,7 @@
 /obj/structure/stairs/stone{
 	dir = 1
 	},
-/turf/open/transparent/openspace,
+/turf/open/floor/cobble,
 /area/rogue/outdoors/mountains/anvil/snowyforest)
 "Tp" = (
 /mob/living/simple_animal/hostile/retaliate/spider/mutated,
@@ -3039,7 +3029,7 @@
 /obj/structure/fluff/railing/stonehedge{
 	dir = 8
 	},
-/turf/open/transparent/openspace,
+/turf/open/floor/cobble,
 /area/rogue/outdoors/mountains/anvil/snowyforest)
 "Uk" = (
 /obj/item/chair,
@@ -3446,7 +3436,7 @@
 /area/rogue/under/mountains/anvil/lower/building)
 "ZX" = (
 /obj/structure/stairs/stone,
-/turf/open/transparent/openspace,
+/turf/open/floor/cobble,
 /area/rogue/outdoors/mountains/anvil/snowyforest)
 "ZY" = (
 /obj/item/bin/water,
@@ -48445,7 +48435,7 @@ Ze
 dy
 Ze
 Ze
-zQ
+Ze
 IQ
 Xv
 OJ
@@ -66679,7 +66669,7 @@ Jv
 Jv
 Jv
 Jv
-Qs
+BY
 lU
 DR
 DR
@@ -66881,7 +66871,7 @@ Jv
 Jv
 Jv
 Jv
-Qs
+BY
 lU
 DR
 DR
@@ -67083,7 +67073,7 @@ Jv
 Jv
 Jv
 Jv
-Qs
+BY
 lU
 DR
 DR
@@ -122965,7 +122955,7 @@ Pv
 qx
 qx
 hc
-kf
+jV
 aC
 aC
 hc

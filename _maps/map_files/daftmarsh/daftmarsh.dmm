@@ -1521,10 +1521,6 @@
 "bwZ" = (
 /turf/closed/wall/mineral/wooddark,
 /area/rogue/indoors/town/orphanage)
-"bxf" = (
-/obj/structure/stairs/fancy/r,
-/turf/open/transparent/openspace,
-/area/rogue/indoors/town/manor)
 "bxB" = (
 /obj/structure/table/wood{
 	icon_state = "longtable"
@@ -11377,7 +11373,9 @@
 /area/rogue/indoors/town/garrison)
 "kVF" = (
 /obj/structure/stairs,
-/turf/open/transparent/openspace,
+/turf/open/floor/ruinedwood{
+	icon_state = "weird1"
+	},
 /area/rogue/indoors/town/magician)
 "kVG" = (
 /obj/structure/stairs{
@@ -168922,7 +168920,7 @@ hym
 xVa
 qMq
 mwB
-bxf
+vzx
 sKI
 eOa
 sKI
