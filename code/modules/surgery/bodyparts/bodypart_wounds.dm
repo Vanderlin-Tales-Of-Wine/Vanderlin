@@ -210,7 +210,7 @@
 	var/used
 	var/damage_dividend = (get_damage() / max_damage)
 	var/list/attempted_wounds
-	switch(pick_shuffle(crit_classes))
+	switch(pick(crit_classes))
 		if("dislocation")
 			if(damage_dividend < 0.4)
 				return
@@ -284,7 +284,7 @@
 		return FALSE
 
 	var/list/attempted_wounds
-	switch(pick_shuffle(crit_classes))
+	switch(pick(crit_classes))
 		if("cbt")
 			if(zone_precise == BODY_ZONE_PRECISE_GROIN)
 				var/cbt_multiplier = 1
@@ -352,7 +352,7 @@
 	var/resistance = HAS_TRAIT(owner, TRAIT_CRITICAL_RESISTANCE)
 	var/from_behind = FALSE
 	if(user)
-		if((owner.dir == turn(get_dir(owner,user), 180)))
+		if((owner.dir == REVERSE_DIR(get_dir(owner, user))))
 			from_behind = TRUE
 		if(user.stat_roll(STATKEY_LCK,2,10))
 			dam += 10
@@ -368,7 +368,7 @@
 		return FALSE
 
 	var/list/attempted_wounds
-	switch(pick_shuffle(crit_classes))
+	switch(pick(crit_classes))
 		if("dislocation")
 			if(damage_dividend >= 1)
 				used = round(damage_dividend * 20 + (dam / 6), 1)
