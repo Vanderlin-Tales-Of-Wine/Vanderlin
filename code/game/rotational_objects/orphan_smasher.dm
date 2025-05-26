@@ -306,11 +306,11 @@
 	AddComponent(/datum/component/storage/concrete/grid/anvil_bin)
 
 /obj/structure/material_bin/update_icon_state()
-	. = ..()
 	if(opened)
 		icon_state = "material1"
 	else
 		icon_state = initial(icon_state)
+	return ..()
 
 /obj/structure/material_bin/attack_right(mob/user)
 	. = ..()

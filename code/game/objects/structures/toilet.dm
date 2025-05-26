@@ -32,9 +32,6 @@
 			to_chat(user, "<span class='notice'>I find [I] in the toilet.</span>")
 			w_items -= I.w_class
 
-/obj/structure/toilet/update_icon_state()
-	icon_state = "toilet"
-
 /obj/structure/toilet/deconstruct()
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(buildstacktype)

@@ -36,13 +36,14 @@
 
 ///This is a switch incase anyone would like to add more...
 /obj/item/gem/update_icon_state()
-	if(icon_state == "aros")
+	if(icon_state == "aros") // :(
 		switch(rand(1,2))
 			if(1)
 				icon_state = "d_cut"
 			if(2)
 				icon_state = "e_cut"
-	return
+	return ..()
+
 /obj/item/gem/getonmobprop(tag)
 	. = ..()
 	if(tag)

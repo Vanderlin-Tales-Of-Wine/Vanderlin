@@ -1321,22 +1321,22 @@
 		update_icon()
 
 /obj/structure/fluff/statue/knight/interior/gen/update_icon_state()
-	. = ..()
 	if(dir == EAST)
 		icon_state = "oknightstatue_l"
 	else if(dir == WEST)
 		icon_state = "oknightstatue_r"
 	else
 		icon_state = pick("oknightstatue_l", "oknightstatue_r")
+	return ..()
 
 /obj/structure/fluff/statue/knightalt/gen/update_icon_state()
-	. = ..()
 	if(dir == EAST)
 		icon_state = "knightstatue2_l"
 	else if(dir == WEST)
 		icon_state = "knightstatue2_r"
 	else
 		icon_state = pick("knightstatue2_l", "knightstatue2_r")
+	return ..()
 
 /obj/structure/fluff/statue/carving_block
 	name = "carving block"

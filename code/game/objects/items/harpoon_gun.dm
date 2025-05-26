@@ -250,11 +250,11 @@
 	update_icon_state()
 
 /obj/item/harpoon_gun/update_icon_state()
-	. = ..()
 	if(retracted_hook)
 		icon_state = "[initial(icon_state)]_extended"
 	else
 		icon_state = initial(icon_state)
+	return ..()
 
 /obj/projectile/grapple_hook
 	name = "grapple hook"

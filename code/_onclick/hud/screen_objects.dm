@@ -213,6 +213,7 @@
 							icon_state = "slotbroke"
 		else
 			icon_state = icon_empty
+	return ..()
 
 /atom/movable/screen/inventory/proc/add_overlays()
 	var/mob/user = hud?.mymob
@@ -636,6 +637,7 @@
 			icon_state = "walking"
 		if(MOVE_INTENT_RUN)
 			icon_state = "running"
+	return ..()
 
 /atom/movable/screen/mov_intent/proc/toggle(mob/user)
 	if(isobserver(user))
@@ -667,6 +669,7 @@
 		icon_state = "sneak1"
 	else
 		icon_state = "sneak0"
+	return ..()
 
 /atom/movable/screen/rogmove/sprint
 	name = "sprint mode"
@@ -688,8 +691,7 @@
 		icon_state = "sprint1"
 	else
 		icon_state = "sprint0"
-
-
+	return ..()
 
 /atom/movable/screen/advsetup
 	name = ""
@@ -777,7 +779,6 @@
 			L.look_around()
 
 /atom/movable/screen/eye_intent/update_icon_state()
-	. = ..()
 	var/mob/living/L = hud.mymob
 	if(!istype(L))
 		icon_state = "eye"
@@ -790,6 +791,7 @@
 		icon_state = "eye_fixed"
 	else
 		icon_state = "eye"
+	return ..()
 
 /atom/movable/screen/eye_intent/update_overlays()
 	. = ..()
@@ -829,6 +831,7 @@
 		icon_state = "pull"
 	else
 		icon_state = "pull0"
+	return ..()
 
 /atom/movable/screen/rest
 	name = "rest"
@@ -851,6 +854,7 @@
 		icon_state = "act_rest"
 	else
 		icon_state = "act_rest0"
+	return ..()
 
 /atom/movable/screen/restup
 	name = "stand up"

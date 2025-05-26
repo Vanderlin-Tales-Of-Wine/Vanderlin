@@ -255,6 +255,7 @@
 		icon_state = "beebox-full"
 	else
 		icon_state = "beebox-empty"
+	return ..()
 
 /obj/structure/apiary/process()
 	if(QDELETED(queen_bee))
@@ -744,6 +745,7 @@
 
 /obj/item/bee_smoker/update_icon_state()
 	icon_state = active ? "smoker_lit" : "smoker"
+	return ..()
 
 /obj/item/bee_smoker/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/natural/bundle/cloth))

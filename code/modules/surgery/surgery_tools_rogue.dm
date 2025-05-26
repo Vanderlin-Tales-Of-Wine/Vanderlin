@@ -126,10 +126,10 @@
 		. += "<span class='warning'>The tip is hot to the touch.</span>"
 
 /obj/item/weapon/surgery/cautery/update_icon_state()
-	. = ..()
 	icon_state = initial(icon_state)
 	if(heated)
 		icon_state = "[initial(icon_state)]_hot"
+	return ..()
 
 /obj/item/weapon/surgery/cautery/pre_attack(atom/A, mob/living/user, params)
 	if(!istype(user.a_intent, /datum/intent/use))

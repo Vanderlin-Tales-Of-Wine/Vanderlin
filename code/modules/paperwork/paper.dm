@@ -490,9 +490,6 @@
 	icon_state = "scrap"
 	slot_flags = null
 
-/obj/item/paper/crumpled/update_icon_state()
-	return
-
 /obj/item/paper/crumpled/bloody
 	icon_state = "scrap_bloodied"
 

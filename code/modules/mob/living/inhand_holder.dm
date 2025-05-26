@@ -30,8 +30,8 @@
 	update_visuals(held_mob)
 
 /obj/item/clothing/head/mob_holder/update_icon_state()
-	. = ..()
 	update_visuals(held_mob)
+	return ..()
 
 /obj/item/clothing/head/mob_holder/Destroy()
 	destroying = TRUE
