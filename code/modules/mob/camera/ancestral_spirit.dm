@@ -58,17 +58,12 @@
 	name = "Cursed Hand"
 	icon_state = "cursehand0"
 	damage = 0
-	range = 7
-	speed = 0.7
+	range = 9
+	speed = 05
 	arcshot = TRUE
 
 /mob/camera/ancestral_spirit/ClickOn(atom/A, params) // this chaining could be done on the parent instead
 	. = ..()
-	if(check_click_intercept(params,A))
-		return
-
-	if(SEND_SIGNAL(src, COMSIG_MOB_CLICKON, A, params) & COMSIG_MOB_CANCEL_CLICKON)
-		return
 
 	var/list/modifiers = params2list(params)
 
@@ -110,7 +105,7 @@
 	QDEL_NULL(locomotion_hand_pulling)
 	locomotion_hand_pulling = containment.Beam(get_turf(source.loc), icon_state = "curse0", maxdistance = 9, time = 10 SECONDS)
 
-	containment.throw_at(target = source, range = 9, speed = 0.7, spin = FALSE, callback = CALLBACK(src, PROC_REF(post_land)))
+	containment.throw_at(target = source, range = 9, speed = 2, spin = FALSE, callback = CALLBACK(src, PROC_REF(post_land)))
 
 /mob/camera/ancestral_spirit/proc/post_land(datum/source)
 	QDEL_NULL(locomotion_hand_pulling)
@@ -127,5 +122,8 @@
 	var/mob/dead/astral_projection/projection = new(A.loc, A)
 	projection.spirit = src
 	projection.ckey = ckey
+	projection.AddComponent(/datum/component/leash, A, projection.range_limit, null, null, "curse0", 'icons/effects/beam.dmi', TRUE, CALLBACK(src, TYPE_PROC_REF(/mob/dead/astral_projection, link_break_callback)))
+	if(A == containment)
+		projection.projection_source_is_containment = TRUE
 
 	return TRUE
