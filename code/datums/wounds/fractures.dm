@@ -76,10 +76,12 @@
 	mortal = TRUE
 	/// Brain case fractures (Depressed Cranium, Temporal) cause paralysis
 	var/paralysis = FALSE
+	var/knockout = 15 SECONDS
 
 /datum/wound/fracture/head/on_mob_gain(mob/living/affected)
 	. = ..()
-	affected.Unconscious(20 SECONDS)
+	if(knockout)
+		affected.Unconscious(knockout)
 	ADD_TRAIT(affected, TRAIT_DISFIGURED, "[type]")
 	if(paralysis)
 		ADD_TRAIT(affected, TRAIT_NO_BITE, "[type]")
@@ -116,6 +118,7 @@
 	whp = 150
 	bleed_rate = 4.6
 	paralysis = TRUE
+	knockout = 25 SECONDS
 
 /datum/wound/fracture/head/brain/on_life()
 	. = ..()
@@ -130,6 +133,8 @@
 
 /datum/wound/fracture/head/eyes/on_mob_gain(mob/living/affected)
 	. = ..()
+	affected.become_blind("[type]")
+	addtimer(CALLBACK(affected, TYPE_PROC_REF(/mob/living, cure_blind), "[type]"), 30 SECONDS)
 	affected.become_nearsighted("[type]")
 
 /datum/wound/fracture/head/eyes/on_mob_loss(mob/living/affected)
@@ -144,6 +149,7 @@
 		"The temporal bone is cracked!",
 	)
 	paralysis = TRUE
+	knockout = 25 SECONDS
 
 /datum/wound/fracture/head/nose
 	name = "nasal fracture"
@@ -152,6 +158,7 @@
 		"The nasal bone is shattered!",
 	)
 	mortal = FALSE
+	knockout = 10 SECONDS
 
 /datum/wound/fracture/head/nose/on_mob_gain(mob/living/affected)
 	. = ..()
@@ -213,9 +220,6 @@
 	. = ..()
 	REMOVE_TRAIT(affected, TRAIT_PARALYSIS, "[type]")
 	REMOVE_TRAIT(affected, TRAIT_NOPAIN, "[type]")
-	// if(iscarbon(affected))
-	// 	var/mob/living/carbon/carbon_affected = affected
-		// carbon_affected.update_disabled_bodyparts()
 
 /datum/wound/fracture/neck/on_life()
 	. = ..()
