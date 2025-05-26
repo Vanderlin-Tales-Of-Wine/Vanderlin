@@ -59,7 +59,7 @@
 	icon_state = "cursehand0"
 	damage = 0
 	range = 9
-	speed = 05
+	speed = 1
 	arcshot = TRUE
 
 /mob/camera/ancestral_spirit/ClickOn(atom/A, params) // this chaining could be done on the parent instead
