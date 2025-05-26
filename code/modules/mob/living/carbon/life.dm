@@ -119,7 +119,7 @@
 
 /mob/living/carbon/handle_inwater(turf/open/water/W)
 	..()
-	if(HAS_TRAIT(src, TRAIT_NOBREATH))
+	if(HAS_TRAIT(src, TRAIT_NOBREATH) || HAS_TRAIT(src, TRAIT_WATER_BREATHE))
 		return TRUE
 	if(stat == DEAD)
 		return TRUE

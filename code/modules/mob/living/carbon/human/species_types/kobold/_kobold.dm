@@ -40,6 +40,9 @@
 
 	dam_icon_f = 'icons/roguetown/mob/bodies/dam/dam_female.dmi'
 
+	enflamed_icon = "widefire"
+	patreon_req = TRUE
+
 	soundpack_m = /datum/voicepack/male/dwarf
 	soundpack_f = /datum/voicepack/female/dwarf
 
@@ -49,6 +52,28 @@
 	custom_clothes = TRUE
 
 	swap_male_clothes = TRUE
+
+	// Uses female dwarf sprites
+	offset_features_m = list()
+
+	offset_features_f = list(
+		OFFSET_RING = list(0,-4),\
+		OFFSET_GLOVES = list(0,0),\
+		OFFSET_WRISTS = list(0,0),\
+		OFFSET_HANDS = list(0,-4),\
+		OFFSET_CLOAK = list(0,0),\
+		OFFSET_FACEMASK = list(0,-5),\
+		OFFSET_HEAD = list(0,-5),\
+		OFFSET_FACE = list(0,-5),\
+		OFFSET_BELT = list(0,0),\
+		OFFSET_BACK = list(0,-5),\
+		OFFSET_NECK = list(0,-5),\
+		OFFSET_MOUTH = list(0,-5),\
+		OFFSET_PANTS = list(0,0),\
+		OFFSET_SHIRT = list(0,0),\
+		OFFSET_ARMOR = list(0,0),\
+		OFFSET_UNDIES = list(0,0),\
+	)
 
 	organs = list(
 		ORGAN_SLOT_BRAIN = /obj/item/organ/brain/smooth,
@@ -61,32 +86,14 @@
 		ORGAN_SLOT_STOMACH = /obj/item/organ/stomach,
 		ORGAN_SLOT_APPENDIX = /obj/item/organ/appendix,
 		ORGAN_SLOT_GUTS = /obj/item/organ/guts,
+		ORGAN_SLOT_TAIL = /obj/item/organ/tail/kobold
 	)
 
-	// Uses female dwarf sprites
-	offset_features_m = list()
-
-	offset_features_f = list(
-		OFFSET_RING = list(0,-4),\
-		OFFSET_GLOVES = list(0,-4),\
-		OFFSET_WRISTS = list(0,-4),\
-		OFFSET_HANDS = list(0,-4),\
-		OFFSET_CLOAK = list(0,0),\
-		OFFSET_FACEMASK = list(0,-5),\
-		OFFSET_HEAD = list(0,-5),\
-		OFFSET_FACE = list(0,-5),\
-		OFFSET_BELT = list(0,-5),\
-		OFFSET_BACK = list(0,-5),\
-		OFFSET_NECK = list(0,-5),\
-		OFFSET_MOUTH = list(0,-5),\
-		OFFSET_PANTS = list(0,0),\
-		OFFSET_SHIRT = list(0,0),\
-		OFFSET_ARMOR = list(0,0),\
-		OFFSET_UNDIES = list(0,0),\
+	customizers = list(
+		/datum/customizer/organ/tail/kobold,
+		/datum/customizer/bodypart_feature/accessory,
+		/datum/customizer/bodypart_feature/face_detail,
 	)
-
-	enflamed_icon = "widefire"
-	patreon_req = TRUE
 
 /datum/species/kobold/on_species_gain(mob/living/carbon/C, datum/species/old_species, datum/preferences/pref_load)
 	. = ..()

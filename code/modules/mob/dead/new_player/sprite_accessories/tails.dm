@@ -347,8 +347,20 @@
 	color_key_defaults = list(KEY_SKIN_COLOR)
 
 /datum/sprite_accessory/tail/triton
+	name = "Triton Bell"
 	icon = 'icons/mob/sprite_accessory/tails/triton.dmi'
-	name = "Triton"
 	icon_state = "triton"
 	specuse = list("triton")
 	color_key_defaults = list(KEY_SKIN_COLOR)
+
+/datum/sprite_accessory/tail/kobold
+	name = "Kobold Curly"
+	icon = 'icons/mob/sprite_accessory/tails/lizard.dmi'
+	icon_state = "kobold"
+	specuse = list("kobold")
+	color_key_defaults = list(KEY_SKIN_COLOR)
+
+/datum/sprite_accessory/tail/kobold/alt
+	name = "Kobold Straight"
+	icon_state = "kobold_alt"
+	can_wag = TRUE

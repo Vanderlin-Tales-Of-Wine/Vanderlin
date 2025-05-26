@@ -420,15 +420,14 @@ There are several things that need to be remembered:
 		//add sleeve overlays, then offset
 		var/list/sleeves = list()
 		if(gloves.sleeved && armsindex > 0)
-			sleeves = get_sleeves_layer(gloves,armsindex,GLOVESLEEVE_LAYER)
+			sleeves = get_sleeves_layer(gloves, armsindex, GLOVESLEEVE_LAYER)
 
 		if(sleeves)
 			for(var/mutable_appearance/S as anything in sleeves)
 				if(LAZYACCESS(offsets, OFFSET_GLOVES))
 					S.pixel_x += offsets[OFFSET_GLOVES][1]
 					S.pixel_y += offsets[OFFSET_GLOVES][2]
-			overlays_standing[GLOVESLEEVE_LAYER] = sleeves
-
+				overlays_standing[GLOVESLEEVE_LAYER] = sleeves
 
 	apply_overlay(GLOVES_LAYER)
 	apply_overlay(GLOVESLEEVE_LAYER)

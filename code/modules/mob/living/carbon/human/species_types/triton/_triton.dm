@@ -36,7 +36,7 @@
 	use_skintones = TRUE
 
 	species_traits = list(NOEYESPRITES, NO_UNDERWEAR, HAIR)
-	inherent_traits = list(TRAIT_NOMOBSWAP, TRAIT_NOBREATH)
+	inherent_traits = list(TRAIT_NOMOBSWAP, TRAIT_WATER_BREATHE, TRAIT_GOOD_SWIM)
 	inherent_traits_f = list(TRAIT_STRONGBITE)
 	inherent_skills = list(
 		/datum/skill/labor/fishing = 3,
@@ -61,24 +61,24 @@
 	exotic_bloodtype = /datum/blood_type/human/triton
 	enflamed_icon = "widefire"
 
-	// FEMALE from Halforc
+	// FEMALE from Male Humen
 	offset_features_m = list(
-		OFFSET_RING = list(0,1),\
-		OFFSET_GLOVES = list(0,1),\
-		OFFSET_WRISTS = list(0,1),\
-		OFFSET_HANDS = list(0,1),\
-		OFFSET_CLOAK = list(0,1),\
-		OFFSET_FACEMASK = list(0,1),\
-		OFFSET_HEAD = list(0,1),\
+		OFFSET_RING = list(0,0),\
+		OFFSET_GLOVES = list(0,0),\
+		OFFSET_WRISTS = list(0,0),\
+		OFFSET_HANDS = list(0,0),\
+		OFFSET_CLOAK = list(0,0),\
+		OFFSET_FACEMASK = list(0,0),\
+		OFFSET_HEAD = list(0,0),\
 		OFFSET_FACE = list(0,0),\
-		OFFSET_BELT = list(0,1),\
-		OFFSET_BACK = list(0,1),\
-		OFFSET_NECK = list(0,1),\
-		OFFSET_MOUTH = list(0,1),\
-		OFFSET_PANTS = list(0,1),\
-		OFFSET_SHIRT = list(0,1),\
-		OFFSET_ARMOR = list(0,1),\
-		OFFSET_UNDIES = list(0,1),\
+		OFFSET_BELT = list(0,0),\
+		OFFSET_BACK = list(0,0),\
+		OFFSET_NECK = list(0,0),\
+		OFFSET_MOUTH = list(0,0),\
+		OFFSET_PANTS = list(0,0),\
+		OFFSET_SHIRT = list(0,0),\
+		OFFSET_ARMOR = list(0,0),\
+		OFFSET_UNDIES = list(0,0),\
 	)
 
 	// MALE from Female Humen
@@ -120,6 +120,7 @@
 		/datum/customizer/bodypart_feature/hair/head/triton,
 		/datum/customizer/bodypart_feature/accessory,
 		/datum/customizer/bodypart_feature/face_detail,
+		/datum/customizer/organ/tail/triton,
 	)
 
 	body_markings = list(

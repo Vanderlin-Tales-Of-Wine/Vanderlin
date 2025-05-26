@@ -111,3 +111,19 @@
 	sprite_accessories = list(
 		/datum/sprite_accessory/tail/triton,
 		)
+
+/obj/item/organ/tail/kobold
+	accessory_type = /datum/sprite_accessory/tail/kobold
+
+/datum/customizer/organ/tail/kobold
+	customizer_choices = list(/datum/customizer_choice/organ/tail/kobold)
+	allows_disabling = FALSE
+
+/datum/customizer_choice/organ/tail/kobold
+	name = "Kobold Tail"
+	organ_type = /obj/item/organ/tail/kobold
+	allows_accessory_color_customization = FALSE
+	sprite_accessories = list(
+		/datum/sprite_accessory/tail/kobold,
+		/datum/sprite_accessory/tail/kobold/alt,
+		)
