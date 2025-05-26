@@ -1,6 +1,6 @@
 /datum/advclass/mercenary/desert_pirate
 	name = "Desert Rider"
-	tutorial = "A pirate of rakshari origin, hailing from the wast dune-sea of Zybantu. Well trained riders and expirienced archers, these nomads live the life of marauders and raiders, taking what belongs to other settlements and caravans."
+	tutorial = "A pirate of rakshari origin, hailing from the wast dune-sea of Zybantu. Well trained riders and expirienced archers, these nomads live the life of marauders and raiders, taking what belongs to weaker settlements and caravans."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Rakshari"
@@ -15,14 +15,15 @@
 /datum/outfit/job/mercenary/desert_pirate/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
-		if(H.patron != /datum/patron/misc/penice)
-			H.set_patron(/datum/patron/misc/penice)
+	/*(H.patron != /datum/patron/misc/rashan_kahl) //Reformed Desert rider, make patron choice available in char setup?
+			H.set_patron(/datum/patron/misc/rashan_kahl) */
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/bows, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/taming, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE) // Little use for climbing, main targets were other caravans and shitty settlements.
@@ -52,6 +53,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE)
 	shoes = /obj/item/clothing/shoes/shalal
 	gloves = /obj/item/clothing/gloves/angle
+	wrists = /obj/item/rope/chain //Seems fitting for slavers
 	belt = /obj/item/storage/belt/leather/mercenary/shalal
 	shirt = /obj/item/clothing/shirt/undershirt/uncolored
 	armor = /obj/item/clothing/armor/leather/splint
