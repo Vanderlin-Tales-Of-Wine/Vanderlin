@@ -13,6 +13,7 @@
 	var/listening = TRUE
 	var/speaking = TRUE
 	var/dictating = FALSE
+	var/mob/camera/ancestral_spirit/controlled_by
 
 /obj/structure/fake_machine/scomm/Initialize()
 	. = ..()
@@ -49,10 +50,25 @@
 	if(.)
 		return
 	user.changeNext_move(CLICK_CD_MELEE)
+
+/obj/structure/fake_machine/scomm/proc/toggle_mute(mob/living/user)
+	if(listening)
+		mute(user)
+	else
+		unmute(user)
+
+	to_chat(user, span_info("I [speaking ? "unmute" : "mute"] the SCOM."))
+
+/obj/structure/fake_machine/scomm/proc/mute(mob/living/user)
 	playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
-	listening = !listening
-	speaking = !speaking
-	to_chat(user, "<span class='info'>I [speaking ? "unmute" : "mute"] the SCOM.</span>")
+	listening = FALSE
+	speaking = FALSE
+	update_icon()
+
+/obj/structure/fake_machine/scomm/proc/unmute(mob/living/user)
+	playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
+	listening = TRUE
+	speaking = TRUE
 	update_icon()
 
 /obj/structure/fake_machine/scomm/attack_right(mob/user)
