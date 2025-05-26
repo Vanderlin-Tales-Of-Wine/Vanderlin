@@ -142,7 +142,7 @@
 	affected.cure_nearsighted("[type]")
 
 /datum/wound/fracture/head/ears
-	name = "temporal fracture"
+	name = "depressed temporal fracture"
 	severity = WOUND_SEVERITY_FATAL
 	crit_message = list(
 		"The temporal bone is fractured!",
