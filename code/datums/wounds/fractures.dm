@@ -21,7 +21,7 @@
 	// Limbs hemorrhage but clot quickly
 	// Lose 164.3 blood over 19 ticks then clot
 	bleed_rate = 16.3
-	clotting_threshold = 0.8
+	clotting_threshold = 0.6
 	clotting_rate = 0.85
 
 	var/set_bleed_rate = 0.5
@@ -178,7 +178,6 @@
 		"The jaw caves in!",
 	)
 	whp = 50
-	sleep_healing = 0
 
 	bleed_rate = 1.6
 	clotting_threshold = 0.4
@@ -271,14 +270,8 @@
 	affected.Immobilize(15)
 	ADD_TRAIT(affected, TRAIT_PARALYSIS_R_LEG, "[type]")
 	ADD_TRAIT(affected, TRAIT_PARALYSIS_L_LEG, "[type]")
-	// if(iscarbon(affected))
-	// 	var/mob/living/carbon/carbon_affected = affected
-		// carbon_affected.update_disabled_bodyparts()
 
 /datum/wound/fracture/groin/on_mob_loss(mob/living/affected)
 	. = ..()
 	REMOVE_TRAIT(affected, TRAIT_PARALYSIS_R_LEG, "[type]")
 	REMOVE_TRAIT(affected, TRAIT_PARALYSIS_L_LEG, "[type]")
-	// if(iscarbon(affected))
-	// 	var/mob/living/carbon/carbon_affected = affected
-		// carbon_affected.update_disabled_bodyparts()
