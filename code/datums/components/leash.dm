@@ -213,7 +213,7 @@
 		normal_direction = get_dir(new_host, to_move)
 		new_host = to_move
 
-/// A debug spawner that will create a corgi leashed to a bike horn, plus a beam
+/// A debug spawner that will create a pig leashed to a bike horn, plus a beam
 /obj/effect/spawner/debug_leash
 
 /obj/effect/spawner/debug_leash/Initialize(mapload)
