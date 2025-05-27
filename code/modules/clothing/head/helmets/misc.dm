@@ -308,7 +308,7 @@
 
 /obj/item/clothing/head/helmet/townwatch/gatemaster
 	name = "barred helmet"
-	flags_inv = HIDEEARS|HIDEHAIR|HIDEFACE
+	flags_inv = HIDEEARS|HIDEHAIR
 	desc = "An old archaic helmet of a symbol long forgotten, now owned by the Gatemaster. The shape resembles the bars of a gate."
 	icon = 'icons/roguetown/clothing/special/gatemaster.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/gatemaster.dmi'
