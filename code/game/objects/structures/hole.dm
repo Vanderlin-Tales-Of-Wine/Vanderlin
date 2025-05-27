@@ -107,7 +107,7 @@
 						return
 					W.water_reagent = master_reagent.type
 					W.water_volume = clamp(reagent_volume, 1, 100)
-					W.update_water()
+					W.handle_water()
 					playsound(W, 'sound/foley/waterenter.ogg', 100, FALSE)
 					QDEL_NULL(src)
 

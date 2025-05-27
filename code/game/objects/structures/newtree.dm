@@ -197,7 +197,7 @@
 /obj/structure/flora/newtree/snow/build_trees()
 	var/turf/target = get_step_multiz(src, UP)
 	if(istype(target, /turf/open/transparent/openspace))
-		var/obj/structure/flora/newtree/snow/T = new(target)
+		new /obj/structure/flora/newtree/snow(target)
 
 /obj/structure/flora/newtree/snow/build_leafs()
 	for(var/D in GLOB.diagonals)

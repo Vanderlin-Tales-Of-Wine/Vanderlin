@@ -61,7 +61,7 @@
 	water_volume = volume
 	if(src in children)
 		return
-	update_water()
+	handle_water()
 
 	for(var/turf/open/water/river/water in children)
 		water.set_watervolume(volume - 10)
@@ -70,7 +70,7 @@
 
 /turf/open/water/proc/adjust_watervolume(volume)
 	water_volume += volume
-	update_water()
+	handle_water()
 
 	for(var/turf/open/water/river/water in children)
 		water.adjust_watervolume(volume)
@@ -85,7 +85,7 @@
 		if(adjuster.water_volume + volume < initial(adjuster.water_volume))
 			return
 	adjuster.water_volume += volume
-	update_water()
+	handle_water()
 	if(adjuster.mapped) //means no changes downstream
 		return
 	for(var/turf/open/water/river/water in adjuster.children)
@@ -131,7 +131,7 @@
 	icon_state = "together"
 	baseturfs = /turf/open/transparent/openspace
 
-/turf/open/water/river/creatable/update_water()
+/turf/open/water/river/creatable/handle_water()
 	if(water_volume < 10)
 		dryup()
 	else if(water_volume)
@@ -176,7 +176,7 @@
 	icon_state = "rock"
 	var/picked_dir = pick(viable_directions)
 	dir = GLOB.reverse_dir[picked_dir]
-	update_water()
+	handle_water()
 	. = ..()
 
 /turf/open/water/river/creatable/attackby(obj/item/C, mob/user, params)
@@ -216,7 +216,7 @@
 	else
 		START_PROCESSING(SSobj, src)
 
-	update_water()
+	handle_water()
 
 	return INITIALIZE_HINT_LATELOAD
 
@@ -234,7 +234,7 @@
 	if(water_overlay && water_volume < 10)
 		dryup()
 
-/turf/open/water/proc/update_water()
+/turf/open/water/proc/handle_water()
 	if(!water_volume || water_volume < 10)
 		dryup()
 		return
@@ -660,8 +660,8 @@
 	desc = "Crystal clear water! Flowing swiflty along the river."
 	icon = 'icons/turf/newwater.dmi'
 	icon_state = MAP_SWITCH("rocky", "rivermove-dir")
-	water_overlay = /obj/effect/overlay/water/water_overlay/river
-	water_top_overlay = /obj/effect/overlay/water/water_overlay/top/river
+	water_overlay = /obj/effect/overlay/water/river
+	water_top_overlay = /obj/effect/overlay/water/top/river
 	water_top_overlay
 	water_level = 3
 	slowdown = 20

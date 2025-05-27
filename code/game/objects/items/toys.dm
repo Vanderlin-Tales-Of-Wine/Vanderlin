@@ -163,14 +163,14 @@
 
 /obj/item/toy/cards/deck/update_icon_state()
 	. = ..()
-	var/cards = length(cards)
-	if(cards > 26)
+	var/card_num = length(cards)
+	if(card_num > 26)
 		icon_state = "deck_[deckstyle]_full"
-	else if(cards > 13)
+	else if(card_num > 13)
 		icon_state = "deck_[deckstyle]_half"
-	else if(cards > 6)
+	else if(card_num > 6)
 		icon_state = "deck_[deckstyle]_low"
-	else if(cards == 0)
+	else if(card_num == 0)
 		icon_state = "deck_[deckstyle]_empty"
 
 /obj/item/toy/cards/deck/attack_self(mob/user)
