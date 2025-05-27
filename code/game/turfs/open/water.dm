@@ -7,15 +7,9 @@
 	layer = MID_TURF_LAYER
 	anchored = TRUE
 
-/obj/effect/overlay/water/river
-	icon_state = "riverbot"
-
 /obj/effect/overlay/water/top
 	icon_state = "top"
 	layer = MID_TURF_LAYER
-
-/obj/effect/overlay/water/top/river
-	icon_state = "rivertop"
 
 /turf/open/water
 	gender = PLURAL
@@ -26,8 +20,8 @@
 	baseturfs = /turf/open/water
 	slowdown = 20
 	turf_flags = NONE
-	var/obj/effect/overlay/water_overlay = /obj/effect/overlay/water
-	var/obj/effect/overlay/water_top_overlay = /obj/effect/overlay/water/top
+	var/obj/effect/overlay/water/water_overlay
+	var/obj/effect/overlay/water/top/water_top_overlay
 	bullet_sizzle = TRUE
 	bullet_bounce_sound = null //needs a splashing sound one day.
 	smoothing_flags = SMOOTH_EDGE
@@ -136,9 +130,9 @@
 		dryup()
 	else if(water_volume)
 		if(!water_overlay)
-			water_overlay = new water_overlay(src)
+			water_overlay = new(src)
 		if(!water_top_overlay)
-			water_top_overlay = new water_overlay(src)
+			water_top_overlay = new(src)
 		if(!LAZYLEN(neighborlay_list))
 			smoothing_flags = SMOOTH_EDGE
 			QUEUE_SMOOTH(src)
@@ -239,12 +233,13 @@
 		dryup()
 		return
 	if(!water_overlay)
-		water_overlay = new()
+		water_overlay = new(src)
 	if(!water_top_overlay)
-		water_top_overlay = new()
+		water_top_overlay = new(src)
 	if(!LAZYLEN(neighborlay_list))
 		smoothing_flags = SMOOTH_EDGE
 		QUEUE_SMOOTH(src)
+
 	if(water_overlay)
 		water_overlay.color = water_reagent.color
 		if(uses_level)
@@ -660,9 +655,6 @@
 	desc = "Crystal clear water! Flowing swiflty along the river."
 	icon = 'icons/turf/newwater.dmi'
 	icon_state = MAP_SWITCH("rocky", "rivermove-dir")
-	water_overlay = /obj/effect/overlay/water/river
-	water_top_overlay = /obj/effect/overlay/water/top/river
-	water_top_overlay
 	water_level = 3
 	slowdown = 20
 	swim_skill = TRUE

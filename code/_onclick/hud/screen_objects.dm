@@ -375,71 +375,70 @@
 	var/border1
 	var/border2
 
-/atom/movable/screen/act_intent/rogintent/update_icon(list/intentsl,list/intentsr, oactive = FALSE)
-	..()
-	cut_overlays(TRUE)
-	if(!intentsl || !intentsr)
+/atom/movable/screen/act_intent/rogintent/update_overlays()
+	. = ..()
+	. += intent1
+	. += intent2
+	. += intent3
+	. += intent4
+	. += border1
+	. += border2
+
+/atom/movable/screen/act_intent/rogintent/proc/update(list/left_intents, list/right_intents, active = FALSE)
+	if(!left_intents || !right_intents)
 		return
-	else
-		var/lol = 0
-//		intent1 = image(icon='icons/mob/rogueintentbase.dmi',icon_state="intentbase")
-//		add_overlay(intent1, TRUE)
-		var/list/used = intentsr
-		if(hud.mymob.active_hand_index == 1)
-			used = intentsl
-		for(var/datum/intent/intenty in used)
-			lol++
-			switch(lol)
-				if(1)
-					intent1 = image(icon='icons/mob/roguehud.dmi',icon_state=intenty.icon_state, pixel_x = 64, pixel_y = 16, layer = layer+0.02)
-					add_overlay(intent1, TRUE)
-				if(2)
-					intent2 = image(icon='icons/mob/roguehud.dmi',icon_state=intenty.icon_state, pixel_x = 96, pixel_y = 16, layer = layer+0.02)
-					add_overlay(intent2, TRUE)
-				if(3)
-					intent3 = image(icon='icons/mob/roguehud.dmi',icon_state=intenty.icon_state, pixel_x = 64, layer = layer+0.02)
-					add_overlay(intent3, TRUE)
-				if(4)
-					intent4 = image(icon='icons/mob/roguehud.dmi',icon_state=intenty.icon_state, pixel_x = 96, layer = layer+0.02)
-					add_overlay(intent4, TRUE)
-		if(ismob(usr))
-			var/mob/M = usr
-			switch_intent(M.r_index, M.l_index, oactive)
+	if(!hud?.mymob)
+		return
+	var/lol = 0
+	var/list/used = right_intents
+	if(hud.mymob.active_hand_index == 1)
+		used = left_intents
+	for(var/datum/intent/intenty as anything in used)
+		lol++
+		switch(lol)
+			if(1)
+				intent1 = image(icon='icons/mob/roguehud.dmi',icon_state=intenty.icon_state, pixel_x = 64, pixel_y = 16, layer = layer+0.02)
+			if(2)
+				intent2 = image(icon='icons/mob/roguehud.dmi',icon_state=intenty.icon_state, pixel_x = 96, pixel_y = 16, layer = layer+0.02)
+			if(3)
+				intent3 = image(icon='icons/mob/roguehud.dmi',icon_state=intenty.icon_state, pixel_x = 64, layer = layer+0.02)
+			if(4)
+				intent4 = image(icon='icons/mob/roguehud.dmi',icon_state=intenty.icon_state, pixel_x = 96, layer = layer+0.02)
+	if(ismob(usr))
+		var/mob/M = usr
+		switch_intent(M.r_index, M.l_index, active)
+		update_appearance(UPDATE_OVERLAYS)
 
 /atom/movable/screen/act_intent/rogintent/switch_intent(r_index, l_index, oactive = FALSE)
-	cut_overlay(border1, TRUE)
-	cut_overlay(border2, TRUE)
 	var/used = "offintent"
 	if(oactive)
 		used = "offintentselected"
 	if(!r_index || !l_index)
 		return
-	else
-		var/used_index = r_index
-		var/other = l_index
-		if(hud.mymob.active_hand_index == 1)
-			used_index = l_index
-			other = r_index
-		switch(used_index)
-			if(1)
-				border1 = image(icon='icons/mob/roguehud.dmi',icon_state="intentselected", pixel_x = 64, pixel_y = 16, layer = layer+0.01)
-			if(2)
-				border1 = image(icon='icons/mob/roguehud.dmi',icon_state="intentselected", pixel_x = 96, pixel_y = 16, layer = layer+0.01)
-			if(3)
-				border1 = image(icon='icons/mob/roguehud.dmi',icon_state="intentselected", pixel_x = 64, layer = layer+0.01)
-			if(4)
-				border1 = image(icon='icons/mob/roguehud.dmi',icon_state="intentselected", pixel_x = 96, layer = layer+0.01)
-		switch(other)
-			if(1)
-				border2 = image(icon='icons/mob/roguehud.dmi',icon_state=used, pixel_x = 64, pixel_y = 16, layer = layer+0.01)
-			if(2)
-				border2 = image(icon='icons/mob/roguehud.dmi',icon_state=used, pixel_x = 96, pixel_y = 16, layer = layer+0.01)
-			if(3)
-				border2 = image(icon='icons/mob/roguehud.dmi',icon_state=used, pixel_x = 64, layer = layer+0.01)
-			if(4)
-				border2 = image(icon='icons/mob/roguehud.dmi',icon_state=used, pixel_x = 96, layer = layer+0.01)
-		add_overlay(border2, TRUE)
-		add_overlay(border1, TRUE)
+	var/used_index = r_index
+	var/other = l_index
+	if(hud.mymob.active_hand_index == 1)
+		used_index = l_index
+		other = r_index
+	switch(used_index)
+		if(1)
+			border1 = image(icon='icons/mob/roguehud.dmi', icon_state="intentselected", pixel_x = 64, pixel_y = 16, layer = layer+0.01)
+		if(2)
+			border1 = image(icon='icons/mob/roguehud.dmi', icon_state="intentselected", pixel_x = 96, pixel_y = 16, layer = layer+0.01)
+		if(3)
+			border1 = image(icon='icons/mob/roguehud.dmi', icon_state="intentselected", pixel_x = 64, layer = layer+0.01)
+		if(4)
+			border1 = image(icon='icons/mob/roguehud.dmi', icon_state="intentselected", pixel_x = 96, layer = layer+0.01)
+	switch(other)
+		if(1)
+			border2 = image(icon='icons/mob/roguehud.dmi', icon_state=used, pixel_x = 64, pixel_y = 16, layer = layer+0.01)
+		if(2)
+			border2 = image(icon='icons/mob/roguehud.dmi', icon_state=used, pixel_x = 96, pixel_y = 16, layer = layer+0.01)
+		if(3)
+			border2 = image(icon='icons/mob/roguehud.dmi', icon_state=used, pixel_x = 64, layer = layer+0.01)
+		if(4)
+			border2 = image(icon='icons/mob/roguehud.dmi', icon_state=used, pixel_x = 96, layer = layer+0.01)
+	update_appearance(UPDATE_OVERLAYS)
 
 /atom/movable/screen/act_intent/rogintent/Click(location, control, params)
 
