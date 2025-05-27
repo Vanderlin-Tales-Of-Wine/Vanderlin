@@ -547,7 +547,7 @@
 				else
 					to_chat(user, "<span class='warning'>I must stand still to fish.</span>")
 					return
-			update_icon()
+			update_appearance(UPDATE_OVERLAYS)
 		else //where all nonfishing intents end up
 			return ..()
 	else

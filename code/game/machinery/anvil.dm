@@ -193,7 +193,7 @@
 		STOP_PROCESSING(SSmachines, src)
 	update_appearance(UPDATE_OVERLAYS)
 
-/obj/machinery/anvil/overlays()
+/obj/machinery/anvil/update_overlays()
 	. = ..()
 	if(!hingot)
 		return

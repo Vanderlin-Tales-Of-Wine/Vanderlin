@@ -23,7 +23,7 @@
 	// Choosing one of the sprite variants
 	base_icon = "planks_1"
 	icon_state = base_icon
-	update_icon()
+	update_appearance(UPDATE_ICON)
 
 /obj/structure/bridge/update_icon_state()
 	if(broken)
@@ -109,7 +109,7 @@
 	icon_state = ""
 	if(dir == EAST || dir == WEST)
 		pixel_y = -7
-	update_icon()
+	update_appearance(UPDATE_ICON)
 
 /obj/structure/bridge_stakes/update_overlays()
 	. = ..()

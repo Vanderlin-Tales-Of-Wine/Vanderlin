@@ -93,18 +93,18 @@
 	l_sleeve_status = SLEEVE_NORMAL
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT
 
-/obj/item/clothing/armor/gambeson/heavy/winterdress/update_icon()
-	cut_overlays()
-	if(get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
-		pic.appearance_flags = RESET_COLOR
-		if(get_detail_color())
-			pic.color = get_detail_color()
-		add_overlay(pic)
+/obj/item/clothing/armor/gambeson/heavy/winterdress/update_overlays()
+	. = ..()
+	if(!get_detail_tag())
+		return
+	var/mutable_appearance/pic = mutable_appearance(icon, "[icon_state][detail_tag]")
+	pic.appearance_flags = RESET_COLOR
+	if(get_detail_color())
+		pic.color = get_detail_color()
+	. += pic
 
 /obj/item/clothing/armor/gambeson/heavy/winterdress/lordcolor(primary,secondary)
 	detail_color = primary
-	update_icon()
 
 /obj/item/clothing/armor/gambeson/heavy/winterdress/Initialize()
 	. = ..()
@@ -112,11 +112,11 @@
 		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
 	else
 		GLOB.lordcolor += src
+	update_appearance(UPDATE_ICON)
 
 /obj/item/clothing/armor/gambeson/heavy/winterdress/Destroy()
 	GLOB.lordcolor -= src
 	return ..()
-
 
 //................ Arming Jacket ............... //
 /obj/item/clothing/armor/gambeson/arming
@@ -126,7 +126,6 @@
 	sellprice = VALUE_GAMBESSON+BONUS_VALUE_MODEST
 
 	body_parts_covered =  COVERAGE_ALL_BUT_LEGS
-
 
 //................ Stalker Robe ............... //
 /obj/item/clothing/armor/gambeson/shadowrobe

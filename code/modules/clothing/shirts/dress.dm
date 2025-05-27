@@ -123,25 +123,26 @@
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
 
-/obj/item/clothing/shirt/dress/royal/update_icon()
-	cut_overlays()
-	if(get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
-		pic.appearance_flags = RESET_COLOR
-		if(get_detail_color())
-			pic.color = get_detail_color()
-		add_overlay(pic)
+/obj/item/clothing/shirt/dress/royal/update_overlays()
+	. = ..()
+	if(!get_detail_tag())
+		return
+	var/mutable_appearance/pic = mutable_appearance(icon, "[icon_state][detail_tag]")
+	pic.appearance_flags = RESET_COLOR
+	if(get_detail_color())
+		pic.color = get_detail_color()
+	. += pic
 
-/obj/item/clothing/shirt/dress/royal/lordcolor(primary,secondary)
+/obj/item/clothing/shirt/dress/royal/lordcolor(primary, secondary)
 	detail_color = primary
-	update_icon()
 
 /obj/item/clothing/shirt/dress/royal/Initialize()
 	. = ..()
 	if(GLOB.lordprimary)
-		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
+		lordcolor(GLOB.lordprimary, GLOB.lordsecondary)
 	else
 		GLOB.lordcolor += src
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/item/clothing/shirt/dress/royal/Destroy()
 	GLOB.lordcolor -= src

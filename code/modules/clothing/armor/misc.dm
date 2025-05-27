@@ -55,15 +55,6 @@
 	do_sound_plate = TRUE
 	item_weight = 3.2 * IRON_MULTIPLIER
 
-/obj/item/clothing/armor/brigandine/update_icon()
-	cut_overlays()
-	if(get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
-		pic.appearance_flags = RESET_COLOR
-		if(get_detail_color())
-			pic.color = get_detail_color()
-		add_overlay(pic)
-
 /obj/item/clothing/armor/captain
 	name = "captain's brigandine"
 	desc = "A coat with plates specifically tailored and forged for the captain of Vanderlin."
@@ -88,18 +79,18 @@
 	do_sound_plate = TRUE
 	item_weight = 7 * STEEL_MULTIPLIER
 
-/obj/item/clothing/armor/captain/update_icon()
-	cut_overlays()
-	if(get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
-		pic.appearance_flags = RESET_COLOR
-		if(get_detail_color())
-			pic.color = get_detail_color()
-		add_overlay(pic)
+/obj/item/clothing/armor/captain/update_overlays()
+	. = ..()
+	if(!get_detail_tag())
+		return
+	var/mutable_appearance/pic = mutable_appearance(icon, "[icon_state][detail_tag]")
+	pic.appearance_flags = RESET_COLOR
+	if(get_detail_color())
+		pic.color = get_detail_color()
+	. += pic
 
 /obj/item/clothing/armor/captain/lordcolor(primary,secondary)
 	detail_color = primary
-	update_icon()
 
 /obj/item/clothing/armor/captain/Initialize()
 	. = ..()
@@ -107,6 +98,7 @@
 		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
 	else
 		GLOB.lordcolor += src
+	update_appearance(UPDATE_ICON)
 
 /obj/item/clothing/armor/captain/Destroy()
 	GLOB.lordcolor -= src

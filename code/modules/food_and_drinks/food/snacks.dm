@@ -328,7 +328,7 @@ All foods are distributed among various categories. Use common sense.
 			mob_location.put_in_hands(generate_trash(mob_location))
 		else
 			generate_trash(current_loc.drop_location())
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 
 /obj/item/reagent_containers/food/snacks/attack_self(mob/user)
 	return
@@ -572,7 +572,7 @@ All foods are distributed among various categories. Use common sense.
 		if(slices_num <= 0)
 			qdel(src)
 			return TRUE
-		update_icon()
+		update_appearance(UPDATE_ICON_STATE)
 	return TRUE
 
 /obj/item/reagent_containers/food/snacks/proc/initialize_slice(obj/item/reagent_containers/food/snacks/slice, reagents_per_slice)
@@ -707,7 +707,7 @@ All foods are distributed among various categories. Use common sense.
 	else
 		return ..()
 
-/obj/item/reagent_containers/food/snacks/update_icon()
+/obj/item/reagent_containers/food/snacks/update_icon_state()
 	. = ..()
 	if(biting && bitecount)
 		icon_state = "[base_icon_state][bitecount]"

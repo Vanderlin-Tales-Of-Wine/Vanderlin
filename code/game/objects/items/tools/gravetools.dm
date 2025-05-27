@@ -277,7 +277,6 @@
 	open_sound_volume = 15
 	close_sound_volume = 15
 	integrity_failure = 0
-	delivery_icon = null //unwrappable
 	anchorable = FALSE
 	mouse_drag_pointer = MOUSE_ACTIVE_POINTER
 	drag_slowdown = 0
@@ -365,7 +364,6 @@
 	open_sound_volume = 15
 	close_sound_volume = 15
 	integrity_failure = 0
-	delivery_icon = null //unwrappable
 	anchorable = FALSE
 	mouse_drag_pointer = MOUSE_ACTIVE_POINTER
 	drag_slowdown = 0

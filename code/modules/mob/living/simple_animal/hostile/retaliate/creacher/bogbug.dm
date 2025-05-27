@@ -71,7 +71,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/bogbug/death(gibbed)
 	..()
-	update_icon()
+	update_appearance()
 
 
 /mob/living/simple_animal/hostile/retaliate/bogbug/update_icon()

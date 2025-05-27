@@ -95,7 +95,7 @@
 	for(var/obj/item/clothing/V in L.get_equipped_items(FALSE))
 		if(V.colorgrenz)
 			V.detail_color = playerchoice
-			V.update_icon()
+			V.update_appearance()
 	L.regenerate_icons()
 
 /obj/item/clothing/shirt/grenzelhoft/Initialize()

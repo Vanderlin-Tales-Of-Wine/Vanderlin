@@ -12,14 +12,15 @@
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_CLOAK
 	var/picked
 
-/obj/item/clothing/cloak/tabard/update_icon()
-	cut_overlays()
-	if(get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
-		pic.appearance_flags = RESET_COLOR
-		if(get_detail_color())
-			pic.color = get_detail_color()
-		add_overlay(pic)
+/obj/item/clothing/cloak/tabard/update_overlays()
+	. = ..()
+	if(!get_detail_tag())
+		return
+	var/mutable_appearance/pic = mutable_appearance(icon, "[icon_state][detail_tag]")
+	pic.appearance_flags = RESET_COLOR
+	if(get_detail_color())
+		pic.color = get_detail_color()
+	. += pic
 
 /obj/item/clothing/cloak/tabard/attack_right(mob/user)
 	if(picked)
@@ -60,7 +61,7 @@
 	color = clothing_color2hex(colorone)
 	if(colortwo)
 		detail_color = clothing_color2hex(colortwo)
-	update_icon()
+	update_appearance(UPDATE_ICON)
 	if(ismob(loc))
 		var/mob/L = loc
 		L.update_inv_cloak()
@@ -68,7 +69,7 @@
 		color = initial(color)
 		detail_tag = initial(detail_tag)
 		detail_color = initial(detail_color)
-		update_icon()
+		update_appearance(UPDATE_ICON)
 		if(ismob(loc))
 			var/mob/L = loc
 			L.update_inv_cloak()
@@ -87,6 +88,7 @@
 		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
 	else
 		GLOB.lordcolor += src
+	update_appearance(UPDATE_ICON)
 
 /obj/item/clothing/cloak/tabard/knight/Destroy()
 	GLOB.lordcolor -= src
@@ -97,7 +99,7 @@
 
 /obj/item/clothing/cloak/tabard/crusader/Initialize()
 	. = ..()
-	update_icon()
+	update_appearance(UPDATE_ICON)
 
 /obj/item/clothing/cloak/tabard/crusader/attack_right(mob/user)
 	if(picked)
@@ -119,14 +121,14 @@
 	if(design == "BlackWhite")
 		detail_color = CLOTHING_WHITE
 		color = CLOTHING_SOOT_BLACK
-	update_icon()
+	update_appearance(UPDATE_ICON)
 	if(ismob(loc))
 		var/mob/L = loc
 		L.update_inv_cloak()
 	if(alert("Are you pleased with your heraldry?", "Heraldry", "Yes", "No") != "Yes")
 		detail_color = initial(detail_color)
 		color = initial(color)
-		update_icon()
+		update_appearance(UPDATE_ICON)
 		if(ismob(loc))
 			var/mob/L = loc
 			L.update_inv_cloak()
@@ -148,14 +150,14 @@
 	if(design == "BlackRed")
 		detail_color = CLOTHING_BLOOD_RED
 		color = CLOTHING_SOOT_BLACK
-	update_icon()
+	update_appearance(UPDATE_ICON)
 	if(ismob(loc))
 		var/mob/L = loc
 		L.update_inv_cloak()
 	if(alert("Are you pleased with your heraldry?", "Heraldry", "Yes", "No") != "Yes")
 		detail_color = initial(detail_color)
 		color = initial(color)
-		update_icon()
+		update_appearance(UPDATE_ICON)
 		if(ismob(loc))
 			var/mob/L = loc
 			L.update_inv_cloak()
@@ -186,13 +188,13 @@
 			detail_tag = "_box"
 		if("Diamonds")
 			detail_tag = "_dim"
-	update_icon()
+	update_appearance(UPDATE_ICON)
 	if(ismob(loc))
 		var/mob/L = loc
 		L.update_inv_cloak()
 	if(alert("Are you pleased with your heraldry?", "Heraldry", "Yes", "No") != "Yes")
 		detail_tag = initial(detail_tag)
-		update_icon()
+		update_appearance(UPDATE_ICON)
 		if(ismob(loc))
 			var/mob/L = loc
 			L.update_inv_cloak()
@@ -202,23 +204,24 @@
 /obj/item/clothing/cloak/tabard/knight/guard/Initialize()
 	. = ..()
 	if(GLOB.lordprimary)
-		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
+		lordcolor(GLOB.lordprimary, GLOB.lordsecondary)
 	else
 		GLOB.lordcolor += src
+	update_appearance(UPDATE_ICON)
 
-/obj/item/clothing/cloak/tabard/knight/guard/update_icon()
-	cut_overlays()
-	if(get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
-		pic.appearance_flags = RESET_COLOR
-		if(get_detail_color())
-			pic.color = get_detail_color()
-		add_overlay(pic)
+/obj/item/clothing/cloak/tabard/knight/guard/update_overlays()
+	. = ..()
+	if(!get_detail_tag())
+		return
+	var/mutable_appearance/pic = mutable_appearance(icon, "[icon_state][detail_tag]")
+	pic.appearance_flags = RESET_COLOR
+	if(get_detail_color())
+		pic.color = get_detail_color()
+	. += pic
 
 /obj/item/clothing/cloak/tabard/knight/guard/lordcolor(primary,secondary)
 	color = primary
 	detail_color = secondary
-	update_icon()
 	if(ismob(loc))
 		var/mob/L = loc
 		L.update_inv_cloak()
@@ -234,7 +237,7 @@
 
 /obj/item/clothing/cloak/tabard/adept/Initialize()
 	..()
-	update_icon()
+	update_appearance(UPDATE_ICON)
 
 /obj/item/clothing/cloak/tabard/adept/attack_right(mob/user)
 	return

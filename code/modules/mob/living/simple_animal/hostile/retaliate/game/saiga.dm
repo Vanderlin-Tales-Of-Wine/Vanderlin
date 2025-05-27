@@ -390,10 +390,10 @@
 	. = ..()
 	var/obj/item/natural/saddle/S = new(src)
 	ssaddle = S
-	update_icon()
+	update_appearance()
 
 /mob/living/simple_animal/hostile/retaliate/saiga/tame/saddled/Initialize()
 	. = ..()
 	var/obj/item/natural/saddle/S = new(src)
 	ssaddle = S
-	update_icon()
+	update_appearance()

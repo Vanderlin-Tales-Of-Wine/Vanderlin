@@ -97,7 +97,7 @@
 				play_relief_indicator()
 		if(hud_used)
 			if(hud_used.stressies)
-				hud_used.stressies.update_icon()
+				hud_used.stressies.update_appearance()
 	oldstress = stress
 
 

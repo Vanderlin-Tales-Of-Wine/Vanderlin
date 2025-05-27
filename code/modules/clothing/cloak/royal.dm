@@ -15,18 +15,18 @@
 	detail_tag = "_det"
 	detail_color = CLOTHING_PLUM_PURPLE
 
-/obj/item/clothing/cloak/lordcloak/update_icon()
-	cut_overlays()
-	if(get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
-		pic.appearance_flags = RESET_COLOR
-		if(get_detail_color())
-			pic.color = get_detail_color()
-		add_overlay(pic)
+/obj/item/clothing/cloak/lordcloak/update_overlays()
+	. = ..()
+	if(!get_detail_tag())
+		return
+	var/mutable_appearance/pic = mutable_appearance(icon, "[icon_state][detail_tag]")
+	pic.appearance_flags = RESET_COLOR
+	if(get_detail_color())
+		pic.color = get_detail_color()
+	. += pic
 
 /obj/item/clothing/cloak/lordcloak/lordcolor(primary,secondary)
 	detail_color = primary
-	update_icon()
 	if(ismob(loc))
 		var/mob/L = loc
 		L.update_inv_cloak()
@@ -37,11 +37,11 @@
 		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
 	else
 		GLOB.lordcolor += src
+	update_appearance(UPDATE_ICON)
 
 /obj/item/clothing/cloak/lordcloak/Destroy()
 	GLOB.lordcolor -= src
 	return ..()
-
 
 /obj/item/clothing/cloak/lordcloak/ComponentInitialize()
 	. = ..()

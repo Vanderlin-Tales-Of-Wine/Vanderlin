@@ -135,7 +135,6 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	door_opened = TRUE
 	layer = OPEN_DOOR_LAYER
 	air_update_turf(TRUE)
-	update_icon()
 	switching_states = FALSE
 
 	if(close_delay > 0)
@@ -151,7 +150,6 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	door_opened = TRUE
 	layer = OPEN_DOOR_LAYER
 	air_update_turf(TRUE)
-	update_icon()
 	switching_states = FALSE
 
 	if(close_delay > 0)
@@ -174,7 +172,6 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	door_opened = FALSE
 	layer = CLOSED_DOOR_LAYER
 	air_update_turf(TRUE)
-	update_icon()
 	switching_states = FALSE
 	lock()
 
@@ -188,7 +185,6 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	door_opened = FALSE
 	layer = CLOSED_DOOR_LAYER
 	air_update_turf(TRUE)
-	update_icon()
 	switching_states = FALSE
 
 /proc/open_word()

@@ -126,6 +126,6 @@
 		if(!do_after(user, 4 SECONDS * shovel.time_multiplier, src))
 			return
 		QDEL_NULL(shovel.heldclod)
-		shovel.update_icon()
+		shovel.update_appearance()
 		qdel(src)
 		return TRUE

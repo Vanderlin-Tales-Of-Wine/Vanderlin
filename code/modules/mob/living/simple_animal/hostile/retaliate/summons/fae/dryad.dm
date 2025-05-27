@@ -90,6 +90,6 @@
 	new /obj/item/natural/heartwoodcore(deathspot)
 	new /obj/item/natural/fairydust(deathspot)
 	new /obj/item/natural/fairydust(deathspot)
-	update_icon()
+	update_appearance()
 	spill_embedded_objects()
 	qdel(src)

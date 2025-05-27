@@ -28,30 +28,13 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 
 
 /obj/item/reagent_containers/glass/bottle/attackby(obj/item/I, mob/user, params)
-	if(I.type == /obj/item/paper)
-		if(!can_label_bottle)
-			return ..()
-		var/input = input(user, "What would you like to label this bottle as?", "", "") as text
-		if(!input)
-			if (original_name)
-				name = original_name
-			if (original_icon_state != null)
-				icon_state = original_icon_state
-				original_icon_state = null
-			return ..()
-		if(length(input) > 20)
-			return ..()
-		if (!original_name)
-			original_name = name
-		to_chat(user, span_notice("You label this as \a [input] [original_name]."))
-		name = "[input] [original_name]"
-		if (name != original_name)
-			if (original_icon_state == null)
-				original_icon_state = icon_state
-				icon_state = "[icon_state]_message"
-	if(closed)
-		return ..()
-	if(!reagents.total_volume && istype(I, /obj/item/paper/scroll))
+	if(istype(I, /obj/item/paper/scroll))
+		if(reagents?.total_volume)
+			to_chat(user, span_notice("I cannot put a message in [src] while it is full!"))
+			return
+		if(closed)
+			to_chat(user, span_notice("I cannot put a message in [src] while it is closed!"))
+			return
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
 			var/obj/item/paper/scroll/P = I
@@ -63,43 +46,13 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 			H.put_in_active_hand(BM)
 			playsound(src, 'sound/items/scroll_open.ogg', 100, FALSE)
 			qdel(src)
-	else
-		return ..()
-
-/obj/item/reagent_containers/glass/bottle/update_icon(dont_fill=FALSE)
-	if(!fill_icon_thresholds || dont_fill)
 		return
+	return ..()
 
-	cut_overlays()
-	underlays.Cut()
-
-	if(reagents.total_volume)
-		var/fill_name = fill_icon_state? fill_icon_state : icon_state
-		if (original_icon_state != null) // Otherwise bottle looks empty when there's a label on it
-			fill_name = fill_icon_state? fill_icon_state : original_icon_state
-		var/mutable_appearance/filling = mutable_appearance('icons/roguetown/items/glass_reagent_container.dmi', "[fill_name][fill_icon_thresholds[1]]")
-
-		var/percent = round((reagents.total_volume / volume) * 100)
-		for(var/i in 1 to fill_icon_thresholds.len)
-			var/threshold = fill_icon_thresholds[i]
-			var/threshold_end = (i == fill_icon_thresholds.len)? INFINITY : fill_icon_thresholds[i+1]
-			if(threshold <= percent && percent < threshold_end)
-				filling.icon_state = "[fill_name][fill_icon_thresholds[i]]"
-		filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
-		filling.color = mix_color_from_reagents(reagents.reagent_list)
-		for(var/datum/reagent/reagent as anything in reagents.reagent_list)
-			if(reagent.glows)
-				var/mutable_appearance/emissive = mutable_appearance('icons/roguetown/items/glass_reagent_container.dmi', filling.icon_state)
-				emissive.plane = EMISSIVE_PLANE
-				overlays += emissive
-				break
-
-		underlays += filling
+/obj/item/reagent_containers/glass/bottle/update_overlays()
+	. = ..()
 	if(closed)
-		if (original_icon_state != null)
-			add_overlay("[original_icon_state]cork")
-		else
-			add_overlay("[icon_state]cork")
+		. += mutable_appearance(icon, "[icon_state]_cork")
 
 /obj/item/reagent_containers/glass/bottle/rmb_self(mob/user)
 	. = ..()
@@ -122,15 +75,12 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 		GLOB.weather_act_upon_list |= src
 		if(!fancy)
 			desc = "An open bottle, hopefully a cork is close by."
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/item/reagent_containers/glass/bottle/Initialize()
 	. = ..()
-	if(!icon_state)
-		icon_state = "clear_bottle1"
-	if(icon_state == "clear_bottle1")
-		icon_state = "clear_bottle[rand(1,4)]"
-	update_icon()
+	icon_state = "clear_bottle[rand(1,4)]"
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/item/reagent_containers/glass/bottle/toxin
 	name = "toxin bottle"
@@ -213,6 +163,7 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 		H.put_in_hands(contained)
 		contained = null
 		qdel(src)
+
 // vials
 /obj/item/reagent_containers/glass/bottle/vial
 	name = "vial"
@@ -234,43 +185,6 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 	drinksounds = list('sound/items/drink_bottle (1).ogg','sound/items/drink_bottle (2).ogg')
 	fillsounds = list('sound/items/fillcup.ogg')
 	poursounds = list('sound/items/fillbottle.ogg')
-	experimental_onhip = TRUE
-
-/obj/item/reagent_containers/glass/bottle/vial/update_icon(dont_fill=FALSE)
-	if(!fill_icon_thresholds || dont_fill)
-		return
-
-	cut_overlays()
-	underlays.Cut()
-
-	if(reagents.total_volume)
-		var/fill_name = fill_icon_state? fill_icon_state : icon_state
-		if (original_icon_state != null) // Otherwise bottle looks empty when there's a label on it
-			fill_name = fill_icon_state? fill_icon_state : original_icon_state
-		var/mutable_appearance/filling = mutable_appearance('icons/roguetown/items/glass_reagent_container.dmi', "[fill_name][fill_icon_thresholds[1]]")
-
-		var/percent = round((reagents.total_volume / volume) * 100)
-		for(var/i in 1 to fill_icon_thresholds.len)
-			var/threshold = fill_icon_thresholds[i]
-			var/threshold_end = (i == fill_icon_thresholds.len)? INFINITY : fill_icon_thresholds[i+1]
-			if(threshold <= percent && percent < threshold_end)
-				filling.icon_state = "[fill_name][fill_icon_thresholds[i]]"
-		filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
-		filling.color = mix_color_from_reagents(reagents.reagent_list)
-		for(var/datum/reagent/reagent as anything in reagents.reagent_list)
-			if(reagent.glows)
-				var/mutable_appearance/emissive = mutable_appearance('icons/roguetown/items/glass_reagent_container.dmi', filling.icon_state)
-				emissive.plane = EMISSIVE_PLANE
-				overlays += emissive
-				break
-
-		underlays += filling
-
-	if(closed)
-		if (original_icon_state != null)
-			add_overlay("[original_icon_state]cork")
-		else
-			add_overlay("[icon_state]cork")
 
 /obj/item/reagent_containers/glass/bottle/vial/rmb_self(mob/user)
 	closed = !closed
@@ -288,7 +202,7 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 		playsound(user.loc,'sound/items/uncork.ogg', 100, TRUE)
 		desc = "An open vial, easy to drink quickly."
 		spillable = TRUE
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/item/reagent_containers/glass/bottle/decanter
 	name = "clay decanter"

@@ -44,12 +44,8 @@
 
 
 /obj/item/bin/update_icon_state()
-	if(kover)
-		icon_state = "[base_state]over"
-	else
-		icon_state = "[base_state]"
+	. = ..()
 	icon_state = "[base_state][kover ? "over" : ""]"
-	return ..()
 
 /obj/item/bin/update_overlays()
 	. = ..()

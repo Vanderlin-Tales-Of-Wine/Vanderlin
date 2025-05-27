@@ -46,7 +46,7 @@
 /obj/item/gun/handle_atom_del(atom/A)
 	if(A == chambered)
 		chambered = null
-		update_icon()
+		update_appearance()
 	return ..()
 
 //called after the gun has successfully fired its chambered ammo.
@@ -136,7 +136,7 @@
 		shoot_with_empty_chamber(user)
 		return
 	process_chamber()
-	update_icon()
+	update_appearance()
 
 	if(user)
 		user.update_inv_hands()

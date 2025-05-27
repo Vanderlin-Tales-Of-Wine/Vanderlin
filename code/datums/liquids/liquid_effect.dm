@@ -42,13 +42,13 @@
 
 /obj/effect/abstract/liquid_turf/proc/set_connection(dir)
 	connected["[dir]"] = 1
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 
 /obj/effect/abstract/liquid_turf/proc/unset_connection(dir)
 	connected["[dir]"] = 0
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 
-/obj/effect/abstract/liquid_turf/update_icon()
+/obj/effect/abstract/liquid_turf/update_icon_state()
 	. = ..()
 	make_unshiny()
 	var/new_overlay = ""
@@ -109,12 +109,12 @@
 			set_connection(get_dir(src, pipe))
 			pipe.set_connection(get_dir(pipe, src))
 	if(z)
-		update_icon()
+		update_appearance(UPDATE_ICON_STATE)
 		for(var/direction in GLOB.cardinals)
 			var/turf/turf = get_step(src, direction)
 			if(!turf.liquids)
 				continue
-			turf.liquids.update_icon()
+			turf.liquids.update_appearance()
 
 /obj/effect/abstract/liquid_turf/Destroy(force)
 	UnregisterSignal(my_turf, list(COMSIG_ATOM_ENTERED, COMSIG_PARENT_EXAMINE))
@@ -134,7 +134,7 @@
 				return
 			set_connection(get_dir(src, pipe))
 			pipe.set_connection(get_dir(pipe, src))
-			pipe.update_icon()
+			pipe.update_appearance()
 
 	for(var/direction in GLOB.cardinals)
 		var/turf/turf = get_step(src, direction)
@@ -179,16 +179,16 @@
 	var/number = new_state - 1
 	if(number != 0)
 		icon_state = null
-		update_icon()
+		update_appearance(UPDATE_ICON_STATE)
 
 	else
 		icon_state = initial(icon_state)
-		update_icon()
+		update_appearance(UPDATE_ICON_STATE)
 		for(var/direction in GLOB.cardinals)
 			var/turf/turf = get_step(src, direction)
 			if(!turf.liquids)
 				continue
-			turf.liquids.update_icon()
+			turf.liquids.update_appearance()
 
 /obj/effect/abstract/liquid_turf/update_overlays()
 	. = ..()

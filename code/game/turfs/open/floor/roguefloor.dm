@@ -277,7 +277,6 @@
 				add_blood = bloodiness
 			S.bloody_shoes[BLOOD_STATE_MUD] = min(MAX_SHOE_BLOODINESS,S.bloody_shoes[BLOOD_STATE_MUD]+add_blood)
 			S.blood_state = BLOOD_STATE_MUD
-			update_icon()
 			H.update_inv_shoes()
 		if(water_level)
 			START_PROCESSING(SSwaterlevel, src)

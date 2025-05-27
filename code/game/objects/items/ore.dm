@@ -148,7 +148,7 @@
 			forceMove(T)
 			T.held_item = src
 			T.hott = null
-			T.update_icon()
+			T.update_appearance()
 			return
 	..()
 
@@ -158,7 +158,7 @@
 	if(istype(loc, /obj/machinery/anvil))
 		var/obj/machinery/anvil/A = loc
 		A.hingot = null
-		A.update_icon()
+		A.update_appearance()
 	..()
 
 /obj/item/ingot/gold

@@ -38,7 +38,7 @@
 	new /obj/effect/decal/cleanable/dyes(get_turf(src))
 	var/obj/item/bin/I = new(loc)
 	I.kover = TRUE
-	I.update_icon()
+	I.update_appearance()
 	return ..()
 
 
@@ -171,7 +171,7 @@
 				if(href_list["type"] == "detail" && isclothing(inserted))
 					var/obj/item/clothing/cloth = inserted
 					cloth.detail_color = active_color
-					cloth.update_icon()
+					cloth.update_appearance()
 				else
 					inserted.add_atom_colour(active_color, FIXED_COLOUR_PRIORITY)
 
@@ -192,7 +192,6 @@
 			inserted = null
 
 			icon_state = initial(icon_state)
-			update_icon()
 
 	updateUsrDialog()
 

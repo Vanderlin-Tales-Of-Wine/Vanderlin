@@ -9,7 +9,6 @@
 	layer = TABLE_LAYER //So that the crate inside doesn't appear underneath
 	allow_objects = TRUE
 	allow_dense = TRUE
-	delivery_icon = null
 	can_weld_shut = FALSE
 	armor = list("blunt" = 30, "slash" = 30, "stab" = 30,  "piercing" = 50, "fire" = 100, "acid" = 80)
 	anchored = TRUE //So it cant slide around after landing
@@ -194,7 +193,7 @@
 		playsound(get_turf(holder), openingSound, soundVolume, FALSE, FALSE) //Special admin sound to play
 	INVOKE_ASYNC(holder, PROC_REF(setOpened)) //Use the INVOKE_ASYNC proc to call setOpened() on whatever the holder may be, without giving the atom/movable base class a setOpened() proc definition
 	if (style == STYLE_SEETHROUGH)
-		update_icon()
+		update_appearance(UPDATE_OVERLAYS)
 	for (var/atom/movable/O in holder.contents) //Go through the contents of the holder
 		O.forceMove(T) //move everything from the contents of the holder to the turf of the holder
 	if (!effectQuiet && !openingSound && style != STYLE_SEETHROUGH) //If we aren't being quiet, play the default pod open sound
@@ -236,10 +235,10 @@
 	handleReturningClose(holder, FALSE)
 
 /obj/structure/closet/supplypod/proc/setOpened() //Proc exists here, as well as in any atom that can assume the role of a "holder" of a supplypod. Check the open() proc for more details
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/structure/closet/supplypod/proc/setClosed() //Ditto
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/structure/closet/supplypod/Destroy()
 	open(src, broken = TRUE) //Lets dump our contents by opening up
@@ -325,7 +324,7 @@
 	addtimer(CALLBACK(src, PROC_REF(endLaunch)), pod.fallDuration, TIMER_CLIENT_TIME) //Go onto the last step after a very short falling animation
 
 /obj/effect/DPtarget/proc/endLaunch()
-	pod.update_icon()
+	pod.update_appearance(UPDATE_OVERLAYS)
 	pod.forceMove(drop_location()) //The fallingPod animation is over, now's a good time to forceMove the actual pod into position
 	QDEL_NULL(fallingPod) //Delete the falling pod effect, because at this point its animation is over. We dont use temp_visual because we want to manually delete it as soon as the pod appears
 	for (var/mob/living/M in src) //Remember earlier (initialization) when we moved mobs into the DPTarget so they wouldnt get lost in nullspace? Time to get them out

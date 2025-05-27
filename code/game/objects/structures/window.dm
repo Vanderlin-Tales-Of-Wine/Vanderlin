@@ -28,14 +28,12 @@
 	var/repair_skill = /datum/skill/craft/masonry // i copypasted this code from the repairable doors and now it's got defines in the base
 
 /obj/structure/window/Initialize()
-	update_icon()
-	..()
+	. = ..()
+	update_appearance(UPDATE_ICON_STATE)
 
-/obj/structure/window/update_icon()
-	if(brokenstate)
-		icon_state = "[initial(icon_state)]br"
-		return
-	icon_state = "[initial(icon_state)]"
+/obj/structure/window/update_icon_state()
+	. = ..()
+	icon_state = "[initial(icon_state)][brokenstate ? "br" : ""]"
 
 /obj/structure/window/proc/repairwindow(obj/item/I, mob/user)
 	if(brokenstate)
@@ -133,19 +131,20 @@
 	return ..()
 
 /obj/structure/window/openclose/update_tod(todd)
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 
-/obj/structure/window/openclose/update_icon()
+/obj/structure/window/openclose/update_icon_state()
+	. = ..()
 	var/icon
 	if(GLOB.tod == "night")
 		icon += "w-"
 	icon += initial(icon_state)
 	if(brokenstate)
 		icon_state = "[icon]br"
-		return
+		return ..()
 	if(climbable)
 		icon_state = "[icon]op"
-		return
+		return ..()
 	icon_state = "[icon]"
 
 /obj/structure/window/openclose/attack_right(mob/user)
@@ -181,13 +180,13 @@
 	visible_message("<span class='info'>[user] opens [src].</span>")
 	playsound(src, 'sound/foley/doors/windowup.ogg', 100, FALSE)
 	climbable = TRUE
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 
 /obj/structure/window/proc/close_up(mob/user)
 	visible_message("<span class='info'>[user] closes [src].</span>")
 	playsound(src, 'sound/foley/doors/windowdown.ogg', 100, FALSE)
 	climbable = FALSE
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 
 /obj/structure/window/CanPass(atom/movable/mover, turf/target)
 	if(istype(mover) && climbable && ((mover.pass_flags & PASSTABLE) || (mover.pass_flags & PASSGRILLE)))
@@ -212,7 +211,7 @@
 	playsound(src, 'sound/foley/doors/windowup.ogg', 100, FALSE)
 	climbable = TRUE
 	opacity = FALSE
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 
 /obj/structure/window/attackby(obj/item/W, mob/user, params)
 	return ..()
@@ -242,5 +241,5 @@
 		new /obj/item/natural/glass/shard (get_turf(src))
 		climbable = TRUE
 		brokenstate = TRUE
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 	..()

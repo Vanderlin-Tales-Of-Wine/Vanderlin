@@ -83,7 +83,7 @@
 	gender = MALE
 	if(prob(33))
 		gender = FEMALE
-	update_icon()
+	update_appearance()
 
 
 /mob/living/simple_animal/hostile/retaliate/gator/tamed(mob/user)
@@ -93,7 +93,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/gator/death(gibbed)
 	..()
-	update_icon()
+	update_appearance()
 
 
 /mob/living/simple_animal/hostile/retaliate/gator/update_icon()

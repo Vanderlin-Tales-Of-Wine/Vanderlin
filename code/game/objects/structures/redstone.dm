@@ -300,7 +300,7 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 
 /obj/structure/activator/Initialize()
 	. = ..()
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/structure/activator/ComponentInitialize()
 	. = ..()
@@ -321,11 +321,10 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 		return TRUE
 	return FALSE
 
-/obj/structure/activator/update_icon()
+/obj/structure/activator/update_overlays()
 	. = ..()
-	cut_overlays()
 	if(!containment)
-		add_overlay("activator-e")
+		. += mutable_appearance(icon, "activator-e")
 
 /obj/structure/activator/attack_hand(mob/user)
 	. = ..()
@@ -339,7 +338,7 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 		playsound(src, 'sound/misc/hiss.ogg', 100, FALSE, -1)
 		ammo.forceMove(get_turf(src))
 		ammo = null
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 	return TRUE
 
 /obj/structure/activator/attack_right(mob/user)
@@ -356,7 +355,7 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 			return ..()
 		containment = I
 		playsound(src, 'sound/misc/chestclose.ogg', 25)
-		update_icon()
+		update_appearance(UPDATE_OVERLAYS)
 		return TRUE
 	if(!ammo && istype(I, /obj/item/ammo_holder))
 		if(!user.transferItemToLoc(I, src))
@@ -389,7 +388,7 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 					ammo.ammo_list -= BT
 					BT.fire_casing(get_step(src, dir), null, null, null, null, pick(BODY_ZONE_L_LEG, BODY_ZONE_R_LEG, BODY_ZONE_CHEST), 0,  src)
 					ammo.contents -= BT
-					ammo.update_icon()
+					ammo.update_appearance()
 					break
 
 /obj/structure/floordoor

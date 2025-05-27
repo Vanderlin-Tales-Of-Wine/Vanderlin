@@ -659,7 +659,7 @@
 	playsound_local(src, 'sound/misc/click.ogg', 100)
 	if(hud_used)
 		if(hud_used.def_intent)
-			hud_used.def_intent.update_icon()
+			hud_used.def_intent.update_appearance()
 	update_inv_hands()
 
 
@@ -678,7 +678,7 @@
 			cmode = FALSE
 		if(hud_used)
 			if(hud_used.cmode_button)
-				hud_used.cmode_button.update_icon()
+				hud_used.cmode_button.update_appearance()
 		return
 	if(cmode)
 		playsound_local(src, 'sound/misc/comboff.ogg', 100)
@@ -693,7 +693,7 @@
 			SSdroning.play_combat_music(L.cmode_music, client)
 	if(hud_used)
 		if(hud_used.cmode_button)
-			hud_used.cmode_button.update_icon()
+			hud_used.cmode_button.update_appearance()
 
 /mob
 	var/last_aimhchange = 0
@@ -753,7 +753,7 @@
 		playsound_local(src, 'sound/misc/click.ogg', 50, TRUE)
 		if(hud_used)
 			if(hud_used.zone_select)
-				hud_used.zone_select.update_icon()
+				hud_used.zone_select.update_appearance()
 
 /mob/proc/select_organ_slot(choice)
 	organ_slot_selected = choice

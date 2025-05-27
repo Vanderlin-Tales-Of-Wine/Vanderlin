@@ -94,11 +94,11 @@
 	if(prob(33))
 		gender = FEMALE
 	ADD_TRAIT(src, TRAIT_CRITICAL_WEAKNESS, TRAIT_GENERIC)
-	update_icon()
+	update_appearance()
 
 /mob/living/simple_animal/hostile/retaliate/wolf/death(gibbed)
 	..()
-	update_icon()
+	update_appearance()
 
 
 /mob/living/simple_animal/hostile/retaliate/wolf/update_icon()

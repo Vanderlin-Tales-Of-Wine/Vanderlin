@@ -51,7 +51,7 @@
 /obj/item/reagent_containers/proc/add_initial_reagents()
 	if(list_reagents)
 		reagents.add_reagent_list(list_reagents)
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/item/reagent_containers/attack(mob/M, mob/user, def_zone)
 	return ..()
@@ -144,32 +144,30 @@
 	reagents.expose_temperature(exposed_temperature)
 
 /obj/item/reagent_containers/on_reagent_change(changetype)
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
-/obj/item/reagent_containers/update_icon(dont_fill=FALSE)
-	if(!fill_icon_thresholds || dont_fill)
-		return ..()
-
-	cut_overlays()
-
-	if(reagents.total_volume)
-		var/fill_name = fill_icon_state? fill_icon_state : icon_state
-		var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[fill_name][fill_icon_thresholds[1]]")
-
-		var/percent = round((reagents.total_volume / volume) * 100)
-		for(var/i in 1 to fill_icon_thresholds.len)
-			var/threshold = fill_icon_thresholds[i]
-			var/threshold_end = (i == fill_icon_thresholds.len)? INFINITY : fill_icon_thresholds[i+1]
-			if(threshold <= percent && percent < threshold_end)
-				filling.icon_state = "[fill_name][fill_icon_thresholds[i]]"
-
-		filling.color = mix_color_from_reagents(reagents.reagent_list)
-		for(var/datum/reagent/reagent as anything in reagents.reagent_list)
-			if(reagent.glows)
-				var/mutable_appearance/emissive = mutable_appearance('icons/obj/reagentfillings.dmi', filling.icon_state)
-				emissive.plane = EMISSIVE_PLANE
-				overlays += emissive
-				break
-		add_overlay(filling)
+/obj/item/reagent_containers/update_overlays()
 	. = ..()
+	if(!fill_icon_thresholds)
+		return
 
+	if(reagents?.total_volume)
+		return
+	var/fill_name = fill_icon_state? fill_icon_state : icon_state
+	var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[fill_name][fill_icon_thresholds[1]]")
+
+	var/percent = round((reagents.total_volume / volume) * 100)
+	for(var/i in 1 to length(fill_icon_thresholds))
+		var/threshold = fill_icon_thresholds[i]
+		var/threshold_end = (i == length(fill_icon_thresholds))? INFINITY : fill_icon_thresholds[i+1]
+		if(threshold <= percent && percent < threshold_end)
+			filling.icon_state = "[fill_name][fill_icon_thresholds[i]]"
+
+	filling.color = mix_color_from_reagents(reagents.reagent_list)
+	filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
+	. += filling
+
+	var/datum/reagent/master = reagents.get_master_reagent()
+	if(master?.glows)
+		filling.plane = EMISSIVE_PLANE
+		. += filling

@@ -100,19 +100,20 @@
 	else
 		GLOB.lordcolor += src
 
-/obj/item/clothing/cloak/stabard/guard/update_icon()
-	cut_overlays()
-	if(get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
-		pic.appearance_flags = RESET_COLOR
-		if(get_detail_color())
-			pic.color = get_detail_color()
-		add_overlay(pic)
+/obj/item/clothing/cloak/stabard/guard/update_overlays()
+	. = ..()
+	if(!get_detail_tag())
+		return
+	var/mutable_appearance/pic = mutable_appearance(icon, "[icon_state][detail_tag]")
+	pic.appearance_flags = RESET_COLOR
+	if(get_detail_color())
+		pic.color = get_detail_color()
+	. += pic
 
 /obj/item/clothing/cloak/stabard/guard/lordcolor(primary,secondary)
 	color = primary
 	detail_color = secondary
-	update_icon()
+	update_appearance(UPDATE_ICON)
 	if(ismob(loc))
 		var/mob/L = loc
 		L.update_inv_cloak()
@@ -135,7 +136,7 @@
 	detail_tag = pick("_quad", "_spl", "_box", "_dim")
 	color = clothing_color2hex(pick(CLOTHING_COLOR_NAMES))
 	detail_color = clothing_color2hex(pick(CLOTHING_COLOR_NAMES))
-	update_icon()
+	update_appearance(UPDATE_ICON)
 	if(ismob(loc))
 		var/mob/L = loc
 		L.update_inv_cloak()
@@ -246,7 +247,7 @@
 	color = clothing_color2hex(colorone)
 	if(colortwo)
 		detail_color = clothing_color2hex(colortwo)
-	update_icon()
+	update_appearance(UPDATE_ICON)
 	if(ismob(loc))
 		var/mob/L = loc
 		L.update_inv_cloak()
@@ -254,21 +255,22 @@
 		detail_color = initial(detail_color)
 		color = initial(color)
 		detail_tag = initial(detail_tag)
-		update_icon()
+		update_appearance(UPDATE_ICON)
 		if(ismob(loc))
 			var/mob/L = loc
 			L.update_inv_cloak()
 		return
 	picked = TRUE
 
-/obj/item/clothing/cloak/stabard/surcoat/update_icon()
-	cut_overlays()
-	if(get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
-		pic.appearance_flags = RESET_COLOR
-		if(get_detail_color())
-			pic.color = get_detail_color()
-		add_overlay(pic)
+/obj/item/clothing/cloak/stabard/surcoat/update_overlays()
+	. = ..()
+	if(!get_detail_tag())
+		return
+	var/mutable_appearance/pic = mutable_appearance(icon, "[icon_state][detail_tag]")
+	pic.appearance_flags = RESET_COLOR
+	if(get_detail_color())
+		pic.color = get_detail_color()
+	. += pic
 
 /obj/item/clothing/cloak/stabard/surcoat/guard
 	desc = "A surcoat with the lord's heraldic colors."
@@ -294,13 +296,13 @@
 			detail_tag = "_box"
 		if("Diamonds")
 			detail_tag = "_dim"
-	update_icon()
+	update_appearance(UPDATE_ICON)
 	if(ismob(loc))
 		var/mob/L = loc
 		L.update_inv_cloak()
 	if(alert("Are you pleased with your heraldry?", "Heraldry", "Yes", "No") != "Yes")
 		detail_tag = initial(detail_tag)
-		update_icon()
+		update_appearance(UPDATE_ICON)
 		if(ismob(loc))
 			var/mob/L = loc
 			L.update_inv_cloak()
@@ -317,7 +319,7 @@
 /obj/item/clothing/cloak/stabard/surcoat/guard/lordcolor(primary,secondary)
 	color = primary
 	detail_color = secondary
-	update_icon()
+	update_appearance(UPDATE_ICON)
 	if(ismob(loc))
 		var/mob/L = loc
 		L.update_inv_cloak()

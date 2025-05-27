@@ -1733,7 +1733,7 @@
 		if(type in possible_rmb_intents)
 			rmb_intent = new type()
 			if(hud_used?.rmb_intent)
-				hud_used.rmb_intent.update_icon()
+				hud_used.rmb_intent.update_appearance()
 				hud_used.rmb_intent.collapse_intents()
 	if(num)
 		if(possible_rmb_intents.len < num)
@@ -1742,7 +1742,7 @@
 		if(A)
 			rmb_intent = new A()
 			if(hud_used?.rmb_intent)
-				hud_used.rmb_intent.update_icon()
+				hud_used.rmb_intent.update_appearance()
 				hud_used.rmb_intent.collapse_intents()
 
 /// Cycles through right-mouse-button intents. Loops.
@@ -1762,7 +1762,7 @@
 	rmb_intent = new A()
 
 	if(hud_used?.rmb_intent)
-		hud_used.rmb_intent.update_icon()
+		hud_used.rmb_intent.update_appearance()
 		hud_used.rmb_intent.collapse_intents()
 
 /atom/movable/screen/time

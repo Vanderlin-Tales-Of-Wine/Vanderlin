@@ -37,7 +37,7 @@
 
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/shoot_with_empty_chamber()
-	update_icon()
+	update_appearance()
 	return
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/equipped(mob/user, slot, initial)
@@ -47,7 +47,7 @@
 		for(var/obj/item/ammo_casing/CB in get_ammo_list(TRUE, TRUE))
 			CB.forceMove(drop_location())
 //			CB.bounce_away(FALSE, NONE)
-		update_icon()
+		update_appearance()
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/dropped()
 	. = ..()
@@ -56,7 +56,7 @@
 		for(var/obj/item/ammo_casing/CB in get_ammo_list(TRUE, TRUE))
 			CB.forceMove(drop_location())
 //			CB.bounce_away(FALSE, NONE)
-		update_icon()
+		update_appearance()
 
 //Bows are subtype of grenadelauncher and use BOLT_TYPE_NO_BOLT code
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/attack_self(mob/living/user)
@@ -68,7 +68,7 @@
 	if(num_unloaded)
 		to_chat(user, "<span class='notice'>I remove [(num_unloaded == 1) ? "the [cartridge_wording]" : "[num_unloaded] [cartridge_wording]\s "] from [src].</span>")
 		playsound(user, eject_sound, eject_sound_volume, eject_sound_vary)
-		update_icon()
+		update_appearance()
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/process_fire(atom/target, mob/living/user, message = TRUE, params = null, zone_override = "", bonus_spread = 0)
 	if(user.usable_hands < 2)

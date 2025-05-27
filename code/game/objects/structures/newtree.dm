@@ -3,10 +3,10 @@
 	desc = "The thick core of a tree."
 	icon = 'icons/roguetown/misc/tree.dmi'
 	icon_state = "treenew"
+	base_icon_state = "tree"
+	num_random_icons = 2
 	///The Log Type
 	var/tree_type
-	///If not null, bonus overlay ontop of normal log.
-	var/base_state
 	armor = list("blunt" = 0, "slash" = 0, "stab" = 0,  "piercing" = 0, "fire" = -100, "acid" = 50)
 	blade_dulling = DULLING_CUT
 	opacity = 1
@@ -17,33 +17,16 @@
 	static_debris = list(/obj/item/grown/log/tree = 1)
 	obj_flags = CAN_BE_HIT | BLOCK_Z_IN_UP | BLOCK_Z_OUT_DOWN
 	max_integrity = 300
-	//If the tree has been burn beforehand.
 	var/burnt = FALSE
 
 /obj/structure/flora/newtree/Initialize()
 	. = ..()
 	GenerateTree()
 
-/obj/structure/flora/newtree/update_icon()
-	if(burnt)
-		icon_state = "burnt"
-		cut_overlays()
-		return
-	icon_state = null
-	cut_overlays()
-	var/mutable_appearance/mutable
-	if(base_state)
-		mutable = mutable_appearance(icon, "[base_state]")
-		add_overlay(mutable)
-	mutable = mutable_appearance(icon, "tree[tree_type]")
-	mutable.dir = dir
-	add_overlay(mutable)
-
-/*
-* get_complex_damage comes from item_attack.dm
-* Its purpose is to alter damage based on several
-* factors and apply dulling to weapons.
-*/
+/obj/structure/flora/newtree/proc/burn_tree()
+	name = "burnt tree"
+	icon_state = "burnt"
+	burnt = TRUE
 
 /obj/structure/flora/newtree/attack_right(mob/user)
 	if(user.mind && isliving(user))
@@ -56,7 +39,6 @@
 						user.mind.special_items -= item
 						var/obj/item/I = new path2item(user.loc)
 						user.put_in_hands(I)
-			return
 
 /obj/structure/flora/newtree/attack_hand(mob/user)
 	if(isliving(user))
@@ -106,41 +88,10 @@
 /obj/structure/flora/newtree/fire_act(added, maxstacks)
 	. = ..()
 	if(.)
-		burnt = TRUE
-		if(icon_state != "burnt")
-			name = "burnt tree"
-			update_icon()
+		burn_tree()
 
-//The root of this is not very modular so i have to override it.
-/obj/structure/flora/newtree/obj_destruction(damage_flag)
-	obj_destroyed = TRUE
-	//Sloppy code but it works.
-	if(burnt)
-		damage_flag = "fire"
-	FellTree(damage_flag)
-	if(damage_flag == "acid")
-		acid_melt()
-	else if(damage_flag == "fire")
-		burn()
-	else
-		if(destroy_sound)
-			playsound(src, destroy_sound, 100, TRUE)
-		if(destroy_message)
-			visible_message(destroy_message)
-		//This right here? I had to change it to TRUE.
-		deconstruct(TRUE)
-	return TRUE
-
-/*
-* Okay so the root of this proc defines dissasemble
-* but doesnt do anything with it. This means despite
-* burn() calling deconstruct(FALSE) it will still
-* spawn the debris.
-*/
-/obj/structure/flora/newtree/deconstruct(disassembled = TRUE)
-	if(disassembled)
-		return ..()
-	qdel(src)
+/obj/structure/flora/newtree/deconstruct()
+	return ..()
 
 //Used to be at initialize but i want to override it for burnt trees
 /obj/structure/flora/newtree/proc/GenerateTree()
@@ -149,7 +100,6 @@
 	dir = pick(GLOB.cardinals)
 	SStreesetup.initialize_me |= src
 	build_trees()
-	update_icon()
 	if(istype(loc, /turf/open/floor/grass))
 		var/turf/T = loc
 		T.ChangeTurf(/turf/open/floor/dirt)
@@ -194,9 +144,7 @@
 	var/turf/target = get_step_multiz(src, UP)
 	if(istype(target, /turf/open/transparent/openspace))
 		var/obj/structure/flora/newtree/T = new(target)
-		T.base_state = "center-leaf[rand(1,2)]"
 		T.tree_type = src.tree_type
-		T.update_icon()
 
 /obj/structure/flora/newtree/proc/build_leafs()
 	for(var/D in GLOB.diagonals)
@@ -245,12 +193,11 @@
 ///Tree, but snow leaves
 /obj/structure/flora/newtree/snow
 	icon_state = "treesnow"
+
 /obj/structure/flora/newtree/snow/build_trees()
 	var/turf/target = get_step_multiz(src, UP)
 	if(istype(target, /turf/open/transparent/openspace))
 		var/obj/structure/flora/newtree/snow/T = new(target)
-		T.base_state = "center-leaf-cold1"
-		T.update_icon()
 
 /obj/structure/flora/newtree/snow/build_leafs()
 	for(var/D in GLOB.diagonals)
@@ -295,11 +242,6 @@
 	icon = 'icons/roguetown/misc/tree.dmi'
 	icon_state = "burnt"
 	burnt = TRUE
-
-//I dont really understand the purpose of adding a duplicate icon overlay ontop of the overlay.
-/obj/structure/flora/newtree/scorched/update_icon()
-	icon_state = "burnt"
-	cut_overlays()
 
 /obj/structure/flora/newtree/scorched/build_trees()
 	var/turf/target = get_step_multiz(src, UP)
@@ -349,96 +291,73 @@
 	name = "branch"
 	desc = "A stable branch, should be safe to walk on."
 	icon = 'icons/roguetown/misc/tree.dmi'
+	base_icon_state = "branch-end"
 	attacked_sound = 'sound/misc/woodhit.ogg'
 	obj_flags = CAN_BE_HIT | BLOCK_Z_OUT_DOWN
 	static_debris = list(/obj/item/grown/log/tree/stick = 1)
-	///The leaves[If any]
-	var/base_state
-	density = FALSE
 	max_integrity = 30
+	num_random_icons = 2
+	var/underlay_base = "center-leaf"
+	var/num_underlay_icons = 2
 
-/obj/structure/flora/newbranch/update_icon()
-	cut_overlays()
-	var/mutable_appearance/mutable
-	if(isnull(base_state))
-		mutable = mutable_appearance(icon, "center-leaf[rand(1,2)]")
-	else
-		mutable = mutable_appearance(icon,base_state)
-	mutable.dir = dir
-	add_overlay(mutable)
-	if(isnull(icon_state))
-		mutable = mutable_appearance(icon, "branch-end[rand(1,2)]")
-	else
-		mutable = mutable_appearance(icon,icon_state)
-	mutable.dir = dir
-	add_overlay(mutable)
 /obj/structure/flora/newbranch/Initialize()
 	. = ..()
 	AddComponent(/datum/component/squeak, list('sound/foley/plantcross1.ogg','sound/foley/plantcross2.ogg','sound/foley/plantcross3.ogg','sound/foley/plantcross4.ogg'), 100)
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
+
+/obj/structure/flora/newbranch/update_overlays()
+	. = ..()
+	if(!underlay_base)
+		return
+	var/mutable_appearance/mutable = mutable_appearance(icon, "[underlay_base][rand(1, num_underlay_icons)]", layer - 0.01)
+	mutable.dir = dir
+	. += mutable
+
+/obj/structure/flora/newbranch/snow
+	underlay_base = "center-leaf-cold"
+	num_underlay_icons = 1
+
+/obj/structure/flora/newbranch/leafless
+	underlay_base = null
+
+/obj/structure/flora/newbranch/leafless/scorched
+	name = "burnt branch"
+	desc = "Cracked and hardened from a terrible fire."
+	static_debris = null
 
 /obj/structure/flora/newbranch/connector
 	icon_state = "branch-extend"
-//Snow
+	num_random_icons = 0
+
 /obj/structure/flora/newbranch/connector/snow
-	base_state = "center-leaf-cold1"
-/obj/structure/flora/newbranch/snow
-	base_state = "center-leaf-cold1"
-//BURNT SUBTYPE
+	underlay_base = "center-leaf-cold"
+
 /obj/structure/flora/newbranch/connector/scorched
 	name = "burnt branch"
 	desc = "Cracked and hardened from a terrible fire."
 	icon_state = "branchburnt-extend"
-//Normal
-/obj/structure/flora/newbranch/leafless
-
-/obj/structure/flora/newbranch/leafless/update_icon()
-	cut_overlays()
-	var/mutable_appearance/mutable = mutable_appearance(icon, "branch-end[rand(1,2)]")
-	mutable.dir = dir
-	add_overlay(mutable)
-
-//BURNT SUBTYPE
-/obj/structure/flora/newbranch/leafless/scorched
-	name = "burnt branch"
-	desc = "Cracked and hardened from a terrible fire."
-	static_debris = list()
-
-/obj/structure/flora/newbranch/leafless/scorched/Initialize()
-	. = ..()
-	icon_state = "branchburnt-end[rand(1,2)]"
-
-/// LEAF
 
 /obj/structure/flora/newleaf
 	name = "leaves"
 	icon = 'icons/roguetown/misc/tree.dmi'
-	density = FALSE
+	icon_state = "center-leaf1"
+	base_icon_state = "center-leaf"
+	num_random_icons = 2
 	max_integrity = 10
 
 /obj/structure/flora/newleaf/attack_hand(mob/user)
 	if(isopenspace(loc))
 		loc.attack_hand(user) // so clicking leaves with an empty hand lets you climb down.
-	. = ..()
-
-/obj/structure/flora/newleaf/Initialize()
-	. = ..()
-	if(isnull(icon_state))
-		icon_state = "center-leaf[rand(1,2)]"
-	update_icon()
+	return ..()
 
 /obj/structure/flora/newleaf/corner
-
-/obj/structure/flora/newleaf/corner/Initialize()
-	. = ..()
-	if(isnull(icon_state))
-		icon_state = "corner-leaf[rand(1,2)]"
-	update_icon()
+	icon_state = "corner-leaf1"
+	base_icon_state = "corner-leaf"
 
 /obj/structure/flora/newleaf/corner/snow
 	icon_state = "corner-leaf-cold1"
+	num_random_icons = 0
 
 /obj/structure/flora/newleaf/snow
 	icon_state = "center-leaf-cold1"
-	density = FALSE
-	max_integrity = 10
+	num_random_icons = 0

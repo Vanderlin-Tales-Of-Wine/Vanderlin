@@ -95,14 +95,14 @@
 		icon_state = "Frat"
 		icon_living = "Frat"
 		icon_dead = "Frat1"
-	update_icon()
+	update_appearance()
 
 	AddElement(/datum/element/ai_flee_while_injured, 0.75, retreat_health)
 
 
 /mob/living/simple_animal/hostile/retaliate/bigrat/death(gibbed)
 	..()
-	update_icon()
+	update_appearance()
 
 
 /mob/living/simple_animal/hostile/retaliate/bigrat/update_icon()

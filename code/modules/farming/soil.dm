@@ -292,7 +292,7 @@
 	adjust_weeds(-30)
 	if(plant)
 		playsound(src,"plantcross", 90, FALSE)
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/structure/soil/proc/bless_soil()
 	blessed_time = 15 MINUTES
@@ -312,15 +312,15 @@
 
 /obj/structure/soil/proc/adjust_water(adjust_amount)
 	water = clamp(water + adjust_amount, 0, MAX_PLANT_WATER)
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/structure/soil/proc/adjust_nutrition(adjust_amount)
 	nutrition = clamp(nutrition + adjust_amount, 0, MAX_PLANT_NUTRITION)
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/structure/soil/proc/adjust_weeds(adjust_amount)
 	weeds = clamp(weeds + adjust_amount, 0, MAX_PLANT_WEEDS)
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/structure/soil/proc/adjust_plant_health(adjust_amount)
 	if(!plant || plant_dead)
@@ -329,7 +329,7 @@
 	if(plant_health <= 0)
 		plant_dead = TRUE
 		produce_ready = FALSE
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/structure/soil/Initialize()
 	START_PROCESSING(SSprocessing, src)
@@ -351,13 +351,9 @@
 	process_weeds(dt)
 	process_plant(dt)
 	process_soil(dt)
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 	if(soil_decay_time <= 0)
 		decay_soil()
-
-/obj/structure/soil/update_icon()
-	. = ..()
-	update_overlays()
 
 /obj/structure/soil/update_overlays()
 	. = ..()
@@ -720,7 +716,7 @@
 		yield_uproot_loot()
 	ruin_produce()
 	plant = null
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 /// Spawns uproot loot, such as a long from an apple tree when removing the tree
 /obj/structure/soil/proc/yield_uproot_loot()
@@ -732,7 +728,7 @@
 /// Yields produce on its tile if it's ready for harvest
 /obj/structure/soil/proc/ruin_produce()
 	produce_ready = FALSE
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 /// Yields produce on its tile if it's ready for harvest
 /obj/structure/soil/proc/yield_produce(modifier = 0)
@@ -773,7 +769,7 @@
 		crop_quality = QUALITY_REGULAR
 		quality_points = 0
 
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/structure/soil/proc/insert_plant(datum/plant_def/new_plant)
 	if(plant)
@@ -788,7 +784,7 @@
 	// Reset quality values
 	crop_quality = QUALITY_REGULAR
 	quality_points = 0
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/structure/soil/debug_soil
 	var/obj/item/neuFarm/seed/seed_to_grow

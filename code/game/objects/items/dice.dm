@@ -51,7 +51,7 @@
 	. = ..()
 	if(!result)
 		result = roll(sides)
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/item/dice/suicide_act(mob/user)
 	user.visible_message(span_suicide("[user] is gambling with death! It looks like [user.p_theyre()] trying to commit suicide!"))

@@ -225,7 +225,7 @@
 	else
 		magazine = null
 	user.put_in_hands(old_mag)
-	old_mag.update_icon()
+	old_mag.update_appearance()
 	if (display_message)
 		to_chat(user, "<span class='notice'>I pull the [magazine_wording] out of \the [src].</span>")
 	update_icon()
@@ -258,7 +258,7 @@
 				playsound(src, load_sound, load_sound_volume, load_sound_vary)
 				if (chambered == null && bolt_type == BOLT_TYPE_NO_BOLT)
 					chamber_round()
-				A.update_icon()
+				A.update_appearance()
 				update_icon()
 			return
 	user.update_inv_hands()

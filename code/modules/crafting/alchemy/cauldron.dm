@@ -47,7 +47,7 @@
 
 /obj/machinery/light/fueled/cauldron/process()
 	..()
-	update_icon()
+	update_appearance()
 	if(on)
 		if(ingredients.len)
 			if(brewing < 20)
@@ -130,7 +130,7 @@
 		filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
 		add_overlay(filling)
 		sleep(30)
-		update_icon()
+		update_appearance()
 		return TRUE
 	..()
 
