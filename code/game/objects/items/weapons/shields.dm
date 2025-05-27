@@ -137,8 +137,8 @@
 	var/mutable_appearance/M = mutable_appearance('icons/roguetown/weapons/wood_heraldry.dmi', "Psydon")
 	M.alpha = 174
 	. += M
-	m = mutable_appearance(icon, "woodsh_detail")
-	. +=M
+	M = mutable_appearance(icon, "woodsh_detail")
+	. += M
 
 /obj/item/weapon/shield/tower
 	name = "tower shield"
