@@ -34,13 +34,15 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	var/list/vip
 	var/vipmessage
 
+/obj/strucutre/door/secret/ComponentInitialize()
+	. = ..()
+	AddElement(/datum/element/update_icon_blocker)
+
 /obj/structure/door/secret/redstone_triggered(mob/user)
 	if(!door_opened)
 		force_open()
 	else
 		force_closed()
-
-/obj/structure/door/secret/update_icon()
 
 ///// DOOR TYPES //////
 /obj/structure/door/secret/vault
