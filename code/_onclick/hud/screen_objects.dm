@@ -593,6 +593,7 @@
 
 /atom/movable/screen/def_intent/update_icon()
 	icon_state = "def[hud.mymob.d_intent]n"
+	return ..()
 
 /atom/movable/screen/def_intent/Click(location, control, params)
 	var/_y = text2num(params2list(params)["icon-y"])
@@ -611,6 +612,7 @@
 
 /atom/movable/screen/cmode/update_icon()
 	icon_state = "combat[hud.mymob.cmode]"
+	return ..()
 
 /atom/movable/screen/cmode/Click(location, control, params)
 	var/list/modifiers = params2list(params)
@@ -1535,34 +1537,29 @@
 	icon = 'icons/mob/roguehud.dmi'
 	icon_state = "stressback"
 
-
-/atom/movable/screen/stress/update_icon()
-	cut_overlays()
+/atom/movable/screen/stress/update_overlays()
+	. = ..()
+	if(!ishuman(usr))
+		return
+	var/mob/living/carbon/human/H = usr
 	var/state2use = "stress1"
-	if(ishuman(usr))
-		var/mob/living/carbon/human/H = usr
-		if(!HAS_TRAIT(H, TRAIT_NOMOOD))
-			var/stress_amt = H.get_stress_amount()
-			if(stress_amt > STRESS_BAD)
-				state2use = "stress2"
-			if(stress_amt >= STRESS_VBAD)
-				state2use = "stress3"
-			if(stress_amt == STRESS_INSANE)
-				state2use = "stress4"
-			if(stress_amt >= STRESS_INSANE)
-				state2use = "stress5"
-		if(H.has_status_effect(/datum/status_effect/buff/drunk))
-			state2use = "mood_drunk"
-		if(H.has_status_effect(/datum/status_effect/buff/druqks))
-			state2use = "mood_drunk"
-		if(H.InFullCritical())
-			state2use = "mood_fear"
-		if(H.mind)
-			if(H.mind.has_antag_datum(/datum/antagonist/zombie))
-				state2use = "mood_fear"
-		if(H.stat == DEAD)
-			state2use = "mood_dead"
-	add_overlay(state2use)
+	if(!HAS_TRAIT(H, TRAIT_NOMOOD))
+		var/stress_amt = H.get_stress_amount()
+		if(stress_amt >= STRESS_BAD)
+			state2use = "stress2"
+		if(stress_amt >= STRESS_VBAD)
+			state2use = "stress3"
+		if(stress_amt == STRESS_INSANE)
+			state2use = "stress4"
+		if(stress_amt >= STRESS_INSANE)
+			state2use = "stress5"
+	if(H.has_status_effect(/datum/status_effect/buff/drunk) || H.has_status_effect(/datum/status_effect/buff/druqks))
+		state2use = "mood_drunk"
+	if(H.InFullCritical())
+		state2use = "mood_fear"
+	if(H.stat == DEAD || H.mind?.has_antag_datum(/datum/antagonist/zombie))
+		state2use = "mood_dead"
+	. += state2use
 
 /atom/movable/screen/stress/Click(location,control,params)
 	var/list/modifiers = params2list(params)
@@ -1631,14 +1628,16 @@
 	var/list/shown_intents = list()
 	var/showing = FALSE
 
-/atom/movable/screen/rmbintent/update_icon()
-	cut_overlays()
-	if(isliving(hud?.mymob))
-		var/mob/living/L = hud.mymob
-		if(L.rmb_intent)
-			add_overlay("[L.rmb_intent.icon_state]_x")
-			name = L.rmb_intent.name
-			desc = L.rmb_intent.desc
+/atom/movable/screen/rmbintent/update_overlays()
+	. = ..()
+	if(!isliving(hud?.mymob))
+		return
+	var/mob/living/L = hud.mymob
+	if(!L.rmb_intent)
+		return
+	. += "[L.rmb_intent.icon_state]_x"
+	name = L.rmb_intent.name
+	desc = L.rmb_intent.desc
 
 /atom/movable/screen/rmbintent/Click(location,control,params)
 	var/list/modifiers = params2list(params)
@@ -1767,27 +1766,30 @@
 		hud_used.rmb_intent.collapse_intents()
 
 /atom/movable/screen/time
-	name = "Sir Sun"
+	name = "Astrata"
 	icon = 'icons/time.dmi'
 	icon_state = "day"
 
-/atom/movable/screen/time/update_icon()
-	cut_overlays()
+/atom/movable/screen/time/update_icon_state()
+	icon_state = GLOB.tod
+	return ..()
+
+/atom/movable/screen/time/update_name()
 	switch(GLOB.tod)
 		if("day")
-			icon_state = "day"
-			name = "Sir Sun"
+			name = "Astrata"
 		if("dusk")
-			icon_state = "dusk"
-			name = "Sir Sun - Dusk"
+			name = "Astrata - Dusk"
 		if("night")
-			icon_state = "night"
-			name = "Miss Moon"
+			name = "Noc"
 		if("dawn")
-			icon_state = "dawn"
-			name = "Sir Sun - Dawn"
+			name = "Astrata - Dawn"
+	return ..()
+
+/atom/movable/screen/time/update_overlays()
+	. = ..()
 	if(SSParticleWeather.runningWeather.target_trait == PARTICLEWEATHER_RAIN)
-		add_overlay("rainlay")
+		. += "rainlay"
 
 /atom/movable/screen/mana
 	name = "Mana Pool"

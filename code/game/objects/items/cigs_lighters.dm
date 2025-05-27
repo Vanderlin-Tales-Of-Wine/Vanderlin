@@ -548,7 +548,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	. = ..()
 	if(!overlay_state)
 		overlay_state = pick(overlay_list)
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/item/lighter/suicide_act(mob/living/carbon/user)
 	if (lit)
@@ -559,11 +559,11 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		user.visible_message("<span class='suicide'>[user] begins whacking [user.p_them()]self with \the [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 		return BRUTELOSS
 
-/obj/item/lighter/update_icon()
-	cut_overlays()
-	var/mutable_appearance/lighter_overlay = mutable_appearance(icon,"lighter_overlay_[overlay_state][lit ? "-on" : ""]")
+/obj/item/lighter/update_overlays()
+	. = ..()
+	var/mutable_appearance/lighter_overlay = mutable_appearance(icon, "lighter_overlay_[overlay_state][lit ? "-on" : ""]")
 	icon_state = "[initial(icon_state)][lit ? "-on" : ""]"
-	add_overlay(lighter_overlay)
+	. += lighter_overlay
 
 /obj/item/lighter/ignition_effect(atom/A, mob/user)
 	if(get_temperature())
@@ -584,7 +584,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		attack_verb = null //human_defense.dm takes care of it
 		set_light(0)
 		STOP_PROCESSING(SSobj, src)
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/item/lighter/extinguish()
 	set_lit(FALSE)
@@ -683,14 +683,14 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	. = ..()
 	if(!lighter_color)
 		lighter_color = pick(color_list)
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
-/obj/item/lighter/greyscale/update_icon()
-	cut_overlays()
-	var/mutable_appearance/lighter_overlay = mutable_appearance(icon,"lighter_overlay_[overlay_state][lit ? "-on" : ""]")
+/obj/item/lighter/greyscale/update_overlays()
+	. = ..()
+	var/mutable_appearance/lighter_overlay = mutable_appearance(icon, "lighter_overlay_[overlay_state][lit ? "-on" : ""]")
 	icon_state = "[initial(icon_state)][lit ? "-on" : ""]"
 	lighter_overlay.color = lighter_color
-	add_overlay(lighter_overlay)
+	. += lighter_overlay
 
 /obj/item/lighter/greyscale/ignition_effect(atom/A, mob/user)
 	if(get_temperature())

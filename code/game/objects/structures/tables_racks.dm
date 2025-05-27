@@ -36,6 +36,7 @@
 	blade_dulling = DULLING_BASHCHOP
 
 /obj/structure/table/update_icon()
+	. = ..()
 	if(smoothing_flags & SMOOTH_BITMASK)
 		QUEUE_SMOOTH(src)
 		QUEUE_SMOOTH_NEIGHBORS(src)

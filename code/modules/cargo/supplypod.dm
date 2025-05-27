@@ -74,15 +74,11 @@
 	. = ..()
 	setStyle(style, TRUE) //Upon initialization, give the supplypod an iconstate, name, and description based on the "style" variable. This system is important for the centcom_podlauncher to function correctly
 
-/obj/structure/closet/supplypod/update_icon()
-	cut_overlays()
-	if (style == STYLE_SEETHROUGH || style == STYLE_INVISIBLE) //If we're invisible, we dont bother adding any overlays
+/obj/structure/closet/supplypod/update_overlays()
+	. = ..()
+	if(style == STYLE_SEETHROUGH || style == STYLE_INVISIBLE) //If we're invisible, we dont bother adding any overlays
 		return
-	else
-		if (opened)
-			add_overlay("[icon_state]_open")
-		else
-			add_overlay("[icon_state]_door")
+	. += "[icon_state][opened ? "_open" : "_door"]"
 
 /obj/structure/closet/supplypod/proc/setStyle(chosenStyle, duringInit = FALSE) //Used to give the sprite an icon state, name, and description
 	if (!duringInit && style == chosenStyle) //Check if the input style is already the same as the pod's style. This happens in centcom_podlauncher, and as such we set the style to STYLE_CENTCOM.
@@ -93,7 +89,7 @@
 	if (!adminNamed && !specialised) //We dont want to name it ourselves if it has been specifically named by an admin using the centcom_podlauncher datum
 		name = POD_STYLES[chosenStyle][POD_NAME]
 		desc = POD_STYLES[chosenStyle][POD_DESC]
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 /*
 /obj/structure/closet/supplypod/tool_interact(obj/item/W, mob/user)
 	if(bluespace) //We dont want to worry about interacting with bluespace pods, as they are due to delete themselves soon anyways.

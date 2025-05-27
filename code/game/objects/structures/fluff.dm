@@ -694,7 +694,7 @@
 	for(var/obj/structure/fluff/statue/carving_block in contents)
 		dir = carving_block.dir
 		qdel(carving_block)
-	update_icon_state()
+	update_appearance(UPDATE_ICON_STATE)
 
 /obj/structure/fluff/statue/astrata
 	name = "statue of Astrata"
@@ -1276,9 +1276,10 @@
 	SIGNAL_HANDLER
 	if(ring_destroyed == FALSE)
 		ring_destroyed = TRUE
-		update_icon()
+		update_appearance(UPDATE_ICON_STATE)
 
-/obj/structure/fluff/statue/gaffer/update_icon()
+/obj/structure/fluff/statue/gaffer/update_icon_state()
+	. = ..()
 	if(ring_destroyed == TRUE)
 		icon_state = "subduedstatue_hasring"
 	if(ring_destroyed == FALSE)
@@ -1318,7 +1319,7 @@
 		user.equip_to_slot_if_possible(ring, SLOT_RING, FALSE, FALSE, TRUE, TRUE)
 		to_chat(user, span_danger("Once your hand is close enough to the ring, it jumps upwards and burrows itself onto your palm"))
 		ring_destroyed = FALSE
-		update_icon()
+		update_appearance(UPDATE_ICON_STATE)
 
 /obj/structure/fluff/statue/knight/interior/gen/update_icon_state()
 	if(dir == EAST)
