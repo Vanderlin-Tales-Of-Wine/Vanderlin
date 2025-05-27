@@ -24,7 +24,10 @@
 	shoes = /obj/item/clothing/shoes/boots/leather
 	belt = /obj/item/storage/belt/leather
 	backr = /obj/item/weapon/shield/heater
-	beltl = /obj/item/weapon/mace
+	if(iself(H) || ishalfelf(H))
+		beltl = /obj/item/weapon/mace/elvenclub
+	else
+		beltl = /obj/item/weapon/mace
 	beltr = /obj/item/storage/belt/pouch/coins/poor
 
 	switch(H.patron?.type)
