@@ -41,7 +41,7 @@
 	color = clothing_color2hex(colorone)
 	if(colortwo)
 		detail_color = clothing_color2hex(colortwo)
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 	if(ismob(loc))
 		var/mob/L = loc
 		L.update_inv_cloak()
@@ -49,7 +49,7 @@
 		detail_color = initial(detail_color)
 		color = initial(color)
 		detail_tag = initial(detail_tag)
-		update_icon()
+		update_appearance(UPDATE_OVERLAYS)
 		if(ismob(loc))
 			var/mob/L = loc
 			L.update_inv_cloak()
@@ -80,13 +80,13 @@
 			detail_tag = "_box"
 		if("Diamonds")
 			detail_tag = "_dim"
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 	if(ismob(loc))
 		var/mob/L = loc
 		L.update_inv_cloak()
 	if(alert("Are you pleased with your heraldry?", "Heraldry", "Yes", "No") != "Yes")
 		detail_tag = initial(detail_tag)
-		update_icon()
+		update_appearance(UPDATE_OVERLAYS)
 		if(ismob(loc))
 			var/mob/L = loc
 			L.update_inv_cloak()

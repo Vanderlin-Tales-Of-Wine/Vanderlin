@@ -559,14 +559,14 @@
 	icon_state = "take0"
 	icon = 'icons/mob/roguehud.dmi'
 	screen_loc = rogueui_give
-	var/giving = 0
+	var/giving = FALSE
 
 /atom/movable/screen/give_intent/proc/switch_intent(ass)
 	if(ass == QINTENT_GIVE)
-		giving = 1
+		giving = TRUE
 	else
-		giving = 0
-	update_icon()
+		giving = FALSE
+	update_appearance(UPDATE_ICON_STATE)
 
 /atom/movable/screen/give_intent/Click(location, control, params)
 	if(ismob(usr))
@@ -574,7 +574,7 @@
 		M.playsound_local(M, 'sound/misc/click.ogg', 100)
 	usr.mmb_intent_change(QINTENT_GIVE)
 
-/atom/movable/screen/give_intent/update_icon()
+/atom/movable/screen/give_intent/update_icon_state()
 	..()
 	if(ismob(usr))
 		var/mob/M = usr
@@ -582,8 +582,6 @@
 			icon_state = "give[giving]"
 		else
 			icon_state = "take[giving]"
-
-//
 
 /atom/movable/screen/def_intent
 	name = "defense intent"
@@ -610,10 +608,6 @@
 	icon = 'icons/mob/roguehud.dmi'
 	screen_loc = rogueui_cmode
 
-/atom/movable/screen/cmode/update_icon()
-	icon_state = "combat[hud.mymob.cmode]"
-	return ..()
-
 /atom/movable/screen/cmode/Click(location, control, params)
 	var/list/modifiers = params2list(params)
 	if(isliving(usr))
@@ -623,11 +617,14 @@
 			L.submit()
 		else
 			L.toggle_cmode()
-			update_icon()
+			update_appearance(UPDATE_ICON_STATE)
+
+/atom/movable/screen/cmode/update_icon_state()
+	. = ..()
+	icon_state = "combat[hud?.mymob?.cmode]"
 
 /atom/movable/screen/mov_intent
 	name = "run/walk toggle"
-
 	icon_state = "running"
 
 /atom/movable/screen/mov_intent/Click(location, control, params)
@@ -757,7 +754,7 @@
 		if(L.eyesclosed)
 			L.eyesclosed = 0
 			L.cure_blind("eyelids")
-			update_icon()
+			update_appearance(UPDATE_ICON_STATE)
 			return
 
 	if(modifiers["left"])
@@ -773,7 +770,7 @@
 		if(isliving(hud.mymob))
 			var/mob/living/L = hud.mymob
 			L.look_up()
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 
 	if(modifiers["right"])
 		if(isliving(hud.mymob))
@@ -781,6 +778,7 @@
 			L.look_around()
 
 /atom/movable/screen/eye_intent/update_icon_state()
+	. = ..()
 	var/mob/living/L = hud.mymob
 	if(!istype(L))
 		icon_state = "eye"
@@ -793,7 +791,6 @@
 		icon_state = "eye_fixed"
 	else
 		icon_state = "eye"
-	return ..()
 
 /atom/movable/screen/eye_intent/update_overlays()
 	. = ..()
@@ -1279,7 +1276,7 @@
 
 	if(choice != hud.mymob.zone_selected)
 		hud.mymob.select_zone(choice)
-		update_icon()
+		update_appearance(UPDATE_OVERLAYS)
 
 	return TRUE
 
@@ -1516,21 +1513,20 @@
 		var/mob/M = usr
 		if(M.boxaim == TRUE)
 			M.boxaim = FALSE
+			if(M.client)
+				M.client.mouseoverbox.screen_loc = null
 		else
 			M.boxaim = TRUE
-		update_icon()
+		update_appearance(UPDATE_ICON_STATE)
 
-/atom/movable/screen/aim/boxaim/update_icon()
+/atom/movable/screen/aim/boxaim/update_icon_state()
+	. = ..()
 	if(ismob(usr))
 		var/mob/living/M = usr
 		if(M.boxaim == TRUE)
 			icon_state = "boxon"
 		else
 			icon_state = "boxoff"
-			if(M.client)
-				M.client.mouseoverbox.screen_loc = null
-	..()
-
 
 /atom/movable/screen/stress
 	name = "sanity"
@@ -1660,7 +1656,7 @@
 		return
 	showing = FALSE
 	QDEL_LIST(shown_intents)
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 /atom/movable/screen/rmbintent/proc/show_intents(mob/living/M)
 	if(showing)

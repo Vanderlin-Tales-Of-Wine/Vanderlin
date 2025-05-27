@@ -11,14 +11,14 @@
 	for(var/i in 1 to max_storage)
 		var/obj/item/ammo_casing/caseless/arrow/A = new(src)
 		ammo_list += A
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 
 /obj/item/ammo_holder/quiver/bolts/Initialize()
 	. = ..()
 	for(var/i in 1 to max_storage)
 		var/obj/item/ammo_casing/caseless/bolt/A = new(src)
 		ammo_list += A
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 
 /obj/item/ammo_holder/bullet
 	name = "bullet pouch"
@@ -41,11 +41,11 @@
 	for(var/i in 1 to max_storage)
 		var/obj/item/ammo_casing/caseless/dart/A = new(src)
 		ammo_list += A
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 
 /obj/item/ammo_holder/dartpouch/poisondarts/Initialize()
 	. = ..()
 	for(var/i in 1 to 4)
 		var/obj/item/ammo_casing/caseless/dart/poison/A = new(src)
 		ammo_list += A
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
