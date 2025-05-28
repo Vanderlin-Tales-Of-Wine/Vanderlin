@@ -509,7 +509,7 @@
 	if(plant_dead)
 		return
 	process_plant_nutrition(dt, TRUE)
-	process_plant_health(dt, TRUE)
+	process_plant_health(dt)
 	if(matured && !produce_ready)
 		process_crop_quality(dt, TRUE)
 
@@ -585,8 +585,7 @@
 	else
 		crop_quality = QUALITY_REGULAR
 
-
-/obj/structure/soil/proc/process_plant_health(dt, no_update = FALSE)
+/obj/structure/soil/proc/process_plant_health(dt)
 	if(!plant)
 		return
 	var/drain_rate = plant.water_drain_rate
@@ -606,10 +605,8 @@
 	// Blessed plants heal!!
 	if(blessed_time > 0)
 		adjust_plant_health(dt * PLANT_BLESS_HEAL_RATE, TRUE)
-	if(!no_update)
-		update_icon()
 
-/obj/structure/soil/proc/process_plant_nutrition(dt, no_update = FALSE)
+/obj/structure/soil/proc/process_plant_nutrition(dt)
 	if(!plant)
 		return
 	var/turf/location = loc
@@ -660,7 +657,7 @@
 	var/target_growth_time = growth_multiplier * dt
 	process_growth(target_growth_time)
 
-/obj/structure/soil/proc/process_growth(target_growth_time, no_update = FALSE)
+/obj/structure/soil/proc/process_growth(target_growth_time)
 	if(!plant)
 		return
 	var/target_nutrition
@@ -671,7 +668,7 @@
 	var/possible_nutrition = min(target_nutrition, nutrition)
 	var/factor = possible_nutrition / target_nutrition
 	var/possible_growth_time = target_growth_time * factor
-	adjust_nutrition(-possible_nutrition, no_update)
+	adjust_nutrition(-possible_nutrition, TRUE)
 	add_growth(possible_growth_time)
 
 /obj/structure/soil/proc/add_growth(added_growth)
