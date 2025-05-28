@@ -91,23 +91,35 @@
 
 	manifest_projection(A)
 
+/// takes the containment out of any storages and mobs
+/mob/camera/ancestral_spirit/proc/containment_anti_containment() // YOU CAN'T HOLD ME
+	if(isturf(containment.loc))
+		return TRUE
+	var/mob/containment_holder = containment.loc
+	if(ismob(containment_holder)) // cannot contain my whimsy
+		containment_holder.dropItemToGround(containment)
+
+	containment.forceMove(get_turf(containment))
+
 /mob/camera/ancestral_spirit/proc/locomotion(atom/A)
-	if(!isturf(containment.loc)) // escape!
-		containment.forceMove(get_turf(containment))
+
+	containment_anti_containment()
 
 	var/atom/hand = containment.fire_projectile(/obj/projectile/locomotion_hand, A)
 	locomotion_hand_outgoing = containment.Beam(hand, icon_state = "curse0", maxdistance = 9, time = 10 SECONDS)
 	RegisterSignal(hand, COMSIG_PROJECTILE_SELF_ON_HIT, PROC_REF(on_locomotion_hand_hit))
-	update_overlays()
 
-/mob/camera/ancestral_spirit/proc/on_locomotion_hand_hit(atom/source)
+/mob/camera/ancestral_spirit/proc/on_locomotion_hand_hit(atom/source, firer, target, Angle)
 	SIGNAL_HANDLER
+
+	containment_anti_containment()
+
 	UnregisterSignal(source, list(COMSIG_PROJECTILE_SELF_ON_HIT))
 	QDEL_NULL(locomotion_hand_outgoing)
 	QDEL_NULL(locomotion_hand_pulling)
-	locomotion_hand_pulling = containment.Beam(get_turf(source.loc), icon_state = "curse0", maxdistance = 9, time = 10 SECONDS)
+	locomotion_hand_pulling = containment.Beam(get_turf(target), icon_state = "curse0", maxdistance = 9, time = 10 SECONDS)
 
-	containment.throw_at(target = source, range = 9, speed = 1.4, spin = FALSE, callback = CALLBACK(src, PROC_REF(post_land)))
+	containment.throw_at(target = target, range = 9, speed = 1.4, spin = FALSE, callback = CALLBACK(src, PROC_REF(post_land)))
 
 /mob/camera/ancestral_spirit/proc/post_land(datum/source)
 	QDEL_NULL(locomotion_hand_pulling)
