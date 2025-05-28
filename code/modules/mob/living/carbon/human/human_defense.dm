@@ -22,7 +22,7 @@
 		def_zone = CBP.body_zone
 	var/protection = 0
 	var/obj/item/clothing/used
-	var/list/body_parts = list(skin_armor, head, wear_mask, wear_wrists, gloves, wear_neck, cloak, wear_armor, wear_shirt, shoes, wear_pants, backr, backl, belt, ears, wear_ring)
+	var/list/body_parts = list(skin_armor, head, wear_mask, wear_wrists, gloves, wear_neck, cloak, wear_armor, wear_shirt, shoes, wear_pants, backr, backl, belt, wear_ring)
 	for(var/bp in body_parts)
 		if(!bp)
 			continue
@@ -72,7 +72,7 @@
 	if(isbodypart(def_zone))
 		var/obj/item/bodypart/CBP = def_zone
 		def_zone = CBP.body_zone
-	var/list/body_parts = list(head, wear_mask, wear_wrists, wear_shirt, wear_neck, cloak, wear_armor, wear_pants, backr, backl, gloves, shoes, belt, ears, wear_ring)
+	var/list/body_parts = list(head, wear_mask, wear_wrists, wear_shirt, wear_neck, cloak, wear_armor, wear_pants, backr, backl, gloves, shoes, belt, wear_ring)
 	for(var/bp in body_parts)
 		if(!bp)
 			continue
