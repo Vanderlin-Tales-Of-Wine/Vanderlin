@@ -422,6 +422,7 @@
 "amV" = (
 /obj/structure/fluff/walldeco/vinez/blue,
 /obj/structure/window/openclose/reinforced,
+/obj/structure/curtain/bounty,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/tavern)
 "anh" = (
@@ -7217,6 +7218,7 @@
 /obj/structure/window/openclose/reinforced{
 	dir = 8
 	},
+/obj/structure/curtain/bounty,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/tavern)
 "dQL" = (
@@ -7681,6 +7683,7 @@
 /obj/structure/window/openclose/reinforced{
 	dir = 4
 	},
+/obj/structure/curtain/bounty,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/tavern)
 "efx" = (
@@ -8260,6 +8263,7 @@
 /obj/structure/window/openclose/reinforced{
 	dir = 8
 	},
+/obj/structure/curtain/bounty,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/tavern)
 "ewG" = (
@@ -11210,7 +11214,9 @@
 /turf/open/floor/wood/nosmooth,
 /area/rogue/indoors/town)
 "gfB" = (
-/obj/structure/door/fancy,
+/obj/structure/door/fancy{
+	name = "Bathroom"
+	},
 /turf/open/floor/wood,
 /area/rogue/indoors/town/tavern)
 "gfO" = (
@@ -11224,6 +11230,7 @@
 /area/rogue/indoors/town)
 "ggc" = (
 /obj/structure/window,
+/obj/structure/curtain/bounty,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/tavern)
 "ggi" = (
@@ -13049,6 +13056,13 @@
 /obj/machinery/light/fueled/torchholder/c,
 /turf/open/floor/cobble/alt,
 /area/rogue/indoors/town/cell)
+"hgv" = (
+/obj/structure/fluff/walldeco/customflag{
+	pixel_x = -32;
+	name = "rosewood flag"
+	},
+/turf/open/floor/dirt,
+/area/rogue/under/town/basement)
 "hgB" = (
 /turf/open/floor/snow/patchy,
 /area/rogue/outdoors/mountains)
@@ -14561,6 +14575,7 @@
 /obj/structure/window/openclose{
 	dir = 4
 	},
+/obj/structure/curtain/bounty,
 /turf/open/transparent/openspace,
 /area/rogue/indoors/town/tavern)
 "hZu" = (
@@ -18876,6 +18891,7 @@
 /obj/structure/window/openclose/reinforced{
 	dir = 4
 	},
+/obj/structure/curtain/bounty,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/tavern)
 "kAO" = (
@@ -18980,6 +18996,7 @@
 /obj/structure/window/openclose{
 	dir = 1
 	},
+/obj/structure/curtain/bounty,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/tavern)
 "kCe" = (
@@ -21963,6 +21980,7 @@
 /obj/structure/window/openclose/reinforced{
 	dir = 8
 	},
+/obj/structure/curtain/bounty,
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/tavern)
 "mnl" = (
@@ -22849,6 +22867,7 @@
 /area/rogue/under/town/sewer)
 "mMv" = (
 /obj/structure/window/openclose/reinforced,
+/obj/structure/curtain/bounty,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/tavern)
 "mMy" = (
@@ -25152,6 +25171,7 @@
 /area/rogue/indoors/town)
 "nYv" = (
 /obj/structure/window/openclose/reinforced,
+/obj/structure/curtain/bounty,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/tavern)
 "nYw" = (
@@ -26469,6 +26489,13 @@
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/cell)
+"oFQ" = (
+/obj/structure/window/openclose{
+	dir = 8
+	},
+/obj/structure/curtain/bounty,
+/turf/open/floor/wood,
+/area/rogue/indoors/town/tavern)
 "oFZ" = (
 /obj/structure/window/openclose{
 	dir = 8
@@ -30060,6 +30087,13 @@
 /obj/effect/landmark/events/animal_migration_point,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield/safe)
+"qDF" = (
+/obj/structure/fluff/walldeco/customflag{
+	pixel_y = 32;
+	name = "rosewood flag"
+	},
+/turf/open/floor/dirt,
+/area/rogue/under/town/basement)
 "qDO" = (
 /obj/structure/bed/shit{
 	name = "makeshift bed"
@@ -30075,6 +30109,13 @@
 /obj/structure/fluff/walldeco/vinez/blue,
 /turf/closed/wall/mineral/decorstone,
 /area/rogue/indoors/town/magician)
+"qDX" = (
+/obj/structure/fluff/walldeco/customflag{
+	pixel_x = 32;
+	name = "rosewood flag"
+	},
+/turf/open/floor/dirt,
+/area/rogue/under/town/basement)
 "qEh" = (
 /obj/structure/door/viewport{
 	dir = 4;
@@ -32647,6 +32688,12 @@
 	},
 /turf/open/floor/tile,
 /area/rogue/indoors/town/tavern)
+"sam" = (
+/obj/structure/fluff/walldeco/customflag{
+	name = "rosewood flag"
+	},
+/turf/closed/wall/mineral/stone,
+/area/rogue/under/town/basement)
 "saQ" = (
 /obj/structure/fake_machine/mail,
 /turf/open/floor/churchrough,
@@ -39373,6 +39420,13 @@
 /obj/machinery/light/fueled/wallfire/candle/l,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/under/town/basement)
+"vGc" = (
+/obj/structure/fluff/walldeco/customflag{
+	pixel_x = -32;
+	name = "rosewood flag"
+	},
+/turf/open/floor/dirt/road,
+/area/rogue/under/town/basement)
 "vGr" = (
 /obj/structure/door/red{
 	lockid = "apartment20";
@@ -39655,6 +39709,13 @@
 	},
 /turf/open/floor/wood,
 /area/rogue/indoors/villagegarrison)
+"vOw" = (
+/obj/structure/window/openclose{
+	dir = 4
+	},
+/obj/structure/curtain/bounty,
+/turf/open/floor/wood,
+/area/rogue/indoors/town/tavern)
 "vOy" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
@@ -41651,6 +41712,7 @@
 /obj/structure/window/openclose/reinforced{
 	dir = 1
 	},
+/obj/structure/curtain/bounty,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/tavern)
 "wRY" = (
@@ -42372,6 +42434,11 @@
 	},
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/under/town/basement)
+"xqo" = (
+/obj/structure/window/solid,
+/obj/structure/curtain/bounty,
+/turf/open/floor/wood,
+/area/rogue/indoors/town/tavern)
 "xqB" = (
 /obj/structure/bed/mediocre,
 /obj/item/bedsheet/pelt,
@@ -42595,6 +42662,7 @@
 "xyo" = (
 /obj/structure/window,
 /obj/structure/fluff/walldeco/vinez/blue,
+/obj/structure/curtain/bounty,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/tavern)
 "xyD" = (
@@ -58151,17 +58219,17 @@ qRF
 qRF
 rbI
 uqd
+qDF
 vOT
-vOT
-oFc
-oFc
-vOT
-vOT
+vGc
 oFc
 vOT
 vOT
 oFc
-uqd
+hgv
+vOT
+oFc
+sam
 sGM
 sGM
 qJl
@@ -58959,17 +59027,17 @@ qRF
 qRF
 rbI
 uqd
+qDF
 vOT
-vOT
-vOT
-vOT
-vOT
-oFc
-oFc
+qDX
 vOT
 vOT
 oFc
-uqd
+oFc
+qDX
+vOT
+oFc
+sam
 rbI
 rbI
 rbI
@@ -140568,18 +140636,18 @@ grI
 juW
 juW
 qjP
-qVU
-kDo
+xqo
+vOw
+qjP
+vOw
 qjP
 kDo
 qjP
-kDo
 qjP
 qjP
+vOw
 qjP
-kDo
-qjP
-kDo
+vOw
 qjP
 qjP
 mii
@@ -144204,10 +144272,10 @@ grI
 vaI
 vaI
 qjP
+xqo
+oFQ
 qVU
-noL
-qVU
-noL
+oFQ
 qjP
 noL
 qjP
@@ -144623,7 +144691,7 @@ vaI
 vaI
 wZA
 qjP
-noL
+oFQ
 qjP
 qjP
 qjP
