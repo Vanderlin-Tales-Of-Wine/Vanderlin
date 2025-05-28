@@ -20,7 +20,6 @@
 	var/disgust = 0
 
 //inventory slots
-	var/obj/item/back = null
 	var/obj/item/backr = null
 	var/obj/item/backl = null
 	var/obj/item/clothing/face/wear_mask = null

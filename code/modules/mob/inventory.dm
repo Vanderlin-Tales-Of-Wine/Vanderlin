@@ -337,8 +337,10 @@
 
 /mob/living/carbon/get_equipped_items(include_pockets = FALSE)
 	var/list/items = list()
-	if(back)
-		items += back
+	if(backr)
+		items += backr
+	if(backl)
+		items += backl
 	if(head)
 		items += head
 	if(wear_mask)

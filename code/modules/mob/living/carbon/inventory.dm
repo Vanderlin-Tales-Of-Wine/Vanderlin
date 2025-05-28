@@ -13,11 +13,17 @@
 	return null
 
 /mob/living/carbon/get_slot_by_item(obj/item/looking_for)
-	if(looking_for == back)
-		return ITEM_SLOT_BACK
+	if(looking_for == backr)
+		return ITEM_SLOT_BACK_R
 
-	if(back && (looking_for in back))
-		return ITEM_SLOT_BACKPACK
+	if(looking_for == backl)
+		return ITEM_SLOT_BACK_L
+
+	if(backr && (looking_for in backr))
+		return ITEM_SLOT_BACK_R
+
+	if(backl && (looking_for in backl))
+		return ITEM_SLOT_BACK_L
 
 	if(looking_for == wear_mask)
 		return ITEM_SLOT_MASK
