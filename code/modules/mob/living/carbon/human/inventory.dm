@@ -104,10 +104,10 @@
 		return SLOT_PANTS
 
 	if(looking_for == l_store)
-		return SLOT_L_STORE
+		return SLOT_BELT_L
 
 	if(looking_for == r_store)
-		return SLOT_R_STORE
+		return SLOT_BELT_R
 
 	if(looking_for == s_store)
 		return SLOT_S_STORE
