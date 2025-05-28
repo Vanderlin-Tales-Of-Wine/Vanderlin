@@ -20,7 +20,7 @@
 	resistance_flags = FLAMMABLE
 
 	permeability_coefficient = 0.5
-	slowdown = SHOES_SLOWDOWN
+	slowdown = 0
 	strip_delay = 1 SECONDS
 	equip_delay_self = 3 SECONDS
 
