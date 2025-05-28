@@ -12,7 +12,6 @@
 	volume = 50	//Sets the default container amount for all food items.
 	reagent_flags = INJECTABLE
 	resistance_flags = FLAMMABLE
-	destroy_sound
 	grid_width = 32
 	grid_height = 32
 	var/do_random_pixel_offset = TRUE

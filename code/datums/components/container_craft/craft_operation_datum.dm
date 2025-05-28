@@ -71,7 +71,7 @@
 /datum/container_craft_operation/process()
 	// Check if the container or user are still valid
 	if(recipe.user_craft)
-		if((QDELETED(initiator) || !initiator.canUseTopic(crafter, BE_CLOSE)))
+		if((QDELETED(initiator) || !initiator.can_perform_action(crafter, NEED_DEXTERITY|FORBID_TELEKINESIS_REACH)))
 			return FALSE
 
 	if(QDELETED(crafter))

@@ -21,7 +21,6 @@
 /obj/structure/Initialize()
 	. = ..()
 	if(rotation_structure || accepts_water_input)
-		set_connection_dir()
 		return INITIALIZE_HINT_LATELOAD
 
 /obj/structure/MiddleClick(mob/user, params)
@@ -88,7 +87,9 @@
 				S.redstone_attached |= src
 
 	if(rotation_structure && !QDELETED(src))
+		set_connection_dir()
 		find_rotation_network()
+		AddComponent(/datum/component/simple_rotation, ROTATION_REQUIRE_WRENCH|ROTATION_IGNORE_ANCHORED)
 	if(accepts_water_input)
 		setup_water()
 

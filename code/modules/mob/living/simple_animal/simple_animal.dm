@@ -513,26 +513,14 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	density = initial(density)
 	setMovetype(initial(movement_type))
 
-/mob/living/simple_animal/canUseTopic(atom/movable/M, be_close=FALSE, no_dexterity=FALSE, no_tk=FALSE)
-	if(incapacitated(ignore_grab = TRUE))
-		to_chat(src, "<span class='warning'>I can't do that right now!</span>")
-		return FALSE
-	if(be_close && !in_range(M, src))
-		to_chat(src, "<span class='warning'>I are too far away!</span>")
-		return FALSE
-	if(!(no_dexterity || dextrous))
-		to_chat(src, "<span class='warning'>I don't have the dexterity to do this!</span>")
-		return FALSE
-	return TRUE
-
 /mob/living/simple_animal/stripPanelUnequip(obj/item/what, mob/who, where)
-	if(!canUseTopic(who, BE_CLOSE))
+	if(!can_perform_action(who, NEED_DEXTERITY|FORBID_TELEKINESIS_REACH))
 		return
 	else
 		..()
 
 /mob/living/simple_animal/stripPanelEquip(obj/item/what, mob/who, where)
-	if(!canUseTopic(who, BE_CLOSE))
+	if(!can_perform_action(who, NEED_DEXTERITY|FORBID_TELEKINESIS_REACH))
 		return
 	else
 		..()

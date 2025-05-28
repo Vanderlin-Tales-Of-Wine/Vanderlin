@@ -31,6 +31,7 @@
 		wheel_rotation_dir = EWDIRFLIP(wheel_rotation_dir)
 	else // northern water is EAST rotation, southern water is WEST rotation
 		wheel_rotation_dir = turn(wheel_rotation_dir, -90)
+	last_stress_generation = 0
 	set_stress_generation(1024)
 	set_rotational_direction_and_speed(wheel_rotation_dir, 8)
 	return TRUE
