@@ -78,6 +78,8 @@
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
+	if(H.dna?.species)
+		H.dna.species.soundpack_m = new /datum/voicepack/male/warrior() // Lunkhead.
 
 
 // Reformed Thief, a class balanced to rogue. Axe and crossbow focus.
@@ -97,8 +99,6 @@
 	armor = /obj/item/clothing/armor/leather/splint
 	neck = /obj/item/clothing/neck/gorget
 	beltl = /obj/item/weapon/mace/cudgel
-	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
-	backl = /obj/item/ammo_holder/quiver/bolts
 	pants = /obj/item/clothing/pants/trou/leather
 	cloak = /obj/item/clothing/cloak/raincloak/brown
 	backpack_contents = list(/obj/item/storage/keyring/inquisitor = 1, /obj/item/weapon/knife/dagger/psydon = 1)
@@ -106,7 +106,8 @@
 	//Stats for class
 	H.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/crossbows, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE) // Bows can be bullshit annoying so they aren't given one immediately. Inquisitor can get them one now!
 	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
@@ -120,57 +121,62 @@
 	H.adjust_skillrank(/datum/skill/combat/firearms, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/traps, 2, TRUE)
 	H.change_stat(STATKEY_STR, -1)
-	H.change_stat(STATKEY_PER, 2)
+	H.change_stat(STATKEY_END, 1)
 	H.change_stat(STATKEY_SPD, 2)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
 
-/datum/advclass/adept/penitentm
-	name = "Prior Heathen"
-	tutorial = "You were a godless pagan who has been given a chance to redeem yourself by the Inquisitor. You serve him and Psydon with your utility and wisdom."
-	outfit = /datum/outfit/job/adept/pheathen
+
+// Vile Highwayman, utility and ranged focus. Whip and Bow user with a heavy disincentive to get into a direct fight.
+/datum/advclass/adept/highwayman
+	name = "Vile Renegade"
+	tutorial = "You were a former outlaw who has been given a chance to redeem yourself by the Inquisitor. You serve him and Psydon with your survival skills and deadly accuracy."
+	outfit = /datum/outfit/job/adept/highwayman
 
 	category_tags = list(CTAG_ADEPT)
-	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander2.ogg'
+	cmode_music = 'sound/music/cmode/towner/CombatGaffer.ogg'
 	maximum_possible_slots = 2
 
-/datum/outfit/job/adept/pheathen/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/adept/highwayman/pre_equip(mob/living/carbon/human/H)
 	..()
 	//Armor for class
-	belt = /obj/item/storage/belt/leather/knifebelt/black/psydon
-	armor = /obj/item/clothing/armor/leather/hide
-	head = /obj/item/clothing/head/roguehood
+	belt = /obj/item/storage/belt/leather
+	cloak = /obj/item/clothing/cloak/half
+	armor = /obj/item/clothing/armor/leather/jacket/leathercoat/black
+	head = /obj/item/clothing/head/helmet/leather/inquisitor // A nice swashbuckler hat would go hard.
 	neck = /obj/item/clothing/neck/gorget
-	beltl = /obj/item/weapon/whip
-	backr = /obj/item/weapon/polearm/woodstaff/quarterstaff/iron
-	backl = /obj/item/storage/backpack/satchel
+	beltl = /obj/item/weapon/whip // Great length, they don't need to be next to a person to help in apprehending them.
+	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
+	backl = /obj/item/ammo_holder/quiver/bolts
 	pants = /obj/item/clothing/pants/trou/leather
 	backpack_contents = list(/obj/item/lockpick = 1, /obj/item/storage/keyring/inquisitor = 1, /obj/item/weapon/knife/dagger/psydon = 1)
 
 	//Stats for class
-	H.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE) // No good armor, cannot dodge, cannot parry with whips/flails. We can keep it at 3.
+	H.adjust_skillrank(/datum/skill/combat/bows, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/swimming, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/climbing, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE) // Smart... For a knave.
 	H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/firearms, 1, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/craft/cooking, 2, TRUE)
-	H.change_stat(STATKEY_STR, -1)
-	H.change_stat(STATKEY_INT, 1)
-	H.change_stat(STATKEY_CON, 2)
-	ADD_TRAIT(H, TRAIT_CRITICAL_RESISTANCE, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_NOPAINSTUN, TRAIT_GENERIC)
+	H.change_stat(STATKEY_PER, 2)
+	H.change_stat(STATKEY_INT, 2)
+	H.change_stat(STATKEY_CON, -2)
+	H.change_stat(STATKEY_STR, -2) // Not great in a direct fight.
+	ADD_TRAIT(H, TRAIT_FORAGER, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
 	if(H.dna?.species)
-		H.dna.species.soundpack_m = new /datum/voicepack/male/warrior()
+		H.dna.species.soundpack_m = new /datum/voicepack/male/knight() // We're going with gentleman-thief here.
 
 
 /datum/outfit/job/adept/pre_equip(mob/living/carbon/human/H)
