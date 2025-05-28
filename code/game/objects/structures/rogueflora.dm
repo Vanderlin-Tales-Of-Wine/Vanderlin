@@ -424,8 +424,7 @@
 			var/mob/living/carbon/human/H = L
 			var/obj/item/bodypart/BP = pick(H.bodyparts)
 			BP.receive_damage(10)
-			var/was_hard_collision = (H.m_intent == MOVE_INTENT_RUN || H.throwing || H.atom_flags & Z_FALLING)
-			if((was_hard_collision && prob(15)) && !HAS_TRAIT(src, TRAIT_PIERCEIMMUNE))
+			if((prob(15)) && !HAS_TRAIT(src, TRAIT_PIERCEIMMUNE))
 				var/obj/item/natural/thorn/TH = new(src.loc)
 				BP.add_embedded_object(TH, silent = TRUE)
 				to_chat(H, span_danger("\A [TH] impales my [BP.name]."))
@@ -445,8 +444,7 @@
 			var/mob/living/carbon/human/H = L
 			var/obj/item/bodypart/BP = pick(H.bodyparts)
 			BP.receive_damage(10)
-			var/was_hard_collision = (H.m_intent == MOVE_INTENT_RUN || H.throwing || H.atom_flags & Z_FALLING)
-			if((was_hard_collision && prob(15)) && !HAS_TRAIT(src, TRAIT_PIERCEIMMUNE))
+			if((prob(15)) && !HAS_TRAIT(src, TRAIT_PIERCEIMMUNE))
 				var/obj/item/natural/thorn/TH = new(src.loc)
 				BP.add_embedded_object(TH, silent = TRUE)
 				to_chat(H, span_danger("\A [TH] impales my [BP.name]."))
