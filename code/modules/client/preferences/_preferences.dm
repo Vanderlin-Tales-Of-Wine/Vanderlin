@@ -221,6 +221,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	dat += "<tr>"
 	dat += "<td style='width:33%;text-align:left'>"
 	dat += "<a style='white-space:nowrap;' href='?_src_=prefs;preference=changeslot;'>Change Character</a>"
+	dat += "<a style='white-space:nowrap;' href='?_src_=prefs;preference=randomiseappearanceprefs;'>Change Character</a>"
 	dat += "</td>"
 
 
@@ -1382,6 +1383,8 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 						if(!load_character(choice))
 							randomise_appearance_prefs()
 							save_character()
+				if("randomiseappearanceprefs")
+					randomise_appearance_prefs()
 
 				if("tab")
 					if (href_list["tab"])
