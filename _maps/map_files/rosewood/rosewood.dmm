@@ -4684,6 +4684,7 @@
 /area/rogue/indoors/town/clinic_large)
 "czG" = (
 /obj/structure/door/iron/bars,
+/obj/effect/mapping_helpers/access/keyset/manor/general,
 /turf/open/floor/cobblerock,
 /area/rogue/under/town/basement)
 "czX" = (
@@ -13238,6 +13239,7 @@
 /area/rogue/outdoors/town)
 "hlF" = (
 /obj/structure/door/swing,
+/obj/effect/mapping_helpers/access/keyset/manor/general,
 /turf/open/floor/dirt/road,
 /area/rogue/under/town/basement)
 "hlP" = (
@@ -17431,10 +17433,6 @@
 	},
 /turf/open/floor/snow,
 /area/rogue/outdoors/rtfield/safe)
-"jKL" = (
-/obj/structure/door/iron/bars,
-/turf/open/floor/cobble,
-/area/rogue/under/town/basement)
 "jKR" = (
 /obj/machinery/light/fueled/firebowl/standing/blue,
 /turf/open/floor/ruinedwood/turned/darker,
@@ -30107,6 +30105,7 @@
 /area/rogue/indoors/town/tavern)
 "qFt" = (
 /obj/structure/door/window,
+/obj/effect/mapping_helpers/access/keyset/town/inn,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town/tavern)
 "qFG" = (
@@ -57958,7 +57957,7 @@ uqd
 uqd
 uqd
 uqd
-jKL
+rUz
 czG
 uqd
 sGM
@@ -59162,15 +59161,15 @@ qRF
 qRF
 rbI
 uqd
-jKL
-jKL
+rUz
+rUz
 uqd
 uqd
 uqd
 uqd
 uqd
 uqd
-jKL
+rUz
 czG
 uqd
 rbI
@@ -60378,7 +60377,7 @@ cGb
 cGb
 rLE
 rLE
-jKL
+rUz
 rLE
 cGb
 rLE
