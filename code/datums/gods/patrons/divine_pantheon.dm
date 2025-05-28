@@ -108,7 +108,7 @@
 	added_traits = list(TRAIT_SOUL_EXAMINE)
 	t0 = /obj/effect/proc_holder/spell/invoked/lesser_heal
 	t1 = /obj/effect/proc_holder/spell/targeted/burialrite
-	t2 = /obj/effect/proc_holder/spell/targeted/soulspeak
+	t2 = /obj/effect/proc_holder/spell/invoked/avert
 	t3 = /obj/effect/proc_holder/spell/targeted/churn
 	confess_lines = list(
 		"ALL SOULS FIND THEIR WAY TO NECRA!",
