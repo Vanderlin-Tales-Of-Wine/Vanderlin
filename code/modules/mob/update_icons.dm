@@ -58,6 +58,9 @@
 /mob/proc/update_inv_pockets()
 	return
 
+/mob/proc/update_inv_ring()
+	return
+
 /mob/proc/update_inv_pants()
 	return
 

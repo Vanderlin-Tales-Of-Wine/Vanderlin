@@ -966,7 +966,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	if(flags & ITEM_SLOT_SHOES)
 		owner.update_inv_shoes()
 	if(flags & ITEM_SLOT_RING)
-		owner.update_inv_wear_id()
+		owner.update_inv_ring()
 	if(flags & ITEM_SLOT_WRISTS)
 		owner.update_inv_wrists()
 	if(flags & ITEM_SLOT_BACK)

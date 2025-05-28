@@ -33,7 +33,7 @@ There are several things that need to be remembered:
 	You will need to call the relevant update_inv_* proc
 
 	All of these are named after the variable they update from. They are defined at the mob/ level like
-	update_clothing was, so you won't cause undefined proc runtimes with usr.update_inv_wear_id() if the usr is a
+	update_clothing was, so you won't cause undefined proc runtimes with usr.update_inv_ring() if the usr is a
 	slime etc. Instead, it'll just return without doing any work. So no harm in calling it for slimes and such.
 
 
@@ -260,7 +260,7 @@ There are several things that need to be remembered:
 		if(dna?.species?.regenerate_icons(src))
 			return
 		update_body()
-		update_inv_wear_id()
+		update_inv_ring()
 		update_inv_gloves()
 		update_inv_shoes()
 		update_inv_wear_mask()
@@ -281,7 +281,7 @@ There are several things that need to be remembered:
 /mob/proc/regenerate_clothes()
 	return
 /mob/living/carbon/human/regenerate_clothes()
-	update_inv_wear_id()
+	update_inv_ring()
 	update_inv_gloves()
 	update_inv_shoes()
 	update_inv_wear_mask()
@@ -327,7 +327,7 @@ There are several things that need to be remembered:
 	update_body()
 	apply_overlay(NECK_LAYER)
 
-/mob/living/carbon/human/update_inv_wear_id()
+/mob/living/carbon/human/update_inv_ring()
 	remove_overlay(RING_LAYER)
 	var/list/offsets = dna?.species?.offset_features
 	if(age == AGE_CHILD)
@@ -344,16 +344,16 @@ There are several things that need to be remembered:
 			client.screen += wear_ring
 		update_observer_view(wear_ring)
 		var/use_female_sprites = dna?.species.sexes ? (gender == FEMALE && !dna.species.use_m) || dna.species.use_f : FALSE
-		var/mutable_appearance/id_overlay = wear_ring.build_worn_icon(age = age, default_layer = RING_LAYER, default_icon_file = 'icons/roguetown/clothing/onmob/rings.dmi', coom = use_female_sprites)
+		var/mutable_appearance/ring_overlay = wear_ring.build_worn_icon(age = age, default_layer = RING_LAYER, default_icon_file = 'icons/roguetown/clothing/onmob/rings.dmi', coom = use_female_sprites)
 		if(!dna?.species.sexes || gender == MALE)
 			if(OFFSET_ID in offsets)
-				id_overlay.pixel_x += offsets[OFFSET_ID][1]
-				id_overlay.pixel_y += offsets[OFFSET_ID][2]
+				ring_overlay.pixel_x += offsets[OFFSET_ID][1]
+				ring_overlay.pixel_y += offsets[OFFSET_ID][2]
 		else
 			if(OFFSET_ID_F in offsets)
-				id_overlay.pixel_x += offsets[OFFSET_ID_F][1]
-				id_overlay.pixel_y += offsets[OFFSET_ID_F][2]
-		overlays_standing[RING_LAYER] = id_overlay
+				ring_overlay.pixel_x += offsets[OFFSET_ID_F][1]
+				ring_overlay.pixel_y += offsets[OFFSET_ID_F][2]
+		overlays_standing[RING_LAYER] = ring_overlay
 
 	apply_overlay(RING_LAYER)
 
