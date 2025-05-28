@@ -100,7 +100,6 @@
 			var/datum/species/S = H.dna.species
 
 			if (istype(S))
-				//H.cut_overlays()
 				H.update_body_parts_head_only()
 				density = FALSE
 				switch(H.dna.species.name)

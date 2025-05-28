@@ -49,15 +49,9 @@
 	sharedSoullinks = null
 	return ..()
 
-
-/mob/living/update_overlays()
+/mob/living/update_appearance(updates)
 	. = ..()
 	update_reflection()
-
-/mob/living/update_icon()
-	. = ..()
-	update_reflection()
-
 
 /mob/living/proc/create_reflection()
 	//Add custom reflection image

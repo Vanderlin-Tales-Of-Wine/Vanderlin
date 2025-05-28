@@ -68,16 +68,6 @@
 	AddComponent(/datum/component/ai_aggro_system)
 	gender = MALE
 
-
-/mob/living/simple_animal/hostile/retaliate/bogbug/death(gibbed)
-	..()
-	update_appearance()
-
-
-/mob/living/simple_animal/hostile/retaliate/bogbug/update_icon()
-	cut_overlays()
-	..()
-
 /mob/living/simple_animal/hostile/retaliate/bogbug/get_sound(input)
 	switch(input)
 		if("aggro")

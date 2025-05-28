@@ -5,8 +5,6 @@
 	icon_state = "treenew"
 	base_icon_state = "tree"
 	num_random_icons = 2
-	///The Log Type
-	var/tree_type
 	armor = list("blunt" = 0, "slash" = 0, "stab" = 0,  "piercing" = 0, "fire" = -100, "acid" = 50)
 	blade_dulling = DULLING_CUT
 	opacity = 1
@@ -18,15 +16,20 @@
 	obj_flags = CAN_BE_HIT | BLOCK_Z_IN_UP | BLOCK_Z_OUT_DOWN
 	max_integrity = 300
 	var/burnt = FALSE
+	var/underlay_base = "center-leaf"
+	var/num_underlay_icons = 2
 
 /obj/structure/flora/newtree/Initialize()
 	. = ..()
 	GenerateTree()
 
-/obj/structure/flora/newtree/proc/burn_tree()
-	name = "burnt tree"
-	icon_state = "burnt"
-	burnt = TRUE
+/obj/structure/flora/newtree/update_overlays()
+	. = ..()
+	if(!underlay_base)
+		return
+	var/mutable_appearance/mutable = mutable_appearance(icon, "[underlay_base][rand(1, num_underlay_icons)]", layer - 0.01)
+	mutable.dir = dir
+	. += mutable
 
 /obj/structure/flora/newtree/attack_right(mob/user)
 	if(user.mind && isliving(user))
@@ -91,12 +94,16 @@
 		burn_tree()
 
 /obj/structure/flora/newtree/deconstruct()
+	FellTree()
 	return ..()
+
+/obj/structure/flora/newtree/proc/burn_tree()
+	name = "burnt tree"
+	icon_state = "burnt"
+	burnt = TRUE
 
 //Used to be at initialize but i want to override it for burnt trees
 /obj/structure/flora/newtree/proc/GenerateTree()
-	if(isnull(tree_type))
-		tree_type = pick(list(1,2))
 	dir = pick(GLOB.cardinals)
 	SStreesetup.initialize_me |= src
 	build_trees()
@@ -104,13 +111,13 @@
 		var/turf/T = loc
 		T.ChangeTurf(/turf/open/floor/dirt)
 
-/obj/structure/flora/newtree/proc/FellTree(damage_type)
+/obj/structure/flora/newtree/proc/FellTree()
 	var/turf/NT = get_turf(src)
 	var/turf/UPNT = get_step_multiz(src, UP)
 	src.obj_flags = CAN_BE_HIT | BLOCK_Z_IN_UP //so the logs actually fall when pulled by zfall
 
 	for(var/obj/structure/flora/newtree/D in UPNT)//theoretically you'd be able to break trees through a floor but no one is building floors under a tree so this is probably fine
-		D.obj_destruction(damage_type)
+		D.deconstruct()
 	for(var/obj/item/grown/log/tree/I in UPNT)
 		UPNT.zFall(I)
 
@@ -122,19 +129,19 @@
 				for(var/obj/structure/flora/newbranch/bi in BI)//2 tile end branch
 					if(bi.dir == DI)
 						bi.obj_flags = CAN_BE_HIT
-						bi.obj_destruction(damage_type)
+						bi.deconstruct()
 					for(var/atom/bio in BI)
 						BI.zFall(bio)
 				for(var/obj/structure/flora/newleaf/bil in BI)//2 tile end leaf
-					bil.obj_destruction(damage_type)
+					bil.deconstruct()
 				BRANCH.obj_flags = CAN_BE_HIT
-				BRANCH.obj_destruction(damage_type)
+				BRANCH.deconstruct()
 			for(var/atom/BRA in B)//unload a sack of rocks on a branch and stand under it, it'll be funny bro
 				B.zFall(BRA)
 
 	for(var/turf/DIA in block(get_step(src, SOUTHWEST), get_step(src, NORTHEAST)))
 		for(var/obj/structure/flora/newleaf/LEAF in DIA)
-			LEAF.obj_destruction(damage_type)
+			LEAF.deconstruct()
 
 	if(!istype(NT, /turf/open/transparent/openspace) && !(locate(/obj/structure/table/wood/treestump) in NT))//if i don't add the stump check it spawns however many zlevels it goes up because of src recursion
 		new /obj/structure/table/wood/treestump(NT)
@@ -144,7 +151,8 @@
 	var/turf/target = get_step_multiz(src, UP)
 	if(istype(target, /turf/open/transparent/openspace))
 		var/obj/structure/flora/newtree/T = new(target)
-		T.tree_type = src.tree_type
+		T.icon_state = icon_state
+		T.update_appearance(UPDATE_OVERLAYS)
 
 /obj/structure/flora/newtree/proc/build_leafs()
 	for(var/D in GLOB.diagonals)
@@ -193,11 +201,15 @@
 ///Tree, but snow leaves
 /obj/structure/flora/newtree/snow
 	icon_state = "treesnow"
+	underlay_base = "center-leaf-cold"
+	num_underlay_icons = 1
 
 /obj/structure/flora/newtree/snow/build_trees()
 	var/turf/target = get_step_multiz(src, UP)
 	if(istype(target, /turf/open/transparent/openspace))
-		new /obj/structure/flora/newtree/snow(target)
+		var/obj/structure/flora/newtree/snow/T = new(target)
+		T.icon_state = icon_state
+		T.update_appearance(UPDATE_OVERLAYS)
 
 /obj/structure/flora/newtree/snow/build_leafs()
 	for(var/D in GLOB.diagonals)
@@ -241,7 +253,9 @@
 	desc = "A tree trunk scorched to ruin."
 	icon = 'icons/roguetown/misc/tree.dmi'
 	icon_state = "burnt"
+	num_random_icons = 0
 	burnt = TRUE
+	underlay_base = null
 
 /obj/structure/flora/newtree/scorched/build_trees()
 	var/turf/target = get_step_multiz(src, UP)
@@ -291,6 +305,7 @@
 	name = "branch"
 	desc = "A stable branch, should be safe to walk on."
 	icon = 'icons/roguetown/misc/tree.dmi'
+	icon_state = "branch-end1"
 	base_icon_state = "branch-end"
 	attacked_sound = 'sound/misc/woodhit.ogg'
 	obj_flags = CAN_BE_HIT | BLOCK_Z_OUT_DOWN
@@ -322,20 +337,26 @@
 
 /obj/structure/flora/newbranch/leafless/scorched
 	name = "burnt branch"
+	icon_state = "branchburnt-end1"
+	base_icon_state = "branchburnt-end"
 	desc = "Cracked and hardened from a terrible fire."
 	static_debris = null
 
 /obj/structure/flora/newbranch/connector
 	icon_state = "branch-extend"
+	num_underlay_icons = 2
 	num_random_icons = 0
 
 /obj/structure/flora/newbranch/connector/snow
 	underlay_base = "center-leaf-cold"
+	num_underlay_icons = 1
 
 /obj/structure/flora/newbranch/connector/scorched
 	name = "burnt branch"
 	desc = "Cracked and hardened from a terrible fire."
 	icon_state = "branchburnt-extend"
+	underlay_base = null
+	num_underlay_icons = 0
 
 /obj/structure/flora/newleaf
 	name = "leaves"

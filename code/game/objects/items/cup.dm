@@ -2,7 +2,7 @@
 	name = "metal cup"
 	desc = "An iron cup, it's rim gnawed upon and grimey."
 	icon = 'icons/roguetown/items/cooking.dmi'
-	icon_state = "iron"
+	icon_state = "cup_iron"
 	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
 	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
 	experimental_inhand = FALSE
@@ -22,7 +22,7 @@
 /obj/item/reagent_containers/glass/cup/wooden
 	name = "wooden cup"
 	desc = "A wooden cup that has seen it's fair share of use and barfights."
-	icon_state = "wooden"
+	icon_state = "cup_wooden"
 	resistance_flags = FLAMMABLE
 	grid_height = 32
 	drop_sound = 'sound/foley/dropsound/wooden_drop.ogg'
@@ -31,13 +31,13 @@
 /obj/item/reagent_containers/glass/cup/steel
 	name = "goblet"
 	desc = "A steel goblet that bears a few dents from previous scuffles."
-	icon_state = "steel"
+	icon_state = "cup_steel"
 	sellprice = 10
 
 /obj/item/reagent_containers/glass/cup/silver
 	name = "silver goblet"
 	desc = "A silver goblet, its surface adorned with intricate carvings and runes."
-	icon_state = "silver"
+	icon_state = "cup_silver"
 	dropshrink = 0.65
 	sellprice = 30
 	last_used = 0
@@ -46,14 +46,14 @@
 /obj/item/reagent_containers/glass/cup/golden
 	name = "golden goblet"
 	desc = "A golden gilded goblet which gleams pathetically despite it's illustrious metal."
-	icon_state = "golden"
+	icon_state = "cup_golden"
 	dropshrink = 0.65
 	sellprice = 50
 
 /obj/item/reagent_containers/glass/cup/skull
 	name = "skull goblet"
 	desc = "The hollow eye sockets tell you of forgotten, dark rituals."
-	icon_state = "skull"
+	icon_state = "cup_skull"
 	dropshrink = 0.8
 
 /obj/item/reagent_containers/glass/cup/clay

@@ -1,4 +1,3 @@
-//Not to be confused with /obj/item/reagent_containers/food/drinks/bottle
 GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 
 /obj/item/reagent_containers/glass/bottle
@@ -26,6 +25,10 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 	var/can_label_bottle = TRUE	// Determines if the bottle can be labeled with paper
 	var/fancy		// for bottles with custom descriptors that you don't want to change when bottle manipulated
 
+/obj/item/reagent_containers/glass/bottle/Initialize()
+	. = ..()
+	icon_state = "clear_bottle[rand(1,4)]"
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/item/reagent_containers/glass/bottle/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/paper/scroll))
@@ -52,14 +55,14 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 /obj/item/reagent_containers/glass/bottle/update_overlays()
 	. = ..()
 	if(closed)
-		. += mutable_appearance(icon, "[icon_state]_cork")
+		. += "[icon_state]cork"
 
 /obj/item/reagent_containers/glass/bottle/rmb_self(mob/user)
 	. = ..()
 	closed = !closed
 	user.changeNext_move(CLICK_CD_RAPID)
 	if(closed)
-		reagent_flags = TRANSPARENT
+		reagent_flags & ~TRANSFERABLE
 		reagents.flags = reagent_flags
 		to_chat(user, span_notice("You carefully press the cork back into the mouth of [src]."))
 		spillable = FALSE
@@ -67,7 +70,7 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 		if(!fancy)
 			desc = "A bottle with a cork."
 	else
-		reagent_flags = OPENCONTAINER
+		reagent_flags |= TRANSFERABLE
 		reagents.flags = reagent_flags
 		playsound(user.loc,'sound/items/uncork.ogg', 100, TRUE)
 		to_chat(user, span_notice("You thumb off the cork from [src]."))
@@ -75,11 +78,6 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 		GLOB.weather_act_upon_list |= src
 		if(!fancy)
 			desc = "An open bottle, hopefully a cork is close by."
-	update_appearance(UPDATE_OVERLAYS)
-
-/obj/item/reagent_containers/glass/bottle/Initialize()
-	. = ..()
-	icon_state = "clear_bottle[rand(1,4)]"
 	update_appearance(UPDATE_OVERLAYS)
 
 /obj/item/reagent_containers/glass/bottle/toxin
@@ -190,13 +188,13 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 	closed = !closed
 	user.changeNext_move(CLICK_CD_RAPID)
 	if(closed)
-		reagent_flags = TRANSPARENT
+		reagent_flags & ~TRANSFERABLE
 		reagents.flags = reagent_flags
 		desc = "A vial with a cork."
 		to_chat(user, span_notice("You carefully press the cork back into the mouth of [src]."))
 		spillable = FALSE
 	else
-		reagent_flags = OPENCONTAINER
+		reagent_flags |= TRANSFERABLE
 		reagents.flags = reagent_flags
 		to_chat(user, span_notice("You thumb off the cork from [src]."))
 		playsound(user.loc,'sound/items/uncork.ogg', 100, TRUE)

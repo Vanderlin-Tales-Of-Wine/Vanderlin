@@ -64,7 +64,6 @@
 
 /obj/machinery/light/fueled/oven/update_overlays()
 	. = ..()
-	underlays.Cut()
 	for(var/obj/item/I as anything in contents)
 		I.pixel_x = 0
 		I.pixel_y = 0
@@ -72,8 +71,8 @@
 		M.color = I.color
 		M.transform *= 0.5
 		M.pixel_y = rand(-2,4) // WHY WOULD YOU WANT TO HIDE THE ENTIRE SPRITE?? Fixed now
-		M.layer = 4.24
-		underlays += M
+		M.layer = src.layer - 0.01
+		. += M
 	var/mutable_appearance/M = mutable_appearance(icon, "oven_under")
-	M.layer = 4.23
-	underlays += M
+	M.layer = src.layer - 0.02
+	. += M

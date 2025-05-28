@@ -24,7 +24,7 @@
 
 /obj/item/bin/Initialize()
 	if(!base_state)
-		create_reagents(600, DRAINABLE | AMOUNT_VISIBLE | REFILLABLE | OPENCONTAINER)
+		create_reagents(600, TRANSFERABLE | AMOUNT_VISIBLE)
 		base_state = icon_state
 	AddComponent(/datum/component/storage/concrete/grid/bin)
 	. = ..()

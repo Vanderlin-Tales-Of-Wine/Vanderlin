@@ -10,7 +10,7 @@
 	sellprice = 50
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_NECK
 	obj_flags = CAN_BE_HIT
-	reagent_flags = OPENCONTAINER
+	reagent_flags = TRANSFERABLE | AMOUNT_VISIBLE
 	w_class =  WEIGHT_CLASS_NORMAL
 	drinksounds = list('sound/items/drink_bottle (1).ogg','sound/items/drink_bottle (2).ogg')
 	fillsounds = list('sound/items/fillcup.ogg')

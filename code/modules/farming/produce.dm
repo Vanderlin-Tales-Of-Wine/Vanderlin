@@ -13,21 +13,22 @@
 
 /obj/item/reagent_containers/food/snacks/produce/proc/set_quality(quality)
 	crop_quality = quality
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/item/reagent_containers/food/snacks/produce/update_overlays()
 	. = ..()
 	// Add quality overlay to the food item
-	if(crop_quality > 1)
-		var/list/quality_icons = list(
-			null, // Regular has no overlay
-			"bronze",
-			"silver",
-			"gold",
-			"diamond",
-		)
-		if(crop_quality <= length(quality_icons) && quality_icons[crop_quality])
-			overlays += mutable_appearance('icons/effects/crop_quality.dmi', quality_icons[crop_quality])
+	if(crop_quality <= 0)
+		return
+	var/list/quality_icons = list(
+		null, // Regular has no overlay
+		"bronze",
+		"silver",
+		"gold",
+		"diamond",
+	)
+	if(crop_quality <= length(quality_icons) && quality_icons[crop_quality])
+		. += mutable_appearance('icons/effects/crop_quality.dmi', quality_icons[crop_quality])
 
 /obj/item/reagent_containers/food/snacks/produce/fruit
 	name = "fruit"

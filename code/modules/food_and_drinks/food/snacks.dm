@@ -580,12 +580,6 @@ All foods are distributed among various categories. Use common sense.
 	reagents.trans_to(slice,reagents_per_slice)
 	slice.filling_color = filling_color
 	slice.update_snack_overlays(src)
-//	if(name != initial(name))
-//		slice.name = "slice of [name]"
-//	if(desc != initial(desc))
-//		slice.desc = ""
-//	if(foodtype != initial(foodtype))
-//		slice.foodtype = foodtype //if something happens that overrode our food type, make sure the slice carries that over
 
 /obj/item/reagent_containers/food/snacks/proc/generate_trash(atom/location)
 	if(trash)
@@ -756,6 +750,3 @@ All foods are distributed among various categories. Use common sense.
 			name = "nice [name]"
 	filling_color = filling_color
 	update_snack_overlays(src)
-
-
-

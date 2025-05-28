@@ -15,25 +15,28 @@
 	fueluse = 20 MINUTES
 	crossfire = FALSE
 
-/obj/machinery/light/fueled/cauldron/update_icon()
-	..()
-	cut_overlays()
-	if(reagents.total_volume > 0)
-		if(!brewing)
-			var/mutable_appearance/filling = mutable_appearance('icons/roguetown/misc/alchemy.dmi', "cauldron_full")
-			filling.color = mix_color_from_reagents(reagents.reagent_list)
-			filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
-			add_overlay(filling)
-		if(brewing > 0)
-			var/mutable_appearance/filling = mutable_appearance('icons/roguetown/misc/alchemy.dmi', "cauldron_boiling")
-			filling.color = mix_color_from_reagents(reagents.reagent_list)
-			filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
-			add_overlay(filling)
-	return
+/obj/machinery/light/fueled/cauldron/update_overlays()
+	. = ..()
+	if(!reagents?.total_volume)
+		return
+	var/mutable_appearance/filling
+	if(!brewing)
+		filling = mutable_appearance('icons/roguetown/misc/alchemy.dmi', "cauldron_full")
+	if(brewing > 0)
+		filling = mutable_appearance('icons/roguetown/misc/alchemy.dmi', "cauldron_boiling")
+	if(!filling)
+		return
+	filling.color = mix_color_from_reagents(reagents.reagent_list)
+	filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
+	. += filling
+	var/datum/reagent/master = reagents.get_master_reagent()
+	if(master?.glows)
+		filling.plane = EMISSIVE_PLANE
+		. += filling
 
 /obj/machinery/light/fueled/cauldron/Initialize()
-	create_reagents(500, DRAINABLE | AMOUNT_VISIBLE | REFILLABLE)
 	. = ..()
+	create_reagents(500, DRAINABLE | AMOUNT_VISIBLE | REFILLABLE)
 
 /obj/machinery/light/fueled/cauldron/Destroy()
 	chem_splash(loc, 2, list(reagents))
@@ -47,7 +50,7 @@
 
 /obj/machinery/light/fueled/cauldron/process()
 	..()
-	update_appearance()
+	update_appearance(UPDATE_OVERLAYS)
 	if(on)
 		if(ingredients.len)
 			if(brewing < 20)
@@ -76,7 +79,7 @@
 							outcomes[alching.minor_pot] += 1
 						else
 							outcomes[alching.minor_pot] = 1
-				sortTim(outcomes,cmp=/proc/cmp_numeric_dsc,associative = 1)
+				sortTim(outcomes,cmp=/proc/cmp_numeric_dsc, associative = 1)
 				if(outcomes[outcomes[1]] >= 5)
 					var/result_path = outcomes[1]
 					var/datum/alch_cauldron_recipe/found_recipe = new result_path
@@ -109,7 +112,7 @@
 					playsound(src,'sound/misc/smelter_fin.ogg', 30, FALSE)
 
 /obj/machinery/light/fueled/cauldron/attackby(obj/item/I, mob/user, params)
-	if(istype(I,/obj/item/alch))
+	if(istype(I, /obj/item/alch))
 		if(ingredients.len >= maxingredients)
 			to_chat(user, "<span class='warning'>Nothing else can fit.</span>")
 			return FALSE
@@ -124,15 +127,8 @@
 		brewing = 0
 		lastuser = user
 		playsound(src, "bubbles", 100, TRUE)
-		cut_overlays()
-		var/mutable_appearance/filling = mutable_appearance('icons/roguetown/misc/alchemy.dmi', "cauldron_boiling")
-		filling.color = mix_color_from_reagents(reagents.reagent_list)
-		filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
-		add_overlay(filling)
-		sleep(30)
-		update_appearance()
 		return TRUE
-	..()
+	return ..()
 
 /obj/machinery/light/fueled/cauldron/attack_hand(mob/user, params)
 	if(on)

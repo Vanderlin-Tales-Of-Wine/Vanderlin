@@ -127,17 +127,15 @@
 
 /mob/living/simple_animal/hostile/retaliate/spider/death(gibbed)
 	..()
-	update_appearance()
+	update_appearance(UPDATE_OVERLAYS)
 
-
-/mob/living/simple_animal/hostile/retaliate/spider/update_icon()
-	cut_overlays()
-	..()
+/mob/living/simple_animal/hostile/retaliate/spider/update_overlays()
+	. = ..()
 	if(stat != DEAD)
 		var/mutable_appearance/eye_lights = mutable_appearance(icon, "honeys-eyes")
 		eye_lights.plane = 19
 		eye_lights.layer = 19
-		add_overlay(eye_lights)
+		. += eye_lights
 
 /mob/living/simple_animal/hostile/retaliate/spider/get_sound(input)
 	switch(input)

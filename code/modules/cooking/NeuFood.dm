@@ -185,9 +185,10 @@
 	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
 	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
 	icon_state = "bowl"
+	fill_icon_thresholds = list(0, 30, 50, 100)
 	force = 5
 	throwforce = 5
-	reagent_flags = OPENCONTAINER
+	reagent_flags = TRANSFERABLE | AMOUNT_VISIBLE
 	amount_per_transfer_from_this = 6
 	possible_transfer_amounts = list(6)
 	dropshrink = 0.8
@@ -197,7 +198,7 @@
 	sellprice = 1
 	drinksounds = list('sound/items/drink_cup (1).ogg','sound/items/drink_cup (2).ogg','sound/items/drink_cup (3).ogg','sound/items/drink_cup (4).ogg','sound/items/drink_cup (5).ogg')
 	fillsounds = list('sound/items/fillcup.ogg')
-	metalizer_result = /obj/item/coin/copper
+	metalizer_result = /obj/item/reagent_containers/glass/bowl/iron
 
 /obj/item/reagent_containers/glass/bowl/iron
 	icon_state = "bowl_iron"

@@ -324,7 +324,7 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 /obj/structure/activator/update_overlays()
 	. = ..()
 	if(!containment)
-		. += mutable_appearance(icon, "activator-e")
+		. += "activator-e"
 
 /obj/structure/activator/attack_hand(mob/user)
 	. = ..()

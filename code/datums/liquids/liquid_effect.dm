@@ -60,6 +60,14 @@
 		icon_state = "puddle"
 	make_shiny(initial(shine))
 
+/obj/effect/abstract/liquid_turf/update_overlays()
+	. = ..()
+	var/number = liquid_state - 1
+	if(number != 0)
+		. += mutable_appearance('icons/effects/liquid_overlays.dmi', "stage[number]_bottom", plane = GAME_PLANE_UPPER, layer = ABOVE_MOB_LAYER)
+		. += mutable_appearance('icons/effects/liquid_overlays.dmi', "stage[number]_top", plane =GAME_PLANE, layer = BELOW_MOB_LAYER)
+	if(liquid_group?.glows)
+		. += mutable_appearance(icon, icon_state, plane = EMISSIVE_PLANE)
 
 /obj/effect/abstract/liquid_turf/make_shiny(_shine = SHINE_REFLECTIVE)
 	if(total_reflection_mask)
@@ -114,7 +122,7 @@
 			var/turf/turf = get_step(src, direction)
 			if(!turf.liquids)
 				continue
-			turf.liquids.update_appearance()
+			turf.liquids.update_appearance(UPDATE_ICON_STATE)
 
 /obj/effect/abstract/liquid_turf/Destroy(force)
 	UnregisterSignal(my_turf, list(COMSIG_ATOM_ENTERED, COMSIG_PARENT_EXAMINE))
@@ -179,26 +187,15 @@
 	var/number = new_state - 1
 	if(number != 0)
 		icon_state = null
-		update_appearance(UPDATE_ICON_STATE)
-
+		update_appearance(UPDATE_OVERLAYS)
 	else
 		icon_state = initial(icon_state)
-		update_appearance(UPDATE_ICON_STATE)
+		update_appearance(UPDATE_OVERLAYS)
 		for(var/direction in GLOB.cardinals)
 			var/turf/turf = get_step(src, direction)
 			if(!turf.liquids)
 				continue
-			turf.liquids.update_appearance()
-
-/obj/effect/abstract/liquid_turf/update_overlays()
-	. = ..()
-	cut_overlays()
-	var/number = liquid_state - 1
-	if(number != 0)
-		. += mutable_appearance('icons/effects/liquid_overlays.dmi', "stage[number]_bottom", plane = GAME_PLANE_UPPER, layer = ABOVE_MOB_LAYER)
-		. += mutable_appearance('icons/effects/liquid_overlays.dmi', "stage[number]_top", plane =GAME_PLANE, layer = BELOW_MOB_LAYER)
-	if(liquid_group?.glows)
-		. += mutable_appearance(icon, icon_state, plane = EMISSIVE_PLANE)
+			turf.liquids.update_appearance(UPDATE_OVERLAYS)
 
 /obj/effect/abstract/liquid_turf/proc/set_fire_effect()
 	if(displayed_content)
