@@ -109,9 +109,6 @@
 	if(looking_for == beltr)
 		return SLOT_BELT_R
 
-	if(looking_for == s_store)
-		return SLOT_S_STORE
-
 	return ..()
 
 /mob/living/carbon/human/proc/get_all_slots()
@@ -119,7 +116,6 @@
 
 /mob/living/carbon/human/proc/get_body_slots()
 	return list(
-		back,
 		handcuffed,
 		legcuffed,
 		wear_armor,
