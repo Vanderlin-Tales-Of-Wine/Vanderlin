@@ -38,7 +38,7 @@
 	closed = !closed
 	user.changeNext_move(CLICK_CD_RAPID)
 	if(closed)
-		reagent_flags & ~TRANSFERABLE
+		reagent_flags &= ~TRANSFERABLE
 		reagents.flags = reagent_flags
 		to_chat(user, span_notice("You carefully press the cork back into the mouth of [src]."))
 		spillable = FALSE
