@@ -298,10 +298,6 @@ There are several things that need to be remembered:
 /* --------------------------------------- */
 //vvvvvv UPDATE_INV PROCS vvvvvv
 
-/mob/living/carbon/human/update_inv_w_uniform()
-	return
-
-
 /mob/living/carbon/human/update_inv_neck()
 	remove_overlay(NECK_LAYER)
 	var/list/offsets = dna?.species?.offset_features

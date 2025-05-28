@@ -265,8 +265,6 @@
 			update_action_buttons_icon() //certain action buttons may be usable again.
 		wear_armor = null
 		if(!QDELETED(src)) //no need to update we're getting deleted anyway
-			if(I.flags_inv & HIDEJUMPSUIT)
-				update_inv_w_uniform()
 			update_inv_armor()
 	else if(I == wear_pants)
 		wear_pants = null

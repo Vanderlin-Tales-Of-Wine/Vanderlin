@@ -437,7 +437,6 @@
 		if(chest_clothes)
 			if(!(chest_clothes.resistance_flags & UNACIDABLE))
 				chest_clothes.acid_act(acidpwr, acid_volume)
-				update_inv_w_uniform()
 				update_inv_wear_suit()
 			else
 				to_chat(src, "<span class='notice'>My [chest_clothes.name] protects my body from the acid!</span>")
@@ -462,7 +461,6 @@
 			if(!(arm_clothes.resistance_flags & UNACIDABLE))
 				arm_clothes.acid_act(acidpwr, acid_volume)
 				update_inv_gloves()
-				update_inv_w_uniform()
 				update_inv_wear_suit()
 			else
 				to_chat(src, "<span class='notice'>My [arm_clothes.name] protects my arms and hands from the acid!</span>")
@@ -488,7 +486,6 @@
 			if(!(leg_clothes.resistance_flags & UNACIDABLE))
 				leg_clothes.acid_act(acidpwr, acid_volume)
 				update_inv_shoes()
-				update_inv_w_uniform()
 				update_inv_wear_suit()
 			else
 				to_chat(src, "<span class='notice'>My [leg_clothes.name] protects my legs and feet from the acid!</span>")

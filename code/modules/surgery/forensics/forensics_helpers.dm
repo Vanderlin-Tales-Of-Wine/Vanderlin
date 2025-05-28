@@ -95,7 +95,6 @@
 		update_inv_wear_suit()
 	else if(wear_shirt)
 		wear_shirt.add_blood_DNA(blood_DNA_to_add)
-		update_inv_w_uniform()
 	if(gloves)
 		var/obj/item/clothing/gloves/mob_gloves = gloves
 		mob_gloves.add_blood_DNA(blood_DNA_to_add)
