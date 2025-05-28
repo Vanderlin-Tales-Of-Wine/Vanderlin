@@ -1,6 +1,6 @@
 /mob/camera/ancestral_spirit
-	name = "Trapped Spirit"
-	real_name = "Trapped Spirit"
+	name = "Ancestral Spirit"
+	real_name = "Ancestral Spirit"
 	next_move_modifier = 0
 	uses_intents = FALSE
 	icon = 'icons/mob/cameramob.dmi'
@@ -48,7 +48,7 @@
 /mob/camera/ancestral_spirit/proc/relay_speech_to_spirit(datum/source, ...)
 	SIGNAL_HANDLER
 	var/list/arguments = args.Copy()
-	arguments.Cut(1,2)
+	arguments.Cut(1,1)
 	if(current_projection)
 		current_projection.Hear(arguments)
 		return
