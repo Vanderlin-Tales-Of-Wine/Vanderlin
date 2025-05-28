@@ -65,6 +65,9 @@
 	/// Sound we play when a key fails to unlock
 	var/rattle_sound = 'sound/foley/lockrattle.ogg'
 
+	/// Uses colours defined by the monarch roundstart see [lordcolor.dm]
+	var/uses_lord_coloring = FALSE
+
 	vis_flags = VIS_INHERIT_PLANE
 
 /obj/vv_edit_var(vname, vval)

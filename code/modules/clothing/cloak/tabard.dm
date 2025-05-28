@@ -78,21 +78,10 @@
 
 /obj/item/clothing/cloak/tabard/knight
 	color = CLOTHING_PLUM_PURPLE
+	uses_lord_coloring = LORD_PRIMARY
 
 /obj/item/clothing/cloak/tabard/knight/attack_right(mob/user)
 	return
-
-/obj/item/clothing/cloak/tabard/knight/Initialize()
-	. = ..()
-	if(GLOB.lordprimary)
-		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
-	else
-		GLOB.lordcolor += src
-	update_appearance(UPDATE_ICON)
-
-/obj/item/clothing/cloak/tabard/knight/Destroy()
-	GLOB.lordcolor -= src
-	return ..()
 
 /obj/item/clothing/cloak/tabard/crusader
 	detail_tag = "_psy"
@@ -169,6 +158,7 @@
 	color = CLOTHING_BLOOD_RED
 	detail_tag = "_spl"
 	detail_color = CLOTHING_PLUM_PURPLE
+	uses_lord_coloring = LORD_PRIMARY
 
 /obj/item/clothing/cloak/tabard/knight/guard/attack_right(mob/user)
 	if(picked)
@@ -200,35 +190,6 @@
 			L.update_inv_cloak()
 		return
 	picked = TRUE
-
-/obj/item/clothing/cloak/tabard/knight/guard/Initialize()
-	. = ..()
-	if(GLOB.lordprimary)
-		lordcolor(GLOB.lordprimary, GLOB.lordsecondary)
-	else
-		GLOB.lordcolor += src
-	update_appearance(UPDATE_ICON)
-
-/obj/item/clothing/cloak/tabard/knight/guard/update_overlays()
-	. = ..()
-	if(!get_detail_tag())
-		return
-	var/mutable_appearance/pic = mutable_appearance(icon, "[icon_state][detail_tag]")
-	pic.appearance_flags = RESET_COLOR
-	if(get_detail_color())
-		pic.color = get_detail_color()
-	. += pic
-
-/obj/item/clothing/cloak/tabard/knight/guard/lordcolor(primary,secondary)
-	color = primary
-	detail_color = secondary
-	if(ismob(loc))
-		var/mob/L = loc
-		L.update_inv_cloak()
-
-/obj/item/clothing/cloak/tabard/knight/guard/Destroy()
-	GLOB.lordcolor -= src
-	return ..()
 
 /obj/item/clothing/cloak/tabard/adept
 	detail_tag = "_psy"

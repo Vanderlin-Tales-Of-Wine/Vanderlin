@@ -3,18 +3,38 @@ GLOBAL_LIST_EMPTY(lordcolor)
 GLOBAL_VAR(lordprimary)
 GLOBAL_VAR(lordsecondary)
 
-/obj/proc/lordcolor(primary,secondary)
-	color = primary
+#define LORD_PRIMARY (1<<0)
+#define LORD_SECONDARY (1<<2)
+#define LORD_DETAIL_AND_COLOR (1<<3)
 
-/obj/item/clothing/cloak/lordcolor(primary,secondary)
-	..()
+/obj/proc/lordcolor(primary, secondary)
+	if(uses_lord_coloring & LORD_PRIMARY)
+		color = primary
+	if(uses_lord_coloring & LORD_SECONDARY)
+		color = secondary
+
+/obj/item/clothing/lordcolor(primary, secondary)
+	if(!get_detail_tag())
+		return ..()
+	if(uses_lord_coloring & LORD_PRIMARY)
+		detail_color = primary
+	if(uses_lord_coloring & LORD_SECONDARY)
+		detail_color = secondary
+	if(uses_lord_coloring & LORD_DETAIL_AND_COLOR)
+		if(uses_lord_coloring & LORD_PRIMARY)
+			color = secondary
+		if(uses_lord_coloring & LORD_SECONDARY)
+			color = primary
+	update_appearance(UPDATE_OVERLAYS)
 	if(ismob(loc))
 		var/mob/M = loc
-		M.update_inv_cloak()
+		M.update_clothing(slot_flags)
 
-
-/turf/proc/lordcolor(primary,secondary)
-	color = primary
+/turf/proc/lordcolor(primary, secondary)
+	if(uses_lord_coloring & LORD_PRIMARY)
+		color = primary
+	if(uses_lord_coloring & LORD_SECONDARY)
+		color = secondary
 
 /mob/proc/lord_color_choice()
 	if(!client)
@@ -33,24 +53,14 @@ GLOBAL_VAR(lordsecondary)
 		"ORANGE"="#b47011",
 		"MAJENTA"="#822b52",
 	)
-	var/prim
-	var/sec
 	var/choice = browser_input_list(src, "Choose a Primary Color", "VANDERLIN", lordcolors)
 	if(!choice)
-		GLOB.lordcolor = list()
+		choice = pick(lordcolors)
 		return
-	prim = lordcolors[choice]
+	GLOB.lordprimary = lordcolors[choice]
 	lordcolors -= choice
 	choice = browser_input_list(src, "Choose a Secondary Color", "VANDERLIN", lordcolors)
 	if(!choice)
-		GLOB.lordcolor = list()
+		choice = pick(lordcolors)
 		return
-	sec = lordcolors[choice]
-	GLOB.lordprimary = prim
-	GLOB.lordsecondary = sec
-	for(var/obj/O in GLOB.lordcolor)
-		O.lordcolor(prim,sec)
-		GLOB.lordcolor -= O
-	for(var/turf/T in GLOB.lordcolor)
-		T.lordcolor(prim,sec)
-		GLOB.lordcolor -= T
+	GLOB.lordsecondary = lordcolors[choice]

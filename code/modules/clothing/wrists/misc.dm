@@ -46,28 +46,4 @@
 	item_state = "royalsleeves"
 	detail_tag = "_detail"
 	detail_color = CLOTHING_SOOT_BLACK
-
-/obj/item/clothing/wrists/royalsleeves/update_overlays()
-	. = ..()
-	if(!get_detail_tag())
-		return
-	var/mutable_appearance/pic = mutable_appearance(icon, "[icon_state][detail_tag]")
-	pic.appearance_flags = RESET_COLOR
-	if(get_detail_color())
-		pic.color = get_detail_color()
-	. += pic
-
-/obj/item/clothing/wrists/royalsleeves/lordcolor(primary, secondary)
-	detail_color = primary
-
-/obj/item/clothing/wrists/royalsleeves/Initialize()
-	. = ..()
-	if(GLOB.lordprimary)
-		lordcolor(GLOB.lordprimary, GLOB.lordsecondary)
-	else
-		GLOB.lordcolor += src
-	update_appearance(UPDATE_OVERLAYS)
-
-/obj/item/clothing/wrists/royalsleeves/Destroy()
-	GLOB.lordcolor -= src
-	return ..()
+	uses_lord_coloring = LORD_PRIMARY

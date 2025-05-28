@@ -253,6 +253,35 @@ There are several things that need to be remembered:
 
 
 /* --------------------------------------- */
+
+/mob/living/carbon/human/update_clothing(slot_flags)
+	if(slot_flags & ITEM_SLOT_BACK)
+		update_inv_back()
+	if(slot_flags & ITEM_SLOT_MASK)
+		update_inv_wear_mask()
+	if(slot_flags & ITEM_SLOT_NECK)
+		update_inv_neck()
+	if(slot_flags & ITEM_SLOT_BELT)
+		update_inv_belt()
+	if(slot_flags & ITEM_SLOT_WRISTS)
+		update_inv_wrists()
+	if(slot_flags & ITEM_SLOT_MASK)
+		update_inv_wear_mask()
+	if(slot_flags & ITEM_SLOT_MOUTH)
+		update_inv_mouth()
+	if(slot_flags & ITEM_SLOT_GLOVES)
+		update_inv_gloves()
+	if(slot_flags & ITEM_SLOT_HEAD)
+		update_inv_head()
+	if(slot_flags & ITEM_SLOT_SHOES)
+		update_inv_shoes()
+	if(slot_flags & ITEM_SLOT_PANTS)
+		update_inv_pants()
+	if(slot_flags & ITEM_SLOT_SHIRT)
+		update_inv_shirt()
+	if(slot_flags & ITEM_SLOT_ARMOR)
+		update_inv_armor()
+
 //For legacy support.
 /mob/living/carbon/human/regenerate_icons()
 	if(!..())

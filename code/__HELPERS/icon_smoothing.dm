@@ -59,6 +59,10 @@ DEFINE_BITFIELD(smoothing_junction, list(
 	else
 		CRASH("[type] called smooth_icon() without valid flags: [smoothing_flags]")
 
+/atom/movable/smooth_icon()
+	. = ..()
+	update_appearance(~UPDATE_SMOOTHING)
+
 /// Basic smoothing proc. The atom checks for adjacent directions to smooth with and changes the icon_state based on that.
 /atom/proc/smooth()
 	if(!smoothing_icon)

@@ -97,16 +97,7 @@
 //................ Other Vests ............... //
 /obj/item/clothing/armor/leather/vest/butler
 	color = CLOTHING_BLOOD_RED
-
-/obj/item/clothing/armor/leather/vest/butler/Initialize()
-	..()
-	if(GLOB.lordprimary)
-		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
-	else
-		GLOB.lordcolor += src
-/obj/item/clothing/armor/leather/vest/butler/Destroy()
-	GLOB.lordcolor -= src
-	return ..()
+	uses_lord_coloring = LORD_PRIMARY
 
 /obj/item/clothing/armor/leather/vest/black
 	color = CLOTHING_DARK_INK
@@ -124,31 +115,7 @@
 	detail_tag = "_detail"
 	color = CLOTHING_WHITE
 	detail_color = CLOTHING_SOOT_BLACK
-
-/obj/item/clothing/armor/leather/vest/winterjacket/update_overlays()
-	. = ..()
-	if(!get_detail_tag())
-		return
-	var/mutable_appearance/pic = mutable_appearance(icon, "[icon_state][detail_tag]")
-	pic.appearance_flags = RESET_COLOR
-	if(get_detail_color())
-		pic.color = get_detail_color()
-	. += pic
-
-/obj/item/clothing/armor/leather/vest/winterjacket/lordcolor(primary,secondary)
-	detail_color = primary
-
-/obj/item/clothing/armor/leather/vest/winterjacket/Initialize()
-	. = ..()
-	if(GLOB.lordprimary)
-		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
-	else
-		GLOB.lordcolor += src
-	update_appearance(UPDATE_ICON)
-
-/obj/item/clothing/armor/leather/vest/winterjacket/Destroy()
-	GLOB.lordcolor -= src
-	return ..()
+	uses_lord_coloring = LORD_PRIMARY
 
 //................ Jacket ............... //	- Has a small storage space
 /obj/item/clothing/armor/leather/jacket
@@ -229,31 +196,7 @@
 	detail_tag = "_detail"
 	detail_color = CLOTHING_BERRY_BLUE
 	body_parts_covered = COVERAGE_SHIRT
-
-/obj/item/clothing/armor/leather/jacket/handjacket/update_overlays()
-	. = ..()
-	if(!get_detail_tag())
-		return
-	var/mutable_appearance/pic = mutable_appearance(icon, "[icon_state][detail_tag]")
-	pic.appearance_flags = RESET_COLOR
-	if(get_detail_color())
-		pic.color = get_detail_color()
-	. += pic
-
-/obj/item/clothing/armor/leather/jacket/handjacket/lordcolor(primary,secondary)
-	detail_color = primary
-
-/obj/item/clothing/armor/leather/jacket/handjacket/Initialize()
-	. = ..()
-	if(GLOB.lordprimary)
-		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
-	else
-		GLOB.lordcolor += src
-	update_appearance(UPDATE_ICON)
-
-/obj/item/clothing/armor/leather/jacket/handjacket/Destroy()
-	GLOB.lordcolor -= src
-	return ..()
+	uses_lord_coloring = LORD_PRIMARY
 
 /obj/item/clothing/armor/leather/jacket/leathercoat
 	name = "leather coat"

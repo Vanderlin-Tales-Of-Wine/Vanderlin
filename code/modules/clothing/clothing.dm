@@ -92,8 +92,24 @@
 													'sound/foley/footsteps/armor/plate (2).ogg',\
 													'sound/foley/footsteps/armor/plate (3).ogg'), 100)
 
+	if(uses_lord_coloring)
+		if(GLOB.lordprimary && GLOB.lordsecondary)
+			lordcolor(GLOB.lordprimary, GLOB.lordsecondary)
+		else
+			addtimer(CALLBACK(src, TYPE_PROC_REF(/obj/item/clothing, lordcolor), GLOB.lordprimary, GLOB.lordsecondary), 15 SECONDS)
+
 	if(hoodtype)
 		MakeHood()
+
+/obj/item/clothing/ComponentInitialize()
+	. = ..()
+	AddElement(/datum/element/update_icon_updates_onmob)
+
+/obj/item/clothing/Destroy()
+	user_vars_remembered = null //Oh god somebody put REFERENCES in here? not to worry, we'll clean it up
+	if(hoodtype)
+		QDEL_NULL(hood)
+	return ..()
 
 /obj/item/clothing/Topic(href, href_list)
 	. = ..()
@@ -250,13 +266,6 @@
 		var/atom/movable/screen/inventory/hand/H = over_object
 		if(M.putItemFromInventoryInHandIfPossible(src, H.held_index))
 			add_fingerprint(usr)
-
-/obj/item/clothing/Destroy()
-	user_vars_remembered = null //Oh god somebody put REFERENCES in here? not to worry, we'll clean it up
-	if(hoodtype)
-		qdel(hood)
-		hood = null
-	return ..()
 
 /obj/item/clothing/proc/can_use(mob/user)
 	if(user && ismob(user))

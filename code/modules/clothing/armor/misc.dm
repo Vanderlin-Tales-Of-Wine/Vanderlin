@@ -78,31 +78,7 @@
 	prevent_crits = ALL_EXCEPT_BLUNT
 	do_sound_plate = TRUE
 	item_weight = 7 * STEEL_MULTIPLIER
-
-/obj/item/clothing/armor/captain/update_overlays()
-	. = ..()
-	if(!get_detail_tag())
-		return
-	var/mutable_appearance/pic = mutable_appearance(icon, "[icon_state][detail_tag]")
-	pic.appearance_flags = RESET_COLOR
-	if(get_detail_color())
-		pic.color = get_detail_color()
-	. += pic
-
-/obj/item/clothing/armor/captain/lordcolor(primary,secondary)
-	detail_color = primary
-
-/obj/item/clothing/armor/captain/Initialize()
-	. = ..()
-	if(GLOB.lordprimary)
-		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
-	else
-		GLOB.lordcolor += src
-	update_appearance(UPDATE_ICON)
-
-/obj/item/clothing/armor/captain/Destroy()
-	GLOB.lordcolor -= src
-	return ..()
+	uses_lord_coloring = LORD_PRIMARY
 
 //................ Coat of Plate ............... //
 /obj/item/clothing/armor/brigandine/coatplates
