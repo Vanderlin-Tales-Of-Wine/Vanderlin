@@ -4,7 +4,7 @@
 	looking to enjoy the hospitality of the ruler. You have many mammons to your name, but with wealth comes \
 	danger, so keep your wits and tread lightly..."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = RACES_PLAYER_NONDISCRIMINATED
+	allowed_races = RACES_PLAYER_FOREIGNNOBLE
 	outfit = /datum/outfit/job/adventurer/noble
 	category_tags = list(CTAG_PILGRIM)
 	maximum_possible_slots = 2
