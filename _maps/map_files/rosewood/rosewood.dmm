@@ -20757,6 +20757,14 @@
 	},
 /turf/open/floor/carpet,
 /area/rogue/indoors/town/tavern)
+"lEU" = (
+/obj/structure/closet/crate/chest/crafted,
+/obj/item/reagent_containers/food/snacks/produce/fruit/apple,
+/obj/item/reagent_containers/food/snacks/produce/fruit/apple,
+/obj/item/reagent_containers/food/snacks/produce/fruit/apple,
+/obj/item/reagent_containers/food/snacks/produce/fruit/apple,
+/turf/open/floor/cobble,
+/area/rogue/under/town/basement)
 "lFd" = (
 /obj/structure/fluff/railing/border{
 	dir = 4
@@ -23749,6 +23757,10 @@
 "njP" = (
 /obj/structure/fluff/railing/wood{
 	dir = 1
+	},
+/mob/living/simple_animal/hostile/retaliate/trufflepig/male{
+	name = "Jousting Pig";
+	desc = "A large hairy pig designed for jousting in the pits"
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/under/town/basement)
@@ -30772,6 +30784,16 @@
 /obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/carpet,
 /area/rogue/indoors/town/tavern)
+"qZC" = (
+/obj/structure/fluff/railing/wood{
+	dir = 4
+	},
+/mob/living/simple_animal/hostile/retaliate/trufflepig/male{
+	name = "Jousting Pig";
+	desc = "A large hairy pig designed for jousting in the pits"
+	},
+/turf/open/floor/dirt/road,
+/area/rogue/under/town/basement)
 "qZQ" = (
 /obj/structure/hotspring/border/three,
 /turf/open/floor/cobblerock/alt,
@@ -59749,7 +59771,7 @@ pTt
 jyq
 bMF
 ylG
-oHg
+qZC
 vZk
 ylG
 oHg
@@ -60963,7 +60985,7 @@ uqd
 pTt
 izV
 bWm
-jyq
+lEU
 sjl
 pTt
 uqd
