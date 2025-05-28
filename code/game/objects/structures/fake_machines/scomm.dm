@@ -50,6 +50,7 @@
 	if(.)
 		return
 	user.changeNext_move(CLICK_CD_MELEE)
+	toggle_mute(user)
 
 /obj/structure/fake_machine/scomm/proc/toggle_mute(mob/living/user)
 	if(listening)
