@@ -2889,6 +2889,13 @@
 "bIw" = (
 /turf/open/floor/metal/alt,
 /area/rogue/indoors/town/clocktower)
+"bIE" = (
+/obj/structure/bars/pipe{
+	dir = 10
+	},
+/obj/structure/water_pipe,
+/turf/open/transparent/openspace,
+/area/rogue/indoors/town/clocktower)
 "bIS" = (
 /obj/structure/table/wood/reinforced_alter,
 /obj/item/storage/crucible/random{
@@ -4815,6 +4822,11 @@
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield/safe)
+"cVo" = (
+/obj/machinery/light/fueled/wallfire/candle/blue,
+/obj/structure/water_pipe,
+/turf/open/transparent/openspace,
+/area/rogue/indoors/town/clocktower)
 "cVZ" = (
 /turf/open/floor/rooftop{
 	dir = 4
@@ -7511,6 +7523,13 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/tile/bfloorz,
 /area/rogue/indoors/town/garrison)
+"eGT" = (
+/obj/structure/bars/pipe{
+	dir = 8
+	},
+/obj/structure/water_pipe,
+/turf/open/transparent/openspace,
+/area/rogue/indoors/town/clocktower)
 "eGU" = (
 /obj/structure/bed/wool,
 /obj/item/bedsheet/wool,
@@ -10189,7 +10208,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement)
 "gvC" = (
-/turf/closed/wall/mineral/decostone/moss,
+/turf/closed/wall/mineral/decorstone/moss,
 /area/rogue/indoors/town/manor)
 "gvX" = (
 /obj/structure/fluff/railing/border{
@@ -11819,6 +11838,10 @@
 	},
 /turf/open/floor/tile/bfloorz,
 /area/rogue/indoors/town/manor)
+"hAn" = (
+/obj/structure/water_pipe,
+/turf/open/transparent/openspace,
+/area/rogue/indoors/town/clocktower)
 "hAu" = (
 /obj/structure/flora/grass/herb/taraxacum,
 /turf/open/floor/dirt/road,
@@ -11970,6 +11993,12 @@
 	},
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/church)
+"hGd" = (
+/obj/effect/mapping_helpers/secret_door_creator/keep{
+	redstone_id = "MaintenancePassage"
+	},
+/turf/closed/wall/mineral/stonebrick,
+/area/rogue/indoors/town/manor)
 "hGe" = (
 /obj/structure/stairs/stone{
 	dir = 4
@@ -12145,6 +12174,21 @@
 /obj/item/candle/skull,
 /obj/item/candle/yellow,
 /obj/item/candle/yellow,
+/obj/item/plate/pewter,
+/obj/item/plate/pewter,
+/obj/item/plate/pewter,
+/obj/item/plate/pewter,
+/obj/item/plate/pewter,
+/obj/item/kitchen/spoon/pewter,
+/obj/item/kitchen/spoon/pewter,
+/obj/item/kitchen/spoon/pewter,
+/obj/item/kitchen/spoon/pewter,
+/obj/item/kitchen/spoon/pewter,
+/obj/item/kitchen/fork/pewter,
+/obj/item/kitchen/fork/pewter,
+/obj/item/kitchen/fork/pewter,
+/obj/item/kitchen/fork/pewter,
+/obj/item/kitchen/fork/pewter,
 /turf/open/floor/tile,
 /area/rogue/under/town/basement)
 "hKt" = (
@@ -17605,6 +17649,11 @@
 /obj/structure/chair/bench,
 /turf/open/floor/cobble,
 /area/rogue/outdoors/town)
+"liK" = (
+/obj/structure/bars/pipe,
+/obj/structure/water_pipe,
+/turf/open/transparent/openspace,
+/area/rogue/indoors/town/clocktower)
 "liN" = (
 /obj/item/ore/coal,
 /turf/open/floor/cobblerock,
@@ -19313,6 +19362,7 @@
 	dir = 1;
 	icon_state = "longtable"
 	},
+/obj/item/plate/gold,
 /turf/open/floor/tile/bfloorz,
 /area/rogue/indoors/town/manor)
 "mvF" = (
@@ -20525,6 +20575,12 @@
 	pixel_y = 7
 	},
 /turf/open/floor/churchmarble,
+/area/rogue/indoors/town/manor)
+"ngy" = (
+/obj/effect/mapping_helpers/secret_door_creator/keep{
+	redstone_id = "KeepKitchenPassage"
+	},
+/turf/closed/wall/mineral/decorstone,
 /area/rogue/indoors/town/manor)
 "ngC" = (
 /obj/item/bin/water,
@@ -24715,6 +24771,7 @@
 	layer = 2.81;
 	pixel_x = -9
 	},
+/obj/structure/water_pipe,
 /turf/open/transparent/openspace,
 /area/rogue/indoors/town/clocktower)
 "pYm" = (
@@ -30017,7 +30074,7 @@
 /area/rogue/indoors/town/clinic_large)
 "tvs" = (
 /obj/structure/fluff/walldeco/vinez,
-/turf/closed/wall/mineral/decostone/moss,
+/turf/closed/wall/mineral/decorstone/moss,
 /area/rogue/indoors/town/manor)
 "tvC" = (
 /obj/structure/door{
@@ -33225,6 +33282,14 @@
 /obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/smithy)
+"vAY" = (
+/obj/structure/bars/pipe{
+	dir = 1;
+	pixel_y = -8
+	},
+/obj/structure/water_pipe,
+/turf/open/transparent/openspace,
+/area/rogue/indoors/town/clocktower)
 "vBm" = (
 /obj/structure/closet/crate/chest/crafted,
 /obj/item/reagent_containers/powder/spice,
@@ -33925,6 +33990,12 @@
 	},
 /turf/open/floor/ruinedwood/turned,
 /area/rogue/outdoors/town)
+"wck" = (
+/obj/structure/lever/hidden/keep{
+	redstone_id = "KeepKitchenPassage"
+	},
+/turf/closed/wall/mineral/decorstone,
+/area/rogue/indoors/town/manor)
 "wcz" = (
 /turf/closed/wall/mineral/pipe,
 /area/rogue/indoors/town)
@@ -36851,6 +36922,12 @@
 /obj/effect/landmark/start/hunter,
 /turf/open/floor/wood,
 /area/rogue/indoors/town)
+"xZO" = (
+/obj/structure/lever/hidden/keep{
+	redstone_id = "MaintenancePassage"
+	},
+/turf/closed/wall/mineral/stonebrick,
+/area/rogue/indoors/town/manor)
 "xZV" = (
 /obj/structure/door/viewport{
 	name = "Priest's Room";
@@ -95825,7 +95902,7 @@ vgJ
 vgJ
 rDr
 bET
-gOl
+wck
 diH
 oDt
 jZn
@@ -96027,7 +96104,7 @@ vgJ
 vgJ
 rDr
 bET
-gOl
+ngy
 oDt
 oDt
 jZn
@@ -98500,9 +98577,9 @@ tnD
 mlm
 cCZ
 cCZ
-mwJ
-mwJ
-vFV
+hAn
+hAn
+vAY
 mwJ
 mwJ
 mwJ
@@ -98906,9 +98983,9 @@ cCZ
 mwJ
 mwJ
 mwJ
-vFV
-mwJ
-mwJ
+vAY
+hAn
+hAn
 cCZ
 cCZ
 mlm
@@ -106954,8 +107031,8 @@ bKn
 hGQ
 hGQ
 wDN
-dlQ
-dlQ
+ydy
+ydy
 hGQ
 bKn
 bKn
@@ -107155,9 +107232,9 @@ bKn
 bKn
 hGQ
 wDN
-dlQ
-lSG
-dlQ
+ydy
+uoN
+ydy
 wDN
 hGQ
 hGQ
@@ -107358,9 +107435,9 @@ bKn
 hGQ
 tta
 nQl
-dlQ
-dlQ
-lSG
+ydy
+ydy
+uoN
 wDN
 ugU
 nxk
@@ -107560,8 +107637,8 @@ bKn
 hGQ
 yfr
 nQl
-dlQ
-dlQ
+ydy
+ydy
 wDN
 wDN
 ugU
@@ -107761,7 +107838,7 @@ vtv
 bKn
 hGQ
 hGQ
-lSG
+uoN
 wDN
 wDN
 oGw
@@ -137647,8 +137724,8 @@ xGB
 xGB
 xGB
 xGB
-xGB
-xGB
+xZO
+xZO
 mzt
 jkj
 gFW
@@ -137850,7 +137927,7 @@ guQ
 guQ
 guQ
 buS
-xGB
+hGd
 jkj
 jkj
 gFW
@@ -138899,15 +138976,15 @@ acx
 acx
 acx
 mlm
-ktr
-ktr
-ktr
-ktr
-ktr
-ktr
-lGX
+eGT
+eGT
+eGT
+eGT
+eGT
+eGT
+bIE
 mwJ
-mwJ
+hAn
 mlm
 acx
 acx
@@ -139107,9 +139184,9 @@ mwJ
 mwJ
 mwJ
 mwJ
-wkL
+liK
 mwJ
-mwJ
+hAn
 mlm
 acx
 acx
@@ -139303,15 +139380,15 @@ acx
 acx
 acx
 mlm
+hAn
+hAn
 mwJ
 mwJ
 mwJ
 mwJ
+liK
 mwJ
-mwJ
-wkL
-mwJ
-mwJ
+hAn
 mlm
 acx
 acx
@@ -139506,7 +139583,7 @@ acx
 acx
 lfC
 mlm
-mwJ
+hAn
 mwJ
 mwJ
 mwJ
@@ -139708,7 +139785,7 @@ acx
 acx
 acx
 lfC
-mWJ
+cVo
 nZS
 mlm
 pvw
