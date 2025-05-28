@@ -21,13 +21,13 @@
 //................ Iron Maille ............... //
 /obj/item/clothing/armor/chainmail/iron
 	name = "iron maille"
-	desc = "A short-sleeved shirt made of iron rings. Offers good protection against arrows, stabs and cuts."
+	desc = "A shirt made of iron rings. Offers good protection against arrows, stabs and cuts."
 	icon_state = "ichainmail"
 	smeltresult = /obj/item/ingot/iron
 	sellprice = VALUE_IRON_ARMOR
 
 	armor = ARMOR_MAILLE_IRON
-	body_parts_covered = COVERAGE_TORSO
+	body_parts_covered = COVERAGE_ALL_BUT_LEGS
 	max_integrity = INTEGRITY_STANDARD
 	item_weight = 6 * IRON_MULTIPLIER
 

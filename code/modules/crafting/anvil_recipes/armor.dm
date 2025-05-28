@@ -69,6 +69,12 @@
 	created_item = /obj/item/clothing/pants/chainlegs/kilt/iron
 	craftdiff = 0
 
+/datum/anvil_recipe/armor/iron/iplatelegs
+	name = "Iron Plate Chausses"
+	recipe_name = "a pair of Plate Chausses"
+	req_bar = /obj/item/ingot/iron
+	created_item = /obj/item/clothing/pants/platelegs/iron
+
 /datum/anvil_recipe/armor/iron/chaincoif
 	name = "Iron Chain Coif"
 	recipe_name = "a Chain Coif"
@@ -89,11 +95,28 @@
 	createditem_num = 1
 	craftdiff = 0
 
+/datum/anvil_recipe/armor/iron/igauntlets
+	name = "Iron Plate Gauntlets"
+	recipe_name = "a pair of Plate Gauntlets"
+	created_item = /obj/item/clothing/gloves/plate/iron
+
+/datum/anvil_recipe/armor/iron/ibracers
+	name = "Iron Plate Vambraces"
+	recipe_name = "a pair of Plate Vambraces"
+	created_item = /obj/item/clothing/wrists/bracers/iron
+
 /datum/anvil_recipe/armor/iron/chainmail
 	name = "Iron Maille"
 	recipe_name = "maille shirt"
 	req_bar = /obj/item/ingot/iron
 	created_item = /obj/item/clothing/armor/chainmail/iron
+
+/datum/anvil_recipe/armor/iron/cuirass
+	name = "Iron Cuirass"
+	recipe_name = "a cuirass"
+	req_bar = /obj/item/ingot/iron
+	created_item = /obj/item/clothing/armor/cuirass/iron
+	craftdiff = 0
 
 /datum/anvil_recipe/armor/iron/plate
 	name = "Iron Plate Armor (+Bar x2)"
@@ -208,6 +231,15 @@
 	req_bar = /obj/item/ingot/steel
 	created_item = /obj/item/clothing/neck/highcollier
 	craftdiff = 3
+
+/datum/anvil_recipe/armor/steel/jackchain
+	name = "2x Jack Chains"
+	recipe_name = "two pairs of Jack Chains"
+	req_bar = /obj/item/ingot/steel
+	created_item = /obj/item/clothing/wrists/bracers/jackchain
+	createmultiple = TRUE
+	createditem_num = 1
+	craftdiff = 2
 
 /datum/anvil_recipe/armor/steel/chainglove
 	name = "2x Chain Gauntlets"
