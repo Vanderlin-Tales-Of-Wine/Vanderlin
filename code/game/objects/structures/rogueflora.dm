@@ -417,34 +417,21 @@
 	if(L.m_intent == MOVE_INTENT_RUN)
 		L.visible_message(span_warning("[L] crashes into \a [src]!"), span_danger("I run into \a [src]."))
 		log_combat(L, src, "ran into")
-		if(!ishuman(L))
-			to_chat(L, span_warning("I cut myself on [src]'s thorns."))
-			L.apply_damage(5, BRUTE)
-		else
-			var/mob/living/carbon/human/H = L
-			var/obj/item/bodypart/BP = pick(H.bodyparts)
-			BP.receive_damage(10)
-			if((prob(15)) && !HAS_TRAIT(src, TRAIT_PIERCEIMMUNE))
-				var/obj/item/natural/thorn/TH = new(src.loc)
-				BP.add_embedded_object(TH, silent = TRUE)
-				to_chat(H, span_danger("\A [TH] impales my [BP.name]."))
-				if(!HAS_TRAIT(H, TRAIT_NOPAIN))
-					H.emote("painscream")
-					L.Stun(3 SECONDS) //that fucking hurt
-					H.consider_ambush()
-			else if(prob(80))
-				to_chat(H, span_warning("A thorn [pick("slices","cuts","nicks")] my [BP.name]."))
 	else if(L.atom_flags & Z_FALLING)
 		L.visible_message(span_warning("[L] falls onto \a [src]!"), span_danger("I fall onto \a [src]."))
 		log_combat(L, src, "ran into")
-		if(!ishuman(L))
-			to_chat(L, span_warning("I cut myself on [src]'s thorns."))
-			L.apply_damage(5, BRUTE)
-		else
-			var/mob/living/carbon/human/H = L
+	else
+		to_chat(L, span_warning("I get stuck in \a [src]."))
+
+	if(ishuman(L))
+		var/mob/living/carbon/human/H = L
+		var/was_hard_collision = (H.m_intent == MOVE_INTENT_RUN || H.throwing || H.atom_flags & Z_FALLING)
+		to_chat(world, "[was_hard_collision]")
+		if(was_hard_collision)
 			var/obj/item/bodypart/BP = pick(H.bodyparts)
 			BP.receive_damage(10)
-			if((prob(15)) && !HAS_TRAIT(src, TRAIT_PIERCEIMMUNE))
+			to_chat(H, span_warning("A thorn [pick("slices","cuts","nicks")] my [BP.name]."))
+			if((prob(20)) && !HAS_TRAIT(src, TRAIT_PIERCEIMMUNE))
 				var/obj/item/natural/thorn/TH = new(src.loc)
 				BP.add_embedded_object(TH, silent = TRUE)
 				to_chat(H, span_danger("\A [TH] impales my [BP.name]."))
@@ -452,11 +439,6 @@
 					H.emote("painscream")
 					L.Stun(3 SECONDS) //that fucking hurt
 					H.consider_ambush()
-			else if(prob(80))
-				to_chat(H, span_warning("A thorn [pick("slices","cuts","nicks")] my [BP.name]."))
-	else
-		to_chat(L, span_warning("I get stuck in \a [src]."))
-
 
 /obj/structure/flora/grass/bush/wall
 	name = "great bush"
