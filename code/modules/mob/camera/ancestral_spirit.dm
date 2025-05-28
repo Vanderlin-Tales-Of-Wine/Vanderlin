@@ -39,16 +39,13 @@
 /mob/camera/ancestral_spirit/say(message, bubble_type, list/spans, sanitize, datum/language/language, ignore_spam, forced)
 	relay_speech_to_containment(args)
 
-/mob/camera/ancestral_spirit/proc/relay_speech_to_containment(datum/source, message, bubble_type, list/spans, sanitize, datum/language/language, ignore_spam, forced)
-	var/list/arguments = args.Copy()
-	arguments.Cut(1,1)
-	arguments[forced] = TRUE
-	containment.say(arguments)
+/mob/camera/ancestral_spirit/proc/relay_speech_to_containment(message, bubble_type, list/spans, sanitize, datum/language/language, ignore_spam, forced)
+	containment.say(args)
 
 /mob/camera/ancestral_spirit/proc/relay_speech_to_spirit(datum/source, ...)
 	SIGNAL_HANDLER
 	var/list/arguments = args.Copy()
-	arguments.Cut(1,1)
+	arguments.Cut(1, 2)
 	if(current_projection)
 		current_projection.Hear(arguments)
 		return

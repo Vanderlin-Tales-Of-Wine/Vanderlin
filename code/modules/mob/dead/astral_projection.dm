@@ -8,9 +8,10 @@
 	/// the spirit we are
 	var/mob/camera/ancestral_spirit/spirit
 	/// how many tiles can we move from the projection_source?
-	var/range_limit = 2
+	var/range_limit = 3
 	var/beam
 	var/projection_source_is_containment = FALSE
+	alpha = 150
 
 /mob/dead/astral_projection/New(loc, atom)
 	. = ..()
@@ -35,7 +36,7 @@
 
 	if(modifiers["alt"] && !modifiers["right"])
 
-		if(projection_source_is_containment)
+		if(projection_source_is_containment || in_view_range(src, spirit.containment))
 			spirit.locomotion(A)
 
 	. = ..()
@@ -46,6 +47,10 @@
 	if(!(newloc in oview(projection_source)))
 		return FALSE
 	. = ..()
+
+/mob/dead/astral_projection/say(message, bubble_type, list/spans, sanitize, datum/language/language, ignore_spam, forced)
+	// need to add precautions here
+	send_speech(message, 7, src, bubble_type = bubble_type, spans = spans, message_language = language, original_message = message)
 
 /mob/dead/astral_projection/proc/return_to_camera()
 	spirit.ckey = ckey
