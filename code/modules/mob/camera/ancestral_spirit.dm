@@ -37,11 +37,11 @@
 	UnregisterSignal(containment, COMSIG_MOVABLE_HEAR)
 
 /mob/camera/ancestral_spirit/say(message, bubble_type, list/spans, sanitize, datum/language/language, ignore_spam, forced)
-	. = ..()
 	relay_speech_to_containment(args)
 
 /mob/camera/ancestral_spirit/proc/relay_speech_to_containment(datum/source, message, bubble_type, list/spans, sanitize, datum/language/language, ignore_spam, forced)
 	var/list/arguments = args.Copy()
+	arguments.Cut(1,1)
 	arguments[forced] = TRUE
 	containment.say(arguments)
 
@@ -58,8 +58,8 @@
 	name = "Cursed Hand"
 	icon_state = "cursehand0"
 	damage = 0
-	range = 9
-	speed = 1
+	range = 20
+	speed = 0.9
 	arcshot = TRUE
 
 /mob/camera/ancestral_spirit/ClickOn(atom/A, params) // this chaining could be done on the parent instead
@@ -107,7 +107,7 @@
 	QDEL_NULL(locomotion_hand_pulling)
 	locomotion_hand_pulling = containment.Beam(get_turf(source.loc), icon_state = "curse0", maxdistance = 9, time = 10 SECONDS)
 
-	containment.throw_at(target = source, range = 9, speed = 2, spin = FALSE, callback = CALLBACK(src, PROC_REF(post_land)))
+	containment.throw_at(target = source, range = 9, speed = 1.4, spin = FALSE, callback = CALLBACK(src, PROC_REF(post_land)))
 
 /mob/camera/ancestral_spirit/proc/post_land(datum/source)
 	QDEL_NULL(locomotion_hand_pulling)
