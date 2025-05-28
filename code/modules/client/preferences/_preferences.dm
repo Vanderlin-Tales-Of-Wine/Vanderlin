@@ -221,7 +221,6 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	dat += "<tr>"
 	dat += "<td style='width:33%;text-align:left'>"
 	dat += "<a style='white-space:nowrap;' href='?_src_=prefs;preference=changeslot;'>Change Character</a>"
-	dat += "<a style='white-space:nowrap;' href='?_src_=prefs;preference=randomiseappearanceprefs;'>Change Character</a>"
 	dat += "</td>"
 
 
@@ -288,6 +287,8 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	//-----------START OF IDENT TABLE-----------//
 	dat += "<h2>Identity</h2>"
 	dat += "<table width='100%'><tr><td width='75%' valign='top'>"
+	dat += "<a style='white-space:nowrap;' href='?_src_=prefs;preference=randomiseappearanceprefs;'>Randomize Character</a>"
+	dat += "<br>"
 	dat += "<b>Name:</b> "
 	if(check_nameban(user.ckey))
 		dat += "<a href='?_src_=prefs;preference=name;task=input'>NAMEBANNED</a><BR>"
@@ -1385,6 +1386,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 							save_character()
 				if("randomiseappearanceprefs")
 					randomise_appearance_prefs()
+					ResetJobs()
 
 				if("tab")
 					if (href_list["tab"])
