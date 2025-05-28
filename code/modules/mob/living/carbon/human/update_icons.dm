@@ -346,13 +346,13 @@ There are several things that need to be remembered:
 		var/use_female_sprites = dna?.species.sexes ? (gender == FEMALE && !dna.species.use_m) || dna.species.use_f : FALSE
 		var/mutable_appearance/ring_overlay = wear_ring.build_worn_icon(age = age, default_layer = RING_LAYER, default_icon_file = 'icons/roguetown/clothing/onmob/rings.dmi', coom = use_female_sprites)
 		if(!dna?.species.sexes || gender == MALE)
-			if(OFFSET_ID in offsets)
-				ring_overlay.pixel_x += offsets[OFFSET_ID][1]
-				ring_overlay.pixel_y += offsets[OFFSET_ID][2]
+			if(OFFSET_RING in offsets)
+				ring_overlay.pixel_x += offsets[OFFSET_RING][1]
+				ring_overlay.pixel_y += offsets[OFFSET_RING][2]
 		else
-			if(OFFSET_ID_F in offsets)
-				ring_overlay.pixel_x += offsets[OFFSET_ID_F][1]
-				ring_overlay.pixel_y += offsets[OFFSET_ID_F][2]
+			if(OFFSET_RING_F in offsets)
+				ring_overlay.pixel_x += offsets[OFFSET_RING_F][1]
+				ring_overlay.pixel_y += offsets[OFFSET_RING_F][2]
 		overlays_standing[RING_LAYER] = ring_overlay
 
 	apply_overlay(RING_LAYER)

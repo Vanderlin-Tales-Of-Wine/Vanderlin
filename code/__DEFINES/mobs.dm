@@ -281,7 +281,7 @@
 // Offsets defines
 
 #define OFFSET_UNIFORM "uniform"
-#define OFFSET_ID "wear_ring"
+#define OFFSET_RING "wear_ring"
 #define OFFSET_GLOVES "gloves"
 #define OFFSET_WRISTS "wear_wrists"
 #define OFFSET_GLASSES "glasses"
@@ -302,7 +302,7 @@
 #define OFFSET_HANDS "hands"
 #define OFFSET_UNDIES "underwear"
 
-#define OFFSET_ID_F "wear_ringf"
+#define OFFSET_RING_F "wear_ringf"
 #define OFFSET_GLOVES_F "glovesf"
 #define OFFSET_WRISTS_F "wear_wristsf"
 #define OFFSET_FACEMASK_F "maskf"
