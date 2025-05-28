@@ -231,9 +231,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 8
 	},
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/outdoors/mountains)
 "ee" = (
 /obj/item/natural/rock{
@@ -278,9 +276,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 8
 	},
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/outdoors/mountains)
 "eC" = (
 /obj/structure/flora/newtree/snow,
@@ -303,9 +299,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 4
 	},
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/outdoors/mountains)
 "fp" = (
 /obj/structure/stairs{
@@ -397,9 +391,7 @@
 /turf/closed/mineral/bedrock,
 /area/rogue/under/cave)
 "is" = (
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/outdoors/mountains)
 "iy" = (
 /obj/structure/hotspring/border/twelve,
@@ -519,9 +511,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 5
 	},
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/outdoors/mountains)
 "lo" = (
 /obj/machinery/light/fueled/torchholder/r,
@@ -644,9 +634,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 4
 	},
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/outdoors/mountains)
 "op" = (
 /obj/effect/falling_sakura,
@@ -715,9 +703,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 9
 	},
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/outdoors/mountains)
 "pu" = (
 /obj/structure/hotspring/border/three,
@@ -1488,17 +1474,11 @@
 /obj/effect/falling_sakura,
 /turf/open/floor/snow,
 /area/rogue/outdoors/woods)
-"HD" = (
-/obj/effect/landmark/start/lich,
-/turf/open/floor/naturalstone,
-/area/rogue/under/cave)
 "HH" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
 	},
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/outdoors/mountains)
 "In" = (
 /obj/structure/hotspring/border/seven,
@@ -1629,9 +1609,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 4
 	},
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/outdoors/mountains)
 "LP" = (
 /obj/effect/falling_sakura,
@@ -1853,9 +1831,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 6
 	},
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/outdoors/mountains)
 "PS" = (
 /obj/structure/stairs/stone{
@@ -2197,9 +2173,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 10
 	},
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/outdoors/mountains)
 "Yy" = (
 /obj/effect/landmark/start/adventurerlate{
@@ -27609,7 +27583,7 @@ qH
 qH
 yU
 Wr
-HD
+Wr
 xn
 qH
 qH

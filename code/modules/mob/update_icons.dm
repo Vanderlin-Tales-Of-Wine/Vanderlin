@@ -16,9 +16,6 @@
 /mob/proc/update_inv_legcuffed()
 	return
 
-/mob/proc/update_inv_back()
-	return
-
 /mob/proc/update_inv_hands()
 	return
 
@@ -32,6 +29,9 @@
 	return
 
 /mob/proc/update_inv_w_uniform()
+	return
+
+/mob/proc/update_inv_back()
 	return
 
 /mob/proc/update_inv_belt()

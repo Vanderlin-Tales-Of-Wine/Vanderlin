@@ -43,8 +43,8 @@
 
 	inherent_traits = list(TRAIT_HOLLOWBONES, TRAIT_CRITICAL_WEAKNESS, TRAIT_AMAZING_BACK, TRAIT_DODGEEXPERT)
 
-	specstats = list(STATKEY_STR = -4, STATKEY_PER = 2, STATKEY_INT = -2, STATKEY_CON = -4, STATKEY_END = -4, STATKEY_SPD = 3, STATKEY_LCK = 0)
-	specstats_f = list(STATKEY_STR = -4, STATKEY_PER = 2, STATKEY_INT = -2, STATKEY_CON = -4, STATKEY_END = -4, STATKEY_SPD = 3, STATKEY_LCK = 0)
+	specstats = list(STATKEY_STR = -4, STATKEY_PER = 2, STATKEY_INT = 1, STATKEY_CON = -4, STATKEY_END = -4, STATKEY_SPD = 3, STATKEY_LCK = 0)
+	specstats_f = list(STATKEY_STR = -4, STATKEY_PER = 2, STATKEY_INT = 1, STATKEY_CON = -4, STATKEY_END = -4, STATKEY_SPD = 3, STATKEY_LCK = 0)
 	enflamed_icon = "widefire"
 	organs = list(
 		ORGAN_SLOT_BRAIN = /obj/item/organ/brain,
@@ -59,6 +59,7 @@
 		ORGAN_SLOT_VOICE = /obj/item/organ/vocal_cords/harpy,
 		ORGAN_SLOT_TAIL = /obj/item/organ/tail,
 		)
+	meat = /obj/item/reagent_containers/food/snacks/meat/poultry/cutlet
 	bodypart_features = list(
 		/datum/bodypart_feature/hair/head,
 		/datum/bodypart_feature/hair/facial,

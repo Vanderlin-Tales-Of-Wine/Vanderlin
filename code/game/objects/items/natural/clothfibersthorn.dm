@@ -239,10 +239,8 @@
 				user.visible_message(span_small("[user] wrings out \the [src]."), span_small("I wring out \the [src]."), vision_distance = 2)
 				playsound(T, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 25, FALSE)
 
-
 // BANDAGING
 /obj/item/natural/cloth/attack(mob/living/M, mob/user)
-	testing("attack")
 	bandage(M, user)
 
 /obj/item/natural/cloth/proc/bandage(mob/living/M, mob/user)

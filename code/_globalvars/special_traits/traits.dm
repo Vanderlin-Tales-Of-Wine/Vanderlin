@@ -88,7 +88,7 @@
 
 /datum/special_trait/lightstep
 	name = "Light Step"
-	greet_text = span_notice("I am quiet, nobody can hear my steps.")
+	greet_text = span_notice("My steps are light, I will never trip a trap.")
 	weight = 100
 
 /datum/special_trait/lightstep/on_apply(mob/living/carbon/human/character, silent)

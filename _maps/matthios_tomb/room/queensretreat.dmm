@@ -11,9 +11,7 @@
 "ah" = (
 /obj/structure/table/wood/fine,
 /obj/item/book/law,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "aw" = (
 /turf/closed/wall/mineral/roofwall/innercorner{
@@ -57,9 +55,7 @@
 /obj/item/clothing/shirt/dress/gen/purple,
 /obj/item/clothing/shirt/dress/silkdress,
 /obj/item/clothing/armor/leather/jacket/silk_coat,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "bm" = (
 /turf/open/floor/cobblerock,
@@ -121,9 +117,7 @@
 	pixel_y = -32
 	},
 /obj/item/instrument/lute,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "dI" = (
 /obj/effect/decal/cleanable/food/mess/rotting,
@@ -142,9 +136,7 @@
 /area/rogue/under/tomb/indoors/royal)
 "ed" = (
 /obj/machinery/light/fueled/wallfire/candle/weak/l,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "es" = (
 /mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
@@ -175,15 +167,11 @@
 "gq" = (
 /obj/structure/table/wood/fine,
 /obj/item/book/noc,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "gO" = (
 /obj/structure/bookcase,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "he" = (
 /obj/structure/closet/crate/chest/wicker,
@@ -227,9 +215,7 @@
 	pixel_x = -2;
 	pixel_y = 5
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "hQ" = (
 /obj/structure/fluff/telescope,
@@ -312,9 +298,7 @@
 "mc" = (
 /obj/structure/table/wood/fine,
 /obj/machinery/light/fueled/wallfire/candle/weak/r,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "mw" = (
 /obj/structure/fluff/railing/wood{
@@ -445,9 +429,7 @@
 	pixel_y = -32
 	},
 /obj/structure/fluff/clock,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "rE" = (
 /obj/machinery/light/fueled/wallfire/candle/weak/l,
@@ -464,9 +446,7 @@
 	pixel_y = -32
 	},
 /obj/item/instrument/harp,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "tk" = (
 /turf/closed/wall/mineral/roofwall/middle{
@@ -501,9 +481,7 @@
 /area/rogue/under/tomb/indoors/royal)
 "uA" = (
 /mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "uD" = (
 /mob/living/carbon/human/species/skeleton/npc/peasant,
@@ -536,16 +514,12 @@
 	pixel_x = -9;
 	pixel_y = 5
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "vK" = (
 /obj/structure/bookcase/random,
 /obj/machinery/light/fueled/wallfire/candle/weak,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "wt" = (
 /turf/open/floor/carpet/lord/center,
@@ -617,16 +591,12 @@
 /obj/structure/chair/wood/alt/fancy{
 	dir = 4
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "Ao" = (
 /obj/structure/table/wood/fine,
 /obj/effect/spawner/map_spawner/loot/weapon,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "Bn" = (
 /turf/closed/wall/mineral/roofwall/middle{
@@ -661,9 +631,7 @@
 /obj/structure/chair/wood/alt/fancy{
 	dir = 8
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "CT" = (
 /obj/structure/flora/grass,
@@ -698,9 +666,7 @@
 /obj/machinery/light/fueled/wallfire/candle/weak{
 	pixel_y = -32
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "Eq" = (
 /turf/closed/mineral/bedrock,
@@ -762,9 +728,7 @@
 /turf/open/floor/dirt,
 /area/rogue/under/tomb)
 "GR" = (
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "GV" = (
 /mob/living/carbon/human/species/skeleton/npc/warrior,
@@ -799,9 +763,7 @@
 /area/rogue/under/tomb/wilds)
 "HP" = (
 /obj/structure/bookcase/random,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "HT" = (
 /obj/structure/closet/crate/chest/crate,
@@ -827,9 +789,7 @@
 /obj/item/clothing/shoes/nobleboot/thighboots,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/item/weapon/knife/dagger/silver,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "IE" = (
 /obj/structure/window/openclose,
@@ -845,9 +805,7 @@
 /obj/structure/fluff/walldeco/bigpainting/lake{
 	pixel_x = 0
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "Ja" = (
 /obj/machinery/light/fueled/wallfire/candle/weak,
@@ -894,9 +852,7 @@
 /obj/structure/fluff/walldeco/painting/queen{
 	pixel_y = 32
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "Ko" = (
 /obj/structure/flora/grass/herb/artemisia,
@@ -908,9 +864,7 @@
 /area/rogue/under/tomb/wilds)
 "Mw" = (
 /mob/living/carbon/human/species/skeleton/npc/peasant,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "MK" = (
 /obj/structure/closet/crate/crafted_closet,
@@ -919,9 +873,7 @@
 /obj/item/clothing/shirt/dress/gen/blue,
 /obj/item/clothing/shirt/dress/silkdress,
 /obj/item/clothing/armor/leather/jacket/silk_coat,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "Na" = (
 /obj/structure/table/wood,
@@ -985,9 +937,7 @@
 /obj/item/reagent_containers/glass/bottle/stronghealthpot,
 /obj/item/reagent_containers/glass/bottle/stronghealthpot,
 /obj/item/reagent_containers/glass/bottle/strongmanapot,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "Pn" = (
 /obj/structure/table/wood/fine,
@@ -1000,9 +950,7 @@
 	},
 /obj/effect/spawner/map_spawner/loot/rare,
 /obj/item/reagent_containers/glass/bottle/redwine,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "Pp" = (
 /obj/structure/door/violet{
@@ -1073,9 +1021,7 @@
 	pixel_y = 8;
 	pixel_x = 12
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "Rn" = (
 /mob/living/carbon/human/species/skeleton/npc/peasant,
@@ -1083,9 +1029,7 @@
 /area/rogue/under/tomb/indoors/royal)
 "RU" = (
 /obj/structure/table/wood/fine,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "RZ" = (
 /obj/structure/flora/grass,
@@ -1105,9 +1049,7 @@
 /obj/structure/table/wood/fine,
 /obj/item/clothing/head/crown/circlet,
 /obj/item/clothing/head/roguehood/eora,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "SS" = (
 /obj/machinery/light/fueled/hearth,
@@ -1187,9 +1129,7 @@
 	pixel_x = -32
 	},
 /obj/item/painting/queen,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "Yl" = (
 /turf/open/transparent/openspace,
