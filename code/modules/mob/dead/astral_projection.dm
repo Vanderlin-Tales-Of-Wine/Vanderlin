@@ -57,3 +57,19 @@
 	. = ..()
 	return_to_camera()
 
+/mob/dead/astral_projection/Hear(message, atom/movable/speaker, datum/language/message_language, raw_message, radio_freq, list/spans, message_mode)
+	. = ..()
+	if(!client)
+		return
+
+	// Create map text prior to modifying message for goonchat
+	create_chat_message(speaker, message_language, raw_message, spans, message_mode)
+	// Recompose message for AI hrefs, language incomprehension.
+	message = compose_message(speaker, message_language, raw_message, radio_freq, spans, message_mode)
+	// voice muffling
+	if(isliving(speaker))
+		var/mob/living/living_speaker = speaker
+		if(living_speaker != src && living_speaker.client && src.can_hear()) //src.client already checked above
+			log_message("heard [key_name(living_speaker)] say: [raw_message]", LOG_SAY, "#0978b8", FALSE)
+	show_message(message, MSG_AUDIBLE)
+	return message

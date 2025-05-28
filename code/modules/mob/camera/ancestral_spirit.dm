@@ -92,6 +92,8 @@
 	manifest_projection(A)
 
 /mob/camera/ancestral_spirit/proc/locomotion(atom/A)
+	if(!isturf(containment.loc)) // escape!
+		containment.forceMove(get_turf(containment))
 
 	var/atom/hand = containment.fire_projectile(/obj/projectile/locomotion_hand, A)
 	locomotion_hand_outgoing = containment.Beam(hand, icon_state = "curse0", maxdistance = 9, time = 10 SECONDS)
@@ -127,3 +129,20 @@
 		projection.projection_source_is_containment = TRUE
 
 	return TRUE
+
+/mob/camera/ancestral_spirit/Hear(message, atom/movable/speaker, datum/language/message_language, raw_message, radio_freq, list/spans, message_mode)
+	. = ..()
+	if(!client)
+		return
+
+	// Create map text prior to modifying message for goonchat
+	create_chat_message(speaker, message_language, raw_message, spans, message_mode)
+	// Recompose message for AI hrefs, language incomprehension.
+	message = compose_message(speaker, message_language, raw_message, radio_freq, spans, message_mode)
+	// voice muffling
+	if(isliving(speaker))
+		var/mob/living/living_speaker = speaker
+		if(living_speaker != src && living_speaker.client && src.can_hear()) //src.client already checked above
+			log_message("heard [key_name(living_speaker)] say: [raw_message]", LOG_SAY, "#0978b8", FALSE)
+	show_message(message, MSG_AUDIBLE)
+	return message
