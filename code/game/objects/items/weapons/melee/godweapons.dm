@@ -20,9 +20,6 @@
 	span_danger("Fools to challenge us, warlord."),\
 )
 
-/obj/item/weapon
-
-
 //┌─────────────── GOREFEAST ───────────────┐//
 /obj/item/weapon/polearm/halberd/bardiche/woodcutter/gorefeast
 	name = "gorefeast"
@@ -111,7 +108,7 @@
 	max_blade_int = 200
 	max_integrity = 720
 	possible_item_intents = list(/datum/intent/polearm/cut)
-	gripped_intents = list(/datum/intent/polearm/cut, /datum/intent/polearm/chop, /datum/intent/flail/strike, /datum/intent/use)
+	gripped_intents = list(/datum/intent/polearm/chop, /datum/intent/whip, /datum/intent/shoot/neant)
 	thrown_bclass = BCLASS_CUT
 	blade_dulling = DULLING_BASHCHOP
 	wdefense = GREAT_PARRY
@@ -121,15 +118,27 @@
 	minstr = 10
 	sellprice = 550
 
+	COOLDOWN_DECLARE(fire_projectile)
+
+/obj/item/weapon/polearm/neant/attack(mob/living/M, mob/living/user)
+	if(user.used_intent.tranged)
+		return
+	return ..()
+
 /obj/item/weapon/polearm/neant/afterattack(atom/target, mob/living/user, proximity_flag, click_parameters)
 	. = ..()
 	if(!HAS_TRAIT(user, TRAIT_CABAL))
+		return
+	if(user.used_intent?.tranged)
+		handle_magick(user, target)
 		return
 	if(!ishuman(target))
 		return
 	if(check_zone(user.zone_selected) != BODY_ZONE_CHEST)
 		return
 	var/mob/living/carbon/human/H = target
+	if(H.get_lux_status() != LUX_HAS_LUX)
+		return
 	var/dead = H.stat == DEAD
 	if((H.health < H.crit_threshold) || dead)
 		var/speed = dead ? 4 SECONDS : 8 SECONDS
@@ -137,11 +146,13 @@
 		if(!do_after(user, speed, H))
 			return
 		var/obj/item/bodypart/chest/C = H.get_bodypart(BODY_ZONE_CHEST)
-		C?.add_wound(/datum/wound/slash/incision)
-		if(C && !C.has_wound(/datum/wound/fracture/chest))
-			C.add_wound(/datum/wound/fracture/chest)
-		var/obj/item/reagent_containers/lux = new(get_turf(target))
-		user.put_in_hands(lux)
+		if(!C)
+			return
+
+		C.add_wound(/datum/wound/slash/incision)
+		C.add_wound(/datum/wound/fracture/chest)
+
+		new /obj/item/reagent_containers/lux(get_turf(target))
 
 		H.apply_status_effect(/datum/status_effect/buff/lux_drained)
 		SEND_SIGNAL(user, COMSIG_LUX_EXTRACTED, target)
@@ -152,7 +163,67 @@
 		H.adjustBruteLoss(20)
 		to_chat(user, span_notice("I finish removing the lux from [target]!"))
 
-// has a ranged attack on 4th intent travels 4 tiles does mild cut damage ( must be of the cabal ) be zizoid
+/obj/item/weapon/polearm/neant/proc/handle_magick(mob/living/user, atom/target)
+	if(!COOLDOWN_FINISHED(fire_projectile))
+		return
+	var/client/client = user.client
+	if(!client?.chargedprog)
+		return
+
+	var/startloc = get_turf(src)
+	var/obj/projectile/bullet/neant/PJ = new(startloc)
+	PJ.starting = startloc
+	PJ.firer = user
+	PJ.fired_from = src
+	PJ.original = target
+
+	if(user.STAPER > 8)
+		PJ.accuracy += (user.STAPER - 8) * 2 //each point of perception above 8 increases standard accuracy by 2.
+		PJ.bonus_accuracy += (user.STAPER - 8) //Also, increases bonus accuracy by 1, which cannot fall off due to distance.
+
+	if(user.STAINT > 10) // Every point over 10 INT adds 10% damage
+		PJ.damage = PJ.damage * (user.STAINT / 10)
+		PJ.accuracy += (user.STAINT - 10) * 3
+
+	new /obj/effect/temp_visual/dir_setting/firing_effect/neant(get_step(user, user.dir), user.dir)
+	PJ.preparePixelProjectile(target, user)
+	PJ.fire()
+	user.changeNext_move(CLICK_CD_RANGE)
+	COOLDOWN_START(src, fire_projectile, 4 SECONDS)
+
+/obj/projectile/bullet/neant
+	name = "TROL LOLO"
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "neantprojectile"
+	hitsound = 'sound/combat/hits/hi_arrow2.ogg'
+	range = 7
+	damage = 35
+	armor_penetration = 40
+	damage_type = BRUTE
+	woundclass = BCLASS_CUT
+	flag =  "piercing"
+	speed = 1
+	accuracy = 80
+
+/obj/effect/temp_visual/dir_setting/firing_effect/neant
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "neantspecial"
+	duration = 4
+
+/datum/intent/shoot/neant
+	name = "shoot"
+	icon_state = "inshoot"
+	warnie = "aimwarn"
+	item_damage_type = "stab"
+	tranged = TRUE
+	chargetime = 2 SECONDS
+	no_early_release = TRUE
+	noaa = TRUE
+	charging_slowdown = 2
+
+/datum/intent/shoot/neant/prewarning()
+	if(masteritem && mastermob)
+		mastermob.visible_message(span_warning("[mastermob] aims [masteritem]!"), span_notice("I aim [masteritem]."))
 
 //┌─────────────── TURBULENTA ───────────────┐//
 
