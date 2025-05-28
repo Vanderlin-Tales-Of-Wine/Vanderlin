@@ -1366,11 +1366,6 @@
 	},
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
-"op" = (
-/obj/structure/flora/grass,
-/obj/effect/spawner/debug_leash,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
 "oB" = (
 /obj/structure/window/openclose{
 	dir = 4
@@ -14396,7 +14391,7 @@ HK
 QN
 QN
 QN
-op
+qc
 QN
 bs
 QN
