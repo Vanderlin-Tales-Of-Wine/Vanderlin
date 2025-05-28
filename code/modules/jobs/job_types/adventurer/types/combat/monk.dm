@@ -2,7 +2,7 @@
 	name = "Monk"
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_PLAYER_NONHERETICAL
-	tutorial = "A traveling monk of either Ravox of Psydon, unmatched in unarmed combat and with an unwavering devotion to Justice."
+	tutorial = "A traveling monk of either Ravox or Psydon, unmatched in unarmed combat and with an unwavering devotion to Justice."
 
 	outfit = /datum/outfit/job/adventurer/monk
 	min_pq = 0
