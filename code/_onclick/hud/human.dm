@@ -95,13 +95,13 @@
 	stressies.hud = src
 	stressies.screen_loc = rogueui_stress
 	static_inventory += stressies
-	stressies.update_appearance()
+	stressies.update_appearance(UPDATE_OVERLAYS)
 
 	rmb_intent = new /atom/movable/screen/rmbintent(owner.client)
 	rmb_intent.hud = src
 	rmb_intent.screen_loc = rogueui_rmbintents
 	static_inventory += rmb_intent
-	rmb_intent.update_appearance()
+	rmb_intent.update_appearance(UPDATE_OVERLAYS)
 
 	bloods = new /atom/movable/screen/healths/blood
 	bloods.hud = src
@@ -360,13 +360,13 @@
 	using.screen_loc = rogueui_moves
 	using.hud = src
 	static_inventory += using
-	using.update_icon_state()
+	using.update_appearance(UPDATE_ICON_STATE)
 //sprint button
 	using = new /atom/movable/screen/rogmove/sprint
 	using.screen_loc = rogueui_moves
 	using.hud = src
 	static_inventory += using
-	using.update_icon_state()
+	using.update_appearance(UPDATE_ICON_STATE)
 
 	using = new /atom/movable/screen/eye_intent
 	using.icon = ui_style
@@ -374,7 +374,7 @@
 	using.screen_loc = rogueui_eye
 	using.hud = src
 	static_inventory += using
-	using.update_overlays()
+	using.update_appearance(UPDATE_OVERLAYS)
 
 	set_advclass()
 

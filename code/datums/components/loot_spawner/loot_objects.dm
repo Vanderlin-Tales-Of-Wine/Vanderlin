@@ -20,12 +20,12 @@
 
 /obj/structure/lootable_structure/proc/update_loot()
 	empty = TRUE
-	update_icon_state()
+	update_appearance(UPDATE_ICON_STATE)
 
 /obj/structure/lootable_structure/update_icon_state()
+	. = ..()
 	if(empty)
 		icon_state = empty_icon_state
-	return ..()
 
 /obj/structure/lootable_structure/fish_barrel
 	name = "fish barrel"

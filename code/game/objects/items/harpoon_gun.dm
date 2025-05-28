@@ -247,14 +247,14 @@
 	harpooner = null
 	retracted_hook = TRUE
 	harpoon_sound.stop()
-	update_icon_state()
+	update_appearance(UPDATE_ICON_STATE)
 
 /obj/item/harpoon_gun/update_icon_state()
+	. = ..()
 	if(retracted_hook)
 		icon_state = "[initial(icon_state)]_extended"
 	else
 		icon_state = initial(icon_state)
-	return ..()
 
 /obj/projectile/grapple_hook
 	name = "grapple hook"

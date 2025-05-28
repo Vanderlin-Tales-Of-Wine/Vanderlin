@@ -87,7 +87,7 @@
 	if(broken)
 		broken = FALSE  // Not broken anymore
 		obj_flags = initial(obj_flags)  // so we set back initial flags
-		update_icon_state()  // No need to update overlays
+		update_appearance(UPDATE_ICON_STATE)
 
 /// Stakes at the end of a makeshift bridge
 /obj/structure/bridge_stakes

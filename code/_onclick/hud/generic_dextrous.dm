@@ -274,13 +274,13 @@
 	using.screen_loc = rogueui_moves
 	using.hud = src
 	static_inventory += using
-	using.update_icon_state()
+	using.update_appearance(UPDATE_ICON_STATE)
 //sprint button
 	using = new /atom/movable/screen/rogmove/sprint
 	using.screen_loc = rogueui_moves
 	using.hud = src
 	static_inventory += using
-	using.update_icon_state()
+	using.update_appearance(UPDATE_ICON_STATE)
 
 	using = new /atom/movable/screen/eye_intent
 	using.icon = ui_style

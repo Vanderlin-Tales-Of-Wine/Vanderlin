@@ -32,22 +32,21 @@
 
 /obj/effect/bees/update_overlays()
 	. = ..()
-	cut_overlays()
 	var/bee_spawn = bee_count - 1
 	if(!bee_spawn)
 		return
 
-	for(var/i=1 to bee_spawn)
+	for(var/i = 1 to bee_spawn)
 		var/mutable_appearance/bee = mutable_appearance(icon, icon_state)
 		bee.pixel_x = rand(12, -12)
 		bee.pixel_y = rand(12, -12)
 		bee.color = bee_color // Apply genetic color
-		overlays += bee
+		. += bee
 
 /obj/effect/bees/Initialize()
 	. = ..()
 	START_PROCESSING(SSfaster_obj, src)
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/effect/bees/process()
 	// Handle movement and merging
@@ -56,7 +55,7 @@
 		Move(turf, get_dir(src, turf))
 		if(get_dist(merge_target, src) == 0)
 			merge_target.bee_count += bee_count
-			merge_target.update_overlays()
+			merge_target.update_appearance(UPDATE_OVERLAYS)
 			merge_target = null
 			hive?.bee_objects -= src
 			qdel(src)
@@ -917,7 +916,7 @@
 /obj/effect/bee_swarm/Initialize()
 	. = ..()
 	START_PROCESSING(SSobj, src)
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 
 	addtimer(CALLBACK(src, PROC_REF(swarm_timeout)), 5 MINUTES)
 
@@ -971,17 +970,14 @@
 
 /obj/effect/bee_swarm/update_overlays()
 	. = ..()
-	cut_overlays()
-
 	var/bee_spawn = bee_count - 1
 	if(!bee_spawn)
 		return
-
-	for(var/i=1 to min(bee_spawn, 10))
+	for(var/i = 1 to min(bee_spawn, 10))
 		var/mutable_appearance/bee = mutable_appearance('icons/obj/structures/apiary.dmi', "bee")
 		bee.pixel_x = rand(12, -12)
 		bee.pixel_y = rand(12, -12)
-		overlays += bee
+		. += bee
 
 /obj/structure/beehive/wild
 	name = "wild beehive"

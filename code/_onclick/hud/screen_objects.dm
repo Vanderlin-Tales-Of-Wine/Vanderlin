@@ -630,17 +630,18 @@
 	toggle(usr)
 
 /atom/movable/screen/mov_intent/update_icon_state()
+	. = ..()
 	switch(hud?.mymob?.m_intent)
 		if(MOVE_INTENT_WALK)
 			icon_state = "walking"
 		if(MOVE_INTENT_RUN)
 			icon_state = "running"
-	return ..()
 
 /atom/movable/screen/mov_intent/proc/toggle(mob/user)
 	if(isobserver(user))
 		return
 	user.toggle_move_intent(user)
+	update_appearance(UPDATE_ICON_STATE)
 
 /atom/movable/screen/rogmove
 	name = "sneak mode"
@@ -659,15 +660,15 @@
 		user.toggle_rogmove_intent(MOVE_INTENT_WALK)
 	else
 		user.toggle_rogmove_intent(MOVE_INTENT_SNEAK)
-	update_icon_state()
+	update_appearance(UPDATE_ICON_STATE)
 	user.update_sneak_invis()
 
 /atom/movable/screen/rogmove/update_icon_state()
+	. = ..()
 	if(hud?.mymob?.m_intent == MOVE_INTENT_SNEAK)
 		icon_state = "sneak1"
 	else
 		icon_state = "sneak0"
-	return ..()
 
 /atom/movable/screen/rogmove/sprint
 	name = "sprint mode"
@@ -682,14 +683,14 @@
 		user.toggle_rogmove_intent(MOVE_INTENT_WALK)
 	else
 		user.toggle_rogmove_intent(MOVE_INTENT_RUN)
-	update_icon_state()
+	update_appearance(UPDATE_ICON_STATE)
 
 /atom/movable/screen/rogmove/sprint/update_icon_state()
+	. = ..()
 	if(hud?.mymob?.m_intent == MOVE_INTENT_RUN)
 		icon_state = "sprint1"
 	else
 		icon_state = "sprint0"
-	return ..()
 
 /atom/movable/screen/advsetup
 	name = ""
@@ -1534,10 +1535,11 @@
 
 /atom/movable/screen/stress/update_overlays()
 	. = ..()
-	if(!ishuman(usr))
-		return
-	var/mob/living/carbon/human/H = usr
 	var/state2use = "stress1"
+	if(!hud?.mymob)
+		. += state2use
+		return
+	var/mob/living/carbon/human/H = hud.mymob
 	if(!HAS_TRAIT(H, TRAIT_NOMOOD))
 		var/stress_amt = H.get_stress_amount()
 		if(stress_amt >= STRESS_BAD)
