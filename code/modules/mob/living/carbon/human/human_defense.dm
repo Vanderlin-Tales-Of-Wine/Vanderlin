@@ -517,8 +517,10 @@
 	//MELTING INVENTORY ITEMS//
 	//these items are all outside of armour visually, so melt regardless.
 	if(!bodyzone_hit)
-		if(back)
-			inventory_items_to_kill += back
+		if(backr)
+			inventory_items_to_kill += backr
+		if(backl)
+			inventory_items_to_kill += backl
 		if(belt)
 			inventory_items_to_kill += belt
 

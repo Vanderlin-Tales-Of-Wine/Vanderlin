@@ -1398,9 +1398,6 @@
 		if(held_thing.wash(clean_types))
 			. = TRUE
 
-	if(back?.wash(clean_types))
-		update_inv_back(0)
-		. = TRUE
 
 	// Check and wash stuff that can be covered
 	var/obscured = check_obscured_slots()

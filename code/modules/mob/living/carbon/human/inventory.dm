@@ -144,7 +144,6 @@
 
 /mob/living/carbon/human/proc/get_storage_slots()
 	return list(
-		back,
 		belt,
 		backr,
 		backl,
