@@ -68,7 +68,7 @@
 /obj/structure/minecart_rail/attack_right(mob/user)
 	. = ..()
 	var/obj/item/held_item = user.get_active_held_item()
-	if(held_item?.tool_behaviour & TOOL_MULTITOOL)
+	if(held_item?.tool_behaviour == TOOL_MULTITOOL)
 		rotate_direction(user)
 		return
 
@@ -79,7 +79,7 @@
 	secondary_direction = directions[choice]
 
 /obj/structure/minecart_rail/proc/rotate_direction(mob/user)
-	var/choice = browser_input_list(user, "Choose a direction to rotate it.", src, list("South Left Turn", "South Right Turn", "North Right Turn", "Straight", "Sideways", "North Left Turn"))
+	var/choice = browser_input_list(user, "Rotate the rail towards a direction.", src, list("South Left Turn", "South Right Turn", "North Right Turn", "Straight", "Sideways", "North Left Turn"))
 	if(!choice)
 		return
 
