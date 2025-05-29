@@ -32,7 +32,7 @@
 				return
 			var/datum/mind/mind = mob.mind
 			// Check if the player's job is hiv+
-			var/datum/job/target_job = mind?.assigned_role //this shouldn't possibly be null but it can be sometimes ???
+			var/datum/job/target_job = mind?.assigned_role
 			if(target_job)
 				if(target_job.job_reopens_slots_on_death)
 					target_job.adjust_current_positions(-1)

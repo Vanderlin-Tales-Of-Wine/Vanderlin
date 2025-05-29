@@ -16,11 +16,6 @@
 	to_chat(c, "<span class='notice'>Right Mouse Button on turf/obj/mob     = Reset var's value</span>")
 	to_chat(c, "<span class='notice'>***********************************************************</span>")
 
-/datum/buildmode_mode/varedit/Reset()
-	. = ..()
-	varholder = null
-	valueholder = null
-
 /datum/buildmode_mode/varedit/change_settings(client/c)
 	varholder = input(c, "Enter variable name:" ,"Name", "name")
 
@@ -29,7 +24,6 @@
 
 	var/temp_value = c.vv_get_value()
 	if(isnull(temp_value["class"]))
-		Reset()
 		to_chat(c, "<span class='notice'>Variable unset.</span>")
 		return
 	valueholder = temp_value["value"]

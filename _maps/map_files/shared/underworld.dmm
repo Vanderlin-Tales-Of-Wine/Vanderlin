@@ -117,7 +117,7 @@
 /obj/structure/stairs/stone/church{
 	dir = 1
 	},
-/turf/open/transparent/openspace,
+/turf/open/floor/church,
 /area/rogue/underworld)
 "AF" = (
 /obj/structure/underworld/carriage{
@@ -154,7 +154,7 @@
 	pixel_x = 32;
 	pixel_y = 0
 	},
-/turf/open/transparent/openspace,
+/turf/open/floor/church,
 /area/rogue/underworld)
 "Ea" = (
 /obj/structure/rack/underworld,
@@ -213,7 +213,7 @@
 	pixel_y = 0;
 	pixel_x = -32
 	},
-/turf/open/transparent/openspace,
+/turf/open/floor/church,
 /area/rogue/underworld)
 "ME" = (
 /obj/structure/rack/underworld,

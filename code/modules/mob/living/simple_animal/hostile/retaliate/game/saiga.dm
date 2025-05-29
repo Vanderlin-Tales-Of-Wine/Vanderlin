@@ -12,26 +12,11 @@
 			var/mutable_appearance/mounted = mutable_appearance(icon, "saiga_mounted", 4.3)
 			add_overlay(mounted)
 
-/mob/living/simple_animal/hostile/retaliate/saiga/find_food()
-	..()
-	var/obj/structure/vine/SV = locate(/obj/structure/vine) in loc
-	if(SV)
-		SV.eat(src)
-		food = max(food + 30, 100)
-
 /mob/living/simple_animal/hostile/retaliate/saiga/tamed(mob/user)
 	..()
 	deaggroprob = 30
 	if(can_buckle)
 		AddComponent(/datum/component/riding/saiga)
-
-/mob/living/simple_animal/hostile/retaliate/saiga/UniqueAttack()
-	if(istype(target, /obj/structure/vine))
-		var/obj/structure/vine/SV = target
-		SV.eat(src)
-		food = max(food + 30, food_max + 50)
-		return
-	return ..()
 
 /mob/living/simple_animal/hostile/retaliate/saiga
 	icon = 'icons/roguetown/mob/monster/saiga.dmi'
@@ -48,7 +33,7 @@
 	gender = FEMALE
 	footstep_type = FOOTSTEP_MOB_SHOE
 	emote_see = list("looks around.", "chews some leaves.")
-	move_to_delay = 7
+	move_to_delay = 9
 
 	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/steak = 1,
 						/obj/item/natural/hide = 1,
@@ -75,10 +60,10 @@
 	bonus_tame_chance = 15
 	pooptype = /obj/item/natural/poo/horse
 
-	base_intents = list(/datum/intent/simple/headbutt)
+	base_intents = list(/datum/intent/simple/hind_kick)
 	attack_sound = list('sound/vo/mobs/saiga/attack (1).ogg','sound/vo/mobs/saiga/attack (2).ogg')
-	attack_verb_continuous = "headbutts"
-	attack_verb_simple = "headbutt"
+	attack_verb_continuous = "kicks"
+	attack_verb_simple = "kick"
 	melee_damage_lower = 10
 	melee_damage_upper = 20
 	retreat_distance = 10
@@ -94,6 +79,24 @@
 	aggressive = TRUE
 	remains_type = /obj/effect/decal/remains/saiga
 
+	ai_controller = /datum/ai_controller/saiga
+
+
+
+	var/static/list/pet_commands = list(
+		/datum/pet_command/idle,
+		/datum/pet_command/free,
+		/datum/pet_command/good_boy,
+		/datum/pet_command/follow,
+		/datum/pet_command/attack,
+		/datum/pet_command/fetch,
+		/datum/pet_command/play_dead,
+		/datum/pet_command/protect_owner,
+		/datum/pet_command/aggressive,
+		/datum/pet_command/calm,
+	)
+
+
 /obj/effect/decal/remains/saiga
 	name = "remains"
 	gender = PLURAL
@@ -102,6 +105,9 @@
 
 /mob/living/simple_animal/hostile/retaliate/saiga/Initialize()
 	. = ..()
+	AddComponent(/datum/component/obeys_commands, pet_commands)
+	AddElement(/datum/element/ai_retaliate)
+
 	if(tame)
 		tamed(owner)
 	ADD_TRAIT(src, TRAIT_IGNOREDAMAGESLOWDOWN, TRAIT_GENERIC)
@@ -172,6 +178,7 @@
 	footstep_type = FOOTSTEP_MOB_SHOE
 	emote_see = list("stares.")
 	turns_per_move = 3
+	move_to_delay = 9
 
 	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/steak = 1,
 						/obj/item/reagent_containers/food/snacks/fat = 1,
@@ -196,10 +203,10 @@
 					/obj/item/reagent_containers/food/snacks/produce/fruit/apple)
 	pooptype = /obj/item/natural/poo/horse
 
-	base_intents = list(/datum/intent/simple/headbutt)
+	base_intents = list(/datum/intent/simple/hind_kick)
 	attack_sound = list('sound/vo/mobs/saiga/attack (1).ogg','sound/vo/mobs/saiga/attack (2).ogg')
-	attack_verb_continuous = "headbutts"
-	attack_verb_simple = "headbutt"
+	attack_verb_continuous = "kicks"
+	attack_verb_simple = "kick"
 	melee_damage_lower = 15
 	melee_damage_upper = 20
 	environment_smash = ENVIRONMENT_SMASH_NONE
@@ -217,6 +224,23 @@
 	bonus_tame_chance = 15
 	aggressive = TRUE
 	remains_type = /obj/effect/decal/remains/saiga
+
+	ai_controller = /datum/ai_controller/saiga
+
+
+
+	var/static/list/pet_commands = list(
+		/datum/pet_command/idle,
+		/datum/pet_command/free,
+		/datum/pet_command/good_boy,
+		/datum/pet_command/follow,
+		/datum/pet_command/attack,
+		/datum/pet_command/fetch,
+		/datum/pet_command/play_dead,
+		/datum/pet_command/protect_owner,
+		/datum/pet_command/aggressive,
+		/datum/pet_command/calm,
+	)
 
 /mob/living/simple_animal/hostile/retaliate/saigabuck/update_icon()
 	cut_overlays()
@@ -245,14 +269,16 @@
 
 /mob/living/simple_animal/hostile/retaliate/saigabuck/Initialize()
 	. = ..()
+	AddComponent(/datum/component/obeys_commands, pet_commands)
+	AddElement(/datum/element/ai_retaliate)
+
+
 	if(tame)
 		tamed(owner)
 	ADD_TRAIT(src, TRAIT_IGNOREDAMAGESLOWDOWN, TRAIT_GENERIC)
 
 /mob/living/simple_animal/hostile/retaliate/saigabuck/taunted(mob/user)
 	emote("aggro")
-	Retaliate()
-	GiveTarget(user)
 	return
 
 
@@ -261,13 +287,6 @@
 	deaggroprob = 20
 	if(can_buckle)
 		AddComponent(/datum/component/riding/saiga)
-
-/mob/living/simple_animal/hostile/retaliate/saigabuck/eat_plants()
-	//..()
-	var/obj/structure/vine/SV = locate(/obj/structure/vine) in loc
-	if(SV)
-		SV.eat(src)
-		food = max(food + 30, 100)
 
 
 /mob/living/simple_animal/hostile/retaliate/saigabuck/simple_limb_hit(zone)
@@ -332,7 +351,7 @@
 	health = CALF_HEALTH
 	maxHealth = CALF_HEALTH
 
-	base_intents = list(/datum/intent/simple/headbutt)
+	base_intents = list(/datum/intent/simple/hind_kick)
 	melee_damage_lower = 1
 	melee_damage_upper = 6
 
@@ -345,6 +364,8 @@
 	tame = TRUE
 	can_buckle = FALSE
 	aggressive = TRUE
+
+	ai_controller = /datum/ai_controller/saiga_kid
 
 /mob/living/simple_animal/hostile/retaliate/saiga/saigakid/boy
 	icon_state = "saigaboy"

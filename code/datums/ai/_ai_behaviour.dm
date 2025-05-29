@@ -31,6 +31,7 @@
 /// Helper proc to ensure consistency in setting the source of the movement target
 /datum/ai_behavior/proc/set_movement_target(datum/ai_controller/controller, atom/target, datum/ai_movement/new_movement)
 	controller.set_movement_target(type, target, new_movement)
+
 /// Clear the controller's movement target only if it was us who last set it
 /datum/ai_behavior/proc/clear_movement_target(datum/ai_controller/controller)
 	if (controller.movement_target_source != type)

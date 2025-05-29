@@ -35,7 +35,7 @@
 	custom_clothes = FALSE
 	possible_ages = list(AGE_CHILD, AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD)
 	species_traits = list(EYECOLOR,OLDGREY)
-	inherent_traits = list(TRAIT_NOMOBSWAP)
+	inherent_traits = list(TRAIT_NOMOBSWAP, TRAIT_KITTEN_MOM)
 	exotic_bloodtype = /datum/blood_type/human/rakshari
 
 	customizers = list(
@@ -59,8 +59,8 @@
 	..()
 	RegisterSignal(C, COMSIG_MOB_SAY, PROC_REF(handle_speech))
 	C.grant_language(/datum/language/common)
-	C.grant_language(/datum/language/thievescant)
-	to_chat(C, "<span class='info'>I can gesture in thieves' cant with ,t before my speech.</span>")
+	C.grant_language(/datum/language/zybantine)
+	to_chat(C, "<span class='info'>I can speak Zybean with ,z before my speech.</span>")
 
 /datum/species/rakshari/check_roundstart_eligible()
 	return TRUE
@@ -68,7 +68,7 @@
 /datum/species/rakshari/after_creation(mob/living/carbon/C)
 	..()
 	C.grant_language(/datum/language/common)
-	C.grant_language(/datum/language/thievescant)
+	C.grant_language(/datum/language/zybantine)
 
 /datum/species/rakshari/on_species_loss(mob/living/carbon/C)
 	. = ..()

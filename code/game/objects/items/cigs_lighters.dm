@@ -41,11 +41,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/match/proc/matchignite()
 	if(!lit && !burnt)
-		testing("ignis1")
 		playsound(src, "sound/items/match.ogg", 100, FALSE)
 		lit = TRUE
 		icon_state = "match_lit"
-		testing("ignis2")
 		damtype = "fire"
 		force = 3
 		set_light(3)
@@ -532,7 +530,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	item_state = "zippo"
 	w_class = WEIGHT_CLASS_TINY
 	flags_1 = CONDUCT_1
-	slot_flags = ITEM_SLOT_BELT
+	slot_flags = ITEM_SLOT_HIP
 	var/lit = 0
 	var/fancy = TRUE
 	var/overlay_state

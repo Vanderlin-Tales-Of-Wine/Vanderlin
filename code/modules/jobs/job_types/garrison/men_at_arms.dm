@@ -30,11 +30,18 @@
 
 /datum/outfit/job/watchman/pre_equip(mob/living/carbon/human/H)
 	. = ..()
+	cloak = /obj/item/clothing/cloak/stabard/guard
 	wrists = /obj/item/clothing/wrists/bracers/leather
 	pants = /obj/item/clothing/pants/trou/leather/guard
 	shoes = /obj/item/clothing/shoes/boots
 	belt = /obj/item/storage/belt/leather
 	beltl = /obj/item/storage/keyring/manorguard
+
+/datum/outfit/job/watchman/post_equip(mob/living/carbon/human/H)
+	. = ..()
+	if(H.cloak)
+		if(!findtext(H.cloak.name,"([H.real_name])"))
+			H.cloak.name = "[H.cloak.name]"+" "+"([H.real_name])"
 
 /datum/job/men_at_arms/after_spawn(mob/living/carbon/spawned, client/player_client)
 	..()
@@ -52,7 +59,6 @@
 /datum/outfit/job/watchman/pikeman/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/helmet/kettle
-	cloak = /obj/item/clothing/cloak/stabard/guard
 	armor = /obj/item/clothing/armor/cuirass
 	shirt = /obj/item/clothing/armor/chainmail
 	neck = /obj/item/clothing/neck/chaincoif/iron
@@ -93,7 +99,6 @@
 /datum/outfit/job/watchman/swordsmen/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = pick(/obj/item/clothing/head/roguehood/guard, /obj/item/clothing/head/roguehood/guardsecond)
-	cloak = /obj/item/clothing/cloak/stabard/guard
 	armor = /obj/item/clothing/armor/leather/advanced
 	shirt = /obj/item/clothing/armor/gambeson
 	neck = /obj/item/clothing/neck/gorget
@@ -131,7 +136,6 @@
 /datum/outfit/job/watchman/ranger/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/helmet/kettle
-	cloak = /obj/item/clothing/cloak/stabard/guard
 	armor = /obj/item/clothing/armor/leather/hide
 	shirt = /obj/item/clothing/armor/gambeson/heavy
 	beltr = /obj/item/weapon/mace/cudgel

@@ -227,18 +227,6 @@
 	icon_state = "Light[rand(1,2)]"
 	add_atom_colour("#ffffff", FIXED_COLOUR_PRIORITY)
 
-/obj/structure/vine/examine(mob/user)
-	. = ..()/*
-	var/text = "This one is a"
-	if(mutations.len)
-		for(var/A in mutations)
-			var/datum/vine_mutation/SM = A
-			text += " [SM.name]"
-	else
-		text += " normal"
-	text += " vine."
-	. += text*/
-
 /obj/structure/vine/Destroy()
 	for(var/datum/vine_mutation/SM in mutations)
 		SM.on_death(src)

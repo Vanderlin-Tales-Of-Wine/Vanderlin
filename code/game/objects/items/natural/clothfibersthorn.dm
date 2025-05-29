@@ -32,23 +32,6 @@
 	spitoutmouth = FALSE
 	bundletype = /obj/item/natural/bundle/silk
 
-#ifdef TESTSERVER
-
-/client/verb/bloodnda()
-	set category = "DEBUGTEST"
-	set name = "bloodnda"
-	set desc = ""
-
-	var/obj/item/I
-	I = mob.get_active_held_item()
-	if(I)
-		if(I.return_blood_DNA())
-			testing("yep")
-		else
-			testing("nope")
-
-#endif
-
 /obj/item/natural/cloth
 	name = "cloth"
 	desc = "A square of cloth mended from fibers."
@@ -84,13 +67,13 @@
 
 /obj/item/natural/cloth/ComponentInitialize()
 	. = ..()
-	cleaner_component = AddComponent(/datum/component/cleaner,
-									clean_speed,
-									CLEAN_MEDIUM,
-									100,
-									TRUE,
-									CALLBACK(src, PROC_REF(on_pre_clean)),
-									CALLBACK(src, PROC_REF(on_clean_success)),
+	cleaner_component = AddComponent(/datum/component/cleaner, \
+									clean_speed, \
+									CLEAN_MEDIUM, \
+									100, \
+									TRUE, \
+									CALLBACK(src, PROC_REF(on_pre_clean)), \
+									CALLBACK(src, PROC_REF(on_clean_success)), \
 									)
 
 /obj/item/natural/cloth/proc/on_pre_clean(datum/cleaning_source, atom/atom_to_clean, mob/living/cleaner)
@@ -239,10 +222,8 @@
 				user.visible_message(span_small("[user] wrings out \the [src]."), span_small("I wring out \the [src]."), vision_distance = 2)
 				playsound(T, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 25, FALSE)
 
-
 // BANDAGING
 /obj/item/natural/cloth/attack(mob/living/M, mob/user)
-	testing("attack")
 	bandage(M, user)
 
 /obj/item/natural/cloth/proc/bandage(mob/living/M, mob/user)

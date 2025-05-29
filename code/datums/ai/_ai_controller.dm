@@ -176,11 +176,13 @@ have ways of interacting with a specific atom and control it. They posses a blac
 		living_pawn.aimheight_change(rand(10,19))
 
 	if(isnull(combat_mode))
+		SEND_SIGNAL(living_pawn, COMSIG_HOSTILE_PRE_ATTACKINGTARGET, final_target)
 		living_pawn.ClickOn(final_target, params)
 		return TRUE
 
 	var/old_combat_mode = living_pawn.cmode
 	living_pawn.cmode = combat_mode
+	SEND_SIGNAL(living_pawn, COMSIG_HOSTILE_PRE_ATTACKINGTARGET, final_target)
 	living_pawn.ClickOn(final_target, params)
 	living_pawn.cmode = old_combat_mode
 	return TRUE

@@ -18,7 +18,7 @@
 	uses_attacked_atom = FALSE
 
 /datum/repeatable_crafting_recipe/engineering/cog
-	name = "cog"
+	name = "cogwheel"
 	requirements = list(
 		/obj/item/grown/log/tree/small= 1,
 		/obj/item/ingot/bronze = 1,
@@ -29,7 +29,7 @@
 	attacked_atom = /obj/item/grown/log/tree/small
 	starting_atom= /obj/item/weapon/knife
 	output = /obj/item/rotation_contraption/cog
-	output_amount = 4
+	output_amount = 5
 	craft_time = 5 SECONDS
 	uses_attacked_atom = FALSE
 
@@ -37,7 +37,7 @@
 	name = "waterwheel"
 	requirements = list(
 		/obj/item/grown/log/tree/small= 1,
-		/obj/item/natural/wood/plank = 6,
+		/obj/item/natural/wood/plank = 4,
 	)
 	tool_usage = list(
 		/obj/item/weapon/knife = list(span_notice("starts to whittle"), span_notice("start to whittle"), 'sound/items/wood_sharpen.ogg'),
@@ -49,7 +49,7 @@
 	uses_attacked_atom = FALSE
 
 /datum/repeatable_crafting_recipe/engineering/large_cog
-	name = "large cog"
+	name = "large cogwheel"
 	requirements = list(
 		/obj/item/grown/log/tree/small= 1,
 		/obj/item/ingot/bronze = 1,
@@ -60,15 +60,15 @@
 	attacked_atom = /obj/item/grown/log/tree/small
 	starting_atom= /obj/item/weapon/knife
 	output = /obj/item/rotation_contraption/large_cog
-	output = 2
+	output_amount = 3
 	craft_time = 5 SECONDS
 	uses_attacked_atom = FALSE
 
 /datum/repeatable_crafting_recipe/engineering/gearbox
 	name = "gearbox"
 	requirements = list(
-		/obj/item/grown/log/tree/small= 2,
-		/obj/item/natural/wood/plank = 4,
+		/obj/item/grown/log/tree/small= 1,
+		/obj/item/natural/wood/plank = 2,
 	)
 	tool_usage = list(
 		/obj/item/weapon/knife = list(span_notice("starts to whittle"), span_notice("start to whittle"), 'sound/items/wood_sharpen.ogg'),
@@ -82,8 +82,8 @@
 /datum/repeatable_crafting_recipe/engineering/vertical_gearbox
 	name = "vertical gearbox"
 	requirements = list(
-		/obj/item/grown/log/tree/small= 2,
-		/obj/item/natural/wood/plank = 4,
+		/obj/item/grown/log/tree/small= 1,
+		/obj/item/natural/wood/plank = 2,
 	)
 	tool_usage = list(
 		/obj/item/weapon/knife = list(span_notice("starts to whittle"), span_notice("start to whittle"), 'sound/items/wood_sharpen.ogg'),
@@ -106,7 +106,7 @@
 	attacked_atom = /obj/item/ingot/iron
 	starting_atom= /obj/item/weapon/hammer
 	output = /obj/item/rotation_contraption/minecart_rail
-	output_amount = 6
+	output_amount = 10
 	craft_time = 5 SECONDS
 	uses_attacked_atom = FALSE
 
@@ -121,7 +121,7 @@
 	attacked_atom = /obj/item/ingot/bronze
 	starting_atom= /obj/item/weapon/hammer
 	output = /obj/item/rotation_contraption/water_pipe
-	output_amount = 18
+	output_amount = 12
 	craft_time = 5 SECONDS
 	uses_attacked_atom = FALSE
 
@@ -157,7 +157,7 @@
 	name = "liquid pump"
 	requirements = list(
 		/obj/item/grown/log/tree/small= 1,
-		/obj/item/ingot/bronze = 3,
+		/obj/item/ingot/bronze = 2,
 	)
 	tool_usage = list(
 		/obj/item/weapon/knife = list(span_notice("starts to whittle"), span_notice("start to whittle"), 'sound/items/wood_sharpen.ogg'),
@@ -169,13 +169,41 @@
 	craft_time = 5 SECONDS
 	uses_attacked_atom = FALSE
 
+/datum/repeatable_crafting_recipe/engineering/water_vent
+	name = "fluid vent"
+	requirements = list(
+		/obj/item/ingot/bronze = 1,
+	)
+	tool_usage = list(
+		/obj/item/weapon/hammer = list(span_notice("starts to hammer"), span_notice("start to hammer"), 'sound/items/bsmith2.ogg'),
+	)
+	attacked_atom = /obj/item/ingot/bronze
+	starting_atom= /obj/item/weapon/hammer
+	output = /obj/item/rotation_contraption/water_vent
+	output_amount = 2
+	craft_time = 5 SECONDS
+	uses_attacked_atom = FALSE
+
+/datum/repeatable_crafting_recipe/engineering/steam_recharger
+	name = "steam recharger"
+	requirements = list(
+		/obj/item/ingot/bronze = 2,
+	)
+	tool_usage = list(
+		/obj/item/weapon/hammer = list(span_notice("starts to hammer"), span_notice("start to hammer"), 'sound/items/bsmith2.ogg'),
+	)
+	attacked_atom = /obj/item/ingot/bronze
+	starting_atom= /obj/item/weapon/hammer
+	output = /obj/item/rotation_contraption/steam_recharger
+	craft_time = 5 SECONDS
+	uses_attacked_atom = FALSE
+
 /datum/repeatable_crafting_recipe/engineering/gunpowder
 	name = "blastpowder"
 	requirements = list(
 		/obj/item/natural/stone= 1,
 		/obj/item/reagent_containers/food/snacks/rotten/egg = 1,
 		/obj/item/reagent_containers/food/snacks/produce/fyritius = 1,
-
 	)
 	tool_usage = list(
 		/obj/item/pestle = list(span_notice("starts to grind together"), span_notice("start to grind together"), 'sound/foley/mortarpestle.ogg'),
@@ -189,12 +217,11 @@
 	uses_attacked_atom = FALSE
 
 /datum/repeatable_crafting_recipe/engineering/breaching_charge
-	name = "Breaching Charge"
+	name = "breaching charge"
 	requirements = list(
 		/obj/item/reagent_containers/powder/blastpowder = 2,
 		/obj/item/natural/fibers = 1,
 		/obj/item/natural/cloth = 1,
-
 	)
 
 	attacked_atom = /obj/item/natural/cloth

@@ -143,32 +143,64 @@
  */
 /datum/repeatable_crafting_recipe/proc/check_max_repeats(obj/item/attacked_item, obj/item/attacking_item, mob/user)
 	var/list/usable_contents = list()
-	if(uses_attacked_atom)
-		usable_contents |= attacked_item.type
-		usable_contents[attacked_item.type]++
 
 	gather_usable_contents(user, usable_contents)
+
+	// Handle uses_attacked_atom properly - if we use the attacked atom, we need to include it in our calculations
+	if(uses_attacked_atom)
+		var/attacked_type = attacked_item.type
+		if(istype(attacked_item, /obj/item/natural/bundle))
+			attacked_type = attacked_item:stacktype
+			usable_contents |= attacked_type
+			usable_contents[attacked_type] += attacked_item:amount
+		else
+			usable_contents |= attacked_type
+			usable_contents[attacked_type] += 1
 
 	var/max_crafts = 10000
 	var/list/total_list = usable_contents
 	var/list/all_blacklisted = typesof_list(blacklisted_paths)
 
-	for(var/path as anything in total_list)
-		for(var/required_path as anything in requirements)
+	// Check each requirement against available items
+	for(var/required_path as anything in requirements)
+		var/required_amount = requirements[required_path]
+		var/available_amount = 0
+
+		// Count available items that match this requirement
+		for(var/path as anything in total_list)
 			if(!ispath(path, required_path) || (path in all_blacklisted))
 				continue
-			var/holder_max_crafts = FLOOR(total_list[path] / requirements[required_path], 1)
-			max_crafts = min(max_crafts, holder_max_crafts)
+			if(!subtypes_allowed && (path in subtypesof(required_path)))
+				continue
+			available_amount += total_list[path]
 
+		if(available_amount == 0)
+			return 0 // Can't craft any if we're missing a required component
+
+		var/holder_max_crafts = FLOOR(available_amount / required_amount, 1)
+		max_crafts = min(max_crafts, holder_max_crafts)
+
+	// Check reagent requirements
 	if(length(reagent_requirements))
 		var/list/reagent_values = gather_reagents(user)
 
-		for(var/path in reagent_values)
-			for(var/required_path as anything in reagent_requirements)
+		for(var/required_path as anything in reagent_requirements)
+			var/required_amount = reagent_requirements[required_path]
+			var/available_amount = 0
+
+			// Count available reagents that match this requirement
+			for(var/path in reagent_values)
 				if(!ispath(path, required_path))
 					continue
-				var/holder_max_crafts = FLOOR(reagent_values[path] / reagent_requirements[required_path], 1)
-				max_crafts = min(max_crafts, holder_max_crafts)
+				if(!reagent_subtypes_allowed && (path in subtypesof(required_path)))
+					continue
+				available_amount += reagent_values[path]
+
+			if(available_amount == 0)
+				return 0 // Can't craft any if we're missing required reagents
+
+			var/holder_max_crafts = FLOOR(available_amount / required_amount, 1)
+			max_crafts = min(max_crafts, holder_max_crafts)
 
 	return max_crafts
 
@@ -781,7 +813,8 @@
 					continue
 				parts += listed
 			new_item.CheckParts(parts)
-			new_item.OnCrafted(user.dir, user)
+
+		new_item.OnCrafted(user.dir, user)
 
 		outputs += new_item
 

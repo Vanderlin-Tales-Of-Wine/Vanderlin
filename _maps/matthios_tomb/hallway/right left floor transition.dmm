@@ -43,7 +43,7 @@
 /obj/structure/stairs/stone{
 	dir = 8
 	},
-/turf/open/transparent/openspace,
+/turf/open/floor/naturalstone,
 /area/rogue/under/tomb/cave)
 
 (1,1,1) = {"

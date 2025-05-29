@@ -105,12 +105,6 @@
 	Stun(6000, 1, 1)
 	ADD_TRAIT(src, TRAIT_MUTE, TRAIT_GENERIC)
 	walk(src, 0) //stops them mid pathing even if they're stunimmune
-	if(isanimal(src))
-		var/mob/living/simple_animal/S = src
-		S.toggle_ai(AI_OFF)
-	if(ishostile(src))
-		var/mob/living/simple_animal/hostile/H = src
-		H.LoseTarget()
 	if(client)
 		client.verbs |= /client/proc/commendsomeone
 

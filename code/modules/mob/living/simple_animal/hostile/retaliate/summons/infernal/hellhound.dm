@@ -46,10 +46,14 @@
 	attack_sound = list('sound/vo/mobs/vw/attack (1).ogg','sound/vo/mobs/vw/attack (2).ogg','sound/vo/mobs/vw/attack (3).ogg','sound/vo/mobs/vw/attack (4).ogg')
 	dodgetime = 30
 	aggressive = 1
-	var/flame_cd
+
+	ai_controller = /datum/ai_controller/hellhound
+
+
 
 /mob/living/simple_animal/hostile/retaliate/infernal/hellhound/Initialize()
 	. = ..()
+	AddComponent(/datum/component/ai_aggro_system)
 
 /mob/living/simple_animal/hostile/retaliate/infernal/hellhound/death(gibbed)
 	..()
@@ -64,22 +68,3 @@
 	update_icon()
 	spill_embedded_objects()
 	qdel(src)
-
-
-/mob/living/simple_animal/hostile/retaliate/infernal/hellhound/AttackingTarget()
-	if(SEND_SIGNAL(src, COMSIG_HOSTILE_PRE_ATTACKINGTARGET, target) & COMPONENT_HOSTILE_NO_PREATTACK)
-		return FALSE //but more importantly return before attack_animal called
-	SEND_SIGNAL(src, COMSIG_HOSTILE_ATTACKINGTARGET, target)
-	in_melee = TRUE
-	if(!target)
-		return
-	if(world.time >= src.flame_cd + 100)
-		var/mob/living/targetted = target
-		if(!isliving(target))
-			return
-		targetted.adjust_fire_stacks(5)
-		targetted.IgniteMob()
-		targetted.visible_message(span_danger("[src] sets [target] on fire!"))
-		src.flame_cd = world.time
-	if(!QDELETED(target))
-		return target.attack_animal(src)
