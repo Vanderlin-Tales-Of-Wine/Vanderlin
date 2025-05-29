@@ -18,7 +18,9 @@
 	if(type == /obj/item/clothing/head/crown/serpcrown && !istype(loc, /mob/living/carbon/human/dummy)) //dummies spawn this in character setup
 		SSroguemachine.crown = src
 	become_hearing_sensitive()
+	#ifdef LOWMEMORYMODE
 	create_ancestral_spirit() // TESTING PROC, DON'T LEAVE THIS IN FOR LIVE
+	#endif
 
 /obj/item/clothing/head/crown/serpcrown/proc/anti_stall()
 	src.visible_message(span_warning("[src] crumbles to dust, the ashes spiriting away in the direction of the Keep."))
