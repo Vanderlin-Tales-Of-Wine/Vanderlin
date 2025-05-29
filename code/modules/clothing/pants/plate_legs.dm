@@ -28,7 +28,7 @@
 	do_sound_plate = TRUE
 	item_weight = 9 * STEEL_MULTIPLIER
 
-	/obj/item/clothing/pants/platelegs/iron
+/obj/item/clothing/pants/platelegs/iron
 	name = "iron plated chausses"
 	desc = "Cuisses made of plated iron, offering additional protection against blunt force."
 	icon_state = "iplate_legs"
