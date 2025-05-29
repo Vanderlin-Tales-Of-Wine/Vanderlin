@@ -257,6 +257,8 @@ There are several things that need to be remembered:
 /mob/living/carbon/human/update_clothing(slot_flags)
 	if(slot_flags & ITEM_SLOT_BACK)
 		update_inv_back()
+	if(slot_flags & ITEM_SLOT_CLOAK)
+		update_inv_cloak()
 	if(slot_flags & ITEM_SLOT_MASK)
 		update_inv_wear_mask()
 	if(slot_flags & ITEM_SLOT_NECK)

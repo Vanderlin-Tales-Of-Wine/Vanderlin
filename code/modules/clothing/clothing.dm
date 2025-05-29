@@ -99,17 +99,25 @@
 													'sound/foley/footsteps/armor/inquisitorboot (3).ogg',\
 													'sound/foley/footsteps/armor/inquisitorboot (4).ogg'), 100)
 
+	if(uses_lord_coloring)
+		if(GLOB.lordprimary && GLOB.lordsecondary)
+			lordcolor()
+		else
+			RegisterSignal(SSdcs, COMSIG_LORD_COLORS_SET, TYPE_PROC_REF(/obj/item/clothing, lordcolor))
+
 	if(hoodtype)
 		MakeHood()
 
 /obj/item/clothing/ComponentInitialize()
 	. = ..()
-	AddElement(/datum/element/update_icon_updates_onmob)
+	AddElement(/datum/element/update_icon_updates_onmob, slot_flags)
 
 /obj/item/clothing/Destroy()
 	user_vars_remembered = null //Oh god somebody put REFERENCES in here? not to worry, we'll clean it up
 	if(hoodtype)
 		QDEL_NULL(hood)
+	if(uses_lord_coloring)
+		UnregisterSignal(SSdcs, COMSIG_LORD_COLORS_SET)
 	return ..()
 
 /obj/item/clothing/Topic(href, href_list)
