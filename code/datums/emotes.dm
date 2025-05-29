@@ -67,8 +67,8 @@
 		for(var/mob/living/M in range(user, 2))
 			if(M != user)
 				mobsadjacent += M
-		if(mobsadjacent.len)
-			chosenmob = input("[key] who?") as null|anything in mobsadjacent
+		if(length(mobsadjacent))
+			chosenmob = browser_input_list(user, "[key] who?", "XYLIX", mobsadjacent)
 		if(istype(chosenmob))
 			if(user.Adjacent(chosenmob))
 				params = chosenmob.name

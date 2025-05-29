@@ -65,6 +65,7 @@
 
 	var/do_sound_chain = FALSE
 	var/do_sound_plate = FALSE
+	var/do_sound_inquisboot = FALSE
 
 	var/obj/item/clothing/head/hooded/hood
 	var/hoodtype
@@ -91,6 +92,12 @@
 		AddComponent(/datum/component/squeak, list('sound/foley/footsteps/armor/plate (1).ogg',\
 													'sound/foley/footsteps/armor/plate (2).ogg',\
 													'sound/foley/footsteps/armor/plate (3).ogg'), 100)
+
+	else if(do_sound_inquisboot)
+		AddComponent(/datum/component/squeak, list('sound/foley/footsteps/armor/inquisitorboot (1).ogg',\
+													'sound/foley/footsteps/armor/inquisitorboot (2).ogg',\
+													'sound/foley/footsteps/armor/inquisitorboot (3).ogg',\
+													'sound/foley/footsteps/armor/inquisitorboot (4).ogg'), 100)
 
 	if(hoodtype)
 		MakeHood()
@@ -308,7 +315,7 @@
 			pic.color = get_detail_color()
 		add_overlay(pic)
 
-/obj/item/clothing/obj_break(damage_flag)
+/obj/item/clothing/obj_break(damage_flag, silent)
 	if(!damaged_clothes)
 		update_clothes_damaged_state(TRUE)
 	var/brokemessage = FALSE
@@ -351,18 +358,17 @@ BLIND     // can't see anything
 */
 
 /proc/generate_female_clothing(index,t_color,icon,type)
-	var/icon/female_clothing_icon	= icon("icon"=icon, "icon_state"=t_color)
-	var/icon/female_s				= icon("icon"='icons/mob/clothing/under/masking_helpers.dmi', "icon_state"="[(type == FEMALE_UNIFORM_FULL) ? "female_full" : "female_top"]")
+	var/icon/female_clothing_icon = icon("icon"=icon, "icon_state"=t_color)
+	var/icon/female_s = icon("icon"='icons/mob/clothing/under/masking_helpers.dmi', "icon_state"="[(type == FEMALE_UNIFORM_FULL) ? "female_full" : "female_top"]")
 	female_clothing_icon.Blend(female_s, ICON_MULTIPLY)
-	female_clothing_icon 			= fcopy_rsc(female_clothing_icon)
+	female_clothing_icon = fcopy_rsc(female_clothing_icon)
 	GLOB.female_clothing_icons[index] = female_clothing_icon
 
 /proc/generate_dismembered_clothing(index, t_color, icon, sleeveindex, sleevetype)
-	testing("GDC [index]")
 	if(sleevetype)
-		var/icon/dismembered		= icon("icon"=icon, "icon_state"=t_color)
-		var/icon/r_mask				= icon("icon"='icons/roguetown/clothing/onmob/helpers/dismemberment.dmi', "icon_state"="r_[sleevetype]")
-		var/icon/l_mask				= icon("icon"='icons/roguetown/clothing/onmob/helpers/dismemberment.dmi', "icon_state"="l_[sleevetype]")
+		var/icon/dismembered = icon("icon"=icon, "icon_state"=t_color)
+		var/icon/r_mask = icon("icon"='icons/roguetown/clothing/onmob/helpers/dismemberment.dmi', "icon_state"="r_[sleevetype]")
+		var/icon/l_mask = icon("icon"='icons/roguetown/clothing/onmob/helpers/dismemberment.dmi', "icon_state"="l_[sleevetype]")
 		switch(sleeveindex)
 			if(1)
 				dismembered.Blend(r_mask, ICON_MULTIPLY)
@@ -371,8 +377,7 @@ BLIND     // can't see anything
 				dismembered.Blend(l_mask, ICON_MULTIPLY)
 			if(3)
 				dismembered.Blend(r_mask, ICON_MULTIPLY)
-		dismembered 			= fcopy_rsc(dismembered)
-		testing("GDC added [index]")
+		dismembered = fcopy_rsc(dismembered)
 		GLOB.dismembered_clothing_icons[index] = dismembered
 
 /obj/item/clothing/pants/AltClick(mob/user)
@@ -422,7 +427,7 @@ BLIND     // can't see anything
 		if(loc == user)
 			AdjustClothes(user)
 
-/obj/item/clothing/proc/AdjustClothes(mob/user)
+/obj/item/clothing/proc/AdjustClothes(mob/usFer)
 	return //override this in the clothing item itself so we can update the right inv
 
 /obj/item/clothing/proc/ResetAdjust(mob/user)
@@ -483,7 +488,6 @@ BLIND     // can't see anything
 				to_chat(H, "<span class='warning'>I'm already wearing something on my head.</span>")
 				return
 			else if(H.equip_to_slot_if_possible(hood,SLOT_HEAD,0,0,1))
-				testing("begintog")
 				hoodtoggled = TRUE
 				if(toggle_icon_state)
 					src.icon_state = "[initial(icon_state)]_t"
@@ -492,7 +496,5 @@ BLIND     // can't see anything
 				H.update_inv_neck()
 				H.update_inv_pants()
 				H.update_fov_angles()
-
 	else
 		RemoveHood()
-	testing("endtoggle")

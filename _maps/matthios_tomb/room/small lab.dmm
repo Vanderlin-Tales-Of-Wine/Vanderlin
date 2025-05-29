@@ -91,9 +91,6 @@
 /obj/structure/fluff/walldeco/vinez/r,
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb)
-"lb" = (
-/turf/open/floor/plank/h,
-/area/rogue/under/tomb/indoors)
 "lo" = (
 /obj/structure/door/iron/bars,
 /obj/effect/mapping_helpers/access/locker,
@@ -296,7 +293,7 @@
 /obj/structure/kneestingers{
 	pixel_y = 11
 	},
-/turf/open/floor/plank/h,
+/turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/under/tomb/indoors)
 "Jp" = (
 /obj/structure/bed/hay,
@@ -413,7 +410,7 @@
 /obj/structure/stairs/d{
 	dir = 4
 	},
-/turf/closed,
+/turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/under/tomb/indoors)
 "UM" = (
 /turf/closed/wall/mineral/stone,
@@ -1209,7 +1206,7 @@ Yi
 Yi
 UM
 UM
-lb
+iK
 UM
 UM
 Yi

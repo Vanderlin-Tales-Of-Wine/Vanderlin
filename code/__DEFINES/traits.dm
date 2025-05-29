@@ -56,6 +56,7 @@
 #define TRAIT_DREAM_WATCHER				"Noc Blessed" //Unique Trait of the Dream Watcher Town Elder Class, they have a chance to know about antags or gods influences.
 #define TRAIT_HOLLOWBONES				"Hollow Bones"
 #define TRAIT_AMAZING_BACK				"Light Load"
+#define TRAIT_KITTEN_MOM				"Loved By Kittens"
 /// applied to orphans
 #define TRAIT_ORPHAN 					"Orphan"
 
@@ -208,6 +209,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_AMAZING_BACK = span_notice("I'm able to carry far more on my back!"),
 	TRAIT_HOLLOWBONES = span_danger("My bones are light as air, Its hard to wear armor."),
 	TRAIT_EARGRAB = span_info("I can keep a tight grip on the ear of unruly children."),
+	TRAIT_KITTEN_MOM = span_info("Kittens love you, they see you are a parent.")
 	))
 
 #define SIGNAL_ADDTRAIT(trait_ref) ("addtrait " + trait_ref)

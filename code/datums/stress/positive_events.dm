@@ -207,3 +207,8 @@
 	stressadd = -1
 	desc = span_green("I have prevailed over my rival! Graggar favours me now!")
 	timer = INFINITY
+
+/datum/stressevent/night_owl_night
+	stressadd = -1
+	desc = span_green("I love the night!")
+	timer = 20 MINUTES

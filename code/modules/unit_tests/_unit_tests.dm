@@ -62,6 +62,7 @@
 //Keep this sorted alphabetically
 #include "anchored_mobs.dm"
 #include "component_tests.dm"
+#include "connect_loc.dm"
 // #include "create_and_destroy.dm"
 #include "focus_only_tests.dm"
 #include "reagent_id_typos.dm"

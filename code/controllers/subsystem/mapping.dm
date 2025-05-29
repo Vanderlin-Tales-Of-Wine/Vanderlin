@@ -224,7 +224,11 @@ SUBSYSTEM_DEF(mapping)
 	#endif
 
 	//For all maps
-	otherZ += load_map_config("_maps/map_files/shared/underworld.json")
+
+	#ifndef LOWMEMORYMODE
+	otherZ += load_map_config("_maps/map_files/shared/underworld.json") // don't load underworld on lowmem
+	#endif
+
 	if(length(otherZ))
 		for(var/datum/map_config/OtherZ in otherZ)
 			LoadGroup(FailedZs, OtherZ.map_name, OtherZ.map_path, OtherZ.map_file, OtherZ.traits, ZTRAITS_STATION)

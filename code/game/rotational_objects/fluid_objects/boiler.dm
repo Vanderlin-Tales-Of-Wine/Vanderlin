@@ -16,9 +16,15 @@
 	. = ..()
 	START_PROCESSING(SSobj, src)
 
+/obj/structure/boiler/Destroy()
+	STOP_PROCESSING(SSobj, src)
+	if(output)
+		output.remove_provider(/datum/reagent/steam, stored_steam)
+	. = ..()
+
 /obj/structure/boiler/setup_water()
-	var/turf/east_turf = get_step(src, EAST)
-	var/turf/west_turf = get_step(src, WEST)
+	var/turf/east_turf = get_step(src, turn(dir, 90))
+	var/turf/west_turf = get_step(src, turn(dir, -90))
 
 	input = locate(/obj/structure/water_pipe) in east_turf
 	output = locate(/obj/structure/water_pipe) in west_turf
@@ -31,12 +37,12 @@
 			Output Pressure:[stored_steam]
 			Steam:[stored_steam ? round((stored_steam / maximum_steam) * 100, 1 ): "0"]%"}
 
-
+// Assume boiler is facing south (dir = SOUTH). Input is coming in from the right (direction = WEST) and output is to the left (direction = EAST)
 /obj/structure/boiler/valid_water_connection(direction, obj/structure/water_pipe/pipe)
-	if(direction == WEST)
+	if(direction == turn(dir, -90))
 		input = pipe
 		return TRUE
-	if(direction == EAST)
+	if(direction == turn(dir, 90))
 		output = pipe
 		return TRUE
 	return FALSE

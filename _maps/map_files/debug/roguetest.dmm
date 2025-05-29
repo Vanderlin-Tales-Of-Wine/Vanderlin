@@ -2318,6 +2318,10 @@
 	},
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
+"Yr" = (
+/obj/structure/rotation_piece/cog/large,
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors)
 "Ys" = (
 /obj/structure/hotspring/border/twelve,
 /obj/effect/lily_petal{
@@ -17723,7 +17727,7 @@ ac
 ac
 at
 qc
-QN
+Yr
 xh
 hO
 ez
@@ -17980,7 +17984,7 @@ ac
 ac
 at
 at
-QN
+ez
 Ua
 Ua
 zA
@@ -18237,8 +18241,8 @@ ac
 ac
 ac
 at
-at
-at
+Yr
+xh
 Ua
 QN
 QN

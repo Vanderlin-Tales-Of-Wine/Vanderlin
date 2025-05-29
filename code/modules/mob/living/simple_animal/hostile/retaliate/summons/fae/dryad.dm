@@ -1,3 +1,24 @@
+/datum/component/vine_spreader
+	var/cooldown_time = 10 SECONDS
+	var/last_vine_time = 0
+
+/datum/component/vine_spreader/RegisterWithParent()
+	. = ..()
+	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, PROC_REF(try_spread_vines))
+
+/datum/component/vine_spreader/proc/try_spread_vines(mob/living/source, atom/target)
+	if(world.time < last_vine_time + cooldown_time)
+		return
+	if(source.stat == DEAD)
+		return
+
+	target.visible_message(span_boldwarning("Vines spread out from [source]!"))
+	for(var/turf/turf as anything in RANGE_TURFS(2, source.loc))
+		new /obj/structure/vine(turf)
+
+	last_vine_time = world.time
+
+
 /mob/living/simple_animal/hostile/retaliate/fae/dryad	//Make this cause giant vine tangled messes
 	icon = 'icons/mob/summonable/32x64.dmi'
 	name = "dryad"
@@ -41,61 +62,23 @@
 	del_on_deaggro = 44 SECONDS
 	retreat_health = 0.3
 	food = 0
-	attack_sound = "plantcross"
+	attack_sound = list('sound/foley/plantcross1.ogg','sound/foley/plantcross2.ogg','sound/foley/plantcross3.ogg','sound/foley/plantcross4.ogg')
 	dodgetime = 30
 	aggressive = 1
 //	stat_attack = UNCONSCIOUS
 	ranged = FALSE
-	var/vine_cd
+
+	ai_controller = /datum/ai_controller/basic_controller/dryad
+
+
+
+/mob/living/simple_animal/hostile/retaliate/fae/dryad/Initialize()
+	. = ..()
+	AddComponent(/datum/component/ai_aggro_system)
+	AddComponent(/datum/component/vine_spreader)
 
 /mob/living/simple_animal/hostile/retaliate/fae/dryad/simple_add_wound(datum/wound/wound, silent = FALSE, crit_message = FALSE)	//no wounding the watcher
 	return
-
-/mob/living/simple_animal/hostile/retaliate/fae/dryad/MoveToTarget(list/possible_targets)//Step 5, handle movement between us and our target
-	stop_automated_movement = 1
-	if(!target || !CanAttack(target))
-		LoseTarget()
-		return 0
-	if(binded)
-		return 0
-	if(target in possible_targets)
-		var/target_distance = get_dist(targets_from,target)
-		if(ranged) //We ranged? Shoot at em
-			if(!target.Adjacent(targets_from) && ranged_cooldown <= world.time) //But make sure they're not in range for a melee attack and our range attack is off cooldown
-				OpenFire(target)
-		if(!Process_Spacemove()) //Drifting
-			walk(src,0)
-			return 1
-		if(world.time >= src.vine_cd + 100)
-			vine()
-			src.vine_cd = world.time
-		if(retreat_distance != null) //If we have a retreat distance, check if we need to run from our target
-			if(target_distance <= retreat_distance) //If target's closer than our retreat distance, run
-				walk_away(src,target,retreat_distance,move_to_delay)
-			else
-				Goto(target,move_to_delay,minimum_distance) //Otherwise, get to our minimum distance so we chase them
-		else
-			Goto(target,move_to_delay,minimum_distance)
-		if(target)
-			if(targets_from && isturf(targets_from.loc) && target.Adjacent(targets_from)) //If they're next to us, attack
-				MeleeAction()
-			else
-				if(rapid_melee > 1 && target_distance <= melee_queue_distance)
-					MeleeAction(FALSE)
-				in_melee = FALSE //If we're just preparing to strike do not enter sidestep mode
-			return 1
-		return 0
-	else
-		if(ranged_ignores_vision && ranged_cooldown <= world.time) //we can't see our target... but we can fire at them!
-			OpenFire(target)
-		Goto(target,move_to_delay,minimum_distance)
-		FindHidden()
-		return 1
-
-/mob/living/simple_animal/hostile/retaliate/fae/dryad/proc/vine()
-	target.visible_message(span_boldwarning("Vines spread out from [src]!"))
-	for(var/turf/turf as anything in RANGE_TURFS(3,src.loc))
-		new /obj/structure/vine(turf)
 
 /mob/living/simple_animal/hostile/retaliate/fae/dryad/death(gibbed)
 	..()

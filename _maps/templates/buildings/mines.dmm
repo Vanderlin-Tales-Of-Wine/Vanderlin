@@ -40,10 +40,8 @@
 /turf/open/floor/cobblerock,
 /area/template_noop)
 "S" = (
-/turf/open/floor/cobblerock{
-	icon = 'icons/obj/stairs.dmi';
-	icon_state = "stonestairs"
-	},
+/obj/structure/stairs/stone/d,
+/turf/open/floor/cobblerock,
 /area/template_noop)
 "Z" = (
 /turf/closed,
