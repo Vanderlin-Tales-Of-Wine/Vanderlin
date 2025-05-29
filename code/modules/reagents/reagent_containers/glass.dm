@@ -13,7 +13,6 @@
 	. = ..()
 	AddComponent(/datum/component/liquids_interaction, TYPE_PROC_REF(/obj/item/reagent_containers/glass, attack_on_liquids_turf))
 
-
 /obj/item/reagent_containers/glass/proc/attack_on_liquids_turf(obj/item/reagent_containers/my_beaker, turf/T, mob/living/user, obj/effect/abstract/liquid_turf/liquids)
 	if(user.used_intent != /datum/intent/fill)
 		return
@@ -86,9 +85,7 @@
 	candodge = FALSE
 	misscost = 0
 
-/obj/item/reagent_containers/glass/attack(mob/living/M, mob/living/user, atom/movable/target)
-	if(!istype(M) || QDELETED(M) || QDELETED(target))
-		return
+/obj/item/reagent_containers/glass/attack(mob/living/M, mob/living/user, zone)
 	if(!user.used_intent)
 		return
 	if(user.used_intent.type == INTENT_GENERIC)
@@ -106,15 +103,15 @@
 			for(var/datum/reagent/A as anything in reagents.reagent_list)
 				R += "[A] ([num2text(A.volume)]),"
 
-		if(isturf(target) && reagents.reagent_list.len && thrownby)
-			log_combat(thrownby, target, "splashed (thrown) [english_list(reagents.reagent_list)]")
-			message_admins("[ADMIN_LOOKUPFLW(thrownby)] splashed (thrown) [english_list(reagents.reagent_list)] on [target] at [ADMIN_VERBOSEJMP(target)].")
+		if(reagents?.reagent_list && user)
+			log_combat(user, M, "splashed (thrown) [english_list(reagents.reagent_list)]")
+			message_admins("[ADMIN_LOOKUPFLW(user)] splashed (thrown) [english_list(reagents.reagent_list)] on [M] at [ADMIN_VERBOSEJMP(M)].")
 		reagents.reaction(M, TOUCH)
 		chem_splash(M.loc, 2, list(reagents))
 		playsound(M.loc, pick('sound/foley/water_land1.ogg','sound/foley/water_land2.ogg', 'sound/foley/water_land3.ogg'), 100, FALSE)
 		log_combat(user, M, "splashed", R)
 		return
-	else if(user.used_intent.type == INTENT_POUR)
+	if(user.used_intent.type == INTENT_POUR)
 		if(!canconsume(M, user))
 			return
 		if(M != user)
@@ -193,8 +190,6 @@
 				target.reagents.trans_to(src, amount_per_transfer_from_this, transfered_by = user)
 			else
 				break
-
-
 		return
 
 	if(reagents.total_volume && user.used_intent.type == INTENT_SPLASH)
