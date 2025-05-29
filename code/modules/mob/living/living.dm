@@ -1465,6 +1465,10 @@
 		to_chat(src, span_warning("You need more light to do this!"))
 		return FALSE
 
+	if((action_bitflags & NEED_GRAVITY) && !has_gravity())
+		to_chat(src, span_warning("You need gravity to do this!"))
+		return FALSE
+
 	return TRUE
 
 /mob/living/proc/can_use_guns(obj/item/G)//actually used for more than guns!

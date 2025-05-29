@@ -34,7 +34,7 @@
 		return
 
 	for(var/obj/item/rotation_contraption/item as anything in subtypesof(/obj/item/rotation_contraption))
-		if(istype(src, initial(item.placed_type)))
+		if(type == initial(item.placed_type))
 			start_deconstruct(user, item)
 			return
 
@@ -89,7 +89,6 @@
 	if(rotation_structure && !QDELETED(src))
 		set_connection_dir()
 		find_rotation_network()
-		AddComponent(/datum/component/simple_rotation, ROTATION_REQUIRE_WRENCH|ROTATION_IGNORE_ANCHORED)
 	if(accepts_water_input)
 		setup_water()
 

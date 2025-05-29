@@ -162,7 +162,7 @@
 	//buckle_lying = NO_BUCKLE_LYING
 
 /obj/structure/minecart_rail/railbreak/rail_examine()
-	return span_notice("Connect this rail to shafts to stop carts that pass over it. Currently [force_disabled ? "disabled" : (rotations_per_minute ? "powered" : "unpowered")]")
+	return span_notice("Connect this rail to shafts to stop carts that pass over it. Currently [force_disabled ? "disabled" : (rotations_per_minute ? "powered" : "unpowered")].")
 
 /obj/structure/minecart_rail/railbreak/redstone_triggered(mob/user)
 	force_disabled = !force_disabled
