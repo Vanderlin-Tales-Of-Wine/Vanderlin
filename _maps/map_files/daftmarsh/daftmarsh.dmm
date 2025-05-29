@@ -21079,6 +21079,14 @@
 /obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/carpet,
 /area/rogue/indoors/town/manor)
+"uAs" = (
+/obj/effect/mapping_helpers/access/keyset/town/merchant,
+/obj/effect/mapping_helpers/access/locker,
+/obj/structure/door/viewport{
+	dir = 1
+	},
+/turf/open/floor/wood,
+/area/rogue/indoors/town/shop)
 "uAt" = (
 /turf/open/floor/cobble/alt,
 /area/rogue/under/town/basement)
@@ -119694,7 +119702,7 @@ cBz
 fcV
 fcV
 cBz
-esw
+uAs
 iUA
 iUA
 ruZ
