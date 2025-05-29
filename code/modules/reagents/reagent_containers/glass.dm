@@ -249,6 +249,7 @@
 	icon_state = "woodbucket"
 	item_state = "woodbucket"
 	fill_icon_thresholds = list(0, 50, 100)
+	reagent_flags = TRANSFERABLE | AMOUNT_VISIBLE
 	max_integrity = 300
 	w_class = WEIGHT_CLASS_BULKY
 	amount_per_transfer_from_this = 9

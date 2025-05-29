@@ -30,12 +30,6 @@
 	var/fillsounds
 	/// Sounds when pouring out of
 	var/poursounds
-	/// Can this be opened with right click
-	var/openable = FALSE
-	/// Is this open
-	var/open = FALSE
-	/// Can we drink from/eat this
-	var/can_consume
 	/// Short cooktime, when high cooking skill
 	var/short_cooktime = FALSE
 	/// Long cooktime, when low cooking skill
@@ -51,7 +45,7 @@
 
 	add_initial_reagents()
 
-	if(reagent_flags & REFILLABLE)
+	if(spillable)
 		GLOB.weather_act_upon_list |= src
 
 /obj/item/reagent_containers/weather_act_on(weather_trait, severity)
@@ -175,7 +169,7 @@
 	var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[fill_name][fill_icon_thresholds[1]]")
 
 	if(fill_icon_under_override || reagent_flags & TRANSPARENT)
-		filling.layer -= 0.01
+		filling.layer = layer - 0.01
 
 	var/percent = round((reagents.total_volume / volume) * 100)
 	for(var/i in 1 to length(fill_icon_thresholds))

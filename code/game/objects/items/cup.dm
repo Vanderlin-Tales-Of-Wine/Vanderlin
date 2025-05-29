@@ -6,6 +6,8 @@
 	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
 	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
 	experimental_inhand = FALSE
+	fill_icon_thresholds = list(0)
+	reagent_flags = TRANSFERABLE | AMOUNT_VISIBLE
 	force = 5
 	throwforce = 10
 	amount_per_transfer_from_this = 6
@@ -96,6 +98,7 @@
 	desc = "A fancy glass cup- the few scratches that are upon it tell grand tales of lies and betrayal. It tends to break easily..."
 	icon = 'icons/roguetown/items/glass_reagent_container.dmi'
 	icon_state = "clear_cup1"
+	reagent_flags = OPENCONTAINER
 	sellprice = VALUE_COMMON_GOODS * 2
 	dropshrink = 1
 	max_integrity = 5

@@ -20,6 +20,10 @@
 	grid_height = 64
 	can_label_bottle = FALSE
 
+/obj/item/reagent_containers/glass/bottle/waterskin/Initialize()
+	. = ..()
+	icon_state = initial(icon_state)
+
 /obj/item/reagent_containers/glass/bottle/waterskin/milk // Filled subtype used by the cheesemaker
 	list_reagents = list(/datum/reagent/consumable/milk = 64)
 

@@ -28,7 +28,6 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 /obj/item/reagent_containers/glass/bottle/Initialize()
 	. = ..()
 	icon_state = "clear_bottle[rand(1,4)]"
-	update_appearance(UPDATE_OVERLAYS)
 
 /obj/item/reagent_containers/glass/bottle/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/paper/scroll))
@@ -184,6 +183,10 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 	fillsounds = list('sound/items/fillcup.ogg')
 	poursounds = list('sound/items/fillbottle.ogg')
 
+/obj/item/reagent_containers/glass/bottle/vial/Initialize()
+	. = ..()
+	icon_state = "clear_vial1"
+
 /obj/item/reagent_containers/glass/bottle/vial/rmb_self(mob/user)
 	closed = !closed
 	user.changeNext_move(CLICK_CD_RAPID)
@@ -205,7 +208,6 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 /obj/item/reagent_containers/glass/bottle/decanter
 	name = "clay decanter"
 	desc = "A decanter fired from clay."
-
 	icon = 'icons/obj/handmade/decanter.dmi'
 	icon_state = "world"
 	volume = 50
@@ -214,9 +216,11 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 	dropshrink = 1
 	can_label_bottle = FALSE
 	spillable = TRUE
-
 	fill_icon_thresholds = null
 
+/obj/item/reagent_containers/glass/bottle/decanter/Initialize()
+	. = ..()
+	icon_state = "world"
 
 /obj/item/reagent_containers/glass/bottle/decanter/set_material_information()
 	. = ..()
@@ -236,6 +240,10 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 	spillable = TRUE
 
 	fill_icon_thresholds = null
+
+/obj/item/reagent_containers/glass/bottle/teapot/Initialize()
+	. = ..()
+	icon_state = "world"
 
 /obj/item/reagent_containers/glass/bottle/teapot/Initialize()
 	. = ..()

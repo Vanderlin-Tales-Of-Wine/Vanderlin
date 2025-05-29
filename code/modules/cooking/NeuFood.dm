@@ -186,9 +186,9 @@
 	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
 	icon_state = "bowl"
 	fill_icon_thresholds = list(0, 30, 50, 100)
+	reagent_flags = TRANSFERABLE | AMOUNT_VISIBLE
 	force = 5
 	throwforce = 5
-	reagent_flags = TRANSFERABLE | AMOUNT_VISIBLE
 	amount_per_transfer_from_this = 6
 	possible_transfer_amounts = list(6)
 	dropshrink = 0.8
@@ -274,7 +274,6 @@
 	layer = CLOSED_BLASTDOOR_LAYER // obj layer + a little, small obj layering above convenient
 	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
 	list_reagents = list(/datum/reagent/consumable/blackpepper = 5)
-	reagent_flags = TRANSPARENT
 
 /*-------------\
 | Pot reagents |
