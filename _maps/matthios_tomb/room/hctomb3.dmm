@@ -257,9 +257,7 @@
 /area/rogue/under/tomb/cave/spider)
 "iV" = (
 /obj/structure/bars,
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
+/turf/open/floor/metal/alt,
 /area/rogue/under/tomb)
 "jn" = (
 /turf/open/floor/church,
