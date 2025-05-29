@@ -712,11 +712,18 @@
 	if(!istype(target))
 		return
 
+	icon = target.icon
+
+	copy_bodyparts(target)
+
+	target.dna.transfer_identity(src)
+
+	updateappearance(mutcolor_update = TRUE)
+
 	job = target.job // NOT assigned_role
 	migrant_type = target.migrant_type
 	faction = target.faction
 	deathsound = target.deathsound
-	dna = target.dna
 	gender = target.gender
 	real_name = target.real_name
 	voice_color = target.voice_color
@@ -737,6 +744,7 @@
 	has_stubble = target.has_stubble
 	headshot_link = target.headshot_link
 	flavortext = target.flavortext
+	vitae_pool = target.vitae_pool
 
 	var/obj/item/bodypart/head/target_head = target.get_bodypart(BODY_ZONE_HEAD)
 	if(!isnull(target_head))
@@ -749,6 +757,14 @@
 		REMOVE_TRAIT(src, TRAIT_FOREIGNER, TRAIT_GENERIC)
 
 	regenerate_icons()
+
+
+/mob/living/carbon/human/proc/copy_bodyparts(mob/living/carbon/human/target)
+	bodyparts = target.bodyparts
+	bodyparts = list()
+	for(var/obj/item/bodypart/part in target.bodyparts)
+		bodyparts += part.type
+	create_bodyparts()
 
 /mob/living/carbon/human/species
 	var/race = null
