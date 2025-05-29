@@ -112,7 +112,7 @@
 		return
 
 	I:in_stack += in_stack
-	visible_message("[user] starts collecting [src].", "You start collecting.")
+	visible_message("[user] collects [src].")
 	qdel(src)
 	I.update_overlays()
 
@@ -142,6 +142,12 @@
 
 /obj/item/rotation_contraption/minecart_rail
 	placed_type = /obj/structure/minecart_rail
+
+	grid_height = 64
+	grid_width = 32
+
+/obj/item/rotation_contraption/minecart_rail/railbreak
+	placed_type = /obj/structure/minecart_rail/railbreak
 
 	grid_height = 64
 	grid_width = 32

@@ -110,6 +110,22 @@
 	craft_time = 5 SECONDS
 	uses_attacked_atom = FALSE
 
+/datum/repeatable_crafting_recipe/engineering/railbreak
+	name = "minecart rail break"
+	requirements = list(
+		/obj/item/natural/wood/plank = 1,
+		/obj/item/ingot/iron = 1,
+	)
+	tool_usage = list(
+		/obj/item/weapon/hammer = list(span_notice("starts to hammer"), span_notice("start to hammer"), 'sound/items/bsmith2.ogg'),
+	)
+	attacked_atom = /obj/item/ingot/iron
+	starting_atom= /obj/item/weapon/hammer
+	output = /obj/item/rotation_contraption/minecart_rail/railbreak
+	output_amount = 2
+	craft_time = 5 SECONDS
+	uses_attacked_atom = FALSE
+
 /datum/repeatable_crafting_recipe/engineering/water_pipe
 	name = "fluid transport pipe"
 	requirements = list(

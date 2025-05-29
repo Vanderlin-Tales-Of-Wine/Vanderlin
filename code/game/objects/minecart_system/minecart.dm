@@ -456,6 +456,35 @@
 					else
 						return FALSE
 
+	var/turf/below_next = GET_TURF_BELOW(next_turf)
+	for(var/obj/structure/minecart_rail/rail in below_next)
+		if(!located_rail || (located_rail?.dir in GLOB.cardinals))
+			if(rail.dir & (dir_to_check|GLOB.reverse_dir[dir_to_check]))
+				return TRUE
+		else
+			var/coming_dir = get_dir(src, next_turf)
+			switch(located_rail.dir)
+				if(SOUTHWEST)
+					if(coming_dir == NORTH || coming_dir == WEST)
+						return TRUE
+					else
+						return FALSE
+				if(SOUTHEAST)
+					if(coming_dir == NORTH || coming_dir == EAST)
+						return TRUE
+					else
+						return FALSE
+				if(NORTHEAST)
+					if(coming_dir == SOUTH || coming_dir == EAST)
+						return TRUE
+					else
+						return FALSE
+				if(NORTHWEST)
+					if(coming_dir == SOUTH || coming_dir == WEST)
+						return TRUE
+					else
+						return FALSE
+
 	return FALSE
 
 /obj/structure/closet/crate/miningcar/proc/check_powered()
