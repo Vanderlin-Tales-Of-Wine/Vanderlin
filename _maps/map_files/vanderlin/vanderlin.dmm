@@ -4086,7 +4086,7 @@
 /area/rogue/indoors/town/dwarfin)
 "cwg" = (
 /obj/structure/lever/hidden/keep{
-	redstone_id = 522
+	redstone_id = "ArtRoomPassage"
 	},
 /turf/closed/wall/mineral/craftstone,
 /area/rogue/under/town/basement)
@@ -4310,6 +4310,10 @@
 /obj/structure/flora/grass/maneater,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/rtfield)
+"cEt" = (
+/obj/machinery/light/fueled/wallfire/candle/l,
+/turf/open/floor/blocks/newstone/alt,
+/area/rogue/indoors/town/manor)
 "cEy" = (
 /obj/structure/stairs{
 	dir = 8
@@ -11893,6 +11897,7 @@
 /obj/item/paper/scroll,
 /obj/item/natural/feather,
 /obj/item/natural/feather,
+/obj/machinery/light/fueled/wallfire/candle/l,
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town/manor)
 "hCq" = (
@@ -23557,6 +23562,12 @@
 /obj/structure/composter/halffull,
 /turf/open/floor/grass,
 /area/rogue/outdoors/rtfield/safe)
+"pdj" = (
+/obj/effect/mapping_helpers/secret_door_creator/keep{
+	redstone_id = "ClockPathPassage"
+	},
+/turf/closed/wall/mineral/stone/moss,
+/area/rogue/under/town/basement)
 "pdO" = (
 /obj/structure/chair/stool,
 /turf/open/floor/blocks,
@@ -23748,6 +23759,7 @@
 /obj/item/clothing/shoes/boots,
 /obj/item/clothing/pants/tights/black,
 /obj/item/clothing/shirt/undershirt/fancy,
+/obj/machinery/light/fueled/wallfire/candle/blue,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor)
 "pnc" = (
@@ -25053,6 +25065,12 @@
 	},
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town)
+"qgI" = (
+/obj/effect/mapping_helpers/secret_door_creator/keep{
+	redstone_id = "ServantRoomPassage"
+	},
+/turf/closed/wall/mineral/craftstone,
+/area/rogue/under/town/basement)
 "qgJ" = (
 /obj/structure/wild_plant/nospread/manabloom,
 /obj/structure/fluff/railing/border{
@@ -27151,7 +27169,7 @@
 /area/rogue/indoors/town/merc_guild)
 "rCS" = (
 /obj/effect/mapping_helpers/secret_door_creator/keep{
-	redstone_id = 522
+	redstone_id = "ArtRoomPassage"
 	},
 /turf/closed/wall/mineral/craftstone,
 /area/rogue/under/town/basement)
@@ -29875,12 +29893,6 @@
 "tpk" = (
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town)
-"tpo" = (
-/obj/machinery/light/fueled/torchholder{
-	dir = 4
-	},
-/turf/open/floor/blocks,
-/area/rogue/under/town/basement)
 "tpG" = (
 /obj/effect/decal/cleanable/blood/old,
 /obj/item/ammo_casing/caseless/arrow,
@@ -30797,6 +30809,10 @@
 	},
 /turf/open/floor/ruinedwood/turned,
 /area/rogue/outdoors/town)
+"tPv" = (
+/obj/structure/water_pipe,
+/turf/open/floor/blocks,
+/area/rogue/under/town/basement)
 "tPw" = (
 /turf/closed/wall/mineral/roofwall/middle,
 /area/rogue/under/town/basement)
@@ -32875,6 +32891,12 @@
 /obj/structure/rack/shelf/biggest,
 /turf/open/floor/concrete,
 /area/rogue/indoors/town/church/inquisition)
+"vkI" = (
+/obj/structure/lever/hidden/keep{
+	redstone_id = "ClockPathPassage"
+	},
+/turf/closed/wall/mineral/stone,
+/area/rogue/under/town/basement)
 "vkO" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 4
@@ -33578,6 +33600,12 @@
 /obj/item/grown/log/tree/stick,
 /turf/open/floor/grass,
 /area/rogue/outdoors/rtfield/safe)
+"vLs" = (
+/obj/machinery/light/fueled/torchholder/l{
+	dir = 8
+	},
+/turf/open/floor/concrete,
+/area/rogue/under/town/basement)
 "vLz" = (
 /obj/structure/door/iron/bars,
 /obj/effect/mapping_helpers/access/locker,
@@ -34346,6 +34374,10 @@
 /obj/machinery/light/fueled/wallfire/candle/l,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/smithy)
+"wmX" = (
+/obj/machinery/light/fueled/wallfire/candle/r,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/indoors/town/manor)
 "wmY" = (
 /turf/closed/mineral/bedrock,
 /area/rogue/under/cavewet)
@@ -35646,6 +35678,12 @@
 "xeP" = (
 /turf/open/floor/concrete,
 /area/rogue/indoors/town/clocktower)
+"xeW" = (
+/obj/structure/lever/hidden/keep{
+	redstone_id = "ServantRoomPassage"
+	},
+/turf/closed/wall/mineral/craftstone,
+/area/rogue/under/town/basement)
 "xfh" = (
 /obj/structure/flora/grass/bush_meagre,
 /obj/structure/flora/grass,
@@ -52276,8 +52314,8 @@ jiP
 jiP
 ple
 tHe
-vgJ
-vgJ
+bUM
+bUM
 vgJ
 vgJ
 vgJ
@@ -52477,9 +52515,9 @@ jiP
 jiP
 jiP
 jiP
-tHe
-vgJ
-vgJ
+qgI
+bET
+bUM
 vgJ
 vgJ
 vgJ
@@ -52679,9 +52717,9 @@ iyp
 cQT
 cQT
 ple
-tHe
-vgJ
-vgJ
+xeW
+bET
+bUM
 vgJ
 vgJ
 xrW
@@ -52882,8 +52920,8 @@ gWj
 iCB
 wjz
 rsP
-vgJ
-vgJ
+bET
+bUM
 vgJ
 vgJ
 xrW
@@ -53084,8 +53122,8 @@ bUM
 rsP
 rsP
 rsP
-vgJ
-vgJ
+bET
+bUM
 vgJ
 vgJ
 xrW
@@ -53286,7 +53324,7 @@ tHe
 tHe
 nyB
 bUM
-rsP
+bET
 rsP
 xrW
 xrW
@@ -58144,10 +58182,10 @@ iRT
 bET
 bET
 iRT
-tpo
+bET
 bET
 mgx
-iRT
+teI
 bET
 iRT
 bET
@@ -58342,14 +58380,14 @@ bUM
 bET
 bET
 tHe
-iRT
-bET
-iRT
-bET
 obG
+bET
+iRT
+bET
+iRT
 mgx
 mgx
-mgx
+vLs
 iRT
 iRT
 mgx
@@ -58550,8 +58588,8 @@ rsP
 rsP
 tHe
 bUM
-rsP
-bUM
+pdj
+vkI
 tHe
 nCG
 nCG
@@ -58751,10 +58789,10 @@ ekK
 exg
 vlI
 bUM
-vgJ
-vgJ
-vgJ
-vgJ
+bUM
+bET
+bET
+bUM
 vgJ
 vgJ
 vgJ
@@ -58953,10 +58991,10 @@ oli
 oli
 wka
 bUM
-vgJ
-vgJ
-vgJ
-vgJ
+bUM
+bET
+bET
+bUM
 vgJ
 vgJ
 vgJ
@@ -59155,10 +59193,10 @@ vfD
 jWg
 fIh
 tHe
-vgJ
-vgJ
-vgJ
-vgJ
+bUM
+bET
+bUM
+bUM
 vgJ
 vgJ
 vgJ
@@ -59357,9 +59395,9 @@ tHe
 bUM
 bUM
 bUM
-vgJ
-vgJ
-vgJ
+bUM
+bET
+bUM
 vgJ
 vgJ
 vgJ
@@ -59559,9 +59597,9 @@ kig
 kig
 btC
 tHe
-vgJ
-vgJ
-vgJ
+bUM
+bET
+bUM
 vgJ
 vgJ
 vgJ
@@ -59761,10 +59799,10 @@ kig
 lng
 lng
 nCG
-vgJ
-vgJ
-vgJ
-vgJ
+bUM
+bET
+bUM
+qMe
 vgJ
 vgJ
 vgJ
@@ -59963,9 +60001,9 @@ kig
 lng
 lng
 nCG
-wfd
-wfd
-wfd
+tPv
+tPv
+tPv
 wfd
 wfd
 wfd
@@ -60165,10 +60203,10 @@ kig
 lng
 lng
 nCG
-vgJ
-vgJ
-vgJ
-vgJ
+bUM
+bET
+bUM
+qMe
 vgJ
 vgJ
 vgJ
@@ -60367,9 +60405,9 @@ kig
 kig
 btC
 tHe
-vgJ
-vgJ
-vgJ
+bUM
+bET
+bUM
 vgJ
 vgJ
 vgJ
@@ -60569,9 +60607,9 @@ tHe
 tHe
 tHe
 bUM
-vgJ
-vgJ
-vgJ
+bUM
+bET
+bUM
 vgJ
 vgJ
 vgJ
@@ -60770,10 +60808,10 @@ xei
 fPW
 tRO
 tHe
-vgJ
-vgJ
-vgJ
-vgJ
+bET
+bET
+bET
+bUM
 vgJ
 vgJ
 vgJ
@@ -60972,10 +61010,10 @@ smD
 smD
 smD
 tHe
-vgJ
-vgJ
-vgJ
-vgJ
+bET
+bET
+bUM
+bUM
 vgJ
 vgJ
 vgJ
@@ -61174,9 +61212,9 @@ lkC
 smD
 mtO
 bUM
-vgJ
-vgJ
-vgJ
+bET
+bET
+bUM
 vgJ
 vgJ
 vgJ
@@ -61376,9 +61414,9 @@ gOR
 qLi
 bUM
 bUM
-vgJ
-vgJ
-vgJ
+bET
+bUM
+bUM
 vgJ
 vgJ
 vgJ
@@ -61576,10 +61614,10 @@ bYk
 tHe
 xCU
 bET
+bET
+bET
+bET
 bUM
-vgJ
-vgJ
-vgJ
 vgJ
 vgJ
 vgJ
@@ -61779,9 +61817,9 @@ tHe
 bUM
 bET
 bUM
-vgJ
-vgJ
-vgJ
+bUM
+bUM
+bUM
 vgJ
 vgJ
 vgJ
@@ -138323,11 +138361,11 @@ phh
 buP
 cBV
 eKX
-eKX
+cEt
 cfM
 phh
 cfM
-eKX
+cEt
 eKX
 cBV
 buP
@@ -139545,7 +139583,7 @@ phh
 phh
 phh
 qWa
-qWa
+wpq
 huo
 dZS
 xGB
@@ -140736,7 +140774,7 @@ vgJ
 vgJ
 xGB
 jeP
-rhf
+wmX
 rhf
 xGB
 guQ
@@ -141969,7 +142007,7 @@ mvF
 tuc
 jkj
 jkj
-jkj
+iBT
 mUo
 guQ
 rzO
