@@ -205,13 +205,6 @@
 				/obj/item/natural/fibers = 3)
 	craftdiff = 1
 
-/datum/repeatable_crafting_recipe/sewing/clothknapsack
-	name = "cloth knapsack"
-	output = /obj/item/storage/backpack/satchel/cloth
-	requirements = list(/obj/item/natural/cloth = 2,
-				/obj/item/natural/fibers = 3)
-	craftdiff = 1
-
 /datum/repeatable_crafting_recipe/sewing/pcoif
 	name = "cloth coif"
 	output = /obj/item/clothing/neck/coif/cloth
@@ -225,13 +218,6 @@
 	output = /obj/item/clothing/head/roguehood/uncolored
 	craftdiff = 1
 	category = "Hat"
-
-/datum/repeatable_crafting_recipe/sewing/clothpouch
-	name = "cloth pouch"
-	output = /obj/item/storage/belt/pouch/cloth
-	requirements = list(/obj/item/natural/cloth = 1,
-				/obj/item/natural/fibers = 1)
-	craftdiff = 1
 
 /datum/repeatable_crafting_recipe/sewing/clothpouch
 	name = "cloth pouch"
