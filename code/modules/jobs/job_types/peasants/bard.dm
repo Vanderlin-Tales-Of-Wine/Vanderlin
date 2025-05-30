@@ -15,6 +15,7 @@
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_PLAYER_ALL
 	outfit = /datum/outfit/job/bard
+	cmode_music = 'sound/music/cmode/adventurer/CombatIntense.ogg'
 
 /datum/outfit/job/bard/pre_equip(mob/living/carbon/human/H)
 	. = ..()
@@ -30,7 +31,7 @@
 	H.adjust_skillrank(/datum/skill/misc/sneaking, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/stealing, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/lockpicking, 1, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/music, 4, TRUE)
+	H.clamped_adjust_skillrank(/datum/skill/misc/music, 4, 4, TRUE) //Due to Harpy's innate music skill giving them legendary
 	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 	H.mind?.AddSpell(new /obj/effect/proc_holder/spell/invoked/mockery)
 	head = /obj/item/clothing/head/bardhat

@@ -22,6 +22,7 @@
 	outfit = /datum/outfit/job/churchling
 	give_bank_account = TRUE
 	can_have_apprentices = FALSE
+	cmode_music = 'sound/music/cmode/towner/CombatTowner.ogg'
 
 /datum/outfit/job/churchling
 	name = "Churchling"

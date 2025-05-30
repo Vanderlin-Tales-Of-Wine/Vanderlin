@@ -18,6 +18,7 @@
 
 	outfit = /datum/outfit/job/artificer
 	give_bank_account = 8
+	cmode_music = 'sound/music/cmode/towner/CombatTowner2.ogg'
 
 /datum/outfit/job/artificer
 	job_bitflag = BITFLAG_CONSTRUCTOR
