@@ -209,7 +209,9 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_AMAZING_BACK = span_notice("I'm able to carry far more on my back!"),
 	TRAIT_HOLLOWBONES = span_danger("My bones are light as air, Its hard to wear armor."),
 	TRAIT_EARGRAB = span_info("I can keep a tight grip on the ear of unruly children."),
-	TRAIT_KITTEN_MOM = span_info("Kittens love you, they see you are a parent.")
+	TRAIT_KITTEN_MOM = span_info("Kittens love you, they see you are a parent."),
+	TRAIT_GOOD_SWIM = span_info("I swim can against the flow of rivers and without being slowed."),
+	TRAIT_WATER_BREATHE = span_info("I can breathe underwater."),
 	))
 
 #define SIGNAL_ADDTRAIT(trait_ref) ("addtrait " + trait_ref)
@@ -386,6 +388,10 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_HARDDISMEMBER		"hard_dismember"
 #define TRAIT_FOREIGNER "foreigner" // is this guy a foreigner?
 #define TRAIT_NOAMBUSH "no_ambush" //! mob cannot be ambushed for any reason
+/// Can swim ignoring water flow and slowdown
+#define TRAIT_GOOD_SWIM "good_swim"
+/// Doesn't drown in water
+#define TRAIT_WATER_BREATHE "water_breathe"
 
 ///trait determines if this mob can breed given by /datum/component/breeding
 #define TRAIT_MOB_BREEDER "mob_breeder"

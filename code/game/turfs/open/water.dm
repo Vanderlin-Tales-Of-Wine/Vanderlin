@@ -301,7 +301,7 @@
 		for(var/D in GLOB.cardinals) //adjacent to a floor to hold onto
 			if(istype(get_step(newloc, D), /turf/open/floor))
 				return
-		if(swim_skill)
+		if(swim_skill && !HAS_TRAIT(AM, TRAIT_GOOD_SWIM))
 			if(swimdir && newloc) //we're being pushed by water or swimming with the current, easy
 				if(get_dir(src, newloc) == dir)
 					return
@@ -453,12 +453,13 @@
 		O.extinguish()
 
 /turf/open/water/get_slowdown(mob/user)
-	if(water_volume < 10)
+	if(water_volume < 10 || HAS_TRAIT(user, TRAIT_GOOD_SWIM))
 		return 0
 	var/returned = slowdown
 	if(user.mind && swim_skill)
 		returned = returned - (user.get_skill_level(/datum/skill/misc/swimming))
 	return returned
+
 /*	..................   Bath & Pool   ................... */
 /turf/open/water/bath
 	name = "water"

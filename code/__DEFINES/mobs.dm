@@ -280,12 +280,10 @@
 
 // Offsets defines
 
-#define OFFSET_UNIFORM "uniform"
 #define OFFSET_RING "wear_ring"
 #define OFFSET_GLOVES "gloves"
 #define OFFSET_WRISTS "wear_wrists"
-#define OFFSET_GLASSES "glasses"
-#define OFFSET_EARS "ears"
+#define OFFSET_HANDS "hands"
 #define OFFSET_SHOES "shoes"
 #define OFFSET_FACEMASK "mask"
 #define OFFSET_HEAD "head"
@@ -299,25 +297,7 @@
 #define OFFSET_PANTS "wear_pants"
 #define OFFSET_SHIRT "wear_shirt"
 #define OFFSET_ARMOR "wear_armor"
-#define OFFSET_HANDS "hands"
 #define OFFSET_UNDIES "underwear"
-
-#define OFFSET_RING_F "wear_ringf"
-#define OFFSET_GLOVES_F "glovesf"
-#define OFFSET_WRISTS_F "wear_wristsf"
-#define OFFSET_FACEMASK_F "maskf"
-#define OFFSET_HEAD_F "headf"
-#define OFFSET_FACE_F "facef"
-#define OFFSET_BELT_F "beltf"
-#define OFFSET_BACK_F "backf"
-#define OFFSET_NECK_F "neckf"
-#define OFFSET_CLOAK_F "cloakf"
-#define OFFSET_MOUTH_F "mouthf"
-#define OFFSET_PANTS_F "wear_pantsf"
-#define OFFSET_SHIRT_F "wear_shirtf"
-#define OFFSET_ARMOR_F "wear_armorf"
-#define OFFSET_HANDS_F "handsf"
-#define OFFSET_UNDIES_F "underwearf"
 
 #define HUNGER_FACTOR		0.15	//factor at which mob nutrition decreases
 #define ETHEREAL_CHARGE_FACTOR	0.12 //factor at which ethereal's charge decreases
@@ -338,18 +318,8 @@
 #define HUMAN_CARRY_SLOWDOWN 0
 
 //Flags that control what things can spawn species (whitelist)
-//Badmin magic mirror
-#define MIRROR_BADMIN (1<<0)
-//Standard magic mirror (wizard)
-#define MIRROR_MAGIC  (1<<1)
-//Pride ruin mirror
-#define MIRROR_PRIDE  (1<<2)
-//Race swap wizard event
-#define RACE_SWAP     (1<<3)
-//xenobio black crossbreed
-#define SLIME_EXTRACT (1<<5)
 //Wabbacjack staff projectiles
-#define WABBAJACK     (1<<6)
+#define WABBAJACK     (1<<0)
 
 #define SLEEP_CHECK_DEATH(X) sleep(X); if(QDELETED(src) || stat == DEAD) return;
 
@@ -492,6 +462,20 @@
 #define SKIN_COLOR_SUNSTREAK "b77614" //White - Tan
 #define SKIN_COLOR_MOONSHADE "C0C0C0" //Middle-eastern
 #define SKIN_COLOR_SANDSWEPT "fcccb3" //White - Tan
+
+//TRITON SKIN TONES
+/// Light blue
+#define SKIN_COLOR_SHALLOW "9cc2e2"
+/// Dark Blue
+#define SKIN_COLOR_DEEP_ONE "3f5f96"
+/// Pink
+#define SKIN_COLOR_REEF "e5aded"
+/// White/Pink
+#define SKIN_COLOR_JELLYFISH "dba6da"
+/// Grey/Purple
+#define SKIN_COLOR_URCHIN "9a8caa"
+/// Green
+#define SKIN_COLOR_ALGAE "6ebf4c"
 
 //SPECIAL SKIN TONES
 #define SKIN_COLOR_ROT "878f79" //Sickly green
