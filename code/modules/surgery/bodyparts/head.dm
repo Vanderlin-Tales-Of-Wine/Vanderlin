@@ -19,7 +19,6 @@
 	var/mob/living/brain/brainmob = null //The current occupant.
 	var/obj/item/organ/brain/brain = null //The brain organ
 	var/obj/item/organ/eyes/eyes
-	var/obj/item/organ/eyes/eyesl
 	var/obj/item/organ/ears/ears
 	var/obj/item/organ/tongue/tongue
 
@@ -65,7 +64,6 @@
 	QDEL_NULL(brainmob) //order is sensitive, see warning in handle_atom_del() below
 	QDEL_NULL(brain)
 	QDEL_NULL(eyes)
-	QDEL_NULL(eyesl)
 	QDEL_NULL(ears)
 	QDEL_NULL(tongue)
 	return ..()
@@ -82,8 +80,6 @@
 	if(A == eyes)
 		eyes = null
 		update_icon_dropped()
-	if(A == eyesl)
-		eyesl = null
 	if(A == ears)
 		ears = null
 	if(A == tongue)
@@ -184,8 +180,3 @@
 	icon = 'icons/mob/animal_parts.dmi'
 	icon_state = "default_monkey_head"
 	animal_origin = MONKEY_BODYPART
-
-/obj/item/bodypart/head/devil
-	dismemberable = 0
-	max_damage = 5000
-	animal_origin = DEVIL_BODYPART
