@@ -126,7 +126,7 @@
 					added_wound = /datum/wound/slash
 				if(1 to 10)
 					added_wound = /datum/wound/slash/small
-		if(BCLASS_STAB, BCLASS_PICK)
+		if(BCLASS_STAB, BCLASS_PICK, BCLASS_SHOT, BCLASS_PIERCE)
 			switch(dam)
 				if(20 to INFINITY)
 					added_wound = /datum/wound/puncture/large

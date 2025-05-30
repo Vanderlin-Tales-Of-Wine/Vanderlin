@@ -22,7 +22,7 @@
 		def_zone = CBP.body_zone
 	var/protection = 0
 	var/obj/item/clothing/used
-	var/list/body_parts = list(skin_armor, head, wear_mask, wear_wrists, gloves, wear_neck, cloak, wear_armor, wear_shirt, shoes, wear_pants, backr, backl, belt, ears, wear_ring)
+	var/list/body_parts = list(skin_armor, head, wear_mask, wear_wrists, gloves, wear_neck, cloak, wear_armor, wear_shirt, shoes, wear_pants, backr, backl, belt, wear_ring)
 	for(var/bp in body_parts)
 		if(!bp)
 			continue
@@ -72,7 +72,7 @@
 	if(isbodypart(def_zone))
 		var/obj/item/bodypart/CBP = def_zone
 		def_zone = CBP.body_zone
-	var/list/body_parts = list(head, wear_mask, wear_wrists, wear_shirt, wear_neck, cloak, wear_armor, wear_pants, backr, backl, gloves, shoes, belt, ears, wear_ring)
+	var/list/body_parts = list(head, wear_mask, wear_wrists, wear_shirt, wear_neck, cloak, wear_armor, wear_pants, backr, backl, gloves, shoes, belt, wear_ring)
 	for(var/bp in body_parts)
 		if(!bp)
 			continue
@@ -346,8 +346,6 @@
 				brute_loss = ((100 * (2 - round(bomb_armor*0.01, 0.05)) * ddist) - ((100 * (2 - round(bomb_armor*0.01, 0.05))) * fodist) * dmgmod)
 				burn_loss = brute_loss
 			damage_clothes(max(brute_loss - bomb_armor, 0), BRUTE, "blunt")
-//				if (!istype(ears, /obj/item/clothing/ears/earmuffs))
-//					adjustEarDamage(30, 120)
 			Unconscious((50 * ddist) - (15 * fodist))
 			Knockdown(((30 * ddist) - (30 * fodist)) - (bomb_armor * 1.6))
 
@@ -358,8 +356,6 @@
 				brute_loss = ((30 * (2 - round(bomb_armor*0.01, 0.05)) * hdist) - ((30 * (2 - round(bomb_armor*0.01, 0.05))) * fodist) * dmgmod)
 				burn_loss = brute_loss
 			damage_clothes(max(brute_loss - bomb_armor, 0), BRUTE, "blunt")
-//				if (!istype(ears, /obj/item/clothing/ears/earmuffs))
-//					adjustEarDamage(30, 120)
 			Unconscious((10 * hdist) - (5 * fodist))
 			Knockdown(((30 * hdist) - (30 * fodist)) - (bomb_armor * 1.6))
 
@@ -368,9 +364,6 @@
 			if(bomb_armor)
 				brute_loss = (10 * (2 - round(bomb_armor*0.01, 0.05)) * ldist) - ((10 * (2 - round(bomb_armor*0.01, 0.05))) * fodist)
 				damage_clothes(max(brute_loss - bomb_armor, 0), BRUTE, "blunt")
-//				if (!istype(ears, /obj/item/clothing/ears/earmuffs))
-//					adjustEarDamage(15,60)
-
 	take_overall_damage(brute_loss,burn_loss)
 
 	//attempt to dismember bodyparts
@@ -424,7 +417,6 @@
 		if(head_clothes)
 			if(!(head_clothes.resistance_flags & UNACIDABLE))
 				head_clothes.acid_act(acidpwr, acid_volume)
-				update_inv_glasses()
 				update_inv_wear_mask()
 				update_inv_neck()
 				update_inv_head()
@@ -434,8 +426,6 @@
 			. = get_bodypart(BODY_ZONE_HEAD)
 			if(.)
 				damaged += .
-			if(ears)
-				inventory_items_to_kill += ears
 
 	//CHEST//
 	if(!bodyzone_hit || bodyzone_hit == BODY_ZONE_CHEST)
@@ -447,7 +437,6 @@
 		if(chest_clothes)
 			if(!(chest_clothes.resistance_flags & UNACIDABLE))
 				chest_clothes.acid_act(acidpwr, acid_volume)
-				update_inv_w_uniform()
 				update_inv_wear_suit()
 			else
 				to_chat(src, "<span class='notice'>My [chest_clothes.name] protects my body from the acid!</span>")
@@ -472,7 +461,6 @@
 			if(!(arm_clothes.resistance_flags & UNACIDABLE))
 				arm_clothes.acid_act(acidpwr, acid_volume)
 				update_inv_gloves()
-				update_inv_w_uniform()
 				update_inv_wear_suit()
 			else
 				to_chat(src, "<span class='notice'>My [arm_clothes.name] protects my arms and hands from the acid!</span>")
@@ -498,7 +486,6 @@
 			if(!(leg_clothes.resistance_flags & UNACIDABLE))
 				leg_clothes.acid_act(acidpwr, acid_volume)
 				update_inv_shoes()
-				update_inv_w_uniform()
 				update_inv_wear_suit()
 			else
 				to_chat(src, "<span class='notice'>My [leg_clothes.name] protects my legs and feet from the acid!</span>")
@@ -527,8 +514,10 @@
 	//MELTING INVENTORY ITEMS//
 	//these items are all outside of armour visually, so melt regardless.
 	if(!bodyzone_hit)
-		if(back)
-			inventory_items_to_kill += back
+		if(backr)
+			inventory_items_to_kill += backr
+		if(backl)
+			inventory_items_to_kill += backl
 		if(belt)
 			inventory_items_to_kill += belt
 
@@ -667,8 +656,6 @@
 			head_clothes = head
 		if(head_clothes)
 			torn_items += head_clothes
-		else if(ears)
-			torn_items += ears
 
 	//CHEST//
 	if(!def_zone || def_zone == BODY_ZONE_CHEST)

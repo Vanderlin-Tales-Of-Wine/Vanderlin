@@ -33,7 +33,7 @@ There are several things that need to be remembered:
 	You will need to call the relevant update_inv_* proc
 
 	All of these are named after the variable they update from. They are defined at the mob/ level like
-	update_clothing was, so you won't cause undefined proc runtimes with usr.update_inv_wear_id() if the usr is a
+	update_clothing was, so you won't cause undefined proc runtimes with usr.update_inv_ring() if the usr is a
 	slime etc. Instead, it'll just return without doing any work. So no harm in calling it for slimes and such.
 
 
@@ -254,7 +254,7 @@ There are several things that need to be remembered:
 		if(dna?.species?.regenerate_icons(src))
 			return
 		update_body()
-		update_inv_wear_id()
+		update_inv_ring()
 		update_inv_gloves()
 		update_inv_shoes()
 		update_inv_wear_mask()
@@ -275,7 +275,7 @@ There are several things that need to be remembered:
 /mob/proc/regenerate_clothes()
 	return
 /mob/living/carbon/human/regenerate_clothes()
-	update_inv_wear_id()
+	update_inv_ring()
 	update_inv_gloves()
 	update_inv_shoes()
 	update_inv_wear_mask()
@@ -291,9 +291,6 @@ There are several things that need to be remembered:
 
 /* --------------------------------------- */
 //vvvvvv UPDATE_INV PROCS vvvvvv
-
-/mob/living/carbon/human/update_inv_w_uniform()
-	return
 
 /mob/living/carbon/human/update_inv_neck()
 	remove_overlay(NECK_LAYER)
@@ -328,7 +325,7 @@ There are several things that need to be remembered:
 	update_body()
 	apply_overlay(NECK_LAYER)
 
-/mob/living/carbon/human/update_inv_wear_id()
+/mob/living/carbon/human/update_inv_ring()
 	remove_overlay(RING_LAYER)
 
 	if(client && hud_used)
@@ -340,6 +337,7 @@ There are several things that need to be remembered:
 		if(client && hud_used?.hud_shown)
 			client.screen += wear_ring
 		update_observer_view(wear_ring)
+
 		var/datum/species/species = dna?.species
 
 		var/use_female_sprites = FALSE
@@ -353,11 +351,11 @@ There are several things that need to be remembered:
 		else
 			offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
 
-		var/mutable_appearance/id_overlay = wear_ring.build_worn_icon(age, RING_LAYER, 'icons/roguetown/clothing/onmob/rings.dmi')
+		var/mutable_appearance/ring_overlay = wear_ring.build_worn_icon(age, RING_LAYER, 'icons/roguetown/clothing/onmob/rings.dmi')
 		if(LAZYACCESS(offsets, OFFSET_RING))
-			id_overlay.pixel_x += offsets[OFFSET_RING][1]
-			id_overlay.pixel_y += offsets[OFFSET_RING][2]
-		overlays_standing[RING_LAYER] = id_overlay
+			ring_overlay.pixel_x += offsets[OFFSET_RING][1]
+			ring_overlay.pixel_y += offsets[OFFSET_RING][2]
+		overlays_standing[RING_LAYER] = ring_overlay
 
 	apply_overlay(RING_LAYER)
 
@@ -489,14 +487,6 @@ There are several things that need to be remembered:
 
 	apply_overlay(WRISTS_LAYER)
 	apply_overlay(WRISTSLEEVE_LAYER)
-
-/mob/living/carbon/human/update_inv_glasses()
-	return
-
-
-/mob/living/carbon/human/update_inv_ears()
-	return
-
 
 /mob/living/carbon/human/update_inv_shoes()
 	remove_overlay(SHOES_LAYER)
@@ -1385,7 +1375,7 @@ generate/load female uniform sprites matching all previously decided variables
 				pic.color = get_detail_color()
 			standing.overlays.Add(pic)
 
-	if(!isinhands && HAS_BLOOD_DNA(src))
+	if(!isinhands && GET_ATOM_BLOOD_DNA_LENGTH(src))
 		var/index = "[t_state][sleeveindex]"
 		var/static/list/bloody_onmob = list()
 		var/icon/clothing_icon = bloody_onmob["[index][(coom == "f") ? "_boob" : ""]"]
@@ -1469,7 +1459,7 @@ generate/load female uniform sprites matching all previously decided variables
 				pic.color = I.get_detail_color()
 			sleeves += pic
 
-		if(HAS_BLOOD_DNA(I))
+		if(GET_ATOM_BLOOD_DNA_LENGTH(I))
 			var/icon/blood_overlay = bloody_r[used]
 			if(!blood_overlay)
 				blood_overlay = icon(I.sleeved, used)
@@ -1496,7 +1486,7 @@ generate/load female uniform sprites matching all previously decided variables
 				pic.color = I.get_detail_color()
 			sleeves += pic
 
-		if(HAS_BLOOD_DNA(I))
+		if(GET_ATOM_BLOOD_DNA_LENGTH(I))
 			var/icon/blood_overlay = bloody_l[used]
 			if(!blood_overlay)
 				blood_overlay = icon(I.sleeved, used)

@@ -100,7 +100,7 @@
 	if(NOBLOOD in owner?.dna?.species?.species_traits)
 		return 0
 	var/bleed_rate = 0
-	if(bandage && !HAS_BLOOD_DNA(bandage))
+	if(bandage && !GET_ATOM_BLOOD_DNA_LENGTH(bandage))
 		return 0
 	for(var/datum/wound/wound as anything in wounds)
 		bleed_rate += (wound.bleed_rate * owner.dna.species.bleed_mod)
@@ -151,7 +151,7 @@
 					added_wound = /datum/wound/slash
 				if(1 to 10)
 					added_wound = /datum/wound/slash/small
-		if(BCLASS_STAB, BCLASS_PICK, BCLASS_SHOT)
+		if(BCLASS_STAB, BCLASS_PICK, BCLASS_SHOT, BCLASS_PIERCE)
 			switch(dam)
 				if(20 to INFINITY)
 					added_wound = /datum/wound/puncture/large

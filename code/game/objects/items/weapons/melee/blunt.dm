@@ -499,3 +499,29 @@
 	penfactor = 80
 	damfactor = 0.9
 	item_damage_type = "stab"
+
+//................ Elven Club  ............... //
+
+/obj/item/weapon/mace/elvenclub
+	name = "elven war club"
+	desc = "A one-handed war club with a sharp end."
+	icon_state = "elvenclub"
+	force = DAMAGE_MACE - 1
+	force_wielded = DAMAGE_MACE_WIELD - 1
+	possible_item_intents = list(/datum/intent/mace/strike, /datum/intent/axe/cut)
+	gripped_intents = list(/datum/intent/mace/strike, /datum/intent/axe/cut, /datum/intent/axe/chop) //can't smash with this weapon.
+	minstr = 5
+	sharpness = IS_SHARP
+
+/obj/item/weapon/mace/elvenclub/steel
+	name = "regal elven war club"
+	desc = "A sleek, one-handed war club, reforged from captured Grenzel steel. Its elegant design channels elven grace, It is capable of delivering swift, painful blows"
+	icon_state = "regalelvenclub"
+	force = DAMAGE_MACE
+	force_wielded = DAMAGE_MACE_WIELD
+	blade_dulling = DULLING_BASH
+	melting_material = /datum/material/steel
+	melt_amount = 150
+	wbalance = DODGE_CHANCE_NORMAL
+	sellprice = 60
+	wdefense = GOOD_PARRY
