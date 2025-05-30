@@ -49,13 +49,12 @@
 	if(current)
 		QDEL_NULL(current)
 	for(var/datum/anvil_recipe/recipe as anything in regular_recipes)
-		QDEL_NULL(recipe)
 		LAZYREMOVE(regular_recipes, recipe)
-	bin = null
+		QDEL_NULL(recipe)
+	QDEL_NULL(bin)
 	current_requirements.Cut()
 	anvil_recipes_to_craft.Cut()
 	completed_items.Cut()
-	step_list.Cut()
 	return ..()
 
 /obj/structure/orphan_smasher/process()

@@ -235,8 +235,12 @@
 	. = ..()
 	AddElement(/datum/element/ai_retaliate)
 	RegisterSignal(src, COMSIG_HOSTILE_PRE_ATTACKINGTARGET, PROC_REF(on_pre_attack))
+	GLOB.farm_animals++
+	if(tame)
+		tamed(owner)
 
 /mob/living/simple_animal/hostile/retaliate/goatmale/Destroy()
+	GLOB.farm_animals = max(GLOB.farm_animals - 1, 0)
 	UnregisterSignal(src, COMSIG_HOSTILE_PRE_ATTACKINGTARGET)
 	return ..()
 
@@ -265,16 +269,6 @@
 	deaggroprob = 20
 	if(can_buckle)
 		AddComponent(/datum/component/riding/gote)
-
-/mob/living/simple_animal/hostile/retaliate/goatmale/Initialize()
-	..()
-	GLOB.farm_animals++
-	if(tame)
-		tamed(owner)
-
-/mob/living/simple_animal/hostile/retaliate/goatmale/Destroy()
-	..()
-	GLOB.farm_animals = max(GLOB.farm_animals - 1, 0)
 
 /mob/living/simple_animal/hostile/retaliate/goatmale/get_sound(input)
 	switch(input)

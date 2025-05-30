@@ -189,6 +189,8 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	if(udder)
 		QDEL_NULL(udder)
 
+	owner = null
+
 	return ..()
 
 /mob/living/simple_animal/attackby(obj/item/O, mob/user, params)
@@ -251,7 +253,6 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 
 	if(user)
 		owner = user
-	return
 
 //mob/living/simple_animal/examine(mob/user)
 //	. = ..()
