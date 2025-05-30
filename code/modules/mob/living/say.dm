@@ -189,7 +189,7 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 			message_mode = MODE_WHISPER_CRIT
 			succumbed = TRUE
 	else
-		src.log_talk("said: [message]", LOG_SAY, forced_by=forced)
+		src.log_talk(message, LOG_SAY, forced_by = forced, tag = "Said: ")
 
 	message = treat_message(message) // unfortunately we still need this
 	var/sigreturn = SEND_SIGNAL(src, COMSIG_MOB_SAY, args)
