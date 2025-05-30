@@ -116,6 +116,8 @@ GLOBAL_VAR_INIT(focused_test, focused_test())
 		/mob/living/carbon/human/species,
 		// ??????
 		/mob/living/carbon/human/species/human,
+		/obj/item/bodypart/head/monkey,
+		/mob/living/carbon/monkey,
 		//Needs a seed passed, but subtypes set one by default
 		/obj/item/grown,
 		/obj/item/reagent_containers/food/snacks/grown,
