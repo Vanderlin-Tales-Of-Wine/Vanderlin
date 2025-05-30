@@ -396,6 +396,12 @@
 			cost = 5,
 			max_purchases = 1
 		),
+		"Recurve Bow and Quiver (3)" = list(
+			list(type = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve, count = 1),
+			list(type = /obj/item/ammo_holder/quiver/arrows, count = 1),
+			cost = 3,
+			max_purchases = 1
+		),
 		"Psydonian Longsword (8)" = list(
 			list(type = /obj/item/weapon/sword/long/psydon, count = 1),
 			cost = 8,
