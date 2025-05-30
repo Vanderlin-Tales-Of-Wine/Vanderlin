@@ -174,9 +174,9 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	update_simplemob_varspeed()
 	if(milk_reagent)
 		udder = new(src, milk_reagent)
-	if(!length(ai_controller.blackboard[BB_BASIC_FOODS]))
-		ai_controller.set_blackboard_key(BB_BASIC_FOODS, typecacheof(food_type))
-
+	if(ai_controller)
+		if(!length(ai_controller.blackboard[BB_BASIC_FOODS]))
+			ai_controller.set_blackboard_key(BB_BASIC_FOODS, typecacheof(food_type))
 
 /mob/living/simple_animal/Destroy()
 	if(nest)
@@ -185,10 +185,9 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 
 	if(ssaddle)
 		QDEL_NULL(ssaddle)
-		ssaddle = null
 
-	qdel(udder)
-	udder = null
+	if(udder)
+		QDEL_NULL(udder)
 
 	return ..()
 
