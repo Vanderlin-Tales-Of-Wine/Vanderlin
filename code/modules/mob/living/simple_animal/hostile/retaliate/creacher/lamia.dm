@@ -55,7 +55,7 @@
 		gender = MALE
 		icon_state = "lamia"
 		icon_living = "lamia"
-	update_icon()
+	update_appearance()
 
 /mob/living/simple_animal/hostile/retaliate/lamia/simple_limb_hit(zone)
 	if(!zone)

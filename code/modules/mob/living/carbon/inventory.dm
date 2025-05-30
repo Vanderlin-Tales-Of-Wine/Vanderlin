@@ -115,8 +115,8 @@
 		I.equipped(src, slot)
 
 	if(hud_used)
-		hud_used.throw_icon?.update_icon()
-		hud_used.give_intent?.update_icon()
+		hud_used.throw_icon?.update_appearance()
+		hud_used.give_intent?.update_appearance()
 
 	return not_handled
 

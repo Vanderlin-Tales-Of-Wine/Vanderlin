@@ -23,7 +23,7 @@
 	GLOB.fires_list += src
 	if(fueluse > 0)
 		fueluse = fueluse - (rand(fueluse*0.1,fueluse*0.3))
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 	seton(TRUE)
 
 	. = ..()
@@ -64,8 +64,6 @@
 		new /obj/effect/temp_visual/small_smoke(src.loc)
 	..()
 
-
-
 /obj/machinery/light/fueled/burn_out()
 	if(soundloop)
 		soundloop.stop()
@@ -73,13 +71,11 @@
 		playsound(src.loc, 'sound/items/firesnuff.ogg', 100)
 	..()
 	remove_temp_effect()
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 
-/obj/machinery/light/fueled/update_icon()
-	if(on)
-		icon_state = "[base_state]1"
-	else
-		icon_state = "[base_state]0"
+/obj/machinery/light/fueled/update_icon_state()
+	. = ..()
+	icon_state = "[base_state][on]"
 
 /obj/machinery/light/fueled/update()
 	. = ..()
@@ -98,7 +94,7 @@
 		playsound(src.loc, 'sound/items/firelight.ogg', 100)
 		on = TRUE
 		update()
-		update_icon()
+		update_appearance(UPDATE_ICON_STATE)
 		if(soundloop)
 			soundloop.start()
 		return TRUE
@@ -254,7 +250,7 @@
 					return
 				on = FALSE
 				update()
-				update_icon()
+				update_appearance(UPDATE_ICON_STATE)
 				qdel(W)
 				src.visible_message("<span class='warning'>[user] snuffs the fire.</span>")
 				return

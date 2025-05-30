@@ -103,12 +103,12 @@
 	gender = MALE
 	if(prob(33))
 		gender = FEMALE
-	update_icon()
+	update_appearance()
 	AddElement(/datum/element/ai_flee_while_injured, 0.75, retreat_health)
 
 /mob/living/simple_animal/hostile/retaliate/mole/death(gibbed)
 	..()
-	update_icon()
+	update_appearance()
 
 /mob/living/simple_animal/hostile/retaliate/mole/get_sound(input)//my media player does not work please add new .ogg
 	switch(input)

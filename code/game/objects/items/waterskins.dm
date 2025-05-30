@@ -10,7 +10,7 @@
 	sellprice = 50
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_NECK
 	obj_flags = CAN_BE_HIT
-	reagent_flags = OPENCONTAINER
+	reagent_flags = TRANSFERABLE | AMOUNT_VISIBLE
 	w_class =  WEIGHT_CLASS_NORMAL
 	drinksounds = list('sound/items/drink_bottle (1).ogg','sound/items/drink_bottle (2).ogg')
 	fillsounds = list('sound/items/fillcup.ogg')
@@ -19,6 +19,10 @@
 	grid_width = 32
 	grid_height = 64
 	can_label_bottle = FALSE
+
+/obj/item/reagent_containers/glass/bottle/waterskin/Initialize()
+	. = ..()
+	icon_state = initial(icon_state)
 
 /obj/item/reagent_containers/glass/bottle/waterskin/milk // Filled subtype used by the cheesemaker
 	list_reagents = list(/datum/reagent/consumable/milk = 64)
