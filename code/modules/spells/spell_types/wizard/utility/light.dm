@@ -105,7 +105,6 @@
 
 /obj/item/flashlight/flare/light5e/turn_off()
 	playsound(src.loc, 'sound/items/firesnuff.ogg', 100)
-	soundloop.stop()
 	STOP_PROCESSING(SSobj, src)
 	..()
 	if(ismob(loc))
@@ -123,7 +122,6 @@
 			damtype = BURN
 			update_brightness()
 			force = on_damage
-			soundloop.start()
 			if(ismob(loc))
 				var/mob/M = loc
 				M.update_inv_hands()
