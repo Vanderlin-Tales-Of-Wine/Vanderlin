@@ -1324,7 +1324,6 @@
 #include "code\game\objects\structures\grindwheel.dm"
 #include "code\game\objects\structures\guillotine.dm"
 #include "code\game\objects\structures\handcart.dm"
-#include "code\game\objects\structures\hell.dm"
 #include "code\game\objects\structures\hidden_doors.dm"
 #include "code\game\objects\structures\hole.dm"
 #include "code\game\objects\structures\irrigation_channel.dm"

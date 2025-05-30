@@ -15,6 +15,15 @@
 	fueluse = 20 MINUTES
 	crossfire = FALSE
 
+/obj/machinery/light/fueled/cauldron/Initialize()
+	. = ..()
+	create_reagents(500, DRAINABLE | AMOUNT_VISIBLE | REFILLABLE)
+
+/obj/machinery/light/fueled/cauldron/Destroy()
+	chem_splash(loc, 2, list(reagents))
+	playsound(loc, pick('sound/foley/water_land1.ogg','sound/foley/water_land2.ogg', 'sound/foley/water_land3.ogg'), 100, FALSE)
+	return ..()
+
 /obj/machinery/light/fueled/cauldron/update_icon()
 	..()
 	cut_overlays()
@@ -30,16 +39,6 @@
 			filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
 			add_overlay(filling)
 	return
-
-/obj/machinery/light/fueled/cauldron/Initialize()
-	create_reagents(500, DRAINABLE | AMOUNT_VISIBLE | REFILLABLE)
-	. = ..()
-
-/obj/machinery/light/fueled/cauldron/Destroy()
-	chem_splash(loc, 2, list(reagents))
-	playsound(loc, pick('sound/foley/water_land1.ogg','sound/foley/water_land2.ogg', 'sound/foley/water_land3.ogg'), 100, FALSE)
-	qdel(reagents)
-	..()
 
 /obj/machinery/light/fueled/cauldron/burn_out()
 	brewing = 0

@@ -176,18 +176,18 @@ GLOBAL_LIST_EMPTY(biggates)
 	. = ..()
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/structure/winch/Destroy()
-	if(attached_gate)
-		var/obj/structure/gate/W = attached_gate
-		W.attached_to = null
-	..()
-
 /obj/structure/winch/LateInitialize()
 	for(var/obj/structure/gate/G in GLOB.biggates)
 		if(G.gid == gid)
 			GLOB.biggates -= G
 			attached_gate = G
 			G.attached_to = src
+
+/obj/structure/winch/Destroy()
+	if(attached_gate)
+		var/obj/structure/gate/W = attached_gate
+		W.attached_to = null
+	return ..()
 
 /obj/structure/winch/attack_hand(mob/user)
 	. = ..()

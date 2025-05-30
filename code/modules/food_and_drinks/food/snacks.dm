@@ -103,6 +103,11 @@ All foods are distributed among various categories. Use common sense.
 	var/biting // if TRUE changes the icon state to the bitecount, for stuff like handpies. Will break unless you also set a base_icon_state
 	var/rot_away_timer
 
+/obj/item/reagent_containers/food/snacks/Initialize()
+	. = ..()
+	if(rotprocess)
+		SSticker.OnRoundstart(CALLBACK(src, PROC_REF(begin_rotting)))
+
 /datum/intent/food
 	name = "feed"
 	noaa = TRUE
@@ -123,11 +128,6 @@ All foods are distributed among various categories. Use common sense.
 
 /obj/item/reagent_containers/food/snacks/fire_act(added, maxstacks)
 	burning(1 MINUTES)
-
-/obj/item/reagent_containers/food/snacks/Initialize()
-	if(rotprocess)
-		SSticker.OnRoundstart(CALLBACK(src, PROC_REF(begin_rotting)))
-	..()
 
 /obj/item/reagent_containers/food/snacks/proc/begin_rotting()
 	START_PROCESSING(SSobj, src)

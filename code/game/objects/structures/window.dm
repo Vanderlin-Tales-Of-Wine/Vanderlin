@@ -124,9 +124,9 @@
 	integrity_failure = 0.5
 
 /obj/structure/window/openclose/Initialize()
+	. = ..()
 	lockdir = dir
 	GLOB.TodUpdate += src
-	..()
 
 /obj/structure/window/openclose/Destroy()
 	GLOB.TodUpdate -= src
