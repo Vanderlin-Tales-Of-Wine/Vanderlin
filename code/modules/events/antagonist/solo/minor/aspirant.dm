@@ -1,5 +1,5 @@
-/datum/round_event_control/antagonist/solo/aspirants
-	name = "Aspirants"
+/datum/round_event_control/antagonist/solo/aspirant
+	name = "Aspirant"
 	tags = list(
 		TAG_VILLIAN,
 	)
@@ -21,18 +21,17 @@
 	)
 
 	base_antags = 1
-	maximum_antags = 2
+	maximum_antags = 1
 
 	earliest_start = 0 SECONDS
 
 	weight = 8
 
-	typepath = /datum/round_event/antagonist/solo/aspirants
+	typepath = /datum/round_event/antagonist/solo/aspirant
 
-/datum/round_event/antagonist/solo/aspirants
-	var/leader = FALSE
+/datum/round_event/antagonist/solo/aspirant
 
-/datum/round_event/antagonist/solo/aspirants/start()
+/datum/round_event/antagonist/solo/aspirant/start()
 	for(var/datum/mind/antag_mind as anything in setup_minds)
 		add_datum_to_mind(antag_mind, antag_mind.current)
 

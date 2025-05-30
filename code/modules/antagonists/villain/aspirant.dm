@@ -78,14 +78,20 @@
 
 /datum/antagonist/aspirant/on_gain()
 	. = ..()
-	if(istype(src, /datum/antagonist/aspirant/ruler))
-		return
 	owner.special_role = ROLE_ASPIRANT
 	SSmapping.retainer.aspirants |= owner
-	if(type == /datum/antagonist/aspirant) // only for the aspirant
-		addtimer(CALLBACK(src, PROC_REF(give_equipment_prompt)), 5 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(give_equipment_prompt)), 5 SECONDS)
 	create_objectives()
 	owner.announce_objectives()
+
+// kinda sucks but it's fine
+/datum/antagonist/aspirant/supporter/on_gain()
+	SSmapping.retainer.aspirant_supporters |= owner
+	create_objectives()
+	owner.announce_objectives()
+
+/datum/antagonist/aspirant/ruler/on_gain()
+	return
 
 /datum/antagonist/aspirant/greet()
 	to_chat(owner, span_redtextbig("I have grown weary of being near the throne, but never on it. I have decided that it is time I ruled [SSmapping.config.map_name]."))
@@ -108,8 +114,7 @@
 	to_chat(owner, span_reallybighypnophrase("[aspirant.name] is the one I pledge allegiance to."))
 
 /datum/antagonist/aspirant/proc/show_supporters_to_aspirant()
-	var/list/supporters_list = SSmapping.retainer.aspirants.Copy()
-	supporters_list -= owner
+	var/list/supporters_list = SSmapping.retainer.aspirant_supporters.Copy()
 
 	var/supporters_string_formatted
 	for(var/datum/mind/supporter as anything in supporters_list)
