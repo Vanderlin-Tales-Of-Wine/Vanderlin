@@ -60,11 +60,11 @@
 
 /obj/item/clothing/head/roguehood/random/Initialize()
 	color = pick( CLOTHING_PEASANT_BROWN, CLOTHING_SPRING_GREEN, CLOTHING_CHESTNUT, CLOTHING_YELLOW_OCHRE)
-	..()
+	return ..()
 
 /obj/item/clothing/head/roguehood/mage/Initialize()
 	color = pick(CLOTHING_MAGE_BLUE, CLOTHING_MAGE_GREEN, CLOTHING_MAGE_ORANGE, CLOTHING_MAGE_YELLOW)
-	..()
+	return ..()
 
 /obj/item/clothing/head/roguehood/guard
 	color = CLOTHING_PLUM_PURPLE
