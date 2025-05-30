@@ -21,6 +21,7 @@
 	var/locomotion_hand_pulling
 	/// the current astral projection we are controlling
 	var/mob/dead/astral_projection/current_projection
+	use_visibility = TRUE
 
 	var/list/allowed_projection_objects = list(
 		/obj/item/clothing/head/crown/serpcrown,

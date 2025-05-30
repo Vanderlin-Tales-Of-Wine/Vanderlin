@@ -10,6 +10,15 @@
 	see_in_dark = 7
 	invisibility = INVISIBILITY_ABSTRACT // No one can see us
 	sight = SEE_SELF
+	var/static_visibility_range = 16
+	var/list/visibleCameraChunks = list()
+	var/use_static = USE_STATIC_OPAQUE
+	var/use_visibility = FALSE
+
+/mob/camera/proc/GetViewerClient()
+	if(client)
+		return client
+	return null
 
 /mob/camera/forceMove(atom/destination)
 	var/oldloc = loc
