@@ -34,7 +34,7 @@
 
 /obj/item/clothing/pants/trou/leather/guard/Destroy()
 	GLOB.lordcolor -= src
-	return
+	return ..()
 
 /obj/item/clothing/pants/trou/leather/advanced
 	name = "hardened leather chausses"
