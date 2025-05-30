@@ -40,21 +40,18 @@
 	belt = /obj/item/storage/belt/leather/black
 	pants = /obj/item/clothing/pants/trou/leather/guard
 
+/datum/outfit/job/gatemaster/post_equip(mob/living/carbon/human/H)
+	. = ..()
+	if(H.cloak)
+		if(!findtext(H.cloak.name,"([H.real_name])"))
+			H.cloak.name = "[H.cloak.name]"+" "+"([H.real_name])"
+
 /datum/job/gatemaster/after_spawn(mob/living/spawned, client/player_client)
 	..()
 	var/mob/living/carbon/human/H = spawned
 	H.advsetup = TRUE
 	H.invisibility = INVISIBILITY_MAXIMUM
 	H.become_blind("advsetup")
-
-	if(istype(H.cloak, /obj/item/clothing/cloak/stabard/surcoat/guard))
-		var/obj/item/clothing/S = H.cloak
-		var/index = findtext(H.real_name, " ")
-		if(index)
-			index = copytext(H.real_name, 1,index)
-		if(!index)
-			index = H.real_name
-		S.name = "gatemaster jupon ([index])"
 
 /datum/advclass/gatemaster/gatemaster_whip
 	name = "Chainguard Gatemaster"

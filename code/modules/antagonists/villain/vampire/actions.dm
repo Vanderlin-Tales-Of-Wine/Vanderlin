@@ -114,16 +114,19 @@
 					if(!QDELETED(L))
 						L.Sleeping(1 MINUTES)
 			continue
-
-		to_chat(user, span_userdanger("I fail to ensnare their mind!"))
-
-		if(!powerful && knowledgable)
-			var/holypower = L.get_skill_level(/datum/skill/magic/holy)
-			var/magicpower = round(L.get_skill_level(/datum/skill/magic/arcane) * 0.6, 1)
-			var/roll = roll(1 + holypower + magicpower, 5)
-			if(roll > bloodroll)
-				to_chat(L, "I feel like the unholy magic came from [user]. I should use my magic or miracles on them.")
-
+		///Reward the user with the caster if they managed to roll higher than the blood magic
+		else
+			if(found_psycross == TRUE)
+				to_chat(L, "<font color='white'>The silver psycross shines and protect me from unholy magic, i sense the caster was [user]!</font>")
+				to_chat(user, span_userdanger("[L] has my BANE! It causes me to fail to ensnare their mind!"))
+			else
+				to_chat(user, span_userdanger("I fail to ensnare their mind!"))
+				if(!powerful)
+					var/holypower = L.get_skill_level(/datum/skill/magic/holy)
+					var/magicpower = round(L.get_skill_level(/datum/skill/magic/arcane) * 0.6, 1)
+					var/roll = roll(1 + holypower + magicpower, 5)
+					if(roll > bloodroll)
+						to_chat(L, "I feel like the unholy magic came from [user]. I should use my magic or miracles on them.")
 	return TRUE
 
 /obj/effect/proc_holder/spell/targeted/transfix/master

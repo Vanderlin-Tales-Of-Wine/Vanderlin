@@ -55,9 +55,6 @@
 	var/obj/item/beltr = null
 	var/obj/item/wear_ring = null
 	var/obj/item/wear_wrists = null
-	var/obj/item/r_store = null
-	var/obj/item/l_store = null
-	var/obj/item/s_store = null
 	var/obj/item/cloak = null
 	var/obj/item/clothing/wear_shirt = null
 
@@ -72,7 +69,7 @@
 
 	var/list/datum/bioware = list()
 
-	var/static/list/can_ride_typecache = typecacheof(list(/mob/living/carbon/human, /mob/living/simple_animal/parrot))
+	var/static/list/can_ride_typecache = typecacheof(list(/mob/living/carbon/human))
 	var/lastpuke = 0
 	var/last_fire_update
 	var/account_id //! DEPRECATED
@@ -129,6 +126,22 @@
 
 	rot_type = /datum/component/rot/corpse
 
+	blocks_emissive = EMISSIVE_BLOCK_UNIQUE
+	var/datum/charflaw/charflaw
+
+	/// List of curses on this mob
+	var/list/curses = list()
+
+	/// List of minions that this mob has control over. Used for things like the Lich's "Command Undead" spell.
+	var/list/mob/minions = list()
+
+	var/mob/stored_mob = null // werewolf bullshit
+
+	fovangle = FOV_DEFAULT // our fov
+
+	var/mob/living/carbon/human/hostagetaker //Stores the person that took us hostage in a var, allows us to force them to attack the mob and such
+	var/mob/living/carbon/human/hostage //What hostage we have
+
 //Checking the highest armor class worn
 //Limb armors use the second highest armor class
 /mob/living/carbon/human/proc/check_armor_class()
@@ -150,7 +163,7 @@
 	torso_class = max(shirt_ac, chest_ac)			//Use heaviest Torso Armor Class
 
 	//Get Limb values, use heaviest pair
-	var/list/accessories = list(head, wear_mask, wear_wrists, wear_neck, cloak, wear_pants, gloves, shoes, belt, s_store)
+	var/list/accessories = list(head, wear_mask, wear_wrists, wear_neck, cloak, wear_pants, gloves, shoes, belt)
 	var/acc_class = ARMOR_CLASS_NONE
 	var/heavy_count = 0
 	var/medium_count = 0

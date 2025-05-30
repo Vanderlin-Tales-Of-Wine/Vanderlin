@@ -355,6 +355,8 @@
 					H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 				if(H.dna.species.id == "dwarf")
 					H.adjust_skillrank(/datum/skill/labor/mining, 1, TRUE)
+				if(isharpy(H))
+					H.adjust_skillrank(/datum/skill/misc/music, 1, TRUE)
 	H.underwear_color = null
 	H.update_body()
 
@@ -370,6 +372,7 @@
 		H.mind?.job_bitflag = job_bitflag
 		if(H.familytree_pref != FAMILY_NONE && !visualsOnly && !H.family_datum)
 			SSfamilytree.AddLocal(H, H.familytree_pref)
+			H.ShowFamilyUI(TRUE)
 		if(H.ckey)
 			if(check_crownlist(H.ckey))
 				H.mind.special_items["Champion Circlet"] = /obj/item/clothing/head/crown/sparrowcrown

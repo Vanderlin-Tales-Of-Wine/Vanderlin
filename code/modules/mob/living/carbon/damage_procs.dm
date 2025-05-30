@@ -221,6 +221,6 @@
 			burn	= round(burn - (picked.burn_dam - burn_was), DAMAGE_PRECISION)
 
 	if(updating_health)
-		updatehealth()
+		updatehealth(brute + burn)
 	if(update)
 		update_damage_overlays()

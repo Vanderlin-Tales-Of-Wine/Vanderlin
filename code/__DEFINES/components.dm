@@ -1,39 +1,3 @@
-/// Used to trigger signals and call procs registered for that signal
-/// The datum hosting the signal is automaticaly added as the first argument
-/// Returns a bitfield gathered from all registered procs
-/// Arguments given here are packaged in a list and given to _SendSignal
-#define SEND_SIGNAL(target, sigtype, arguments...) ( !target.comp_lookup || !target.comp_lookup[sigtype] ? NONE : target._SendSignal(sigtype, list(target, ##arguments)) )
-
-#define SEND_GLOBAL_SIGNAL(sigtype, arguments...) ( SEND_SIGNAL(SSdcs, sigtype, ##arguments) )
-
-/// Return this from `/datum/component/Initialize` or `datum/component/OnTransfer` to have the component be deleted if it's applied to an incorrect type.
-/// `parent` must not be modified if this is to be returned.
-/// This will be noted in the runtime logs
-#define COMPONENT_INCOMPATIBLE 1
-/// Returned in PostTransfer to prevent transfer, similar to `COMPONENT_INCOMPATIBLE`
-#define COMPONENT_NOTRANSFER 2
-
-/// Return value to cancel attaching
-#define ELEMENT_INCOMPATIBLE 1
-
-/// /datum/element flags
-#define ELEMENT_DETACH		(1 << 0)
-/**
- * Only elements created with the same arguments given after `id_arg_index` share an element instance
- * The arguments are the same when the text and number values are the same and all other values have the same ref
- */
-#define ELEMENT_BESPOKE		(1 << 1)
-
-// How multiple components of the exact same type are handled in the same datum
-/// old component is deleted (default)
-#define COMPONENT_DUPE_HIGHLANDER		0
-/// duplicates allowed
-#define COMPONENT_DUPE_ALLOWED			1
-/// new component is deleted
-#define COMPONENT_DUPE_UNIQUE			2
-/// old component is given the initialization args of the new
-#define COMPONENT_DUPE_UNIQUE_PASSARGS	4
-
 // All signals. Format:
 // When the signal is called: (signal arguments)
 // All signals send the source datum of the signal as the first argument
@@ -150,6 +114,7 @@
 #define COMSIG_TURF_MULTIZ_NEW "turf_multiz_new"				//from base of turf/New(): (turf/source, direction)
 
 // /mob signals
+#define COMSIG_MOB_BREAK_SNEAK "mob_break_sneak"
 #define COMSIG_MOB_DEATH "mob_death"							//from base of mob/death(): (gibbed)
 
 #define COMSIG_MOB_CREATED_CALLOUT "mob_created_callout"
@@ -239,33 +204,28 @@
 	#define COMPONENT_ITEM_BLOCK_UNEQUIP (1<<0)
 ///called on [/obj/item] AFTER unequip from base of [mob/proc/doUnEquip]: (force, atom/newloc, no_move, invdrop, silent)
 #define COMSIG_ITEM_POST_UNEQUIP "item_post_unequip"
-#define COMSIG_ITEM_DROPPED "item_drop"							//from base of obj/item/dropped(): (mob/user)
-#define COMSIG_ITEM_PICKUP "item_pickup"						//from base of obj/item/pickup(): (/mob/taker)
-#define COMSIG_ITEM_ATTACK_ZONE "item_attack_zone"				//from base of mob/living/carbon/attacked_by(): (mob/living/carbon/target, mob/living/user, hit_zone)
-#define COMSIG_ITEM_IMBUE_SOUL "item_imbue_soul" 				//return a truthy value to prevent ensouling, checked in /obj/effect/proc_holder/spell/targeted/lichdom/cast(): (mob/user)
-#define COMSIG_ITEM_MARK_RETRIEVAL "item_mark_retrieval"			//called before marking an object for retrieval, checked in /obj/effect/proc_holder/spell/targeted/summonitem/cast() : (mob/user)
+///from base of obj/item/dropped(): (mob/user)
+#define COMSIG_ITEM_DROPPED "item_drop"
+///from base of obj/item/pickup(): (/mob/taker)
+#define COMSIG_ITEM_PICKUP "item_pickup"
+///from base of mob/living/carbon/attacked_by(): (mob/living/carbon/target, mob/living/user, hit_zone)
+#define COMSIG_ITEM_ATTACK_ZONE "item_attack_zone"
+///return a truthy value to prevent ensouling, checked in /obj/effect/proc_holder/spell/targeted/lichdom/cast(): (mob/user)
+#define COMSIG_ITEM_IMBUE_SOUL "item_imbue_soul"
+//called before marking an object for retrieval, checked in /obj/effect/proc_holder/spell/targeted/summonitem/cast() : (mob/user)
+#define COMSIG_ITEM_MARK_RETRIEVAL "item_mark_retrieval"
 	#define COMPONENT_BLOCK_MARK_RETRIEVAL 1
-#define COMSIG_ITEM_HIT_REACT "item_hit_react"					//from base of obj/item/hit_reaction(): (list/args)
+///from base of obj/item/hit_reaction(): (list/args)
+#define COMSIG_ITEM_HIT_REACT "item_hit_react"
 #define COMSIG_ITEM_HIT_RESPONSE "item_hit_response"
-#define COMSIG_ITEM_WEARERCROSSED "wearer_crossed"                //called on item when crossed by something (): (/atom/movable, mob/living/crossed)
+///called on item when crossed by something (): (/atom/movable, mob/living/crossed)
+#define COMSIG_ITEM_WEARERCROSSED "wearer_crossed"
 
-//signal for gaffer ring destroyed, if you dont like my location send me rod directly into my
-
+///signal for gaffer ring destroyed, if you dont like my location send me rod directly into my ; this sucks.
 #define COMSIG_GAFFER_RING_DESTROYED "gaffer_ring_destroyed"
 
 // /obj/item/clothing signals
 #define COMSIG_CLOTHING_STEP_ACTION "clothing_step_action"			//from base of obj/item/clothing/shoes/proc/step_action(): ()
-
-// /obj/item/implant signals
-#define COMSIG_IMPLANT_ACTIVATED "implant_activated"			//from base of /obj/item/implant/proc/activate(): ()
-#define COMSIG_IMPLANT_IMPLANTING "implant_implanting"			//from base of /obj/item/implant/proc/implant(): (list/args)
-	#define COMPONENT_STOP_IMPLANTING 1
-#define COMSIG_IMPLANT_OTHER "implant_other"					//called on already installed implants when a new one is being added in /obj/item/implant/proc/implant(): (list/args, obj/item/implant/new_implant)
-	//#define COMPONENT_STOP_IMPLANTING 1 //The name makes sense for both
-	#define COMPONENT_DELETE_NEW_IMPLANT 2
-	#define COMPONENT_DELETE_OLD_IMPLANT 4
-#define COMSIG_IMPLANT_EXISTING_UPLINK "implant_uplink_exists"	//called on implants being implanted into someone with an uplink implant: (datum/component/uplink)
-	//This uses all return values of COMSIG_IMPLANT_OTHER
 
 // /obj/item/pda signals
 #define COMSIG_PDA_CHANGE_RINGTONE "pda_change_ringtone"		//called on pda when the user changes the ringtone: (mob/living/user, new_ringtone)

@@ -47,6 +47,6 @@
 
 	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
 	to_chat(chosen_one, span_notice("Noc demands that you learn the ways of the arcane! Seek baptism in the mana fountain to earn Noc's favor!"))
-	SEND_SOUND(chosen_one, 'sound/ambience/noises/mystical (4).ogg')
+	chosen_one.playsound_local(chosen_one, 'sound/ambience/noises/mystical (4).ogg', 100)
 
 	chosen_one.mind.announce_personal_objectives()

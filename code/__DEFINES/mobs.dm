@@ -236,15 +236,6 @@
 
 //Hostile simple animals
 //If you add a new status, be sure to add a list for it to the simple_animals global in _globalvars/lists/mobs.dm
-#define AI_ON		1
-#define AI_IDLE		2
-#define AI_OFF		3
-#define AI_Z_OFF	4
-
-#define AI_COMBAT	5
-#define AI_RETREAT	6
-#define AI_HUNT		7
-#define AI_FLEE		8
 
 //determines if a mob can smash through it
 #define ENVIRONMENT_SMASH_NONE			0
@@ -290,13 +281,12 @@
 // Offsets defines
 
 #define OFFSET_UNIFORM "uniform"
-#define OFFSET_ID "wear_ring"
+#define OFFSET_RING "wear_ring"
 #define OFFSET_GLOVES "gloves"
 #define OFFSET_WRISTS "wear_wrists"
 #define OFFSET_GLASSES "glasses"
 #define OFFSET_EARS "ears"
 #define OFFSET_SHOES "shoes"
-#define OFFSET_S_STORE "s_store"
 #define OFFSET_FACEMASK "mask"
 #define OFFSET_HEAD "head"
 #define OFFSET_FACE "face" //facial hair and hair
@@ -312,7 +302,7 @@
 #define OFFSET_HANDS "hands"
 #define OFFSET_UNDIES "underwear"
 
-#define OFFSET_ID_F "wear_ringf"
+#define OFFSET_RING_F "wear_ringf"
 #define OFFSET_GLOVES_F "glovesf"
 #define OFFSET_WRISTS_F "wear_wristsf"
 #define OFFSET_FACEMASK_F "maskf"
@@ -329,15 +319,6 @@
 #define OFFSET_HANDS_F "handsf"
 #define OFFSET_UNDIES_F "underwearf"
 
-//MINOR TWEAKS/MISC
-#define AGE_MIN				18	//youngest a character can be
-#define AGE_MAX				85	//oldest a character can be
-#define WIZARD_AGE_MIN		30	//youngest a wizard can be
-#define APPRENTICE_AGE_MIN	29	//youngest an apprentice can be
-#define SHOES_SLOWDOWN		0	//How much shoes slow you down by default. Negative values speed you up
-#define POCKET_STRIP_DELAY			40	//time taken (in deciseconds) to search somebody's pockets
-#define DOOR_CRUSH_DAMAGE	15	//the amount of damage that airlocks deal when they crush you
-
 #define HUNGER_FACTOR		0.15	//factor at which mob nutrition decreases
 #define ETHEREAL_CHARGE_FACTOR	0.12 //factor at which ethereal's charge decreases
 #define REAGENTS_METABOLISM 1	//How many units of reagent are consumed per tick, by default.
@@ -351,25 +332,7 @@
 #define FLASH_PROTECTION_FLASH 1
 #define FLASH_PROTECTION_WELDER 2
 
-// Roundstart trait system
-
-#define MAX_QUIRKS 6 //The maximum amount of quirks one character can have at roundstart
-
-// AI Toggles
-#define AI_CAMERA_LUMINOSITY	5
-#define AI_VOX // Comment out if you don't want VOX to be enabled and have players download the voice sounds.
-
-// /obj/item/bodypart on_mob_life() retval flag
-#define BODYPART_LIFE_UPDATE_HEALTH (1<<0)
-
-#define MAX_REVIVE_FIRE_DAMAGE 180
-#define MAX_REVIVE_BRUTE_DAMAGE 180
-
 #define HUMAN_FIRE_STACK_ICON_NUM	5
-
-#define GRAB_PIXEL_SHIFT_PASSIVE 6
-#define GRAB_PIXEL_SHIFT_AGGRESSIVE 12
-#define GRAB_PIXEL_SHIFT_NECK 16
 
 #define PULL_PRONE_SLOWDOWN 2
 #define HUMAN_CARRY_SLOWDOWN 0

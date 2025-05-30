@@ -29,14 +29,13 @@
 				return list("shrink" = 0.5,"sx" = -1,"sy" = 2,"nx" = 0,"ny" = 2,"wx" = 2,"wy" = 1,"ex" = 0,"ey" = 1,"nturn" = 0,"sturn" = 0,"wturn" = 70,"eturn" = 15,"nflip" = 1,"sflip" = 1,"wflip" = 1,"eflip" = 1,"northabove" = 1,"southabove" = 0,"eastabove" = 0,"westabove" = 0)
 
 /obj/item/broom/attack_obj(obj/O, mob/living/user)
-	testing("attackobj")
 	if(do_after(user, 3 SECONDS, O))
 		if(istype(O, /obj/effect/decal/cleanable/dirt))
 			user.visible_message("<span class='notice'>[user] sweeps \the [O.name].</span>", "<span class='notice'>I sweep \the [O.name].</span>")
 			playsound(user, "clothwipe", 100, TRUE)
 			qdel(O)
 		if(istype(O, /obj/effect/decal/cleanable/blood))
-			add_blood_DNA(O.return_blood_DNA())
+			add_blood_DNA(GET_ATOM_BLOOD_DNA(O))
 			return
 
 /obj/item/broom/attack_turf(turf/T, mob/living/user)
@@ -48,5 +47,5 @@
 			playsound(user, "clothwipe", 100, TRUE)
 			qdel(C)
 		for(var/obj/effect/decal/cleanable/blood/O in T)
-			add_blood_DNA(O.return_blood_DNA())
+			add_blood_DNA(GET_ATOM_BLOOD_DNA(O))
 			return

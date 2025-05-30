@@ -42,7 +42,7 @@
 	var/obj/item/I
 	I = mob.get_active_held_item()
 	if(I)
-		if(I.return_blood_DNA())
+		if(GET_ATOM_BLOOD_DNA(I))
 			testing("yep")
 		else
 			testing("nope")
@@ -84,13 +84,13 @@
 
 /obj/item/natural/cloth/ComponentInitialize()
 	. = ..()
-	cleaner_component = AddComponent(/datum/component/cleaner,
-									clean_speed,
-									CLEAN_MEDIUM,
-									100,
-									TRUE,
-									CALLBACK(src, PROC_REF(on_pre_clean)),
-									CALLBACK(src, PROC_REF(on_clean_success)),
+	cleaner_component = AddComponent(/datum/component/cleaner, \
+									clean_speed, \
+									CLEAN_SCRUB, \
+									100, \
+									TRUE, \
+									CALLBACK(src, PROC_REF(on_pre_clean)), \
+									CALLBACK(src, PROC_REF(on_clean_success)), \
 									)
 
 /obj/item/natural/cloth/proc/on_pre_clean(datum/cleaning_source, atom/atom_to_clean, mob/living/cleaner)
@@ -113,7 +113,7 @@
 	effectiveness *= LERP(1, CLEAN_EFFECTIVENESS_SOAP, pSoap)
 
 	cleaner_component.cleaning_effectiveness = (effectiveness * 100) % 100
-	cleaner_component.cleaning_strength = CLAMP(CLEAN_WEAK + ceil(effectiveness), CLEAN_WEAK, CLEAN_IMPRESSIVE)
+	cleaner_component.cleaning_strength = CLEAN_WASH
 	playsound(cleaner, pick('sound/foley/cloth_wipe (1).ogg','sound/foley/cloth_wipe (2).ogg', 'sound/foley/cloth_wipe (3).ogg'), 25, FALSE)
 	return TRUE
 
@@ -239,10 +239,8 @@
 				user.visible_message(span_small("[user] wrings out \the [src]."), span_small("I wring out \the [src]."), vision_distance = 2)
 				playsound(T, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 25, FALSE)
 
-
 // BANDAGING
 /obj/item/natural/cloth/attack(mob/living/M, mob/user)
-	testing("attack")
 	bandage(M, user)
 
 /obj/item/natural/cloth/proc/bandage(mob/living/M, mob/user)

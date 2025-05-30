@@ -45,6 +45,6 @@
 
 	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
 	to_chat(chosen_one, span_notice("Ravox demands you prove your might! Improve your combat skills to earn Ravox's favor!"))
-	SEND_SOUND(chosen_one, 'sound/vo/male/knight/rage (6).ogg')
+	chosen_one.playsound_local(chosen_one, 'sound/vo/male/knight/rage (6).ogg', 70)
 
 	chosen_one.mind.announce_personal_objectives()

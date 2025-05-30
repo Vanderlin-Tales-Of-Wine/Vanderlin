@@ -430,7 +430,7 @@
 			to_chat(user, "<span class='notice'>Remove the pot from the hearth first.</span>")
 			return
 		else
-			SEND_SIGNAL(attachment, COMSIG_TRY_STORAGE_INSERT, W, user, null, TRUE, TRUE)
+			SEND_SIGNAL(attachment, COMSIG_TRY_STORAGE_INSERT, W, user, null, FALSE)
 	. = ..()
 
 /obj/machinery/light/fueled/hearth/MouseDrop(mob/over, src_location, over_location, src_control, over_control, params)

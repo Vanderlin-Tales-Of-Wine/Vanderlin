@@ -26,3 +26,52 @@
 	name = "harpy's song"
 	icon_state = "harpysong"		//Pulsating heart energy thing.
 	desc = "The blessed essence of harpysong. How did you get this... you monster!"
+	var/obj/item/instrument/vocals/harpy_vocals/vocals
+	var/obj/effect/proc_holder/spell/self/harpy_sing/harpy
+	var/granted_singing
+
+/obj/item/organ/vocal_cords/harpy/Initialize()
+	. = ..()
+	vocals = new(src)  //okay, i think it'll be tied to the organ
+
+/obj/item/organ/vocal_cords/harpy/on_life()
+	. = ..()
+	if(!granted_singing && owner?.mind)
+		if(!owner.mind.has_spell(harpy.type))
+			owner.mind.AddSpell(harpy)
+			granted_singing = TRUE
+
+/obj/item/organ/vocal_cords/harpy/Insert(mob/living/carbon/M, special = FALSE, drop_if_replaced = TRUE)
+	. = ..()
+	if(!harpy)
+		harpy = new
+	M.mind?.AddSpell(harpy)
+	M.adjust_skillrank(/datum/skill/misc/music, 1, TRUE)
+
+/obj/item/organ/vocal_cords/harpy/Remove(mob/living/carbon/M, special = FALSE, drop_if_replaced = TRUE)
+	. = ..()
+	if(vocals && vocals.playing)
+		vocals.terminate_playing(M)  // Stop singing when removed
+	if(harpy)
+		M.mind?.RemoveSpell(harpy)
+	granted_singing = FALSE
+	M.adjust_skillrank(/datum/skill/misc/music, -1, TRUE)
+
+/obj/effect/proc_holder/spell/self/harpy_sing
+	name = "Harpy's song"
+	desc = ""
+	icon = 'icons/obj/surgery.dmi'
+	icon_state = "harpysong"
+	antimagic_allowed = TRUE
+	invocation_type = "none"
+
+/obj/effect/proc_holder/spell/self/harpy_sing/cast(list/targets, mob/living/user = usr)
+	..()
+	var/obj/item/organ/vocal_cords/harpy/vocal_cords = user.getorganslot(ORGAN_SLOT_VOICE)
+	if(!istype(vocal_cords) || !vocal_cords.vocals)
+		return
+	if(vocal_cords.vocals && vocal_cords.vocals.playing)
+		vocal_cords.vocals.terminate_playing(user)  // Stop singing when removed
+		return TRUE
+	vocal_cords.vocals.attack_self(user)
+	return TRUE

@@ -4,12 +4,12 @@
 
 /obj/structure/orphan_smasher
 	name = "auto anvil"
-	desc ="An unholy amalgamation of buttons and levers built purposely to go against gods will."
+	desc = "An holy amalgamation of buttons and levers built purposely to fulfill Malum's will."
 
 	icon = 'icons/obj/autosmithy.dmi'
 	icon_state = "1"
 	rotation_structure = TRUE
-	stress_use = 128
+	initialize_dirs = CONN_DIR_FORWARD | CONN_DIR_LEFT | CONN_DIR_FLIP | CONN_DIR_Z_DOWN
 
 	var/list/anvil_recipes_to_craft = list()
 	var/list/completed_items = list()
@@ -176,8 +176,10 @@
 			animate(icon_state = "b1", time = frame_stage)
 
 /obj/structure/orphan_smasher/set_rotations_per_minute(speed)
-	set_stress_use(128 * (speed / 8))
 	. = ..()
+	if(!.)
+		return
+	set_stress_use(128 * (speed / 8))
 
 /obj/structure/orphan_smasher/proc/try_set_recipe_stuff()
 

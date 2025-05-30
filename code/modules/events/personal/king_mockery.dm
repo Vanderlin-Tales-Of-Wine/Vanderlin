@@ -50,7 +50,7 @@
 
 	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
 	to_chat(chosen_one, span_biginfo("Xylix demands great entertainment! Seek out and viciously mock the monarch to prove your devotion and earn Xylix's favor!"))
-	SEND_SOUND(chosen_one, 'sound/vo/male/evil/laugh (1).ogg')
+	chosen_one.playsound_local(chosen_one, 'sound/vo/male/evil/laugh (1).ogg', 100)
 
 	var/obj/effect/proc_holder/spell/invoked/mockery/mock_spell = new()
 	chosen_one.mind.AddSpell(mock_spell)

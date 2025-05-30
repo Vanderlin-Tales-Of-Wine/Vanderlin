@@ -45,8 +45,8 @@
 /datum/wound/artery/neck
 	name = "torn carotid"
 	check_name = "<span class='artery'><B>CAROTID</B></span>"
-	severity = WOUND_SEVERITY_FATAL
 	crit_message = "Blood sprays from %VICTIM's throat!"
+	severity = WOUND_SEVERITY_FATAL
 	whp = 100
 	sewn_whp = 25
 	bleed_rate = 60
@@ -68,6 +68,7 @@
 /datum/wound/artery/chest
 	name = "aortic dissection"
 	check_name = "<span class='artery'><B>AORTA</B></span>"
+	crit_message = "A tide of blood gushes from %VICTIM's chest!"
 	severity = WOUND_SEVERITY_FATAL
 	whp = 100
 	sewn_whp = 35

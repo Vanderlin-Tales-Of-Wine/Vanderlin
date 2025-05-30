@@ -42,6 +42,8 @@
 	var/tilled_time = 0
 	/// The time remaining in which the soil was blessed and will help the plant grow, and make weeds decay
 	var/blessed_time = 0
+	///the time remaining in which the soil is pollinated.
+	var/pollination_time = 0
 	/// Time remaining for the soil to decay and destroy itself, only applicable when its out of water and nutriments and has no plant
 	var/soil_decay_time = SOIL_DECAY_TIME
 	/// Current quality tier of the crop (1-5, regular to diamond)
@@ -104,7 +106,8 @@
 		for(var/obj/item/neuFarm/seed/seed in attacking_item.contents)
 			seeds |= seed
 		old_item = attacking_item
-		attacking_item = pick(seeds)
+		if(LAZYLEN(seeds))
+			attacking_item = pick(seeds)
 
 	if(istype(attacking_item, /obj/item/neuFarm/seed) || istype(attacking_item, /obj/item/herbseed)) //SLOP OBJECT PROC SHARING
 		playsound(src, pick('sound/foley/touch1.ogg','sound/foley/touch2.ogg','sound/foley/touch3.ogg'), 170, TRUE)
@@ -285,8 +288,8 @@
 
 /obj/structure/soil/proc/till_soil(time = 30 MINUTES)
 	tilled_time = time
-	adjust_plant_health(-20)
-	adjust_weeds(-30)
+	adjust_plant_health(-20, FALSE)
+	adjust_weeds(-30, FALSE)
 	if(plant)
 		playsound(src,"plantcross", 90, FALSE)
 	update_icon()
@@ -307,26 +310,36 @@
 	if(plant)
 		add_growth(2 MINUTES)
 
-/obj/structure/soil/proc/adjust_water(adjust_amount)
+// the reason no_update exists is so we update_icon at the end of the process instead of every time one of these procs is called.
+
+/// adjust water, use no_update = TRUE to not update the icon.
+/obj/structure/soil/proc/adjust_water(adjust_amount, no_update = FALSE)
 	water = clamp(water + adjust_amount, 0, MAX_PLANT_WATER)
-	update_icon()
+	if(!no_update)
+		update_icon()
 
-/obj/structure/soil/proc/adjust_nutrition(adjust_amount)
+/// adjust nutrition, use no_update = TRUE to not update the icon.
+/obj/structure/soil/proc/adjust_nutrition(adjust_amount, no_update = FALSE)
 	nutrition = clamp(nutrition + adjust_amount, 0, MAX_PLANT_NUTRITION)
-	update_icon()
+	if(!no_update)
+		update_icon()
 
-/obj/structure/soil/proc/adjust_weeds(adjust_amount)
+/// adjust weeds, use no_update = TRUE to not update the icon.
+/obj/structure/soil/proc/adjust_weeds(adjust_amount, no_update = FALSE)
 	weeds = clamp(weeds + adjust_amount, 0, MAX_PLANT_WEEDS)
-	update_icon()
+	if(!no_update)
+		update_icon()
 
-/obj/structure/soil/proc/adjust_plant_health(adjust_amount)
+/// adjust plant health, use no_update = TRUE to not update the icon.
+/obj/structure/soil/proc/adjust_plant_health(adjust_amount, no_update = FALSE)
 	if(!plant || plant_dead)
 		return
 	plant_health = clamp(plant_health + adjust_amount, 0, MAX_PLANT_HEALTH)
 	if(plant_health <= 0)
 		plant_dead = TRUE
 		produce_ready = FALSE
-	update_icon()
+	if(!no_update)
+		update_icon()
 
 /obj/structure/soil/Initialize()
 	START_PROCESSING(SSprocessing, src)
@@ -348,9 +361,9 @@
 	process_weeds(dt)
 	process_plant(dt)
 	process_soil(dt)
-	update_icon()
 	if(soil_decay_time <= 0)
-		decay_soil()
+		decay_soil(TRUE)
+	update_icon() // only update icon after all the processes have run
 
 /obj/structure/soil/update_icon()
 	. = ..()
@@ -453,6 +466,8 @@
 	// Blessed feedback
 	if(blessed_time > 0)
 		. += span_good("The soil seems blessed.")
+	if(pollination_time > 0)
+		. += span_good("The soil has been pollinated.")
 
 #define BLESSING_WEED_DECAY_RATE 10 / (1 MINUTES)
 #define WEED_GROWTH_RATE 3 / (1 MINUTES)
@@ -466,21 +481,21 @@
 /obj/structure/soil/proc/process_weeds(dt)
 	// Blessed soil will have the weeds die
 	if(blessed_time > 0)
-		adjust_weeds(-dt * BLESSING_WEED_DECAY_RATE)
+		adjust_weeds(-dt * BLESSING_WEED_DECAY_RATE, TRUE)
 	if(plant && plant.weed_immune)
 		// Weeds die if the plant is immune to them
-		adjust_weeds(-dt * WEED_RESISTANCE_DECAY_RATE)
+		adjust_weeds(-dt * WEED_RESISTANCE_DECAY_RATE, TRUE)
 		return
 	if(water <= 0)
 		// Weeds die without water in soil
-		adjust_weeds(-dt * WEED_DECAY_RATE)
+		adjust_weeds(-dt * WEED_DECAY_RATE, TRUE)
 		return
 	// Weeds eat water and nutrition to grow
 	var/weed_factor = weeds / MAX_PLANT_WEEDS
-	adjust_water(-dt * weed_factor * WEED_WATER_CONSUMPTION_RATE)
-	adjust_nutrition(-dt * weed_factor * WEED_NUTRITION_CONSUMPTION_RATE)
+	adjust_water(-dt * weed_factor * WEED_WATER_CONSUMPTION_RATE, TRUE)
+	adjust_nutrition(-dt * weed_factor * WEED_NUTRITION_CONSUMPTION_RATE, TRUE)
 	if(nutrition > 0)
-		adjust_weeds(dt * WEED_GROWTH_RATE)
+		adjust_weeds(dt * WEED_GROWTH_RATE, TRUE)
 
 
 #define PLANT_REGENERATION_RATE 10 / (1 MINUTES)
@@ -493,57 +508,79 @@
 		return
 	if(plant_dead)
 		return
-	process_plant_nutrition(dt)
+	process_plant_nutrition(dt, TRUE)
 	process_plant_health(dt)
 	if(matured && !produce_ready)
-		process_crop_quality(dt)
-
+		process_crop_quality(dt, TRUE)
 
 /obj/structure/soil/proc/process_crop_quality(dt)
 	if(!plant || plant_dead || !matured || produce_ready)
 		return
 
-	// Base rate for quality improvement
-	var/quality_rate = 1.0
+	// Get the baseline quality potential from the plant_def
+	var/quality_potential = 1.0
 
-	// Factors that improve quality
+	// Factor in growth time - shorter growing crops get higher potential
+	// Base formula creates a range from ~0.5 to ~1.5 based on maturation time
+	// 3 MINUTES would get ~1.5 potential, 12 MINUTES would get ~0.5 potential
+	quality_potential = clamp(1 + (1 - (plant.maturation_time / (12 MINUTES))), 0.5, 1.5)
+
+	// Calculate current conditions quality multiplier
+	var/conditions_quality = 1.0
+
 	if(tilled_time > 0)
-		quality_rate *= 1.5
+		conditions_quality *= 1.1
+	if(pollination_time > 0)
+		conditions_quality *= 1.3
 	if(blessed_time > 0)
-		quality_rate *= 2.0
+		conditions_quality *= 1.5
 	if(has_world_trait(/datum/world_trait/dendor_fertility))
-		quality_rate *= 1.5
+		conditions_quality *= 1.5
 
-	// Perfect growing conditions boost quality
-	if(plant_health >= MAX_PLANT_HEALTH * 0.9)
-		quality_rate *= 1.25
-
-	// Nutrition levels affect quality
-	if(nutrition >= MAX_PLANT_NUTRITION * 0.7)
-		quality_rate *= 1.2
+	if(nutrition >= MAX_PLANT_NUTRITION * 0.9)
+		conditions_quality *= 1.3
+	else if(nutrition >= MAX_PLANT_NUTRITION * 0.7)
+		conditions_quality *= 1.1
+	else if(nutrition < MAX_PLANT_NUTRITION * 0.4)
+		conditions_quality *= 0.7
 
 	// Water levels affect quality
-	if(water >= MAX_PLANT_WATER * 0.7)
-		quality_rate *= 1.2
+	if(water >= MAX_PLANT_WATER * 0.9)
+		conditions_quality *= 1.2
+	else if(water >= MAX_PLANT_WATER * 0.7)
+		conditions_quality *= 1.1
+	else if(water < MAX_PLANT_WATER * 0.5)
+		conditions_quality *= 0.8
+	else if(water < MAX_PLANT_WATER * 0.3)
+		conditions_quality *= 0.6
 
 	// Weeds negatively affect quality
 	if(weeds >= MAX_PLANT_WEEDS * 0.3)
-		quality_rate *= 0.8
+		conditions_quality *= 0.9
 	if(weeds >= MAX_PLANT_WEEDS * 0.6)
-		quality_rate *= 0.7
+		conditions_quality *= 0.8
 
-	// Adjust quality points
-	quality_points += dt * quality_rate * 0.1
+	// Final quality rate combines potential and conditions
+	var/quality_rate = quality_potential * conditions_quality
 
-	// Determine quality tier based on accumulated points
-	// The thresholds are designed to make higher qualities progressively harder to achieve
-	if(quality_points >= 40)
+	// Maximum quality points scaled by maturation time
+	// This prevents long-growing crops from guaranteed max quality
+	var/max_quality_points = 30 * (plant.maturation_time / (6 MINUTES))
+
+	// Add quality points, but apply diminishing returns as we approach the max
+	var/progress_ratio = quality_points / max_quality_points
+	var/diminishing_returns = 1 - (progress_ratio * 0.7)
+
+	quality_points += dt * quality_rate * 0.03 * diminishing_returns
+	quality_points = min(quality_points, max_quality_points)  // Cap at the maximum
+
+	if(quality_points >= max_quality_points * 0.9)
 		crop_quality = QUALITY_DIAMOND
-	else if(quality_points >= 20)
+	else if(quality_points >= max_quality_points * 0.7)
 		crop_quality = QUALITY_GOLD
-	else if(quality_points >= 10)
+	else if(quality_points >= max_quality_points * 0.5)
 		crop_quality = QUALITY_SILVER
-	else if(quality_points >= 5)
+	else if(quality_points >= max_quality_points * 0.3)
 		crop_quality = QUALITY_BRONZE
 	else
 		crop_quality = QUALITY_REGULAR
@@ -554,20 +591,20 @@
 	var/drain_rate = plant.water_drain_rate
 	// Lots of weeds harm the plant
 	if(weeds >= MAX_PLANT_WEEDS * 0.6)
-		adjust_plant_health(-dt * PLANT_WEEDS_HARM_RATE)
+		adjust_plant_health(-dt * PLANT_WEEDS_HARM_RATE, TRUE)
 	// Regenerate plant health if we dont drain water, or we have the water
 	if(drain_rate <= 0 || water > 0)
-		adjust_plant_health(dt * PLANT_REGENERATION_RATE)
+		adjust_plant_health(dt * PLANT_REGENERATION_RATE, TRUE)
 	if(drain_rate > 0)
 		// If we're dry and we want to drain water, we loose health
 		if(water <= 0)
-			adjust_plant_health(-dt * PLANT_DECAY_RATE)
+			adjust_plant_health(-dt * PLANT_DECAY_RATE, TRUE)
 		else
 			// Drain water
 			adjust_water(-dt * drain_rate)
 	// Blessed plants heal!!
 	if(blessed_time > 0)
-		adjust_plant_health(dt * PLANT_BLESS_HEAL_RATE)
+		adjust_plant_health(dt * PLANT_BLESS_HEAL_RATE, TRUE)
 
 /obj/structure/soil/proc/process_plant_nutrition(dt)
 	if(!plant)
@@ -591,6 +628,10 @@
 	if(blessed_time > 0)
 		growth_multiplier *= 2.0
 		nutriment_eat_mutliplier *= 0.4
+
+	if(pollination_time > 0)
+		growth_multiplier *= 1.75
+		nutriment_eat_mutliplier *= 0.6
 
 	if(has_world_trait(/datum/world_trait/dendor_fertility))
 		growth_multiplier *= 2.0
@@ -627,9 +668,8 @@
 	var/possible_nutrition = min(target_nutrition, nutrition)
 	var/factor = possible_nutrition / target_nutrition
 	var/possible_growth_time = target_growth_time * factor
-	adjust_nutrition(-possible_nutrition)
+	adjust_nutrition(-possible_nutrition, TRUE)
 	add_growth(possible_growth_time)
-
 
 /obj/structure/soil/proc/add_growth(added_growth)
 	if(!plant)
@@ -667,27 +707,29 @@
 		soil_decay_time = max(soil_decay_time - dt, 0)
 
 	if(!found_irrigation)
-		adjust_water(-dt * SOIL_WATER_DECAY_RATE)
+		adjust_water(-dt * SOIL_WATER_DECAY_RATE, FALSE)
 	else
 		adjust_water(dt)
-	adjust_nutrition(-dt * SOIL_NUTRIMENT_DECAY_RATE)
+	adjust_nutrition(-dt * SOIL_NUTRIMENT_DECAY_RATE, FALSE)
 
 	tilled_time = max(tilled_time - dt, 0)
 	blessed_time = max(blessed_time - dt, 0)
+	pollination_time = max(pollination_time - dt, 0)
 
-/obj/structure/soil/proc/decay_soil()
-	uproot()
+/obj/structure/soil/proc/decay_soil(no_update = FALSE)
+	uproot(no_update = no_update)
 	qdel(src)
 
-/obj/structure/soil/proc/uproot(loot = TRUE)
+/obj/structure/soil/proc/uproot(loot = TRUE, no_update = FALSE)
 	if(!plant)
 		return
-	adjust_weeds(-100)
+	adjust_weeds(-100, TRUE) // we update icon lower (if needed)
 	if(loot)
 		yield_uproot_loot()
-	ruin_produce()
+	ruin_produce(TRUE)
 	plant = null
-	update_icon()
+	if(!no_update)
+		update_icon()
 
 /// Spawns uproot loot, such as a long from an apple tree when removing the tree
 /obj/structure/soil/proc/yield_uproot_loot()
@@ -697,9 +739,10 @@
 		new loot_type(loc)
 
 /// Yields produce on its tile if it's ready for harvest
-/obj/structure/soil/proc/ruin_produce()
+/obj/structure/soil/proc/ruin_produce(no_update = FALSE)
 	produce_ready = FALSE
-	update_icon()
+	if(!no_update)
+		update_icon()
 
 /// Yields produce on its tile if it's ready for harvest
 /obj/structure/soil/proc/yield_produce(modifier = 0)
@@ -727,20 +770,20 @@
 	for(var/i in 1 to spawn_amount)
 		var/obj/item/produce = new plant.produce_type(loc)
 		if(produce && istype(produce, /obj/item/reagent_containers/food/snacks/produce))
-			produce:set_quality(crop_quality)
+			var/obj/item/reagent_containers/food/snacks/produce/P = produce
+			P.set_quality(crop_quality)
 
 	// Reset produce state
 	produce_ready = FALSE
-	if(!plant.perennial)
+	if(!plant?.perennial)
 		uproot(loot = FALSE)
 
 	// Reset quality for next growth cycle if plant is perennial
-	if(plant.perennial)
+	if(plant?.perennial)
 		crop_quality = QUALITY_REGULAR
 		quality_points = 0
 
 	update_icon()
-
 
 /obj/structure/soil/proc/insert_plant(datum/plant_def/new_plant)
 	if(plant)

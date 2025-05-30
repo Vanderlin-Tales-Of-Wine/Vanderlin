@@ -959,22 +959,14 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	if(ishuman(owner))
 		H = owner
 	var/flags = slot_flags
-//	if(flags & ITEM_SLOT_OCLOTHING)
-//		owner.update_inv_wear_suit()
-//	if(flags & ITEM_SLOT_ICLOTHING)
-//		owner.update_inv_w_uniform()
 	if(flags & ITEM_SLOT_GLOVES)
 		owner.update_inv_gloves()
-//	if(flags & ITEM_SLOT_HEAD)
-//		owner.update_inv_glasses()
-//	if(flags & ITEM_SLOT_HEAD)
-//		owner.update_inv_ears()
 	if(flags & ITEM_SLOT_MASK)
 		owner.update_inv_wear_mask()
 	if(flags & ITEM_SLOT_SHOES)
 		owner.update_inv_shoes()
 	if(flags & ITEM_SLOT_RING)
-		owner.update_inv_wear_id()
+		owner.update_inv_ring()
 	if(flags & ITEM_SLOT_WRISTS)
 		owner.update_inv_wrists()
 	if(flags & ITEM_SLOT_BACK)
@@ -1264,10 +1256,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	if(altgripped)
 		altgripped = FALSE
 	update_transform()
-	if(user.get_item_by_slot(SLOT_BACK) == src)
-		user.update_inv_back()
-	else
-		user.update_inv_hands()
+	user.update_inv_hands()
 	if(show_message)
 		to_chat(user, "<span class='notice'>I wield [src] normally.</span>")
 	if(user.get_active_held_item() == src)
@@ -1319,7 +1308,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		target_zone = BODY_ZONE_CHEST
 	*/
 	playsound(impactee.loc, pick('sound/combat/gib (1).ogg','sound/combat/gib (2).ogg'), 200, FALSE, 3)
-	add_blood_DNA(impactee.return_blood_DNA())
+	add_blood_DNA(GET_ATOM_BLOOD_DNA(impactee))
 	impactee.visible_message(span_danger("[src] crashes into [impactee]'s [target_zone]!"), span_danger("A [src] hits you in your [target_zone]!"))
 	impactee.apply_damage(item_weight * fall_speed, BRUTE, target_zone, impactee.run_armor_check(target_zone, "blunt", damage = item_weight * fall_speed))
 
@@ -1344,6 +1333,8 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	return
 
 /obj/item/proc/get_displayed_price(mob/user)
+	if(QDELETED(user))
+		return
 	if(get_real_price() > 0 && (HAS_TRAIT(user, TRAIT_SEEPRICES) || simpleton_price))
 		return span_info("Value: [get_real_price()] mammon")
 	return FALSE
@@ -1354,3 +1345,9 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		held_weight += stored_item.item_weight * carry_multiplier
 
 	return has_trait ? held_weight * 0.5 : held_weight
+
+// Update icons if this is being carried by a mob
+/obj/item/wash(clean_types)
+	. = ..()
+	if(ismob(loc))
+		update_slot_icon()
