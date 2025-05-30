@@ -23,6 +23,12 @@
 	max_integrity = INTEGRITY_STRONGEST
 	item_weight = 25 * BRONZE_MULTIPLIER
 
+/obj/item/clothing/armor/steam/Initialize()
+	. = ..()
+	AddComponent(/datum/component/squeak, list('sound/foley/footsteps/armor/powerarmor (1).ogg',\
+												'sound/foley/footsteps/armor/powerarmor (2).ogg',\
+												'sound/foley/footsteps/armor/powerarmor (3).ogg'), 80)
+
 	do_sound_plate = TRUE
 
 /obj/item/clothing/armor/steam/equipped(mob/living/user, slot)
