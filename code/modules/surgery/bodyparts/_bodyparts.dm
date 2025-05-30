@@ -108,19 +108,17 @@
 	update_HP()
 
 /obj/item/bodypart/Destroy()
+	if(owner && !QDELETED(owner))
+		owner.remove_bodypart(src)
+		set_owner(null)
 	remove_all_bodypart_features()
-	if(can_be_disabled)
-		UnregisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_PARALYSIS))
-		UnregisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_PARALYSIS))
 	for(var/obj/item/I as anything in embedded_objects)
 		remove_embedded_object(I)
 	for(var/datum/wound/wound as anything in wounds)
 		QDEL_NULL(wound)
 	if(bandage)
 		QDEL_NULL(bandage)
-	if(owner)
-		owner.remove_bodypart(src)
-	set_owner(null)
+	owner = null
 	original_owner = null
 	return ..()
 

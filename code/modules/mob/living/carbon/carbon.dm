@@ -1133,14 +1133,8 @@
 				. *= 0.90
 
 /mob/living/carbon/proc/create_internal_organs()
-	for(var/X in internal_organs)
-		var/obj/item/organ/I = X
+	for(var/obj/item/organ/I as anything in internal_organs)
 		I.Insert(src)
-
-// /mob/living/carbon/proc/update_disabled_bodyparts()
-// 	for(var/B in bodyparts)
-// 		var/obj/item/bodypart/BP = B
-// 		BP.update_disabled()
 
 /mob/living/carbon/vv_get_dropdown()
 	. = ..()
