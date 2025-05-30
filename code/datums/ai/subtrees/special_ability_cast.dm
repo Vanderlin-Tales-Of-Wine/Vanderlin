@@ -21,9 +21,9 @@
 	// Randomly select an available ability with weighting toward higher level abilities
 	var/list/possible_abilities = list()
 	if(can_coral_wall)
-		possible_abilities["tidal"] = 30
-	if(can_tidal)
 		possible_abilities["coral"] = 30
+	if(can_tidal)
+		possible_abilities["tidal"] = 30
 	if(can_whirlpool)
 		possible_abilities["whirlpool"] = 40
 	if(can_deep_call)

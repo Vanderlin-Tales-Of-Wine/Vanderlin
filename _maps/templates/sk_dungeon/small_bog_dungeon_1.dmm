@@ -72,18 +72,14 @@
 /area/rogue/outdoors/bog)
 "mE" = (
 /mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/outdoors/bog)
 "nA" = (
 /obj/structure/fermentation_keg/random/water,
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/outdoors/bog)
 "nW" = (
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/outdoors/bog)
 "rt" = (
 /obj/structure/chair/bench/church/smallbench,
@@ -144,9 +140,8 @@
 /area/rogue/outdoors/bog)
 "wa" = (
 /obj/structure/fluff/psycross,
-/turf/open/floor/ruinedwood{
-	dir = 1;
-	icon_state = "vertw"
+/turf/open/floor/ruinedwood/turned/alt{
+	dir = 1
 	},
 /area/rogue/outdoors/bog)
 "wi" = (
@@ -238,9 +233,7 @@
 "GU" = (
 /obj/structure/chair/bench/church/smallbench,
 /mob/living/carbon/human/species/skeleton/npc/peasant,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/outdoors/bog)
 "HR" = (
 /obj/structure/fluff/statue/psy,
@@ -324,9 +317,7 @@
 /area/rogue/outdoors/bog)
 "Rs" = (
 /obj/structure/fluff/psycross,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/outdoors/bog)
 "Sf" = (
 /turf/open/floor/cobble/mossy,
@@ -336,20 +327,15 @@
 /area/rogue/outdoors/bog)
 "Tt" = (
 /obj/structure/table/church/m,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/outdoors/bog)
 "UI" = (
 /obj/structure/chair/bench/church/smallbench,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/outdoors/bog)
 "Vj" = (
-/turf/open/floor/ruinedwood{
-	dir = 1;
-	icon_state = "vertw"
+/turf/open/floor/ruinedwood/turned/alt{
+	dir = 1
 	},
 /area/rogue/outdoors/bog)
 "Wk" = (

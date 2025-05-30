@@ -4,12 +4,6 @@
 	ADD_TRAIT(src, TRAIT_NOBREATH, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_TOXIMMUNE, TRAIT_GENERIC)
 
-/mob/living/simple_animal/hostile/retaliate/fae/Life()
-	..()
-	if(pulledby)
-		Retaliate()
-		GiveTarget(pulledby)
-
 /mob/living/simple_animal/hostile/retaliate/fae/simple_limb_hit(zone)
 	if(!zone)
 		return ""

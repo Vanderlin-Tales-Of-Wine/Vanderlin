@@ -35,7 +35,7 @@
 	custom_clothes = FALSE
 	possible_ages = list(AGE_CHILD, AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD)
 	species_traits = list(EYECOLOR,OLDGREY)
-	inherent_traits = list(TRAIT_NOMOBSWAP)
+	inherent_traits = list(TRAIT_NOMOBSWAP, TRAIT_KITTEN_MOM)
 	exotic_bloodtype = /datum/blood_type/human/rakshari
 
 	customizers = list(
@@ -44,12 +44,12 @@
 		/datum/customizer/bodypart_feature/face_detail,
 	)
 
-	offset_features = list(OFFSET_ID = list(0,0), OFFSET_GLOVES = list(0,0), OFFSET_WRISTS = list(0,0),\
+	offset_features = list(OFFSET_RING = list(0,0), OFFSET_GLOVES = list(0,0), OFFSET_WRISTS = list(0,0),\
 	OFFSET_CLOAK = list(0,0), OFFSET_FACEMASK = list(0,0), OFFSET_HEAD = list(0,0), \
 	OFFSET_FACE = list(0,0), OFFSET_BELT = list(0,0), OFFSET_BACK = list(0,0), \
 	OFFSET_NECK = list(0,0), OFFSET_MOUTH = list(0,0), OFFSET_PANTS = list(0,0), \
 	OFFSET_SHIRT = list(0,0), OFFSET_ARMOR = list(0,0), OFFSET_HANDS = list(0,0), OFFSET_UNDIES = list(0,0), \
-	OFFSET_ID_F = list(0,-1), OFFSET_GLOVES_F = list(0,0), OFFSET_WRISTS_F = list(0,0), OFFSET_HANDS_F = list(0,0), \
+	OFFSET_RING_F = list(0,-1), OFFSET_GLOVES_F = list(0,0), OFFSET_WRISTS_F = list(0,0), OFFSET_HANDS_F = list(0,0), \
 	OFFSET_CLOAK_F = list(0,0), OFFSET_FACEMASK_F = list(0,-1), OFFSET_HEAD_F = list(0,-1), \
 	OFFSET_FACE_F = list(0,0), OFFSET_BELT_F = list(0,0), OFFSET_BACK_F = list(0,-1), \
 	OFFSET_NECK_F = list(0,-1), OFFSET_MOUTH_F = list(0,-1), OFFSET_PANTS_F = list(0,0), \
@@ -59,8 +59,8 @@
 	..()
 	RegisterSignal(C, COMSIG_MOB_SAY, PROC_REF(handle_speech))
 	C.grant_language(/datum/language/common)
-	C.grant_language(/datum/language/thievescant)
-	to_chat(C, "<span class='info'>I can gesture in thieves' cant with ,t before my speech.</span>")
+	C.grant_language(/datum/language/zybantine)
+	to_chat(C, "<span class='info'>I can speak Zybean with ,z before my speech.</span>")
 
 /datum/species/rakshari/check_roundstart_eligible()
 	return TRUE
@@ -68,7 +68,7 @@
 /datum/species/rakshari/after_creation(mob/living/carbon/C)
 	..()
 	C.grant_language(/datum/language/common)
-	C.grant_language(/datum/language/thievescant)
+	C.grant_language(/datum/language/zybantine)
 
 /datum/species/rakshari/on_species_loss(mob/living/carbon/C)
 	. = ..()

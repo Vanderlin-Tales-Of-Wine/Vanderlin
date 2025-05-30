@@ -149,6 +149,7 @@
 
 /obj/item/bodypart/MiddleClick(mob/living/user, params)
 	var/obj/item/held_item = user.get_active_held_item()
+	var/datum/species/S = original_owner.dna.species
 	if(held_item)
 		if(held_item.get_sharpness() && held_item.wlength == WLENGTH_SHORT)
 			if(!skeletonized)
@@ -157,24 +158,21 @@
 					used_time -= (user.get_skill_level(/datum/skill/labor/butchering) * 3 SECONDS)
 				visible_message("[user] begins to butcher \the [src].")
 				playsound(src, 'sound/foley/gross.ogg', 100, FALSE)
-				var/steaks = 0
+				var/steaks = 1
 				switch(user.get_skill_level(/datum/skill/labor/butchering))
 					if(3)
-						steaks = 1
-					if(4 to 5)
 						steaks = 2
+					if(4 to 5)
+						steaks = 3
 					if(6)
-						steaks = 3 // the steaks have never been higher
+						steaks = 4 // the steaks have never been higher
 				var/amt2raise = user.STAINT/3
 				if(do_after(user, used_time, src))
 					var/obj/item/reagent_containers/food/snacks/meat/steak/steak
 					for(steaks, steaks>0, steaks--)
-						steak = new /obj/item/reagent_containers/food/snacks/meat/steak(get_turf(src))
+						steak = new S.meat(get_turf(src))	//Meat depends on species.
 						if(rotted)
 							steak.become_rotten()
-					steak = new /obj/item/reagent_containers/food/snacks/meat/steak(get_turf(src))
-					if(rotted)
-						steak.become_rotten()
 					new /obj/effect/decal/cleanable/blood/splatter(get_turf(src))
 					user.adjust_experience(/datum/skill/labor/butchering, amt2raise, FALSE)
 					qdel(src)

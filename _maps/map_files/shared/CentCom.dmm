@@ -848,9 +848,7 @@
 /obj/structure/stairs{
 	dir = 4
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/vampire_manor)
 "cE" = (
 /obj/effect/decal/cleanable/blood/gibs/down,
@@ -1629,9 +1627,7 @@
 /area/rogue/outdoors/bog/inhumen_camp)
 "hm" = (
 /obj/structure/fermentation_keg/random/water,
-/turf/open/floor/tile{
-	icon_state = "tavern"
-	},
+/turf/open/floor/tile/kitchen,
 /area/rogue/indoors/bandit_lair)
 "hq" = (
 /obj/structure/fluff/walldeco/chains,
@@ -2111,9 +2107,7 @@
 /obj/item/reagent_containers/food/snacks/produce/grain/wheat,
 /obj/item/reagent_containers/food/snacks/produce/grain/oat,
 /obj/item/reagent_containers/food/snacks/produce/grain/oat,
-/turf/open/floor/tile{
-	icon_state = "tavern"
-	},
+/turf/open/floor/tile/kitchen,
 /area/rogue/indoors/bandit_lair)
 "kF" = (
 /obj/structure/hotspring/border/ten,
@@ -4210,9 +4204,7 @@
 /area/rogue/indoors)
 "ze" = (
 /obj/structure/door,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/vampire_manor)
 "zf" = (
 /turf/closed/wall/mineral/craftstone,
@@ -4715,9 +4707,7 @@
 /obj/item/reagent_containers/food/snacks/butter,
 /obj/item/reagent_containers/food/snacks/cheese,
 /obj/item/reagent_containers/food/snacks/cheese,
-/turf/open/floor/tile{
-	icon_state = "tavern"
-	},
+/turf/open/floor/tile/kitchen,
 /area/rogue/indoors/bandit_lair)
 "CP" = (
 /obj/structure/vampire/scryingorb{
@@ -4740,9 +4730,7 @@
 /area/rogue/indoors/lich)
 "CX" = (
 /obj/structure/fermentation_keg/random/beer,
-/turf/open/floor/tile{
-	icon_state = "tavern"
-	},
+/turf/open/floor/tile/kitchen,
 /area/rogue/indoors/bandit_lair)
 "CY" = (
 /obj/structure/mannequin/male,
@@ -4754,7 +4742,7 @@
 /area/rogue)
 "Df" = (
 /obj/structure/fluff/traveltile/exit_inhumen,
-/turf/open/water/swamp,
+/turf/open/floor/cobblerock,
 /area/rogue/outdoors/bog/inhumen_camp)
 "Dg" = (
 /obj/machinery/light/fueled/torchholder/hotspring/standing{
@@ -4800,9 +4788,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
 "Dz" = (
-/turf/open/floor/tile{
-	icon_state = "tavern"
-	},
+/turf/open/floor/tile/kitchen,
 /area/rogue/indoors/bandit_lair)
 "DA" = (
 /obj/structure/chair/bench/church/r,
@@ -4818,9 +4804,7 @@
 /obj/item/reagent_containers/food/snacks/produce/vegetable/turnip,
 /obj/item/reagent_containers/food/snacks/produce/vegetable/potato,
 /obj/item/reagent_containers/food/snacks/produce/vegetable/potato,
-/turf/open/floor/tile{
-	icon_state = "tavern"
-	},
+/turf/open/floor/tile/kitchen,
 /area/rogue/indoors/bandit_lair)
 "DF" = (
 /obj/structure/rack/shelf/notdense,

@@ -33,7 +33,7 @@ There are several things that need to be remembered:
 	You will need to call the relevant update_inv_* proc
 
 	All of these are named after the variable they update from. They are defined at the mob/ level like
-	update_clothing was, so you won't cause undefined proc runtimes with usr.update_inv_wear_id() if the usr is a
+	update_clothing was, so you won't cause undefined proc runtimes with usr.update_inv_ring() if the usr is a
 	slime etc. Instead, it'll just return without doing any work. So no harm in calling it for slimes and such.
 
 
@@ -260,7 +260,7 @@ There are several things that need to be remembered:
 		if(dna?.species?.regenerate_icons(src))
 			return
 		update_body()
-		update_inv_wear_id()
+		update_inv_ring()
 		update_inv_gloves()
 		update_inv_shoes()
 		update_inv_wear_mask()
@@ -268,7 +268,7 @@ There are several things that need to be remembered:
 		update_inv_belt()
 		update_inv_back()
 		update_inv_armor()
-		update_inv_pockets()
+
 		update_inv_neck()
 		update_inv_cloak()
 		update_inv_pants()
@@ -281,7 +281,7 @@ There are several things that need to be remembered:
 /mob/proc/regenerate_clothes()
 	return
 /mob/living/carbon/human/regenerate_clothes()
-	update_inv_wear_id()
+	update_inv_ring()
 	update_inv_gloves()
 	update_inv_shoes()
 	update_inv_wear_mask()
@@ -289,7 +289,6 @@ There are several things that need to be remembered:
 	update_inv_belt()
 	update_inv_back()
 	update_inv_armor()
-	update_inv_pockets()
 	update_inv_neck()
 	update_inv_cloak()
 	update_inv_pants()
@@ -298,10 +297,6 @@ There are several things that need to be remembered:
 
 /* --------------------------------------- */
 //vvvvvv UPDATE_INV PROCS vvvvvv
-
-/mob/living/carbon/human/update_inv_w_uniform()
-	return
-
 
 /mob/living/carbon/human/update_inv_neck()
 	remove_overlay(NECK_LAYER)
@@ -332,7 +327,7 @@ There are several things that need to be remembered:
 	update_body()
 	apply_overlay(NECK_LAYER)
 
-/mob/living/carbon/human/update_inv_wear_id()
+/mob/living/carbon/human/update_inv_ring()
 	remove_overlay(RING_LAYER)
 	var/list/offsets = dna?.species?.offset_features
 	if(age == AGE_CHILD)
@@ -349,16 +344,16 @@ There are several things that need to be remembered:
 			client.screen += wear_ring
 		update_observer_view(wear_ring)
 		var/use_female_sprites = dna?.species.sexes ? (gender == FEMALE && !dna.species.use_m) || dna.species.use_f : FALSE
-		var/mutable_appearance/id_overlay = wear_ring.build_worn_icon(age = age, default_layer = RING_LAYER, default_icon_file = 'icons/roguetown/clothing/onmob/rings.dmi', coom = use_female_sprites)
+		var/mutable_appearance/ring_overlay = wear_ring.build_worn_icon(age = age, default_layer = RING_LAYER, default_icon_file = 'icons/roguetown/clothing/onmob/rings.dmi', coom = use_female_sprites)
 		if(!dna?.species.sexes || gender == MALE)
-			if(OFFSET_ID in offsets)
-				id_overlay.pixel_x += offsets[OFFSET_ID][1]
-				id_overlay.pixel_y += offsets[OFFSET_ID][2]
+			if(OFFSET_RING in offsets)
+				ring_overlay.pixel_x += offsets[OFFSET_RING][1]
+				ring_overlay.pixel_y += offsets[OFFSET_RING][2]
 		else
-			if(OFFSET_ID_F in offsets)
-				id_overlay.pixel_x += offsets[OFFSET_ID_F][1]
-				id_overlay.pixel_y += offsets[OFFSET_ID_F][2]
-		overlays_standing[RING_LAYER] = id_overlay
+			if(OFFSET_RING_F in offsets)
+				ring_overlay.pixel_x += offsets[OFFSET_RING_F][1]
+				ring_overlay.pixel_y += offsets[OFFSET_RING_F][2]
+		overlays_standing[RING_LAYER] = ring_overlay
 
 	apply_overlay(RING_LAYER)
 
@@ -505,14 +500,6 @@ There are several things that need to be remembered:
 	apply_overlay(WRISTS_LAYER)
 	apply_overlay(WRISTSLEEVE_LAYER)
 
-/mob/living/carbon/human/update_inv_glasses()
-	return
-
-
-/mob/living/carbon/human/update_inv_ears()
-	return
-
-
 /mob/living/carbon/human/update_inv_shoes()
 	remove_overlay(SHOES_LAYER)
 	remove_overlay(SHOESLEEVE_LAYER)
@@ -565,10 +552,6 @@ There are several things that need to be remembered:
 	apply_overlay(SHOES_LAYER)
 	apply_overlay(SHOESLEEVE_LAYER)
 
-/mob/living/carbon/human/update_inv_s_store()
-	return
-
-
 /mob/living/carbon/human/update_inv_head()
 	remove_overlay(HEAD_LAYER)
 
@@ -585,10 +568,6 @@ There are several things that need to be remembered:
 
 	if(head)
 		update_hud_head(head)
-//		var/G = (gender == FEMALE) ? "f" : "m"
-//		if(G == "f" || dna.species.use_f)
-//			overlays_standing[HEAD_LAYER] = head.build_worn_icon(age = age, default_layer = HEAD_LAYER, default_icon_file = 'icons/mob/clothing/feet.dmi', coom = "e")
-//		else
 		overlays_standing[HEAD_LAYER] = head.build_worn_icon(age = age, default_layer = HEAD_LAYER, default_icon_file = 'icons/roguetown/clothing/onmob/head.dmi', coom = FALSE)
 		var/mutable_appearance/head_overlay = overlays_standing[HEAD_LAYER]
 		if(head_overlay)
@@ -787,9 +766,6 @@ There are several things that need to be remembered:
 /mob/living/carbon/human/update_inv_wear_suit()
 	return
 
-/mob/living/carbon/human/update_inv_pockets()
-	return
-
 /mob/living/carbon/human/update_inv_wear_mask()
 	..()
 	var/list/offsets = dna?.species?.offset_features
@@ -822,12 +798,11 @@ There are several things that need to be remembered:
 	var/list/overcloaks = list()
 	var/list/undercloaks = list()
 	var/list/backbehind = list()
-	if(client && hud_used && hud_used.inv_slots[SLOT_BACK])
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_BACK]
+	if(client && hud_used?.inv_slots[SLOT_BACK_R])
+		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_BACK_R]
 		inv.update_icon()
-		inv = hud_used.inv_slots[SLOT_BACK_R]
-		inv.update_icon()
-		inv = hud_used.inv_slots[SLOT_BACK_L]
+	if(client && hud_used?.inv_slots[SLOT_BACK_L])
+		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_BACK_L]
 		inv.update_icon()
 	if(backr)
 		if(backr.alternate_worn_layer == CLOAK_BEHIND_LAYER)
@@ -1156,9 +1131,8 @@ There are several things that need to be remembered:
 							S.pixel_y += offsets[OFFSET_SHIRT_F][2]
 				overlays_standing[SHIRTSLEEVE_LAYER] = sleeves
 
-	if(gender == FEMALE && dna?.species)
-		update_body_parts(redraw = TRUE)
-		dna.species.handle_body(src)
+	update_body_parts(redraw = TRUE)
+	dna.species.handle_body(src)
 	update_body()
 
 	apply_overlay(SHIRT_LAYER)
@@ -1417,13 +1391,6 @@ There are several things that need to be remembered:
 	update_observer_view(I,1)
 
 //update whether our back item appears on our hud.
-/mob/living/carbon/human/update_hud_back(obj/item/I)
-	I.screen_loc = ui_back
-	if(client && hud_used && hud_used.hud_shown)
-		client.screen += I
-	update_observer_view(I)
-
-//update whether our back item appears on our hud.
 /mob/living/carbon/human/update_hud_backr(obj/item/I)
 	if(I.bigboy)
 		I.screen_loc = "WEST-4:-16,SOUTH+5:-16"
@@ -1552,7 +1519,7 @@ generate/load female uniform sprites matching all previously decided variables
 				pic.color = get_detail_color()
 			standing.overlays.Add(pic)
 
-	if(!isinhands && HAS_BLOOD_DNA(src))
+	if(!isinhands && GET_ATOM_BLOOD_DNA_LENGTH(src))
 		var/index = "[t_state][sleeveindex]"
 		var/static/list/bloody_onmob = list()
 		var/icon/clothing_icon = bloody_onmob["[index][(coom == "f") ? "_boob" : ""]"]
@@ -1636,7 +1603,7 @@ generate/load female uniform sprites matching all previously decided variables
 				pic.color = I.get_detail_color()
 			sleeves += pic
 
-		if(HAS_BLOOD_DNA(I))
+		if(GET_ATOM_BLOOD_DNA_LENGTH(I))
 			var/icon/blood_overlay = bloody_r[used]
 			if(!blood_overlay)
 				blood_overlay = icon(I.sleeved, used)
@@ -1663,7 +1630,7 @@ generate/load female uniform sprites matching all previously decided variables
 				pic.color = I.get_detail_color()
 			sleeves += pic
 
-		if(HAS_BLOOD_DNA(I))
+		if(GET_ATOM_BLOOD_DNA_LENGTH(I))
 			var/icon/blood_overlay = bloody_l[used]
 			if(!blood_overlay)
 				blood_overlay = icon(I.sleeved, used)
@@ -1815,7 +1782,6 @@ generate/load female uniform sprites matching all previously decided variables
 	if(age == AGE_CHILD)
 		offsets = dna?.species?.offset_features_child
 
-	testing("ehadonly [src]")
 	HD.update_limb()
 
 	add_overlay(HD.get_limb_icon())

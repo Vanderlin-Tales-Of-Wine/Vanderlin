@@ -10,6 +10,7 @@
 	..()
 	H.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/axesmaces, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
@@ -31,9 +32,9 @@
 	backr = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/needle/thorn = 1, /obj/item/natural/cloth = 1)
 	mask = /obj/item/clothing/face/facemask/steel
-	neck = /obj/item/clothing/neck/coif
+	neck = /obj/item/clothing/neck/chaincoif/iron
 	head = /obj/item/clothing/head/helmet/leather/volfhelm
-	armor = /obj/item/clothing/armor/leather/hide
+	armor = /obj/item/clothing/armor/cuirass/iron
 	H.change_stat(STATKEY_STR, 2)
 	H.change_stat(STATKEY_END, 2)
 	H.change_stat(STATKEY_CON, 2)

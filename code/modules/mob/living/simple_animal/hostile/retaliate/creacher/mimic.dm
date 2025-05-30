@@ -31,7 +31,6 @@
 	speak_emote = list("clatters")
 
 	faction = list("mimic", "hostile")
-	stop_automated_movement = 1
 	wander = 0
 	stat_attack = UNCONSCIOUS
 
@@ -44,8 +43,8 @@
 	base_speed = 5
 
 	ai_controller = /datum/ai_controller/mimic
-	AIStatus = AI_OFF
-	can_have_ai = FALSE
+
+
 
 /mob/living/simple_animal/hostile/retaliate/mimic/Initialize(mapload)
 	. = ..()
@@ -55,34 +54,11 @@
 	icon_state = "mimic"
 	AddComponent(/datum/component/anti_magic, TRUE, TRUE, TRUE, null, null, FALSE)
 
-/mob/living/simple_animal/hostile/retaliate/mimic/find_food()
-	. = ..()
-	if(!.)
-		return eat_bodies()
-
-/mob/living/simple_animal/hostile/retaliate/mimic/Life()
-	..()
-	if(pulledby)
-		Retaliate()
-		GiveTarget(pulledby)
-
-/mob/living/simple_animal/hostile/retaliate/mimic/attack_hand(mob/user)
-	..()
-	Retaliate(user)
-	GiveTarget(user)
-
-/mob/living/simple_animal/hostile/retaliate/mimic/Aggro()
-	..()
-	name = "MIMIC"
-	icon_state = "[initial(icon_state)]"
-	aggressive = 1
-
 /mob/living/simple_animal/hostile/retaliate/mimic/death()
 	icon_state = "[initial(icon_state)]dead"
 	// Drop loot onto tile.
 	for(var/obj/O in src)
 		O.forceMove(loc)
-	QDEL_NULL(proximity_monitor)
 	..()
 
 /mob/living/simple_animal/hostile/retaliate/mimic/get_sound(input)

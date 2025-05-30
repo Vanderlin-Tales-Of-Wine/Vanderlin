@@ -31,14 +31,10 @@
 	mob_size = MOB_SIZE_TINY
 	movement_type = FLYING
 	speak_emote = list("squeaks")
-	var/max_co2 = 0 //to be removed once metastation map no longer use those for Sgt Araneus
-	var/min_oxy = 0
-	var/max_tox = 0
 
+//this is literally a shapeshift and ai can't actually use it
+	ai_controller = /datum/ai_controller/bat
 
-	//Space bats need no air to fly in.
-	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
-	minbodytemp = 0
 
 /mob/living/simple_animal/hostile/retaliate/bat/Initialize()
 	. = ..()

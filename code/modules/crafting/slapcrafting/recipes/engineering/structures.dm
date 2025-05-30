@@ -128,7 +128,7 @@
 		/datum/slapcraft_step/item/steel/second,
 		/datum/slapcraft_step/use_item/engineering/hammer,
 		/datum/slapcraft_step/item/cog,
-		/datum/slapcraft_step/item/riddleofsteel,
+		/datum/slapcraft_step/item/cog/second,
 		/datum/slapcraft_step/use_item/engineering/hammer,
 	)
 

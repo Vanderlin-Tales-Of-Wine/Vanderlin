@@ -16,8 +16,8 @@
 						/obj/item/natural/hide = 10, /obj/item/natural/bundle/bone/full = 2)
 	faction = list("caves")
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
-	health = 500
-	maxHealth = 600
+	health = 1500
+	maxHealth = 1500
 	melee_damage_lower = 55
 	melee_damage_upper = 80
 	vision_range = 3
@@ -44,8 +44,11 @@
 	remains_type = /obj/item/weapon/axe/battle
 
 	ai_controller = /datum/ai_controller/minotaur
-	can_have_ai = FALSE
-	AIStatus = AI_OFF
+
+
+/mob/living/simple_animal/hostile/retaliate/minotaur/Initialize()
+	. = ..()
+	AddComponent(/datum/component/ai_aggro_system)
 
 /mob/living/simple_animal/hostile/retaliate/minotaur/female
 	icon_state = "MinotaurFem"
@@ -71,15 +74,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/minotaur/taunted(mob/user)
 	emote("aggro")
-	Retaliate()
-	GiveTarget(user)
 	return
-
-/mob/living/simple_animal/hostile/retaliate/minotaur/Life()
-	..()
-	if(pulledby)
-		Retaliate()
-		GiveTarget(pulledby)
 
 /mob/living/simple_animal/hostile/retaliate/minotaur/get_sound(input)
 	switch(input)
@@ -162,3 +157,109 @@
 	candodge = TRUE
 	canparry = TRUE
 	item_damage_type = "stab"
+
+/obj/effect/temp_visual/minotaur_rage
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "anger"
+	duration = 15
+	randomdir = FALSE
+	layer = ABOVE_MOB_LAYER
+
+/obj/effect/temp_visual/minotaur_charge
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "impact_m"
+	duration = 5
+	randomdir = FALSE
+
+/obj/effect/temp_visual/minotaur_impact
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "impact_dust"
+	duration = 10
+
+/obj/effect/temp_visual/minotaur_magic
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "shield-old"
+	duration = 10
+	randomdir = FALSE
+	layer = ABOVE_MOB_LAYER
+
+/obj/effect/temp_visual/minotaur_slam
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "pulse2"
+	duration = 15
+	randomdir = FALSE
+	layer = BELOW_MOB_LAYER
+
+/obj/effect/temp_visual/minotaur_fury_zone
+	name = "fiery zone"
+	desc = "A patch of ground that's about to erupt in flames!"
+	icon = 'icons/effects/fire.dmi'
+	icon_state = "fire_small"
+	layer = BELOW_MOB_LAYER
+	light_outer_range = 2
+	light_color = LIGHT_COLOR_FIRE
+	duration = 4 SECONDS
+	var/damage_per_tick = 5
+	var/knockdown_time = 0.5 SECONDS
+	var/warned = FALSE
+	var/active = FALSE
+
+/obj/effect/temp_visual/minotaur_fury_zone/Initialize(mapload)
+	. = ..()
+	alpha = 150
+	color = "#ffff00" // Yellow warning color
+	transform = matrix() * 0.5 // Start small
+	animate(src, alpha = 200, color = "#ff5500", transform = matrix(), time = 1 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(activate)), 1.5 SECONDS)
+	playsound(get_turf(src), 'sound/misc/bamf.ogg', 25, TRUE)
+
+/obj/effect/temp_visual/minotaur_fury_zone/proc/activate()
+	active = TRUE
+	color = "#ff0000" // Red active color
+	alpha = 230
+	icon_state = "fire"
+	playsound(get_turf(src), 'sound/misc/bamf.ogg', 50, TRUE)
+
+	START_PROCESSING(SSobj, src)
+
+	var/datum/effect_system/spark_spread/sparks = new
+	sparks.set_up(3, 0, get_turf(src))
+	sparks.start()
+
+	animate(src, alpha = 255, time = 1 SECONDS)
+	animate(src, alpha = 50, time = duration - 1 SECONDS)
+
+/obj/effect/temp_visual/minotaur_fury_zone/Destroy()
+	STOP_PROCESSING(SSobj, src)
+	return ..()
+
+/obj/effect/temp_visual/minotaur_fury_zone/process(delta_time)
+	if(!active)
+		return
+
+	for(var/mob/living/L in get_turf(src))
+		if(L.faction.Find("caves"))
+			continue
+
+		L.adjustFireLoss(damage_per_tick * delta_time)
+
+		if(!warned && prob(50))
+			to_chat(L, "<span class='danger'>The flames sear your flesh!</span>")
+			warned = TRUE
+
+		if(knockdown_time > 0 && prob(20))
+			L.Knockdown(knockdown_time)
+
+/obj/effect/temp_visual/minotaur_fury_zone/strong
+	name = "raging inferno"
+	desc = "A violent eruption of magical flames!"
+	icon_state = "fire"
+	light_outer_range = 3
+	light_color = "#FF3300"
+	duration = 5 SECONDS
+	damage_per_tick = 8
+	knockdown_time = 1 SECONDS
+
+/obj/effect/temp_visual/minotaur_fury_zone/strong/Initialize(mapload)
+	. = ..()
+	transform = matrix() * 1.5

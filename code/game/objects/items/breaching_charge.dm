@@ -1,6 +1,6 @@
 
 /obj/item/breach_charge
-	name = "breach charge"
+	name = "breaching charge"
 	desc = "A sack of foul-smelling explosive powder designed to rip through walls."
 	icon_state = "breach_charge"
 	icon = 'icons/roguetown/items/misc.dmi'

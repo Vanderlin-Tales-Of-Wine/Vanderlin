@@ -3,22 +3,22 @@
 	desc = "Green, spiky and....I think I saw it move!"
 	icon = 'icons/roguetown/mob/monster/tangler.dmi'
 	icon_state = "tangler_hidden"
-	max_integrity = 5
 	var/faction = list(FACTION_PLANTS)
 
 /obj/structure/flora/grass/tangler/update_icon()
 	return
 
 /obj/structure/flora/grass/tangler/real
-	var/aggroed = 1
 	max_integrity = 40
 	integrity_failure = 0.15
 	attacked_sound = 'sound/misc/woodhit.ogg'
-	var/list/eatablez = list(/obj/item/organ, /obj/item/reagent_containers/food/snacks/meat,/obj/item/compost,
-/obj/item/natural/poo)
+	buckle_lying = FALSE
+	buckle_prevents_pull = TRUE
+	var/list/eatablez = list(/obj/item/organ, /obj/item/reagent_containers/food/snacks/meat, /obj/item/compost, /obj/item/natural/poo)
 	var/last_eat
-	buckle_lying = 0
-	buckle_prevents_pull = 1
+	var/aggroed = TRUE
+	///Proximity monitor associated with this atom, needed for proximity checks.
+	var/datum/proximity_monitor/proximity_monitor
 
 /obj/structure/flora/grass/tangler/real/Initialize()
 	. = ..()
@@ -30,7 +30,7 @@
 	STOP_PROCESSING(SSobj, src)
 	. = ..()
 
-/obj/structure/flora/grass/tangler/real/obj_break(damage_flag)
+/obj/structure/flora/grass/tangler/real/obj_break(damage_flag, silent)
 	..()
 	QDEL_NULL(proximity_monitor)
 	unbuckle_all_mobs()

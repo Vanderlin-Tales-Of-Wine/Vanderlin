@@ -52,8 +52,6 @@ GLOBAL_LIST_INIT(animal_migration_points, list())
 				ai_controller_paths |= tree.type
 			ai_controller_paths |= /datum/ai_planning_subtree/travel_to_point/and_clear_target/wander
 			created.ai_controller.replace_planning_subtrees(ai_controller_paths)
-		else
-			created.GiveTarget(end_turf)
 
 /datum/round_event/animal_migration/passive
 	animals = list(

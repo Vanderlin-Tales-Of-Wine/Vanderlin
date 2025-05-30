@@ -1,0 +1,25 @@
+/turf/open/floor/ruinedwood{icon_state="weird1"} : /turf/open/floor/ruinedwood/spiral{@OLD;icon_state=@SKIP}
+/turf/open/floor/ruinedwood{icon_state="horzw"} : /turf/open/floor/ruinedwood/alt{@OLD;icon_state=@SKIP}
+/turf/open/floor/ruinedwood{icon_state="vertw"} : /turf/open/floor/ruinedwood/turned/alt{@OLD;icon_state=@SKIP}
+/turf/open/floor/ruinedwood{icon_state="wooden_floort"} : /turf/open/floor/ruinedwood/turned{@OLD;icon_state=@SKIP}
+/turf/open/floor/metal{icon_state="plating2"} : /turf/open/floor/metal/alt{@OLD;icon_state=@SKIP}
+/turf/open/floor/tile{icon_state="greenstone"} : /turf/open/floor/greenstone{@OLD;icon_state=@SKIP}
+/turf/open/floor/tile{icon_state="bfloorz"} : /turf/open/floor/tile/bfloorz{@OLD;icon_state=@SKIP}
+/turf/open/floor/blocks{icon_state="newstone2"} : /turf/open/floor/blocks/newstone{@OLD;icon_state=@SKIP}
+/turf/open/floor/blocks{icon_state="bluestone"} : /turf/open/floor/blocks/newstone/alt{@OLD;icon_state=@SKIP}
+/turf/open/floor/tile{icon_state="linoleum"} : /turf/open/floor/tile/checker{@OLD;icon_state=@SKIP}
+/turf/open/floor/blocks{icon_state="paving"} : /turf/open/floor/blocks/paving{@OLD;icon_state=@SKIP}
+/turf/open/floor/tile{icon_state="glyph1"} : /turf/open/floor/greenstone/glyph1{@OLD;icon_state=@SKIP}
+/turf/open/floor/tile{icon_state="glyph2"} : /turf/open/floor/greenstone/glyph2{@OLD;icon_state=@SKIP}
+/turf/open/floor/tile{icon_state="glyph3"} : /turf/open/floor/greenstone/glyph3{@OLD;icon_state=@SKIP}
+/turf/open/floor/tile{icon_state="glyph4"} : /turf/open/floor/greenstone/glyph4{@OLD;icon_state=@SKIP}
+/turf/open/floor/tile{icon_state="glyph5"} : /turf/open/floor/greenstone/glyph5{@OLD;icon_state=@SKIP}
+/turf/open/floor/tile{icon_state="glyph6"} : /turf/open/floor/greenstone/glyph6{@OLD;icon_state=@SKIP}
+/turf/open/floor/tile{icon_state="tavern"}: /turf/open/floor/tile/kitchen{@OLD;icon_state=@SKIP}
+/turf/open/floor/tile{icon_state="tile"}: /turf/open/floor/tile/checkeralt{@OLD;icon_state=@SKIP}
+/turf/open/floor/rooftop{icon_state="roofg"} : /turf/open/floor/rooftop/green{@OLD;icon_state=@SKIP}
+/turf/open/floor/blocks{icon_state="paving-t"} : /turf/open/floor/blocks/paving/vert{@OLD;icon_state=@SKIP}
+/turf/closed/wall/mineral/wooddark/end{icon_state="endwooddark"} : /turf/closed/wall/mineral/wooddark/end{@OLD;icon_state=@SKIP}
+/turf/open/floor/carpet/lord{icon_state="carpet_r"} : /turf/open/floor/carpet/lord/right{@OLD;icon_state=@SKIP}
+/turf/open/floor/carpet/lord{icon_state="carpet_l"} : /turf/open/floor/carpet/lord/left{@OLD;icon_state=@SKIP}
+/turf/open/floor/carpet/green{icon_state="carpet"} : /turf/open/floor/carpet{@OLD;icon_state=@SKIP}

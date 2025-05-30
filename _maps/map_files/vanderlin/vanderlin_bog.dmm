@@ -642,12 +642,6 @@
 /mob/living/carbon/human/species/skeleton/npc/peasant,
 /turf/open/floor/dirt,
 /area/rogue/indoors/shelter/bog)
-"hP" = (
-/obj/structure/stairs{
-	dir = 1
-	},
-/turf/open/transparent/openspace,
-/area/rogue/indoors/shelter/bog)
 "hQ" = (
 /obj/effect/decal/cobbleedge/alt{
 	dir = 10
@@ -663,9 +657,7 @@
 	dir = 8;
 	pixel_y = -1
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/outdoors/bog)
 "ib" = (
 /obj/structure/stairs/stone/church,
@@ -1136,7 +1128,7 @@
 	dir = 4
 	},
 /mob/living/carbon/human/species/orc/warrior,
-/turf/open/transparent/openspace,
+/turf/open/floor/ruinedwood/turned,
 /area/rogue/indoors/shelter/bog)
 "oJ" = (
 /obj/structure/window/solid,
@@ -3344,9 +3336,7 @@
 /obj/structure/fluff/railing/wood{
 	dir = 4
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/outdoors/bog)
 "TM" = (
 /obj/structure/flora/grass,
@@ -84224,7 +84214,7 @@ hh
 ml
 dH
 ac
-hP
+wC
 oB
 on
 ac
@@ -84426,7 +84416,7 @@ hh
 ml
 Rx
 ac
-hP
+wC
 oB
 hv
 gd

@@ -6,6 +6,18 @@
 	if(tame)
 		tamed(owner)
 
+	if(can_breed)
+		AddComponent(\
+			/datum/component/breed,\
+			list(/mob/living/simple_animal/hostile/retaliate/goat, /mob/living/simple_animal/hostile/retaliate/goatmale),\
+			3 MINUTES, \
+			list(/mob/living/simple_animal/hostile/retaliate/goat/goatlet = 90, /mob/living/simple_animal/hostile/retaliate/goat/goatlet/boy = 10),\
+			CALLBACK(src, PROC_REF(after_birth)),\
+		)
+
+/mob/living/simple_animal/hostile/retaliate/goat/proc/after_birth(mob/living/simple_animal/hostile/retaliate/cow/cowlet/baby, mob/living/partner)
+	return
+
 /mob/living/simple_animal/hostile/retaliate/goat/Destroy()
 	..()
 	GLOB.farm_animals = max(GLOB.farm_animals - 1, 0)
@@ -35,14 +47,6 @@
 		if(has_buckled_mobs())
 			var/mutable_appearance/mounted = mutable_appearance(icon, "goat_mounted", 4.3)
 			add_overlay(mounted)
-
-/mob/living/simple_animal/hostile/retaliate/goat/UniqueAttack()
-	if(istype(target, /obj/structure/vine))
-		var/obj/structure/vine/SV = target
-		SV.eat(src)
-		food = max(food + 30, food_max + 50)
-		return
-	return ..()
 
 /mob/living/simple_animal/hostile/retaliate/goat
 	icon = 'icons/roguetown/mob/monster/gote.dmi'
@@ -106,8 +110,10 @@
 	remains_type = /obj/effect/decal/remains/cow
 
 	ai_controller = /datum/ai_controller/gote
-	AIStatus = AI_OFF
-	can_have_ai = FALSE
+
+	var/can_breed = TRUE
+
+
 
 /mob/living/simple_animal/hostile/retaliate/goat/get_sound(input)
 	switch(input)
@@ -223,8 +229,8 @@
 	remains_type = /obj/effect/decal/remains/cow
 
 	ai_controller = /datum/ai_controller/gote
-	AIStatus = AI_OFF
-	can_have_ai = FALSE
+
+
 
 /mob/living/simple_animal/hostile/retaliate/goatmale/Initialize()
 	. = ..()
@@ -280,8 +286,6 @@
 
 /mob/living/simple_animal/hostile/retaliate/goatmale/taunted(mob/user)
 	emote("aggro")
-	Retaliate()
-	GiveTarget(user)
 	return
 
 /mob/living/simple_animal/hostile/retaliate/proc/eat_plant(obj/target)
@@ -366,6 +370,7 @@
 
 	adult_growth = /mob/living/simple_animal/hostile/retaliate/goat
 	can_buckle = FALSE
+	can_breed = FALSE
 
 
 
