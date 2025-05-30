@@ -1081,7 +1081,7 @@
 	for(var/bodypart_path in bodyparts)
 		var/obj/item/bodypart/bodypart_instance = new bodypart_path()
 		bodypart_instance.set_owner(src)
-		bodyparts.Remove(bodypart_path)
+		bodyparts -= bodypart_path
 		add_bodypart(bodypart_instance)
 		switch(bodypart_instance.body_part)
 			if(ARM_LEFT)

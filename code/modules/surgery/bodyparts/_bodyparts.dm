@@ -115,12 +115,12 @@
 	for(var/obj/item/I as anything in embedded_objects)
 		remove_embedded_object(I)
 	for(var/datum/wound/wound as anything in wounds)
-		qdel(wound)
+		QDEL_NULL(wound)
 	if(bandage)
 		QDEL_NULL(bandage)
 	if(owner)
 		owner.remove_bodypart(src)
-		set_owner(null)
+	set_owner(null)
 	original_owner = null
 	return ..()
 
