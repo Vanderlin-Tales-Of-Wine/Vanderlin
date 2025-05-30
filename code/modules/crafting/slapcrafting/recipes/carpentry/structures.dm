@@ -109,6 +109,7 @@
 		/datum/slapcraft_step/use_item/carpentry/hammer
 		)
 	result_type = /obj/structure/chair/stool/crafted
+	craftdiff = 0
 
 /obj/structure/chair/stool/crafted
 	item_chair = /obj/item/chair/stool/bar/crafted

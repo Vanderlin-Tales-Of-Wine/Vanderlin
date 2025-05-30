@@ -99,8 +99,10 @@
 	if(head)
 		burning_items += head
 
-	if(back)
-		burning_items += back
+	if(backr)
+		burning_items += backr
+	if(backl)
+		burning_items += backl
 
 	for(var/X in burning_items)
 		var/obj/item/I = X

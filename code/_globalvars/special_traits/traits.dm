@@ -1,9 +1,14 @@
 /datum/special_trait
 	abstract_type = /datum/special_trait
+	/// name of the trait
 	var/name
+	/// the text that is displayed to the user when they spawn in
 	var/greet_text
+	/// the requirements displayed to the user when they roll the trait in the lobby
 	var/req_text
+	/// the chance this trait will be rolled, the lower this is - the rarer it will roll.
 	var/weight = 100
+	// these are self explanatory
 	var/list/allowed_sexes
 	var/list/allowed_races
 	var/list/allowed_ages
@@ -15,9 +20,11 @@
 	var/list/restricted_races
 	var/list/restricted_jobs
 
+/// check if this characters can be applied this special_trait
 /datum/special_trait/proc/can_apply(mob/living/carbon/human/character)
 	return TRUE
 
+/// called after latejoin and transfercharacter in roundstart
 /datum/special_trait/proc/on_apply(mob/living/carbon/human/character, silent)
 	return
 
@@ -152,21 +159,6 @@
 /datum/special_trait/bookworm/on_apply(mob/living/carbon/human/character, silent)
 	character.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
 
-/datum/special_trait/screenshake
-	name = "Tremors"
-	greet_text = span_crit("I'm not too steady any more...")
-	weight = 100
-
-/datum/special_trait/maniac_awoken
-	name = "HELP ME"
-	greet_text = span_cult("THEY'RE COMING FOR ME")
-	weight = 100
-
-/datum/special_trait/schizo_ambience
-	name = "Shizophrenic"
-	greet_text = span_suicide("MY TUMOR gives me sight BEYOND THE VEIL!")
-	weight = 100
-
 /datum/special_trait/arsonist
 	name = "Arsonist"
 	greet_text = span_notice("I like seeing things combust and burn. I have hidden around two firebombs.")
@@ -248,11 +240,14 @@
 	greet_text = span_notice("My fists feel heavier!")
 	weight = 100
 
+/*
+// kill all rt coders, honestly.
 /datum/special_trait/civilizedbarbarian/on_apply(mob/living/carbon/human/character, silent)
-	ADD_TRAIT(character, TRAIT_CIVILIZEDBARBARIAN, TRAIT_GENERIC) //Need to make trait improve hitting people with chairs, mugs, goblets.
+	ADD_TRAIT(character, TRAIT_CIVILIZEDBARBARIAN, TRAIT_GENERIC) //Need to make trait improve hitting people with chairs, mugs, goblets. YOU FUCKER WHY WOULD YOU LEAVE CODE DEBT
+*/
 
 /datum/special_trait/mastercraftsmen
-	name = "Master Crasftman"
+	name = "Master Craftsman"
 	greet_text = "In my youth, I've decided I'd get a grasp on every trade, and pursued the 10 arts of the craft."
 	req_text = "Middle-aged or Old"
 	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD)
@@ -270,13 +265,13 @@
 	character.adjust_skillrank(/datum/skill/craft/engineering, 2, TRUE)
 	character.adjust_skillrank(/datum/skill/craft/tanning, 2, TRUE)
 
-/datum/special_trait/bleublood
+/datum/special_trait/blueblood
 	name = "Noble Lineage"
 	greet_text = span_notice("I come of noble blood.")
 	restricted_traits = list(TRAIT_NOBLE)
 	weight = 100
 
-/datum/special_trait/bleublood/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/blueblood/on_apply(mob/living/carbon/human/character, silent)
 	ADD_TRAIT(character, TRAIT_NOBLE, "[type]")
 	character.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 
@@ -321,7 +316,7 @@
 /datum/special_trait/backproblems
 	name = "Giant"
 	greet_text = span_notice("I've always been called a giant. I am valued for my stature, but, this world made for smaller folk has forced me to move cautiously.")
-	req_text = "Not a kobold, verminvolk or a dwarf"
+	req_text = "Not a kobold or dwarf"
 	restricted_races = list(/datum/species/dwarf/mountain, /datum/species/kobold)
 	weight = 50
 
@@ -424,14 +419,14 @@
 /datum/special_trait/unlucky/on_apply(mob/living/carbon/human/character, silent)
 	character.STALUC = rand(1, 10)
 
-
 /datum/special_trait/jesterphobia
 	name = "Jesterphobic"
 	greet_text = span_boldwarning("I have a severe, irrational fear of Jesters")
 	weight = 50
 
 /datum/special_trait/jesterphobia/on_apply(mob/living/carbon/human/character, silent)
-	ADD_TRAIT(character, TRAIT_JESTERPHOBIA, "[type]")
+	ADD_TRAIT(character, TRAIT_JESTERPHOBIA, "[type]") // purely for the info text
+	character.gain_trauma(/datum/brain_trauma/mild/phobia/jesters)
 
 /datum/special_trait/wild_night
 	name = "Wild Night"

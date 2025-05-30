@@ -12,6 +12,36 @@
 			return legcuffed
 	return null
 
+/mob/living/carbon/get_slot_by_item(obj/item/looking_for)
+	if(looking_for == backr)
+		return ITEM_SLOT_BACK_R
+
+	if(looking_for == backl)
+		return ITEM_SLOT_BACK_L
+
+	if(backr && (looking_for in backr))
+		return ITEM_SLOT_BACK_R
+
+	if(backl && (looking_for in backl))
+		return ITEM_SLOT_BACK_L
+
+	if(looking_for == wear_mask)
+		return ITEM_SLOT_MASK
+
+	if(looking_for == wear_neck)
+		return ITEM_SLOT_NECK
+
+	if(looking_for == head)
+		return ITEM_SLOT_HEAD
+
+	if(looking_for == handcuffed)
+		return ITEM_SLOT_HANDCUFFED
+
+	if(looking_for == legcuffed)
+		return ITEM_SLOT_LEGCUFFED
+
+	return ..()
+
 /mob/living/carbon/proc/equip_in_one_of_slots(obj/item/I, list/slots, qdel_on_fail = 1)
 	for(var/slot in slots)
 		if(equip_to_slot_if_possible(I, slots[slot], qdel_on_fail = 0, disable_warning = TRUE))
