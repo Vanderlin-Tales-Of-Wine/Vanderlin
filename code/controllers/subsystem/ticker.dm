@@ -74,9 +74,10 @@ SUBSYSTEM_DEF(ticker)
 	var/end_state = "undefined"
 	var/job_change_locked = FALSE
 	var/list/royals_readied = list()
-	var/rulermob = null // reports what the ruling mob is.
+	/// reports what the ruling mob is.
+	var/mob/living/carbon/human/rulermob = null
 	/// The appointed regent mob
-	var/regent_mob = null
+	var/mob/living/carbon/human/regent_mob = null
 	var/failedstarts = 0
 	var/list/manualmodes = list()
 

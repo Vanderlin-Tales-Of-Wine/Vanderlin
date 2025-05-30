@@ -55,7 +55,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		for(var/job in subtypesof(/datum/job))
 			var/datum/job/J = job
 			var/new_value
-			var/fval = initial(J.flag)
 			if(new_value)
 				job_preferences[initial(J.title)] = new_value
 	if(current_version < 24)
