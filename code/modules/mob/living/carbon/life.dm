@@ -1,6 +1,9 @@
 /mob/living/carbon/Life()
 	set invisibility = 0
 
+	if(grab_fatigue > 0 && !pulling)
+		grab_fatigue = max(0, grab_fatigue - 0.5)
+
 	if(notransform)
 		return
 

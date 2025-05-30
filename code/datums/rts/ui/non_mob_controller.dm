@@ -22,7 +22,6 @@
 
 	return ..()
 
-
 /atom/movable/screen/strategy_ui/controller_ui/New()
 	. = ..()
 	create_and_position_buttons()
@@ -113,6 +112,7 @@
 	icon_state = "button_2"
 
 	buildings = list(
+		/datum/building_datum/core,
 		/datum/building_datum/farm,
 		/datum/building_datum/bar,
 		/datum/building_datum/kitchen,

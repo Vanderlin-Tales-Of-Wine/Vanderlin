@@ -66,6 +66,8 @@ have ways of interacting with a specific atom and control it. They posses a blac
 	var/can_idle = TRUE
 	///What distance should we be checking for interesting things when considering idling/deidling? Defaults to AI_DEFAULT_INTERESTING_DIST
 	var/interesting_dist = AI_DEFAULT_INTERESTING_DIST
+	///
+	var/movement_displacement_time = 0
 
 
 /datum/ai_controller/New(atom/new_pawn)
