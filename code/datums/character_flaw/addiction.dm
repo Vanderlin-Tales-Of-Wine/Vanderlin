@@ -105,14 +105,6 @@
 	time = 30 MINUTES
 	needsate_text = "I need to STEAL something! I'll die if I don't!"
 
-/// PAIN FREEK
-
-/datum/charflaw/addiction/masochist
-	name = "Pain Freek"
-	desc = "They call me a freek, but it just feels so good..."
-	time = 25 MINUTES
-	needsate_text = "I need to feel good... punch me in the face!"
-
 /// LOVES SEEING VISCERA OR SOME SHIT
 
 /datum/charflaw/addiction/maniac // this will probably NOT be used as an actual flaw
