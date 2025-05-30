@@ -114,8 +114,8 @@ GLOBAL_VAR_INIT(focused_test, focused_test())
 		/mob/living/carbon,
 		/mob/living/carbon/human,
 		/mob/living/carbon/human/species,
-		/mob/living/carbon/human/species/elf,
-		/mob/living/carbon/human/species/dwarf,
+		// ??????
+		/mob/living/carbon/human/species/human,
 		//Needs a seed passed, but subtypes set one by default
 		/obj/item/grown,
 		/obj/item/reagent_containers/food/snacks/grown,
@@ -167,6 +167,8 @@ GLOBAL_VAR_INIT(focused_test, focused_test())
 	ignore += typesof(/obj/effect/spawner)
 	ignore += typesof(/atom/movable/screen)
 	ignore += typesof(/obj/abstract)
+
+	ignore += typesof(/mob/living/carbon/human)
 
 	return ignore
 
