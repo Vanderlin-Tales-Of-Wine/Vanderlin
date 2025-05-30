@@ -91,9 +91,10 @@
 	color = _color
 
 /obj/particle_emitter/Destroy(force)
-	. = ..()
-	host.particle_emitters -= src
-	host = null
+	if(host)
+		host.particle_emitters -= src
+		host = null
+	return ..()
 
 /obj/particle_emitter/smoke
 	layer = FIRE_LAYER

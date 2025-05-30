@@ -133,6 +133,10 @@ GLOBAL_VAR_INIT(focused_test, focused_test())
 		/obj/effect/DPtarget,
 		// prompts loc for input
 		/obj/item/clothing/shirt/grenzelhoft,
+		// Sets usr on initialise,
+		/obj/item/sendingstonesummoner,
+		// This should be obvious
+		/obj/merge_conflict_marker,
 	)
 	//these are VERY situational and need info passed
 	ignore += typesof(/obj/effect/abstract)
@@ -158,6 +162,7 @@ GLOBAL_VAR_INIT(focused_test, focused_test())
 
 	ignore += typesof(/obj/effect/spawner)
 	ignore += typesof(/atom/movable/screen)
+	ignore += typesof(/obj/abstract)
 
 	return ignore
 
