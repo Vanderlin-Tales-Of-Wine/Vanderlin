@@ -10,7 +10,8 @@
 		"Half-Elf",
 		"Tiefling",
 		"Aasimar",
-		"Half-Orc"
+		"Half-Orc",
+		"Rakshari"
 	)
 	outfit = /datum/outfit/job/adventurer/swashbuckler
 	maximum_possible_slots = 1
