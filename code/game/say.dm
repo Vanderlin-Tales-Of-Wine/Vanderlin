@@ -51,8 +51,8 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	//Radio freq/name display
 	var/freqpart = radio_freq ? "\[[get_radio_name(radio_freq)]\] " : ""
 	//Speaker name
-	var/namepart = "[speaker.GetVoice()]"
-	if(speaker.get_alt_name())
+	var/namepart = "[speaker?.GetVoice()]"
+	if(speaker?.get_alt_name())
 		namepart = "[speaker.get_alt_name()]"
 	var/colorpart = "<span style='text-shadow:-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000;'>"
 	if(ishuman(speaker))
@@ -180,7 +180,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 
 // tg#69799 please i beg
 /atom/movable/proc/lang_treat(atom/movable/speaker, datum/language/language, raw_message, list/spans, message_mode, no_quote = FALSE)
-	var/atom/movable/source = speaker.GetSource() || speaker //is the speaker virtual
+	var/atom/movable/source = speaker?.GetSource() || speaker //is the speaker virtual
 	if(has_language(language) || check_language_hear(language))
 		return no_quote ? source.quoteless_say_quote(raw_message, spans, message_mode) : source.say_quote(raw_message, spans, message_mode)
 	else if(language)

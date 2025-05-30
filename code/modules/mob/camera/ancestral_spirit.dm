@@ -1,6 +1,6 @@
-/mob/camera/ancestral_spirit
-	name = "Ancestral Spirit"
-	real_name = "Ancestral Spirit"
+/mob/camera/primogenitor
+	name = "primogenitor"
+	real_name = "primogenitor"
 	next_move_modifier = 0
 	uses_intents = FALSE
 	icon = 'icons/mob/cameramob.dmi'
@@ -28,37 +28,37 @@
 		/obj/structure/fake_machine/scomm,
 	)
 
-/mob/camera/ancestral_spirit/New(loc, crown)
+/mob/camera/primogenitor/New(loc, crown)
 	. = ..()
 	containment = crown
 	RegisterSignal(containment, COMSIG_MOVABLE_HEAR, PROC_REF(relay_speech_to_spirit))
 
-/mob/camera/ancestral_spirit/Destroy()
+/mob/camera/primogenitor/Destroy()
 	. = ..()
 	UnregisterSignal(containment, COMSIG_MOVABLE_HEAR)
 
-/mob/camera/ancestral_spirit/Moved(atom/OldLoc, Dir)
+/mob/camera/primogenitor/Moved(atom/OldLoc, Dir)
 	. = ..()
 	update_visibility()
 
-/mob/camera/ancestral_spirit/Login()
+/mob/camera/primogenitor/Login()
 	. = ..()
 	update_visibility()
 
-/mob/camera/ancestral_spirit/say(message, bubble_type, list/spans, sanitize, datum/language/language, ignore_spam, forced)
+/mob/camera/primogenitor/say(message, bubble_type, list/spans, sanitize, datum/language/language, ignore_spam, forced)
 	relay_speech_to_containment(message, bubble_type, spans, sanitize, language, ignore_spam, forced)
 
-/mob/camera/ancestral_spirit/proc/relay_speech_to_containment(message, bubble_type, list/spans, sanitize, datum/language/language, ignore_spam, forced)
-	containment.say(message, bubble_type, spans, sanitize, language, ignore_spam, forced)
+/mob/camera/primogenitor/proc/relay_speech_to_containment(message, bubble_type, list/spans, sanitize, datum/language/language, ignore_spam, forced)
+	containment.say(message)
 
-/mob/camera/ancestral_spirit/proc/relay_speech_to_spirit(datum/source, ...)
+/mob/camera/primogenitor/proc/relay_speech_to_spirit(datum/source, ...)
 	SIGNAL_HANDLER
 	var/list/arguments = args.Copy()
 	arguments.Cut(1, 2)
 	if(current_projection)
-		current_projection.Hear(arguments)
+		current_projection.Hear(arglist(arguments))
 		return
-	Hear(arguments)
+	Hear(arglist(arguments))
 
 /obj/projectile/locomotion_hand
 	name = "Cursed Hand"
@@ -68,7 +68,7 @@
 	speed = 0.9
 	arcshot = TRUE
 
-/mob/camera/ancestral_spirit/ClickOn(atom/A, params) // this chaining could be done on the parent instead
+/mob/camera/primogenitor/ClickOn(atom/A, params) // this chaining could be done on the parent instead
 	. = ..()
 
 	var/list/modifiers = params2list(params)
@@ -83,14 +83,14 @@
 		left_click(A, modifiers)
 		return
 
-/mob/camera/ancestral_spirit/proc/left_click(atom/A, modifiers) // technically not only left click, but what matters is it's not right click
+/mob/camera/primogenitor/proc/left_click(atom/A, modifiers) // technically not only left click, but what matters is it's not right click
 	if(modifiers["alt"])
 		left_alt_click(A, modifiers)
 
-/mob/camera/ancestral_spirit/proc/left_alt_click(atom/A, modifiers)
+/mob/camera/primogenitor/proc/left_alt_click(atom/A, modifiers)
 	locomotion(A)
 
-/mob/camera/ancestral_spirit/proc/right_click(atom/A)
+/mob/camera/primogenitor/proc/right_click(atom/A)
 	if(ismob(A))
 		recursive_projection(A)
 		return
@@ -98,7 +98,7 @@
 	manifest_projection(A)
 
 /// takes the containment out of any storages and mobs
-/mob/camera/ancestral_spirit/proc/containment_anti_containment() // YOU CAN'T HOLD ME
+/mob/camera/primogenitor/proc/containment_anti_containment() // YOU CAN'T HOLD ME
 	if(isturf(containment.loc))
 		return TRUE
 	var/mob/containment_holder = containment.loc
@@ -107,7 +107,7 @@
 
 	containment.forceMove(get_turf(containment))
 
-/mob/camera/ancestral_spirit/proc/locomotion(atom/A)
+/mob/camera/primogenitor/proc/locomotion(atom/A)
 
 	containment_anti_containment()
 
@@ -115,7 +115,7 @@
 	locomotion_hand_outgoing = containment.Beam(hand, icon_state = "curse0", maxdistance = 9, time = 10 SECONDS)
 	RegisterSignal(hand, COMSIG_PROJECTILE_SELF_ON_HIT, PROC_REF(on_locomotion_hand_hit))
 
-/mob/camera/ancestral_spirit/proc/on_locomotion_hand_hit(atom/source, firer, target, Angle)
+/mob/camera/primogenitor/proc/on_locomotion_hand_hit(atom/source, firer, target, Angle)
 	SIGNAL_HANDLER
 
 	containment_anti_containment()
@@ -127,16 +127,16 @@
 
 	containment.throw_at(target = target, range = 9, speed = 1.4, spin = FALSE, callback = CALLBACK(src, PROC_REF(post_land)))
 
-/mob/camera/ancestral_spirit/proc/post_land(datum/source)
+/mob/camera/primogenitor/proc/post_land(datum/source)
 	QDEL_NULL(locomotion_hand_pulling)
-	containment.update_camera_location(containment.loc)
+	containment.update_camera_location(containment.loc, TRUE)
 
-/mob/camera/ancestral_spirit/proc/recursive_projection(atom/A)
+/mob/camera/primogenitor/proc/recursive_projection(atom/A)
 	for(var/atom/checked_atom in A.contents)
 		if(manifest_projection(checked_atom))
 			return TRUE
 
-/mob/camera/ancestral_spirit/proc/manifest_projection(atom/A)
+/mob/camera/primogenitor/proc/manifest_projection(atom/A)
 	if(!(A.type in allowed_projection_objects))
 		return FALSE
 
@@ -149,7 +149,7 @@
 
 	return TRUE
 
-/mob/camera/ancestral_spirit/Hear(message, atom/movable/speaker, datum/language/message_language, raw_message, radio_freq, list/spans, message_mode)
+/mob/camera/primogenitor/Hear(message, atom/movable/speaker, datum/language/message_language, raw_message, radio_freq, list/spans, message_mode)
 	. = ..()
 	if(!client)
 		return

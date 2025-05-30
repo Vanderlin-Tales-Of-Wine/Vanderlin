@@ -20,7 +20,7 @@
 		return client
 	return null
 
-/mob/camera/ancestral_spirit/proc/update_visibility()
+/mob/camera/primogenitor/proc/update_visibility()
 	if(use_static != USE_STATIC_NONE)
 		GLOB.cameranet.visibility(src, client, use_static = use_static)
 

@@ -6,7 +6,7 @@
 	/// thing this projection is tied to
 	var/atom/movable/projection_source
 	/// the spirit we are
-	var/mob/camera/ancestral_spirit/spirit
+	var/mob/camera/primogenitor/spirit
 	/// how many tiles can we move from the projection_source?
 	var/range_limit = 3
 	var/beam

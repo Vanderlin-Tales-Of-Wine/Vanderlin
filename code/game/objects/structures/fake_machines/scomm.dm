@@ -13,7 +13,7 @@
 	var/listening = TRUE
 	var/speaking = TRUE
 	var/dictating = FALSE
-	var/mob/camera/ancestral_spirit/controlled_by
+	var/mob/camera/primogenitor/controlled_by
 
 /obj/structure/fake_machine/scomm/Initialize()
 	. = ..()
