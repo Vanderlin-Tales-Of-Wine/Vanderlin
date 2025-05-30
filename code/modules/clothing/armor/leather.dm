@@ -175,6 +175,25 @@
 	icon_state = "artijacket"
 	desc = "A thick leather jacket adorned with fur and cog decals. The height of Heartfelt fashion."
 
+/obj/item/clothing/armor/leather/jacket/gatemaster_jacket
+	name = "gatemaster's coat"
+	desc = "A thick cloth padded coat specialty made for the gatemaster."
+	icon = 'icons/roguetown/clothing/special/gatemaster.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/gatemaster.dmi'
+	icon_state = "master_coat"
+	blocksound = SOFTHIT
+	slot_flags = ITEM_SLOT_ARMOR
+	armor = ARMOR_MAILLE_IRON
+	body_parts_covered = COVERAGE_ALL_BUT_LEGS
+	salvage_result = /obj/item/natural/cloth
+
+/obj/item/clothing/armor/leather/jacket/gatemaster_jacket/armored
+	name = "gatemaster's coat"
+	desc = "A thick cloth padded coat specialty made for the gatemaster."
+	icon_state = "master_coat_cuirass"
+	blocksound = PLATEHIT
+	armor = ARMOR_MAILLE_GOOD
+
 //................ Sea Jacket ............... //
 /obj/item/clothing/armor/leather/jacket/sea
 	slot_flags = ITEM_SLOT_ARMOR
