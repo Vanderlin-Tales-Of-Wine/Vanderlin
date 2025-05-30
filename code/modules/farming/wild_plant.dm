@@ -23,7 +23,7 @@
 	icon_state = "[plant_type.icon_state]2"
 
 /obj/structure/wild_plant/Destroy()
-	if(plant_type)
+	if(istype(plant_type))
 		QDEL_NULL(plant_type)
 	return ..()
 

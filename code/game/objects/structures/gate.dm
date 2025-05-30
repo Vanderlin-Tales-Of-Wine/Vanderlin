@@ -87,12 +87,12 @@ GLOBAL_LIST_EMPTY(biggates)
 		GLOB.biggates += src
 
 /obj/structure/gate/Destroy()
-	for(var/A in blockers)
+	for(var/A as anything in blockers)
 		qdel(A)
 	if(attached_to)
 		var/obj/structure/winch/W = attached_to
 		W.attached_gate = null
-	..()
+	return ..()
 
 /obj/structure/gate/update_icon()
 	cut_overlays()
