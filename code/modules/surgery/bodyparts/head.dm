@@ -65,6 +65,7 @@
 	QDEL_NULL(brainmob) //order is sensitive, see warning in handle_atom_del() below
 	QDEL_NULL(brain)
 	QDEL_NULL(eyes)
+	QDEL_NULL(eyesl)
 	QDEL_NULL(ears)
 	QDEL_NULL(tongue)
 	return ..()
@@ -81,6 +82,8 @@
 	if(A == eyes)
 		eyes = null
 		update_icon_dropped()
+	if(A == eyesl)
+		eyesl = null
 	if(A == ears)
 		ears = null
 	if(A == tongue)
