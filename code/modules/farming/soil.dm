@@ -311,20 +311,18 @@
 		adjust_water(max(30 - water, 0))
 	// And it grows a little!
 	if(plant)
-		add_growth(2 MINUTES)
-		update_icon()
+		if(add_growth(2 MINUTES))
+			update_icon()
 
-// the reason no_update exists is so we update_icon at the end of the process instead of every time one of these procs is called.
-
-/// adjust water, use no_update = TRUE to not update the icon.
+/// adjust water
 /obj/structure/soil/proc/adjust_water(adjust_amount)
 	water = clamp(water + adjust_amount, 0, MAX_PLANT_WATER)
 
-/// adjust nutrition, use no_update = TRUE to not update the icon.
+/// adjust nutrition
 /obj/structure/soil/proc/adjust_nutrition(adjust_amount)
 	nutrition = clamp(nutrition + adjust_amount, 0, MAX_PLANT_NUTRITION)
 
-/// adjust weeds, use no_update = TRUE to not update the icon.
+/// adjust weeds
 /obj/structure/soil/proc/adjust_weeds(adjust_amount)
 	weeds = clamp(weeds + adjust_amount, 0, MAX_PLANT_WEEDS)
 
@@ -394,7 +392,7 @@
 /obj/structure/soil/proc/get_nutri_overlay()
 	var/mutable_appearance/nutri_ma = mutable_appearance(icon, "soil-overlay")
 	nutri_ma.color = "#6d3a00"
-	nutri_ma.alpha = 50 * (nutrition/ MAX_PLANT_NUTRITION)
+	nutri_ma.alpha = 50 * (nutrition / MAX_PLANT_NUTRITION)
 	return nutri_ma
 
 /obj/structure/soil/proc/get_plant_overlay()
@@ -476,21 +474,21 @@
 /obj/structure/soil/proc/process_weeds(dt)
 	// Blessed soil will have the weeds die
 	if(blessed_time > 0)
-		adjust_weeds(-dt * BLESSING_WEED_DECAY_RATE, TRUE)
+		adjust_weeds(-dt * BLESSING_WEED_DECAY_RATE)
 	if(plant && plant.weed_immune)
 		// Weeds die if the plant is immune to them
-		adjust_weeds(-dt * WEED_RESISTANCE_DECAY_RATE, TRUE)
+		adjust_weeds(-dt * WEED_RESISTANCE_DECAY_RATE)
 		return
 	if(water <= 0)
 		// Weeds die without water in soil
-		adjust_weeds(-dt * WEED_DECAY_RATE, TRUE)
+		adjust_weeds(-dt * WEED_DECAY_RATE)
 		return
 	// Weeds eat water and nutrition to grow
 	var/weed_factor = weeds / MAX_PLANT_WEEDS
-	adjust_water(-dt * weed_factor * WEED_WATER_CONSUMPTION_RATE, TRUE)
-	adjust_nutrition(-dt * weed_factor * WEED_NUTRITION_CONSUMPTION_RATE, TRUE)
+	adjust_water(-dt * weed_factor * WEED_WATER_CONSUMPTION_RATE)
+	adjust_nutrition(-dt * weed_factor * WEED_NUTRITION_CONSUMPTION_RATE)
 	if(nutrition > 0)
-		adjust_weeds(dt * WEED_GROWTH_RATE, TRUE)
+		adjust_weeds(dt * WEED_GROWTH_RATE)
 
 
 #define PLANT_REGENERATION_RATE 10 / (1 MINUTES)
@@ -589,20 +587,20 @@
 	var/should_update = FALSE
 	// Lots of weeds harm the plant
 	if(weeds >= MAX_PLANT_WEEDS * 0.6)
-		should_update |= adjust_plant_health(-dt * PLANT_WEEDS_HARM_RATE, TRUE)
+		should_update |= adjust_plant_health(-dt * PLANT_WEEDS_HARM_RATE)
 	// Regenerate plant health if we dont drain water, or we have the water
 	if(drain_rate <= 0 || water > 0)
-		should_update |= adjust_plant_health(dt * PLANT_REGENERATION_RATE, TRUE)
+		should_update |= adjust_plant_health(dt * PLANT_REGENERATION_RATE)
 	if(drain_rate > 0)
 		// If we're dry and we want to drain water, we loose health
 		if(water <= 0)
-			should_update |= adjust_plant_health(-dt * PLANT_DECAY_RATE, TRUE)
+			should_update |= adjust_plant_health(-dt * PLANT_DECAY_RATE)
 		else
 			// Drain water
 			adjust_water(-dt * drain_rate)
 	// Blessed plants heal!!
 	if(blessed_time > 0)
-		should_update |= adjust_plant_health(dt * PLANT_BLESS_HEAL_RATE, TRUE)
+		should_update |= adjust_plant_health(dt * PLANT_BLESS_HEAL_RATE)
 	return should_update
 
 /obj/structure/soil/proc/process_plant_nutrition(dt)
@@ -667,7 +665,7 @@
 	var/possible_nutrition = min(target_nutrition, nutrition)
 	var/factor = possible_nutrition / target_nutrition
 	var/possible_growth_time = target_growth_time * factor
-	adjust_nutrition(-possible_nutrition, TRUE)
+	adjust_nutrition(-possible_nutrition)
 	return add_growth(possible_growth_time)
 
 /obj/structure/soil/proc/add_growth(added_growth)
@@ -723,7 +721,7 @@
 /obj/structure/soil/proc/uproot(loot = TRUE)
 	if(!plant)
 		return
-	adjust_weeds(-100, TRUE) // we update icon lower (if needed)
+	adjust_weeds(-100) // we update icon lower (if needed)
 	if(loot)
 		yield_uproot_loot()
 	if(produce_ready)
