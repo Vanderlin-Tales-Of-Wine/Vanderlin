@@ -28,8 +28,8 @@
 	var/repair_skill = /datum/skill/craft/masonry // i copypasted this code from the repairable doors and now it's got defines in the base
 
 /obj/structure/window/Initialize()
+	. = ..()
 	update_icon()
-	..()
 
 /obj/structure/window/update_icon()
 	if(brokenstate)

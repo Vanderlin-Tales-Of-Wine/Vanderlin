@@ -101,9 +101,12 @@
 	if(!istype(loc, /mob/living/carbon/human/dummy))
 		SSroguemachine.key = src
 
+/obj/item/key/lord/Destroy()
+	SSroguemachine.key = null
+	return ..()
+
 /obj/item/key/lord/proc/anti_stall()
 	visible_message(span_warning("[src] flies up into the sky and into the direction of the keep!"))
-	SSroguemachine.key = null //Do not harddel.
 	qdel(src) //Anti-stall
 
 ///// TOWN KEYS

@@ -164,10 +164,6 @@
 "EV" = (
 /turf/closed/indestructible/wooddark/mast,
 /area/rogue)
-"FB" = (
-/obj/effect/landmark/underworld_pull_location,
-/turf/open/floor/underworld/road,
-/area/rogue/underworld)
 "GV" = (
 /obj/structure/underworld/ravox{
 	layer = 4.82;
@@ -10896,7 +10892,7 @@ df
 df
 df
 Lk
-FB
+Lk
 sz
 sz
 Lk
@@ -11150,7 +11146,7 @@ sz
 sz
 sz
 PP
-FB
+Lk
 Lk
 df
 df
@@ -11929,7 +11925,7 @@ PP
 PP
 PP
 PP
-FB
+Lk
 Lk
 Lk
 IP
@@ -12587,7 +12583,7 @@ df
 Lk
 df
 df
-FB
+Lk
 sz
 rm
 rm

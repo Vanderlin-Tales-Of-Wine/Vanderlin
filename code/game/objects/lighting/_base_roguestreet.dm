@@ -21,6 +21,7 @@
 
 /obj/machinery/light/fueledstreet/Destroy()
 	GLOB.streetlamp_list -= src
+	GLOB.fires_list -= src
 	return ..()
 
 /obj/machinery/light/fueledstreet/midlamp

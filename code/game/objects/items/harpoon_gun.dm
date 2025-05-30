@@ -65,7 +65,6 @@
 	if(leash)
 		QDEL_NULL(leash)
 	if(harpoon_sound)
-		harpoon_sound.stop(TRUE)
 		QDEL_NULL(harpoon_sound)
 	if(zipline)
 		zipline.End(TRUE)

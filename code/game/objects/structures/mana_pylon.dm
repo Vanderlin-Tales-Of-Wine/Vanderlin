@@ -49,8 +49,10 @@
 	set_light(1.4, 1.4, 0.75, l_color = COLOR_CYAN)
 
 /obj/structure/mana_pylon/Destroy()
-	. = ..()
+	if(linked_pylon)
+		unlink_pylon(linked_pylon)
 	QDEL_NULL(fake_density)
+	return ..()
 
 /obj/structure/mana_pylon/update_icon()
 	. = ..()
@@ -109,7 +111,6 @@
 	QDEL_NULL(created_beam)
 	linked_pylon = null
 	mana_pool.stop_transfer(pylon_to_unlink.mana_pool)
-
 
 /obj/structure/mana_pylon/proc/drain_mana(mob/living/user)
 	if(mana_pool.network_attunement)

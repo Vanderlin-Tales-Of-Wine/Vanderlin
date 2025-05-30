@@ -176,8 +176,8 @@
 	smooth_fences()
 
 /obj/structure/fluff/railing/fence/Destroy()
-	..()
 	smooth_fences()
+	return ..()
 
 /obj/structure/fluff/railing/fence/OnCrafted(dirin, mob/user)
 	. = ..()
@@ -391,7 +391,6 @@
 
 /obj/structure/fluff/clock/Destroy()
 	if(soundloop)
-		soundloop.stop(TRUE)
 		QDEL_NULL(soundloop)
 	return ..()
 
@@ -481,7 +480,6 @@
 
 /obj/structure/fluff/wallclock/Destroy()
 	if(soundloop)
-		soundloop.stop(TRUE)
 		QDEL_NULL(soundloop)
 	return ..()
 
@@ -1213,7 +1211,7 @@
 
 /obj/structure/fluff/psycross/copper/Destroy()
 	addomen("psycross")
-	..()
+	return ..()
 
 /obj/structure/fluff/psycross/proc/AOE_flash(mob/user, range = 15, power = 5, targeted = FALSE)
 	var/list/mob/targets = get_flash_targets(get_turf(src), range, FALSE)
