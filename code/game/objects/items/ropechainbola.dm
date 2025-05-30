@@ -166,7 +166,7 @@
 	force = 10
 	throwforce = 5
 	w_class = WEIGHT_CLASS_SMALL
-	grid_height = 64 //Probably not being used for a reason, 2x2
+	grid_width = 64 //Probably not being used for a reason, 2x2
 	icon_state = "net"
 	breakouttime = 35//easy to apply, easy to break out of
 	gender = NEUTER
