@@ -336,7 +336,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 
 /obj/structure/door/secret/thieves_guild/Initialize()
 	. = ..()
-	if(!length(GLOB.thieves_guild_doors))
+	if(length(GLOB.thieves_guild_doors))
 		var/obj/structure/door/secret/D = GLOB.thieves_guild_doors[1]
 		open_phrase = D.open_phrase
 	GLOB.thieves_guild_doors |= src

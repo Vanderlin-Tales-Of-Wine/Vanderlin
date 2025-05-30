@@ -84,7 +84,7 @@ GLOBAL_LIST_EMPTY(created_sound_groups)
 		group.last_iter++
 		channel = picked_channel
 
-	parent = _parent
+	set_parent(_parent)
 	direct = _direct
 
 	if(_channel)
@@ -97,8 +97,8 @@ GLOBAL_LIST_EMPTY(created_sound_groups)
 
 /datum/looping_sound/Destroy()
 	stop(TRUE)
-	parent = null
-	thingshearing.Cut()
+	if(sound_group)
+		QDEL_NULL(sound_group)
 	return ..()
 
 /datum/looping_sound/proc/start(atom/on_behalf_of)
