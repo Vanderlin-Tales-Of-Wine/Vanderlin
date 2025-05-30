@@ -7,10 +7,14 @@ SUBSYSTEM_DEF(job)
 	var/list/all_occupations = list()
 	/// List of jobs that can be joined through the starting menu.
 	var/list/joinable_occupations = list()
-	var/list/datum/job/name_occupations = list()	//Dict of all jobs, keys are titles
-	var/list/type_occupations = list()	//Dict of all jobs, keys are types
-	var/list/unassigned = list()		//Players who need jobs
-	var/initial_players_to_assign = 0 	//used for checking against population caps
+	/// assoc list of all jobs, keys are titles
+	var/list/datum/job/name_occupations = list()
+	/// assoc list of all jobs, keys are types
+	var/list/type_occupations = list()
+	/// list of players who need jobs
+	var/list/unassigned = list()
+	/// used for checking against population caps
+	var/initial_players_to_assign = 0
 
 	var/list/prioritized_jobs = list()
 	var/list/latejoin_trackers = list()
