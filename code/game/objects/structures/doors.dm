@@ -155,7 +155,8 @@
 		if(L.m_intent == MOVE_INTENT_SNEAK)
 			to_chat(user, span_warning("This door is locked."))
 			return
-	if(can_knock)
+	if(can_knock && world.time > last_bump + 20)
+		last_bump = world.time
 		if(user.a_intent?.name == "punch")
 			playsound(src, 'sound/foley/doors/knocking.ogg', 100)
 			user.visible_message(span_warning("[user] knocks on [src]."), \
