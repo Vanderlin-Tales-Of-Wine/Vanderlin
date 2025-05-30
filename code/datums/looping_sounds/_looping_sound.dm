@@ -97,6 +97,8 @@ GLOBAL_LIST_EMPTY(created_sound_groups)
 
 /datum/looping_sound/Destroy()
 	stop(TRUE)
+	if(channel)
+		SSsounds.free_datum_channels(src)
 	return ..()
 
 /datum/looping_sound/proc/start(atom/on_behalf_of)

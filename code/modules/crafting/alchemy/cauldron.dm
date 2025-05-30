@@ -16,8 +16,8 @@
 	crossfire = FALSE
 
 /obj/machinery/light/fueled/cauldron/Initialize()
-	. = ..()
 	create_reagents(500, DRAINABLE | AMOUNT_VISIBLE | REFILLABLE)
+	return ..()
 
 /obj/machinery/light/fueled/cauldron/Destroy()
 	chem_splash(loc, 2, list(reagents))
