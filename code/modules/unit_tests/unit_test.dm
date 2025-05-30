@@ -164,9 +164,6 @@ GLOBAL_VAR_INIT(focused_test, focused_test())
 	ignore += typesof(/atom/movable/screen)
 	ignore += typesof(/obj/abstract)
 
-	ignore += subtypesof(/mob/living/carbon)
-	ignore += subtypesof(/obj/item/bodypart/head)
-
 	return ignore
 
 /proc/RunUnitTests()

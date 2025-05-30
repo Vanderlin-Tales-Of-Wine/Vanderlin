@@ -108,6 +108,7 @@
 	update_HP()
 
 /obj/item/bodypart/Destroy()
+	remove_all_bodypart_features()
 	if(can_be_disabled)
 		UnregisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_PARALYSIS))
 		UnregisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_PARALYSIS))
