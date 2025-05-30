@@ -63,7 +63,7 @@
 		if(/datum/patron/inhumen/graggar) // Heretical Patrons
 			head = /obj/item/clothing/head/helmet/heavy/sinistar
 			H.cmode_music = 'sound/music/cmode/antag/combat_werewolf.ogg'
-			H.change_stat(STATKEY_LCK, -1)
+			H.change_stat(STATKEY_LCK, -2)
 			GLOB.heretical_players += H.real_name
 		if(/datum/patron/inhumen/graggar_zizo)
 			head = /obj/item/clothing/head/helmet/heavy/sinistar
@@ -71,29 +71,28 @@
 		if(/datum/patron/inhumen/zizo)
 			head = /obj/item/clothing/head/helmet/visored/zizo
 			H.cmode_music = 'sound/music/cmode/antag/combat_cult.ogg'
-			H.change_stat(STATKEY_LCK, -1)
+			H.change_stat(STATKEY_LCK, -2)
 			GLOB.heretical_players += H.real_name
 		if(/datum/patron/inhumen/matthios)
 			head = /obj/item/clothing/head/helmet/heavy/matthios
 			H.cmode_music = 'sound/music/cmode/antag/CombatBandit1.ogg'
-			H.change_stat(STATKEY_LCK, -1)
+			H.change_stat(STATKEY_LCK, -2)
 			GLOB.heretical_players += H.real_name
 		if(/datum/patron/inhumen/baotha)
 			head = /obj/item/clothing/head/crown/circlet
 			mask = /obj/item/clothing/face/spectacles/sglasses
 			H.cmode_music = 'sound/music/cmode/antag/combat_evilwizard.ogg'
-			H.change_stat(STATKEY_LCK, -1)
+			H.change_stat(STATKEY_LCK, -2)
 			GLOB.heretical_players += H.real_name
 		if(/datum/patron/godless)
 			head = /obj/item/clothing/head/roguehood/green
 			H.cmode_music = 'sound/music/cmode/church/CombatInquisitor.ogg'
-			H.change_stat(STATKEY_LCK, -1)
+			H.change_stat(STATKEY_LCK, -2)
 			GLOB.heretical_players += H.real_name
 		else // Failsafe
 			head = /obj/item/clothing/head/helmet/heavy/bucket
 			wrists = /obj/item/clothing/neck/psycross/silver
 			H.cmode_music = 'sound/music/cmode/church/CombatInquisitor.ogg'
-			H.change_stat(STATKEY_LCK, -1)
 
 	armor = /obj/item/clothing/armor/plate
 	shirt = /obj/item/clothing/armor/chainmail

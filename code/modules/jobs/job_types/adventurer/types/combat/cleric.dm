@@ -87,7 +87,7 @@
 		if(/datum/patron/inhumen/graggar) // Heretical Patrons
 			cloak = /obj/item/clothing/cloak/raincloak/mortus
 			neck = /obj/item/clothing/neck/chaincoif/iron
-			H.change_stat(STATKEY_LCK, -2)
+			H.change_stat(STATKEY_LCK, -1)
 			H.cmode_music = 'sound/music/cmode/antag/combat_werewolf.ogg'
 			GLOB.heretical_players += H.real_name
 		if(/datum/patron/inhumen/graggar_zizo)
@@ -97,13 +97,13 @@
 		if(/datum/patron/inhumen/zizo)
 			cloak = /obj/item/clothing/cloak/raincloak/mortus
 			neck = /obj/item/clothing/neck/chaincoif/iron
-			H.change_stat(STATKEY_LCK, -2)
+			H.change_stat(STATKEY_LCK, -1)
 			H.cmode_music = 'sound/music/cmode/antag/combat_cult.ogg'
 			GLOB.heretical_players += H.real_name
 		if(/datum/patron/inhumen/matthios)
 			cloak = /obj/item/clothing/cloak/raincloak/mortus
 			neck = /obj/item/clothing/neck/chaincoif/iron
-			H.change_stat(STATKEY_LCK, -2)
+			H.change_stat(STATKEY_LCK, -1)
 			H.cmode_music = 'sound/music/cmode/antag/CombatBandit1.ogg'
 			GLOB.heretical_players += H.real_name
 		if(/datum/patron/inhumen/baotha)
@@ -111,7 +111,7 @@
 			mask = /obj/item/clothing/face/spectacles/sglasses
 			cloak = /obj/item/clothing/cloak/raincloak/purple
 			neck = /obj/item/clothing/neck/chaincoif/iron
-			H.change_stat(STATKEY_LCK, -2)
+			H.change_stat(STATKEY_LCK, -1)
 			H.cmode_music = 'sound/music/cmode/antag/combat_evilwizard.ogg'
 			GLOB.heretical_players += H.real_name
 		else // Failsafe
