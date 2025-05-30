@@ -7,7 +7,7 @@
 	department_flag = OUTSIDERS
 	job_flags = (JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE | JOB_SHOW_IN_CREDITS)
 	display_order = JDO_BANDIT
-	faction = FACTION_STATION
+	faction = FACTION_TOWN
 	total_positions = 6
 	spawn_positions = 4
 	min_pq = 4
