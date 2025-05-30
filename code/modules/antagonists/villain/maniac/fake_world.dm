@@ -7,7 +7,7 @@
 	. = ..()
 	SSfake_world.fake_world_constructs |= src
 
-/obj/structure/fake_door/maniac/Destroy()
+/obj/structure/fake_door/Destroy()
 	SSfake_world.fake_world_constructs -= src
 	return ..()
 
