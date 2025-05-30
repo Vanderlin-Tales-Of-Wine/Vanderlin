@@ -112,12 +112,6 @@ GLOBAL_VAR_INIT(focused_test, focused_test())
 	var/list/ignore = list(
 		//Never meant to be created, errors out the ass for mobcode reasons
 		/mob/living/carbon,
-		/mob/living/carbon/human,
-		/mob/living/carbon/human/species,
-		// ??????
-		/mob/living/carbon/human/species/human,
-		/obj/item/bodypart/head/monkey,
-		/mob/living/carbon/monkey,
 		//Needs a seed passed, but subtypes set one by default
 		/obj/item/grown,
 		/obj/item/reagent_containers/food/snacks/grown,
@@ -170,7 +164,8 @@ GLOBAL_VAR_INIT(focused_test, focused_test())
 	ignore += typesof(/atom/movable/screen)
 	ignore += typesof(/obj/abstract)
 
-	ignore += typesof(/mob/living/carbon/human)
+	ignore += subtypesof(/mob/living/carbon)
+	ignore += subtypesof(/obj/item/bodypart/head)
 
 	return ignore
 
