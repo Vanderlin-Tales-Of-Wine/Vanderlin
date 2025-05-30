@@ -24,6 +24,7 @@
 	if(redstone_id)
 		GLOB.redstone_objs += src
 		. = INITIALIZE_HINT_LATELOAD
+	GLOB.cameranet.updateVisibility(src)
 
 /obj/structure/Bumped(atom/movable/AM)
 	..()
@@ -43,11 +44,20 @@
 		for(var/mob/living/user in loc)
 			if(climb_offset)
 				user.reset_offsets("structure_climb")
+
 	if(redstone_id)
 		for(var/obj/structure/O in redstone_attached)
 			O.redstone_attached -= src
 			redstone_attached -= O
 		GLOB.redstone_objs -= src
+
+	if(rotation_network)
+		var/datum/rotation_network/old_network = rotation_network
+		rotation_network.remove_connection(src)
+		old_network.reassess_group(src)
+
+	GLOB.cameranet.updateVisibility(src)
+
 	return ..()
 
 /obj/structure/attack_hand(mob/user)

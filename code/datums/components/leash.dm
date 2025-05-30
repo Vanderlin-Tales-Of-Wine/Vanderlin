@@ -70,14 +70,19 @@
 	RegisterSignal(owner, COMSIG_PARENT_QDELETING, PROC_REF(on_owner_qdel))
 
 	var/static/list/container_connections = list(
-		COMSIG_MOVABLE_MOVED = PROC_REF(on_owner_moved),
+		COMSIG_MOVABLE_MOVED = PROC_REF(on_moved),
 	)
 
 	AddComponent(/datum/component/connect_containers, owner, container_connections)
-	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(on_owner_moved))
+	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(on_moved))
+	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, PROC_REF(on_moved))
 	RegisterSignal(parent, COMSIG_MOVABLE_PRE_MOVE, PROC_REF(on_parent_pre_move))
 
 	check_distance()
+
+/datum/component/leash/UnregisterFromParent()
+	. = ..()
+	UnregisterSignal(parent, COMSIG_MOVABLE_MOVED, COMSIG_MOVABLE_PRE_MOVE)
 
 /datum/component/leash/Destroy()
 	owner = null
@@ -97,7 +102,7 @@
 
 	qdel(src)
 
-/datum/component/leash/proc/on_owner_moved(atom/movable/source)
+/datum/component/leash/proc/on_moved(atom/movable/source)
 	SIGNAL_HANDLER
 	PRIVATE_PROC(TRUE)
 
@@ -213,7 +218,7 @@
 		normal_direction = get_dir(new_host, to_move)
 		new_host = to_move
 
-/// A debug spawner that will create a corgi leashed to a bike horn, plus a beam
+/// A debug spawner that will create a pig leashed to a bike horn, plus a beam
 /obj/effect/spawner/debug_leash
 
 /obj/effect/spawner/debug_leash/Initialize(mapload)

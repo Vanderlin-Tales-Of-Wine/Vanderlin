@@ -9,6 +9,7 @@
 	max_integrity = 0
 	var/number = 1
 	pixel_y = 10
+	var/view_range = 7
 
 /obj/structure/fake_machine/camera/right
 	icon_state = "camera-r"
@@ -32,8 +33,19 @@
 	SSroguemachine.cameras += src
 	number = SSroguemachine.cameras.len
 	name = "face #[number]"
+	GLOB.cameranet.addCamera(src)
+
+/obj/structure/fake_machine/camera/proc/can_use()
+	return TRUE
 
 /obj/structure/fake_machine/camera/Destroy()
 	set_light(0)
 	SSroguemachine.cameras -= src
+	GLOB.cameranet.removeCamera(src)
 	. = ..()
+
+/obj/structure/fake_machine/camera/proc/can_see()
+	var/list/see = null
+	var/turf/pos = get_turf(src)
+	see = get_hear(view_range, pos)
+	return see

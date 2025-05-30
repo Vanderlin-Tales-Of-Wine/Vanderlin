@@ -10,6 +10,19 @@
 	see_in_dark = 7
 	invisibility = INVISIBILITY_ABSTRACT // No one can see us
 	sight = SEE_SELF
+	var/static_visibility_range = 16
+	var/use_static = USE_STATIC_NONE // currently none but later will be different
+	var/use_visibility = FALSE
+	var/list/visibleCameraChunks = list()
+
+/mob/camera/proc/GetViewerClient()
+	if(client)
+		return client
+	return null
+
+/mob/camera/primogenitor/proc/update_visibility()
+	if(use_static != USE_STATIC_NONE)
+		GLOB.cameranet.visibility(src, client, use_static = use_static)
 
 /mob/camera/forceMove(atom/destination)
 	var/oldloc = loc
