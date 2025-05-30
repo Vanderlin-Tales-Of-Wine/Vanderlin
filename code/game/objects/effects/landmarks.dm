@@ -548,11 +548,6 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark/start/new_player)
 	GLOB.underworldspiritspawns |= loc
 	return INITIALIZE_HINT_QDEL
 
-
-/obj/effect/landmark/underworld_spawnpoint/Destroy()
-	GLOB.underworldspiritspawns -= loc
-	return ..()
-
 /obj/effect/landmark/death_arena
 	name = "Death arena spawn 1"
 
