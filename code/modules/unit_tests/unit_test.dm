@@ -137,6 +137,8 @@ GLOBAL_VAR_INIT(focused_test, focused_test())
 		/obj/item/sendingstonesummoner,
 		// This should be obvious
 		/obj/merge_conflict_marker,
+		// ??
+		/obj/effect/statclick,
 	)
 	//these are VERY situational and need info passed
 	ignore += typesof(/obj/effect/abstract)
