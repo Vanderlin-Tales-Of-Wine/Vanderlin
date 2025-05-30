@@ -51,6 +51,8 @@
 	/// Tracks quality points that accumulate toward quality tier increases
 	var/quality_points = 0
 
+	COOLDOWN_DECLARE(soil_update)
+
 /obj/structure/soil/Crossed(atom/movable/AM)
 	. = ..()
 	if(isliving(AM))
@@ -275,11 +277,11 @@
 		adjust_plant_health(-5)
 	else if(stepper.m_intent == MOVE_INTENT_RUN)
 		adjust_plant_health(-10)
-	playsound(src,"plantcross", 90, FALSE)
+	playsound(src, "plantcross", 90, FALSE)
 
 /obj/structure/soil/proc/deweed()
 	if(weeds >= MAX_PLANT_WEEDS * 0.3)
-		playsound(src,"plantcross", 90, FALSE)
+		playsound(src, "plantcross", 90, FALSE)
 	adjust_weeds(-100)
 
 /obj/structure/soil/proc/user_till_soil(mob/user)
@@ -291,7 +293,7 @@
 	adjust_plant_health(-20, FALSE)
 	adjust_weeds(-30, FALSE)
 	if(plant)
-		playsound(src,"plantcross", 90, FALSE)
+		playsound(src, "plantcross", 90, FALSE)
 	update_icon()
 
 /obj/structure/soil/proc/bless_soil()
@@ -313,33 +315,28 @@
 // the reason no_update exists is so we update_icon at the end of the process instead of every time one of these procs is called.
 
 /// adjust water, use no_update = TRUE to not update the icon.
-/obj/structure/soil/proc/adjust_water(adjust_amount, no_update = FALSE)
+/obj/structure/soil/proc/adjust_water(adjust_amount)
 	water = clamp(water + adjust_amount, 0, MAX_PLANT_WATER)
-	if(!no_update)
-		update_icon()
 
 /// adjust nutrition, use no_update = TRUE to not update the icon.
-/obj/structure/soil/proc/adjust_nutrition(adjust_amount, no_update = FALSE)
+/obj/structure/soil/proc/adjust_nutrition(adjust_amount)
 	nutrition = clamp(nutrition + adjust_amount, 0, MAX_PLANT_NUTRITION)
-	if(!no_update)
-		update_icon()
 
 /// adjust weeds, use no_update = TRUE to not update the icon.
-/obj/structure/soil/proc/adjust_weeds(adjust_amount, no_update = FALSE)
+/obj/structure/soil/proc/adjust_weeds(adjust_amount)
 	weeds = clamp(weeds + adjust_amount, 0, MAX_PLANT_WEEDS)
-	if(!no_update)
-		update_icon()
 
-/// adjust plant health, use no_update = TRUE to not update the icon.
-/obj/structure/soil/proc/adjust_plant_health(adjust_amount, no_update = FALSE)
+/// adjust plant health. Returns whether to force an overlay update.
+/obj/structure/soil/proc/adjust_plant_health(adjust_amount)
 	if(!plant || plant_dead)
 		return
+
 	plant_health = clamp(plant_health + adjust_amount, 0, MAX_PLANT_HEALTH)
+
 	if(plant_health <= 0)
 		plant_dead = TRUE
 		produce_ready = FALSE
-	if(!no_update)
-		update_icon()
+		return TRUE
 
 /obj/structure/soil/Initialize()
 	START_PROCESSING(SSprocessing, src)
@@ -358,69 +355,65 @@
 
 /obj/structure/soil/process()
 	var/dt = 10
-	process_weeds(dt)
-	process_plant(dt)
-	process_soil(dt)
+	var/force_update = FALSE
+	force_update |= process_weeds(dt)
+	force_update |= process_plant(dt)
+	force_update |= process_soil(dt)
 	if(soil_decay_time <= 0)
-		decay_soil(TRUE)
+		decay_soil()
+		return
+	if(force_update)
+		update_icon()
+		return
+	if(!COOLDOWN_FINISHED(src, soil_update))
+		return
+	COOLDOWN_START(src, soil_update, 10 SECONDS)
 	update_icon() // only update icon after all the processes have run
-
-/obj/structure/soil/update_icon()
-	. = ..()
-	update_overlays()
 
 /obj/structure/soil/update_overlays()
 	. = ..()
-	// Tilled overlay
 	if(tilled_time > 0)
 		. += "soil-tilled"
-	// Water overlay
-	var/mutable_appearance/water_ma = mutable_appearance(icon, "soil-overlay")
-	water_ma.color = "#000033"
-	if(water >= MAX_PLANT_WATER * 0.6)
-		water_ma.alpha = 100
-	else if (water >= MAX_PLANT_WATER * 0.15)
-		water_ma.alpha = 50
-	else
-		water_ma.alpha = 0
-	. += water_ma
-	// Nutriment overlay
-	var/mutable_appearance/nutri_ma = mutable_appearance(icon, "soil-overlay")
-	nutri_ma.color = "#6d3a00"
-	if(nutrition >= MAX_PLANT_NUTRITION * 0.6)
-		nutri_ma.alpha = 50
-	else if (nutrition >= MAX_PLANT_NUTRITION * 0.15)
-		nutri_ma.alpha = 25
-	else
-		nutri_ma.alpha = 0
-	. += nutri_ma
-	// Plant overlay
+	. += get_water_overlay()
+	. += get_nutri_overlay()
 	if(plant)
-		var/plant_state
-		var/plant_color
-		if(plant_dead == TRUE)
-			plant_color = null
-		else if(plant_health <=  MAX_PLANT_HEALTH * 0.3)
-			plant_color = "#9c7b43"
-		else if (plant_health <=  MAX_PLANT_HEALTH * 0.6)
-			plant_color = "#d8b573"
-		if(plant_dead == TRUE)
-			plant_state = "[plant.icon_state]3"
-		else
-			if(produce_ready)
-				plant_state = "[plant.icon_state]2"
-			else if (matured)
-				plant_state = "[plant.icon_state]1"
-			else
-				plant_state = "[plant.icon_state]0"
-		var/mutable_appearance/plant_ma = mutable_appearance(plant.icon, plant_state)
-		plant_ma.color = plant_color
-		. += plant_ma
-	// Weeds overlay
+		. += get_plant_overlay()
 	if(weeds >= MAX_PLANT_WEEDS * 0.6)
 		. += "weeds-2"
 	else if (weeds >= MAX_PLANT_WEEDS * 0.3)
 		. += "weeds-1"
+
+/obj/structure/soil/proc/get_water_overlay()
+	var/mutable_appearance/water_ma = mutable_appearance(icon, "soil-overlay")
+	water_ma.color = "#000033"
+	water_ma.alpha = 100 * (water / MAX_PLANT_WATER)
+	return water_ma
+
+/obj/structure/soil/proc/get_nutri_overlay()
+	var/mutable_appearance/nutri_ma = mutable_appearance(icon, "soil-overlay")
+	nutri_ma.color = "#6d3a00"
+	nutri_ma.alpha = 50 * (nutrition/ MAX_PLANT_NUTRITION)
+	return nutri_ma
+
+/obj/structure/soil/proc/get_plant_overlay()
+	var/plant_color
+	var/health_percent = plant_health / MAX_PLANT_HEALTH
+	if(!plant_dead)
+		if(health_percent < 0.3)
+			plant_color = "#9c7b43"
+		else if(health_percent < 0.6)
+			plant_color = "#d8b573"
+	var/plant_state = "[plant.icon_state]3"
+	if(!plant_dead)
+		if(produce_ready)
+			plant_state = "[plant.icon_state]2"
+		else if(matured)
+			plant_state = "[plant.icon_state]1"
+		else
+			plant_state = "[plant.icon_state]0"
+	var/mutable_appearance/plant_ma = mutable_appearance(plant.icon, plant_state)
+	plant_ma.color = plant_color
+	return plant_ma
 
 /obj/structure/soil/examine(mob/user)
 	. = ..()
@@ -678,12 +671,13 @@
 	if(!matured)
 		if(growth_time >= plant.maturation_time)
 			matured = TRUE
-	else
-		produce_time += added_growth
-		if(produce_time >= plant.produce_time)
-			produce_time -= plant.produce_time
-			produce_ready = TRUE
-
+			return TRUE
+		return
+	produce_time += added_growth
+	if(produce_time >= plant.produce_time)
+		produce_time -= plant.produce_time
+		produce_ready = TRUE
+		return TRUE
 
 #define SOIL_WATER_DECAY_RATE 0.5 / (1 MINUTES)
 #define SOIL_NUTRIMENT_DECAY_RATE 0.5 / (1 MINUTES)
@@ -716,20 +710,20 @@
 	blessed_time = max(blessed_time - dt, 0)
 	pollination_time = max(pollination_time - dt, 0)
 
-/obj/structure/soil/proc/decay_soil(no_update = FALSE)
-	uproot(no_update = no_update)
+/obj/structure/soil/proc/decay_soil()
+	plant = null
 	qdel(src)
 
-/obj/structure/soil/proc/uproot(loot = TRUE, no_update = FALSE)
+/obj/structure/soil/proc/uproot(loot = TRUE)
 	if(!plant)
 		return
 	adjust_weeds(-100, TRUE) // we update icon lower (if needed)
 	if(loot)
 		yield_uproot_loot()
-	ruin_produce(TRUE)
+	if(produce_ready)
+		ruin_produce()
 	plant = null
-	if(!no_update)
-		update_icon()
+	update_icon()
 
 /// Spawns uproot loot, such as a long from an apple tree when removing the tree
 /obj/structure/soil/proc/yield_uproot_loot()
@@ -739,10 +733,9 @@
 		new loot_type(loc)
 
 /// Yields produce on its tile if it's ready for harvest
-/obj/structure/soil/proc/ruin_produce(no_update = FALSE)
+/obj/structure/soil/proc/ruin_produce()
 	produce_ready = FALSE
-	if(!no_update)
-		update_icon()
+	update_icon()
 
 /// Yields produce on its tile if it's ready for harvest
 /obj/structure/soil/proc/yield_produce(modifier = 0)
