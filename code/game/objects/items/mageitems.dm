@@ -671,6 +671,7 @@
 	drainer = dead_guy
 	var/mob/living/drained = drainer?.resolve()
 	if(!drained)
+		qdel(src)
 		return
 	mana_amount = drained.mana_pool?.amount
 	if(!mana_amount || mana_amount <= 0)
