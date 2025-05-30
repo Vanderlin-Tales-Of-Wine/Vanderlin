@@ -46,10 +46,10 @@
 	update_visibility()
 
 /mob/camera/ancestral_spirit/say(message, bubble_type, list/spans, sanitize, datum/language/language, ignore_spam, forced)
-	relay_speech_to_containment(args)
+	relay_speech_to_containment(message, bubble_type, spans, sanitize, language, ignore_spam, forced)
 
 /mob/camera/ancestral_spirit/proc/relay_speech_to_containment(message, bubble_type, list/spans, sanitize, datum/language/language, ignore_spam, forced)
-	containment.say(args)
+	containment.say(message, bubble_type, spans, sanitize, language, ignore_spam, forced)
 
 /mob/camera/ancestral_spirit/proc/relay_speech_to_spirit(datum/source, ...)
 	SIGNAL_HANDLER
