@@ -113,6 +113,9 @@ GLOBAL_VAR_INIT(focused_test, focused_test())
 		//Never meant to be created, errors out the ass for mobcode reasons
 		/mob/living/carbon,
 		/mob/living/carbon/human,
+		/mob/living/carbon/human/species,
+		/mob/living/carbon/human/species/elf,
+		/mob/living/carbon/human/species/dwarf,
 		//Needs a seed passed, but subtypes set one by default
 		/obj/item/grown,
 		/obj/item/reagent_containers/food/snacks/grown,
@@ -138,8 +141,6 @@ GLOBAL_VAR_INIT(focused_test, focused_test())
 		/obj/item/sendingstonesummoner,
 		// This should be obvious
 		/obj/merge_conflict_marker,
-		// ??
-		/obj/effect/statclick,
 	)
 	//these are VERY situational and need info passed
 	ignore += typesof(/obj/effect/abstract)
