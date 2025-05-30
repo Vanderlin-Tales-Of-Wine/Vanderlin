@@ -20,21 +20,21 @@ GLOBAL_DATUM_INIT(cameranet, /datum/cameranet, new)
 
 	// The objects used in vis_contents of obscured turfs
 	var/list/vis_contents_objects
-	var/obj/effect/overlay/camera_static/vis_contents_opaque
-	var/obj/effect/overlay/camera_static/vis_contents_transparent
+	var/obj/effect/overlay/fog_of_war/vis_contents_opaque
+	var/obj/effect/overlay/fog_of_war/vis_contents_transparent
 	// The image given to the effect in vis_contents on AI clients
 	var/image/obscured
 	var/image/obscured_transparent
 
 /datum/cameranet/New()
-	vis_contents_opaque = new /obj/effect/overlay/camera_static()
-	vis_contents_transparent = new /obj/effect/overlay/camera_static/transparent()
+	vis_contents_opaque = new /obj/effect/overlay/fog_of_war()
+	vis_contents_transparent = new /obj/effect/overlay/fog_of_war/transparent()
 	vis_contents_objects = list(vis_contents_opaque, vis_contents_transparent)
 
-	obscured = new('icons/effects/cameravis.dmi', vis_contents_opaque, null, CAMERA_STATIC_LAYER)
+	obscured = new('icons/turf/walls.dmi', vis_contents_opaque, null, CAMERA_STATIC_LAYER, icon_state = "shroud1")
 	obscured.plane = CAMERA_STATIC_PLANE
 
-	obscured_transparent = new('icons/effects/cameravis.dmi', vis_contents_transparent, null, CAMERA_STATIC_LAYER)
+	obscured_transparent = new('icons/turf/walls.dmi', vis_contents_transparent, null, CAMERA_STATIC_LAYER, icon_state = "shroud1")
 	obscured_transparent.plane = CAMERA_STATIC_PLANE
 
 // Checks if a chunk has been Generated in x, y, z.
@@ -54,7 +54,6 @@ GLOBAL_DATUM_INIT(cameranet, /datum/cameranet, new)
 		chunks[key] = . = new /datum/camerachunk(x, y, z)
 
 // Updates what the eye can see. It is recommended you use this when the eye moves or it's location is set.
-
 /datum/cameranet/proc/visibility(list/moved_eyes, client/C, list/other_eyes, use_static = USE_STATIC_OPAQUE)
 	if(!islist(moved_eyes))
 		moved_eyes = moved_eyes ? list(moved_eyes) : list()
@@ -127,8 +126,9 @@ GLOBAL_DATUM_INIT(cameranet, /datum/cameranet, new)
 // Add a camera to a chunk.
 
 /datum/cameranet/proc/addCamera(obj/structure/fake_machine/camera/c)
-	if(c.can_use())
+	if(iscameramachine(c) && c.can_use())
 		majorChunkChange(c, 1)
+		return
 
 // Used for Cyborg cameras. Since portable cameras can be in ANY chunk.
 
@@ -170,7 +170,6 @@ GLOBAL_DATUM_INIT(cameranet, /datum/cameranet, new)
 	var/turf/position = get_turf(target)
 	return checkTurfVis(position)
 
-
 /datum/cameranet/proc/checkTurfVis(turf/position)
 	var/datum/camerachunk/chunk = chunkGenerated(position.x, position.y, position.z)
 	if(chunk)
@@ -186,19 +185,19 @@ GLOBAL_DATUM_INIT(cameranet, /datum/cameranet, new)
 
 	stat(name, statclick.update("Cameras: [GLOB.cameranet.cameras.len] | Chunks: [GLOB.cameranet.chunks.len]"))
 
-/obj/effect/overlay/camera_static
-	name = "static"
+/obj/effect/overlay/fog_of_war
+	name = "fog of war"
 	icon = null
 	icon_state = null
 	anchored = TRUE  // should only appear in vis_contents, but to be safe
 	appearance_flags = RESET_TRANSFORM | TILE_BOUND
 	// this combination makes the static block clicks to everything below it,
 	// without appearing in the right-click menu for non-AI clients
-	mouse_opacity = MOUSE_OPACITY_ICON
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	invisibility = INVISIBILITY_ABSTRACT
 
 	layer = CAMERA_STATIC_LAYER
 	plane = CAMERA_STATIC_PLANE
 
-/obj/effect/overlay/camera_static/transparent
+/obj/effect/overlay/fog_of_war/transparent
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT

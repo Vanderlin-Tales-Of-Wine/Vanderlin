@@ -6,11 +6,46 @@
 	resistance_flags = FIRE_PROOF|ACID_PROOF|LAVA_PROOF|UNACIDABLE|INDESTRUCTIBLE
 	/// the trapped spirit inside
 	var/mob/camera/ancestral_spirit/possessor
+	var/obj/structure/fake_machine/camera/builtInCamera = null
+	/// portable camera camerachunk update
+	var/updating = FALSE
+
+/obj/item/clothing/head/crown/serpcrown/Destroy()
+	. = ..()
+	QDEL_NULL(builtInCamera)
 
 /obj/item/clothing/head/crown/serpcrown/proc/create_ancestral_spirit()
 	if(possessor)
 		return
-	possessor = new /mob/camera/ancestral_spirit(loc, src)
+
+	possessor = new (loc, src)
+	builtInCamera = new (src)
+	update_camera_location(get_turf(oldLoc))
+
+#define SERPCROWN_CAMERA_BUFFER 5
+
+/obj/item/clothing/head/crown/serpcrown/Moved(oldLoc, dir)
+	. = ..()
+	update_camera_location(oldLoc)
+
+/obj/item/clothing/head/crown/serpcrown/forceMove(atom/destination)
+	. = ..()
+	//Only bother updating the camera if we actually managed to move
+	if(.)
+		update_camera_location(destination)
+
+/obj/item/clothing/head/crown/serpcrown/proc/do_camera_update(oldLoc)
+	if(!QDELETED(builtInCamera) && oldLoc != get_turf(src))
+		GLOB.cameranet.updatePortableCamera(builtInCamera)
+	updating = FALSE
+
+/obj/item/clothing/head/crown/serpcrown/proc/update_camera_location(oldLoc)
+	oldLoc = get_turf(oldLoc)
+	if(!QDELETED(builtInCamera) && !updating && oldLoc != get_turf(src))
+		updating = TRUE
+		addtimer(CALLBACK(src, PROC_REF(do_camera_update), oldLoc), SERPCROWN_CAMERA_BUFFER)
+
+#undef SERPCROWN_CAMERA_BUFFER
 
 /obj/item/clothing/head/crown/serpcrown/Initialize()
 	. = ..()

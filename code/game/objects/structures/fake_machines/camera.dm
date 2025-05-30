@@ -33,6 +33,7 @@
 	SSroguemachine.cameras += src
 	number = SSroguemachine.cameras.len
 	name = "face #[number]"
+	GLOB.cameranet.addCamera(src)
 
 /obj/structure/fake_machine/camera/proc/can_use()
 	return TRUE
@@ -40,6 +41,7 @@
 /obj/structure/fake_machine/camera/Destroy()
 	set_light(0)
 	SSroguemachine.cameras -= src
+	GLOB.cameranet.removeCamera(src)
 	. = ..()
 
 /obj/structure/fake_machine/camera/proc/can_see()

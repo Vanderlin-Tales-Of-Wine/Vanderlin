@@ -46,13 +46,6 @@
 	new type(get_turf(src))
 	qdel(src)
 
-/obj/structure/Destroy()
-	if(rotation_network)
-		var/datum/rotation_network/old_network = rotation_network
-		rotation_network.remove_connection(src)
-		old_network.reassess_group(src)
-	. = ..()
-
 // You can path over a dense structure if it's climbable.
 /obj/structure/CanAStarPass(ID, to_dir, caller)
 	. = climbable || ..()

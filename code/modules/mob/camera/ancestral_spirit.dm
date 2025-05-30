@@ -37,6 +37,14 @@
 	. = ..()
 	UnregisterSignal(containment, COMSIG_MOVABLE_HEAR)
 
+/mob/camera/ancestral_spirit/Moved(atom/OldLoc, Dir)
+	. = ..()
+	update_visibility()
+
+/mob/camera/ancestral_spirit/Login()
+	. = ..()
+	update_visibility()
+
 /mob/camera/ancestral_spirit/say(message, bubble_type, list/spans, sanitize, datum/language/language, ignore_spam, forced)
 	relay_speech_to_containment(args)
 
@@ -94,8 +102,8 @@
 	if(isturf(containment.loc))
 		return TRUE
 	var/mob/containment_holder = containment.loc
-	if(ismob(containment_holder)) // cannot contain my whimsy
-		containment_holder.dropItemToGround(containment)
+	if(ismob(containment_holder))
+		containment_holder.dropItemToGround(containment) // cannot contain my whimsy
 
 	containment.forceMove(get_turf(containment))
 
@@ -121,6 +129,7 @@
 
 /mob/camera/ancestral_spirit/proc/post_land(datum/source)
 	QDEL_NULL(locomotion_hand_pulling)
+	containment.update_camera_location(containment.loc)
 
 /mob/camera/ancestral_spirit/proc/recursive_projection(atom/A)
 	for(var/atom/checked_atom in A.contents)

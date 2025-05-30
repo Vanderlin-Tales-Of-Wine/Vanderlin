@@ -130,6 +130,10 @@ GLOBAL_LIST_INIT(turfs_without_ground, typecacheof(list(
 
 #define iscash(A) (istype(A, /obj/item/stack/spacecash) || istype(A, /obj/item/holochip))
 
+#define iscameramachine(A) (istype(A, /obj/structure/fake_machine/camera))
+
+#define isserpcrown(A) (istype(A, /obj/item/clothing/head/crown/serpcrown))
+
 GLOBAL_LIST_INIT(pointed_types, typecacheof(list(
 	/obj/item/kitchen/fork)))
 
