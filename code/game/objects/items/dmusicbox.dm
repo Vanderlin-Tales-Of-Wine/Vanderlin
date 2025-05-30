@@ -40,7 +40,6 @@
 
 /obj/item/dmusicbox/Destroy()
 	if(soundloop)
-		soundloop.stop(TRUE)
 		QDEL_NULL(soundloop)
 	return ..()
 
