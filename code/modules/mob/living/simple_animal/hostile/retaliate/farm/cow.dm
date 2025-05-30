@@ -66,7 +66,7 @@
 			rand(25 SECONDS, 50 SECONDS), \
 			null,\
 			CALLBACK(src, PROC_REF(after_cow_tipped)),\
-			CALLBACK(src, PROC_REF(after_cow_untipped))
+			CALLBACK(src, PROC_REF(after_cow_untipped)),\
 		)
 
 	if(can_breed)
