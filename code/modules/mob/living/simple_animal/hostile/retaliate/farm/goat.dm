@@ -236,6 +236,10 @@
 	AddElement(/datum/element/ai_retaliate)
 	RegisterSignal(src, COMSIG_HOSTILE_PRE_ATTACKINGTARGET, PROC_REF(on_pre_attack))
 
+/mob/living/simple_animal/hostile/retaliate/goatmale/Destroy()
+	UnregisterSignal(src, COMSIG_HOSTILE_PRE_ATTACKINGTARGET)
+	return ..()
+
 /// Called when we attack something in order to piece together the intent of the AI/user and provide desired behavior. The element might be okay here but I'd rather the fluff.
 /// Goats are really good at beating up plants by taking bites out of them, but we use the default attack for everything else
 /mob/living/simple_animal/hostile/retaliate/goatmale/proc/on_pre_attack(datum/source, atom/target)

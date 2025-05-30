@@ -933,8 +933,9 @@ GLOBAL_VAR_INIT(mobids, 1)
 	if(!spell)
 		return
 	for(var/obj/effect/proc_holder/spell/S in mob_spell_list)
-		mob_spell_list -= S
-		qdel(S)
+		if(istype(S, spell))
+			mob_spell_list -= S
+			qdel(S)
 
 ///Return any anti magic atom on this mob that matches the magic type
 /mob/proc/anti_magic_check(magic = TRUE, holy = FALSE, tinfoil = FALSE, chargecost = 1, self = FALSE)

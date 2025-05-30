@@ -71,8 +71,8 @@
 GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for the badmin verb for now
 
 /obj/effect/proc_holder/Destroy()
-	if (action)
-		qdel(action)
+	if(action)
+		QDEL_NULL(action)
 	if(ranged_ability_user)
 		remove_ranged_ability()
 	return ..()
@@ -360,13 +360,6 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 
 	still_recharging_msg = "<span class='warning'>[name] is still recharging!</span>"
 	charge_counter = recharge_time
-
-/obj/effect/proc_holder/spell/Destroy()
-	STOP_PROCESSING(SSfastprocess, src)
-	if(ranged_ability_user)
-		ranged_ability_user.RemoveSpell(src)
-	QDEL_NULL(action)
-	return ..()
 
 /obj/effect/proc_holder/spell/Click()
 	if(cast_check())
