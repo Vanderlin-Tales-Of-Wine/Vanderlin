@@ -96,7 +96,7 @@ GLOBAL_LIST_EMPTY(created_sound_groups)
 		start()
 
 /datum/looping_sound/Destroy()
-	stop()
+	stop(TRUE)
 	parent = null
 	thingshearing.Cut()
 	return ..()
