@@ -117,6 +117,13 @@
 	update_icon_state()
 	updateinfolinks()
 
+/obj/item/paper/Destroy()
+	info = null
+	stamps = null
+	LAZYCLEARLIST(stamped)
+	updateinfolinks()
+	return ..()
+
 /obj/item/paper/update_icon_state()
 	if(mailer)
 		icon_state = "paper_prep"

@@ -17,5 +17,4 @@
 	. = ..()
 	var/type = pick(typesof(/obj/item/paper/heartfelt) - /obj/item/paper/heartfelt/random)
 	new type(loc)
-	type = null
 	return INITIALIZE_HINT_QDEL
