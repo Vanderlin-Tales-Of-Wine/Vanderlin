@@ -210,6 +210,7 @@ GLOBAL_LIST_EMPTY(created_sound_groups)
 		var/mob/P = parent
 		if(P?.client)
 			P.stop_sound_channel(channel) //This is mostly used for weather
+		return
 	for(var/mob/M as anything in thingshearing)
 		thingshearing -= M
 		if(!M.client)
