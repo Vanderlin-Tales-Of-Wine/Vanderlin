@@ -290,6 +290,15 @@
 	w_class = WEIGHT_CLASS_GIGANTIC
 	var/new_mail
 
+/obj/item/roguemachine/mastermail/Initialize()
+	. = ..()
+	SSroguemachine.hermailermaster = src
+	update_icon()
+
+/obj/item/roguemachine/mastermail/Destroy()
+	SSroguemachine.hermailermaster = null
+	return ..()
+
 /obj/item/roguemachine/mastermail/update_icon()
 	cut_overlays()
 	if(new_mail)
@@ -310,11 +319,6 @@
 			update_icon()
 		CP.rmb_show(user)
 		return TRUE
-
-/obj/item/roguemachine/mastermail/Initialize()
-	. = ..()
-	SSroguemachine.hermailermaster = src
-	update_icon()
 
 /obj/item/roguemachine/mastermail/attackby(obj/item/P, mob/user, params)
 	if(istype(P, /obj/item/paper))

@@ -243,7 +243,6 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 
 	return releasedrain
 
-
 /obj/effect/proc_holder/spell/proc/cast_check(skipcharge = 0, mob/user = usr) //checks if the spell can be cast based on its settings; skipcharge is used when an additional cast_check is called inside the spell
 	if(user.mmb_intent && !skipcharge)
 		if(SEND_SIGNAL(user?.mmb_intent, COMSIG_SPELL_BEFORE_CAST))
@@ -364,7 +363,9 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 
 /obj/effect/proc_holder/spell/Destroy()
 	STOP_PROCESSING(SSfastprocess, src)
-	qdel(action)
+	if(ranged_ability_user)
+		ranged_ability_user.RemoveSpell(src)
+	QDEL_NULL(action)
 	return ..()
 
 /obj/effect/proc_holder/spell/Click()

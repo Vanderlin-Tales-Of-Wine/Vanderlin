@@ -54,13 +54,15 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 
 /obj/effect/landmark/events/haunts
 	name = "hauntz"
-	icon_state = "generic_event"
+	icon_state = MAP_SWITCH("", "generic_event")
 
 /obj/effect/landmark/events/haunts/Initialize(mapload)
 	. = ..()
-	GLOB.hauntstart += src
-	icon_state = ""
+	GLOB.hauntstart |= src
 
+/obj/effect/landmark/events/haunts/Destroy()
+	GLOB.hauntstart -= src
+	return ..()
 
 /obj/effect/landmark/events/testportal
 	name = "testserverportal"

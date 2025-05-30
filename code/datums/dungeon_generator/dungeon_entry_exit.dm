@@ -46,6 +46,8 @@ GLOBAL_LIST_INIT(dungeon_exits, list())
 		break
 
 /obj/structure/dungeon_entry/Destroy()
+	for(var/obj/structure/dungeon_exit/exit as anything in dungeon_exits)
+		exit.entry = null
 	dungeon_exits.Cut()
 	GLOB.dungeon_entries -= src
 	GLOB.unlinked_dungeon_entries -= src

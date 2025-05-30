@@ -662,6 +662,10 @@
 	animate(src, pixel_y = 4, time = 1 SECONDS, loop = -1, flags = ANIMATION_RELATIVE)
 	animate(pixel_y = -4, time = 1 SECONDS, flags = ANIMATION_RELATIVE)
 
+/obj/structure/soul/Destroy()
+	drainer = null
+	return ..()
+
 /obj/structure/soul/attack_hand(mob/living/user)
 	. = ..()
 	if(user.mana_pool?.intrinsic_recharge_sources & MANA_SOULS)
