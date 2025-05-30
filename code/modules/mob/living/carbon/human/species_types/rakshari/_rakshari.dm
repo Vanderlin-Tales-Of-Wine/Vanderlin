@@ -84,3 +84,6 @@
 		"City Rakshari" = SKIN_COLOR_COASTAL_ELF, // - (White 4)
 		"Desert Rakshari" = SKIN_COLOR_WOOD_ELF, // - (Mediterranean 1)
 	))
+
+/datum/species/rakshari/get_accent_list()
+	return GLOB.accent_list[ACCENT_PIRATE]
