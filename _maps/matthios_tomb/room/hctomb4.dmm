@@ -1,9 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "ag" = (
 /obj/structure/chair/bench/couch/redright,
-/turf/open/floor/carpet/green{
-	icon_state = "carpet"
-	},
+/turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors/magic)
 "ax" = (
 /obj/machinery/light/fueled/wallfire/candle/blue/l,
@@ -43,11 +41,6 @@
 	pixel_x = -6
 	},
 /turf/open/floor/tile/checker,
-/area/rogue/under/tomb/indoors)
-"by" = (
-/turf/open/floor/carpet/green{
-	icon_state = "carpet"
-	},
 /area/rogue/under/tomb/indoors)
 "bz" = (
 /obj/structure/chair/wood/alt/chair_noble/red{
@@ -167,9 +160,7 @@
 /area/rogue/under/tomb/indoors)
 "gp" = (
 /obj/machinery/light/fueled/wallfire/candle/blue,
-/turf/open/floor/carpet/green{
-	icon_state = "carpet"
-	},
+/turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors)
 "gr" = (
 /obj/structure/chair/wood/alt/chair3{
@@ -240,9 +231,7 @@
 /area/rogue/under/tomb/indoors)
 "ii" = (
 /obj/structure/chair/bench/couch/redleft,
-/turf/open/floor/carpet/green{
-	icon_state = "carpet"
-	},
+/turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors/magic)
 "ji" = (
 /obj/structure/table/wood/large/corner_new{
@@ -260,9 +249,7 @@
 /obj/effect/spawner/map_spawner/loot/common,
 /obj/effect/spawner/map_spawner/loot/common,
 /obj/structure/closet/crate/crafted_closet/inn,
-/turf/open/floor/carpet/green{
-	icon_state = "carpet"
-	},
+/turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors)
 "jL" = (
 /obj/structure/window/openclose{
@@ -324,15 +311,11 @@
 /area/rogue/under/tomb)
 "mt" = (
 /obj/structure/table/wood/reinforced_alt,
-/turf/open/floor/carpet/green{
-	icon_state = "carpet"
-	},
+/turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors)
 "mv" = (
 /obj/structure/chair/wood/alt/chair_noble/red,
-/turf/open/floor/carpet/green{
-	icon_state = "carpet"
-	},
+/turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors)
 "mC" = (
 /obj/structure/table/wood/large/corner_new{
@@ -520,9 +503,7 @@
 "ta" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/carpet/green{
-	icon_state = "carpet"
-	},
+/turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors/magic)
 "tc" = (
 /obj/structure/stairs{
@@ -598,9 +579,7 @@
 	pixel_x = 6
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/carpet/green{
-	icon_state = "carpet"
-	},
+/turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors/magic)
 "vu" = (
 /obj/structure/stairs,
@@ -620,9 +599,7 @@
 	pixel_x = 4;
 	pixel_y = -4
 	},
-/turf/open/floor/carpet/green{
-	icon_state = "carpet"
-	},
+/turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors)
 "vO" = (
 /turf/open/floor/rooftop{
@@ -720,12 +697,6 @@
 /obj/structure/fluff/railing/border,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
-"Bz" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/carpet/green{
-	icon_state = "carpet"
-	},
-/area/rogue/under/tomb/indoors/magic)
 "BG" = (
 /obj/item/natural/rock,
 /turf/open/floor/naturalstone,
@@ -767,9 +738,7 @@
 /area/rogue/under/tomb/indoors)
 "Cv" = (
 /mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
-/turf/open/floor/carpet/green{
-	icon_state = "carpet"
-	},
+/turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors)
 "Cy" = (
 /obj/structure/table/wood/plain/alt,
@@ -833,12 +802,6 @@
 	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
-"EB" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
-/turf/open/floor/carpet/green{
-	icon_state = "carpet"
-	},
-/area/rogue/under/tomb/indoors)
 "EL" = (
 /obj/structure/door/fancy{
 	name = "Room 6"
@@ -854,9 +817,7 @@
 /area/rogue/under/tomb/indoors/magic)
 "Fu" = (
 /obj/structure/chair/bench/couch/redleft,
-/turf/open/floor/carpet/green{
-	icon_state = "carpet"
-	},
+/turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors)
 "Ge" = (
 /obj/structure/chair/wood/alt/chair3,
@@ -888,9 +849,7 @@
 	pixel_x = 5;
 	pixel_y = 7
 	},
-/turf/open/floor/carpet/green{
-	icon_state = "carpet"
-	},
+/turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors/magic)
 "Hj" = (
 /obj/item/reagent_containers/glass/bucket/wooden/alter{
@@ -941,9 +900,7 @@
 	pixel_x = -5;
 	pixel_y = -5
 	},
-/turf/open/floor/carpet/green{
-	icon_state = "carpet"
-	},
+/turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors/magic)
 "KV" = (
 /obj/structure/fluff/railing/border{
@@ -972,9 +929,7 @@
 /area/rogue/under/tomb/indoors)
 "Ma" = (
 /obj/structure/chair/bench/couch/redright,
-/turf/open/floor/carpet/green{
-	icon_state = "carpet"
-	},
+/turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors)
 "Mm" = (
 /obj/structure/table/wood/large/corner_alt,
@@ -993,9 +948,7 @@
 /obj/machinery/light/fueled/wallfire/candle/blue{
 	pixel_y = -32
 	},
-/turf/open/floor/carpet/green{
-	icon_state = "carpet"
-	},
+/turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors)
 "MC" = (
 /turf/open/floor/rooftop{
@@ -1082,9 +1035,7 @@
 /obj/structure/bonepile,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/light/fueled/wallfire/candle/blue,
-/turf/open/floor/carpet/green{
-	icon_state = "carpet"
-	},
+/turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors/magic)
 "Qy" = (
 /obj/structure/stairs{
@@ -1277,9 +1228,7 @@
 "XU" = (
 /obj/structure/rack,
 /obj/effect/spawner/map_spawner/loot/weapon,
-/turf/open/floor/carpet/green{
-	icon_state = "carpet"
-	},
+/turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors)
 "XV" = (
 /obj/structure/bed/inn,
@@ -1306,9 +1255,7 @@
 /obj/structure/chair/wood/alt/chair_noble/red{
 	dir = 8
 	},
-/turf/open/floor/carpet/green{
-	icon_state = "carpet"
-	},
+/turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors)
 "YH" = (
 /turf/closed/wall/mineral/wooddark/vertical,
@@ -2586,8 +2533,8 @@ sg
 vO
 AK
 gp
-by
-EB
+Ir
+sz
 ie
 Qt
 ta
@@ -2618,8 +2565,8 @@ sg
 vO
 AK
 Fu
-by
-by
+Ir
+Ir
 ie
 ii
 GY
@@ -2650,12 +2597,12 @@ MC
 MC
 AK
 Ma
-by
-by
+Ir
+Ir
 ie
 ag
-Bz
-Bz
+Sr
+Sr
 fk
 cy
 sg
@@ -2929,9 +2876,9 @@ Qd
 vO
 AK
 jK
-by
-EB
-by
+Ir
+sz
+Ir
 mv
 mt
 CR
@@ -2960,11 +2907,11 @@ Qd
 Qd
 vO
 oz
-by
+Ir
 Cv
-by
-by
-by
+Ir
+Ir
+Ir
 Yv
 CR
 wr
@@ -2996,7 +2943,7 @@ xE
 Qy
 Zr
 QH
-by
+Ir
 Mv
 AK
 Yr
@@ -3029,7 +2976,7 @@ aR
 Ir
 GP
 Cv
-by
+Ir
 EL
 rT
 oW

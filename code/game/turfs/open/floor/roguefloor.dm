@@ -18,13 +18,21 @@
 	. = ..()
 	ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
 
+/turf/open/floor/ruinedwood/alt
+	icon_state = "horzw"
+
 /turf/open/floor/ruinedwood/turned
 	icon_state = "wooden_floort"
 
+/turf/open/floor/ruinedwood/turned/alt
+	icon_state = "vertw"
+
 /turf/open/floor/ruinedwood/spiral
 	icon_state = "weird1"
+
 /turf/open/floor/ruinedwood/spiralfade
 	icon_state = "weird3"
+
 /turf/open/floor/ruinedwood/chevron
 	icon_state = "weird2"
 
@@ -478,6 +486,24 @@
 /turf/open/floor/greenstone/runed
 	icon_state = "greenstoneruned"
 
+/turf/open/floor/greenstone/glyph1
+	icon_state = "glyph1"
+
+/turf/open/floor/greenstone/glyph2
+	icon_state = "glyph2"
+
+/turf/open/floor/greenstone/glyph3
+	icon_state = "glyph3"
+
+/turf/open/floor/greenstone/glyph4
+	icon_state = "glyph4"
+
+/turf/open/floor/greenstone/glyph5
+	icon_state = "glyph5"
+
+/turf/open/floor/greenstone/glyph6
+	icon_state = "glyph6"
+
 /turf/open/floor/hexstone
 	icon_state = "hexstone"
 	footstep = FOOTSTEP_STONE
@@ -726,21 +752,28 @@
 
 /turf/open/floor/tile/masonic
 	icon_state = "masonic"
+
 /turf/open/floor/tile/masonic/single
 	icon_state = "masonicsingle"
+
 /turf/open/floor/tile/masonic/inverted
 	icon_state = "masonicsingleinvert"
+
 /turf/open/floor/tile/masonic/spiral
 	icon_state = "masonicspiral"
 
 /turf/open/floor/tile/bath
 	icon_state = "bathtile"
+
 /turf/open/floor/tile/bfloorz
 	icon_state = "bfloorz"
+
 /turf/open/floor/tile/tilerg
 	icon_state = "tilerg"
+
 /turf/open/floor/tile/checker
 	icon_state = "linoleum"
+
 /turf/open/floor/tile/checkeralt
 	icon_state = "tile"
 
@@ -778,6 +811,9 @@
 	max_integrity = 1400
 	attacked_sound = list('sound/combat/hits/onmetal/grille (1).ogg', 'sound/combat/hits/onmetal/grille (2).ogg', 'sound/combat/hits/onmetal/grille (3).ogg')
 
+/turf/open/floor/metal/alt
+	icon_state = "plating2"
+
 /turf/open/floor/metal/turf_destruction(damage_flag)
 	. = ..()
 	ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
@@ -788,6 +824,7 @@
 
 /turf/open/floor/metal/barograte
 	icon_state = "barograte"
+
 /turf/open/floor/metal/barograte/open
 	icon_state = "barograteopen"
 
