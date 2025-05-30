@@ -20,7 +20,7 @@
 
 	possessor = new (loc, src)
 	builtInCamera = new (src)
-	update_camera_location(get_turf(oldLoc))
+	update_camera_location(get_turf(loc))
 
 #define SERPCROWN_CAMERA_BUFFER 5
 
