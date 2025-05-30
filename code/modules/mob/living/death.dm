@@ -65,8 +65,8 @@
 	timeofdeath = world.time
 	tod = station_time_timestamp()
 
-	var/obj/structure/soul/S = new(get_turf(src))
-	S.init_mana(WEAKREF(src))
+	var/obj/structure/soul/soul = new(get_turf(src))
+	soul.init_mana(WEAKREF(src))
 
 	for(var/obj/item/I in contents)
 		I.on_mob_death(src, gibbed)
