@@ -24,6 +24,13 @@
 	},
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave)
+"aw" = (
+/obj/structure/fluff/traveltile/exit_inhumen{
+	aportalgoesto = "inhumenin";
+	aportalid = "inhumenexit"
+	},
+/turf/open/floor/naturalstone,
+/area/rogue/indoors/cave)
 "ax" = (
 /obj/machinery/light/fueled/torchholder/hotspring/standing,
 /turf/open/floor/snow,
@@ -82316,9 +82323,9 @@ Ko
 Ko
 Ko
 Ko
-QU
-QU
-QU
+aw
+aw
+aw
 Ko
 Ko
 Ko
