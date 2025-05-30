@@ -15160,10 +15160,6 @@
 /obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement)
-"jKg" = (
-/obj/structure/fluff/walldeco/vinez,
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/rtfield/safe)
 "jKh" = (
 /mob/living/carbon/human/species/rousman/npc,
 /turf/open/floor/naturalstone,
@@ -19165,10 +19161,6 @@
 	},
 /turf/open/floor/churchrough,
 /area/rogue/under/town/caverogue)
-"msN" = (
-/obj/machinery/light/fueled/firebowl/stump,
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/rtfield/safe)
 "msX" = (
 /obj/machinery/light/fueled/firebowl/standing,
 /turf/open/floor/blocks/newstone/alt,
@@ -99732,7 +99724,7 @@ rox
 lBA
 mJp
 wMs
-msN
+wMs
 wMs
 wMs
 wMs
@@ -100741,7 +100733,7 @@ qQO
 dve
 xJk
 xJk
-jKg
+wMs
 wMs
 wMs
 wMs
@@ -100943,9 +100935,9 @@ xwc
 xwc
 bMJ
 xJk
-jKg
-jKg
-jKg
+wMs
+wMs
+wMs
 wMs
 wMs
 wMs
@@ -101147,7 +101139,7 @@ xID
 xJk
 wMs
 wMs
-jKg
+wMs
 wMs
 wMs
 wMs
@@ -101349,7 +101341,7 @@ xID
 xJk
 wMs
 wMs
-jKg
+wMs
 wMs
 wMs
 wMs
@@ -101549,9 +101541,9 @@ yhN
 rxc
 xID
 wWn
-vgJ
+rnG
 wMs
-jKg
+wMs
 wMs
 wMs
 wMs
@@ -101954,7 +101946,7 @@ oMf
 xJk
 wWn
 vgJ
-vgJ
+rnG
 wMs
 wMs
 wMs
