@@ -1,7 +1,5 @@
 /mob/living/carbon/get_item_by_slot(slot_id)
 	switch(slot_id)
-		if(SLOT_BACK)
-			return back
 		if(SLOT_WEAR_MASK)
 			return wear_mask
 		if(SLOT_NECK)
@@ -13,6 +11,36 @@
 		if(SLOT_LEGCUFFED)
 			return legcuffed
 	return null
+
+/mob/living/carbon/get_slot_by_item(obj/item/looking_for)
+	if(looking_for == backr)
+		return ITEM_SLOT_BACK_R
+
+	if(looking_for == backl)
+		return ITEM_SLOT_BACK_L
+
+	if(backr && (looking_for in backr))
+		return ITEM_SLOT_BACK_R
+
+	if(backl && (looking_for in backl))
+		return ITEM_SLOT_BACK_L
+
+	if(looking_for == wear_mask)
+		return ITEM_SLOT_MASK
+
+	if(looking_for == wear_neck)
+		return ITEM_SLOT_NECK
+
+	if(looking_for == head)
+		return ITEM_SLOT_HEAD
+
+	if(looking_for == handcuffed)
+		return ITEM_SLOT_HANDCUFFED
+
+	if(looking_for == legcuffed)
+		return ITEM_SLOT_LEGCUFFED
+
+	return ..()
 
 /mob/living/carbon/proc/equip_in_one_of_slots(obj/item/I, list/slots, qdel_on_fail = 1)
 	for(var/slot in slots)
@@ -50,9 +78,6 @@
 	I.appearance_flags |= NO_CLIENT_COLOR
 	var/not_handled = FALSE
 	switch(slot)
-		if(SLOT_BACK)
-			back = I
-			update_inv_back()
 		if(SLOT_WEAR_MASK)
 			wear_mask = I
 			wear_mask_update(I, toggle_off = 0)
@@ -74,11 +99,9 @@
 		if(SLOT_IN_BACKPACK)
 			not_handled = TRUE
 			if(backr)
-				testing("insert4")
 				if(SEND_SIGNAL(backr, COMSIG_TRY_STORAGE_INSERT, I, src, TRUE, !initial)) // If inital is true, item is from job datum and should be silent
 					not_handled = FALSE
 			if(backl && not_handled)
-				testing("insert5")
 				if(SEND_SIGNAL(backl, COMSIG_TRY_STORAGE_INSERT, I, src, TRUE, !initial)) // If inital is true, item is from job datum and should be silent
 					not_handled = FALSE
 
@@ -106,10 +129,6 @@
 		head = null
 		if(!QDELETED(src))
 			head_update(I)
-	else if(I == back)
-		back = null
-		if(!QDELETED(src))
-			update_inv_back()
 	else if(I == wear_mask)
 		wear_mask = null
 		if(!QDELETED(src))
