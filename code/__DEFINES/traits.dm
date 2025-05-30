@@ -433,6 +433,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define CRIT_HEALTH_TRAIT "crit_health"
 #define OXYLOSS_TRAIT "oxyloss"
 #define BLOODLOSS_TRAIT "bloodloss"
+#define TRAIT_PROFANE "profane"
 /// Trait associated to being buckled
 #define BUCKLED_TRAIT "buckled"
 /// Trait associated to being held in a chokehold
@@ -502,3 +503,5 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define SOULSTONE_TRAIT "soulstone"
 /// Trait applied to brain mobs when they lack external aid for locomotion, such as being inside a mech.
 #define BRAIN_UNAIDED "brain-unaided"
+/// Ignores body_parts_covered during the add_fingerprint() proc. Works both on the person and the item in the glove slot.
+#define TRAIT_FINGERPRINT_PASSTHROUGH "fingerprint_passthrough"
