@@ -31,7 +31,7 @@
 		H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/stealing, 2, TRUE)
-		H.(/datum/skill/craft/traps, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/craft/traps, 1, TRUE)
 		H.change_stat(STATKEY_STR, 1)
 		H.change_stat(STATKEY_SPD, 2)
 		H.change_stat(STATKEY_END, 1)
