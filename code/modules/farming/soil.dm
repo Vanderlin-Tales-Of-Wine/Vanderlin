@@ -302,6 +302,7 @@
 	if(plant && plant_dead)
 		plant_dead = FALSE
 		plant_health = 10.0
+		update_icon()
 	// If low on nutrition, Dendor provides
 	if(nutrition < 30)
 		adjust_nutrition(max(30 - nutrition, 0))
@@ -311,6 +312,7 @@
 	// And it grows a little!
 	if(plant)
 		add_growth(2 MINUTES)
+		update_icon()
 
 // the reason no_update exists is so we update_icon at the end of the process instead of every time one of these procs is called.
 
@@ -356,9 +358,9 @@
 /obj/structure/soil/process()
 	var/dt = 10
 	var/force_update = FALSE
-	force_update |= process_weeds(dt)
-	force_update |= process_plant(dt)
-	force_update |= process_soil(dt)
+	process_weeds(dt)
+	force_update = process_plant(dt)
+	process_soil(dt)
 	if(soil_decay_time <= 0)
 		decay_soil()
 		return
@@ -501,10 +503,12 @@
 		return
 	if(plant_dead)
 		return
-	process_plant_nutrition(dt, TRUE)
-	process_plant_health(dt)
+	var/should_update
+	process_plant_nutrition(dt)
+	should_update = process_plant_health(dt)
 	if(matured && !produce_ready)
-		process_crop_quality(dt, TRUE)
+		process_crop_quality(dt)
+	return should_update
 
 /obj/structure/soil/proc/process_crop_quality(dt)
 	if(!plant || plant_dead || !matured || produce_ready)
@@ -582,22 +586,24 @@
 	if(!plant)
 		return
 	var/drain_rate = plant.water_drain_rate
+	var/should_update = FALSE
 	// Lots of weeds harm the plant
 	if(weeds >= MAX_PLANT_WEEDS * 0.6)
-		adjust_plant_health(-dt * PLANT_WEEDS_HARM_RATE, TRUE)
+		should_update |= adjust_plant_health(-dt * PLANT_WEEDS_HARM_RATE, TRUE)
 	// Regenerate plant health if we dont drain water, or we have the water
 	if(drain_rate <= 0 || water > 0)
-		adjust_plant_health(dt * PLANT_REGENERATION_RATE, TRUE)
+		should_update |= adjust_plant_health(dt * PLANT_REGENERATION_RATE, TRUE)
 	if(drain_rate > 0)
 		// If we're dry and we want to drain water, we loose health
 		if(water <= 0)
-			adjust_plant_health(-dt * PLANT_DECAY_RATE, TRUE)
+			should_update |= adjust_plant_health(-dt * PLANT_DECAY_RATE, TRUE)
 		else
 			// Drain water
 			adjust_water(-dt * drain_rate)
 	// Blessed plants heal!!
 	if(blessed_time > 0)
-		adjust_plant_health(dt * PLANT_BLESS_HEAL_RATE, TRUE)
+		should_update |= adjust_plant_health(dt * PLANT_BLESS_HEAL_RATE, TRUE)
+	return should_update
 
 /obj/structure/soil/proc/process_plant_nutrition(dt)
 	if(!plant)
@@ -648,7 +654,7 @@
 	if(plant_health <= MAX_PLANT_HEALTH * 0.3)
 		growth_multiplier *= 0.75
 	var/target_growth_time = growth_multiplier * dt
-	process_growth(target_growth_time)
+	return process_growth(target_growth_time)
 
 /obj/structure/soil/proc/process_growth(target_growth_time)
 	if(!plant)
@@ -662,7 +668,7 @@
 	var/factor = possible_nutrition / target_nutrition
 	var/possible_growth_time = target_growth_time * factor
 	adjust_nutrition(-possible_nutrition, TRUE)
-	add_growth(possible_growth_time)
+	return add_growth(possible_growth_time)
 
 /obj/structure/soil/proc/add_growth(added_growth)
 	if(!plant)
