@@ -44,7 +44,7 @@
 
 	category_tags = list(CTAG_ADEPT)
 	cmode_music = 'sound/music/cmode/church/CombatInquisitor.ogg'
-	maximum_possible_slots = 2
+	maximum_possible_slots = 1
 
 /datum/outfit/job/adept/bzealot/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -90,7 +90,7 @@
 
 	category_tags = list(CTAG_ADEPT)
 	cmode_music = 'sound/music/cmode/adventurer/CombatRogue.ogg'
-	maximum_possible_slots = 2
+	maximum_possible_slots = 1
 
 /datum/outfit/job/adept/rthief/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -98,7 +98,7 @@
 	belt = /obj/item/storage/belt/leather
 	armor = /obj/item/clothing/armor/leather/splint
 	neck = /obj/item/clothing/neck/gorget
-	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/long
+	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
 	backl = /obj/item/ammo_holder/quiver/arrows
 	beltl = /obj/item/weapon/mace/cudgel
 	pants = /obj/item/clothing/pants/trou/leather
@@ -138,7 +138,7 @@
 
 	category_tags = list(CTAG_ADEPT)
 	cmode_music = 'sound/music/cmode/towner/CombatGaffer.ogg'
-	maximum_possible_slots = 2
+	maximum_possible_slots = 1
 
 /datum/outfit/job/adept/highwayman/pre_equip(mob/living/carbon/human/H)
 	..()
