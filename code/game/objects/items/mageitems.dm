@@ -657,13 +657,16 @@
 
 	var/datum/weakref/drainer
 
+	var/qdel_timer
+
 /obj/structure/soul/Initialize(mapload)
 	. = ..()
 	animate(src, pixel_y = 4, time = 1 SECONDS, loop = -1, flags = ANIMATION_RELATIVE)
 	animate(pixel_y = -4, time = 1 SECONDS, flags = ANIMATION_RELATIVE)
 
 /obj/structure/soul/Destroy()
-	drainer = null
+	if(qdel_timer)
+		deltimer(qdel_timer)
 	return ..()
 
 /obj/structure/soul/attack_hand(mob/living/user)
@@ -680,7 +683,7 @@
 	if(!mana_amount || mana_amount <= 0)
 		qdel(src)
 		return
-	QDEL_IN(src, 10 MINUTES)
+	qdel_timer = addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel), src), 10 MINUTES, TIMER_STOPPABLE)
 
 /obj/structure/soul/proc/drain_mana(mob/living/user)
 	var/datum/beam/transfer_beam = user.Beam(src, icon_state = "drain_life", time = INFINITY)
