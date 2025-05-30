@@ -7,7 +7,7 @@ GLOBAL_LIST_INIT(animal_migration_points, list())
 	. = ..()
 	GLOB.animal_migration_points |= src
 
-/obj/effect/landmark/events/haunts/Destroy()
+/obj/effect/landmark/events/animal_migration_point/Destroy()
 	GLOB.animal_migration_points -= src
 	return ..()
 
