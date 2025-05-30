@@ -47,8 +47,9 @@
 		S.sharerDies(FALSE)
 		S.removeSoulsharer(src) //If a sharer is destroy()'d, they are simply removed
 	sharedSoullinks = null
+	if(craftingthing)
+		QDEL_NULL(craftingthing)
 	return ..()
-
 
 /mob/living/update_overlays()
 	. = ..()

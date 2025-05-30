@@ -159,7 +159,7 @@
 		var/obj/machinery/anvil/A = loc
 		A.hingot = null
 		A.update_icon()
-	..()
+	return ..()
 
 /obj/item/ingot/gold
 	name = "gold bar"

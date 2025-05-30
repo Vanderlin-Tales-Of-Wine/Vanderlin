@@ -22,6 +22,11 @@
 
 	icon_state = "[plant_type.icon_state]2"
 
+/obj/structure/wild_plant/Destroy()
+	if(plant_type)
+		QDEL_NULL(plant_type)
+	return ..()
+
 /obj/structure/wild_plant/Crossed(mob/living/carbon/human/H)
 	playsound(loc, "plantcross", 80, FALSE, -1)
 

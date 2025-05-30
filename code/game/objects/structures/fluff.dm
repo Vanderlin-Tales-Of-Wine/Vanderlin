@@ -383,16 +383,17 @@
 	metalizer_result = /obj/item/gear/metal/bronze
 
 /obj/structure/fluff/clock/Initialize()
+	. = ..()
 	soundloop = new(src, FALSE)
 	soundloop.start()
-	. = ..()
 	var/static/list/loc_connections = list(COMSIG_ATOM_EXIT = PROC_REF(on_exit))
 	AddElement(/datum/element/connect_loc, loc_connections)
 
 /obj/structure/fluff/clock/Destroy()
 	if(soundloop)
-		soundloop.stop()
-	..()
+		soundloop.stop(TRUE)
+		QDEL_NULL(soundloop)
+	return ..()
 
 /obj/structure/fluff/clock/obj_break(damage_flag, silent)
 	if(!broke)
@@ -480,8 +481,9 @@
 
 /obj/structure/fluff/wallclock/Destroy()
 	if(soundloop)
-		soundloop.stop()
-	..()
+		soundloop.stop(TRUE)
+		QDEL_NULL(soundloop)
+	return ..()
 
 /obj/structure/fluff/wallclock/examine(mob/user)
 	. = ..()

@@ -60,6 +60,18 @@
 	update_overlays()
 	AddComponent(/datum/component/steam_storage, 300, 0)
 
+/obj/item/harpoon_gun/Destroy()
+	leash_target = null
+	if(leash)
+		QDEL_NULL(leash)
+	if(harpoon_sound)
+		harpoon_sound.stop(TRUE)
+		QDEL_NULL(harpoon_sound)
+	if(zipline)
+		zipline.End(TRUE)
+		zipline = null
+	return ..()
+
 /obj/item/harpoon_gun/afterattack(atom/target, mob/living/user, proximity)
 	. = ..()
 
