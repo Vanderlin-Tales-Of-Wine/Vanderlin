@@ -113,8 +113,6 @@ GLOBAL_LIST_INIT(turfs_without_ground, typecacheof(list(
 
 #define iscameramob(A) (istype(A, /mob/camera))
 
-#define isaicamera(A) (istype(A, /mob/camera/aiEye))
-
 //Objects
 #define isobj(A) istype(A, /obj) //override the byond proc because it returns true on children of /atom/movable that aren't objs
 
@@ -174,6 +172,7 @@ GLOBAL_LIST_INIT(RATS_DONT_EAT, typecacheof(list(
 // Serfs
 	#define is_gaffer_job(job_type) (istype(job_type, /datum/job/gaffer))
 // Peasantry
+	#define is_jester_job(job_type) (istype(job_type, /datum/job/jester))
 	#define is_adventurer_job(job_type) (istype(job_type, /datum/job/adventurer))
 	#define is_mercenary_job(job_type) (istype(job_type, /datum/job/mercenary))
 	#define is_pilgrim_job(job_type) (istype(job_type, /datum/job/pilgrim))

@@ -1,19 +1,20 @@
 /mob/living/carbon/human/proc/on_examine_face(mob/living/carbon/human/user)
 	if(!istype(user))
 		return
-	if(!isdarkelf(user) && isdarkelf(src))
-		user.add_stress(/datum/stressevent/delf)
-	if(!istiefling(user) && istiefling(src))
-		user.add_stress(/datum/stressevent/tieb)
-	if(!ishalforc(user) && ishalforc(src))
-		user.add_stress(/datum/stressevent/horc)
-	if(user.has_flaw(/datum/charflaw/paranoid) && (STASTR - user.STASTR) > 1)
-		user.add_stress(/datum/stressevent/parastr)
-	if(HAS_TRAIT(src, TRAIT_FOREIGNER) && !HAS_TRAIT(user, TRAIT_FOREIGNER))
-		if(user.has_flaw(/datum/charflaw/paranoid))
-			user.add_stress(/datum/stressevent/paraforeigner)
-		else
-			user.add_stress(/datum/stressevent/foreigner)
+	if(!HAS_TRAIT(src, TRAIT_TOLERANT))
+		if(!isdarkelf(user) && isdarkelf(src))
+			user.add_stress(/datum/stressevent/delf)
+		if(!istiefling(user) && istiefling(src))
+			user.add_stress(/datum/stressevent/tieb)
+		if(!ishalforc(user) && ishalforc(src))
+			user.add_stress(/datum/stressevent/horc)
+		if(user.has_flaw(/datum/charflaw/paranoid) && (STASTR - user.STASTR) > 1)
+			user.add_stress(/datum/stressevent/parastr)
+		if(HAS_TRAIT(src, TRAIT_FOREIGNER) && !HAS_TRAIT(user, TRAIT_FOREIGNER))
+			if(user.has_flaw(/datum/charflaw/paranoid))
+				user.add_stress(/datum/stressevent/paraforeigner)
+			else
+				user.add_stress(/datum/stressevent/foreigner)
 	if(HAS_TRAIT(src, TRAIT_BEAUTIFUL))
 		if(user == src)
 			user.add_stress(/datum/stressevent/beautiful_self)
@@ -238,11 +239,10 @@
 		if(!(I.item_flags & ABSTRACT))
 			. += "[m1] holding [I.get_examine_string(user)] in [m2] [get_held_index_name(get_held_index_of_item(I))]."
 
-	var/datum/component/forensics/FR = GetComponent(/datum/component/forensics)
 	//gloves
 	if(gloves && !(SLOT_GLOVES in obscured))
 		. += "[m3] [gloves.get_examine_string(user)] on [m2] hands."
-	else if(FR && length(FR.blood_DNA))
+	else if(GET_ATOM_BLOOD_DNA_LENGTH(src))
 		if(num_hands)
 			. += span_warning("[t_He] [t_has] [num_hands > 1 ? "" : "a"] blood-stained hand[num_hands > 1 ? "s" : ""]!")
 
@@ -272,10 +272,6 @@
 
 	if(get_eye_color() == BLOODCULT_EYE)
 		. += "<span class='warning'><B>[capitalize(m2)] eyes are glowing an unnatural red!</B></span>"
-
-	//ears
-	if(ears && !(SLOT_HEAD in obscured))
-		. += "[m3] [ears.get_examine_string(user)] on [m2] ears."
 
 	//ID
 	if(wear_ring && !(SLOT_RING in obscured))
