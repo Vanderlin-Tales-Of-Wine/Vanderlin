@@ -20,6 +20,10 @@
 /obj/structure/closet/crate/miningcar/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/noisy_movement, 'sound/tank_treads.ogg', 50)
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/structure/closet/crate/miningcar/LateInitialize()
+	. = ..()
 	if(locate(/obj/structure/minecart_rail) in loc)
 		update_rail_state(TRUE)
 
@@ -53,7 +57,7 @@
 		if(momentum <= 8)
 			momentum = floor(momentum / 2)
 			break
-		smack(smacked, 6, 1.5)
+		smack(smacked, 12, 1.25)
 		if(QDELETED(src))
 			break
 
@@ -77,7 +81,7 @@
  * * damage_mod - How much to multiply the momentum by to get the damage.
  * * momentum_mod - How much to divide the momentum by after the smack.
  */
-/obj/structure/closet/crate/miningcar/proc/smack(mob/living/smacked, damage_mod = 4, momentum_mod = 2)
+/obj/structure/closet/crate/miningcar/proc/smack(mob/living/smacked, damage_mod = 8, momentum_mod = 1.5)
 	ASSERT(momentum_mod >= 1)
 	if(!smacked.apply_damage(damage_mod * momentum, BRUTE, BODY_ZONE_CHEST))
 		return
@@ -145,7 +149,7 @@
 
 /obj/structure/closet/crate/miningcar/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
 	. = ..()
-	if(!isliving(usr) || !usr.Adjacent(over) || !usr.Adjacent(src))
+	if(!isliving(usr) || !usr.Adjacent(over) || !usr.Adjacent(src) || !Adjacent(over))
 		return
 	if(on_rails)
 		if(isopenturf(over))
@@ -272,6 +276,8 @@
 	if(momentum <= 0)
 		stack_trace("Mine cart moving on 0 momentum!")
 		SSmove_manager.stop_looping(src, SSminecarts)
+		obj_flags &= ~BLOCK_Z_OUT_DOWN
+		momentum = 0
 		return MOVELOOP_SKIP_STEP
 	// Forced to not move
 	if(anchored || !has_gravity())
@@ -304,7 +310,7 @@
 
 	// Trying to turn
 	for(var/next_dir in shuffle(list(turn(dir, 90), turn(dir, -90))))
-		if(!can_travel_on_turf(get_step(src, next_dir), dir|next_dir))
+		if(!can_travel_on_turf(get_step(src, next_dir), next_dir))
 			continue
 		momentum -= 1 // Extra cost for turning
 		if(momentum <= 0)
@@ -313,19 +319,20 @@
 		return NONE
 
 	// Flying over openspace
-	if(momentum >= 10 && istype(get_step(src, dir), /turf/open/transparent/openspace))
-		var/turf/below_turf = GET_TURF_BELOW(get_step(src, dir))
-		var/obj/structure/minecart_rail/rail = locate(/obj/structure/minecart_rail) in below_turf.contents
-		if(!rail)
-			momentum -= 3
-		if(momentum > 0)
-			return NONE
+	if((!on_rails || momentum >= 4) && istype(get_step(src, dir), /turf/open/transparent/openspace))
+		update_rail_state(FALSE) // Time to fly
+		return NONE
+
+	// // Derail if too fast
+	if((!on_rails || momentum >= 30) && isopenturf(get_step(src, dir)))
+		update_rail_state(FALSE) // Time to fly
+		return NONE
 
 	// Can't go straight and cant turn = STOP
 	SSmove_manager.stop_looping(src, SSminecarts)
 	obj_flags &= ~BLOCK_Z_OUT_DOWN
 	if(momentum >= 12)
-		visible_message(span_warning("[src] comes to a halt!"))
+		visible_message(span_warning("[src] comes to a violent halt!"))
 		throw_contents()
 	else
 		visible_message(span_notice("[src] comes to a slow stop."))
@@ -343,8 +350,9 @@
 				visible_message(span_notice("[src] comes to a sudden stop."))
 			else
 				visible_message(span_notice("[src] comes to a stop."))
-			momentum = 0
 			SSmove_manager.stop_looping(src, SSminecarts)
+			obj_flags &= ~BLOCK_Z_OUT_DOWN
+			momentum = 0
 			return
 		check_powered()
 		momentum -= 1
@@ -352,6 +360,8 @@
 	// No more momentum = STOP
 	if(momentum <= 0)
 		SSmove_manager.stop_looping(src, SSminecarts)
+		obj_flags &= ~BLOCK_Z_OUT_DOWN
+		momentum = 0
 		visible_message(span_notice("[src] comes to a slow stop."))
 		return
 
@@ -363,98 +373,57 @@
 /obj/structure/closet/crate/miningcar/proc/calculate_delay()
 	return (2 SECONDS) * NUM_E**(-0.05 SECONDS * momentum)
 
-/// Checks if we can travel on the passed turf
+/// Checks if we can travel via rail on the passed turf. dir_to_check is the direction of minecart movement
 /obj/structure/closet/crate/miningcar/proc/can_travel_on_turf(turf/next_turf, dir_to_check = dir)
-	if(istype(get_turf(src), /turf/open/transparent/openspace))
-		return TRUE //we can land
 
 	var/obj/structure/minecart_rail/located_rail = locate(/obj/structure/minecart_rail) in get_turf(src)
 
+	// If our current turf does NOT have a rail, only check the next rail. Otherwise, check our current rail then check the next rail.
 	for(var/obj/structure/minecart_rail/rail in next_turf)
-		if(!located_rail ||( located_rail?.dir in GLOB.cardinals))
-			if(rail.dir & (dir_to_check|GLOB.reverse_dir[dir_to_check]))
+		if(!located_rail)
+			if(REVERSE_DIR(dir_to_check) & rail.minecart_dirs)
 				return TRUE
 		else
-			var/coming_dir = get_dir(src, next_turf)
-			switch(located_rail.dir)
-				if(SOUTHWEST)
-					if(coming_dir == NORTH || coming_dir == WEST)
-						return TRUE
-					else
-						return FALSE
-				if(SOUTHEAST)
-					if(coming_dir == NORTH || coming_dir == EAST)
-						return TRUE
-					else
-						return FALSE
-				if(NORTHEAST)
-					if(coming_dir == SOUTH || coming_dir == EAST)
-						return TRUE
-					else
-						return FALSE
-				if(NORTHWEST)
-					if(coming_dir == SOUTH || coming_dir == WEST)
-						return TRUE
-					else
-						return FALSE
+			if(!(dir_to_check & located_rail.minecart_dirs))
+				return FALSE
+			if(!(REVERSE_DIR(dir_to_check) & rail.minecart_dirs))
+				return FALSE
+			return TRUE
 
+	// We don't care about next rail if going through traveltile
 	for(var/obj/structure/fluff/traveltile/travel in next_turf)
 		for(var/turf/open/viable_turfs in travel.return_connected_turfs())
 			for(var/obj/structure/minecart_rail/rail in viable_turfs)
-				if(!located_rail || (located_rail?.dir in GLOB.cardinals))
+				if(!located_rail)
 					return TRUE
 				else
-					var/coming_dir = get_dir(src, next_turf)
-					switch(located_rail.dir)
-						if(SOUTHWEST)
-							if(coming_dir == NORTH || coming_dir == WEST)
-								return TRUE
-							else
-								return FALSE
-						if(SOUTHEAST)
-							if(coming_dir == NORTH || coming_dir == EAST)
-								return TRUE
-							else
-								return FALSE
-						if(NORTHEAST)
-							if(coming_dir == SOUTH || coming_dir == EAST)
-								return TRUE
-							else
-								return FALSE
-						if(NORTHWEST)
-							if(coming_dir == SOUTH || coming_dir == WEST)
-								return TRUE
-							else
-								return FALSE
+					if(!(dir_to_check & located_rail.minecart_dirs))
+						return FALSE
+					return TRUE
 
 	var/turf/above_next = GET_TURF_ABOVE(next_turf)
 	for(var/obj/structure/minecart_rail/rail in above_next)
-		if(!located_rail || (located_rail?.dir in GLOB.cardinals))
-			if(rail.dir & (dir_to_check|GLOB.reverse_dir[dir_to_check]))
+		if(!located_rail)
+			if(REVERSE_DIR(dir_to_check) & rail.minecart_dirs)
 				return TRUE
 		else
-			var/coming_dir = get_dir(src, next_turf)
-			switch(located_rail.dir)
-				if(SOUTHWEST)
-					if(coming_dir == NORTH || coming_dir == WEST)
-						return TRUE
-					else
-						return FALSE
-				if(SOUTHEAST)
-					if(coming_dir == NORTH || coming_dir == EAST)
-						return TRUE
-					else
-						return FALSE
-				if(NORTHEAST)
-					if(coming_dir == SOUTH || coming_dir == EAST)
-						return TRUE
-					else
-						return FALSE
-				if(NORTHWEST)
-					if(coming_dir == SOUTH || coming_dir == WEST)
-						return TRUE
-					else
-						return FALSE
+			if(!(dir_to_check & located_rail.minecart_dirs))
+				return FALSE
+			if(!(REVERSE_DIR(dir_to_check) & rail.minecart_dirs))
+				return FALSE
+			return TRUE
+
+	var/turf/below_next = GET_TURF_BELOW(next_turf)
+	for(var/obj/structure/minecart_rail/rail in below_next)
+		if(!located_rail)
+			if(REVERSE_DIR(dir_to_check) & rail.minecart_dirs)
+				return TRUE
+		else
+			if(!(dir_to_check & located_rail.minecart_dirs))
+				return FALSE
+			if(!(REVERSE_DIR(dir_to_check) & rail.minecart_dirs))
+				return FALSE
+			return TRUE
 
 	return FALSE
 
@@ -462,8 +431,9 @@
 	var/obj/structure/minecart_rail/potential_power = locate() in loc
 	if(!potential_power)
 		return
+	update_rail_state(TRUE)
 	if(potential_power.rotations_per_minute)
-		momentum += potential_power.rotations_per_minute / 4
+		momentum += round(potential_power.rotations_per_minute / 3)
 
 /// Throws all the contents of the cart out ahead
 /obj/structure/closet/crate/miningcar/proc/throw_contents()
@@ -496,4 +466,15 @@
 		visible_message(span_warning("[src] breaks open, spilling its contents[yeet_rider ? " and throwing its rider":""]!"))
 
 	for(var/obj/structure/minecart_rail/rail in get_turf(src))
-		on_rails = TRUE
+		update_rail_state(TRUE)
+		break
+
+/obj/structure/closet/crate/miningcar/proc/handle_aerial_fall(freefall)
+	set waitfor = 0
+
+	var/turf/current_turf = get_turf(src)
+
+	if(!freefall)
+		movement_type |= FLYING // this along with zFall(force = TRUE) only allows the cart to fall one z level
+	current_turf.zFall(src, force = TRUE)
+	movement_type &= ~FLYING

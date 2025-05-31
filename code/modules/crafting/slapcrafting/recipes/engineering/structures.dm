@@ -58,7 +58,6 @@
 	steps = list(
 		/datum/slapcraft_step/item/cog,
 		/datum/slapcraft_step/item/iron,
-		/datum/slapcraft_step/item/iron/second,
 		/datum/slapcraft_step/use_item/engineering/hammer,
 		/datum/slapcraft_step/item/stick,
 		)
@@ -73,7 +72,6 @@
 		/datum/slapcraft_step/item/iron,
 		/datum/slapcraft_step/use_item/engineering/hammer,
 		/datum/slapcraft_step/item/small_log,
-		/datum/slapcraft_step/item/small_log/second,
 		/datum/slapcraft_step/use_item/engineering/hammer/second,
 		)
 	result_type = /obj/structure/activator

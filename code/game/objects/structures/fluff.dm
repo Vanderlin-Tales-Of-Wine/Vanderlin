@@ -1350,24 +1350,5 @@
 
 /obj/structure/fluff/statue/carving_block/ComponentInitialize()
 	. = ..()
-	AddComponent(/datum/component/simple_rotation,ROTATION_ALTCLICK | ROTATION_CLOCKWISE, CALLBACK(src, PROC_REF(can_user_rotate)),CALLBACK(src, PROC_REF(can_be_rotated)),null)
+	AddComponent(/datum/component/simple_rotation)
 
-/obj/structure/fluff/statue/carving_block/proc/can_be_rotated(mob/user)
-	return TRUE
-
-/obj/structure/fluff/statue/carving_block/proc/can_user_rotate(mob/user)
-	var/mob/living/L = user
-
-	if(istype(L))
-		if(!user.canUseTopic(src, BE_CLOSE))
-			return FALSE
-		else
-			return TRUE
-	else if(isobserver(user) && CONFIG_GET(flag/ghost_interaction))
-		return TRUE
-	return FALSE
-
-/obj/structure/fluff/statue/carving_block/attack_right(mob/user)
-	var/datum/component/simple_rotation/rotcomp = GetComponent(/datum/component/simple_rotation)
-	if(rotcomp)
-		rotcomp.HandRot(rotcomp,user,ROTATION_CLOCKWISE)

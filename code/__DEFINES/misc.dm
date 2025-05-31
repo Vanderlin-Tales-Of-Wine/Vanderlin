@@ -93,11 +93,6 @@
 
 #define TRANSITIONEDGE			7 //Distance from edge to move to another z-level
 
-#define BE_CLOSE TRUE		//in the case of a silicon, to select if they need to be next to the atom
-#define NO_DEXTERITY TRUE	//if other mobs (monkeys, aliens, etc) can use this // I had to change 20+ files because some non-dnd-playing fuckchumbis can't spell "dexterity"
-#define NO_TK TRUE
-//used by canUseTopic()
-
 //singularity defines
 #define STAGE_ONE 1
 #define STAGE_TWO 3

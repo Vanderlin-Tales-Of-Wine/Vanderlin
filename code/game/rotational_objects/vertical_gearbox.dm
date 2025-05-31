@@ -7,3 +7,7 @@
 	rotation_structure = TRUE
 	stress_use = 12
 	initialize_dirs = CONN_DIR_FORWARD | CONN_DIR_FLIP | CONN_DIR_Z_UP | CONN_DIR_Z_DOWN
+
+/obj/structure/vertical_gearbox/ComponentInitialize()
+	. = ..()
+	AddComponent(/datum/component/simple_rotation, ROTATION_REQUIRE_WRENCH|ROTATION_IGNORE_ANCHORED)

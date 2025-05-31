@@ -274,7 +274,7 @@
 	set hidden = 1
 	set name = "Toggle Open"
 
-	if(!usr.canUseTopic(src, BE_CLOSE) || !isturf(loc))
+	if(!usr.can_perform_action(src, FORBID_TELEKINESIS_REACH) || !isturf(loc))
 		return
 
 	if(iscarbon(usr))
