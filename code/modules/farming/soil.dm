@@ -288,8 +288,8 @@
 
 /obj/structure/soil/proc/till_soil(time = 30 MINUTES)
 	tilled_time = time
-	adjust_plant_health(-20)
-	adjust_weeds(-30)
+	adjust_plant_health(-20, FALSE)
+	adjust_weeds(-30, FALSE)
 	if(plant)
 		playsound(src,"plantcross", 90, FALSE)
 	update_icon()
@@ -310,26 +310,36 @@
 	if(plant)
 		add_growth(2 MINUTES)
 
-/obj/structure/soil/proc/adjust_water(adjust_amount)
+// the reason no_update exists is so we update_icon at the end of the process instead of every time one of these procs is called.
+
+/// adjust water, use no_update = TRUE to not update the icon.
+/obj/structure/soil/proc/adjust_water(adjust_amount, no_update = FALSE)
 	water = clamp(water + adjust_amount, 0, MAX_PLANT_WATER)
-	update_icon()
+	if(!no_update)
+		update_icon()
 
-/obj/structure/soil/proc/adjust_nutrition(adjust_amount)
+/// adjust nutrition, use no_update = TRUE to not update the icon.
+/obj/structure/soil/proc/adjust_nutrition(adjust_amount, no_update = FALSE)
 	nutrition = clamp(nutrition + adjust_amount, 0, MAX_PLANT_NUTRITION)
-	update_icon()
+	if(!no_update)
+		update_icon()
 
-/obj/structure/soil/proc/adjust_weeds(adjust_amount)
+/// adjust weeds, use no_update = TRUE to not update the icon.
+/obj/structure/soil/proc/adjust_weeds(adjust_amount, no_update = FALSE)
 	weeds = clamp(weeds + adjust_amount, 0, MAX_PLANT_WEEDS)
-	update_icon()
+	if(!no_update)
+		update_icon()
 
-/obj/structure/soil/proc/adjust_plant_health(adjust_amount)
+/// adjust plant health, use no_update = TRUE to not update the icon.
+/obj/structure/soil/proc/adjust_plant_health(adjust_amount, no_update = FALSE)
 	if(!plant || plant_dead)
 		return
 	plant_health = clamp(plant_health + adjust_amount, 0, MAX_PLANT_HEALTH)
 	if(plant_health <= 0)
 		plant_dead = TRUE
 		produce_ready = FALSE
-	update_icon()
+	if(!no_update)
+		update_icon()
 
 /obj/structure/soil/Initialize()
 	START_PROCESSING(SSprocessing, src)
@@ -351,9 +361,9 @@
 	process_weeds(dt)
 	process_plant(dt)
 	process_soil(dt)
-	update_icon()
 	if(soil_decay_time <= 0)
-		decay_soil()
+		decay_soil(TRUE)
+	update_icon() // only update icon after all the processes have run
 
 /obj/structure/soil/update_icon()
 	. = ..()
@@ -471,21 +481,21 @@
 /obj/structure/soil/proc/process_weeds(dt)
 	// Blessed soil will have the weeds die
 	if(blessed_time > 0)
-		adjust_weeds(-dt * BLESSING_WEED_DECAY_RATE)
+		adjust_weeds(-dt * BLESSING_WEED_DECAY_RATE, TRUE)
 	if(plant && plant.weed_immune)
 		// Weeds die if the plant is immune to them
-		adjust_weeds(-dt * WEED_RESISTANCE_DECAY_RATE)
+		adjust_weeds(-dt * WEED_RESISTANCE_DECAY_RATE, TRUE)
 		return
 	if(water <= 0)
 		// Weeds die without water in soil
-		adjust_weeds(-dt * WEED_DECAY_RATE)
+		adjust_weeds(-dt * WEED_DECAY_RATE, TRUE)
 		return
 	// Weeds eat water and nutrition to grow
 	var/weed_factor = weeds / MAX_PLANT_WEEDS
-	adjust_water(-dt * weed_factor * WEED_WATER_CONSUMPTION_RATE)
-	adjust_nutrition(-dt * weed_factor * WEED_NUTRITION_CONSUMPTION_RATE)
+	adjust_water(-dt * weed_factor * WEED_WATER_CONSUMPTION_RATE, TRUE)
+	adjust_nutrition(-dt * weed_factor * WEED_NUTRITION_CONSUMPTION_RATE, TRUE)
 	if(nutrition > 0)
-		adjust_weeds(dt * WEED_GROWTH_RATE)
+		adjust_weeds(dt * WEED_GROWTH_RATE, TRUE)
 
 
 #define PLANT_REGENERATION_RATE 10 / (1 MINUTES)
@@ -498,10 +508,10 @@
 		return
 	if(plant_dead)
 		return
-	process_plant_nutrition(dt)
+	process_plant_nutrition(dt, TRUE)
 	process_plant_health(dt)
 	if(matured && !produce_ready)
-		process_crop_quality(dt)
+		process_crop_quality(dt, TRUE)
 
 /obj/structure/soil/proc/process_crop_quality(dt)
 	if(!plant || plant_dead || !matured || produce_ready)
@@ -575,27 +585,26 @@
 	else
 		crop_quality = QUALITY_REGULAR
 
-
 /obj/structure/soil/proc/process_plant_health(dt)
 	if(!plant)
 		return
 	var/drain_rate = plant.water_drain_rate
 	// Lots of weeds harm the plant
 	if(weeds >= MAX_PLANT_WEEDS * 0.6)
-		adjust_plant_health(-dt * PLANT_WEEDS_HARM_RATE)
+		adjust_plant_health(-dt * PLANT_WEEDS_HARM_RATE, TRUE)
 	// Regenerate plant health if we dont drain water, or we have the water
 	if(drain_rate <= 0 || water > 0)
-		adjust_plant_health(dt * PLANT_REGENERATION_RATE)
+		adjust_plant_health(dt * PLANT_REGENERATION_RATE, TRUE)
 	if(drain_rate > 0)
 		// If we're dry and we want to drain water, we loose health
 		if(water <= 0)
-			adjust_plant_health(-dt * PLANT_DECAY_RATE)
+			adjust_plant_health(-dt * PLANT_DECAY_RATE, TRUE)
 		else
 			// Drain water
 			adjust_water(-dt * drain_rate)
 	// Blessed plants heal!!
 	if(blessed_time > 0)
-		adjust_plant_health(dt * PLANT_BLESS_HEAL_RATE)
+		adjust_plant_health(dt * PLANT_BLESS_HEAL_RATE, TRUE)
 
 /obj/structure/soil/proc/process_plant_nutrition(dt)
 	if(!plant)
@@ -659,9 +668,8 @@
 	var/possible_nutrition = min(target_nutrition, nutrition)
 	var/factor = possible_nutrition / target_nutrition
 	var/possible_growth_time = target_growth_time * factor
-	adjust_nutrition(-possible_nutrition)
+	adjust_nutrition(-possible_nutrition, TRUE)
 	add_growth(possible_growth_time)
-
 
 /obj/structure/soil/proc/add_growth(added_growth)
 	if(!plant)
@@ -699,28 +707,29 @@
 		soil_decay_time = max(soil_decay_time - dt, 0)
 
 	if(!found_irrigation)
-		adjust_water(-dt * SOIL_WATER_DECAY_RATE)
+		adjust_water(-dt * SOIL_WATER_DECAY_RATE, FALSE)
 	else
 		adjust_water(dt)
-	adjust_nutrition(-dt * SOIL_NUTRIMENT_DECAY_RATE)
+	adjust_nutrition(-dt * SOIL_NUTRIMENT_DECAY_RATE, FALSE)
 
 	tilled_time = max(tilled_time - dt, 0)
 	blessed_time = max(blessed_time - dt, 0)
 	pollination_time = max(pollination_time - dt, 0)
 
-/obj/structure/soil/proc/decay_soil()
-	uproot()
+/obj/structure/soil/proc/decay_soil(no_update = FALSE)
+	uproot(no_update = no_update)
 	qdel(src)
 
-/obj/structure/soil/proc/uproot(loot = TRUE)
+/obj/structure/soil/proc/uproot(loot = TRUE, no_update = FALSE)
 	if(!plant)
 		return
-	adjust_weeds(-100)
+	adjust_weeds(-100, TRUE) // we update icon lower (if needed)
 	if(loot)
 		yield_uproot_loot()
-	ruin_produce()
+	ruin_produce(TRUE)
 	plant = null
-	update_icon()
+	if(!no_update)
+		update_icon()
 
 /// Spawns uproot loot, such as a long from an apple tree when removing the tree
 /obj/structure/soil/proc/yield_uproot_loot()
@@ -730,9 +739,10 @@
 		new loot_type(loc)
 
 /// Yields produce on its tile if it's ready for harvest
-/obj/structure/soil/proc/ruin_produce()
+/obj/structure/soil/proc/ruin_produce(no_update = FALSE)
 	produce_ready = FALSE
-	update_icon()
+	if(!no_update)
+		update_icon()
 
 /// Yields produce on its tile if it's ready for harvest
 /obj/structure/soil/proc/yield_produce(modifier = 0)

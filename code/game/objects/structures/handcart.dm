@@ -51,29 +51,33 @@
 	dump_contents()
 	return ..()
 
-/obj/structure/handcart/MouseDrop_T(atom/movable/O, mob/living/user)
-	if(!istype(O) || !isturf(O.loc) || istype(O, /atom/movable/screen))
+/obj/structure/handcart/MouseDrop_T(atom/movable/AM, mob/living/user)
+	if(!istype(AM) || !isturf(AM.loc) || istype(AM, /atom/movable/screen))
 		return
 	if(!istype(user) || user.incapacitated())
 		return
-	if(!Adjacent(user) || !user.Adjacent(O))
+	if(!Adjacent(user) || !user.Adjacent(AM))
 		return
-	if(user == O) //try to climb into or onto it
+	if(user == AM) //try to climb into or onto it
 		if(user.body_position == LYING_DOWN)
 			if(!do_after(user, 2 SECONDS, src))
 				return FALSE
-			if(put_in(O))
+			if(put_in(user, AM))
 				playsound(loc, 'sound/foley/cartadd.ogg', 100, FALSE, -1)
 			return TRUE
 		return ..()
-	//only these intents should be able to move objects into handcarts
-	if(user.used_intent.type == INTENT_HELP || user.used_intent.type == /datum/intent/grab/move)
-		if(isliving(O))
-			if(!do_after(user, 2 SECONDS, O))
-				return FALSE
-		if(put_in(O))
-			playsound(loc, 'sound/foley/cartadd.ogg', 100, FALSE, -1)
-		return TRUE
+
+	if(isliving(AM))
+		var/mob/living/L = AM
+		// Require strong grab for living
+		if(L.stat == CONSCIOUS && user.used_intent.type != /datum/intent/grab/move)
+			return FALSE
+		if(!do_after(user, 2 SECONDS, AM))
+			return FALSE
+
+	if(put_in(user, AM))
+		playsound(loc, 'sound/foley/cartadd.ogg', 100, FALSE, -1)
+	return TRUE
 
 /obj/structure/handcart/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/gear/wood))
@@ -90,7 +94,7 @@
 		update_icon()
 		return
 	if(!user.cmode)
-		if(put_in(I, user))
+		if(put_in(user, I))
 			playsound(loc, 'sound/foley/cartadd.ogg', 100, FALSE, -1)
 		return
 	..()
@@ -107,14 +111,15 @@
 
 		//First, we do ores.
 		var/list/ore_list = sieve_ores_and_gems(user,T)
-		if(ore_list.len != 0)
-			for(var/obj/item/I in ore_list)
+		if(LAZYLEN(ore_list))
+			for(var/obj/item/I as anything in ore_list)
 				if(!interruptable_put(user,I))
 					return
 			return
+
 		var/list/wood_list = sieve_wood(user, T)
-		if(wood_list.len != 0)
-			for(var/obj/item/I in wood_list)
+		if(LAZYLEN(wood_list))
+			for(var/obj/item/I as anything in wood_list)
 				if(!interruptable_put(user,I))
 					return
 			return
@@ -136,7 +141,7 @@
  * @return sieved_items: A list containing the items on the user_turf that match any of the typepaths in types.
  */
 /obj/structure/handcart/proc/item_sieve(mob/living/user, turf/user_turf, list/types)
-	var/list/sieved_items = list()
+	var/list/sieved_items
 
 	for(var/obj/item/I in user_turf)
 		for(var/typepath in types)
@@ -145,7 +150,7 @@
 				continue
 			//Check the type of the object and insert if match.
 			if(istype(I, typepath))
-				sieved_items += I
+				LAZYADD(sieved_items, I)
 				break //No duplicate insertions! (e.g. [/obj/item/ore, /obj/item/ore/ore_subtype])
 
 	return sieved_items
@@ -159,15 +164,14 @@
  *
  * @return bool: FALSE if do_after or put_in fail, TRUE otherwise.
  */
-/obj/structure/handcart/proc/interruptable_put(mob/living/user, atom/movable/O)
-	if(!do_after(user, 0.5 SECONDS, src))
+/obj/structure/handcart/proc/interruptable_put(mob/living/user, atom/movable/AM)
+	if(!do_after(user, 0.1 SECONDS, src))
 		return FALSE
-	var/res = put_in(O, user)
-	if(!res)
+	if(!put_in(user, AM))
 		return FALSE
-	playsound(loc, 'sound/foley/cartadd.ogg', 100, FALSE, -1)
+	if(prob(30))
+		playsound(loc, 'sound/foley/cartadd.ogg', 100, FALSE, -1)
 	return TRUE
-
 
 //Handles any object that's an ore or a gem (in the future, should change to raw gems if you add refinement steps)
 /obj/structure/handcart/proc/sieve_ores_and_gems(mob/living/user, turf/user_turf)
@@ -178,32 +182,32 @@
 	return item_sieve(user, user_turf, list(/obj/item/grown/log/tree, /obj/item/natural/bundle/stick))
 
 
-/obj/structure/handcart/proc/put_in(atom/movable/O, mob/user)
-	if(!insertion_allowed(O))
+/obj/structure/handcart/proc/put_in(mob/user, atom/movable/AM)
+	if(!insertion_allowed(AM))
 		return
-	var/weight = 0
-	if(isitem(O))
-		var/obj/item/I = O
+	var/weight = NONE
+	if(isitem(AM))
+		var/obj/item/I = AM
 		if((current_capacity + I.w_class) > maximum_capacity)
 			return FALSE
 		weight = I.w_class
-	if(isliving(O))
+	if(isliving(AM))
 		if((current_capacity + arbitrary_living_creature_weight) > maximum_capacity)
 			return FALSE
 		weight = arbitrary_living_creature_weight
-	if(user && !user.transferItemToLoc(O, src))
+	if(isitem(AM) && !user?.transferItemToLoc(AM, src))
 		return FALSE
 	else
-		O.forceMove(src)
+		AM.forceMove(src)
 	current_capacity += weight
-	stuff_shit += O
+	stuff_shit += AM
 	update_icon()
 	return TRUE
 
 /obj/structure/handcart/proc/take_contents()
 	var/atom/L = drop_location()
 	for(var/atom/movable/AM in L)
-		if(AM != src && put_in(AM)) // limit reached
+		if(AM != src && put_in(null, AM)) // limit reached
 			break
 
 /obj/structure/handcart/update_icon()
@@ -241,18 +245,16 @@
 			if(L.density)
 				return FALSE
 		L.stop_pulling()
-	else if(isobj(AM))
+		return TRUE
+	if(isobj(AM))
 		if((AM.density) || AM.anchored || AM.has_buckled_mobs() || iseffect(AM))
 			return FALSE
-		else
-			if(isitem(AM))
-				var/obj/item/I = AM
-				if(HAS_TRAIT(I, TRAIT_NODROP) || I.item_flags & ABSTRACT)
-					return FALSE
-	else // not a mob or object
-		return FALSE
-
-	return TRUE
+		if(isitem(AM))
+			var/obj/item/I = AM
+			if(HAS_TRAIT(I, TRAIT_NODROP) || I.item_flags & ABSTRACT)
+				return FALSE
+		return TRUE
+	return FALSE
 
 /obj/structure/handcart/Move(atom/newloc, direct, glide_size_override)
 	. = ..()

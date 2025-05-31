@@ -74,7 +74,6 @@
 /mob/living/carbon/check_projectile_wounding(obj/projectile/P, def_zone, blocked)
 	var/obj/item/bodypart/BP = get_bodypart(check_zone(def_zone))
 	if(BP)
-		testing("projwound")
 		var/newdam = P.damage * (100-blocked)/100
 		BP.bodypart_attacked_by(P.woundclass, newdam, zone_precise = def_zone, crit_message = TRUE)
 		return TRUE
@@ -102,6 +101,9 @@
 		used_limb = parse_zone(I.sublimb_grabbed)
 
 	if(used_limb)
+		if(target != src) // No self love here
+			if(used_limb == parse_zone(BODY_ZONE_PRECISE_R_HAND) || used_limb == parse_zone(BODY_ZONE_PRECISE_L_HAND))
+				GLOB.vanderlin_round_stats[STATS_HANDS_HELD]++
 		target.visible_message(span_warning("[src] grabs [target]'s [used_limb]."), \
 						span_warning("[src] grabs my [used_limb]."), span_hear("I hear shuffling."), null, list(src))
 		to_chat(src, span_info("I grab [target]'s [used_limb]."))
