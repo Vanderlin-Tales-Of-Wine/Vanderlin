@@ -82,7 +82,7 @@
 			qdel(feature)
 		feature = null
 	bodypart_features.Cut()
-	if(owner)
+	if(owner && !QDELETED(owner))
 		owner.update_body()
 
 /mob/living/carbon/proc/remove_all_bodypart_features()

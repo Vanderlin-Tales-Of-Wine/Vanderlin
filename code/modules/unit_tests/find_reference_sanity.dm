@@ -6,6 +6,13 @@
 	var/list/test_list = list()
 	var/list/test_assoc_list = list()
 
+/atom/movable/ref_holder/Destroy()
+	test = null
+	static_test = null
+	test_list.Cut()
+	test_assoc_list.Cut()
+	return ..()
+
 /atom/movable/ref_test
 	var/atom/movable/ref_test/self_ref
 

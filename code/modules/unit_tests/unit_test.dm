@@ -112,7 +112,6 @@ GLOBAL_VAR_INIT(focused_test, focused_test())
 	var/list/ignore = list(
 		//Never meant to be created, errors out the ass for mobcode reasons
 		/mob/living/carbon,
-		/mob/living/carbon/human/dummy,
 		//Needs a seed passed, but subtypes set one by default
 		/obj/item/grown,
 		/obj/item/reagent_containers/food/snacks/grown,
