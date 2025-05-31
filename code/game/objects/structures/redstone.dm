@@ -242,6 +242,11 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 		to_chat(L, "<span class='info'>I feel something click beneath me.</span>")
 		AM.log_message("has activated a pressure plate", LOG_GAME)
 		playsound(src, 'sound/misc/pressurepad_down.ogg', 65, extrarange = 2)
+	if(isstructure(AM))
+		var/obj/structure/structure = AM
+		if(structure.w_class >= WEIGHT_CLASS_BULKY)
+			playsound(src, 'sound/misc/pressurepad_down.ogg', 65, extrarange = 2)
+			triggerplate()
 
 /obj/structure/pressure_plate/Uncrossed(atom/movable/AM)
 	. = ..()
