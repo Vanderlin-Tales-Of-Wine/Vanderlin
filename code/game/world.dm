@@ -197,12 +197,15 @@ GLOBAL_PROTECT(tracy_init_reason)
 	GLOB.world_job_debug_log = "[GLOB.log_directory]/job_debug.log"
 	GLOB.world_paper_log = "[GLOB.log_directory]/paper.log"
 	GLOB.tgui_log = "[GLOB.log_directory]/tgui.log"
-	GLOB.harddel_log = "[GLOB.log_directory]/harddel.log"
 	set_db_log_directory()
 
 #ifdef UNIT_TESTS
 	GLOB.test_log = file("[GLOB.log_directory]/tests.log")
 	start_log(GLOB.test_log)
+#endif
+#ifdef REFERENCE_DOING_IT_LIVE
+	GLOB.harddel_log = "[GLOB.log_directory]/harddel.log"
+	start_log(GLOB.harddel_log)
 #endif
 	start_log(GLOB.world_game_log)
 	start_log(GLOB.world_attack_log)
