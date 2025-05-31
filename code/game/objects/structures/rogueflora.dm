@@ -63,6 +63,10 @@
 	. = ..()
 	icon_state = "t[rand(1,16)]"
 
+/obj/structure/flora/tree/evil
+	var/datum/looping_sound/boneloop/soundloop
+	var/datum/vine_controller/controller
+
 /obj/structure/flora/tree/evil/Initialize()
 	. = ..()
 	icon_state = "wv[rand(1,2)]"
@@ -70,16 +74,12 @@
 	soundloop.start()
 
 /obj/structure/flora/tree/evil/Destroy()
-	soundloop.stop()
+	if(soundloop)
+		QDEL_NULL(soundloop)
 	if(controller)
 		controller.endvines()
-		controller.tree = null
 		controller = null
-	. = ..()
-
-/obj/structure/flora/tree/evil
-	var/datum/looping_sound/boneloop/soundloop
-	var/datum/vine_controller/controller
+	return ..()
 
 /obj/structure/flora/tree/wise
 	name = "wise tree"

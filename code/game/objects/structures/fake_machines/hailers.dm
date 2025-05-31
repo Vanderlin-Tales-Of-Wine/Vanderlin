@@ -17,10 +17,13 @@
 	pixel_y = 0
 	pixel_x = -32
 
-
 /obj/structure/fake_machine/hailer/Initialize(mapload)
 	. = ..()
 	SSroguemachine.hailer = src
+
+/obj/structure/fake_machine/hailer/Destroy()
+	SSroguemachine.hailer = null
+	return ..()
 
 /obj/structure/fake_machine/hailer/attackby(obj/item/H, mob/user, params)
 	if(!HAS_TRAIT(user, TRAIT_BURDEN) && !is_gaffer_assistant_job(user.mind.assigned_role))

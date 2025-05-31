@@ -36,7 +36,7 @@
 	var/turf/T = get_turf(src)
 	if(T)
 		new /obj/item/grown/log/tree/stick(T)
-	..()
+	return ..()
 
 /obj/structure/gravemarker/OnCrafted(dir, mob/user)
 	icon_state = "gravemarker[rand(1,3)]"

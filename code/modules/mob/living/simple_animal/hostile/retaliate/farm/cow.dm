@@ -58,7 +58,7 @@
 	var/can_tip = TRUE
 
 /mob/living/simple_animal/hostile/retaliate/cow/Initialize()
-	..()
+	. = ..()
 	if(can_tip)
 		AddComponent(/datum/component/tippable, \
 			0.5 SECONDS, \
@@ -66,8 +66,8 @@
 			rand(25 SECONDS, 50 SECONDS), \
 			null,\
 			CALLBACK(src, PROC_REF(after_cow_tipped)),\
-			CALLBACK(src, PROC_REF(after_cow_untipped)))
-
+			CALLBACK(src, PROC_REF(after_cow_untipped)),\
+		)
 
 	if(can_breed)
 		AddComponent(\

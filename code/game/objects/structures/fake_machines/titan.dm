@@ -45,6 +45,15 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 		"Cancel",
 	)
 
+/obj/structure/fake_machine/titan/Initialize()
+	. = ..()
+	become_hearing_sensitive()
+	set_light(5)
+
+/obj/structure/fake_machine/titan/Destroy()
+	set_light(0)
+	return ..()
+
 /// Destroys the current crown with a cool message and returns a new crown.
 /obj/structure/fake_machine/titan/proc/recreate_crown()
 	if(SSroguemachine.crown)
@@ -152,29 +161,12 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 	if(findtext(message, "appoint regent") && perform_check(user))
 		appoint_regent(user)
 
-/obj/structure/fake_machine/titan/Initialize()
-	. = ..()
-	become_hearing_sensitive()
-
 /obj/structure/fake_machine/titan/obj_break(damage_flag, silent)
 	..()
 	cut_overlays()
 //	icon_state = "[icon_state]-br"
 	set_light(0)
 	return
-
-/obj/structure/fake_machine/titan/Destroy()
-	set_light(0)
-	..()
-
-/obj/structure/fake_machine/titan/Initialize()
-	. = ..()
-	icon_state = null
-//	var/mutable_appearance/eye_lights = mutable_appearance(icon, "titan-eyes")
-//	eye_lights.plane = ABOVE_LIGHTING_PLANE //glowy eyes
-//	eye_lights.layer = ABOVE_LIGHTING_LAYER
-//	add_overlay(eye_lights)
-	set_light(5)
 
 // COMMANDS BELOW
 

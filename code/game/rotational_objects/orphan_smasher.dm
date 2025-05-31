@@ -32,8 +32,6 @@
 	var/list/pre_start_list = list(STEP_FIDDLE, STEP_BUTTON, STEP_LEVER)
 	var/list/post_start_list = list(STEP_BUTTON, STEP_LEVER, STEP_FIDDLE)
 
-	var/sound/anvil_smash
-
 /obj/structure/orphan_smasher/Initialize()
 	. = ..()
 	var/turf/turf = get_step(src, EAST)
@@ -46,6 +44,18 @@
 			regular_recipes |= new recipe_path
 
 	START_PROCESSING(SSobj, src)
+
+/obj/structure/orphan_smasher/Destroy()
+	if(current)
+		QDEL_NULL(current)
+	for(var/datum/anvil_recipe/recipe as anything in regular_recipes)
+		LAZYREMOVE(regular_recipes, recipe)
+		QDEL_NULL(recipe)
+	QDEL_NULL(bin)
+	current_requirements.Cut()
+	anvil_recipes_to_craft.Cut()
+	completed_items.Cut()
+	return ..()
 
 /obj/structure/orphan_smasher/process()
 	if(!working)
@@ -304,6 +314,10 @@
 /obj/structure/material_bin/Initialize()
 	. = ..()
 	AddComponent(/datum/component/storage/concrete/grid/anvil_bin)
+
+/obj/structure/material_bin/Destroy()
+	parent = null
+	return ..()
 
 /obj/structure/material_bin/update_icon_state()
 	. = ..()

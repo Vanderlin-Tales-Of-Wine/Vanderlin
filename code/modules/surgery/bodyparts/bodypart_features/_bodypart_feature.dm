@@ -77,6 +77,9 @@
 /obj/item/bodypart/proc/remove_all_bodypart_features()
 	if(!bodypart_features)
 		return
+	for(var/datum/bodypart_feature/feature as anything in bodypart_features)
+		if(istype(feature))
+			qdel(feature)
 	bodypart_features.Cut()
 	if(owner)
 		owner.update_body()

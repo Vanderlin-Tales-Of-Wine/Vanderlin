@@ -412,7 +412,11 @@
 	var/rawegg = FALSE
 
 /obj/machinery/light/fueled/hearth/Initialize()
+	. = ..()
 	boilloop = new(src, FALSE)
+
+/obj/machinery/light/fueled/hearth/Destroy()
+	QDEL_NULL(boilloop)
 	. = ..()
 
 /obj/machinery/light/fueled/hearth/attackby(obj/item/W, mob/living/user, params)
@@ -517,10 +521,6 @@
 	if(isliving(user) && on)
 		user.visible_message("<span class='warning'>[user] snuffs [src].</span>")
 		burn_out()
-
-/obj/machinery/light/fueled/hearth/Destroy()
-	QDEL_NULL(boilloop)
-	. = ..()
 
 /obj/machinery/light/fueled/campfire
 	name = "campfire"

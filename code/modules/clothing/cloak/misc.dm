@@ -186,7 +186,7 @@
 
 /obj/item/clothing/cloak/half/random/Initialize()
 	color = pick(CLOTHING_WINESTAIN_RED, CLOTHING_MUSTARD_YELLOW, CLOTHING_SOOT_BLACK, CLOTHING_BARK_BROWN, CLOTHING_FOREST_GREEN, CLOTHING_BERRY_BLUE)
-	..()
+	return ..()
 
 /obj/item/clothing/cloak/matron
 	name = "matron cloak"

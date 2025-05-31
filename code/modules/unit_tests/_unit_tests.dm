@@ -63,7 +63,7 @@
 #include "anchored_mobs.dm"
 #include "component_tests.dm"
 #include "connect_loc.dm"
-// #include "create_and_destroy.dm"
+#include "create_and_destroy.dm"
 #include "focus_only_tests.dm"
 #include "reagent_id_typos.dm"
 //#include "reagent_names.dm"
@@ -78,6 +78,11 @@
 #include "surgeries.dm"
 #include "timer_sanity.dm"
 #include "unit_test.dm"
+
+
+#ifdef REFERENCE_TRACKING_DEBUG //Don't try and parse this file if ref tracking isn't turned on. IE: don't parse ref tracking please mr linter
+#include "find_reference_sanity.dm"
+#endif
 
 #undef TEST_ASSERT
 #undef TEST_ASSERT_EQUAL

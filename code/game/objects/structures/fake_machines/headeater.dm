@@ -79,7 +79,7 @@
 		if(E.headprice > 0)
 			to_chat(user, span_danger("the [src] consumes the [E] spitting out coins in its place!"))
 			budget2change(E.headprice, user)
-			E.forceMove(src)
+			qdel(E)
 			return
 
 	if(istype(H, /obj/item/natural/head))
@@ -87,7 +87,7 @@
 		if(A.headprice > 0)
 			to_chat(user, span_danger("the [src] consumes the [A] spitting out coins in its place!"))
 			budget2change(A.headprice, user)
-			A.forceMove(src)
+			qdel(A)
 			return
 
 	if(istype(H, /obj/item/painting/lorehead) && is_gaffer_job(user.mind.assigned_role)) //this will hopefully be more thematic when the HEAD EATER is in its real form
@@ -96,7 +96,7 @@
 			to_chat(user, span_danger("as the [src] consumes [D] without a trace, you are hit with a wistful feeling, your past...gone in an instant."))
 			user.add_stress(/datum/stressevent/destroyed_past)
 			budget2change(D.headprice, user)
-			H.forceMove(src)
+			qdel(D)
 			return
 
 	if(istype(H, /obj/item/painting/lorehead))
@@ -104,4 +104,4 @@
 		if(Y.headprice > 0)
 			to_chat(user, span_danger("the [src] consumes the [Y] spitting out coins in its place!"))
 			budget2change(Y.headprice, user)
-			Y.forceMove(src)
+			qdel(Y)

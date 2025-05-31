@@ -69,7 +69,7 @@
 
 /obj/item/clothing/shirt/undershirt/random/Initialize()
 	color = pick_assoc(GLOB.peasant_dyes)
-	..()
+	return ..()
 
 /obj/item/clothing/shirt/undershirt/puritan
 	name = "formal silks"
@@ -113,7 +113,7 @@
 
 /obj/item/clothing/shirt/undershirt/vagrant/Initialize()
 	color = pick(CLOTHING_MUD_BROWN, CLOTHING_OLD_LEATHER, CLOTHING_SPRING_GREEN, CLOTHING_BARK_BROWN, CLOTHING_CANVAS	)
-	..()
+	return ..()
 
 /obj/item/clothing/shirt/undershirt/webs
 	name = "webbed shirt"

@@ -176,8 +176,8 @@
 	smooth_fences()
 
 /obj/structure/fluff/railing/fence/Destroy()
-	..()
 	smooth_fences()
+	return ..()
 
 /obj/structure/fluff/railing/fence/OnCrafted(dirin, mob/user)
 	. = ..()
@@ -383,16 +383,16 @@
 	metalizer_result = /obj/item/gear/metal/bronze
 
 /obj/structure/fluff/clock/Initialize()
+	. = ..()
 	soundloop = new(src, FALSE)
 	soundloop.start()
-	. = ..()
 	var/static/list/loc_connections = list(COMSIG_ATOM_EXIT = PROC_REF(on_exit))
 	AddElement(/datum/element/connect_loc, loc_connections)
 
 /obj/structure/fluff/clock/Destroy()
 	if(soundloop)
-		soundloop.stop()
-	..()
+		QDEL_NULL(soundloop)
+	return ..()
 
 /obj/structure/fluff/clock/obj_break(damage_flag, silent)
 	if(!broke)
@@ -480,8 +480,8 @@
 
 /obj/structure/fluff/wallclock/Destroy()
 	if(soundloop)
-		soundloop.stop()
-	..()
+		QDEL_NULL(soundloop)
+	return ..()
 
 /obj/structure/fluff/wallclock/examine(mob/user)
 	. = ..()
@@ -1211,7 +1211,7 @@
 
 /obj/structure/fluff/psycross/copper/Destroy()
 	addomen("psycross")
-	..()
+	return ..()
 
 /obj/structure/fluff/psycross/proc/AOE_flash(mob/user, range = 15, power = 5, targeted = FALSE)
 	var/list/mob/targets = get_flash_targets(get_turf(src), range, FALSE)

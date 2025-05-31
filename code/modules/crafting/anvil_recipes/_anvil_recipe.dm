@@ -27,6 +27,13 @@
 	parent = P
 	. = ..()
 
+/datum/anvil_recipe/Destroy(force, ...)
+	additional_items.Cut()
+	parent = null
+	req_bar = null
+	created_item = null
+	return ..()
+
 /datum/anvil_recipe/proc/advance(mob/user, breakthrough = FALSE)
 	var/moveup = 1
 	var/proab = 0 // Probability to not spoil the bar

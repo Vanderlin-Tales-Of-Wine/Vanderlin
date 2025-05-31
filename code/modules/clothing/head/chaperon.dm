@@ -10,21 +10,23 @@
 	icon_state = "chap_alt"
 	flags_inv = HIDEEARS
 	color = CLOTHING_LINEN
+
 /obj/item/clothing/head/chaperon/greyscale/random/Initialize()
-	. = ..()
 	color = pick_assoc(GLOB.noble_dyes)
+	return ..()
 
 /obj/item/clothing/head/chaperon/greyscale/silk
 	icon_state = "chap_silk"
+
 /obj/item/clothing/head/chaperon/greyscale/silk/random/Initialize()
-	. = ..()
 	color = pick_assoc(GLOB.noble_dyes)
+	return ..()
 
 /obj/item/clothing/head/chaperon/greyscale/chaperonsecondary
 	color = CLOTHING_PLUM_PURPLE
 
 /obj/item/clothing/head/chaperon/greyscale/chaperonsecondary/Initialize()
-	..()
+	. = ..()
 	if(GLOB.lordprimary)
 		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
 	else

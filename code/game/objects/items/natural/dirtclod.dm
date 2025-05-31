@@ -6,6 +6,10 @@
 	throwforce = 0
 	w_class = WEIGHT_CLASS_TINY
 
+/obj/item/natural/dirtclod/Initialize()
+	. = ..()
+	icon_state = "clod[rand(1,2)]"
+
 /obj/item/natural/dirtclod/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/weapon/shovel))
 		var/obj/item/weapon/shovel/S = W
@@ -15,7 +19,7 @@
 			S.heldclod = src
 			W.update_icon()
 			return
-	..()
+	return ..()
 
 /obj/item/natural/dirtclod/Moved(oldLoc, dir)
 	..()
@@ -40,19 +44,19 @@
 	user.visible_message("<span class='warning'>[user] scatters [src].</span>")
 	qdel(src)
 
-/obj/item/natural/dirtclod/Initialize()
-	icon_state = "clod[rand(1,2)]"
-	..()
-
 /obj/structure/fluff/clodpile
 	name = "dirt pile"
 	desc = "A collection of dirt, amalgamated into a mighty structure incomparable to any creation made by man or god alike."
+	icon = 'icons/roguetown/items/natural.dmi'
 	icon_state = "clodpile"
 	var/dirtamt = 5
-	icon = 'icons/roguetown/items/natural.dmi'
 	climbable = FALSE
 	density = FALSE
 	climb_offset = 10
+
+/obj/structure/fluff/clodpile/Initialize()
+	. = ..()
+	dir = pick(GLOB.cardinals)
 
 /obj/structure/fluff/clodpile/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/weapon/shovel))
@@ -77,8 +81,4 @@
 				if(dirtamt > 5)
 					dirtamt = 5
 				return
-	..()
-
-/obj/structure/fluff/clodpile/Initialize()
-	dir = pick(GLOB.cardinals)
-	..()
+	return ..()

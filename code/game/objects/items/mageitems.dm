@@ -657,20 +657,33 @@
 
 	var/datum/weakref/drainer
 
-/obj/structure/soul/New(loc, mob/living/dead_person)
-	if(dead_person?.mana_pool)
-		mana_amount = dead_person.mana_pool.amount
-		drainer = WEAKREF(dead_person)
+	var/qdel_timer
+
+/obj/structure/soul/Initialize(mapload)
+	. = ..()
 	animate(src, pixel_y = 4, time = 1 SECONDS, loop = -1, flags = ANIMATION_RELATIVE)
 	animate(pixel_y = -4, time = 1 SECONDS, flags = ANIMATION_RELATIVE)
-	QDEL_IN(src, 10 MINUTES)
-	. = ..()
+
+/obj/structure/soul/Destroy()
+	if(qdel_timer)
+		deltimer(qdel_timer)
+	return ..()
 
 /obj/structure/soul/attack_hand(mob/living/user)
 	. = ..()
-	if(user.mana_pool)
-		if(user.mana_pool.intrinsic_recharge_sources & MANA_SOULS)
-			drain_mana(user)
+	if(user.mana_pool?.intrinsic_recharge_sources & MANA_SOULS)
+		drain_mana(user)
+
+/obj/structure/soul/proc/init_mana(datum/weakref/dead_guy)
+	drainer = dead_guy
+	var/mob/living/drained = drainer?.resolve()
+	if(!drained)
+		return
+	mana_amount = drained.mana_pool?.amount
+	if(!mana_amount || mana_amount <= 0)
+		qdel(src)
+		return
+	qdel_timer = QDEL_IN(src, 10 MINUTES)
 
 /obj/structure/soul/proc/drain_mana(mob/living/user)
 	var/datum/beam/transfer_beam = user.Beam(src, icon_state = "drain_life", time = INFINITY)

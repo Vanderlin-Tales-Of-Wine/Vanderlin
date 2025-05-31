@@ -66,12 +66,14 @@
 			vis_contents += em_block
 
 /atom/movable/Destroy()
+	if(blocks_emissive == EMISSIVE_BLOCK_UNIQUE)
+		vis_contents -= em_block
 	QDEL_NULL(em_block)
 	if(spatial_grid_key)
 		SSspatial_grid.force_remove_from_grid(src)
-
+	if(mana_pool)
+		QDEL_NULL(mana_pool)
 	LAZYCLEARLIST(client_mobs_in_contents)
-
 	LAZYCLEARLIST(important_recursive_contents)//has to be before moveToNullspace() so that we can exit our spatial_grid cell if we're in it
 	return ..()
 

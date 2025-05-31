@@ -9,8 +9,8 @@
 	name = "skirt"
 
 /obj/item/clothing/pants/skirt/random/Initialize()
-	..()
 	color = pick(CLOTHING_SALMON, CLOTHING_BERRY_BLUE, CLOTHING_SPRING_GREEN, CLOTHING_PEAR_YELLOW)
+	return ..()
 
 /obj/item/clothing/pants/skirt/blue
 	color = CLOTHING_BERRY_BLUE

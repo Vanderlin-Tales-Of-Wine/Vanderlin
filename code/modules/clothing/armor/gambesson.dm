@@ -150,4 +150,4 @@
 
 /obj/item/clothing/armor/gambeson/light/striped/Initialize()
 	color = pick(CLOTHING_SALMON, CLOTHING_BERRY_BLUE, CLOTHING_SPRING_GREEN, CLOTHING_PEAR_YELLOW)
-	..()
+	return ..()

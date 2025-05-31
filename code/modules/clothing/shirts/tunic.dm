@@ -38,13 +38,13 @@
 
 /obj/item/clothing/shirt/tunic/random/Initialize()
 	color = pick(CLOTHING_PLUM_PURPLE, CLOTHING_BLOOD_RED, CLOTHING_SKY_BLUE, CLOTHING_FOREST_GREEN)
-	..()
+	return ..()
 
 /obj/item/clothing/shirt/tunic/tunicprimary
 	color = CLOTHING_BLOOD_RED
 
 /obj/item/clothing/shirt/tunic/tunicprimary/Initialize()
-	..()
+	. = ..()
 	if(GLOB.lordprimary)
 		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
 	else
