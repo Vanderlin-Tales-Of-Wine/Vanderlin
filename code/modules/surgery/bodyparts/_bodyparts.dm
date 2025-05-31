@@ -108,7 +108,7 @@
 	update_HP()
 
 /obj/item/bodypart/Destroy()
-	if(owner && !QDELETED(owner))
+	if(owner)
 		owner.remove_bodypart(src)
 		set_owner(null)
 	for(var/obj/item/I as anything in embedded_objects)
@@ -118,7 +118,6 @@
 	if(bandage)
 		QDEL_NULL(bandage)
 	embedded_objects.Cut()
-	owner = null
 	original_owner = null
 	return ..()
 
