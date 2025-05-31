@@ -59,7 +59,6 @@
 	..()
 	if(ismob(loc))
 		var/mob/M = loc
-		M.update_inv_w_uniform()
 		M.update_inv_pants()
 
 
@@ -70,10 +69,6 @@
 		fitted = initial(fitted)
 		if(!alt_covers_chest)
 			body_parts_covered |= CHEST
-
-	if(mutantrace_variation && ishuman(user))
-		var/mob/living/carbon/human/H = user
-		H.update_inv_w_uniform()
 
 	if(slot == SLOT_PANTS && freshly_laundered)
 		freshly_laundered = FALSE
@@ -122,7 +117,6 @@
 
 			if(ishuman(loc))
 				var/mob/living/carbon/human/H = loc
-				H.update_inv_w_uniform()
 				H.update_inv_wear_suit()
 
 			return TRUE
@@ -143,7 +137,6 @@
 
 		if(ishuman(loc))
 			var/mob/living/carbon/human/H = loc
-			H.update_inv_w_uniform()
 			H.update_inv_wear_suit()
 
 
@@ -166,7 +159,6 @@
 		to_chat(usr, "<span class='notice'>I adjust the suit back to normal.</span>")
 	if(ishuman(usr))
 		var/mob/living/carbon/human/H = usr
-		H.update_inv_w_uniform()
 		H.update_body()
 
 /obj/item/clothing/pants/proc/toggle_jumpsuit_adjust()
