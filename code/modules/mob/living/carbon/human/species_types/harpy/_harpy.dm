@@ -71,6 +71,7 @@
 
 	specstats_m = list(STATKEY_STR = -4, STATKEY_PER = 2, STATKEY_INT = 1, STATKEY_CON = -4, STATKEY_END = 0, STATKEY_SPD = 3, STATKEY_LCK = 0)
 	specstats_f = list(STATKEY_STR = -4, STATKEY_PER = 2, STATKEY_INT = 1, STATKEY_CON = -4, STATKEY_END = 0, STATKEY_SPD = 3, STATKEY_LCK = 0)
+
 	enflamed_icon = "widefire"
 
 	organs = list(
