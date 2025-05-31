@@ -342,7 +342,7 @@ SUBSYSTEM_DEF(garbage)
 			#ifdef REFERENCE_TRACKING
 			if (QDEL_HINT_FINDREFERENCE) //qdel will, if REFERENCE_TRACKING is enabled, display all references to this object, then queue the object for deletion.
 				SSgarbage.HardDelete(to_delete, override = TRUE)
-				D.references_legacy()
+				D.find_references()
 			if (QDEL_HINT_IFFAIL_FINDREFERENCE)
 				SSgarbage.HardDelete(to_delete, override = TRUE)
 				SSgarbage.reference_find_on_fail["\ref[D]"] = TRUE
