@@ -80,9 +80,8 @@
 	for(var/datum/bodypart_feature/feature as anything in bodypart_features)
 		if(istype(feature))
 			qdel(feature)
-		feature = null
 	bodypart_features.Cut()
-	if(owner && !QDELETED(owner))
+	if(owner)
 		owner.update_body()
 
 /mob/living/carbon/proc/remove_all_bodypart_features()

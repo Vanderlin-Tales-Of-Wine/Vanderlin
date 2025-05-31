@@ -33,8 +33,17 @@
 
 	var/starting_time = world.time
 
-	DoSearchVar(GLOB, "GLOB") //globals
+	DoSearchVar(GLOB, "GLOB", search_time = starting_time) //globals
 	log_reftracker("Finished searching globals")
+
+	//Yes we do actually need to do this. The searcher refuses to read weird lists
+	//And global.vars is a really weird list
+	var/global_vars = list()
+	for(var/key in global.vars)
+		global_vars[key] = global.vars[key]
+
+	DoSearchVar(global_vars, "Native Global", search_time = starting_time)
+	log_reftracker("Finished searching native globals")
 
 	for(var/datum/thing in world) //atoms (don't beleive its lies)
 		DoSearchVar(thing, "World -> [thing.type]", search_time = starting_time)
@@ -64,7 +73,7 @@ CHECK_TICK
 
 /datum/proc/DoSearchVar(potential_container, container_name, recursive_limit = 64, search_time = world.time)
 	#ifdef REFERENCE_TRACKING_DEBUG
-	if(!found_refs)
+	if(SSgarbage.should_save_refs && !found_refs)
 		found_refs = list()
 	#endif
 
@@ -93,7 +102,9 @@ CHECK_TICK
 
 			if(variable == src)
 				#ifdef REFERENCE_TRACKING_DEBUG
-				found_refs[varname] = TRUE
+				if(SSgarbage.should_save_refs)
+					found_refs[potential_cache] = TRUE
+					continue //End early, don't want these logging
 				#endif
 				log_reftracker("Found [type] \ref[src] in [datum_container.type]'s \ref[datum_container] [varname] var. [container_name]")
 
@@ -110,7 +121,9 @@ CHECK_TICK
 			//Check normal entrys
 			if(element_in_list == src)
 				#ifdef REFERENCE_TRACKING_DEBUG
-				found_refs[potential_cache] = TRUE
+				if(SSgarbage.should_save_refs)
+					found_refs[potential_cache] = TRUE
+					continue //End early, don't want these logging
 				#endif
 				log_reftracker("Found [type] \ref[src] in list [container_name].")
 				continue
@@ -121,7 +134,9 @@ CHECK_TICK
 			//Check assoc entrys
 			if(assoc_val == src)
 				#ifdef REFERENCE_TRACKING_DEBUG
-				found_refs[potential_cache] = TRUE
+				if(SSgarbage.should_save_refs)
+					found_refs[potential_cache] = TRUE
+					continue //End early, don't want these logging
 				#endif
 				log_reftracker("Found [type] \ref[src] in list [container_name]\[[element_in_list]\]")
 				continue

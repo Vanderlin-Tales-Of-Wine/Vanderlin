@@ -111,13 +111,13 @@
 	if(owner && !QDELETED(owner))
 		owner.remove_bodypart(src)
 		set_owner(null)
-	remove_all_bodypart_features()
 	for(var/obj/item/I as anything in embedded_objects)
 		remove_embedded_object(I)
 	for(var/datum/wound/wound as anything in wounds)
-		QDEL_NULL(wound)
+		qdel(wound)
 	if(bandage)
 		QDEL_NULL(bandage)
+	embedded_objects.Cut()
 	owner = null
 	original_owner = null
 	return ..()

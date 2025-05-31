@@ -49,6 +49,10 @@ SUBSYSTEM_DEF(garbage)
 	var/list/queues
 	#ifdef REFERENCE_TRACKING
 	var/list/reference_find_on_fail = list()
+	#ifdef REFERENCE_TRACKING_DEBUG
+	//Should we save found refs. Used for unit testing
+	var/should_save_refs = FALSE
+	#endif
 	#endif
 
 	/// Toggle for enabling/disabling hard deletes. Objects that don't explicitly request hard deletion with this disabled will leak.

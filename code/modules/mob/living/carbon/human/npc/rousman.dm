@@ -354,8 +354,8 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 /obj/structure/rousman_hole/Destroy()
 	GLOB.rousman_ambush_objects -= src
 	for(var/obj/structure/rousman_alarm/alarm as anything in all_alarms)
-		qdel(alarm)
-		all_alarms.Cut()
+		QDEL_NULL(alarm)
+	all_alarms.Cut()
 	return ..()
 
 /obj/structure/rousman_hole/proc/pre_activate_check()
