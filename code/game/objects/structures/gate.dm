@@ -92,12 +92,10 @@ GLOBAL_LIST_EMPTY(biggates)
 	for(var/A as anything in blockers)
 		QDEL_NULL(A)
 	blockers.Cut()
+	turfsy.Cut()
 	if(attached_to)
 		var/obj/structure/winch/W = attached_to
 		W.attached_gate = null
-	turfsy.Cut()
-	blocker = null
-	blocker_ref = null
 	return ..()
 
 /obj/structure/gate/update_icon()
