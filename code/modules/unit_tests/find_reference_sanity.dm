@@ -1,5 +1,4 @@
 ///Used to test the completeness of the reference finder proc.
-///Used to test the completeness of the reference finder proc.
 /datum/unit_test/find_reference_sanity
 
 /atom/movable/ref_holder
