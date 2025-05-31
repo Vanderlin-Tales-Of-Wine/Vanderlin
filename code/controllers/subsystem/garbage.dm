@@ -204,6 +204,8 @@ SUBSYSTEM_DEF(garbage)
 					INVOKE_ASYNC(D, TYPE_PROC_REF(/datum,find_references), remaining_refs)
 					ref_searching = TRUE
 				#endif
+				reference_find_on_fail -= text_ref(D)
+				#endif
 				var/type = D.type
 				var/datum/qdel_item/I = items[type]
 				log_world("## TESTING: GC: -- \ref[D] | [type] was unable to be GC'd --")
