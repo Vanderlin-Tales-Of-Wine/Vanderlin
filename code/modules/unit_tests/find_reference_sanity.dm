@@ -8,7 +8,6 @@
 
 /atom/movable/ref_holder/Destroy()
 	test = null
-	static_test = null
 	test_list.Cut()
 	test_assoc_list.Cut()
 	return ..()
