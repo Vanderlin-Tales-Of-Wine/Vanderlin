@@ -69,12 +69,12 @@
 			head = /obj/item/clothing/head/helmet/heavy/sinistar
 			H.cmode_music = 'sound/music/cmode/antag/combat_werewolf.ogg'
 		if(/datum/patron/inhumen/zizo)
-			head = /obj/item/clothing/head/helmet/visored/zizo
+			head = /obj/item/clothing/head/helmet/skullcap/cult
 			H.cmode_music = 'sound/music/cmode/antag/combat_cult.ogg'
 			H.change_stat(STATKEY_LCK, -2)
 			GLOB.heretical_players += H.real_name
 		if(/datum/patron/inhumen/matthios)
-			head = /obj/item/clothing/head/helmet/heavy/matthios
+			head = /obj/item/clothing/head/helmet/heavy/rust
 			H.cmode_music = 'sound/music/cmode/antag/CombatBandit1.ogg'
 			H.change_stat(STATKEY_LCK, -2)
 			GLOB.heretical_players += H.real_name
