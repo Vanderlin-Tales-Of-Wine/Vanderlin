@@ -85,9 +85,15 @@
 		return
 	var/obj/structure/structure = new placed_type(T)
 	if(place_behavior == PLACE_TOWARDS_USER)
-		structure.setDir(get_cardinal_dir(T, user))
+		if(get_turf(user) == T)
+			structure.setDir(REVERSE_DIR(user.dir))
+		else
+			structure.setDir(get_cardinal_dir(T, user))
 	else
-		structure.setDir(get_cardinal_dir(user, T))
+		if(get_turf(user) == T)
+			structure.setDir(user.dir)
+		else
+			structure.setDir(get_cardinal_dir(user, T))
 
 	in_stack--
 	if(in_stack <= 0)
