@@ -588,9 +588,8 @@
 
 	invisibility = INVISIBILITY_ABSTRACT
 
-
-
-	loc.handle_atom_del(src)
+	if(loc)
+		loc.handle_atom_del(src)
 
 	var/turf/T = loc
 	if(opacity && istype(T))
@@ -621,10 +620,10 @@
 
 	. = ..()
 
-	moveToNullspace()
+	for(var/movable_content in contents)
+		qdel(movable_content)
 
-	for(var/moveable in contents)
-		qdel(moveable)
+	moveToNullspace()
 
 	LAZYCLEARLIST(important_recursive_contents)
 
