@@ -90,7 +90,7 @@
 
 /obj/item/clothing/armor/plate/full/zizo
 	name = "darksteel fullplate"
-	desc = "Full plate. Called forth from the edge of what should be known. In Her name."
+	desc = "Full plate. Called forth from the edge of what should be known. In Her name.<br><span class='warningbig'>ZIZOID HERESY!!</span>"
 	icon_state = "zizoplate"
 	icon = 'icons/roguetown/clothing/special/evilarmor.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/evilarmor.dmi'
@@ -101,7 +101,7 @@
 
 /obj/item/clothing/armor/plate/full/matthios
 	name = "gilded fullplate"
-	desc = "Full plate. Tales told of men in armor such as this stealing many riches, or lives."
+	desc = "Full plate. Tales told of men in armor such as this stealing many riches, or lives.<br><span class='warningbig'MATTHIOSIAN HERESY!!</span>"
 	icon_state = "matthiosarmor"
 	icon = 'icons/roguetown/clothing/special/evilarmor.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/evilarmor.dmi'

@@ -755,7 +755,7 @@
 //................ Zizo Sword ............... //
 /obj/item/weapon/sword/long/greatsword/zizo
 	name = "darksteel kriegsmesser"
-	desc = "A dark red curved blade. Called forth from Her will, if you wield this blade you are to be feared, if you do not, you are dead."
+	desc = "A dark red curved blade. Called forth from Her will, if you wield this blade you are to be feared, if you do not, you are dead.<br><span class='warningbig'>ZIZOID HERESY!!</span>"
 	icon_state = "zizosword"
 	wdefense = ULTMATE_PARRY
 	minstr = 10
