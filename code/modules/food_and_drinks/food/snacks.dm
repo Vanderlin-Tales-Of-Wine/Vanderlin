@@ -108,6 +108,13 @@ All foods are distributed among various categories. Use common sense.
 	if(rotprocess)
 		SSticker.OnRoundstart(CALLBACK(src, PROC_REF(begin_rotting)))
 
+/obj/item/reagent_containers/food/snacks/Destroy()
+	if(contents)
+		for(var/atom/movable/something in contents)
+			something.forceMove(drop_location())
+	deltimer(rot_away_timer)
+	return ..()
+
 /datum/intent/food
 	name = "feed"
 	noaa = TRUE
@@ -634,14 +641,6 @@ All foods are distributed among various categories. Use common sense.
 		qdel(src)
 	var/obj/item/I = new path(T)
 	eater.put_in_active_hand(I, ignore_animation = TRUE)
-
-/obj/item/reagent_containers/food/snacks/Destroy()
-	STOP_PROCESSING(SSobj, src)
-	if(contents)
-		for(var/atom/movable/something in contents)
-			something.forceMove(drop_location())
-	deltimer(rot_away_timer)
-	return ..()
 
 /obj/item/reagent_containers/food/snacks/attack_animal(mob/M)
 	if(isanimal(M))

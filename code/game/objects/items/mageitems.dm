@@ -683,7 +683,7 @@
 	if(!mana_amount || mana_amount <= 0)
 		qdel(src)
 		return
-	qdel_timer = addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel), src), 10 MINUTES, TIMER_STOPPABLE)
+	qdel_timer = QDEL_IN(src, 10 MINUTES)
 
 /obj/structure/soul/proc/drain_mana(mob/living/user)
 	var/datum/beam/transfer_beam = user.Beam(src, icon_state = "drain_life", time = INFINITY)
