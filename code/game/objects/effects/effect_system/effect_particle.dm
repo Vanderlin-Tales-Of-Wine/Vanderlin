@@ -41,15 +41,12 @@
 	if (/obj/particle_emitter in vis_contents)
 		vis_contents -= /obj/particle_emitter
 
-
 /atom/movable/proc/ModParticles(target, min, max, type = "circle", random = 1)
 	if (particles)
 		particles.ModParticles(target, min, max, type = "circle", random = 1)
 
-
 /particles
 	var/name = "particles"
-
 
 /particles/proc/ModParticles(target, min, max, type = "circle", random = 1)
 	if (!(type in list("vector", "box", "circle", "sphere", "square", "cube")))											// Valid types for generator(), sans color
@@ -61,7 +58,6 @@
 	if (target in vars)
 		vars[target] = MakeGenerator(type, min, max, random)
 
-
 /particles/proc/SetGradient(...)
 	var/counter = 0
 	var/list/new_gradient = list()
@@ -71,7 +67,6 @@
 		new_gradient += i
 	gradient = new_gradient
 
-
 /obj/particle_emitter
 	name = ""
 	anchored = TRUE
@@ -79,7 +74,6 @@
 	appearance_flags = PIXEL_SCALE
 	var/particle_type = null
 	var/atom/movable/host
-
 
 /obj/particle_emitter/Initialize(mapload, time, _color)
 	. = ..()
@@ -92,8 +86,6 @@
 
 /obj/particle_emitter/Destroy(force)
 	host = null
-	if(particles)
-		RemoveParticles()
 	return ..()
 
 /obj/particle_emitter/smoke
