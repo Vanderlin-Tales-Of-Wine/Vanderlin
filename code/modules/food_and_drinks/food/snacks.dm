@@ -109,9 +109,8 @@ All foods are distributed among various categories. Use common sense.
 		SSticker.OnRoundstart(CALLBACK(src, PROC_REF(begin_rotting)))
 
 /obj/item/reagent_containers/food/snacks/Destroy()
-	if(contents)
-		for(var/atom/movable/something in contents)
-			something.forceMove(drop_location())
+	if(reagents)
+		QDEL_NULL(reagents)
 	deltimer(rot_away_timer)
 	return ..()
 

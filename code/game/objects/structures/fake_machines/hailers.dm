@@ -122,6 +122,10 @@
 	. = ..()
 	START_PROCESSING(SSslowobj, src)
 
+/obj/structure/fake_machine/hailerboard/Destroy()
+	STOP_PROCESSING(SSslowobj, src)
+	return ..()
+
 /obj/structure/fake_machine/hailerboard/process()//hailer hails? damn
 	. = ..()
 	var/message = pick(
