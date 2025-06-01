@@ -69,8 +69,8 @@ GLOBAL_VAR_INIT(focused_test, focused_test())
 /datum/unit_test/Destroy()
 	QDEL_LIST(allocated)
 	// clear the test area
-	for(var/turf/turf as anything in Z_TURFS(run_loc_floor_bottom_left.z))
-		for(var/content as anything in turf.contents)
+	for(var/turf/turf in Z_TURFS(run_loc_floor_bottom_left.z))
+		for(var/content in turf.contents)
 			if(istype(content, /obj/effect/landmark))
 				continue
 			qdel(content)
@@ -91,11 +91,17 @@ GLOBAL_VAR_INIT(focused_test, focused_test())
 /// Instances allocated through this proc will be destroyed when the test is over
 /datum/unit_test/proc/allocate(type, ...)
 	var/list/arguments = args.Copy(2)
-	if (!arguments.len)
-		arguments = list(run_loc_floor_bottom_left)
-	else if (arguments[1] == null)
-		arguments[1] = run_loc_floor_bottom_left
-	var/instance = new type(arglist(arguments))
+	if(ispath(type, /atom))
+		if (!arguments.len)
+			arguments = list(run_loc_floor_bottom_left)
+		else if (arguments[1] == null)
+			arguments[1] = run_loc_floor_bottom_left
+	var/instance
+	// Byond will throw an index out of bounds if arguments is empty in that arglist call. Sigh
+	if(length(arguments))
+		instance = new type(arglist(arguments))
+	else
+		instance = new type()
 	allocated += instance
 	return instance
 
