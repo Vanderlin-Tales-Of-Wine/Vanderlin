@@ -118,6 +118,7 @@
 	QDEL_NULL(boxes)
 	QDEL_NULL(closer)
 	LAZYCLEARLIST(is_using)
+	master = null
 	return ..()
 
 

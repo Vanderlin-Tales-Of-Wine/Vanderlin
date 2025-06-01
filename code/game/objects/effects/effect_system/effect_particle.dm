@@ -91,9 +91,9 @@
 	color = _color
 
 /obj/particle_emitter/Destroy(force)
-	if(host)
-		host.particle_emitters -= src
-		host = null
+	host = null
+	if(particles)
+		RemoveParticles()
 	return ..()
 
 /obj/particle_emitter/smoke

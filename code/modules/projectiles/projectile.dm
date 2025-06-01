@@ -122,8 +122,7 @@
 /obj/projectile/Destroy()
 	if(hitscan)
 		finalize_hitscan_and_generate_tracers()
-	if(istype(dropped))
-		QDEL_NULL(dropped)
+	dropped = null
 	firer = null
 	starting = null
 	original = null
