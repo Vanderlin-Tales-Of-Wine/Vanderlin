@@ -4,6 +4,8 @@
 /atom/movable/Destroy(force)
 	for(var/emitter as anything in particle_emitters)
 		qdel(emitter)
+	if(!LAZYLEN(particle_emitters))
+		particle_emitters = null
 	return ..()
 
 /atom/movable/proc/AddParticles(type, create_new = FALSE)
@@ -86,7 +88,7 @@
 	if(timer)
 		deltimer(timer)
 	if(host)
-		LAZYREMOVE(host.particle_emitters, src)
+		host.particle_emitters -= src
 		host = null
 	RemoveParticles()
 	return ..()
