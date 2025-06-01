@@ -38,7 +38,7 @@
 /obj/abstract/visual_ui_element/console_input/New(turf/loc, datum/visual_ui/P)
 	. = ..()
 	update_ui_screen_loc()
-	cursor_blink_timer = addtimer(CALLBACK(src, PROC_REF(blink_cursor)), 5, TIMER_STOPPABLE|TIMER_LOOP|TIMER_DELETE_ME) ///I'm really NGMI
+	cursor_blink_timer = addtimer(CALLBACK(src, PROC_REF(blink_cursor)), 5, TIMER_STOPPABLE|TIMER_LOOP) ///I'm really NGMI
 	initialize_commands()
 
 
@@ -510,7 +510,6 @@
 	return FALSE
 
 /obj/abstract/visual_ui_element/console_input/Destroy()
-	deltimer(cursor_blink_timer)
 	unfocus()
 	return ..()
 

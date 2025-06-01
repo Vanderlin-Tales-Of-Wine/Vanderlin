@@ -49,7 +49,7 @@
 		human.name = initial(hair.name)
 		created_mobs |= human
 
-	timer = addtimer(CALLBACK(src, PROC_REF(spin_humans)), 5 SECONDS, TIMER_LOOP | TIMER_DELETE_ME)
+	timer = addtimer(CALLBACK(src, PROC_REF(spin_humans)), 5 SECONDS, TIMER_LOOP)
 
 /datum/test_situation/job_render/proc/spin_humans()
 	if(!length(created_mobs))
