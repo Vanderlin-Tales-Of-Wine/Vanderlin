@@ -1,6 +1,6 @@
 // This code handles different species in the game.
-
 GLOBAL_LIST_EMPTY(roundstart_races)
+GLOBAL_LIST_EMPTY(patreon_races)
 /datum/species
 	/// The name used for examine text and so on
 	var/name
@@ -357,7 +357,9 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		var/datum/species/S = new I
 		if(S.check_roundstart_eligible())
 			GLOB.roundstart_races += S.name
-			qdel(S)
+		if(S.patreon_req)
+			GLOB.patreon_races += S.name
+		qdel(S)
 	if(!GLOB.roundstart_races.len)
 		GLOB.roundstart_races += "Humen"
 	sortList(GLOB.roundstart_races, GLOBAL_PROC_REF(cmp_text_dsc))
@@ -418,10 +420,9 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 /datum/species/proc/random_underwear(gender)
 	var/list/spec_undies = get_spec_undies_list(gender)
-	var/datum/sprite_accessory/X
-	if(spec_undies.len)
-		X = pick(spec_undies)
-		return X.name
+	if(LAZYLEN(spec_undies))
+		var/datum/sprite_accessory/underwear = pick(spec_undies)
+		return underwear.name
 
 /datum/species/proc/regenerate_icons(mob/living/carbon/human/H)
 	return FALSE
@@ -740,10 +741,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/datum/species/species = H.dna?.species
 	var/use_female_sprites = FALSE
 	if(species?.sexes)
-		if(H.gender == FEMALE && !species.swap_female_clothes)
+		if(H.gender == FEMALE && !species.swap_female_clothes || H.gender == MALE && species.swap_male_clothes)
 			use_female_sprites = FEMALE_BOOB
-		else if(H.gender == MALE && species.swap_male_clothes)
-			use_female_sprites = FEMALE_SPRITES
 
 	var/list/offsets
 	if(use_female_sprites)
@@ -790,8 +789,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 		if(H.underwear)
 			if(H.age == AGE_CHILD)
-				hide_boob = TRUE
-				if(use_female_sprites)
+				if(H.gender == FEMALE)
 					H.underwear = "FemYoungling"
 				else
 					H.underwear = "Youngling"
@@ -811,7 +809,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 						underwear_overlay.color = "#755f46"
 				standing += underwear_overlay
 
-				if(!hide_boob && (use_female_sprites == FEMALE_BOOB))
+				if(!hide_boob && H.gender == FEMALE)
 					underwear_overlay = mutable_appearance(underwear.icon, "[underwear.icon_state]_boob", -BODY_LAYER)
 					if(LAZYACCESS(offsets, OFFSET_UNDIES))
 						underwear_overlay.pixel_x += offsets[OFFSET_UNDIES][1]

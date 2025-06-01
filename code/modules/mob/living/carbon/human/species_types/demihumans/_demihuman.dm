@@ -46,7 +46,7 @@
 		OFFSET_PANTS = list(0,1),\
 		OFFSET_SHIRT = list(0,1),\
 		OFFSET_ARMOR = list(0,1),\
-		OFFSET_UNDIES = list(0,1),\
+		OFFSET_UNDIES = list(0,0),\
 	)
 
 	offset_features_f = list(
@@ -65,7 +65,7 @@
 		OFFSET_PANTS = list(0,0),\
 		OFFSET_SHIRT = list(0,0),\
 		OFFSET_ARMOR = list(0,0),\
-		OFFSET_UNDIES = list(0,-1),\
+		OFFSET_UNDIES = list(0,0),\
 	)
 
 	specstats_m = list(STAT_PERCEPTION = 1)

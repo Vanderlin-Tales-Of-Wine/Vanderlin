@@ -1,10 +1,10 @@
 //used in various places
 #define ALL_RACES_LIST					list("human", "demihuman", "harpy", "rakshari", "dwarf", "elf", "tiefling", "aasimar", "halforc", "orc", "zizombie", "kobold", "triton")
 
-/// Races where females get underwear, no underwear for kobold, rakshari and triton
-#define RACES_UNDERWEAR_FEMALE			list("human", "demihuman", "harpy", "dwarf", "elf", "tiefling", "aasimar", "halforc", "orc", "zizombie")
+/// Races where females get underwear, no underwear for kobold, rakshari and triton, dwarves handled seperately
+#define RACES_UNDERWEAR_FEMALE			list("human", "demihuman", "harpy", "tiefling", "aasimar", "halforc", "orc", "zizombie", "elf")
 
-/// Races where males get underwear, identical to above but elves and dwarves are handled seperately
+/// Races where males get underwear, identical to above, elves handled seperately
 #define RACES_UNDERWEAR_MALE			list("human", "demihuman", "harpy", "tiefling", "aasimar", "halforc", "orc", "zizombie")
 
 /// All playable races from character selection menu.
