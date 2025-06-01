@@ -426,7 +426,6 @@
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L
 		var/was_hard_collision = (H.m_intent == MOVE_INTENT_RUN || H.throwing || H.atom_flags & Z_FALLING)
-		to_chat(world, "[was_hard_collision]")
 		if(was_hard_collision)
 			var/obj/item/bodypart/BP = pick(H.bodyparts)
 			BP.receive_damage(10)
