@@ -43,33 +43,43 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 	GLOB.running_create_and_destroy = FALSE
 	//Hell code, we're bound to have ended the round somehow so let's stop if from ending while we work
 	SSticker.delay_end = TRUE
+
+	// Drastically lower the amount of time it takes to GC, since we don't have clients that can hold it up.
+	SSgarbage.collection_timeout[GC_QUEUE_CHECK] = 10 SECONDS
 	//Prevent the garbage subsystem from harddeling anything, if only to save time
 	SSgarbage.collection_timeout[GC_QUEUE_HARDDELETE] = 10000 HOURS
 	//Clear it, just in case
 	cached_contents.Cut()
 
+	var/list/queues_we_care_about = list()
+	// All up to harddel
+	for(var/i in 1 to GC_QUEUE_HARDDELETE - 1)
+		queues_we_care_about += i
+
 	//Now that we've qdel'd everything, let's sleep until the gc has processed all the shit we care about
-	var/time_needed = SSgarbage.collection_timeout[GC_QUEUE_CHECK]
+	// + 2 seconds to ensure that everything gets in the queue.
+	var/time_needed = 2 SECONDS
+	for(var/index in queues_we_care_about)
+		time_needed += SSgarbage.collection_timeout[index]
+
 	var/start_time = world.time
-	sleep(time_needed)
-
-	// spin until the first item in the check queue is older than start_time
 	var/garbage_queue_processed = FALSE
-	var/list/queue_to_check = SSgarbage.queues[GC_QUEUE_CHECK]
-	while(!garbage_queue_processed || !SSgarbage.can_fire)
-		if(!SSgarbage.can_fire) // probably running find references
-			CHECK_TICK
-			continue
-		//How the hell did you manage to empty this? Good job!
-		if(!length(queue_to_check))
-			garbage_queue_processed = TRUE
-			break
 
-		var/list/oldest_packet = queue_to_check[1]
-		//Pull out the time we deld at
-		var/qdeld_at = oldest_packet[1]
+	sleep(time_needed)
+	while(!garbage_queue_processed)
+		var/oldest_packet_creation = INFINITY
+		for(var/index in queues_we_care_about)
+			var/list/queue_to_check = SSgarbage.queues[index]
+			if(!length(queue_to_check))
+				continue
+
+			var/list/oldest_packet = queue_to_check[1]
+			//Pull out the time we inserted at
+			var/qdeld_at = oldest_packet[GC_QUEUE_ITEM_GCD_DESTROYED]
+
+			oldest_packet_creation = min(qdeld_at, oldest_packet_creation)
 		//If we've found a packet that got del'd later then we finished, then all our shit has been processed
-		if(qdeld_at > start_time)
+		if(oldest_packet_creation > start_time)
 			garbage_queue_processed = TRUE
 			break
 
@@ -105,4 +115,5 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 
 	SSticker.delay_end = FALSE
 	//This shouldn't be needed, but let's be polite
-	SSgarbage.collection_timeout[GC_QUEUE_HARDDELETE] = 10 SECONDS
+	SSgarbage.collection_timeout[GC_QUEUE_CHECK] = GC_CHECK_QUEUE
+	SSgarbage.collection_timeout[GC_QUEUE_HARDDELETE] = GC_DEL_QUEUE
