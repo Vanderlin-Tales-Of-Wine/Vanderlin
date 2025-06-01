@@ -82,7 +82,7 @@
 	color = _color
 
 /obj/particle_emitter/Destroy(force)
-	if(deltimer)
+	if(timer)
 		deltimer(timer)
 	if(host)
 		host.particle_emitters -= src
