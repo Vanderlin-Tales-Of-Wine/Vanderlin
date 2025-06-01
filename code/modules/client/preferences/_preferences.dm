@@ -1058,21 +1058,15 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 					log_game("[user] has set their Headshot image to '[headshot_link]'.")
 
 				if("species")
-					var/list/crap = list()
-					for(var/A in GLOB.roundstart_races)
-						var/datum/species/bla = GLOB.species_list[A]
-						bla = new bla()
-						if(user.client)
-							if(bla.patreon_req && !user.client.patreon?.has_access(ACCESS_ASSISTANT_RANK))
-								continue
-						else
-							continue
-						crap += bla
+					var/list/selectable
+					var/list/crap = GLOB.roundstart_races
+					if(!patreon)
+						crap -= GLOB.patreon_races
 
 					var/result = browser_input_list(user, "SELECT YOUR HERO'S PEOPLE:", "VANDERLIN FAUNA", crap, pref_species)
 
 					if(result)
-						pref_species = result
+						pref_species = new GLOB.species_list[result]()
 
 						to_chat(user, "<em>[pref_species.name]</em>")
 						if(pref_species.desc)
