@@ -1,10 +1,6 @@
 /atom/movable
 	var/list/particle_emitters = list()
 
-/atom/movable/Destroy()
-	particle_emitters = null
-	return ..()
-
 /atom/movable/proc/AddParticles(type, create_new = FALSE)
 	if(!ispath(type))
 		if (GLOB.all_particles[type])
@@ -85,7 +81,7 @@
 	if(timer)
 		deltimer(timer)
 	if(host)
-		host.particle_emitters -= src
+		LAZYREMOVE(host.particle_emitters, src)
 		host = null
 	RemoveParticles()
 	return ..()
