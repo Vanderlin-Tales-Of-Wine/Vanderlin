@@ -1,27 +1,22 @@
-/atom
+/atom/movable
 	var/list/particle_emitters = list()
 
-/atom/Destroy()
-	for(var/obj/particle_emitter/emitter in particle_emitters)
-		particle_emitters -= emitter
-		qdel(emitter)
+/atom/movable/Destroy()
 	particle_emitters = null
 	return ..()
 
 /atom/movable/proc/AddParticles(type, create_new = FALSE)
-	if (ispath(type))
-		if (create_new)
-			particles = new type()
-			GLOB.all_particles[src.name] = particles
-		else
-			var/particles/P = type
-			var/index = initial(P.name)
-			particles = GLOB.all_particles[index]
-	else
+	if(!ispath(type))
 		if (GLOB.all_particles[type])
 			particles = GLOB.all_particles[type]
-	return
-
+		return
+	if(create_new)
+		particles = new type()
+		GLOB.all_particles[src.name] = particles
+	else
+		var/particles/P = type
+		var/index = initial(P.name)
+		particles = GLOB.all_particles[index]
 
 /atom/movable/proc/MakeParticleEmitter(type, create_new = FALSE, time = -1)
 	var/obj/particle_emitter/pe
@@ -74,20 +69,25 @@
 	mouse_opacity = 0
 	appearance_flags = PIXEL_SCALE
 	var/particle_type = null
+	var/timer
 	var/atom/movable/host
 
 /obj/particle_emitter/Initialize(mapload, time, _color)
 	. = ..()
-	if (particle_type)
+	if(particle_type)
 		particles = GLOB.all_particles[particle_type]
 
-	if (time > 0)
-		QDEL_IN(src, time)
+	if(time > 0)
+		timer = QDEL_IN(src, time)
 	color = _color
 
 /obj/particle_emitter/Destroy(force)
+	if(deltimer)
+		deltimer(timer)
+	if(host)
+		host.particle_emitters -= src
+		host = null
 	RemoveParticles()
-	host = null
 	return ..()
 
 /obj/particle_emitter/smoke
