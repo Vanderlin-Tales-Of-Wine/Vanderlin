@@ -125,12 +125,14 @@ All foods are distributed among various categories. Use common sense.
 	if(ismob(target))
 		var/mob/M = target
 		var/list/targetl = list(target)
-		user.visible_message("<span class='green'>[user] beckons [M] with [masteritem].</span>", "<span class='green'>I beckon [M] with [masteritem].</span>", ignored_mobs = targetl)
+		var/obj/item/master = get_master_item()
+		if(!master)
+			return
+		user.visible_message("<span class='green'>[user] beckons [M] with [master].</span>", "<span class='green'>I beckon [M] with [master].</span>", ignored_mobs = targetl)
 		if(M.client)
 			if(M.can_see_cone(user))
-				to_chat(M, "<span class='green'>[user] beckons me with [masteritem].</span>")
-		M.food_tempted(masteritem, user)
-	return
+				to_chat(M, "<span class='green'>[user] beckons me with [master].</span>")
+		M.food_tempted(master, user)
 
 /obj/item/reagent_containers/food/snacks/fire_act(added, maxstacks)
 	burning(1 MINUTES)

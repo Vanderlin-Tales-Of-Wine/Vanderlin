@@ -32,14 +32,15 @@
 	chargedrain = 0 //no drain to aim a crossbow
 
 /datum/intent/shoot/crossbow/get_chargetime()
-	if(mastermob && chargetime)
+	var/mob/living/master = get_master_mob()
+	if(master && chargetime)
 		var/newtime = chargetime
 		//skill block
 		newtime = newtime + 18
-		newtime = newtime - (mastermob.get_skill_level(/datum/skill/combat/crossbows) * 3)
+		newtime = newtime - (master.get_skill_level(/datum/skill/combat/crossbows) * 3)
 		//per block
 		newtime = newtime + 20
-		newtime = newtime - (mastermob.STAPER)
+		newtime = newtime - (master.STAPER)
 		if(newtime > 0)
 			return newtime
 		else
@@ -63,14 +64,15 @@
 	return TRUE
 
 /datum/intent/shoot/musket/get_chargetime()
-	if(mastermob && chargetime)
+	var/mob/living/master = get_master_mob()
+	if(master && chargetime)
 		var/newtime = chargetime
 		//skill block
 		newtime = newtime + 18
-		newtime = newtime - (mastermob.get_skill_level(/datum/skill/combat/firearms) * 3.5)
+		newtime = newtime - (master.get_skill_level(/datum/skill/combat/firearms) * 3.5)
 		//per block
 		newtime = newtime + 20
-		newtime = newtime - (mastermob.STAPER)
+		newtime = newtime - (master.STAPER)
 		if(newtime > 0)
 			return newtime
 		else
@@ -78,14 +80,15 @@
 	return chargetime
 
 /datum/intent/shoot/musket/pistol/get_chargetime()
-	if(mastermob && chargetime)
+	var/mob/living/master = get_master_mob()
+	if(master && chargetime)
 		var/newtime = chargetime
 		//skill block
 		newtime = newtime + 18
-		newtime = newtime - (mastermob.get_skill_level(/datum/skill/combat/firearms) * 3.5)
+		newtime = newtime - (master.get_skill_level(/datum/skill/combat/firearms) * 3.5)
 		//per block
 		newtime = newtime + 20
-		newtime = newtime - (mastermob.STAPER)
+		newtime = newtime - (master.STAPER)
 		if(newtime > 0)
 			return newtime
 		else
@@ -97,14 +100,15 @@
 	chargedrain = 0 //no drain to aim a crossbow
 
 /datum/intent/arc/crossbow/get_chargetime()
-	if(mastermob && chargetime)
+	var/mob/living/master = get_master_mob()
+	if(master && chargetime)
 		var/newtime = chargetime
 		//skill block
 		newtime = newtime + 18
-		newtime = newtime - (mastermob.get_skill_level(/datum/skill/combat/crossbows) * 3)
+		newtime = newtime - (master.get_skill_level(/datum/skill/combat/crossbows) * 3)
 		//per block
 		newtime = newtime + 20
-		newtime = newtime - (mastermob.STAPER)
+		newtime = newtime - (master.STAPER)
 		if(newtime > 0)
 			return newtime
 		else
