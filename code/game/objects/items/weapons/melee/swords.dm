@@ -72,7 +72,7 @@
 
 /datum/intent/sword/cut/guts
 	reach = 2
-	swingdelay = 1
+	swingdelay = 2
 	misscost = 90
 
 /*------------\
@@ -101,6 +101,7 @@
 
 /datum/intent/sword/chop/long/guts
 	reach = 2 // BIG SWORD
+	swingdelay = 3
 	misscost = 90
 
 /*------------\
@@ -139,7 +140,8 @@
 	misscost = 10
 
 /datum/intent/sword/thrust/guts
-	reach = 3
+	reach = 2
+	swingdelay = 3
 	misscost = 90
 
 /*--------------\
@@ -160,6 +162,7 @@
 
 /datum/intent/sword/strike/guts
 	reach = 2
+	swingdelay = 3
 	misscost = 90
 
 
