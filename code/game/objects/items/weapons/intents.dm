@@ -164,15 +164,15 @@
 	return TRUE
 
 /datum/intent/proc/afterchange()
-	var/obj/item/masteri = get_master_item()
-	var/mob/masterm = get_master_mob()
-	if(masteri)
-		masteri.damage_type = item_damage_type
+	var/obj/item/master_item = get_master_item()
+	var/mob/master_mob = get_master_mob()
+	if(master_item)
+		master_item.damage_type = item_damage_type
 		var/list/benis = hitsound
 		if(benis)
-			masteri.hitsound = benis
-	if(istype(masterm, /mob/living/simple_animal))
-		var/mob/living/simple_animal/master = masterm
+			master_item.hitsound = benis
+	if(istype(master_mob, /mob/living/simple_animal))
+		var/mob/living/simple_animal/master = master_mob
 		master.damage_type = item_damage_type
 
 /datum/intent/proc/height2limb(height as num)
