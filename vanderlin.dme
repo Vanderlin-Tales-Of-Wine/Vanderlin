@@ -1198,7 +1198,6 @@
 #include "code\game\objects\items\bombs.dm"
 #include "code\game\objects\items\books.dm"
 #include "code\game\objects\items\bouquet.dm"
-#include "code\game\objects\items\boxes.dm"
 #include "code\game\objects\items\breaching_charge.dm"
 #include "code\game\objects\items\broom.dm"
 #include "code\game\objects\items\candle.dm"
