@@ -580,8 +580,6 @@
 	if(mana_pool)
 		QDEL_NULL(mana_pool)
 
-	RemoveParticles()
-
 	unbuckle_all_mobs(force = TRUE)
 
 	if(loc)

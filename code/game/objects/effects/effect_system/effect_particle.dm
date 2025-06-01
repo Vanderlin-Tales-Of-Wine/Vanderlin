@@ -2,10 +2,11 @@
 	var/list/particle_emitters = list()
 
 /atom/Destroy()
+
 	for(var/obj/particle_emitter/emitter in particle_emitters)
-		qdel(emitter)
+		RemoveEmitter(emitter)
 	particle_emitters = null
-	. = ..()
+	return ..()
 
 /atom/movable/proc/AddParticles(type, create_new = FALSE)
 	if (ispath(type))
@@ -85,6 +86,7 @@
 	color = _color
 
 /obj/particle_emitter/Destroy(force)
+	RemoveParticles()
 	host = null
 	return ..()
 
