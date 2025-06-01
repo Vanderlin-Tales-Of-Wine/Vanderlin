@@ -9,7 +9,11 @@
 
 /obj/effect/overlay/beam/Initialize()
 	. = ..()
-	QDEL_IN(src, 10)
+	QDEL_IN(src, 1 SECOND)
+
+/obj/effect/overlay/beam/Destroy(force)
+	BeamSource = null
+	return ..()
 
 /obj/effect/overlay/sparkles
 	gender = PLURAL

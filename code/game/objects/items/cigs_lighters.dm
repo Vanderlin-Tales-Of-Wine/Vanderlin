@@ -162,7 +162,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		reagents.add_reagent_list(list_reagents)
 	if(starts_lit)
 		light()
-	AddComponent(/datum/component/knockoff,90,list(BODY_ZONE_PRECISE_MOUTH),list(SLOT_MOUTH))//90% to knock off when wearing a mask
+	AddComponent(/datum/component/knockoff, 90, list(BODY_ZONE_PRECISE_MOUTH) ,list(SLOT_MOUTH))//90% to knock off when wearing a mask
 
 /obj/item/clothing/face/cigarette/Destroy()
 	STOP_PROCESSING(SSobj, src)
@@ -175,20 +175,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			light(lighting_text)
 	else
 		return ..()
-
-/obj/item/clothing/face/cigarette/afterattack(obj/item/reagent_containers/glass/glass, mob/user, proximity)
-	. = ..()
-//	if(!proximity || lit) //can't dip if cigarette is lit (it will heat the reagents in the glass instead)
-//		return
-//	if(istype(glass))	//you can dip cigarettes into beakers
-//		if(glass.reagents.trans_to(src, chem_volume, transfered_by = user))	//if reagents were transfered, show the message
-//			to_chat(user, "<span class='notice'>I dip \the [src] into \the [glass].</span>")
-//		else			//if not, either the beaker was empty, or the cigarette was full
-//			if(!glass.reagents.total_volume)
-//				to_chat(user, "<span class='warning'>[glass] is empty!</span>")
-//			else
-//				to_chat(user, "<span class='warning'>[src] is full!</span>")
-
 
 /obj/item/clothing/face/cigarette/proc/light(flavor_text = null)
 	if(lit)
