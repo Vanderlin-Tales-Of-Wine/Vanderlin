@@ -86,7 +86,7 @@
 	color = _color
 
 /obj/particle_emitter/Destroy(force)
-	RemoveParticles()
+	RemoveParticles(TRUE)
 	host = null
 	return ..()
 

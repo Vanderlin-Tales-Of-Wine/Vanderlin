@@ -1,20 +1,6 @@
 /obj/effect/overlay
 	name = "overlay"
 
-/obj/effect/overlay/beam//Not actually a projectile, just an effect.
-	name="beam"
-	icon='icons/effects/beam.dmi'
-	icon_state="b_beam"
-	var/atom/BeamSource
-
-/obj/effect/overlay/beam/Initialize()
-	. = ..()
-	QDEL_IN(src, 1 SECONDS)
-
-/obj/effect/overlay/beam/Destroy(force)
-	BeamSource = null
-	return ..()
-
 /obj/effect/overlay/sparkles
 	gender = PLURAL
 	name = "sparkles"
