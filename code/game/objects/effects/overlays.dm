@@ -9,7 +9,7 @@
 
 /obj/effect/overlay/beam/Initialize()
 	. = ..()
-	QDEL_IN(src, 1 SECOND)
+	QDEL_IN(src, 1 SECONDS)
 
 /obj/effect/overlay/beam/Destroy(force)
 	BeamSource = null
