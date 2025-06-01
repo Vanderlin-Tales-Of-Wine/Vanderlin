@@ -99,7 +99,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		..()
 
 /obj/item/proc/help_light_cig(mob/living/M)
-	var/mask_item = M.get_item_by_slot(SLOT_MOUTH)
+	var/mask_item = M.get_item_by_slot(ITEM_SLOT_MOUTH)
 	if(istype(mask_item, /obj/item/clothing/face/cigarette))
 		return mask_item
 
