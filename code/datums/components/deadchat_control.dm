@@ -20,7 +20,7 @@
 	inputs = _inputs
 	input_cooldown = _input_cooldown
 	if(deadchat_mode == DEMOCRACY_MODE)
-		timerid = addtimer(CALLBACK(src, PROC_REF(democracy_loop)), input_cooldown, TIMER_STOPPABLE | TIMER_LOOP | TIMER_DELETE_ME)
+		timerid = addtimer(CALLBACK(src, PROC_REF(democracy_loop)), input_cooldown, TIMER_STOPPABLE | TIMER_LOOP)
 	notify_ghosts("[parent] is now deadchat controllable!", source = parent, action = NOTIFY_ORBIT, header="Something Interesting!")
 
 
@@ -92,7 +92,7 @@
 		return
 	ckey_to_cooldown = list()
 	if(var_value == DEMOCRACY_MODE)
-		timerid = addtimer(CALLBACK(src, PROC_REF(democracy_loop)), input_cooldown, TIMER_STOPPABLE | TIMER_LOOP | TIMER_DELETE_ME)
+		timerid = addtimer(CALLBACK(src, PROC_REF(democracy_loop)), input_cooldown, TIMER_STOPPABLE | TIMER_LOOP)
 	else
 		deltimer(timerid)
 
