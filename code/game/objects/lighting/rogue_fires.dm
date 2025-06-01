@@ -272,6 +272,11 @@
 		torchy.spark_act()
 	. = ..()
 
+/obj/machinery/light/fueled/torchholder/Destroy()
+	if(torchy)
+		QDEL_NULL(torchy)
+	return ..()
+
 /obj/machinery/light/fueled/torchholder/OnCrafted(dirin, user)
 	dir = turn(dirin, 180)
 	if(dir == SOUTH)
