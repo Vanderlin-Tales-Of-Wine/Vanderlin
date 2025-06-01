@@ -2,9 +2,9 @@
 	var/list/particle_emitters = list()
 
 /atom/Destroy()
-
 	for(var/obj/particle_emitter/emitter in particle_emitters)
-		RemoveEmitter(emitter)
+		particle_emitters -= emitter
+		qdel(emitter)
 	particle_emitters = null
 	return ..()
 
