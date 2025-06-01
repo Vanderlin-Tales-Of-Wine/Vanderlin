@@ -210,7 +210,7 @@
 			if(H.head)
 				to_chat(H, span_warning("I'm already wearing something on my head."))
 				return
-			else if(H.equip_to_slot_if_possible(hood,SLOT_HEAD,0,0,1))
+			else if(H.equip_to_slot_if_possible(hood,ITEM_SLOT_HEAD,0,0,1))
 				hoodtoggled = TRUE
 				if(!picked)
 					if(toggle_icon_state)

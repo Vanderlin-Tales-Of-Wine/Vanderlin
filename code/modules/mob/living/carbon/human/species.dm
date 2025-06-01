@@ -748,11 +748,11 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			return FALSE
 
 	switch(slot)
-		if(SLOT_HANDS)
+		if(ITEM_SLOT_HANDS)
 			if(H.get_empty_held_indexes())
 				return TRUE
 			return FALSE
-		if(SLOT_WEAR_MASK)
+		if(ITEM_SLOT_MASK)
 			if(H.wear_mask)
 				return FALSE
 			if(!(I.slot_flags & ITEM_SLOT_MASK))
@@ -760,7 +760,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			if(!H.get_bodypart(BODY_ZONE_HEAD))
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
-		if(SLOT_MOUTH)
+		if(ITEM_SLOT_MOUTH)
 			if(H.mouth)
 				return FALSE
 			if(!(I.slot_flags & ITEM_SLOT_MOUTH))
@@ -768,13 +768,13 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			if(!H.get_bodypart(BODY_ZONE_HEAD))
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
-		if(SLOT_NECK)
+		if(ITEM_SLOT_NECK)
 			if(H.wear_neck)
 				return FALSE
 			if( !(I.slot_flags & ITEM_SLOT_NECK) )
 				return FALSE
 			return TRUE
-		if(SLOT_BACK_R)
+		if(ITEM_SLOT_BACK_R)
 			if(H.backr)
 				return FALSE
 			if( (I.slot_flags & ITEM_SLOT_CLOAK) )
@@ -784,13 +784,13 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			if( !(I.slot_flags & ITEM_SLOT_BACK_R) )
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
-		if(SLOT_BACK_L)
+		if(ITEM_SLOT_BACK_L)
 			if(H.backl)
 				return FALSE
 			if( !(I.slot_flags & ITEM_SLOT_BACK_L) )
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
-		if(SLOT_ARMOR)
+		if(ITEM_SLOT_ARMOR)
 			if(H.wear_armor)
 				return FALSE
 			if(I.blocking_behavior & BULKYBLOCKS)
@@ -809,7 +809,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			if( !(I.slot_flags & ITEM_SLOT_ARMOR) )
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
-		if(SLOT_GLOVES)
+		if(ITEM_SLOT_GLOVES)
 			if(H.gloves)
 				return FALSE
 			if( !(I.slot_flags & ITEM_SLOT_GLOVES) )
@@ -817,7 +817,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			if(H.num_hands < 1)
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
-		if(SLOT_SHOES)
+		if(ITEM_SLOT_SHOES)
 			if(H.shoes)
 				return FALSE
 			if( !(I.slot_flags & ITEM_SLOT_SHOES) )
@@ -825,14 +825,14 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			if(H.num_legs < 1)
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
-		if(SLOT_BELT)
+		if(ITEM_SLOT_BELT)
 			if(H.belt)
 				return FALSE
 
 			if(!(I.slot_flags & ITEM_SLOT_BELT))
 				return
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
-		if(SLOT_BELT_R)
+		if(ITEM_SLOT_BELT_R)
 			if(H.beltr)
 				return FALSE
 
@@ -841,7 +841,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			if(!(I.slot_flags & ITEM_SLOT_HIP))
 				return
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
-		if(SLOT_BELT_L)
+		if(ITEM_SLOT_BELT_L)
 			if(H.beltl)
 				return FALSE
 
@@ -850,7 +850,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			if(!(I.slot_flags & ITEM_SLOT_HIP))
 				return
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
-		if(SLOT_HEAD)
+		if(ITEM_SLOT_HEAD)
 			if(H.head)
 				return FALSE
 			if(!(I.slot_flags & ITEM_SLOT_HEAD))
@@ -858,13 +858,13 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			if(!H.get_bodypart(BODY_ZONE_HEAD))
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
-		if(SLOT_PANTS)
+		if(ITEM_SLOT_PANTS)
 			if(H.wear_pants)
 				return FALSE
 			if( !(I.slot_flags & ITEM_SLOT_PANTS) )
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
-		if(SLOT_SHIRT)
+		if(ITEM_SLOT_SHIRT)
 			if(H.wear_shirt)
 				return FALSE
 			if(I.blocking_behavior & BULKYBLOCKS)
@@ -881,7 +881,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			if( !(I.slot_flags & ITEM_SLOT_SHIRT) )
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
-		if(SLOT_CLOAK)
+		if(ITEM_SLOT_CLOAK)
 			if(H.cloak)
 				return FALSE
 			if( (I.slot_flags & ITEM_SLOT_BACK_R) )
@@ -901,19 +901,19 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			if( !(I.slot_flags & ITEM_SLOT_CLOAK) )
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
-		if(SLOT_RING)
+		if(ITEM_SLOT_RING)
 			if(H.wear_ring)
 				return FALSE
 			if( !(I.slot_flags & ITEM_SLOT_RING) )
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
-		if(SLOT_WRISTS)
+		if(ITEM_SLOT_WRISTS)
 			if(H.wear_wrists)
 				return FALSE
 			if( !(I.slot_flags & ITEM_SLOT_WRISTS) )
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
-		if(SLOT_HANDCUFFED)
+		if(ITEM_SLOT_HANDCUFFED)
 			if(H.handcuffed)
 				return FALSE
 			if(!I.breakouttime)
@@ -921,7 +921,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 //			if(num_arms < 2)
 //				return FALSE
 			return TRUE
-		if(SLOT_LEGCUFFED)
+		if(ITEM_SLOT_LEGCUFFED)
 			if(H.legcuffed)
 				return FALSE
 			if(!I.breakouttime)
@@ -929,7 +929,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			if(H.num_legs < 2)
 				return FALSE
 			return TRUE
-		if(SLOT_IN_BACKPACK)
+		if(ITEM_SLOT_BACKPACK)
 			if(H.backr)
 				if(SEND_SIGNAL(H.backr, COMSIG_TRY_STORAGE_CAN_INSERT, I, H, TRUE))
 					return TRUE
@@ -1891,24 +1891,24 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		var/list/obscured = H.check_obscured_slots(TRUE)
 		//HEAD//
 
-		if(H.wear_mask && !(SLOT_WEAR_MASK in obscured))
+		if(H.wear_mask && !(obscured & ITEM_SLOT_MASK))
 			burning_items += H.wear_mask
-		if(H.wear_neck && !(SLOT_NECK in obscured))
+		if(H.wear_neck && !(obscured & ITEM_SLOT_NECK))
 			burning_items += H.wear_neck
-		if(H.head && !(SLOT_HEAD in obscured))
+		if(H.head && !(obscured & ITEM_SLOT_HEAD))
 			burning_items += H.head
 
 		//CHEST//
-		if(H.wear_pants && !(SLOT_PANTS in obscured))
+		if(H.wear_pants && !(obscured & ITEM_SLOT_PANTS))
 			burning_items += H.wear_pants
-		if(H.wear_shirt && !(SLOT_SHIRT in obscured))
+		if(H.wear_shirt && !(obscured & ITEM_SLOT_SHIRT))
 			burning_items += H.wear_shirt
-		if(H.wear_armor && !(SLOT_ARMOR in obscured))
+		if(H.wear_armor && !(obscured & ITEM_SLOT_ARMOR))
 			burning_items += H.wear_armor
 
 		//ARMS & HANDS//
 		var/obj/item/clothing/arm_clothes = null
-		if(H.gloves && !(SLOT_GLOVES in obscured))
+		if(H.gloves && !(obscured & ITEM_SLOT_GLOVES))
 			arm_clothes = H.gloves
 		else if(H.wear_armor && ((H.wear_armor.body_parts_covered & HANDS) || (H.wear_armor.body_parts_covered & ARMS)))
 			arm_clothes = H.wear_armor
@@ -1919,7 +1919,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 		//LEGS & FEET//
 		var/obj/item/clothing/leg_clothes = null
-		if(H.shoes && !(SLOT_SHOES in obscured))
+		if(H.shoes && !(obscured & ITEM_SLOT_SHOES))
 			leg_clothes = H.shoes
 		else if(H.wear_armor && ((H.wear_armor.body_parts_covered & FEET) || (H.wear_armor.body_parts_covered & LEGS)))
 			leg_clothes = H.wear_armor
