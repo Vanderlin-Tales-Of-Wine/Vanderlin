@@ -119,9 +119,9 @@
 	QDEL_NULL(closer)
 	LAZYCLEARLIST(is_using)
 	master = null
-	item_to_grid_coordinates.Cut()
-	grid_coordinates_to_item.Cut()
-	first_coordinates_item.Cut()
+	item_to_grid_coordinates = null
+	grid_coordinates_to_item = null
+	first_coordinates_item = null
 	return ..()
 
 
