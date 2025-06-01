@@ -1,6 +1,11 @@
 /atom/movable
 	var/list/particle_emitters = list()
 
+/atom/movable/Destroy(force)
+	for(var/emitter as anything in particle_emitters)
+		qdel(emitter)
+	return ..()
+
 /atom/movable/proc/AddParticles(type, create_new = FALSE)
 	if(!ispath(type))
 		if (GLOB.all_particles[type])
