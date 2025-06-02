@@ -2,10 +2,10 @@
 	name = "Meteor storm"
 	desc = "Summons forth dangerous meteors from the sky to scatter and smash foes."
 	cost = 8
-	releasedrain = 110
-	chargedrain = 1
+	releasedrain = 250
+	chargedrain = 20
 	chargetime = 25 SECONDS
-	recharge_time = 50 SECONDS
+	recharge_time = 100 SECONDS
 	warnie = "spellwarning"
 	no_early_release = TRUE
 	movement_interrupt = TRUE

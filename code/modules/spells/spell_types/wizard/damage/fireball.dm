@@ -18,7 +18,7 @@
 	attunements = list(
 		/datum/attunement/fire = 0.5
 		)
-	cost = 4
+	cost = 5
 
 /obj/projectile/magic/aoe/fireball/rogue
 	name = "fireball"

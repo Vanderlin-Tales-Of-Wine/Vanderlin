@@ -18,7 +18,7 @@
 	associated_skill = /datum/skill/magic/arcane
 	sparks_spread = 3
 	sparks_amt = 5
-	cost = 3
+	cost = 6
 	attunements = list(
 		/datum/attunement/electric = 0.5,
 	)
