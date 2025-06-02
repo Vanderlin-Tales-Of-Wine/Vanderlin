@@ -800,6 +800,7 @@
 	name = "Iron Claymore"
 	desc = "A large sword orginiating from the Northen land of Caledon, a proud Warrior nation beholden to Ravox"
 	icon_state = "ironclaymore"
+	minstr = 10
 	smeltresult = /obj/item/ingot/iron
 	max_blade_int = 150 // Iron tier
 	max_integrity = 300
@@ -824,6 +825,7 @@
 	name = "Steel Claymore"
 	desc = "A steel variant of the standardised Claymore, constructed of Iron."
 	icon_state = "steelclaymore"
+	minstr = 10
 	max_blade_int = 300
 	max_integrity = 450
 	sellprice = 110
@@ -848,6 +850,7 @@
 	name = "Ravoxian Claymore"
 	desc = "A huge sword constructed out of Steel and Gold, wielded by the strongest Templars of the Ravoxian Order"
 	icon_state = "gsclaymore"
+	minstr = 10
 	max_blade_int = 350
 	max_integrity = 500
 	sellprice = 160
