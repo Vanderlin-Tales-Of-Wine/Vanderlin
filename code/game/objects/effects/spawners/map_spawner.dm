@@ -2,11 +2,17 @@
 	icon = 'icons/obj/structures_spawners.dmi'
 	///Chance to bother spawning anything
 	var/probby = 100
-	var/list/spawned		//a list of possible items to spawn e.g. list(/obj/item, /obj/structure, /obj/effect), can be weighted
-	var/lootmin = 1		//how many items will be spawned, at least.
-	var/lootmax = 1		//how many items will be spawned, at most
-	var/lootdoubles = TRUE	//if the same item can be spawned twice
-	var/fan_out_items = FALSE //Whether the items should be distributed to offsets 0,1,-1,2,-2,3,-3.. This overrides pixel_x/y on the spawner itself
+	/// a list of possible items to spawn e.g. list(/obj/item, /obj/structure, /obj/effect), can be weighted
+	var/list/spawned
+	/// how many items will be spawned, at least.
+	var/lootmin = 1
+	/// how many items will be spawned, at most
+	var/lootmax = 1
+	/// if the same item can be spawned twice
+	var/lootdoubles = TRUE
+	/// Whether the items should be distributed to offsets 0,1,-1,2,-2,3,-3.. This overrides pixel_x/y on the spawner itself
+	var/fan_out_items = FALSE
+
 /obj/effect/spawner/map_spawner/proc/do_spawn()
 	if(prob(probby) && length(spawned))
 		var/obj/new_type = pickweight(spawned)
@@ -15,7 +21,7 @@
 /obj/effect/spawner/map_spawner/Initialize(mapload)
 	..()
 	if(!prob(probby))
-		return INITIALIZE_HINT_QDEL
+		return ..()
 	if(spawned && spawned.len > 1)
 		var/turf/T = get_turf(src)
 		var/loot_spawned = 0

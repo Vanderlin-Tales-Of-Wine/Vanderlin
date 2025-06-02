@@ -1,14 +1,25 @@
-//defines that give qdel hints. these can be given as a return in destory() or by calling
+//! Defines that give qdel hints.
+//!
+//! These can be given as a return in [/atom/proc/Destroy] or by calling [/proc/qdel].
 
+/// `qdel` should queue the object for deletion.
+#define QDEL_HINT_QUEUE 0
+/// `qdel` should let the object live after calling [/atom/proc/Destroy].
+#define QDEL_HINT_LETMELIVE 1
+/// Functionally the same as the above. `qdel` should assume the object will gc on its own, and not check it.
+#define QDEL_HINT_IWILLGC 2
+/// Qdel should assume this object won't GC, and queue a hard delete using a hard reference.
+#define QDEL_HINT_HARDDEL 3
+// Qdel should assume this object won't gc, and hard delete it posthaste.
+#define QDEL_HINT_HARDDEL_NOW 4
+/**
+ * functionally identical to QDEL_HINT_QUEUE if TESTING is not enabled in _compiler_options.dm.
+ * if TESTING is enabled, qdel will call this object's find_references() verb.
+*/
+#define QDEL_HINT_FINDREFERENCE	5
 
-#define QDEL_HINT_QUEUE 				0	//qdel should queue the object for deletion.
-#define QDEL_HINT_LETMELIVE				1	//qdel should let the object live after calling destory.
-#define QDEL_HINT_IWILLGC				2	//functionally the same as the above. qdel should assume the object will gc on its own, and not check it.
-#define QDEL_HINT_HARDDEL				3	//qdel should assume this object won't gc, and queue a hard delete using a hard reference.
-#define QDEL_HINT_HARDDEL_NOW			4	//qdel should assume this object won't gc, and hard del it post haste.
-#define QDEL_HINT_FINDREFERENCE			5	//functionally identical to QDEL_HINT_QUEUE if TESTING is not enabled in _compiler_options.dm.
-											//if TESTING is enabled, qdel will call this object's find_references() verb.
-#define QDEL_HINT_IFFAIL_FINDREFERENCE	6	//Above but only if gc fails.
+/// if TESTING is enabled, qdel will call this object's find_references() verb., but only if gc fails.
+#define QDEL_HINT_IFFAIL_FINDREFERENCE 6
 //defines for the gc_destroyed var
 
 #define GC_QUEUE_CHECK 1

@@ -2,10 +2,14 @@
 	icon = 'icons/effects/landmarks_static.dmi'
 	icon_state = "random_loot"
 	layer = OBJ_LAYER
-	var/lootcount = 1		//how many items will be spawned
-	var/lootdoubles = TRUE	//if the same item can be spawned twice
-	var/list/loot			//a list of possible items to spawn e.g. list(/obj/item, /obj/structure, /obj/effect)
-	var/fan_out_items = FALSE //Whether the items should be distributed to offsets 0,1,-1,2,-2,3,-3.. This overrides pixel_x/y on the spawner itself
+	/// how many items will be spawned
+	var/lootcount = 1
+	/// if the same item can be spawned twice
+	var/lootdoubles = TRUE
+	/// a list of possible items to spawn e.g. list(/obj/item, /obj/structure, /obj/effect)
+	var/list/loot
+	/// Whether the items should be distributed to offsets 0,1,-1,2,-2,3,-3.. This overrides pixel_x/y on the spawner itself
+	var/fan_out_items = FALSE
 
 /obj/effect/spawner/lootdrop/Initialize(mapload)
 	..()
