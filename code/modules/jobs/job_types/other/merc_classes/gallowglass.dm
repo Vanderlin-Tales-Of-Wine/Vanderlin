@@ -10,7 +10,7 @@
 	)
 	outfit = /datum/outfit/job/mercenary/gallowglass
 	category_tags = list(CTAG_MERCENARY)
-	maximum_possible_slots = 1
+	maximum_possible_slots = 2
 
 	cmode_music = 'sound/music/cmode/Combat_Dwarf.ogg'
 
@@ -30,7 +30,7 @@
 	pants = /obj/item/clothing/pants/chainlegs/kilt
 	backl = /obj/item/weapon/sword/long/greatsword/steelclaymore
 	if(H.mind)
-		H.adjust_skillrank(/datum/skill/combat/swords, 5, TRUE) // main weapon skill  the gallowglass is REALLY good with their claymore however there is only one of them
+		H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE) // main weapon skill  the gallowglass is REALLY good with their claymore however there is only one of them
 		H.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)

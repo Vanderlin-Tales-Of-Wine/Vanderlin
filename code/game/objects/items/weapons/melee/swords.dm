@@ -824,10 +824,9 @@
 	name = "Steel Claymore"
 	desc = "A steel variant of the standardised Claymore, constructed of Iron."
 	icon_state = "steelclaymore"
-	smeltresult = /obj/item/ingot/steel
 	max_blade_int = 300
 	max_integrity = 450
-	sellprice = 120
+	sellprice = 110
 
 /obj/item/weapon/sword/long/greatsword/steelclaymore/getonmobprop(tag)
 	. = ..()
@@ -849,10 +848,9 @@
 	name = "Ravoxian Claymore"
 	desc = "A huge sword constructed out of Steel and Gold, wielded by the strongest Templars of the Ravoxian Order"
 	icon_state = "gsclaymore"
-	smeltresult = /obj/item/ingot/steel
 	max_blade_int = 350
 	max_integrity = 500
-	sellprice = 200
+	sellprice = 160
 
 /obj/item/weapon/sword/long/greatsword/gsclaymore/getonmobprop(tag)
 	. = ..()
@@ -872,13 +870,12 @@
 	force_wielded = DAMAGE_GREATSWORD_WIELD+2
 	wdefense = ULTMATE_PARRY
 	name = "Berserker Sword"
-	desc = "A huge sword constructed out of a slab of Iron, famously weilded by the first settlers of Dachiagh Benne."
+	desc = "A huge sword constructed out of a slab of Iron, famously wielded by the first settlers of Dachiagh Benne."
 	icon_state = "gutsclaymore"
 	minstr = 15
-	smeltresult = /obj/item/ingot/steel
 	max_blade_int = 350
 	max_integrity = 500
-	sellprice = 200
+	sellprice = 240
 
 /obj/item/weapon/sword/long/greatsword/gutsclaymore/getonmobprop(tag)
 	. = ..()

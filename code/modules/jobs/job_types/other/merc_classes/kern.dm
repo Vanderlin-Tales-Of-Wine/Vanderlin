@@ -31,8 +31,8 @@
 	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
 	backpack_contents = list(/obj/item/weapon/knife/villager = 1)
 	if(H.mind)
-		H.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE) // Main weapon skill
-		H.adjust_skillrank(/datum/skill/combat/bows, 2, TRUE)// Secondary Weapon Skill
+		H.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE) // Main weapon skill
+		H.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)// Secondary Weapon Skill
 		H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
