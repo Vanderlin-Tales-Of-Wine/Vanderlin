@@ -27338,6 +27338,16 @@
 /obj/structure/fluff/walldeco/vinez,
 /turf/closed/mineral,
 /area/rogue/indoors/town/merc_guild)
+"rHX" = (
+/obj/structure/minecart_rail{
+	dir = 4
+	},
+/obj/structure/train/carriage{
+	pixel_x = -25;
+	pixel_y = 8
+	},
+/turf/open/floor/metal,
+/area/rogue/under/town/basement)
 "rHZ" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
@@ -59732,7 +59742,7 @@ vgJ
 vgJ
 nCG
 ogO
-ogO
+bwL
 ogO
 rlJ
 nYn
@@ -63870,7 +63880,7 @@ oGi
 lfU
 nGR
 uQP
-ijd
+rHX
 uQP
 gqE
 qNe
