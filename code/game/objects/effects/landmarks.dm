@@ -532,20 +532,22 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark/start/new_player)
 /obj/effect/landmark/unit_test_top_right
 	name = "unit test zone top right"
 
-//Underworld landmark
-
-/obj/effect/landmark/underworld
-	name = "underworld spawn"
+//Underworld landmarks
 
 /obj/effect/landmark/underworld_spawnpoint
 	name = "underworld spawnpoint"
 
-/obj/effect/landmark/underworldsafe // To prevent demons spawn camping will save a lot of ear rape.
-	name = "safe zone"
-
 /obj/effect/landmark/underworld_spawnpoint/Initialize(mapload)
-	. = ..()
+	SHOULD_CALL_PARENT(FALSE)
 	GLOB.underworldspiritspawns |= loc
+	return INITIALIZE_HINT_QDEL
+
+/obj/effect/landmark/underworld_pull_location
+	name = "coin pull teleport zone"
+
+/obj/effect/landmark/underworld_pull_location/Initialize()
+	SHOULD_CALL_PARENT(FALSE)
+	GLOB.underworld_coinpull_locs |= loc
 	return INITIALIZE_HINT_QDEL
 
 /obj/effect/landmark/death_arena
