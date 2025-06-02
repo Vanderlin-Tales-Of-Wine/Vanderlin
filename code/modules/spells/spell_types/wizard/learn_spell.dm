@@ -26,42 +26,43 @@
 		/obj/effect/proc_holder/spell/invoked/frostbite5e,
 		/obj/effect/proc_holder/spell/invoked/snap_freeze,
 		/obj/effect/proc_holder/spell/invoked/projectile/acidsplash5e,
-		/obj/effect/proc_holder/spell/invoked/boomingblade5e,
 		/obj/effect/proc_holder/spell/invoked/greenflameblade5e,
-		/obj/effect/proc_holder/spell/invoked/poisonspray5e,
-		/obj/effect/proc_holder/spell/invoked/projectile/repel,
-		/obj/effect/proc_holder/spell/invoked/forcewall_weak,
-		/obj/effect/proc_holder/spell/invoked/slowdown_spell_aoe,
-		/obj/effect/proc_holder/spell/invoked/haste,
+		/obj/effect/proc_holder/spell/invoked/boomingblade5e,
+		/obj/effect/proc_holder/spell/invoked/chilltouch5e,
+		/obj/effect/proc_holder/spell/invoked/decompose5e,
 		/obj/effect/proc_holder/spell/invoked/findfamiliar,
+		//Status Spells
 		/obj/effect/proc_holder/spell/targeted/touch/darkvision,// 2 cost
-		/obj/effect/proc_holder/spell/self/message,
-		/obj/effect/proc_holder/spell/invoked/projectile/fetch,
 		/obj/effect/proc_holder/spell/targeted/touch/nondetection, // 1 cost
-		/obj/effect/proc_holder/spell/targeted/touch/prestidigitation,
-		/obj/effect/proc_holder/spell/invoked/featherfall,
-		/obj/effect/proc_holder/spell/invoked/gravity,
+		/obj/effect/proc_holder/spell/self/bladeward5e,
 		/obj/effect/proc_holder/spell/invoked/longstrider,
 		/obj/effect/proc_holder/spell/invoked/guidance,
+		/obj/effect/proc_holder/spell/invoked/featherfall,
+		/obj/effect/proc_holder/spell/invoked/slowdown_spell_aoe,
+		/obj/effect/proc_holder/spell/invoked/gravity,
+		/obj/effect/proc_holder/spell/invoked/haste,
+		//Utility spells
+		/obj/effect/proc_holder/spell/targeted/touch/prestidigitation,
+		/obj/effect/proc_holder/spell/invoked/projectile/repel,
+		/obj/effect/proc_holder/spell/invoked/push_spell,
+		/obj/effect/proc_holder/spell/invoked/projectile/fetch,
+		/obj/effect/proc_holder/spell/invoked/forcewall_weak,
+		/obj/effect/proc_holder/spell/invoked/poisonspray5e,
 		/obj/effect/proc_holder/spell/self/arcyne_eye,
-		/obj/effect/proc_holder/spell/invoked/chilltouch5e,
-		/obj/effect/proc_holder/spell/invoked/infestation5e,
-		/obj/effect/proc_holder/spell/invoked/decompose5e,
+		/obj/effect/proc_holder/spell/self/message,
 		/obj/effect/proc_holder/spell/targeted/encodethoughts5e,
-		/obj/effect/proc_holder/spell/invoked/guidance,
 		/obj/effect/proc_holder/spell/self/light5e,
-		/obj/effect/proc_holder/spell/self/bladeward5e,
 		/obj/effect/proc_holder/spell/aoe_turf/conjure/createbonfire5e,
 // Unused or unlearnable spells
 		// /obj/effect/proc_holder/spell/targeted/ethereal_jaunt, //locked to CM
 		// /obj/effect/proc_holder/spell/aoe_turf/knock, //locked to CM
 		// /obj/effect/proc_holder/spell/invoked/meteor_storm, //locked to CM
 		// /obj/effect/proc_holder/spell/invoked/projectile/bloodlightning, //antag only
-		// /obj/effect/proc_holder/spell/invoked/push_spell,
 		// /obj/effect/proc_holder/spell/invoked/projectile/rayoffrost5e,
 		// /obj/effect/proc_holder/spell/invoked/projectile/eldritchblast5e,
 		// /obj/effect/proc_holder/spell/invoked/mindsliver5e,
-		// /obj/effect/proc_holder/spell/self/primalsavagery5e,
+		// /obj/effect/proc_holder/spell/self/primalsavagery5e, //more of a druid spell. Moving to them.
+		// /obj/effect/proc_holder/spell/invoked/infestation5e, //ditto
 		// /obj/effect/proc_holder/spell/invoked/magicstone5e, //has anyone even fucking used this?
 	)
 
