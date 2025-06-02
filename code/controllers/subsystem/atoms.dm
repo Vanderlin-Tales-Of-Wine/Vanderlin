@@ -40,13 +40,14 @@ SUBSYSTEM_DEF(atoms)
 			count = atoms.len
 			#endif
 	else
-		#ifdef TESTING
+		#ifdef LOWMEMORYMODE
 		count = 0
 		#endif
+
 		for(var/atom/A as anything in world)
 			if(!(A.flags_1 & INITIALIZED_1))
 				InitAtom(A, mapload_arg)
-				#ifdef TESTING
+				#ifdef code/controllers/subsystem/atoms.dm
 				++count
 				#endif
 				CHECK_TICK
