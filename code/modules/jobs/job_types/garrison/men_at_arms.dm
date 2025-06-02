@@ -31,8 +31,8 @@
 /datum/outfit/job/watchman/pre_equip(mob/living/carbon/human/H)
 	. = ..()
 	cloak = /obj/item/clothing/cloak/stabard/guard
-	head =	/obj/item/clothing/head/helmet/kettle/slit
-	shirt =	/obj/item/clothing/armor/chainmail
+	head = /obj/item/clothing/head/helmet/kettle/slit
+	shirt = /obj/item/clothing/armor/chainmail
 	pants = /obj/item/clothing/pants/trou/leather/guard
 	shoes = /obj/item/clothing/shoes/boots
 	belt = /obj/item/storage/belt/leather
