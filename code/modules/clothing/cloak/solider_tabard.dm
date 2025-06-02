@@ -141,7 +141,7 @@
 		L.update_inv_cloak()
 
 /obj/item/clothing/cloak/stabard/kaledon
-	detail_tag = "_quad"
+	detail_tag = "_box"
 	color = CLOTHING_MAGE_BLUE
 	detail_color = CLOTHING_BOG_GREEN
 
