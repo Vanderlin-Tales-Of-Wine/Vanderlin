@@ -26,9 +26,6 @@
 	invocation = "Eldritch blast!" // Bad incantation but it's funny.
 	invocation_type = "shout"
 
-	attunements = list(
-		/datum/attunement/dark = 0.3,
-	)
 
 
 /obj/projectile/magic/eldritchblast5e

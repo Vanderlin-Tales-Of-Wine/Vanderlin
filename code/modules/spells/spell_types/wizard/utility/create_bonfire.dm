@@ -32,9 +32,6 @@
 	summon_amt = 1
 
 	action_icon_state = "the_traps"
-	attunements = list(
-		/datum/attunement/fire = 0.3,
-	)
 
 /obj/machinery/light/fueled/campfire/createbonfire5e
 	name = "magical bonfire"

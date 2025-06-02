@@ -17,9 +17,6 @@
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/arcane
 	cost = 2
-	attunements = list(
-		/datum/attunement/arcyne = 0.7,
-	)
 
 /obj/projectile/energy/rogue3
 	name = "arcane bolt"

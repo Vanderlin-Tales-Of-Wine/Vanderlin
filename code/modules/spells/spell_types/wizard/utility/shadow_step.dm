@@ -11,9 +11,7 @@
 	movement_interrupt = FALSE
 	sound = 'sound/misc/area.ogg'
 	associated_skill = /datum/skill/misc/sneaking
-	attunements = list(
-		/datum/attunement/dark = 0.4
-		)
+
 	cost = 1
 
 /obj/effect/proc_holder/spell/invoked/shadowstep/cast(list/targets, mob/living/user)

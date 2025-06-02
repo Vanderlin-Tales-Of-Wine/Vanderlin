@@ -24,9 +24,6 @@
 	invocation_type = "shout" //can be none, whisper, emote and shout
 	include_user = FALSE
 
-	attunements = list(
-		/datum/attunement/dark = 0.5,
-	)
 
 /obj/effect/proc_holder/spell/targeted/encodethoughts5e/cast(list/targets, mob/user)
 	. = ..()

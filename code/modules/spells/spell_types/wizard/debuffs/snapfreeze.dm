@@ -15,10 +15,7 @@
 	charging_slowdown = 2
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/arcane
-	attunements = list(
-		/datum/attunement/blood = 0.3,
-		/datum/attunement/ice = 0.4,
-	)
+
 	var/delay = 3
 	var/damage = 50 // less then fireball, more then lighting bolt
 	var/area_of_effect = 2

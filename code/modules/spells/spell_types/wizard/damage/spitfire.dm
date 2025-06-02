@@ -17,9 +17,6 @@
 	chargedloop = /datum/looping_sound/invokefire
 	associated_skill = /datum/skill/magic/arcane
 	cost = 3
-	attunements = list(
-		/datum/attunement/fire = 0.3,
-	)
 
 /obj/projectile/magic/aoe/fireball/rogue2
 	name = "spitfire"

@@ -52,10 +52,8 @@
 		return FALSE
 	if(patron && !ispath(patron))
 		patron.on_remove(src)
-		mana_pool?.remove_attunements(patron)
 	patron = new_patron
 	patron.on_gain(src)
-	mana_pool?.set_attunements(patron)
 	return TRUE
 
 ///Rolls random stats base 10, +-1, for SPECIAL, and applies species stats and age stats.

@@ -21,9 +21,6 @@
 
 	invocation = ""
 	invocation_type = "shout" //can be none, whisper, emote and shout
-	attunements = list(
-		/datum/attunement/ice = 0.9
-	)
 
 /obj/effect/proc_holder/spell/invoked/frostbite5e/cast(list/targets, mob/living/user)
 	if(isliving(targets[1]))

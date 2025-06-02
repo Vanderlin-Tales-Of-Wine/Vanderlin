@@ -27,9 +27,6 @@
 	var/obj/inhand_requirement = null
 	var/overlay_state = null
 
-	var/list/attunements
-	var/attuned_strength = 1
-
 /obj/effect/proc_holder/Initialize()
 	. = ..()
 	if(has_action)
@@ -389,18 +386,6 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 			charge_counter = recharge_time
 			recharging = FALSE
 
-/obj/effect/proc_holder/spell/proc/set_attuned_strength(list/incoming_attunements)
-	var/total_value = 1
-	for(var/datum/attunement/attunement as anything in attunements)
-		if(!(attunement in incoming_attunements))
-			continue
-		if(attunements[attunement] < 0)
-			total_value += incoming_attunements[attunement] + attunements[attunement]
-		else
-			total_value += incoming_attunements[attunement] - attunements[attunement]
-	attuned_strength = total_value
-	return
-
 /obj/effect/proc_holder/spell/proc/perform(list/targets, recharge = TRUE, mob/user = usr) //if recharge is started is important for the trigger spells
 	if(length(targets) && miracle && healing_miracle)
 		var/mob/living/target = targets[1]
@@ -421,15 +406,6 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 	if (!isnull(user.mana_pool))
 		usable_pools += user.mana_pool
 
-	var/list/total_attunements = GLOB.default_attunements.Copy()
-
-	for(var/datum/mana_pool/pool as anything in usable_pools)
-		for(var/negative_attunement in pool.negative_attunements)
-			total_attunements[negative_attunement] += pool.negative_attunements[negative_attunement]
-		for(var/attunement in pool.attunements)
-			total_attunements[attunement] += pool.attunements[attunement]
-
-	set_attuned_strength(total_attunements)
 	if(user && user.ckey)
 		create_logs(user, targets)
 	if(recharge)

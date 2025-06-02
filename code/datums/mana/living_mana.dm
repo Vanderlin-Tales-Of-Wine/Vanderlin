@@ -74,15 +74,6 @@
 /mob/living/carbon/get_initial_mana_pool_type()
 	return /datum/mana_pool/mob
 
-/mob/living/carbon/proc/generate_random_attunements(amount = rand(2, 3))
-	var/list/attunements = subtypesof(/datum/attunement)
-	for(var/i = 1 to amount)
-		var/datum/attunement/picked = pick(attunements)
-		mana_pool?.adjust_attunement(picked, rand(1, 3) * 0.1)
-
-/mob/living/carbon/after_manapool_init()
-	generate_random_attunements()
-
 /mob/living/carbon/human/dummy
 	has_initial_mana_pool = FALSE
 

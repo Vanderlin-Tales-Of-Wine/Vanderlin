@@ -22,9 +22,6 @@
 
 	invocation = "Return to rot."
 	invocation_type = "whisper"
-	attunements = list(
-		/datum/attunement/death = 0.3,
-	)
 
 /obj/effect/proc_holder/spell/invoked/decompose5e/cast(list/targets, mob/living/user)
 	if(!isliving(targets[1]))

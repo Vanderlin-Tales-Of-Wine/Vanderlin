@@ -12,9 +12,7 @@
 	charging_slowdown = 2
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/arcane
-	attunements = list(
-		/datum/attunement/dark = 0.6,
-	)
+
 	var/delay = 3
 	var/damage = 0 // damage based off your str
 	var/area_of_effect = 0

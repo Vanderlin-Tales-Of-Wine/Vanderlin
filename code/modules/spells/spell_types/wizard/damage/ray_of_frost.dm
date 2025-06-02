@@ -21,11 +21,6 @@
 	associated_skill = /datum/skill/magic/arcane //can be arcane, druidic, blood, holy
 	cost = 1
 
-
-	attunements = list(
-		/datum/attunement/ice = 0.6,
-	)
-
 	miracle = FALSE
 
 	invocation = "Chill!"

@@ -17,10 +17,6 @@
 
 	miracle = FALSE
 
-	attunements = list(
-		/datum/attunement/earth = 0.3,
-	)
-
 	invocation = "Stay sharp and strong."
 	invocation_type = "whisper" //can be none, whisper, emote and shout
 	var/magic_color = "#c8daff"

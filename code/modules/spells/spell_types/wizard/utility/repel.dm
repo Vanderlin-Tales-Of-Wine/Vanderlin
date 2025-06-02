@@ -16,9 +16,6 @@
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/arcane
 	cost = 2
-	attunements = list(
-		/datum/attunement/aeromancy = 0.6,
-	)
 
 /obj/effect/proc_holder/spell/invoked/projectile/repel/fire_projectile(mob/living/user, atom/target)
 	if(iscarbon(user))

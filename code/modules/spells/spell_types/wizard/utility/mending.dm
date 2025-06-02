@@ -20,9 +20,7 @@
 	miracle = FALSE
 
 	invocation = ""
-	attunements = list(
-		/datum/attunement/life = 1.2
-	)
+
 	invocation_type = "shout" //can be none, whisper, emote and shout
 
 /obj/effect/proc_holder/spell/invoked/mending/cast(list/targets, mob/living/user)

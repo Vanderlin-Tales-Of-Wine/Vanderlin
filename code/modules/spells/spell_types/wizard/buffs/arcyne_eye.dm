@@ -11,16 +11,12 @@
 	movement_interrupt = TRUE
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/arcane
-	attunements = list(
-		/datum/attunement/arcyne = 0.1
-		)
 	cost = 1
 	overlay_state = "transfix"
 
 /obj/effect/proc_holder/spell/self/arcyne_eye/cast(list/targets, mob/living/user)
 	playsound(get_turf(user), 'sound/vo/smokedrag.ogg', 100, TRUE)
-	var/duration_increase = min(0, attuned_strength * 1.5 MINUTES)
-	user.apply_status_effect(/datum/status_effect/buff/duration_modification/arcyne_eye, duration_increase)
+	user.apply_status_effect(/datum/status_effect/buff/duration_modification/arcyne_eye,)
 	return TRUE
 
 /datum/status_effect/buff/duration_modification/arcyne_eye

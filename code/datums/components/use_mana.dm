@@ -16,8 +16,6 @@
 	var/datum/callback/get_user_callback
 	var/datum/callback/get_mana_required_callback
 
-	var/list/datum/attunement/attunements
-
 	var/pre_use_check_with_feedback_comsig
 	var/pre_use_check_comsig
 	var/post_use_comsig
@@ -31,7 +29,6 @@
 	pre_use_check_comsig,
 	post_use_comsig,
 	datum/callback/mana_required,
-	list/datum/attunement/attunements,
 )
 	. = ..()
 
@@ -50,7 +47,6 @@
 	else if (isnum(mana_required))
 		src.mana_required = mana_required
 
-	src.attunements = attunements
 	src.pre_use_check_with_feedback_comsig = pre_use_check_with_feedback_comsig
 	src.post_use_comsig = post_use_comsig
 
@@ -68,7 +64,7 @@
 	UnregisterSignal(parent, post_use_comsig)
 
 // TODO: Do I need the vararg?
-/// Should return the numerical value of mana needed to use whatever it is we're using. Unaffected by attunements.
+/// Should return the numerical value of mana needed to use whatever it is we're using.
 /datum/component/uses_mana/proc/get_mana_required(atom/caster, ...) // Get the mana required to cast the spell.
 	if (!isnull(get_mana_required_callback))
 		return get_mana_required_callback?.Invoke(arglist(args))
@@ -105,7 +101,7 @@
 
 
 	for (var/datum/mana_pool/iterated_pool as anything in provided_mana)
-		total_effective_mana += iterated_pool.get_attuned_amount(attunements, caster)
+		total_effective_mana += iterated_pool.get_attuned_amount(caster)
 	if (total_effective_mana > required_mana)
 		return TRUE
 	else
@@ -117,26 +113,18 @@
 	var/mob/user = get_user_callback?.Invoke()
 
 	var/mana_consumed = -get_mana_required(arglist(args))
-	var/total_mana_consumed = -mana_consumed
 	if (isnull(mana_consumed))
 		stack_trace("mana_consumed after get_mana_required is null!")
 		return
 
 	var/list/datum/mana_pool/available_pools = get_mana_to_use()
 	var/mob/living/caster = get_parent_user()
-	var/attunement_total_value = 0
 	var/total_damage = 0
-	for(var/datum/attunement/attunement as anything in attunements)
-		attunement_total_value += attunements[attunement]
 
 	while (mana_consumed <= -0.05)
 		var/mult
 		var/attuned_cost
 		for (var/datum/mana_pool/pool as anything in available_pools)
-			mult = pool.get_overall_attunement_mults(attunements, user)
-			attuned_cost = (mana_consumed * mult)
-			if (pool.amount < attuned_cost)
-				attuned_cost = (pool.amount)
 			var/mana_adjusted = SAFE_DIVIDE(pool.adjust_mana((attuned_cost)), mult) * (has_world_trait(/datum/world_trait/noc_wisdom) ? 0.8 : 1)
 			mana_consumed -= mana_adjusted
 			record_featured_stat(FEATURED_STATS_MAGES, user, abs(mana_adjusted))
@@ -144,12 +132,6 @@
 			if (available_pools.Find(pool) == available_pools.len && mana_consumed <= -0.05) // if we're at the end of the list and mana_consumed is not 0 or near 0 (floating points grrr)
 				stack_trace("cost: [mana_consumed] was not 0 after drain_mana on [src]! This could've been an infinite loop!")
 				mana_consumed = 0 // lets terminate the loop to be safe
-			if(pool.parent == caster)
-				for(var/datum/attunement/attunement as anything in attunements)
-					if(pool.negative_attunements[attunement] < 0)
-						var/composition_gain = attunement_total_value / attunements[attunement]
-						var/negative_impact_mana = total_mana_consumed * composition_gain
-						total_damage += round(negative_impact_mana * 0.1,1)
 	if(total_damage)
 		caster.mana_pool.mana_backlash(total_damage)
 
@@ -197,7 +179,6 @@
 	pre_use_check_comsig,
 	post_use_comsig = COMSIG_SPELL_AFTER_CAST,
 	datum/callback/mana_required,
-	list/datum/attunement/attunements
 	)
 
 	. = ..()

@@ -22,10 +22,6 @@
 	invocation_type = "shout" //can be none, whisper, emote and shout
 	miracle = TRUE
 	devotion_cost = 15
-	attunements = list(
-		/datum/attunement/earth = 0.5,
-		/datum/attunement/life = 0.5,
-	)
 
 /obj/effect/proc_holder/spell/targeted/blesscrop/cast(list/targets,mob/user = usr)
 	. = ..()
@@ -59,9 +55,6 @@
 	releasedrain = 30
 	miracle = TRUE
 	devotion_cost = 15
-	attunements = list(
-		/datum/attunement/earth = 0.5,
-	)
 
 /obj/effect/proc_holder/spell/self/beastsense/cast(list/targets,mob/living/user = usr)
 	playsound(get_turf(user), 'sound/vo/smokedrag.ogg', 100, TRUE)
@@ -96,9 +89,7 @@
 	invocation_type = "whisper" //can be none, whisper, emote and shout
 	miracle = TRUE
 	devotion_cost = 60
-	attunements = list(
-		/datum/attunement/earth = 1,
-	)
+
 	var/static/list/pet_commands = list(
 		/datum/pet_command/idle,
 		/datum/pet_command/free,
@@ -256,9 +247,7 @@
 	req_items = list(/obj/item/clothing/neck/psycross/silver/dendor)
 	invocation = "Treefather light the way."
 	invocation_type = "whisper" //can be none, whisper, emote and shout
-	attunements = list(
-		/datum/attunement/earth = 0.6,
-	)
+
 	miracle = TRUE
 
 /obj/effect/proc_holder/spell/targeted/conjure_kneestingers/cast(list/targets,mob/user = usr)
@@ -293,10 +282,6 @@
 	releasedrain = 100
 	miracle = TRUE
 	devotion_cost = 100
-	attunements = list(
-		/datum/attunement/earth = 0.7,
-		/datum/attunement/polymorph = 0.5,
-	)
 
 /obj/effect/proc_holder/spell/self/trollshape/cast(list/targets,mob/living/user = usr)
 	. = ..()

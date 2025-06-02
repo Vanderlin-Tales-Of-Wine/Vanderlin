@@ -16,9 +16,6 @@
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/arcane
 	cost = 3
-	attunements = list(
-		/datum/attunement/arcyne = 0.4,
-	)
 
 /obj/effect/proc_holder/spell/invoked/findfamiliar/cast(list/targets,mob/user = usr)
 	. = ..()

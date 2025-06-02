@@ -15,9 +15,6 @@
 	movement_interrupt = TRUE
 	chargedloop = /datum/looping_sound/invokefire
 	cost = 10
-	attunements = list(
-		/datum/attunement/fire = 1.1,
-	)
 
 /obj/projectile/magic/aoe/fireball/rogue/great
 	name = "fireball"

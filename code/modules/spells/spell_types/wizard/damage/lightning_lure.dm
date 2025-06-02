@@ -13,16 +13,13 @@
 	sound = 'sound/magic/whiteflame.ogg'
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/arcane //can be arcane, druidic, blood, holy
-	cost = 2 // might even deserve a cost of 3
+	cost = 4 // might even deserve a cost of 3
 
 	miracle = FALSE
 
 	invocation = ""
 	invocation_type = "shout" //can be none, whisper, emote and shout
 	include_user = FALSE
-	attunements = list(
-		/datum/attunement/electric = 1.2
-	)
 
 	var/delay = 3 SECONDS
 	var/sprite_changes = 10

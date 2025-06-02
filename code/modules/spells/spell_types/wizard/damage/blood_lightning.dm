@@ -16,10 +16,6 @@
 	charging_slowdown = 3
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/blood
-	attunements = list(
-		/datum/attunement/electric = 0.3,
-		/datum/attunement/blood = 0.7,
-	)
 
 /obj/projectile/magic/bloodlightning
 	name = "blood bolt"

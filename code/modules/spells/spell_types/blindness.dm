@@ -13,9 +13,6 @@
 	antimagic_allowed = TRUE
 	recharge_time = 2 MINUTES
 	associated_skill = /datum/skill/magic/arcane
-	attunements = list(
-		/datum/attunement/arcyne = 0.1
-		)
 
 /obj/effect/proc_holder/spell/invoked/blindness/cast(list/targets, mob/user = usr)
 	if(isliving(targets[1]))

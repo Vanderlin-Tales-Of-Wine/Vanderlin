@@ -18,11 +18,6 @@
 	associated_skill = /datum/skill/magic/arcane //can be arcane, druidic, blood, holy
 	cost = 1
 
-	attunements = list(
-		/datum/attunement/blood = 0.3,
-		/datum/attunement/death = 0.3,
-	)
-
 	miracle = FALSE
 
 	invocation = "Evaporate!"

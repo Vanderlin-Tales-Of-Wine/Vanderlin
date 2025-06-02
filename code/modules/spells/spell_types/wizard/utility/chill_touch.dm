@@ -13,18 +13,13 @@
 	sound = 'sound/magic/whiteflame.ogg'
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/arcane //can be arcane, druidic, blood, holy
-	cost = 1
+	cost = 4
 
 
 	miracle = FALSE
 
 	invocation = "Be torn apart!"
 	invocation_type = "shout"
-
-	attunements = list(
-		/datum/attunement/ice = 0.3,
-	)
-
 
 // Notes: sorcerer, warlock, wizard
 /obj/effect/proc_holder/spell/invoked/chilltouch5e/cast(list/targets, mob/living/user)

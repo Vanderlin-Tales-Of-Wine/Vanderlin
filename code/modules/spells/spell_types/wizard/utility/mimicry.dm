@@ -11,10 +11,7 @@
 	movement_interrupt = FALSE
 	sound = 'sound/misc/area.ogg'
 	associated_skill = /datum/skill/magic/arcane
-	attunements = list(
-		/datum/attunement/dark = 0.4,
-		/datum/attunement/polymorph = 1.2,
-		)
+
 	var/datum/dna/old_dna
 	var/old_hair
 	var/old_hair_color

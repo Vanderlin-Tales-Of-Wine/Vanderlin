@@ -19,9 +19,6 @@
 	associated_skill = /datum/skill/magic/arcane
 	var/wall_type = /obj/structure/forcefield_weak/caster
 	cost = 3
-	attunements = list(
-		/datum/attunement/illusion = 0.3,
-	)
 
 //adapted from forcefields.dm, this needs to be destructible
 /obj/structure/forcefield_weak

@@ -46,7 +46,6 @@
 		/obj/effect/proc_holder/spell/self/arcyne_eye,
 		/obj/effect/proc_holder/spell/invoked/chilltouch5e,
 		/obj/effect/proc_holder/spell/invoked/infestation5e,
-		/obj/effect/proc_holder/spell/invoked/magicstone5e,
 		/obj/effect/proc_holder/spell/invoked/decompose5e,
 		/obj/effect/proc_holder/spell/targeted/encodethoughts5e,
 		/obj/effect/proc_holder/spell/invoked/guidance,
@@ -63,6 +62,7 @@
 		// /obj/effect/proc_holder/spell/invoked/projectile/eldritchblast5e,
 		// /obj/effect/proc_holder/spell/invoked/mindsliver5e,
 		// /obj/effect/proc_holder/spell/self/primalsavagery5e,
+		// /obj/effect/proc_holder/spell/invoked/magicstone5e, //has anyone even fucking used this?
 	)
 
 	for(var/i = 1, i <= spell_choices.len, i++)

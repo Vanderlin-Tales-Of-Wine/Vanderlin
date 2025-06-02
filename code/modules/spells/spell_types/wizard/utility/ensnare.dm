@@ -15,12 +15,9 @@
 	associated_skill = /datum/skill/magic/arcane
 	range = 6
 	overlay_state = "ensnare"
-	attunements = list(
-		/datum/attunement/time = 0.3,
-		/datum/attunement/arcyne = 0.4,
-	)
+
 	var/area_of_effect = 1
-	var/duration = 4 SECONDS
+	var/duration = 8 SECONDS
 	var/delay = 0.8 SECONDS
 
 /obj/effect/proc_holder/spell/invoked/slowdown_spell_aoe/cast(list/targets, mob/user = usr)

@@ -20,10 +20,6 @@
 	associated_skill = /datum/skill/magic/druidic //can be arcane, druidic, blood, holy
 	cost = 1
 
-	attunements = list(
-		/datum/attunement/earth = 0.3,
-	)
-
 	miracle = FALSE
 
 	invocation = "Teeth of a serpent."
@@ -32,18 +28,9 @@
 
 /obj/effect/proc_holder/spell/self/primalsavagery5e/cast(mob/user = usr)
 	var/mob/living/target = user
-	var/duration_increase = min(0, attuned_strength * 1 MINUTES)
-	target.apply_status_effect(/datum/status_effect/buff/duration_increase/primalsavagery5e, duration_increase)
+	target.apply_status_effect(/datum/status_effect/buff/duration_increase/primalsavagery5e,)
 	ADD_TRAIT(target, TRAIT_POISONBITE, TRAIT_GENERIC)
 	user.visible_message(span_info("[user] looks more primal!"), span_info("You feel more primal."))
-
-	if(attuned_strength > 1.5)
-		for(var/mob/living/extra_target in range(FLOOR(attuned_strength, 1)))
-			if(extra_target == target)
-				continue
-			extra_target.apply_status_effect(/datum/status_effect/buff/duration_increase/primalsavagery5e, duration_increase)
-			ADD_TRAIT(extra_target, TRAIT_POISONBITE, TRAIT_GENERIC)
-			extra_target.visible_message(span_info("[extra_target] looks more primal!"), span_info("You feel more primal."))
 
 	return TRUE
 

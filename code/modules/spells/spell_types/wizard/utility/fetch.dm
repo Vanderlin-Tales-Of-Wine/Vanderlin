@@ -15,9 +15,6 @@
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/arcane
 	cost = 2
-	attunements = list(
-		/datum/attunement/aeromancy = 0.3,
-	)
 
 /obj/projectile/magic/fetch/on_hit(target)
 	. = ..()

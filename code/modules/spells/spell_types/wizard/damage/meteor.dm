@@ -12,9 +12,6 @@
 	charging_slowdown = 2
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/arcane
-	attunements = list(
-		/datum/attunement/fire = 1.2
-	)
 
 /obj/effect/proc_holder/spell/invoked/meteor_storm/cast(list/targets, mob/user = usr)
 	var/turf/T = get_turf(targets[1])
@@ -25,26 +22,13 @@
 		create_meteors(T)
 	return TRUE
 
-/obj/effect/proc_holder/spell/invoked/meteor_storm/set_attuned_strength(list/incoming_attunements)
-	var/total_value = 1
-	for(var/datum/attunement/attunement as anything in attunements)
-		if(istype(attunement, /datum/attunement/blood))
-			total_value -= incoming_attunements[attunement] * 0.5
-		if(!(attunement in incoming_attunements))
-			continue
-		total_value += incoming_attunements[attunement] - attunements[attunement]
-
-	attuned_strength = total_value
-	attuned_strength = max(attuned_strength, 0.5)
-	return
-
 //meteor storm and lightstorm.
 /obj/effect/proc_holder/spell/invoked/meteor_storm/proc/create_meteors(atom/target)
 	if(!target)
 		return
 	target.visible_message(span_boldwarning("Fire rains from the sky!"))
 	var/turf/targetturf = get_turf(target)
-	var/value = 20 * attuned_strength
+	var/value = 20
 	while(value > 0)
 		for(var/turf/turf as anything in RANGE_TURFS(6,targetturf))
 			if(prob(min(20, value)))

@@ -642,7 +642,7 @@
 			if(istype(ranged_ability, /obj/effect/proc_holder/spell))
 				var/obj/effect/proc_holder/spell/ability = ranged_ability
 				if(!ability.miracle && ability.uses_mana)
-					mmb_intent.AddComponent(/datum/component/uses_mana/spell,CALLBACK(mmb_intent, TYPE_PROC_REF(/datum/intent, spell_cannot_activate)),CALLBACK(mmb_intent, TYPE_PROC_REF(/datum/intent, get_owner)),COMSIG_SPELL_BEFORE_CAST,null,COMSIG_SPELL_AFTER_CAST,CALLBACK(ranged_ability, TYPE_PROC_REF(/obj/effect/proc_holder, get_fatigue_drain)),ranged_ability.attunements)
+					mmb_intent.AddComponent(/datum/component/uses_mana/spell,CALLBACK(mmb_intent, TYPE_PROC_REF(/datum/intent, spell_cannot_activate)),CALLBACK(mmb_intent, TYPE_PROC_REF(/datum/intent, get_owner)),COMSIG_SPELL_BEFORE_CAST,null,COMSIG_SPELL_AFTER_CAST,CALLBACK(ranged_ability, TYPE_PROC_REF(/obj/effect/proc_holder, get_fatigue_drain)),ranged_ability)
 
 
 	hud_used.quad_intents?.switch_intent(input)

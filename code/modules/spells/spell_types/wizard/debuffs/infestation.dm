@@ -21,12 +21,6 @@
 	invocation = "Rot, take them!"
 	invocation_type = "shout" //can be none, whisper, emote and shout
 
-	attunements = list(
-		/datum/attunement/dark = 0.3,
-		/datum/attunement/death = 0.3,
-	)
-
-
 /obj/effect/proc_holder/spell/invoked/infestation5e/cast(list/targets, mob/living/user)
 	if(isliving(targets[1]))
 		var/mob/living/carbon/target = targets[1]

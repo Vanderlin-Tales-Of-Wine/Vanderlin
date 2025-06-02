@@ -14,9 +14,7 @@
 	charging_slowdown = 2
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/arcane
-	attunements = list(
-		/datum/attunement/arcyne = 1,
-	)
+
 
 /obj/effect/proc_holder/spell/invoked/guidance/cast(list/targets, mob/user)
 	var/atom/A = targets[1]
@@ -25,8 +23,6 @@
 
 	var/mob/living/spelltarget = A
 
-	var/duration_increase = min(0, attuned_strength * 60 SECONDS) //basically 1 minute extra per 1 attunement level since its a strong effect
-	spelltarget.apply_status_effect(/datum/status_effect/buff/duration_modification/guidance, duration_increase)
 	playsound(get_turf(spelltarget), 'sound/magic/haste.ogg', 80, TRUE, soundping = TRUE)
 
 	if(spelltarget != user)

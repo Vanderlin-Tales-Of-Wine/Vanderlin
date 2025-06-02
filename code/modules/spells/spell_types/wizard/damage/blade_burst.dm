@@ -13,9 +13,6 @@
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/arcane
 	overlay_state = "blade_burst"
-	attunements = list(
-		/datum/attunement/earth = 0.4,
-	)
 	var/delay = 7
 	var/damage = 45
 
