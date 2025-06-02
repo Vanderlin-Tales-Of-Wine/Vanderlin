@@ -281,7 +281,7 @@
 	<HR>
 	<BR><B>Head:</B> <A href='byond://?src=[REF(src)];item=[ITEM_SLOT_HEAD]'>[(head && !(head.item_flags & ABSTRACT)) ? head : "Nothing"]</A>"}
 
-	var/list/obscured = check_obscured_slots()
+	var/obscured = check_obscured_slots()
 
 	if(obscured & ITEM_SLOT_NECK)
 		dat += "<BR><B>Neck:</B> Obscured"

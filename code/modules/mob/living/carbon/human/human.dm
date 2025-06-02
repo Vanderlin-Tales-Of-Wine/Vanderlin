@@ -126,7 +126,7 @@
 
 /mob/living/carbon/human/show_inv(mob/user)
 	user.set_machine(src)
-	var/list/obscured = check_obscured_slots()
+	var/obscured = check_obscured_slots()
 	var/list/dat = list()
 
 	dat += "<table>"

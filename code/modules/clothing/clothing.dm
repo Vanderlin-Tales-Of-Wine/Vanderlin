@@ -467,7 +467,7 @@ BLIND     // can't see anything
 	gas_transfer_coefficient = initial(gas_transfer_coefficient)
 
 /obj/item/clothing/equipped(mob/user, slot)
-	if(hoodtype && slot != ITEM_SLOT_ARMOR|ITEM_SLOT_CLOAK)
+	if(hoodtype && !(slot & (ITEM_SLOT_ARMOR|ITEM_SLOT_CLOAK)))
 		RemoveHood()
 	if(adjustable > 0)
 		ResetAdjust(user)
