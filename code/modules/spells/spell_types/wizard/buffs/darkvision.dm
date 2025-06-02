@@ -28,6 +28,7 @@
 		var/mob/living/spelltarget = target
 		if(!do_after(user, 5 SECONDS, spelltarget))
 			return
+		spelltarget.apply_status_effect(/datum/status_effect/buff/duration_modification/darkvision,)
 		user.adjust_stamina(80)
 		if(spelltarget != user)
 			user.visible_message("[user] draws a glyph in the air and touches [spelltarget] with an arcyne focus.")
