@@ -1731,7 +1731,6 @@
 #include "code\modules\crafting\artificer\_base.dm"
 #include "code\modules\crafting\artificer\misc.dm"
 #include "code\modules\crafting\book_entries\_base.dm"
-#include "code\modules\crafting\book_entries\attunement_matrix.dm"
 #include "code\modules\crafting\book_entries\container_craft.dm"
 #include "code\modules\crafting\book_entries\grimoire.dm"
 #include "code\modules\crafting\book_entries\mana_sources.dm"

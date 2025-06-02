@@ -76,13 +76,13 @@
 	ADD_TRAIT(character, TRAIT_NOMOOD, "[type]")
 	ADD_TRAIT(character, TRAIT_NOSTINK, "[type]")
 
-/datum/special_trait/latentmagic
-	name = "Latent Magic"
-	greet_text = span_notice("I have innate magical potential.")
-	weight = 25
+// /datum/special_trait/latentmagic
+// 	name = "Latent Magic"
+// 	greet_text = span_notice("I have innate magical potential.")
+// 	weight = 25
 
-/datum/special_trait/latentmagic/on_apply(mob/living/carbon/human/character, silent)
-	character.adjust_skillrank(/datum/skill/magic/arcane, 1, TRUE)
+// /datum/special_trait/latentmagic/on_apply(mob/living/carbon/human/character, silent)
+// 	character.adjust_skillrank(/datum/skill/magic/arcane, 1, TRUE)
 
 /datum/special_trait/value
 	name = "Coin Counter"
@@ -565,20 +565,20 @@
 	allowed_jobs = list(/datum/job/lord)
 	weight = 25 //Should be fine.
 
-/datum/special_trait/thinker/on_apply(mob/living/carbon/human/character, silent)
-	character.change_stat("strength", -3)
-	character.change_stat("intelligence", 6)
-	character.change_stat("constitution", -1)
-	character.change_stat("endurance", -1)
-	character.adjust_skillrank(/datum/skill/magic/arcane, 5, TRUE)
-	character.set_skillrank(/datum/skill/combat/swords, 2, TRUE) //Average only.
-	character.mind.adjust_spellpoints(14) //Less points than Court Mage, why do Court mage get 17 points? what even?
-	character.mind.AddSpell(new /obj/effect/proc_holder/spell/self/learnspell)
-	character.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
-	character.generate_random_attunements(rand(4,6))
-	character.mana_pool.set_intrinsic_recharge(MANA_ALL_LEYLINES)
-	character.mana_pool.adjust_mana(100) //I don't know, they don't spawn with their full mana bar, so we give them a bit more mana at the start.
-	new /obj/item/book/granter/spellbook/master(get_turf(character))
+// /datum/special_trait/thinker/on_apply(mob/living/carbon/human/character, silent)
+// 	character.change_stat("strength", -3)
+// 	character.change_stat("intelligence", 6)
+// 	character.change_stat("constitution", -1)
+// 	character.change_stat("endurance", -1)
+// 	character.adjust_skillrank(/datum/skill/magic/arcane, 5, TRUE)
+// 	character.set_skillrank(/datum/skill/combat/swords, 2, TRUE) //Average only.
+// 	character.mind.adjust_spellpoints(14) //Less points than Court Mage, why do Court mage get 17 points? what even?
+// 	character.mind.AddSpell(new /obj/effect/proc_holder/spell/self/learnspell)
+// 	character.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
+// 	character.generate_random_attunements(rand(4,6))
+// 	character.mana_pool.set_intrinsic_recharge(MANA_ALL_LEYLINES)
+// 	character.mana_pool.adjust_mana(100) //I don't know, they don't spawn with their full mana bar, so we give them a bit more mana at the start.
+// 	new /obj/item/book/granter/spellbook/master(get_turf(character))
 
 /datum/special_trait/skeleton
 	name = "Skeleton"
