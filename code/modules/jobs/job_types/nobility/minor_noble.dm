@@ -63,6 +63,9 @@
 		head = /obj/item/clothing/head/fancyhat
 		backpack_contents = list(/obj/item/reagent_containers/glass/bottle/wine = 1, /obj/item/reagent_containers/glass/cup/silver = 1)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
+	
+/datum/outfit/job/noble/post_equip(mob/living/carbon/human/H, visualsOnly)
+	. = ..()
 	var/static/list/selectable = list(
 		"Rapier" = /obj/item/weapon/sword/rapier/dec,
 		"Dagger" = /obj/item/weapon/knife/dagger/steel
