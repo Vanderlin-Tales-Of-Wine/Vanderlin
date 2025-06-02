@@ -1272,10 +1272,6 @@
 /obj/structure/vertical_gearbox,
 /turf/open/floor/wood,
 /area/rogue/indoors)
-"lI" = (
-/obj/effect/spawner/guaranteed_map_spawner/listed/steward_keys,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
 "lQ" = (
 /obj/structure/minecart_rail{
 	dir = 4
@@ -1493,12 +1489,6 @@
 /obj/item/recipe_book/survival,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/mountains/decap)
-"sC" = (
-/obj/effect/spawner/guaranteed_map_spawner/single/cup{
-	amount = 5
-	},
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
 "sG" = (
 /obj/structure/rack/shelf,
 /obj/structure/rack/shelf/biggest,
@@ -2006,10 +1996,6 @@
 "Kh" = (
 /turf/open/floor/grass/yel,
 /area/rogue/indoors)
-"Km" = (
-/obj/effect/spawner/guaranteed_map_spawner/listed/cutlery,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
 "Ko" = (
 /obj/structure/hotspring/border/twelve,
 /turf/open/floor/grass/yel,
@@ -2120,10 +2106,6 @@
 /area/rogue/outdoors)
 "Qi" = (
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
-"Qy" = (
-/obj/effect/spawner/guaranteed_map_spawner/listed/cups,
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
 "QN" = (
@@ -14151,7 +14133,7 @@ Fj
 cp
 ji
 ky
-Qy
+QN
 ae
 QN
 QN
@@ -14408,7 +14390,7 @@ zF
 HK
 QN
 QN
-Km
+QN
 qc
 QN
 bs
@@ -14665,7 +14647,7 @@ qi
 RC
 QN
 Wg
-lI
+QN
 qc
 jC
 fS
@@ -14922,7 +14904,7 @@ Pg
 EX
 Gi
 ky
-sC
+QN
 aq
 QN
 Wr
