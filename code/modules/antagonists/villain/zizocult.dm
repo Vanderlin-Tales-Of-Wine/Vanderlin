@@ -74,13 +74,14 @@ GLOBAL_LIST_EMPTY(ritualslist)
 
 	add_objective(/datum/objective/zizo)
 	owner.special_role = ROLE_ZIZOIDCULTIST
-	owner.current.verbs |= /mob/living/carbon/human/proc/release_minion
+	H.verbs |= /mob/living/carbon/human/proc/release_minion
 	if(!change_stats)
 		return
-	H.set_skillrank(/datum/skill/combat/knives, 4, TRUE)
-	H.set_skillrank(/datum/skill/combat/swords, 4, TRUE)
-	H.set_skillrank(/datum/skill/combat/wrestling, 5, TRUE)
-	H.set_skillrank(/datum/skill/misc/athletics, 4, TRUE)
+	H.clamped_adjust_skillrank(/datum/skill/combat/knives, 4, 4, TRUE)
+	H.clamped_adjust_skillrank(/datum/skill/combat/swords, 4, 4, TRUE)
+	H.clamped_adjust_skillrank(/datum/skill/combat/wrestling, 5, 5, TRUE)
+	Ht.clamped_adjust_skillrank(/datum/skill/misc/athletics, 4, 4, TRUE)
+	H.change_stat(STATKEY_STR, 2)
 	H.change_stat(STATKEY_STR, 2)
 	H.change_stat(STATKEY_END, 3)
 	H.change_stat(STATKEY_CON, 3)
