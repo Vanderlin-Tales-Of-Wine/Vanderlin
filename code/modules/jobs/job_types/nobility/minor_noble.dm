@@ -73,7 +73,6 @@
 	var/choice = H.select_equippable(H, selectable, message = "Choose Your Armament.", title = "YOUR LORDSHIP")
 	if(!choice)
 		return
-	var/modifier = reduced_skill
 	switch(choice)
 		if("Dagger")
 			H.adjust_skillrank(/datum/skill/combat/swords, 2 - modifier, TRUE)
