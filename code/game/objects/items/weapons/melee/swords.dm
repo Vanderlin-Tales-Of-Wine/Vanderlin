@@ -823,7 +823,7 @@
 	gripped_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust, /datum/intent/sword/strike, /datum/intent/sword/chop/long)
 	force_wielded = DAMAGE_GREATSWORD_WIELD
 	name = "Steel Claymore"
-	desc = "A steel variant of the standardised Claymore, constructed of Iron."
+	desc = "A steel variant of the standard Claymore, the mainstay weapon of the wandering Mercanary Gallowglass' of Kaledon."
 	icon_state = "steelclaymore"
 	minstr = 10
 	max_blade_int = 300
@@ -848,7 +848,7 @@
 	force_wielded = DAMAGE_GREATSWORD_WIELD
 	wdefense = ULTMATE_PARRY
 	name = "Ravoxian Claymore"
-	desc = "A huge sword constructed out of Steel and Gold, wielded by the strongest Templars of the Ravoxian Order"
+	desc = "A huge sword constructed out of Steel and Gold, wielded by the Kaledonian Templars of the Ravoxian Order"
 	icon_state = "gsclaymore"
 	minstr = 10
 	max_blade_int = 350
