@@ -179,7 +179,7 @@
 
 /datum/special_trait/tombraider
 	name = "Tomb Raider"
-	greet_text = span_notice("It belongs in a museum.")
+	greet_text = span_notice("It belongs in a museum. I have a whip hidden and I know how to use it.")
 	weight = 50
 
 /datum/special_trait/tombraider/on_apply(mob/living/carbon/human/character, silent)
