@@ -49,7 +49,7 @@
 	category_tags = list(CTAG_GARRISON)
 
 /datum/outfit/job/guardsman/footman/pre_equip(mob/living/carbon/human/H)
-	..()
+	. = ..()
 	head = /obj/item/clothing/head/helmet/townwatch
 	neck = /obj/item/clothing/neck/gorget
 	armor = /obj/item/clothing/armor/chainmail
@@ -190,8 +190,7 @@
 	H.change_stat(STATKEY_STR, 2)
 	H.change_stat(STATKEY_END, 2)
 	H.change_stat(STATKEY_CON, 1)
-	H.change_stat(STATKEY_SPD, -2 // Stronk and has training in hammers and a rather high endurance to hit fast with them
-	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+	H.change_stat(STATKEY_SPD, -2) // Stronk and has training in hammers and a rather high endurance to hit fast with them
 	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
 	H.verbs |= /mob/proc/haltyell
 

@@ -115,8 +115,8 @@
 		H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
-		H.change_stats(STATKEY_CON, +2)
-		H.change_stat(STATKEY_STR +3)
+		H.change_stat(STATKEY_CON, 2)
+		H.change_stat(STATKEY_STR, 3)
 		H.change_stat(STATKEY_END, -2) //ABSURD STRENGTH AND CON, BUT YOU'RE SLOW
 		H.change_stat(STATKEY_SPD, -3)
 		ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
