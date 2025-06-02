@@ -2,7 +2,7 @@
 /obj/structure/flora/grass/maneater
 	icon = 'icons/roguetown/mob/monster/maneater.dmi'
 	icon_state = "maneater-hidden"
-	num_random_icons
+	num_random_icons = 0
 
 /obj/structure/flora/grass/maneater/real
 	icon_state = MAP_SWITCH("maneater-hidden", "maneater")
