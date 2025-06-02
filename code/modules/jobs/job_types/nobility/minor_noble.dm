@@ -22,6 +22,7 @@
 
 /datum/outfit/job/noble
 	job_bitflag = BITFLAG_ROYALTY
+	var/reduced_skill = FALSE
 
 /datum/outfit/job/noble/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -41,33 +42,39 @@
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/music, rand(1,2), TRUE)
 	H.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/bows, 2, TRUE)
 	H.change_stat(STATKEY_INT, 1)
 	shoes = /obj/item/clothing/shoes/boots
 	backl = /obj/item/storage/backpack/satchel
 	neck = /obj/item/storage/belt/pouch/coins/veryrich
 	belt = /obj/item/storage/belt/leather
+	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
+	beltl = /obj/item/ammo_holder/quiver/arrows
 	ring = /obj/item/clothing/ring/silver
 	if(H.gender == FEMALE)
-		H.change_stat(STATKEY_SPD, 1)
-		H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-		H.adjust_skillrank(/datum/skill/combat/bows, 2, TRUE)
 		shirt = /obj/item/clothing/shirt/dress/silkdress/random
 		head = /obj/item/clothing/head/hatfur
 		cloak = /obj/item/clothing/cloak/raincloak/furcloak
-		backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
-		beltr = /obj/item/weapon/knife/dagger/steel/special
-		beltl = /obj/item/ammo_holder/quiver/arrows
 		backpack_contents = list(/obj/item/reagent_containers/glass/bottle/wine = 1, /obj/item/reagent_containers/glass/cup/silver = 1)
 	if(H.gender == MALE)
-		H.change_stat(STATKEY_CON, 1)
-		H.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
-		H.adjust_skillrank(/datum/skill/combat/bows, 2, TRUE)
 		pants = /obj/item/clothing/pants/tights/black
 		shirt = /obj/item/clothing/shirt/tunic/random
 		cloak = /obj/item/clothing/cloak/raincloak/furcloak
 		head = /obj/item/clothing/head/fancyhat
-		backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
-		beltr = /obj/item/weapon/sword/rapier/dec
-		beltl = /obj/item/ammo_holder/quiver/arrows
 		backpack_contents = list(/obj/item/reagent_containers/glass/bottle/wine = 1, /obj/item/reagent_containers/glass/cup/silver = 1)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
+	var/static/list/selectable = list(
+		"Rapier" = /obj/item/weapon/sword/rapier/dec,
+		"Dagger" = /obj/item/weapon/knife/dagger/steel
+	)
+	var/choice = H.select_equippable(H, selectable, message = "Choose Your Specialisation", title = "NOBLE")
+	if(!choice)
+		return
+	var/modifier = reduced_skill
+	switch(choice)
+		if("Dagger")
+			H.adjust_skillrank(/datum/skill/combat/swords, 2 - modifier, TRUE)
+			H.change_stat(STATKEY_SPD, 1)
+		if("Rapier")
+			H.adjust_skillrank(/datum/skill/combat/knives, 2 - modifier, TRUE)
+			H.change_stat(STATKEY_CON, 1)
