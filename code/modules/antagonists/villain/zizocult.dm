@@ -21,7 +21,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 		TRAIT_VILLAIN,
 	)
 
-/datum/antagonist/zizocultist/no_stats
+/datum/antagonist/zizocultist/zizo_knight
 	change_stats = FALSE
 
 /datum/antagonist/zizocultist/leader
