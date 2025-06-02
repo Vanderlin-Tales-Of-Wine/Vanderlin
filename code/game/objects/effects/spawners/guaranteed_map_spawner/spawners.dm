@@ -29,3 +29,7 @@
 		/obj/item/reagent_containers/glass/cup/wooden = 4,
 	)
 
+/obj/effect/spawner/guaranteed_map_spawner/single/cup
+	spawned = /obj/item/reagent_containers/glass/cup/wooden
+	amount = 1
+
