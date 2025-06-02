@@ -8,7 +8,7 @@
 	var/t_is = p_are()
 
 	. = list("<span class='info'>ᛉ ------------ ᛉ\nThis is \a <EM>[src]</EM>!")
-	var/list/obscured = check_obscured_slots()
+	var/obscured = check_obscured_slots()
 
 	var/m1 = "[t_He] [t_is]"
 	var/m2 = "[t_his]"
