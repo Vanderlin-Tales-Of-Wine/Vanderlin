@@ -569,10 +569,9 @@
 	if(adjust_stamina(min(jadded,100)))
 		if(do_a_flip)
 			var/flip_angle = flip_direction ? 120 : -120
-			animate(src, pixel_z = pixel_z + 6, time = 1)
+			animate(src, pixel_z = pixel_z + 6, transform = turn(transform, flip_angle), time = 1)
+			animate(transform = turn(transform, flip_angle), time=1)
 			animate(pixel_z = prev_pixel_z, transform = turn(transform, flip_angle), time=1)
-			animate(transform = turn(transform, flip_angle), time=1)
-			animate(transform = turn(transform, flip_angle), time=1)
 			animate(transform = prev_transform, time = 0)
 		else
 			animate(src, pixel_z = pixel_z + 6, time = 1)
@@ -582,7 +581,7 @@
 		if(jextra)
 			throw_at(A, jrange, 1, src, spin = FALSE)
 			while(src.throwing)
-			sleep(1)
+				sleep(1)
 			throw_at(get_step(src, src.dir), 1, 1, src, spin = FALSE)
 		else
 			throw_at(A, jrange, 1, src, spin = FALSE)
