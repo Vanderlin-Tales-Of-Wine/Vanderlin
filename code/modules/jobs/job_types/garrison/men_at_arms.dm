@@ -117,7 +117,7 @@
 		H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 		H.change_stat(STATKEY_CON, 2)
 		H.change_stat(STATKEY_STR, 3)
-		H.change_stat(STATKEY_END, -2) //ABSURD STRENGTH AND CON, BUT YOU'RE SLOW
+		H.change_stat(STATKEY_INT, -2) //ABSURD STRENGTH AND CON, BUT YOU'RE SLOW AND DUMB
 		H.change_stat(STATKEY_SPD, -3)
 		ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)

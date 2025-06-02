@@ -63,7 +63,7 @@
 		head = /obj/item/clothing/head/fancyhat
 		backpack_contents = list(/obj/item/reagent_containers/glass/bottle/wine = 1, /obj/item/reagent_containers/glass/cup/silver = 1)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
-	
+
 /datum/outfit/job/noble/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
 	var/static/list/selectable = list(
@@ -75,8 +75,8 @@
 		return
 	switch(choice)
 		if("Dagger")
-			H.adjust_skillrank(/datum/skill/combat/swords, 2 - modifier, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
 			H.change_stat(STATKEY_SPD, 1)
 		if("Rapier")
-			H.adjust_skillrank(/datum/skill/combat/knives, 2 - modifier, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 			H.change_stat(STATKEY_CON, 1)
