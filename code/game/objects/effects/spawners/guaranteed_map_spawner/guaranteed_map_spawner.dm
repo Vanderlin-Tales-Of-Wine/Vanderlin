@@ -40,7 +40,7 @@
 		spawn_item(spawned)
 
 /obj/effect/spawner/guaranteed_map_spawner/listed
-	/obj/effect/spawner/guaranteed_map_spawner/listed
+	abstract_type = /obj/effect/spawner/guaranteed_map_spawner/listed
 	spawned = list()
 
 /obj/effect/spawner/guaranteed_map_spawner/listed/parse_items()
