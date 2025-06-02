@@ -20,6 +20,8 @@
 	spawned = list(
 		/obj/item/reagent_containers/glass/bowl = 6,
 		/obj/item/plate = 8,
+		/obj/item/kitchen/fork/iron = 6,
+		/obj/item/kitchen/spoon/iron = 6,
 	)
 
 /obj/effect/spawner/guaranteed_map_spawner/listed/cups

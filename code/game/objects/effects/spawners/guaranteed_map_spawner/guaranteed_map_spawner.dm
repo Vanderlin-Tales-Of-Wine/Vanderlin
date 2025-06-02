@@ -1,13 +1,15 @@
 /// guaranteed to spawn items
 /obj/effect/spawner/guaranteed_map_spawner
 	icon = 'icons/obj/structures_spawners.dmi'
-	/// Whether the items should be distributed to offsets 0,1,-1,2,-2,3,-3.. This overrides pixel_x/y on the spawner itself
+	icon_state = "map_spawner"
+	/// Whether the items should be distributed to offsets 0,1,-1,2,-2,3,-3
 	var/fan_out_items = TRUE
 	/**
 	 * - if listed type - assoc list with key as typepath and value as amount of items to spawn
 	 * - if single type - typepath to the item
 	*/
 	var/atom/movable/spawned
+	abstract_type = /obj/effect/spawner/guaranteed_map_spawner
 
 // this will qdel after returning parent value
 /obj/effect/spawner/guaranteed_map_spawner/Initialize(mapload, ...)
@@ -27,6 +29,7 @@
 	CRASH("[type] detected at [x], [y], [z], use single or listed subtypes instead!")
 
 /obj/effect/spawner/guaranteed_map_spawner/single
+	abstract_type = /obj/effect/spawner/guaranteed_map_spawner/single
 	/// amount to spawn of this item, made for mapper varediting simplicity
 	var/amount = 1
 
@@ -37,6 +40,7 @@
 		spawn_item(spawned)
 
 /obj/effect/spawner/guaranteed_map_spawner/listed
+	/obj/effect/spawner/guaranteed_map_spawner/listed
 	spawned = list()
 
 /obj/effect/spawner/guaranteed_map_spawner/listed/parse_items()
