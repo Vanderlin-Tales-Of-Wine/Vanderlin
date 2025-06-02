@@ -21,12 +21,11 @@
 
 	return INITIALIZE_HINT_QDEL
 
-/obj/effect/spawner/guaranteed_map_spawner/proc/spawn_item(obj/thing_to_spawn)
-	var/obj/object_to_spawn = thing_to_spawn
-	object_to_spawn = new(get_turf(loc))
+/obj/effect/spawner/guaranteed_map_spawner/proc/spawn_item(atom/movable/thing_to_spawn)
+	thing_to_spawn = new thing_to_spawn(get_turf(loc))
 	if(fan_out_items)
-		object_to_spawn.pixel_x += rand(-16, 16)
-		object_to_spawn.pixel_y += rand(-16, 16)
+		thing_to_spawn.pixel_x += rand(-16, 16)
+		thing_to_spawn.pixel_y += rand(-16, 16)
 
 /obj/effect/spawner/guaranteed_map_spawner/proc/parse_items()
 	CRASH("[type] detected at [x], [y], [z], use single or listed subtypes instead!")
