@@ -23,6 +23,9 @@ SUBSYSTEM_DEF(atoms)
 /datum/controller/subsystem/atoms/proc/InitializeAtoms(list/atoms)
 	if(initialized == INITIALIZATION_INSSATOMS)
 		return
+	#ifdef LOWMEMORYMODE
+	var/count
+	#endif
 
 	initialized = INITIALIZATION_INNEW_MAPLOAD
 	var/list/mapload_arg = list(TRUE)
@@ -32,6 +35,10 @@ SUBSYSTEM_DEF(atoms)
 			if(!(A.flags_1 & INITIALIZED_1))
 				InitAtom(A, mapload_arg)
 				CHECK_TICK
+
+			#ifdef LOWMEMORYMODE
+			count = atoms.len
+			#endif
 	else
 		#ifdef TESTING
 		count = 0
@@ -44,7 +51,7 @@ SUBSYSTEM_DEF(atoms)
 				#endif
 				CHECK_TICK
 	#ifdef LOWMEMORYMODE
-	to_chat(world, span_boldannounce("Initialized [atoms.len] atoms"))
+	to_chat(world, span_boldannounce("Initialized [count] atoms"))
 	#endif
 	initialized = INITIALIZATION_INNEW_REGULAR
 

@@ -19,9 +19,9 @@
 		new new_type(get_turf(src))
 
 /obj/effect/spawner/map_spawner/Initialize(mapload)
-	..()
+	. = ..()
 	if(!prob(probby))
-		return ..()
+		return
 	if(spawned && spawned.len > 1)
 		var/turf/T = get_turf(src)
 		var/loot_spawned = 0
@@ -48,7 +48,7 @@
 			loot_spawned++
 	else
 		do_spawn()
-	return INITIALIZE_HINT_QDEL
+	return
 
 /obj/effect/spawner/map_spawner/pit
 	icon_state = "pit"
