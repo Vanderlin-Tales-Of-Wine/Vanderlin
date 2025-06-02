@@ -45,5 +45,5 @@
 
 #define QDELING(X) (X.gc_destroyed)
 #define QDELETED(X) (!X || QDELING(X))
-#define QDEL_IN_CLIENT_TIME(item, time) addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel), time), time, TIMER_STOPPABLE | TIMER_CLIENT_TIME)
+#define QDEL_IN_CLIENT_TIME(item, time) addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel), time > GC_FILTER_QUEUE ? WEAKREF(item) : item), time, TIMER_STOPPABLE | TIMER_CLIENT_TIME)
 #define QDESTROYING(X) (!X || X.gc_destroyed == GC_CURRENTLY_BEING_QDELETED)
