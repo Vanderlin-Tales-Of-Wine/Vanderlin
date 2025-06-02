@@ -768,7 +768,6 @@
 
 	types = list(
 		/datum/book_entry/grimoire,
-		/datum/book_entry/attunement,
 		/datum/book_entry/mana_sources,
 		/datum/repeatable_crafting_recipe/arcyne,
 		/datum/slapcraft_recipe/arcyne,
