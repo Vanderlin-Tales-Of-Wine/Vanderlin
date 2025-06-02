@@ -13335,6 +13335,12 @@
 /obj/machinery/light/fueled/torchholder/c,
 /turf/open/floor/cobble/alt,
 /area/rogue/indoors/town/shop)
+"hmt" = (
+/obj/machinery/light/fueled/wallfire/candle/blue{
+	pixel_y = -32
+	},
+/turf/open/floor/herringbone,
+/area/rogue/indoors/town/clocktower)
 "hmx" = (
 /obj/structure/hotspring,
 /obj/effect/lily_petal/two,
@@ -33101,6 +33107,10 @@
 	},
 /turf/open/floor/church,
 /area/rogue/outdoors/rtfield/safe)
+"shQ" = (
+/obj/machinery/light/fueled/wallfire/candle/blue,
+/turf/open/floor/metal,
+/area/rogue/indoors/town/clocktower)
 "sij" = (
 /obj/structure/water_vent{
 	dir = 4;
@@ -56754,12 +56764,12 @@ pLa
 pLa
 rbI
 ouU
-xIu
+shQ
 cQA
 xIu
 xTm
 eMs
-eMs
+hmt
 ouU
 mqy
 oRF
@@ -57966,12 +57976,12 @@ qJl
 qJl
 sGM
 ouU
-xIu
+shQ
 cQA
 xIu
 let
 eMs
-eMs
+hmt
 ouU
 hhK
 hhK
@@ -58981,7 +58991,7 @@ cXu
 xIu
 lck
 vCM
-eMs
+hmt
 ouU
 nOS
 hhK
@@ -59986,12 +59996,12 @@ mNN
 dIH
 ouU
 ouU
-xIu
+shQ
 cQA
 xIu
 kgC
 eMs
-eMs
+hmt
 ouU
 mqy
 oRF
@@ -61198,12 +61208,12 @@ kMx
 apb
 uqd
 ouU
-xIu
+shQ
 cQA
 xIu
 kgC
 eMs
-eMs
+hmt
 ouU
 hhK
 nOS
@@ -62410,12 +62420,12 @@ fWZ
 dkA
 uqd
 ouU
-xIu
+shQ
 mae
 xIu
 kgC
 eMs
-eMs
+hmt
 ouU
 oRF
 hhK
@@ -63622,12 +63632,12 @@ uqd
 uqd
 uqd
 ouU
-xIu
+shQ
 cQA
 xIu
 let
 eMs
-eMs
+hmt
 ouU
 hhK
 hhK
@@ -64834,12 +64844,12 @@ uqd
 uqd
 uqd
 ouU
-xIu
+shQ
 eLR
 xIu
 kgC
 eMs
-eMs
+hmt
 ouU
 hhK
 mBz
@@ -66051,7 +66061,7 @@ cQA
 xIu
 lck
 vCM
-eMs
+hmt
 ouU
 hhK
 hhK
@@ -67061,7 +67071,7 @@ cQA
 xIu
 wuB
 eMs
-eMs
+hmt
 ouU
 hhK
 nOS
@@ -67258,7 +67268,7 @@ aBL
 wZR
 wZR
 ouU
-xIu
+shQ
 cQA
 xIu
 ouU
