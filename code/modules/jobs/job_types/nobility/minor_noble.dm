@@ -67,7 +67,7 @@
 		"Rapier" = /obj/item/weapon/sword/rapier/dec,
 		"Dagger" = /obj/item/weapon/knife/dagger/steel
 	)
-	var/choice = H.select_equippable(H, selectable, message = "Choose Your Specialisation", title = "NOBLE")
+	var/choice = H.select_equippable(H, selectable, message = "Choose Your Armament, your lordship", title = "NOBLE")
 	if(!choice)
 		return
 	var/modifier = reduced_skill
