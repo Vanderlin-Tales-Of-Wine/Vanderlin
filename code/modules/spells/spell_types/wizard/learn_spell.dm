@@ -17,6 +17,7 @@
 		//Offensive Spells: Organized by Elemental type (Please follow this!)
 		/obj/effect/proc_holder/spell/invoked/projectile/spitfire,
 		/obj/effect/proc_holder/spell/invoked/projectile/fireball,// 5 cost
+		/obj/effect/proc_holder/spell/targeted/lightninglure,
 		/obj/effect/proc_holder/spell/invoked/projectile/lightningbolt,// 6 cost
 		/obj/effect/proc_holder/spell/invoked/sundering_lightning,
 		/obj/effect/proc_holder/spell/invoked/projectile/arcanebolt,

@@ -21,7 +21,7 @@
 	miracle = FALSE
 
 	invocation = ""
-	invocation_type = "shout" //can be none, whisper, emote and shout
+	invocation_type = "none" //can be none, whisper, emote and shout
 	include_user = FALSE
 
 
