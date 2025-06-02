@@ -75,8 +75,8 @@
 		return
 	switch(choice)
 		if("Dagger")
-			H.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 			H.change_stat(STATKEY_SPD, 1)
 		if("Rapier")
-			H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
 			H.change_stat(STATKEY_CON, 1)
