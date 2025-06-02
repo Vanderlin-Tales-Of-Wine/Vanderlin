@@ -43,6 +43,8 @@
 		H.change_stat(STATKEY_PER, 2)
 		H.change_stat(STATKEY_CON, 2)
 		switch(H.patron?.name)
+			if ("Psydon")
+				wrists = /obj/item/clothing/neck/psycross/silver
 			if("Astrata")
 				wrists = /obj/item/clothing/neck/psycross/silver/astrata
 			if("Necra")
