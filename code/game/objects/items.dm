@@ -36,7 +36,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	var/item_flags = NONE
 
 	var/list/hitsound
-	// Boolean. Does this item play a sound?
+	///Played when the item is used, for example tools
 	var/usesound
 	// Sound used when this item, when thrown, hits a mob.
 	var/mob_throw_hit_sound
@@ -46,6 +46,9 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	var/pickup_sound = "rustle"
 	///Sound used when dropping the item, or when it's thrown.
 	var/drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
+	///Whether or not we use stealthy audio levels for this item's attack sounds
+	var/stealthy_audio = FALSE
+
 	// Sound used when being placed on a table
 	var/place_sound = 'sound/foley/dropsound/gen_drop.ogg'
 	var/list/swingsound = PUNCHWOOSH

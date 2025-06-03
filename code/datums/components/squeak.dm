@@ -10,10 +10,17 @@
 	var/step_delay = 0
 
 	// This is to stop squeak spam from inhand usage
-	var/last_use = 0
-	var/use_delay = 20
+	COOLDOWN_DECLARE(spam_cooldown)
+	var/use_delay = 2 SECONDS
 
-/datum/component/squeak/Initialize(custom_sounds, volume_override, chance_override, step_delay_override, use_delay_override)
+	///extra-range for this component's sound
+	var/sound_extra_range = -1
+	///when sounds start falling off for the squeak
+	var/sound_falloff_distance = SOUND_DEFAULT_FALLOFF_DISTANCE
+	///sound exponent for squeak. Defaults to 10 as squeaking is loud and annoying enough.
+	var/sound_falloff_exponent = 10
+
+/datum/component/squeak/Initialize(custom_sounds, volume_override, chance_override, step_delay_override, use_delay_override, extrarange, falloff_exponent, fallof_distance)
 	if(!isatom(parent))
 		return COMPONENT_INCOMPATIBLE
 	RegisterSignal(parent, list(COMSIG_ATOM_ENTERED, COMSIG_ATOM_BLOB_ACT, COMSIG_PARENT_ATTACKBY), PROC_REF(play_squeak))
@@ -36,13 +43,19 @@
 		step_delay = step_delay_override
 	if(isnum(use_delay_override))
 		use_delay = use_delay_override
+	if(isnum(extrarange))
+		sound_extra_range = extrarange
+	if(isnum(falloff_exponent))
+		sound_falloff_exponent = falloff_exponent
+	if(isnum(fallof_distance))
+		sound_falloff_distance = fallof_distance
 
 /datum/component/squeak/proc/play_squeak()
 	if(prob(squeak_chance))
 		if(!override_squeak_sounds)
-			playsound(parent, pickweight(default_squeak_sounds), volume, FALSE, -1)
+			playsound(parent, pickweight(default_squeak_sounds), volume, TRUE, sound_extra_range, sound_falloff_exponent, falloff_distance = sound_falloff_distance)
 		else
-			playsound(parent, pickweight(override_squeak_sounds), volume, FALSE, -1)
+			playsound(parent, pickweight(override_squeak_sounds), volume, TRUE, sound_extra_range, sound_falloff_exponent, falloff_distance = sound_falloff_distance)
 
 /datum/component/squeak/proc/step_squeak()
 	if(steps > step_delay)
@@ -62,17 +75,23 @@
 				return
 	if(istype(AM, /obj/effect/dummy/phased_mob)) //don't squeek if they're in a phased/jaunting container.
 		return
-	if(ismob(AM))
-		var/mob/M = AM
-		if(M.movement_type & (FLYING|FLOATING))
+	if(AM.movement_type & (FLYING|FLOATING) || !AM.has_gravity())
+		return
+	if(ismob(AM) && !AM.density) // Prevents 10 overlapping mice from making an unholy sound while moving
+		return
+	if(isliving(AM))
+		var/mob/living/living_arrived = AM
+		if(living_arrived.mob_size < MOB_SIZE_HUMAN)
 			return
 	var/atom/current_parent = parent
 	if(isturf(current_parent.loc))
 		play_squeak()
 
 /datum/component/squeak/proc/use_squeak()
-	if(last_use + use_delay < world.time)
-		last_use = world.time
+	SIGNAL_HANDLER
+
+	if(COOLDOWN_FINISHED(src, spam_cooldown))
+		COOLDOWN_START(src, spam_cooldown, use_delay)
 		play_squeak()
 
 

@@ -53,7 +53,7 @@
 	. = ..()
 
 	AddComponent(/datum/component/personal_crafting)
-	AddComponent(/datum/component/footstep, footstep_type, 1, 2)
+	AddElement(/datum/element/footstep, footstep_type, 1, -6)
 	GLOB.human_list += src
 	if(ai_controller && flee_in_pain)
 		AddElement(/datum/element/ai_flee_while_in_pain)
