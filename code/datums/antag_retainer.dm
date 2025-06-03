@@ -6,6 +6,7 @@
 	var/list/cultists = list()
 	var/list/liches = list()
 	var/list/aspirants = list()
+	var/list/aspirant_supporters = list()
 	var/list/bandits = list()
 
 	var/cult_ascended = FALSE
