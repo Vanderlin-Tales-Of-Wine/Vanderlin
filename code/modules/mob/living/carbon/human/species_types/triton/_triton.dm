@@ -35,7 +35,7 @@
 	default_color = "9cc2e2"
 	use_skintones = TRUE
 
-	species_traits = list(NOEYESPRITES, NO_UNDERWEAR, HAIR)
+	species_traits = list(NOEYESPRITES, NO_UNDERWEAR, HAIR, OLDGREY)
 	inherent_traits = list(TRAIT_NOMOBSWAP, TRAIT_WATER_BREATHE, TRAIT_GOOD_SWIM)
 	inherent_traits_f = list(TRAIT_STRONGBITE)
 	inherent_skills = list(
@@ -161,16 +161,32 @@
 	return TRUE
 
 /datum/species/triton/get_skin_list()
-	return sortList(list(
-		"Shallow Borne" = SKIN_COLOR_SHALLOW,
-		"Deep Borne" = SKIN_COLOR_DEEP_ONE,
-		"Reef Borne" = SKIN_COLOR_REEF,
+	// Manually sorted please sort your new entries
+	return list(
 		"Algae Borne" = SKIN_COLOR_ALGAE,
-		"Urchin Borne" = SKIN_COLOR_URCHIN,
+		"Deep Borne" = SKIN_COLOR_DEEP,
 		"Jellyfish Borne" = SKIN_COLOR_JELLYFISH,
-	))
+		"kelp Borne" = SKIN_COLOR_KELP,
+		"Reef Borne" = SKIN_COLOR_REEF,
+		"Sand Borne" = SKIN_COLOR_SAND,
+		"Shallow Borne" = SKIN_COLOR_SHALLOW,
+		"Urchin Borne" = SKIN_COLOR_URCHIN,
+	)
 
 /datum/species/triton/get_hairc_list()
-	return sortList(list(
-		"black - oil" = "181a1d",
-	))
+	return list(
+		"Abyss" = HAIR_COLOR_ABYSS,
+		"Clown" = HAIR_COLOR_CLOWN,
+		"Hydrothermal" = HAIR_COLOR_HYDROTHERMAL,
+		"Inky" = HAIR_COLOR_INKY,
+		"Sea Foam" = HAIR_COLOR_SEA_FOAM,
+	)
+
+/datum/species/triton/get_oldhc_list()
+	return list(
+		"Fog" = HAIR_COLOR_SEA_FOG,
+		"Gravel" = HAIR_COLOR_GRAVEL,
+		"Mist" = HAIR_COLOR_MIST,
+		"Photic" = HAIR_COLOR_PHOTIC,
+		"Turtle Egg" = HAIR_COLOR_TURTLE,
+	)
