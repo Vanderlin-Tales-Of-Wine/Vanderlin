@@ -84,7 +84,7 @@
 
 /// Races who are nonheretical to the church. Excluded races typically have an inhumen god associated, like Zizo. Used for church/faith roles.
 
-#define RACES_PLAYER_NONHERETICAL list(
+#define RACES_PLAYER_NONHERETICAL list(\
 	RACE_HUMEN,\
 	RACE_DWARF,\
 	RACE_AASIMAR,\
@@ -95,7 +95,7 @@
 )
 
 /// Races who are non-exotic to Vanderlin. These are races from foreign lands with no local pull or uncommon races. Used in miscellaneous cases, when they would not be that role.
-#define RACES_PLAYER_NONEXOTIC list(
+#define RACES_PLAYER_NONEXOTIC list(\
 	RACE_HUMEN,\
 	RACE_DWARF,\
 	RACE_AASIMAR,\
@@ -134,7 +134,12 @@
 )
 
 /// Elves, Half-Elves, Half-Drow, Dark Elves
-#define RACES_PLAYER_ELF_D RACES_PLAYER_DROW + RACES_PLAYER_ELF
+#define RACES_PLAYER_ELF_ALL list(\
+	RACE_ELF,\
+	RACE_HALF_ELF,\
+	RACE_DROW,\
+	RACE_HALF_DROW,\
+)
 
 /// Patreon only races.
 #define RACES_PLAYER_PATREON list(\
