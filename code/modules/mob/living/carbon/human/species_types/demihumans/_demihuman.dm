@@ -148,16 +148,15 @@
 /datum/species/demihuman/qualifies_for_rank(rank, list/features)
 	return TRUE
 
-/datum/species/demihuman/on_species_gain(mob/living/carbon/foreign, datum/species/old_species)
+/datum/species/demihuman/on_species_gain(mob/living/carbon/C, datum/species/old_species)
 	..()
-	foreign.grant_language(/datum/language/common)
-//	languages(foreign)
+	RegisterSignal(C, COMSIG_MOB_SAY, PROC_REF(handle_speech))
+	C.grant_language(/datum/language/common)
 
-/*
-/datum/species/demihuman/proc/languages(mob/living/carbon/human/foreign)
-	if(foreign.skin_tone == SKIN_COLOR_GRENZELHOFT)
-		foreign.grant_language(/datum/language/grenzelhoftian)
-*/
+/datum/species/demihuman/on_species_loss(mob/living/carbon/C)
+	. = ..()
+	UnregisterSignal(C, COMSIG_MOB_SAY)
+	C.remove_language(/datum/language/common)
 
 /datum/species/demihuman/get_skin_list()
 	return sortList(list(

@@ -21,11 +21,11 @@
 	\n\n\
 	WARNING: THIS IS A HEAVILY DISCRIMINATED AGAINST CHALLENGE SPECIES WITH ACTIVE SPECIES DETRIMENTS. YOU CAN AND WILL DIE A LOT; PLAY AT YOUR OWN RISK!"
 
-	skin_tone_wording = "Fur Color"
+	skin_tone_wording = "Scale Color"
 	default_color = "FFFFFF"
 
 	species_traits = list(NOEYESPRITES, NO_UNDERWEAR)
-	inherent_traits = list(TRAIT_TINY)
+	inherent_traits = list(TRAIT_TINY, TRAIT_DARKVISION)
 
 	specstats_m = list(STATKEY_STR = -4, STATKEY_PER = -2, STATKEY_INT = -2, STATKEY_CON = -4, STATKEY_END = 2, STATKEY_SPD = 2, STATKEY_LCK = 0)
 	specstats_f = list(STATKEY_STR = -4, STATKEY_PER = -2, STATKEY_INT = -2, STATKEY_CON = -4, STATKEY_END = 2, STATKEY_SPD = 2, STATKEY_LCK = 0)
@@ -98,8 +98,6 @@
 /datum/species/kobold/on_species_gain(mob/living/carbon/C, datum/species/old_species, datum/preferences/pref_load)
 	. = ..()
 	C.AddComponent(/datum/component/abberant_eater, list(/obj/item/natural/dirtclod, /obj/item/natural/stone, /obj/item/coin, /obj/item/gem))
-	ADD_TRAIT(C, TRAIT_DARKVISION, SPECIES_TRAIT)
-
 
 /datum/species/kobold/on_species_gain(mob/living/carbon/C, datum/species/old_species)
 	..()
@@ -114,13 +112,6 @@
 /datum/species/kobold/check_roundstart_eligible()
 	return TRUE
 
-/datum/species/kobold/get_span_language(datum/language/message_language)
-	if(!message_language)
-		return
-	if(message_language.type == /datum/language/dwarvish)
-		return list(SPAN_DWARF)
-	return message_language.spans
-
 /datum/species/kobold/get_skin_list()
 	return sortList(list(
 		"Moonshade" = SKIN_COLOR_MOONSHADE,
@@ -128,9 +119,6 @@
 		"Stonepaw" = SKIN_COLOR_STONEPAW,
 		"Emberhide" = SKIN_COLOR_EMBERHIDE,
 		"Sandswept" = SKIN_COLOR_SANDSWEPT,
-		"Quick Silver" = SKIN_COLOR_QUICKSILVER,
-		"Brass" = SKIN_COLOR_BRASS,
-		"Iron" = SKIN_COLOR_IRON,
 	))
 
 /datum/species/kobold/get_possible_names(gender = MALE)
