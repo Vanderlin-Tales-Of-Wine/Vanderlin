@@ -225,7 +225,7 @@
 				fueluse = max(fueluse - 10, 0)
 			if(fueluse == 0)//It's litterally powered by arcane lava. It's not gonna run out of fuel.
 				fueluse = 4000
-		update_icon()
+		update_appearance(UPDATE_ICON_STATE)
 
 /obj/structure/leyline
 	name = "inactive leyline"
@@ -269,7 +269,6 @@
 					icon_state = "inactiveleyline"
 					name = "inactive leyline"
 					desc = "A curious arrangement of stones."
-					update_icon()
 					last_process = world.time
 
 	else
@@ -279,7 +278,6 @@
 			name = "active leyline"
 			desc = "An active tear into the leyline. It gives off plenty of energy"
 			active = TRUE
-			update_icon()
 		else
 			if(guardian)
 				if(do_after(user, 60))
@@ -301,7 +299,6 @@
 					icon_state = "inactiveleyline"
 					name = "inactive leyline"
 					desc = "A curious arrangement of stones."
-					update_icon()
 					last_process = world.time
 
 /obj/structure/voidstoneobelisk

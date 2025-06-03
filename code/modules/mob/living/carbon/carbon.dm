@@ -65,15 +65,15 @@
 	var/oindex = active_hand_index
 	active_hand_index = held_index
 	if(hud_used)
-		hud_used.throw_icon?.update_icon()
-		hud_used.give_intent?.update_icon()
+		hud_used.throw_icon?.update_appearance()
+		hud_used.give_intent?.update_appearance()
 		var/atom/movable/screen/inventory/hand/H
 		H = hud_used.hand_slots["[oindex]"]
 		if(H)
-			H.update_icon()
+			H.update_appearance()
 		H = hud_used.hand_slots["[held_index]"]
 		if(H)
-			H.update_icon()
+			H.update_appearance()
 		H = hud_used.action_intent
 	oactive = FALSE
 	update_a_intents()
@@ -171,14 +171,14 @@
 	in_throw_mode = 0
 	if(client && hud_used)
 		hud_used.throw_icon?.throwy = 0
-		hud_used.throw_icon?.update_icon()
+		hud_used.throw_icon?.update_appearance()
 
 
 /mob/living/carbon/proc/throw_mode_on()
 	in_throw_mode = 1
 	if(client && hud_used)
 		hud_used.throw_icon?.throwy = 1
-		hud_used.throw_icon?.update_icon()
+		hud_used.throw_icon?.update_appearance()
 
 /mob/proc/throw_item(atom/target, offhand = FALSE)
 	SEND_SIGNAL(src, COMSIG_MOB_THROW, target)
@@ -853,7 +853,7 @@
 		clear_fullscreen("DDZ")
 	if(hud_used)
 		if(hud_used.stressies)
-			hud_used.stressies.update_icon()
+			hud_used.stressies.update_appearance()
 //	if(blood_volume <= 0)
 //		overlay_fullscreen("DD", /atom/movable/screen/fullscreen/crit/death)
 //	else

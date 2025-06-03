@@ -18,20 +18,19 @@
 	. = ..()
 	if(!fragrance_type)
 		uses_remaining = 0
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/item/perfume/pickup()
 	. = ..()
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
-/obj/item/perfume/update_icon()
+/obj/item/perfume/update_overlays()
 	. = ..()
-	var/mutable_appearance/perfume_overlay = mutable_appearance(icon, "perfume-bottle-overlay")
 	if(!uses_remaining)
-		underlays.Cut()
-	else
-		perfume_overlay.color = fragrance_type.color
-		underlays.Add(perfume_overlay)
+		return
+	var/mutable_appearance/perfume_overlay = mutable_appearance(icon, "perfume-bottle-overlay")
+	perfume_overlay.color = fragrance_type.color
+	. += perfume_overlay
 
 /obj/item/perfume/examine(mob/user)
 	. = ..()
@@ -48,11 +47,11 @@
 		return
 	if(!uses_remaining)
 		to_chat(user, span_warning("\The [src] is empty!"))
-		update_icon()
+		update_appearance(UPDATE_OVERLAYS)
 		return
 
 	uses_remaining--
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 	if(target == user)
 		user.visible_message(span_notice("[user] sprays [user.p_them()]self with \the [src]."), span_notice("You spray yourself with \the [src]."))
 	else

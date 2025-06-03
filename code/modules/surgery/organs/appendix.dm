@@ -12,13 +12,13 @@
 
 	var/inflamed
 
-/obj/item/organ/appendix/update_icon()
-	if(inflamed)
-		icon_state = "appendixinflamed"
-		name = "inflamed appendix"
-	else
-		icon_state = "appendix"
-		name = "appendix"
+/obj/item/organ/appendix/update_icon_state()
+	icon_state = "appdendix[inflamed ? "inflamed" : ""]"
+	return ..()
+
+/obj/item/organ/appendix/update_name()
+	name = "[inflamed ? "inflamed " : ""]appendix"
+	return ..()
 
 /obj/item/organ/appendix/on_life()
 	..()
@@ -29,7 +29,7 @@
 		M.adjustToxLoss(4, TRUE, TRUE)	//forced to ensure people don't use it to gain tox as slime person
 
 /obj/item/organ/appendix/Remove(mob/living/carbon/M, special = 0)
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE | UPDATE_NAME)
 	..()
 
 /obj/item/organ/appendix/prepare_eat()

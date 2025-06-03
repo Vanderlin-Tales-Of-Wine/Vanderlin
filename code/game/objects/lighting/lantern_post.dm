@@ -38,7 +38,7 @@
 				playsound(src.loc, 'sound/items/firelight.ogg', 100)
 				on = TRUE
 				update()
-				update_icon()
+				update_appearance(UPDATE_ICON_STATE)
 				if(soundloop)
 					soundloop.start()
 				return TRUE
@@ -69,17 +69,8 @@
 		torchy = null
 		on = FALSE
 		update()
-		update_icon()
+		update_appearance(UPDATE_ICON_STATE)
 		playsound(src.loc, 'sound/foley/torchfixturetake.ogg', 100)
-
-/obj/machinery/light/fueled/lanternpost/update_icon()
-	if(torchy)
-		if(on)
-			icon_state = "[base_state]1"
-		else
-			icon_state = "[base_state]0"
-	else
-		icon_state = "streetlantern"
 
 /obj/machinery/light/fueled/lanternpost/burn_out()
 	if(torchy?.on)
@@ -100,7 +91,7 @@
 					playsound(src.loc, 'sound/items/firelight.ogg', 100)
 					on = TRUE
 					update()
-					update_icon()
+					update_appearance(UPDATE_ICON_STATE)
 					return
 			if(!LR.on && on)
 				if(LR.fuel > 0)
@@ -113,11 +104,11 @@
 				torchy = LR
 				on = TRUE
 				update()
-				update_icon()
+				update_appearance(UPDATE_ICON_STATE)
 			else
 				LR.forceMove(src)
 				torchy = LR
-				update_icon()
+				update_appearance(UPDATE_ICON_STATE)
 			playsound(src.loc, 'sound/foley/torchfixtureput.ogg', 100)
 		return
 	if(istype(W, /obj/item/rope)&&!istype(W, /obj/item/rope/chain))

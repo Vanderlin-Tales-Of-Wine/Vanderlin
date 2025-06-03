@@ -334,6 +334,8 @@
 
 /datum/vine_controller/Destroy()
 	STOP_PROCESSING(SSobj, src)
+	if(tree)
+		tree = null
 	return ..()
 
 /datum/vine_controller/proc/spawn_spacevine_piece(turf/location, obj/structure/vine/parent, list/muts)

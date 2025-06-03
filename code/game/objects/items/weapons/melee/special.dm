@@ -158,17 +158,15 @@
 		if(charge <= 0)
 			on = FALSE
 			charge = 0
-			update_icon()
+			update_appearance(UPDATE_ICON_STATE)
 			if(user.a_intent)
 				var/datum/intent/I = user.a_intent
 				if(istype(I))
 					I.afterchange()
 
-/obj/item/weapon/mace/stunmace/update_icon()
-	if(on)
-		icon_state = "stunmace1"
-	else
-		icon_state = "stunmace0"
+/obj/item/weapon/mace/stunmace/update_icon_state()
+	. = ..()
+	icon_state = "stunmace[on]"
 
 /obj/item/weapon/mace/stunmace/attack_self(mob/user)
 	if(on)
@@ -185,7 +183,7 @@
 		var/datum/intent/I = user.a_intent
 		if(istype(I))
 			I.afterchange()
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 	add_fingerprint(user)
 
 /obj/item/weapon/mace/stunmace/process()
@@ -197,7 +195,7 @@
 	if(charge <= 0)
 		on = FALSE
 		charge = 0
-		update_icon()
+		update_appearance(UPDATE_ICON_STATE)
 		var/mob/user = loc
 		if(istype(user))
 			if(user.a_intent)
@@ -213,5 +211,5 @@
 			user.electrocute_act(5, src)
 		on = FALSE
 		charge = 0
-		update_icon()
+		update_appearance(UPDATE_ICON_STATE)
 		playsound(src, pick('sound/items/stunmace_toggle (1).ogg','sound/items/stunmace_toggle (2).ogg','sound/items/stunmace_toggle (3).ogg'), 100, TRUE)

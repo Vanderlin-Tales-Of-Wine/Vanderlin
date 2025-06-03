@@ -20,7 +20,7 @@
 
 /obj/item/paint_palette/Initialize()
 	. = ..()
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/item/paint_palette/proc/add_color(mob/user)
 	if(length(colors) >= 5)
@@ -35,15 +35,14 @@
 		return
 	colors |= color_name
 	colors[color_name] = add_color
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/item/paint_palette/proc/remove_color(mob/user)
 	var/remove_color = input(user, "Choose a color to remove") as anything in colors
 	if(!remove_color)
 		return
 	colors -= remove_color
-	update_overlays()
-
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/item/paint_palette/attack_right(mob/user)
 	. = ..()
@@ -55,10 +54,9 @@
 
 /obj/item/paint_palette/update_overlays()
 	. = ..()
-	cut_overlays()
 
 	for(var/i = 1 to length(colors))
 		var/mutable_appearance/MA = mutable_appearance(icon, "palette-greyscale[i]")
 		var/color_name = colors[i]
 		MA.color = colors[color_name]
-		add_overlay(MA)
+		. += MA

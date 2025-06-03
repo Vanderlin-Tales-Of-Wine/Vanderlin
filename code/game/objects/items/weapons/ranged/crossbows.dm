@@ -115,7 +115,7 @@
 	if(cocked)
 		playsound(src.loc, 'sound/combat/Ranged/crossbow-small-shot-02.ogg', 100, FALSE)
 		cocked = FALSE
-		update_icon()
+		update_appearance()
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow/attack_self(mob/living/user)
 	if(chambered)
@@ -129,7 +129,7 @@
 		else
 			to_chat(user, "<span class='warning'>I carefully de-cock the crossbow.</span>")
 			cocked = FALSE
-	update_icon()
+	update_appearance()
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow/attackby(obj/item/A, mob/user, params)
 	if(istype(A, /obj/item/ammo_box) || istype(A, /obj/item/ammo_casing))

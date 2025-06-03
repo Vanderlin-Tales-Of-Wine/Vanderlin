@@ -63,7 +63,7 @@
 	..()
 	var/turf/deathspot = get_turf(src)
 	new /obj/item/natural/elementalrelic(deathspot)
-	update_icon()
+	update_appearance()
 	spill_embedded_objects()
 	qdel(src)
 

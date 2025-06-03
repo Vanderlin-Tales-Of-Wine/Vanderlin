@@ -25,7 +25,7 @@
 				else
 					A.forceMove(src)
 				ammo_list += A
-				update_icon()
+				update_appearance(UPDATE_ICON_STATE)
 			else
 				to_chat(loc, span_warning("[src] is full!"))
 			return
@@ -40,7 +40,7 @@
 					contents -= AR
 					B.attackby(AR, loc, params)
 					break
-		update_icon()
+		update_appearance(UPDATE_ICON_STATE)
 		return
 	..()
 
@@ -50,7 +50,7 @@
 		ammo_list -= O
 		O.forceMove(user.loc)
 		user.put_in_hands(O)
-		update_icon()
+		update_appearance(UPDATE_ICON_STATE)
 		return TRUE
 
 /obj/item/ammo_holder/examine(mob/user)
@@ -62,9 +62,9 @@
 		for(var/ammo_name in unique_ammos)
 			. += span_info("[unique_ammos[ammo_name]] [ammo_name][unique_ammos[ammo_name] > 1 ? "s" : ""].")
 
-/obj/item/ammo_holder/update_icon()
-	if(ammo_list.len)
+/obj/item/ammo_holder/update_icon_state()
+	. = ..()
+	if(length(ammo_list))
 		icon_state = "[item_state]1"
 	else
 		icon_state = "[item_state]0"
-

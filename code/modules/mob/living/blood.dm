@@ -284,12 +284,12 @@
 			W.water_reagent = blood.reagent_type // this is dumb, but it works for now
 			W.mapped = FALSE // no infinite vitae glitch
 			W.water_volume = 10
-			W.update_icon()
+			W.update_appearance()
 		return
 	var/obj/effect/decal/cleanable/blood/splatter/splatter = new /obj/effect/decal/cleanable/blood/splatter(T)
 
 	splatter.transfer_mob_blood_dna(src)
-	splatter.update_icon()
+	splatter.update_appearance()
 	T?.pollute_turf(/datum/pollutant/metallic_scent, 30)
 
 /mob/living/proc/add_drip_floor(turf/T, amt)
@@ -309,24 +309,24 @@
 			W.mapped = FALSE // no infinite vitae glitch
 			W.water_maximum = 10
 			W.water_volume = 10
-			W.update_icon()
+			W.update_appearance()
 			return
 	var/obj/effect/decal/cleanable/blood/puddle/P = locate() in T
 	if(P)
 		P.blood_vol += amt
 		P.transfer_mob_blood_dna(src)
-		P.update_icon()
+		P.update_appearance()
 	else
 		var/obj/effect/decal/cleanable/blood/drip/D = locate() in T
 		if(D)
 			D.blood_vol += amt
 			D.drips++
 			D.transfer_mob_blood_dna(src)
-			D.update_icon()
+			D.update_appearance()
 		else
 			var/obj/effect/decal/cleanable/blood/drip/splatter = new /obj/effect/decal/cleanable/blood/drip(T)
 			splatter.transfer_mob_blood_dna(src)
-			splatter.update_icon()
+			splatter.update_appearance()
 
 /mob/living/carbon/human/add_splatter_floor(turf/T, small_drip)
 	if(!(NOBLOOD in dna.species.species_traits))
