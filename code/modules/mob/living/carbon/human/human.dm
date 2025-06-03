@@ -52,7 +52,6 @@
 
 	. = ..()
 
-	RegisterSignal(src, COMSIG_COMPONENT_CLEAN_ACT, PROC_REF(clean_blood))
 	AddComponent(/datum/component/personal_crafting)
 	AddComponent(/datum/component/footstep, footstep_type, 1, 2)
 	GLOB.human_list += src
@@ -331,17 +330,6 @@
 /mob/living/carbon/human/cuff_resist(obj/item/I)
 	if(..())
 		dropItemToGround(I)
-
-/mob/living/carbon/human/proc/clean_blood(datum/source, strength)
-	if(strength < CLEAN_STRENGTH_BLOOD)
-		return
-	if(gloves)
-		if(SEND_SIGNAL(gloves, COMSIG_COMPONENT_CLEAN_ACT, CLEAN_STRENGTH_BLOOD))
-			update_inv_gloves()
-	else
-		if(bloody_hands)
-			bloody_hands = 0
-			update_inv_gloves()
 
 //Turns a mob black, flashes a skeleton overlay
 //Just like a cartoon!
@@ -649,7 +637,7 @@
 	. = ..(target, force, check_loc)
 
 /mob/living/carbon/human/proc/is_shove_knockdown_blocked() //If you want to add more things that block shove knockdown, extend this
-	var/list/body_parts = list(head, wear_mask, wear_armor, wear_pants, back, gloves, shoes, belt, ears, wear_ring)
+	var/list/body_parts = list(head, wear_mask, wear_armor, wear_pants, backl, backr, gloves, shoes, belt, wear_ring)
 	for(var/bp in body_parts)
 		if(istype(bp, /obj/item/clothing))
 			var/obj/item/clothing/C = bp
@@ -707,6 +695,65 @@
 		return FALSE
 	return ..()
 
+/// copies the physical cosmetic features of another human mob.
+/mob/living/carbon/human/proc/copy_physical_features(mob/living/carbon/human/target)
+	if(!istype(target))
+		return
+
+	icon = target.icon
+
+	copy_bodyparts(target)
+
+	target.dna.transfer_identity(src)
+
+	updateappearance(mutcolor_update = TRUE)
+
+	job = target.job // NOT assigned_role
+	migrant_type = target.migrant_type
+	faction = target.faction
+	deathsound = target.deathsound
+	gender = target.gender
+	real_name = target.real_name
+	voice_color = target.voice_color
+	voice_pitch = target.voice_pitch
+	detail_color = target.detail_color
+	skin_tone = target.skin_tone
+	lip_style = target.lip_style
+	lip_color = target.lip_color
+	age = target.age
+	underwear = target.underwear
+	underwear_color = target.underwear_color
+	undershirt = target.undershirt
+	shavelevel = target.shavelevel
+	socks = target.socks
+	advjob = target.advjob
+	spouse_mob = target.spouse_mob
+	spouse_indicator = target.spouse_indicator
+	has_stubble = target.has_stubble
+	headshot_link = target.headshot_link
+	flavortext = target.flavortext
+	vitae_pool = target.vitae_pool
+
+	var/obj/item/bodypart/head/target_head = target.get_bodypart(BODY_ZONE_HEAD)
+	if(!isnull(target_head))
+		var/obj/item/bodypart/head/user_head = get_bodypart(BODY_ZONE_HEAD)
+		user_head.bodypart_features = target_head.bodypart_features
+
+	if(HAS_TRAIT(target, TRAIT_FOREIGNER))
+		ADD_TRAIT(src, TRAIT_FOREIGNER, TRAIT_GENERIC)
+	else
+		REMOVE_TRAIT(src, TRAIT_FOREIGNER, TRAIT_GENERIC)
+
+	regenerate_icons()
+
+
+/mob/living/carbon/human/proc/copy_bodyparts(mob/living/carbon/human/target)
+	bodyparts = target.bodyparts
+	bodyparts = list()
+	for(var/obj/item/bodypart/part in target.bodyparts)
+		bodyparts += part.type
+	create_bodyparts()
+
 /mob/living/carbon/human/species
 	var/race = null
 
@@ -723,3 +770,34 @@
 		if(SSmapping.level_has_any_trait(turf.z, list(ZTRAIT_IGNORE_WEATHER_TRAIT)))
 			faction |= FACTION_MATTHIOS
 			SSmobs.matthios_mobs |= src
+
+/**
+ * Called when this human should be washed
+ */
+/mob/living/carbon/human/wash(clean_types)
+	. = ..()
+
+	// Wash equipped stuff that cannot be covered
+	if(wear_armor?.wash(clean_types))
+		update_inv_armor()
+		. = TRUE
+
+	if(belt?.wash(clean_types))
+		update_inv_belt()
+		. = TRUE
+
+	// Check and wash stuff that can be covered
+	var/obscured = check_obscured_slots()
+
+	if(!is_mouth_covered())
+		. = TRUE
+
+	if(!(obscured & ITEM_SLOT_ICLOTHING) && wear_shirt?.wash(clean_types))
+		update_inv_shirt()
+		. = TRUE
+
+	// Wash hands if exposed
+	if(!gloves && (clean_types & CLEAN_TYPE_BLOOD) && bloody_hands > 0 && !(obscured & ITEM_SLOT_GLOVES))
+		bloody_hands = 0
+		update_inv_gloves()
+		. = TRUE

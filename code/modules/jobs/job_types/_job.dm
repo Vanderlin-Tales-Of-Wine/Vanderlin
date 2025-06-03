@@ -355,6 +355,8 @@
 					H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 				if(H.dna.species.id == "dwarf")
 					H.adjust_skillrank(/datum/skill/labor/mining, 1, TRUE)
+				if(isharpy(H))
+					H.adjust_skillrank(/datum/skill/misc/music, 1, TRUE)
 	H.underwear_color = null
 	H.update_body()
 

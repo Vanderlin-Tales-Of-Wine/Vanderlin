@@ -60,15 +60,15 @@ GLOBAL_LIST_EMPTY(ritualslist)
 
 	if(islesser)
 		add_objective(/datum/objective/zizoserve)
-		owner.current.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-		owner.current.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
 		H.change_stat(STATKEY_INT, -2)
+		owner.current.clamped_adjust_skillrank(/datum/skill/combat/knives, 2, 2, TRUE)
+		owner.current.clamped_adjust_skillrank(/datum/skill/combat/swords, 2, 2, TRUE)
 	else
 		add_objective(/datum/objective/zizo)
-		owner.current.clamped_adjust_skillrank(/datum/skill/combat/knives, 4, TRUE)
-		owner.current.clamped_adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
-		owner.current.clamped_adjust_skillrank(/datum/skill/combat/wrestling, 5, TRUE)
-		owner.current.clamped_adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
+		owner.current.clamped_adjust_skillrank(/datum/skill/combat/knives, 4, 4, TRUE)
+		owner.current.clamped_adjust_skillrank(/datum/skill/combat/swords, 4, 4, TRUE)
+		owner.current.clamped_adjust_skillrank(/datum/skill/combat/wrestling, 5, 5, TRUE)
+		owner.current.clamped_adjust_skillrank(/datum/skill/misc/athletics, 4, 4, TRUE)
 		H.change_stat(STATKEY_STR, 2)
 		H.change_stat(STATKEY_END, 3)
 		H.change_stat(STATKEY_CON, 3)
@@ -213,7 +213,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	desc = "Strange runics."
 	icon_state = "center"
 	icon = 'icons/obj/sigils.dmi'
-	minimum_clean_strength = CLEAN_STRONG
+	clean_type = CLEAN_TYPE_HARD_DECAL
 	var/sigil_type
 
 /obj/effect/decal/cleanable/sigil/examine(mob/user)
@@ -696,7 +696,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	desc = "It is pulsating."
 	clean_speed = 1
 	clean_effectiveness = 100
-	clean_strength = CLEAN_STRONG
+	clean_strength = CLEAN_ALL
 
 /proc/criminalstool(mob/user, turf/C)
 	new /obj/item/soap/cult(C)

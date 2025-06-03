@@ -30,6 +30,7 @@
 	var/instrument_buff
 	var/dynamic_icon
 	var/icon_prefix
+	var/organ = FALSE //This is for harpy
 
 /datum/looping_sound/instrument
 	mid_length = 2400
@@ -73,19 +74,25 @@
 
 /obj/item/instrument/process()
 	..()
-	if(!playing || !ishuman(loc))
-		terminate_playing(loc)
+	var/source = loc
+	if(!ishuman(source))
+		if(istype(source, /obj/item/organ))
+			var/obj/item/organ/O = source
+			source = O.owner
+
+	if(!playing || !ishuman(source))
+		terminate_playing(source)
 		return PROCESS_KILL
 
-	var/mob/living/carbon/human/user = loc
+	var/mob/living/carbon/human/user = source
 	if(!user.has_status_effect(/datum/status_effect/buff/playing_music)) //someone that isnt't the musician is somehow holding it
-		terminate_playing(loc)
+		terminate_playing(user)
 		return PROCESS_KILL
 
-	if(user.get_inactive_held_item() && user.get_skill_level(/datum/skill/misc/music) < 4)
-		terminate_playing(loc)
-		return PROCESS_KILL
-
+	if(!organ)
+		if(user.get_inactive_held_item() && user.get_skill_level(/datum/skill/misc/music) < 4)
+			terminate_playing(user)
+			return PROCESS_KILL
 	user.apply_status_effect(/datum/status_effect/buff/playing_music) // Handles regular stress event in tick()
 	var/boon = user?.get_learning_boon(/datum/skill/misc/music)
 	user?.adjust_experience(/datum/skill/misc/music, ceil((user.STAINT*0.2) * boon) * 0.2) // And gain exp
@@ -93,11 +100,11 @@
 	if(!HAS_TRAIT(user, TRAIT_BARDIC_TRAINING))
 		return
 
-	for(var/obj/structure/soil/soil in view(7, loc))
-		var/distance = max(1, get_dist(loc, soil))
+	for(var/obj/structure/soil/soil in view(7, source))
+		var/distance = max(1, get_dist(source, soil))
 		soil.process_growth(round(2 / distance, 0.1))
 
-	for(var/mob/living/carbon/L in hearers(7, loc))
+	for(var/mob/living/carbon/L in hearers(7, source))
 		if(!L.client)
 			continue
 		if(!L.can_hear()) // Only good people who can hear music will get buffed
@@ -158,7 +165,7 @@
 		terminate_playing(user)
 		return
 	var/music_level = user.get_skill_level(/datum/skill/misc/music)
-	if(user.get_inactive_held_item() && music_level < 4) //DUAL WIELDING BARDS
+	if(!organ && user.get_inactive_held_item() && music_level < 4) //DUAL WIELDING BARDS
 		return
 	for(var/obj/item/instrument/I in user.held_items) //sorry it's too annoying
 		if(I.playing)
@@ -170,7 +177,7 @@
 	curfile = song_list[curfile]
 	if(!curfile)
 		return
-	if(!user.is_holding(src))
+	if(!organ && !user.is_holding(src))
 		return
 	if(user.get_inactive_held_item() && music_level < 4) //DUAL WIELDING BARDS
 		return
@@ -204,6 +211,10 @@
 	soundloop.cursound = null
 	soundloop.stress2give = stressevent
 	soundloop.start()
+	if(organ)
+		soundloop.parent = user
+	else
+		soundloop.parent = src
 	user.apply_status_effect(/datum/status_effect/buff/playing_music, stressevent, note_color)
 	GLOB.vanderlin_round_stats[STATS_SONGS_PLAYED]++
 	if(dynamic_icon)
@@ -419,3 +430,10 @@
 	"A Pained Farewell (Masculine + Feminine)" = 'sound/instruments/vocalsx (1).ogg'
 	)
 	experimental_inhand = TRUE
+
+/obj/item/instrument/vocals/harpy_vocals
+	name = "harpy's song"
+	icon_state = "harpysong"		//Pulsating heart energy thing.
+	desc = "The blessed essence of harpysong. How did you get this... you monster!"
+	icon = 'icons/obj/surgery.dmi'
+	organ = TRUE
