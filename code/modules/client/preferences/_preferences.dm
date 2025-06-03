@@ -1040,7 +1040,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 						voice_color = sanitize_hexcolor(new_voice)
 
 				if("headshot")
-					if(!user.client?.patreon?.has_access(ACCESS_ASSISTANT_RANK))
+					if(!patreon)
 						to_chat(user, "This is a patreon exclusive feature, your headshot link will be applied but others will only be able to view it if you are a patreon supporter.")
 
 					to_chat(user, "<span class='notice'>Please use an image of the head and shoulder area to maintain immersion level. Lastly, ["<span class='bold'>do not use a real life photo or use any image that is less than serious.</span>"]</span>")
@@ -1058,15 +1058,15 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 					log_game("[user] has set their Headshot image to '[headshot_link]'.")
 
 				if("species")
-					var/list/selectable
-					var/list/crap = GLOB.roundstart_races
+					var/list/selectable = GLOB.roundstart_races
 					if(!patreon)
-						crap -= GLOB.patreon_races
+						selectable -= GLOB.patreon_races
 
-					var/result = browser_input_list(user, "SELECT YOUR HERO'S PEOPLE:", "VANDERLIN FAUNA", crap, pref_species)
+					var/result = browser_input_list(user, "SELECT YOUR HERO'S PEOPLE:", "VANDERLIN FAUNA", selectable, pref_species)
 
 					if(result)
-						pref_species = new GLOB.species_list[result]()
+						var/species = GLOB.species_list[result]
+						pref_species = new species
 
 						to_chat(user, "<em>[pref_species.name]</em>")
 						if(pref_species.desc)
@@ -1075,7 +1075,6 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 						//Now that we changed our species, we must verify that the mutant colour is still allowed.
 						real_name = pref_species.random_name(gender,1)
 						ResetJobs(user)
-						age = pick(pref_species.possible_ages)
 						customizer_entries = list()
 						validate_customizer_entries()
 						reset_all_customizer_accessory_colors()
@@ -1113,20 +1112,20 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 						skin_tone = listy[new_s_tone]
 
 				if("selected_accent")
-					if(!user.client?.patreon?.has_access(ACCESS_ASSISTANT_RANK))
+					if(!patreon)
 						to_chat(user, "Sorry this is a patreon exclusive feature.")
-					else
-						var/accent = input(user, "Choose your character's accent:", "Character Preference") as null|anything in GLOB.accent_list
-						if(accent)
-							selected_accent = accent
+						return
+					var/accent = browser_input_list(user, "CHOOSE YOUR HERO'S ACCENT", "VOICE OF THE WORLD", GLOB.accent_list, selected_accent)
+					if(accent)
+						selected_accent = accent
 
 				if("ooccolor")
-					var/new_ooccolor = input(user, "Choose your OOC colour:", "Game Preference",ooccolor) as color|null
+					var/new_ooccolor = input(user, "Choose your OOC colour:", "Game Preference", ooccolor) as color|null
 					if(new_ooccolor)
 						ooccolor = sanitize_ooccolor(new_ooccolor)
 
 				if("asaycolor")
-					var/new_asaycolor = input(user, "Choose your ASAY color:", "Game Preference",asaycolor) as color|null
+					var/new_asaycolor = input(user, "Choose your ASAY color:", "Game Preference", asaycolor) as color|null
 					if(new_asaycolor)
 						asaycolor = sanitize_ooccolor(new_asaycolor)
 				if ("clientfps")
