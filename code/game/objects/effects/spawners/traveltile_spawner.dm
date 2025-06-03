@@ -44,6 +44,7 @@
 	if(isnull(horizontal) || isnull(travel_tile)) // kill all mappers.
 		stack_trace("NULL HORIZONTAL OR TRAVEL TILE VALUE AT [loc] FOR A TRAVEL TILE SPAWNER [type], YELL AT MAPPERS")
 		qdel(src)
+		return
 	var/turf/current_turf = loc
 	new travel_tile(current_turf)
 	if(horizontal)
