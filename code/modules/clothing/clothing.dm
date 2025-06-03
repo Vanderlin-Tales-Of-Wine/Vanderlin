@@ -66,10 +66,6 @@
 	var/list/allowed_race = ALL_RACES_LIST
 	var/armor_class = ARMOR_CLASS_NONE
 
-	var/do_sound_chain = FALSE
-	var/do_sound_plate = FALSE
-	var/do_sound_inquisboot = FALSE
-
 	var/obj/item/clothing/head/hooded/hood
 	var/hoodtype
 	var/hoodtoggled = FALSE
@@ -86,21 +82,6 @@
 			has_inspect_verb = TRUE
 	if(armor_class)
 		has_inspect_verb = TRUE
-
-	if(do_sound_chain)
-		AddComponent(/datum/component/squeak, list('sound/foley/footsteps/armor/chain (1).ogg',\
-													'sound/foley/footsteps/armor/chain (2).ogg',\
-													'sound/foley/footsteps/armor/chain (3).ogg'), 100)
-	else if(do_sound_plate)
-		AddComponent(/datum/component/squeak, list('sound/foley/footsteps/armor/plate (1).ogg',\
-													'sound/foley/footsteps/armor/plate (2).ogg',\
-													'sound/foley/footsteps/armor/plate (3).ogg'), 100)
-
-	else if(do_sound_inquisboot)
-		AddComponent(/datum/component/squeak, list('sound/foley/footsteps/armor/inquisitorboot (1).ogg',\
-													'sound/foley/footsteps/armor/inquisitorboot (2).ogg',\
-													'sound/foley/footsteps/armor/inquisitorboot (3).ogg',\
-													'sound/foley/footsteps/armor/inquisitorboot (4).ogg'), 100)
 
 	if(hoodtype)
 		MakeHood()

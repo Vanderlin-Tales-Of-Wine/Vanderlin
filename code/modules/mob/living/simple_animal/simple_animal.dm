@@ -311,7 +311,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 			set_stat(CONSCIOUS)
 	// SEND_SIGNAL(src, COMSIG_MOB_STATCHANGE, stat)
 	if(footstep_type)
-		AddComponent(/datum/component/footstep, footstep_type)
+		AddElement(/datum/element/footstep, footstep_type, 1, -6)
 
 /mob/living/simple_animal/handle_status_effects()
 	..()

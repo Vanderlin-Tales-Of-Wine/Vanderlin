@@ -14,6 +14,18 @@
 #define CHANNEL_WEATHER 1012
 #define CHANNEL_IMSICK 1011
 
+///Default range of a sound.
+#define SOUND_RANGE 17
+#define MEDIUM_RANGE_SOUND_EXTRARANGE -5
+///default extra range for sounds considered to be quieter
+#define SHORT_RANGE_SOUND_EXTRARANGE -9
+///The range deducted from sound range for things that are considered silent / sneaky
+#define SILENCED_SOUND_EXTRARANGE -11
+///Percentage of sound's range where no falloff is applied
+#define SOUND_DEFAULT_FALLOFF_DISTANCE 1 //For a normal sound this would be 1 tile of no falloff
+///The default exponent of sound falloff
+#define SOUND_FALLOFF_EXPONENT 6
+
 //THIS SHOULD ALWAYS BE THE LOWEST ONE!
 //KEEP IT UPDATED
 
@@ -21,7 +33,6 @@
 
 
 #define SOUND_MINIMUM_PRESSURE 10
-#define FALLOFF_SOUNDS 1
 
 
 //Ambience types
@@ -183,6 +194,12 @@
 						'sound/ambience/noises/birds (6).ogg',\
 						'sound/ambience/noises/birds (7).ogg')
 
+#define SFX_SPARKS "sparks"
+#define SFX_CHAIN_STEP	"chain_step"
+#define SFX_PLATE_STEP	"plate_step"
+#define SFX_PLATE_COAT_STEP	"plate_coat_step"
+#define SFX_JINGLE_BELLS	"jingle_bells"
+#define SFX_INQUIS_BOOT_STEP	"inquis_boot_step"
 
 #define INTERACTION_SOUND_RANGE_MODIFIER 0
 #define EQUIP_SOUND_VOLUME 100

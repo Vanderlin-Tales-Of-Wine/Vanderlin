@@ -17,7 +17,7 @@
  * * ignore_walls - Whether or not the sound can pass through walls.
  * * falloff_distance - Distance at which falloff begins. Sound is at peak volume (in regards to falloff) aslong as it is in this range.
  */
-/proc/playsound(atom/source, soundin, vol as num, vary, extrarange as num, falloff, frequency = null, channel, pressure_affected = FALSE, ignore_walls = TRUE, soundping = FALSE, repeat)
+/proc/playsound(atom/source, soundin, vol as num, vary, extrarange as num, falloff_exponent = SOUND_FALLOFF_EXPONENT, frequency = null, channel = 0, pressure_affected = TRUE, ignore_walls = TRUE, falloff_distance = SOUND_DEFAULT_FALLOFF_DISTANCE, soundping = FALSE, repeat)
 	if(isarea(source))
 		CRASH("playsound(): source is an area")
 
@@ -34,7 +34,7 @@
 		S = sound(get_sfx(soundin))
 	if(!extrarange)
 		extrarange = 1
-	var/maxdistance = (world.view + extrarange)
+	var/maxdistance = SOUND_RANGE + extrarange
 	var/source_z = turf_source.z
 	var/list/listeners = SSmobs.clients_by_zlevel[source_z].Copy()
 
@@ -61,12 +61,12 @@
 
 	for(var/mob/M as anything in listeners)
 		if(get_dist(M, turf_source) <= maxdistance)
-			if(M.playsound_local(turf_source, soundin, vol, vary, frequency, falloff, channel, pressure_affected, S, repeat))
+			if(M.playsound_local(turf_source, soundin, vol, vary, frequency, falloff_exponent, channel, pressure_affected, S, maxdistance, falloff_distance, repeat))
 				. += M
 
 	for(var/mob/M as anything in muffled_listeners)
 		if(get_dist(M, turf_source) <= maxdistance)
-			if(M.playsound_local(turf_source, soundin, vol, vary, frequency, falloff, channel, pressure_affected, S, repeat, muffled = TRUE))
+			if(M.playsound_local(turf_source, soundin, vol, vary, frequency, falloff_exponent, channel, pressure_affected, S, maxdistance, falloff_distance, repeat, muffled = TRUE))
 				. += M
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_SOUND_PLAYED, source, soundin)
 
@@ -79,7 +79,7 @@
 	flick_overlay(I, GLOB.clients, 6)
 
 
-/mob/proc/playsound_local(atom/turf_source, soundin, vol as num, vary, frequency, falloff, channel, pressure_affected = TRUE, sound/S, repeat, muffled)
+/mob/proc/playsound_local(atom/turf_source, soundin, vol as num, vary, frequency, falloff_exponent = SOUND_FALLOFF_EXPONENT, channel, pressure_affected = TRUE, sound/S, max_distance, falloff_distance = SOUND_DEFAULT_FALLOFF_DISTANCE, distance_multiplier = 1, repeat, muffled)
 	if(!client || !can_hear())
 		return FALSE
 
@@ -91,10 +91,8 @@
 
 	if(muffled)
 		S.environment = 11
-		if(falloff)
-			falloff *= 1.5
-		else
-			falloff = FALLOFF_SOUNDS * 1.5
+		if(falloff_exponent)
+			falloff_exponent *= 1.5
 		vol *= 0.75
 
 	var/vol2use = vol
@@ -118,11 +116,11 @@
 		var/turf/T = get_turf(src)
 
 		//sound volume falloff with distance
-		var/distance = get_dist(T, turf_source)
+		var/distance = get_dist(T, turf_source) * distance_multiplier
 
-		S.volume -= (distance * (0.10 * S.volume)) //10% each step
-		if(S.volume <= 0)
-			return FALSE //No sound
+		if(max_distance && falloff_exponent) //If theres no max_distance we're not a 3D sound, so no falloff.
+			S.volume -= (max(distance - falloff_distance, 0) ** (1 / falloff_exponent)) / ((max(max_distance, distance) - falloff_distance) ** (1 / falloff_exponent)) * S.volume
+			//https://www.desmos.com/calculator/sqdfl8ipgf
 
 		var/dx = turf_source.x - x
 		if(dx <= 1 && dx >= -1)
@@ -138,7 +136,7 @@
 		var/dy = turf_source.z - z
 		S.y = dy
 
-		S.falloff = (falloff ? falloff : FALLOFF_SOUNDS)
+		S.falloff = max_distance || 0 //use max_distance, else just use 0 as we are a direct sound so falloff isnt relevant.
 
 	if(repeat && istype(repeat, /datum/looping_sound))
 		var/datum/looping_sound/D = repeat
@@ -168,13 +166,13 @@
 
 	return TRUE
 
-/proc/sound_to_playing_players(soundin, volume = 100, vary = FALSE, frequency = 0, falloff = FALSE, channel = 0, pressure_affected = FALSE, sound/S)
+/proc/sound_to_playing_players(soundin, volume = 100, vary = FALSE, frequency = 0, channel = 0, pressure_affected = FALSE, sound/S)
 	if(!S)
 		S = sound(get_sfx(soundin))
 	for(var/m in GLOB.player_list)
 		if(ismob(m) && !isnewplayer(m))
 			var/mob/M = m
-			M.playsound_local(M, null, volume, vary, frequency, falloff, channel, pressure_affected, S)
+			M.playsound_local(M, null, volume, vary, frequency, null, channel, pressure_affected, S)
 
 /mob/proc/stop_sound_channel(chan)
 	SEND_SOUND(src, sound(null, repeat = 0, wait = 0, channel = chan))
@@ -273,6 +271,8 @@
 		soundin = pick(soundin)
 	if(istext(soundin))
 		switch(soundin)
+			if (SFX_SPARKS)
+				soundin = pick('sound/effects/sparks1.ogg','sound/effects/sparks2.ogg','sound/effects/sparks3.ogg','sound/effects/sparks4.ogg')
 			if ("rustle")
 				soundin = pick('sound/foley/equip/rummaging-01.ogg','sound/foley/equip/rummaging-02.ogg','sound/foley/equip/rummaging-03.ogg')
 			if ("bodyfall")
@@ -354,4 +354,31 @@
 					'sound/surgery/changeling_absorb/changeling_absorb4.ogg',
 					'sound/surgery/changeling_absorb/changeling_absorb5.ogg',
 				)
+			if(SFX_CHAIN_STEP)
+				soundin = pick('sound/foley/footsteps/armor/chain (1).ogg',\
+							'sound/foley/footsteps/armor/chain (2).ogg',\
+							'sound/foley/footsteps/armor/chain (3).ogg',\
+							)
+			if(SFX_PLATE_STEP)
+				soundin = pick('sound/foley/footsteps/armor/plate (1).ogg',\
+							'sound/foley/footsteps/armor/plate (2).ogg',\
+							'sound/foley/footsteps/armor/plate (3).ogg',\
+							)
+			if(SFX_PLATE_COAT_STEP)
+				soundin = pick('sound/foley/footsteps/armor/coatplates (1).ogg',\
+							'sound/foley/footsteps/armor/coatplates (2).ogg',\
+							'sound/foley/footsteps/armor/coatplates (3).ogg',\
+							)
+			if(SFX_JINGLE_BELLS)
+				soundin = pick('sound/items/jinglebell (1).ogg',\
+							'sound/items/jinglebell (2).ogg',\
+							'sound/items/jinglebell (3).ogg',\
+							'sound/items/jinglebell (4).ogg',\
+							)
+			if(SFX_INQUIS_BOOT_STEP)
+				soundin = pick('sound/foley/footsteps/armor/inquisitorboot (1).ogg',\
+							'sound/foley/footsteps/armor/inquisitorboot (2).ogg',\
+							'sound/foley/footsteps/armor/inquisitorboot (3).ogg',\
+							'sound/foley/footsteps/armor/inquisitorboot (4).ogg'\
+							)
 	return soundin

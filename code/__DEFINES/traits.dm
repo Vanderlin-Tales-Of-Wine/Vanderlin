@@ -511,3 +511,6 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define BRAIN_UNAIDED "brain-unaided"
 /// Ignores body_parts_covered during the add_fingerprint() proc. Works both on the person and the item in the glove slot.
 #define TRAIT_FINGERPRINT_PASSTHROUGH "fingerprint_passthrough"
+
+/// makes your footsteps completely silent
+#define TRAIT_SILENT_FOOTSTEPS "silent_footsteps"
