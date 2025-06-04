@@ -29,8 +29,8 @@
 	item_state = "jackchain"
 	armor = ARMOR_MAILLE
 	max_integrity = INTEGRITY_STANDARD
-	prevent_crits = list(BCLASS_LASHING, BCLASS_BITE, BCLASS_CUT, BCLASS_TWIST)
-	smeltresult = /obj/item/ash //Gives two per smith, gives none per smelt.
+	prevent_crits = CUT_AND_MINOR_CRITS
+	smeltresult = null //Gives two per smith, gives none per smelt.
 
 /obj/item/clothing/wrists/bracers/leather
 	name = "leather bracers"
