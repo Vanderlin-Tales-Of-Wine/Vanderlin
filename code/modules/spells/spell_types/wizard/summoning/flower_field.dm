@@ -20,16 +20,16 @@
 		/datum/attunement/life = 0.4,
 	)
 
-var/list/flower_type_map = list(
-	/obj/item/alch/rosa = /obj/structure/flora/field/rosa,
-	/obj/item/alch/salvia = /obj/structure/flora/field/salvia,
-	/obj/item/alch/calendula = /obj/structure/flora/field/calendula,
-	/obj/item/reagent_containers/food/snacks/produce/manabloom = /obj/structure/flora/field/manabloom,
-	/obj/item/alch/matricaria = /obj/structure/flora/field/matricaria,
-	/obj/item/reagent_containers/food/snacks/produce/poppy = /obj/structure/flora/field/poppy
-)
-
 /obj/effect/proc_holder/spell/invoked/flowerfield/cast(list/targets, mob/living/user = usr)
+	var/static/list/flower_type_map = list(
+		/obj/item/alch/rosa = /obj/structure/flora/field/rosa,
+		/obj/item/alch/salvia = /obj/structure/flora/field/salvia,
+		/obj/item/alch/calendula = /obj/structure/flora/field/calendula,
+		/obj/item/reagent_containers/food/snacks/produce/manabloom = /obj/structure/flora/field/manabloom,
+		/obj/item/alch/matricaria = /obj/structure/flora/field/matricaria,
+		/obj/item/reagent_containers/food/snacks/produce/poppy = /obj/structure/flora/field/poppy
+	)
+
 	var/obj/item/alch/flower_item = null
 	var/field_type = null
 
@@ -517,7 +517,7 @@ var/list/flower_type_map = list(
 /atom/movable/screen/alert/status_effect/debuff/poppy_arena
 	name = "Arena"
 	desc = span_notice("You're in for a fair fight")
-	icon_state = "Arena"
+	icon_state = "arena"
 
 // ---------------------- FLOWERFIELD RESISTANCE ----------------------------
 /datum/status_effect/buff/flowerfield_resistance
