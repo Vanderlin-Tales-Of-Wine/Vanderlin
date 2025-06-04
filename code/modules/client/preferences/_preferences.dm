@@ -303,7 +303,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		dat += "<a href='?_src_=prefs;preference=name;task=input'>[real_name]</a> <a href='?_src_=prefs;preference=name;task=random'>\[R\]</a>"
 
 	dat += "<BR>"
-	dat += "<b>Species:</b> <a href='?_src_=prefs;preference=species;task=input'>[pref_species.name]</a>[spec_check(user) ? "" : " (!)"]<BR>"
+	dat += "<b>Species:</b> <a href='?_src_=prefs;preference=species;task=input'>[pref_species.name]</a>[spec_check() ? "" : " (!)"]<BR>"
 
 	if(!(AGENDER in pref_species.species_traits))
 		var/dispGender
@@ -1462,18 +1462,6 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	character.setspouse = setspouse
 
 	if(charflaw)
-		// ???
-		var/obj/item/bodypart/O = character.get_bodypart(BODY_ZONE_R_ARM)
-		if(O)
-			O.drop_limb()
-			qdel(O)
-		O = character.get_bodypart(BODY_ZONE_L_ARM)
-		if(O)
-			O.drop_limb()
-			qdel(O)
-		character.regenerate_limb(BODY_ZONE_R_ARM)
-		character.regenerate_limb(BODY_ZONE_L_ARM)
-
 		character.charflaw = new charflaw.type(character)
 
 	if(parent)
@@ -1492,7 +1480,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		if(is_misc_banned(parent.ckey, BAN_MISC_PUNISHMENT_CURSE))
 			ADD_TRAIT(character, TRAIT_PUNISHMENT_CURSE, TRAIT_BAN_PUNISHMENT)
 
-		if(parent.patreon?.has_access(ACCESS_ASSISTANT_RANK))
+		if(patreon)
 			character.accent = selected_accent
 
 	/* :V */

@@ -5,7 +5,7 @@
 	icon = 'icons/mob/sprite_accessory/eyes/eyes.dmi'
 
 /datum/sprite_accessory/eyes/is_visible(obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
-	return is_human_part_visible(owner, HIDEEYES)
+	return !(NOEYESPRITES in owner.dna?.species?.species_traits) && is_human_part_visible(owner, HIDEEYES)
 
 /datum/sprite_accessory/eyes/adjust_appearance_list(list/appearance_list, obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
 	generic_gender_feature_adjust(appearance_list, organ, bodypart, owner, OFFSET_FACE)

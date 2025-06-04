@@ -112,10 +112,9 @@
 	unset_busy_human_dummy(DUMMY_HUMAN_SLOT_PREFERENCES)
 
 
-/datum/preferences/proc/spec_check(mob/user)
+/datum/preferences/proc/spec_check()
 	if(!(pref_species.name in GLOB.roundstart_races))
 		return FALSE
-	if(user)
-		if(pref_species.patreon_req && !parent.patreon?.has_access(ACCESS_ASSISTANT_RANK))
-			return FALSE
+	if(pref_species.patreon_req && !patreon)
+		return FALSE
 	return TRUE
