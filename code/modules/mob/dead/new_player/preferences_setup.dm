@@ -4,15 +4,15 @@
 	if(!length(GLOB.roundstart_races))
 		generate_selectable_species()
 
-	if(NOEYESPRITES in pref_species?.species_traits)
-		randomise_flags &= ~RANDOMIZE_EYE_COLOR
-
 	if(randomise_flags & RANDOMIZE_SPECIES)
 		var/list_species = GLOB.roundstart_races
 		if(!include_patreon)
 			list_species -= GLOB.patreon_races
 		var/rando_race = GLOB.species_list[pick(list_species)]
 		pref_species = new rando_race()
+
+	if(NOEYESPRITES in pref_species.species_traits)
+		randomise_flags &= ~RANDOMIZE_EYE_COLOR
 
 	if(randomise_flags & RANDOMIZE_GENDER)
 		gender = pref_species.sexes ? pick(MALE, FEMALE) : PLURAL

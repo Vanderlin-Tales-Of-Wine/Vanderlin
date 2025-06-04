@@ -154,17 +154,20 @@
 	if(!length(GLOB.roundstart_races))
 		generate_selectable_species()
 
-	var/datum/species/species = dna.species
+	if(!dna)
+		return
 
-	if(NOEYESPRITES in species?.species_traits)
-		randomise_flags &= ~RANDOMIZE_EYE_COLOR
+	var/datum/species/species = dna.species
 
 	if(randomise_flags & RANDOMIZE_SPECIES)
 		var/list_species = GLOB.roundstart_races
 		if(!include_patreon)
 			list_species -= GLOB.patreon_races
 		var/rando_race = GLOB.species_list[pick(list_species)]
-		species = new rando_race()
+		dna.species = new rando_race()
+
+	if(NOEYESPRITES in species?.species_traits)
+		randomise_flags &= ~RANDOMIZE_EYE_COLOR
 
 	if(randomise_flags & RANDOMIZE_GENDER)
 		gender = species.sexes ? pick(MALE, FEMALE) : PLURAL
