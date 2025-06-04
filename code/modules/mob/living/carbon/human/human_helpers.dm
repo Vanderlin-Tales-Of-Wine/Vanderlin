@@ -150,7 +150,7 @@
 
 /// Fully randomizes everything in the character.
 // Reflect changes in [datum/preferences/proc/randomise_appearance_prefs]
-/mob/living/carbon/human/proc/randomize_human_appearance(randomise_flags = ALL)
+/mob/living/carbon/human/proc/randomize_human_appearance(randomise_flags = ALL, include_patreon = TRUE)
 	if(!length(GLOB.roundstart_races))
 		generate_selectable_species()
 
@@ -183,7 +183,9 @@
 		skin_tone = pick_assoc(skin_list)
 
 	if(randomise_flags & RANDOMIZE_EYE_COLOR)
-		eye_color = random_eye_color()
+		var/obj/item/organ/eyes/eyes = getorganslot(ORGAN_SLOT_EYES)
+		eyes.eye_color = random_eye_color()
+
 /*
 * Family Tree subsystem helpers
 * I was tired of editing indvidual values
