@@ -191,9 +191,9 @@
 
 /mob/living/carbon/human/proc/confession_time(confession_type = "antag", mob/living/carbon/human/user)
 	var/timerid = addtimer(CALLBACK(src, PROC_REF(confess_sins), confession_type, FALSE, user), 10 SECONDS, TIMER_STOPPABLE)
-	var/responsey = alert(src, "Resist torture?","TEST OF PAIN","RESIST!!","CONFESS!!")
-	testing("Sent resist request to [src].")
-	testing(" User is [user]. confession_time")
+	var/static/list/options = list("RESIST!!", "CONFESS!!")
+	var/responsey = browser_input_list(src, "Resist torture?", "TEST OF PAIN", options)
+
 	if(SStimer.timer_id_dict[timerid])
 		deltimer(timerid)
 	else
