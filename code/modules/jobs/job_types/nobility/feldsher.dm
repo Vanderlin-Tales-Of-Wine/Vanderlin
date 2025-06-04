@@ -24,6 +24,7 @@
 
 /datum/outfit/job/feldsher
 	job_bitflag = BITFLAG_ROYALTY
+		allowed_patrons = list(/datum/patron/divine/pestra)
 
 /datum/outfit/job/feldsher/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -39,6 +40,8 @@
 	neck = /obj/item/clothing/neck/feld
 	belt = /obj/item/storage/belt/leather
 	beltl = /obj/item/storage/keyring/feldsher
+	if(!(H.patron == /datum/patron/divine/pestra))
+		H.set_patron(/datum/patron/divine/pestra)
 
 	H.adjust_skillrank(/datum/skill/misc/reading, 5, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
