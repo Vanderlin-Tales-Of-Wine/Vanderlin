@@ -8,7 +8,6 @@
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_WRISTS|ITEM_SLOT_NECK|ITEM_SLOT_BELT
 	throwforce = 3
 	w_class = WEIGHT_CLASS_SMALL
-	grid_width = 32 //1x2 item, chains too
 	throw_speed = 1
 	throw_range = 5
 	breakouttime = 5 SECONDS
@@ -166,7 +165,6 @@
 	force = 10
 	throwforce = 5
 	w_class = WEIGHT_CLASS_SMALL
-	grid_width = 64 //Probably not being used for a reason, 2x2
 	icon_state = "net"
 	breakouttime = 35//easy to apply, easy to break out of
 	gender = NEUTER
