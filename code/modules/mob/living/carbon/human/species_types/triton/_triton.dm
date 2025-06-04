@@ -35,7 +35,7 @@
 	default_color = "9cc2e2"
 	use_skintones = TRUE
 
-	species_traits = list(NOEYESPRITES, NO_UNDERWEAR, HAIR, OLDGREY)
+	species_traits = list(NO_UNDERWEAR, HAIR, OLDGREY)
 	inherent_traits = list(TRAIT_NOMOBSWAP, TRAIT_WATER_BREATHE, TRAIT_GOOD_SWIM)
 	inherent_traits_f = list(TRAIT_STRONGBITE)
 	inherent_skills = list(
@@ -105,7 +105,7 @@
 		ORGAN_SLOT_BRAIN = /obj/item/organ/brain,
 		ORGAN_SLOT_HEART = /obj/item/organ/heart,
 		ORGAN_SLOT_LUNGS = /obj/item/organ/lungs,
-		ORGAN_SLOT_EYES = /obj/item/organ/eyes,
+		ORGAN_SLOT_EYES = /obj/item/organ/eyes/triton,
 		ORGAN_SLOT_EARS = /obj/item/organ/ears,
 		ORGAN_SLOT_TONGUE = /obj/item/organ/tongue,
 		ORGAN_SLOT_LIVER = /obj/item/organ/liver,
@@ -117,10 +117,10 @@
 	)
 
 	customizers = list(
+		/datum/customizer/organ/tail/triton,
 		/datum/customizer/bodypart_feature/hair/head/humanoid/triton,
 		/datum/customizer/bodypart_feature/accessory,
 		/datum/customizer/bodypart_feature/face_detail,
-		/datum/customizer/organ/tail/triton,
 	)
 
 	body_markings = list(

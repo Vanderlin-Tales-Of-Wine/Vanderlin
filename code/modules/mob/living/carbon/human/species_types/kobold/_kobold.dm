@@ -24,7 +24,7 @@
 	skin_tone_wording = "Scale Color"
 	default_color = "FFFFFF"
 
-	species_traits = list(NOEYESPRITES, NO_UNDERWEAR)
+	species_traits = list(NO_UNDERWEAR)
 	inherent_traits = list(TRAIT_TINY, TRAIT_DARKVISION)
 
 	specstats_m = list(STATKEY_STR = -4, STATKEY_PER = -2, STATKEY_INT = -2, STATKEY_CON = -4, STATKEY_END = 2, STATKEY_SPD = 2, STATKEY_LCK = 0)
@@ -79,7 +79,7 @@
 		ORGAN_SLOT_BRAIN = /obj/item/organ/brain/smooth,
 		ORGAN_SLOT_HEART = /obj/item/organ/heart,
 		ORGAN_SLOT_LUNGS = /obj/item/organ/lungs,
-		ORGAN_SLOT_EYES = /obj/item/organ/eyes,
+		ORGAN_SLOT_EYES = /obj/item/organ/eyes/kobold,
 		ORGAN_SLOT_EARS = /obj/item/organ/ears,
 		ORGAN_SLOT_TONGUE = /obj/item/organ/tongue,
 		ORGAN_SLOT_LIVER = /obj/item/organ/liver,
@@ -91,6 +91,7 @@
 
 	customizers = list(
 		/datum/customizer/organ/tail/kobold,
+		/datum/customizer/organ/eyes/humanoid,
 		/datum/customizer/bodypart_feature/accessory,
 		/datum/customizer/bodypart_feature/face_detail,
 	)

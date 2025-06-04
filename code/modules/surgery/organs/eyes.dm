@@ -165,10 +165,18 @@
 	lighting_alpha = LIGHTING_PLANE_ALPHA_NV_TRAIT
 
 /obj/item/organ/eyes/elf/less
-	name = "elf eyes"
-	desc = ""
 	see_in_dark = 3
 	lighting_alpha = LIGHTING_PLANE_ALPHA_LESSER_NV_TRAIT
+
+/obj/item/organ/eyes/kobold
+	name = "slitted eyes" // SPRITE PLS
+	accessory_type = /datum/sprite_accessory/eyes/humanoid/kobold
+
+/obj/item/organ/eyes/triton
+	name = "dead fish eyes"
+	eye_color = "#000"
+	second_color = "#000"
+	accessory_type = /datum/sprite_accessory/eyes/humanoid/triton
 
 /obj/item/organ/eyes/no_render
 	accessory_type = null

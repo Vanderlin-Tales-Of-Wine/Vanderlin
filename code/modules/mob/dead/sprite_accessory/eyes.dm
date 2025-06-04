@@ -14,6 +14,15 @@
 	name = "Humanoid Eyes"
 	icon_state = "human"
 
+/datum/sprite_accessory/eyes/humanoid/kobold
+	name = "Kobold Eyes"
+	icon_state = "kobold"
+
+/datum/sprite_accessory/eyes/humanoid/triton
+	name = "Triton Eyes"
+	icon_state = "triton"
+	use_static = TRUE
+
 /datum/sprite_accessory/eyes/humanoid_glow
 	name = "Humanoid Glowing"
 	icon_state = "human_glow"
