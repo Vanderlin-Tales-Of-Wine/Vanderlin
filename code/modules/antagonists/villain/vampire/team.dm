@@ -107,7 +107,6 @@
 			to_chat(lord, "<font color='red'>I am refreshed and have grown stronger. The visage of the bat is once again available to me. I can also once again access my portals.</font>")
 
 		if(2)
-			lord.current.verbs |= /mob/living/carbon/human/proc/vamp_regenerate
 			lord.current.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/bloodsteal)
 			lord.current.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/bloodlightning)
 			lord.current.adjust_skillrank(/datum/skill/magic/blood, 2, TRUE)

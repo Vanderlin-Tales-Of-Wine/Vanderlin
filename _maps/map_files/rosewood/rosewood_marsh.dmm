@@ -1653,6 +1653,23 @@
 	},
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/lich)
+"js" = (
+/obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/item/clothing/head/helmet/heavy/zizo,
+/obj/item/clothing/pants/platelegs/zizo,
+/obj/item/clothing/armor/plate/full/zizo,
+/obj/item/clothing/shoes/boots/armor/zizo,
+/obj/item/clothing/gloves/plate/zizo,
+/obj/item/weapon/sword/long/greatsword/zizo,
+/mob/living/carbon/human/species/zizombie/npc{
+	candodge = 0;
+	name = "Zizo Knight";
+	real_name = "Zizo Knight";
+	maxHealth = 500;
+	health = 500
+	},
+/turf/open/floor/cobblerock,
+/area/rogue/indoors/lich)
 "ju" = (
 /obj/structure/table/wood/plain,
 /obj/item/reagent_containers/glass/carafe/gold/redwine,
@@ -3024,17 +3041,19 @@
 /area/rogue/indoors/lich)
 "so" = (
 /obj/effect/mapping_helpers/floor_clothing_equipper,
-/mob/living/carbon/human/species/zizombie/npc{
-	candodge = 0;
-	name = "Zizo Knight";
-	real_name = "Zizo Knight"
-	},
 /obj/item/clothing/head/helmet/heavy/zizo,
 /obj/item/clothing/pants/platelegs/zizo,
 /obj/item/clothing/armor/plate/full/zizo,
 /obj/item/clothing/shoes/boots/armor/zizo,
 /obj/item/clothing/gloves/plate/zizo,
 /obj/item/weapon/sword/long/greatsword/zizo,
+/mob/living/carbon/human/species/zizombie/npc{
+	candodge = 0;
+	name = "Zizo Knight";
+	real_name = "Zizo Knight";
+	maxHealth = 500;
+	health = 500
+	},
 /turf/open/floor/churchrough/purple,
 /area/rogue/indoors/lich)
 "sq" = (
@@ -3424,19 +3443,9 @@
 /turf/open/floor/tile/kitchen,
 /area/rogue/indoors/lich)
 "uo" = (
-/obj/effect/mapping_helpers/floor_clothing_equipper,
-/mob/living/carbon/human/species/zizombie/npc{
-	candodge = 0;
-	name = "Zizo Knight";
-	real_name = "Zizo Knight"
-	},
-/obj/item/clothing/head/helmet/heavy/zizo,
-/obj/item/clothing/pants/platelegs/zizo,
-/obj/item/clothing/armor/plate/full/zizo,
-/obj/item/clothing/shoes/boots/armor/zizo,
-/obj/item/clothing/gloves/plate/zizo,
-/obj/item/weapon/sword/long/greatsword/zizo,
-/turf/open/floor/ruinedwood/darker,
+/mob/living/simple_animal/hostile/retaliate/shade,
+/mob/living/simple_animal/hostile/retaliate/shade,
+/turf/open/floor/tile,
 /area/rogue/indoors/lich)
 "up" = (
 /obj/structure/fluff/railing/border{
@@ -3453,17 +3462,19 @@
 /area/rogue/indoors/lich)
 "ut" = (
 /obj/effect/mapping_helpers/floor_clothing_equipper,
-/mob/living/carbon/human/species/zizombie/npc{
-	candodge = 0;
-	name = "Zizo Knight";
-	real_name = "Zizo Knight"
-	},
 /obj/item/clothing/head/helmet/heavy/zizo,
 /obj/item/clothing/pants/platelegs/zizo,
 /obj/item/clothing/armor/plate/full/zizo,
 /obj/item/clothing/shoes/boots/armor/zizo,
 /obj/item/clothing/gloves/plate/zizo,
 /obj/item/weapon/sword/long/greatsword/zizo,
+/mob/living/carbon/human/species/zizombie/npc{
+	candodge = 0;
+	name = "Zizo Knight";
+	real_name = "Zizo Knight";
+	maxHealth = 500;
+	health = 500
+	},
 /turf/open/floor/tile,
 /area/rogue/indoors/lich)
 "uv" = (
@@ -4172,17 +4183,19 @@
 /area/rogue/outdoors/bog)
 "yo" = (
 /obj/effect/mapping_helpers/floor_clothing_equipper,
-/mob/living/carbon/human/species/zizombie/npc{
-	candodge = 0;
-	name = "Zizo Knight";
-	real_name = "Zizo Knight"
-	},
 /obj/item/clothing/head/helmet/heavy/zizo,
 /obj/item/clothing/pants/platelegs/zizo,
 /obj/item/clothing/armor/plate/full/zizo,
 /obj/item/clothing/shoes/boots/armor/zizo,
 /obj/item/clothing/gloves/plate/zizo,
 /obj/item/weapon/sword/long/greatsword/zizo,
+/mob/living/carbon/human/species/zizombie/npc{
+	candodge = 0;
+	name = "Zizo Knight";
+	real_name = "Zizo Knight";
+	maxHealth = 500;
+	health = 500
+	},
 /turf/open/floor/tile/masonic/single,
 /area/rogue/indoors/lich)
 "yt" = (
@@ -5741,17 +5754,19 @@
 /area/rogue/outdoors/bog)
 "Hb" = (
 /obj/effect/mapping_helpers/floor_clothing_equipper,
-/mob/living/carbon/human/species/zizombie/npc{
-	candodge = 0;
-	name = "Zizo Knight";
-	real_name = "Zizo Knight"
-	},
 /obj/item/clothing/head/helmet/heavy/zizo,
 /obj/item/clothing/pants/platelegs/zizo,
 /obj/item/clothing/armor/plate/full/zizo,
 /obj/item/clothing/shoes/boots/armor/zizo,
 /obj/item/clothing/gloves/plate/zizo,
 /obj/item/weapon/sword/long/greatsword/zizo,
+/mob/living/carbon/human/species/zizombie/npc{
+	candodge = 0;
+	name = "Zizo Knight";
+	real_name = "Zizo Knight";
+	maxHealth = 500;
+	health = 500
+	},
 /turf/open/floor/tile/masonic/inverted,
 /area/rogue/indoors/lich)
 "Hc" = (
@@ -7015,19 +7030,9 @@
 /turf/open/floor/tile/kitchen,
 /area/rogue/indoors/lich)
 "OO" = (
-/obj/effect/mapping_helpers/floor_clothing_equipper,
-/mob/living/carbon/human/species/zizombie/npc{
-	candodge = 0;
-	name = "Zizo Knight";
-	real_name = "Zizo Knight"
-	},
-/obj/item/clothing/head/helmet/heavy/zizo,
-/obj/item/clothing/pants/platelegs/zizo,
-/obj/item/clothing/armor/plate/full/zizo,
-/obj/item/clothing/shoes/boots/armor/zizo,
-/obj/item/clothing/gloves/plate/zizo,
-/obj/item/weapon/sword/long/greatsword/zizo,
-/turf/open/floor/tile/masonic/spiral,
+/obj/effect/decal/remains/human,
+/mob/living/simple_animal/hostile/retaliate/shade,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors/lich)
 "OP" = (
 /mob/living/carbon/human/species/zizombie/npc/GRENZEL,
@@ -7092,18 +7097,7 @@
 /turf/open/floor/churchrough/purple,
 /area/rogue/indoors/lich)
 "Pg" = (
-/obj/effect/mapping_helpers/floor_clothing_equipper,
-/mob/living/carbon/human/species/zizombie/npc{
-	candodge = 0;
-	name = "Zizo Knight";
-	real_name = "Zizo Knight"
-	},
-/obj/item/clothing/head/helmet/heavy/zizo,
-/obj/item/clothing/pants/platelegs/zizo,
-/obj/item/clothing/armor/plate/full/zizo,
-/obj/item/clothing/shoes/boots/armor/zizo,
-/obj/item/clothing/gloves/plate/zizo,
-/obj/item/weapon/sword/long/greatsword/zizo,
+/mob/living/carbon/human/species/zizombie/npc/peasant,
 /turf/open/floor/tile/kitchen,
 /area/rogue/indoors/lich)
 "Pj" = (
@@ -7371,6 +7365,13 @@
 /obj/structure/statue/bone/skull,
 /turf/open/water/swamp/deep,
 /area/rogue/outdoors/bog)
+"QX" = (
+/obj/structure/stairs/stone{
+	dir = 4
+	},
+/mob/living/simple_animal/hostile/retaliate/shade,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/indoors/lich)
 "QY" = (
 /obj/structure/rack,
 /obj/item/weapon/mace/warhammer/steel,
@@ -7717,7 +7718,9 @@
 /mob/living/carbon/human/species/zizombie/npc{
 	candodge = 0;
 	name = "Zizo Knight";
-	real_name = "Zizo Knight"
+	real_name = "Zizo Knight";
+	maxHealth = 500;
+	health = 500
 	},
 /obj/item/clothing/head/helmet/heavy/zizo,
 /obj/item/clothing/pants/platelegs/zizo,
@@ -7847,6 +7850,10 @@
 	},
 /obj/machinery/light/fueled/wallfire/candle/skull/l,
 /turf/open/floor/tile/masonic/inverted,
+/area/rogue/indoors/lich)
+"TZ" = (
+/mob/living/simple_animal/hostile/retaliate/shade,
+/turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/lich)
 "Ub" = (
 /obj/structure/lootable_structure/grain_barrel,
@@ -8193,6 +8200,10 @@
 	},
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/outdoors/bog)
+"Wi" = (
+/mob/living/simple_animal/hostile/retaliate/shade,
+/turf/open/floor/tile/masonic/single,
+/area/rogue/indoors/lich)
 "Wj" = (
 /obj/structure/chair/bench/church,
 /turf/open/floor/churchbrick,
@@ -8525,6 +8536,10 @@
 "Yl" = (
 /turf/open/floor/cobblerock/alt,
 /area/rogue/outdoors/bog)
+"Ym" = (
+/mob/living/carbon/human/species/zizombie/npc/militiamen,
+/turf/open/floor/naturalstone,
+/area/rogue/indoors/lich)
 "Yo" = (
 /obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/ruinedwood,
@@ -12126,7 +12141,7 @@ ht
 ht
 dE
 wT
-Ts
+js
 DJ
 Hw
 Qq
@@ -12730,7 +12745,7 @@ ht
 ht
 YR
 gZ
-gZ
+Ym
 YR
 dE
 dE
@@ -18935,7 +18950,7 @@ ht
 dE
 Ho
 nU
-CH
+Ii
 gZ
 gZ
 dE
@@ -19138,7 +19153,7 @@ dE
 Qu
 sj
 nU
-Ts
+CH
 dE
 dE
 dE
@@ -26054,7 +26069,7 @@ bd
 vm
 gk
 gZ
-Ts
+CH
 Jl
 Wx
 CH
@@ -26461,7 +26476,7 @@ dE
 fl
 CH
 CH
-hE
+OO
 NN
 Uo
 Oo
@@ -27271,7 +27286,7 @@ CH
 bd
 qr
 hE
-CH
+Ii
 Bj
 dE
 xd
@@ -27670,7 +27685,7 @@ CH
 ZX
 qr
 lk
-Ts
+CH
 gZ
 CH
 qr
@@ -33116,7 +33131,7 @@ dE
 Pc
 jP
 jP
-ut
+ct
 am
 am
 SK
@@ -33126,7 +33141,7 @@ HY
 am
 jP
 jP
-ct
+uo
 am
 mn
 dE
@@ -33928,7 +33943,7 @@ am
 dE
 dE
 am
-ut
+am
 am
 oe
 dE
@@ -58729,8 +58744,8 @@ ht
 ht
 YR
 PE
-Vp
-uo
+TZ
+jO
 xB
 lC
 PE
@@ -71091,7 +71106,7 @@ ht
 ht
 ht
 fB
-yo
+Wi
 HG
 gN
 ux
@@ -72310,7 +72325,7 @@ aq
 yg
 ZA
 ZA
-ZA
+Hj
 Hj
 GX
 jP
@@ -72520,7 +72535,7 @@ jP
 EM
 cp
 Rz
-jP
+Pg
 dE
 ht
 WT
@@ -72718,7 +72733,7 @@ Du
 ZA
 GX
 jP
-jP
+Pg
 St
 jP
 jP
@@ -73522,7 +73537,7 @@ CH
 dE
 eN
 eN
-OO
+eN
 eN
 dE
 dZ
@@ -74530,10 +74545,10 @@ dE
 dE
 dE
 dE
+QX
 ly
 ly
-ly
-ly
+QX
 dE
 dE
 dE
@@ -114123,10 +114138,10 @@ eN
 IF
 eN
 lB
-Hb
+Le
 ZA
 ai
-Hb
+Le
 Lw
 eN
 IF
