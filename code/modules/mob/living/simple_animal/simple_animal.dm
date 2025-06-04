@@ -174,7 +174,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	update_simplemob_varspeed()
 	if(milk_reagent)
 		udder = new(src, milk_reagent)
-	if(!length(ai_controller.blackboard[BB_BASIC_FOODS]))
+	if(ai_controller && !length(ai_controller.blackboard[BB_BASIC_FOODS]))
 		ai_controller.set_blackboard_key(BB_BASIC_FOODS, typecacheof(food_type))
 
 
