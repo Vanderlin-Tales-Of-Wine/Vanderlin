@@ -26,6 +26,22 @@
 	if(randomise_flags & RANDOMIZE_UNDERWEAR)
 		underwear = pref_species.random_underwear(gender)
 
+	if(randomise_flags & (RANDOMIZE_HAIRSTYLE | RANDOMIZE_HAIR_COLOR))
+		var/datum/customizer_entry/hair/entry = get_customizer_entry_of_type(/datum/customizer_entry/hair/head)
+		if(entry)
+			var/datum/customizer_choice/customizer_choice = CUSTOMIZER_CHOICE(entry.customizer_choice_type)
+			var/color = (randomise_flags & RANDOMIZE_HAIR_COLOR)
+			var/accessory = (randomise_flags & RANDOMIZE_HAIRSTYLE)
+			customizer_choice.randomize_entry(entry, src, color, accessory)
+
+	if(randomise_flags & (RANDOMIZE_FACIAL_HAIRSTYLE | RANDOMIZE_FACIAL_HAIR_COLOR))
+		var/datum/customizer_entry/hair/entry = get_customizer_entry_of_type(/datum/customizer_entry/hair/facial)
+		if(entry)
+			var/datum/customizer_choice/customizer_choice = CUSTOMIZER_CHOICE(entry.customizer_choice_type)
+			var/color = (randomise_flags & RANDOMIZE_HAIR_COLOR)
+			var/accessory = (randomise_flags & RANDOMIZE_HAIRSTYLE)
+			customizer_choice.randomize_entry(entry, src, color, accessory)
+
 	if(randomise_flags & RANDOMIZE_SKIN_TONE)
 		var/list/skin_list = pref_species.get_skin_list()
 		skin_tone = pick_assoc(skin_list)
@@ -33,8 +49,8 @@
 	if(randomise_flags & RANDOMIZE_EYE_COLOR)
 		eye_color = random_eye_color()
 
-	if(randomise_flags & RANDOMIZE_FEATURES)
-		features = random_features()
+	//if(randomise_flags & RANDOMIZE_FEATURES)
+		//features = random_features()
 
 /// Randomizes our character preferences according to enabled randomise preferences.
 /datum/preferences/proc/apply_character_randomization_prefs(antag_override = FALSE)

@@ -50,22 +50,22 @@
 	)
 
 	offset_features_f = list(
-		OFFSET_RING = list(0,0),\
-		OFFSET_GLOVES = list(0,1),\
-		OFFSET_WRISTS = list(0,1),\
-		OFFSET_HANDS = list(0,1),\
-		OFFSET_CLOAK = list(0,1),\
-		OFFSET_FACEMASK = list(0,0),\
-		OFFSET_HEAD = list(0,0),\
-		OFFSET_FACE = list(0,0),\
-		OFFSET_BELT = list(0,1),\
-		OFFSET_BACK = list(0,0),\
-		OFFSET_NECK = list(0,0),\
-		OFFSET_MOUTH = list(0,0),\
-		OFFSET_PANTS = list(0,1),\
-		OFFSET_SHIRT = list(0,1),\
-		OFFSET_ARMOR = list(0,1),\
-		OFFSET_UNDIES = list(0,1),\
+		OFFSET_RING = list(0,-1),\
+		OFFSET_GLOVES = list(0,0),\
+		OFFSET_WRISTS = list(0,0),\
+		OFFSET_HANDS = list(0,0),\
+		OFFSET_CLOAK = list(0,0),\
+		OFFSET_FACEMASK = list(0,-1),\
+		OFFSET_HEAD = list(0,-1),\
+		OFFSET_FACE = list(0,-1),\
+		OFFSET_BELT = list(0,0),\
+		OFFSET_BACK = list(0,-1),\
+		OFFSET_NECK = list(0,-1),\
+		OFFSET_MOUTH = list(0,-1),\
+		OFFSET_PANTS = list(0,0),\
+		OFFSET_SHIRT = list(0,0),\
+		OFFSET_ARMOR = list(0,0),\
+		OFFSET_UNDIES = list(0,0),\
 	)
 
 	specstats_m = list(STAT_PERCEPTION = 1)
