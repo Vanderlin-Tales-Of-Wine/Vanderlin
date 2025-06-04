@@ -38,8 +38,8 @@
 		var/datum/customizer_entry/hair/entry = get_customizer_entry_of_type(/datum/customizer_entry/hair/facial)
 		if(entry)
 			var/datum/customizer_choice/customizer_choice = CUSTOMIZER_CHOICE(entry.customizer_choice_type)
-			var/color = (randomise_flags & RANDOMIZE_HAIR_COLOR)
-			var/accessory = (randomise_flags & RANDOMIZE_HAIRSTYLE)
+			var/color = (randomise_flags & RANDOMIZE_FACIAL_HAIR_COLOR)
+			var/accessory = (randomise_flags & RANDOMIZE_FACIAL_HAIRSTYLE)
 			customizer_choice.randomize_entry(entry, src, color, accessory)
 
 	if(randomise_flags & RANDOMIZE_SKIN_TONE)
