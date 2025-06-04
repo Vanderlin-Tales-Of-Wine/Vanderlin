@@ -437,7 +437,7 @@
 	craftdiff = 2
 
 /datum/anvil_recipe/armor/steel/scalemail
-	name = "Scalemail"
+	name = "Scalemail (+Bar)"
 	recipe_name = "a Scalemail"
 	req_bar = /obj/item/ingot/steel
 	additional_items = list(/obj/item/ingot/steel)
