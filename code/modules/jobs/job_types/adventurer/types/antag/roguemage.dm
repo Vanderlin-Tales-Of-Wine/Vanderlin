@@ -4,11 +4,11 @@
 	allowed_sexes = list(MALE, FEMALE)
 	outfit = /datum/outfit/job/bandit/roguemage
 	category_tags = list(CTAG_BANDIT)
-	cmode_music = 'sound/music/cmode/antag/combat_bandit_mage.ogg'
+	cmode_music = 'sound/music/cmode/antag/CombatRogueMage.ogg'
 
 /datum/outfit/job/bandit/roguemage/pre_equip(mob/living/carbon/human/H)
 	..()
-	if(prob(15))
+	if(prob(5))
 		H.cmode_music = 'sound/music/cmode/antag/combat_evilwizard.ogg'
 
 	H.mana_pool?.set_intrinsic_recharge(MANA_ALL_LEYLINES)
