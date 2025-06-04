@@ -24,7 +24,7 @@
 
 /datum/outfit/job/feldsher
 	job_bitflag = BITFLAG_ROYALTY
-		allowed_patrons = list(/datum/patron/divine/pestra)
+	allowed_patrons = list(/datum/patron/divine/pestra)
 
 /datum/outfit/job/feldsher/pre_equip(mob/living/carbon/human/H)
 	..()
