@@ -25,6 +25,9 @@
 	if(!turf_source)
 		return
 
+	if(vol < SOUND_AUDIBLE_VOLUME_MIN) // never let sound go below SOUND_AUDIBLE_VOLUME_MIN or bad things will happen
+		return
+
 	//allocate a channel if necessary now so its the same for everyone
 	channel = channel || SSsounds.random_available_channel()
 
@@ -41,12 +44,14 @@
 	var/turf/above_turf = GET_TURF_ABOVE(turf_source)
 	var/turf/below_turf = GET_TURF_BELOW(turf_source)
 
+	var/audible_distance = CALCULATE_MAX_SOUND_AUDIBLE_DISTANCE(vol, maxdistance, falloff_distance, falloff_exponent)
+
 	if(soundping)
 		ping_sound(source)
 
 	var/list/muffled_listeners = list() //this is very rudimentary list of muffled listeners above and below to mimic sound muffling (this is done through modifying the playsounds for them)
 	if(!ignore_walls) //these sounds don't carry through walls or vertically
-		listeners = listeners & hearers(maxdistance,turf_source)
+		listeners = listeners & hearers(audible_distance,turf_source)
 	else
 		if(above_turf)
 			listeners += SSmobs.clients_by_zlevel[above_turf.z]
@@ -60,12 +65,12 @@
 	. = list()
 
 	for(var/mob/M as anything in listeners)
-		if(get_dist(M, turf_source) <= maxdistance)
+		if(get_dist(M, turf_source) <= audible_distance)
 			if(M.playsound_local(turf_source, soundin, vol, vary, frequency, falloff_exponent, channel, pressure_affected, S, maxdistance, falloff_distance, repeat))
 				. += M
 
 	for(var/mob/M as anything in muffled_listeners)
-		if(get_dist(M, turf_source) <= maxdistance)
+		if(get_dist(M, turf_source) <= audible_distance)
 			if(M.playsound_local(turf_source, soundin, vol, vary, frequency, falloff_exponent, channel, pressure_affected, S, maxdistance, falloff_distance, repeat, muffled = TRUE))
 				. += M
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_SOUND_PLAYED, source, soundin)
@@ -112,15 +117,19 @@
 	if(frequency)
 		S.frequency = frequency
 
+	var/distance = 0
+
 	if(isturf(turf_source))
 		var/turf/T = get_turf(src)
 
 		//sound volume falloff with distance
-		var/distance = get_dist(T, turf_source) * distance_multiplier
+		distance = get_dist(T, turf_source) * distance_multiplier
 
 		if(max_distance && falloff_exponent) //If theres no max_distance we're not a 3D sound, so no falloff.
-			S.volume -= (max(distance - falloff_distance, 0) ** (1 / falloff_exponent)) / ((max(max_distance, distance) - falloff_distance) ** (1 / falloff_exponent)) * S.volume
-			//https://www.desmos.com/calculator/sqdfl8ipgf
+			S.volume -= CALCULATE_SOUND_VOLUME(vol, distance, max_distance, falloff_distance, falloff_exponent)
+
+		if(S.volume < SOUND_AUDIBLE_VOLUME_MIN)
+			return //No sound
 
 		var/dx = turf_source.x - x
 		if(dx <= 1 && dx >= -1)
@@ -161,6 +170,10 @@
 			client.played_loops[D]["VOL"] = S.volume
 			client.played_loops[D]["MUTESTATUS"] = null
 			S.repeat = 1
+
+
+	if(HAS_TRAIT(src, TRAIT_SOUND_DEBUGGED))
+		to_chat(src, span_admin("Max Range-[max_distance] Distance-[distance] Vol-[round(S.volume, 0.01)] Sound-[S.file]"))
 
 	SEND_SOUND(src, S)
 
@@ -380,5 +393,10 @@
 							'sound/foley/footsteps/armor/inquisitorboot (2).ogg',\
 							'sound/foley/footsteps/armor/inquisitorboot (3).ogg',\
 							'sound/foley/footsteps/armor/inquisitorboot (4).ogg'\
+							)
+			if(SFX_POWER_ARMOR_STEP)
+				soundin = pick('sound/foley/footsteps/armor/powerarmor (1).ogg',\
+							'sound/foley/footsteps/armor/powerarmor (2).ogg',\
+							'sound/foley/footsteps/armor/powerarmor (3).ogg',\
 							)
 	return soundin

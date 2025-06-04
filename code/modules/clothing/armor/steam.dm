@@ -25,7 +25,7 @@
 
 /obj/item/clothing/armor/steam/Initialize()
 	. = ..()
-	AddComponent(/datum/component/item_equipped_movement_rustle, custom_sounds = SFX_PLATE_STEP)
+	AddComponent(/datum/component/item_equipped_movement_rustle, custom_sounds = SFX_POWER_ARMOR_STEP)
 
 /obj/item/clothing/armor/steam/equipped(mob/living/user, slot)
 	update_armor(user, slot)

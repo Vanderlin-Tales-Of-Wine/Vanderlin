@@ -407,6 +407,10 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_NOEMBED			"noembed"
 #define TRAIT_NO_TELEPORT		"no-teleport" //you just can't
 
+// Debug traits
+/// This object has sound debugging tools attached to it
+#define TRAIT_SOUND_DEBUGGED "sound_debugged"
+
 /// Buckling yourself to objects with this trait won't immobilize you
 #define TRAIT_NO_IMMOBILIZE "no_immobilize"
 
