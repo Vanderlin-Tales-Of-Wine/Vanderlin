@@ -62,6 +62,31 @@
         {
             "type": "process",
             "command": "tools/build/build",
+            "args": ["-DLOWMEMORYMODE", "-DNO_DUNGEON", "-CENTCOM_ONLY"],
+            "windows": {
+                "command": ".\\tools\\build\\build.bat",
+                "args": ["-DLOWMEMORYMODE", "-DNO_DUNGEON", "-CENTCOM_ONLY"]
+            },
+            "options": {
+                "env": {
+                    "DM_EXE": "${config:dreammaker.byondPath}"
+                }
+            },
+            "problemMatcher": [
+                "$dreammaker",
+                "$tsc",
+                "$eslint-stylish"
+            ],
+            "group": {
+                "kind": "build"
+            },
+            "dependsOn": "dm: reparse",
+            "label": "Build All (low memory mode) no dungeons centcom only"
+        },
+
+        {
+            "type": "process",
+            "command": "tools/build/build",
             "args": ["-DUNIT_TESTS"],
             "windows": {
                 "command": ".\\tools\\build\\build.bat",

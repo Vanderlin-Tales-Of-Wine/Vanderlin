@@ -26,6 +26,13 @@
             "dmb": "${workspaceFolder}/${command:CurrentDMB}"
         },
         {
+            "type": "byond",
+            "request": "launch",
+            "name": "Launch DreamSeeker (low memory mode) no dungeons centcom only",
+            "preLaunchTask": "Build All (low memory mode) no dungeons centcom only",
+            "dmb": "${workspaceFolder}/${command:CurrentDMB}"
+        },
+        {
 			"type": "byond",
 			"request": "launch",
 			"name": "Launch DreamDaemon",
