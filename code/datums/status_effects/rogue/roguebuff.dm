@@ -5,7 +5,6 @@
 	var/duration_modification = 0
 
 /datum/status_effect/buff/duration_modification/on_creation(mob/living/new_owner, duration_increase)
-	testing("oncreation")
 	if(new_owner)
 		owner = new_owner
 	if(owner)
@@ -847,6 +846,7 @@
 /datum/status_effect/buff/lux_drank/on_apply()
 	. = ..()
 	owner.add_stress(/datum/stressevent/high)
+	SEND_SIGNAL(owner, COMSIG_LUX_TASTED)
 
 /datum/status_effect/buff/lux_drank/on_remove()
 	owner.remove_stress(/datum/stressevent/high)

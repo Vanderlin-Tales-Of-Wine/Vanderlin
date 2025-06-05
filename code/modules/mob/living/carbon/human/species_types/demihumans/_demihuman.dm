@@ -26,13 +26,14 @@
 	dam_icon_f = 'icons/roguetown/mob/bodies/dam/dam_female.dmi'
 	soundpack_m = /datum/voicepack/male
 	soundpack_f = /datum/voicepack/female
+	exotic_bloodtype = /datum/blood_type/human/demihuman
 	offset_features = list(
-		OFFSET_ID = list(0,1), OFFSET_GLOVES = list(0,1), OFFSET_WRISTS = list(0,1),\
+		OFFSET_RING = list(0,1), OFFSET_GLOVES = list(0,1), OFFSET_WRISTS = list(0,1),\
 		OFFSET_CLOAK = list(0,1), OFFSET_FACEMASK = list(0,1), OFFSET_HEAD = list(0,1), \
 		OFFSET_FACE = list(0,1), OFFSET_BELT = list(0,1), OFFSET_BACK = list(0,1), \
 		OFFSET_NECK = list(0,1), OFFSET_MOUTH = list(0,1), OFFSET_PANTS = list(0,1), \
 		OFFSET_SHIRT = list(0,1), OFFSET_ARMOR = list(0,1), OFFSET_HANDS = list(0,1), OFFSET_UNDIES = list(0,1), \
-		OFFSET_ID_F = list(0,-1), OFFSET_GLOVES_F = list(0,0), OFFSET_WRISTS_F = list(0,0), OFFSET_HANDS_F = list(0,0), \
+		OFFSET_RING_F = list(0,-1), OFFSET_GLOVES_F = list(0,0), OFFSET_WRISTS_F = list(0,0), OFFSET_HANDS_F = list(0,0), \
 		OFFSET_CLOAK_F = list(0,0), OFFSET_FACEMASK_F = list(0,-1), OFFSET_HEAD_F = list(0,-1), \
 		OFFSET_FACE_F = list(0,-1), OFFSET_BELT_F = list(0,0), OFFSET_BACK_F = list(0,-1), \
 		OFFSET_NECK_F = list(0,-1), OFFSET_MOUTH_F = list(0,-1), OFFSET_PANTS_F = list(0,0), \
@@ -128,17 +129,16 @@
 */
 
 /datum/species/demihuman/get_skin_list()
-	return list(
-		"Grenzelhoft" = SKIN_COLOR_GRENZELHOFT,
-		"Hammerhold" = SKIN_COLOR_HAMMERHOLD,
-		"Avar" = SKIN_COLOR_AVAR,
-		"Rockhill" = SKIN_COLOR_ROCKHILL,
-		"Otava" = SKIN_COLOR_OTAVA,
-		"Etrusca" = SKIN_COLOR_ETRUSCA,
-		"Gronn" = SKIN_COLOR_GRONN,
-		"North Zybantia (Giza)" = SKIN_COLOR_GIZA,
-		"West Zybantia (Shalvistine)" = SKIN_COLOR_SHALVISTINE,
-		"East Zybantia (Lalvestine)" = SKIN_COLOR_LALVESTINE,
-		"Naledi" = SKIN_COLOR_NALEDI,
-		"Kazengun" = SKIN_COLOR_KAZENGUN,
-	)
+	return sortList(list(
+		"Ice Cap" = SKIN_COLOR_ICECAP, // - (Pale)
+		"Arctic" = SKIN_COLOR_ARCTIC, // - (White 1)
+		"Tundra" = SKIN_COLOR_TUNDRA, // - (White 2)
+		"Continental" = SKIN_COLOR_CONTINENTAL, // - (White 3)
+		"Temperate" = SKIN_COLOR_TEMPERATE, // - (White 4)
+		"Coastal" = SKIN_COLOR_COASTAL, // - (Latin)
+		"Subtropical" = SKIN_COLOR_SUBTROPICAL, // - (Mediterranean)
+		"Tropical Dry" = SKIN_COLOR_TROPICALDRY, // - (Mediterranean 2)
+		"Tropical Wet" = SKIN_COLOR_TROPICALWET, // - (Latin 2)
+		"Desert" = SKIN_COLOR_DESERT, //  - (Middle-east)
+		"Crimson Lands" = SKIN_COLOR_CRIMSONLANDS, // - (Black)
+	))

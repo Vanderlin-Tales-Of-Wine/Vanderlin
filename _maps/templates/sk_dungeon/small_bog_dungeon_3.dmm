@@ -27,9 +27,7 @@
 /area/rogue/outdoors/bog)
 "l" = (
 /mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
-/turf/open/floor/blocks{
-	icon_state = "paving"
-	},
+/turf/open/floor/blocks/paving,
 /area/rogue/outdoors/bog)
 "n" = (
 /obj/structure/bookcase,
@@ -56,9 +54,7 @@
 /area/rogue/outdoors/bog)
 "t" = (
 /obj/structure/door/violet,
-/turf/open/floor/blocks{
-	icon_state = "paving-t"
-	},
+/turf/open/floor/blocks/paving/vert,
 /area/rogue/outdoors/bog)
 "u" = (
 /turf/open/floor/dirt/road,
@@ -85,9 +81,7 @@
 /turf/open/floor/blocks,
 /area/rogue/outdoors/bog)
 "z" = (
-/turf/open/floor/blocks{
-	icon_state = "paving"
-	},
+/turf/open/floor/blocks/paving,
 /area/rogue/outdoors/bog)
 "A" = (
 /obj/item/restraints/legcuffs/beartrap/armed/camouflage,
@@ -108,9 +102,7 @@
 /turf/open/floor/blocks,
 /area/rogue/outdoors/bog)
 "F" = (
-/turf/open/floor/blocks{
-	icon_state = "paving-t"
-	},
+/turf/open/floor/blocks/paving/vert,
 /area/rogue/outdoors/bog)
 "H" = (
 /obj/structure/bookcase,
@@ -168,9 +160,7 @@
 /area/rogue/outdoors/bog)
 "X" = (
 /obj/structure/door/iron/bars,
-/turf/open/floor/blocks{
-	icon_state = "paving-t"
-	},
+/turf/open/floor/blocks/paving/vert,
 /area/rogue/outdoors/bog)
 "Y" = (
 /obj/structure/bookcase,

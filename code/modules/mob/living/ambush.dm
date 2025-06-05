@@ -66,9 +66,8 @@
 		var/mob/spawnedmob = new spawnedtype(spawnloc)
 		if(istype(spawnedmob, /mob/living/simple_animal/hostile))
 			var/mob/living/simple_animal/hostile/M = spawnedmob
-			M.attack_same = FALSE
 			M.del_on_deaggro = 44 SECONDS
-			M.GiveTarget(src)
+			ai_controller.set_blackboard_key(BB_BASIC_MOB_CURRENT_TARGET, M)
 		if(istype(spawnedmob, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = spawnedmob
 			H.del_on_deaggro = 44 SECONDS

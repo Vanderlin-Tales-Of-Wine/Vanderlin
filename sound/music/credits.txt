@@ -10,7 +10,7 @@ combat_dwarf.ogg: Filip Lackovic - Drums of the Horde
 combat_assassin2.ogg: Fear & Hunger 2: Termina - Monologue With The Moon
 combat_noble.ogg: Aram Khachaturian - Masquerade Suite - Waltz
 combatskeleton.ogg: Storkrieg - Genocide Of The Fittest
-
+combat_evilwizard.ogg: Burialgoods - Low Income Barony
 
 roundend.ogg: Fear & Hunger 2: Termina - Dark Outside Extended
 accord (8).ogg: Tchaikovsky - Dance of the Sugar Plum Fairy. Cover by Amy Turk
@@ -22,6 +22,8 @@ manor2.ogg: Fear & Hunger 2: Termina - Midnight Hour
 night.ogg: Vampire The Masquerade: Bloodlines - Hollywood
 spice2.ogg: The Appolo Stars - Power Of The Source
 churchnight.ogg: Fear & Hunger 2: Termina - Cathedral Whispers
+
+CombatRogueMage.ogg : (APAB) All Paladins Are Bastards - Burialgoods (He gave us permission, god bless you Burialgoods - https://www.youtube.com/watch?v=3Z_cOxF1o48)
 
 
 TRACKS MADE FOR VANDERLIN:

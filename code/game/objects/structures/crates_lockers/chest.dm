@@ -7,18 +7,12 @@
 	drag_slowdown = 2
 	open_sound = 'sound/misc/chestopen.ogg'
 	close_sound = 'sound/misc/chestclose.ogg'
-	keylock = TRUE
-	locked = FALSE
 	sellprice = 1 // crate recycling program
 	max_integrity = 200
 	blade_dulling = DULLING_BASHCHOP
 	mob_storage_capacity = 1
 	allow_dense = FALSE
 	static_price = TRUE
-
-/obj/structure/closet/crate/chest/OnCrafted(dirin, mob/user)
-	. = ..()
-	keylock = FALSE
 
 /obj/structure/closet/crate/chest/open(mob/living/user)
 	. = ..()
@@ -31,9 +25,7 @@
 	base_icon_state = "chestweird1"
 
 /obj/structure/closet/crate/chest/merchant
-	lockid = ACCESS_MERCHANT
-	locked = TRUE
-	masterkey = TRUE
+	lock = /datum/lock/key/merchant
 
 /obj/structure/closet/crate/chest/lootbox/PopulateContents()
 	var/list/loot = list(
@@ -86,6 +78,12 @@
 	open_sound = 'sound/items/book_close.ogg'
 	close_sound = 'sound/items/book_close.ogg'
 	sellprice = 0
+
+/obj/structure/closet/crate/chest/wicker/random_soilson/Initialize()
+	for(var/i = 1 to rand(5, 8))
+		var/obj/item/neuFarm/seed/random = pick(subtypesof(/obj/item/neuFarm/seed) - /obj/item/neuFarm/seed/mixed_seed)
+		new random (get_turf(src))
+	. = ..()
 
 /obj/structure/closet/crate/chest/neu
 	name = "sturdy oak chest"

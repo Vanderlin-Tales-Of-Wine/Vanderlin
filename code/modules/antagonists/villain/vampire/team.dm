@@ -64,6 +64,7 @@
 			//add new lord and state objectives
 			lord = new_member
 			lord_protect.target = lord
+			lord.special_role = span_redtext("Vampire Lord") // Team member is added before antag datum is
 			for(var/datum/mind/member as anything in members)
 				member.announce_objectives()
 			return
@@ -106,10 +107,9 @@
 			to_chat(lord, "<font color='red'>I am refreshed and have grown stronger. The visage of the bat is once again available to me. I can also once again access my portals.</font>")
 
 		if(2)
-			lord.current.verbs |= /mob/living/carbon/human/proc/vamp_regenerate
 			lord.current.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/bloodsteal)
 			lord.current.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/bloodlightning)
-			lord.adjust_skillrank(/datum/skill/magic/blood, 2, TRUE)
+			lord.current.adjust_skillrank(/datum/skill/magic/blood, 2, TRUE)
 			lord_datum.gas = new
 			lord.current.AddSpell(lord_datum.gas)
 			for(var/S in MOBSTATS)
@@ -132,6 +132,7 @@
 			lord_datum.ascended = TRUE
 			SSmapping.retainer.ascended = TRUE
 
+			LAZYINITLIST(thrall_verbs)
 			thrall_verbs |= /mob/living/carbon/human/proc/blood_strength
 			thrall_verbs |= /mob/living/carbon/human/proc/blood_celerity
 			thrall_verbs |= /mob/living/carbon/human/proc/vamp_regenerate

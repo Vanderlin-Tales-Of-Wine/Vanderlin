@@ -23,7 +23,6 @@
 	icon_state = "mbox0"
 	gripped_intents = list(INTENT_GENERIC)
 	w_class = WEIGHT_CLASS_HUGE
-	twohands_required = TRUE
 	force = 20
 	throwforce = 20
 	throw_range = 2

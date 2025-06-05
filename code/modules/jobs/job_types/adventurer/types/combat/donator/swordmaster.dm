@@ -2,7 +2,7 @@
 	name = "Hedge Knight"
 	tutorial = "You spent years serving the eastern Grenzelhoftian lords, and now you spend your days as a travelling hedge knight. Upon this island, you like to increase the fame of your sword skills, as well as your honor."
 	allowed_sexes = list(MALE)
-	allowed_races = RACES_PLAYER_GRENZ
+	allowed_races = list("Humen","Aasimar") // not RACES_PLAYER_GRENZ because dwarves don't have a sprite for this armor
 	outfit = /datum/outfit/job/adventurer/swordmaster
 	maximum_possible_slots = 1
 	min_pq = 2
@@ -14,12 +14,12 @@
 /datum/outfit/job/adventurer/swordmaster/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 		H.change_stat(STATKEY_STR, 2)
 		H.change_stat(STATKEY_END, 2)
 		H.change_stat(STATKEY_CON, 2)

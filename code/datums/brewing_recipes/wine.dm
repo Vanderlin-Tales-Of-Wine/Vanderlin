@@ -2,7 +2,7 @@
 	name = "Jacksberry Wine"
 	reagent_to_brew = /datum/reagent/consumable/ethanol/jackberrywine
 	needed_reagents = list(/datum/reagent/water = 198)
-	needed_crops = list(/obj/item/reagent_containers/food/snacks/produce/jacksberry = 5)
+	needed_crops = list(/obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry = 5)
 	brewed_amount = 4
 	brew_time = 5 MINUTES
 	sell_value = 50
@@ -17,7 +17,7 @@
 	name = "Umeshu"
 	reagent_to_brew = /datum/reagent/consumable/ethanol/plum_wine
 	needed_reagents = list(/datum/reagent/water = 90)
-	needed_items = list(/obj/item/reagent_containers/food/snacks/produce/plum = 3, /obj/item/reagent_containers/food/snacks/sugar = 1)
+	needed_items = list(/obj/item/reagent_containers/food/snacks/produce/fruit/plum = 3, /obj/item/reagent_containers/food/snacks/sugar = 1)
 	brewed_amount = 3
 	brew_time = 6 MINUTES
 	sell_value = 35
@@ -30,7 +30,7 @@
 	name = "Tangerine Wine"
 	reagent_to_brew = /datum/reagent/consumable/ethanol/tangerine
 	needed_reagents = list(/datum/reagent/water = 90)
-	needed_items = list(/obj/item/reagent_containers/food/snacks/produce/tangerine = 3, /obj/item/reagent_containers/food/snacks/sugar = 1)
+	needed_items = list(/obj/item/reagent_containers/food/snacks/produce/fruit/tangerine = 3, /obj/item/reagent_containers/food/snacks/sugar = 1)
 	brewed_amount = 3
 	brew_time = 6 MINUTES
 	sell_value = 35
@@ -43,7 +43,7 @@
 	name = "Raspberry Wine"
 	reagent_to_brew = /datum/reagent/consumable/ethanol/raspberry
 	needed_reagents = list(/datum/reagent/water = 90)
-	needed_items = list(/obj/item/reagent_containers/food/snacks/produce/raspberry = 3, /obj/item/reagent_containers/food/snacks/sugar = 1)
+	needed_items = list(/obj/item/reagent_containers/food/snacks/produce/fruit/raspberry = 3, /obj/item/reagent_containers/food/snacks/sugar = 1)
 	brewed_amount = 3
 	brew_time = 6 MINUTES
 	sell_value = 35
@@ -56,7 +56,7 @@
 	name = "Blackberry Wine"
 	reagent_to_brew = /datum/reagent/consumable/ethanol/blackberry
 	needed_reagents = list(/datum/reagent/water = 90)
-	needed_items = list(/obj/item/reagent_containers/food/snacks/produce/blackberry = 3, /obj/item/reagent_containers/food/snacks/sugar = 1)
+	needed_items = list(/obj/item/reagent_containers/food/snacks/produce/fruit/blackberry = 3, /obj/item/reagent_containers/food/snacks/sugar = 1)
 	brewed_amount = 3
 	brew_time = 6 MINUTES
 	sell_value = 35

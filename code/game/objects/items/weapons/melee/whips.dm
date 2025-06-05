@@ -12,7 +12,7 @@
 	//dropshrink = 0.75
 	wlength = WLENGTH_GREAT
 	w_class = WEIGHT_CLASS_NORMAL
-	slot_flags = ITEM_SLOT_HIP | ITEM_SLOT_BELT
+	slot_flags = ITEM_SLOT_HIP
 	associated_skill = /datum/skill/combat/whipsflails
 	anvilrepair = /datum/skill/craft/tanning
 	resistance_flags = FLAMMABLE // Fully made of leather
@@ -110,3 +110,11 @@
 
 /datum/intent/whip/crack/metal
 	penfactor = 20
+
+
+//................ Xylix Whip ............... //
+/obj/item/weapon/whip/xylix
+	name = "cackle lash"
+	force = DAMAGE_WHIP+4
+	desc = "The chimes of this whip are said to sound as the trickster's laughter itself."
+	icon_state = "xylixwhip"

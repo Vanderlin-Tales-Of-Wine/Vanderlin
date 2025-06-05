@@ -56,6 +56,10 @@
 #define TRAIT_DREAM_WATCHER				"Noc Blessed" //Unique Trait of the Dream Watcher Town Elder Class, they have a chance to know about antags or gods influences.
 #define TRAIT_HOLLOWBONES				"Hollow Bones"
 #define TRAIT_AMAZING_BACK				"Light Load"
+#define TRAIT_KITTEN_MOM				"Loved By Kittens"
+/// applied to orphans
+#define TRAIT_ORPHAN 					"Orphan"
+#define TRAIT_RECRUITED					"Recruit" //Trait used to give foreigners their new title
 
 // Divine patron trait bonuses:
 #define TRAIT_SOUL_EXAMINE				"Blessing of Necra"  //can check bodies to see if they have departed
@@ -106,7 +110,8 @@
 #define TRAIT_MALUMFIRE "Professional Smith"
 #define TRAIT_CRATEMOVER "Crate Mover"
 #define TRAIT_BURDEN "Burdened" //Gaffer stuff
-#define TRAIT_OLDPARTY "Old_party"
+#define TRAIT_OLDPARTY "Old Party"
+#define TRAIT_EARGRAB "Ear Grab"
 
 // PATRON CURSE TRAITS
 #define TRAIT_CURSE "Curse" //source
@@ -204,6 +209,9 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_DREAM_WATCHER = span_notice("I'm blessed by Noc, my dreams tell more than the average person.."),
 	TRAIT_AMAZING_BACK = span_notice("I'm able to carry far more on my back!"),
 	TRAIT_HOLLOWBONES = span_danger("My bones are light as air, Its hard to wear armor."),
+	TRAIT_RECRUITED = "I have been recruited!",
+	TRAIT_EARGRAB = span_info("I can keep a tight grip on the ear of unruly children."),
+	TRAIT_KITTEN_MOM = span_info("Kittens love you, they see you are a parent.")
 	))
 
 #define SIGNAL_ADDTRAIT(trait_ref) ("addtrait " + trait_ref)
@@ -427,6 +435,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define CRIT_HEALTH_TRAIT "crit_health"
 #define OXYLOSS_TRAIT "oxyloss"
 #define BLOODLOSS_TRAIT "bloodloss"
+#define TRAIT_PROFANE "profane"
 /// Trait associated to being buckled
 #define BUCKLED_TRAIT "buckled"
 /// Trait associated to being held in a chokehold
@@ -496,3 +505,5 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define SOULSTONE_TRAIT "soulstone"
 /// Trait applied to brain mobs when they lack external aid for locomotion, such as being inside a mech.
 #define BRAIN_UNAIDED "brain-unaided"
+/// Ignores body_parts_covered during the add_fingerprint() proc. Works both on the person and the item in the glove slot.
+#define TRAIT_FINGERPRINT_PASSTHROUGH "fingerprint_passthrough"

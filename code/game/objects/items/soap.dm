@@ -11,7 +11,7 @@
 	throw_range = 7
 	var/clean_speed = 0.75 SECONDS
 	var/clean_effectiveness = 50
-	var/clean_strength = CLEAN_MEDIUM
+	var/clean_strength = CLEAN_SCRUB
 	force_string = "robust... against filth"
 	var/uses = 100
 	var/slip_chance = 15
@@ -19,14 +19,14 @@
 /obj/item/soap/ComponentInitialize()
 	. = ..()
 	AddComponent(/datum/component/slippery, 8, NONE, null, 0, FALSE, slip_chance)
-	AddComponent(/datum/component/cleaner,
-				clean_speed,
-				clean_strength,
-				clean_effectiveness,
-				TRUE,
-				CALLBACK(src, PROC_REF(should_clean)),
-				CALLBACK(src, PROC_REF(on_clean_success)),
-				CALLBACK(src, PROC_REF(on_clean_ineffective)),
+	AddComponent(/datum/component/cleaner, \
+				clean_speed, \
+				clean_strength, \
+				clean_effectiveness, \
+				TRUE, \
+				CALLBACK(src, PROC_REF(should_clean)), \
+				CALLBACK(src, PROC_REF(on_clean_success)), \
+				CALLBACK(src, PROC_REF(on_clean_ineffective)), \
 				)
 
 /obj/item/soap/proc/should_clean(datum/cleaning_source, atom/atom_to_clean, mob/living/cleaner)
@@ -166,7 +166,7 @@
 		to_chat(user, span_info("I dissolve some of \the [name] in the water."))
 
 /obj/item/soap/proc/scrub_scrub(mob/living/carbon/human/target, mob/living/carbon/user)
-	wash_atom(target, CLEAN_STRONG)
+	target.wash(clean_strength)
 	user.visible_message(span_info("[user] scrubs [target] with [src]."), span_info("I scrub [target] with [src]."))
 	decreaseUses(5)
 

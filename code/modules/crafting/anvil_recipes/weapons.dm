@@ -3,6 +3,7 @@
 	craftdiff = 1
 	i_type = "Weapons"
 	abstract_type = /datum/anvil_recipe/weapons
+	category = "Weapons"
 
 // SILVER - Harder to craft, does less damage and has less durability than steel, but banes undead.
 
@@ -301,6 +302,14 @@
 	created_item = /obj/item/weapon/sword/long/greatsword/zwei
 	craftdiff = 3
 
+/datum/anvil_recipe/weapons/iron/elvenclub
+	name = "Elven Warclub"
+	recipe_name = "a Warclub"
+	appro_skill = /datum/skill/craft/weaponsmithing
+	req_bar = /obj/item/ingot/iron
+	created_item = /obj/item/weapon/mace/elvenclub
+	craftdiff = 2
+
 // STEEL GEAR - Fancy gear for Knights
 
 /datum/anvil_recipe/weapons/steel/axe_steel
@@ -560,3 +569,12 @@
 	additional_items = list(/obj/item/ingot/bronze, /obj/item/grown/log/tree/small)
 	created_item = /obj/item/weapon/polearm/spear/bronze
 	craftdiff = 0
+
+/datum/anvil_recipe/weapons/steel/elvenclub
+	name = "Regal Elven Warclub (+Gold bar)"
+	recipe_name = "a Elven Warclub"
+	appro_skill = /datum/skill/craft/weaponsmithing
+	req_bar = /obj/item/ingot/steel
+	additional_items = list(/obj/item/ingot/gold)
+	created_item = /obj/item/weapon/mace/elvenclub/steel
+	craftdiff = 2

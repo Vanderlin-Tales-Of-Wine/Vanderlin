@@ -41,7 +41,6 @@ GLOBAL_VAR_INIT(mobids, 1)
 	for(var/cc in client_colours)
 		qdel(cc)
 	client_colours = null
-	testing("EPICWIN!! [src] [type]")
 	ghostize(drawskip=TRUE)
 	..()
 	return QDEL_HINT_HARDDEL
@@ -231,6 +230,17 @@ GLOBAL_VAR_INIT(mobids, 1)
 /mob/proc/get_item_by_slot(slot_id)
 	return null
 
+/**
+ * Gets what slot the item on the mob is held in.
+ * Returns null if the item isn't in any slots on our mob.
+ * Does not check if the passed item is null, which may result in unexpected outcoms.
+*/
+/mob/proc/get_slot_by_item(obj/item/looking_for)
+	if(looking_for in held_items)
+		return ITEM_SLOT_HANDS
+
+	return null
+
 ///Is the mob incapacitated
 /mob/proc/incapacitated(ignore_restraints = FALSE, ignore_grab = TRUE)
 	return
@@ -245,9 +255,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 	var/obj/item/W = get_active_held_item()
 
 	if(istype(W))
-		testing("clothes1")
 		if(equip_to_slot_if_possible(W, slot,0,0,0))
-			testing("clothes2")
 			return 1
 
 	if(!W)
@@ -319,27 +327,17 @@ GLOBAL_VAR_INIT(mobids, 1)
  */
 /mob/proc/equip_to_appropriate_slot(obj/item/W)
 	if(!istype(W))
-		return 0
+		return FALSE
 	var/slot_priority = W.slot_equipment_priority
 
 	if(!slot_priority)
-		slot_priority = list( \
-			SLOT_RING, SLOT_WRISTS,\
-			SLOT_PANTS, SLOT_ARMOR,\
-			SLOT_WEAR_MASK, SLOT_HEAD, SLOT_NECK,\
-			SLOT_SHOES, SLOT_GLOVES,\
-			SLOT_BELT,\
-			SLOT_MOUTH,SLOT_BACK_R,SLOT_BACK_L,SLOT_BELT_L,SLOT_BELT_R,SLOT_CLOAK,SLOT_SHIRT,\
-			SLOT_L_STORE, SLOT_R_STORE,\
-			SLOT_GENERC_DEXTROUS_STORAGE,\
-			SLOT_HANDS\
-		)
+		slot_priority = DEFAULT_SLOT_PRIORITY
 
-	for(var/slot in slot_priority)
-		if(equip_to_slot_if_possible(W, slot, 0, 1, 1)) //qdel_on_fail = 0; disable_warning = 1; redraw_mob = 1
-			return 1
+	for(var/slot as anything in slot_priority)
+		if(equip_to_slot_if_possible(W, slot, FALSE, TRUE, TRUE)) //qdel_on_fail = 0; disable_warning = 1; redraw_mob = 1
+			return TRUE
 
-	return 0
+	return FALSE
 /**
  * Reset the attached clients perspective (viewpoint)
  *
@@ -436,8 +434,11 @@ GLOBAL_VAR_INIT(mobids, 1)
 /// possibly delayed verb that finishes the pointing process starting in [/mob/verb/pointed()].
 /// either called immediately or in the tick after pointed() was called, as per the [DEFAULT_QUEUE_OR_CALL_VERB()] macro
 /mob/proc/_pointed(atom/A)
-	if(!src || !isturf(src.loc) || !(A in view(client.view, src)))
+	if(!src || !isturf(src.loc))
 		return FALSE
+	if(client && !(A in view(client.view, src)))
+		return FALSE
+
 	if(istype(A, /obj/effect/temp_visual/point))
 		return FALSE
 
@@ -645,7 +646,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 		if(machine && in_range(src, usr))
 			show_inv(machine)
 
-	if(href_list["item"] && usr.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
+	if(href_list["item"] && usr.can_perform_action(src, FORBID_TELEKINESIS_REACH))
 		var/slot = text2num(href_list["item"])
 		var/hand_index = text2num(href_list["hand_index"])
 		var/obj/item/what
@@ -800,7 +801,7 @@ GLOBAL_VAR_INIT(mobids, 1)
  * * no transform not set
  * * we are not restrained
  */
-/mob/proc/canface()
+/mob/proc/canface(atom/A)
 	if(client)
 		if(world.time < client.last_turn)
 			return FALSE
@@ -817,13 +818,41 @@ GLOBAL_VAR_INIT(mobids, 1)
 	return TRUE
 
 ///Checks mobility move as well as parent checks
-/mob/living/canface()
+/mob/living/canface(atom/A)
 	if(HAS_TRAIT(src, TRAIT_IMMOBILIZED))
 		return FALSE
 	if(world.time < last_dir_change + 5)
 		return
-	if(pulledby && pulledby.grab_state >= GRAB_AGGRESSIVE) //the reason this isn't a mobility_flags check is because you want them to be able to change dir if you're passively grabbing them
-		return FALSE
+	if(A && pulledby && pulledby.grab_state >= GRAB_AGGRESSIVE) //the reason this isn't a mobility_flags check is because you want them to be able to change dir if you're passively grabbing them
+		// get_cardinal_dir is inconsistent, reuse face_atom code
+		var/dx = A.x - src.x
+		var/dy = A.y - src.y
+		var/dir
+		if(!dx && !dy) // Wall items are graphically shifted but on the floor
+			if(A.pixel_y > 16)
+				dir = NORTH
+			else if(A.pixel_y < -16)
+				dir = SOUTH
+			else if(A.pixel_x > 16)
+				dir = EAST
+			else if(A.pixel_x < -16)
+				dir = WEST
+		else
+			if(abs(dx) < abs(dy))
+				if(dy > 0)
+					dir = NORTH
+				else
+					dir = SOUTH
+			else
+				if(dx > 0)
+					dir = EAST
+				else
+					dir = WEST
+		if(dir == pulledby.dir) // can never face away from the person grabbing you
+			return FALSE
+		for(var/obj/item/grabbing/G in grabbedby) // only chokeholds prevent turning
+			if(G.chokehold)
+				return FALSE
 	if(IsImmobilized())
 		return FALSE
 	return ..()
@@ -834,7 +863,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 ///Hidden verb to turn east
 /mob/verb/eastface()
 	set hidden = TRUE
-	if(!canface())
+	if(!canface(get_step(src, EAST)))
 		return FALSE
 	setDir(EAST)
 	client.last_turn = world.time + MOB_FACE_DIRECTION_DELAY
@@ -843,7 +872,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 ///Hidden verb to turn west
 /mob/verb/westface()
 	set hidden = TRUE
-	if(!canface())
+	if(!canface(get_step(src, WEST)))
 		return FALSE
 	setDir(WEST)
 	client.last_turn = world.time + MOB_FACE_DIRECTION_DELAY
@@ -852,7 +881,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 ///Hidden verb to turn north
 /mob/verb/northface()
 	set hidden = TRUE
-	if(!canface())
+	if(!canface(get_step(src, NORTH)))
 		return FALSE
 	setDir(NORTH)
 	client.last_turn = world.time + MOB_FACE_DIRECTION_DELAY
@@ -861,7 +890,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 ///Hidden verb to turn south
 /mob/verb/southface()
 	set hidden = TRUE
-	if(!canface())
+	if(!canface(get_step(src, SOUTH)))
 		return FALSE
 	setDir(SOUTH)
 	client.last_turn = world.time + MOB_FACE_DIRECTION_DELAY
@@ -973,8 +1002,23 @@ GLOBAL_VAR_INIT(mobids, 1)
 /mob/proc/can_interact_with(atom/A)
 	return IsAdminGhost(src) || Adjacent(A)
 
-///Can the mob use Topic to interact with machines
-/mob/proc/canUseTopic(atom/movable/M, be_close=FALSE, no_dexterity=FALSE, no_tk=FALSE)
+/**
+ * Checks whether a mob can perform an action to interact with an object
+ *
+ * The default behavior checks if the mob is:
+ * * Directly adjacent (1-tile radius)
+ * * Standing up (not resting)
+ * * Allows telekinesis to be used to skip adjacent checks (if they have DNA mutation)
+ * *
+ * action_bitflags: (see code/__DEFINES/mobs.dm)
+ * * NEED_LITERACY - If reading is required to perform action (can't read a book if you are illiterate)
+ * * NEED_LIGHT - If lighting must be present to perform action (can't heal someone in the dark)
+ * * NEED_DEXTERITY - If other mobs (monkeys, aliens, etc) can perform action (can't use computers if you are a monkey)
+ * * NEED_HANDS - If hands are required to perform action (can't pickup items if you are a cyborg)
+ * * FORBID_TELEKINESIS_REACH - If telekinesis is forbidden to perform action from a distance (ex. canisters are blacklisted from telekinesis manipulation)
+ * * ALLOW_RESTING - If resting on the floor is allowed to perform action ()
+**/
+/mob/proc/can_perform_action(atom/movable/target, action_bitflags)
 	return
 
 ///Can this mob use storage
@@ -985,7 +1029,9 @@ GLOBAL_VAR_INIT(mobids, 1)
  *
  * If exact match is set, then all our factions must match exactly
  */
-/mob/proc/faction_check_mob(mob/target, exact_match)
+/atom/movable/proc/faction_check_mob(mob/target, exact_match)
+
+/mob/faction_check_mob(mob/target, exact_match)
 	if(exact_match) //if we need an exact match, we need to do some bullfuckery.
 		var/list/faction_src = faction.Copy()
 		var/list/faction_target = target.faction.Copy()
@@ -1089,9 +1135,34 @@ GLOBAL_VAR_INIT(mobids, 1)
 		if(examine_cursor_icon && client.keys_held["Shift"]) //mouse shit is hardcoded, make this non hard-coded once we make mouse modifiers bindable
 			client.mouse_pointer_icon = examine_cursor_icon
 
+/**
+ * Can this mob see in the dark
+ *
+ * This checks all traits, glasses, and robotic eyeball implants to see if the mob can see in the dark
+ * this does NOT check if the mob is missing it's eyeballs. Also see_in_dark is a BYOND mob var (that defaults to 2)
+**/
+/mob/proc/has_nightvision()
+	return see_in_dark >= 6
 
 ///This mob is abile to read books
 /mob/proc/is_literate()
+	return FALSE
+
+/**
+ * Checks if there is enough light where the mob is located
+ *
+ * Args:
+ *  light_amount (optional) - A decimal amount between 1.0 through 0.0 (default is 0.2)
+**/
+/mob/proc/has_light_nearby(light_amount = LIGHTING_TILE_IS_DARK)
+	var/turf/mob_location = get_turf(src)
+	var/area/mob_area = get_area(src)
+
+	if(mob_location.get_lumcount() > light_amount)
+		return TRUE
+	else if(mob_area.dynamic_lighting == DYNAMIC_LIGHTING_DISABLED)
+		return TRUE
+
 	return FALSE
 
 ///Can this mob read (is literate and not blind)
@@ -1110,7 +1181,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 
 ///Can this mob hold items
 /mob/proc/can_hold_items()
-	return FALSE
+	return length(held_items)
 
 ///Get the id card on this mob
 /mob/proc/get_idcard(hand_first)
@@ -1272,14 +1343,13 @@ GLOBAL_VAR_INIT(mobids, 1)
 	return "[message_spans_start(spans)][input]</span>"
 
 /// Send a menu that allows for the selection of an item. Randomly selects one after time_limit. selection_list should be an associative list of string and typepath
-/mob/proc/select_equippable(list/selection_list, time_limit = 20 SECONDS, message = "", title = "")
-	if(QDELETED(src))
-		return
-	if(!client || !mind)
+/mob/proc/select_equippable(user_client, list/selection_list, time_limit = 20 SECONDS, message = "", title = "")
+	if(QDELETED(src) || !mind)
 		return
 	if(!LAZYLEN(selection_list))
 		return
-	var/choice = browser_input_list(src, message, title, selection_list, timeout = time_limit)
+	var/to_send = user_client ? user_client : src
+	var/choice = browser_input_list(to_send, message, title, selection_list, timeout = time_limit)
 	if(!choice)
 		choice = pick(selection_list)
 	var/spawn_item = LAZYACCESS(selection_list, choice)

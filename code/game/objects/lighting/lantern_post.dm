@@ -20,7 +20,7 @@
 	permanent = TRUE
 
 /obj/machinery/light/fueled/lanternpost/unfixed
-	desc = "The lamptern can be added to and removed from this one."
+	desc = "A wooden post that can have a lamptern or a noose attached to it."
 	permanent = FALSE
 	on = FALSE
 

@@ -16,6 +16,7 @@
 	possible_rmb_intents = list(/datum/rmb_intent/feint, /datum/rmb_intent/aimed, /datum/rmb_intent/strong, /datum/rmb_intent/weak)
 	stand_attempts = 4
 	cmode_music = 'sound/music/cmode/antag/combatskeleton.ogg'
+	var/should_have_aggro = TRUE
 
 /mob/living/carbon/human/species/skeleton/npc/no_equipment
 	skel_outfit = null
@@ -32,6 +33,8 @@
 
 /mob/living/carbon/human/species/skeleton/Initialize()
 	. = ..()
+	if(should_have_aggro)
+		AddComponent(/datum/component/ai_aggro_system)
 	addtimer(CALLBACK(src, PROC_REF(after_creation)), 1 SECONDS)
 
 /mob/living/carbon/human/species/skeleton/after_creation()
@@ -97,20 +100,20 @@
 	H.base_intelligence = 1
 
 	//light labor skills for skeleton manual labor and some warrior-adventurer skills, equipment is still bad probably
-	H.mind?.adjust_skillrank(/datum/skill/craft/carpentry, 1, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/craft/masonry, 1, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/carpentry, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/masonry, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
 
-	H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
 
 	H.set_patron(/datum/patron/inhumen/zizo)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
@@ -310,13 +313,16 @@
 	if(!mind)
 		mind = new /datum/mind(src)
 
-	mind.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
-	mind.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
-	mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-	mind.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-	mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
-	mind.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
-	mind.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
+	adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
+	adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
+	adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+	adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
+	adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
+	adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
+	adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
+
+/mob/living/carbon/human/species/skeleton/death_arena
+	should_have_aggro = FALSE
 
 /mob/living/carbon/human/species/skeleton/death_arena/after_creation()
 	..()
@@ -329,3 +335,6 @@
 	base_constitution = 8
 	base_endurance = 8
 	base_intelligence = 1
+
+/mob/living/carbon/human/species/skeleton/death_arena/roll_mob_stats()
+	return

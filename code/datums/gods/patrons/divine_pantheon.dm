@@ -48,7 +48,7 @@
 	added_traits = list(TRAIT_TUTELAGE)
 	t0 = /obj/effect/proc_holder/spell/invoked/lesser_heal
 	t1 = /obj/effect/proc_holder/spell/invoked/invisibility
-	t2 = /obj/effect/proc_holder/spell/invoked/blindness
+	t2 = /obj/effect/proc_holder/spell/invoked/blindness/miracle
 	t3 = /obj/effect/proc_holder/spell/invoked/projectile/moondagger
 	confess_lines = list(
 		"NOC IS NIGHT!",

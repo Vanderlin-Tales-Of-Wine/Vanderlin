@@ -81,6 +81,29 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 
 	return new_msg
 
+/mob/living/proc/check_slur(text)
+	if(!LAZYLEN(GLOB.slurs_all))
+		return
+	for(var/slur as anything in GLOB.slurs_all)
+		if(findtext(text, slur))
+			record_featured_object_stat(FEATURED_STATS_SLURS, capitalize(slur))
+			GLOB.vanderlin_round_stats[STATS_SLURS_SPOKEN]++
+
+/mob/living/carbon/check_slur(text)
+	if(!LAZYLEN(GLOB.slurs_all))
+		return
+	for(var/slur as anything in GLOB.slurs_all)
+		if(findtext(text, slur))
+			record_featured_object_stat(FEATURED_STATS_SLURS, capitalize(slur))
+			GLOB.vanderlin_round_stats[STATS_SLURS_SPOKEN]++
+			if(!LAZYLEN(GLOB.slur_groups) || !dna?.species)
+				continue
+			if(is_string_in_list(slur, GLOB.slur_groups["Generic"]))
+				continue
+			if(is_string_in_list(slur, GLOB.slur_groups[dna.species.name]))
+				continue
+			record_featured_stat(FEATURED_STATS_SPECIESISTS, src)
+
 /mob/living/say(message, bubble_type,list/spans = list(), sanitize = TRUE, datum/language/language = null, ignore_spam = FALSE, forced = null)
 	var/static/list/crit_allowed_modes = list(MODE_WHISPER = TRUE, MODE_CHANGELING = TRUE, MODE_ALIEN = TRUE)
 	var/static/list/unconscious_allowed_modes = list(MODE_CHANGELING = TRUE, MODE_ALIEN = TRUE)
@@ -198,8 +221,9 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	if(!message)
 		return
 
-	if(src.client)
+	if(client)
 		record_featured_stat(FEATURED_STATS_SPEAKERS, src)
+		INVOKE_ASYNC(src, PROC_REF(check_slur), message)
 	if(findtext(message, "Abyssor"))
 		GLOB.vanderlin_round_stats[STATS_ABYSSOR_REMEMBERED]++
 
@@ -343,8 +367,10 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 		eavesrendered = compose_message(src, message_language, eavesdropping, , spans, message_mode)
 
 	var/rendered = compose_message(src, message_language, message, , spans, message_mode)
-	for(var/_AM in listening)
-		var/atom/movable/AM = _AM
+	for(var/atom/movable/AM as anything in listening)
+		if(!AM)
+			stack_trace("somehow theres a null returned from get_hearers_in_view() in send_speech!")
+			continue
 		var/turf/listener_turf = get_turf(AM)
 		var/turf/listener_ceiling = get_step_multiz(listener_turf, UP)
 		if(listener_ceiling)

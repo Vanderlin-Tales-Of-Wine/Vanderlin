@@ -23,7 +23,6 @@
 
 /obj/structure/fluff/railing
 	name = "railing"
-	desc = ""
 	icon = 'icons/roguetown/misc/railing.dmi'
 	icon_state = "railing"
 	density = FALSE
@@ -34,12 +33,16 @@
 	var/passcrawl = TRUE
 	layer = ABOVE_MOB_LAYER
 
-
 /obj/structure/fluff/railing/Initialize()
 	. = ..()
+	init_connect_loc_element()
 	var/lay = getwlayer(dir)
 	if(lay)
 		layer = lay
+
+/obj/structure/fluff/railing/proc/init_connect_loc_element()
+	var/static/list/loc_connections = list(COMSIG_ATOM_EXIT = PROC_REF(on_exit))
+	AddElement(/datum/element/connect_loc, loc_connections)
 
 /obj/structure/fluff/railing/proc/getwlayer(dirin)
 	switch(dirin)
@@ -106,38 +109,25 @@
 		return 0
 	return 1
 
-/obj/structure/fluff/railing/CheckExit(atom/movable/O, turf/target)
-//	if(istype(O) && (O.pass_flags & PASSTABLE))
-//		return 1
-	if(istype(O, /obj/projectile))
-		return 1
-	if(O.throwing)
-		return 1
-	if(isobserver(O))
-		return 1
-	if(O.movement_type & FLYING)
-		return 1
-	if(isliving(O))
-		var/mob/living/M = O
+/obj/structure/fluff/railing/proc/on_exit(datum/source, atom/movable/leaving, atom/new_location)
+	SIGNAL_HANDLER
+	if(dir in CORNERDIRS)
+		return
+	if(istype(leaving, /obj/projectile))
+		return
+	if(leaving.throwing)
+		return
+	if(isobserver(leaving))
+		return
+	if(leaving.movement_type & FLYING)
+		return
+	if(passcrawl && isliving(leaving))
+		var/mob/living/M = leaving
 		if(M.body_position == LYING_DOWN)
-			if(passcrawl)
-				return TRUE
-	if(icon_state == "woodrailing" && (dir in CORNERDIRS))
-		var/list/baddirs = list()
-		switch(dir)
-			if(SOUTHEAST)
-				baddirs = list(SOUTHEAST, SOUTH, EAST)
-			if(SOUTHWEST)
-				baddirs = list(SOUTHWEST, SOUTH, WEST)
-			if(NORTHEAST)
-				baddirs = list(NORTHEAST, NORTH, EAST)
-			if(NORTHWEST)
-				baddirs = list(NORTHWEST, NORTH, WEST)
-		if(get_dir(O.loc, target) in baddirs)
-			return 0
-	else if(get_dir(O.loc, target) == dir)
-		return 0
-	return 1
+			return
+	if(get_dir(leaving.loc, new_location) == dir)
+		leaving.Bump(src)
+		return COMPONENT_ATOM_BLOCK_EXIT
 
 /obj/structure/fluff/railing/OnCrafted(dirin, mob/user)
 	dir = dirin
@@ -148,7 +138,9 @@
 
 /obj/structure/fluff/railing/corner
 	icon_state = "railing_corner"
-	density = FALSE
+
+/obj/structure/fluff/railing/corner/init_connect_loc_element()
+	return
 
 /obj/structure/fluff/railing/wood
 	icon_state = "woodrailing"
@@ -220,13 +212,6 @@
 		return 0
 	return 1
 
-/obj/structure/fluff/railing/fence/CheckExit(atom/movable/O, turf/target)
-	if(istype(O, /obj/projectile))
-		return 1
-	if(get_dir(O.loc, target) == dir)
-		return 0
-	return 1
-
 /obj/structure/bars
 	name = "bars"
 	desc = "Iron bars made to keep things in or out."
@@ -266,7 +251,7 @@
 	plane = GAME_PLANE
 	layer = WALL_OBJ_LAYER+0.05
 
-/obj/structure/bars/obj_break(damage_flag)
+/obj/structure/bars/obj_break(damage_flag, silent)
 	icon_state = "[initial(icon_state)]b"
 	density = FALSE
 	..()
@@ -332,18 +317,16 @@
 	dir = pick(GLOB.cardinals)
 	return ..()
 
-/obj/structure/bars/grille/obj_break(damage_flag)
+/obj/structure/bars/grille/obj_break(damage_flag, silent)
 	obj_flags = CAN_BE_HIT
 	..()
 
 /obj/structure/bars/grille/redstone_triggered(mob/user)
 	if(obj_broken)
 		return
-	testing("togge")
 	togg = !togg
 	playsound(src, 'sound/foley/trap_arm.ogg', 100)
 	if(togg)
-		testing("togge1")
 		icon_state = "floorgrilleopen"
 		obj_flags = CAN_BE_HIT
 		var/turf/T = loc
@@ -351,7 +334,6 @@
 			for(var/mob/living/M in loc)
 				T.Entered(M)
 	else
-		testing("togge2")
 		icon_state = "floorgrille"
 		obj_flags = CAN_BE_HIT | BLOCK_Z_OUT_DOWN | BLOCK_Z_IN_UP
 
@@ -404,13 +386,15 @@
 	soundloop = new(src, FALSE)
 	soundloop.start()
 	. = ..()
+	var/static/list/loc_connections = list(COMSIG_ATOM_EXIT = PROC_REF(on_exit))
+	AddElement(/datum/element/connect_loc, loc_connections)
 
 /obj/structure/fluff/clock/Destroy()
 	if(soundloop)
 		soundloop.stop()
 	..()
 
-/obj/structure/fluff/clock/obj_break(damage_flag)
+/obj/structure/fluff/clock/obj_break(damage_flag, silent)
 	if(!broke)
 		broke = TRUE
 		icon_state = "b[initial(icon_state)]"
@@ -461,10 +445,11 @@
 		return 0
 	return 1
 
-/obj/structure/fluff/clock/CheckExit(atom/movable/O, turf/target)
-	if(get_dir(O.loc, target) == dir)
-		return 0
-	return 1
+/obj/structure/fluff/clock/proc/on_exit(datum/source, atom/movable/leaving, atom/new_location)
+	SIGNAL_HANDLER
+	if(get_dir(leaving.loc, new_location) == dir)
+		leaving.Bump(src)
+		return COMPONENT_ATOM_BLOCK_EXIT
 
 /obj/structure/fluff/clock/zizoclock
 	desc = "It tells the time... in morbid fashion!"
@@ -525,7 +510,7 @@
 	soundloop.start()
 	. = ..()
 
-/obj/structure/fluff/wallclock/obj_break(damage_flag)
+/obj/structure/fluff/wallclock/obj_break(damage_flag, silent)
 	if(!broke)
 		broke = TRUE
 		icon_state = "b[initial(icon_state)]"
@@ -578,7 +563,7 @@
 /obj/structure/fluff/signage/examine(mob/user)
 	. = ..()
 	if(!user.is_literate())
-		user.mind.adjust_experience(/datum/skill/misc/reading, 2, FALSE)
+		user.adjust_experience(/datum/skill/misc/reading, 2, FALSE)
 		. += "I have no idea what it says."
 	else
 		. += "It says something."
@@ -591,7 +576,7 @@
 /obj/structure/fluff/buysign/examine(mob/user)
 	. = ..()
 	if(!user.is_literate())
-		user.mind.adjust_experience(/datum/skill/misc/reading, 2, FALSE)
+		user.adjust_experience(/datum/skill/misc/reading, 2, FALSE)
 		. += "I have no idea what it says."
 	else
 		. += "It says something."
@@ -604,7 +589,7 @@
 /obj/structure/fluff/sellsign/examine(mob/user)
 	. = ..()
 	if(!user.is_literate())
-		user.mind.adjust_experience(/datum/skill/misc/reading, 2, FALSE)
+		user.adjust_experience(/datum/skill/misc/reading, 2, FALSE)
 		. += "I have no idea what it says."
 	else
 		. += "It says something."
@@ -623,7 +608,7 @@
 	. = ..()
 	if(wrotesign)
 		if(!user.is_literate())
-			user.mind.adjust_experience(/datum/skill/misc/reading, 2, FALSE)
+			user.adjust_experience(/datum/skill/misc/reading, 2, FALSE)
 			. += "I have no idea what it says."
 		else
 			. += "It says \"[wrotesign]\"."
@@ -657,6 +642,11 @@
 	max_integrity = 300
 	dir = SOUTH
 
+/obj/structure/fluff/statue/Initialize()
+	. = ..()
+	var/static/list/loc_connections = list(COMSIG_ATOM_EXIT = PROC_REF(on_exit))
+	AddElement(/datum/element/connect_loc, loc_connections)
+
 /obj/structure/fluff/statue/attack_right(mob/user)
 	if(user.mind && isliving(user))
 		if(user.mind.special_items && user.mind.special_items.len)
@@ -678,10 +668,11 @@
 		return 0
 	return !density
 
-/obj/structure/fluff/statue/CheckExit(atom/movable/O, turf/target)
-	if(get_dir(O.loc, target) == dir)
-		return 0
-	return !density
+/obj/structure/fluff/statue/proc/on_exit(datum/source, atom/movable/leaving, atom/new_location)
+	SIGNAL_HANDLER
+	if(get_dir(leaving.loc, new_location) == dir)
+		leaving.Bump(src)
+		return COMPONENT_ATOM_BLOCK_EXIT
 
 /obj/structure/fluff/statue/gargoyle
 	icon_state = "gargoyle"
@@ -906,18 +897,18 @@
 						probby = 0
 					if(prob(probby) && !L.has_status_effect(/datum/status_effect/debuff/trainsleep) && !user.buckled)
 						user.visible_message("<span class='info'>[user] trains on [src]!</span>")
-						var/boon = user.mind.get_learning_boon(W.associated_skill)
+						var/boon = user.get_learning_boon(W.associated_skill)
 						var/amt2raise = L.STAINT/2
-						if(user.mind?.get_skill_level(W.associated_skill) >= 2)
+						if(user.get_skill_level(W.associated_skill) >= 2)
 							if(!HAS_TRAIT(user, TRAIT_INTRAINING))
 								to_chat(user, "<span class='warning'>I've learned all I can from doing this, it's time for the real thing.</span>")
 								amt2raise = 0
 							else
-								if(user.mind?.get_skill_level(W.associated_skill) >= 3)
+								if(user.get_skill_level(W.associated_skill) >= 3)
 									to_chat(user, "<span class='warning'>I've learned all I can from doing this, it's time for the real thing.</span>")
 									amt2raise = 0
 						if(amt2raise > 0)
-							user.mind.adjust_experience(W.associated_skill, amt2raise * boon, FALSE)
+							user.adjust_experience(W.associated_skill, amt2raise * boon, FALSE)
 						playsound(loc,pick('sound/combat/hits/onwood/education1.ogg','sound/combat/hits/onwood/education2.ogg','sound/combat/hits/onwood/education3.ogg'), rand(50,100), FALSE)
 					else
 						user.visible_message("<span class='danger'>[user] trains on [src], but [src] ripostes!</span>")
@@ -1003,11 +994,11 @@
 						if(4)
 							I = new /obj/item/clothing/head/helmet/horned(user.loc)
 						if(6)
-							if(user.mind.get_skill_level(/datum/skill/combat/polearms) > 2)
+							if(user.get_skill_level(/datum/skill/combat/polearms) > 2)
 								I = new /obj/item/weapon/polearm/spear/billhook(user.loc)
-							else if(user.mind.get_skill_level(/datum/skill/combat/bows) > 2)
+							else if(user.get_skill_level(/datum/skill/combat/bows) > 2)
 								I = new /obj/item/gun/ballistic/revolver/grenadelauncher/bow/long(user.loc)
-							else if(user.mind.get_skill_level(/datum/skill/combat/swords) > 2)
+							else if(user.get_skill_level(/datum/skill/combat/swords) > 2)
 								I = new /obj/item/weapon/sword/long(user.loc)
 							else
 								I = new /obj/item/weapon/mace/steel(user.loc)
@@ -1044,12 +1035,13 @@
 	dir = NORTH
 	buckle_requires_restraints = 1
 	buckle_prevents_pull = 1
-	var/shrine = FALSE	// used for some checks
 	var/divine = TRUE
 
 /obj/structure/fluff/psycross/Initialize()
 	. = ..()
 	become_hearing_sensitive()
+	var/static/list/loc_connections = list(COMSIG_ATOM_EXIT = PROC_REF(on_exit))
+	AddElement(/datum/element/connect_loc, loc_connections)
 
 /obj/structure/fluff/psycross/post_buckle_mob(mob/living/M)
 	..()
@@ -1063,20 +1055,15 @@
 /obj/structure/fluff/psycross/CanPass(atom/movable/mover, turf/target)
 	if(istype(mover, /mob/camera))
 		return TRUE
-	if(shrine)
-		return
-	else if(get_dir(loc, mover) == dir)
-		return 0
-	else
-		return !density
+	if(get_dir(loc, mover) == dir)
+		return FALSE
+	return !density
 
-/obj/structure/fluff/psycross/CheckExit(atom/movable/O, turf/target)
-	if(shrine)
-		return
-	else if(get_dir(O.loc, target) == dir)
-		return 0
-	else
-		return !density
+/obj/structure/fluff/psycross/proc/on_exit(datum/source, atom/movable/leaving, atom/new_location)
+	SIGNAL_HANDLER
+	if(get_dir(leaving.loc, new_location) == dir)
+		leaving.Bump(src)
+		return COMPONENT_ATOM_BLOCK_EXIT
 
 /obj/structure/fluff/psycross/copper	// the big nice on in the Temple, destroying it triggers Omens. Not so for the craftable ones.
 	name = "pantheon cross"
@@ -1098,12 +1085,11 @@
 	chance2hear = 10
 
 /obj/structure/fluff/psycross/crafted/shrine
-	density = TRUE
-	plane = -3	// to keep the 3d effect when mob behind it
-	layer = 4.1
+	plane = GAME_PLANE_UPPER
+	layer = ABOVE_MOB_LAYER
 	can_buckle = FALSE
+	density = TRUE
 	dir = SOUTH
-	shrine = TRUE
 
 /obj/structure/fluff/psycross/crafted/shrine/dendor_volf
 	name = "shrine to Dendor"
@@ -1125,12 +1111,12 @@
 		if((is_priest_job(user.mind.assigned_role)) \
 			|| (is_monk_job(user.mind.assigned_role) && (user.patron.type == /datum/patron/divine/eora)))
 
-			if(istype(W, /obj/item/reagent_containers/food/snacks/produce/apple))
+			if(istype(W, /obj/item/reagent_containers/food/snacks/produce/fruit/apple))
 				if(!istype(get_area(user), /area/rogue/indoors/town/church/chapel))
 					to_chat(user, "<span class='warning'>I need to do this in the chapel.</span>")
 					return FALSE
 				var/marriage
-				var/obj/item/reagent_containers/food/snacks/produce/apple/A = W
+				var/obj/item/reagent_containers/food/snacks/produce/fruit/apple/A = W
 
 				//The MARRIAGE TEST BEGINS
 				if(A.bitten_names.len)
@@ -1140,7 +1126,6 @@
 						var/mob/living/carbon/human/thebride
 						//Did anyone get cold feet on the wedding?
 						for(var/mob/M in viewers(src, 2))
-							testing("check [M]")
 							if(thegroom && thebride)
 								break
 							if(!ishuman(M))
@@ -1174,12 +1159,10 @@
 											if(thebride)
 												continue
 											thebride = C
-									testing("foundbiter [C.real_name]")
 								name_placement++
 
 						//WE FOUND THEM LETS GET THIS SHOW ON THE ROAD!
 						if(!thegroom || !thebride)
-							testing("fail22")
 							return
 						//Alright now for the boring surname formatting.
 						var/surname2use
@@ -1215,6 +1198,7 @@
 						priority_announce("[thegroom.real_name] has married [bridefirst]!", title = "Holy Union!", sound = 'sound/misc/bell.ogg')
 						thegroom.remove_stress(/datum/stressevent/eora_matchmaking)
 						thebride.remove_stress(/datum/stressevent/eora_matchmaking)
+						SEND_GLOBAL_SIGNAL(COMSIG_GLOBAL_MARRIAGE, thegroom, thebride)
 						GLOB.vanderlin_round_stats[STATS_MARRIAGES]++
 						marriage = TRUE
 						qdel(A)
@@ -1366,24 +1350,5 @@
 
 /obj/structure/fluff/statue/carving_block/ComponentInitialize()
 	. = ..()
-	AddComponent(/datum/component/simple_rotation,ROTATION_ALTCLICK | ROTATION_CLOCKWISE, CALLBACK(src, PROC_REF(can_user_rotate)),CALLBACK(src, PROC_REF(can_be_rotated)),null)
+	AddComponent(/datum/component/simple_rotation)
 
-/obj/structure/fluff/statue/carving_block/proc/can_be_rotated(mob/user)
-	return TRUE
-
-/obj/structure/fluff/statue/carving_block/proc/can_user_rotate(mob/user)
-	var/mob/living/L = user
-
-	if(istype(L))
-		if(!user.canUseTopic(src, BE_CLOSE))
-			return FALSE
-		else
-			return TRUE
-	else if(isobserver(user) && CONFIG_GET(flag/ghost_interaction))
-		return TRUE
-	return FALSE
-
-/obj/structure/fluff/statue/carving_block/attack_right(mob/user)
-	var/datum/component/simple_rotation/rotcomp = GetComponent(/datum/component/simple_rotation)
-	if(rotcomp)
-		rotcomp.HandRot(rotcomp,user,ROTATION_CLOCKWISE)

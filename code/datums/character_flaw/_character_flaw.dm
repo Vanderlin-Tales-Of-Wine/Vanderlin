@@ -19,7 +19,6 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	"Isolationist"=/datum/charflaw/isolationist,
 	"Fire Servant"=/datum/charflaw/addiction/pyromaniac,
 	"Thief-Borne"=/datum/charflaw/addiction/kleptomaniac,
-	"Pain Freek"=/datum/charflaw/addiction/masochist,
 	"Hunted"=/datum/charflaw/hunted,
 	"Random Flaw or No Flaw"=/datum/charflaw/randflaw,
 	"Guaranteed No Flaw (3 TRI)"=/datum/charflaw/noflaw,))
@@ -144,7 +143,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	. = ..()
 	var/mob/living/carbon/human/H = user
 	if(H.mind)
-		H.mind.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 
 /datum/charflaw/badsight/flaw_on_life(mob/user)
 	if(!ishuman(user))
@@ -165,15 +164,16 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	effectedstats = list(STATKEY_PER = -20, STATKEY_SPD = -5, STATKEY_LCK = -20)
 	duration = 100
 
-/datum/charflaw/badsight/on_mob_creation(mob/user)
-	..()
+/datum/charflaw/badsight/after_spawn(mob/user)
+	. = ..()
 	if(!ishuman(user))
 		return
 	var/mob/living/carbon/human/H = user
-	if(!H.wear_mask)
-		H.equip_to_slot_or_del(new /obj/item/clothing/face/spectacles(H), SLOT_WEAR_MASK)
-	else
-		new /obj/item/clothing/face/spectacles(get_turf(H))
+	if(H.wear_mask)
+		var/type = H.wear_mask.type
+		QDEL_NULL(H.wear_mask)
+		H.put_in_hands(new type(get_turf(H)))
+	H.equip_to_slot_or_del(new /obj/item/clothing/face/spectacles(H), SLOT_WEAR_MASK)
 
 /datum/charflaw/paranoid
 	name = "Paranoid"
@@ -266,13 +266,17 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	name = "Cyclops (R)"
 	desc = "I lost my right eye long ago. But it made me great at noticing things."
 
-/datum/charflaw/noeyer/on_mob_creation(mob/user)
+/datum/charflaw/noeyer/after_spawn(mob/user)
 	..()
 	if(!ishuman(user))
 		return
 	var/mob/living/carbon/human/H = user
-	if(!H.wear_mask)
-		H.equip_to_slot_or_del(new /obj/item/clothing/face/eyepatch(H), SLOT_WEAR_MASK)
+	if(H.wear_mask)
+		var/type = H.wear_mask.type
+		QDEL_NULL(H.wear_mask)
+		H.put_in_hands(new type(get_turf(H)))
+	H.equip_to_slot_or_del(new /obj/item/clothing/face/eyepatch(H), SLOT_WEAR_MASK)
+
 	var/obj/item/bodypart/head/head = H.get_bodypart(BODY_ZONE_HEAD)
 	head?.add_wound(/datum/wound/facial/eyes/right/permanent)
 	H.update_fov_angles()
@@ -281,46 +285,36 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	name = "Cyclops (L)"
 	desc = "I lost my left eye long ago. But it made me great at noticing things."
 
-/datum/charflaw/noeyel/on_mob_creation(mob/user)
+/datum/charflaw/noeyel/after_spawn(mob/user)
 	..()
 	if(!ishuman(user))
 		return
 	var/mob/living/carbon/human/H = user
-	if(!H.wear_mask)
-		H.equip_to_slot_or_del(new /obj/item/clothing/face/eyepatch/left(H), SLOT_WEAR_MASK)
+
+	if(H.wear_mask)
+		var/type = H.wear_mask.type
+		QDEL_NULL(H.wear_mask)
+		H.put_in_hands(new type(get_turf(H)))
+	H.equip_to_slot_or_del(new /obj/item/clothing/face/eyepatch/left(H), SLOT_WEAR_MASK)
+
 	var/obj/item/bodypart/head/head = H.get_bodypart(BODY_ZONE_HEAD)
 	head?.add_wound(/datum/wound/facial/eyes/left/permanent)
 	H.update_fov_angles()
 
 /datum/charflaw/noeyerandom
-	name = "Cyclops (L)"
-	desc = "I lost my left eye long ago. But it made me great at noticing things."
+	name = "Cyclops (Random)"
+	desc = "I lost my eye long ago. But it made me great at noticing things."
 
-/datum/charflaw/noeyerandom/on_mob_creation(mob/user)
+/datum/charflaw/noeyerandom/after_spawn(mob/user)
 	. = ..()
-	switch(rand(1,2))
-		if(1)
-			name = "Cyclops (L)"
-			desc = "I lost my left eye long ago. But it made me great at noticing things."
-			if(!ishuman(user))
-				return
-			var/mob/living/carbon/human/H = user
-			if(!H.wear_mask)
-				H.equip_to_slot_or_del(new /obj/item/clothing/face/eyepatch/left(H), SLOT_WEAR_MASK)
-			var/obj/item/bodypart/head/head = H.get_bodypart(BODY_ZONE_HEAD)
-			head?.add_wound(/datum/wound/facial/eyes/left/permanent)
-			H.update_fov_angles()
-		else
-			name = "Cyclops (R)"
-			desc = "I lost my right eye long ago. But it made me great at noticing things."
-			if(!ishuman(user))
-				return
-			var/mob/living/carbon/human/H = user
-			if(!H.wear_mask)
-				H.equip_to_slot_or_del(new /obj/item/clothing/face/eyepatch(H), SLOT_WEAR_MASK)
-			var/obj/item/bodypart/head/head = H.get_bodypart(BODY_ZONE_HEAD)
-			head?.add_wound(/datum/wound/facial/eyes/right/permanent)
-			H.update_fov_angles()
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		switch(rand(1,2))
+			if(1)
+				H.charflaw = new /datum/charflaw/noeyel(H)
+			else
+				H.charflaw = new /datum/charflaw/noeyer(H)
+	qdel(src)
 
 /datum/charflaw/tongueless
 	name = "Tongueless"
@@ -505,7 +499,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	var/current_pain = user.get_complex_pain()
 	// Bloodloss makes the pain count as extra large to allow people to bloodlet themselves with cutting weapons to satisfy vice
 	var/bloodloss_factor = clamp(1.0 - (user.blood_volume / BLOOD_VOLUME_NORMAL), 0.0, 0.5)
-	var/new_pain_threshold = get_pain_threshold(current_pain * (1.0 + (bloodloss_factor * 1.4))) // Bloodloss factor goes up to 50%, and then counts at 140% value of that
+	var/new_pain_threshold = get_pain_threshold(current_pain * (1.0 + (bloodloss_factor * 1.4)) * clamp(2 - (user.STAEND / 10), 0.5, 1.5)) // Bloodloss factor goes up to 50%, and then counts at 140% value of that
 	if(last_pain_threshold == NONE)
 		to_chat(user, span_boldwarning("I could really use some pain right now..."))
 	else if (new_pain_threshold != last_pain_threshold)
@@ -531,13 +525,13 @@ GLOBAL_LIST_INIT(character_flaws, list(
 
 /datum/charflaw/masochist/proc/get_pain_threshold(pain_amt)
 	switch(pain_amt)
-		if(-INFINITY to 50)
+		if(-INFINITY to 25)
 			return MASO_THRESHOLD_ONE
-		if(50 to 95)
+		if(25 to 50)
 			return MASO_THRESHOLD_TWO
-		if(95 to 140)
+		if(50 to 95)
 			return MASO_THRESHOLD_THREE
-		if(140 to INFINITY)
+		if(95 to INFINITY)
 			return MASO_THRESHOLD_FOUR
 
 /proc/get_mammons_in_atom(atom/movable/movable)

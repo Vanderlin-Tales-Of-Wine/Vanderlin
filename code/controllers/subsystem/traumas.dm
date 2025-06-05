@@ -14,7 +14,7 @@ SUBSYSTEM_DEF(traumas)
 	//phobia types is to pull from randomly for brain traumas, e.g. conspiracies is for special assignment only
 	phobia_types = sortList(list("spiders", "lizards",
 						"skeletons", "snakes",
-						"strangers", "birds", "falling", "anime"))
+						"strangers", "birds", "falling", "anime", "jesters"))
 
 	phobia_words = list(
 		"spiders"   = strings(PHOBIA_FILE, "spiders"),
@@ -25,11 +25,11 @@ SUBSYSTEM_DEF(traumas)
 		"conspiracies" = strings(PHOBIA_FILE, "conspiracies"),
 		"birds" = strings(PHOBIA_FILE, "birds"),
 		"falling" = strings(PHOBIA_FILE, "falling"),
-		"religion" = strings(PHOBIA_FILE, "religion")
+		"religion" = strings(PHOBIA_FILE, "religion"),
+		"jesters" = strings(PHOBIA_FILE, "jesters"),
 	)
 
 	phobia_mobs = list(
-		"birds"            = typecacheof(list(/mob/living/simple_animal/parrot))
 	)
 
 	phobia_objs = list(
@@ -38,6 +38,8 @@ SUBSYSTEM_DEF(traumas)
 		"skeletons" = typecacheof(list(/obj/item/organ/tongue/bone, /obj/item/alch/bone,
 
 										/obj/effect/decal/remains/human)),
+
+		"jesters" = typecacheof(list(/obj/item/clothing/head/jester), /obj/item/clothing/shirt/jester, /obj/item/clothing/shoes/jester)
 
 	)
 

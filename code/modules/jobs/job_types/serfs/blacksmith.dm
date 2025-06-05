@@ -17,6 +17,7 @@
 	outfit = /datum/outfit/job/armorsmith
 	display_order = JDO_ARMORER
 	give_bank_account = 30
+	cmode_music = 'sound/music/cmode/towner/CombatTowner2.ogg'
 
 /datum/outfit/job/armorsmith
 	job_bitflag = BITFLAG_CONSTRUCTOR
@@ -27,25 +28,24 @@
 	head = /obj/item/clothing/head/hatfur
 	if(prob(50))
 		head = /obj/item/clothing/head/hatblu
-	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/blacksmithing, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/armorsmithing, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/weaponsmithing, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/smelting, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/engineering, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/traps, 2, TRUE) // For craftable beartraps
-		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE)
-		ADD_TRAIT(H, TRAIT_MALUMFIRE, TRAIT_GENERIC)
-		ADD_TRAIT(H, TRAIT_SEEPRICES, TRAIT_GENERIC)
-		if(H.age == AGE_OLD)
-			H.mind?.adjust_skillrank(/datum/skill/craft/blacksmithing, pick(1,2), TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/craft/armorsmithing, pick(1,2), TRUE)
+	H.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/blacksmithing, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/armorsmithing, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/weaponsmithing, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/smelting, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/engineering, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/traps, 2, TRUE) // For craftable beartraps
+	H.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE)
+	ADD_TRAIT(H, TRAIT_MALUMFIRE, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_SEEPRICES, TRAIT_GENERIC)
+	if(H.age == AGE_OLD)
+		H.adjust_skillrank(/datum/skill/craft/blacksmithing, pick(1,2), TRUE)
+		H.adjust_skillrank(/datum/skill/craft/armorsmithing, pick(1,2), TRUE)
 	if(H.gender == MALE)
 		pants = /obj/item/clothing/pants/trou
 		shoes = /obj/item/clothing/shoes/simpleshoes/buckle
@@ -69,6 +69,7 @@
 		H.change_stat(STATKEY_STR, 1)
 		H.change_stat(STATKEY_END, 2)
 		H.change_stat(STATKEY_SPD, -1)
+	backpack_contents = list(/obj/item/recipe_book/blacksmithing = 1)
 
 /datum/job/weaponsmith
 	title = "Weaponsmith"
@@ -88,6 +89,7 @@
 	display_order = JDO_WSMITH
 	give_bank_account = 30
 	min_pq = 0
+	cmode_music = 'sound/music/cmode/towner/CombatTowner2.ogg'
 
 /datum/outfit/job/weaponsmith
 	job_bitflag = BITFLAG_CONSTRUCTOR
@@ -98,25 +100,24 @@
 	head = /obj/item/clothing/head/hatfur
 	if(prob(50))
 		head = /obj/item/clothing/head/hatblu
-	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/blacksmithing, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/armorsmithing, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/weaponsmithing, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/smelting, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/engineering, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/traps, 2, TRUE) // For craftable beartraps
-		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE)
-		ADD_TRAIT(H, TRAIT_MALUMFIRE, TRAIT_GENERIC)
-		ADD_TRAIT(H, TRAIT_SEEPRICES, TRAIT_GENERIC)
-		if(H.age == AGE_OLD)
-			H.mind?.adjust_skillrank(/datum/skill/craft/blacksmithing, pick(1,2), TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/craft/weaponsmithing, pick(1,2), TRUE)
+	H.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/blacksmithing, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/armorsmithing, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/weaponsmithing, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/smelting, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/engineering, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/traps, 2, TRUE) // For craftable beartraps
+	H.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE)
+	ADD_TRAIT(H, TRAIT_MALUMFIRE, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_SEEPRICES, TRAIT_GENERIC)
+	if(H.age == AGE_OLD)
+		H.adjust_skillrank(/datum/skill/craft/blacksmithing, pick(1,2), TRUE)
+		H.adjust_skillrank(/datum/skill/craft/weaponsmithing, pick(1,2), TRUE)
 	if(H.gender == MALE)
 		pants = /obj/item/clothing/pants/trou
 		shoes = /obj/item/clothing/shoes/boots/leather
@@ -140,3 +141,4 @@
 		H.change_stat(STATKEY_STR, 1)
 		H.change_stat(STATKEY_END, 2)
 		H.change_stat(STATKEY_SPD, -1)
+	backpack_contents = list(/obj/item/recipe_book/blacksmithing = 1)

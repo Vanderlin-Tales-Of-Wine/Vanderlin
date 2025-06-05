@@ -1,0 +1,198 @@
+/* buildmode.css */
+
+.buildmode-browser {
+    padding: 10px;
+    font-family: Verdana, Geneva, sans-serif;
+    color: #ccc;
+    background-color: #222;
+}
+
+.buildmode-browser h3 {
+    margin-top: 0;
+    color: #ffdd88;
+    border-bottom: 1px solid #555;
+    padding-bottom: 5px;
+}
+
+.tabs {
+    display: flex;
+    border-bottom: 1px solid #666;
+    margin-bottom: 10px;
+}
+
+.tab {
+    padding: 5px 10px;
+    margin-right: 2px;
+    background-color: #333;
+    color: #ccc;
+    text-decoration: none;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.tab.active {
+    background-color: #555;
+    color: #fff;
+}
+
+.search-container {
+    margin-bottom: 10px;
+}
+
+.search-bar {
+    padding: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #333;
+    border: 1px solid #555;
+    color: #ccc;
+}
+
+.item-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px;
+    max-height: 500px;
+    overflow-y: auto;
+    padding: 5px;
+    border: 1px solid #666;
+    background-color: #333;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    background-color: #444;
+    border: 1px solid #555;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    height: 100px;
+}
+
+.item:hover {
+    background-color: #555;
+    border-color: #777;
+}
+
+.item-icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-name {
+    font-size: 10px;
+    text-align: center;
+    word-break: break-word;
+    color: #ccc;
+}
+
+.item-selected {
+    border: 2px solid #ffdd88;
+    background-color: #555;
+}
+
+.more {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 5px;
+    color: #aaa;
+    height: auto;
+}
+
+.category-header {
+    grid-column: 1 / -1;
+    font-weight: bold;
+    padding: 5px;
+    margin-top: 10px;
+    border-bottom: 1px solid #666;
+    color: #ffdd88;
+}
+
+.controls {
+    margin-top: 10px;
+    padding: 5px;
+    border: 1px solid #666;
+    background-color: #333;
+}
+
+.controls h4 {
+    margin-top: 0;
+    color: #ffdd88;
+}
+
+.control-group {
+    margin-bottom: 5px;
+}
+
+.button {
+    padding: 5px 10px;
+    background-color: #444;
+    border: 1px solid #555;
+    color: #ccc;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.button:hover {
+    background-color: #555;
+}
+
+.preview-panel {
+    margin-top: 10px;
+    padding: 5px;
+    border: 1px solid #666;
+    background-color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.preview-image {
+    width: 64px;
+    height: 64px;
+    margin: 10px 0;
+    background-color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pixel-controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.pixel-value {
+    display: inline-block;
+    width: 30px;
+    text-align: center;
+    background-color: #444;
+    padding: 2px;
+}
+
+/* Scrollbar styling */
+.item-grid::-webkit-scrollbar {
+    width: 10px;
+}
+
+.item-grid::-webkit-scrollbar-track {
+    background: #333;
+}
+
+.item-grid::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 5px;
+}
+
+.item-grid::-webkit-scrollbar-thumb:hover {
+    background: #777;
+}

@@ -23,7 +23,11 @@
 	pants = /obj/item/clothing/pants/trou/leather
 	shoes = /obj/item/clothing/shoes/boots/leather
 	belt = /obj/item/storage/belt/leather
-	beltl = /obj/item/weapon/mace
+	backr = /obj/item/weapon/shield/heater
+	if(iself(H) || ishalfelf(H))
+		beltl = /obj/item/weapon/mace/elvenclub
+	else
+		beltl = /obj/item/weapon/mace
 	beltr = /obj/item/storage/belt/pouch/coins/poor
 
 	switch(H.patron?.type)
@@ -78,16 +82,17 @@
 
 
 	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/magic/holy, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/magic/holy, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE)
 		if(H.age == AGE_OLD)
 			H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/magic/holy, 1, TRUE)

@@ -36,39 +36,46 @@
 
 	switch(H.patron?.name)
 		if("Astrata")
+			H.cmode_music = 'sound/music/cmode/church/CombatAstrata.ogg'
 			cloak = /obj/item/clothing/cloak/stabard/crusader // Gold for Astrata regardless of gender
 			wrists = /obj/item/clothing/neck/psycross/silver/astrata
 		if("Necra")
+			H.cmode_music = 'sound/music/cmode/church/CombatGravekeeper.ogg'
 			cloak = /obj/item/clothing/cloak/stabard/templar/necra
 			wrists = /obj/item/clothing/neck/psycross/silver/necra
 		if("Psydon")
+			H.cmode_music = 'sound/music/cmode/church/CombatInquisitor.ogg'
 			wrists = /obj/item/clothing/neck/psycross/silver
 			if(H.gender == FEMALE) // Silver for female, gold for male
 				cloak = /obj/item/clothing/cloak/stabard/crusader/t
 			else
 				cloak = /obj/item/clothing/cloak/stabard/crusader
 		else // Failsafe
+			H.cmode_music = 'sound/music/cmode/adventurer/CombatIntense.ogg'
 			cloak = /obj/item/clothing/cloak/stabard/crusader // Gold version regardless of gender or patron
 			wrists = /obj/item/clothing/neck/psycross/silver
 
-	H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/riding, 4, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/riding, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 	H.change_stat(STATKEY_END, 2)
 	H.change_stat(STATKEY_CON, 2)
 	H.change_stat(STATKEY_STR, 1)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
+	if(H.dna?.species)
+		if(H.dna.species.id == "human")
+			H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
 
 	// Females are crossbow and dagger based
 	if(H.gender == FEMALE)
@@ -76,14 +83,14 @@
 		backr = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
 		beltl = /obj/item/weapon/knife/dagger/silver
 		beltr = /obj/item/ammo_holder/quiver/bolts
-		H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 		backl = /obj/item/storage/backpack/satchel/black
 		backpack_contents = list(/obj/item/storage/belt/pouch/coins/rich = 1)
 	// Males are sword and shield based
 	else
-		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/shields, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/shields, 1, TRUE)
 		beltr = /obj/item/storage/belt/pouch/coins/rich
 	// Finally, grant us the language
 

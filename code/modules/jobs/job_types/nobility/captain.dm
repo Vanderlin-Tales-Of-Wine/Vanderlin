@@ -52,33 +52,32 @@
 	beltr = /obj/item/weapon/mace/cudgel
 	cloak = /obj/item/clothing/cloak/captain
 	backpack_contents = list(/obj/item/storage/keyring/captain = 1, /obj/item/signal_horn = 1)
-	if(H.mind)
-		H.mind.adjust_skillrank(/datum/skill/combat/swords, 5, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/axesmaces, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/whipsflails, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/swords, 5, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/axesmaces, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/whipsflails, 2, TRUE)
 
-		H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/bows, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/bows, 2, TRUE)
 
-		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 
-		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 
-		H.mind.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE)
 
-		H.change_stat(STATKEY_STR, 2)
-		H.change_stat(STATKEY_PER, 2)
-		H.change_stat(STATKEY_INT, 1)
-		H.change_stat(STATKEY_CON, 1)
-		H.change_stat(STATKEY_END, 2)
+	H.change_stat(STATKEY_STR, 2)
+	H.change_stat(STATKEY_PER, 2)
+	H.change_stat(STATKEY_INT, 1)
+	H.change_stat(STATKEY_CON, 1)
+	H.change_stat(STATKEY_END, 2)
 
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
@@ -135,6 +134,9 @@
 	//need a mind
 	if(!recruit.mind)
 		return FALSE
+	//already recruited
+	if(HAS_TRAIT(recruit, TRAIT_RECRUITED))
+		return FALSE
 	//only migrants and peasants
 	if(!(recruit.job in GLOB.peasant_positions) && \
 		!(recruit.job in GLOB.allmig_positions))
@@ -157,10 +159,12 @@
 		return FALSE
 	if(accept_message)
 		recruit.say(accept_message, forced = "[name]")
+		ADD_TRAIT(recruit, TRAIT_RECRUITED, TRAIT_GENERIC)
 	if(new_role)
 		recruit.job = new_role
 		recruit.advjob = new_role
 		recruit.migrant_type = null
+		SEND_SIGNAL(SSdcs, COMSIG_GLOB_ROLE_CONVERTED, recruiter, recruit, new_role)
 	return TRUE
 
 /obj/effect/proc_holder/spell/self/convertrole/guard

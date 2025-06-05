@@ -44,15 +44,14 @@
 	deaggroprob = 0
 	defprob = 40
 	defdrain = 5
-	attack_same = FALSE // Lets two share a room.
 	retreat_health = 0.3
 	aggressive = TRUE
 	stat_attack = UNCONSCIOUS
 	remains_type = /obj/effect/decal/remains/bigrat
 	body_eater = TRUE
 
-	AIStatus = AI_OFF
-	can_have_ai = FALSE
+
+
 	ai_controller = /datum/ai_controller/big_rat
 
 	food_type = list(
@@ -99,16 +98,12 @@
 	update_icon()
 
 	AddElement(/datum/element/ai_flee_while_injured, 0.75, retreat_health)
-	ai_controller.set_blackboard_key(BB_BASIC_FOODS, food_type)
+
 
 /mob/living/simple_animal/hostile/retaliate/bigrat/death(gibbed)
 	..()
 	update_icon()
 
-/mob/living/simple_animal/hostile/retaliate/bigrat/find_food()
-	. = ..()
-	if(!.)
-		return eat_bodies()
 
 /mob/living/simple_animal/hostile/retaliate/bigrat/update_icon()
 	cut_overlays()
@@ -132,15 +127,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/bigrat/taunted(mob/user)
 	emote("aggro")
-	Retaliate()
-	GiveTarget(user)
 	return
-
-/mob/living/simple_animal/hostile/retaliate/bigrat/Life()
-	..()
-	if(pulledby)
-		Retaliate()
-		GiveTarget(pulledby)
 
 /mob/living/simple_animal/hostile/retaliate/bigrat/simple_limb_hit(zone)
 	if(!zone)

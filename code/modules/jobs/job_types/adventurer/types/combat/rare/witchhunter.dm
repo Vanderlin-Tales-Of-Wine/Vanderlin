@@ -25,29 +25,31 @@
 	neck = /obj/item/clothing/neck/chaincoif
 
 	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/whipsflails, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/whipsflails, 4, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 		H.change_stat(STATKEY_INT, 1)
 		H.change_stat(STATKEY_STR, 1)
 		H.change_stat(STATKEY_PER, 2)
 		H.change_stat(STATKEY_CON, 2)
-		switch(H.patron?.name)
-			if("Astrata")
+		switch(H.patron?.type)
+			if (/datum/patron/psydon, /datum/patron/psydon/progressive)
+				wrists = /obj/item/clothing/neck/psycross/silver
+			if(/datum/patron/divine/astrata)
 				wrists = /obj/item/clothing/neck/psycross/silver/astrata
-			if("Necra")
+			if(/datum/patron/divine/necra)
 				wrists = /obj/item/clothing/neck/psycross/silver/necra
-			if("Pestra")
+			if(/datum/patron/divine/pestra)
 				wrists = /obj/item/clothing/neck/psycross/silver/pestra
 			else
 				wrists = /obj/item/clothing/wrists/bracers/leather

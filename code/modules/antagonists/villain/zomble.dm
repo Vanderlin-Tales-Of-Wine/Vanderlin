@@ -59,7 +59,7 @@
 	)
 	var/mutable_appearance/rotflies
 
-/datum/antagonist/zombie/examine_friendorfoe(datum/antagonist/examined_datum,mob/examiner,mob/examined)
+/datum/antagonist/zombie/examine_friendorfoe(datum/antagonist/examined_datum, mob/examiner, mob/examined)
 	if(istype(examined_datum, /datum/antagonist/vampire))
 		var/datum/antagonist/vampire/V = examined_datum
 		if(!V.disguised)
@@ -90,10 +90,10 @@
 	base_intents = zombie.base_intents
 	old_cmode_music = zombie.cmode_music
 	patron = zombie.patron
-	stored_skills = owner.known_skills.Copy()
-	stored_experience = owner.skill_experience.Copy()
-	owner.known_skills = list()
-	owner.skill_experience = list()
+	stored_skills = owner.current.ensure_skills().known_skills.Copy()
+	stored_experience = owner.current.skills?.skill_experience.Copy()
+	owner.current.skills?.known_skills = list()
+	owner.current.skills?.skill_experience = list()
 	zombie.cmode_music ='sound/music/cmode/combat_weird.ogg'
 	zombie.vitae_pool = 0 // Deadites have no vitae to drain from
 	var/datum/language_holder/mob_language = zombie.get_language_holder()
@@ -102,6 +102,7 @@
 	zombie.grant_language(/datum/language/hellspeak)
 
 	zombie.ai_controller = new /datum/ai_controller/zombie(zombie)
+	zombie.AddComponent(/datum/component/ai_aggro_system)
 	return ..()
 
 /datum/antagonist/zombie/on_removal()
@@ -124,8 +125,8 @@
 	zombie.remove_stat_modifier("[type]")
 	zombie.cmode_music = old_cmode_music
 	zombie.set_patron(patron)
-	owner.known_skills = stored_skills
-	owner.skill_experience = stored_experience
+	owner.current.skills?.known_skills = stored_skills
+	owner.current.skills?.skill_experience = stored_experience
 	for(var/trait in traits_zombie)
 		REMOVE_TRAIT(zombie, trait, "[type]")
 	zombie.remove_client_colour(/datum/client_colour/monochrome)
@@ -189,6 +190,7 @@
 	zombie.update_a_intents()
 	if(!zombie.client)
 		zombie.ai_controller = new /datum/ai_controller/zombie(zombie)
+		zombie.AddComponent(/datum/component/ai_aggro_system)
 
 	zombie.grant_undead_eyes()
 	ambushable = zombie.ambushable
@@ -243,7 +245,6 @@
 //Infected wake param is just a transition from living to zombie, via zombie_infect()
 //Previously you just died without warning in 3 minutes, now you just become an antag
 /datum/antagonist/zombie/proc/wake_zombie(infected_wake = FALSE)
-	testing("WAKEZOMBIE")
 	if(!owner.current)
 		return
 	var/mob/living/carbon/human/zombie = owner.current

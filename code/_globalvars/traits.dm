@@ -78,6 +78,7 @@ GLOBAL_LIST_INIT(traits_by_type, list(
 		"TRAIT_BOOZE_SLIDER" = TRAIT_BOOZE_SLIDER,
 		"TRAIT_UNINTELLIGIBLE_SPEECH" = TRAIT_UNINTELLIGIBLE_SPEECH,
 		"TRAIT_DRUQK" = TRAIT_DRUQK,
+		"TRAIT_FINGERPRINT_PASSTHROUGH" = TRAIT_FINGERPRINT_PASSTHROUGH,
 		//Rogue Traits Past here
 		"Blessing of Baotha" = TRAIT_CRACKHEAD,
 		"Blessing of Graggar" = TRAIT_ORGAN_EATER,
@@ -150,6 +151,7 @@ GLOBAL_LIST_INIT(traits_by_type, list(
 		"Ugly" = TRAIT_UGLY,
 		"Hollow Bones" = TRAIT_HOLLOWBONES,
 		"Light Load" = TRAIT_AMAZING_BACK,
+		"Loved By Kittens" = TRAIT_KITTEN_MOM,
 	),
 	/obj/item/bodypart = list(
 		"TRAIT_PARALYSIS" = TRAIT_PARALYSIS

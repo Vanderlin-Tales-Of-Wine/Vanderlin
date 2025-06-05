@@ -234,10 +234,6 @@
 				H.update_inv_head()
 		else if(adjustable == CADJUSTED)
 			ResetAdjust(user)
-//			body_parts_covered = FULL_HEAD
-//			prevent_crits = ALL_CRITICAL_HITS
-//			flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
-//			flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH
 			if(user)
 				if(ishuman(user))
 					var/mob/living/carbon/H = user
@@ -308,10 +304,26 @@
 	item_weight = 6 * STEEL_MULTIPLIER
 
 /obj/item/clothing/head/helmet/townwatch/alt
-	name = "barred helmet"
-	flags_inv = HIDEEARS|HIDEHAIR|HIDEFACE
-	desc = "An old archaic helmet of a symbol long forgotten. The shape resembles the bars of a gate."
 	icon_state = "gatehelm"
+
+/obj/item/clothing/head/helmet/townwatch/gatemaster
+	name = "barred helmet"
+	flags_inv = HIDEEARS|HIDEHAIR
+	desc = "An old archaic helmet of a symbol long forgotten, now owned by the Gatemaster. The shape resembles the bars of a gate."
+	icon = 'icons/roguetown/clothing/special/gatemaster.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/gatemaster.dmi'
+	icon_state = "master_helm"
+
+//................. Zizo Barbute .............. //
+
+/obj/item/clothing/head/helmet/visored/zizo
+	name = "darksteel barbute"
+	desc = "A darksteel barbute. This one has an adjustable visor. Called forth from the edge of what should be known. In Her name."
+	icon_state = "zizobarbute"
+	icon = 'icons/roguetown/clothing/special/evilarmor.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/evilarmor.dmi'
+	sellprice = 0 // Incredibly evil Zizoid armor, this should be burnt, nobody wants this
+	item_weight = 5 * STEEL_MULTIPLIER
 
 //............... Feldshers Cage ............... //
 /obj/item/clothing/head/helmet/feld

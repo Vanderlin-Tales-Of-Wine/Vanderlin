@@ -52,7 +52,7 @@
 		var/skill = input(user, "What kind of textbook will you write", "NOC") as null|anything in teachable_skills
 		if(!skill)
 			return
-		var/userskill = user.mind?.get_skill_level(teachable_skills[skill])
+		var/userskill = user.get_skill_level(teachable_skills[skill])
 		if(userskill <= 1)
 			to_chat(user, span_warning("You aren't skilled enough to write a textbook about [lowertext(skill)]!"))
 			return
@@ -96,7 +96,7 @@
 		return
 	if(user.mind && ishuman(user))
 		var/mob/living/carbon/human/H = user
-		var/userskill = H.mind.get_skill_level(skilltoteach)
+		var/userskill = H.get_skill_level(skilltoteach)
 		var/intbonus = H.STAINT - 10
 		var/true_experience = exppercycle + intbonus
 		if(true_experience <= 0)
@@ -107,7 +107,7 @@
 		if(userskill < maxskill)
 			to_chat(user, span_info("You begin to study the [src.name]."))
 			if(do_after(H, 5 SECONDS))
-				user.mind.adjust_experience(skilltoteach, true_experience)
+				user.adjust_experience(skilltoteach, true_experience)
 				attemptlearn(user)
 		else
 			to_chat(user, span_warning("This textbook is too simple for me to learn any more from!"))

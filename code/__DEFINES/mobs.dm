@@ -236,15 +236,6 @@
 
 //Hostile simple animals
 //If you add a new status, be sure to add a list for it to the simple_animals global in _globalvars/lists/mobs.dm
-#define AI_ON		1
-#define AI_IDLE		2
-#define AI_OFF		3
-#define AI_Z_OFF	4
-
-#define AI_COMBAT	5
-#define AI_RETREAT	6
-#define AI_HUNT		7
-#define AI_FLEE		8
 
 //determines if a mob can smash through it
 #define ENVIRONMENT_SMASH_NONE			0
@@ -290,13 +281,12 @@
 // Offsets defines
 
 #define OFFSET_UNIFORM "uniform"
-#define OFFSET_ID "wear_ring"
+#define OFFSET_RING "wear_ring"
 #define OFFSET_GLOVES "gloves"
 #define OFFSET_WRISTS "wear_wrists"
 #define OFFSET_GLASSES "glasses"
 #define OFFSET_EARS "ears"
 #define OFFSET_SHOES "shoes"
-#define OFFSET_S_STORE "s_store"
 #define OFFSET_FACEMASK "mask"
 #define OFFSET_HEAD "head"
 #define OFFSET_FACE "face" //facial hair and hair
@@ -312,7 +302,7 @@
 #define OFFSET_HANDS "hands"
 #define OFFSET_UNDIES "underwear"
 
-#define OFFSET_ID_F "wear_ringf"
+#define OFFSET_RING_F "wear_ringf"
 #define OFFSET_GLOVES_F "glovesf"
 #define OFFSET_WRISTS_F "wear_wristsf"
 #define OFFSET_FACEMASK_F "maskf"
@@ -329,15 +319,6 @@
 #define OFFSET_HANDS_F "handsf"
 #define OFFSET_UNDIES_F "underwearf"
 
-//MINOR TWEAKS/MISC
-#define AGE_MIN				18	//youngest a character can be
-#define AGE_MAX				85	//oldest a character can be
-#define WIZARD_AGE_MIN		30	//youngest a wizard can be
-#define APPRENTICE_AGE_MIN	29	//youngest an apprentice can be
-#define SHOES_SLOWDOWN		0	//How much shoes slow you down by default. Negative values speed you up
-#define POCKET_STRIP_DELAY			40	//time taken (in deciseconds) to search somebody's pockets
-#define DOOR_CRUSH_DAMAGE	15	//the amount of damage that airlocks deal when they crush you
-
 #define HUNGER_FACTOR		0.15	//factor at which mob nutrition decreases
 #define ETHEREAL_CHARGE_FACTOR	0.12 //factor at which ethereal's charge decreases
 #define REAGENTS_METABOLISM 1	//How many units of reagent are consumed per tick, by default.
@@ -351,25 +332,7 @@
 #define FLASH_PROTECTION_FLASH 1
 #define FLASH_PROTECTION_WELDER 2
 
-// Roundstart trait system
-
-#define MAX_QUIRKS 6 //The maximum amount of quirks one character can have at roundstart
-
-// AI Toggles
-#define AI_CAMERA_LUMINOSITY	5
-#define AI_VOX // Comment out if you don't want VOX to be enabled and have players download the voice sounds.
-
-// /obj/item/bodypart on_mob_life() retval flag
-#define BODYPART_LIFE_UPDATE_HEALTH (1<<0)
-
-#define MAX_REVIVE_FIRE_DAMAGE 180
-#define MAX_REVIVE_BRUTE_DAMAGE 180
-
 #define HUMAN_FIRE_STACK_ICON_NUM	5
-
-#define GRAB_PIXEL_SHIFT_PASSIVE 6
-#define GRAB_PIXEL_SHIFT_AGGRESSIVE 12
-#define GRAB_PIXEL_SHIFT_NECK 16
 
 #define PULL_PRONE_SLOWDOWN 2
 #define HUMAN_CARRY_SLOWDOWN 0
@@ -401,7 +364,7 @@
 
 //skin tones defines
 
-//HALF ORK SKIN TONES
+//HALF ORC SKIN TONES
 #define SKIN_COLOR_BLOOD_AXE "A84C4F" //Clay red
 #define SKIN_COLOR_GROONN "50715C" //Mint
 #define SKIN_COLOR_BLACK_HAMMER "1B2B21" //Dark green
@@ -445,6 +408,26 @@
 #define SKIN_COLOR_SAND_ELF "5d4c41" //Black 1
 #define SKIN_COLOR_CRIMSON_ELF "4e3729" //Black 2
 
+//HALF ELF SKIN TONES
+#define SKIN_COLOR_TIMBER_GRONN "ffe0d1" //Pale
+#define SKIN_COLOR_SOLAR_HUE "fcccb3" //White
+#define SKIN_COLOR_WALNUT_STINE "edc6b3" //White
+#define SKIN_COLOR_AMBER_STAINED "e2b9a3" //White
+#define SKIN_COLOR_REDWOOD_ROOTED "c9a893" //Mediterranean 1
+#define SKIN_COLOR_DRIFTED_WOOD "ba9882" //Mediterranean 2
+#define SKIN_COLOR_VINE_WRAPPED "ac8369" //Latin 2
+#define SKIN_COLOR_JOSHUA_ALIGNED "9c6f52" //Middle-east
+#define SKIN_COLOR_ARID_BIRTHED "5a4a41" //Black
+#define SKIN_COLOR_SAGE_BLOOMED "4e3729" //Black 2
+
+//HALF DROW SKIN TONES
+#define SKIN_COLOR_ZIZO_CURSED "fff0e9" //Pale as SHIT
+#define SKIN_COLOUR_PARASITE_TAINTED "a191a1" //Light purple
+#define SKIN_COLOR_MUSHROOM_MINDED "897489" //Mid purple
+#define SKIN_COLOR_CAVE_ATTUNED "5f5f70" // Dark purple
+#define SKIN_COLOR_FUNGUS_STAINED "897489" //Pink
+#define SKIN_COLOR_DEPTH_DEPARTED "5f5f70" //Grey-blue
+
 //HUMEN SKIN TONES
 #define SKIN_COLOR_ICECAP "fff0e9" //Pale as SHIT!!
 #define SKIN_COLOR_ARCTIC "ffe0d1" //White 1
@@ -458,6 +441,7 @@
 #define SKIN_COLOR_DESERT "9c6f52" //Middle-east
 #define SKIN_COLOR_CRIMSONLANDS "4e3729" //Black
 
+//LEGACY HUMEN SKIN TONES (DOES NOT FIT VANDERLIN LORE)
 #define SKIN_COLOR_GRENZELHOFT "fff0e9"
 #define SKIN_COLOR_HAMMERHOLD "ffe0d1"
 #define SKIN_COLOR_AVAR "fcccb3"
@@ -486,18 +470,6 @@
 #define SKIN_COLOR_LARIMAR "a9ded1" //Cyan
 #define SKIN_COLOR_AMAZONITE "b6f1f2" //also Cyan
 #define SKIN_COLOR_ZINC "daeaeb" //Light aqua
-
-//HALF ELF SKIN TONES
-#define SKIN_COLOR_ZIZO_CURSED "fff0e9" //Pale as SHIT
-#define SKIN_COLOR_TIMBER_GRONN "ffe0d1" //Pale
-#define SKIN_COLOR_SOLAR_HUE "fcccb3" //White
-#define SKIN_COLOR_WALNUT_STINE "edc6b3" //White
-#define SKIN_COLOR_AMBER_STAINED "e2b9a3" //White
-#define SKIN_COLOR_JOSHUA_ALIGNED "9c6f52" //Middle-east
-#define SKIN_COLOR_ARID_BIRTHED "5a4a41" //Black
-#define SKIN_COLOUR_PARASITE_TAINTED "a191a1" //Light purple
-#define SKIN_COLOR_MUSHROOM_MINDED "897489" //Mid purple
-#define SKIN_COLOR_CAVE_ATTUNED "5f5f70" // Dark purple
 
 //TIEFLING SKIN TONES
 #define SKIN_COLOR_CRIMSON_LAND "cd2042" //Bright red
@@ -538,3 +510,16 @@
 #define STANDING_UP 0
 /// Mob is lying down, usually associated with lying_angle values of 90 or 270.
 #define LYING_DOWN 1
+
+/// If gravity must be present to perform action (can't use pens without gravity)
+#define NEED_GRAVITY (1<<0)
+/// If reading is required to perform action (can't read a book if you are illiterate)
+#define NEED_LITERACY (1<<1)
+/// If lighting must be present to perform action (can't heal someone in the dark)
+#define NEED_LIGHT (1<<2)
+/// If other mobs (monkeys, aliens, etc) can perform action (can't use computers if you are a monkey)
+#define NEED_DEXTERITY (1<<3)
+/// If telekinesis is forbidden to perform action from a distance (ex. canisters are blacklisted from telekinesis manipulation)
+#define FORBID_TELEKINESIS_REACH (1<<5)
+/// If resting on the floor is allowed to perform action
+#define ALLOW_RESTING (1<<7)

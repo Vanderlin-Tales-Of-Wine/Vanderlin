@@ -36,26 +36,26 @@
 		var/obj/I = H.wear_mask
 		H.dropItemToGround(H.wear_mask, TRUE)
 		qdel(I)
-	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE) // given Noble trait. N.
-		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE) // given Noble trait. N.
-		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE) // per suggestion. N.
-		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE) // given Noble trait it makes no sense they were illiterate. N.
-		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE) // per suggestion. N.
-		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE)
-		H.change_stat(STATKEY_STR, -1) // Malnutrition. N.
-		H.change_stat(STATKEY_PER, 2) // Few distractions, idle mind, focused senses. N.
-		H.change_stat(STATKEY_INT, 2) // Given Noble trait it makes no sense they are idiots. N.
-		H.change_stat(STATKEY_SPD, -1)
-		H.change_stat(STATKEY_CON, -1)
-		H.change_stat(STATKEY_END, -1)
-		var/datum/antagonist/new_antag = new /datum/antagonist/prisoner()
-		H.mind.add_antag_datum(new_antag)
-		ADD_TRAIT(H, TRAIT_BANDITCAMP, TRAIT_GENERIC)
+
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE) // given Noble trait. N.
+	H.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE) // given Noble trait. N.
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE) // per suggestion. N.
+	H.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE) // given Noble trait it makes no sense they were illiterate. N.
+	H.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/sneaking, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/lockpicking, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE) // per suggestion. N.
+	H.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE)
+	H.change_stat(STATKEY_STR, -1) // Malnutrition. N.
+	H.change_stat(STATKEY_PER, 2) // Few distractions, idle mind, focused senses. N.
+	H.change_stat(STATKEY_INT, 2) // Given Noble trait it makes no sense they are idiots. N.
+	H.change_stat(STATKEY_SPD, -1)
+	H.change_stat(STATKEY_CON, -1)
+	H.change_stat(STATKEY_END, -1)
+	var/datum/antagonist/new_antag = new /datum/antagonist/prisoner()
+	H.mind?.add_antag_datum(new_antag)
+	ADD_TRAIT(H, TRAIT_BANDITCAMP, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)

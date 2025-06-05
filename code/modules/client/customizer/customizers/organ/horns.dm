@@ -88,7 +88,7 @@
 		/datum/sprite_accessory/horns/short,
 		/datum/sprite_accessory/horns/curled,
 		/datum/sprite_accessory/horns/ram,
-		/datum/sprite_accessory/horns/guilmon,
+//		/datum/sprite_accessory/horns/guilmon,				Quality control removal ; Will not be re-added until sprites are improved.
 		/datum/sprite_accessory/horns/uni,
 		/datum/sprite_accessory/horns/oni,
 		/datum/sprite_accessory/horns/oni_large,
@@ -96,7 +96,7 @@
 		/datum/sprite_accessory/horns/rbroken,
 		/datum/sprite_accessory/horns/lbroken,
 		/datum/sprite_accessory/horns/drake,
-		/datum/sprite_accessory/horns/knight,
+//		/datum/sprite_accessory/horns/knight,				QC
 		/datum/sprite_accessory/horns/antlers,
 		/datum/sprite_accessory/horns/ramalt,
 		/datum/sprite_accessory/horns/smallantlers,
@@ -104,11 +104,11 @@
 		/datum/sprite_accessory/horns/curledramhornsalt,
 		/datum/sprite_accessory/horns/smallramhorns,
 		/datum/sprite_accessory/horns/smallramhornsalt,
-		/datum/sprite_accessory/horns/smallramhornsthree,
+		/datum/sprite_accessory/horns/smallramhornsthree, //This is a fucking angler fish????
 		/datum/sprite_accessory/horns/liftedhorns,
 		/datum/sprite_accessory/horns/sideswept,
-		/datum/sprite_accessory/horns/bigcurlyhorns,
-		/datum/sprite_accessory/horns/billberry,
+//		/datum/sprite_accessory/horns/bigcurlyhorns,		QC
+//		/datum/sprite_accessory/horns/billberry,			QC
 		/datum/sprite_accessory/horns/stabbers,
 		/datum/sprite_accessory/horns/unihorn,
 		/datum/sprite_accessory/horns/longhorns,
@@ -118,9 +118,9 @@
 		/datum/sprite_accessory/horns/bunhorns,
 		/datum/sprite_accessory/horns/marauder,
 		/datum/sprite_accessory/horns/faceguard,
-		/datum/sprite_accessory/horns/sheephorns,
+//		/datum/sprite_accessory/horns/sheephorns,			Ears in horns. Doesn't fit.
 		/datum/sprite_accessory/horns/doublehorns,
-		/datum/sprite_accessory/horns/tiefling
+//		/datum/sprite_accessory/horns/tiefling				Hollowkin aren't tieflings.
 		)
 
 /datum/customizer/organ/horns/anthro
@@ -181,4 +181,27 @@
 	sprite_accessories = list(
 		/datum/sprite_accessory/horns/tiefling,
 		/datum/sprite_accessory/horns/tiefling/alt,
+		/datum/sprite_accessory/horns/simple,
+		/datum/sprite_accessory/horns/short,
+		/datum/sprite_accessory/horns/curled,
+		/datum/sprite_accessory/horns/ram,
+		/datum/sprite_accessory/horns/oni,
+		/datum/sprite_accessory/horns/oni_large,
+		/datum/sprite_accessory/horns/broken,
+		/datum/sprite_accessory/horns/rbroken,
+		/datum/sprite_accessory/horns/lbroken,
+		/datum/sprite_accessory/horns/drake,
+		/datum/sprite_accessory/horns/antlers,
+		/datum/sprite_accessory/horns/ramalt,
+		/datum/sprite_accessory/horns/smallantlers,
+		/datum/sprite_accessory/horns/liftedhorns,
+		/datum/sprite_accessory/horns/sideswept,
+		/datum/sprite_accessory/horns/bigcurlyhorns,
+		/datum/sprite_accessory/horns/stabbers,
+		/datum/sprite_accessory/horns/unihorn,
+		/datum/sprite_accessory/horns/outstretched,
+		/datum/sprite_accessory/horns/halo,
+		/datum/sprite_accessory/horns/marauder,
+		/datum/sprite_accessory/horns/faceguard,
+		/datum/sprite_accessory/horns/doublehorns,
 	)

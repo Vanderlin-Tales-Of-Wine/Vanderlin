@@ -76,7 +76,7 @@ SUBSYSTEM_DEF(triumphs)
 	TRIUMPH BUY DATUM THINGS
 */
 
-	var/current_refund_percentage = 1.00 // Current refund percentage is 100%
+	var/current_refund_percentage = 0.50 // Current refund percentage is 50%
 	//this is basically the total list of triumph buy datums on init
 	var/list/triumph_buy_datums = list()
 
@@ -145,6 +145,7 @@ SUBSYSTEM_DEF(triumphs)
 	Also used for refunding due to conflicts
  */
 /datum/controller/subsystem/triumphs/proc/attempt_to_unbuy_triumph_condition(client/C, datum/triumph_buy/triumph_buy, reason = "\improper UNBUY")
+	// Give the person who originally bought it a 50% refund
 	var/ckey_prev_owna = triumph_buy.ckey_of_buyer
 	var/refund_amount = round(triumph_buy.triumph_cost * current_refund_percentage)
 	triumph_adjust(refund_amount, ckey_prev_owna)

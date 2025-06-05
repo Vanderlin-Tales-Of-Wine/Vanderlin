@@ -55,3 +55,10 @@
 
 /datum/targetting_datum/basic/ignore_faction/faction_check(mob/living/living_mob, mob/living/the_target)
 	return FALSE
+
+/datum/targetting_datum/basic/zizoid/can_attack(mob/living/living_mob, atom/the_target)
+	if(isliving(the_target))
+		var/mob/living/target = the_target
+		if(target.mind?.has_antag_datum(/datum/antagonist/zizocultist))
+			return FALSE
+	. = ..()

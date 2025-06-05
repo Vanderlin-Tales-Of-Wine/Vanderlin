@@ -22,6 +22,7 @@
 	outfit = /datum/outfit/job/churchling
 	give_bank_account = TRUE
 	can_have_apprentices = FALSE
+	cmode_music = 'sound/music/cmode/towner/CombatTowner.ogg'
 
 /datum/outfit/job/churchling
 	name = "Churchling"
@@ -32,14 +33,14 @@
 /datum/outfit/job/churchling/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
-		H.mind.adjust_skillrank(/datum/skill/misc/climbing, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/sneaking, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/magic/holy, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/climbing, 4, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/sneaking, 4, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/magic/holy, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 	if(H.gender == FEMALE)
 		head = /obj/item/clothing/head/armingcap
 		armor = /obj/item/clothing/shirt/dress/gen/random

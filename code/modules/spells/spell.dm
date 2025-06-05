@@ -199,20 +199,20 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 		for(var/atom/target as anything in targets)
 			target.log_message("was affected by spell [name], caster was [key_name_admin(user)]", LOG_ATTACK, "red", FALSE)
 	if(user)
+		record_featured_object_stat(FEATURED_STATS_SPELLS, name)
 		user.log_message("casted the spell [name][targets_string ? " on [targets_string ]" : ""].", LOG_ATTACK, "red")
 
 /obj/effect/proc_holder/spell/get_chargetime()
 	if(ranged_ability_user && chargetime)
 		var/newtime = chargetime
 		//skill block
-		newtime = newtime - (chargetime * (ranged_ability_user.mind.get_skill_level(associated_skill) * 0.05))
+		newtime = newtime - (chargetime * (ranged_ability_user.get_skill_level(associated_skill) * 0.05))
 		//int block
 		if(ranged_ability_user.STAINT > 10)
 			newtime = newtime - (chargetime * (ranged_ability_user.STAINT * 0.02))
 		else if(ranged_ability_user.STAINT < 10)
 			var/diffy = 10 - ranged_ability_user.STAINT
 			newtime = newtime + (chargetime * (diffy * 0.02))
-		testing("[chargetime] newtime [newtime]")
 		if(newtime > 0)
 			return newtime
 		else
@@ -223,7 +223,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 	if(ranged_ability_user && releasedrain)
 		var/newdrain = releasedrain
 		//skill block
-		newdrain = newdrain - (releasedrain * (ranged_ability_user.mind.get_skill_level(associated_skill) * 0.05))
+		newdrain = newdrain - (releasedrain * (ranged_ability_user.get_skill_level(associated_skill) * 0.05))
 		var/charged_modifier = 100 - ranged_ability_user.client.chargedprog
 		if(charged_modifier != 0)
 			newdrain *= max(1, min(5.60 * log(0.0144 * charged_modifier + 1.297) - 0.607, 10))//chat I think this is math
@@ -234,10 +234,8 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 		else if(ranged_ability_user.STAINT < 10)
 			var/diffy = 10 - ranged_ability_user.STAINT
 			newdrain = newdrain + (releasedrain * (diffy * 0.02))
-//		newdrain = newdrain + (ranged_ability_user.checkwornweight() * 10)
 		if(ranged_ability_user.get_encumbrance() > 0.4)
 			newdrain += 40
-		testing("[releasedrain] newdrain [newdrain]")
 		if(newdrain > 0)
 			return newdrain
 		else
@@ -257,12 +255,10 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 			return FALSE
 	else
 		if(!(src in user.mob_spell_list))
-			testing("cast1")
 			return FALSE
 
 	if(!skipcharge)
 		if(!charge_check(user))
-			testing("cast2")
 			return FALSE
 
 	if(user.stat && !stat_allowed)
@@ -310,10 +306,8 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 	if(req_items.len)
 		var/list/confirmed_items = list()
 		for(var/I in req_items)
-			testing("req item [I]")
 			for(var/obj/item/IN in user.contents)
 				if(istype(IN, I))
-					testing("confirmed [I]")
 					confirmed_items += IN
 					continue
 		if(confirmed_items.len != req_items.len)

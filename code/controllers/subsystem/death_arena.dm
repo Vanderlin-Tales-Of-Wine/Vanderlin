@@ -177,8 +177,8 @@ SUBSYSTEM_DEF(death_arena)
 /datum/outfit/job/arena_skeleton/pre_equip(mob/living/carbon/human/H, visualsOnly)
 	..()
 
-	H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
 
 	r_hand = /obj/item/weapon/mace/steel
 	l_hand = /obj/item/weapon/shield/wood

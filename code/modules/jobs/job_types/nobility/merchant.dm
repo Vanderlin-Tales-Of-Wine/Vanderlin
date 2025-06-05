@@ -13,6 +13,7 @@
 	min_pq = 1
 	bypass_lastclass = TRUE
 	selection_color = "#192bc2"
+	cmode_music = 'sound/music/cmode/towner/CombatTowner2.ogg'
 
 	allowed_races = list(
 		"Humen",
@@ -56,12 +57,11 @@
 	H.change_stat(STATKEY_PER, 1)
 	H.change_stat(STATKEY_STR, -1)
 
-	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 5, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/stealing, 6, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 5, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/reading, 5, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/stealing, 6, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/lockpicking, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/labor/mathematics, 5, TRUE)

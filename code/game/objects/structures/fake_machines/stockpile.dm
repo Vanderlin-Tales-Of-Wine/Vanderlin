@@ -20,7 +20,7 @@
 
 /obj/structure/fake_machine/stockpile/Topic(href, href_list)
 	. = ..()
-	if(!usr.canUseTopic(src, BE_CLOSE))
+	if(!usr.can_perform_action(src, NEED_DEXTERITY|FORBID_TELEKINESIS_REACH))
 		return
 	if(href_list["navigate"])
 		return attack_hand(usr, href_list["navigate"])
@@ -138,6 +138,9 @@
 
 /obj/structure/fake_machine/stockpile/attackby(obj/item/P, mob/user, params)
 	if(ishuman(user))
+		if(user.real_name in GLOB.outlawed_players)
+			say("OUTLAW DETECTED! REFUSING SERVICE!")
+			return
 		if(istype(P, /obj/item/coin))
 			withdraw_tab.insert_coins(P)
 			return attack_hand(user)
@@ -146,6 +149,9 @@
 
 /obj/structure/fake_machine/stockpile/attack_right(mob/user)
 	if(ishuman(user))
+		if(user.real_name in GLOB.outlawed_players)
+			say("OUTLAW DETECTED! REFUSING SERVICE!")
+			return
 		var/total_value = 0
 		for(var/obj/I in get_turf(src))
 			total_value += attemptsell(I, user, FALSE, FALSE)
@@ -221,13 +227,13 @@
 			playsound(parent_structure.loc, 'sound/misc/hiss.ogg', 100, FALSE, -1)
 		return TRUE
 	if(href_list["compact"])
-		if(!usr.canUseTopic(parent_structure, BE_CLOSE))
+		if(!usr.can_perform_action(parent_structure, NEED_DEXTERITY|FORBID_TELEKINESIS_REACH))
 			return FALSE
 		if(ishuman(usr))
 			compact = !compact
 		return TRUE
 	if(href_list["change"])
-		if(!usr.canUseTopic(parent_structure, BE_CLOSE))
+		if(!usr.can_perform_action(parent_structure, NEED_DEXTERITY|FORBID_TELEKINESIS_REACH))
 			return FALSE
 		if(ishuman(usr))
 			if(budget > 0)

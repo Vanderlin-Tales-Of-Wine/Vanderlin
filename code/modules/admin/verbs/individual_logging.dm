@@ -1,9 +1,10 @@
-/proc/show_individual_logging_panel(mob/M, source = LOGSRC_CLIENT, type = INDIVIDUAL_ATTACK_LOG)
+/proc/show_individual_logging_panel(client/user, mob/M, source = LOGSRC_CLIENT, type = INDIVIDUAL_ATTACK_LOG)
 	if (!M || !ismob(M))
 		return
 
 	var/ntype = text2num(type)
 	var/dat = ""
+	dat += user?.prefs.get_ui_theme_stylesheet()
 
 	if (M.client)
 		dat += {"
@@ -57,6 +58,8 @@
 	if (length(concatenated_logs))
 		sortTim(concatenated_logs, cmp = GLOBAL_PROC_REF(cmp_text_dsc))
 		dat += "<div style='font-size: 12px;'>" + concatenated_logs.Join("<br>") + "</div>"
+
+	dat += "</html>"
 
 	usr << browse(dat, "window=individual_logging_[key_name(M)];size=600x480")
 

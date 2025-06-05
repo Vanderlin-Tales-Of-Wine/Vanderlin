@@ -12,7 +12,7 @@
 		stop_work()
 		return
 	for(var/obj/effect/building_node/stockpile/pile in master.constructed_building_nodes)
-		var/list/path = get_path_to(new_worker, get_turf(pile), /turf/proc/Distance3D, 32 + 1, 250,1)
+		var/list/path = get_path_to(new_worker, get_turf(pile), TYPE_PROC_REF(/turf, Heuristic_cardinal_3d), 32 + 1, 250,1)
 		if(length(path))
 			stockpile_node = pile
 			break

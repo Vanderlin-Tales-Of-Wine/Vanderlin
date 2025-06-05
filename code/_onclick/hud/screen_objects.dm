@@ -112,7 +112,7 @@
 
 	if(ishuman(usr))
 		var/mob/living/carbon/human/H = usr
-		H.mind.print_levels(H)
+		H.print_levels(H)
 
 /atom/movable/screen/craft
 	name = "crafting menu"
@@ -131,8 +131,6 @@
 			last_craft = world.time
 			var/datum/component/personal_crafting/C = H.craftingthing
 			C.roguecraft(location, control, params, H)
-		else
-			testing("what")
 
 /atom/movable/screen/area_creator
 	name = "create new area"
@@ -252,6 +250,7 @@
 	var/mutable_appearance/handcuff_overlay
 	var/static/mutable_appearance/blocked_overlay = mutable_appearance('icons/mob/screen_gen.dmi', "blocked")
 	var/static/mutable_appearance/fingerless_overlay = mutable_appearance('icons/mob/screen_gen.dmi', "fingerless")
+	var/static/mutable_appearance/grabbed_overlay = mutable_appearance('icons/mob/screen_gen.dmi', "grabbed")
 	var/held_index = 0
 
 /atom/movable/screen/inventory/hand/update_overlays()
@@ -274,6 +273,8 @@
 				. += blocked_overlay
 			else if(!C.has_hand_for_held_index(held_index, TRUE))
 				. += fingerless_overlay
+			else if(C.check_arm_grabbed(held_index))
+				. += grabbed_overlay
 
 	if(held_index == hud.mymob.active_hand_index)
 		. += "hand_active"
@@ -311,6 +312,7 @@
 /atom/movable/screen/close/Click()
 	var/datum/component/storage/S = master
 	S.hide_from(usr)
+	SEND_SIGNAL(S.parent, COMSIG_STORAGE_CLOSED, usr)
 	return TRUE
 
 /atom/movable/screen/drop
@@ -905,7 +907,7 @@
 	if(modifiers["right"])
 		if(master)
 			var/obj/item/flipper = usr.get_active_held_item()
-			if((!usr.Adjacent(flipper) && !usr.DirectAccess(flipper)) || !isliving(usr) || usr.incapacitated(ignore_grab = TRUE))
+			if(!flipper || (!usr.Adjacent(flipper) && !usr.DirectAccess(flipper)) || !isliving(usr) || usr.incapacitated(ignore_grab = TRUE))
 				return
 			var/old_width = flipper.grid_width
 			var/old_height = flipper.grid_height
@@ -1626,12 +1628,10 @@
 	var/showing = FALSE
 
 /atom/movable/screen/rmbintent/update_icon()
-	testing("overlayscut")
 	cut_overlays()
 	if(isliving(hud?.mymob))
 		var/mob/living/L = hud.mymob
 		if(L.rmb_intent)
-//			var/image/I = image(icon='icons/mob/roguehud.dmi',icon_state="[L.rmb_intent.icon_state]_x", layer = layer+0.01)
 			add_overlay("[L.rmb_intent.icon_state]_x")
 			name = L.rmb_intent.name
 			desc = L.rmb_intent.desc

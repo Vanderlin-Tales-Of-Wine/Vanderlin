@@ -12,11 +12,11 @@
 		var/mob/living/G = user.pulledby
 		var/mob/living/U = user
 		var/userskill = 1
-		if(U?.mind?.get_skill_level(/datum/skill/combat/wrestling))
-			userskill = ((U.mind.get_skill_level(/datum/skill/combat/wrestling) * 0.1) + 1)
+		if(U?.get_skill_level(/datum/skill/combat/wrestling))
+			userskill = ((U.get_skill_level(/datum/skill/combat/wrestling) * 0.1) + 1)
 		var/grabberskill = 1
-		if(G?.mind?.get_skill_level(/datum/skill/combat/wrestling))
-			grabberskill = ((G.mind.get_skill_level(/datum/skill/combat/wrestling) * 0.1) + 1)
+		if(G?.get_skill_level(/datum/skill/combat/wrestling))
+			grabberskill = ((G.get_skill_level(/datum/skill/combat/wrestling) * 0.1) + 1)
 		if(((U.STASTR + rand(1, 6)) * userskill) < ((G.STASTR + rand(1, 6)) * grabberskill))
 			to_chat(user, span_notice("I can't move my arm!"))
 			user.changeNext_move(CLICK_CD_GRABBING)
@@ -68,11 +68,9 @@
 		if(user.try_recipes(src, I, user))
 			user.changeNext_move(CLICK_CD_FAST)
 			return TRUE
-
 	if(I.obj_flags_ignore)
 		return I.attack_obj(src, user)
-	else
-		return ..() || ((obj_flags & CAN_BE_HIT) && I.attack_obj(src, user))
+	return ..() || ((obj_flags & CAN_BE_HIT) && I.attack_obj(src, user))
 
 /turf/attackby(obj/item/I, mob/living/user, params)
 	if(liquids && I.heat)
@@ -250,7 +248,6 @@
 		return 0
 	// newforce starts here and is the default amount of damage the item does.
 	var/newforce = I.force
-	testing("startforce [newforce]")
 	// If this weapon has no user and is somehow attacking you just return default.
 	if(!istype(user))
 		return newforce
@@ -292,7 +289,7 @@
 			switch(user.used_intent.blade_class)
 				if(BCLASS_CUT)
 					var/mob/living/lumberjacker = user
-					var/lumberskill = lumberjacker.mind?.get_skill_level(/datum/skill/labor/lumberjacking)
+					var/lumberskill = lumberjacker.get_skill_level(/datum/skill/labor/lumberjacking)
 					if(!I.remove_bintegrity(1, user))
 						dullfactor = 0.2
 					else
@@ -306,7 +303,6 @@
 						if(R.axe_cut)
 							//Yes i know its cheap to just make it a flat plus.
 							newforce = newforce + R.axe_cut
-							testing("newforcewood+[R.axe_cut]")
 					if(!I.remove_bintegrity(1, user))
 						dullfactor = 0.2
 					else
@@ -351,7 +347,7 @@
 					cont = TRUE
 				if(BCLASS_PICK)
 					var/mob/living/miner = user
-					var/mineskill = miner.mind?.get_skill_level(/datum/skill/labor/mining)
+					var/mineskill = miner.get_skill_level(/datum/skill/labor/mining)
 					dullfactor = 1.6 - (mineskill * 0.1)
 					cont = TRUE
 			if(!cont)
@@ -364,14 +360,14 @@
 				return 0
 			var/mob/living/miner = user
 			//Mining Skill force multiplier.
-			var/mineskill = miner.mind?.get_skill_level(/datum/skill/labor/mining)
+			var/mineskill = miner.get_skill_level(/datum/skill/labor/mining)
 			newforce = newforce * (8+(mineskill*1.5))
 			// Pick quality multiplier. Affected by smithing, or material of the pick.
 			if(istype(I, /obj/item/weapon/pick))
 				var/obj/item/weapon/pick/P = I
 				newforce *= P.pickmult
 			shake_camera(user, 1, 0.1)
-			miner.mind.adjust_experience(/datum/skill/labor/mining, (miner.STAINT*0.2))
+			miner.adjust_experience(/datum/skill/labor/mining, (miner.STAINT*0.2))
 	/*
 	* Ill be honest this final thing is extremely confusing.
 	* Newforce after being altered by strength stat is then
@@ -395,17 +391,14 @@
 	newforce = round(newforce,1)
 	//This is returning the maximum of the arguments meaning this is to prevent negative values.
 	newforce = max(newforce, 1)
-	testing("endforce [newforce]")
 	return newforce
 
 /obj/attacked_by(obj/item/I, mob/living/user)
 	user.changeNext_move(CLICK_CD_MELEE)
 	var/newforce = get_complex_damage(I, user, blade_dulling)
 	if(!newforce)
-		testing("dam33")
 		return 0
 	if(newforce < damage_deflection)
-		testing("dam44")
 		return 0
 	if(user.used_intent.no_attack)
 		return 0
@@ -428,10 +421,8 @@
 /turf/proc/attacked_by(obj/item/I, mob/living/user)
 	var/newforce = get_complex_damage(I, user, blade_dulling)
 	if(!newforce)
-		testing("attack6")
 		return 0
 	if(newforce < damage_deflection)
-		testing("attack7")
 		return 0
 	if(user.used_intent.no_attack)
 		return 0
@@ -466,7 +457,6 @@
 
 /mob/living/attacked_by(obj/item/I, mob/living/user)
 	var/hitlim = simple_limb_hit(user.zone_selected)
-	testing("[src] attacked_by")
 	I.funny_attack_effects(src, user)
 	if(I.force)
 		var/newforce = get_complex_damage(I, user)

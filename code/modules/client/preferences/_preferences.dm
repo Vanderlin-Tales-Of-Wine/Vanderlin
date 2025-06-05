@@ -22,6 +22,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	var/asaycolor = "#ff4500"			//This won't change the color for current admins, only incoming ones.
 	/// the ghost icon this admin ghost will get when becoming an aghost.
 	var/admin_ghost_icon = null
+	var/ui_theme = UI_PREFERENCE_LIGHT_MODE
 	var/triumphs = 0
 	var/enable_tips = TRUE
 	var/tip_delay = 500 //tip delay in milliseconds
@@ -805,7 +806,6 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 				SetChoices(user)
 			if("tutorial")
 				if(href_list["tut"])
-					testing("[href_list["tut"]]")
 					to_chat(user, "<span class='info'>* ----------------------- *</span>")
 					to_chat(user, href_list["tut"])
 					to_chat(user, "<span class='info'>* ----------------------- *</span>")
@@ -1534,6 +1534,60 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	if(is_misc_banned(parent.ckey, BAN_MISC_RESPAWN))
 		return FALSE
 	return TRUE
+
+/datum/preferences/proc/get_ui_theme_stylesheet()
+	switch(ui_theme)
+
+		if(UI_PREFERENCE_LIGHT_MODE)
+
+			. = {"
+			<html>
+			<head>
+			  <style>
+			    body {
+			      background-color: #ffffff;
+			      color: #000000;
+			    }
+
+			    a {
+			      color: #1a0dab;
+			    }
+
+			    a:visited {
+			      color: #660099;
+			    }
+
+			    hr {
+			      border-top: 1px solid #ccc;
+			    }
+			  </style>
+			</head>
+			</html>
+			"}
+
+		if(UI_PREFERENCE_DARK_MODE)
+
+			. = {"
+			<html>
+			<head>
+			  <style>
+			    body {
+			      background-color: #121212;
+			      color: #e0e0e0;
+			    }
+			    a {
+			      color: #90caf9;
+			    }
+			    a:visited {
+			      color: #ce93d8;
+			    }
+			    hr {
+			      border-top: 1px solid #444;
+			    }
+			  </style>
+			</head>
+			</html>
+			"}
 
 /datum/proc/is_valid_headshot_link(mob/user, value, silent = FALSE)
 	var/static/list/allowed_hosts = list("i.gyazo.com", "a.l3n.co", "b.l3n.co", "c.l3n.co", "images2.imgbox.com", "thumbs2.imgbox.com")

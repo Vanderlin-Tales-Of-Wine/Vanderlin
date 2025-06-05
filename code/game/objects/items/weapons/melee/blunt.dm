@@ -301,6 +301,16 @@
 			if("onbelt")
 				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
 
+/obj/item/weapon/mace/goden/deepduke
+	name = "deep duke's staff"
+	desc = "A staff made of seaglass and sturdy but unusual metal, holding no power after its misled owner's death. More useful as a bashing tool than a magic focus."
+	icon = 'icons/roguetown/mob/monster/pufferboss.dmi'
+	icon_state = "pufferprod"
+	force = 15
+	force_wielded = 35
+	minstr = 11
+	max_integrity = 900
+
 //................ Grand mace ............... //
 /obj/item/weapon/mace/goden/steel
 	gripped_intents = list(/datum/intent/mace/smash/heavy) // It's a 2h flanged mace, not a goedendag.
@@ -326,6 +336,40 @@
 			if("onbelt")
 				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0)
 
+
+/obj/item/weapon/mace/goden/steel/malum
+	name = "Forgefiend"
+	desc = "This hammer's creation took a riddle in its own making. A great sacrifice for perfect quality"
+	icon_state = "malumhammer"
+	gripped_intents = list(/datum/intent/mace/strike, /datum/intent/mace/smash/heavy)
+	max_integrity = 200
+
+//................ Psydonian Grand Mace ............... //
+/obj/item/weapon/mace/goden/psydon
+	name = "psydonian grand mace"
+	desc = "A mighty mace which seems to be a large psycross with a handle, though no less effective at crushing the spirit and bones of the inhumen."
+	icon_state = "psymace"
+	resistance_flags = FIRE_PROOF
+	melting_material = /datum/material/silver
+	melt_amount = 150
+	wbalance = DODGE_CHANCE_NORMAL
+	sellprice = 100
+	wdefense = GOOD_PARRY
+	minstr = 11
+	is_silver = TRUE
+
+/obj/item/weapon/mace/goden/psydon/getonmobprop(tag)
+	. = ..()
+	if(tag)
+		switch(tag)
+			if("gen")
+				return list("shrink" = 0.7,"sx" = -8,"sy" = 6,"nx" = 8,"ny" = 6,"wx" = -5,"wy" = 6,"ex" = 0,"ey" = 6,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = -38,"sturn" = 37,"wturn" = 32,"eturn" = -32,"nflip" = 0,"sflip" = 8,"wflip" = 8,"eflip" = 0)
+			if("wielded")
+				return list("shrink" = 0.7,"sx" = 5,"sy" = -2,"nx" = -5,"ny" = -2,"wx" = -5,"wy" = -2,"ex" = 5,"ey" = -2,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 7,"sturn" = -7,"wturn" = 16,"eturn" = -24,"nflip" = 8,"sflip" = 0,"wflip" = 8,"eflip" = 0)
+			if("onbelt")
+				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0)
+
+
 //................ Shillelagh ............... //
 /obj/item/weapon/mace/goden/shillelagh		// The Briar signature weapon. Sturdy oak war club.
 	gripped_intents = list(/datum/intent/mace/smash/wood)
@@ -337,7 +381,7 @@
 	pixel_x = 0
 	bigboy = FALSE
 	gripsprite = TRUE
-	slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_BELT
+	slot_flags = ITEM_SLOT_BACK
 	max_integrity = 200
 	minstr = 8
 	sellprice = 5
@@ -455,3 +499,29 @@
 	penfactor = 80
 	damfactor = 0.9
 	item_damage_type = "stab"
+
+//................ Elven Club  ............... //
+
+/obj/item/weapon/mace/elvenclub
+	name = "elven war club"
+	desc = "A one-handed war club with a sharp end."
+	icon_state = "elvenclub"
+	force = DAMAGE_MACE - 1
+	force_wielded = DAMAGE_MACE_WIELD - 1
+	possible_item_intents = list(/datum/intent/mace/strike, /datum/intent/axe/cut)
+	gripped_intents = list(/datum/intent/mace/strike, /datum/intent/axe/cut, /datum/intent/axe/chop) //can't smash with this weapon.
+	minstr = 5
+	sharpness = IS_SHARP
+
+/obj/item/weapon/mace/elvenclub/steel
+	name = "regal elven war club"
+	desc = "A sleek, one-handed war club, reforged from captured Grenzel steel. Its elegant design channels elven grace, It is capable of delivering swift, painful blows"
+	icon_state = "regalelvenclub"
+	force = DAMAGE_MACE
+	force_wielded = DAMAGE_MACE_WIELD
+	blade_dulling = DULLING_BASH
+	melting_material = /datum/material/steel
+	melt_amount = 150
+	wbalance = DODGE_CHANCE_NORMAL
+	sellprice = 60
+	wdefense = GOOD_PARRY

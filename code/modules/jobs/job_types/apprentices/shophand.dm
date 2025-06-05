@@ -44,23 +44,22 @@
 		beltl = /obj/item/storage/keyring/stevedore
 		backr = /obj/item/storage/backpack/satchel
 		gloves = /obj/item/clothing/gloves/fingerless
-	if(H.mind)
-		//worse skills than a normal peasant, generally, with random bad combat skill
-		H.mind.adjust_skillrank(/datum/skill/misc/stealing, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/lockpicking, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE)
-		H.change_stat(STATKEY_SPD, 1)
-		H.change_stat(STATKEY_INT, 1)
-		H.change_stat(STATKEY_LCK, 1)
-		if(prob(33))
-			H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 1, TRUE)
-		else if(prob(33))
-			H.mind.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE)
-		else //the legendary shopARM
-			H.mind.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/combat/axesmaces, 1, TRUE)
-			H.change_stat(STATKEY_STR, 1)
+	//worse skills than a normal peasant, generally, with random bad combat skill
+	H.adjust_skillrank(/datum/skill/misc/stealing, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/lockpicking, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE)
+	H.change_stat(STATKEY_SPD, 1)
+	H.change_stat(STATKEY_INT, 1)
+	H.change_stat(STATKEY_LCK, 1)
+	if(prob(33))
+		H.adjust_skillrank(/datum/skill/combat/crossbows, 1, TRUE)
+	else if(prob(33))
+		H.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE)
+	else //the legendary shopARM
+		H.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/axesmaces, 1, TRUE)
+		H.change_stat(STATKEY_STR, 1)

@@ -238,7 +238,6 @@
 		return
 	if(signed)
 		return
-	testing("[M] is signing the confession.")
 	if(input == "Yes")
 		playsound(src, 'sound/items/write.ogg', 50, FALSE, ignore_walls = FALSE)
 		M.visible_message(span_info("[M] has agreed to confess their true [confession_type == "antag" ? "villainy" : "faith"]."), span_info("I agree to confess my true nature."), vision_distance = COMBAT_MESSAGE_RANGE)
@@ -277,7 +276,7 @@
 		return
 	if(!user.can_read(src))
 		if(info)
-			user.mind.adjust_experience(/datum/skill/misc/reading, 2, FALSE)
+			user.adjust_experience(/datum/skill/misc/reading, 2, FALSE)
 		return
 	/*font-size: 125%;*/
 	if(in_range(user, src) || isobserver(user))

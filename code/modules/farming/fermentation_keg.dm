@@ -83,7 +83,7 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 /obj/structure/fermentation_keg/attack_right(mob/user)
 	. = ..()
 	if(!ready_to_bottle && selected_recipe && !brewing)
-		user.visible_message("[user] starts emptying out [src]!", "You start emptying out [src]")
+		user.visible_message("[user] starts emptying out [src].", "You start emptying out [src].")
 		if(!do_after(user, 5 SECONDS, src))
 			return
 		clear_keg(TRUE)
@@ -106,10 +106,12 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 	if((user.used_intent == /datum/intent/grab) || user.cmode)
 		return ..()
 	if(!selected_recipe)
+		to_chat(user, span_warning("No recipe has been set yet!"))
 		return ..()
 
 	if(try_n_brew(user))
 		start_brew()
+		to_chat(user, span_info("[src] begins brewing [selected_recipe.name]."))
 	..()
 
 /obj/structure/fermentation_keg/attackby(obj/item/I, mob/user)
@@ -571,30 +573,6 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 		glass_desc = null
 		glass_name = null
 
-
-/obj/structure/fermentation_keg/distiller
-	name = "copper distiller"
-
-	icon = 'icons/obj/distillery.dmi'
-	icon_state = "distillery"
-	tapped_icon_state = null
-	open_icon_state = null
-
-	anchored = TRUE
-	heated = TRUE
-
-	accepts_water_input = TRUE
-
-/obj/structure/fermentation_keg/distiller/valid_water_connection(direction, obj/structure/water_pipe/pipe)
-	if(direction == SOUTH)
-		input = pipe
-		return TRUE
-	return FALSE
-
-/obj/structure/fermentation_keg/distiller/setup_water()
-	var/turf/north_turf = get_step(src, NORTH)
-	input = locate(/obj/structure/water_pipe) in north_turf
-
 /obj/structure/fermentation_keg/MouseDrop_T(atom/over, mob/living/user)
 	if(!istype(over, /obj/structure/fermentation_keg))
 		return
@@ -651,3 +629,35 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 		keg.beer_left = 0
 		keg.clear_keg(TRUE)
 
+/obj/structure/fermentation_keg/distiller
+	name = "copper distiller"
+
+	icon = 'icons/obj/distillery.dmi'
+	icon_state = "distillery"
+	tapped_icon_state = null
+	open_icon_state = null
+
+	anchored = TRUE
+	heated = TRUE
+
+	accepts_water_input = TRUE
+
+/obj/structure/fermentation_keg/distiller/valid_water_connection(direction, obj/structure/water_pipe/pipe)
+	if(direction == SOUTH)
+		input = pipe
+		return TRUE
+	return FALSE
+
+/obj/structure/fermentation_keg/distiller/setup_water()
+	var/turf/north_turf = get_step(src, NORTH)
+	input = locate(/obj/structure/water_pipe) in north_turf
+
+/obj/structure/fermentation_keg/distiller/return_rotation_chat(atom/movable/screen/movable/mouseover/mouseover)
+	mouseover.maptext_height = 96
+	if(!input)
+		return {"<span style='font-size:8pt;font-family:"Pterra";color:#808000;text-shadow:0 0 1px #fff, 0 0 2px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;' class='center maptext '>
+			NO INPUT"}
+
+	return {"<span style='font-size:8pt;font-family:"Pterra";color:#808000;text-shadow:0 0 1px #fff, 0 0 2px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;' class='center maptext '>
+			Pressure: [input.water_pressure]
+			Fluid: [input.carrying_reagent ? initial(input.carrying_reagent.name) : "Nothing"]</span>"}

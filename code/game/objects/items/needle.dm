@@ -60,7 +60,7 @@
 			return
 		else
 			to_chat(user, "I begin threading the needle with additional fibers...")
-			if(do_after(user, 6 SECONDS - user.mind.get_skill_level(/datum/skill/misc/sewing), I))
+			if(do_after(user, 6 SECONDS - user.get_skill_level(/datum/skill/misc/sewing), I))
 				stringamt += 5
 				to_chat(user, "I replenish the needle's thread!")
 				qdel(I)
@@ -84,7 +84,7 @@
 			to_chat(user, span_warning("[src] has no thread left!"))
 			return TRUE
 		var/armor_value = 0
-		var/skill_level = user.mind.get_skill_level(/datum/skill/misc/sewing)
+		var/skill_level = user.get_skill_level(/datum/skill/misc/sewing)
 		for(var/key in I.armor.getList()) // Here we are checking if the armor value of the item is 0 so we can know if the item is armor without having to make a snowflake var
 			armor_value += I.armor.getRating(key)
 		if((armor_value == 0 && skill_level < 1) || (armor_value > 0 && skill_level < 2))
@@ -119,7 +119,7 @@
 		return FALSE
 	var/mob/living/doctor = user
 	var/mob/living/carbon/human/patient = target
-	var/boon = doctor?.mind?.get_learning_boon(/datum/skill/misc/medicine)
+	var/boon = doctor?.get_learning_boon(/datum/skill/misc/medicine)
 	if(stringamt < 1)
 		to_chat(user, "<span class='warning'>The needle has no thread left!</span>")
 		return
@@ -149,7 +149,7 @@
 	playsound(loc, 'sound/foley/sewflesh.ogg', 100, TRUE, -2)
 	var/moveup = 10
 	if(doctor.mind)
-		moveup = ((doctor.mind.get_skill_level(/datum/skill/misc/medicine)+1) * 5)
+		moveup = ((doctor.get_skill_level(/datum/skill/misc/medicine)+1) * 5)
 	while(!QDELETED(target_wound) && !QDELETED(src) && \
 		!QDELETED(user) && (target_wound.sew_progress < target_wound.sew_threshold) && \
 		stringamt >= 1)
@@ -161,7 +161,7 @@
 			continue
 		if(doctor.mind)
 			var/amt2raise = doctor.STAINT * 2
-			doctor.mind.adjust_experience(/datum/skill/misc/medicine, amt2raise * boon)
+			doctor.adjust_experience(/datum/skill/misc/medicine, amt2raise * boon)
 		use(1)
 		target_wound.sew_wound()
 		if(patient == doctor)

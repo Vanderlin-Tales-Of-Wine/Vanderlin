@@ -98,7 +98,7 @@
 	GLOB.lordcolor -= src
 	return ..()
 
-/obj/item/clothing/head/roguehood/AdjustClothes(mob/user)
+/obj/item/clothing/head/roguehood/AdjustClothes(mob/living/carbon/user)
 	if(loc == user)
 		if(adjustable == CAN_CADJUST)
 			adjustable = CADJUSTED
@@ -112,13 +112,15 @@
 			block2add = FOV_BEHIND
 		else if(adjustable == CADJUSTED)
 			ResetAdjust(user)
-			flags_inv = default_hidden
-			if(user)
-				if(ishuman(user))
-					var/mob/living/carbon/H = user
-					H.update_inv_head()
 		user.update_fov_angles()
+		user.regenerate_clothes()
 
+/obj/item/clothing/head/roguehood/ResetAdjust(mob/user)
+	. = ..()
+	flags_inv = default_hidden
+	if(iscarbon(user))
+		var/mob/living/carbon/H = user
+		H.update_inv_head()
 
 //............... Feldshers Hood ............... //
 /obj/item/clothing/head/roguehood/feld

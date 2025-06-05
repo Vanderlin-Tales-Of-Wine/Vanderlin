@@ -116,16 +116,16 @@
 			reagents.remove_reagent(removereg, 5)
 			var/list/wash = list('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg')
 			playsound(user, pick_n_take(wash), 100, FALSE)
-			var/item2wash = user.get_active_held_item()
+			var/obj/item/item2wash = user.get_active_held_item()
 			if(!item2wash)
 				user.visible_message("<span class='info'>[user] starts to wash in [src].</span>")
 				if(do_after(L, 3 SECONDS, src))
-					wash_atom(user, CLEAN_STRONG)
+					user.wash(CLEAN_WASH)
 					playsound(user, pick(wash), 100, FALSE)
 			else
 				user.visible_message("<span class='info'>[user] starts to wash [item2wash] in [src].</span>")
 				if(do_after(L, 3 SECONDS, src))
-					wash_atom(item2wash, CLEAN_STRONG)
+					item2wash.wash(CLEAN_WASH)
 					playsound(user, pick(wash), 100, FALSE)
 			var/datum/reagent/water_to_dirty = reagents.has_reagent(/datum/reagent/water, 5)
 			if(water_to_dirty)
@@ -211,6 +211,8 @@
 				while(R.createditem_num)
 					R.createditem_num--
 					var/obj/item/editme = new crafteditem(used_turf)
+					record_featured_stat(FEATURED_STATS_SMITHS, user)
+					record_featured_object_stat(FEATURED_STATS_FORGED_ITEMS, editme.name)
 					editme.name = newname
 					editme.max_integrity = newmaxinteg
 					editme.obj_integrity = newinteg
@@ -231,6 +233,8 @@
 						editme.equip_delay_self = newdelay
 			else // Just make one buddy
 				var/obj/item/IT = new crafteditem(used_turf)
+				record_featured_stat(FEATURED_STATS_SMITHS, user)
+				record_featured_object_stat(FEATURED_STATS_FORGED_ITEMS, IT.name)
 				R.handle_creation(IT)
 			playsound(src,pick('sound/items/quench_barrel1.ogg','sound/items/quench_barrel2.ogg'), 100, FALSE)
 			user.visible_message("<span class='info'>[user] tempers \the [T.held_item.name] in \the [src], hot metal sizzling.</span>")

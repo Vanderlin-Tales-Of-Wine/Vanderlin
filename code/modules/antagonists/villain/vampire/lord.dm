@@ -37,7 +37,9 @@
 
 /datum/antagonist/vampire/lord/after_gain()
 	owner.current.verbs |= /mob/living/carbon/human/proc/demand_submission
+	owner.current.verbs |= /mob/living/carbon/human/proc/vamp_regenerate
 	owner.current.verbs |= /mob/living/carbon/human/proc/punish_spawn
+
 
 /datum/antagonist/vampire/lord/on_removal()
 	if(!isnull(batform))
@@ -49,7 +51,9 @@
 		QDEL_NULL(portal)
 
 	owner.current.verbs -= /mob/living/carbon/human/proc/demand_submission
+	owner.current.verbs |= /mob/living/carbon/human/proc/vamp_regenerate
 	owner.current.verbs -= /mob/living/carbon/human/proc/punish_spawn
+
 
 	. = ..()
 
@@ -104,15 +108,15 @@
 
 /datum/outfit/job/vamplord/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.mind.adjust_skillrank(/datum/skill/magic/blood, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 5, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/axesmaces, 4, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/whipsflails, 4, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/reading, 5, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/climbing, 5, TRUE)
+	H.adjust_skillrank(/datum/skill/magic/blood, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 5, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/axesmaces, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/whipsflails, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/reading, 5, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/climbing, 5, TRUE)
 	pants = /obj/item/clothing/pants/tights/black
 	shirt = /obj/item/clothing/shirt/vampire
 	belt = /obj/item/storage/belt/leather/plaquegold

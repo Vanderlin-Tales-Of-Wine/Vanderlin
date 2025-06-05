@@ -3,10 +3,11 @@ GLOBAL_LIST_EMPTY(lord_titles)
 
 /datum/job/lord
 	title = "Monarch"
-	tutorial = "Elevated to your throne through a web of intrigue, political maneuvering, and divine sanction, you are the\
-	unquestioned authority of these lands. The Church has bestowed upon you the legitimacy of the gods themselves, and now\
-	you sit at the center of every plot, and every whisper of ambition. Every man, woman, and child may envy your power and\
-	would replace you in the blink of an eye. But remember, its not envy that keeps you in place, it is your will. Show them\
+	var/ruler_title = "Monarch"
+	tutorial = "Elevated to your throne through a web of intrigue, political maneuvering, and divine sanction, you are the \
+	unquestioned authority of these lands. The Church has bestowed upon you the legitimacy of the gods themselves, and now \
+	you sit at the center of every plot, and every whisper of ambition. Every man, woman, and child may envy your power and \
+	would replace you in the blink of an eye. But remember, its not envy that keeps you in place, it is your will. Show them \
 	the error of their ways."
 	flag = LORD
 	department_flag = NOBLEMEN
@@ -37,23 +38,19 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	can_have_apprentices = FALSE
 
 /datum/job/lord/get_informed_title(mob/mob)
-	if(mob.gender == FEMALE)
-		return "Queen"
-
-	return "King"
+	return "[ruler_title]"
 
 //TODO: MOVE THIS INTO TICKER INIT
 /datum/job/lord/after_spawn(mob/living/spawned, client/player_client)
 	..()
 	SSticker.select_ruler()
 	addtimer(CALLBACK(spawned, TYPE_PROC_REF(/mob, lord_color_choice)), 5 SECONDS)
-	var/ruler_title
 	if(spawned.gender == MALE)
 		SSfamilytree.AddRoyal(spawned, FAMILY_FATHER)
-		ruler_title = "King"
+		ruler_title = "[SSmapping.config.monarch_title]"
 	else
 		SSfamilytree.AddRoyal(spawned, FAMILY_MOTHER)
-		ruler_title = "Queen"
+		ruler_title = "[SSmapping.config.monarch_title_f]"
 	to_chat(world, "<b>[span_notice(span_big("[spawned.real_name] is [ruler_title] of [SSmapping.config.map_name]."))]</b>")
 	to_chat(world, "<br>")
 	if(GLOB.keep_doors.len > 0)
@@ -70,28 +67,28 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	backpack_contents = list(/obj/item/weapon/knife/dagger/steel/special = 1)
 	ring = /obj/item/clothing/ring/active/nomag
 	l_hand = /obj/item/weapon/lordscepter
-	if(H.mind)
-		H.mind.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE)
-		if(H.age == AGE_OLD)
-			H.mind.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
-		H.change_stat(STATKEY_STR, 1)
-		H.change_stat(STATKEY_INT, 3)
-		H.change_stat(STATKEY_END, 3)
-		H.change_stat(STATKEY_SPD, 1)
-		H.change_stat(STATKEY_PER, 2)
-		H.change_stat(STATKEY_LCK, 5)
+
+	H.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE)
+	if(H.age == AGE_OLD)
+		H.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
+	H.change_stat(STATKEY_STR, 1)
+	H.change_stat(STATKEY_INT, 3)
+	H.change_stat(STATKEY_END, 3)
+	H.change_stat(STATKEY_SPD, 1)
+	H.change_stat(STATKEY_PER, 2)
+	H.change_stat(STATKEY_LCK, 5)
 	if(H.gender == MALE)
 		pants = /obj/item/clothing/pants/tights/black
 		shirt = /obj/item/clothing/shirt/undershirt/black

@@ -18,22 +18,23 @@
 	outfit = /datum/outfit/job/adventurer/mason
 	category_tags = list(CTAG_PILGRIM)
 	apprentice_name = "Mason Apprentice"
+	cmode_music = 'sound/music/cmode/towner/CombatTowner.ogg'
 
 /datum/outfit/job/adventurer/mason/pre_equip(mob/living/carbon/human/H)
 	..()
 
-	H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/labor/mining, rand(1,3), TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/craft/carpentry, rand(1,2), TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/craft/masonry, 4, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/craft/engineering, 1, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/labor/mining, rand(1,3), TRUE)
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/carpentry, rand(1,2), TRUE)
+	H.adjust_skillrank(/datum/skill/craft/masonry, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/engineering, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 
 	head = pick(/obj/item/clothing/head/hatfur, /obj/item/clothing/head/hatblu)
 	armor = /obj/item/clothing/armor/leather/vest

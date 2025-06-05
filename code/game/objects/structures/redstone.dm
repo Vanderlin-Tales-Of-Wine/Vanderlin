@@ -15,7 +15,7 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 	var/obj/item/contraption/linker/multitool = I
 	if(!multitool.current_charge)
 		return
-	if(user.mind?.get_skill_level(/datum/skill/craft/engineering) < 1)
+	if(user.get_skill_level(/datum/skill/craft/engineering) < 1)
 		to_chat(user, span_warning("I have no idea how to use [multitool]!"))
 		return
 	user.visible_message("[user] starts tinkering with [src].", "You start tinkering with [src].")
@@ -150,34 +150,11 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 
 /obj/structure/repeater/ComponentInitialize()
 	. = ..()
-	AddComponent(/datum/component/simple_rotation,ROTATION_ALTCLICK | ROTATION_CLOCKWISE, CALLBACK(src, PROC_REF(can_user_rotate)),CALLBACK(src, PROC_REF(can_be_rotated)),null)
-
-/obj/structure/repeater/proc/can_be_rotated(mob/user)
-	return TRUE
-
-/obj/structure/repeater/proc/can_user_rotate(mob/user)
-	var/mob/living/L = user
-
-	if(istype(L))
-		if(!user.canUseTopic(src, BE_CLOSE))
-			return FALSE
-		else
-			return TRUE
-	else if(isobserver(user) && CONFIG_GET(flag/ghost_interaction))
-		return TRUE
-	return FALSE
-
-/obj/structure/repeater/attack_right(mob/user)
-	if(user.get_active_held_item())
-		return ..()
-	var/datum/component/simple_rotation/rotcomp = GetComponent(/datum/component/simple_rotation)
-	if(rotcomp)
-		rotcomp.HandRot(null, user, ROTATION_CLOCKWISE)
-	return TRUE
+	AddComponent(/datum/component/simple_rotation, ROTATION_REQUIRE_WRENCH|ROTATION_IGNORE_ANCHORED)
 
 /obj/structure/repeater/attack_hand(mob/user)
 	. = ..()
-	if(user.mind?.get_skill_level(/datum/skill/craft/engineering) < 1)
+	if(user.get_skill_level(/datum/skill/craft/engineering) < 1)
 		to_chat(user, span_warning("I have no idea how to use [src]!"))
 		return
 	if(user.used_intent.type == INTENT_HARM)
@@ -265,6 +242,11 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 		to_chat(L, "<span class='info'>I feel something click beneath me.</span>")
 		AM.log_message("has activated a pressure plate", LOG_GAME)
 		playsound(src, 'sound/misc/pressurepad_down.ogg', 65, extrarange = 2)
+	if(isstructure(AM))
+		var/obj/structure/structure = AM
+		if(structure.w_class >= WEIGHT_CLASS_BULKY)
+			playsound(src, 'sound/misc/pressurepad_down.ogg', 65, extrarange = 2)
+			triggerplate()
 
 /obj/structure/pressure_plate/Uncrossed(atom/movable/AM)
 	. = ..()
@@ -304,22 +286,7 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 
 /obj/structure/activator/ComponentInitialize()
 	. = ..()
-	AddComponent(/datum/component/simple_rotation,ROTATION_ALTCLICK | ROTATION_CLOCKWISE, CALLBACK(src, PROC_REF(can_user_rotate)),CALLBACK(src, PROC_REF(can_be_rotated)),null)
-
-/obj/structure/activator/proc/can_be_rotated(mob/user)
-	return TRUE
-
-/obj/structure/activator/proc/can_user_rotate(mob/user)
-	var/mob/living/L = user
-
-	if(istype(L))
-		if(!user.canUseTopic(src, BE_CLOSE))
-			return FALSE
-		else
-			return TRUE
-	else if(isobserver(user) && CONFIG_GET(flag/ghost_interaction))
-		return TRUE
-	return FALSE
+	AddComponent(/datum/component/simple_rotation, ROTATION_REQUIRE_WRENCH|ROTATION_IGNORE_ANCHORED)
 
 /obj/structure/activator/update_icon()
 	. = ..()
@@ -340,14 +307,6 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 		ammo.forceMove(get_turf(src))
 		ammo = null
 	update_icon()
-	return TRUE
-
-/obj/structure/activator/attack_right(mob/user)
-	if(user.get_active_held_item())
-		return ..()
-	var/datum/component/simple_rotation/rotcomp = GetComponent(/datum/component/simple_rotation)
-	if(rotcomp)
-		rotcomp.HandRot(null, user, ROTATION_CLOCKWISE)
 	return TRUE
 
 /obj/structure/activator/attackby(obj/item/I, mob/user, params)
@@ -410,7 +369,7 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 	AddComponent(/datum/component/squeak, list('sound/foley/footsteps/FTMET_A1.ogg','sound/foley/footsteps/FTMET_A2.ogg','sound/foley/footsteps/FTMET_A3.ogg','sound/foley/footsteps/FTMET_A4.ogg'), 40)
 	return ..()
 */
-/obj/structure/floordoor/obj_break(damage_flag)
+/obj/structure/floordoor/obj_break(damage_flag, silent)
 	obj_flags = null
 	..()
 

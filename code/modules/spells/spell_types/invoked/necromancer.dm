@@ -178,16 +178,17 @@
 		src.ckey = ckey
 	else //npc
 		ai_controller = new /datum/ai_controller/human_npc(src)
+		AddComponent(/datum/component/ai_aggro_system)
 		wander = TRUE
 
 	if(!mind)
 		mind_initialize()
 
-	mind.clamped_adjust_skillrank(/datum/skill/combat/axesmaces, 2, 3, TRUE)
-	mind.clamped_adjust_skillrank(/datum/skill/combat/crossbows, 2, 3, TRUE)
-	mind.clamped_adjust_skillrank(/datum/skill/combat/wrestling, 2, 3, TRUE)
-	mind.clamped_adjust_skillrank(/datum/skill/combat/unarmed, 1, 3, TRUE)
-	mind.clamped_adjust_skillrank(/datum/skill/combat/swords, 2, 3, TRUE)
+	clamped_adjust_skillrank(/datum/skill/combat/axesmaces, 2, 3, TRUE)
+	clamped_adjust_skillrank(/datum/skill/combat/crossbows, 2, 3, TRUE)
+	clamped_adjust_skillrank(/datum/skill/combat/wrestling, 2, 3, TRUE)
+	clamped_adjust_skillrank(/datum/skill/combat/unarmed, 1, 3, TRUE)
+	clamped_adjust_skillrank(/datum/skill/combat/swords, 2, 3, TRUE)
 	mind.current.job = null
 
 	dna.species.species_traits |= NOBLOOD

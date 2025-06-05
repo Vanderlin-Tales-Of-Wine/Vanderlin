@@ -115,7 +115,7 @@
 	..()
 	if(!can_interact(usr))
 		return 1
-	if(!usr.canUseTopic(src))
+	if(!usr.can_perform_action(src, NEED_DEXTERITY))
 		return 1
 	add_fingerprint(usr)
 	return 0
@@ -150,7 +150,7 @@
 			component_parts.Cut()
 	qdel(src)
 
-/obj/machinery/obj_break(damage_flag)
+/obj/machinery/obj_break(damage_flag, silent)
 	SHOULD_CALL_PARENT(TRUE)
 	. = ..()
 	if(!(stat & BROKEN) && !(flags_1 & NODECONSTRUCT_1))
