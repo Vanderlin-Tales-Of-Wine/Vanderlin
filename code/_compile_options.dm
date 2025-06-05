@@ -65,7 +65,7 @@
 
 //#define NO_DUNGEON //comment this to load dungeons.
 
-#define CENTCOM_ONLY // uncomment this to load only centcom on LOWMEMORY mode
+//#define CENTCOM_ONLY // uncomment this to load only centcom on LOWMEMORY mode
 
 #ifndef CENTCOM_ONLY
 	#ifdef LOWMEMORYMODE
