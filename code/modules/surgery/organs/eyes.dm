@@ -35,16 +35,24 @@
 	var/damaged	= FALSE	//damaged indicates that our eyes are undergoing some level of negative effect
 
 	var/old_eye_color = "fff" //cache owners original eye color before inserting new eyes
-	var/eye_color = ""//set to a hex code to override a mob's eye color
+	var/eye_color = null //set to a hex code to override a mob's eye color
 	var/heterochromia = FALSE
-	var/second_color = "#FFFFFF"
+	var/second_color = "FFFFFF"
 
+/obj/item/organ/eyes/Initialize()
+	. = ..()
+	if(!owner && !eye_color)
+		eye_color = random_eye_color()
+		if(prob(5))
+			heterochromia = TRUE
+			second_color = random_eye_color()
+	update_icon()
 
 /obj/item/organ/eyes/update_overlays()
 	. = ..()
-	if(initial(eye_color) && (icon_state == "eyeball"))
-		var/mutable_appearance/iris_overlay = mutable_appearance(src.icon, "eyeball-iris")
-		iris_overlay.color = "#" + eye_color
+	if(eye_color && icon_state == "eyeball")
+		var/mutable_appearance/iris_overlay = mutable_appearance(icon, "eyeball-iris")
+		iris_overlay.color = "#[eye_color]"
 		. += iris_overlay
 
 /obj/item/organ/eyes/update_accessory_colors()
@@ -142,7 +150,7 @@
 /obj/item/organ/eyes/night_vision/zombie
 	name = "undead eyes"
 	desc = ""
-	eye_color = "#FFFFFF"
+	eye_color = "FFFFFF"
 
 /obj/item/organ/eyes/night_vision/werewolf
 	name = "moonlight eyes"
@@ -151,7 +159,6 @@
 /obj/item/organ/eyes/night_vision/nightmare
 	name = "burning red eyes"
 	desc = ""
-	// icon_state = "burning_eyes"
 	eye_color = BLOODCULT_EYE
 
 /obj/item/organ/eyes/night_vision/mushroom
@@ -174,9 +181,9 @@
 
 /obj/item/organ/eyes/triton
 	name = "dead fish eyes"
-	eye_color = "#000"
-	second_color = "#000"
 	accessory_type = /datum/sprite_accessory/eyes/humanoid/triton
+	eye_color = "000000"
+	flash_protect = FLASH_PROTECTION_SENSITIVE
 
 /obj/item/organ/eyes/no_render
 	accessory_type = null

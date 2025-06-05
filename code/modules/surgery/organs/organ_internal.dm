@@ -199,8 +199,6 @@
 
 /obj/item/organ/Initialize()
 	. = ..()
-	if(accessory_type)
-		set_accessory_type(accessory_type)
 	START_PROCESSING(SSobj, src)
 
 /obj/item/organ/Destroy()
