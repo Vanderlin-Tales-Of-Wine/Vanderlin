@@ -169,12 +169,12 @@
 	character.mind.special_items["Firebomb Two"] = /obj/item/bomb
 	character.adjust_skillrank(/datum/skill/craft/alchemy, 1, TRUE)
 
-/datum/special_trait/pineapple
-	name = "The safeword is \"Pineapple\""
-	greet_text = span_notice("I enjoy whipping people until they squirm and whine, their pain makes my pleasure. I also have a hidden a whip")
+/datum/special_trait/tombraider
+	name = "Tomb Raider"
+	greet_text = span_notice("It belongs in a museum. I have a whip hidden and I know how to use it.")
 	weight = 50
 
-/datum/special_trait/pineapple/on_apply(mob/living/carbon/human/character, silent)
+/datum/special_trait/tombraider/on_apply(mob/living/carbon/human/character, silent)
 	character.mind.special_items["Whip"] = /obj/item/weapon/whip/antique
 	character.adjust_skillrank(/datum/skill/combat/whipsflails, 6, TRUE)
 
