@@ -67,9 +67,6 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	belt = /obj/item/storage/belt/leather/plaquegold
 	backpack_contents = list(/obj/item/weapon/knife/dagger/steel/special = 1)
 	ring = /obj/item/clothing/ring/active/nomag
-	l_hand = /obj/item/weapon/lordscepter
-
-	H.change_stat(STATKEY_LCK, 5)
 
 	if(H.wear_mask)
 		if(istype(H.wear_mask, /obj/item/clothing/face/eyepatch))
@@ -87,8 +84,8 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	displays_adv_job = FALSE
 
 /datum/advclass/lord/lord // Classic Monarch we all know and loathe.
-	name = "Lord"
-	tutorial = "I am Ozymandius, king of kings." // TODO: Replace this descriptor
+	name = "Traditional Lord"
+	tutorial = "I am Ozymandius, king of kings. The classical Monarch." // TODO: Replace this descriptor
 	outfit = /datum/outfit/job/lord/lord
 
 	category_tags = list(CTAG_LORD)
@@ -147,7 +144,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 				qdel(H.wear_mask)
 				mask = /obj/item/clothing/face/lordmask/l
 
-/datum/advclass/lord/bking // Barbarian King. Think Conan.
+/datum/advclass/lord/bking // Barbarian King, not Burger King. Think Conan.
 	name = "Barbarian King"
 	tutorial = "What is best in life is to crush your enemies, see them driven before you, \
 	and to hear the lamentations of their women."
@@ -160,9 +157,8 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	shoes = /obj/item/clothing/shoes/boots/leather
 	wrists = /obj/item/clothing/wrists/bracers/leather
 	pants = /obj/item/clothing/pants/loincloth
-	gloves = /obj/item/clothing/gloves/leather
-	armor = /obj/item/clothing/armor/leather/hide
-	shirt = /obj/item/clothing/armor/gambeson
+	gloves = /obj/item/clothing/gloves/leather // KEEP HIM SHIRTLESS AND ARMORLESS.
+	l_hand = /obj/item/weapon/lordscepter
 	if (H.gender == MALE)
 		cloak = /obj/item/clothing/cloak/lordcloak
 	else
@@ -178,11 +174,15 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	H.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 	if(H.age == AGE_OLD)
 		H.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
+		H.change_stat(STATKEY_CON, 1)
+		H.change_stat(STATKEY_END, -1)
+		H.change_stat(STATKEY_SPD, -1)
 	H.change_stat(STATKEY_STR, 3)
 	H.change_stat(STATKEY_END, 2)
 	H.change_stat(STATKEY_CON, 3)
@@ -196,6 +196,59 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	ADD_TRAIT(H, TRAIT_CRITICAL_RESISTANCE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOPAINSTUN, TRAIT_GENERIC)
 
+
+/datum/advclass/lord/mking // Mage King. We love casting spells
+	name = "Spellbound Emperor"
+	tutorial = "You cast spells and shit. I need to come up with better text here. Magic missile, fuck you."
+	outfit = /datum/outfit/job/lord/mking
+
+	category_tags = list(CTAG_LORD)
+
+/datum/outfit/job/lord/mking/pre_equip(mob/living/carbon/human/H)
+	..()
+	shoes = /obj/item/clothing/shoes/boots/leather
+	pants = /obj/item/clothing/pants/tights/black
+	armor = /obj/item/clothing/armor/leather/jacket/leathercoat/black // We need better drip
+	shirt = /obj/item/clothing/shirt/undershirt/black
+	ring = /obj/item/clothing/ring/gold
+	backpack_contents = list(/obj/item/chalk = 1, /obj/item/book/granter/spellbook/apprentice = 1, /obj/item/weapon/knife/dagger/silver/arcyne = 1)
+	l_hand = /obj/item/weapon/lordscepter
+	if (H.gender == MALE)
+		cloak = /obj/item/clothing/cloak/lordcloak
+	else
+		cloak = /obj/item/clothing/cloak/lordcloak/ladycloak
+
+	H.adjust_skillrank(/datum/skill/magic/arcane, 5, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/reading, 5, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/cooking, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/alchemy, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/labor/mathematics, 4, TRUE)
+	if(H.dna?.species)
+		if(H.dna.species.id == "human")
+			H.dna.species.soundpack_m = new /datum/voicepack/male/evil()
+	if(H.age == AGE_OLD)
+		H.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/magic/arcane, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/labor/mathematics, 1, TRUE)
+	H.change_stat(STATKEY_STR, -3)
+	H.change_stat(STATKEY_END, -1)
+	H.change_stat(STATKEY_CON, 1)
+	H.change_stat(STATKEY_INT, 5)
+	H.change_stat(STATKEY_LCK, 1)
+	H.change_stat(STATKEY_SPD, -1)
+	H.change_stat(STATKEY_PER, 3)
+	H.mind?.adjust_spellpoints(8)
+
 ///datum/advclass/lord/pious // DEVOUTLY RELIGIOUS.
 //	name = "Pious Ruler"
 //	tutorial = "The seperation between church and state is a thin line that teeters upon severance, weighted down by \\
@@ -204,6 +257,8 @@ GLOBAL_LIST_EMPTY(lord_titles)
 //	outfit = /datum/outfit/job/lord/pious
 //
 //	category_tags = list(CTAG_LORD)
+
+// We need: Leper king that can mute somebody for a minute at a time, vampire king, skeleton king - all hide their affliction
 
 /datum/job/exlord //just used to change the lords title
 	title = "Ex-Monarch"
