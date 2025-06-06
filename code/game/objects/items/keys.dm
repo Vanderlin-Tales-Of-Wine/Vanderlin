@@ -102,8 +102,8 @@
 		SSroguemachine.key = src
 
 /obj/item/key/lord/Destroy()
-        if(SSroguemachine.key == src)
-	      SSroguemachine.key = null
+	if(SSroguemachine.key == src)
+		SSroguemachine.key = null
 	return ..()
 
 /obj/item/key/lord/proc/anti_stall()
