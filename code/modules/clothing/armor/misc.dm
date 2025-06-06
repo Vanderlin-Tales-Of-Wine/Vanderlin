@@ -52,8 +52,11 @@
 	body_parts_covered = COVERAGE_ALL_BUT_LEGS
 	max_integrity = INTEGRITY_STRONGEST
 	prevent_crits = ALL_EXCEPT_BLUNT
-	do_sound_plate = TRUE
 	item_weight = 3.2 * IRON_MULTIPLIER
+
+/obj/item/clothing/armor/brigandine/Initialize()
+	. = ..()
+	AddComponent(/datum/component/item_equipped_movement_rustle, custom_sounds = SFX_PLATE_COAT_STEP)
 
 /obj/item/clothing/armor/brigandine/update_icon()
 	cut_overlays()
@@ -85,8 +88,11 @@
 	body_parts_covered = COVERAGE_ALL_BUT_LEGS
 	max_integrity = INTEGRITY_STRONGEST
 	prevent_crits = ALL_EXCEPT_BLUNT
-	do_sound_plate = TRUE
 	item_weight = 7 * STEEL_MULTIPLIER
+
+/obj/item/clothing/armor/captain/Initialize()
+	. = ..()
+	AddComponent(/datum/component/item_equipped_movement_rustle, custom_sounds = SFX_PLATE_COAT_STEP)
 
 /obj/item/clothing/armor/captain/update_icon()
 	cut_overlays()

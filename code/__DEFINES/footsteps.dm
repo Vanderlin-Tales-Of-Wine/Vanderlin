@@ -21,12 +21,22 @@
 #define FOOTSTEP_GENERIC_HEAVY "heavy"
 
 //footstep mob defines
-#define FOOTSTEP_MOB_CLAW 1
-#define FOOTSTEP_MOB_BAREFOOT 2
-#define FOOTSTEP_MOB_HEAVY 3
-#define FOOTSTEP_MOB_SHOE 4
-#define FOOTSTEP_MOB_HUMAN 5 //Warning: Only works on /mob/living/carbon/human
-#define FOOTSTEP_MOB_SLIME 6
+#define FOOTSTEP_MOB_CLAW "footstep_claw"
+#define FOOTSTEP_MOB_BAREFOOT "footstep_barefoot"
+#define FOOTSTEP_MOB_HEAVY "footstep_heavy"
+#define FOOTSTEP_MOB_SHOE "footstep_shoe"
+#define FOOTSTEP_MOB_HUMAN "footstep_human" //Warning: Only works on /mob/living/carbon/human
+#define FOOTSTEP_MOB_SLIME "footstep_slime"
+
+//priority defines for the footstep_override element
+#define STEP_SOUND_NO_PRIORITY 0
+#define STEP_SOUND_TABLE_PRIORITY 1
+
+///the key to a list of override sounds to replace with. Same format as the global lists.
+#define STEP_SOUND_SHOE_OVERRIDE "step_sound_shoe_override"
+
+///the name of the index key for priority
+#define STEP_SOUND_PRIORITY "step_sound_priority"
 
 /*
 

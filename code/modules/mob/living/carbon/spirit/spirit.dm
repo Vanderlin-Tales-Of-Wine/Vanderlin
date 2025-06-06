@@ -56,7 +56,7 @@
 	. = ..()
 	var/L = new /obj/item/flashlight/flare/torch/lantern/shrunken(src.loc)
 	put_in_hands(L)
-	AddComponent(/datum/component/footstep, FOOTSTEP_MOB_BAREFOOT, 1, 2)
+	AddElement(/datum/element/footstep, FOOTSTEP_MOB_BAREFOOT, 1, -6)
 
 /mob/living/carbon/spirit/create_internal_organs()
 	internal_organs += new /obj/item/organ/lungs
