@@ -52,7 +52,7 @@
 	addtimer(CALLBACK(src, PROC_REF(do_message), message), 2 SECONDS)
 
 /obj/item/weapon/polearm/halberd/bardiche/woodcutter/gorefeast/proc/do_message(message)
-	audible_message("gorefeast speaks, \"[message]\"", hearing_distance = 5)
+	audible_message("Gorefeast speaks, \"[message]\"", hearing_distance = 5)
 
 /obj/item/weapon/polearm/halberd/bardiche/woodcutter/gorefeast/pre_attack(atom/A, mob/living/user, params)
 	if(!HAS_TRAIT(user, TRAIT_ORGAN_EATER))
@@ -142,7 +142,7 @@
 	var/dead = H.stat == DEAD
 	if((H.health < H.crit_threshold) || dead)
 		var/speed = dead ? 4 SECONDS : 8 SECONDS
-		to_chat(user, span_notice("I begin to remove the lux of [target]..."))
+		to_chat(user, span_notice("Neant lights up and begins to tear at [target]..."))
 		if(!do_after(user, speed, H))
 			return
 		var/obj/item/bodypart/chest/C = H.get_bodypart(BODY_ZONE_CHEST)
@@ -161,7 +161,7 @@
 
 		H.add_splatter_floor()
 		H.adjustBruteLoss(20)
-		to_chat(user, span_notice("I finish removing the lux from [target]!"))
+		to_chat(user, span_notice("Neant's blade draws the lux from [target]!"))
 
 /obj/item/weapon/polearm/neant/proc/handle_magick(mob/living/user, atom/target)
 	if(!COOLDOWN_FINISHED(src, fire_projectile))
@@ -192,7 +192,7 @@
 	COOLDOWN_START(src, fire_projectile, 4 SECONDS)
 
 /obj/projectile/bullet/neant
-	name = "TROL LOLO"
+	name = "Profane Evisceration"
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "neantprojectile"
 	hitsound = 'sound/combat/hits/hi_arrow2.ogg'
@@ -261,7 +261,7 @@
 	icon_state = "pleonexia"
 	icon = 'icons/roguetown/weapons/godweapons.dmi'
 	name = "pleonexia"
-	desc = "A sword of legend. If they are true, then this blade is the blade of Matthios himself. Rumor has it, it steals space and time."
+	desc = "A sword of legend. If they are true, then this is the blade of Matthios himself. Rumor has it, it steals space and time."
 	swingsound = BLADEWOOSH_LARGE
 	parrysound = "largeblade"
 	pickup_sound = "brandish_blade"
