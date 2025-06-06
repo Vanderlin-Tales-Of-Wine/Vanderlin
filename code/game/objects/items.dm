@@ -479,7 +479,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	. = ..()
 
 	if(href_list["inspect"])
-		if(!usr.canUseTopic(src, be_close=TRUE))
+		if(!usr.can_perform_action(src, NEED_DEXTERITY|FORBID_TELEKINESIS_REACH))
 			return
 		var/list/inspec = list("<span class='notice'>Properties of [src.name]</span>")
 		if(minstr)
