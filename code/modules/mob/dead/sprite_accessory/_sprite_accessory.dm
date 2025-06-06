@@ -67,8 +67,8 @@
 	else
 		offsets = (H.age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
 
-	for(var/mutable_appearance/appearance as anything in appearance_list)
-		if(LAZYACCESS(offsets, feature_key))
+	if(LAZYACCESS(offsets, feature_key))
+		for(var/mutable_appearance/appearance as anything in appearance_list)
 			appearance.pixel_x += offsets[feature_key][1]
 			appearance.pixel_y += offsets[feature_key][2]
 
