@@ -549,6 +549,10 @@
 /obj/structure/stairs/stone,
 /turf/open/floor/hexstone,
 /area/rogue/indoors/town/manor)
+"aDW" = (
+/obj/structure/fluff/walldeco/wantedposter,
+/turf/open/floor/woodturned,
+/area/rogue/outdoors/town)
 "aEd" = (
 /obj/structure/closet/crate/drawer,
 /obj/item/lockpickring,
@@ -5622,10 +5626,6 @@
 	},
 /turf/open/floor/wood,
 /area/rogue/indoors/town/orphanage)
-"fBz" = (
-/mob/living/simple_animal/hostile/retaliate/gator,
-/turf/open/water/marsh,
-/area/rogue/outdoors/rtfield)
 "fBY" = (
 /obj/structure/table/wood/counter{
 	dir = 1
@@ -9166,6 +9166,10 @@
 /obj/effect/mapping_helpers/access/keyset/town/elder,
 /turf/open/floor/wood/nosmooth,
 /area/rogue/indoors/town/theatre)
+"iVz" = (
+/obj/structure/fluff/walldeco/wantedposter,
+/turf/open/transparent/openspace,
+/area/rogue/outdoors/town)
 "iVY" = (
 /obj/structure/window/openclose{
 	dir = 1
@@ -11415,6 +11419,10 @@
 /obj/item/fishing/bait/deluxe,
 /turf/open/floor/wood,
 /area/rogue/indoors/town)
+"lhK" = (
+/obj/structure/fluff/walldeco/wantedposter,
+/turf/open/floor/grass,
+/area/rogue/outdoors/town)
 "lhM" = (
 /turf/open/transparent/openspace,
 /area/rogue/under/town/basement)
@@ -18127,10 +18135,6 @@
 	},
 /turf/open/floor/wood,
 /area/rogue/indoors/town/church/chapel)
-"rTZ" = (
-/mob/living/simple_animal/hostile/retaliate/gator,
-/turf/open/water/marsh/deep,
-/area/rogue/outdoors/town)
 "rUh" = (
 /obj/effect/landmark/start/farmer{
 	dir = 8
@@ -21075,6 +21079,14 @@
 /obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/carpet,
 /area/rogue/indoors/town/manor)
+"uAs" = (
+/obj/effect/mapping_helpers/access/keyset/town/merchant,
+/obj/effect/mapping_helpers/access/locker,
+/obj/structure/door/viewport{
+	dir = 1
+	},
+/turf/open/floor/wood,
+/area/rogue/indoors/town/shop)
 "uAt" = (
 /turf/open/floor/cobble/alt,
 /area/rogue/under/town/basement)
@@ -22912,10 +22924,6 @@
 /obj/structure/industrial_lift/tram,
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/town)
-"wop" = (
-/mob/living/simple_animal/hostile/retaliate/gator,
-/turf/open/water/marsh/deep,
-/area/rogue/outdoors/rtfield)
 "woM" = (
 /obj/structure/stairs{
 	dir = 4
@@ -66521,7 +66529,7 @@ vbR
 vbR
 vbR
 vbR
-wop
+vbR
 vbR
 vbR
 vbR
@@ -67355,7 +67363,7 @@ vbR
 vbR
 vbR
 vbR
-wop
+vbR
 vbR
 vbR
 vbR
@@ -67613,7 +67621,7 @@ vbR
 vbR
 vbR
 vbR
-wop
+vbR
 vbR
 vbR
 vbR
@@ -69370,7 +69378,7 @@ vbR
 vbR
 vbR
 vbR
-wop
+vbR
 vbR
 vbR
 vbR
@@ -71828,7 +71836,7 @@ iAO
 iAO
 iAO
 iAO
-rTZ
+iAO
 iAO
 iAO
 iAO
@@ -75084,7 +75092,7 @@ iAO
 iAO
 vbR
 vbR
-wop
+vbR
 vbR
 vbR
 vbR
@@ -78302,7 +78310,6 @@ iAO
 iAO
 iAO
 iAO
-rTZ
 iAO
 iAO
 iAO
@@ -78317,6 +78324,7 @@ iAO
 iAO
 iAO
 iAO
+iAO
 vbR
 vbR
 vbR
@@ -78334,7 +78342,7 @@ vbR
 vbR
 vbR
 vbR
-wop
+vbR
 vbR
 vbR
 vbR
@@ -79760,7 +79768,7 @@ qVr
 vbR
 vbR
 vbR
-wop
+vbR
 vbR
 vbR
 vbR
@@ -80583,7 +80591,7 @@ vbR
 vbR
 vbR
 vbR
-wop
+vbR
 vbR
 vbR
 vbR
@@ -92745,7 +92753,7 @@ vbR
 vbR
 vbR
 vbR
-wop
+vbR
 vbR
 vbR
 vbR
@@ -93325,7 +93333,7 @@ vbR
 vbR
 vbR
 vbR
-wop
+vbR
 vbR
 vbR
 vbR
@@ -94708,7 +94716,7 @@ qVr
 vbR
 vbR
 vbR
-wop
+vbR
 vbR
 vbR
 vbR
@@ -95524,7 +95532,7 @@ vbR
 vbR
 vbR
 vbR
-wop
+vbR
 vbR
 vbR
 vbR
@@ -95758,7 +95766,7 @@ vbR
 vbR
 vbR
 vbR
-fBz
+hlw
 hlw
 hlw
 hlw
@@ -95960,7 +95968,7 @@ vbR
 vbR
 vbR
 vbR
-fBz
+hlw
 hlw
 hlw
 hlw
@@ -101064,7 +101072,7 @@ vbR
 vbR
 vbR
 vbR
-wop
+vbR
 vbR
 vbR
 vbR
@@ -103676,7 +103684,7 @@ aTl
 aTl
 hlw
 hlw
-fBz
+hlw
 vbR
 vbR
 vbR
@@ -105101,7 +105109,7 @@ hlw
 hlw
 vbR
 vbR
-wop
+vbR
 hlw
 tpv
 hlw
@@ -119694,7 +119702,7 @@ cBz
 fcV
 fcV
 cBz
-esw
+uAs
 iUA
 iUA
 ruZ
@@ -123533,7 +123541,7 @@ lVp
 kvq
 uQi
 sIo
-ljP
+aDW
 fed
 xuP
 sWx
@@ -127389,7 +127397,7 @@ xqR
 aep
 olO
 olO
-sWx
+iVz
 iKe
 gDI
 sWx
@@ -137259,7 +137267,7 @@ vzp
 rAX
 agk
 vzp
-kvq
+lhK
 dkc
 lVp
 lVp

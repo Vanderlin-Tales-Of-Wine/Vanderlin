@@ -70,3 +70,4 @@
 	smeltresult = /obj/item/ingot/steel
 	equip_delay_self = 4 SECONDS
 	blocksound = SOFTHIT
+	do_sound_inquisboot = TRUE

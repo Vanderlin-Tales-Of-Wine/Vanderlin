@@ -142,7 +142,7 @@
 	var/mob/living/user = usr
 	if(!istype(user))
 		return
-	if(!user.canUseTopic(src, TRUE))
+	if(!user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
 		return
 
 	switch(href_list["action"])
