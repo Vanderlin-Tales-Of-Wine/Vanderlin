@@ -164,7 +164,7 @@
 		if(!include_patreon)
 			list_species -= GLOB.patreon_races
 		var/rando_race = GLOB.species_list[pick(list_species)]
-		dna.species = new rando_race()
+		set_species(new rando_race(), FALSE)
 
 	if(NOEYESPRITES in species?.species_traits)
 		randomise_flags &= ~RANDOMIZE_EYE_COLOR
