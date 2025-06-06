@@ -36,6 +36,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 		TRAIT_VAMP_DREAMS,
 		TRAIT_NOAMBUSH,
 		TRAIT_DARKVISION,
+		TRAIT_LIMBATTACHMENT,
 	)
 
 	var/vitae = 1000
@@ -68,10 +69,10 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 		var/mob/living/carbon/human/vampdude = owner.current
 		vampdude.adv_hugboxing_cancel()
 
-
-
 	owner.current.cmode_music = 'sound/music/cmode/antag/CombatThrall.ogg'
+	owner.current.adjust_skillrank(/datum/skill/magic/blood, 2, TRUE)
 	owner.current.AddSpell(new /obj/effect/proc_holder/spell/targeted/transfix)
+
 	vamp_look()
 	. = ..()
 	equip()
@@ -82,6 +83,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	owner.special_role = span_redtext("[name]")
 
 /datum/antagonist/vampire/proc/after_gain()
+	owner.current.verbs |= /mob/living/carbon/human/proc/vamp_regenerate
 	owner.current.verbs |= /mob/living/carbon/human/proc/disguise_button
 
 /datum/antagonist/vampire/on_removal()

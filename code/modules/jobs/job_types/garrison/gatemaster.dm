@@ -34,11 +34,17 @@
 
 /datum/outfit/job/gatemaster/pre_equip(mob/living/carbon/human/H)
 	. = ..()
-	head = /obj/item/clothing/head/helmet/townwatch/alt
-	cloak = /obj/item/clothing/cloak/stabard/surcoat/guard
-	wrists = /obj/item/clothing/wrists/bracers/leather
+	head = /obj/item/clothing/head/helmet/townwatch/gatemaster
+	shirt = /obj/item/clothing/armor/chainmail
 	belt = /obj/item/storage/belt/leather/black
-	pants = /obj/item/clothing/pants/trou/leather/guard
+	pants = /obj/item/clothing/pants/trou/leather
+	shoes = /obj/item/clothing/shoes/boots
+
+/datum/outfit/job/gatemaster/post_equip(mob/living/carbon/human/H)
+	. = ..()
+	if(H.wear_armor)
+		if(!findtext(H.wear_armor.name,"([H.real_name])"))
+			H.wear_armor.name = "[H.wear_armor.name]"+" "+"([H.real_name])"
 
 /datum/job/gatemaster/after_spawn(mob/living/spawned, client/player_client)
 	..()
@@ -47,14 +53,34 @@
 	H.invisibility = INVISIBILITY_MAXIMUM
 	H.become_blind("advsetup")
 
-	if(istype(H.cloak, /obj/item/clothing/cloak/stabard/surcoat/guard))
-		var/obj/item/clothing/S = H.cloak
-		var/index = findtext(H.real_name, " ")
-		if(index)
-			index = copytext(H.real_name, 1,index)
-		if(!index)
-			index = H.real_name
-		S.name = "gatemaster jupon ([index])"
+/datum/outfit/job/gatemaster/whip/pre_equip(mob/living/carbon/human/H)
+	..()
+	gloves = /obj/item/clothing/gloves/chain
+	neck = /obj/item/clothing/neck/gorget
+	armor = /obj/item/clothing/armor/leather/jacket/gatemaster_jacket
+	beltr = /obj/item/weapon/mace/cudgel
+	beltl = /obj/item/weapon/whip/chain
+	backl = /obj/item/storage/backpack/satchel/black
+	backpack_contents = list(/obj/item/storage/keyring/manorguard = 1, /obj/item/weapon/knife/dagger/steel/special = 1, /obj/item/rope/chain = 1)
+
+	H.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/whipsflails, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/sneaking, 1, TRUE)
+	H.change_stat(STATKEY_STR, 1)
+	H.change_stat(STATKEY_END, 2)
+	H.change_stat(STATKEY_PER, -1)
+	H.verbs |= /mob/proc/haltyell
+	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 
 /datum/advclass/gatemaster/gatemaster_whip
 	name = "Chainguard Gatemaster"
@@ -68,11 +94,9 @@
 
 /datum/outfit/job/gatemaster/whip/pre_equip(mob/living/carbon/human/H)
 	..()
-	neck = /obj/item/clothing/neck/gorget
-	armor = /obj/item/clothing/armor/leather/advanced
-	shirt = /obj/item/clothing/armor/chainmail
 	gloves = /obj/item/clothing/gloves/chain
-	shoes = /obj/item/clothing/shoes/boots
+	neck = /obj/item/clothing/neck/gorget
+	armor = /obj/item/clothing/armor/leather/jacket/gatemaster_jacket/armored
 	beltr = /obj/item/weapon/mace/cudgel
 	beltl = /obj/item/weapon/whip/chain
 	backl = /obj/item/storage/backpack/satchel/black
@@ -109,10 +133,8 @@
 /datum/outfit/job/gatemaster/mace/pre_equip(mob/living/carbon/human/H)
 	..()
 	neck = /obj/item/clothing/neck/gorget
-	armor = /obj/item/clothing/armor/cuirass
-	shirt = /obj/item/clothing/armor/chainmail
 	gloves = /obj/item/clothing/gloves/chain
-	shoes = /obj/item/clothing/shoes/boots/armor/light
+	armor = /obj/item/clothing/armor/leather/jacket/gatemaster_jacket/armored
 	beltr = /obj/item/weapon/mace/steel
 	backr = /obj/item/weapon/shield/heater
 	backl = /obj/item/storage/backpack/satchel/black
@@ -146,10 +168,8 @@
 
 /datum/outfit/job/gatemaster/bow/pre_equip(mob/living/carbon/human/H)
 	..()
-	neck = /obj/item/clothing/neck/chaincoif/iron
-	armor = /obj/item/clothing/armor/leather/hide
-	shirt = /obj/item/clothing/armor/gambeson/heavy
-	shoes = /obj/item/clothing/shoes/boots
+	neck = /obj/item/clothing/neck/coif
+	armor = /obj/item/clothing/armor/leather/jacket/gatemaster_jacket
 	gloves = /obj/item/clothing/gloves/leather
 	beltr = /obj/item/weapon/mace/cudgel
 	backl = /obj/item/storage/backpack/satchel/black

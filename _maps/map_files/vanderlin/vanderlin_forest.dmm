@@ -47,31 +47,21 @@
 /area/rogue/outdoors/woods)
 "aW" = (
 /obj/structure/bed/hay,
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/indoors)
 "bf" = (
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_y = -32
 	},
 /obj/structure/fermentation_keg/random/beer,
-/turf/open/floor/ruinedwood{
-	icon_state = "vertw"
-	},
+/turf/open/floor/ruinedwood/turned/alt,
 /area/rogue/indoors)
 "bi" = (
 /obj/structure/stairs{
 	dir = 4
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/indoors)
-"bu" = (
-/obj/effect/landmark/start/lich,
-/turf/open/floor/cobblerock,
-/area/rogue/outdoors/woods)
 "bz" = (
 /obj/structure/bed/shit,
 /obj/effect/decal/cleanable/dirt/cobweb{
@@ -138,9 +128,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 1
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/indoors)
 "cA" = (
 /turf/open/floor/cobblerock,
@@ -163,9 +151,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 6
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/indoors)
 "dj" = (
 /obj/structure/fluff/customsign{
@@ -253,9 +239,7 @@
 	icon_state = "longtable"
 	},
 /obj/item/candle/yellow,
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/indoors)
 "ez" = (
 /obj/structure/fluff/walldeco/customflag{
@@ -282,20 +266,8 @@
 "eU" = (
 /turf/closed/mineral/random/med,
 /area/rogue/outdoors/woods)
-"eY" = (
-/obj/structure/stairs{
-	dir = 8
-	},
-/turf/open/transparent/openspace,
-/area/rogue/indoors)
 "eZ" = (
 /obj/effect/decal/cleanable/dirt/cobweb{
-	dir = 4
-	},
-/turf/open/transparent/openspace,
-/area/rogue/indoors)
-"ff" = (
-/obj/structure/stairs{
 	dir = 4
 	},
 /turf/open/transparent/openspace,
@@ -359,9 +331,7 @@
 /turf/closed/wall/mineral/decowood,
 /area/rogue/indoors)
 "fW" = (
-/turf/open/floor/ruinedwood{
-	icon_state = "vertw"
-	},
+/turf/open/floor/ruinedwood/turned/alt,
 /area/rogue/indoors)
 "gb" = (
 /obj/machinery/light/fueled/wallfire/candle,
@@ -395,9 +365,7 @@
 /obj/structure/stairs{
 	dir = 8
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/indoors)
 "gL" = (
 /obj/machinery/light/fueled/hearth,
@@ -414,9 +382,7 @@
 /area/rogue/indoors)
 "hb" = (
 /obj/structure/roguetent,
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/indoors)
 "hf" = (
 /turf/open/water/river{
@@ -424,9 +390,7 @@
 	},
 /area/rogue/outdoors/woods)
 "hg" = (
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/indoors)
 "hi" = (
 /obj/structure/fluff/railing/wood{
@@ -435,15 +399,11 @@
 	pixel_x = 2;
 	pixel_y = 7
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/outdoors/woods)
 "hk" = (
 /obj/structure/fermentation_keg/random/water,
-/turf/open/floor/ruinedwood{
-	icon_state = "vertw"
-	},
+/turf/open/floor/ruinedwood/turned/alt,
 /area/rogue/indoors)
 "hl" = (
 /obj/structure/bed/mediocre,
@@ -457,9 +417,7 @@
 /obj/structure/fluff/railing/fence{
 	dir = 8
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/indoors)
 "hx" = (
 /obj/machinery/light/fueled/torchholder{
@@ -467,13 +425,6 @@
 	},
 /turf/open/floor/dirt,
 /area/rogue/outdoors/woods)
-"hD" = (
-/obj/structure/stairs/stone{
-	dir = 1;
-	icon_state = "stonestairs"
-	},
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/mountains)
 "hJ" = (
 /obj/structure/chair/wood/alt,
 /turf/open/floor/wood,
@@ -619,9 +570,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 2
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/indoors)
 "kn" = (
 /obj/effect/decal/cobbleedge{
@@ -765,9 +714,7 @@
 	dir = 4;
 	icon_state = "stairs"
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/indoors)
 "mB" = (
 /turf/closed/wall/mineral/tent,
@@ -801,9 +748,7 @@
 "mZ" = (
 /obj/structure/door/swing,
 /obj/structure/fluff/walldeco/wantedposter,
-/turf/open/floor/ruinedwood{
-	icon_state = "vertw"
-	},
+/turf/open/floor/ruinedwood/turned/alt,
 /area/rogue/indoors)
 "na" = (
 /obj/structure/table/wood/plain_alt,
@@ -831,9 +776,7 @@
 	pixel_x = -7;
 	pixel_y = -7
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "vertw"
-	},
+/turf/open/floor/ruinedwood/turned/alt,
 /area/rogue/indoors)
 "np" = (
 /turf/closed/wall/mineral/wooddark/end{
@@ -1098,7 +1041,6 @@
 /area/rogue/indoors)
 "rt" = (
 /turf/closed/wall/mineral/wooddark/end{
-	icon_state = "endwooddark";
 	dir = 1
 	},
 /area/rogue/indoors)
@@ -1118,23 +1060,19 @@
 /obj/structure/table/wood{
 	icon_state = "longtable"
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/indoors)
 "sd" = (
 /obj/structure/closet/crate/crafted_closet,
 /obj/item/bait,
 /obj/item/bait,
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/indoors)
 "sm" = (
 /obj/structure/stairs/stone{
 	dir = 1
 	},
-/turf/open/transparent/openspace,
+/turf/open/floor/cobble,
 /area/rogue/outdoors/mountains)
 "sw" = (
 /turf/open/floor/cobblerock,
@@ -1160,9 +1098,7 @@
 /area/rogue/outdoors/woods)
 "sS" = (
 /obj/structure/bed/mediocre,
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/indoors)
 "sT" = (
 /obj/structure/flora/newtree,
@@ -1182,9 +1118,7 @@
 /area/rogue/outdoors/woods)
 "sZ" = (
 /obj/structure/door/weak/bolt,
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/indoors)
 "ti" = (
 /obj/structure/stairs/stone{
@@ -1277,9 +1211,7 @@
 /obj/structure/closet/crate/crafted_closet,
 /obj/item/natural/cloth,
 /obj/item/natural/cloth,
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/indoors)
 "ve" = (
 /obj/structure/bed/sleepingbag,
@@ -1318,9 +1250,7 @@
 	},
 /obj/item/fishingrod/crafted,
 /obj/item/fishingrod/crafted,
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/indoors)
 "vJ" = (
 /obj/structure/fluff/railing/border,
@@ -1389,9 +1319,7 @@
 /obj/item/reagent_containers/glass/cup/wooden,
 /obj/item/reagent_containers/glass/cup/wooden,
 /obj/item/reagent_containers/glass/cup/wooden,
-/turf/open/floor/ruinedwood{
-	icon_state = "vertw"
-	},
+/turf/open/floor/ruinedwood/turned/alt,
 /area/rogue/indoors)
 "wV" = (
 /turf/open/floor/dirt,
@@ -1439,9 +1367,7 @@
 	pixel_y = 12;
 	pixel_x = 10
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/indoors)
 "xo" = (
 /obj/structure/table/wood/plain,
@@ -1584,9 +1510,7 @@
 /area/rogue/outdoors/woods)
 "zs" = (
 /obj/structure/fluff/railing/wood,
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/outdoors/woods)
 "zu" = (
 /obj/structure/bed/sleepingbag,
@@ -1594,9 +1518,7 @@
 /area/rogue/indoors/cave)
 "zx" = (
 /obj/structure/rack/shelf/big,
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/indoors)
 "zK" = (
 /obj/structure/door/window{
@@ -1615,15 +1537,11 @@
 /area/rogue/indoors)
 "Aa" = (
 /obj/machinery/light/fueled/torchholder/l,
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/indoors)
 "Ab" = (
 /obj/structure/window/solid,
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/indoors)
 "Ad" = (
 /obj/structure/fake_machine/mail{
@@ -1652,9 +1570,7 @@
 /area/rogue/outdoors/woods_safe)
 "AH" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/ruinedwood{
-	icon_state = "vertw"
-	},
+/turf/open/floor/ruinedwood/turned/alt,
 /area/rogue/indoors)
 "AO" = (
 /obj/structure/bed/hay,
@@ -1850,9 +1766,7 @@
 /area/rogue/indoors)
 "Ef" = (
 /obj/structure/bed/inn,
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/indoors)
 "Er" = (
 /obj/effect/traveltile_spawner/vertical/bandit,
@@ -1902,9 +1816,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 4
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/indoors)
 "FB" = (
 /obj/structure/table/wood/counter/end{
@@ -1920,9 +1832,7 @@
 /obj/effect/landmark/start/adventurer{
 	dir = 1
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/indoors)
 "Gh" = (
 /obj/structure/fluff/railing/stonehedge,
@@ -1959,21 +1869,13 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/woods_safe)
 "GX" = (
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/outdoors/woods)
-"GZ" = (
-/obj/effect/landmark/start/lich,
-/turf/open/floor/naturalstone,
-/area/rogue/indoors/cave)
 "Hd" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/indoors)
 "Hm" = (
 /obj/structure/table/wood/large/corner{
@@ -2134,9 +2036,7 @@
 	mailtag = "Thatchwood Inn"
 	},
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
-/turf/open/floor/ruinedwood{
-	icon_state = "vertw"
-	},
+/turf/open/floor/ruinedwood/turned/alt,
 /area/rogue/indoors)
 "JN" = (
 /obj/structure/fluff/railing/wood{
@@ -2212,17 +2112,13 @@
 	pixel_y = 1;
 	pixel_x = 11
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/indoors)
 "Lc" = (
 /obj/structure/chair/wood/alt{
 	dir = 1
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/indoors)
 "Lp" = (
 /obj/structure/fluff/railing/fence{
@@ -2241,9 +2137,7 @@
 /obj/structure/fluff/railing/fence{
 	dir = 4
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/indoors)
 "LH" = (
 /obj/structure/table/wood{
@@ -2255,9 +2149,7 @@
 	pixel_y = 1;
 	pixel_x = -10
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/indoors)
 "LQ" = (
 /obj/structure/fluff/railing/wood{
@@ -2272,9 +2164,7 @@
 /obj/structure/door/weak/bolt{
 	dir = 1
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/indoors)
 "LY" = (
 /turf/closed/wall/mineral/wooddark,
@@ -2387,9 +2277,7 @@
 	},
 /obj/item/paper,
 /obj/item/natural/feather,
-/turf/open/floor/ruinedwood{
-	icon_state = "vertw"
-	},
+/turf/open/floor/ruinedwood/turned/alt,
 /area/rogue/indoors)
 "OD" = (
 /obj/structure/rack/shelf/big{
@@ -2428,9 +2316,7 @@
 /turf/open/floor/wood,
 /area/rogue/indoors)
 "Ps" = (
-/turf/open/floor/rooftop{
-	icon_state = "roofg"
-	},
+/turf/open/floor/rooftop/green,
 /area/rogue/outdoors/mountains)
 "PI" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -2464,9 +2350,7 @@
 	dir = 8;
 	pixel_y = -1
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/outdoors/woods)
 "Qd" = (
 /turf/open/floor/dirt/road,
@@ -2582,10 +2466,6 @@
 	},
 /turf/open/floor/cobble,
 /area/rogue/indoors)
-"RM" = (
-/obj/effect/landmark/start/lich,
-/turf/open/floor/grass,
-/area/rogue/outdoors/woods)
 "Sb" = (
 /turf/open/floor/cobble,
 /area/rogue/outdoors/mountains)
@@ -2642,9 +2522,7 @@
 /obj/structure/fluff/railing/fence{
 	dir = 1
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/indoors)
 "Ti" = (
 /obj/machinery/light/fueled/wallfire/candle{
@@ -2719,9 +2597,7 @@
 	pixel_x = 32;
 	pixel_y = 0
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "vertw"
-	},
+/turf/open/floor/ruinedwood/turned/alt,
 /area/rogue/indoors)
 "UA" = (
 /obj/machinery/light/fueled/wallfire/candle{
@@ -2771,9 +2647,7 @@
 /obj/structure/closet/crate/chest/neu,
 /obj/item/weapon/mace/woodclub/train_sword,
 /obj/item/weapon/mace/woodclub/train_sword,
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/indoors)
 "Vk" = (
 /obj/structure/fluff/customsign{
@@ -2946,9 +2820,7 @@
 /area/rogue/indoors)
 "Yv" = (
 /obj/effect/landmark/start/adventurer,
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/indoors)
 "YE" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -3006,14 +2878,8 @@
 /area/rogue/outdoors/woods)
 "ZB" = (
 /obj/structure/chair/wood/alt,
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/indoors)
-"ZD" = (
-/obj/structure/stairs/stone,
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/mountains)
 "ZH" = (
 /obj/structure/fake_machine/scomm,
 /turf/open/floor/dirt/road,
@@ -3028,9 +2894,7 @@
 /obj/structure/fluff/railing/wood{
 	dir = 4
 	},
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
+/turf/open/floor/ruinedwood/alt,
 /area/rogue/outdoors/woods)
 
 (1,1,1) = {"
@@ -9807,7 +9671,7 @@ Wh
 Wh
 Nn
 Nn
-GZ
+Nn
 Nn
 Nn
 dk
@@ -14095,7 +13959,7 @@ wV
 UR
 UR
 UR
-RM
+UR
 UR
 tR
 tR
@@ -42226,7 +42090,7 @@ Zf
 Sy
 cA
 QC
-bu
+cA
 QC
 Gh
 wV
@@ -62070,14 +61934,14 @@ Rh
 Rh
 Rh
 Rh
-ZD
+gy
 Sb
 Sb
 Sb
 Sb
 Sb
 Sb
-hD
+NM
 Rh
 Rh
 Rh
@@ -62272,14 +62136,14 @@ Rh
 Rh
 Rh
 Rh
-ZD
+gy
 Sb
 Sb
 Sb
 Sb
 Sb
 Sb
-hD
+NM
 Rh
 Rh
 Rh
@@ -62474,14 +62338,14 @@ Rh
 Rh
 Rh
 Rh
-ZD
+gy
 Sb
 Sb
 Sb
 Sb
 Sb
 Sb
-hD
+NM
 Rh
 Rh
 Rh
@@ -64620,7 +64484,7 @@ Rh
 Rh
 Rh
 YY
-eY
+gD
 hg
 np
 Rh
@@ -72567,7 +72431,7 @@ Rh
 Rh
 Rh
 Rh
-ZD
+gy
 Sb
 Rh
 Rh
@@ -72623,7 +72487,7 @@ Rh
 Rh
 Rh
 Rh
-ZD
+gy
 Sb
 Sb
 Sb
@@ -72769,7 +72633,7 @@ Rh
 Rh
 Rh
 Rh
-ZD
+gy
 Sb
 Sb
 Rh
@@ -72825,7 +72689,7 @@ Rh
 Rh
 Rh
 Rh
-ZD
+gy
 Sb
 Sb
 Sb
@@ -73027,14 +72891,14 @@ Rh
 Rh
 Rh
 Rh
-ZD
+gy
 Sb
 Sb
 Sb
 Sb
 Sb
 Sb
-hD
+NM
 Rh
 Rh
 Rh
@@ -73236,7 +73100,7 @@ Sb
 Sb
 Sb
 Sb
-hD
+NM
 Rh
 Rh
 Rh
@@ -73438,7 +73302,7 @@ Rh
 Rh
 Sb
 Sb
-hD
+NM
 Rh
 Rh
 Rh
@@ -75586,7 +75450,7 @@ Rh
 Rh
 Rh
 VE
-ff
+MK
 fh
 jB
 Fy

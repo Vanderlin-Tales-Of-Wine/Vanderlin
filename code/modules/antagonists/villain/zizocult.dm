@@ -14,11 +14,15 @@ GLOBAL_LIST_EMPTY(ritualslist)
 		"NO GODS! ONLY MASTERS!",
 	)
 	var/islesser = TRUE
+	var/change_stats = TRUE
 
 	innate_traits = list(
 		TRAIT_STEELHEARTED,
 		TRAIT_VILLAIN,
 	)
+
+/datum/antagonist/zizocultist/zizo_knight
+	change_stats = FALSE
 
 /datum/antagonist/zizocultist/leader
 	name = "Zizoid Cultist"
@@ -52,30 +56,37 @@ GLOBAL_LIST_EMPTY(ritualslist)
 
 	owner.special_role = "Zizoid Lackey"
 	H.cmode_music = 'sound/music/cmode/antag/combat_cult.ogg'
-	owner.current.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
-	owner.current.playsound_local(get_turf(owner.current), 'sound/music/maniac.ogg', 80, FALSE, pressure_affected = FALSE)
-	owner.current.verbs |= /mob/living/carbon/human/proc/communicate
+	H.playsound_local(get_turf(H), 'sound/music/maniac.ogg', 80, FALSE, pressure_affected = FALSE)
+	H.verbs |= /mob/living/carbon/human/proc/communicate
 
-	H.change_stat(STATKEY_STR, 2)
+	if(change_stats)
+		H.change_stat(STATKEY_STR, 2)
+		H.clamped_adjust_skillrank(/datum/skill/misc/reading, 3, 3, TRUE)
 
 	if(islesser)
 		add_objective(/datum/objective/zizoserve)
-		owner.current.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-		owner.current.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
+		if(!change_stats)
+			return
+		H.clamped_adjust_skillrank(/datum/skill/combat/knives, 2, 3, TRUE)
+		H.clamped_adjust_skillrank(/datum/skill/combat/swords, 2, 3, TRUE)
 		H.change_stat(STATKEY_INT, -2)
-	else
-		add_objective(/datum/objective/zizo)
-		owner.current.clamped_adjust_skillrank(/datum/skill/combat/knives, 4, TRUE)
-		owner.current.clamped_adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
-		owner.current.clamped_adjust_skillrank(/datum/skill/combat/wrestling, 5, TRUE)
-		owner.current.clamped_adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
-		H.change_stat(STATKEY_STR, 2)
-		H.change_stat(STATKEY_END, 3)
-		H.change_stat(STATKEY_CON, 3)
-		H.change_stat(STATKEY_SPD, 4)
-		H.change_stat(STATKEY_INT, 5)
-		owner.special_role = ROLE_ZIZOIDCULTIST
-		owner.current.verbs |= /mob/living/carbon/human/proc/release_minion
+		return
+
+	add_objective(/datum/objective/zizo)
+	owner.special_role = ROLE_ZIZOIDCULTIST
+	H.verbs |= /mob/living/carbon/human/proc/release_minion
+	if(!change_stats)
+		return
+	H.clamped_adjust_skillrank(/datum/skill/combat/knives, 4, 4, TRUE)
+	H.clamped_adjust_skillrank(/datum/skill/combat/swords, 4, 4, TRUE)
+	H.clamped_adjust_skillrank(/datum/skill/combat/wrestling, 5, 5, TRUE)
+	H.clamped_adjust_skillrank(/datum/skill/misc/athletics, 4, 4, TRUE)
+	H.change_stat(STATKEY_STR, 2)
+	H.change_stat(STATKEY_STR, 2)
+	H.change_stat(STATKEY_END, 3)
+	H.change_stat(STATKEY_CON, 3)
+	H.change_stat(STATKEY_SPD, 4)
+	H.change_stat(STATKEY_INT, 5)
 
 /datum/antagonist/zizocultist/greet()
 	to_chat(owner, span_danger("I'm a lackey to the LEADER. A new future begins."))
@@ -206,7 +217,6 @@ GLOBAL_LIST_EMPTY(ritualslist)
 		to_chat(V, "<span style = \"font-size:110%; font-weight:bold\"><span style = 'color:#8a13bd'>A message from </span><span style = 'color:#[H.voice_color]'>[src.real_name]</span>: [speak]</span>")
 		playsound_local(V.current, 'sound/vo/cult/skvor.ogg', 100)
 
-	testing("[key_name(src)] used cultist telepathy to say: [speak]")
 	log_telepathy("[key_name(src)] used cultist telepathy to say: [speak]")
 
 /obj/effect/decal/cleanable/sigil
@@ -214,7 +224,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	desc = "Strange runics."
 	icon_state = "center"
 	icon = 'icons/obj/sigils.dmi'
-	minimum_clean_strength = CLEAN_STRONG
+	clean_type = CLEAN_TYPE_HARD_DECAL
 	var/sigil_type
 
 /obj/effect/decal/cleanable/sigil/examine(mob/user)
@@ -230,13 +240,10 @@ GLOBAL_LIST_EMPTY(ritualslist)
 /obj/effect/decal/cleanable/sigil/Initialize(mapload)
 	. = ..()
 	if(!LAZYLEN(GLOB.ritualslist))
-		testing("initializing ritualslist")
 		GLOB.ritualslist = list()
 		var/static/list/rituals = subtypesof(/datum/ritual)
 		for(var/path in rituals)
 			var/datum/ritual/G = path
-			testing("now initializing: [path]")
-			testing("[G.name]")
 			GLOB.ritualslist[G.name] = G
 
 /obj/effect/decal/cleanable/sigil/proc/consume_ingredients(datum/ritual/R)
@@ -268,7 +275,6 @@ GLOBAL_LIST_EMPTY(ritualslist)
 
 /obj/effect/decal/cleanable/sigil/attack_hand(mob/living/user)
 	. = ..()
-	testing("clicked by [user]")
 	var/list/rituals = list()
 	if(icon_state != "center") // fucking awful but it has to be this way
 		return
@@ -282,11 +288,9 @@ GLOBAL_LIST_EMPTY(ritualslist)
 			rituals |= path.name
 
 	var/ritualnameinput = input(user, "Rituals", "VANDERLIN") as null|anything in rituals
-	testing("ritualnameinput [ritualnameinput]")
 	var/datum/ritual/pickritual
 
 	pickritual = GLOB.ritualslist[ritualnameinput]
-	testing("pickritual [pickritual]")
 
 	var/cardinal_success = FALSE
 	var/center_success = FALSE
@@ -338,14 +342,12 @@ GLOBAL_LIST_EMPTY(ritualslist)
 
 	if(dews >= 4)
 		cardinal_success = TRUE
-		testing("CARDINAL SUCCESS!")
 
 	for(var/atom/A in loc.contents)
 		if(!istype(A, pickritual.center_requirement))
 			continue
 		else
 			center_success = TRUE
-			testing("CENTER SUCCESS!")
 			break
 
 	var/badritualpunishment = FALSE
@@ -363,7 +365,6 @@ GLOBAL_LIST_EMPTY(ritualslist)
 		user.electrocute_act(10, src)
 		return
 
-	testing("Now calling proc")
 	consume_ingredients(pickritual)
 	user.playsound_local(user, 'sound/vo/cult/tesa.ogg', 25)
 	user.whisper("O'vena tesa...")
@@ -492,7 +493,6 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	is_cultist_ritual = TRUE
 
 /proc/convert_cultist(mob/user, turf/C)
-	testing("NOW TESTING CONVERT")
 
 	for(var/mob/living/carbon/human/H in C.contents)
 		if(H != user)
@@ -707,7 +707,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	desc = "It is pulsating."
 	clean_speed = 1
 	clean_effectiveness = 100
-	clean_strength = CLEAN_STRONG
+	clean_strength = CLEAN_ALL
 
 /proc/criminalstool(mob/user, turf/C)
 	new /obj/item/soap/cult(C)

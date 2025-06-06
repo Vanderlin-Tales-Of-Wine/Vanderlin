@@ -816,38 +816,17 @@
 	emote_type = EMOTE_AUDIBLE
 	only_forced_audio = TRUE
 
-/datum/emote/living/scream/painscream/run_emote(mob/user, params, type_override, intentional, targetted)
-	. = ..()
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		if(H.has_flaw(/datum/charflaw/addiction/masochist))
-			H.sate_addiction()
-
 /datum/emote/living/scream/agony
 	key = "agony"
 	message = "screams in agony!"
 	emote_type = EMOTE_AUDIBLE
 	only_forced_audio = TRUE
 
-/datum/emote/living/screan/agony/run_emote(mob/user, params, type_override, intentional, targetted)
-	. = ..()
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		if(H.has_flaw(/datum/charflaw/addiction/masochist))
-			H.sate_addiction()
-
 /datum/emote/living/scream/firescream
 	key = "firescream"
 	nomsg = TRUE
 	emote_type = EMOTE_AUDIBLE
 	only_forced_audio = TRUE
-
-/datum/emote/living/scream/firescream/run_emote(mob/user, params, type_override, intentional, targetted)
-	. = ..()
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		if(H.has_flaw(/datum/charflaw/addiction/masochist))
-			H.sate_addiction()
 
 /datum/emote/living/aggro
 	key = "aggro"

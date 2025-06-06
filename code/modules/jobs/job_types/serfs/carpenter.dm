@@ -15,6 +15,7 @@
 	allowed_races = RACES_PLAYER_ALL
 
 	outfit = /datum/outfit/job/carpenter
+	cmode_music = 'sound/music/cmode/towner/CombatTowner.ogg'
 
 /datum/outfit/job/carpenter
 	job_bitflag = BITFLAG_CONSTRUCTOR

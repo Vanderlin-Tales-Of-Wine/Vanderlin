@@ -194,7 +194,7 @@
 		new material_drop(loc, material_drop_amount)
 	qdel(src)
 
-/obj/structure/closet/obj_break(damage_flag)
+/obj/structure/closet/obj_break(damage_flag, silent)
 	if(!broken && !(flags_1 & NODECONSTRUCT_1))
 		bust_open()
 	..()
@@ -274,7 +274,7 @@
 	set hidden = 1
 	set name = "Toggle Open"
 
-	if(!usr.canUseTopic(src, BE_CLOSE) || !isturf(loc))
+	if(!usr.can_perform_action(src, FORBID_TELEKINESIS_REACH) || !isturf(loc))
 		return
 
 	if(iscarbon(usr))

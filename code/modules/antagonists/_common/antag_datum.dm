@@ -44,7 +44,7 @@ GLOBAL_LIST_EMPTY(antagonists)
 	owner = null
 	return ..()
 
-/datum/antagonist/proc/examine_friendorfoe(datum/antagonist/examined_datum,mob/examiner,mob/examined)
+/datum/antagonist/proc/examine_friendorfoe(datum/antagonist/examined_datum, mob/examiner, mob/examined)
 	return
 
 /datum/antagonist/proc/can_be_owned(datum/mind/new_owner)
@@ -180,7 +180,6 @@ GLOBAL_LIST_EMPTY(antagonists)
 
 //Individual roundend report
 /datum/antagonist/proc/roundend_report()
-	testing("doreport")
 	var/list/report = list()
 
 	if(!owner)
@@ -199,7 +198,6 @@ GLOBAL_LIST_EMPTY(antagonists)
 	if(objectives.len == 0 || objectives_complete)
 		report += "<span class='greentext big'>The [name] was successful!</span>"
 	else
-		testing("redtext")
 		report += "<span class='redtext big'>The [name] has failed!</span>"
 	report += "<br>"
 
@@ -277,10 +275,16 @@ GLOBAL_LIST_EMPTY(antagonists)
 
 /// makes the owner's role unassigned and reopens their job slot
 /datum/antagonist/proc/remove_job()
-	if(owner.assigned_role)
-		owner.assigned_role.adjust_current_positions(1)
-	owner.assigned_role = SSjob.GetJobType(/datum/job/unassigned)
-	owner.current?.job = null
+	var/mob/living/carbon/human/dude = owner.current
+	if(!istype(dude))
+		return
+	if(dude.job)
+		var/datum/job/J = SSjob.GetJob(owner.current.job)
+		J.adjust_current_positions(-1)
+		owner.current.job = null
+	owner?.set_assigned_role(SSjob.GetJobType(/datum/job/unassigned))
+
+	dude.adv_hugboxing_cancel()
 
 //This one is created by admin tools for custom objectives
 /datum/antagonist/custom

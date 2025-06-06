@@ -59,7 +59,7 @@
 	)
 	var/mutable_appearance/rotflies
 
-/datum/antagonist/zombie/examine_friendorfoe(datum/antagonist/examined_datum,mob/examiner,mob/examined)
+/datum/antagonist/zombie/examine_friendorfoe(datum/antagonist/examined_datum, mob/examiner, mob/examined)
 	if(istype(examined_datum, /datum/antagonist/vampire))
 		var/datum/antagonist/vampire/V = examined_datum
 		if(!V.disguised)
@@ -245,7 +245,6 @@
 //Infected wake param is just a transition from living to zombie, via zombie_infect()
 //Previously you just died without warning in 3 minutes, now you just become an antag
 /datum/antagonist/zombie/proc/wake_zombie(infected_wake = FALSE)
-	testing("WAKEZOMBIE")
 	if(!owner.current)
 		return
 	var/mob/living/carbon/human/zombie = owner.current

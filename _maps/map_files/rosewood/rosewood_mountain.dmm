@@ -5723,12 +5723,6 @@
 /obj/structure/flora/shroom_tree,
 /turf/open/floor/grass/cold,
 /area/rogue/outdoors/mountains/anvil/snowyforest)
-"TF" = (
-/obj/structure/stairs/stone/reddish{
-	dir = 4
-	},
-/turf/open/transparent/openspace,
-/area/rogue/under/mountains/anvil/dungeon/lower)
 "TG" = (
 /obj/structure/table/stone_small,
 /obj/structure/spider/stickyweb{
@@ -23801,7 +23795,7 @@ Oa
 dl
 SL
 SL
-TF
+de
 dl
 tA
 hI

@@ -1,8 +1,3 @@
-
-/mob/living/carbon/human
-	blocks_emissive = EMISSIVE_BLOCK_UNIQUE
-	var/datum/charflaw/charflaw
-
 /mob/proc/sate_addiction()
 	return
 
@@ -109,14 +104,6 @@
 	desc = "As a child I had to rely on theft to survive. Whether that changed or not, I just can't get over it."
 	time = 30 MINUTES
 	needsate_text = "I need to STEAL something! I'll die if I don't!"
-
-/// PAIN FREEK
-
-/datum/charflaw/addiction/masochist
-	name = "Pain Freek"
-	desc = "They call me a freek, but it just feels so good..."
-	time = 25 MINUTES
-	needsate_text = "I need to feel good... punch me in the face!"
 
 /// LOVES SEEING VISCERA OR SOME SHIT
 

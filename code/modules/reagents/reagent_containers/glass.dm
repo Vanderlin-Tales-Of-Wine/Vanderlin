@@ -87,7 +87,6 @@
 	misscost = 0
 
 /obj/item/reagent_containers/glass/attack(mob/M, mob/user, obj/target)
-	testing("a1")
 	if(istype(M))
 		if(user.used_intent.type == INTENT_GENERIC)
 			return ..()
@@ -145,14 +144,10 @@
 	if(user.used_intent.type == INTENT_GENERIC)
 		return ..()
 
-	testing("attackobj1")
-
 	if(!spillable)
 		return ..()
 
-
 	if(target.is_refillable() && (user.used_intent.type == INTENT_POUR)) //Something like a glass. Player probably wants to transfer TO it.
-		testing("attackobj2")
 		if(!reagents.total_volume)
 			to_chat(user, "<span class='warning'>[src] is empty!</span>")
 			return
@@ -178,7 +173,6 @@
 		return
 
 	if(target.is_drainable() && (user.used_intent.type == /datum/intent/fill)) //A dispenser. Transfer FROM it TO us.
-		testing("attackobj3")
 		if(!target.reagents.total_volume)
 			to_chat(user, "<span class='warning'>[target] is empty!</span>")
 			return
@@ -272,39 +266,10 @@
 	possible_item_intents = list( /datum/intent/fill, INTENT_POUR, INTENT_SPLASH, INTENT_GENERIC )
 	gripped_intents = list(INTENT_POUR)
 	resistance_flags = NONE
-	armor = list("blunt" = 10, "slash" = 10, "stab" = 10,  "piercing" = 0, "fire" = 75, "acid" = 50) //Weak melee protection, because you can wear it on your head
-	slot_equipment_priority = list( \
-		SLOT_BACK, SLOT_RING,\
-		SLOT_PANTS, SLOT_ARMOR,\
-		SLOT_WEAR_MASK, SLOT_HEAD, SLOT_NECK,\
-		SLOT_SHOES, SLOT_GLOVES,\
-		SLOT_HEAD,\
-		SLOT_BELT, SLOT_S_STORE,\
-		SLOT_L_STORE, SLOT_R_STORE,\
-		SLOT_GENERC_DEXTROUS_STORAGE
-	)
-
-/obj/item/reagent_containers/glass/bucket/equipped(mob/user, slot)
-	..()
-	if (slot == SLOT_HEAD)
-		if(reagents.total_volume)
-			to_chat(user, "<span class='danger'>[src]'s contents spill all over you!</span>")
-			reagents.reaction(user, TOUCH)
-			reagents.clear_reagents()
-		reagents.flags = NONE
 
 /obj/item/reagent_containers/glass/bucket/dropped(mob/user)
 	. = ..()
 	reagents.flags = initial(reagent_flags)
-
-/obj/item/reagent_containers/glass/bucket/equip_to_best_slot(mob/M)
-	if(reagents.total_volume) //If there is water in a bucket, don't quick equip it to the head
-		var/index = slot_equipment_priority.Find(SLOT_HEAD)
-		slot_equipment_priority.Remove(SLOT_HEAD)
-		. = ..()
-		slot_equipment_priority.Insert(index, SLOT_HEAD)
-		return
-	return ..()
 
 /obj/item/reagent_containers/glass/bucket/attackby(obj/item/I, mob/user, params)
 	..()
@@ -350,7 +315,6 @@
 
 /obj/item/reagent_containers/glass/bucket/wooden/update_icon(dont_fill=FALSE)
 	if(dont_fill)
-		testing("dontfull")
 		return ..()
 
 	cut_overlays()
