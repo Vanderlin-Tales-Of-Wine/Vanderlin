@@ -14,11 +14,15 @@ GLOBAL_LIST_EMPTY(ritualslist)
 		"NO GODS! ONLY MASTERS!",
 	)
 	var/islesser = TRUE
+	var/change_stats = TRUE
 
 	innate_traits = list(
 		TRAIT_STEELHEARTED,
 		TRAIT_VILLAIN,
 	)
+
+/datum/antagonist/zizocultist/zizo_knight
+	change_stats = FALSE
 
 /datum/antagonist/zizocultist/leader
 	name = "Zizoid Cultist"
@@ -52,30 +56,37 @@ GLOBAL_LIST_EMPTY(ritualslist)
 
 	owner.special_role = "Zizoid Lackey"
 	H.cmode_music = 'sound/music/cmode/antag/combat_cult.ogg'
-	owner.current.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
-	owner.current.playsound_local(get_turf(owner.current), 'sound/music/maniac.ogg', 80, FALSE, pressure_affected = FALSE)
-	owner.current.verbs |= /mob/living/carbon/human/proc/communicate
+	H.playsound_local(get_turf(H), 'sound/music/maniac.ogg', 80, FALSE, pressure_affected = FALSE)
+	H.verbs |= /mob/living/carbon/human/proc/communicate
 
-	H.change_stat(STATKEY_STR, 2)
+	if(change_stats)
+		H.change_stat(STATKEY_STR, 2)
+		H.clamped_adjust_skillrank(/datum/skill/misc/reading, 3, 3, TRUE)
 
 	if(islesser)
 		add_objective(/datum/objective/zizoserve)
+		if(!change_stats)
+			return
+		H.clamped_adjust_skillrank(/datum/skill/combat/knives, 2, 3, TRUE)
+		H.clamped_adjust_skillrank(/datum/skill/combat/swords, 2, 3, TRUE)
 		H.change_stat(STATKEY_INT, -2)
-		owner.current.clamped_adjust_skillrank(/datum/skill/combat/knives, 2, 2, TRUE)
-		owner.current.clamped_adjust_skillrank(/datum/skill/combat/swords, 2, 2, TRUE)
-	else
-		add_objective(/datum/objective/zizo)
-		owner.current.clamped_adjust_skillrank(/datum/skill/combat/knives, 4, 4, TRUE)
-		owner.current.clamped_adjust_skillrank(/datum/skill/combat/swords, 4, 4, TRUE)
-		owner.current.clamped_adjust_skillrank(/datum/skill/combat/wrestling, 5, 5, TRUE)
-		owner.current.clamped_adjust_skillrank(/datum/skill/misc/athletics, 4, 4, TRUE)
-		H.change_stat(STATKEY_STR, 2)
-		H.change_stat(STATKEY_END, 3)
-		H.change_stat(STATKEY_CON, 3)
-		H.change_stat(STATKEY_SPD, 4)
-		H.change_stat(STATKEY_INT, 5)
-		owner.special_role = ROLE_ZIZOIDCULTIST
-		owner.current.verbs |= /mob/living/carbon/human/proc/release_minion
+		return
+
+	add_objective(/datum/objective/zizo)
+	owner.special_role = ROLE_ZIZOIDCULTIST
+	H.verbs |= /mob/living/carbon/human/proc/release_minion
+	if(!change_stats)
+		return
+	H.clamped_adjust_skillrank(/datum/skill/combat/knives, 4, 4, TRUE)
+	H.clamped_adjust_skillrank(/datum/skill/combat/swords, 4, 4, TRUE)
+	H.clamped_adjust_skillrank(/datum/skill/combat/wrestling, 5, 5, TRUE)
+	H.clamped_adjust_skillrank(/datum/skill/misc/athletics, 4, 4, TRUE)
+	H.change_stat(STATKEY_STR, 2)
+	H.change_stat(STATKEY_STR, 2)
+	H.change_stat(STATKEY_END, 3)
+	H.change_stat(STATKEY_CON, 3)
+	H.change_stat(STATKEY_SPD, 4)
+	H.change_stat(STATKEY_INT, 5)
 
 /datum/antagonist/zizocultist/greet()
 	to_chat(owner, span_danger("I'm a lackey to the LEADER. A new future begins."))

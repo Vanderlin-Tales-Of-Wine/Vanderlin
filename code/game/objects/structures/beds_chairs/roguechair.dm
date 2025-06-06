@@ -231,11 +231,6 @@
 	icon_state = "chair1"
 	origin_type = /obj/structure/chair/wood/alt/fancy
 
-/obj/structure/chair/wood/alt/attack_right(mob/user)
-	var/datum/component/simple_rotation/rotcomp = GetComponent(/datum/component/simple_rotation)
-	if(rotcomp)
-		rotcomp.HandRot(rotcomp,user,ROTATION_CLOCKWISE)
-
 /obj/structure/chair/wood/alt
 //	pixel_y = 5
 

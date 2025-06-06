@@ -2,7 +2,7 @@
 	name = "Drow Knight"
 	greet_text = "You are an evil itinerant Knight, you have embarked alongside your squire on a voyage to engulf chaos within these lands."
 	outfit = /datum/outfit/job/dark_itinerant_knight
-	antag_datum = /datum/antagonist/zizocultist
+	antag_datum = /datum/antagonist/zizocultist/zizo_knight
 	allowed_sexes = list(FEMALE)
 	allowed_races = list("Dark Elf")
 	grant_lit_torch = TRUE
@@ -51,7 +51,7 @@
 	name = "Underling Squire"
 	greet_text = "You are the squire of an evil knight, they have taken you under their custody as you were the only one who didn't object to their dubious ethics."
 	outfit = /datum/outfit/job/dark_itinerant_squire
-	antag_datum = /datum/antagonist/zizocultist
+	antag_datum = /datum/antagonist/zizocultist/zizo_knight
 	allowed_sexes = list(FEMALE)
 	allowed_races = list("Dark Elf")
 	grant_lit_torch = TRUE

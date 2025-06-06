@@ -60,12 +60,13 @@
 		playsound(user, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 70, FALSE)
 		if(do_after(user, 2 SECONDS, src))
 			reagents.trans_to(I, reagents.total_volume)
-	return TRUE
+		return TRUE
+	return ..()
 
 /obj/item/reagent_containers/glass/bucket/pot/throw_impact(atom/hit_atom, datum/thrownthing/thrownthing)
 	if(reagents.total_volume > 5)
 		new /obj/effect/decal/cleanable/food/mess/soup(get_turf(src))
-	..()
+	. = ..()
 
 /obj/item/reagent_containers/glass/bucket/pot/getonmobprop(tag)
 	. = ..()

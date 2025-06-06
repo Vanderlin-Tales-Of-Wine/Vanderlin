@@ -7,6 +7,10 @@
 	rotation_structure = TRUE
 	initialize_dirs = CONN_DIR_FORWARD | CONN_DIR_FLIP
 
+/obj/structure/rotation_piece/ComponentInitialize()
+	. = ..()
+	AddComponent(/datum/component/simple_rotation, ROTATION_REQUIRE_WRENCH|ROTATION_IGNORE_ANCHORED)
+
 /obj/structure/rotation_piece/cog
 	name = "cogwheel"
 

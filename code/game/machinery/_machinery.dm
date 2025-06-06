@@ -115,7 +115,7 @@
 	..()
 	if(!can_interact(usr))
 		return 1
-	if(!usr.canUseTopic(src))
+	if(!usr.can_perform_action(src, NEED_DEXTERITY))
 		return 1
 	add_fingerprint(usr)
 	return 0
