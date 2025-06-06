@@ -19,7 +19,6 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	"Isolationist"=/datum/charflaw/isolationist,
 	"Fire Servant"=/datum/charflaw/addiction/pyromaniac,
 	"Thief-Borne"=/datum/charflaw/addiction/kleptomaniac,
-	"Pain Freek"=/datum/charflaw/addiction/masochist,
 	"Hunted"=/datum/charflaw/hunted,
 	"Random Flaw or No Flaw"=/datum/charflaw/randflaw,
 	"Guaranteed No Flaw (3 TRI)"=/datum/charflaw/noflaw,))
@@ -500,7 +499,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	var/current_pain = user.get_complex_pain()
 	// Bloodloss makes the pain count as extra large to allow people to bloodlet themselves with cutting weapons to satisfy vice
 	var/bloodloss_factor = clamp(1.0 - (user.blood_volume / BLOOD_VOLUME_NORMAL), 0.0, 0.5)
-	var/new_pain_threshold = get_pain_threshold(current_pain * (1.0 + (bloodloss_factor * 1.4))) // Bloodloss factor goes up to 50%, and then counts at 140% value of that
+	var/new_pain_threshold = get_pain_threshold(current_pain * (1.0 + (bloodloss_factor * 1.4)) * clamp(2 - (user.STAEND / 10), 0.5, 1.5)) // Bloodloss factor goes up to 50%, and then counts at 140% value of that
 	if(last_pain_threshold == NONE)
 		to_chat(user, span_boldwarning("I could really use some pain right now..."))
 	else if (new_pain_threshold != last_pain_threshold)
@@ -526,13 +525,13 @@ GLOBAL_LIST_INIT(character_flaws, list(
 
 /datum/charflaw/masochist/proc/get_pain_threshold(pain_amt)
 	switch(pain_amt)
-		if(-INFINITY to 50)
+		if(-INFINITY to 25)
 			return MASO_THRESHOLD_ONE
-		if(50 to 95)
+		if(25 to 50)
 			return MASO_THRESHOLD_TWO
-		if(95 to 140)
+		if(50 to 95)
 			return MASO_THRESHOLD_THREE
-		if(140 to INFINITY)
+		if(95 to INFINITY)
 			return MASO_THRESHOLD_FOUR
 
 /proc/get_mammons_in_atom(atom/movable/movable)

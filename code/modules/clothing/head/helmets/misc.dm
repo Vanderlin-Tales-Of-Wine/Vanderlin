@@ -304,10 +304,15 @@
 	item_weight = 6 * STEEL_MULTIPLIER
 
 /obj/item/clothing/head/helmet/townwatch/alt
-	name = "barred helmet"
-	flags_inv = HIDEEARS|HIDEHAIR|HIDEFACE
-	desc = "An old archaic helmet of a symbol long forgotten. The shape resembles the bars of a gate."
 	icon_state = "gatehelm"
+
+/obj/item/clothing/head/helmet/townwatch/gatemaster
+	name = "barred helmet"
+	flags_inv = HIDEEARS|HIDEHAIR
+	desc = "An old archaic helmet of a symbol long forgotten, now owned by the Gatemaster. The shape resembles the bars of a gate."
+	icon = 'icons/roguetown/clothing/special/gatemaster.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/gatemaster.dmi'
+	icon_state = "master_helm"
 
 //................. Zizo Barbute .............. //
 
