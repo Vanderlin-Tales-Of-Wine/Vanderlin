@@ -108,7 +108,7 @@
 /obj/item/clothing/Topic(href, href_list)
 	. = ..()
 	if(href_list["inspect"])
-		if(!usr.canUseTopic(src, be_close=TRUE))
+		if(!usr.can_perform_action(src, FORBID_TELEKINESIS_REACH))
 			return
 		if(armor_class == AC_HEAVY)
 			to_chat(usr, "AC: <b>HEAVY</b>")
@@ -410,7 +410,7 @@ BLIND     // can't see anything
 	if(..())
 		return 1
 
-	if(!istype(user) || !user.canUseTopic(src, BE_CLOSE, ismonkey(user)))
+	if(!istype(user) || !user.can_perform_action(src, NEED_DEXTERITY|FORBID_TELEKINESIS_REACH))
 		return
 	else
 		if(attached_accessory)

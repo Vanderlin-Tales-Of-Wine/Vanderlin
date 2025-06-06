@@ -121,6 +121,7 @@
 #include "code\__DEFINES\roguetown.dm"
 #include "code\__DEFINES\role_bans.dm"
 #include "code\__DEFINES\role_preferences.dm"
+#include "code\__DEFINES\rotation.dm"
 #include "code\__DEFINES\rotational_defines.dm"
 #include "code\__DEFINES\rust_g.dm"
 #include "code\__DEFINES\say.dm"
