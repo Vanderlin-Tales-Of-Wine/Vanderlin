@@ -164,7 +164,7 @@
 		to_chat(user, span_notice("I finish removing the lux from [target]!"))
 
 /obj/item/weapon/polearm/neant/proc/handle_magick(mob/living/user, atom/target)
-	if(!COOLDOWN_FINISHED(fire_projectile))
+	if(!COOLDOWN_FINISHED(src, fire_projectile))
 		return
 	var/client/client = user.client
 	if(!client?.chargedprog)
