@@ -212,7 +212,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_RECRUITED = "I have been recruited!",
 	TRAIT_EARGRAB = span_info("I can keep a tight grip on the ear of unruly children."),
 	TRAIT_KITTEN_MOM = span_info("Kittens love you, they see you are a parent."),
-	TRAIT_GOOD_SWIM = span_info("I swim can against the flow of rivers and without being slowed."),
+	TRAIT_GOOD_SWIM = span_info("I can swim without being slowed and against the flow of rivers."),
 	TRAIT_WATER_BREATHE = span_info("I can breathe underwater."),
 	))
 

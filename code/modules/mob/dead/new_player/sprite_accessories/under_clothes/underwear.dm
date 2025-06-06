@@ -44,12 +44,12 @@
 	name = "Youngling"
 	icon_state = "male_child"
 	gender = MALE
-	specuse = RACES_UNDERWEAR_MALE
+	specuse = ALL_RACES_LIST
 	roundstart = FALSE
 
 /datum/sprite_accessory/underwear/child_f
 	name = "FemYoungling"
 	icon_state = "female_child"
 	gender = FEMALE
-	specuse = RACES_UNDERWEAR_FEMALE
+	specuse = ALL_RACES_LIST
 	roundstart = FALSE
