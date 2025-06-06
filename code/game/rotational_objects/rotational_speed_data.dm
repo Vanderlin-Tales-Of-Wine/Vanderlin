@@ -21,7 +21,6 @@
 /obj/structure/Initialize()
 	. = ..()
 	if(rotation_structure || accepts_water_input)
-		set_connection_dir()
 		return INITIALIZE_HINT_LATELOAD
 
 /obj/structure/LateInitialize()
@@ -33,6 +32,7 @@
 				S.redstone_attached |= src
 
 	if(rotation_structure && !QDELETED(src))
+		set_connection_dir()
 		find_rotation_network()
 	if(accepts_water_input)
 		setup_water()
@@ -55,7 +55,7 @@
 		return
 
 	for(var/obj/item/rotation_contraption/item as anything in subtypesof(/obj/item/rotation_contraption))
-		if(istype(src, initial(item.placed_type)))
+		if(type == initial(item.placed_type))
 			start_deconstruct(user, item)
 			return
 

@@ -519,6 +519,8 @@
 						boilloop.start()
 					else
 						boilloop.stop()
+			else
+				boilloop.stop()
 		update_icon()
 
 

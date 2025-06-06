@@ -142,6 +142,8 @@ All foods are distributed among various categories. Use common sense.
 
 /obj/item/reagent_containers/food/snacks/process()
 	..()
+	if(QDELETED(src))
+		return PROCESS_KILL
 	if(rotprocess)
 		var/turf/open/T = get_turf(src)
 		var/temp_modifier = 1.0
@@ -175,6 +177,7 @@ All foods are distributed among various categories. Use common sense.
 			if(warming < (-1*rotprocess))
 				if(become_rotten())
 					STOP_PROCESSING(SSobj, src)
+					return PROCESS_KILL
 
 /obj/item/reagent_containers/food/snacks/can_craft_with()
 	if(eat_effect == /datum/status_effect/debuff/rotfood)
