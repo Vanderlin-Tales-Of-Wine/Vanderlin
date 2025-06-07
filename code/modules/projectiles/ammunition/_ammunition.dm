@@ -34,11 +34,9 @@
 	update_icon()
 
 /obj/item/ammo_casing/Destroy()
-	. = ..()
-
-	var/turf/T = get_turf(src)
-	if(T && !BB && is_station_level(T.z))
-		SSblackbox.record_feedback("tally", "station_mess_destroyed", 1, name)
+	if(istype(BB))
+		QDEL_NULL(BB)
+	return ..()
 
 /obj/item/ammo_casing/update_icon()
 	..()

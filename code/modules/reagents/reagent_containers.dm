@@ -44,9 +44,9 @@
 	COOLDOWN_START(src, fill_cooldown, 10 SECONDS)
 
 /obj/item/reagent_containers/Destroy()
-	. = ..()
 	if(spillable)
 		GLOB.weather_act_upon_list -= src
+	return ..()
 
 /obj/item/reagent_containers/proc/add_initial_reagents()
 	if(list_reagents)

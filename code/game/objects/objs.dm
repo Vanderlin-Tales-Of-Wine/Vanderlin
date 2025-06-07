@@ -122,6 +122,8 @@
 	set_material_information()
 
 /obj/Destroy(force=FALSE)
+	if(lock)
+		QDEL_NULL(lock)
 	if(!ismachinery(src))
 		STOP_PROCESSING(SSobj, src) // TODO: Have a processing bitflag to reduce on unnecessary loops through the processing lists
 	SStgui.close_uis(src)

@@ -128,7 +128,7 @@
 	layer = BELOW_OBJ_LAYER
 	attacked_sound = 'sound/vo/mobs/ghost/skullpile_hit.ogg'
 
-/obj/structure/intert_bonepile
+/obj/structure/inert_bonepile
 	icon = 'icons/roguetown/mob/monster/wraith.dmi'
 	icon_state = "hauntpile"
 	max_integrity = 100
@@ -144,6 +144,16 @@
 	for(var/i in 1 to maxhaunts)
 		spawn_haunt()
 	update_icon()
+
+/obj/structure/bonepile/Destroy()
+	if(soundloop)
+		QDEL_NULL(soundloop)
+	for(var/mob/living/simple_animal/hostile/haunt/H as anything in haunts)
+		H.death()
+	haunts.Cut()
+	var/spawned = pick(/obj/item/reagent_containers/powder/spice)
+	new spawned(get_turf(src))
+	return ..()
 
 /obj/structure/bonepile/update_icon()
 	. = ..()
@@ -168,16 +178,6 @@
 	spawning_haunt = TRUE
 	update_icon()
 	addtimer(CALLBACK(src, PROC_REF(createhaunt)), rand(4,6) SECONDS)
-
-/obj/structure/bonepile/Destroy()
-	soundloop.stop()
-	spawning_haunt = null
-	for(var/H in haunts)
-		var/mob/living/simple_animal/hostile/haunt/D = H
-		D.death()
-	var/spawned = pick(/obj/item/reagent_containers/powder/spice)
-	new spawned(get_turf(src))
-	. = ..()
 
 /mob/living/simple_animal/hostile/haunt/Initialize()
 	. = ..()

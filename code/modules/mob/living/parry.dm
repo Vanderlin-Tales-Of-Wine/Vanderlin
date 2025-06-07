@@ -50,8 +50,9 @@
 
 
 	// Calculate additional drain for heavy weapons
-	if(intenty.masteritem && intenty.masteritem.wbalance < 0 && user.STASTR > src.STASTR)
-		drained = drained + (intenty.masteritem.wbalance * ((user.STASTR - src.STASTR) * -5))
+	var/obj/item/master = intenty.get_master_item()
+	if(master?.wbalance < 0 && user.STASTR > src.STASTR)
+		drained = drained + (master.wbalance * ((user.STASTR - src.STASTR) * -5))
 
 	drained = max(drained, 5)
 
@@ -140,12 +141,13 @@
 		defender_skill = get_skill_level(/datum/skill/combat/unarmed)
 
 	if(user.mind)
-		if(intenty.masteritem)
-			attacker_skill = user.get_skill_level(intenty.masteritem.associated_skill)
+		var/obj/item/master = intenty.get_master_item()
+		if(master)
+			attacker_skill = user.get_skill_level(master.associated_skill)
 			skill_modifier -= (attacker_skill * 20)
 
-			if(intenty.masteritem.wbalance > 0 && user.STASPD > src.STASPD)
-				skill_modifier -= (intenty.masteritem.wbalance * ((user.STASPD - src.STASPD) * 10))
+			if(master.wbalance > 0 && user.STASPD > src.STASPD)
+				skill_modifier -= (master.wbalance * ((user.STASPD - src.STASPD) * 10))
 		else
 			attacker_skill = user.get_skill_level(/datum/skill/combat/unarmed)
 			skill_modifier -= (attacker_skill * 20)
@@ -183,7 +185,7 @@
 			H.adjust_experience(used_weapon.associated_skill, max(round(H.STAINT/2), 0), FALSE)
 
 	// Attacker skill gain
-	var/obj/item/AB = intenty.masteritem
+	var/obj/item/AB = intenty.get_master_item()
 	if((U.body_position != LYING_DOWN) && defender_skill && (attacker_skill < defender_skill - SKILL_LEVEL_NOVICE))
 		if(AB)
 			U.adjust_experience(AB.associated_skill, max(round(U.STAINT/2), 0), FALSE)

@@ -118,6 +118,10 @@
 	QDEL_NULL(boxes)
 	QDEL_NULL(closer)
 	LAZYCLEARLIST(is_using)
+	change_master(null)
+	item_to_grid_coordinates = null
+	grid_coordinates_to_item = null
+	first_coordinates_item = null
 	return ..()
 
 

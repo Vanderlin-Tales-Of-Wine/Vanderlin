@@ -138,6 +138,8 @@
 	ctrl_down = FALSE
 	alt_down = FALSE
 	var/mob/user_mob = get_user()
+	if(!user_mob)
+		return
 	user_mob.focus = user_mob
 	if(user_mob.client)
 		user_mob.client.set_macros(skip_macro_mode = TRUE)
@@ -508,7 +510,6 @@
 	return FALSE
 
 /obj/abstract/visual_ui_element/console_input/Destroy()
-	deltimer(cursor_blink_timer)
 	unfocus()
 	return ..()
 

@@ -35,7 +35,7 @@
 	color = CLOTHING_DARK_INK
 
 /obj/item/clothing/shirt/dress/gen/maid/Initialize()
-	..()
+	. = ..()
 	if(GLOB.lordprimary)
 		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
 	else
@@ -47,7 +47,7 @@
 
 /obj/item/clothing/shirt/dress/gen/random/Initialize()
 	color = pick_assoc(GLOB.peasant_dyes)
-	..()
+	return ..()
 
 /obj/item/clothing/shirt/dress/silkdress
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT
@@ -63,7 +63,7 @@
 	color = CLOTHING_CHALK_WHITE
 
 /obj/item/clothing/shirt/dress/silkdress/princess/Initialize()
-	..()
+	. = ..()
 	if(GLOB.lordprimary)
 		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
 	else
@@ -81,13 +81,13 @@
 
 /obj/item/clothing/shirt/dress/silkdress/random/Initialize()
 	color = pick_assoc(GLOB.noble_dyes)
-	..()
+	return ..()
 
 /obj/item/clothing/shirt/dress/silkdress/silkdressprimary
 	color = CLOTHING_BLOOD_RED
 
 /obj/item/clothing/shirt/dress/silkdress/silkdressprimary/Initialize()
-	..()
+	. = ..()
 	if(GLOB.lordprimary)
 		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
 	else
@@ -179,7 +179,7 @@
 
 /obj/item/clothing/shirt/dress/gen/sexy/Initialize()
 	color = pick(CLOTHING_WINESTAIN_RED, CLOTHING_SKY_BLUE, CLOTHING_SALMON	, CLOTHING_SOOT_BLACK)
-	..()
+	return ..()
 
 /obj/item/clothing/shirt/dress/silkydress
 	name = "silky dress"

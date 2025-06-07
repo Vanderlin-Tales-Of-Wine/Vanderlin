@@ -34,10 +34,14 @@
 	var/curvol = 100
 
 /obj/item/dmusicbox/Initialize()
-	soundloop = new(src, FALSE)
-//	soundloop.start()
-	update_icon()
 	. = ..()
+	soundloop = new(src, FALSE)
+	update_icon()
+
+/obj/item/dmusicbox/Destroy()
+	if(soundloop)
+		QDEL_NULL(soundloop)
+	return ..()
 
 /obj/item/dmusicbox/update_icon()
 	if(playing)

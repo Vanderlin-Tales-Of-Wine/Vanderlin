@@ -1,26 +1,25 @@
-/atom
+/atom/movable
 	var/list/particle_emitters = list()
 
-/atom/Destroy()
-	for(var/obj/particle_emitter/emitter in particle_emitters)
+/atom/movable/Destroy(force)
+	for(var/emitter as anything in particle_emitters)
 		qdel(emitter)
-	particle_emitters = null
-	. = ..()
+	if(!LAZYLEN(particle_emitters))
+		particle_emitters = null
+	return ..()
 
 /atom/movable/proc/AddParticles(type, create_new = FALSE)
-	if (ispath(type))
-		if (create_new)
-			particles = new type()
-			GLOB.all_particles[src.name] = particles
-		else
-			var/particles/P = type
-			var/index = initial(P.name)
-			particles = GLOB.all_particles[index]
-	else
+	if(!ispath(type))
 		if (GLOB.all_particles[type])
 			particles = GLOB.all_particles[type]
-	return
-
+		return
+	if(create_new)
+		particles = new type()
+		GLOB.all_particles[src.name] = particles
+	else
+		var/particles/P = type
+		var/index = initial(P.name)
+		particles = GLOB.all_particles[index]
 
 /atom/movable/proc/MakeParticleEmitter(type, create_new = FALSE, time = -1)
 	var/obj/particle_emitter/pe
@@ -41,15 +40,12 @@
 	if (/obj/particle_emitter in vis_contents)
 		vis_contents -= /obj/particle_emitter
 
-
 /atom/movable/proc/ModParticles(target, min, max, type = "circle", random = 1)
 	if (particles)
 		particles.ModParticles(target, min, max, type = "circle", random = 1)
 
-
 /particles
 	var/name = "particles"
-
 
 /particles/proc/ModParticles(target, min, max, type = "circle", random = 1)
 	if (!(type in list("vector", "box", "circle", "sphere", "square", "cube")))											// Valid types for generator(), sans color
@@ -61,7 +57,6 @@
 	if (target in vars)
 		vars[target] = MakeGenerator(type, min, max, random)
 
-
 /particles/proc/SetGradient(...)
 	var/counter = 0
 	var/list/new_gradient = list()
@@ -71,29 +66,32 @@
 		new_gradient += i
 	gradient = new_gradient
 
-
 /obj/particle_emitter
 	name = ""
 	anchored = TRUE
 	mouse_opacity = 0
 	appearance_flags = PIXEL_SCALE
 	var/particle_type = null
+	var/timer
 	var/atom/movable/host
-
 
 /obj/particle_emitter/Initialize(mapload, time, _color)
 	. = ..()
-	if (particle_type)
+	if(particle_type)
 		particles = GLOB.all_particles[particle_type]
 
-	if (time > 0)
-		QDEL_IN(src, time)
+	if(time > 0)
+		timer = QDEL_IN(src, time)
 	color = _color
 
 /obj/particle_emitter/Destroy(force)
-	. = ..()
-	host.particle_emitters -= src
-	host = null
+	if(timer)
+		deltimer(timer)
+	if(host)
+		host.particle_emitters -= src
+		host = null
+	RemoveParticles()
+	return ..()
 
 /obj/particle_emitter/smoke
 	layer = FIRE_LAYER

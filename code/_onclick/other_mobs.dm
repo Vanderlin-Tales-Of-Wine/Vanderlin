@@ -661,13 +661,6 @@
 	return FALSE
 
 /*
-	True Devil
-*/
-
-/mob/living/carbon/true_devil/UnarmedAttack(atom/A, proximity)
-	A.attack_hand(src)
-
-/*
 	Brain
 */
 

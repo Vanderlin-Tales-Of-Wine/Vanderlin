@@ -397,6 +397,11 @@
 	soundloop.start()
 	spawn_gob()
 
+/obj/structure/gob_portal/Destroy()
+	if(soundloop)
+		QDEL_NULL(soundloop)
+	return ..()
+
 /obj/structure/gob_portal/attack_ghost(mob/dead/observer/user)
 	if(QDELETED(user))
 		return

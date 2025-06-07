@@ -132,7 +132,7 @@
 		defending_human = src
 	if(ishuman(user))
 		attacking_human = user
-		attacking_item = attacking_human.used_intent.masteritem
+		attacking_item = attacking_human.used_intent.get_master_item()
 
 	dodge_score += (STASPD * 15)
 	dodge_score *= encumbrance_to_dodge()

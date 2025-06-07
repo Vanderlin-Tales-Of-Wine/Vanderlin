@@ -162,7 +162,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		reagents.add_reagent_list(list_reagents)
 	if(starts_lit)
 		light()
-	AddComponent(/datum/component/knockoff,90,list(BODY_ZONE_PRECISE_MOUTH),list(SLOT_MOUTH))//90% to knock off when wearing a mask
+	AddComponent(/datum/component/knockoff, 90, list(BODY_ZONE_PRECISE_MOUTH) ,list(SLOT_MOUTH))//90% to knock off when wearing a mask
 
 /obj/item/clothing/face/cigarette/Destroy()
 	STOP_PROCESSING(SSobj, src)
@@ -175,20 +175,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			light(lighting_text)
 	else
 		return ..()
-
-/obj/item/clothing/face/cigarette/afterattack(obj/item/reagent_containers/glass/glass, mob/user, proximity)
-	. = ..()
-//	if(!proximity || lit) //can't dip if cigarette is lit (it will heat the reagents in the glass instead)
-//		return
-//	if(istype(glass))	//you can dip cigarettes into beakers
-//		if(glass.reagents.trans_to(src, chem_volume, transfered_by = user))	//if reagents were transfered, show the message
-//			to_chat(user, "<span class='notice'>I dip \the [src] into \the [glass].</span>")
-//		else			//if not, either the beaker was empty, or the cigarette was full
-//			if(!glass.reagents.total_volume)
-//				to_chat(user, "<span class='warning'>[glass] is empty!</span>")
-//			else
-//				to_chat(user, "<span class='warning'>[src] is full!</span>")
-
 
 /obj/item/clothing/face/cigarette/proc/light(flavor_text = null)
 	if(lit)
@@ -695,32 +681,3 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/lighter/greyscale/ignition_effect(atom/A, mob/user)
 	if(get_temperature())
 		. = "<span class='notice'>After some fiddling, [user] manages to light [A] with [src].</span>"
-
-
-///////////
-//ROLLING//
-///////////
-/obj/item/rollingpaper
-	name = "rolling paper"
-	desc = ""
-	icon = 'icons/obj/cigarettes.dmi'
-	icon_state = "cig_paper"
-	w_class = WEIGHT_CLASS_TINY
-
-/obj/item/rollingpaper/afterattack(atom/target, mob/user, proximity)
-	. = ..()
-	if(!proximity)
-		return
-	if(istype(target, /obj/item/reagent_containers/food/snacks/grown))
-		var/obj/item/reagent_containers/food/snacks/grown/O = target
-		if(O.dry)
-			var/obj/item/clothing/face/cigarette/rollie/R = new /obj/item/clothing/face/cigarette/rollie(user.loc)
-			R.chem_volume = target.reagents.total_volume
-			target.reagents.trans_to(R, R.chem_volume, transfered_by = user)
-			qdel(target)
-			qdel(src)
-			user.put_in_active_hand(R)
-			to_chat(user, "<span class='notice'>I roll the [target.name] into a rolling paper.</span>")
-			R.desc = ""
-		else
-			to_chat(user, "<span class='warning'>I need to dry this first!</span>")

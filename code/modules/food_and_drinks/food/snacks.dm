@@ -103,6 +103,17 @@ All foods are distributed among various categories. Use common sense.
 	var/biting // if TRUE changes the icon state to the bitecount, for stuff like handpies. Will break unless you also set a base_icon_state
 	var/rot_away_timer
 
+/obj/item/reagent_containers/food/snacks/Initialize(mapload)
+	. = ..()
+	if(rotprocess)
+		SSticker.OnRoundstart(CALLBACK(src, PROC_REF(begin_rotting)))
+
+/obj/item/reagent_containers/food/snacks/Destroy()
+	if(reagents)
+		QDEL_NULL(reagents)
+	deltimer(rot_away_timer)
+	return ..()
+
 /datum/intent/food
 	name = "feed"
 	noaa = TRUE
@@ -114,20 +125,17 @@ All foods are distributed among various categories. Use common sense.
 	if(ismob(target))
 		var/mob/M = target
 		var/list/targetl = list(target)
-		user.visible_message("<span class='green'>[user] beckons [M] with [masteritem].</span>", "<span class='green'>I beckon [M] with [masteritem].</span>", ignored_mobs = targetl)
+		var/obj/item/master = get_master_item()
+		if(!master)
+			return
+		user.visible_message("<span class='green'>[user] beckons [M] with [master].</span>", "<span class='green'>I beckon [M] with [master].</span>", ignored_mobs = targetl)
 		if(M.client)
 			if(M.can_see_cone(user))
-				to_chat(M, "<span class='green'>[user] beckons me with [masteritem].</span>")
-		M.food_tempted(masteritem, user)
-	return
+				to_chat(M, "<span class='green'>[user] beckons me with [master].</span>")
+		M.food_tempted(master, user)
 
 /obj/item/reagent_containers/food/snacks/fire_act(added, maxstacks)
 	burning(1 MINUTES)
-
-/obj/item/reagent_containers/food/snacks/Initialize()
-	if(rotprocess)
-		SSticker.OnRoundstart(CALLBACK(src, PROC_REF(begin_rotting)))
-	..()
 
 /obj/item/reagent_containers/food/snacks/proc/begin_rotting()
 	START_PROCESSING(SSobj, src)
@@ -247,17 +255,15 @@ All foods are distributed among various categories. Use common sense.
 			burn()
 
 /obj/item/reagent_containers/food/snacks/add_initial_reagents()
-	create_reagents(volume)
-	if(tastes && tastes.len)
-		if(list_reagents)
-			for(var/rid in list_reagents)
-				var/amount = list_reagents[rid]
-				if(rid == /datum/reagent/consumable/nutriment || rid == /datum/reagent/consumable/nutriment/vitamin)
-					reagents.add_reagent(rid, amount, tastes.Copy())
-				else
-					reagents.add_reagent(rid, amount)
-	else
-		..()
+	if(!LAZYLEN(tastes))
+		return ..()
+	if(list_reagents)
+		for(var/rid in list_reagents)
+			var/amount = list_reagents[rid]
+			if(rid == /datum/reagent/consumable/nutriment || rid == /datum/reagent/consumable/nutriment/vitamin)
+				reagents.add_reagent(rid, amount, tastes.Copy())
+			else
+				reagents.add_reagent(rid, amount)
 
 /obj/item/reagent_containers/food/snacks/on_consume(mob/living/eater)
 	if(!eater)
@@ -637,14 +643,6 @@ All foods are distributed among various categories. Use common sense.
 		qdel(src)
 	var/obj/item/I = new path(T)
 	eater.put_in_active_hand(I, ignore_animation = TRUE)
-
-/obj/item/reagent_containers/food/snacks/Destroy()
-	STOP_PROCESSING(SSobj, src)
-	if(contents)
-		for(var/atom/movable/something in contents)
-			something.forceMove(drop_location())
-	deltimer(rot_away_timer)
-	return ..()
 
 /obj/item/reagent_containers/food/snacks/attack_animal(mob/M)
 	if(isanimal(M))

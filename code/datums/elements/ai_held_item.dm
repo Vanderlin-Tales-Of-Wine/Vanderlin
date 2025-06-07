@@ -13,10 +13,10 @@
 	if (!living_target.ai_controller)
 		return ELEMENT_INCOMPATIBLE // If there's no blackboard this would need to be a component
 
-	RegisterSignal(target, COMSIG_ATOM_ATTACK_HAND, PROC_REF(on_click))
-	RegisterSignal(target, COMSIG_ATOM_EXITED, PROC_REF(atom_exited))
-	RegisterSignal(target, COMSIG_PARENT_EXAMINE, PROC_REF(on_examined))
-	RegisterSignal(target, list(COMSIG_PARENT_QDELETING, COMSIG_LIVING_DEATH), PROC_REF(on_death))
+	RegisterSignal(target, COMSIG_ATOM_ATTACK_HAND, PROC_REF(on_click), TRUE)
+	RegisterSignal(target, COMSIG_ATOM_EXITED, PROC_REF(atom_exited), TRUE)
+	RegisterSignal(target, COMSIG_PARENT_EXAMINE, PROC_REF(on_examined), TRUE)
+	RegisterSignal(target, list(COMSIG_PARENT_QDELETING, COMSIG_LIVING_DEATH), PROC_REF(on_death), TRUE)
 
 /// Returns the item held in a mob's blackboard, if it has one
 /datum/element/ai_held_item/proc/get_held_item(mob/living/source)

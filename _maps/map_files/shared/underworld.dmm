@@ -19,10 +19,6 @@
 	},
 /turf/open/floor/church,
 /area/rogue/underworld)
-"ip" = (
-/obj/effect/landmark/underworldsafe,
-/turf/open/floor/dirt,
-/area/rogue)
 "kH" = (
 /turf/open/transparent/openspace,
 /area/rogue/underworld)
@@ -35,10 +31,6 @@
 /turf/open/floor/underworld/arena,
 /area/rogue/underworld)
 "ol" = (
-/turf/open/floor/churchmarble,
-/area/rogue/underworld)
-"oq" = (
-/obj/effect/landmark/underworld,
 /turf/open/floor/churchmarble,
 /area/rogue/underworld)
 "oU" = (
@@ -56,10 +48,6 @@
 /obj/structure/underworld/barrier,
 /turf/open/floor/underworld/space,
 /area/rogue/underworld)
-"rm" = (
-/obj/effect/landmark/underworldsafe,
-/turf/open/floor/underworld/road,
-/area/rogue)
 "sz" = (
 /turf/closed/wall/mineral/underbrick,
 /area/rogue/underworld)
@@ -164,10 +152,6 @@
 "EV" = (
 /turf/closed/indestructible/wooddark/mast,
 /area/rogue)
-"FB" = (
-/obj/effect/landmark/underworld_pull_location,
-/turf/open/floor/underworld/road,
-/area/rogue/underworld)
 "GV" = (
 /obj/structure/underworld/ravox{
 	layer = 4.82;
@@ -214,6 +198,10 @@
 	pixel_x = -32
 	},
 /turf/open/floor/church,
+/area/rogue/underworld)
+"Mw" = (
+/obj/effect/landmark/underworld_pull_location,
+/turf/open/floor/underworld/road,
 /area/rogue/underworld)
 "ME" = (
 /obj/structure/rack/underworld,
@@ -10756,8 +10744,8 @@ sO
 sO
 sO
 sO
-rm
-rm
+sO
+sO
 sz
 sz
 sz
@@ -10886,7 +10874,7 @@ sO
 sO
 sO
 sO
-rm
+sO
 sz
 sz
 sz
@@ -10896,7 +10884,7 @@ df
 df
 df
 Lk
-FB
+Mw
 sz
 sz
 Lk
@@ -11015,8 +11003,8 @@ sO
 sO
 sO
 sO
-rm
-rm
+sO
+sO
 sz
 sz
 PP
@@ -11145,12 +11133,12 @@ sO
 sO
 sO
 sO
-rm
+sO
 sz
 sz
 sz
 PP
-FB
+Mw
 Lk
 df
 df
@@ -11275,7 +11263,7 @@ sO
 sO
 sO
 sO
-rm
+sO
 sz
 sz
 sz
@@ -11404,8 +11392,8 @@ sO
 sO
 sO
 sO
-rm
-rm
+sO
+sO
 sz
 sz
 sz
@@ -11419,7 +11407,7 @@ Lk
 PP
 PP
 sz
-rm
+sO
 KU
 KU
 KU
@@ -11534,7 +11522,7 @@ sO
 sO
 sO
 sO
-rm
+sO
 sz
 sz
 sz
@@ -11549,7 +11537,7 @@ Lk
 Lk
 PP
 sz
-rm
+sO
 sO
 sO
 sO
@@ -11664,7 +11652,7 @@ sO
 sO
 sO
 sO
-rm
+sO
 sz
 sz
 sz
@@ -11679,7 +11667,7 @@ Lk
 Lk
 PP
 sz
-rm
+sO
 sO
 sO
 sO
@@ -11793,8 +11781,8 @@ sO
 sO
 sO
 sO
-rm
-rm
+sO
+sO
 sz
 sz
 sz
@@ -11809,7 +11797,7 @@ Lk
 PP
 sz
 sz
-rm
+sO
 sO
 sO
 sO
@@ -11922,14 +11910,14 @@ sO
 sO
 sO
 sO
-rm
-rm
+sO
+sO
 sz
 PP
 PP
 PP
 PP
-FB
+Mw
 Lk
 Lk
 IP
@@ -11939,7 +11927,7 @@ df
 PP
 sz
 sz
-rm
+sO
 sO
 sO
 sO
@@ -12050,9 +12038,9 @@ sO
 sO
 sO
 sO
-rm
-rm
-rm
+sO
+sO
+sO
 sz
 PP
 PP
@@ -12069,7 +12057,7 @@ df
 PP
 sz
 sz
-rm
+sO
 sO
 sO
 sO
@@ -12180,7 +12168,7 @@ sO
 sO
 sO
 sO
-rm
+sO
 sz
 sz
 PP
@@ -12199,7 +12187,7 @@ df
 Lk
 sz
 sz
-rm
+sO
 sO
 sO
 sO
@@ -12310,7 +12298,7 @@ sO
 sO
 sO
 sO
-rm
+sO
 sz
 PP
 PP
@@ -12329,7 +12317,7 @@ df
 Lk
 PP
 sz
-rm
+sO
 sO
 sO
 sO
@@ -12440,7 +12428,7 @@ sO
 sO
 sO
 sO
-rm
+sO
 sz
 PP
 Lk
@@ -12459,7 +12447,7 @@ df
 Lk
 PP
 sz
-rm
+sO
 sO
 sO
 sO
@@ -12570,7 +12558,7 @@ sO
 sO
 sO
 sO
-rm
+sO
 sz
 PP
 Lk
@@ -12587,10 +12575,10 @@ df
 Lk
 df
 df
-FB
+Mw
 sz
-rm
-rm
+sO
+sO
 sO
 sO
 sO
@@ -12700,7 +12688,7 @@ sO
 sO
 sO
 sO
-rm
+sO
 sz
 PP
 Lk
@@ -12720,7 +12708,7 @@ Lk
 Lk
 PP
 sz
-rm
+sO
 sO
 sO
 sO
@@ -12830,7 +12818,7 @@ sO
 sO
 sO
 sO
-rm
+sO
 sz
 PP
 Lk
@@ -12850,7 +12838,7 @@ Lk
 Lk
 PP
 sz
-rm
+sO
 sO
 sO
 sO
@@ -12960,7 +12948,7 @@ sO
 sO
 sO
 sO
-rm
+sO
 sz
 PP
 Lk
@@ -12980,7 +12968,7 @@ Lk
 Lk
 PP
 sz
-rm
+sO
 sO
 sO
 sO
@@ -13090,8 +13078,8 @@ sO
 sO
 sO
 sO
-rm
-rm
+sO
+sO
 sz
 PP
 Lk
@@ -13109,8 +13097,8 @@ Lk
 Lk
 PP
 sz
-rm
-rm
+sO
+sO
 sO
 sO
 sO
@@ -13221,7 +13209,7 @@ sO
 sO
 sO
 sO
-rm
+sO
 sz
 PP
 Lk
@@ -13239,7 +13227,7 @@ Lk
 Lk
 PP
 sz
-rm
+sO
 sO
 sO
 sO
@@ -13351,7 +13339,7 @@ sO
 sO
 sO
 sO
-rm
+sO
 sz
 PP
 Lk
@@ -13369,7 +13357,7 @@ Lk
 Lk
 PP
 sz
-rm
+sO
 sO
 sO
 sO
@@ -13481,7 +13469,7 @@ sO
 sO
 sO
 sO
-rm
+sO
 sz
 PP
 Lk
@@ -13499,7 +13487,7 @@ PP
 PP
 sz
 sz
-rm
+sO
 sO
 sO
 sO
@@ -13611,7 +13599,7 @@ sO
 sO
 sO
 sO
-rm
+sO
 sz
 PP
 Lk
@@ -13627,9 +13615,9 @@ Lk
 PP
 sz
 sz
-rm
-rm
-rm
+sO
+sO
+sO
 sO
 sO
 sO
@@ -13741,8 +13729,8 @@ sO
 sO
 sO
 sO
-rm
-rm
+sO
+sO
 sz
 PP
 Lk
@@ -13755,9 +13743,9 @@ PP
 PP
 PP
 sz
-rm
-rm
-rm
+sO
+sO
+sO
 sO
 sO
 sO
@@ -13872,8 +13860,8 @@ sO
 sO
 sO
 sO
-rm
-rm
+sO
+sO
 sz
 PP
 bL
@@ -13885,7 +13873,7 @@ sz
 sz
 sz
 sz
-rm
+sO
 sO
 sO
 sO
@@ -14003,7 +13991,7 @@ sO
 sO
 sO
 sO
-rm
+sO
 sz
 sz
 bL
@@ -14011,11 +13999,11 @@ bL
 bL
 bL
 sz
-rm
-rm
-rm
-rm
-rm
+sO
+sO
+sO
+sO
+sO
 sO
 sO
 sO
@@ -14133,15 +14121,15 @@ sO
 sO
 sO
 sO
-rm
-rm
-rm
-ip
-ip
-ip
-ip
-rm
-rm
+sO
+sO
+sO
+Pr
+Pr
+Pr
+Pr
+sO
+sO
 sO
 sO
 sO
@@ -15056,7 +15044,7 @@ sO
 sO
 sO
 sO
-rm
+sO
 sO
 sO
 sO
@@ -25603,7 +25591,7 @@ kH
 kH
 Bj
 RL
-oq
+ol
 xG
 df
 Lk

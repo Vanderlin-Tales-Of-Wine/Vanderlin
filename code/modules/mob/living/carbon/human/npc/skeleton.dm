@@ -33,7 +33,7 @@
 
 /mob/living/carbon/human/species/skeleton/Initialize()
 	. = ..()
-	if(should_have_aggro)
+	if(ai_controller && should_have_aggro)
 		AddComponent(/datum/component/ai_aggro_system)
 	addtimer(CALLBACK(src, PROC_REF(after_creation)), 1 SECONDS)
 
