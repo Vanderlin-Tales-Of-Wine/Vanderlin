@@ -1110,7 +1110,7 @@
 /turf/open/floor/dirt,
 /area/rogue/indoors/shelter/bog)
 "oz" = (
-/obj/effect/traveltile_spawner/horizontal/bandit,
+/obj/effect/spawner/traveltile_spawner/horizontal/bandit,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
 "oB" = (
@@ -1308,7 +1308,7 @@
 /turf/open/floor/wood/nosmooth,
 /area/rogue/indoors/shelter/bog)
 "re" = (
-/obj/effect/traveltile_spawner/vertical/bandit,
+/obj/effect/spawner/traveltile_spawner/vertical/bandit,
 /turf/open/floor/grass,
 /area/rogue/outdoors/bog)
 "rf" = (
@@ -1356,7 +1356,7 @@
 /turf/open/floor/woodturned/nosmooth,
 /area/rogue/indoors/shelter/bog)
 "rC" = (
-/obj/effect/traveltile_spawner/vertical/vampire,
+/obj/effect/spawner/traveltile_spawner/vertical/vampire,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
 "rF" = (
@@ -1445,7 +1445,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/outdoors/bog)
 "sZ" = (
-/obj/effect/traveltile_spawner/horizontal/bandit,
+/obj/effect/spawner/traveltile_spawner/horizontal/bandit,
 /turf/open/floor/grass,
 /area/rogue/outdoors/bog)
 "td" = (
@@ -1574,7 +1574,7 @@
 /turf/open/floor/ruinedwood/turned,
 /area/rogue/indoors/shelter/bog)
 "uJ" = (
-/obj/effect/traveltile_spawner/vertical/inhumen,
+/obj/effect/spawner/traveltile_spawner/vertical/inhumen,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
 "uO" = (
@@ -2762,7 +2762,7 @@
 /turf/open/floor/wood/nosmooth,
 /area/rogue/indoors/shelter/bog)
 "LV" = (
-/obj/effect/traveltile_spawner/horizontal/inhumen,
+/obj/effect/spawner/traveltile_spawner/horizontal/inhumen,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
 "LX" = (
@@ -3558,7 +3558,7 @@
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/shelter/bog)
 "Wk" = (
-/obj/effect/traveltile_spawner/horizontal/vampire,
+/obj/effect/spawner/traveltile_spawner/horizontal/vampire,
 /turf/open/floor/grass,
 /area/rogue/outdoors/bog)
 "Wn" = (
