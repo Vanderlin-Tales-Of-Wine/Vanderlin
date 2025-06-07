@@ -106,7 +106,7 @@
 	activate(user)
 
 /obj/item/clothing/ring/active/proc/activate(mob/user)
-	user.update_inv_wear_id()
+	user.update_inv_ring()
 
 /obj/item/clothing/ring/active/proc/demagicify()
 	active = FALSE
@@ -114,7 +114,7 @@
 	if(ismob(loc))
 		var/mob/user = loc
 		user.visible_message("<span class='warning'>The ring settles down.</span>")
-		user.update_inv_wear_id()
+		user.update_inv_ring()
 
 
 /obj/item/clothing/ring/active/nomag

@@ -98,7 +98,7 @@
 		var/regex/reg = regex("(\\b|\\A)[REGEX_QUOTE(word)]'?s*(\\b|\\Z)", "i")
 
 		if(findtext(speech_args[SPEECH_MESSAGE], reg))
-			to_chat(owner, "<span class='warning'>I can't bring myself to say the word \"<span class='phobia'>[word]</span>\"!</span>")
+			to_chat(owner, span_warning("I can't bring myself to say the word \"[span_phobia(word)]\"!"))
 			speech_args[SPEECH_MESSAGE] = ""
 
 /datum/brain_trauma/mild/phobia/proc/freak_out(atom/reason, trigger_word)
@@ -107,15 +107,15 @@
 		return
 	var/message = pick("spooks you to the bone", "shakes you up", "terrifies you", "sends you into a panic", "sends chills down your spine")
 	if(reason)
-		to_chat(owner, "<span class='danger'>Seeing [reason] [message]!</span>")
+		to_chat(owner, span_danger("Seeing [reason] [message]!"))
 	else if(trigger_word)
-		to_chat(owner, "<span class='danger'>Hearing \"[trigger_word]\" [message]!</span>")
+		to_chat(owner, span_danger("Hearing \"[trigger_word]\" [message]!"))
 	else
-		to_chat(owner, "<span class='danger'>Something [message]!</span>")
+		to_chat(owner, span_danger("Something [message]!"))
 	var/reaction = rand(1,4)
 	switch(reaction)
 		if(1)
-			to_chat(owner, "<span class='warning'>I are paralyzed with fear!</span>")
+			to_chat(owner, span_warning("I am paralyzed with fear!"))
 			owner.Stun(70)
 			owner.Jitter(8)
 		if(2)
@@ -125,7 +125,7 @@
 			if(reason)
 				owner.pointed(reason)
 		if(3)
-			to_chat(owner, "<span class='warning'>I shut your eyes in terror!</span>")
+			to_chat(owner, span_warning("I shut my eyes in terror!"))
 			owner.Jitter(5)
 			owner.blind_eyes(10)
 		if(4)
@@ -198,4 +198,8 @@
 
 /datum/brain_trauma/mild/phobia/religion
 	phobia_type = "religion"
+	random_gain = FALSE
+
+/datum/brain_trauma/mild/phobia/jesters
+	phobia_type = "jesters"
 	random_gain = FALSE

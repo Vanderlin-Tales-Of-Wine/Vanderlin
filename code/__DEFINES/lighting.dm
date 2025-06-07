@@ -148,3 +148,9 @@ GLOBAL_LIST_INIT(em_mask_matrix, EM_MASK_MATRIX)
 #define MOVABLE_LIGHT 2
 
 #define LIGHT_ATTACHED (1<<0)
+
+/// What counts as being able to see in the dark
+#define LIGHTING_NIGHTVISION_THRESHOLD 7
+
+/// The amount of lumcount on a tile for it to be considered dark (used to determine reading)
+#define LIGHTING_TILE_IS_DARK 0.2

@@ -1333,6 +1333,10 @@
 		if(isnull(worn_item))
 			continue
 		var/modifier = 1
+		if(ishuman(src))
+			var/mob/living/carbon/human/H = src
+			if(is_child(H))
+				modifier = 5
 		if(HAS_TRAIT(src, TRAIT_HOLLOWBONES))
 			modifier = 4
 		if(isclothing(worn_item))
@@ -1389,6 +1393,38 @@
 
 	eyes = new /obj/item/organ/eyes/night_vision/zombie
 	eyes.Insert(src)
+
+/mob/living/carbon/wash(clean_types)
+	. = ..()
+
+	// Wash equipped stuff that cannot be covered
+	for(var/obj/item/held_thing in held_items)
+		if(held_thing.wash(clean_types))
+			. = TRUE
+
+
+	// Check and wash stuff that can be covered
+	var/obscured = check_obscured_slots()
+
+	if(!(obscured & ITEM_SLOT_HEAD) && head?.wash(clean_types))
+		update_inv_head()
+		. = TRUE
+
+	if(!(obscured & ITEM_SLOT_MASK) && wear_mask?.wash(clean_types))
+		update_inv_wear_mask()
+		. = TRUE
+
+	if(!(obscured & ITEM_SLOT_NECK) && wear_neck?.wash(clean_types))
+		update_inv_neck()
+		. = TRUE
+
+	if(!(obscured & ITEM_SLOT_SHOES) && shoes?.wash(clean_types))
+		update_inv_shoes()
+		. = TRUE
+
+	if(!(obscured & ITEM_SLOT_GLOVES) && gloves?.wash(clean_types))
+		update_inv_gloves()
+		. = TRUE
 
 /// beheads the carbon mob, if it doesn't find a head - return false.
 /mob/living/carbon/proc/behead()

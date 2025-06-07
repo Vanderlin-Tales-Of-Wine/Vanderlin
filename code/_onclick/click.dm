@@ -697,9 +697,6 @@
 	M.Scale(x1,y1)
 	transform = M
 
-/atom
-	var/xyoverride = FALSE //so we can 'face' the click catcher even though it doesn't have an x or a y
-
 /atom/movable/screen/click_catcher
 	icon = 'icons/mob/screen_gen.dmi'
 	icon_state = "catcher"

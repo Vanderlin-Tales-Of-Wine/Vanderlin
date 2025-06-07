@@ -1,9 +1,3 @@
-/atom
-	///Reference to atom being orbited
-	var/atom/orbit_target
-	///The orbiter component, if there's anything orbiting this atom
-	var/datum/component/orbiter/orbiters
-
 /**
  * Recursive getter method to return a list of all ghosts orbitting this atom
  *

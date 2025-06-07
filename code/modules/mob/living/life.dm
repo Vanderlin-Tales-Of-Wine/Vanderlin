@@ -65,9 +65,6 @@
 	if(stat != DEAD)
 		return 1
 
-/mob/living
-	var/last_deadlife
-
 /mob/living/proc/DeadLife()
 	set invisibility = 0
 	if (notransform)

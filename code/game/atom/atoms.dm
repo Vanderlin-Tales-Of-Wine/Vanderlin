@@ -102,6 +102,25 @@
 	/// Current neighborlays, associative "DIR" = Overlay, neighborlays are always handled by the smoothing atom not what it smoothed with
 	var/list/neighborlay_list
 
+	/// forensics datum, contains fingerprints, fibres, blood_dna and hiddenprints on this atom
+	var/datum/forensics/forensics
+
+	var/xyoverride = FALSE //so we can 'face' a click catcher even though it doesn't have an x or a y
+
+	/// This means that the mouse over text will not be displayed when the mouse is over this atom
+	var/nomouseover = FALSE
+	var/hover_color = "#a1bac4"
+
+	///this is the path to the enchantment not the actual enchantment
+	var/list/enchantments
+
+	/// Reference to atom being orbited
+	var/atom/orbit_target
+	/// The orbiter component, if there's anything orbiting this atom
+	var/datum/component/orbiter/orbiters
+
+	var/blockscharging = FALSE
+
 /**
  * Called when an atom is created in byond (built in engine proc)
  *
@@ -225,6 +244,9 @@
 
 	if(reagents)
 		qdel(reagents)
+
+	if(forensics)
+		QDEL_NULL(forensics)
 
 	orbiters = null // The component is attached to us normaly and will be deleted elsewhere
 
@@ -570,9 +592,9 @@
 	var/new_blood_dna = L.get_blood_dna_list()
 	if(!new_blood_dna)
 		return FALSE
-	var/old_length = blood_DNA_length()
+	var/old_length = GET_ATOM_BLOOD_DNA_LENGTH(src)
 	add_blood_DNA(new_blood_dna)
-	if(blood_DNA_length() == old_length)
+	if(GET_ATOM_BLOOD_DNA_LENGTH(src) == old_length)
 		return FALSE
 	return TRUE
 
@@ -700,6 +722,26 @@
 /atom/proc/setDir(newdir)
 	SEND_SIGNAL(src, COMSIG_ATOM_DIR_CHANGE, dir, newdir)
 	dir = newdir
+
+/**
+ * Wash this atom
+ *
+ * This will clean it off any temporary stuff like blood. Override this in your item to add custom cleaning behavior.
+ * Returns true if any washing was necessary and thus performed
+ * Arguments:
+ * * clean_types: any of the CLEAN_ constants
+ */
+/atom/proc/wash(clean_types)
+	SHOULD_CALL_PARENT(TRUE)
+	if(SEND_SIGNAL(src, COMSIG_COMPONENT_CLEAN_ACT, clean_types))
+		return TRUE
+
+	// Basically "if has washable coloration"
+	if(length(atom_colours) >= WASHABLE_COLOUR_PRIORITY && atom_colours[WASHABLE_COLOUR_PRIORITY])
+		remove_atom_colour(WASHABLE_COLOUR_PRIORITY)
+		return TRUE
+	return FALSE
+
 
 /**
  * Called when the atom log's in or out

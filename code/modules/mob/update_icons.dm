@@ -28,9 +28,6 @@
 /mob/proc/update_inv_wear_suit()
 	return
 
-/mob/proc/update_inv_w_uniform()
-	return
-
 /mob/proc/update_inv_back()
 	return
 
@@ -55,16 +52,13 @@
 /mob/proc/update_inv_gloves()
 	return
 
-/mob/proc/update_inv_wear_id()
-	return
-
 /mob/proc/update_inv_shoes()
 	return
 
-/mob/proc/update_inv_glasses()
+/mob/proc/update_inv_pockets()
 	return
 
-/mob/proc/update_inv_ears()
+/mob/proc/update_inv_ring()
 	return
 
 /mob/proc/update_inv_pants()
