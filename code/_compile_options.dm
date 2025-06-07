@@ -65,10 +65,17 @@
 
 //#define NO_DUNGEON //comment this to load dungeons.
 
-#ifdef LOWMEMORYMODE
-#define FORCE_MAP "_maps/roguetest.json"
+//#define CENTCOM_ONLY // uncomment this to load only centcom on LOWMEMORY mode
+
+#ifndef CENTCOM_ONLY
+	#ifdef LOWMEMORYMODE
+	#define FORCE_MAP "_maps/roguetest.json"
+	#endif
 #endif
 
+#ifdef CENTCOM_ONLY
+	#define FORCE_MAP "_maps/map_files/shared/centcom_only.json"
+#endif
 #ifdef TESTING
 #warn compiling in TESTING mode. testing() debug messages will be visible.
 #endif
