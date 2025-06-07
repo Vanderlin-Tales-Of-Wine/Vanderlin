@@ -3,7 +3,7 @@
 	desc = "A beam of crackling energy streaks toward a target, causing moderate damage."
 	range = 8
 	projectile_type = /obj/projectile/magic/eldritchblast5e
-	overlay_state = "force_dart"
+	overlay_state = "eldritch_blast"
 	sound = list('sound/magic/whiteflame.ogg')
 	active = FALSE
 
@@ -34,7 +34,7 @@
 /obj/projectile/magic/eldritchblast5e
 	name = "eldritch blast"
 	icon = 'icons/obj/projectiles.dmi'
-	icon_state = "arcane_barrage"
+	icon_state = "eldritch_blast"
 	damage = 25
 	damage_type = BRUTE
 	flag = "magic"

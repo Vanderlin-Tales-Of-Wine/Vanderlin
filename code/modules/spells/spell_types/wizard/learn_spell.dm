@@ -60,6 +60,7 @@
 		/obj/effect/proc_holder/spell/aoe_turf/conjure/createbonfire5e,
 		/obj/effect/proc_holder/spell/invoked/projectile/rayoffrost5e,
 		/obj/effect/proc_holder/spell/invoked/projectile/eldritchblast5e,
+		/obj/effect/proc_holder/spell/invoked/flowerfield,
 	)
 
 	for(var/i = 1, i <= spell_choices.len, i++)

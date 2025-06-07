@@ -5,7 +5,7 @@
 	cost = 2
 	releasedrain = 30
 	overlay = 'icons/effects/effects.dmi'
-	overlay_state = "shieldsparkles"
+	overlay_state = "snap_freeze"
 	chargedrain = 1
 	chargetime = 15
 	recharge_time = 30 SECONDS

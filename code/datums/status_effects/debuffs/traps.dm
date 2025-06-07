@@ -27,3 +27,33 @@
 	owner.cut_overlay(cube)
 	UnregisterSignal(owner,COMSIG_MOB_APPLY_DAMGE)
 	return ..()
+
+/datum/status_effect/frozen_solid
+	parent_type = /datum/status_effect/frost_trap
+	id = "frozen_solid"
+	alert_type = /atom/movable/screen/alert/status_effect/frozen_solid
+	var/icon/spike
+
+/datum/status_effect/frozen_solid/on_apply()
+	. = ..()
+	if (!.) return
+	spike = icon('icons/effects/freeze.dmi', "spike")
+	owner.cut_overlay(cube) // remove base cube overlay
+	owner.add_overlay(spike)
+	var/mob/living/M = owner
+	if (M)
+		to_chat(M, span_warning("You're trapped in solid ice!"))
+
+/datum/status_effect/frozen_solid/on_remove()
+	owner.cut_overlay(spike) // remove the spike overlay
+	playsound(owner.loc, "glassbreak", 100, TRUE)
+	var/mob/living/M = owner
+	if (M)
+		M.Jitter(5)
+		to_chat(M, span_notice("The ice shatters and you're free!"))
+	. = ..()
+
+/atom/movable/screen/alert/status_effect/frozen_solid
+	name = "Frozen Solid"
+	desc = "You are encased in solid ice and cannot move!"
+	icon_state = "frozen"

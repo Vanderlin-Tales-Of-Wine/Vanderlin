@@ -3,7 +3,7 @@
 	desc = "A ray of frozen energy, slowing the first thing it touches and lightly damaging it."
 	range = 8
 	projectile_type = /obj/projectile/magic/frostbolt
-	overlay_state = "null"
+	overlay_state = "frostbolt"
 	sound = list('sound/magic/whiteflame.ogg')
 	active = FALSE
 
