@@ -383,7 +383,7 @@
 			if(user && istype(user.rmb_intent, /datum/rmb_intent/strong))
 				dam += 10
 			used = round(damage_dividend * 20 + (dam / 6), 1)
-			if(!owner.stat && (zone_precise in knockout_zones) && (bclass != BCLASS_CHOP) && prob(used))
+			if(!owner.stat && (zone_precise in knockout_zones) && !(bclass in GLOB.no_knockout_bclasses) && prob(used))
 				owner.next_attack_msg += " <span class='crit'><b>Critical hit!</b> [owner] is knocked out[from_behind ? " FROM BEHIND" : ""]!</span>"
 				owner.flash_fullscreen("whiteflash3")
 				owner.Unconscious(30 SECONDS + (from_behind * 60 SECONDS))
