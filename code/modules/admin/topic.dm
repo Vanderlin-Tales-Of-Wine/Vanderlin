@@ -823,6 +823,18 @@
 			return
 
 		show_individual_logging_panel(usr.client, M, href_list["log_src"], href_list["log_type"])
+
+	else if(href_list["showindividuallog"])
+		if(!check_rights(R_ADMIN))
+			return
+
+		var/mob/M = locate(href_list["showindividuallog"]) in GLOB.mob_list
+		if(!ismob(M))
+			to_chat(usr, "This can only be used on instances of type /mob.")
+			return
+
+		show_individual_logs(usr.client, M, href_list["log_src"], href_list["log_type"])
+
 	else if(href_list["languagemenu"])
 		if(!check_rights(R_ADMIN))
 			return
