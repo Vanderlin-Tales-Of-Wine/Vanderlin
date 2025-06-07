@@ -46,7 +46,6 @@
 		chambered = null
 		for(var/obj/item/ammo_casing/CB in get_ammo_list(TRUE, TRUE))
 			CB.forceMove(drop_location())
-//			CB.bounce_away(FALSE, NONE)
 		update_icon()
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/dropped()
@@ -55,7 +54,6 @@
 		chambered = null
 		for(var/obj/item/ammo_casing/CB in get_ammo_list(TRUE, TRUE))
 			CB.forceMove(drop_location())
-//			CB.bounce_away(FALSE, NONE)
 		update_icon()
 
 //Bows are subtype of grenadelauncher and use BOLT_TYPE_NO_BOLT code

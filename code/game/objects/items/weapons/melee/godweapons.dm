@@ -242,6 +242,30 @@
 	spread = 1
 	force = 9
 	damfactor = 0.9
+	var/obj/item/instrument/harp/turbulenta/FUCK
+
+/obj/item/gun/ballistic/revolver/grenadelauncher/bow/turbulenta/Initialize()
+	. = ..()
+	FUCK = new(src)
+
+/obj/item/gun/ballistic/revolver/grenadelauncher/bow/turbulenta/Destroy()
+	QDEL_NULL(FUCK)
+	. = ..()
+
+/obj/item/gun/ballistic/revolver/grenadelauncher/bow/turbulenta/attack_self(mob/living/user)
+	if(chambered)
+		return ..()
+	FUCK.attack_self(user)
+
+/obj/item/gun/ballistic/revolver/grenadelauncher/bow/turbulenta/attackby(obj/item/A, mob/user, params)
+	if(FUCK.playing)
+		FUCK.terminate_playing(user)
+	return ..()
+
+/obj/item/gun/ballistic/revolver/grenadelauncher/bow/turbulenta/before_firing(atom/target, mob/user)
+	var/obj/projectile/P = chambered?.BB
+	if(P?.reagents)
+		P.reagents.add_reagent(/datum/reagent/druqks, 20)
 
 /datum/intent/shoot/bow/turbulenta
 	chargetime = 0.75
