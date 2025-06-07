@@ -52,7 +52,7 @@
 	name = "Astrata's Daywalker"
 	max_spawns = 1
 	shared_wave_type = /datum/migrant_wave/daywalker
-	weight = 1
+	weight = 3
 	roles = list(
 		/datum/migrant_role/daywalker = 1,
 	)
