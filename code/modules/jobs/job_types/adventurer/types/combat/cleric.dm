@@ -24,10 +24,13 @@
 	shoes = /obj/item/clothing/shoes/boots/leather
 	belt = /obj/item/storage/belt/leather
 	backr = /obj/item/weapon/shield/heater
-	if(iself(H) || ishalfelf(H))
-		beltl = /obj/item/weapon/mace/elvenclub
+	if(ispath(H.patron?.type, /datum/patron/divine/abyssor))
+		backr = /obj/item/weapon/polearm/woodstaff/quarterstaff
 	else
-		beltl = /obj/item/weapon/mace
+		if(iself(H) || ishalfelf(H))
+			beltl = /obj/item/weapon/mace/elvenclub
+		else
+			beltl = /obj/item/weapon/mace
 	beltr = /obj/item/storage/belt/pouch/coins/poor
 
 	switch(H.patron?.type)
@@ -98,8 +101,8 @@
 			H.adjust_skillrank(/datum/skill/magic/holy, 1, TRUE)
 		if(H.patron?.type == /datum/patron/divine/abyssor )
 			H.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
-			H.adjust_skillrank(/datum/skill/labor/fishing, 3, TRUE)
-			H.adjust_skillrank(/datum/skill/combat/axesmaces, -1, TRUE)
+			H.adjust_skillrank(/datum/skill/labor/fishing, 2, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/axesmaces, -4, TRUE)
 		H.change_stat(STATKEY_STR, 1)
 		H.change_stat(STATKEY_INT, 1)
 		H.change_stat(STATKEY_CON, 1)
