@@ -65,9 +65,6 @@
 	var/datum/patreon_data/patreon
 	var/toggled_leylines = TRUE
 
-/atom
-	var/blockscharging = FALSE
-
 /atom/movable/screen
 	blockscharging = TRUE
 
