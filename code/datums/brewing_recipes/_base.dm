@@ -3,7 +3,7 @@
 	var/name = "Alcohols"
 	var/category = "Alcohols"
 	///the type path of the reagent
-	var/reagent_to_brew = /datum/reagent/consumable/ethanol
+	var/datum/reagent/reagent_to_brew = /datum/reagent/consumable/ethanol
 	///pre-reqs: Essentially do we need past recipes made of this, uses the reagent_to_brew var to know if this has been done
 	var/datum/reagent/pre_reqs
 	///the crops typepath we need goes typepath = amount. Amount is not just how many based on potency value up to a cap it adds values.

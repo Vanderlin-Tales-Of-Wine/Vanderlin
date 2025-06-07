@@ -12,6 +12,7 @@
 	attunements = list(
 		/datum/attunement/light = 0.6,
 	)
+	overlay_state = "darkvision"
 
 /obj/effect/proc_holder/spell/targeted/touch/darkvision/adjust_hand_charges()
 	var/increase = FLOOR(attuned_strength * 1.5, 1)

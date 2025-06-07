@@ -1,5 +1,6 @@
 /obj/effect/decal/carpet
 	name = "carpet"
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	pixel_w = -16
 	pixel_z = -17
 	icon = 'icons/roguetown/misc/64x64.dmi'

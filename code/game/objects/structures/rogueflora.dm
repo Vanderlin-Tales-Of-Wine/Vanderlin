@@ -21,6 +21,15 @@
 	var/stump_type = /obj/structure/table/wood/treestump
 	metalizer_result = /obj/machinery/light/fueledstreet
 	smeltresult = /obj/item/ore/coal
+	var/atom/movable/atom_shadow/shadow
+
+/obj/structure/flora/tree/Initialize()
+	. = ..()
+	shadow = new(get_turf(src))
+
+/obj/structure/flora/tree/Destroy()
+	. = ..()
+	QDEL_NULL(shadow)
 
 /obj/structure/flora/tree/attack_right(mob/user)
 	if(user.mind && isliving(user))

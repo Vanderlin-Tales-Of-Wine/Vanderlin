@@ -106,6 +106,10 @@
 	if(current_target.stat >= DEAD)
 		lose_target()
 		return FALSE
+
+	if(assess_threat_level() > 3)
+		call_for_backup()
+
 	reset_patience()
 	if(!spawning_projectile)
 		worker.AttackingTarget(current_target)
@@ -131,3 +135,24 @@
 
 /datum/worker_attack_strategy/proc/after_attack()
 	return
+
+/datum/worker_attack_strategy/proc/assess_threat_level()
+	if(!current_target)
+		return 0
+
+	var/threat = 1
+	if(isliving(current_target))
+		var/mob/living/L = current_target
+		threat = L.health / 10 // Basic threat assessment
+
+	return threat
+
+/datum/worker_attack_strategy/proc/call_for_backup()
+	// Alert nearby workers if facing strong enemy
+	var/threat = assess_threat_level()
+	if(threat > 5)
+		for(var/mob/living/ally in view(8, worker))
+			if(ally.controller_mind && ally.controller_mind.master == worker.controller_mind.master)
+				ally.controller_mind.apply_attack_strategy(/datum/worker_attack_strategy)
+				ally.controller_mind.attack_mode.give_target(current_target)
+				ally.visible_message("[ally] rushes to help [worker]!")

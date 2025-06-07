@@ -9,6 +9,7 @@
 	associated_skill = /datum/skill/magic/arcane
 	hand_path = /obj/item/melee/touch_attack/nondetection
 	cost = 1
+	overlay_state = "nondetect"
 	attunements = list(
 		/datum/attunement/illusion = 0.4,
 	)

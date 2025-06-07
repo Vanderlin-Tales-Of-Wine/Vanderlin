@@ -8,6 +8,7 @@
 	var/list/aspirants = list()
 	var/list/aspirant_supporters = list()
 	var/list/bandits = list()
+	var/list/harlequins = list()
 
 	var/cult_ascended = FALSE
 	var/head_rebel_decree = FALSE

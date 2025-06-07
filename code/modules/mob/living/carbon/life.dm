@@ -1,6 +1,9 @@
 /mob/living/carbon/Life()
 	set invisibility = 0
 
+	if(grab_fatigue > 0 && !pulling)
+		grab_fatigue = max(0, grab_fatigue - 0.5)
+
 	if(notransform)
 		return
 
@@ -127,7 +130,7 @@
 		var/datum/reagents/reagentstouch = new()
 		reagentstouch.add_reagent(W.water_reagent, 2)
 		reagentstouch.trans_to(src, reagents.total_volume, transfered_by = src, method = TOUCH)	*/
-	if(body_position == LYING_DOWN)
+	if(body_position == LYING_DOWN && !HAS_TRAIT(src, TRAIT_WATER_BREATHING))
 		var/drown_damage = has_world_trait(/datum/world_trait/abyssor_rage) ? 10 : 5
 		adjustOxyLoss(drown_damage)
 		emote("drown")
@@ -641,13 +644,14 @@ GLOBAL_LIST_INIT(ballmer_windows_me_msg, list("Yo man, what if, we like, uh, put
 				//for context, it takes 5 small cuts (0.4 x 5) or 3 normal cuts (0.8 x 3) for a bodypart to not be able to heal itself
 				if(affecting.get_bleed_rate() >= 2)
 					continue
-				if(affecting.heal_damage(sleepy_mod * 1.5, sleepy_mod * 1.5, required_status = BODYPART_ORGANIC)) // multiplier due to removing healing from sleep effect
+				if(affecting.heal_damage(sleepy_mod * 1.5, sleepy_mod * 1.5, required_status = BODYPART_ORGANIC, updating_health = FALSE)) // multiplier due to removing healing from sleep effect
 					src.update_damage_overlays()
 				for(var/datum/wound/wound as anything in affecting.wounds)
 					if(!wound.sleep_healing)
 						continue
 					wound.heal_wound(wound.sleep_healing * sleepy_mod)
 			adjustToxLoss( - ( sleepy_mod * 0.5) )
+			updatehealth()
 			if(eyesclosed && !HAS_TRAIT(src, TRAIT_NOSLEEP))
 				Sleeping(300)
 		tiredness = 0

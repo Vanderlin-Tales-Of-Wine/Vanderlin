@@ -19,6 +19,7 @@
 
 	miracle = FALSE
 
+	overlay_state = "enchant_weapon"
 	invocation = "Green flame blade!"
 	invocation_type = "shout" //can be none, whisper, emote and shout
 
@@ -26,26 +27,22 @@
 		/datum/attunement/fire = 0.3,
 	)
 
+/obj/effect/proc_holder/spell/invoked/greenflameblade5e/set_attuned_strength(list/incoming_attunements)
+	var/total_value = 1
+	for(var/datum/attunement/attunement as anything in attunements)
+		if(!(attunement in incoming_attunements))
+			continue
+		total_value += incoming_attunements[attunement] * attunements[attunement]
+	attuned_strength = total_value
+	attuned_strength = max(attuned_strength, 0.5)
+	return
+
+
 /obj/effect/proc_holder/spell/invoked/greenflameblade5e/cast(list/targets, mob/living/user)
 	if(isliving(targets[1]))
 		var/mob/living/carbon/target = targets[1]
-		var/mob/living/L = target
-		var/mob/U = user
-		var/obj/item/held_item = user.get_active_held_item() //get held item
-		var/aoe_range = 1
-		if(held_item)
-			held_item.melee_attack_chain(U, L)
-			L.adjustFireLoss(15) //burn target
-			playsound(target, 'sound/items/firesnuff.ogg', 100)
-			//burn effect and sound
-			for(var/mob/living/M in range(aoe_range, get_turf(target))) //burn non-user mobs in an aoe
-				if(!M.anti_magic_check())
-					if(M != user)
-						M.adjustFireLoss(15) //burn target
-						//burn effect and sound
-						new /obj/effect/temp_visual/acidsplash5e(get_turf(M))
-						playsound(M, 'sound/items/firelight.ogg', 100)
-		return TRUE
+		var/obj/item/held_item = target.get_active_held_item() //get held item
+		held_item.AddComponent(/datum/component/enchanted_weapon, 5 MINUTES * attuned_strength, TRUE, /datum/skill/magic/arcane, user, SEARING_BLADE_ENCHANT)
 	return FALSE
 
 /obj/effect/temp_visual/greenflameblade5e

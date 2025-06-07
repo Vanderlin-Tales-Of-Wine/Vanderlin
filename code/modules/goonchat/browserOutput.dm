@@ -59,6 +59,8 @@ GLOBAL_DATUM_INIT(iconCache, /savefile, new("tmp/iconCache.sav")) //Cache of ico
 	var/datum/asset/stuff = get_asset_datum(/datum/asset/group/goonchat)
 	stuff.send(owner)
 
+	//owner << browse(file('code/modules/goonchat/browserassets/html/browserOutput.html'), "window=recipe;size=500x810")
+
 	owner << browse(file('code/modules/goonchat/browserassets/html/browserOutput.html'), "window=browseroutput")
 
 	if (load_attempts < 5) //To a max of 5 load attempts
@@ -72,13 +74,6 @@ GLOBAL_DATUM_INIT(iconCache, /savefile, new("tmp/iconCache.sav")) //Cache of ico
 /datum/chatOutput/Topic(href, list/href_list)
 	if(usr.client != owner)
 		return TRUE
-
-	if(href_list["admin_command"])
-		if(!owner.holder)
-			return
-		owner.holder.admin_command(href_list["admin_command"], href_list["target"])
-		return
-
 	// Build arguments.
 	// Arguments are in the form "param[paramname]=thing"
 	var/list/params = list()

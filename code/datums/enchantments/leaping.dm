@@ -1,6 +1,10 @@
 /datum/enchantment/leaping
 	enchantment_name = "Leaping"
 	examine_text = "It vibrates faintly with bound movement."
+	essence_recipe = list(
+		/datum/thaumaturgical_essence/motion = 30,
+		/datum/thaumaturgical_essence/air = 20
+	)
 	var/active_item
 
 /datum/enchantment/leaping/on_equip(obj/item/i, mob/living/user, slot)

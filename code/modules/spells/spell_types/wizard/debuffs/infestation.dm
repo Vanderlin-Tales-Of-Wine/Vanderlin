@@ -18,6 +18,7 @@
 
 	miracle = FALSE
 
+	overlay_state = "infestation"
 	invocation = "Rot, take them!"
 	invocation_type = "shout" //can be none, whisper, emote and shout
 

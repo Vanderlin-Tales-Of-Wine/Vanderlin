@@ -105,8 +105,8 @@
 			</head>
 			<body scroll=auto>
 				<div class='uiWrapper'>
-					<div class='uiTitle'><tt>[title]</tt></div>
-					<div class='uiContent'>
+					[title ? "<div class='uiTitle'><tt>[title]</tt></div>" : ""]
+					<div class='[title ? "uiContent" : ""]'>
 						[body]
 					</div>
 				</div>

@@ -130,6 +130,7 @@
 
 /datum/intent/proc/spell_cannot_activate()
 	to_chat(mastermob, span_warning("I am too drained for this."))
+	cancel_spell_visual_effects(mastermob)
 	return FALSE
 
 /datum/intent/proc/get_owner()

@@ -136,6 +136,8 @@ GLOBAL_LIST_INIT(container_craft_to_singleton, init_container_crafts())
 		return FALSE
 
 	// Create the crafting operation
+	if(!initiator)
+		initiator = get_mob_by_ckey(crafter.fingerprintslast)
 	new /datum/container_craft_operation(crafter, src, initiator, highest_multiplier, on_craft_start, on_craft_failed)
 	return TRUE
 

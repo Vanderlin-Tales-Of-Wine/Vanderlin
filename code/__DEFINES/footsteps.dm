@@ -38,6 +38,8 @@ extra range addition
 
 
 */
+GLOBAL_LIST_INIT(weatherproof_z_levels, list())
+GLOBAL_LIST_INIT(cellar_z, list())
 
 GLOBAL_LIST_INIT(footstep, list(
 	FOOTSTEP_WOOD = list(list(

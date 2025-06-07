@@ -3,6 +3,10 @@
 	examine_text = "Mana flows freely from this object."
 
 	should_process = TRUE
+	essence_recipe = list(
+		/datum/thaumaturgical_essence/energia = 35,
+		/datum/thaumaturgical_essence/cycle = 25
+	)
 	var/regeneration_rate = 2
 
 /datum/enchantment/mana_regeneration/process()

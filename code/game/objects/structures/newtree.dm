@@ -19,10 +19,16 @@
 	max_integrity = 300
 	//If the tree has been burn beforehand.
 	var/burnt = FALSE
+	var/atom/movable/atom_shadow/tree/shadow
 
 /obj/structure/flora/newtree/Initialize()
 	. = ..()
 	GenerateTree()
+	shadow = new(get_turf(src))
+
+/obj/structure/flora/newtree/Destroy()
+	. = ..()
+	QDEL_NULL(shadow)
 
 /obj/structure/flora/newtree/update_icon()
 	if(burnt)

@@ -55,3 +55,4 @@
 /// From /mob/living/unfriend() : (mob/living/old_friend)
 #define COMSIG_LIVING_UNFRIENDED "living_unfriended"
 
+#define COMSIG_BEAM_ENTERED "beam_entered"

@@ -478,7 +478,7 @@
 			cost = 3,
 			max_purchases = 3
 		),
-		"Vial Of Strong Poison (5)" = list(
+		"Vial Of Doom Poison (5)" = list(
 			list(type = /obj/item/reagent_containers/glass/bottle/vial/strongpoison, count = 1),
 			cost = 5,
 			max_purchases = 1

@@ -9,6 +9,11 @@
 	flag = "magic"
 	var/explode_sound = list('sound/misc/explode/incendiary (1).ogg','sound/misc/explode/incendiary (2).ogg')
 	var/mob/living/carbon/human/sender
+	var/obj/effect/proc_holder/spell/spell_source
+
+/obj/projectile/magic/Initialize(mapload, incoming_spell)
+	. = ..()
+	spell_source = incoming_spell
 
 /obj/projectile/magic/death
 	name = "bolt of death"

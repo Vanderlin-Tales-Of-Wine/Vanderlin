@@ -7,7 +7,7 @@
 
 	var/button_icon_state
 	var/appearance_cache
-	locked = TRUE
+	locked = FALSE
 	var/id
 	var/ordered = TRUE //If the button gets placed into the default bar
 	nomouseover = FALSE
@@ -51,15 +51,6 @@
 		M.playsound_local(M, 'sound/misc/click.ogg', 100)
 	linked_action.Trigger()
 	return TRUE
-
-/atom/movable/screen/movable/action_button/MouseEntered(location,control,params)
-	if(!QDELETED(src))
-		openToolTip(usr,src,params,title = name,content = desc,theme = actiontooltipstyle)
-	..()
-
-/atom/movable/screen/movable/action_button/MouseExited()
-	closeToolTip(usr)
-	..()
 
 /datum/hud/proc/get_action_buttons_icons()
 	. = list()

@@ -53,9 +53,13 @@
 	var/has_bolt = FALSE
 	/// Handle viewport toggle on right click
 	var/has_viewport = FALSE
+	var/atom/movable/atom_shadow/shadow
 
 /obj/structure/door/Initialize()
 	. = ..()
+	if(opacity)
+		shadow = new(get_turf(src))
+
 	if(has_bolt && has_viewport)
 		warning("[src] at [AREACOORD(src)] has both a deadbolt and a viewport, these will conflict as they both use attack_right.")
 	if(has_bolt && lock?.uses_key)
@@ -66,6 +70,7 @@
 
 /obj/structure/door/Destroy()
 	. = ..()
+	QDEL_NULL(shadow)
 	UnregisterSignal(loc, COMSIG_ATOM_ATTACK_HAND, PROC_REF(redirect_attack))
 
 /obj/structure/door/proc/redirect_attack(turf/source, mob/user)
@@ -82,6 +87,7 @@
 		icon_state = "[initial(icon_state)]br"
 		return
 	icon_state = "[initial(icon_state)][door_opened ? "open":""]"
+	shadow.icon_state = "door_[door_opened ? "open":"closed"]"
 
 /obj/structure/door/examine(mob/user)
 	. = ..()
@@ -327,6 +333,8 @@
 	if(!windowed)
 		set_opacity(FALSE)
 	flick("[initial(icon_state)]opening",src)
+	if(shadow)
+		flick("door_opening", shadow)
 	sleep(animate_time)
 	density = FALSE
 	door_opened = TRUE

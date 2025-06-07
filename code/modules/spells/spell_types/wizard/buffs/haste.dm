@@ -16,6 +16,7 @@
 	attunements = list(
 		/datum/attunement/aeromancy = 0.5,
 	)
+	overlay_state = "haste"
 
 /obj/effect/proc_holder/spell/invoked/haste/cast(list/targets, mob/user)
 	var/atom/A = targets[1]

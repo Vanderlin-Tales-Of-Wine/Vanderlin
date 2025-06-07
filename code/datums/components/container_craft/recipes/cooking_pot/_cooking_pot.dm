@@ -85,7 +85,7 @@
 	var/datum/reagent/first =  reagent_requirements[1]
 	var/result_amount = reagent_requirements[first]
 	if(water_conversion > 0)
-		result_amount = CEILING((result_amount / water_conversion) / 3, 1)
+		result_amount = CEILING((result_amount * water_conversion) / 3, 1)
 	html += "[result_amount] oz of [initial(created_reagent.name)]<br>"
 
 	return html

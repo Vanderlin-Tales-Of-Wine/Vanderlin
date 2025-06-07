@@ -99,6 +99,18 @@
 	filters += filter(type = "drop_shadow", x = 2, y = 2, color = "#04080FAA", size = 5, offset = 5)
 */
 
+/**
+ * Plane master handling byond internal blackness
+ * vars are set as to replicate behavior when rendering to other planes
+ * do not touch this unless you know what you are doing
+ */
+/atom/movable/screen/plane_master/blackness
+	name = "darkness plane master"
+	plane = BLACKNESS_PLANE
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	blend_mode = BLEND_MULTIPLY
+	appearance_flags = PLANE_MASTER | NO_CLIENT_COLOR | PIXEL_SCALE
+
 /atom/movable/screen/plane_master/lighting
 	name = "lighting plane master"
 	plane = LIGHTING_PLANE
@@ -362,3 +374,197 @@
 	name = "reflective_cutting_plane"
 	plane = REFLECTIVE_DISPLACEMENT_PLANE
 	render_target = REFLECTIVE_DISPLACEMENT_PLANE_RENDER_TARGET
+
+
+#define ATOMS_FOV_SHADOWS_RENDER_TARGET "*ATOMS_FOV_SHADOWS_PLANE"
+#define WALLS_FOV_PLANE_0_RENDER_TARGET "*WALLS_FOV_PLANE_0"
+#define WALLS_FOV_PLANE_1_RENDER_TARGET "*WALLS_FOV_PLANE_1"
+#define WALLS_FOV_PLANE_2_RENDER_TARGET "*WALLS_FOV_PLANE_2"
+#define WALLS_FOV_PLANE_3_RENDER_TARGET "*WALLS_FOV_PLANE_3"
+#define WALLS_FOV_PLANE_4_RENDER_TARGET "*WALLS_FOV_PLANE_4"
+#define WALLS_FOV_PLANE_5_RENDER_TARGET "*WALLS_FOV_PLANE_5"
+#define WALLS_FOV_PLANE_6_RENDER_TARGET "*WALLS_FOV_PLANE_6"
+#define WALLS_FOV_PLANE_7_RENDER_TARGET "*WALLS_FOV_PLANE_7"
+#define WALLS_FOV_PLANE_8_RENDER_TARGET "*WALLS_FOV_PLANE_8"
+#define WALLS_FOV_PLANE_9_RENDER_TARGET "*WALLS_FOV_PLANE_9"
+
+/atom/movable/screen/plane_master/walls
+	plane = WALL_PLANE
+	blend_mode = BLEND_OVERLAY
+	screen_loc = "CENTER-2:-16, CENTER"
+
+/atom/movable/screen/plane_master/wall_fov
+	screen_loc = "CENTER-2:-16, CENTER"
+	color = list(1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,2)
+
+
+
+/atom/movable/screen/plane_master/wall_fov/backdrop(mob/mymob)
+	. = ..()
+	if(!isliving(mymob))
+		alpha = 0
+	else
+		alpha = 255
+
+/atom/movable/screen/plane_master/wall_fov/shadows_plane
+	name = "wall fov shadows plane"
+	plane = ATOMS_FOV_SHADOWS_PLANE
+	render_target = ATOMS_FOV_SHADOWS_RENDER_TARGET
+
+/atom/movable/screen/plane_master/wall_fov/plane0
+	name = "wall fov plane0"
+	plane = WALLS_FOV_PLANE_0
+	render_target = WALLS_FOV_PLANE_0_RENDER_TARGET
+
+/atom/movable/screen/plane_master/wall_fov/plane0/New()
+	. = ..()
+	filters += filter(type = "layer", render_source = ATOMS_FOV_SHADOWS_RENDER_TARGET, flags = FILTER_UNDERLAY)
+	filters += filter(type = "displace", icon = icon('icons/effects/walls_fov.dmi', "1"), size = 1, x = 80)
+	filters += filter(type = "alpha", render_source = ATOMS_FOV_SHADOWS_RENDER_TARGET, flags = MASK_INVERSE)
+
+/atom/movable/screen/plane_master/wall_fov/plane1
+	name = "wall fov plane1"
+	plane = WALLS_FOV_PLANE_1
+	render_target = WALLS_FOV_PLANE_1_RENDER_TARGET
+
+/atom/movable/screen/plane_master/wall_fov/plane1/New()
+	. = ..()
+	filters += filter(type = "layer", render_source = WALLS_FOV_PLANE_0_RENDER_TARGET, flags = FILTER_UNDERLAY)
+	filters += filter(type = "displace", icon = icon('icons/effects/walls_fov.dmi', "1"), size = 1, x = 80)
+	filters += filter(type = "layer", render_source = WALLS_FOV_PLANE_0_RENDER_TARGET)
+
+
+/atom/movable/screen/plane_master/wall_fov/plane2
+	name = "wall fov plane2"
+	plane = WALLS_FOV_PLANE_2
+	render_target = WALLS_FOV_PLANE_2_RENDER_TARGET
+
+/atom/movable/screen/plane_master/wall_fov/plane2/New()
+	. = ..()
+	filters += filter(type = "layer", render_source = WALLS_FOV_PLANE_1_RENDER_TARGET, flags = FILTER_UNDERLAY)
+	filters += filter(type = "displace", icon = icon('icons/effects/walls_fov.dmi', "2"), size = 2, x = 80)
+	filters += filter(type = "layer", render_source = WALLS_FOV_PLANE_1_RENDER_TARGET)
+
+
+/atom/movable/screen/plane_master/wall_fov/plane3
+	name = "wall fov plane3"
+	plane = WALLS_FOV_PLANE_3
+	render_target = WALLS_FOV_PLANE_3_RENDER_TARGET
+
+/atom/movable/screen/plane_master/wall_fov/plane3/New()
+	. = ..()
+	filters += filter(type = "layer", render_source = WALLS_FOV_PLANE_2_RENDER_TARGET, flags = FILTER_UNDERLAY)
+	filters += filter(type = "displace", icon = icon('icons/effects/walls_fov.dmi', "3"), size = 4, x = 80)
+	filters += filter(type = "layer", render_source = WALLS_FOV_PLANE_2_RENDER_TARGET)
+
+
+/atom/movable/screen/plane_master/wall_fov/plane4
+	name = "wall fov plane4"
+	plane = WALLS_FOV_PLANE_4
+	render_target = WALLS_FOV_PLANE_4_RENDER_TARGET
+
+/atom/movable/screen/plane_master/wall_fov/plane4/New()
+	. = ..()
+	filters += filter(type = "layer", render_source = WALLS_FOV_PLANE_3_RENDER_TARGET, flags = FILTER_UNDERLAY)
+	filters += filter(type = "displace", icon = icon('icons/effects/walls_fov.dmi', "4"), size = 8, x = 80)
+	filters += filter(type = "layer", render_source = WALLS_FOV_PLANE_3_RENDER_TARGET)
+
+
+/atom/movable/screen/plane_master/wall_fov/plane5
+	name = "wall fov plane5"
+	plane = WALLS_FOV_PLANE_5
+	render_target = WALLS_FOV_PLANE_5_RENDER_TARGET
+
+/atom/movable/screen/plane_master/wall_fov/plane5/New()
+	. = ..()
+	filters += filter(type = "layer", render_source = WALLS_FOV_PLANE_4_RENDER_TARGET, flags = FILTER_UNDERLAY)
+	filters += filter(type = "displace", icon = icon('icons/effects/walls_fov.dmi', "5"), size = 16, x = 80)
+	filters += filter(type = "layer", render_source = WALLS_FOV_PLANE_4_RENDER_TARGET)
+
+
+/atom/movable/screen/plane_master/wall_fov/plane6
+	name = "wall fov plane6"
+	plane = WALLS_FOV_PLANE_6
+	render_target = WALLS_FOV_PLANE_6_RENDER_TARGET
+
+/atom/movable/screen/plane_master/wall_fov/plane6/New()
+	. = ..()
+	filters += filter(type = "layer", render_source = WALLS_FOV_PLANE_5_RENDER_TARGET, flags = FILTER_UNDERLAY)
+	filters += filter(type = "displace", icon = icon('icons/effects/walls_fov.dmi', "6"), size = 32, x = 80)
+	filters += filter(type = "layer", render_source = WALLS_FOV_PLANE_5_RENDER_TARGET)
+
+
+/atom/movable/screen/plane_master/wall_fov/plane7
+	name = "wall fov plane7"
+	plane = WALLS_FOV_PLANE_7
+	render_target = WALLS_FOV_PLANE_7_RENDER_TARGET
+
+/atom/movable/screen/plane_master/wall_fov/plane7/New()
+	. = ..()
+	filters += filter(type = "layer", render_source = WALLS_FOV_PLANE_6_RENDER_TARGET, flags = FILTER_UNDERLAY)
+	filters += filter(type = "displace", icon = icon('icons/effects/walls_fov.dmi', "7"), size = 64, x = 80)
+	filters += filter(type = "layer", render_source = WALLS_FOV_PLANE_6_RENDER_TARGET)
+
+
+/atom/movable/screen/plane_master/wall_fov/plane8
+	name = "wall fov plane8"
+	plane = WALLS_FOV_PLANE_8
+	render_target = WALLS_FOV_PLANE_8_RENDER_TARGET
+
+/atom/movable/screen/plane_master/wall_fov/plane8/New()
+	. = ..()
+	filters += filter(type = "layer", render_source = WALLS_FOV_PLANE_7_RENDER_TARGET, flags = FILTER_UNDERLAY)
+	filters += filter(type = "displace", icon = icon('icons/effects/walls_fov.dmi', "8"), size = 128, x = 80)
+	filters += filter(type = "layer", render_source = WALLS_FOV_PLANE_7_RENDER_TARGET)
+
+
+/atom/movable/screen/plane_master/wall_fov/plane9
+	name = "wall fov plane9"
+	plane = WALLS_FOV_PLANE_9
+	//render_relay_plane = RENDER_PLANE_GAME
+	color = null
+	// render_target = WALLS_FOV_PLANE_9_RENDER_TARGET
+
+/atom/movable/screen/plane_master/wall_fov/plane9/New()
+	. = ..()
+	filters += filter(type = "layer", render_source = WALLS_FOV_PLANE_8_RENDER_TARGET, flags = FILTER_UNDERLAY)
+	filters += filter(type = "displace", icon = icon('icons/effects/walls_fov.dmi', "9"), size = 256, x = 80)
+	filters += filter(type = "layer", render_source = WALLS_FOV_PLANE_8_RENDER_TARGET)
+	filters += filter(type = "blur", size = 5)
+	filters += filter(type = "layer", render_source = WALLS_FOV_PLANE_8_RENDER_TARGET)
+	filters += filter(type = "blur", size = 1)
+
+/atom/movable/atom_shadow/tree
+	icon_state = "tree"
+
+/atom/movable/atom_shadow
+	name = "shadow"
+	icon = 'icons/effects/shadow.dmi'
+	icon_state = "shadow"
+	plane = ATOMS_FOV_SHADOWS_PLANE
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+
+/atom/movable/atom_shadow/New(loc, ...)
+	. = ..()
+	RegisterSignal(loc, COMSIG_PARENT_QDELETING, PROC_REF(kill))
+
+/atom/movable/atom_shadow/proc/kill(datum/source)
+	UnregisterSignal(source, COMSIG_PARENT_QDELETING)
+	qdel(src)
+
+/turf/closed/wall/Initialize(mapload)
+	. = ..()
+	if(opacity)
+		new /atom/movable/atom_shadow(src)
+
+/turf/closed/wall
+	plane = WALL_PLANE
+
+
+/turf/closed/mineral
+	plane = WALL_PLANE
+
+/turf/closed/mineral/Initialize(mapload)
+	. = ..()
+	if(opacity)
+		new /atom/movable/atom_shadow(src)

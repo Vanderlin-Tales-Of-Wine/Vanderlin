@@ -944,8 +944,7 @@
 		var/datum/reagent/R = i
 		R.on_temp_change(increased)
 	handle_reactions()
-	var/mob/last_interacted = get_mob_by_ckey(my_atom.fingerprintslast)
-	SEND_SIGNAL(my_atom, COMSIG_REAGENTS_EXPOSE_TEMPERATURE, last_interacted, chem_temp)
+	SEND_SIGNAL(my_atom, COMSIG_REAGENTS_EXPOSE_TEMPERATURE, null, chem_temp)
 
 ///////////////////////////////////////////////////////////////////////////////////
 

@@ -19,6 +19,7 @@
 
 
 	miracle = FALSE
+	overlay_state = "orison"
 
 	invocation = "Return to rot."
 	invocation_type = "whisper"

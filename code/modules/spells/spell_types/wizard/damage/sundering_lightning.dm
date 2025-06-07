@@ -16,6 +16,7 @@
 	attunements = list(
 		/datum/attunement/electric = 0.9
 	)
+	overlay_state = "sundering"
 
 /obj/effect/proc_holder/spell/invoked/sundering_lightning/cast(list/targets, mob/user = usr)
 	var/turf/T = get_turf(targets[1])

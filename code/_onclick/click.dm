@@ -115,6 +115,10 @@
 				if(mmb_intent.no_early_release && client?.chargedprog < 100)
 					changeNext_move(mmb_intent.clickcd)
 					return
+		else if(client?.keys_held["Shift"])
+			spell_quickselect(A)
+			return
+
 	if(modifiers["left"])
 		if(atkswinging != "left")
 			return

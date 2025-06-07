@@ -15,6 +15,7 @@
 	attunements = list(
 		/datum/attunement/dark = 0.6,
 	)
+	overlay_state = "gravity"
 	var/delay = 3
 	var/damage = 0 // damage based off your str
 	var/area_of_effect = 0

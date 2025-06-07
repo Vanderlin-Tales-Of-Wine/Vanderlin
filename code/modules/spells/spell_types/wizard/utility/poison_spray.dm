@@ -25,6 +25,7 @@
 
 	miracle = FALSE
 
+	overlay_state = "aerosolize"
 	invocation = "Poison Cloud!"
 	invocation_type = "shout" //can be none, whisper, emote and shout
 
