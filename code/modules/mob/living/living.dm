@@ -530,9 +530,6 @@
 /mob/living/proc/set_pull_offsets(mob/living/M, grab_state = GRAB_PASSIVE)
 	return //rtd fix not updating because no dirchange
 
-/mob/living
-	var/list/mob_offsets = list()
-
 /mob/living/proc/set_mob_offsets(index, _x = 0, _y = 0)
 	if(index)
 		if(mob_offsets[index])
@@ -740,7 +737,7 @@
 
 /mob/living/proc/get_up(instant = FALSE)
 	set waitfor = FALSE
-	if(!instant && !do_after(src, 2 SECONDS, src, timed_action_flags = (IGNORE_USER_LOC_CHANGE|IGNORE_TARGET_LOC_CHANGE|IGNORE_HELD_ITEM), extra_checks = CALLBACK(src, TYPE_PROC_REF(/mob/living, rest_checks_callback)), interaction_key = DOAFTER_SOURCE_GETTING_UP))
+	if(!instant && !do_after(src, 2 SECONDS, src, timed_action_flags = (IGNORE_USER_LOC_CHANGE|IGNORE_TARGET_LOC_CHANGE|IGNORE_HELD_ITEM|IGNORE_USER_DIR_CHANGE), extra_checks = CALLBACK(src, TYPE_PROC_REF(/mob/living, rest_checks_callback)), interaction_key = DOAFTER_SOURCE_GETTING_UP))
 		if(body_position == LYING_DOWN) // stay lying down
 			set_resting(TRUE, silent = TRUE)
 		return
@@ -1423,16 +1420,52 @@
 /mob/living/proc/harvest(mob/living/user) //used for extra objects etc. in butchering
 	return
 
-/mob/living/canUseTopic(atom/movable/M, be_close=FALSE, no_dexterity=FALSE, no_tk=FALSE)
-	if(incapacitated(ignore_grab = TRUE))
-		to_chat(src, "<span class='warning'>I can't do that right now!</span>")
+/mob/living/can_hold_items(obj/item/I)
+	return ..() && usable_hands
+
+/mob/living/can_perform_action(atom/movable/target, action_bitflags)
+	if(!istype(target))
+		CRASH("Missing target arg for can_perform_action")
+
+	// If the MOBILITY_UI bitflag is not set it indicates the mob's hands are cutoff, blocked, or handcuffed
+	// Also if it is not set, the mob could be incapcitated, knocked out, unconscious, asleep, EMP'd, etc.
+	// Honestly this should be a body_position check but that can be done later
+	if(!(mobility_flags & MOBILITY_UI) && !(action_bitflags & ALLOW_RESTING))
+		to_chat(src, span_warning("You can't do that right now!"))
 		return FALSE
-	if(be_close && !in_range(M, src))
-		to_chat(src, "<span class='warning'>I am too far away!</span>")
+
+	// // NEED_HANDS is already checked by MOBILITY_UI for humans so this is for silicons
+	// if((action_bitflags & NEED_HANDS))
+	// 	if(!can_hold_items(isitem(target) ? target : null)) // almost redundant if it weren't for mobs
+	// 		to_chat(src, span_warning("You don't have the physical ability to do this!"))
+	// 		return FALSE
+
+	if(!Adjacent(target) && (target.loc != src))
+		if((action_bitflags & FORBID_TELEKINESIS_REACH))
+			to_chat(src, span_warning("You are too far away!"))
+			return FALSE
+
+		// var/datum/dna/mob_DNA = has_dna()
+		// if(!mob_DNA || !mob_DNA.check_mutation(/datum/mutation/human/telekinesis) || !tkMaxRangeCheck(src, target))
+		to_chat(src, span_warning("You are too far away!"))
 		return FALSE
-	if(!no_dexterity)
-		to_chat(src, "<span class='warning'>I don't have the dexterity to do this!</span>")
+
+	if((action_bitflags & NEED_DEXTERITY) && !IsAdvancedToolUser()) // !ISADVANCEDTOOLUSER(src)
+		to_chat(src, span_warning("You don't have the dexterity to do this!"))
 		return FALSE
+
+	if((action_bitflags & NEED_LITERACY) && !is_literate())
+		to_chat(src, span_warning("You can't comprehend any of this!"))
+		return FALSE
+
+	if((action_bitflags & NEED_LIGHT) && !has_light_nearby() && !has_nightvision())
+		to_chat(src, span_warning("You need more light to do this!"))
+		return FALSE
+
+	if((action_bitflags & NEED_GRAVITY) && !has_gravity())
+		to_chat(src, span_warning("You need gravity to do this!"))
+		return FALSE
+
 	return TRUE
 
 /mob/living/proc/can_use_guns(obj/item/G)//actually used for more than guns!
@@ -1685,7 +1718,7 @@
 
 	if(!istype(over) || !istype(user))
 		return
-	if(!over.Adjacent(src) || (user != src) || !canUseTopic(over))
+	if(!over.Adjacent(src) || (user != src) || !can_perform_action(over))
 		return
 
 /mob/living/MouseDrop_T(atom/dropping, atom/user)

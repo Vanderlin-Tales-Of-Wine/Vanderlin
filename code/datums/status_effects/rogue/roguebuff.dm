@@ -434,6 +434,17 @@
 		C.update_transform()
 		C.AddComponent(/datum/component/footstep, FOOTSTEP_MOB_HUMAN, 1, 2)
 
+// ---------------------- BRIAR'S RAGE ( DENDOR ) ----------------------------
+/datum/status_effect/buff/barbrage/briarrage //barbarian rage but it's permanent and exclusive to the briar
+	id = "briarrage"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/barbrage/briarrage
+	effectedstats = list(STATKEY_STR = 1, STATKEY_END = 2, STATKEY_PER = -2, STATKEY_INT = -2)
+	duration = -1
+
+/atom/movable/screen/alert/status_effect/buff/barbrage/briarrage
+	name = "Dendor's frenzy"
+	desc = span_nicegreen("EMBRACE WILDERNESS")
+	icon_state = "bestialsense"
 
 /*-----------------\
 |   Eora Miracles  |

@@ -61,7 +61,7 @@
 	..()
 	usr.set_machine(src)
 	if(href_list["remove"])
-		if(!usr.canUseTopic(src, BE_CLOSE))	//For when a player is handcuffed while they have the notice window open
+		if(!usr.can_perform_action(src, NEED_DEXTERITY|FORBID_TELEKINESIS_REACH))	//For when a player is handcuffed while they have the notice window open
 			return
 		var/obj/item/I = locate(href_list["remove"]) in contents
 		if(istype(I) && I.loc == src)
@@ -71,7 +71,7 @@
 
 
 	if(href_list["write"])
-		if(!usr.canUseTopic(src, BE_CLOSE)) //For when a player is handcuffed while they have the notice window open
+		if(!usr.can_perform_action(src, NEED_DEXTERITY|FORBID_TELEKINESIS_REACH)) //For when a player is handcuffed while they have the notice window open
 			return
 		var/obj/item/P = locate(href_list["write"]) in contents
 		if(istype(P) && P.loc == src)
