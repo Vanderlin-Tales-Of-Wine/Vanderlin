@@ -27,7 +27,8 @@
 	sewrepair = TRUE
 	smeltresult = /obj/item/ingot/iron
 	sellprice = VALUE_IRON_ARMOR_UNUSUAL
-
+	// It looks better without these
+	flags_inv = HIDEUNDIES
 	armor_class = AC_LIGHT
 	armor = ARMOR_LEATHER_GOOD
 	body_parts_covered = COVERAGE_TORSO

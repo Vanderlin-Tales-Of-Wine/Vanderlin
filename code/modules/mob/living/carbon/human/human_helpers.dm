@@ -150,28 +150,44 @@
 
 /// Fully randomizes everything in the character.
 // Reflect changes in [datum/preferences/proc/randomise_appearance_prefs]
-/mob/living/carbon/human/proc/randomize_human_appearance(randomise_flags = ALL)
-	if(randomise_flags & RANDOMIZE_SPECIES)
-		set_species(GLOB.species_list[pick(GLOB.roundstart_races)], FALSE)
+/mob/living/carbon/human/proc/randomize_human_appearance(randomise_flags = ALL, include_patreon = TRUE)
+	if(!length(GLOB.roundstart_races))
+		generate_selectable_species()
+
+	if(!dna)
+		return
+
 	var/datum/species/species = dna.species
+
+	if(randomise_flags & RANDOMIZE_SPECIES)
+		var/list_species = GLOB.roundstart_races
+		if(!include_patreon)
+			list_species -= GLOB.patreon_races
+		var/rando_race = GLOB.species_list[pick(list_species)]
+		set_species(new rando_race(), FALSE)
+
+	if(NOEYESPRITES in species?.species_traits)
+		randomise_flags &= ~RANDOMIZE_EYE_COLOR
+
 	if(randomise_flags & RANDOMIZE_GENDER)
 		gender = species.sexes ? pick(MALE, FEMALE) : PLURAL
+
 	if(randomise_flags & RANDOMIZE_AGE)
 		age = pick(species.possible_ages)
+
 	if(randomise_flags & RANDOMIZE_NAME)
 		real_name = species.random_name(gender, TRUE)
+
 	if(randomise_flags & RANDOMIZE_UNDERWEAR)
 		underwear = species.random_underwear(gender)
 
-	if(randomise_flags & RANDOMIZE_UNDERWEAR_COLOR)
-		underwear_color = random_short_color()
-	if(randomise_flags & RANDOMIZE_UNDERSHIRT)
-		undershirt = random_undershirt(gender)
 	if(randomise_flags & RANDOMIZE_SKIN_TONE)
 		var/list/skin_list = species.get_skin_list()
-		skin_tone = skin_list[pick(skin_list)]
-	if(randomise_flags & RANDOMIZE_FEATURES)
-		dna.features = random_features()
+		skin_tone = pick_assoc(skin_list)
+
+	if(randomise_flags & RANDOMIZE_EYE_COLOR)
+		var/obj/item/organ/eyes/eyes = getorganslot(ORGAN_SLOT_EYES)
+		eyes.eye_color = random_eye_color()
 
 /*
 * Family Tree subsystem helpers

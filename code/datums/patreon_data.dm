@@ -56,12 +56,13 @@ GLOBAL_LIST_INIT(contributors, load_contributors())
 			access_rank =  ACCESS_NUKIE_RANK
 
 /datum/patreon_data/proc/has_access(rank)
-	if(!access_rank)
-		assign_access_rank()
 	if(owner.ckey in GLOB.contributors)
 		return TRUE
 	if(owner.holder || (owner.ckey in GLOB.deadmins))
 		return TRUE
+	// Only care about access if the above isn't true.
+	if(!access_rank)
+		assign_access_rank()
 	if(rank <= access_rank)
 		return TRUE
 	return FALSE

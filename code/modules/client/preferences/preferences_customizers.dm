@@ -184,7 +184,7 @@
 	popup.open(FALSE)
 
 /datum/preferences/proc/get_hair_color()
-	var/datum/customizer_entry/hair/entry = get_customizer_entry_of_type(/datum/customizer_entry/hair)
+	var/datum/customizer_entry/hair/entry = get_customizer_entry_of_type(/datum/customizer_entry/hair/head)
 	if(entry)
 		return entry.hair_color
 	else

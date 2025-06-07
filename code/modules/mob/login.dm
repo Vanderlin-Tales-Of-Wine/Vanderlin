@@ -95,9 +95,6 @@
 	addtimer(CALLBACK(src, PROC_REF(send_pref_messages)), 2 SECONDS)
 	if(client.holder)
 		client.hearallasghost()
-
-	if(QDELETED(client?.patreon))
-		client?.patreon = new(client)
 	resend_all_uis()
 
 /mob/proc/send_pref_messages()

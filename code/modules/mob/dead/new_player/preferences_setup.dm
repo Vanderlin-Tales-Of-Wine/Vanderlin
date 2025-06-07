@@ -1,33 +1,56 @@
 /// Randomizes our character preferences according to enabled bitflags.
 // Reflect changes in [mob/living/carbon/human/proc/randomize_human_appearance]
-/datum/preferences/proc/randomise_appearance_prefs(randomise_flags = ALL)
+/datum/preferences/proc/randomise_appearance_prefs(randomise_flags = ALL, include_patreon = FALSE)
 	if(!length(GLOB.roundstart_races))
 		generate_selectable_species()
 
 	if(randomise_flags & RANDOMIZE_SPECIES)
-		var/rando_race = GLOB.species_list[pick(GLOB.roundstart_races)]
+		var/list_species = GLOB.roundstart_races
+		if(!include_patreon)
+			list_species -= GLOB.patreon_races
+		var/rando_race = GLOB.species_list[pick(list_species)]
 		pref_species = new rando_race()
+
+	if(NOEYESPRITES in pref_species.species_traits)
+		randomise_flags &= ~RANDOMIZE_EYE_COLOR
+
 	if(randomise_flags & RANDOMIZE_GENDER)
 		gender = pref_species.sexes ? pick(MALE, FEMALE) : PLURAL
+
 	if(randomise_flags & RANDOMIZE_AGE)
 		age = pick(pref_species.possible_ages)
+
 	if(randomise_flags & RANDOMIZE_NAME)
 		real_name = pref_species.random_name(gender, TRUE)
+
 	if(randomise_flags & RANDOMIZE_UNDERWEAR)
 		underwear = pref_species.random_underwear(gender)
 
-	if(randomise_flags & RANDOMIZE_UNDERWEAR_COLOR)
-		underwear_color = random_short_color()
-	if(randomise_flags & RANDOMIZE_UNDERSHIRT)
-		undershirt = random_undershirt(gender)
+	if(randomise_flags & (RANDOMIZE_HAIRSTYLE | RANDOMIZE_HAIR_COLOR))
+		var/datum/customizer_entry/hair/entry = get_customizer_entry_of_type(/datum/customizer_entry/hair/head)
+		if(entry)
+			var/datum/customizer_choice/customizer_choice = CUSTOMIZER_CHOICE(entry.customizer_choice_type)
+			var/color = (randomise_flags & RANDOMIZE_HAIR_COLOR)
+			var/accessory = (randomise_flags & RANDOMIZE_HAIRSTYLE)
+			customizer_choice.randomize_entry(entry, src, color, accessory)
+
+	if(randomise_flags & (RANDOMIZE_FACIAL_HAIRSTYLE | RANDOMIZE_FACIAL_HAIR_COLOR))
+		var/datum/customizer_entry/hair/entry = get_customizer_entry_of_type(/datum/customizer_entry/hair/facial)
+		if(entry)
+			var/datum/customizer_choice/customizer_choice = CUSTOMIZER_CHOICE(entry.customizer_choice_type)
+			var/color = (randomise_flags & RANDOMIZE_FACIAL_HAIR_COLOR)
+			var/accessory = (randomise_flags & RANDOMIZE_FACIAL_HAIRSTYLE)
+			customizer_choice.randomize_entry(entry, src, color, accessory)
+
 	if(randomise_flags & RANDOMIZE_SKIN_TONE)
 		var/list/skin_list = pref_species.get_skin_list()
 		skin_tone = pick_assoc(skin_list)
+
 	if(randomise_flags & RANDOMIZE_EYE_COLOR)
 		eye_color = random_eye_color()
-	if(randomise_flags & RANDOMIZE_FEATURES)
-		features = random_features()
 
+	//if(randomise_flags & RANDOMIZE_FEATURES)
+		//features = random_features()
 
 /// Randomizes our character preferences according to enabled randomise preferences.
 /datum/preferences/proc/apply_character_randomization_prefs(antag_override = FALSE)
@@ -89,10 +112,9 @@
 	unset_busy_human_dummy(DUMMY_HUMAN_SLOT_PREFERENCES)
 
 
-/datum/preferences/proc/spec_check(mob/user)
+/datum/preferences/proc/spec_check()
 	if(!(pref_species.name in GLOB.roundstart_races))
 		return FALSE
-	if(user)
-		if(pref_species.patreon_req && !parent.patreon?.has_access(ACCESS_ASSISTANT_RANK))
-			return FALSE
+	if(pref_species.patreon_req && !patreon)
+		return FALSE
 	return TRUE
