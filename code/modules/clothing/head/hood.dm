@@ -20,7 +20,7 @@
 
 /obj/item/clothing/head/hooded/equipped(mob/user, slot)
 	..()
-	if(slot != SLOT_HEAD)
+	if(!(slot & ITEM_SLOT_HEAD))
 		if(connectedc)
 			connectedc.RemoveHood()
 		else

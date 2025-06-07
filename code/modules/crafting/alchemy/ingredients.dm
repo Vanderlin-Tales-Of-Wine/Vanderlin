@@ -339,7 +339,7 @@
 
 /obj/item/alch/rosa/equipped(mob/living/carbon/human/user, slot)
 	. = ..()
-	if(slot == SLOT_MOUTH)
+	if(slot & ITEM_SLOT_MOUTH)
 		icon_state = "rosa_mouth"
 		user.update_inv_mouth()
 	else

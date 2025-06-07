@@ -149,7 +149,7 @@
 		var/obj/item/phylactery/new_phylactery = new(H.loc)
 		lichman.phylacteries += new_phylactery
 		new_phylactery.possessor = lichman
-		H.equip_to_slot_or_del(new_phylactery,SLOT_IN_BACKPACK, TRUE)
+		H.equip_to_slot_if_possible(new_phylactery,ITEM_SLOT_BACKPACK, TRUE)
 
 /// called via COMSIG_LIVING_DEATH
 /datum/antagonist/lich/proc/on_death(/datum/source)

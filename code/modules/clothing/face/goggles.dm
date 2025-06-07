@@ -37,6 +37,6 @@
 
 /obj/item/clothing/face/goggles/equipped(mob/user, slot)
 	. = ..()
-	if(slot == SLOT_WEAR_MASK)
+	if(slot & ITEM_SLOT_MASK)
 		if(adjustable == CAN_CADJUST)
 			ADD_TRAIT(user, TRAIT_ENGINEERING_GOGGLES, "[ref(src)]")

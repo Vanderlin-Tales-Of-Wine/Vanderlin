@@ -60,7 +60,7 @@
 
 /obj/item/clothing/head/crown/circlet/vision/equipped(mob/user, slot)
 	. = ..()
-	if (slot == SLOT_HEAD && istype(user))
+	if ((slot & ITEM_SLOT_HEAD) && istype(user))
 		ADD_TRAIT(user, TRAIT_THERMAL_VISION,"thermal_vision")
 	else
 		REMOVE_TRAIT(user, TRAIT_THERMAL_VISION,"thermal_vision")
@@ -75,7 +75,7 @@
 
 /obj/item/clothing/head/crown/circlet/sleepless/equipped(mob/user, slot)
 	. = ..()
-	if (slot == SLOT_HEAD && istype(user))
+	if ((slot & ITEM_SLOT_HEAD) && istype(user))
 		ADD_TRAIT(user, TRAIT_NOSLEEP,"Fatal Insomnia")
 	else
 		REMOVE_TRAIT(user, TRAIT_NOSLEEP,"Fatal Insomnia")
@@ -90,7 +90,7 @@
 
 /obj/item/clothing/head/crown/circlet/stink/equipped(mob/user, slot)
 	. = ..()
-	if (slot == SLOT_HEAD && istype(user))
+	if ((slot & ITEM_SLOT_HEAD) && istype(user))
 		ADD_TRAIT(user, TRAIT_NOSTINK,"Dead Nose")
 	else
 		REMOVE_TRAIT(user, TRAIT_NOSTINK,"Dead Nose")

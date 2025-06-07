@@ -45,7 +45,7 @@
 /obj/item/clothing/head/equipped(mob/user, slot)
 	. = ..()
 	user.update_fov_angles()
-	if(slot != SLOT_HEAD)
+	if(!(slot & ITEM_SLOT_HEAD))
 		flags_inv = null
 	else
 		flags_inv = initial(flags_inv)

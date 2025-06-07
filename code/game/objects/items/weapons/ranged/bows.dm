@@ -42,16 +42,16 @@
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/equipped(mob/user, slot, initial)
 	. = ..()
-	if(chambered && slot != SLOT_HANDS)
+	if(chambered && !(slot & ITEM_SLOT_HANDS))
 		chambered = null
 		for(var/obj/item/ammo_casing/CB in get_ammo_list(TRUE, TRUE))
 			CB.forceMove(drop_location())
 //			CB.bounce_away(FALSE, NONE)
 		update_icon()
 
-/obj/item/gun/ballistic/revolver/grenadelauncher/bow/dropped()
+/obj/item/gun/ballistic/revolver/grenadelauncher/bow/dropped(mob/user)
 	. = ..()
-	if(chambered)
+	if(loc != user && chambered)
 		chambered = null
 		for(var/obj/item/ammo_casing/CB in get_ammo_list(TRUE, TRUE))
 			CB.forceMove(drop_location())

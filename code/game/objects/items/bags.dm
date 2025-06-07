@@ -24,7 +24,7 @@
 
 /obj/item/storage/sack/equipped(mob/living/carbon/human/user, slot)
 	. = ..()
-	if(slot == SLOT_HEAD)
+	if(slot & ITEM_SLOT_HEAD)
 		user.become_blind("blindfold_[REF(src)]")
 	if(HAS_TRAIT(user, TRAIT_ROTMAN))
 		to_chat(user, span_info("The [src] slips through dead fingers..."))
