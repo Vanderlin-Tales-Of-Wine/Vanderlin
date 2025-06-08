@@ -201,7 +201,7 @@
 	else if(isitem(mover))
 		var/obj/item/I = mover
 		if(I.throwforce >= 10)
-			take_damage(10)
+			take_damage(I.throwforce)
 			if(brokenstate)
 				return 1
 		else
