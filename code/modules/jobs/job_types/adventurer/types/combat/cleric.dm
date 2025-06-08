@@ -85,7 +85,6 @@
 
 
 	if(H.mind)
-		H.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
