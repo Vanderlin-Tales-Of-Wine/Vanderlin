@@ -212,7 +212,9 @@
 						dude.Stun(5 SECONDS)
 						dude.Knockdown(5 SECONDS)
 						dude.add_stress(/datum/stressevent/hithead)
-						to_chat(dude, span_danger("\A I jump and hit my head on the window frame!"))
+						dude.visible_message(
+							span_warning("[dude] hits their head as they fly through the window"),
+							span_danger("\A I hit my head on the window frame!"))
 				return 1
 	else if(isitem(mover))
 		var/obj/item/I = mover
