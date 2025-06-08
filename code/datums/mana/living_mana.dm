@@ -68,9 +68,6 @@
 /atom/movable/proc/after_manapool_init()
 	return TRUE
 
-/mob/living/carbon
-	has_initial_mana_pool = TRUE
-
 /mob/living/carbon/get_initial_mana_pool_type()
 	return /datum/mana_pool/mob
 

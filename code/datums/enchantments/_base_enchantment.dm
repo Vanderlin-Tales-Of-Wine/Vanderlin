@@ -1,7 +1,3 @@
-/atom
-	///this is the path to the enchantment not the actual enchantment
-	var/list/enchantments
-
 /obj/item/proc/enchant(datum/enchantment/path)
 	if(!path)
 		path = pickweight(SSenchantment.weighted_enchantments)

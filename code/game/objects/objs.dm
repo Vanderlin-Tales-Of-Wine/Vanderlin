@@ -46,6 +46,15 @@
 
 	var/animate_dmg = TRUE
 
+	var/object_slowdown = 0
+	var/weatherproof = FALSE
+	var/weather = FALSE
+	var/list/temperature_affected_turfs
+
+	var/component_block = FALSE
+
+	var/attacked_sound = 'sound/blank.ogg'
+
 	// See /code/datums/locks
 
 	/**
@@ -64,6 +73,8 @@
 	var/unlock_sound = 'sound/foley/unlock.ogg'
 	/// Sound we play when a key fails to unlock
 	var/rattle_sound = 'sound/foley/lockrattle.ogg'
+	/// If this is currently being lockpicked
+	var/being_picked = FALSE
 
 	vis_flags = VIS_INHERIT_PLANE
 

@@ -1,8 +1,3 @@
-/atom
-	/// This means that the mouse over text will not be displayed when the mouse is over this atom
-	var/nomouseover = FALSE
-	var/hover_color = "#a1bac4"
-
 /atom/MouseEntered(location,control,params)
 	. = ..()
 	if(!nomouseover && name && ismob(usr))
