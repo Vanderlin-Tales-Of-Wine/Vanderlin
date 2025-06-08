@@ -73,7 +73,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	return
 
 /obj/structure/door/secret/attack_hand(mob/user)
-	. = ..()
+	//. = ..()
 	if(.)
 		return
 	user.changeNext_move(CLICK_CD_MELEE)
