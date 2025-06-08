@@ -137,7 +137,42 @@
 		T = get_turf(target)
 	explosion(T, -1, exp_heavy, exp_light, exp_flash, 0, flame_range = exp_fire, soundin = explode_sound)
 
+/obj/item/ammo_casing/caseless/bolt/water
+	name = "water bolt"
+	desc = "A bolt with its tip replaced by a vial of water. Shatters on impact."
+	projectile_type = /obj/projectile/bullet/bolt/water
+	max_integrity = 10
+	force = DAMAGE_KNIFE-2
 
+/obj/item/ammo_casing/caseless/bolt/water/Initialize()
+	. = ..()
+	RemoveElement(/datum/element/tipped_item)
+
+/obj/projectile/bullet/bolt/water
+	name = "water bolt"
+	desc = "A bolt with its tip replaced by a vial of water. Shatters on impact."
+	damage = BOLT_DAMAGE-20
+	embedchance = 0
+	woundclass = BCLASS_BLUNT
+	armor_penetration = BOLT_PENETRATION-40
+
+/obj/projectile/bullet/bolt/water/Initialize()
+	. = ..()
+	create_reagents(15, NO_REACT)
+	reagents.add_reagent(/datum/reagent/water, 15)
+
+/obj/projectile/bullet/bolt/water/on_hit(target)
+	var/target_loc = get_turf(src)
+	if(iscarbon(target))
+		var/mob/living/carbon/C = target
+		target_loc = get_turf(C)
+		var/obj/item/bodypart/BP = C.get_bodypart(def_zone)
+		BP.add_embedded_object(new /obj/item/natural/glass/shard())
+	else
+		new /obj/effect/decal/cleanable/debris/glass(target_loc)
+	playsound(target_loc, "glassbreak", 30, TRUE, -3)
+	chem_splash(target_loc, 2, list(reagents))
+	return ..()
 
 /*-------\
 | Arrows |
@@ -233,6 +268,44 @@
 	. = ..()
 	reagents.add_reagent(/datum/reagent/strongpoison, 2)
 
+//................ Water Arrow ............... //
+/obj/item/ammo_casing/caseless/arrow/water
+	name = "water arrow"
+	desc = "An arrow with its tip replaced by a vial of water. Shatters on impact."
+	projectile_type = /obj/projectile/bullet/arrow/water
+	max_integrity = 10
+	force = DAMAGE_KNIFE-2
+
+/obj/item/ammo_casing/caseless/arrow/water/Initialize()
+	. = ..()
+	RemoveElement(/datum/element/tipped_item)
+
+/obj/projectile/bullet/arrow/water
+	name = "water arrow"
+	desc = "An arrow with its tip replaced by a vial of water. Shatters on impact."
+	damage = ARROW_DAMAGE-20
+	embedchance = 0
+	woundclass = BCLASS_BLUNT
+	armor_penetration = ARROW_PENETRATION-20
+
+/obj/projectile/bullet/arrow/water/Initialize()
+	. = ..()
+	create_reagents(15, NO_REACT)
+	reagents.add_reagent(/datum/reagent/water, 15)
+
+/obj/projectile/bullet/arrow/water/on_hit(target)
+	var/target_loc = get_turf(src)
+	if(iscarbon(target))
+		var/mob/living/carbon/C = target
+		target_loc = get_turf(C)
+		var/obj/item/bodypart/BP = C.get_bodypart(def_zone)
+		BP.add_embedded_object(new /obj/item/natural/glass/shard())
+	else
+		new /obj/effect/decal/cleanable/debris/glass(target_loc)
+	playsound(target_loc, "glassbreak", 30, TRUE, -3)
+	chem_splash(target_loc, 2, list(reagents))
+	return ..()
+
 //................ Pyro Arrow ............... //
 /obj/item/ammo_casing/caseless/arrow/pyro
 	name = "pyroclastic arrow"
@@ -277,8 +350,6 @@
 	else
 		T = get_turf(target)
 	explosion(T, -1, exp_heavy, exp_light, exp_flash, 0, flame_range = exp_fire, soundin = explode_sound)
-
-
 
 /*--------\
 | Bullets |
