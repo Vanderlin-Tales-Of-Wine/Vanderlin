@@ -303,9 +303,9 @@
 	abstract_type = /obj/projectile/bullet/reusable/arrow/vial
 	ammo_type = null
 	can_inject = FALSE
-	damage = ARROW_DAMAGE-20
+	damage = ARROW_DAMAGE-15
 	embedchance = 0
-	woundclass = BCLASS_BLUNT
+	woundclass = BCLASS_CUT
 	armor_penetration = ARROW_PENETRATION-20
 	var/datum/reagent/reagent
 
