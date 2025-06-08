@@ -203,7 +203,7 @@
 						take_damage(20)
 				else
 					take_damage(10)
-			if(brokenstate)
+			if(brokenstate || climbable)
 				if(ishuman(mover))
 					var/mob/living/carbon/human/dude = mover
 					if(prob(20))
