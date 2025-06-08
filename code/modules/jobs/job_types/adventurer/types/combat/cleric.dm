@@ -25,7 +25,7 @@
 	belt = /obj/item/storage/belt/leather
 	backr = /obj/item/weapon/shield/heater
 	if(ispath(H.patron?.type, /datum/patron/divine/abyssor))
-		backr = /obj/item/weapon/polearm/woodstaff/quarterstaff
+		backl = /obj/item/weapon/polearm/woodstaff/quarterstaff
 	else
 		if(iself(H) || ishalfelf(H))
 			beltl = /obj/item/weapon/mace/elvenclub
