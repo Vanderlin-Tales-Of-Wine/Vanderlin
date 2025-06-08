@@ -149,6 +149,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	tutorial = "What is best in life is to crush your enemies, see them driven before you, \
 	and to hear the lamentations of their women."
 	outfit = /datum/outfit/job/lord/bking
+	pickprob = 15
 
 	category_tags = list(CTAG_LORD)
 
@@ -183,7 +184,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 		H.change_stat(STATKEY_CON, 1)
 		H.change_stat(STATKEY_END, -1)
 		H.change_stat(STATKEY_SPD, -1)
-	H.change_stat(STATKEY_STR, 3)
+	H.change_stat(STATKEY_STR, 2)
 	H.change_stat(STATKEY_END, 2)
 	H.change_stat(STATKEY_CON, 3)
 	H.change_stat(STATKEY_INT, 3)
@@ -201,6 +202,8 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	name = "Spellbound Emperor"
 	tutorial = "You cast spells and shit. I need to come up with better text here. Magic missile, fuck you."
 	outfit = /datum/outfit/job/lord/mking
+	allowed_patrons = list(/datum/patron/divine/noc, /datum/patron/inhumen/zizo)
+	pickprob = 15
 
 	category_tags = list(CTAG_LORD)
 
@@ -250,7 +253,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	H.change_stat(STATKEY_LCK, 1)
 	H.change_stat(STATKEY_SPD, -1)
 	H.change_stat(STATKEY_PER, 3)
-	H.mind?.adjust_spellpoints(8)
+	H.mind?.adjust_spellpoints(5)
 
 ///datum/advclass/lord/pious // DEVOUTLY RELIGIOUS.
 //	name = "Pious Ruler"
