@@ -213,13 +213,14 @@
 	flag =  "piercing"
 	speed = 0.4
 	var/piercing = FALSE
+	var/can_inject = TRUE
 
 /obj/projectile/bullet/reusable/arrow/Initialize()
 	. = ..()
 	create_reagents(50, NO_REACT)
 
 /obj/projectile/bullet/reusable/arrow/on_hit(atom/target, blocked = FALSE)
-	if(iscarbon(target))
+	if(can_inject && iscarbon(target))
 		var/mob/living/carbon/M = target
 		if(blocked != 100) // not completely blocked
 			if(M.can_inject(null, FALSE, def_zone, piercing)) // Pass the hit zone to see if it can inject by whether it hit the head or the body.
@@ -268,32 +269,52 @@
 	. = ..()
 	reagents.add_reagent(/datum/reagent/strongpoison, 2)
 
-//................ Water Arrow ............... //
-/obj/item/ammo_casing/caseless/arrow/water
-	name = "water arrow"
-	desc = "An arrow with its tip replaced by a vial of water. Shatters on impact."
-	projectile_type = /obj/projectile/bullet/arrow/water
+//................ Vial Arrow ............... //
+/obj/item/ammo_casing/caseless/arrow/vial
+	name = "vial arrow"
+	desc = "An arrow with its tip replaced by a vial of something. Shatters on impact."
+	icon_state = "arrow_vial"
+	abstract_type = /obj/item/ammo_casing/caseless/arrow/vial
 	max_integrity = 10
+	possible_item_intents = list(/datum/intent/hit)
 	force = DAMAGE_KNIFE-2
+	var/datum/reagent/reagent
 
-/obj/item/ammo_casing/caseless/arrow/water/Initialize()
+/obj/item/ammo_casing/caseless/arrow/vial/Initialize()
 	. = ..()
 	RemoveElement(/datum/element/tipped_item)
+	update_icon()
 
-/obj/projectile/bullet/arrow/water
-	name = "water arrow"
-	desc = "An arrow with its tip replaced by a vial of water. Shatters on impact."
+/obj/item/ammo_casing/caseless/arrow/vial/update_overlays()
+	. = ..()
+	if(reagent)
+		var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]_filling")
+		filling.color = initial(reagent.color)
+		. += filling
+
+/obj/item/ammo_casing/caseless/arrow/vial/water
+	projectile_type = /obj/projectile/bullet/reusable/arrow/vial/water
+	reagent = /datum/reagent/water
+
+/obj/projectile/bullet/reusable/arrow/vial
+	name = "vial arrow"
+	desc = "An arrow with its tip replaced by a vial of something. Shatters on impact."
+	icon_state = "arrowvial_proj"
+	abstract_type = /obj/projectile/bullet/reusable/arrow/vial
+	ammo_type = null
+	can_inject = FALSE
 	damage = ARROW_DAMAGE-20
 	embedchance = 0
 	woundclass = BCLASS_BLUNT
 	armor_penetration = ARROW_PENETRATION-20
+	var/datum/reagent/reagent
 
-/obj/projectile/bullet/arrow/water/Initialize()
+/obj/projectile/bullet/reusable/arrow/vial/Initialize()
 	. = ..()
-	create_reagents(15, NO_REACT)
-	reagents.add_reagent(/datum/reagent/water, 15)
+	if(reagent)
+		reagents?.add_reagent(reagent, 15)
 
-/obj/projectile/bullet/arrow/water/on_hit(target)
+/obj/projectile/bullet/reusable/arrow/vial/on_hit(target)
 	var/target_loc = get_turf(src)
 	if(iscarbon(target))
 		var/mob/living/carbon/C = target
@@ -306,11 +327,48 @@
 	chem_splash(target_loc, 2, list(reagents))
 	return ..()
 
+/obj/projectile/bullet/reusable/arrow/vial/water
+	reagent = /datum/reagent/water
+
+//................ Water Arrow ............... //
+/obj/item/ammo_casing/caseless/arrow/water
+	name = "water arrow"
+	desc = "An arrow with its tip replaced by a water crystal, creates a splash on impact."
+	icon_state = "arrow_water"
+	projectile_type = /obj/projectile/bullet/reusable/arrow/water
+	max_integrity = 10
+	force = DAMAGE_KNIFE-2
+
+/obj/item/ammo_casing/caseless/arrow/water/Initialize()
+	. = ..()
+	RemoveElement(/datum/element/tipped_item)
+
+/obj/projectile/bullet/reusable/arrow/water
+	name = "water arrow"
+	desc = "An arrow with its tip replaced by a water crystal, creates a splash on impact."
+	icon_state = "arrowwater_vial"
+	ammo_type = null
+	can_inject = FALSE
+	damage = ARROW_DAMAGE-5
+	armor_penetration = ARROW_PENETRATION-10
+	embedchance = 0
+
+/obj/projectile/bullet/reusable/arrow/water/Initialize()
+	. = ..()
+	reagents.add_reagent(/datum/reagent/water, 25)
+
+/obj/projectile/bullet/reusable/arrow/water/on_hit(target)
+	var/target_loc = get_turf(src)
+	if(ismob(target))
+		target_loc = get_turf(target)
+	chem_splash(target_loc, 3, list(reagents))
+	return ..()
+
 //................ Pyro Arrow ............... //
 /obj/item/ammo_casing/caseless/arrow/pyro
 	name = "pyroclastic arrow"
 	desc = "An arrow with its tip smeared with a flammable tincture."
-	projectile_type = /obj/projectile/bullet/arrow/pyro
+	projectile_type = /obj/projectile/bullet/reusable/arrow/pyro
 	icon_state = "arrow_pyroclastic"
 	max_integrity = 10
 	force = DAMAGE_KNIFE-2
@@ -320,10 +378,12 @@
 	RemoveElement(/datum/element/tipped_item)
 	qdel(reagents)
 
-/obj/projectile/bullet/arrow/pyro
+/obj/projectile/bullet/reusable/arrow/pyro
 	name = "pyroclastic arrow"
 	desc = "An arrow with its tip smeared with a flammable tincture."
 	icon_state = "arrowpyro_proj"
+	ammo_type = null
+	can_inject = FALSE
 	damage = ARROW_DAMAGE-15
 	range = 15
 	hitsound = 'sound/blank.ogg'
@@ -338,7 +398,7 @@
 	var/exp_flash = 0
 	var/exp_fire = 1
 
-/obj/projectile/bullet/arrow/pyro/on_hit(target)
+/obj/projectile/bullet/reusable/arrow/pyro/on_hit(target)
 	. = ..()
 	if(ismob(target))
 		var/mob/living/M = target
