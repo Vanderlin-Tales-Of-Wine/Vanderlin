@@ -155,6 +155,7 @@ GLOBAL_LIST_INIT(traits_by_type, list(
 		"Grenzelhoftian" = TRAIT_GRENZEL,
 		"Waterbreathing" = TRAIT_WATER_BREATHING,
 		"Moonwater Elixir" = TRAIT_MOONWATER_ELIXIR,
+		"Grenzelhoftian" = TRAIT_GRENZEL,
 	),
 	/obj/item/bodypart = list(
 		"TRAIT_PARALYSIS" = TRAIT_PARALYSIS

@@ -60,6 +60,7 @@
 #define TRAIT_GRENZEL 					"Grenzelhoftian" // for anyone grenzelhoft
 #define TRAIT_WATER_BREATHING			"Waterbreathing"
 #define TRAIT_MOONWATER_ELIXIR			"Moonwater Elixir"
+#define TRAIT_GRENZEL 					"Grenzelhoftian" // for anyone grenzelhoft
 /// applied to orphans
 #define TRAIT_ORPHAN 					"Orphan"
 #define TRAIT_RECRUITED					"Recruit" //Trait used to give foreigners their new title
