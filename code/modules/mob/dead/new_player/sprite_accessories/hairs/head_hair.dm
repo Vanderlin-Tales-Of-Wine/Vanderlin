@@ -1118,45 +1118,46 @@
 
 /datum/sprite_accessory/hair/head/triton
 	name = "Base Triton"
+	abstract_type = /datum/sprite_accessory/hair/head/triton
 	icon = 'icons/mob/sprite_accessory/hair/triton.dmi'
 	specuse = list("triton")
 
 /datum/sprite_accessory/hair/head/triton/fin
-	name = "Fin Hair"
+	name = "Fin"
 	icon_state = "fin"
 
 /datum/sprite_accessory/hair/head/triton/seaking
-	name = "Seaking Hair"
+	name = "Seaking"
 	icon_state = "seaking"
 
 /datum/sprite_accessory/hair/head/triton/siren
-	name = "Siren Hair"
+	name = "Siren"
 	icon_state = "siren"
 
 /datum/sprite_accessory/hair/head/triton/jellyfish
-	name = "Jellyfish Hair"
+	name = "Jellyfish"
 	icon_state = "jellyfish"
 
 /datum/sprite_accessory/hair/head/triton/anemonger
-	name = "Anemonger Hair"
+	name = "Anemonger"
 	icon_state = "anemonger"
 
 /datum/sprite_accessory/hair/head/triton/punkfish
-	name = "Punkfish Hair"
+	name = "Punkfish"
 	icon_state = "punkfish"
 
 /datum/sprite_accessory/hair/head/triton/weed
-	name = "Weed Hair"
+	name = "Weeds"
 	icon_state = "weed"
 
 /datum/sprite_accessory/hair/head/triton/gorgon
-	name = "Gorgon Hair"
+	name = "Gorgon"
 	icon_state = "gorgon"
 
 /datum/sprite_accessory/hair/head/triton/lion
-	name = "Lion Hair"
+	name = "Lion"
 	icon_state = "lion"
 
 /datum/sprite_accessory/hair/head/triton/betta
-	name = "Betta Hair"
+	name = "Betta"
 	icon_state = "betta"
