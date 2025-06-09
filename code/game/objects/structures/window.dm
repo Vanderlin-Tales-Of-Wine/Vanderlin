@@ -212,7 +212,7 @@
 						dude.add_stress(/datum/stressevent/hithead)
 						dude.visible_message(
 							span_warning("[dude] hits their head as they fly through the window!"),
-							span_danger("\A I hit my head on the window frame!"))
+							span_danger("I hit my head on the window frame!"))
 				return 1
 	else if(isitem(mover))
 		var/obj/item/I = mover
