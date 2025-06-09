@@ -65,11 +65,11 @@
 	H.change_stat(STATKEY_END, 2)
 	H.change_stat(STATKEY_PER, -1)
 	H.change_stat(STATKEY_SPD, 2)
-	if(H.dna.species.id == "elf")
+/*	if(H.dna.species.id == "elf")
 		H.change_stat(STATKEY_SPD, -1)
 	if(H.dna.species.id == "harpy")
 		H.change_stat(STATKEY_SPD, -1)
-		H.change_stat(STATKEY_STR, 1) //harpies are possible monks but have -4 strength per default... I'm going to let them have at least some decent dodging bonuses.
+		H.change_stat(STATKEY_STR, 1) */ //harpies are possible monks but have -4 strength per default... I'm going to let them have at least some decent dodging bonuses.
 	if(H.dna.species.id == "kobold")
 		H.change_stat(STATKEY_STR, 2) //Go, my child. Destroy their ankles.
 		H.change_stat(STATKEY_SPD, -1)
