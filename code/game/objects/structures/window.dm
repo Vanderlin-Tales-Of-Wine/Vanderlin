@@ -195,14 +195,12 @@
 	if(isliving(mover))
 		if(mover.throwing)
 			if(!climbable)
-				if(iscarbon(mover))
-					var/mob/living/carbon/dude = mover
-					if(dude.STASTR >= 13)
-						take_damage(50)
-					else
-						take_damage(20)
-				else
+				if(!iscarbon(mover))
 					take_damage(10)
+				else
+					var/mob/living/carbon/dude = mover
+					var/base_damage = 20
+					take_damage(base_damage * (dude.STASTR / 10))
 			if(brokenstate || climbable)
 				if(ishuman(mover))
 					var/mob/living/carbon/human/dude = mover
