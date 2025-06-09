@@ -215,7 +215,7 @@
 /datum/stressevent/elf/major
 	timer = 90 SECONDS
 	stressadd = 3
-	desc = span_danger("HOLY SHIt it's a fucking leaf lover, I hate those.")
+	desc = span_danger("Weed eaters and mushroom dancers, damned be those elves!")
 
 /datum/stressevent/helf
 	timer = 30 SECONDS
@@ -233,9 +233,9 @@
 	desc = "<span class='red'>A beast in human skin.</span>"
 
 /datum/stressevent/evilgrenzel
-	timer = 30 SECONDS
-	stressadd = 1
-	desc = span_warning("A damned grenzel... murderous bastards.")
+	timer = 1 MINUTES
+	stressadd = 2
+	desc = span_danger("A damned grenzel... murderous bastards!")
 
 /datum/stressevent/paracrowd
 	timer = 15 SECONDS
