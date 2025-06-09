@@ -328,6 +328,7 @@
 	return ..()
 
 /obj/projectile/bullet/reusable/arrow/vial/water
+	desc = "An arrow with its tip replaced by a vial of water, shatters on impact."
 	reagent = /datum/reagent/water
 
 //................ Water Arrow ............... //
