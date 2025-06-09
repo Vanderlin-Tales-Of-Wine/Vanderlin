@@ -43,11 +43,11 @@
 	var/message
 	if(!HAS_TRAIT(user, TRAIT_ORGAN_EATER))
 		to_chat(user, span_danger("The beating heart of the blade seems to slow down at the sight of you... disinterested."))
-		user.playsound_local(user, pick('sound/misc/godweapons/gorefeast1.ogg', 'sound/misc/godweapons/gorefeast2.ogg', 'sound/misc/godweapons/gorefeast3.ogg'), 100)
+		user.playsound_local(user, pick('sound/misc/godweapons/gorefeast1.ogg', 'sound/misc/godweapons/gorefeast2.ogg', 'sound/misc/godweapons/gorefeast3.ogg'), 70)
 		message = pick(GOREFEAST_UNWORTHY)
 	else
 		to_chat(user, span_danger("Gorefeast begins to thump, ecstatically upon your touch on the boney shaft."))
-		user.playsound_local(user, pick('sound/misc/godweapons/gorefeast4.ogg', 'sound/misc/godweapons/gorefeast5.ogg', 'sound/misc/godweapons/gorefeast6.ogg'), 100)
+		user.playsound_local(user, pick('sound/misc/godweapons/gorefeast4.ogg', 'sound/misc/godweapons/gorefeast5.ogg', 'sound/misc/godweapons/gorefeast6.ogg'), 70)
 		message = pick(GOREFEAST_WORTHY)
 	addtimer(CALLBACK(src, PROC_REF(do_message), message), 2 SECONDS)
 
@@ -141,16 +141,20 @@
 		return
 	var/dead = H.stat == DEAD
 	if((H.health < H.crit_threshold) || dead)
-		var/speed = dead ? 4 SECONDS : 8 SECONDS
-		to_chat(user, span_notice("Neant lights up and begins to tear at [target]..."))
+		var/speed = dead ? 3 SECONDS : 7 SECONDS
+		visible_message(user, span_notice("Neant lights up and begins to tear at [target]..."))
 		if(!do_after(user, speed, H))
 			return
 		var/obj/item/bodypart/chest/C = H.get_bodypart(BODY_ZONE_CHEST)
 		if(!C)
 			return
+		playsound(get_turf(user), 'sound/surgery/scalpel2.ogg', 70)
+		if(do_after(user, 0.5 SECONDS, target))
+			C.add_wound(/datum/wound/slash/incision)
 
-		C.add_wound(/datum/wound/slash/incision)
-		C.add_wound(/datum/wound/fracture/chest)
+		playsound(get_turf(user), 'sound/surgery/organ2.ogg', 70)
+		if(do_after(user, 0.5 SECONDS, target))
+			C.add_wound(/datum/wound/fracture/chest)
 
 		new /obj/item/reagent_containers/lux(get_turf(target))
 
@@ -161,7 +165,7 @@
 
 		H.add_splatter_floor()
 		H.adjustBruteLoss(20)
-		to_chat(user, span_notice("Neant's blade draws the lux from [target]!"))
+		visible_message(user, span_notice("Neant's blade draws the lux from [target]!"))
 
 /obj/item/weapon/polearm/neant/proc/handle_magick(mob/living/user, atom/target)
 	if(!COOLDOWN_FINISHED(src, fire_projectile))
@@ -196,9 +200,9 @@
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "neantprojectile"
 	hitsound = 'sound/combat/hits/hi_arrow2.ogg'
-	range = 7
-	damage = 35
-	armor_penetration = 40
+	range = 8
+	damage = 20
+	armor_penetration = 30
 	damage_type = BRUTE
 	woundclass = BCLASS_CUT
 	flag =  "piercing"
@@ -237,11 +241,9 @@
 	pixel_x = -16
 	bigboy = TRUE
 	dropshrink = 0.75
-	possible_item_intents = list(/datum/intent/shoot/bow/turbulenta, /datum/intent/arc/bow/turbulenta, /datum/intent/use)
-	randomspread = 1
-	spread = 1
-	force = 9
-	damfactor = 0.9
+	possible_item_intents = list(/datum/intent/shoot/bow/turbulenta, /datum/intent/arc/bow/turbulenta)
+	force = 12
+	damfactor = 1.1
 	var/obj/item/instrument/harp/turbulenta/FUCK
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/turbulenta/Initialize()
@@ -250,35 +252,44 @@
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/turbulenta/Destroy()
 	QDEL_NULL(FUCK)
-	. = ..()
+	return ..()
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/turbulenta/attack_self(mob/living/user)
-	if(chambered)
+	if(chambered || !HAS_TRAIT(user, TRAIT_CRACKHEAD))
 		return ..()
 	FUCK.attack_self(user)
+
+/obj/item/gun/ballistic/revolver/grenadelauncher/bow/turbulenta/dropped(mob/user, silent)
+	if(FUCK.playing)
+		FUCK.terminate_playing(user)
+	return ..()
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/turbulenta/attackby(obj/item/A, mob/user, params)
 	if(FUCK.playing)
 		FUCK.terminate_playing(user)
 	return ..()
 
+/obj/item/gun/ballistic/revolver/grenadelauncher/bow/turbulenta/pre_attack(atom/A, mob/living/user, params)
+	if(FUCK.playing)
+		FUCK.terminate_playing(user)
+	return ..()
+
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/turbulenta/before_firing(atom/target, mob/user)
+	if(!HAS_TRAIT(user, TRAIT_CRACKHEAD))
+		return
 	var/obj/projectile/P = chambered?.BB
 	if(P?.reagents)
 		P.reagents.add_reagent(/datum/reagent/druqks, 20)
 
 /datum/intent/shoot/bow/turbulenta
-	chargetime = 0.75
+	chargetime = 1
 	chargedrain = 1.5
 	charging_slowdown = 2.5
 
 /datum/intent/arc/bow/turbulenta
-	chargetime = 0.75
+	chargetime = 1
 	chargedrain = 1.5
 	charging_slowdown = 2.5
-
-// can be used a lyre
-// applies spice to arrows shot ( must have baotha's blessing ) be baothan
 
 //┌─────────────── PLEONEXIA ───────────────┐//
 /obj/item/weapon/sword/long/pleonexia
@@ -289,17 +300,48 @@
 	swingsound = BLADEWOOSH_LARGE
 	parrysound = "largeblade"
 	pickup_sound = "brandish_blade"
-	possible_item_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust, /datum/intent/sword/strike)
-	gripped_intents = list(/datum/intent/use, /datum/intent/sword/thrust, /datum/intent/sword/strike, /datum/intent/sword/chop)
+	possible_item_intents = list(/datum/intent/sword/strike, /datum/intent/sword/cut)
+	gripped_intents = list(/datum/intent/sword/strike, /datum/intent/sword/chop, /datum/intent/sword/thrust,  /datum/intent/plex_dash)
 	sellprice = 550
 
-/obj/item/weapon/sword/long/pleonexia/pickup(mob/user)
-	. = ..()
+	COOLDOWN_DECLARE(pleonexia_blink)
 
-/obj/item/weapon/sword/long/pleonexia/dropped(mob/user, silent)
-	. = ..()
+/obj/item/weapon/sword/long/pleonexia/pre_attack(atom/A, mob/living/user, params)
+	if(!istype(user.used_intent, /datum/intent/plex_dash))
+		return ..()
+	if(!COOLDOWN_FINISHED(src, pleonexia_blink))
+		to_chat(user, span_notice("Pleonexia is not ready to blink again! [COOLDOWN_TIMELEFT(src, pleonexia_blink)/10] Seconds."))
+		return TRUE
+	var/turf/target = get_turf(A)
+	var/turf/starting = get_turf(user)
+	var/list/affected_turfs = get_line(starting, target) - starting
+	user.visible_message(span_warning("[user] blinks through space!",
+		span_notice("I tear through space with Pleonexia.")))
+	playsound(starting, "genslash", 70, -1)
+	new /obj/effect/temp_visual/cut(starting)
+	for(var/turf/affected_turf in affected_turfs)
+		for(var/mob/living/L in affected_turf)
+			if(L == user)
+				continue
+			L.Knockdown(1 SECONDS)
+			L.Stun(1 SECONDS)
+	user.forceMove(target)
+	new /obj/effect/temp_visual/stab(target)
+	COOLDOWN_START(src, pleonexia_blink, 10 SECONDS)
+	return TRUE
 
+/obj/effect/temp_visual/cut
+	icon_state = "pcut"
+	duration = 3 DECISECONDS
 
-// added as a spell
-// blinks you through two tiles ( same as a leap ) ahead past windows but not walls / must have matthios' eyes ( be matthiosite)
-// anyone caught in the blink gets a very short 1 second knock over
+/obj/effect/temp_visual/stab
+	icon_state = "pstab"
+	duration = 3 DECISECONDS
+
+/datum/intent/plex_dash
+	name = "blink"
+	desc = "Blink two tiles ahead, stunning those in your path."
+	icon_state = "peculate"
+	hitsound = null
+	noaa = TRUE
+	reach = 3

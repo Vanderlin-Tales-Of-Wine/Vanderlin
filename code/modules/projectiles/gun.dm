@@ -73,13 +73,13 @@
 						"<span class='danger'>I shoot [src]!</span>", \
 						COMBAT_MESSAGE_RANGE)
 
-/obj/item/gun/afterattack(atom/target, mob/living/user, flag, params)
+/obj/item/gun/afterattack(atom/target, mob/living/user, proximity_flag, click_parameters)
 	. = ..()
 	if(!target)
 		return
 	if(!user?.used_intent.tranged) //melee attack
 		return
-	if(flag) //It's adjacent, is the user, or is on the user's person
+	if(proximity_flag) //It's adjacent, is the user, or is on the user's person
 		if(target in user.contents) //can't shoot stuff inside us.
 			return
 		if(!ismob(target)) //melee attack
@@ -104,7 +104,7 @@
 	if(user?.used_intent.arc_check())
 		target = get_turf(target)
 
-	return process_fire(target, user, TRUE, params, null, 0)
+	return process_fire(target, user, TRUE, click_parameters, null, 0)
 
 
 /obj/item/gun/proc/recharge_newshot()
