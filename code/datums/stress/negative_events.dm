@@ -411,4 +411,4 @@
 /datum/stressevent/hithead
 	timer = 2 MINUTES
 	stressadd = 2
-	desc = "<span class='red'>Oww, my head...</span>"
+	desc = span_red("Oww, my head...")
