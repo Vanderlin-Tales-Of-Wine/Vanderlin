@@ -31,7 +31,7 @@
 	embedding = list("embedded_pain_multiplier" = 3, "embedded_fall_chance" = 0)
 	firing_effect_type = null
 
-/obj/item/ammo_casing/caseless/bolt/Initialize()
+/obj/item/ammo_casing/caseless/bolt/Initialize(mapload, ...)
 	. = ..()
 	AddElement(/datum/element/tipped_item, _max_reagents = 2, _dip_amount = 2, _attack_injects = FALSE)
 
@@ -53,7 +53,7 @@
 	accuracy = 85 //Crossbows have higher accuracy
 	var/piercing = FALSE
 
-/obj/projectile/bullet/reusable/bolt/Initialize()
+/obj/projectile/bullet/reusable/bolt/Initialize(mapload, ...)
 	. = ..()
 	create_reagents(50, NO_REACT)
 
@@ -82,7 +82,7 @@
 	desc = "A bolt coated with a weak poison."
 	icon_state = "bolt_poison"
 
-/obj/item/ammo_casing/caseless/bolt/poison/Initialize()
+/obj/item/ammo_casing/caseless/bolt/poison/Initialize(mapload, ...)
 	. = ..()
 	reagents.add_reagent(/datum/reagent/berrypoison, 2)
 
@@ -90,7 +90,7 @@
 /obj/item/ammo_casing/caseless/bolt/poison/potent
 	desc = "A bolt coated with a potent poison."
 
-/obj/item/ammo_casing/caseless/bolt/poison/potent/Initialize()
+/obj/item/ammo_casing/caseless/bolt/poison/potent/Initialize(mapload, ...)
 	. = ..()
 	reagents.add_reagent(/datum/reagent/strongpoison, 2)
 
@@ -101,7 +101,7 @@
 	projectile_type = /obj/projectile/bullet/bolt/pyro
 	icon_state = "bolt_pyroclastic"
 
-/obj/item/ammo_casing/caseless/bolt/pyro/Initialize()
+/obj/item/ammo_casing/caseless/bolt/pyro/Initialize(mapload, ...)
 	. = ..()
 	RemoveElement(/datum/element/tipped_item)
 	qdel(reagents)
@@ -144,7 +144,7 @@
 	max_integrity = 10
 	force = DAMAGE_KNIFE-2
 
-/obj/item/ammo_casing/caseless/bolt/water/Initialize()
+/obj/item/ammo_casing/caseless/bolt/water/Initialize(mapload, ...)
 	. = ..()
 	RemoveElement(/datum/element/tipped_item)
 
@@ -156,7 +156,7 @@
 	woundclass = BCLASS_BLUNT
 	armor_penetration = BOLT_PENETRATION-40
 
-/obj/projectile/bullet/bolt/water/Initialize()
+/obj/projectile/bullet/bolt/water/Initialize(mapload, ...)
 	. = ..()
 	create_reagents(15, NO_REACT)
 	reagents.add_reagent(/datum/reagent/water, 15)
@@ -193,7 +193,7 @@
 	embedding = list("embedded_pain_multiplier" = 3, "embedded_fall_chance" = 0)
 	firing_effect_type = null
 
-/obj/item/ammo_casing/caseless/arrow/Initialize()
+/obj/item/ammo_casing/caseless/arrow/Initialize(mapload, ...)
 	. = ..()
 	AddElement(/datum/element/tipped_item, _max_reagents = 2, _dip_amount = 2, _attack_injects = FALSE)
 
@@ -215,7 +215,7 @@
 	var/piercing = FALSE
 	var/can_inject = TRUE
 
-/obj/projectile/bullet/reusable/arrow/Initialize()
+/obj/projectile/bullet/reusable/arrow/Initialize(mapload, ...)
 	. = ..()
 	create_reagents(50, NO_REACT)
 
@@ -257,7 +257,7 @@
 	desc = "An arrow with its tip coated in a weak poison."
 	icon_state = "arrow_poison"
 
-/obj/projectile/bullet/reusable/arrow/poison/Initialize()
+/obj/projectile/bullet/reusable/arrow/poison/Initialize(mapload, ...)
 	. = ..()
 	reagents.add_reagent(/datum/reagent/berrypoison, 2)
 
@@ -265,14 +265,14 @@
 /obj/item/ammo_casing/caseless/arrow/poison/potent
 	desc = "An arrow with its tip coated in a potent poison."
 
-/obj/item/ammo_casing/caseless/arrow/poison/potent/Initialize()
+/obj/item/ammo_casing/caseless/arrow/poison/potent/Initialize(mapload, ...)
 	. = ..()
 	reagents.add_reagent(/datum/reagent/strongpoison, 2)
 
 //................ Vial Arrow ............... //
 /obj/item/ammo_casing/caseless/arrow/vial
 	name = "vial arrow"
-	desc = "An arrow with its tip replaced by a vial of something. Shatters on impact."
+	desc = "An arrow with its tip replaced by a vial of... something, shatters on impact."
 	icon_state = "arrow_vial"
 	abstract_type = /obj/item/ammo_casing/caseless/arrow/vial
 	max_integrity = 10
@@ -280,7 +280,7 @@
 	force = DAMAGE_KNIFE-2
 	var/datum/reagent/reagent
 
-/obj/item/ammo_casing/caseless/arrow/vial/Initialize()
+/obj/item/ammo_casing/caseless/arrow/vial/Initialize(mapload, ...)
 	. = ..()
 	RemoveElement(/datum/element/tipped_item)
 	update_icon()
@@ -298,7 +298,7 @@
 
 /obj/projectile/bullet/reusable/arrow/vial
 	name = "vial arrow"
-	desc = "An arrow with its tip replaced by a vial of something. Shatters on impact."
+	desc = "An arrow with its tip replaced by a vial of... something, shatters on impact."
 	icon_state = "arrowvial_proj"
 	abstract_type = /obj/projectile/bullet/reusable/arrow/vial
 	ammo_type = null
@@ -309,7 +309,7 @@
 	armor_penetration = ARROW_PENETRATION-20
 	var/datum/reagent/reagent
 
-/obj/projectile/bullet/reusable/arrow/vial/Initialize()
+/obj/projectile/bullet/reusable/arrow/vial/Initialize(mapload, ...)
 	. = ..()
 	if(reagent)
 		reagents?.add_reagent(reagent, 15)
@@ -339,7 +339,7 @@
 	max_integrity = 10
 	force = DAMAGE_KNIFE-2
 
-/obj/item/ammo_casing/caseless/arrow/water/Initialize()
+/obj/item/ammo_casing/caseless/arrow/water/Initialize(mapload, ...)
 	. = ..()
 	RemoveElement(/datum/element/tipped_item)
 
@@ -353,7 +353,7 @@
 	armor_penetration = ARROW_PENETRATION-10
 	embedchance = 0
 
-/obj/projectile/bullet/reusable/arrow/water/Initialize()
+/obj/projectile/bullet/reusable/arrow/water/Initialize(mapload, ...)
 	. = ..()
 	reagents.add_reagent(/datum/reagent/water, 25)
 
@@ -373,7 +373,7 @@
 	max_integrity = 10
 	force = DAMAGE_KNIFE-2
 
-/obj/item/ammo_casing/caseless/arrow/pyro/Initialize()
+/obj/item/ammo_casing/caseless/arrow/pyro/Initialize(mapload, ...)
 	. = ..()
 	RemoveElement(/datum/element/tipped_item)
 	qdel(reagents)
@@ -535,7 +535,7 @@
 	force = DAMAGE_KNIFE/2
 	firing_effect_type = null
 
-/obj/item/ammo_casing/caseless/dart/Initialize()
+/obj/item/ammo_casing/caseless/dart/Initialize(mapload, ...)
 	. = ..()
 	AddElement(/datum/element/tipped_item, _max_reagents = 3, _dip_amount = 3, _attack_injects = FALSE)
 
@@ -556,7 +556,7 @@
 	accuracy = 50
 	var/piercing = FALSE
 
-/obj/projectile/bullet/reusable/dart/Initialize()
+/obj/projectile/bullet/reusable/dart/Initialize(mapload, ...)
 	. = ..()
 	create_reagents(50, NO_REACT)
 
@@ -584,7 +584,7 @@
 	desc = "A dart with its tip coated in a weak poison."
 	icon_state = "dart_poison"
 
-/obj/item/ammo_casing/caseless/dart/poison/Initialize()
+/obj/item/ammo_casing/caseless/dart/poison/Initialize(mapload, ...)
 	. = ..()
 	reagents.add_reagent(/datum/reagent/berrypoison, 3)
 
