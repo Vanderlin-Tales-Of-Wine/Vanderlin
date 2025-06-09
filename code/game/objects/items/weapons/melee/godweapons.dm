@@ -246,11 +246,11 @@
 	damfactor = 1.1
 	var/obj/item/instrument/harp/turbulenta/FUCK
 
-/obj/item/gun/ballistic/revolver/grenadelauncher/bow/turbulenta/Initialize()
+/obj/item/gun/ballistic/revolver/grenadelauncher/bow/turbulenta/Initialize(mapload, ...)
 	. = ..()
 	FUCK = new(src)
 
-/obj/item/gun/ballistic/revolver/grenadelauncher/bow/turbulenta/Destroy()
+/obj/item/gun/ballistic/revolver/grenadelauncher/bow/turbulenta/Destroy(force)
 	QDEL_NULL(FUCK)
 	return ..()
 
@@ -260,11 +260,6 @@
 	FUCK.attack_self(user)
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/turbulenta/dropped(mob/user, silent)
-	if(FUCK.playing)
-		FUCK.terminate_playing(user)
-	return ..()
-
-/obj/item/gun/ballistic/revolver/grenadelauncher/bow/turbulenta/attackby(obj/item/A, mob/user, params)
 	if(FUCK.playing)
 		FUCK.terminate_playing(user)
 	return ..()
@@ -307,7 +302,7 @@
 	COOLDOWN_DECLARE(pleonexia_blink)
 
 /obj/item/weapon/sword/long/pleonexia/pre_attack(atom/A, mob/living/user, params)
-	if(!istype(user.used_intent, /datum/intent/plex_dash))
+	if(!istype(user.used_intent, /datum/intent/plex_dash) || !HAS_TRAIT(user, TRAIT_MATTHIOS_EYES))
 		return ..()
 	if(!COOLDOWN_FINISHED(src, pleonexia_blink))
 		to_chat(user, span_notice("Pleonexia is not ready to blink again! [COOLDOWN_TIMELEFT(src, pleonexia_blink)/10] Seconds."))
@@ -315,17 +310,26 @@
 	var/turf/target = get_turf(A)
 	var/turf/starting = get_turf(user)
 	var/list/affected_turfs = get_line(starting, target) - starting
-	user.visible_message(span_warning("[user] blinks through space!",
-		span_notice("I tear through space with Pleonexia.")))
+	user.visible_message(span_warning("[user] blinks through space!"),
+		span_notice("I tear through space with Pleonexia."))
 	playsound(starting, "genslash", 70, -1)
 	new /obj/effect/temp_visual/cut(starting)
+	var/potiential_blocker = FALSE
 	for(var/turf/affected_turf in affected_turfs)
+		if(!potiential_blocker)
+			for(var/obj/I in affected_turf)
+				if(I.density)
+					potiential_blocker = TRUE
+					break
 		for(var/mob/living/L in affected_turf)
 			if(L == user)
 				continue
 			L.Knockdown(1 SECONDS)
 			L.Stun(1 SECONDS)
-	user.forceMove(target)
+	if(!isopenturf(target) || potiential_blocker)
+		user.forceMove(get_step(target, get_dir(target, user)))
+	else
+		user.forceMove(target)
 	new /obj/effect/temp_visual/stab(target)
 	COOLDOWN_START(src, pleonexia_blink, 10 SECONDS)
 	return TRUE
