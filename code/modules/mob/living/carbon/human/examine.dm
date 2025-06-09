@@ -31,7 +31,7 @@
 				user.add_stress(/datum/stressevent/foreigner)
 		if(isantigrenzel(user) && !isgrenzel(user) && isgrenzel(src))
 			user.add_stress(/datum/stressevent/evilgrenzel)
-		if(isgrenzel(user) && isgrenzel(src))
+		if(isgrenzel(user) && isgrenzel(src) && user != src)
 			user.add_stress(/datum/stressevent/fellowgrenzel)
 	if(HAS_TRAIT(src, TRAIT_BEAUTIFUL))
 		if(user == src)
@@ -166,7 +166,7 @@
 		if(HAS_TRAIT(src, TRAIT_FOREIGNER) && !HAS_TRAIT(user, TRAIT_FOREIGNER))
 			. += span_phobia("A foreigner...")
 
-		if(isgrenzel(src) && !isgrenzel(user) && isantigrenzel(user))
+		if(isgrenzel(src) && !isgrenzel(user) && isantigrenzel(user) && scr != user)
 			. += span_phobia("A grenzel...")
 
 		if(isgrenzel(src) && isgrenzel(user))
