@@ -4,7 +4,7 @@
 	allowed_races = RACES_PLAYER_NONHERETICAL
 	allowed_patrons = ALL_TEMPLE_PATRONS
 	tutorial = "A traveling monk of the Ten, unmatched in the unarmed arts, with an unwavering devotion to their patron God's Justice."
-
+	maximum_possible_slots = 3
 
 	outfit = /datum/outfit/job/adventurer/monk
 	min_pq = 0
