@@ -353,7 +353,7 @@ GLOBAL_LIST_EMPTY(patreon_races)
 	return TRUE
 
 /proc/generate_selectable_species()
-	for(var/I in subtypesof(/datum/species))
+	for(var/I as anything in subtypesof(/datum/species))
 		var/datum/species/S = new I
 		if(!S.check_roundstart_eligible())
 			continue
@@ -362,9 +362,17 @@ GLOBAL_LIST_EMPTY(patreon_races)
 			GLOB.patreon_races += S.name
 		qdel(S)
 	if(!LAZYLEN(GLOB.roundstart_races))
-		GLOB.roundstart_races += "Humen"
+		GLOB.roundstart_races += RACE_HUMEN
 	sortList(GLOB.roundstart_races, GLOBAL_PROC_REF(cmp_text_dsc))
 	sortList(GLOB.patreon_races, GLOBAL_PROC_REF(cmp_text_dsc))
+
+/proc/get_selectable_species(patreon = TRUE)
+	if(!LAZYLEN(GLOB.roundstart_races))
+		generate_selectable_species()
+	var/list/species = GLOB.roundstart_races
+	if(!patreon)
+		species -= GLOB.patreon_races
+	return species
 
 /datum/species/proc/check_roundstart_eligible()
 	return FALSE

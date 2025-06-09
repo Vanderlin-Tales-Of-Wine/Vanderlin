@@ -1,14 +1,8 @@
 /// Randomizes our character preferences according to enabled bitflags.
 // Reflect changes in [mob/living/carbon/human/proc/randomize_human_appearance]
 /datum/preferences/proc/randomise_appearance_prefs(randomise_flags = ALL, include_patreon = FALSE)
-	if(!length(GLOB.roundstart_races))
-		generate_selectable_species()
-
 	if(randomise_flags & RANDOMIZE_SPECIES)
-		var/list_species = GLOB.roundstart_races
-		if(!include_patreon)
-			list_species -= GLOB.patreon_races
-		var/rando_race = GLOB.species_list[pick(list_species)]
+		var/rando_race = GLOB.species_list[pick(get_selectable_species(include_patreon))]
 		pref_species = new rando_race()
 
 	if(NOEYESPRITES in pref_species.species_traits)
@@ -83,7 +77,7 @@
 	accessory = "Nothing"
 
 /datum/preferences/proc/random_species()
-	var/random_species_type = GLOB.species_list[pick(GLOB.roundstart_races)]
+	var/random_species_type = GLOB.species_list[pick(get_selectable_species(patreon))]
 	pref_species = new random_species_type
 	if(randomise[RANDOM_NAME])
 		real_name = pref_species.random_name(gender, TRUE)
@@ -113,8 +107,6 @@
 
 
 /datum/preferences/proc/spec_check()
-	if(!(pref_species.name in GLOB.roundstart_races))
-		return FALSE
-	if(pref_species.patreon_req && !patreon)
+	if(!(pref_species.name in get_selectable_species(patreon)))
 		return FALSE
 	return TRUE

@@ -71,6 +71,7 @@
 	RACE_TRITON,\
 	RACE_KOBOLD,\
 	RACE_HOLLOWKIN,\
+	RACE_HALF_ORC,\
 )
 
 /// Races not considered discriminated against in Vanderlin. Used for nobility, etc.
@@ -106,6 +107,7 @@
 	RACE_HARPY,\
 	RACE_TRITON,\
 	RACE_HOLLOWKIN,\
+	RACE_HALF_ORC,\
 )
 
 ///Races that lack lux
@@ -169,6 +171,7 @@
 	RACE_ELF,\
 	RACE_HALF_ELF,\
 	RACE_HALF_DROW,\
+	RACE_HALF_ORC,\
 	RACE_HARPY,\
 	RACE_RAKSHARI,\
 	RACE_TRITON,\

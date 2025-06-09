@@ -1058,9 +1058,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 					log_game("[user] has set their Headshot image to '[headshot_link]'.")
 
 				if("species")
-					var/list/selectable = GLOB.roundstart_races
-					if(!patreon)
-						selectable -= GLOB.patreon_races
+					var/list/selectable = get_selectable_species(patreon)
 
 					var/result = browser_input_list(user, "SELECT YOUR HERO'S PEOPLE:", "VANDERLIN FAUNA", selectable, pref_species)
 
@@ -1403,7 +1401,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 
 /// Sanitization checks to be performed before using these preferences.
 /datum/preferences/proc/sanitize_chosen_prefs()
-	if(!(pref_species.name in GLOB.roundstart_races) || (pref_species.patreon_req && !parent.patreon?.has_access(ACCESS_ASSISTANT_RANK)))
+	if(!(pref_species.name in get_selectable_species(patreon)))
 		pref_species = new /datum/species/human/northern
 		save_character()
 

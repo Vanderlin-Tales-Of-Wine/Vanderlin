@@ -151,19 +151,13 @@
 /// Fully randomizes everything in the character.
 // Reflect changes in [datum/preferences/proc/randomise_appearance_prefs]
 /mob/living/carbon/human/proc/randomize_human_appearance(randomise_flags = ALL, include_patreon = TRUE)
-	if(!length(GLOB.roundstart_races))
-		generate_selectable_species()
-
 	if(!dna)
 		return
 
 	var/datum/species/species = dna.species
 
 	if(randomise_flags & RANDOMIZE_SPECIES)
-		var/list_species = GLOB.roundstart_races
-		if(!include_patreon)
-			list_species -= GLOB.patreon_races
-		var/rando_race = GLOB.species_list[pick(list_species)]
+		var/rando_race = GLOB.species_list[pick(get_selectable_species(include_patreon))]
 		set_species(new rando_race(), FALSE)
 
 	if(NOEYESPRITES in species?.species_traits)
