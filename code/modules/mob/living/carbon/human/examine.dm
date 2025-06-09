@@ -166,7 +166,7 @@
 		if(HAS_TRAIT(src, TRAIT_FOREIGNER) && !HAS_TRAIT(user, TRAIT_FOREIGNER))
 			. += span_phobia("A foreigner...")
 
-		if(isgrenzel(src) && !isgrenzel(user) && isantigrenzel(user) && scr != user)
+		if(isgrenzel(src) && !isgrenzel(user) && isantigrenzel(user) && src != user)
 			. += span_phobia("A grenzel...")
 
 		if(isgrenzel(src) && isgrenzel(user))
