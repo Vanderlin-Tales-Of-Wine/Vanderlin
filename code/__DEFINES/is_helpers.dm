@@ -67,7 +67,7 @@ GLOBAL_LIST_INIT(turfs_without_ground, typecacheof(list(
 #define isdwarf(A) (is_species(A, /datum/species/dwarf))
 #define isdwarfmountain(A) (is_species(A, /datum/species/dwarf/mountain))
 #define iself(A) (is_species(A, /datum/species/elf))
-#define iselfonly(A) (is_species(A, /datum/species/elf && !/datum/species/elf/dark && !/datum/species/elf/snow) )//&& !is_species(A, /datum/species/elf/dark) && !is_species(A, /datum/species/elf/snow))
+#define iselfonly(A) (is_species(A, /datum/species/elf && !/datum/species/elf/dark && !/datum/species/elf/snow))
 #define isdarkelf(A) (is_species(A, /datum/species/elf/dark))
 #define issnowelf(A) (is_species(A, /datum/species/elf/snow))
 #define ishalfelf(A) (is_species(A, /datum/species/human/halfelf))
