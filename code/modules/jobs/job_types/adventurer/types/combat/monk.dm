@@ -2,8 +2,9 @@
 	name = "Monk"
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_PLAYER_NONHERETICAL
-	tutorial = "A traveling monk of the Ten, unmatched in unarmed combat and with an unwavering devotion to Justice."
 	allowed_patrons = ALL_TEMPLE_PATRONS
+	tutorial = "A traveling monk of the Ten, unmatched in the unarmed arts and with an unwavering devotion to their patron God's Justice."
+
 
 	outfit = /datum/outfit/job/adventurer/monk
 	min_pq = 0
@@ -12,6 +13,7 @@
 	vampcompat = FALSE
 
 /datum/outfit/job/adventurer/monk
+	allowed_patrons = ALL_TEMPLE_PATRONS  //randomize patron if not in ten
 
 /datum/outfit/job/adventurer/monk/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -47,11 +49,19 @@
 		if(/datum/patron/divine/malum)
 			neck = /obj/item/clothing/neck/psycross/silver/malum
 
-		if(H.dna.species.id == "elf")
-			H.change_stat(STATKEY_SPD, -1)
-		if(H.dna.species.id == "harpy")
-			H.change_stat(STATKEY_SPD, -1)
-			H.change_stat(STATKEY_STR, 1) //harpies are possible monks but have -4 strength per default... I'm going to let them have at least some decent dodging bonuses.
+	if(H.dna.species.id == "elf")
+		H.change_stat(STATKEY_SPD, -1)
+	if(H.dna.species.id == "harpy")
+		H.change_stat(STATKEY_SPD, -1)
+		H.change_stat(STATKEY_STR, 1) //harpies are possible monks but have -4 strength per default... I'm going to let them have at least some decent dodging bonuses.
+	if(H.dna.species.id == "kobold")
+		H.change_stat(STATKEY_STR, 2) //Go, my child. Destroy their ankles.
+		H.change_stat(STATKEY_SPD, -1)
+
+
+	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(H, H.patron)
+	C.grant_spells_churchling(H)
+	H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
 
 	if(H.mind)
 
@@ -71,10 +81,6 @@
 		H.change_stat(STATKEY_PER, -1)
 		H.change_stat(STATKEY_SPD, 2)
 
-	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(H, H.patron)
-	C.grant_spells_churchling(H)
-	H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
-
-		ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 
 
