@@ -15,7 +15,7 @@
 		if(!ishalfelf(user) && ishalfelf(src))
 			if(isgrenzel(user))
 				user.add_stress(/datum/stressevent/helf)
-		if(!iselfonly(user) && iselfonly(src))
+		if(!issnowelf(user) && issnowelf(src))
 			if(isgrenzel(user))
 				user.add_stress(/datum/stressevent/elf/major)
 		if(!istiefling(user) && istiefling(src))
