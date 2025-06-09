@@ -49,6 +49,21 @@
 		if(/datum/patron/divine/malum)
 			neck = /obj/item/clothing/neck/psycross/silver/malum
 
+
+	H.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 5, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/polearms, pick(1,1,2), TRUE) // Wood staff
+	H.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/climbing, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, pick(2,2,3), TRUE)
+
+	H.change_stat(STATKEY_STR, 2)
+	H.change_stat(STATKEY_CON, 2)
+	H.change_stat(STATKEY_END, 2)
+	H.change_stat(STATKEY_PER, -1)
+	H.change_stat(STATKEY_SPD, 2)
 	if(H.dna.species.id == "elf")
 		H.change_stat(STATKEY_SPD, -1)
 	if(H.dna.species.id == "harpy")
@@ -58,28 +73,9 @@
 		H.change_stat(STATKEY_STR, 2) //Go, my child. Destroy their ankles.
 		H.change_stat(STATKEY_SPD, -1)
 
-
 	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(H, H.patron)
 	C.grant_spells_churchling(H)
 	H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
-
-	if(H.mind)
-
-
-		H.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
-		H.adjust_skillrank(/datum/skill/combat/unarmed, 5, TRUE)
-		H.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
-		H.adjust_skillrank(/datum/skill/combat/polearms, pick(1,1,2), TRUE) // Wood staff
-		H.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
-		H.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
-		H.adjust_skillrank(/datum/skill/misc/climbing, 4, TRUE)
-		H.adjust_skillrank(/datum/skill/misc/athletics, pick(2,2,3), TRUE)
-
-		H.change_stat(STATKEY_STR, 2)
-		H.change_stat(STATKEY_CON, 2)
-		H.change_stat(STATKEY_END, 2)
-		H.change_stat(STATKEY_PER, -1)
-		H.change_stat(STATKEY_SPD, 2)
 
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 
