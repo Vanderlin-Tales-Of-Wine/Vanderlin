@@ -197,6 +197,31 @@
 	stressadd = 1
 	desc = "<span class='red'>A loathesome dark elf.</span>"
 
+/datum/stressevent/delf/major
+	timer = 1 MINUTES
+	stressadd = 2
+	desc = span_red("A dirt elf... why does this underscum even exist?")
+
+/datum/stressevent/halfdrow
+	timer = 30 SECONDS
+	stressadd = 1
+	desc = span_red("A cursed mongrel, an outcast from the underdark.")
+
+/datum/stressevent/halfdrow/major
+	timer = 1 MINUTES
+	stressadd = 2
+	desc = span_red("An abomination of zizo, further diluting someones cursed bloodline...")
+
+/datum/stressevent/elf/major
+	timer = 90 SECONDS
+	stressadd = 3
+	desc = span_danger("HOLY SHIt it's a fucking leaf lover, I hate those.")
+
+/datum/stressevent/helf
+	timer = 30 SECONDS
+	stressadd = 1
+	desc = span_red("A halfbred mutt, a product of a treehugger and a traitor...")
+
 /datum/stressevent/tieb
 	timer = 30 SECONDS
 	stressadd = 1
@@ -206,6 +231,11 @@
 	timer = 30 SECONDS
 	stressadd = 1
 	desc = "<span class='red'>A beast in human skin.</span>"
+
+/datum/stressevent/evilgrenzel
+	timer = 30 SECONDS
+	stressadd = 1
+	desc = span_warning("A damned grenzel... murderous bastards.")
 
 /datum/stressevent/paracrowd
 	timer = 15 SECONDS
@@ -407,3 +437,4 @@
 	desc = span_warning("I don't like the dae..")
 	stressadd = 3
 	timer = 10 MINUTES
+

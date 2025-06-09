@@ -67,6 +67,7 @@ GLOBAL_LIST_INIT(turfs_without_ground, typecacheof(list(
 #define isdwarf(A) (is_species(A, /datum/species/dwarf))
 #define isdwarfmountain(A) (is_species(A, /datum/species/dwarf/mountain))
 #define iself(A) (is_species(A, /datum/species/elf))
+#define iselfonly(A) (is_species(A, /datum/species/elf && !/datum/species/elf/dark && !/datum/species/elf/snow) )//&& !is_species(A, /datum/species/elf/dark) && !is_species(A, /datum/species/elf/snow))
 #define isdarkelf(A) (is_species(A, /datum/species/elf/dark))
 #define issnowelf(A) (is_species(A, /datum/species/elf/snow))
 #define ishalfelf(A) (is_species(A, /datum/species/human/halfelf))
@@ -78,11 +79,14 @@ GLOBAL_LIST_INIT(turfs_without_ground, typecacheof(list(
 #define ishollowkin(A) (is_species(A, /datum/species/demihuman))
 #define isharpy(A) (is_species(A, /datum/species/harpy))
 #define ishalfdrow(A) (is_species(A, /datum/species/human/halfdrow))
+#define isantigrenzel(A) (isdarkelf(A) || ishalfdrow(A) || iself(A) || ishalfelf(A))
 
 //more carbon mobs
 #define ismonkey(A) (istype(A, /mob/living/carbon/monkey))
 
 #define istruedevil(A) (istype(A, /mob/living/carbon/true_devil))
+
+#define isgrenzel(A) (HAS_TRAIT(A, TRAIT_GRENZEL))
 
 //Simple animals
 #define isanimal(A) (istype(A, /mob/living/simple_animal))

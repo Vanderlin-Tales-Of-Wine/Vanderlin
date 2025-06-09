@@ -3,7 +3,21 @@
 		return
 	if(!HAS_TRAIT(src, TRAIT_TOLERANT))
 		if(!isdarkelf(user) && isdarkelf(src))
-			user.add_stress(/datum/stressevent/delf)
+			if(isgrenzel(user))
+				user.add_stress(/datum/stressevent/delf/major)
+			else
+				user.add_stress(/datum/stressevent/delf)
+		if(!ishalfdrow(user) && ishalfdrow(src))
+			if(isgrenzel(user))
+				user.add_stress(/datum/stressevent/halfdrow/major)
+			else
+				user.add_stress(/datum/stressevent/halfdrow)
+		if(!ishalfelf(user) && ishalfelf(src))
+			if(isgrenzel(user))
+				user.add_stress(/datum/stressevent/helf)
+		if(!iselfonly(user) && iselfonly(src))
+			if(isgrenzel(user))
+				user.add_stress(/datum/stressevent/elf/major)
 		if(!istiefling(user) && istiefling(src))
 			user.add_stress(/datum/stressevent/tieb)
 		if(!ishalforc(user) && ishalforc(src))
@@ -15,6 +29,10 @@
 				user.add_stress(/datum/stressevent/paraforeigner)
 			else
 				user.add_stress(/datum/stressevent/foreigner)
+		if(isantigrenzel(user) && !isgrenzel(user) && isgrenzel(src))
+			user.add_stress(/datum/stressevent/evilgrenzel)
+		if(isgrenzel(user) && isgrenzel(src))
+			user.add_stress(/datum/stressevent/fellowgrenzel)
 	if(HAS_TRAIT(src, TRAIT_BEAUTIFUL))
 		if(user == src)
 			user.add_stress(/datum/stressevent/beautiful_self)
@@ -147,6 +165,12 @@
 
 		if(HAS_TRAIT(src, TRAIT_FOREIGNER) && !HAS_TRAIT(user, TRAIT_FOREIGNER))
 			. += span_phobia("A foreigner...")
+
+		if(isgrenzel(src) && !isgrenzel(user) && isantigrenzel(user))
+			. += span_phobia("A grenzel...")
+
+		if(isgrenzel(src) && isgrenzel(user))
+			. += span_notice("A fellow grenzelhoftian!")
 
 		if(real_name in GLOB.excommunicated_players)
 			. += span_userdanger("EXCOMMUNICATED!")
