@@ -10238,7 +10238,7 @@
 /obj/structure/window/openclose{
 	dir = 4
 	},
-/turf/closed/mineral,
+/turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/town/manor)
 "lQY" = (
 /obj/structure/closet/crate/crafted_closet/inn,
