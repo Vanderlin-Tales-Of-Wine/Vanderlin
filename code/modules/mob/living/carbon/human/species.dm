@@ -369,7 +369,7 @@ GLOBAL_LIST_EMPTY(patreon_races)
 /proc/get_selectable_species(patreon = TRUE)
 	if(!LAZYLEN(GLOB.roundstart_races))
 		generate_selectable_species()
-	var/list/species = GLOB.roundstart_races
+	var/list/species = GLOB.roundstart_races.Copy()
 	if(!patreon)
 		species -= GLOB.patreon_races
 	return species
