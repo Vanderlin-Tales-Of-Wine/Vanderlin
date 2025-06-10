@@ -35,4 +35,6 @@
 		/datum/job/adventurer = 6, //Not sure on this one but I generally want to cut down on the non-town roles.
 		/datum/job/pilgrim = 10,
 		/datum/job/mercenary = 3,
+		/datum/job/blacksmith = 1,
+		/datum/job/artificer = 2,
 	)
