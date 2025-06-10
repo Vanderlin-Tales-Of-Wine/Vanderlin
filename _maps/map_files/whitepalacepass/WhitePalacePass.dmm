@@ -1244,7 +1244,7 @@
 /area/rogue/indoors/town/manor)
 "btH" = (
 /obj/effect/landmark/tram/queued_path/cargo_exit{
-	next_path_id = "C6"
+	next_path_id = "C8"
 	},
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/river)
@@ -1363,13 +1363,6 @@
 /obj/structure/table/wood/treestump,
 /turf/open/floor/snow,
 /area/rogue/outdoors/rtfield/safe)
-"bAb" = (
-/obj/effect/landmark/tram/queued_path{
-	platform_code = "C3";
-	next_path_id = "C4"
-	},
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/river)
 "bAg" = (
 /obj/machinery/light/fueled/wallfire{
 	pixel_x = -32;
@@ -1591,7 +1584,7 @@
 /area/rogue/indoors/town/manor)
 "bRn" = (
 /obj/effect/landmark/tram/queued_path{
-	next_path_id = "C2";
+	next_path_id = "C5";
 	platform_code = "C1"
 	},
 /turf/open/transparent/openspace,
@@ -2428,13 +2421,6 @@
 	},
 /turf/open/floor/tile/masonic/inverted,
 /area/rogue/indoors/town)
-"cWA" = (
-/obj/effect/landmark/tram/queued_path{
-	next_path_id = "C14";
-	platform_code = "C13"
-	},
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/river)
 "cWN" = (
 /mob/living/carbon/human/species/skeleton/npc/warrior,
 /turf/open/floor/cobble,
@@ -5200,13 +5186,6 @@
 	},
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/manor)
-"giI" = (
-/obj/effect/landmark/tram/queued_path{
-	next_path_id = "C16";
-	platform_code = "C15"
-	},
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/river)
 "gjh" = (
 /obj/effect/mapping_helpers/access/keyset/town/clinic,
 /obj/structure/door/fancy{
@@ -7845,13 +7824,6 @@
 	},
 /turf/closed/wall/mineral/decorstone,
 /area/rogue/indoors/town/manor)
-"jgf" = (
-/obj/effect/landmark/tram/queued_path{
-	next_path_id = "C17";
-	platform_code = "C16"
-	},
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/river)
 "jgL" = (
 /obj/structure/window/openclose{
 	dir = 4
@@ -10262,14 +10234,6 @@
 /obj/structure/flora/grass/bush_meagre/tundra,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/rtfield/safe)
-"lPs" = (
-/obj/structure/door/fancy{
-	name = "Merchant"
-	},
-/obj/effect/mapping_helpers/access/keyset/town/merchant,
-/obj/effect/mapping_helpers/access/locker,
-/turf/open/floor/grass/cold,
-/area/rogue/indoors/town/shop)
 "lPY" = (
 /obj/structure/window/openclose{
 	dir = 4
@@ -10523,13 +10487,6 @@
 /obj/structure/fermentation_keg/distiller,
 /turf/open/floor/concrete,
 /area/rogue/indoors/soilsons)
-"mhL" = (
-/obj/effect/landmark/tram/queued_path{
-	platform_code = "C14";
-	next_path_id = "C15"
-	},
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/river)
 "mhR" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
@@ -11603,7 +11560,7 @@
 /area/rogue/indoors/town/manor)
 "nsc" = (
 /obj/effect/landmark/tram/queued_path{
-	next_path_id = "C12";
+	next_path_id = "C17";
 	platform_code = "C11"
 	},
 /turf/open/transparent/openspace,
@@ -11611,13 +11568,6 @@
 "nse" = (
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield/safe)
-"nsv" = (
-/obj/effect/landmark/tram/queued_path{
-	platform_code = "C7";
-	next_path_id = "C8"
-	},
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/river)
 "nsN" = (
 /obj/structure/window/openclose/reinforced{
 	dir = 1
@@ -13692,13 +13642,6 @@
 	},
 /turf/open/water/swamp,
 /area/rogue/under/cave)
-"pHq" = (
-/obj/effect/landmark/tram/queued_path{
-	platform_code = "C4";
-	next_path_id = "C5"
-	},
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/river)
 "pHM" = (
 /obj/structure/fake_machine/camera/right{
 	pixel_x = -25;
@@ -15340,13 +15283,6 @@
 	},
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/town/merc_guild)
-"rqL" = (
-/obj/effect/landmark/tram/queued_path{
-	platform_code = "C12";
-	next_path_id = "C13"
-	},
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/river)
 "rry" = (
 /obj/structure/flora/grass/bush/tundra,
 /obj/machinery/light/fueled/wallfire/candle/l,
@@ -15961,7 +15897,7 @@
 "sam" = (
 /obj/effect/landmark/tram/queued_path{
 	platform_code = "C8";
-	next_path_id = "C9"
+	next_path_id = "C10"
 	},
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/river)
@@ -17723,13 +17659,6 @@
 /obj/machinery/light/fueled/wallfire/candle/l,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town/smithy)
-"udY" = (
-/obj/effect/landmark/tram/queued_path{
-	platform_code = "C2";
-	next_path_id = "C3"
-	},
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/river)
 "ues" = (
 /obj/machinery/light/fueled/wallfire/candle/l,
 /obj/structure/closet/crate/chest/crate,
@@ -18092,13 +18021,6 @@
 /obj/structure/composter/halffull,
 /turf/open/floor/grass/cold,
 /area/rogue/outdoors/rtfield/safe)
-"uFa" = (
-/obj/effect/landmark/tram/queued_path{
-	next_path_id = "C10";
-	platform_code = "C9"
-	},
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/river)
 "uFn" = (
 /obj/structure/hotspring/border/five,
 /obj/effect/falling_sakura,
@@ -20872,13 +20794,6 @@
 /obj/effect/falling_leaves,
 /turf/open/floor/ruinedwood/turned,
 /area/rogue/outdoors/rtfield)
-"xLS" = (
-/obj/effect/landmark/tram/queued_path{
-	next_path_id = "C7";
-	platform_code = "C6"
-	},
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/river)
 "xLU" = (
 /obj/structure/chair/wood/alt/chair3{
 	dir = 1
@@ -82867,7 +82782,7 @@ lRz
 xoX
 jQt
 xoX
-lPs
+lDQ
 jjH
 xoX
 lRz
@@ -96755,14 +96670,14 @@ jkA
 jkA
 jkA
 jkA
-udY
 jkA
 jkA
 jkA
 jkA
 jkA
 jkA
-jgf
+jkA
+jkA
 jkA
 jkA
 jkA
@@ -97364,7 +97279,7 @@ jkA
 jkA
 jkA
 jkA
-bAb
+jkA
 jkA
 jkA
 jkA
@@ -97574,7 +97489,7 @@ jkA
 jkA
 jkA
 jkA
-giI
+jkA
 jkA
 jkA
 jkA
@@ -97973,7 +97888,7 @@ jkA
 jkA
 jkA
 jkA
-pHq
+jkA
 jkA
 jkA
 jkA
@@ -98386,7 +98301,7 @@ jkA
 jkA
 jkA
 jkA
-mhL
+jkA
 jkA
 jkA
 jkA
@@ -99010,7 +98925,7 @@ jkA
 jkA
 jkA
 jkA
-xLS
+jkA
 jkA
 jkA
 jkA
@@ -99198,7 +99113,7 @@ jkA
 jkA
 jkA
 jkA
-cWA
+jkA
 jkA
 jkA
 jkA
@@ -99619,7 +99534,7 @@ jkA
 jkA
 jkA
 jkA
-nsv
+jkA
 jkA
 jkA
 jkA
@@ -100010,7 +99925,7 @@ jkA
 jkA
 jkA
 jkA
-rqL
+jkA
 jkA
 jkA
 jkA
@@ -100235,7 +100150,7 @@ jkA
 jkA
 jkA
 jkA
-uFa
+jkA
 jkA
 jkA
 jkA
@@ -100822,7 +100737,6 @@ jkA
 jkA
 jkA
 jkA
-nsc
 jkA
 jkA
 jkA
@@ -100848,7 +100762,8 @@ jkA
 jkA
 jkA
 jkA
-aIo
+jkA
+jkA
 jkA
 jkA
 jkA
@@ -101228,6 +101143,7 @@ jkA
 jkA
 jkA
 jkA
+nsc
 jkA
 jkA
 jkA
@@ -101251,8 +101167,7 @@ jkA
 jkA
 jkA
 jkA
-jkA
-jkA
+aIo
 jkA
 jkA
 jkA
