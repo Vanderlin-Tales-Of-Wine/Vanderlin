@@ -7,7 +7,7 @@
 	department_flag = YOUNGFOLK
 	job_flags = (JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_ORPHAN
-	faction = FACTION_STATION
+	faction = FACTION_TOWN
 	total_positions = 12
 	spawn_positions = 12
 	min_pq = 2

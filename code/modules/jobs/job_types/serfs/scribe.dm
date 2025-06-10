@@ -2,7 +2,7 @@
 	title = "Scribe"
 	flag = SCRIBE
 	department_flag = SERFS
-	faction = FACTION_STATION
+	faction = FACTION_TOWN
 	total_positions = 0
 	spawn_positions = 0
 

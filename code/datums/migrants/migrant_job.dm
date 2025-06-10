@@ -4,7 +4,7 @@
 	department_flag = OUTSIDERS
 	job_flags = NONE
 	display_order = JDO_MIGRANT
-	faction = FACTION_STATION
+	faction = FACTION_TOWN
 	total_positions = 0
 	spawn_positions = 0
 	min_pq = -999
