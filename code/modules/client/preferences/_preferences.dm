@@ -1460,6 +1460,19 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	character.setspouse = setspouse
 
 	if(charflaw)
+		// ???
+		var/obj/item/bodypart/O = character.get_bodypart(BODY_ZONE_R_ARM)
+		if(O)
+			O.drop_limb()
+			qdel(O)
+		O = character.get_bodypart(BODY_ZONE_L_ARM)
+		if(O)
+			O.drop_limb()
+			qdel(O)
+		character.regenerate_limb(BODY_ZONE_R_ARM)
+		character.regenerate_limb(BODY_ZONE_L_ARM)
+
+		character.charflaw = new charflaw.type(character)
 		character.charflaw = new charflaw.type(character)
 
 	if(parent)
