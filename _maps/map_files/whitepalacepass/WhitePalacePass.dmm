@@ -13971,6 +13971,16 @@
 	},
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/town/orphanage)
+"pZo" = (
+/obj/structure/industrial_lift/tram{
+	icon_state = "wooden_floor"
+	},
+/obj/effect/decal/cobbleedge{
+	dir = 4;
+	icon_state = "jagged"
+	},
+/turf/open/transparent/openspace,
+/area/rogue/outdoors/river)
 "pZs" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
@@ -96531,9 +96541,9 @@ vas
 vas
 gGF
 gGF
-aGl
-aGl
-aGl
+pZo
+pZo
+pZo
 rCb
 nhK
 jkA
