@@ -21,7 +21,7 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 	user.visible_message("[user] starts tinkering with [src].", "You start tinkering with [src].")
 	if(!do_after(user, 8 SECONDS, src))
 		return
-	var/datum/effect_system/spark_spread/S = new()
+	var/datum/effect_system/spark_spread/noisy/S = new()
 	var/turf/front = get_turf(src)
 	S.set_up(1, 1, front)
 	S.start()

@@ -196,7 +196,7 @@ GLOBAL_LIST_EMPTY(created_sound_groups)
 	if(direct)
 		if(ismob(thing))
 			var/mob/mob = thing
-			mob.playsound_local(mob, S, volume, vary, frequency,  falloff_exponent = falloff_exponent, falloff_distance = falloff_distance, repeat = src, channel = channel)
+			mob.playsound_local(mob, S, volume, vary, frequency, falloff_exponent = falloff_exponent, falloff_distance = falloff_distance, repeat = src, channel = channel)
 	else
 		var/list/R = playsound(thing, S, volume, vary, extra_range, falloff_exponent, frequency, channel, ignore_walls = ignore_walls, falloff_distance = falloff_distance, repeat = src)
 		if(!R || !R.len)

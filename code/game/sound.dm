@@ -7,17 +7,17 @@
  * Arguments:
  * * source - Origin of sound.
  * * soundin - Either a file, or a string that can be used to get an SFX.
- * * vol - The volume of the sound, excluding falloff and pressure affection.
+ * * vol - The volume of the sound, excluding falloff_exponent and pressure affection.
  * * vary - bool that determines if the sound changes pitch every time it plays.
  * * extrarange - modifier for sound range. This gets added on top of SOUND_RANGE.
- * * falloff - Rate of falloff for the audio. Higher means quicker drop to low volume. Should generally be over 1 to indicate a quick dive to 0 rather than a slow dive.
+ * * falloff_exponent - Rate of falloff_exponent for the audio. Higher means quicker drop to low volume. Should generally be over 1 to indicate a quick dive to 0 rather than a slow dive.
  * * frequency - playback speed of audio.
  * * channel - The channel the sound is played at.
  * * pressure_affected - Whether or not difference in pressure affects the sound (E.g. if you can hear in space).
  * * ignore_walls - Whether or not the sound can pass through walls.
- * * falloff_distance - Distance at which falloff begins. Sound is at peak volume (in regards to falloff) aslong as it is in this range.
+ * * falloff_distance - Distance at which falloff_exponent begins. Sound is at peak volume (in regards to falloff_exponent) aslong as it is in this range.
  */
-/proc/playsound(atom/source, soundin, vol as num, vary, extrarange as num, falloff_exponent = SOUND_FALLOFF_EXPONENT, frequency = null, channel = 0, pressure_affected = TRUE, ignore_walls = TRUE, falloff_distance = SOUND_DEFAULT_FALLOFF_DISTANCE, soundping = FALSE, repeat)
+/proc/playsound(atom/source, soundin, vol as num, vary, extrarange as num, falloff_exponent = SOUND_FALLOFF_EXPONENT, frequency = null, channel, pressure_affected = FALSE, ignore_walls = TRUE, falloff_distance = SOUND_DEFAULT_FALLOFF_DISTANCE, soundping = FALSE, repeat)
 	if(isarea(source))
 		CRASH("playsound(): source is an area")
 
@@ -35,8 +35,6 @@
 	var/sound/S = soundin
 	if(!istype(S))
 		S = sound(get_sfx(soundin))
-	if(!extrarange)
-		extrarange = 1
 	var/maxdistance = SOUND_RANGE + extrarange
 	var/source_z = turf_source.z
 	var/list/listeners = SSmobs.clients_by_zlevel[source_z].Copy()
@@ -66,12 +64,12 @@
 
 	for(var/mob/M as anything in listeners)
 		if(get_dist(M, turf_source) <= audible_distance)
-			if(M.playsound_local(turf_source, soundin, vol, vary, frequency, falloff_exponent, channel, pressure_affected, S, maxdistance, falloff_distance, repeat))
+			if(M.playsound_local(turf_source, soundin, vol, vary, frequency, falloff_exponent, channel, pressure_affected, S, max_distance = maxdistance, falloff_distance = falloff_distance, repeat = repeat))
 				. += M
 
 	for(var/mob/M as anything in muffled_listeners)
 		if(get_dist(M, turf_source) <= audible_distance)
-			if(M.playsound_local(turf_source, soundin, vol, vary, frequency, falloff_exponent, channel, pressure_affected, S, maxdistance, falloff_distance, repeat, muffled = TRUE))
+			if(M.playsound_local(turf_source, soundin, vol, vary, frequency, falloff_exponent, channel, pressure_affected, S, max_distance = maxdistance, falloff_distance = falloff_distance, repeat = repeat, muffled = TRUE))
 				. += M
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_SOUND_PLAYED, source, soundin)
 
@@ -98,6 +96,8 @@
 		S.environment = 11
 		if(falloff_exponent)
 			falloff_exponent *= 1.5
+		else
+			falloff_exponent = 1.5
 		vol *= 0.75
 
 	var/vol2use = vol
@@ -122,7 +122,7 @@
 	if(isturf(turf_source))
 		var/turf/T = get_turf(src)
 
-		//sound volume falloff with distance
+		//sound volume falloff_exponent with distance
 		distance = get_dist(T, turf_source) * distance_multiplier
 
 		if(max_distance && falloff_exponent) //If theres no max_distance we're not a 3D sound, so no falloff.
