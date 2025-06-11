@@ -1,6 +1,3 @@
-/mob/living
-	var/datum/worker_mind/controller_mind
-
 /mob/living/proc/made_into_controller_mob()
 	QDEL_NULL(ai_controller)
 
