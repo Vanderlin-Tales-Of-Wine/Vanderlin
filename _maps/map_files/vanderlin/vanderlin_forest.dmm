@@ -38,7 +38,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/indoors)
 "aT" = (
-/obj/effect/traveltile_spawner/horizontal/vampire,
+/obj/effect/spawner/traveltile_spawner/horizontal/vampire,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/woods)
 "aU" = (
@@ -1769,7 +1769,7 @@
 /turf/open/floor/ruinedwood/alt,
 /area/rogue/indoors)
 "Er" = (
-/obj/effect/traveltile_spawner/vertical/bandit,
+/obj/effect/spawner/traveltile_spawner/vertical/bandit,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/woods)
 "EB" = (
@@ -2668,7 +2668,7 @@
 /turf/closed/wall/mineral/stone,
 /area/rogue/indoors)
 "VF" = (
-/obj/effect/traveltile_spawner/horizontal/bandit,
+/obj/effect/spawner/traveltile_spawner/horizontal/bandit,
 /turf/open/floor/naturalstone,
 /area/rogue/indoors/cave)
 "VS" = (
