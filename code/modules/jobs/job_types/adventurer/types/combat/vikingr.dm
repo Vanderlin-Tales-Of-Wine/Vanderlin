@@ -44,13 +44,13 @@
 			backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/long
 			head = /obj/item/clothing/head/roguehood/black
 			beltr = /obj/item/weapon/sword/iron
-			H.adjust_skillrank(/datum/skill/combat/axesmaces, 1, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
 		if("Axe")
 			backr = /obj/item/weapon/polearm/halberd/bardiche/woodcutter
 			beltr = /obj/item/storage/belt/pouch/coins/poor
 			head = /obj/item/clothing/head/helmet/nasal
 			beltl = /obj/item/weapon/sword/iron
-			H.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/axesmaces, 1, TRUE)
 		if("Claymore")
 			backr = /obj/item/weapon/sword/long/greatsword/ironclaymore
 			beltl = /obj/item/weapon/axe/iron
