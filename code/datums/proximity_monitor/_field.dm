@@ -38,11 +38,11 @@
 
 	var/list/old_field_turfs = field_turfs
 	var/list/old_edge_turfs = edge_turfs
-	field_turfs = new_turfs[FIELD_TURFS_KEY]
-	edge_turfs = new_turfs[EDGE_TURFS_KEY]
-	if(full_recalc)
-		field_turfs = list()
-		edge_turfs = list()
+	field_turfs = list()
+	edge_turfs = list()
+	if(!full_recalc)
+		field_turfs = new_turfs[FIELD_TURFS_KEY]
+		edge_turfs = new_turfs[EDGE_TURFS_KEY]
 
 	for(var/turf/old_turf as anything in old_field_turfs - field_turfs)
 		if(QDELETED(src))
@@ -63,6 +63,7 @@
 		if(QDELETED(src))
 			return
 		setup_field_turf(new_turf)
+
 	for(var/turf/new_turf as anything in edge_turfs - old_edge_turfs)
 		if(QDELETED(src))
 			return
@@ -127,7 +128,7 @@
 	if(current_range > 0)
 		local_field_turfs += RANGE_TURFS(current_range - 1, center)
 	if(current_range > 1)
-		local_edge_turfs = local_field_turfs - RANGE_TURFS(current_range, center)
+		local_edge_turfs = RANGE_TURFS(current_range, center) - local_field_turfs
 	return list(FIELD_TURFS_KEY = local_field_turfs, EDGE_TURFS_KEY = local_edge_turfs)
 
 //Gets edge direction/corner, only works with square radius/WDH fields!
@@ -167,6 +168,7 @@
 	name = "strange multitool"
 	desc = "Seems to project a colored field!"
 	var/operating = FALSE
+	var/range_to_use = 5
 	var/datum/proximity_monitor/advanced/debug/current = null
 
 /obj/item/multitool/field_debug/Destroy()
@@ -174,7 +176,7 @@
 	return ..()
 
 /obj/item/multitool/field_debug/proc/setup_debug_field()
-	current = new(src, 5, FALSE)
+	current = new(src, range_to_use, FALSE)
 	current.set_fieldturf_color = "#aaffff"
 	current.set_edgeturf_color = "#ffaaff"
 	current.recalculate_field(full_recalc = TRUE)
