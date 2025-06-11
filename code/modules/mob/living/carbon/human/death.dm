@@ -124,6 +124,8 @@
 								if(D.has_flaw(/datum/charflaw/addiction/maniac))
 									D.add_stress(/datum/stressevent/viewdeathmaniac)
 									D.sate_addiction()
+								if(isgrenzel(D) && isantigrenzel(src) && !HU.RomanticPartner(src))
+									D.add_stress(/datum/stressevent/deadelf)
 								else
 									D.add_stress(/datum/stressevent/viewdeath)
 

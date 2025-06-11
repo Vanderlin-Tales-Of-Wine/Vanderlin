@@ -51,3 +51,4 @@
 	H.change_stat(STATKEY_STR, 2) // They need this to roll at least min STR for the Zwei.
 	H.change_stat(STATKEY_CON, 2)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_GRENZEL, TRAIT_GENERIC)
