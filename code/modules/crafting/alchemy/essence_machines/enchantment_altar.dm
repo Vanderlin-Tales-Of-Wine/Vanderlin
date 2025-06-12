@@ -27,6 +27,16 @@
 
 	update_icon()
 
+/obj/machinery/essence/enchantment_altar/Destroy()
+	if(altar_storage)
+		qdel(altar_storage)
+	if(placed_item)
+		placed_item.forceMove(get_turf(src))
+	placed_item = null
+	if(selected_recipe)
+		qdel(selected_recipe)
+	return ..()
+
 /obj/machinery/essence/enchantment_altar/update_icon()
 	..()
 	cut_overlays()
