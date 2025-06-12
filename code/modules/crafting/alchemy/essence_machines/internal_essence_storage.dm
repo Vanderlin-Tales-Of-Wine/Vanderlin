@@ -5,9 +5,13 @@
 	var/atom/parent_atom // Reference to the object this storage belongs to
 
 /datum/essence_storage/New(atom/parent)
-	..()
+	. = ..()
 	if(parent)
 		parent_atom = parent
+
+/datum/essence_storage/Destroy(force, ...)
+	parent_atom = null
+	return ..()
 
 /datum/essence_storage/proc/add_essence(essence_type, amount)
 	var/current_total = get_total_stored()
