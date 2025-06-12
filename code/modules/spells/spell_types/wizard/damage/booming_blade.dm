@@ -5,8 +5,6 @@
 	releasedrain = 50
 	chargetime = 3
 	recharge_time = 15 SECONDS
-	//chargetime = 10
-	//recharge_time = 30 SECONDS
 	range = 6
 	warnie = "spellwarning"
 	movement_interrupt = FALSE
@@ -14,74 +12,52 @@
 	chargedloop = null
 	sound = 'sound/magic/whiteflame.ogg'
 	chargedloop = /datum/looping_sound/invokegen
-	associated_skill = /datum/skill/magic/arcane //can be arcane, druidic, blood, holy
+	associated_skill = /datum/skill/magic/arcane
 	cost = 1
-
-
 	miracle = FALSE
-
-	invocation = "Stay still!" // Incantation should explain a confusing spell's mechanic.
-	invocation_type = "shout" //can be none, whisper, emote and shout
-
+	invocation = "Stay still!"
+	invocation_type = "shout"
 	attunements = list(
-		/datum/attunement/earth = 0.3,
+		/datum/attunement/arcyne = 0.4,
 	)
+
+/obj/effect/proc_holder/spell/invoked/boomingblade5e/set_attuned_strength(list/incoming_attunements)
+	var/total_value = 1
+	for(var/datum/attunement/attunement as anything in attunements)
+		if(!(attunement in incoming_attunements))
+			continue
+		total_value += incoming_attunements[attunement] * attunements[attunement]
+	attuned_strength = total_value
+	attuned_strength = max(attuned_strength, 0.5)
+	return
 
 /obj/effect/proc_holder/spell/invoked/boomingblade5e/cast(list/targets, mob/living/user)
 	if(isliving(targets[1]))
 		var/mob/living/carbon/target = targets[1]
 		var/mob/living/L = target
 		var/mob/U = user
-		var/obj/item/held_item = user.get_active_held_item() //get held item
+		var/obj/item/held_item = user.get_active_held_item()
 		if(held_item)
 			held_item.melee_attack_chain(U, L)
-			target.apply_status_effect(/datum/status_effect/buff/boomingblade5e) //apply buff
+			// Pass attunement strength to status effect
+			target.apply_status_effect(/datum/status_effect/buff/boomingblade5e, attuned_strength)
 		return TRUE
 	return FALSE
 
 /datum/status_effect/buff/boomingblade5e
-	id = "booming blade"
-	alert_type = /atom/movable/screen/alert/status_effect/buff/boomingblade5e
-	duration = 10 SECONDS
-	var/turf/start_pos
-	var/static/mutable_appearance/glow = mutable_appearance('icons/effects/effects.dmi', "empdisable", -MUTATIONS_LAYER)
+	var/strength_multiplier = 1
 
-/datum/status_effect/buff/boomingblade5e/on_apply()
+/datum/status_effect/buff/boomingblade5e/New(atom/A, strength = 1)
+	strength_multiplier = strength
 	. = ..()
-	var/mob/living/target = owner
-	target.add_overlay(glow)
-	target.update_vision_cone()
-	start_pos = get_turf(target) //set buff starting position
-
-/datum/status_effect/buff/boomingblade5e/on_remove()
-	var/mob/living/target = owner
-	target.cut_overlay(glow)
-	target.update_vision_cone()
-	. = ..()
-
-/datum/status_effect/buff/boomingblade5e/tick()
-	var/turf/new_pos = get_turf(owner)
-	var/startX = start_pos.x
-	var/startY = start_pos.y
-	var/newX = new_pos.x
-	var/newY = new_pos.y
-	if(startX != newX || startY != newY)//if target moved
-		//explosion
-		if(!owner.anti_magic_check())
-			boom()
-		qdel(src)
 
 /datum/status_effect/buff/boomingblade5e/proc/boom()
 	var/exp_heavy = 0
-	var/exp_light = 0
-	var/exp_flash = 2
+	var/exp_light = round(1 * strength_multiplier)  // Scale explosion
+	var/exp_flash = round(2 * strength_multiplier)
 	var/exp_fire = 0
-	var/damage = 10
+	var/damage = round(10 * strength_multiplier)  // Scale damage
+
 	explosion(owner, -1, exp_heavy, exp_light, exp_flash, 0, flame_range = exp_fire)
 	owner.adjustBruteLoss(damage)
 	owner.visible_message(span_warning("A thunderous boom eminates from [owner]!"), span_danger("A thunderous boom eminates from you!"))
-
-/atom/movable/screen/alert/status_effect/buff/boomingblade5e
-	name = "Booming Blade"
-	desc = "I feel if I move I am in serious trouble."
-	icon_state = "debuff"

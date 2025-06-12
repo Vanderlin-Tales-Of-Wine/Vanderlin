@@ -172,6 +172,10 @@ Actual Adjacent procs :
 			return TRUE
 	return FALSE
 
+/proc/get_dist_3d(atom/source, atom/target)
+	var/turf/source_turf = get_turf(source)
+	return source_turf.Distance3D(get_turf(target))
+
 // Add a helper function to compute 3D Manhattan distance
 /turf/proc/Distance3D(turf/T)
 	if (!T || !istype(T))

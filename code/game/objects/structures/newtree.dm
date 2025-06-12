@@ -24,6 +24,7 @@
 	. = ..()
 	GenerateTree()
 
+
 /obj/structure/flora/newtree/update_icon()
 	if(burnt)
 		icon_state = "burnt"

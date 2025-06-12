@@ -179,6 +179,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 	var/devotion_cost = 0
 	var/ignore_cockblock = FALSE //whether or not to ignore TRAIT_SPELLBLOCK
 	var/uses_mana = TRUE
+	var/spell_flag = SPELL_MANA
 
 	action_icon_state = "spell0"
 	action_icon = 'icons/mob/actions/roguespells.dmi'
@@ -384,6 +385,9 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 /obj/effect/proc_holder/spell/process()
 	if(recharging && (charge_counter < recharge_time))
 		charge_counter += 2	//processes 5 times per second instead of 10.
+		if(ranged_ability_user)
+			if(HAS_TRAIT(ranged_ability_user, TRAIT_MOONWATER_ELIXIR))
+				charge_counter++
 		if(charge_counter >= recharge_time)
 			action.UpdateButtonIcon()
 			charge_counter = recharge_time
@@ -439,12 +443,15 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 		if(sound)
 			playMagSound()
 		after_cast(targets)
+		if(uses_mana && length(attunements))
+			finish_spell_visual_effects(user, src)
 		if(action)
 			action.UpdateButtonIcon()
 		return TRUE
 	else
 		to_chat(user,span_warn("Your spell [name] fizzles!"))
 		revert_cast(user)
+		cancel_spell_visual_effects(user)
 
 /obj/effect/proc_holder/spell/proc/before_cast(list/targets)
 	if(overlay)

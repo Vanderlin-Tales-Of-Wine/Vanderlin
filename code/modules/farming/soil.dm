@@ -50,6 +50,8 @@
 	var/crop_quality = QUALITY_REGULAR
 	/// Tracks quality points that accumulate toward quality tier increases
 	var/quality_points = 0
+	///accellerated_growth
+	var/accellerated_growth = 0
 
 /obj/structure/soil/Crossed(atom/movable/AM)
 	. = ..()
@@ -360,6 +362,8 @@
 	var/dt = 10
 	process_weeds(dt)
 	process_plant(dt)
+	if(world.time < accellerated_growth)
+		process_plant(dt)
 	process_soil(dt)
 	if(soil_decay_time <= 0)
 		decay_soil(TRUE)
