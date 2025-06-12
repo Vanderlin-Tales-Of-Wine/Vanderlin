@@ -94,6 +94,9 @@
 	ADD_TRAIT(H, TRAIT_SEEPRICES, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NUTCRACKER, TRAIT_GENERIC)
+	switch(H.patron?.type)
+		if(/datum/patron/inhumen/baotha)
+			H.cmode_music = 'sound/music/cmode/antag/CombatBaotha.ogg'
 
 /datum/advclass/consort/courtesan
 	name = "Courtesan Consort"
@@ -135,6 +138,9 @@
 	H.change_stat(STATKEY_LCK, 3)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NUTCRACKER, TRAIT_GENERIC)
+	switch(H.patron?.type)
+		if(/datum/patron/inhumen/baotha)
+			H.cmode_music = 'sound/music/cmode/antag/CombatBaotha.ogg'
 
 /datum/advclass/consort/lowborn
 	name = "Lowborn Consort"
@@ -175,6 +181,9 @@
 	ADD_TRAIT(H, TRAIT_SEEDKNOW, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NUTCRACKER, TRAIT_GENERIC)
+	switch(H.patron?.type)
+		if(/datum/patron/inhumen/baotha)
+			H.cmode_music = 'sound/music/cmode/antag/CombatBaotha.ogg'
 
 /datum/advclass/consort/courtesan/night_spy
 	name = "Night-Mother's Spy Consort"

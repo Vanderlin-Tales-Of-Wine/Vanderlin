@@ -15,6 +15,7 @@
 	attunements = list(
 		/datum/attunement/fire = 1.2
 	)
+	overlay_state = "fireball_greater"
 
 /obj/effect/proc_holder/spell/invoked/meteor_storm/cast(list/targets, mob/user = usr)
 	var/turf/T = get_turf(targets[1])

@@ -8,7 +8,7 @@
 
 /obj/item/clothing/shirt/shortshirt/random/Initialize()
 	color = pick_assoc(GLOB.peasant_dyes)
-	..()
+	return ..()
 
 /obj/item/clothing/shirt/shortshirt/uncolored
 	color = CLOTHING_LINEN

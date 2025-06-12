@@ -331,14 +331,17 @@
 	if(!isnull(colors))
 		accessory_colors = colors
 	var/datum/sprite_accessory/accessory = SPRITE_ACCESSORY(accessory_type)
-	accessory_colors = accessory.validate_color_keys_for_owner(owner, colors)
+	if(accessory)
+		accessory_colors = accessory.validate_color_keys_for_owner(owner, colors)
 	update_accessory_colors()
 
 /obj/item/organ/proc/build_colors_for_accessory(list/source_key_list)
 	if(!accessory_type)
 		return
 	var/datum/sprite_accessory/accessory = SPRITE_ACCESSORY(accessory_type)
-	if(accessory?.use_static)
+	if(!accessory)
+		return
+	if(accessory.use_static)
 		return
 	if(!source_key_list)
 		if(!owner)

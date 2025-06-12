@@ -234,7 +234,7 @@
 /obj/item/storage/backpack/satchel/heartfelt
 	populate_contents = list(
 		/obj/item/natural/feather,
-		/obj/item/paper/heartfelt/random,
+		/obj/item/paper/heartfelt,
 	)
 
 /obj/item/storage/backpack/satchel/mule/PopulateContents()

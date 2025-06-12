@@ -223,3 +223,19 @@
 /datum/pollutant/food/fried_eggs
 	name = "fried egg"
 	scent = "fried egg"
+
+/datum/pollutant/food/bitter
+	name = "bitter smell"
+	scent = "bitter scent"
+
+/datum/pollutant/food/herb
+	name = "herbal smell"
+	scent = "herbal smell"
+
+/datum/pollutant/food/flower
+	name = "floral smell"
+	scent = "floral smell"
+
+/datum/pollutant/food/mint
+	name = "minty smell"
+	scent = "minty smell"

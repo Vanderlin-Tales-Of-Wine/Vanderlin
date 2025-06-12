@@ -20,6 +20,33 @@
 		)
 	cost = 4
 
+/obj/effect/proc_holder/spell/invoked/projectile/fireball/set_attuned_strength(list/incoming_attunements)
+	var/total_value = 1
+	for(var/datum/attunement/attunement as anything in attunements)
+		if(!(attunement in incoming_attunements))
+			continue
+		total_value += incoming_attunements[attunement] * attunements[attunement]
+	attuned_strength = total_value
+	attuned_strength = max(attuned_strength, 0.5)
+	return
+
+/obj/projectile/magic/aoe/fireball/rogue/modify_matrix(matrix/matrix)
+	var/strength = min(max(0.1, spell_source?.attuned_strength || 1),10)
+	return matrix.Scale(strength, strength)
+
+
+/obj/projectile/magic/aoe/fireball/rogue/Initialize()
+	. = ..()
+	var/obj/effect/proc_holder/spell/spell_ref = spell_source
+	if(spell_ref?.attuned_strength)
+		var/strength = spell_ref.attuned_strength
+		damage = round(damage * strength)
+		exp_light = round(exp_light * strength)
+		exp_fire = round(exp_fire * strength)
+		var/matrix/matrix = matrix()
+		matrix.Scale(strength, strength)
+		transform = matrix
+
 /obj/projectile/magic/aoe/fireball/rogue
 	name = "fireball"
 	exp_heavy = 0

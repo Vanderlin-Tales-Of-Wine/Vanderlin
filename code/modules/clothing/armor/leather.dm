@@ -85,7 +85,7 @@
 
 /obj/item/clothing/armor/leather/vest/random/Initialize()
 	color = pick(CLOTHING_SOOT_BLACK, CLOTHING_BARK_BROWN, CLOTHING_FOREST_GREEN)
-	..()
+	return ..()
 
 //................ Butchers Vest ............... //
 /obj/item/clothing/armor/leather/vest/butcher
@@ -99,11 +99,12 @@
 	color = CLOTHING_BLOOD_RED
 
 /obj/item/clothing/armor/leather/vest/butler/Initialize()
-	..()
+	. = ..()
 	if(GLOB.lordprimary)
 		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
 	else
 		GLOB.lordcolor += src
+
 /obj/item/clothing/armor/leather/vest/butler/Destroy()
 	GLOB.lordcolor -= src
 	return ..()
@@ -217,8 +218,8 @@
 	prevent_crits = CUT_AND_MINOR_CRITS
 
 /obj/item/clothing/armor/leather/jacket/silk_coat/Initialize()
-	color = pick(CLOTHING_PLUM_PURPLE, CLOTHING_WHITE,CLOTHING_BLOOD_RED)
-	..()
+	color = pick(CLOTHING_PLUM_PURPLE, CLOTHING_WHITE, CLOTHING_BLOOD_RED)
+	return ..()
 
 //................ Silk Jacket ............... //
 /obj/item/clothing/armor/leather/jacket/apothecary

@@ -286,8 +286,8 @@ Turf and target are separate in case you want to teleport some distance from a t
 /proc/get_mob_by_ckey(key)
 	if(!key)
 		return
-	var/list/mobs = sortmobs()
-	for(var/mob/M in mobs)
+	var/list/mobs = GLOB.mob_list
+	for(var/mob/M as anything in mobs)
 		if(M.ckey == key)
 			return M
 
@@ -935,7 +935,7 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 
 // \ref behaviour got changed in 512 so this is necesary to replicate old behaviour.
 // If it ever becomes necesary to get a more performant REF(), this lies here in wait
-// #define REF(thing) (thing && istype(thing, /datum) && (thing:datum_flags & DF_USE_TAG) && thing:tag ? "[thing:tag]" : "\ref[thing]")
+// #define REF(thing) (thing && istype(thing, /datum) && (thing:datum_flags & DF_USE_TAG) && thing:tag ? "[thing:tag]" : text_ref(thing))
 /proc/REF(input)
 	if(istype(input, /datum))
 		var/datum/thing = input
@@ -945,7 +945,7 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 				thing.datum_flags &= ~DF_USE_TAG
 			else
 				return "\[[url_encode(thing.tag)]\]"
-	return "\ref[input]"
+	return text_ref(input)
 
 // Makes a call in the context of a different usr
 // Use sparingly
