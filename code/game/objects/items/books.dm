@@ -175,8 +175,7 @@
 				user.hud_used.reads.destroy_read()
 			user << browse(null, "window=reading")
 
-	var/literate = usr.is_literate()
-	if(!usr.canUseTopic(src, BE_CLOSE, literate))
+	if(!usr.can_perform_action(src, NEED_LITERACY|FORBID_TELEKINESIS_REACH))
 		return
 
 	if(href_list["read"])
@@ -1051,8 +1050,7 @@
 				user.hud_used.reads.destroy_read()
 			user << browse(null, "window=reading")
 
-	var/literate = usr.is_literate()
-	if(!usr.canUseTopic(src, BE_CLOSE, literate))
+	if(!usr.can_perform_action(src, NEED_LITERACY|FORBID_TELEKINESIS_REACH))
 		return
 
 	if(href_list["read"])

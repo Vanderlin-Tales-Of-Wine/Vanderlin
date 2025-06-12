@@ -1,0 +1,30 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/open/floor/grass,
+/area/template_noop)
+"K" = (
+/turf/open/floor/cobblerock/alt,
+/area/template_noop)
+"R" = (
+/obj/structure/heart_of_nature,
+/turf/open/floor/cobble,
+/area/template_noop)
+"S" = (
+/turf/open/floor/cobble,
+/area/template_noop)
+
+(1,1,1) = {"
+a
+K
+S
+"}
+(2,1,1) = {"
+a
+R
+S
+"}
+(3,1,1) = {"
+K
+a
+a
+"}

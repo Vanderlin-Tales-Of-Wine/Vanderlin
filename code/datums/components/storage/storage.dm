@@ -638,9 +638,6 @@
 /obj/item/proc/StorageBlock(obj/item/I, mob/user)
 	return FALSE
 
-/obj
-	var/component_block = FALSE
-
 //This proc return 1 if the item can be picked up and 0 if it can't.
 //Set the stop_messages to stop it from printing messages
 /datum/component/storage/proc/can_be_inserted(obj/item/I, stop_messages = FALSE, mob/M)

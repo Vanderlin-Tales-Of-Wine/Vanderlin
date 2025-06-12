@@ -28,12 +28,16 @@
 		transform = ntransform
 		pixel_x = get_standard_pixel_x_offset()
 		pixel_y = final_pixel_y
+		client?.pixel_x = pixel_x
+		client?.pixel_y = pixel_y
 		dir = final_dir
 		setMovetype(movement_type & ~FLOATING)  // If we were without gravity, the bouncing animation got stopped, so we make sure we restart it in next life().
 		update_vision_cone()
 	else
 		pixel_x = get_standard_pixel_x_offset()
 		pixel_y = get_standard_pixel_y_offset(lying_angle)
+		client?.pixel_x = pixel_x
+		client?.pixel_y = pixel_y
 
 /mob/living
 	var/list/overlays_standing[TOTAL_LAYERS]

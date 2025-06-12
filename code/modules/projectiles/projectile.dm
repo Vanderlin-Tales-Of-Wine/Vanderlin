@@ -369,6 +369,9 @@
 	for(var/i in 1 to required_moves)
 		pixel_move(1, FALSE)
 
+/obj/projectile/proc/modify_matrix(matrix/matrix)
+	return matrix
+
 /obj/projectile/proc/fire(angle, atom/direct_target)
 	if(fired_from)
 		SEND_SIGNAL(fired_from, COMSIG_PROJECTILE_BEFORE_FIRE, src, original)
@@ -396,6 +399,7 @@
 	if(!nondirectional_sprite)
 		var/matrix/M = new
 		M.Turn(Angle)
+		M = modify_matrix(M)
 		transform = M
 	trajectory_ignore_forcemove = TRUE
 	forceMove(starting)
@@ -414,6 +418,7 @@
 	if(!nondirectional_sprite)
 		var/matrix/M = new
 		M.Turn(Angle)
+		M = modify_matrix(M)
 		transform = M
 	if(trajectory)
 		trajectory.set_angle(new_angle)
@@ -482,6 +487,7 @@
 	if(!nondirectional_sprite && !hitscanning)
 		var/matrix/M = new
 		M.Turn(Angle)
+		M = modify_matrix(M)
 		transform = M
 	if(homing)
 		process_homing()

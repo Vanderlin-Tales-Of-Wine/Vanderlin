@@ -494,14 +494,16 @@
 							rawegg = FALSE
 						qdel(food)
 						food = C
-			if(istype(attachment, /obj/item/reagent_containers/glass/bucket/pot))
+			else if(istype(attachment, /obj/item/reagent_containers/glass/bucket/pot))
 				if(attachment.reagents)
 					attachment.reagents.expose_temperature(400, 0.033)
 					if(attachment.reagents.chem_temp > 374)
 						boilloop.start()
 					else
 						boilloop.stop()
-
+			else
+				boilloop.stop()
+		update_appearance(UPDATE_OVERLAYS)
 
 /obj/machinery/light/fueled/hearth/onkick(mob/user)
 	if(isliving(user) && on)

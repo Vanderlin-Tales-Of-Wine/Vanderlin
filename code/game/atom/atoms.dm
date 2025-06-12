@@ -105,6 +105,22 @@
 	/// forensics datum, contains fingerprints, fibres, blood_dna and hiddenprints on this atom
 	var/datum/forensics/forensics
 
+	var/xyoverride = FALSE //so we can 'face' a click catcher even though it doesn't have an x or a y
+
+	/// This means that the mouse over text will not be displayed when the mouse is over this atom
+	var/nomouseover = FALSE
+	var/hover_color = "#a1bac4"
+
+	///this is the path to the enchantment not the actual enchantment
+	var/list/enchantments
+
+	/// Reference to atom being orbited
+	var/atom/orbit_target
+	/// The orbiter component, if there's anything orbiting this atom
+	var/datum/component/orbiter/orbiters
+
+	var/blockscharging = FALSE
+
 /**
  * Called when an atom is created in byond (built in engine proc)
  *
@@ -390,10 +406,10 @@
  * COMSIG_ATOM_GET_EXAMINE_NAME signal
  */
 /atom/proc/get_examine_name(mob/user)
-	. = "\a [src]"
+	. = "\a <b>[src]</b>"
 	var/list/override = list(gender == PLURAL ? "some" : "a", " ", "[name]")
 	if(article)
-		. = "[article] [src]"
+		. = "[article] <b>[src]</b>"
 		override[EXAMINE_POSITION_ARTICLE] = article
 	if(SEND_SIGNAL(src, COMSIG_ATOM_GET_EXAMINE_NAME, user, override) & COMPONENT_EXNAME_CHANGED)
 		. = override.Join("")
@@ -414,7 +430,11 @@
  * Produces a signal COMSIG_PARENT_EXAMINE
  */
 /atom/proc/examine(mob/user)
-	. = list("[get_examine_string(user, TRUE)].[get_inspect_button()]")
+	var/examine_string = get_examine_string(user, thats = TRUE)
+	if(examine_string)
+		. = list("[examine_string].[get_inspect_button()]")
+	else
+		. = list()
 
 	if(desc)
 		. += "<span class='info'>[desc]</span>"

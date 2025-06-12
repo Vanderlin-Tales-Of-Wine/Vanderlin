@@ -24,8 +24,8 @@
 	aggro_vision_range = 5
 
 	// One of these daes, they'll drop Gator leather
-	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/mince = 1)
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/mince = 1,
+	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/mince/beef = 1)
+	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/mince/beef = 1,
 						/obj/item/alch/bone = 2)
 	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/steak = 1,
 						/obj/item/alch/sinew = 1,

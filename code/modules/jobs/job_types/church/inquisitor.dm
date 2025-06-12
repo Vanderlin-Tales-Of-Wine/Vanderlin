@@ -190,14 +190,16 @@
 		H.confession_time("patron", src)
 
 /mob/living/carbon/human/proc/confession_time(confession_type = "antag", mob/living/carbon/human/user)
-	var/timerid = addtimer(CALLBACK(src, PROC_REF(confess_sins), confession_type, FALSE, user), 3 SECONDS, TIMER_STOPPABLE)
-	var/responsey = alert(src, "Resist torture?","TEST OF PAIN","Yes","No")
+	var/timerid = addtimer(CALLBACK(src, PROC_REF(confess_sins), confession_type, FALSE, user), 10 SECONDS, TIMER_STOPPABLE)
+	var/static/list/options = list("RESIST!!", "CONFESS!!")
+	var/responsey = browser_input_list(src, "Resist torture?", "TEST OF PAIN", options)
+
 	if(SStimer.timer_id_dict[timerid])
 		deltimer(timerid)
 	else
 		to_chat(src, span_warning("Too late..."))
 		return
-	if(responsey == "Yes")
+	if(responsey == "RESIST!!")
 		confess_sins(confession_type, resist=TRUE, interrogator=user)
 	else
 		confess_sins(confession_type, resist=FALSE, interrogator=user)

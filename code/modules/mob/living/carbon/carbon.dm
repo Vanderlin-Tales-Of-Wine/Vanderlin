@@ -311,7 +311,7 @@
 
 /mob/living/carbon/on_fall()
 	. = ..()
-	loc.handle_fall(src)//it's loc so it doesn't call the mob's handle_fall which does nothing
+	loc?.handle_fall(src)//it's loc so it doesn't call the mob's handle_fall which does nothing
 
 /mob/living/carbon/is_muzzled()
 	return FALSE
@@ -1333,6 +1333,10 @@
 		if(isnull(worn_item))
 			continue
 		var/modifier = 1
+		if(ishuman(src))
+			var/mob/living/carbon/human/H = src
+			if(is_child(H))
+				modifier = 5
 		if(HAS_TRAIT(src, TRAIT_HOLLOWBONES))
 			modifier = 4
 		if(isclothing(worn_item))

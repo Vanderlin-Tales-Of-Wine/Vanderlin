@@ -134,6 +134,8 @@ All foods are distributed among various categories. Use common sense.
 
 /obj/item/reagent_containers/food/snacks/process()
 	..()
+	if(QDELETED(src))
+		return PROCESS_KILL
 	if(rotprocess)
 		var/turf/open/T = get_turf(src)
 		var/temp_modifier = 1.0
@@ -158,7 +160,7 @@ All foods are distributed among various categories. Use common sense.
 				// Minimum 0.2x speed (cold slows but doesn't completely stop rot)
 
 		var/obj/structure/fake_machine/vendor = locate(/obj/structure/fake_machine/vendor) in get_turf(src)
-		if(!istype(loc, /obj/item/storage/backpack/backpack/artibackpack))
+		if(!istype(loc, /obj/item/storage/backpack/backpack/artibackpack) || !istype(loc, /obj/structure/closet/crate/chest/magical))
 			var/obj/structure/table/located = locate(/obj/structure/table) in loc
 			if(located || vendor || chest)
 				warming -= 4 * temp_modifier
@@ -167,6 +169,7 @@ All foods are distributed among various categories. Use common sense.
 			if(warming < (-1*rotprocess))
 				if(become_rotten())
 					STOP_PROCESSING(SSobj, src)
+					return PROCESS_KILL
 
 /obj/item/reagent_containers/food/snacks/can_craft_with()
 	if(eat_effect == /datum/status_effect/debuff/rotfood)

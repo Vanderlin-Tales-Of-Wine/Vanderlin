@@ -179,6 +179,16 @@
 	melting_material = /datum/material/iron
 	item_weight = 7.5 * IRON_MULTIPLIER
 
+/obj/item/ingot/thaumic
+	name = "thaumic iron bar"
+	desc = "A bar of wrought iron tempered with fire essence."
+	icon_state = "infused_iron"
+	icon = 'icons/roguetown/misc/alchemy.dmi'
+	smeltresult = /obj/item/ingot/thaumic
+	sellprice = 25
+	melting_material = /datum/material/thaumic_iron
+	item_weight = 7.5 * IRON_MULTIPLIER
+
 /obj/item/ingot/copper
 	name = "copper bar"
 	desc = "A bar of copper."
