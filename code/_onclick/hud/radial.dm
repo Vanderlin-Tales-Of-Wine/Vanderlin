@@ -7,6 +7,30 @@ GLOBAL_LIST_EMPTY(radial_menus)
 	var/click_on_hover = FALSE
 	var/datum/radial_menu/parent
 
+/atom/movable/screen/radial/handle_mouseover(location, control, params)
+	var/mob/p = usr
+	if(p.client)
+		if(!p.client.mouseovertext)
+			p.client.genmouseobj()
+			return FALSE
+		if(p.client.pixel_x || p.client.pixel_y)
+			return FALSE
+		if(!p.x || !p.y)
+			return FALSE
+		var/offset_x = 8 - (p.x - x)
+		var/offset_y = 8 - (p.y - y)
+		var/list/PM = list("screen-loc" = "[offset_x]:0,[offset_y]:0")
+		if(!isturf(loc))
+			PM = params2list(params)
+			p.client.mouseovertext.movethis(PM, TRUE)
+		else
+			p.client.mouseovertext.movethis(PM)
+		p.client.mouseovertext.maptext_width = 196
+		p.client.mouseovertext.maptext = {"<span style='font-size:8pt;font-family:"Pterra";color:[hover_color];text-shadow:0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;' class='center maptext '>[name]"}
+		p.client.screen |= p.client.mouseovertext
+	return TRUE
+
+
 /atom/movable/screen/radial/proc/set_parent(new_value)
 	if(parent)
 		UnregisterSignal(parent, COMSIG_PARENT_QDELETING)
@@ -78,6 +102,9 @@ GLOBAL_LIST_EMPTY(radial_menus)
 
 	/// choice_id -> icon
 	var/list/choices_icons = list()
+
+	/// choice_id -> original choice key (for proper naming)
+	var/list/choices_keys = list()
 
 	/// choice_id -> choice
 	var/list/choices_values = list()
@@ -202,7 +229,7 @@ GLOBAL_LIST_EMPTY(radial_menus)
 			if (!click_on_hover)
 				continue
 			if (anim_flag)
-				addtimer(VARSET_CALLBACK(element, click_on_hover, TRUE), i * 0.5)
+				addtimer(VARSET_CALLBACK(element, click_on_hover, TRUE), i * 1)
 			else
 				element.click_on_hover = TRUE
 
@@ -247,16 +274,27 @@ GLOBAL_LIST_EMPTY(radial_menus)
 	else
 		//This isn't granted to exist, so use the ?. operator for conditionals that use it.
 		var/datum/radial_menu_choice/choice_datum = choice_datums[choice_id]
+
+		// Fixed name assignment logic - prioritize choice_datum.name, then original key, then fallbacks
 		if(choice_datum?.name)
 			E.name = choice_datum.name
+			E.nomouseover = FALSE
+		else if(choices_keys && choices_keys[choice_id])
+			// Use the stored original choice key
+			E.name = choices_keys[choice_id]
+			E.nomouseover = FALSE
 		else if(istext(choices_values[choice_id]))
 			E.name = choices_values[choice_id]
+			E.nomouseover = FALSE
 		else if(ispath(choices_values[choice_id],/atom))
 			var/atom/A = choices_values[choice_id]
 			E.name = initial(A.name)
+			E.nomouseover = FALSE
 		else
 			var/atom/movable/AM = choices_values[choice_id] //Movables only
 			E.name = AM.name
+			E.nomouseover = FALSE
+
 		E.choice = choice_id
 		E.maptext = null
 		E.next_page = FALSE
@@ -278,6 +316,7 @@ GLOBAL_LIST_EMPTY(radial_menus)
 	choices.Cut()
 	choices_icons.Cut()
 	choices_values.Cut()
+	choices_keys.Cut()
 	choice_datums.Cut()
 	current_page = 1
 
@@ -294,6 +333,7 @@ GLOBAL_LIST_EMPTY(radial_menus)
 		var/id = get_next_id()
 		choices += id
 		choices_values[id] = E
+		choices_keys[id] = E  // Store the original choice key
 		if(new_choices[E])
 			var/I = extract_image(new_choices[E])
 			if(I)

@@ -1,6 +1,6 @@
 GLOBAL_LIST_INIT(unlinked_dungeon_entries, list())
-GLOBAL_LIST_INIT(dungeon_entrys, list())
-GLOBAL_LIST_INIT(dungeon_exit, list())
+GLOBAL_LIST_INIT(dungeon_entries, list())
+GLOBAL_LIST_INIT(dungeon_exits, list())
 
 /obj/structure/dungeon_entry/center
 	dungeon_id = "center"
@@ -24,30 +24,34 @@ GLOBAL_LIST_INIT(dungeon_exit, list())
 	var/list/dungeon_exits = list()
 	var/can_enter = TRUE
 
-/obj/structure/dungeon_entry/New(loc, ...)
-	GLOB.dungeon_entrys |= src
-	if(!dungeon_id)
-		GLOB.unlinked_dungeon_entries |= src
-	. = ..()
-
 /obj/structure/dungeon_entry/Initialize()
 	. = ..()
+	GLOB.dungeon_entries |= src
 	if(dungeon_id)
-		for(var/obj/structure/dungeon_exit/exit as anything in GLOB.dungeon_exit)
+		for(var/obj/structure/dungeon_exit/exit as anything in GLOB.dungeon_exits)
 			if(exit.dungeon_id != dungeon_id)
 				continue
 			dungeon_exits |= exit
 			exit.entry = src
 			GLOB.unlinked_dungeon_entries -= src
-	else
-		shuffle_inplace(GLOB.dungeon_exit)
-		for(var/obj/structure/dungeon_exit/exit as anything in GLOB.dungeon_exit)
-			if(exit.dungeon_id)
-				continue
-			dungeon_exits |= exit
-			exit.entry = src
-			GLOB.unlinked_dungeon_entries -= src
-			break
+		return
+	GLOB.unlinked_dungeon_entries |= src
+	shuffle_inplace(GLOB.dungeon_exits)
+	for(var/obj/structure/dungeon_exit/exit as anything in GLOB.dungeon_exits)
+		if(exit.dungeon_id)
+			continue
+		dungeon_exits |= exit
+		exit.entry = src
+		GLOB.unlinked_dungeon_entries -= src
+		break
+
+/obj/structure/dungeon_entry/Destroy()
+	for(var/obj/structure/dungeon_exit/exit as anything in dungeon_exits)
+		exit.entry = null
+	dungeon_exits.Cut()
+	GLOB.dungeon_entries -= src
+	GLOB.unlinked_dungeon_entries -= src
+	return ..()
 
 /obj/structure/dungeon_entry/attack_hand(mob/user)
 	. = ..()
@@ -90,25 +94,29 @@ GLOBAL_LIST_INIT(dungeon_exit, list())
 
 /obj/structure/dungeon_exit/Initialize()
 	. = ..()
-	GLOB.dungeon_exit |= src
+	GLOB.dungeon_exits |= src
 
 	if(dungeon_id)
-		for(var/obj/structure/dungeon_entry/exit as anything in GLOB.dungeon_entrys)
+		for(var/obj/structure/dungeon_entry/exit as anything in GLOB.dungeon_entries)
 			if(exit.dungeon_id != dungeon_id)
 				continue
 			exit.dungeon_exits |= src
 			entry = exit
 			GLOB.unlinked_dungeon_entries -= exit
+		return
+	shuffle_inplace(GLOB.unlinked_dungeon_entries)
+	for(var/obj/structure/dungeon_entry/exit as anything in GLOB.unlinked_dungeon_entries)
+		if(exit.dungeon_id)
+			continue
+		exit.dungeon_exits |= src
+		entry = exit
+		GLOB.unlinked_dungeon_entries -= exit
+		break
 
-	else
-		shuffle_inplace(GLOB.unlinked_dungeon_entries)
-		for(var/obj/structure/dungeon_entry/exit as anything in GLOB.unlinked_dungeon_entries)
-			if(exit.dungeon_id)
-				continue
-			exit.dungeon_exits |= src
-			entry = exit
-			GLOB.unlinked_dungeon_entries -= exit
-			break
+/obj/structure/dungeon_exit/Destroy()
+	entry = null
+	GLOB.dungeon_exits -= src
+	return ..()
 
 /obj/structure/dungeon_exit/attack_hand(mob/user)
 	. = ..()

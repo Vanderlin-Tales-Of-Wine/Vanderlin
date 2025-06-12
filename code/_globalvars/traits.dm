@@ -152,6 +152,8 @@ GLOBAL_LIST_INIT(traits_by_type, list(
 		"Hollow Bones" = TRAIT_HOLLOWBONES,
 		"Light Load" = TRAIT_AMAZING_BACK,
 		"Loved By Kittens" = TRAIT_KITTEN_MOM,
+		"Waterbreathing" = TRAIT_WATER_BREATHING,
+		"Moonwater Elixir" = TRAIT_MOONWATER_ELIXIR,
 	),
 	/obj/item/bodypart = list(
 		"TRAIT_PARALYSIS" = TRAIT_PARALYSIS

@@ -147,13 +147,14 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 	resistance_flags = FIRE_PROOF
 
 /obj/item/natural/stone/Initialize()
+	. = ..()
 	icon_state = "stone[rand(1,4)]"
-	..()
 	stone_lore()
 
 /obj/item/natural/stone/on_consume(mob/living/eater)
 	if(!magic_power)
 		return
+	eater.mind?.spell_points += magic_power * 0.1
 	eater.mana_pool?.adjust_mana(magic_power * 25)
 	to_chat(eater, span_warning("I feel magic flowing from my stomach."))
 /*
@@ -335,12 +336,11 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 
 
 /obj/item/natural/rock/Initialize()
+	. = ..()
 	if(!isnull(mineralType))
 		icon_state = "stonebigshiny[rand(1,2)]"
 	else
 		icon_state = "stonebig[rand(1,2)]"
-	..()
-
 
 /obj/item/natural/rock/Crossed(mob/living/L)
 	if(istype(L) && !L.throwing)

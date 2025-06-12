@@ -285,7 +285,7 @@
 
 		if(user.mind)
 			if(user.mind.has_spell(/obj/effect/proc_holder/spell/targeted/blesscrop))
-				user.apply_status_effect(/datum/status_effect/buff/barbrage)
+				user.apply_status_effect(/datum/status_effect/buff/barbrage/briarrage)
 				user.mind.RemoveSpell(/obj/effect/proc_holder/spell/targeted/blesscrop)
 				to_chat(user, span_warning("Things that grow no longer interests me, the desire to hunt fills my heart!"))
 			if(user.mind.has_spell(/obj/effect/proc_holder/spell/targeted/beasttame))

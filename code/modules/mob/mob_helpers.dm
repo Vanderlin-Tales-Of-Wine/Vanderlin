@@ -575,6 +575,9 @@
 			rog_intent_change(1)
 		rog_intent_change(l_index, 1)
 
+/mob/proc/check_spell_quickselect()
+	return (mind && !incapacitated())
+
 /mob/verb/mmb_intent_change(input as text)
 	set name = "mmb-change"
 	set hidden = 1
@@ -582,8 +585,10 @@
 		return
 	if(atkswinging)
 		stop_attack()
+
 	if(!input)
 		qdel(mmb_intent)
+		cancel_spell_visual_effects(src)
 		mmb_intent = null
 	if(input != QINTENT_SPELL)
 		if(ranged_ability)
@@ -627,6 +632,7 @@
 		if(QINTENT_SPELL)
 			if(mmb_intent)
 				qdel(mmb_intent)
+				cancel_spell_visual_effects(src)
 			mmb_intent = new INTENT_SPELL(src)
 			mmb_intent.releasedrain = ranged_ability.get_fatigue_drain()
 			mmb_intent.chargedrain = ranged_ability.chargedrain
@@ -642,8 +648,29 @@
 			if(istype(ranged_ability, /obj/effect/proc_holder/spell))
 				var/obj/effect/proc_holder/spell/ability = ranged_ability
 				if(!ability.miracle && ability.uses_mana)
-					mmb_intent.AddComponent(/datum/component/uses_mana/spell,CALLBACK(mmb_intent, TYPE_PROC_REF(/datum/intent, spell_cannot_activate)),CALLBACK(mmb_intent, TYPE_PROC_REF(/datum/intent, get_owner)),COMSIG_SPELL_BEFORE_CAST,null,COMSIG_SPELL_AFTER_CAST,CALLBACK(ranged_ability, TYPE_PROC_REF(/obj/effect/proc_holder, get_fatigue_drain)),ranged_ability.attunements)
-
+					start_spell_visual_effects(src, ability)
+					if(ability.spell_flag & SPELL_MANA)
+						mmb_intent.AddComponent(
+							/datum/component/uses_mana/spell,\
+							CALLBACK(mmb_intent, TYPE_PROC_REF(/datum/intent, spell_cannot_activate)),\
+							CALLBACK(mmb_intent, TYPE_PROC_REF(/datum/intent, get_master_mob)),\
+							COMSIG_SPELL_BEFORE_CAST,\
+							null,\
+							COMSIG_SPELL_AFTER_CAST,\
+							CALLBACK(ranged_ability, TYPE_PROC_REF(/obj/effect/proc_holder, get_fatigue_drain)),\
+							ranged_ability.attunements,\
+						)
+					else if(ability.spell_flag & SPELL_ESSENCE)
+						mmb_intent.AddComponent(
+							/datum/component/uses_essence,\
+							CALLBACK(mmb_intent, TYPE_PROC_REF(/datum/intent, spell_cannot_activate)),\
+							CALLBACK(mmb_intent, TYPE_PROC_REF(/datum/intent, get_master_mob)),\
+							COMSIG_SPELL_BEFORE_CAST,\
+							COMSIG_SPELL_BEFORE_CAST,\
+							COMSIG_SPELL_AFTER_CAST,\
+							ability.cost,\
+							ranged_ability.attunements,\
+						)
 
 	hud_used.quad_intents?.switch_intent(input)
 	hud_used.give_intent?.switch_intent(input)

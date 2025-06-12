@@ -193,7 +193,7 @@
 
 	donation_budget_this_tick = (max_donation_rate_per_second)
 
-	if (ethereal_recharge_rate != 0)
+	if (ethereal_recharge_rate != 0 && (amount < get_softcap()))
 		adjust_mana(ethereal_recharge_rate, attunements_to_generate)
 	if((intrinsic_recharge_sources & MANA_ALL_LEYLINES) && amount < get_softcap())
 		var/list/leylines = list()

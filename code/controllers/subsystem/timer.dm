@@ -521,7 +521,7 @@ SUBSYSTEM_DEF(timer)
 			return TRUE
 	//id is string
 	var/datum/timedevent/timer = SStimer.timer_id_dict[id]
-	if (timer && !timer.spent)
+	if (timer && (!timer.spent || timer.flags & TIMER_DELETE_ME))
 		qdel(timer)
 		return TRUE
 	return FALSE
