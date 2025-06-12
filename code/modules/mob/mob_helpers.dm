@@ -658,7 +658,7 @@
 							null,\
 							COMSIG_SPELL_AFTER_CAST,\
 							CALLBACK(ranged_ability, TYPE_PROC_REF(/obj/effect/proc_holder, get_fatigue_drain)),\
-							ranged_ability.attunements
+							ranged_ability.attunements,\
 						)
 					else if(ability.spell_flag & SPELL_ESSENCE)
 						mmb_intent.AddComponent(
@@ -669,7 +669,7 @@
 							COMSIG_SPELL_BEFORE_CAST,\
 							COMSIG_SPELL_AFTER_CAST,\
 							ability.cost,\
-							ranged_ability.attunements
+							ranged_ability.attunements,\
 						)
 
 	hud_used.quad_intents?.switch_intent(input)
