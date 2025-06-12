@@ -24,11 +24,11 @@
 	AddComponent(/datum/component/simple_rotation, ROTATION_REQUIRE_WRENCH|ROTATION_IGNORE_ANCHORED)
 
 /obj/structure/fluff/millstone/Destroy()
-	. = ..()
 	STOP_PROCESSING(SSobj, src)
 	for(var/obj/item/item in millable_contents)
 		item.forceMove(get_turf(src))
 		millable_contents -= item
+	return ..()
 
 /obj/structure/fluff/millstone/attackby(obj/item/W, mob/living/user, params)
 	if(istype(W, /obj/item/reagent_containers/food/snacks))

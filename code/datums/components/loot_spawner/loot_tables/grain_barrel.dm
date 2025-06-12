@@ -1,4 +1,5 @@
 /datum/loot_table/grain_barrel
+	name = "grain barrel"
 	loot_table = list(
 		list(
 			/obj/item/natural/chaff/wheat = 25,

@@ -311,7 +311,7 @@
 
 /mob/living/carbon/on_fall()
 	. = ..()
-	loc.handle_fall(src)//it's loc so it doesn't call the mob's handle_fall which does nothing
+	loc?.handle_fall(src)//it's loc so it doesn't call the mob's handle_fall which does nothing
 
 /mob/living/carbon/is_muzzled()
 	return FALSE
@@ -1081,7 +1081,7 @@
 	for(var/bodypart_path in bodyparts)
 		var/obj/item/bodypart/bodypart_instance = new bodypart_path()
 		bodypart_instance.set_owner(src)
-		bodyparts.Remove(bodypart_path)
+		bodyparts -= bodypart_path
 		add_bodypart(bodypart_instance)
 		switch(bodypart_instance.body_part)
 			if(ARM_LEFT)
@@ -1133,14 +1133,8 @@
 				. *= 0.90
 
 /mob/living/carbon/proc/create_internal_organs()
-	for(var/X in internal_organs)
-		var/obj/item/organ/I = X
+	for(var/obj/item/organ/I as anything in internal_organs)
 		I.Insert(src)
-
-// /mob/living/carbon/proc/update_disabled_bodyparts()
-// 	for(var/B in bodyparts)
-// 		var/obj/item/bodypart/BP = B
-// 		BP.update_disabled()
 
 /mob/living/carbon/vv_get_dropdown()
 	. = ..()

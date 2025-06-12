@@ -32,6 +32,10 @@
 	else
 		GLOB.lordcolor += src
 
+/obj/item/clothing/pants/trou/leather/guard/Destroy()
+	GLOB.lordcolor -= src
+	return ..()
+
 /obj/item/clothing/pants/trou/leather/advanced
 	name = "hardened leather chausses"
 	desc = "Sturdy, durable, flexible. The finest leather to protect your nether regions."

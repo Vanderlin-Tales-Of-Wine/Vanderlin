@@ -14,7 +14,7 @@
 	attunements = list(
 		/datum/attunement/arcyne = 0.1
 		)
-	cost = 1
+	cost = 0
 	overlay_state = "transfix"
 
 /obj/effect/proc_holder/spell/self/arcyne_eye/cast(list/targets, mob/living/user)

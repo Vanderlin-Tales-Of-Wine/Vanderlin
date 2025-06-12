@@ -1,4 +1,5 @@
 /datum/loot_table/mining_cache
+	name = "mining cache"
 	loot_table = list(
 		/datum/skill/labor/mining = list(
 			/obj/item/gem = 5,

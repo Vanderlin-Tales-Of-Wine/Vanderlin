@@ -112,7 +112,7 @@
 			cloak = /obj/item/clothing/cloak/raincloak/purple
 			neck = /obj/item/clothing/neck/chaincoif/iron
 			H.change_stat(STATKEY_LCK, -1)
-			H.cmode_music = 'sound/music/cmode/antag/combat_evilwizard.ogg'
+			H.cmode_music = 'sound/music/cmode/antag/CombatBaotha.ogg'
 			GLOB.heretical_players += H.real_name
 		else // Failsafe
 			cloak = /obj/item/clothing/cloak/tabard/crusader // Give us a generic crusade tabard

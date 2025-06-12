@@ -1,7 +1,7 @@
 /obj/effect/proc_holder/spell/invoked/shadowstep
 	name = "Shadow Step"
 	desc = "Step into the shadows making you invisible for a duration."
-	overlay_state = "invisibility"
+	overlay_state = "shadowstep"
 	releasedrain = 0
 	chargedrain = 14
 	chargetime = 1 SECONDS

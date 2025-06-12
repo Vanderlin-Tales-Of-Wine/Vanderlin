@@ -596,3 +596,31 @@
 	craftdiff = 6
 	category = "Dress"
 
+/datum/repeatable_crafting_recipe/sewing/carpet
+	name = "brown carpet"
+	output = /obj/item/natural/carpet_fibers
+	requirements = list(/obj/item/natural/cloth = 3,
+				/obj/item/natural/fibers = 2,
+				/obj/item/dye_pack/cheap = 1)
+	craftdiff = 0
+	category = "Carpets"
+
+/datum/repeatable_crafting_recipe/sewing/carpet/blue
+	name = "blue carpet"
+	output = /obj/item/natural/carpet_fibers/blue
+
+/datum/repeatable_crafting_recipe/sewing/carpet/cyan
+	name = "cyan carpet"
+	output = /obj/item/natural/carpet_fibers/cyan
+
+/datum/repeatable_crafting_recipe/sewing/carpet/green
+	name = "green carpet"
+	output = /obj/item/natural/carpet_fibers/green
+
+/datum/repeatable_crafting_recipe/sewing/carpet/purple
+	name = "purple carpet"
+	output = /obj/item/natural/carpet_fibers/purple
+
+/datum/repeatable_crafting_recipe/sewing/carpet/red
+	name = "red carpet"
+	output = /obj/item/natural/carpet_fibers/red
