@@ -27,7 +27,7 @@
 /obj/machinery/light/fueled/cauldron/update_icon()
 	..()
 	cut_overlays()
-	if(essence_contents.len > 0 || reagents.total_volume > 0)
+	if(essence_contents.len > 0 || reagents?.total_volume > 0)
 		if(!brewing)
 			var/mutable_appearance/filling = mutable_appearance('icons/roguetown/misc/alchemy.dmi', "cauldron_full")
 			filling.color = calculate_mixture_color()
