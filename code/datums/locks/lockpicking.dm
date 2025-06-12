@@ -1,11 +1,6 @@
 #define LOCKPICK_MOUSEUP 0
 #define LOCKPICK_MOUSEDOWN 1
 
-//base element, tells thing it can be lockpicked
-/obj
-	//check if object is being picked if can be picked
-	var/being_picked = FALSE
-
 //user is told its picking
 /mob/living/proc/try_pick(obj/P, obj/item/L, list/obj/lockpicks, list/obj/wedges, difficulty)
 	if(!isobj(P))

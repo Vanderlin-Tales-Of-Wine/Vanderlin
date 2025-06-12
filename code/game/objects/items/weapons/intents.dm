@@ -137,6 +137,7 @@
 	var/mob/master = get_master_mob()
 	if(master)
 		to_chat(master, span_warning("I am too drained for this."))
+		cancel_spell_visual_effects(master)
 	return FALSE
 
 /datum/intent/proc/get_chargedrain()

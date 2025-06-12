@@ -70,6 +70,11 @@
 #define MOB_SPIRIT		(1<<9)
 
 //Organ defines for carbon mobs
+#define CHRONIC_ARTHRITIS 1
+#define CHRONIC_NERVE_DAMAGE 2
+#define CHRONIC_OLD_FRACTURE 3
+#define CHRONIC_SCAR_TISSUE 4
+
 #define ORGAN_ORGANIC   1
 #define ORGAN_ROBOTIC   2
 

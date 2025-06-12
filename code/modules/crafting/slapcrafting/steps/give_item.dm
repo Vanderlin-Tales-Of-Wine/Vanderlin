@@ -120,6 +120,7 @@
 	item_types = list(/obj/item/natural/glass)
 
 /datum/slapcraft_step/item/glass/second
+/datum/slapcraft_step/item/glass/third
 
 /datum/slapcraft_step/item/silk
 	desc = "Add some silk."
@@ -152,3 +153,12 @@
 /datum/slapcraft_step/item/candles
 	desc = "Add some candles."
 	item_types = list(/obj/item/candle)
+
+/datum/slapcraft_step/item/thaumic
+	desc = "Add some thaumic iron."
+	item_types = list(/obj/item/ingot/thaumic)
+/datum/slapcraft_step/item/thaumic/second
+
+/datum/slapcraft_step/item/mana_crystal
+	desc = "Add a small mana crystal."
+	item_types = list(/obj/item/mana_battery/mana_crystal)

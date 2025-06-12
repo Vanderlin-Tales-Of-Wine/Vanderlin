@@ -99,6 +99,10 @@
 
 	var/punch_modifier = 1 // for modifying arm punching damage
 	var/acid_damage_intensity = 0
+	var/lingering_pain = 0
+	var/chronic_pain = 0
+	var/chronic_pain_type = null
+	var/last_severe_injury_time = 0
 
 /obj/item/bodypart/Initialize()
 	. = ..()

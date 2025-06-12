@@ -7,10 +7,6 @@
 	var/default_maintain_range = 12
 	/// Default decay rate per second
 	var/default_decay_rate = 2
-	/// Decay timer interval in seconds
-	var/decay_timer_interval = 1
-	/// Timer ID for the decay process
-	var/decay_timer
 
 /datum/component/ai_aggro_system/Initialize(threat_threshold, aggro_range, maintain_range, decay_rate)
 	. = ..()
@@ -34,15 +30,13 @@
 	var/decay = decay_rate || default_decay_rate
 	decay_timer = addtimer(CALLBACK(src, PROC_REF(decay_aggro), decay), decay_timer_interval SECONDS, TIMER_LOOP | TIMER_STOPPABLE | TIMER_DELETE_ME)
 
+	START_PROCESSING(SSaggro, src)
 	// Register signals
 	RegisterSignal(parent, COMSIG_ATOM_WAS_ATTACKED, PROC_REF(on_attacked))
 	RegisterSignal(parent, COMSIG_MOB_DEATH, PROC_REF(on_death))
 
 /datum/component/ai_aggro_system/Destroy(force, silent)
-	// Clean up timer
-	if(decay_timer)
-		deltimer(decay_timer)
-		decay_timer = null
+	STOP_PROCESSING(SSaggro, src)
 
 	// Unregister signals
 	UnregisterSignal(parent, list(
@@ -130,7 +124,8 @@
 	update_highest_threat(victim)
 
 /// Periodically decays threat levels
-/datum/component/ai_aggro_system/proc/decay_aggro(decay_amount)
+/datum/component/ai_aggro_system/process()
+	var/decay_amount = default_decay_rate * 10
 	var/mob/living/living_mob = parent
 	if(!living_mob?.ai_controller)
 		return

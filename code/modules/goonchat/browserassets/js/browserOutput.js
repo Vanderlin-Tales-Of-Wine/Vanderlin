@@ -20,6 +20,1042 @@ window.onerror = function(msg, url, line, col, error) {
 };
 
 //Globals
+var highlightSystem = {
+    filters: [], // Array of {term: string, color: string, animation: string, enabled: boolean, id: string, soundEnabled: boolean}
+    animations: {
+        'none': 'No animation',
+        'glow': 'Glow effect',
+        'pulse': 'Pulse animation',
+        'flash': 'Flash animation',
+        'rainbow': 'Rainbow effect',
+    },
+
+    // Initialize the system
+    init: function() {
+        this.loadFilters();
+        this.injectStyles();
+    },
+
+    // Inject required CSS styles
+    injectStyles: function() {
+        if (document.getElementById('highlightSystemStyles')) return;
+
+        var style = document.createElement('style');
+        style.id = 'highlightSystemStyles';
+        style.textContent = `
+            /* Fixed animations */
+            @keyframes glow {
+                0%, 100% {
+                    box-shadow: 0 0 5px currentColor;
+                    filter: brightness(1);
+                }
+                50% {
+                    box-shadow: 0 0 20px currentColor, 0 0 30px currentColor;
+                    filter: brightness(1.3);
+                }
+            }
+            .highlight-glow {
+                animation: glow 2s infinite;
+                border-radius: 3px;
+            }
+
+            @keyframes pulse {
+                0%, 100% {
+                    transform: scale(1);
+                    opacity: 1;
+                }
+                50% {
+                    transform: scale(1.1);
+                    opacity: 0.7;
+                }
+            }
+            .highlight-pulse {
+                animation: pulse 1.5s infinite;
+                display: inline-block;
+                border-radius: 3px;
+            }
+
+            @keyframes flash {
+                0%, 50%, 100% { opacity: 1; }
+                25%, 75% { opacity: 0.3; }
+            }
+            .highlight-flash {
+                animation: flash 1s infinite;
+                border-radius: 3px;
+            }
+
+            @keyframes bounce {
+                0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+                40% { transform: translateY(-3px); }
+                60% { transform: translateY(-2px); }
+            }
+            .highlight-bounce {
+                animation: bounce 2s infinite;
+                display: inline-block;
+                border-radius: 3px;
+            }
+
+            @keyframes slide {
+                0% { background-position: -200% 0; }
+                100% { background-position: 200% 0; }
+            }
+            .highlight-slide {
+                background: linear-gradient(90deg, transparent 30%, var(--highlight-color, #FFFF00) 50%, transparent 70%);
+                background-size: 200% 100%;
+                animation: slide 2s infinite;
+                border-radius: 3px;
+            }
+
+            @keyframes rainbow {
+                0% { background-color: #ff0000; color: white; }
+                14% { background-color: #ff8000; color: white; }
+                28% { background-color: #ffff00; color: black; }
+                42% { background-color: #80ff00; color: black; }
+                57% { background-color: #00ff80; color: black; }
+                71% { background-color: #0080ff; color: white; }
+                85% { background-color: #8000ff; color: white; }
+                100% { background-color: #ff0000; color: white; }
+            }
+            .highlight-rainbow {
+                animation: rainbow 3s infinite;
+                font-weight: bold;
+                border-radius: 3px;
+                padding: 1px 2px;
+            }
+
+            /* Darkened popup styles */
+            .popup {
+                position: fixed;
+                background: linear-gradient(135deg, #0f1419 0%, #1a1d23 100%);
+                border: 2px solid #000000;
+                border-radius: 12px;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+                z-index: 10000;
+                width: 95vw;
+                max-width: 600px;
+                max-height: 85vh;
+                color: #c9d1d9;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                display: flex;
+                flex-direction: column;
+                /* Smart positioning - will be set by JavaScript */
+            }
+
+            .popup .head {
+                background: linear-gradient(135deg, #161b22, #21262d);
+                padding: 15px 20px;
+                border-radius: 10px 10px 0 0;
+                font-size: 18px;
+                font-weight: bold;
+                text-align: center;
+                position: relative;
+                flex-shrink: 0;
+            }
+
+            .popup .close {
+                position: absolute;
+                top: 10px;
+                right: 15px;
+                font-size: 24px;
+                text-decoration: none;
+                color: #c9d1d9;
+                opacity: 0.7;
+                transition: opacity 0.3s ease;
+                width: 30px;
+                height: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                background: rgba(255,255,255,0.05);
+            }
+
+            .popup .close:hover {
+                opacity: 1;
+                background: rgba(255,255,255,0.1);
+            }
+
+            .highlight-manager {
+                padding: 15px;
+                flex: 1;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+            }
+
+            #highlightFilters {
+                flex: 1;
+                overflow-y: auto;
+                margin-bottom: 15px;
+                padding-right: 8px;
+                max-height: 400px;
+            }
+
+            /* Custom scrollbar - darker */
+            #highlightFilters::-webkit-scrollbar {
+                width: 6px;
+            }
+
+            #highlightFilters::-webkit-scrollbar-track {
+                background: rgba(0, 0, 0, 0.3);
+                border-radius: 3px;
+            }
+
+            #highlightFilters::-webkit-scrollbar-thumb {
+                background: rgba(100, 100, 100, 0.4);
+                border-radius: 3px;
+            }
+
+            #highlightFilters::-webkit-scrollbar-thumb:hover {
+                background: rgba(120, 120, 120, 0.6);
+            }
+
+            .highlight-filter-item {
+                background: rgba(0, 0, 0, 0.3);
+                border: 1px solid rgba(100, 100, 100, 0.2);
+                border-radius: 8px;
+                padding: 12px;
+                margin-bottom: 12px;
+                transition: all 0.3s ease;
+            }
+
+            .highlight-filter-item:hover {
+                background: rgba(0, 0, 0, 0.4);
+                border-color: rgba(120, 120, 120, 0.3);
+            }
+
+            /* Main row for term input and color */
+            .filter-main-row {
+                display: flex;
+                gap: 8px;
+                margin-bottom: 8px;
+                align-items: center;
+            }
+
+            .filter-term-input {
+                flex: 1;
+                min-width: 0;
+            }
+
+            .filter-color-input {
+                flex-shrink: 0;
+            }
+
+            /* Controls row for animation, toggles, and remove */
+            .filter-controls-row {
+                display: flex;
+                gap: 6px;
+                flex-wrap: wrap;
+                align-items: center;
+            }
+
+            .filter-animation-select {
+                flex: 1;
+                min-width: 100px;
+            }
+
+            .filter-buttons {
+                display: flex;
+                gap: 4px;
+                flex-shrink: 0;
+            }
+
+            .highlight-filter-item input[type="text"] {
+                background: rgba(0, 0, 0, 0.6);
+                border: 1px solid rgba(80, 80, 80, 0.4);
+                border-radius: 4px;
+                padding: 6px 8px;
+                font-size: 13px;
+                color: #c9d1d9;
+                transition: border-color 0.3s ease;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .highlight-filter-item input[type="text"]:focus {
+                outline: none;
+                border-color: rgba(120, 120, 120, 0.6);
+                box-shadow: 0 0 3px rgba(80, 80, 80, 0.5);
+            }
+
+            .highlight-filter-item input[type="color"] {
+                width: 40px;
+                height: 32px;
+                border: 2px solid rgba(80, 80, 80, 0.4);
+                border-radius: 4px;
+                cursor: pointer;
+                background: rgba(0, 0, 0, 0.5);
+                transition: border-color 0.3s ease;
+            }
+
+            .highlight-filter-item input[type="color"]:hover {
+                border-color: rgba(120, 120, 120, 0.6);
+            }
+
+            .highlight-filter-item select {
+                background: rgba(0, 0, 0, 0.6);
+                border: 1px solid rgba(80, 80, 80, 0.4);
+                border-radius: 4px;
+                padding: 6px;
+                font-size: 12px;
+                color: #c9d1d9;
+                cursor: pointer;
+                transition: border-color 0.3s ease;
+            }
+
+            .highlight-filter-item select:focus {
+                outline: none;
+                border-color: rgba(120, 120, 120, 0.6);
+            }
+
+            .highlight-filter-item button {
+                background: rgba(30, 90, 130, 0.3);
+                border: 1px solid rgba(30, 90, 130, 0.5);
+                border-radius: 4px;
+                padding: 4px 8px;
+                color: #c9d1d9;
+                cursor: pointer;
+                font-size: 10px;
+                font-weight: bold;
+                transition: all 0.3s ease;
+                white-space: nowrap;
+                min-width: 35px;
+            }
+
+            .highlight-filter-item button:hover {
+                background: rgba(30, 90, 130, 0.4);
+                transform: translateY(-1px);
+            }
+
+            .toggle-btn.enabled {
+                background: rgba(25, 130, 70, 0.4) !important;
+                border-color: rgba(25, 130, 70, 0.7) !important;
+                color: #40d47e !important;
+            }
+
+            .remove-btn:hover {
+                background: rgba(150, 40, 30, 0.4) !important;
+                border-color: rgba(150, 40, 30, 0.7) !important;
+                color: #ff6b6b !important;
+            }
+
+            .sound-btn.enabled {
+                background: rgba(160, 120, 10, 0.4) !important;
+                border-color: rgba(160, 120, 10, 0.7) !important;
+                color: #ffd93d !important;
+            }
+
+            .highlight-controls {
+                display: flex;
+                gap: 8px;
+                flex-wrap: wrap;
+                justify-content: center;
+                padding-top: 12px;
+                border-top: 1px solid rgba(80, 80, 80, 0.3);
+                flex-shrink: 0;
+            }
+
+            .add-filter-btn {
+                background: rgba(25, 130, 70, 0.3);
+                border: 1px solid rgba(25, 130, 70, 0.5);
+                border-radius: 6px;
+                padding: 8px 12px;
+                color: #c9d1d9;
+                cursor: pointer;
+                font-size: 12px;
+                font-weight: bold;
+                transition: all 0.3s ease;
+                white-space: nowrap;
+            }
+
+            .add-filter-btn:hover {
+                background: rgba(25, 130, 70, 0.4);
+                transform: translateY(-1px);
+                box-shadow: 0 3px 8px rgba(25, 130, 70, 0.4);
+            }
+
+            .no-filters-message {
+                text-align: center;
+                padding: 30px 15px;
+                color: rgba(201, 209, 217, 0.4);
+                font-style: italic;
+            }
+
+            /* Mobile-specific styles */
+            @media (max-width: 600px) {
+                .popup {
+                    width: 98vw;
+                    max-height: 95vh;
+                    margin: 0;
+                }
+
+                .popup .head {
+                    font-size: 16px;
+                    padding: 12px 15px;
+                }
+
+                .highlight-manager {
+                    padding: 10px;
+                }
+
+                .filter-controls-row {
+                    flex-direction: column;
+                    align-items: stretch;
+                }
+
+                .filter-buttons {
+                    justify-content: space-between;
+                    margin-top: 6px;
+                }
+
+                .highlight-filter-item button {
+                    flex: 1;
+                    padding: 8px 4px;
+                    font-size: 9px;
+                }
+
+                .highlight-controls {
+                    flex-direction: column;
+                    gap: 6px;
+                }
+
+                .add-filter-btn {
+                    font-size: 11px;
+                    padding: 10px;
+                }
+            }
+
+            /* Very small screens */
+            @media (max-width: 400px) {
+                .filter-main-row {
+                    flex-direction: column;
+                    align-items: stretch;
+                }
+
+                .filter-color-input {
+                    align-self: center;
+                }
+
+                .highlight-filter-item input[type="color"] {
+                    width: 60px;
+                    height: 35px;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    },
+
+    // Generate unique ID for filters
+    generateId: function() {
+        return 'highlight_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+    },
+
+    // Add a new highlight filter
+    addFilter: function(term, color = '#FFFF00', animation = 'none') {
+		var filter = {
+			id: this.generateId(),
+			term: term.toLowerCase(),
+			color: color,
+			animation: animation,
+			enabled: true,
+			soundEnabled: false,
+			soundType: 'beep',
+			customSoundUrl: '' // Changed from customSound to customSoundUrl
+		};
+		this.filters.push(filter);
+		this.saveFilters();
+		return filter;
+	},
+
+
+    // Remove a filter by ID
+    removeFilter: function(id) {
+        this.filters = this.filters.filter(f => f.id !== id);
+        this.saveFilters();
+    },
+
+    // Update a filter
+    updateFilter: function(id, updates) {
+        var filter = this.filters.find(f => f.id === id);
+        if (filter) {
+            Object.assign(filter, updates);
+            if (updates.term) {
+                filter.term = updates.term.toLowerCase();
+            }
+            this.saveFilters();
+        }
+    },
+
+    // Toggle filter enabled state
+    toggleFilter: function(id) {
+        var filter = this.filters.find(f => f.id === id);
+        if (filter) {
+            filter.enabled = !filter.enabled;
+            this.saveFilters();
+        }
+    },
+
+    // Toggle sound for filter
+    toggleSound: function(id) {
+        var filter = this.filters.find(f => f.id === id);
+        if (filter) {
+            filter.soundEnabled = !filter.soundEnabled;
+            this.saveFilters();
+        }
+    },
+
+    // Play sound notification
+    playSound: function(filter) {
+		try {
+			if (filter && filter.customSoundUrl && filter.soundType === 'custom') {
+				// Play custom audio from URL
+				var audio = new Audio(filter.customSoundUrl);
+				audio.volume = 0.5;
+				audio.play().catch(e => console.warn('Custom sound failed:', e));
+			} else {
+				// Use built-in sound based on soundType
+				var audioContext = new (window.AudioContext || window.webkitAudioContext)();
+				var oscillator = audioContext.createOscillator();
+				var gainNode = audioContext.createGain();
+
+				oscillator.connect(gainNode);
+				gainNode.connect(audioContext.destination);
+
+				var soundType = (filter && filter.soundType) || 'beep';
+
+				switch(soundType) {
+					case 'beep':
+						oscillator.frequency.value = 800;
+						oscillator.type = 'sine';
+						gainNode.gain.setValueAtTime(0, audioContext.currentTime);
+						gainNode.gain.linearRampToValueAtTime(0.3, audioContext.currentTime + 0.01);
+						gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
+						oscillator.start(audioContext.currentTime);
+						oscillator.stop(audioContext.currentTime + 0.3);
+						break;
+					case 'chime':
+						oscillator.frequency.value = 1200;
+						oscillator.type = 'sine';
+						gainNode.gain.setValueAtTime(0, audioContext.currentTime);
+						gainNode.gain.linearRampToValueAtTime(0.2, audioContext.currentTime + 0.01);
+						gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.8);
+						oscillator.start(audioContext.currentTime);
+						oscillator.stop(audioContext.currentTime + 0.8);
+						break;
+					case 'pop':
+						oscillator.frequency.value = 400;
+						oscillator.type = 'square';
+						gainNode.gain.setValueAtTime(0, audioContext.currentTime);
+						gainNode.gain.linearRampToValueAtTime(0.4, audioContext.currentTime + 0.01);
+						gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+						oscillator.start(audioContext.currentTime);
+						oscillator.stop(audioContext.currentTime + 0.1);
+						break;
+					case 'ding':
+						oscillator.frequency.value = 1800;
+						oscillator.type = 'triangle';
+						gainNode.gain.setValueAtTime(0, audioContext.currentTime);
+						gainNode.gain.linearRampToValueAtTime(0.25, audioContext.currentTime + 0.01);
+						gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+						oscillator.start(audioContext.currentTime);
+						oscillator.stop(audioContext.currentTime + 0.5);
+						break;
+				}
+			}
+		} catch (e) {
+			console.warn('Sound notification failed:', e);
+		}
+	},
+
+    // Apply highlights to an element
+    highlightElement: function(element) {
+        if (!this.filters.length) return;
+
+        var enabledFilters = this.filters.filter(f => f.enabled && f.term.trim());
+        if (!enabledFilters.length) return;
+
+        this.highlightTextNodes(element, enabledFilters);
+    },
+
+    // Recursively highlight text nodes
+    highlightTextNodes: function(element, filters) {
+        var walker = document.createTreeWalker(
+            element,
+            NodeFilter.SHOW_TEXT,
+            {
+                acceptNode: function(node) {
+                    // Skip if parent is already highlighted or is a script/style tag
+                    var parent = node.parentNode;
+                    if (parent.classList && parent.classList.contains('highlight-filter')) {
+                        return NodeFilter.FILTER_REJECT;
+                    }
+                    if (parent.tagName === 'SCRIPT' || parent.tagName === 'STYLE') {
+                        return NodeFilter.FILTER_REJECT;
+                    }
+                    return NodeFilter.FILTER_ACCEPT;
+                }
+            },
+            false
+        );
+
+        var textNodes = [];
+        var node;
+        while (node = walker.nextNode()) {
+            textNodes.push(node);
+        }
+
+        textNodes.forEach(textNode => {
+            this.highlightTextNode(textNode, filters);
+        });
+    },
+
+    // Highlight matches in a single text node
+    highlightTextNode: function(textNode, filters) {
+        var text = textNode.textContent;
+        var matches = [];
+
+        // Find all matches
+        filters.forEach(filter => {
+            var regex = new RegExp(this.escapeRegex(filter.term), 'gi');
+            var match;
+            while ((match = regex.exec(text)) !== null) {
+                matches.push({
+                    start: match.index,
+                    end: match.index + match[0].length,
+                    filter: filter,
+                    text: match[0]
+                });
+
+                // Play sound if enabled for this filter
+                if (filter.soundEnabled) {
+                    this.playSound(filter);
+                }
+            }
+        });
+
+        if (!matches.length) return;
+
+        // Sort matches by position and remove overlaps
+        matches.sort((a, b) => a.start - b.start);
+        var cleanMatches = this.removeOverlaps(matches);
+
+        if (!cleanMatches.length) return;
+
+        // Create highlighted content
+        var result = '';
+        var lastEnd = 0;
+
+        cleanMatches.forEach(match => {
+            // Add text before match
+            result += this.escapeHtml(text.substring(lastEnd, match.start));
+
+            // Add highlighted match
+            var animationClass = match.filter.animation !== 'none' ? `highlight-${match.filter.animation}` : '';
+            var style = match.filter.animation === 'slide'
+                ? `background-color: ${match.filter.color}; --highlight-color: ${match.filter.color};`
+                : match.filter.animation === 'rainbow'
+                ? '' // Rainbow uses its own colors
+                : `background-color: ${match.filter.color};`;
+
+            result += `<span class="highlight-filter ${animationClass}" style="${style}" data-filter-id="${match.filter.id}">`;
+            result += this.escapeHtml(match.text);
+            result += '</span>';
+
+            lastEnd = match.end;
+        });
+
+        // Add remaining text
+        result += this.escapeHtml(text.substring(lastEnd));
+
+        // Replace the text node with highlighted content
+        var wrapper = document.createElement('span');
+        wrapper.innerHTML = result;
+        textNode.parentNode.replaceChild(wrapper, textNode);
+    },
+
+    // Remove overlapping matches (prioritize first match)
+    removeOverlaps: function(matches) {
+        var result = [];
+        var lastEnd = 0;
+
+        matches.forEach(match => {
+            if (match.start >= lastEnd) {
+                result.push(match);
+                lastEnd = match.end;
+            }
+        });
+
+        return result;
+    },
+
+    // Escape regex special characters
+    escapeRegex: function(string) {
+        return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    },
+
+    // Escape HTML
+    escapeHtml: function(text) {
+        var div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    },
+
+    // Show the highlight manager popup
+    showManager: function() {
+        var content = this.createManagerHTML();
+        if (typeof createPopup === 'function') {
+            // Try to use existing createPopup function
+            var popup = createPopup(content, 600);
+            // If createPopup returns the popup element, apply smart positioning
+            if (popup && popup.nodeType) {
+                this.positionPopup(popup);
+            }
+        } else {
+            // Fallback popup creation with smart positioning
+            this.createFallbackPopup(content);
+        }
+        this.bindManagerEvents();
+    },
+
+    // Create manager HTML
+    createManagerHTML: function() {
+        var html = `
+            <div class="head">
+                Highlight Filter Manager
+                <a href="#" class="close">&times;</a>
+            </div>
+            <div class="highlight-manager" id="highlightManager">
+                <div id="highlightFilters">
+                    ${this.createFiltersHTML()}
+                </div>
+                <div class="highlight-controls">
+                    <button class="add-filter-btn" onclick="highlightSystem.addNewFilter()">Add Filter</button>
+                    <button class="add-filter-btn" onclick="highlightSystem.exportFilters()">Export</button>
+                    <input type="file" id="importFiltersInput" accept=".json" style="display: none;" onchange="highlightSystem.importFilters(this)">
+                    <button class="add-filter-btn" onclick="document.getElementById('importFiltersInput').click()">Import</button>
+                </div>
+            </div>
+        `;
+        return html;
+    },
+
+    // Create HTML for existing filters
+	createFiltersHTML: function() {
+		if (!this.filters.length) {
+			return '<div class="no-filters-message">No highlight filters configured.<br>Click "Add Filter" to get started!</div>';
+		}
+
+		return this.filters.map(filter => `
+			<div class="highlight-filter-item" data-filter-id="${filter.id}">
+				<div class="filter-main-row">
+					<input type="text" class="filter-term-input" value="${this.escapeHtml(filter.term)}" placeholder="Search term"
+						onchange="highlightSystem.updateFilterTerm('${filter.id}', this.value)">
+					<input type="color" class="filter-color-input" value="${filter.color}"
+						onchange="highlightSystem.updateFilterColor('${filter.id}', this.value)">
+				</div>
+				<div class="filter-controls-row">
+					<select class="filter-animation-select" onchange="highlightSystem.updateFilterAnimation('${filter.id}', this.value)">
+						${Object.entries(this.animations).map(([key, label]) =>
+							`<option value="${key}" ${filter.animation === key ? 'selected' : ''}>${label}</option>`
+						).join('')}
+					</select>
+					<div class="filter-buttons">
+						<button class="toggle-btn ${filter.enabled ? 'enabled' : ''}"
+								onclick="highlightSystem.toggleFilterInManager('${filter.id}')">
+							${filter.enabled ? 'ON' : 'OFF'}
+						</button>
+						<button class="sound-btn ${filter.soundEnabled ? 'enabled' : ''}"
+								onclick="highlightSystem.toggleSoundInManager('${filter.id}')" title="Sound notification">
+							🔊
+						</button>
+						<button class="remove-btn" onclick="highlightSystem.removeFilterFromManager('${filter.id}')" title="Remove filter">
+							✕
+						</button>
+					</div>
+				</div>
+				${filter.soundEnabled ? `
+				<div class="sound-controls-row" style="margin-top: 8px; display: flex; gap: 6px; align-items: center;">
+					<select class="sound-type-select" onchange="highlightSystem.updateSoundType('${filter.id}', this.value)" style="flex: 1;">
+						<option value="beep" ${(filter.soundType || 'beep') === 'beep' ? 'selected' : ''}>Beep</option>
+						<option value="chime" ${filter.soundType === 'chime' ? 'selected' : ''}>Chime</option>
+						<option value="pop" ${filter.soundType === 'pop' ? 'selected' : ''}>Pop</option>
+						<option value="ding" ${filter.soundType === 'ding' ? 'selected' : ''}>Ding</option>
+						<option value="custom" ${filter.soundType === 'custom' ? 'selected' : ''}>Custom URL</option>
+					</select>
+					<button class="test-sound-btn" onclick="highlightSystem.testSound('${filter.id}')" title="Test sound">
+						▶️
+					</button>
+					${filter.soundType === 'custom' ? `
+					<input type="url" id="customSoundUrl_${filter.id}"
+						value="${filter.customSoundUrl || ''}"
+						placeholder="Enter audio URL"
+						onchange="highlightSystem.updateCustomSoundUrl('${filter.id}', this.value)"
+						style="flex: 2; background: rgba(0, 0, 0, 0.6); border: 1px solid rgba(80, 80, 80, 0.4);
+								border-radius: 4px; padding: 6px 8px; font-size: 13px; color: #c9d1d9;">
+					` : ''}
+				</div>
+				` : ''}
+			</div>
+		`).join('');
+	},
+
+	updateCustomSoundUrl: function(id, url) {
+		this.updateFilter(id, { customSoundUrl: url });
+	},
+
+	updateSoundType: function(id, soundType) {
+		this.updateFilter(id, { soundType: soundType });
+		if (soundType !== 'custom') {
+			this.updateFilter(id, { customSoundUrl: '' });
+		}
+		this.refreshManager();
+	},
+
+	testSound: function(id) {
+		var filter = this.filters.find(f => f.id === id);
+		if (filter) {
+			this.playSound(filter);
+		}
+	},
+
+	triggerFileUpload: function(id) {
+		var input = document.getElementById('customSound_' + id);
+		if (input) {
+			input.click();
+		}
+	},
+
+	uploadCustomSound: function(id, input) {
+		var file = input.files[0];
+		if (!file) return;
+
+		if (!file.type.startsWith('audio/')) {
+			alert('Please select an audio file');
+			return;
+		}
+
+		var reader = new FileReader();
+		reader.onload = (e) => {
+			this.updateFilter(id, {
+				customSound: e.target.result,
+				soundType: 'custom'
+			});
+			input.value = ''; // Reset input
+			// Show confirmation
+			alert('Custom sound uploaded successfully!');
+		};
+		reader.readAsDataURL(file);
+	},
+
+    // Fallback popup creation
+    createFallbackPopup: function(content) {
+        var popup = document.createElement('div');
+        popup.className = 'popup';
+        popup.innerHTML = content;
+
+        document.body.appendChild(popup);
+
+        // Smart positioning to keep popup within viewport
+        this.positionPopup(popup);
+
+        // Handle window resize
+        var resizeHandler = () => this.positionPopup(popup);
+        window.addEventListener('resize', resizeHandler);
+
+        popup.querySelector('.close').onclick = function(e) {
+            e.preventDefault();
+            window.removeEventListener('resize', resizeHandler);
+            document.body.removeChild(popup);
+        };
+    },
+
+    // Smart popup positioning
+    positionPopup: function(popup) {
+        // Get viewport dimensions
+        var viewportWidth = window.innerWidth;
+        var viewportHeight = window.innerHeight;
+
+        // Get popup dimensions (after it's been added to DOM)
+        var popupRect = popup.getBoundingClientRect();
+        var popupWidth = popupRect.width || popup.offsetWidth;
+        var popupHeight = popupRect.height || popup.offsetHeight;
+
+        // Calculate ideal center position
+        var idealLeft = (viewportWidth - popupWidth) / 2;
+        var idealTop = (viewportHeight - popupHeight) / 2;
+
+        // Ensure minimum margins from edges
+        var margin = 10;
+        var left = Math.max(margin, Math.min(idealLeft, viewportWidth - popupWidth - margin));
+        var top = Math.max(margin, Math.min(idealTop, viewportHeight - popupHeight - margin));
+
+        // Apply positioning
+        popup.style.left = left + 'px';
+        popup.style.top = top + 'px';
+        popup.style.transform = 'none'; // Remove any existing transform
+
+        // If popup is still too tall, make it scrollable
+        if (popupHeight > viewportHeight - (margin * 2)) {
+            popup.style.maxHeight = (viewportHeight - (margin * 2)) + 'px';
+            popup.style.top = margin + 'px';
+        }
+    },
+
+    // Bind events for manager
+    bindManagerEvents: function() {
+        // Events are handled by inline handlers in the HTML
+    },
+
+    // Manager event handlers
+    addNewFilter: function() {
+        this.addFilter('', '#FFFF00', 'none');
+        this.refreshManager();
+    },
+
+    updateFilterTerm: function(id, term) {
+        this.updateFilter(id, { term: term });
+    },
+
+    updateFilterColor: function(id, color) {
+        this.updateFilter(id, { color: color });
+    },
+
+    updateFilterAnimation: function(id, animation) {
+        this.updateFilter(id, { animation: animation });
+    },
+
+    toggleFilterInManager: function(id) {
+        this.toggleFilter(id);
+        this.refreshManager();
+    },
+
+    toggleSoundInManager: function(id) {
+        this.toggleSound(id);
+        this.refreshManager();
+    },
+
+    removeFilterFromManager: function(id) {
+        if (confirm('Are you sure you want to remove this highlight filter?')) {
+            this.removeFilter(id);
+            this.refreshManager();
+        }
+    },
+
+    // Refresh the manager display
+    refreshManager: function() {
+        var container = document.getElementById('highlightFilters');
+        if (container) {
+            container.innerHTML = this.createFiltersHTML();
+        }
+    },
+
+    // Export filters to JSON
+    exportFilters: function() {
+        var data = JSON.stringify(this.filters, null, 2);
+        var blob = new Blob([data], { type: 'application/json' });
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = 'highlight_filters.json';
+        a.click();
+        URL.revokeObjectURL(url);
+    },
+
+    // Import filters from JSON
+    importFilters: function(input) {
+        var file = input.files[0];
+        if (!file) return;
+
+        var reader = new FileReader();
+        reader.onload = (e) => {
+            try {
+                var imported = JSON.parse(e.target.result);
+                if (Array.isArray(imported)) {
+                    // Validate and add filters
+                    imported.forEach(filter => {
+                        if (filter.term && filter.color) {
+                            var newFilter = this.addFilter(filter.term, filter.color, filter.animation || 'none');
+                            if (filter.soundEnabled) {
+                                this.updateFilter(newFilter.id, { soundEnabled: true });
+                            }
+                        }
+                    });
+                    this.refreshManager();
+                    alert('Filters imported successfully!');
+                }
+            } catch (error) {
+                alert('Error importing filters: Invalid file format');
+            }
+        };
+        reader.readAsText(file);
+        input.value = ''; // Reset input
+    },
+
+    // Save filters to cookie
+    saveFilters: function() {
+        var data = JSON.stringify(this.filters);
+        try {
+            if (typeof setCookie === 'function') {
+                setCookie('highlightFilters', data, 365);
+            }
+        } catch (e) {
+            console.warn('Failed to save highlight filters:', e);
+        }
+    },
+
+    // Load filters from cookie
+    loadFilters: function() {
+		var saved = null;
+
+		try {
+			if (typeof getCookie === 'function') {
+				saved = getCookie('highlightFilters');
+			}
+
+			if (saved) {
+				var parsed = JSON.parse(saved);
+				if (Array.isArray(parsed)) {
+					this.filters = parsed;
+					// Ensure all filters have required properties
+					this.filters.forEach(filter => {
+						if (filter.soundEnabled === undefined) {
+							filter.soundEnabled = false;
+						}
+						if (filter.soundType === undefined) {
+							filter.soundType = 'beep';
+						}
+						// Migrate old customSound to customSoundUrl
+						if (filter.customSound !== undefined) {
+							filter.customSoundUrl = '';
+							delete filter.customSound;
+						}
+						if (filter.customSoundUrl === undefined) {
+							filter.customSoundUrl = '';
+						}
+					});
+				}
+			}
+		} catch (e) {
+			console.warn('Failed to load highlight filters:', e);
+		}
+	}
+};
+
+// Initialize when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+        highlightSystem.init();
+    });
+} else {
+    highlightSystem.init();
+}
+
+// Integration with existing highlight system
+function enhancedHighlightTerms(element) {
+    highlightSystem.highlightElement(element);
+}
+
+
 window.status = 'Output';
 var $messages, $subOptions, $subAudio, $selectedSub, $contextMenu, $filterMessages, $last_message;
 var opts = {
@@ -71,6 +1107,9 @@ var opts = {
 	'defaultMusicVolume': 25,
 
 	'messageCombining': false,
+
+	'currentFilter': 'all',
+    'customTabs': []
 
 };
 var replaceRegexes = {};
@@ -194,46 +1233,51 @@ function addHighlightMarkup(match) {
 
 //Highlights words based on user settings
 function highlightTerms(el) {
-	if (el.children.length > 0) {
-		for(var h = 0; h < el.children.length; h++){
-			highlightTerms(el.children[h]);
-		}
-	}
+    if (window.highlightSystem) {
+        highlightSystem.highlightElement(el);
+    } else {
+        // Fallback to old system if new one isn't loaded
+        legacyHighlightTerms(el);
+    }
+}
 
-	var hasTextNode = false;
-	for (var node = 0; node < el.childNodes.length; node++)
-	{
-		if (el.childNodes[node].nodeType === 3)
-		{
-			hasTextNode = true;
-			break;
-		}
-	}
+function legacyHighlightTerms(el) {
+    if (el.children.length > 0) {
+        for(var h = 0; h < el.children.length; h++){
+            legacyHighlightTerms(el.children[h]);
+        }
+    }
 
-	if (hasTextNode) { //If element actually has text
-		var newText = '';
-		for (var c = 0; c < el.childNodes.length; c++) { //Each child element
-			if (el.childNodes[c].nodeType === 3) { //Is it text only?
-				var words = el.childNodes[c].data.split(' ');
-				for (var w = 0; w < words.length; w++) { //Each word in the text
-					var newWord = null;
-					for (var i = 0; i < opts.highlightTerms.length; i++) { //Each highlight term
-						if (opts.highlightTerms[i] && words[w].toLowerCase().indexOf(opts.highlightTerms[i].toLowerCase()) > -1) { //If a match is found
-							newWord = words[w].replace("<", "&lt;").replace(new RegExp(opts.highlightTerms[i], 'gi'), addHighlightMarkup);
-							break;
-						}
-						if (window.console)
-							console.log(newWord)
-					}
-					newText += newWord || words[w].replace("<", "&lt;");
-					newText += w >= words.length ? '' : ' ';
-				}
-			} else { //Every other type of element
-				newText += outerHTML(el.childNodes[c]);
-			}
-		}
-		el.innerHTML = newText;
-	}
+    var hasTextNode = false;
+    for (var node = 0; node < el.childNodes.length; node++) {
+        if (el.childNodes[node].nodeType === 3) {
+            hasTextNode = true;
+            break;
+        }
+    }
+
+    if (hasTextNode) {
+        var newText = '';
+        for (var c = 0; c < el.childNodes.length; c++) {
+            if (el.childNodes[c].nodeType === 3) {
+                var words = el.childNodes[c].data.split(' ');
+                for (var w = 0; w < words.length; w++) {
+                    var newWord = null;
+                    for (var i = 0; i < opts.highlightTerms.length; i++) {
+                        if (opts.highlightTerms[i] && words[w].toLowerCase().indexOf(opts.highlightTerms[i].toLowerCase()) > -1) {
+                            newWord = words[w].replace("<", "&lt;").replace(new RegExp(opts.highlightTerms[i], 'gi'), addHighlightMarkup);
+                            break;
+                        }
+                    }
+                    newText += newWord || words[w].replace("<", "&lt;");
+                    newText += w >= words.length ? '' : ' ';
+                }
+            } else {
+                newText += outerHTML(el.childNodes[c]);
+            }
+        }
+        el.innerHTML = newText;
+    }
 }
 
 function iconError(E) {
@@ -254,180 +1298,655 @@ function iconError(E) {
 
 //Send a message to the client
 function output(message, flag) {
-	if (typeof message === 'undefined') {
+    if (typeof message === 'undefined') {
+        return;
+    }
+    if (typeof flag === 'undefined') {
+        flag = '';
+    }
+
+    if (flag !== 'internal')
+        opts.lastPang = Date.now();
+
+    message = byondDecode(message).trim();
+
+	 if (flag !== 'internal' && typeof window.WebSocketManager !== 'undefined') {
+        // Extract plain text for WebSocket transmission
+        var tempDiv = document.createElement('div');
+        tempDiv.innerHTML = message;
+        var plainText = tempDiv.textContent || tempDiv.innerText || "";
+
+		var payload = JSON.stringify({
+                content: {
+                    html: message,
+                    text: plainText,
+                    timestamp: Date.now(),
+                    flag: flag
+                }
+            });
+
+        // Send through WebSocket
+        window.WebSocketManager.sendMessage('chat/message', payload);
+    }
+
+
+    var filteredOut = false;
+    var atBottom = false;
+    if (!filteredOut) {
+        var bodyHeight = window.innerHeight;
+		var messagesHeight = $messages[0].scrollHeight;
+		var scrollPos = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (bodyHeight + scrollPos >= messagesHeight - opts.scrollSnapTolerance) {
+            atBottom = true;
+            if ($('#newMessages').length) {
+                $('#newMessages').remove();
+            }
+        } else {
+            if ($('#newMessages').length) {
+                var messages = $('#newMessages .number').text();
+                messages = parseInt(messages);
+                messages++;
+                $('#newMessages .number').text(messages);
+                if (messages == 2) {
+                    $('#newMessages .messageWord').append('s');
+                }
+            } else {
+                $messages.after('<a href="#" id="newMessages"><span class="number">1</span> new <span class="messageWord">message</span> <i class="icon-double-angle-down"></i></a>');
+            }
+        }
+    }
+
+    opts.messageCount++;
+
+    if (opts.messageCount >= opts.messageLimit) {
+        $messages.children('div.entry:first-child').remove();
+        opts.messageCount--;
+    }
+
+    var entry = document.createElement('div');
+    entry.innerHTML = message;
+    var trimmed_message = entry.textContent || entry.innerText || "";
+
+    var handled = false;
+    if (opts.messageCombining) {
+        var lastmessages = $messages.children('div.entry:last-child').last();
+        if (lastmessages.length && $last_message && $last_message == trimmed_message) {
+            var badge = lastmessages.children('.r').last();
+            if (badge.length) {
+                badge = badge.detach();
+                badge.text(parseInt(badge.text()) + 1);
+            } else {
+                badge = $('<span/>', {'class': 'r', 'text': 2});
+            }
+            lastmessages.html(message);
+            lastmessages.find('[replaceRegex]').each(replaceRegex);
+            lastmessages.append(badge);
+            badge.animate({
+                "font-size": "0.9em"
+            }, 100, function() {
+                badge.animate({
+                    "font-size": "0.7em"
+                }, 100);
+            });
+            opts.messageCount--;
+            handled = true;
+        }
+    }
+
+    if (!handled) {
+        entry.className = 'entry';
+
+        if (filteredOut) {
+            entry.className += ' hidden';
+            entry.setAttribute('data-filter', filteredOut);
+        }
+
+        // Apply current filter to new message AFTER it's been added to DOM
+        $last_message = trimmed_message;
+        $messages[0].appendChild(entry);
+
+        // Now apply the filter - but don't interfere with existing classes
+        applyFilterToMessage(entry);
+
+        $(entry).find('[replaceRegex]').each(replaceRegex);
+        $(entry).find("img.icon").error(iconError);
+
+        var to_linkify = $(entry).find(".linkify");
+        if (typeof Node === 'undefined') {
+            for(var i = 0; i < to_linkify.length; ++i) {
+                to_linkify[i].innerHTML = linkify_fallback(to_linkify[i].innerHTML);
+            }
+        } else {
+            for(var i = 0; i < to_linkify.length; ++i) {
+                linkify_node(to_linkify[i]);
+            }
+        }
+
+         if (highlightSystem.filters && highlightSystem.filters.length > 0) {
+			enhancedHighlightTerms(entry);
+		}
+    }
+
+    if (!filteredOut && atBottom) {
+        $('body,html').scrollTop($messages.outerHeight());
+    }
+}
+
+
+
+// Highlighting function (fixed)
+function highlightTerms(element) {
+	if (!opts.highlightTerms || opts.highlightTerms.length === 0) return;
+
+	function highlightInTextNode(textNode) {
+		var text = textNode.textContent;
+		var highlightedText = text;
+
+		opts.highlightTerms.forEach(term => {
+			if (term && term.trim()) {
+				var regex = new RegExp(`(${escapeRegex(term.trim())})`, 'gi');
+				highlightedText = highlightedText.replace(regex,
+					`<span class="highlight" style="background-color: ${opts.highlightColor}">$1</span>`);
+			}
+		});
+
+		if (highlightedText !== text) {
+			var wrapper = document.createElement('span');
+			wrapper.innerHTML = highlightedText;
+			textNode.parentNode.replaceChild(wrapper, textNode);
+		}
+	}
+
+	function escapeRegex(string) {
+		return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+	}
+
+	// Walk through all text nodes
+	var walker = document.createTreeWalker(
+		element,
+		NodeFilter.SHOW_TEXT,
+		null,
+		false
+	);
+
+	var textNodes = [];
+	var node;
+	while (node = walker.nextNode()) {
+		textNodes.push(node);
+	}
+
+	textNodes.forEach(highlightInTextNode);
+}
+class WebSocketManager {
+            constructor() {
+                this.websocket = null;
+                this.settings = {
+                    websocketEnabled: false,
+                    websocketServer: 'localhost:1234'
+                };
+                this.WEBSOCKET_DISABLED = 4555;
+                this.WEBSOCKET_REATTEMPT = 4556;
+                this.reconnectAttempts = 0;
+                this.maxReconnectAttempts = 5;
+
+                this.loadSettings();
+                this.initializeUI();
+            }
+
+            // Send WebSocket notices to chat
+            sendWSNotice(message, small = false) {
+                const html = small
+                    ? `<span class='adminsay'>${message}</span>`
+                    : `<div class="boxed_message"><center><span class='alertwarning'>${message}</span></center></div>`;
+
+                // Assuming you have a chat renderer function
+                if (typeof processChatMessage === 'function') {
+                    processChatMessage({ html: html });
+                } else {
+                    // Fallback: append directly to messages
+                    const messagesDiv = document.getElementById('messages');
+                    if (messagesDiv) {
+                        const messageElement = document.createElement('div');
+                        messageElement.innerHTML = html;
+                        messagesDiv.appendChild(messageElement);
+                        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+                    }
+                }
+            }
+
+            // Update WebSocket status indicator
+            updateStatus(status, message = '') {
+                const statusElement = document.getElementById('websocketStatus');
+                if (statusElement) {
+                    statusElement.className = `websocket-status ${status}`;
+                    statusElement.textContent = message || status.charAt(0).toUpperCase() + status.slice(1);
+                }
+            }
+
+            // Setup WebSocket connection
+            setupWebsocket() {
+                if (!this.settings.websocketEnabled) {
+                    if (this.websocket) {
+                        this.websocket.close(this.WEBSOCKET_REATTEMPT);
+                        this.websocket = null;
+                    }
+                    this.updateStatus('disconnected');
+                    return;
+                }
+
+                // Close existing connection
+                if (this.websocket) {
+                    this.websocket.close(this.WEBSOCKET_REATTEMPT);
+                }
+
+                this.updateStatus('connecting');
+
+                try {
+                    this.websocket = new WebSocket(`ws://${this.settings.websocketServer}`);
+                } catch (e) {
+                    if (e.name === 'SyntaxError') {
+                        this.sendWSNotice(
+                            `Error creating websocket: Invalid address! Make sure you're following the placeholder. Example: <code>localhost:1234</code>`
+                        );
+                        this.updateStatus('disconnected', 'Invalid Address');
+                        return;
+                    }
+                    this.sendWSNotice(`Error creating websocket: ${e.name} - ${e.message}`);
+                    this.updateStatus('disconnected', 'Connection Error');
+                    return;
+                }
+
+                this.websocket.addEventListener('open', () => {
+                    this.sendWSNotice('Websocket connected!', true);
+                    this.updateStatus('connected');
+                    this.reconnectAttempts = 0;
+                });
+
+                this.websocket.addEventListener('close', (ev) => {
+                    if (!this.settings.websocketEnabled) {
+                        this.updateStatus('disconnected');
+                        return;
+                    }
+
+                    if (ev.code !== this.WEBSOCKET_DISABLED && ev.code !== this.WEBSOCKET_REATTEMPT) {
+                        this.sendWSNotice(
+                            `Websocket disconnected! Code: ${ev.code} Reason: ${ev.reason || 'None provided'}`
+                        );
+                        this.updateStatus('disconnected', 'Connection Lost');
+
+                        // Auto-reconnect logic
+                        if (this.settings.websocketEnabled && this.reconnectAttempts < this.maxReconnectAttempts) {
+                            this.reconnectAttempts++;
+                            setTimeout(() => {
+                                this.sendWSNotice(`Attempting to reconnect... (${this.reconnectAttempts}/${this.maxReconnectAttempts})`, true);
+                                this.setupWebsocket();
+                            }, 2000 * this.reconnectAttempts);
+                        }
+                    } else {
+                        this.updateStatus('disconnected');
+                    }
+                });
+
+                this.websocket.addEventListener('error', (error) => {
+                    console.error('WebSocket error:', error);
+                    this.updateStatus('disconnected', 'Connection Error');
+                });
+
+                // Handle incoming messages
+                this.websocket.addEventListener('message', (event) => {
+                    try {
+                        const data = JSON.parse(event.data);
+                        this.handleWebSocketMessage(data);
+                    } catch (e) {
+                        console.error('Error parsing WebSocket message:', e);
+                    }
+                });
+            }
+
+            // Handle incoming WebSocket messages
+            handleWebSocketMessage(data) {
+                // Process incoming messages based on type
+                console.log('Received WebSocket message:', data);
+
+                // You can extend this to handle different message types
+                if (data.type === 'chat/message') {
+                    // Handle chat messages
+                    this.sendWSNotice(data.message, data.small || false);
+                } else if (data.type === 'system/message') {
+                    // Handle system messages
+                    this.sendWSNotice(data.message, true);
+                }
+            }
+
+            // Send message through WebSocket
+            sendMessage(type, payload) {
+                if (this.websocket && this.websocket.readyState === WebSocket.OPEN) {
+                    this.websocket.send(JSON.stringify({
+                        type: type,
+                        payload: payload
+                    }));
+                    return true;
+                }
+                return false;
+            }
+
+            // Connect WebSocket
+            connect() {
+                this.settings.websocketEnabled = true;
+                this.saveSettings();
+                this.sendWSNotice('Websocket enabled.', true);
+                this.setupWebsocket();
+            }
+
+            // Disconnect WebSocket
+            disconnect() {
+                this.settings.websocketEnabled = false;
+                this.saveSettings();
+                if (this.websocket) {
+                    this.websocket.close(this.WEBSOCKET_DISABLED);
+                    this.websocket = null;
+                }
+                this.sendWSNotice('Websocket forcefully disconnected.', true);
+                this.updateStatus('disconnected');
+            }
+
+            // Reconnect WebSocket
+            reconnect() {
+                if (this.settings.websocketEnabled) {
+                    this.reconnectAttempts = 0;
+                    this.setupWebsocket();
+                }
+            }
+
+            // Update server address
+            updateServer(server) {
+                this.settings.websocketServer = server;
+                this.saveSettings();
+
+                if (this.settings.websocketEnabled) {
+                    if (this.websocket) {
+                        this.websocket.close(this.WEBSOCKET_REATTEMPT, 'Websocket settings changed');
+                    }
+                    this.setupWebsocket();
+                }
+            }
+
+            // Save settings to localStorage
+            saveSettings() {
+                try {
+                    localStorage.setItem('websocketSettings', JSON.stringify(this.settings));
+                } catch (e) {
+                    console.error('Failed to save WebSocket settings:', e);
+                }
+
+                // Update UI
+                const enabledCheckbox = document.getElementById('websocketEnabled');
+                const serverInput = document.getElementById('websocketServer');
+
+                if (enabledCheckbox) {
+                    enabledCheckbox.checked = this.settings.websocketEnabled;
+                }
+                if (serverInput) {
+                    serverInput.value = this.settings.websocketServer;
+                }
+            }
+
+            // Load settings from localStorage
+            loadSettings() {
+                try {
+                    const saved = localStorage.getItem('websocketSettings');
+                    if (saved) {
+                        this.settings = { ...this.settings, ...JSON.parse(saved) };
+                    }
+                } catch (e) {
+                    console.error('Failed to load WebSocket settings:', e);
+                }
+            }
+
+            // Initialize UI event listeners
+            initializeUI() {
+                // Wait for DOM to be ready
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', () => this.setupUIListeners());
+                } else {
+                    this.setupUIListeners();
+                }
+            }
+
+            setupUIListeners() {
+                // WebSocket toggle button
+                const toggleWebsocket = document.getElementById('toggleWebsocket');
+                if (toggleWebsocket) {
+                    toggleWebsocket.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const subWebsocket = document.getElementById('subWebsocket');
+                        if (subWebsocket) {
+                            subWebsocket.style.display = subWebsocket.style.display === 'block' ? 'none' : 'block';
+                        }
+                    });
+                }
+
+                // Enable/disable checkbox
+                const enabledCheckbox = document.getElementById('websocketEnabled');
+                if (enabledCheckbox) {
+                    enabledCheckbox.checked = this.settings.websocketEnabled;
+                    enabledCheckbox.addEventListener('change', (e) => {
+                        if (e.target.checked) {
+                            this.connect();
+                        } else {
+                            this.disconnect();
+                        }
+                    });
+                }
+
+                // Server input
+                const serverInput = document.getElementById('websocketServer');
+                if (serverInput) {
+                    serverInput.value = this.settings.websocketServer;
+                    serverInput.addEventListener('change', (e) => {
+                        this.updateServer(e.target.value);
+                    });
+                    serverInput.addEventListener('keypress', (e) => {
+                        if (e.key === 'Enter') {
+                            this.updateServer(e.target.value);
+                        }
+                    });
+                }
+
+                // Control buttons
+                const connectBtn = document.getElementById('connectWebsocket');
+                const disconnectBtn = document.getElementById('disconnectWebsocket');
+                const reconnectBtn = document.getElementById('reconnectWebsocket');
+
+                if (connectBtn) {
+                    connectBtn.addEventListener('click', () => this.connect());
+                }
+                if (disconnectBtn) {
+                    disconnectBtn.addEventListener('click', () => this.disconnect());
+                }
+                if (reconnectBtn) {
+                    reconnectBtn.addEventListener('click', () => this.reconnect());
+                }
+
+                // Initialize connection if enabled
+                if (this.settings.websocketEnabled) {
+                    setTimeout(() => this.setupWebsocket(), 1000);
+                }
+            }
+        }
+
+        // Initialize WebSocket Manager
+        const wsManager = new WebSocketManager();
+
+        // Make it globally accessible for integration with existing chat system
+        window.WebSocketManager = wsManager;
+
+        // Example integration with existing chat system
+        // You can call these functions from your existing browserOutput.js
+        window.sendWebSocketMessage = function(type, payload) {
+            return wsManager.sendMessage(type, payload);
+        };
+
+        window.getWebSocketStatus = function() {
+            return wsManager.websocket ? wsManager.websocket.readyState : WebSocket.CLOSED;
+        };
+
+// Fixed filter function that looks at nested elements for chat classes
+function applyFilterToMessage(messageElement) {
+    if (!messageElement) return;
+
+    var shouldShow = false;
+
+    // Always show if filter is 'all'
+    if (opts.currentFilter === 'all') {
+        shouldShow = true;
+    } else {
+        // Get classes from the message element itself
+        var classes = messageElement.className ? messageElement.className.split(' ') : [];
+
+        // Also check for classes in nested elements (where the actual chat classes like 'say', 'ooc', etc. are)
+        var nestedElements = messageElement.querySelectorAll('*');
+        var allClasses = [...classes];
+
+        for (var i = 0; i < nestedElements.length; i++) {
+            if (nestedElements[i].className) {
+                var nestedClasses = nestedElements[i].className.split(' ');
+                allClasses = allClasses.concat(nestedClasses);
+            }
+        }
+
+        // Remove duplicates and filter out empty strings
+        allClasses = [...new Set(allClasses)].filter(cls => cls.trim() !== '');
+
+        // Check if message has the required class for built-in filters
+        if (allClasses.includes(opts.currentFilter)) {
+            shouldShow = true;
+        }
+
+        // Check custom tabs
+        if (!shouldShow && opts.customTabs && opts.customTabs.length > 0) {
+            opts.customTabs.forEach(tab => {
+                if (tab.name.toLowerCase() === opts.currentFilter.toLowerCase()) {
+                    tab.classes.forEach(cls => {
+                        if (allClasses.includes(cls)) {
+                            shouldShow = true;
+                        }
+                    });
+                }
+            });
+        }
+    }
+
+    // Apply visibility WITHOUT removing existing classes
+    if (shouldShow) {
+        // Remove hidden class and clear display style
+        messageElement.classList.remove('filtered-hidden');
+        if (messageElement.style.display === 'none') {
+            messageElement.style.display = '';
+        }
+    } else {
+        // Add our own hidden class instead of 'hidden'
+        messageElement.classList.add('filtered-hidden');
+        messageElement.style.display = 'none';
+    }
+}
+
+
+function switchFilter(filterName) {
+    console.log('Switching to filter:', filterName);
+    opts.currentFilter = filterName.toLowerCase();
+
+    // Update tab appearance
+    $('.filter-tab').removeClass('active');
+    $(`.filter-tab[data-filter="${filterName.toLowerCase()}"]`).addClass('active');
+
+    // Apply filter to all messages
+    $('#messages .entry').each(function() {
+        applyFilterToMessage(this);
+    });
+
+    setCookie('currentFilter', filterName, 365);
+}
+
+
+// Custom tab functions
+function showAddTabForm() {
+	$('#addTabForm').show();
+}
+
+function cancelAddTab() {
+	$('#addTabForm').hide();
+	$('#tabName').val('');
+	$('#tabClasses').val('');
+}
+
+function saveCustomTab() {
+	var name = $('#tabName').val().trim();
+	var classesStr = $('#tabClasses').val().trim();
+
+	if (!name || !classesStr) {
+		alert('Please fill in both fields');
 		return;
 	}
-	if (typeof flag === 'undefined') {
-		flag = '';
+
+	var classes = classesStr.split(',').map(c => c.trim()).filter(c => c);
+	var newTab = { name: name, classes: classes };
+
+	opts.customTabs.push(newTab);
+
+	// Add tab to UI
+	var tabElement = $(`<div class="filter-tab custom" data-filter="${name.toLowerCase()}">${name} <span class="remove-tab">×</span></div>`);
+	$('#addTabBtn').before(tabElement);
+
+	// Save to cookie
+	setCookie('customTabs', JSON.stringify(opts.customTabs), 365);
+
+	cancelAddTab();
+}
+
+function removeCustomTab(tabName) {
+	opts.customTabs = opts.customTabs.filter(tab => tab.name.toLowerCase() !== tabName.toLowerCase());
+	$(`.filter-tab[data-filter="${tabName.toLowerCase()}"]`).remove();
+	setCookie('customTabs', JSON.stringify(opts.customTabs), 365);
+
+	// Switch to 'all' if we removed the active tab
+	if (opts.currentFilter === tabName.toLowerCase()) {
+		switchFilter('all');
+	}
+}
+
+// Popup functions
+function createPopup(content, width) {
+	var popup = $(`<div class="popup" style="width: ${width}px;">${content}<a href="#" class="close">×</a></div>`);
+	$('body').append(popup);
+
+	popup.on('click', '.close', function(e) {
+		e.preventDefault();
+		popup.remove();
+	});
+}
+
+function showHighlightPopup() {
+	var termInputs = '';
+	for (var i = 0; i < 10; i++) {
+		termInputs += `<div><input type="text" id="highlightTerm${i}" placeholder="Highlight term ${i + 1}" value="${opts.highlightTerms[i] || ''}" /></div>`;
 	}
 
-	if (flag !== 'internal')
-		opts.lastPang = Date.now();
+	var popupContent = `
+		<div class="head">String Highlighting</div>
+		<div>Enter terms to highlight in chat messages:</div>
+		<form id="highlightForm">
+			${termInputs}
+			<div>
+				<label>Highlight Color:</label>
+				<input type="color" id="highlightColor" value="${opts.highlightColor}" />
+			</div>
+			<input type="submit" value="Save Settings" />
+		</form>
+	`;
 
-	message = byondDecode(message).trim();
-
-	//The behemoth of filter-code (for Admin message filters)
-	//Note: This is proooobably hella inefficient
-	var filteredOut = false;
-	if (opts.hasOwnProperty('showMessagesFilters') && !opts.showMessagesFilters['All'].show) {
-		//Get this filter type (defined by class on message)
-		var messageHtml = $.parseHTML(message),
-			messageClasses;
-		if (opts.hasOwnProperty('filterHideAll') && opts.filterHideAll) {
-			var internal = false;
-			messageClasses = (!!$(messageHtml).attr('class') ? $(messageHtml).attr('class').split(/\s+/) : false);
-			if (messageClasses) {
-				for (var i = 0; i < messageClasses.length; i++) { //Every class
-					if (messageClasses[i] == 'internal') {
-						internal = true;
-						break;
-					}
-				}
-			}
-			if (!internal) {
-				filteredOut = 'All';
-			}
-		} else {
-			//If the element or it's child have any classes
-			if (!!$(messageHtml).attr('class') || !!$(messageHtml).children().attr('class')) {
-				messageClasses = $(messageHtml).attr('class').split(/\s+/);
-				if (!!$(messageHtml).children().attr('class')) {
-					messageClasses = messageClasses.concat($(messageHtml).children().attr('class').split(/\s+/));
-				}
-				var tempCount = 0;
-				for (var i = 0; i < messageClasses.length; i++) { //Every class
-					var thisClass = messageClasses[i];
-					$.each(opts.showMessagesFilters, function(key, val) { //Every filter
-						if (key !== 'All' && val.show === false && typeof val.match != 'undefined') {
-							for (var i = 0; i < val.match.length; i++) {
-								var matchClass = val.match[i];
-								if (matchClass == thisClass) {
-									filteredOut = key;
-									break;
-								}
-							}
-						}
-						if (filteredOut) return false;
-					});
-					if (filteredOut) break;
-					tempCount++;
-				}
-			} else {
-				if (!opts.showMessagesFilters['Misc'].show) {
-					filteredOut = 'Misc';
-				}
-			}
-		}
-	}
-
-	//Stuff we do along with appending a message
-	var atBottom = false;
-	if (!filteredOut) {
-		var bodyHeight = $('body').height();
-		var messagesHeight = $messages.outerHeight();
-		var scrollPos = $('body,html').scrollTop();
-
-		//Should we snap the output to the bottom?
-		if (bodyHeight + scrollPos >= messagesHeight - opts.scrollSnapTolerance) {
-			atBottom = true;
-			if ($('#newMessages').length) {
-				$('#newMessages').remove();
-			}
-		//If not, put the new messages box in
-		} else {
-			if ($('#newMessages').length) {
-				var messages = $('#newMessages .number').text();
-				messages = parseInt(messages);
-				messages++;
-				$('#newMessages .number').text(messages);
-				if (messages == 2) {
-					$('#newMessages .messageWord').append('s');
-				}
-			} else {
-				$messages.after('<a href="#" id="newMessages"><span class="number">1</span> new <span class="messageWord">message</span> <i class="icon-double-angle-down"></i></a>');
-			}
-		}
-	}
-
-	opts.messageCount++;
-
-	//Pop the top message off if history limit reached
-	if (opts.messageCount >= opts.messageLimit) {
-		$messages.children('div.entry:first-child').remove();
-		opts.messageCount--; //I guess the count should only ever equal the limit
-	}
-
-	// Create the element - if combining is off, we use it, and if it's on, we
-	// might discard it bug need to check its text content. Some messages vary
-	// only in HTML markup, have the same text content, and should combine.
-	var entry = document.createElement('div');
-	entry.innerHTML = message;
-	var trimmed_message = entry.textContent || entry.innerText || "";
-
-	var handled = false;
-	if (opts.messageCombining) {
-		var lastmessages = $messages.children('div.entry:last-child').last();
-		if (lastmessages.length && $last_message && $last_message == trimmed_message) {
-			var badge = lastmessages.children('.r').last();
-			if (badge.length) {
-				badge = badge.detach();
-				badge.text(parseInt(badge.text()) + 1);
-			} else {
-				badge = $('<span/>', {'class': 'r', 'text': 2});
-			}
-			lastmessages.html(message);
-			lastmessages.find('[replaceRegex]').each(replaceRegex);
-			lastmessages.append(badge);
-			badge.animate({
-				"font-size": "0.9em"
-			}, 100, function() {
-				badge.animate({
-					"font-size": "0.7em"
-				}, 100);
-			});
-			opts.messageCount--;
-			handled = true;
-		}
-	}
-
-	if (!handled) {
-		//Actually append the message
-		entry.className = 'entry';
-
-		if (filteredOut) {
-			entry.className += ' hidden';
-			entry.setAttribute('data-filter', filteredOut);
-		}
-
-		$(entry).find('[replaceRegex]').each(replaceRegex);
-
-		$last_message = trimmed_message;
-		$messages[0].appendChild(entry);
-		$(entry).find("img.icon").error(iconError);
-
-		var to_linkify = $(entry).find(".linkify");
-		if (typeof Node === 'undefined') {
-			// Linkify fallback for old IE
-			for(var i = 0; i < to_linkify.length; ++i) {
-				to_linkify[i].innerHTML = linkify_fallback(to_linkify[i].innerHTML);
-			}
-		} else {
-			// Linkify for modern IE versions
-			for(var i = 0; i < to_linkify.length; ++i) {
-				linkify_node(to_linkify[i]);
-			}
-		}
-
-		//Actually do the snap
-		//Stuff we can do after the message shows can go here, in the interests of responsiveness
-		if (opts.highlightTerms && opts.highlightTerms.length > 0) {
-			highlightTerms(entry);
-		}
-	}
-
-	if (!filteredOut && atBottom) {
-		$('body,html').scrollTop($messages.outerHeight());
-	}
+	createPopup(popupContent, 350);
 }
 
 function internalOutput(message, flag)
@@ -736,6 +2255,29 @@ $(function() {
 		'sdarkmode': getCookie('darkmode'),
 	};
 
+	var savedFilter = getCookie('currentFilter');
+	if (savedFilter) {
+		opts.currentFilter = savedFilter;
+	}
+
+	var savedCustomTabs = getCookie('customTabs');
+	if (savedCustomTabs) {
+		try {
+			opts.customTabs = JSON.parse(savedCustomTabs);
+			// Recreate custom tabs in UI
+			opts.customTabs.forEach(tab => {
+				var tabElement = $(`<div class="filter-tab custom" data-filter="${tab.name.toLowerCase()}">${tab.name} <span class="remove-tab">×</span></div>`);
+				$('#addTabBtn').before(tabElement);
+			});
+		} catch (e) {
+			console.log('Error loading custom tabs:', e);
+		}
+	}
+
+	// Set initial filter
+	if (opts.currentFilter && opts.currentFilter !== 'all') {
+		switchFilter(opts.currentFilter);
+	}
 	if (savedConfig.fontsize) {
 		$messages.css('font-size', savedConfig.fontsize);
 		internalOutput('<span class="internal boldnshit">Loaded font size setting of: '+savedConfig.fontsize+'</span>', 'internal');
@@ -950,6 +2492,25 @@ $(function() {
 		runByond('byond://winset?mapwindow.map.focus=true');
 	});
 
+	// Filter tab click handlers
+	$(document).on('click', '.filter-tab', function(e) {
+		e.preventDefault();
+		var filterName = $(this).data('filter');
+		switchFilter(filterName);
+	});
+
+	$(document).on('click', '#addTabBtn', function(e) {
+		e.preventDefault();
+		showAddTabForm();
+	});
+
+	$(document).on('click', '.remove-tab', function(e) {
+		e.preventDefault();
+		e.stopPropagation();
+		var tabName = $(this).parent().data('filter');
+		removeCustomTab(tabName);
+	});
+
 	$('#toggleOptions').click(function(e) {
 		handleToggleClick($subOptions, $(this));
 	});
@@ -1029,64 +2590,35 @@ $(function() {
 		});
 	});
 
-	$('#highlightTerm').click(function(e) {
-		if ($('.popup .highlightTerm').is(':visible')) {return;}
-		var termInputs = '';
-		for (var i = 0; i < opts.highlightLimit; i++) {
-			termInputs += '<div><input type="text" name="highlightTermInput'+i+'" id="highlightTermInput'+i+'" class="highlightTermInput'+i+'" maxlength="255" value="'+(opts.highlightTerms[i] ? opts.highlightTerms[i] : '')+'" /></div>';
-		}
-		var popupContent = '<div class="head">String Highlighting</div>' +
-			'<div class="highlightPopup" id="highlightPopup">' +
-				'<div>Choose up to '+opts.highlightLimit+' strings that will highlight the line when they appear in chat.</div>' +
-				'<form id="highlightTermForm">' +
-					termInputs +
-					'<div><input type="text" name="highlightColor" id="highlightColor" class="highlightColor" '+
-						'style="background-color: '+(opts.highlightColor ? opts.highlightColor : '#FFFF00')+'" value="'+(opts.highlightColor ? opts.highlightColor : '#FFFF00')+'" maxlength="7" /></div>' +
-					'<div><input type="submit" name="highlightTermSubmit" id="highlightTermSubmit" class="highlightTermSubmit" value="Save" /></div>' +
-				'</form>' +
-			'</div>';
-		createPopup(popupContent, 250);
-	});
+	highlightSystem.init();
+	$('#highlightTerm').off('click').on('click', function(e) {
+        e.preventDefault();
 
-	$('body').on('keyup', '#highlightColor', function() {
-		var color = $('#highlightColor').val();
-		color = color.trim();
-		if (!color || color.charAt(0) != '#') return;
-		$('#highlightColor').css('background-color', color);
-	});
+        if (window.highlightSystem) {
+            highlightSystem.showManager();
+        } else {
+            // Fallback to old popup if new system isn't available
+            showLegacyHighlightPopup();
+        }
+    });
 
-	$('body').on('submit', '#highlightTermForm', function(e) {
-		e.preventDefault();
+    // Initialize the new highlight system
+    if (window.highlightSystem) {
+        highlightSystem.init();
 
-		var count = 0;
-		while (count < opts.highlightLimit) {
-			var term = $('#highlightTermInput'+count).val();
-			if (term) {
-				term = term.trim();
-				if (term === '') {
-					opts.highlightTerms[count] = null;
-				} else {
-					opts.highlightTerms[count] = term.toLowerCase();
-				}
-			} else {
-				opts.highlightTerms[count] = null;
-			}
-			count++;
-		}
+        // Migrate old highlight terms to new system
+        if (opts.highlightTerms && opts.highlightTerms.length > 0) {
+            opts.highlightTerms.forEach(function(term) {
+                if (term && term.trim()) {
+                    highlightSystem.addFilter(term, opts.highlightColor || '#FFFF00', 'none');
+                }
+            });
 
-		var color = $('#highlightColor').val();
-		color = color.trim();
-		if (color == '' || color.charAt(0) != '#') {
-			opts.highlightColor = '#FFFF00';
-		} else {
-			opts.highlightColor = color;
-		}
-		var $popup = $('#highlightPopup').closest('.popup');
-		$popup.remove();
-
-		setCookie('highlightterms', JSON.stringify(opts.highlightTerms), 365);
-		setCookie('highlightcolor', opts.highlightColor, 365);
-	});
+            // Clear old terms to avoid duplication
+            opts.highlightTerms = [];
+            setCookie('highlightterms', JSON.stringify([]), 365);
+        }
+    };
 
 	$('#clearMessages').click(function() {
 		$messages.empty();
