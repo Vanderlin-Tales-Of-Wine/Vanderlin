@@ -1945,6 +1945,10 @@
 /obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/town/garrison)
+"bQv" = (
+/obj/structure/bounty_board,
+/turf/open/floor/cobblerock,
+/area/rogue/outdoors/rtfield/safe)
 "bQA" = (
 /obj/structure/fermentation_keg,
 /turf/open/floor/concrete,
@@ -82241,7 +82245,7 @@ wCc
 bAP
 pFG
 vKI
-gbu
+bQv
 mJk
 gbu
 mJk
@@ -91740,7 +91744,7 @@ xMI
 mGI
 iCL
 mHD
-gbu
+bQv
 gbu
 iJC
 nam
