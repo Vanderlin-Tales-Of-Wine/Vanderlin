@@ -36,7 +36,6 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 	var/age_start_time = 0
 
 	var/tapped = FALSE
-	var/beer_left = 0
 
 	var/selecting_recipe = FALSE
 
@@ -60,6 +59,14 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 
 	if(heated)
 		START_PROCESSING(SSobj, src)
+
+/obj/structure/fermentation_keg/Destroy()
+	if(soundloop)
+		QDEL_NULL(soundloop)
+	if(selected_recipe)
+		QDEL_NULL(selected_recipe)
+	recipe_crop_stocks.Cut()
+	return ..()
 
 /obj/structure/fermentation_keg/update_overlays()
 	. = ..()
@@ -132,10 +139,6 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 	var/list/produce_list = list()
 	var/list/storage_list = list()
 
-	if(istype(I, /obj/item/bottle_kit))
-		var/obj/item/bottle_kit/kit = I
-		bottle(kit.glass_colour)
-
 	if(I.type in selected_recipe?.needed_items)
 		produce_list |= I
 
@@ -183,8 +186,6 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 		. += span_boldnotice("[made_item]")
 		if(age_start_time)
 			. += "Aged for [(world.time - age_start_time) * 0.1] Seconds.\n"
-		if(beer_left)
-			. += "[((beer_left / FLOOR((selected_recipe.brewed_amount * selected_recipe.per_brew_amount) , 1))) * 100]% Full"
 		if(!tapped)
 			. += span_blue("Alt-Click on the Barrel to Tap it.")
 
@@ -225,6 +226,17 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 	else
 		. += span_blue("Right-Click on the Barrel to select a recipe.")
 
+
+/obj/structure/fermentation_keg/proc/get_prereq_amount(datum/reagent/reagent)
+	var/static/list/reagent_list = list()
+	if(!length(reagent_list))
+		for(var/datum/brewing_recipe/recipe as anything in subtypesof(/datum/brewing_recipe))
+			reagent_list |= recipe.reagent_to_brew
+			reagent_list[recipe.reagent_to_brew] = recipe.per_brew_amount * recipe.brewed_amount
+	if(reagent in reagent_list)
+		return reagent_list[reagent]
+	return 0
+
 /obj/structure/fermentation_keg/proc/shopping_run(mob/user)
 	if(brewing)
 		return
@@ -236,10 +248,11 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 	var/list/options = list()
 	for(var/path in subtypesof(/datum/brewing_recipe))
 		var/datum/brewing_recipe/recipe = path
-		var/prereq = initial(recipe.pre_reqs)
+		var/datum/reagent/prereq = initial(recipe.pre_reqs)
 		if(!heated && initial(recipe.heat_required))
 			continue
-		if((!ready_to_bottle && prereq == null) || (selected_recipe?.reagent_to_brew == prereq && ready_to_bottle))
+
+		if((prereq == null) || (reagents.has_reagent(prereq, get_prereq_amount(prereq))))
 			options[initial(recipe.name)] = recipe
 
 
@@ -304,7 +317,6 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 
 	sellprice = 25
 	tapped = FALSE
-	beer_left = 0
 
 	if(force)
 		selected_recipe = null
@@ -346,6 +358,8 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 	brewing = FALSE
 	sellprice = selected_recipe.sell_value
 	made_item = selected_recipe.name
+	reagents.add_reagent(selected_recipe.reagent_to_brew, selected_recipe.brewed_amount * selected_recipe.per_brew_amount)
+
 	start_time = 0
 	heated_progress_time = 0
 	if(selected_recipe.ages)
@@ -430,7 +444,6 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 	made_item = null
 	tapped = FALSE
 	age_start_time = 0
-	beer_left = 0
 	brewing = FALSE
 	sellprice = 25
 	heated_progress_time = 0
@@ -446,54 +459,6 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 	selected_recipe = null
 
 
-/obj/structure/fermentation_keg/proc/bottle(glass_colour)
-	if(ready_to_bottle)
-
-		ready_to_bottle = FALSE
-		made_item = null
-		tapped = FALSE
-		age_start_time = 0
-		beer_left = 0
-		brewing = FALSE
-		sellprice = 25
-		heated_progress_time = 0
-		start_time = 0
-		if(open_icon_state)
-			icon_state = open_icon_state
-		update_overlays()
-
-		if(selected_recipe.reagent_to_brew)
-			if(!glass_colour)
-				glass_colour = "brew_bottle"
-
-			var/bottlecaps
-			for(bottlecaps=0, bottlecaps < selected_recipe.brewed_amount, bottlecaps++)
-				var/obj/item/reagent_containers/glass/bottle/brewing_bottle/bottle_made = new /obj/item/reagent_containers/glass/bottle/brewing_bottle(get_turf(src))
-				bottle_made.icon_state = "[glass_colour]"
-				/*
-				if(istype(selected_recipe, /datum/brewing_recipe/custom_recipe))
-					var/datum/brewing_recipe/custom_recipe/recipe = selected_recipe
-					bottle_made.name = recipe.bottle_name
-					bottle_made.desc = recipe.bottle_desc
-					bottle_made.glass_name = recipe.glass_name
-					bottle_made.glass_desc = recipe.glass_desc
-					bottle_made.reagents.add_reagent(selected_recipe.reagent_to_brew, selected_recipe.per_brew_amount, list("reagents" = recipe.reagent_data))
-				else
-					bottle_made.reagents.add_reagent(selected_recipe.reagent_to_brew, selected_recipe.per_brew_amount)
-				*/
-				var/datum/reagent/brewed_reagent = selected_recipe.reagent_to_brew
-				if(selected_recipe.ages)
-					var/time = world.time - age_start_time
-					for(var/path in selected_recipe.age_times)
-						if(time > selected_recipe.age_times[path])
-							brewed_reagent = path
-				bottle_made.reagents.add_reagent(brewed_reagent, selected_recipe.per_brew_amount)
-		if(selected_recipe.brewed_item)
-			var/items_given
-			for(items_given= 0, items_given < selected_recipe.brewed_item_count, items_given++)
-				new selected_recipe.brewed_item(get_turf(src))
-		selected_recipe = null
-
 /obj/structure/fermentation_keg/proc/try_tapping(mob/user)
 	if(tapped)
 		return
@@ -504,17 +469,14 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 	if(tapped_icon_state)
 		icon_state = tapped_icon_state
 	sellprice = 0
-	beer_left = selected_recipe.brewed_amount * selected_recipe.per_brew_amount
 
 /obj/structure/fermentation_keg/proc/try_filling(mob/user, obj/item/reagent_containers/container)
-	if(!tapped)
-		return
+	if(!tapped || !reagents.total_volume)
+		return FALSE
+
 	visible_message("[user] starts pouring from [src].", "You start pouring from [src].")
 	if(!do_after(user, 1 SECONDS, src))
-		return
-	var/beer_taken = min((container.reagents.maximum_volume - container.reagents.total_volume), beer_left)
-
-	beer_left -= beer_taken
+		return FALSE
 
 	var/datum/reagent/brewed_reagent = selected_recipe.reagent_to_brew
 	if(selected_recipe.ages)
@@ -522,10 +484,12 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 		for(var/path in selected_recipe.age_times)
 			if(time > selected_recipe.age_times[path])
 				brewed_reagent = path
-	container.reagents.add_reagent(brewed_reagent, beer_taken)
 
-	if(beer_left <= 0)
-		clear_keg(TRUE)
+	var/transfer_amount = min(container.reagents.maximum_volume - container.reagents.total_volume, reagents.get_reagent_amount(brewed_reagent))
+	if(transfer_amount > 0)
+		reagents.trans_id_to(container, brewed_reagent, transfer_amount)
+		return TRUE
+	return FALSE
 
 /obj/structure/fermentation_keg/process()
 	if(accepts_water_input && input && selected_recipe && !brewing && !ready_to_bottle)
@@ -593,14 +557,13 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 			if(!reagents_needed)
 				return
 
-			var/transfer_amount = min(reagents_needed, keg.beer_left)
+			var/transfer_amount = min(reagents.maximum_volume - reagents.total_volume, keg.reagents.total_volume)
 
 			user.visible_message("[user] starts to pour [keg] into [src]." , "You start to pour [keg] in [src].")
 			if(!do_after(user, 5 SECONDS, keg))
 				return
 			reagents.add_reagent(selected_recipe.reagent_to_brew, transfer_amount)
-			keg.beer_left -= transfer_amount
-			if(keg.beer_left <= 0)
+			if(!keg.reagents.total_volume)
 				keg.clear_keg(TRUE)
 
 		else
@@ -625,8 +588,7 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 		user.visible_message("[user] starts to pour [keg] into [src]." , "You start to pour [keg] in [src].")
 		if(!do_after(user, 5 SECONDS, keg))
 			return
-		reagents.add_reagent(keg.selected_recipe?.reagent_to_brew, keg.beer_left)
-		keg.beer_left = 0
+		keg.reagents.trans_to(reagents, keg.reagents.total_volume)
 		keg.clear_keg(TRUE)
 
 /obj/structure/fermentation_keg/distiller

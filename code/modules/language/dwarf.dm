@@ -5,7 +5,6 @@
 	ask_verb = "asks"
 	exclaim_verb = "shouts"
 	key = "d"
-	flags = LANGUAGE_HIDE_ICON_IF_UNDERSTOOD
 	space_chance = 0
 	between_word_sentence_chance = 0
 	between_word_space_chance = 75

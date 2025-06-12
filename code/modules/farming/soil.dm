@@ -50,6 +50,8 @@
 	var/crop_quality = QUALITY_REGULAR
 	/// Tracks quality points that accumulate toward quality tier increases
 	var/quality_points = 0
+	///accellerated_growth
+	var/accellerated_growth = 0
 
 	COOLDOWN_DECLARE(soil_update)
 
@@ -358,6 +360,8 @@
 	var/force_update = FALSE
 	process_weeds(dt)
 	force_update = process_plant(dt)
+	if(world.time < accellerated_growth)
+		force_update = process_plant(dt)
 	process_soil(dt)
 	if(soil_decay_time <= 0)
 		decay_soil()

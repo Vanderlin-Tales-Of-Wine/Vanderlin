@@ -16,11 +16,12 @@
 
 /obj/structure/fake_machine/stockpile/Destroy()
 	SSroguemachine.stock_machines -= src
+	QDEL_NULL(withdraw_tab)
 	return ..()
 
 /obj/structure/fake_machine/stockpile/Topic(href, href_list)
 	. = ..()
-	if(!usr.canUseTopic(src, BE_CLOSE))
+	if(!usr.can_perform_action(src, NEED_DEXTERITY|FORBID_TELEKINESIS_REACH))
 		return
 	if(href_list["navigate"])
 		return attack_hand(usr, href_list["navigate"])
@@ -227,13 +228,13 @@
 			playsound(parent_structure.loc, 'sound/misc/hiss.ogg', 100, FALSE, -1)
 		return TRUE
 	if(href_list["compact"])
-		if(!usr.canUseTopic(parent_structure, BE_CLOSE))
+		if(!usr.can_perform_action(parent_structure, NEED_DEXTERITY|FORBID_TELEKINESIS_REACH))
 			return FALSE
 		if(ishuman(usr))
 			compact = !compact
 		return TRUE
 	if(href_list["change"])
-		if(!usr.canUseTopic(parent_structure, BE_CLOSE))
+		if(!usr.can_perform_action(parent_structure, NEED_DEXTERITY|FORBID_TELEKINESIS_REACH))
 			return FALSE
 		if(ishuman(usr))
 			if(budget > 0)

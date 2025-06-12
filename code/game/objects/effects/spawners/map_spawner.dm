@@ -124,244 +124,88 @@
 /obj/effect/spawner/map_spawner/loot
 	icon_state = "lootblank"
 	probby = 100
+	var/datum/loot_table/loot_table_type
+
+/obj/effect/spawner/map_spawner/loot/Initialize(mapload)
+	. = ..()
+	if(loot_table_type)
+		var/datum/loot_table/table = new loot_table_type()
+		// Spawn loot at this location without a specific looter
+		var/list/weighted_list = table.return_list()
+		var/spawn_count = rand(table.base_min, table.base_max)
+		for(var/i = 1 to spawn_count)
+			var/atom/spawn_path = pickweight(weighted_list)
+			new spawn_path(get_turf(src))
+		qdel(src)
 
 /obj/effect/spawner/map_spawner/loot/common
 	icon_state = "lootlow"
-	spawned = list(
-		/obj/item/coin/copper/pile = 15,
-		/obj/item/weapon/knife/hunting = 5,
-		/obj/item/weapon/knife/dagger = 8,
-		/obj/item/weapon/sword/iron = 3,
-		/obj/item/weapon/axe/copper = 10,
-		/obj/item/weapon/mace = 5,
-		/obj/item/clothing/armor/leather = 10,
-		/obj/item/clothing/gloves/chain/iron = 3,
-		/obj/item/clothing/neck/coif = 3,
-		/obj/item/natural/poo = 5
-		)
+	loot_table_type = /datum/loot_table/common
 
 /obj/effect/spawner/map_spawner/loot/medium
 	icon_state = "lootmed"
-	spawned = list(
-		/obj/item/coin/silver/pile = 15,
-		/obj/item/weapon/knife/dagger/steel = 4,
-		/obj/item/weapon/axe/iron = 10,
-		/obj/item/ammo_holder/quiver/arrows = 5,
-		/obj/item/weapon/sword/short = 5,
-		/obj/item/clothing/armor/cuirass/iron = 10,
-		/obj/item/clothing/armor/gambeson = 10,
-		/obj/item/clothing/gloves/chain/iron = 3,
-		/obj/item/clothing/neck/gorget = 3,
-		/obj/item/statue/gold/loot = 1
-		)
+	loot_table_type = /datum/loot_table/medium
 
 /obj/effect/spawner/map_spawner/loot/rare
 	icon_state = "loothigh"
-	spawned = list(
-		/obj/item/coin/gold/pile = 15,
-		/obj/item/weapon/knife/dagger/silver = 5,
-		/obj/item/weapon/sword/long/greatsword = 3,
-		/obj/item/weapon/axe/iron = 10,
-		/obj/item/ingot/gold = 5,
-		/obj/item/clothing/head/crown/circlet = 2,
-		/obj/item/clothing/armor/medium/scale = 8,
-		/obj/item/clothing/armor/plate = 8,
-		/obj/item/clothing/gloves/chain = 3,
-		/obj/item/clothing/neck/bevor = 3,
-		/obj/item/clothing/pants/chainlegs = 5,
-		/obj/item/clothing/pants/chainlegs/kilt = 5
-		)
+	loot_table_type = /datum/loot_table/rare
 
 /obj/effect/spawner/map_spawner/loot/magic
 	icon_state = "lootmagic"
-	spawned = list(
-		/obj/item/clothing/ring/active/nomag = 20,
-		/obj/item/clothing/ring/gold/protection = 10,
-		/obj/item/clothing/ring/gold/ravox = 6,
-		/obj/item/clothing/ring/silver/calm = 20,
-		/obj/item/clothing/ring/silver/noc = 6,
-		/obj/item/clothing/head/crown/circlet/vision = 3,
-		/obj/item/clothing/head/crown/circlet/sleepless = 3,
-		/obj/item/clothing/head/crown/circlet/stink = 5,
-		/obj/item/clothing/neck/talkstone = 10
-		)
+	loot_table_type = /datum/loot_table/magic
 
 /obj/effect/spawner/map_spawner/loot/coin
 	icon_state = "lootcoin"
-	lootmax = 3
-	spawned = list(
-		/obj/item/coin/gold/pile = 5,
-		/obj/item/coin/gold = 10,
-		/obj/item/coin/silver/pile = 20,
-		/obj/item/coin/silver = 25,
-		/obj/item/coin/copper/pile = 30,
-		/obj/item/coin/copper = 35
-		)
+	loot_table_type = /datum/loot_table/coin
 
 /obj/effect/spawner/map_spawner/loot/coin/low
 	icon_state = "lootcoinlow"
-	spawned = list(
-		/obj/item/coin/copper/pile = 75,
-		/obj/item/coin/copper = 25
-		)
+	loot_table_type = /datum/loot_table/coin/low
 
 /obj/effect/spawner/map_spawner/loot/coin/med
 	icon_state = "lootcoinmed"
-	spawned = list(
-		/obj/item/coin/silver/pile = 75,
-		/obj/item/coin/silver = 25
-		)
+	loot_table_type = /datum/loot_table/coin/med
 
 /obj/effect/spawner/map_spawner/loot/coin/high
 	icon_state = "lootcoinhigh"
-	spawned = list(
-		/obj/item/coin/gold/pile = 75,
-		/obj/item/coin/gold = 25
-		)
+	loot_table_type = /datum/loot_table/coin/high
 
 /obj/effect/spawner/map_spawner/loot/coin/absurd
 	icon_state = "lootcoinabsurd"
-	spawned = list(
-		/obj/item/coin/gold/pile = 50,
-		/obj/item/gem = 50
-		)
+	loot_table_type = /datum/loot_table/coin/absurd
 
 /obj/effect/spawner/map_spawner/loot/weapon
 	icon_state = "lootweapon"
-	spawned = list(
-		/obj/item/weapon/mace/copperbludgeon = 15,
-		/obj/item/weapon/axe/copper = 15,
-		/obj/item/weapon/knife/copper = 15,
-		/obj/item/weapon/sword/long/rider/copper = 15,
-		/obj/item/weapon/sword/coppermesser = 15,
-		/obj/item/weapon/polearm/spear/stone/copper = 15,
-		/obj/item/weapon/axe/iron = 10,
-		/obj/item/weapon/polearm/halberd/bardiche = 10,
-		/obj/item/weapon/sword/rapier/ironestoc = 10,
-		/obj/item/weapon/polearm/eaglebeak/lucerne = 10,
-		/obj/item/weapon/mace = 10,
-		/obj/item/weapon/sword/scimitar/messer = 10,
-		/obj/item/weapon/flail/militia = 10,
-		/obj/item/weapon/sword/short = 10,
-		/obj/item/weapon/sword/long/greatsword/zwei = 10,
-		/obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve = 10,
-		/obj/item/gun/ballistic/revolver/grenadelauncher/bow = 10,
-		/obj/item/gun/ballistic/revolver/grenadelauncher/bow/long = 5,
-		/obj/item/gun/ballistic/revolver/grenadelauncher/crossbow = 5,
-		/obj/item/weapon/axe/steel = 5,
-		/obj/item/weapon/sword/long/greatsword = 5,
-		/obj/item/weapon/sword/rapier = 5,
-		/obj/item/weapon/sword/sabre = 5,
-		/obj/item/weapon/mace/goden/steel = 5,
-		/obj/item/weapon/mace/steel = 5,
-		/obj/item/weapon/hammer/sledgehammer/war = 5
-		)
+	loot_table_type = /datum/loot_table/weapon
 
 /obj/effect/spawner/map_spawner/loot/armor
 	icon_state = "lootarmor"
-	spawned = list(
-		/obj/item/clothing/face/facemask/copper = 15,
-		/obj/item/clothing/wrists/bracers/copper = 15,
-		/obj/item/clothing/head/helmet/coppercap = 15,
-		/obj/item/clothing/armor/cuirass/copperchest = 15,
-		/obj/item/clothing/pants/chainlegs/iron = 10,
-		/obj/item/clothing/pants/chainlegs/kilt/iron = 10,
-		/obj/item/clothing/armor/chainmail/iron = 10,
-		/obj/item/clothing/armor/plate/iron = 10,
-		/obj/item/clothing/head/helmet/heavy/ironplate = 10,
-		/obj/item/clothing/armor/leather/splint = 10,
-		/obj/item/clothing/armor/brigandine = 5,
-		/obj/item/clothing/head/helmet/heavy/frog = 5,
-		/obj/item/clothing/head/helmet/visored/hounskull = 5,
-		/obj/item/clothing/face/facemask/steel = 5,
-		/obj/item/clothing/armor/plate/full = 5,
-		/obj/item/clothing/neck/chaincoif = 5
-		)
+	loot_table_type = /datum/loot_table/armor
 
 /obj/effect/spawner/map_spawner/loot/food
 	icon_state = "lootfood"
-	spawned = list(
-		/obj/item/reagent_containers/food/snacks/bread = 10,
-		/obj/item/reagent_containers/food/snacks/bread/raisin = 10,
-		/obj/item/reagent_containers/food/snacks/bun = 10,
-		/obj/item/reagent_containers/food/snacks/cheesebun = 10,
-		/obj/item/reagent_containers/food/snacks/frybread = 10,
-		/obj/item/reagent_containers/food/snacks/cooked/frysteak = 10,
-		/obj/item/reagent_containers/food/snacks/cooked/egg = 10,
-		/obj/item/reagent_containers/food/snacks/cooked/frybird = 10,
-		/obj/item/reagent_containers/food/snacks/cooked/ham = 10,
-		/obj/item/reagent_containers/food/snacks/cooked/sausage = 10,
-		/obj/item/reagent_containers/food/snacks/produce/vegetable/potato/baked = 10,
-		/obj/item/reagent_containers/food/snacks/onion_fried = 10,
-		/obj/item/reagent_containers/food/snacks/raisins = 10,
-		/obj/item/reagent_containers/food/snacks/meat/salami = 10,
-		/obj/item/reagent_containers/food/snacks/hardtack = 10
-		)
+	loot_table_type = /datum/loot_table/food
 
 /obj/effect/spawner/map_spawner/loot/potion_vitals
 	icon_state = "lootpotion"
-	spawned = list(
-		/obj/item/reagent_containers/glass/bottle/healthpot = 10,
-		/obj/item/reagent_containers/glass/bottle/stronghealthpot = 5,
-		/obj/item/reagent_containers/glass/bottle/manapot = 10,
-		/obj/item/reagent_containers/glass/bottle/strongmanapot = 5,
-		/obj/item/reagent_containers/glass/bottle/stampot = 10,
-		/obj/item/reagent_containers/glass/bottle/strongstampot = 5
-	)
+	loot_table_type = /datum/loot_table/potion_vitals
 
 /obj/effect/spawner/map_spawner/loot/potion_poisons
 	icon_state = "lootpoison"
-	spawned = list(
-		/obj/item/reagent_containers/glass/bottle/poison = 10,
-		/obj/item/reagent_containers/glass/bottle/strongpoison = 5,
-		/obj/item/reagent_containers/glass/bottle/stampoison = 10,
-		/obj/item/reagent_containers/glass/bottle/strongstampoison = 5,
-		/obj/item/reagent_containers/glass/bottle/stampot = 10,
-		/obj/item/reagent_containers/glass/bottle/strongstampot = 5
-	)
+	loot_table_type = /datum/loot_table/potion_poisons
 
 /obj/effect/spawner/map_spawner/loot/potion_ingredient
 	icon_state = "lootpotioning"
-	var/static/list/all_potion_ings = list()
-	spawned = list()
-
-/obj/effect/spawner/map_spawner/loot/potion_ingredient/Initialize(mapload)
-	if(!all_potion_ings.len)
-		all_potion_ings = subtypesof(/obj/item/alch)
-	if(!spawned.len)
-		spawned = all_potion_ings.Copy()
-	return ..()
+	loot_table_type = /datum/loot_table/potion_ingredient
 
 /obj/effect/spawner/map_spawner/loot/potion_ingredient/herb
 	icon_state = "lootpotionherb"
-	spawned = list(
-		/obj/item/alch/atropa = 5,
-		/obj/item/alch/matricaria = 5,
-		/obj/item/alch/symphitum = 5,
-		/obj/item/alch/taraxacum = 5,
-		/obj/item/alch/euphrasia = 5,
-		/obj/item/alch/paris = 5,
-		/obj/item/alch/calendula = 5,
-		/obj/item/alch/mentha = 5,
-		/obj/item/alch/urtica = 5,
-		/obj/item/alch/salvia = 5,
-		/obj/item/alch/hypericum = 5,
-		/obj/item/alch/benedictus = 5,
-		/obj/item/alch/valeriana = 5,
-		/obj/item/alch/artemisia = 5,
-		/obj/item/alch/rosa = 5,
-	)
+	loot_table_type = /datum/loot_table/potion_ingredient/herb
+
 /obj/effect/spawner/map_spawner/loot/potion_stats
 	icon_state = "lootstatpot"
-	spawned = list(
-		/obj/item/reagent_containers/glass/bottle/vial/strpot = 10,
-		/obj/item/reagent_containers/glass/bottle/vial/perpot = 10,
-		/obj/item/reagent_containers/glass/bottle/vial/endpot = 10,
-		/obj/item/reagent_containers/glass/bottle/vial/conpot = 10,
-		/obj/item/reagent_containers/glass/bottle/vial/intpot = 10,
-		/obj/item/reagent_containers/glass/bottle/vial/spdpot = 10,
-		/obj/item/reagent_containers/glass/bottle/vial/lucpot = 10
-	)
+	loot_table_type = /datum/loot_table/potion_stats
+
 /obj/effect/spawner/map_spawner/sewerencounter
 	icon_state = "srat"
 	icon = 'icons/roguetown/mob/monster/rat.dmi'
