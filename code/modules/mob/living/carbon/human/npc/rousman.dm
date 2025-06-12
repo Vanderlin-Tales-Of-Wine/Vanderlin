@@ -347,9 +347,16 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 	var/try_activating_timer = 12 MINUTES  //Timer to recheck if this obj can activate
 
 /obj/structure/rousman_hole/Initialize()
-	GLOB.rousman_ambush_objects |= src
 	. = ..()
+	GLOB.rousman_ambush_objects |= src
 	pre_activate_check()
+
+/obj/structure/rousman_hole/Destroy()
+	GLOB.rousman_ambush_objects -= src
+	for(var/obj/structure/rousman_alarm/alarm as anything in all_alarms)
+		QDEL_NULL(alarm)
+	all_alarms.Cut()
+	return ..()
 
 /obj/structure/rousman_hole/proc/pre_activate_check()
 	if(activated == TRUE && already_ambushed == TRUE)
@@ -370,10 +377,6 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 		var/obj/structure/rousman_alarm/alarm = new /obj/structure/rousman_alarm(T)
 		all_alarms.Add(alarm)
 		alarm.hole = src
-
-/obj/structure/rousman_hole/Destroy()
-	GLOB.rousman_ambush_objects -= src
-	return ..()
 
 /obj/structure/rousman_hole/proc/ambush(mob/living/carbon/human/ambushed_mob)
 	if(already_ambushed == TRUE)
@@ -403,6 +406,10 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 	density = FALSE
 	anchored = TRUE
 	var/obj/structure/rousman_hole/hole
+
+/obj/structure/rousman_alarm/Destroy()
+	hole = null
+	return ..()
 
 /obj/structure/rousman_alarm/Crossed(atom/movable/AM)
 	. = ..()

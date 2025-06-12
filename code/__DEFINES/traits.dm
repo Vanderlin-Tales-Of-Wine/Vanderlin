@@ -344,7 +344,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_NOMETABOLISM		"no_metabolism"
 #define TRAIT_TOXIMMUNE			"toxin_immune"
 #define TRAIT_EASYDISMEMBER		"easy_dismember"
-#define TRAIT_LIMBATTACHMENT 	"limb_attach"
+#define TRAIT_LIMBATTACHMENT	"limb_attach"
 #define TRAIT_NOLIMBDISABLE		"no_limb_disable"
 #define TRAIT_EASYLIMBDISABLE	"easy_limb_disable"
 #define TRAIT_TOXINLOVER		"toxinlover"

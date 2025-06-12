@@ -15,6 +15,10 @@
 
 /obj/machinery/essence/Destroy()
 	clear_all_connections()
+	if(input_storage)
+		qdel(input_storage)
+	if(output_storage)
+		qdel(output_storage)
 	return ..()
 
 /obj/machinery/essence/proc/check_menu_validity(mob/user, obj/item/essence_vial/vial)

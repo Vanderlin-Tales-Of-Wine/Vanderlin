@@ -190,9 +190,10 @@
 	random_icon_states = list("flour", "smashed_plant")
 	beauty = -100
 	clean_type = CLEAN_TYPE_LIGHT_DECAL
+
 /obj/effect/decal/cleanable/dyes/Initialize()
+	. = ..()
 	color = pick(CLOTHING_ROYAL_TEAL, CLOTHING_BOG_GREEN, CLOTHING_ROYAL_PURPLE	)
-	..()
 
 //................	Debris decals (result from crafting or destroying items thats just visual)	............... //
 /obj/effect/decal/cleanable/debris

@@ -21,6 +21,11 @@
 	else if(GLOB.thaumic_research.has_research(/datum/thaumic_research_node/splitter_output_five))
 		max_items = 10
 
+/obj/machinery/essence/splitter/Destroy()
+	if(storage)
+		qdel(storage)
+	return ..()
+
 /obj/machinery/essence/splitter/process()
 	if(!connection_processing || !output_connections.len)
 		return

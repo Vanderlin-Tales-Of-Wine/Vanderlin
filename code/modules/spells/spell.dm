@@ -71,8 +71,8 @@
 GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for the badmin verb for now
 
 /obj/effect/proc_holder/Destroy()
-	if (action)
-		qdel(action)
+	if(action)
+		QDEL_NULL(action)
 	if(ranged_ability_user)
 		remove_ranged_ability()
 	return ..()
@@ -244,7 +244,6 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 
 	return releasedrain
 
-
 /obj/effect/proc_holder/spell/proc/cast_check(skipcharge = 0, mob/user = usr) //checks if the spell can be cast based on its settings; skipcharge is used when an additional cast_check is called inside the spell
 	if(user.mmb_intent && !skipcharge)
 		if(SEND_SIGNAL(user?.mmb_intent, COMSIG_SPELL_BEFORE_CAST))
@@ -362,11 +361,6 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 
 	still_recharging_msg = "<span class='warning'>[name] is still recharging!</span>"
 	charge_counter = recharge_time
-
-/obj/effect/proc_holder/spell/Destroy()
-	STOP_PROCESSING(SSfastprocess, src)
-	qdel(action)
-	return ..()
 
 /obj/effect/proc_holder/spell/Click()
 	if(cast_check())

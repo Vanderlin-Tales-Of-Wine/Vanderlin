@@ -82,8 +82,6 @@ GLOBAL_LIST_INIT(turfs_without_ground, typecacheof(list(
 //more carbon mobs
 #define ismonkey(A) (istype(A, /mob/living/carbon/monkey))
 
-#define istruedevil(A) (istype(A, /mob/living/carbon/true_devil))
-
 //Simple animals
 #define isanimal(A) (istype(A, /mob/living/simple_animal))
 

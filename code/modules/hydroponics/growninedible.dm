@@ -15,6 +15,11 @@
 	pixel_x = rand(-5, 5)
 	pixel_y = rand(-5, 5)
 
+/obj/item/grown/Destroy()
+	if(seed)
+		QDEL_NULL(seed)
+	return ..()
+
 /obj/item/grown/proc/add_juice()
 	if(reagents)
 		return 1

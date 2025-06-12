@@ -14,22 +14,30 @@ GLOBAL_LIST_EMPTY(street_lamp_lights)
 	pixel_y = -12
 
 /obj/structure/astratanshard/Initialize()
+	. = ..()
 	the_hum = new /datum/looping_sound/astratanshard_hum(src,FALSE)
 	the_hum.start()
-	. = ..()
 	set_light(5, 4, 30, l_color = LIGHT_COLOR_YELLOW)
+
+/obj/structure/astratanshard/Destroy()
+	if(broken_containment)
+		Unregall()
+	for(var/obj/machinery/light/fueledstreet/lamp as anything in GLOB.street_lamp_lights)
+		lamp.lights_out(TRUE)
+	if(the_hum)
+		QDEL_NULL(the_hum)
+	return ..()
 
 /obj/structure/astratanshard/deconstruct(disassembled = FALSE)
 	if(!broken_containment)
 		broken_containment = TRUE
-		the_hum.stop(FALSE)
 		QDEL_NULL(the_hum)
-		the_hum = new /datum/looping_sound/astratanshard_broken(src,FALSE)
+		the_hum = new /datum/looping_sound/astratanshard_broken(src, FALSE)
 		the_hum.start()
-		RegisterSignal(src,COMSIG_ATOM_ATTACK_HAND,PROC_REF(on_touched))
-		RegisterSignal(src,COMSIG_ATOM_ATTACK_PAW,PROC_REF(on_touched))
-		RegisterSignal(src,COMSIG_ATOM_WAS_ATTACKED,PROC_REF(on_whacked))
-		RegisterSignal(src,COMSIG_ATOM_BUMPED,PROC_REF(on_bump))
+		RegisterSignal(src, COMSIG_ATOM_ATTACK_HAND,PROC_REF(on_touched))
+		RegisterSignal(src, COMSIG_ATOM_ATTACK_PAW,PROC_REF(on_touched))
+		RegisterSignal(src, COMSIG_ATOM_WAS_ATTACKED,PROC_REF(on_whacked))
+		RegisterSignal(src, COMSIG_ATOM_BUMPED,PROC_REF(on_bump))
 		icon_state = "clockcrystal_broken"
 		resistance_flags |= INDESTRUCTIBLE
 		return FALSE
@@ -38,18 +46,10 @@ GLOBAL_LIST_EMPTY(street_lamp_lights)
 		. = ..()
 
 /obj/structure/astratanshard/proc/Unregall()
-	UnregisterSignal(src,COMSIG_ATOM_ATTACK_HAND)
-	UnregisterSignal(src,COMSIG_ATOM_ATTACK_PAW)
-	UnregisterSignal(src,COMSIG_ATOM_WAS_ATTACKED)
-	UnregisterSignal(src,COMSIG_ATOM_BUMPED)
-
-/obj/structure/astratanshard/Destroy()
-	if(broken_containment)
-		Unregall()
-	for(var/obj/machinery/light/fueledstreet/lamp as anything in GLOB.street_lamp_lights)
-		lamp.lights_out(TRUE)
-	. = ..()
-
+	UnregisterSignal(src, COMSIG_ATOM_ATTACK_HAND)
+	UnregisterSignal(src, COMSIG_ATOM_ATTACK_PAW)
+	UnregisterSignal(src, COMSIG_ATOM_WAS_ATTACKED)
+	UnregisterSignal(src, COMSIG_ATOM_BUMPED)
 
 /obj/structure/astratanshard/proc/on_bump(atom/shard,atom/movable/movie)
 	SIGNAL_HANDLER

@@ -11,18 +11,23 @@
 	var/list/essence_contents = list() // essence_type = amount
 	var/max_essence_types = 6
 	var/brewing = 0
-	var/mob/living/carbon/human/lastuser
+	var/datum/weakref/lastuser
 	fueluse = 20 MINUTES
 	crossfire = FALSE
 
 /obj/machinery/light/fueled/cauldron/Initialize()
 	create_reagents(500, DRAINABLE | AMOUNT_VISIBLE | REFILLABLE)
-	. = ..()
+	return ..()
+
+/obj/machinery/light/fueled/cauldron/Destroy()
+	chem_splash(loc, 2, list(reagents))
+	playsound(loc, pick('sound/foley/water_land1.ogg','sound/foley/water_land2.ogg', 'sound/foley/water_land3.ogg'), 100, FALSE)
+	return ..()
 
 /obj/machinery/light/fueled/cauldron/update_icon()
 	..()
 	cut_overlays()
-	if(essence_contents.len > 0 || reagents.total_volume > 0)
+	if(essence_contents.len > 0 || reagents?.total_volume > 0)
 		if(!brewing)
 			var/mutable_appearance/filling = mutable_appearance('icons/roguetown/misc/alchemy.dmi', "cauldron_full")
 			filling.color = calculate_mixture_color()
@@ -31,7 +36,10 @@
 			var/mutable_appearance/filling = mutable_appearance('icons/roguetown/misc/alchemy.dmi', "cauldron_boiling")
 			filling.color = calculate_mixture_color()
 			add_overlay(filling)
-	return
+
+/obj/machinery/light/fueled/cauldron/burn_out()
+	brewing = 0
+	return ..()
 
 /obj/machinery/light/fueled/cauldron/proc/calculate_mixture_color()
 	if(essence_contents.len == 0)
@@ -65,34 +73,32 @@
 	return rgb(r, g, b)
 
 /obj/machinery/light/fueled/cauldron/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/essence_vial))
-		var/obj/item/essence_vial/vial = I
-		if(!vial.contained_essence || vial.essence_amount <= 0)
-			to_chat(user, span_warning("The vial is empty."))
-			return
-
-		if(essence_contents.len >= max_essence_types)
-			to_chat(user, span_warning("The cauldron cannot hold any more essence types."))
-			return
-
-		var/essence_type = vial.contained_essence.type
-		if(essence_contents[essence_type])
-			essence_contents[essence_type] += vial.essence_amount
-		else
-			essence_contents[essence_type] = vial.essence_amount
-
-		to_chat(user, span_info("You pour the [vial.contained_essence.name] into the cauldron."))
-		vial.contained_essence = null
-		vial.essence_amount = 0
-		vial.update_overlays()
-
-		brewing = 0 // Reset brewing when new ingredients added
-		lastuser = user
-		update_icon()
-		playsound(src, "bubbles", 100, TRUE)
+	if(!istype(I, /obj/item/essence_vial))
+		return ..()
+	var/obj/item/essence_vial/vial = I
+	if(!vial.contained_essence || vial.essence_amount <= 0)
+		to_chat(user, span_warning("The vial is empty."))
 		return
 
-	..()
+	if(essence_contents.len >= max_essence_types)
+		to_chat(user, span_warning("The cauldron cannot hold any more essence types."))
+		return
+
+	var/essence_type = vial.contained_essence.type
+	if(essence_contents[essence_type])
+		essence_contents[essence_type] += vial.essence_amount
+	else
+		essence_contents[essence_type] = vial.essence_amount
+
+	to_chat(user, span_info("You pour the [vial.contained_essence.name] into the cauldron."))
+	vial.contained_essence = null
+	vial.essence_amount = 0
+	vial.update_overlays()
+
+	brewing = 0 // Reset brewing when new ingredients added
+	lastuser = WEAKREF(user)
+	update_icon()
+	playsound(src, "bubbles", 100, TRUE)
 
 /obj/machinery/light/fueled/cauldron/process()
 	..()
@@ -137,11 +143,12 @@
 
 					// XP and stats (scaled by batch count)
 					if(lastuser)
-						record_featured_stat(FEATURED_STATS_ALCHEMISTS, lastuser)
+						var/mob/living/L = lastuser.resolve()
+						record_featured_stat(FEATURED_STATS_ALCHEMISTS, L)
 						GLOB.vanderlin_round_stats[STATS_POTIONS_BREWED] += batch_count
-						var/boon = lastuser.get_learning_boon(/datum/skill/craft/alchemy)
-						var/amt2raise = lastuser.STAINT * 2 * batch_count // More XP for multiple batches
-						lastuser.adjust_experience(/datum/skill/craft/alchemy, amt2raise * boon, FALSE)
+						var/boon = L.get_learning_boon(/datum/skill/craft/alchemy)
+						var/amt2raise = L.STAINT * 2 * batch_count // More XP for multiple batches
+						L.adjust_experience(/datum/skill/craft/alchemy, amt2raise * boon, FALSE)
 
 					playsound(src, "bubbles", 100, TRUE)
 					playsound(src, 'sound/misc/smelter_fin.ogg', 30, FALSE)

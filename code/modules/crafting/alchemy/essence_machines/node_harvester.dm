@@ -19,6 +19,15 @@
 	storage.max_essence_types = 10
 	START_PROCESSING(SSobj, src)
 
+/obj/machinery/essence/harvester/Destroy()
+	STOP_PROCESSING(SSobj, src)
+	if(storage)
+		qdel(storage)
+	if(installed_node)
+		installed_node.forceMove(get_turf(src))
+	installed_node = null
+	return ..()
+
 /obj/machinery/essence/harvester/update_icon()
 	. = ..()
 	cut_overlays()
@@ -33,12 +42,6 @@
 		node_emissive.plane = EMISSIVE_PLANE
 		node_emissive.pixel_y = 12
 		overlays += node_emissive
-
-/obj/machinery/essence/harvester/Destroy()
-	STOP_PROCESSING(SSobj, src)
-	if(installed_node)
-		installed_node.forceMove(get_turf(src))
-	return ..()
 
 /obj/machinery/essence/harvester/return_storage()
 	return storage
