@@ -13,6 +13,7 @@
 		/datum/job/dungeoneer,
 		/datum/job/prisoner,
 		/datum/job/jailor,
+		/datum/job/weaponsmith,
 		/datum/job/gaffer_assistant //Never filled, prefer to just ditch it.
 	)
 	// Limited positions to ensure core roles are filled.
@@ -33,7 +34,6 @@
 		/datum/job/guardsman = 6,
 		/datum/job/adventurer = 8, //Not sure on this one but I generally want to cut down on the non-town roles.
 		/datum/job/mercenary = 3,
-		/datum/job/blacksmith = 1,
 		/datum/job/artificer = 2,
-		/datum/job/adept = 5
+		/datum/job/adept = 4
 	)
