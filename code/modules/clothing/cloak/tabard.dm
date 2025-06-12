@@ -197,7 +197,7 @@
 	detail_color = CLOTHING_WHITE
 
 /obj/item/clothing/cloak/tabard/adept/Initialize()
-	..()
+	. = ..()
 	update_appearance(UPDATE_ICON)
 
 /obj/item/clothing/cloak/tabard/adept/attack_right(mob/user)

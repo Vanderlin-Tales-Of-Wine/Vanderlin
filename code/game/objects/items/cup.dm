@@ -124,7 +124,6 @@
 		affecting.add_embedded_object(bottleshard)
 		if(prob(50))
 			affecting.try_crit(pickweight(list(BCLASS_STAB = 1, BCLASS_PICK = 2, BCLASS_CUT = 5)), 85) // Bottles are quite expensive and not very many people can make them- they're also made of glass...
-
 	qdel(src)
 
 /obj/item/reagent_containers/glass/cup/glassware/shotglass

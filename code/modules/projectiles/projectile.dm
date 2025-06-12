@@ -119,6 +119,19 @@
 	permutated = list()
 	decayedRange = range
 
+/obj/projectile/Destroy()
+	if(hitscan)
+		finalize_hitscan_and_generate_tracers()
+	dropped = null
+	firer = null
+	starting = null
+	original = null
+	fired_from = null
+	STOP_PROCESSING(SSprojectiles, src)
+	cleanup_beam_segments()
+	qdel(trajectory)
+	return ..()
+
 /obj/projectile/proc/Range()
 	range--
 	if(accuracy > 20) //so there is always a somewhat prevalent chance to hit the target, despite distance.
@@ -655,14 +668,6 @@
 			DISABLE_BITFIELD(movement_type, UNSTOPPABLE)
 		if(fired && can_hit_target(original, permutated, (newloc == original)))
 			Bump(original)
-
-/obj/projectile/Destroy()
-	if(hitscan)
-		finalize_hitscan_and_generate_tracers()
-	STOP_PROCESSING(SSprojectiles, src)
-	cleanup_beam_segments()
-	qdel(trajectory)
-	return ..()
 
 /obj/projectile/proc/cleanup_beam_segments()
 	QDEL_LIST_ASSOC(beam_segments)

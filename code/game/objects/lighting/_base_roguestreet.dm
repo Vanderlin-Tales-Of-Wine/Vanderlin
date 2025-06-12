@@ -15,7 +15,13 @@
 
 /obj/machinery/light/fueledstreet/Initialize()
 	. = ..()
-	GLOB.street_lamp_lights += src
+	lights_on()
+	GLOB.streetlamp_list += src
+
+/obj/machinery/light/fueledstreet/Destroy()
+	GLOB.streetlamp_list -= src
+	GLOB.fires_list -= src
+	return ..()
 
 /obj/machinery/light/fueledstreet/midlamp
 	icon = 'icons/roguetown/misc/64x64.dmi'
@@ -49,12 +55,6 @@
 		GLOB.fires_list |= src
 	else
 		GLOB.fires_list -= src
-
-/obj/machinery/light/fueledstreet/Initialize()
-	. = ..()
-	lights_on()
-	GLOB.streetlamp_list += src
-	update_appearance(UPDATE_ICON_STATE)
 
 //SLOP CODE :)))) it'll do but i'm not happy with where we are for the sprites for these.
 /obj/machinery/light/fueledstreet/blue

@@ -57,7 +57,7 @@
 	COOLDOWN_START(src, weather_act_cooldown, 10 SECONDS)
 
 /obj/item/reagent_containers/Destroy()
-	if(src in GLOB.weather_act_upon_list)
+	if(spillable)
 		GLOB.weather_act_upon_list -= src
 	return ..()
 

@@ -45,6 +45,15 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 		"Cancel",
 	)
 
+/obj/structure/fake_machine/titan/Initialize()
+	. = ..()
+	become_hearing_sensitive()
+	set_light(5)
+
+/obj/structure/fake_machine/titan/Destroy()
+	set_light(0)
+	return ..()
+
 /// Destroys the current crown with a cool message and returns a new crown.
 /obj/structure/fake_machine/titan/proc/recreate_crown()
 	if(SSroguemachine.crown)

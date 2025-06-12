@@ -280,6 +280,8 @@ have ways of interacting with a specific atom and control it. They posses a blac
 	set_ai_status(get_expected_ai_status())
 
 /datum/ai_controller/proc/can_move()
+	if(QDELETED(pawn))
+		return
 	var/mob/living/living_pawn = pawn
 	if(HAS_TRAIT(living_pawn, TRAIT_INCAPACITATED))
 		return FALSE

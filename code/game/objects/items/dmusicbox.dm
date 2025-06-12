@@ -38,6 +38,11 @@
 	soundloop = new(src, FALSE)
 	update_appearance(UPDATE_ICON_STATE)
 
+/obj/item/dmusicbox/Destroy()
+	if(soundloop)
+		QDEL_NULL(soundloop)
+	return ..()
+
 /obj/item/dmusicbox/update_icon_state()
 	. = ..()
 	if(playing)

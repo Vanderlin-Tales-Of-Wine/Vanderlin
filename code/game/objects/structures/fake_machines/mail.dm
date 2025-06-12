@@ -294,11 +294,15 @@
 	. = ..()
 	SSroguemachine.hermailermaster = src
 	update_appearance(UPDATE_ICON_STATE)
+	set_light(1, 1, 1, l_color = "#ff0d0d")
+
+/obj/item/roguemachine/mastermail/Destroy()
+	SSroguemachine.hermailermaster = null
+	return ..()
 
 /obj/item/roguemachine/mastermail/update_icon_state()
 	. = ..()
 	icon_state = "mailspecial[new_mail ? "-get" : ""]"
-	set_light(1, 1, 1, l_color = "#ff0d0d")
 
 /obj/item/roguemachine/mastermail/ComponentInitialize()
 	. = ..()

@@ -72,14 +72,18 @@
 	var/datum/looping_sound/boneloop/soundloop
 	var/datum/vine_controller/controller
 
+/obj/structure/flora/tree/evil
+	var/datum/looping_sound/boneloop/soundloop
+	var/datum/vine_controller/controller
+
 /obj/structure/flora/tree/evil/Initialize()
 	. = ..()
 	soundloop = new(src, FALSE)
 	soundloop.start()
 
 /obj/structure/flora/tree/evil/Destroy()
-	soundloop.stop(TRUE)
-	QDEL_NULL(soundloop)
+	if(soundloop)
+		QDEL_NULL(soundloop)
 	if(controller)
 		controller.endvines()
 		controller = null

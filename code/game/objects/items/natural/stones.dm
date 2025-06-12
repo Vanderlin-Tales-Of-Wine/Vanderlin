@@ -147,8 +147,8 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 	resistance_flags = FIRE_PROOF
 
 /obj/item/natural/stone/Initialize()
+	. = ..()
 	icon_state = "stone[rand(1,4)]"
-	..()
 	stone_lore()
 
 /obj/item/natural/stone/on_consume(mob/living/eater)
@@ -336,12 +336,11 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 
 
 /obj/item/natural/rock/Initialize()
+	. = ..()
 	if(!isnull(mineralType))
 		icon_state = "stonebigshiny[rand(1,2)]"
 	else
 		icon_state = "stonebig[rand(1,2)]"
-	..()
-
 
 /obj/item/natural/rock/Crossed(mob/living/L)
 	if(istype(L) && !L.throwing)

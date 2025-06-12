@@ -6,8 +6,8 @@
 	density = TRUE
 	anchored = TRUE
 	var/datum/essence_storage/storage
-	var/obj/item/infusion_target = null
 	var/datum/essence_infusion_recipe/current_recipe = null
+	var/datum/weakref/infusion_target = null
 	var/working = FALSE
 	var/progress = 0
 	var/completion_time = 100
@@ -20,6 +20,15 @@
 	storage.max_total_capacity = 500
 	storage.max_essence_types = 10
 
+/obj/machinery/essence/infuser/Destroy()
+	if(storage)
+		qdel(storage)
+	if(infusion_target)
+		var/obj/I = infusion_target.resolve()
+		I.forceMove(get_turf(src))
+	current_recipe = null
+	infusion_target = null
+	return ..()
 
 /obj/machinery/essence/infuser/is_essence_allowed(essence_type)
 	if(!current_recipe)
@@ -110,7 +119,7 @@
 
 	// Create result
 	new current_recipe.result_type(get_turf(src))
-	qdel(infusion_target)
+	qdel(infusion_target.resolve())
 	infusion_target = null
 	current_recipe = null
 	progress = 0
@@ -186,7 +195,7 @@
 		for(var/recipe_type in subtypesof(/datum/essence_infusion_recipe))
 			var/datum/essence_infusion_recipe/recipe = new recipe_type
 			if(istype(I, recipe.target_type))
-				infusion_target = I
+				infusion_target = WEAKREF(I)
 				current_recipe = recipe
 				user.transferItemToLoc(I, src)
 				to_chat(user, span_notice("You place [I] into the infuser. It requires:"))
@@ -229,7 +238,8 @@
 /obj/machinery/essence/infuser/proc/eject_target()
 	if(!infusion_target)
 		return
-	infusion_target.forceMove(get_turf(src))
+	var/obj/target = infusion_target.resolve()
+	target.forceMove(get_turf(src))
 	infusion_target = null
 	current_recipe = null
 	update_icon()
@@ -239,7 +249,7 @@
 	. += span_notice("Essence Storage: [storage.get_total_stored()]/[storage.max_total_capacity]")
 
 	if(infusion_target && current_recipe)
-		. += span_notice("Contains: [infusion_target]")
+		. += span_notice("Contains: [infusion_target.resolve()]")
 		. += span_notice("Recipe requirements:")
 		for(var/essence_type in current_recipe.required_essences)
 			var/amount_needed = current_recipe.required_essences[essence_type]

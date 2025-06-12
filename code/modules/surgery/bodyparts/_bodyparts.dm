@@ -104,6 +104,27 @@
 	var/chronic_pain_type = null
 	var/last_severe_injury_time = 0
 
+/obj/item/bodypart/Initialize()
+	. = ..()
+	if(can_be_disabled)
+		RegisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_PARALYSIS), PROC_REF(on_paralysis_trait_gain))
+		RegisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_PARALYSIS), PROC_REF(on_paralysis_trait_loss))
+	update_HP()
+
+/obj/item/bodypart/Destroy()
+	if(owner)
+		owner.remove_bodypart(src)
+		set_owner(null)
+	for(var/obj/item/I as anything in embedded_objects)
+		remove_embedded_object(I)
+	for(var/datum/wound/wound as anything in wounds)
+		qdel(wound)
+	if(bandage)
+		QDEL_NULL(bandage)
+	embedded_objects.Cut()
+	original_owner = null
+	return ..()
+
 /obj/item/bodypart/grabbedintents(mob/living/user, precise)
 	return list(/datum/intent/grab/move, /datum/intent/grab/twist, /datum/intent/grab/smash)
 
@@ -125,16 +146,6 @@
 	if(precise == BODY_ZONE_PRECISE_GROIN)
 		return list(/datum/intent/grab/move, /datum/intent/grab/twist, /datum/intent/grab/shove)
 	return list(/datum/intent/grab/move, /datum/intent/grab/shove)
-
-/obj/item/bodypart/Destroy()
-	if(owner)
-		owner.remove_bodypart(src)
-		set_owner(null)
-	if(bandage)
-		QDEL_NULL(bandage)
-	for(var/datum/wound/wound as anything in wounds)
-		qdel(wound)
-	return ..()
 
 /obj/item/bodypart/onbite(mob/living/carbon/human/user)
 	if((user.mind && user.mind.has_antag_datum(/datum/antagonist/zombie)) || istype(user.dna.species, /datum/species/werewolf))
@@ -248,13 +259,6 @@
 	. = ..()
 	if(lethal && owner && !(NOBLOOD in owner.dna?.species?.species_traits))
 		owner.death()
-
-/obj/item/bodypart/Initialize()
-	. = ..()
-	if(can_be_disabled)
-		RegisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_PARALYSIS), PROC_REF(on_paralysis_trait_gain))
-		RegisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_PARALYSIS), PROC_REF(on_paralysis_trait_loss))
-	update_HP()
 
 /obj/item/bodypart/proc/update_HP()
 	if(!is_organic_limb() || !owner)
