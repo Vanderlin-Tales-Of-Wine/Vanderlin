@@ -87,7 +87,7 @@ GLOBAL_LIST_INIT(attunement_colors, list(
 	pixel_x = -8
 	pixel_y = -8
 
-	var/mob/mob
+	var/datum/weakref/mob
 	var/original_color
 
 /obj/effect/spell_rune/Initialize(mapload, mob/target_mob, spell_color = "#FFFFFF")
@@ -100,9 +100,11 @@ GLOBAL_LIST_INIT(attunement_colors, list(
 	overlays += MA
 
 /obj/effect/spell_rune/Destroy(force)
-	. = ..()
-	mob.vis_contents -= src
-	mob = null
+	if(mob)
+		var/mob/holder = mob.resolve()
+		holder.vis_contents -= src
+		mob = null
+	return ..()
 
 /obj/effect/temp_visual/wave_up
 	icon = 'icons/effects/spell_cast.dmi'
@@ -114,7 +116,7 @@ GLOBAL_LIST_INIT(attunement_colors, list(
 	pixel_x = -8
 	pixel_y = -8
 	duration = 1.8 SECONDS
-	var/mob/mob
+	var/datum/weakref/mob
 
 /obj/effect/temp_visual/wave_up/Initialize(mapload, mob/target_mob)
 	. = ..()
@@ -124,9 +126,11 @@ GLOBAL_LIST_INIT(attunement_colors, list(
 	overlays += MA
 
 /obj/effect/temp_visual/wave_up/Destroy(force)
-	. = ..()
-	mob.vis_contents -= src
-	mob = null
+	if(mob)
+		var/mob/holder = mob.resolve()
+		holder.vis_contents -= src
+		mob = null
+	return ..()
 
 /obj/effect/temp_visual/particle_up
 	icon = 'icons/effects/spell_cast.dmi'
@@ -137,7 +141,7 @@ GLOBAL_LIST_INIT(attunement_colors, list(
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	pixel_y = -8
 	duration = 3.8 SECONDS
-	var/mob/mob
+	var/datum/weakref/mob
 
 /obj/effect/temp_visual/particle_up/Initialize(mapload, mob/target_mob)
 	. = ..()
@@ -147,9 +151,11 @@ GLOBAL_LIST_INIT(attunement_colors, list(
 	overlays += MA
 
 /obj/effect/temp_visual/particle_up/Destroy(force)
-	. = ..()
-	mob.vis_contents -= src
-	mob = null
+	if(mob)
+		var/mob/holder = mob.resolve()
+		holder.vis_contents -= src
+		mob = null
+	return ..()
 
 /proc/start_spell_visual_effects(mob/caster, obj/effect/proc_holder/spell/spell_obj)
 	if(!caster || !spell_obj)
@@ -158,7 +164,7 @@ GLOBAL_LIST_INIT(attunement_colors, list(
 	var/spell_color = get_blended_attunement_color(spell_obj.attunements)
 
 	// Create the following rune
-	var/obj/effect/spell_rune/rune = new(null, caster, spell_color)
+	var/obj/effect/spell_rune/rune = new(null, WEAKREF(caster), spell_color)
 	caster.vis_contents |= rune
 	caster.spell_rune = rune
 
@@ -169,7 +175,7 @@ GLOBAL_LIST_INIT(attunement_colors, list(
 	if(!caster)
 		return
 
-	var/obj/effect/temp_visual/particle_up/particles = new(null, caster)
+	var/obj/effect/temp_visual/particle_up/particles = new(null, WEAKREF(caster))
 	caster.vis_contents |= particles
 	particles.color = spell_color
 
@@ -189,7 +195,7 @@ GLOBAL_LIST_INIT(attunement_colors, list(
 		caster.spell_rune = null
 
 	// Create wave_up effect
-	var/obj/effect/temp_visual/wave_up/wave = new(null, caster)
+	var/obj/effect/temp_visual/wave_up/wave = new(null, WEAKREF(caster))
 	caster.vis_contents |= wave
 	wave.color = spell_color
 
