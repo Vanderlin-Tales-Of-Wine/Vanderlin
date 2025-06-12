@@ -20,6 +20,10 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	"Fire Servant"=/datum/charflaw/addiction/pyromaniac,
 	"Thief-Borne"=/datum/charflaw/addiction/kleptomaniac,
 	"Hunted"=/datum/charflaw/hunted,
+	"Chronic Migraines" = /datum/charflaw/chronic_migraine,
+	"Chronic Back Pain" = /datum/charflaw/chronic_back_pain,
+	"Old War Wound" = /datum/charflaw/old_war_wound,
+	"Chronic Arthritis" = /datum/charflaw/chronic_arthritis,
 	"Random Flaw or No Flaw"=/datum/charflaw/randflaw,
 	"Guaranteed No Flaw (3 TRI)"=/datum/charflaw/noflaw,))
 
@@ -560,3 +564,196 @@ GLOBAL_LIST_INIT(character_flaws, list(
 /datum/charflaw/pacifist/on_remove()
 	. = ..()
 	REMOVE_TRAIT(owner, TRAIT_PACIFISM, "[type]")
+
+/datum/charflaw/chronic_arthritis
+	name = "Chronic Arthritis"
+	desc = "Your joints ache constantly, causing periodic pain flares and reduced mobility."
+
+/datum/charflaw/chronic_arthritis/on_mob_creation(mob/user)
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		// Apply arthritis to random joints (hands, feet, arms, legs)
+		var/list/joint_parts = list()
+		for(var/obj/item/bodypart/BP in H.bodyparts)
+			if(BP.body_zone in list(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG))
+				joint_parts += BP
+
+		if(joint_parts.len)
+			var/affected_parts = min(rand(1, 3), joint_parts.len)
+			for(var/i = 1 to affected_parts)
+				var/obj/item/bodypart/BP = pick_n_take(joint_parts)
+				BP.chronic_pain = rand(30, 60)
+				BP.chronic_pain_type = CHRONIC_ARTHRITIS
+
+		to_chat(user, span_warning("Your joints feel stiff and painful - a reminder of your chronic arthritis."))
+
+/datum/charflaw/chronic_arthritis/flaw_on_life(mob/user)
+	if(!ishuman(user))
+		return
+
+	var/mob/living/carbon/human/H = user
+
+	// Periodic pain flares
+	if(prob(2))
+		var/list/arthritic_parts = list()
+		for(var/obj/item/bodypart/BP in H.bodyparts)
+			if(BP.chronic_pain_type == CHRONIC_ARTHRITIS)
+				arthritic_parts += BP
+
+		if(arthritic_parts.len)
+			var/obj/item/bodypart/affected = pick(arthritic_parts)
+			affected.lingering_pain += rand(15, 25)
+			var/pain_msg = pick("Your [affected.name] throbs with arthritic pain!",
+							   "A sharp ache shoots through your [affected.name]!",
+							   "Your [affected.name] feels stiff and painful!")
+			to_chat(H, span_warning(pain_msg))
+
+	// Weather sensitivity
+	if(prob(1) && H.loc)
+		if(SSParticleWeather.runningWeather && SSParticleWeather.runningWeather.can_weather(H))
+			for(var/obj/item/bodypart/BP in H.bodyparts)
+				if(BP.chronic_pain_type == CHRONIC_ARTHRITIS && prob(30))
+					BP.lingering_pain += rand(5, 10)
+					to_chat(H, span_warning("The weather makes your arthritis act up."))
+					break
+
+/datum/charflaw/old_war_wound
+	name = "Old War Wound"
+	desc = "An old injury from your past still haunts you, causing chronic pain and occasional flare-ups."
+
+/datum/charflaw/old_war_wound/on_mob_creation(mob/user)
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		// Pick a random major bodypart for the old wound
+		var/list/major_parts = list()
+		for(var/obj/item/bodypart/BP in H.bodyparts)
+			if(BP.body_zone in list(BODY_ZONE_CHEST, BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG))
+				major_parts += BP
+
+		if(major_parts.len)
+			var/obj/item/bodypart/wounded = pick(major_parts)
+			wounded.chronic_pain = rand(40, 70)
+			wounded.chronic_pain_type = pick(CHRONIC_OLD_FRACTURE, CHRONIC_SCAR_TISSUE, CHRONIC_NERVE_DAMAGE)
+			wounded.brute_dam += rand(3, 8) // Some permanent damage
+
+			var/wound_location = wounded.name
+			var/wound_desc = pick("shrapnel wound", "old arrow wound", "deep scar", "poorly healed fracture")
+			to_chat(user, span_warning("You feel the familiar ache of your old [wound_desc] in your [wound_location]."))
+
+/datum/charflaw/old_war_wound/flaw_on_life(mob/user)
+	if(!ishuman(user))
+		return
+
+	var/mob/living/carbon/human/H = user
+
+	// Stress-triggered pain flares
+	if(H.health < (H.maxHealth * 0.7) || H.get_stress_amount() > 10)
+		if(prob(3))
+			for(var/obj/item/bodypart/BP in H.bodyparts)
+				if(BP.chronic_pain > 30)
+					BP.lingering_pain += rand(20, 30)
+					to_chat(H, span_warning("Your old war wound flares up from the stress!"))
+					break
+
+	// Random phantom pain
+	if(prob(1.5))
+		for(var/obj/item/bodypart/BP in H.bodyparts)
+			if(BP.chronic_pain > 0)
+				BP.lingering_pain += rand(10, 20)
+				var/pain_type = pick("sharp", "throbbing", "burning", "aching")
+				to_chat(H, span_warning("A [pain_type] pain shoots through your old wound."))
+				break
+
+/datum/charflaw/chronic_migraine
+	name = "Chronic Migraines"
+	desc = "You suffer from frequent, debilitating headaches that can strike without warning."
+
+/datum/charflaw/chronic_migraine/on_mob_creation(mob/user)
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		// Apply chronic pain to head
+		for(var/obj/item/bodypart/BP in H.bodyparts)
+			if(BP.body_zone == BODY_ZONE_HEAD)
+				BP.chronic_pain = rand(35, 55)
+				BP.chronic_pain_type = CHRONIC_NERVE_DAMAGE
+				break
+
+		to_chat(user, span_warning("You feel the familiar pressure building behind your eyes."))
+
+/datum/charflaw/chronic_migraine/flaw_on_life(mob/user)
+	if(!ishuman(user))
+		return
+
+	var/mob/living/carbon/human/H = user
+
+	// Migraine attacks
+	if(prob(2))
+		for(var/obj/item/bodypart/BP in H.bodyparts)
+			if(BP.body_zone == BODY_ZONE_HEAD)
+				BP.lingering_pain += rand(25, 40)
+				break
+
+		// Severe migraine effects
+		if(prob(30)) // 30% chance of severe episode
+			H.blur_eyes(rand(3, 6))
+			to_chat(H, span_boldwarning("A severe migraine strikes! Your vision blurs and your head pounds!"))
+		else
+			to_chat(H, span_warning("A migraine headache begins to build."))
+
+	// Light sensitivity during migraines
+	if(prob(1))
+		var/obj/item/bodypart/head = null
+		for(var/obj/item/bodypart/BP in H.bodyparts)
+			if(BP.body_zone == BODY_ZONE_HEAD)
+				head = BP
+				break
+
+		if(head && head.lingering_pain > 20)
+			if(H.loc && H.loc.luminosity > 2)
+				head.lingering_pain += rand(5, 10)
+				to_chat(H, span_warning("The flickering flames make your migraine worse!"))
+
+/datum/charflaw/chronic_back_pain
+	name = "Chronic Back Pain"
+	desc = "Years of wear and tear have left you with persistent lower back pain that affects your mobility."
+
+/datum/charflaw/chronic_back_pain/on_mob_creation(mob/user)
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		// Apply chronic pain to chest/torso area
+		for(var/obj/item/bodypart/BP in H.bodyparts)
+			if(BP.body_zone == BODY_ZONE_CHEST)
+				BP.chronic_pain = rand(40, 65)
+				BP.chronic_pain_type = pick(CHRONIC_OLD_FRACTURE, CHRONIC_SCAR_TISSUE)
+				break
+
+		to_chat(user, span_warning("Your lower back aches with familiar, persistent pain."))
+
+/datum/charflaw/chronic_back_pain/flaw_on_life(mob/user)
+	if(!ishuman(user))
+		return
+
+	var/mob/living/carbon/human/H = user
+
+	// Movement-triggered pain
+	if(H.m_intent == MOVE_INTENT_RUN && prob(5))
+		for(var/obj/item/bodypart/BP in H.bodyparts)
+			if(BP.body_zone == BODY_ZONE_CHEST)
+				BP.lingering_pain += rand(15, 25)
+				to_chat(H, span_warning("Running aggravates your chronic back pain!"))
+				break
+
+	// Lifting/exertion pain
+	if(prob(2))
+		var/encumbrance = H.get_encumbrance()
+		if(encumbrance >= 0.5) // Moderate encumbrance threshold
+			for(var/obj/item/bodypart/BP in H.bodyparts)
+				if(BP.body_zone == BODY_ZONE_CHEST)
+					var/pain_amount = rand(8, 15)
+					if(encumbrance >= 0.8) // Heavy encumbrance
+						pain_amount = rand(15, 25)
+						to_chat(H, span_warning("Your heavy gear puts severe strain on your already painful back!"))
+					else
+						to_chat(H, span_warning("The weight of your equipment aggravates your chronic back pain!"))
+					BP.lingering_pain += pain_amount
+					break

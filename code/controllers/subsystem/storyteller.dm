@@ -1424,11 +1424,15 @@ SUBSYSTEM_DEF(gamemode)
 				GLOB.vanderlin_round_stats[STATS_GREEDY_PEOPLE]++
 			if(HAS_TRAIT_NOT_FROM(human_mob, TRAIT_PACIFISM, "hugbox"))
 				GLOB.vanderlin_round_stats[STATS_PACIFISTS]++
-			if(human_mob.family_datum)
-				var/family_role = human_mob.family_datum.family[human_mob]
-				if(family_role in list(FAMILY_FATHER, FAMILY_MOTHER))
+			if(human_mob.family_datum && human_mob.family_member_datum)
+				var/datum/family_member/member = human_mob.family_member_datum
+
+				// Check if they have children (making them a parent)
+				if(member.children.len > 0)
 					GLOB.vanderlin_round_stats[STATS_PARENTS]++
-				if(human_mob.IsWedded() || (family_role in list(FAMILY_FATHER, FAMILY_MOTHER)))
+
+				// Check if married or has children
+				if(human_mob.IsWedded() || member.children.len > 0)
 					GLOB.vanderlin_round_stats[STATS_MARRIED]++
 
 			// Races

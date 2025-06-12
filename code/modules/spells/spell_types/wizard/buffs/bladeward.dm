@@ -21,6 +21,7 @@
 
 	miracle = FALSE
 
+	overlay_state = "conjure_armor"
 	invocation = "Blades, be dulled!"
 	invocation_type = "shout" //can be none, whisper, emote and shout
 

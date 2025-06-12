@@ -32,6 +32,7 @@
 /obj/item/gem/on_consume(mob/living/eater)
 	. = ..()
 	if(attuned)
+		eater.mind?.adjust_spellpoints(0.5)
 		eater.mana_pool.adjust_attunement(attuned, 0.1)
 
 ///This is a switch incase anyone would like to add more...

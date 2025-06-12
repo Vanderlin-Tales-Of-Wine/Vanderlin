@@ -9,39 +9,6 @@
     <script type="text/javascript" src="purify.min.js"></script>
     <script type="text/javascript" src="jquery.min.js"></script>
     <script type="text/javascript" src="json2.min.js"></script>
-    <style>
-       /* Styling for context menu with frosted glass effect */
-        #contextMenu {
-            display: none;
-            position: absolute;
-            background: rgba(82, 80, 80, 0.4); /* Semi-transparent background */
-            border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border */
-            padding: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Softer shadow for depth */
-            z-index: 1000;
-            width: 150px;
-            border-radius: 12px; /* Rounded corners */
-            backdrop-filter: blur(10px); /* Frosted glass effect */
-            -webkit-backdrop-filter: blur(10px); /* Support for WebKit browsers */
-        }
-
-        #contextMenu ul {
-            margin: 0;
-            padding: 0;
-            list-style-type: none;
-        }
-
-        #contextMenu li {
-            padding: 8px;
-            cursor: pointer;
-            border-radius: 8px; /* Rounded edges for items */
-        }
-
-        #contextMenu li:hover {
-            background-color: rgba(0, 0, 0, 0.1); /* Subtle hover effect */
-        }
-
-    </style>
 </head>
 <body>
     <div id="loading">
@@ -56,19 +23,46 @@
     <div id="messages">
     </div>
 
+    <div id="filterTabs">
+        <div class="filter-tab active" data-filter="all">All</div>
+        <button id="addTabBtn">+ Add Tab</button>
+    </div>
+
+    <div id="addTabForm">
+        <h3>Add Custom Filter Tab</h3>
+        <input type="text" id="tabName" placeholder="Tab name (e.g., 'Security')">
+        <input type="text" id="tabClasses" placeholder="CSS classes (comma-separated, e.g., 'security,secradio')">
+        <div>
+            <button class="save" onclick="saveCustomTab()">Save</button>
+            <button class="cancel" onclick="cancelAddTab()">Cancel</button>
+        </div>
+    </div>
+
     <div id="userBar" style="display: none;">
-        <!--		<div id="ping">
-                    <i class="fas fa-circle" id="pingDot"></i>
-                    <span class="ms" id="pingMs">--ms</span>
-                </div>-->
-        <!--		<div id="darkmodething">
-                    <a href="#" class="subCell toggle" id="darkmodetoggle" title="Darkmode"><i class="fas fa-adjust"></i></a>
-                </div>-->
                 <div id="audio">
                     <a href="#" class="subCell toggle" id="toggleAudio" title="Audio"><i class="fas fa-volume-up"></i></a>
                 </div>
+                <div id="websocket">
+                    <a href="#" class="subCell toggle" id="toggleWebsocket" title="WebSocket"><i class="fas fa-plug"></i></a>
+                </div>
                 <div id="options">
                     <a href="#" class="subCell toggle" id="toggleOptions" title="Options"><i class="fas fa-cog"></i></a>
+                </div>
+                <div class="sub" id="subWebsocket">
+                    <div class="websocket-settings">
+                        <div class="websocket-status disconnected" id="websocketStatus">Disconnected</div>
+
+                        <div class="websocket-server-group">
+                            <label for="websocketServer">WebSocket Server:</label>
+                            <input type="text" id="websocketServer" placeholder="localhost:1234" value="localhost:1234">
+                        </div>
+
+                        <div class="websocket-controls">
+                            <button id="connectWebsocket" class="primary">Connect</button>
+                            <button id="disconnectWebsocket">Disconnect</button>
+                            <button id="reconnectWebsocket">Reconnect</button>
+                        </div>
+                    </div>
                 </div>
                 <div class="sub" id="subOptions">
                     <a href="#" class="subCell decreaseFont topCell" id="decreaseFont"><span>Decrease font size</span> <i class="fas fa-font"></i></a>
@@ -84,97 +78,16 @@
                 </div>
             </div>
 
-    <!-- Context menu -->
     <div id="contextMenu">
         <ul>
         </ul>
     </div>
 
     <div id="userBar" style="display: none;">
-        <!-- Your user bar content here -->
     </div>
 
     <script type="text/javascript" src="errorHandler.js"></script>
     <script type="text/javascript" src="browserOutput.js"></script>
-
-	<script type="text/javascript">
-        $contextMenu = $('#contextMenu');
-
-		$(document).ready(function() {
-            // Define current user permissions dynamically (for testing purposes, you can replace this later)
-            // Catch right-click on messages
-            $('#messages').on('contextmenu', '.say', function(e) {
-                e.preventDefault(); // Prevent the default browser context menu
-
-
-                var messageElement = $(this);
-
-				var options = JSON.parse(messageElement.attr('data-options'));
-				var currentUserPermissions = JSON.parse(messageElement.attr('visible-flags')); // Get options for this message
-                var target = messageElement.attr('target-ref');
-
-                // Clear any existing context menu items
-                $('#contextMenu ul').empty();
-
-                // Loop through options and check if the user has permission for each
-                options.forEach(function(option) {
-                     // Normalize option and currentUserPermissions for exact comparison
-					var normalizedOption = option.trim().toLowerCase();
-					console.log('Normalized option:', normalizedOption);
-
-					var hasPermission = currentUserPermissions.some(function(permission) {
-						return permission.trim().toLowerCase() === normalizedOption;
-					});
-					if (hasPermission) {
-                        var listItem = $('<li>', {
-                            text: option
-                        }).on('click', function() {
-                            // Execute the action related to the option (assuming runByond is a valid function)
-                            runByond('?_src_=chat&admin_command=' + option + '&target=' + target);
-                            $('#contextMenu').hide();  // Close context menu after action
-                        });
-                        $('#contextMenu ul').append(listItem);
-                    }
-                });
-
-                 // Calculate the available space from the cursor to the bottom of the screen
-        var windowHeight = $(window).height();
-        var menuHeight = $('#contextMenu').outerHeight();
-        var mouseY = e.pageY;
-        var spaceBelow = windowHeight - mouseY;
-
-        // Determine if the menu should go upwards
-        if (spaceBelow < menuHeight) {
-            // If there isn’t enough space below, adjust the position to show the menu upwards
-            $('#contextMenu').css({
-                top: mouseY - menuHeight - 5 + 'px',  // Adjust the position upwards
-                left: e.pageX + 5 + 'px'  // Keep horizontal position as before
-            });
-        } else {
-            // If there is enough space, position the menu normally
-            $('#contextMenu').css({
-                top: mouseY + 5 + 'px',  // Position below the cursor
-                left: e.pageX + 5 + 'px'  // Keep horizontal position as before
-            });
-        }
-
-        // Show the context menu
-        $('#contextMenu').show();
-    });
-
-            // Hide the context menu if clicked outside of it
-            $(document).on('click', function(e) {
-                if (!$(e.target).closest('#contextMenu').length && !$(e.target).closest('#messages').length) {
-                    $('#contextMenu').hide();  // Hide the context menu
-                }
-            });
-
-            // Prevent the context menu from closing when clicking on the context menu itself
-            $('#contextMenu').on('mousedown', function(e) {
-                e.stopPropagation();
-            });
-        });
-	</script>
 
 
 </body>

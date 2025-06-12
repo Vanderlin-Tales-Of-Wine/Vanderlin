@@ -160,7 +160,7 @@ All foods are distributed among various categories. Use common sense.
 				// Minimum 0.2x speed (cold slows but doesn't completely stop rot)
 
 		var/obj/structure/fake_machine/vendor = locate(/obj/structure/fake_machine/vendor) in get_turf(src)
-		if(!istype(loc, /obj/item/storage/backpack/backpack/artibackpack))
+		if(!istype(loc, /obj/item/storage/backpack/backpack/artibackpack) || !istype(loc, /obj/structure/closet/crate/chest/magical))
 			var/obj/structure/table/located = locate(/obj/structure/table) in loc
 			if(located || vendor || chest)
 				warming -= 4 * temp_modifier

@@ -79,6 +79,7 @@
 	worn_y_dimension = 64
 	bloody_icon = 'icons/effects/blood64x64.dmi'
 	bloody_icon_state = "helmetblood_big"
+	body_parts_covered = null
 
 	prevent_crits =  MINOR_CRITICALS
 

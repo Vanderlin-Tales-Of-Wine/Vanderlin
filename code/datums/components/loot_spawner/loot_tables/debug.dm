@@ -6,6 +6,7 @@
 	AddComponent(/datum/component/loot_spawner, /datum/loot_table/debug, 100, 100)
 
 /datum/loot_table/debug
+	name = "testing table"
 	loot_table = list(
 		STATKEY_LCK = list(
 			/obj/item/coin/gold = 5,

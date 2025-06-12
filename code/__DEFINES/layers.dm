@@ -15,9 +15,10 @@
 #define WEATHER_RENDER_TARGET "*WEATHER_OVERLAY_PLANE"
 
 #define OPENSPACE_LAYER 17 //Openspace layer over all
-#define OPENSPACE_PLANE -11 //Openspace plane below all turfs
-#define OPENSPACE_BACKDROP_PLANE -10
+#define OPENSPACE_PLANE -12 //Openspace plane below all turfs
+#define OPENSPACE_BACKDROP_PLANE -11
 
+#define WALL_PLANE -10
 #define FLOOR_PLANE -9
 #define REFLECTION_PLANE -8
 
