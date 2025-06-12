@@ -648,12 +648,29 @@
 			if(istype(ranged_ability, /obj/effect/proc_holder/spell))
 				var/obj/effect/proc_holder/spell/ability = ranged_ability
 				if(!ability.miracle && ability.uses_mana)
-					var/obj/effect/proc_holder/spell/spell_obj = ranged_ability
-					start_spell_visual_effects(src, spell_obj)
+					start_spell_visual_effects(src, ability)
 					if(ability.spell_flag & SPELL_MANA)
-						mmb_intent.AddComponent(/datum/component/uses_mana/spell,CALLBACK(mmb_intent, TYPE_PROC_REF(/datum/intent, spell_cannot_activate)),CALLBACK(mmb_intent, TYPE_PROC_REF(/datum/intent, get_owner)),COMSIG_SPELL_BEFORE_CAST,null,COMSIG_SPELL_AFTER_CAST,CALLBACK(ranged_ability, TYPE_PROC_REF(/obj/effect/proc_holder, get_fatigue_drain)),ranged_ability.attunements)
+						mmb_intent.AddComponent(
+							/datum/component/uses_mana/spell,\
+							CALLBACK(mmb_intent, TYPE_PROC_REF(/datum/intent, spell_cannot_activate)),\
+							CALLBACK(mmb_intent, TYPE_PROC_REF(/datum/intent, get_master_mob)),\
+							COMSIG_SPELL_BEFORE_CAST,\
+							null,\
+							COMSIG_SPELL_AFTER_CAST,\
+							CALLBACK(ranged_ability, TYPE_PROC_REF(/obj/effect/proc_holder, get_fatigue_drain)),\
+							ranged_ability.attunements,\
+						)
 					else if(ability.spell_flag & SPELL_ESSENCE)
-						mmb_intent.AddComponent(/datum/component/uses_essence,CALLBACK(mmb_intent, TYPE_PROC_REF(/datum/intent, spell_cannot_activate)),CALLBACK(mmb_intent, TYPE_PROC_REF(/datum/intent, get_owner)),COMSIG_SPELL_BEFORE_CAST,COMSIG_SPELL_BEFORE_CAST,COMSIG_SPELL_AFTER_CAST,ability.cost,ranged_ability.attunements)
+						mmb_intent.AddComponent(
+							/datum/component/uses_essence,\
+							CALLBACK(mmb_intent, TYPE_PROC_REF(/datum/intent, spell_cannot_activate)),\
+							CALLBACK(mmb_intent, TYPE_PROC_REF(/datum/intent, get_master_mob)),\
+							COMSIG_SPELL_BEFORE_CAST,\
+							COMSIG_SPELL_BEFORE_CAST,\
+							COMSIG_SPELL_AFTER_CAST,\
+							ability.cost,\
+							ranged_ability.attunements,\
+						)
 
 	hud_used.quad_intents?.switch_intent(input)
 	hud_used.give_intent?.switch_intent(input)

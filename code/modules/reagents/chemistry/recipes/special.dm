@@ -1,16 +1,3 @@
-GLOBAL_LIST_INIT(food_reagents, build_reagents_to_food()) //reagentid = related food types
-
-/proc/build_reagents_to_food()
-	. = list()
-	for (var/type in subtypesof(/obj/item/reagent_containers/food))
-		var/obj/item/reagent_containers/food/item = new type()
-		for(var/r in item.list_reagents)
-			if (!.[r])
-				.[r] = list()
-			.[r] += type
-		qdel(item)
-
-
 #define RNGCHEM_INPUT "input"
 #define RNGCHEM_CATALYSTS "catalysts"
 #define RNGCHEM_OUTPUT "output"

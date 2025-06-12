@@ -42,20 +42,23 @@
  * should only be used in conjuction with things that have to progress client side, such as
  * animate() or sound()
  */
-#define TIMER_CLIENT_TIME		(1<<2)
+#define TIMER_CLIENT_TIME (1<<2)
 
 ///Timer can be stopped using deltimer()
-#define TIMER_STOPPABLE			(1<<3)
+#define TIMER_STOPPABLE (1<<3)
 
 ///prevents distinguishing identical timers with the wait variable
 ///
 ///To be used with TIMER_UNIQUE
-#define TIMER_NO_HASH_WAIT		(1<<4)
+#define TIMER_NO_HASH_WAIT (1<<4)
 
 ///Loops the timer repeatedly until qdeleted
 ///
 ///In most cases you want a subsystem instead, so don't use this unless you have a good reason
-#define TIMER_LOOP				(1<<5)
+#define TIMER_LOOP (1<<5)
+
+///Delete the timer on parent datum Destroy() and when deltimer'd
+#define TIMER_DELETE_ME (1<<6)
 
 ///Empty ID define
 #define TIMER_ID_NULL -1

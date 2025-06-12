@@ -69,7 +69,7 @@
 
 /obj/item/instrument/Destroy()
 	terminate_playing(loc)
-	qdel(soundloop)
+	QDEL_NULL(soundloop)
 	. = ..()
 
 /obj/item/instrument/process()

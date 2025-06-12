@@ -34,8 +34,11 @@
 				qdel(S)
 			else
 				S.be_replaced()
+	for(var/obj/effect/proc_holder/spell/S as anything in mob_spell_list)
+		QDEL_NULL(S)
+	mob_spell_list.Cut()
 	if(ranged_ability)
-		ranged_ability.remove_ranged_ability(src)
+		QDEL_NULL(ranged_ability)
 	if(buckled)
 		buckled.unbuckle_mob(src,force=1)
 
@@ -50,8 +53,9 @@
 		S.sharerDies(FALSE)
 		S.removeSoulsharer(src) //If a sharer is destroy()'d, they are simply removed
 	sharedSoullinks = null
+	if(craftingthing)
+		QDEL_NULL(craftingthing)
 	return ..()
-
 
 /mob/living/update_overlays()
 	. = ..()

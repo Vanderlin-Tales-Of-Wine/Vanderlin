@@ -19,6 +19,10 @@
 	storage.max_total_capacity = 1000
 	storage.max_essence_types = 1
 
+/obj/machinery/essence/test_tube/Destroy()
+	if(storage)
+		qdel(storage)
+	return ..()
 
 /obj/machinery/essence/test_tube/update_icon()
 	. = ..()

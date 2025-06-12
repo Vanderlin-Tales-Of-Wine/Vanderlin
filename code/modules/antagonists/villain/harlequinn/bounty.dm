@@ -32,6 +32,15 @@ GLOBAL_LIST_INIT(bounty_rep, list())  // ckey -> reputation score
 	populate_delivery_locations()
 	populate_contraband_packs()
 
+/obj/structure/bounty_board/Destroy()
+	LAZYREMOVE(GLOB.bounty_boards, src)
+	for(var/datum/bounty_contract/contract as anything in (active_contracts + completed_contracts))
+		qdel(contract)
+	active_contracts = null
+	completed_contracts = null
+	delivery_locations = null
+	return ..()
+
 /obj/structure/bounty_board/proc/check_harlequin_injection()
 	var/mammons_since_last = total_bounty_pool - last_harlequin_spawn
 	if(prob(mammons_since_last * 0.1))
@@ -1749,6 +1758,10 @@ GLOBAL_LIST_INIT(bounty_rep, list())  // ckey -> reputation score
 	LAZYADD(GLOB.bounty_locations, src)
 	if(!location_name || location_name == "Unknown Location")
 		location_name = name
+
+/obj/effect/landmark/bounty_location/Destroy()
+	LAZYREMOVE(GLOB.bounty_locations, src)
+	return ..()
 
 // Example locations - add these around your map
 /obj/effect/landmark/bounty_location/bathhouse
