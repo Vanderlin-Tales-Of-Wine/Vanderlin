@@ -658,8 +658,7 @@
 							COMSIG_SPELL_BEFORE_CAST,
 							null,
 							COMSIG_SPELL_AFTER_CAST,
-							CALLBACK(ranged_ability,
-							TYPE_PROC_REF(/obj/effect/proc_holder, get_fatigue_drain)),
+							CALLBACK(ranged_ability, TYPE_PROC_REF(/obj/effect/proc_holder, get_fatigue_drain)),
 							ranged_ability.attunements
 						)
 					else if(ability.spell_flag & SPELL_ESSENCE)

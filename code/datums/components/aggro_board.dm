@@ -26,10 +26,6 @@
 	living_mob.ai_controller.set_blackboard_key(BB_AGGRO_RANGE, aggro_range || default_aggro_range)
 	living_mob.ai_controller.set_blackboard_key(BB_AGGRO_MAINTAIN_RANGE, maintain_range || default_maintain_range)
 
-	// Set up decay timer
-	var/decay = decay_rate || default_decay_rate
-	decay_timer = addtimer(CALLBACK(src, PROC_REF(decay_aggro), decay), decay_timer_interval SECONDS, TIMER_LOOP | TIMER_STOPPABLE | TIMER_DELETE_ME)
-
 	START_PROCESSING(SSaggro, src)
 	// Register signals
 	RegisterSignal(parent, COMSIG_ATOM_WAS_ATTACKED, PROC_REF(on_attacked))
