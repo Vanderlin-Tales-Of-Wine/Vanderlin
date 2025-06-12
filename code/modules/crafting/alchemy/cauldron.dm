@@ -39,6 +39,7 @@
 
 /obj/machinery/light/fueled/cauldron/burn_out()
 	brewing = 0
+	return ..()
 
 /obj/machinery/light/fueled/cauldron/proc/calculate_mixture_color()
 	if(essence_contents.len == 0)
