@@ -571,6 +571,9 @@
 		else if(new_turf && !old_turf)
 			SSspatial_grid.enter_cell(src, new_turf)
 
+	for(var/datum/light_source/L in light_sources) // Cycle through the light sources on this atom and tell them to update.
+		L.source_atom?.update_light()
+
 	return TRUE
 
 /atom/movable/Destroy(force)
@@ -743,7 +746,7 @@
 	else
 		. = TRUE
 		loc = null
-		if (oldloc)
+		if(oldloc)
 			var/area/old_area = get_area(oldloc)
 			oldloc.Exited(src, null)
 			if(old_area)
