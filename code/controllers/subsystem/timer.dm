@@ -2,9 +2,9 @@
 /// Controls how many buckets should be kept, each representing a tick. (1 minutes worth)
 #define BUCKET_LEN (world.fps*1*60)
 /// Helper for getting the correct bucket for a given timer
-#define BUCKET_POS(timer) (((round((timer.timeToRun - SStimer.head_offset) / world.tick_lag)+1) % BUCKET_LEN)||BUCKET_LEN)
+#define BUCKET_POS(timer) (((ROUND_UP((timer.timeToRun - SStimer.head_offset) / world.tick_lag)+1) % BUCKET_LEN)||BUCKET_LEN)
 /// Gets the maximum time at which timers will be invoked from buckets, used for deferring to secondary queue
-#define TIMER_MAX (world.time + TICKS2DS(min(BUCKET_LEN-(SStimer.practical_offset-DS2TICKS(world.time - SStimer.head_offset))-1, BUCKET_LEN-1)))
+#define TIMER_MAX(timer_ss) (timer_ss.head_offset + TICKS2DS(BUCKET_LEN + timer_ss.practical_offset - 1))
 /// Max float with integer precision
 #define TIMER_ID_MAX (2**24)
 
@@ -127,7 +127,9 @@ SUBSYSTEM_DEF(timer)
 		ctime_timer.spent = REALTIMEOFDAY
 		callBack.InvokeAsync()
 
-		if(ctime_timer.flags & TIMER_LOOP)
+		if(ctime_timer.flags & TIMER_LOOP) // Re-insert valid looping client timers into the client timer list.
+			if (QDELETED(ctime_timer)) // Don't re-insert timers deleted inside their callbacks.
+				continue
 			ctime_timer.spent = 0
 			ctime_timer.timeToRun = REALTIMEOFDAY + ctime_timer.wait
 			BINARY_INSERT(ctime_timer, clienttime_timers, datum/timedevent, timeToRun)
@@ -171,7 +173,9 @@ SUBSYSTEM_DEF(timer)
 				callBack.InvokeAsync()
 				last_invoke_tick = world.time
 
-			if (timer.flags & TIMER_LOOP) // Prepare looping timers to re-enter the queue
+			if (timer.flags & TIMER_LOOP) // Prepare valid looping timers to re-enter the queue
+				if(QDELETED(timer)) // If a loop is deleted in its callback, we need to avoid re-inserting it.
+					continue
 				timer.spent = 0
 				timer.timeToRun = world.time + timer.wait
 				timer.bucketJoin()
@@ -420,7 +424,7 @@ SUBSYSTEM_DEF(timer)
 	if(buckethead == src)
 		bucket_list[bucket_pos] = next
 		SStimer.bucket_count--
-	else if(timeToRun < TIMER_MAX)
+	else if(bucket_joined)
 		SStimer.bucket_count--
 	else
 		var/l = length(second_queue)
