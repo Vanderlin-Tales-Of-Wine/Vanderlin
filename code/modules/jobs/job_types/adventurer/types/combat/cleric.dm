@@ -23,10 +23,13 @@
 	shoes = /obj/item/clothing/shoes/boots/leather
 	belt = /obj/item/storage/belt/leather
 	backr = /obj/item/weapon/shield/heater
-	if(iself(H) || ishalfelf(H))
-		beltl = /obj/item/weapon/mace/elvenclub
+	if(ispath(H.patron?.type, /datum/patron/divine/abyssor))
+		backl = /obj/item/weapon/polearm/woodstaff/quarterstaff
 	else
-		beltl = /obj/item/weapon/mace
+		if(iself(H) || ishalfelf(H))
+			beltl = /obj/item/weapon/mace/elvenclub
+		else
+			beltl = /obj/item/weapon/mace
 	beltr = /obj/item/storage/belt/pouch/coins/poor
 
 	switch(H.patron?.type)
@@ -122,7 +125,6 @@
 
 
 	if(H.mind)
-		H.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
@@ -133,8 +135,13 @@
 		H.adjust_skillrank(/datum/skill/magic/holy, 1, TRUE)
 		H.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 		H.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE)
+		var/datum/skill/to_add = /datum/skill/combat/axesmaces
+		if(ispath(H.patron?.type, /datum/patron/divine/abyssor))
+			to_add = /datum/skill/combat/polearms
+			H.adjust_skillrank(/datum/skill/labor/fishing, 2, TRUE)
+		H.adjust_skillrank(to_add, 3, TRUE)
 		if(H.age == AGE_OLD)
-			H.adjust_skillrank(/datum/skill/combat/axesmaces, 1, TRUE)
+			H.adjust_skillrank(to_add, 1, TRUE)
 			H.adjust_skillrank(/datum/skill/magic/holy, 1, TRUE)
 		H.change_stat(STATKEY_STR, 1)
 		H.change_stat(STATKEY_INT, 1)
