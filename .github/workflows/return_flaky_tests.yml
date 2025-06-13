@@ -2,7 +2,7 @@
 
 on:
   workflow_run:
-    workflows: [CI Suite]
+    workflows: [BYOND Build]
     types:
     - completed
 
