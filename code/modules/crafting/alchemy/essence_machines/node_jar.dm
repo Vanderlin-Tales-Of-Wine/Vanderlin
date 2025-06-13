@@ -15,7 +15,7 @@
 /obj/item/essence_node_jar/Initialize()
 	. = ..()
 	last_drain = world.time
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 	START_PROCESSING(SSobj, src)
 
 /obj/item/essence_node_jar/Destroy()
@@ -37,18 +37,19 @@
 				to_chat(holder, span_notice("The contained essence node creates a slight burden."))
 		last_drain = world.time
 
-/obj/item/essence_node_jar/update_icon()
-	cut_overlays()
-	if(contained_node)
-		var/datum/thaumaturgical_essence/essence = contained_node.essence_type
-		var/mutable_appearance/node = mutable_appearance(contained_node.icon, contained_node.icon_state)
-		node.color = initial(essence.color)
-		node.layer = layer - 0.1
-		overlays += node
+/obj/item/essence_node_jar/update_overlays()
+	. = ..()
+	if(!contained_node)
+		return
+	var/datum/thaumaturgical_essence/essence = contained_node.essence_type
+	if(!essence)
+		return
+	var/mutable_appearance/node = mutable_appearance(contained_node.icon, contained_node.icon_state, layer - 0.1)
+	node.color = initial(essence.color)
+	. += node
 
-		var/mutable_appearance/node_emissive = mutable_appearance(contained_node.icon, contained_node.icon_state)
-		node_emissive.plane = EMISSIVE_PLANE
-		overlays += node_emissive
+	node.plane = EMISSIVE_PLANE
+	. += node
 
 /obj/item/essence_node_jar/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	if(!proximity_flag)
@@ -87,7 +88,7 @@
 
 	qdel(contained_node)
 	contained_node = null
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/item/essence_node_jar/examine(mob/user)
 	. = ..()
