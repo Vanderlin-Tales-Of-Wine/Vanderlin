@@ -97,7 +97,7 @@
 		if(falloff_exponent)
 			falloff_exponent *= 1.5
 		else
-			falloff_exponent = 1.5
+			falloff_exponent = SOUND_FALLOFF_EXPONENT * 1.5
 		vol *= 0.75
 
 	var/vol2use = vol
@@ -123,10 +123,10 @@
 		var/turf/T = get_turf(src)
 
 		//sound volume falloff_exponent with distance
-		distance = get_dist(T, turf_source) * distance_multiplier
+		distance = max(get_dist(T, turf_source) * distance_multiplier, 0)
 
 		if(max_distance && falloff_exponent) //If theres no max_distance we're not a 3D sound, so no falloff.
-			S.volume -= CALCULATE_SOUND_VOLUME(vol, distance, max_distance, falloff_distance, falloff_exponent)
+			S.volume -= CALCULATE_SOUND_VOLUME(vol2use, distance, max_distance, falloff_distance, falloff_exponent)
 
 		if(S.volume < SOUND_AUDIBLE_VOLUME_MIN)
 			return //No sound
@@ -170,7 +170,6 @@
 			client.played_loops[D]["VOL"] = S.volume
 			client.played_loops[D]["MUTESTATUS"] = null
 			S.repeat = 1
-
 
 	if(HAS_TRAIT(src, TRAIT_SOUND_DEBUGGED))
 		to_chat(src, span_admin("Max Range-[max_distance] Distance-[distance] Vol-[round(S.volume, 0.01)] Sound-[S.file]"))
