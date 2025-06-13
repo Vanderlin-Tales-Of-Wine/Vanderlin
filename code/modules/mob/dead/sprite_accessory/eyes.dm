@@ -9,7 +9,7 @@
 		return
 	if(NOEYESPRITES in owner.dna?.species?.species_traits)
 		return FALSE
-	return && is_human_part_visible(owner, HIDEEYES)
+	return is_human_part_visible(owner, HIDEEYES)
 
 /datum/sprite_accessory/eyes/adjust_appearance_list(list/appearance_list, obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
 	generic_gender_feature_adjust(appearance_list, organ, bodypart, owner, OFFSET_FACE)
