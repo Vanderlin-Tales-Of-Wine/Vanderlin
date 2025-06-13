@@ -171,7 +171,9 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	flavortext = null
 	headshot_link = null
 
-	patreon = C?.patreon?.has_access(ACCESS_ASSISTANT_RANK)
+	// C/parent can be a client_interface
+	if(isclient(parent))
+		patreon = parent?.patreon?.has_access(ACCESS_ASSISTANT_RANK)
 
 	for(var/custom_name_id in GLOB.preferences_custom_names)
 		custom_names[custom_name_id] = get_default_name(custom_name_id)
