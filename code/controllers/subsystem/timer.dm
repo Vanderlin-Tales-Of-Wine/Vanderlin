@@ -472,8 +472,8 @@ SUBSYSTEM_DEF(timer)
  * * flags flags for this timer, see: code\__DEFINES\subsystems.dm
  */
 /proc/_addtimer(datum/callback/callback, wait = 0, flags = 0, file, line)
-	if (!callback)
-		CRASH("addtimer called without a callback")
+	ASSERT(istype(callback), "addtimer called [callback ? "with an invalid callback ([callback])" : "without a callback"]")
+	ASSERT(isnum(wait), "addtimer called with a non-numeric wait ([wait])")
 
 	if (wait < 0)
 		stack_trace("addtimer called with a negative wait. Converting to [world.tick_lag]")
@@ -482,7 +482,11 @@ SUBSYSTEM_DEF(timer)
 		stack_trace("addtimer called with a callback assigned to a qdeleted object. In the future such timers will not \
 			be supported and may refuse to run or run with a 0 wait")
 
-	wait = max(CEILING(wait, world.tick_lag), world.tick_lag)
+
+	if (flags & TIMER_CLIENT_TIME) // REALTIMEOFDAY has a resolution of 1 decisecondAdd commentMore actions
+		wait = max(CEILING(wait, 1), 1) // so if we use tick_lag timers may be inserted in the "past"
+	else
+		wait = max(CEILING(wait, world.tick_lag), world.tick_lag)
 
 	if(wait >= INFINITY)
 		CRASH("Attempted to create timer with INFINITY delay")
