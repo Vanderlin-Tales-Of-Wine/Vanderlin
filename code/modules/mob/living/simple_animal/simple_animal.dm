@@ -177,6 +177,8 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 
 	if(ai_controller && !length(ai_controller.blackboard[BB_BASIC_FOODS]))
 		ai_controller.set_blackboard_key(BB_BASIC_FOODS, typecacheof(food_type))
+	if(footstep_type)
+		AddElement(/datum/element/footstep, footstep_type, 1, -6)
 
 /mob/living/simple_animal/Destroy()
 	if(nest)
@@ -310,8 +312,6 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 		else
 			set_stat(CONSCIOUS)
 	// SEND_SIGNAL(src, COMSIG_MOB_STATCHANGE, stat)
-	if(footstep_type)
-		AddElement(/datum/element/footstep, footstep_type, 1, -6)
 
 /mob/living/simple_animal/handle_status_effects()
 	..()
