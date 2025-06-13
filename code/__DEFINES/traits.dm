@@ -216,7 +216,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_EARGRAB = span_info("I can keep a tight grip on the ear of unruly children."),
 	TRAIT_KITTEN_MOM = span_info("Kittens love you, they see you are a parent."),
 	TRAIT_GOOD_SWIM = span_info("I can swim without being slowed and against the flow of rivers."),
-	TRAIT_WATER_BREATHING = span_info("I can breath underwater, I have no fear of drowning."),
+	TRAIT_WATER_BREATHING = span_info("I can breathe underwater, I have no fear of drowning."),
 	))
 
 #define SIGNAL_ADDTRAIT(trait_ref) ("addtrait " + trait_ref)
