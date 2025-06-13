@@ -696,10 +696,13 @@
 
 /atom/movable/proc/doMove(atom/destination)
 	. = FALSE
+
+	var/atom/oldloc = loc
+
 	if(destination)
 		if(pulledby)
 			pulledby.stop_pulling()
-		var/atom/oldloc = loc
+
 		var/same_loc = oldloc == destination
 		var/area/old_area = get_area(oldloc)
 		var/area/destarea = get_area(destination)
@@ -708,6 +711,11 @@
 		moving_diagonally = 0
 
 		if(!same_loc)
+			if(loc == oldloc)
+				// when attempting to move an atom A into an atom B which already contains A, BYOND seems
+				// to silently refuse to move A to the new loc. This can really break stuff (see #77067)
+				stack_trace("Attempt to move [src] to [destination] was rejected by BYOND, possibly due to cyclic contents")
+				return FALSE
 			if(oldloc)
 				oldloc.Exited(src, destination)
 				if(old_area && old_area != destarea)
