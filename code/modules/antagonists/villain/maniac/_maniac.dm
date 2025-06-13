@@ -404,6 +404,10 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 	if(!dreamer)
 		return
 
+	if(dreamer.music_enabled)
+		to_chat(src, "<span class='warning'>theme song active, can't set a new one.</span>")
+		return
+
 	if(dreamer.last_music_change)
 		if(world.time < dreamer.last_music_change + 3 MINUTES)
 			to_chat(src, "<span class='warning'>Can't set a new theme song yet.</span>")
