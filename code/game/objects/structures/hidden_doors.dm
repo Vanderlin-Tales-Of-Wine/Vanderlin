@@ -71,6 +71,10 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	open_phrase = open_word() + " " + magic_word()
 	. = ..()
 
+/obj/structure/door/secret/Destroy(force)
+	lose_hearing_sensitivity()
+	return ..()
+
 /obj/structure/door/secret/rattle()
 	return
 

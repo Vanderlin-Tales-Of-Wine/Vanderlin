@@ -1043,6 +1043,10 @@
 	var/static/list/loc_connections = list(COMSIG_ATOM_EXIT = PROC_REF(on_exit))
 	AddElement(/datum/element/connect_loc, loc_connections)
 
+/obj/structure/fluff/psycross/Destroy()
+	lose_hearing_sensitivity()
+	return ..()
+
 /obj/structure/fluff/psycross/post_buckle_mob(mob/living/M)
 	..()
 	M.set_mob_offsets("bed_buckle", _x = 0, _y = 2)

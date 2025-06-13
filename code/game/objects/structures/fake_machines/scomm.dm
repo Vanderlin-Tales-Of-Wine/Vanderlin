@@ -18,6 +18,10 @@
 	. = ..()
 	become_hearing_sensitive()
 
+/obj/structure/fake_machine/scomm/Destroy()
+	lose_hearing_sensitivity()
+	return ..()
+
 /obj/structure/fake_machine/scomm/r
 	pixel_y = 0
 	pixel_x = 32
@@ -178,6 +182,10 @@
 /obj/item/scomstone/Initialize()
 	. = ..()
 	become_hearing_sensitive()
+
+/obj/item/scomstone/Destroy()
+	lose_hearing_sensitivity()
+	return ..()
 
 //wip
 /obj/item/scomstone/attack_right(mob/user)
