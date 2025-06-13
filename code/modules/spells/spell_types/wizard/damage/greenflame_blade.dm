@@ -42,7 +42,10 @@
 	if(isliving(targets[1]))
 		var/mob/living/carbon/target = targets[1]
 		var/obj/item/held_item = target.get_active_held_item() //get held item
+		if(!held_item)
+			return FALSE
 		held_item.AddComponent(/datum/component/enchanted_weapon, 5 MINUTES * attuned_strength, TRUE, /datum/skill/magic/arcane, user, SEARING_BLADE_ENCHANT)
+		return ..()
 	return FALSE
 
 /obj/effect/temp_visual/greenflameblade5e

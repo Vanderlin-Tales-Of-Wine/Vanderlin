@@ -21,8 +21,7 @@
 /obj/effect/proc_holder/spell/invoked/haste/cast(list/targets, mob/user)
 	var/atom/A = targets[1]
 	if(!isliving(A))
-		revert_cast()
-		return
+		return FALSE
 
 	var/mob/living/spelltarget = A
 	var/duration_increase = min(0, attuned_strength * 30 SECONDS)
@@ -34,4 +33,4 @@
 	else
 		user.visible_message("[user] mutters an incantation and they briefly shine yellow.")
 
-	return TRUE
+	return ..()
