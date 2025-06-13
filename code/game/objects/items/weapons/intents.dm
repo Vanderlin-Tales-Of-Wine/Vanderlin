@@ -77,10 +77,8 @@
 	var/mob/master = get_master_mob()
 	if(master?.curplaying == src)
 		master.curplaying = null
-	if(masteritem)
-		qdel(masteritem)
-	if(mastermob)
-		qdel(mastermob)
+	masteritem = null
+	mastermob = null
 	return ..()
 
 /// returns the attack animation type this intent uses
