@@ -1237,7 +1237,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 /obj/item/proc/doStrip(mob/stripper, mob/owner)
 	return owner.dropItemToGround(src)
 
-/obj/item/update_icon()
+/obj/item/update_appearance(updates)
 	. = ..()
 	update_transform()
 

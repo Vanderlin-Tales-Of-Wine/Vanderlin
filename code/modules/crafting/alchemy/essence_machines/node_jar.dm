@@ -80,7 +80,7 @@
 	deployed_node.max_essence = contained_node.max_essence
 	deployed_node.current_essence = contained_node.current_essence
 	deployed_node.recharge_rate = contained_node.recharge_rate
-	deployed_node.update_icon()
+	deployed_node.update_appearance(UPDATE_ICON)
 
 	var/datum/thaumaturgical_essence/temp = new contained_node.essence_type.type
 	to_chat(user, span_info("You carefully deploy the [contained_node.name] from the jar. The [temp.name] node is now active."))

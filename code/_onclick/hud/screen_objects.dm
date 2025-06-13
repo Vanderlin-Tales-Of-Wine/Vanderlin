@@ -588,9 +588,9 @@
 	icon = 'icons/mob/roguehud.dmi'
 	screen_loc = rogueui_def
 
-/atom/movable/screen/def_intent/update_icon()
+/atom/movable/screen/def_intent/update_icon_state()
+	. = ..()
 	icon_state = "def[hud.mymob.d_intent]n"
-	return ..()
 
 /atom/movable/screen/def_intent/Click(location, control, params)
 	var/_y = text2num(params2list(params)["icon-y"])
@@ -599,7 +599,6 @@
 		usr.def_intent_change(INTENT_DODGE)
 	else if(_y>16 && _y<=32)
 		usr.def_intent_change(INTENT_PARRY)
-
 
 /atom/movable/screen/cmode
 	name = "combat mode"
@@ -940,14 +939,15 @@
 		var/mob/living/carbon/C = usr
 		C.toggle_throw_mode()
 
-/atom/movable/screen/throw_catch/update_icon()
-	..()
-	if(ismob(usr))
-		var/mob/M = usr
-		if(M.get_active_held_item())
-			icon_state = "throw[throwy]"
-		else
-			icon_state = "catch[throwy]"
+/atom/movable/screen/throw_catch/update_icon_state()
+	. = ..()
+	if(!ismob(usr))
+		return
+	var/mob/M = usr
+	if(M.get_active_held_item())
+		icon_state = "throw[throwy]"
+	else
+		icon_state = "catch[throwy]"
 
 /atom/movable/screen/zone_sel
 	name = "damage zone"

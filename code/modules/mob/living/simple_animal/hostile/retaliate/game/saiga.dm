@@ -1,23 +1,3 @@
-
-/mob/living/simple_animal/hostile/retaliate/saiga/update_icon()
-	cut_overlays()
-	..()
-	if(stat != DEAD)
-		if(ssaddle)
-			var/mutable_appearance/saddlet = mutable_appearance(icon, "saddle-f-above", 4.3)
-			add_overlay(saddlet)
-			saddlet = mutable_appearance(icon, "saddle-f")
-			add_overlay(saddlet)
-		if(has_buckled_mobs())
-			var/mutable_appearance/mounted = mutable_appearance(icon, "saiga_mounted", 4.3)
-			add_overlay(mounted)
-
-/mob/living/simple_animal/hostile/retaliate/saiga/tamed(mob/user)
-	..()
-	deaggroprob = 30
-	if(can_buckle)
-		AddComponent(/datum/component/riding/saiga)
-
 /mob/living/simple_animal/hostile/retaliate/saiga
 	icon = 'icons/roguetown/mob/monster/saiga.dmi'
 	name = "saiga"
@@ -81,8 +61,6 @@
 
 	ai_controller = /datum/ai_controller/saiga
 
-
-
 	var/static/list/pet_commands = list(
 		/datum/pet_command/idle,
 		/datum/pet_command/free,
@@ -95,7 +73,6 @@
 		/datum/pet_command/aggressive,
 		/datum/pet_command/calm,
 	)
-
 
 /obj/effect/decal/remains/saiga
 	name = "remains"
@@ -111,6 +88,25 @@
 	if(tame)
 		tamed(owner)
 	ADD_TRAIT(src, TRAIT_IGNOREDAMAGESLOWDOWN, TRAIT_GENERIC)
+
+/mob/living/simple_animal/hostile/retaliate/saiga/update_overlays()
+	. = ..()
+	if(stat <= DEAD)
+		return
+	if(ssaddle)
+		var/mutable_appearance/saddlet = mutable_appearance(icon, "saddle-f-above", 4.3)
+		. += saddlet
+		saddlet = mutable_appearance(icon, "saddle-f")
+		. += saddlet
+	if(has_buckled_mobs())
+		var/mutable_appearance/mounted = mutable_appearance(icon, "saiga_mounted", 4.3)
+		. += mounted
+
+/mob/living/simple_animal/hostile/retaliate/saiga/tamed(mob/user)
+	. = ..()
+	deaggroprob = 30
+	if(can_buckle)
+		AddComponent(/datum/component/riding/saiga)
 
 /mob/living/simple_animal/hostile/retaliate/saiga/get_sound(input)
 	switch(input)
@@ -227,8 +223,6 @@
 
 	ai_controller = /datum/ai_controller/saiga
 
-
-
 	var/static/list/pet_commands = list(
 		/datum/pet_command/idle,
 		/datum/pet_command/free,
@@ -242,19 +236,27 @@
 		/datum/pet_command/calm,
 	)
 
-/mob/living/simple_animal/hostile/retaliate/saigabuck/update_icon()
-	cut_overlays()
-	..()
-	if(stat != DEAD)
-		if(ssaddle)
-			var/mutable_appearance/saddlet = mutable_appearance(icon, "saddle-above", 4.3)
-			add_overlay(saddlet)
-			saddlet = mutable_appearance(icon, "saddle")
-			add_overlay(saddlet)
-		if(has_buckled_mobs())
-			var/mutable_appearance/mounted = mutable_appearance(icon, "buck_mounted", 4.3)
-			add_overlay(mounted)
+/mob/living/simple_animal/hostile/retaliate/saigabuck/Initialize()
+	. = ..()
+	AddComponent(/datum/component/obeys_commands, pet_commands)
+	AddElement(/datum/element/ai_retaliate)
 
+	if(tame)
+		tamed(owner)
+	ADD_TRAIT(src, TRAIT_IGNOREDAMAGESLOWDOWN, TRAIT_GENERIC)
+
+/mob/living/simple_animal/hostile/retaliate/saigabuck/update_overlays()
+	. = ..()
+	if(stat <= DEAD)
+		return
+	if(ssaddle)
+		var/mutable_appearance/saddlet = mutable_appearance(icon, "saddle-above", 4.3)
+		. += saddlet
+		saddlet = mutable_appearance(icon, "saddle")
+		. += saddlet
+	if(has_buckled_mobs())
+		var/mutable_appearance/mounted = mutable_appearance(icon, "saiga_mounted", 4.3)
+		. += mounted
 
 /mob/living/simple_animal/hostile/retaliate/saigabuck/get_sound(input)
 	switch(input)
@@ -267,27 +269,14 @@
 		if("idle")
 			return pick('sound/vo/mobs/saiga/idle (1).ogg','sound/vo/mobs/saiga/idle (2).ogg','sound/vo/mobs/saiga/idle (3).ogg','sound/vo/mobs/saiga/idle (4).ogg','sound/vo/mobs/saiga/idle (5).ogg','sound/vo/mobs/saiga/idle (6).ogg','sound/vo/mobs/saiga/idle (7).ogg')
 
-/mob/living/simple_animal/hostile/retaliate/saigabuck/Initialize()
-	. = ..()
-	AddComponent(/datum/component/obeys_commands, pet_commands)
-	AddElement(/datum/element/ai_retaliate)
-
-
-	if(tame)
-		tamed(owner)
-	ADD_TRAIT(src, TRAIT_IGNOREDAMAGESLOWDOWN, TRAIT_GENERIC)
-
 /mob/living/simple_animal/hostile/retaliate/saigabuck/taunted(mob/user)
 	emote("aggro")
-	return
-
 
 /mob/living/simple_animal/hostile/retaliate/saigabuck/tamed(mob/user)
-	..()
+	. = ..()
 	deaggroprob = 20
 	if(can_buckle)
 		AddComponent(/datum/component/riding/saiga)
-
 
 /mob/living/simple_animal/hostile/retaliate/saigabuck/simple_limb_hit(zone)
 	if(!zone)
@@ -390,10 +379,10 @@
 	. = ..()
 	var/obj/item/natural/saddle/S = new(src)
 	ssaddle = S
-	update_appearance()
+	update_appearance(UPDATE_OVERLAYS)
 
 /mob/living/simple_animal/hostile/retaliate/saiga/tame/saddled/Initialize()
 	. = ..()
 	var/obj/item/natural/saddle/S = new(src)
 	ssaddle = S
-	update_appearance()
+	update_appearance(UPDATE_OVERLAYS)

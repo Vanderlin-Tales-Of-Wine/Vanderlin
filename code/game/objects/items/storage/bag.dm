@@ -32,10 +32,6 @@
 	STR.insert_preposition = "on"
 	STR.max_w_class = WEIGHT_CLASS_NORMAL // changed to fit platters, take care if its abused
 
-/obj/item/storage/bag/tray/Moved()
-	. = ..()
-	//update_icon()
-
 /obj/item/storage/bag/tray/attack(mob/living/M, mob/living/user)
 	..()
 	// Drop all the things. All of them.

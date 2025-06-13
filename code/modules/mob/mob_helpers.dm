@@ -686,7 +686,7 @@
 	playsound_local(src, 'sound/misc/click.ogg', 100)
 	if(hud_used)
 		if(hud_used.def_intent)
-			hud_used.def_intent.update_appearance()
+			hud_used.def_intent.update_appearance(UPDATE_ICON_STATE)
 	update_inv_hands()
 
 
@@ -705,7 +705,7 @@
 			cmode = FALSE
 		if(hud_used)
 			if(hud_used.cmode_button)
-				hud_used.cmode_button.update_appearance()
+				hud_used.cmode_button.update_appearance(UPDATE_ICON_STATE)
 		return
 	if(cmode)
 		playsound_local(src, 'sound/misc/comboff.ogg', 100)
@@ -720,7 +720,7 @@
 			SSdroning.play_combat_music(L.cmode_music, client)
 	if(hud_used)
 		if(hud_used.cmode_button)
-			hud_used.cmode_button.update_appearance()
+			hud_used.cmode_button.update_appearance(UPDATE_ICON_STATE)
 
 /mob
 	var/last_aimhchange = 0
