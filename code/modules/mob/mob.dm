@@ -405,8 +405,10 @@ GLOBAL_VAR_INIT(mobids, 1)
 		face_atom(A)
 		visible_message("<span class='emote'>[src] looks at [A].</span>")
 	var/list/result = A.examine(src)
-	if(result)
-		to_chat(src, result.Join("\n"))
+	if(result.len)
+		for(var/i in 1 to (length(result) - 1))
+			result[i] += "\n"
+	to_chat(src, examine_block("<span class='infoplain'>[result.Join()]</span>"))
 	SEND_SIGNAL(src, COMSIG_MOB_EXAMINATE, A)
 
 /**
@@ -646,7 +648,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 		if(machine && in_range(src, usr))
 			show_inv(machine)
 
-	if(href_list["item"] && usr.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
+	if(href_list["item"] && usr.can_perform_action(src, FORBID_TELEKINESIS_REACH))
 		var/slot = text2num(href_list["item"])
 		var/hand_index = text2num(href_list["hand_index"])
 		var/obj/item/what
@@ -932,8 +934,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 /mob/proc/RemoveSpell(obj/effect/proc_holder/spell/spell)
 	if(!spell)
 		return
-	for(var/X in mob_spell_list)
-		var/obj/effect/proc_holder/spell/S = X
+	for(var/obj/effect/proc_holder/spell/S in mob_spell_list)
 		if(istype(S, spell))
 			mob_spell_list -= S
 			qdel(S)
@@ -1002,8 +1003,23 @@ GLOBAL_VAR_INIT(mobids, 1)
 /mob/proc/can_interact_with(atom/A)
 	return IsAdminGhost(src) || Adjacent(A)
 
-///Can the mob use Topic to interact with machines
-/mob/proc/canUseTopic(atom/movable/M, be_close=FALSE, no_dexterity=FALSE, no_tk=FALSE)
+/**
+ * Checks whether a mob can perform an action to interact with an object
+ *
+ * The default behavior checks if the mob is:
+ * * Directly adjacent (1-tile radius)
+ * * Standing up (not resting)
+ * * Allows telekinesis to be used to skip adjacent checks (if they have DNA mutation)
+ * *
+ * action_bitflags: (see code/__DEFINES/mobs.dm)
+ * * NEED_LITERACY - If reading is required to perform action (can't read a book if you are illiterate)
+ * * NEED_LIGHT - If lighting must be present to perform action (can't heal someone in the dark)
+ * * NEED_DEXTERITY - If other mobs (monkeys, aliens, etc) can perform action (can't use computers if you are a monkey)
+ * * NEED_HANDS - If hands are required to perform action (can't pickup items if you are a cyborg)
+ * * FORBID_TELEKINESIS_REACH - If telekinesis is forbidden to perform action from a distance (ex. canisters are blacklisted from telekinesis manipulation)
+ * * ALLOW_RESTING - If resting on the floor is allowed to perform action ()
+**/
+/mob/proc/can_perform_action(atom/movable/target, action_bitflags)
 	return
 
 ///Can this mob use storage
@@ -1120,9 +1136,34 @@ GLOBAL_VAR_INIT(mobids, 1)
 		if(examine_cursor_icon && client.keys_held["Shift"]) //mouse shit is hardcoded, make this non hard-coded once we make mouse modifiers bindable
 			client.mouse_pointer_icon = examine_cursor_icon
 
+/**
+ * Can this mob see in the dark
+ *
+ * This checks all traits, glasses, and robotic eyeball implants to see if the mob can see in the dark
+ * this does NOT check if the mob is missing it's eyeballs. Also see_in_dark is a BYOND mob var (that defaults to 2)
+**/
+/mob/proc/has_nightvision()
+	return see_in_dark >= 6
 
 ///This mob is abile to read books
 /mob/proc/is_literate()
+	return FALSE
+
+/**
+ * Checks if there is enough light where the mob is located
+ *
+ * Args:
+ *  light_amount (optional) - A decimal amount between 1.0 through 0.0 (default is 0.2)
+**/
+/mob/proc/has_light_nearby(light_amount = LIGHTING_TILE_IS_DARK)
+	var/turf/mob_location = get_turf(src)
+	var/area/mob_area = get_area(src)
+
+	if(mob_location.get_lumcount() > light_amount)
+		return TRUE
+	else if(mob_area.dynamic_lighting == DYNAMIC_LIGHTING_DISABLED)
+		return TRUE
+
 	return FALSE
 
 ///Can this mob read (is literate and not blind)
@@ -1141,7 +1182,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 
 ///Can this mob hold items
 /mob/proc/can_hold_items()
-	return FALSE
+	return length(held_items)
 
 ///Get the id card on this mob
 /mob/proc/get_idcard(hand_first)

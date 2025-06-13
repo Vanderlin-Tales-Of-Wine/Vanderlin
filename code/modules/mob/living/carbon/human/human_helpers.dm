@@ -193,39 +193,55 @@
 //Instead of putting the spouse variable everywhere its all funneled through this proc.
 /mob/living/carbon/human/proc/MarryTo(mob/living/carbon/human/spouse)
 	if(!ishuman(spouse))
-		return
-	var/datum/heritage/brides_family = spouse.family_datum
-	var/groommale = FALSE
-	var/bridemale = FALSE
-	if(gender == MALE)
-		groommale = TRUE
-	if(spouse.gender == MALE)
-		bridemale = TRUE
+		return null
+
+	// Set basic spouse relationship
 	spouse_mob = spouse
 	spouse.spouse_mob = src
-	//If the bride is male then we assign her status in the family as father.
-	//Im going to use this wacky tech to shorten the code. -IP
-	var/checkgender = bridemale
-	var/datum/heritage/checkfamdat = family_datum
-	var/mob/living/carbon/human/who_we_check1 = src
-	var/mob/living/carbon/human/who_we_transfer = spouse
-	for(var/cycle = 1 to 2)
-		//If cycle one is done then run again but with cycle 2 variables.
-		if(cycle == 2)
-			checkgender = groommale
-			checkfamdat = brides_family
-			who_we_check1 = spouse
-			who_we_transfer = src
-		//Do we have a family datum?
-		if(checkfamdat)
-			//Is the person being checked the patriarch or the matriarch? If not assign the person being transfered as a inlaw.
-			if(checkfamdat.patriarch == who_we_check1 || checkfamdat.matriarch == who_we_check1)
-				checkfamdat.TransferFamilies(who_we_transfer, checkgender ? FAMILY_FATHER : FAMILY_MOTHER)
-				break
-			else
-				checkfamdat.TransferFamilies(who_we_transfer, FAMILY_INLAW)
-				break
-	return checkfamdat
+
+	// Handle family integration
+	var/datum/heritage/primary_family = null
+	//var/datum/heritage/secondary_family = null
+	var/datum/family_member/primary_member = null
+	var/datum/family_member/secondary_member = null
+
+	// Determine which family takes precedence
+	if(family_datum && !spouse.family_datum)
+		// Spouse joins our family
+		primary_family = family_datum
+		primary_member = family_member_datum
+		secondary_member = primary_family.CreateFamilyMember(spouse)
+
+	else if(!family_datum && spouse.family_datum)
+		// We join spouse's family
+		primary_family = spouse.family_datum
+		primary_member = spouse.family_member_datum
+		secondary_member = primary_family.CreateFamilyMember(src)
+
+	else if(family_datum && spouse.family_datum)
+		// Both have families - keep separate but mark as married
+		primary_family = family_datum
+		primary_member = family_member_datum
+		secondary_member = spouse.family_member_datum
+
+	else
+		// Neither has family - create new one
+		var/new_family_name = null
+		// Use the male's surname traditionally, or first person's if no male
+		if(gender == MALE)
+			new_family_name = family_datum?.SurnameFormatting(src)
+		else if(spouse.gender == MALE)
+			new_family_name = family_datum?.SurnameFormatting(spouse)
+
+		primary_family = new /datum/heritage(src, new_family_name)
+		primary_member = primary_family.founder
+		secondary_member = primary_family.CreateFamilyMember(spouse)
+
+	// Add spouse relationship in family system
+	if(primary_member && secondary_member && primary_family)
+		primary_family.MarryMembers(primary_member, secondary_member)
+
+	return primary_family
 
 //Perspective stranger looks at --> src
 /mob/living/carbon/human/proc/ReturnRelation(mob/living/carbon/human/stranger)

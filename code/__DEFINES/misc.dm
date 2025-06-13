@@ -93,11 +93,6 @@
 
 #define TRANSITIONEDGE			7 //Distance from edge to move to another z-level
 
-#define BE_CLOSE TRUE		//in the case of a silicon, to select if they need to be next to the atom
-#define NO_DEXTERITY TRUE	//if other mobs (monkeys, aliens, etc) can use this // I had to change 20+ files because some non-dnd-playing fuckchumbis can't spell "dexterity"
-#define NO_TK TRUE
-//used by canUseTopic()
-
 //singularity defines
 #define STAGE_ONE 1
 #define STAGE_TWO 3
@@ -183,6 +178,9 @@ GLOBAL_LIST_EMPTY(bloody_footprints_cache)
 
 //subtypesof(), typesof() without the parent path
 #define subtypesof(typepath) ( typesof(typepath) - typepath )
+
+/// Takes a datum as input, returns its ref string
+#define text_ref(datum) ref(datum)
 
 //Gets the turf this atom inhabits
 #define get_turf(A) (get_step(A, 0))
@@ -295,6 +293,8 @@ GLOBAL_LIST_INIT(pda_styles, sortList(list(MONO, VT, ORBITRON, SHARE)))
 #define debug_usr(msg) if (GLOB.Debug2&&usr) to_chat(usr, "DEBUG: [msg]")
 #define debug_admins(msg) if (GLOB.Debug2) to_chat(GLOB.admins, "DEBUG: [msg]")
 #define debug_world_log(msg) if (GLOB.Debug2) log_world("DEBUG: [msg]")
+
+#define examine_block(str) ("<div class='examine_block'>" + str + "</div>")
 
 #define INCREMENT_TALLY(L, stat) if(L[stat]){L[stat]++}else{L[stat] = 1}
 

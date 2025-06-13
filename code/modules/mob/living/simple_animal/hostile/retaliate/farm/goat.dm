@@ -1,53 +1,3 @@
-/mob/living/simple_animal/hostile/retaliate/goat/Initialize()
-	. = ..()
-	AddElement(/datum/element/ai_retaliate)
-	RegisterSignal(src, COMSIG_HOSTILE_PRE_ATTACKINGTARGET, PROC_REF(on_pre_attack))
-	GLOB.farm_animals++
-	if(tame)
-		tamed(owner)
-
-	if(can_breed)
-		AddComponent(\
-			/datum/component/breed,\
-			list(/mob/living/simple_animal/hostile/retaliate/goat, /mob/living/simple_animal/hostile/retaliate/goatmale),\
-			3 MINUTES, \
-			list(/mob/living/simple_animal/hostile/retaliate/goat/goatlet = 90, /mob/living/simple_animal/hostile/retaliate/goat/goatlet/boy = 10),\
-			CALLBACK(src, PROC_REF(after_birth)),\
-		)
-
-/mob/living/simple_animal/hostile/retaliate/goat/proc/after_birth(mob/living/simple_animal/hostile/retaliate/cow/cowlet/baby, mob/living/partner)
-	return
-
-/mob/living/simple_animal/hostile/retaliate/goat/Destroy()
-	..()
-	GLOB.farm_animals = max(GLOB.farm_animals - 1, 0)
-
-/// Called when we attack something in order to piece together the intent of the AI/user and provide desired behavior. The element might be okay here but I'd rather the fluff.
-/// Goats are really good at beating up plants by taking bites out of them, but we use the default attack for everything else
-/mob/living/simple_animal/hostile/retaliate/goat/proc/on_pre_attack(datum/source, atom/target)
-	if(is_type_in_list(target, food_type))
-		eat_plant(target)
-		return COMPONENT_HOSTILE_NO_ATTACK
-
-/mob/living/simple_animal/hostile/retaliate/goat/tamed(mob/user)
-	..()
-	deaggroprob = 50
-	if(can_buckle)
-		AddComponent(/datum/component/riding/gote)
-
-/mob/living/simple_animal/hostile/retaliate/goat/update_icon()
-	cut_overlays()
-	..()
-	if(stat != DEAD)
-		if(ssaddle)
-			var/mutable_appearance/saddlet = mutable_appearance(icon, "saddle-f-above", 4.3)
-			add_overlay(saddlet)
-			saddlet = mutable_appearance(icon, "saddle-f")
-			add_overlay(saddlet)
-		if(has_buckled_mobs())
-			var/mutable_appearance/mounted = mutable_appearance(icon, "goat_mounted", 4.3)
-			add_overlay(mounted)
-
 /mob/living/simple_animal/hostile/retaliate/goat
 	icon = 'icons/roguetown/mob/monster/gote.dmi'
 	name = "gote"
@@ -113,7 +63,56 @@
 
 	var/can_breed = TRUE
 
+/mob/living/simple_animal/hostile/retaliate/goat/Initialize()
+	. = ..()
+	AddElement(/datum/element/ai_retaliate)
+	RegisterSignal(src, COMSIG_HOSTILE_PRE_ATTACKINGTARGET, PROC_REF(on_pre_attack))
+	GLOB.farm_animals++
+	if(tame)
+		tamed(owner)
 
+	if(can_breed)
+		AddComponent(\
+			/datum/component/breed,\
+			list(/mob/living/simple_animal/hostile/retaliate/goat, /mob/living/simple_animal/hostile/retaliate/goatmale),\
+			3 MINUTES, \
+			list(/mob/living/simple_animal/hostile/retaliate/goat/goatlet = 90, /mob/living/simple_animal/hostile/retaliate/goat/goatlet/boy = 10),\
+			CALLBACK(src, PROC_REF(after_birth)),\
+		)
+
+/mob/living/simple_animal/hostile/retaliate/goat/Destroy()
+	UnregisterSignal(src, COMSIG_HOSTILE_PRE_ATTACKINGTARGET)
+	GLOB.farm_animals = max(GLOB.farm_animals - 1, 0)
+	return ..()
+
+/mob/living/simple_animal/hostile/retaliate/goat/update_icon()
+	cut_overlays()
+	..()
+	if(stat != DEAD)
+		if(ssaddle)
+			var/mutable_appearance/saddlet = mutable_appearance(icon, "saddle-f-above", 4.3)
+			add_overlay(saddlet)
+			saddlet = mutable_appearance(icon, "saddle-f")
+			add_overlay(saddlet)
+		if(has_buckled_mobs())
+			var/mutable_appearance/mounted = mutable_appearance(icon, "goat_mounted", 4.3)
+			add_overlay(mounted)
+
+/mob/living/simple_animal/hostile/retaliate/goat/tamed(mob/user)
+	..()
+	deaggroprob = 50
+	if(can_buckle)
+		AddComponent(/datum/component/riding/gote)
+
+/mob/living/simple_animal/hostile/retaliate/goat/proc/after_birth(mob/living/simple_animal/hostile/retaliate/cow/cowlet/baby, mob/living/partner)
+	return
+
+/// Called when we attack something in order to piece together the intent of the AI/user and provide desired behavior. The element might be okay here but I'd rather the fluff.
+/// Goats are really good at beating up plants by taking bites out of them, but we use the default attack for everything else
+/mob/living/simple_animal/hostile/retaliate/goat/proc/on_pre_attack(datum/source, atom/target)
+	if(is_type_in_list(target, food_type))
+		eat_plant(target)
+		return COMPONENT_HOSTILE_NO_ATTACK
 
 /mob/living/simple_animal/hostile/retaliate/goat/get_sound(input)
 	switch(input)
@@ -236,6 +235,14 @@
 	. = ..()
 	AddElement(/datum/element/ai_retaliate)
 	RegisterSignal(src, COMSIG_HOSTILE_PRE_ATTACKINGTARGET, PROC_REF(on_pre_attack))
+	GLOB.farm_animals++
+	if(tame)
+		tamed(owner)
+
+/mob/living/simple_animal/hostile/retaliate/goatmale/Destroy()
+	GLOB.farm_animals = max(GLOB.farm_animals - 1, 0)
+	UnregisterSignal(src, COMSIG_HOSTILE_PRE_ATTACKINGTARGET)
+	return ..()
 
 /// Called when we attack something in order to piece together the intent of the AI/user and provide desired behavior. The element might be okay here but I'd rather the fluff.
 /// Goats are really good at beating up plants by taking bites out of them, but we use the default attack for everything else
@@ -262,16 +269,6 @@
 	deaggroprob = 20
 	if(can_buckle)
 		AddComponent(/datum/component/riding/gote)
-
-/mob/living/simple_animal/hostile/retaliate/goatmale/Initialize()
-	..()
-	GLOB.farm_animals++
-	if(tame)
-		tamed(owner)
-
-/mob/living/simple_animal/hostile/retaliate/goatmale/Destroy()
-	..()
-	GLOB.farm_animals = max(GLOB.farm_animals - 1, 0)
 
 /mob/living/simple_animal/hostile/retaliate/goatmale/get_sound(input)
 	switch(input)

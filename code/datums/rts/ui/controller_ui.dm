@@ -160,3 +160,19 @@
 
 /atom/movable/screen/controller_ui/controller_button/three
 	icon_state = "button_3"
+
+/atom/movable/screen/controller_ui/controller_button/three/Click(location, control, params)
+	var/mob/camera/strategy_controller/controller = usr
+	if(!controller || !controller.client)
+		return
+
+	// Close the current mob UI
+	if(controller.displayed_mob_ui)
+		controller.displayed_mob_ui.remove_ui(controller.client)
+
+	// Reopen the base UI
+	if(controller.displayed_base_ui)
+		controller.displayed_base_ui.add_ui(controller.client)
+		controller.displayed_base_ui.add_ui_buttons(controller.client)
+
+	return TRUE

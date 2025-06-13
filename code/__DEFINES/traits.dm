@@ -57,8 +57,11 @@
 #define TRAIT_HOLLOWBONES				"Hollow Bones"
 #define TRAIT_AMAZING_BACK				"Light Load"
 #define TRAIT_KITTEN_MOM				"Loved By Kittens"
+#define TRAIT_WATER_BREATHING			"Waterbreathing"
+#define TRAIT_MOONWATER_ELIXIR			"Moonwater Elixir"
 /// applied to orphans
 #define TRAIT_ORPHAN 					"Orphan"
+#define TRAIT_RECRUITED					"Recruit" //Trait used to give foreigners their new title
 
 // Divine patron trait bonuses:
 #define TRAIT_SOUL_EXAMINE				"Blessing of Necra"  //can check bodies to see if they have departed
@@ -201,6 +204,8 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_MATTHIOS_EYES = span_notice("I have a sense for what the most valuable item someone has is."),
 	TRAIT_CRATEMOVER = "I am able to drag heavy objects without any difficulty.",
 	TRAIT_SEE_LEYLINES = "I can see the lines that make up this world.",
+	TRAIT_WATER_BREATHING = span_info("You can breath underwater, you have no fear of drowning."),
+	TRAIT_MOONWATER_ELIXIR = span_info("Your mind is open, you can understand magic runes."),
 	TRAIT_TINY = "I am small, its hard to look people in the eyes.",
 	TRAIT_FOREIGNER = span_notice("I'm not from around here."),
 	TRAIT_BURDEN = "I carry the Burden of HEAD EATER's hunger...",
@@ -208,6 +213,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_DREAM_WATCHER = span_notice("I'm blessed by Noc, my dreams tell more than the average person.."),
 	TRAIT_AMAZING_BACK = span_notice("I'm able to carry far more on my back!"),
 	TRAIT_HOLLOWBONES = span_danger("My bones are light as air, Its hard to wear armor."),
+	TRAIT_RECRUITED = "I have been recruited!",
 	TRAIT_EARGRAB = span_info("I can keep a tight grip on the ear of unruly children."),
 	TRAIT_KITTEN_MOM = span_info("Kittens love you, they see you are a parent.")
 	))
@@ -338,7 +344,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_NOMETABOLISM		"no_metabolism"
 #define TRAIT_TOXIMMUNE			"toxin_immune"
 #define TRAIT_EASYDISMEMBER		"easy_dismember"
-#define TRAIT_LIMBATTACHMENT 	"limb_attach"
+#define TRAIT_LIMBATTACHMENT	"limb_attach"
 #define TRAIT_NOLIMBDISABLE		"no_limb_disable"
 #define TRAIT_EASYLIMBDISABLE	"easy_limb_disable"
 #define TRAIT_TOXINLOVER		"toxinlover"

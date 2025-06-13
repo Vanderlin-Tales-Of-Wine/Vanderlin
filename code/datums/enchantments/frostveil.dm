@@ -1,6 +1,10 @@
 /datum/enchantment/frostveil
 	enchantment_name = "Frostveil"
 	examine_text = "It feels rather cold."
+	essence_recipe = list(
+		/datum/thaumaturgical_essence/frost = 40,
+		/datum/thaumaturgical_essence/void = 20
+	)
 	var/last_used
 
 /datum/enchantment/frostveil/on_hit(obj/item/source, atom/target, mob/user, proximity_flag, click_parameters)

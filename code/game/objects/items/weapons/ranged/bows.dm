@@ -130,30 +130,33 @@
 	charging_slowdown = 1
 
 /datum/intent/shoot/bow/can_charge()
-	if(mastermob)
-		if(mastermob.usable_hands < 2)
+	var/mob/living/master = get_master_mob()
+	if(master)
+		if(master.usable_hands < 2)
 			return FALSE
-		if(mastermob.get_inactive_held_item())
+		if(master.get_inactive_held_item())
 			return FALSE
 	return TRUE
 
 /datum/intent/shoot/bow/prewarning()
-	if(mastermob)
-		mastermob.visible_message("<span class='warning'>[mastermob] draws [masteritem]!</span>")
-		playsound(mastermob, pick('sound/combat/Ranged/bow-draw-01.ogg'), 100, FALSE)
+	var/mob/master = get_master_mob()
+	if(master)
+		master.visible_message("<span class='warning'>[master] draws [get_master_item()]!</span>")
+		playsound(master, pick('sound/combat/Ranged/bow-draw-01.ogg'), 100, FALSE)
 
 /datum/intent/shoot/bow/get_chargetime()
-	if(mastermob && chargetime)
+	var/mob/living/master = get_master_mob()
+	if(master && chargetime)
 		var/newtime = 0
 		//skill block
 		newtime = newtime + 10
-		newtime = newtime - (mastermob.get_skill_level(/datum/skill/combat/bows) * (10/6))
+		newtime = newtime - (master.get_skill_level(/datum/skill/combat/bows) * (10/6))
 		//str block //rtd replace 10 with drawdiff on bows that are hard and scale str more (10/20 = 0.5)
 		newtime = newtime + 10
-		newtime = newtime - (mastermob.STASTR * (10/20))
+		newtime = newtime - (master.STASTR * (10/20))
 		//per block
 		newtime = newtime + 20
-		newtime = newtime - (mastermob.STAPER * 1) //20/20 is 1
+		newtime = newtime - (master.STAPER * 1) //20/20 is 1
 		if(newtime > 0)
 			return newtime
 		else
@@ -166,30 +169,34 @@
 	charging_slowdown = 1
 
 /datum/intent/arc/bow/can_charge()
-	if(mastermob)
-		if(mastermob.usable_hands < 2)
+	var/mob/living/master = get_master_mob()
+	if(master)
+		if(master.usable_hands < 2)
 			return FALSE
-		if(mastermob.get_inactive_held_item())
+		if(master.get_inactive_held_item())
 			return FALSE
 	return TRUE
 
 /datum/intent/arc/bow/prewarning()
-	if(mastermob)
-		mastermob.visible_message("<span class='warning'>[mastermob] draws [masteritem]!</span>")
-		playsound(mastermob, pick('sound/combat/Ranged/bow-draw-01.ogg'), 100, FALSE)
+	var/mob/master_mob = get_master_mob()
+	var/obj/item/master_item = get_master_item()
+	if(master_item && master_mob)
+		master_mob.visible_message("<span class='warning'>[master_mob] draws [master_item]!</span>")
+		playsound(master_mob, pick('sound/combat/Ranged/bow-draw-01.ogg'), 100, FALSE)
 
 /datum/intent/arc/bow/get_chargetime()
-	if(mastermob && chargetime)
+	var/mob/living/master = get_master_mob()
+	if(master && chargetime)
 		var/newtime = 0
 		//skill block
 		newtime = newtime + 10
-		newtime = newtime - (mastermob.get_skill_level(/datum/skill/combat/bows) * (10/6))
+		newtime = newtime - (master.get_skill_level(/datum/skill/combat/bows) * (10/6))
 		//str block //rtd replace 10 with drawdiff on bows that are hard and scale str more (10/20 = 0.5)
 		newtime = newtime + 10
-		newtime = newtime - (mastermob.STASTR * (10/20))
+		newtime = newtime - (master.STASTR * (10/20))
 		//per block
 		newtime = newtime + 20
-		newtime = newtime - (mastermob.STAPER * 1) //20/20 is 1
+		newtime = newtime - (master.STAPER * 1) //20/20 is 1
 		if(newtime > 0)
 			return newtime
 		else
@@ -215,14 +222,18 @@
 	damfactor = 1.2
 
 /datum/intent/shoot/bow/long/prewarning()
-	if(mastermob)
-		mastermob.visible_message("<span class='warning'>[mastermob] draws [masteritem]!</span>")
-		playsound(mastermob, pick('sound/combat/Ranged/bow-draw-04.ogg'), 100, FALSE)
+	var/mob/master_mob = get_master_mob()
+	var/obj/item/master_item = get_master_item()
+	if(master_mob && master_item)
+		master_mob.visible_message("<span class='warning'>[master_mob] draws [master_item]!</span>")
+		playsound(master_mob, pick('sound/combat/Ranged/bow-draw-04.ogg'), 100, FALSE)
 
 /datum/intent/arc/bow/long/prewarning()
-	if(mastermob)
-		mastermob.visible_message("<span class='warning'>[mastermob] draws [masteritem]!</span>")
-		playsound(mastermob, pick('sound/combat/Ranged/bow-draw-04.ogg'), 100, FALSE)
+	var/mob/master_mob = get_master_mob()
+	var/obj/item/master_item = get_master_item()
+	if(master_mob && master_item)
+		master_mob.visible_message("<span class='warning'>[master_mob] draws [master_item]!</span>")
+		playsound(master_mob, pick('sound/combat/Ranged/bow-draw-04.ogg'), 100, FALSE)
 
 /datum/intent/shoot/bow/long
 	chargetime = 1.5

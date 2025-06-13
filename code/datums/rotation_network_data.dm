@@ -27,7 +27,7 @@
 /datum/rotation_network/proc/check_stress()
 	if(rebuilding)
 		return
-	if(total_stress < used_stress)
+	if(total_stress > 0 && total_stress < used_stress)
 		breakdown()
 	else if(overstressed)
 		restore()

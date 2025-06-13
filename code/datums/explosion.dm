@@ -184,8 +184,8 @@ GLOBAL_LIST_EMPTY(explosions)
 	//lists are guaranteed to contain at least 1 turf at this point
 
 	var/iteration = 0
-	var/affTurfLen = affected_turfs.len
-	var/expBlockLen = cached_exp_block.len
+	var/affTurfLen = length(affected_turfs)
+	var/expBlockLen = length(cached_exp_block)
 	for(var/TI in affected_turfs)
 		var/turf/T = TI
 		++iteration

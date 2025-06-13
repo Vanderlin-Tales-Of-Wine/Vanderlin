@@ -70,6 +70,11 @@
 #define MOB_SPIRIT		(1<<9)
 
 //Organ defines for carbon mobs
+#define CHRONIC_ARTHRITIS 1
+#define CHRONIC_NERVE_DAMAGE 2
+#define CHRONIC_OLD_FRACTURE 3
+#define CHRONIC_SCAR_TISSUE 4
+
 #define ORGAN_ORGANIC   1
 #define ORGAN_ROBOTIC   2
 
@@ -510,3 +515,16 @@
 #define STANDING_UP 0
 /// Mob is lying down, usually associated with lying_angle values of 90 or 270.
 #define LYING_DOWN 1
+
+/// If gravity must be present to perform action (can't use pens without gravity)
+#define NEED_GRAVITY (1<<0)
+/// If reading is required to perform action (can't read a book if you are illiterate)
+#define NEED_LITERACY (1<<1)
+/// If lighting must be present to perform action (can't heal someone in the dark)
+#define NEED_LIGHT (1<<2)
+/// If other mobs (monkeys, aliens, etc) can perform action (can't use computers if you are a monkey)
+#define NEED_DEXTERITY (1<<3)
+/// If telekinesis is forbidden to perform action from a distance (ex. canisters are blacklisted from telekinesis manipulation)
+#define FORBID_TELEKINESIS_REACH (1<<5)
+/// If resting on the floor is allowed to perform action
+#define ALLOW_RESTING (1<<7)

@@ -121,7 +121,7 @@
 	// Replace template tokens with important UI data
 	// NOTE: Intentional \ref usage; tgui datums can't/shouldn't
 	// be tagged, so this is an effective unwrap
-	html = replacetextEx(html, "\[ref]", "\ref[src]")
+	html = replacetextEx(html, "\[ref]", text_ref(src))
 	html = replacetextEx(html, "\[style]", style)
 
 	// Open the window.
@@ -224,7 +224,7 @@
 		"locked" = user.client.prefs.tgui_lock && !custom_browser_id,
 		"window" = window_id,
 		// Intentional \ref usage; tgui datums can't/shouldn't be tagged so this is an effective unwrap
-		"ref" = "\ref[src]"
+		"ref" = text_ref(src)
 	)
 
 	if(!isnull(data))

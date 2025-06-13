@@ -1,8 +1,3 @@
-/atom
-	/// This means that the mouse over text will not be displayed when the mouse is over this atom
-	var/nomouseover = FALSE
-	var/hover_color = "#a1bac4"
-
 /atom/MouseEntered(location,control,params)
 	. = ..()
 	if(!nomouseover && name && ismob(usr))
@@ -37,6 +32,7 @@
 		else
 			p.client.mouseovertext.movethis(PM)
 		p.client.mouseovertext.maptext_height = 32
+		p.client.mouseovertext.maptext_width = 96
 		p.client.mouseovertext.maptext = {"<span style='font-size:8pt;font-family:"Pterra";color:[hover_color];text-shadow:0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;' class='center maptext '>[name]"}
 		p.client.screen |= p.client.mouseovertext
 	return TRUE
@@ -64,10 +60,12 @@
 			p.client.mouseovertext.movethis(PM)
 		if((((rotation_structure && rotation_network) || istype(src, /obj/structure/water_pipe)) || accepts_water_input) && HAS_TRAIT(p, TRAIT_ENGINEERING_GOGGLES))
 			var/rotation_chat = return_rotation_chat(p.client.mouseovertext)
+			p.client.mouseovertext.maptext_width = 96
 			p.client.mouseovertext.maptext = {"[rotation_chat]
 			<span style='font-size:8pt;font-family:"Pterra";color:[hover_color];text-shadow:0 0 1px #fff, 0 0 2px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;' class='center maptext '>[name]"}
 		else
 			p.client.mouseovertext.maptext_height = 32
+			p.client.mouseovertext.maptext_width = 96
 			p.client.mouseovertext.maptext = {"<span style='font-size:8pt;font-family:"Pterra";color:[hover_color];text-shadow:0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;' class='center maptext '>[name]"}
 		p.client.screen |= p.client.mouseovertext
 	return TRUE
