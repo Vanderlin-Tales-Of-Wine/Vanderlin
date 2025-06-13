@@ -62,6 +62,10 @@
 	},
 /turf/open/floor/ruinedwood/alt,
 /area/rogue/indoors)
+"bt" = (
+/obj/structure/fluff/traveltile/exit_baron,
+/turf/open/floor/dirt,
+/area/rogue/outdoors/woods)
 "bz" = (
 /obj/structure/bed/shit,
 /obj/effect/decal/cleanable/dirt/cobweb{
@@ -438,6 +442,10 @@
 	name = "Thatchwood- East"
 	},
 /turf/open/floor/dirt,
+/area/rogue/outdoors/woods)
+"in" = (
+/obj/structure/fluff/traveltile/exit_baron,
+/turf/open/floor/grass,
 /area/rogue/outdoors/woods)
 "iL" = (
 /obj/structure/stairs/stone{
@@ -3361,9 +3369,9 @@ UR
 UR
 Xk
 tR
-wV
-wV
-UR
+bt
+bt
+in
 Xk
 Xk
 wV
