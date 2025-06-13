@@ -81,16 +81,17 @@
 	var/list/hands = list()
 	var/list/behindhands = list()
 
-	var/use_female_sprites = MALE_SPRITES
-	if(species?.sexes)
-		if(gender == FEMALE && !species.swap_female_clothes || gender == MALE && species.swap_male_clothes)
-			use_female_sprites = FEMALE_SPRITES
-
 	var/list/offsets
-	if(use_female_sprites)
-		offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_f
-	else
-		offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
+	var/use_female_sprites = MALE_SPRITES
+	if(species)
+		if(species.sexes)
+			if(gender == FEMALE && !species.swap_female_clothes || gender == MALE && species.swap_male_clothes)
+				use_female_sprites = FEMALE_SPRITES
+
+		if(use_female_sprites)
+			offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_f
+		else
+			offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
 
 	for(var/obj/item/I in held_items)
 		if(client && hud_used && hud_used.hud_version != HUD_STYLE_NOHUD)
@@ -289,17 +290,16 @@
 		if(ishuman(src))
 			var/mob/living/carbon/human/H = src
 			var/datum/species/species = H.dna?.species
-
-			var/use_female_sprites = MALE_SPRITES
-			if(species.sexes)
-				if(gender == FEMALE && !species.swap_female_clothes || gender == MALE && species.swap_male_clothes)
-					use_female_sprites = FEMALE_SPRITES
-
 			var/list/offsets
-			if(use_female_sprites)
-				offsets = (H.age == AGE_CHILD) ? species.offset_features_child : species.offset_features_f
-			else
-				offsets = (H.age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
+			var/use_female_sprites = MALE_SPRITES
+			if(species)
+				if(species.sexes)
+					if(gender == FEMALE && !species.swap_female_clothes || gender == MALE && species.swap_male_clothes)
+						use_female_sprites = FEMALE_SPRITES
+				if(use_female_sprites)
+					offsets = (H.age == AGE_CHILD) ? species.offset_features_child : species.offset_features_f
+				else
+					offsets = (H.age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
 
 			if(LAZYACCESS(offsets, OFFSET_HANDS))
 				inhand_overlay.pixel_x += offsets[OFFSET_HANDS][1]

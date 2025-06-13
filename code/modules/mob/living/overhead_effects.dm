@@ -19,14 +19,15 @@
 
 		if(public)
 			var/use_female_sprites = MALE_SPRITES
-			if(species.sexes)
-				if(H.gender == FEMALE && !species.swap_female_clothes || H.gender == MALE && species.swap_male_clothes)
-					use_female_sprites = FEMALE_SPRITES
+			if(species)
+				if(species.sexes)
+					if(H.gender == FEMALE && !species.swap_female_clothes || H.gender == MALE && species.swap_male_clothes)
+						use_female_sprites = FEMALE_SPRITES
 
-			if(use_female_sprites)
-				offsets = (H.age == AGE_CHILD) ? species.offset_features_child : species.offset_features_f
-			else
-				offsets = (H.age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
+				if(use_female_sprites)
+					offsets = (H.age == AGE_CHILD) ? species.offset_features_child : species.offset_features_f
+				else
+					offsets = (H.age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
 
 			var/mutable_appearance/appearance = mutable_appearance(icon_path, overlay_name, overlay_layer)
 			if(LAZYACCESS(offsets, OFFSET_HEAD))

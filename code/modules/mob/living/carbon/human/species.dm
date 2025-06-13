@@ -750,15 +750,15 @@ GLOBAL_LIST_EMPTY(patreon_races)
 
 	var/datum/species/species = H.dna?.species
 	var/use_female_sprites = FALSE
-	if(species?.sexes)
-		if(H.gender == FEMALE && !species.swap_female_clothes || H.gender == MALE && species.swap_male_clothes)
-			use_female_sprites = FEMALE_BOOB
-
 	var/list/offsets
-	if(use_female_sprites)
-		offsets = (H.age == AGE_CHILD) ? species.offset_features_child : species.offset_features_f
-	else
-		offsets = (H.age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
+	if(species)
+		if(species.sexes)
+			if(H.gender == FEMALE && !species.swap_female_clothes || H.gender == MALE && species.swap_male_clothes)
+				use_female_sprites = FEMALE_BOOB
+		if(use_female_sprites)
+			offsets = (H.age == AGE_CHILD) ? species.offset_features_child : species.offset_features_f
+		else
+			offsets = (H.age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
 
 	var/list/standing = list()
 
