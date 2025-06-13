@@ -146,8 +146,8 @@
  *
  * You really shouldn't be directly using this, use atom helpers instead
  */
-/atom/movable/screen/plane_master/emissive_blocker
-	name = "emissive mob plane master"
+obj/screen/plane_master/emissive_blocker
+	name = "emissive blocker plane master"
 	plane = EMISSIVE_BLOCKER_PLANE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	render_target = EMISSIVE_BLOCKER_RENDER_TARGET
