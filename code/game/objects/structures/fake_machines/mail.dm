@@ -153,6 +153,8 @@
 				new /obj/item/clothing/neck/mercmedal/boltslinger(drop_location)
 			if(7)
 				new /obj/item/clothing/neck/mercmedal/anthrax(drop_location)
+			if(8)
+				new /obj/item/clothing/neck/mercmedal/duelist(drop_location)
 
 	if(istype(P, /obj/item/paper/confession))
 		if(is_inquisitor_job(user.mind.assigned_role) || is_adept_job(user.mind.assigned_role)) // Only Inquisitors and Adepts can sumbit confessions.
