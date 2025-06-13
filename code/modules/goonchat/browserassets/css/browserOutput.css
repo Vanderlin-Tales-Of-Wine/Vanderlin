@@ -119,10 +119,13 @@ a:visited {color: #7c00e6;}
 a.popt {text-decoration: none;}
 
 .examine_block {
+  display: inline-block;
+  width: calc(100% - 1em);
   background: #0f0f0f;
   border: 1px solid #1d1d1f;
   margin: 0.5em;
   padding: 0.5em 0.75em;
+  box-sizing: border-box;
 }
 
 /*****************************************
