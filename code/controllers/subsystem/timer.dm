@@ -409,10 +409,18 @@ SUBSYSTEM_DEF(timer)
 	prev = next = null
 
 /datum/timedevent/proc/bucketJoin()
+#if defined(TIMER_DEBUG)
+	// Generate debug-friendly name for timer, more complex but also more expensive
 	var/static/list/bitfield_flags = list("TIMER_UNIQUE", "TIMER_OVERRIDE", "TIMER_CLIENT_TIME", "TIMER_STOPPABLE", "TIMER_NO_HASH_WAIT", "TIMER_LOOP")
 	name = "Timer: [id] (\ref[src]), TTR: [timeToRun], Flags: [jointext(bitfield2list(flags, bitfield_flags), ", ")], \
 		callBack: \ref[callBack], callBack.object: [callBack.object]\ref[callBack.object]([getcallingtype()]), \
 		callBack.delegate:[callBack.delegate]([callBack.arguments ? callBack.arguments.Join(", ") : ""])"
+#else
+	// Generate a debuggable name for the timer, simpler but wayyyy cheaper, string generation is a bitch and this saves a LOT of time
+	name = "Timer: [id] ([text_ref(src)]), TTR: [timeToRun], wait:[wait] Flags: [flags], \
+		callBack: [text_ref(callBack)], callBack.object: [callBack.object]([getcallingtype()]), \
+		callBack.delegate:[callBack.delegate], source: [source]"
+#endif
 
 	var/list/L
 
