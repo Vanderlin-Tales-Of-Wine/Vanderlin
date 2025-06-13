@@ -24,9 +24,6 @@
 	. = ..()
 	GenerateTree()
 
-/obj/structure/flora/newtree/Destroy()
-	SStreesetup.initialize_me -= src
-	return ..()
 
 /obj/structure/flora/newtree/update_icon()
 	if(burnt)

@@ -15,14 +15,7 @@
 
 /obj/machinery/light/fueledstreet/Initialize()
 	. = ..()
-	lights_on()
-	update_icon()
-	GLOB.streetlamp_list += src
-
-/obj/machinery/light/fueledstreet/Destroy()
-	GLOB.streetlamp_list -= src
-	GLOB.fires_list -= src
-	return ..()
+	GLOB.street_lamp_lights += src
 
 /obj/machinery/light/fueledstreet/midlamp
 	icon = 'icons/roguetown/misc/64x64.dmi'
@@ -55,6 +48,12 @@
 		GLOB.fires_list |= src
 	else
 		GLOB.fires_list -= src
+
+/obj/machinery/light/fueledstreet/Initialize()
+	lights_on()
+	GLOB.streetlamp_list += src
+	update_icon()
+	. = ..()
 
 /obj/machinery/light/fueledstreet/update_icon()
 	if(on)

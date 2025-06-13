@@ -49,10 +49,9 @@
 	RegisterSignal(src, COMSIG_MOVABLE_TURF_ENTERED, PROC_REF(remove_showers))
 
 /obj/item/canvas/Destroy()
-	for(var/mob/mob as anything in showers)
+	. = ..()
+	for(var/mob/mob in showers)
 		remove_shower(mob)
-	QDEL_NULL(used_canvas)
-	return ..()
 
 /obj/item/canvas/attack_hand(mob/user)
 	. = ..()
@@ -165,10 +164,6 @@
 	base = icon(icon, icon_state)
 	icon = draw
 	underlays += base
-
-/atom/movable/screen/canvas/Destroy()
-	host = null
-	return ..()
 
 /atom/movable/screen/canvas/Click(location, control, params)
 	. = ..()

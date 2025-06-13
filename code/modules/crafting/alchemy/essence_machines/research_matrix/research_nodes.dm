@@ -11,9 +11,6 @@
 	var/node_y = 0
 	var/list/connected_nodes = list()
 
-/datum/thaumic_research_node/Destroy(force, ...)
-	connected_nodes = null
-	return ..()
 
 /datum/thaumic_research_node/basic_understanding
 	name = "Fundamental Thaumaturgy"

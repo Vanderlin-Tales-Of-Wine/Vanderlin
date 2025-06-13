@@ -49,11 +49,6 @@
 		torchy.spark_act()
 	. = ..()
 
-/obj/machinery/light/fueled/lanternpost/Destroy()
-	if(torchy)
-		QDEL_NULL(torchy)
-	return ..()
-
 /obj/machinery/light/fueled/lanternpost/process()
 	if(on)
 		if(torchy)

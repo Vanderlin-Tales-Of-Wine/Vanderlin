@@ -46,8 +46,8 @@
 	mote = new(src)
 
 /obj/item/melee/touch_attack/prestidigitation/Destroy()
-	if(mote)
-		QDEL_NULL(mote)
+	if (mote)
+		qdel(mote)
 	return ..()
 
 /obj/item/melee/touch_attack/prestidigitation/attack_self()

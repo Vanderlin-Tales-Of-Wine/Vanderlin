@@ -8,7 +8,7 @@
 	processing_priority = 3
 	var/datum/essence_storage/storage
 	var/datum/thaumic_research_node/selected_research
-	var/datum/weakref/current_user
+	var/mob/current_user
 
 /obj/machinery/essence/research_matrix/Initialize()
 	. = ..()
@@ -16,15 +16,8 @@
 	storage.max_total_capacity = 800
 	storage.max_essence_types = 10
 
-/obj/machinery/essence/research_matrix/Destroy()
-	if(storage)
-		qdel(storage)
-	if(selected_research)
-		qdel(selected_research)
-	return ..()
-
 /obj/machinery/essence/research_matrix/attack_hand(mob/user, params)
-	current_user = WEAKREF(user)
+	current_user = user
 	open_research_interface(user)
 
 /obj/machinery/essence/research_matrix/return_storage()
@@ -88,10 +81,7 @@
 	interface.show()
 
 /obj/machinery/essence/research_matrix/on_transfer_in(essence_type, amount, datum/essence_storage/source)
-	var/mob/user = current_user.resolve()
-	if(!user)
-		return
-	check_research_completion(user)
+	check_research_completion(current_user)
 
 /obj/machinery/essence/research_matrix/proc/check_research_completion(mob/user)
 	if(!selected_research)
@@ -156,18 +146,12 @@
 
 /datum/research_interface
 	var/obj/machinery/essence/research_matrix/matrix
-	var/datum/browser/window
 	var/mob/user
+	var/datum/browser/window
 
 /datum/research_interface/New(obj/machinery/essence/research_matrix/M, mob/U)
 	matrix = M
 	user = U
-
-/datum/research_interface/Destroy(force, ...)
-	matrix = null
-	user = null
-	window = null
-	return ..()
 
 /datum/research_interface/proc/show()
 	if(!user || !matrix)

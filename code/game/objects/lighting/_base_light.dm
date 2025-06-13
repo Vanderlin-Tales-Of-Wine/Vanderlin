@@ -116,8 +116,7 @@
 	addtimer(CALLBACK(src, PROC_REF(update), 0), 1)
 
 /obj/machinery/light/Destroy()
-	if(istype(fog_parter_effect))
-		QDEL_NULL(fog_parter_effect)
+	QDEL_NULL(fog_parter_effect)
 	var/area/A = get_area(src)
 	if(A)
 		on = FALSE

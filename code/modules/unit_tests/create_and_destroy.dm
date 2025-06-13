@@ -1,29 +1,24 @@
 ///Delete one of every type, sleep a while, then check to see if anything has gone fucky
 /datum/unit_test/create_and_destroy
-	//You absolutely must run after (almost) everything else
+	//You absolutely must run last
 	priority = TEST_CREATE_AND_DESTROY
 
 GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 /datum/unit_test/create_and_destroy/Run()
 	//We'll spawn everything here
 	var/turf/spawn_at = run_loc_floor_bottom_left
-
 	var/list/cached_contents = spawn_at.contents.Copy()
-	var/original_turf_type = spawn_at.type
-	var/original_baseturfs = islist(spawn_at.baseturfs) ? spawn_at.baseturfs.Copy() : spawn_at.baseturfs
-	var/original_baseturf_count = length(original_baseturfs)
+	var/baseturf_count = length(spawn_at.baseturfs)
 
 	GLOB.running_create_and_destroy = TRUE
 	for(var/type_path in typesof(/atom/movable, /turf) - uncreatables) //No areas please
 		if(ispath(type_path, /turf))
-			spawn_at.ChangeTurf(type_path)
-			//We change it back to prevent baseturfs stacking and hitting the limit
-			spawn_at.ChangeTurf(original_turf_type, original_baseturfs)
-			if(original_baseturf_count != length(spawn_at.baseturfs))
-				TEST_FAIL("[type_path] changed the amount of baseturfs from [original_baseturf_count] to [length(spawn_at.baseturfs)]; [english_list(original_baseturfs)] to [islist(spawn_at.baseturfs) ? english_list(spawn_at.baseturfs) : spawn_at.baseturfs]")
-				//Warn if it changes again
-				original_baseturfs = islist(spawn_at.baseturfs) ? spawn_at.baseturfs.Copy() : spawn_at.baseturfs
-				original_baseturf_count = length(original_baseturfs)
+			spawn_at.ChangeTurf(type_path, /turf/baseturf_skipover)
+			//We change it back to prevent pain, please don't ask
+			spawn_at.ChangeTurf(/turf/open/floor/wood, /turf/baseturf_skipover)
+			if(baseturf_count != length(spawn_at.baseturfs))
+				TEST_FAIL("[type_path] changed the amount of baseturfs we have [baseturf_count] -> [length(spawn_at.baseturfs)]")
+				baseturf_count = length(spawn_at.baseturfs)
 		else
 			var/atom/creation = new type_path(spawn_at)
 			if(QDELETED(creation))
@@ -38,51 +33,42 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 		var/list/to_del = spawn_at.contents - cached_contents
 		if(length(to_del))
 			for(var/atom/to_kill in to_del)
-				qdel(to_kill)
+				qdel(to_kill, force = TRUE)
 
 	GLOB.running_create_and_destroy = FALSE
-
-	// Drastically lower the amount of time it takes to GC, since we don't have clients that can hold it up.
-	SSgarbage.collection_timeout[GC_QUEUE_CHECK] = 10 SECONDS
+	//Hell code, we're bound to have ended the round somehow so let's stop if from ending while we work
+	SSticker.delay_end = TRUE
+	//Prevent the garbage subsystem from harddeling anything, if only to save time
+	SSgarbage.collection_timeout[GC_QUEUE_HARDDELETE] = 10000 HOURS
 	//Clear it, just in case
 	cached_contents.Cut()
 
-	var/list/queues_we_care_about = list()
-	// All of em, I want hard deletes too, since we rely on the debug info from them
-	for(var/i in 1 to GC_QUEUE_HARDDELETE)
-		queues_we_care_about += i
-
 	//Now that we've qdel'd everything, let's sleep until the gc has processed all the shit we care about
-	// + 2 seconds to ensure that everything gets in the queue.
-	var/time_needed = 2 SECONDS
-	for(var/index in queues_we_care_about)
-		time_needed += SSgarbage.collection_timeout[index]
-
+	var/time_needed = SSgarbage.collection_timeout[GC_QUEUE_CHECK]
 	var/start_time = world.time
-	var/real_start_time = REALTIMEOFDAY
-	var/garbage_queue_processed = FALSE
-
 	sleep(time_needed)
-	while(!garbage_queue_processed)
-		var/oldest_packet_creation = INFINITY
-		for(var/index in queues_we_care_about)
-			var/list/queue_to_check = SSgarbage.queues[index]
-			if(!length(queue_to_check))
-				continue
 
-			var/list/oldest_packet = queue_to_check[1]
-			//Pull out the time we inserted at
-			var/qdeld_at = oldest_packet[GC_QUEUE_ITEM_GCD_DESTROYED]
-
-			oldest_packet_creation = min(qdeld_at, oldest_packet_creation)
-
-		//If we've found a packet that got del'd later then we finished, then all our shit has been processed
-		//That said, if there are any pending hard deletes you may NOT sleep, we gotta handle that shit
-		if(oldest_packet_creation > start_time && !length(SSgarbage.queues[GC_QUEUE_HARDDELETE]))
+	// spin until the first item in the check queue is older than start_time
+	var/garbage_queue_processed = FALSE
+	var/list/queue_to_check = SSgarbage.queues[GC_QUEUE_CHECK]
+	while(!garbage_queue_processed || !SSgarbage.can_fire)
+		if(!SSgarbage.can_fire) // probably running find references
+			CHECK_TICK
+			continue
+		//How the hell did you manage to empty this? Good job!
+		if(!length(queue_to_check))
 			garbage_queue_processed = TRUE
 			break
 
-		if(REALTIMEOFDAY > real_start_time + time_needed + 50 MINUTES) //If this gets us gitbanned I'm going to laugh so hard
+		var/list/oldest_packet = queue_to_check[1]
+		//Pull out the time we deld at
+		var/qdeld_at = oldest_packet[1]
+		//If we've found a packet that got del'd later then we finished, then all our shit has been processed
+		if(qdeld_at > start_time)
+			garbage_queue_processed = TRUE
+			break
+
+		if(world.time > start_time + time_needed + 30 MINUTES) //If this gets us gitbanned I'm going to laugh so hard
 			TEST_FAIL("Something has gone horribly wrong, the garbage queue has been processing for well over 30 minutes. What the hell did you do")
 			break
 
@@ -108,9 +94,10 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 		if(fails & BAD_INIT_NO_HINT)
 			TEST_FAIL("[path] didn't return an Initialize hint")
 		if(fails & BAD_INIT_QDEL_BEFORE)
-			TEST_FAIL("[path] qdel'd before we could call Initialize()")
+			TEST_FAIL("[path] qdel'd in New()")
 		if(fails & BAD_INIT_SLEPT)
 			TEST_FAIL("[path] slept during Initialize()")
 
+	SSticker.delay_end = FALSE
 	//This shouldn't be needed, but let's be polite
-	SSgarbage.collection_timeout[GC_QUEUE_CHECK] = GC_CHECK_QUEUE
+	SSgarbage.collection_timeout[GC_QUEUE_HARDDELETE] = 10 SECONDS

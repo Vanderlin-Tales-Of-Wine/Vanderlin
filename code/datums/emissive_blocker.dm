@@ -23,10 +23,6 @@
 
 	render_source = source
 
-/atom/movable/emissive_blocker/Destroy()
-	render_source = null
-	return ..()
-
 /atom/movable/emissive_blocker/ex_act(severity)
 	return FALSE
 

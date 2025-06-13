@@ -49,17 +49,9 @@
 	var/list/cooldowns
 	var/abstract_type = /datum
 
-#ifdef REFERENCE_TRACKING
-	/// When was this datum last touched by a reftracker?
-	/// If this value doesn't match with the start of the search
-	/// We know this datum has never been seen before, and we should check it
+#ifdef TESTING
+	var/running_find_references
 	var/last_find_references = 0
-	/// How many references we're trying to find when searching
-	var/references_to_clear = 0
-	#ifdef REFERENCE_TRACKING_DEBUG
-	///Stores info about where refs are found, used for sanity checks and testing
-	var/list/found_refs
-	#endif
 #endif
 
 #ifdef DATUMVAR_DEBUGGING_MODE
@@ -101,15 +93,9 @@
 	active_timers = null
 	for(var/thing in timers)
 		var/datum/timedevent/timer = thing
-		if(timer.spent && !(timer.flags & TIMER_DELETE_ME))
+		if (timer.spent)
 			continue
 		qdel(timer)
-
-	#ifdef REFERENCE_TRACKING
-	#ifdef REFERENCE_TRACKING_DEBUG
-	found_refs = null
-	#endif
-	#endif
 
 	//BEGIN: ECS SHIT
 	signal_enabled = FALSE

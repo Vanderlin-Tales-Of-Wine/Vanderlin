@@ -63,7 +63,8 @@
 
 	// Set up repulse spell
 	var/obj/effect/proc_holder/spell/aoe_turf/repulse/voiddragon/repulse_action = new(src)
-	AddSpell(repulse_action)
+	repulse_action.action.Grant(src)
+	mob_spell_list += repulse_action
 
 /mob/living/simple_animal/hostile/retaliate/voiddragon/proc/TailSwipe(mob/victim)
 	var/mob/living/target = victim

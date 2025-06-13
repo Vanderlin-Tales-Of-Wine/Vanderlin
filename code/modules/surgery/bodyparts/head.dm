@@ -19,6 +19,7 @@
 	var/mob/living/brain/brainmob = null //The current occupant.
 	var/obj/item/organ/brain/brain = null //The brain organ
 	var/obj/item/organ/eyes/eyes
+	var/obj/item/organ/eyes/eyesl
 	var/obj/item/organ/ears/ears
 	var/obj/item/organ/tongue/tongue
 
@@ -180,3 +181,8 @@
 	icon = 'icons/mob/animal_parts.dmi'
 	icon_state = "default_monkey_head"
 	animal_origin = MONKEY_BODYPART
+
+/obj/item/bodypart/head/devil
+	dismemberable = 0
+	max_damage = 5000
+	animal_origin = DEVIL_BODYPART

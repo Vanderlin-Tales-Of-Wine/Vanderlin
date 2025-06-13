@@ -8,8 +8,6 @@ SUBSYSTEM_DEF(atoms)
 	init_order = INIT_ORDER_ATOMS
 	flags = SS_NO_FIRE
 
-	var/init_start_time
-
 	var/old_initialized
 
 	var/list/late_loaders = list()
@@ -65,9 +63,7 @@ SUBSYSTEM_DEF(atoms)
 /datum/controller/subsystem/atoms/proc/InitAtom(atom/A, list/arguments)
 	var/the_type = A.type
 	if(QDELING(A))
-		// Check init_start_time to not worry about atoms created before the atoms SS that are cleaned up before this
-		if (A.gc_destroyed > init_start_time)
-			BadInitializeCalls[the_type] |= BAD_INIT_QDEL_BEFORE
+		BadInitializeCalls[the_type] |= BAD_INIT_QDEL_BEFORE
 		return TRUE
 
 	#ifdef UNIT_TESTS

@@ -16,9 +16,10 @@
 	melting_material = /datum/material/gold
 	item_weight = 6.2 * GOLD_MULITPLIER
 
-/obj/item/ore/gold/Initialize(mapload)
-	. = ..()
+/obj/item/ore/gold/Initialize()
 	icon_state = "oregold[rand(1,3)]"
+	..()
+
 
 /obj/item/ore/silver
 	name = "raw silver"
@@ -28,9 +29,10 @@
 	melting_material = /datum/material/silver
 	item_weight = 6.2 * SILVER_MULTIPLIER
 
-/obj/item/ore/silver/Initialize(mapload)
-	. = ..()
+/obj/item/ore/silver/Initialize()
 	icon_state = "oresilv[rand(1,3)]"
+	..()
+
 
 /obj/item/ore/iron
 	name = "raw iron"
@@ -40,9 +42,10 @@
 	melting_material = /datum/material/iron
 	item_weight = 6.2 * IRON_MULTIPLIER
 
-/obj/item/ore/iron/Initialize(mapload)
-	. = ..()
+/obj/item/ore/iron/Initialize()
 	icon_state = "oreiron[rand(1,3)]"
+	..()
+
 
 /obj/item/ore/copper
 	name = "raw copper"
@@ -52,9 +55,9 @@
 	melting_material = /datum/material/copper
 	item_weight = 6.2 * COPPER_MULTIPLIER
 
-/obj/item/ore/copper/Initialize(mapload)
-	. = ..()
+/obj/item/ore/copper/Initialize()
 	icon_state = "orecop[rand(1,3)]"
+	..()
 
 /obj/item/ore/tin
 	name = "raw tin"
@@ -65,9 +68,9 @@
 	melting_material = /datum/material/tin
 	item_weight = 6.2 * TIN_MULTIPLIER
 
-/obj/item/ore/tin/Initialize(mapload)
-	. = ..()
+/obj/item/ore/tin/Initialize()
 	icon_state = "oretin[rand(1,3)]"
+	..()
 
 /obj/item/ore/coal
 	name = "coal"
@@ -77,9 +80,9 @@
 	sellprice = 1
 	item_weight = 7
 
-/obj/item/ore/coal/Initialize(mapload)
-	. = ..()
+/obj/item/ore/coal/Initialize()
 	icon_state = "orecoal[rand(1,3)]"
+	..()
 
 /obj/item/ore/cinnabar
 	name = "cinnabar"
@@ -156,7 +159,7 @@
 		var/obj/machinery/anvil/A = loc
 		A.hingot = null
 		A.update_icon()
-	return ..()
+	..()
 
 /obj/item/ingot/gold
 	name = "gold bar"

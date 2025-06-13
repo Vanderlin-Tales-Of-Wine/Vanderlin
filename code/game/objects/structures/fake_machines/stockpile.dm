@@ -16,7 +16,6 @@
 
 /obj/structure/fake_machine/stockpile/Destroy()
 	SSroguemachine.stock_machines -= src
-	QDEL_NULL(withdraw_tab)
 	return ..()
 
 /obj/structure/fake_machine/stockpile/Topic(href, href_list)

@@ -1,5 +1,5 @@
 /obj/effect/waterfall
-	name = "waterfall"
+	name = ""
 	icon = 'icons/effects/waterfall.dmi'
 	icon_state = "waterfall_temp"
 	pixel_y = 32

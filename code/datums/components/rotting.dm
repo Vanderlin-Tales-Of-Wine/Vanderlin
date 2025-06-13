@@ -17,8 +17,8 @@
 
 /datum/component/rot/Destroy()
 	if(soundloop)
-		QDEL_NULL(soundloop)
-	return ..()
+		soundloop.stop()
+	. = ..()
 
 /datum/component/rot/process()
 	var/amt2add = 10 //1 second

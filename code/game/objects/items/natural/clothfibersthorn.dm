@@ -81,9 +81,6 @@
 		volume = vol
 	create_reagents(volume, TRANSPARENT)
 
-/obj/item/natural/cloth/Destroy()
-	cleaner_component = null
-	return ..()
 
 /obj/item/natural/cloth/ComponentInitialize()
 	. = ..()

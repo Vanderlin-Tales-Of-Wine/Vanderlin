@@ -934,7 +934,8 @@ GLOBAL_VAR_INIT(mobids, 1)
 /mob/proc/RemoveSpell(obj/effect/proc_holder/spell/spell)
 	if(!spell)
 		return
-	for(var/obj/effect/proc_holder/spell/S in mob_spell_list)
+	for(var/X in mob_spell_list)
+		var/obj/effect/proc_holder/spell/S = X
 		if(istype(S, spell))
 			mob_spell_list -= S
 			qdel(S)

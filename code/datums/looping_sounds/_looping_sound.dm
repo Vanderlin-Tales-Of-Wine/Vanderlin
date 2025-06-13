@@ -84,7 +84,7 @@ GLOBAL_LIST_EMPTY(created_sound_groups)
 		group.last_iter++
 		channel = picked_channel
 
-	set_parent(_parent)
+	parent = _parent
 	direct = _direct
 
 	if(_channel)
@@ -96,9 +96,9 @@ GLOBAL_LIST_EMPTY(created_sound_groups)
 		start()
 
 /datum/looping_sound/Destroy()
-	stop(TRUE)
-	if(channel)
-		SSsounds.free_datum_channels(src)
+	stop()
+	parent = null
+	thingshearing.Cut()
 	return ..()
 
 /datum/looping_sound/proc/start(atom/on_behalf_of)
@@ -208,23 +208,20 @@ GLOBAL_LIST_EMPTY(created_sound_groups)
 	STOP_PROCESSING(SSsoundloopers, src)
 	if(persistent_loop)
 		GLOB.persistent_sound_loops -= src
-	if(direct)
+	if(!direct)
+		for(var/mob/M as anything in thingshearing)
+			if(M.client)
+				var/list/L = M.client.played_loops[src]
+				if(L)
+					var/sound/SD = L["SOUND"]
+					if(SD)
+						M.stop_sound_channel(SD.channel)
+					M.client.played_loops -= src
+					thingshearing -= M
+	else
 		var/mob/P = parent
-		if(P?.client)
+		if(P && P.client)
 			P.stop_sound_channel(channel) //This is mostly used for weather
-		return
-	for(var/mob/M as anything in thingshearing)
-		thingshearing -= M
-		if(!M.client)
-			continue
-		var/list/L = M.client.played_loops[src]
-		M.client.played_loops -= src
-		if(!L)
-			continue
-		var/sound/SD = L["SOUND"]
-		if(SD)
-			M.stop_sound_channel(SD.channel)
-
 /*
 /mob/proc/stop_all_loops()
 	if(client)

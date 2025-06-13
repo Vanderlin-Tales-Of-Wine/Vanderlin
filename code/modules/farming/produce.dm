@@ -223,7 +223,6 @@
 	var/poisonous = FALSE
 
 /obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry/Initialize()
-	. = ..()
 	if(GLOB.berrycolors[color_index])
 		filling_color = GLOB.berrycolors[color_index]
 	else
@@ -234,6 +233,7 @@
 			GLOB.berrycolors[color_index] = newcolor
 		filling_color = GLOB.berrycolors[color_index]
 	update_icon()
+	..()
 
 /obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry/on_consume(mob/living/eater)
 	..()

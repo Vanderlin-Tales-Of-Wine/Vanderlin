@@ -54,15 +54,13 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 
 /obj/effect/landmark/events/haunts
 	name = "hauntz"
-	icon_state = MAP_SWITCH("", "generic_event")
+	icon_state = "generic_event"
 
 /obj/effect/landmark/events/haunts/Initialize(mapload)
 	. = ..()
-	GLOB.hauntstart |= src
+	GLOB.hauntstart += src
+	icon_state = ""
 
-/obj/effect/landmark/events/haunts/Destroy()
-	GLOB.hauntstart -= src
-	return ..()
 
 /obj/effect/landmark/events/testportal
 	name = "testserverportal"
@@ -532,22 +530,28 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark/start/new_player)
 /obj/effect/landmark/unit_test_top_right
 	name = "unit test zone top right"
 
-//Underworld landmarks
+//Underworld landmark
+
+/obj/effect/landmark/underworld
+	name = "underworld spawn"
 
 /obj/effect/landmark/underworld_spawnpoint
 	name = "underworld spawnpoint"
 
+/obj/effect/landmark/underworldsafe // To prevent demons spawn camping will save a lot of ear rape.
+	name = "safe zone"
+
 /obj/effect/landmark/underworld_spawnpoint/Initialize(mapload)
-	. = ..()
-	GLOB.underworldspiritspawns |= loc
+	SHOULD_CALL_PARENT(FALSE)
+	GLOB.underworldspiritspawns += loc
 	return INITIALIZE_HINT_QDEL
 
 /obj/effect/landmark/underworld_pull_location
 	name = "coin pull teleport zone"
 
 /obj/effect/landmark/underworld_pull_location/Initialize()
-	. = ..()
-	GLOB.underworld_coinpull_locs |= loc
+	SHOULD_CALL_PARENT(FALSE)
+	GLOB.underworld_coinpull_locs += loc
 	return INITIALIZE_HINT_QDEL
 
 /obj/effect/landmark/death_arena

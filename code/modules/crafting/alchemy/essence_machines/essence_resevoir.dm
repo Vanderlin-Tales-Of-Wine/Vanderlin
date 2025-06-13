@@ -21,11 +21,6 @@
 	storage.max_total_capacity = 1000
 	storage.max_essence_types = 25
 
-/obj/machinery/essence/reservoir/Destroy()
-	if(storage)
-		qdel(storage)
-	return ..()
-
 /obj/machinery/essence/reservoir/update_icon()
 	. = ..()
 	cut_overlays()

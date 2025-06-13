@@ -10,10 +10,8 @@
 //	icon = 'icons/mob/roguehud.dmi'		so you can find the icons
 	var/icon_state = "instrike"
 	var/list/attack_verb = list("hits", "strikes")
-	/// Weakref to the item the mastermob is holding
-	var/datum/weakref/masteritem
-	/// Weakref to the master mob or our holder
-	var/datum/weakref/mastermob
+	var/obj/item/masteritem
+	var/mob/living/mastermob
 	var/unarmed = FALSE
 	var/intent_type
 	var/animname = "strike"
@@ -74,13 +72,10 @@
 /datum/intent/Destroy()
 	if(chargedloop)
 		chargedloop.stop()
-	var/mob/master = get_master_mob()
-	if(master?.curplaying == src)
-		master.curplaying = null
-	if(masteritem)
-		qdel(masteritem)
-	if(mastermob)
-		qdel(mastermob)
+	if(mastermob.curplaying == src)
+		mastermob.curplaying = null
+	mastermob = null
+	masteritem = null
 	return ..()
 
 /// returns the attack animation type this intent uses
@@ -134,11 +129,12 @@
 		return 0
 
 /datum/intent/proc/spell_cannot_activate()
-	var/mob/master = get_master_mob()
-	if(master)
-		to_chat(master, span_warning("I am too drained for this."))
-		cancel_spell_visual_effects(master)
+	to_chat(mastermob, span_warning("I am too drained for this."))
+	cancel_spell_visual_effects(mastermob)
 	return FALSE
+
+/datum/intent/proc/get_owner()
+	return mastermob
 
 /datum/intent/proc/get_chargedrain()
 	if(chargedrain)
@@ -165,16 +161,15 @@
 	return TRUE
 
 /datum/intent/proc/afterchange()
-	var/obj/item/master_item = get_master_item()
-	var/mob/master_mob = get_master_mob()
-	if(master_item)
-		master_item.damage_type = item_damage_type
+	if(masteritem)
+		masteritem.damage_type = item_damage_type
 		var/list/benis = hitsound
 		if(benis)
-			master_item.hitsound = benis
-	if(istype(master_mob, /mob/living/simple_animal))
-		var/mob/living/simple_animal/master = master_mob
+			masteritem.hitsound = benis
+	if(istype(mastermob, /mob/living/simple_animal))
+		var/mob/living/simple_animal/master = mastermob
 		master.damage_type = item_damage_type
+	return
 
 /datum/intent/proc/height2limb(height as num)
 	var/list/returned
@@ -188,54 +183,38 @@
 	return returned
 
 /datum/intent/New(Mastermob, Masteritem)
-	. = ..()
+	..()
 	if(Mastermob)
 		if(isliving(Mastermob))
-			mastermob = WEAKREF(Mastermob)
+			mastermob = Mastermob
 			if(chargedloop)
 				update_chargeloop()
 	if(Masteritem)
-		masteritem = WEAKREF(Masteritem)
-
-/datum/intent/proc/get_master_item()
-	var/obj/item/master = masteritem?.resolve()
-	if(!master)
-		return
-	return master
-
-/datum/intent/proc/get_master_mob()
-	var/mob/master = mastermob?.resolve()
-	if(!master)
-		return
-	return master
+		masteritem = Masteritem
 
 /datum/intent/proc/update_chargeloop() //what the fuck is going on here lol
-	var/mob/master = get_master_mob()
-	if(master && chargedloop)
-		if(!istype(chargedloop))
-			chargedloop = new chargedloop(master)
+	if(mastermob)
+		if(chargedloop)
+			if(!istype(chargedloop))
+				chargedloop = new chargedloop(mastermob)
 
 /datum/intent/proc/on_charge_start() //what the fuck is going on here lol
-	var/mob/master = get_master_mob()
-	if(!master)
-		return
-	if(master.curplaying)
-		master.curplaying.chargedloop.stop()
-		master.curplaying = null
+	if(mastermob.curplaying)
+		mastermob.curplaying.chargedloop.stop()
+		mastermob.curplaying = null
 	if(chargedloop)
 		if(!istype(chargedloop, /datum/looping_sound))
-			chargedloop = new chargedloop(master)
+			chargedloop = new chargedloop(mastermob)
 		else
 			chargedloop.stop()
 		chargedloop.start(chargedloop.parent)
-		master.curplaying = src
+		mastermob.curplaying = src
 
 /datum/intent/proc/on_mouse_up()
-	var/mob/master = get_master_mob()
 	if(chargedloop)
 		chargedloop.stop()
-	if(master?.curplaying == src)
-		master?.curplaying = null
+	if(mastermob?.curplaying == src)
+		mastermob?.curplaying = null
 
 
 /datum/intent/use
@@ -397,10 +376,8 @@
 	warnoffset = 20
 
 /datum/intent/shoot/prewarning()
-	var/mob/master_mob = get_master_mob()
-	var/obj/item/master_item = get_master_item()
-	if(master_item && master_mob)
-		master_mob.visible_message("<span class='warning'>[master_mob] aims [master_item]!</span>")
+	if(masteritem && mastermob)
+		mastermob.visible_message("<span class='warning'>[mastermob] aims [masteritem]!</span>")
 
 /datum/intent/arc
 	name = "arc"
@@ -420,10 +397,9 @@
 	return TRUE
 
 /datum/intent/arc/prewarning()
-	var/mob/master_mob = get_master_mob()
-	var/obj/item/master_item = get_master_item()
-	if(master_item && master_mob)
-		master_mob.visible_message("<span class='warning'>[master_mob] aims [master_item]!</span>")
+	if(masteritem && mastermob)
+		mastermob.visible_message("<span class='warning'>[mastermob] aims [masteritem]!</span>")
+
 
 /datum/intent/unarmed
 	unarmed = TRUE
