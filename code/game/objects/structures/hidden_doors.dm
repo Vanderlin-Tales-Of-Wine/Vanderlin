@@ -73,9 +73,6 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	return
 
 /obj/structure/door/secret/attack_hand(mob/user)
-	. = ..()
-	if(.)
-		return
 	user.changeNext_move(CLICK_CD_MELEE)
 	to_chat(user, span_notice("I start feeling around [src]"))
 	if(!do_after(user, 1.5 SECONDS, src))
