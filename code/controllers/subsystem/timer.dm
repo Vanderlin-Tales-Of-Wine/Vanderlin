@@ -290,14 +290,14 @@ SUBSYSTEM_DEF(timer)
 	bucket_list |= SStimer.bucket_list
 
 /**
-  * # Timed Event
-  *
-  * This is the actual timer, it contains the callback and necessary data to maintain
-  * the timer.
-  *
-  * See the documentation for the timer subsystem for an explanation of the buckets referenced
-  * below in next and prev
-  */
+ * # Timed Event
+ *
+ * This is the actual timer, it contains the callback and necessary data to maintain
+ * the timer.
+ *
+ * See the documentation for the timer subsystem for an explanation of the buckets referenced
+ * below in next and prev
+ */
 /datum/timedevent
 	/// ID used for timers when the TIMER_STOPPABLE flag is present
 	var/id
@@ -455,14 +455,14 @@ SUBSYSTEM_DEF(timer)
 		. = "[callBack.object.type]"
 
 /**
-  * Create a new timer and insert it in the queue.
-  * You should not call this directly, and should instead use the addtimer macro, which includes source information.
-  *
-  * Arguments:
-  * * callback the callback to call on timer finish
-  * * wait deciseconds to run the timer for
-  * * flags flags for this timer, see: code\__DEFINES\subsystems.dm
-  */
+ * Create a new timer and insert it in the queue.
+ * You should not call this directly, and should instead use the addtimer macro, which includes source information.
+ *
+ * Arguments:
+ * * callback the callback to call on timer finish
+ * * wait deciseconds to run the timer for
+ * * flags flags for this timer, see: code\__DEFINES\subsystems.dm
+ */
 /proc/_addtimer(datum/callback/callback, wait = 0, flags = 0, file, line)
 	if (!callback)
 		CRASH("addtimer called without a callback")
