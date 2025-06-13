@@ -207,7 +207,7 @@
 		react_type = INGEST
 	var/datum/reagents/reagents = new()
 	reagents.add_reagent(W.water_reagent, react_volume)
-	reagents.reaction(src, react_type)
+	reagents.reaction(src, react_type, W.level / 2)
 
 /mob/living/carbon/human/handle_inwater()
 	. = ..()
