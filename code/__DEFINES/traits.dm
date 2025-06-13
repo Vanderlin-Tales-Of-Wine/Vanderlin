@@ -204,7 +204,6 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_MATTHIOS_EYES = span_notice("I have a sense for what the most valuable item someone has is."),
 	TRAIT_CRATEMOVER = "I am able to drag heavy objects without any difficulty.",
 	TRAIT_SEE_LEYLINES = "I can see the lines that make up this world.",
-	TRAIT_WATER_BREATHING = span_info("You can breath underwater, you have no fear of drowning."),
 	TRAIT_MOONWATER_ELIXIR = span_info("Your mind is open, you can understand magic runes."),
 	TRAIT_TINY = "I am small, its hard to look people in the eyes.",
 	TRAIT_FOREIGNER = span_notice("I'm not from around here."),
@@ -217,7 +216,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_EARGRAB = span_info("I can keep a tight grip on the ear of unruly children."),
 	TRAIT_KITTEN_MOM = span_info("Kittens love you, they see you are a parent."),
 	TRAIT_GOOD_SWIM = span_info("I can swim without being slowed and against the flow of rivers."),
-	TRAIT_WATER_BREATHE = span_info("I can breathe underwater."),
+	TRAIT_WATER_BREATHING = span_info("I can breath underwater, I have no fear of drowning."),
 	))
 
 #define SIGNAL_ADDTRAIT(trait_ref) ("addtrait " + trait_ref)
