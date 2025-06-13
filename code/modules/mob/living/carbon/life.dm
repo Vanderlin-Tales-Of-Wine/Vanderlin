@@ -188,7 +188,7 @@
 /mob/living/carbon/handle_inwater(turf/open/water/W)
 	. = ..()
 	if(stat == DEAD)
-		return TRUE
+		return
 	if(W.water_volume < 10 || !W.water_reagent)
 		return
 	var/react_volume = 2
