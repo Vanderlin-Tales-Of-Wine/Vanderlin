@@ -482,8 +482,7 @@ SUBSYSTEM_DEF(timer)
 		stack_trace("addtimer called with a callback assigned to a qdeleted object. In the future such timers will not \
 			be supported and may refuse to run or run with a 0 wait")
 
-
-	if (flags & TIMER_CLIENT_TIME) // REALTIMEOFDAY has a resolution of 1 decisecondAdd commentMore actions
+	if (flags & TIMER_CLIENT_TIME) // REALTIMEOFDAY has a resolution of 1 decisecond
 		wait = max(CEILING(wait, 1), 1) // so if we use tick_lag timers may be inserted in the "past"
 	else
 		wait = max(CEILING(wait, world.tick_lag), world.tick_lag)
@@ -491,8 +490,8 @@ SUBSYSTEM_DEF(timer)
 	if(wait >= INFINITY)
 		CRASH("Attempted to create timer with INFINITY delay")
 
+	// Generate hash if relevant for timed events with the TIMER_UNIQUE flag
 	var/hash
-
 	if (flags & TIMER_UNIQUE)
 		var/list/hashlist = list(callback.object, "([REF(callback.object)])", callback.delegate, flags & TIMER_CLIENT_TIME)
 		if(!(flags & TIMER_NO_HASH_WAIT))
@@ -502,18 +501,18 @@ SUBSYSTEM_DEF(timer)
 
 		var/datum/timedevent/hash_timer = SStimer.hashes[hash]
 		if(hash_timer)
-			if (hash_timer.spent) //it's pending deletion, pretend it doesn't exist.
-				hash_timer.hash = null //but keep it from accidentally deleting us
+			if (hash_timer.spent) // it's pending deletion, pretend it doesn't exist.
+				hash_timer.hash = null // but keep it from accidentally deleting us
 			else
 				if (flags & TIMER_OVERRIDE)
-					hash_timer.hash = null //no need having it delete it's hash if we are going to replace it
+					hash_timer.hash = null // no need having it delete its hash if we are going to replace it
 					qdel(hash_timer)
 				else
 					if (hash_timer.flags & TIMER_STOPPABLE)
 						. = hash_timer.id
 					return
 	else if(flags & TIMER_OVERRIDE)
-		stack_trace("TIMER_OVERRIDE used without TIMER_UNIQUE")
+		stack_trace("TIMER_OVERRIDE used without TIMER_UNIQUE") //this is also caught by grep.
 
 	var/datum/timedevent/timer = new(callback, wait, flags, hash, file && "[file]:[line]")
 	return timer.id
