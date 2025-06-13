@@ -36,6 +36,8 @@
 		/datum/attunement/fire = 0.3,
 	)
 
+	overlay_state = "create_campfire"
+
 /obj/machinery/light/fueled/campfire/createbonfire5e
 	name = "magical bonfire"
 	icon_state = "churchfire1"

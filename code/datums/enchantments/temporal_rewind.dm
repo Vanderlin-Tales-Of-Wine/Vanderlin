@@ -1,6 +1,11 @@
 /datum/enchantment/rewind
 	enchantment_name = "Temporal Rewind"
 	examine_text = "Its seems both hold and new at the same time."
+	essence_recipe = list(
+		/datum/thaumaturgical_essence/cycle = 50,
+		/datum/thaumaturgical_essence/magic = 30,
+		/datum/thaumaturgical_essence/void = 20
+	)
 	var/last_used
 	var/active_item = FALSE
 	var/warned = FALSE

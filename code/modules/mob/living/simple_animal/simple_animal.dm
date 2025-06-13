@@ -174,9 +174,9 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	update_simplemob_varspeed()
 	if(milk_reagent)
 		udder = new(src, milk_reagent)
-	if(!length(ai_controller.blackboard[BB_BASIC_FOODS]))
-		ai_controller.set_blackboard_key(BB_BASIC_FOODS, typecacheof(food_type))
 
+	if(ai_controller && !length(ai_controller.blackboard[BB_BASIC_FOODS]))
+		ai_controller.set_blackboard_key(BB_BASIC_FOODS, typecacheof(food_type))
 
 /mob/living/simple_animal/Destroy()
 	if(nest)
@@ -185,10 +185,11 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 
 	if(ssaddle)
 		QDEL_NULL(ssaddle)
-		ssaddle = null
 
-	qdel(udder)
-	udder = null
+	if(udder)
+		QDEL_NULL(udder)
+
+	owner = null
 
 	return ..()
 
@@ -252,7 +253,6 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 
 	if(user)
 		owner = user
-	return
 
 //mob/living/simple_animal/examine(mob/user)
 //	. = ..()
@@ -513,26 +513,14 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	density = initial(density)
 	setMovetype(initial(movement_type))
 
-/mob/living/simple_animal/canUseTopic(atom/movable/M, be_close=FALSE, no_dexterity=FALSE, no_tk=FALSE)
-	if(incapacitated(ignore_grab = TRUE))
-		to_chat(src, "<span class='warning'>I can't do that right now!</span>")
-		return FALSE
-	if(be_close && !in_range(M, src))
-		to_chat(src, "<span class='warning'>I are too far away!</span>")
-		return FALSE
-	if(!(no_dexterity || dextrous))
-		to_chat(src, "<span class='warning'>I don't have the dexterity to do this!</span>")
-		return FALSE
-	return TRUE
-
 /mob/living/simple_animal/stripPanelUnequip(obj/item/what, mob/who, where)
-	if(!canUseTopic(who, BE_CLOSE))
+	if(!can_perform_action(who, NEED_DEXTERITY|FORBID_TELEKINESIS_REACH))
 		return
 	else
 		..()
 
 /mob/living/simple_animal/stripPanelEquip(obj/item/what, mob/who, where)
-	if(!canUseTopic(who, BE_CLOSE))
+	if(!can_perform_action(who, NEED_DEXTERITY|FORBID_TELEKINESIS_REACH))
 		return
 	else
 		..()

@@ -156,6 +156,10 @@
 	lumber_amount = 0
 	lumber = null
 
+/obj/item/grown/log/tree/stick/Initialize()
+	. = ..()
+	icon_state = "stick[rand(1,2)]"
+
 /obj/item/grown/log/tree/stick/Crossed(mob/living/L)
 	. = ..()
 	if(istype(L))
@@ -170,10 +174,6 @@
 			if (L.alpha == 0 && L.rogue_sneaking) // not anymore you're not
 				L.update_sneak_invis(TRUE)
 			L.consider_ambush()
-
-/obj/item/grown/log/tree/stick/Initialize()
-	icon_state = "stick[rand(1,2)]"
-	..()
 
 /obj/item/grown/log/tree/stick/attack_self(mob/living/user)
 	user.visible_message("<span class='warning'>[user] snaps [src].</span>")

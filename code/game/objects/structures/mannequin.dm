@@ -217,7 +217,7 @@
 //Mannequin exploded.
 /obj/structure/mannequin/Destroy()
 	DropAll()
-	..()
+	return ..()
 
 /obj/structure/mannequin/examine(mob/user)
 	..()

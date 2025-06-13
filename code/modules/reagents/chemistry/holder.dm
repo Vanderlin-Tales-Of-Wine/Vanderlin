@@ -57,13 +57,13 @@
 
 /datum/reagents
 	var/list/datum/reagent/reagent_list = new/list()
+	var/list/datum/reagent/addiction_list = new/list()
+	var/atom/my_atom = null
 	var/total_volume = 0
 	var/maximum_volume = 100
-	var/atom/my_atom = null
 	var/chem_temp = 150
 	var/last_tick = 1
 	var/addiction_tick = 1
-	var/list/datum/reagent/addiction_list = new/list()
 	var/flags
 
 /datum/reagents/New(maximum=100, new_flags=0)
@@ -78,16 +78,16 @@
 	flags = new_flags
 
 /datum/reagents/Destroy()
-	. = ..()
-	var/list/cached_reagents = reagent_list
-	for(var/reagent in cached_reagents)
-		var/datum/reagent/R = reagent
-		qdel(R)
-	cached_reagents.Cut()
-	cached_reagents = null
+	for(var/datum/reagent/reagent as anything in reagent_list)
+		qdel(reagent)
+	for(var/datum/reagent/reagent as anything in addiction_list)
+		qdel(reagent)
+	reagent_list = null
+	addiction_list = null
 	if(my_atom && my_atom.reagents == src)
 		my_atom.reagents = null
 	my_atom = null
+	return ..()
 
 // Used in attack logs for reagents in pills and such
 // external list is list of reagent types = amounts
@@ -944,8 +944,7 @@
 		var/datum/reagent/R = i
 		R.on_temp_change(increased)
 	handle_reactions()
-	var/mob/last_interacted = get_mob_by_ckey(my_atom.fingerprintslast)
-	SEND_SIGNAL(my_atom, COMSIG_REAGENTS_EXPOSE_TEMPERATURE, last_interacted, chem_temp)
+	SEND_SIGNAL(my_atom, COMSIG_REAGENTS_EXPOSE_TEMPERATURE, null, chem_temp)
 
 ///////////////////////////////////////////////////////////////////////////////////
 

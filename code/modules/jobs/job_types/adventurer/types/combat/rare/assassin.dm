@@ -38,7 +38,7 @@
 	H.become_blind("TRAIT_GENERIC")
 	H.advjob = "Assassin"
 	// Assassin now spawns disguised as one of the non-combat drifters. You never know who will stab you in the back.
-	var/disguises = list("Bard", "Beggar", "Fisher", "Hunter", "Miner", "Noble", "Peasant", "Carpenter", "Thief", "Ranger", "Servant", "Assassin")
+	var/disguises = list("Bard", "Beggar", "Fisher", "Hunter", "Miner", "Noble", "Peasant", "Carpenter", "Thief", "Ranger", "Servant")
 	var/disguisechoice = input("Choose your cover", "Available disguises") as anything in disguises
 
 	if(disguisechoice)
@@ -257,21 +257,6 @@
 			else
 				cloak = /obj/item/clothing/cloak/apron
 			backpack_contents = list(/obj/item/recipe_book/cooking = 1)
-		if("Assassin") // Sacrifice the disguise for drip.
-			shirt = /obj/item/clothing/shirt/undershirt/fancy
-			gloves = /obj/item/clothing/gloves/fingerless
-			pants = /obj/item/clothing/pants/tights/uncolored
-			shoes = /obj/item/clothing/shoes/boots
-			backl = /obj/item/storage/backpack/satchel
-			belt = /obj/item/storage/belt/leather/knifebelt/black/steel
-			beltl = /obj/item/storage/belt/pouch/coins/poor
-			beltr = /obj/item/weapon/knife/dagger/steel
-			armor = /obj/item/clothing/shirt/tunic/noblecoat
-			cloak = /obj/item/clothing/cloak/raincloak
-			mask = /obj/item/clothing/face/spectacles/sglasses
-			ring = /obj/item/clothing/ring/silver/gemerald
-			backpack_contents = list(/obj/item/reagent_containers/glass/bottle/poison, /obj/item/weapon/knife/dagger/steel/profane, /obj/item/lockpick, /obj/item/storage/fancy/cigarettes/zig, /obj/item/flint)
-			H.set_hair_style(/datum/sprite_accessory/hair/head/bald, FALSE)
 
 	H.cure_blind("TRAIT_GENERIC")
 

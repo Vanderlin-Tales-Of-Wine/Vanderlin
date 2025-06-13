@@ -3,7 +3,7 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 
 /mob/living/carbon/human/Topic(href, href_list)
 
-	if(href_list["task"] == "view_flavor_text" && (isobserver(usr) || usr.canUseTopic(src, BE_CLOSE, NO_DEXTERITY)))
+	if(href_list["task"] == "view_flavor_text" && (isobserver(usr) || usr.can_perform_action(src, FORBID_TELEKINESIS_REACH|NEED_LIGHT)))
 		if(!ismob(usr))
 			return
 		var/mob/user = usr
@@ -20,7 +20,7 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 		popup.open(FALSE)
 		return
 
-	if(href_list["view_descriptors"] && (isobserver(usr) || usr.canUseTopic(src, BE_CLOSE, NO_DEXTERITY)))
+	if(href_list["view_descriptors"] && (isobserver(usr) || usr.can_perform_action(src, FORBID_TELEKINESIS_REACH|NEED_LIGHT)))
 		if(!ismob(usr))
 			return
 		var/obscure_name
@@ -32,7 +32,7 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 		to_chat(usr, span_info("[lines.Join("\n")]"))
 		return
 
-	if(href_list["inspect_limb"] && (isobserver(usr) || usr.canUseTopic(src, BE_CLOSE, NO_DEXTERITY)))
+	if(href_list["inspect_limb"] && (isobserver(usr) || usr.can_perform_action(src, FORBID_TELEKINESIS_REACH)))
 		var/list/msg = list()
 		var/mob/user = usr
 		var/checked_zone = check_zone(href_list["inspect_limb"])
@@ -49,7 +49,7 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 			msg += span_dead("Limb is missing!")
 		to_chat(usr, span_info("[msg.Join("\n")]"))
 
-	if(href_list["check_hb"] && (isobserver(usr) || usr.canUseTopic(src, BE_CLOSE, NO_DEXTERITY)))
+	if(href_list["check_hb"] && (isobserver(usr) || usr.can_perform_action(src, FORBID_TELEKINESIS_REACH)))
 		if(!isobserver(usr))
 			usr.visible_message(span_info("[usr] tries to hear [src]'s heartbeat."))
 			if(!do_after(usr, 3 SECONDS, src))
@@ -57,7 +57,7 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 		var/list/following_my_heart = check_heartbeat(usr)
 		to_chat(usr, span_info("[following_my_heart.Join("\n")]"))
 
-	if(href_list["embedded_object"] && usr.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
+	if(href_list["embedded_object"] && usr.can_perform_action(src, FORBID_TELEKINESIS_REACH))
 		var/obj/item/bodypart/L = locate(href_list["embedded_limb"]) in bodyparts
 		if(!L)
 			return
@@ -81,7 +81,7 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 			else
 				usr.visible_message(span_notice("[usr] rips [I] out of [src]'s [L.name]!"), span_notice("I successfully remove [I] from [src]'s [L.name]."))
 
-	if(href_list["bandage"] && usr.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
+	if(href_list["bandage"] && usr.can_perform_action(src, FORBID_TELEKINESIS_REACH))
 		var/obj/item/bodypart/L = locate(href_list["bandaged_limb"]) in bodyparts
 		if(!L)
 			return

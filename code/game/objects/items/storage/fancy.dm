@@ -128,7 +128,7 @@
 	. += "<span class='notice'>Alt-click to extract contents.</span>"
 
 /obj/item/storage/fancy/cigarettes/AltClick(mob/living/carbon/user)
-	if(!istype(user) || !user.canUseTopic(src, BE_CLOSE, ismonkey(user)))
+	if(!istype(user) || !user.can_perform_action(src, NEED_DEXTERITY|FORBID_TELEKINESIS_REACH))
 		return
 	var/obj/item/clothing/face/cigarette/W = locate(/obj/item/clothing/face/cigarette) in contents
 	if(W && contents.len > 0)
@@ -182,7 +182,6 @@
 	else
 		to_chat(user, "<span class='notice'>There are no [icon_type]s left in the pack.</span>")
 
-
 /obj/item/storage/fancy/cigarettes/zig
 	name = "zigbox"
 	desc = ""
@@ -192,24 +191,3 @@
 
 /obj/item/storage/fancy/cigarettes/zig/empty
 	spawn_type = null
-
-
-/obj/item/storage/fancy/rollingpapers
-	name = "rolling paper pack"
-	desc = ""
-	w_class = WEIGHT_CLASS_TINY
-	icon = 'icons/obj/cigarettes.dmi'
-	icon_state = "cig_paper_pack"
-	icon_type = "rolling paper"
-	spawn_type = /obj/item/rollingpaper
-
-/obj/item/storage/fancy/rollingpapers/ComponentInitialize()
-	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_items = 10
-	STR.set_holdable(list(/obj/item/rollingpaper))
-
-/obj/item/storage/fancy/rollingpapers/update_icon()
-	cut_overlays()
-	if(!contents.len)
-		add_overlay("[icon_state]_empty")

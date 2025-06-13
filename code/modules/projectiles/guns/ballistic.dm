@@ -266,7 +266,7 @@
 
 
 /obj/item/gun/ballistic/AltClick(mob/user)
-	if (unique_reskin && !current_skin && user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY))
+	if (unique_reskin && !current_skin && user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
 		reskin_obj(user)
 		return
 
