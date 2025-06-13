@@ -150,3 +150,8 @@
 	desc = "The steel-lined heels click."
 	icon_state = "inqboots"
 	item_state = "inqboots"
+
+//Valorian Duelist Merc - On par with grenzelhoftian's stats.
+/obj/item/clothing/shoes/nobleboot/duelboots
+	desc = "Boots custom fit for a Valorian Duelist. Footwork is paramount in a duel, so good boots are a must."
+	armor = list("blunt" = 25, "slash" = 25, "stab" = 25,  "piercing" = 15, "fire" = 0, "acid" = 0)
