@@ -130,17 +130,17 @@
 /obj/item/natural/cloth/mob_can_equip(mob/living/M, mob/living/equipper, slot, disable_warning, bypass_equip_delay_self)
 	. = ..()
 	if(.)
-		if(slot == SLOT_BELT && !equipper)
+		if((slot & ITEM_SLOT_BELT) && !equipper)
 			if(!do_after(M, 1.5 SECONDS, src))
 				return FALSE
 
 /obj/item/natural/cloth/equipped(mob/living/carbon/human/user, slot)
 	. = ..()
-	if(slot == SLOT_WEAR_MASK)
+	if(slot & ITEM_SLOT_MASK)
 		user.become_blind("blindfold_[REF(src)]")
-	else if(slot == SLOT_BELT)
+	else if(slot & ITEM_SLOT_BELT)
 		user.temporarilyRemoveItemFromInventory(src)
-		user.equip_to_slot_if_possible(new /obj/item/storage/belt/leather/cloth(get_turf(user)), SLOT_BELT)
+		user.equip_to_slot_if_possible(new /obj/item/storage/belt/leather/cloth(get_turf(user)), ITEM_SLOT_BELT)
 		qdel(src)
 
 /obj/item/natural/cloth/dropped(mob/living/carbon/human/user)
@@ -326,10 +326,10 @@
 	icon1step = 3
 	icon2step = 6
 
-/obj/item/natural/bundle/fibers/full
-	icon_state = "fibersroll2"
-	amount = 6
-	firefuel = 30 MINUTES
+/obj/item/natural/bundle/fibers/full/Initialize()
+	. = ..()
+	amount = maxamount
+	update_bundle()
 
 /obj/item/natural/bundle/silk
 	name = "silken weave"
@@ -369,6 +369,11 @@
 	icon1step = 5
 	icon2 = "clothroll2"
 	icon2step = 10
+
+/obj/item/natural/bundle/cloth/full/Initialize()
+	. = ..()
+	amount = maxamount
+	update_bundle()
 
 /obj/item/natural/bundle/stick
 	name = "bundle of sticks"
@@ -443,5 +448,7 @@
 	icon2 = "bonestack2"
 	icon2step = 4
 
-/obj/item/natural/bundle/bone/full
-	amount = 6
+/obj/item/natural/bundle/bone/full/Initialize()
+	. = ..()
+	amount = maxamount
+	update_bundle()

@@ -159,8 +159,8 @@
 
 	if(iscarbon(burn_living))
 		var/mob/living/carbon/burn_carbon = burn_living
-		var/obj/item/clothing/burn_suit = burn_carbon.get_item_by_slot(SLOT_ARMOR)
-		var/obj/item/clothing/burn_helmet = burn_carbon.get_item_by_slot(SLOT_HEAD)
+		var/obj/item/clothing/burn_suit = burn_carbon.get_item_by_slot(ITEM_SLOT_ARMOR)
+		var/obj/item/clothing/burn_helmet = burn_carbon.get_item_by_slot(ITEM_SLOT_HEAD)
 		if(burn_suit?.clothing_flags & LAVAPROTECT && burn_helmet?.clothing_flags & LAVAPROTECT)
 			return LAVA_BE_PROCESSING
 

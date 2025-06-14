@@ -20,7 +20,7 @@
 	return ..()
 
 /datum/component/tactical/proc/modify(obj/item/source, mob/user, slot)
-	if(allowed_slot && slot != allowed_slot)
+	if(allowed_slot && !(slot & allowed_slot))
 		unmodify()
 		return
 

@@ -182,12 +182,12 @@
 	var/body_protected = FALSE
 
 	// Check head slot for beekeeper hat or similar
-	var/obj/item/clothing/head/head_item = H.get_item_by_slot(SLOT_HEAD)
+	var/obj/item/clothing/head/head_item = H.get_item_by_slot(ITEM_SLOT_HEAD)
 	if(head_item && (head_item.flags_cover & HEADCOVERSMOUTH))
 		head_protected = TRUE
 
 	// Check suit slot for beekeeper suit or similar
-	var/obj/item/clothing/armor/suit_item = H.get_item_by_slot(SLOT_ARMOR)
+	var/obj/item/clothing/armor/suit_item = H.get_item_by_slot(ITEM_SLOT_ARMOR)
 	if(suit_item &&  (suit_item.body_parts_covered & CHEST))
 		body_protected = TRUE
 

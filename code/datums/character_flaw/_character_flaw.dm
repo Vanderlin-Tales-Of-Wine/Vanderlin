@@ -177,7 +177,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 		var/type = H.wear_mask.type
 		QDEL_NULL(H.wear_mask)
 		H.put_in_hands(new type(get_turf(H)))
-	H.equip_to_slot_or_del(new /obj/item/clothing/face/spectacles(H), SLOT_WEAR_MASK)
+	H.equip_to_slot_or_del(new /obj/item/clothing/face/spectacles(H), ITEM_SLOT_MASK)
 
 /datum/charflaw/paranoid
 	name = "Paranoid"
@@ -279,7 +279,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 		var/type = H.wear_mask.type
 		QDEL_NULL(H.wear_mask)
 		H.put_in_hands(new type(get_turf(H)))
-	H.equip_to_slot_or_del(new /obj/item/clothing/face/eyepatch(H), SLOT_WEAR_MASK)
+	H.equip_to_slot_or_del(new /obj/item/clothing/face/eyepatch(H), ITEM_SLOT_MASK)
 
 	var/obj/item/bodypart/head/head = H.get_bodypart(BODY_ZONE_HEAD)
 	head?.add_wound(/datum/wound/facial/eyes/right/permanent)
@@ -299,7 +299,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 		var/type = H.wear_mask.type
 		QDEL_NULL(H.wear_mask)
 		H.put_in_hands(new type(get_turf(H)))
-	H.equip_to_slot_or_del(new /obj/item/clothing/face/eyepatch/left(H), SLOT_WEAR_MASK)
+	H.equip_to_slot_or_del(new /obj/item/clothing/face/eyepatch/left(H), ITEM_SLOT_MASK)
 
 	var/obj/item/bodypart/head/head = H.get_bodypart(BODY_ZONE_HEAD)
 	head?.add_wound(/datum/wound/facial/eyes/left/permanent)

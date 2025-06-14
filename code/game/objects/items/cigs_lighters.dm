@@ -99,7 +99,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		..()
 
 /obj/item/proc/help_light_cig(mob/living/M)
-	var/mask_item = M.get_item_by_slot(SLOT_MOUTH)
+	var/mask_item = M.get_item_by_slot(ITEM_SLOT_MOUTH)
 	if(istype(mask_item, /obj/item/clothing/face/cigarette))
 		return mask_item
 
@@ -162,7 +162,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		reagents.add_reagent_list(list_reagents)
 	if(starts_lit)
 		light()
-	AddComponent(/datum/component/knockoff, 90, list(BODY_ZONE_PRECISE_MOUTH) ,list(SLOT_MOUTH))//90% to knock off when wearing a mask
+	AddComponent(/datum/component/knockoff, 90, list(BODY_ZONE_PRECISE_MOUTH) ,list(ITEM_SLOT_MOUTH))//90% to knock off when wearing a mask
 
 /obj/item/clothing/face/cigarette/Destroy()
 	STOP_PROCESSING(SSobj, src)

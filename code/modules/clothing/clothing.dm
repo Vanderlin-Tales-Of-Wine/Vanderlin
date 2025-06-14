@@ -227,7 +227,7 @@
 /obj/item/clothing/mob_can_equip(mob/M, mob/equipper, slot, disable_warning = 0)
 	if(!..())
 		return FALSE
-	if(slot_flags & slotdefine2slotbit(slot))
+	if(slot_flags & slot)
 		if(M.gender in allowed_sex)
 			if(ishuman(M))
 				var/mob/living/carbon/human/H = M
@@ -304,8 +304,7 @@
 	..()
 	if (!istype(user))
 		return
-
-	if(slot_flags & slotdefine2slotbit(slot)) //Was equipped to a valid slot for this item?
+	if(slot_flags & slot) //Was equipped to a valid slot for this item?
 		if (LAZYLEN(user_vars_to_edit))
 			for(var/variable in user_vars_to_edit)
 				if(variable in user.vars)
@@ -468,7 +467,7 @@ BLIND     // can't see anything
 	gas_transfer_coefficient = initial(gas_transfer_coefficient)
 
 /obj/item/clothing/equipped(mob/user, slot)
-	if(hoodtype && slot != SLOT_ARMOR|SLOT_CLOAK)
+	if(hoodtype && !(slot & (ITEM_SLOT_ARMOR|ITEM_SLOT_CLOAK)))
 		RemoveHood()
 	if(adjustable > 0)
 		ResetAdjust(user)
@@ -513,7 +512,8 @@ BLIND     // can't see anything
 			if(H.head)
 				to_chat(H, "<span class='warning'>I'm already wearing something on my head.</span>")
 				return
-			else if(H.equip_to_slot_if_possible(hood,SLOT_HEAD,0,0,1))
+			else if(H.equip_to_slot_if_possible(hood,ITEM_SLOT_HEAD,0,0,1))
+				testing("begintog")
 				hoodtoggled = TRUE
 				if(toggle_icon_state)
 					src.icon_state = "[initial(icon_state)]_t"

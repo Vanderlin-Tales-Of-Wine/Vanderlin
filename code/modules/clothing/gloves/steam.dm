@@ -39,7 +39,7 @@
 			clothing:power_off(user)
 		return
 
-	if(!slot || !(slotdefine2slotbit(slot) & slot_flags))
+	if(!slot || !(slot_flags & slot))
 		power_off(user)
 		remove_status_effect(user)
 		for(var/obj/item/clothing/clothing as anything in equipped_items)

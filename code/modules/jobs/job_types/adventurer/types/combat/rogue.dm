@@ -74,4 +74,4 @@
 	var/thiefcloak_color_selection = input(usr,"What color was I again?","The Cloak","Ashen Black") in thiefcloak_colors
 	var/obj/item/clothing/cloak/raincloak/thiefcloak = new()
 	thiefcloak.color = thiefcloak_colors[thiefcloak_color_selection]
-	H.equip_to_slot(thiefcloak, SLOT_CLOAK, TRUE)
+	H.equip_to_slot(thiefcloak, ITEM_SLOT_CLOAK, TRUE)
