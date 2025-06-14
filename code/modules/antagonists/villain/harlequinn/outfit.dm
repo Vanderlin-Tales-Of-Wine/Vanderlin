@@ -6,6 +6,7 @@
 	mask = /obj/item/clothing/face/mask/facemask/steel/harlequin
 	gloves = /obj/item/clothing/gloves/fingerless
 	belt = /obj/item/storage/belt/leather/black
+	wrists = /obj/item/rope
 	pants = /obj/item/clothing/pants/trou/leather
 	armor = /obj/item/clothing/armor/leather/jacket
 	beltl = /obj/item/weapon/knife/dagger/steel
@@ -41,7 +42,6 @@
 		/obj/item/harlequinn_disguise_kit,
 		/obj/item/reagent_containers/glass/bottle/poison,
 		/obj/item/lockpick,
-		/obj/item/rope,
 		/obj/item/smokebomb = 2,
 	)
 
