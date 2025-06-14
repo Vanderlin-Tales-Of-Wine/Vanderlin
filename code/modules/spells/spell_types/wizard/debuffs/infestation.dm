@@ -33,7 +33,7 @@
 		var/mob/living/carbon/target = targets[1]
 		target.visible_message(span_warning("[target] is surrounded by a cloud of pestilent vermin!"), span_notice("You surround [target] in a cloud of pestilent vermin!"))
 		target.apply_status_effect(/datum/status_effect/buff/infestation5e/) //apply debuff
-		return TRUE
+		return ..()
 	return FALSE
 
 /datum/status_effect/buff/infestation5e

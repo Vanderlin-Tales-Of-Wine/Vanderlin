@@ -21,6 +21,7 @@
 		qdel(storage)
 	if(selected_research)
 		qdel(selected_research)
+	current_user = null
 	return ..()
 
 /obj/machinery/essence/research_matrix/attack_hand(mob/user, params)

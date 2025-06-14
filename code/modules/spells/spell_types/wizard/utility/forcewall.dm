@@ -54,7 +54,7 @@
 		new wall_type(get_step(front, NORTH), user)
 		new wall_type(get_step(front, SOUTH), user)
 	user.visible_message("[user] mutters an incantation and a wall of arcyne force manifests out of thin air!")
-	return TRUE
+	return ..()
 
 /obj/structure/forcefield_weak/caster
 	var/mob/caster

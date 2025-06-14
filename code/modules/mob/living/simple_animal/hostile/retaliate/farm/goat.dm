@@ -44,7 +44,6 @@
 	tame_chance = 25
 	bonus_tame_chance = 15
 	pooptype = /obj/item/natural/poo/horse
-	milk_reagent = /datum/reagent/consumable/milk/gote
 
 	base_intents = list(/datum/intent/simple/headbutt)
 	attack_verb_continuous = "headbutts"
@@ -79,6 +78,10 @@
 			list(/mob/living/simple_animal/hostile/retaliate/goat/goatlet = 90, /mob/living/simple_animal/hostile/retaliate/goat/goatlet/boy = 10),\
 			CALLBACK(src, PROC_REF(after_birth)),\
 		)
+	udder_component()
+
+/mob/living/simple_animal/hostile/retaliate/goat/proc/udder_component()
+	AddComponent(/datum/component/udder, reagent_produced_typepath = /datum/reagent/consumable/milk/gote)
 
 /mob/living/simple_animal/hostile/retaliate/goat/Destroy()
 	UnregisterSignal(src, COMSIG_HOSTILE_PRE_ATTACKINGTARGET)
@@ -355,7 +358,6 @@
 
 	health = CALF_HEALTH
 	maxHealth = CALF_HEALTH
-	milk_reagent = null
 
 	base_intents = list(/datum/intent/simple/headbutt)
 	melee_damage_lower = 1
@@ -369,7 +371,8 @@
 	can_buckle = FALSE
 	can_breed = FALSE
 
-
+/mob/living/simple_animal/hostile/retaliate/goat/goatlet/udder_component()
+	return
 
 /mob/living/simple_animal/hostile/retaliate/goat/goatlet/boy
 	icon_state = "goatletboy"

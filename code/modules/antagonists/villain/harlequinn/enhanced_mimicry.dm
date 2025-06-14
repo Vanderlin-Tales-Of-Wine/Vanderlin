@@ -46,7 +46,7 @@
 /obj/effect/proc_holder/spell/invoked/enhanced_mimicry/cast(list/targets, mob/living/user)
 	if(transformed)
 		return_to_normal(user)
-		return TRUE
+		return ..()
 
 	if(ishuman(targets[1]))
 		if(targets[1] == user)
@@ -57,7 +57,7 @@
 
 		if(do_after(user, 30 SECONDS, target = targets[1]))
 			transform_into_target(current_target, user)
-		return TRUE
+		return ..()
 	return FALSE
 
 /obj/effect/proc_holder/spell/invoked/enhanced_mimicry/proc/transform_into_target(mob/living/carbon/human/target, mob/living/carbon/human/user)

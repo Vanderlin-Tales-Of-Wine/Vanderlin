@@ -76,4 +76,4 @@
 		to_chat(H, span_warning("Dendor's blessing fades from you."))
 		H.mind.RemoveSpell(src)
 
-	return TRUE
+	return ..()

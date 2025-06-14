@@ -52,7 +52,6 @@ SUBSYSTEM_DEF(vis_overlays)
 
 	if(!thing.managed_vis_overlays)
 		thing.managed_vis_overlays = list(overlay)
-		RegisterSignal(thing, COMSIG_ATOM_DIR_CHANGE, PROC_REF(rotate_vis_overlay))
 	else
 		thing.managed_vis_overlays += overlay
 
@@ -75,15 +74,3 @@ SUBSYSTEM_DEF(vis_overlays)
 	thing.managed_vis_overlays -= overlays
 	if(!length(thing.managed_vis_overlays))
 		thing.managed_vis_overlays = null
-		UnregisterSignal(thing, COMSIG_ATOM_DIR_CHANGE)
-
-/datum/controller/subsystem/vis_overlays/proc/rotate_vis_overlay(atom/thing, old_dir, new_dir)
-	if(old_dir == new_dir)
-		return
-	var/rotation = dir2angle(old_dir) - dir2angle(new_dir)
-	var/list/overlays_to_remove = list()
-	for(var/i in thing.managed_vis_overlays)
-		var/obj/effect/overlay/vis/overlay = i
-		add_vis_overlay(thing, overlay.icon, overlay.icon_state, overlay.layer, overlay.plane, turn(overlay.dir, rotation), overlay.alpha, overlay.appearance_flags)
-		overlays_to_remove += overlay
-	remove_vis_overlay(thing, overlays_to_remove)

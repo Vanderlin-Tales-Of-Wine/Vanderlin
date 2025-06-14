@@ -24,9 +24,15 @@ GLOBAL_LIST_INIT(dungeon_exits, list())
 	var/list/dungeon_exits = list()
 	var/can_enter = TRUE
 
+
+/obj/structure/dungeon_entry/New(loc, ...)
+	GLOB.dungeon_entries |= src
+	if(!dungeon_id)
+		GLOB.unlinked_dungeon_entries |= src
+	return ..()
+
 /obj/structure/dungeon_entry/Initialize()
 	. = ..()
-	GLOB.dungeon_entries |= src
 	if(dungeon_id)
 		for(var/obj/structure/dungeon_exit/exit as anything in GLOB.dungeon_exits)
 			if(exit.dungeon_id != dungeon_id)
@@ -35,7 +41,6 @@ GLOBAL_LIST_INIT(dungeon_exits, list())
 			exit.entry = src
 			GLOB.unlinked_dungeon_entries -= src
 		return
-	GLOB.unlinked_dungeon_entries |= src
 	shuffle_inplace(GLOB.dungeon_exits)
 	for(var/obj/structure/dungeon_exit/exit as anything in GLOB.dungeon_exits)
 		if(exit.dungeon_id)
@@ -48,7 +53,7 @@ GLOBAL_LIST_INIT(dungeon_exits, list())
 /obj/structure/dungeon_entry/Destroy()
 	for(var/obj/structure/dungeon_exit/exit as anything in dungeon_exits)
 		exit.entry = null
-	dungeon_exits.Cut()
+	dungeon_exits = null
 	GLOB.dungeon_entries -= src
 	GLOB.unlinked_dungeon_entries -= src
 	return ..()
