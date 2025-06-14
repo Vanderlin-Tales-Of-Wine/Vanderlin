@@ -54,7 +54,7 @@
 
 	//Copy equipment
 	var/list/result = list()
-	var/list/slots_to_check = list(ITEM_SLOT_PANTS,ITEM_SLOT_BACK_L,ITEM_SLOT_BACK_R,ITEM_SLOT_ARMOR,ITEM_SLOT_BELT,ITEM_SLOT_GLOVES,ITEM_SLOT_SHOES,ITEM_SLOT_HEAD,ITEM_SLOT_MASK,ITEM_SLOT_NECK,ITEM_SLOT_HEAD,ITEM_SLOT_RING,ITEM_SLOT_WRISTS)
+	var/list/slots_to_check = DEFAULT_SLOT_PRIORITY
 	for(var/s in slots_to_check)
 		var/obj/item/I = get_item_by_slot(s)
 		var/vedits = collect_vv(I)
