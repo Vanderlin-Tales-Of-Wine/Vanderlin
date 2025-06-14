@@ -10,3 +10,6 @@
 /// Sent from /proc/do_after once a do_after action completes, whether via the bar filling or via interruption.
 #define COMSIG_DO_AFTER_ENDED "mob_do_after_ended"
 #define COMSIG_PHASE_CHANGE "phase_change"
+
+///from /datum/element/footstep/prepare_step(): (list/steps)
+#define COMSIG_MOB_PREPARE_STEP_SOUND "override_mob_stepsound"

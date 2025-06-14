@@ -158,9 +158,9 @@
 					if(user.used_intent == cached_intent)
 						var/tempsound = user.used_intent.hitsound
 						if(tempsound)
-							playsound(M.loc,  tempsound, 100, FALSE, -1)
+							playsound(M.loc, tempsound, get_clamped_volume(), FALSE, extrarange = stealthy_audio ? SILENCED_SOUND_EXTRARANGE : -1, falloff_distance = 0)
 						else
-							playsound(M.loc,  "nodmg", 100, FALSE, -1)
+							playsound(M.loc, "nodmg", get_clamped_volume(), FALSE, extrarange = stealthy_audio ? SILENCED_SOUND_EXTRARANGE : -1, falloff_distance = 0)
 				log_combat(user, M, "attacked", src.name, "(INTENT: [uppertext(user.used_intent.name)]) (DAMTYPE: [uppertext(damtype)])")
 				add_fingerprint(user)
 		if(M.d_intent == INTENT_DODGE)
