@@ -40,6 +40,7 @@
 
 	H.unequip_everything()
 	H.equipOutfit(/datum/outfit/job/harlequin)
+	H.cmode_music = 'sound/music/cmode/garrison/CombatForestGarrison.ogg'
 
 /datum/antagonist/harlequinn/proc/give_objectives()
 	var/list/contract_choices = list()
