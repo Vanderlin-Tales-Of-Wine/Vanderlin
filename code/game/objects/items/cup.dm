@@ -37,6 +37,7 @@
 	grid_height = 32
 	icon_state = "wooden"
 	drop_sound = 'sound/foley/dropsound/wooden_drop.ogg'
+	grid_height = 32
 	metalizer_result = /obj/item/reagent_containers/glass/cup
 
 /obj/item/reagent_containers/glass/cup/clay
