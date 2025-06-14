@@ -2558,6 +2558,7 @@
 #include "code\modules\spells\spell_types\wizard\learnspell\nodes\_base_spellnode.dm"
 #include "code\modules\spells\spell_types\wizard\learnspell\nodes\circular_tree.dm"
 #include "code\modules\spells\spell_types\wizard\summoning\find_familiar.dm"
+#include "code\modules\spells\spell_types\wizard\summoning\flower_field.dm"
 #include "code\modules\spells\spell_types\wizard\utility\chill_touch.dm"
 #include "code\modules\spells\spell_types\wizard\utility\create_bonfire.dm"
 #include "code\modules\spells\spell_types\wizard\utility\enchant_stone.dm"

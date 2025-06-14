@@ -346,6 +346,14 @@
 		icon_state = "rosa"
 		user.update_icon()
 
+/obj/item/alch/euphorbia
+	name = "euphorbia"
+	icon_state = "euphorbia"
+// not sure if still relevant considering the alchemy revamp
+	major_pot = /datum/alch_cauldron_recipe/str_potion
+	med_pot = /datum/alch_cauldron_recipe/doompoison
+	minor_pot = /datum/alch_cauldron_recipe/stam_poison
+
 /obj/item/alch/hypericum
 	name = "hypericum"
 	icon_state = "hypericum"

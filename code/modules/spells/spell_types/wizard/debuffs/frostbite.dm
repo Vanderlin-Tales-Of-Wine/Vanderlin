@@ -1,7 +1,7 @@
 /obj/effect/proc_holder/spell/invoked/frostbite5e
 	name = "Frostbite"
 	desc = "Freeze your enemy with an icy blast that does low damage, but reduces the target's Speed for a considerable length of time."
-	overlay_state = "null"
+	overlay_state = "frostbite"
 	releasedrain = 50
 	chargetime = 3
 	recharge_time = 25 SECONDS

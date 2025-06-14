@@ -125,3 +125,7 @@
 /obj/item/herbseed/rosa
 	makes_herb = /obj/structure/flora/grass/herb/rosa
 	seed_identity = "rosa seeds"
+
+/obj/item/herbseed/euphorbia
+	makes_herb = /obj/structure/flora/grass/herb/euphorbia
+	seed_identity = "euphorbia seeds"
