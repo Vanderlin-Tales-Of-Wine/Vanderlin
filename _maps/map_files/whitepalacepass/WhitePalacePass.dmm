@@ -1873,14 +1873,6 @@
 	pixel_x = -5;
 	pixel_y = 4
 	},
-/obj/item/ingot/gold{
-	pixel_x = 7;
-	pixel_y = 7
-	},
-/obj/item/ingot/gold{
-	pixel_x = -2;
-	pixel_y = 12
-	},
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/indoors/town/vault)
 "bJo" = (
@@ -3480,8 +3472,17 @@
 /obj/effect/decal/remains/human,
 /turf/open/floor/ruinedwood,
 /area/rogue/under/town/basement)
+"dxH" = (
+/obj/structure/ladder,
+/turf/open/floor/cobblerock,
+/area/rogue/under/cave)
 "dxL" = (
 /obj/structure/closet/crate/crafted_closet/inn,
+/obj/item/clothing/shirt/undershirt/fancy,
+/obj/item/clothing/head/fancyhat,
+/obj/item/clothing/shoes/nobleboot/thighboots,
+/obj/item/clothing/shoes/nobleboot/duelboots,
+/obj/item/clothing/shirt/tunic/noblecoat,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/town/steward)
 "dxN" = (
@@ -4189,6 +4190,8 @@
 "edU" = (
 /obj/structure/closet/crate/drawer,
 /obj/item/storage/magebag/apprentice,
+/obj/item/recipe_book/arcyne,
+/obj/item/key/mage,
 /turf/open/floor/ruinedwood/turned/alt,
 /area/rogue/indoors/town/magician)
 "eeo" = (
@@ -4632,7 +4635,7 @@
 /obj/structure/door/violet{
 	name = "GateKeeper Tower"
 	},
-/obj/effect/mapping_helpers/access/keyset/garrison/gate,
+/obj/effect/mapping_helpers/access/keyset/garrison/general,
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/concrete,
 /area/rogue/indoors/villagegarrison)
@@ -4866,7 +4869,13 @@
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/manorgate)
 "eQz" = (
-/obj/structure/fake_machine/steward,
+/obj/structure/fake_machine/steward{
+	pixel_x = 0;
+	pixel_y = 9
+	},
+/obj/structure/table/wood/reinforced_alt{
+	dir = 4
+	},
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/town/steward)
 "eQJ" = (
@@ -7839,11 +7848,25 @@
 /turf/open/water/swamp,
 /area/rogue/under/cavewet)
 "hAV" = (
-/obj/effect/landmark/hammer/dev_text{
-	name = "Kitchen"
-	},
 /obj/effect/decal/cleanable/food/mess,
 /obj/structure/table/wood/reinforced,
+/obj/item/reagent_containers/food/snacks/produce/grain/oat,
+/obj/item/reagent_containers/food/snacks/produce/grain/oat{
+	pixel_x = -6;
+	pixel_y = 2
+	},
+/obj/item/reagent_containers/food/snacks/produce/grain/oat{
+	pixel_x = 4;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/food/snacks/produce/grain/oat{
+	pixel_x = -4;
+	pixel_y = 14
+	},
+/obj/item/reagent_containers/food/snacks/produce/grain/oat{
+	pixel_x = 3;
+	pixel_y = 17
+	},
 /turf/open/floor/tile/kitchen,
 /area/rogue/indoors/town/manor)
 "hBl" = (
@@ -10211,6 +10234,7 @@
 	pixel_x = 0;
 	pixel_y = 11
 	},
+/obj/item/recipe_book/arcyne,
 /turf/open/floor/ruinedwood/turned/alt,
 /area/rogue/indoors/town/magician)
 "keW" = (
@@ -10350,6 +10374,7 @@
 /area/rogue/indoors/town/garrison)
 "knN" = (
 /obj/structure/table/wood/reinforced,
+/obj/item/recipe_book/arcyne,
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/magician)
 "koj" = (
@@ -10629,7 +10654,7 @@
 /obj/structure/door/violet{
 	name = "Gatekeeper's Checkpoint"
 	},
-/obj/effect/mapping_helpers/access/keyset/garrison/gate,
+/obj/effect/mapping_helpers/access/keyset/garrison/general,
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/concrete,
 /area/rogue/indoors/villagegarrison)
@@ -12786,6 +12811,9 @@
 	pixel_x = -32;
 	pixel_y = 0
 	},
+/obj/structure/ladder{
+	layer = 2.7
+	},
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/town/manor)
 "mHD" = (
@@ -12827,6 +12855,30 @@
 /obj/structure/fake_machine/stockpile,
 /obj/structure/table/wood/reinforced,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat{
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat{
+	pixel_x = 10;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat{
+	pixel_x = -9;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat{
+	pixel_x = 8;
+	pixel_y = 11
+	},
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat{
+	pixel_x = -8;
+	pixel_y = 12
+	},
+/obj/item/reagent_containers/food/snacks/produce/grain/wheat{
+	pixel_x = 5;
+	pixel_y = 6
+	},
 /turf/open/floor/tile/kitchen,
 /area/rogue/indoors/town/manor)
 "mJg" = (
@@ -13263,7 +13315,7 @@
 /obj/structure/door/violet{
 	name = "GateKeeper Tower"
 	},
-/obj/effect/mapping_helpers/access/keyset/garrison/gate,
+/obj/effect/mapping_helpers/access/keyset/garrison/general,
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/villagegarrison)
@@ -13613,7 +13665,7 @@
 /obj/structure/door/violet{
 	name = "GateKeeper"
 	},
-/obj/effect/mapping_helpers/access/keyset/garrison/gate,
+/obj/effect/mapping_helpers/access/keyset/garrison/general,
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/concrete,
 /area/rogue/indoors/villagegarrison)
@@ -13914,6 +13966,12 @@
 	},
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/merc_guild)
+"nCr" = (
+/mob/living/simple_animal/pet/cat/black{
+	name = "Kiki"
+	},
+/turf/open/floor/carpet/lord/left,
+/area/rogue/indoors/town/manor)
 "nCD" = (
 /obj/structure/chair/wood/alt{
 	dir = 8
@@ -15034,6 +15092,22 @@
 	},
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/smithy)
+"oGw" = (
+/obj/structure/table/wood/reinforced,
+/obj/item/recipe_book/cooking{
+	pixel_x = -3;
+	pixel_y = -2
+	},
+/obj/item/recipe_book/cooking{
+	pixel_x = -7;
+	pixel_y = 14
+	},
+/obj/item/recipe_book/cooking{
+	pixel_x = 9;
+	pixel_y = 7
+	},
+/turf/open/floor/tile/kitchen,
+/area/rogue/indoors/town/manor)
 "oGC" = (
 /obj/structure/bed/inn,
 /obj/item/bedsheet/fabric,
@@ -15077,6 +15151,10 @@
 "oIV" = (
 /obj/item/natural/glass/shard,
 /turf/open/floor/churchrough/purple,
+/area/rogue/under/cave)
+"oJi" = (
+/obj/structure/mannequin/male/decorative,
+/turf/open/floor/cobblerock,
 /area/rogue/under/cave)
 "oJA" = (
 /turf/open/floor/blocks,
@@ -15216,8 +15294,8 @@
 /obj/structure/fluff/railing/border{
 	dir = 8
 	},
-/obj/structure/table/wood/reinf_long{
-	dir = 8
+/obj/structure/table/wood/reinforced_alt{
+	dir = 1
 	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/steward)
@@ -20071,6 +20149,17 @@
 	},
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/town/orphanage)
+"twz" = (
+/obj/structure/closet/crate/chest/old_crate,
+/obj/item/canvas/random_painting,
+/obj/item/canvas/random_painting,
+/obj/item/canvas/random_painting,
+/obj/item/canvas/random_painting,
+/obj/item/canvas/random_painting,
+/obj/item/canvas/random_painting,
+/obj/item/canvas/random_painting,
+/turf/open/floor/ruinedwood/chevron,
+/area/rogue/under/town/basement)
 "txu" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
@@ -20581,7 +20670,9 @@
 "tZt" = (
 /obj/structure/bed/inn/double,
 /obj/machinery/light/fueled/wallfire/candle/r,
-/obj/effect/landmark/start/steward,
+/obj/effect/landmark/start/steward{
+	dir = 8
+	},
 /obj/item/bedsheet/fabric_double,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/steward)
@@ -20618,6 +20709,10 @@
 /obj/effect/decal/cleanable/dirt/cobweb,
 /turf/open/floor/church,
 /area/rogue/indoors/town/church)
+"uah" = (
+/obj/structure/mannequin/male/decorative,
+/turf/open/floor/cobble,
+/area/rogue/under/cave)
 "uai" = (
 /obj/structure/fluff/railing/border,
 /obj/structure/fluff/railing/border{
@@ -20900,6 +20995,8 @@
 /obj/structure/closet/crate/drawer,
 /obj/item/storage/magebag/apprentice,
 /obj/item/reagent_containers/glass/bottle/strongmanapot,
+/obj/item/weapon/knife/dagger/silver/arcyne,
+/obj/item/key/mage,
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/magician)
 "uqE" = (
@@ -21028,6 +21125,12 @@
 	},
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors/rtfield)
+"uzv" = (
+/obj/effect/landmark/hammer/dev_text{
+	name = "Kitchen"
+	},
+/turf/closed/wall/mineral/decorstone,
+/area/rogue/indoors/town/manor)
 "uzy" = (
 /obj/structure/chair/stool,
 /obj/effect/landmark/start/orphan{
@@ -24273,6 +24376,14 @@
 	pixel_x = -5;
 	pixel_y = 8
 	},
+/obj/item/ingot/silver{
+	pixel_x = -5;
+	pixel_y = 8
+	},
+/obj/item/ingot/silver{
+	pixel_x = -5;
+	pixel_y = 8
+	},
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/indoors/town/vault)
 "xGU" = (
@@ -24281,6 +24392,8 @@
 "xGW" = (
 /obj/structure/closet/crate/drawer,
 /obj/item/storage/magebag/apprentice,
+/obj/item/recipe_book/arcyne,
+/obj/item/key/mage,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town/magician)
 "xHa" = (
@@ -122663,13 +122776,13 @@ odL
 odL
 uus
 nJJ
-nJJ
-nJJ
-nJJ
-nJJ
-nJJ
-nJJ
-nJJ
+qbL
+qbL
+qbL
+qbL
+qbL
+qbL
+qbL
 nJJ
 nJJ
 nJJ
@@ -122865,13 +122978,13 @@ odL
 odL
 uus
 nJJ
-nJJ
-nJJ
-nJJ
-nJJ
-nJJ
-nJJ
-nJJ
+qbL
+oJi
+uah
+uah
+oWl
+uah
+qbL
 nJJ
 nJJ
 nJJ
@@ -123067,13 +123180,13 @@ odL
 odL
 uus
 nJJ
-nJJ
-nJJ
-nJJ
-nJJ
-nJJ
-nJJ
-nJJ
+qbL
+uah
+uah
+otK
+otK
+oJi
+qbL
 nJJ
 nJJ
 nJJ
@@ -123269,12 +123382,12 @@ odL
 odL
 uus
 nJJ
-nJJ
-nJJ
-nJJ
-nJJ
-nJJ
-nJJ
+qbL
+oJi
+otK
+oJi
+oWl
+otK
 mos
 mos
 mos
@@ -123471,12 +123584,12 @@ odL
 odL
 uus
 nJJ
-nJJ
-nJJ
-nJJ
-nJJ
-nJJ
-nJJ
+qbL
+otK
+oWl
+oWl
+dxH
+uah
 mos
 mHs
 oEs
@@ -123673,12 +123786,12 @@ odL
 odL
 uus
 nJJ
-nJJ
-nJJ
-nJJ
-nJJ
-nJJ
-nJJ
+qbL
+uah
+oWl
+otK
+otK
+oJi
 xKm
 dEV
 xQF
@@ -123875,12 +123988,12 @@ odL
 odL
 uus
 nJJ
-nJJ
-nJJ
-nJJ
-nJJ
-nJJ
-nJJ
+qbL
+uah
+uah
+otK
+uah
+oJi
 mos
 eOF
 trh
@@ -124077,12 +124190,12 @@ odL
 odL
 uus
 nJJ
-nJJ
-nJJ
-nJJ
-nJJ
-nJJ
-nJJ
+qbL
+oJi
+oJi
+oWl
+uah
+oJi
 mos
 mos
 inp
@@ -124279,9 +124392,9 @@ odL
 odL
 uus
 nJJ
-nJJ
-nJJ
-nJJ
+qbL
+qbL
+qbL
 mos
 mos
 rpa
@@ -128535,7 +128648,7 @@ dRO
 ofo
 qfd
 mos
-bNr
+twz
 kzO
 bNr
 bNr
@@ -165695,7 +165808,7 @@ doP
 doP
 qLq
 doP
-doP
+nCr
 doP
 yij
 doP
@@ -167718,7 +167831,7 @@ rIl
 wXQ
 sys
 btc
-btc
+wLg
 btc
 qBj
 nMp
@@ -167919,8 +168032,8 @@ fNh
 fyC
 fNh
 tDV
-wLg
-qBj
+btc
+oGw
 raf
 fEB
 gKp
@@ -168119,7 +168232,7 @@ nJJ
 nJJ
 fNh
 rIl
-fNh
+uzv
 uQX
 iTU
 hAV
