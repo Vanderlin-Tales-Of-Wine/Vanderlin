@@ -14,7 +14,7 @@
  * Handles creation, callbacks, and destruction of timed events.
  *
  * It is important to understand the buckets used in the timer subsystem are just a circular doubly-linked list. The
- * object at a given index in the bucket list is a /datum/timedevent, the head of the list, which has prev and next
+ * object at a given index in the bucket_list is a /datum/timedevent, the head of the list, which has prev and next
  * references for the respective elements in that buckets circular list.
  */
 SUBSYSTEM_DEF(timer)
@@ -359,6 +359,7 @@ SUBSYSTEM_DEF(timer)
 	src.wait = wait
 	src.flags = flags
 	src.hash = hash
+	src.source = source
 
 	timeToRun = (flags & TIMER_CLIENT_TIME ? REALTIMEOFDAY : world.time) + wait
 
