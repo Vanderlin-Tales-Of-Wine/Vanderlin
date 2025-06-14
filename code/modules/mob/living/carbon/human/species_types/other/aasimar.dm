@@ -113,34 +113,13 @@
 	C.grant_language(/datum/language/common)
 
 /datum/species/aasimar/after_creation(mob/living/carbon/C)
-	..()
-	C.grant_language(/datum/language/celestial)
+	. = ..()
 	to_chat(C, "<span class='info'>I can speak Celestial with ,c before my speech.</span>")
 
 /datum/species/aasimar/on_species_loss(mob/living/carbon/C)
 	. = ..()
 	UnregisterSignal(C, COMSIG_MOB_SAY)
 	C.remove_language(/datum/language/celestial)
-
-/datum/species/aasimar/handle_speech(datum/source, list/speech_args)
-	. = ..()
-	var/message = speech_args[SPEECH_MESSAGE]
-	if(message)
-		if(message[1])
-			if(message[1] != "*")
-				message = " [message]"
-				var/list/accent_words = strings("accents/accent_universal.json", "universal")
-
-				for(var/key in accent_words)
-					var/value = accent_words[key]
-					if(islist(value))
-						value = pick(value)
-
-					message = replacetextEx(message, " [uppertext(key)]", " [uppertext(value)]")
-					message = replacetextEx(message, " [capitalize(key)]", " [capitalize(value)]")
-					message = replacetextEx(message, " [key]", " [value]")
-
-	speech_args[SPEECH_MESSAGE] = trim(message)
 
 /datum/species/aasimar/qualifies_for_rank(rank, list/features)
 	return TRUE
@@ -191,9 +170,6 @@
 
 /datum/species/aasimar/get_possible_surnames(gender)
 	return null
-
-/datum/species/aasimar/get_accent_list()
-	return strings("accents/proper_replacement.json", "proper")
 
 /datum/species/aasimar/get_native_language()
 	return "Celestial"
