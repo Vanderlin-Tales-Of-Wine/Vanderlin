@@ -112,7 +112,7 @@
 
 #define TORADIANS(degrees) ((degrees) * 0.0174532925)
 
-/// Gets shift x that would be required the bitflag (1<<x)
+/// Gets shift x that would be required for the bitflag (1<<x)
 #define TOBITSHIFT(bit) ( log(2, bit) )
 
 // Will filter out extra rotations and negative rotations
