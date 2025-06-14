@@ -49,7 +49,7 @@
 	category_tags = list(CTAG_GARRISON)
 
 /datum/outfit/job/guardsman/footman/pre_equip(mob/living/carbon/human/H)
-	..()
+	. = ..()
 	head = /obj/item/clothing/head/helmet/townwatch
 	neck = /obj/item/clothing/neck/gorget
 	armor = /obj/item/clothing/armor/chainmail
@@ -61,9 +61,9 @@
 	backpack_contents = list(/obj/item/storage/keyring/guard, /obj/item/weapon/knife/dagger/steel/special)
 
 
-	H.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE) // Main weapon
+	H.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE) // Main weapon ??? AXES ARENT THEIR MAIN WEAPON, CHANGED THIS TO SWORD 3
 	H.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE) // Main off-hand weapon
-	H.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE) // Backup
+	H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE) // Backup
 	H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE) // Guards should be going for less than lethal in reality. Unarmed would be a primary thing.
@@ -158,8 +158,45 @@
 	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
 	H.verbs |= /mob/proc/haltyell
 
+/datum/advclass/garrison/justicar
+	name = "City Watch Justicar"
+	tutorial = "You embody the Law, you wield the hammer of Justice and protect Order in the city of Vanderlin, you are renowned for your ability to bring back criminals alive to receive their judgement."
+	outfit = /datum/outfit/job/guardsman/justicar
+
+	category_tags = list(CTAG_GARRISON)
+
+/datum/outfit/job/guardsman/justicar/pre_equip(mob/living/carbon/human/H)
+	..()
+	head = /obj/item/clothing/head/helmet/townwatch
+	armor = /obj/item/clothing/armor/chainmail
+	shirt = /obj/item/clothing/armor/gambeson
+	neck = /obj/item/clothing/neck/gorget
+	backl = /obj/item/storage/backpack/satchel
+	backr = /obj/item/weapon/shield/heater
+	beltl = /obj/item/weapon/mace/warhammer
+	beltr = /obj/item/weapon/knife/dagger/steel/special
+	backpack_contents = list(/obj/item/storage/keyring/guard)
+
+	//Stats for class
+	H.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE) //main weapon
+	H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
+	H.change_stat(STATKEY_STR, 2)
+	H.change_stat(STATKEY_END, 2)
+	H.change_stat(STATKEY_CON, 1)
+	H.change_stat(STATKEY_SPD, -2) // Stronk and has training in hammers and a rather high endurance to hit fast with them
+	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
+	H.verbs |= /mob/proc/haltyell
 
 /mob/proc/haltyell()
 	set name = "HALT!"
 	set category = "Noises"
 	emote("haltyell")
+
+
