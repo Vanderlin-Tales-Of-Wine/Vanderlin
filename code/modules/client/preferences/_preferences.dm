@@ -1475,7 +1475,6 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		character.regenerate_limb(BODY_ZONE_L_ARM)
 
 		character.charflaw = new charflaw.type(character)
-		character.charflaw = new charflaw.type(character)
 
 	if(parent)
 		var/datum/role_bans/bans = get_role_bans_for_ckey(parent.ckey)

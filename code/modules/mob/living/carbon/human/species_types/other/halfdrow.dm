@@ -23,7 +23,7 @@
 	skin_tone_wording = "Half-Drow Identity"
 	default_color = "FFFFFF"
 
-	species_traits = list(EYECOLOR ,HAIR, FACEHAIR, LIPS, STUBBLE, OLDGREY)
+	species_traits = list(EYECOLOR, HAIR, FACEHAIR, LIPS, STUBBLE, OLDGREY)
 	inherent_traits = list(TRAIT_NOMOBSWAP)
 
 	use_skintones = TRUE
