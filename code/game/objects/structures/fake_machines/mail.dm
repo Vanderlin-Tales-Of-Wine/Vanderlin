@@ -297,6 +297,7 @@
 	SSroguemachine.hermailermaster = src
 	update_appearance(UPDATE_ICON_STATE)
 	set_light(1, 1, 1, l_color = "#ff0d0d")
+	AddComponent(/datum/component/storage/concrete/grid/mailmaster)
 
 /obj/item/roguemachine/mastermail/Destroy()
 	SSroguemachine.hermailermaster = null
@@ -305,10 +306,6 @@
 /obj/item/roguemachine/mastermail/update_icon_state()
 	. = ..()
 	icon_state = "mailspecial[new_mail ? "-get" : ""]"
-
-/obj/item/roguemachine/mastermail/ComponentInitialize()
-	. = ..()
-	AddComponent(/datum/component/storage/concrete/grid/mailmaster)
 
 /obj/item/roguemachine/mastermail/attack_hand(mob/user)
 	var/datum/component/storage/CP = GetComponent(/datum/component/storage)

@@ -126,7 +126,7 @@
 	body_parts_covered = COVERAGE_SHIRT
 	item_weight = 2.2
 
-/obj/item/clothing/armor/leather/jacket/ComponentInitialize()
+/obj/item/clothing/armor/leather/jacket/Initialize(mapload, ...)
 	. = ..()
 	AddComponent(/datum/component/storage/concrete/grid/cloak)
 

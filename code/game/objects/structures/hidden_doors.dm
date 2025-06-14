@@ -34,9 +34,15 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	var/list/vip
 	var/vipmessage
 
-/obj/strucutre/door/secret/ComponentInitialize()
-	. = ..()
+/obj/structure/door/secret/Initialize(mapload, ...)
 	AddElement(/datum/element/update_icon_blocker)
+	. = ..()
+	become_hearing_sensitive()
+	open_phrase = open_word() + " " + magic_word()
+
+/obj/structure/door/secret/Destroy(force)
+	lose_hearing_sensitivity()
+	return ..()
 
 /obj/structure/door/secret/redstone_triggered(mob/user)
 	if(!door_opened)
@@ -65,15 +71,6 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 		/datum/job/archivist,
 	)
 	//make me look like an arcane door
-
-/obj/structure/door/secret/Initialize()
-	become_hearing_sensitive()
-	open_phrase = open_word() + " " + magic_word()
-	. = ..()
-
-/obj/structure/door/secret/Destroy(force)
-	lose_hearing_sensitivity()
-	return ..()
 
 /obj/structure/door/secret/rattle()
 	return

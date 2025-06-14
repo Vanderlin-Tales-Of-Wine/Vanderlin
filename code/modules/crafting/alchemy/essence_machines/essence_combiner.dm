@@ -45,8 +45,6 @@
 
 /obj/machinery/essence/combiner/update_overlays()
 	. = ..()
-	if(length(overlays))
-		cut_overlays()
 
 	var/essence_percent = (output_storage.get_total_stored() + input_storage.get_total_stored()) / (input_storage.max_total_capacity + output_storage.max_total_capacity)
 	if(!essence_percent)
@@ -55,14 +53,14 @@
 
 	var/mutable_appearance/MA = mutable_appearance(icon, "liquid_[level]")
 	MA.color = calculate_mixture_color()
-	overlays += MA
+	. += MA
 
 	var/mutable_appearance/emissive = mutable_appearance(icon, "liquid_[level]")
 	emissive.plane = EMISSIVE_PLANE
-	overlays += emissive
+	. += emissive
 
 	if(processing)
-		overlays += mutable_appearance(icon, "combining", ABOVE_MOB_LAYER)
+		. += mutable_appearance(icon, "combining", ABOVE_MOB_LAYER)
 
 /obj/machinery/essence/combiner/examine(mob/user)
 	. = ..()

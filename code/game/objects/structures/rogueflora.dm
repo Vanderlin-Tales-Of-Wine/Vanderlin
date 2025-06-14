@@ -811,7 +811,6 @@
 						return
 					else
 						islooted = TRUE
-						add_overlay("bush_empty_overlay")
 					return
 			else
 				var/obj/item/B = trashie
@@ -826,7 +825,6 @@
 						return
 					else
 						islooted = TRUE
-						add_overlay("bush_empty_overlay")
 					return
 
 		else

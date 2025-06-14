@@ -148,7 +148,7 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 	var/mode = 1 // 1 means repeat 5 times, 2 means random, 0 means indefinite but has chance to explode, 3 means indefinite no chance to explode
 	var/obj/structure/linked_thing // because redstone code is weird
 
-/obj/structure/repeater/ComponentInitialize()
+/obj/structure/repeater/Initialize(mapload, ...)
 	. = ..()
 	AddComponent(/datum/component/simple_rotation, ROTATION_REQUIRE_WRENCH|ROTATION_IGNORE_ANCHORED)
 
@@ -280,18 +280,17 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 	var/obj/item/containment
 	var/obj/item/ammo_holder/ammo // used if the contained item is a bow or crossbow
 
-/obj/structure/activator/Initialize()
+/obj/structure/activator/Initialize(mapload, ...)
 	. = ..()
 	update_appearance(UPDATE_OVERLAYS)
-
-/obj/structure/activator/ComponentInitialize()
-	. = ..()
 	AddComponent(/datum/component/simple_rotation, ROTATION_REQUIRE_WRENCH|ROTATION_IGNORE_ANCHORED)
 
-/obj/structure/activator/update_overlays()
-	. = ..()
-	if(!containment)
-		. += "activator-e"
+/obj/structure/activator/Destroy()
+	ammo = null
+	if(containment)
+		containment.forceMove(get_turf(src))
+	containment = null
+	return ..()
 
 /obj/structure/activator/attack_hand(mob/user)
 	. = ..()

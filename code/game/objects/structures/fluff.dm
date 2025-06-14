@@ -171,40 +171,6 @@
 	passcrawl = FALSE
 	climb_offset = 6
 
-/obj/structure/fluff/railing/fence/Initialize()
-	. = ..()
-	smooth_fences()
-
-/obj/structure/fluff/railing/fence/Destroy()
-	smooth_fences()
-	return ..()
-
-/obj/structure/fluff/railing/fence/OnCrafted(dirin, mob/user)
-	. = ..()
-	smooth_fences()
-
-/obj/structure/fluff/railing/fence/proc/smooth_fences(neighbors)
-	cut_overlays()
-	if((dir == WEST) || (dir == EAST))
-		var/turf/T = get_step(src, NORTH)
-		if(T)
-			for(var/obj/structure/fluff/railing/fence/F in T)
-				if(F.dir == dir)
-					if(!neighbors)
-						F.smooth_fences(TRUE)
-					var/mutable_appearance/MA = mutable_appearance(icon,"fence_smooth_above")
-					MA.dir = dir
-					add_overlay(MA)
-		T = get_step(src, SOUTH)
-		if(T)
-			for(var/obj/structure/fluff/railing/fence/F in T)
-				if(F.dir == dir)
-					if(!neighbors)
-						F.smooth_fences(TRUE)
-					var/mutable_appearance/MA = mutable_appearance(icon,"fence_smooth_below")
-					MA.dir = dir
-					add_overlay(MA)
-
 /obj/structure/fluff/railing/fence/CanPass(atom/movable/mover, turf/target)
 	if(istype(mover, /mob/camera))
 		return TRUE
@@ -1353,7 +1319,7 @@
 	debris = list(/obj/item/natural/stoneblock = 1)
 	drag_slowdown = 3
 
-/obj/structure/fluff/statue/carving_block/ComponentInitialize()
+/obj/structure/fluff/statue/carving_block/Initialize(mapload, ...)
 	. = ..()
 	AddComponent(/datum/component/simple_rotation)
 

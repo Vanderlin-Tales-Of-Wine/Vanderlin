@@ -16,7 +16,7 @@
 	detail_color = CLOTHING_PLUM_PURPLE
 	uses_lord_coloring = LORD_PRIMARY
 
-/obj/item/clothing/cloak/lordcloak/ComponentInitialize()
+/obj/item/clothing/cloak/lordcloak/Initialize(mapload, ...)
 	. = ..()
 	AddComponent(/datum/component/storage/concrete/grid/cloak/lord)
 

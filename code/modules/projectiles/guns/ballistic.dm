@@ -327,7 +327,6 @@
 		return
 	recent_rack = world.time + rack_delay
 	rack(user)
-	return
 
 ///Gets the number of bullets in the gun
 /obj/item/gun/ballistic/proc/get_ammo(countchambered = TRUE)

@@ -86,7 +86,7 @@
 	allowed_sex = list(MALE, FEMALE)
 	allowed_race = list("human", "tiefling", "elf", "aasimar")
 
-/obj/item/clothing/cloak/half/ComponentInitialize()
+/obj/item/clothing/cloak/half/Initialize(mapload, ...)
 	. = ..()
 	AddComponent(/datum/component/storage/concrete/grid/cloak)
 

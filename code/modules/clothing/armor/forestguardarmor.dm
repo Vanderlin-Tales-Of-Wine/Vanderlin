@@ -23,10 +23,9 @@
 /obj/item/clothing/cloak/forrestercloak/snow
 	icon_state = "snowcloak"
 
-/obj/item/clothing/cloak/forrestercloak/ComponentInitialize()
+/obj/item/clothing/cloak/forrestercloak/Initialize(mapload, ...)
 	. = ..()
 	AddComponent(/datum/component/storage/concrete/grid/cloak)
-
 
 /obj/item/clothing/cloak/wardencloak
 	name = "warden's cloak"
@@ -40,7 +39,7 @@
 	sleevetype = "shirt"
 	nodismemsleeves = TRUE
 
-/obj/item/clothing/cloak/wardencloak/ComponentInitialize()
+/obj/item/clothing/cloak/wardencloak/Initialize(mapload, ...)
 	. = ..()
 	AddComponent(/datum/component/storage/concrete/grid/cloak)
 

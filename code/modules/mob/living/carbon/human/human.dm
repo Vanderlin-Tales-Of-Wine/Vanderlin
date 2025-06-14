@@ -52,11 +52,18 @@
 
 	. = ..()
 
+	if(!CONFIG_GET(flag/disable_human_mood))
+		AddComponent(/datum/component/mood)
 	AddComponent(/datum/component/personal_crafting)
 	AddComponent(/datum/component/footstep, footstep_type, 1, 2)
 	GLOB.human_list += src
 	if(ai_controller && flee_in_pain)
 		AddElement(/datum/element/ai_flee_while_in_pain)
+
+/mob/living/carbon/human/Destroy()
+	QDEL_NULL(physiology)
+	GLOB.human_list -= src
+	return ..()
 
 /mob/living/carbon/human/ZImpactDamage(turf/T, levels)
 	var/mob/living/carbon/V = src
@@ -102,16 +109,6 @@
 	create_dna(src)
 	randomize_human(src)
 	dna.initialize_dna()
-
-/mob/living/carbon/human/ComponentInitialize()
-	. = ..()
-	if(!CONFIG_GET(flag/disable_human_mood))
-		AddComponent(/datum/component/mood)
-
-/mob/living/carbon/human/Destroy()
-	QDEL_NULL(physiology)
-	GLOB.human_list -= src
-	return ..()
 
 /mob/living/carbon/human/Stat()
 	..()

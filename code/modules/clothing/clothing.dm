@@ -111,9 +111,9 @@
 	if(hoodtype)
 		MakeHood()
 
-/obj/item/clothing/ComponentInitialize()
-	. = ..()
+/obj/item/clothing/Initialize(mapload, ...)
 	AddElement(/datum/element/update_icon_updates_onmob, slot_flags)
+	return ..()
 
 /obj/item/clothing/Destroy()
 	user_vars_remembered = null //Oh god somebody put REFERENCES in here? not to worry, we'll clean it up

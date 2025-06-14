@@ -108,8 +108,6 @@
 	if (opacity)
 		has_opaque_atom = TRUE
 
-	ComponentInitialize()
-
 	QUEUE_SMOOTH_NEIGHBORS(src)
 
 	if(shine)
