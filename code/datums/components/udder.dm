@@ -39,9 +39,9 @@
 		if(0 to 10)
 			examine_list += span_notice("[parent]'s [udder.name] is dry.")
 		if(11 to 99)
-			examine_list += span_notice("[parent]'s [udder.name] can be milked if you have something to contain it.")
+			examine_list += span_notice("[parent]'s [udder.name] can be milked.")
 		if(100)
-			examine_list += span_notice("[parent]'s [udder.name] is round and full, and can be milked if you have something to contain it.")
+			examine_list += span_notice("[parent]'s [udder.name] is round and full.")
 
 ///signal called on parent being attacked with an item
 /datum/component/udder/proc/on_attackby(datum/source, obj/item/milking_tool, mob/user)
@@ -115,7 +115,7 @@
 	on_generate_callback = null
 
 /obj/item/udder/process(seconds_per_tick)
-	if(istype(udder_mob, /mob/living/simple_animal))
+	if(isanimal(udder_mob))
 		var/mob/living/simple_animal/simple_animal = udder_mob
 		if(simple_animal.food <= 0)
 			return

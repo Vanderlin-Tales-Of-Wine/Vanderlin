@@ -30,7 +30,6 @@
 		/obj/item/reagent_containers/food/snacks/fish,
 	)
 
-	childtype = list(/mob/living/simple_animal/pet/cat/kitten)
 	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/steak = 1)
 	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/steak = 1,
 							/obj/item/alch/sinew = 1,
@@ -114,7 +113,6 @@
 	speak_emote = list("chirrups", "meows")
 	emote_hear = list("meows.", "clucks.")
 	emote_see = list("brings their ears alert.", "scratches their ear with a hindleg.")
-	childtype = list() // TODO: puppy cabbits =:3
 	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/steak = 1)
 	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/steak = 1,
 							/obj/item/alch/sinew = 1,

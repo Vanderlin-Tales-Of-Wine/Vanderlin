@@ -15,8 +15,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/mole/Initialize()
 	. = ..()
-	if(tame)
-		tamed(owner)
+
 	ADD_TRAIT(src, TRAIT_IGNOREDAMAGESLOWDOWN, TRAIT_GENERIC)
 
 /mob/living/simple_animal/hostile/retaliate/mole
@@ -199,6 +198,5 @@
 
 /mob/living/simple_animal/hostile/retaliate/mole/briars/Initialize()
 	. = ..()
-	if(tame)
-		tamed(owner)
+
 	ADD_TRAIT(src, TRAIT_IGNOREDAMAGESLOWDOWN, TRAIT_GENERIC)

@@ -4,7 +4,7 @@
 /datum/ai_planning_subtree/make_babies
 	operational_datums = list(/datum/component/breed)
 	///chance to make babies
-	var/chance = 5
+	var/chance = 10
 	///make babies behavior we will use
 	var/datum/ai_behavior/reproduce_behavior = /datum/ai_behavior/make_babies
 

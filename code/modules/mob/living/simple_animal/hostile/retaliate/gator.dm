@@ -78,9 +78,8 @@
 	)
 
 /mob/living/simple_animal/hostile/retaliate/gator/Initialize()
+	AddComponent(/datum/component/obeys_commands, pet_commands) // here due to signal overridings from pet commands
 	. = ..()
-	qdel(GetComponent(/datum/component/obeys_commands)) // due to signal overridings from pet commands
-	AddComponent(/datum/component/obeys_commands, pet_commands)
 	gender = MALE
 	if(prob(33))
 		gender = FEMALE

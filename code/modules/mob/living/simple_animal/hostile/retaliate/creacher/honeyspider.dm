@@ -82,14 +82,13 @@
 	base_intents = list(/datum/intent/simple/bite)
 
 /mob/living/simple_animal/hostile/retaliate/spider/Initialize()
+	AddComponent(/datum/component/obeys_commands, pet_commands) // here due to signal overridings from pet commands // due to signal overridings from pet commands
 	. = ..()
 	gender = MALE
 	if(prob(33))
 		gender = FEMALE
 	update_icon()
 
-	qdel(GetComponent(/datum/component/obeys_commands)) // due to signal overridings from pet commands
-	AddComponent(/datum/component/obeys_commands, pet_commands)
 	AddElement(/datum/element/ai_flee_while_injured, 0.75, retreat_health)
 
 	ADD_TRAIT(src, TRAIT_WEBWALK, TRAIT_GENERIC)

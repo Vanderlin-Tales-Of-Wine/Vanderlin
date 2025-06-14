@@ -85,9 +85,8 @@
 	pixel_y = -8
 
 /mob/living/simple_animal/hostile/retaliate/bigrat/Initialize()
+	AddComponent(/datum/component/obeys_commands, pet_commands) // here due to signal overridings from pet commands
 	. = ..()
-	qdel(GetComponent(/datum/component/obeys_commands)) // due to signal overridings from pet commands
-	AddComponent(/datum/component/obeys_commands, pet_commands)
 
 	gender = MALE
 	if(prob(33))

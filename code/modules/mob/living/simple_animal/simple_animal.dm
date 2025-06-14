@@ -94,8 +94,6 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	///LETS SEE IF I CAN SET SPEEDS FOR SIMPLE MOBS WITHOUT DESTROYING EVERYTHING. Higher speed is slower, negative speed is faster.
 	var/speed = 1
 
-	///Hot simple_animal baby making vars.
-	var/list/childtype = null
 	var/next_scan_time = 0
 	///Sorry, no spider+corgi buttbabies.
 	var/animal_species
@@ -760,8 +758,8 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 /mob/living/simple_animal/Life()
 	. = ..()
 	if(.)
+		food = max(food - 0.5, 0)
 		if(food > 0)
-			food--
 			pooprog++
 			if(pooprog >= 100)
 				pooprog = 0

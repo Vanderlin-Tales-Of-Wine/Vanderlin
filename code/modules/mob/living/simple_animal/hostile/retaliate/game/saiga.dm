@@ -17,6 +17,8 @@
 	deaggroprob = 30
 	if(can_buckle)
 		AddComponent(/datum/component/riding/saiga)
+	ai_controller?.movement_delay = 0.3 SECONDS
+	ai_controller?.set_blackboard_key(BB_BASIC_MOB_FLEEING, FALSE)
 
 /mob/living/simple_animal/hostile/retaliate/saiga
 	icon = 'icons/roguetown/mob/monster/saiga.dmi'
@@ -33,7 +35,7 @@
 	gender = FEMALE
 	footstep_type = FOOTSTEP_MOB_SHOE
 	emote_see = list("looks around.", "chews some leaves.")
-	move_to_delay = 9
+	move_to_delay = 3
 
 	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/steak = 1,
 						/obj/item/natural/hide = 1,
@@ -71,8 +73,6 @@
 	base_speed = 15
 	base_constitution = 8
 	base_strength = 9
-	childtype = list(/mob/living/simple_animal/hostile/retaliate/saiga/saigakid = 70,
-					/mob/living/simple_animal/hostile/retaliate/saiga/saigakid/boy = 30)
 	can_buckle = TRUE
 	buckle_lying = FALSE
 	can_saddle = TRUE
@@ -81,7 +81,7 @@
 
 	ai_controller = /datum/ai_controller/saiga
 
-
+	var/can_breed = TRUE
 
 	var/static/list/pet_commands = list(
 		/datum/pet_command/idle,
@@ -104,14 +104,23 @@
 	icon = 'icons/roguetown/mob/monster/saiga.dmi'
 
 /mob/living/simple_animal/hostile/retaliate/saiga/Initialize()
+	AddComponent(/datum/component/obeys_commands, pet_commands) // here due to signal overridings from pet commands // due to signal overridings from pet commands
 	. = ..()
-	qdel(GetComponent(/datum/component/obeys_commands)) // due to signal overridings from pet commands
-	AddComponent(/datum/component/obeys_commands, pet_commands)
 	AddElement(/datum/element/ai_retaliate)
 
-	if(tame)
-		tamed(owner)
 	ADD_TRAIT(src, TRAIT_IGNOREDAMAGESLOWDOWN, TRAIT_GENERIC)
+
+	if(can_breed)
+		AddComponent(\
+			/datum/component/breed,\
+			list(/mob/living/simple_animal/hostile/retaliate/saiga, /mob/living/simple_animal/hostile/retaliate/saigabuck),\
+			3 MINUTES, \
+			list(/mob/living/simple_animal/hostile/retaliate/saiga/saigakid = 90, /mob/living/simple_animal/hostile/retaliate/saiga/saigakid/boy = 10),\
+			CALLBACK(src, PROC_REF(after_birth)),\
+		)
+
+/mob/living/simple_animal/hostile/retaliate/saiga/proc/after_birth(mob/living/simple_animal/hostile/retaliate/cow/cowlet/baby, mob/living/partner)
+	return
 
 /mob/living/simple_animal/hostile/retaliate/saiga/get_sound(input)
 	switch(input)
@@ -179,7 +188,7 @@
 	footstep_type = FOOTSTEP_MOB_SHOE
 	emote_see = list("stares.")
 	turns_per_move = 3
-	move_to_delay = 9
+	move_to_delay = 3
 
 	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/steak = 1,
 						/obj/item/reagent_containers/food/snacks/fat = 1,
@@ -204,6 +213,7 @@
 					/obj/item/reagent_containers/food/snacks/produce/fruit/apple)
 	pooptype = /obj/item/natural/poo/horse
 
+	gender = MALE
 	base_intents = list(/datum/intent/simple/hind_kick)
 	attack_sound = list('sound/vo/mobs/saiga/attack (1).ogg','sound/vo/mobs/saiga/attack (2).ogg')
 	attack_verb_continuous = "kicks"
@@ -227,8 +237,6 @@
 	remains_type = /obj/effect/decal/remains/saiga
 
 	ai_controller = /datum/ai_controller/saiga
-
-
 
 	var/static/list/pet_commands = list(
 		/datum/pet_command/idle,
@@ -269,15 +277,17 @@
 			return pick('sound/vo/mobs/saiga/idle (1).ogg','sound/vo/mobs/saiga/idle (2).ogg','sound/vo/mobs/saiga/idle (3).ogg','sound/vo/mobs/saiga/idle (4).ogg','sound/vo/mobs/saiga/idle (5).ogg','sound/vo/mobs/saiga/idle (6).ogg','sound/vo/mobs/saiga/idle (7).ogg')
 
 /mob/living/simple_animal/hostile/retaliate/saigabuck/Initialize()
+	AddComponent(/datum/component/obeys_commands, pet_commands) // here due to signal overridings from pet commands // due to signal overridings from pet commands
 	. = ..()
-	qdel(GetComponent(/datum/component/obeys_commands)) // due to signal overridings from pet commands
-	AddComponent(/datum/component/obeys_commands, pet_commands)
 	AddElement(/datum/element/ai_retaliate)
 
-
-	if(tame)
-		tamed(owner)
 	ADD_TRAIT(src, TRAIT_IGNOREDAMAGESLOWDOWN, TRAIT_GENERIC)
+
+	AddComponent(\
+		/datum/component/breed,\
+		can_breed_with = list(/mob/living/simple_animal/hostile/retaliate/saiga, /mob/living/simple_animal/hostile/retaliate/saigabuck),\
+		breed_timer = 2 MINUTES\
+	)
 
 /mob/living/simple_animal/hostile/retaliate/saigabuck/taunted(mob/user)
 	emote("aggro")
@@ -289,7 +299,8 @@
 	deaggroprob = 20
 	if(can_buckle)
 		AddComponent(/datum/component/riding/saiga)
-
+	ai_controller?.movement_delay = 0.3 SECONDS
+	ai_controller?.set_blackboard_key(BB_BASIC_MOB_FLEEING, FALSE)
 
 /mob/living/simple_animal/hostile/retaliate/saigabuck/simple_limb_hit(zone)
 	if(!zone)
@@ -366,6 +377,8 @@
 	tame = TRUE
 	can_buckle = FALSE
 	aggressive = TRUE
+
+	can_breed = FALSE
 
 	ai_controller = /datum/ai_controller/saiga_kid
 
