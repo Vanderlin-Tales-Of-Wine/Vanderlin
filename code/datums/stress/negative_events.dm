@@ -407,3 +407,8 @@
 	desc = span_warning("I don't like the dae..")
 	stressadd = 3
 	timer = 10 MINUTES
+
+/datum/stressevent/hithead
+	timer = 2 MINUTES
+	stressadd = 2
+	desc = span_red("Oww, my head...")

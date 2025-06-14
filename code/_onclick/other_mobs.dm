@@ -578,6 +578,7 @@
 			animate(pixel_z = prev_pixel_z, transform = turn(transform, pick(-12, 0, 12)), time=2)
 			animate(transform = prev_transform, time = 0)
 
+		is_jumping = TRUE
 		if(jextra)
 			throw_at(A, jrange, 1, src, spin = FALSE)
 			while(src.throwing)
@@ -592,6 +593,7 @@
 			if(T.landsound)
 				playsound(T, T.landsound, 100, FALSE)
 			T.Entered(src)
+		is_jumping = FALSE
 	else
 		animate(src, pixel_z = pixel_z + 6, time = 1)
 		animate(pixel_z = prev_pixel_z, transform = turn(transform, pick(-12, 0, 12)), time=2)
