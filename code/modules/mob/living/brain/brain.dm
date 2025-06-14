@@ -19,12 +19,6 @@
 		ADD_TRAIT(src, TRAIT_IMMOBILIZED, BRAIN_UNAIDED)
 		ADD_TRAIT(src, TRAIT_HANDS_BLOCKED, BRAIN_UNAIDED)
 
-/mob/living/brain/proc/create_dna()
-	stored_dna = new /datum/dna/stored(src)
-	if(!stored_dna.species)
-		var/rando_race = pick(GLOB.roundstart_races)
-		stored_dna.species = new rando_race()
-
 /mob/living/brain/Destroy()
 	if(key)				//If there is a mob connected to this thing. Have to check key twice to avoid false death reporting.
 		if(stat!=DEAD)	//If not dead.
@@ -33,6 +27,12 @@
 			mind.current = null
 		ghostize(drawskip=TRUE)		//Ghostize checks for key so nothing else is necessary.
 	return ..()
+
+/mob/living/brain/proc/create_dna()
+	stored_dna = new /datum/dna/stored(src)
+	if(!stored_dna.species)
+		var/rando_race = pick(get_selectable_species())
+		set_species(rando_race)
 
 /mob/living/brain/ex_act() //you cant blow up brainmobs because it makes transfer_to() freak out when borgs blow up.
 	return

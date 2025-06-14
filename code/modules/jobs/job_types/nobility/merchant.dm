@@ -16,15 +16,18 @@
 	cmode_music = 'sound/music/cmode/towner/CombatTowner2.ogg'
 
 	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Rakshari",
-		"Hollow-Kin",
+		RACE_HUMEN,
+		RACE_ELF,
+		RACE_HALF_ELF,
+		RACE_DWARF,
+		RACE_TIEFLING,
+		RACE_DROW,
+		RACE_HALF_DROW,
+		RACE_AASIMAR,
+		RACE_RAKSHARI,
+		RACE_HOLLOWKIN,
+		RACE_TRITON,
+		RACE_HARPY,
 	)
 
 	outfit = /datum/outfit/job/merchant

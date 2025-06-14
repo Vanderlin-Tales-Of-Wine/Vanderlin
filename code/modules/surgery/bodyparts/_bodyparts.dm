@@ -69,8 +69,8 @@
 	var/no_burn_msg = "unburned"
 
 	var/add_extra = FALSE
+
 	var/offset
-	var/offset_f
 
 	var/last_disable = 0
 	var/last_crit = 0
@@ -532,7 +532,7 @@
 	if(!animal_origin)
 		var/mob/living/carbon/human/H = C
 		should_draw_greyscale = FALSE
-		if(!H.dna || !H.dna.species)
+		if(!H.dna?.species)
 			return
 		var/datum/species/S = H.dna.species
 		species_id = S.limbs_id
@@ -751,7 +751,6 @@
 	subtargets = list(BODY_ZONE_CHEST, BODY_ZONE_PRECISE_STOMACH, BODY_ZONE_PRECISE_GROIN)
 	grabtargets = list(BODY_ZONE_CHEST, BODY_ZONE_PRECISE_STOMACH, BODY_ZONE_PRECISE_GROIN)
 	offset = OFFSET_ARMOR
-	offset_f = OFFSET_ARMOR_F
 	dismemberable = FALSE
 
 	grid_width = 64
@@ -802,7 +801,6 @@
 	subtargets = list(BODY_ZONE_PRECISE_L_HAND)
 	grabtargets = list(BODY_ZONE_PRECISE_L_HAND, BODY_ZONE_L_ARM)
 	offset = OFFSET_GLOVES
-	offset_f = OFFSET_GLOVES_F
 	dismember_wound = /datum/wound/dismemberment/l_arm
 	can_be_disabled = TRUE
 
@@ -896,7 +894,6 @@
 	subtargets = list(BODY_ZONE_PRECISE_R_HAND)
 	grabtargets = list(BODY_ZONE_PRECISE_R_HAND, BODY_ZONE_R_ARM)
 	offset = OFFSET_GLOVES
-	offset_f = OFFSET_GLOVES_F
 	dismember_wound = /datum/wound/dismemberment/r_arm
 	can_be_disabled = TRUE
 

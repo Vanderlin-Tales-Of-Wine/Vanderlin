@@ -76,8 +76,6 @@
 	update_sneak_invis()
 	handle_fire()
 	handle_typing_indicator()
-	if(istype(loc, /turf/open/water))
-		handle_inwater(loc)
 
 /mob/living/proc/handle_temperature()
 	return

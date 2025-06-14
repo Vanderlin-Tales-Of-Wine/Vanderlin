@@ -4,7 +4,7 @@
 /datum/species/rakshari
 	name = "Rakshari"
 	id = "rakshari"
-	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | RACE_SWAP | SLIME_EXTRACT
+	changesource_flags = WABBAJACK
 
 	desc = "Their origins trace back to nomadic desert tribes, \
 	whose survival in the harsh sands cultivated a culture steeped in resilience, cunning, and adaptability. \
@@ -23,37 +23,66 @@
 	THIS IS A DISCRIMINATED SPECIES. EXPECT A MORE DIFFICULT EXPERIENCE. PLAY AT YOUR OWN RISK."
 
 	skin_tone_wording = "Tribal Identity"
-	use_skintones = 1
+	use_skintones = TRUE
 	default_color = "FFFFFF"
-	specstats = list(STATKEY_STR = -2, STATKEY_PER = 2, STATKEY_INT = 0, STATKEY_CON = -2, STATKEY_END = 0, STATKEY_SPD = 2, STATKEY_LCK = 0)
+
+	possible_ages = NORMAL_AGES_LIST_CHILD
+
+	species_traits = list(EYECOLOR, OLDGREY)
+	inherent_traits = list(TRAIT_NOMOBSWAP, TRAIT_KITTEN_MOM)
+
+	specstats_m = list(STATKEY_STR = -2, STATKEY_PER = 2, STATKEY_INT = 0, STATKEY_CON = -2, STATKEY_END = 0, STATKEY_SPD = 2, STATKEY_LCK = 0)
 	specstats_f = list(STATKEY_STR = -2, STATKEY_PER = 2, STATKEY_INT = 0, STATKEY_CON = -2, STATKEY_END = 0, STATKEY_SPD = 2, STATKEY_LCK = 0)
 
 	limbs_icon_m = 'icons/roguetown/mob/bodies/m/rakshari.dmi'
 	limbs_icon_f = 'icons/roguetown/mob/bodies/f/rakshari.dmi'
 	child_icon = 'icons/roguetown/mob/bodies/c/child-rakshari.dmi'
-	custom_clothes = FALSE
-	custom_clothes = FALSE
-	possible_ages = list(AGE_CHILD, AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD)
-	species_traits = list(EYECOLOR,OLDGREY)
-	inherent_traits = list(TRAIT_NOMOBSWAP, TRAIT_KITTEN_MOM)
+
 	exotic_bloodtype = /datum/blood_type/human/rakshari
+
+	offset_features_m = list(
+		OFFSET_RING = list(0,0),\
+		OFFSET_GLOVES = list(0,0),\
+		OFFSET_WRISTS = list(0,0),\
+		OFFSET_HANDS = list(0,0),\
+		OFFSET_CLOAK = list(0,0),\
+		OFFSET_FACEMASK = list(0,0),\
+		OFFSET_HEAD = list(0,0),\
+		OFFSET_FACE = list(0,0),\
+		OFFSET_BELT = list(0,0),\
+		OFFSET_BACK = list(0,0),\
+		OFFSET_NECK = list(0,0),\
+		OFFSET_MOUTH = list(0,0),\
+		OFFSET_PANTS = list(0,0),\
+		OFFSET_SHIRT = list(0,0),\
+		OFFSET_ARMOR = list(0,0),\
+		OFFSET_UNDIES = list(0,0),\
+	)
+
+	offset_features_f = list(
+		OFFSET_RING = list(0,-1),\
+		OFFSET_GLOVES = list(0,0),\
+		OFFSET_WRISTS = list(0,0),\
+		OFFSET_HANDS = list(0,0),\
+		OFFSET_CLOAK = list(0,0),\
+		OFFSET_FACEMASK = list(0,-1),\
+		OFFSET_HEAD = list(0,-1),\
+		OFFSET_FACE = list(0,0),\
+		OFFSET_BELT = list(0,0),\
+		OFFSET_BACK = list(0,-1),\
+		OFFSET_NECK = list(0,-1),\
+		OFFSET_MOUTH = list(0,-1),\
+		OFFSET_PANTS = list(0,0),\
+		OFFSET_SHIRT = list(0,0),\
+		OFFSET_ARMOR = list(0,0),\
+		OFFSET_UNDIES = list(0,0),\
+	)
 
 	customizers = list(
 		/datum/customizer/organ/eyes/humanoid,
 		/datum/customizer/bodypart_feature/accessory,
 		/datum/customizer/bodypart_feature/face_detail,
 	)
-
-	offset_features = list(OFFSET_RING = list(0,0), OFFSET_GLOVES = list(0,0), OFFSET_WRISTS = list(0,0),\
-	OFFSET_CLOAK = list(0,0), OFFSET_FACEMASK = list(0,0), OFFSET_HEAD = list(0,0), \
-	OFFSET_FACE = list(0,0), OFFSET_BELT = list(0,0), OFFSET_BACK = list(0,0), \
-	OFFSET_NECK = list(0,0), OFFSET_MOUTH = list(0,0), OFFSET_PANTS = list(0,0), \
-	OFFSET_SHIRT = list(0,0), OFFSET_ARMOR = list(0,0), OFFSET_HANDS = list(0,0), OFFSET_UNDIES = list(0,0), \
-	OFFSET_RING_F = list(0,-1), OFFSET_GLOVES_F = list(0,0), OFFSET_WRISTS_F = list(0,0), OFFSET_HANDS_F = list(0,0), \
-	OFFSET_CLOAK_F = list(0,0), OFFSET_FACEMASK_F = list(0,-1), OFFSET_HEAD_F = list(0,-1), \
-	OFFSET_FACE_F = list(0,0), OFFSET_BELT_F = list(0,0), OFFSET_BACK_F = list(0,-1), \
-	OFFSET_NECK_F = list(0,-1), OFFSET_MOUTH_F = list(0,-1), OFFSET_PANTS_F = list(0,0), \
-	OFFSET_SHIRT_F = list(0,0), OFFSET_ARMOR_F = list(0,0), OFFSET_UNDIES_F = list(0,0))
 
 /datum/species/rakshari/on_species_gain(mob/living/carbon/C, datum/species/old_species)
 	..()
