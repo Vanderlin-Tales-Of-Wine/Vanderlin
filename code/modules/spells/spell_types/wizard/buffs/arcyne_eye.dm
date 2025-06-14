@@ -21,7 +21,7 @@
 	playsound(get_turf(user), 'sound/vo/smokedrag.ogg', 100, TRUE)
 	var/duration_increase = min(0, attuned_strength * 1.5 MINUTES)
 	user.apply_status_effect(/datum/status_effect/buff/duration_modification/arcyne_eye, duration_increase)
-	return TRUE
+	return ..()
 
 /datum/status_effect/buff/duration_modification/arcyne_eye
 	duration = 1 MINUTES

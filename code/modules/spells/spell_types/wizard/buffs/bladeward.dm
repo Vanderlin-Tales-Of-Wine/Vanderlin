@@ -43,7 +43,7 @@
 			extra_target.apply_status_effect(/datum/status_effect/buff/duration_modification/bladeward5e, duration_increase)
 			extra_target.visible_message("<span class='info'>[extra_target] has a sigil of warding appear over them.</span>", "<span class='notice'>I see a sigil of warding floating over me.</span>")
 
-	return TRUE
+	return ..()
 
 /datum/status_effect/buff/duration_modification/bladeward5e
 	id = "blade ward"

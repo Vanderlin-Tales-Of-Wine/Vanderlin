@@ -53,7 +53,7 @@
 		to_chat(L, span_userdanger("I'm cut by arcyne force!"))
 	if(play_cleave)
 		playsound(T,'sound/combat/newstuck.ogg', 80, TRUE, soundping = TRUE)
-	return TRUE
+	return ..()
 
 /obj/effect/temp_visual/trap
 	icon = 'icons/effects/effects.dmi'

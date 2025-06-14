@@ -18,6 +18,14 @@
 	RegisterSignal(target, COMSIG_PARENT_EXAMINE, PROC_REF(on_examined), TRUE)
 	RegisterSignal(target, list(COMSIG_PARENT_QDELETING, COMSIG_LIVING_DEATH), PROC_REF(on_death), TRUE)
 
+/datum/element/ai_held_item/Detach(mob/living/target)
+	. = ..()
+	UnregisterSignal(target, list(COMSIG_ATOM_ATTACK_HAND, COMSIG_ATOM_EXITED, COMSIG_PARENT_EXAMINE, COMSIG_PARENT_QDELETING, COMSIG_LIVING_DEATH))
+	var/obj/item/carried_item = get_held_item(target)
+	if(carried_item)
+		carried_item.forceMove(target.drop_location())
+		target.ai_controller?.clear_blackboard_key(BB_SIMPLE_CARRY_ITEM)
+
 /// Returns the item held in a mob's blackboard, if it has one
 /datum/element/ai_held_item/proc/get_held_item(mob/living/source)
 	return source.ai_controller?.blackboard[BB_SIMPLE_CARRY_ITEM]

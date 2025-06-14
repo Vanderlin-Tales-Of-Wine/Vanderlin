@@ -27,6 +27,5 @@
 		)
 		animate(target, alpha = 0, time = 1 SECONDS, easing = EASE_IN)
 		target.apply_status_effect(/datum/status_effect/invisibility, 7 SECONDS)
-		return TRUE
-	revert_cast()
+		return ..()
 	return FALSE
