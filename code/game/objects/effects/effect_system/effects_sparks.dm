@@ -8,16 +8,11 @@
 /atom/proc/spark_act()
 	return
 
-/proc/do_sparks(n, c, source)
-	// n - number of sparks
-	// c - cardinals, bool, do the sparks only move in cardinal directions?
-	// source - source of the sparks.
-
+/proc/do_sparks(number, cardinal_only, datum/source)
 	var/datum/effect_system/spark_spread/sparks = new
-	sparks.set_up(n, c, source)
+	sparks.set_up(number, cardinal_only, source)
 	sparks.autocleanup = TRUE
 	sparks.start()
-
 
 /obj/effect/particle_effect/sparks
 	name = "sparks"

@@ -211,7 +211,7 @@ All foods are distributed among various categories. Use common sense.
 		slice_path = null
 		cooktime = 0
 		modified = TRUE
-		rot_away_timer = QDEL_IN(src, 10 MINUTES)
+		rot_away_timer = QDEL_IN_STOPPABLE(src, 10 MINUTES)
 		GLOB.vanderlin_round_stats[STATS_FOOD_ROTTED]++
 		return TRUE
 

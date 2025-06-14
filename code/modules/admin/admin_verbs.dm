@@ -202,7 +202,8 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/client/proc/returntolobby,
 	/client/proc/tracy_next_round,
 	/client/proc/start_tracy,
-	/client/proc/set_tod_override
+	/client/proc/set_tod_override,
+	/client/proc/check_timer_sources,
 	)
 GLOBAL_LIST_INIT(admin_verbs_possess, list(/proc/possess, GLOBAL_PROC_REF(release)))
 GLOBAL_PROTECT(admin_verbs_possess)

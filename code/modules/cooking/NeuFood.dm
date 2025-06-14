@@ -49,7 +49,7 @@
 /obj/item/reagent_containers/food/snacks/rotten/Initialize()
 	var/mutable_appearance/rotflies = mutable_appearance('icons/roguetown/mob/rotten.dmi', "rotten")
 	add_overlay(rotflies)
-	rot_away_timer = QDEL_IN(src, 10 MINUTES)
+	rot_away_timer = QDEL_IN_STOPPABLE(src, 10 MINUTES)
 	. = ..()
 
 /obj/item/reagent_containers/food/snacks/rotten/meat

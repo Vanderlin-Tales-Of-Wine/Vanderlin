@@ -36,7 +36,7 @@
  */
 /datum/component/food_burner/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
-	QDEL_NULL(can_burn)
+	can_burn = null
 	tracked_foods.Cut()
 	processed_items.Cut()
 	return ..()

@@ -10,24 +10,9 @@ if grep -El '^\".+\" = \(.+\)' _maps/**/*.dmm;	then
     echo "ERROR: Non-TGM formatted map detected. Please convert it using Map Merger!"
     st=1
 fi;
-if grep -P '^\ttag = \"icon' _maps/**/*.dmm;	then
-    echo "ERROR: tag vars from icon state generation detected in maps, please remove them."
-    st=1
-fi;
-if grep -P 'step_[xy]' _maps/**/*.dmm;	then
-    echo "ERROR: step_x/step_y variables detected in maps, please remove them."
-    st=1
-fi;
-if grep -P '\td[1-2] =' _maps/**/*.dmm;	then
-    echo "ERROR: d1/d2 cable variables detected in maps, please remove them."
-    st=1
-fi;
-if grep -P '^/area/.+[\{]' _maps/**/*.dmm;	then
-    echo "ERROR: Vareditted /area path use detected in maps, please replace with proper paths."
-    st=1
-fi;
-if grep -P '\W\/turf\s*[,\){]' _maps/**/*.dmm; then
-    echo "ERROR: base /turf path use detected in maps, please replace with proper paths."
+if grep -P 'addtimer\((?=.*TIMER_OVERRIDE)(?!.*TIMER_UNIQUE).*\)' code/**/*.dm; then
+	echo
+    echo -e "${RED}ERROR: TIMER_OVERRIDE used without TIMER_UNIQUE.${NC}"
     st=1
 fi;
 if grep -P '^/*var/' code/**/*.dm; then

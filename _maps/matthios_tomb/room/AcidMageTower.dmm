@@ -127,6 +127,11 @@
 /obj/structure/fermentation_keg/random/beer,
 /turf/open/floor/tile/kitchen,
 /area/rogue/under/tomb/indoors/magic)
+"fB" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/food/snacks/rotten/chickenleg,
+/turf/open/floor/tile/kitchen,
+/area/rogue/under/tomb/indoors/magic)
 "fL" = (
 /mob/living/simple_animal/hostile/haunt,
 /turf/open/floor/carpet/royalblack,
@@ -152,7 +157,6 @@
 "hK" = (
 /obj/structure/table/wood,
 /obj/effect/decal/cleanable/food/flour,
-/obj/effect/spawner/map_spawner/loot/food,
 /turf/open/floor/tile/kitchen,
 /area/rogue/under/tomb/indoors/magic)
 "hX" = (
@@ -534,6 +538,10 @@
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/cobble/alt,
 /area/rogue/under/tomb/cave/wet)
+"uv" = (
+/obj/structure/table/wood,
+/turf/open/floor/tile/kitchen,
+/area/rogue/under/tomb/indoors/magic)
 "uE" = (
 /obj/structure/barricade/wooden,
 /obj/structure/barricade/wooden/crude,
@@ -706,7 +714,8 @@
 /turf/open/floor/tile/kitchen,
 /area/rogue/under/tomb/indoors/magic)
 "Ba" = (
-/obj/structure/table/wood,
+/obj/structure/closet/crate/chest/neu_iron,
+/obj/effect/spawner/map_spawner/loot/food,
 /obj/effect/spawner/map_spawner/loot/food,
 /turf/open/floor/tile/kitchen,
 /area/rogue/under/tomb/indoors/magic)
@@ -2143,8 +2152,8 @@ sn
 TF
 Bk
 hK
-Ba
-Ba
+fB
+uv
 cc
 TF
 CI

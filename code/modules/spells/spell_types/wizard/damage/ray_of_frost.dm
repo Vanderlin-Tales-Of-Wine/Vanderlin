@@ -64,7 +64,7 @@
 	SSmove_manager.move_to(src, target_location, 0, spell_speed, 10 SECONDS)
 
 	// Set up cleanup timer
-	addtimer(CALLBACK(src, PROC_REF(cleanup)), 10 SECONDS)
+	QDEL_IN(src, 10 SECONDS)
 
 /obj/effect/beam_mover/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change)
 	. = ..()
@@ -78,18 +78,12 @@
 	if(get_dist(src, target_location) <= 1 || loc == get_turf(target_location))
 		// Stop moving and start cleanup
 		SSmove_manager.stop_looping(src)
-		addtimer(CALLBACK(src, PROC_REF(cleanup)), spell_source?.beam_time || 50)
-
-/obj/effect/beam_mover/proc/cleanup()
-	SSmove_manager.stop_looping(src)  // Stop any movement
-	if(attached_beam)
-		qdel(attached_beam)
-	qdel(src)
+		QDEL_IN(src, spell_source?.beam_time || 5 SECONDS)
 
 /obj/effect/beam_mover/Destroy()
 	SSmove_manager.stop_looping(src)
 	if(attached_beam)
-		qdel(attached_beam)
+		QDEL_NULL(attached_beam)
 	beam_caster = null
 	target_location = null
 	spell_source = null

@@ -571,6 +571,9 @@
 		else if(new_turf && !old_turf)
 			SSspatial_grid.enter_cell(src, new_turf)
 
+	for(var/datum/light_source/L in light_sources) // Cycle through the light sources on this atom and tell them to update.
+		L.source_atom?.update_light()
+
 	return TRUE
 
 /atom/movable/Destroy(force)
@@ -696,10 +699,13 @@
 
 /atom/movable/proc/doMove(atom/destination)
 	. = FALSE
+
+	var/atom/oldloc = loc
+
 	if(destination)
 		if(pulledby)
 			pulledby.stop_pulling()
-		var/atom/oldloc = loc
+
 		var/same_loc = oldloc == destination
 		var/area/old_area = get_area(oldloc)
 		var/area/destarea = get_area(destination)
@@ -708,6 +714,11 @@
 		moving_diagonally = 0
 
 		if(!same_loc)
+			if(loc == oldloc)
+				// when attempting to move an atom A into an atom B which already contains A, BYOND seems
+				// to silently refuse to move A to the new loc. This can really break stuff (see #77067)
+				stack_trace("Attempt to move [src] to [destination] was rejected by BYOND, possibly due to cyclic contents")
+				return FALSE
 			if(oldloc)
 				oldloc.Exited(src, destination)
 				if(old_area && old_area != destarea)
@@ -729,19 +740,19 @@
 					continue
 				AM.Crossed(src, oldloc)
 
-		Moved(oldloc, NONE, TRUE)
 		. = TRUE
 
 	//If no destination, move the atom into nullspace (don't do this unless you know what you're doing)
 	else
 		. = TRUE
-		if (loc)
-			var/atom/oldloc = loc
+		loc = null
+		if(oldloc)
 			var/area/old_area = get_area(oldloc)
 			oldloc.Exited(src, null)
 			if(old_area)
 				old_area.Exited(src, null)
-		loc = null
+
+	Moved(oldloc, NONE, TRUE)
 
 /atom/movable/proc/onTransitZ(old_z,new_z)
 	SEND_SIGNAL(src, COMSIG_MOVABLE_Z_CHANGED, old_z, new_z)
