@@ -57,7 +57,7 @@
 	else
 		to_chat(user, "<span class='warning'>I couldn't find a good place for this!</span>")
 		return FALSE
-	return TRUE
+	return ..()
 
 /obj/effect/proc_holder/spell/invoked/poisonspray5e/test
 	antimagic_allowed = TRUE

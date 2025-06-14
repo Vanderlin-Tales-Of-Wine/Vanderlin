@@ -35,7 +35,7 @@
 	else
 		user.visible_message("[user] mutters an incantation and they briefly shine orange.")
 
-	return TRUE
+	return ..()
 
 /datum/status_effect/buff/duration_modification/guidance
 	id = "guidance"

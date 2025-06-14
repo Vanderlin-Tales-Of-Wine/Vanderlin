@@ -121,7 +121,7 @@
 		qdel(wound)
 	if(bandage)
 		QDEL_NULL(bandage)
-	embedded_objects.Cut()
+	embedded_objects = null
 	original_owner = null
 	return ..()
 

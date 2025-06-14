@@ -20,7 +20,13 @@
 	. = ..()
 	if(isnull(parent))
 		return
-	parent.AddElement(/datum/element/ai_held_item) // We don't remove this on destroy because they might still be holding something
+	parent.AddElement(/datum/element/ai_held_item)
+
+/datum/pet_command/fetch/Destroy(force, ...)
+	var/mob/living/parent = weak_parent.resolve()
+	if(parent)
+		parent.RemoveElement(/datum/element/ai_held_item)
+	. = ..()
 
 /datum/pet_command/fetch/add_new_friend(mob/living/tamer)
 	. = ..()

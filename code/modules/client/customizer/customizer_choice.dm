@@ -50,7 +50,7 @@
 		set_accessory_type(prefs, random_accessory, entry)
 	var/random_color = get_random_color(entry, prefs, entry?.accessory_type)
 	if(random_color)
-		entry.accessory_colors = random_color
+		set_accessory_colors(prefs, entry, random_color)
 	on_randomize_entry(entry, prefs)
 
 /datum/customizer_choice/proc/on_randomize_entry(datum/customizer_entry/entry, datum/preferences/prefs)
@@ -181,6 +181,9 @@
 	entry?.accessory_type = new_accessory_type
 	var/datum/sprite_accessory/accessory = SPRITE_ACCESSORY(entry?.accessory_type)
 	entry.accessory_colors = accessory.get_default_colors(color_key_source_list_from_prefs(prefs))
+
+/datum/customizer_choice/proc/set_accessory_colors(datum/preferences/prefs, datum/customizer_entry/entry, color)
+	entry.accessory_colors = color
 
 /datum/customizer_choice/proc/reset_accessory_colors(datum/preferences/prefs, datum/customizer_entry/entry)
 	if(!entry?.accessory_type)

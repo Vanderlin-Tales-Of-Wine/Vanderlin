@@ -35,7 +35,6 @@
 					/obj/item/reagent_containers/food/snacks/produce/vegetable/turnip,
 					/obj/item/reagent_containers/food/snacks/produce/vegetable/cabbage)
 	pooptype = /obj/item/natural/poo/cow
-	milk_reagent = /datum/reagent/consumable/milk
 	tame_chance = 25
 	bonus_tame_chance = 15
 
@@ -77,6 +76,11 @@
 			list(/mob/living/simple_animal/hostile/retaliate/cow/cowlet = 95, /mob/living/simple_animal/hostile/retaliate/cow/cowlet/bullet = 5),\
 			CALLBACK(src, PROC_REF(after_birth)),\
 		)
+	udder_component()
+
+///wrapper for the udder component addition so you can have uniquely uddered cow subtypes
+/mob/living/simple_animal/hostile/retaliate/cow/proc/udder_component()
+	AddComponent(/datum/component/udder)
 
 /obj/effect/decal/remains/cow
 	name = "remains"
@@ -302,7 +306,6 @@
 
 	health = CALF_HEALTH
 	maxHealth = CALF_HEALTH
-	milk_reagent = null
 
 	base_intents = list(/datum/intent/simple/headbutt)
 	melee_damage_lower = 1
@@ -317,6 +320,8 @@
 	can_breed = FALSE
 	can_tip = FALSE
 
+/mob/living/simple_animal/hostile/retaliate/cow/cowlet/udder_component()
+	return
 
 /mob/living/simple_animal/hostile/retaliate/cow/cowlet/bullet
 	desc = "So cute! Be careful of those horns, though."

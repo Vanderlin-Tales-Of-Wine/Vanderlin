@@ -482,21 +482,23 @@ GLOBAL_LIST_INIT(featured_stats, list(
 		return
 	if(!stat_category || !user?.real_name || !GLOB.featured_stats[stat_category])
 		return
+	if(!user)
+		return
 
 	var/list/stat_data = GLOB.featured_stats[stat_category]
-	var/job_title = ""
+	var/job_title = " (Jobless)"
+	var/datum/mind/M = user.mind
 
-	if(user?.mind?.assigned_role.title != "Unassigned" && !is_unassigned_job(user.mind?.assigned_role))
-		if(user.gender == FEMALE && user.mind.assigned_role.f_title)
-			job_title = " ([user.mind.assigned_role.f_title])"
-		else
-			job_title = " ([user.mind.assigned_role.title])"
-	else if(user.job && user.job != "Unassigned")
-		job_title = " ([user.job])"
-	else if(user?.mind?.special_role)
-		job_title = " ([user.mind.special_role])"
-	else
-		job_title = " (Jobless)"
+	if(M)
+		if(M.assigned_role.title != "Unassigned" && !is_unassigned_job(M.assigned_role))
+			if(user.gender == FEMALE && M.assigned_role.f_title)
+				job_title = " ([M.assigned_role.f_title])"
+			else
+				job_title = " ([M.assigned_role.title])"
+		else if(user.job && user.job != "Unassigned")
+			job_title = " ([user.job])"
+		else if(M.special_role)
+			job_title = " ([M.special_role])"
 
 	var/key = "[user.real_name][job_title]"
 

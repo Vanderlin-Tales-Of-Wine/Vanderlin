@@ -58,4 +58,4 @@
 						"<span class='red'>You present the heart to Graggar! The God chuckles upon this offering.</span>")
 	user.emote("rage", forced = TRUE)
 
-	return TRUE
+	return ..()

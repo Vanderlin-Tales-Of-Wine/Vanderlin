@@ -42,7 +42,7 @@
 		R.throwforce = (R.throwforce + int_scaling * 2 )* attuned_strength // 2x scaling for throwing. Let's go.
 		R.name = "magician's brick +[int_scaling]"
 	user.put_in_hands(R)
-	return TRUE
+	return ..()
 
 /obj/item/weapon/magicbrick
 	name = "magician's brick"
