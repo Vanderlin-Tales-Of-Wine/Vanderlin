@@ -505,13 +505,15 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 
 	var/bucket_list_output = generate_timer_source_output(SStimer.bucket_list)
 	var/second_queue = generate_timer_source_output(SStimer.second_queue)
-	usr << browse({"
+	var/datum/browser/browser = new(usr, "check_timer_sources", "Timer Sources", 700, 700)
+	browser.set_content({"
 		<h3>bucket_list</h3>
 		[bucket_list_output]
 
 		<h3>second_queue</h3>
 		[second_queue]
-	"}, "window=check_timer_sources;size=700x700")
+	"})
+	browser.open()
 
 /proc/generate_timer_source_output(list/datum/timedevent/events)
 	var/list/per_source = list()
