@@ -2248,8 +2248,6 @@ $(function() {
 	var savedConfig = {
 		fontsize: getCookie('fontsize'),
 		'spingDisabled': getCookie('pingdisabled'),
-		'shighlightTerms': getCookie('highlightterms'),
-		'shighlightColor': getCookie('highlightcolor'),
 		'smusicVolume': getCookie('musicVolume'),
 		'smessagecombining': getCookie('messagecombining'),
 		'sdarkmode': getCookie('darkmode'),
@@ -2290,25 +2288,7 @@ $(function() {
 			opts.pingDisabled = true;
 			$('#ping').hide();
 		}
-		//internalOutput('<span class="internal boldnshit">Loaded ping display of: '+(opts.pingDisabled ? 'hidden' : 'visible')+'</span>', 'internal');
-	}
-	if (savedConfig.shighlightTerms) {
-		var savedTerms = $.parseJSON(savedConfig.shighlightTerms);
-		var actualTerms = '';
-		for (var i = 0; i < savedTerms.length; i++) {
-			if (savedTerms[i]) {
-				actualTerms += savedTerms[i] + ', ';
-			}
-		}
-		if (actualTerms) {
-			actualTerms = actualTerms.substring(0, actualTerms.length - 2);
-			//internalOutput('<span class="internal boldnshit">Loaded highlight strings of: ' + actualTerms+'</span>', 'internal');
-			opts.highlightTerms = savedTerms;
-		}
-	}
-	if (savedConfig.shighlightColor) {
-		opts.highlightColor = savedConfig.shighlightColor;
-		//internalOutput('<span class="internal boldnshit">Loaded highlight color of: '+savedConfig.shighlightColor+'</span>', 'internal');
+		internalOutput('<span class="internal boldnshit">Loaded ping display of: '+(opts.pingDisabled ? 'hidden' : 'visible')+'</span>', 'internal');
 	}
 	if (savedConfig.smusicVolume) {
 		var newVolume = clamp(savedConfig.smusicVolume, 0, 100);
@@ -2316,7 +2296,7 @@ $(function() {
 		$('#musicVolume').val(newVolume);
 		opts.updatedVolume = newVolume;
 		sendVolumeUpdate();
-		//internalOutput('<span class="internal boldnshit">Loaded music volume of: '+savedConfig.smusicVolume+'</span>', 'internal');
+		internalOutput('<span class="internal boldnshit">Loaded music volume of: '+savedConfig.smusicVolume+'</span>', 'internal');
 	}
 	else{
 		$('#adminMusic').prop('volume', opts.defaultMusicVolume / 100);
@@ -2556,7 +2536,7 @@ $(function() {
 
 	$('#saveLog').click(function(e) {
 		var date = new Date();
-		var fname = 'Azure Peak Chat Log ' +
+		var fname = ' Vanderlin Chat Log ' +
 					date.getFullYear() + '-' +
 					(date.getMonth() + 1 < 10 ? '0' : '') + (date.getMonth() + 1) + '-' +
 					(date.getDate() < 10 ? '0' : '') + date.getDate() + ' ' +

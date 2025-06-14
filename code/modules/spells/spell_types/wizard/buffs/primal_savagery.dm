@@ -46,7 +46,7 @@
 			ADD_TRAIT(extra_target, TRAIT_POISONBITE, TRAIT_GENERIC)
 			extra_target.visible_message(span_info("[extra_target] looks more primal!"), span_info("You feel more primal."))
 
-	return TRUE
+	return ..()
 
 /datum/status_effect/buff/duration_increase/primalsavagery5e
 	id = "primal savagery"

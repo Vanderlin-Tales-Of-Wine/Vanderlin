@@ -26,7 +26,7 @@
 	// Start moving
 	mover.start_moving()
 
-	return TRUE
+	return ..()
 
 // Invisible object that moves to the target location
 /obj/effect/beam_mover

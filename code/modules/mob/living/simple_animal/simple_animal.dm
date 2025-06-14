@@ -145,7 +145,6 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 
 	var/food = 0	//increase to make poop
 	var/food_max = 50
-	var/production = 0
 	var/pooptype = /obj/item/natural/poo/horse
 	var/pooprog = 0
 
@@ -160,9 +159,6 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	var/botched_butcher_results
 	var/perfect_butcher_results
 
-	var/obj/item/udder/udder = null
-	var/datum/reagent/milk_reagent = null
-
 /mob/living/simple_animal/Initialize()
 	. = ..()
 	if(gender == PLURAL)
@@ -172,9 +168,6 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	if(!loc)
 		stack_trace("Simple animal being instantiated in nullspace")
 	update_simplemob_varspeed()
-	if(milk_reagent)
-		udder = new(src, milk_reagent)
-
 	if(ai_controller && !length(ai_controller.blackboard[BB_BASIC_FOODS]))
 		ai_controller.set_blackboard_key(BB_BASIC_FOODS, typecacheof(food_type))
 
@@ -186,23 +179,14 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	if(ssaddle)
 		QDEL_NULL(ssaddle)
 
-	if(udder)
-		QDEL_NULL(udder)
-
-	owner = null
-
 	return ..()
 
 /mob/living/simple_animal/attackby(obj/item/O, mob/user, params)
-	if(!stat && istype(O, /obj/item/reagent_containers/glass))
-		if(udder && user.used_intent.type == INTENT_FILL)
-			changeNext_move(20) // milking sound length
-			udder.milkAnimal(O, user)
-			return TRUE
 	if(!is_type_in_list(O, food_type))
 		return ..()
 	else
 		if(try_tame(O, user))
+			SEND_SIGNAL(src, COMSIG_PARENT_ATTACKBY, O, user, params) // for udder functionality
 			return TRUE
 	. = ..()
 
@@ -779,12 +763,6 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 		if(food > 0)
 			food--
 			pooprog++
-			production++
-			production = min(production, 100)
-			if(udder)
-				if(production > 0)
-					production--
-					udder.generateMilk()
 			if(pooprog >= 100)
 				pooprog = 0
 				poop()
@@ -794,38 +772,6 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 		if(isturf(loc))
 			playsound(src, "fart", 50, TRUE)
 			new pooptype(loc)
-
-//................. UDDER .......................//
-/obj/item/udder
-	name = "udder"
-	var/datum/reagent/milk_reagent = /datum/reagent/consumable/milk
-
-/obj/item/udder/Initialize(mapload, datum/reagent/reagent)
-	create_reagents(100)
-	if(reagent)
-		milk_reagent = reagent
-	reagents.add_reagent(milk_reagent, rand(0,20))
-	. = ..()
-
-/obj/item/udder/proc/generateMilk()
-	reagents.add_reagent(milk_reagent, 1)
-
-/obj/item/udder/proc/milkAnimal(obj/O, mob/living/user = usr)
-	var/obj/item/reagent_containers/glass/G = O
-	if(G.reagents.total_volume >= G.volume)
-		to_chat(user, span_warning("[O] is full."))
-		return
-	if(!reagents.has_reagent(milk_reagent, 5))
-		to_chat(user, span_warning("[src] is dry. Wait a bit longer..."))
-		user.changeNext_move(10)
-		return
-	if(do_after(user, 1 SECONDS, src))
-		reagents.trans_to(O, rand(5,10))
-		user.visible_message(span_notice("[user] milks [src] using \the [O]"))
-		playsound(O, pick('sound/vo/mobs/cow/milking (1).ogg', 'sound/vo/mobs/cow/milking (2).ogg'), 100, TRUE, -1)
-		user.Immobilize(1 SECONDS)
-		user.changeNext_move(1 SECONDS)
-
 
 /mob/living/simple_animal/proc/handle_habitation(obj/structure/home)
 	SHOULD_CALL_PARENT(TRUE)

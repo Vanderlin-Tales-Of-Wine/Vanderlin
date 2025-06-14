@@ -48,7 +48,7 @@
 	var/blood_dice = 9
 	/// Faces of will die
 	var/will_dice = 6
-	
+
 
 /obj/effect/proc_holder/spell/targeted/transfix/cast(list/targets, mob/user = usr)
 	var/msg = input("Soothe them. Dominate them. Speak and they will succumb.", "Transfix") as text|null
@@ -128,7 +128,7 @@
 					var/roll = roll(1 + holypower + magicpower, 5)
 					if(roll > bloodroll)
 						to_chat(L, "I feel like the unholy magic came from [user]. I should use my magic or miracles on them.")
-	return TRUE
+	return ..()
 
 /obj/effect/proc_holder/spell/targeted/transfix/master
 	name = "Subjugate"
@@ -238,9 +238,9 @@
 /mob/living/carbon/human/proc/blood_celerity()
 	set name = "Quickening"
 	set category = "VAMPIRE"
-	
+
 	var/ability_name = "Quickening"
-	
+
 	var/cooldown_time = 3000 // Five minutes cooldown
 
 	var/datum/antagonist/vampire/VD = mind.has_antag_datum(/datum/antagonist/vampire)
@@ -360,9 +360,9 @@
 /mob/living/carbon/human/proc/vamp_regenerate()
 	set name = "Regenerate"
 	set category = "VAMPIRE"
-	
+
 	var/ability_name = "Regenerate"
-	
+
 	var/cooldown_time = 600 // 1 minute
 
 	var/silver_curse_status = FALSE
@@ -383,8 +383,8 @@
 	if(VD.vitae < 500)
 		to_chat(src, "<span class='warning'>Not enough vitae.</span>")
 		return
-		
-	
+
+
 	to_chat(src, "<span class='greentext'>! REGENERATE !</span>")
 	src.playsound_local(get_turf(src), 'sound/misc/vampirespell.ogg', 100, FALSE, pressure_affected = FALSE)
 	VD.adjust_vitae(-500)

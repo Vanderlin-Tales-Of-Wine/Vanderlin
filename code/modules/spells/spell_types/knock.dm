@@ -22,6 +22,7 @@
 			INVOKE_ASYNC(src, PROC_REF(open_door), door)
 		for(var/obj/structure/closet/C in T.contents)
 			INVOKE_ASYNC(src, PROC_REF(open_closet), C)
+	return ..()
 
 /obj/effect/proc_holder/spell/aoe_turf/knock/proc/open_door(obj/structure/door/door)
 	if(istype(door))

@@ -41,7 +41,7 @@
 			held_item.melee_attack_chain(U, L)
 			// Pass attunement strength to status effect
 			target.apply_status_effect(/datum/status_effect/buff/boomingblade5e, attuned_strength)
-		return TRUE
+		return ..()
 	return FALSE
 
 /datum/status_effect/buff/boomingblade5e

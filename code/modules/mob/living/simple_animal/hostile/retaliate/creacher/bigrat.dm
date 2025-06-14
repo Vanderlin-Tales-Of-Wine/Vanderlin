@@ -86,6 +86,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/bigrat/Initialize()
 	. = ..()
+	qdel(GetComponent(/datum/component/obeys_commands)) // due to signal overridings from pet commands
 	AddComponent(/datum/component/obeys_commands, pet_commands)
 
 	gender = MALE

@@ -87,6 +87,7 @@
 /mob/living/simple_animal/hostile/retaliate/wolf/Initialize()
 	. = ..()
 	AddComponent(/datum/component/ai_aggro_system)
+	qdel(GetComponent(/datum/component/obeys_commands)) // due to signal overridings from pet commands
 	AddComponent(/datum/component/obeys_commands, pet_commands)
 	AddElement(/datum/element/ai_flee_while_injured, 0.75, retreat_health)
 

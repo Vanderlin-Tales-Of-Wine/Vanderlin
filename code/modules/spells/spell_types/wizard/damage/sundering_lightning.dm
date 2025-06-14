@@ -23,6 +23,7 @@
 //	var/list/affected_turfs = list()
 	playsound(T,'sound/weather/rain/thunder_1.ogg', 80, TRUE)
 	T.visible_message(span_boldwarning("The air feels crackling and charged!"))
+	. = ..()
 	sleep(30)
 	create_lightning(T)
 
