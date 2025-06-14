@@ -16,7 +16,6 @@
 /obj/machinery/light/fueledstreet/Initialize()
 	. = ..()
 	lights_on()
-	update_icon()
 	GLOB.streetlamp_list += src
 
 /obj/machinery/light/fueledstreet/Destroy()
@@ -34,16 +33,17 @@
 /obj/machinery/light/fueledstreet/proc/lights_out(permanent)
 	on = FALSE
 	update()
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 	if(!permanent)
 		addtimer(CALLBACK(src, PROC_REF(lights_on)), 5 MINUTES)
 
 /obj/machinery/light/fueledstreet/proc/lights_on()
 	on = TRUE
 	update()
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 
-/obj/machinery/light/fueledstreet/update_icon()
+/obj/machinery/light/fueledstreet/update_icon_state()
+	. = ..()
 	if(on)
 		icon_state = "[base_state][state_suffix]"
 	else
@@ -55,12 +55,6 @@
 		GLOB.fires_list |= src
 	else
 		GLOB.fires_list -= src
-
-/obj/machinery/light/fueledstreet/update_icon()
-	if(on)
-		icon_state = "[base_state][state_suffix]"
-	else
-		icon_state = "[base_state]0"
 
 //SLOP CODE :)))) it'll do but i'm not happy with where we are for the sprites for these.
 /obj/machinery/light/fueledstreet/blue

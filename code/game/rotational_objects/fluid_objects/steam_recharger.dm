@@ -55,26 +55,26 @@
 	if(user && placed_atom)
 		user.put_in_hand(placed_atom)
 	placed_atom = null
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 
 /obj/structure/steam_recharger/proc/add_placed(mob/user, obj/item/placer)
 	if(placed_atom)
 		return
 	placed_atom = placer
 	placer.forceMove(src)
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
+
 	user.visible_message(span_notice("[user] places [placer] on [src]."), span_notice("You place [placer] on [src]."))
 
 /obj/structure/steam_recharger/update_overlays()
 	. = ..()
-	cut_overlays()
 
 	if(!placed_atom)
 		return
 	var/mutable_appearance/MA = mutable_appearance()
 	MA.appearance = placed_atom.appearance
 
-	overlays += MA
+	. += MA
 
 /obj/structure/steam_recharger/attack_hand(mob/user)
 	. = ..()

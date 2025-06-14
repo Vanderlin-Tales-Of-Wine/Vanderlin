@@ -14,27 +14,9 @@
 	var/item_chair = /obj/item/chair // if null it can't be picked up
 	layer = OBJ_LAYER
 
-/obj/structure/chair/examine(mob/user)
-	. = ..()
-//	. += "<span class='notice'>It's held together by a couple of <b>bolts</b>.</span>"
-//	if(!has_buckled_mobs())
-//		. += "<span class='notice'>Drag your sprite to sit in it.</span>"
-
-/obj/structure/chair/Initialize()
-	. = ..()
-	if(!anchored)	//why would you put these on the shuttle?
-		addtimer(CALLBACK(src, PROC_REF(RemoveFromLatejoin)), 0)
-
-/obj/structure/chair/ComponentInitialize()
+/obj/structure/chair/Initialize(mapload, ...)
 	. = ..()
 	AddComponent(/datum/component/simple_rotation)
-
-/obj/structure/chair/Destroy()
-	RemoveFromLatejoin()
-	return ..()
-
-/obj/structure/chair/proc/RemoveFromLatejoin()
-	SSjob.latejoin_trackers -= src	//These may be here due to the arrivals shuttle
 
 /obj/structure/chair/deconstruct()
 	// If we have materials, and don't have the NOCONSTRUCT flag

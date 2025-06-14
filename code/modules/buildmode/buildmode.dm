@@ -327,9 +327,9 @@ GLOBAL_LIST_EMPTY(buildmode_appearance_cache)
 /**
  * New buildmode category button
  */
-/atom/movable/screen/buildmode/category/update_icon()
+/atom/movable/screen/buildmode/category/update_name()
+	. = ..()
 	var/category_name = "None"
-
 	switch(bd.current_category)
 		if(BM_CATEGORY_TURF)
 			category_name = "Turfs"
@@ -341,7 +341,6 @@ GLOBAL_LIST_EMPTY(buildmode_appearance_cache)
 			category_name = "Items"
 
 	name = "Build Category: [category_name]"
-	icon_state = "buildcategory"
 
 /**
  * Toggle BuildMode admin command

@@ -245,7 +245,7 @@
 	if(extracted > 0)
 		vial.contained_essence = new essence_type
 		vial.essence_amount = extracted
-		vial.update_icon()
+		vial.update_appearance(UPDATE_OVERLAYS)
 		return TRUE
 
 	return FALSE

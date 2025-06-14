@@ -16,9 +16,10 @@
 
 /obj/structure/roguetent/Initialize()
 	. = ..()
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 
-/obj/structure/roguetent/update_icon()
+/obj/structure/roguetent/update_icon_state()
+	. = ..()
 	if(density)
 		icon_state = "[base_state][pick(1,2)]"
 	else
@@ -29,14 +30,14 @@
 	playsound(src, 'sound/foley/equip/rummaging-02.ogg', 100, FALSE)
 	density = FALSE
 	opacity = FALSE
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 
 /obj/structure/roguetent/proc/close_up(mob/user)
 	visible_message("<span class='info'>[user] closes [src].</span>")
 	playsound(src, 'sound/foley/equip/rummaging-02.ogg', 100, FALSE)
 	density = TRUE
 	opacity = TRUE
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 
 /obj/structure/roguetent/attack_paw(mob/living/user)
 	attack_hand(user)

@@ -32,18 +32,25 @@
 /obj/item/textbook/Initialize()
 	. = ..()
 	if(skilltoteach)
-		update_name()
+		update_appearance(UPDATE_DESC | UPDATE_NAME)
 
-/obj/item/textbook/proc/update_name()
+/obj/item/textbook/update_name()
+	. = ..()
 	var/title = "something"
 	switch(skilltoteach)
 		if(/datum/skill/misc/reading)
 			title = "literature"
-			desc = "A textbook that teaches the alphabet, sentences of varying complexity, and common symbols, allowing readers to train their reading skills. The higher the complexity, the more skilled the reader must be to study it."
 		if(/datum/skill/labor/mathematics)
 			title = "mathematics"
-			desc = "A textbook focused on teaching mathematic notation and the applications for arithmetic, calculus, and other areas of math. The higher the complexity, the more skilled the reader must be to study it."
 	name = "[skill_name]'s guide to [title]"
+
+/obj/item/textbook/update_desc()
+	. = ..()
+	switch(skilltoteach)
+		if(/datum/skill/misc/reading)
+			desc = "A textbook that teaches the alphabet, sentences of varying complexity, and common symbols, allowing readers to train their reading skills. The higher the complexity, the more skilled the reader must be to study it."
+		if(/datum/skill/labor/mathematics)
+			desc = "A textbook focused on teaching mathematic notation and the applications for arithmetic, calculus, and other areas of math. The higher the complexity, the more skilled the reader must be to study it."
 
 /obj/item/textbook/attacked_by(obj/item/I, mob/living/user)
 	if(istype(I, /obj/item/natural/feather))
@@ -78,7 +85,7 @@
 			skill_name = lowertext(level_name)
 			maxskill = possible_skill_levels[level_name]
 			minskill = maxskill - 1
-			update_name()
+			update_appearance(UPDATE_DESC | UPDATE_NAME)
 			to_chat(user, span_notice("You finish writing [src]."))
 			icon_state = "basic_book_1"
 			playsound(src, 'sound/items/write.ogg', 50, FALSE, ignore_walls = FALSE)

@@ -99,11 +99,12 @@
 	slice_sound = TRUE
 	faretype = FARE_POOR
 
-/obj/item/reagent_containers/food/snacks/meat/salami/update_icon()
+/obj/item/reagent_containers/food/snacks/meat/salami/update_icon_state()
 	if(slices_num)
 		icon_state = "salumoi[slices_num]"
 	else
 		icon_state = "salumoi_slice"
+	return ..()
 
 /obj/item/reagent_containers/food/snacks/meat/salami/on_consume(mob/living/eater)
 	..()
@@ -174,11 +175,12 @@
 	eat_effect = null
 	faretype = FARE_POOR
 
-/obj/item/reagent_containers/food/snacks/fat/salo/update_icon()
+/obj/item/reagent_containers/food/snacks/fat/salo/update_icon_state()
 	if(slices_num)
 		icon_state = "salo[slices_num]"
 	else
 		icon_state = "saloslice"
+	return ..()
 
 /obj/item/reagent_containers/food/snacks/fat/salo/on_consume(mob/living/eater)
 	..()
@@ -352,11 +354,12 @@
 	slice_sound = TRUE
 	faretype = FARE_IMPOVERISHED
 
-/obj/item/reagent_containers/food/snacks/butter/update_icon()
+/obj/item/reagent_containers/food/snacks/butter/update_icon_state()
 	if(slices_num)
 		icon_state = "butter[slices_num]"
 	else
 		icon_state = "butter_slice"
+	return ..()
 
 /obj/item/reagent_containers/food/snacks/butter/on_consume(mob/living/eater)
 	..()

@@ -148,7 +148,7 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 	var/mode = 1 // 1 means repeat 5 times, 2 means random, 0 means indefinite but has chance to explode, 3 means indefinite no chance to explode
 	var/obj/structure/linked_thing // because redstone code is weird
 
-/obj/structure/repeater/ComponentInitialize()
+/obj/structure/repeater/Initialize(mapload, ...)
 	. = ..()
 	AddComponent(/datum/component/simple_rotation, ROTATION_REQUIRE_WRENCH|ROTATION_IGNORE_ANCHORED)
 
@@ -280,19 +280,17 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 	var/obj/item/containment
 	var/obj/item/ammo_holder/ammo // used if the contained item is a bow or crossbow
 
-/obj/structure/activator/Initialize()
+/obj/structure/activator/Initialize(mapload, ...)
 	. = ..()
-	update_icon()
-
-/obj/structure/activator/ComponentInitialize()
-	. = ..()
+	update_appearance(UPDATE_OVERLAYS)
 	AddComponent(/datum/component/simple_rotation, ROTATION_REQUIRE_WRENCH|ROTATION_IGNORE_ANCHORED)
 
-/obj/structure/activator/update_icon()
-	. = ..()
-	cut_overlays()
-	if(!containment)
-		add_overlay("activator-e")
+/obj/structure/activator/Destroy()
+	ammo = null
+	if(containment)
+		containment.forceMove(get_turf(src))
+	containment = null
+	return ..()
 
 /obj/structure/activator/attack_hand(mob/user)
 	. = ..()
@@ -306,7 +304,7 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 		playsound(src, 'sound/misc/hiss.ogg', 100, FALSE, -1)
 		ammo.forceMove(get_turf(src))
 		ammo = null
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 	return TRUE
 
 /obj/structure/activator/attackby(obj/item/I, mob/user, params)
@@ -315,7 +313,7 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 			return ..()
 		containment = I
 		playsound(src, 'sound/misc/chestclose.ogg', 25)
-		update_icon()
+		update_appearance(UPDATE_OVERLAYS)
 		return TRUE
 	if(!ammo && istype(I, /obj/item/ammo_holder))
 		if(!user.transferItemToLoc(I, src))
@@ -348,7 +346,7 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 					ammo.ammo_list -= BT
 					BT.fire_casing(get_step(src, dir), null, null, null, null, pick(BODY_ZONE_L_LEG, BODY_ZONE_R_LEG, BODY_ZONE_CHEST), 0,  src)
 					ammo.contents -= BT
-					ammo.update_icon()
+					ammo.update_appearance()
 					break
 
 /obj/structure/floordoor

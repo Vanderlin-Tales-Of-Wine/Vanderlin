@@ -1,6 +1,5 @@
 
 // ausbush
-
 /obj/structure/flora/ausbushes
 	name = "bush"
 	desc = ""

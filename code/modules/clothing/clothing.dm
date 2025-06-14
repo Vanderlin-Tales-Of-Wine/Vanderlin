@@ -102,8 +102,26 @@
 													'sound/foley/footsteps/armor/inquisitorboot (3).ogg',\
 													'sound/foley/footsteps/armor/inquisitorboot (4).ogg'), 100)
 
+	if(uses_lord_coloring)
+		if(GLOB.lordprimary && GLOB.lordsecondary)
+			lordcolor()
+		else
+			RegisterSignal(SSdcs, COMSIG_LORD_COLORS_SET, TYPE_PROC_REF(/obj/item/clothing, lordcolor))
+
 	if(hoodtype)
 		MakeHood()
+
+/obj/item/clothing/Initialize(mapload, ...)
+	AddElement(/datum/element/update_icon_updates_onmob, slot_flags)
+	return ..()
+
+/obj/item/clothing/Destroy()
+	user_vars_remembered = null //Oh god somebody put REFERENCES in here? not to worry, we'll clean it up
+	if(hoodtype)
+		QDEL_NULL(hood)
+	if(uses_lord_coloring)
+		UnregisterSignal(SSdcs, COMSIG_LORD_COLORS_SET)
+	return ..()
 
 /obj/item/clothing/Topic(href, href_list)
 	. = ..()
@@ -263,13 +281,6 @@
 		if(M.putItemFromInventoryInHandIfPossible(src, H.held_index))
 			add_fingerprint(usr)
 
-/obj/item/clothing/Destroy()
-	user_vars_remembered = null //Oh god somebody put REFERENCES in here? not to worry, we'll clean it up
-	if(hoodtype)
-		qdel(hood)
-		hood = null
-	return ..()
-
 /obj/item/clothing/proc/can_use(mob/user)
 	if(user && ismob(user))
 		if(!user.incapacitated(ignore_grab = TRUE))
@@ -315,6 +326,16 @@
 	for(var/trait in clothing_traits)
 		ADD_CLOTHING_TRAIT(user, trait)
 
+/obj/item/clothing/update_overlays()
+	. = ..()
+	if(!get_detail_tag())
+		return
+	var/mutable_appearance/pic = mutable_appearance(icon, "[icon_state][detail_tag]")
+	pic.appearance_flags = RESET_COLOR
+	if(get_detail_color())
+		pic.color = get_detail_color()
+	. += pic
+
 /**
  * Inserts a trait (or multiple traits) into the clothing traits list
  *
@@ -331,15 +352,6 @@
 	if(istype(wearer) && (wearer.get_slot_by_item(src) & slot_flags))
 		for(var/new_trait in trait_or_traits)
 			ADD_CLOTHING_TRAIT(wearer, new_trait)
-
-/obj/item/clothing/update_icon()
-	cut_overlays()
-	if (get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
-		pic.appearance_flags = RESET_COLOR
-		if (get_detail_color())
-			pic.color = get_detail_color()
-		add_overlay(pic)
 
 /obj/item/clothing/obj_break(damage_flag, silent)
 	if(!damaged_clothes)

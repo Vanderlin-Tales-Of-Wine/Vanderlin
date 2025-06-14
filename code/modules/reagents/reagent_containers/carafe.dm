@@ -11,7 +11,6 @@
 	dropshrink = 0.7
 	obj_flags = CAN_BE_HIT
 	spillable = TRUE
-	var/closed = FALSE
 	reagent_flags = OPENCONTAINER
 	w_class = WEIGHT_CLASS_NORMAL
 	drinksounds = list('sound/items/drink_gen (2).ogg','sound/items/drink_gen (3).ogg')
@@ -20,40 +19,11 @@
 	sellprice = 5
 	gripped_intents = list(INTENT_POUR)
 
-/obj/item/reagent_containers/glass/carafe/update_icon(dont_fill=FALSE)
-	if(!fill_icon_thresholds || dont_fill)
-		return
-
-	cut_overlays()
-	underlays.Cut()
-
-	if(reagents.total_volume)
-		var/fill_name = fill_icon_state? fill_icon_state : icon_state
-		var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[fill_name][fill_icon_thresholds[1]]")
-
-		var/percent = round((reagents.total_volume / volume) * 100)
-		for(var/i in 1 to fill_icon_thresholds.len)
-			var/threshold = fill_icon_thresholds[i]
-			var/threshold_end = (i == fill_icon_thresholds.len)? INFINITY : fill_icon_thresholds[i+1]
-			if(threshold <= percent && percent < threshold_end)
-				filling.icon_state = "[fill_name][fill_icon_thresholds[i]]"
-		filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
-		filling.color = mix_color_from_reagents(reagents.reagent_list)
-		for(var/datum/reagent/reagent as anything in reagents.reagent_list)
-			if(reagent.glows)
-				var/mutable_appearance/emissive = mutable_appearance('icons/obj/reagentfillings.dmi', filling.icon_state)
-				emissive.plane = EMISSIVE_PLANE
-				overlays += emissive
-				break
-		underlays += filling
-
-	if(closed)
-		add_overlay("[icon_state]cork")
-
 /obj/item/reagent_containers/glass/carafe/silver
 	name = "silver carafe"
 	desc = "A shining silver container with a flared lip, most often used for serving water and wine"
 	icon_state = "silver_carafe"
+	fill_icon_thresholds = null
 	dropshrink = 0.8
 	sellprice = 45
 	last_used = 0
@@ -73,6 +43,7 @@
 	name = "golden carafe"
 	desc = "An opulent golden container with a flared lip, most often used for serving water and wine"
 	icon_state = "gold_carafe"
+	fill_icon_thresholds = null
 	dropshrink = 0.8
 	sellprice = 65
 

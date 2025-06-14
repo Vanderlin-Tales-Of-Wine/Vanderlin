@@ -111,7 +111,7 @@
 		if(world.time > (the_time + 30 SECONDS))
 			return
 		base_icon_state = "spellbook[design]"
-		update_icon()
+		update_appearance(UPDATE_ICON_STATE)
 		picked = TRUE
 		return
 	if(owner == null)
@@ -125,10 +125,11 @@
 		open = FALSE
 		playsound(loc, 'sound/items/book_close.ogg', 100, FALSE, -1)
 	curpage = 1
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 	user.update_inv_hands()
 
-/obj/item/book/granter/spellbook/update_icon()
+/obj/item/book/granter/spellbook/update_icon_state()
+	. = ..()
 	icon_state = "[base_icon_state]_[open]"
 
 /obj/item/book/granter/spellbook/on_reading_start(mob/user)
@@ -215,36 +216,43 @@
 	desc = "A poorly made book,  it barely glows with arcane and has only small notes on arcane symbols."
 	bookquality = 1
 	sellprice = 15
+
 /obj/item/book/granter/spellbook/mid	//decent magic stones and basic crafting materials
 	name = "beginners tome of the arcyne"
 	desc = "An obviously handcrafted book, it glows occasionally with arcane and has a meager amount notes on arcane symbols."
 	bookquality = 2
 	sellprice = 30
+
 /obj/item/book/granter/spellbook/apprentice	//apprentices get made with obsidian
 	name = "apprentice tome of the arcyne"
 	desc = "A carefully made book,  faintly glowing with arcane and half filled with notes and theory on arcane symbols."
 	bookquality = 3
 	sellprice = 75
+
 /obj/item/book/granter/spellbook/adept	//refugee mages &normal loot
 	name = "adept tome of the arcyne"
 	desc = "A well made book,  it shines moderately with arcane light. It has been filled with notes of varying degrees on the arcane "
 	bookquality = 4
 	sellprice = 150
+
 /obj/item/book/granter/spellbook/expert	//made from 2nd tier loot item
 	name = "expert tome of the arcyne"
 	desc = "A well cared for book, shining brightly with arcane. It has many runes and arcane symbols scribed within, with detailed notes."
 	bookquality = 6
 	sellprice = 200
+
 /obj/item/book/granter/spellbook/master	// Court mage & made from 3rd tier loot item
 	name = "masterful tome of the arcyne"
 	desc = "A crackling, glowing book, filled with advanced arcane runes and symbols that hurt the mind to stare at. A true master of the arcane has left their mark behind."
 	bookquality = 8
 	sellprice = 250
+
 /obj/item/book/granter/spellbook/legendary	//max tier lootmade item
 	name = "legendary tome of the arcyne"
 	desc = "An incredible book that gives off glowing arcane motes,  it is filled with runes and arcane theories that is hard for even masters of arcane to understand. The arcane script glows and practically whispers from the page.."
 	bookquality = 12
 	sellprice = 400
+
 /// Book slapcrafting
 
 /obj/item/spellbook_unfinished

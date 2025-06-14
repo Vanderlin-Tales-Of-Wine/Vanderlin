@@ -7,7 +7,7 @@
 	rotation_structure = TRUE
 	initialize_dirs = CONN_DIR_FORWARD | CONN_DIR_FLIP
 
-/obj/structure/rotation_piece/ComponentInitialize()
+/obj/structure/rotation_piece/Initialize(mapload, ...)
 	. = ..()
 	AddComponent(/datum/component/simple_rotation, ROTATION_REQUIRE_WRENCH|ROTATION_IGNORE_ANCHORED)
 

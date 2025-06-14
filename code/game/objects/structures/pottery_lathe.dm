@@ -34,14 +34,11 @@
 
 /obj/structure/pottery_lathe/update_overlays()
 	. = ..()
-	if(length(overlays))
-		overlays.Cut()
-
 	if(!stored_clay)
 		return
 	var/mutable_appearance/MA = mutable_appearance(icon, "wheel-clay")
 	MA.color = initial(stored_clay.main_material.color)
-	overlays += MA
+	. += MA
 
 /obj/structure/pottery_lathe/attackby(obj/item/I, mob/user, params)
 	. = ..()
@@ -72,7 +69,7 @@
 	to_chat(user, span_info("You set the speed of [src] to [true_rotations] RPM."))
 
 /obj/structure/pottery_lathe/proc/start_spinning_pottery(mob/user)
-	update_overlays()
+	update_appearance(UPDATE_OVERLAYS)
 	if(!stored_clay)
 		return
 
