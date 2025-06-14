@@ -157,7 +157,7 @@
 	. = ..()
 	if(!ishuman(usr))
 		return
-	if(!usr.canUseTopic(src, BE_CLOSE) || locked())
+	if(!usr.can_perform_action(src, NEED_DEXTERITY|FORBID_TELEKINESIS_REACH) || locked())
 		return
 	var/mob/living/carbon/human/human_mob = usr
 	if(href_list["buy"])
@@ -203,7 +203,7 @@
 		var/select = input(usr, "Please select an option.", "", null) as null|anything in options
 		if(!select)
 			return
-		if(!usr.canUseTopic(src, BE_CLOSE) || locked())
+		if(!usr.can_perform_action(src, NEED_DEXTERITY|FORBID_TELEKINESIS_REACH) || locked())
 			return
 		switch(select)
 			if("Enable Paying Taxes")

@@ -141,7 +141,7 @@
 		affecting.add_embedded_object(bottleshard)
 		if(roll(1,4)>=3)
 			affecting.try_crit(pickweight(list(BCLASS_STAB = 1, BCLASS_PICK = 2, BCLASS_CUT = 5)), 85) // Bottles are quite expensive and not very many people can make them- they're also made of glass...
-	..()
+	return ..()
 
 /obj/item/reagent_containers/glass/cup/glassware/funny_attack_effects(mob/living/target, mob/living/user)
 	. = ..()

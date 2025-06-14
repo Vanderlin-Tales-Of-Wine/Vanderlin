@@ -2,6 +2,11 @@
 /datum/enchantment/briarcurse
 	enchantment_name = "Briar's curse"
 	examine_text = "Its grip seems thorny. Must hurt to use."
+	essence_recipe = list(
+		/datum/thaumaturgical_essence/poison = 40,
+		/datum/thaumaturgical_essence/chaos = 30,
+		/datum/thaumaturgical_essence/life = 10 // Corrupted life essence
+	)
 	var/last_used
 
 /datum/enchantment/briarcurse/add_item(obj/item/enchanter)

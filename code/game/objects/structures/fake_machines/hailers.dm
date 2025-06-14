@@ -17,10 +17,13 @@
 	pixel_y = 0
 	pixel_x = -32
 
-
 /obj/structure/fake_machine/hailer/Initialize(mapload)
 	. = ..()
 	SSroguemachine.hailer = src
+
+/obj/structure/fake_machine/hailer/Destroy()
+	SSroguemachine.hailer = null
+	return ..()
 
 /obj/structure/fake_machine/hailer/attackby(obj/item/H, mob/user, params)
 	if(!HAS_TRAIT(user, TRAIT_BURDEN) && !is_gaffer_assistant_job(user.mind.assigned_role))
@@ -61,7 +64,7 @@
 	..()
 	usr.set_machine(src)
 	if(href_list["remove"])
-		if(!usr.canUseTopic(src, BE_CLOSE))	//For when a player is handcuffed while they have the notice window open
+		if(!usr.can_perform_action(src, NEED_DEXTERITY|FORBID_TELEKINESIS_REACH))	//For when a player is handcuffed while they have the notice window open
 			return
 		var/obj/item/I = locate(href_list["remove"]) in contents
 		if(istype(I) && I.loc == src)
@@ -71,7 +74,7 @@
 
 
 	if(href_list["write"])
-		if(!usr.canUseTopic(src, BE_CLOSE)) //For when a player is handcuffed while they have the notice window open
+		if(!usr.can_perform_action(src, NEED_DEXTERITY|FORBID_TELEKINESIS_REACH)) //For when a player is handcuffed while they have the notice window open
 			return
 		var/obj/item/P = locate(href_list["write"]) in contents
 		if(istype(P) && P.loc == src)
@@ -118,6 +121,10 @@
 /obj/structure/fake_machine/hailerboard/Initialize()
 	. = ..()
 	START_PROCESSING(SSslowobj, src)
+
+/obj/structure/fake_machine/hailerboard/Destroy()
+	STOP_PROCESSING(SSslowobj, src)
+	return ..()
 
 /obj/structure/fake_machine/hailerboard/process()//hailer hails? damn
 	. = ..()

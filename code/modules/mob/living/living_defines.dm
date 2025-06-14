@@ -1,15 +1,3 @@
-
-/obj/reflection
-	vis_flags = VIS_INHERIT_ICON|VIS_INHERIT_ICON_STATE|VIS_INHERIT_DIR|VIS_INHERIT_LAYER|VIS_UNDERLAY
-	appearance_flags = PIXEL_SCALE
-	plane = REFLECTION_PLANE
-	mouse_opacity = 0
-	pixel_y = -44
-
-/obj/reflection/New(loc,mob/owner)
-	. = ..()
-	owner.vis_contents += src
-
 /mob/living
 	see_invisible = SEE_INVISIBLE_LIVING
 	sight = 0
@@ -214,3 +202,13 @@
 	var/has_reflection = TRUE
 
 	var/mutable_appearance/reflective_icon
+
+	var/list/mob_offsets = list()
+
+	var/last_deadlife
+
+	var/datum/worker_mind/controller_mind
+
+	var/tempatarget = null
+	var/pegleg = 0			//Handles check & slowdown for peglegs. Fuckin' bootleg, literally, but hey it at least works.
+	var/pet_passive = FALSE

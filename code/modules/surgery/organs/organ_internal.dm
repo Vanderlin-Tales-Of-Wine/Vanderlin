@@ -333,7 +333,8 @@
 	if(!isnull(colors))
 		accessory_colors = colors
 	var/datum/sprite_accessory/accessory = SPRITE_ACCESSORY(accessory_type)
-	accessory_colors = accessory.validate_color_keys_for_owner(owner, colors)
+	if(accessory)
+		accessory_colors = accessory.validate_color_keys_for_owner(owner, colors)
 	update_accessory_colors()
 
 /obj/item/organ/proc/build_colors_for_accessory(list/source_key_list)
@@ -344,8 +345,9 @@
 			return
 		source_key_list = color_key_source_list_from_carbon(owner)
 	var/datum/sprite_accessory/accessory = SPRITE_ACCESSORY(accessory_type)
-	accessory_colors = accessory.get_default_colors(source_key_list)
-	accessory_colors = accessory.validate_color_keys_for_owner(owner, accessory_colors)
+	if(accessory)
+		accessory_colors = accessory.get_default_colors(source_key_list)
+		accessory_colors = accessory.validate_color_keys_for_owner(owner, accessory_colors)
 	update_accessory_colors()
 
 /// Creates, imprints and returns an organ DNA datum.

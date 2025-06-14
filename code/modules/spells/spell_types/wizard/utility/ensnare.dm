@@ -33,7 +33,8 @@
 
 	addtimer(CALLBACK(src, PROC_REF(apply_slowdown), T, area_of_effect, duration, user), delay)
 	playsound(T,'sound/magic/webspin.ogg', 50, TRUE)
-	return TRUE
+	return ..()
+
 /obj/effect/proc_holder/spell/invoked/slowdown_spell_aoe/proc/apply_slowdown(turf/T, area_of_effect, duration)
 	for(var/mob/living/simple_animal/hostile/retaliate/rogue in range(area_of_effect, T))
 		rogue.Paralyze(duration, ignore_canstun = TRUE)	//i think animal movement is coded weird, i cant seem to stun them

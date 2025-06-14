@@ -130,3 +130,13 @@
 
 /obj/item/clothing/head/helmet/leather/minershelm/proc/turn_off(mob/user)
 	set_light(0)
+
+/obj/item/clothing/head/leather/duelhat
+	name = "valorian duelist hat"
+	desc = "A dainty looking feathered hat that is actually quite heavy and thick, Duelists from Valoria are known to value winning fights without dirtying the white feather on top"
+	icon_state = "duelisthat"
+	item_state = "duelisthat"
+	sewrepair = TRUE
+	prevent_crits =  MINOR_CRITICALS
+	body_parts_covered = HEAD|HAIR
+	dynamic_hair_suffix = ""
