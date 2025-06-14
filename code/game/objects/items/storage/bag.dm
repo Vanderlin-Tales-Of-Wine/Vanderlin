@@ -1,7 +1,7 @@
 /obj/item/storage/bag
 	slot_flags = ITEM_SLOT_HIP
 
-/obj/item/storage/bag/ComponentInitialize()
+/obj/item/storage/bag/Initialize(mapload, ...)
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.allow_quick_gather = TRUE
@@ -26,7 +26,7 @@
 /obj/item/storage/bag/tray/psy
 	icon_state = "tray_psy"
 
-/obj/item/storage/bag/tray/ComponentInitialize()
+/obj/item/storage/bag/tray/Initialize(mapload, ...)
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.insert_preposition = "on"

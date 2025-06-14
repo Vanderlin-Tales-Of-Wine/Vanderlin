@@ -73,7 +73,7 @@
 	contents_tag = "egg"
 	spawn_type = /obj/item/reagent_containers/food/snacks/egg
 
-/obj/item/storage/fancy/egg_box/ComponentInitialize()
+/obj/item/storage/fancy/egg_box/Initialize(mapload, ...)
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_items = 12
@@ -96,7 +96,7 @@
 	spawn_type = /obj/item/candle
 	is_open = TRUE
 
-/obj/item/storage/fancy/candle_box/ComponentInitialize()
+/obj/item/storage/fancy/candle_box/Initialize(mapload, ...)
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_items = 5
@@ -121,7 +121,7 @@
 	spawn_type = /obj/item/clothing/face/cigarette/rollie/nicotine
 	var/candy = FALSE //for cigarette overlay
 
-/obj/item/storage/fancy/cigarettes/ComponentInitialize()
+/obj/item/storage/fancy/cigarettes/Initialize(mapload, ...)
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.set_holdable(list(/obj/item/clothing/face/cigarette, /obj/item/lighter))
