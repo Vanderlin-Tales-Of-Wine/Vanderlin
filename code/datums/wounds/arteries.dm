@@ -54,6 +54,7 @@
 	woundpain = 45
 	sewn_woundpain = 20
 	mob_overlay = "s1_throat"
+	mortal = TRUE
 
 /datum/wound/artery/neck/on_mob_gain(mob/living/affected)
 	. = ..()
@@ -76,6 +77,7 @@
 	sewn_bleed_rate = 0.8
 	woundpain = 80
 	sewn_woundpain = 50
+	mortal = TRUE
 
 /datum/wound/artery/chest/on_mob_gain(mob/living/affected)
 	. = ..()
@@ -90,8 +92,6 @@
 		"MY HEART IS BLEEDING!",
 	)
 	to_chat(affected, "<span class='userdanger'>[pick(heartaches)]</span>")
-	if(HAS_TRAIT(affected, TRAIT_CRITICAL_WEAKNESS))
-		affected.death()
 
 /datum/wound/artery/chest/on_life()
 	. = ..()
