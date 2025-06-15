@@ -616,6 +616,8 @@ reverse a descending sequence without violating stability.
 	return L
 
 /datum/sort_instance/proc/mergeAt2(i)
+	var/list/L = src.L
+
 	var/cursor1 = runBases[i]
 	var/cursor2 = runBases[i+1]
 
@@ -624,8 +626,6 @@ reverse a descending sequence without violating stability.
 
 	var/val1 = fetchElement(L,cursor1)
 	var/val2 = fetchElement(L,cursor2)
-
-	var/list/L = src.L
 
 	while(1)
 		if(call(cmp)(val1,val2) <= 0)

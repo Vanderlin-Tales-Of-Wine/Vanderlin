@@ -2030,7 +2030,7 @@ GLOBAL_LIST_INIT(bounty_rep, list())  // ckey -> reputation score
 	return total_removed
 
 // Helper comparison function for sorting coins by value
-GLOBAL_PROC_REF(cmp_coin_value_desc)(obj/item/coin/a, obj/item/coin/b)
+/proc/cmp_coin_value_desc(obj/item/coin/a, obj/item/coin/b)
 	return b.sellprice - a.sellprice
 
 /proc/notify_bounty_boards_death(mob/dying_mob, mob/killer)
