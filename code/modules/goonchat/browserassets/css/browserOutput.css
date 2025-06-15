@@ -302,12 +302,6 @@ a.popt {text-decoration: none;}
 #newMessages:hover {background: #000000;}
 #newMessages i {vertical-align: middle; padding-left: 3px;}
 #ping {
-	position: fixed;
-	top: 0;
-	right: 135px;
-	width: 45px;
-	background: #202020;
-	height: 30px;
 	padding: 8px 0 2px 0;
 }
 #ping i {display: block; text-align: center;}

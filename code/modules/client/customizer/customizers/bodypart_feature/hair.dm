@@ -94,33 +94,38 @@
 	var/dye_gradient = /datum/hair_gradient/none
 	var/dye_color = "#FFFFFF"
 
-/datum/customizer_entry/hair/facial
+/datum/customizer_choice/bodypart_feature/hair/get_random_accessory(datum/customizer_entry/entry, datum/preferences/prefs)
+	return pick(sprite_accessories)
+
+/datum/customizer_choice/bodypart_feature/hair/get_random_color(datum/customizer_entry/entry, datum/preferences/prefs, accessory_type)
+	var/datum/species/species = return_species(prefs)
+	var/list/hairs
+	var/new_color
+	if(prefs.age == AGE_OLD)
+		hairs = species.get_oldhc_list()
+	else
+		hairs = species.get_hairc_list()
+	new_color = hairs[pick(hairs)]
+	return sanitize_hexcolor(new_color, 6, TRUE)
+
+/datum/customizer_choice/bodypart_feature/hair/set_accessory_colors(datum/preferences/prefs, datum/customizer_entry/entry, color)
+	var/datum/customizer_entry/hair/hair_entry = entry
+	hair_entry.hair_color = color
+
+/datum/customizer_entry/hair/head
 
 /datum/customizer/bodypart_feature/hair/head
 	abstract_type = /datum/customizer/bodypart_feature/hair/head
 	name = "Hair"
 
+/datum/customizer/bodypart_feature/hair/head/humanoid
+	customizer_choices = list(/datum/customizer_choice/bodypart_feature/hair/head/humanoid)
+
 /datum/customizer_choice/bodypart_feature/hair/head
 	abstract_type = /datum/customizer_choice/bodypart_feature/hair/head
 	name = "Hair"
 	feature_type = /datum/bodypart_feature/hair/head
-
-/datum/customizer/bodypart_feature/hair/facial
-	abstract_type = /datum/customizer/bodypart_feature/hair/facial
-	name = "Facial Hair"
-
-/datum/customizer/bodypart_feature/hair/facial/is_allowed(datum/preferences/prefs)
-	var/datum/species/species = return_species(prefs)
-	return (prefs.gender == MALE) || istype(species, /datum/species/dwarf)
-
-/datum/customizer_choice/bodypart_feature/hair/facial
-	abstract_type = /datum/customizer_choice/bodypart_feature/hair/facial
-	name = "Facial Hair"
-	feature_type = /datum/bodypart_feature/hair/facial
-	customizer_entry_type = /datum/customizer_entry/hair/facial
-
-/datum/customizer/bodypart_feature/hair/head/humanoid
-	customizer_choices = list(/datum/customizer_choice/bodypart_feature/hair/head/humanoid)
+	customizer_entry_type = /datum/customizer_entry/hair/head
 
 /datum/customizer_choice/bodypart_feature/hair/head/humanoid
 	sprite_accessories = list(
@@ -295,31 +300,30 @@
 		/datum/sprite_accessory/hair/head/kusanagi_alt,
 		/datum/sprite_accessory/hair/head/shorthair6,
 		/datum/sprite_accessory/hair/head/helmet,
-
 		)
 
-/datum/customizer_choice/bodypart_feature/hair/head/humanoid/get_random_accessory(datum/customizer_entry/entry, datum/preferences/prefs)
-	return pick(sprite_accessories)
+// ===== FACIAL HAIR
 
-/datum/customizer_choice/bodypart_feature/hair/head/humanoid/on_randomize_entry(datum/customizer_entry/entry, datum/preferences/prefs)
-	var/datum/customizer_entry/hair/hair_entry = entry
-	var/list/hairs
-	var/new_color
-	if(prefs.age == AGE_OLD)
-		hairs = GLOB.oldhc
-	else
-		hairs = GLOB.haircolor
-	new_color = hairs[pick(hairs)]
-	hair_entry.hair_color = sanitize_hexcolor(new_color, 6, TRUE)
+/datum/customizer_entry/hair/facial
 
-/datum/customizer/bodypart_feature/hair/head/humanoid/bald_default
-	customizer_choices = list(/datum/customizer_choice/bodypart_feature/hair/head/humanoid/bald_default)
+/datum/customizer/bodypart_feature/hair/facial
+	abstract_type = /datum/customizer/bodypart_feature/hair/facial
+	name = "Facial Hair"
 
-/datum/customizer_choice/bodypart_feature/hair/head/humanoid/bald_default/get_random_accessory(datum/customizer_entry/entry, datum/preferences/prefs)
-	return /datum/sprite_accessory/hair/head/bald
+/datum/customizer/bodypart_feature/hair/facial/is_allowed(datum/preferences/prefs)
+	var/datum/species/species = return_species(prefs)
+	if(prefs.age == AGE_CHILD && !(YOUNGBEARD in species.species_traits))
+		return FALSE
+	return (prefs.gender == MALE) || istype(species, /datum/species/dwarf)
 
 /datum/customizer/bodypart_feature/hair/facial/humanoid
 	customizer_choices = list(/datum/customizer_choice/bodypart_feature/hair/facial/humanoid)
+
+/datum/customizer_choice/bodypart_feature/hair/facial
+	abstract_type = /datum/customizer_choice/bodypart_feature/hair/facial
+	name = "Facial Hair"
+	feature_type = /datum/bodypart_feature/hair/facial
+	customizer_entry_type = /datum/customizer_entry/hair/facial
 
 /datum/customizer_choice/bodypart_feature/hair/facial/humanoid
 	sprite_accessories = list(
@@ -342,8 +346,7 @@
 		/datum/sprite_accessory/hair/facial/vandyke,
 		/datum/sprite_accessory/hair/facial/burns,
 		/datum/sprite_accessory/hair/facial/hermit,
-
-		)
+	)
 
 /datum/customizer_choice/bodypart_feature/hair/facial/humanoid/get_random_accessory(datum/customizer_entry/entry, datum/preferences/prefs)
 	var/datum/species/species = return_species(prefs)
@@ -352,20 +355,3 @@
 		return pick(sprite_accessories)
 	else
 		return /datum/sprite_accessory/hair/facial/shaved
-
-/datum/customizer_choice/bodypart_feature/hair/facial/humanoid/on_randomize_entry(datum/customizer_entry/entry, datum/preferences/prefs)
-	var/datum/customizer_entry/hair/hair_entry = entry
-	var/list/hairs
-	var/new_color
-	if(prefs.age == AGE_OLD)
-		hairs = GLOB.oldhc
-	else
-		hairs = GLOB.haircolor
-	new_color = hairs[pick(hairs)]
-	hair_entry.hair_color = sanitize_hexcolor(new_color, 6, TRUE)
-
-/datum/customizer/bodypart_feature/hair/facial/humanoid/shaved_default
-	customizer_choices = list(/datum/customizer_choice/bodypart_feature/hair/facial/humanoid/shaved_default)
-
-/datum/customizer_choice/bodypart_feature/hair/facial/humanoid/shaved_default/get_random_accessory(datum/customizer_entry/entry, datum/preferences/prefs)
-	return /datum/sprite_accessory/hair/facial/shaved
