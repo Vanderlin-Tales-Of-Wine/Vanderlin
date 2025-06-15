@@ -28,6 +28,10 @@
 	do_sound_plate = TRUE
 	item_weight = 9 * STEEL_MULTIPLIER
 
+/obj/item/clothing/pants/platelegs/Initialize()
+	. = ..()
+	AddComponent(/datum/component/item_equipped_movement_rustle, custom_sounds = SFX_PLATE_STEP)
+
 /obj/item/clothing/pants/platelegs/iron
 	name = "iron plated chausses"
 	desc = "Cuisses made of plated iron, offering additional protection against blunt force."

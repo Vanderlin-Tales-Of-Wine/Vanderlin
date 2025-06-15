@@ -43,6 +43,10 @@
 	do_sound_chain = TRUE
 	item_weight = 6 * STEEL_MULTIPLIER
 
+/obj/item/clothing/armor/chainmail/hauberk/Initialize()
+	. = ..()
+	AddComponent(/datum/component/item_equipped_movement_rustle)
+
 /obj/item/clothing/armor/chainmail/hauberk/iron
 	name = "iron hauberk"
 	desc = "A long shirt of iron maille, heavy on the shoulders. Can be worn as a shirt, but some men with hairy chests consider it torture."
