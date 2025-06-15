@@ -101,7 +101,8 @@ start	the index of the first element in the range that is	not already known to b
 	if(start <= lo)
 		start = lo + 1
 
-	for(,start < hi, ++start)
+	var/list/L = src.L
+	for(start in start to hi - 1)
 		var/pivot = fetchElement(L,start)
 
 		//set left and right to the index where pivot belongs
@@ -140,6 +141,7 @@ reverse a descending sequence without violating stability.
 	if(runHi >= hi)
 		return 1
 
+	var/list/L = src.L
 	var/last = fetchElement(L,lo)
 	var/current = fetchElement(L,runHi++)
 
@@ -261,6 +263,7 @@ reverse a descending sequence without violating stability.
 
 	var/lastOffset = 0
 	var/offset = 1
+	var/list/L = src.L
 	if(call(cmp)(key, fetchElement(L,base+hint)) > 0)
 		var/maxOffset = len - hint
 		while(offset < maxOffset && call(cmp)(key, fetchElement(L,base+hint+offset)) > 0)
@@ -320,6 +323,7 @@ reverse a descending sequence without violating stability.
 
 	var/offset = 1
 	var/lastOffset = 0
+	var/list/L = src.L
 	if(call(cmp)(key, fetchElement(L,base+hint)) < 0)	//key <= L[base+hint]
 		var/maxOffset = hint + 1	//therefore we want to insert somewhere in the range [base,base+hint] = [base+,base+(hint+1))
 		while(offset < maxOffset && call(cmp)(key, fetchElement(L,base+hint-offset)) < 0)	//we are iterating backwards
@@ -368,6 +372,7 @@ reverse a descending sequence without violating stability.
 
 	var/cursor1 = base1
 	var/cursor2 = base2
+	var/list/L = src.L
 
 	//degenerate cases
 	if(len2 == 1)
@@ -470,6 +475,7 @@ reverse a descending sequence without violating stability.
 
 	var/cursor1 = base1 + len1 - 1	//start at end of sublists
 	var/cursor2 = base2 + len2 - 1
+	var/list/L = src.L
 
 	//degenerate cases
 	if(len2 == 1)
@@ -618,6 +624,8 @@ reverse a descending sequence without violating stability.
 
 	var/val1 = fetchElement(L,cursor1)
 	var/val2 = fetchElement(L,cursor2)
+
+	var/list/L = src.L
 
 	while(1)
 		if(call(cmp)(val1,val2) <= 0)
