@@ -40,7 +40,6 @@
 	sellprice = VALUE_STEEL_ARMOR_FINE
 
 	body_parts_covered = COVERAGE_FULL
-	do_sound_chain = TRUE
 	item_weight = 6 * STEEL_MULTIPLIER
 
 /obj/item/clothing/armor/chainmail/hauberk/Initialize()
