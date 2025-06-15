@@ -95,6 +95,7 @@
 /mob/living/simple_animal/hostile/retaliate/trufflepig/male/Initialize()
 	. = ..()
 
+
 	AddComponent(\
 		/datum/component/breed,\
 		can_breed_with = list(/mob/living/simple_animal/hostile/retaliate/trufflepig, /mob/living/simple_animal/hostile/retaliate/trufflepig/male, /mob/living/simple_animal/hostile/retaliate/trufflepig/female),\
