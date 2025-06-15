@@ -182,29 +182,32 @@
 /mob/living/proc/handle_inwater(turf/open/water/W)
 	if(body_position == LYING_DOWN || W.water_level == 3)
 		SoakMob(FULL_BODY)
-	else
-		if(W.water_level == 2)
-			SoakMob(BELOW_CHEST)
+	else if(W.water_level == 2)
+		SoakMob(BELOW_CHEST)
 
 /mob/living/carbon/handle_inwater(turf/open/water/W)
-	..()
-	if(HAS_TRAIT(src, TRAIT_NOBREATH))
-		return TRUE
+	. = ..()
 	if(stat == DEAD)
-		return TRUE
-/*	if(W.water_level == 3)	// deep water, to dissuade diving in dirty lakes. Does not work quite right not worth the effort right now, TO DO
-		var/datum/reagents/reagentstouch = new()
-		reagentstouch.add_reagent(W.water_reagent, 2)
-		reagentstouch.trans_to(src, reagents.total_volume, transfered_by = src, method = TOUCH)	*/
-	if(body_position == LYING_DOWN && !HAS_TRAIT(src, TRAIT_WATER_BREATHING))
+		return
+	if(W.water_volume < 10 || !W.water_reagent)
+		return
+	var/react_volume = 2
+	var/react_type = TOUCH
+	var/is_laying = (body_position == LYING_DOWN)
+	if(!is_laying && W.water_level < 2)
+		return
+	if(is_laying && !(HAS_TRAIT(src, TRAIT_WATER_BREATHING) || HAS_TRAIT(src, TRAIT_NOBREATH)))
 		var/drown_damage = has_world_trait(/datum/world_trait/abyssor_rage) ? 10 : 5
 		adjustOxyLoss(drown_damage)
-		emote("drown")
 		if(stat == DEAD && client)
 			GLOB.vanderlin_round_stats[STATS_PEOPLE_DROWNED]++
-		var/datum/reagents/reagents = new()
-		reagents.add_reagent(W.water_reagent, 2)
-		reagents.trans_to(src, reagents.total_volume, transfered_by = src, method = INGEST)
+			return
+		emote("drown")
+		react_volume = 5
+		react_type = INGEST
+	var/datum/reagents/reagents = new()
+	reagents.add_reagent(W.water_reagent, react_volume)
+	reagents.reaction(src, react_type, W.level / 2)
 
 /mob/living/carbon/human/handle_inwater()
 	. = ..()

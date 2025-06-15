@@ -217,7 +217,7 @@ GLOBAL_LIST_INIT(primordial_wounds, init_primordial_wounds())
 	else if(owner)
 		remove_from_mob()
 	LAZYADD(affected.simple_wounds, src)
-	sortList(affected.simple_wounds, GLOBAL_PROC_REF(cmp_wound_severity_dsc))
+	sortTim(affected.simple_wounds, GLOBAL_PROC_REF(cmp_wound_severity_dsc))
 	owner = affected
 	on_mob_gain(affected)
 	if(crit_message)

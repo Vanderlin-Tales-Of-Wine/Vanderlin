@@ -30,7 +30,7 @@
 	var/lip_color = "white"
 
 	offset = OFFSET_HEAD
-	offset_f = OFFSET_HEAD_F
+
 	//subtargets for crits
 	subtargets = list(BODY_ZONE_PRECISE_R_EYE, BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_NOSE, BODY_ZONE_PRECISE_MOUTH, BODY_ZONE_PRECISE_SKULL, BODY_ZONE_PRECISE_EARS, BODY_ZONE_PRECISE_NECK)
 	//grabtargets for grabs

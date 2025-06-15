@@ -312,33 +312,27 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		charflaw = new charflaw()
 
 /datum/preferences/proc/_load_appearence(S)
-	S["real_name"]			>> real_name
-	S["gender"]				>> gender
-	S["domhand"]			>> domhand
-//	S["alignment"]			>> alignment
-	S["age"]				>> age
-	S["eye_color"]			>> eye_color
-	S["voice_color"]		>> voice_color
-	S["skin_tone"]			>> skin_tone
-	S["underwear"]			>> underwear
-	S["underwear_color"]	>> underwear_color
-	S["undershirt"]			>> undershirt
-	S["accessory"]			>> accessory
-	S["detail"]			>> detail
-	S["socks"]				>> socks
+	S["real_name"] >> real_name
+	S["gender"] >> gender
+	S["domhand"] >> domhand
+	S["age"] >> age
+	S["eye_color"] >> eye_color
+	S["voice_color"] >> voice_color
+	S["skin_tone"] >> skin_tone
+	S["underwear"] >> underwear
+	S["accessory"] >> accessory
+	S["detail"] >> detail
 	S["randomise"] >> randomise
+	S["family"] >> family
+	S["setspouse"] >> setspouse
+	S["selected_accent"] >> selected_accent
+
 	// We load our list, but override everything to FALSE to stop a "tainted" save from making it random again.
 	randomise[RANDOM_BODY] = FALSE
 	randomise[RANDOM_BODY_ANTAG] = FALSE
 	randomise[RANDOM_UNDERWEAR] = FALSE
-	randomise[RANDOM_UNDERWEAR_COLOR] = FALSE
-	randomise[RANDOM_UNDERSHIRT] = FALSE
 	randomise[RANDOM_SKIN_TONE] = FALSE
 	randomise[RANDOM_EYE_COLOR] = FALSE
-
-	S["family"]			>> family
-	S["setspouse"]			>> setspouse
-	S["selected_accent"]	>> selected_accent
 
 /datum/preferences/proc/load_character(slot)
 	if(!path)
@@ -370,13 +364,11 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	_load_appearence(S)
 
 	var/patron_typepath
-	S["selected_patron"]	>> patron_typepath
+	S["selected_patron"] >> patron_typepath
 	if(patron_typepath)
 		selected_patron = GLOB.patronlist[patron_typepath]
 		if(!selected_patron) //failsafe
 			selected_patron = GLOB.patronlist[default_patron]
-
-//	S["selected_patron"]				>> selected_patron
 
 	//Custom names
 	for(var/custom_name_id in GLOB.preferences_custom_names)
@@ -384,7 +376,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		S[savefile_slot_name] >> custom_names[custom_name_id]
 
 	//Jobs
-	S["joblessrole"]		>> joblessrole
+	S["joblessrole"] >> joblessrole
+
 	//Load prefs
 	S["job_preferences"] >> job_preferences
 
@@ -394,7 +387,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		headshot_link = null
 
 	//Load flavor text
-	S["flavortext"]			>> flavortext
+	S["flavortext"] >> flavortext
 
 	//try to fix any outdated data if necessary
 	if(needs_update >= 0)
@@ -416,24 +409,27 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	randomise = SANITIZE_LIST(randomise)
 
 	age = sanitize_inlist(age, pref_species.possible_ages)
-	underwear_color			= sanitize_hexcolor(underwear_color, 3, 0)
-	eye_color		= sanitize_hexcolor(eye_color, 3, 0)
-	voice_color		= voice_color
-	skin_tone		= skin_tone
+	eye_color = sanitize_hexcolor(eye_color, 3, 0)
+	voice_color = voice_color
+	skin_tone = skin_tone
 	family = family
 	setspouse = setspouse
 	selected_accent ||= ACCENT_DEFAULT
+
 	S["body_markings"] >> body_markings
 	body_markings = SANITIZE_LIST(body_markings)
+
 	validate_body_markings()
 
 	S["descriptor_entries"] >> descriptor_entries
 	descriptor_entries = SANITIZE_LIST(descriptor_entries)
 	S["custom_descriptors"] >> custom_descriptors
 	custom_descriptors = SANITIZE_LIST(custom_descriptors)
+
 	validate_descriptors()
 
 	joblessrole	= sanitize_integer(joblessrole, 1, 3, initial(joblessrole))
+
 	//Validate job prefs
 	for(var/j in job_preferences)
 		if(job_preferences[j] != JP_LOW && job_preferences[j] != JP_MEDIUM && job_preferences[j] != JP_HIGH)

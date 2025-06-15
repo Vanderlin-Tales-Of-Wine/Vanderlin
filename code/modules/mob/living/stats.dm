@@ -75,7 +75,7 @@
 		var/mob/living/carbon/human/H = src
 		if(H.dna?.species)
 			var/datum/species/species = H.dna.species
-			var/list/specstat_list = (gender == FEMALE) ? species.specstats_f : species.specstats
+			var/list/specstat_list = (gender == FEMALE) ? species.specstats_f : species.specstats_m
 			for(var/stat in specstat_list)
 				set_stat_modifier("innate_sex", stat, specstat_list[stat])
 

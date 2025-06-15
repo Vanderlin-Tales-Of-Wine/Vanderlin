@@ -11,18 +11,28 @@
 	var/datum/species/species =	dna?.species
 	if(!species)
 		return
+	var/mob/living/carbon/human/H = src
 	if(stat < UNCONSCIOUS)
 		COOLDOWN_START(src, stress_indicator, 8 SECONDS)
-		var/list/offset_list
-		if(gender == FEMALE)
-			offset_list = species.offset_features[OFFSET_HEAD_F]
-		else
-			offset_list = species.offset_features[OFFSET_HEAD]
+
+		var/list/offsets
+
 		if(public)
+			var/use_female_sprites = MALE_SPRITES
+			if(species)
+				if(species.sexes)
+					if(H.gender == FEMALE && !species.swap_female_clothes || H.gender == MALE && species.swap_male_clothes)
+						use_female_sprites = FEMALE_SPRITES
+
+				if(use_female_sprites)
+					offsets = (H.age == AGE_CHILD) ? species.offset_features_child : species.offset_features_f
+				else
+					offsets = (H.age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
+
 			var/mutable_appearance/appearance = mutable_appearance(icon_path, overlay_name, overlay_layer)
-			if(offset_list)
-				appearance.pixel_x += (offset_list[1])
-				appearance.pixel_y += (offset_list[2]+12)
+			if(LAZYACCESS(offsets, OFFSET_HEAD))
+				appearance.pixel_x += offsets[OFFSET_HEAD][1]
+				appearance.pixel_y += offsets[OFFSET_HEAD][2] + 12
 			appearance.appearance_flags = RESET_COLOR
 			overlays_standing[OBJ_LAYER] = appearance
 			apply_overlay(OBJ_LAYER)
@@ -36,7 +46,7 @@
 					if(soundin)
 						M.playsound_local(get_turf(src), soundin, 15, FALSE)
 
-			vis_contents += new /obj/effect/temp_visual/stress_event(null, can_see, icon_path, overlay_name, offset_list)
+			vis_contents += new /obj/effect/temp_visual/stress_event(null, can_see, icon_path, overlay_name, offsets)
 
 /obj/effect/temp_visual/stress_event
 	icon = 'icons/mob/overhead_effects.dmi'
@@ -50,9 +60,9 @@
 	var/image/I = image(icon = path, icon_state = iname, layer = ABOVE_MOB_LAYER, loc = src)
 	I.alpha = 255
 	I.appearance_flags = RESET_ALPHA
-	if(offsets)
-		I.pixel_x += (offsets[1])
-		I.pixel_y += (offsets[2]+12)
+	if(LAZYACCESS(offsets, OFFSET_HEAD))
+		I.pixel_x += offsets[OFFSET_HEAD][1]
+		I.pixel_y += offsets[OFFSET_HEAD][2] + 12
 	add_alt_appearance(/datum/atom_hud/alternate_appearance/basic/People, iname, I, seers)
 
 /mob/living/carbon/proc/play_stress_indicator()
