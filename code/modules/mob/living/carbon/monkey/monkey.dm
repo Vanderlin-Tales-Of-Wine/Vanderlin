@@ -40,7 +40,7 @@
 
 	create_dna(src)
 	dna.initialize_dna()
-	AddComponent(/datum/component/footstep, FOOTSTEP_MOB_BAREFOOT, 1, 2)
+	AddElement(/datum/element/footstep, FOOTSTEP_MOB_BAREFOOT, 1, -6)
 
 /mob/living/carbon/monkey/Destroy()
 	SSmobs.cubemonkeys -= src

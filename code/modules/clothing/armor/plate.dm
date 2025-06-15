@@ -15,7 +15,10 @@
 	body_parts_covered = COVERAGE_ALL_BUT_LEGS //Has shoulder guards, and nothing else to suggest leg protection
 	prevent_crits = ALL_EXCEPT_BLUNT
 	max_integrity = INTEGRITY_STRONGEST
-	do_sound_plate = TRUE
+
+/obj/item/clothing/armor/plate/Initialize()
+	. = ..()
+	AddComponent(/datum/component/item_equipped_movement_rustle, custom_sounds = SFX_PLATE_STEP)
 
 /obj/item/clothing/armor/plate/iron
 	name = "iron half-plate"

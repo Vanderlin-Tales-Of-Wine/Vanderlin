@@ -59,7 +59,7 @@
 	mid_length = 4 MINUTES
 	volume = 70
 	extra_range = 8
-	falloff = 0
+	falloff_exponent = 0
 	persistent_loop = TRUE
 	var/stress2give = /datum/stressevent/music
 	channel = CHANNEL_JUKEBOX
@@ -219,4 +219,4 @@
 /obj/structure/fake_machine/musicbox/tavern/Initialize()
 	. = ..()
 	soundloop.extra_range = 12
-	soundloop.falloff = 6
+	soundloop.falloff_exponent = 6
