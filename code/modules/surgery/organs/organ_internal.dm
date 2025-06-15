@@ -90,7 +90,7 @@
 	for(var/X in actions)
 		var/datum/action/A = X
 		A.Remove(M)
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 //	START_PROCESSING(SSobj, src)
 
 

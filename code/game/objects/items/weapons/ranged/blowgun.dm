@@ -26,7 +26,6 @@
 				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/blowgun/shoot_with_empty_chamber()
-	update_icon()
 	return
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/blowgun/process_fire(atom/target, mob/living/user, message = TRUE, params = null, zone_override = "", bonus_spread = 0)
@@ -64,17 +63,13 @@
 			var/amt2raise = user.STAINT/2
 			user.adjust_experience(/datum/skill/combat/bows, amt2raise * boon * modifier, FALSE)
 
-/obj/item/gun/ballistic/revolver/grenadelauncher/blowgun/update_icon()
+/obj/item/gun/ballistic/revolver/grenadelauncher/blowgun/update_overlays()
 	. = ..()
-	cut_overlays()
 	if(chambered)
 		var/obj/item/I = chambered
 		I.pixel_x = 0
 		I.pixel_y = 0
-		add_overlay(new /mutable_appearance(I))
-	if(ismob(loc))
-		var/mob/M = loc
-		M.update_inv_hands()
+		. += new /mutable_appearance(I)
 
 /obj/item/ammo_box/magazine/internal/shot/blowgun
 	ammo_type = /obj/item/ammo_casing/caseless/dart

@@ -25,18 +25,19 @@
 	lastuser = null
 	return ..()
 
-/obj/machinery/light/fueled/cauldron/update_icon()
-	..()
-	cut_overlays()
-	if(essence_contents.len > 0 || reagents?.total_volume > 0)
-		if(!brewing)
-			var/mutable_appearance/filling = mutable_appearance('icons/roguetown/misc/alchemy.dmi', "cauldron_full")
-			filling.color = calculate_mixture_color()
-			add_overlay(filling)
-		if(brewing > 0)
-			var/mutable_appearance/filling = mutable_appearance('icons/roguetown/misc/alchemy.dmi', "cauldron_boiling")
-			filling.color = calculate_mixture_color()
-			add_overlay(filling)
+/obj/machinery/light/fueled/cauldron/update_overlays()
+	. = ..()
+	if(!reagents?.total_volume || !LAZYLEN(essence_contents))
+		return
+	var/mutable_appearance/filling
+	if(!brewing)
+		filling = mutable_appearance('icons/roguetown/misc/alchemy.dmi', "cauldron_full")
+	if(brewing > 0)
+		filling = mutable_appearance('icons/roguetown/misc/alchemy.dmi', "cauldron_boiling")
+	if(!filling)
+		return
+	filling.color = calculate_mixture_color()
+	. += filling
 
 /obj/machinery/light/fueled/cauldron/burn_out()
 	brewing = 0
@@ -98,17 +99,17 @@
 
 	brewing = 0 // Reset brewing when new ingredients added
 	lastuser = WEAKREF(user)
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 	playsound(src, "bubbles", 100, TRUE)
 
 /obj/machinery/light/fueled/cauldron/process()
 	..()
-	update_icon()
 	if(on)
-		if(essence_contents.len)
+		if(length(essence_contents))
 			if(brewing < 20)
 				if(src.reagents.has_reagent(/datum/reagent/water, 30))
 					brewing++
+					update_appearance(UPDATE_OVERLAYS)
 					if(prob(10))
 						playsound(src, "bubbles", 100, FALSE)
 			else if(brewing == 20)
@@ -154,11 +155,13 @@
 					playsound(src, "bubbles", 100, TRUE)
 					playsound(src, 'sound/misc/smelter_fin.ogg', 30, FALSE)
 					brewing = 21
+					update_appearance(UPDATE_OVERLAYS)
 				else
 					brewing = 0
 					essence_contents = list() // Clear failed recipe
 					src.visible_message(span_info("The essences in the [src] fail to combine properly..."))
 					playsound(src, 'sound/misc/smelter_fin.ogg', 30, FALSE)
+					update_appearance(UPDATE_OVERLAYS)
 
 /obj/machinery/light/fueled/cauldron/proc/find_matching_recipe_with_batches()
 	// This searches through all recipes to find one that matches and calculates max batches possible

@@ -68,35 +68,11 @@
 
 /obj/item/clothing/head/roguehood/guard
 	color = CLOTHING_PLUM_PURPLE
-
-/obj/item/clothing/head/roguehood/guard/Initialize()
-	. = ..()
-	if(GLOB.lordprimary)
-		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
-	else
-		GLOB.lordcolor += src
-
-/obj/item/clothing/head/roguehood/guard/Destroy()
-	GLOB.lordcolor -= src
-	return ..()
+	uses_lord_coloring = LORD_PRIMARY
 
 /obj/item/clothing/head/roguehood/guardsecond
 	color = CLOTHING_BLOOD_RED
-
-/obj/item/clothing/head/roguehood/guardsecond/Initialize()
-	. = ..()
-	if(GLOB.lordprimary)
-		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
-	else
-		GLOB.lordcolor += src
-
-/obj/item/clothing/head/roguehood/guardsecond/lordcolor(primary,secondary)
-	if(secondary)
-		color = secondary
-
-/obj/item/clothing/head/roguehood/guardsecond/Destroy()
-	GLOB.lordcolor -= src
-	return ..()
+	uses_lord_coloring = LORD_SECONDARY
 
 /obj/item/clothing/head/roguehood/AdjustClothes(mob/living/carbon/user)
 	if(loc == user)

@@ -22,12 +22,12 @@
 /obj/item/bin/Initialize()
 	. = ..()
 	if(!base_state)
-		create_reagents(600, DRAINABLE | AMOUNT_VISIBLE | REFILLABLE | OPENCONTAINER)
+		create_reagents(600, TRANSFERABLE | AMOUNT_VISIBLE)
 		base_state = icon_state
 	AddComponent(/datum/component/storage/concrete/grid/bin)
 	pixel_x = 0
 	pixel_y = 0
-	update_icon()
+	update_appearance(UPDATE_ICON)
 
 /obj/item/bin/Destroy()
 	layer = 2.8
@@ -40,18 +40,18 @@
 	return ..()
 
 
-/obj/item/bin/update_icon()
-	if(kover)
-		icon_state = "[base_state]over"
-	else
-		icon_state = "[base_state]"
-	cut_overlays()
-	if(reagents)
-		if(reagents.total_volume)
-			var/mutable_appearance/filling = mutable_appearance('icons/roguetown/misc/structure.dmi', "liquid2")
-			filling.color = mix_color_from_reagents(reagents.reagent_list)
-			filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
-			add_overlay(filling)
+/obj/item/bin/update_icon_state()
+	. = ..()
+	icon_state = "[base_state][kover ? "over" : ""]"
+
+/obj/item/bin/update_overlays()
+	. = ..()
+	if(!reagents?.total_volume)
+		return
+	var/mutable_appearance/filling = mutable_appearance('icons/roguetown/misc/structure.dmi', "liquid2")
+	filling.color = mix_color_from_reagents(reagents.reagent_list)
+	filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
+	. += filling
 
 /obj/item/bin/onkick(mob/user)
 	if(isliving(user))
@@ -73,7 +73,7 @@
 				var/list/things = STR.contents()
 				for(var/obj/item/I in things)
 					STR.remove_from_storage(I, get_turf(src))
-			update_icon()
+			update_appearance(UPDATE_ICON_STATE)
 		else
 			playsound(src, 'sound/combat/hits/onwood/woodimpact (1).ogg', 100)
 			user.visible_message("<span class='warning'>[user] kicks [src]!</span>", \
@@ -95,7 +95,7 @@
 				"<span class='notice'>I start to pick up [src]...</span>")
 			if(do_after(user, 3 SECONDS, src))
 				kover = FALSE
-				update_icon()
+				update_appearance(UPDATE_ICON_STATE)
 			return
 	else
 		if(!reagents || !reagents.maximum_volume)
@@ -236,7 +236,7 @@
 			playsound(src,pick('sound/items/quench_barrel1.ogg','sound/items/quench_barrel2.ogg'), 100, FALSE)
 			user.visible_message("<span class='info'>[user] tempers \the [T.held_item.name] in \the [src], hot metal sizzling.</span>")
 			QDEL_NULL(T.held_item)
-			T.update_icon()
+			T.update_appearance(UPDATE_ICON)
 			reagents.remove_reagent(removereg, 5)
 			var/datum/reagent/water_to_dirty = reagents.has_reagent(/datum/reagent/water, 5)
 			if(water_to_dirty)
@@ -244,7 +244,7 @@
 				if(amount_to_dirty)
 					reagents.remove_reagent(/datum/reagent/water, amount_to_dirty)
 					reagents.add_reagent(/datum/reagent/water/gross, amount_to_dirty)
-			update_icon()
+			update_appearance(UPDATE_ICON)
 			return
 	. = ..()
 

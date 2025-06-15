@@ -51,7 +51,7 @@
 			I.forceMove(src)
 		if(istype(I, /obj/item/recipe_book))
 			I.forceMove(src)
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 
 /obj/structure/bookcase/attack_hand(mob/living/user)
 	. = ..()
@@ -69,20 +69,19 @@
 					user.put_in_hands(choice)
 			else
 				choice.forceMove(drop_location())
-			update_icon()
-
+			update_appearance(UPDATE_ICON_STATE)
 
 /obj/structure/bookcase/deconstruct(disassembled = TRUE)
 	for(var/obj/item/B in contents)
 		B.forceMove(get_turf(src))
 	qdel(src)
 
-
-/obj/structure/bookcase/update_icon()
-	if((contents.len >= 1) && (contents.len <= 15))
+/obj/structure/bookcase/update_icon_state()
+	if((length(contents) >= 1) && (length(contents) <= 15))
 		icon_state = "[based][length(contents)]"
 	else
 		icon_state = "bookcase"
+	return ..()
 
 /obj/structure/bookcase/attackby(obj/item/I, mob/user, params)
 	. = ..()
@@ -94,7 +93,7 @@
 	if(!do_after(user, 0.75 SECONDS, src))
 		return
 	I.forceMove(src)
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)
 
 /obj/structure/bookcase/random_recipes
 	var/random_books = 4
@@ -110,4 +109,4 @@
 	for(var/i = 1 to random_books)
 		var/obj/item/recipe_book/book = pick_n_take(books)
 		new book(src)
-	update_icon()
+	update_appearance(UPDATE_ICON_STATE)

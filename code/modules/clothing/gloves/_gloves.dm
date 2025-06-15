@@ -41,7 +41,7 @@
 
 	var/transfer_prints = FALSE
 
-/obj/item/clothing/gloves/ComponentInitialize()
+/obj/item/clothing/gloves/Initialize(mapload, ...)
 	. = ..()
 	RegisterSignal(src, COMSIG_COMPONENT_CLEAN_ACT, PROC_REF(clean_blood))
 

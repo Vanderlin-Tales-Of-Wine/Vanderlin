@@ -14,8 +14,8 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/structure/bookcase/random/LateInitialize()
-	src.create_random_books(book_count)
-	src.update_icon()
+	create_random_books(book_count)
+	update_appearance(UPDATE_ICON_STATE)
 	return ..()
 
 /obj/structure/bookcase/random/proc/create_random_books(amount = 2)
@@ -25,12 +25,6 @@
 
 	for(var/i = 1 to amount)
 		new /obj/item/book/playerbook(src)
-
-/obj/structure/bookcase/random/update_icon()
-	if((length(contents) >= 1) && (length(contents) <= 15))
-		icon_state = "[based][length(contents)]"
-	else
-		icon_state = "bookcase"
 
 /obj/structure/bookcase/random/apocrypha
 	name = "bookcase (Apocrypha & Grimoires)"

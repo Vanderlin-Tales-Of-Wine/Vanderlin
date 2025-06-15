@@ -17,62 +17,63 @@
 /obj/item/storage/fancy
 	icon = 'icons/obj/food/containers.dmi'
 	icon_state = "donutbox6"
-	name = "donut box"
-	desc = ""
+	var/base_icon_state = "donutbox"
 	resistance_flags = FLAMMABLE
-	var/icon_type = "donut"
+	/// Used by examine to report what this thing is holding.
+	var/contents_tag = "errors"
+	/// What type of thing to fill this storage with.
 	var/spawn_type = null
-	var/fancy_open = FALSE
+	/// Whether the container is open or not
+	var/is_open = FALSE
 
 /obj/item/storage/fancy/PopulateContents()
 	if(!spawn_type)
 		return
 	SEND_SIGNAL(src, COMSIG_TRY_STORAGE_FILL_TYPE, spawn_type)
 
-/obj/item/storage/fancy/update_icon()
-	if(fancy_open)
-		icon_state = "[icon_type]box[contents.len]"
-	else
-		icon_state = "[icon_type]box"
+/obj/item/storage/fancy/update_icon_state()
+	. = ..()
+	icon_state = "[base_icon_state][is_open ? contents.len : null]"
 
 /obj/item/storage/fancy/examine(mob/user)
 	. = ..()
-	if(fancy_open)
-		if(length(contents) == 1)
-			. += "There is one [icon_type] left."
-		else
-			. += "There are [contents.len <= 0 ? "no" : "[contents.len]"] [icon_type]s left."
+	if(!is_open)
+		return
+	if(length(contents) == 1)
+		. += "There is one [contents_tag] left."
+	else
+		. += "There are [contents.len <= 0 ? "no" : "[contents.len]"] [contents_tag]s left."
 
 /obj/item/storage/fancy/attack_self(mob/user)
-	fancy_open = !fancy_open
-	update_icon()
 	. = ..()
+	is_open = !is_open
+	update_appearance(UPDATE_ICON)
 
 /obj/item/storage/fancy/Exited()
 	. = ..()
-	fancy_open = TRUE
-	update_icon()
+	is_open = TRUE
+	update_appearance(UPDATE_ICON)
 
 /obj/item/storage/fancy/Entered()
 	. = ..()
-	fancy_open = TRUE
-	update_icon()
-
+	is_open = TRUE
+	update_appearance(UPDATE_ICON)
 
 /*
  * Egg Box
  */
 
 /obj/item/storage/fancy/egg_box
-	icon = 'icons/obj/food/containers.dmi'
-	item_state = "eggbox"
-	icon_state = "eggbox"
-	icon_type = "egg"
 	name = "egg box"
-	desc = ""
+	desc = "A carton for holding eggs."
+	icon = 'icons/obj/food/containers.dmi'
+	icon_state = "eggbox"
+	base_icon_state = "eggbox"
+	item_state = "eggbox"
+	contents_tag = "egg"
 	spawn_type = /obj/item/reagent_containers/food/snacks/egg
 
-/obj/item/storage/fancy/egg_box/ComponentInitialize()
+/obj/item/storage/fancy/egg_box/Initialize(mapload, ...)
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_items = 12
@@ -87,14 +88,15 @@
 	desc = ""
 	icon = 'icons/obj/candle.dmi'
 	icon_state = "candlebox5"
-	icon_type = "candle"
+	base_icon_state = "candlebox"
 	item_state = "candlebox5"
+	contents_tag = "candle"
 	throwforce = 2
 	slot_flags = ITEM_SLOT_HIP
 	spawn_type = /obj/item/candle
-	fancy_open = TRUE
+	is_open = TRUE
 
-/obj/item/storage/fancy/candle_box/ComponentInitialize()
+/obj/item/storage/fancy/candle_box/Initialize(mapload, ...)
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_items = 5
@@ -110,15 +112,16 @@
 	desc = ""
 	icon = 'icons/obj/cigarettes.dmi'
 	icon_state = "cig"
+	base_icon_state = "cig"
 	item_state = "cigpacket"
+	contents_tag = "cigarette"
 	w_class = WEIGHT_CLASS_TINY
 	throwforce = 0
 	slot_flags = ITEM_SLOT_HIP
-	icon_type = "cigarette"
 	spawn_type = /obj/item/clothing/face/cigarette/rollie/nicotine
 	var/candy = FALSE //for cigarette overlay
 
-/obj/item/storage/fancy/cigarettes/ComponentInitialize()
+/obj/item/storage/fancy/cigarettes/Initialize(mapload, ...)
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.set_holdable(list(/obj/item/clothing/face/cigarette, /obj/item/lighter))
@@ -130,62 +133,63 @@
 /obj/item/storage/fancy/cigarettes/AltClick(mob/living/carbon/user)
 	if(!istype(user) || !user.can_perform_action(src, NEED_DEXTERITY|FORBID_TELEKINESIS_REACH))
 		return
-	var/obj/item/clothing/face/cigarette/W = locate(/obj/item/clothing/face/cigarette) in contents
-	if(W && contents.len > 0)
-		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_TAKE, W, user)
-		user.put_in_hands(W)
-		contents -= W
-		to_chat(user, "<span class='notice'>I take \a [W] out of the pack.</span>")
-	else
-		to_chat(user, "<span class='notice'>There are no [icon_type]s left in the pack.</span>")
-
-/obj/item/storage/fancy/cigarettes/update_icon()
-	if(fancy_open || !contents.len)
-		cut_overlays()
-		if(!contents.len)
-			icon_state = "[initial(icon_state)]_empty"
-		else
-			icon_state = initial(icon_state)
-			add_overlay("[icon_state]_open")
-			var/cig_position = 1
-			for(var/C in contents)
-				var/mutable_appearance/inserted_overlay = mutable_appearance(icon)
-
-				if(istype(C, /obj/item/lighter/greyscale))
-					inserted_overlay.icon_state = "lighter_in"
-				else if(istype(C, /obj/item/lighter))
-					inserted_overlay.icon_state = "zippo_in"
-				else if(candy)
-					inserted_overlay.icon_state = "candy"
-				else
-					inserted_overlay.icon_state = "cigarette"
-
-				inserted_overlay.icon_state = "[inserted_overlay.icon_state]_[cig_position]"
-				add_overlay(inserted_overlay)
-				cig_position++
-	else
-		cut_overlays()
-
-/obj/item/storage/fancy/cigarettes/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
-	if(!ismob(M))
+	var/obj/item/clothing/face/cigarette/cig = locate() in contents
+	if(!cig)
+		to_chat(user, "<span class='notice'>There are no [contents_tag]s left in the pack.</span>")
 		return
-	var/obj/item/clothing/face/cigarette/cig = locate(/obj/item/clothing/face/cigarette) in contents
-	if(cig)
-		if(M == user && contents.len > 0 && !user.wear_mask)
-			var/obj/item/clothing/face/cigarette/W = cig
-			SEND_SIGNAL(src, COMSIG_TRY_STORAGE_TAKE, W, M)
-			M.equip_to_slot_if_possible(W, ITEM_SLOT_MASK)
-			contents -= W
-			to_chat(user, "<span class='notice'>I take \a [W] out of the pack.</span>")
+	SEND_SIGNAL(src, COMSIG_TRY_STORAGE_TAKE, cig, user)
+	user.put_in_hands(cig)
+	contents -= cig
+	to_chat(user, "<span class='notice'>You take \a [cig] out of the pack.</span>")
+
+/obj/item/storage/fancy/cigarettes/update_icon_state()
+	. = ..()
+	icon_state = "[base_icon_state][contents.len ? null : "_empty"]"
+
+/obj/item/storage/fancy/cigarettes/update_overlays()
+	. = ..()
+	if(!is_open && !length(contents))
+		return
+	. += "[icon_state]_open"
+	var/cig_position = 1
+	for(var/obj/item/C as anything in contents)
+		var/mutable_appearance/inserted_overlay = mutable_appearance(icon)
+
+		if(istype(C, /obj/item/lighter/greyscale))
+			inserted_overlay.icon_state = "lighter_in"
+		else if(istype(C, /obj/item/lighter))
+			inserted_overlay.icon_state = "zippo_in"
+		else if(candy)
+			inserted_overlay.icon_state = "candy"
 		else
-			..()
-	else
-		to_chat(user, "<span class='notice'>There are no [icon_type]s left in the pack.</span>")
+			inserted_overlay.icon_state = "cigarette"
+
+		inserted_overlay.icon_state = "[inserted_overlay.icon_state]_[cig_position]"
+		. += inserted_overlay
+		cig_position++
+
+/obj/item/storage/fancy/cigarettes/attack(mob/living/carbon/target, mob/living/carbon/user)
+	if(!istype(target))
+		return
+
+	var/obj/item/clothing/face/cigarette/cig = locate() in contents
+	if(!cig)
+		to_chat(user, "<span class='notice'>There are no [contents_tag]s left in the pack.</span>")
+		return
+	if(target != user || !contents.len || user.mouth)
+		return ..()
+
+	SEND_SIGNAL(src, COMSIG_TRY_STORAGE_TAKE, cig, target)
+	target.equip_to_slot_if_possible(cig, ITEM_SLOT_MOUTH)
+	contents -= cig
+	to_chat(user, "<span class='notice'>You take \a [cig] out of the pack.</span>")
 
 /obj/item/storage/fancy/cigarettes/zig
 	name = "zigbox"
 	desc = ""
 	icon_state = "zig"
+	base_icon_state = "zig"
+	contents_tag = "zig"
 	spawn_type = /obj/item/clothing/face/cigarette/rollie/nicotine
 	component_type = /datum/component/storage/concrete/grid/zigbox
 
