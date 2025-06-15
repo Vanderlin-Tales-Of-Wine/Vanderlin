@@ -6,7 +6,7 @@
 	landsound = 'sound/foley/jumpland/carpetland.wav'
 	footstep = FOOTSTEP_CARPET
 	barefootstep = FOOTSTEP_SOFT_BAREFOOT
-	clawfootstep = FOOTSTEP_SOFT_BAREFOOT
+	clawfootstep = FOOTSTEP_CARPET_BAREFOOT
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 	smoothing_groups = SMOOTH_GROUP_OPEN_FLOOR + SMOOTH_GROUP_FLOOR_CARPET

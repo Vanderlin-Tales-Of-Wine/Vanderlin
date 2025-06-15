@@ -107,7 +107,7 @@
 				var/dist = get_dist(M_turf, loc)
 				if(dist < 7)
 					continue
-				M.playsound_local(M_turf, null, 100, 1, get_rand_frequency(), falloff = 5, S = far_smith_sound)
+				M.playsound_local(M_turf, null, 100, 1, get_rand_frequency(), falloff_exponent = 5, S = far_smith_sound)
 
 		return
 

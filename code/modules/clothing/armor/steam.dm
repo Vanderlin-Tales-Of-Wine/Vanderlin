@@ -25,11 +25,7 @@
 
 /obj/item/clothing/armor/steam/Initialize()
 	. = ..()
-	AddComponent(/datum/component/squeak, list('sound/foley/footsteps/armor/powerarmor (1).ogg',\
-												'sound/foley/footsteps/armor/powerarmor (2).ogg',\
-												'sound/foley/footsteps/armor/powerarmor (3).ogg'), 80)
-
-	do_sound_plate = TRUE
+	AddComponent(/datum/component/item_equipped_movement_rustle, custom_sounds = SFX_POWER_ARMOR_STEP)
 
 /obj/item/clothing/armor/steam/equipped(mob/living/user, slot)
 	update_armor(user, slot)
@@ -57,7 +53,7 @@
 			clothing:power_off(user)
 		return
 
-	if(!slot || !(slotdefine2slotbit(slot) & slot_flags))
+	if(!slot || !(slot_flags & slot))
 		power_off(user)
 		remove_status_effect(user)
 		for(var/obj/item/clothing/clothing as anything in equipped_items)

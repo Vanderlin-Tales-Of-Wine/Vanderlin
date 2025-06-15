@@ -301,10 +301,10 @@
 	if(!special)
 		//Drop all worn head items
 		var/list/worn_items = list(
-			owner.get_item_by_slot(SLOT_HEAD),
-			owner.get_item_by_slot(SLOT_NECK),
-			owner.get_item_by_slot(SLOT_WEAR_MASK),
-			owner.get_item_by_slot(SLOT_MOUTH),
+			owner.get_item_by_slot(ITEM_SLOT_HEAD),
+			owner.get_item_by_slot(ITEM_SLOT_NECK),
+			owner.get_item_by_slot(ITEM_SLOT_MASK),
+			owner.get_item_by_slot(ITEM_SLOT_MOUTH),
 		)
 		for(var/obj/item/worn_item in worn_items)
 			owner.dropItemToGround(worn_item, force = TRUE)

@@ -203,14 +203,14 @@
 			if(item)
 				. += span_notice("You get the feeling [m2] most valuable possession is \a [item.name].")
 
-	var/list/obscured = check_obscured_slots()
+	var/obscured = check_obscured_slots()
 	var/skipface = (wear_mask && (wear_mask.flags_inv & HIDEFACE)) || (head && (head.flags_inv & HIDEFACE))
 
-	if(wear_shirt && !(SLOT_SHIRT in obscured))
+	if(wear_shirt && !(obscured & ITEM_SLOT_SHIRT))
 		. += "[m3] [wear_shirt.get_examine_string(user)]."
 
 	//uniform
-	if(wear_pants && !(SLOT_PANTS in obscured))
+	if(wear_pants && !(obscured & ITEM_SLOT_PANTS))
 		//accessory
 		var/accessory_msg
 		if(istype(wear_pants, /obj/item/clothing/pants))
@@ -221,19 +221,19 @@
 		. += "[m3] [wear_pants.get_examine_string(user)][accessory_msg]."
 
 	//head
-	if(head && !(SLOT_HEAD in obscured))
+	if(head && !(obscured & ITEM_SLOT_HEAD))
 		. += "[m3] [head.get_examine_string(user)] on [m2] head."
 	//suit/armorF
-	if(wear_armor && !(SLOT_ARMOR in obscured))
+	if(wear_armor && !(obscured & ITEM_SLOT_ARMOR))
 		. += "[m3] [wear_armor.get_examine_string(user)]."
 
-	if(cloak && !(SLOT_CLOAK in obscured))
+	if(cloak && !(obscured & ITEM_SLOT_CLOAK))
 		. += "[m3] [cloak.get_examine_string(user)] on [m2] shoulders."
 
-	if(backr && !(SLOT_BACK_R in obscured))
+	if(backr && !(obscured & ITEM_SLOT_BACK_R))
 		. += "[m3] [backr.get_examine_string(user)] on [m2] back."
 
-	if(backl && !(SLOT_BACK_L in obscured))
+	if(backl && !(obscured & ITEM_SLOT_BACK_L))
 		. += "[m3] [backl.get_examine_string(user)] on [m2] back."
 
 	//Hands
@@ -242,52 +242,52 @@
 			. += "[m1] holding [I.get_examine_string(user)] in [m2] [get_held_index_name(get_held_index_of_item(I))]."
 
 	//gloves
-	if(gloves && !(SLOT_GLOVES in obscured))
+	if(gloves && !(obscured & ITEM_SLOT_GLOVES))
 		. += "[m3] [gloves.get_examine_string(user)] on [m2] hands."
 	else if(GET_ATOM_BLOOD_DNA_LENGTH(src))
 		if(num_hands)
 			. += span_warning("[t_He] [t_has] [num_hands > 1 ? "" : "a"] blood-stained hand[num_hands > 1 ? "s" : ""]!")
 
 	//belt
-	if(belt && !(SLOT_BELT in obscured))
+	if(belt && !(obscured & ITEM_SLOT_BELT))
 		. += "[m3] [belt.get_examine_string(user)] about [m2] waist."
 
-	if(beltr && !(SLOT_BELT_R in obscured))
+	if(beltr && !(obscured & ITEM_SLOT_BELT_R))
 		. += "[m3] [beltr.get_examine_string(user)] on [m2] belt."
 
-	if(beltl && !(SLOT_BELT_L in obscured))
+	if(beltl && !(obscured & ITEM_SLOT_BELT_L))
 		. += "[m3] [beltl.get_examine_string(user)] on [m2] belt."
 
 	//shoes
-	if(shoes && !(SLOT_SHOES in obscured))
+	if(shoes && !(obscured & ITEM_SLOT_SHOES))
 		. += "[m3] [shoes.get_examine_string(user)] on [m2] feet."
 
 	//mask
-	if(wear_mask && !(SLOT_WEAR_MASK in obscured))
+	if(wear_mask && !(obscured & ITEM_SLOT_MASK))
 		. += "[m3] [wear_mask.get_examine_string(user)] on [m2] face."
 
-	if(mouth && !(SLOT_MOUTH in obscured))
+	if(mouth && !(obscured & ITEM_SLOT_MOUTH))
 		. += "[m3] [mouth.get_examine_string(user)] in [m2] mouth."
 
-	if(wear_neck && !(SLOT_NECK in obscured))
+	if(wear_neck && !(obscured & ITEM_SLOT_NECK))
 		. += "[m3] [wear_neck.get_examine_string(user)] around [m2] neck."
 
 	if(get_eye_color() == BLOODCULT_EYE)
 		. += "<span class='warning'><B>[capitalize(m2)] eyes are glowing an unnatural red!</B></span>"
 
 	//ID
-	if(wear_ring && !(SLOT_RING in obscured))
+	if(wear_ring && !(obscured & ITEM_SLOT_RING))
 		. += "[m3] [wear_ring.get_examine_string(user)]."
 
-	if(wear_wrists && !(SLOT_WRISTS in obscured))
+	if(wear_wrists && !(obscured & ITEM_SLOT_WRISTS))
 		. += "[m3] [wear_wrists.get_examine_string(user)]."
 
 	//handcuffed?
 	if(handcuffed)
-		. += "<A href='byond://?src=[REF(src)];item=[SLOT_HANDCUFFED]'><span class='warning'>[m1] tied up with \a [handcuffed]!</span></A>"
+		. += "<A href='byond://?src=[REF(src)];item=[ITEM_SLOT_HANDCUFFED]'><span class='warning'>[m1] tied up with \a [handcuffed]!</span></A>"
 
 	if(legcuffed)
-		. += "<A href='byond://?src=[REF(src)];item=[SLOT_LEGCUFFED]'><span class='warning'>[m3] \a [legcuffed] around [m2] legs!</span></A>"
+		. += "<A href='byond://?src=[REF(src)];item=[ITEM_SLOT_LEGCUFFED]'><span class='warning'>[m3] \a [legcuffed] around [m2] legs!</span></A>"
 
 	//Gets encapsulated with a warning span
 	var/list/msg = list()

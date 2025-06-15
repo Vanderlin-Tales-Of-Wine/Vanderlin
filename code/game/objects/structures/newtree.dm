@@ -319,9 +319,14 @@
 	var/underlay_base = "center-leaf"
 	var/num_underlay_icons = 2
 
-/obj/structure/flora/newbranch/Initialize()
+/obj/structure/flora/newbranch/Initialize(mapload, ...)
 	. = ..()
-	AddComponent(/datum/component/squeak, list('sound/foley/plantcross1.ogg','sound/foley/plantcross2.ogg','sound/foley/plantcross3.ogg','sound/foley/plantcross4.ogg'), 100)
+	AddComponent(\
+		/datum/component/squeak,\
+		list('sound/foley/plantcross1.ogg','sound/foley/plantcross2.ogg','sound/foley/plantcross3.ogg','sound/foley/plantcross4.ogg'),\
+		100,\
+		extrarange = SHORT_RANGE_SOUND_EXTRARANGE,\
+	)
 	update_appearance(UPDATE_OVERLAYS)
 
 /obj/structure/flora/newbranch/update_overlays()

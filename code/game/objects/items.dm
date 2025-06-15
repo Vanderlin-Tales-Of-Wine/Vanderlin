@@ -36,7 +36,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	var/item_flags = NONE
 
 	var/list/hitsound
-	// Boolean. Does this item play a sound?
+	///Played when the item is used, for example tools
 	var/usesound
 	// Sound used when this item, when thrown, hits a mob.
 	var/mob_throw_hit_sound
@@ -46,6 +46,9 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	var/pickup_sound = "rustle"
 	///Sound used when dropping the item, or when it's thrown.
 	var/drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
+	///Whether or not we use stealthy audio levels for this item's attack sounds
+	var/stealthy_audio = FALSE
+
 	// Sound used when being placed on a table
 	var/place_sound = 'sound/foley/dropsound/gen_drop.ogg'
 	var/list/swingsound = PUNCHWOOSH
@@ -766,10 +769,9 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 			A.Grant(user)
 	item_flags |= IN_INVENTORY
 	if(!initial)
-		if(equip_sound)
-			if(slot_flags & slotdefine2slotbit(slot))
-				if(user.m_intent != MOVE_INTENT_SNEAK) // Sneaky sheathing/equipping
-					playsound(src, equip_sound, EQUIP_SOUND_VOLUME, TRUE, ignore_walls = FALSE)
+		if(equip_sound && (slot_flags & slot))
+			if(user.m_intent != MOVE_INTENT_SNEAK) // Sneaky sheathing/equipping
+				playsound(src, equip_sound, EQUIP_SOUND_VOLUME, TRUE, ignore_walls = FALSE)
 		if(pickup_sound)
 			if(user.is_holding(src))
 				if(user.m_intent != MOVE_INTENT_SNEAK) // Don't play a sound if we're sneaking, for assassination purposes.
@@ -780,7 +782,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		if(altgripped || wielded)
 			ungrip(user, FALSE)
 	if(twohands_required)
-		if(slot == SLOT_HANDS)
+		if(slot & ITEM_SLOT_HANDS)
 			wield(user)
 		else
 			ungrip(user)
@@ -789,7 +791,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 
 //sometimes we only want to grant the item's action if it's equipped in a specific slot.
 /obj/item/proc/item_action_slot_check(slot, mob/user)
-	if(slot == SLOT_IN_BACKPACK || slot == SLOT_LEGCUFFED) //these aren't true slots, so avoid granting actions there
+	if(slot & (ITEM_SLOT_BACKPACK|ITEM_SLOT_LEGCUFFED)) //these aren't true slots, so avoid granting actions there
 		return FALSE
 	return TRUE
 
@@ -1043,7 +1045,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	if(ismob(location))
 		var/mob/M = location
 		var/success = FALSE
-		if(src == M.get_item_by_slot(SLOT_WEAR_MASK))
+		if(src == M.get_item_by_slot(ITEM_SLOT_MASK))
 			success = TRUE
 		if(success)
 			location = get_turf(M)

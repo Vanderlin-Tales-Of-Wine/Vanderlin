@@ -35,7 +35,7 @@
 /datum/looping_sound/instrument
 	mid_length = 2400
 	volume = 100
-	falloff = 2
+	falloff_exponent = 2
 	extra_range = 5
 	var/stress2give = /datum/stressevent/music
 	persistent_loop = TRUE
@@ -145,7 +145,7 @@
 	. = ..()
 	if(!playing)
 		return
-	if(!istype(user) || slot != SLOT_HANDS)
+	if(!istype(user) || !(slot & ITEM_SLOT_HANDS))
 		terminate_playing(user)
 		return
 

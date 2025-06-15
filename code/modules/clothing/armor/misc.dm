@@ -52,8 +52,11 @@
 	body_parts_covered = COVERAGE_ALL_BUT_LEGS
 	max_integrity = INTEGRITY_STRONGEST
 	prevent_crits = ALL_EXCEPT_BLUNT
-	do_sound_plate = TRUE
 	item_weight = 3.2 * IRON_MULTIPLIER
+
+/obj/item/clothing/armor/brigandine/Initialize()
+	. = ..()
+	AddComponent(/datum/component/item_equipped_movement_rustle, custom_sounds = SFX_PLATE_COAT_STEP)
 
 /obj/item/clothing/armor/captain
 	name = "captain's brigandine"
@@ -76,9 +79,12 @@
 	body_parts_covered = COVERAGE_ALL_BUT_LEGS
 	max_integrity = INTEGRITY_STRONGEST
 	prevent_crits = ALL_EXCEPT_BLUNT
-	do_sound_plate = TRUE
 	item_weight = 7 * STEEL_MULTIPLIER
 	uses_lord_coloring = LORD_PRIMARY
+
+/obj/item/clothing/armor/captain/Initialize()
+	. = ..()
+	AddComponent(/datum/component/item_equipped_movement_rustle, custom_sounds = SFX_PLATE_COAT_STEP)
 
 //................ Coat of Plate ............... //
 /obj/item/clothing/armor/brigandine/coatplates
