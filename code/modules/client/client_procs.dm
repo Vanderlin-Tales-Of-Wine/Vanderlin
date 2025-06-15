@@ -807,7 +807,6 @@ GLOBAL_LIST_EMPTY(respawncounts)
 
 /client/New(TopicData)
 	var/tdata = TopicData //save this for later use
-	chatOutput = new /datum/chatOutput(src)
 	TopicData = null							//Prevent calls to client.Topic from connect
 
 	if(connection != "seeker" && connection != "web")//Invalid connection type.
@@ -816,7 +815,8 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	GLOB.clients += src
 	GLOB.directory[ckey] = src
 
-	spawn() // Goonchat does some non-instant checks in start()
+	chatOutput = new /datum/chatOutput(src)
+	spawn(5) // Goonchat does some non-instant checks in start()
 		chatOutput.start()
 
 	GLOB.ahelp_tickets.ClientLogin(src)
