@@ -7,7 +7,6 @@
 	icon_dead = "honeys-dead"
 
 	faction = list("bugs")
-	turns_per_move = 4
 	move_to_delay = 2
 	vision_range = 5
 	aggro_vision_range = 5

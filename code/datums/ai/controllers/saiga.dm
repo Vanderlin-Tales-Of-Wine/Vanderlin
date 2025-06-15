@@ -19,6 +19,19 @@
 		/datum/ai_planning_subtree/flee_target/saiga,
 	)
 
+/datum/ai_controller/saiga/TryPossessPawn(atom/new_pawn)
+	. = ..()
+	RegisterSignal(new_pawn, COMSIG_ANIMAL_TAMED, PROC_REF(on_user_tamed))
+
+/datum/ai_controller/saiga/UnpossessPawn(destroy)
+	UnregisterSignal(pawn, COMSIG_ANIMAL_TAMED)
+	. = ..()
+
+/datum/ai_controller/saiga/proc/on_user_tamed()
+	movement_delay = 0.3 SECONDS
+	set_blackboard_key(BB_BASIC_MOB_FLEEING, FALSE)
+	idle_behavior = null
+
 /datum/ai_controller/saiga_kid
 	movement_delay = 0.5 SECONDS
 	blackboard = list(

@@ -18,7 +18,6 @@
 	pixel_y = 1
 
 	faction = list("gators")
-	turns_per_move = 4
 	move_to_delay = 12
 	vision_range = 5
 	aggro_vision_range = 5

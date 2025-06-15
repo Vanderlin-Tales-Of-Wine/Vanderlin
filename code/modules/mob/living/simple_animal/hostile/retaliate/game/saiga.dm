@@ -17,8 +17,6 @@
 	deaggroprob = 30
 	if(can_buckle)
 		AddComponent(/datum/component/riding/saiga)
-	ai_controller?.movement_delay = 0.3 SECONDS
-	ai_controller?.set_blackboard_key(BB_BASIC_MOB_FLEEING, FALSE)
 
 /mob/living/simple_animal/hostile/retaliate/saiga
 	icon = 'icons/roguetown/mob/monster/saiga.dmi'
@@ -35,7 +33,7 @@
 	gender = FEMALE
 	footstep_type = FOOTSTEP_MOB_SHOE
 	emote_see = list("looks around.", "chews some leaves.")
-	move_to_delay = 3
+	move_to_delay = 8
 
 	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/steak = 1,
 						/obj/item/natural/hide = 1,
@@ -187,8 +185,7 @@
 	faction = list("saiga")
 	footstep_type = FOOTSTEP_MOB_SHOE
 	emote_see = list("stares.")
-	turns_per_move = 3
-	move_to_delay = 3
+	move_to_delay = 8
 
 	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/steak = 1,
 						/obj/item/reagent_containers/food/snacks/fat = 1,
@@ -299,8 +296,6 @@
 	deaggroprob = 20
 	if(can_buckle)
 		AddComponent(/datum/component/riding/saiga)
-	ai_controller?.movement_delay = 0.3 SECONDS
-	ai_controller?.set_blackboard_key(BB_BASIC_MOB_FLEEING, FALSE)
 
 /mob/living/simple_animal/hostile/retaliate/saigabuck/simple_limb_hit(zone)
 	if(!zone)

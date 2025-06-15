@@ -29,7 +29,6 @@
 	faction = list(FACTION_ORCS)
 	emote_hear = null
 	emote_see = null
-	turns_per_move = 2
 	move_to_delay = 7
 	vision_range = 7
 	aggro_vision_range = 9

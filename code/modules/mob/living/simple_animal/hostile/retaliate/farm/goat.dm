@@ -177,7 +177,6 @@
 	faction = list("goats")
 	footstep_type = FOOTSTEP_MOB_SHOE
 	emote_see = list("shakes his head.", "chews his cud.")
-	turns_per_move = 3
 
 	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/steak = 3,
 						/obj/item/natural/hide = 1,
