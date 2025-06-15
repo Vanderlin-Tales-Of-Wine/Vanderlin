@@ -25,4 +25,4 @@
 	for(var/mob/living/L in range(max(1, FLOOR(attuned_strength, 1)), usr))
 		L.apply_status_effect(/datum/status_effect/buff/duration_modification/featherfall, duration_increase)
 
-	return TRUE
+	return ..()

@@ -115,6 +115,7 @@
 	playMagSound()
 	for(var/atom/target in targets)
 		fire_projectile(target, user)
+	return ..()
 
 //This one just pops one projectile in direction user is facing, irrelevant of max_targets etc
 /obj/effect/proc_holder/spell/targeted/projectile/dumbfire

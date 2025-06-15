@@ -295,12 +295,13 @@ There are several things that need to be remembered:
 /mob/living/carbon/human/update_inv_neck()
 	remove_overlay(NECK_LAYER)
 
-	if(client && hud_used?.inv_slots[SLOT_NECK])
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_NECK]
-		inv.update_icon()
+	if(client && hud_used)
+		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_NECK) + 1]
+		inv?.update_icon()
 
 	if(wear_neck)
-		if(!(SLOT_NECK in check_obscured_slots()))
+		update_hud_neck(wear_neck)
+		if(!(ITEM_SLOT_NECK & check_obscured_slots()))
 			var/datum/species/species = dna?.species
 
 			var/use_female_sprites = FALSE
@@ -320,8 +321,6 @@ There are several things that need to be remembered:
 				neck_overlay.pixel_y += offsets[OFFSET_NECK][2]
 			overlays_standing[NECK_LAYER] = neck_overlay
 
-		update_hud_neck(wear_neck)
-
 	update_body()
 	apply_overlay(NECK_LAYER)
 
@@ -329,8 +328,8 @@ There are several things that need to be remembered:
 	remove_overlay(RING_LAYER)
 
 	if(client && hud_used)
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_RING]
-		inv.update_icon()
+		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_RING) + 1]
+		inv?.update_icon()
 
 	if(wear_ring)
 		wear_ring.screen_loc = rogueui_ringr
@@ -364,9 +363,9 @@ There are several things that need to be remembered:
 	remove_overlay(GLOVES_LAYER)
 	remove_overlay(GLOVESLEEVE_LAYER)
 
-	if(client && hud_used?.inv_slots[SLOT_GLOVES])
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_GLOVES]
-		inv.update_icon()
+	if(client && hud_used)
+		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_GLOVES) + 1]
+		inv?.update_icon()
 
 	var/datum/species/species = dna?.species
 	var/use_female_sprites = FALSE
@@ -434,9 +433,9 @@ There are several things that need to be remembered:
 	remove_overlay(WRISTS_LAYER)
 	remove_overlay(WRISTSLEEVE_LAYER)
 
-	if(client && hud_used?.inv_slots[SLOT_WRISTS])
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_WRISTS]
-		inv.update_icon()
+	if(client && hud_used)
+		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_WRISTS) + 1]
+		inv?.update_icon()
 
 	if(wear_wrists)
 		wear_wrists.screen_loc = rogueui_wrists
@@ -493,8 +492,8 @@ There are several things that need to be remembered:
 	remove_overlay(SHOESLEEVE_LAYER)
 
 	if(client && hud_used)
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_SHOES]
-		inv.update_icon()
+		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_SHOES) + 1]
+		inv?.update_icon()
 
 	if(shoes)
 		shoes.screen_loc = rogueui_shoes
@@ -551,9 +550,9 @@ There are several things that need to be remembered:
 	if(!get_bodypart(BODY_ZONE_HEAD)) //Decapitated
 		return
 
-	if(client && hud_used?.inv_slots[SLOT_HEAD])
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_HEAD]
-		inv.update_icon()
+	if(client && hud_used)
+		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_HEAD) + 1]
+		inv?.update_icon()
 
 	if(head)
 		update_hud_head(head)
@@ -587,12 +586,12 @@ There are several things that need to be remembered:
 	var/list/standing_behind = list()
 
 	if(client && hud_used)
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_BELT]
-		inv.update_icon()
-		inv = hud_used.inv_slots[SLOT_BELT_R]
-		inv.update_icon()
-		inv = hud_used.inv_slots[SLOT_BELT_L]
-		inv.update_icon()
+		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_BELT) + 1]
+		inv?.update_icon()
+		inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_BELT_R) + 1]
+		inv?.update_icon()
+		inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_BELT_L) + 1]
+		inv?.update_icon()
 
 	var/datum/species/species = dna?.species
 	var/use_female_sprites = FALSE
@@ -721,13 +720,13 @@ There are several things that need to be remembered:
 	if(!get_bodypart(BODY_ZONE_HEAD)) //Decapitated
 		return
 
-	if(client && hud_used?.inv_slots[SLOT_WEAR_MASK])
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_WEAR_MASK]
-		inv.update_icon()
+	if(client && hud_used)
+		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_GLOVES) + 1]
+		inv?.update_icon()
 
 	if(wear_mask)
 		update_hud_wear_mask(wear_mask)
-		if(!(SLOT_WEAR_MASK in check_obscured_slots()))
+		if(!(ITEM_SLOT_MASK & check_obscured_slots()))
 			var/mutable_appearance/mask_overlay = wear_mask.build_worn_icon(default_layer = MASK_LAYER, default_icon_file = 'icons/roguetown/clothing/onmob/masks.dmi')
 			var/datum/species/species = dna?.species
 			var/use_female_sprites = FALSE
@@ -756,12 +755,9 @@ There are several things that need to be remembered:
 	var/list/undercloaks
 	var/list/backbehind
 
-	if(client && hud_used?.inv_slots[SLOT_BACK_R])
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_BACK_R]
-		inv.update_icon()
-	if(client && hud_used?.inv_slots[SLOT_BACK_L])
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_BACK_L]
-		inv.update_icon()
+	if(client && hud_used)
+		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_BACK_L) + 1]
+		inv?.update_icon()
 
 	var/datum/species/species = dna?.species
 
@@ -870,10 +866,9 @@ There are several things that need to be remembered:
 	remove_overlay(CLOAK_BEHIND_LAYER)
 	remove_overlay(TABARD_LAYER)
 
-
-	if(client && hud_used?.inv_slots[SLOT_CLOAK])
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_CLOAK]
-		inv.update_icon()
+	if(client && hud_used)
+		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_CLOAK) + 1]
+		inv?.update_icon()
 
 	var/list/cloaklays
 	var/datum/species/species = dna?.species
@@ -965,9 +960,9 @@ There are several things that need to be remembered:
 	remove_overlay(SHIRT_LAYER)
 	remove_overlay(SHIRTSLEEVE_LAYER)
 
-	if(client && hud_used?.inv_slots[SLOT_SHIRT])
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_SHIRT]
-		inv.update_icon()
+	if(client && hud_used)
+		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_SHIRT) + 1]
+		inv?.update_icon()
 
 	var/use_female_sprites = FALSE
 
@@ -1030,9 +1025,9 @@ There are several things that need to be remembered:
 	remove_overlay(ARMOR_LAYER)
 	remove_overlay(ARMORSLEEVE_LAYER)
 
-	if(client && hud_used?.inv_slots[SLOT_ARMOR])
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_ARMOR]
-		inv.update_icon()
+	if(client && hud_used)
+		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_ARMOR) + 1]
+		inv?.update_icon()
 
 	var/use_female_sprites = FALSE
 
@@ -1093,9 +1088,9 @@ There are several things that need to be remembered:
 	remove_overlay(PANTS_LAYER)
 	remove_overlay(LEGSLEEVE_LAYER)
 
-	if(client && hud_used?.inv_slots[SLOT_PANTS])
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_PANTS]
-		inv.update_icon()
+	if(client && hud_used)
+		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_PANTS) + 1]
+		inv?.update_icon()
 
 	if(wear_pants)
 		wear_pants.screen_loc = rogueui_pants					//move the item to the appropriate screen loc
@@ -1153,29 +1148,30 @@ There are several things that need to be remembered:
 	if(!get_bodypart(BODY_ZONE_HEAD)) //Decapitated
 		return
 
-	if(client && hud_used?.inv_slots[SLOT_MOUTH])
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_MOUTH]
-		inv.update_icon()
+	if(client && hud_used)
+		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_MOUTH) + 1]
+		inv?.update_icon()
 
 	if(mouth)
 		update_hud_mouth(mouth)
-		var/datum/species/species = dna?.species
-		var/use_female_sprites = FALSE
-		if(species?.sexes)
-			if(gender == FEMALE && !species.swap_female_clothes || gender == MALE && species.swap_male_clothes)
-				use_female_sprites = FEMALE_SPRITES
-		var/list/offsets
-		if(use_female_sprites)
-			offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_f
-		else
-			offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
-		if(!(SLOT_MOUTH in check_obscured_slots()))
+		if(!(ITEM_SLOT_MOUTH & check_obscured_slots()))
+			var/datum/species/species = dna?.species
+			var/use_female_sprites = FALSE
+			if(species?.sexes)
+				if(gender == FEMALE && !species.swap_female_clothes || gender == MALE && species.swap_male_clothes)
+					use_female_sprites = FEMALE_SPRITES
+			var/list/offsets
+			if(use_female_sprites)
+				offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_f
+			else
+				offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
 			var/mutable_appearance/mouth_overlay = mouth.build_worn_icon(age, MOUTH_LAYER, 'icons/roguetown/clothing/onmob/mouth_items.dmi')
 			if(mouth_overlay)
 				if(LAZYACCESS(offsets, OFFSET_MOUTH))
 					mouth_overlay.pixel_x += offsets[OFFSET_MOUTH][1]
 					mouth_overlay.pixel_y += offsets[OFFSET_MOUTH][2]
 				overlays_standing[MOUTH_LAYER] = mouth_overlay
+
 	apply_overlay(MOUTH_LAYER)
 
 //endrogue

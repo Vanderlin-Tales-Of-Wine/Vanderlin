@@ -145,7 +145,7 @@
 	. = ..()
 	if(!playing)
 		return
-	if(!istype(user) || slot != SLOT_HANDS)
+	if(!istype(user) || !(slot & ITEM_SLOT_HANDS))
 		terminate_playing(user)
 		return
 

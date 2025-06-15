@@ -126,7 +126,7 @@
 
 /obj/item/clothing/head/roguehood/priest/equipped(mob/user, slot)
 	. = ..()
-	if (slot == SLOT_HEAD && istype(user))
+	if ((slot & ITEM_SLOT_HEAD) && istype(user))
 		ADD_TRAIT(user, TRAIT_ANTIMAGIC,"Anti-Magic")
 	else
 		REMOVE_TRAIT(user, TRAIT_ANTIMAGIC,"Anti-Magic")

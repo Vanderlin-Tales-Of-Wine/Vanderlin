@@ -88,7 +88,7 @@
 			break
 		sleep(2 SECONDS)
 
-	return TRUE
+	return ..()
 
 /datum/duel
 	var/mob/living/carbon/human/challenger

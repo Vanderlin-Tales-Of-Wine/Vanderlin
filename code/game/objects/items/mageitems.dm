@@ -399,8 +399,7 @@
 /obj/item/clothing/gloves/nomagic/equipped(mob/living/user, slot)
 	if(active_item)
 		return
-	var/slotbit = slotdefine2slotbit(slot)
-	if(slotbit == ITEM_SLOT_GLOVES)
+	if(slot & ITEM_SLOT_GLOVES)
 		active_item = TRUE
 		ADD_TRAIT(src, TRAIT_NODROP, TRAIT_GENERIC)
 	. = ..()

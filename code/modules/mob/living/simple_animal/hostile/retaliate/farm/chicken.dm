@@ -59,7 +59,7 @@
 	base_speed = 5
 	tame = TRUE
 
-
+	var/production = 0
 
 	ai_controller = /datum/ai_controller/basic_controller/chicken
 
@@ -132,6 +132,8 @@
 
 /mob/living/simple_animal/hostile/retaliate/chicken/Life()
 	..()
+	if(food > 0)
+		production = min(production + 1, 100)
 	if(!stat && (production > 29) && egg_type && isturf(loc) && !enemies.len)
 		var/list/foundnests = list()
 		for(var/obj/structure/fluff/nest/N in oview(src))

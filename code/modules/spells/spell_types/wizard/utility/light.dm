@@ -38,7 +38,7 @@
 	if(user.dropItemToGround(user.get_active_held_item()))
 		user.put_in_hands(make_item(), TRUE)
 		user.visible_message(span_info("An orb of light condenses in [user]'s hand!"), span_info("You condense an orb of pure light!"))
-	return TRUE
+	return ..()
 
 /obj/effect/proc_holder/spell/self/light5e/Destroy()
 	if(item)
