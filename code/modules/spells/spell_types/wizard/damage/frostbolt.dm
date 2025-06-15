@@ -3,7 +3,6 @@
 	desc = "A ray of frozen energy, slowing the first thing it touches and lightly damaging it."
 	range = 8
 	projectile_type = /obj/projectile/magic/frostbolt
-	overlay_state = "null"
 	sound = list('sound/magic/whiteflame.ogg')
 	active = FALSE
 
@@ -12,7 +11,7 @@
 	chargetime = 3
 	recharge_time = 15 SECONDS //cooldown
 
-	overlay_state = "frost_bolt"
+	overlay_state = "frostbolt"
 	warnie = "spellwarning"
 	no_early_release = TRUE
 	movement_interrupt = FALSE

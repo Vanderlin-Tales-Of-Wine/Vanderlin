@@ -93,7 +93,7 @@
 	name = "Ray of Frost"
 	desc = "Shoots a ray of frost out, slowing anyone hit by it."
 	range = 8
-	overlay_state = "null"
+	overlay_state = "rayoffrost"
 	sound = list('sound/magic/whiteflame.ogg')
 	active = FALSE
 	releasedrain = 30

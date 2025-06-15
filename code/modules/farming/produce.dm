@@ -535,7 +535,9 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 0)
 	dropshrink = 0.5
 	rotprocess = null
-
+	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_MASK
+	body_parts_covered = NONE
+	alternate_worn_layer  = 8.9
 /*
 /obj/item/reagent_containers/food/snacks/produce/garlic
 	name = "garlic"
