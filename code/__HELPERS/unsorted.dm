@@ -459,7 +459,7 @@ Turf and target are separate in case you want to teleport some distance from a t
 /// Returns a sorted version of GLOB.areas, by name
 /proc/get_sorted_areas()
 	if(!GLOB.sortedAreas)
-		GLOB.sortedAreas = sortTim(GLOB.areas.Copy(), /proc/cmp_name_asc)
+		GLOB.sortedAreas = sortList(GLOB.areas, GLOBAL_PROC_REF(cmp_name_asc))
 	return GLOB.sortedAreas
 
 //Takes: Area type as a text string from a variable.

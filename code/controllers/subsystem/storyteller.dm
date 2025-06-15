@@ -1006,7 +1006,7 @@ SUBSYSTEM_DEF(gamemode)
 			var/sorted_scheduled = list()
 			for(var/datum/scheduled_event/scheduled as anything in scheduled_events)
 				sorted_scheduled[scheduled] = scheduled.start_time
-			sortTim(sorted_scheduled, cmp=/proc/cmp_numeric_asc, associative = TRUE)
+			sortTim(sorted_scheduled, associative = TRUE)
 			even = TRUE
 			for(var/datum/scheduled_event/scheduled as anything in sorted_scheduled)
 				even = !even
@@ -1098,7 +1098,7 @@ SUBSYSTEM_DEF(gamemode)
 			assoc_spawn_weight[event] = event.calculated_weight
 		else
 			assoc_spawn_weight[event] = 0
-	sortTim(assoc_spawn_weight, cmp=/proc/cmp_numeric_dsc, associative = TRUE)
+	sortTim(assoc_spawn_weight, cmp = GLOBAL_PROC_REF(cmp_numeric_dsc), associative = TRUE)
 	for(var/datum/round_event_control/event as anything in assoc_spawn_weight)
 		even = !even
 		var/background_cl = even ? "#17191C" : "#23273C"

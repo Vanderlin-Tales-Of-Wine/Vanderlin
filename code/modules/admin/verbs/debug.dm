@@ -332,7 +332,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	set desc = ""
 
 	var/list/dellog = list("<B>List of things that have gone through qdel this round</B><BR><BR><ol>")
-	sortTim(SSgarbage.items, cmp=/proc/cmp_qdel_item_time, associative = TRUE)
+	sortTim(SSgarbage.items, cmp = GLOBAL_PROC_REF(cmp_qdel_item_time), associative = TRUE)
 	for(var/path in SSgarbage.items)
 		var/datum/qdel_item/I = SSgarbage.items[path]
 		dellog += "<li><u>[path]</u><ul>"
@@ -476,9 +476,9 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	set desc = ""
 
 	var/sortlist = list(
-		"Avg time"		=	/proc/cmp_profile_avg_time_dsc,
-		"Total Time"	=	/proc/cmp_profile_time_dsc,
-		"Call Count"	=	/proc/cmp_profile_count_dsc
+		"Avg time"		=	GLOBAL_PROC_REF(cmp_profile_avg_time_dsc),
+		"Total Time"	=	GLOBAL_PROC_REF(cmp_profile_time_dsc),
+		"Call Count"	=	GLOBAL_PROC_REF(cmp_profile_count_dsc)
 	)
 	var/sort = input(src, "Sort type?", "Sort Type", "Avg time") as null|anything in sortlist
 	if (!sort)
@@ -537,7 +537,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	var/list/sorted = list()
 	for (var/source in per_source)
 		sorted += list(list("source" = source, "count" = per_source[source]))
-	sorted = sortTim(sorted, GLOBAL_PROC_REF(cmp_timer_data))
+	sortTim(sorted, GLOBAL_PROC_REF(cmp_timer_data))
 
 	// Now that everything is sorted, compile them into an HTML output
 	var/output = "<table border='1'>"

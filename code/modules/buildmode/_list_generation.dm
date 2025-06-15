@@ -12,7 +12,7 @@
 		var/turf/T = turf_path
 		if(initial(T.icon) && !ispath(turf_path, /turf/template_noop))
 			filtered_types += turf_path
-	filtered_types = sortTim(filtered_types, /proc/cmp_typepaths_asc)
+	sortTim(filtered_types, GLOBAL_PROC_REF(cmp_typepaths_asc))
 
 	var/list/mob_html = list()
 	if("[BM_CATEGORY_TURF]" in cached_buildmode_html)
@@ -56,7 +56,7 @@
 
 			if(initial(O.icon) && !ispath(obj_path, /obj/effect))
 				filtered_types += obj_path
-		filtered_types = sortTim(filtered_types, /proc/cmp_typepaths_asc)
+		sortTim(filtered_types, GLOBAL_PROC_REF(cmp_typepaths_asc))
 	var/limit = 100
 	var/count = 0
 
@@ -100,7 +100,7 @@
 			var/mob/M = mob_path
 			if(initial(M.icon) && !ispath(mob_path, /mob/dead) && !ispath(mob_path, /mob/camera))
 				filtered_types += mob_path
-		filtered_types = sortTim(filtered_types, /proc/cmp_typepaths_asc)
+		sortTim(filtered_types, GLOBAL_PROC_REF(cmp_typepaths_asc))
 
 	var/limit = 100
 	var/count = 0
@@ -148,7 +148,7 @@
 				continue
 			if(initial(I.icon))
 				filtered_types += item_path
-		filtered_types = sortTim(filtered_types, /proc/cmp_typepaths_asc)
+		sortTim(filtered_types, GLOBAL_PROC_REF(cmp_typepaths_asc))
 	var/limit = 100
 	var/count = 0
 
@@ -187,7 +187,7 @@
 			var/obj/item/I = item_path
 			if(initial(I.icon))
 				filtered_types += item_path
-		filtered_types = sortTim(filtered_types, /proc/cmp_typepaths_asc)
+		sortTim(filtered_types, GLOBAL_PROC_REF(cmp_typepaths_asc))
 	var/limit = 100
 	var/count = 0
 
@@ -229,7 +229,7 @@
 				continue
 			if(initial(I.icon))
 				filtered_types += item_path
-		filtered_types = sortTim(filtered_types, /proc/cmp_typepaths_asc)
+		sortTim(filtered_types, GLOBAL_PROC_REF(cmp_typepaths_asc))
 	var/limit = 100
 	var/count = 0
 
@@ -271,7 +271,7 @@
 			var/obj/item/I = item_path
 			if(initial(I.icon))
 				filtered_types += item_path
-		filtered_types = sortTim(filtered_types, /proc/cmp_typepaths_asc)
+		sortTim(filtered_types, GLOBAL_PROC_REF(cmp_typepaths_asc))
 	var/limit = 100
 	var/count = 0
 
@@ -315,7 +315,7 @@
 			var/obj/item/I = item_path
 			if(initial(I.icon))
 				filtered_types += item_path
-		filtered_types = sortTim(filtered_types, /proc/cmp_typepaths_asc)
+		sortTim(filtered_types, GLOBAL_PROC_REF(cmp_typepaths_asc))
 	var/limit = 100
 	var/count = 0
 
