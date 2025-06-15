@@ -42,7 +42,7 @@
 
 /obj/item/clothing/gloves/plate/zizo
 	name = "darksteel gauntlets"
-	desc = "darksteel plate gauntlets. Called forth from the edge of what should be known. In Her name."
+	desc = "darksteel plate gauntlets. Called forth from the edge of what should be known. In Her name.<br><span class='warningbig'>ZIZOID HERESY!!</span>"
 	icon_state = "zizogauntlets"
 	icon = 'icons/roguetown/clothing/special/evilarmor.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/evilarmor.dmi'
@@ -51,7 +51,7 @@
 
 /obj/item/clothing/gloves/plate/matthios
 	name = "gilded gauntlets"
-	desc = "Shimmering plate gauntelts. Many riches have been taken with these, and just as many lives."
+	desc = "Shimmering plate gauntelts. Many riches have been taken with these, and just as many lives.<br><span class='warningbig'MATTHIOSIAN HERESY!!</span>"
 	icon_state = "matthiosgloves"
 	icon = 'icons/roguetown/clothing/special/evilarmor.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/evilarmor.dmi'
