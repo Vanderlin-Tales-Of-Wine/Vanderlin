@@ -20,15 +20,15 @@
 /obj/item/rope/mob_can_equip(mob/living/M, mob/living/equipper, slot, disable_warning, bypass_equip_delay_self)
 	. = ..()
 	if(.)
-		if(slot == SLOT_BELT && !equipper)
+		if((slot & ITEM_SLOT_BELT) && !equipper)
 			if(!do_after(M, 1.5 SECONDS, src))
 				return FALSE
 
 /obj/item/rope/equipped(mob/living/carbon/human/user, slot)
 	. = ..()
-	if(slot == SLOT_BELT)
+	if(slot & ITEM_SLOT_BELT)
 		user.temporarilyRemoveItemFromInventory(src)
-		user.equip_to_slot_if_possible(new /obj/item/storage/belt/leather/rope(get_turf(user)), SLOT_BELT)
+		user.equip_to_slot_if_possible(new /obj/item/storage/belt/leather/rope(get_turf(user)), ITEM_SLOT_BELT)
 		qdel(src)
 
 /datum/intent/tie

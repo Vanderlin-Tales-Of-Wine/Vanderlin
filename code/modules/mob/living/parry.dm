@@ -200,7 +200,7 @@
 			flash_fullscreen("whiteflash")
 			user.flash_fullscreen("whiteflash")
 			var/datum/effect_system/spark_spread/S = new()
-			S.set_up(n = 1, loca = get_turf(src))
+			S.set_up(1, FALSE, src)
 			S.start()
 		else
 			flash_fullscreen("blackflash2")

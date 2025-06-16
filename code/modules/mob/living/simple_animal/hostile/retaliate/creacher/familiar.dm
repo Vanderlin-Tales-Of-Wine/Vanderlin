@@ -37,7 +37,7 @@
 /mob/living/simple_animal/hostile/retaliate/wolf/familiar/Initialize(mapload, mob/user)
 	. = ..()
 	if(timeleft)
-		despawn_timer = QDEL_IN(src, timeleft) //delete after it runs out, see code/modules/mob/living/simple_animal/rogue/creacher/familiar.dm for timeleft var
+		despawn_timer = QDEL_IN_STOPPABLE(src, timeleft) //delete after it runs out, see code/modules/mob/living/simple_animal/rogue/creacher/familiar.dm for timeleft var
 	summoner = user
 
 /mob/living/simple_animal/hostile/retaliate/wolf/familiar/Destroy()

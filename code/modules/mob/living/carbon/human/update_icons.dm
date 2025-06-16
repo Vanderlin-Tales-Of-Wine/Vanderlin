@@ -304,14 +304,14 @@ There are several things that need to be remembered:
 	if(age == AGE_CHILD)
 		offsets = dna?.species?.offset_features_child
 
-	if(client && hud_used && hud_used.inv_slots[SLOT_NECK])
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_NECK]
+	if(client && hud_used && hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_NECK) + 1])
+		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_NECK) + 1]
 		inv.update_icon()
 
 	if(wear_neck)
 		var/mutable_appearance/neck_overlay
 
-		if(!(SLOT_NECK in check_obscured_slots()))
+		if(!(ITEM_SLOT_NECK & check_obscured_slots()))
 			neck_overlay = wear_neck.build_worn_icon(age = age, default_layer = NECK_LAYER, default_icon_file = 'icons/roguetown/clothing/onmob/neck.dmi')
 			if(gender == MALE)
 				if(OFFSET_NECK in offsets)
@@ -334,7 +334,7 @@ There are several things that need to be remembered:
 		offsets = dna?.species?.offset_features_child
 
 	if(client && hud_used)
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_RING]
+		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_RING) + 1]
 		inv.update_icon()
 
 
@@ -365,8 +365,8 @@ There are several things that need to be remembered:
 	if(age == AGE_CHILD)
 		offsets = dna?.species?.offset_features_child
 
-	if(client && hud_used && hud_used.inv_slots[SLOT_GLOVES])
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_GLOVES]
+	if(client && hud_used && hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_GLOVES) + 1])
+		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_GLOVES) + 1]
 		inv.update_icon()
 
 	if(!gloves && bloody_hands)
@@ -444,8 +444,8 @@ There are several things that need to be remembered:
 	if(age == AGE_CHILD)
 		offsets = dna?.species?.offset_features_child
 
-	if(client && hud_used && hud_used.inv_slots[SLOT_WRISTS])
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_WRISTS]
+	if(client && hud_used && hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_WRISTS) + 1])
+		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_WRISTS) + 1]
 		inv.update_icon()
 
 	if(wear_wrists)
@@ -507,7 +507,7 @@ There are several things that need to be remembered:
 	if(age == AGE_CHILD)
 		offsets = dna?.species?.offset_features_child
 	if(client && hud_used)
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_SHOES]
+		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_SHOES) + 1]
 		inv.update_icon()
 
 	if(shoes)
@@ -562,8 +562,8 @@ There are several things that need to be remembered:
 	if(age == AGE_CHILD)
 		offsets = dna?.species?.offset_features_child
 
-	if(client && hud_used && hud_used.inv_slots[SLOT_HEAD])
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_HEAD]
+	if(client && hud_used && hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_HEAD) + 1])
+		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_HEAD) + 1]
 		inv.update_icon()
 
 	if(head)
@@ -593,11 +593,11 @@ There are several things that need to be remembered:
 	var/list/standing_behind = list()
 
 	if(client && hud_used)
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_BELT]
+		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_BELT) + 1]
 		inv.update_icon()
-		inv = hud_used.inv_slots[SLOT_BELT_R]
+		inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_BELT_R) + 1]
 		inv.update_icon()
-		inv = hud_used.inv_slots[SLOT_BELT_L]
+		inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_BELT_L) + 1]
 		inv.update_icon()
 
 	if(beltr)
@@ -773,7 +773,7 @@ There are several things that need to be remembered:
 		offsets = dna?.species?.offset_features_child
 
 	if(wear_mask)
-		if(!(SLOT_WEAR_MASK in check_obscured_slots()))
+		if(!(ITEM_SLOT_MASK & check_obscured_slots()))
 			overlays_standing[MASK_LAYER] = wear_mask.build_worn_icon(default_layer = MASK_LAYER, default_icon_file = 'icons/roguetown/clothing/onmob/masks.dmi')
 		update_hud_wear_mask(wear_mask)
 
@@ -798,11 +798,11 @@ There are several things that need to be remembered:
 	var/list/overcloaks = list()
 	var/list/undercloaks = list()
 	var/list/backbehind = list()
-	if(client && hud_used?.inv_slots[SLOT_BACK_R])
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_BACK_R]
+	if(client && hud_used?.inv_slots[TOBITSHIFT(ITEM_SLOT_BACK_R) + 1])
+		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_BACK_R) + 1]
 		inv.update_icon()
-	if(client && hud_used?.inv_slots[SLOT_BACK_L])
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_BACK_L]
+	if(client && hud_used?.inv_slots[TOBITSHIFT(ITEM_SLOT_BACK_L) + 1])
+		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_BACK_L) + 1]
 		inv.update_icon()
 	if(backr)
 		if(backr.alternate_worn_layer == CLOAK_BEHIND_LAYER)
@@ -943,7 +943,7 @@ There are several things that need to be remembered:
 		offsets = dna?.species?.offset_features_child
 
 	if(client && hud_used)
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_CLOAK]
+		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_CLOAK) + 1]
 		inv.update_icon()
 
 	var/list/cloaklays = list()
@@ -1067,7 +1067,7 @@ There are several things that need to be remembered:
 		offsets = dna?.species?.offset_features_child
 
 	if(client && hud_used)
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_SHIRT]
+		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_SHIRT) + 1]
 		inv.update_icon()
 
 	if(wear_shirt)
@@ -1147,7 +1147,7 @@ There are several things that need to be remembered:
 		offsets = dna?.species?.offset_features_child
 
 	if(client && hud_used)
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_ARMOR]
+		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_ARMOR) + 1]
 		inv.update_icon()
 
 	if(wear_armor)
@@ -1225,7 +1225,7 @@ There are several things that need to be remembered:
 		offsets = dna?.species?.offset_features_child
 
 	if(client && hud_used)
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_PANTS]
+		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_PANTS) + 1]
 		inv.update_icon()
 
 	if(wear_pants)
@@ -1297,12 +1297,12 @@ There are several things that need to be remembered:
 	if(!get_bodypart(BODY_ZONE_HEAD)) //Decapitated
 		return
 
-	if(client && hud_used && hud_used.inv_slots[SLOT_MOUTH])
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_MOUTH]
+	if(client && hud_used && hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_MOUTH) + 1])
+		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_MOUTH) + 1]
 		inv.update_icon()
 
 	if(mouth)
-		if(!(SLOT_MOUTH in check_obscured_slots()))
+		if(!(ITEM_SLOT_MOUTH & check_obscured_slots()))
 			overlays_standing[MOUTH_LAYER] = mouth.build_worn_icon(age = age, default_layer = MOUTH_LAYER, default_icon_file = 'icons/roguetown/clothing/onmob/mouth_items.dmi')
 		update_hud_mouth(mouth)
 
