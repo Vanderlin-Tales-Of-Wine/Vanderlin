@@ -15,6 +15,7 @@
 	attunements = list(
 		/datum/attunement/aeromancy = 0.8,
 	)
+	overlay_state = "longstride"
 
 /obj/effect/proc_holder/spell/invoked/longstrider/cast(list/targets, mob/user = usr)
 	. = ..()

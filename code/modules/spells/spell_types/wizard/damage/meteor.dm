@@ -15,15 +15,16 @@
 	attunements = list(
 		/datum/attunement/fire = 1.2
 	)
+	overlay_state = "fireball_greater"
 
 /obj/effect/proc_holder/spell/invoked/meteor_storm/cast(list/targets, mob/user = usr)
 	var/turf/T = get_turf(targets[1])
 //	var/list/affected_turfs = list()
 	playsound(T,'sound/magic/meteorstorm.ogg', 80, TRUE)
+	. = ..()
 	sleep(2)
 	spawn(0)
 		create_meteors(T)
-	return TRUE
 
 /obj/effect/proc_holder/spell/invoked/meteor_storm/set_attuned_strength(list/incoming_attunements)
 	var/total_value = 1
