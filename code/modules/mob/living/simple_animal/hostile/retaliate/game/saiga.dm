@@ -105,6 +105,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/saiga/Initialize()
 	. = ..()
+	qdel(GetComponent(/datum/component/obeys_commands)) // due to signal overridings from pet commands
 	AddComponent(/datum/component/obeys_commands, pet_commands)
 	AddElement(/datum/element/ai_retaliate)
 
@@ -269,6 +270,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/saigabuck/Initialize()
 	. = ..()
+	qdel(GetComponent(/datum/component/obeys_commands)) // due to signal overridings from pet commands
 	AddComponent(/datum/component/obeys_commands, pet_commands)
 	AddElement(/datum/element/ai_retaliate)
 

@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Thaumic Research Node Editor</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			background: linear-gradient(135deg, #1e3c72, #2a5298);
+			color: #fff;
+			overflow: hidden;
+		}
+
+		.container {
+			display: flex;
+			height: 100vh;
+		}
+
+		.sidebar {
+			width: 320px;
+			background: rgba(0, 0, 0, 0.3);
+			backdrop-filter: blur(10px);
+			border-right: 1px solid rgba(255, 255, 255, 0.1);
+			padding: 20px;
+			overflow-y: auto;
+		}
+
+		.canvas-container {
+			flex: 1;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.canvas {
+			width: 100%;
+			height: 100%;
+			background:
+				radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+				radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+				radial-gradient(circle at 40% 40%, rgba(120, 200, 255, 0.2) 0%, transparent 50%);
+			position: relative;
+			cursor: crosshair;
+		}
+
+		.grid {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-image:
+				linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+				linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+			background-size: 20px 20px;
+			pointer-events: none;
+		}
+
+		.node {
+			position: absolute;
+			width: 32px;
+			height: 32px;
+			background: linear-gradient(145deg, #4a5568, #2d3748);
+			border: 2px solid #63b3ed;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: grab;
+			transition: all 0.3s ease;
+			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+			font-size: 8px;
+			text-align: center;
+			font-weight: bold;
+			transform: translate(-50%, -50%);
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			padding: 2px;
+		}
+
+		.node:hover {
+			border-color: #90cdf4;
+			box-shadow: 0 6px 20px rgba(99, 179, 237, 0.4);
+			transform: translate(-50%, -50%) scale(1.2);
+			z-index: 100;
+		}
+
+		.node.dragging {
+			cursor: grabbing;
+			z-index: 1000;
+			border-color: #fbb6ce;
+			box-shadow: 0 8px 25px rgba(251, 182, 206, 0.6);
+		}
+
+		.node.selected {
+			border-color: #f6ad55;
+			box-shadow: 0 0 20px rgba(246, 173, 85, 0.8);
+		}
+
+		.connection {
+			position: absolute;
+			pointer-events: none;
+			z-index: 1;
+		}
+
+		.connection line {
+			stroke: #63b3ed;
+			stroke-width: 2;
+			opacity: 0.7;
+		}
+
+		.connection.highlighted line {
+			stroke: #f6ad55;
+			stroke-width: 3;
+			opacity: 1;
+		}
+
+		.control-group {
+			margin-bottom: 20px;
+		}
+
+		.control-group label {
+			display: block;
+			margin-bottom: 8px;
+			font-weight: 600;
+			color: #e2e8f0;
+		}
+
+		.control-row {
+			display: flex;
+			gap: 10px;
+			align-items: center;
+			margin-bottom: 10px;
+		}
+
+		.control-row input[type="number"] {
+			flex: 1;
+		}
+
+		.control-row input[type="checkbox"] {
+			width: auto;
+			margin: 0;
+		}
+
+		.checkbox-label {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			margin-bottom: 10px;
+			cursor: pointer;
+		}
+
+		input, textarea, select {
+			width: 100%;
+			padding: 10px;
+			border: 1px solid rgba(255, 255, 255, 0.2);
+			border-radius: 8px;
+			background: rgba(0, 0, 0, 0.3);
+			color: #fff;
+			font-size: 14px;
+		}
+
+		input[type="checkbox"] {
+			width: 18px;
+			height: 18px;
+			accent-color: #63b3ed;
+		}
+
+		input:focus, textarea:focus, select:focus {
+			outline: none;
+			border-color: #63b3ed;
+			box-shadow: 0 0 10px rgba(99, 179, 237, 0.3);
+		}
+
+		button {
+			padding: 12px 20px;
+			background: linear-gradient(145deg, #4299e1, #3182ce);
+			color: white;
+			border: none;
+			border-radius: 8px;
+			cursor: pointer;
+			font-weight: 600;
+			transition: all 0.3s ease;
+			margin: 5px 0;
+		}
+
+		button:hover {
+			background: linear-gradient(145deg, #3182ce, #2c5282);
+			transform: translateY(-2px);
+			box-shadow: 0 4px 15px rgba(66, 153, 225, 0.4);
+		}
+
+		.btn-danger {
+			background: linear-gradient(145deg, #e53e3e, #c53030);
+		}
+
+		.btn-danger:hover {
+			background: linear-gradient(145deg, #c53030, #9c2626);
+		}
+
+		.output {
+			background: rgba(0, 0, 0, 0.5);
+			border: 1px solid rgba(255, 255, 255, 0.2);
+			border-radius: 8px;
+			padding: 15px;
+			max-height: 200px;
+			overflow-y: auto;
+			font-family: 'Courier New', monospace;
+			font-size: 12px;
+			white-space: pre-wrap;
+		}
+
+		.coordinates {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			background: rgba(0, 0, 0, 0.7);
+			padding: 10px;
+			border-radius: 8px;
+			font-family: monospace;
+		}
+
+		.file-input {
+			margin-bottom: 10px;
+		}
+
+		.node-list {
+			max-height: 150px;
+			overflow-y: auto;
+			background: rgba(0, 0, 0, 0.3);
+			border-radius: 8px;
+			padding: 10px;
+		}
+
+		.node-item {
+			padding: 5px;
+			margin: 2px 0;
+			background: rgba(255, 255, 255, 0.1);
+			border-radius: 4px;
+			cursor: pointer;
+			font-size: 12px;
+		}
+
+		.node-item:hover {
+			background: rgba(255, 255, 255, 0.2);
+		}
+
+		.node-item.selected {
+			background: rgba(246, 173, 85, 0.3);
+		}
+
+		.zoom-controls {
+			position: absolute;
+			top: 10px;
+			left: 10px;
+			display: flex;
+			flex-direction: column;
+			gap: 5px;
+		}
+
+		.zoom-btn {
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 18px;
+			font-weight: bold;
+		}
+
+		.snap-indicator {
+			position: absolute;
+			width: 6px;
+			height: 6px;
+			background: #f6ad55;
+			border-radius: 50%;
+			pointer-events: none;
+			opacity: 0;
+			transition: opacity 0.2s ease;
+			transform: translate(-50%, -50%);
+			z-index: 500;
+		}
+
+		.snap-indicator.visible {
+			opacity: 1;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="sidebar">
+			<h2>Node Editor</h2>
+
+			<div class="control-group">
+				<label>Grid Settings:</label>
+				<div class="checkbox-label">
+					<input type="checkbox" id="snapToGrid" checked>
+					<span>Snap to Grid</span>
+				</div>
+				<div class="control-row">
+					<label for="gridSize" style="margin: 0; min-width: 70px;">Grid Size:</label>
+					<input type="number" id="gridSize" value="20" min="5" max="100" step="5">
+				</div>
+				<div style="font-size: 12px; color: #a0aec0; margin-top: 5px;">
+					📏 Grid snapping helps align nodes precisely
+				</div>
+			</div>
+
+			<div class="control-group">
+				<label>Import DM Code:</label>
+				<textarea id="dmCodeInput" rows="4" placeholder="Paste DM code here to import nodes..."></textarea>
+				<button onclick="importDMCode()">Import Nodes</button>
+				<div style="font-size: 12px; color: #a0aec0; margin-top: 5px;">
+					💡 Hold Shift + Click & Drag to pan the map
+				</div>
+			</div>
+
+			<div class="control-group">
+				<label>Parent Path:</label>
+				<input type="text" id="parentPath" value="/datum/thaumic_research_node">
+			</div>
+
+			<div class="control-group">
+				<label>Node Name:</label>
+				<input type="text" id="nodeName" placeholder="Enter node name">
+				<div style="font-size: 12px; color: #a0aec0; margin-top: 5px;">
+					🔗 <strong>To connect nodes:</strong><br>
+					1. Left-click to select a node (prerequisite)<br>
+					2. Right-click another node to connect them
+				</div>
+			</div>
+
+			<div class="control-group">
+				<label>Existing Nodes:</label>
+				<div id="nodeList" class="node-list"></div>
+			</div>
+
+			<div class="control-group">
+				<button onclick="addNode()">Add Node</button>
+				<button onclick="deleteSelectedNode()" class="btn-danger">Delete Selected</button>
+				<button onclick="clearAll()" class="btn-danger">Clear All</button>
+			</div>
+
+			<div class="control-group">
+				<label>Generated DM Code:</label>
+				<div id="output" class="output"></div>
+				<button onclick="copyToClipboard()">Copy to Clipboard</button>
+			</div>
+		</div>
+
+		<div class="canvas-container">
+			<div class="canvas" id="canvas">
+				<div class="grid" id="grid"></div>
+				<svg id="connections" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;"></svg>
+				<div class="snap-indicator" id="snapIndicator"></div>
+			</div>
+			<div class="coordinates" id="coordinates">X: 0, Y: 0</div>
+			<div class="zoom-controls">
+				<button class="zoom-btn" onclick="zoomIn()">+</button>
+				<button class="zoom-btn" onclick="zoomOut()">-</button>
+				<button class="zoom-btn" onclick="resetZoom()">⌂</button>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		let nodes = [];
+		let selectedNode = null;
+		let isDragging = false;
+		let dragOffset = { x: 0, y: 0 };
+		let nodeCounter = 1;
+		let scale = 1;
+		let panOffset = { x: 0, y: 0 };
+		let isPanning = false;
+		let lastPanPoint = { x: 0, y: 0 };
+
+		const canvas = document.getElementById('canvas');
+		const output = document.getElementById('output');
+		const coordinates = document.getElementById('coordinates');
+		const nodeList = document.getElementById('nodeList');
+		const connectionssvg = document.getElementById('connections');
+		const snapIndicator = document.getElementById('snapIndicator');
+		const grid = document.getElementById('grid');
+
+		// Grid snapping function
+		function snapToGrid(x, y) {
+			const snapEnabled = document.getElementById('snapToGrid').checked;
+			if (!snapEnabled) return { x, y };
+
+			const gridSize = parseInt(document.getElementById('gridSize').value);
+			return {
+				x: Math.round(x / gridSize) * gridSize,
+				y: Math.round(y / gridSize) * gridSize
+			};
+		}
+
+		// Update grid visual when grid size changes
+		function updateGridVisual() {
+			const gridSize = parseInt(document.getElementById('gridSize').value);
+			grid.style.backgroundSize = `${gridSize}px ${gridSize}px`;
+		}
+
+		// Show snap indicator
+		function showSnapIndicator(x, y) {
+			const snapEnabled = document.getElementById('snapToGrid').checked;
+			if (!snapEnabled) {
+				snapIndicator.classList.remove('visible');
+				return;
+			}
+
+			const snapped = snapToGrid(x, y);
+			snapIndicator.style.left = (snapped.x * scale + panOffset.x) + 'px';
+			snapIndicator.style.top = (snapped.y * scale + panOffset.y) + 'px';
+			snapIndicator.classList.add('visible');
+		}
+
+		// Hide snap indicator
+		function hideSnapIndicator() {
+			snapIndicator.classList.remove('visible');
+		}
+
+		// Event listeners for grid settings
+		document.getElementById('gridSize').addEventListener('input', updateGridVisual);
+		document.getElementById('snapToGrid').addEventListener('change', () => {
+			if (!document.getElementById('snapToGrid').checked) {
+				hideSnapIndicator();
+			}
+		});
+
+		// Mouse tracking for coordinates and snap indicator
+		canvas.addEventListener('mousemove', (e) => {
+			const rect = canvas.getBoundingClientRect();
+			const x = Math.round((e.clientX - rect.left - panOffset.x) / scale);
+			const y = Math.round((e.clientY - rect.top - panOffset.y) / scale);
+			coordinates.textContent = `X: ${x}, Y: ${y}`;
+
+			// Show snap indicator when hovering over canvas
+			if (!isDragging && !isPanning && (e.target === canvas || e.target.classList.contains('grid'))) {
+				showSnapIndicator(x, y);
+			} else if (!isDragging) {
+				hideSnapIndicator();
+			}
+		});
+
+		canvas.addEventListener('mouseleave', hideSnapIndicator);
+
+		// Click to add node or start panning
+		canvas.addEventListener('mousedown', (e) => {
+			if (e.target === canvas || e.target.classList.contains('grid')) {
+				if (e.button === 0) { // Left click
+					if (e.shiftKey) {
+						// Start panning
+						isPanning = true;
+						lastPanPoint = { x: e.clientX, y: e.clientY };
+						canvas.style.cursor = 'grabbing';
+						hideSnapIndicator();
+					} else if (document.getElementById('nodeName').value.trim()) {
+						// Add node
+						const rect = canvas.getBoundingClientRect();
+						const x = Math.round((e.clientX - rect.left - panOffset.x) / scale);
+						const y = Math.round((e.clientY - rect.top - panOffset.y) / scale);
+						const snapped = snapToGrid(x, y);
+						createNode('', snapped.x, snapped.y);
+						hideSnapIndicator();
+					}
+				}
+			}
+		});
+
+		// Import DM code function
+		function importDMCode() {
+			clearAll(); // Clear existing nodes first
+
+			const dmCode = document.getElementById('dmCodeInput').value;
+			if (!dmCode.trim()) return;
+
+			const lines = dmCode.split('\n');
+			const tempNodes = [];
+			let currentNode = null;
+			let parentPath = null;
+			let i = 0;
+
+			// First, try to detect the parent path
+			for (let line of lines) {
+				line = line.trim();
+				// Look for lines that define a research node
+				if (line.match(/^\/[\w\/]+\/[\w]+$/)) {
+					const pathParts = line.split('/').filter(Boolean);
+					// The parent path is everything except the last segment
+					if (pathParts.length >= 2) {
+						parentPath = '/' + pathParts.slice(0, -1).join('/');
+						break;
+					}
+				}
+			}
+
+			// If we found a parent path, update the input field
+			if (parentPath) {
+				document.getElementById('parentPath').value = parentPath;
+			} else {
+				// Fall back to the existing value
+				parentPath = document.getElementById('parentPath').value;
+			}
+
+			while (i < lines.length) {
+				const line = lines[i].trim();
+
+				// Check for node definition
+				if (line.startsWith('/datum/thaumic_research_node/')) {
+					// Save previous node if exists
+					if (currentNode && currentNode.name) {
+						tempNodes.push({ ...currentNode });
+					}
+
+					const nodePath = line;
+					const nodeName = nodePath.split('/').pop();
+					currentNode = {
+						name: nodeName,
+						path: nodePath,
+						x: 0,
+						y: 0,
+						prerequisites: []
+					};
+				}
+
+				// Check for node_x
+				else if (line.includes('node_x =') && currentNode) {
+					const match = line.match(/node_x\s*=\s*(-?\d+)/);
+					if (match) {
+						currentNode.x = parseInt(match[1]);
+					}
+				}
+
+				// Check for node_y
+				else if (line.includes('node_y =') && currentNode) {
+					const match = line.match(/node_y\s*=\s*(-?\d+)/);
+					if (match) {
+						currentNode.y = parseInt(match[1]);
+					}
+				}
+
+				// Check for prerequisites - handle multiline
+				else if (line.includes('prerequisites =') && currentNode) {
+					let prereqStr = line;
+					let parenCount = 0;
+
+					// Count parentheses in current line
+					for (let char of line) {
+						if (char === '(') parenCount++;
+						if (char === ')') parenCount--;
+					}
+
+					// If parentheses aren't balanced, continue reading lines
+					let j = i + 1;
+					while (parenCount > 0 && j < lines.length) {
+						const nextLine = lines[j].trim();
+						prereqStr += ' ' + nextLine;
+
+						for (let char of nextLine) {
+							if (char === '(') parenCount++;
+							if (char === ')') parenCount--;
+						}
+						j++;
+					}
+
+					// Update i to skip the lines we've processed
+					i = j - 1;
+
+					// Parse prerequisites
+					const match = prereqStr.match(/prerequisites\s*=\s*list\((.*)\)/s);
+					if (match) {
+						const prereqContent = match[1].trim();
+						if (prereqContent) {
+							const prereqs = prereqContent.split(',').map(p => {
+								return p.trim().replace(/['"]/g, '').replace(/\/datum\/thaumic_research_node\//, '');
+							});
+							currentNode.prerequisites = prereqs.filter(p => p.length > 0);
+						}
+					}
+				}
+
+				i++;
+			}
+
+			// Don't forget the last node
+			if (currentNode && currentNode.name) {
+				tempNodes.push(currentNode);
+			}
+
+			// Create nodes in the editor
+			tempNodes.forEach(nodeData => {
+				if (nodeData.name) {
+					createNodeFromImport(nodeData.name, nodeData.x, nodeData.y, nodeData.prerequisites);
+				}
+			});
+
+			updateOutput();
+			updateNodeList();
+			updateConnections();
+		}
+
+		function createNodeFromImport(name, x, y, prerequisites = []) {
+			const parentPath = document.getElementById('parentPath').value;
+
+			const node = {
+				id: nodeCounter++,
+				name: name,
+				x: x,
+				y: y,
+				prerequisites: prerequisites.map(p => {
+					// If prerequisite is a full path, keep it as is
+					if (p.includes('/')) {
+						return p;
+					} else {
+						// If it's just a name, add the parent path
+						return `${parentPath}/${p}`;
+					}
+				}),
+				element: null
+			};
+
+			const nodeElement = document.createElement('div');
+			nodeElement.className = 'node';
+			nodeElement.textContent = name;
+			nodeElement.style.left = (x * scale + panOffset.x) + 'px';
+			nodeElement.style.top = (y * scale + panOffset.y) + 'px';
+			nodeElement.style.transform = `translate(-50%, -50%) scale(${scale})`;
+
+			setupNodeEvents(nodeElement, node);
+
+			canvas.appendChild(nodeElement);
+			node.element = nodeElement;
+			nodes.push(node);
+		}
+
+		function createNode(name = '', x = 0, y = 0) {
+			const nodeName = name || document.getElementById('nodeName').value.trim();
+			if (!nodeName) return;
+
+			const node = {
+				id: nodeCounter++,
+				name: nodeName,
+				x: x,
+				y: y,
+				prerequisites: [],
+				element: null
+			};
+
+			const nodeElement = document.createElement('div');
+			nodeElement.className = 'node';
+			nodeElement.textContent = nodeName;
+			nodeElement.style.left = (x * scale + panOffset.x) + 'px';
+			nodeElement.style.top = (y * scale + panOffset.y) + 'px';
+			nodeElement.style.transform = `translate(-50%, -50%) scale(${scale})`;
+
+			setupNodeEvents(nodeElement, node);
+
+			canvas.appendChild(nodeElement);
+			node.element = nodeElement;
+			nodes.push(node);
+
+			document.getElementById('nodeName').value = '';
+			updateOutput();
+			updateNodeList();
+		}
+
+		function setupNodeEvents(nodeElement, node) {
+			nodeElement.addEventListener('mousedown', (e) => {
+				if (e.button === 0) {
+					e.stopPropagation();
+					selectNode(node);
+					isDragging = true;
+					nodeElement.classList.add('dragging');
+
+					const rect = nodeElement.getBoundingClientRect();
+					const canvasRect = canvas.getBoundingClientRect();
+					dragOffset.x = e.clientX - rect.left - rect.width / 2;
+					dragOffset.y = e.clientY - rect.top - rect.height / 2;
+
+					hideSnapIndicator();
+				}
+			});
+
+			nodeElement.addEventListener('contextmenu', (e) => {
+				e.preventDefault();
+				e.stopPropagation();
+				if (selectedNode && selectedNode !== node) {
+					togglePrerequisite(node, selectedNode);
+					console.log(`Toggled prerequisite: ${selectedNode.name} -> ${node.name}`);
+				} else if (!selectedNode) {
+					console.log('No node selected. First select a node, then right-click another to connect.');
+				} else if (selectedNode === node) {
+					console.log('Cannot make a node a prerequisite of itself.');
+				}
+			});
+		}
+
+		document.addEventListener('mousemove', (e) => {
+			if (isDragging && selectedNode) {
+				const rect = canvas.getBoundingClientRect();
+				const rawX = Math.round((e.clientX - rect.left - dragOffset.x - panOffset.x) / scale);
+				const rawY = Math.round((e.clientY - rect.top - dragOffset.y - panOffset.y) / scale);
+
+				const snapped = snapToGrid(rawX, rawY);
+
+				selectedNode.x = snapped.x;
+				selectedNode.y = snapped.y;
+				selectedNode.element.style.left = (snapped.x * scale + panOffset.x) + 'px';
+				selectedNode.element.style.top = (snapped.y * scale + panOffset.y) + 'px';
+
+				// Show snap preview while dragging
+				if (document.getElementById('snapToGrid').checked) {
+					showSnapIndicator(rawX, rawY);
+				}
+
+				updateOutput();
+				updateConnections();
+			} else if (isPanning) {
+				const deltaX = e.clientX - lastPanPoint.x;
+				const deltaY = e.clientY - lastPanPoint.y;
+
+				panOffset.x += deltaX;
+				panOffset.y += deltaY;
+
+				lastPanPoint = { x: e.clientX, y: e.clientY };
+
+				updateNodePositions();
+				updateConnections();
+			}
+		});
+
+		document.addEventListener('mouseup', () => {
+			if (isDragging) {
+				isDragging = false;
+				if (selectedNode) {
+					selectedNode.element.classList.remove('dragging');
+				}
+				hideSnapIndicator();
+			}
+			if (isPanning) {
+				isPanning = false;
+				canvas.style.cursor = 'crosshair';
+			}
+		});
+
+		function selectNode(node) {
+			if (selectedNode) {
+				selectedNode.element.classList.remove('selected');
+			}
+			selectedNode = node;
+			node.element.classList.add('selected');
+			updateNodeList();
+			updateConnections();
+		}
+
+		function togglePrerequisite(node, prerequisite) {
+			const prereqPath = `${document.getElementById('parentPath').value}/${prerequisite.name}`;
+			const index = node.prerequisites.indexOf(prereqPath);
+
+			if (index > -1) {
+				node.prerequisites.splice(index, 1);
+				console.log(`Removed prerequisite: ${prerequisite.name} from ${node.name}`);
+			} else {
+				node.prerequisites.push(prereqPath);
+				console.log(`Added prerequisite: ${prerequisite.name} to ${node.name}`);
+			}
+
+			updateOutput();
+			updateConnections();
+		}
+
+		function updateConnections() {
+			connectionssvg.innerHTML = '';
+
+			nodes.forEach(node => {
+				node.prerequisites.forEach(prereqPath => {
+					const prereqName = prereqPath.split('/').pop();
+					const prereqNode = nodes.find(n => n.name === prereqName);
+
+					if (prereqNode) {
+						const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+						line.setAttribute('x1', prereqNode.x * scale + panOffset.x);
+						line.setAttribute('y1', prereqNode.y * scale + panOffset.y);
+						line.setAttribute('x2', node.x * scale + panOffset.x);
+						line.setAttribute('y2', node.y * scale + panOffset.y);
+
+						const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+						g.classList.add('connection');
+
+						if ((selectedNode === node) || (selectedNode === prereqNode)) {
+							g.classList.add('highlighted');
+						}
+
+						g.appendChild(line);
+						connectionssvg.appendChild(g);
+					}
+				});
+			});
+		}
+
+		function updateOutput() {
+			let dmCode = '';
+			const parentPath = document.getElementById('parentPath').value;
+
+			nodes.forEach(node => {
+				dmCode += `${parentPath}/${node.name}\n`;
+				dmCode += `\tname = "${node.name}"\n`;
+				dmCode += `\tdesc = "TODO: Add description"\n`;
+				dmCode += `\ticon_state = "node"\n`;
+
+				if (node.prerequisites.length > 0) {
+					dmCode += `\tprerequisites = list(${node.prerequisites.join(', ')})\n`;
+				}
+
+				dmCode += `\tnode_x = ${node.x}\n`;
+				dmCode += `\tnode_y = ${node.y}\n\n`;
+			});
+
+			output.textContent = dmCode;
+		}
+
+		function updateNodeList() {
+			nodeList.innerHTML = '';
+			nodes.forEach(node => {
+				const item = document.createElement('div');
+				item.className = 'node-item';
+				if (selectedNode === node) {
+					item.classList.add('selected');
+				}
+				item.textContent = `${node.name} (${node.x}, ${node.y})`;
+				item.onclick = () => selectNode(node);
+				nodeList.appendChild(item);
+			});
+		}
+
+		function addNode() {
+			createNode();
+		}
+
+		function deleteSelectedNode() {
+			if (selectedNode) {
+				const index = nodes.indexOf(selectedNode);
+				if (index > -1) {
+					selectedNode.element.remove();
+					nodes.splice(index, 1);
+
+					// Remove this node from all prerequisites
+					const deletedNodePath = `${document.getElementById('parentPath').value}/${selectedNode.name}`;
+					nodes.forEach(node => {
+						const prereqIndex = node.prerequisites.indexOf(deletedNodePath);
+						if (prereqIndex > -1) {
+							node.prerequisites.splice(prereqIndex, 1);
+						}
+					});
+
+					selectedNode = null;
+					updateOutput();
+					updateNodeList();
+					updateConnections();
+				}
+			}
+		}
+
+		function clearAll() {
+			nodes.forEach(node => node.element.remove());
+			nodes = [];
+			selectedNode = null;
+			nodeCounter = 1;
+			updateOutput();
+			updateNodeList();
+			updateConnections();
+		}
+
+		function copyToClipboard() {
+			navigator.clipboard.writeText(output.textContent).then(() => {
+				alert('Code copied to clipboard!');
+			});
+		}
+
+		function zoomIn() {
+			scale *= 1.2;
+			updateNodePositions();
+			updateConnections();
+		}
+
+		function zoomOut() {
+			scale /= 1.2;
+			updateNodePositions();
+			updateConnections();
+		}
+
+		function resetZoom() {
+			scale = 1;
+			panOffset = { x: 0, y: 0 };
+			updateNodePositions();
+			updateConnections();
+		}
+
+		function updateNodePositions() {
+			nodes.forEach(node => {
+				node.element.style.left = (node.x * scale + panOffset.x) + 'px';
+				node.element.style.top = (node.y * scale + panOffset.y) + 'px';
+				node.element.style.transform = `translate(-50%, -50%) scale(${scale})`;
+			});
+		}
+
+		// Initialize
+		updateOutput();
+		updateNodeList();
+		updateGridVisual();
+	</script>
+</body>
+</html>

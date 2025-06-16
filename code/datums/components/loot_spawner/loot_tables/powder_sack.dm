@@ -1,4 +1,5 @@
 /datum/loot_table/powder_sack
+	name = "powder sack"
 	loot_table = list(
 		/datum/skill/misc/stealing = list(
 			4,

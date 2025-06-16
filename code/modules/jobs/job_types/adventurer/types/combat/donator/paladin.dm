@@ -81,7 +81,7 @@
 		if(/datum/patron/inhumen/baotha)
 			head = /obj/item/clothing/head/crown/circlet
 			mask = /obj/item/clothing/face/spectacles/sglasses
-			H.cmode_music = 'sound/music/cmode/antag/combat_evilwizard.ogg'
+			H.cmode_music = 'sound/music/cmode/antag/CombatBaotha.ogg'
 			H.change_stat(STATKEY_LCK, -2)
 			GLOB.heretical_players += H.real_name
 		if(/datum/patron/godless)

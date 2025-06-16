@@ -1,15 +1,3 @@
-
-/obj/reflection
-	vis_flags = VIS_INHERIT_ICON|VIS_INHERIT_ICON_STATE|VIS_INHERIT_DIR|VIS_INHERIT_LAYER|VIS_UNDERLAY
-	appearance_flags = PIXEL_SCALE
-	plane = REFLECTION_PLANE
-	mouse_opacity = 0
-	pixel_y = -44
-
-/obj/reflection/New(loc,mob/owner)
-	. = ..()
-	owner.vis_contents += src
-
 /mob/living
 	see_invisible = SEE_INVISIBLE_LIVING
 	sight = 0
@@ -113,6 +101,8 @@
 	var/list/butcher_results = null //these will be yielded from butchering with a probability chance equal to the butcher item's effectiveness
 	var/list/guaranteed_butcher_results = null //these will always be yielded from butchering
 	var/butcher_difficulty = 0 //effectiveness prob. is modified negatively by this amount; positive numbers make it more difficult, negative ones make it easier
+
+	var/is_jumping = 0 //to differentiate between jumping and thrown mobs
 
 	var/hellbound = 0 //People who've signed infernal contracts are unrevivable.
 

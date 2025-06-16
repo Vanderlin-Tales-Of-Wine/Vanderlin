@@ -280,7 +280,7 @@ GLOBAL_VAR_INIT(mobids, 1)
  * Initial is used to indicate whether or not this is the initial equipment (job datums etc) or just a player doing it
  */
 /mob/proc/equip_to_slot_if_possible(obj/item/W, slot, qdel_on_fail = FALSE, disable_warning = FALSE, redraw_mob = TRUE, bypass_equip_delay_self = FALSE, initial)
-	if(!istype(W))
+	if(!istype(W) || QDELETED(W)) //This qdeleted is to prevent stupid behavior with things that qdel during init, like say stacks
 		return FALSE
 	if(!W.mob_can_equip(src, null, slot, disable_warning, bypass_equip_delay_self))
 		if(qdel_on_fail)
@@ -405,8 +405,10 @@ GLOBAL_VAR_INIT(mobids, 1)
 		face_atom(A)
 		visible_message("<span class='emote'>[src] looks at [A].</span>")
 	var/list/result = A.examine(src)
-	if(result)
-		to_chat(src, result.Join("\n"))
+	if(result.len)
+		for(var/i in 1 to (length(result) - 1))
+			result[i] += "\n"
+	to_chat(src, examine_block("<span class='infoplain'>[result.Join()]</span>"))
 	SEND_SIGNAL(src, COMSIG_MOB_EXAMINATE, A)
 
 /**
@@ -932,8 +934,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 /mob/proc/RemoveSpell(obj/effect/proc_holder/spell/spell)
 	if(!spell)
 		return
-	for(var/X in mob_spell_list)
-		var/obj/effect/proc_holder/spell/S = X
+	for(var/obj/effect/proc_holder/spell/S in mob_spell_list)
 		if(istype(S, spell))
 			mob_spell_list -= S
 			qdel(S)

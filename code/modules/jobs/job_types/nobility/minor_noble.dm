@@ -47,6 +47,9 @@
 	neck = /obj/item/storage/belt/pouch/coins/veryrich
 	belt = /obj/item/storage/belt/leather
 	ring = /obj/item/clothing/ring/silver
+	switch(H.patron?.type)
+		if(/datum/patron/inhumen/baotha)
+			H.cmode_music = 'sound/music/cmode/antag/CombatBaotha.ogg'
 	if(H.gender == FEMALE)
 		H.change_stat(STATKEY_SPD, 1)
 		H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)

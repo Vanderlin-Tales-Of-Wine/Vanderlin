@@ -482,6 +482,8 @@
 	info += "<h2 style='color:#06080F;font-family:\"Segoe Script\"'>Purchasing Prices</h2>"
 	info += "<hr/>"
 
+	if(!sell_prices)
+		return
 	if(sell_prices.len)
 		info += "<ul>"
 		for(var/atom/type_path as anything in sell_prices)
