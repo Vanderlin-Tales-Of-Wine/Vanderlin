@@ -11,7 +11,7 @@
 	required_table = TRUE
 	craft_time = 5 SECONDS
 	crafting_sound = 'sound/foley/kneading.ogg'
-	crafting_message = "Kneading in more flour..."
+	crafting_message = "knead in more flour"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/dough_alt
@@ -28,7 +28,7 @@
 	required_table = TRUE
 	craft_time = 5 SECONDS
 	crafting_sound = 'sound/foley/kneading.ogg'
-	crafting_message = "Kneading in more flour..."
+	crafting_message = "knead in more flour"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/butter_dough
@@ -44,7 +44,7 @@
 	required_table = TRUE
 	craft_time = 5 SECONDS
 	crafting_sound = 'sound/foley/kneading_alt.ogg'
-	crafting_message = "Kneading butter into the dough..."
+	crafting_message = "knead butter into the dough"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/raisin_dough_poison
@@ -61,7 +61,7 @@
 	required_table = TRUE
 	craft_time = 5 SECONDS
 	crafting_sound = 'sound/foley/kneading.ogg'
-	crafting_message = "Kneading the dough and adding raisins..."
+	crafting_message = "knead the dough and adding raisins"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/raisin_dough
@@ -77,7 +77,7 @@
 	required_table = TRUE
 	craft_time = 5 SECONDS
 	crafting_sound = 'sound/foley/kneading.ogg'
-	crafting_message = "Kneading the dough and adding raisins..."
+	crafting_message = "knead the dough and adding raisins"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/reform_dough
@@ -93,5 +93,5 @@
 	craftdiff = 0
 	craft_time = 5 SECONDS
 	crafting_sound = 'sound/foley/kneading.ogg'
-	crafting_message = "Combining dough..."
+	crafting_message = "combine dough slices"
 	extra_chance = 100

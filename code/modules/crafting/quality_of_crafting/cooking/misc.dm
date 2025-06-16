@@ -179,7 +179,7 @@
 	required_table = TRUE
 	craft_time = 6 SECONDS
 	crafting_sound = 'sound/foley/dropsound/food_drop.ogg'
-	crafting_message = "Adding apple bits to the dough..."
+	crafting_message = "add apple bits to the dough"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/apple_fritter_raw/create_outputs(list/to_delete, mob/user)
@@ -223,7 +223,7 @@
 	uses_attacked_atom = TRUE
 	craft_time = 5 SECONDS
 	crafting_sound = 'sound/foley/kneading_alt.ogg'
-	crafting_message = "Kneading onions into the mince..."
+	crafting_message = "knead onions into the mince"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/raw_sausage
@@ -241,7 +241,7 @@
 	uses_attacked_atom = TRUE
 	craft_time = 9 SECONDS
 	crafting_sound = 'sound/foley/dropsound/food_drop.ogg'
-	crafting_message = "Stuffing a wiener..."
+	crafting_message = "stuff a wiener"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/raw_sausage_inverse
@@ -260,7 +260,7 @@
 	uses_attacked_atom = TRUE
 	craft_time = 9 SECONDS
 	crafting_sound = 'sound/foley/dropsound/food_drop.ogg'
-	crafting_message = "Stuffing a wiener..."
+	crafting_message = "stuff a wiener"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/raw_sausage_alt
@@ -277,7 +277,7 @@
 	uses_attacked_atom = TRUE
 	craft_time = 9 SECONDS
 	crafting_sound = 'sound/foley/dropsound/food_drop.ogg'
-	crafting_message = "Stuffing a wiener..."
+	crafting_message = "stuff a wiener"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/pestranstick
@@ -294,7 +294,7 @@
 	uses_attacked_atom = TRUE
 	craft_time = 5 SECONDS
 	crafting_sound = 'sound/foley/dropsound/food_drop.ogg'
-	crafting_message = "Skewering the butter..."
+	crafting_message = "skewer the butter"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/twoegg
