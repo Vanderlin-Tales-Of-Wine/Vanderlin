@@ -1,6 +1,6 @@
 /datum/advclass/mercenary/desert_pirate
 	name = "Desert Rider"
-	tutorial = "A pirate of rakshari origin, hailing from the wast dune-sea of Zybantu. Well trained riders and expirienced archers, these nomads live the life of marauders and raiders, taking what belongs to weaker settlements and caravans."
+	tutorial = "A pirate of rakshari origin, hailing from the wast dune-sea of Zaladin. Well trained riders and expirienced archers, these nomads live the life of marauders and raiders, taking what belongs to weaker settlements and caravans."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Rakshari"

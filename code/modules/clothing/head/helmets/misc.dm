@@ -196,8 +196,8 @@
 //	icon_state = "elven_barbute_winged"
 //	item_state = "elven_barbute_winged"
 
-//................ Zybantine Kulah Khud ............... //
-/obj/item/clothing/head/helmet/sallet/zybantine // Unique Zybantu merc kit
+//................ Zalad Kulah Khud ............... //
+/obj/item/clothing/head/helmet/sallet/zalad // Unique Zaladin merc kit
 	name = "kulah khud"
 	desc = "Known as devil masks amongst the Western Kingdoms, these serve part decorative headpiece, part protective helmet."
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/64x64/head.dmi'

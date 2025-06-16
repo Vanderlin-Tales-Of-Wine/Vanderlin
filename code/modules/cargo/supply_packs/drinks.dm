@@ -53,8 +53,8 @@
 	cost = 35
 	contains = /obj/item/reagent_containers/glass/bottle/beer/voddena
 
-/datum/supply_pack/food/winezybantu
-	name = "Zybantu Wine"
+/datum/supply_pack/food/winezaladin
+	name = "Zaladin Wine"
 	cost = 20
 	contains = /obj/item/reagent_containers/glass/bottle/wine
 

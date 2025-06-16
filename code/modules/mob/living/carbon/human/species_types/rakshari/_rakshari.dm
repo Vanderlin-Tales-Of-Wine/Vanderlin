@@ -9,14 +9,14 @@
 	desc = "Their origins trace back to nomadic desert tribes, \
 	whose survival in the harsh sands cultivated a culture steeped in resilience, cunning, and adaptability. \
 	\n\n\
-	Over centuries, the Rakshari united under the banners of powerful Zybantine merchant-kings and warlords,\
+	Over centuries, the Rakshari united under the banners of powerful Zalad merchant-kings and warlords,\
 	transforming their scattered clans into a dominant slaver force across the region. \
 	They would often raid weaker settlements and rival caravans, \
 	capturing slaves to fuel their expanding cities and economies. \
 	Practice of this was justified through religious doctrines, \
 	venerating strength and dominance as divine virtues. \
 	\n\n\
-	As they further attached themselves to Zybantine, however, \
+	As they further attached themselves to Zalad, however, \
 	their people would integrate more sophisticated forms of servitude, \
 	such as indentured contracts and debt bondage. \
 	\n\n\
@@ -88,8 +88,8 @@
 	..()
 	RegisterSignal(C, COMSIG_MOB_SAY, PROC_REF(handle_speech))
 	C.grant_language(/datum/language/common)
-	C.grant_language(/datum/language/zybantine)
-	to_chat(C, "<span class='info'>I can speak Zybean with ,z before my speech.</span>")
+	C.grant_language(/datum/language/zalad)
+	to_chat(C, "<span class='info'>I can speak Zalad with ,z before my speech.</span>")
 
 /datum/species/rakshari/check_roundstart_eligible()
 	return TRUE
@@ -97,7 +97,7 @@
 /datum/species/rakshari/after_creation(mob/living/carbon/C)
 	..()
 	C.grant_language(/datum/language/common)
-	C.grant_language(/datum/language/zybantine)
+	C.grant_language(/datum/language/zalad)
 
 /datum/species/rakshari/on_species_loss(mob/living/carbon/C)
 	. = ..()

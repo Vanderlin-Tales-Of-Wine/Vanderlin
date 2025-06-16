@@ -90,7 +90,7 @@
 //................ Coat of Plate ............... //
 /obj/item/clothing/armor/brigandine/coatplates
 	name = "coat of plates"
-	desc = "A Zybantine leather coat with steel scales woven with miniscule threads of adamantine, \
+	desc = "A Zalad leather coat with steel scales woven with miniscule threads of adamantine, \
 			ensuring the wearer an optimal defence with forgiving breathability and mobility."
 	icon_state = "coat_of_plates"
 	blocksound = PLATEHIT

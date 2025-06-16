@@ -1,5 +1,5 @@
-/datum/language/zybantine
-	name = "Zybean"
+/datum/language/zalad
+	name = "Zalad"
 	desc = ""
 	speech_verb = "states"
 	ask_verb = "questions"
@@ -12,8 +12,8 @@
 	additional_syllable_low = -2
 	additional_syllable_high = -1
 	default_priority = 80
-	icon_state = "zybantine"
-	spans = list(SPAN_ZYBANTINE)
+	icon_state = "zalad"
+	spans = list(SPAN_ZALAD)
 	syllables = list(
 "bā",
 "alif",

@@ -60,7 +60,7 @@
 	name = "kataphractoe scaleskin"
 	desc = "Steel scales woven into armor with miniscule threads of adamantine, \
 			ensuring the wearer optimal defence with forgiving breathability. \
-			The sigil of the Zybantu Kataphractoe is embezzeled at the throat guard."
+			The sigil of the Zaladin Kataphractoe is embezzeled at the throat guard."
 	icon_state = "human_spearchest"
 	allowed_race = list("human")
 	allowed_sex = list(MALE)
