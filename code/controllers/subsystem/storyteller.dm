@@ -1280,10 +1280,12 @@ SUBSYSTEM_DEF(gamemode)
 	if(!highest)
 		return
 
-	if(storytellers_with_influence[highest] > 1.25)
-		highest.bonus_points -= 1.25
+	var/adjustment = min(2, 1 + (0.2 * FLOOR(max(0, highest.times_chosen - 5) / 5, 1)))
 
-	lowest.bonus_points += 1.25
+	if(storytellers_with_influence[highest] > adjustment)
+		highest.bonus_points -= adjustment
+
+	lowest.bonus_points += adjustment
 
 	set_storyteller(highest.type)
 

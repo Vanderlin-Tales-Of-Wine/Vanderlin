@@ -28,7 +28,7 @@
 	desc = "Astrata will provide a balanced and varied experience. Consider this the default experience."
 	weight = 6
 	always_votable = TRUE
-	follower_modifier = ASTRATA_FOLLOWER_MODIFIER
+	follower_modifier = LOWER_FOLLOWER_MODIFIER
 	color_theme = "#FFD700"
 
 	influence_factors = list(
@@ -36,7 +36,7 @@
 		STATS_ALIVE_NOBLES = list("points" = 3.5, "capacity" = 75),
 		STATS_NOBLE_DEATHS = list("points" = -5, "capacity" = -70),
 		STATS_ASTRATA_REVIVALS = list("points" = 6, "capacity" = 75),
-		STATS_SLURS_SPOKEN = list("points" = 0.2, "capacity" = 90),
+		STATS_SLURS_SPOKEN = list("points" = 0.75, "capacity" = 80),
 	)
 
 /datum/storyteller/noc
@@ -45,6 +45,7 @@
 	welcome_text = "The veil between realms shimmers in your presence."
 	weight = 4
 	always_votable = TRUE
+	follower_modifier = LOWER_FOLLOWER_MODIFIER
 	color_theme = "#F0F0F0"
 
 	tag_multipliers = list(
@@ -85,7 +86,7 @@
 
 	influence_factors = list(
 		STATS_COMBAT_SKILLS = list("points" = 1.2, "capacity" = 100),
-		STATS_PARRIES = list("points" = 0.05, "capacity" = 100),
+		STATS_PARRIES = list("points" = 0.0525, "capacity" = 100),
 		STATS_WARCRIES = list("points" = 0.375, "capacity" = 50),
 		STATS_YIELDS = list("points" = -5, "capacity" = -40),
 		STATS_UNDERWORLD_DUELS = list("points" = 6, "capacity" = 70),
@@ -243,7 +244,7 @@
 		STATS_PARENTS = list("points" = 8, "capacity" = 90),
 		STATS_MARRIAGES = list("points" = 25, "capacity" = 75),
 		STATS_HUGS_MADE = list("points" = 1.75, "capacity" = 60),
-		STATS_HANDS_HELD = list("points" = 2.5, "capacity" = 60),
+		STATS_HANDS_HELD = list("points" = 1.75, "capacity" = 60),
 		STATS_PACIFISTS = list("points" = 10, "capacity" = 70),
 	)
 
@@ -285,6 +286,7 @@
 	welcome_text = "You will kneel."
 	weight = 4
 	always_votable = TRUE
+	follower_modifier = LOWER_FOLLOWER_MODIFIER
 	color_theme = "#CC4444"
 
 	tag_multipliers = list(
@@ -305,7 +307,7 @@
 	)
 
 	influence_factors = list(
-		STATS_ZIZO_PRAISED = list("points" = 0.3, "capacity" = 40),
+		STATS_ZIZO_PRAISED = list("points" = 0.75, "capacity" = 40),
 		STATS_NOBLE_DEATHS = list("points" = 5, "capacity" = 80),
 		STATS_DEADITES_WOKEN_UP = list("points" = 3, "capacity" = 90),
 		STATS_CLERGY_DEATHS = list("points" = 9, "capacity" = 80),
@@ -375,7 +377,7 @@
 	influence_factors = list(
 		STATS_BLOOD_SPILT = list("points" = 0.000275, "capacity" = 90),
 		STATS_ORGANS_EATEN = list("points" = 3.25, "capacity" = 75),
-		STATS_LIMBS_BITTEN = list("points" = 0.6, "capacity" = 75),
+		STATS_LIMBS_BITTEN = list("points" = 0.75, "capacity" = 75),
 		STATS_PEOPLE_GIBBED = list("points" = 3, "capacity" = 50),
 		STATS_ASSASSINATIONS = list("points" = 15, "capacity" = 80),
 	)
@@ -410,7 +412,7 @@
 		STATS_ITEMS_PICKPOCKETED = list("points" = 5, "capacity" = 85),
 		STATS_SHRINE_VALUE = list("points" = 0.1, "capacity" = 70),
 		STATS_GREEDY_PEOPLE = list("points" = 8, "capacity" = 70),
-		STATS_DODGES = list("points" = 0.0865, "capacity" = 100),
+		STATS_DODGES = list("points" = 0.089, "capacity" = 100),
 		STATS_LOCKS_PICKED = list("points" = 4, "capacity" = 85),
 	)
 

@@ -320,12 +320,12 @@ GLOBAL_LIST_INIT(featured_stats, list(
 	),
 	FEATURED_STATS_SLURS = list(
 		"name" = "TOP Slurs",
-		"color" = "#5d44af",
+		"color" = "#6e56bd",
 		"entries" = list()
 	),
 	FEATURED_STATS_SPECIESISTS = list(
 		"name" = "TOP Speciesists",
-		"color" = "#49eb14",
+		"color" = "#b153dd",
 		"entries" = list()
 	),
 	FEATURED_STATS_MINERS = list(
