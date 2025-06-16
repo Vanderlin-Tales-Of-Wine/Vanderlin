@@ -31,11 +31,11 @@
 	head = /obj/item/clothing/head/helmet/heavy/necked
 	cloak = /obj/item/clothing/cloak/tabard/crusader/tief
 	armor = /obj/item/clothing/armor/brigandine
-	shirt = /obj/item/clothing/armor/chainmail/hauberk
+	shirt = /obj/item/clothing/armor/chainmail //hauberk > haubergeon, requested by Tyger
 	pants = /obj/item/clothing/pants/chainlegs
 	shoes = /obj/item/clothing/shoes/boots/armor/light
 	backl = /obj/item/storage/backpack/satchel
-	neck = /obj/item/clothing/neck/chaincoif
+	//neck = /obj/item/clothing/neck/chaincoif //requested by Tyger
 	backpack_contents = list(/obj/item/storage/keyring/priest = 1)
 	backr = /obj/item/weapon/shield/tower/metal
 	belt = /obj/item/storage/belt/leather/black
