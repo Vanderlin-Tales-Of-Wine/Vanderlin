@@ -394,9 +394,10 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 
 		var/has_clergy = FALSE
 		for(var/mob/living/carbon/human/H in GLOB.player_list)
-			if(H.patron == god && (H.mind?.assigned_role.title in GLOB.church_positions))
+			if(H.stat != DEAD && H.client && H.patron == god && (H.mind?.assigned_role.title in GLOB.church_positions))
 				has_clergy = TRUE
 				break
+
 		if(!has_clergy)
 			continue
 
