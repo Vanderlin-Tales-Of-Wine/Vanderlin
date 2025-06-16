@@ -1,5 +1,5 @@
 /datum/advclass/mercenary/zalad
-	name = "Zalad"
+	name = "Red Sands"
 	tutorial = "A cutthroat from the western countries, you've headed into foreign lands to make even greater coin than you had prior."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
