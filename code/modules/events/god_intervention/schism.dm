@@ -95,6 +95,8 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 				supporter.electrocute_act(5, astrata)
 				supporter.add_curse(/datum/curse/astrata)
 
+		cleanup_schism()
+
 	else if(challenger_count > astrata_count)
 		priority_announce("[challenger.name]'s challenge succeeds against Astrata's tyranny! The Sun Queen is grudgingly forced to share power with [challenger.name]...", "[challenger.name] RULES!", 'sound/magic/inspire_02.ogg')
 		adjust_storyteller_influence(challenger.name, 200)
