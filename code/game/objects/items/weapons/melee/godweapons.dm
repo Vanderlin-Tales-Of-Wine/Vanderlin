@@ -304,35 +304,34 @@
 /obj/item/weapon/sword/long/pleonexia/pre_attack(atom/A, mob/living/user, params)
 	if(!istype(user.used_intent, /datum/intent/plex_dash) || !HAS_TRAIT(user, TRAIT_MATTHIOS_EYES))
 		return ..()
+	. = TRUE
+	if(!isturf(user.loc))
+		to_chat(user, span_notice("I cannot do this from inside of [user.loc]!"))
+		return
 	if(!COOLDOWN_FINISHED(src, pleonexia_blink))
 		to_chat(user, span_notice("Pleonexia is not ready to blink again! [COOLDOWN_TIMELEFT(src, pleonexia_blink)/10] Seconds."))
-		return TRUE
+		return
 	var/turf/target = get_turf(A)
+	if(target.is_blocked_turf(TRUE, user))
+		target = get_step(target, get_dir(target, user))
 	var/turf/starting = get_turf(user)
 	var/list/affected_turfs = get_line(starting, target) - starting
+	if(!LAZYLEN(affected_turfs))
+		to_chat(user, span_notice("There is nothing to cut through!"))
+		return
 	user.visible_message(span_warning("[user] blinks through space!"),
 		span_notice("I tear through space with Pleonexia."))
-	playsound(starting, "genslash", 70, -1)
+	playsound(starting, "genslash", 70, TRUE, -1)
 	new /obj/effect/temp_visual/cut(starting)
-	var/potiential_blocker = FALSE
 	for(var/turf/affected_turf in affected_turfs)
-		if(!potiential_blocker)
-			for(var/obj/I in affected_turf)
-				if(I.density)
-					potiential_blocker = TRUE
-					break
 		for(var/mob/living/L in affected_turf)
 			if(L == user)
 				continue
 			L.Knockdown(1 SECONDS)
 			L.Stun(1 SECONDS)
-	if(!isopenturf(target) || potiential_blocker)
-		user.forceMove(get_step(target, get_dir(target, user)))
-	else
-		user.forceMove(target)
+	user.forceMove(target)
 	new /obj/effect/temp_visual/stab(target)
 	COOLDOWN_START(src, pleonexia_blink, 10 SECONDS)
-	return TRUE
 
 /obj/effect/temp_visual/cut
 	icon_state = "pcut"
