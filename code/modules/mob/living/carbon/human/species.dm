@@ -363,7 +363,7 @@ GLOBAL_LIST_EMPTY(patreon_races)
 		qdel(S)
 	if(!LAZYLEN(GLOB.roundstart_races))
 		GLOB.roundstart_races += RACE_HUMEN
-	sortTim(GLOB.roundstart_races, GLOBAL_PROC_REF(cmp_text_asc))
+	sortTim(GLOB.roundstart_races, GLOBAL_PROC_REF(cmp_text_dsc))
 
 /proc/get_selectable_species(patreon = TRUE)
 	if(!LAZYLEN(GLOB.roundstart_races))
