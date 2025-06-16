@@ -154,11 +154,11 @@
 	if(!dna)
 		return
 
-	var/datum/species/species = dna.species
-
 	if(randomise_flags & RANDOMIZE_SPECIES)
 		var/rando_race = GLOB.species_list[pick(get_selectable_species(include_patreon))]
 		set_species(new rando_race(), FALSE)
+
+	var/datum/species/species = dna.species
 
 	if(NOEYESPRITES in species?.species_traits)
 		randomise_flags &= ~RANDOMIZE_EYE_COLOR
@@ -181,7 +181,9 @@
 
 	if(randomise_flags & RANDOMIZE_EYE_COLOR)
 		var/obj/item/organ/eyes/eyes = getorganslot(ORGAN_SLOT_EYES)
-		eyes.eye_color = random_eye_color()
+
+	// if(randomise_flags & RANDOMIZE_FEATURES)
+	// 	dna.features = random_features()
 
 /*
 * Family Tree subsystem helpers
