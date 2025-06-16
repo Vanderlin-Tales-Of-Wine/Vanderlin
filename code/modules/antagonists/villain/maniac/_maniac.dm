@@ -405,12 +405,12 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 		return
 
 	if(dreamer.music_enabled)
-		to_chat(src, "<span class='warning'>theme song active, can't set a new one.</span>")
+		to_chat(src, span_warning("theme song active, can't set a new one."))
 		return
 
 	if(dreamer.last_music_change)
 		if(world.time < dreamer.last_music_change + 3 MINUTES)
-			to_chat(src, "<span class='warning'>Can't set a new theme song yet.</span>")
+			to_chat(src, span_warning("Can't set a new theme song yet."))
 			return
 
 	var/infile = input(src, "Choose a custom OGG file for your theme song", src) as null|file
@@ -422,10 +422,10 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 	var/file_size = length(infile)
 
 	if(file_ext != ".ogg")
-		to_chat(src, "<span class='warning'>The file must be an OGG.</span>")
+		to_chat(src, span_warning("The file must be an OGG."))
 		return
 	if(file_size > 6485760) // 6MB limit
-		to_chat(src, "<span class='warning'>The file is too large. Maximum size is 6 MB.</span>")
+		to_chat(src, span_warning("The file is too large. Maximum size is 6 MB."))
 		return
 
 	fcopy(infile, "data/jukeboxUploads/[src.ckey]/[filename]")
@@ -441,7 +441,7 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 
 /datum/looping_sound/maniac_theme_song
 	mid_sounds = list()
-	mid_length = 2400
+	mid_length = 240 SECONDS
 	volume = 100
 	falloff = 5
 	extra_range = 6
