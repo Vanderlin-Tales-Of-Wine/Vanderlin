@@ -825,7 +825,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 					dat += "<td><a href='?src=[REF(src)];delete_painting=1;id=[title]'>Delete</a></td>"
 					dat += "</tr>"
 	else
-		dat += "<tr><td colspan='4'>No paintings found in database</td></tr>"
+		dat += "<tr><td colspan='4'>No paintings found</td></tr>"
 
 	dat += "</table>"
 
