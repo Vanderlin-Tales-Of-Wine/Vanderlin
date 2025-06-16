@@ -54,4 +54,4 @@
 			adjust_storyteller_influence("Necra", 25)
 			objective.escalate_objective()
 
-	return TRUE
+	return ..()

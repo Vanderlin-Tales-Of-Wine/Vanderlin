@@ -52,7 +52,7 @@
 
 	ai_controller = /datum/ai_controller/spider
 
-
+	var/production = 0
 
 	var/static/list/pet_commands = list(
 		/datum/pet_command/idle,
@@ -88,6 +88,7 @@
 		gender = FEMALE
 	update_icon()
 
+	qdel(GetComponent(/datum/component/obeys_commands)) // due to signal overridings from pet commands
 	AddComponent(/datum/component/obeys_commands, pet_commands)
 	AddElement(/datum/element/ai_flee_while_injured, 0.75, retreat_health)
 

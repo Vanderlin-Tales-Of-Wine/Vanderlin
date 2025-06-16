@@ -1,6 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/turf/closed/mineral/bedrock,
+/turf/closed/mineral,
 /area/template_noop)
 "d" = (
 /obj/effect/workspot,

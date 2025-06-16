@@ -16,10 +16,9 @@
 	melting_material = /datum/material/gold
 	item_weight = 6.2 * GOLD_MULITPLIER
 
-/obj/item/ore/gold/Initialize()
+/obj/item/ore/gold/Initialize(mapload)
+	. = ..()
 	icon_state = "oregold[rand(1,3)]"
-	..()
-
 
 /obj/item/ore/silver
 	name = "raw silver"
@@ -29,10 +28,9 @@
 	melting_material = /datum/material/silver
 	item_weight = 6.2 * SILVER_MULTIPLIER
 
-/obj/item/ore/silver/Initialize()
+/obj/item/ore/silver/Initialize(mapload)
+	. = ..()
 	icon_state = "oresilv[rand(1,3)]"
-	..()
-
 
 /obj/item/ore/iron
 	name = "raw iron"
@@ -42,10 +40,9 @@
 	melting_material = /datum/material/iron
 	item_weight = 6.2 * IRON_MULTIPLIER
 
-/obj/item/ore/iron/Initialize()
+/obj/item/ore/iron/Initialize(mapload)
+	. = ..()
 	icon_state = "oreiron[rand(1,3)]"
-	..()
-
 
 /obj/item/ore/copper
 	name = "raw copper"
@@ -55,9 +52,9 @@
 	melting_material = /datum/material/copper
 	item_weight = 6.2 * COPPER_MULTIPLIER
 
-/obj/item/ore/copper/Initialize()
+/obj/item/ore/copper/Initialize(mapload)
+	. = ..()
 	icon_state = "orecop[rand(1,3)]"
-	..()
 
 /obj/item/ore/tin
 	name = "raw tin"
@@ -68,9 +65,9 @@
 	melting_material = /datum/material/tin
 	item_weight = 6.2 * TIN_MULTIPLIER
 
-/obj/item/ore/tin/Initialize()
+/obj/item/ore/tin/Initialize(mapload)
+	. = ..()
 	icon_state = "oretin[rand(1,3)]"
-	..()
 
 /obj/item/ore/coal
 	name = "coal"
@@ -80,9 +77,9 @@
 	sellprice = 1
 	item_weight = 7
 
-/obj/item/ore/coal/Initialize()
+/obj/item/ore/coal/Initialize(mapload)
+	. = ..()
 	icon_state = "orecoal[rand(1,3)]"
-	..()
 
 /obj/item/ore/cinnabar
 	name = "cinnabar"
@@ -159,7 +156,7 @@
 		var/obj/machinery/anvil/A = loc
 		A.hingot = null
 		A.update_icon()
-	..()
+	return ..()
 
 /obj/item/ingot/gold
 	name = "gold bar"
@@ -177,6 +174,16 @@
 	smeltresult = /obj/item/ingot/iron
 	sellprice = 25
 	melting_material = /datum/material/iron
+	item_weight = 7.5 * IRON_MULTIPLIER
+
+/obj/item/ingot/thaumic
+	name = "thaumic iron bar"
+	desc = "A bar of wrought iron tempered with fire essence."
+	icon_state = "infused_iron"
+	icon = 'icons/roguetown/misc/alchemy.dmi'
+	smeltresult = /obj/item/ingot/thaumic
+	sellprice = 25
+	melting_material = /datum/material/thaumic_iron
 	item_weight = 7.5 * IRON_MULTIPLIER
 
 /obj/item/ingot/copper

@@ -20,6 +20,8 @@
 	var/should_process = FALSE
 	var/enchantment_color = COLOR_BLUE_GRAY
 
+	var/list/essence_recipe = list() // Format: list(/datum/thaumaturgical_essence/type = amount)
+
 /datum/enchantment/New()
 	. = ..()
 	if(should_process)
@@ -45,10 +47,6 @@
 	RegisterSignal(enchanter, COMSIG_ITEM_ATTACK_SELF, PROC_REF(on_use))
 	RegisterSignal(enchanter, COMSIG_PARENT_EXAMINE, PROC_REF(on_examine))
 	RegisterSignal(enchanter, COMSIG_ITEM_HIT_RESPONSE, PROC_REF(on_hit_response))
-
-
-	if(starting_duration)
-		addtimer(CALLBACK(src, PROC_REF(remove_item), WEAKREF(enchanter)), starting_duration)
 	return TRUE
 
 /datum/enchantment/proc/on_hit(obj/item/source, atom/target, mob/user, proximity_flag, click_parameters)

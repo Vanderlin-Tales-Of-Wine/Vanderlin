@@ -181,7 +181,7 @@
 
 /obj/item/clothing/head/sack/equipped(mob/living/carbon/human/user, slot)
 	. = ..()
-	if(slot == ITEM_SLOT_HEAD)
+	if(slot & ITEM_SLOT_HEAD)
 		user.become_blind("blindfold[REF(src)]")
 
 /obj/item/clothing/head/sack/dropped(mob/living/carbon/human/user)
@@ -189,7 +189,7 @@
 	user.cure_blind("blindfold_[REF(src)]")
 
 /obj/item/clothing/head/sack/attack(mob/living/target, mob/living/user)
-	if(target.get_item_by_slot(SLOT_HEAD))
+	if(target.get_item_by_slot(ITEM_SLOT_HEAD))
 		to_chat(user, "<span class='warning'>Remove [target.p_their()] headgear first!</span>")
 		return
 	target.visible_message("<span class='warning'>[user] forces [src] onto [target]'s head!</span>", \
@@ -201,7 +201,7 @@
 			T.changeNext_move(8)
 			T.Immobilize(10)
 	user.dropItemToGround(src)
-	target.equip_to_slot_if_possible(src, SLOT_HEAD)
+	target.equip_to_slot_if_possible(src, ITEM_SLOT_HEAD)
 
 
 
