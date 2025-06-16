@@ -233,7 +233,7 @@
 	character.grant_language(/datum/language/celestial)
 	character.grant_language(/datum/language/orcish)
 	character.grant_language(/datum/language/oldpsydonic)
-	character.grant_language(/datum/language/zybantine)
+	character.grant_language(/datum/language/zalad)
 	character.grant_language(/datum/language/thievescant)
 
 /datum/special_trait/civilizedbarbarian
