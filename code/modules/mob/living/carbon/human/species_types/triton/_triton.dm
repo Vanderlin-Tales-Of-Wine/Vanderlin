@@ -36,7 +36,7 @@
 	use_skintones = TRUE
 
 	species_traits = list(NO_UNDERWEAR, HAIR, OLDGREY)
-	inherent_traits = list(TRAIT_NOMOBSWAP, TRAIT_WATER_BREATHE, TRAIT_GOOD_SWIM)
+	inherent_traits = list(TRAIT_NOMOBSWAP, TRAIT_WATER_BREATHING, TRAIT_GOOD_SWIM)
 	inherent_traits_f = list(TRAIT_STRONGBITE)
 	inherent_skills = list(
 		/datum/skill/labor/fishing = 3,
