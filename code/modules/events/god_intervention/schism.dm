@@ -387,7 +387,7 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 	var/highest_influence = 0
 	var/astrata_influence = get_storyteller_influence("Astrata") || 0
 
-	for(var/type in subtypesof(/datum/patron/divine) - /datum/patron/divine/astrata)
+	for(var/type in subtypesof(/datum/patron/divine) - list(/datum/patron/divine/astrata, /datum/patron/divine/eora))
 		var/datum/patron/divine/god = GLOB.patronlist[type]
 		if(!god)
 			continue
