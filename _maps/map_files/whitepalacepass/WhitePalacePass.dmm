@@ -648,7 +648,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/tomb/indoors/church)
 "aEr" = (
-/obj/structure/trap/spike,
+/obj/structure/trap/mine,
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors/rtfield)
 "aEz" = (
@@ -790,7 +790,7 @@
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town/manor)
 "aLk" = (
-/obj/structure/trap/spike,
+/obj/structure/trap/mine,
 /turf/open/floor/dirt,
 /area/rogue/indoors/lich)
 "aLK" = (
@@ -1258,7 +1258,7 @@
 /area/rogue/under/tomb/indoors/church)
 "bcR" = (
 /obj/structure/fluff/customsign{
-	name = "Psydon's light guides you, shun the heresy with lit fire, and maintain secrecy at all costs."
+	name = "Psydon's light guides you, hold back the shadows with lit fire, and maintain secrecy at all costs."
 	},
 /turf/closed/wall/mineral/stonebrick{
 	wallclimb = 1;
@@ -2759,7 +2759,7 @@
 /area/rogue/under/cavewet)
 "cFo" = (
 /obj/effect/falling_leaves,
-/obj/structure/trap/spike,
+/obj/structure/trap/mine,
 /turf/open/floor/grass/cold,
 /area/rogue/outdoors/rtfield)
 "cFE" = (
@@ -3801,7 +3801,7 @@
 /area/rogue/under/cave)
 "dEz" = (
 /obj/effect/falling_leaves,
-/obj/structure/trap/spike,
+/obj/structure/trap/mine,
 /turf/open/water/swamp,
 /area/rogue/outdoors/rtfield)
 "dEK" = (
@@ -4745,7 +4745,7 @@
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors/rtfield)
 "eyf" = (
-/obj/structure/trap/spike,
+/obj/structure/trap/mine,
 /turf/open/floor/grass/yel,
 /area/rogue/indoors/lich)
 "ezD" = (
@@ -8380,7 +8380,7 @@
 /turf/open/floor/ruinedwood/turned,
 /area/rogue/indoors/town/manor)
 "hNh" = (
-/obj/structure/trap/spike,
+/obj/structure/trap/mine,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/rtfield)
 "hNk" = (
@@ -8862,11 +8862,11 @@
 /area/rogue/outdoors/exposed/church)
 "ioY" = (
 /obj/structure/bed/wool,
-/obj/effect/landmark/start/veteran{
-	dir = 8
-	},
 /obj/item/bedsheet/wool,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/landmark/start/watchman{
+	dir = 8
+	},
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/town/manor)
 "ipj" = (
@@ -10128,6 +10128,13 @@
 /obj/effect/spawner/map_spawner/loot/potion_ingredient/herb,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/bath)
+"jGy" = (
+/obj/structure/chair/stool,
+/obj/effect/landmark/start/veteran{
+	dir = 1
+	},
+/turf/open/floor/ruinedwood,
+/area/rogue/indoors/town/tavern)
 "jGV" = (
 /turf/open/floor/cobblerock/alt,
 /area/rogue/under/cavelava)
@@ -12543,7 +12550,7 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/clinic_large)
 "lTp" = (
-/obj/structure/trap/spike,
+/obj/structure/trap/mine,
 /turf/open/floor/grass/cold,
 /area/rogue/indoors/lich)
 "lTB" = (
@@ -14424,7 +14431,7 @@
 /area/rogue/outdoors/rtfield/safe)
 "nDF" = (
 /obj/effect/falling_leaves,
-/obj/structure/trap/spike,
+/obj/structure/trap/mine,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/rtfield)
 "nEu" = (
@@ -15111,7 +15118,7 @@
 /area/rogue/indoors/town/clocktower)
 "okn" = (
 /obj/effect/falling_leaves,
-/obj/structure/trap/spike,
+/obj/structure/trap/mine,
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors/rtfield)
 "okr" = (
@@ -19856,7 +19863,7 @@
 "szX" = (
 /obj/effect/falling_leaves,
 /obj/effect/falling_leaves,
-/obj/structure/trap/spike,
+/obj/structure/trap/mine,
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors/rtfield)
 "szY" = (
@@ -25480,7 +25487,7 @@
 	},
 /area/rogue/under/cave)
 "xPN" = (
-/obj/structure/trap/spike,
+/obj/structure/trap/mine,
 /turf/open/floor/grass/cold,
 /area/rogue/outdoors/rtfield)
 "xQf" = (
@@ -89963,7 +89970,7 @@ vTy
 ohw
 gCz
 wqs
-mcv
+jGy
 vTy
 tDA
 brh
