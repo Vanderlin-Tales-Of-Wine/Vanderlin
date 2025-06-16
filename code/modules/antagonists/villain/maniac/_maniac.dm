@@ -443,7 +443,7 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 	mid_sounds = list()
 	mid_length = 240 SECONDS
 	volume = 100
-	falloff = 5
+	falloff_exponent = 5
 	extra_range = 6
 	channel = CHANNEL_IMSICK
 	persistent_loop = TRUE
