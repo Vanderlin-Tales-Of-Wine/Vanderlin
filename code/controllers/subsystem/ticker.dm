@@ -91,7 +91,7 @@ SUBSYSTEM_DEF(ticker)
 
 	var/last_bot_update = 0
 
-	var/static/list/no_ruler_lines = list(
+	var/list/no_ruler_lines = list(
 		"Set a Ruler to 'high' in your class preferences to start the game!",
 		"PLAY Ruler NOW!", "A Ruler is required to start.",
 		"Pray for a Ruler.", "One day, there will be a Ruler.",
