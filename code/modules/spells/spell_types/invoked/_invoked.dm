@@ -75,7 +75,7 @@
 /obj/effect/proc_holder/spell/invoked/projectile/fire_projectile(mob/living/user, atom/target)
 	current_amount--
 	for(var/i in 1 to projectiles_per_fire)
-		var/obj/projectile/P = new projectile_type(get_turf(user))
+		var/obj/projectile/magic/P = new projectile_type(get_turf(user), src)
 		if(istype(P, /obj/projectile/magic))
 			var/obj/projectile/magic/projectile = P
 			projectile.sender = user

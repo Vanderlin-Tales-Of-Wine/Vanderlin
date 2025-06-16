@@ -116,11 +116,10 @@
 	to_chat(soul, span_blue("You feel yourself being transported back to the Underworld."))
 	soul.orbiting?.end_orbit()
 	soul.drop_all_held_items()
-	for(var/obj/effect/landmark/underworld/A in shuffle(GLOB.landmarks_list))
-		soul.forceMove(A)
-		for(var/I in itemstore)
-			soul.put_in_hands(new I())
-		break
+	var/turf/soul_turf = pick(GLOB.underworldspiritspawns)
+	soul.forceMove(soul_turf)
+	for(var/I in itemstore)
+		soul.put_in_hands(new I())
 	soul.beingmoved = FALSE
 	soul.fully_heal(FALSE)
 	soul.invisibility = initial(soul.invisibility)

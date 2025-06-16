@@ -71,7 +71,7 @@
 	var/spawn_instrument = instruments[instrument_choice]
 	if(!spawn_instrument)
 		spawn_instrument = /obj/item/instrument/lute
-	H.equip_to_slot_or_del(new spawn_instrument(H),SLOT_BACK_R, TRUE)
+	H.equip_to_slot_or_del(new spawn_instrument(H),ITEM_SLOT_BACK_R, TRUE)
 	H.advsetup = 0
 	H.invisibility = initial(H.invisibility)
 	H.cure_blind("bard_select")
@@ -265,6 +265,7 @@
 	allowed_patrons = ALL_TEMPLE_PATRONS
 
 /datum/outfit/job/town_elder/hearth_acolyte/pre_equip(mob/living/carbon/human/H)
+	. = ..()
 	head = /obj/item/clothing/head/roguehood/random
 	armor = /obj/item/clothing/shirt/robe
 	shoes = /obj/item/clothing/shoes/sandals

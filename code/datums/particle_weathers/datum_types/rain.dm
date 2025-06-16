@@ -73,7 +73,10 @@
 				var/client_z = client.mob.z
 				if(!isliving(client.mob))
 					continue
-				if(SSmapping.level_has_any_trait(client_z, list(ZTRAIT_IGNORE_WEATHER_TRAIT)))
+				if(!("[client_z]" in GLOB.weatherproof_z_levels))
+					if(SSmapping.level_has_any_trait(client_z, list(ZTRAIT_IGNORE_WEATHER_TRAIT)))
+						GLOB.weatherproof_z_levels |= "[client_z]"
+				if("[client_z]" in GLOB.weatherproof_z_levels)
 					continue
 				viable_players += client.mob
 

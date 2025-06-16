@@ -273,7 +273,7 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 		if(action)
 			action.UpdateButtonIcon()
 		to_chat(user, span_boldnotice("Your allegiance in the schism is now final."))
-	return TRUE
+	return ..()
 
 /datum/round_event_control/schism_within_ten
 	name = "Schism within the Ten"

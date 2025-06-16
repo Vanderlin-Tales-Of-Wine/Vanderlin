@@ -117,6 +117,13 @@
 	update_icon_state()
 	updateinfolinks()
 
+/obj/item/paper/Destroy()
+	info = null
+	stamps = null
+	LAZYCLEARLIST(stamped)
+	updateinfolinks()
+	return ..()
+
 /obj/item/paper/update_icon_state()
 	if(mailer)
 		icon_state = "paper_prep"
@@ -354,7 +361,7 @@
 
 	if(!usr.can_read())
 		return
-	if(!usr.canUseTopic(src, BE_CLOSE))
+	if(!usr.can_perform_action(src, FORBID_TELEKINESIS_REACH))
 		return
 
 	if(href_list["read"])
@@ -375,7 +382,7 @@
 	if(href_list["write"])
 		var/id = href_list["write"]
 		var/t =  browser_input_text(usr, "Enter what you want to write:", "Write", multiline = TRUE)
-		if(!t || !usr.canUseTopic(src, BE_CLOSE))
+		if(!t || !usr.can_perform_action(src, NEED_DEXTERITY|NEED_LITERACY|FORBID_TELEKINESIS_REACH))
 			return
 		var/obj/item/i = usr.get_active_held_item()	//Check to see if he still got that darn pen, also check if he's using a crayon or pen.
 		if(!istype(i, /obj/item/natural/thorn))

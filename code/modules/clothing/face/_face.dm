@@ -30,7 +30,7 @@
 
 /obj/item/clothing/face/equipped(mob/user, slot)
 	. = ..()
-	if (slot == SLOT_WEAR_MASK && modifies_speech)
+	if ((slot & ITEM_SLOT_MASK) && modifies_speech)
 		RegisterSignal(user, COMSIG_MOB_SAY, PROC_REF(handle_speech))
 	else
 		UnregisterSignal(user, COMSIG_MOB_SAY)

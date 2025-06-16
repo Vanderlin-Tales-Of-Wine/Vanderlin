@@ -108,6 +108,7 @@
 #define INNKEEPCHILD    (1<<1)
 #define CHURCHLING      (1<<2)
 #define ORPHAN		    (1<<3)
+#define SOILCHILD		(1<<4)
 
 #define OUTSIDERS		(1<<7)
 
@@ -220,6 +221,7 @@
 
 #define JDO_VAGRANT 36
 #define JDO_ORPHAN 37
+#define JDO_SOILCHILD 38
 
 
 #define BITFLAG_CHURCH (1<<0)

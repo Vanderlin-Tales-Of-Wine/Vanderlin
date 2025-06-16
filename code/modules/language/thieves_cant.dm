@@ -5,7 +5,7 @@
 	ask_verb = "asks"
 	exclaim_verb = "yells"
 	key = "t"
-	flags = LANGUAGE_HIDE_ICON_IF_UNDERSTOOD | TONGUELESS_SPEECH
+	flags = TONGUELESS_SPEECH | LANGUAGE_HIDE_ICON_IF_NOT_UNDERSTOOD
 	space_chance = 80
 	sentence_chance = 5
 	between_word_sentence_chance = 0

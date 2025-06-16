@@ -15,7 +15,10 @@
 	body_parts_covered = COVERAGE_ALL_BUT_ARMS
 	prevent_crits = ALL_EXCEPT_BLUNT
 	max_integrity = INTEGRITY_STRONGEST
-	do_sound_plate = TRUE
+
+/obj/item/clothing/armor/plate/Initialize()
+	. = ..()
+	AddComponent(/datum/component/item_equipped_movement_rustle, custom_sounds = SFX_PLATE_STEP)
 
 //................ Full Plate Armor ............... //
 /obj/item/clothing/armor/plate/full

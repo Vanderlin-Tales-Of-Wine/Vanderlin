@@ -110,6 +110,9 @@
 
 	if(!has_target && !in_water && prob(return_to_water_chance))
 		var/atom/water_target = controller.blackboard[BB_GATOR_PREFERRED_TERRITORY]
+		if(water_target.z != controller.pawn.z)
+			controller.set_blackboard_key(BB_GATOR_PREFERRED_TERRITORY, null)
+			water_target = null
 		if(water_target)
 			controller.queue_behavior(/datum/ai_behavior/return_to_water, BB_GATOR_PREFERRED_TERRITORY)
 			return SUBTREE_RETURN_FINISH_PLANNING
