@@ -79,12 +79,13 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 		for(var/datum/weakref/supporter_ref in supporters_astrata)
 			var/mob/living/carbon/human/supporter = supporter_ref.resolve()
 			if(supporter && supporter.patron == astrata)
-				var/obj/effect/proc_holder/spell/self/choose_schism_side/spell = locate() in supporter.mind.spell_list
-				if(spell?.chose_early)
-					to_chat(supporter, span_notice("Astrata's light prevails! Your steadfast devotion is rewarded with many triumphs."))
-					supporter.adjust_triumphs(3)
-				else
-					to_chat(supporter, span_notice("Astrata's light prevails, but your late support goes unrewarded."))
+				for(var/obj/effect/proc_holder/spell/self/choose_schism_side/spell in supporter.mind.spell_list)
+					if(spell.chose_early)
+						to_chat(supporter, span_notice("Astrata's light prevails! Your steadfast devotion is rewarded with many triumphs."))
+						supporter.adjust_triumphs(3)
+					else
+						to_chat(supporter, span_notice("Astrata's light prevails, but your late support goes unrewarded."))
+					break
 			else if(supporter)
 				to_chat(supporter, span_notice("Astrata's light prevails over the challenge of [challenger.name]! The Sun Queen expected no less than your total support."))
 
@@ -105,35 +106,36 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 		for(var/datum/weakref/supporter_ref in supporters_challenger)
 			var/mob/living/carbon/human/supporter = supporter_ref.resolve()
 			if(supporter && supporter.patron == challenger)
-				var/obj/effect/proc_holder/spell/self/choose_schism_side/spell = locate() in supporter.mind.spell_list
-				if(spell?.chose_early)
-					to_chat(supporter, span_notice("[challenger.name]'s challenge succeeds! Your persistent faith is rewarded with triumphs."))
-					supporter.adjust_triumphs(2)
-				else
-					to_chat(supporter, span_notice("[challenger.name] succeeds, but your late support goes unrewarded."))
+				for(var/obj/effect/proc_holder/spell/self/choose_schism_side/spell in supporter.mind.spell_list)
+					if(spell.chose_early)
+						to_chat(supporter, span_notice("[challenger.name]'s challenge succeeds! Your persistent faith is rewarded with triumphs."))
+						supporter.adjust_triumphs(2)
+					else
+						to_chat(supporter, span_notice("[challenger.name] succeeds, but your late support goes unrewarded."))
+					break
 			else if(supporter)
-				var/obj/effect/proc_holder/spell/self/choose_schism_side/spell = locate() in supporter.mind.spell_list
-				if(spell?.chose_early)
-					to_chat(supporter, span_notice("[challenger.name]'s challenge succeeds against Astrata's tyranny! Your support is rewarded with a triumph."))
-					supporter.adjust_triumphs(1)
-				else
-					to_chat(supporter, span_notice("[challenger.name]'s challenge succeeds, your late support goes unrewarded."))
-
+				for(var/obj/effect/proc_holder/spell/self/choose_schism_side/spell in supporter.mind.spell_list)
+					if(spell.chose_early)
+						to_chat(supporter, span_notice("[challenger.name]'s challenge succeeds against Astrata's tyranny! Your support is rewarded with a triumph."))
+						supporter.adjust_triumphs(1)
+					else
+						to_chat(supporter, span_notice("[challenger.name]'s challenge succeeds, but your late support goes unrewarded."))
+					break
 		for(var/datum/weakref/supporter_ref in supporters_astrata)
 			var/mob/living/carbon/human/supporter = supporter_ref.resolve()
 			if(supporter)
 				to_chat(supporter, span_userdanger("INCOMPETENT IMBECILES!"))
 				supporter.electrocute_act(5, astrata)
 
-		addtimer(CALLBACK(src, PROC_REF(astrata_scorn), 15 SECONDS))
+		addtimer(CALLBACK(src, PROC_REF(astrata_scorn)), 15 SECONDS)
 
 		addtimer(CALLBACK(src, PROC_REF(select_and_announce_vice_priest), challenger), 30 SECONDS)
 
 /datum/tennite_schism/proc/astrata_scorn()
-		priority_announce("You don't deserve my holy light, ungrateful swines!", "Astrata's Scorn", 'sound/magic/fireball.ogg')
+		priority_announce("You don't deserve my holy light, you ungrateful swines!", "Astrata's Scorn", 'sound/magic/fireball.ogg')
 		GLOB.todoverride = "night"
 		settod()
-		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(reset_tod_override), 20 MINUTES))
+		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(reset_tod_override)), 20 MINUTES)
 
 /datum/tennite_schism/proc/select_and_announce_vice_priest(datum/patron/challenger)
 	var/mob/living/carbon/human/selected_priest = null
@@ -230,10 +232,6 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 	supporters_challenger -= WEAKREF(user)
 	neutrals -= WEAKREF(user)
 
-	var/obj/effect/proc_holder/spell/self/choose_schism_side/spell = locate() in user.mind.spell_list
-	if(spell)
-		spell.chose_early = !halfway_passed
-
 	switch(new_side)
 		if("astrata")
 			supporters_astrata += WEAKREF(user)
@@ -291,6 +289,9 @@ GLOBAL_LIST_EMPTY(tennite_schisms)
 
 	uses_remaining--
 	current_schism.change_side(user, options[choice])
+
+	if(!current_schism.halfway_passed)
+		chose_early = TRUE
 
 	if(uses_remaining <= 0)
 		if(action)
