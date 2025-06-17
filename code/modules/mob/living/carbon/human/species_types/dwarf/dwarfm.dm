@@ -12,7 +12,7 @@
 /datum/species/dwarf/mountain
 	name = "Dwarf"
 	id = "dwarf"
-	desc = "Malum's chosen.\
+	desc = "Shaped by both Psydon and Necra, chosen by Malum.\
 	\n\n\
 	A proud and robust species of stunted folk, \
 	the dwarves are known for their pride in martial strength \

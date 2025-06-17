@@ -15,7 +15,7 @@
 	id = "elf"
 	desc = "Psydonia's first.\
 	\n\n\
-	Elves, the first species of Psydonia, are characterized by lengthened age, \
+	Elves, created by Necra to guide humenity, are characterized by lengthened age, \
 	low fertility, and magical aptitude originating from a vast array of tribal cultures and sub-races. \
 	With the ascension of Zizo, the entire culture of snow-elves was all but destroyed, \
 	leading the remaining tribes to live in fear and paranoia of suffering the same fate. \
