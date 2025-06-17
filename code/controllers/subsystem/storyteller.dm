@@ -1357,6 +1357,7 @@ SUBSYSTEM_DEF(gamemode)
 	GLOB.vanderlin_round_stats[STATS_ALIVE_AASIMAR] = 0
 	GLOB.vanderlin_round_stats[STATS_ALIVE_HOLLOWKINS] = 0
 	GLOB.vanderlin_round_stats[STATS_ALIVE_HARPIES] = 0
+	GLOB.vanderlin_round_stats[STATS_ALIVE_TRITONS] = 0
 
 	for(var/client/client in GLOB.clients)
 		if(roundstart)
@@ -1464,6 +1465,8 @@ SUBSYSTEM_DEF(gamemode)
 				GLOB.vanderlin_round_stats[STATS_ALIVE_HOLLOWKINS]++
 			if(isharpy(human_mob))
 				GLOB.vanderlin_round_stats[STATS_ALIVE_HARPIES]++
+			if(istriton(human_mob))
+				GLOB.vanderlin_round_stats[STATS_ALIVE_TRITONS]++
 
 /// Returns total follower influence for the given storyteller
 /datum/controller/subsystem/gamemode/proc/get_follower_influence(datum/storyteller/chosen_storyteller)
