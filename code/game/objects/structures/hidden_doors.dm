@@ -73,9 +73,6 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	return
 
 /obj/structure/door/secret/attack_hand(mob/user)
-	. = ..()
-	if(.)
-		return
 	user.changeNext_move(CLICK_CD_MELEE)
 	to_chat(user, span_notice("I start feeling around [src]"))
 	if(!do_after(user, 1.5 SECONDS, src))
@@ -297,7 +294,11 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	if(length(GLOB.keep_doors) > 0)
 		var/obj/structure/door/secret/D = GLOB.keep_doors[1]
 		open_phrase = D.open_phrase
-	GLOB.keep_doors += src
+	GLOB.keep_doors |= src
+
+/obj/structure/door/secret/keep/Destroy()
+	GLOB.keep_doors -= src
+	return ..()
 
 /obj/structure/door/secret/keep/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode)
 	if(!..())
@@ -332,10 +333,14 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 
 /obj/structure/door/secret/thieves_guild/Initialize()
 	. = ..()
-	if(GLOB.thieves_guild_doors.len > 0)
+	if(length(GLOB.thieves_guild_doors))
 		var/obj/structure/door/secret/D = GLOB.thieves_guild_doors[1]
 		open_phrase = D.open_phrase
-	GLOB.thieves_guild_doors += src
+	GLOB.thieves_guild_doors |= src
+
+/obj/structure/door/secret/thieves_guild/Destroy()
+	GLOB.thieves_guild_doors -= src
+	return ..()
 
 /obj/structure/door/secret/thieves_guild/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode)
 	if(!..())

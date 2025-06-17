@@ -1172,6 +1172,92 @@ GLOBAL_LIST_INIT(freon_color_matrix, list("#2E5E69", "#60A2A8", "#A1AFB1", rgb(0
 
 	return "<img class='icon icon-[A.icon_state]' src='data:image/png;base64,[bicon_cache[key]]'>"
 
+
+/// Strips all underlays on a different plane from an appearance.
+/// Returns the stripped appearance.
+/proc/strip_appearance_underlays(mutable_appearance/appearance) as /mutable_appearance
+	RETURN_TYPE(/mutable_appearance)
+	var/base_plane = appearance.plane
+	for(var/mutable_appearance/underlay as anything in appearance.underlays)
+		if(isnull(underlay))
+			continue
+		if(underlay.plane != base_plane)
+			appearance.underlays -= underlay
+	return appearance
+
+/**
+ * Copies the passed /appearance, returns a /mutable_appearance
+ *
+ * Filters out certain overlays from the copy, depending on their planes
+ * Prevents stuff like lighting from being copied to the new appearance
+ */
+/proc/copy_appearance_filter_overlays(appearance_to_copy) as /mutable_appearance
+	RETURN_TYPE(/mutable_appearance)
+	var/mutable_appearance/copy = new(appearance_to_copy)
+	var/static/list/plane_whitelist = list(FLOAT_PLANE, GAME_PLANE, FLOOR_PLANE)
+
+	/// Ideally we'd have knowledge what we're removing but i'd have to be done on target appearance retrieval
+	var/list/overlays_to_keep = list()
+	for(var/mutable_appearance/special_overlay as anything in copy.overlays)
+		if(isnull(special_overlay))
+			continue
+		var/mutable_appearance/real = new()
+		real.appearance = special_overlay
+		if(real.plane in plane_whitelist)
+			overlays_to_keep += real
+	copy.overlays = overlays_to_keep
+
+	var/list/underlays_to_keep = list()
+	for(var/mutable_appearance/special_underlay as anything in copy.underlays)
+		if(isnull(special_underlay))
+			continue
+		var/mutable_appearance/real = new()
+		real.appearance = special_underlay
+		if(real.plane in plane_whitelist)
+			underlays_to_keep += real
+	copy.underlays = underlays_to_keep
+
+	return copy
+
+/// Makes a client temporarily aware of an appearance via and invisible vis contents object.
+/mob/proc/send_appearance(mutable_appearance/appearance) as /atom/movable/screen
+	RETURN_TYPE(/atom/movable/screen)
+	if(!hud_used || isnull(appearance))
+		return
+
+	var/atom/movable/screen/container = new
+	container.appearance = appearance
+
+	hud_used.vis_holder.vis_contents += container
+	addtimer(CALLBACK(src, PROC_REF(remove_appearance), container), 5 SECONDS)
+
+	return container
+
+/mob/proc/remove_appearance(atom/movable/container)
+	if(!hud_used)
+		return
+
+	hud_used.vis_holder.vis_contents -= container
+
+/proc/ma2html(mutable_appearance/appearance, mob/viewer, extra_classes = "")
+	if(isatom(appearance))
+		var/atom/atom = appearance
+		appearance = copy_appearance_filter_overlays(atom.appearance)
+	else if(isappearance_or_image(appearance) || isicon(appearance))
+		appearance = copy_appearance_filter_overlays(appearance)
+	else
+		CRASH("Invalid appearance passed to ma2html - either a appearance, image, icon, or atom must be passed!")
+
+	if(istype(viewer, /client))
+		var/datum/client_interface/client = viewer
+		viewer = client.mob
+	if(!ismob(viewer))
+		CRASH("Invalid viewer passed to ma2html")
+	var/atom/movable/screen/container = viewer.send_appearance(appearance)
+	if(QDELETED(container))
+		CRASH("Failed to send appearance to client")
+	return "<img class='icon [extra_classes]' src='\ref[container]' style='image-rendering: pixelated; -ms-interpolation-mode: nearest-neighbor'>"
+
 //Costlier version of icon2html() that uses getFlatIcon() to account for overlays, underlays, etc. Use with extreme moderation, ESPECIALLY on mobs.
 /proc/costly_icon2html(thing, target)
 	if (!thing)

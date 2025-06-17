@@ -9,7 +9,7 @@ GLOBAL_DATUM_INIT(_preloader, /datum/map_preloader, new)
 	var/target_path
 
 /world/proc/preloader_setup(list/the_attributes, path)
-	if(the_attributes.len)
+	if(length(the_attributes))
 		GLOB.use_preloader = TRUE
 		var/datum/map_preloader/preloader_local = GLOB._preloader
 		preloader_local.attributes = the_attributes

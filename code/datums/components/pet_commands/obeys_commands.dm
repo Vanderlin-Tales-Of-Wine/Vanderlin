@@ -12,7 +12,7 @@
 	///radius of our radial menu
 	var/radial_menu_radius = 48
 	///after how long we shutdown radial menus
-	var/radial_menu_lifetime = 7 SECONDS
+	var/radial_menu_lifetime = 4 SECONDS
 	///offset to display the radial menu
 	var/list/radial_menu_offset
 	///should the commands move with the pet owner's screen?
@@ -36,6 +36,7 @@
 
 /datum/component/obeys_commands/Destroy(force)
 	. = ..()
+	QDEL_LIST_ASSOC_VAL(available_commands)
 	QDEL_NULL(available_commands)
 
 /datum/component/obeys_commands/RegisterWithParent()
@@ -45,7 +46,7 @@
 	RegisterSignal(parent, COMSIG_CLICK_CTRL, PROC_REF(check_name))
 
 /datum/component/obeys_commands/UnregisterFromParent()
-	UnregisterSignal(parent, list(COMSIG_LIVING_BEFRIENDED, COMSIG_LIVING_UNFRIENDED, COMSIG_PARENT_EXAMINE, COMSIG_CLICK_ALT))
+	UnregisterSignal(parent, list(COMSIG_LIVING_BEFRIENDED, COMSIG_LIVING_UNFRIENDED, COMSIG_PARENT_EXAMINE, COMSIG_CLICK_CTRL))
 
 /// Add someone to our friends list
 /datum/component/obeys_commands/proc/add_friend(datum/source, mob/living/new_friend)
@@ -104,8 +105,8 @@
 		return
 	if (!(friend in living_parent.ai_controller?.blackboard[BB_FRIENDS_LIST]))
 		return // Not our friend, can't boss us around
-	if(radial_viewers[REF(friend)])
-		return
+	// if(radial_viewers[REF(friend)])
+	// 	return
 	if(!can_see(friend, parent, DEFAULT_RADIAL_VIEWING_DISTANCE))
 		return
 	INVOKE_ASYNC(src, PROC_REF(display_radial_menu), friend)

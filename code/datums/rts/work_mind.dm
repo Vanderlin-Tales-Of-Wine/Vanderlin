@@ -1,6 +1,3 @@
-/mob/living
-	var/datum/worker_mind/controller_mind
-
 /mob/living/proc/made_into_controller_mob()
 	QDEL_NULL(ai_controller)
 
@@ -40,9 +37,15 @@
 
 	var/datum/worker_attack_strategy/attack_mode
 
+	var/list/personality_traits = list()
+	var/mood_level = 50 // 0-100, affects work speed and decisions
+	var/experience_level = 0 // Grows over time, unlocks new behaviors
+	var/preferred_tasks = list() // Tasks this worker gravitates toward
+	var/list/learned_behaviors = list() // Behaviors this worker has learned
+
 /datum/worker_mind/New(mob/living/new_worker, mob/camera/strategy_controller/new_master)
 	. = ..()
-	idle = new /datum/idle_tendancies/basic
+	idle = new /datum/idle_tendancies/dynamic
 	master = new_master
 	worker = new_worker
 
@@ -58,12 +61,24 @@
 	stats = new /atom/movable/screen/controller_ui/controller_ui(worker, src)
 	START_PROCESSING(SSstrategy_master, src)
 
+/datum/worker_mind/proc/has_learned_behavior(behavior_name)
+	return (behavior_name in learned_behaviors)
+
+/datum/worker_mind/proc/learn_behavior(behavior_name)
+	if(behavior_name in learned_behaviors)
+		return FALSE
+	learned_behaviors += behavior_name
+	return TRUE
+
 /datum/worker_mind/proc/head_to_target()
+	if(!movement_target)
+		return
+
 	if(next_recalc < world.time)
-		current_path = get_path_to(worker, get_turf(movement_target), TYPE_PROC_REF(/turf, Heuristic_cardinal_3d), 32 + 1, 250,1)
+		enhanced_pathfinding()
 		next_recalc = world.time + 2 SECONDS
 	if(!length(current_path) && !worker.CanReach(movement_target))
-		current_path = get_path_to(worker, get_turf(movement_target), TYPE_PROC_REF(/turf, Heuristic_cardinal_3d), 32 + 1, 250,1)
+		enhanced_pathfinding()
 		if(!length(current_path))
 			current_task.stop_work()
 	if(length(current_path) >= 3)
@@ -217,3 +232,74 @@
 /datum/worker_mind/proc/apply_attack_strategy(datum/worker_attack_strategy/attack_path = /datum/worker_attack_strategy)
 	var/datum/worker_attack_strategy/new_attack = new attack_path(worker)
 	attack_mode = new_attack
+
+/datum/worker_mind/proc/check_mood_events()
+	// Check for mood-affecting events
+	if(current_stamina < 20)
+		adjust_mood(-5, "exhausted")
+
+	if(length(worker_gear))
+		adjust_mood(2, "well equipped")
+
+	// Social interactions
+	var/nearby_workers = 0
+	for(var/mob/living/other in view(3, worker))
+		if(other.controller_mind && other != worker)
+			nearby_workers++
+
+	if(has_personality("social") && nearby_workers > 0)
+		adjust_mood(3, "socializing")
+	else if(has_personality("social") && nearby_workers == 0)
+		adjust_mood(-2, "lonely")
+
+/datum/worker_mind/proc/adjust_mood(amount, reason)
+	mood_level = clamp(mood_level + amount, 0, 100)
+	if(amount > 0)
+		worker.visible_message("[worker] seems happier.")
+	else if(amount < -3)
+		worker.visible_message("[worker] looks dejected.")
+
+/datum/worker_mind/proc/has_personality(trait_name)
+	for(var/datum/personality_trait/trait in personality_traits)
+		if(trait.name == trait_name)
+			return TRUE
+	return FALSE
+
+/datum/worker_mind/proc/check_emergent_behaviors()
+	// Workers develop new behaviors based on experience
+	if(experience_level > 50 && !has_learned_behavior("leadership"))
+		if(prob(20))
+			learn_behavior("leadership")
+			worker.visible_message("[worker] has learned to coordinate with others!")
+
+	// Spontaneous tool creation
+	if(current_task && prob(5) && experience_level > 25)
+		try_improvise_tool()
+
+/datum/worker_mind/proc/try_improvise_tool()
+	// Look for materials to create simple tools
+	var/list/nearby_items = list()
+	for(var/obj/item/item in view(2, worker))
+		nearby_items += item
+
+	if(length(nearby_items) >= 2)
+		worker.visible_message("[worker] starts tinkering with nearby materials...")
+		//TODO: Worker tool support
+
+/datum/worker_mind/proc/enhanced_pathfinding()
+	if(!movement_target)
+		return
+
+	// Workers remember and prefer certain routes
+	var/route_key = "[get_turf(worker)]-[get_turf(movement_target)]"
+	var/list/preferred_path = master.learned_routes[route_key]
+
+	if(preferred_path && prob(70))
+		current_path = preferred_path.Copy()
+	else
+		current_path = get_path_to(worker, get_turf(movement_target),
+			TYPE_PROC_REF(/turf, Heuristic_cardinal_3d), 32 + 1, 250, 1)
+
+		// Store successful routes
+		if(length(current_path))
+			master.learned_routes[route_key] = current_path.Copy()

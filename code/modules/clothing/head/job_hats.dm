@@ -61,6 +61,10 @@
 	desc = "Just remember that the last laugh is on you."
 	icon_state = "jester"
 
+/obj/item/clothing/head/jester/Initialize()
+	. = ..()
+	AddComponent(/datum/component/squeak, custom_sounds = list(SFX_JINGLE_BELLS), step_delay_override = 2, falloff_exponent = 20) //die off quickly
+
 /obj/item/clothing/head/cookhat/chef // only unique thing is the name
 	name = "chef's hat"
 
@@ -79,6 +83,7 @@
 	worn_y_dimension = 64
 	bloody_icon = 'icons/effects/blood64x64.dmi'
 	bloody_icon_state = "helmetblood_big"
+	body_parts_covered = null
 
 	prevent_crits =  MINOR_CRITICALS
 

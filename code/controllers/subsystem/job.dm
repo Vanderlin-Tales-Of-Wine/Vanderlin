@@ -7,10 +7,14 @@ SUBSYSTEM_DEF(job)
 	var/list/all_occupations = list()
 	/// List of jobs that can be joined through the starting menu.
 	var/list/joinable_occupations = list()
-	var/list/datum/job/name_occupations = list()	//Dict of all jobs, keys are titles
-	var/list/type_occupations = list()	//Dict of all jobs, keys are types
-	var/list/unassigned = list()		//Players who need jobs
-	var/initial_players_to_assign = 0 	//used for checking against population caps
+	/// assoc list of all jobs, keys are titles
+	var/list/datum/job/name_occupations = list()
+	/// assoc list of all jobs, keys are types
+	var/list/type_occupations = list()
+	/// list of players who need jobs
+	var/list/unassigned = list()
+	/// used for checking against population caps
+	var/initial_players_to_assign = 0
 
 	var/list/prioritized_jobs = list()
 	var/list/latejoin_trackers = list()
@@ -87,60 +91,6 @@ SUBSYSTEM_DEF(job)
 	if(player.client && player.client.prefs)
 		player.client.prefs.has_spawned = TRUE
 
-/datum/controller/subsystem/job/proc/FindOccupationCandidates(datum/job/job, level, flag)
-	JobDebug("Running FOC, Job: [job], Level: [level], Flag: [flag]")
-	var/list/candidates = list()
-	for(var/mob/dead/new_player/player in unassigned)
-		if(is_role_banned(player.ckey, job.title) || QDELETED(player))
-			JobDebug("FOC isbanned failed, Player: [player]")
-			continue
-		if(!job.player_old_enough(player.client))
-			JobDebug("FOC player not old enough, Player: [player]")
-			continue
-		if(job.required_playtime_remaining(player.client))
-			JobDebug("FOC player not enough xp, Player: [player]")
-			continue
-		if(flag && (!(flag in player.client.prefs.be_special)))
-			JobDebug("FOC flag failed, Player: [player], Flag: [flag], ")
-			continue
-		if(player.mind && (job.title in player.mind.restricted_roles))
-			JobDebug("FOC incompatible with antagonist role, Player: [player]")
-			continue
-		if(length(job.allowed_races) && !(player.client.prefs.pref_species.name in job.allowed_races))
-			if(!(player.client.triumph_ids.Find("race_all")))
-				JobDebug("FOC incompatible with species, Player: [player], Job: [job.title], Race: [player.client.prefs.pref_species.name]")
-				continue
-		if(length(job.allowed_patrons) && !(player.client.prefs.selected_patron.type in job.allowed_patrons))
-			JobDebug("FOC incompatible with patron, Player: [player], Job: [job.title], Race: [player.client.prefs.pref_species.name]")
-			continue
-		if(get_playerquality(player.ckey) < job.min_pq)
-			continue
-		if(length(job.allowed_sexes) && !(player.client.prefs.gender in job.allowed_sexes))
-			JobDebug("FOC incompatible with sex, Player: [player], Job: [job.title]")
-			continue
-		if(length(job.allowed_ages) && !(player.client.prefs.age in job.allowed_ages))
-			JobDebug("FOC incompatible with age, Player: [player], Job: [job.title], Age: [player.client.prefs.age]")
-			continue
-		if(job.banned_leprosy && is_misc_banned(player.client.ckey, BAN_MISC_LEPROSY))
-			JobDebug("FOC incompatible with leprosy, Player: [player], Job: [job.title]")
-			continue
-		if(job.banned_lunatic && is_misc_banned(player.client.ckey, BAN_MISC_LUNATIC))
-			JobDebug("FOC incompatible with lunatic, Player: [player], Job: [job.title]")
-			continue
-		if((player.client.prefs.lastclass == job.title) && !job.bypass_lastclass)
-			JobDebug("FOC incompatible with lastclass, Player: [player], Job: [job.title]")
-			continue
-		if(!job.special_job_check(player))
-			JobDebug("FOC player did not pass special check, Player: [player], Job:[job.title]")
-			continue
-		if(CONFIG_GET(flag/usewhitelist))
-			if(job.whitelist_req && (!player.client.whitelisted()))
-				continue
-		if(player.client.prefs.job_preferences[job.title] == level)
-			JobDebug("FOC pass, Player: [player], Level:[level]")
-			candidates += player
-	return candidates
-
 /datum/controller/subsystem/job/proc/GiveRandomJob(mob/dead/new_player/player)
 	JobDebug("GRJ Giving random job, Player: [player]")
 	. = FALSE
@@ -215,70 +165,6 @@ SUBSYSTEM_DEF(job)
 			if(AssignRole(player, job))
 				return TRUE
 
-/datum/controller/subsystem/job/proc/ResetOccupations()
-	JobDebug("Occupations reset.")
-	for(var/mob/dead/new_player/player as anything in GLOB.new_player_list)
-		if(!player?.mind)
-			continue
-		player.mind.set_assigned_role(/datum/job/unassigned)
-		player.mind.special_role = null
-		player.mind.job_bitflag = NONE
-		SSpersistence.antag_rep_change[player.ckey] = 0
-	SetupOccupations()
-	unassigned = list()
-	return
-
-
-//This proc is called before the level loop of DivideOccupations() and will try to select a head, ignoring ALL non-head preferences for every level until
-//it locates a head or runs out of levels to check
-//This is basically to ensure that there's atleast a few heads in the round
-/datum/controller/subsystem/job/proc/FillHeadPosition()
-	for(var/level in level_order)
-		for(var/noble_position in GLOB.noble_positions)
-			var/datum/job/job = GetJob(noble_position)
-			if(!job)
-				continue
-			if(job.current_positions >= job.spawn_positions)
-				continue
-			var/list/candidates = FindOccupationCandidates(job, level)
-			if(!candidates.len)
-				continue
-			var/mob/dead/new_player/candidate = pick(candidates)
-			if(AssignRole(candidate, job))
-				return TRUE
-	return FALSE
-
-
-//This proc is called at the start of the level loop of DivideOccupations() and will cause head jobs to be checked before any other jobs of the same level
-//This is also to ensure we get as many heads as possible
-/datum/controller/subsystem/job/proc/CheckHeadPositions(level)
-	for(var/noble_position in GLOB.noble_positions)
-		var/datum/job/job = GetJob(noble_position)
-		if(!job)
-			continue
-		if(job.current_positions >= job.spawn_positions)
-			continue
-		var/list/candidates = FindOccupationCandidates(job, level)
-		if(!candidates.len)
-			continue
-		var/mob/dead/new_player/candidate = pick(candidates)
-		AssignRole(candidate, job)
-
-/datum/controller/subsystem/job/proc/sort_male_female(inputlist)
-	if(!inputlist)
-		return null
-	var/list/putty = inputlist
-	var/list/newlist = list()
-	for(var/mob/dead/new_player/player in putty)
-		if(player.client.prefs.gender == MALE)
-			newlist += player
-			putty -= player
-	for(var/mob/dead/new_player/player in putty)
-		if(player.client.prefs.gender == FEMALE)
-			newlist += player
-			putty -= player
-	return newlist
-
 /** Proc DivideOccupations
  *  fills var "assigned_role" for all ready players.
  *  This proc must not have any side effect besides of modifying "assigned_role".
@@ -329,8 +215,6 @@ SUBSYSTEM_DEF(job)
 	// Loop through all levels from high to low
 	var/list/shuffledoccupations = shuffle(joinable_occupations)
 	for(var/level in level_order)
-		//Check the head jobs first each level
-		//CheckHeadPositions(level)
 
 		// Loop through all unassigned players
 		for(var/mob/dead/new_player/player in unassigned)
@@ -533,7 +417,6 @@ SUBSYSTEM_DEF(job)
 	equipping.mind?.set_assigned_role(job)
 	equipping.on_job_equipping(job)
 	addtimer(CALLBACK(job, TYPE_PROC_REF(/datum/job, greet), equipping), 5 SECONDS) //TODO: REFACTOR OUT
-	job.announce_job(equipping)
 
 	if(player_client.holder)
 		if(CONFIG_GET(flag/auto_deadmin_players) || (player_client.prefs?.toggles & DEADMIN_ALWAYS))

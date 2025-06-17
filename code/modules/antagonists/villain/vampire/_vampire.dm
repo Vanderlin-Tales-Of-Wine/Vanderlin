@@ -41,6 +41,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 
 	var/vitae = 1000
 	var/vmax = 3000
+	var/list/ability_cooldowns = list()
 
 	COOLDOWN_DECLARE(last_transform)
 	var/disguised = FALSE //! spawn
@@ -200,6 +201,22 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 		stack_trace("two vampire teams were created, and the wrong one tried to be assigned")
 
 	team = new_team
+
+///proc used for non spells vampire action
+/datum/antagonist/vampire/proc/check_vampire_cooldown(mob/user, ability_name, cooldown_time)
+	
+	if(!ability_name || !user)  
+		return FALSE
+	
+	/// Check if on cooldown
+	if(src.ability_cooldowns[ability_name] > world.time)
+		var/time_left = src.ability_cooldowns[ability_name] - world.time
+		to_chat(user, span_warning("[ability_name] on cooldown! Wait [DisplayTimeText(time_left)]."))
+		return FALSE
+	
+	// Set new cooldown
+	src.ability_cooldowns[ability_name] = world.time + cooldown_time
+	return TRUE
 
 /datum/antagonist/vampire/get_team()
 	return team

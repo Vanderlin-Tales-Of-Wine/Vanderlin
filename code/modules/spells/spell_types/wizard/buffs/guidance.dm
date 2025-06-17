@@ -15,8 +15,9 @@
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/arcane
 	attunements = list(
-		/datum/attunement/arcyne = 1,
+		/datum/attunement/earth = 1,
 	)
+	overlay_state = "guidance"
 
 /obj/effect/proc_holder/spell/invoked/guidance/cast(list/targets, mob/user)
 	var/atom/A = targets[1]
@@ -34,7 +35,7 @@
 	else
 		user.visible_message("[user] mutters an incantation and they briefly shine orange.")
 
-	return TRUE
+	return ..()
 
 /datum/status_effect/buff/duration_modification/guidance
 	id = "guidance"

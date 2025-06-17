@@ -8,13 +8,14 @@
 	flag = APPRENTICE
 	department_flag = APPRENTICES
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
-	faction = FACTION_STATION
+	faction = FACTION_TOWN
 	total_positions = 2
 	spawn_positions = 2
 
 	allowed_races = RACES_PLAYER_ALL
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_ages = list(AGE_CHILD, AGE_ADULT)
+	allowed_patrons = list(/datum/patron/divine/noc, /datum/patron/inhumen/zizo)
 
 
 	outfit = /datum/outfit/job/wapprentice

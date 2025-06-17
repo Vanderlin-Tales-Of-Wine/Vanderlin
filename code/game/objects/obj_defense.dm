@@ -36,9 +36,6 @@
 		armor_protection = CLAMP(armor_protection - armor_penetration, min(armor_protection, 0), 100)
 	return round(damage_amount * (100 - armor_protection)*0.01, DAMAGE_PRECISION)
 
-/obj
-	var/attacked_sound = 'sound/blank.ogg'
-
 ///the sound played when the obj is damaged.
 /obj/proc/play_attack_sound(damage_amount, damage_type = BRUTE, damage_flag = 0)
 	switch(damage_type)

@@ -11,21 +11,21 @@
 
 /datum/outfit/varedit/proc/set_equipement_by_slot(slot,item_path)
 	switch(slot)
-		if(SLOT_ARMOR)
+		if(ITEM_SLOT_ARMOR)
 			suit = item_path
-		if(SLOT_BELT)
+		if(ITEM_SLOT_BELT)
 			belt = item_path
-		if(SLOT_GLOVES)
+		if(ITEM_SLOT_GLOVES)
 			gloves = item_path
-		if(SLOT_SHOES)
+		if(ITEM_SLOT_SHOES)
 			shoes = item_path
-		if(SLOT_HEAD)
+		if(ITEM_SLOT_HEAD)
 			head = item_path
-		if(SLOT_WEAR_MASK)
+		if(ITEM_SLOT_MASK)
 			mask = item_path
-		if(SLOT_NECK)
+		if(ITEM_SLOT_NECK)
 			neck = item_path
-		if(SLOT_RING)
+		if(ITEM_SLOT_RING)
 			ring = item_path
 
 /proc/collect_vv(obj/item/I)
@@ -54,7 +54,7 @@
 
 	//Copy equipment
 	var/list/result = list()
-	var/list/slots_to_check = list(SLOT_PANTS,SLOT_ARMOR,SLOT_BELT,SLOT_GLOVES,SLOT_SHOES,SLOT_HEAD,SLOT_WEAR_MASK,SLOT_NECK,SLOT_HEAD,SLOT_RING,SLOT_WRISTS)
+	var/list/slots_to_check = DEFAULT_SLOT_PRIORITY
 	for(var/s in slots_to_check)
 		var/obj/item/I = get_item_by_slot(s)
 		var/vedits = collect_vv(I)
