@@ -1286,12 +1286,6 @@
 	},
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
-"gp" = (
-/obj/structure/hotspring,
-/obj/effect/lily_petal/two,
-/obj/effect/falling_sakura,
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors)
 "gv" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 8
@@ -1954,8 +1948,7 @@
 /turf/closed/wall/mineral/tent,
 /area/rogue/outdoors/mountains/decap)
 "zm" = (
-/obj/structure/hotspring,
-/obj/effect/lily_petal/three,
+/obj/structure/hotspring/border/five,
 /obj/effect/falling_sakura,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
@@ -2424,11 +2417,6 @@
 "Il" = (
 /turf/closed/wall/mineral/decorstone,
 /area/rogue/indoors/town/church/chapel)
-"IW" = (
-/obj/structure/hotspring/border/nine,
-/obj/effect/falling_sakura,
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors)
 "Jc" = (
 /obj/structure/hotspring/border/seven,
 /obj/structure/bridge{
@@ -2828,11 +2816,6 @@
 	pixel_x = -15
 	},
 /turf/open/floor/grass/yel,
-/area/rogue/outdoors)
-"VB" = (
-/obj/structure/hotspring/border/three,
-/obj/effect/falling_sakura,
-/turf/open/floor/dirt/road,
 /area/rogue/outdoors)
 "VD" = (
 /obj/structure/flora/ausbushes/ywflowers,
@@ -12690,7 +12673,7 @@ uT
 uT
 Wr
 qi
-DY
+eD
 Kd
 RC
 eq
@@ -12946,8 +12929,8 @@ uT
 uT
 uT
 Wr
-qi
-DY
+zm
+tp
 Oq
 SZ
 RF
@@ -13203,10 +13186,10 @@ uT
 uT
 uT
 Wr
-qi
-eD
+zm
 tp
 tp
+DY
 SZ
 RF
 XT
@@ -13460,10 +13443,10 @@ Gk
 MK
 gv
 Wr
-qi
+zm
 tp
-gp
-IW
+vB
+cp
 SE
 SZ
 Jc
@@ -13718,8 +13701,8 @@ Wn
 Pb
 Wr
 qi
-DY
-zm
+vB
+eD
 HK
 pD
 Ty
@@ -13977,7 +13960,7 @@ QN
 pD
 uf
 uf
-VB
+ji
 Di
 qc
 wD
