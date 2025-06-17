@@ -6,18 +6,17 @@
 	name = "Half-Orc"
 	desc = "The bastards of Graggar. \
 	\n\n\
-	Half-Orcs are the offspring of orcs and another race, \
-	the powerful Graggarite genes of the former corrupting and maiming those of their fairer mates. \
-	This causes their children to be severely deformed, looking much more like their monstrous progenitor. \
+	Half-Orcs are the offspring of orcs and another species, half-orcs, \
+	or another species who has consumed much kinsflesh on their way to orcishness. \
+	An outsider cannot tell a half-orc product of heritage or cannibalism at a glance, leading to much social ostricization.\
 	\n\n\
-	Due to their orcish parent's refusal to nurture them, \
-	as well as their other parent often rejecting or attacking them, \
-	most Half-Orcs will grow as orphans. \
+	Due to their parent's refusal to nurture them, \
+	as well as their other parent often rejecting or attacking them, most Half-Orcs will grow as orphans. \
 	Their rejection by the rest of society causes their growth to stunt, \
 	often making them hostile and prone to violence. Because of this, most will assume the worst in them, \
 	believing that they are cursed to follow their orcish parent's footsteps in the gorging of kin-flesh. \
 	\n\n\
-	A Half-Orc may look much like its monstrous progenitor, sporting tusks and natural strength. \
+	A Half-Orc may display Orcish features, sporting tusks and natural strength. \
 	\n\n\
 	THIS IS AN <I>EXTREMELY</I> DISCRIMINATED SPECIES. EXPECT A MORE DIFFICULT EXPERIENCE. <B>NOBLES EVEN MORE SO.</B> PLAY AT YOUR OWN RISK."
 
