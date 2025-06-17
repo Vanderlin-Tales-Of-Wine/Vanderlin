@@ -18,6 +18,9 @@
 	Many tieflings resign to seeking a solitary and nomadic life, huddled in groups outside the watchful eyes of others. \
 	They also tend to be extremely perceptive and paranoid, as luck is rarely on their side. \
 	\n\n\
+	Tieflings began appearing all over Psydonia after Baotha's ascension within the 21st century. \
+	They are often mistaken as being related to her. \
+	\n\n\
 	Tieflings are incapable of reproducing with mortals, \
 	and thus are spawn of either devils, demons, or other tieflings. \
 	A tiefling may develop any number of hellish features, a wide range of horns, potential hooves, odd spines and spikes, or scales. \
