@@ -17,6 +17,8 @@
 
 /datum/outfit/job/deathknight/pre_equip(mob/living/carbon/human/H)
 	..()
+	if(!(H.patron == /datum/patron/inhumen/zizo))	//Magic MUST be Noc or Zizo. Probably unneeded here, but better to be sure.
+		H.set_patron(/datum/patron/divine/noc)
 	H.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
