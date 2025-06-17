@@ -809,7 +809,6 @@ GLOBAL_LIST_EMPTY(respawncounts)
 
 /client/New(TopicData)
 	var/tdata = TopicData //save this for later use
-	chatOutput = new /datum/chatOutput(src)
 	TopicData = null							//Prevent calls to client.Topic from connect
 
 	if(connection != "seeker" && connection != "web")//Invalid connection type.
@@ -818,7 +817,8 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	GLOB.clients += src
 	GLOB.directory[ckey] = src
 
-	spawn() // Goonchat does some non-instant checks in start()
+	chatOutput = new /datum/chatOutput(src)
+	spawn(5) // Goonchat does some non-instant checks in start()
 		chatOutput.start()
 
 	GLOB.ahelp_tickets.ClientLogin(src)
@@ -849,6 +849,8 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		if(isnull(address) || (address in localhost_addresses))
 			var/datum/admin_rank/localhost_rank = new("!localhost!", R_EVERYTHING, R_DBRANKS, R_EVERYTHING) //+EVERYTHING -DBRANKS *EVERYTHING
 			new /datum/admins(localhost_rank, ckey, 1, 1)
+	// Init patreon data, used by prefs
+	patreon = new(src)
 	//preferences datum - also holds some persistent data for the client (because we may as well keep these datums to a minimum)
 	prefs = GLOB.preferences_datums[ckey]
 	if(prefs)
