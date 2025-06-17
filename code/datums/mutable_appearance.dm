@@ -4,19 +4,19 @@
 
 // Mutable appearances are children of images, just so you know.
 
-// Due to BYOND v515.1643, having this uncommented makes code not compile.
-// It literally does nothing as plane = FLOAT_PLANE is defined on the proc below anyways.
-
 /mutable_appearance/New()
 	..()
 	plane = FLOAT_PLANE // No clue why this is 0 by default yet images are on FLOAT_PLANE
 						// And yes this does have to be in the constructor, BYOND ignores it if you set it as a normal var
-						//we apparently needed this
+
 // Helper similar to image()
-/proc/mutable_appearance(icon, icon_state = "", layer = FLOAT_LAYER, plane = FLOAT_PLANE)
+/proc/mutable_appearance(icon, icon_state = "", layer = FLOAT_LAYER, plane = FLOAT_PLANE, alpha = 255, color, appearance_flags = NONE)
 	var/mutable_appearance/MA = new()
 	MA.icon = icon
 	MA.icon_state = icon_state
 	MA.layer = layer
 	MA.plane = plane
+	MA.alpha = alpha
+	MA.color = color
+	MA.appearance_flags |= appearance_flags
 	return MA
