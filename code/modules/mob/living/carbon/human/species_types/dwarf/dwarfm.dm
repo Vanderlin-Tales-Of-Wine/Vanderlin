@@ -12,9 +12,9 @@
 /datum/species/dwarf/mountain
 	name = "Dwarf"
 	id = "dwarf"
-	desc = "Shaped by both Psydon and Necra, chosen by Malum.\
+	desc = "Shaped by Psydon and Necra, chosen by Malum.\
 	\n\n\
-	A proud and robust species of stunted folk, \
+	A proud and robust species of vertically challenged folk, \
 	the dwarves are known for their pride in martial strength \
 	and their tenacity towards their ancient customs. \
 	A Dwarf, much like the rock that they carve their fortress out of, is stubborn and ancient. \

@@ -13,7 +13,7 @@
 /datum/species/elf/snow
 	name = "Elf"
 	id = "elf"
-	desc = "Psydonia's first.\
+	desc = "Necra's guides.\
 	\n\n\
 	Elves, created by Necra to guide humenity, are characterized by lengthened age, \
 	low fertility, and magical aptitude originating from a vast array of tribal cultures and sub-races. \
