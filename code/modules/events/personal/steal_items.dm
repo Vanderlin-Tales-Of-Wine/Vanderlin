@@ -54,6 +54,6 @@
 
 	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
 	to_chat(chosen_one, span_notice("Matthios demands you prove your cunning! Pickpocket fools to earn Matthios' favor!"))
-	chosen_one.playsound_local(chosen_one, 'sound/items/matidol2.ogg', 100)
+	chosen_one.playsound_local(chosen_one, 'sound/misc/gods/matthios_omen.ogg', 100)
 
 	chosen_one.mind.announce_personal_objectives()
