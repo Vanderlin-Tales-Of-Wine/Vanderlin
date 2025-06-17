@@ -59,8 +59,6 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	var/inquisitive_ghost = 1
 	var/allow_midround_antag = 1
 	var/preferred_map = null
-	var/pda_style = MONO
-	var/pda_color = "#808000"
 
 	var/uses_glasses_colour = 0
 
@@ -1502,13 +1500,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		character.update_body_parts(redraw = TRUE)
 
 /datum/preferences/proc/get_default_name(name_id)
-	switch(name_id)
-		if("human")
-			return random_unique_name()
-		if("religion")
-			return DEFAULT_RELIGION
-		if("deity")
-			return DEFAULT_DEITY
+	// you can use name_id to add more here
 	return random_unique_name()
 
 /datum/preferences/proc/ask_for_custom_name(mob/user,name_id)

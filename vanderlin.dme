@@ -116,7 +116,6 @@
 #include "code\__DEFINES\reagents_specific_heat.dm"
 #include "code\__DEFINES\recursive_channels.dm"
 #include "code\__DEFINES\reflections.dm"
-#include "code\__DEFINES\robots.dm"
 #include "code\__DEFINES\roguetown.dm"
 #include "code\__DEFINES\role_bans.dm"
 #include "code\__DEFINES\role_preferences.dm"

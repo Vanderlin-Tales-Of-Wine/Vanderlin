@@ -6,9 +6,6 @@
 	/// When joining the round, this text will be shown to the player.
 	var/tutorial = null
 
-	/// Determines who can demote this position
-	var/department_head = list()
-
 	/// Tells the given channels that the given mob is the new department head. See communications.dm for valid channels.
 	var/list/head_announce = null
 
@@ -61,7 +58,7 @@
 
 	var/list/mind_traits // Traits added to the mind of the mob assigned this job
 
-	var/display_order = JOB_DISPLAY_ORDER_CAPTAIN
+	var/display_order = JDO_DEFAULT
 
 	/// All values = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK)
 	var/job_flags = NONE
@@ -257,13 +254,6 @@
 		humanguy.advsetup = TRUE
 		humanguy.invisibility = INVISIBILITY_MAXIMUM
 		humanguy.become_blind("advsetup")
-
-/datum/job/proc/announce_job(mob/living/joining_mob)
-	if(head_announce)
-		announce_head(joining_mob, head_announce)
-
-/datum/job/proc/announce_head(mob/living/carbon/human/H, channels) //tells the given channel that the given mob is the new department head. See communications.dm for valid channels.
-	//RT: UNIMPLEMENTED
 
 //Used for a special check of whether to allow a client to latejoin as this job.
 /datum/job/proc/special_check_latejoin(client/C)
