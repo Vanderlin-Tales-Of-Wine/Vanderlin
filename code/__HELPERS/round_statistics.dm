@@ -445,7 +445,7 @@ GLOBAL_LIST_INIT(featured_stats, list(
 	for(var/key in stat_data["entries"])
 		entries += list(list("name" = key, "count" = stat_data["entries"][key]))
 
-	entries = sortList(entries, /proc/cmp_stat_count_desc)
+	sortTim(entries, GLOBAL_PROC_REF(cmp_stat_count_desc))
 
 	var/list/result = list()
 	for(var/i in 1 to min(11, entries.len))
@@ -464,7 +464,7 @@ GLOBAL_LIST_INIT(featured_stats, list(
 	for(var/key in stat_data["entries"])
 		entries += list(list("name" = key, "count" = stat_data["entries"][key]))
 
-	entries = sortList(entries, /proc/cmp_stat_count_desc)
+	sortTim(entries, GLOBAL_PROC_REF(cmp_stat_count_desc))
 
 	var/list/result = list()
 	for(var/i in 1 to min(11, entries.len))

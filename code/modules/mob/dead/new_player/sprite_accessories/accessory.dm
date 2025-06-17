@@ -11,7 +11,7 @@
 	return is_human_part_visible(owner, HIDEFACE)
 
 /datum/sprite_accessory/accessories/adjust_appearance_list(list/appearance_list, obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
-	generic_gender_feature_adjust(appearance_list, organ, bodypart, owner, OFFSET_FACE, OFFSET_FACE_F)
+	generic_gender_feature_adjust(appearance_list, organ, bodypart, owner, OFFSET_FACE)
 
 
 /datum/sprite_accessory/accessories/nothing

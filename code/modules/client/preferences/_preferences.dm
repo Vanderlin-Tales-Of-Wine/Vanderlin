@@ -160,6 +160,8 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	var/has_spawned = FALSE
 	///our selected accent
 	var/selected_accent = ACCENT_DEFAULT
+	/// If our owner has patreon access
+	var/patreon = FALSE
 
 /datum/preferences/New(client/C)
 	parent = C
@@ -169,16 +171,23 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	flavortext = null
 	headshot_link = null
 
+	// C/parent can be a client_interface
+	if(isclient(parent))
+		patreon = parent?.patreon?.has_access(ACCESS_ASSISTANT_RANK)
+
 	for(var/custom_name_id in GLOB.preferences_custom_names)
 		custom_names[custom_name_id] = get_default_name(custom_name_id)
 
 	UI_style = GLOB.available_ui_styles[1]
+
 	if(istype(C))
 		if(!IsGuestKey(C.key))
 			load_path(C.ckey)
 			unlock_content = C.IsByondMember()
 			if(unlock_content)
 				max_save_slots += 5
+		if(patreon)
+			max_save_slots += 30
 	var/loaded_preferences_successfully = load_preferences()
 	if(loaded_preferences_successfully)
 		if(load_character())
@@ -186,7 +195,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 				real_name = pref_species.random_name(gender,1)
 			return
 	//we couldn't load character data so just randomize the character appearance + name
-	randomise_appearance_prefs()		//let's create a random character then - rather than a fat, bald and naked man.
+	randomise_appearance_prefs(include_patreon = patreon)		//let's create a random character then - rather than a fat, bald and naked man.
 	if(!charflaw)
 		charflaw = pick(GLOB.character_flaws)
 		charflaw = GLOB.character_flaws[charflaw]
@@ -287,6 +296,8 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	//-----------START OF IDENT TABLE-----------//
 	dat += "<h2>Identity</h2>"
 	dat += "<table width='100%'><tr><td width='75%' valign='top'>"
+	dat += "<a style='white-space:nowrap;' href='?_src_=prefs;preference=randomiseappearanceprefs;'>Randomize Character</a>"
+	dat += "<br>"
 	dat += "<b>Name:</b> "
 	if(check_nameban(user.ckey))
 		dat += "<a href='?_src_=prefs;preference=name;task=input'>NAMEBANNED</a><BR>"
@@ -294,7 +305,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		dat += "<a href='?_src_=prefs;preference=name;task=input'>[real_name]</a> <a href='?_src_=prefs;preference=name;task=random'>\[R\]</a>"
 
 	dat += "<BR>"
-	dat += "<b>Species:</b> <a href='?_src_=prefs;preference=species;task=input'>[pref_species.name]</a>[spec_check(user) ? "" : " (!)"]<BR>"
+	dat += "<b>Species:</b> <a href='?_src_=prefs;preference=species;task=input'>[pref_species.name]</a>[spec_check() ? "" : " (!)"]<BR>"
 
 	if(!(AGENDER in pref_species.species_traits))
 		var/dispGender
@@ -665,8 +676,10 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	return 1
 
 
-/datum/preferences/proc/ResetJobs()
+/datum/preferences/proc/ResetJobs(mob/user, silent = FALSE)
 	job_preferences = list()
+	if(!silent)
+		to_chat(user, "<font color='red'>Classes reset.</font>")
 
 /datum/preferences/proc/ResetLastClass(mob/user)
 	if(user.client?.prefs)
@@ -750,7 +763,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 				days_remaining = get_remaining_days(user.client)
 
 			if(days_remaining)
-				dat += "<b>[capitalize(i)]:</b> <font color=red> \[IN [days_remaining] DAYS]</font><br>"
+				dat += "<b>[capitalize(i)]:</b> <font color=red> \[IN [days_remaining] DAYS\]</font><br>"
 			else
 				dat += "<b>[capitalize(i)]:</b> <a href='?_src_=prefs;preference=antag;task=be_special;be_special_type=[i]'>[(i in be_special) ? "Enabled" : "Disabled"]</a><br>"
 
@@ -793,7 +806,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 				user << browse(null, "window=mob_occupation")
 				ShowChoices(user,4)
 			if("reset")
-				ResetJobs()
+				ResetJobs(user, TRUE)
 				SetChoices(user,4)
 			if("triumphthing")
 				ResetLastClass(user)
@@ -984,8 +997,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 					var/new_age = browser_input_list(user, "SELECT YOUR HERO'S AGE", "YILS DEAD", pref_species.possible_ages, age)
 					if(new_age)
 						age = new_age
-						ResetJobs()
-						to_chat(user, "<font color='red'>Classes reset.</font>")
+						ResetJobs(user)
 
 				if("faith")
 					var/list/faiths_named = list()
@@ -1030,7 +1042,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 						voice_color = sanitize_hexcolor(new_voice)
 
 				if("headshot")
-					if(!user.client?.patreon?.has_access(ACCESS_ASSISTANT_RANK))
+					if(!patreon)
 						to_chat(user, "This is a patreon exclusive feature, your headshot link will be applied but others will only be able to view it if you are a patreon supporter.")
 
 					to_chat(user, "<span class='notice'>Please use an image of the head and shoulder area to maintain immersion level. Lastly, ["<span class='bold'>do not use a real life photo or use any image that is less than serious.</span>"]</span>")
@@ -1048,21 +1060,13 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 					log_game("[user] has set their Headshot image to '[headshot_link]'.")
 
 				if("species")
-					var/list/crap = list()
-					for(var/A in GLOB.roundstart_races)
-						var/datum/species/bla = GLOB.species_list[A]
-						bla = new bla()
-						if(user.client)
-							if(bla.patreon_req && !user.client.patreon?.has_access(ACCESS_ASSISTANT_RANK))
-								continue
-						else
-							continue
-						crap += bla
+					var/list/selectable = get_selectable_species(patreon)
 
-					var/result = browser_input_list(user, "SELECT YOUR HERO'S PEOPLE:", "VANDERLIN FAUNA", crap, pref_species)
+					var/result = browser_input_list(user, "SELECT YOUR HERO'S PEOPLE:", "VANDERLIN FAUNA", selectable, pref_species)
 
 					if(result)
-						pref_species = result
+						var/species = GLOB.species_list[result]
+						pref_species = new species
 
 						to_chat(user, "<em>[pref_species.name]</em>")
 						if(pref_species.desc)
@@ -1070,13 +1074,11 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 
 						//Now that we changed our species, we must verify that the mutant colour is still allowed.
 						real_name = pref_species.random_name(gender,1)
-						ResetJobs()
-						age = pick(pref_species.possible_ages)
+						ResetJobs(user)
 						customizer_entries = list()
 						validate_customizer_entries()
 						reset_all_customizer_accessory_colors()
 						randomize_all_customizer_accessories()
-						to_chat(user, "<font color='red'>Classes reset.</font>")
 						randomise_appearance_prefs(~(RANDOMIZE_SPECIES))
 						accessory = "Nothing"
 
@@ -1110,20 +1112,20 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 						skin_tone = listy[new_s_tone]
 
 				if("selected_accent")
-					if(!user.client?.patreon?.has_access(ACCESS_ASSISTANT_RANK))
+					if(!patreon)
 						to_chat(user, "Sorry this is a patreon exclusive feature.")
-					else
-						var/accent = input(user, "Choose your character's accent:", "Character Preference") as null|anything in GLOB.accent_list
-						if(accent)
-							selected_accent = accent
+						return
+					var/accent = browser_input_list(user, "CHOOSE YOUR HERO'S ACCENT", "VOICE OF THE WORLD", GLOB.accent_list, selected_accent)
+					if(accent)
+						selected_accent = accent
 
 				if("ooccolor")
-					var/new_ooccolor = input(user, "Choose your OOC colour:", "Game Preference",ooccolor) as color|null
+					var/new_ooccolor = input(user, "Choose your OOC colour:", "Game Preference", ooccolor) as color|null
 					if(new_ooccolor)
 						ooccolor = sanitize_ooccolor(new_ooccolor)
 
 				if("asaycolor")
-					var/new_asaycolor = input(user, "Choose your ASAY color:", "Game Preference",asaycolor) as color|null
+					var/new_asaycolor = input(user, "Choose your ASAY color:", "Game Preference", asaycolor) as color|null
 					if(new_asaycolor)
 						asaycolor = sanitize_ooccolor(new_asaycolor)
 				if ("clientfps")
@@ -1147,15 +1149,14 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 					if (!isnull(desiredlength))
 						max_chat_length = clamp(desiredlength, 1, CHAT_MESSAGE_MAX_LENGTH)
 				if("gender")
-					var/pickedGender = "male"
-					if(gender == "male")
-						pickedGender = "female"
+					var/pickedGender = MALE
+					if(gender == MALE)
+						pickedGender = FEMALE
 					if(pickedGender && pickedGender != gender)
 						gender = pickedGender
 						real_name = real_name = pref_species.random_name(gender,1)
-						ResetJobs()
-						to_chat(user, "<font color='red'>Classes reset.</font>")
-						randomise_appearance_prefs(~(RANDOMIZE_GENDER | RANDOMIZE_SPECIES))
+						ResetJobs(user)
+						randomise_appearance_prefs(RANDOMIZE_UNDERWEAR | RANDOMIZE_HAIRSTYLE)
 						accessory = "Nothing"
 						detail = "Nothing"
 				if("domhand")
@@ -1380,8 +1381,16 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 					if(choice)
 						choice = choices[choice]
 						if(!load_character(choice))
-							randomise_appearance_prefs()
+							randomise_appearance_prefs(include_patreon = patreon)
 							save_character()
+
+				if("randomiseappearanceprefs")
+					randomise_appearance_prefs(include_patreon = patreon)
+					customizer_entries = list()
+					validate_customizer_entries()
+					reset_all_customizer_accessory_colors()
+					randomize_all_customizer_accessories()
+					ResetJobs(user)
 
 				if("tab")
 					if (href_list["tab"])
@@ -1394,7 +1403,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 
 /// Sanitization checks to be performed before using these preferences.
 /datum/preferences/proc/sanitize_chosen_prefs()
-	if(!(pref_species.name in GLOB.roundstart_races) || (pref_species.patreon_req && !parent.patreon?.has_access(ACCESS_ASSISTANT_RANK)))
+	if(!(pref_species.name in get_selectable_species(patreon)))
 		pref_species = new /datum/species/human/northern
 		save_character()
 
@@ -1418,6 +1427,8 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 /datum/preferences/proc/apply_prefs_to(mob/living/carbon/human/character, icon_updates = TRUE)
 	if(QDELETED(character) || !ishuman(character))
 		return
+	character.age = age
+	character.gender = gender
 	character.set_species(pref_species.type, icon_update = FALSE, pref_load = src)
 	if(real_name in GLOB.chosen_names)
 		character.real_name = pref_species.random_name(gender)
@@ -1425,8 +1436,6 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		character.real_name = real_name
 	character.name = character.real_name
 
-	character.age = age
-	character.gender = gender
 	character.dna.features = features.Copy()
 	character.dna.real_name = character.real_name
 
@@ -1483,7 +1492,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		if(is_misc_banned(parent.ckey, BAN_MISC_PUNISHMENT_CURSE))
 			ADD_TRAIT(character, TRAIT_PUNISHMENT_CURSE, TRAIT_BAN_PUNISHMENT)
 
-		if(parent.patreon?.has_access(ACCESS_ASSISTANT_RANK))
+		if(patreon)
 			character.accent = selected_accent
 
 	/* :V */

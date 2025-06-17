@@ -10,7 +10,7 @@
 	return is_human_part_visible(owner, HIDETAIL)
 
 /datum/sprite_accessory/tail/adjust_appearance_list(list/appearance_list, obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
-	generic_gender_feature_adjust(appearance_list, organ, bodypart, owner, OFFSET_UNDIES, OFFSET_UNDIES_F)
+	generic_gender_feature_adjust(appearance_list, organ, bodypart, owner, OFFSET_UNDIES)
 
 /datum/sprite_accessory/tail/get_icon_state(obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
 	if(!can_wag)
@@ -344,5 +344,23 @@
 	name = "TiebTail"
 	icon_state = "tiebtail"
 	specuse = list("tiefling")
-	gender = NEUTER
 	color_key_defaults = list(KEY_SKIN_COLOR)
+
+/datum/sprite_accessory/tail/triton
+	name = "Triton Bell"
+	icon = 'icons/mob/sprite_accessory/tails/triton.dmi'
+	icon_state = "triton"
+	specuse = list("triton")
+	color_key_defaults = list(KEY_SKIN_COLOR)
+
+/datum/sprite_accessory/tail/kobold
+	name = "Kobold Curly"
+	icon = 'icons/mob/sprite_accessory/tails/lizard.dmi'
+	icon_state = "kobold"
+	specuse = list("kobold")
+	color_key_defaults = list(KEY_SKIN_COLOR)
+
+/datum/sprite_accessory/tail/kobold/alt
+	name = "Kobold Straight"
+	icon_state = "kobold_alt"
+	can_wag = TRUE
