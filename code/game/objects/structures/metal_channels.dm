@@ -35,9 +35,6 @@
 
 /obj/structure/metal_channel/update_overlays()
 	. = ..()
-	if(length(overlays))
-		overlays.Cut()
-
 	var/new_overlay = ""
 	for(var/i in connected)
 		if(connected[i])
@@ -51,15 +48,14 @@
 	if(!metal)
 		return
 
-	var/mutable_appearance/MA = mutable_appearance(icon, "[icon_state]-c")
-	MA.appearance_flags = RESET_COLOR | KEEP_APART
-	MA.color = initial(largest.color)
-	overlays += MA
+	. += mutable_appearance(
+		icon,
+		"[icon_state]-c",
+		color = initial(largest.color),
+		appearance_flags = (RESET_COLOR | KEEP_APART),
+	)
 	if(initial(largest?.red_hot) && group_reagents.chem_temp > initial(largest.melting_point))
-		var/mutable_appearance/MA2 = mutable_appearance(icon, "[icon_state]-c")
-		MA2.plane = EMISSIVE_PLANE
-		overlays += MA2
-
+		. += emissive_appearance(icon, "[icon_state]-c")
 
 /obj/structure/metal_channel/proc/set_connection(dir)
 	connected["[dir]"] = 1

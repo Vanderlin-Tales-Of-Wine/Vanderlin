@@ -70,22 +70,18 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 
 /obj/structure/fermentation_keg/update_overlays()
 	. = ..()
-	if(length(overlays))
-		overlays.Cut()
-
 	if(!reagents.total_volume)
 		return
 	if(icon_state != open_icon_state)
 		return
-	var/mutable_appearance/MA = mutable_appearance(icon, "filling")
-	MA.color = mix_color_from_reagents(reagents)
+	. += mutable_appearance(
+		icon,
+		"filling",
+		color = mix_color_from_reagents(reagents),
+	)
 	for(var/datum/reagent/reagent as anything in reagents.reagent_list)
 		if(reagent.glows)
-			var/mutable_appearance/emissive = mutable_appearance(icon, "filling")
-			emissive.plane = EMISSIVE_PLANE
-			overlays += emissive
-			break
-	overlays += MA
+			. += emissive_appearance(icon, "filling")
 
 /obj/structure/fermentation_keg/attack_right(mob/user)
 	. = ..()

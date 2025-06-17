@@ -89,9 +89,7 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 		filling.color = mix_color_from_reagents(reagents.reagent_list)
 		for(var/datum/reagent/reagent as anything in reagents.reagent_list)
 			if(reagent.glows)
-				var/mutable_appearance/emissive = mutable_appearance('icons/roguetown/items/glass_reagent_container.dmi', filling.icon_state)
-				emissive.plane = EMISSIVE_PLANE
-				overlays += emissive
+				overlays += emissive_appearance('icons/roguetown/items/glass_reagent_container.dmi', filling.icon_state)
 				break
 
 		underlays += filling
@@ -235,42 +233,6 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 	fillsounds = list('sound/items/fillcup.ogg')
 	poursounds = list('sound/items/fillbottle.ogg')
 	experimental_onhip = TRUE
-
-/obj/item/reagent_containers/glass/bottle/vial/update_icon(dont_fill=FALSE)
-	if(!fill_icon_thresholds || dont_fill)
-		return
-
-	cut_overlays()
-	underlays.Cut()
-
-	if(reagents.total_volume)
-		var/fill_name = fill_icon_state? fill_icon_state : icon_state
-		if (original_icon_state != null) // Otherwise bottle looks empty when there's a label on it
-			fill_name = fill_icon_state? fill_icon_state : original_icon_state
-		var/mutable_appearance/filling = mutable_appearance('icons/roguetown/items/glass_reagent_container.dmi', "[fill_name][fill_icon_thresholds[1]]")
-
-		var/percent = round((reagents.total_volume / volume) * 100)
-		for(var/i in 1 to fill_icon_thresholds.len)
-			var/threshold = fill_icon_thresholds[i]
-			var/threshold_end = (i == fill_icon_thresholds.len)? INFINITY : fill_icon_thresholds[i+1]
-			if(threshold <= percent && percent < threshold_end)
-				filling.icon_state = "[fill_name][fill_icon_thresholds[i]]"
-		filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
-		filling.color = mix_color_from_reagents(reagents.reagent_list)
-		for(var/datum/reagent/reagent as anything in reagents.reagent_list)
-			if(reagent.glows)
-				var/mutable_appearance/emissive = mutable_appearance('icons/roguetown/items/glass_reagent_container.dmi', filling.icon_state)
-				emissive.plane = EMISSIVE_PLANE
-				overlays += emissive
-				break
-
-		underlays += filling
-
-	if(closed)
-		if (original_icon_state != null)
-			add_overlay("[original_icon_state]cork")
-		else
-			add_overlay("[icon_state]cork")
 
 /obj/item/reagent_containers/glass/bottle/vial/rmb_self(mob/user)
 	closed = !closed

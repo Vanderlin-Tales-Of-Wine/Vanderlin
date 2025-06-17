@@ -35,9 +35,7 @@
 			filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
 			for(var/datum/reagent/reagent as anything in reagents.reagent_list)
 				if(reagent.glows)
-					var/mutable_appearance/emissive = mutable_appearance('icons/roguetown/items/cooking.dmi', "pote_half")
-					emissive.plane = EMISSIVE_PLANE
-					overlays += emissive
+					overlays += emissive_appearance('icons/roguetown/items/cooking.dmi', "pote_half")
 					break
 			add_overlay(filling)
 
@@ -47,12 +45,9 @@
 			filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
 			for(var/datum/reagent/reagent as anything in reagents.reagent_list)
 				if(reagent.glows)
-					var/mutable_appearance/emissive = mutable_appearance('icons/roguetown/items/cooking.dmi', "pote_full")
-					emissive.plane = EMISSIVE_PLANE
-					overlays += emissive
+					overlays += emissive_appearance('icons/roguetown/items/cooking.dmi', "pote_full")
 					break
 			add_overlay(filling)
-
 
 /obj/item/reagent_containers/glass/bucket/pot/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/reagent_containers/glass/bowl))

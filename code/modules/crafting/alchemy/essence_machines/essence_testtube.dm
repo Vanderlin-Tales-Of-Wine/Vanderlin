@@ -24,28 +24,22 @@
 		qdel(storage)
 	return ..()
 
-/obj/machinery/essence/test_tube/update_icon()
+/obj/machinery/essence/test_tube/update_overlays()
 	. = ..()
-	cut_overlays()
 
 	if(gnome_progress)
 		var/image/gnome_overlay = image('icons/mob/gnome2.dmi', "gnome-tube")
 		gnome_overlay.pixel_y = 6
 		gnome_overlay.layer = layer - 0.1
-		overlays += gnome_overlay
+		. += gnome_overlay
 
 	var/essence_percent = (storage.get_total_stored()) / (100)
 	if(!essence_percent)
 		return
 	var/level = clamp(CEILING(essence_percent * 4, 1), 1, 4)
 
-	var/mutable_appearance/MA = mutable_appearance(icon, "tank_[level]")
-	MA.color = calculate_mixture_color()
-	overlays += MA
-
-	var/mutable_appearance/emissive = mutable_appearance(icon, "tank_[level]")
-	emissive.plane = EMISSIVE_PLANE
-	overlays += emissive
+	. += mutable_appearance(icon, "tank_[level]", color = calculate_mixture_color())
+	. += emissive_appearance(icon, "tank_[level]")
 
 /obj/machinery/essence/test_tube/return_storage()
 	return storage

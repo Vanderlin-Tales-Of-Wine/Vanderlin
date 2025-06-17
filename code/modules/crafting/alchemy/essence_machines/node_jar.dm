@@ -37,18 +37,17 @@
 				to_chat(holder, span_notice("The contained essence node creates a slight burden."))
 		last_drain = world.time
 
-/obj/item/essence_node_jar/update_icon()
-	cut_overlays()
+/obj/item/essence_node_jar/update_overlays()
+	. = ..()
 	if(contained_node)
 		var/datum/thaumaturgical_essence/essence = contained_node.essence_type
-		var/mutable_appearance/node = mutable_appearance(contained_node.icon, contained_node.icon_state)
-		node.color = initial(essence.color)
-		node.layer = layer - 0.1
-		overlays += node
-
-		var/mutable_appearance/node_emissive = mutable_appearance(contained_node.icon, contained_node.icon_state)
-		node_emissive.plane = EMISSIVE_PLANE
-		overlays += node_emissive
+		. += mutable_appearance(
+			contained_node.icon,
+			contained_node.icon_state,
+			layer - 0.1,
+			color = initial(essence.color),
+		)
+		. += emissive_appearance(contained_node.icon, contained_node.icon_state)
 
 /obj/item/essence_node_jar/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	if(!proximity_flag)

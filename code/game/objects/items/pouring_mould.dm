@@ -94,12 +94,11 @@
 			alpha = (255 * (fufilled_metal / required_metal)),
 			appearance_flags = RESET_COLOR | KEEP_APART,
 		)
-		var/mutable_appearance/MA = mutable_appearance(icon, filling_icon_state)
+		var/mutable_appearance/MA = emissive_appearance(icon, filling_icon_state)
 		if(cooling)
 			MA.alpha = 255 * round((1 - (cooling_progress / 100)),0.1)
 		else
 			MA.alpha = 255 * (fufilled_metal / required_metal)
-		MA.plane = EMISSIVE_PLANE
 		. += MA
 
 /obj/item/mould/proc/start_cooling()

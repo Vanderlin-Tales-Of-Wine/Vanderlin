@@ -18,12 +18,9 @@
 	// Visual states
 	var/base_icon_state = "node"
 
-/obj/structure/essence_node/update_icon()
+/obj/structure/essence_node/update_overlays()
 	. = ..()
-	cut_overlays()
-	var/mutable_appearance/emissive = mutable_appearance(icon, icon_state)
-	emissive.plane = EMISSIVE_PLANE
-	overlays += emissive
+	. += emissive_appearance(icon, icon_state)
 
 /obj/structure/essence_node/Initialize(mapload)
 	. = ..()

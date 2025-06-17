@@ -28,20 +28,21 @@
 	installed_node = null
 	return ..()
 
-/obj/machinery/essence/harvester/update_icon()
+/obj/machinery/essence/harvester/update_overlays()
 	. = ..()
-	cut_overlays()
 	if(installed_node)
-		var/mutable_appearance/node = mutable_appearance(installed_node.icon, installed_node.icon_state)
-		node.color = installed_node.color
-		node.layer = layer + 0.1
+		var/mutable_appearance/node = mutable_appearance(
+			installed_node.icon,
+			installed_node.icon_state,
+			layer + 0.1,
+			color = installed_node.color,
+		)
 		node.pixel_y = 12
-		overlays += node
+		. += node
 
-		var/mutable_appearance/node_emissive = mutable_appearance(installed_node.icon, installed_node.icon_state)
-		node_emissive.plane = EMISSIVE_PLANE
+		var/mutable_appearance/node_emissive = emissive_appearance(installed_node.icon, installed_node.icon_state)
 		node_emissive.pixel_y = 12
-		overlays += node_emissive
+		. += node_emissive
 
 /obj/machinery/essence/harvester/return_storage()
 	return storage

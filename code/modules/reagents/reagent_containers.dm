@@ -166,10 +166,7 @@
 		filling.color = mix_color_from_reagents(reagents.reagent_list)
 		for(var/datum/reagent/reagent as anything in reagents.reagent_list)
 			if(reagent.glows)
-				var/mutable_appearance/emissive = mutable_appearance('icons/obj/reagentfillings.dmi', filling.icon_state)
-				emissive.plane = EMISSIVE_PLANE
-				overlays += emissive
+				overlays += emissive_appearance('icons/obj/reagentfillings.dmi', filling.icon_state)
 				break
 		add_overlay(filling)
 	. = ..()
-
