@@ -1166,9 +1166,9 @@
 						thebride.adjust_triumphs(1)
 						//Bite the apple first if you want to be the groom.
 						if(thegroom.gender == thebride.gender)	//Homophobic dog stare. Pack it up, skittles squad.
-							priority_announce("Eora begrudgingly accepts the union between [thegroom.real_name] and [bridefirst].", title = "Holy Union!", sound = 'sound/misc/bell.ogg')
+							priority_announce("Eora begrudgingly accepts the marriage between [thegroom.real_name] and [bridefirst].", title = "Holy Union!", sound = 'sound/misc/bell.ogg')
 						else
-							priority_announce("Eora proudly proclaims [thegroom.real_name] and [bridefirst], married!", title = "Holy Union!", sound = 'sound/misc/bell.ogg')
+							priority_announce("Eora proudly embraces the marriage between [thegroom.real_name] and [bridefirst]!", title = "Holy Union!", sound = 'sound/misc/bell.ogg')
 						thegroom.remove_stress(/datum/stressevent/eora_matchmaking)
 						thebride.remove_stress(/datum/stressevent/eora_matchmaking)
 						SEND_GLOBAL_SIGNAL(COMSIG_GLOBAL_MARRIAGE, thegroom, thebride)
