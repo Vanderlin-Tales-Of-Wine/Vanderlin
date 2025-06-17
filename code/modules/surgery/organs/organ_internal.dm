@@ -72,8 +72,7 @@
 	M.internal_organs |= src
 	M.internal_organs_slot[slot] = src
 	moveToNullspace()
-	for(var/X in actions)
-		var/datum/action/A = X
+	for(var/datum/action/A as anything in actions)
 		A.Grant(M)
 	update_accessory_colors()
 	STOP_PROCESSING(SSobj, src)
@@ -87,8 +86,7 @@
 			M.internal_organs_slot.Remove(slot)
 		if((organ_flags & ORGAN_VITAL) && !special && !(M.status_flags & GODMODE))
 			M.death()
-	for(var/X in actions)
-		var/datum/action/A = X
+	for(var/datum/action/A as anything in actions)
 		A.Remove(M)
 	update_icon()
 //	START_PROCESSING(SSobj, src)

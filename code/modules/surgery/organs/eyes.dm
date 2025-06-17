@@ -35,9 +35,20 @@
 	var/damaged	= FALSE	//damaged indicates that our eyes are undergoing some level of negative effect
 
 	var/old_eye_color = "fff" //cache owners original eye color before inserting new eyes
-	var/eye_color = null //set to a hex code to override a mob's eye color
+	/// Current eye color
+	var/eye_color = null
+	/// Whether eyes are different colors
 	var/heterochromia = FALSE
+	/// Second color for heterochromia
 	var/second_color = "FFFFFF"
+
+	/// Glows with emissive in the dark
+	var/glows = FALSE
+
+	/// Override color for item overlay
+	var/base_override // = "#000000"
+	/// Override emissive color for item overlay
+	var/emissive_override // = "#000000"
 
 /obj/item/organ/eyes/Initialize()
 	. = ..()
@@ -50,10 +61,20 @@
 
 /obj/item/organ/eyes/update_overlays()
 	. = ..()
-	if(eye_color && icon_state == "eyeball")
-		var/mutable_appearance/iris_overlay = mutable_appearance(icon, "eyeball-iris")
-		iris_overlay.color = "#[eye_color]"
+	if(eye_color)
+		var/mutable_appearance/iris_overlay = mutable_appearance(icon, "[icon_state]-iris")
+
+		var/used_color = "#[eye_color]"
+		if(heterochromia && prob(50))
+			used_color = "#[second_color]"
+
+		iris_overlay.color = base_override ? base_override : used_color
 		. += iris_overlay
+		// if(glows)
+		// 	iris_overlay = mutable_appearance(icon, "[icon_state]-iris")
+		// 	iris_overlay.color = emissive_override ? emissive_override : used_color
+		// 	iris_overlay.plane = EMISSIVE_PLANE
+		// 	. += iris_overlay
 
 /obj/item/organ/eyes/update_accessory_colors()
 	var/list/colors_list = list()
@@ -182,7 +203,8 @@
 /obj/item/organ/eyes/triton
 	name = "dead fish eyes"
 	accessory_type = /datum/sprite_accessory/eyes/humanoid/triton
-	eye_color = "000000"
+	base_override = "#000"
+	glows = TRUE
 	flash_protect = FLASH_PROTECTION_SENSITIVE
 
 /obj/item/organ/eyes/no_render
