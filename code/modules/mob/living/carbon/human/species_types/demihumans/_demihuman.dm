@@ -11,37 +11,68 @@
 	The history of their origin was centuries ago, and the true nature of their existence is largely lost to the Hollowkin. The drow still recall, of course, viciously mocking their creations from deep within their caves, treating them but nothing more than animals or pets. The Hollowkin react violently to drow attempts at oppression, this leads to conflicts across the world of Psydonia.\
 	To the unaligned observer, Hollowkin are often seen amongst bandit bands, Working openly with Agents of Matthios, conflating the idea of freedom between the two deities. There is, of course, the old wives' tales that circulate... how Hollowkin lead to infestations of Werewolves. Weather this is true or not is unknown to the normal man, but to those familiar with the horrendous magics used by the drow, they have no choice but to assume. To Orcs and goblins, they are good eats.\
 	Hollowkin are often denied nobility due to these rumors alone, though their animalism certainly does not help. If one miraculously does appear in the court, they are treated at best like a pet, though more likely distrusted as just another bandit people of Amber Hollow."
+
 	skin_tone_wording = "Ancestry"
 	default_color = "FFFFFF"
-	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,STUBBLE,OLDGREY)
+	species_traits = list(EYECOLOR, HAIR ,FACEHAIR, LIPS, STUBBLE, OLDGREY)
 	default_features = MANDATORY_FEATURE_LIST
 	use_skintones = TRUE
-	possible_ages = list(AGE_CHILD, AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD)
+	possible_ages = NORMAL_AGES_LIST_CHILD
 	disliked_food = NONE
 	liked_food = NONE
-	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | RACE_SWAP | SLIME_EXTRACT
+	changesource_flags = WABBAJACK
+
 	limbs_icon_m = 'icons/roguetown/mob/bodies/m/mt.dmi'
 	limbs_icon_f = 'icons/roguetown/mob/bodies/f/fm.dmi'
-	dam_icon = 'icons/roguetown/mob/bodies/dam/dam_male.dmi'
+
+	dam_icon_m = 'icons/roguetown/mob/bodies/dam/dam_male.dmi'
 	dam_icon_f = 'icons/roguetown/mob/bodies/dam/dam_female.dmi'
-	soundpack_m = /datum/voicepack/male
-	soundpack_f = /datum/voicepack/female
+
 	exotic_bloodtype = /datum/blood_type/human/demihuman
-	offset_features = list(
-		OFFSET_RING = list(0,1), OFFSET_GLOVES = list(0,1), OFFSET_WRISTS = list(0,1),\
-		OFFSET_CLOAK = list(0,1), OFFSET_FACEMASK = list(0,1), OFFSET_HEAD = list(0,1), \
-		OFFSET_FACE = list(0,1), OFFSET_BELT = list(0,1), OFFSET_BACK = list(0,1), \
-		OFFSET_NECK = list(0,1), OFFSET_MOUTH = list(0,1), OFFSET_PANTS = list(0,1), \
-		OFFSET_SHIRT = list(0,1), OFFSET_ARMOR = list(0,1), OFFSET_HANDS = list(0,1), OFFSET_UNDIES = list(0,1), \
-		OFFSET_RING_F = list(0,-1), OFFSET_GLOVES_F = list(0,0), OFFSET_WRISTS_F = list(0,0), OFFSET_HANDS_F = list(0,0), \
-		OFFSET_CLOAK_F = list(0,0), OFFSET_FACEMASK_F = list(0,-1), OFFSET_HEAD_F = list(0,-1), \
-		OFFSET_FACE_F = list(0,-1), OFFSET_BELT_F = list(0,0), OFFSET_BACK_F = list(0,-1), \
-		OFFSET_NECK_F = list(0,-1), OFFSET_MOUTH_F = list(0,-1), OFFSET_PANTS_F = list(0,0), \
-		OFFSET_SHIRT_F = list(0,0), OFFSET_ARMOR_F = list(0,0), OFFSET_UNDIES_F = list(0,-1), \
-		)
-	specstats = list(STAT_PERCEPTION = 1)
+
+	offset_features_m = list(
+		OFFSET_RING = list(0,1),\
+		OFFSET_GLOVES = list(0,1),\
+		OFFSET_WRISTS = list(0,1),\
+		OFFSET_HANDS = list(0,1),\
+		OFFSET_CLOAK = list(0,1),\
+		OFFSET_FACEMASK = list(0,1),\
+		OFFSET_HEAD = list(0,1),\
+		OFFSET_FACE = list(0,1),\
+		OFFSET_BELT = list(0,1),\
+		OFFSET_BACK = list(0,1),\
+		OFFSET_NECK = list(0,1),\
+		OFFSET_MOUTH = list(0,1),\
+		OFFSET_PANTS = list(0,1),\
+		OFFSET_SHIRT = list(0,1),\
+		OFFSET_ARMOR = list(0,1),\
+		OFFSET_UNDIES = list(0,1),\
+	)
+
+	offset_features_f = list(
+		OFFSET_RING = list(0,-1),\
+		OFFSET_GLOVES = list(0,0),\
+		OFFSET_WRISTS = list(0,0),\
+		OFFSET_HANDS = list(0,0),\
+		OFFSET_CLOAK = list(0,0),\
+		OFFSET_FACEMASK = list(0,-1),\
+		OFFSET_HEAD = list(0,-1),\
+		OFFSET_FACE = list(0,-1),\
+		OFFSET_BELT = list(0,0),\
+		OFFSET_BACK = list(0,-1),\
+		OFFSET_NECK = list(0,-1),\
+		OFFSET_MOUTH = list(0,-1),\
+		OFFSET_PANTS = list(0,0),\
+		OFFSET_SHIRT = list(0,0),\
+		OFFSET_ARMOR = list(0,0),\
+		OFFSET_UNDIES = list(0,0),\
+	)
+
+	specstats_m = list(STAT_PERCEPTION = 1)
 	specstats_f = list(STAT_PERCEPTION = 1)
+
 	enflamed_icon = "widefire"
+
 	organs = list(
 		ORGAN_SLOT_BRAIN = /obj/item/organ/brain,
 		ORGAN_SLOT_HEART = /obj/item/organ/heart,
@@ -53,7 +84,7 @@
 		ORGAN_SLOT_STOMACH = /obj/item/organ/stomach,
 		ORGAN_SLOT_APPENDIX = /obj/item/organ/appendix,
 		ORGAN_SLOT_TAIL = /obj/item/organ/tail,
-		)
+	)
 	bodypart_features = list(
 		/datum/bodypart_feature/hair/head,
 		/datum/bodypart_feature/hair/facial,
@@ -67,7 +98,7 @@
 		/datum/customizer/organ/ears/demihuman,
 		/datum/customizer/organ/horns/demihuman,
 		/datum/customizer/organ/tail/demihuman,
-		)
+	)
 
 	descriptor_choices = list(
 		/datum/descriptor_choice/height,
@@ -117,16 +148,15 @@
 /datum/species/demihuman/qualifies_for_rank(rank, list/features)
 	return TRUE
 
-/datum/species/demihuman/on_species_gain(mob/living/carbon/foreign, datum/species/old_species)
+/datum/species/demihuman/on_species_gain(mob/living/carbon/C, datum/species/old_species)
 	..()
-	foreign.grant_language(/datum/language/common)
-//	languages(foreign)
+	RegisterSignal(C, COMSIG_MOB_SAY, PROC_REF(handle_speech))
+	C.grant_language(/datum/language/common)
 
-/*
-/datum/species/demihuman/proc/languages(mob/living/carbon/human/foreign)
-	if(foreign.skin_tone == SKIN_COLOR_GRENZELHOFT)
-		foreign.grant_language(/datum/language/grenzelhoftian)
-*/
+/datum/species/demihuman/on_species_loss(mob/living/carbon/C)
+	. = ..()
+	UnregisterSignal(C, COMSIG_MOB_SAY)
+	C.remove_language(/datum/language/common)
 
 /datum/species/demihuman/get_skin_list()
 	return sortList(list(
