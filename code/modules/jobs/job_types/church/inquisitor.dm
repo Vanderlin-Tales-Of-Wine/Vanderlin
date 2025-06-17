@@ -299,10 +299,10 @@
 					if("Zizo")
 						held_confession.bad_type = "A FOLLOWER OF THE FORBIDDEN ONE"
 						held_confession.antag = "worshiper of " + antag_type
-					if("Verewolf")
+					if("Werevolf")
 						held_confession.bad_type = "A BEARER OF DENDOR'S CURSE"
 						held_confession.antag = antag_type
-					if("Lesser Verewolf")
+					if("Lesser Werevolf")
 						held_confession.bad_type = "A BEARER OF DENDOR'S CURSE"
 						held_confession.antag = antag_type
 					if("Vampire")
