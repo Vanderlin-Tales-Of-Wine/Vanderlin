@@ -1077,14 +1077,20 @@
 "do" = (
 /obj/item/reagent_containers/glass/bucket,
 /turf/open/floor/grass/yel,
-/area)
+/area/rogue/outdoors)
 "dw" = (
 /turf/open/floor/wood,
 /area/rogue)
 "dO" = (
 /obj/machinery/essence/harvester,
 /turf/open/floor/cobblerock,
-/area)
+/area/rogue/outdoors)
+"dX" = (
+/obj/structure/chair/bench/church{
+	dir = 1
+	},
+/turf/open/floor/churchmarble,
+/area/rogue/indoors/town/church/chapel)
 "ef" = (
 /obj/structure/hotspring/border/five,
 /obj/structure/flora/hotspring_rocks{
@@ -1117,14 +1123,12 @@
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
 "eA" = (
-/turf/open/floor/cobblerock,
-/area)
+/obj/machinery/light/fueled/firebowl/church,
+/turf/open/floor/church,
+/area/rogue/indoors/town/church/chapel)
 "eD" = (
 /obj/structure/hotspring,
 /obj/effect/lily_petal/three,
-/obj/structure/flora/sakura{
-	pixel_y = -13
-	},
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
 "eE" = (
@@ -1260,9 +1264,16 @@
 /obj/structure/flora/grass,
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
+"fw" = (
+/obj/structure/table/wood{
+	dir = 1;
+	icon_state = "longtable"
+	},
+/turf/open/floor/church,
+/area/rogue/indoors/town/church/chapel)
 "fO" = (
 /turf/closed/mineral/bedrock,
-/area)
+/area/rogue/indoors/town/church/chapel)
 "fQ" = (
 /obj/structure/bridge_stakes,
 /turf/open/floor/dirt/road,
@@ -1281,6 +1292,16 @@
 /obj/effect/falling_sakura,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
+"gv" = (
+/obj/structure/fluff/walldeco/church/line{
+	dir = 8
+	},
+/obj/structure/fluff/walldeco/church/line,
+/obj/structure/chair/bench/church{
+	dir = 1
+	},
+/turf/open/floor/churchmarble,
+/area/rogue/indoors/town/church/chapel)
 "gy" = (
 /obj/structure/table/wood/nice,
 /obj/item/candle/yellow/lit/infinite{
@@ -1347,9 +1368,12 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
 "jn" = (
-/obj/structure/soil/debug_soil/random,
+/obj/structure/hotspring/border/fourteen,
+/obj/machinery/light/fueled/torchholder/hotspring/standing{
+	pixel_x = 15
+	},
 /turf/open/floor/dirt/road,
-/area)
+/area/rogue/indoors/town/church/chapel)
 "jt" = (
 /obj/structure/hotspring/border/three,
 /obj/machinery/light/fueled/torchholder/hotspring/standing{
@@ -1381,10 +1405,9 @@
 /turf/open/floor/dirt,
 /area/rogue/outdoors/mountains/decap)
 "jZ" = (
-/obj/structure/flora/ausbushes/ywflowers,
-/obj/structure/carpet,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
+/obj/structure/window/stained/yellow,
+/turf/open/floor/church,
+/area/rogue/indoors/town/church/chapel)
 "kb" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/minecart_rail{
@@ -1396,7 +1419,7 @@
 "kj" = (
 /obj/structure/well,
 /turf/open/floor/grass/yel,
-/area)
+/area/rogue/outdoors)
 "ky" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/open/floor/grass/yel,
@@ -1523,6 +1546,10 @@
 "nG" = (
 /turf/open/floor/cobble,
 /area)
+"nV" = (
+/obj/structure/hotspring/border,
+/turf/open/floor/cobblerock,
+/area/rogue/outdoors)
 "nX" = (
 /obj/structure/flora/grass/herb/symphitum,
 /obj/structure/minecart_rail{
@@ -1729,7 +1756,7 @@
 "tL" = (
 /obj/structure/essence_node/rare,
 /turf/open/floor/grass/yel,
-/area)
+/area/rogue/outdoors)
 "tN" = (
 /obj/structure/hotspring/border/eight,
 /obj/structure/bridge{
@@ -1774,12 +1801,21 @@
 /obj/machinery/essence/reservoir,
 /turf/open/floor/churchbrick,
 /area/rogue/indoors)
+"uR" = (
+/obj/structure/fluff/walldeco/church/line{
+	dir = 4
+	},
+/obj/structure/fluff/walldeco/church/line{
+	dir = 1
+	},
+/obj/structure/chair/bench/church/r{
+	dir = 1
+	},
+/turf/open/floor/churchmarble,
+/area/rogue/indoors/town/church/chapel)
 "uT" = (
-/obj/structure/flora/grass,
-/obj/structure/flora/ausbushes/ppflowers,
-/obj/structure/carpet,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
+/turf/open/floor/church,
+/area/rogue/indoors/town/church/chapel)
 "uV" = (
 /turf/open/lava/flow{
 	dir = 8
@@ -1856,7 +1892,7 @@
 "wR" = (
 /obj/item/reagent_containers/glass/carafe/water,
 /turf/open/floor/grass/yel,
-/area)
+/area/rogue/outdoors)
 "wS" = (
 /obj/machinery/essence/combiner{
 	pixel_y = 10
@@ -2027,7 +2063,7 @@
 "AP" = (
 /obj/structure/soil,
 /turf/open/floor/dirt/road,
-/area)
+/area/rogue/outdoors)
 "AQ" = (
 /obj/item/bottle_kit{
 	pixel_x = -3
@@ -2277,7 +2313,7 @@
 "EW" = (
 /obj/structure/closet/crate/chest/wicker/random_soilson,
 /turf/open/floor/grass/yel,
-/area)
+/area/rogue/outdoors)
 "EX" = (
 /obj/structure/hotspring/border/two,
 /obj/structure/bridge{
@@ -2332,15 +2368,28 @@
 	},
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors)
+"Gk" = (
+/obj/structure/table/wood{
+	icon_state = "longtable"
+	},
+/turf/open/floor/church,
+/area/rogue/indoors/town/church/chapel)
 "Gu" = (
 /obj/structure/pottery_lathe,
 /turf/open/floor/wood,
 /area/rogue/indoors)
 "GE" = (
-/obj/structure/flora/grass,
-/obj/structure/carpet,
-/turf/open/floor/grass/yel,
+/obj/structure/flora/ausbushes/lavendergrass,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors)
+"GM" = (
+/obj/structure/hotspring/border/five,
+/obj/effect/lily_petal/two{
+	pixel_x = 0;
+	pixel_y = -5
+	},
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/town/church/chapel)
 "GU" = (
 /obj/structure/hotspring/border/eleven,
 /obj/effect/lily_petal/three{
@@ -2373,8 +2422,8 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
 "Il" = (
-/turf/open/floor/grass/yel,
-/area)
+/turf/closed/wall/mineral/decorstone,
+/area/rogue/indoors/town/church/chapel)
 "IW" = (
 /obj/structure/hotspring/border/nine,
 /obj/effect/falling_sakura,
@@ -2445,11 +2494,26 @@
 	dir = 1
 	},
 /area/rogue/outdoors/mountains/decap)
+"Lw" = (
+/obj/structure/hotspring/border/thirteen,
+/obj/machinery/light/fueled/torchholder/hotspring/standing{
+	pixel_x = -7;
+	pixel_y = 14
+	},
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors)
 "LA" = (
 /obj/structure/flora/ausbushes/brflowers,
 /obj/structure/flora/grass,
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
+"LL" = (
+/obj/structure/hotspring/border/thirteen,
+/obj/machinery/light/fueled/torchholder/hotspring/standing{
+	pixel_x = -15
+	},
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/town/church/chapel)
 "Mn" = (
 /turf/open/floor/dirt,
 /area/rogue/indoors)
@@ -2465,6 +2529,18 @@
 	},
 /turf/open/floor/wood,
 /area/rogue/outdoors)
+"MK" = (
+/obj/structure/fluff/walldeco/church/line{
+	dir = 8
+	},
+/obj/structure/fluff/walldeco/church/line{
+	dir = 1
+	},
+/obj/structure/chair/bench/church{
+	dir = 1
+	},
+/turf/open/floor/churchmarble,
+/area/rogue/indoors/town/church/chapel)
 "MV" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/flora/grass,
@@ -2478,6 +2554,10 @@
 /obj/structure/flora/grass,
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/open/floor/grass/yel,
+/area/rogue/outdoors)
+"No" = (
+/obj/structure/flora/grass,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors)
 "NF" = (
 /obj/structure/irrigation_channel,
@@ -2496,6 +2576,15 @@
 /obj/structure/well,
 /turf/open/floor/churchbrick,
 /area/rogue/indoors)
+"NV" = (
+/obj/structure/fluff/walldeco/church/line{
+	dir = 4
+	},
+/obj/structure/table/wood{
+	icon_state = "longtable"
+	},
+/turf/open/floor/churchmarble,
+/area/rogue/indoors/town/church/chapel)
 "NY" = (
 /obj/effect/falling_sakura,
 /turf/open/floor/grass/yel,
@@ -2506,6 +2595,14 @@
 	},
 /turf/open/floor/wood,
 /area/rogue/indoors)
+"Oq" = (
+/obj/structure/hotspring,
+/obj/structure/flora/sakura{
+	pixel_y = -13;
+	pixel_x = -25
+	},
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors)
 "OI" = (
 /obj/machinery/light/fueled/hearth,
 /obj/item/reagent_containers/glass/bucket/pot/copper,
@@ -2516,9 +2613,12 @@
 /turf/open/floor/wood,
 /area/rogue/indoors)
 "Pb" = (
-/obj/structure/carpet,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
+/obj/structure/fluff/walldeco/church/line,
+/obj/structure/chair/bench/church/r{
+	dir = 1
+	},
+/turf/open/floor/churchmarble,
+/area/rogue/indoors/town/church/chapel)
 "Pd" = (
 /obj/structure/roguerock,
 /turf/open/water,
@@ -2550,9 +2650,9 @@
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
 "PU" = (
-/obj/structure/carpet,
-/turf/open/floor/cobblerock,
-/area/rogue/outdoors)
+/obj/structure/fluff/psycross/copper,
+/turf/open/floor/church,
+/area/rogue/indoors/town/church/chapel)
 "Qi" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /turf/open/floor/grass/yel,
@@ -2574,6 +2674,16 @@
 /obj/structure/hotspring/border,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
+"Sv" = (
+/obj/structure/fluff/walldeco/church/line{
+	dir = 4
+	},
+/obj/structure/fluff/walldeco/church/line,
+/obj/structure/chair/bench/church/r{
+	dir = 1
+	},
+/turf/open/floor/churchmarble,
+/area/rogue/indoors/town/church/chapel)
 "Sx" = (
 /obj/structure/flora/grass,
 /obj/structure/minecart_rail,
@@ -2749,6 +2859,12 @@
 "Wi" = (
 /turf/open/water/river,
 /area/rogue/outdoors/mountains/decap)
+"Wn" = (
+/obj/structure/chair/bench/church/r{
+	dir = 1
+	},
+/turf/open/floor/churchmarble,
+/area/rogue/indoors/town/church/chapel)
 "Wo" = (
 /obj/structure/fluff/millstone,
 /obj/structure/table/wood/plain,
@@ -2772,6 +2888,16 @@
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
+"WM" = (
+/obj/structure/fluff/walldeco/church/line{
+	dir = 8
+	},
+/obj/structure/table/wood{
+	dir = 1;
+	icon_state = "longtable"
+	},
+/turf/open/floor/churchmarble,
+/area/rogue/indoors/town/church/chapel)
 "Xa" = (
 /obj/structure/fermentation_keg/distiller,
 /turf/open/floor/carpet,
@@ -2814,6 +2940,10 @@
 /obj/structure/flora/grass,
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors)
+"YD" = (
+/obj/structure/carpet,
+/turf/open/floor/churchbrick,
+/area/rogue/indoors)
 "YR" = (
 /obj/structure/hotspring/border/twelve,
 /turf/open/floor/cobblerock,
@@ -2826,6 +2956,13 @@
 "Zs" = (
 /turf/closed/wall/mineral/wood,
 /area/rogue/indoors)
+"Zu" = (
+/obj/structure/fluff/walldeco/church/line,
+/obj/structure/chair/bench/church{
+	dir = 1
+	},
+/turf/open/floor/churchmarble,
+/area/rogue/indoors/town/church/chapel)
 "Zx" = (
 /obj/structure/window/openclose{
 	dir = 8
@@ -11518,10 +11655,10 @@ as
 as
 as
 as
-as
-as
-as
-as
+fO
+fO
+fO
+fO
 yP
 yP
 yP
@@ -11775,16 +11912,16 @@ as
 as
 as
 as
-as
-as
-as
-as
-as
-at
-at
-at
-at
-at
+fO
+Il
+Il
+Il
+Il
+GE
+No
+QN
+Wr
+al
 at
 at
 at
@@ -12031,19 +12168,19 @@ as
 as
 as
 as
-as
-as
-as
-as
-as
-as
-at
-at
-at
-at
-at
-at
-at
+fO
+fO
+jZ
+NV
+dX
+Zu
+QN
+Wr
+Wr
+qc
+Qi
+al
+Wr
 at
 at
 at
@@ -12287,18 +12424,18 @@ as
 as
 as
 as
-as
-as
-as
-as
-as
-as
-as
-at
-ew
+fO
+fO
+Il
+Il
+fw
+uR
+Sv
+Wr
+Lw
 Pl
 Pl
-RF
+nV
 ky
 qc
 FN
@@ -12544,14 +12681,14 @@ as
 as
 as
 as
-as
-as
-as
-as
-as
-as
-as
-at
+fO
+LL
+jZ
+eA
+uT
+uT
+uT
+Wr
 qi
 DY
 Kd
@@ -12801,17 +12938,17 @@ as
 as
 as
 as
-as
-as
-as
-as
-as
-as
-as
-at
+fO
+GM
+jZ
+PU
+uT
+uT
+uT
+Wr
 qi
 DY
-DY
+Oq
 SZ
 RF
 Qi
@@ -13058,14 +13195,14 @@ as
 as
 as
 as
-as
-as
-as
-as
-as
-as
-as
-at
+fO
+jn
+jZ
+eA
+uT
+uT
+uT
+Wr
 qi
 eD
 tp
@@ -13315,14 +13452,14 @@ as
 as
 as
 as
-as
-as
-as
-as
-as
-as
-as
-at
+fO
+fO
+Il
+Il
+Gk
+MK
+gv
+Wr
 qi
 tp
 gp
@@ -13573,13 +13710,13 @@ as
 as
 as
 as
-as
-as
-as
-as
-as
-as
-at
+fO
+fO
+jZ
+WM
+Wn
+Pb
+Wr
 qi
 DY
 zm
@@ -13831,12 +13968,12 @@ as
 as
 as
 as
-as
-as
-as
-as
-as
-at
+fO
+Il
+Il
+Il
+Il
+QN
 pD
 uf
 uf
@@ -14088,8 +14225,8 @@ as
 as
 as
 as
-as
-as
+at
+at
 ax
 ax
 ax
@@ -14343,9 +14480,9 @@ as
 as
 as
 as
-fO
-fO
-fO
+at
+at
+at
 ax
 ax
 Jy
@@ -14600,9 +14737,9 @@ as
 as
 as
 as
-fO
+at
 tL
-Il
+QN
 ax
 NG
 mY
@@ -14855,11 +14992,11 @@ as
 as
 as
 as
-fO
-fO
-fO
-Il
-eA
+at
+at
+at
+QN
+Wr
 ax
 SH
 jR
@@ -14875,7 +15012,7 @@ zF
 HK
 QN
 QN
-Pb
+QN
 qc
 QN
 bs
@@ -15112,11 +15249,11 @@ as
 as
 as
 as
-fO
-Il
+at
+QN
 tL
-Il
-eA
+QN
+Wr
 ny
 wS
 mY
@@ -15132,8 +15269,8 @@ qi
 RC
 QN
 Wg
-Pb
-GE
+QN
+qc
 jC
 fS
 bs
@@ -15369,11 +15506,11 @@ ac
 ac
 ac
 ac
-fO
-Il
-Il
-eA
-eA
+at
+QN
+QN
+Wr
+Wr
 ax
 ax
 rd
@@ -15388,10 +15525,10 @@ xM
 Pg
 EX
 Gi
-jZ
-Pb
-uT
-Pb
+ky
+QN
+aq
+QN
 Wr
 QN
 aq
@@ -15626,10 +15763,10 @@ ac
 ac
 ac
 ac
-fO
-eA
+at
+Wr
 dO
-eA
+Wr
 tL
 ax
 ax
@@ -15646,7 +15783,7 @@ qi
 SZ
 RF
 QN
-PU
+Wr
 ct
 Wr
 qc
@@ -15883,16 +16020,16 @@ ac
 ac
 ac
 ac
-fO
-Il
-Il
-eA
-Il
+at
+QN
+QN
+Wr
+QN
 ax
 vM
 mY
-rd
-rd
+YD
+YD
 gK
 ax
 ui
@@ -16140,16 +16277,16 @@ ac
 ac
 ac
 ac
-fO
+at
 tL
-Il
-eA
-eA
+QN
+Wr
+Wr
 ny
 Uu
 mY
-rd
-rd
+YD
+YD
 rd
 ax
 ax
@@ -16397,16 +16534,16 @@ ac
 ac
 ac
 ac
-fO
-Il
-Il
+at
+QN
+QN
 tL
-eA
+Wr
 ax
 YZ
 mY
-rd
-rd
+YD
+YD
 ax
 rB
 zM
@@ -16654,11 +16791,11 @@ ac
 ac
 ac
 ac
-fO
-fO
-fO
-Il
-eA
+at
+at
+at
+QN
+Wr
 ax
 ax
 ax
@@ -16913,11 +17050,11 @@ ac
 ac
 ac
 ac
-fO
-Il
-eA
-eA
-eA
+at
+QN
+Wr
+Wr
+Wr
 zL
 vJ
 lU
@@ -17170,11 +17307,11 @@ ac
 ac
 ac
 ac
-fO
-fO
-jn
-jn
-eA
+at
+at
+oH
+oH
+Wr
 ax
 ax
 ax
@@ -17428,14 +17565,14 @@ ac
 ac
 ac
 ac
-fO
-jn
-jn
-eA
-jn
-jn
-jn
-jn
+at
+oH
+oH
+Wr
+oH
+oH
+oH
+oH
 ax
 ax
 ax
@@ -17685,15 +17822,15 @@ ac
 ac
 ac
 ac
-fO
-jn
-jn
-eA
-jn
-jn
-jn
-jn
-fO
+at
+oH
+oH
+Wr
+oH
+oH
+oH
+oH
+at
 ac
 ac
 at
@@ -17942,15 +18079,15 @@ ac
 ac
 ac
 ac
-fO
-jn
-jn
-eA
-eA
-eA
-eA
-eA
-fO
+at
+oH
+oH
+Wr
+Wr
+Wr
+Wr
+Wr
+at
 ac
 ac
 at
@@ -18199,15 +18336,15 @@ ac
 ac
 ac
 ac
-fO
-eA
-eA
-eA
+at
+Wr
+Wr
+Wr
 AP
 AP
 AP
 AP
-fO
+at
 ac
 ac
 at
@@ -18456,15 +18593,15 @@ ac
 ac
 ac
 ac
-fO
+at
 EW
 do
 kj
 wR
-Il
+QN
 EW
-fO
-fO
+at
+at
 ac
 ac
 at
@@ -18713,14 +18850,14 @@ ac
 ac
 ac
 ac
-fO
-fO
-Il
-Il
-Il
-fO
-fO
-fO
+at
+at
+QN
+QN
+QN
+at
+at
+at
 ac
 ac
 ac
@@ -18971,11 +19108,11 @@ ac
 ac
 ac
 ac
-fO
-fO
-fO
-fO
-fO
+at
+at
+at
+at
+at
 ac
 ac
 ac
