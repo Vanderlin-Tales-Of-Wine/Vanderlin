@@ -912,7 +912,7 @@
 /atom/movable/screen/storage
 	icon = 'icons/hud/storage.dmi'
 	icon_state = "background"
-	layer = HUD_LAYER
+	plane = HUD_PLANE
 	alpha = 180
 	var/atom/movable/screen/storage_hover/hovering
 
@@ -1026,6 +1026,5 @@
 	icon = 'icons/hud/storage.dmi'
 	icon_state = "white"
 	plane = ABOVE_HUD_PLANE
-	layer = HUD_LAYER
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	alpha = 96

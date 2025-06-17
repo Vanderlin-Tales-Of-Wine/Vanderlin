@@ -112,12 +112,6 @@
 	var/atom/movable/screen/splash/credits/S = new(src, FALSE)
 	S.Fade(FALSE,FALSE)
 	RollCredits()
-//	if(GLOB.credits_icons.len)
-//		for(var/i=0, i<=GLOB.credits_icons.len, i++)
-//			var/atom/movable/screen/P = new()
-//			P.layer = SPLASHSCREEN_LAYER+1
-//			P.appearance = GLOB.credits_icons
-//			screen += P
 
 /datum/controller/subsystem/ticker/proc/declare_completion()
 	set waitfor = FALSE

@@ -85,23 +85,22 @@
 
 /obj/item/mould/update_overlays()
 	. = ..()
-	if(length(overlays))
-		overlays.Cut()
 
 	if(fufilled_metal)
+		. += mutable_appearance(
+			icon,
+			filling_icon_state,
+			color = initial(filling_metal.color),
+			alpha = (255 * (fufilled_metal / required_metal)),
+			appearance_flags = RESET_COLOR | KEEP_APART,
+		)
 		var/mutable_appearance/MA = mutable_appearance(icon, filling_icon_state)
-		MA.color = initial(filling_metal.color)
-		MA.alpha = 255 * (fufilled_metal / required_metal)
-		MA.appearance_flags = RESET_COLOR | KEEP_APART
-		overlays += MA
-
-		var/mutable_appearance/MA2 = mutable_appearance(icon, filling_icon_state)
 		if(cooling)
-			MA2.alpha = 255 * round((1 - (cooling_progress / 100)),0.1)
+			MA.alpha = 255 * round((1 - (cooling_progress / 100)),0.1)
 		else
-			MA2.alpha = 255 * (fufilled_metal / required_metal)
-		MA2.plane = EMISSIVE_PLANE
-		overlays += MA2
+			MA.alpha = 255 * (fufilled_metal / required_metal)
+		MA.plane = EMISSIVE_PLANE
+		. += MA
 
 /obj/item/mould/proc/start_cooling()
 	cooling = TRUE

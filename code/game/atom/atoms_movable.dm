@@ -180,12 +180,11 @@
 	if(blocks_emissive != EMISSIVE_BLOCK_GENERIC)
 		return
 	if(length(managed_vis_overlays))
-		for(var/a in managed_vis_overlays)
-			var/obj/effect/overlay/vis/vs
+		for(var/obj/effect/overlay/vis/vs as anything in managed_vis_overlays)
 			if(vs.plane == EMISSIVE_BLOCKER_PLANE)
 				SSvis_overlays.remove_vis_overlay(src, list(vs))
 				break
-	SSvis_overlays.add_vis_overlay(src, icon, icon_state, EMISSIVE_BLOCKER_LAYER, EMISSIVE_BLOCKER_PLANE, dir)
+	SSvis_overlays.add_vis_overlay(src, icon, icon_state, 0, EMISSIVE_BLOCKER_PLANE, dir)
 
 /atom/movable/proc/can_safely_descend(turf/target)
 	return TRUE
@@ -1168,7 +1167,6 @@ GLOBAL_VAR_INIT(pixel_diff_time, 1)
 	icon = 'icons/effects/effects.dmi'
 	duration = 3.5
 	alpha = 100
-	layer = ABOVE_LIGHTING_LAYER
 	plane = ABOVE_LIGHTING_PLANE
 
 /obj/effect/temp_visual/dir_setting/block/Initialize(mapload, set_color)
