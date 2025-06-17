@@ -2320,6 +2320,7 @@
 #include "code\modules\mob\living\carbon\human\species_types\elf\elfs.dm"
 #include "code\modules\mob\living\carbon\human\species_types\harpy\_harpy.dm"
 #include "code\modules\mob\living\carbon\human\species_types\human\_human.dm"
+#include "code\modules\mob\living\carbon\human\species_types\human\human_space.dm"
 #include "code\modules\mob\living\carbon\human\species_types\human\humen.dm"
 #include "code\modules\mob\living\carbon\human\species_types\kobold\_kobold.dm"
 #include "code\modules\mob\living\carbon\human\species_types\other\aasimar.dm"
