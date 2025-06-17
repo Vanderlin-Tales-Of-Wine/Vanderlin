@@ -166,7 +166,7 @@
 /datum/patron/divine/pestra
 	name = "Pestra"
 	domain = "Goddess of Disease, Alchemy, and Medicine"
-	desc = "Crafted from Psydon's intestines left behind. She slithered out, bringing forth the cycle of life and decay."
+	desc = "A mistake; Psydon's intestines left behind. She slithered out, bringing forth the cycle of life and decay."
 	flaws = "Drunkenness, Crudeness, Irresponsibility"
 	worshippers = "The Ill and Infirm, Alchemists, Physicians"
 	sins = "´Curing´ Abnormalities, Refusing to Help Unfortunates, Groveling"
@@ -207,7 +207,7 @@
 	name = "Eora"
 	domain = "Goddess of Love, Family, and Art"
 	desc = "Crafted from the heart of Psydon, a spreader of love and beauty, and strengthener of bonds."
-	flaws= "Naivete, Impulsiveness, Ignorance"
+	flaws= "Naivete, Impulsiveness, Bigotry"
 	worshippers = "Mothers, Artists, Married Couples"
 	sins = "Sadism, Abandonment, Ruining Beauty"
 	boons = "You can understand others' needs better."
