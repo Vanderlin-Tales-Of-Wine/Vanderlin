@@ -37,8 +37,8 @@
 			"shroom sniffer",
 			"cave dweller",
 			"mushroom stain",
-			"drow",
-			"underscum"
+			"underscum",
+			"zizospawn"
 		],
 		"Half-Elf": [
 			"mutt",
@@ -54,7 +54,7 @@
 			"cursed blood",
 			"zizo cursed",
 			"zizo dominated",
-			"drow"
+			"zizospawn"
 		],
 		"Dwarf": [
 			"rock licker",
@@ -76,7 +76,11 @@
 			"god's leftovers",
 			"talking dirt",
 			"stone face",
-			"pot head"
+			"stoneskin",
+			"metal head",
+			"tin can",
+			"pot head",
+			"discardee"
 		],
 		"Half-Orc": [
 			"greenskin",
@@ -94,6 +98,7 @@
 		],
 		"Tiefling": [
 			"hellspawn",
+			"hellion",
 			"demonspawn",
 			"devilspawn",
 			"half hell",
@@ -130,7 +135,8 @@
 			"drow pet",
 			"drow spawn",
 			"flea bitten",
-			"homunculus"
+			"homunculus",
+			"furry"
 		],
 		"Harpy": [
 			"eora's pet",
@@ -141,7 +147,8 @@
 			"worm breath",
 			"sky rat",
 			"sky rodent",
-			"magpie"
+			"magpie",
+			"whore pigeon"
 		],
 		"Generic": [
 			"whore",
