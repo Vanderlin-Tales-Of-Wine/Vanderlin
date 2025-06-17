@@ -182,7 +182,7 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/client/proc/check_bomb_impacts,
 	/client/proc/recipe_tree_debug_menu,
 	/client/proc/family_tree_debug_menu,
-	/client/verb/debug_loot_tables,
+	/client/proc/debug_loot_tables,
 	/client/proc/get_dynex_power,		//*debug verbs for dynex explosions.
 	/client/proc/get_dynex_range,		//*debug verbs for dynex explosions.
 	/client/proc/set_dynex_scale,
