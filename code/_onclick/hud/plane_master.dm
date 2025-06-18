@@ -59,7 +59,7 @@
 			var/mob/living/L = mymob
 			if(L.has_status_effect(/datum/status_effect/buff/druqks))
 				add_filter("druqks_ripple", 2, ripple_filter(0, 50, 1, x = 80))
-				animate(filters[length(filters)], size=50, radius=480, time=10, loop=-1, flags=ANIMATION_PARALLEL)
+				animate(filters[length(filters)], 1 SECONDS, -1, radius=480, size=50, flags=ANIMATION_PARALLEL)
 				add_filter("druqks_color", 2, color_matrix_filter(list(0,0,1,0, 0,1,0,0, 1,0,0,0, 0,0,0,1, 0,0,0,0)))
 
 /atom/movable/screen/plane_master/area
@@ -191,7 +191,7 @@
 			var/mob/living/L = mymob
 			if(L.has_status_effect(/datum/status_effect/buff/druqks))
 				add_filter("druqks_ripple", 2, ripple_filter(0, 50, 1, x = 80))
-				animate(filters[length(filters)], size=50, radius=480, time=10, loop=-1, flags=ANIMATION_PARALLEL)
+				animate(filters[length(filters)], 1 SECONDS, -1, radius=480, size=50, flags=ANIMATION_PARALLEL)
 				add_filter("druqks_color", 2, color_matrix_filter(list(0,0,1,0, 0,1,0,0, 1,0,0,0, 0,0,0,1, 0,0,0,0)))
 
 /atom/movable/screen/plane_master/field_of_vision_blocker
