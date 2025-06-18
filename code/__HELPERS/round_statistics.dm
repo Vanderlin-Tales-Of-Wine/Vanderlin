@@ -450,7 +450,7 @@ GLOBAL_LIST_INIT(featured_stats, list(
 	sortTim(entries, GLOBAL_PROC_REF(cmp_stat_count_desc))
 
 	var/list/result = list()
-	for(var/i in 1 to min(12, entries.len))
+	for(var/i in 1 to min(13, entries.len))
 		var/list/entry = entries[i]
 		var/rounded_count = round(entry["count"])
 		result += "[i]. [entry["name"]] - [rounded_count]"
@@ -469,7 +469,7 @@ GLOBAL_LIST_INIT(featured_stats, list(
 	sortTim(entries, GLOBAL_PROC_REF(cmp_stat_count_desc))
 
 	var/list/result = list()
-	for(var/i in 1 to min(12, entries.len))
+	for(var/i in 1 to min(13, entries.len))
 		var/list/entry = entries[i]
 		var/rounded_count = round(entry["count"])
 		result += "[i]. [entry["name"]] - [rounded_count]"
