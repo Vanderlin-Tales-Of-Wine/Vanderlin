@@ -316,3 +316,10 @@
 	can_gain_by_walking = FALSE
 	check_other_side = TRUE
 	invis_without_trait = TRUE
+/obj/structure/fluff/traveltile/exit_baron
+    aportalid = "baronin"
+    aportalgoesto = "baronexit"
+
+/obj/structure/fluff/traveltile/baron
+    aportalid = "baronexit"
+    aportalgoesto = "baronin"
