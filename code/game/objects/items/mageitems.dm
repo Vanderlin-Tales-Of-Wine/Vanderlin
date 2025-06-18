@@ -399,8 +399,7 @@
 /obj/item/clothing/gloves/nomagic/equipped(mob/living/user, slot)
 	if(active_item)
 		return
-	var/slotbit = slotdefine2slotbit(slot)
-	if(slotbit == ITEM_SLOT_GLOVES)
+	if(slot & ITEM_SLOT_GLOVES)
 		active_item = TRUE
 		ADD_TRAIT(src, TRAIT_NODROP, TRAIT_GENERIC)
 	. = ..()
@@ -683,7 +682,7 @@
 	if(!mana_amount || mana_amount <= 0)
 		qdel(src)
 		return
-	qdel_timer = QDEL_IN(src, 10 MINUTES)
+	qdel_timer = QDEL_IN_STOPPABLE(src, 10 MINUTES)
 
 /obj/structure/soul/proc/drain_mana(mob/living/user)
 	var/datum/beam/transfer_beam = user.Beam(src, icon_state = "drain_life", time = INFINITY)

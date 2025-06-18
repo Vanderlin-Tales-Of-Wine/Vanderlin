@@ -8,16 +8,11 @@
 /atom/proc/spark_act()
 	return
 
-/proc/do_sparks(n, c, source)
-	// n - number of sparks
-	// c - cardinals, bool, do the sparks only move in cardinal directions?
-	// source - source of the sparks.
-
+/proc/do_sparks(number, cardinal_only, datum/source)
 	var/datum/effect_system/spark_spread/sparks = new
-	sparks.set_up(n, c, source)
+	sparks.set_up(number, cardinal_only, source)
 	sparks.autocleanup = TRUE
 	sparks.start()
-
 
 /obj/effect/particle_effect/sparks
 	name = "sparks"
@@ -31,6 +26,8 @@
 	pixel_y = -16
 	plane = ABOVE_LIGHTING_PLANE
 
+	var/silent = TRUE
+
 /obj/effect/particle_effect/sparks/Initialize()
 	..()
 	dir = pick(GLOB.cardinals)
@@ -38,7 +35,8 @@
 
 /obj/effect/particle_effect/sparks/LateInitialize()
 	flick(icon_state, src) // replay the animation
-//	playsound(src, "sparks", 100, TRUE)
+	if(!silent)
+		playsound(src, SFX_SPARKS, 100, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 	var/turf/T = loc
 	if(isturf(T))
 		T.hotspot_expose(1000,100)
@@ -68,12 +66,17 @@
 			if(!QDELETED(AT) && AT != src)
 				AT.spark_act()
 
+/obj/effect/particle_effect/sparks/noisy
+	silent = FALSE
+
 /datum/effect_system/spark_spread
 	effect_type = /obj/effect/particle_effect/sparks
 
 /datum/effect_system/spark_spread/quantum
 	effect_type = /obj/effect/particle_effect/sparks/quantum
 
+/datum/effect_system/spark_spread/noisy
+	effect_type = /obj/effect/particle_effect/sparks/noisy
 
 //electricity
 

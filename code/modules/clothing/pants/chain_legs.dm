@@ -24,9 +24,11 @@
 	armor = ARMOR_MAILLE
 	max_integrity = INTEGRITY_STRONGEST
 	prevent_crits = ALL_EXCEPT_BLUNT
-	do_sound_chain = TRUE
 	item_weight = 6 * STEEL_MULTIPLIER
 
+/obj/item/clothing/pants/chainlegs/Initialize()
+	. = ..()
+	AddComponent(/datum/component/item_equipped_movement_rustle)
 
 /obj/item/clothing/pants/chainlegs/iron
 	icon_state = "ichain_legs"
