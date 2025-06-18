@@ -292,7 +292,8 @@ GLOBAL_VAR_INIT(mobids, 1)
 	equip_to_slot(W, slot, redraw_mob, initial) //This proc should not ever fail.
 	update_a_intents()
 	if(isliving(src))
-		src:update_reflection()
+		var/mob/living/L = src
+		L.update_reflection()
 	return TRUE
 
 /**

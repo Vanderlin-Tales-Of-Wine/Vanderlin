@@ -18,10 +18,12 @@ INITIALIZE_IMMEDIATE(/atom/movable/plane_master_controller)
 	if(!owner_hud)
 		return
 	var/returned_planes = list()
-	for(var/plane in controlled_planes)
-		var/real_plane = owner_hud.plane_masters?["[plane]"]
-		if(real_plane)
-			returned_planes += real_plane
+	for(var/plane as anything in controlled_planes)
+		var/atom/movable/screen/plane_master/instance = owner_hud.plane_masters["[plane]"]
+		if(!instance)
+			stack_trace("[plane] isn't a valid plane master layer for [owner_hud.type], are you sure it exists in the first place?")
+			continue
+		returned_planes += instance
 	return returned_planes
 
 ///Full override so we can just use filterrific
