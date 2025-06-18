@@ -31,7 +31,7 @@
 	head = /obj/item/clothing/head/helmet/heavy/necked
 	cloak = /obj/item/clothing/cloak/tabard/crusader/tief
 	armor = /obj/item/clothing/armor/brigandine
-	shirt = /obj/item/clothing/armor/chainmail //hauberk > haubergeon, requested by Tyger
+	shirt = /obj/item/clothing/armor/chainmail
 	pants = /obj/item/clothing/pants/chainlegs
 	shoes = /obj/item/clothing/shoes/boots/armor/light
 	wear_back_left = /obj/item/storage/backpack/satchel
