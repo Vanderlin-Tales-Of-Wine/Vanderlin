@@ -3,7 +3,6 @@
 	gender = MALE
 	base_intents = list(INTENT_HELP, INTENT_HARM)
 	hud_possible = list(ANTAG_HUD)
-	has_limbs = 1
 	held_items = list(null, null)
 	num_legs = 0 //Populated on init through list/bodyparts
 	usable_legs = 0 //Populated on init through list/bodyparts

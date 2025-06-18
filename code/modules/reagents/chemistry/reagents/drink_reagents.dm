@@ -76,7 +76,6 @@
 		M.adjustFireLoss(-0.75*REM, 0)
 		M.adjustOxyLoss(-0.25, 0)
 		M.adjustOrganLoss(ORGAN_SLOT_BRAIN, -1*REM)
-		M.adjustCloneLoss(-0.75*REM, 0)
 	..()
 
 /datum/reagent/consumable/soothing_valerian_tea

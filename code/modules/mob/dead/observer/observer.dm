@@ -458,8 +458,8 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		to_chat(usr, "<span class='boldnotice'>I must be dead to use this!</span>")
 		return
 
-//	if(mind?.current && (world.time < mind.current.timeofdeath + RESPAWNTIME))
-//		to_chat(usr, "<span class='warning'>I can return in [mind.current.timeofdeath + RESPAWNTIME - world.time].</span>")
+//	if(mind?.current && (world.time < mind.current.time_of_death_world_time + RESPAWNTIME))
+//		to_chat(usr, "<span class='warning'>I can return in [mind.current.time_of_death_world_time + RESPAWNTIME - world.time].</span>")
 //		return
 
 	if(key)

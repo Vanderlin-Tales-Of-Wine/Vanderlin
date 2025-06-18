@@ -43,16 +43,6 @@
 		buckled.unbuckle_mob(src,force=1)
 
 	GLOB.mob_living_list -= src
-	for(var/s in ownedSoullinks)
-		var/datum/soullink/S = s
-		S.ownerDies(FALSE)
-		qdel(s) //If the owner is destroy()'d, the soullink is destroy()'d
-	ownedSoullinks = null
-	for(var/s in sharedSoullinks)
-		var/datum/soullink/S = s
-		S.sharerDies(FALSE)
-		S.removeSoulsharer(src) //If a sharer is destroy()'d, they are simply removed
-	sharedSoullinks = null
 	if(craftingthing)
 		QDEL_NULL(craftingthing)
 	return ..()
@@ -852,7 +842,7 @@
 /mob/living/proc/updatehealth(amount = 0)
 	if(status_flags & GODMODE)
 		return
-	set_health(maxHealth - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss() - getCloneLoss())
+	set_health(maxHealth - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss())
 	if(HAS_TRAIT(src, TRAIT_SIMPLE_WOUNDS) && !HAS_TRAIT(src, TRAIT_BLOODLOSS_IMMUNE))
 		// You dont have any blood and your not bloodloss immune? Dead.
 		if(blood_volume <= 0)
@@ -914,7 +904,6 @@
 	restore_blood()
 	setToxLoss(0, 0) //zero as second argument not automatically call updatehealth().
 	setOxyLoss(0, 0)
-	setCloneLoss(0, 0)
 	remove_CC()
 	set_disgust(0)
 	set_nutrition(NUTRITION_LEVEL_FED + 50)
@@ -987,8 +976,8 @@
 		reset_offsets("pixel_shift")
 		return FALSE
 	pixelshifted = FALSE
-	pixelshift_x = 0
-	pixelshift_y = 0
+	pixelshift_w = 0
+	pixelshift_z = 0
 	reset_offsets("pixel_shift")
 
 /mob/living/Move(atom/newloc, direct, glide_size_override)
@@ -1652,10 +1641,6 @@
 				_y = _y + mob_offsets[o]["y"]
 	return _y
 
-/mob/living/cancel_camera()
-	..()
-	cameraFollow = null
-
 /mob/living/proc/can_track(mob/living/user)
 	//basic fast checks go first. When overriding this proc, I recommend calling ..() at the end.
 	if(SEND_SIGNAL(src, COMSIG_LIVING_CAN_TRACK, args) & COMPONENT_CANT_TRACK)
@@ -1743,7 +1728,6 @@
 	return TRUE
 
 /mob/living/proc/return_soul()
-	hellbound = 0
 	if(mind)
 		mind.soulOwner = mind
 
@@ -1987,7 +1971,7 @@
 		return
 	if(isliving(dropping))
 		var/mob/living/M = dropping
-		if((M.can_be_held ||  HAS_TRAIT(M, TRAIT_TINY)) && U.cmode)
+		if(HAS_TRAIT(M, TRAIT_TINY) && U.cmode)
 			M.mob_try_pickup(U)//blame kevinz
 			return//dont open the mobs inventory if you are picking them up
 	. = ..()
@@ -2111,7 +2095,6 @@
 			FIRE:<font size='1'><a href='?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=fire' id='fire'>[getFireLoss()]</a>
 			TOXIN:<font size='1'><a href='?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=toxin' id='toxin'>[getToxLoss()]</a>
 			OXY:<font size='1'><a href='?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=oxygen' id='oxygen'>[getOxyLoss()]</a>
-			CLONE:<font size='1'><a href='?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=clone' id='clone'>[getCloneLoss()]</a>
 			BRAIN:<font size='1'><a href='?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=brain' id='brain'>[getOrganLoss(ORGAN_SLOT_BRAIN)]</a>
 		</font>
 	"}

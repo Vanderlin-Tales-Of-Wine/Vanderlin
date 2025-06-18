@@ -297,12 +297,6 @@
 		appears_dead = TRUE
 		if(suiciding)
 			msg += "[t_He] appear[p_s()] to have committed suicide... there is no hope of recovery."
-		if(hellbound)
-			msg += "[capitalize(m2)] soul seems to have been ripped out of [m2] body. Revival is impossible."
-//		if(getorgan(/obj/item/organ/brain) && !key && !get_ghost(FALSE, TRUE))
-//			msg += "<span class='deadsay'>[m1] limp and unresponsive; there are no signs of life and [m2] soul has departed...</span>"
-//		else
-//			msg += "<span class='deadsay'>[m1] limp and unresponsive; there are no signs of life...</span>"
 
 	var/temp = getBruteLoss() + getFireLoss() //no need to calculate each of these twice
 

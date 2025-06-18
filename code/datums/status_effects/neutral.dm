@@ -101,7 +101,6 @@
 		rewarded.adjustFireLoss(-25)
 		rewarded.adjustToxLoss(-25)
 		rewarded.adjustOxyLoss(-25)
-		rewarded.adjustCloneLoss(-25)
 
 /datum/status_effect/bugged //Lets another mob hear everything you can
 	id = "bugged"

@@ -66,15 +66,6 @@
 			else
 				msg += "<B>[m1] dragon food!!</B>\n"
 
-		temp = getCloneLoss()
-		if(temp)
-			if(temp < 25)
-				msg += "[t_He] [t_is] slightly deformed.\n"
-			else if (temp < 50)
-				msg += "[t_He] [t_is] <b>moderately</b> deformed!\n"
-			else
-				msg += "<b>[t_He] [t_is] severely deformed!</b>\n"
-
 	if(HAS_TRAIT(src, TRAIT_DUMB))
 		msg += "[t_He] seem[p_s()] to be clumsy and unable to think.\n"
 
