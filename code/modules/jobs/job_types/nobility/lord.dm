@@ -13,7 +13,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	department_flag = NOBLEMEN
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_LORD
-	faction = FACTION_STATION
+	faction = FACTION_TOWN
 	total_positions = 0
 	spawn_positions = 1
 	min_pq = 25
@@ -43,7 +43,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 //TODO: MOVE THIS INTO TICKER INIT
 /datum/job/lord/after_spawn(mob/living/spawned, client/player_client)
 	..()
-	SSticker.select_ruler()
+	SSticker.rulermob = spawned
 	addtimer(CALLBACK(spawned, TYPE_PROC_REF(/mob, lord_color_choice)), 5 SECONDS)
 	if(spawned.gender == MALE)
 		SSfamilytree.AddRoyal(spawned, FAMILY_FATHER)
@@ -122,7 +122,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	title = "Ex-Monarch"
 	flag = LORD
 	department_flag = NOBLEMEN
-	faction = FACTION_STATION
+	faction = FACTION_TOWN
 	total_positions = 0
 	spawn_positions = 0
 	display_order = JDO_LORD

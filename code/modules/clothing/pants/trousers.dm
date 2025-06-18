@@ -32,6 +32,10 @@
 	else
 		GLOB.lordcolor += src
 
+/obj/item/clothing/pants/trou/leather/guard/Destroy()
+	GLOB.lordcolor -= src
+	return ..()
+
 /obj/item/clothing/pants/trou/leather/advanced
 	name = "hardened leather chausses"
 	desc = "Sturdy, durable, flexible. The finest leather to protect your nether regions."
@@ -90,3 +94,11 @@
 	desc = "Dark leather trousers adorned with far too many buckles to be pragmatic."
 	icon_state = "beltpants"
 	item_state = "beltpants"
+
+//Valorian Duelist Merc - On par with grenzelhoftian's stats.
+/obj/item/clothing/pants/trou/leather/advanced/duelpants
+	desc = "Padded pants, favored by Valoria's Duelists, Legs are often a prime target in a duel, and these pants seem to have seen their fair share of it"
+	color = "#5a5a5a"
+	armor = ARMOR_PADDED
+	prevent_crits = MINOR_CRITICALS
+	max_integrity = INTEGRITY_STANDARD

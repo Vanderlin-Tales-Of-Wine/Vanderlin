@@ -29,8 +29,10 @@
 	. = ..()
 
 /obj/machinery/light/fueled/Destroy()
-	. = ..()
+	if(soundloop)
+		QDEL_NULL(soundloop)
 	remove_temp_effect()
+	return ..()
 
 /obj/machinery/light/fueled/seton(s)
 	. = ..()

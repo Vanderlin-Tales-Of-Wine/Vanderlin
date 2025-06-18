@@ -4,46 +4,52 @@
 
 /datum/sprite_accessory/underwear/regm
 	name = "Undies"
-	icon_state = "male_reg"
+	icon_state = "male"
 	gender = MALE
-	specuse = list("human", "aasimar", "tiefling", "halforc")
+	specuse = RACES_UNDERWEAR_MALE
 
 /datum/sprite_accessory/underwear/regme
 	name = "Undiese"
-	icon_state = "maleelf_reg"
+	icon_state = "male_elf"
 	gender = MALE
 	specuse = list("elf")
 
 /datum/sprite_accessory/underwear/regmd
 	name = "Undiesd"
-	icon_state = "maledwarf_reg"
+	icon_state = "male_dwarf"
 	gender = MALE
 	specuse = list("dwarf")
 
 /datum/sprite_accessory/underwear/female_bikini
 	name = "Femundies"
-	icon_state = "female_bikini"
+	icon_state = "female"
 	gender = FEMALE
-	specuse = ALL_RACES_LIST
+	specuse = RACES_UNDERWEAR_FEMALE
+
+/datum/sprite_accessory/underwear/female_dwarf
+	name = "FemUndiesD"
+	icon_state = "female_dwarf"
+	gender = FEMALE
+	specuse = list("dwarf")
 
 /datum/sprite_accessory/underwear/female_leotard
 	name = "Femleotard"
 	icon_state = "female_leotard"
 	gender = FEMALE
-	specuse = ALL_RACES_LIST
+	specuse = RACES_UNDERWEAR_FEMALE
 	roundstart = FALSE
 
 //For use on Younglings
 /datum/sprite_accessory/underwear/child
 	name = "Youngling"
-	icon_state = "child"
+	icon_state = "male_child"
 	gender = MALE
 	specuse = ALL_RACES_LIST
 	roundstart = FALSE
 
 /datum/sprite_accessory/underwear/child_f
 	name = "FemYoungling"
-	icon_state = "child_f"
+	icon_state = "female_child"
 	gender = FEMALE
 	specuse = ALL_RACES_LIST
 	roundstart = FALSE

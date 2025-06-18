@@ -118,6 +118,10 @@
 	QDEL_NULL(boxes)
 	QDEL_NULL(closer)
 	LAZYCLEARLIST(is_using)
+	change_master(null)
+	item_to_grid_coordinates = null
+	grid_coordinates_to_item = null
+	first_coordinates_item = null
 	return ..()
 
 
@@ -637,9 +641,6 @@
 
 /obj/item/proc/StorageBlock(obj/item/I, mob/user)
 	return FALSE
-
-/obj
-	var/component_block = FALSE
 
 //This proc return 1 if the item can be picked up and 0 if it can't.
 //Set the stop_messages to stop it from printing messages

@@ -75,3 +75,6 @@
 	var/next_smell = 0
 
 	var/advsetup = 0
+
+	/// if they get a mana pool
+	has_initial_mana_pool = TRUE

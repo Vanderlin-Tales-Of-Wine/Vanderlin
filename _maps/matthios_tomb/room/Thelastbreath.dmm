@@ -2289,7 +2289,7 @@
 /area/rogue/under/tomb/cave/lava)
 "GI" = (
 /obj/structure/fluff/nest,
-/obj/structure/intert_bonepile,
+/obj/structure/inert_bonepile,
 /obj/item/statue/silver,
 /obj/item/reagent_containers/glass/carafe/silver,
 /turf/open/floor/naturalstone,

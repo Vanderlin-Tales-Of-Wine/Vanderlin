@@ -138,12 +138,13 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 	id = "rousman"
 	species_traits = list(NO_UNDERWEAR)
 	inherent_traits = list(TRAIT_RESISTCOLD,TRAIT_RESISTHIGHPRESSURE,TRAIT_RESISTLOWPRESSURE,TRAIT_RADIMMUNE, TRAIT_EASYDISMEMBER, TRAIT_CRITICAL_WEAKNESS, TRAIT_NASTY_EATER, TRAIT_LEECHIMMUNE, TRAIT_INHUMENCAMP)
-	no_equip = list(SLOT_SHIRT, SLOT_WEAR_MASK, SLOT_GLOVES, SLOT_SHOES, SLOT_PANTS)
-	nojumpsuit = 1
-	sexes = 1
-	offset_features = list(OFFSET_HANDS = list(0,-4), OFFSET_HANDS_F = list(0,-4))
+
+	no_equip = list(ITEM_SLOT_SHIRT, ITEM_SLOT_MASK, ITEM_SLOT_GLOVES, ITEM_SLOT_SHOES, ITEM_SLOT_PANTS)
+	offset_features_m = list(OFFSET_HANDS = list(0,-4))
+	offset_features_f = list(OFFSET_HANDS = list(0,-4))
+
 	damage_overlay_type = ""
-	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | RACE_SWAP | SLIME_EXTRACT
+	changesource_flags = WABBAJACK
 	var/raceicon = "rousman"
 
 /datum/species/rousman/update_damage_overlays(mob/living/carbon/human/H)
@@ -347,9 +348,16 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 	var/try_activating_timer = 12 MINUTES  //Timer to recheck if this obj can activate
 
 /obj/structure/rousman_hole/Initialize()
-	GLOB.rousman_ambush_objects |= src
 	. = ..()
+	GLOB.rousman_ambush_objects |= src
 	pre_activate_check()
+
+/obj/structure/rousman_hole/Destroy()
+	GLOB.rousman_ambush_objects -= src
+	for(var/obj/structure/rousman_alarm/alarm as anything in all_alarms)
+		QDEL_NULL(alarm)
+	all_alarms.Cut()
+	return ..()
 
 /obj/structure/rousman_hole/proc/pre_activate_check()
 	if(activated == TRUE && already_ambushed == TRUE)
@@ -370,10 +378,6 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 		var/obj/structure/rousman_alarm/alarm = new /obj/structure/rousman_alarm(T)
 		all_alarms.Add(alarm)
 		alarm.hole = src
-
-/obj/structure/rousman_hole/Destroy()
-	GLOB.rousman_ambush_objects -= src
-	return ..()
 
 /obj/structure/rousman_hole/proc/ambush(mob/living/carbon/human/ambushed_mob)
 	if(already_ambushed == TRUE)
@@ -403,6 +407,10 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 	density = FALSE
 	anchored = TRUE
 	var/obj/structure/rousman_hole/hole
+
+/obj/structure/rousman_alarm/Destroy()
+	hole = null
+	return ..()
 
 /obj/structure/rousman_alarm/Crossed(atom/movable/AM)
 	. = ..()

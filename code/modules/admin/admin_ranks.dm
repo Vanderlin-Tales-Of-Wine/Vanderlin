@@ -32,7 +32,6 @@ GLOBAL_PROTECT(protected_ranks)
 		rights &= ~exclude_rights
 	if(init_edit_rights)
 		can_edit_rights = init_edit_rights
-	admin_flags |= list(FLAG_GIB, FLAG_JUMP, FLAG_JUMP_GHOST, FLAG_PM, FLAG_SM, FLAG_PP, FLAG_VV)
 
 /datum/admin_rank/Destroy()
 	if(IsAdminAdvancedProcCall())

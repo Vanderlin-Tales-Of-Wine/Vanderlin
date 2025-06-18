@@ -174,14 +174,13 @@
 		if(M == user && contents.len > 0 && !user.wear_mask)
 			var/obj/item/clothing/face/cigarette/W = cig
 			SEND_SIGNAL(src, COMSIG_TRY_STORAGE_TAKE, W, M)
-			M.equip_to_slot_if_possible(W, SLOT_WEAR_MASK)
+			M.equip_to_slot_if_possible(W, ITEM_SLOT_MASK)
 			contents -= W
 			to_chat(user, "<span class='notice'>I take \a [W] out of the pack.</span>")
 		else
 			..()
 	else
 		to_chat(user, "<span class='notice'>There are no [icon_type]s left in the pack.</span>")
-
 
 /obj/item/storage/fancy/cigarettes/zig
 	name = "zigbox"
@@ -192,24 +191,3 @@
 
 /obj/item/storage/fancy/cigarettes/zig/empty
 	spawn_type = null
-
-
-/obj/item/storage/fancy/rollingpapers
-	name = "rolling paper pack"
-	desc = ""
-	w_class = WEIGHT_CLASS_TINY
-	icon = 'icons/obj/cigarettes.dmi'
-	icon_state = "cig_paper_pack"
-	icon_type = "rolling paper"
-	spawn_type = /obj/item/rollingpaper
-
-/obj/item/storage/fancy/rollingpapers/ComponentInitialize()
-	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_items = 10
-	STR.set_holdable(list(/obj/item/rollingpaper))
-
-/obj/item/storage/fancy/rollingpapers/update_icon()
-	cut_overlays()
-	if(!contents.len)
-		add_overlay("[icon_state]_empty")

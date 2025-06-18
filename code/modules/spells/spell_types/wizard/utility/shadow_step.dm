@@ -1,7 +1,7 @@
 /obj/effect/proc_holder/spell/invoked/shadowstep
 	name = "Shadow Step"
 	desc = "Step into the shadows making you invisible for a duration."
-	overlay_state = "invisibility"
+	overlay_state = "shadowstep"
 	releasedrain = 0
 	chargedrain = 14
 	chargetime = 1 SECONDS
@@ -27,6 +27,5 @@
 		)
 		animate(target, alpha = 0, time = 1 SECONDS, easing = EASE_IN)
 		target.apply_status_effect(/datum/status_effect/invisibility, 7 SECONDS)
-		return TRUE
-	revert_cast()
+		return ..()
 	return FALSE
