@@ -141,19 +141,13 @@
 		if(stress > 15)
 			addtimer(CALLBACK(src, TYPE_PROC_REF(/mob, do_freakout_scream)), rand(30,50))
 	if(hud_used)
-//		var/list/screens = list(hud_used.plane_masters["[OPENSPACE_BACKDROP_PLANE]"],hud_used.plane_masters["[BLACKNESS_PLANE]"],hud_used.plane_masters["[GAME_PLANE_UPPER]"],hud_used.plane_masters["[GAME_PLANE_FOV_HIDDEN]"], hud_used.plane_masters["[FLOOR_PLANE]"], hud_used.plane_masters["[GAME_PLANE]"], hud_used.plane_masters["[LIGHTING_PLANE]"])
 		var/matrix/skew = matrix()
 		skew.Scale(2)
-		//skew.Translate(-224,0)
-		var/matrix/newmatrix = skew
-		for(var/C in hud_used.plane_masters)
-			var/atom/movable/screen/plane_master/whole_screen = hud_used.plane_masters[C]
-			if(whole_screen.plane == HUD_PLANE)
-				continue
-			animate(whole_screen, transform = newmatrix, time = 1, easing = QUAD_EASING)
-			animate(transform = -newmatrix, time = 30, easing = QUAD_EASING)
+		var/atom/movable/plane_master_controller/pm_controller = hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
+		for(var/atom/movable/screen/plane_master/pm_iterator as anything in pm_controller.get_planes())
+			animate(pm_iterator, transform = skew, time = 1, easing = QUAD_EASING)
+			animate(transform = -skew, time = 30, easing = QUAD_EASING)
 
 /mob/living/proc/stamina_reset()
 	stamina = 0
 	last_fatigued = 0
-	return

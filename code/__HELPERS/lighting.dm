@@ -4,10 +4,30 @@
 		icon_state,\
 		layer,\
 		EMISSIVE_PLANE,\
-		alpha,\
-		color = GLOB.emissive_color,\
+		255,
 		appearance_flags = appearance_flags,\
 	)
+	if(alpha == 255)
+		appearance.color = GLOB.emissive_color
+	else
+		var/alpha_ratio = alpha/255
+		appearance.color = _EMISSIVE_COLOR(alpha_ratio)
+
+	//Test to make sure emissives with broken or missing icon states are created
+	if(PERFORM_ALL_TESTS(focus_only/invalid_emissives))
+		if(icon_state && !icon_exists(icon, icon_state))
+			stack_trace("An emissive appearance was added with non-existant icon_state \"[icon_state]\" in [icon]!")
+
+	return appearance
+
+/// Produces a mutable appearance glued to the [EMISSIVE_PLANE] dyed to be the [EM_BLOCK_COLOR].
+/proc/emissive_blocker(icon, icon_state = "", layer = FLOAT_LAYER, alpha = 255, appearance_flags = NONE)
+	var/mutable_appearance/appearance = mutable_appearance(icon, icon_state, layer, EMISSIVE_PLANE, alpha, appearance_flags = (appearance_flags | EMISSIVE_APPEARANCE_FLAGS))
+	if(alpha == 255)
+		appearance.color = GLOB.em_block_color
+	else
+		var/alpha_ratio = alpha/255
+		appearance.color = _EM_BLOCK_COLOR(alpha_ratio)
 	return appearance
 
 // This is a semi hot proc, so we micro it. saves maybe 150ms
@@ -27,13 +47,3 @@
 
 	blocker.plane = EMISSIVE_PLANE
 	return blocker
-
-/// Produces a mutable appearance glued to the [EMISSIVE_PLANE] dyed to be the [EM_BLOCK_COLOR].
-/proc/emissive_blocker(icon, icon_state = "", layer = FLOAT_LAYER, alpha = 255, appearance_flags = NONE)
-	var/mutable_appearance/appearance = mutable_appearance(icon, icon_state, layer, EMISSIVE_PLANE, alpha, appearance_flags = (appearance_flags | EMISSIVE_APPEARANCE_FLAGS))
-	if(alpha == 255)
-		appearance.color = GLOB.em_block_color
-	else
-		var/alpha_ratio = alpha/255
-		appearance.color = _EM_BLOCK_COLOR(alpha_ratio)
-	return appearance

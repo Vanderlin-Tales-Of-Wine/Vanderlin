@@ -40,7 +40,7 @@
 		node.pixel_y = 12
 		. += node
 
-		var/mutable_appearance/node_emissive = emissive_appearance(installed_node.icon, installed_node.icon_state)
+		var/mutable_appearance/node_emissive = emissive_appearance(installed_node.icon, installed_node.icon_state, alpha = node.alpha)
 		node_emissive.pixel_y = 12
 		. += node_emissive
 

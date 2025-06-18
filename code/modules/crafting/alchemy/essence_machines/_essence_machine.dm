@@ -1,16 +1,12 @@
 /atom/proc/on_transfer_in(essence_type, amount, datum/essence_storage/source)
 
 /obj/machinery/essence
-	plane = GAME_PLANE_UPPER
-	layer = ABOVE_MOB_LAYER
-
 	var/processing = FALSE
 	var/datum/essence_storage/input_storage
 	var/datum/essence_storage/output_storage
 	var/list/output_connections = list()
 	var/list/input_connections = list()
 	var/connection_processing = FALSE
-
 	var/processing_priority
 
 /obj/machinery/essence/Destroy()

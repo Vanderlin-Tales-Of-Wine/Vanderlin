@@ -35,7 +35,7 @@
 			filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
 			for(var/datum/reagent/reagent as anything in reagents.reagent_list)
 				if(reagent.glows)
-					overlays += emissive_appearance('icons/roguetown/items/cooking.dmi', "pote_half")
+					overlays += emissive_appearance('icons/roguetown/items/cooking.dmi', "pote_half", filling.alpha)
 					break
 			add_overlay(filling)
 
@@ -45,7 +45,7 @@
 			filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
 			for(var/datum/reagent/reagent as anything in reagents.reagent_list)
 				if(reagent.glows)
-					overlays += emissive_appearance('icons/roguetown/items/cooking.dmi', "pote_full")
+					overlays += emissive_appearance('icons/roguetown/items/cooking.dmi', "pote_full", filling.alpha)
 					break
 			add_overlay(filling)
 

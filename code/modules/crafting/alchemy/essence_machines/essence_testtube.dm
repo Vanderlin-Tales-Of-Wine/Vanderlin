@@ -39,7 +39,7 @@
 	var/level = clamp(CEILING(essence_percent * 4, 1), 1, 4)
 
 	. += mutable_appearance(icon, "tank_[level]", color = calculate_mixture_color())
-	. += emissive_appearance(icon, "tank_[level]")
+	. += emissive_appearance(icon, "tank_[level]", alpha = src.alpha)
 
 /obj/machinery/essence/test_tube/return_storage()
 	return storage

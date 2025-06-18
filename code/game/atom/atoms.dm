@@ -1168,7 +1168,6 @@
 	filter_data[name] = p
 	update_filters()
 
-
 /atom/movable/proc/remove_filter(name_or_names)
 	if(!filter_data)
 		return
@@ -1184,6 +1183,11 @@
 	if(.)
 		update_filters()
 	return .
+
+/atom/movable/proc/clear_filters()
+	var/atom/atom_cast = src // filters only work with images or atoms.
+	filter_data = null
+	atom_cast.filters = null
 
 /proc/cmp_filter_data_priority(list/A, list/B)
 	return A["priority"] - B["priority"]

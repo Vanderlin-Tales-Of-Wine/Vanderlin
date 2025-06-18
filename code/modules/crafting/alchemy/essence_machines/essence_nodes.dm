@@ -20,7 +20,7 @@
 
 /obj/structure/essence_node/update_overlays()
 	. = ..()
-	. += emissive_appearance(icon, icon_state)
+	. += emissive_appearance(icon, icon_state, alpha = src.alpha)
 
 /obj/structure/essence_node/Initialize(mapload)
 	. = ..()

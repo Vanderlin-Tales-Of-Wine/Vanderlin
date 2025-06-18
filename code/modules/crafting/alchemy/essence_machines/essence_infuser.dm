@@ -54,7 +54,7 @@
 	var/level = clamp(CEILING(essence_percent * 5, 1), 1, 5)
 
 	. += mutable_appearance(icon, "liquid_[level]", color = calculate_mixture_color())
-	. += emissive_appearance(icon, "liquid_[level]")
+	. += emissive_appearance(icon, "liquid_[level]", alpha = src.alpha)
 
 /obj/machinery/essence/infuser/return_storage()
 	return storage

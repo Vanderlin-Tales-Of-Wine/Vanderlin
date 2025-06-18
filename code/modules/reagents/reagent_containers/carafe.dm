@@ -41,7 +41,7 @@
 		filling.color = mix_color_from_reagents(reagents.reagent_list)
 		for(var/datum/reagent/reagent as anything in reagents.reagent_list)
 			if(reagent.glows)
-				overlays += emissive_appearance('icons/obj/reagentfillings.dmi', filling.icon_state)
+				overlays += emissive_appearance('icons/obj/reagentfillings.dmi', filling.icon_state, filling.alpha)
 				break
 		underlays += filling
 

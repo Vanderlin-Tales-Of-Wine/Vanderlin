@@ -1,6 +1,6 @@
 ///Atom that manages and controls multiple planes. It's an atom so we can hook into add_filter etc. Multiple controllers can control one plane.
 /atom/movable/plane_master_controller
-	///List of planes in this controllers control. Initially this is a normal list, but becomes an assoc list of plane numbers as strings | plane instance
+	///List of planes as defines in this controllers control
 	var/list/controlled_planes = list()
 	///hud that owns this controller
 	var/datum/hud/owner_hud
@@ -18,8 +18,10 @@ INITIALIZE_IMMEDIATE(/atom/movable/plane_master_controller)
 	if(!owner_hud)
 		return
 	var/returned_planes = list()
-	for(var/true_plane in controlled_planes)
-		returned_planes += owner_hud.plane_masters[true_plane]
+	for(var/plane in controlled_planes)
+		var/real_plane = owner_hud.plane_masters?["[plane]"]
+		if(real_plane)
+			returned_planes += real_plane
 	return returned_planes
 
 ///Full override so we can just use filterrific
@@ -74,6 +76,8 @@ INITIALIZE_IMMEDIATE(/atom/movable/plane_master_controller)
 		OPENSPACE_PLANE,
 		FLOOR_PLANE,
 		GAME_PLANE,
+		GAME_PLANE_UPPER,
+		GAME_PLANE_FOV_HIDDEN,
 		AREA_PLANE,
 		MASSIVE_OBJ_PLANE,
 		GHOST_PLANE,

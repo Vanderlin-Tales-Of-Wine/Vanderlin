@@ -89,7 +89,7 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 		filling.color = mix_color_from_reagents(reagents.reagent_list)
 		for(var/datum/reagent/reagent as anything in reagents.reagent_list)
 			if(reagent.glows)
-				overlays += emissive_appearance('icons/roguetown/items/glass_reagent_container.dmi', filling.icon_state)
+				overlays += emissive_appearance('icons/roguetown/items/glass_reagent_container.dmi', filling.icon_state, filling.alpha)
 				break
 
 		underlays += filling

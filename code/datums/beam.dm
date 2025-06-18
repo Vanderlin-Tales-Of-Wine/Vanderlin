@@ -206,7 +206,7 @@
 	var/datum/beam/newbeam = new(src,BeamTarget,icon,icon_state,time,maxdistance,beam_type,beam_sleep_time,beam_color,redraws, invisible_state = INVISIBILITY_LEYLINES)
 	if(mana_pool)
 		newbeam.mana_pool = mana_pool
-	newbeam.forced_plane = PLANE_LEYLINES
+	newbeam.forced_plane = LEYLINE_PLANE
 	newbeam.forced_layer = UPPER_LEYLINE_LAYER
 	INVOKE_ASYNC(newbeam, TYPE_PROC_REF(/datum/beam, Start))
 	return newbeam

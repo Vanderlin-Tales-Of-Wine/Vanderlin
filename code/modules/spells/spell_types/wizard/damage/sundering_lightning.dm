@@ -56,7 +56,7 @@
 
 /obj/effect/temp_visual/lightning/Initialize(mapload)
 	. = ..()
-	add_overlay(emissive_appearance(icon, icon_state))
+	add_overlay(emissive_appearance(icon, icon_state, alpha = src.alpha))
 
 /obj/effect/temp_visual/targetlightning
 	icon = 'icons/effects/effects.dmi'

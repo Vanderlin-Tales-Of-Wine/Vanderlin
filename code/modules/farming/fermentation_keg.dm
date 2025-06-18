@@ -74,14 +74,16 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 		return
 	if(icon_state != open_icon_state)
 		return
+	var/used_alpha = mix_alpha_from_reagents(reagents.reagent_list)
 	. += mutable_appearance(
 		icon,
 		"filling",
-		color = mix_color_from_reagents(reagents),
+		color = mix_color_from_reagents(reagents.reagent_list),
+		alpha = used_alpha,
 	)
 	for(var/datum/reagent/reagent as anything in reagents.reagent_list)
 		if(reagent.glows)
-			. += emissive_appearance(icon, "filling")
+			. += emissive_appearance(icon, "filling", alpha = used_alpha)
 
 /obj/structure/fermentation_keg/attack_right(mob/user)
 	. = ..()
