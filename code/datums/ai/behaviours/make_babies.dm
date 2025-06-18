@@ -35,9 +35,18 @@
 		if(other.ckey)
 			continue
 
+		if(!other.ai_controller?.blackboard[BB_BREED_READY])
+			continue
+
+		if(isanimal(other))
+			var/mob/living/simple_animal/other_animal = other
+			if(other_animal.food < other_animal.food_max * 0.15)
+				continue
+
 		if(other.gender != living_pawn.gender && !(other.flags_1 & HOLOGRAM_1)) //Better safe than sorry ;_;
 			controller.set_blackboard_key(target_key, other)
 			finish_action(controller, TRUE)
+			return
 
 	finish_action(controller, FALSE)
 

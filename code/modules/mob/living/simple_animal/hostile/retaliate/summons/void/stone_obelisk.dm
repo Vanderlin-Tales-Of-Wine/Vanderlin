@@ -28,7 +28,6 @@
 	faction = list("abberant")
 	emote_hear = null
 	emote_see = null
-	turns_per_move = 6
 	speed = 5
 	see_in_dark = 9
 	move_to_delay = 12
