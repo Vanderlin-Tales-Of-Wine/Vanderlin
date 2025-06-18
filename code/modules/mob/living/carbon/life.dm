@@ -176,7 +176,6 @@
 		if(reagents&& T.pollution)
 			T.pollution.breathe_act(src)
 			if(TIMER_COOLDOWN_FINISHED(src, "next_smell"))
-
 				TIMER_COOLDOWN_START(src, "next_smell", 30 SECONDS)
 				T.pollution.smell_act(src)
 
