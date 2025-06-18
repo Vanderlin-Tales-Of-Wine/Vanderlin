@@ -260,6 +260,9 @@
 
 	var/enchantment_path = options[choice]
 
+	if(!enchantment_path)
+		return
+
 	if(browse_only)
 		var/datum/enchantment/temp_enchant = new enchantment_path
 		show_single_recipe_details(temp_enchant, user)

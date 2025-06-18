@@ -21,7 +21,7 @@
 	. = ..()
 	AddComponent(/datum/component/squeak, list('sound/foley/footsteps/armor/fullplate (1).ogg',\
 												'sound/foley/footsteps/armor/fullplate (2).ogg',\
-												'sound/foley/footsteps/armor/fullplate (3).ogg'), 80)
+												'sound/foley/footsteps/armor/fullplate (3).ogg'), 80, falloff_exponent = 20)
 
 /obj/item/clothing/armor/rare/elfplate
 	name = "dark elf plate"
