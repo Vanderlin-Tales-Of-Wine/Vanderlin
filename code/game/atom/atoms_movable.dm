@@ -60,8 +60,8 @@
 /mutable_appearance/emissive_blocker/New()
 	. = ..()
 	// Need to do this here because it's overridden by the parent call
+	// This is a microop which is the sole reason why this child exists, because its static this is a really cheap way to set color without setting or checking it every time we create an atom
 	color = EM_BLOCK_COLOR
-	appearance_flags = EMISSIVE_APPEARANCE_FLAGS
 
 /atom/movable/Initialize(mapload)
 	. = ..()
@@ -88,7 +88,7 @@
 		blocker.icon = icon
 		blocker.icon_state = icon_state
 		blocker.dir = dir
-		blocker.appearance_flags |= appearance_flags
+		blocker.appearance_flags = appearance_flags | EMISSIVE_APPEARANCE_FLAGS
 		blocker.plane = EMISSIVE_PLANE
 		// Ok so this is really cursed, but I want to set with this blocker cheaply while
 		// Still allowing it to be removed from the overlays list later
@@ -223,9 +223,7 @@
 	// This saves several hundred milliseconds of init time.
 	if(blocks_emissive)
 		if(blocks_emissive == EMISSIVE_BLOCK_UNIQUE)
-			if(em_block)
-				em_block.plane = EMISSIVE_PLANE
-			else if(!QDELETED(src))
+			if(!em_block && !QDELETED(src))
 				render_target = ref(src)
 				em_block = new(null, src)
 			return em_block

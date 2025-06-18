@@ -95,7 +95,7 @@ GLOBAL_LIST_INIT(attunement_colors, list(
 	original_color = spell_color
 	color = spell_color
 	mob = target_mob
-	overlays += emissive_appearance(icon, icon_state)
+	overlays += emissive_appearance(icon, icon_state, alpha = src.alpha)
 
 /obj/effect/spell_rune/Destroy(force)
 	if(mob)
@@ -119,7 +119,7 @@ GLOBAL_LIST_INIT(attunement_colors, list(
 /obj/effect/temp_visual/wave_up/Initialize(mapload, mob/target_mob)
 	. = ..()
 	mob = target_mob
-	overlays += emissive_appearance(icon, icon_state)
+	overlays += emissive_appearance(icon, icon_state, alpha = src.alpha)
 
 /obj/effect/temp_visual/wave_up/Destroy(force)
 	if(mob)
@@ -142,7 +142,7 @@ GLOBAL_LIST_INIT(attunement_colors, list(
 /obj/effect/temp_visual/particle_up/Initialize(mapload, mob/target_mob)
 	. = ..()
 	mob = target_mob
-	overlays += emissive_appearance(icon, icon_state)
+	overlays += emissive_appearance(icon, icon_state, alpha = src.alpha)
 
 /obj/effect/temp_visual/particle_up/Destroy(force)
 	if(mob)

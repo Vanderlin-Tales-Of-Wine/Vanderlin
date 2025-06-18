@@ -55,7 +55,7 @@
 		appearance_flags = (RESET_COLOR | KEEP_APART),
 	)
 	if(initial(largest?.red_hot) && group_reagents.chem_temp > initial(largest.melting_point))
-		. += emissive_appearance(icon, "[icon_state]-c")
+		. += emissive_appearance(icon, "[icon_state]-c", alpha = src.alpha)
 
 /obj/structure/metal_channel/proc/set_connection(dir)
 	connected["[dir]"] = 1

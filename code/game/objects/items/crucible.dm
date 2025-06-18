@@ -88,17 +88,19 @@
 
 	if(!reagents.total_volume)
 		return
+	var/used_alpha = mix_alpha_from_reagents(reagents.reagent_list)
 	. += mutable_appearance(
 		icon,
 		"filling",
 		color = mix_color_from_reagents(reagents.reagent_list),
+		alpha = used_alpha,
 		appearance_flags = (RESET_COLOR | KEEP_APART),
 	)
 	var/datum/reagent/molten_metal/metal = reagents.get_reagent(/datum/reagent/molten_metal)
 	var/datum/material/largest = metal?.largest_metal
 
 	if(initial(largest?.red_hot) && reagents.chem_temp > initial(largest.melting_point))
-		. += emissive_appearance(icon, "filling")
+		. += emissive_appearance(icon, "filling", alpha = used_alpha)
 
 /obj/item/storage/crucible/proc/melt_item(obj/item/item)
 	SEND_SIGNAL(item.loc, COMSIG_TRY_STORAGE_TAKE, item, get_turf(src), TRUE)

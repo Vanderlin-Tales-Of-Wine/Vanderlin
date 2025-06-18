@@ -399,7 +399,7 @@
 			bloodstep_overlay.alpha = alpha
 			add_overlay(bloodstep_overlay)
 			if(glows)
-				overlays += emissive_appearance(icon, "[blood_state]1")
+				overlays += emissive_appearance(icon, "[blood_state]1", alpha = src.alpha)
 		if(exited_dirs & Ddir)
 			var/image/bloodstep_overlay = GLOB.bloody_footprints_cache["exited-[blood_state]-[Ddir]"]
 			if(!bloodstep_overlay)
@@ -407,7 +407,7 @@
 			bloodstep_overlay.alpha = alpha
 			add_overlay(bloodstep_overlay)
 			if(glows)
-				overlays += emissive_appearance(icon, "[blood_state]2")
+				overlays += emissive_appearance(icon, "[blood_state]2", alpha = src.alpha)
 
 /obj/effect/decal/cleanable/blood/footprints/examine(mob/user)
 	. = ..()

@@ -140,8 +140,8 @@ GLOBAL_LIST_INIT(em_block_color, EM_BLOCK_COLOR)
 /// A globaly cached version of [EM_MASK_MATRIX] for quick access.
 GLOBAL_LIST_INIT(em_mask_matrix, EM_MASK_MATRIX)
 
-/// A set of appearance flags applied to all emissive and emissive blocker overlays.
-#define EMISSIVE_APPEARANCE_FLAGS (KEEP_APART|KEEP_TOGETHER|RESET_COLOR|RESET_TRANSFORM)
+/// KEEP_APART to prevent parent hooking, KEEP_TOGETHER for children, and we reset the color of our parent so emissives get proper coloring based on [EMISSIVE_COLOR]
+#define EMISSIVE_APPEARANCE_FLAGS (KEEP_APART|KEEP_TOGETHER|RESET_COLOR)
 
 /// Returns the red part of a #RRGGBB hex sequence as number
 #define GETREDPART(hexa) hex2num(copytext(hexa, 2, 4))
