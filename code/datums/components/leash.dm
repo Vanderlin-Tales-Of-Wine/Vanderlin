@@ -70,7 +70,7 @@
 	RegisterSignal(owner, COMSIG_PARENT_QDELETING, PROC_REF(on_owner_qdel))
 
 	var/static/list/container_connections = list(
-		COMSIG_MOVABLE_MOVED = PROC_REF(on_owner_moved),
+		COMSIG_MOVABLE_MOVED = PROC_REF(on_moved),
 	)
 
 	AddComponent(/datum/component/connect_containers, owner, container_connections)
