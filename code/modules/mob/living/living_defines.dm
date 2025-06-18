@@ -162,32 +162,44 @@
 	/// Whether the mob is slowed down when dragging another prone mob
 	var/slowed_by_drag = TRUE
 
+	/// max amount of energy this mob can have
 	var/max_energy = 1000
-	var/maximum_stamina = 100
+	/// current amount of energy this mob has
 	var/energy = 1000
+	/// max amount of stamina this mob can have
+	var/maximum_stamina = 100
+	/// current amount of stamina this mob has
 	var/stamina = 0
 
+	/// world.time of the last time this mob's stamina was reduced
 	var/last_fatigued = 0
-	var/last_ps = 0
 
-	var/ambushable = 0
+	/// ! DEPRECATED VAR, USE TRAIT_NOAMBUSH
+	var/ambushable = FALSE
 
-	var/surrendering = 0
+	/// has this mob surrendered?
+	var/surrendering = FALSE
 
 
-	/// Combat bonuses for Simple Mobs
+	// Combat bonuses for Simple Mobs
 	var/simpmob_attack = 0
 	var/simpmob_defend = 0
 
-	var/defprob = 50 //base chance to defend against this mob's attacks, for simple mob combat
+	/// base chance to defend against this mob's attacks, for simple mob combat
+	var/defprob = 50
 	var/defdrain = 5
+
+	/// how encumbered is this mob?
 	var/encumbrance = 0
 
-	var/eyesclosed = 0
-	var/fallingas = 0
+	/// are this mob's eyes closed?
+	var/eyesclosed = FALSE
+	var/falling_asleep = 0
 
-	var/bleed_rate = 0 //how much are we bleeding
-	var/bleedsuppress = 0 //for stopping bloodloss, eventually this will be limb-based like bleeding
+	/// how much are we bleeding
+	var/bleed_rate = 0
+	/// boolean var for stopping bloodloss, eventually this will be limb-based like bleeding
+	var/bleedsuppress = FALSE
 
 	var/list/next_attack_msg = list()
 
@@ -201,11 +213,11 @@
 
 	var/last_dir_change = 0
 
-	var/list/death_trackers = list()
-
 	var/rot_type = /datum/component/rot/simple
 
+	/// descriptors, shown in examine
 	var/list/mob_descriptors
+	/// custom descriptors, shown in examine
 	var/list/custom_descriptors
 
 	var/rogue_sneaking = FALSE

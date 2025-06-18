@@ -113,8 +113,6 @@
 		add_client_colour(/datum/client_colour/monochrome/death)
 		client?.verbs |= /client/proc/descend
 
-//	for(var/datum/death_tracker/D in target.death_trackers)
-
 	if(!gibbed && rot_type)
 		LoadComponent(rot_type)
 
