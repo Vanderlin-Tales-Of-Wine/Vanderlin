@@ -121,6 +121,7 @@
 	name = "Cut Primordial Quartz Crystal"
 	desc = "A cut and shaped Primordial Quartz Crystal, using a standardized square cut. It lacks power until it is slotted into a proper amulet."
 	icon_state = "cut"
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/mana_battery/mana_crystal/cut/get_initial_mana_pool_type()
 	return /datum/mana_pool/mana_battery/mana_crystal/small

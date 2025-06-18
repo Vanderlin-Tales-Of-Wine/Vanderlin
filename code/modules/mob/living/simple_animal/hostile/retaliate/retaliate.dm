@@ -12,7 +12,6 @@
 	footstep_type = FOOTSTEP_MOB_BAREFOOT
 	speak_chance = 1
 
-	turns_per_move = 5
 	move_to_delay = 8	// basically speed when player controlled. Lower is faster, a lot faster.
 	see_in_dark = 6
 	robust_searching = TRUE

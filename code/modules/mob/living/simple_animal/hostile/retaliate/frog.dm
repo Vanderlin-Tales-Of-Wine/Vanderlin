@@ -8,7 +8,6 @@
 	speak = list("ribbit","croak")
 	emote_see = list("hops in a circle.", "shakes.")
 	speak_chance = 1
-	turns_per_move = 5
 	maxHealth = 15
 	health = 15
 	melee_damage_lower = 5

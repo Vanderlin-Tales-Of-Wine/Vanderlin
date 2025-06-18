@@ -24,7 +24,6 @@
 	base_endurance = 4
 	base_speed = 3
 	base_constitution = 3
-	turns_per_move = 5
 	mob_biotypes = MOB_ROBOTIC
 	footstep_type = FOOTSTEP_MOB_CLAW
 	unique_pet = TRUE

@@ -118,6 +118,13 @@
 
 	/// world.time of the last time this mob has bumped a movable, set in Bumped()
 	var/last_bumped = 0
+	var/unique_name = 0 //if a mob's name should be appended with an id when created e.g. Mob (666)
+
+	var/list/butcher_results = null //these will be yielded from butchering with a probability chance equal to the butcher item's effectiveness
+	var/list/guaranteed_butcher_results = null //these will always be yielded from butchering
+	var/butcher_difficulty = 0 //effectiveness prob. is modified negatively by this amount; positive numbers make it more difficult, negative ones make it easier
+
+	var/hellbound = 0 //People who've signed infernal contracts are unrevivable.
 	/// if a mob's name should be appended with an id when created e.g. Mob (666)
 	var/unique_name = FALSE
 

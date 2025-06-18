@@ -1,8 +1,8 @@
 /datum/ai_behavior/find_nest
 	///range to look for the nest
-	var/look_range = 7
+	var/look_range = 5
 
-/datum/ai_behavior/find_nest/perform(seconds_per_tick, datum/ai_controller/controller, nest_key, ignore_nest_key, found_nest)
+/datum/ai_behavior/find_nest/perform(seconds_per_tick, datum/ai_controller/controller, nest_key, ignore_nest_key, found_nest, building_material_key)
 	. = ..()
 
 	var/mob/living_pawn = controller.pawn
@@ -14,7 +14,8 @@
 		finish_action(controller, FALSE)
 		return
 
-	for(var/obj/structure/fluff/nest/nest in oview(look_range, living_pawn))
+	var/list/nearby_stuff = oview(look_range, living_pawn)
+	for(var/obj/structure/fluff/nest/nest in nearby_stuff)
 		if(!is_type_in_list(nest, nest_types))
 			continue
 		if(is_type_in_list(nest, ignore_types)) //so the not permanent baby and the permanent baby subtype dont followed each other
@@ -28,4 +29,13 @@
 		controller.set_blackboard_key(found_nest, nest)
 		finish_action(controller, TRUE)
 		return
+	else
+		var/list/building_material = controller.blackboard[building_material_key]
+		for(var/atom/movable/movable_atom as anything in nearby_stuff)
+			if(!is_type_in_list(movable_atom, building_material))
+				continue
+			controller.set_blackboard_key(found_nest, movable_atom)
+			finish_action(controller, TRUE)
+			return
+
 	finish_action(controller, FALSE)
