@@ -136,7 +136,7 @@
 	gloves = /obj/item/clothing/gloves/chain
 	armor = /obj/item/clothing/armor/leather/jacket/gatemaster_jacket/armored
 	beltr = /obj/item/weapon/mace/steel
-	backr = /obj/item/weapon/shield/heater
+	wear_back_right = /obj/item/weapon/shield/heater
 	backl = /obj/item/storage/backpack/satchel/black
 	backpack_contents = list(/obj/item/storage/keyring/manorguard = 1, /obj/item/weapon/knife/dagger/steel/special = 1, /obj/item/rope/chain = 1)
 	if(H.mind)
@@ -196,8 +196,8 @@
 		var/weapontypec = pickweight(list("Bow" = 4, "Crossbow" = 6)) // Rolls for either a bow or a Crossbow
 		switch(weapontypec)
 			if("Bow")
-				backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/long
+				wear_back_right = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/long
 				beltl = /obj/item/ammo_holder/quiver/arrows
 			if("Crossbow")
-				backr = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
+				wear_back_right = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
 				beltl = /obj/item/ammo_holder/quiver/bolts

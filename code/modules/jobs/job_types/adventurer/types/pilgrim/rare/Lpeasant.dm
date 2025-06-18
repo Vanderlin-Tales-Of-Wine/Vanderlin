@@ -36,7 +36,7 @@
 	shirt = /obj/item/clothing/shirt/undershirt/random
 	pants = /obj/item/clothing/pants/trou
 	shoes = /obj/item/clothing/shoes/boots/leather
-	backr = /obj/item/weapon/hoe
+	wear_back_right = /obj/item/weapon/hoe
 	wrists = /obj/item/clothing/wrists/bracers/leather
 	backl = /obj/item/storage/backpack/backpack
 	neck = /obj/item/clothing/neck/coif/cloth

@@ -108,7 +108,7 @@
 	gloves = /obj/item/clothing/gloves/leather/black
 	beltl = /obj/item/weapon/sword/decorated
 	beltr = /obj/item/scomstone
-	backr = /obj/item/storage/backpack/satchel/heartfelt
+	wear_back_right = /obj/item/storage/backpack/satchel/heartfelt
 	mask = /obj/item/clothing/face/spectacles/golden
 	neck = /obj/item/clothing/neck/chaincoif
 	if(H.mind)
@@ -149,7 +149,7 @@
 	beltr = /obj/item/weapon/sword/long
 	beltl = /obj/item/flashlight/flare/torch/lantern
 	belt = /obj/item/storage/belt/leather/steel
-	backr = /obj/item/storage/backpack/satchel/black
+	wear_back_right = /obj/item/storage/backpack/satchel/black
 	if(prob(50))
 		r_hand = /obj/item/weapon/polearm/eaglebeak/lucerne
 	else

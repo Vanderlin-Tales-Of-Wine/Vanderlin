@@ -337,8 +337,8 @@
 
 /mob/living/carbon/get_equipped_items(include_pockets = FALSE)
 	var/list/items = list()
-	if(backr)
-		items += backr
+	if(wear_back_right)
+		items += wear_back_right
 	if(backl)
 		items += backl
 	if(head)
@@ -357,8 +357,8 @@
 		items += beltr
 	if(beltl)
 		items += beltl
-	if(backr)
-		items += backr
+	if(wear_back_right)
+		items += wear_back_right
 	if(backl)
 		items += backl
 	if(gloves)

@@ -19,7 +19,7 @@
 	..()
 	beltr = /obj/item/weapon/hammer/iron
 	backl = /obj/item/storage/backpack/backpack
-	backr =	/obj/item/weapon/hammer/sledgehammer
+	wear_back_right =	/obj/item/weapon/hammer/sledgehammer
 	pants = /obj/item/clothing/pants/trou
 	shoes = /obj/item/clothing/shoes/boots/leather
 	shirt = /obj/item/clothing/shirt/shortshirt

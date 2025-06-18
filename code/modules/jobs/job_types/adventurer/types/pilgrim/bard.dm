@@ -57,9 +57,9 @@
 	var/instrument_choice = input("Choose your instrument.", "XYLIX") as anything in instruments
 	H.set_blindness(0)
 	if(instrument_choice && instruments[instrument_choice])
-		backr = instruments[instrument_choice]
+		wear_back_right = instruments[instrument_choice]
 	else
-		backr = /obj/item/instrument/lute
+		wear_back_right = /obj/item/instrument/lute
 	if(H.dna?.species?.id == "dwarf")
 		H.cmode_music = 'sound/music/cmode/combat_dwarf.ogg'
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)

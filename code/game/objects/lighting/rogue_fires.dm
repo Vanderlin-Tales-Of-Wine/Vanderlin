@@ -620,7 +620,7 @@
 
 /obj/machinery/light/fueled/campfire/pyre/post_buckle_mob(mob/living/M)
 	..()
-	M.set_mob_offsets("bed_buckle", _x = 0, _y = 10)
+	M.set_mob_offsets("bed_buckle", _w = 0, _z = 10)
 	M.setDir(SOUTH)
 
 /obj/machinery/light/fueled/campfire/pyre/post_unbuckle_mob(mob/living/M)

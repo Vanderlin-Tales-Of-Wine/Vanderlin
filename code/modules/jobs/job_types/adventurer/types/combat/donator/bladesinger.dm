@@ -33,7 +33,7 @@
 		H.underwear_color = CLOTHING_SOOT_BLACK
 		H.update_body()
 	pants = /obj/item/clothing/pants/tights/black
-	backr = /obj/item/weapon/sword/long/greatsword/elfgsword
+	wear_back_right = /obj/item/weapon/sword/long/greatsword/elfgsword
 	beltl = /obj/item/storage/belt/pouch/coins/mid
 	shoes = /obj/item/clothing/shoes/boots/rare/elfplate/welfplate
 	gloves = /obj/item/clothing/gloves/rare/elfplate/welfplate

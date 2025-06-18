@@ -570,11 +570,11 @@
 /mob/living/proc/set_pull_offsets(mob/living/M, grab_state = GRAB_PASSIVE)
 	return //rtd fix not updating because no dirchange
 
-/mob/living/proc/set_mob_offsets(index, _x = 0, _y = 0)
+/mob/living/proc/set_mob_offsets(index, _w = 0, _z = 0)
 	if(index)
 		if(mob_offsets[index])
 			reset_offsets(index)
-		mob_offsets[index] = list("x" = _x, "y" = _y)
+		mob_offsets[index] = list("w" = _w, "z" = _z)
 	update_transform()
 
 /mob/living/proc/reset_offsets(index)

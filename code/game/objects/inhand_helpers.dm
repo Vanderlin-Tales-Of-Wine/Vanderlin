@@ -287,7 +287,7 @@ GLOBAL_LIST_INIT(IconStates_cache, list())
 	if(!I)
 		I = LI.beltl
 	if(!I)
-		I = LI.backr
+		I = LI.wear_back_right
 	if(!I)
 		I = LI.backl
 	if(I)
@@ -329,7 +329,7 @@ GLOBAL_LIST_INIT(IconStates_cache, list())
 		I = LI.beltl
 	if(!I)
 		used_cat = "onback"
-		I = LI.backr
+		I = LI.wear_back_right
 	if(!I)
 		I = LI.backl
 	if(I)
@@ -380,7 +380,7 @@ GLOBAL_LIST_INIT(IconStates_cache, list())
 		I = LI.beltl
 	if(!I)
 		used_cat = "onback"
-		I = LI.backr
+		I = LI.wear_back_right
 	if(!I)
 		I = LI.backl
 	if(I)
@@ -431,7 +431,7 @@ GLOBAL_LIST_INIT(IconStates_cache, list())
 		I = LI.beltl
 	if(!I)
 		used_cat = "onback"
-		I = LI.backr
+		I = LI.wear_back_right
 	if(!I)
 		I = LI.backl
 	if(I)
@@ -482,7 +482,7 @@ GLOBAL_LIST_INIT(IconStates_cache, list())
 		I = LI.beltl
 	if(!I)
 		used_cat = "onback"
-		I = LI.backr
+		I = LI.wear_back_right
 	if(!I)
 		I = LI.backl
 	if(I)
@@ -533,7 +533,7 @@ GLOBAL_LIST_INIT(IconStates_cache, list())
 		I = LI.beltl
 	if(!I)
 		used_cat = "onback"
-		I = LI.backr
+		I = LI.wear_back_right
 	if(!I)
 		I = LI.backl
 	if(I)
@@ -597,7 +597,7 @@ GLOBAL_LIST_INIT(IconStates_cache, list())
 		I = LI.beltl
 	if(!I)
 		used_cat = "onback"
-		I = LI.backr
+		I = LI.wear_back_right
 	if(!I)
 		I = LI.backl
 	if(I)
@@ -650,7 +650,7 @@ GLOBAL_LIST_INIT(IconStates_cache, list())
 		I = LI.beltl
 	if(!I)
 		used_cat = "onback"
-		I = LI.backr
+		I = LI.wear_back_right
 	if(!I)
 		I = LI.backl
 	if(I)
@@ -694,7 +694,7 @@ GLOBAL_LIST_INIT(IconStates_cache, list())
 		I = LI.beltl
 	if(!I)
 		used_cat = "onback"
-		I = LI.backr
+		I = LI.wear_back_right
 	if(!I)
 		I = LI.backl
 	if(I)
@@ -732,7 +732,7 @@ GLOBAL_LIST_INIT(IconStates_cache, list())
 		I = LI.beltl
 	if(!I)
 		used_cat = "onback"
-		I = LI.backr
+		I = LI.wear_back_right
 	if(!I)
 		I = LI.backl
 	if(I)

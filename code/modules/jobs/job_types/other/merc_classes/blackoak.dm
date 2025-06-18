@@ -43,7 +43,7 @@
 	var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
 	switch(weapon_choice)
 		if("Spear")
-			backr = /obj/item/weapon/polearm/spear
+			wear_back_right = /obj/item/weapon/polearm/spear
 			H.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 		if("Regal Elven Club")
 			beltr = /obj/item/weapon/mace/elvenclub/steel

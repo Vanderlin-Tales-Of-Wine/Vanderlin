@@ -22,7 +22,7 @@
 	pants = /obj/item/clothing/pants/trou/leather
 	shoes = /obj/item/clothing/shoes/boots/leather
 	belt = /obj/item/storage/belt/leather
-	backr = /obj/item/weapon/shield/heater
+	wear_back_right = /obj/item/weapon/shield/heater
 	if(ispath(H.patron?.type, /datum/patron/divine/abyssor))
 		backl = /obj/item/weapon/polearm/woodstaff/quarterstaff
 	else

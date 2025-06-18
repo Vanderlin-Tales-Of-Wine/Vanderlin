@@ -18,7 +18,7 @@
 	armor = /obj/item/clothing/armor/cuirass
 	beltr = /obj/item/weapon/sword/iron
 	beltl = /obj/item/ammo_holder/quiver/bolts
-	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
+	wear_back_right = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
 	backl = /obj/item/storage/backpack/satchel
 	shirt = /obj/item/clothing/shirt/undershirt/black
 	pants = /obj/item/clothing/pants/tights/black

@@ -31,8 +31,8 @@
 		if(!(I.item_flags & ABSTRACT))
 			. += "[m1] holding [I.get_examine_string(user)] in [m2] [get_held_index_name(get_held_index_of_item(I))]."
 
-	if (backr)
-		. += "[m3] [backr.get_examine_string(user)] on [m2] back."
+	if (wear_back_right)
+		. += "[m3] [wear_back_right.get_examine_string(user)] on [m2] back."
 
 	if (backl)
 		. += "[m3] [backl.get_examine_string(user)] on [m2] back."

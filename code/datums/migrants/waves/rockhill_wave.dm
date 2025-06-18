@@ -27,7 +27,7 @@
 		beltr = /obj/item/weapon/sword/rapier
 		ring = /obj/item/clothing/ring/silver
 		shoes = /obj/item/clothing/shoes/nobleboot
-		backr = /obj/item/storage/backpack/satchel
+		wear_back_right = /obj/item/storage/backpack/satchel
 		backpack_contents = list(/obj/item/storage/belt/pouch/coins/rich = 1, /obj/item/flashlight/flare/torch/lantern = 1)
 		if(prob(66))
 			armor = /obj/item/clothing/armor/gambeson/heavy/dress/alt
@@ -77,7 +77,7 @@
 	beltr = /obj/item/weapon/sword/long
 	beltl = /obj/item/flashlight/flare/torch/lantern
 	belt = /obj/item/storage/belt/leather/steel
-	backr = /obj/item/storage/backpack/satchel/black
+	wear_back_right = /obj/item/storage/backpack/satchel/black
 	if(prob(50))
 		r_hand = /obj/item/weapon/polearm/eaglebeak/lucerne
 	else

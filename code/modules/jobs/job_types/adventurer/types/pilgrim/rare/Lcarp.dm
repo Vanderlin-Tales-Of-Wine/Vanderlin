@@ -44,7 +44,7 @@
 	beltr = /obj/item/storage/belt/pouch/coins/mid
 	beltl = /obj/item/weapon/hammer/steel
 	backl = /obj/item/storage/backpack/backpack
-	backr = /obj/item/weapon/polearm/halberd/bardiche/woodcutter // A specialist in cutting trees would carry an impressive axe
+	wear_back_right = /obj/item/weapon/polearm/halberd/bardiche/woodcutter // A specialist in cutting trees would carry an impressive axe
 	backpack_contents = list(/obj/item/flint = 1, /obj/item/weapon/knife/hunting = 1, /obj/item/key/artificer = 1)
 	H.change_stat(STATKEY_STR, 2)
 	H.change_stat(STATKEY_END, 2)

@@ -64,7 +64,7 @@
 	..()
 	pants = /obj/item/clothing/pants/trou/leather
 	armor = /obj/item/clothing/armor/leather/hide
-	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
+	wear_back_right = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
 	shirt = /obj/item/clothing/shirt/shortshirt/merc
 	cloak = /obj/item/clothing/cloak/stabard/guard
 	shoes = /obj/item/clothing/shoes/boots
@@ -112,7 +112,7 @@
 	..()
 	pants = /obj/item/clothing/pants/trou/leather
 	armor = /obj/item/clothing/armor/leather/hide
-	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
+	wear_back_right = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
 	shirt = /obj/item/clothing/shirt/shortshirt/merc
 	cloak = /obj/item/clothing/cloak/stabard/guard
 	shoes = /obj/item/clothing/shoes/boots
@@ -163,7 +163,7 @@
 	shirt = /obj/item/clothing/armor/chainmail
 	neck = /obj/item/clothing/neck/gorget
 	head = /obj/item/clothing/head/helmet/nasal
-	backr = /obj/item/weapon/shield/wood
+	wear_back_right = /obj/item/weapon/shield/wood
 	beltr = /obj/item/weapon/sword/scimitar/messer
 	beltl = /obj/item/weapon/mace
 	pants = /obj/item/clothing/pants/trou/leather
@@ -230,9 +230,9 @@
 	var/weapontype = pickweight(list("Spear" = 6, "Bardiche" = 4))
 	switch(weapontype)
 		if("Spear")
-			backr = /obj/item/weapon/polearm/spear
+			wear_back_right = /obj/item/weapon/polearm/spear
 		if("Bardiche")
-			backr = /obj/item/weapon/polearm/halberd/bardiche
+			wear_back_right = /obj/item/weapon/polearm/halberd/bardiche
 
 /datum/migrant_wave/returning_bannermen
 	name = "The Bannermen's Return"

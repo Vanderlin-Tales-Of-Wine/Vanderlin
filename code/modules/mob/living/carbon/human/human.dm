@@ -177,7 +177,7 @@
 	if(obscured & ITEM_SLOT_BACK_R)
 		dat += "<tr><td><font color=grey>Obscured</font></td></tr>"
 	else
-		dat += "<tr><td><A href='byond://?src=[REF(src)];item=[ITEM_SLOT_BACK_R]'>[(backr && !(backr.item_flags & ABSTRACT)) ? backr : "<font color=grey>Back</font>"]</A></td></tr>"
+		dat += "<tr><td><A href='byond://?src=[REF(src)];item=[ITEM_SLOT_BACK_R]'>[(wear_back_right && !(wear_back_right.item_flags & ABSTRACT)) ? wear_back_right : "<font color=grey>Back</font>"]</A></td></tr>"
 
 	if(obscured & ITEM_SLOT_BACK_L)
 		dat += "<tr><td><font color=grey>Obscured</font></td></tr>"
@@ -626,7 +626,7 @@
 	. = ..(target, force, check_loc)
 
 /mob/living/carbon/human/proc/is_shove_knockdown_blocked() //If you want to add more things that block shove knockdown, extend this
-	var/list/body_parts = list(head, wear_mask, wear_armor, wear_pants, backl, backr, gloves, shoes, belt, wear_ring)
+	var/list/body_parts = list(head, wear_mask, wear_armor, wear_pants, backl, wear_back_right, gloves, shoes, belt, wear_ring)
 	for(var/bp in body_parts)
 		if(istype(bp, /obj/item/clothing))
 			var/obj/item/clothing/C = bp

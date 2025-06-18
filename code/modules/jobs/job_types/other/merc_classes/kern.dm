@@ -28,7 +28,7 @@
 	shirt = /obj/item/clothing/armor/gambeson/light/striped
 	pants = /obj/item/clothing/pants/chainlegs/kilt/iron
 	backl = /obj/item/weapon/polearm/spear
-	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
+	wear_back_right = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
 	backpack_contents = list(/obj/item/weapon/knife/villager = 1)
 	if(H.mind)
 		H.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE) // Main weapon skill

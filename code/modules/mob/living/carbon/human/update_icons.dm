@@ -774,27 +774,27 @@ There are several things that need to be remembered:
 	else
 		offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
 
-	if(backr)
-		if(backr.alternate_worn_layer == CLOAK_BEHIND_LAYER)
+	if(wear_back_right)
+		if(wear_back_right.alternate_worn_layer == CLOAK_BEHIND_LAYER)
 			update_inv_cloak()
 		else
 			var/mutable_appearance/back_overlay
 			var/mutable_appearance/behindback_overlay
-			update_hud_backr(backr)
-			if(backr.experimental_onback)
+			update_hud_backr(wear_back_right)
+			if(wear_back_right.experimental_onback)
 				var/list/prop
-				if(backr.force_reupdate_inhand)
-					prop = backr.onprop?["onback"]
+				if(wear_back_right.force_reupdate_inhand)
+					prop = wear_back_right.onprop?["onback"]
 					if(!prop)
-						prop = backr.getonmobprop("onback")
-						LAZYSET(backr.onprop, "onback", prop)
+						prop = wear_back_right.getonmobprop("onback")
+						LAZYSET(wear_back_right.onprop, "onback", prop)
 				else
-					prop = backr.getonmobprop("onback")
+					prop = wear_back_right.getonmobprop("onback")
 				if(prop)
-					back_overlay = mutable_appearance(backr.getmoboverlay("onback",prop,mirrored=FALSE), layer=-BACK_LAYER)
-					behindback_overlay = mutable_appearance(backr.getmoboverlay("onback",prop,behind=TRUE,mirrored=FALSE), layer=-BACK_BEHIND_LAYER)
-					back_overlay = center_image(back_overlay, backr.inhand_x_dimension, backr.inhand_y_dimension)
-					behindback_overlay = center_image(behindback_overlay, backr.inhand_x_dimension, backr.inhand_y_dimension)
+					back_overlay = mutable_appearance(wear_back_right.getmoboverlay("onback",prop,mirrored=FALSE), layer=-BACK_LAYER)
+					behindback_overlay = mutable_appearance(wear_back_right.getmoboverlay("onback",prop,behind=TRUE,mirrored=FALSE), layer=-BACK_BEHIND_LAYER)
+					back_overlay = center_image(back_overlay, wear_back_right.inhand_x_dimension, wear_back_right.inhand_y_dimension)
+					behindback_overlay = center_image(behindback_overlay, wear_back_right.inhand_x_dimension, wear_back_right.inhand_y_dimension)
 					if(LAZYACCESS(offsets, OFFSET_BACK))
 						back_overlay.pixel_x += offsets[OFFSET_BACK][1]
 						back_overlay.pixel_y += offsets[OFFSET_BACK][2]
@@ -803,11 +803,11 @@ There are several things that need to be remembered:
 					LAZYADD(overcloaks, back_overlay)
 					LAZYADD(backbehind, behindback_overlay)
 			else
-				back_overlay = backr.build_worn_icon(age, BACK_LAYER, 'icons/roguetown/clothing/onmob/back_r.dmi')
+				back_overlay = wear_back_right.build_worn_icon(age, BACK_LAYER, 'icons/roguetown/clothing/onmob/back_r.dmi')
 				if(LAZYACCESS(offsets, OFFSET_BACK))
 					back_overlay.pixel_x += offsets[OFFSET_BACK][1]
 					back_overlay.pixel_y += offsets[OFFSET_BACK][2]
-				if(backr.alternate_worn_layer == UNDER_CLOAK_LAYER)
+				if(wear_back_right.alternate_worn_layer == UNDER_CLOAK_LAYER)
 					LAZYADD(undercloaks, back_overlay)
 				else
 					LAZYADD(overcloaks, back_overlay)
@@ -924,24 +924,24 @@ There are several things that need to be remembered:
 					S.pixel_y += offsets[OFFSET_CLOAK][2]
 				LAZYADD(cloaklays, S)
 
-	if(backr && backr.alternate_worn_layer == CLOAK_BEHIND_LAYER)
-		update_hud_backr(backr)
-		var/mutable_appearance/cloak_overlay = backr.build_worn_icon(age, CLOAK_LAYER, coom = use_female_sprites, customi = racecustom)
+	if(wear_back_right && wear_back_right.alternate_worn_layer == CLOAK_BEHIND_LAYER)
+		update_hud_backr(wear_back_right)
+		var/mutable_appearance/cloak_overlay = wear_back_right.build_worn_icon(age, CLOAK_LAYER, coom = use_female_sprites, customi = racecustom)
 
 		if(LAZYACCESS(offsets, OFFSET_CLOAK))
 			cloak_overlay.pixel_x += offsets[OFFSET_CLOAK][1]
 			cloak_overlay.pixel_y += offsets[OFFSET_CLOAK][2]
-		if(backr.alternate_worn_layer == TABARD_LAYER)
+		if(wear_back_right.alternate_worn_layer == TABARD_LAYER)
 			overlays_standing[TABARD_LAYER] = cloak_overlay
-		if(backr.alternate_worn_layer == CLOAK_BEHIND_LAYER)
+		if(wear_back_right.alternate_worn_layer == CLOAK_BEHIND_LAYER)
 			overlays_standing[CLOAK_BEHIND_LAYER] = cloak_overlay
-		if(!backr.alternate_worn_layer)
+		if(!wear_back_right.alternate_worn_layer)
 			LAZYADD(cloaklays, cloak_overlay)
 
 		//add sleeve overlays, then offset
 		var/list/cloaksleeves
-		if(backr.sleeved)
-			cloaksleeves = get_sleeves_layer(backr,0,CLOAK_LAYER)
+		if(wear_back_right.sleeved)
+			cloaksleeves = get_sleeves_layer(wear_back_right,0,CLOAK_LAYER)
 
 		if(LAZYLEN(cloaksleeves))
 			for(var/mutable_appearance/S in cloaksleeves)

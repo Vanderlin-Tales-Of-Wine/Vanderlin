@@ -4,22 +4,33 @@
 	base_intents = list(INTENT_HELP, INTENT_HARM)
 	hud_possible = list(ANTAG_HUD)
 	held_items = list(null, null)
-	num_legs = 0 //Populated on init through list/bodyparts
-	usable_legs = 0 //Populated on init through list/bodyparts
-	num_hands = 0 //Populated on init through list/bodyparts
-	usable_hands = 0 //Populated on init through list/bodyparts
-	var/list/internal_organs		= list()	//List of /obj/item/organ in the mob. They don't go in the contents for some reason I don't want to know.
-	var/list/internal_organs_slot= list() //Same as above, but stores "slot ID" - "organ" pairs for easy access.
-	var/silent = FALSE 		//Can't talk. Value goes down every life proc. //NOTE TO FUTURE CODERS: DO NOT INITIALIZE NUMERICAL VARS AS NULL OR I WILL MURDER YOU.
-	var/dreaming = 0 //How many dream images we have left to send
+	// Populated on init through list/bodyparts
+	num_legs = 0
+	// Populated on init through list/bodyparts
+	usable_legs = 0
+	// Populated on init through list/bodyparts
+	num_hands = 0
+	// Populated on init through list/bodyparts
+	usable_hands = 0
+	/// List of /obj/item/organ in the mob. They don't go in the contents for some reason I don't want to know.
+	var/list/internal_organs = list()
+	/// Same as internal_organs, but stores "slot ID" - "organ" pairs for easy access.
+	var/list/internal_organs_slot = list()
+	/// Can't talk. Value goes down every life proc. //NOTE TO FUTURE CODERS: DO NOT INITIALIZE NUMERICAL VARS AS NULL OR I WILL MURDER YOU.
+	var/silent = FALSE
+	/// How many dream images we have left to send
+	var/dreaming = 0
 
-	var/obj/item/handcuffed = null //Whether or not the mob is handcuffed
-	var/obj/item/legcuffed = null  //Same as handcuffs but for legs. Bear traps use this.
+	/// Whether or not the mob is handcuffed
+	var/obj/item/handcuffed = null
+	/// Same as handcuffs but for legs. Bear traps use this.
+	var/obj/item/legcuffed = null
 
 	var/disgust = 0
 
-//inventory slots
-	var/obj/item/backr = null
+	/* inventory slots */
+
+	var/obj/item/wear_back_right = null
 	var/obj/item/backl = null
 	var/obj/item/clothing/face/wear_mask = null
 	var/obj/item/mouth = null

@@ -220,30 +220,33 @@
 	/// custom descriptors, shown in examine
 	var/list/custom_descriptors
 
-	var/rogue_sneaking = FALSE
+	/// is this mob currently sneaking?
+	var/sneaking = FALSE
 
-	var/rogue_sneaking_light_threshhold = 0.15
+	/// how much light reveals this mob when they are sneaking
+	var/sneaking_light_threshhold = 0.15
 
 	var/voice_pitch = 1
 
-	var/domhand = 0
+	/// dominant hand, WHY ISN'T THIS ON CARBON?
+	var/domhand = DOMINANT_HAND_NONE
 
-	///our blood drain for meathook, the less bloody the more we get
+	/// our blood drain for meathook, the less bloody the more we get
 	var/blood_drained = 0
-	///are we skinned?
+
+	/// are we skinned?
 	var/skinned = FALSE
 
-	///our reflection child
+	/// our reflection child
 	var/has_reflection = TRUE
 
 	var/mutable_appearance/reflective_icon
 
+	/// list of our offsets
 	var/list/mob_offsets = list()
-
-	var/last_deadlife
 
 	var/datum/worker_mind/controller_mind
 
 	var/tempatarget = null
-	var/pegleg = 0			//Handles check & slowdown for peglegs. Fuckin' bootleg, literally, but hey it at least works.
+
 	var/pet_passive = FALSE

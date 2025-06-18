@@ -70,7 +70,7 @@
 		beltr = /obj/item/storage/keyring/butler
 		beltl = /obj/item/storage/belt/pouch/coins/mid
 		armor = /obj/item/clothing/armor/leather/vest/butler
-		backr = /obj/item/storage/backpack/satchel
+		wear_back_right = /obj/item/storage/backpack/satchel
 
 	else
 		armor = /obj/item/clothing/shirt/dress/gen/maid
@@ -80,4 +80,4 @@
 		belt = /obj/item/storage/belt/leather/cloth/lady
 		beltr = /obj/item/storage/keyring/butler
 		beltl = /obj/item/storage/belt/pouch/coins/mid
-		backr = /obj/item/storage/backpack/satchel
+		wear_back_right = /obj/item/storage/backpack/satchel

@@ -64,7 +64,7 @@
 	neck = /obj/item/clothing/neck/chaincoif/iron
 	gloves = /obj/item/clothing/gloves/chain
 	beltr = /obj/item/weapon/sword/arming
-	backr = /obj/item/weapon/polearm/spear/billhook
+	wear_back_right = /obj/item/weapon/polearm/spear/billhook
 	backl = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/weapon/knife/dagger/steel/special)
 	H.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
@@ -165,7 +165,7 @@
 		switch(weapontypec)
 			if("Bow")
 				backl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/long
-				backr = /obj/item/ammo_holder/quiver/arrows
+				wear_back_right = /obj/item/ammo_holder/quiver/arrows
 			if("Crossbow")
 				backl = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
-				backr = /obj/item/ammo_holder/quiver/bolts
+				wear_back_right = /obj/item/ammo_holder/quiver/bolts

@@ -24,7 +24,7 @@
 	shoes = /obj/item/clothing/shoes/boots/leather
 	beltr = /obj/item/flashlight/flare/torch/lantern
 	beltl = /obj/item/weapon/whip // You know why.
-	backr = /obj/item/weapon/shovel
+	wear_back_right = /obj/item/weapon/shovel
 	head = /obj/item/clothing/head/helmet/leather/inquisitor
 	neck = /obj/item/storage/belt/pouch
 	if(H.mind)

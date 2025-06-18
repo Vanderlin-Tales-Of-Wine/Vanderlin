@@ -584,7 +584,7 @@
 				if(!H.get_active_held_item())
 					H.putItemFromInventoryInHandIfPossible(A, H.active_hand_index)
 				return
-			if(H.backr == A)
+			if(H.wear_back_right == A)
 				if(!H.get_active_held_item())
 					H.putItemFromInventoryInHandIfPossible(A, H.active_hand_index)
 				return
@@ -816,7 +816,7 @@
 				if(!H.get_active_held_item())
 					H.putItemFromInventoryInHandIfPossible(A, H.active_hand_index)
 				return
-			if(H.backr == A)
+			if(H.wear_back_right == A)
 				if(!H.get_active_held_item())
 					H.putItemFromInventoryInHandIfPossible(A, H.active_hand_index)
 				return
@@ -862,7 +862,7 @@
 				if(!H.get_active_held_item())
 					H.putItemFromInventoryInHandIfPossible(A, H.active_hand_index)
 				return
-			if(H.backr == A)
+			if(H.wear_back_right == A)
 				if(!H.get_active_held_item())
 					H.putItemFromInventoryInHandIfPossible(A, H.active_hand_index)
 				return

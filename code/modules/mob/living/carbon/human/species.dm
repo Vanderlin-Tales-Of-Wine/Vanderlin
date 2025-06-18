@@ -900,7 +900,7 @@ GLOBAL_LIST_EMPTY(patreon_races)
 				return FALSE
 			return TRUE
 		if(ITEM_SLOT_BACK_R)
-			if(H.backr)
+			if(H.wear_back_right)
 				return FALSE
 			if( (I.slot_flags & ITEM_SLOT_CLOAK) )
 				if(H.cloak)
@@ -1010,8 +1010,8 @@ GLOBAL_LIST_EMPTY(patreon_races)
 			if(H.cloak)
 				return FALSE
 			if( (I.slot_flags & ITEM_SLOT_BACK_R) )
-				if(H.backr)
-					if((H.backr.slot_flags & ITEM_SLOT_CLOAK) )
+				if(H.wear_back_right)
+					if((H.wear_back_right.slot_flags & ITEM_SLOT_CLOAK) )
 						return FALSE
 			if(H.wear_shirt)
 				if(H.wear_shirt.blocking_behavior & BULKYBLOCKS)
@@ -1055,8 +1055,8 @@ GLOBAL_LIST_EMPTY(patreon_races)
 				return FALSE
 			return TRUE
 		if(ITEM_SLOT_BACKPACK)
-			if(H.backr)
-				if(SEND_SIGNAL(H.backr, COMSIG_TRY_STORAGE_CAN_INSERT, I, H, TRUE))
+			if(H.wear_back_right)
+				if(SEND_SIGNAL(H.wear_back_right, COMSIG_TRY_STORAGE_CAN_INSERT, I, H, TRUE))
 					return TRUE
 			if(H.backl)
 				if(SEND_SIGNAL(H.backl, COMSIG_TRY_STORAGE_CAN_INSERT, I, H, TRUE))

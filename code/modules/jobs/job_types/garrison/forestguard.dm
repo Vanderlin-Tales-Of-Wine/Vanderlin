@@ -101,7 +101,7 @@
 	neck = /obj/item/clothing/neck/chaincoif
 	beltl = /obj/item/weapon/knife/cleaver/combat
 	beltr = /obj/item/ammo_holder/quiver/arrows
-	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/long
+	wear_back_right = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/long
 	backpack_contents = list(/obj/item/weapon/knife/hunting = 1, /obj/item/rope/chain = 1, /obj/item/key/forrestgarrison = 1, /obj/item/storage/belt/pouch/coins/poor)
 	H.verbs |= /mob/proc/haltyell
 	if(H.mind)
@@ -139,7 +139,7 @@
 	..()
 	neck = /obj/item/clothing/neck/chaincoif
 	beltl = /obj/item/weapon/mace/steel/morningstar
-	backr = /obj/item/weapon/polearm/halberd/bardiche/woodcutter
+	wear_back_right = /obj/item/weapon/polearm/halberd/bardiche/woodcutter
 	beltr = /obj/item/weapon/axe/iron
 	backpack_contents = list(/obj/item/weapon/knife/hunting = 1, /obj/item/rope/chain = 1, /obj/item/key/forrestgarrison = 1, /obj/item/storage/belt/pouch/coins/poor)
 	H.verbs |= /mob/proc/haltyell

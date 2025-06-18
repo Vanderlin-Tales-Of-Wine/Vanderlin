@@ -230,8 +230,8 @@
 	if(cloak && !(obscured & ITEM_SLOT_CLOAK))
 		. += "[m3] [cloak.get_examine_string(user)] on [m2] shoulders."
 
-	if(backr && !(obscured & ITEM_SLOT_BACK_R))
-		. += "[m3] [backr.get_examine_string(user)] on [m2] back."
+	if(wear_back_right && !(obscured & ITEM_SLOT_BACK_R))
+		. += "[m3] [wear_back_right.get_examine_string(user)] on [m2] back."
 
 	if(backl && !(obscured & ITEM_SLOT_BACK_L))
 		. += "[m3] [backl.get_examine_string(user)] on [m2] back."

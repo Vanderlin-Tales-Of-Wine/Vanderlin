@@ -15,7 +15,7 @@
 	armor = /obj/item/clothing/armor/leather/jacket/sea
 	backl = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/natural/worms/leech = 2, /obj/item/storage/belt/pouch/coins/mid)
-	backr = /obj/item/fishingrod/fisher
+	wear_back_right = /obj/item/fishingrod/fisher
 	beltl = /obj/item/weapon/sword/sabre/cutlass
 	beltr = /obj/item/weapon/knife/dagger
 	shoes = /obj/item/clothing/shoes/boots

@@ -50,7 +50,7 @@
 				break
 
 	for(var/mob/living/living_target in filtered_targets)
-		if(!living_target.rogue_sneaking)
+		if(!living_target.sneaking)
 			continue
 		var/extra_chance = (living_mob.health <= living_mob.maxHealth * 50) ? 30 : 0 // if we're below half health, we're way more alert
 		if (!living_mob.npc_detect_sneak(living_target, extra_chance))

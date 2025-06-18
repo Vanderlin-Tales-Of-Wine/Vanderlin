@@ -30,7 +30,7 @@
 	head = /obj/item/clothing/head/strawhat
 	shoes = /obj/item/clothing/shoes/simpleshoes
 	wrists = /obj/item/clothing/wrists/bracers/leather
-	backr = /obj/item/weapon/hoe
+	wear_back_right = /obj/item/weapon/hoe
 	backl = /obj/item/storage/backpack/satchel
 	neck = /obj/item/storage/belt/pouch/coins/poor
 	armor = /obj/item/clothing/armor/gambeson/light/striped

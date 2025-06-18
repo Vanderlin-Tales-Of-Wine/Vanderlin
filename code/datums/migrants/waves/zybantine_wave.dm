@@ -22,7 +22,7 @@
 	belt = /obj/item/storage/belt/leather/shalal
 	beltl = /obj/item/weapon/sword/sabre/shalal
 	beltr = /obj/item/flashlight/flare/torch/lantern
-	backr = /obj/item/storage/backpack/satchel
+	wear_back_right = /obj/item/storage/backpack/satchel
 	ring = /obj/item/clothing/ring/gold/guild_mercator
 	shirt = /obj/item/clothing/shirt/tunic/purple
 	pants = /obj/item/clothing/pants/trou/leather
@@ -86,7 +86,7 @@
 	belt = /obj/item/storage/belt/leather/shalal
 	beltl = /obj/item/weapon/sword/sabre/shalal
 	beltr = /obj/item/flashlight/flare/torch/lantern
-	backr = /obj/item/storage/backpack/satchel
+	wear_back_right = /obj/item/storage/backpack/satchel
 	ring = /obj/item/clothing/ring/gold/guild_mercator
 	shirt = /obj/item/clothing/shirt/dress/silkdress/black
 	pants = /obj/item/clothing/pants/trou/leather
@@ -161,11 +161,11 @@
 	var/randy = rand(1,5)
 	switch(randy)
 		if(1 to 2)
-			backr = /obj/item/weapon/polearm/halberd/bardiche
+			wear_back_right = /obj/item/weapon/polearm/halberd/bardiche
 		if(3 to 4)
-			backr = /obj/item/weapon/polearm/eaglebeak
+			wear_back_right = /obj/item/weapon/polearm/eaglebeak
 		if(5)
-			backr = /obj/item/weapon/polearm/spear/billhook
+			wear_back_right = /obj/item/weapon/polearm/spear/billhook
 
 
 	pants = /obj/item/clothing/pants/tights/black

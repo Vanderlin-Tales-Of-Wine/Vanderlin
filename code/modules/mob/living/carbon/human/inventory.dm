@@ -25,7 +25,7 @@
 		if(ITEM_SLOT_CLOAK)
 			return cloak
 		if(ITEM_SLOT_BACK_R)
-			return backr
+			return wear_back_right
 		if(ITEM_SLOT_BACK_L)
 			return backl
 		if(ITEM_SLOT_BELT_L)
@@ -76,7 +76,7 @@
 	if(looking_for == cloak)
 		return ITEM_SLOT_CLOAK
 
-	if(looking_for == backr)
+	if(looking_for == wear_back_right)
 		return ITEM_SLOT_BACK_R
 
 	if(looking_for == backl)
@@ -127,7 +127,7 @@
 		wear_pants,
 		wear_shirt,
 		cloak,
-		backr,
+		wear_back_right,
 		backl,
 		beltr,
 		beltl,
@@ -145,7 +145,7 @@
 /mob/living/carbon/human/proc/get_storage_slots()
 	return list(
 		belt,
-		backr,
+		wear_back_right,
 		backl,
 		beltr,
 		beltl,
@@ -209,7 +209,7 @@
 			beltr = I
 			update_inv_belt()
 		if(ITEM_SLOT_BACK_R)
-			backr = I
+			wear_back_right = I
 			update_inv_back()
 		if(ITEM_SLOT_BACK_L)
 			backl = I
@@ -228,8 +228,8 @@
 			if(belt && not_handled)
 				if(SEND_SIGNAL(belt, COMSIG_TRY_STORAGE_INSERT, I, src, TRUE))
 					not_handled = FALSE
-			if(backr && not_handled)
-				if(SEND_SIGNAL(backr, COMSIG_TRY_STORAGE_CAN_INSERT, I, src, TRUE))
+			if(wear_back_right && not_handled)
+				if(SEND_SIGNAL(wear_back_right, COMSIG_TRY_STORAGE_CAN_INSERT, I, src, TRUE))
 					not_handled = FALSE
 			if(backl && not_handled)
 				if(SEND_SIGNAL(backl, COMSIG_TRY_STORAGE_CAN_INSERT, I, src, TRUE))
@@ -315,8 +315,8 @@
 		backl = null
 		if(!QDELETED(src))
 			update_inv_back()
-	else if(I == backr)
-		backr = null
+	else if(I == wear_back_right)
+		wear_back_right = null
 		if(!QDELETED(src))
 			update_inv_back()
 	else if(I == cloak)

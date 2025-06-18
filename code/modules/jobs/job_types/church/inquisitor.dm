@@ -46,7 +46,7 @@
 	head = /obj/item/clothing/head/leather/inqhat
 	gloves = /obj/item/clothing/gloves/otavan/inqgloves
 	wrists = /obj/item/clothing/neck/psycross/silver
-	backr = /obj/item/storage/backpack/satchel
+	wear_back_right = /obj/item/storage/backpack/satchel
 	backl = /obj/item/weapon/sword/long/forgotten
 	beltl = /obj/item/flashlight/flare/torch/lantern
 	neck = /obj/item/clothing/neck/bevor

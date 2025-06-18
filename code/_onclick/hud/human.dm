@@ -207,7 +207,7 @@
 	static_inventory += inv_box
 
 	inv_box = new /atom/movable/screen/inventory()
-	inv_box.name = "backr"
+	inv_box.name = "wear_back_right"
 	inv_box.icon = ui_style
 	inv_box.icon_state = "back"
 	inv_box.screen_loc = rogueui_backr
@@ -463,9 +463,9 @@
 		if(H.wear_wrists)
 			H.wear_wrists.screen_loc = rogueui_wrists
 			screenmob.client.screen += H.wear_wrists
-		if(H.backr)
-			H.backr.screen_loc = rogueui_backr
-			screenmob.client.screen += H.backr
+		if(H.wear_back_right)
+			H.wear_back_right.screen_loc = rogueui_backr
+			screenmob.client.screen += H.wear_back_right
 		if(H.backl)
 			H.backl.screen_loc = rogueui_backl
 			screenmob.client.screen += H.backl

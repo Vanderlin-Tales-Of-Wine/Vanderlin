@@ -16,7 +16,7 @@
 	shoes = /obj/item/clothing/shoes/boots/leather
 	shirt = /obj/item/clothing/shirt/undershirt/black
 	backl = /obj/item/storage/backpack/satchel/surgbag/shit
-	backr = /obj/item/storage/backpack/satchel/cloth
+	wear_back_right = /obj/item/storage/backpack/satchel/cloth
 	pants = /obj/item/clothing/pants/tights/random
 	gloves = /obj/item/clothing/gloves/leather/phys
 	armor = /obj/item/clothing/shirt/robe/phys

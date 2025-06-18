@@ -19,7 +19,7 @@
 	belt = /obj/item/storage/belt/leather
 	neck = /obj/item/storage/belt/pouch/coins/poor
 	beltl = /obj/item/weapon/pick
-	backr = /obj/item/weapon/shovel
+	wear_back_right = /obj/item/weapon/shovel
 	backl = /obj/item/storage/backpack/backpack
 	backpack_contents = list(/obj/item/flint = 1, /obj/item/weapon/knife/villager = 1)
 	if(H.mind)

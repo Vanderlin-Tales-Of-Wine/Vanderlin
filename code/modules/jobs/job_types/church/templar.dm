@@ -36,7 +36,7 @@
 	shoes = /obj/item/clothing/shoes/boots
 	backl = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/storage/keyring/priest = 1)
-	backr = /obj/item/weapon/shield/tower/metal
+	wear_back_right = /obj/item/weapon/shield/tower/metal
 	belt = /obj/item/storage/belt/leather/black
 	beltl = /obj/item/storage/belt/pouch/coins/poor
 	ring = /obj/item/clothing/ring/silver

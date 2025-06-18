@@ -99,8 +99,8 @@
 	if(head)
 		burning_items += head
 
-	if(backr)
-		burning_items += backr
+	if(wear_back_right)
+		burning_items += wear_back_right
 	if(backl)
 		burning_items += backl
 

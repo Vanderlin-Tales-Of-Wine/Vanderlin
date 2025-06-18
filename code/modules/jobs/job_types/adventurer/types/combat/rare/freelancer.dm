@@ -29,11 +29,11 @@
 	var/randy = rand(1,5)
 	switch(randy)
 		if(1 to 2)
-			backr = /obj/item/weapon/polearm/halberd/bardiche
+			wear_back_right = /obj/item/weapon/polearm/halberd/bardiche
 		if(3 to 4)
-			backr = /obj/item/weapon/polearm/eaglebeak
+			wear_back_right = /obj/item/weapon/polearm/eaglebeak
 		if(5)
-			backr = /obj/item/weapon/polearm/spear/billhook
+			wear_back_right = /obj/item/weapon/polearm/spear/billhook
 
 
 	pants = /obj/item/clothing/pants/tights/black

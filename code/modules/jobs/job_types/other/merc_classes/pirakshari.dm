@@ -42,7 +42,7 @@
 	belt = /obj/item/storage/belt/leather/mercenary/shalal
 	shirt = /obj/item/clothing/shirt/undershirt/uncolored
 	armor = /obj/item/clothing/armor/leather/splint
-	backr = /obj/item/storage/backpack/satchel
+	wear_back_right = /obj/item/storage/backpack/satchel
 	head = /obj/item/clothing/neck/keffiyeh/uncolored
 	backpack_contents = list(/obj/item/storage/belt/pouch/coins/poor, /obj/item/weapon/knife/dagger)
 

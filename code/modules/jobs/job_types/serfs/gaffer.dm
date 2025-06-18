@@ -32,7 +32,7 @@
 	..()
 
 
-	backr = /obj/item/storage/backpack/satchel
+	wear_back_right = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/storage/belt/pouch/coins/rich = 1, /obj/item/merctoken = 2, /obj/item/natural/feather, /obj/item/paper = 3, /obj/item/weapon/knife/dagger/steel, /obj/item/paper)
 	backl = /obj/item/weapon/sword/long/replica
 	belt = /obj/item/storage/belt/leather/plaquegold
