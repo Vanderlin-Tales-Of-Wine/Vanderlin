@@ -910,7 +910,7 @@ GLOBAL_LIST_EMPTY(patreon_races)
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
 		if(ITEM_SLOT_BACK_L)
-			if(H.backl)
+			if(H.wear_back_left)
 				return FALSE
 			if( !(I.slot_flags & ITEM_SLOT_BACK_L) )
 				return FALSE
@@ -1058,8 +1058,8 @@ GLOBAL_LIST_EMPTY(patreon_races)
 			if(H.wear_back_right)
 				if(SEND_SIGNAL(H.wear_back_right, COMSIG_TRY_STORAGE_CAN_INSERT, I, H, TRUE))
 					return TRUE
-			if(H.backl)
-				if(SEND_SIGNAL(H.backl, COMSIG_TRY_STORAGE_CAN_INSERT, I, H, TRUE))
+			if(H.wear_back_left)
+				if(SEND_SIGNAL(H.wear_back_left, COMSIG_TRY_STORAGE_CAN_INSERT, I, H, TRUE))
 					return TRUE
 			if(H.beltr)
 				if(SEND_SIGNAL(H.beltr, COMSIG_TRY_STORAGE_CAN_INSERT, I, H, TRUE))
@@ -1226,22 +1226,11 @@ GLOBAL_LIST_EMPTY(patreon_races)
 	return
 
 /datum/species/proc/help(mob/living/carbon/human/user, mob/living/carbon/human/target, datum/martial_art/attacker_style)
-//	if(!((target.health < 0 || HAS_TRAIT(target, TRAIT_FAKEDEATH)) && !(target.mobility_flags & MOBILITY_STAND)))
 	if(target.body_position == LYING_DOWN)
 		target.help_shake_act(user)
 		if(target != user)
 			log_combat(user, target, "shaken")
 		return TRUE
-/*	else
-		var/we_breathe = !HAS_TRAIT(user, TRAIT_NOBREATH)
-		var/we_lung = user.getorganslot(ORGAN_SLOT_LUNGS)
-
-		if(we_breathe && we_lung)
-			user.do_cpr(target)
-		else if(we_breathe && !we_lung)
-			to_chat(user, "<span class='warning'>I have no lungs to breathe with, so you cannot perform CPR!</span>")
-		else
-			to_chat(user, "<span class='warning'>I do not breathe, so you cannot perform CPR!</span>")*/
 
 /datum/species/proc/grab(mob/living/carbon/human/user, mob/living/carbon/human/target, datum/martial_art/attacker_style)
 	if(target.check_block())

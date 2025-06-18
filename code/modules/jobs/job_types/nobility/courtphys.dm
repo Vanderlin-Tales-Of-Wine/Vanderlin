@@ -28,7 +28,7 @@
 	shoes = /obj/item/clothing/shoes/shortboots
 	shirt = /obj/item/clothing/shirt/tunic/green
 	wear_back_right = /obj/item/storage/backpack/satchel
-	backl = /obj/item/storage/backpack/satchel/surgbag
+	wear_back_left = /obj/item/storage/backpack/satchel/surgbag
 	gloves = /obj/item/clothing/gloves/leather/feld
 	head = /obj/item/clothing/head/physhat
 	mask = /obj/item/clothing/face/spectacles/golden

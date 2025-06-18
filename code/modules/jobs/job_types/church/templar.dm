@@ -34,7 +34,7 @@
 	shirt = /obj/item/clothing/armor/gambeson
 	pants = /obj/item/clothing/pants/chainlegs
 	shoes = /obj/item/clothing/shoes/boots
-	backl = /obj/item/storage/backpack/satchel
+	wear_back_left = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/storage/keyring/priest = 1)
 	wear_back_right = /obj/item/weapon/shield/tower/metal
 	belt = /obj/item/storage/belt/leather/black

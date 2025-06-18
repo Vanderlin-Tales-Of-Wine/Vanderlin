@@ -219,7 +219,7 @@
 	beltr = /obj/item/book/granter/spellbook/expert
 	ring = /obj/item/clothing/ring/gold
 	r_hand = /obj/item/weapon/polearm/woodstaff
-	backl = /obj/item/storage/backpack/satchel
+	wear_back_left = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/reagent_containers/glass/bottle/poison,/obj/item/reagent_containers/glass/bottle/healthpot)
 	ADD_TRAIT(H, TRAIT_SEEPRICES, "[type]")
 	H.cmode_music = 'sound/music/cmode/nobility/CombatCourtMagician.ogg'
@@ -273,7 +273,7 @@
 	beltr = /obj/item/storage/belt/pouch/coins/mid
 	armor = /obj/item/clothing/shirt/robe/priest
 	cloak = /obj/item/clothing/cloak/chasuble
-	backl = /obj/item/storage/backpack/satchel
+	wear_back_left = /obj/item/storage/backpack/satchel
 	backpack_contents = list(
 		/obj/item/needle/blessed = 1,
 	)

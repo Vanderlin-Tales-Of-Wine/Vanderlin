@@ -45,7 +45,7 @@
 		neck = /obj/item/storage/belt/pouch/coins/poor
 		head = /obj/item/clothing/head/fisherhat
 		armor = /obj/item/clothing/armor/gambeson/light/striped
-		backl = /obj/item/storage/backpack/satchel
+		wear_back_left = /obj/item/storage/backpack/satchel
 		belt = /obj/item/storage/belt/leather
 		wear_back_right = /obj/item/fishingrod/fisher
 		beltr = /obj/item/cooking/pan
@@ -58,7 +58,7 @@
 		shoes = /obj/item/clothing/shoes/boots/leather
 		neck = /obj/item/storage/belt/pouch/coins/poor
 		head = /obj/item/clothing/head/fisherhat
-		backl = /obj/item/storage/backpack/satchel
+		wear_back_left = /obj/item/storage/backpack/satchel
 		wear_back_right = /obj/item/fishingrod/fisher
 		belt = /obj/item/storage/belt/leather
 		beltr = /obj/item/cooking/pan

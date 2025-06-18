@@ -25,7 +25,7 @@
 	pants = /obj/item/clothing/pants/trou/leather/advanced/duelpants
 	shoes = /obj/item/clothing/shoes/nobleboot/duelboots
 	belt = /obj/item/storage/belt/leather/mercenary
-	backl = /obj/item/storage/backpack/satchel
+	wear_back_left = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/storage/belt/pouch/coins/mid)
 
 /datum/outfit/job/mercenary/duelist/pre_equip(mob/living/carbon/human/H)

@@ -34,8 +34,8 @@
 	if (wear_back_right)
 		. += "[m3] [wear_back_right.get_examine_string(user)] on [m2] back."
 
-	if (backl)
-		. += "[m3] [backl.get_examine_string(user)] on [m2] back."
+	if (wear_back_left)
+		. += "[m3] [wear_back_left.get_examine_string(user)] on [m2] back."
 
 	var/appears_dead = 0
 

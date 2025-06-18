@@ -27,7 +27,7 @@
 	shirt = /obj/item/clothing/shirt/undershirt
 	pants = /obj/item/clothing/pants/tights/red
 	neck = /obj/item/storage/belt/pouch/coins/poor
-	backl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
+	wear_back_left = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
 	wear_back_right = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/weapon/knife/hunting = 1)
 	if(H.mind)

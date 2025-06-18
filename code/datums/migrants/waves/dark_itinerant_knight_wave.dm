@@ -18,7 +18,7 @@
 	beltl = /obj/item/flashlight/flare/torch/lantern
 	belt = /obj/item/storage/belt/leather/steel
 	wear_back_right = /obj/item/storage/backpack/satchel
-	backl = /obj/item/weapon/sword/long/greatsword/zizo
+	wear_back_left = /obj/item/weapon/sword/long/greatsword/zizo
 
 	if(H.mind)
 		H.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
@@ -64,7 +64,7 @@
 	belt = /obj/item/storage/belt/leather
 	beltr = /obj/item/ammo_holder/quiver/bolts
 	armor = /obj/item/clothing/armor/chainmail
-	backl = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
+	wear_back_left = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
 	gloves = /obj/item/clothing/gloves/leather
 	wrists = /obj/item/clothing/wrists/bracers/leather
 	wear_back_right = /obj/item/storage/backpack/satchel

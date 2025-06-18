@@ -46,7 +46,7 @@
 	H.set_blindness(0)
 	switch(weapon_choice)
 		if("Crossbow & Dagger") //Rogue
-			backl= /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow //we really need to make this not a grenade launcher subtype
+			wear_back_left= /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow //we really need to make this not a grenade launcher subtype
 			beltr = /obj/item/ammo_holder/quiver/bolts
 			cloak = /obj/item/clothing/cloak/raincloak/mortus //cool cloak
 			beltl = /obj/item/weapon/knife/dagger/steel
@@ -55,7 +55,7 @@
 			H.adjust_skillrank(/datum/skill/combat/crossbows, 1, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
 		if("Bow & Sword") //Poacher
-			backl= /obj/item/gun/ballistic/revolver/grenadelauncher/bow
+			wear_back_left= /obj/item/gun/ballistic/revolver/grenadelauncher/bow
 			beltr = /obj/item/weapon/sword/short //steel sword like literally every adventurer gets
 			beltl = /obj/item/ammo_holder/quiver/arrows
 			head = /obj/item/clothing/head/helmet/leather/volfhelm //cool hat

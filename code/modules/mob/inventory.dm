@@ -339,8 +339,8 @@
 	var/list/items = list()
 	if(wear_back_right)
 		items += wear_back_right
-	if(backl)
-		items += backl
+	if(wear_back_left)
+		items += wear_back_left
 	if(head)
 		items += head
 	if(wear_mask)
@@ -359,8 +359,8 @@
 		items += beltl
 	if(wear_back_right)
 		items += wear_back_right
-	if(backl)
-		items += backl
+	if(wear_back_left)
+		items += wear_back_left
 	if(gloves)
 		items += gloves
 	if(shoes)

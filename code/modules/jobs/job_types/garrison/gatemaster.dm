@@ -60,7 +60,7 @@
 	armor = /obj/item/clothing/armor/leather/jacket/gatemaster_jacket
 	beltr = /obj/item/weapon/mace/cudgel
 	beltl = /obj/item/weapon/whip/chain
-	backl = /obj/item/storage/backpack/satchel/black
+	wear_back_left = /obj/item/storage/backpack/satchel/black
 	backpack_contents = list(/obj/item/storage/keyring/manorguard = 1, /obj/item/weapon/knife/dagger/steel/special = 1, /obj/item/rope/chain = 1)
 
 	H.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
@@ -99,7 +99,7 @@
 	armor = /obj/item/clothing/armor/leather/jacket/gatemaster_jacket/armored
 	beltr = /obj/item/weapon/mace/cudgel
 	beltl = /obj/item/weapon/whip/chain
-	backl = /obj/item/storage/backpack/satchel/black
+	wear_back_left = /obj/item/storage/backpack/satchel/black
 	backpack_contents = list(/obj/item/storage/keyring/manorguard = 1, /obj/item/weapon/knife/dagger/steel/special = 1, /obj/item/rope/chain = 1)
 
 	H.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
@@ -137,7 +137,7 @@
 	armor = /obj/item/clothing/armor/leather/jacket/gatemaster_jacket/armored
 	beltr = /obj/item/weapon/mace/steel
 	wear_back_right = /obj/item/weapon/shield/heater
-	backl = /obj/item/storage/backpack/satchel/black
+	wear_back_left = /obj/item/storage/backpack/satchel/black
 	backpack_contents = list(/obj/item/storage/keyring/manorguard = 1, /obj/item/weapon/knife/dagger/steel/special = 1, /obj/item/rope/chain = 1)
 	if(H.mind)
 		H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
@@ -172,7 +172,7 @@
 	armor = /obj/item/clothing/armor/leather/jacket/gatemaster_jacket
 	gloves = /obj/item/clothing/gloves/leather
 	beltr = /obj/item/weapon/mace/cudgel
-	backl = /obj/item/storage/backpack/satchel/black
+	wear_back_left = /obj/item/storage/backpack/satchel/black
 	backpack_contents = list(/obj/item/storage/keyring/manorguard = 1, /obj/item/weapon/knife/dagger/steel/special = 1, /obj/item/rope/chain = 1)
 	if(H.mind)
 		H.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)

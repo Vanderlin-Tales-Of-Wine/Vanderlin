@@ -33,7 +33,7 @@
 		if(H.age == AGE_OLD)
 			head = /obj/item/clothing/head/wizhat/gen
 			armor = /obj/item/clothing/shirt/robe/plain
-			backl = /obj/item/storage/backpack/backpack
+			wear_back_left = /obj/item/storage/backpack/backpack
 			H.adjust_skillrank(/datum/skill/magic/arcane, 1, TRUE)
 			H.change_stat(STATKEY_INT, 1)
 		H.change_stat(STATKEY_STR, -2)

@@ -20,7 +20,7 @@
 	neck = /obj/item/storage/belt/pouch/coins/poor
 	beltl = /obj/item/weapon/pick
 	wear_back_right = /obj/item/weapon/shovel
-	backl = /obj/item/storage/backpack/backpack
+	wear_back_left = /obj/item/storage/backpack/backpack
 	backpack_contents = list(/obj/item/flint = 1, /obj/item/weapon/knife/villager = 1)
 	if(H.mind)
 		H.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)

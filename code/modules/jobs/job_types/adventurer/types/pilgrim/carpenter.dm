@@ -37,7 +37,7 @@
 	beltr = /obj/item/storage/belt/pouch/coins/poor
 	beltl = /obj/item/weapon/hammer/steel
 	wear_back_right = /obj/item/weapon/axe/iron
-	backl = /obj/item/storage/backpack/backpack
+	wear_back_left = /obj/item/storage/backpack/backpack
 	backpack_contents = list(/obj/item/flint = 1, /obj/item/weapon/knife/villager = 1)
 	H.change_stat(STATKEY_STR, 1)
 	H.change_stat(STATKEY_END, 1) // Tree chopping builds endurance

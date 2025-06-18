@@ -36,7 +36,7 @@
 	armor = /obj/item/clothing/armor/chainmail/iron
 	belt = /obj/item/storage/belt/leather
 	pants = /obj/item/clothing/pants/trou/leather
-	backl = /obj/item/weapon/shield/wood
+	wear_back_left = /obj/item/weapon/shield/wood
 	var/weapontype = pickweight(list("Bow" = 2, "Axe" = 2 , "Claymore" = 1)) // Rolls for either axe , bow or claymore vikingr
 	switch(weapontype) // Skill for main weapon is decided by choice
 		if("Bow")

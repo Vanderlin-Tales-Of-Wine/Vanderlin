@@ -252,7 +252,7 @@ GLOBAL_LIST_EMPTY(custom_outfits) //Admin created outfits
 	O.mask = text2path(href_list["outfit_mask"])
 	O.neck = text2path(href_list["outfit_neck"])
 	O.cloak = text2path(href_list["outfit_cloak"])
-	O.backl = text2path(href_list["outfit_backl"])
+	O.wear_back_left = text2path(href_list["outfit_backl"])
 	O.wear_back_right = text2path(href_list["outfit_backr"])
 	O.ring = text2path(href_list["outfit_ring"])
 	O.wrists = text2path(href_list["outfit_wrists"])

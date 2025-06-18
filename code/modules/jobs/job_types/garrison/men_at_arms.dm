@@ -65,7 +65,7 @@
 	gloves = /obj/item/clothing/gloves/chain
 	beltr = /obj/item/weapon/sword/arming
 	wear_back_right = /obj/item/weapon/polearm/spear/billhook
-	backl = /obj/item/storage/backpack/satchel
+	wear_back_left = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/weapon/knife/dagger/steel/special)
 	H.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
@@ -104,7 +104,7 @@
 	neck = /obj/item/clothing/neck/gorget
 	gloves = /obj/item/clothing/gloves/chain
 	beltr = /obj/item/weapon/sword/rapier
-	backl = /obj/item/storage/backpack/satchel
+	wear_back_left = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/weapon/knife/dagger/steel/special)
 	if(H.mind)
 		H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
@@ -164,8 +164,8 @@
 		var/weapontypec = pickweight(list("Bow" = 6, "Crossbow" = 4)) // Rolls for either a bow or a Crossbow
 		switch(weapontypec)
 			if("Bow")
-				backl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/long
+				wear_back_left = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/long
 				wear_back_right = /obj/item/ammo_holder/quiver/arrows
 			if("Crossbow")
-				backl = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
+				wear_back_left = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
 				wear_back_right = /obj/item/ammo_holder/quiver/bolts

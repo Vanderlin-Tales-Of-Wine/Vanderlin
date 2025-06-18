@@ -25,7 +25,7 @@
 		wear_back_right = /obj/item/storage/backpack/satchel
 		armor = /obj/item/clothing/armor/leather/jacket/sea
 		belt = /obj/item/storage/belt/leather
-		backl = /obj/item/fishingrod/fisher
+		wear_back_left = /obj/item/fishingrod/fisher
 		beltr = /obj/item/cooking/pan
 		beltl = /obj/item/weapon/knife/hunting
 		backpack_contents = list(/obj/item/natural/worms = 2,/obj/item/weapon/shovel/small=1)

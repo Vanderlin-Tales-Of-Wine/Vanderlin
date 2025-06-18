@@ -27,7 +27,7 @@
 	beltl = /obj/item/ammo_holder/quiver/arrows
 	shirt = /obj/item/clothing/armor/gambeson/light/striped
 	pants = /obj/item/clothing/pants/chainlegs/kilt/iron
-	backl = /obj/item/weapon/polearm/spear
+	wear_back_left = /obj/item/weapon/polearm/spear
 	wear_back_right = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
 	backpack_contents = list(/obj/item/weapon/knife/villager = 1)
 	if(H.mind)

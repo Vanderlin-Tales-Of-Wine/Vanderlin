@@ -85,7 +85,7 @@
 		beltr = /obj/item/ammo_holder/quiver/bolts
 		H.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-		backl = /obj/item/storage/backpack/satchel/black
+		wear_back_left = /obj/item/storage/backpack/satchel/black
 		backpack_contents = list(/obj/item/storage/belt/pouch/coins/rich = 1)
 	// Males are sword and shield based
 	else

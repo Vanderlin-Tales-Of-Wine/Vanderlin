@@ -116,7 +116,7 @@
 	beltl = /obj/item/weapon/sword
 	beltr = /obj/item/storage/keyring/veteran
 	wear_back_right = /obj/item/storage/backpack/satchel/black
-	backl = /obj/item/weapon/shield/tower/metal
+	wear_back_left = /obj/item/weapon/shield/tower/metal
 	r_hand = /obj/item/weapon/polearm/spear/billhook
 	belt = /obj/item/storage/belt/leather/black
 	cloak = /obj/item/clothing/cloak/half/vet
@@ -221,16 +221,16 @@
 		if("Sword + Recurve Bow")
 			r_hand = /obj/item/weapon/sword/long
 			beltl = /obj/item/ammo_holder/quiver/arrows
-			backl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve
+			wear_back_left = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve
 
 		if("Axe + Crossbow")
 			r_hand = /obj/item/weapon/axe/steel
-			backl = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
+			wear_back_left = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
 			beltl = /obj/item/ammo_holder/quiver/bolts
 
 		if ("Spear + Shield")
 			r_hand = /obj/item/weapon/polearm/spear
-			backl = /obj/item/weapon/shield/tower/metal
+			wear_back_left = /obj/item/weapon/shield/tower/metal
 
 /datum/advclass/veteran/merc
 	name = "Retired Mercenary"

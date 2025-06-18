@@ -47,7 +47,7 @@
 	gloves = /obj/item/clothing/gloves/otavan/inqgloves
 	wrists = /obj/item/clothing/neck/psycross/silver
 	wear_back_right = /obj/item/storage/backpack/satchel
-	backl = /obj/item/weapon/sword/long/forgotten
+	wear_back_left = /obj/item/weapon/sword/long/forgotten
 	beltl = /obj/item/flashlight/flare/torch/lantern
 	neck = /obj/item/clothing/neck/bevor
 	mask = /obj/item/clothing/face/spectacles/inqglasses

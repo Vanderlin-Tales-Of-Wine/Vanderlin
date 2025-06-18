@@ -16,13 +16,13 @@
 	if(looking_for == wear_back_right)
 		return ITEM_SLOT_BACK_R
 
-	if(looking_for == backl)
+	if(looking_for == wear_back_left)
 		return ITEM_SLOT_BACK_L
 
 	if(wear_back_right && (looking_for in wear_back_right))
 		return ITEM_SLOT_BACK_R
 
-	if(backl && (looking_for in backl))
+	if(wear_back_left && (looking_for in wear_back_left))
 		return ITEM_SLOT_BACK_L
 
 	if(looking_for == wear_mask)
@@ -101,8 +101,8 @@
 			if(wear_back_right)
 				if(SEND_SIGNAL(wear_back_right, COMSIG_TRY_STORAGE_INSERT, I, src, TRUE, !initial)) // If inital is true, item is from job datum and should be silent
 					not_handled = FALSE
-			if(backl && not_handled)
-				if(SEND_SIGNAL(backl, COMSIG_TRY_STORAGE_INSERT, I, src, TRUE, !initial)) // If inital is true, item is from job datum and should be silent
+			if(wear_back_left && not_handled)
+				if(SEND_SIGNAL(wear_back_left, COMSIG_TRY_STORAGE_INSERT, I, src, TRUE, !initial)) // If inital is true, item is from job datum and should be silent
 					not_handled = FALSE
 
 		else

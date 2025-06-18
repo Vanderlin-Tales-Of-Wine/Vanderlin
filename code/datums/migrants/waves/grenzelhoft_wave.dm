@@ -144,7 +144,7 @@
 	belt = /obj/item/storage/belt/leather
 	shirt = /obj/item/clothing/armor/gambeson
 	armor = /obj/item/clothing/armor/rare/grenzelplate
-	backl = /obj/item/storage/backpack/satchel
+	wear_back_left = /obj/item/storage/backpack/satchel
 	head = /obj/item/clothing/head/rare/grenzelplate
 	wrists = /obj/item/clothing/wrists/bracers
 	neck = /obj/item/clothing/neck/chaincoif
@@ -197,7 +197,7 @@
 	shirt = /obj/item/clothing/shirt/grenzelhoft
 	head = /obj/item/clothing/head/helmet/skullcap/grenzelhoft
 	armor = /obj/item/clothing/armor/cuirass/grenzelhoft
-	backl = /obj/item/storage/backpack/satchel
+	wear_back_left = /obj/item/storage/backpack/satchel
 	wear_back_right = /obj/item/weapon/sword/long/greatsword/zwei
 	if(!H.has_language(/datum/language/oldpsydonic))
 		H.grant_language(/datum/language/oldpsydonic)

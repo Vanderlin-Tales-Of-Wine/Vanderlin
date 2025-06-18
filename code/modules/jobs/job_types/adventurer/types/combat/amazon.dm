@@ -24,7 +24,7 @@
 	H.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/tanning, 1, TRUE)
 	neck = /obj/item/ammo_holder/dartpouch/poisondarts
-	backl = /obj/item/weapon/polearm/spear
+	wear_back_left = /obj/item/weapon/polearm/spear
 	wear_back_right = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve
 	belt = /obj/item/storage/belt/leather/rope
 	beltl = /obj/item/gun/ballistic/revolver/grenadelauncher/blowgun

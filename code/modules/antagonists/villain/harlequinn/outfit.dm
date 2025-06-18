@@ -10,7 +10,7 @@
 	armor = /obj/item/clothing/armor/leather/jacket
 	beltl = /obj/item/weapon/knife/dagger/steel
 	wear_back_right = /obj/item/storage/backpack/satchel
-	backl = /obj/item/storage/belt/pouch/coins/poor
+	wear_back_left = /obj/item/storage/belt/pouch/coins/poor
 	cloak = /obj/item/clothing/cloak/half/shadowcloak
 	head = /obj/item/clothing/head/roguehood/black
 

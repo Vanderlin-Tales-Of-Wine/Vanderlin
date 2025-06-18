@@ -50,7 +50,7 @@
 	belt = /obj/item/storage/belt/leather
 	shirt = /obj/item/clothing/shirt/undershirt/random
 	armor = /obj/item/clothing/armor/chainmail/hauberk
-	backl = /obj/item/weapon/polearm/spear
+	wear_back_left = /obj/item/weapon/polearm/spear
 	head = /obj/item/clothing/head/helmet/leather
 	neck = /obj/item/clothing/neck/chaincoif
 	if(prob(33))

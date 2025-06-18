@@ -54,7 +54,7 @@
 			belt = /obj/item/storage/belt/leather/assassin
 			armor = /obj/item/clothing/armor/leather/vest
 			cloak = /obj/item/clothing/cloak/raincloak/red
-			backl = /obj/item/storage/backpack/satchel
+			wear_back_left = /obj/item/storage/backpack/satchel
 			beltr = /obj/item/weapon/knife/dagger/steel/special
 			beltl = /obj/item/storage/belt/pouch/coins/poor
 			backpack_contents = list(/obj/item/flint)
@@ -85,7 +85,7 @@
 				head = /obj/item/clothing/head/fisherhat
 				mouth = /obj/item/weapon/knife/hunting
 				armor = /obj/item/clothing/armor/gambeson/light/striped
-				backl = /obj/item/storage/backpack/satchel
+				wear_back_left = /obj/item/storage/backpack/satchel
 				belt = /obj/item/storage/belt/leather/assassin
 				wear_back_right = /obj/item/fishingrod
 				beltr = /obj/item/cooking/pan
@@ -97,7 +97,7 @@
 				shoes = /obj/item/clothing/shoes/boots/leather
 				neck = /obj/item/storage/belt/pouch/coins/poor
 				head = /obj/item/clothing/head/fisherhat
-				backl = /obj/item/storage/backpack/satchel
+				wear_back_left = /obj/item/storage/backpack/satchel
 				wear_back_right = /obj/item/fishingrod
 				belt = /obj/item/storage/belt/leather/assassin
 				beltr = /obj/item/cooking/pan
@@ -112,7 +112,7 @@
 			neck = /obj/item/storage/belt/pouch/coins/poor
 			cloak = /obj/item/clothing/cloak/raincloak/furcloak/brown
 			wear_back_right = /obj/item/storage/backpack/satchel
-			backl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
+			wear_back_left = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
 			belt = /obj/item/storage/belt/leather/assassin
 			beltr = /obj/item/ammo_holder/quiver/arrows
 			beltl = /obj/item/flashlight/flare/torch/lantern
@@ -131,7 +131,7 @@
 			neck = /obj/item/storage/belt/pouch/coins/poor
 			beltl = /obj/item/weapon/pick
 			wear_back_right = /obj/item/weapon/shovel
-			backl = /obj/item/storage/backpack/backpack
+			wear_back_left = /obj/item/storage/backpack/backpack
 			backpack_contents = list(/obj/item/flint = 1, /obj/item/weapon/knife/hunting = 1)
 		if("Noble")
 			var/prev_real_name = H.real_name
@@ -143,7 +143,7 @@
 			H.name = "[honorary] [prev_name]"
 
 			shoes = /obj/item/clothing/shoes/boots
-			backl = /obj/item/storage/backpack/satchel
+			wear_back_left = /obj/item/storage/backpack/satchel
 			neck = /obj/item/storage/belt/pouch/coins/poor //Spent all their money on expensive clothing.
 			belt = /obj/item/storage/belt/leather/assassin
 			ring = /obj/item/clothing/ring/silver
@@ -176,7 +176,7 @@
 			shoes = /obj/item/clothing/shoes/simpleshoes
 			wrists = /obj/item/clothing/wrists/bracers/leather
 			wear_back_right = /obj/item/weapon/hoe
-			backl = /obj/item/storage/backpack/satchel
+			wear_back_left = /obj/item/storage/backpack/satchel
 			neck = /obj/item/storage/belt/pouch/coins/poor
 			armor = /obj/item/clothing/armor/gambeson/light/striped
 			beltl = /obj/item/weapon/sickle
@@ -204,14 +204,14 @@
 			beltr = /obj/item/storage/belt/pouch/coins/poor
 			beltl = /obj/item/weapon/hammer/steel
 			wear_back_right = /obj/item/weapon/axe/iron
-			backl = /obj/item/storage/backpack/backpack
+			wear_back_left = /obj/item/storage/backpack/backpack
 			backpack_contents = list(/obj/item/flint = 1, /obj/item/weapon/knife/villager = 1)
 		if("Thief")
 			shirt = /obj/item/clothing/shirt/undershirt/black
 			gloves = /obj/item/clothing/gloves/fingerless
 			pants = /obj/item/clothing/pants/trou/leather
 			shoes = /obj/item/clothing/shoes/boots
-			backl = /obj/item/storage/backpack/satchel
+			wear_back_left = /obj/item/storage/backpack/satchel
 			belt = /obj/item/storage/belt/leather/assassin
 			beltr = /obj/item/weapon/mace/cudgel
 			beltl = /obj/item/storage/belt/pouch/coins/poor
@@ -236,7 +236,7 @@
 			if(prob(33))
 				cloak = /obj/item/clothing/cloak/raincloak/green
 			wear_back_right = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
-			backl = /obj/item/storage/backpack/satchel
+			wear_back_left = /obj/item/storage/backpack/satchel
 			beltr = /obj/item/flashlight/flare/torch/lantern
 			backpack_contents = list(/obj/item/bait = 1, /obj/item/weapon/knife/hunting = 1)
 			beltl = /obj/item/ammo_holder/quiver/arrows

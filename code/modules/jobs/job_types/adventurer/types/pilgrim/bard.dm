@@ -40,7 +40,7 @@
 	cloak = /obj/item/clothing/cloak/raincloak/blue
 	if(prob(50))
 		cloak = /obj/item/clothing/cloak/raincloak/red
-	backl = /obj/item/storage/backpack/satchel
+	wear_back_left = /obj/item/storage/backpack/satchel
 	beltr = /obj/item/weapon/knife/dagger/steel/special
 	beltl = /obj/item/storage/belt/pouch/coins/poor
 	backpack_contents = list(/obj/item/flint)

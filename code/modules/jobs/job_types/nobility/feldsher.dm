@@ -30,7 +30,7 @@
 	shoes = /obj/item/clothing/shoes/shortboots
 	shirt = /obj/item/clothing/shirt/undershirt/red
 	wear_back_right = /obj/item/storage/backpack/satchel
-	backl = /obj/item/storage/backpack/satchel/surgbag
+	wear_back_left = /obj/item/storage/backpack/satchel/surgbag
 	pants = /obj/item/clothing/pants/tights/random
 	gloves = /obj/item/clothing/gloves/leather/feld
 	armor = /obj/item/clothing/shirt/robe/feld

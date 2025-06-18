@@ -38,7 +38,7 @@
 	shoes = /obj/item/clothing/shoes/boots/leather
 	wear_back_right = /obj/item/weapon/hoe
 	wrists = /obj/item/clothing/wrists/bracers/leather
-	backl = /obj/item/storage/backpack/backpack
+	wear_back_left = /obj/item/storage/backpack/backpack
 	neck = /obj/item/clothing/neck/coif/cloth
 	armor = /obj/item/clothing/armor/gambeson
 	mouth = /obj/item/clothing/face/cigarette/pipe/westman

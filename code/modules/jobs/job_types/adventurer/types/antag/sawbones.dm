@@ -17,7 +17,7 @@
 	pants = /obj/item/clothing/pants/trou
 	shoes = /obj/item/clothing/shoes/simpleshoes
 	wear_back_right = /obj/item/storage/backpack/satchel
-	backl = /obj/item/storage/backpack/satchel/surgbag
+	wear_back_left = /obj/item/storage/backpack/satchel/surgbag
 	backpack_contents = list(/obj/item/natural/worms/leech = 1, /obj/item/natural/cloth = 2,)
 	H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)

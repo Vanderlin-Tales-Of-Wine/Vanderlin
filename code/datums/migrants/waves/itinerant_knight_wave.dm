@@ -18,7 +18,7 @@
 	beltl = /obj/item/flashlight/flare/torch/lantern
 	belt = /obj/item/storage/belt/leather/steel
 	wear_back_right = /obj/item/storage/backpack/satchel
-	backl = /obj/item/weapon/sword/long/greatsword
+	wear_back_left = /obj/item/weapon/sword/long/greatsword
 	backpack_contents = list(/obj/item/clothing/neck/psycross/silver = 1, /obj/item/weapon/knife/dagger/steel = 1, /obj/item/storage/belt/pouch/coins/mid = 1)
 
 	if(H.mind)
@@ -66,7 +66,7 @@
 	belt = /obj/item/storage/belt/leather
 	beltr = /obj/item/ammo_holder/quiver/arrows
 	armor = /obj/item/clothing/armor/plate/full
-	backl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve
+	wear_back_left = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve
 	gloves = /obj/item/clothing/gloves/leather
 	wrists = /obj/item/clothing/wrists/bracers/leather
 	wear_back_right = /obj/item/storage/backpack/satchel

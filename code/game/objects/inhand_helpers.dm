@@ -289,7 +289,7 @@ GLOBAL_LIST_INIT(IconStates_cache, list())
 	if(!I)
 		I = LI.wear_back_right
 	if(!I)
-		I = LI.backl
+		I = LI.wear_back_left
 	if(I)
 		for(var/X in I.onprop)
 			var/list/L = I.onprop[X]
@@ -331,7 +331,7 @@ GLOBAL_LIST_INIT(IconStates_cache, list())
 		used_cat = "onback"
 		I = LI.wear_back_right
 	if(!I)
-		I = LI.backl
+		I = LI.wear_back_left
 	if(I)
 		if(!used_cat && I.altgripped)
 			used_cat = "altgrip"
@@ -382,7 +382,7 @@ GLOBAL_LIST_INIT(IconStates_cache, list())
 		used_cat = "onback"
 		I = LI.wear_back_right
 	if(!I)
-		I = LI.backl
+		I = LI.wear_back_left
 	if(I)
 		if(!used_cat && I.altgripped)
 			used_cat = "altgrip"
@@ -433,7 +433,7 @@ GLOBAL_LIST_INIT(IconStates_cache, list())
 		used_cat = "onback"
 		I = LI.wear_back_right
 	if(!I)
-		I = LI.backl
+		I = LI.wear_back_left
 	if(I)
 		if(!used_cat && I.altgripped)
 			used_cat = "altgrip"
@@ -484,7 +484,7 @@ GLOBAL_LIST_INIT(IconStates_cache, list())
 		used_cat = "onback"
 		I = LI.wear_back_right
 	if(!I)
-		I = LI.backl
+		I = LI.wear_back_left
 	if(I)
 		if(!used_cat && I.altgripped)
 			used_cat = "altgrip"
@@ -535,7 +535,7 @@ GLOBAL_LIST_INIT(IconStates_cache, list())
 		used_cat = "onback"
 		I = LI.wear_back_right
 	if(!I)
-		I = LI.backl
+		I = LI.wear_back_left
 	if(I)
 		if(!used_cat && I.altgripped)
 			used_cat = "altgrip"
@@ -599,7 +599,7 @@ GLOBAL_LIST_INIT(IconStates_cache, list())
 		used_cat = "onback"
 		I = LI.wear_back_right
 	if(!I)
-		I = LI.backl
+		I = LI.wear_back_left
 	if(I)
 		if(!used_cat && I.altgripped)
 			used_cat = "altgrip"
@@ -652,7 +652,7 @@ GLOBAL_LIST_INIT(IconStates_cache, list())
 		used_cat = "onback"
 		I = LI.wear_back_right
 	if(!I)
-		I = LI.backl
+		I = LI.wear_back_left
 	if(I)
 		if(!used_cat && I.altgripped)
 			used_cat = "altgrip"
@@ -696,7 +696,7 @@ GLOBAL_LIST_INIT(IconStates_cache, list())
 		used_cat = "onback"
 		I = LI.wear_back_right
 	if(!I)
-		I = LI.backl
+		I = LI.wear_back_left
 	if(I)
 		if(!used_cat && I.altgripped)
 			used_cat = "altgrip"
@@ -734,7 +734,7 @@ GLOBAL_LIST_INIT(IconStates_cache, list())
 		used_cat = "onback"
 		I = LI.wear_back_right
 	if(!I)
-		I = LI.backl
+		I = LI.wear_back_left
 	if(I)
 		if(!used_cat && I.altgripped)
 			used_cat = "altgrip"

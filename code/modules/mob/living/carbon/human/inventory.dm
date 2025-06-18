@@ -27,7 +27,7 @@
 		if(ITEM_SLOT_BACK_R)
 			return wear_back_right
 		if(ITEM_SLOT_BACK_L)
-			return backl
+			return wear_back_left
 		if(ITEM_SLOT_BELT_L)
 			return beltl
 		if(ITEM_SLOT_BELT_R)
@@ -79,7 +79,7 @@
 	if(looking_for == wear_back_right)
 		return ITEM_SLOT_BACK_R
 
-	if(looking_for == backl)
+	if(looking_for == wear_back_left)
 		return ITEM_SLOT_BACK_L
 
 	if(looking_for == beltl)
@@ -128,7 +128,7 @@
 		wear_shirt,
 		cloak,
 		wear_back_right,
-		backl,
+		wear_back_left,
 		beltr,
 		beltl,
 		mouth
@@ -146,7 +146,7 @@
 	return list(
 		belt,
 		wear_back_right,
-		backl,
+		wear_back_left,
 		beltr,
 		beltl,
 		mouth
@@ -212,7 +212,7 @@
 			wear_back_right = I
 			update_inv_back()
 		if(ITEM_SLOT_BACK_L)
-			backl = I
+			wear_back_left = I
 			update_inv_back()
 		if(ITEM_SLOT_MOUTH)
 			mouth = I
@@ -231,8 +231,8 @@
 			if(wear_back_right && not_handled)
 				if(SEND_SIGNAL(wear_back_right, COMSIG_TRY_STORAGE_CAN_INSERT, I, src, TRUE))
 					not_handled = FALSE
-			if(backl && not_handled)
-				if(SEND_SIGNAL(backl, COMSIG_TRY_STORAGE_CAN_INSERT, I, src, TRUE))
+			if(wear_back_left && not_handled)
+				if(SEND_SIGNAL(wear_back_left, COMSIG_TRY_STORAGE_CAN_INSERT, I, src, TRUE))
 					not_handled = FALSE
 		else
 			not_handled = TRUE
@@ -311,8 +311,8 @@
 		beltr = null
 		if(!QDELETED(src))
 			update_inv_belt()
-	else if(I == backl)
-		backl = null
+	else if(I == wear_back_left)
+		wear_back_left = null
 		if(!QDELETED(src))
 			update_inv_back()
 	else if(I == wear_back_right)

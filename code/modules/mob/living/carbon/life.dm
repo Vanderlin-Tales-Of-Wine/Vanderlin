@@ -175,8 +175,9 @@
 		var/turf/open/T = loc
 		if(reagents&& T.pollution)
 			T.pollution.breathe_act(src)
-			if(next_smell <= world.time)
-				next_smell = world.time + 30 SECONDS
+			if(TIMER_COOLDOWN_FINISHED(src, "next_smell"))
+
+				TIMER_COOLDOWN_START(src, "next_smell", 30 SECONDS)
 				T.pollution.smell_act(src)
 
 /mob/living/proc/handle_inwater(turf/open/water/W)

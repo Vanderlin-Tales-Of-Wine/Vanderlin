@@ -56,7 +56,7 @@
 
 	var/wear_back_right = null
 
-	var/backl = null
+	var/wear_back_left = null
 
 	var/cloak = null
 
@@ -169,8 +169,8 @@
 		H.equip_to_slot_or_del(new beltr(H),ITEM_SLOT_BELT_R, TRUE)
 	if(wear_back_right)
 		H.equip_to_slot_or_del(new wear_back_right(H),ITEM_SLOT_BACK_R, TRUE)
-	if(backl)
-		H.equip_to_slot_or_del(new backl(H),ITEM_SLOT_BACK_L, TRUE)
+	if(wear_back_left)
+		H.equip_to_slot_or_del(new wear_back_left(H),ITEM_SLOT_BACK_L, TRUE)
 	if(mouth)
 		H.equip_to_slot_or_del(new mouth(H),ITEM_SLOT_MOUTH, TRUE)
 	if(undershirt)
@@ -279,7 +279,7 @@
 	.["mask"] = mask
 	.["neck"] = neck
 	.["cloak"] = cloak
-	.["backl"] = backl
+	.["wear_back_left"] = wear_back_left
 	.["wear_back_right"] = wear_back_right
 	.["ring"] = ring
 	.["wrists"] = wrists
@@ -309,7 +309,7 @@
 	mask = text2path(outfit_data["mask"])
 	neck = text2path(outfit_data["neck"])
 	cloak = text2path(outfit_data["cloak"])
-	backl = text2path(outfit_data["backl"])
+	wear_back_left = text2path(outfit_data["wear_back_left"])
 	wear_back_right = text2path(outfit_data["wear_back_right"])
 	ring = text2path(outfit_data["ring"])
 	wrists = text2path(outfit_data["wrists"])

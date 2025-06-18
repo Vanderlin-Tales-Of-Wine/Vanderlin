@@ -26,7 +26,7 @@
 	belt = /obj/item/storage/belt/leather/mercenary
 	beltr = /obj/item/weapon/knife/hunting
 	neck = /obj/item/clothing/neck/chaincoif/iron
-	backl = /obj/item/storage/backpack/backpack
+	wear_back_left = /obj/item/storage/backpack/backpack
 	backpack_contents = list(/obj/item/storage/belt/pouch/coins/poor=1)
 	if(H.mind)
 		H.adjust_skillrank(/datum/skill/labor/mining, 3, TRUE)

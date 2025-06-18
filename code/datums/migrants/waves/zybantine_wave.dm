@@ -175,7 +175,7 @@
 	belt = /obj/item/storage/belt/leather/shalal
 	shirt = /obj/item/clothing/shirt/undershirt/random
 	armor = /obj/item/clothing/armor/rare/zybanplate
-	backl = /obj/item/storage/backpack/satchel
+	wear_back_left = /obj/item/storage/backpack/satchel
 	head = /obj/item/clothing/head/rare/zybanplate
 	wrists = /obj/item/clothing/wrists/bracers
 	neck = /obj/item/clothing/neck/chaincoif
@@ -209,7 +209,7 @@
 	shirt = /obj/item/clothing/shirt/undershirt/black
 	pants = /obj/item/clothing/pants/tights/red
 	neck = /obj/item/clothing/neck/keffiyeh/red
-	backl = /obj/item/storage/backpack/satchel
+	wear_back_left = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/storage/belt/pouch/coins/poor)
 	if(!H.has_language(/datum/language/zybantine))
 		H.grant_language(/datum/language/zybantine)
@@ -277,7 +277,7 @@
 	belt = /obj/item/storage/belt/leather/shalal
 	shirt = /obj/item/clothing/shirt/undershirt/red
 	armor = /obj/item/clothing/armor/leather/splint
-	backl = /obj/item/storage/backpack/satchel
+	wear_back_left = /obj/item/storage/backpack/satchel
 	head = /obj/item/clothing/neck/keffiyeh/red
 	backpack_contents = list(/obj/item/storage/belt/pouch/coins/poor, /obj/item/lockpick)
 	if(!H.has_language(/datum/language/zybantine))

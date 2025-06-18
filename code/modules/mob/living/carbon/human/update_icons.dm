@@ -812,27 +812,27 @@ There are several things that need to be remembered:
 				else
 					LAZYADD(overcloaks, back_overlay)
 
-	if(backl)
-		if(backl.alternate_worn_layer == CLOAK_BEHIND_LAYER)
+	if(wear_back_left)
+		if(wear_back_left.alternate_worn_layer == CLOAK_BEHIND_LAYER)
 			update_inv_cloak()
 		else
-			update_hud_backl(backl)
+			update_hud_backl(wear_back_left)
 			var/mutable_appearance/back_overlay
 			var/mutable_appearance/behindback_overlay
-			if(backl.experimental_onback)
+			if(wear_back_left.experimental_onback)
 				var/list/prop
-				if(backl.force_reupdate_inhand)
-					prop = backl.onprop?["onback"]
+				if(wear_back_left.force_reupdate_inhand)
+					prop = wear_back_left.onprop?["onback"]
 					if(!prop)
-						prop = backl.getonmobprop("onback")
-						LAZYSET(backl.onprop, "onback", prop)
+						prop = wear_back_left.getonmobprop("onback")
+						LAZYSET(wear_back_left.onprop, "onback", prop)
 				else
-					prop = backl.getonmobprop("onback")
+					prop = wear_back_left.getonmobprop("onback")
 				if(prop)
-					back_overlay = mutable_appearance(backl.getmoboverlay("onback",prop,mirrored=TRUE), layer=-BACK_LAYER)
-					behindback_overlay = mutable_appearance(backl.getmoboverlay("onback",prop,behind=TRUE,mirrored=TRUE), layer=-BACK_BEHIND_LAYER)
-					back_overlay = center_image(back_overlay, backl.inhand_x_dimension, backl.inhand_y_dimension)
-					behindback_overlay = center_image(behindback_overlay, backl.inhand_x_dimension, backl.inhand_y_dimension)
+					back_overlay = mutable_appearance(wear_back_left.getmoboverlay("onback",prop,mirrored=TRUE), layer=-BACK_LAYER)
+					behindback_overlay = mutable_appearance(wear_back_left.getmoboverlay("onback",prop,behind=TRUE,mirrored=TRUE), layer=-BACK_BEHIND_LAYER)
+					back_overlay = center_image(back_overlay, wear_back_left.inhand_x_dimension, wear_back_left.inhand_y_dimension)
+					behindback_overlay = center_image(behindback_overlay, wear_back_left.inhand_x_dimension, wear_back_left.inhand_y_dimension)
 					if(LAZYACCESS(offsets, OFFSET_BACK))
 						back_overlay.pixel_x += offsets[OFFSET_BACK][1]
 						back_overlay.pixel_y += offsets[OFFSET_BACK][2]
@@ -841,11 +841,11 @@ There are several things that need to be remembered:
 					LAZYADD(overcloaks, back_overlay)
 					LAZYADD(backbehind, behindback_overlay)
 			else
-				back_overlay = backl.build_worn_icon(age, BACK_LAYER, 'icons/roguetown/clothing/onmob/back_l.dmi')
+				back_overlay = wear_back_left.build_worn_icon(age, BACK_LAYER, 'icons/roguetown/clothing/onmob/back_l.dmi')
 				if(LAZYACCESS(offsets, OFFSET_BACK))
 					back_overlay.pixel_x += offsets[OFFSET_BACK][1]
 					back_overlay.pixel_y += offsets[OFFSET_BACK][2]
-				if(backl.alternate_worn_layer == UNDER_CLOAK_LAYER)
+				if(wear_back_left.alternate_worn_layer == UNDER_CLOAK_LAYER)
 					LAZYADD(undercloaks, back_overlay)
 				else
 					LAZYADD(overcloaks, back_overlay)

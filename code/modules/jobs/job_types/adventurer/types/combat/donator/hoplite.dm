@@ -36,7 +36,7 @@
 	head = /obj/item/clothing/head/rare/hoplite
 	wrists = /obj/item/clothing/wrists/bracers/hoplite
 	neck = /obj/item/clothing/neck/gorget/hoplite
-	backl = /obj/item/weapon/shield/tower/hoplite
+	wear_back_left = /obj/item/weapon/shield/tower/hoplite
 	var/weapontype = pickweight(list("Khopesh" = 5, "Spear" = 3, "WingedSpear" = 2)) // Rolls for various weapon options based on weighted list
 	switch(weapontype) // We either get a spear (winged or regular), or a khopesh sword. The weapon we get is what we get our training in
 		if("Khopesh")

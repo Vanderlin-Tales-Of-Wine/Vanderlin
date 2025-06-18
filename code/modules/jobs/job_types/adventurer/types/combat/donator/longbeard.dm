@@ -41,7 +41,7 @@
 	belt = /obj/item/storage/belt/leather
 	shirt = /obj/item/clothing/shirt/undershirt/black
 	armor = /obj/item/clothing/armor/rare/dwarfplate
-	backl = /obj/item/storage/backpack/satchel
+	wear_back_left = /obj/item/storage/backpack/satchel
 	head = /obj/item/clothing/head/rare/dwarfplate
 	neck = /obj/item/clothing/neck/chaincoif
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
