@@ -3,10 +3,8 @@
 /area/rogue/under/mountains/anvil
 	name = "malum's anvil generic under (don't use)"
 	icon_state = "rogue"
-	ambientsounds = AMB_MOUNTAIN
-	ambientnight = AMB_MOUNTAIN
-	spookysounds = SPOOKY_GEN
-	spookynight = SPOOKY_GEN
+	ambient_index = AMBIENCE_MOUNTAIN
+	ambient_spooky_index = AMBIENCE_SPOOKY_GENERIC
 	droning_sound = 'sound/music/area/townstreets.ogg'
 	droning_sound_dusk = 'sound/music/area/septimus.ogg'
 	droning_sound_night = 'sound/music/area/sleeping.ogg'
@@ -64,12 +62,10 @@
 	name = "malum's anvil generic outdoors (don't use)"
 	icon_state = "rogue"
 	outdoors = TRUE
-	ambientrain = RAIN_OUT
-//	ambientsounds = list('sound/ambience/wamb.ogg')
-	ambientsounds = AMB_TOWNDAY
-	ambientnight = AMB_TOWNNIGHT
-	spookysounds = SPOOKY_CROWS
-	spookynight = SPOOKY_GEN
+	ambient_index = AMBIENCE_TOWN_DAY
+	ambient_night_index = AMBIENCE_TOWN_NIGHT
+	ambient_spooky_index = AMBIENCE_SPOOKY_BIRDS
+	ambient_spooky_night_index = AMBIENCE_SPOOKY_GENERIC
 	droning_sound = 'sound/music/area/townstreets.ogg'
 	droning_sound_dusk = 'sound/music/area/septimus.ogg'
 	droning_sound_night = 'sound/music/area/sleeping.ogg'
@@ -134,11 +130,8 @@
 /area/rogue/indoors/mountains/anvil
 	name = "malum's anvil generic indoors (don't use)"
 	icon_state = "indoors"
-	ambientrain = RAIN_IN
-	ambientsounds = AMB_INGEN
-	ambientnight = AMB_INGEN
-	spookysounds = SPOOKY_GEN
-	spookynight = SPOOKY_GEN
+	ambient_index = AMBIENCE_INDOORS
+	ambient_spooky_index = AMBIENCE_SPOOKY_GENERIC
 	droning_sound = 'sound/music/area/indoor.ogg'
 	droning_sound_dusk = 'sound/music/area/septimus.ogg'
 	droning_sound_night = 'sound/music/area/sleeping.ogg'
@@ -148,7 +141,6 @@
 /area/rogue/indoors/mountains/anvil/surface
 	name = null
 	icon_state = null
-
 
 /area/rogue/indoors/mountains/anvil/surface/building
 	name = "malum's anvil surface building"

@@ -12,11 +12,10 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 /area/rogue/indoors
 	name = "indoors rt"
 	icon_state = "indoors"
-	ambientrain = RAIN_IN
-	ambientsounds = AMB_INGEN
-	ambientnight = AMB_INGEN
-	spookysounds = SPOOKY_GEN
-	spookynight = SPOOKY_GEN
+	ambient_index = AMBIENCE_INDOORS
+	ambient_night_index = AMBIENCE_INDOORS
+	ambient_spooky_index = AMBIENCE_SPOOKY_GENERIC
+	ambient_spooky_night_index = AMBIENCE_SPOOKY_GENERIC
 	droning_sound = 'sound/music/area/indoor.ogg'
 	droning_sound_dusk = 'sound/music/area/septimus.ogg'
 	droning_sound_night = 'sound/music/area/sleeping.ogg'
@@ -26,8 +25,8 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 /area/rogue/indoors/cave
 	name = "latejoin cave"
 	icon_state = "cave"
-	ambientsounds = AMB_GENCAVE
-	ambientnight = AMB_GENCAVE
+	ambient_index = AMBIENCE_CAVE_GENERIC
+	ambient_night_index = AMBIENCE_CAVE_GENERIC
 	soundenv = 8
 
 /area/rogue/indoors/cave/late/can_craft_here()
@@ -40,12 +39,10 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	name = "outdoors roguetown"
 	icon_state = "outdoors"
 	outdoors = TRUE
-	ambientrain = RAIN_OUT
-//	ambientsounds = list('sound/ambience/wamb.ogg')
-	ambientsounds = AMB_TOWNDAY
-	ambientnight = AMB_TOWNNIGHT
-	spookysounds = SPOOKY_CROWS
-	spookynight = SPOOKY_GEN
+	ambient_index = AMBIENCE_TOWN_DAY
+	ambient_night_index = AMBIENCE_TOWN_NIGHT
+	ambient_spooky_index = AMBIENCE_SPOOKY_BIRDS
+	ambient_spooky_night_index = AMBIENCE_SPOOKY_GENERIC
 	droning_sound = 'sound/music/area/townstreets.ogg'
 	droning_sound_dusk = 'sound/music/area/septimus.ogg'
 	droning_sound_night = 'sound/music/area/sleeping.ogg'
@@ -60,10 +57,8 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 /area/rogue/outdoors/mountains
 	name = "mountains"
 	icon_state = "mountains"
-	ambientsounds = AMB_MOUNTAIN
-	ambientnight = AMB_MOUNTAIN
-	spookysounds = SPOOKY_GEN
-	spookynight = SPOOKY_GEN
+	ambient_index = AMBIENCE_MOUNTAIN
+	ambient_spooky_index = AMBIENCE_SPOOKY_GENERIC
 	droning_sound = 'sound/music/area/townstreets.ogg'
 	droning_sound_dusk = 'sound/music/area/septimus.ogg'
 	droning_sound_night = 'sound/music/area/sleeping.ogg'
@@ -142,10 +137,10 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 /area/rogue/outdoors/woods
 	name = "wilderness"
 	icon_state = "woods"
-	ambientsounds = AMB_FORESTDAY
-	ambientnight = AMB_FORESTNIGHT
-	spookysounds = SPOOKY_CROWS
-	spookynight = SPOOKY_FOREST
+	ambient_index = AMBIENCE_FOREST_DAY
+	ambient_night_index = AMBIENCE_FOREST_NIGHT
+	ambient_spooky_index = AMBIENCE_SPOOKY_BIRDS
+	ambient_spooky_night_index = AMBIENCE_SPOOKY_FOREST
 	droning_sound = 'sound/music/area/forest.ogg'
 	droning_sound_dusk = 'sound/music/area/septimus.ogg'
 	droning_sound_night = 'sound/music/area/forestnight.ogg'
@@ -171,10 +166,10 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 /area/rogue/outdoors/woods_safe
 	name = "woods"
 	icon_state = "woods"
-	ambientsounds = AMB_FORESTDAY
-	ambientnight = AMB_FORESTNIGHT
-	spookysounds = SPOOKY_CROWS
-	spookynight = SPOOKY_FOREST
+	ambient_index = AMBIENCE_FOREST_DAY
+	ambient_night_index = AMBIENCE_FOREST_NIGHT
+	ambient_spooky_index = AMBIENCE_SPOOKY_BIRDS
+	ambient_spooky_night_index = AMBIENCE_SPOOKY_FOREST
 	droning_sound = 'sound/music/area/forest.ogg'
 	droning_sound_dusk = 'sound/music/area/septimus.ogg'
 	droning_sound_night = 'sound/music/area/forestnight.ogg'
@@ -186,10 +181,10 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 /area/rogue/outdoors/river
 	name = "river"
 	icon_state = "river"
-	ambientsounds = AMB_RIVERDAY
-	ambientnight = AMB_RIVERNIGHT
-	spookysounds = SPOOKY_FROG
-	spookynight = SPOOKY_FOREST
+	ambient_index = AMBIENCE_RIVER_DAY
+	ambient_night_index = AMBIENCE_RIVER_NIGHT
+	ambient_spooky_index = AMBIENCE_SPOOKY_FROG
+	ambient_spooky_night_index = AMBIENCE_SPOOKY_FOREST
 	droning_sound = 'sound/music/area/forest.ogg'
 	droning_sound_dusk = 'sound/music/area/septimus.ogg'
 	droning_sound_night = 'sound/music/area/forestnight.ogg'
@@ -198,10 +193,10 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 /area/rogue/outdoors/bog
 	name = "the bog"
 	icon_state = "bog"
-	ambientsounds = AMB_BOGDAY
-	ambientnight = AMB_BOGNIGHT
-	spookysounds = SPOOKY_FROG
-	spookynight = SPOOKY_GEN
+	ambient_index = AMBIENCE_BOG_DAY
+	ambient_night_index = AMBIENCE_BOG_NIGHT
+	ambient_spooky_index = AMBIENCE_SPOOKY_FROG
+	ambient_spooky_night_index = AMBIENCE_SPOOKY_GENERIC
 	droning_sound = 'sound/music/area/bog.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
@@ -227,8 +222,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 /area/rogue/outdoors/beach
 	name = "sophia's cry"
 	icon_state = "beach"
-	ambientsounds = AMB_BEACH
-	ambientnight = AMB_BEACH
+	ambient_index = AMBIENCE_LAKE
 	droning_sound = 'sound/music/area/townstreets.ogg'
 	droning_sound_dusk = 'sound/music/area/septimus.ogg'
 	droning_sound_night = 'sound/music/area/sleeping.ogg'
@@ -236,8 +230,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 /area/rogue/outdoors/eora
 	name = "eoran grove"
 	icon_state = "eora"
-	ambientsounds = AMB_JUNGLEDAY
-	ambientnight = AMB_JUNGLENIGHT
+	ambient_index = AMBIENCE_FOREST_DAY
 	droning_sound = 'sound/music/area/eora.ogg'
 	droning_sound_dusk =  'sound/music/area/eora.ogg'
 	droning_sound_night = 'sound/music/area/eora.ogg'
@@ -264,10 +257,10 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 /area/rogue/under/cave
 	name = "cave"
 	icon_state = "cave"
-	ambientsounds = AMB_GENCAVE
-	ambientnight = AMB_GENCAVE
-	spookysounds = SPOOKY_CAVE
-	spookynight = SPOOKY_CAVE
+	ambient_index = AMBIENCE_CAVE_GENERIC
+	ambient_night_index = AMBIENCE_CAVE_GENERIC
+	ambient_spooky_index = AMBIENCE_SPOOKY_CAVE
+	ambient_spooky_night_index = AMBIENCE_SPOOKY_CAVE
 	droning_sound = 'sound/music/area/caves.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
@@ -289,10 +282,10 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 /area/rogue/under/cavewet
 	name = "cavewet"
 	icon_state = "cavewet"
-	ambientsounds = AMB_CAVEWATER
-	ambientnight = AMB_CAVEWATER
-	spookysounds = SPOOKY_CAVE
-	spookynight = SPOOKY_CAVE
+	ambient_index = AMBIENCE_CAVE_WET
+	ambient_night_index = AMBIENCE_CAVE_WET
+	ambient_spooky_index = AMBIENCE_SPOOKY_CAVE
+	ambient_spooky_night_index = AMBIENCE_SPOOKY_CAVE
 	droning_sound = 'sound/music/area/caves.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
@@ -323,8 +316,8 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 
 /area/rogue/under/spiderbase
 	name = "spiderbase"
-	ambientsounds = AMB_BASEMENT
-	ambientnight = AMB_BASEMENT
+	ambient_index = AMBIENCE_BASEMENT
+	ambient_night_index = AMBIENCE_BASEMENT
 	icon_state = "spiderbase"
 	droning_sound = 'sound/music/area/spidercave.ogg'
 	droning_sound_dusk = null
@@ -341,10 +334,10 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	name = "cavelava"
 	icon_state = "cavelava"
 	first_time_text = "MALUM'S ARTERY"
-	ambientsounds = AMB_CAVELAVA
-	ambientnight = AMB_CAVELAVA
-	spookysounds = SPOOKY_CAVE
-	spookynight = SPOOKY_CAVE
+	ambient_index = AMBIENCE_CAVE_LAVA
+	ambient_night_index = AMBIENCE_CAVE_LAVA
+	ambient_spooky_index = AMBIENCE_SPOOKY_CAVE
+	ambient_spooky_night_index = AMBIENCE_SPOOKY_CAVE
 	ambush_times = list("night","dawn","dusk","day")
 	ambush_types = list(
 				/turf/open/floor/dirt)
@@ -366,10 +359,10 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 /area/rogue/under/lake
 	name = "underground lake"
 	icon_state = "lake"
-	ambientsounds = AMB_BEACH
-	ambientnight = AMB_BEACH
-	spookysounds = SPOOKY_CAVE
-	spookynight = SPOOKY_GEN
+	ambient_index = AMBIENCE_LAKE
+	ambient_night_index = AMBIENCE_LAKE
+	ambient_spooky_index = AMBIENCE_SPOOKY_CAVE
+	ambient_spooky_night_index = AMBIENCE_SPOOKY_GENERIC
 
 
 
@@ -418,8 +411,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 /area/rogue/indoors/town/magician
 	name = "Wizard's Tower"
 	icon_state = "magician"
-	spookysounds = SPOOKY_MYSTICAL
-	spookynight = SPOOKY_MYSTICAL
+	ambient_spooky_index = AMBIENCE_SPOOKY_MYSTICAL
 	droning_sound = 'sound/music/area/magiciantower.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
@@ -485,8 +477,8 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 /area/rogue/indoors/town/cell
 	name = "dungeon cell"
 	icon_state = "cell"
-	spookysounds = SPOOKY_DUNGEON
-	spookynight = SPOOKY_DUNGEON
+	ambient_spooky_index = AMBIENCE_SPOOKY_DUNGEON
+	ambient_spooky_night_index = AMBIENCE_SPOOKY_DUNGEON
 	droning_sound = 'sound/music/area/manorgarri.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
@@ -496,8 +488,8 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	name = "tavern"
 	icon_state = "tavern"
 	first_time_text = "The Drunken Saiga"
-	ambientsounds = AMB_INGEN
-	ambientnight = AMB_INGEN
+	ambient_index = AMBIENCE_INDOORS
+	ambient_night_index = AMBIENCE_INDOORS
 	droning_sound = "sound/blank.ogg"
 	droning_sound_dusk = "sound/blank.ogg"
 	droning_sound_night = "sound/blank.ogg"
@@ -621,16 +613,16 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 
 /area/rogue/indoors/ship
 	name = "the ship"
-	ambientsounds = AMB_BEACH
-	ambientnight = AMB_BEACH
+	ambient_index = AMBIENCE_LAKE
+	ambient_night_index = AMBIENCE_LAKE
 	droning_sound = 'sound/music/area/townstreets.ogg'
 	droning_sound_dusk = 'sound/music/area/septimus.ogg'
 	droning_sound_night = 'sound/music/area/night.ogg'
 
 /area/rogue/outdoors/coast
 	name = "the coast"
-	ambientsounds = AMB_BEACH
-	ambientnight = AMB_BEACH
+	ambient_index = AMBIENCE_LAKE
+	ambient_night_index = AMBIENCE_LAKE
 	droning_sound = 'sound/music/area/sargoth.ogg'
 	droning_sound_dusk = 'sound/music/area/septimus.ogg'
 	droning_sound_night = 'sound/music/area/sleeping.ogg'
@@ -671,10 +663,8 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 /area/rogue/outdoors/town/roofs
 	name = "roofs"
 	icon_state = "roofs"
-	ambientsounds = AMB_MOUNTAIN
-	ambientnight = AMB_MOUNTAIN
-	spookysounds = SPOOKY_GEN
-	spookynight = SPOOKY_GEN
+	ambient_index = AMBIENCE_MOUNTAIN
+	ambient_spooky_index = AMBIENCE_SPOOKY_GENERIC
 	droning_sound = 'sound/music/area/field.ogg'
 	converted_type = /area/rogue/indoors/shelter/town/roofs
 
@@ -718,15 +708,14 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 /area/rogue/under/town/sewer
 	name = "sewer"
 	icon_state = "sewer"
-	ambientsounds = AMB_CAVEWATER
-	ambientnight = AMB_CAVEWATER
-	spookysounds = SPOOKY_RATS
-	spookynight = SPOOKY_RATS
+	ambient_index = AMBIENCE_CAVE_WET
+	ambient_night_index = AMBIENCE_CAVE_WET
+	ambient_spooky_index = AMBIENCE_SPOOKY_RAT
+	ambient_spooky_night_index = AMBIENCE_SPOOKY_RAT
 	droning_sound = 'sound/music/area/sewers.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
 	custom_area_sound = "sound/misc/stings/SewerSting.ogg"
-	ambientrain = RAIN_SEWER
 	converted_type = /area/rogue/outdoors/exposed/under/sewer
 
 /area/rogue/under/town/sewer/Initialize()
@@ -742,10 +731,10 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 /area/rogue/under/town/caverogue
 	name = "miningcave (roguetown)"
 	icon_state = "caverogue"
-	ambientsounds = AMB_GENCAVE
-	ambientnight = AMB_GENCAVE
-	spookysounds = SPOOKY_CAVE
-	spookynight = SPOOKY_CAVE
+	ambient_index = AMBIENCE_CAVE_GENERIC
+	ambient_night_index = AMBIENCE_CAVE_GENERIC
+	ambient_spooky_index = AMBIENCE_SPOOKY_CAVE
+	ambient_spooky_night_index = AMBIENCE_SPOOKY_CAVE
 	droning_sound = 'sound/music/area/caves.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
@@ -760,10 +749,10 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 /area/rogue/under/town/basement
 	name = "basement"
 	icon_state = "basement"
-	ambientsounds = AMB_BASEMENT
-	ambientnight = AMB_BASEMENT
-	spookysounds = SPOOKY_DUNGEON
-	spookynight = SPOOKY_DUNGEON
+	ambient_index = AMBIENCE_BASEMENT
+	ambient_night_index = AMBIENCE_BASEMENT
+	ambient_spooky_index = AMBIENCE_SPOOKY_DUNGEON
+	ambient_spooky_night_index = AMBIENCE_SPOOKY_DUNGEON
 	droning_sound = 'sound/music/area/catacombs.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
@@ -847,8 +836,8 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 // Players should be fined for any damage they do to the Guild's property
 /area/rogue/outdoors/beach/boat
 	name = "sophia's cry"
-	ambientsounds = AMB_BEACH
-	ambientnight = AMB_BEACH
+	ambient_index = AMBIENCE_LAKE
+	ambient_night_index = AMBIENCE_LAKE
 	droning_sound = 'sound/music/area/townstreets.ogg'
 	droning_sound_dusk = 'sound/music/area/septimus.ogg'
 	droning_sound_night = 'sound/music/area/sleeping.ogg'
@@ -856,8 +845,8 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 // Players are penalized for entering the Guild Gaptain's quarters (FAFO)
 /area/rogue/outdoors/beach/boat/captain
 	name = "guild captain"
-	ambientsounds = AMB_BEACH
-	ambientnight = AMB_BEACH
+	ambient_index = AMBIENCE_LAKE
+	ambient_night_index = AMBIENCE_LAKE
 	droning_sound = 'sound/music/area/townstreets.ogg'
 	droning_sound_dusk = 'sound/music/area/septimus.ogg'
 	droning_sound_night = 'sound/music/area/sleeping.ogg'

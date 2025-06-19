@@ -7,10 +7,8 @@
 	icon_state = "basement"
 	first_time_text = "THE TOMB OF MATTHIOS"
 	soundenv = 5
-	ambientsounds = AMB_BASEMENT
-	ambientnight = AMB_BASEMENT
-	spookysounds = SPOOKY_DUNGEON
-	spookynight = SPOOKY_DUNGEON
+	ambient_index = AMBIENCE_BASEMENT
+	ambient_spooky_index = AMBIENCE_SPOOKY_DUNGEON
 	droning_sound = 'sound/music/area/catacombs.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
@@ -21,16 +19,15 @@
 // Some nice sounds for rest areas
 /area/rogue/under/tomb/indoors/rest
 	icon_state = "shelter"
-	ambientsounds = AMB_TOWNDAY
-	ambientnight = AMB_TOWNNIGHT
+	ambient_index = AMBIENCE_TOWN_DAY
+	ambient_night_index = AMBIENCE_TOWN_NIGHT
 	droning_sound = 'sound/music/area/townstreets.ogg'
 	droning_sound_dusk = 'sound/music/area/septimus.ogg'
 	droning_sound_night = 'sound/music/area/sleeping.ogg'
 
 /area/rogue/under/tomb/indoors/magic
 	icon_state = "magician"
-	spookysounds = SPOOKY_MYSTICAL
-	spookynight = SPOOKY_MYSTICAL
+	ambient_spooky_index = AMBIENCE_SPOOKY_MYSTICAL
 	droning_sound = 'sound/music/area/magiciantower og mix.ogg'
 
 /area/rogue/under/tomb/indoors/royal
@@ -44,10 +41,10 @@
 /area/rogue/under/tomb/wilds
 	icon_state = "woods"
 	soundenv = 15
-	ambientsounds = AMB_FORESTDAY
-	ambientnight = AMB_FORESTNIGHT
-	spookysounds = SPOOKY_CROWS
-	spookynight = SPOOKY_FOREST
+	ambient_index = AMBIENCE_FOREST_DAY
+	ambient_night_index = AMBIENCE_FOREST_NIGHT
+	ambient_spooky_index = AMBIENCE_SPOOKY_BIRDS
+	ambient_spooky_night_index = AMBIENCE_SPOOKY_FOREST
 	droning_sound = 'sound/music/area/forest.ogg'
 	droning_sound_dusk = 'sound/music/area/septimus.ogg'
 	droning_sound_night = 'sound/music/area/forestnight.ogg'
@@ -56,48 +53,39 @@
 
 /area/rogue/under/tomb/wilds/bog
 	icon_state = "bog"
-	ambientsounds = AMB_BOGDAY
-	ambientnight = AMB_BOGNIGHT
-	spookysounds = SPOOKY_FROG
-	spookynight = SPOOKY_GEN
+	ambient_index = AMBIENCE_BOG_DAY
+	ambient_night_index = AMBIENCE_BOG_NIGHT
+	ambient_spooky_index = AMBIENCE_SPOOKY_FROG
+	ambient_spooky_night_index = AMBIENCE_SPOOKY_GENERIC
 	droning_sound = 'sound/music/area/bog.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
 
 /area/rogue/under/tomb/sewer
 	icon_state = "sewer"
-	ambientsounds = AMB_CAVEWATER
-	ambientnight = AMB_CAVEWATER
-	spookysounds = SPOOKY_RATS
-	spookynight = SPOOKY_RATS
+	ambient_index = AMBIENCE_CAVE_WET
+	ambient_spooky_index = AMBIENCE_SPOOKY_RAT
 	droning_sound = 'sound/music/area/sewers.ogg'
 
 /area/rogue/under/tomb/lake
 	icon_state = "lake"
-	ambientsounds = AMB_BEACH
-	ambientnight = AMB_BEACH
-	spookysounds = SPOOKY_CAVE
-	spookynight = SPOOKY_GEN
+	ambient_index = AMBIENCE_LAKE
+	ambient_spooky_index = AMBIENCE_SPOOKY_CAVE
 
 /area/rogue/under/tomb/cave
 	icon_state = "cave"
 	soundenv = 8
-	ambientsounds = AMB_GENCAVE
-	ambientnight = AMB_GENCAVE
-	spookysounds = SPOOKY_CAVE
-	spookynight = SPOOKY_CAVE
+	ambient_index = AMBIENCE_CAVE_GENERIC
 	droning_sound = 'sound/music/area/caves.ogg'
 
 /area/rogue/under/tomb/cave/lava
 	icon_state = "cavelava"
-	ambientsounds = AMB_CAVELAVA
-	ambientnight = AMB_CAVELAVA
+	ambient_index = AMBIENCE_CAVE_LAVA
 	droning_sound = 'sound/music/area/decap.ogg'
 
 /area/rogue/under/tomb/cave/wet
 	icon_state = "cavewet"
-	ambientsounds = AMB_CAVEWATER
-	ambientnight = AMB_CAVEWATER
+	ambient_index = AMBIENCE_CAVE_WET
 
 /area/rogue/under/tomb/cave/spider
 	icon_state = "spider"

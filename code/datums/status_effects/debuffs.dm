@@ -150,7 +150,6 @@
 	owner.cmode = FALSE
 	SSdroning.kill_droning(owner.client)
 	SSdroning.kill_loop(owner.client)
-	SSdroning.kill_rain(owner.client)
 	owner.set_typing_indicator(FALSE)
 
 /datum/status_effect/incapacitating/sleeping/on_remove()
