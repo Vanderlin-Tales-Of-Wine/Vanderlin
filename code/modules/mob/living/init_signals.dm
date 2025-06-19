@@ -172,16 +172,13 @@
 	if(strongpull)
 		strongpull.RemoveComponent()
 
-
-///Called when [TRAIT_DEAF] is added to the mob.Add commentMore actions
-
-
+///Called when [TRAIT_DEAF] is added to the mob
 /mob/living/proc/on_hearing_loss()
 	SIGNAL_HANDLER
 	refresh_looping_ambience()
 	stop_sound_channel(CHANNEL_AMBIENCE)
 
-///Called when [TRAIT_DEAF] is added to the mob.
+///Called when [TRAIT_DEAF] is removed from the mob.
 /mob/living/proc/on_hearing_regain()
 	SIGNAL_HANDLER
 	refresh_looping_ambience()
