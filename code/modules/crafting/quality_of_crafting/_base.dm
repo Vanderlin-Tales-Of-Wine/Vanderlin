@@ -760,12 +760,11 @@
  */
 /datum/repeatable_crafting_recipe/proc/complete_crafting(list/to_delete, mob/user)
 	if(crafting_message)
-		user.visible_message(span_info("[user] [crafting_message]."), span_info("I [crafting_message]."))
+		user.visible_message(span_notice("[user] [crafting_message]."), span_notice("I [crafting_message]."))
 
 	if(crafting_sound)
 		playsound(user, crafting_sound, sound_volume, TRUE, -1)
-	if(crafting_message)
-		to_chat(user, span_notice(crafting_message))
+
 	var/crafting_time = max(craft_time * 0.1, craft_time / max(1, user.get_skill_level(skillcraft)))
 	if(!do_after(user, crafting_time))
 		return FALSE

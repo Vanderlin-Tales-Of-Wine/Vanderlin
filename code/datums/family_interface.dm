@@ -568,7 +568,7 @@
 
 			// Place spouses right next to founder
 			for(var/datum/family_member/spouse in founder.spouses)
-				if(spouse in current_family.members && spouse.generation == 0)
+				if((spouse in current_family.members) && spouse.generation == 0)
 					positions[spouse] = list("x" = x_pos, "y" = 0)
 					x_pos += min_node_spacing
 
@@ -602,7 +602,7 @@
 
 			// Place spouses right next to member
 			for(var/datum/family_member/spouse in member.spouses)
-				if(spouse in current_family.members && spouse.generation == gen && !(spouse in positions))
+				if((spouse in current_family.members) && spouse.generation == gen && !(spouse in positions))
 					positions[spouse] = list("x" = x_pos, "y" = gen * vertical_spacing)
 					x_pos += min_node_spacing
 
@@ -656,7 +656,7 @@
 
 			// Always group spouses together - this is the key improvement
 			for(var/datum/family_member/spouse in member.spouses)
-				if(spouse in gen_members && !(spouse in processed))
+				if((spouse in gen_members) && !(spouse in processed))
 					cluster += spouse
 					processed += spouse
 
@@ -673,7 +673,7 @@
 						processed += sibling
 						// Add sibling's spouse too
 						for(var/datum/family_member/sibling_spouse in sibling.spouses)
-							if(sibling_spouse in gen_members && !(sibling_spouse in processed))
+							if((sibling_spouse in gen_members) && !(sibling_spouse in processed))
 								cluster += sibling_spouse
 								processed += sibling_spouse
 

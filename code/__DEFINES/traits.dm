@@ -59,6 +59,7 @@
 #define TRAIT_KITTEN_MOM				"Loved By Kittens"
 #define TRAIT_WATER_BREATHING			"Waterbreathing"
 #define TRAIT_MOONWATER_ELIXIR			"Moonwater Elixir"
+#define TRAIT_FLOWERFIELD_IMMUNITY		"Flower Strider"
 /// applied to orphans
 #define TRAIT_ORPHAN 					"Orphan"
 #define TRAIT_RECRUITED					"Recruit" //Trait used to give foreigners their new title
@@ -205,8 +206,9 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_MATTHIOS_EYES = span_notice("I have a sense for what the most valuable item someone has is."),
 	TRAIT_CRATEMOVER = "I am able to drag heavy objects without any difficulty.",
 	TRAIT_SEE_LEYLINES = "I can see the lines that make up this world.",
-	TRAIT_WATER_BREATHING = span_info("You can breath underwater, you have no fear of drowning."),
-	TRAIT_MOONWATER_ELIXIR = span_info("Your mind is open, you can understand magic runes."),
+	TRAIT_MOONWATER_ELIXIR = span_info("My mind is open, I can understand magic runes."),
+	TRAIT_GOOD_SWIM = span_info("I can swim without being slowed and against the flow of rivers."),
+	TRAIT_WATER_BREATHING = span_info("I can breathe underwater, I have no fear of drowning."),
 	TRAIT_TINY = "I am small, its hard to look people in the eyes.",
 	TRAIT_FOREIGNER = span_notice("I'm not from around here."),
 	TRAIT_BURDEN = "I carry the Burden of HEAD EATER's hunger...",
@@ -218,6 +220,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_EARGRAB = span_info("I can keep a tight grip on the ear of unruly children."),
 	TRAIT_KITTEN_MOM = span_info("Kittens love you, they see you are a parent."),
 	TRAIT_FACELESS = span_danger("I am faceless. I am shunned. The others will recognise me for what I am. If I give them the chance."),
+	TRAIT_FLOWERFIELD_IMMUNITY = span_info("I am immune to the effects of flower fields."),
 	))
 
 #define SIGNAL_ADDTRAIT(trait_ref) ("addtrait " + trait_ref)
@@ -394,7 +397,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_HARDDISMEMBER		"hard_dismember"
 #define TRAIT_FOREIGNER "foreigner" // is this guy a foreigner?
 #define TRAIT_NOAMBUSH "no_ambush" //! mob cannot be ambushed for any reason
-
+/// Can swim ignoring water flow and slowdown
+#define TRAIT_GOOD_SWIM "good_swim"
 ///trait determines if this mob can breed given by /datum/component/breeding
 #define TRAIT_MOB_BREEDER "mob_breeder"
 #define TRAIT_IMPERCEPTIBLE "imperceptible" // can't be perceived in any way, likely due to invisibility

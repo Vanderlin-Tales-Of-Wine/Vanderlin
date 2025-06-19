@@ -5,7 +5,7 @@
 	if(!istype(living_pawn))
 		return
 	if(living_pawn.production < 29)
-		finish_action(controller, TRUE)
+		finish_action(controller, FALSE)
 		return
 	living_pawn.visible_message(span_emote("[living_pawn] [pick(living_pawn.layMessage)]"))
 	living_pawn.production = max(living_pawn.production - 30, 0)

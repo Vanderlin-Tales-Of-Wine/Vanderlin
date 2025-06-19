@@ -31,7 +31,9 @@
 /datum/ai_behavior/target_from_retaliate_list
 	action_cooldown = 2 SECONDS
 	/// How far can we see stuff?
-	var/vision_range = 9
+	var/vision_range = 8
+	/// How long (from the last time the mob hit us) we remember them as enemies
+	var/remember_retaliate_time = 2 MINUTES
 
 /datum/ai_behavior/target_from_retaliate_list/perform(seconds_per_tick, datum/ai_controller/controller, shitlist_key, target_key, targetting_datum_key, hiding_location_key)
 	. = ..()
@@ -45,18 +47,35 @@
 		finish_action(controller, succeeded = FALSE)
 		return
 
+	if(!can_attack_target(living_mob, controller.blackboard[target_key], targetting_datum))
+		controller.clear_blackboard_key(target_key)
+
 	if (controller.blackboard[target_key] in enemies_list) // Don't bother changing
 		finish_action(controller, succeeded = FALSE)
 		return
 
-	for(var/mob/living/living_target in enemies_list)
-		if(!living_target.rogue_sneaking)
+	// Clears enemies from enemies_list
+	for(var/mob/living/living_target as anything in enemies_list)
+		if(enemies_list[living_target] + remember_retaliate_time < world.time)
+			enemies_list -= living_target
+	if(!length(enemies_list))
+		finish_action(controller, succeeded = FALSE)
+		return
+
+	var/list/potential_targets = enemies_list.Copy()
+	for(var/mob/living/living_target in potential_targets)
+		if(can_attack_target(living_mob, living_target, targetting_datum))
 			continue
 		var/extra_chance = (living_mob.health <= living_mob.maxHealth * 50) ? 30 : 0 // if we're below half health, we're way more alert
-		if (!living_mob.npc_detect_sneak(living_target, extra_chance))
-			enemies_list -= living_target
+		if(living_mob.npc_detect_sneak(living_target, extra_chance))
+			continue
+		potential_targets -= living_target
 
-	var/atom/new_target = pick_final_target(controller, enemies_list)
+	if(!length(potential_targets))
+		finish_action(controller, succeeded = FALSE)
+		return
+
+	var/atom/new_target = pick_final_target(controller, potential_targets)
 	controller.set_blackboard_key(target_key, new_target)
 
 	var/atom/potential_hiding_location = targetting_datum.find_hidden_mobs(living_mob, new_target)
