@@ -36,7 +36,6 @@
 	if(client)
 		SSdroning.kill_droning(client)
 		SSdroning.kill_loop(client)
-		SSdroning.kill_rain(client)
 
 	if(mind)
 		if(!gibbed)

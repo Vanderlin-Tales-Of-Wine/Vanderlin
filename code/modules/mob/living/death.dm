@@ -74,8 +74,6 @@
 	if(!gibbed && !was_dead_before)
 		GLOB.dead_mob_list += src
 
-//	stop_all_loops()
-	SSdroning.kill_rain(src.client)
 	SSdroning.kill_loop(src.client)
 	SSdroning.kill_droning(src.client)
 	if(prob(0.1))
