@@ -70,10 +70,14 @@
 	/// Does this area immediately play an ambience track upon enter?
 	var/forced_ambience = FALSE
 	/// Used to decide what the minimum time between ambience is
-	var/min_ambience_cooldown = 25 SECONDS
-	/// Used to decide what the maximum time between ambience is
-	var/max_ambience_cooldown = 70 SECONDS
+	var/min_ambience_cooldown = 30 SECONDS
+	///Used to decide what the maximum time between ambience is
+	var/max_ambience_cooldown = 60 SECONDS
 
+	/// The volume of the ambient buzz
+	var/ambient_buzz_vol = 35
+	/// The current buzz so we don't refresh it when we don't need to
+	var/current_buzz
 	/// The background droning loop that plays 24/7
 	var/ambient_buzz
 	/// The background droning loop that plays at dusk
@@ -351,7 +355,7 @@ GLOBAL_LIST_EMPTY(teleportlocs)
  *
  * If the area has ambience, then it plays some ambience music to the ambience channel
  */
-/area/Entered(atom/movable/M, atom/OldLoc)
+/area/Entered(atom/movable/M, atom/old_loc)
 	set waitfor = FALSE
 	SEND_SIGNAL(src, COMSIG_AREA_ENTERED, M)
 	SEND_SIGNAL(M, COMSIG_ENTER_AREA, src) //The atom that enters the area
@@ -362,38 +366,53 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 	if(!L.ckey || L.stat == DEAD)
 		return
 
-	L.refresh_looping_ambience()
+	var/area/old_area = get_area(old_loc)
+	if(get_current_buzz() != old_area.get_current_buzz())
+		L.refresh_looping_ambience()
 
 	if(first_time_text)
 		L.intro_area(src)
 
-	// var/mob/living/living_arrived = M
+/// Get the buzz that should play in accordance with the time
+/area/proc/get_current_buzz()
+	var/time = GLOB.tod
+	var/used = ambient_buzz
+	if(time == "night" && ambient_buzz_night)
+		used = ambient_buzz_night
+	else if (time == "dusk" && ambient_buzz_dusk)
+		used = ambient_buzz_dusk
+	return used
 
-	// if(istype(living_arrived) && living_arrived.client && !living_arrived.cmode)
-	// 	//Ambience if combat mode is off
-	// 	SSdroning.area_entered(src, living_arrived.client)
-	// 	SSdroning.play_loop(src, living_arrived.client)
-
-///Tries to play looping ambience to the mobs.
+/// Tries to play looping ambience to the mob
 /mob/proc/refresh_looping_ambience()
-	var/area/my_area = get_area(src)
-
-	if(!client || cmode)
-		SEND_SOUND(src, sound(null, repeat = 0, wait = 0, channel = CHANNEL_BUZZ))
+	if(!client || isobserver(client.mob))
 		return
 
-	var/time = GLOB.tod
-	var/used = my_area.ambient_buzz
-	if(time == "night" && my_area.ambient_buzz_night)
-		used = my_area.ambient_buzz_night
-	else if (time == "dusk" && my_area.ambient_buzz_dusk)
-		used = my_area.ambient_buzz_dusk
+	var/area/my_area = get_area(src)
+
+	if(!can_hear())
+		SEND_SOUND(src, sound(null, repeat = 0, wait = 0, channel = CHANNEL_BUZZ))
+		client.current_ambient_sound = null
+		return
+
+	var/used = my_area.get_current_buzz()
+	if(cmode && cmode_music)
+		used = cmode_music
+	else if(HAS_TRAIT(src, TRAIT_SCHIZO_AMBIENCE))
+		used = 'sound/music/dreamer_is_still_asleep.ogg'
+	else if(HAS_TRAIT(src, TRAIT_DRUQK))
+		used = 'sound/music/spice.ogg'
 
 	if(!used)
 		SEND_SOUND(src, sound(null, repeat = 0, wait = 0, channel = CHANNEL_BUZZ))
+		client.current_ambient_sound = null
 		return
 
-	SEND_SOUND(src, sound(my_area.ambient_buzz, repeat = 1, wait = 0, volume = 35, channel = CHANNEL_BUZZ))
+	if(used == client.current_ambient_sound)
+		return
+
+	client.current_ambient_sound = used
+	SEND_SOUND(src, sound(used, repeat = 1, wait = 0, volume = my_area.ambient_buzz_vol, channel = CHANNEL_BUZZ))
 
 /client
 	var/musicfading = 0
@@ -416,14 +435,15 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 	T.maptext_height = 209
 	T.maptext_x = 12
 	T.maptext_y = 64
+	var/used_sound = 'sound/misc/stings/generic.ogg'
 	var/map_sound = SSmapping.config.custom_area_sound
-	if(A.custom_area_sound)
-		playsound_local(src, A.custom_area_sound, 125, FALSE)
+	var/area_sound = A.custom_area_sound
+	if(area_sound)
+		used_sound = area_sound
 	else if(map_sound)
-		playsound_local(src, map_sound, 100, FALSE)
-	else
-		playsound_local(src, 'sound/misc/area.ogg', 100, FALSE)
+		used_sound = map_sound
 
+	SEND_SOUND(src, sound(used_sound, repeat = 0, wait = 0, volume = 40))
 	animate(T, alpha = 255, time = 10, easing = EASE_IN)
 	addtimer(CALLBACK(src, PROC_REF(clear_area_text), T), 35)
 
@@ -437,7 +457,7 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 	if(client)
 		if(client.screen && A)
 			client.screen -= A
-			qdel(A)
+	qdel(A)
 
 /mob/living/proc/clear_time_icon(atom/movable/screen/A)
 	if(!A)
@@ -523,12 +543,10 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 /area/on_joining_game(mob/living/boarder)
 	. = ..()
 	if(istype(boarder) && boarder.client)
-		SSdroning.area_entered(src, boarder.client)
 		boarder.client.update_ambience_pref()
-		SSdroning.play_loop(src, boarder.client)
+		boarder.refresh_looping_ambience()
 
 /area/reconnect_game(mob/living/boarder)
 	. = ..()
 	if(istype(boarder) && boarder.client)
-		SSdroning.area_entered(src, boarder.client)
-		SSdroning.play_loop(src, boarder.client)
+		boarder.refresh_looping_ambience()

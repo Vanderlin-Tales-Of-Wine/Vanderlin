@@ -3,7 +3,7 @@
 	if(stat != DEAD)
 		death(TRUE)
 	if(client)
-		SSdroning.kill_droning(client)
+		stop_sound_channel(CHANNEL_BUZZ)
 	playsound(src.loc, pick('sound/combat/gib (1).ogg','sound/combat/gib (2).ogg'), 200, FALSE, 3)
 
 	if(!prev_lying)
@@ -74,8 +74,8 @@
 	if(!gibbed && !was_dead_before)
 		GLOB.dead_mob_list += src
 
-	SSdroning.kill_loop(src.client)
-	SSdroning.kill_droning(src.client)
+	stop_sound_channel(CHANNEL_BUZZ)
+
 	if(prob(0.1))
 		src.playsound_local(src, 'sound/misc/dark_die.ogg', 250)
 	else

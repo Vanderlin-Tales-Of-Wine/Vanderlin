@@ -26,6 +26,9 @@ SUBSYSTEM_DEF(ambience)
 			client_old_areas -= client_iterator
 			continue
 
+		if(!client_mob.can_hear()) //WHAT? I CAN'T HEAR YOU
+			continue
+
 		//Check to see if the client-mob is in a valid area
 		var/area/current_area = get_area(client_mob)
 		if(!current_area) //Something's gone horribly wrong
@@ -37,7 +40,7 @@ SUBSYSTEM_DEF(ambience)
 			if(!(current_area.forced_ambience && (client_old_areas?[client_iterator] != current_area) && prob(5)))
 				continue
 
-		//Run play_ambience() on the client-mob, and set it's ambience cooldown relative to the length of the sound played.
+		//Run play_ambience() on the client-mob and set a cooldown
 		ambience_listening_clients[client_iterator] = world.time + current_area.play_ambience(client_mob)
 
 		//We REALLY don't want runtimes in SSambience
@@ -48,27 +51,30 @@ SUBSYSTEM_DEF(ambience)
 			return
 
 ///Attempts to play an ambient sound to a mob, returning the cooldown in deciseconds
-/area/proc/play_ambience(mob/M, sound/override_sound, volume)
+/area/proc/play_ambience(mob/M, sound/override_sound, volume = 27)
 	var/sound/new_sound
 	if(override_sound)
 		new_sound = override_sound
-	else if(GLOB.tod == "night" && ambientnight)
-		new_sound = pick(ambientnight)
-	else if(ambientsounds)
-		new_sound = pick(ambientsounds)
 	else
+		var/time = GLOB.tod
+		if(spookysounds && !M.has_light_nearby())
+			var/list/spooky_sounds = spookysounds
+			if(spookynight && time == "night")
+				spooky_sounds = spookynight
+			new_sound = pick(spooky_sounds)
+		else if(ambientnight && time == "night")
+			new_sound = pick(ambientnight)
+		else if(ambientsounds)
+			new_sound = pick(ambientsounds)
+
+	if(!new_sound)
 		return
-	var/turf/T = get_turf(M)
 
-	new_sound = sound(new_sound, channel = CHANNEL_AMBIENCE)
-	M.playsound_local(T,
-		new_sound,
-		volume ? volume : 33,
-		TRUE,
-		channel = CHANNEL_AMBIENCE
-	)
+	new_sound = sound(new_sound, repeat = 0, wait = 0, volume = volume, channel = CHANNEL_AMBIENCE)
+	SEND_SOUND(M, new_sound)
 
-	return rand(min_ambience_cooldown, max_ambience_cooldown) + (new_sound.len * 10) //Convert to deciseconds
+	var/sound_length = SSsounds.get_sound_length(new_sound.file)
+	return sound_length + rand(min_ambience_cooldown, max_ambience_cooldown)
 
 /datum/controller/subsystem/ambience/proc/remove_ambience_client(client/to_remove)
 	ambience_listening_clients -= to_remove

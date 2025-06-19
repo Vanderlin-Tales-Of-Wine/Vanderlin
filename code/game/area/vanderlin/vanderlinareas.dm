@@ -5,9 +5,9 @@
 	icon_state = "rogue"
 	ambient_index = AMBIENCE_MOUNTAIN
 	ambient_spooky_index = AMBIENCE_SPOOKY_GENERIC
-	droning_sound = 'sound/music/area/townstreets.ogg'
-	droning_sound_dusk = 'sound/music/area/septimus.ogg'
-	droning_sound_night = 'sound/music/area/sleeping.ogg'
+	ambient_buzz = 'sound/music/area/townstreets.ogg'
+	ambient_buzz_dusk = 'sound/music/area/septimus.ogg'
+	ambient_buzz_night = 'sound/music/area/sleeping.ogg'
 	converted_type = /area/rogue/outdoors/mountains/anvil/snowy
 	soundenv = 8
 	plane = INDOOR_PLANE
@@ -66,32 +66,32 @@
 	ambient_night_index = AMBIENCE_TOWN_NIGHT
 	ambient_spooky_index = AMBIENCE_SPOOKY_BIRDS
 	ambient_spooky_night_index = AMBIENCE_SPOOKY_GENERIC
-	droning_sound = 'sound/music/area/townstreets.ogg'
-	droning_sound_dusk = 'sound/music/area/septimus.ogg'
-	droning_sound_night = 'sound/music/area/sleeping.ogg'
+	ambient_buzz = 'sound/music/area/townstreets.ogg'
+	ambient_buzz_dusk = 'sound/music/area/septimus.ogg'
+	ambient_buzz_night = 'sound/music/area/sleeping.ogg'
 	converted_type = /area/rogue/indoors/shelter
 
 /area/rogue/outdoors/mountains/anvil/peak
 	name = "malum's anvil peak"
 	icon_state = "anvilpeakmalum"
-	droning_sound = 'sound/music/area/decap.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
+	ambient_buzz = 'sound/music/area/decap.ogg'
+	ambient_buzz_dusk = null
+	ambient_buzz_night = null
 	first_time_text = "THE PEAK OF MALUM'S ANVIL"
 
 /area/rogue/outdoors/mountains/anvil/snowy
 	name = "malum's anvil snow"
 	icon_state = "snowypeakmalum"
-	droning_sound = 'sound/music/area/decap.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
+	ambient_buzz = 'sound/music/area/decap.ogg'
+	ambient_buzz_dusk = null
+	ambient_buzz_night = null
 
 /area/rogue/outdoors/mountains/anvil/snowyforest
 	name = "malum's anvil forest"
 	icon_state = "snowyforestmalum"
-	droning_sound = 'sound/music/area/decap.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
+	ambient_buzz = 'sound/music/area/decap.ogg'
+	ambient_buzz_dusk = null
+	ambient_buzz_night = null
 	ambush_types = list(
 				/turf/open/floor/grass/cold,
 				/turf/open/floor/snow/patchy)
@@ -104,9 +104,9 @@
 /area/rogue/outdoors/mountains/anvil/castle
 	name = "malum's anvil castle"
 	icon_state = "castlemalum"
-	droning_sound = 'sound/music/area/decap.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
+	ambient_buzz = 'sound/music/area/decap.ogg'
+	ambient_buzz_dusk = null
+	ambient_buzz_night = null
 	ambush_types = list(
 				/turf/open/floor/cobblerock)
 	ambush_mobs = list(
@@ -132,9 +132,9 @@
 	icon_state = "indoors"
 	ambient_index = AMBIENCE_INDOORS
 	ambient_spooky_index = AMBIENCE_SPOOKY_GENERIC
-	droning_sound = 'sound/music/area/indoor.ogg'
-	droning_sound_dusk = 'sound/music/area/septimus.ogg'
-	droning_sound_night = 'sound/music/area/sleeping.ogg'
+	ambient_buzz = 'sound/music/area/indoor.ogg'
+	ambient_buzz_dusk = 'sound/music/area/septimus.ogg'
+	ambient_buzz_night = 'sound/music/area/sleeping.ogg'
 	plane = INDOOR_PLANE
 	converted_type = /area/rogue/outdoors/mountains/anvil/snowy
 

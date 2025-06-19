@@ -69,8 +69,7 @@
 	invisibility = INVISIBILITY_MAXIMUM
 	cmode = FALSE
 	if(client)
-		SSdroning.play_area_sound(get_area(src), client)
-//	stop_cmusic()
+		refresh_looping_ambience()
 
 	src.fully_heal(FALSE)
 

@@ -29,7 +29,7 @@
 	movement_interrupt = FALSE
 	req_items = list(/obj/item/clothing/neck/psycross/noc)
 	invocation_type = "none"
-	sound = 'sound/misc/area.ogg'
+	sound = 'sound/misc/stings/generic.ogg'
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
 	miracle = TRUE

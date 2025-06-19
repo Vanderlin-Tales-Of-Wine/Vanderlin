@@ -72,6 +72,8 @@
 
 	update_client_colour()
 	update_mouse_pointer()
+	if(!can_hear())
+		stop_sound_channel(CHANNEL_AMBIENCE)
 	if(client)
 		client.change_view(CONFIG_GET(string/default_view)) // Resets the client.view in case it was changed.
 

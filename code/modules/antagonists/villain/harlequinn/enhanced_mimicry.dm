@@ -10,7 +10,7 @@
 	range = 1
 	warnie = "sydwarning"
 	movement_interrupt = FALSE
-	sound = 'sound/misc/area.ogg'
+	sound = 'sound/misc/stings/generic.ogg'
 	associated_skill = /datum/skill/magic/arcane
 	attunements = list(
 		/datum/attunement/dark = 0.3,
