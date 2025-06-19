@@ -36,7 +36,7 @@
 		STATS_ALIVE_NOBLES = list("points" = 3.5, "capacity" = 75),
 		STATS_NOBLE_DEATHS = list("points" = -5, "capacity" = -70),
 		STATS_ASTRATA_REVIVALS = list("points" = 6, "capacity" = 75),
-		STATS_SLURS_SPOKEN = list("points" = 0.75, "capacity" = 80),
+		STATS_SLURS_SPOKEN = list("points" = 0.8, "capacity" = 80),
 	)
 
 /datum/storyteller/noc
@@ -57,7 +57,7 @@
 	influence_factors = list(
 		STATS_BOOKS_PRINTED = list("points" = 5, "capacity" = 40),
 		STATS_LITERACY_TAUGHT = list("points" = 15, "capacity" = 70),
-		STATS_ILLITERATES = list("points" = -2, "capacity" = -40),
+		STATS_ILLITERATES = list("points" = -2.25, "capacity" = -40),
 		STATS_SKILLS_DREAMED = list("points" = 0.325, "capacity" = 100),
 		STATS_MANA_SPENT = list("points" = 0.0175, "capacity" = 100),
 	)
@@ -107,7 +107,7 @@
 
 	influence_factors = list(
 		STATS_WATER_CONSUMED = list("points" = 0.0125, "capacity" = 90),
-		STATS_FISH_CAUGHT = list("points" = 1.75, "capacity" = 85),
+		STATS_FISH_CAUGHT = list("points" = 1.5, "capacity" = 85),
 		STATS_ABYSSOR_REMEMBERED = list("points" = 0.75, "capacity" = 40),
 		STATS_LEECHES_EMBEDDED = list("points" = 0.175, "capacity" = 70),
 		STATS_PEOPLE_DROWNED = list("points" = 9, "capacity" = 75),
@@ -375,8 +375,8 @@
 	)
 
 	influence_factors = list(
-		STATS_BLOOD_SPILT = list("points" = 0.000275, "capacity" = 90),
-		STATS_ORGANS_EATEN = list("points" = 3.25, "capacity" = 75),
+		STATS_BLOOD_SPILT = list("points" = 0.00028, "capacity" = 90),
+		STATS_ORGANS_EATEN = list("points" = 3.5, "capacity" = 75),
 		STATS_LIMBS_BITTEN = list("points" = 0.75, "capacity" = 75),
 		STATS_PEOPLE_GIBBED = list("points" = 3, "capacity" = 50),
 		STATS_ASSASSINATIONS = list("points" = 15, "capacity" = 80),
