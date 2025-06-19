@@ -204,7 +204,7 @@ window "stonekeep_prefwin"
 		anchor2 = -1,-1
 		background-color = none
 		is-visible = false
-		saved-params = "pos;size;is-minimized;is-maximized"
+		saved-params = "pos;is-minimized;is-maximized"
 		statusbar = false
 		can-close = false
 		can-resize = false
