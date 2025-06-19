@@ -338,9 +338,9 @@
 	sound_cache[file_path] = as_num
 	return as_num
 
+
 #define RUSTG_SOUNDLEN_SUCCESSES "successes"
 #define RUSTG_SOUNDLEN_ERRORS "errors"
-
 /**
  * Returns a nested key-value list containing "successes" and "errors"
  * The format is as follows:
@@ -349,7 +349,6 @@
  *  RUSTG_SOUNDLEN_ERRORS = list("sound/bad.png" = "SoundLen: Unable to decode file."),
  *)
 */
-
 #define rustg_sound_length_list(file_paths) json_decode(RUSTG_CALL(RUST_G, "sound_len_list")(json_encode(file_paths)))
 
 #define rustg_sql_connect_pool(options) RUSTG_CALL(RUST_G, "sql_connect_pool")(options)
