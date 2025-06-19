@@ -437,7 +437,7 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 	dreamer.combat_music_loop.cursound = null
 	src.cmode_music = dreamer.custom_music_track
 
-	to_chat(src, "<span class='notice'>Done, check your combat mode music and/or theme song.</span>")
+	to_chat(src, span_notice("Done, check your combat mode music and/or theme song."))
 
 /datum/looping_sound/maniac_theme_song
 	mid_sounds = list()
