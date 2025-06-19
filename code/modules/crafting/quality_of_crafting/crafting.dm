@@ -135,7 +135,7 @@
 	craftdiff = 0
 	uses_attacked_atom = FALSE
 
-/datum/repeatable_crafting_recipe/crafting/stake
+/datum/repeatable_crafting_recipe/crafting/caningstick
 	name = "caning stick"
 	requirements = list(
 		/obj/item/grown/log/tree/stick= 2,
