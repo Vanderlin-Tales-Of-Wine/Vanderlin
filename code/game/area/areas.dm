@@ -69,10 +69,10 @@
 	var/ambient_spooky_night_index
 	/// Does this area immediately play an ambience track upon enter?
 	var/forced_ambience = FALSE
-	/// Used to decide what the minimum time between ambience is
-	var/min_ambience_cooldown = 30 SECONDS
+	///Used to decide what the minimum time between ambience is
+	var/min_ambience_cooldown = 4 SECONDS
 	///Used to decide what the maximum time between ambience is
-	var/max_ambience_cooldown = 60 SECONDS
+	var/max_ambience_cooldown = 10 SECONDS
 
 	/// The volume of the ambient buzz
 	var/ambient_buzz_vol = 35
