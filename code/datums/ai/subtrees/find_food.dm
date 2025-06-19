@@ -6,7 +6,7 @@
 	. = ..()
 	if(istype(controller.pawn, /mob/living/simple_animal/hostile/retaliate))
 		var/mob/living/simple_animal/hostile/retaliate/mob = controller.pawn
-		if((mob.food >= (mob.food_max - 30)) && !mob.eat_forever)
+		if((mob.food >= (mob.food_max * 0.5)) && !mob.eat_forever)
 			return // not hungry
 
 	var/atom/target = controller.blackboard[BB_BASIC_MOB_CURRENT_TARGET]
@@ -25,7 +25,7 @@
 	. = ..()
 	if(istype(controller.pawn, /mob/living/simple_animal))
 		var/mob/living/simple_animal/hostile/retaliate/mob = controller.pawn
-		if((mob.food >= (mob.food_max - 30)) && !mob.eat_forever)
+		if((mob.food >= (mob.food_max * 0.5)) && !mob.eat_forever)
 			return // not hungry
 
 	var/atom/target = controller.blackboard[BB_BASIC_MOB_FOOD_TARGET]
@@ -66,7 +66,7 @@
 /datum/ai_planning_subtree/find_food/saiga/SelectBehaviors(datum/ai_controller/controller, seconds_per_tick)
 	if(istype(controller.pawn, /mob/living/simple_animal/hostile/retaliate))
 		var/mob/living/simple_animal/hostile/retaliate/mob = controller.pawn
-		if((mob.food >= (mob.food_max - 30)) && !mob.eat_forever)
+		if((mob.food >= (mob.food_max * 0.5)) && !mob.eat_forever)
 			return // not hungry
 
 	var/atom/target = controller.blackboard[BB_BASIC_MOB_CURRENT_TARGET]
