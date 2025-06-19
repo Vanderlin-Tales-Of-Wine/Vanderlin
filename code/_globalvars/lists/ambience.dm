@@ -160,7 +160,7 @@ GLOBAL_LIST_INIT(ambience_assoc_rain, list(
 GLOBAL_LIST_INIT(ambience_assoc, build_all_ambience())
 
 /proc/build_all_ambience()
-	var/static/list/ambience_assoc = list(
+	var/list/ambiences = list(
 		GLOB.ambience_assoc_tod,
 		GLOB.ambience_assoc_places,
 		GLOB.ambience_assoc_spooky,
@@ -168,6 +168,6 @@ GLOBAL_LIST_INIT(ambience_assoc, build_all_ambience())
 		GLOB.ambience_assoc_rain,
 	)
 	var/list/all_ambience_assoc = list()
-	for(var/list/ambience as anything in ambience_assoc)
-		LAZYADDASSOCLIST(all_ambience_assoc, ambience, ambience[ambience])
+	for(var/list/ambience as anything in ambiences)
+		all_ambience_assoc |= ambience
 	return all_ambience_assoc
