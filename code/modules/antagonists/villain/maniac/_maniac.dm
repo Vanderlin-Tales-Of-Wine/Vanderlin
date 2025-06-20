@@ -128,9 +128,9 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 			var/mob/living/carbon/human/dreamer = owner.current
 			dreamer.set_patron(/datum/patron/inhumen/zizo)
 			dreamer.remove_stat_modifier("[type]")
-			var/client/clinet = dreamer?.client
-			if(clinet) //clear screenshake animation
-				animate(clinet, dreamer.pixel_y)
+			var/client/client = dreamer?.client
+			if(client) //clear screenshake animation
+				animate(client, dreamer.pixel_y)
 		for(var/trait in final_traits)
 			REMOVE_TRAIT(owner.current, trait, "[type]")
 		owner.current.clear_fullscreen("maniac")
@@ -218,9 +218,9 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 	to_chat(dreamer, "...It couldn't be.")
 	dreamer.clear_fullscreen("dream")
 	dreamer.clear_fullscreen("wakeup")
-	var/client/clinet = dreamer?.client
-	if(clinet) //clear screenshake animation
-		animate(clinet, dreamer.pixel_y)
+	var/client/client = dreamer?.client
+	if(client) //clear screenshake animation
+		animate(client, dreamer.pixel_y)
 	for(var/datum/objective/objective in objectives)
 		objective.completed = TRUE
 	// for(var/mob/connected_player in GLOB.player_list)
