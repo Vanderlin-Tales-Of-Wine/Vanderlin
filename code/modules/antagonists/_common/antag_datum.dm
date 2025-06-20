@@ -147,6 +147,8 @@ GLOBAL_LIST_EMPTY(antagonists)
 	if(owner)
 		LAZYREMOVE(owner.antag_datums, src)
 		if(owner.current)
+			// Maniac sigh
+			owner.current.refresh_looping_ambience()
 			if(was_pacifist)
 				var/mob/living/carbon/human/human_user = owner.current
 				human_user.charflaw = new /datum/charflaw/pacifist(human_user)

@@ -108,6 +108,7 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 			dreamer.remove_stress(/datum/stressevent/saw_wonder)
 			dreamer.remove_curse(/datum/curse/zizo)
 		//	dreamer.remove_client_colour(/datum/client_colour/maniac_marked)
+		owner.current.refresh_looping_ambience()
 		hallucinations = owner.current.overlay_fullscreen("maniac", /atom/movable/screen/fullscreen/maniac)
 	LAZYINITLIST(owner.learned_recipes)
 	owner.learned_recipes |= recipe_progression[1]
