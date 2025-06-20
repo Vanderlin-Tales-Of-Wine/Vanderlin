@@ -277,7 +277,6 @@
 				add_blood = bloodiness
 			S.bloody_shoes[BLOOD_STATE_MUD] = min(MAX_SHOE_BLOODINESS,S.bloody_shoes[BLOOD_STATE_MUD]+add_blood)
 			S.blood_state = BLOOD_STATE_MUD
-			update_icon()
 			H.update_inv_shoes()
 		if(water_level)
 			START_PROCESSING(SSwaterlevel, src)
@@ -834,22 +833,10 @@
 
 /turf/open/floor/carpet/lord/Initialize()
 	. = ..()
-	if(GLOB.lordprimary)
-		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
+	if(GLOB.lordprimary && GLOB.lordsecondary)
+		lordcolor()
 	else
-		GLOB.lordcolor += src
-
-/turf/open/floor/carpet/lord/Destroy()
-	GLOB.lordcolor -= src
-	return ..()
-
-/turf/open/floor/carpet/lord/lordcolor(primary,secondary)
-	if(!primary || !secondary)
-		return
-	var/mutable_appearance/M = mutable_appearance(icon, "[icon_state]_primary", -(layer+0.1))
-	M.color = primary
-	add_overlay(M)
-	GLOB.lordcolor -= src
+		RegisterSignal(SSdcs, COMSIG_LORD_COLORS_SET, TYPE_PROC_REF(/turf/open/floor/carpet/lord, lordcolor))
 
 /turf/open/floor/carpet/lord/center
 	icon_state = "carpet_c"

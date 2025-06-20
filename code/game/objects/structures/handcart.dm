@@ -28,7 +28,7 @@
 	if(mapload)		// if closed, any item at the crate's loc is put in the contents
 		addtimer(CALLBACK(src, PROC_REF(take_contents)), 0)
 	. = ..()
-	update_icon()
+	update_appearance(UPDATE_ICON)
 
 /obj/structure/handcart/container_resist(mob/living/user)
 	var/atom/L = drop_location()
@@ -37,7 +37,7 @@
 			AM.forceMove(L)
 			stuff_shit -= AM
 			current_capacity = max(current_capacity-arbitrary_living_creature_weight, 0)
-			update_icon()
+			update_appearance(UPDATE_ICON)
 			break
 
 /obj/structure/handcart/dump_contents()
@@ -91,7 +91,7 @@
 		playsound(src, pick('sound/combat/hits/onwood/fence_hit1.ogg', 'sound/combat/hits/onwood/fence_hit2.ogg', 'sound/combat/hits/onwood/fence_hit3.ogg'), 100, FALSE)
 		shake_camera(user, 1, 1)
 		to_chat(user, span_notice("I upgrade [src] with [cog]."))
-		update_icon()
+		update_appearance(UPDATE_ICON)
 		return
 	if(!user.cmode)
 		if(put_in(user, I))
@@ -201,7 +201,7 @@
 		AM.forceMove(src)
 	current_capacity += weight
 	stuff_shit += AM
-	update_icon()
+	update_appearance(UPDATE_ICON)
 	return TRUE
 
 /obj/structure/handcart/proc/take_contents()
@@ -210,18 +210,23 @@
 		if(AM != src && put_in(null, AM)) // limit reached
 			break
 
-/obj/structure/handcart/update_icon()
+/obj/structure/handcart/update_icon_state()
 	. = ..()
-	cut_overlays()
-	switch(maximum_capacity)
-		if(90 to 119)
-			add_overlay("ov_upgrade")
-		if(120 to INFINITY)
-			add_overlay("ov_upgrade2")
 	if(length(stuff_shit))
 		icon_state = "cart-full"
 	else
 		icon_state = "cart-empty"
+
+/obj/structure/handcart/update_overlays()
+	. = ..()
+	var/mutable_appearance/M
+	switch(maximum_capacity)
+		if(90 to 119)
+			M = mutable_appearance(icon, "ov_upgrade")
+		if(120 to INFINITY)
+			M = mutable_appearance(icon, "ov_upgrade2")
+	if(M)
+		. += M
 
 /obj/structure/handcart/attack_right(mob/user)
 	. = ..()
@@ -232,7 +237,7 @@
 		dump_contents()
 		visible_message(span_info("[user] dumps out [src]!"))
 		playsound(loc, 'sound/foley/cartdump.ogg', 100, FALSE, -1)
-	update_icon()
+	update_appearance(UPDATE_ICON)
 
 /obj/structure/handcart/proc/insertion_allowed(atom/movable/AM)
 	if(ismob(AM))

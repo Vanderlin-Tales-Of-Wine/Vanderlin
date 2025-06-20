@@ -185,9 +185,10 @@
 	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
 	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
 	icon_state = "bowl"
+	fill_icon_thresholds = list(0, 30, 50, 100)
+	reagent_flags = TRANSFERABLE | AMOUNT_VISIBLE
 	force = 5
 	throwforce = 5
-	reagent_flags = OPENCONTAINER
 	amount_per_transfer_from_this = 6
 	possible_transfer_amounts = list(6)
 	dropshrink = 0.8
@@ -197,7 +198,7 @@
 	sellprice = 1
 	drinksounds = list('sound/items/drink_cup (1).ogg','sound/items/drink_cup (2).ogg','sound/items/drink_cup (3).ogg','sound/items/drink_cup (4).ogg','sound/items/drink_cup (5).ogg')
 	fillsounds = list('sound/items/fillcup.ogg')
-	metalizer_result = /obj/item/coin/copper
+	metalizer_result = /obj/item/reagent_containers/glass/bowl/iron
 
 /obj/item/reagent_containers/glass/bowl/iron
 	icon_state = "bowl_iron"
@@ -222,51 +223,30 @@
 	..()
 	qdel(src)
 
-/obj/item/reagent_containers/glass/bowl/update_icon()
-	cut_overlays()
-	var/mutable_appearance/steam = mutable_appearance(icon, "steam")
-	if(reagents)
-		if(reagents.total_volume > 0)
-			if(reagents.total_volume < 1)
-				icon_state = "bowl"
-				underlays.Cut()
-			if(reagents.total_volume <= 10)
-				var/mutable_appearance/filling = mutable_appearance(icon, "bowl_low")
-				filling.color = mix_color_from_reagents(reagents.reagent_list)
-				add_overlay(filling)
-		if(reagents.total_volume > 10)
-			if(reagents.total_volume <= 20)
-				var/mutable_appearance/filling = mutable_appearance(icon, "bowl_half")
-				filling.color = mix_color_from_reagents(reagents.reagent_list)
-				add_overlay(filling)
-		if(reagents.total_volume > 20)
-			if(reagents.has_reagent(/datum/reagent/consumable/soup/oatmeal, 10))
-				var/mutable_appearance/filling = mutable_appearance(icon, "bowl_oatmeal")
-				filling.color = mix_color_from_reagents(reagents.reagent_list)
-				add_overlay(filling)
-			if(reagents.has_reagent(/datum/reagent/consumable/soup/veggie/cabbage, 17) || reagents.has_reagent(/datum/reagent/consumable/soup/veggie/onion, 17) || reagents.has_reagent(/datum/reagent/consumable/soup/veggie/onion, 17))
-				var/mutable_appearance/filling = mutable_appearance(icon, "bowl_full")
-				filling.color = mix_color_from_reagents(reagents.reagent_list)
-				underlays += steam
-				add_overlay(filling)
-			if(reagents.has_reagent(/datum/reagent/consumable/soup/stew/chicken, 17) || reagents.has_reagent(/datum/reagent/consumable/soup/stew/meat, 17) || reagents.has_reagent(/datum/reagent/consumable/soup/stew/fish, 17))
-				var/mutable_appearance/filling = mutable_appearance(icon, "bowl_stew")
-				filling.color = mix_color_from_reagents(reagents.reagent_list)
-				underlays += steam
-				add_overlay(filling)
-			else
-				var/mutable_appearance/filling = mutable_appearance(icon, "bowl_full")
-				filling.color = mix_color_from_reagents(reagents.reagent_list)
-				add_overlay(filling)
-		else
-			underlays.Cut()
-	else
-		icon_state = "bowl"
-		underlays.Cut()
-
-/obj/item/reagent_containers/glass/bowl/on_reagent_change(changetype)
-	..()
-	update_icon()
+/obj/item/reagent_containers/glass/bowl/update_overlays()
+	. = ..()
+	if(!reagents?.total_volume)
+		return
+	// ONE MILLION YEARS DUNGEON FOR NPC1314
+	var/mutable_appearance/filling
+	var/percent = round((reagents.total_volume / volume) * 100)
+	if(percent >= 80)
+		var/datum/reagent/master = reagents.get_master_reagent()
+		var/static/list/stew = list(
+			/datum/reagent/consumable/soup/stew/chicken,
+			/datum/reagent/consumable/soup/stew/meat,
+			/datum/reagent/consumable/soup/stew/fish,
+		)
+		if(istype(master,/datum/reagent/consumable/soup/oatmeal))
+			filling = mutable_appearance(icon, "bowl_oatmeal")
+		else if(is_type_in_list(master, stew))
+			filling = mutable_appearance(icon, "bowl_stew")
+		if(!filling)
+			return
+		filling.color = mix_color_from_reagents(reagents.reagent_list)
+		filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
+		. += filling
+		. += mutable_appearance(icon, "steam")
 
 /obj/item/reagent_containers/glass/bowl/attackby(obj/item/I, mob/user, params) // lets you eat with a spoon from a bowl
 	if(!istype(I, /obj/item/kitchen/spoon))
@@ -294,11 +274,6 @@
 	layer = CLOSED_BLASTDOOR_LAYER // obj layer + a little, small obj layering above convenient
 	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
 	list_reagents = list(/datum/reagent/consumable/blackpepper = 5)
-	reagent_flags = TRANSPARENT
-
-
-
-
 
 /*-------------\
 | Pot reagents |

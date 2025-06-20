@@ -1,23 +1,3 @@
-
-/mob/living/simple_animal/hostile/retaliate/saiga/update_icon()
-	cut_overlays()
-	..()
-	if(stat != DEAD)
-		if(ssaddle)
-			var/mutable_appearance/saddlet = mutable_appearance(icon, "saddle-f-above", 4.3)
-			add_overlay(saddlet)
-			saddlet = mutable_appearance(icon, "saddle-f")
-			add_overlay(saddlet)
-		if(has_buckled_mobs())
-			var/mutable_appearance/mounted = mutable_appearance(icon, "saiga_mounted", 4.3)
-			add_overlay(mounted)
-
-/mob/living/simple_animal/hostile/retaliate/saiga/tamed(mob/user)
-	..()
-	deaggroprob = 30
-	if(can_buckle)
-		AddComponent(/datum/component/riding/saiga)
-
 /mob/living/simple_animal/hostile/retaliate/saiga
 	icon = 'icons/roguetown/mob/monster/saiga.dmi'
 	name = "saiga"
@@ -94,7 +74,6 @@
 		/datum/pet_command/calm,
 	)
 
-
 /obj/effect/decal/remains/saiga
 	name = "remains"
 	gender = PLURAL
@@ -108,6 +87,24 @@
 
 	ADD_TRAIT(src, TRAIT_IGNOREDAMAGESLOWDOWN, TRAIT_GENERIC)
 
+/mob/living/simple_animal/hostile/retaliate/saiga/update_overlays()
+	. = ..()
+	if(stat <= DEAD)
+		return
+	if(ssaddle)
+		var/mutable_appearance/saddlet = mutable_appearance(icon, "saddle-f-above", 4.3)
+		. += saddlet
+		saddlet = mutable_appearance(icon, "saddle-f")
+		. += saddlet
+	if(has_buckled_mobs())
+		var/mutable_appearance/mounted = mutable_appearance(icon, "saiga_mounted", 4.3)
+		. += mounted
+
+/mob/living/simple_animal/hostile/retaliate/saiga/tamed(mob/user)
+	. = ..()
+	deaggroprob = 30
+	if(can_buckle)
+		AddComponent(/datum/component/riding/saiga)
 	if(can_breed)
 		AddComponent(\
 			/datum/component/breed,\
@@ -248,31 +245,6 @@
 		/datum/pet_command/calm,
 	)
 
-/mob/living/simple_animal/hostile/retaliate/saigabuck/update_icon()
-	cut_overlays()
-	..()
-	if(stat != DEAD)
-		if(ssaddle)
-			var/mutable_appearance/saddlet = mutable_appearance(icon, "saddle-above", 4.3)
-			add_overlay(saddlet)
-			saddlet = mutable_appearance(icon, "saddle")
-			add_overlay(saddlet)
-		if(has_buckled_mobs())
-			var/mutable_appearance/mounted = mutable_appearance(icon, "buck_mounted", 4.3)
-			add_overlay(mounted)
-
-
-/mob/living/simple_animal/hostile/retaliate/saigabuck/get_sound(input)
-	switch(input)
-		if("aggro")
-			return pick('sound/vo/mobs/saiga/attack (1).ogg','sound/vo/mobs/saiga/attack (2).ogg')
-		if("pain")
-			return pick('sound/vo/mobs/saiga/pain (1).ogg','sound/vo/mobs/saiga/pain (2).ogg','sound/vo/mobs/saiga/pain (3).ogg')
-		if("death")
-			return pick('sound/vo/mobs/saiga/death (1).ogg','sound/vo/mobs/saiga/death (2).ogg')
-		if("idle")
-			return pick('sound/vo/mobs/saiga/idle (1).ogg','sound/vo/mobs/saiga/idle (2).ogg','sound/vo/mobs/saiga/idle (3).ogg','sound/vo/mobs/saiga/idle (4).ogg','sound/vo/mobs/saiga/idle (5).ogg','sound/vo/mobs/saiga/idle (6).ogg','sound/vo/mobs/saiga/idle (7).ogg')
-
 /mob/living/simple_animal/hostile/retaliate/saigabuck/Initialize()
 	AddComponent(/datum/component/obeys_commands, pet_commands) // here due to signal overridings from pet commands // due to signal overridings from pet commands
 	. = ..()
@@ -286,13 +258,35 @@
 		breed_timer = 2 MINUTES\
 	)
 
+/mob/living/simple_animal/hostile/retaliate/saigabuck/update_overlays()
+	. = ..()
+	if(stat <= DEAD)
+		return
+	if(ssaddle)
+		var/mutable_appearance/saddlet = mutable_appearance(icon, "saddle-above", 4.3)
+		. += saddlet
+		saddlet = mutable_appearance(icon, "saddle")
+		. += saddlet
+	if(has_buckled_mobs())
+		var/mutable_appearance/mounted = mutable_appearance(icon, "saiga_mounted", 4.3)
+		. += mounted
+
+/mob/living/simple_animal/hostile/retaliate/saigabuck/get_sound(input)
+	switch(input)
+		if("aggro")
+			return pick('sound/vo/mobs/saiga/attack (1).ogg','sound/vo/mobs/saiga/attack (2).ogg')
+		if("pain")
+			return pick('sound/vo/mobs/saiga/pain (1).ogg','sound/vo/mobs/saiga/pain (2).ogg','sound/vo/mobs/saiga/pain (3).ogg')
+		if("death")
+			return pick('sound/vo/mobs/saiga/death (1).ogg','sound/vo/mobs/saiga/death (2).ogg')
+		if("idle")
+			return pick('sound/vo/mobs/saiga/idle (1).ogg','sound/vo/mobs/saiga/idle (2).ogg','sound/vo/mobs/saiga/idle (3).ogg','sound/vo/mobs/saiga/idle (4).ogg','sound/vo/mobs/saiga/idle (5).ogg','sound/vo/mobs/saiga/idle (6).ogg','sound/vo/mobs/saiga/idle (7).ogg')
+
 /mob/living/simple_animal/hostile/retaliate/saigabuck/taunted(mob/user)
 	emote("aggro")
-	return
-
 
 /mob/living/simple_animal/hostile/retaliate/saigabuck/tamed(mob/user)
-	..()
+	. = ..()
 	deaggroprob = 20
 	if(can_buckle)
 		AddComponent(/datum/component/riding/saiga)
@@ -400,10 +394,10 @@
 	. = ..()
 	var/obj/item/natural/saddle/S = new(src)
 	ssaddle = S
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)
 
 /mob/living/simple_animal/hostile/retaliate/saiga/tame/saddled/Initialize()
 	. = ..()
 	var/obj/item/natural/saddle/S = new(src)
 	ssaddle = S
-	update_icon()
+	update_appearance(UPDATE_OVERLAYS)

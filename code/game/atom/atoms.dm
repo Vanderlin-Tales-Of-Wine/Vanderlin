@@ -202,7 +202,6 @@
 
 	SETUP_SMOOTHING()
 
-	ComponentInitialize()
 	InitializeAIController()
 
 	return INITIALIZE_HINT_NORMAL
@@ -221,10 +220,6 @@
  */
 /atom/proc/LateInitialize()
 	set waitfor = FALSE
-
-/// Put your AddComponent() calls here
-/atom/proc/ComponentInitialize()
-	return
 
 /**
  * Top level of the destroy chain for most atoms
@@ -470,35 +465,69 @@
 		if (user.zone_selected == BODY_ZONE_PRECISE_NOSE && get_dist(src, user) <= 1)
 			// if atom's path is item/reagent_containers/glass/carafe
 			var/is_not_closed = FALSE
-			if (istype(src, /obj/item/reagent_containers/glass/carafe))
-				var/obj/item/reagent_containers/glass/carafe/A = src
-				is_not_closed = !A.closed
-			else if (istype(src, /obj/item/reagent_containers/glass/bottle))
+			if(istype(src, /obj/item/reagent_containers/glass/bottle))
 				var/obj/item/reagent_containers/glass/bottle/A = src
 				is_not_closed = !A.closed
-			else if (istype(src, /obj/item/reagent_containers/glass/alchemical))
+			else if(istype(src, /obj/item/reagent_containers/glass/alchemical))
 				var/obj/item/reagent_containers/glass/alchemical/A = src
 				is_not_closed = !A.closed
-			if (is_not_closed && reagents.total_volume) // if the container is open, and there's liquids in there
+			if(is_not_closed && reagents.total_volume) // if the container is open, and there's liquids in there
 				user.visible_message(span_info("[user] takes a whiff of [src]."))
 				. += span_notice("I smell [src.reagents.generate_scent_message()].")
-				if (HAS_TRAIT(user, TRAIT_LEGENDARY_ALCHEMIST))
+				if(HAS_TRAIT(user, TRAIT_LEGENDARY_ALCHEMIST))
 					var/list/full_reagents = list()
-					for (var/datum/reagent/R in reagents.reagent_list)
+					for(var/datum/reagent/R in reagents.reagent_list)
 						if(R.volume > 0)
 							full_reagents += "[lowertext(R.name)]"
 					if(length(full_reagents))
 						. += span_notice("I can identity this smell as [full_reagents.Join(", ")].")
 	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, .)
 
+/**
+ * Updates the appearence of the icon
+ *
+ * Mostly delegates to update_name, update_desc, and update_icon
+ *
+ * Arguments:
+ * - updates: A set of bitflags dictating what should be updated. Defaults to [ALL]
+ */
+/atom/proc/update_appearance(updates = ALL)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_CALL_PARENT(TRUE)
+
+	. = NONE
+	updates &= ~SEND_SIGNAL(src, COMSIG_ATOM_UPDATE_APPEARANCE, updates)
+	if(updates & UPDATE_NAME)
+		. |= update_name(updates)
+	if(updates & UPDATE_DESC)
+		. |= update_desc(updates)
+	if(updates & UPDATE_ICON)
+		. |= update_icon(updates)
+
+/// Updates the name of the atom
+/atom/proc/update_name(updates = ALL)
+	SHOULD_CALL_PARENT(TRUE)
+	return SEND_SIGNAL(src, COMSIG_ATOM_UPDATE_NAME, updates)
+
+/// Updates the description of the atom
+/atom/proc/update_desc(updates = ALL)
+	SHOULD_CALL_PARENT(TRUE)
+	return SEND_SIGNAL(src, COMSIG_ATOM_UPDATE_DESC, updates)
+
 /// Updates the icon of the atom
-/atom/proc/update_icon()
-	var/signalOut = SEND_SIGNAL(src, COMSIG_ATOM_UPDATE_ICON)
+/atom/proc/update_icon(updates = ALL)
+	SIGNAL_HANDLER
+	SHOULD_CALL_PARENT(TRUE)
 
-	if(!(signalOut & COMSIG_ATOM_NO_UPDATE_ICON_STATE))
+	. = NONE
+	updates &= ~SEND_SIGNAL(src, COMSIG_ATOM_UPDATE_ICON, updates)
+	if(updates & UPDATE_ICON_STATE)
 		update_icon_state()
+		. |= UPDATE_ICON_STATE
 
-	if(!(signalOut & COMSIG_ATOM_NO_UPDATE_OVERLAYS))
+	if(updates & UPDATE_OVERLAYS)
+		if(LAZYLEN(managed_vis_overlays))
+			SSvis_overlays.remove_vis_overlay(src, managed_vis_overlays)
 		var/list/new_overlays = update_overlays()
 		if(managed_overlays)
 			cut_overlay(managed_overlays)
@@ -506,9 +535,14 @@
 		if(length(new_overlays))
 			managed_overlays = new_overlays
 			add_overlay(new_overlays)
+		. |= UPDATE_OVERLAYS
+
+	. |= SEND_SIGNAL(src, COMSIG_ATOM_UPDATED_ICON, updates, .)
 
 /// Updates the icon state of the atom
 /atom/proc/update_icon_state()
+	SHOULD_CALL_PARENT(TRUE)
+	return SEND_SIGNAL(src, COMSIG_ATOM_UPDATE_ICON_STATE)
 
 /// Updates the overlays of the atom
 /atom/proc/update_overlays()

@@ -21,15 +21,7 @@
 	. = ..()
 	deposit(M)
 
-/obj/item/clothing/head/mob_holder/update_overlays()
-	. = ..()
-	update_visuals(held_mob)
-
-/obj/item/clothing/head/mob_holder/update_icon()
-	. = ..()
-	update_visuals(held_mob)
-
-/obj/item/clothing/head/mob_holder/update_icon_state()
+/obj/item/clothing/head/mob_holder/update_appearance(updates)
 	. = ..()
 	update_visuals(held_mob)
 

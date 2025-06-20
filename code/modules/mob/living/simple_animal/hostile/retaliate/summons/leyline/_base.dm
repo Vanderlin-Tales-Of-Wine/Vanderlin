@@ -63,7 +63,7 @@
 	var/turf/deathspot = get_turf(src)
 	new /obj/item/natural/leyline(deathspot)
 	spill_embedded_objects()
-	update_icon()
+	update_appearance()
 	qdel(src)
 
 /obj/effect/temp_visual/lycan

@@ -251,7 +251,7 @@
 	T.hott = tyme
 	addtimer(CALLBACK(T, TYPE_PROC_REF(/obj/item/weapon/tongs, make_unhot), tyme), 30 SECONDS)
 	T.proxy_heat(150)
-	T.update_icon()
+	T.update_appearance()
 	T.visible_message("<font color='yellow'>After [user]'s incantation, [T.held_item] inside [T] starts glowing from divine heat.</font>")
 	return TRUE
 
@@ -261,7 +261,7 @@
 		START_PROCESSING(SSmachines, A)
 	A.cool_time = 30 SECONDS
 	addtimer(VARSET_CALLBACK(A, cool_time, 10 SECONDS), 30 SECONDS)
-	A.update_icon()
+	A.update_appearance()
 	A.visible_message("<font color='yellow'>After [user]'s incantation, [A] begins to glow from divine heat.</font>")
 	return TRUE
 

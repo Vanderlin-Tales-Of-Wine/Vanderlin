@@ -24,18 +24,4 @@
 
 /obj/item/clothing/head/chaperon/greyscale/chaperonsecondary
 	color = CLOTHING_PLUM_PURPLE
-
-/obj/item/clothing/head/chaperon/greyscale/chaperonsecondary/Initialize()
-	. = ..()
-	if(GLOB.lordprimary)
-		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
-	else
-		GLOB.lordcolor += src
-
-/obj/item/clothing/head/chaperon/greyscale/chaperonsecondary/lordcolor(primary,secondary)
-	if(secondary)
-		color = secondary
-
-/obj/item/clothing/head/chaperon/greyscale/chaperonsecondary/Destroy()
-	GLOB.lordcolor -= src
-	return ..()
+	uses_lord_coloring = LORD_SECONDARY

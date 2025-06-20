@@ -3,6 +3,7 @@
 	desc = "A bush,for an herb. This shouldn't show up."
 	icon = 'icons/roguetown/misc/herbfoliage.dmi'
 	icon_state = "spritemeplz"
+	num_random_icons = 0
 	var/res_replenish
 	max_integrity = 10
 	climbable = FALSE
@@ -16,18 +17,16 @@
 
 /obj/structure/flora/grass/herb/Initialize()
 	. = ..()
-	desc = "An herb. This one looks like [name]."
+	desc = "A herb. This one looks like [name]."
 	alchemy_effect = new(get_turf(src), src)
 	GLOB.herb_locations |= src
 	loot_replenish()
 
 /obj/structure/flora/grass/herb/Destroy()
-	. = ..()
 	GLOB.harvested_herbs -= src
 	GLOB.herb_locations -= src
+	return ..()
 
-/obj/structure/flora/grass/herb/update_icon()
-	return
 
 /obj/structure/flora/grass/herb/attack_hand(mob/user)
 	if(harvested)

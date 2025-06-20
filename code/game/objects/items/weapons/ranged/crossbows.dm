@@ -119,29 +119,26 @@
 	if(cocked)
 		playsound(src.loc, 'sound/combat/Ranged/crossbow-small-shot-02.ogg', 100, FALSE)
 		cocked = FALSE
-		update_icon()
+		update_appearance(UPDATE_ICON_STATE)
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow/attack_self(mob/living/user)
 	if(chambered)
-		. = ..()
+		return ..()
+	if(!cocked)
+		to_chat(user, "<span class='info'>I step on the stirrup and use all my might...</span>")
+		if(do_after(user, (4 SECONDS - user.STASTR), user))
+			playsound(user, 'sound/combat/Ranged/crossbow_medium_reload-01.ogg', 100, FALSE)
+			cocked = TRUE
 	else
-		if(!cocked)
-			to_chat(user, "<span class='info'>I step on the stirrup and use all my might...</span>")
-			if(do_after(user, (4 SECONDS - user.STASTR), user))
-				playsound(user, 'sound/combat/Ranged/crossbow_medium_reload-01.ogg', 100, FALSE)
-				cocked = TRUE
-		else
-			to_chat(user, "<span class='warning'>I carefully de-cock the crossbow.</span>")
-			cocked = FALSE
-	update_icon()
+		to_chat(user, "<span class='warning'>I carefully de-cock the crossbow.</span>")
+		cocked = FALSE
+	update_appearance(UPDATE_ICON_STATE)
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow/attackby(obj/item/A, mob/user, params)
 	if(istype(A, /obj/item/ammo_box) || istype(A, /obj/item/ammo_casing))
 		if(cocked)
-			. = ..()
-		else
-			to_chat(user, "<span class='warning'>I need to cock the crossbow first.</span>")
-
+			return ..()
+		to_chat(user, "<span class='warning'>I need to cock the crossbow first.</span>")
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow/process_fire(atom/target, mob/living/user, message = TRUE, params = null, zone_override = "", bonus_spread = 0)
 	if(user.client)
@@ -172,21 +169,21 @@
 			var/amt2raise = user.STAINT/2
 			user.adjust_experience(/datum/skill/combat/crossbows, amt2raise * boon * modifier, FALSE)
 
-/obj/item/gun/ballistic/revolver/grenadelauncher/crossbow/update_icon()
+/obj/item/gun/ballistic/revolver/grenadelauncher/crossbow/update_icon_state()
 	. = ..()
 	if(cocked)
 		icon_state = "crossbow1"
 	else
 		icon_state = "crossbow0"
-	cut_overlays()
-	if(chambered)
-		var/obj/item/I = chambered
-		I.pixel_x = 0
-		I.pixel_y = 0
-		add_overlay(new /mutable_appearance(I))
-	if(ismob(loc))
-		var/mob/M = loc
-		M.update_inv_hands()
+
+/obj/item/gun/ballistic/revolver/grenadelauncher/crossbow/update_overlays()
+	. = ..()
+	if(!chambered)
+		return
+	var/obj/item/I = chambered
+	I.pixel_x = 0
+	I.pixel_y = 0
+	. += mutable_appearance(I.icon, I.icon_state)
 
 /obj/item/ammo_box/magazine/internal/shot/xbow
 	ammo_type = /obj/item/ammo_casing/caseless/bolt

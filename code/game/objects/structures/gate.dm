@@ -63,7 +63,7 @@ GLOBAL_LIST_EMPTY(biggates)
 
 /obj/structure/gate/Initialize()
 	. = ..()
-	update_icon()
+	update_appearance(UPDATE_ICON)
 	var/turf/current_turf = loc
 	var/blocker_ref
 	var/blocker
@@ -98,13 +98,15 @@ GLOBAL_LIST_EMPTY(biggates)
 		W.attached_gate = null
 	return ..()
 
-/obj/structure/gate/update_icon()
-	cut_overlays()
+/obj/structure/gate/update_icon_state()
+	. = ..()
 	icon_state = "[base_state][density]"
-	if(!density && !isSwitchingStates)
-		add_overlay(mutable_appearance(icon, "[base_state]0_part", ABOVE_MOB_LAYER))
-	else
-		add_overlay(mutable_appearance(icon, "[base_state]1_part", ABOVE_MOB_LAYER))
+
+/obj/structure/gate/update_overlays()
+	. = ..()
+	if(isSwitchingStates)
+		return
+	. += mutable_appearance(icon, "[base_state][density]_part", ABOVE_MOB_LAYER)
 
 /obj/structure/gate/proc/toggle()
 	if(density)
@@ -125,14 +127,13 @@ GLOBAL_LIST_EMPTY(biggates)
 	for(var/obj/gblock/B in blockers)
 		B.opacity = FALSE
 	isSwitchingStates = FALSE
-	update_icon()
-
+	update_appearance(UPDATE_ICON)
 
 /obj/structure/gate/proc/close()
 	if(isSwitchingStates || density)
 		return
 	isSwitchingStates = TRUE
-	update_icon()
+	update_appearance(UPDATE_ICON)
 	layer = ABOVE_MOB_LAYER
 	playsound(src, 'sound/misc/gate.ogg', 100, extrarange = 5)
 	flick("[base_state]_closing",src)
@@ -147,7 +148,7 @@ GLOBAL_LIST_EMPTY(biggates)
 	for(var/obj/gblock/B in blockers)
 		B.opacity = initial(B.opacity)
 	isSwitchingStates = FALSE
-	update_icon()
+	update_appearance(UPDATE_ICON)
 
 /obj/structure/gate/proc/crush(mob/living/crushed_mob)
 	crushed_mob.gib()

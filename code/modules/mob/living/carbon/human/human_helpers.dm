@@ -181,6 +181,7 @@
 
 	if(randomise_flags & RANDOMIZE_EYE_COLOR)
 		var/obj/item/organ/eyes/eyes = getorganslot(ORGAN_SLOT_EYES)
+		eyes.eye_color = random_eye_color()
 
 	// if(randomise_flags & RANDOMIZE_FEATURES)
 	// 	dna.features = random_features()

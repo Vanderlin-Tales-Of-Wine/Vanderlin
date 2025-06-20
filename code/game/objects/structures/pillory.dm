@@ -100,14 +100,12 @@
 			var/datum/species/S = H.dna.species
 
 			if (istype(S))
-				//H.cut_overlays()
 				H.update_body_parts_head_only()
 				density = FALSE
 				switch(H.dna.species.name)
 					if ("Dwarf","Goblin")
 						H.set_mob_offsets("bed_buckle", _x = 0, _y = PILLORY_HEAD_OFFSET)
 				icon_state = "[base_icon]-over"
-				update_icon()
 			else
 				unbuckle_all_mobs()
 		else
@@ -121,7 +119,6 @@
 	M.regenerate_icons()
 	M.reset_offsets("bed_buckle")
 	icon_state = "[base_icon]"
-	update_icon()
 	..()
 
 /obj/structure/pillory/user_unbuckle_mob(mob/living/buckled_mob, mob/living/user)
