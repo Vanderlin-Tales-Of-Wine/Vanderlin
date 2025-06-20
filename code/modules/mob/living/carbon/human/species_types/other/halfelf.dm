@@ -128,7 +128,7 @@
 	"blond - strawberry" = "c69b71",
 
 	"green - leaf" = "2f3c2e",
-	"green - moss" = "3b3c2a"
+	"green - moss" = "3b3c2a",
 
 	"white - snow" = "dee9ed",
 	"white - ice" = "f4f4f4"
