@@ -57,10 +57,8 @@ SUBSYSTEM_DEF(ambience)
 	if(override_sound)
 		new_sound = override_sound
 	else if(spooky_sounds)
-		var/time = GLOB.tod
-		if(!M.has_light_nearby())
-			if(spookynight && time == "night")
-				spooky_sounds = spookynight
+		if(spookynight && GLOB.tod == "night")
+			spooky_sounds = spookynight
 		new_sound = pick(spooky_sounds)
 
 	if(!new_sound)
