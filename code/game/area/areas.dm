@@ -70,14 +70,10 @@
 	/// Does this area immediately play an ambience track upon enter?
 	var/forced_ambience = FALSE
 	///Used to decide what the minimum time between ambience is
-	var/min_ambience_cooldown = 4 SECONDS
+	var/min_ambience_cooldown = 15 SECONDS
 	///Used to decide what the maximum time between ambience is
-	var/max_ambience_cooldown = 10 SECONDS
+	var/max_ambience_cooldown = 25 SECONDS
 
-	/// The volume of the ambient buzz
-	var/ambient_buzz_vol = 35
-	/// The current buzz so we don't refresh it when we don't need to
-	var/current_buzz
 	/// The background droning loop that plays 24/7
 	var/ambient_buzz
 	/// The background droning loop that plays at dusk
@@ -388,16 +384,17 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 	if(!client || isobserver(client.mob))
 		return
 
-	var/area/my_area = get_area(src)
-
 	if(!can_hear())
 		SEND_SOUND(src, sound(null, repeat = 0, wait = 0, channel = CHANNEL_BUZZ))
 		client.current_ambient_sound = null
 		return
 
+	var/area/my_area = get_area(src)
+	var/vol = client.prefs?.musicvol || 50
 	var/used = my_area.get_current_buzz()
 	if(cmode && cmode_music)
 		used = cmode_music
+		vol *= 1.2
 	else if(HAS_TRAIT(src, TRAIT_SCHIZO_AMBIENCE))
 		used = 'sound/music/dreamer_is_still_asleep.ogg'
 	else if(HAS_TRAIT(src, TRAIT_DRUQK))
@@ -412,7 +409,7 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 		return
 
 	client.current_ambient_sound = used
-	SEND_SOUND(src, sound(used, repeat = 1, wait = 0, volume = my_area.ambient_buzz_vol, channel = CHANNEL_BUZZ))
+	SEND_SOUND(src, sound(used, repeat = 1, wait = 0, volume = vol, channel = CHANNEL_BUZZ))
 
 /client
 	var/musicfading = 0
