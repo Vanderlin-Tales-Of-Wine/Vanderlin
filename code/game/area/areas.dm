@@ -71,6 +71,8 @@
 	/// Do not set directly on /area use the index
 	var/list/alternative_droning_night
 	var/droning_index_night
+	/// Self explanatory
+	var/uses_alt_droning = TRUE
 
 	/// A list of sounds to pick from every so often to play to clients.
 	/// Do not set directly on /area use the index
@@ -379,7 +381,7 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 		L.intro_area(src)
 
 /// Get the buzz that should play in accordance with the time
-/area/proc/get_current_buzz(is_lit = TRUE)
+/area/proc/get_current_buzz(is_lit)
 	var/time = GLOB.tod
 	var/used = background_track
 	if(is_lit)
@@ -387,10 +389,10 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 			used = background_track_night
 		else if (time == "dusk" && background_track_dusk)
 			used = background_track_dusk
-	else
-		used = alternative_droning
-		if(time == "night" && alternative_droning_night)
-			used = alternative_droning_night
+	else if(uses_alt_droning)
+		used = safepick(alternative_droning)
+		if(time == "night" && LAZYLEN(alternative_droning_night))
+			used = pick(alternative_droning_night)
 		if(!used)
 			used = 'sound/ambience/creepywind.ogg'
 
