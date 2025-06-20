@@ -10,7 +10,7 @@
 	department_flag = GARRISON
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_MENATARMS
-	faction = FACTION_STATION
+	faction = FACTION_TOWN
 	total_positions = 4
 	spawn_positions = 4
 	min_pq = 6
@@ -31,17 +31,12 @@
 /datum/outfit/job/watchman/pre_equip(mob/living/carbon/human/H)
 	. = ..()
 	cloak = /obj/item/clothing/cloak/stabard/guard
-	head = /obj/item/clothing/head/helmet/kettle/slit // does not cover the face, so it is fine for guards to have
-	shirt =	/obj/item/clothing/armor/chainmail
+	wrists = /obj/item/clothing/wrists/bracers/leather
 	pants = /obj/item/clothing/pants/trou/leather/guard
 	shoes = /obj/item/clothing/shoes/boots
 	belt = /obj/item/storage/belt/leather
-	neck = /obj/item/clothing/neck/gorget
-	armor = /obj/item/clothing/armor/medium/scale // this is balanced, don't freek out, it protects LESS than a steel cuirass, but protects the legs
-	gloves = /obj/item/clothing/gloves/chain
-	beltl = /obj/item/weapon/sword/arming
-	backl = /obj/item/storage/backpack/satchel
-	backpack_contents =	list(/obj/item/storage/keyring/manorguard) // this is done so that the marksmen can have their quiver on their hip
+	beltl = /obj/item/storage/keyring/manorguard
+
 /datum/outfit/job/watchman/post_equip(mob/living/carbon/human/H)
 	. = ..()
 	if(H.cloak)
@@ -52,10 +47,10 @@
 	..()
 
 /datum/advclass/menatarms/watchman_pikeman
-	name = "Men-At-Arms Pikeman"
+	name = "Pikeman Men-At-Arms"
 	tutorial = "You once warded the town, beating the poor and killing the senseless. \
-	Now you get to stare at them in the eyes, watching as they writhe, \
-	skulls CRACKED personally by one of the Monarch's brutes. \
+	Now you get to stare at them in the eyes, watching as they bleed, \
+	exanguinated personally by one of the Monarch's best. \
 	You are poor, and your belly is yet full."
 	outfit = /datum/outfit/job/watchman/pikeman
 
@@ -63,7 +58,14 @@
 
 /datum/outfit/job/watchman/pikeman/pre_equip(mob/living/carbon/human/H)
 	..()
-	backr = /obj/item/weapon/polearm/spear/billhook // do not give them a polehammer, elves are not strong enough to wield it
+	head = /obj/item/clothing/head/helmet/kettle
+	armor = /obj/item/clothing/armor/cuirass
+	shirt = /obj/item/clothing/armor/chainmail
+	neck = /obj/item/clothing/neck/chaincoif/iron
+	gloves = /obj/item/clothing/gloves/chain
+	beltr = /obj/item/weapon/sword/arming
+	backr = /obj/item/weapon/polearm/spear/billhook
+	backl = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/weapon/knife/dagger/steel/special)
 	H.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
@@ -77,17 +79,18 @@
 	H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
 	H.change_stat(STATKEY_STR, 2)
-	H.change_stat(STATKEY_END, 1)
+	H.change_stat(STATKEY_PER, -1)
+	H.change_stat(STATKEY_END, -1)
 	H.change_stat(STATKEY_CON, 1)
-	H.change_stat(STATKEY_SPD, -1)
+	H.change_stat(STATKEY_SPD, 1)
 	H.verbs |= /mob/proc/haltyell
 	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 
 /datum/advclass/menatarms/watchman_swordsmen
-	name = "Men-At-Arms Footman"
-	tutorial = "You once warded the town, your shield acting as a second wall, just in case the REAL walls were breached. \
-	You were best with a shield in one hand, blade in the other. Nowadays, you love watching the living devolve to empty bloodbags on the ground, \
+	name = "Fencer Men-At-Arms"
+	tutorial = "You once warded the town, beating the poor and killing the senseless. \
+	You were quite a good dancer, you've blended that skill with your blade- \
 	exanguinated personally by one of the Monarch's best. \
 	You are poor, and your belly is yet full."
 	outfit = /datum/outfit/job/watchman/swordsmen
@@ -95,11 +98,16 @@
 
 /datum/outfit/job/watchman/swordsmen/pre_equip(mob/living/carbon/human/H)
 	..()
-	backr =	/obj/item/weapon/shield/tower // no idea if this has heraldry or not, if so, cool
+	head = pick(/obj/item/clothing/head/roguehood/guard, /obj/item/clothing/head/roguehood/guardsecond)
+	armor = /obj/item/clothing/armor/leather/advanced
+	shirt = /obj/item/clothing/armor/gambeson
+	neck = /obj/item/clothing/neck/gorget
+	gloves = /obj/item/clothing/gloves/chain
+	beltr = /obj/item/weapon/sword/rapier
+	backl = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/weapon/knife/dagger/steel/special)
 	if(H.mind)
 		H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
-		H.adjust_skillrank(/datum/skill/combat/shields, 4, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
@@ -109,20 +117,17 @@
 		H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 		H.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
-		H.change_stat(STATKEY_STR, 2) // guaranteed 10 minimum strength for elves, because sub 9 STR on a melee fighter is illogical
-		H.change_stat(STATKEY_END, 1)
-		H.change_stat(STATKEY_CON, 1)
-		H.change_stat(STATKEY_SPD, -1) // all of the men-at-arms get this, because they are meant to stay in the keep, not run around like idiots
+		H.change_stat(STATKEY_END, 2)
+		H.change_stat(STATKEY_SPD, 2)
 		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
 		H.verbs |= /mob/proc/haltyell
 
 /datum/advclass/menatarms/watchman_ranger
-	name = "Men-At-Arms Crossbowman"
-	tutorial = "You once warded the town, aiming for legs or head depending on the crime. \
-	With your precision, it's only natural you were awarded with a crossbow. \
-	While you may stay in the back, you're no coward, nor some fancy-foot ranger, and you may take up the blade if you need. \
-	You love hearing the crack of some itinerant knight's plate armor as your bolt pierces right through it, just a moment after they let slip an insult to your master. \
+	name = "Archer Men-At-Arms"
+	tutorial = "You once warded the town, beating the poor and killing the senseless. \
+	Now you stare at them from above, raining hell down upon the knaves and the curs that see you a traitor. \
 	You are poor, and your belly is yet full."
 	outfit = /datum/outfit/job/watchman/ranger
 
@@ -130,15 +135,18 @@
 
 /datum/outfit/job/watchman/ranger/pre_equip(mob/living/carbon/human/H)
 	..()
-	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow // this is a crossbowman, they should have a crossbow, genius, I know
-	beltr = /obj/item/ammo_holder/quiver/bolts
+	head = /obj/item/clothing/head/helmet/kettle
+	armor = /obj/item/clothing/armor/leather/hide
+	shirt = /obj/item/clothing/armor/gambeson/heavy
+	beltr = /obj/item/weapon/mace/cudgel
+	neck = /obj/item/clothing/neck/chaincoif/iron
+	gloves = /obj/item/clothing/gloves/leather
 	backpack_contents = list(/obj/item/weapon/knife/dagger/steel/special)
 	if(H.mind)
 		H.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/bows, 4, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/crossbows, 4, TRUE)
-		H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE) // for backup, this is fine for them to have, 3 swords skill is almost definitely lower than any of their opponents primary skills
 		H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
@@ -146,9 +154,18 @@
 		H.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
 		H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 		H.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
-		H.change_stat(STATKEY_STR, 1) // for cranking the crossbow, they need some strength, but not as much as a swordsman or pikeman
+		H.change_stat(STATKEY_STR, 1)
 		H.change_stat(STATKEY_PER, 2)
-		H.change_stat(STATKEY_SPD, -1)
+		H.change_stat(STATKEY_END, -2)
+		H.change_stat(STATKEY_SPD, 1)
 		H.verbs |= /mob/proc/haltyell
 		ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
-		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC) // this is a crown guard, not a ranger, so they should have medium armor, not light armor
+		ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
+		var/weapontypec = pickweight(list("Bow" = 6, "Crossbow" = 4)) // Rolls for either a bow or a Crossbow
+		switch(weapontypec)
+			if("Bow")
+				backl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/long
+				backr = /obj/item/ammo_holder/quiver/arrows
+			if("Crossbow")
+				backl = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
+				backr = /obj/item/ammo_holder/quiver/bolts
