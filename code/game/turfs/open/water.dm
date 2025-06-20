@@ -32,7 +32,7 @@
 	barefootstep = null
 	clawfootstep = null
 	heavyfootstep = null
-	landsound = 'sound/foley/jumpland/waterland.wav'
+	landsound = 'sound/foley/jumpland/waterland.ogg'
 	shine = SHINE_SHINY
 	var/datum/reagent/water_reagent = /datum/reagent/water
 	var/mapped = TRUE // infinite source of water
