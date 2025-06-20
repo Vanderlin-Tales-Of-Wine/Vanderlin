@@ -193,7 +193,7 @@
 	range = 7
 	warnie = "sydwarning"
 	req_items = list(/obj/item/clothing/neck/psycross/silver/abyssor)
-	sound = 'sound/foley/jumpland/waterland.wav'
+	sound = 'sound/foley/jumpland/waterland.ogg'
 	invocation = "Embrace the waters of Abyssor's domain."
 	invocation_type = "shout"
 	associated_skill = /datum/skill/magic/holy
