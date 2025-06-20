@@ -774,6 +774,7 @@
 /obj/item/gem/red,
 /obj/item/gem/violet,
 /obj/item/coin/gold/pile,
+/obj/item/key/warehouse,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/shop)
 "aKJ" = (
@@ -840,7 +841,7 @@
 "aNo" = (
 /obj/structure/hotspring,
 /obj/machinery/light/fueled/wallfire/candle/l,
-/turf/open/floor/tile,
+/turf/open/water/bath,
 /area/rogue/indoors/town/bath)
 "aNt" = (
 /obj/structure/closet/dirthole/closed,
@@ -2178,6 +2179,10 @@
 	},
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/indoors/town/vault)
+"bWv" = (
+/mob/living/simple_animal/hostile/retaliate/gator,
+/turf/open/water/swamp,
+/area/rogue/outdoors/river)
 "bWy" = (
 /obj/structure/door/fancy{
 	name = "Bedroom"
@@ -2742,6 +2747,7 @@
 /area/rogue/outdoors/rtfield)
 "cCW" = (
 /obj/effect/decal/cleanable/blood,
+/mob/living/simple_animal/hostile/retaliate/bat,
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb/indoors/church)
 "cCZ" = (
@@ -4003,18 +4009,13 @@
 	pixel_x = -3;
 	pixel_y = 9
 	},
-/obj/item/reagent_containers/powder/moondust_purest,
-/obj/item/reagent_containers/powder/moondust_purest{
-	pixel_x = 5;
-	pixel_y = -3
+/obj/item/clothing/face/cigarette/rollie/trippy{
+	pixel_x = 8;
+	pixel_y = 2
 	},
-/obj/item/reagent_containers/powder/moondust_purest{
-	pixel_x = -10;
-	pixel_y = -4
-	},
-/obj/item/reagent_containers/powder/moondust_purest{
-	pixel_x = 4;
-	pixel_y = 10
+/obj/item/clothing/face/cigarette/rollie/trippy{
+	pixel_x = 0;
+	pixel_y = 9
 	},
 /turf/open/floor/naturalstone,
 /area/rogue/under/town/basement)
@@ -6128,7 +6129,6 @@
 /area/rogue/indoors/lich)
 "fUl" = (
 /obj/structure/table/wood/fancy/royalblue,
-/obj/item/clothing/ring/gold/gemerald,
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/indoors/town/vault)
 "fUW" = (
@@ -7204,13 +7204,17 @@
 	pixel_x = -11;
 	pixel_y = 8
 	},
-/obj/item/reagent_containers/powder/moondust_purest{
-	pixel_x = 5;
-	pixel_y = -2
+/obj/item/clothing/face/cigarette/rollie/trippy{
+	pixel_x = 1;
+	pixel_y = 3
 	},
-/obj/item/alch/transisdust{
-	pixel_x = 7;
-	pixel_y = 15
+/obj/item/clothing/face/cigarette/rollie/trippy{
+	pixel_x = 10;
+	pixel_y = -3
+	},
+/obj/item/clothing/face/cigarette/rollie/trippy{
+	pixel_x = 0;
+	pixel_y = 13
 	},
 /turf/open/floor/naturalstone,
 /area/rogue/under/town/basement)
@@ -8487,7 +8491,7 @@
 "hXi" = (
 /obj/structure/hotspring,
 /obj/item/soap,
-/turf/open/floor/tile,
+/turf/open/water/bath,
 /area/rogue/indoors/town/bath)
 "hYt" = (
 /obj/structure/flora/newtree,
@@ -10281,13 +10285,9 @@
 	pixel_x = 8;
 	pixel_y = 1
 	},
-/obj/item/reagent_containers/powder/moondust_purest{
-	pixel_x = -8;
-	pixel_y = 2
-	},
-/obj/item/alch/transisdust{
-	pixel_x = 5;
-	pixel_y = -5
+/obj/item/clothing/face/cigarette/rollie/trippy{
+	pixel_x = 8;
+	pixel_y = 5
 	},
 /turf/open/floor/naturalstone,
 /area/rogue/under/town/basement)
@@ -10376,7 +10376,9 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/soilsons)
 "jTN" = (
-/obj/structure/door/window,
+/obj/structure/door/window{
+	name = "Basement"
+	},
 /obj/effect/mapping_helpers/access/keyset/manor/mage,
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/carpet/purple,
@@ -11254,7 +11256,9 @@
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/tavern)
 "kJL" = (
-/obj/structure/door/window,
+/obj/structure/door/window{
+	name = "Apprentice Bedroom"
+	},
 /obj/effect/mapping_helpers/access/keyset/manor/mage,
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/ruinedwood/turned/alt,
@@ -12633,6 +12637,7 @@
 /obj/item/key/steward,
 /obj/item/key/walls,
 /obj/item/key/manor,
+/obj/item/key/warehouse,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/town/steward)
 "lWH" = (
@@ -12873,7 +12878,9 @@
 /turf/closed/wall/mineral/wooddark/window,
 /area/rogue/indoors/villagegarrison)
 "mjB" = (
-/obj/structure/door/fancy,
+/obj/structure/door/fancy{
+	name = "Balcony"
+	},
 /obj/effect/mapping_helpers/access/keyset/manor/mage,
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/ruinedwood/turned/alt,
@@ -13432,8 +13439,8 @@
 "mOM" = (
 /obj/structure/rack,
 /obj/item/weapon/mace/woodclub/train_sword,
-/obj/item/weapon/mace/woodclub/train_sword,
 /obj/machinery/light/fueled/wallfire/candle,
+/obj/item/weapon/mace/woodclub,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield/safe)
 "mOU" = (
@@ -13796,9 +13803,10 @@
 /area/rogue/under/cave)
 "neZ" = (
 /obj/structure/table/wood/plain_alt,
-/obj/item/reagent_containers/powder/moondust{
-	pixel_x = -4;
-	pixel_y = 11
+/obj/item/reagent_containers/food/snacks/produce/swampweed_dried,
+/obj/item/reagent_containers/food/snacks/produce/swampweed_dried{
+	pixel_x = -5;
+	pixel_y = 9
 	},
 /turf/open/floor/cobblerock,
 /area/rogue/under/cave)
@@ -13879,13 +13887,13 @@
 	pixel_y = -5
 	},
 /obj/machinery/light/fueled/wallfire/candle/skull,
-/obj/item/reagent_containers/powder/moondust_purest{
-	pixel_x = 7;
-	pixel_y = 1
-	},
-/obj/item/reagent_containers/powder/moondust_purest{
+/obj/item/clothing/face/cigarette/rollie/trippy{
 	pixel_x = 0;
-	pixel_y = -13
+	pixel_y = 3
+	},
+/obj/item/clothing/face/cigarette/rollie/cannabis{
+	pixel_x = 9;
+	pixel_y = -3
 	},
 /turf/open/floor/naturalstone,
 /area/rogue/under/town/basement)
@@ -14284,7 +14292,9 @@
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/town/manor)
 "nwD" = (
-/obj/structure/door/window,
+/obj/structure/door/window{
+	name = "Storage"
+	},
 /obj/effect/mapping_helpers/access/keyset/manor/mage,
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/cobblerock,
@@ -14429,6 +14439,10 @@
 /obj/structure/fake_machine/hailerboard/l,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/rtfield/safe)
+"nDv" = (
+/obj/structure/flora/grass/bush_meagre/tundra,
+/turf/open/floor/dirt,
+/area/rogue/outdoors/rtfield)
 "nDF" = (
 /obj/effect/falling_leaves,
 /obj/structure/trap/mine,
@@ -14480,6 +14494,10 @@
 	},
 /turf/open/floor/cobble,
 /area/rogue/indoors/lich)
+"nHF" = (
+/obj/structure/flora/grass/bush_meagre/tundra,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors/rtfield)
 "nHI" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
@@ -14978,7 +14996,7 @@
 /obj/structure/fluff/railing/border,
 /obj/structure/rack,
 /obj/item/weapon/mace/woodclub/train_sword,
-/obj/item/weapon/mace/woodclub/train_sword,
+/obj/item/weapon/mace/woodclub,
 /turf/open/floor/carpet/green,
 /area/rogue/indoors/town/merc_guild)
 "ofo" = (
@@ -15067,21 +15085,17 @@
 	pixel_y = 1
 	},
 /obj/machinery/light/fueled/wallfire/candle/skull/r,
-/obj/item/reagent_containers/powder/moondust_purest{
-	pixel_x = -8;
-	pixel_y = -7
-	},
-/obj/item/reagent_containers/powder/moondust_purest{
-	pixel_x = -2;
-	pixel_y = 16
-	},
-/obj/item/reagent_containers/powder/moondust_purest{
-	pixel_x = 8;
-	pixel_y = -5
-	},
 /obj/item/alch/transisdust{
 	pixel_x = 9;
 	pixel_y = 10
+	},
+/obj/item/clothing/face/cigarette/rollie/cannabis{
+	pixel_x = -2;
+	pixel_y = 9
+	},
+/obj/item/clothing/face/cigarette/rollie/cannabis{
+	pixel_x = 7;
+	pixel_y = -2
 	},
 /turf/open/floor/naturalstone,
 /area/rogue/under/town/basement)
@@ -15627,6 +15641,7 @@
 /obj/item/weapon/hoe,
 /obj/item/weapon/pitchfork,
 /obj/item/weapon/pitchfork,
+/obj/item/weapon/axe/iron,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/soilsons)
 "oIQ" = (
@@ -16313,7 +16328,9 @@
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/garrison)
 "psb" = (
-/obj/structure/door/window,
+/obj/structure/door/window{
+	name = "Apprentice Bedroom"
+	},
 /obj/effect/mapping_helpers/access/keyset/manor/mage,
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/ruinedwood/turned/darker,
@@ -16440,9 +16457,18 @@
 /area/rogue/outdoors/rtfield/safe)
 "pwW" = (
 /obj/structure/table/wood/plain_alt,
-/obj/item/reagent_containers/powder/moondust{
-	pixel_x = 3;
-	pixel_y = 7
+/obj/item/reagent_containers/food/snacks/produce/dry_westleach,
+/obj/item/reagent_containers/food/snacks/produce/dry_westleach{
+	pixel_x = 5;
+	pixel_y = 2
+	},
+/obj/item/reagent_containers/food/snacks/produce/dry_westleach{
+	pixel_x = 6;
+	pixel_y = 9
+	},
+/obj/item/reagent_containers/food/snacks/produce/dry_westleach{
+	pixel_x = -7;
+	pixel_y = 10
 	},
 /turf/open/floor/cobble,
 /area/rogue/under/cave)
@@ -16905,6 +16931,7 @@
 /obj/structure/table/wood/plain_alt,
 /obj/item/key/atarms,
 /obj/item/storage/keyring/guard,
+/obj/item/key/garrison,
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/villagegarrison)
 "pTO" = (
@@ -18445,23 +18472,6 @@
 /obj/item/reagent_containers/powder/manabloom{
 	pixel_x = -6;
 	pixel_y = -8
-	},
-/obj/item/reagent_containers/powder/moondust_purest,
-/obj/item/reagent_containers/powder/moondust_purest{
-	pixel_x = 11;
-	pixel_y = -9
-	},
-/obj/item/reagent_containers/powder/moondust_purest{
-	pixel_x = -9;
-	pixel_y = -4
-	},
-/obj/item/reagent_containers/powder/moondust_purest{
-	pixel_x = 3;
-	pixel_y = -8
-	},
-/obj/item/alch/transisdust{
-	pixel_x = -6;
-	pixel_y = 6
 	},
 /mob/living/carbon/human/species/goblin/npc/ambush/moon{
 	real_name = "Coke Lord";
@@ -20050,6 +20060,10 @@
 	},
 /turf/open/floor/ruinedwood/turned/alt,
 /area/rogue/indoors/town/magician)
+"sPh" = (
+/mob/living/simple_animal/hostile/retaliate/bat,
+/turf/open/water/blood,
+/area/rogue/under/tomb/indoors/church)
 "sPN" = (
 /obj/machinery/light/fueled/wallfire{
 	pixel_y = 31
@@ -20164,10 +20178,6 @@
 /area/rogue/indoors/town/church/chapel)
 "sXp" = (
 /obj/structure/table/wood/plain_alt,
-/obj/item/reagent_containers/powder/moondust{
-	pixel_x = -6;
-	pixel_y = 9
-	},
 /obj/item/reagent_containers/powder/moondust_purest{
 	pixel_x = 11;
 	pixel_y = 2
@@ -20282,6 +20292,10 @@
 /obj/structure/fermentation_keg/random/water,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/orphanage)
+"tcY" = (
+/obj/structure/flora/grass/bush_meagre/tundra,
+/turf/open/floor/grass/yel,
+/area/rogue/outdoors/rtfield)
 "tcZ" = (
 /obj/structure/fermentation_keg/water{
 	pixel_x = 4;
@@ -20398,17 +20412,13 @@
 	pixel_y = 13
 	},
 /obj/machinery/light/fueled/wallfire/candle/skull/l,
-/obj/item/reagent_containers/powder/moondust_purest{
-	pixel_x = -7;
-	pixel_y = 6
+/obj/item/clothing/face/cigarette/rollie/cannabis{
+	pixel_x = 2;
+	pixel_y = 9
 	},
-/obj/item/reagent_containers/powder/moondust_purest{
-	pixel_x = 10;
-	pixel_y = 6
-	},
-/obj/item/alch/transisdust{
-	pixel_x = 7;
-	pixel_y = 0
+/obj/item/clothing/face/cigarette/rollie/cannabis{
+	pixel_x = 5;
+	pixel_y = -3
 	},
 /turf/open/floor/naturalstone,
 /area/rogue/under/town/basement)
@@ -20717,7 +20727,7 @@
 "tua" = (
 /obj/structure/hotspring,
 /obj/machinery/light/fueled/wallfire/candle/r,
-/turf/open/floor/tile,
+/turf/open/water/bath,
 /area/rogue/indoors/town/bath)
 "tud" = (
 /obj/structure/door/violet{
@@ -21507,23 +21517,13 @@
 	pixel_x = 5;
 	pixel_y = 11
 	},
-/obj/item/reagent_containers/powder/moondust_purest,
-/obj/item/reagent_containers/powder/moondust_purest,
-/obj/item/reagent_containers/powder/moondust_purest{
+/obj/item/clothing/face/cigarette/rollie/cannabis{
 	pixel_x = 9;
-	pixel_y = -9
+	pixel_y = 0
 	},
-/obj/item/reagent_containers/powder/moondust_purest{
-	pixel_x = -5;
-	pixel_y = -14
-	},
-/obj/item/reagent_containers/powder/moondust_purest{
-	pixel_x = 10;
-	pixel_y = 13
-	},
-/obj/item/reagent_containers/powder/moondust_purest{
-	pixel_x = -8;
-	pixel_y = 8
+/obj/item/clothing/face/cigarette/rollie/trippy{
+	pixel_x = -2;
+	pixel_y = 6
 	},
 /turf/open/floor/naturalstone,
 /area/rogue/under/town/basement)
@@ -21673,7 +21673,7 @@
 /area/rogue/indoors/town)
 "upG" = (
 /obj/structure/hotspring,
-/turf/open/floor/tile,
+/turf/open/water/bath,
 /area/rogue/indoors/town/bath)
 "uqc" = (
 /obj/structure/fluff/customsign{
@@ -24027,7 +24027,9 @@
 	},
 /area/rogue/indoors/town/tavern)
 "wvf" = (
-/obj/structure/door/fancy,
+/obj/structure/door/fancy{
+	name = "Mage Tower"
+	},
 /obj/effect/mapping_helpers/access/keyset/manor/mage,
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/cobblerock,
@@ -24116,7 +24118,9 @@
 /turf/open/floor/cobblerock/alt,
 /area/rogue/outdoors/rtfield)
 "wzt" = (
-/obj/structure/door/fancy,
+/obj/structure/door/fancy{
+	name = "Mage Tower"
+	},
 /obj/effect/mapping_helpers/access/keyset/manor/mage,
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/cobble,
@@ -24490,15 +24494,8 @@
 /area/rogue/outdoors/exposed/church)
 "wUD" = (
 /obj/structure/table/wood/plain_alt,
-/obj/item/reagent_containers/powder/moondust{
-	pixel_x = -4;
-	pixel_y = 1
-	},
-/obj/item/reagent_containers/powder/moondust{
-	pixel_x = 5;
-	pixel_y = 10
-	},
 /obj/machinery/light/fueled/wallfire/candle/skull,
+/obj/item/reagent_containers/food/snacks/produce/swampweed_dried,
 /turf/open/floor/cobble,
 /area/rogue/under/cave)
 "wUI" = (
@@ -24509,7 +24506,9 @@
 /turf/closed/wall/mineral/wooddark/horizontal,
 /area/rogue/indoors/soilsons)
 "wVb" = (
-/obj/structure/door/fancy,
+/obj/structure/door/fancy{
+	name = "Court Mage Bedroom"
+	},
 /obj/effect/mapping_helpers/access/keyset/manor/mage,
 /obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/ruinedwood/turned/darker,
@@ -25275,17 +25274,9 @@
 	pixel_y = 6
 	},
 /obj/machinery/light/fueled/wallfire/candle/skull,
-/obj/item/reagent_containers/powder/moondust_purest{
-	pixel_x = -10;
-	pixel_y = -8
-	},
-/obj/item/reagent_containers/powder/moondust_purest{
+/obj/item/clothing/face/cigarette/rollie/cannabis{
 	pixel_x = 9;
-	pixel_y = 1
-	},
-/obj/item/reagent_containers/powder/moondust_purest{
-	pixel_x = -4;
-	pixel_y = 9
+	pixel_y = 4
 	},
 /turf/open/floor/naturalstone,
 /area/rogue/under/town/basement)
@@ -56393,7 +56384,7 @@ hVa
 exN
 hVa
 hVa
-hVa
+bWv
 exN
 hVa
 hVa
@@ -59224,7 +59215,7 @@ hVa
 nPQ
 hVa
 hVa
-hVa
+bWv
 hVa
 hVa
 exN
@@ -60065,7 +60056,7 @@ exN
 hVa
 wYi
 nPQ
-hVa
+bWv
 hVa
 hVa
 hVa
@@ -63115,7 +63106,7 @@ hVa
 hVa
 hVa
 hVa
-hVa
+bWv
 hVa
 dcX
 hVa
@@ -64700,7 +64691,7 @@ nPQ
 hVa
 hVa
 hVa
-hVa
+bWv
 hVa
 hVa
 exN
@@ -65760,7 +65751,7 @@ hVa
 hVa
 hVa
 hVa
-hVa
+bWv
 hVa
 exN
 hVa
@@ -89638,7 +89629,7 @@ azK
 azK
 azK
 czS
-mDa
+tcY
 len
 gcK
 mDa
@@ -91247,7 +91238,7 @@ len
 rrY
 qof
 qof
-iPE
+nHF
 iPE
 iPE
 mDa
@@ -91454,7 +91445,7 @@ mDa
 iPE
 iPE
 len
-mDa
+tcY
 mDa
 iPE
 mDa
@@ -91851,7 +91842,7 @@ jAq
 qof
 mDa
 qof
-mDa
+tcY
 mDa
 iPE
 iPE
@@ -92663,12 +92654,12 @@ qof
 iEg
 len
 iPE
-mDa
+tcY
 mDa
 iPE
 mDa
 mDa
-mDa
+tcY
 dTS
 qof
 hEP
@@ -92858,7 +92849,7 @@ qof
 qof
 mDa
 tzZ
-qof
+nDv
 rLd
 amg
 amg
@@ -124678,7 +124669,7 @@ xQF
 xQF
 eXe
 mJW
-uwp
+sPh
 tBz
 xVa
 mJW
@@ -134671,7 +134662,7 @@ nJJ
 nJJ
 nJJ
 had
-lJS
+inT
 njz
 hFI
 wUJ
@@ -135075,7 +135066,7 @@ nJJ
 nJJ
 nJJ
 nJJ
-inT
+lJS
 cTp
 cTp
 ogU
@@ -135277,7 +135268,7 @@ nJJ
 nJJ
 nJJ
 nJJ
-inT
+lJS
 pNJ
 bqf
 rLd
@@ -135887,7 +135878,7 @@ rLd
 lJS
 lJS
 rLd
-lJS
+uoe
 rLd
 lJS
 lJS
@@ -171192,7 +171183,7 @@ ijI
 ijI
 ijI
 ijI
-ahn
+ijI
 ijI
 ijI
 ijI
