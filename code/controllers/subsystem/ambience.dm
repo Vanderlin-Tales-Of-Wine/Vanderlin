@@ -53,15 +53,15 @@ SUBSYSTEM_DEF(ambience)
 ///Attempts to play an ambient sound to a mob, returning the cooldown in deciseconds
 /area/proc/play_ambience(mob/M, sound/override_sound, volume = 50)
 	var/sound/new_sound
+	var/list/spooky_sounds = spookysounds
 	if(override_sound)
 		new_sound = override_sound
-	else if(spookysounds)
+	else if(spooky_sounds)
 		var/time = GLOB.tod
 		if(!M.has_light_nearby())
-			var/list/spooky_sounds = spookysounds
 			if(spookynight && time == "night")
 				spooky_sounds = spookynight
-			new_sound = pick(spooky_sounds)
+		new_sound = pick(spooky_sounds)
 
 	if(!new_sound)
 		return
