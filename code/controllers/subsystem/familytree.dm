@@ -187,6 +187,7 @@ SUBSYSTEM_DEF(familytree)
 	// If this is the first royal, generate a historical lineage
 	if(!ruling_family.founder)
 		GenerateRoyalLineage(member, status)
+		H.ShowFamilyUI(TRUE)
 		return
 
 	// Handle adding new royals to existing family
