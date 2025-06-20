@@ -1,19 +1,19 @@
 /area/rogue/under/dungeon
 	icon_state = "basement"
 	soundenv = 5
-	ambient_index = AMBIENCE_BASEMENT
-	ambient_night_index = AMBIENCE_BASEMENT
-	ambient_spooky_index = AMBIENCE_SPOOKY_DUNGEON
-	ambient_spooky_night_index = AMBIENCE_SPOOKY_DUNGEON
-	ambient_buzz = 'sound/music/area/catacombs.ogg'
-	ambient_buzz_dusk = null
-	ambient_buzz_night = null
+	droning_index = DRONING_BASEMENT
+	droning_index_night = DRONING_BASEMENT
+	ambient_index = AMBIENCE_DUNGEON
+	ambient_index_night = AMBIENCE_DUNGEON
+	background_track = 'sound/music/area/catacombs.ogg'
+	background_track_dusk = null
+	background_track_night = null
 
 /area/rogue/indoors/dungeon
-	ambient_index = AMBIENCE_BASEMENT
-	ambient_night_index = AMBIENCE_BASEMENT
-	ambient_spooky_index = AMBIENCE_SPOOKY_DUNGEON
-	ambient_spooky_night_index = AMBIENCE_SPOOKY_DUNGEON
-	ambient_buzz = 'sound/music/area/catacombs.ogg'
-	ambient_buzz_dusk = null
-	ambient_buzz_night = null
+	droning_index = DRONING_BASEMENT
+	droning_index_night = DRONING_BASEMENT
+	ambient_index = AMBIENCE_DUNGEON
+	ambient_index_night = AMBIENCE_DUNGEON
+	background_track = 'sound/music/area/catacombs.ogg'
+	background_track_dusk = null
+	background_track_night = null

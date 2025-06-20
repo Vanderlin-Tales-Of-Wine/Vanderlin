@@ -55,31 +55,37 @@
 
 	var/parallax_movedir = 0
 
+	/// The background music that plays in this area
+	/// This overrides the others if they are absent
+	var/sound/background_track
+	/// The background music that plays in this area at dusk
+	var/sound/background_track_dusk
+	/// The background music that plays in this area at night
+	var/sound/background_track_night
+	/// Alternative droning loops to replace the background music
+	/// To make things more spooky
+	/// Do not set directly on /area use the index
+	var/list/alternative_droning
+	var/droning_index
+	/// Alternative droning loops for night
+	/// Do not set directly on /area use the index
+	var/list/alternative_droning_night
+	var/droning_index_night
+
 	/// A list of sounds to pick from every so often to play to clients.
+	/// Do not set directly on /area use the index
 	var/list/ambientsounds
 	var/ambient_index
 	/// A list of sounds to pick but at night
+	/// Do not set directly on /area use the index
 	var/list/ambientnight
-	var/ambient_night_index
-	/// A list of sounds to pick but spooky
-	var/list/spookysounds
-	var/ambient_spooky_index
-	/// A list of sounds to pick but spooky at night
-	var/list/spookynight
-	var/ambient_spooky_night_index
-	/// Does this area immediately play an ambience track upon enter?
+	var/ambient_index_night
+	/// Does this area immediately play an ambience sound upon enter?
 	var/forced_ambience = FALSE
 	///Used to decide what the minimum time between ambience is
 	var/min_ambience_cooldown = 25 SECONDS
 	///Used to decide what the maximum time between ambience is
 	var/max_ambience_cooldown = 35 SECONDS
-
-	/// The background droning loop that plays 24/7
-	var/ambient_buzz
-	/// The background droning loop that plays at dusk
-	var/ambient_buzz_dusk
-	/// The background droning loop that plays at night
-	var/ambient_buzz_night
 
 	var/soundenv = 0
 
@@ -294,13 +300,14 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 /// Setup all ambience tracks
 /area/proc/setup_ambience()
 	if(!ambientsounds && ambient_index)
-		ambientsounds = GLOB.ambience_assoc[ambient_index]
-	if(!ambientnight && ambient_night_index)
-		ambientnight = GLOB.ambience_assoc[ambient_night_index]
-	if(!spookysounds && ambient_spooky_index)
-		spookysounds = GLOB.ambience_assoc_spooky[ambient_spooky_index]
-	if(!spookynight && ambient_spooky_night_index)
-		spookynight = GLOB.ambience_assoc_spooky[ambient_spooky_night_index]
+		ambientsounds = GLOB.ambience_assoc_sounds[ambient_index]
+	if(!ambientnight && ambient_index_night)
+		ambientnight = GLOB.ambience_assoc_sounds[ambient_index_night]
+
+	if(!alternative_droning && droning_index)
+		alternative_droning = GLOB.ambience_assoc_droning[droning_index]
+	if(!alternative_droning_night && droning_index_night)
+		alternative_droning_night = GLOB.ambience_assoc_droning[droning_index_night]
 
 /**
  * Destroy an area and clean it up
@@ -363,24 +370,34 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 		return
 
 	var/area/old_area = get_area(old_loc)
-	if(get_current_buzz() != old_area.get_current_buzz())
-		L.refresh_looping_ambience()
+	var/is_lit = L.has_light_nearby()
+	var/current_buzz = get_current_buzz(is_lit)
+	if(current_buzz != old_area.get_current_buzz(is_lit))
+		L.refresh_looping_ambience(current_buzz)
 
 	if(first_time_text)
 		L.intro_area(src)
 
 /// Get the buzz that should play in accordance with the time
-/area/proc/get_current_buzz()
+/area/proc/get_current_buzz(is_lit = TRUE)
 	var/time = GLOB.tod
-	var/used = ambient_buzz
-	if(time == "night" && ambient_buzz_night)
-		used = ambient_buzz_night
-	else if (time == "dusk" && ambient_buzz_dusk)
-		used = ambient_buzz_dusk
+	var/used = background_track
+	if(is_lit)
+		if(time == "night" && background_track_night)
+			used = background_track_night
+		else if (time == "dusk" && background_track_dusk)
+			used = background_track_dusk
+	else
+		used = alternative_droning
+		if(time == "night" && alternative_droning_night)
+			used = alternative_droning_night
+		if(!used)
+			used = 'sound/ambience/creepywind.ogg'
+
 	return used
 
 /// Tries to play looping ambience to the mob
-/mob/proc/refresh_looping_ambience()
+/mob/proc/refresh_looping_ambience(sound/buzz_to_use)
 	if(!client || isobserver(client.mob))
 		return
 
@@ -391,7 +408,9 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 
 	var/area/my_area = get_area(src)
 	var/vol = client.prefs?.musicvol || 50
-	var/used = my_area.get_current_buzz()
+	var/used = buzz_to_use
+	if(!used)
+		used = my_area.get_current_buzz(has_light_nearby())
 	if(cmode && cmode_music)
 		used = cmode_music
 		vol *= 1.2

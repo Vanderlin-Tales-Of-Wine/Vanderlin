@@ -39,8 +39,8 @@ SUBSYSTEM_DEF(sounds)
 		return ..()
 
 	// Precache ambience sounds
-	for(var/key in GLOB.ambience_assoc)
-		sounds_to_precache |= GLOB.ambience_assoc[key]
+	for(var/key in GLOB.ambience_assoc_sounds)
+		sounds_to_precache |= GLOB.ambience_assoc_sounds[key]
 
 	precache_sounds()
 

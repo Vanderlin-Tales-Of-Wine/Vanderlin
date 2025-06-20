@@ -3,11 +3,11 @@
 /area/rogue/under/mountains/anvil
 	name = "malum's anvil generic under (don't use)"
 	icon_state = "rogue"
-	ambient_index = AMBIENCE_MOUNTAIN
-	ambient_spooky_index = AMBIENCE_SPOOKY_GENERIC
-	ambient_buzz = 'sound/music/area/townstreets.ogg'
-	ambient_buzz_dusk = 'sound/music/area/septimus.ogg'
-	ambient_buzz_night = 'sound/music/area/sleeping.ogg'
+	droning_index = DRONING_MOUNTAIN
+	ambient_index = AMBIENCE_GENERIC
+	background_track = 'sound/music/area/townstreets.ogg'
+	background_track_dusk = 'sound/music/area/septimus.ogg'
+	background_track_night = 'sound/music/area/sleeping.ogg'
 	converted_type = /area/rogue/outdoors/mountains/anvil/snowy
 	soundenv = 8
 	plane = INDOOR_PLANE
@@ -62,36 +62,36 @@
 	name = "malum's anvil generic outdoors (don't use)"
 	icon_state = "rogue"
 	outdoors = TRUE
-	ambient_index = AMBIENCE_TOWN_DAY
-	ambient_night_index = AMBIENCE_TOWN_NIGHT
-	ambient_spooky_index = AMBIENCE_SPOOKY_BIRDS
-	ambient_spooky_night_index = AMBIENCE_SPOOKY_GENERIC
-	ambient_buzz = 'sound/music/area/townstreets.ogg'
-	ambient_buzz_dusk = 'sound/music/area/septimus.ogg'
-	ambient_buzz_night = 'sound/music/area/sleeping.ogg'
+	droning_index = DRONING_TOWN_DAY
+	droning_index_night = DRONING_TOWN_NIGHT
+	ambient_index = AMBIENCE_BIRDS
+	ambient_index_night = AMBIENCE_GENERIC
+	background_track = 'sound/music/area/townstreets.ogg'
+	background_track_dusk = 'sound/music/area/septimus.ogg'
+	background_track_night = 'sound/music/area/sleeping.ogg'
 	converted_type = /area/rogue/indoors/shelter
 
 /area/rogue/outdoors/mountains/anvil/peak
 	name = "malum's anvil peak"
 	icon_state = "anvilpeakmalum"
-	ambient_buzz = 'sound/music/area/decap.ogg'
-	ambient_buzz_dusk = null
-	ambient_buzz_night = null
+	background_track = 'sound/music/area/decap.ogg'
+	background_track_dusk = null
+	background_track_night = null
 	first_time_text = "THE PEAK OF MALUM'S ANVIL"
 
 /area/rogue/outdoors/mountains/anvil/snowy
 	name = "malum's anvil snow"
 	icon_state = "snowypeakmalum"
-	ambient_buzz = 'sound/music/area/decap.ogg'
-	ambient_buzz_dusk = null
-	ambient_buzz_night = null
+	background_track = 'sound/music/area/decap.ogg'
+	background_track_dusk = null
+	background_track_night = null
 
 /area/rogue/outdoors/mountains/anvil/snowyforest
 	name = "malum's anvil forest"
 	icon_state = "snowyforestmalum"
-	ambient_buzz = 'sound/music/area/decap.ogg'
-	ambient_buzz_dusk = null
-	ambient_buzz_night = null
+	background_track = 'sound/music/area/decap.ogg'
+	background_track_dusk = null
+	background_track_night = null
 	ambush_types = list(
 				/turf/open/floor/grass/cold,
 				/turf/open/floor/snow/patchy)
@@ -104,9 +104,9 @@
 /area/rogue/outdoors/mountains/anvil/castle
 	name = "malum's anvil castle"
 	icon_state = "castlemalum"
-	ambient_buzz = 'sound/music/area/decap.ogg'
-	ambient_buzz_dusk = null
-	ambient_buzz_night = null
+	background_track = 'sound/music/area/decap.ogg'
+	background_track_dusk = null
+	background_track_night = null
 	ambush_types = list(
 				/turf/open/floor/cobblerock)
 	ambush_mobs = list(
@@ -130,11 +130,11 @@
 /area/rogue/indoors/mountains/anvil
 	name = "malum's anvil generic indoors (don't use)"
 	icon_state = "indoors"
-	ambient_index = AMBIENCE_INDOORS
-	ambient_spooky_index = AMBIENCE_SPOOKY_GENERIC
-	ambient_buzz = 'sound/music/area/indoor.ogg'
-	ambient_buzz_dusk = 'sound/music/area/septimus.ogg'
-	ambient_buzz_night = 'sound/music/area/sleeping.ogg'
+	droning_index = DRONING_INDOORS
+	ambient_index = AMBIENCE_GENERIC
+	background_track = 'sound/music/area/indoor.ogg'
+	background_track_dusk = 'sound/music/area/septimus.ogg'
+	background_track_night = 'sound/music/area/sleeping.ogg'
 	plane = INDOOR_PLANE
 	converted_type = /area/rogue/outdoors/mountains/anvil/snowy
 

@@ -16,6 +16,11 @@
 #define CHANNEL_WEATHER 1012
 #define CHANNEL_IMSICK 1011
 
+//THIS SHOULD ALWAYS BE THE LOWEST ONE!
+//KEEP IT UPDATED
+
+#define CHANNEL_HIGHEST_AVAILABLE 1011
+
 /// This is the lowest volume that can be used by playsound otherwise it gets ignored
 /// Most sounds around 10 volume can barely be heard. Almost all sounds at 5 volume or below are inaudible
 /// This is to prevent sound being spammed at really low volumes due to distance calculations
@@ -66,11 +71,6 @@
 ///The default exponent of sound falloff
 #define SOUND_FALLOFF_EXPONENT 6
 
-//THIS SHOULD ALWAYS BE THE LOWEST ONE!
-//KEEP IT UPDATED
-
-#define CHANNEL_HIGHEST_AVAILABLE 1011
-
 #define SOUND_MINIMUM_PRESSURE 10
 
 #define SFX_SPARKS "sparks"
@@ -87,39 +87,42 @@
 #define DROP_SOUND_VOLUME 100
 #define YEET_SOUND_VOLUME 100
 
+// Droning ambient loops
 
-#define AMBIENCE_TOWN_DAY "town_day"
-#define AMBIENCE_TOWN_NIGHT "town_night"
-#define AMBIENCE_FOREST_DAY "forest_day"
-#define AMBIENCE_FOREST_NIGHT "forest_night"
-#define AMBIENCE_MOUNT_DAY "mountain_day"
-#define AMBIENCE_MOUNT_NIGHT "mount_night"
-#define AMBIENCE_BOG_DAY "bog_day"
-#define AMBIENCE_BOG_NIGHT "bog_night"
-#define AMBIENCE_JUNGLE_DAY "jungle_day"
-#define AMBIENCE_JUNGLE_NIGHT "jungle_night"
-#define AMBIENCE_RIVER_DAY "river_day"
-#define AMBIENCE_RIVER_NIGHT "river_night"
+#define DRONING_TOWN_DAY "town_day"
+#define DRONING_TOWN_NIGHT "town_night"
+#define DRONING_FOREST_DAY "forest_day"
+#define DRONING_FOREST_NIGHT "forest_night"
+#define DRONING_MOUNT_DAY "mountain_day"
+#define DRONING_MOUNT_NIGHT "mount_night"
+#define DRONING_BOG_DAY "bog_day"
+#define DRONING_BOG_NIGHT "bog_night"
+#define DRONING_JUNGLE_DAY "jungle_day"
+#define DRONING_JUNGLE_NIGHT "jungle_night"
+#define DRONING_RIVER_DAY "river_day"
+#define DRONING_RIVER_NIGHT "river_night"
 
-#define AMBIENCE_INDOORS "indoors"
-#define AMBIENCE_BASEMENT "basement"
-#define AMBIENCE_MOUNTAIN "mountain"
-#define AMBIENCE_LAKE "lake"
-#define AMBIENCE_BOAT "boat"
+#define DRONING_INDOORS "indoors"
+#define DRONING_BASEMENT "basement"
+#define DRONING_MOUNTAIN "mountain"
+#define DRONING_LAKE "lake"
+#define DRONING_BOAT "boat"
 
-#define AMBIENCE_RAIN_IN "rain_in"
-#define AMBIENCE_RAIN_OUT "rain_out"
-#define AMBIENCE_RAIN_SEWER "rain_sewer"
+#define DRONING_RAIN_IN "rain_in"
+#define DRONING_RAIN_OUT "rain_out"
+#define DRONING_RAIN_SEWER "rain_sewer"
 
-#define AMBIENCE_CAVE_GENERIC "cave_generic"
-#define AMBIENCE_CAVE_WET "cave_wet"
-#define AMBIENCE_CAVE_LAVA "cave_lava"
+#define DRONING_CAVE_GENERIC "cave_generic"
+#define DRONING_CAVE_WET "cave_wet"
+#define DRONING_CAVE_LAVA "cave_lava"
 
-#define AMBIENCE_SPOOKY_GENERIC "spooky_generic"
-#define AMBIENCE_SPOOKY_CAVE "spooky_cave"
-#define AMBIENCE_SPOOKY_FOREST "spooky_forest"
-#define AMBIENCE_SPOOKY_DUNGEON "spooky_dungeon"
-#define AMBIENCE_SPOOKY_RAT "spooky_ray"
-#define AMBIENCE_SPOOKY_FROG "spooky_frog"
-#define AMBIENCE_SPOOKY_BIRDS "spooky_birds"
-#define AMBIENCE_SPOOKY_MYSTICAL "spooky_mystic"
+// Ambient sounds handled by SSambience
+
+#define AMBIENCE_GENERIC "spooky_generic"
+#define AMBIENCE_CAVE "spooky_cave"
+#define AMBIENCE_FOREST "spooky_forest"
+#define AMBIENCE_DUNGEON "spooky_dungeon"
+#define AMBIENCE_RAT "spooky_ray"
+#define AMBIENCE_FROG "spooky_frog"
+#define AMBIENCE_BIRDS "spooky_birds"
+#define AMBIENCE_MYSTICAL "spooky_mystic"
