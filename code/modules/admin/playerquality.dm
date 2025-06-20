@@ -43,7 +43,6 @@
 	if(json[key])
 		curpq = json[key]
 	curpq += amt
-	curpq = CLAMP(curpq, -100, 100)
 	json[key] = curpq
 	fdel(json_file)
 	WRITE_FILE(json_file, json_encode(json))

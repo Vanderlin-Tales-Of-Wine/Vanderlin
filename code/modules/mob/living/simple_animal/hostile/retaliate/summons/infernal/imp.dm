@@ -9,7 +9,6 @@
 	emote_hear = null
 	emote_see = null
 	speak_chance = 1
-	turns_per_move = 3
 	see_in_dark = 6
 	move_to_delay = 3
 	base_intents = list(/datum/intent/unarmed/claw)

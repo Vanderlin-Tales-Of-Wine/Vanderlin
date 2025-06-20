@@ -1,5 +1,5 @@
 /*
- * A component to allow us to breed Despite what you may think the man is the one that gives birth
+ * A component to allow us to breed. Both parents need this (male initiates through an attack, female gives birth)
  */
 /datum/component/breed
 	/// additional mobs we can breed with
@@ -12,9 +12,9 @@
 	var/breed_key = BB_BREED_READY
 	///are we ready to breed?
 	var/ready_to_breed = TRUE
-	///callback after we give birth to the child
+	///callback after we give birth to the child. female onlyy.
 	var/datum/callback/post_birth
-	///callback that overrides the birth ending
+	///callback that overrides the birth ending. prevents baby_path spawn and post_birth callback. female only.
 	var/datum/callback/override_baby
 	var/pregnant = FALSE
 
@@ -42,14 +42,16 @@
 	RegisterSignal(parent, COMSIG_PARENT_IMPREGNATE, PROC_REF(impregnate))
 	ADD_TRAIT(parent, TRAIT_MOB_BREEDER, REF(src))
 	var/mob/living/parent_mob = parent
-	parent_mob.ai_controller?.set_blackboard_key(breed_key, TRUE)
+	parent_mob.ai_controller?.set_blackboard_key(breed_key, ready_to_breed)
+	parent_mob.ai_controller?.set_blackboard_key(BB_BABIES_PARTNER_TYPES, can_breed_with)
+	parent_mob.ai_controller?.set_blackboard_key(BB_BABIES_CHILD_TYPES, baby_path)
 
 /datum/component/breed/UnregisterFromParent()
 	UnregisterSignal(parent, COMSIG_HOSTILE_PRE_ATTACKINGTARGET)
 	REMOVE_TRAIT(parent, TRAIT_MOB_BREEDER, REF(src))
 	post_birth = null
 
-
+/// Called by component on male source
 /datum/component/breed/proc/breed_with_partner(mob/living/source, mob/living/target)
 	if(source.cmode)
 		return
@@ -62,8 +64,19 @@
 
 	if(!ready_to_breed)
 		return COMPONENT_HOSTILE_NO_PREATTACK
+
+	var/datum/component/breed/target_breed = target.GetComponent(/datum/component/breed)
+	if(!target_breed || !target_breed.ready_to_breed)
+		return
+	if(!is_type_in_list(source, target_breed.can_breed_with))
+		return
+
+	new /obj/effect/temp_visual/heart(get_turf(source))
 	toggle_status(source)
 	addtimer(CALLBACK(src, PROC_REF(toggle_status), source), breed_timer)
+	if(isanimal(source))
+		var/mob/living/simple_animal/simple_animal = source
+		simple_animal.food = max(simple_animal.food - (simple_animal.food_max * 0.2), 0)
 
 	SEND_SIGNAL(target, COMSIG_PARENT_IMPREGNATE, source)
 	return COMPONENT_HOSTILE_NO_PREATTACK
@@ -72,26 +85,33 @@
 	if(pregnant)
 		examine_list += span_green("They are pregnant!")
 
+/// Called by component on female source
 /datum/component/breed/proc/impregnate(mob/living/source, mob/living/target)
+	if(pregnant)
+		return
+
 	pregnant = TRUE
 	toggle_status(source)
+	new /obj/effect/temp_visual/heart(get_turf(source))
 	addtimer(CALLBACK(src, PROC_REF(birth_baby), source, target), breed_timer)
+	if(isanimal(source))
+		var/mob/living/simple_animal/simple_animal = source
+		simple_animal.food = max(simple_animal.food - (simple_animal.food_max * 0.4), 0)
 
+/// Called by component on female source
 /datum/component/breed/proc/birth_baby(mob/living/source, mob/living/target)
 	var/turf/delivery_destination = get_turf(source)
+	new /obj/effect/temp_visual/heart(delivery_destination)
+	GLOB.vanderlin_round_stats[STATS_ANIMALS_BRED]++
+	pregnant = FALSE
+	addtimer(CALLBACK(src, PROC_REF(toggle_status), source), breed_timer)
+
 	if(override_baby)
-		GLOB.vanderlin_round_stats[STATS_ANIMALS_BRED]++
-		new /obj/effect/temp_visual/heart(delivery_destination)
 		override_baby.Invoke()
-		return COMPONENT_HOSTILE_NO_PREATTACK
+		return
 
 	var/picked_baby_path = pickweight(baby_path)
 	var/mob/living/baby = new picked_baby_path(delivery_destination)
-	GLOB.vanderlin_round_stats[STATS_ANIMALS_BRED]++
-	new /obj/effect/temp_visual/heart(delivery_destination)
-	toggle_status(source)
-
-	addtimer(CALLBACK(src, PROC_REF(toggle_status), source), breed_timer)
 	post_birth?.Invoke(baby, target)
 
 /datum/component/breed/proc/toggle_status(mob/living/source)

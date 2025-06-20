@@ -12,6 +12,10 @@
 	desc = "I am knocked off balance!"
 	icon_state = "off_balanced"
 
+/datum/status_effect/is_jumping //to differentiate between jumping and thrown mobs
+	id = "is_jumping"
+	alert_type = null
+
 //ENDROGUE
 
 /datum/status_effect/sigil_mark //allows the affected target to always trigger sigils while mindless

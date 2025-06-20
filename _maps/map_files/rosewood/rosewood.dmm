@@ -5973,17 +5973,7 @@
 /area/rogue/indoors/town/church)
 "dfh" = (
 /obj/structure/closet/crate/chest/neu_iron,
-/obj/item/key/manor,
-/obj/item/key/walls,
-/obj/item/key/blacksmith,
-/obj/item/key/steward,
-/obj/item/key/church,
-/obj/item/key/dungeon,
-/obj/item/key/graveyard,
-/obj/item/key/garrison,
-/obj/item/key/artificer,
-/obj/item/key/mercenary,
-/obj/item/key/tavern,
+/obj/effect/spawner/guaranteed_map_spawner/listed/steward_keys,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/steward)
 "dfr" = (
@@ -12165,26 +12155,7 @@
 /obj/structure/closet/crate/chest/crate{
 	lockid = "butler"
 	},
-/obj/item/kitchen/spoon,
-/obj/item/kitchen/spoon,
-/obj/item/kitchen/spoon,
-/obj/item/kitchen/spoon,
-/obj/item/kitchen/fork,
-/obj/item/kitchen/fork,
-/obj/item/kitchen/fork,
-/obj/item/kitchen/fork,
-/obj/item/reagent_containers/glass/bowl,
-/obj/item/reagent_containers/glass/bowl,
-/obj/item/reagent_containers/glass/bowl,
-/obj/item/reagent_containers/glass/bowl,
-/obj/item/reagent_containers/glass/bowl,
-/obj/item/reagent_containers/glass/bowl,
-/obj/item/plate,
-/obj/item/plate,
-/obj/item/plate,
-/obj/item/plate,
-/obj/item/plate,
-/obj/item/plate,
+/obj/effect/spawner/guaranteed_map_spawner/listed/cutlery,
 /turf/open/floor/blocks/stonered,
 /area/rogue/indoors/town/manor)
 "gGx" = (

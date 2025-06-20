@@ -9,7 +9,6 @@
 	faction = list(FACTION_ORCS)
 	emote_hear = null
 	emote_see = null
-	turns_per_move = 5
 	see_in_dark = 9
 	move_to_delay = 2
 	vision_range = 9
@@ -85,10 +84,9 @@
 	icon = 'icons/roguetown/mob/monster/vol.dmi'
 
 /mob/living/simple_animal/hostile/retaliate/wolf/Initialize()
+	AddComponent(/datum/component/obeys_commands, pet_commands) // here due to signal overridings from pet commands // due to signal overridings from pet commands
 	. = ..()
 	AddComponent(/datum/component/ai_aggro_system)
-	qdel(GetComponent(/datum/component/obeys_commands)) // due to signal overridings from pet commands
-	AddComponent(/datum/component/obeys_commands, pet_commands)
 	AddElement(/datum/element/ai_flee_while_injured, 0.75, retreat_health)
 
 	gender = MALE

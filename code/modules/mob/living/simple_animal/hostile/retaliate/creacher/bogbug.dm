@@ -9,7 +9,6 @@
 	faction = list("bugs")
 	emote_hear = null
 	emote_see = null
-	turns_per_move = 6
 	see_in_dark = 9
 	move_to_delay = 1
 	vision_range = 9

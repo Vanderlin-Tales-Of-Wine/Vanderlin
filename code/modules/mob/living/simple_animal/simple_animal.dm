@@ -32,11 +32,6 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	///Unlike speak_emote, the list of things in this variable only show by themselves with no spoken text. IE: Ian barks, Ian yaps
 	var/list/emote_see = list()
 
-	var/move_skip = FALSE
-	var/action_skip = FALSE
-
-	var/turns_per_move = 1
-
 	///Does the mob wander around when idle?
 	var/wander = 1
 
@@ -94,8 +89,6 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	///LETS SEE IF I CAN SET SPEEDS FOR SIMPLE MOBS WITHOUT DESTROYING EVERYTHING. Higher speed is slower, negative speed is faster.
 	var/speed = 1
 
-	///Hot simple_animal baby making vars.
-	var/list/childtype = null
 	var/next_scan_time = 0
 	///Sorry, no spider+corgi buttbabies.
 	var/animal_species
@@ -221,21 +214,22 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 
 	if(ai_controller)
 		ai_controller.can_idle = FALSE
-		var/static/list/pet_commands = list(
-			/datum/pet_command/idle,
-			/datum/pet_command/free,
-			/datum/pet_command/good_boy,
-			/datum/pet_command/follow,
-			/datum/pet_command/attack,
-			/datum/pet_command/fetch,
-			/datum/pet_command/play_dead,
-			/datum/pet_command/protect_owner,
-			/datum/pet_command/aggressive,
-			/datum/pet_command/calm,
-		)
-		var/datum/component/obeys_commands/commands = GetComponent(/datum/component/obeys_commands)
-		if(!commands)
-			AddComponent(/datum/component/obeys_commands, pet_commands)
+
+		var/datum/ai_planning_subtree/pet_planning/subtree = locate() in ai_controller.planning_subtrees
+		if(subtree)
+			var/static/list/pet_commands = list(
+				/datum/pet_command/idle,
+				/datum/pet_command/free,
+				/datum/pet_command/good_boy,
+				/datum/pet_command/follow,
+				/datum/pet_command/attack,
+				/datum/pet_command/fetch,
+				/datum/pet_command/protect_owner,
+				/datum/pet_command/aggressive,
+				/datum/pet_command/calm,
+			)
+			if(!GetComponent(/datum/component/obeys_commands))
+				AddComponent(/datum/component/obeys_commands, pet_commands)
 
 	if(user)
 		owner = user
@@ -760,8 +754,8 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 /mob/living/simple_animal/Life()
 	. = ..()
 	if(.)
+		food = max(food - 0.5, 0)
 		if(food > 0)
-			food--
 			pooprog++
 			if(pooprog >= 100)
 				pooprog = 0

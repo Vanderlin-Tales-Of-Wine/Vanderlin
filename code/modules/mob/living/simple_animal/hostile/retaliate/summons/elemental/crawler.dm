@@ -9,7 +9,6 @@
 	icon_dead = "vvd"
 	gender = MALE
 	speak_chance = 1
-	turns_per_move = 3
 	see_in_dark = 6
 	move_to_delay = 8
 	base_intents = list(/datum/intent/simple/elemental_unarmed)

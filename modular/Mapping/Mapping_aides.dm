@@ -7,7 +7,6 @@
 	icon_living = "mist"
 	mob_biotypes = MOB_SPIRIT
 	speak_chance = 0
-	turns_per_move = 5
 	response_help_continuous = "passes through"
 	response_help_simple = "pass through"
 	base_intents = list()

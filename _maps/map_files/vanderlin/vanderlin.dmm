@@ -2301,11 +2301,8 @@
 "bpl" = (
 /obj/structure/closet/crate/crafted_closet,
 /obj/item/reagent_containers/glass/cup/silver,
-/obj/item/reagent_containers/glass/cup/wooden,
-/obj/item/reagent_containers/glass/cup/wooden,
-/obj/item/reagent_containers/glass/cup/wooden,
-/obj/item/reagent_containers/glass/cup/wooden,
 /obj/item/reagent_containers/glass/carafe/silver,
+/obj/effect/spawner/guaranteed_map_spawner/listed/cups,
 /turf/open/floor/tile,
 /area/rogue/under/town/basement)
 "bpG" = (
@@ -3992,46 +3989,8 @@
 	},
 /area/rogue/outdoors/town)
 "ctI" = (
-/obj/item/key/manor,
-/obj/item/key/walls,
-/obj/item/key/blacksmith,
-/obj/item/key/steward{
-	pixel_x = 5;
-	pixel_y = 15
-	},
-/obj/item/key/church{
-	pixel_x = -4;
-	pixel_y = 7
-	},
-/obj/item/key/dungeon{
-	pixel_x = -6;
-	pixel_y = -3
-	},
-/obj/item/key/graveyard{
-	pixel_x = -9;
-	pixel_y = -6
-	},
-/obj/item/key/garrison{
-	pixel_y = -4
-	},
-/obj/item/key/artificer{
-	pixel_x = -4;
-	pixel_y = -12
-	},
-/obj/item/key/mercenary{
-	pixel_x = -12;
-	pixel_y = -4
-	},
-/obj/item/key/tavern{
-	pixel_x = -12;
-	pixel_y = 12
-	},
-/obj/item/key/feldsher{
-	pixel_x = 9;
-	pixel_y = 3
-	},
-/obj/item/key/tailor,
 /obj/structure/closet/crate/crafted_closet/steward,
+/obj/effect/spawner/guaranteed_map_spawner/listed/steward_keys,
 /turf/open/floor/carpet/green,
 /area/rogue/indoors/town/steward)
 "cuc" = (
@@ -4628,34 +4587,9 @@
 /turf/open/water/sewer,
 /area/rogue/under/town/basement)
 "cNV" = (
-/obj/item/reagent_containers/glass/bowl,
-/obj/item/reagent_containers/glass/bowl,
-/obj/item/reagent_containers/glass/bowl,
-/obj/item/reagent_containers/glass/bowl,
 /obj/structure/closet/crate/crafted_closet,
-/obj/item/reagent_containers/glass/bowl,
-/obj/item/reagent_containers/glass/bowl,
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
-/obj/item/plate,
-/obj/item/plate,
-/obj/item/plate,
-/obj/item/plate,
-/obj/item/plate,
-/obj/item/plate,
-/obj/item/plate,
-/obj/item/plate,
-/obj/item/kitchen/fork/iron,
-/obj/item/kitchen/fork/iron,
-/obj/item/kitchen/fork/iron,
-/obj/item/kitchen/fork/iron,
-/obj/item/kitchen/fork/iron,
-/obj/item/kitchen/fork/iron,
-/obj/item/kitchen/spoon/iron,
-/obj/item/kitchen/spoon/iron,
-/obj/item/kitchen/spoon/iron,
-/obj/item/kitchen/spoon/iron,
-/obj/item/kitchen/spoon/iron,
-/obj/item/kitchen/spoon/iron,
+/obj/effect/spawner/guaranteed_map_spawner/listed/cutlery,
 /turf/open/floor/tile,
 /area/rogue/under/town/basement)
 "cNY" = (
