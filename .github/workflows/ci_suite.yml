@@ -128,9 +128,6 @@ jobs:
           mysql -u root -proot tg_ci_prefixed < SQL/tgstation_schema_prefixed.sql
       - name: Install rust-g
         run: |
-          sudo dpkg --add-architecture i386
-          sudo apt update || true
-          sudo apt install zlib1g-dev:i386
           bash tools/ci/install_rust_g.sh
       - name: Compile and run tests
         run: |
