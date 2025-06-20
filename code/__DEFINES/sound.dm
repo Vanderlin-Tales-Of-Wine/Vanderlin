@@ -5,7 +5,9 @@
 #define CHANNEL_JUKEBOX 1021
 #define CHANNEL_JUSTICAR_ARK 1020
 #define CHANNEL_HEARTBEAT 1019 //sound channel for heartbeats
+/// Ambient sounds
 #define CHANNEL_AMBIENCE 1018
+/// Ambient background music or droning
 #define CHANNEL_BUZZ 1017
 #define CHANNEL_BICYCLE 1016
 #define CHANNEL_RAIN 1015

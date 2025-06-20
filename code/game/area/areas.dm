@@ -70,9 +70,9 @@
 	/// Does this area immediately play an ambience track upon enter?
 	var/forced_ambience = FALSE
 	///Used to decide what the minimum time between ambience is
-	var/min_ambience_cooldown = 15 SECONDS
+	var/min_ambience_cooldown = 25 SECONDS
 	///Used to decide what the maximum time between ambience is
-	var/max_ambience_cooldown = 25 SECONDS
+	var/max_ambience_cooldown = 35 SECONDS
 
 	/// The background droning loop that plays 24/7
 	var/ambient_buzz
