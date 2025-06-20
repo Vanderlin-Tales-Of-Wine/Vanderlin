@@ -215,7 +215,7 @@ SUBSYSTEM_DEF(familytree)
 /datum/controller/subsystem/familytree/proc/GetCurrentMonarch()
 	// Find the monarch at generation 12 (current ruling generation)
 	for(var/datum/family_member/member in ruling_family.members)
-		if(member.generation == 12)
+		if(member.generation == 12 && member.person.job == "Monarch")
 			return member
 	return null
 

@@ -39,7 +39,7 @@
 
 /datum/job/hand/after_spawn(mob/living/spawned, client/player_client)
 	. = ..()
-	SSfamilytree.AddRoyal(spawned, FAMILY_OMMER)
+	addtimer(CALLBACK(SSfamilytree, TYPE_PROC_REF(/datum/controller/subsystem/familytree, AddRoyal), spawned, FAMILY_OMMER), 5 SECONDS)
 	var/mob/living/carbon/human/H = spawned
 
 	if(GLOB.keep_doors.len > 0)
