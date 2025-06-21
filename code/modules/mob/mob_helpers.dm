@@ -700,27 +700,20 @@
 	var/client/client = L.client
 	if(L.IsSleeping() || L.surrendering)
 		if(cmode)
-			playsound_local(src, 'sound/misc/comboff.ogg', 100)
-			SSdroning.play_area_sound(get_area(src), client)
 			cmode = FALSE
-		if(hud_used)
-			if(hud_used.cmode_button)
-				hud_used.cmode_button.update_icon()
+		refresh_looping_ambience()
+		hud_used?.cmode_button?.update_icon()
 		return
 	if(cmode)
 		playsound_local(src, 'sound/misc/comboff.ogg', 100)
-		SSdroning.play_area_sound(get_area(src), client)
 		cmode = FALSE
 		if(client && HAS_TRAIT(src, TRAIT_SCHIZO_AMBIENCE) && !HAS_TRAIT(src, TRAIT_SCREENSHAKE))
 			animate(client, pixel_y) // stops screenshake if you're not on 4th wonder yet.
 	else
 		cmode = TRUE
 		playsound_local(src, 'sound/misc/combon.ogg', 100)
-		if(L.cmode_music)
-			SSdroning.play_combat_music(L.cmode_music, client)
-	if(hud_used)
-		if(hud_used.cmode_button)
-			hud_used.cmode_button.update_icon()
+	refresh_looping_ambience()
+	hud_used?.cmode_button?.update_icon()
 
 /mob
 	var/last_aimhchange = 0
