@@ -135,6 +135,20 @@
 	craftdiff = 0
 	uses_attacked_atom = FALSE
 
+/datum/repeatable_crafting_recipe/crafting/caningstick
+	name = "caning stick"
+	requirements = list(
+		/obj/item/grown/log/tree/stick= 2,
+	)
+	tool_usage = list(
+		/obj/item/weapon/knife = list(span_notice("starts to whittle"), span_notice("start to whittle"), 'sound/items/wood_sharpen.ogg'),
+	)
+	attacked_atom = /obj/item/grown/log/tree/stick
+	starting_atom  = /obj/item/weapon/knife
+	output = /obj/item/weapon/whip/cane
+	craftdiff = 0
+	uses_attacked_atom = FALSE
+
 /datum/repeatable_crafting_recipe/crafting/spoon
 	name = "wooden spoon"
 	requirements = list(
