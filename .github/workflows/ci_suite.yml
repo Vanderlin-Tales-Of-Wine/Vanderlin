@@ -157,6 +157,7 @@ jobs:
 
   collect_data:
     name: Collect data for other tasks
+    needs: start_gate
     runs-on: ubuntu-22.04
     outputs:
       maps: ${{ steps.map_finder.outputs.maps }}
