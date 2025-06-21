@@ -70,14 +70,20 @@
 	RegisterSignal(owner, COMSIG_PARENT_QDELETING, PROC_REF(on_owner_qdel))
 
 	var/static/list/container_connections = list(
-		COMSIG_MOVABLE_MOVED = PROC_REF(on_owner_moved),
+		COMSIG_MOVABLE_MOVED = PROC_REF(on_moved),
 	)
 
 	AddComponent(/datum/component/connect_containers, owner, container_connections)
-	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(on_owner_moved))
+	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(on_moved))
+	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, PROC_REF(on_moved))
 	RegisterSignal(parent, COMSIG_MOVABLE_PRE_MOVE, PROC_REF(on_parent_pre_move))
 
 	check_distance()
+
+/datum/component/leash/UnregisterFromParent()
+	. = ..()
+	UnregisterSignal(parent, COMSIG_MOVABLE_MOVED, COMSIG_MOVABLE_PRE_MOVE)
+	UnregisterSignal(owner, COMSIG_MOVABLE_MOVED)
 
 /datum/component/leash/Destroy()
 	owner = null
@@ -97,7 +103,7 @@
 
 	qdel(src)
 
-/datum/component/leash/proc/on_owner_moved(atom/movable/source)
+/datum/component/leash/proc/on_moved(atom/movable/source)
 	SIGNAL_HANDLER
 	PRIVATE_PROC(TRUE)
 

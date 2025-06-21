@@ -81,7 +81,7 @@
 		particles = GLOB.all_particles[particle_type]
 
 	if(time > 0)
-		timer = QDEL_IN(src, time)
+		timer = QDEL_IN_STOPPABLE(src, time)
 	color = _color
 
 /obj/particle_emitter/Destroy(force)

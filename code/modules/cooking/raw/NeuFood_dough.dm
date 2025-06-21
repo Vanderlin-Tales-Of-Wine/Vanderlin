@@ -40,6 +40,8 @@
 
 /obj/item/reagent_containers/food/snacks/dough_slice/attackby(obj/item/I, mob/living/user, params)
 	. = ..()
+	if(.)
+		return
 	if(user.mind)
 		short_cooktime = (50 - ((user.get_skill_level(/datum/skill/craft/cooking))*8))
 	var/found_table = locate(/obj/structure/table) in (loc)
@@ -85,7 +87,9 @@
 	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/reagent_containers/food/snacks/butterdough_slice/attackby(obj/item/I, mob/living/user, params)
-	..()
+	. = ..()
+	if(.)
+		return
 	if(user.mind)
 		short_cooktime = (50 - ((user.get_skill_level(/datum/skill/craft/cooking))*8))
 	var/found_table = locate(/obj/structure/table) in (loc)

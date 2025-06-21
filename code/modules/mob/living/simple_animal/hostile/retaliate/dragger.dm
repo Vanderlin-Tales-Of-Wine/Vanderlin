@@ -14,7 +14,6 @@
 	base_intents = list(/datum/intent/simple/slash)
 	gender = MALE
 	speak_chance = 0
-	turns_per_move = 5
 	response_help_continuous = "passes through"
 	response_help_simple = "pass through"
 	maxHealth = 50

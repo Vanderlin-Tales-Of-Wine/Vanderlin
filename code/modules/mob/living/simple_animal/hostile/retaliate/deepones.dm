@@ -8,7 +8,6 @@
 	gender = MALE
 	mob_biotypes = MOB_ORGANIC|MOB_HUMANOID
 	robust_searching = 1
-	turns_per_move = 2
 	move_to_delay = 3
 	base_constitution = 11
 	base_strength = 13

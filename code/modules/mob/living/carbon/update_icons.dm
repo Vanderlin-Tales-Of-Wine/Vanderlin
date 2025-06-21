@@ -68,16 +68,30 @@
 	remove_overlay(HANDS_LAYER)
 	remove_overlay(HANDS_BEHIND_LAYER)
 	var/age = AGE_ADULT
+	var/datum/species/species
 	if(ishuman(src))
 		var/mob/living/carbon/human/human = src
+		species = human.dna?.species
 		age = human.age
 
-	if (handcuffed)
+	if(handcuffed)
 		drop_all_held_items()
 		return
 
 	var/list/hands = list()
 	var/list/behindhands = list()
+
+	var/list/offsets
+	var/use_female_sprites = MALE_SPRITES
+	if(species)
+		if(species.sexes)
+			if(gender == FEMALE && !species.swap_female_clothes || gender == MALE && species.swap_male_clothes)
+				use_female_sprites = FEMALE_SPRITES
+
+		if(use_female_sprites)
+			offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_f
+		else
+			offsets = (age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
 
 	for(var/obj/item/I in held_items)
 		if(client && hud_used && hud_used.hud_version != HUD_STYLE_NOHUD)
@@ -136,25 +150,11 @@
 			inhand_overlay = center_image(inhand_overlay, I.inhand_x_dimension, I.inhand_y_dimension)
 			behindhand_overlay = center_image(behindhand_overlay, I.inhand_x_dimension, I.inhand_y_dimension)
 
-			if(ishuman(src))
-				var/mob/living/carbon/human/H = src
-				if(H.dna && H.dna.species)
-					var/list/offsets = H.dna.species.offset_features
-					if(H.age == AGE_CHILD)
-						offsets = H.dna.species.offset_features_child
-					if(gender == MALE)
-						if(OFFSET_HANDS in offsets)
-							inhand_overlay.pixel_x += offsets[OFFSET_HANDS][1]
-							inhand_overlay.pixel_y += offsets[OFFSET_HANDS][2]
-							behindhand_overlay.pixel_x += offsets[OFFSET_HANDS][1]
-							behindhand_overlay.pixel_y += offsets[OFFSET_HANDS][2]
-					else
-						if(OFFSET_HANDS_F in offsets)
-							inhand_overlay.pixel_x += offsets[OFFSET_HANDS_F][1]
-							inhand_overlay.pixel_y += offsets[OFFSET_HANDS_F][2]
-							behindhand_overlay.pixel_x += offsets[OFFSET_HANDS_F][1]
-							behindhand_overlay.pixel_y += offsets[OFFSET_HANDS_F][2]
-
+			if(LAZYACCESS(offsets, OFFSET_HANDS))
+				inhand_overlay.pixel_x += offsets[OFFSET_HANDS][1]
+				inhand_overlay.pixel_y += offsets[OFFSET_HANDS][2]
+				behindhand_overlay.pixel_x += offsets[OFFSET_HANDS][1]
+				behindhand_overlay.pixel_y += offsets[OFFSET_HANDS][2]
 			hands += inhand_overlay
 			behindhands += behindhand_overlay
 		else
@@ -162,20 +162,9 @@
 			if(get_held_index_of_item(I) % 2 == 0)
 				icon_file = I.righthand_file
 			inhand_overlay = I.build_worn_icon(age = age, default_layer = HANDS_LAYER, default_icon_file = icon_file, isinhands = TRUE)
-			if(ishuman(src))
-				var/mob/living/carbon/human/H = src
-				if(H.dna && H.dna.species.sexes)
-					var/list/offsets = H.dna.species.offset_features
-					if(H.age == AGE_CHILD)
-						offsets = H.dna.species.offset_features_child
-					if(gender == MALE)
-						if(OFFSET_HANDS in offsets)
-							inhand_overlay.pixel_x += offsets[OFFSET_HANDS][1]
-							inhand_overlay.pixel_y += offsets[OFFSET_HANDS][2]
-					else
-						if(OFFSET_HANDS_F in offsets)
-							inhand_overlay.pixel_x += offsets[OFFSET_HANDS_F][1]
-							inhand_overlay.pixel_y += offsets[OFFSET_HANDS_F][2]
+			if(LAZYACCESS(offsets, OFFSET_HANDS))
+				inhand_overlay.pixel_x += offsets[OFFSET_HANDS][1]
+				inhand_overlay.pixel_y += offsets[OFFSET_HANDS][2]
 			hands += inhand_overlay
 
 	update_inv_cloak() //cloak held items
@@ -243,12 +232,12 @@
 	if(!get_bodypart(BODY_ZONE_HEAD)) //Decapitated
 		return
 
-	if(client && hud_used && hud_used.inv_slots[SLOT_WEAR_MASK])
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_WEAR_MASK]
+	if(client && hud_used && hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_MASK) + 1])
+		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_MASK) + 1]
 		inv.update_icon()
 
 	if(wear_mask)
-		if(!(SLOT_WEAR_MASK in check_obscured_slots()))
+		if(!(ITEM_SLOT_MASK & check_obscured_slots()))
 			overlays_standing[MASK_LAYER] = wear_mask.build_worn_icon(age = age, default_layer = MASK_LAYER, default_icon_file = 'icons/mob/clothing/mask.dmi')
 		update_hud_wear_mask(wear_mask)
 
@@ -261,12 +250,12 @@
 		var/mob/living/carbon/human/human = src
 		age = human.age
 
-	if(client && hud_used && hud_used.inv_slots[SLOT_NECK])
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_NECK]
+	if(client && hud_used && hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_NECK) + 1])
+		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_NECK) + 1]
 		inv.update_icon()
 
 	if(wear_neck)
-		if(!(SLOT_NECK in check_obscured_slots()))
+		if(!(ITEM_SLOT_NECK & check_obscured_slots()))
 			overlays_standing[NECK_LAYER] = wear_neck.build_worn_icon(age = age, default_layer = NECK_LAYER, default_icon_file = 'icons/roguetown/clothing/neck.dmi')
 		update_hud_neck(wear_neck)
 
@@ -283,8 +272,8 @@
 	if(!get_bodypart(BODY_ZONE_HEAD)) //Decapitated
 		return
 
-	if(client && hud_used && hud_used.inv_slots[SLOT_HEAD])
-		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_HEAD]
+	if(client && hud_used && hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_HEAD) + 1])
+		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_HEAD) + 1]
 		inv.update_icon()
 
 	if(head)
@@ -300,22 +289,24 @@
 		var/mutable_appearance/inhand_overlay = mutable_appearance('icons/roguetown/mob/bodies/cuffed.dmi', "[handcuffed.name]up", -HANDCUFF_LAYER)
 		if(ishuman(src))
 			var/mob/living/carbon/human/H = src
-			if(H.dna && H.dna.species.sexes)
-				var/list/offsets = H.dna.species.offset_features
-				if(H.age == AGE_CHILD)
-					offsets = H.dna.species.offset_features_child
-				if(gender == MALE)
-					if(OFFSET_HANDS in offsets)
-						inhand_overlay.pixel_x += offsets[OFFSET_HANDS][1]
-						inhand_overlay.pixel_y += offsets[OFFSET_HANDS][2]
+			var/datum/species/species = H.dna?.species
+			var/list/offsets
+			var/use_female_sprites = MALE_SPRITES
+			if(species)
+				if(species.sexes)
+					if(gender == FEMALE && !species.swap_female_clothes || gender == MALE && species.swap_male_clothes)
+						use_female_sprites = FEMALE_SPRITES
+				if(use_female_sprites)
+					offsets = (H.age == AGE_CHILD) ? species.offset_features_child : species.offset_features_f
 				else
-					if(OFFSET_HANDS_F in offsets)
-						inhand_overlay.pixel_x += offsets[OFFSET_HANDS_F][1]
-						inhand_overlay.pixel_y += offsets[OFFSET_HANDS_F][2]
+					offsets = (H.age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
+
+			if(LAZYACCESS(offsets, OFFSET_HANDS))
+				inhand_overlay.pixel_x += offsets[OFFSET_HANDS][1]
+				inhand_overlay.pixel_y += offsets[OFFSET_HANDS][2]
 
 		overlays_standing[HANDCUFF_LAYER] = inhand_overlay
 		apply_overlay(HANDCUFF_LAYER)
-
 
 //mob HUD updates for items in our inventory
 

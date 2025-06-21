@@ -441,6 +441,15 @@
 	prerequisites = list(/datum/spell_node/earth_affinity)
 	spell_type = /obj/effect/proc_holder/spell/self/magicians_brick
 
+/datum/spell_node/flower_field
+	name = "Flower Field"
+	desc = "Summons a field of flowers"
+	node_x = LEFT_X_TIER_3
+	node_y = LEFT_Y_LEFT - 50
+	prerequisites = list(/datum/spell_node/magic_stone)
+	spell_type = /obj/effect/proc_holder/spell/invoked/flowerfield
+
+
 /datum/spell_node/storm_caller
 	name = "Storm Caller"
 	desc = "Channel the fury of tempests."
