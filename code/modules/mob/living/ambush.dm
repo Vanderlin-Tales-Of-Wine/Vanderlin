@@ -84,3 +84,5 @@
 			else
 				playsound(get_turf(src), pick('sound/misc/jumphumans (1).ogg','sound/misc/jumphumans (2).ogg','sound/misc/jumphumans (3).ogg'), 100)
 			shake_camera(src, 2, 2)
+
+#undef AMBUSH_CHANCE

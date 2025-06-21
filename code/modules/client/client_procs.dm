@@ -1733,3 +1733,10 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	set category = "OOC"
 
 	show_round_stats(pick_assoc(GLOB.featured_stats))
+
+#undef LIMITER_SIZE
+#undef CURRENT_SECOND
+#undef SECOND_COUNT
+#undef CURRENT_MINUTE
+#undef MINUTE_COUNT
+#undef ADMINSWARNED_AT
