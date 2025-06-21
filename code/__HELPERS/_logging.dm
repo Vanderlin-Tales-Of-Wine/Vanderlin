@@ -204,6 +204,9 @@
 	SEND_TEXT(world.log, text)
 
 /proc/log_mapping(text)
+#ifdef UNIT_TESTS
+	GLOB.unit_test_mapping_logs += text
+#endif
 	WRITE_LOG(GLOB.world_map_error_log, text)
 
 /proc/log_character(text)
