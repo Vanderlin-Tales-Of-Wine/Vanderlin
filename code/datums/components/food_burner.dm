@@ -201,3 +201,7 @@
 	var/obj/item/container = parent
 	if(!QDELETED(food) && (food in container.contents) && !(food in tracked_foods))
 		tracked_foods[food] = list("time" = world.time, "progress" = 0)
+
+#undef BURN_STAGE_WARNING
+#undef BURN_STAGE_SMOKING
+#undef BURN_STAGE_CRITICAL

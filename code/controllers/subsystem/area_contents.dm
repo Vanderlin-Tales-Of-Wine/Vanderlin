@@ -66,3 +66,5 @@ SUBSYSTEM_DEF(area_contents)
 
 		clear.turfs_to_uncontain_by_zlevel = list()
 		marked_for_clearing.len--
+
+#undef ALLOWED_LOOSE_TURFS

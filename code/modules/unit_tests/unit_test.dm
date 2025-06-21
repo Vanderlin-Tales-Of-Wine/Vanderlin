@@ -14,6 +14,8 @@ You can use the run_loc_bottom_left and run_loc_top_right to get turfs for testi
 GLOBAL_DATUM(current_test, /datum/unit_test)
 GLOBAL_VAR_INIT(failed_any_test, FALSE)
 GLOBAL_VAR(test_log)
+/// When unit testing, all logs sent to log_mapping are stored here and retrieved in log_mapping unit test.
+GLOBAL_LIST_EMPTY(unit_test_mapping_logs)
 
 /// The name of the test that is currently focused.
 /// Use the PERFORM_ALL_TESTS macro instead.
@@ -233,6 +235,7 @@ GLOBAL_VAR_INIT(focused_test, focused_test())
 
 		var/list/log_entry = list()
 		var/list/fail_reasons = test.fail_reasons
+		var/map_name = SSmapping.config.map_name
 
 		for(var/reasonID in 1 to LAZYLEN(fail_reasons))
 			var/text = fail_reasons[reasonID][1]
@@ -242,7 +245,7 @@ GLOBAL_VAR_INIT(focused_test, focused_test())
 			test.log_for_test(text, "error", file, line)
 
 			// Normal log message
-			log_entry += "\tFAILURE #[reasonID]: [text] at [file]:[line]"
+			log_entry += "\tFAILURE #[reasonID]: [text] at [file]:[line] on [map_name]"
 
 		if(length(log_entry))
 			message = log_entry.Join("\n")

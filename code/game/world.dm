@@ -68,6 +68,8 @@ GLOBAL_PROTECT(tracy_init_reason)
 	// THAT'S IT, WE'RE DONE, THE. FUCKING. END.
 	Master = new
 
+#undef USE_TRACY_PARAMETER
+
 /world/New()
 
 	log_world("World loaded at [time_stamp()]!")
@@ -132,6 +134,8 @@ GLOBAL_PROTECT(tracy_init_reason)
 #ifdef UNIT_TESTS
 	HandleTestRun()
 #endif
+
+#undef RESTART_COUNTER_PATH
 
 /world/proc/HandleTestRun()
 	//trigger things to run the whole process

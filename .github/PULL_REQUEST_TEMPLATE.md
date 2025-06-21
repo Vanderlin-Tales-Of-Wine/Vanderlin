@@ -1,13 +1,12 @@
 <!-- Write **BELOW** The Headers and **ABOVE** The comments else it may not be viewable. -->
-<!-- Note: PRs including balance changes authored by anyone other than maintainers and official devs will not be considered. -->
 
 ## About The Pull Request
 
-<!-- Describe The Pull Request. Please be sure every change is documented or this can delay review or prevent the PR from being merged! -->
+<!-- Describe The Pull Request. Please be sure every change is documented or this can delay review and even discourage maintainers from merging your PR! -->
 
 ## Why It's Good For The Game
 
-<!-- Please add a short description of why you think these changes would benefit the game. If you can't justify it in words, it might not be worth adding. -->
+<!-- Argue for the merits of your changes and how they benefit the game, especially if they are controversial and/or far reaching. If you can't actually explain WHY what you are doing will improve the game, then it probably isn't good for the game in the first place. -->
 
 ## Pre-Merge Checklist
 <!-- Don't bother filling these in while creating your Pull Request, just click the checkboxes after the Pull Request is opened and you are redirected to the page. -->

@@ -78,10 +78,6 @@ if number_of_defines == 0:
     print(red("No defines found! This is likely an error."))
     sys.exit(1)
 
-if number_of_defines <= 1000:
-    print(red(f"Only found {number_of_defines} defines! Something has likely gone wrong as the number of local defines should not be this low."))
-    sys.exit(1)
-
 if len(located_error_tuples):
 
     string_list = []

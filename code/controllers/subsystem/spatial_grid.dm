@@ -312,6 +312,9 @@ SUBSYSTEM_DEF(spatial_grid)
 
 	return .
 
+#undef BOUNDING_BOX_MIN
+#undef BOUNDING_BOX_MAX
+
 ///get the grid cell encomapassing targets coordinates
 /datum/controller/subsystem/spatial_grid/proc/get_cell_of(atom/target)
 	var/turf/target_turf = get_turf(target)
@@ -781,6 +784,7 @@ SUBSYSTEM_DEF(spatial_grid)
 	[cells_with_clients] cells have clients and [cells_with_hearables] have hearables, \
 	the average client distance is: [average_client_distance] and the average hearable_distance is [average_hearable_distance].")
 
+#undef NUMBER_OF_PREGENERATED_ORANGES_EARS
 #undef GRID_CELL_ADD
 #undef GRID_CELL_REMOVE
 #undef GRID_CELL_SET
