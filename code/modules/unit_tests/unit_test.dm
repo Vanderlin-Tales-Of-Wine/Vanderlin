@@ -245,7 +245,7 @@ GLOBAL_VAR_INIT(focused_test, focused_test())
 			test.log_for_test(text, "error", file, line)
 
 			// Normal log message
-			log_entry += "\tFAILURE #[reasonID]: [text] at [file]:[line]"
+			log_entry += "\tFAILURE #[reasonID]: [text] at [file]:[line] on [map_name]"
 
 		if(length(log_entry))
 			message = log_entry.Join("\n")
