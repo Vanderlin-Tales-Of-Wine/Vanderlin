@@ -50,11 +50,12 @@ jobs:
           bash tools/ci/check_changelogs.sh
           find . -name "*.php" -print0 | xargs -0 -n1 php -l
           bash tools/ci/check_grep.sh
-          tools/bootstrap/python tools/ci/validate_dme.py < vanderlin.dme
+          tools/bootstrap/python tools/ticked_file_enforcement/ticked_file_enforcement.py < tools/ticked_file_enforcement/schemas/vanderlin_dme.json
+          tools/bootstrap/python tools/ticked_file_enforcement/ticked_file_enforcement.py < tools/ticked_file_enforcement/schemas/unit_tests.json
+          tools/bootstrap/python -m tools.maplint.source --github
           tools/bootstrap/python -m define_sanity.check
           tools/bootstrap/python -m dmi.test
           tools/bootstrap/python -m mapmerge2.dmm_test
-          tools/bootstrap/python -m tools.maplint.source --github
 
   OpenDream:
     runs-on: ubuntu-latest
