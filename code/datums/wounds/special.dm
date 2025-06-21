@@ -199,12 +199,11 @@
 		"The nose is mangled beyond recognition!",
 		"The nose is destroyed!",
 	)
+	mortal = TRUE
 
 /datum/wound/facial/disfigurement/nose/on_mob_gain(mob/living/affected)
 	. = ..()
 	ADD_TRAIT(affected, TRAIT_MISSING_NOSE, "[type]")
-	if(HAS_TRAIT(affected, TRAIT_CRITICAL_WEAKNESS))
-		affected.death()
 
 /datum/wound/facial/disfigurement/nose/on_mob_loss(mob/living/affected)
 	. = ..()
@@ -220,11 +219,11 @@
 	whp = 50
 	woundpain = 100
 	mob_overlay = ""
-	sewn_overlay = ""
 	can_sew = FALSE
 	can_cauterize = FALSE
 	disabling = TRUE
 	critical = TRUE
+	mortal = TRUE
 
 /datum/wound/cbt/can_stack_with(datum/wound/other)
 	if(istype(other, /datum/wound/cbt))
@@ -250,8 +249,6 @@
 			"The testicles are twisted!",
 			"The testicles are torsioned!",
 		)
-	if(HAS_TRAIT(affected, TRAIT_CRITICAL_WEAKNESS))
-		affected.death()
 
 /datum/wound/cbt/on_life()
 	. = ..()
