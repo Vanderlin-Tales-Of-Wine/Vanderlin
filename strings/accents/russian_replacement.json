@@ -15,7 +15,7 @@
 		"goodbye": "do svidania",
 		"farewell": "do svidania",
 		"day": "den'",
-		"morning": "útro",
+		"morning": "utro",
 		"evening": "vecher",
 		"good": "dobro",
 		"evil": "zlo",
@@ -43,15 +43,14 @@
 		"stupid": "glupyy",
 		"music": "muzyk",
 		"bucket": "vedro",
-		"moustache": "úsy",
-		"mustache": "úsy",
+		"moustache": "usy",
+		"mustache": "usy",
 		"beard": "boroda",
 		"dragon": "drakon",
 		"mage": "mag",
-		"magic": "magia",
 		"witch": "ved'ma",
 		"sorcerer": "volshebnik",
-		"warlock": "koldún",
+		"warlock": "koldun",
 		"wizard": "charodei"
 		}
 
