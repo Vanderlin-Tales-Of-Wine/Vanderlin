@@ -135,8 +135,6 @@ GLOBAL_PROTECT(tracy_init_reason)
 	HandleTestRun()
 #endif
 
-#undef RESTART_COUNTER_PATH
-
 /world/proc/HandleTestRun()
 	//trigger things to run the whole process
 	Master.sleep_offline_after_initializations = FALSE
@@ -580,3 +578,5 @@ GLOBAL_PROTECT(tracy_init_reason)
 			SEND_TEXT(world.log, "Error flushing byond-tracy log: [flush_result]")
 			CRASH("Error flushing byond-tracy log: [flush_result]")
 		SEND_TEXT(world.log, "Flushed byond-tracy log")
+
+#undef RESTART_COUNTER_PATH

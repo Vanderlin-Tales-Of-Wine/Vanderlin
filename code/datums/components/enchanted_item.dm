@@ -119,5 +119,3 @@ There used to be a concept for a blade to set people on fire - but it was too br
 			to_chat(M, span_warning("Flames leaps from [source] and singes you!"))
 			// Permanent temporary solution until I figure out how to hack a dynamic on mob sprites
 			// Bypass parry & dodge btw.
-
-#undef DEFAULT_DURATION

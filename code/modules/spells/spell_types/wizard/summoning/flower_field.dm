@@ -261,8 +261,6 @@
 |  Flower Debuffs  |
 \-----------------*/
 
-#define FOLIAGE_ICON
-
 /datum/status_effect/debuff/flower_base
 	var/overlay_state = null
 	var/field_path = null

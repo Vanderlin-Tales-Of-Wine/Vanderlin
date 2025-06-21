@@ -1,5 +1,3 @@
-#define MAX_FARM_ANIMALS 20
-
 GLOBAL_VAR_INIT(farm_animals, FALSE)
 
 /mob/living/simple_animal
