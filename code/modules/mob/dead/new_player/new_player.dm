@@ -182,7 +182,7 @@
 	var/list/dat = list()
 	dat += world.file2list("strings/rt/Lore_Primer.txt")
 	if(dat)
-		var/datum/browser/popup = new(src, "Primer", "STONEKEEP", 460, 550)
+		var/datum/browser/popup = new(src, "Primer", "VANDERLIN", 460, 550)
 		popup.set_content(dat.Join())
 		popup.open()
 
