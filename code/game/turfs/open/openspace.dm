@@ -7,7 +7,6 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 	anchored = TRUE
 	plane = OPENSPACE_BACKDROP_PLANE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	layer = SPLASHSCREEN_LAYER
 	vis_flags = VIS_INHERIT_ID
 
 /turf/open/transparent/openspace
@@ -25,10 +24,6 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 	smoothing_groups = SMOOTH_GROUP_FLOOR_OPEN_SPACE
 	smoothing_list = SMOOTH_GROUP_OPEN_FLOOR + SMOOTH_GROUP_CLOSED_WALL
 	neighborlay_self = "staticedge"
-
-/turf/open/transparent/openspace/debug/update_multiz()
-	..()
-	return TRUE
 
 /turf/open/transparent/openspace/can_traverse_safely(atom/movable/traveler)
 	var/turf/destination = GET_TURF_BELOW(src)
@@ -64,8 +59,7 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 	if(!add)
 		return
 
-	var/image/overlay = image(icon, src, add, SPLASHSCREEN_LAYER + 0.01, pixel_x = offset ? x : 0, pixel_y = offset ? y : 0 )
-	overlay.plane = OPENSPACE_BACKDROP_PLANE + 0.01
+	var/image/overlay = image(icon, src, add, pixel_x = offset ? x : 0, pixel_y = offset ? y : 0 )
 
 	LAZYADDASSOC(neighborlay_list, "[dir]", overlay)
 	add_overlay(overlay)

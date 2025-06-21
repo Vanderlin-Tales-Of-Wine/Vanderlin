@@ -24,7 +24,6 @@
 	light_color = LIGHT_COLOR_FIRE
 	pixel_x = -16
 	pixel_y = -16
-	layer = ABOVE_LIGHTING_LAYER
 	plane = ABOVE_LIGHTING_PLANE
 
 	var/silent = TRUE

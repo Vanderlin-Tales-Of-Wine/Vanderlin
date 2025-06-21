@@ -29,14 +29,9 @@
 	cut_overlays()
 	if(contained_essence && essence_amount > 0)
 		icon_state = "essence_vial"
-		var/mutable_appearance/essence_overlay = mutable_appearance(icon, "essence_liquid")
-		essence_overlay.color = contained_essence.color
-		essence_overlay.alpha = min(255, 100 + (essence_amount * 15))
-		add_overlay(essence_overlay)
-		var/mutable_appearance/emissive = mutable_appearance(icon, "essence_liquid")
-		emissive.plane = EMISSIVE_PLANE
-		emissive.alpha = min(255, 100 + (essence_amount * 15))
-		add_overlay(emissive)
+		var/used_alpha = min(255, 100 + (essence_amount * 15))
+		add_overlay(mutable_appearance(icon, "essence_liquid", alpha = used_alpha, color = contained_essence.color))
+		add_overlay(mutable_appearance(icon, "essence_liquid", alpha = used_alpha))
 	else
 		icon_state = "essence_vial"
 

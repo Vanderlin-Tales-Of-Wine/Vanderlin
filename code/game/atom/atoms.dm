@@ -251,7 +251,7 @@
 	orbiters = null // The component is attached to us normaly and will be deleted elsewhere
 
 	LAZYCLEARLIST(overlays)
-	LAZYCLEARLIST(priority_overlays)
+	managed_overlays = null
 
 	QDEL_NULL(light)
 	QDEL_NULL(ai_controller)
@@ -504,7 +504,10 @@
 			cut_overlay(managed_overlays)
 			managed_overlays = null
 		if(length(new_overlays))
-			managed_overlays = new_overlays
+			if(length(new_overlays) == 1)
+				managed_overlays = new_overlays[1]
+			else
+				managed_overlays = new_overlays
 			add_overlay(new_overlays)
 
 /// Updates the icon state of the atom
@@ -1168,7 +1171,6 @@
 	filter_data[name] = p
 	update_filters()
 
-
 /atom/movable/proc/remove_filter(name_or_names)
 	if(!filter_data)
 		return
@@ -1184,6 +1186,11 @@
 	if(.)
 		update_filters()
 	return .
+
+/atom/movable/proc/clear_filters()
+	var/atom/atom_cast = src // filters only work with images or atoms.
+	filter_data = null
+	atom_cast.filters = null
 
 /proc/cmp_filter_data_priority(list/A, list/B)
 	return A["priority"] - B["priority"]

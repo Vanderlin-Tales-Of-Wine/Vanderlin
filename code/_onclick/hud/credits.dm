@@ -37,7 +37,6 @@
 	mouse_opacity = 1
 	alpha = 0
 	screen_loc = "1,1"
-	layer = SPLASHSCREEN_LAYER
 	plane = SPLASHSCREEN_PLANE
 	var/client/parent
 	var/creditee

@@ -15,6 +15,7 @@
 	mouse_drag_pointer = MOUSE_ACTIVE_POINTER
 	throwforce = 10
 	vis_flags = VIS_INHERIT_PLANE
+	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 
 	//FOV STUFF
 	plane = GAME_PLANE_FOV_HIDDEN

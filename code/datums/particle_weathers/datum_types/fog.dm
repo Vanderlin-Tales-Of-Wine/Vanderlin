@@ -38,7 +38,7 @@
 /obj/effect/fog_parter
 	icon = 'icons/effects/light_overlays/light_288.dmi'
 	icon_state = "light2"
-	plane = PLANE_FOG_CUTTER
+	plane = LIGHTING_PLANE
 	invisibility = INVISIBILITY_LIGHTING
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	vis_flags = NONE

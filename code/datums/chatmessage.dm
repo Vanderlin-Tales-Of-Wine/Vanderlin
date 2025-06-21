@@ -170,7 +170,7 @@
 			qdel(m)
 
 	// Build message image
-	message = image(loc = message_loc, layer = ABOVE_HUD_LAYER)
+	message = image(loc = message_loc)
 	message.plane = ABOVE_HUD_PLANE
 	message.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA | KEEP_APART
 	message.alpha = 0
