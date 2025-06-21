@@ -1,5 +1,4 @@
 #define LINKIFY_READY(string, value) "<a href='byond://?src=[REF(src)];ready=[value]'>[string]</a>"
-GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json"))
 
 /mob/dead/new_player
 	flags_1 = NONE
@@ -181,7 +180,7 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 	set name = "Lore Primer"
 	set category = "Memory"
 	var/list/dat = list()
-	dat += GLOB.roleplay_readme
+	dat += file2list("strings/rt/Lore_Primer.txt")
 	if(dat)
 		var/datum/browser/popup = new(src, "Primer", "STONEKEEP", 460, 550)
 		popup.set_content(dat.Join())

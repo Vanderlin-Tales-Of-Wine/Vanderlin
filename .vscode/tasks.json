@@ -88,6 +88,6 @@
             "command": "${command:dreammaker.reparse}",
             "group": "build",
             "label": "dm: reparse"
-        },
+        }
     ]
 }

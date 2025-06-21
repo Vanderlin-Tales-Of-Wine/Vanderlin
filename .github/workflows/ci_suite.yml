@@ -36,14 +36,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-spacemandmm-
       - name: Restore Node cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.nvm
           key: ${{ runner.os }}-node-${{ hashFiles('dependencies.sh') }}
           restore-keys: |
             ${{ runner.os }}-node-
       - name: Restore Bootstrap cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: tools/bootstrap/.cache
           key: ${{ runner.os }}-bootstrap-${{ hashFiles('tools/requirements.txt') }}
