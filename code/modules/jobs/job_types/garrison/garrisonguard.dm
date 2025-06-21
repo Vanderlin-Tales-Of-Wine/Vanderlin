@@ -10,7 +10,7 @@
 	faction = FACTION_TOWN
 	total_positions = 8
 	spawn_positions = 8
-	min_pq = 4
+	min_pq = 0
 	bypass_lastclass = TRUE
 
 	allowed_sexes = list(MALE, FEMALE)
@@ -31,6 +31,8 @@
 	shoes = /obj/item/clothing/shoes/boots
 	belt = /obj/item/storage/belt/leather
 	gloves = /obj/item/clothing/gloves/leather
+	if(isdarkelf(H) || istiefling(H) || ishalforc(H)) // to prevent examine stress
+		mask = /obj/item/clothing/face/shepherd
 
 /datum/outfit/job/guardsman/post_equip(mob/living/carbon/human/H)
 	. = ..()
