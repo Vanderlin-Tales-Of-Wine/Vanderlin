@@ -12837,9 +12837,6 @@
 	},
 /turf/open/floor/tile/masonic,
 /area/rogue/indoors/town/manor)
-"ifP" = (
-/turf/open/water/cleanshallow,
-/area/rogue/outdoors/rtfield/safe)
 "ifR" = (
 /obj/structure/chair/wood/alt{
 	dir = 4
@@ -24563,9 +24560,6 @@
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/open/floor/dirt,
 /area/rogue/under/cavewet)
-"pOt" = (
-/turf/open/water/cleanshallow/dirt,
-/area/rogue/outdoors/rtfield/safe)
 "pOS" = (
 /obj/structure/closet/crate/chest/crafted,
 /turf/open/floor/wood,
@@ -36493,12 +36487,6 @@
 /obj/effect/mapping_helpers/access/locker,
 /obj/effect/mapping_helpers/access/keyset/town/soilson,
 /turf/open/floor/dirt,
-/area/rogue/outdoors/rtfield/safe)
-"xFG" = (
-/obj/effect/waterfall{
-	pixel_y = -21
-	},
-/turf/open/water/cleanshallow,
 /area/rogue/outdoors/rtfield/safe)
 "xFP" = (
 /turf/closed/mineral,
@@ -99047,8 +99035,8 @@ nEW
 aWD
 nlp
 nEW
-pOt
-xFG
+nlp
+nlp
 vtv
 vtv
 vtv
@@ -99248,9 +99236,9 @@ nlp
 nlp
 nEW
 aWD
-pOt
-ifP
-ifP
+aWD
+nlp
+nlp
 vtv
 vtv
 vtv
@@ -99450,9 +99438,9 @@ mAU
 nlp
 nEW
 nEW
-pOt
-ifP
-ifP
+aWD
+aWD
+nlp
 vtv
 vtv
 vtv
@@ -99653,9 +99641,9 @@ aWD
 aWD
 aWD
 aWD
-pOt
-pOt
-pOt
+aWD
+nlp
+nlp
 vtv
 vtv
 vtv
@@ -99853,8 +99841,8 @@ nlp
 nlp
 nEW
 aWD
-nlp
-nlp
+aWD
+aWD
 nlp
 mAU
 nlp
