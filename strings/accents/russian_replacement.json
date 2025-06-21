@@ -1,6 +1,9 @@
 {
 
     "russian": {
+		"Rockhill": "Rokhil",
+		"Zybant": "Ziibant",
+		"Zybantine": "Ziibantin",
 		"captain": "kapitan",
 		"c": "k",
 		"kh": "ch",
@@ -11,13 +14,20 @@
 		"bye": "poka",
 		"goodbye": "do svidania",
 		"farewell": "do svidania",
+		"day": "den'",
+		"morning": "útro",
+		"evening": "vecher",
 		"good": "dobro",
 		"evil": "zlo",
-		"steward": "stewert",
+		"steward": "stevart",
 		"king": "tsar",
 		"queen": "tsaritsa",
 		"monarchy": "monarkhiya",
 		"monarch": "monarkh",
+		"son": "syn",
+		"daughter": "doch'",
+		"father": "otets",
+		"mother": "mater'",
 		"throne": "tron",
 		"princess": "prinsessa",
 		"prince": "prints",
@@ -30,7 +40,19 @@
 		"bomb": "bomba",
 		"garrison": "garnizon",
 		"fuck": "blyat",
-		"stupid": "glupyy"
+		"stupid": "glupyy",
+		"music": "muzyk",
+		"bucket": "vedro",
+		"moustache": "úsy",
+		"mustache": "úsy",
+		"beard": "boroda",
+		"dragon": "drakon",
+		"mage": "mag",
+		"magic": "magia",
+		"witch": "ved'ma",
+		"sorcerer": "volshebnik",
+		"warlock": "koldún",
+		"wizard": "charodei"
 		}
 
 }
