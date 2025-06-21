@@ -21,9 +21,17 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  run-linters:
+  start_gate:
     if: ( !contains(github.event.head_commit.message, '[ci skip]') )
+    name: Start Gate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mandatory Empty Step
+        run: exit 0
+
+  run-linters:
     name: Run Linters
+    needs: start_gate
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout code
@@ -124,7 +132,6 @@ jobs:
         run: ./DMCompiler_linux-x64/DMCompiler vanderlin.dme --suppress-unimplemented --skip-anything-typecheck --version=${BYOND_MAJOR}.${BYOND_MINOR} | python tools/od_annotator/__main__.py "$@"
 
   compile_all_maps:
-    if: ( !contains(github.event.head_commit.message, '[ci skip]') )
     name: Compile Maps
     runs-on: ubuntu-22.04
     steps:
@@ -143,7 +150,6 @@ jobs:
           DreamMaker -DCIBUILDING -DCITESTING -DALL_MAPS vanderlin.dme
 
   find_all_maps:
-    if: ( !contains(github.event.head_commit.message, '[ci skip]') )
     name: Find Maps to Test
     runs-on: ubuntu-22.04
     outputs:
@@ -159,10 +165,9 @@ jobs:
           echo "maps={\"paths\":[$(cat maps_output.txt)]}" >> $GITHUB_OUTPUT
 
   run_all_tests:
-    if: ( !contains(github.event.head_commit.message, '[ci skip]') )
     name: Integration Tests
     runs-on: ubuntu-22.04
-    needs: [find_all_maps]
+    needs: find_all_maps
     strategy:
       fail-fast: false
       matrix:
@@ -196,7 +201,6 @@ jobs:
           bash tools/ci/run_server.sh ${{ matrix.map }}
 
   test_windows:
-    if: ( !contains(github.event.head_commit.message, '[ci skip]') )
     name: Windows Build
     runs-on: windows-latest
     steps:
@@ -211,3 +215,13 @@ jobs:
         env:
           DM_EXE: "C:\\byond\\bin\\dm.exe"
 
+completion_gate: # Serves as a non-moving target for branch rulesets
+  if: always() && !cancelled()
+  name: Completion Gate
+  needs: [test_windows, compile_all_maps, run_all_tests, run_linters]
+  runs-on: ubuntu-latest
+  steps:
+      - name: Decide whether the needed jobs succeeded or failed
+        uses: re-actors/alls-green@release/v1
+        with:
+          jobs: ${{ toJSON(needs) }}
