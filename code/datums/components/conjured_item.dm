@@ -66,5 +66,3 @@ by Arcane user after a duration
 	examine_list += "This item crackles with faint arcane energy. It seems to be conjured."
 	var/remaining_minutes = round((endtime - world.time) / 600)
 	examine_list += "It will last for [remaining_minutes] more minutes."
-
-#undef DEFAULT_DURATION
