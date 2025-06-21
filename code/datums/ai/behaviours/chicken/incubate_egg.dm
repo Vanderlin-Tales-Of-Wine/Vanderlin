@@ -7,3 +7,4 @@
 	controller.PauseAi(15 SECONDS)
 	living_pawn.visible_message(span_emote("[living_pawn] begins to brood."))
 	addtimer(CALLBACK(living_pawn, TYPE_PROC_REF(/mob/living/simple_animal/hostile/retaliate/chicken, hatch_eggs)), 15 SECONDS)
+	finish_action(controller, TRUE)

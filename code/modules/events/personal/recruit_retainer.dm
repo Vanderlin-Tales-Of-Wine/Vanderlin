@@ -5,7 +5,7 @@
 	weight = 7
 	earliest_start = 5 MINUTES
 	max_occurrences = 1
-	min_players = 25
+	min_players = 35
 
 	tags = list(
 		TAG_BOON,
@@ -60,7 +60,7 @@
 	var/datum/objective/retainer/new_objective = new(owner = noble.mind)
 	noble.mind.add_personal_objective(new_objective)
 
-	to_chat(noble, span_userdanger("YOU ARE GOD'S CHOSEN!"))
+	to_chat(noble, span_userdanger("YOU ARE ASTRATA'S CHOSEN!"))
 	to_chat(noble, span_notice("Astrata wants you to demonstrate your ability to lead as a proper noble! Recruit at least one retainer to serve you!"))
 	noble.playsound_local(noble, 'sound/magic/bless.ogg', 100)
 

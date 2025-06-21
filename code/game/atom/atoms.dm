@@ -460,7 +460,7 @@
 					else
 						. += "It contains [round(total_volume / 3)] oz of <font color=[reagent_color]>something.</font>"
 			else
-				. += "Nothing."
+				. += "It's empty."
 		else if(reagents.flags & AMOUNT_VISIBLE)
 			if(reagents.total_volume)
 				. += "<span class='notice'>It has [round(reagents.total_volume / 3)] oz left.</span>"

@@ -142,6 +142,22 @@
 		M.apply_status_effect(/datum/status_effect/buff/alch/artemisia_luck)
 	..()
 
+/datum/reagent/buff/herbal/euphorbia_strength
+	name = "Euphorbia Strength Tea"
+	description = "A bitter tea that infuses the body with strength."
+	color = "#6ca22a"
+	taste_description = "latex"
+	scent_description = "sharp herbs"
+
+/datum/reagent/buff/herbal/euphorbia_strength/on_mob_life(mob/living/carbon/M)
+	if(volume > 0.99)
+		M.add_nausea(0.5)
+	if(M.has_status_effect(/datum/status_effect/buff/alch/strengthpot/weak))
+		return ..()
+	if(volume > 2)
+		M.apply_status_effect(/datum/status_effect/buff/alch/strengthpot/weak)
+	..()
+
 // Very Mild Poisons (based on atropa/matricaria/paris but much weaker)
 /datum/reagent/poison/herbal
 	description = "A mildly irritating plant extract."

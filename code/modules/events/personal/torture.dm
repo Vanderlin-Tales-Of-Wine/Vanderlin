@@ -3,9 +3,9 @@
 	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/zizo_torture
 	weight = 7
-	earliest_start = 20 MINUTES
+	earliest_start = 15 MINUTES
 	max_occurrences = 1
-	min_players = 20
+	min_players = 30
 
 	tags = list(
 		TAG_BLOOD,
@@ -46,9 +46,9 @@
 
 	chosen_one.verbs |= /mob/living/carbon/human/proc/torture_victim
 
-	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
+	to_chat(chosen_one, span_userdanger("YOU ARE ZIZO'S CHOSEN!"))
 	to_chat(chosen_one, span_biginfo("Zizo demands suffering! Extract information through pain to earn Zizo's favor!"))
-	chosen_one.playsound_local(chosen_one, 'sound/ambience/noises/genspooky (1).ogg', 100)
+	chosen_one.playsound_local(chosen_one, 'sound/misc/gods/zizo_omen.ogg', 100)
 
 	to_chat(chosen_one, span_notice("You have gained an ability to <b>torture</b> others!"))
 
