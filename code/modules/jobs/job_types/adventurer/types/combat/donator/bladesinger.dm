@@ -33,14 +33,14 @@
 		H.underwear_color = CLOTHING_SOOT_BLACK
 		H.update_body()
 	pants = /obj/item/clothing/pants/tights/black
-	backr = /obj/item/weapon/sword/long/greatsword/elfgsword
+	wear_back_right = /obj/item/weapon/sword/long/greatsword/elfgsword
 	beltl = /obj/item/storage/belt/pouch/coins/mid
 	shoes = /obj/item/clothing/shoes/boots/rare/elfplate/welfplate
 	gloves = /obj/item/clothing/gloves/rare/elfplate/welfplate
 	belt = /obj/item/storage/belt/leather
 	shirt = /obj/item/clothing/shirt/undershirt/black
 	armor = /obj/item/clothing/armor/rare/elfplate/welfplate
-	backl = /obj/item/storage/backpack/satchel
+	wear_back_left = /obj/item/storage/backpack/satchel
 	head = /obj/item/clothing/head/rare/elfplate/welfplate
 	neck = /obj/item/clothing/neck/chaincoif
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)

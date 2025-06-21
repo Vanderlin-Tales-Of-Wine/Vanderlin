@@ -22,7 +22,7 @@
 	gloves = /obj/item/clothing/gloves/leather/black
 	beltl = /obj/item/weapon/sword/decorated
 	beltr = /obj/item/scomstone
-	backr = /obj/item/storage/backpack/satchel/heartfelt
+	wear_back_right = /obj/item/storage/backpack/satchel/heartfelt
 	mask = /obj/item/clothing/face/spectacles/golden
 	neck = /obj/item/clothing/neck/chaincoif
 	if(H.mind)

@@ -66,7 +66,7 @@
 	if(isliving(AM) && !AM.throwing)
 		var/mob/living/user = AM
 		if(climb_offset)
-			user.set_mob_offsets("structure_climb", _x = 0, _y = climb_offset)
+			user.set_mob_offsets("structure_climb", _w = 0, _z = climb_offset)
 
 /obj/structure/Uncrossed(atom/movable/AM)
 	. = ..()

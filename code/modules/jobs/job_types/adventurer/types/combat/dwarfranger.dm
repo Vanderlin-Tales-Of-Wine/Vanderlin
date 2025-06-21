@@ -16,8 +16,8 @@
 	shirt = /obj/item/clothing/shirt/undershirt/random
 	shoes = /obj/item/clothing/shoes/simpleshoes
 	belt = /obj/item/storage/belt/leather
-	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
-	backl = /obj/item/storage/backpack/satchel
+	wear_back_right = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
+	wear_back_left = /obj/item/storage/backpack/satchel
 	beltl = /obj/item/ammo_holder/quiver/bolts
 	beltr = /obj/item/flashlight/flare/torch/lantern
 	armor = /obj/item/clothing/armor/chainmail/iron // Starts with better armor than a typical ranger (iron chainmail) but has no dodge expert or sneaking skill

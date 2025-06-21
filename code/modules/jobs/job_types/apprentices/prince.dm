@@ -63,7 +63,7 @@
 	beltl = /obj/item/weapon/sword
 	beltr = /obj/item/key/manor
 	neck = /obj/item/storage/belt/pouch/coins/rich
-	backr = /obj/item/storage/backpack/satchel
+	wear_back_right = /obj/item/storage/backpack/satchel
 	H.adjust_skillrank(/datum/skill/combat/axesmaces, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/bows, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)

@@ -21,7 +21,7 @@
 	cloak = /obj/item/clothing/cloak/apron/brown
 	pants = /obj/item/clothing/pants/trou
 
-	backl = /obj/item/storage/backpack/satchel
+	wear_back_left = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/flint = 1, /obj/item/ore/coal=1, /obj/item/ore/iron=1, /obj/item/mould/ingot = 1, /obj/item/storage/crucible/random = 1)
 
 	if(H.mind)

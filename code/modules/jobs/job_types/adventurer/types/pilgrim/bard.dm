@@ -40,7 +40,7 @@
 	cloak = /obj/item/clothing/cloak/raincloak/blue
 	if(prob(50))
 		cloak = /obj/item/clothing/cloak/raincloak/red
-	backl = /obj/item/storage/backpack/satchel
+	wear_back_left = /obj/item/storage/backpack/satchel
 	beltr = /obj/item/weapon/knife/dagger/steel/special
 	beltl = /obj/item/storage/belt/pouch/coins/poor
 	backpack_contents = list(/obj/item/flint)
@@ -57,9 +57,9 @@
 	var/instrument_choice = input("Choose your instrument.", "XYLIX") as anything in instruments
 	H.set_blindness(0)
 	if(instrument_choice && instruments[instrument_choice])
-		backr = instruments[instrument_choice]
+		wear_back_right = instruments[instrument_choice]
 	else
-		backr = /obj/item/instrument/lute
+		wear_back_right = /obj/item/instrument/lute
 	if(H.dna?.species?.id == "dwarf")
 		H.cmode_music = 'sound/music/cmode/combat_dwarf.ogg'
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)

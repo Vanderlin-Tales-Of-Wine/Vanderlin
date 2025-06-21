@@ -240,7 +240,7 @@
 			if (istype(S))
 				H.cut_overlays()
 				H.update_body_parts_head_only()
-				H.set_mob_offsets("bed_buckle", _x = 0, _y = -GUILLOTINE_HEAD_OFFSET)
+				H.set_mob_offsets("bed_buckle", _w = 0, _z = -GUILLOTINE_HEAD_OFFSET)
 				H.layer += GUILLOTINE_LAYER_DIFF
 			else
 				unbuckle_all_mobs()

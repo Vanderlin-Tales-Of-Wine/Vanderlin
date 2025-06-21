@@ -25,8 +25,6 @@
 			adjustToxLoss(damage_amount, forced = forced)
 		if(OXY)
 			adjustOxyLoss(damage_amount, forced = forced)
-		if(CLONE)
-			adjustCloneLoss(damage_amount, forced = forced)
 	update_damage_overlays()
 	return 1
 
@@ -40,8 +38,6 @@
 			return adjustToxLoss(damage)
 		if(OXY)
 			return adjustOxyLoss(damage)
-		if(CLONE)
-			return adjustCloneLoss(damage)
 
 /mob/living/proc/get_damage_amount(damagetype = BRUTE)
 	switch(damagetype)
@@ -53,10 +49,6 @@
 			return getToxLoss()
 		if(OXY)
 			return getOxyLoss()
-		if(CLONE)
-			return getCloneLoss()
-
-
 
 /mob/living/proc/apply_effect(effect = 0,effecttype = EFFECT_STUN, blocked = FALSE)
 	var/hit_percent = (100-blocked)/100
@@ -172,25 +164,6 @@
 	if(!forced && (status_flags & GODMODE))
 		return FALSE
 	fireloss = CLAMP((fireloss + (amount * CONFIG_GET(number/damage_multiplier))), 0, maxHealth * 2)
-	if(updating_health)
-		updatehealth(amount)
-	return amount
-
-/mob/living/proc/getCloneLoss()
-	return cloneloss
-
-/mob/living/proc/adjustCloneLoss(amount, updating_health = TRUE, forced = FALSE)
-	if(!forced && (status_flags & GODMODE))
-		return FALSE
-	cloneloss = CLAMP((cloneloss + (amount * CONFIG_GET(number/damage_multiplier))), 0, maxHealth * 2)
-	if(updating_health)
-		updatehealth(amount)
-	return amount
-
-/mob/living/proc/setCloneLoss(amount, updating_health = TRUE, forced = FALSE)
-	if(!forced && (status_flags & GODMODE))
-		return FALSE
-	cloneloss = amount
 	if(updating_health)
 		updatehealth(amount)
 	return amount

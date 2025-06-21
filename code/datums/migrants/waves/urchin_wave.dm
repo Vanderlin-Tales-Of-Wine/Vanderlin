@@ -20,7 +20,7 @@
 	shoes = /obj/item/clothing/shoes/simpleshoes
 	belt = /obj/item/storage/belt/leather
 	beltr = /obj/item/weapon/knife/dagger
-	backr = /obj/item/storage/backpack/satchel
+	wear_back_right = /obj/item/storage/backpack/satchel
 	if(H.mind)
 		H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/wrestling, pick(1,2,3), TRUE)

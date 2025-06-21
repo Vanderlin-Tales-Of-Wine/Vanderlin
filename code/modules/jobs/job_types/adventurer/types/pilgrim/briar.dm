@@ -21,7 +21,7 @@
 	armor = /obj/item/clothing/shirt/robe/dendor
 	wrists = /obj/item/clothing/wrists/bracers/leather
 	beltl = /obj/item/weapon/knife/stone
-	backl = /obj/item/weapon/mace/goden/shillelagh
+	wear_back_left = /obj/item/weapon/mace/goden/shillelagh
 
 	H.change_stat(STATKEY_STR, 1)
 	H.change_stat(STATKEY_END, 1)

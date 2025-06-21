@@ -27,7 +27,7 @@
 	belt = /obj/item/storage/belt/leather
 	beltr = /obj/item/weapon/whip/antique
 	beltl = /obj/item/flashlight/flare/torch/lantern
-	backr = /obj/item/storage/backpack/satchel
+	wear_back_right = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/storage/keyring/dungeoneer = 1, /obj/item/rope/chain = 1)
 	if(H.mind)
 		H.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE)
@@ -96,7 +96,7 @@
 	shirt = /obj/item/clothing/armor/chainmail
 	neck = /obj/item/clothing/neck/gorget
 	head = /obj/item/clothing/head/helmet/nasal
-	backr = /obj/item/weapon/shield/wood
+	wear_back_right = /obj/item/weapon/shield/wood
 	beltr = /obj/item/weapon/sword/scimitar/messer
 	beltl = /obj/item/weapon/mace
 	pants = /obj/item/clothing/pants/trou/leather

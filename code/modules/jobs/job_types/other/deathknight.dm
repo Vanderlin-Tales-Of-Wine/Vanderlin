@@ -33,7 +33,7 @@
 	shirt = /obj/item/clothing/shirt/undershirt/black
 	armor = /obj/item/clothing/armor/plate/blkknight/death
 	gloves = /obj/item/clothing/gloves/plate/blk/death
-	backl = /obj/item/weapon/sword/long/death
+	wear_back_left = /obj/item/weapon/sword/long/death
 	head = /obj/item/clothing/head/helmet/visored/knight/black
 
 	H.change_stat(STATKEY_INT, 3)

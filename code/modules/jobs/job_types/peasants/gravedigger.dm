@@ -37,7 +37,7 @@
 	belt = /obj/item/storage/belt/leather
 	beltl = /obj/item/storage/keyring/gravetender
 	beltr = /obj/item/storage/belt/pouch/coins/poor
-	backr = /obj/item/weapon/shovel
+	wear_back_right = /obj/item/weapon/shovel
 	H.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE) // these are basically the acolyte skills with a bit of other stuff
 	H.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)

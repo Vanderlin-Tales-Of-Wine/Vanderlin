@@ -30,7 +30,7 @@
 	shirt = /obj/item/clothing/shirt/tunic/random
 	pants = /obj/item/clothing/pants/chainlegs
 	shoes = /obj/item/clothing/shoes/boots/armor/light
-	backr = /obj/item/weapon/shield/tower/metal
+	wear_back_right = /obj/item/weapon/shield/tower/metal
 	belt = /obj/item/storage/belt/leather/plaquesilver
 	beltl = /obj/item/weapon/sword/silver
 
@@ -80,12 +80,12 @@
 	// Females are crossbow and dagger based
 	if(H.gender == FEMALE)
 		head = /obj/item/clothing/head/helmet/heavy/crusader/t
-		backr = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
+		wear_back_right = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
 		beltl = /obj/item/weapon/knife/dagger/silver
 		beltr = /obj/item/ammo_holder/quiver/bolts
 		H.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-		backl = /obj/item/storage/backpack/satchel/black
+		wear_back_left = /obj/item/storage/backpack/satchel/black
 		backpack_contents = list(/obj/item/storage/belt/pouch/coins/rich = 1)
 	// Males are sword and shield based
 	else

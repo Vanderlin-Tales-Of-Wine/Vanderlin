@@ -44,7 +44,7 @@
 		belt = /obj/item/storage/belt/leather/rope
 		beltr = /obj/item/key/blacksmith
 		armor = /obj/item/clothing/armor/leather/vest
-		backr = /obj/item/storage/backpack/satchel
+		wear_back_right = /obj/item/storage/backpack/satchel
 		wrists = /obj/item/clothing/wrists/bracers/leather
 		H.change_stat(STATKEY_END, 2)
 		H.change_stat(STATKEY_SPD, 1)
@@ -55,7 +55,7 @@
 		belt = /obj/item/storage/belt/leather/rope
 		beltr = /obj/item/key/blacksmith
 		cloak = /obj/item/clothing/cloak/apron/brown
-		backr = /obj/item/storage/backpack/satchel
+		wear_back_right = /obj/item/storage/backpack/satchel
 		H.change_stat(STATKEY_END, 2)
 		H.change_stat(STATKEY_SPD, 1)
 	ADD_TRAIT(H, TRAIT_MALUMFIRE, TRAIT_GENERIC)

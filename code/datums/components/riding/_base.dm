@@ -102,14 +102,14 @@
 				for(var/offsetdir in offsets)
 					if(offsetdir == AM_dir)
 						var/list/diroffsets = offsets[offsetdir]
-						var/x2off
-						var/y2off
-						x2off = diroffsets[1]
+						var/w2off
+						var/z2off
+						w2off = diroffsets[1]
 						if(diroffsets.len >= 2)
-							y2off = diroffsets[2]
+							z2off = diroffsets[2]
 						if(diroffsets.len == 3)
 							buckled_mob.layer = diroffsets[3]
-						buckled_mob.set_mob_offsets("riding", _x = x2off, _y = y2off)
+						buckled_mob.set_mob_offsets("riding", _w = w2off, _z = z2off)
 						break dir_loop
 	var/list/static/default_vehicle_pixel_offsets = list(TEXT_NORTH = list(0, 0), TEXT_SOUTH = list(0, 0), TEXT_EAST = list(0, 0), TEXT_WEST = list(0, 0))
 /*	var/px = default_vehicle_pixel_offsets[AM_dir]

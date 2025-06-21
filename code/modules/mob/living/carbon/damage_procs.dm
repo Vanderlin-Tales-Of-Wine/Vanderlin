@@ -37,8 +37,6 @@
 			adjustToxLoss(damage_amount, forced = forced)
 		if(OXY)
 			adjustOxyLoss(damage_amount, forced = forced)
-		if(CLONE)
-			adjustCloneLoss(damage_amount, forced = forced)
 	if(damage_amount)
 		return damage_amount
 	else

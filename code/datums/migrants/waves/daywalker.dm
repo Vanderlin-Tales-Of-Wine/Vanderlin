@@ -18,7 +18,7 @@
 	mask = /obj/item/clothing/face/goggles
 	beltr = /obj/item/weapon/sword/rapier
 	belt = /obj/item/storage/belt/leather/steel
-	backr = /obj/item/storage/backpack/satchel
+	wear_back_right = /obj/item/storage/backpack/satchel
 	ring = /obj/item/clothing/ring/silver
 	H.virginity = TRUE
 

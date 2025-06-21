@@ -65,7 +65,7 @@
 		cloak = /obj/item/clothing/cloak/apron/brown
 		beltl = /obj/item/storage/belt/pouch/coins/poor
 		beltr = /obj/item/key/blacksmith
-		backl =	/obj/item/weapon/hammer/sledgehammer
+		wear_back_left =	/obj/item/weapon/hammer/sledgehammer
 		H.change_stat(STATKEY_STR, 1)
 		H.change_stat(STATKEY_END, 2)
 		H.change_stat(STATKEY_SPD, -1)
@@ -126,7 +126,7 @@
 		beltl = /obj/item/storage/belt/pouch/coins/poor
 		beltr = /obj/item/key/blacksmith
 		cloak = /obj/item/clothing/cloak/apron/brown
-		backl =	/obj/item/weapon/hammer/sledgehammer
+		wear_back_left =	/obj/item/weapon/hammer/sledgehammer
 		H.change_stat(STATKEY_STR, 1)
 		H.change_stat(STATKEY_END, 2)
 		H.change_stat(STATKEY_SPD, -1)

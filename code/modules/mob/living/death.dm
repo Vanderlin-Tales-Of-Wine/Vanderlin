@@ -62,8 +62,8 @@
 	var/was_dead_before = stat == DEAD
 	set_stat(DEAD)
 	unset_machine()
-	timeofdeath = world.time
-	tod = station_time_timestamp()
+	time_of_death_world_time = world.time
+	time_of_death_round_time = station_time_timestamp()
 
 	var/obj/structure/soul/soul = new(get_turf(src))
 	soul.init_mana(WEAKREF(src))
@@ -112,15 +112,6 @@
 //		addtimer(CALLBACK(client, PROC_REF(ghostize), 1, src), 150)
 		add_client_colour(/datum/client_colour/monochrome/death)
 		client?.verbs |= /client/proc/descend
-
-	for(var/s in ownedSoullinks)
-		var/datum/soullink/S = s
-		S.ownerDies(gibbed)
-	for(var/s in sharedSoullinks)
-		var/datum/soullink/S = s
-		S.sharerDies(gibbed)
-
-//	for(var/datum/death_tracker/D in target.death_trackers)
 
 	if(!gibbed && rot_type)
 		LoadComponent(rot_type)

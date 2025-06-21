@@ -28,7 +28,7 @@
 	shoes = /obj/item/clothing/shoes/boots
 	belt = /obj/item/storage/belt/leather
 	pants = /obj/item/clothing/pants/tights/black
-	backl = /obj/item/storage/backpack/satchel
+	wear_back_left = /obj/item/storage/backpack/satchel
 
 	if(H.dna.species.id == "human") // This statblock serves to smooth out racial stat-bonuses slightly. Makes room for the RNG to do its shitty work.
 		H.change_stat(STATKEY_END, -1)
@@ -300,7 +300,7 @@
 			I prefer a practical instrument of war.")
 			)
 		if("BigAxe")
-			backr = /obj/item/weapon/polearm/halberd/bardiche/woodcutter
+			wear_back_right = /obj/item/weapon/polearm/halberd/bardiche/woodcutter
 			H.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
@@ -321,7 +321,7 @@
 			)
 		if("Shovel") // Rare roll, might as well get some stat benefits
 			beltr = /obj/item/flashlight/flare/torch/lantern
-			backr = /obj/item/weapon/shovel
+			wear_back_right = /obj/item/weapon/shovel
 			cloak = /obj/item/clothing/cloak/raincloak/mortus
 			H.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/lockpicking, 2, TRUE)
@@ -334,7 +334,7 @@
 			Fools underestimate the might of the shovel, for it is the great communicator, and shepherd of the dead.")
 			)
 		if("BigMace")
-			backr =	/obj/item/weapon/hammer/sledgehammer
+			wear_back_right =	/obj/item/weapon/hammer/sledgehammer
 			beltl = /obj/item/weapon/knife/dagger
 			H.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
@@ -369,7 +369,7 @@
 			)
 		if("Scythe")
 			beltl = /obj/item/weapon/knife/dagger
-			backr = /obj/item/weapon/sickle/scythe
+			wear_back_right = /obj/item/weapon/sickle/scythe
 			H.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
@@ -402,7 +402,7 @@
 			No man on earth can make me fall. I am a bulwark, my offense is my defense.")
 			)
 		if("Spear")
-			backr = /obj/item/weapon/polearm/spear
+			wear_back_right = /obj/item/weapon/polearm/spear
 			beltr = /obj/item/weapon/shield/tower/buckleriron
 			H.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
@@ -430,7 +430,7 @@
 			There's nothing more intimidating than someone with a weapon in each hand.")
 			)
 		if("Falx")
-			backr = /obj/item/weapon/sword/coppermesser
+			wear_back_right = /obj/item/weapon/sword/coppermesser
 			beltl = /obj/item/weapon/mace/copperbludgeon
 			beltr = /obj/item/flashlight/flare/torch/lantern
 			H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
@@ -442,7 +442,7 @@
 			)
 		if("Sword")
 			beltl = /obj/item/weapon/sword/iron
-			backr = /obj/item/weapon/shield/wood
+			wear_back_right = /obj/item/weapon/shield/wood
 			H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatWarrior.ogg'
@@ -450,7 +450,7 @@
 			I'm a practical person, the sword is my weapon of choice.")
 			)
 		if("LSword")
-			backr = /obj/item/weapon/sword/long
+			wear_back_right = /obj/item/weapon/sword/long
 			H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
 			H.cmode_music = 'sound/music/cmode/antag/combat_cult.ogg'
@@ -458,7 +458,7 @@
 			I've brought my father's sword with me on my journey to the grave. Come forth and die.")
 			)
 		if("GSword")
-			backr = /obj/item/weapon/sword/long/greatsword
+			wear_back_right = /obj/item/weapon/sword/long/greatsword
 			H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
 			H.change_stat(STATKEY_SPD, -1)

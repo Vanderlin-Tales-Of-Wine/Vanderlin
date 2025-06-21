@@ -25,9 +25,9 @@
 		if(ITEM_SLOT_CLOAK)
 			return cloak
 		if(ITEM_SLOT_BACK_R)
-			return backr
+			return wear_back_right
 		if(ITEM_SLOT_BACK_L)
-			return backl
+			return wear_back_left
 		if(ITEM_SLOT_BELT_L)
 			return beltl
 		if(ITEM_SLOT_BELT_R)
@@ -76,10 +76,10 @@
 	if(looking_for == cloak)
 		return ITEM_SLOT_CLOAK
 
-	if(looking_for == backr)
+	if(looking_for == wear_back_right)
 		return ITEM_SLOT_BACK_R
 
-	if(looking_for == backl)
+	if(looking_for == wear_back_left)
 		return ITEM_SLOT_BACK_L
 
 	if(looking_for == beltl)
@@ -127,8 +127,8 @@
 		wear_pants,
 		wear_shirt,
 		cloak,
-		backr,
-		backl,
+		wear_back_right,
+		wear_back_left,
 		beltr,
 		beltl,
 		mouth
@@ -145,8 +145,8 @@
 /mob/living/carbon/human/proc/get_storage_slots()
 	return list(
 		belt,
-		backr,
-		backl,
+		wear_back_right,
+		wear_back_left,
 		beltr,
 		beltl,
 		mouth
@@ -209,10 +209,10 @@
 			beltr = I
 			update_inv_belt()
 		if(ITEM_SLOT_BACK_R)
-			backr = I
+			wear_back_right = I
 			update_inv_back()
 		if(ITEM_SLOT_BACK_L)
-			backl = I
+			wear_back_left = I
 			update_inv_back()
 		if(ITEM_SLOT_MOUTH)
 			mouth = I
@@ -228,11 +228,11 @@
 			if(belt && not_handled)
 				if(SEND_SIGNAL(belt, COMSIG_TRY_STORAGE_INSERT, I, src, TRUE))
 					not_handled = FALSE
-			if(backr && not_handled)
-				if(SEND_SIGNAL(backr, COMSIG_TRY_STORAGE_CAN_INSERT, I, src, TRUE))
+			if(wear_back_right && not_handled)
+				if(SEND_SIGNAL(wear_back_right, COMSIG_TRY_STORAGE_CAN_INSERT, I, src, TRUE))
 					not_handled = FALSE
-			if(backl && not_handled)
-				if(SEND_SIGNAL(backl, COMSIG_TRY_STORAGE_CAN_INSERT, I, src, TRUE))
+			if(wear_back_left && not_handled)
+				if(SEND_SIGNAL(wear_back_left, COMSIG_TRY_STORAGE_CAN_INSERT, I, src, TRUE))
 					not_handled = FALSE
 		else
 			not_handled = TRUE
@@ -311,12 +311,12 @@
 		beltr = null
 		if(!QDELETED(src))
 			update_inv_belt()
-	else if(I == backl)
-		backl = null
+	else if(I == wear_back_left)
+		wear_back_left = null
 		if(!QDELETED(src))
 			update_inv_back()
-	else if(I == backr)
-		backr = null
+	else if(I == wear_back_right)
+		wear_back_right = null
 		if(!QDELETED(src))
 			update_inv_back()
 	else if(I == cloak)

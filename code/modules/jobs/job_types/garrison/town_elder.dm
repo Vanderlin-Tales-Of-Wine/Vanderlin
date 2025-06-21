@@ -120,7 +120,7 @@
 	shoes = /obj/item/clothing/shoes/boots
 	gloves = /obj/item/clothing/gloves/leather/black
 	ring = /obj/item/clothing/ring/gold/toper
-	backl = /obj/item/storage/backpack/satchel
+	wear_back_left = /obj/item/storage/backpack/satchel
 	cloak = /obj/item/clothing/cloak/raincloak/furcloak/black
 	neck = /obj/item/storage/belt/pouch/coins/veryrich
 	belt = /obj/item/storage/belt/leather/plaquesilver
@@ -183,7 +183,7 @@
 	belt = /obj/item/storage/belt/leather
 	beltr = /obj/item/weapon/pick/paxe
 	beltl = /obj/item/flashlight/flare/torch/lantern
-	backl = /obj/item/storage/backpack/backpack
+	wear_back_left = /obj/item/storage/backpack/backpack
 	backpack_contents = list(/obj/item/storage/belt/pouch/coins/mid = 1, /obj/item/weapon/knife/hunting = 1, /obj/item/storage/keyring/master_of_crafts_and_labor = 1, /obj/item/weapon/hammer/steel = 1)
 
 	if(H.mind)
@@ -272,7 +272,7 @@
 	belt = /obj/item/storage/belt/leather/rope
 	beltr = /obj/item/storage/keyring/elder
 	beltl = /obj/item/flashlight/flare/torch/lantern
-	backl = /obj/item/storage/backpack/satchel
+	wear_back_left = /obj/item/storage/backpack/satchel
 
 	backpack_contents = list(/obj/item/storage/belt/pouch/coins/mid = 1, /obj/item/needle = 1 )
 
@@ -400,7 +400,7 @@
 	belt = /obj/item/storage/belt/leather
 	armor = /obj/item/clothing/armor/leather/jacket/silk_coat
 	cloak = /obj/item/clothing/cloak/half
-	backl = /obj/item/storage/backpack/satchel
+	wear_back_left = /obj/item/storage/backpack/satchel
 	beltr = /obj/item/weapon/sword/arming
 	beltl = /obj/item/flashlight/flare/torch/lantern
 	backpack_contents = list(/obj/item/storage/belt/pouch/coins/mid = 1, /obj/item/storage/keyring/elder = 1, /obj/item/paper/scroll = 5, /obj/item/natural/feather = 1)
@@ -452,7 +452,7 @@
 	belt = /obj/item/storage/belt/leather/rope
 	beltr = /obj/item/storage/keyring/elder
 	beltl = /obj/item/flashlight/flare/torch/lantern
-	backl = /obj/item/storage/backpack/satchel
+	wear_back_left = /obj/item/storage/backpack/satchel
 	wrists = /obj/item/clothing/wrists/nocwrappings
 	neck = /obj/item/clothing/neck/psycross/noc
 	backpack_contents = list(/obj/item/storage/belt/pouch/coins/poor = 1, /obj/item/needle = 1 )

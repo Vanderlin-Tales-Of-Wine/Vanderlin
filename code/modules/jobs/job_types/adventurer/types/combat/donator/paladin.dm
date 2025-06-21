@@ -104,7 +104,7 @@
 	cloak = /obj/item/clothing/cloak/tabard/crusader
 	neck = /obj/item/clothing/neck/chaincoif
 	gloves = /obj/item/clothing/gloves/plate
-	backl = /obj/item/weapon/sword/long/judgement
+	wear_back_left = /obj/item/weapon/sword/long/judgement
 	if(H.mind)
 		H.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
 		H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)

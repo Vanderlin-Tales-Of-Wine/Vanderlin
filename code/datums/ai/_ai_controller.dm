@@ -372,7 +372,7 @@ have ways of interacting with a specific atom and control it. They posses a blac
 			if(isliving(current_movement_target))
 				var/mob/living/living_pawn = pawn
 				var/mob/living/living_target = current_movement_target
-				if(living_target.rogue_sneaking)
+				if(living_target.sneaking)
 					if(!living_pawn.npc_detect_sneak(living_target, 0))
 						failed_sneak_check++
 				else

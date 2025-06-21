@@ -26,7 +26,7 @@
 	belt = /obj/item/storage/belt/leather/mercenary
 	beltr = /obj/item/weapon/knife/hunting
 	neck = /obj/item/clothing/neck/chaincoif/iron
-	backl = /obj/item/storage/backpack/backpack
+	wear_back_left = /obj/item/storage/backpack/backpack
 	backpack_contents = list(/obj/item/storage/belt/pouch/coins/poor=1)
 	if(H.mind)
 		H.adjust_skillrank(/datum/skill/labor/mining, 3, TRUE)
@@ -54,7 +54,7 @@
 		H.adjust_skillrank(/datum/skill/craft/bombs, 4, TRUE) // Dwarves get to make bombs.
 		head = /obj/item/clothing/head/helmet/leather/minershelm
 		beltl = /obj/item/weapon/pick/paxe // Dorfs get a pick as their primary weapon and axes/maces to use it
-		backr = /obj/item/weapon/shield/wood
+		wear_back_right = /obj/item/weapon/shield/wood
 	else // No miner's helm for Delves or kobolds as they haven nitevision now.
 		H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
 

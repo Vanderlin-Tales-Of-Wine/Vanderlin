@@ -237,7 +237,6 @@
 /obj/structure/chair/wood/alt/post_buckle_mob(mob/living/M)
 	..()
 	density = TRUE
-//	M.set_mob_offsets("bed_buckle", _x = 0, _y = 5)
 
 /obj/structure/chair/wood/alt/post_unbuckle_mob(mob/living/M)
 	..()
@@ -282,7 +281,7 @@
 /obj/structure/bed/inn/double/post_buckle_mob(mob/living/target)
 	. = ..()
 	if(length(buckled_mobs) > 1 && !goldilocks) //  Push the second buckled mob a bit higher from the normal lying position
-		target.set_mob_offsets("bed_buckle", _x = 0, _y = 12)
+		target.set_mob_offsets("bed_buckle", _w = 0, _z = 12)
 		goldilocks = target
 
 /obj/structure/bed/inn/double/post_unbuckle_mob(mob/living/target)
@@ -308,7 +307,7 @@
 /obj/structure/bed/wool/double/post_buckle_mob(mob/living/target)
 	. = ..()
 	if(length(buckled_mobs) > 1 && !goldilocks) //  Push the second buckled mob a bit higher from the normal lying position
-		target.set_mob_offsets("bed_buckle", _x = 0, _y = 12)
+		target.set_mob_offsets("bed_buckle", _w = 0, _z = 12)
 		goldilocks = target
 
 /obj/structure/bed/wool/double/post_unbuckle_mob(mob/living/target)
@@ -407,7 +406,7 @@
 
 /obj/structure/bed/post_buckle_mob(mob/living/M)
 	..()
-	M.set_mob_offsets("bed_buckle", _x = 0 + src.pixel_x, _y = src.pixel_y)
+	M.set_mob_offsets("bed_buckle", _w = 0 + pixel_w, _z = pixel_z)
 
 /obj/structure/bed/post_unbuckle_mob(mob/living/M)
 	..()

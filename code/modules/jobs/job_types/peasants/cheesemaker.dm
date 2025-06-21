@@ -35,7 +35,7 @@
 	shirt = /obj/item/clothing/shirt/shortshirt/random
 	cloak = /obj/item/clothing/cloak/apron
 	shoes = /obj/item/clothing/shoes/simpleshoes
-	backl = /obj/item/storage/backpack/backpack
+	wear_back_left = /obj/item/storage/backpack/backpack
 	neck = /obj/item/storage/belt/pouch/coins/poor
 	wrists = /obj/item/clothing/wrists/bracers/leather
 	beltr = /obj/item/reagent_containers/glass/bottle/waterskin/milk

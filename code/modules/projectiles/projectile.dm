@@ -146,8 +146,6 @@
 
 //to get the correct limb (if any) for the projectile hit message
 /mob/living/proc/check_limb_hit(hit_zone)
-	if(has_limbs)
-		return hit_zone
 	return BODY_ZONE_CHEST
 
 /mob/living/carbon/check_limb_hit(hit_zone)

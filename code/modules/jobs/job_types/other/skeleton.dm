@@ -134,7 +134,7 @@
 			head = /obj/item/clothing/head/helmet
 
 	if(prob(20))
-		backr = /obj/item/weapon/shield/wood
+		wear_back_right = /obj/item/weapon/shield/wood
 
 	switch(pick(1,6))
 		if (1)

@@ -42,7 +42,7 @@
 	beltl = /obj/item/storage/keyring/priest
 	belt = /obj/item/storage/belt/leather/rope
 	armor = /obj/item/clothing/shirt/robe/priest
-	backl = /obj/item/storage/backpack/satchel
+	wear_back_left = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/needle = 1, /obj/item/storage/belt/pouch/coins/rich = 1 )
 
 	var/obj/item/weapon/polearm/woodstaff/aries/P = new()

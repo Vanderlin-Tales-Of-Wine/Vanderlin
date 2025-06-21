@@ -489,7 +489,7 @@
 			head = /obj/item/clothing/head/helmet/kettle
 			neck = /obj/item/clothing/neck/chaincoif
 			armor = /obj/item/clothing/armor/cuirass/grenzelhoft
-			backl = /obj/item/storage/backpack/satchel
+			wear_back_left = /obj/item/storage/backpack/satchel
 			wrists = /obj/item/clothing/wrists/bracers/leather
 		if(2) //zizombie Warrior
 			r_hand = /obj/item/weapon/polearm/halberd
@@ -501,7 +501,7 @@
 			head = /obj/item/clothing/head/helmet/sallet
 			neck = /obj/item/clothing/neck/chaincoif
 			armor = /obj/item/clothing/armor/cuirass/grenzelhoft
-			backl = /obj/item/storage/backpack/satchel
+			wear_back_left = /obj/item/storage/backpack/satchel
 			wrists = /obj/item/clothing/wrists/bracers/leather
 		if(3) //zizombie Warrior
 			r_hand = /obj/item/weapon/polearm/eaglebeak
@@ -513,7 +513,7 @@
 			head = /obj/item/clothing/head/helmet/sallet
 			neck = /obj/item/clothing/neck/chaincoif
 			armor = /obj/item/clothing/armor/cuirass/grenzelhoft
-			backl = /obj/item/storage/backpack/satchel
+			wear_back_left = /obj/item/storage/backpack/satchel
 			wrists = /obj/item/clothing/wrists/bracers/leather
 		if(4) //zizombie Warrior
 			r_hand = /obj/item/weapon/sword/short
@@ -526,7 +526,7 @@
 			head = /obj/item/clothing/head/helmet/sallet
 			neck = /obj/item/clothing/neck/chaincoif
 			armor = /obj/item/clothing/armor/cuirass/grenzelhoft
-			backl = /obj/item/storage/backpack/satchel
+			wear_back_left = /obj/item/storage/backpack/satchel
 			wrists = /obj/item/clothing/wrists/bracers/leather
 		if(5) //zizombie Warrior
 			r_hand = /obj/item/weapon/axe/battle
@@ -538,7 +538,7 @@
 			head = /obj/item/clothing/head/helmet/sallet
 			neck = /obj/item/clothing/neck/chaincoif
 			armor = /obj/item/clothing/armor/cuirass/grenzelhoft
-			backl = /obj/item/storage/backpack/satchel
+			wear_back_left = /obj/item/storage/backpack/satchel
 			wrists = /obj/item/clothing/wrists/bracers/leather
 
 

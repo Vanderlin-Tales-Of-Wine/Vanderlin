@@ -31,7 +31,7 @@
 	shirt = /obj/item/clothing/shirt/undershirt/black
 	pants = /obj/item/clothing/pants/tights/red
 	neck = /obj/item/clothing/neck/keffiyeh/red
-	backl = /obj/item/storage/backpack/satchel
+	wear_back_left = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/storage/belt/pouch/coins/poor)
 	if(!H.has_language(/datum/language/zybantine))
 		H.grant_language(/datum/language/zybantine)

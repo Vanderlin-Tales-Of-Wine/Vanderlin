@@ -124,7 +124,7 @@
 	beltl = /obj/item/key/vampire
 	cloak = /obj/item/clothing/cloak/cape/puritan
 	shoes = /obj/item/clothing/shoes/boots
-	backl = /obj/item/storage/backpack/satchel/black
+	wear_back_left = /obj/item/storage/backpack/satchel/black
 
 /*------VERBS-----*/
 

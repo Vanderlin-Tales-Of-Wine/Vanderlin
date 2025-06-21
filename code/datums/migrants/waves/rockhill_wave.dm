@@ -27,7 +27,7 @@
 		beltr = /obj/item/weapon/sword/rapier
 		ring = /obj/item/clothing/ring/silver
 		shoes = /obj/item/clothing/shoes/nobleboot
-		backr = /obj/item/storage/backpack/satchel
+		wear_back_right = /obj/item/storage/backpack/satchel
 		backpack_contents = list(/obj/item/storage/belt/pouch/coins/rich = 1, /obj/item/flashlight/flare/torch/lantern = 1)
 		if(prob(66))
 			armor = /obj/item/clothing/armor/gambeson/heavy/dress/alt
@@ -77,7 +77,7 @@
 	beltr = /obj/item/weapon/sword/long
 	beltl = /obj/item/flashlight/flare/torch/lantern
 	belt = /obj/item/storage/belt/leather/steel
-	backr = /obj/item/storage/backpack/satchel/black
+	wear_back_right = /obj/item/storage/backpack/satchel/black
 	if(prob(50))
 		r_hand = /obj/item/weapon/polearm/eaglebeak/lucerne
 	else
@@ -147,7 +147,7 @@
 	shoes = /obj/item/clothing/shoes/boots
 	belt = /obj/item/storage/belt/leather
 	beltr = /obj/item/weapon/sword/arming
-	backl = /obj/item/storage/backpack/satchel
+	wear_back_left = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/weapon/knife/dagger/steel/special = 1, /obj/item/signal_horn = 1)
 	if(H.mind)
 		H.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)

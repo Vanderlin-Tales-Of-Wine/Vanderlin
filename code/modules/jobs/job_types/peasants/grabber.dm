@@ -41,7 +41,7 @@
 	H.change_stat(STATKEY_END, 1)
 	H.change_stat(STATKEY_CON, 1)
 	H.change_stat(STATKEY_SPD, -1)
-	backr = /obj/item/storage/backpack/satchel
+	wear_back_right = /obj/item/storage/backpack/satchel
 	wrists = /obj/item/clothing/wrists/bracers/leather
 	gloves = /obj/item/clothing/gloves/fingerless
 	neck = /obj/item/storage/belt/pouch/coins/poor

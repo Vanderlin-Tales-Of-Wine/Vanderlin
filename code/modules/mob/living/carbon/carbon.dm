@@ -11,7 +11,6 @@
 	QDEL_LIST(hand_bodyparts)
 	QDEL_LIST(internal_organs)
 	QDEL_LIST(bodyparts)
-	QDEL_LIST(implants)
 	QDEL_NULL(dna)
 	GLOB.carbon_list -= src
 

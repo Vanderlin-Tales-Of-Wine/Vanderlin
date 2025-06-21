@@ -10,7 +10,7 @@
 		addtimer(CALLBACK(src, PROC_REF(resume_bleeding)), amount)
 
 /mob/living/proc/resume_bleeding()
-	bleedsuppress = 0
+	bleedsuppress = FALSE
 	if(stat != DEAD && bleed_rate)
 		to_chat(src, span_warning("The blood soaks through my bandage."))
 

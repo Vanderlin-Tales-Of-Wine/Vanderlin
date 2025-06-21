@@ -20,7 +20,7 @@
 	mask = /obj/item/clothing/face/spectacles/inqglasses
 	beltr = /obj/item/weapon/knife/cleaver/combat
 	belt = /obj/item/storage/belt/leather/steel
-	backr = /obj/item/storage/backpack/satchel
+	wear_back_right = /obj/item/storage/backpack/satchel
 	ring = /obj/item/clothing/ring/silver
 	head = /obj/item/clothing/neck/keffiyeh/black
 

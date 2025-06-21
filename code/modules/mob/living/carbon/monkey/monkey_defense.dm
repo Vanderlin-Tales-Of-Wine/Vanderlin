@@ -1,10 +1,3 @@
-/mob/living/carbon/monkey/help_shake_act(mob/living/carbon/M)
-	if(health < 0 && ishuman(M))
-		var/mob/living/carbon/human/H = M
-		H.do_cpr(src)
-	else
-		..()
-
 /mob/living/carbon/monkey/attack_paw(mob/living/M)
 	if(..()) //successful monkey bite.
 		var/dam_zone = pick(BODY_ZONE_CHEST, BODY_ZONE_PRECISE_L_HAND, BODY_ZONE_PRECISE_R_HAND, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)

@@ -32,7 +32,7 @@
 		belt = /obj/item/storage/belt/leather
 		beltr = /obj/item/storage/belt/pouch/coins/poor
 		beltl = /obj/item/storage/keyring/stevedore
-		backr = /obj/item/storage/backpack/satchel
+		wear_back_right = /obj/item/storage/backpack/satchel
 		gloves = /obj/item/clothing/gloves/fingerless
 	else
 		head = /obj/item/clothing/head/chaperon
@@ -42,7 +42,7 @@
 		belt = /obj/item/storage/belt/leather
 		beltr = /obj/item/storage/belt/pouch/coins/poor
 		beltl = /obj/item/storage/keyring/stevedore
-		backr = /obj/item/storage/backpack/satchel
+		wear_back_right = /obj/item/storage/backpack/satchel
 		gloves = /obj/item/clothing/gloves/fingerless
 	//worse skills than a normal peasant, generally, with random bad combat skill
 	H.adjust_skillrank(/datum/skill/misc/stealing, 4, TRUE)

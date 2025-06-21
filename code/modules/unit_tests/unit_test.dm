@@ -132,8 +132,6 @@ GLOBAL_VAR_INIT(focused_test, focused_test())
 		/obj/item/storage/fancy,
 		//needs a mob passed to view it
 		/atom/movable/screen/credit,
-		//invalid without mob/living passed
-		/obj/shapeshift_holder,
 		// requires a pod passed
 		/obj/effect/DPfall,
 		/obj/effect/DPtarget,

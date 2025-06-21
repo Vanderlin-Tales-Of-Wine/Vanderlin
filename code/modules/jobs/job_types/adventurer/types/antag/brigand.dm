@@ -29,7 +29,7 @@
 	pants = /obj/item/clothing/pants/trou/leather
 	shirt = /obj/item/clothing/shirt/shortshirt/random
 	shoes = /obj/item/clothing/shoes/boots
-	backr = /obj/item/storage/backpack/satchel
+	wear_back_right = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/needle/thorn = 1, /obj/item/natural/cloth = 1)
 	mask = /obj/item/clothing/face/facemask/steel
 	neck = /obj/item/clothing/neck/chaincoif/iron
@@ -46,8 +46,8 @@
 	H.set_blindness(0)
 	switch(weapon_choice)
 		if("Battleaxe & Cudgel") //one weapon to hurt people one weapon to kill people
-			backl= /obj/item/weapon/axe/battle
+			wear_back_left= /obj/item/weapon/axe/battle
 			beltr = /obj/item/weapon/mace/cudgel
 		if("Flail & Shield") //plate users beware, you're in for a scare!
-			backl= /obj/item/weapon/shield/wood
+			wear_back_left= /obj/item/weapon/shield/wood
 			beltr = /obj/item/weapon/flail

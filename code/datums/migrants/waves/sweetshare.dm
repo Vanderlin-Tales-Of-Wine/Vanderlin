@@ -14,7 +14,7 @@
 	pants = /obj/item/clothing/pants/trou/leather
 	cloak = /obj/item/clothing/cloak/raincloak/mortus
 	shoes = /obj/item/clothing/shoes/boots
-	backl = /obj/item/storage/backpack/backpack
+	wear_back_left = /obj/item/storage/backpack/backpack
 	belt = /obj/item/storage/belt/leather
 	beltr = /obj/item/weapon/knife/cleaver
 	beltl = /obj/item/storage/belt/pouch/coins/poor

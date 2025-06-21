@@ -29,7 +29,7 @@
 	pants = /obj/item/clothing/pants/trou/leather
 	shirt = /obj/item/clothing/armor/gambeson
 	shoes = /obj/item/clothing/shoes/boots
-	backr = /obj/item/storage/backpack/satchel
+	wear_back_right = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/needle/thorn = 1, /obj/item/natural/cloth = 1)
 	mask = /obj/item/clothing/face/facemask/steel
 	neck = /obj/item/clothing/neck/gorget
@@ -45,11 +45,11 @@
 	H.set_blindness(0)
 	switch(weapon_choice)
 		if("Spear & Crossbow") //Deserter watchman. Maybe should be shield and spear? spear and crossbow is kinda clumsy
-			backl= /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow //we really need to make this not a grenade launcher subtype
+			wear_back_left= /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow //we really need to make this not a grenade launcher subtype
 			beltr = /obj/item/ammo_holder/quiver/bolts
 			r_hand = /obj/item/weapon/polearm/spear/billhook
 			head = /obj/item/clothing/head/helmet/kettle
 		if("Sword & Buckler") //Mercenary on the wrong side of the law
-			backl= /obj/item/weapon/shield/tower/buckleriron
+			wear_back_left= /obj/item/weapon/shield/tower/buckleriron
 			beltr = /obj/item/weapon/sword //steel sword like literally every adventurer gets
 			head = /obj/item/clothing/head/helmet/sallet

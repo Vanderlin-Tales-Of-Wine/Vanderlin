@@ -13,13 +13,13 @@
 	shirt = /obj/item/clothing/armor/chainmail
 	neck = /obj/item/clothing/neck/gorget
 	head = /obj/item/clothing/head/helmet/coppercap
-	backr = /obj/item/weapon/shield/wood
+	wear_back_right = /obj/item/weapon/shield/wood
 	belt = /obj/item/storage/belt/leather
 	beltr = /obj/item/flashlight/flare/torch/lantern
 	beltl = /obj/item/weapon/pick/paxe
 	pants = /obj/item/clothing/pants/trou
 	shoes = /obj/item/clothing/shoes/simpleshoes/buckle
-	backl = /obj/item/storage/backpack/satchel
+	wear_back_left = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/storage/belt/pouch/coins/poor)
 	H.change_stat(STATKEY_STR, 3)
 	H.change_stat(STATKEY_PER, 2)
@@ -90,8 +90,8 @@
 		belt = /obj/item/storage/belt/leather
 		beltl = /obj/item/storage/belt/pouch/coins/poor
 		cloak = /obj/item/clothing/cloak/apron/brown
-		backl =	/obj/item/weapon/hammer/sledgehammer
-		backr = /obj/item/weapon/axe/steel
+		wear_back_left =	/obj/item/weapon/hammer/sledgehammer
+		wear_back_right = /obj/item/weapon/axe/steel
 		H.change_stat(STATKEY_STR, 1)
 		H.change_stat(STATKEY_END, 2)
 		H.change_stat(STATKEY_SPD, -1)
@@ -103,8 +103,8 @@
 		belt = /obj/item/storage/belt/leather
 		cloak = /obj/item/clothing/cloak/apron/brown
 		beltl = /obj/item/storage/belt/pouch/coins/poor
-		backr = /obj/item/weapon/axe/steel
-		backl = /obj/item/weapon/pick/paxe
+		wear_back_right = /obj/item/weapon/axe/steel
+		wear_back_left = /obj/item/weapon/pick/paxe
 		H.change_stat(STATKEY_STR, 1)
 		H.change_stat(STATKEY_END, 2)
 		H.change_stat(STATKEY_SPD, -1)
@@ -149,8 +149,8 @@
 		belt = /obj/item/storage/belt/leather
 		beltl = /obj/item/storage/belt/pouch/coins/poor
 		cloak = /obj/item/clothing/cloak/apron/brown
-		backr = /obj/item/weapon/axe/steel
-		backl = /obj/item/weapon/pick/paxe
+		wear_back_right = /obj/item/weapon/axe/steel
+		wear_back_left = /obj/item/weapon/pick/paxe
 		H.change_stat(STATKEY_STR, 1)
 		H.change_stat(STATKEY_END, 2)
 		H.change_stat(STATKEY_SPD, -1)
@@ -162,8 +162,8 @@
 		belt = /obj/item/storage/belt/leather
 		cloak = /obj/item/clothing/cloak/apron/brown
 		beltl = /obj/item/storage/belt/pouch/coins/poor
-		backl =	/obj/item/weapon/hammer/sledgehammer
-		backr = /obj/item/weapon/axe/steel
+		wear_back_left =	/obj/item/weapon/hammer/sledgehammer
+		wear_back_right = /obj/item/weapon/axe/steel
 		H.change_stat(STATKEY_STR, 1)
 		H.change_stat(STATKEY_END, 2)
 		H.change_stat(STATKEY_SPD, -1)

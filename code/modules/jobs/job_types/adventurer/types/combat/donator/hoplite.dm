@@ -36,17 +36,17 @@
 	head = /obj/item/clothing/head/rare/hoplite
 	wrists = /obj/item/clothing/wrists/bracers/hoplite
 	neck = /obj/item/clothing/neck/gorget/hoplite
-	backl = /obj/item/weapon/shield/tower/hoplite
+	wear_back_left = /obj/item/weapon/shield/tower/hoplite
 	var/weapontype = pickweight(list("Khopesh" = 5, "Spear" = 3, "WingedSpear" = 2)) // Rolls for various weapon options based on weighted list
 	switch(weapontype) // We either get a spear (winged or regular), or a khopesh sword. The weapon we get is what we get our training in
 		if("Khopesh")
 			beltl = /obj/item/weapon/sword/khopesh
 			H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
 		if("Spear")
-			backr = /obj/item/weapon/polearm/spear/hoplite
+			wear_back_right = /obj/item/weapon/polearm/spear/hoplite
 			H.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
 		if("WingedSpear")
-			backr = /obj/item/weapon/polearm/spear/hoplite/winged
+			wear_back_right = /obj/item/weapon/polearm/spear/hoplite/winged
 			H.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
 
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)

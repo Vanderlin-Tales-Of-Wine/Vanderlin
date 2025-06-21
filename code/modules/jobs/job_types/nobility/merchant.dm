@@ -37,7 +37,7 @@
 	..()
 
 	neck = /obj/item/clothing/neck/horus
-	backr = /obj/item/storage/backpack/satchel
+	wear_back_right = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/storage/belt/pouch/coins/veryrich = 1, /obj/item/merctoken = 1)
 	beltr = /obj/item/weapon/sword/rapier
 	belt = /obj/item/storage/belt/leather/plaquesilver

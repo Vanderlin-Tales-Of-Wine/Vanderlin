@@ -108,7 +108,7 @@
 	gloves = /obj/item/clothing/gloves/leather/black
 	beltl = /obj/item/weapon/sword/decorated
 	beltr = /obj/item/scomstone
-	backr = /obj/item/storage/backpack/satchel/heartfelt
+	wear_back_right = /obj/item/storage/backpack/satchel/heartfelt
 	mask = /obj/item/clothing/face/spectacles/golden
 	neck = /obj/item/clothing/neck/chaincoif
 	if(H.mind)
@@ -149,7 +149,7 @@
 	beltr = /obj/item/weapon/sword/long
 	beltl = /obj/item/flashlight/flare/torch/lantern
 	belt = /obj/item/storage/belt/leather/steel
-	backr = /obj/item/storage/backpack/satchel/black
+	wear_back_right = /obj/item/storage/backpack/satchel/black
 	if(prob(50))
 		r_hand = /obj/item/weapon/polearm/eaglebeak/lucerne
 	else
@@ -219,7 +219,7 @@
 	beltr = /obj/item/book/granter/spellbook/expert
 	ring = /obj/item/clothing/ring/gold
 	r_hand = /obj/item/weapon/polearm/woodstaff
-	backl = /obj/item/storage/backpack/satchel
+	wear_back_left = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/reagent_containers/glass/bottle/poison,/obj/item/reagent_containers/glass/bottle/healthpot)
 	ADD_TRAIT(H, TRAIT_SEEPRICES, "[type]")
 	H.cmode_music = 'sound/music/cmode/nobility/CombatCourtMagician.ogg'
@@ -273,7 +273,7 @@
 	beltr = /obj/item/storage/belt/pouch/coins/mid
 	armor = /obj/item/clothing/shirt/robe/priest
 	cloak = /obj/item/clothing/cloak/chasuble
-	backl = /obj/item/storage/backpack/satchel
+	wear_back_left = /obj/item/storage/backpack/satchel
 	backpack_contents = list(
 		/obj/item/needle/blessed = 1,
 	)

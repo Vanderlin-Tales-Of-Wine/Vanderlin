@@ -36,7 +36,7 @@
 	shoes = /obj/item/clothing/shoes/boots/leather
 	wrists = /obj/item/clothing/wrists/bracers/leather
 	if(prob(50))
-		backr = /obj/item/storage/backpack/satchel
+		wear_back_right = /obj/item/storage/backpack/satchel
 	H.change_stat(STATKEY_STR, 3)
 	H.change_stat(STATKEY_END, 2)
 	H.change_stat(STATKEY_CON, 2)

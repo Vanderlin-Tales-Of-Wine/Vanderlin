@@ -55,8 +55,8 @@
 	cloak = /obj/item/clothing/cloak/raincloak/brown
 	if(prob(33))
 		cloak = /obj/item/clothing/cloak/raincloak/green
-	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
-	backl = /obj/item/storage/backpack/satchel
+	wear_back_right = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
+	wear_back_left = /obj/item/storage/backpack/satchel
 	beltr = /obj/item/flashlight/flare/torch/lantern
 	backpack_contents = list(/obj/item/bait = 1, /obj/item/weapon/knife/hunting = 1)
 	beltl = /obj/item/ammo_holder/quiver/arrows

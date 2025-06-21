@@ -15,7 +15,7 @@
 	pants = /obj/item/clothing/pants/tights/black
 	armor = /obj/item/clothing/armor/leather/vest/black
 	shirt = /obj/item/clothing/shirt/undershirt/black
-	backl = /obj/item/storage/backpack/satchel
+	wear_back_left = /obj/item/storage/backpack/satchel
 	belt = /obj/item/storage/belt/leather/rope
 	backpack_contents = list(/obj/item/weapon/pick = 1, /obj/item/weapon/knife/hunting = 1, /obj/item/lockpickring/mundane)
 	gloves = /obj/item/clothing/gloves/fingerless
@@ -24,7 +24,7 @@
 	shoes = /obj/item/clothing/shoes/boots/leather
 	beltr = /obj/item/flashlight/flare/torch/lantern
 	beltl = /obj/item/weapon/whip // You know why.
-	backr = /obj/item/weapon/shovel
+	wear_back_right = /obj/item/weapon/shovel
 	head = /obj/item/clothing/head/helmet/leather/inquisitor
 	neck = /obj/item/storage/belt/pouch
 	if(H.mind)

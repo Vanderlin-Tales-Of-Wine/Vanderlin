@@ -42,7 +42,7 @@
 	belt = /obj/item/storage/belt/leather/plaquesilver
 	beltl = /obj/item/storage/keyring/archivist
 	beltr = /obj/item/book/granter/spellbook/apprentice
-	backl = /obj/item/storage/backpack/satchel
+	wear_back_left = /obj/item/storage/backpack/satchel
 	neck = /obj/item/clothing/neck/psycross/noc
 	backpack_contents = list(/obj/item/textbook = 1, /obj/item/natural/feather)
 

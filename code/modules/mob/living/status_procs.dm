@@ -449,21 +449,6 @@
 	else
 		ADD_TRAIT(src, TRAIT_HUSK, source)
 
-/mob/living/proc/cure_fakedeath(source)
-	REMOVE_TRAIT(src, TRAIT_FAKEDEATH, source)
-	REMOVE_TRAIT(src, TRAIT_DEATHCOMA, source)
-	if(stat != DEAD)
-		tod = null
-
-/mob/living/proc/fakedeath(source, silent = FALSE)
-	if(stat == DEAD)
-		return
-	if(!silent)
-		emote("deathgasp")
-	ADD_TRAIT(src, TRAIT_FAKEDEATH, source)
-	ADD_TRAIT(src, TRAIT_DEATHCOMA, source)
-	tod = station_time_timestamp()
-
 /mob/living/proc/unignore_slowdown(source)
 	REMOVE_TRAIT(src, TRAIT_IGNORESLOWDOWN, source)
 	update_movespeed(FALSE)

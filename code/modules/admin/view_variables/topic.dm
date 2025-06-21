@@ -106,9 +106,6 @@
 				if("brain")
 					L.adjustOrganLoss(ORGAN_SLOT_BRAIN, amount)
 					newamt = L.getOrganLoss(ORGAN_SLOT_BRAIN)
-				if("clone")
-					L.adjustCloneLoss(amount)
-					newamt = L.getCloneLoss()
 				else
 					to_chat(usr, "You caused an error. DEBUG: Text:[Text] Mob:[L]")
 					return

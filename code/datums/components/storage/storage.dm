@@ -580,11 +580,11 @@
 		var/mob/living/carbon/human/H = M
 		var/atom/A = parent
 		if(not_while_equipped)
-			if(H.backl == A)
+			if(H.wear_back_left == A)
 				if(!H.get_active_held_item())
 					H.putItemFromInventoryInHandIfPossible(A, H.active_hand_index)
 				return
-			if(H.backr == A)
+			if(H.wear_back_right == A)
 				if(!H.get_active_held_item())
 					H.putItemFromInventoryInHandIfPossible(A, H.active_hand_index)
 				return
@@ -812,11 +812,11 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(not_while_equipped)
-			if(H.backl == A)
+			if(H.wear_back_left == A)
 				if(!H.get_active_held_item())
 					H.putItemFromInventoryInHandIfPossible(A, H.active_hand_index)
 				return
-			if(H.backr == A)
+			if(H.wear_back_right == A)
 				if(!H.get_active_held_item())
 					H.putItemFromInventoryInHandIfPossible(A, H.active_hand_index)
 				return
@@ -858,11 +858,11 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(not_while_equipped)
-			if(H.backl == A)
+			if(H.wear_back_left == A)
 				if(!H.get_active_held_item())
 					H.putItemFromInventoryInHandIfPossible(A, H.active_hand_index)
 				return
-			if(H.backr == A)
+			if(H.wear_back_right == A)
 				if(!H.get_active_held_item())
 					H.putItemFromInventoryInHandIfPossible(A, H.active_hand_index)
 				return

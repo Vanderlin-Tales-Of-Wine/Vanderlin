@@ -105,7 +105,7 @@
 				density = FALSE
 				switch(H.dna.species.name)
 					if ("Dwarf","Goblin")
-						H.set_mob_offsets("bed_buckle", _x = 0, _y = PILLORY_HEAD_OFFSET)
+						H.set_mob_offsets("bed_buckle", _w = 0, _z = PILLORY_HEAD_OFFSET)
 				icon_state = "[base_icon]-over"
 				update_icon()
 			else

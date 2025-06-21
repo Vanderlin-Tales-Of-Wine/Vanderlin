@@ -43,7 +43,7 @@
 	H.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE)
 	H.change_stat(STATKEY_INT, 1)
 	shoes = /obj/item/clothing/shoes/boots
-	backl = /obj/item/storage/backpack/satchel
+	wear_back_left = /obj/item/storage/backpack/satchel
 	neck = /obj/item/storage/belt/pouch/coins/veryrich
 	belt = /obj/item/storage/belt/leather
 	ring = /obj/item/clothing/ring/silver
@@ -57,7 +57,7 @@
 		shirt = /obj/item/clothing/shirt/dress/silkdress/random
 		head = /obj/item/clothing/head/hatfur
 		cloak = /obj/item/clothing/cloak/raincloak/furcloak
-		backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
+		wear_back_right = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
 		beltr = /obj/item/weapon/knife/dagger/steel/special
 		beltl = /obj/item/ammo_holder/quiver/arrows
 		backpack_contents = list(/obj/item/reagent_containers/glass/bottle/wine = 1, /obj/item/reagent_containers/glass/cup/silver = 1)
@@ -69,7 +69,7 @@
 		shirt = /obj/item/clothing/shirt/tunic/random
 		cloak = /obj/item/clothing/cloak/raincloak/furcloak
 		head = /obj/item/clothing/head/fancyhat
-		backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
+		wear_back_right = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
 		beltr = /obj/item/weapon/sword/rapier/dec
 		beltl = /obj/item/ammo_holder/quiver/arrows
 		backpack_contents = list(/obj/item/reagent_containers/glass/bottle/wine = 1, /obj/item/reagent_containers/glass/cup/silver = 1)

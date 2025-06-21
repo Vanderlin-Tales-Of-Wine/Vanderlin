@@ -33,14 +33,14 @@
 		H.name = "[honorary] [prev_name]"
 
 	pants = /obj/item/clothing/pants/tights/black
-	backr = /obj/item/weapon/sword/long/greatsword/flamberge
+	wear_back_right = /obj/item/weapon/sword/long/greatsword/flamberge
 	beltl = /obj/item/storage/belt/pouch/coins/mid
 	shoes = /obj/item/clothing/shoes/boots/rare/grenzelplate
 	gloves = /obj/item/clothing/gloves/rare/grenzelplate
 	belt = /obj/item/storage/belt/leather
 	shirt = /obj/item/clothing/armor/gambeson
 	armor = /obj/item/clothing/armor/rare/grenzelplate
-	backl = /obj/item/storage/backpack/satchel
+	wear_back_left = /obj/item/storage/backpack/satchel
 	head = /obj/item/clothing/head/rare/grenzelplate
 	wrists = /obj/item/clothing/wrists/bracers
 	neck = /obj/item/clothing/neck/chaincoif

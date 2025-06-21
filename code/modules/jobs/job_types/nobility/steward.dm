@@ -42,7 +42,7 @@
 	belt = /obj/item/storage/belt/leather/plaquesilver
 	beltr = /obj/item/storage/keyring/steward
 	beltl = /obj/item/weapon/knife/dagger/steel
-	backr = /obj/item/storage/backpack/satchel
+	wear_back_right = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/storage/belt/pouch/coins/rich = 1, /obj/item/lockpickring/mundane = 1)
 
 	H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
