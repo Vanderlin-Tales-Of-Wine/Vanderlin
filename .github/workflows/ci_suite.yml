@@ -3,13 +3,13 @@ name: BYOND Build
 on:
   push:
     branches:
-      - main
+    - main
   pull_request:
     branches:
-      - main
+    - main
   merge_group:
     branches:
-    - master
+    - main
 
 env:
   BYOND_MAJOR: 515
