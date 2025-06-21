@@ -99,3 +99,7 @@
 // Audio/Visual Flags. Used to determine what sense are required to notice a message.
 #define MSG_VISUAL (1<<0)
 #define MSG_AUDIBLE (1<<1)
+
+// USE ABOVE INSTEAD?
+#define EMOTE_VISIBLE 1
+#define EMOTE_AUDIBLE 2

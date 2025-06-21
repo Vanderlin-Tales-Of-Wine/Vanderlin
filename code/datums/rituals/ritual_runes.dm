@@ -1,4 +1,3 @@
-#define QDEL_LIST_CONTENTS(L) if(L) { for(var/I in L) qdel(I); L.Cut(); }
 /obj/effect/decal/cleanable/roguerune	// basis for all rituals
 	name = "ritualrune"
 	desc = "Strange symbols pulse upon the ground..."

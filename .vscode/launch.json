@@ -37,6 +37,6 @@
             "preLaunchTask": "Build All (unit tests)",
 			"dmb": "${workspaceFolder}/${command:CurrentDMB}",
 			"dreamDaemon": true
-		},
+		}
     ]
 }

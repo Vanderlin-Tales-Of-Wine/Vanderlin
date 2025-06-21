@@ -1,4 +1,3 @@
-#define DEFAULT_DURATION 15 MINUTES
 /* Component for adding a generic magical outline to a component, make it disappear if not held / worn
 by Arcane user after a duration
 */

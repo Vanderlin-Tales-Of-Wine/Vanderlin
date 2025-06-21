@@ -335,3 +335,6 @@
 
 /atom/movable/screen/movable/snap/lockpicking/proc/turn_sound_reset()
 	playing_lock_sound = FALSE
+
+#undef LOCKPICK_MOUSEUP
+#undef LOCKPICK_MOUSEDOWN

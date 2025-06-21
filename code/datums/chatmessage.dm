@@ -6,12 +6,13 @@
 #define CHAT_MESSAGE_APPROX_LHEIGHT	11 // Approximate height in pixels of an 'average' line, used for height decay
 #define CHAT_MESSAGE_WIDTH			96 // pixels
 #define CHAT_MESSAGE_MAX_LENGTH		110 // characters
-//#define WXH_TO_HEIGHT(x)			text2num(copytext((x), findtextEx((x), "x") + 1)) // thanks lummox
+
 #define WXH_TO_HEIGHT(measurement, return_var) \
 	do { \
 		var/_measurement = measurement; \
 		return_var = text2num(copytext(_measurement, findtextEx(_measurement, "x") + 1)); \
 	} while(FALSE);
+
 /**
  * # Chat Message Overlay
  *
@@ -238,3 +239,13 @@
 
 	// Display visual above source
 	new /datum/chatmessage(text, speaker, src, message_language, spans)
+
+#undef CHAT_MESSAGE_SPAWN_TIME
+#undef CHAT_MESSAGE_LIFESPAN
+#undef CHAT_MESSAGE_EOL_FADE
+#undef CHAT_MESSAGE_EXP_DECAY
+#undef CHAT_MESSAGE_HEIGHT_DECAY
+#undef CHAT_MESSAGE_APPROX_LHEIGHT
+#undef CHAT_MESSAGE_WIDTH
+#undef CHAT_MESSAGE_MAX_LENGTH
+#undef WXH_TO_HEIGHT
