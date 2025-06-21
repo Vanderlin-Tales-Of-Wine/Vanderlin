@@ -186,6 +186,9 @@
 
 #define INTENT_USE			/datum/intent/use
 
+#define SHIELD_BASH		/datum/intent/shield/bash
+#define SHIELD_BLOCK		/datum/intent/shield/block
+
 // animation types
 #define ATTACK_ANIMATION_BONK "bonk"
 #define ATTACK_ANIMATION_SWIPE "swipe"
