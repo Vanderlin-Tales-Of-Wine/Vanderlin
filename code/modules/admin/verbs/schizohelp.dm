@@ -13,11 +13,11 @@ GLOBAL_LIST_EMPTY_TYPED(schizohelps, /datum/schizohelp)
 	if(client?.prefs?.muted & MUTE_MEDITATE)
 		return
 
-	to_chat(src, span_info("<i>You meditate...</i>\n[msg]"))
+	to_chat(src, span_notice("[mentor_block("<i>You meditate...</i>\n[msg]")]"))
 	var/datum/schizohelp/ticket = new(src)
 	var/display_name = get_schizo_name()
-	var/message = span_info("<i>[display_name] meditates...</i>\n[msg]")
-	var/message_admins = span_info("<i>[display_name] ([key || "NO KEY"]) [ADMIN_FLW(src)] [ADMIN_SM(src)] meditates...</i>\n[msg]")
+	var/message = span_notice("<i>[display_name] meditates...</i>\n[msg]")
+	var/message_admins = span_notice("<i>[display_name] ([key || "NO KEY"]) [ADMIN_FLW(src)] [ADMIN_SM(src)] meditates...</i>\n[msg]")
 	log_game("([key || "NO KEY"]) mentorhelped: [msg]")
 	for(var/client/voice in (GLOB.clients - client))
 		var/added_text
@@ -25,14 +25,14 @@ GLOBAL_LIST_EMPTY_TYPED(schizohelps, /datum/schizohelp)
 			added_text += " ([ckey]) <A href='?_src_=holder;[HrefToken()];mute=[ckey];mute_type=[MUTE_MEDITATE]'><font color='[(client?.prefs?.muted & MUTE_MEDITATE)?"red":"blue"]'>\[MUTE\]</font></a>"
 		if(!(voice.prefs.toggles & SCHIZO_VOICE) || check_rights_for(voice, R_ADMIN))
 			continue
-		var/answer_button = span_info("(<a href='byond://?src=[voice];schizohelp=[REF(ticket)];'>ANSWER</a>)")
-		to_chat(voice, "[message] [added_text] [answer_button]")
+		var/answer_button = span_notice("(<a href='byond://?src=[voice];schizohelp=[REF(ticket)];'>ANSWER</a>)")
+		to_chat(voice, mentor_block("[message] [added_text] [answer_button]"))
 
 	for(var/client/admin in GLOB.admins)
 		if(!(admin.prefs.chat_toggles & CHAT_PRAYER))
 			continue
-		var/answer_button = span_info("(<a href='byond://?src=[admin];schizohelp=[REF(ticket)];'>ANSWER</a>)")
-		to_chat(admin, "[message_admins] [answer_button]")
+		var/answer_button = span_notice("(<a href='byond://?src=[admin];schizohelp=[REF(ticket)];'>ANSWER</a>)")
+		to_chat(admin,  mentor_block("[message_admins] [answer_button]"))
 	COOLDOWN_START(src, schizohelp_cooldown, 1 MINUTES)
 
 /mob/proc/get_schizo_name()
@@ -103,16 +103,18 @@ GLOBAL_LIST_EMPTY_TYPED(schizohelps, /datum/schizohelp)
 /datum/schizohelp/proc/answer_schizo(answer, mob/voice)
 	if(QDELETED(src) || !voice.client)
 		return
-	to_chat(owner, "<i>I hear a voice in my head...\n<b>[answer]</i></b>")
+	to_chat(owner, mentor_block("[span_notice("<i>I hear a voice in my head...\n<b>[answer]</i></b>")]"))
 	for(var/client/admin in GLOB.admins)
 		if(!(admin.prefs.chat_toggles & CHAT_PRAYER))
 			continue
-		to_chat(admin, span_info("<i>[voice] ([voice.key || "NO KEY"]) [ADMIN_FLW(owner)] [ADMIN_SM(owner)] answered [owner] ([owner.key || "NO KEY"])'s [ADMIN_FLW(owner)] [ADMIN_SM(owner)] meditation:</i>\n[answer]"))
+		to_chat(admin, span_admin_log("<i>[voice] ([voice.key || "NO KEY"]) [ADMIN_FLW(voice)] [ADMIN_SM(voice)] answered [owner] ([owner.key || "NO KEY"])'s [ADMIN_FLW(owner)] [ADMIN_SM(owner)] meditation:</i>\n[answer]"))
+
 	answers[voice.key] = answer
-	if(length(answers) >= max_answers)
-		qdel(src)
 
 	log_game("([voice.key || "NO KEY"]) answered ([owner.key || "NO KEY"])'s mentorhelp: [answer]")
+
+	if(length(answers) >= max_answers)
+		qdel(src)
 
 /datum/schizohelp/proc/owner_qdeleted(mob/source)
 	if(QDELETED(src))

@@ -157,8 +157,11 @@
 #define span_yell(str) ("<span class='yell'>" + str + "</span>")
 #define span_yellowteamradio(str) ("<span class='yellowteamradio'>" + str + "</span>")
 #define span_silver(str) ("<span class='silver'>" + str + "</span>")
-
-/* ROGUE */
 #define span_artery(str) ("<span class='artery'>" + str + "</span>")
 #define span_hellspeak(str) ("<span class='hellspeak'>" + str + "</span>")
 #define span_love(str) ("<span class='love'>" + str + "</span>")
+
+/* Complex Spans */
+// Ones where span_X isn't just the class
+
+#define span_admin_log(str) ("<span class='admin'><span class='prefix'>ADMIN LOG: </span><span class='message linkify'>" + str + "</span></span>")
