@@ -149,6 +149,7 @@ GLOBAL_LIST_EMPTY(job_respawn_delays)
 #define CTAG_MENATARMS		"CAT_MENATARMS"
 #define CTAG_SERVANT		"CAT_SERVANT" 		// Servant class - 4 type of servant to fill in someplace.
 #define CTAG_GATEMASTER		"CAT_GATEMASTER"
+#define CTAG_LORD			"CAT_LORD"			// Lord classes.
 
 /*
 	Defines for the triumph buy datum categories
