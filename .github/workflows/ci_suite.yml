@@ -18,6 +18,9 @@ jobs:
     if: ( !contains(github.event.head_commit.message, '[ci skip]') )
     name: Run Linters
     runs-on: ubuntu-22.04
+    concurrency:
+      group: run_linters-${{ github.ref }}
+      cancel-in-progress: true
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -83,6 +86,9 @@ jobs:
     if: ( !contains(github.event.head_commit.message, '[ci skip]') )
     name: Compile Maps
     runs-on: ubuntu-22.04
+    concurrency:
+      group: compile_all_maps-${{ github.ref }}
+      cancel-in-progress: true
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -104,15 +110,18 @@ jobs:
     runs-on: ubuntu-22.04
     outputs:
       maps: ${{ steps.map_finder.outputs.maps }}
+    concurrency:
+      group: find_all_maps-${{ github.ref }}
+      cancel-in-progress: true
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Find Maps
         id: map_finder
         run: |
           echo "$(ls -mw0 _maps/*.json)" > maps_output.txt
           sed -i -e s+_maps/+\"+g -e s+.json+\"+g maps_output.txt
           echo "Maps: $(cat maps_output.txt)"
-          echo "::set-output name=maps::{\"paths\":[$(cat maps_output.txt)]}"
+          echo "maps::{\"paths\":[$(cat maps_output.txt)]}">> $GITHUB_OUTPUT
 
   run_all_tests:
     if: ( !contains(github.event.head_commit.message, '[ci skip]') )
@@ -132,7 +141,7 @@ jobs:
           - 3306
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     concurrency:
-      group: ci-${{ github.ref }}-${{ matrix.map }}
+      group: run_all_tests-ci-${{ github.ref }}-${{ matrix.map }}
       cancel-in-progress: true
     steps:
       - name: Checkout code
@@ -166,6 +175,9 @@ jobs:
     if: ( !contains(github.event.head_commit.message, '[ci skip]') )
     name: Windows Build
     runs-on: windows-latest
+    concurrency:
+      group: test_windows-${{ github.ref }}
+      cancel-in-progress: true
     steps:
       - uses: actions/checkout@v4
       - name: Restore BYOND cache
