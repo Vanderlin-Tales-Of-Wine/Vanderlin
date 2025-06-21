@@ -7,20 +7,24 @@ on:
   pull_request:
     branches:
       - main
+  merge_group:
+    branches:
+    - master
 
 env:
   BYOND_MAJOR: 515
   BYOND_MINOR: 1647
   SPACEMAN_DMM_VERSION: suite-1.9
 
+concurrency:
+  group: test_windows-${{ github.head_ref || github.run_id  }}
+  cancel-in-progress: true
+
 jobs:
   run-linters:
     if: ( !contains(github.event.head_commit.message, '[ci skip]') )
     name: Run Linters
     runs-on: ubuntu-22.04
-    concurrency:
-      group: run_linters-${{ github.head_ref || github.run_id  }}
-      cancel-in-progress: true
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -44,18 +48,41 @@ jobs:
           bash tools/ci/install_spaceman_dmm.sh dreamchecker
           bash tools/ci/install_ripgrep.sh
           tools/bootstrap/python -c ''
-      - name: Run Linters
+      - name: Give Linters A Go
+        id: linter-setup
+        run: ':'
+      - name: Run Grep Checks
+        if: steps.linter-setup.conclusion == 'success' && !cancelled()
+        run: bash tools/ci/check_grep.sh
+      - name: Ticked File Enforcement
+        if: steps.linter-setup.conclusion == 'success' && !cancelled()
         run: |
-          bash tools/ci/check_filedirs.sh vanderlin.dme
-          bash tools/ci/check_changelogs.sh
-          find . -name "*.php" -print0 | xargs -0 -n1 php -l
-          bash tools/ci/check_grep.sh
+          set +e
           tools/bootstrap/python tools/ticked_file_enforcement/ticked_file_enforcement.py < tools/ticked_file_enforcement/schemas/vanderlin_dme.json
           tools/bootstrap/python tools/ticked_file_enforcement/ticked_file_enforcement.py < tools/ticked_file_enforcement/schemas/unit_tests.json
-          tools/bootstrap/python -m tools.maplint.source --github
-          tools/bootstrap/python -m define_sanity.check
-          tools/bootstrap/python -m dmi.test
+      - name: Check Define Sanity
+        if: steps.linter-setup.conclusion == 'success' && !cancelled()
+        run: tools/bootstrap/python -m define_sanity.check
+      - name: Run DreamChecker
+        if: steps.linter-setup.conclusion == 'success' && !cancelled()
+        run: ~/dreamchecker 2>&1 | bash tools/ci/annotate_dm.sh
+      - name: Run Map Checks
+        if: steps.linter-setup.conclusion == 'success' && !cancelled()
+        run: |
           tools/bootstrap/python -m mapmerge2.dmm_test
+          tools/bootstrap/python -m tools.maplint.source
+      - name: Run DMI Tests
+        if: steps.linter-setup.conclusion == 'success' && !cancelled()
+        run: tools/bootstrap/python -m dmi.test
+      - name: Check File Directories
+        if: steps.linter-setup.conclusion == 'success' && !cancelled()
+        run: bash tools/ci/check_filedirs.sh vanderlin.dme
+      - name: Check Changelogs
+        if: steps.linter-setup.conclusion == 'success' && !cancelled()
+        run: bash tools/ci/check_changelogs.sh
+      - name: Check Miscellaneous Files
+        if: steps.linter-setup.conclusion == 'success' && !cancelled()
+        run: bash tools/ci/check_misc.sh
 
   OpenDream:
     runs-on: ubuntu-latest
@@ -88,9 +115,6 @@ jobs:
     if: ( !contains(github.event.head_commit.message, '[ci skip]') )
     name: Compile Maps
     runs-on: ubuntu-22.04
-    concurrency:
-      group: compile_all_maps-${{ github.head_ref || github.run_id  }}
-      cancel-in-progress: true
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -98,7 +122,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/BYOND
-          key: ${{ runner.os }}-byond
+          key: ${{ runner.os }}-byond-${{ hashFiles('dependencies.sh') }}
       - name: Compile All Maps
         run: |
           bash tools/ci/install_byond.sh
@@ -112,9 +136,6 @@ jobs:
     runs-on: ubuntu-22.04
     outputs:
       maps: ${{ steps.map_finder.outputs.maps }}
-    concurrency:
-      group: find_all_maps-${{ github.head_ref || github.run_id  }}
-      cancel-in-progress: true
     steps:
       - uses: actions/checkout@v4
       - name: Find Maps
@@ -134,17 +155,6 @@ jobs:
       fail-fast: false
       matrix:
         map: ${{ fromJSON(needs.find_all_maps.outputs.maps).paths }}
-    services:
-      mysql:
-        image: mysql:latest
-        env:
-          MYSQL_ROOT_PASSWORD: root
-        ports:
-          - 3306
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
-    concurrency:
-      group: run_all_tests-ci-${{ github.head_ref || github.run_id  }}-${{ matrix.map }}
-      cancel-in-progress: true
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -152,7 +162,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/BYOND
-          key: ${{ runner.os }}-byond
+          key: ${{ runner.os }}-byond-${{ hashFiles('dependencies.sh') }}
       - name: Setup database
         run: |
           sudo systemctl start mysql
@@ -177,16 +187,13 @@ jobs:
     if: ( !contains(github.event.head_commit.message, '[ci skip]') )
     name: Windows Build
     runs-on: windows-latest
-    concurrency:
-      group: test_windows-${{ github.head_ref || github.run_id  }}
-      cancel-in-progress: true
     steps:
       - uses: actions/checkout@v4
       - name: Restore BYOND cache
         uses: actions/cache@v4
         with:
           path: C:\\byond
-          key: ${{ runner.os }}-byond
+          key: ${{ runner.os }}-byond-${{ hashFiles('dependencies.sh') }}
       - name: Compile
         run: pwsh tools/ci/build.ps1
         env:
