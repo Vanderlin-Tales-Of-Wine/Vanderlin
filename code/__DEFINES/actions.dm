@@ -3,3 +3,5 @@
 #define AB_CHECK_LYING (1<<2)
 #define AB_CHECK_CONSCIOUS (1<<3)
 #define AB_CHECK_INCAPACITATED (1<<4)
+
+#define ACTION_BUTTON_DEFAULT_BACKGROUND "default"

@@ -562,3 +562,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 /datum/reagent/consumable/ethanol/mead/spider
 	color = "#660061"
 	glows = TRUE
+
+#undef ALCOHOL_THRESHOLD_MODIFIER
+#undef ALCOHOL_RATE
+#undef ALCOHOL_EXPONENT

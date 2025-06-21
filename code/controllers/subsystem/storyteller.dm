@@ -1,4 +1,3 @@
-#define INIT_ORDER_GAMEMODE 70
 ///how many storytellers can be voted for along with always_votable ones
 #define DEFAULT_STORYTELLER_VOTE_OPTIONS 4
 ///amount of players we can have before no longer running votes for storyteller
