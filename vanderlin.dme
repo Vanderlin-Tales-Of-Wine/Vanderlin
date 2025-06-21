@@ -2453,6 +2453,7 @@
 #include "code\modules\procedural_mapping\rosewood\forest.dm"
 #include "code\modules\procedural_mapping\rosewood\howling.dm"
 #include "code\modules\procedural_mapping\vanderlin\anvil.dm"
+#include "code\modules\procedural_mapping\whitepalacepass\field.dm"
 #include "code\modules\projectiles\gun.dm"
 #include "code\modules\projectiles\projectile.dm"
 #include "code\modules\projectiles\ammunition\_ammunition.dm"

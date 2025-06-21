@@ -207,6 +207,16 @@
 	explosion(src, light_impact_range = 1, hotspot_range = 2, smoke = TRUE, soundin = pick('sound/misc/explode/bottlebomb (1).ogg','sound/misc/explode/bottlebomb (2).ogg'))
 	post_triggered()
 
+/obj/structure/trap/mine
+	name = "mine plate trap"
+	icon_state = "bomb_trap_plate"
+	charges = 1
+
+/obj/structure/trap/mine/trigger_step_off(mob/living/victim)
+	..()
+	explosion(src, heavy_impact_range = 2, light_impact_range = 3, flash_range = 2, smoke = TRUE, soundin = pick('sound/misc/explode/bottlebomb (1).ogg','sound/misc/explode/bottlebomb (2).ogg'))
+	post_triggered()
+
 /obj/structure/trap/saw_blades
 	name = "saw plate trap"
 	icon_state = "saw_trap_plate"
