@@ -15403,14 +15403,6 @@
 /obj/structure/fluff/millstone,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town)
-"jKo" = (
-/obj/structure/chair/stool,
-/obj/structure/fake_machine/atm{
-	pixel_x = 32;
-	pixel_y = 0
-	},
-/turf/open/floor/ruinedwood/chevron,
-/area/rogue/indoors/town/merc_guild)
 "jKw" = (
 /obj/machinery/essence/enchantment_altar,
 /turf/open/floor/twig,
@@ -26535,6 +26527,14 @@
 	},
 /turf/open/floor/blocks,
 /area/rogue/outdoors/town)
+"qVY" = (
+/obj/structure/chair/stool,
+/obj/structure/fake_machine/atm{
+	pixel_x = 32;
+	pixel_y = 0
+	},
+/turf/open/floor/ruinedwood/chevron,
+/area/rogue/indoors/town/merc_guild)
 "qWa" = (
 /turf/open/floor/hexstone,
 /area/rogue/indoors/town/manor)
@@ -33392,6 +33392,7 @@
 /area/rogue/outdoors/town/roofs)
 "vte" = (
 /obj/structure/table/wood/plain_alt,
+/obj/item/clothing/face/spectacles,
 /turf/open/floor/tile/checkeralt,
 /area/rogue/indoors/town/manor)
 "vtn" = (
@@ -96071,7 +96072,7 @@ idS
 idS
 idS
 jqO
-jKo
+qVY
 tZf
 arh
 jMD
