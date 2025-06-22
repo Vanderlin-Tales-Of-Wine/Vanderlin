@@ -570,7 +570,8 @@
 			. += "<a href='byond://?src=[REF(src)];inspect_limb=[checked_zone]'>Inspect [parse_zone(checked_zone)]</a>"
 			if(body_position == LYING_DOWN && user != src && (user.zone_selected == BODY_ZONE_CHEST))
 				. += "<a href='byond://?src=[REF(src)];check_hb=1'>Listen to Heartbeat</a>"
-		. += "<a href='byond://?src=[REF(src)];view_descriptors=1'>Look at Features</a>"
+
+	. += "<a href='byond://?src=[REF(src)];view_descriptors=1'>Look at Features</a>"
 
 	// Characters with the hunted flaw will freak out if they can't see someone's face.
 	if(!appears_dead)

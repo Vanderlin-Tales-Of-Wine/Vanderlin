@@ -1707,8 +1707,8 @@
 
 		// var/datum/dna/mob_DNA = has_dna()
 		// if(!mob_DNA || !mob_DNA.check_mutation(/datum/mutation/human/telekinesis) || !tkMaxRangeCheck(src, target))
-		to_chat(src, span_warning("You are too far away!"))
-		return FALSE
+		/*to_chat(src, span_warning("You are too far away!"))
+		return FALSE */
 
 	if((action_bitflags & NEED_DEXTERITY) && !IsAdvancedToolUser()) // !ISADVANCEDTOOLUSER(src)
 		to_chat(src, span_warning("You don't have the dexterity to do this!"))
