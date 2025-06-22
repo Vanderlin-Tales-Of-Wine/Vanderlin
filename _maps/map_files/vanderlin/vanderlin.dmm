@@ -14853,9 +14853,9 @@
 /obj/structure/table/wood{
 	icon_state = "longtable"
 	},
-/obj/item/candle/yellow/lit/infinite/strong/skull{
+/obj/item/candle/skull{
 	pixel_x = 10;
-	pixel_y = 0
+	pixel_y = 1
 	},
 /turf/open/floor/blocks,
 /area/rogue/under/town/basement)
