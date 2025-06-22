@@ -18,7 +18,7 @@
 	user_by_item -= target
 
 /datum/element/earhealing/proc/equippedChanged(datum/source, mob/living/carbon/user, slot)
-	if(slot == SLOT_HEAD && istype(user))
+	if((slot & ITEM_SLOT_HEAD) && istype(user))
 		user_by_item[source] = user
 	else
 		user_by_item -= source

@@ -39,7 +39,7 @@
 		hand.forceMove(target)
 		bodypart.add_embedded_object(hand, silent = TRUE, crit_message = FALSE)
 		target.visible_message(span_warning("A skeletal hand grips [target]'s [bodypart]!"), span_danger("A skeletal hand grips my [bodypart]!"))
-		return TRUE
+		return ..()
 	return FALSE
 
 /obj/item/chilltouch5e

@@ -37,7 +37,7 @@
 		if(I.w_class <= WEIGHT_CLASS_SMALL && prob(50))
 			step_rand(I)
 
-	return TRUE
+	return ..()
 
 /obj/effect/proc_holder/spell/invoked/utility/cleanse
 	name = "Cleanse"
@@ -57,7 +57,7 @@
 
 	target.wash(CLEAN_WASH)
 
-	return TRUE
+	return ..()
 
 /obj/effect/proc_holder/spell/invoked/utility/spark
 	name = "Spark"
@@ -88,7 +88,7 @@
 				T.fuel += 5 MINUTES
 				T.fire_act()
 
-	return TRUE
+	return ..()
 
 /obj/effect/proc_holder/spell/invoked/utility/mend
 	name = "Minor Mend"
@@ -112,7 +112,7 @@
 		target.obj_integrity = min(target.max_integrity, target.obj_integrity + 10)
 		target.update_icon()
 
-	return TRUE
+	return ..()
 
 /obj/effect/proc_holder/spell/invoked/utility/chill
 	name = "Frost Touch"
@@ -138,7 +138,7 @@
 			var/obj/item/reagent_containers/food/snacks/food = item
 			food.warming += 5 MINUTES
 
-	return TRUE
+	return ..()
 
 /obj/effect/proc_holder/spell/invoked/utility/illuminate
 	name = "Illuminate"
@@ -158,7 +158,7 @@
 	orb.set_light(3, 1, "#FFFFFF")
 	QDEL_IN(orb, 30 SECONDS)
 
-	return TRUE
+	return ..()
 
 /obj/effect/proc_holder/spell/invoked/utility/haste
 	name = "Swift Step"
@@ -175,7 +175,7 @@
 
 	user.apply_status_effect(/datum/status_effect/buff/duration_modification/haste, 10 SECONDS)
 
-	return TRUE
+	return ..()
 
 /obj/effect/proc_holder/spell/invoked/utility/refresh
 	name = "Refresh"
@@ -196,7 +196,7 @@
 	target.adjust_stamina(20)
 	target.adjust_energy(20)
 
-	return TRUE
+	return ..()
 
 // Temporary light effect
 /obj/effect/temp_visual/light_orb
@@ -218,7 +218,7 @@
 /obj/effect/proc_holder/spell/invoked/utility/air_walk/cast(list/targets, mob/living/user)
 	visible_message(span_notice("[user] steps onto solidified air."))
 	user.apply_status_effect(/datum/status_effect/buff/air_walking, 15 SECONDS)
-	return TRUE
+	return ..()
 
 // Water Essence Spells
 /obj/effect/proc_holder/spell/invoked/utility/water_breathing
@@ -235,7 +235,7 @@
 		target = user
 	visible_message(span_notice("[target] gains the ability to breathe underwater."))
 	target.apply_status_effect(/datum/status_effect/buff/water_breathing, 60 SECONDS)
-	return TRUE
+	return ..()
 
 // Fire Essence Spells
 /obj/effect/proc_holder/spell/invoked/utility/warmth
@@ -252,7 +252,7 @@
 		target = user
 	visible_message(span_notice("[target] radiates gentle warmth."))
 	target.apply_status_effect(/datum/status_effect/buff/warmth, 120 SECONDS)
-	return TRUE
+	return ..()
 
 // Earth Essence Spells
 /obj/effect/proc_holder/spell/invoked/utility/stone_shape
@@ -272,7 +272,7 @@
 	// Create small stone tools or reshape minor features
 	if(prob(30))
 		new /obj/item/natural/stone(target_turf)
-	return TRUE
+	return ..()
 
 // Frost Essence Spells
 /obj/effect/proc_holder/spell/invoked/utility/preserve
@@ -292,7 +292,7 @@
 	if(istype(target, /obj/item/reagent_containers/food/snacks))
 		var/obj/item/reagent_containers/food/snacks/food = target
 		food.warming += 2 HOURS
-	return TRUE
+	return ..()
 
 // Light Essence Spells
 /obj/effect/proc_holder/spell/invoked/utility/daylight
@@ -308,7 +308,7 @@
 	var/obj/effect/temp_visual/daylight_orb/orb = new(get_turf(user))
 	orb.set_light(5, 2, "#FFFFAA")
 	QDEL_IN(orb, 60 SECONDS)
-	return TRUE
+	return ..()
 
 // Motion Essence Spells
 /obj/effect/proc_holder/spell/invoked/utility/phase_step
@@ -322,7 +322,7 @@
 /obj/effect/proc_holder/spell/invoked/utility/phase_step/cast(list/targets, mob/living/user)
 	visible_message(span_notice("[user] becomes translucent momentarily."))
 	user.apply_status_effect(/datum/status_effect/buff/phase_walking, 5 SECONDS)
-	return TRUE
+	return ..()
 
 // Life Essence Spells
 /obj/effect/proc_holder/spell/invoked/utility/vigor
@@ -339,7 +339,7 @@
 		target = user
 	visible_message(span_notice("[target] appears invigorated."))
 	target.apply_status_effect(/datum/status_effect/buff/vigor, 60 SECONDS)
-	return TRUE
+	return ..()
 
 /obj/effect/proc_holder/spell/invoked/utility/stabilize
 	name = "Stabilize"
@@ -362,7 +362,7 @@
 	target.anchored = TRUE
 	addtimer(VARSET_CALLBACK(target, anchored, FALSE), 30 SECONDS)
 
-	return TRUE
+	return ..()
 
 /obj/effect/proc_holder/spell/invoked/utility/randomize
 	name = "Randomize"
@@ -388,7 +388,7 @@
 			playsound(target_turf, pick('sound/magic/fireball.ogg'), 30, TRUE)
 		if(4)
 			target_turf.visible_message(span_notice("The air shimmers with chaotic energy."))
-	return TRUE
+	return ..()
 
 // Void Essence Spells
 /obj/effect/proc_holder/spell/invoked/utility/silence
@@ -407,7 +407,7 @@
 
 	var/obj/effect/temp_visual/silence_zone/zone = new(target_turf)
 	QDEL_IN(zone, 30 SECONDS)
-	return TRUE
+	return ..()
 
 // Poison Essence Spells
 /obj/effect/proc_holder/spell/invoked/utility/neutralize
@@ -427,7 +427,7 @@
 	if(istype(target, /mob/living))
 		var/mob/living/L = target
 		L.reagents?.remove_all_type(/datum/reagent/toxin, 5)
-	return TRUE
+	return ..()
 
 /obj/effect/proc_holder/spell/invoked/utility/detect_poison
 	name = "Detect Poison"
@@ -451,7 +451,7 @@
 
 	if(!found_poison)
 		to_chat(user, span_notice("No toxins detected in the area."))
-	return TRUE
+	return ..()
 
 /obj/effect/proc_holder/spell/invoked/utility/gem_detect
 	name = "Gem Detect"
@@ -483,7 +483,7 @@
 
 	if(!found_gems)
 		to_chat(user, span_notice("No gems detected in the area."))
-	return TRUE
+	return ..()
 
 /obj/effect/proc_holder/spell/invoked/utility/arcane_mark
 	name = "Arcane Mark"
@@ -499,7 +499,7 @@
 		return FALSE
 	visible_message(span_notice("[user] places an arcane mark on [target]."))
 	target.desc += " <i>It bears a faint magical mark.</i>"
-	return TRUE
+	return ..()
 
 // Energia Essence Spells
 /obj/effect/proc_holder/spell/invoked/utility/energize
@@ -525,7 +525,7 @@
 		var/obj/structure/mana_pylon/pylon = target
 		pylon.mana_pool.adjust_mana(30)
 
-	return TRUE
+	return ..()
 
 /obj/effect/proc_holder/spell/invoked/utility/power_surge
 	name = "Power Surge"
@@ -543,7 +543,7 @@
 
 	var/obj/effect/temp_visual/power_surge/surge = new(target_turf)
 	QDEL_IN(surge, 10 SECONDS)
-	return TRUE
+	return ..()
 
 // Cycle Essence Spells
 /obj/effect/proc_holder/spell/invoked/utility/seasonal_attune
@@ -557,7 +557,7 @@
 /obj/effect/proc_holder/spell/invoked/utility/seasonal_attune/cast(list/targets, mob/living/user)
 	visible_message(span_notice("[user] harmonizes with the natural cycles."))
 	user.apply_status_effect(/datum/status_effect/buff/seasonal_attunement, 600 SECONDS)
-	return TRUE
+	return ..()
 
 // Temporary visual effects for spells
 /obj/effect/temp_visual/daylight_orb
@@ -600,7 +600,7 @@
 
 	var/obj/effect/temp_visual/flame_jet/jet = new(target_turf)
 	QDEL_IN(jet, 15 SECONDS)
-	return TRUE
+	return ..()
 
 /obj/effect/temp_visual/flame_jet
 	name = "flame jet"
@@ -632,7 +632,7 @@
 		return FALSE
 	visible_message(span_notice("[user] creates moldable mud from earth and water."))
 	new /obj/item/natural/clay(target_turf)
-	return TRUE
+	return ..()
 
 /obj/effect/proc_holder/spell/invoked/utility/fertile_soil
 	name = "Fertile Soil"
@@ -650,7 +650,7 @@
 
 	for(var/obj/structure/soil/plant in range(1, target_turf))
 		plant.bless_soil()
-	return TRUE
+	return ..()
 
 // Fire + Earth Combo
 /obj/effect/proc_holder/spell/invoked/utility/forge_heat
@@ -670,7 +670,7 @@
 	var/obj/effect/temp_visual/forge_heat/heat = new(target_turf)
 	heat.set_light(3, 2, "#FF4400")
 	QDEL_IN(heat, 60 SECONDS)
-	return TRUE
+	return ..()
 
 // Frost + Water Combo
 /obj/effect/proc_holder/spell/invoked/utility/ice_bridge
@@ -689,7 +689,7 @@
 
 	var/obj/structure/ice_bridge/bridge = new(target_turf)
 	QDEL_IN(bridge, 300 SECONDS)
-	return TRUE
+	return ..()
 
 /obj/effect/proc_holder/spell/invoked/utility/frozen_storage
 	name = "Frozen Storage"
@@ -707,6 +707,7 @@
 
 	var/obj/structure/closet/crate/chest/magical/chest = new(target_turf)
 	QDEL_IN(chest, 5 MINUTES)
+	return ..()
 
 // Light + Fire Combo Spells
 /obj/effect/proc_holder/spell/invoked/utility/brilliant_flame
@@ -726,7 +727,7 @@
 	var/obj/effect/temp_visual/brilliant_flame/flame = new(target_turf)
 	flame.set_light(6, 3, "#FFFFDD")
 	QDEL_IN(flame, 120 SECONDS)
-	return TRUE
+	return ..()
 
 /obj/effect/proc_holder/spell/invoked/utility/solar_focus
 	name = "Solar Focus"
@@ -744,7 +745,7 @@
 
 	var/obj/effect/temp_visual/solar_beam/beam = new(target_turf)
 	QDEL_IN(beam, 20 SECONDS)
-	return TRUE
+	return ..()
 
 // Life + Water Combo Spells
 /obj/effect/proc_holder/spell/invoked/utility/healing_spring
@@ -763,7 +764,7 @@
 
 	var/obj/structure/healing_spring/spring = new(target_turf)
 	QDEL_IN(spring, 600 SECONDS)
-	return TRUE
+	return ..()
 
 /obj/effect/proc_holder/spell/invoked/utility/purify_water
 	name = "Purify Water"
@@ -783,7 +784,7 @@
 		target.reagents.remove_all_type(/datum/reagent/toxin)
 		target.reagents.remove_reagent(/datum/reagent/water/gross, 999)
 		target.reagents.add_reagent(/datum/reagent/water, 20)
-	return TRUE
+	return ..()
 
 // Earth + Crystal Combo Spells
 /obj/effect/proc_holder/spell/invoked/utility/gem_growth
@@ -803,7 +804,7 @@
 	if(prob(40))
 		new /obj/item/gem(target_turf)
 		visible_message(span_notice("A gem crystallizes from the stone!"))
-	return TRUE
+	return ..()
 
 /obj/effect/proc_holder/spell/invoked/utility/mineral_sense
 	name = "Mineral Sense"
@@ -826,7 +827,7 @@
 
 	if(!found_minerals)
 		to_chat(user, span_notice("No valuable minerals detected nearby."))
-	return TRUE
+	return ..()
 
 // Motion + Air Combo Spells
 /obj/effect/proc_holder/spell/invoked/utility/wind_step
@@ -840,7 +841,7 @@
 /obj/effect/proc_holder/spell/invoked/utility/wind_step/cast(list/targets, mob/living/user)
 	visible_message(span_notice("[user] steps upon the wind itself."))
 	user.apply_status_effect(/datum/status_effect/buff/wind_walking, 30 SECONDS)
-	return TRUE
+	return ..()
 
 /obj/effect/proc_holder/spell/invoked/utility/aerial_dash
 	name = "Aerial Dash"
@@ -853,7 +854,7 @@
 /obj/effect/proc_holder/spell/invoked/utility/aerial_dash/cast(list/targets, mob/living/user)
 	visible_message(span_notice("[user] is propelled by rushing air currents."))
 	user.apply_status_effect(/datum/status_effect/buff/aerial_speed, 15 SECONDS)
-	return TRUE
+	return ..()
 
 // Order + Light Combo Spells
 /obj/effect/proc_holder/spell/invoked/utility/divine_order
@@ -878,7 +879,7 @@
 	var/obj/effect/temp_visual/divine_light/light = new(target_turf)
 	light.set_light(4, 2, "#FFFFFF")
 	QDEL_IN(light, 60 SECONDS)
-	return TRUE
+	return ..()
 
 /obj/effect/proc_holder/spell/invoked/utility/sacred_geometry
 	name = "Sacred Geometry"
@@ -896,7 +897,7 @@
 
 	var/obj/effect/temp_visual/sacred_pattern/pattern = new(target_turf)
 	QDEL_IN(pattern, 300 SECONDS)
-	return TRUE
+	return ..()
 
 // Chaos + Void Combo Spells
 /obj/effect/proc_holder/spell/invoked/utility/reality_shift
@@ -926,7 +927,7 @@
 			playsound(target_turf, 'sound/magic/ethereal_exit.ogg', 50, TRUE)
 		if(6)
 			target_turf.visible_message(span_danger("Reality tears briefly!"))
-	return TRUE
+	return ..()
 
 /obj/effect/proc_holder/spell/invoked/utility/probability_warp
 	name = "Probability Warp"
@@ -944,7 +945,7 @@
 
 	for(var/mob/living/M in range(2, target_turf))
 		M.apply_status_effect(/datum/status_effect/buff/probability_flux, 60 SECONDS)
-	return TRUE
+	return ..()
 
 /obj/effect/proc_holder/spell/invoked/utility/toxic_cleanse
 	name = "Toxic Cleanse"
@@ -963,7 +964,7 @@
 	for(var/mob/living/M in range(2, target_turf))
 		M.reagents?.remove_all_type(/datum/reagent/toxin)
 		M.apply_status_effect(/datum/status_effect/buff/toxin_immunity, 300 SECONDS)
-	return TRUE
+	return ..()
 
 // Magic + Crystal Combo Spells
 /obj/effect/proc_holder/spell/invoked/utility/spell_crystal
@@ -981,7 +982,7 @@
 	visible_message(span_notice("[user] creates a crystal capable of storing magical energy."))
 
 	new /obj/item/spell_crystal(target_turf)
-	return TRUE
+	return ..()
 
 /obj/effect/proc_holder/spell/invoked/utility/arcane_focus
 	name = "Arcane Focus"
@@ -994,7 +995,7 @@
 /obj/effect/proc_holder/spell/invoked/utility/arcane_focus/cast(list/targets, mob/living/user)
 	visible_message(span_notice("[user] creates an arcane focusing crystal."))
 	user.apply_status_effect(/datum/status_effect/buff/arcane_focus, 600 SECONDS)
-	return TRUE
+	return ..()
 
 // Energia + Motion Combo Spells
 /obj/effect/proc_holder/spell/invoked/utility/kinetic_burst
@@ -1020,8 +1021,7 @@
 
 	var/obj/effect/temp_visual/kinetic_burst/burst = new(target_turf)
 	QDEL_IN(burst, 5 SECONDS)
-	return TRUE
-
+	return ..()
 
 /obj/effect/proc_holder/spell/invoked/utility/momentum_transfer
 	name = "Momentum Transfer"
@@ -1040,7 +1040,7 @@
 	if(ismob(target))
 		var/mob/living/M = target
 		M.apply_status_effect(/datum/status_effect/buff/momentum_boost, 30 SECONDS)
-	return TRUE
+	return ..()
 
 // Cycle + Life Combo Spells
 /obj/effect/proc_holder/spell/invoked/utility/regeneration_cycle
@@ -1057,7 +1057,7 @@
 		target = user
 	visible_message(span_notice("[target] begins a cycle of natural regeneration."))
 	target.apply_status_effect(/datum/status_effect/buff/regeneration_cycle, 300 SECONDS)
-	return TRUE
+	return ..()
 
 /obj/effect/proc_holder/spell/invoked/utility/growth_acceleration
 	name = "Growth Acceleration"
@@ -1075,7 +1075,7 @@
 
 	for(var/obj/structure/soil/plant in range(1, target_turf))
 		plant.accellerated_growth = world.time + 600 SECONDS
-	return TRUE
+	return ..()
 
 // RACIAL COMBO SPELLS
 
@@ -1107,7 +1107,7 @@
 		var/obj/item/reagent_containers/glass/glass = target
 		glass.reagents.add_reagent(/datum/reagent/consumable/ethanol/beer, 20)
 
-	return TRUE
+	return ..()
 
 /obj/effect/proc_holder/spell/invoked/utility/master_forge
 	name = "Master Forge"
@@ -1125,7 +1125,7 @@
 
 	var/obj/machinery/light/fueled/forge/arcane/forge = new(target_turf)
 	QDEL_IN(forge, 1800 SECONDS)
-	return TRUE
+	return ..()
 
 /obj/effect/proc_holder/spell/invoked/utility/ancestral_smithing
 	name = "Ancestral Smithing"
@@ -1138,7 +1138,7 @@
 /obj/effect/proc_holder/spell/invoked/utility/ancestral_smithing/cast(list/targets, mob/living/user)
 	visible_message(span_notice("[user] calls upon the wisdom of ancient dwarven smiths."))
 	user.apply_status_effect(/datum/status_effect/buff/ancestral_smithing, 600 SECONDS)
-	return TRUE
+	return ..()
 
 // Elf Racial Spells
 /obj/effect/proc_holder/spell/invoked/utility/elven_grace
@@ -1152,7 +1152,7 @@
 /obj/effect/proc_holder/spell/invoked/utility/elven_grace/cast(list/targets, mob/living/user)
 	visible_message(span_notice("[user] moves with the grace of the ancient elves."))
 	user.apply_status_effect(/datum/status_effect/buff/elven_grace, 300 SECONDS)
-	return TRUE
+	return ..()
 
 // Human Racial Spells
 /obj/effect/proc_holder/spell/invoked/utility/balanced_mind
@@ -1166,7 +1166,7 @@
 /obj/effect/proc_holder/spell/invoked/utility/balanced_mind/cast(list/targets, mob/living/user)
 	visible_message(span_notice("[user] achieves perfect mental equilibrium."))
 	user.apply_status_effect(/datum/status_effect/buff/balanced_mind, 450 SECONDS)
-	return TRUE
+	return ..()
 
 // Supporting structures and items for the new spells
 /obj/effect/temp_visual/brilliant_flame

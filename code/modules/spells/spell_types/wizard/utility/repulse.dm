@@ -49,6 +49,7 @@
 				M.Paralyze(stun_amt)
 				to_chat(M, span_danger("You're thrown back by [user]!"))
 			AM.safe_throw_at(throwtarget, ((CLAMP((maxthrow - (CLAMP(distfromcaster - 2, 0, distfromcaster))), 3, maxthrow))), 1,user, force = repulse_force)//So stuff gets tossed around at the same time.
+	return ..()
 
 /obj/effect/proc_holder/spell/invoked/push_spell
 	name = "Repulse"
@@ -110,3 +111,4 @@
 				M.Paralyze(stun_amt)
 				to_chat(M, span_danger("You're thrown back by [user]!"))
 			AM.safe_throw_at(throwtarget, ((CLAMP((maxthrow - (CLAMP(distfromcaster - 2, 0, distfromcaster))), 3, maxthrow))), 1,user, force = repulse_force)//So stuff gets tossed around at the same time.
+	return ..()

@@ -119,7 +119,7 @@ h1.alert, h2.alert	{color: #c9c1ba;font-family: Pterra, TrueType;}
 
 .spider					{color: #4d004d;}
 
-.interface				{color: #330033;}
+.interface				{color: #DA00DA;}
 
 .sans					{font-family: "Comic Sans MS", cursive, sans-serif;}
 .papyrus				{font-family: "Papyrus", cursive, sans-serif;}

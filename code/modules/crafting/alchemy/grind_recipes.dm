@@ -200,3 +200,6 @@
 	valid_input = /obj/item/alch/rosa
 	valid_outputs = list(/obj/item/herbseed/rosa = 1)
 
+/datum/alch_grind_recipe/euphorbia_seed
+	valid_input = /obj/item/alch/euphorbia
+	valid_outputs = list(/obj/item/herbseed/euphorbia = 1)

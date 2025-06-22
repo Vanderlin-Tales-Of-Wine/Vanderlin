@@ -12,7 +12,7 @@
 	uses_attacked_atom = TRUE
 	craft_time = 6 SECONDS
 	crafting_sound = 'sound/foley/dropsound/food_drop.ogg'
-	crafting_message = "Making a handpie..."
+	crafting_message = "make a handpie"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/raw_handpie_mushroom
@@ -29,7 +29,7 @@
 	uses_attacked_atom = TRUE
 	craft_time = 6 SECONDS
 	crafting_sound = 'sound/foley/dropsound/food_drop.ogg'
-	crafting_message = "Making a handpie..."
+	crafting_message = "make a handpie"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/raw_handpie_poison
@@ -46,7 +46,7 @@
 	uses_attacked_atom = TRUE
 	craft_time = 6 SECONDS
 	crafting_sound = 'sound/foley/dropsound/food_drop.ogg'
-	crafting_message = "Making a handpie..."
+	crafting_message = "make a handpie"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/raw_handpie_berry
@@ -62,7 +62,7 @@
 	uses_attacked_atom = TRUE
 	craft_time = 6 SECONDS
 	crafting_sound = 'sound/foley/dropsound/food_drop.ogg'
-	crafting_message = "Making a handpie..."
+	crafting_message = "make a handpie"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/raw_handpie_apple
@@ -78,7 +78,7 @@
 	uses_attacked_atom = TRUE
 	craft_time = 6 SECONDS
 	crafting_sound = 'sound/foley/dropsound/food_drop.ogg'
-	crafting_message = "Making a handpie..."
+	crafting_message = "make a handpie"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/raw_handpie_gote
@@ -94,7 +94,7 @@
 	uses_attacked_atom = TRUE
 	craft_time = 6 SECONDS
 	crafting_sound = 'sound/foley/dropsound/food_drop.ogg'
-	crafting_message = "Making a handpie..."
+	crafting_message = "make a handpie"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/raw_handpie_cheddar
@@ -110,7 +110,7 @@
 	uses_attacked_atom = TRUE
 	craft_time = 6 SECONDS
 	crafting_sound = 'sound/foley/dropsound/food_drop.ogg'
-	crafting_message = "Making a handpie..."
+	crafting_message = "make a handpie"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/raw_handpie_fresh
@@ -126,5 +126,5 @@
 	uses_attacked_atom = TRUE
 	craft_time = 6 SECONDS
 	crafting_sound = 'sound/foley/dropsound/food_drop.ogg'
-	crafting_message = "Making a handpie..."
+	crafting_message = "make a handpie"
 	extra_chance = 100

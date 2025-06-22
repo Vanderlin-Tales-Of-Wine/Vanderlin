@@ -63,7 +63,7 @@
 	craft_time = 2 SECONDS
 	crafting_sound = 'sound/foley/dropsound/food_drop.ogg'
 	extra_chance = 100
-	crafting_message = "Adding potato..."
+	crafting_message = "add some potato"
 
 /datum/repeatable_crafting_recipe/cooking/frysteak_tato
 	name = "Frysteak and Onions"
@@ -80,7 +80,7 @@
 	craft_time = 2 SECONDS
 	crafting_sound = 'sound/foley/dropsound/food_drop.ogg'
 	extra_chance = 100
-	crafting_message = "Adding onions..."
+	crafting_message = "add some onions"
 
 /datum/repeatable_crafting_recipe/cooking/wiener_cabbage
 	name = "Wiener on Cabbage"
@@ -96,7 +96,7 @@
 	craft_time = 2 SECONDS
 	crafting_sound = 'sound/foley/dropsound/food_drop.ogg'
 	extra_chance = 100
-	crafting_message = "Adding cabbage..."
+	crafting_message = "add some cabbage"
 
 /datum/repeatable_crafting_recipe/cooking/wiener_cabbage
 	hides_from_books = TRUE
@@ -113,7 +113,7 @@
 	craft_time = 2 SECONDS
 	crafting_sound = 'sound/foley/dropsound/food_drop.ogg'
 	extra_chance = 100
-	crafting_message = "Adding cabbage..."
+	crafting_message = "add some cabbage"
 
 /datum/repeatable_crafting_recipe/cooking/wiener_potato
 	name = "Wiener on Tato"
@@ -129,7 +129,7 @@
 	craft_time = 2 SECONDS
 	crafting_sound = 'sound/foley/dropsound/food_drop.ogg'
 	extra_chance = 100
-	crafting_message = "Adding potato..."
+	crafting_message = "add some potato"
 
 /datum/repeatable_crafting_recipe/cooking/wiener_potato
 	name = "Wiener on Fried Tato"
@@ -145,7 +145,7 @@
 	craft_time = 2 SECONDS
 	crafting_sound = 'sound/foley/dropsound/food_drop.ogg'
 	extra_chance = 100
-	crafting_message = "Adding potato..."
+	crafting_message = "add some potato"
 
 /datum/repeatable_crafting_recipe/cooking/wiener_potato
 	hides_from_books = TRUE
@@ -162,7 +162,7 @@
 	craft_time = 2 SECONDS
 	crafting_sound = 'sound/foley/dropsound/food_drop.ogg'
 	extra_chance = 100
-	crafting_message = "Adding potato..."
+	crafting_message = "add some potato"
 
 /datum/repeatable_crafting_recipe/cooking/wiener_potato
 	name = "Wiener on Onions"
@@ -178,7 +178,7 @@
 	craft_time = 2 SECONDS
 	crafting_sound = 'sound/foley/dropsound/food_drop.ogg'
 	extra_chance = 100
-	crafting_message = "Adding Onions..."
+	crafting_message = "add some onions"
 
 /datum/repeatable_crafting_recipe/cooking/wiener_potato
 	hides_from_books = TRUE
@@ -195,4 +195,4 @@
 	craft_time = 2 SECONDS
 	crafting_sound = 'sound/foley/dropsound/food_drop.ogg'
 	extra_chance = 100
-	crafting_message = "Adding Onions..."
+	crafting_message = "add some onions"

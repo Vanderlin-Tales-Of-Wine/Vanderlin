@@ -211,7 +211,7 @@ All foods are distributed among various categories. Use common sense.
 		slice_path = null
 		cooktime = 0
 		modified = TRUE
-		rot_away_timer = QDEL_IN(src, 10 MINUTES)
+		rot_away_timer = QDEL_IN_STOPPABLE(src, 10 MINUTES)
 		GLOB.vanderlin_round_stats[STATS_FOOD_ROTTED]++
 		return TRUE
 
@@ -652,6 +652,7 @@ All foods are distributed among various categories. Use common sense.
 				M.emote("me", 1, "nibbles away at \the [src]")
 			bitecount++
 			L.food = min(L.food + 30, L.food_max)
+			playsound(L.loc, 'sound/misc/eat.ogg', 25, TRUE)
 			L.taste(reagents) // why should carbons get all the fun?
 			if(bitecount >= 5)
 				var/sattisfaction_text = pick("burps from enjoyment", "meows for more", "looks at the area where \the [src] was")

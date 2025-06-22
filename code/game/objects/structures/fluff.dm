@@ -313,7 +313,7 @@
 	var/togg = FALSE
 
 /obj/structure/bars/grille/Initialize()
-	AddComponent(/datum/component/squeak, list('sound/foley/footsteps/FTMET_A1.ogg','sound/foley/footsteps/FTMET_A2.ogg','sound/foley/footsteps/FTMET_A3.ogg','sound/foley/footsteps/FTMET_A4.ogg'), 40)
+	AddComponent(/datum/component/squeak, list('sound/foley/footsteps/FTMET_A1.ogg','sound/foley/footsteps/FTMET_A2.ogg','sound/foley/footsteps/FTMET_A3.ogg','sound/foley/footsteps/FTMET_A4.ogg'), 40, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 	dir = pick(GLOB.cardinals)
 	return ..()
 
@@ -1315,7 +1315,7 @@
 		var/obj/item/ring = new /obj/item/clothing/ring/gold/burden(loc)
 		ADD_TRAIT(user, TRAIT_BURDEN, type)
 		user.put_in_hands(ring)
-		user.equip_to_slot_if_possible(ring, SLOT_RING, FALSE, FALSE, TRUE, TRUE)
+		user.equip_to_slot_if_possible(ring, ITEM_SLOT_RING, FALSE, FALSE, TRUE, TRUE)
 		to_chat(user, span_danger("Once your hand is close enough to the ring, it jumps upwards and burrows itself onto your palm"))
 		ring_destroyed = FALSE
 		update_icon()

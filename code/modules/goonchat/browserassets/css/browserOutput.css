@@ -302,12 +302,6 @@ a.popt {text-decoration: none;}
 #newMessages:hover {background: #000000;}
 #newMessages i {vertical-align: middle; padding-left: 3px;}
 #ping {
-	position: fixed;
-	top: 0;
-	right: 135px;
-	width: 45px;
-	background: #202020;
-	height: 30px;
 	padding: 8px 0 2px 0;
 }
 #ping i {display: block; text-align: center;}
@@ -724,7 +718,7 @@ h1.alert, h2.alert	{color: #c9c1ba;font-family: Pterra, TrueType;}
 
 .spider					{color: #4d004d;}
 
-.interface				{color: #330033;}
+.interface				{color: #DA00DA;}
 
 .sans					{font-family: "Comic Sans MS", cursive, sans-serif;}
 .papyrus				{font-family: "Papyrus", cursive, sans-serif;}
@@ -785,6 +779,7 @@ h1.alert, h2.alert	{color: #c9c1ba;font-family: Pterra, TrueType;}
 .love_extreme					{color: #d146f5;	font-size: 75%;}
 
 .silver					{color: #c0c0c0;}
+
 /*
 @keyframes hypnocolor {
 	0%		{color: #202020;}

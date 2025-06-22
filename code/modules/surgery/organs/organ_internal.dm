@@ -72,8 +72,7 @@
 	M.internal_organs |= src
 	M.internal_organs_slot[slot] = src
 	moveToNullspace()
-	for(var/X in actions)
-		var/datum/action/A = X
+	for(var/datum/action/A as anything in actions)
 		A.Grant(M)
 	update_accessory_colors()
 	STOP_PROCESSING(SSobj, src)
@@ -87,8 +86,7 @@
 			M.internal_organs_slot.Remove(slot)
 		if((organ_flags & ORGAN_VITAL) && !special && !(M.status_flags & GODMODE))
 			M.death()
-	for(var/X in actions)
-		var/datum/action/A = X
+	for(var/datum/action/A as anything in actions)
 		A.Remove(M)
 	update_icon()
 //	START_PROCESSING(SSobj, src)
@@ -199,8 +197,6 @@
 
 /obj/item/organ/Initialize()
 	. = ..()
-	if(accessory_type)
-		set_accessory_type(accessory_type)
 	START_PROCESSING(SSobj, src)
 
 /obj/item/organ/Destroy()
@@ -340,14 +336,17 @@
 /obj/item/organ/proc/build_colors_for_accessory(list/source_key_list)
 	if(!accessory_type)
 		return
+	var/datum/sprite_accessory/accessory = SPRITE_ACCESSORY(accessory_type)
+	if(!accessory)
+		return
+	if(accessory.use_static)
+		return
 	if(!source_key_list)
 		if(!owner)
 			return
 		source_key_list = color_key_source_list_from_carbon(owner)
-	var/datum/sprite_accessory/accessory = SPRITE_ACCESSORY(accessory_type)
-	if(accessory)
-		accessory_colors = accessory.get_default_colors(source_key_list)
-		accessory_colors = accessory.validate_color_keys_for_owner(owner, accessory_colors)
+	accessory_colors = accessory.get_default_colors(source_key_list)
+	accessory_colors = accessory.validate_color_keys_for_owner(owner, accessory_colors)
 	update_accessory_colors()
 
 /// Creates, imprints and returns an organ DNA datum.

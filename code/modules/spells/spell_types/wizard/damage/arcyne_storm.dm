@@ -29,7 +29,7 @@
 		affected_turfs.Add(turfs_in_range)
 	for(var/i = 1, i < 16, i++)
 		addtimer(CALLBACK(src, PROC_REF(apply_damage), affected_turfs), wait = i * 1 SECONDS)
-	return TRUE
+	return ..()
 
 /obj/effect/proc_holder/spell/invoked/arcyne_storm/set_attuned_strength(list/incoming_attunements)
 	var/total_value = 1

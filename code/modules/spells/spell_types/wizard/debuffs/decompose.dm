@@ -63,5 +63,5 @@
 			target.visible_message(span_notice("[target]'s body rots!"), span_green("I feel rotten!"))
 		else
 			target.visible_message(span_warning("[target]'s body fails to rot!"), span_warning("I feel no different..."))
-		return TRUE
+		return ..()
 	return FALSE

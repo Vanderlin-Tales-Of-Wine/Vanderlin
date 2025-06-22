@@ -38,7 +38,7 @@
 		brain.applyOrganDamage((brain.maxHealth/8))
 		playsound(T, "genslash", 80, TRUE)
 		to_chat(L, "<span class='userdanger'>Psychic energy is driven into my skull!!</span>")
-	return TRUE
+	return ..()
 
 /obj/effect/temp_visual/mindsliver5e_p1
 	icon = 'icons/effects/effects.dmi'

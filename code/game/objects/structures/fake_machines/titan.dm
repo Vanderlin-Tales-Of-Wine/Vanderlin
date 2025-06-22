@@ -37,11 +37,12 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 		"Make Decree",
 		"Make Law",
 		"Remove Law",
+		"Remove Decree",
 		"Purge Laws",
 		"Declare Outlaw",
 		"Set Taxes",
 		"Change Position",
-		"Appoint regent",
+		"Appoint Regent",
 		"Cancel",
 	)
 
@@ -152,6 +153,8 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 		summon_key(user)
 	if(findtext(message, "remove law") && perform_check(user))
 		remove_law(message)
+	if(findtext(message, "remove decree") && perform_check(user))
+		remove_decree(message)
 	if(findtext(message, "purge laws") && perform_check(user))
 		purge_laws()
 	if(findtext(message, "set taxes") && perform_check(user))
@@ -247,6 +250,22 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 	GLOB.vanderlin_round_stats[STATS_LAWS_AND_DECREES_MADE]++
 	SScommunications.make_announcement(user, TRUE, message)
 	reset_mode()
+
+/// Removes a decree
+/obj/structure/fake_machine/titan/proc/remove_decree(message)
+	var/clean_message = replacetext(message, "remove decree", "")
+	var/decree_index = text2num(clean_message) || 0
+	if(!decree_index || !GLOB.lord_decrees[decree_index])
+		say("That decree doesn't exist!")
+		reset_mode()
+		return FALSE
+	say("That decree shall be gone!")
+	playsound(src, 'sound/misc/machineyes.ogg', 100, FALSE, -1)
+	var/decree_text = GLOB.lord_decrees[decree_index]
+	GLOB.lord_decrees -= decree_text
+	priority_announce("[decree_index]. [decree_text]", "A DECREE IS ABOLISHED", 'sound/misc/lawdeclaration.ogg', "Captain")
+	reset_mode()
+	return TRUE
 
 /obj/structure/fake_machine/titan/proc/make_law(mob/living/carbon/human/user, message)
 	if(!SScommunications.can_announce(user))

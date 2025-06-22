@@ -419,7 +419,8 @@
 		var/mob/living/carbon/human/C = owner
 		C.resize = 1.2
 		C.update_transform()
-		C.AddComponent(/datum/component/footstep, FOOTSTEP_MOB_HEAVY, 1, 2)
+		C.RemoveElement(/datum/element/footstep, C.footstep_type, 1, -6)
+		C.AddElement(/datum/element/footstep, FOOTSTEP_MOB_HEAVY, 1, -2)
 
 /datum/status_effect/buff/trollshape/on_remove()
 	. = ..()
@@ -432,7 +433,8 @@
 		C.apply_status_effect(/datum/status_effect/debuff/barbfalter)
 		C.resize = (1/1.2)
 		C.update_transform()
-		C.AddComponent(/datum/component/footstep, FOOTSTEP_MOB_HUMAN, 1, 2)
+		C.RemoveElement(/datum/element/footstep, FOOTSTEP_MOB_HEAVY, 1, -2)
+		C.AddElement(/datum/element/footstep, C.footstep_type, 1, -6)
 
 // ---------------------- BRIAR'S RAGE ( DENDOR ) ----------------------------
 /datum/status_effect/buff/barbrage/briarrage //barbarian rage but it's permanent and exclusive to the briar

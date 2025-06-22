@@ -460,7 +460,7 @@
 					else
 						. += "It contains [round(total_volume / 3)] oz of <font color=[reagent_color]>something.</font>"
 			else
-				. += "Nothing."
+				. += "It's empty."
 		else if(reagents.flags & AMOUNT_VISIBLE)
 			if(reagents.total_volume)
 				. += "<span class='notice'>It has [round(reagents.total_volume / 3)] oz left.</span>"
@@ -1192,7 +1192,7 @@
 	filters = null
 	var/atom/atom_cast = src // filters only work with images or atoms.
 	atom_cast.filters = null
-	filter_data = sortTim(filter_data, GLOBAL_PROC_REF(cmp_filter_data_priority), TRUE)
+	sortTim(filter_data, GLOBAL_PROC_REF(cmp_filter_data_priority), TRUE)
 	for(var/filter_raw in filter_data)
 		var/list/data = filter_data[filter_raw]
 		var/list/arguments = data.Copy()

@@ -92,3 +92,4 @@
 				playsound(get_turf(L), 'sound/blank.ogg', 50, TRUE)
 		if(message)
 			to_chat(L, message)
+	return ..()

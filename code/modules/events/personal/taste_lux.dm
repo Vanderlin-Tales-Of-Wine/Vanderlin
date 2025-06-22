@@ -2,10 +2,10 @@
 	name = "Lux Experience"
 	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/baotha_lux_tasting
-	weight = 10
+	weight = 7
 	earliest_start = 10 MINUTES
 	max_occurrences = 1
-	min_players = 30
+	min_players = 35
 
 	tags = list(
 		TAG_INSANITY,
@@ -47,8 +47,8 @@
 	var/datum/objective/taste_lux/new_objective = new(owner = chosen_one.mind)
 	chosen_one.mind.add_personal_objective(new_objective)
 
-	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
+	to_chat(chosen_one, span_userdanger("YOU ARE BAOTHA'S CHOSEN!"))
 	to_chat(chosen_one, span_notice("Seek out and taste Lux to experience true pleasure and make Baotha proud! You might need to grind it first though..."))
-	chosen_one.playsound_local(chosen_one, 'sound/ambience/noises/genspooky (1).ogg', 100)
+	chosen_one.playsound_local(chosen_one, 'sound/misc/gods/baotha_omen.ogg', 100)
 
 	chosen_one.mind.announce_personal_objectives()

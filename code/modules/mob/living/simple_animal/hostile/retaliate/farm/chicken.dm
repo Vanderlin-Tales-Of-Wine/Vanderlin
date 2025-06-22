@@ -59,7 +59,7 @@
 	base_speed = 5
 	tame = TRUE
 
-
+	var/production = 0
 
 	ai_controller = /datum/ai_controller/basic_controller/chicken
 
@@ -132,14 +132,8 @@
 
 /mob/living/simple_animal/hostile/retaliate/chicken/Life()
 	..()
-	if(!stat && (production > 29) && egg_type && isturf(loc) && !enemies.len)
-		var/list/foundnests = list()
-		for(var/obj/structure/fluff/nest/N in oview(src))
-			foundnests += N
-		//if no nests, look for chaff and build one
-		if(!foundnests.len)
-			new /obj/structure/fluff/nest(loc)
-			visible_message("<span class='notice'>[src] builds a nest.</span>")
+	if(food > 0)
+		production = min(production + 1, 100)
 
 /mob/living/simple_animal/hostile/retaliate/chicken/proc/hatch_eggs()
 	for(var/obj/item/reagent_containers/food/snacks/egg/egg in loc)
