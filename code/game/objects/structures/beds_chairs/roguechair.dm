@@ -26,13 +26,14 @@
 	AddElement(/datum/element/connect_loc, loc_connections)
 	handle_layer()
 
-/obj/structure/chair/bench/handle_layer()
+/*obj/structure/chair/bench/handle_layer() // Handled in /obj/structure/chair/handle_layer()
 	if(dir == NORTH)
 		layer = ABOVE_MOB_LAYER
 		plane = GAME_PLANE_UPPER
 	else
 		layer = OBJ_LAYER
 		plane = GAME_PLANE
+*/
 
 /obj/structure/chair/bench/post_buckle_mob(mob/living/M)
 	..()
@@ -122,6 +123,7 @@
 	destroy_sound = 'sound/combat/hits/onwood/destroyfurniture.ogg'
 	attacked_sound = "woodimpact"
 	metalizer_result = /obj/item/statue/iron/deformed
+	anchored = FALSE
 
 /obj/structure/chair/wood/alt/Initialize()
 	. = ..()
