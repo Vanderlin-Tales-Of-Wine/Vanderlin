@@ -30,7 +30,7 @@
 
 	for(var/turf/affected_turf in view(area_of_effect, T))
 		new /obj/effect/temp_visual/gravity(affected_turf)
-		playsound(T, 'modular/modular_azure/sound/gravity.ogg', 80, TRUE, soundping = FALSE)
+		playsound(T, 'sound/magic/gravity.ogg', 80, TRUE, soundping = FALSE)
 		for(var/mob/living/L in affected_turf.contents)
 			if(L.anti_magic_check())
 				visible_message(span_warning("The gravity fades away around you [L]."))  //antimagic needs some testing
