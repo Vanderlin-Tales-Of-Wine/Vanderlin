@@ -13,7 +13,5 @@
 		if(!test_areacoord_regex.Find(log_entry))
 			continue
 		var/z = text2num(test_areacoord_regex.group[1])
-		if(!is_station_level(z) && !is_mining_level(z))
-			continue
 
 		TEST_FAIL(log_entry)
