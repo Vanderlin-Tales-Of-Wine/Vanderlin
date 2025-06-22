@@ -221,7 +221,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_KITTEN_MOM = span_info("Kittens love you, they see you are a parent."),
 	TRAIT_GRENZEL = span_info("I am from the lands of Grenzelhoft. I am not fond of elves."),
 	TRAIT_FLOWERFIELD_IMMUNITY = span_info("I am immune to the effects of flower fields."),
-  ))
+	))
 
 #define SIGNAL_ADDTRAIT(trait_ref) ("addtrait " + trait_ref)
 #define SIGNAL_REMOVETRAIT(trait_ref) ("removetrait " + trait_ref)
