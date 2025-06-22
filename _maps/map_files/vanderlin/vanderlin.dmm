@@ -3693,6 +3693,10 @@
 	pixel_x = 3;
 	pixel_y = 11
 	},
+/obj/item/chalk{
+	pixel_x = -9;
+	pixel_y = -4
+	},
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/manor)
 "civ" = (
@@ -7701,6 +7705,10 @@
 /obj/item/clothing/shoes/shortboots,
 /obj/item/clothing/face/spectacles/golden,
 /obj/item/clothing/head/wizhat/witch,
+/obj/item/clothing/head/wizhat/gen{
+	name = "Talking Wizard Hat";
+	desc = "This hat seems to speak evil things into your ear..."
+	},
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/magician)
 "eLL" = (
@@ -8746,6 +8754,14 @@
 	},
 /turf/open/floor/concrete,
 /area/rogue/indoors/town/clocktower)
+"fux" = (
+/obj/structure/closet/crate/crafted_closet,
+/obj/item/clothing/shirt/robe/newmage/warlock,
+/obj/item/clothing/shirt/robe/newmage/warlock,
+/obj/item/clothing/shirt/robe/newmage/adept,
+/obj/item/clothing/shirt/robe/newmage/adept,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/indoors/town/magician)
 "fuB" = (
 /obj/structure/kneestingers,
 /turf/open/floor/dirt/road,
@@ -10346,6 +10362,18 @@
 	},
 /turf/open/floor/wood,
 /area/rogue/indoors/town/tavern)
+"gyS" = (
+/obj/machinery/light/fueled/wallfire/candle/l{
+	pixel_x = 0;
+	pixel_y = -32
+	},
+/obj/structure/closet/crate/drawer,
+/obj/item/reagent_containers/food/snacks/produce/dry_westleach,
+/obj/item/reagent_containers/food/snacks/produce/dry_westleach,
+/obj/item/clothing/face/cigarette/pipe/westman,
+/obj/item/flashlight/flare/torch/lantern/copper,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/indoors/town)
 "gzc" = (
 /obj/structure/rack,
 /obj/item/staff/stick,
@@ -12019,7 +12047,6 @@
 /area/rogue/under/dungeon)
 "hDm" = (
 /obj/structure/closet/crate/crafted_closet,
-/obj/item/key/merchant,
 /obj/item/key/merchant,
 /turf/open/floor/wood/nosmooth,
 /area/rogue/indoors/town/shop)
@@ -20640,7 +20667,9 @@
 	dir = 10;
 	icon_state = "tablewood2"
 	},
-/obj/item/natural/feather,
+/obj/item/storage/magebag,
+/obj/item/storage/magebag,
+/obj/item/storage/magebag,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/magician)
 "ndR" = (
@@ -20712,6 +20741,9 @@
 	dir = 1;
 	icon_state = "longtable"
 	},
+/obj/item/chalk,
+/obj/item/chalk,
+/obj/item/chalk,
 /turf/open/floor/carpet/stellar,
 /area/rogue/indoors/town/magician)
 "nfW" = (
@@ -22798,6 +22830,7 @@
 "owS" = (
 /obj/structure/closet/crate/crafted_closet,
 /obj/machinery/light/fueled/wallfire/candle/blue,
+/obj/item/key/merchant,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/shop)
 "oxc" = (
@@ -23234,6 +23267,8 @@
 	pixel_x = 32;
 	pixel_y = 0
 	},
+/obj/item/clothing/cloak/stole,
+/obj/item/clothing/cloak/stole/purple,
 /turf/open/floor/blocks/newstone,
 /area/rogue/indoors/town/church)
 "oLq" = (
@@ -26923,6 +26958,7 @@
 /obj/structure/rack/shelf/biggest,
 /obj/item/flashlight/flare/torch/lantern,
 /obj/item/flashlight/flare/torch/lantern,
+/obj/item/storage/backpack/satchel,
 /turf/open/floor/concrete,
 /area/rogue/indoors/town/church/inquisition)
 "rmf" = (
@@ -29898,6 +29934,7 @@
 	icon_state = "tablewood2"
 	},
 /obj/item/paper/scroll,
+/obj/item/natural/feather,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/magician)
 "thO" = (
@@ -30882,6 +30919,7 @@
 /obj/structure/closet/crate/crafted_closet/dark,
 /obj/item/clothing/cloak/raincloak/mortus,
 /obj/item/clothing/cloak/raincloak/mortus,
+/obj/item/clothing/head/padded/deathshroud,
 /obj/item/clothing/head/padded/deathshroud,
 /turf/open/floor/blocks/newstone/alt,
 /area/rogue/indoors/town/church)
@@ -35998,6 +36036,14 @@
 "xeP" = (
 /turf/open/floor/concrete,
 /area/rogue/indoors/town/clocktower)
+"xeR" = (
+/obj/structure/closet/crate/crafted_closet,
+/obj/item/clothing/shirt/robe/newmage/sorcerer,
+/obj/item/clothing/shirt/robe/newmage/sorcerer,
+/obj/item/clothing/shirt/robe/mage,
+/obj/item/clothing/shirt/robe/mage,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/indoors/town/magician)
 "xeW" = (
 /obj/structure/lever/hidden/keep{
 	redstone_id = "ServantRoomPassage"
@@ -136758,7 +136804,7 @@ pQS
 wTm
 wTm
 wTm
-stX
+gyS
 pQS
 fTT
 iGx
@@ -213867,8 +213913,8 @@ dLf
 atG
 ntj
 dfv
-iGp
-iGp
+xeR
+fux
 atG
 uJm
 lnG
