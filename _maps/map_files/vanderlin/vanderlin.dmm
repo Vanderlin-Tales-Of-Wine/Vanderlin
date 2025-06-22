@@ -3791,6 +3791,8 @@
 	dir = 10;
 	icon_state = "alt_largetable"
 	},
+/obj/item/reagent_containers/powder/salt,
+/obj/item/reagent_containers/powder/salt,
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/indoors/town/manor)
 "ckU" = (
@@ -24149,6 +24151,38 @@
 /obj/item/natural/cloth,
 /obj/item/reagent_containers/glass/bucket/wooden,
 /obj/item/soap,
+/obj/item/paper{
+	pixel_x = -7;
+	pixel_y = 1
+	},
+/obj/item/paper{
+	pixel_x = -7;
+	pixel_y = 1
+	},
+/obj/item/paper{
+	pixel_x = -7;
+	pixel_y = 1
+	},
+/obj/item/paper{
+	pixel_x = -7;
+	pixel_y = 1
+	},
+/obj/item/paper{
+	pixel_x = -7;
+	pixel_y = 1
+	},
+/obj/item/paper{
+	pixel_x = -7;
+	pixel_y = 1
+	},
+/obj/item/paper{
+	pixel_x = -7;
+	pixel_y = 1
+	},
+/obj/item/paper{
+	pixel_x = -7;
+	pixel_y = 1
+	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/tavern)
 "prO" = (
@@ -26527,14 +26561,6 @@
 	},
 /turf/open/floor/blocks,
 /area/rogue/outdoors/town)
-"qVY" = (
-/obj/structure/chair/stool,
-/obj/structure/fake_machine/atm{
-	pixel_x = 32;
-	pixel_y = 0
-	},
-/turf/open/floor/ruinedwood/chevron,
-/area/rogue/indoors/town/merc_guild)
 "qWa" = (
 /turf/open/floor/hexstone,
 /area/rogue/indoors/town/manor)
@@ -28145,6 +28171,8 @@
 /obj/item/reagent_containers/food/snacks/butter,
 /obj/item/reagent_containers/food/snacks/cheese,
 /obj/item/reagent_containers/food/snacks/cheese,
+/obj/item/reagent_containers/powder/salt,
+/obj/item/reagent_containers/powder/salt,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/tavern)
 "sbr" = (
@@ -28386,6 +28414,14 @@
 "sjG" = (
 /turf/closed/mineral/bedrock,
 /area/rogue/indoors/town)
+"sjH" = (
+/obj/structure/chair/stool,
+/obj/structure/fake_machine/atm{
+	pixel_x = 32;
+	pixel_y = 0
+	},
+/turf/open/floor/ruinedwood/chevron,
+/area/rogue/indoors/town/merc_guild)
 "sjV" = (
 /obj/structure/stairs/stone{
 	dir = 1
@@ -96072,7 +96108,7 @@ idS
 idS
 idS
 jqO
-qVY
+sjH
 tZf
 arh
 jMD
