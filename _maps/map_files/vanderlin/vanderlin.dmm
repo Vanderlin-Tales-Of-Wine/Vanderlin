@@ -56,6 +56,7 @@
 	pixel_x = 0;
 	pixel_y = 32
 	},
+/obj/item/clothing/shirt/tunic/noblecoat,
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/steward)
 "acs" = (
@@ -6086,6 +6087,8 @@
 /obj/item/clothing/shirt/robe/phys,
 /obj/item/clothing/shirt/robe/phys,
 /obj/item/clothing/shirt/robe/phys,
+/obj/item/clothing/neck/psycross/silver/pestra,
+/obj/item/clothing/neck/psycross/silver/pestra,
 /obj/item/clothing/neck/psycross/silver/pestra,
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/town/church)
@@ -20965,6 +20968,8 @@
 /obj/item/clothing/head/roguehood/eora,
 /obj/item/clothing/head/roguehood/eora,
 /obj/item/clothing/head/roguehood/eora,
+/obj/item/clothing/neck/psycross/silver/eora,
+/obj/item/clothing/neck/psycross/silver/eora,
 /obj/item/clothing/neck/psycross/silver/eora,
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/town/church)
