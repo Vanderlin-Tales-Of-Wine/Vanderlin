@@ -17715,7 +17715,7 @@
 /obj/machinery/light/fueled/wallfire/candle/l{
 	pixel_x = 32
 	},
-/obj/item/storage/belt/pouch,
+/obj/item/storage/belt/pouch/coins/mid,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/manor)
 "kZN" = (
