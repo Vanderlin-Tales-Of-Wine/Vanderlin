@@ -56,7 +56,7 @@
 	pixel_x = 0;
 	pixel_y = 32
 	},
-/obj/item/clothing/shirt/tunic/noblecoat,
+/obj/item/clothing/face/spectacles/golden,
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/steward)
 "acs" = (
@@ -15403,6 +15403,14 @@
 /obj/structure/fluff/millstone,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town)
+"jKo" = (
+/obj/structure/chair/stool,
+/obj/structure/fake_machine/atm{
+	pixel_x = 32;
+	pixel_y = 0
+	},
+/turf/open/floor/ruinedwood/chevron,
+/area/rogue/indoors/town/merc_guild)
 "jKw" = (
 /obj/machinery/essence/enchantment_altar,
 /turf/open/floor/twig,
@@ -25435,6 +25443,7 @@
 	dir = 1
 	},
 /obj/effect/mapping_helpers/access/keyset/manor/steward,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/steward)
 "qny" = (
@@ -27630,14 +27639,6 @@
 	dir = 8
 	},
 /area/rogue/outdoors/mountains)
-"rJz" = (
-/obj/structure/chair/stool,
-/obj/structure/fake_machine/atm{
-	pixel_x = 32;
-	pixel_y = 0
-	},
-/turf/open/floor/ruinedwood/chevron,
-/area/rogue/indoors/town/merc_guild)
 "rJK" = (
 /obj/structure/stairs{
 	dir = 1
@@ -96070,7 +96071,7 @@ idS
 idS
 idS
 jqO
-rJz
+jKo
 tZf
 arh
 jMD
