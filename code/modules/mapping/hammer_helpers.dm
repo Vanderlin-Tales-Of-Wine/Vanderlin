@@ -23,7 +23,7 @@
 /obj/effect/landmark/hammer/dev_text/Initialize()
 	. = ..()
 #ifndef TESTING
-	return INITIALIZE_HINT_QDEL
+	qdel(src)
 #endif
 	maptext = name
 	maptext_width = 500
