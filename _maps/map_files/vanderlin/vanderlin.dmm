@@ -1827,6 +1827,7 @@
 /obj/item/essence_vial,
 /obj/item/essence_vial,
 /obj/item/essence_vial,
+/obj/item/reagent_containers/glass/bucket/wooden,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/magician)
 "bas" = (
@@ -4896,6 +4897,15 @@
 /obj/structure/table/wood{
 	icon_state = "tablewood3"
 	},
+/obj/item/reagent_containers/glass/carafe/silver/redwine,
+/obj/item/reagent_containers/glass/cup/silver{
+	pixel_x = 11;
+	pixel_y = 0
+	},
+/obj/item/reagent_containers/glass/cup/silver{
+	pixel_x = -10;
+	pixel_y = 0
+	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/magician)
 "cVn" = (
@@ -6114,12 +6124,14 @@
 /area/rogue/indoors/town/merc_guild)
 "dLG" = (
 /obj/structure/closet/crate/crafted_closet,
-/obj/item/clothing/head/roguehood/phys,
-/obj/item/clothing/head/roguehood/phys,
-/obj/item/clothing/head/roguehood/phys,
+/obj/item/clothing/head/padded/pestra,
+/obj/item/clothing/head/padded/pestra,
+/obj/item/clothing/shirt/robe/pestra,
+/obj/item/clothing/shirt/robe/pestra,
 /obj/item/clothing/shirt/robe/phys,
 /obj/item/clothing/shirt/robe/phys,
-/obj/item/clothing/shirt/robe/phys,
+/obj/item/clothing/head/roguehood/phys,
+/obj/item/clothing/head/roguehood/phys,
 /obj/item/clothing/neck/psycross/silver/pestra,
 /obj/item/clothing/neck/psycross/silver/pestra,
 /obj/item/clothing/neck/psycross/silver/pestra,
@@ -10486,8 +10498,9 @@
 /turf/open/floor/woodturned,
 /area/rogue/indoors/butchershop)
 "gzP" = (
-/obj/structure/closet/crate/chest/neu,
 /obj/item/key/tower,
+/obj/item/key/tower,
+/obj/structure/closet/crate/chest/neu_fancy,
 /obj/item/key/tower,
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/magician)
@@ -14126,8 +14139,6 @@
 /area/rogue/outdoors/town)
 "iSl" = (
 /obj/structure/closet/crate/crafted_closet/dark,
-/obj/item/reagent_containers/glass/cup/silver,
-/obj/item/reagent_containers/glass/cup/silver,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/magician)
 "iSs" = (
@@ -20405,13 +20416,10 @@
 /turf/open/floor/blocks,
 /area/rogue/under/dungeon)
 "mSR" = (
-/obj/structure/closet/crate/crafted_closet/dark,
-/obj/item/alch/bone,
-/obj/item/alch/sinew,
-/obj/item/alch/sinew,
-/obj/item/alch/viscera,
-/obj/item/alch/bone,
-/obj/item/alch/bone,
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
+/obj/machinery/essence/splitter,
 /turf/open/floor/hexstone,
 /area/rogue/indoors/town/magician)
 "mSW" = (
@@ -26951,6 +26959,8 @@
 /obj/item/reagent_containers/food/snacks/butter,
 /obj/item/reagent_containers/food/snacks/meat/sausage,
 /obj/item/reagent_containers/food/snacks/meat/steak,
+/obj/item/reagent_containers/food/snacks/meat/steak,
+/obj/item/reagent_containers/food/snacks/meat/steak,
 /turf/open/floor/hexstone,
 /area/rogue/indoors/town/church)
 "rhv" = (
@@ -30724,8 +30734,13 @@
 /turf/open/floor/tile/bfloorz,
 /area/rogue/indoors/town/garrison)
 "tAU" = (
-/obj/structure/closet/crate/chest/neu_fancy,
-/obj/item/reagent_containers/glass/bucket/wooden,
+/obj/structure/closet/crate/crafted_closet/dark,
+/obj/item/alch/bone,
+/obj/item/alch/bone,
+/obj/item/alch/viscera,
+/obj/item/alch/bone,
+/obj/item/alch/sinew,
+/obj/item/alch/sinew,
 /turf/open/floor/hexstone,
 /area/rogue/indoors/town/magician)
 "tBq" = (
@@ -174307,7 +174322,7 @@ lnG
 wyi
 inI
 pCE
-mSR
+kto
 lnG
 nST
 hbG
@@ -174711,7 +174726,7 @@ lnG
 cgW
 inI
 pCE
-pCE
+mSR
 lnG
 mvk
 lnG
