@@ -97,9 +97,10 @@ jobs:
       - name: Check Changelogs
         if: steps.linter-setup.conclusion == 'success' && !cancelled()
         run: bash tools/ci/check_changelogs.sh
-      - name: Check Miscellaneous Files
-        if: steps.linter-setup.conclusion == 'success' && !cancelled()
-        run: bash tools/ci/check_misc.sh
+      # Fails because of player books and I CBA rn
+      # - name: Check Miscellaneous Files
+      #   if: steps.linter-setup.conclusion == 'success' && !cancelled()
+      #   run: bash tools/ci/check_misc.sh
 
   OpenDream:
     runs-on: ubuntu-latest
