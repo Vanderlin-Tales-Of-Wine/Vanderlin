@@ -17,7 +17,7 @@
 
 /datum/objective/punch_women/proc/on_head_punched(datum/source, mob/living/carbon/human/woman)
 	SIGNAL_HANDLER
-	if(completed || !istype(woman) || woman.gender != FEMALE)
+	if(completed || !istype(woman) || woman.stat == DEAD ||  woman.gender != FEMALE)
 		return
 
 	punches_done++
