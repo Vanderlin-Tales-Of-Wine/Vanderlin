@@ -3559,6 +3559,13 @@
 "cdQ" = (
 /turf/open/floor/churchbrick,
 /area/rogue/under/town/sewer)
+"cdT" = (
+/obj/structure/window/solid,
+/obj/structure/noticeboard{
+	pixel_y = 32
+	},
+/turf/open/floor/wood,
+/area/rogue/indoors/town/tavern)
 "cdX" = (
 /obj/structure/closet/crate/chest/neu_iron,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -6636,6 +6643,10 @@
 	dir = 1
 	},
 /area/rogue/outdoors/town)
+"dZt" = (
+/obj/structure/fake_machine/hailerboard/r,
+/turf/open/floor/cobble,
+/area/rogue/outdoors/town)
 "dZC" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood/turned,
@@ -8909,6 +8920,10 @@
 /obj/machinery/light/fueled/torchholder{
 	dir = 4
 	},
+/obj/structure/fake_machine/atm{
+	pixel_y = 0;
+	pixel_x = -32
+	},
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/merc_guild)
 "fyP" = (
@@ -9409,6 +9424,32 @@
 	pixel_x = 6;
 	pixel_y = 5
 	},
+/obj/item/paper{
+	pixel_x = -7;
+	pixel_y = 1
+	},
+/obj/item/paper{
+	pixel_x = -7;
+	pixel_y = 1
+	},
+/obj/item/paper{
+	pixel_x = -7;
+	pixel_y = 1
+	},
+/obj/item/paper{
+	pixel_x = -7;
+	pixel_y = 1
+	},
+/obj/item/paper{
+	pixel_x = -7;
+	pixel_y = 1
+	},
+/obj/item/paper{
+	pixel_x = -7;
+	pixel_y = 1
+	},
+/obj/item/natural/feather,
+/obj/item/natural/feather,
 /turf/open/floor/blocks/newstone/alt,
 /area/rogue/indoors/town/dwarfin)
 "fPI" = (
@@ -13752,6 +13793,26 @@
 /obj/structure/table/wood{
 	icon_state = "longtable"
 	},
+/obj/item/paper{
+	pixel_x = -7;
+	pixel_y = 1
+	},
+/obj/item/paper{
+	pixel_x = -7;
+	pixel_y = 1
+	},
+/obj/item/paper{
+	pixel_x = -7;
+	pixel_y = 1
+	},
+/obj/item/paper{
+	pixel_x = -7;
+	pixel_y = 1
+	},
+/obj/item/paper{
+	pixel_x = -7;
+	pixel_y = 1
+	},
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/church/inquisition)
 "iII" = (
@@ -15437,6 +15498,11 @@
 /obj/structure/fluff/wallclock{
 	pixel_y = -32
 	},
+/obj/structure/closet/crate/chest/neu_iron,
+/obj/item/key/garrison,
+/obj/item/key/garrison,
+/obj/item/key/garrison,
+/obj/item/key/garrison,
 /turf/open/floor/twig,
 /area/rogue/indoors/town/garrison)
 "jKU" = (
@@ -21878,6 +21944,7 @@
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
 	},
+/obj/item/key/graveyard,
 /obj/item/key/graveyard,
 /turf/open/floor/blocks/newstone/alt,
 /area/rogue/indoors/town/church)
@@ -28414,14 +28481,6 @@
 "sjG" = (
 /turf/closed/mineral/bedrock,
 /area/rogue/indoors/town)
-"sjH" = (
-/obj/structure/chair/stool,
-/obj/structure/fake_machine/atm{
-	pixel_x = 32;
-	pixel_y = 0
-	},
-/turf/open/floor/ruinedwood/chevron,
-/area/rogue/indoors/town/merc_guild)
 "sjV" = (
 /obj/structure/stairs/stone{
 	dir = 1
@@ -96108,7 +96167,7 @@ idS
 idS
 idS
 jqO
-sjH
+arh
 tZf
 arh
 jMD
@@ -100708,7 +100767,7 @@ lsl
 elp
 tXa
 lsl
-elp
+dZt
 elp
 uSV
 elp
@@ -101517,7 +101576,7 @@ uOp
 jZz
 jZz
 fGK
-xYL
+cdT
 fGK
 fGK
 fGK
