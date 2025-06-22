@@ -19316,8 +19316,7 @@
 "mjw" = (
 /obj/structure/door,
 /obj/effect/mapping_helpers/access/locker,
-/obj/effect/mapping_helpers/access/keyset/town/clinic,
-/obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/town/apothecary,
 /turf/open/floor/twig,
 /area/rogue/indoors/town/bath)
 "mjT" = (
@@ -31907,8 +31906,8 @@
 /area/rogue/outdoors/town/roofs)
 "unC" = (
 /obj/structure/door,
-/obj/effect/mapping_helpers/access/keyset/town/clinic,
 /obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/town/apothecary,
 /turf/open/floor/twig,
 /area/rogue/indoors/town)
 "unK" = (
@@ -36524,6 +36523,14 @@
 "xtX" = (
 /turf/open/floor/dirt,
 /area/rogue/under/town/basement)
+"xun" = (
+/obj/structure/door/stone{
+	name = "Clinic"
+	},
+/obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/town/apothecary,
+/turf/open/floor/church,
+/area/rogue/indoors/town/clinic_large)
 "xuD" = (
 /obj/machinery/light/fueled/wallfire/candle/blue{
 	pixel_y = -32
@@ -36657,8 +36664,8 @@
 /area/rogue/indoors/town/manor)
 "xyp" = (
 /obj/structure/door,
-/obj/effect/mapping_helpers/access/keyset/town/clinic,
 /obj/effect/mapping_helpers/access/locker,
+/obj/effect/mapping_helpers/access/keyset/town/apothecary,
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/indoors/town/bath)
 "xyr" = (
@@ -95516,7 +95523,7 @@ meN
 meN
 meN
 meN
-lsu
+xun
 wLR
 wLR
 wLR
