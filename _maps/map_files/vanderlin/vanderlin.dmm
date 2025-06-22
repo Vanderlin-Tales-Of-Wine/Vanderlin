@@ -20041,6 +20041,11 @@
 /obj/item/ammo_holder/quiver/bolts,
 /obj/item/clothing/armor/leather/jacket/handjacket,
 /obj/item/clothing/cloak/raincloak/purple,
+/obj/item/clothing/pants/tights/black,
+/obj/item/clothing/shirt/undershirt/black,
+/obj/item/storage/belt/leather,
+/obj/item/clothing/face/eyepatch/fake,
+/obj/item/clothing/shirt/undershirt/fancy,
 /turf/open/floor/blocks/newstone,
 /area/rogue/indoors/town/manor)
 "mKJ" = (
@@ -27625,6 +27630,14 @@
 	dir = 8
 	},
 /area/rogue/outdoors/mountains)
+"rJz" = (
+/obj/structure/chair/stool,
+/obj/structure/fake_machine/atm{
+	pixel_x = 32;
+	pixel_y = 0
+	},
+/turf/open/floor/ruinedwood/chevron,
+/area/rogue/indoors/town/merc_guild)
 "rJK" = (
 /obj/structure/stairs{
 	dir = 1
@@ -36491,17 +36504,17 @@
 "xwV" = (
 /obj/structure/closet/crate/crafted_closet,
 /obj/item/clothing/pants/tights/random,
-/obj/item/clothing/shoes/boots,
 /obj/item/clothing/shirt/undershirt/random,
-/obj/item/clothing/shirt/undershirt/black,
-/obj/item/clothing/shirt/tunic/noblecoat,
-/obj/item/clothing/cloak/raincloak/random,
-/obj/item/clothing/shirt/tunic/random,
-/obj/item/clothing/head/hooded,
+/obj/item/clothing/shirt/undershirt/fancy,
+/obj/item/clothing/head/fancyhat,
+/obj/item/clothing/cloak/raincloak/furcloak,
 /obj/item/clothing/head/roguehood/random,
-/obj/item/storage/belt/leather,
+/obj/item/clothing/cloak/raincloak/random,
 /obj/item/clothing/head/bardhat,
-/obj/item/clothing/cloak/raincloak/furcloak/brown,
+/obj/item/clothing/shoes/nobleboot,
+/obj/item/clothing/shirt/tunic/random,
+/obj/item/clothing/face/shepherd/clothmask,
+/obj/item/clothing/face/shepherd/clothmask,
 /turf/open/floor/blocks/newstone,
 /area/rogue/indoors/town/manor)
 "xxb" = (
@@ -96057,7 +96070,7 @@ idS
 idS
 idS
 jqO
-arh
+rJz
 tZf
 arh
 jMD
