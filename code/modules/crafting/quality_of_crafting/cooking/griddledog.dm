@@ -12,7 +12,7 @@
 	craft_time = 3 SECONDS
 	crafting_sound = 'sound/foley/dropsound/food_drop.ogg'
 	extra_chance = 100
-	crafting_message = "Skewering the sausage..."
+	crafting_message = "skewer the sausage"
 
 /datum/repeatable_crafting_recipe/cooking/raw_griddle_dog
 	name = "Raw Griddledog"
@@ -29,7 +29,7 @@
 	craft_time = 6 SECONDS
 	crafting_sound = 'sound/foley/kneading_alt.ogg'
 	sound_volume = 90
-	crafting_message = "Covering sausage with dough..."
+	crafting_message = "cover the sausage with dough"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/raw_griddledog
@@ -48,4 +48,4 @@
 	craft_time = 5 SECONDS
 	crafting_sound = 'sound/foley/kneading_alt.ogg'
 	extra_chance = 100
-	crafting_message = "Covering sausage with dough..."
+	crafting_message = "cover the sausage with dough"

@@ -5,7 +5,7 @@
 	weight = 7
 	earliest_start = 15 MINUTES
 	max_occurrences = 1
-	min_players = 20
+	min_players = 25
 
 	tags = list(
 		TAG_TRICKERY,
@@ -48,9 +48,9 @@
 	var/datum/objective/mock/monarch/new_objective = new(owner = chosen_one.mind)
 	chosen_one.mind.add_personal_objective(new_objective)
 
-	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
+	to_chat(chosen_one, span_userdanger("YOU ARE XYLIX'S CHOSEN!"))
 	to_chat(chosen_one, span_biginfo("Xylix demands great entertainment! Seek out and viciously mock the monarch to prove your devotion and earn Xylix's favor!"))
-	chosen_one.playsound_local(chosen_one, 'sound/vo/male/evil/laugh (1).ogg', 100)
+	chosen_one.playsound_local(chosen_one, 'sound/misc/gods/xylix_omen_male_female.ogg', 100)
 
 	var/obj/effect/proc_holder/spell/invoked/mockery/mock_spell = new()
 	chosen_one.mind.AddSpell(mock_spell)

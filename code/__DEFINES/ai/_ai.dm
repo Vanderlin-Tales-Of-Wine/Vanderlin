@@ -98,6 +98,7 @@ F
 
 #define BB_NEST_LIST "BB_nestlist"
 #define BB_NEST_IGNORE_LIST "BB_nest_ignore"
+#define BB_NEST_MATERIAL_LIST "BB_nest_material_list"
 
 ///the bee hive we live inside
 #define BB_CURRENT_HOME "BB_current_home"

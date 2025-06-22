@@ -3,13 +3,12 @@
 	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/pestra_lux
 	weight = 7
-	earliest_start = 10 MINUTES
+	earliest_start = 15 MINUTES
 	max_occurrences = 1
 	min_players = 25
 
 	tags = list(
 		TAG_MEDICAL,
-		TAG_BLOOD,
 	)
 
 /datum/round_event_control/pestra_lux/canSpawnEvent(players_amt, gamemode, fake_check)
@@ -48,8 +47,8 @@
 	var/datum/objective/lux_extraction/new_objective = new(owner = chosen_one.mind)
 	chosen_one.mind.add_personal_objective(new_objective)
 
-	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
-	to_chat(chosen_one, span_notice("Pestra demands the essence of life! Extract lux from a living being to earn Pestra's favor!"))
+	to_chat(chosen_one, span_userdanger("YOU ARE PESTRA'S CHOSEN!"))
+	to_chat(chosen_one, span_notice("Pestra is curious about the divine spark! Extract lux from a living being to earn Pestra's favor!"))
 	chosen_one.playsound_local(chosen_one, 'sound/magic/cosmic_expansion.ogg', 100)
 
 	chosen_one.mind.announce_personal_objectives()

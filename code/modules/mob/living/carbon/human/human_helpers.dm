@@ -179,9 +179,6 @@
 		var/list/skin_list = species.get_skin_list()
 		skin_tone = pick_assoc(skin_list)
 
-	if(randomise_flags & RANDOMIZE_EYE_COLOR)
-		var/obj/item/organ/eyes/eyes = getorganslot(ORGAN_SLOT_EYES)
-
 	// if(randomise_flags & RANDOMIZE_FEATURES)
 	// 	dna.features = random_features()
 

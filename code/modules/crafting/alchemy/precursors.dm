@@ -1654,6 +1654,16 @@ GLOBAL_LIST_INIT(natural_precursor_registry, list())
 		/obj/item/alch/artemisia
 	)
 
+/datum/natural_precursor/euphorbia
+	name = "euphorbia"
+	essence_yields = list(
+		/datum/thaumaturgical_essence/earth = 10,
+		/datum/thaumaturgical_essence/life = 5
+	)
+	init_types = list(
+		/obj/item/alch/euphorbia
+	)
+
 /datum/natural_precursor/rotten_food
 	name = "rotten food"
 	essence_yields = list(

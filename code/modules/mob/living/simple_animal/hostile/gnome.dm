@@ -71,8 +71,8 @@
 	)
 
 /mob/living/simple_animal/hostile/gnome_homunculus/Initialize()
+	AddComponent(/datum/component/obeys_commands, pet_commands) // here due to signal overridings from pet commands
 	. = ..()
-	AddComponent(/datum/component/obeys_commands, pet_commands)
 
 /mob/living/simple_animal/hostile/gnome_homunculus/update_icon()
 	. = ..()

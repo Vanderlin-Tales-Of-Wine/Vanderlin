@@ -11,7 +11,6 @@
 	faction = list(FACTION_RATS)
 	emote_hear = list("squeaks.")
 	emote_see = list("cleans its nose.")
-	turns_per_move = 3
 	move_to_delay = 5
 	vision_range = 2
 	aggro_vision_range = 2
@@ -85,9 +84,8 @@
 	pixel_y = -8
 
 /mob/living/simple_animal/hostile/retaliate/bigrat/Initialize()
+	AddComponent(/datum/component/obeys_commands, pet_commands) // here due to signal overridings from pet commands
 	. = ..()
-	qdel(GetComponent(/datum/component/obeys_commands)) // due to signal overridings from pet commands
-	AddComponent(/datum/component/obeys_commands, pet_commands)
 
 	gender = MALE
 	if(prob(33))

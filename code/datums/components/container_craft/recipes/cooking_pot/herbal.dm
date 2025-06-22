@@ -134,6 +134,20 @@
 	max_optionals = 1
 	finished_smell = /datum/pollutant/food/bitter
 
+/datum/container_craft/cooking/herbal_tea/euphorbia_strength
+	name = "Euphorbia Strength Tea"
+	created_reagent = /datum/reagent/buff/herbal/euphorbia_strength
+	water_conversion = 1
+	requirements = list(
+		/obj/item/alch/euphorbia = 2
+	)
+	optional_requirements = list(
+		/obj/item/alch/irondust = 1 // irondust enhances strength
+	)
+	output_amount = 30
+	max_optionals = 1
+	finished_smell = /datum/pollutant/food/bitter
+
 // Mild Poison Recipes
 /datum/container_craft/cooking/herbal_tea/weak_atropa
 	name = "Dilute Atropa Extract"
