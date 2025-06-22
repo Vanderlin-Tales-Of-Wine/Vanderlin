@@ -70,6 +70,7 @@
 #include "map_landmarks.dm"
 #include "mapping.dm"
 #include "reagent_id_typos.dm"
+#include "reagent_names.dm"
 #include "reagent_recipe_collisions.dm"
 #include "resist.dm"
 #include "rogue_inhands.dm"
