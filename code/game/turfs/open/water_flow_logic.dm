@@ -49,7 +49,7 @@
 /turf/open/water/proc/check_surrounding_water(reassess = FALSE)
 	for(var/direction in GLOB.cardinals)
 		if(istype(src, /turf/open/water/river))
-			if(direction == GLOB.reverse_dir[dir])
+			if(direction == REVERSE_DIR(dir))
 				continue
 		if(blocked_flow_directions["[direction]"])
 			continue
