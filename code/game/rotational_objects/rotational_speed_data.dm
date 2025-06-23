@@ -42,6 +42,9 @@
 		var/datum/rotation_network/old_network = rotation_network
 		rotation_network.remove_connection(src)
 		old_network.reassess_group(src)
+	rotation_network = null
+	input = null
+	output = null
 	return ..()
 
 /obj/structure/MiddleClick(mob/user, params)

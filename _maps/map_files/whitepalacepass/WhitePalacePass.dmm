@@ -1476,7 +1476,7 @@
 /turf/closed/wall/mineral/decorstone,
 /area/rogue/indoors/town/garrison)
 "boq" = (
-/obj/structure/rotation_piece/cog/large,
+/obj/structure/rotation_piece/cog,
 /turf/open/water/river{
 	dir = 4
 	},
@@ -4034,6 +4034,12 @@
 /obj/structure/fluff/railing/fence,
 /turf/open/floor/grass/cold,
 /area/rogue/outdoors/rtfield)
+"dMk" = (
+/obj/structure/rotation_piece/cog,
+/turf/open/water/river/dirt{
+	dir = 4
+	},
+/area/rogue/indoors/town/clocktower)
 "dMq" = (
 /obj/structure/table/wood/reinforced,
 /obj/structure/bars/bent,
@@ -11685,6 +11691,10 @@
 "lbS" = (
 /turf/closed/wall/mineral/wooddark/vertical,
 /area/rogue/indoors/town/orphanage)
+"lbW" = (
+/obj/structure/steam_recharger,
+/turf/open/floor/cobble,
+/area/rogue/indoors/town/clocktower)
 "lcs" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
@@ -12808,6 +12818,10 @@
 /obj/machinery/light/fueled/wallfire/candle/blue/r,
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town/manor)
+"mfq" = (
+/obj/structure/water_pipe,
+/turf/open/floor/cobblerock,
+/area/rogue/indoors/town/clocktower)
 "mgn" = (
 /turf/open/floor/rooftop,
 /area/rogue/indoors/lich)
@@ -15768,10 +15782,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobblerock,
 /area/rogue/indoors/town/church)
-"oOs" = (
-/obj/structure/steam_recharger,
-/turf/open/floor/cobblerock,
-/area/rogue/indoors/town/clocktower)
 "oOy" = (
 /obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/floor/ruinedwood/darker,
@@ -16548,6 +16558,10 @@
 	},
 /turf/open/floor/ruinedwood,
 /area/rogue/under/town/basement)
+"pBT" = (
+/obj/structure/water_pipe,
+/turf/open/floor/cobble,
+/area/rogue/indoors/town/clocktower)
 "pCe" = (
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_y = -32
@@ -55202,8 +55216,8 @@ nJJ
 fQr
 bNs
 hSF
-hSF
-fId
+qgw
+bWQ
 dPw
 dPw
 fyK
@@ -55403,10 +55417,10 @@ nJJ
 nJJ
 fQr
 hSF
-hSF
-hSF
+sHo
+dMk
 bWQ
-oOs
+fyK
 dPw
 fyK
 fyK
@@ -55605,7 +55619,7 @@ nJJ
 nJJ
 fQr
 hSF
-sHo
+hSF
 unm
 wxx
 fyK
@@ -55807,10 +55821,10 @@ nJJ
 nJJ
 fQr
 hSF
-hSF
-qgw
+sHo
+dMk
 iOK
-dPw
+pBT
 fyK
 fyK
 dPw
@@ -56012,8 +56026,8 @@ hSF
 hSF
 hSF
 fQr
-fyK
-dPw
+mfq
+lbW
 dPw
 rCo
 fQr
@@ -56415,7 +56429,7 @@ fQr
 bNs
 hSF
 hSF
-fQr
+fId
 ack
 dPw
 fyK
