@@ -6069,10 +6069,9 @@
 /area/rogue/outdoors/town)
 "diT" = (
 /obj/machinery/light/fueled/wallfire/candle/weak/l,
-/obj/structure/closet/crate/chest/crafted,
-/obj/item/natural/chaff/wheat,
-/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
-/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
 /turf/open/floor/naturalstone,
 /area/rogue/indoors/soilsons)
 "diU" = (
@@ -33224,11 +33223,6 @@
 	},
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/town/clinic_large)
-"smG" = (
-/obj/machinery/light/fueled/wallfire/candle/r,
-/obj/structure/closet/crate/chest/crafted,
-/turf/open/floor/naturalstone,
-/area/rogue/indoors/soilsons)
 "smS" = (
 /obj/structure/fluff/statue/knight/r,
 /turf/open/floor/cobble,
@@ -34290,16 +34284,6 @@
 /obj/structure/fake_machine/scomm/r,
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/magician)
-"sRa" = (
-/obj/structure/closet/crate/chest/crafted,
-/obj/item/natural/chaff/wheat,
-/obj/item/natural/chaff/wheat,
-/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
-/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
-/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
-/obj/item/reagent_containers/food/snacks/produce/grain/wheat,
-/turf/open/floor/herringbone,
-/area/rogue/indoors/soilsons)
 "sRb" = (
 /turf/closed/wall/mineral/wooddark/end{
 	dir = 4
@@ -92910,7 +92894,7 @@ qJl
 qJl
 qGk
 diT
-kmh
+kqE
 qGk
 qGk
 qGk
@@ -93111,7 +93095,7 @@ qJl
 qJl
 qJl
 qGk
-pIy
+kww
 pIy
 bYT
 vwx
@@ -93313,7 +93297,7 @@ qJl
 qJl
 qJl
 qGk
-kww
+jTz
 pIy
 pIy
 bYT
@@ -93516,12 +93500,12 @@ qJl
 qJl
 qGk
 qGk
-kqE
+pIy
 pIy
 pIy
 bYT
 bYT
-kww
+pIy
 qGk
 qJl
 qJl
@@ -93719,10 +93703,10 @@ qJl
 qJl
 qGk
 qGk
-smG
-jTz
-jTz
-smG
+kmh
+kmh
+kmh
+kmh
 qGk
 qGk
 qJl
@@ -132705,7 +132689,7 @@ dhp
 qHb
 aeh
 qHb
-sRa
+qHb
 cQg
 cQg
 cQg
@@ -132907,7 +132891,7 @@ phI
 qHb
 qHb
 qHb
-sRa
+qHb
 cQg
 cQg
 cQg
@@ -133109,7 +133093,7 @@ arA
 qHb
 aeh
 qHb
-sRa
+qHb
 rMy
 cQg
 cQg
