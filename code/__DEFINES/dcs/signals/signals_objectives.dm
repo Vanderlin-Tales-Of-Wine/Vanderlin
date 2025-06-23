@@ -16,6 +16,7 @@
 #define COMSIG_HEAD_PUNCHED "head_punched" // from base of //mob/living/carbon/monkey/attack_hand() (victim)
 #define COMSIG_TREE_TRANSFORMED "tree_transformed" // from base of /obj/effect/proc_holder/spell/invoked/transform_tree/cast() ()
 #define COMSIG_SPAT_ON "spat_on" // from base of /datum/emote/living/spit/adjacentaction() (mob/target)
+#define COMSIG_APPRENTICE_MADE "apprentice_made" // from base of /mob/living/attack_right() (mob/new_apprentice)
 
 // Globals
 #define COMSIG_GLOBAL_MARRIAGE "global_marriage" // from base of /obj/structure/fluff/psycross/attackby() (bride, groom)
