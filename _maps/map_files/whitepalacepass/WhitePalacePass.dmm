@@ -24895,6 +24895,12 @@
 /obj/structure/flora/grass/bush/tundra,
 /turf/open/floor/snow,
 /area/rogue/outdoors/rtfield/safe)
+"xmf" = (
+/obj/structure/rotation_piece/cog/large,
+/turf/open/water/river{
+	dir = 4
+	},
+/area/rogue/under/town/basement)
 "xmk" = (
 /obj/machinery/light/fueled/firebowl/church,
 /turf/open/floor/churchbrick,
@@ -130741,8 +130747,8 @@ mos
 nJJ
 mos
 cOb
-mos
-mos
+cOb
+cOb
 cOb
 mos
 nJJ
@@ -130945,7 +130951,7 @@ xTy
 qNO
 iac
 iac
-qNO
+iac
 xTy
 nJJ
 nJJ
@@ -131147,7 +131153,7 @@ xTy
 fHc
 iac
 iac
-fHc
+iac
 xTy
 nJJ
 nJJ
@@ -131349,7 +131355,7 @@ xTy
 fHc
 iac
 iac
-fHc
+iac
 xTy
 nJJ
 nJJ
@@ -131551,7 +131557,7 @@ xTy
 fHc
 iac
 iac
-fHc
+iac
 xTy
 nJJ
 nJJ
@@ -131753,7 +131759,7 @@ fHc
 fHc
 iac
 iac
-fHc
+iac
 xTy
 nJJ
 nJJ
@@ -131955,7 +131961,7 @@ iac
 iac
 iac
 iac
-fHc
+iac
 xTy
 nJJ
 nJJ
@@ -132151,13 +132157,13 @@ nJJ
 nJJ
 nJJ
 xTy
-dSa
-boq
+mMv
+xmf
 iac
 iac
 iac
 iac
-fHc
+iac
 xTy
 nJJ
 nJJ
@@ -132353,13 +132359,13 @@ nJJ
 nJJ
 nJJ
 xTy
-mMv
-vHQ
-fHc
-fHc
-fHc
-fHc
-fHc
+dSa
+boq
+iac
+iac
+iac
+iac
+iac
 xTy
 nJJ
 nJJ
