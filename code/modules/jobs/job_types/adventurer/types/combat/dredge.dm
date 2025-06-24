@@ -482,6 +482,7 @@
 			H.change_stat(STATKEY_SPD, -2)
 			H.mind.adjust_spellpoints(6)
 			H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/learnspell)
+			H.mind?.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatSorcerer.ogg'
 			to_chat(H,span_info("\
 			I've studied the arcane, those who step to me shall perish.")
