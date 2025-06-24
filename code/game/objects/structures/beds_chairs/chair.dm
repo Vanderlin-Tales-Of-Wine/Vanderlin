@@ -3,7 +3,7 @@
 	desc = ""
 	icon = 'icons/obj/chairs.dmi'
 	icon_state = "chair"
-	anchored = TRUE
+	anchored = FALSE
 	can_buckle = 1
 	buckle_lying = 0 //you sit in a chair, not lay
 	resistance_flags = NONE
@@ -114,7 +114,6 @@
 	destroy_sound = 'sound/combat/hits/onwood/destroyfurniture.ogg'
 	attacked_sound = "woodimpact"
 	metalizer_result = /obj/item/cooking/pan
-	anchored = FALSE
 
 /obj/structure/chair/stool/handle_layer()
 	return
