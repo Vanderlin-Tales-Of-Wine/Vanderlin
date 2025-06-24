@@ -27214,11 +27214,6 @@
 "rsU" = (
 /turf/open/floor/blocks,
 /area/rogue/under/town/sewer)
-"rsW" = (
-/obj/structure/chair/stool,
-/obj/structure/bounty_board,
-/turf/open/floor/naturalstone,
-/area/rogue/under/town/sewer)
 "rtn" = (
 /obj/structure/closet/dirthole/closed/loot,
 /obj/structure/gravemarker,
@@ -31604,6 +31599,10 @@
 /obj/structure/bed/hay,
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement)
+"udv" = (
+/obj/structure/bounty_board,
+/turf/open/floor/cobble,
+/area/rogue/outdoors/town)
 "udT" = (
 /obj/structure/stairs{
 	dir = 8
@@ -61737,7 +61736,7 @@ cDP
 cDP
 oGi
 lfU
-rsW
+qWT
 fyC
 nVB
 fyC
@@ -98517,7 +98516,7 @@ kZE
 wJs
 fME
 qcb
-elp
+udv
 ehF
 nlk
 esI
