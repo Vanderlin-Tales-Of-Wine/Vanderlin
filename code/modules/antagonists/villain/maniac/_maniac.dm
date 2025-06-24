@@ -70,6 +70,7 @@
 	var/last_music_change = 0
 	var/datum/looping_sound/maniac_theme_song/combat_music_loop
 	var/curthemefile = 'sound/music/cmode/antag/combat_maniac.ogg'
+	var/old_cm = null //Cheffie's Req, Cache the old combat music and given back upon removal.
 
 GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 
@@ -92,6 +93,7 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 		if(ishuman(owner.current))
 			var/mob/living/carbon/human/dreamer = owner.current
 			dreamer.set_patron(/datum/patron/inhumen/graggar_zizo)
+			old_cm = dreamer.cmode_music
 			dreamer.cmode_music = 'sound/music/cmode/antag/combat_maniac.ogg'
 			dreamer.adjust_skillrank(/datum/skill/combat/knives, 6, TRUE)
 			dreamer.adjust_skillrank(/datum/skill/combat/wrestling, 5, TRUE)
@@ -135,6 +137,7 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 		if(ishuman(owner.current))
 			var/mob/living/carbon/human/dreamer = owner.current
 			dreamer.set_patron(/datum/patron/inhumen/zizo)
+			dreamer.cmode_music = old_cm
 			dreamer.remove_stat_modifier("[type]")
 			var/client/clinet = dreamer?.client
 			if(clinet) //clear screenshake animation
