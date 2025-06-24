@@ -2,10 +2,10 @@
 	name = "Beggar Compassion"
 	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/eora_compassion
-	weight = 7
+	weight = 10
 	earliest_start = 5 MINUTES
 	max_occurrences = 1
-	min_players = 25
+	min_players = 30
 
 	tags = list(
 		TAG_BOON,
