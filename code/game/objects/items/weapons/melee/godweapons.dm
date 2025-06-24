@@ -321,7 +321,7 @@
 		return
 	user.visible_message(span_warning("[user] blinks through space!"),
 		span_notice("I tear through space with Pleonexia."))
-	playsound(starting, "genslash", 70, TRUE, -1)
+	playsound(starting, "pleonexiaphase", 70, TRUE, -1)
 	new /obj/effect/temp_visual/cut(starting)
 	for(var/turf/affected_turf in affected_turfs)
 		for(var/mob/living/L in affected_turf)
