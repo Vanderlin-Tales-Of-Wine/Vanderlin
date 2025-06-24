@@ -46,5 +46,5 @@
 	H.change_stat(STATKEY_END, 2)
 	H.change_stat(STATKEY_CON, 2)
 
-	if(H.dna.species.name == RACE_DWARF)
+	if(H.dna.species.id == RACE_DWARF)
 		head = /obj/item/clothing/head/helmet/leather/minershelm

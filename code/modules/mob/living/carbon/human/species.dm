@@ -362,7 +362,7 @@ GLOBAL_LIST_EMPTY(patreon_races)
 			GLOB.patreon_races += S.name
 		qdel(S)
 	if(!LAZYLEN(GLOB.roundstart_races))
-		GLOB.roundstart_races += RACE_HUMEN
+		GLOB.roundstart_races += "Humen" // GLOB.species_list uses name and should probably be refactored
 	sortTim(GLOB.roundstart_races, GLOBAL_PROC_REF(cmp_text_dsc))
 
 /proc/get_selectable_species(patreon = TRUE)
