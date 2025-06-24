@@ -34,7 +34,7 @@
 	head = /obj/item/clothing/head/helmet/kettle
 	shirt = /obj/item/clothing/armor/chainmail
 	armor = /obj/item/clothing/armor/medium/scale
-	neck = /obj/item/clothing/neck/gorget
+	neck = /obj/item/clothing/neck/chaincoif
 	pants = /obj/item/clothing/pants/trou/leather/guard
 	shoes = /obj/item/clothing/shoes/boots
 	belt = /obj/item/storage/belt/leather
