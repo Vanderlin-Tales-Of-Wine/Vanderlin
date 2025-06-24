@@ -1679,7 +1679,9 @@
 /area/rogue/indoors/town/orphanage)
 "aTN" = (
 /obj/structure/fake_machine/camera,
-/obj/structure/fake_machine/mail,
+/obj/structure/fake_machine/mail{
+	mailtag = "Orphanage"
+	},
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/indoors/town/orphanage)
 "aTT" = (
@@ -3615,7 +3617,9 @@
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
 	},
-/obj/structure/fake_machine/mail,
+/obj/structure/fake_machine/mail{
+	mailtag = "Wizard tower"
+	},
 /obj/machinery/essence/combiner{
 	pixel_y = 11
 	},
@@ -3877,7 +3881,9 @@
 /turf/open/floor/tile,
 /area/rogue/under/town/basement)
 "cop" = (
-/obj/structure/fake_machine/mail,
+/obj/structure/fake_machine/mail{
+	mailtag = "Apothecary"
+	},
 /obj/structure/lever{
 	redstone_id = "nite_shutter"
 	},
@@ -5734,7 +5740,9 @@
 /turf/open/floor/church,
 /area/rogue/indoors/town/church)
 "dDr" = (
-/obj/structure/fake_machine/mail,
+/obj/structure/fake_machine/mail{
+	mailtag = "Mercenary Guild"
+	},
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/merc_guild)
 "dDB" = (
@@ -6689,7 +6697,9 @@
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town/smithy)
 "edD" = (
-/obj/structure/fake_machine/mail,
+/obj/structure/fake_machine/mail{
+	mailtag = "Blacksmith"
+	},
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/smithy)
 "edN" = (
@@ -6708,7 +6718,9 @@
 /turf/open/floor/churchbrick,
 /area/rogue/under/town/sewer)
 "efh" = (
-/obj/structure/fake_machine/mail,
+/obj/structure/fake_machine/mail{
+	mailtag = "Merchant"
+	},
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/shop)
 "efk" = (
@@ -7199,7 +7211,8 @@
 /area/rogue/indoors/town/manor)
 "evQ" = (
 /obj/structure/fake_machine/mail{
-	pixel_y = -32
+	pixel_y = -32;
+	mailtag = "Inquisitor"
 	},
 /turf/open/floor/church,
 /area/rogue/indoors/town/church/inquisition)
@@ -8712,7 +8725,9 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/orphanage)
 "fwn" = (
-/obj/structure/fake_machine/mail,
+/obj/structure/fake_machine/mail{
+	mailtag = "Old Church"
+	},
 /turf/closed/wall/mineral/stone,
 /area/rogue/indoors/town/church/inquisition)
 "fwz" = (
@@ -12790,7 +12805,8 @@
 "igf" = (
 /obj/structure/fake_machine/mail{
 	pixel_x = 32;
-	pixel_y = 0
+	pixel_y = 0;
+	mailtag = "Artificer"
 	},
 /turf/open/floor/blocks/newstone/alt,
 /area/rogue/indoors/town/dwarfin)
@@ -15991,7 +16007,9 @@
 /turf/open/floor/ruinedwood/turned,
 /area/rogue/outdoors/town)
 "kgk" = (
-/obj/structure/fake_machine/mail,
+/obj/structure/fake_machine/mail{
+	mailtag = "Steward"
+	},
 /obj/structure/chair/bench/couchablack/r,
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/steward)
@@ -16202,7 +16220,9 @@
 /turf/closed/wall/mineral/wood/window,
 /area/rogue/indoors/town)
 "kkY" = (
-/obj/structure/fake_machine/mail,
+/obj/structure/fake_machine/mail{
+	mailtag = "Butcher"
+	},
 /turf/open/floor/woodturned,
 /area/rogue/indoors/butchershop)
 "klp" = (
@@ -17573,7 +17593,8 @@
 	},
 /obj/structure/fake_machine/mail{
 	pixel_x = 32;
-	pixel_y = 0
+	pixel_y = 0;
+	mailtag = "Captain"
 	},
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/manor)
@@ -18089,7 +18110,9 @@
 /obj/structure/fluff/walldeco/church/line{
 	dir = 1
 	},
-/obj/structure/fake_machine/mail,
+/obj/structure/fake_machine/mail{
+	mailtag = "Church of Ten"
+	},
 /turf/open/floor/churchrough,
 /area/rogue/indoors/town/church/chapel)
 "lAc" = (
@@ -22683,7 +22706,9 @@
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/manor)
 "oyq" = (
-/obj/structure/fake_machine/mail,
+/obj/structure/fake_machine/mail{
+	mailtag = "Throne room"
+	},
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor)
 "oyt" = (
@@ -24076,7 +24101,9 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/town/sewer)
 "pwF" = (
-/obj/structure/fake_machine/mail,
+/obj/structure/fake_machine/mail{
+	mailtag = "Matron"
+	},
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/orphanage)
 "pxb" = (
@@ -25948,7 +25975,9 @@
 /turf/open/transparent/openspace,
 /area/rogue/indoors/dungeon)
 "qPi" = (
-/obj/structure/fake_machine/mail,
+/obj/structure/fake_machine/mail{
+	mailtag = "Soilson"
+	},
 /obj/structure/stairs{
 	dir = 8
 	},
@@ -27678,7 +27707,9 @@
 /turf/open/floor/churchrough,
 /area/rogue/indoors/town/church/inquisition)
 "rUa" = (
-/obj/structure/fake_machine/mail,
+/obj/structure/fake_machine/mail{
+	mailtag = "Inn"
+	},
 /obj/structure/table/wood{
 	dir = 10;
 	icon_state = "largetable"
@@ -31501,7 +31532,8 @@
 "unh" = (
 /obj/structure/fake_machine/mail{
 	pixel_x = 32;
-	pixel_y = 0
+	pixel_y = 0;
+	mailtag = "Priest"
 	},
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/church)
@@ -35092,7 +35124,9 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/tavern)
 "wIi" = (
-/obj/structure/fake_machine/mail,
+/obj/structure/fake_machine/mail{
+	mailtag = "Graveyard"
+	},
 /turf/open/floor/cobble,
 /area/rogue/outdoors/town)
 "wIn" = (
@@ -37218,7 +37252,9 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield/safe)
 "yfl" = (
-/obj/structure/fake_machine/mail,
+/obj/structure/fake_machine/mail{
+	mailtag = "Gaffer"
+	},
 /obj/structure/table/wood/counter{
 	dir = 1
 	},
@@ -112613,7 +112649,7 @@ vtv
 vtv
 nxk
 rDr
-bUM
+nyB
 bUM
 bUM
 rDr
