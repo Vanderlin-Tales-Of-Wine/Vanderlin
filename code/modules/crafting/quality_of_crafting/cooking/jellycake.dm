@@ -13,7 +13,7 @@
 	uses_attacked_atom = TRUE
 	craft_time = 9 SECONDS
 	crafting_sound = 'sound/foley/kneading_alt.ogg'
-	crafting_message = "Mixing apple into the gelatine..."
+	crafting_message = "mix apple into the gelatine"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/jellycake_apple_alt
@@ -31,7 +31,7 @@
 	uses_attacked_atom = TRUE
 	craft_time = 9 SECONDS
 	crafting_sound = 'sound/foley/kneading_alt.ogg'
-	crafting_message = "Mixing dried apple into the gelatine..."
+	crafting_message = "mix dried apple into the gelatine"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/jellycake_tangerine
@@ -49,7 +49,7 @@
 	uses_attacked_atom = TRUE
 	craft_time = 9 SECONDS
 	crafting_sound = 'sound/foley/kneading_alt.ogg'
-	crafting_message = "Mixing tangerine into the gelatine..."
+	crafting_message = "mix tangerine into the gelatine"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/jellycake_tangerine_alt
@@ -67,7 +67,7 @@
 	uses_attacked_atom = TRUE
 	craft_time = 9 SECONDS
 	crafting_sound = 'sound/foley/kneading_alt.ogg'
-	crafting_message = "Mixing dried tangerine into the gelatine..."
+	crafting_message = "mix dried tangerine into the gelatine"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/jellycake_plum
@@ -85,7 +85,7 @@
 	uses_attacked_atom = TRUE
 	craft_time = 9 SECONDS
 	crafting_sound = 'sound/foley/kneading_alt.ogg'
-	crafting_message = "Mixing plum into the gelatine..."
+	crafting_message = "mix plum into the gelatine"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/jellycake_plum_alt
@@ -103,7 +103,7 @@
 	uses_attacked_atom = TRUE
 	craft_time = 9 SECONDS
 	crafting_sound = 'sound/foley/kneading_alt.ogg'
-	crafting_message = "Mixing dried plum into the gelatine..."
+	crafting_message = "mix dried plum into the gelatine"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/jellycake_pear
@@ -121,7 +121,7 @@
 	uses_attacked_atom = TRUE
 	craft_time = 9 SECONDS
 	crafting_sound = 'sound/foley/kneading_alt.ogg'
-	crafting_message = "Mixing pear into the gelatine..."
+	crafting_message = "mix pear into the gelatine"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/jellycake_pear_alt
@@ -139,7 +139,7 @@
 	uses_attacked_atom = TRUE
 	craft_time = 9 SECONDS
 	crafting_sound = 'sound/foley/kneading_alt.ogg'
-	crafting_message = "Mixing dried pear into the gelatine..."
+	crafting_message = "mix dried pear into the gelatine"
 	extra_chance = 100
 
 /datum/repeatable_crafting_recipe/cooking/jellycake_lime
@@ -157,5 +157,5 @@
 	uses_attacked_atom = TRUE
 	craft_time = 9 SECONDS
 	crafting_sound = 'sound/foley/kneading_alt.ogg'
-	crafting_message = "Mixing lime into the gelatine..."
+	crafting_message = "mix lime into the gelatine"
 	extra_chance = 100

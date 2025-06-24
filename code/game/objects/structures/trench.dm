@@ -66,7 +66,7 @@
 		W.water_reagent = water.water_reagent
 		W.try_set_parent(water)
 		W.update_icon()
-		W.dir = GLOB.reverse_dir[direction]
+		W.dir = REVERSE_DIR(direction)
 		playsound(W, 'sound/foley/waterenter.ogg', 100, FALSE)
 		qdel(src)
 		return

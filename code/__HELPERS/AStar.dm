@@ -127,7 +127,7 @@ Actual Adjacent procs :
 				T = source_stairs.get_transit_destination(dir_to_check)
 			if(T != exclude)
 				var/datum/PathNode/CN = openc[T]  //current checking turf
-				var/reverse = GLOB.reverse_dir[dir_to_check]
+				var/reverse = REVERSE_DIR(dir_to_check)
 				var/newg = cur.g + call(cur.source,dist)(T, requester) // add the travel distance between these two tiles to the distance so far
 				if(CN)
 				//is already in open list, check if it's a better way from the current turf
@@ -165,7 +165,7 @@ Actual Adjacent procs :
 		return FALSE
 	var/obj/structure/stairs/source_stairs = locate(/obj/structure/stairs) in src
 	if(T.z < z) // going down
-		if(source_stairs?.get_target_loc(GLOB.reverse_dir[source_stairs.dir]) == T)
+		if(source_stairs?.get_target_loc(REVERSE_DIR(source_stairs.dir)) == T)
 			return TRUE
 	else // heading DOWN stairs was handled earlier, so now handle going UP stairs
 		if(source_stairs?.get_target_loc(source_stairs.dir) == T)

@@ -66,20 +66,29 @@
 
 //Bit flags for the flags_inv variable, which determine when a piece of clothing hides another. IE a helmet hiding glasses.
 //Make sure to update check_obscured_slots() if you add more.
-#define HIDEGLOVES		(1<<0)
-#define HIDESUITSTORAGE	(1<<1)
-#define HIDEJUMPSUIT	(1<<2)	//these first four are only used in exterior suits
-#define HIDESHOES		(1<<3)
-#define HIDEMASK		(1<<4)	//these last six are only used in masks and headgear.
-#define HIDEEARS		(1<<5)	// (ears means headsets and such)
-#define HIDEEYES		(1<<6)	// Whether eyes and glasses are hidden
-#define HIDEFACE		(1<<7)	// Whether we appear as unknown.
-#define HIDEHAIR		(1<<8)
-#define HIDEFACIALHAIR	(1<<9)
-#define HIDENECK		(1<<10)
-#define HIDEBOOB		(1<<11)
-#define HIDEBELT		(1<<12)
-#define HIDETAIL		(1<<13)
+#define HIDEGLOVES (1<<0)
+#define HIDESUITSTORAGE (1<<1)
+#define HIDEJUMPSUIT (1<<2)	//these first four are only used in exterior suits
+#define HIDESHOES (1<<3)
+#define HIDEMASK (1<<4)
+#define HIDEEARS (1<<5)	// (ears means headsets and such)
+#define HIDEEYES (1<<6)	// Whether eyes and glasses are hidden
+#define HIDEFACE (1<<7)	// Whether we appear as unknown.
+#define HIDEHAIR (1<<8)
+#define HIDEFACIALHAIR (1<<9)
+#define HIDENECK (1<<10)
+#define HIDEBOOB (1<<11)
+#define HIDEBELT (1<<12)
+#define HIDETAIL (1<<13)
+// Some clothing have bras, etc of their own and look wrong overlayed over the default underwear
+// Such as the amazonian chainkini
+// Younglings will always override this don't worry
+/// Don't show default underwear bras when wearing this (Female only)
+#define HIDEUNDIESTOP (1<<14)
+/// Don't show default underwear bottoms when wearing this
+#define HIDEUNDIESBOT (1<<15)
+/// Don't show either
+#define HIDEUNDIES (HIDEUNDIESTOP | HIDEUNDIESBOT)
 
 //blocking_behavior var on clothing items
 #define BLOCKBOOTS		(1<<0)

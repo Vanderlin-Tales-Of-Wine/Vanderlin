@@ -1006,7 +1006,7 @@ SUBSYSTEM_DEF(gamemode)
 			var/sorted_scheduled = list()
 			for(var/datum/scheduled_event/scheduled as anything in scheduled_events)
 				sorted_scheduled[scheduled] = scheduled.start_time
-			sortTim(sorted_scheduled, cmp=/proc/cmp_numeric_asc, associative = TRUE)
+			sortTim(sorted_scheduled, associative = TRUE)
 			even = TRUE
 			for(var/datum/scheduled_event/scheduled as anything in sorted_scheduled)
 				even = !even
@@ -1098,7 +1098,7 @@ SUBSYSTEM_DEF(gamemode)
 			assoc_spawn_weight[event] = event.calculated_weight
 		else
 			assoc_spawn_weight[event] = 0
-	sortTim(assoc_spawn_weight, cmp=/proc/cmp_numeric_dsc, associative = TRUE)
+	sortTim(assoc_spawn_weight, cmp = GLOBAL_PROC_REF(cmp_numeric_dsc), associative = TRUE)
 	for(var/datum/round_event_control/event as anything in assoc_spawn_weight)
 		even = !even
 		var/background_cl = even ? "#17191C" : "#23273C"
@@ -1280,10 +1280,12 @@ SUBSYSTEM_DEF(gamemode)
 	if(!highest)
 		return
 
-	if(storytellers_with_influence[highest] > 1.25)
-		highest.bonus_points -= 1.25
+	var/adjustment = min(2.5, 1 + (0.3 * FLOOR(max(0, highest.times_chosen - 5) / 5, 1)))
 
-	lowest.bonus_points += 1.25
+	if(storytellers_with_influence[highest] > adjustment)
+		highest.bonus_points -= adjustment
+
+	lowest.bonus_points += adjustment
 
 	set_storyteller(highest.type)
 
@@ -1355,6 +1357,7 @@ SUBSYSTEM_DEF(gamemode)
 	GLOB.vanderlin_round_stats[STATS_ALIVE_AASIMAR] = 0
 	GLOB.vanderlin_round_stats[STATS_ALIVE_HOLLOWKINS] = 0
 	GLOB.vanderlin_round_stats[STATS_ALIVE_HARPIES] = 0
+	GLOB.vanderlin_round_stats[STATS_ALIVE_TRITONS] = 0
 
 	for(var/client/client in GLOB.clients)
 		if(roundstart)
@@ -1462,6 +1465,8 @@ SUBSYSTEM_DEF(gamemode)
 				GLOB.vanderlin_round_stats[STATS_ALIVE_HOLLOWKINS]++
 			if(isharpy(human_mob))
 				GLOB.vanderlin_round_stats[STATS_ALIVE_HARPIES]++
+			if(istriton(human_mob))
+				GLOB.vanderlin_round_stats[STATS_ALIVE_TRITONS]++
 
 /// Returns total follower influence for the given storyteller
 /datum/controller/subsystem/gamemode/proc/get_follower_influence(datum/storyteller/chosen_storyteller)

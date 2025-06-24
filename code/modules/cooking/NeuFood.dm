@@ -486,7 +486,7 @@
 	qdel(src)
 
 /obj/item/reagent_containers/powder/flour/attackby(obj/item/I, mob/living/user, params)
-	..()
+	. = ..()
 	var/found_table = locate(/obj/structure/table) in (loc)
 	var/obj/item/reagent_containers/glass/R = I
 	if(isturf(loc)&& (found_table))

@@ -18,7 +18,6 @@
 	pixel_y = 1
 
 	faction = list("gators")
-	turns_per_move = 4
 	move_to_delay = 12
 	vision_range = 5
 	aggro_vision_range = 5
@@ -78,9 +77,8 @@
 	)
 
 /mob/living/simple_animal/hostile/retaliate/gator/Initialize()
+	AddComponent(/datum/component/obeys_commands, pet_commands) // here due to signal overridings from pet commands
 	. = ..()
-	qdel(GetComponent(/datum/component/obeys_commands)) // due to signal overridings from pet commands
-	AddComponent(/datum/component/obeys_commands, pet_commands)
 	gender = MALE
 	if(prob(33))
 		gender = FEMALE
