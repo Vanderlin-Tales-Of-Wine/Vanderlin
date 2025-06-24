@@ -28138,6 +28138,13 @@
 	},
 /turf/open/transparent/openspace,
 /area/rogue/indoors/town/clocktower)
+"rVN" = (
+/obj/structure/fluff/walldeco/church/line{
+	dir = 8
+	},
+/obj/machinery/light/fueled/cauldron,
+/turf/open/floor/churchrough,
+/area/rogue/indoors/town/manor)
 "rWb" = (
 /turf/closed/wall/mineral/roofwall/outercorner,
 /area/rogue/indoors/town/manor)
@@ -136376,7 +136383,7 @@ ofb
 xUU
 riL
 uEL
-xUU
+rVN
 tvs
 hmy
 eqt
