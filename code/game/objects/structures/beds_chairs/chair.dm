@@ -3,7 +3,7 @@
 	desc = ""
 	icon = 'icons/obj/chairs.dmi'
 	icon_state = "chair"
-	anchored = TRUE
+	anchored = FALSE
 	can_buckle = 1
 	buckle_lying = 0 //you sit in a chair, not lay
 	resistance_flags = NONE
@@ -66,10 +66,12 @@
 			buckled_mob.setDir(direction)
 
 /obj/structure/chair/proc/handle_layer()
-	if(has_buckled_mobs() && dir == NORTH)
+	if(dir == NORTH)
 		layer = ABOVE_MOB_LAYER
+		plane = GAME_PLANE_UPPER
 	else
 		layer = OBJ_LAYER
+		plane = GAME_PLANE
 
 /obj/structure/chair/post_buckle_mob(mob/living/M)
 	. = ..()
@@ -112,6 +114,9 @@
 	destroy_sound = 'sound/combat/hits/onwood/destroyfurniture.ogg'
 	attacked_sound = "woodimpact"
 	metalizer_result = /obj/item/cooking/pan
+
+/obj/structure/chair/stool/handle_layer()
+	return
 
 /obj/structure/chair/MouseDrop(over_object, src_location, over_location)
 	. = ..()
