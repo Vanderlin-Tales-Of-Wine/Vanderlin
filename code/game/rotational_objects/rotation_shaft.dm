@@ -49,7 +49,7 @@
 			if(!(direction & dpdir)) // not in dpdir, check for cog structures
 				if(!istype(structure, /obj/structure/rotation_piece/cog) && !istype(structure, /obj/structure/water_pump))
 					continue
-				if(structure.dir != dir && structure.dir != GLOB.reverse_dir[dir]) // cogs not oriented in same direction
+				if(structure.dir != dir && structure.dir != REVERSE_DIR(dir)) // cogs not oriented in same direction
 					continue
 			else if(!(REVERSE_DIR(direction) & structure.dpdir))
 				continue
@@ -128,12 +128,12 @@
 	checked |= src
 
 	var/direction = get_dir(src, connector)
-	if(direction != dir && direction != GLOB.reverse_dir[dir])
+	if(direction != dir && direction != REVERSE_DIR(dir))
 		if(istype(connector, /obj/structure/rotation_piece/cog))
-			connector.rotation_direction = GLOB.reverse_dir[rotation_direction]
+			connector.rotation_direction = REVERSE_DIR(rotation_direction)
 			connector.set_rotations_per_minute(get_speed_mod(connector))
 		if(istype(connector, /obj/structure/water_pump))
-			connector.rotation_direction = GLOB.reverse_dir[rotation_direction]
+			connector.rotation_direction = REVERSE_DIR(rotation_direction)
 			connector.set_rotations_per_minute(rotations_per_minute)
 	else
 		if(connector.stress_generator && connector.rotation_direction && rotation_direction && (connector.rotation_direction != rotation_direction))

@@ -109,7 +109,7 @@
 	for(var/side_dir in shuffle(GLOB.alldirs))
 		// Don't throw people in front of the cart, and
 		// don't throw people in any direction behind us
-		if(side_dir == dir || (side_dir & GLOB.reverse_dir[dir]))
+		if(side_dir == dir || (side_dir & REVERSE_DIR(dir)))
 			continue
 		var/turf/open/open_turf = get_step(src, side_dir)
 		if(!istype(open_turf))

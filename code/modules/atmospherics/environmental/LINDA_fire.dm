@@ -232,7 +232,7 @@
 							new /obj/effect/hotspot(spreader_level, volume, temperature)
 							break
 
-						spreader_level = GET_TURF_BELOW(get_step(ranged_floor, GLOB.reverse_dir[stair.dir]))
+						spreader_level = GET_TURF_BELOW(get_step(ranged_floor, REVERSE_DIR(stair.dir)))
 						for(var/obj/structure/stairs/lower_stair in spreader_level)
 							new /obj/effect/hotspot(spreader_level, volume, temperature)
 							break
