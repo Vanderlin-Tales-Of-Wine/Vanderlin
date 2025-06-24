@@ -50,9 +50,9 @@
 	},
 /area/rogue/under/tomb/indoors/church)
 "iu" = (
-/obj/structure/chair/bench/church,
-/mob/living/carbon/human/species/skeleton/npc/warrior,
-/turf/open/floor/carpet/lord/left,
+/obj/structure/chair/bench/church/mid,
+/mob/living/carbon/human/species/zizombie/npc/militiamen,
+/turf/open/floor/carpet/lord/center,
 /area/rogue/under/tomb/indoors/church)
 "kd" = (
 /obj/structure/chair/bench/church/r,
@@ -79,10 +79,6 @@
 /area/rogue/under/tomb/indoors/church)
 "lM" = (
 /obj/structure/table/church/m,
-/obj/item/clothing/ring/active/nomag{
-	pixel_x = 23;
-	pixel_y = 6
-	},
 /obj/item/weapon/sword/decorated{
 	name = "A Lords Blade";
 	desc = "A long dead kings Blade, Forgotten to time yet master in work."
@@ -126,6 +122,14 @@
 /obj/structure/table/church{
 	dir = 1
 	},
+/obj/item/reagent_containers/glass/cup/silver{
+	pixel_x = -10;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/glass/cup/silver{
+	pixel_x = 5;
+	pixel_y = 9
+	},
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors/church)
 "sk" = (
@@ -137,8 +141,10 @@
 /area/rogue/under/tomb/indoors/church)
 "sU" = (
 /obj/structure/table/vtable,
-/obj/item/statue/gold/loot{
-	pixel_y = 11
+/obj/item/ingot/blacksteel,
+/obj/item/ingot/blacksteel{
+	pixel_x = -6;
+	pixel_y = 6
 	},
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors/church)
@@ -159,16 +165,19 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb)
 "wm" = (
-/obj/item/ingot/gold,
-/obj/item/ingot/gold{
-	pixel_x = 9;
-	pixel_y = -4
+/obj/structure/fluff/railing/border{
+	dir = 4
 	},
-/obj/item/ingot/gold{
-	pixel_y = 4;
-	pixel_x = 5
+/mob/living/simple_animal/hostile/retaliate/infernal/imp{
+	faction = list("Undead")
 	},
-/turf/open/floor/hexstone,
+/turf/open/floor/wood,
+/area/rogue/under/tomb/indoors/church)
+"BE" = (
+/mob/living/simple_animal/hostile/retaliate/infernal/imp{
+	faction = list("Undead")
+	},
+/turf/open/floor/wood,
 /area/rogue/under/tomb/indoors/church)
 "Dn" = (
 /obj/structure/fluff/walldeco/painting/crown,
@@ -199,9 +208,6 @@
 /area/rogue/under/tomb)
 "Jr" = (
 /obj/structure/table/vtable/v2,
-/obj/item/statue/gold{
-	pixel_y = 14
-	},
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors/church)
 "KA" = (
@@ -252,6 +258,12 @@
 "Nu" = (
 /obj/structure/fluff/railing/border{
 	dir = 9
+	},
+/turf/open/floor/wood,
+/area/rogue/under/tomb/indoors/church)
+"PE" = (
+/mob/living/simple_animal/hostile/retaliate/infernal/hellhound{
+	faction = list("Undead")
 	},
 /turf/open/floor/wood,
 /area/rogue/under/tomb/indoors/church)
@@ -388,7 +400,7 @@ uk
 uk
 uk
 uk
-iu
+uk
 uk
 rq
 rq
@@ -405,7 +417,7 @@ KA
 gi
 gi
 gi
-gi
+iu
 gi
 rq
 rq
@@ -420,7 +432,7 @@ rq
 rq
 TP
 TP
-kd
+TP
 TP
 TP
 TP
@@ -483,13 +495,13 @@ SO
 (10,1,1) = {"
 HA
 gQ
-wm
 rq
 rq
+rq
 uk
 uk
 uk
-iu
+uk
 uk
 uk
 rq
@@ -503,7 +515,7 @@ gQ
 rq
 rq
 rq
-KA
+iu
 gi
 gi
 gi
@@ -625,7 +637,7 @@ Gd
 Gd
 SQ
 SQ
-SQ
+PE
 SQ
 SQ
 SQ
@@ -662,7 +674,7 @@ Qo
 Wd
 sk
 Qo
-Qo
+wm
 Wd
 SQ
 gQ
@@ -766,7 +778,7 @@ ml
 qA
 qA
 Nu
-SQ
+BE
 gQ
 HA
 "}
@@ -778,7 +790,7 @@ Gd
 Gd
 SQ
 SQ
-SQ
+BE
 FJ
 SQ
 SQ

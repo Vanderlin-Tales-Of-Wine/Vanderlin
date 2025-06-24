@@ -661,6 +661,12 @@
 /obj/machinery/light/fueled/oven/south,
 /turf/open/floor/churchmarble,
 /area/rogue/under/tomb/indoors/church)
+"xE" = (
+/mob/living/simple_animal/hostile/retaliate/infernal/imp{
+	faction = list("Undead")
+	},
+/turf/open/floor/churchmarble,
+/area/rogue/under/tomb/indoors/church)
 "xM" = (
 /obj/structure/closet/crate/chest/crate,
 /obj/item/clothing/neck/psycross/noc,
@@ -2045,7 +2051,7 @@ nm
 JI
 Fk
 JI
-JI
+xE
 JI
 nm
 fe
