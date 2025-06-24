@@ -12,7 +12,7 @@
 
 	var/mob/living/carbon/human/target = targets[1]
 	if(!istype(target))
-		to_chat(H, span_warning("You must target a valid child!"))
+		to_chat(H, span_warning("You must target a person!"))
 		return
 
 	if(target == H)
@@ -24,7 +24,11 @@
 		return
 
 	if(target.family_datum && target.family_member_datum?.parents.len)
-		to_chat(H, span_warning("This child already has parents!"))
+		to_chat(H, span_warning("This child is not an orphan!"))
+		return
+
+	if(target.job != "Orphan" && !istype(target.mind?.assigned_role, /datum/job/orphan))
+		to_chat(H, span_warning("This child is not an orphan!"))
 		return
 
 	H.visible_message(span_notice("[H] begins a solemn adoption ritual."), \
