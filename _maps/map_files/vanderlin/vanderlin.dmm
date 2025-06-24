@@ -17156,6 +17156,11 @@
 	},
 /turf/open/floor/churchbrick,
 /area/rogue/indoors/town/manor)
+"kGB" = (
+/obj/structure/table/wood/plain_alt,
+/obj/item/book/manners,
+/turf/open/floor/cobble,
+/area/rogue/under/town/basement)
 "kGO" = (
 /turf/closed/wall/mineral/stone/moss,
 /area/rogue/indoors/town/bath)
@@ -18811,13 +18816,6 @@
 	pixel_x = 6
 	},
 /turf/open/floor/blocks/stonered,
-/area/rogue/indoors/town/manor)
-"lOR" = (
-/obj/structure/bookcase/random,
-/obj/structure/fluff/walldeco/church/line{
-	dir = 8
-	},
-/turf/open/floor/churchrough,
 /area/rogue/indoors/town/manor)
 "lPe" = (
 /obj/structure/table/wood,
@@ -22894,6 +22892,12 @@
 	},
 /turf/closed/wall/mineral/stone,
 /area/rogue/indoors/town/orphanage)
+"ovC" = (
+/obj/structure/closet/crate/crafted_closet,
+/obj/machinery/light/fueled/wallfire/candle,
+/obj/item/clothing/shoes/shortboots,
+/turf/open/floor/cobble,
+/area/rogue/under/town/basement)
 "ovH" = (
 /obj/effect/mapping_helpers/secret_door_creator/keep{
 	redstone_id = 515;
@@ -25672,7 +25676,7 @@
 /obj/structure/fluff/walldeco/church/line{
 	dir = 4
 	},
-/obj/structure/fermentation_keg/random/water,
+/obj/structure/bookcase/random,
 /turf/open/floor/churchrough,
 /area/rogue/indoors/town/manor)
 "qpv" = (
@@ -25742,6 +25746,7 @@
 	},
 /obj/structure/fluff/walldeco/church/line,
 /obj/machinery/light/fueled/wallfire/candle/blue/r,
+/obj/structure/fermentation_keg/random/water,
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/town/manor)
 "qrQ" = (
@@ -37938,6 +37943,14 @@
 /obj/effect/decal/cleanable/blood/drip,
 /turf/closed/wall/mineral/stone,
 /area/rogue/indoors/town/merc_guild)
+"ymg" = (
+/obj/item/key/manor,
+/obj/item/key/manor,
+/obj/item/key/manor,
+/obj/item/key/manor,
+/obj/structure/closet/crate/chest/crafted,
+/turf/open/floor/cobble,
+/area/rogue/under/town/basement)
 
 (1,1,1) = {"
 iDg
@@ -53100,9 +53113,9 @@ vgJ
 vgJ
 vgJ
 tHe
-kbO
+ovC
 iRT
-imw
+kGB
 tHe
 xsL
 iRT
@@ -53304,7 +53317,7 @@ vgJ
 tHe
 aAn
 iRT
-iRT
+ymg
 tHe
 udt
 iRT
@@ -136340,7 +136353,7 @@ ofb
 xUU
 riL
 uEL
-lOR
+xUU
 tvs
 hmy
 eqt
