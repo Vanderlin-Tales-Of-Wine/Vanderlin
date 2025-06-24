@@ -37,7 +37,6 @@
 
 /datum/migrant_wave/pilgrim
 	name = "Pilgrimage"
-	downgrade_wave = /datum/migrant_wave/pilgrim_down_one
 	roles = list(
 		/datum/migrant_role/pilgrim = 4,
 	)
@@ -46,7 +45,6 @@
 
 /datum/migrant_wave/adventurer
 	name = "Adventure Party"
-	downgrade_wave = /datum/migrant_wave/adventurer_down_one
 	roles = list(
 		/datum/migrant_role/adventurer = 4,
 	)
@@ -56,7 +54,6 @@
 /datum/migrant_wave/bandit
 	name = "Bandit Raid"
 	spawn_landmark = "Bandit"
-	downgrade_wave = /datum/migrant_wave/bandit_down_one
 	weight = 8
 	roles = list(
 		/datum/migrant_role/bandit = 4,
@@ -65,7 +62,6 @@
 
 /datum/migrant_wave/merc
 	name = "Band of Mercenaries"
-	downgrade_wave = /datum/migrant_wave/merc_down_one
 	weight = 8
 	roles = list(
 		/datum/migrant_role/mercenary = 4,
