@@ -30,7 +30,7 @@
 
 /obj/structure/pottery_lathe/examine(mob/user)
 	. = ..()
-	. = span_info("The speed of [src] is set to [true_rotations] RPM.")
+	. += span_info("The speed of [src] is set to [true_rotations] RPM.")
 
 /obj/structure/pottery_lathe/update_overlays()
 	. = ..()

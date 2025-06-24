@@ -153,6 +153,8 @@
 				new /obj/item/clothing/neck/mercmedal/boltslinger(drop_location)
 			if(7)
 				new /obj/item/clothing/neck/mercmedal/anthrax(drop_location)
+			if(8)
+				new /obj/item/clothing/neck/mercmedal/duelist(drop_location)
 
 	if(istype(P, /obj/item/paper/confession))
 		if(is_inquisitor_job(user.mind.assigned_role) || is_adept_job(user.mind.assigned_role)) // Only Inquisitors and Adepts can sumbit confessions.
@@ -253,7 +255,7 @@
 
 /obj/structure/fake_machine/mail/examine(mob/user)
 	. = ..()
-	. += "<a href='byond://?src=[REF(src)];directory=1'>Directory:</a> [mailtag]"
+	. += "<a href='byond://?src=[REF(src)];directory=1'>Directory:</a> [mailtag || capitalize(get_area_name(src))]"
 
 /obj/structure/fake_machine/mail/Topic(href, href_list)
 	..()
@@ -290,6 +292,15 @@
 	w_class = WEIGHT_CLASS_GIGANTIC
 	var/new_mail
 
+/obj/item/roguemachine/mastermail/Initialize()
+	. = ..()
+	SSroguemachine.hermailermaster = src
+	update_icon()
+
+/obj/item/roguemachine/mastermail/Destroy()
+	SSroguemachine.hermailermaster = null
+	return ..()
+
 /obj/item/roguemachine/mastermail/update_icon()
 	cut_overlays()
 	if(new_mail)
@@ -310,11 +321,6 @@
 			update_icon()
 		CP.rmb_show(user)
 		return TRUE
-
-/obj/item/roguemachine/mastermail/Initialize()
-	. = ..()
-	SSroguemachine.hermailermaster = src
-	update_icon()
 
 /obj/item/roguemachine/mastermail/attackby(obj/item/P, mob/user, params)
 	if(istype(P, /obj/item/paper))
@@ -478,7 +484,7 @@
 			cost = 3,
 			max_purchases = 3
 		),
-		"Vial Of Strong Poison (5)" = list(
+		"Vial Of Doom Poison (5)" = list(
 			list(type = /obj/item/reagent_containers/glass/bottle/vial/strongpoison, count = 1),
 			cost = 5,
 			max_purchases = 1

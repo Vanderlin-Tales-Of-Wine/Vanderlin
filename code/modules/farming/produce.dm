@@ -223,6 +223,7 @@
 	var/poisonous = FALSE
 
 /obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry/Initialize()
+	. = ..()
 	if(GLOB.berrycolors[color_index])
 		filling_color = GLOB.berrycolors[color_index]
 	else
@@ -233,7 +234,6 @@
 			GLOB.berrycolors[color_index] = newcolor
 		filling_color = GLOB.berrycolors[color_index]
 	update_icon()
-	..()
 
 /obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry/on_consume(mob/living/eater)
 	..()
@@ -266,7 +266,7 @@
 /obj/item/reagent_containers/food/snacks/produce/fruit/jacksberry/examine(mob/user)
 	var/farminglvl = user.get_skill_level(/datum/skill/labor/farming)
 	. = ..()
-	// Foragers can always detect if a berry is safe or poisoned
+	// Foragers can always detect if p berry is safe or poisoned
 	if(HAS_TRAIT(user, TRAIT_FORAGER))
 		if(poisonous)
 			. += span_warning("This berry looks suspicious. I sense it might be poisoned.")
@@ -535,7 +535,9 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 0)
 	dropshrink = 0.5
 	rotprocess = null
-
+	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_MASK
+	body_parts_covered = NONE
+	alternate_worn_layer  = 8.9
 /*
 /obj/item/reagent_containers/food/snacks/produce/garlic
 	name = "garlic"
@@ -554,3 +556,11 @@
 	grind_results = list(/datum/reagent/toxin/amanitin = 6)
 
 */
+
+/proc/display_shit()
+	var/list/list = subtypesof(/obj/item/alch)
+	var/type_list = ""
+	for(var/i in list)
+		type_list += "[i], "
+	usr << browse(list)
+

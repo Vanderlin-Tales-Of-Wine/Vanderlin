@@ -314,6 +314,7 @@
 	melting_material = null
 	embedding = list("embed_chance" = 0) // Embedding the cursed dagger has the potential to cause duping issues. Keep it like this unless you want to do a lot of bug hunting.
 	resistance_flags = INDESTRUCTIBLE
+	stealthy_audio = TRUE
 
 /obj/item/weapon/knife/dagger/steel/profane/examine(mob/user)
 	. = ..()

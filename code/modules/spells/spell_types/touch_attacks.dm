@@ -10,7 +10,7 @@
 /obj/effect/proc_holder/spell/targeted/touch/Destroy()
 	remove_hand()
 	to_chat(usr, "<span class='notice'>The power of the spell dissipates from my hand.</span>")
-	..()
+	return ..()
 
 /obj/effect/proc_holder/spell/targeted/touch/proc/remove_hand(recharge = FALSE)
 	QDEL_NULL(attached_hand)
@@ -29,13 +29,13 @@
 	if(!QDELETED(attached_hand))
 		remove_hand(TRUE)
 		to_chat(user, "<span class='notice'>[dropmessage]</span>")
-		return
+		return FALSE
 
 	for(var/mob/living/carbon/C in targets)
 		if(!attached_hand)
 			if(ChargeHand(C))
 				recharging = FALSE
-				return
+				return ..()
 
 /obj/effect/proc_holder/spell/targeted/touch/charge_check(mob/user,silent = FALSE)
 	if(!QDELETED(attached_hand)) //Charge doesn't matter when putting the hand away.

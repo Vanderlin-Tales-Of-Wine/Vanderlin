@@ -4,6 +4,12 @@
 /datum/enchantment/silver
 	enchantment_name = "Nightlurkers Bane"
 	examine_text = span_silver("It's a bane to all who lurk at night.")
+
+	essence_recipe = list(
+		/datum/thaumaturgical_essence/order = 25,
+		/datum/thaumaturgical_essence/light = 15
+	)
+
 	var/list/last_used = list()
 
 /datum/enchantment/silver/proc/affected_by_bane(mob/target)
@@ -44,7 +50,7 @@
 			user.fire_act(1,10)
 			to_chat(user, span_userdanger("The silver enchantment fails!"))
 			target.visible_message(span_userdanger("[user] suddenly bursts into flames!"), span_greentextbig("Feeble metal cannot hurt me, I AM THE ANCIENT!"))
-	
+
 	///Normal check for the vampire and werewolves
 	if(affected)
 		to_chat(target, span_userdanger("I am struck by my BANE!"))

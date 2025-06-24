@@ -9,7 +9,7 @@
 	department_flag = GARRISON
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_CHIEF
-	faction = FACTION_STATION
+	faction = FACTION_TOWN
 	total_positions = 1
 	spawn_positions = 1
 	min_pq = 10 // Requires knowledge and good rp for the classes.
@@ -71,7 +71,7 @@
 	var/spawn_instrument = instruments[instrument_choice]
 	if(!spawn_instrument)
 		spawn_instrument = /obj/item/instrument/lute
-	H.equip_to_slot_or_del(new spawn_instrument(H),SLOT_BACK_R, TRUE)
+	H.equip_to_slot_or_del(new spawn_instrument(H),ITEM_SLOT_BACK_R, TRUE)
 	H.advsetup = 0
 	H.invisibility = initial(H.invisibility)
 	H.cure_blind("bard_select")
@@ -92,7 +92,7 @@
 	f_title = "Town Militiawoman"
 	flag = GUARDSMAN
 	department_flag = GARRISON
-	faction = FACTION_STATION
+	faction = FACTION_TOWN
 	total_positions = 0
 	spawn_positions = 0
 	display_order = JDO_CITYWATCHMEN
@@ -273,7 +273,7 @@
 	beltr = /obj/item/storage/keyring/elder
 	beltl = /obj/item/flashlight/flare/torch/lantern
 	backl = /obj/item/storage/backpack/satchel
-	
+
 	backpack_contents = list(/obj/item/storage/belt/pouch/coins/mid = 1, /obj/item/needle = 1 )
 
 	switch(H.patron?.type)

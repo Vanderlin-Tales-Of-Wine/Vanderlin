@@ -126,7 +126,7 @@
 
 /obj/item/clothing/head/roguehood/priest/equipped(mob/user, slot)
 	. = ..()
-	if (slot == SLOT_HEAD && istype(user))
+	if ((slot & ITEM_SLOT_HEAD) && istype(user))
 		ADD_TRAIT(user, TRAIT_ANTIMAGIC,"Anti-Magic")
 	else
 		REMOVE_TRAIT(user, TRAIT_ANTIMAGIC,"Anti-Magic")
@@ -137,7 +137,7 @@
 
 /obj/item/clothing/head/roguehood/priest/pickup(mob/living/user)
 	if((user.job != "Priest") && (user.job != "Priestess"))
-		playsound(user, 'sound/misc/astratascream.ogg', 80,  falloff = 0.2)
+		playsound(user, 'sound/misc/gods/astrata_scream.ogg', 80, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 		user.visible_message(span_reallybig("UNWORTHY HANDS TOUCH MY VISAGE, CEASE OR BE PUNISHED"))
 		spawn(30)
 			if(loc == user)

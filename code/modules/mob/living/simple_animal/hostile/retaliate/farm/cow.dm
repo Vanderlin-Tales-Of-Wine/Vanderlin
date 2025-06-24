@@ -35,7 +35,6 @@
 					/obj/item/reagent_containers/food/snacks/produce/vegetable/turnip,
 					/obj/item/reagent_containers/food/snacks/produce/vegetable/cabbage)
 	pooptype = /obj/item/natural/poo/cow
-	milk_reagent = /datum/reagent/consumable/milk
 	tame_chance = 25
 	bonus_tame_chance = 15
 
@@ -47,8 +46,6 @@
 	base_speed = 4
 	base_constitution = 4
 	base_strength = 4
-	childtype = list(/mob/living/simple_animal/hostile/retaliate/cow/cowlet = 95,
-					/mob/living/simple_animal/hostile/retaliate/cow/cowlet/bullet = 5)
 	remains_type = /obj/effect/decal/remains/cow
 
 
@@ -58,7 +55,7 @@
 	var/can_tip = TRUE
 
 /mob/living/simple_animal/hostile/retaliate/cow/Initialize()
-	..()
+	. = ..()
 	if(can_tip)
 		AddComponent(/datum/component/tippable, \
 			0.5 SECONDS, \
@@ -66,17 +63,22 @@
 			rand(25 SECONDS, 50 SECONDS), \
 			null,\
 			CALLBACK(src, PROC_REF(after_cow_tipped)),\
-			CALLBACK(src, PROC_REF(after_cow_untipped)))
-
+			CALLBACK(src, PROC_REF(after_cow_untipped)),\
+		)
 
 	if(can_breed)
 		AddComponent(\
 			/datum/component/breed,\
 			list(/mob/living/simple_animal/hostile/retaliate/cow, /mob/living/simple_animal/hostile/retaliate/bull),\
 			3 MINUTES,\
-			list(/mob/living/simple_animal/hostile/retaliate/cow/cowlet = 95, /mob/living/simple_animal/hostile/retaliate/cow/cowlet/bullet = 5),\
+			list(/mob/living/simple_animal/hostile/retaliate/cow/cowlet = 90, /mob/living/simple_animal/hostile/retaliate/cow/cowlet/bullet = 10),\
 			CALLBACK(src, PROC_REF(after_birth)),\
 		)
+	udder_component()
+
+///wrapper for the udder component addition so you can have uniquely uddered cow subtypes
+/mob/living/simple_animal/hostile/retaliate/cow/proc/udder_component()
+	AddComponent(/datum/component/udder)
 
 /obj/effect/decal/remains/cow
 	name = "remains"
@@ -218,15 +220,9 @@
 
 	AddComponent(\
 		/datum/component/breed,\
-		list(/mob/living/simple_animal/hostile/retaliate/cow, /mob/living/simple_animal/hostile/retaliate/bull),\
-		3 MINUTES,\
-		list(/mob/living/simple_animal/hostile/retaliate/cow/cowlet = 95, /mob/living/simple_animal/hostile/retaliate/cow/cowlet/bullet = 5),\
-		CALLBACK(src, PROC_REF(after_birth)),\
+		can_breed_with = list(/mob/living/simple_animal/hostile/retaliate/cow, /mob/living/simple_animal/hostile/retaliate/bull),\
+		breed_timer = 2 MINUTES\
 	)
-
-/mob/living/simple_animal/hostile/retaliate/bull/proc/after_birth(mob/living/simple_animal/hostile/retaliate/cow/cowlet/baby, mob/living/partner)
-	return
-
 
 /mob/living/simple_animal/hostile/retaliate/bull/get_sound(input)
 	switch(input)
@@ -302,7 +298,6 @@
 
 	health = CALF_HEALTH
 	maxHealth = CALF_HEALTH
-	milk_reagent = null
 
 	base_intents = list(/datum/intent/simple/headbutt)
 	melee_damage_lower = 1
@@ -317,6 +312,8 @@
 	can_breed = FALSE
 	can_tip = FALSE
 
+/mob/living/simple_animal/hostile/retaliate/cow/cowlet/udder_component()
+	return
 
 /mob/living/simple_animal/hostile/retaliate/cow/cowlet/bullet
 	desc = "So cute! Be careful of those horns, though."

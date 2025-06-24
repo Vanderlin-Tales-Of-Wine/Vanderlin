@@ -101,9 +101,13 @@
 	if(!istype(loc, /mob/living/carbon/human/dummy))
 		SSroguemachine.key = src
 
+/obj/item/key/lord/Destroy()
+	if(SSroguemachine.key == src)
+		SSroguemachine.key = null
+	return ..()
+
 /obj/item/key/lord/proc/anti_stall()
 	visible_message(span_warning("[src] flies up into the sky and into the direction of the keep!"))
-	SSroguemachine.key = null //Do not harddel.
 	qdel(src) //Anti-stall
 
 ///// TOWN KEYS
@@ -689,7 +693,7 @@
 	icon_state = "brownkey"
 	lockids = list("luxroomv")
 
-/obj/item/key/luxroomiv
+/obj/item/key/luxroomvi
 	name = "luxury room VI key"
 	desc = "The key to the sixth luxury room."
 	icon_state = "brownkey"

@@ -86,7 +86,7 @@
 						break
 
 					if(current_hair)
-						var/datum/customizer_entry/hair/hair_entry = new()
+						var/datum/customizer_entry/hair/head/hair_entry = new()
 						hair_entry.hair_color = current_hair.hair_color
 
 						if(istype(current_hair, /datum/bodypart_feature/hair/head))

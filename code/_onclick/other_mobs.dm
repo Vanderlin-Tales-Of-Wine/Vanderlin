@@ -245,7 +245,7 @@
 					INVOKE_ASYNC(H, TYPE_PROC_REF(/mob/living/carbon/human, zombie_infect_attempt))
 
 	var/obj/item/grabbing/bite/B = new()
-	user.equip_to_slot_or_del(B, SLOT_MOUTH)
+	user.equip_to_slot_or_del(B, ITEM_SLOT_MOUTH)
 	if(user.mouth == B)
 		var/used_limb = src.find_used_grab_limb(user, accurate = TRUE)
 		B.name = "[src]'s [parse_zone(used_limb)]"
@@ -371,21 +371,21 @@
 						if(do_after(U, 2 SECONDS, V, progress = FALSE))
 							switch(U.zone_selected)
 								if("chest")
-									if (V.get_item_by_slot(SLOT_BACK_L))
-										stealpos.Add(V.get_item_by_slot(SLOT_BACK_L))
-									if (V.get_item_by_slot(SLOT_BACK_R))
-										stealpos.Add(V.get_item_by_slot(SLOT_BACK_R))
+									if (V.get_item_by_slot(ITEM_SLOT_BACK_L))
+										stealpos.Add(V.get_item_by_slot(ITEM_SLOT_BACK_L))
+									if (V.get_item_by_slot(ITEM_SLOT_BACK_R))
+										stealpos.Add(V.get_item_by_slot(ITEM_SLOT_BACK_R))
 								if("neck")
-									if (V.get_item_by_slot(SLOT_NECK))
-										stealpos.Add(V.get_item_by_slot(SLOT_NECK))
+									if (V.get_item_by_slot(ITEM_SLOT_NECK))
+										stealpos.Add(V.get_item_by_slot(ITEM_SLOT_NECK))
 								if("groin")
-									if (V.get_item_by_slot(SLOT_BELT_R))
-										stealpos.Add(V.get_item_by_slot(SLOT_BELT_R))
-									if (V.get_item_by_slot(SLOT_BELT_L))
-										stealpos.Add(V.get_item_by_slot(SLOT_BELT_L))
+									if (V.get_item_by_slot(ITEM_SLOT_BELT_R))
+										stealpos.Add(V.get_item_by_slot(ITEM_SLOT_BELT_R))
+									if (V.get_item_by_slot(ITEM_SLOT_BELT_L))
+										stealpos.Add(V.get_item_by_slot(ITEM_SLOT_BELT_L))
 								if("r_hand", "l_hand")
-									if (V.get_item_by_slot(SLOT_RING))
-										stealpos.Add(V.get_item_by_slot(SLOT_RING))
+									if (V.get_item_by_slot(ITEM_SLOT_RING))
+										stealpos.Add(V.get_item_by_slot(ITEM_SLOT_RING))
 							if (length(stealpos) > 0)
 								var/obj/item/picked = pick(stealpos)
 								V.dropItemToGround(picked)
@@ -578,6 +578,7 @@
 			animate(pixel_z = prev_pixel_z, transform = turn(transform, pick(-12, 0, 12)), time=2)
 			animate(transform = prev_transform, time = 0)
 
+		apply_status_effect(/datum/status_effect/is_jumping)
 		if(jextra)
 			throw_at(A, jrange, 1, src, spin = FALSE)
 			while(src.throwing)
@@ -592,6 +593,7 @@
 			if(T.landsound)
 				playsound(T, T.landsound, 100, FALSE)
 			T.Entered(src)
+		remove_status_effect(/datum/status_effect/is_jumping)
 	else
 		animate(src, pixel_z = pixel_z + 6, time = 1)
 		animate(pixel_z = prev_pixel_z, transform = turn(transform, pick(-12, 0, 12)), time=2)
@@ -659,13 +661,6 @@
 	if(SEND_SIGNAL(src, COMSIG_ATOM_ATTACK_PAW, user) & COMPONENT_NO_ATTACK_HAND)
 		return TRUE
 	return FALSE
-
-/*
-	True Devil
-*/
-
-/mob/living/carbon/true_devil/UnarmedAttack(atom/A, proximity)
-	A.attack_hand(src)
 
 /*
 	Brain

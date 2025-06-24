@@ -28,8 +28,8 @@
 	var/repair_skill = /datum/skill/craft/masonry // i copypasted this code from the repairable doors and now it's got defines in the base
 
 /obj/structure/window/Initialize()
+	. = ..()
 	update_icon()
-	..()
 
 /obj/structure/window/update_icon()
 	if(brokenstate)
@@ -124,9 +124,9 @@
 	integrity_failure = 0.5
 
 /obj/structure/window/openclose/Initialize()
+	. = ..()
 	lockdir = dir
 	GLOB.TodUpdate += src
-	..()
 
 /obj/structure/window/openclose/Destroy()
 	GLOB.TodUpdate -= src
@@ -195,13 +195,30 @@
 	if(isliving(mover))
 		if(mover.throwing)
 			if(!climbable)
-				take_damage(10)
-			if(brokenstate)
+				if(!iscarbon(mover))
+					take_damage(10)
+				else
+					var/mob/living/carbon/dude = mover
+					var/base_damage = 20
+					take_damage(base_damage * (dude.STASTR / 10))
+			if(brokenstate || climbable)
+				if(ishuman(mover))
+					var/mob/living/carbon/human/dude = mover
+					var/is_jumping = dude.has_status_effect(/datum/status_effect/is_jumping)
+					if(prob(100 - clamp((dude.get_skill_level(/datum/skill/misc/athletics) + dude.get_skill_level(/datum/skill/misc/climbing)) * 10 - (!is_jumping * 30), 10, 100)))
+						var/obj/item/bodypart/head/head = dude.get_bodypart(BODY_ZONE_HEAD)
+						head.receive_damage(20)
+						dude.Stun(5 SECONDS)
+						dude.Knockdown(5 SECONDS)
+						dude.add_stress(/datum/stressevent/hithead)
+						dude.visible_message(
+							span_warning("[dude] hits their head as they fly through the window!"),
+							span_danger("I hit my head on the window frame!"))
 				return 1
 	else if(isitem(mover))
 		var/obj/item/I = mover
 		if(I.throwforce >= 10)
-			take_damage(10)
+			take_damage(I.throwforce)
 			if(brokenstate)
 				return 1
 		else

@@ -27,4 +27,4 @@
 			if(!locate(/obj/structure/spider/stickyweb) in T)
 				new /obj/structure/spider/stickyweb(T)
 
-	return TRUE
+	return ..()

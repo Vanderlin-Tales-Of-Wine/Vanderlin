@@ -46,8 +46,6 @@
 	//Random events (vomiting etc)
 	handle_random_events()
 
-	handle_gravity()
-
 	handle_traits() // eye, ear, brain damages
 	handle_status_effects() //all special effects, stun, knockdown, jitteryness, hallucination, sleeping, etc
 
@@ -78,8 +76,6 @@
 	update_sneak_invis()
 	handle_fire()
 	handle_typing_indicator()
-	if(istype(loc, /turf/open/water))
-		handle_inwater(loc)
 
 /mob/living/proc/handle_temperature()
 	return
@@ -171,14 +167,6 @@
 
 /mob/living/proc/update_damage_hud()
 	return
-
-/mob/living/proc/handle_gravity()
-	var/gravity = mob_has_gravity()
-	update_gravity(gravity)
-
-	if(gravity > STANDARD_GRAVITY)
-		gravity_animate()
-		handle_high_gravity(gravity)
 
 /mob/living/proc/gravity_animate()
 	if(!get_filter("gravity"))

@@ -24,15 +24,16 @@
 		if(human_mob.IsWedded() || human_mob.age == AGE_CHILD)
 			continue
 
-		// Exclude parents
-		if(human_mob.family_datum)
-			var/family_role = human_mob.family_datum.family[human_mob]
-			if(family_role in list(FAMILY_FATHER, FAMILY_MOTHER))
+		// Exclude parents using new family system
+		if(human_mob.family_member_datum)
+			var/datum/family_member/member = human_mob.family_member_datum
+			if(member.children.len > 0)
 				continue
 
+		// Add to appropriate gender list
 		if(human_mob.gender == MALE)
 			eligible_males += human_mob
-		else if(human_mob.gender == FEMALE)
+		else
 			eligible_females += human_mob
 
 	if(!length(eligible_males) || !length(eligible_females))
