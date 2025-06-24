@@ -54,7 +54,6 @@
 	base_constitution = 4
 	base_strength = 4
 	buckle_lying = FALSE
-	childtype = list(/mob/living/simple_animal/hostile/retaliate/goat/goatlet = 90, /mob/living/simple_animal/hostile/retaliate/goat/goatlet/boy = 10)
 	can_buckle = TRUE
 	remains_type = /obj/effect/decal/remains/cow
 
@@ -67,8 +66,6 @@
 	AddElement(/datum/element/ai_retaliate)
 	RegisterSignal(src, COMSIG_HOSTILE_PRE_ATTACKINGTARGET, PROC_REF(on_pre_attack))
 	GLOB.farm_animals++
-	if(tame)
-		tamed(owner)
 
 	if(can_breed)
 		AddComponent(\
@@ -180,7 +177,6 @@
 	faction = list("goats")
 	footstep_type = FOOTSTEP_MOB_SHOE
 	emote_see = list("shakes his head.", "chews his cud.")
-	turns_per_move = 3
 
 	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/steak = 3,
 						/obj/item/natural/hide = 1,
@@ -224,6 +220,7 @@
 	base_strength = 12
 	base_speed = 2
 
+	gender = MALE
 	can_buckle = TRUE
 	buckle_lying = FALSE
 	tame_chance = 25
@@ -232,15 +229,17 @@
 
 	ai_controller = /datum/ai_controller/gote
 
-
-
 /mob/living/simple_animal/hostile/retaliate/goatmale/Initialize()
 	. = ..()
 	AddElement(/datum/element/ai_retaliate)
 	RegisterSignal(src, COMSIG_HOSTILE_PRE_ATTACKINGTARGET, PROC_REF(on_pre_attack))
 	GLOB.farm_animals++
-	if(tame)
-		tamed(owner)
+
+	AddComponent(\
+		/datum/component/breed,\
+		can_breed_with = list(/mob/living/simple_animal/hostile/retaliate/goat, /mob/living/simple_animal/hostile/retaliate/goatmale),\
+		breed_timer = 2 MINUTES\
+	)
 
 /mob/living/simple_animal/hostile/retaliate/goatmale/Destroy()
 	GLOB.farm_animals = max(GLOB.farm_animals - 1, 0)

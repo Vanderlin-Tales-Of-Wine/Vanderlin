@@ -16,7 +16,6 @@
 	verb_exclaim = "roars"
 	verb_yell = "roars"
 
-	turns_per_move = 2
 	see_in_dark = 10
 	move_to_delay = 7
 	vision_range = 6

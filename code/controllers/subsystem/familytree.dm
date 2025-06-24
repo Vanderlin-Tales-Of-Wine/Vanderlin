@@ -187,6 +187,7 @@ SUBSYSTEM_DEF(familytree)
 	// If this is the first royal, generate a historical lineage
 	if(!ruling_family.founder)
 		GenerateRoyalLineage(member, status)
+		H.ShowFamilyUI(TRUE)
 		return
 
 	// Handle adding new royals to existing family
@@ -212,10 +213,12 @@ SUBSYSTEM_DEF(familytree)
 		if(FAMILY_OMMER)  // Hand - sibling or cousin of monarch
 			CreateBranchFamily(member)
 
+	H.ShowFamilyUI(TRUE)
+
 /datum/controller/subsystem/familytree/proc/GetCurrentMonarch()
 	// Find the monarch at generation 12 (current ruling generation)
 	for(var/datum/family_member/member in ruling_family.members)
-		if(member.generation == 12)
+		if(member.generation == 12 && member.person.job == "Monarch")
 			return member
 	return null
 
@@ -224,15 +227,16 @@ SUBSYSTEM_DEF(familytree)
 	if(!monarch)
 		return
 
-	// Make the hand a sibling of the monarch's parent (so uncle/aunt to any princes/princesses)
+	hand_member.generation = monarch.generation
+
+	// Make the hand a sibling of the monarch (so uncle/aunt to any princes/princesses)
 	if(monarch.parents.len)
 		var/datum/family_member/monarch_parent = monarch.parents[1]
-		hand_member.generation = monarch_parent.generation
-
-		// Add the hand as child of the monarch's grandparents
-		if(monarch_parent.parents.len)
-			for(var/datum/family_member/grandparent in monarch_parent.parents)
-				hand_member.AddParent(grandparent)
+		var/datum/family_member/monarch_parent_second = monarch.parents[2]
+		if(monarch_parent)
+			hand_member.AddParent(monarch_parent)
+		if(monarch_parent_second)
+			hand_member.AddParent(monarch_parent_second)
 
 		// Create a spouse for the hand
 		var/mob/living/carbon/human/dummy/spouse = new()
@@ -243,9 +247,6 @@ SUBSYSTEM_DEF(familytree)
 		var/datum/family_member/hand_spouse = ruling_family.CreateFamilyMember(spouse)
 		hand_spouse.generation = hand_member.generation
 		ruling_family.MarryMembers(hand_member, hand_spouse)
-	else
-		// Fallback: make them a cousin at the same generation as monarch
-		hand_member.generation = monarch.generation
 
 /datum/controller/subsystem/familytree/proc/GenerateRoyalLineage(datum/family_member/current_royal, status)
 	// Set as current generation

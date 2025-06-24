@@ -1,6 +1,6 @@
 ////////////////////////////////
 /proc/message_admins(msg)
-	msg = "<span class=\"admin\"><span class=\"prefix\">ADMIN LOG:</span> <span class=\"message linkify\">[msg]</span></span>"
+	msg = span_admin("[span_prefix("ADMIN LOG: ")]<span class=\"message linkify\">[msg]</span>")
 	for(var/client/C in GLOB.admins)
 		if(check_rights_for(C, R_ADMIN))
 			to_chat(C, msg)

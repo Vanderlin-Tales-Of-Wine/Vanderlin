@@ -2053,39 +2053,8 @@
 /turf/open/water/bath,
 /area/rogue/indoors/town/manor)
 "bVu" = (
-/obj/item/reagent_containers/glass/bowl,
-/obj/item/reagent_containers/glass/bowl,
-/obj/item/reagent_containers/glass/bowl,
-/obj/item/reagent_containers/glass/bowl,
 /obj/structure/closet/crate/crafted_closet,
-/obj/item/reagent_containers/glass/bowl,
-/obj/item/reagent_containers/glass/bowl,
-/obj/item/plate,
-/obj/item/plate,
-/obj/item/plate,
-/obj/item/plate,
-/obj/item/plate,
-/obj/item/plate,
-/obj/item/plate,
-/obj/item/plate,
-/obj/item/kitchen/spoon/iron,
-/obj/item/kitchen/spoon/iron,
-/obj/item/kitchen/spoon/iron,
-/obj/item/kitchen/spoon/iron,
-/obj/item/kitchen/spoon/iron,
-/obj/item/kitchen/spoon/iron,
-/obj/item/reagent_containers/glass/bowl/iron,
-/obj/item/reagent_containers/glass/bowl/iron,
-/obj/item/reagent_containers/glass/bowl/iron,
-/obj/item/reagent_containers/glass/bowl/iron,
-/obj/item/reagent_containers/glass/bowl/iron,
-/obj/item/reagent_containers/glass/bowl/iron,
-/obj/item/kitchen/fork/iron,
-/obj/item/kitchen/fork/iron,
-/obj/item/kitchen/fork/iron,
-/obj/item/kitchen/fork/iron,
-/obj/item/kitchen/fork/iron,
-/obj/item/kitchen/fork/iron,
+/obj/effect/spawner/guaranteed_map_spawner/listed/cutlery,
 /turf/open/floor/blocks/stonered,
 /area/rogue/indoors/town/manor)
 "bVD" = (
@@ -2102,50 +2071,12 @@
 /turf/open/floor/blocks/newstone/alt,
 /area/rogue/indoors/town/manor)
 "bXH" = (
-/obj/item/key/manor,
-/obj/item/key/walls,
-/obj/item/key/blacksmith,
-/obj/item/key/steward{
-	pixel_x = 5;
-	pixel_y = 15
-	},
-/obj/item/key/church{
-	pixel_y = 7;
-	pixel_x = -4
-	},
-/obj/item/key/dungeon{
-	pixel_x = -6;
-	pixel_y = -3
-	},
-/obj/item/key/graveyard{
-	pixel_x = -9;
-	pixel_y = -6
-	},
-/obj/item/key/garrison{
-	pixel_y = -4
-	},
-/obj/item/key/artificer{
-	pixel_y = -12;
-	pixel_x = -4
-	},
-/obj/item/key/mercenary{
-	pixel_x = -12;
-	pixel_y = -4
-	},
-/obj/item/key/tavern{
-	pixel_x = -12;
-	pixel_y = 12
-	},
-/obj/item/key/feldsher{
-	pixel_x = 9;
-	pixel_y = 3
-	},
-/obj/item/key/tailor,
 /obj/machinery/light/fueled/wallfire/candle/l{
 	pixel_x = 0;
 	pixel_y = 32
 	},
 /obj/structure/closet/crate/crafted_closet/steward,
+/obj/effect/spawner/guaranteed_map_spawner/listed/steward_keys,
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/steward)
 "bXR" = (
@@ -3981,7 +3912,7 @@
 /turf/open/water/swamp,
 /area/rogue/under/town/sewer)
 "dQR" = (
-/obj/effect/traveltile_spawner/horizontal/vampire,
+/obj/effect/spawner/traveltile_spawner/horizontal/vampire,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/woods)
 "dRD" = (
@@ -4866,7 +4797,7 @@
 /turf/open/floor/carpet/lord/right,
 /area/rogue/indoors/town/manor)
 "eOf" = (
-/obj/effect/traveltile_spawner/vertical/inhumen,
+/obj/effect/spawner/traveltile_spawner/vertical/inhumen,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/woods)
 "eOt" = (
@@ -7152,7 +7083,7 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/magician)
 "gZS" = (
-/obj/effect/traveltile_spawner/horizontal/vampire,
+/obj/effect/spawner/traveltile_spawner/horizontal/vampire,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/rtfield)
 "gZZ" = (
@@ -10007,7 +9938,7 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/town/manor)
 "jGQ" = (
-/obj/effect/traveltile_spawner/horizontal/vampire,
+/obj/effect/spawner/traveltile_spawner/horizontal/vampire,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield)
 "jHs" = (
@@ -14280,7 +14211,7 @@
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/manor)
 "nYG" = (
-/obj/effect/traveltile_spawner/horizontal/bandit,
+/obj/effect/spawner/traveltile_spawner/horizontal/bandit,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/woods)
 "nYI" = (
@@ -23648,7 +23579,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/clinic_large)
 "wSM" = (
-/obj/effect/traveltile_spawner/horizontal/bandit,
+/obj/effect/spawner/traveltile_spawner/horizontal/bandit,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/rtfield)
 "wTd" = (

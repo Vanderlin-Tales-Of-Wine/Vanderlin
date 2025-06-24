@@ -7,8 +7,6 @@
 	blackboard = list(
 		BB_TARGETTING_DATUM = new /datum/targetting_datum/basic/allow_items(),
 		BB_PET_TARGETING_DATUM = new /datum/targetting_datum/basic/not_friends(),
-		BB_BABIES_PARTNER_TYPES = list(/mob/living/simple_animal/hostile/retaliate/trufflepig, /mob/living/simple_animal/hostile/retaliate/trufflepig/male, /mob/living/simple_animal/hostile/retaliate/trufflepig/female),
-		BB_BABIES_CHILD_TYPES = list(/mob/living/simple_animal/hostile/retaliate/trufflepig/piglet = 90, /mob/living/simple_animal/hostile/retaliate/trufflepig/piglet/boy = 10),
 	)
 
 	planning_subtrees = list(

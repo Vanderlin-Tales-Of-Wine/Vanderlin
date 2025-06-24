@@ -1,90 +1,182 @@
 // This code handles different species in the game.
-
 GLOBAL_LIST_EMPTY(roundstart_races)
+GLOBAL_LIST_EMPTY(patreon_races)
 /datum/species
-	var/id	// if the game needs to manually check my race to do something not included in a proc here, it will use this
-	var/limbs_id		//this is used if you want to use a different species limb sprites. Mainly used for angels as they look like humans.
-	var/name	// this is the fluff name. these will be left generic (such as 'Lizardperson' for the lizard race) so servers can change them to whatever
+	/// The name used for examine text and so on
+	var/name
+	/// Fluff description given when selecting this species
 	var/desc
-	var/default_color = "#FFF"	// if alien colors are disabled, this is the color that will be used by that race
+	/// Internal ID of this species used for job checks, etc.
+	var/id
+	/// Override for limbs to use a different species' limbs
+	var/limbs_id
+	/// Limb icon to use to build appearance for males
 	var/limbs_icon_m
+	/// Limb icon to use to build appearance for females
 	var/limbs_icon_f
-	var/icon_override
-	var/icon_override_m
-	var/icon_override_f
-	var/list/possible_ages = ALL_AGES_LIST_WITH_CHILD
-	var/sexes = TRUE		// whether or not the race has sexual characteristics. at the moment this is only 0 for skeletons and shadows
-	var/patreon_req
-	var/max_age = 75
-	var/list/offset_features = list(OFFSET_RING = list(0,0), OFFSET_GLOVES = list(0,0),\
-	OFFSET_CLOAK = list(0,0), OFFSET_FACEMASK = list(0,0), OFFSET_HEAD = list(0,0), \
-	OFFSET_FACE = list(0,0), OFFSET_BELT = list(0,0), OFFSET_BACK = list(0,0), \
-	OFFSET_NECK = list(0,0), OFFSET_MOUTH = list(0,0), OFFSET_PANTS = list(0,0), \
-	OFFSET_SHIRT = list(0,0), OFFSET_ARMOR = list(0,0), OFFSET_HANDS = list(0,0), \
-	OFFSET_RING_F = list(0,0), OFFSET_GLOVES_F = list(0,0), OFFSET_HANDS_F = list(0,0), \
-	OFFSET_CLOAK_F = list(0,0), OFFSET_FACEMASK_F = list(0,0), OFFSET_HEAD_F = list(0,0), \
-	OFFSET_FACE_F = list(0,0), OFFSET_BELT_F = list(0,0), OFFSET_BACK_F = list(0,0), \
-	OFFSET_NECK_F = list(0,0), OFFSET_MOUTH_F = list(0,0), OFFSET_PANTS_F = list(0,0), \
-	OFFSET_SHIRT_F = list(0,0), OFFSET_ARMOR_F = list(0,0), OFFSET_UNDIES = list(0,0), OFFSET_UNDIES_F = list(0,0))
+	/// if alien colors are disabled, this is the color that will be used by that race
+	var/default_color = "#FFF"
+	/// List of ages that can be selected in prefs for this species
+	var/list/possible_ages = ALL_AGES_LIST_CHILD
+	/// Whether or not this species has sexual characteristics
+	var/sexes = TRUE
+	/// Whether this species a requires patreon subscription to access
+	var/patreon_req = FALSE
 
-	var/dam_icon
+	/// Associative list of FEATURE SLOT to PIXEL ADJUSTMENTS X/Y seperated by gender
+	var/list/offset_features_m = list(
+		OFFSET_RING = list(0,0),\
+		OFFSET_GLOVES = list(0,0),\
+		OFFSET_WRISTS = list(0,0),\
+		OFFSET_HANDS = list(0,0),\
+		OFFSET_CLOAK = list(0,0),\
+		OFFSET_FACEMASK = list(0,0),\
+		OFFSET_HEAD = list(0,0),\
+		OFFSET_FACE = list(0,0),\
+		OFFSET_BELT = list(0,0),\
+		OFFSET_BACK = list(0,0),\
+		OFFSET_NECK = list(0,0),\
+		OFFSET_MOUTH = list(0,0),\
+		OFFSET_PANTS = list(0,0),\
+		OFFSET_SHIRT = list(0,0),\
+		OFFSET_ARMOR = list(0,0),\
+		OFFSET_UNDIES = list(0,0),\
+	)
+
+	var/list/offset_features_f = list(
+		OFFSET_RING = list(0,0),\
+		OFFSET_GLOVES = list(0,0),\
+		OFFSET_WRISTS = list(0,0),\
+		OFFSET_HANDS = list(0,0),\
+		OFFSET_CLOAK = list(0,0),\
+		OFFSET_FACEMASK = list(0,0),\
+		OFFSET_HEAD = list(0,0),\
+		OFFSET_FACE = list(0,0),\
+		OFFSET_BELT = list(0,0),\
+		OFFSET_BACK = list(0,0),\
+		OFFSET_NECK = list(0,0),\
+		OFFSET_MOUTH = list(0,0),\
+		OFFSET_PANTS = list(0,0),\
+		OFFSET_SHIRT = list(0,0),\
+		OFFSET_ARMOR = list(0,0),\
+		OFFSET_UNDIES = list(0,0),\
+	)
+
+	/// Type of damage overlay to use
+	var/damage_overlay_type = "human"
+	/// Damage overlays to use for males
+	var/dam_icon_m
+	/// Damge overlays to use for females
 	var/dam_icon_f
-
+	/// String value ranging from t1 to t3 which controls body hair overlays for this species
 	var/hairyness = null
-
-	var/custom_clothes = FALSE //append species id to clothing sprite name
+	/// Append species id to clothing sprite name
+	var/custom_clothes = FALSE
+	/// Custom id for custom_clothes
 	var/custom_id
-	var/use_f = FALSE //males use female clothes. for elves
-	var/use_m = FALSE //females use male clothes. for aasimar women
+	/**
+	 * Males use female clothes, offsets and damage icons.
+	 * Importantly males still use male limb icons.
+	 * This does not effect stats or inherent traits/skills.
+	 * Males will not get boob overlays from this.
+	 */
+	var/swap_male_clothes = FALSE
+	/**
+	 * Feales use male clothes, offsets and damage icons.
+	 * Importantly females still use female limb icons.
+	 * This does not effect stats or inherent traits/skills.
+	 * Females will lose their boob overlays.
+	 */
+	var/swap_female_clothes = FALSE
 
+	/// Sounds for males
 	var/datum/voicepack/soundpack_m = /datum/voicepack/male
+	/// Sounds for females
 	var/datum/voicepack/soundpack_f = /datum/voicepack/female
 
-	var/hair_color	// this allows races to have specific hair colors... if null, it uses the H's hair/facial hair colors. if "mutcolor", it uses the H's mutant_color
-	var/hair_alpha = 255	// the alpha used by the hair. 255 is completely solid, 0 is transparent.
+	/// Do we use a blood type seperate from default? (Yes, yes we do)
+	var/datum/blood_type/exotic_bloodtype
 
-	var/use_skintones = 0	// does it use skintones or not? (spoiler alert this is only used by humans)
-	var/datum/blood_type/exotic_bloodtype //If my race uses a non standard bloodtype (A+, O-, AB-, etc)
-	var/meat = /obj/item/reagent_containers/food/snacks/meat/steak //What the species drops on gibbing
+	/// What meat do we get from butchering this species?
+	var/meat = /obj/item/reagent_containers/food/snacks/meat/steak
+	/// Food we (SHOULD) get a mood buff from
 	var/liked_food = NONE
+	/// Food we (SHOULD) get a mood debuff from
 	var/disliked_food = GROSS
+	/// Food that (SHOULD) be toxic to us
 	var/toxic_food = TOXIC
-	var/nutrition_mod = 1	// multiplier for nutrition amount consumed per tic
-	var/list/no_equip = list()	// slots the race can't equip stuff to
-	var/nojumpsuit = 0	// this is sorta... weird. it basically lets you equip stuff that usually needs jumpsuits without one, like belts and pockets and ids
-	var/say_mod = "says"	// affects the speech message
-	var/list/default_features = MANDATORY_FEATURE_LIST // Default mutant bodyparts for this species. Don't forget to set one for every mutant bodypart you allow this species to have.
 
-	var/bleed_mod = 1	// multiplier for blood loss
-	var/pain_mod = 1	// multiplier for pain from wounds
+	/// List of slots this species cannot equip things to
+	var/list/no_equip = list()
+	/// TODO CHANGE THIS TO SOMETHING THAT ISN'T POCKETS
+	var/nojumpsuit = FALSE
+	/// Prefix for spoken messages
+	var/say_mod = "says"
 
-	var/attack_type = BRUTE //Type of damage attack does
-	var/punchstunthreshold = 0//damage at which punches from this race will stun //yes it should be to the attacked race but it's not useful that way even if it's logical
-	var/siemens_coeff = 1 //base electrocution coefficient
-	var/damage_overlay_type = "human" //what kind of damage overlays (if any) appear on our species when wounded?
-	var/deathsound //used to set the mobs deathsound on species change
-	var/grab_sound //Special sound for grabbing
-	var/datum/outfit/outfit_important_for_life /// A path to an outfit that is important for species life e.g. plasmaman outfit
+	/// Multipler for how quickly nutrition decreases
+	var/nutrition_mod = 1
+	/// Multipler for blood loss
+	var/bleed_mod = 1
+	/// Multipler for pain
+	var/pain_mod = 1
+	/// Electrocution coeffcient
+	var/siemens_coeff = 1
 
-	// species-only traits. Can be found in DNA.dm
-	var/list/species_traits = list()
-	// generic traits tied to having the species
+	/// Type of damage melee attacks do
+	var/attack_type = BRUTE
+	/// Special sound for grabbing for this species
+	var/sound/grab_sound
+	/// Special death sound for this species
+	var/sound/deathsound
+
+	/// A path to an outfit that is important for species life e.g. plasmaman outfit
+	var/datum/outfit/outfit_important_for_life
+
+	/// Generic traits tied to having the species
 	var/list/inherent_traits = list()
-	/// components to add when spawning
+	/// Generic traits tied to having the species and being male
+	var/list/inherent_traits_m
+	/// Generic traits tied to having the species and being female
+	var/list/inherent_traits_f
+	/// Associative list of skills to adjustments
+	var/list/inherent_skills = list()
+	/// Species-only traits used for drawing, can be found in DNA.dm
+	var/list/species_traits = list()
+	/// Components to add when spawning
 	var/list/components_to_add = list()
-	var/inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID
-	///List of factions the mob gain upon gaining this species.
+	/// List of factions the mob gain upon gaining this species.
 	var/list/inherent_factions
+	/// Bitfield for biotypes used by this species
+	var/inherent_biotypes = MOB_ORGANIC | MOB_HUMANOID
 
-	var/attack_verb = "punch"	// punch-specific attack verb
-	var/sound/attack_sound = 'sound/combat/hits/punch/punch (1).ogg'
-	var/sound/miss_sound = 'sound/blank.ogg'
-
+	/// Icon to use when ingulfed in flames
 	var/enflamed_icon = "Standing"
 
-	var/breathid = "o2"
+	/// Items that are used as hands
+	var/obj/item/mutanthands
 
+	/// Does this species ignore gravity
+	var/override_float = FALSE
+
+	/// Bitflag that controls what in game ways can select this species as a spawnable source
+	/// Think magic mirror and pride mirror, slime extract, ERT etc, see defines
+	/// in __DEFINES/mobs.dm, defaults to NONE, so people actually have to think about it
+	var/changesource_flags = NONE
+
+	/// Do we use custom skintones?
+	var/use_skintones = FALSE
+
+	/// Wording for skin tone on examine and on character setup
+	var/skin_tone_wording = "Skin Tone"
+
+	/// List of bodypart features of this species
+	var/list/bodypart_features
+
+	/// List of customizer entries that appear in the features tab
 	var/list/customizer_entries = list()
+
+	/// Default mutant bodyparts for this species. Don't forget to set one for every mutant bodypart you allow this species to have.
+	var/list/default_features = MANDATORY_FEATURE_LIST
 
 	/// List of organs this species has.
 	var/list/organs = list(
@@ -99,24 +191,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		ORGAN_SLOT_APPENDIX = /obj/item/organ/appendix,
 		ORGAN_SLOT_GUTS = /obj/item/organ/guts,
 	)
-
-	var/obj/item/mutanthands
-
-	var/override_float = FALSE
-
-	//Bitflag that controls what in game ways can select this species as a spawnable source
-	//Think magic mirror and pride mirror, slime extract, ERT etc, see defines
-	//in __DEFINES/mobs.dm, defaults to NONE, so people actually have to think about it
-	var/changesource_flags = NONE
-
-	//Wording for skin tone on examine and on character setup
-	var/skin_tone_wording = "Skin Tone"
-
-	// value for replacing skin tone/origin term
-	var/alt_origin
-
-		/// List of bodypart features of this species
-	var/list/bodypart_features
 
 	/// List of descriptor choices this species gets in preferences customization
 	var/list/descriptor_choices = list(
@@ -142,31 +216,45 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	/// List all of body markings that the player can choose from in customization. Body markings from sets get added to here
 	var/list/body_markings
 
-	///can we be a youngling?
-	var/can_be_youngling = TRUE
-	var/child_icon = 'icons/roguetown/mob/bodies/c/child.dmi'
-	var/child_dam_icon = 'icons/roguetown/mob/bodies/dam/dam_child.dmi'
-	var/list/offset_features_child = list(OFFSET_RING = list(0,0), OFFSET_GLOVES = list(0,0),\
-	OFFSET_CLOAK = list(0,-4), OFFSET_FACEMASK = list(0,-4), OFFSET_HEAD = list(0,-4), \
-	OFFSET_FACE = list(0,-4), OFFSET_BELT = list(0,0), OFFSET_BACK = list(0,0), \
-	OFFSET_NECK = list(0,-4), OFFSET_MOUTH = list(0,-4), OFFSET_PANTS = list(0,0), \
-	OFFSET_SHIRT = list(0,0), OFFSET_ARMOR = list(0,0), OFFSET_HANDS = list(0,-3), \
-	OFFSET_RING_F = list(0,0), OFFSET_GLOVES_F = list(0,0), OFFSET_HANDS_F = list(0,-3), \
-	OFFSET_CLOAK_F = list(0,-4), OFFSET_FACEMASK_F = list(0,-4), OFFSET_HEAD_F = list(0,-4), \
-	OFFSET_FACE_F = list(0,-4), OFFSET_BELT_F = list(0,0), OFFSET_BACK_F = list(0,0), \
-	OFFSET_NECK_F = list(0,-4), OFFSET_MOUTH_F = list(0,-4), OFFSET_PANTS_F = list(0,0), \
-	OFFSET_SHIRT_F = list(0,0), OFFSET_ARMOR_F = list(0,0), OFFSET_UNDIES = list(0,0), OFFSET_UNDIES_F = list(0,0))
+	///Statkey = bonus stat, - for malice.
+	var/list/specstats_m = list(STATKEY_STR = 0, STATKEY_PER = 0, STATKEY_END = 0,STATKEY_CON = 0, STATKEY_INT = 0, STATKEY_SPD = 0, STATKEY_LCK = 0)
 
 	///Statkey = bonus stat, - for malice.
-	var/list/specstats = list(STATKEY_STR = 0, STATKEY_PER = 0, STATKEY_END = 0,STATKEY_CON = 0, STATKEY_INT = 0, STATKEY_SPD = 0, STATKEY_LCK = 0)
-	///Statkey = bonus stat, - for malice.
 	var/list/specstats_f = list(STATKEY_STR = 0, STATKEY_PER = 0, STATKEY_END = 0,STATKEY_CON = 0, STATKEY_INT = 0, STATKEY_SPD = 0, STATKEY_LCK = 0)
+
+	/// Can we be a youngling?
+	var/can_be_youngling = TRUE
+	/// Icon override for children male and female is the same
+	var/child_icon = 'icons/roguetown/mob/bodies/c/child.dmi'
+	/// Child damage icons
+	var/child_dam_icon = 'icons/roguetown/mob/bodies/dam/dam_child.dmi'
+
+	/// Child feature offset lists
+	var/list/offset_features_child = list(
+		OFFSET_RING = list(0,0),\
+		OFFSET_GLOVES = list(0,0),\
+		OFFSET_WRISTS = list(0,0),\
+		OFFSET_HANDS = list(0,-3),\
+		OFFSET_CLOAK = list(0,-4),\
+		OFFSET_FACEMASK = list(0,-4),\
+		OFFSET_HEAD = list(0,-4),\
+		OFFSET_FACE = list(0,-4),\
+		OFFSET_BELT = list(0,0),\
+		OFFSET_BACK = list(0,0),\
+		OFFSET_NECK = list(0,-4),\
+		OFFSET_MOUTH = list(0,-4),\
+		OFFSET_PANTS = list(0,0),\
+		OFFSET_SHIRT = list(0,0),\
+		OFFSET_ARMOR = list(0,0),\
+		OFFSET_UNDIES = list(0,0),\
+	)
+
+	/// Amount of times we got autocorrected?? why is this a thing?
 	var/amtfail = 0
 
 ///////////
 // PROCS //
 ///////////
-
 
 /datum/species/proc/get_accent_list()
 	return
@@ -265,14 +353,25 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	return TRUE
 
 /proc/generate_selectable_species()
-	for(var/I in subtypesof(/datum/species))
+	for(var/I as anything in subtypesof(/datum/species))
 		var/datum/species/S = new I
-		if(S.check_roundstart_eligible())
-			GLOB.roundstart_races += S.name
-			qdel(S)
-	if(!GLOB.roundstart_races.len)
-		GLOB.roundstart_races += "Humen"
+		if(!S.check_roundstart_eligible())
+			continue
+		GLOB.roundstart_races += S.name
+		if(S.patreon_req)
+			GLOB.patreon_races += S.name
+		qdel(S)
+	if(!LAZYLEN(GLOB.roundstart_races))
+		GLOB.roundstart_races += RACE_HUMEN
 	sortTim(GLOB.roundstart_races, GLOBAL_PROC_REF(cmp_text_dsc))
+
+/proc/get_selectable_species(patreon = TRUE)
+	if(!LAZYLEN(GLOB.roundstart_races))
+		generate_selectable_species()
+	var/list/species = GLOB.roundstart_races.Copy()
+	if(!patreon)
+		species -= GLOB.patreon_races
+	return species
 
 /datum/species/proc/check_roundstart_eligible()
 	return FALSE
@@ -330,10 +429,9 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 /datum/species/proc/random_underwear(gender)
 	var/list/spec_undies = get_spec_undies_list(gender)
-	var/datum/sprite_accessory/X
-	if(spec_undies.len)
-		X = pick(spec_undies)
-		return X.name
+	if(LAZYLEN(spec_undies))
+		var/datum/sprite_accessory/underwear = pick(spec_undies)
+		return underwear.name
 
 /datum/species/proc/regenerate_icons(mob/living/carbon/human/H)
 	return FALSE
@@ -585,8 +683,19 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			else	//Entries in the list should only ever be items or null, so if it's not an item, we can assume it's an empty hand
 				C.put_in_hands(new mutanthands())
 
-	for(var/X in inherent_traits)
-		ADD_TRAIT(C, X, SPECIES_TRAIT)
+	for(var/trait as anything in inherent_traits)
+		ADD_TRAIT(C, trait, SPECIES_TRAIT)
+
+	if(LAZYLEN(inherent_traits_f) && C.gender == FEMALE)
+		for(var/trait as anything in inherent_traits_f)
+			ADD_TRAIT(C, trait, SPECIES_TRAIT)
+
+	if(LAZYLEN(inherent_traits_m) && C.gender == MALE)
+		for(var/trait as anything in inherent_traits_m)
+			ADD_TRAIT(C, trait, SPECIES_TRAIT)
+
+	for(var/skill as anything in inherent_skills)
+		C.adjust_skillrank(skill, inherent_skills[skill], TRUE)
 
 	for(var/component in components_to_add)
 		C.AddComponent(component)
@@ -635,11 +744,20 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	SEND_SIGNAL(C, COMSIG_SPECIES_LOSS, src)
 
 /datum/species/proc/handle_body(mob/living/carbon/human/H)
-	var/list/offsets = H.dna.species.offset_features
-	if(H.age == AGE_CHILD)
-		offsets = H.dna.species.offset_features_child
 	H.remove_overlay(BODY_LAYER)
 	H.remove_overlay(ABOVE_BODY_FRONT_LAYER)
+
+	var/datum/species/species = H.dna?.species
+	var/use_female_sprites = FALSE
+	var/list/offsets
+	if(species)
+		if(species.sexes)
+			if(H.gender == FEMALE && !species.swap_female_clothes || H.gender == MALE && species.swap_male_clothes)
+				use_female_sprites = FEMALE_BOOB
+		if(use_female_sprites)
+			offsets = (H.age == AGE_CHILD) ? species.offset_features_child : species.offset_features_f
+		else
+			offsets = (H.age == AGE_CHILD) ? species.offset_features_child : species.offset_features_m
 
 	var/list/standing = list()
 
@@ -650,68 +768,76 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		if(H.lip_style && (LIPS in species_traits))
 			var/mutable_appearance/lip_overlay = mutable_appearance('icons/mob/human_face.dmi', "lips_[H.lip_style]", -BODY_LAYER)
 			lip_overlay.color = H.lip_color
-			if(H.gender == MALE)
-				if(OFFSET_FACE in offsets)
-					lip_overlay.pixel_x += offsets[OFFSET_FACE][1]
-					lip_overlay.pixel_y += offsets[OFFSET_FACE][2]
-			else
-				if(OFFSET_FACE_F in offsets)
-					lip_overlay.pixel_x += offsets[OFFSET_FACE_F][1]
-					lip_overlay.pixel_y += offsets[OFFSET_FACE_F][2]
+			if(LAZYACCESS(offsets, OFFSET_FACE))
+				lip_overlay.pixel_x += offsets[OFFSET_FACE][1]
+				lip_overlay.pixel_y += offsets[OFFSET_FACE][2]
 			standing += lip_overlay
 
-		if(H.dna.species.hairyness)
-			var/mutable_appearance/bodyhair_overlay
+		if(species?.hairyness)
+			var/limb_icon
+			// Not use_female_sprites for limb icons
 			if(H.gender == MALE)
-				bodyhair_overlay = mutable_appearance(H.dna.species.limbs_icon_m, "[H.dna.species.hairyness]", -BODY_LAYER)
+				limb_icon = species.limbs_icon_m
 			else
-				bodyhair_overlay = mutable_appearance(H.dna.species.limbs_icon_f, "[H.dna.species.hairyness]", -BODY_LAYER)
+				limb_icon = species.limbs_icon_f
+			var/mutable_appearance/bodyhair_overlay = mutable_appearance(limb_icon, "[species?.hairyness]", -BODY_LAYER)
 			bodyhair_overlay.color = H.get_hair_color()
 			standing += bodyhair_overlay
 
-	//Underwear, Undershirts & Socks
+	//Underwear
 	if(!(NO_UNDERWEAR in species_traits))
-		var/hide_boob = FALSE
-		if(H.wear_armor)
-			var/obj/item/I = H.wear_armor
-			if(I.flags_inv & HIDEBOOB)
-				hide_boob = TRUE
+		var/hide_top = FALSE
+		var/hide_bottom = FALSE
+		var/obj/item/clothing/w_armor = H.wear_armor
+		if(w_armor)
+			hide_top = w_armor.flags_inv & (HIDEBOOB | HIDEUNDIESTOP)
+			hide_bottom = w_armor.flags_inv & (HIDEUNDIESBOT)
 
-		if(H.wear_shirt)
-			var/obj/item/I = H.wear_shirt
-			if(I.flags_inv & HIDEBOOB)
-				hide_boob = TRUE
+		var/obj/item/clothing/w_shirt = H.wear_shirt
+		if(w_shirt)
+			hide_top = w_shirt.flags_inv & (HIDEBOOB |HIDEUNDIESTOP)
+			hide_bottom = w_shirt.flags_inv & ( HIDEUNDIESBOT)
+
+		var/obj/item/clothing/w_cloak = H.wear_shirt
+		if(w_cloak)
+			hide_top = w_cloak.flags_inv & (HIDEBOOB | HIDEUNDIESTOP)
+			hide_bottom = w_cloak.flags_inv & (HIDEUNDIESBOT)
+
+		if(H.wear_pants)
+			hide_bottom = H.wear_pants.flags_inv & HIDEUNDIESBOT
 
 		if(H.underwear)
 			if(H.age == AGE_CHILD)
-				H.underwear = "Youngling"
+				hide_top = FALSE
+				hide_bottom = FALSE
+
 				if(H.gender == FEMALE)
 					H.underwear = "FemYoungling"
+				else
+					H.underwear = "Youngling"
 
 			var/datum/sprite_accessory/underwear/underwear = GLOB.underwear_list[H.underwear]
-			var/mutable_appearance/underwear_overlay
+
 			if(underwear)
-				underwear_overlay = mutable_appearance(underwear.icon, underwear.icon_state, -BODY_LAYER)
-				if(H.gender == FEMALE && H.age != AGE_CHILD)
-					if(OFFSET_FACE_F in offsets)
-						underwear_overlay.pixel_x += offsets[OFFSET_FACE_F][1]
-						underwear_overlay.pixel_y += offsets[OFFSET_FACE_F][2]
-				else if(H.age != AGE_CHILD)
-					if(OFFSET_FACE in offsets)
-						underwear_overlay.pixel_x += offsets[OFFSET_FACE][1]
-						underwear_overlay.pixel_y += offsets[OFFSET_FACE][2]
-				if(!underwear.use_static)
-					if(H.underwear_color)
-						underwear_overlay.color = H.underwear_color
-					else //default undies are brown
-						H.underwear_color = "#755f46"
-						underwear_overlay.color = "#755f46"
-				standing += underwear_overlay
-				if(!hide_boob && H.gender == FEMALE)
+				var/mutable_appearance/underwear_overlay
+				if(!hide_bottom)
+					underwear_overlay = mutable_appearance(underwear.icon, underwear.icon_state, -BODY_LAYER)
+					if(LAZYACCESS(offsets, OFFSET_UNDIES))
+						underwear_overlay.pixel_x += offsets[OFFSET_UNDIES][1]
+						underwear_overlay.pixel_y += offsets[OFFSET_UNDIES][2]
+					if(!underwear.use_static)
+						if(H.underwear_color)
+							underwear_overlay.color = H.underwear_color
+						else //default undies are brown
+							H.underwear_color = "#755f46"
+							underwear_overlay.color = "#755f46"
+					standing += underwear_overlay
+
+				if(!hide_top && H.gender == FEMALE)
 					underwear_overlay = mutable_appearance(underwear.icon, "[underwear.icon_state]_boob", -BODY_LAYER)
-					if(OFFSET_FACE_F in offsets)
-						underwear_overlay.pixel_x += offsets[OFFSET_FACE_F][1]
-						underwear_overlay.pixel_y += offsets[OFFSET_FACE_F][2]
+					if(LAZYACCESS(offsets, OFFSET_UNDIES))
+						underwear_overlay.pixel_x += offsets[OFFSET_UNDIES][1]
+						underwear_overlay.pixel_y += offsets[OFFSET_UNDIES][2]
 					if(!underwear.use_static)
 						if(H.underwear_color)
 							underwear_overlay.color = H.underwear_color
@@ -719,12 +845,12 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 							H.underwear_color = "#755f46"
 							underwear_overlay.color = "#755f46"
 					standing += underwear_overlay
-	if(standing.len)
+
+	if(length(standing))
 		H.overlays_standing[BODY_LAYER] = standing
 
 	H.apply_overlay(BODY_LAYER)
 	H.apply_overlay(ABOVE_BODY_FRONT_LAYER)
-
 
 /datum/species/proc/spec_life(mob/living/carbon/human/H)
 	if(HAS_TRAIT(H, TRAIT_NOBREATH))
