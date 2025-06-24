@@ -4,11 +4,8 @@
 /area/rogue/under/tomb/cave)
 "c" = (
 /obj/structure/bed/shit,
-/obj/item/reagent_containers/glass/bottle/healthpot{
-	pixel_x = 3;
-	pixel_y = 20
-	},
 /mob/living/carbon/human/species/goblin/npc/ambush,
+/obj/item/reagent_containers/food/snacks/cheesebun,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/indoors)
 "e" = (

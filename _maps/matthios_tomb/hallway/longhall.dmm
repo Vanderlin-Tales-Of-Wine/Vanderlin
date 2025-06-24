@@ -24,11 +24,8 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb)
 "m" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
-/turf/open/floor/naturalstone,
-/area/rogue/under/tomb)
-"n" = (
-/obj/item/statue/silver,
+/obj/item/clothing/ring/silver,
+/mob/living/simple_animal/hostile/retaliate/infernal/imp,
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb)
 "o" = (
@@ -40,6 +37,7 @@
 	pixel_x = 8;
 	pixel_y = 14
 	},
+/mob/living/simple_animal/hostile/retaliate/infernal/imp,
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb)
 "r" = (
@@ -53,11 +51,10 @@
 /area/rogue/under/tomb)
 "s" = (
 /obj/structure/handcart,
-/obj/item/weapon/knife/cleaver,
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb)
 "u" = (
-/obj/item/reagent_containers/glass/carafe/silver,
+/mob/living/simple_animal/hostile/retaliate/infernal/imp,
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb)
 "x" = (
@@ -162,15 +159,15 @@ a
 "}
 (3,1,1) = {"
 a
-K
+W
 W
 A
-U
+W
 a
 "}
 (4,1,1) = {"
 a
-y
+m
 W
 D
 W
@@ -179,7 +176,7 @@ a
 (5,1,1) = {"
 a
 e
-m
+W
 M
 u
 a
@@ -189,7 +186,7 @@ a
 s
 L
 b
-W
+U
 a
 "}
 (7,1,1) = {"
@@ -197,20 +194,20 @@ a
 V
 Z
 p
-m
+W
 a
 "}
 (8,1,1) = {"
 a
 M
 F
-m
+W
 W
 a
 "}
 (9,1,1) = {"
 a
-n
+W
 W
 L
 y
@@ -218,7 +215,7 @@ a
 "}
 (10,1,1) = {"
 a
-m
+W
 L
 M
 C
@@ -226,18 +223,18 @@ a
 "}
 (11,1,1) = {"
 a
+u
 W
 W
 W
-m
 a
 "}
 (12,1,1) = {"
 a
 K
-m
 W
-U
+u
+W
 a
 "}
 (13,1,1) = {"

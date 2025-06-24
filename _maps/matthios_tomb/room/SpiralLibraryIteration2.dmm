@@ -1,4 +1,9 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ab" = (
+/obj/structure/door/violet,
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/churchrough,
+/area/rogue/under/tomb/indoors/magic)
 "at" = (
 /obj/effect/decal/cleanable/dirt/cobweb{
 	dir = 8
@@ -23,6 +28,11 @@
 /obj/item/book/random_book,
 /obj/item/book/random_book,
 /turf/open/floor/churchrough,
+/area/rogue/under/tomb/indoors/magic)
+"bM" = (
+/obj/structure/door/violet,
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/ruinedwood/darker,
 /area/rogue/under/tomb/indoors/magic)
 "dd" = (
 /obj/item/book/random_book,
@@ -107,8 +117,8 @@
 /turf/open/floor/churchrough,
 /area/rogue/under/tomb/indoors/magic)
 "oT" = (
-/obj/item/gem/green,
-/turf/closed/wall/mineral/underbrick,
+/mob/living/simple_animal/hostile/retaliate/poltergeist,
+/turf/open/floor/churchrough,
 /area/rogue/under/tomb/indoors/magic)
 "qJ" = (
 /obj/structure/stairs{
@@ -329,6 +339,7 @@
 /obj/structure/fluff/railing/wood{
 	dir = 1
 	},
+/mob/living/simple_animal/hostile/retaliate/poltergeist,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/tomb/indoors/magic)
 "Vw" = (
@@ -404,9 +415,9 @@ TP
 TP
 TP
 TP
-Rk
+ab
 TP
-Rk
+ab
 TP
 TP
 TP
@@ -496,14 +507,14 @@ Vw
 ud
 ud
 ud
-Rk
+ab
 mA
 "}
 (8,1,1) = {"
 hV
 TP
 ud
-ud
+oT
 tg
 qJ
 qJ
@@ -518,7 +529,7 @@ fT
 "}
 (9,1,1) = {"
 mA
-Rk
+ab
 ud
 dd
 iX
@@ -608,9 +619,9 @@ TP
 TP
 TP
 TP
-Rk
+ab
 TP
-Rk
+ab
 TP
 TP
 TP
@@ -660,9 +671,9 @@ TP
 TP
 TP
 TP
-vx
-TP
 lH
+TP
+bM
 TP
 TP
 TP
@@ -740,7 +751,7 @@ yd
 "}
 (7,1,2) = {"
 yd
-lH
+bM
 wu
 FF
 Sj
@@ -752,7 +763,7 @@ Qb
 kz
 vx
 FF
-lH
+bM
 yd
 "}
 (8,1,2) = {"
@@ -774,7 +785,7 @@ yd
 "}
 (9,1,2) = {"
 yd
-lH
+bM
 wu
 FF
 FF
@@ -786,7 +797,7 @@ vx
 UB
 FF
 FF
-lH
+bM
 yd
 "}
 (10,1,2) = {"
@@ -844,7 +855,7 @@ vV
 vV
 TP
 TP
-oT
+TP
 tr
 FF
 vx
@@ -864,7 +875,7 @@ TP
 TP
 TP
 TP
-vx
+bM
 TP
 lH
 TP

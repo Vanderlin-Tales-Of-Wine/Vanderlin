@@ -283,7 +283,6 @@
 /obj/structure/closet/crate/chest,
 /obj/effect/mapping_helpers/access/locker,
 /obj/item/reagent_containers/glass/bottle/healthpot,
-/obj/item/reagent_containers/glass/bottle/healthpot,
 /obj/item/reagent_containers/glass/bottle/healthpot{
 	pixel_x = -8
 	},

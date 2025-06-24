@@ -68,17 +68,6 @@
 	north_offset = 2
 	south_offset = 2
 
-/datum/map_template/dungeon/hallway/MowPiece2
-	mappath = "_maps/matthios_tomb/hallway/MowPiece2.dmm"
-	id = "MowPiece2"
-	width = 12
-	height = 12
-
-	north_offset = 6
-	south_offset = 6
-	east_offset = 6
-	west_offset = 6
-
 /datum/map_template/dungeon/hallway/NormalHallway
 	mappath = "_maps/matthios_tomb/hallway/NormalHallway.dmm"
 	id = "NormalHallway"
@@ -146,17 +135,6 @@
 
 	east_offset = 1
 	west_offset = 1
-
-/datum/map_template/dungeon/hallway/lampternhallway
-	mappath = "_maps/matthios_tomb/hallway/lampternhallway.dmm"
-	id = "lampternhallway"
-	width = 6
-	height = 20
-
-	north_offset = 3
-	south_offset = 3
-	east_offset = 9
-	west_offset = 9
 
 /datum/map_template/dungeon/hallway/longhall
 	mappath = "_maps/matthios_tomb/hallway/longhall.dmm"

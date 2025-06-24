@@ -4,7 +4,6 @@
 /area/rogue/under/tomb/cave)
 "b" = (
 /obj/structure/fluff/walldeco/vinez/l,
-/obj/machinery/light/fueled/wallfire/candle/blue/l,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/blood/gibs/old,
 /obj/effect/decal/cleanable/blood/drip,
@@ -17,12 +16,7 @@
 /obj/effect/decal/cleanable/blood/drip,
 /turf/open/floor/carpet/lord/center,
 /area/rogue/under/tomb/cave)
-"d" = (
-/obj/machinery/light/fueled/wallfire/candle/l,
-/turf/open/floor/cobble/mossy,
-/area/rogue/under/tomb/cave)
 "f" = (
-/obj/structure/fluff/walldeco/bath,
 /obj/effect/decal/cleanable/blood/drip,
 /turf/open/floor/carpet/lord/left,
 /area/rogue/under/tomb/cave)
@@ -52,14 +46,9 @@
 /turf/closed/wall/mineral/decostone/long,
 /area/rogue/under/tomb/cave)
 "l" = (
-/obj/structure/fluff/walldeco/bath/six,
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/decal/cleanable/blood/drip,
 /turf/open/floor/carpet/lord/left,
-/area/rogue/under/tomb/cave)
-"m" = (
-/obj/structure/fluff/walldeco/bath/four,
-/turf/closed/wall/mineral/decostone/long,
 /area/rogue/under/tomb/cave)
 "n" = (
 /obj/effect/dungeon_directional_helper/north,
@@ -71,11 +60,6 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/carpet/lord/center,
 /area/rogue/under/tomb/cave)
-"p" = (
-/obj/structure/fluff/walldeco/bath/seven,
-/obj/effect/decal/cleanable/blood/drip,
-/turf/open/floor/carpet/lord/right,
-/area/rogue/under/tomb/cave)
 "q" = (
 /turf/open/floor/cobble/mossy,
 /area/rogue/under/tomb/cave)
@@ -85,13 +69,6 @@
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/blood/drip,
 /turf/open/floor/carpet/lord/right,
-/area/rogue/under/tomb/cave)
-"t" = (
-/mob/living/simple_animal/hostile/retaliate/bogbug{
-	dir = 4
-	},
-/obj/item/gem/green,
-/turf/open/floor/cobble/mossy,
 /area/rogue/under/tomb/cave)
 "v" = (
 /obj/structure/fluff/walldeco/vinez/r,
@@ -119,7 +96,6 @@
 /area/rogue/under/tomb/cave)
 "A" = (
 /obj/structure/fluff/walldeco/vinez/l,
-/obj/machinery/light/fueled/wallfire/candle/blue/l,
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/decal/cleanable/blood/gibs/limb,
 /turf/open/floor/carpet/lord/left,
@@ -129,7 +105,6 @@
 /turf/open/floor/carpet/lord/left,
 /area/rogue/under/tomb/cave)
 "C" = (
-/obj/structure/healingfountain,
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/blood/tracks,
 /obj/effect/decal/cleanable/blood/footprints,
@@ -145,6 +120,7 @@
 "F" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/blood/drip,
+/mob/living/carbon/human/species/zizombie/npc/militiamen,
 /turf/open/floor/carpet/lord/left,
 /area/rogue/under/tomb/cave)
 "G" = (
@@ -157,7 +133,6 @@
 /area/rogue/under/tomb/cave)
 "H" = (
 /obj/structure/fluff/walldeco/vinez/r,
-/obj/machinery/light/fueled/wallfire/candle/blue/r,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/blood/gibs/body,
 /obj/effect/decal/cleanable/blood/puddle,
@@ -169,7 +144,6 @@
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/blood/tracks,
 /obj/effect/decal/cleanable/blood/footprints,
-/obj/item/weapon/sword/long/forgotten,
 /turf/open/floor/carpet/lord/center,
 /area/rogue/under/tomb/cave)
 "K" = (
@@ -182,23 +156,12 @@
 /obj/structure/fluff/walldeco/vinez/r,
 /turf/open/floor/carpet/lord/right,
 /area/rogue/under/tomb/cave)
-"M" = (
-/obj/structure/fluff/walldeco/bath/ladies,
-/obj/structure/fluff/walldeco/bath/wallrope{
-	dir = 6
-	},
-/obj/structure/fluff/walldeco/stone,
-/turf/closed/wall/mineral/decostone/long,
-/area/rogue/under/tomb/cave)
 "N" = (
 /obj/structure/fluff/statue/gargoyle/moss/candles,
 /turf/open/floor/cobble/mossy,
 /area/rogue/under/tomb/cave)
-"O" = (
-/obj/machinery/light/fueled/wallfire/candle/r,
-/turf/open/floor/cobble/mossy,
-/area/rogue/under/tomb/cave)
 "P" = (
+/mob/living/carbon/human/species/zizombie/npc/militiamen,
 /turf/open/floor/carpet/lord/right,
 /area/rogue/under/tomb/cave)
 "R" = (
@@ -215,7 +178,6 @@
 /turf/closed/mineral/bedrock,
 /area/rogue/under/tomb/cave)
 "V" = (
-/obj/structure/fluff/walldeco/bath/five,
 /mob/living/simple_animal/hostile/retaliate/bat,
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/carpet/lord/left,
@@ -249,11 +211,11 @@ T
 (2,1,1) = {"
 R
 q
-d
+q
 j
 j
 j
-d
+q
 q
 q
 "}
@@ -263,7 +225,7 @@ q
 q
 q
 N
-t
+q
 q
 R
 E
@@ -271,11 +233,11 @@ E
 (4,1,1) = {"
 q
 q
-O
+q
 W
 Z
 Z
-O
+q
 q
 q
 "}
@@ -327,7 +289,7 @@ K
 (4,1,2) = {"
 v
 g
-p
+S
 s
 z
 P
@@ -341,8 +303,8 @@ k
 a
 y
 a
-M
+y
 a
-m
+k
 X
 "}

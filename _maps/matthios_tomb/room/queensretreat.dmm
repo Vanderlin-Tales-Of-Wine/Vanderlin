@@ -273,8 +273,8 @@
 /turf/closed/wall/mineral/stonebrick,
 /area/rogue/under/tomb/wilds)
 "lb" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
-/turf/open/floor/carpet/red,
+/mob/living/carbon/human/species/zizombie/npc/warrior,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "lq" = (
 /obj/item/clothing/head/peaceflower,
@@ -298,6 +298,14 @@
 "mc" = (
 /obj/structure/table/wood/fine,
 /obj/machinery/light/fueled/wallfire/candle/weak/r,
+/obj/item/statue/silver{
+	pixel_x = 6;
+	pixel_y = 6
+	},
+/obj/item/statue/gold{
+	pixel_x = -8;
+	pixel_y = 8
+	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "mw" = (
@@ -378,8 +386,8 @@
 /turf/open/floor/grass,
 /area/rogue/under/tomb/wilds)
 "qh" = (
-/obj/item/statue/gold,
-/turf/open/floor/carpet/red,
+/mob/living/simple_animal/hostile/retaliate/shade,
+/turf/open/floor/tile/bath,
 /area/rogue/under/tomb/indoors/royal)
 "qp" = (
 /obj/structure/fluff/railing/wood{
@@ -480,8 +488,8 @@
 /turf/open/floor/carpet/red,
 /area/rogue/under/tomb/indoors/royal)
 "uA" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
-/turf/open/floor/ruinedwood/spiral,
+/mob/living/carbon/human/species/zizombie/npc/militiamen,
+/turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors/royal)
 "uD" = (
 /mob/living/carbon/human/species/skeleton/npc/peasant,
@@ -509,10 +517,13 @@
 	},
 /obj/structure/table/wood/fine,
 /obj/effect/spawner/map_spawner/loot/rare,
-/obj/item/gem,
+/obj/item/gem{
+	pixel_x = 6;
+	pixel_y = 6
+	},
 /obj/item/gem{
 	pixel_x = -9;
-	pixel_y = 5
+	pixel_y = -3
 	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors/royal)
@@ -731,7 +742,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "GV" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/human/species/zizombie/npc/warrior,
 /turf/open/floor/carpet/lord/center,
 /area/rogue/under/tomb/indoors/royal)
 "GY" = (
@@ -752,7 +763,7 @@
 /turf/open/floor/tile,
 /area/rogue/under/tomb/indoors/royal)
 "HB" = (
-/obj/item/statue/silver,
+/mob/living/simple_animal/hostile/retaliate/shade,
 /turf/open/floor/carpet/red,
 /area/rogue/under/tomb/indoors/royal)
 "HJ" = (
@@ -852,6 +863,7 @@
 /obj/structure/fluff/walldeco/painting/queen{
 	pixel_y = 32
 	},
+/mob/living/carbon/human/species/zizombie/npc/peasant,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "Ko" = (
@@ -879,6 +891,10 @@
 /obj/structure/table/wood,
 /obj/item/cooking/pan,
 /turf/open/floor/tile/checker,
+/area/rogue/under/tomb/indoors/royal)
+"Nh" = (
+/mob/living/carbon/human/species/zizombie/npc/militiamen,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "NG" = (
 /obj/structure/door/violet{
@@ -966,10 +982,6 @@
 	pixel_x = -5;
 	pixel_y = 31
 	},
-/obj/item/gem/violet{
-	pixel_x = 6;
-	pixel_y = 32
-	},
 /obj/structure/fluff/clock,
 /turf/open/floor/carpet/red,
 /area/rogue/under/tomb/indoors/royal)
@@ -1032,9 +1044,8 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "RZ" = (
-/obj/structure/flora/grass,
-/mob/living/carbon/human/species/skeleton/npc/peasant,
-/turf/open/floor/dirt,
+/mob/living/carbon/human/species/zizombie/npc/militiamen,
+/turf/open/floor/grass,
 /area/rogue/under/tomb/wilds)
 "Sa" = (
 /turf/closed/wall/mineral/roofwall/outercorner{
@@ -1274,7 +1285,7 @@ XK
 XK
 XK
 lE
-RZ
+UN
 lE
 XK
 XK
@@ -1308,7 +1319,7 @@ XK
 DP
 lE
 lE
-XK
+RZ
 EE
 lE
 lE
@@ -1685,7 +1696,7 @@ Dm
 Dm
 oA
 oA
-GV
+wt
 oA
 oA
 oA
@@ -1711,16 +1722,16 @@ YX
 wT
 oA
 BG
-Fm
-OJ
+uA
+Hh
 Hh
 Dq
 oA
 OT
-wt
+GV
 Vn
 oA
-lP
+qh
 lP
 Ct
 Ct
@@ -2014,7 +2025,7 @@ EE
 XK
 XK
 XK
-OY
+XK
 XK
 XK
 XK
@@ -2074,7 +2085,7 @@ XK
 XK
 XK
 XK
-XK
+RZ
 Gv
 XK
 XK
@@ -2486,8 +2497,8 @@ tK
 tK
 IE
 RU
+Nh
 GR
-Mw
 OT
 bs
 yM
@@ -2681,12 +2692,12 @@ SN
 CF
 DU
 oA
-uA
+GR
 GR
 GR
 Dm
 Dm
-HB
+Dm
 JC
 yi
 Yl
@@ -2718,7 +2729,7 @@ GR
 GR
 Dm
 zj
-qh
+Dm
 oA
 yi
 Yl
@@ -2743,10 +2754,10 @@ tK
 oA
 MK
 GR
-lb
 Dm
 Dm
-uA
+Dm
+GR
 GR
 Dm
 Dm
@@ -2774,7 +2785,7 @@ BM
 wJ
 oA
 bi
-GR
+lb
 DU
 oA
 gO

@@ -9,11 +9,6 @@
 "f" = (
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/under/tomb/indoors)
-"h" = (
-/obj/structure/table/wood/plain,
-/obj/item/flashlight/flare/torch/lantern,
-/turf/open/floor/ruinedwood/turned/darker,
-/area/rogue/under/tomb/indoors)
 "j" = (
 /obj/structure/ladder/unbreakable,
 /turf/open/floor/ruinedwood/turned/darker,
@@ -323,7 +318,7 @@ W
 v
 f
 k
-h
+m
 m
 s
 t

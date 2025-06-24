@@ -28,7 +28,6 @@
 /area/rogue/under/tomb/cave)
 "au" = (
 /obj/structure/fluff/walldeco/vinez/l,
-/obj/machinery/light/fueled/wallfire/candle/blue/l,
 /obj/item/reagent_containers/glass/bottle/whitewine,
 /turf/open/floor/cobblerock/alt,
 /area/rogue/under/tomb/cave)
@@ -39,12 +38,13 @@
 /obj/item/clothing/neck/psycross/silver/malum_steel,
 /obj/item/clothing/ring/silver/saffira,
 /obj/item/storage/belt/leather/plaquesilver,
-/obj/item/weapon/sword/rapier/silver,
 /obj/item/clothing/head/hatblu,
 /obj/item/clothing/cloak/raincloak/blue,
 /obj/item/clothing/gloves/leather/black,
 /mob/living/carbon/human/species/skeleton/npc/no_equipment,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/item/weapon/mace/warhammer,
+/obj/item/weapon/shield/heater,
 /turf/open/floor/cobblerock/alt,
 /area/rogue/under/tomb/cave)
 "aG" = (
@@ -66,13 +66,8 @@
 /obj/structure/spider/stickyweb,
 /turf/open/floor/churchmarble,
 /area/rogue/under/tomb/cave)
-"aM" = (
-/obj/machinery/light/fueled/wallfire/candle/blue/l,
-/turf/open/floor/cobblerock/alt,
-/area/rogue/under/tomb/cave)
 "aN" = (
 /obj/structure/fluff/walldeco/vinez/r,
-/obj/machinery/light/fueled/wallfire/candle/blue/r,
 /turf/open/floor/cobblerock/alt,
 /area/rogue/under/tomb/cave)
 "aP" = (
@@ -80,19 +75,18 @@
 /area/rogue/under/tomb/cave)
 "aQ" = (
 /obj/structure/table/vtable,
-/obj/item/clothing/gloves/rare/elfplate,
-/obj/item/clothing/head/rare/elfplate,
-/obj/item/weapon/knife/dagger/steel/dirk,
-/obj/item/clothing/shirt/undershirt/webs,
-/obj/item/clothing/pants/webs,
-/obj/item/clothing/cloak/raincloak/purple,
-/obj/item/clothing/neck/menears,
-/obj/item/clothing/neck/mercmedal/anthrax,
+/obj/item/natural/bundle/silk{
+	pixel_x = -4;
+	pixel_y = 0
+	},
+/obj/item/reagent_containers/glass/bottle/stronghealthpot{
+	pixel_x = 9;
+	pixel_y = 17
+	},
 /turf/open/floor/churchmarble,
 /area/rogue/under/tomb/cave)
 "aT" = (
 /obj/structure/fluff/walldeco/vinez/r,
-/obj/machinery/light/fueled/wallfire/candle/blue/r,
 /obj/item/instrument/flute,
 /turf/open/floor/cobblerock/alt,
 /area/rogue/under/tomb/cave)
@@ -106,7 +100,6 @@
 /turf/closed/wall/mineral/stonebrick/reddish,
 /area/rogue/under/tomb/cave)
 "aX" = (
-/obj/machinery/light/fueled/wallfire/candle/blue/r,
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/cobblerock/alt,
 /area/rogue/under/tomb/cave)
@@ -123,13 +116,10 @@
 /obj/structure/table/vtable/v2,
 /obj/item/reagent_containers/glass/bottle/wine/sourwine,
 /obj/item/candle/yellow/lit/infinite/strong/skull,
-/obj/item/reagent_containers/glass/bottle/stronghealthpot,
-/obj/item/coin/silver/pile/xylix,
-/obj/item/needle,
-/obj/item/natural/bundle/silk,
-/obj/item/natural/cloth,
-/obj/item/natural/cloth,
-/obj/item/natural/cloth,
+/obj/item/needle{
+	pixel_x = -11;
+	pixel_y = 6
+	},
 /turf/open/floor/churchmarble,
 /area/rogue/under/tomb/cave)
 "ij" = (
@@ -183,7 +173,7 @@ aj
 ab
 au
 aV
-aM
+ab
 aY
 "}
 (3,1,1) = {"

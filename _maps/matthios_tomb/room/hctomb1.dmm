@@ -1,6 +1,5 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aq" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
 /obj/effect/decal/cleanable/vomit/old{
 	icon_state = "vomit_4-old"
 	},
@@ -31,9 +30,9 @@
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/cave)
 "cx" = (
-/mob/living/carbon/human/species/orc/ambush,
-/turf/open/floor/naturalstone,
-/area/rogue/under/tomb/cave)
+/obj/item/ingot/steel,
+/turf/open/floor/blocks/paving,
+/area/rogue/under/tomb/indoors)
 "dc" = (
 /obj/machinery/light/fueled/torchholder/c,
 /obj/item/ore/iron{
@@ -73,10 +72,9 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb)
 "ef" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/mob/living/carbon/human/species/skeleton/npc/ambush,
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/under/tomb/indoors)
+/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/turf/open/floor/naturalstone,
+/area/rogue/under/tomb)
 "ey" = (
 /obj/structure/stairs{
 	dir = 4
@@ -95,7 +93,7 @@
 /turf/open/floor/metal/barograte,
 /area/rogue/under/tomb/indoors)
 "fE" = (
-/obj/effect/spawner/map_spawner/beartrap,
+/obj/item/restraints/legcuffs/beartrap/armed/camouflage,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb)
 "fQ" = (
@@ -104,6 +102,7 @@
 /area/rogue/under/tomb/indoors)
 "gd" = (
 /obj/structure/door,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/metal/alt,
 /area/rogue/under/tomb/indoors)
 "gl" = (
@@ -181,9 +180,9 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "jq" = (
-/obj/effect/spawner/map_spawner/beartrap,
-/turf/open/floor/dirt,
-/area/rogue/under/tomb/cave)
+/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/tomb/indoors)
 "jx" = (
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb/cave)
@@ -194,7 +193,7 @@
 /obj/structure/chair/wood/alt/chair3{
 	dir = 8
 	},
-/mob/living/carbon/human/species/orc/ambush,
+/mob/living/carbon/human/species/goblin/npc/ambush/hell,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/tomb/indoors)
 "lS" = (
@@ -219,6 +218,7 @@
 "mk" = (
 /obj/structure/door/viewport,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "ml" = (
@@ -228,9 +228,10 @@
 /turf/open/floor/concrete,
 /area/rogue/under/tomb/indoors)
 "mE" = (
-/obj/effect/spawner/map_spawner/beartrap,
-/turf/open/floor/naturalstone,
-/area/rogue/under/tomb/cave)
+/obj/effect/decal/cleanable/dirt/dust,
+/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/turf/open/floor/concrete,
+/area/rogue/under/tomb/indoors)
 "mX" = (
 /obj/effect/decal/cobbleedge/alt{
 	dir = 4
@@ -248,6 +249,10 @@
 	},
 /turf/open/floor/cobble/alt,
 /area/rogue/under/tomb)
+"pq" = (
+/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/turf/open/floor/dirt/road,
+/area/rogue/under/tomb/cave)
 "pO" = (
 /obj/structure/rack,
 /obj/effect/spawner/map_spawner/loot/weapon,
@@ -297,6 +302,10 @@
 	},
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors)
+"sB" = (
+/mob/living/carbon/human/species/orc/warrior,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/tomb/indoors)
 "sM" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
@@ -309,9 +318,9 @@
 /turf/open/floor/metal/barograte,
 /area/rogue/under/tomb/indoors)
 "tb" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/under/tomb/indoors)
+/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/turf/open/floor/cobblerock,
+/area/rogue/under/tomb)
 "tK" = (
 /obj/machinery/light/fueled/wallfire/candle/l,
 /obj/structure/table/wood,
@@ -346,8 +355,8 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "vl" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/item/clothing/face/facemask/steel,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "vr" = (
@@ -375,8 +384,8 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb)
 "wG" = (
-/mob/living/carbon/human/species/orc/ambush,
-/turf/open/floor/dirt/road,
+/obj/item/restraints/legcuffs/beartrap/armed/camouflage,
+/turf/open/floor/naturalstone,
 /area/rogue/under/tomb/cave)
 "wQ" = (
 /obj/structure/door/iron/bars,
@@ -399,9 +408,10 @@
 /turf/open/floor/dirt/road,
 /area/rogue/under/tomb/cave)
 "xk" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
-/turf/open/floor/ruinedwood/spiralfade,
-/area/rogue/under/tomb/indoors)
+/obj/item/natural/rock/random,
+/mob/living/carbon/human/species/orc/tribal,
+/turf/open/floor/naturalstone,
+/area/rogue/under/tomb/cave)
 "xl" = (
 /turf/open/floor/blocks/paving,
 /area/rogue/under/tomb/indoors)
@@ -469,8 +479,9 @@
 /turf/open/floor/ruinedwood/turned,
 /area/rogue/under/tomb/cave)
 "AP" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
-/turf/open/floor/concrete,
+/obj/effect/decal/cleanable/dirt/dust,
+/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "AW" = (
 /obj/machinery/light/fueled/smelter,
@@ -490,6 +501,10 @@
 "Bg" = (
 /obj/structure/ladder,
 /turf/open/floor/naturalstone,
+/area/rogue/under/tomb/cave)
+"Bp" = (
+/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/turf/open/floor/ruinedwood/turned,
 /area/rogue/under/tomb/cave)
 "BC" = (
 /obj/item/ore/gold,
@@ -529,6 +544,15 @@
 "Dz" = (
 /obj/structure/table/wood/plain_alt,
 /obj/machinery/light/fueled/wallfire/candle/r,
+/obj/item/ingot/steel,
+/obj/item/ingot/steel{
+	pixel_x = 13;
+	pixel_y = 0
+	},
+/obj/item/ingot/steel{
+	pixel_x = -7;
+	pixel_y = 10
+	},
 /turf/open/floor/cobble/alt,
 /area/rogue/under/tomb/indoors)
 "DA" = (
@@ -567,6 +591,7 @@
 /obj/structure/door/viewport{
 	door_opened = 1
 	},
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/tomb/indoors)
 "Gi" = (
@@ -588,7 +613,6 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/tomb/indoors)
 "Hd" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
 /turf/open/floor/cobblerock/alt,
 /area/rogue/under/tomb/indoors)
 "Hy" = (
@@ -602,7 +626,8 @@
 /turf/open/floor/metal,
 /area/rogue/under/tomb/indoors)
 "Iz" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/moon,
+/obj/item/natural/rock/random,
+/mob/living/carbon/human/species/goblin/npc/ambush/cave,
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb/cave)
 "IN" = (
@@ -624,6 +649,7 @@
 "Jx" = (
 /obj/structure/table/wood/nice/decorated_alt,
 /obj/item/organ/eyes,
+/obj/item/storage/belt/leather/knifebelt/black/steel,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/tomb/indoors)
 "JH" = (
@@ -679,6 +705,7 @@
 "NQ" = (
 /obj/structure/closet/crate/chest/crate,
 /obj/effect/spawner/map_spawner/loot/common,
+/obj/item/gem/black,
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb/cave)
 "OL" = (
@@ -696,9 +723,9 @@
 /turf/open/floor/cobble/alt,
 /area/rogue/under/tomb/indoors)
 "Pl" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
-/turf/open/floor/dirt,
-/area/rogue/under/tomb/cave)
+/mob/living/carbon/human/species/goblin/npc/ambush/hell,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/tomb/indoors)
 "PC" = (
 /obj/structure/roguerock,
 /turf/open/floor/naturalstone,
@@ -724,6 +751,7 @@
 /area/rogue/under/tomb/indoors)
 "QD" = (
 /obj/effect/decal/cleanable/blood/tracks,
+/mob/living/carbon/human/species/orc/warrior,
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors)
 "Rc" = (
@@ -761,10 +789,13 @@
 /area/rogue/under/tomb/indoors)
 "Sz" = (
 /obj/structure/table/wood/plain_alt,
-/obj/item/coin/copper,
-/obj/item/coin/copper{
-	pixel_x = -5;
-	pixel_y = 6
+/obj/item/ingot/copper{
+	pixel_x = -4;
+	pixel_y = 8
+	},
+/obj/item/ingot/copper{
+	pixel_x = 12;
+	pixel_y = 7
 	},
 /turf/open/floor/cobble/alt,
 /area/rogue/under/tomb/indoors)
@@ -818,12 +849,10 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb)
 "UW" = (
-/obj/structure/fluff/railing/wood{
-	dir = 4
-	},
+/obj/effect/decal/cleanable/dirt/dust,
 /mob/living/carbon/human/species/goblin/npc/ambush/cave,
-/turf/open/floor/ruinedwood/turned,
-/area/rogue/under/tomb/cave)
+/turf/open/floor/metal/barograte,
+/area/rogue/under/tomb/indoors)
 "Vf" = (
 /obj/machinery/light/fueled/firebowl/standing,
 /turf/open/floor/naturalstone,
@@ -964,10 +993,9 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/tomb/indoors)
 "ZO" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/ruinedwood/spiralfade,
-/area/rogue/under/tomb/indoors)
+/mob/living/carbon/human/species/orc/tribal,
+/turf/open/floor/cobblerock,
+/area/rogue/under/tomb)
 
 (1,1,1) = {"
 TZ
@@ -1055,9 +1083,9 @@ TZ
 jx
 TZ
 jx
-xc
+pq
 eF
-wG
+xc
 eF
 xc
 xc
@@ -1083,10 +1111,10 @@ pT
 pT
 TZ
 TZ
-cx
 jx
 jx
-yJ
+jx
+eF
 eF
 TZ
 TZ
@@ -1215,7 +1243,7 @@ wZ
 QD
 yn
 MK
-xl
+cx
 RK
 vr
 ha
@@ -1300,7 +1328,7 @@ Gi
 Gi
 gx
 gx
-gx
+tb
 gx
 gx
 gx
@@ -1359,7 +1387,7 @@ gx
 gx
 gx
 gx
-gx
+ZO
 gx
 gx
 gx
@@ -1375,7 +1403,7 @@ pT
 pT
 pT
 pT
-pT
+ef
 pT
 YA
 gx
@@ -1491,7 +1519,7 @@ TZ
 TZ
 TZ
 jx
-jx
+wG
 jx
 TZ
 TZ
@@ -1522,7 +1550,7 @@ TZ
 TZ
 TZ
 jx
-mE
+jx
 jx
 TZ
 TZ
@@ -1569,9 +1597,9 @@ up
 RU
 dy
 fQ
-fQ
+UW
 Ii
-AP
+mz
 mz
 xu
 TZ
@@ -1604,7 +1632,7 @@ fB
 fQ
 Ii
 Zo
-Zo
+mE
 IW
 TZ
 TZ
@@ -1617,7 +1645,7 @@ TZ
 TZ
 jx
 jx
-xb
+jx
 jx
 Zk
 TZ
@@ -1626,7 +1654,7 @@ jx
 gx
 gx
 gx
-gx
+tb
 Gi
 Gi
 Gi
@@ -1684,8 +1712,8 @@ YV
 jx
 jx
 Cr
-mE
 jx
+wG
 jx
 gx
 gx
@@ -1698,7 +1726,7 @@ EH
 IW
 ET
 Yr
-tb
+Yr
 Rz
 qn
 uC
@@ -1713,7 +1741,7 @@ DA
 wy
 jx
 Ls
-jx
+xb
 jx
 Cr
 jx
@@ -1729,7 +1757,7 @@ gx
 EH
 xu
 Wz
-ET
+jq
 Yr
 Kc
 Yr
@@ -1741,7 +1769,7 @@ TZ
 TZ
 TZ
 jx
-wy
+Iz
 jx
 jx
 jx
@@ -1762,9 +1790,9 @@ RU
 xu
 Wz
 iQ
-ZO
+MS
 ET
-vl
+iQ
 GG
 RU
 TZ
@@ -1773,12 +1801,12 @@ TZ
 TZ
 TZ
 TZ
-Iz
+jx
 wy
 wy
 jx
 jx
-xb
+jx
 jx
 TZ
 TZ
@@ -1794,7 +1822,7 @@ pT
 RU
 iQ
 iQ
-Yr
+sB
 iQ
 MS
 iQ
@@ -1808,7 +1836,7 @@ TZ
 NQ
 FF
 jx
-wy
+xk
 jx
 jx
 eF
@@ -1827,7 +1855,7 @@ xu
 xu
 VB
 iQ
-ef
+iQ
 SF
 xu
 RU
@@ -1843,7 +1871,7 @@ TZ
 jx
 wy
 eF
-Pl
+eF
 IN
 TZ
 up
@@ -2530,7 +2558,7 @@ qx
 Rc
 ET
 MS
-iQ
+vl
 qn
 SA
 YG
@@ -2561,8 +2589,8 @@ qx
 qx
 RU
 aV
+jq
 ET
-xk
 iQ
 yq
 YG
@@ -2580,7 +2608,7 @@ zl
 AC
 AC
 AC
-jq
+yJ
 Zk
 Zk
 ml
@@ -2608,9 +2636,9 @@ TZ
 TZ
 TZ
 ic
-UW
 Xt
-zl
+Xt
+Bp
 zl
 Zk
 ml
@@ -2661,7 +2689,7 @@ Ts
 FH
 Yr
 Yr
-iQ
+AP
 iQ
 xu
 TZ
@@ -2691,7 +2719,7 @@ qx
 RI
 Ts
 mk
-Yr
+Pl
 iQ
 hx
 dA

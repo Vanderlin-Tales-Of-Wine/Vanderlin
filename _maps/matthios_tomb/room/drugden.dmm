@@ -102,15 +102,24 @@
 /mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/floor/tile,
 /area/rogue/under/tomb/indoors)
+"oB" = (
+/mob/living/carbon/human/species/zizombie/ambush,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/tomb/indoors)
 "oR" = (
 /turf/open/water/swamp/deep,
 /area/rogue/under/tomb/cave)
 "oT" = (
 /obj/structure/door/swing,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/tile,
 /area/rogue/under/tomb/indoors)
 "oW" = (
 /turf/open/transparent/openspace,
+/area/rogue/under/tomb/cave/wet)
+"pq" = (
+/mob/living/carbon/human/species/zizombie/npc/peasant,
+/turf/open/water/swamp/deep,
 /area/rogue/under/tomb/cave/wet)
 "px" = (
 /obj/structure/stairs,
@@ -154,6 +163,10 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "rz" = (
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/tomb/indoors)
+"rZ" = (
+/mob/living/carbon/human/species/zizombie/npc/militiamen,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "tg" = (
@@ -286,8 +299,12 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "LC" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
-/turf/open/floor/ruinedwood/spiral,
+/obj/structure/door/swing,
+/obj/item/soap/bath{
+	pixel_y = -5
+	},
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/tile,
 /area/rogue/under/tomb/indoors)
 "LO" = (
 /obj/effect/decal/cleanable/sigil/S,
@@ -349,9 +366,9 @@
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/cave/wet)
 "Yt" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
-/turf/open/water/swamp/deep,
-/area/rogue/under/tomb/cave/wet)
+/mob/living/carbon/human/species/zizombie/npc/militiamen,
+/turf/open/floor/tile,
+/area/rogue/under/tomb/indoors)
 "Zk" = (
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /obj/structure/rack/shelf/big,
@@ -521,7 +538,7 @@ Be
 JE
 Gm
 kv
-Gb
+jL
 kv
 JE
 Be
@@ -536,12 +553,12 @@ JE
 Gm
 Gm
 Gm
-Gm
+JE
 JE
 Be
 Be
 JE
-Gm
+JE
 Gm
 Gm
 Gm
@@ -579,7 +596,7 @@ Be
 Be
 Be
 Be
-Yt
+Be
 Be
 Gm
 px
@@ -599,7 +616,7 @@ Cy
 FC
 Be
 Be
-Be
+pq
 Be
 Be
 Be
@@ -646,13 +663,13 @@ JE
 Gm
 Gm
 Gm
-Gm
+JE
 JE
 Be
 Be
 JE
-Gm
-Gm
+JE
+Yt
 Gm
 Gm
 JE
@@ -698,7 +715,7 @@ JE
 Gm
 jL
 kv
-jl
+kv
 JE
 Be
 FC
@@ -716,7 +733,7 @@ Gm
 If
 Be
 Be
-If
+LC
 Gm
 kv
 jl
@@ -931,7 +948,7 @@ oW
 Dh
 jV
 AD
-LC
+rz
 ht
 jV
 eS
@@ -974,9 +991,9 @@ hr
 oW
 Dh
 jV
+oB
 rz
 rz
-LC
 jV
 rz
 rz
@@ -1026,7 +1043,7 @@ rz
 io
 il
 rz
-hL
+rz
 yB
 rz
 rz
@@ -1112,7 +1129,7 @@ rz
 jV
 dx
 rz
-rz
+rZ
 rz
 jV
 iy

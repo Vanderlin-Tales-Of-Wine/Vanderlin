@@ -3,6 +3,7 @@
 /obj/structure/table/wood/counter/end{
 	dir = 8
 	},
+/obj/item/clothing/wrists/bracers/copper,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "ai" = (
@@ -42,11 +43,12 @@
 /turf/open/floor/dirt,
 /area/rogue/under/tomb)
 "cP" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/under/tomb/indoors)
+/mob/living/simple_animal/hostile/retaliate/elemental/behemoth,
+/turf/open/floor/dirt/road,
+/area/rogue/under/tomb)
 "dX" = (
 /obj/structure/door/green,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb/indoors)
 "dY" = (
@@ -63,9 +65,6 @@
 	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
-"fU" = (
-/turf/open/floor/dirt,
-/area/rogue/under/tomb/indoors)
 "gn" = (
 /obj/structure/table/wood/counter,
 /turf/open/floor/ruinedwood/spiral,
@@ -75,7 +74,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb)
 "nA" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/simple_animal/hostile/retaliate/elemental/warden,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "ow" = (
@@ -88,14 +87,13 @@
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb)
 "qK" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
-/turf/open/floor/dirt/road,
+/obj/structure/fluff/railing/fence{
+	dir = 4
+	},
+/mob/living/simple_animal/hostile/retaliate/elemental/crawler,
+/turf/open/floor/dirt,
 /area/rogue/under/tomb)
 "rG" = (
-/obj/item/bomb{
-	pixel_x = 9;
-	pixel_y = 17
-	},
 /obj/item/bomb{
 	pixel_x = -1;
 	pixel_y = 17
@@ -118,26 +116,21 @@
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb)
 "uU" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/simple_animal/hostile/retaliate/elemental/crawler,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb)
 "wK" = (
 /obj/structure/table/wood/counter/end{
 	dir = 4
 	},
-/obj/item/clothing/ring/silver,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
-"xt" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/under/tomb)
 "xF" = (
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb)
 "yp" = (
 /obj/structure/closet/crate/drawer/inn,
-/obj/item/ingot/silver,
+/obj/item/clothing/ring/silver,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "yK" = (
@@ -151,7 +144,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "Eb" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/simple_animal/hostile/retaliate/elemental/crawler,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "Gc" = (
@@ -169,11 +162,10 @@
 "HZ" = (
 /obj/structure/closet/crate/chest/crafted,
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/long,
-/obj/item/ammo_holder/quiver/arrows,
-/obj/item/flashlight/flare/torch/lantern,
 /obj/effect/decal/cleanable/dirt/cobweb{
 	dir = 8
 	},
+/obj/item/ammo_holder/quiver/arrows,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "Is" = (
@@ -193,6 +185,7 @@
 /area/rogue/under/tomb/indoors)
 "SJ" = (
 /obj/structure/closet/crate/crafted_closet/inn/south,
+/obj/item/flashlight/flare/torch/lantern/copper,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "Vl" = (
@@ -200,23 +193,15 @@
 /obj/item/weapon/shield/wood{
 	pixel_x = -5
 	},
-/obj/item/weapon/shield/wood{
-	pixel_x = 8
-	},
-/obj/item/weapon/shield/tower,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "Xi" = (
 /obj/structure/rack,
-/obj/item/clothing/armor/leather,
 /obj/item/clothing/pants/trou/leather{
 	pixel_x = 14;
 	pixel_y = -4
 	},
-/obj/item/clothing/wrists/bracers/leather{
-	pixel_y = -9;
-	pixel_x = -6
-	},
+/obj/item/clothing/armor/cuirass/copperchest,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "XJ" = (
@@ -274,8 +259,8 @@ ao
 aA
 av
 aH
+Eb
 aH
-cP
 aH
 aH
 av
@@ -307,10 +292,10 @@ aA
 ao
 ao
 av
+nA
 aH
 aH
-aH
-aH
+Eb
 DZ
 av
 aA
@@ -324,7 +309,7 @@ aB
 aB
 aB
 av
-fU
+av
 XS
 dX
 XS
@@ -344,8 +329,8 @@ aR
 aV
 aV
 am
-uU
 aV
+uU
 aR
 aV
 aV
@@ -360,7 +345,7 @@ aV
 am
 am
 am
-am
+cP
 am
 am
 am
@@ -376,7 +361,7 @@ aB
 aV
 aR
 aV
-uU
+aV
 am
 aV
 aV
@@ -394,9 +379,9 @@ aB
 Yx
 aV
 aV
-qK
+am
 aV
-uU
+aV
 aR
 aB
 aB
@@ -409,7 +394,7 @@ aA
 aA
 aA
 aA
-Gc
+qK
 Gc
 am
 Gc
@@ -549,7 +534,7 @@ av
 Oy
 aH
 aH
-nA
+aH
 HZ
 av
 aA
@@ -582,7 +567,7 @@ iB
 ow
 ow
 ow
-xt
+ow
 ow
 ow
 ow

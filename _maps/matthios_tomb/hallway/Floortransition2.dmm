@@ -6,8 +6,8 @@
 /turf/closed/mineral/bedrock,
 /area/rogue/under/tomb/cave)
 "h" = (
-/obj/structure/kneestingers,
 /obj/effect/dungeon_directional_helper/south,
+/obj/structure/kneestingers,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/cave)
 "j" = (
@@ -37,11 +37,11 @@
 /turf/open/floor/naturalstone,
 /area/rogue)
 "F" = (
-/obj/structure/ladder/earth,
+/obj/structure/ladder,
 /turf/open/floor/naturalstone,
 /area/rogue)
 "Q" = (
-/obj/structure/ladder/earth,
+/obj/structure/ladder,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/cave)
 "R" = (
@@ -70,20 +70,20 @@ a
 "}
 (3,1,1) = {"
 l
-k
+a
 a
 j
 Q
 j
-k
+a
 h
 "}
 (4,1,1) = {"
+k
 a
 a
 a
-a
-a
+k
 a
 a
 a

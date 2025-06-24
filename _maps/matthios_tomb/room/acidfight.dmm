@@ -31,10 +31,6 @@
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb/cave/lava)
-"aT" = (
-/obj/item/weapon/mace/steel,
-/turf/open/floor/volcanic,
-/area/rogue/under/tomb/cave/lava)
 "gp" = (
 /obj/effect/dungeon_directional_helper/east,
 /turf/open/floor/naturalstone,
@@ -155,7 +151,8 @@
 /turf/open/floor/dirt/road,
 /area/rogue/under/tomb/cave/lava)
 "OZ" = (
-/obj/structure/floordoor,
+/obj/structure/door/iron/bars,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/metal,
 /area/rogue/under/tomb/indoors)
 "PL" = (
@@ -350,7 +347,7 @@ lG
 wo
 aI
 aI
-aT
+ai
 ai
 ag
 ai

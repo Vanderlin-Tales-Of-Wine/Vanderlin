@@ -110,10 +110,8 @@
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/tomb/indoors)
 "mI" = (
-/obj/effect/mapping_helpers/outfit_handler{
-	outfit_to_equip = /datum/outfit/job/adventurer/barbarian
-	},
-/mob/living/carbon/human/species/orc/npc,
+/obj/structure/door,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/tomb/indoors)
 "nC" = (
@@ -122,6 +120,7 @@
 /area/rogue/under/tomb/indoors)
 "nK" = (
 /obj/structure/door/window,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/tomb/indoors)
 "nW" = (
@@ -207,6 +206,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 5
 	},
+/mob/living/carbon/human/species/goblin/npc/ambush,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/tomb/indoors)
 "vh" = (
@@ -230,6 +230,10 @@
 	},
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/tomb/indoors)
+"yB" = (
+/mob/living/carbon/human/species/goblin/npc/ambush,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/tomb/indoors)
 "yH" = (
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb/indoors)
@@ -237,8 +241,8 @@
 /turf/closed/wall/mineral/decowood/vert,
 /area/rogue/under/tomb/indoors)
 "Bz" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
-/turf/open/water/bath,
+/mob/living/carbon/human/species/orc/tribal,
+/turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/tomb/indoors)
 "BZ" = (
 /obj/machinery/light/fueled/torchholder/l,
@@ -259,7 +263,6 @@
 /area/rogue/under/tomb/indoors)
 "Do" = (
 /obj/structure/bars/pipe/left,
-/mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/water/bath,
 /area/rogue/under/tomb/indoors)
 "Du" = (
@@ -269,7 +272,8 @@
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/tomb/indoors)
 "Dx" = (
-/obj/structure/bed/inn/double,
+/obj/structure/bed/mediocre,
+/obj/item/restraints/legcuffs/beartrap/armed/camouflage,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/tomb/indoors)
 "EK" = (
@@ -293,6 +297,10 @@
 /obj/machinery/light/fueled/torchholder/r,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/tomb/indoors)
+"GV" = (
+/mob/living/carbon/human/species/orc/marauder,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/tomb/indoors)
 "Ha" = (
 /obj/structure/bed/bear{
 	pixel_x = 0;
@@ -306,6 +314,10 @@
 "It" = (
 /obj/structure/door,
 /turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/tomb/indoors)
+"Jt" = (
+/mob/living/carbon/human/species/goblin/npc/ambush/moon,
+/turf/open/water/bath,
 /area/rogue/under/tomb/indoors)
 "KB" = (
 /obj/structure/fluff/railing/border{
@@ -356,7 +368,7 @@
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/tomb/indoors)
 "NF" = (
-/obj/structure/bed/inn,
+/obj/structure/bed/hay,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/tomb/indoors)
 "Oj" = (
@@ -366,6 +378,11 @@
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb)
+"OK" = (
+/obj/structure/chair/stool,
+/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/tomb/indoors)
 "OP" = (
 /obj/structure/fermentation_keg/random/beer,
 /turf/open/floor/ruinedwood/spiralfade,
@@ -373,12 +390,13 @@
 "Qe" = (
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb)
+"Qs" = (
+/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/tomb/indoors)
 "Rh" = (
 /obj/structure/toilet,
-/mob/living/carbon/human/species/orc/npc,
-/obj/effect/mapping_helpers/outfit_handler{
-	outfit_to_equip = /datum/outfit/job/adventurer/barbarian
-	},
+/mob/living/carbon/human/species/goblin/npc/ambush/hell,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/tomb/indoors)
 "RA" = (
@@ -609,12 +627,12 @@ tu
 Im
 Wx
 ha
-fO
+OK
 lU
 MK
 vh
 Ha
-lU
+Bz
 LC
 is
 kl
@@ -703,7 +721,7 @@ lU
 st
 lU
 lU
-lU
+Qs
 lU
 lU
 lU
@@ -718,9 +736,9 @@ Qe
 Qe
 nK
 lU
+Bz
 lU
-lU
-lU
+Qs
 lU
 lU
 lU
@@ -770,7 +788,7 @@ lU
 Im
 ah
 lU
-lU
+GV
 lU
 OP
 Im
@@ -788,7 +806,7 @@ Ly
 lU
 Im
 iD
-mI
+lU
 Im
 hm
 lU
@@ -833,7 +851,7 @@ It
 Im
 hi
 lU
-It
+mI
 lU
 YI
 YI
@@ -1028,7 +1046,7 @@ Fa
 AX
 xJ
 lU
-lU
+NF
 AX
 Yz
 Xl
@@ -1048,8 +1066,8 @@ tP
 Ft
 Fa
 AX
-Dx
 Yz
+lU
 lU
 AX
 NF
@@ -1072,16 +1090,16 @@ Fa
 AX
 Oj
 Oj
-It
+mI
 AX
 Oj
 It
 AX
 Oj
-It
+mI
 AX
 Oj
-It
+mI
 AX
 kA
 Ft
@@ -1137,7 +1155,7 @@ Ft
 Fa
 sd
 lU
-lU
+yB
 aB
 yH
 yc
@@ -1208,7 +1226,7 @@ lU
 AX
 Oj
 Oj
-It
+mI
 AX
 AX
 AX
@@ -1234,7 +1252,7 @@ lU
 AX
 xJ
 lU
-Bz
+Vf
 Vf
 AX
 kA
@@ -1256,7 +1274,7 @@ lU
 AX
 Mr
 RA
-Vf
+Jt
 Ue
 bh
 kA

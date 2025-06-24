@@ -25,6 +25,7 @@
 /area/rogue/under/tomb/cave)
 "bs" = (
 /mob/living/carbon/human/species/rousman/ambush,
+/obj/item/plate/silver,
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb/cave)
 "bv" = (
@@ -51,6 +52,7 @@
 /obj/item/reagent_containers/food/snacks/rotten/meat{
 	bitecount = 2
 	},
+/mob/living/carbon/human/species/orc/tribal,
 /turf/open/floor/cobble,
 /area/rogue/under/tomb/indoors)
 "cL" = (
@@ -127,8 +129,8 @@
 /turf/open/floor/rooftop,
 /area/rogue/under/tomb)
 "dw" = (
-/mob/living/carbon/human/species/goblin/npc/ambush,
-/turf/open/floor/rooftop,
+/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/turf/open/floor/dirt,
 /area/rogue/under/tomb)
 "dy" = (
 /turf/closed/wall/mineral/decostone,
@@ -138,10 +140,9 @@
 /turf/closed/wall/mineral/decostone,
 /area/rogue/under/tomb)
 "ec" = (
-/obj/structure/bars/grille,
-/obj/item/statue/gold,
-/turf/open/transparent/openspace,
-/area/rogue/under/tomb)
+/mob/living/carbon/human/species/goblin/npc/ambush/sea,
+/turf/open/floor/cobble/alt,
+/area/rogue/under/tomb/indoors)
 "ew" = (
 /obj/item/natural/rock,
 /obj/effect/decal/cleanable/dirt/cobweb,
@@ -170,7 +171,6 @@
 	pixel_y = -6;
 	pixel_x = 13
 	},
-/mob/living/carbon/human/species/goblin/npc/ambush,
 /turf/open/floor/cobble,
 /area/rogue/under/tomb/indoors)
 "fD" = (
@@ -205,7 +205,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb)
 "gi" = (
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/carbon/human/species/orc/tribal,
 /turf/open/floor/ruinedwood/turned,
 /area/rogue/under/tomb/indoors)
 "go" = (
@@ -225,10 +225,7 @@
 /turf/open/floor/rooftop,
 /area/rogue/under/tomb)
 "gO" = (
-/obj/structure/fluff/railing/border{
-	dir = 4
-	},
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/carbon/human/species/goblin/npc/ambush/cave,
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb)
 "gV" = (
@@ -241,6 +238,7 @@
 /area/rogue/under/tomb/indoors)
 "hj" = (
 /obj/item/ore/coal,
+/obj/item/reagent_containers/glass/cup/silver,
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb/cave)
 "hk" = (
@@ -251,12 +249,9 @@
 /turf/open/floor/cobble/alt,
 /area/rogue/under/tomb/indoors)
 "hm" = (
-/obj/structure/fluff/railing/border{
-	dir = 8
-	},
-/mob/living/carbon/human/species/goblin/npc/ambush,
-/turf/open/floor/hexstone,
-/area/rogue/under/tomb)
+/obj/item/plate/silver,
+/turf/open/floor/naturalstone,
+/area/rogue/under/tomb/cave)
 "ho" = (
 /obj/structure/fluff/railing/border{
 	layer = 2
@@ -301,8 +296,7 @@
 /turf/closed/wall/mineral/decostone/cand,
 /area/rogue/under/tomb)
 "ix" = (
-/obj/structure/fluff/railing/border,
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/carbon/human/species/orc/tribal,
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb)
 "iO" = (
@@ -358,6 +352,7 @@
 /area/rogue/under/tomb/cave/spider)
 "kN" = (
 /obj/effect/decal/cleanable/blood/drip,
+/mob/living/carbon/human/species/goblin/npc/ambush/sea,
 /turf/open/floor/cobble,
 /area/rogue/under/tomb/indoors)
 "kV" = (
@@ -721,6 +716,7 @@
 /area/rogue/under/tomb)
 "yn" = (
 /obj/effect/decal/cleanable/blood/footprints,
+/mob/living/carbon/human/species/goblin/npc/ambush/moon,
 /turf/open/floor/ruinedwood/turned,
 /area/rogue/under/tomb/indoors)
 "yu" = (
@@ -804,7 +800,7 @@
 /area/rogue/under/tomb)
 "Cm" = (
 /obj/structure/bars/grille,
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/carbon/human/species/goblin/npc/ambush/hell,
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb)
 "Co" = (
@@ -861,10 +857,6 @@
 /area/rogue/under/tomb)
 "Ej" = (
 /obj/item/ingot/gold{
-	pixel_y = 11;
-	pixel_x = -14
-	},
-/obj/item/ingot/gold{
 	pixel_y = -2;
 	pixel_x = 4
 	},
@@ -909,8 +901,16 @@
 /obj/effect/spawner/map_spawner/loot/weapon,
 /turf/open/floor/cobble,
 /area/rogue/under/tomb/indoors)
+"FX" = (
+/mob/living/carbon/human/species/orc/tribal,
+/turf/open/floor/metal/alt,
+/area/rogue/under/tomb)
 "Gf" = (
 /obj/item/reagent_containers/food/snacks/smallrat,
+/turf/open/floor/cobble,
+/area/rogue/under/tomb/indoors)
+"Gj" = (
+/mob/living/carbon/human/species/goblin/npc/ambush/sea,
 /turf/open/floor/cobble,
 /area/rogue/under/tomb/indoors)
 "Gy" = (
@@ -963,8 +963,9 @@
 /turf/open/floor/rooftop,
 /area/rogue/under/tomb)
 "IB" = (
-/mob/living/carbon/human/species/goblin/npc/ambush,
-/turf/open/floor/dirt,
+/obj/structure/bars/grille,
+/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/turf/open/transparent/openspace,
 /area/rogue/under/tomb)
 "IF" = (
 /obj/item/grown/log/tree/stake,
@@ -1102,6 +1103,7 @@
 /area/rogue/under/tomb/indoors)
 "Qp" = (
 /obj/machinery/light/fueled/torchholder/c,
+/mob/living/carbon/human/species/orc/tribal,
 /turf/open/floor/grass,
 /area/rogue/under/tomb)
 "Qr" = (
@@ -1153,9 +1155,10 @@
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/under/tomb/indoors)
 "Rs" = (
-/mob/living/carbon/human/species/goblin/npc/ambush,
-/turf/open/floor/dirt,
-/area/rogue/under/tomb/cave)
+/obj/structure/bars/grille,
+/obj/item/statue/silver,
+/turf/open/transparent/openspace,
+/area/rogue/under/tomb)
 "Ru" = (
 /obj/structure/fluff/statue/gargoyle/candles,
 /obj/structure/fluff/railing/border{
@@ -1165,12 +1168,19 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb)
 "RA" = (
-/mob/living/carbon/human/species/goblin/npc/ambush,
-/turf/open/floor/cobble,
-/area/rogue/under/tomb/indoors)
+/obj/structure/fluff/railing/border{
+	dir = 6
+	},
+/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/turf/open/floor/hexstone,
+/area/rogue/under/tomb)
 "Sb" = (
 /obj/structure/door/iron/bars,
 /turf/open/floor/dirt,
+/area/rogue/under/tomb)
+"Sc" = (
+/mob/living/carbon/human/species/orc/marauder,
+/turf/open/floor/hexstone,
 /area/rogue/under/tomb)
 "Si" = (
 /obj/structure/table/wood,
@@ -1250,7 +1260,7 @@
 /turf/open/floor/cobble/alt,
 /area/rogue/under/tomb/indoors)
 "VC" = (
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/carbon/human/species/orc/tribal,
 /turf/open/floor/cobble/alt,
 /area/rogue/under/tomb/indoors)
 "VR" = (
@@ -1265,7 +1275,6 @@
 /area/rogue/under/tomb)
 "Wl" = (
 /obj/effect/decal/cleanable/blood,
-/mob/living/carbon/human/species/goblin/npc/ambush,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/under/tomb/indoors)
 "Wq" = (
@@ -1424,7 +1433,7 @@ hO
 bk
 MD
 MD
-bk
+hm
 lM
 ON
 ON
@@ -1548,7 +1557,7 @@ Et
 Xp
 ZJ
 Hm
-RA
+Hm
 xx
 Si
 lS
@@ -1578,7 +1587,7 @@ ON
 ON
 Et
 TK
-BB
+ec
 TK
 Hm
 TK
@@ -1624,7 +1633,7 @@ uU
 CC
 Wq
 gV
-qv
+dw
 qv
 zC
 qv
@@ -1662,7 +1671,7 @@ qv
 qF
 qv
 qv
-IB
+qv
 zC
 Ud
 zC
@@ -1698,7 +1707,7 @@ qv
 zC
 zC
 zg
-IB
+qv
 ON
 ON
 "}
@@ -1729,7 +1738,7 @@ zC
 qv
 zg
 Yz
-qv
+dw
 qv
 QD
 ON
@@ -1963,7 +1972,7 @@ ON
 Et
 ht
 Hm
-BB
+ec
 Et
 tr
 BB
@@ -1995,7 +2004,7 @@ ON
 lS
 fu
 jE
-RA
+Hm
 Et
 Hm
 BB
@@ -2026,7 +2035,7 @@ ON
 ON
 lS
 lS
-RA
+Hm
 Hm
 Et
 Hm
@@ -2067,7 +2076,7 @@ Et
 ON
 ON
 ON
-Rs
+gB
 gB
 qv
 gV
@@ -2077,7 +2086,7 @@ yQ
 Ke
 lB
 iO
-gi
+ti
 ti
 yQ
 Et
@@ -2158,7 +2167,7 @@ wJ
 vh
 Hm
 Gf
-Hm
+Gj
 ql
 At
 ON
@@ -2517,7 +2526,7 @@ go
 Ua
 Va
 MO
-ix
+nX
 Up
 Up
 Up
@@ -2554,7 +2563,7 @@ Up
 Up
 Up
 Va
-MO
+gO
 ho
 ON
 ON
@@ -2710,7 +2719,7 @@ MO
 MO
 dC
 ZH
-sE
+FX
 MO
 sE
 ZH
@@ -2730,11 +2739,11 @@ dC
 (13,1,2) = {"
 ZH
 ZH
-MO
+gO
 yl
 ZH
 ZH
-gO
+EN
 EN
 ZH
 ZH
@@ -2743,7 +2752,7 @@ MO
 ZH
 ZH
 ga
-Cm
+ga
 ga
 ZH
 ZH
@@ -2774,7 +2783,7 @@ EN
 AY
 Wr
 ga
-ec
+ga
 ga
 wf
 ga
@@ -2794,7 +2803,7 @@ MO
 (15,1,2) = {"
 MO
 MO
-MO
+ix
 nX
 Up
 Up
@@ -2809,7 +2818,7 @@ Cm
 ga
 rJ
 ga
-ga
+IB
 Wr
 ho
 Up
@@ -2837,9 +2846,9 @@ vZ
 yu
 IO
 Wr
+Rs
 ga
 ga
-Cm
 ga
 ga
 Wr
@@ -2872,14 +2881,14 @@ ZH
 ZH
 ga
 ga
-Cm
+ga
 ZH
 ZH
 MO
 MO
 ZH
 ZH
-hm
+yu
 yu
 ZH
 ZH
@@ -2928,12 +2937,12 @@ MO
 MO
 MO
 MO
-yl
+RA
 EN
 Hu
 AY
 rQ
-MO
+Sc
 yl
 EN
 AY
@@ -3104,7 +3113,7 @@ oY
 oY
 oY
 Gy
-dw
+oY
 iV
 Up
 ON

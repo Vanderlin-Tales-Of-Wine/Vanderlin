@@ -57,6 +57,10 @@
 /obj/structure/mirror,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/tomb/indoors)
+"bd" = (
+/mob/living/simple_animal/hostile/retaliate/shade,
+/turf/open/floor/ruinedwood,
+/area/rogue/under/tomb/indoors)
 "be" = (
 /obj/structure/bed/shit,
 /turf/open/floor/ruinedwood,
@@ -131,6 +135,10 @@
 	},
 /turf/open/water,
 /area/rogue/under/tomb/lake)
+"cd" = (
+/mob/living/carbon/human/species/zizombie/npc/militiamen,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/tomb/indoors)
 "cA" = (
 /obj/structure/fluff/railing/wood,
 /obj/structure/fluff/railing/border{
@@ -291,6 +299,10 @@
 "gZ" = (
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb/cave)
+"hm" = (
+/mob/living/simple_animal/hostile/retaliate/shade,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/tomb/indoors)
 "ht" = (
 /obj/structure/closet/crate/chest/old_crate,
 /obj/structure/spider/stickyweb,
@@ -661,9 +673,9 @@
 /obj/item/clothing/shoes/boots/leather,
 /obj/item/clothing/head/bardhat,
 /obj/item/clothing/armor/leather/vest,
-/obj/item/weapon/sword/rapier/ironestoc,
 /obj/item/weapon/shield/tower/buckleriron,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/item/weapon/sword/scimitar,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/tomb/indoors)
 "rg" = (
@@ -674,7 +686,7 @@
 /area/rogue/under/tomb/indoors)
 "rx" = (
 /obj/effect/mapping_helpers/secret_door_creator{
-	redstone_id = "Ship1";
+	redstone_id = "Ship2";
 	floor_turf = /turf/open/floor/ruinedwood
 	},
 /turf/closed/wall/mineral/wooddark,
@@ -868,9 +880,9 @@
 /obj/item/clothing/shoes/boots/leather,
 /obj/item/clothing/head/bardhat,
 /obj/item/clothing/armor/leather/vest,
-/obj/item/weapon/sword/rapier/ironestoc,
 /obj/item/weapon/shield/tower/buckleriron,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/item/weapon/sword/scimitar,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/tomb/indoors)
 "wK" = (
@@ -1099,9 +1111,9 @@
 /obj/item/clothing/shoes/boots/leather,
 /obj/item/clothing/head/bardhat,
 /obj/item/clothing/armor/leather/vest,
-/obj/item/weapon/sword/rapier/ironestoc,
 /obj/item/weapon/shield/tower/buckleriron,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/item/weapon/sword/scimitar,
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/under/tomb/indoors)
 "CI" = (
@@ -1588,6 +1600,11 @@
 	dir = 8
 	},
 /area/rogue/under/tomb/lake)
+"OV" = (
+/obj/effect/decal/cleanable/blood,
+/mob/living/simple_animal/hostile/retaliate/shade,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/tomb/indoors)
 "Pd" = (
 /obj/effect/decal/cleanable/blood/gibs/core,
 /turf/open/floor/ruinedwood,
@@ -2927,7 +2944,7 @@ Dz
 oT
 Nd
 oT
-oT
+hm
 oT
 Tv
 oU
@@ -2969,7 +2986,7 @@ oT
 kB
 oT
 os
-wB
+oT
 bs
 mj
 oU
@@ -3175,7 +3192,7 @@ Ew
 oU
 Tv
 oT
-bs
+OV
 oT
 Dz
 Dz
@@ -3218,7 +3235,7 @@ oU
 mj
 TP
 jB
-wB
+oT
 LI
 gH
 Dz
@@ -3475,7 +3492,7 @@ jn
 yC
 oT
 jn
-Dz
+bd
 oU
 Ew
 Ew
@@ -3601,7 +3618,7 @@ jn
 aR
 wB
 qh
-wB
+oT
 oU
 Ew
 Ew
@@ -3852,8 +3869,8 @@ Dz
 oT
 oT
 oi
+cd
 oT
-wB
 oU
 Ew
 FY
@@ -5406,7 +5423,7 @@ oT
 wK
 Zx
 VH
-wB
+cd
 oT
 oT
 fc
@@ -6201,7 +6218,7 @@ hA
 YH
 rC
 pq
-wB
+cd
 eH
 oT
 oT

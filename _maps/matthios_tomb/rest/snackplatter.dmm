@@ -30,12 +30,13 @@
 /area/rogue/under/tomb/cave)
 "z" = (
 /obj/structure/table/church,
-/obj/item/reagent_containers/glass/cup/silver{
-	pixel_y = 14
-	},
 /obj/item/clothing/neck/psycross{
 	pixel_x = 15;
 	pixel_y = 13
+	},
+/obj/item/reagent_containers/glass/cup/steel{
+	pixel_x = -5;
+	pixel_y = 11
 	},
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/cave)

@@ -59,11 +59,6 @@
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb/cave/lava)
-"r" = (
-/obj/item/natural/rock/random_ore,
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
-/turf/open/floor/naturalstone,
-/area/rogue/under/tomb/cave/lava)
 "t" = (
 /obj/effect/dungeon_directional_helper/east,
 /turf/open/floor/naturalstone,
@@ -111,7 +106,6 @@
 "I" = (
 /obj/effect/decal/cleanable/blood/gibs/down,
 /obj/effect/decal/cleanable/blood,
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb/cave/lava)
 "J" = (
@@ -458,7 +452,7 @@ M
 M
 u
 a
-h
+M
 b
 d
 u
@@ -752,7 +746,7 @@ W
 u
 u
 u
-r
+G
 a
 x
 u

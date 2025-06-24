@@ -289,6 +289,11 @@
 /obj/structure/fluff/walldeco/vinez,
 /turf/closed/wall/mineral/decostone,
 /area/rogue/under/tomb/sewer)
+"fV" = (
+/obj/structure/door/stone,
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/churchmarble,
+/area/rogue/under/tomb/indoors)
 "gc" = (
 /obj/structure/trap/shock,
 /turf/open/water/river{
@@ -384,6 +389,11 @@
 /obj/structure/fluff/walldeco/vinez,
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/wilds)
+"hZ" = (
+/obj/structure/door/stone,
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/blocks,
+/area/rogue/under/tomb/indoors/royal)
 "if" = (
 /obj/structure/closet/crate/crafted_closet/inn,
 /obj/item/clothing/cloak/cape/blkknight,
@@ -427,7 +437,7 @@
 /turf/open/floor/grass,
 /area/rogue/under/tomb/wilds)
 "iC" = (
-/obj/effect/spawner/map_spawner/loot/magic,
+/obj/item/clothing/ring/gold/ravox,
 /turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors/royal)
 "iF" = (
@@ -1094,6 +1104,7 @@
 /area/rogue/under/tomb/indoors/royal)
 "wk" = (
 /obj/structure/door/stone,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/sewer)
 "wl" = (
@@ -1304,6 +1315,7 @@
 /area/rogue/under/tomb/indoors)
 "Bt" = (
 /obj/structure/door/stone,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/churchmarble,
 /area/rogue/under/tomb/indoors/royal)
 "BB" = (
@@ -1393,6 +1405,7 @@
 "CS" = (
 /obj/structure/door/stone,
 /obj/effect/decal/cleanable/blood,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/blocks,
 /area/rogue/under/tomb/indoors/royal)
 "CT" = (
@@ -1524,6 +1537,7 @@
 /area/rogue/under/tomb)
 "FR" = (
 /obj/structure/door/swing,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/herringbone,
 /area/rogue/under/tomb/indoors)
 "FT" = (
@@ -1547,6 +1561,7 @@
 /area/rogue/under/tomb/indoors)
 "Gm" = (
 /obj/structure/door/stone,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/churchmarble,
 /area/rogue/under/tomb)
 "Gn" = (
@@ -1565,10 +1580,10 @@
 /turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors/royal)
 "Gv" = (
-/obj/structure/chair/bench/coucha/r,
-/obj/item/reagent_containers/glass/cup/silver,
-/turf/open/floor/carpet,
-/area/rogue/under/tomb/indoors/royal)
+/obj/structure/door/stone,
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/blocks/green,
+/area/rogue/under/tomb/indoors)
 "Gw" = (
 /obj/effect/spawner/map_spawner/loot/food,
 /turf/open/floor/carpet,
@@ -1628,6 +1643,7 @@
 /area/rogue/under/tomb/indoors)
 "HU" = (
 /obj/structure/door,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/herringbone,
 /area/rogue/under/tomb/indoors)
 "HW" = (
@@ -2088,6 +2104,11 @@
 	dir = 8
 	},
 /area/rogue/under/tomb/sewer)
+"Ub" = (
+/obj/structure/door/stone,
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/hexstone,
+/area/rogue/under/tomb/indoors)
 "Uh" = (
 /obj/structure/closet/crate/chest/lootbox,
 /obj/effect/spawner/map_spawner/loot/rare,
@@ -2284,6 +2305,7 @@
 "YN" = (
 /obj/structure/door/stone,
 /obj/effect/decal/cleanable/blood/splatter,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/blocks,
 /area/rogue/under/tomb/indoors/royal)
 "YO" = (
@@ -2585,7 +2607,7 @@ wl
 (8,1,1) = {"
 vW
 Zl
-Gv
+Zd
 eW
 nW
 iN
@@ -2596,11 +2618,11 @@ HU
 Et
 Et
 RT
-vj
+Gv
 RT
 RT
 Kg
-vj
+Gv
 Et
 dk
 hX
@@ -2634,7 +2656,7 @@ zY
 zY
 zY
 zY
-vj
+Gv
 zY
 zY
 zY
@@ -2666,7 +2688,7 @@ zY
 zY
 zY
 zY
-vj
+Gv
 zY
 zY
 zY
@@ -2683,7 +2705,7 @@ vW
 wA
 Zd
 iN
-wQ
+iN
 iN
 jT
 Ry
@@ -2719,7 +2741,7 @@ ri
 ri
 Ry
 Ry
-vj
+Gv
 Et
 RT
 io
@@ -2798,7 +2820,7 @@ PD
 QY
 zY
 zY
-vj
+Gv
 wG
 wG
 wG
@@ -2926,7 +2948,7 @@ YI
 Et
 zY
 zY
-vj
+Gv
 wG
 wG
 wG
@@ -2988,8 +3010,8 @@ VY
 Pt
 io
 RT
-vj
-vj
+Gv
+Gv
 QY
 QY
 Qt
@@ -3202,7 +3224,7 @@ zY
 zY
 zY
 zY
-vj
+Gv
 yl
 yl
 yl
@@ -3234,7 +3256,7 @@ zY
 zY
 zY
 zY
-vj
+Gv
 yl
 yl
 yl
@@ -3471,7 +3493,7 @@ GI
 hh
 oY
 hh
-hl
+hZ
 hh
 GI
 yX
@@ -3492,7 +3514,7 @@ GI
 yN
 GI
 hS
-hl
+hZ
 GI
 hh
 oY
@@ -3526,7 +3548,7 @@ yH
 QG
 Qj
 Qj
-hl
+hZ
 iN
 wR
 GI
@@ -3537,7 +3559,7 @@ ae
 Yj
 ae
 SJ
-hl
+hZ
 Da
 Da
 Zl
@@ -3762,8 +3784,8 @@ zz
 Jz
 GI
 GI
-BB
-BB
+fV
+fV
 dl
 bj
 "}
@@ -4131,7 +4153,7 @@ Ce
 Ku
 Ku
 hh
-fn
+Ub
 Mj
 pF
 Mj

@@ -3,25 +3,17 @@
 /turf/open/floor/volcanic,
 /area/rogue/under/tomb/cave)
 "c" = (
-/obj/machinery/light/fueled/torchholder/l,
 /obj/structure/fluff/walldeco/vinez/l,
 /turf/open/floor/volcanic,
 /area/rogue/under/tomb/cave)
 "d" = (
-/obj/machinery/light/fueled/wallfire/candle/blue,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/blood/drip,
 /turf/open/floor/herringbone,
 /area/rogue/under/tomb/cave)
 "f" = (
-/obj/item/gem/diamond,
-/obj/structure/fluff/walldeco/vinez/offset,
-/obj/item/weapon/pick/paxe,
-/turf/open/floor/volcanic,
-/area/rogue/under/tomb/cave)
-"i" = (
-/obj/machinery/light/fueled/wallfire/candle/blue/r,
-/turf/closed/wall/mineral/decostone,
+/mob/living/simple_animal/hostile/retaliate/infernal/hellhound,
+/turf/open/floor/herringbone,
 /area/rogue/under/tomb/cave)
 "j" = (
 /obj/structure/fluff/walldeco/vinez/offset,
@@ -34,10 +26,6 @@
 "m" = (
 /obj/structure/fluff/walldeco/bigpainting,
 /obj/structure/table/vtable,
-/obj/item/reagent_containers/glass/cup/silver,
-/obj/item/reagent_containers/food/snacks/cheese_wedge/aged,
-/obj/item/reagent_containers/food/snacks/hardtack,
-/obj/item/weapon/knife/dagger/silver,
 /turf/open/floor/herringbone,
 /area/rogue/under/tomb/cave)
 "o" = (
@@ -47,10 +35,6 @@
 "q" = (
 /obj/structure/fluff/walldeco/stone,
 /turf/closed/wall/mineral/decostone/center,
-/area/rogue/under/tomb/cave)
-"t" = (
-/obj/machinery/light/fueled/wallfire/candle/blue,
-/turf/open/floor/herringbone,
 /area/rogue/under/tomb/cave)
 "v" = (
 /obj/structure/chair/wood/alt/chair_noble/purple{
@@ -105,10 +89,14 @@
 /area/rogue/under/tomb/cave)
 "P" = (
 /obj/structure/table/vtable/v2,
-/obj/item/reagent_containers/glass/bottle/whitewine,
-/obj/item/reagent_containers/glass/cup/silver,
-/obj/item/reagent_containers/food/snacks/cheese_wedge/aged,
-/obj/item/reagent_containers/food/snacks/hardtack,
+/obj/item/reagent_containers/glass/bottle/whitewine{
+	pixel_x = 0;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/glass/cup/silver{
+	pixel_x = -10;
+	pixel_y = 2
+	},
 /turf/open/floor/herringbone,
 /area/rogue/under/tomb/cave)
 "R" = (
@@ -117,10 +105,10 @@
 "S" = (
 /obj/effect/decal/cleanable/blood/tracks,
 /obj/effect/decal/cleanable/blood/footprints,
+/obj/item/weapon/knife/dagger/silver,
 /turf/open/floor/herringbone,
 /area/rogue/under/tomb/cave)
 "Y" = (
-/obj/machinery/light/fueled/torchholder/r,
 /obj/effect/landmark/chest_or_mimic,
 /obj/item/ore/gold,
 /obj/item/ore/gold,
@@ -158,7 +146,7 @@ E
 "}
 (5,1,1) = {"
 C
-f
+j
 a
 E
 "}
@@ -207,7 +195,7 @@ x
 "}
 (3,1,2) = {"
 q
-t
+J
 J
 q
 "}
@@ -220,7 +208,7 @@ Z
 (5,1,2) = {"
 x
 m
-J
+f
 x
 "}
 (6,1,2) = {"
@@ -233,7 +221,7 @@ x
 x
 v
 S
-i
+x
 "}
 (8,1,2) = {"
 q

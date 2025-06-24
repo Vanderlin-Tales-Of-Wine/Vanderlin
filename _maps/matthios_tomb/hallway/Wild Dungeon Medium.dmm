@@ -139,7 +139,7 @@
 /area/rogue/under/tomb/wilds)
 "uc" = (
 /obj/structure/flora/ausbushes/sparsegrass,
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/mob/living/simple_animal/hostile/retaliate/fae/sprite,
 /turf/open/floor/grass,
 /area/rogue/under/tomb/wilds)
 "ux" = (
@@ -269,9 +269,10 @@
 /turf/open/floor/grass,
 /area/rogue/under/tomb/wilds)
 "Je" = (
-/obj/structure/flora/ausbushes/sparsegrass,
-/mob/living/carbon/human/species/goblin/npc/ambush,
-/turf/open/floor/cobble/mossy,
+/mob/living/simple_animal/hostile/retaliate/wolf{
+	faction = list("fae")
+	},
+/turf/open/floor/grass,
 /area/rogue/under/tomb/wilds)
 "Jw" = (
 /obj/structure/flora/grass,
@@ -401,7 +402,8 @@
 /turf/open/floor/grass/mixyel,
 /area/rogue/under/tomb/wilds)
 "YT" = (
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/obj/structure/flora/grass,
+/mob/living/simple_animal/hostile/retaliate/fae/glimmerwing,
 /turf/open/floor/grass/mixyel,
 /area/rogue/under/tomb/wilds)
 "Zj" = (
@@ -753,7 +755,7 @@ xV
 AB
 mU
 eq
-ux
+uc
 ux
 zL
 zL
@@ -765,12 +767,12 @@ zL
 zL
 mU
 MO
-tZ
+YT
 ux
 ME
 ME
 fT
-YT
+mU
 ux
 AB
 FJ
@@ -781,7 +783,7 @@ zL
 (7,1,2) = {"
 sh
 wr
-Je
+pI
 ux
 FJ
 AB
@@ -789,7 +791,7 @@ ME
 AB
 tZ
 pD
-AB
+Je
 pI
 MO
 MO
@@ -855,7 +857,7 @@ fV
 Gk
 Jw
 wr
-uc
+ux
 ux
 aN
 zL
@@ -871,7 +873,7 @@ MO
 tZ
 Gk
 zp
-ux
+uc
 ux
 Rf
 oL

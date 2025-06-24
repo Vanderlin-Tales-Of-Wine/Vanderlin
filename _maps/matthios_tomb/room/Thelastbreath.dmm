@@ -104,9 +104,12 @@
 /turf/open/floor/tile/kitchen,
 /area/rogue/under/tomb/indoors)
 "bZ" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
-/turf/open/floor/carpet,
-/area/rogue/under/tomb/indoors/royal)
+/obj/structure/table/stone_small,
+/obj/item/reagent_containers/food/snacks/badrecipe,
+/mob/living/carbon/human/species/rousman/ambush,
+/obj/machinery/light/fueled/oven/west,
+/turf/open/floor/tile/kitchen,
+/area/rogue/under/tomb/indoors)
 "ca" = (
 /obj/structure/fluff/walldeco/psybanner/red,
 /turf/closed/wall/mineral/decostone/cand,
@@ -316,26 +319,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/tomb)
 "eH" = (
-/obj/effect/mapping_helpers/floor_clothing_equipper,
-/obj/item/clothing/gloves/plate/rust,
-/obj/item/clothing/head/helmet/heavy/rust,
-/obj/item/clothing/shoes/boots/armor/light/rust,
-/obj/item/clothing/armor/plate/rust,
-/obj/item/clothing/pants/platelegs/rust,
-/obj/item/clothing/neck/chaincoif,
-/obj/item/clothing/armor/chainmail,
-/obj/item/clothing/ring/gold/saffira,
-/obj/item/weapon/sword/sabre/scythe,
-/obj/item/weapon/shield/tower/buckleriron,
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	base_speed = 15;
-	base_perception = 15;
-	base_strength = 15;
-	base_constitution = 12;
-	base_endurance = 14;
-	candodge = 0
-	},
-/obj/item/clothing/neck/psycross/silver,
+/mob/living/carbon/human/species/zizombie/npc/GRENZEL,
 /turf/open/floor/churchbrick,
 /area/rogue/under/tomb/indoors/church)
 "eI" = (
@@ -372,6 +356,12 @@
 /area/rogue/under/tomb/indoors/royal)
 "fe" = (
 /turf/open/floor/tile/masonic/spiral,
+/area/rogue/under/tomb/indoors/royal)
+"ff" = (
+/mob/living/simple_animal/hostile/retaliate/infernal/hellhound{
+	faction = list("Undead")
+	},
+/turf/open/floor/church,
 /area/rogue/under/tomb/indoors/royal)
 "fj" = (
 /obj/effect/decal/cleanable/blood/old,
@@ -529,6 +519,10 @@
 /obj/item/clothing/neck/psycross/silver,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/under/tomb/indoors)
+"ha" = (
+/mob/living/simple_animal/hostile/retaliate/shade,
+/turf/open/floor/carpet/purple,
+/area/rogue/under/tomb/indoors)
 "hd" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/blocks,
@@ -668,9 +662,9 @@
 /turf/open/floor/tile/kitchen,
 /area/rogue/under/tomb/indoors)
 "jc" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
-/turf/open/floor/churchbrick,
-/area/rogue/under/tomb/indoors/church)
+/mob/living/carbon/human/species/zizombie/npc/peasant,
+/turf/open/floor/blocks,
+/area/rogue/under/tomb/indoors)
 "ji" = (
 /obj/structure/closet/dirthole,
 /mob/living/simple_animal/hostile/retaliate/mole,
@@ -990,6 +984,13 @@
 /obj/item/reagent_containers/glass/bucket/wooden,
 /turf/open/floor/ruinedwood,
 /area/rogue/under/tomb)
+"nf" = (
+/obj/structure/chair/bench/church/mid,
+/mob/living/simple_animal/hostile/retaliate/infernal/hellhound{
+	faction = list("Undead")
+	},
+/turf/open/floor/churchbrick,
+/area/rogue/under/tomb/indoors/church)
 "nh" = (
 /obj/effect/spawner/map_spawner/loot,
 /turf/open/floor/tile,
@@ -1166,7 +1167,7 @@
 /area/rogue/under/tomb/indoors)
 "pY" = (
 /obj/structure/table/wood/plain,
-/mob/living/carbon/human/species/skeleton/npc/peasant,
+/mob/living/simple_animal/hostile/retaliate/shade,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "qc" = (
@@ -1195,6 +1196,7 @@
 "qp" = (
 /obj/structure/table/stone_small,
 /obj/item/reagent_containers/food/snacks/rotten/sausage,
+/obj/machinery/light/fueled/oven/east,
 /turf/open/floor/tile/kitchen,
 /area/rogue/under/tomb/indoors)
 "qx" = (
@@ -1291,7 +1293,7 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors)
 "sk" = (
-/obj/machinery/light/fueled/oven,
+/mob/living/carbon/human/species/rousman/ambush,
 /turf/open/floor/tile/kitchen,
 /area/rogue/under/tomb/indoors)
 "sm" = (
@@ -1322,8 +1324,8 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors)
 "ss" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
-/turf/open/floor/blocks,
+/mob/living/carbon/human/species/zizombie/npc/peasant,
+/turf/open/floor/tile/kitchen,
 /area/rogue/under/tomb/indoors)
 "sv" = (
 /obj/machinery/light/fueled/wallfire/candle/l,
@@ -1350,9 +1352,10 @@
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb/indoors)
 "sJ" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
-/turf/open/floor/cobblerock,
-/area/rogue/under/tomb)
+/obj/structure/door/stone,
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/church,
+/area/rogue/under/tomb/indoors)
 "sO" = (
 /obj/item/candle/yellow/lit/infinite,
 /obj/item/candle/yellow/lit/infinite{
@@ -1652,6 +1655,10 @@
 /obj/structure/fluff/walldeco/med,
 /turf/closed/wall/mineral/decostone,
 /area/rogue/under/tomb/indoors)
+"xi" = (
+/mob/living/carbon/human/species/zizombie/npc/peasant,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/tomb/indoors)
 "xp" = (
 /obj/structure/fluff/statue/knight/r,
 /turf/open/floor/churchmarble,
@@ -1869,6 +1876,11 @@
 "Ar" = (
 /turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors/royal)
+"As" = (
+/obj/structure/table/stone_small,
+/obj/machinery/light/fueled/oven/east,
+/turf/open/floor/tile/kitchen,
+/area/rogue/under/tomb/indoors)
 "Aw" = (
 /obj/effect/decal/cleanable/blood,
 /obj/item/natural/rock,
@@ -1895,6 +1907,13 @@
 /obj/structure/trap/wall_projectile,
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb/indoors)
+"AV" = (
+/obj/structure/fluff/railing/border{
+	dir = 4
+	},
+/mob/living/simple_animal/hostile/retaliate/shade,
+/turf/open/floor/cobble,
+/area/rogue/under/tomb)
 "AX" = (
 /obj/structure/window/stained/silver,
 /obj/structure/bars,
@@ -1983,6 +2002,7 @@
 "Ch" = (
 /obj/structure/door/stone,
 /obj/effect/decal/cleanable/blood/splatter,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/church,
 /area/rogue/under/tomb/indoors)
 "Co" = (
@@ -1990,6 +2010,10 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/maniac,
+/area/rogue/under/tomb)
+"Cs" = (
+/mob/living/carbon/human/species/zizombie/npc/peasant,
+/turf/open/floor/cobblerock,
 /area/rogue/under/tomb)
 "Ct" = (
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
@@ -2004,6 +2028,12 @@
 /obj/item/clothing/neck/psycross/g,
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb/wilds)
+"Cv" = (
+/mob/living/simple_animal/hostile/retaliate/infernal/hellhound{
+	faction = list("Undead")
+	},
+/turf/open/floor/churchbrick,
+/area/rogue/under/tomb/indoors)
 "Cw" = (
 /obj/structure/trap/fire,
 /obj/effect/decal/cleanable/blood/splatter,
@@ -2092,6 +2122,10 @@
 /obj/effect/decal/cleanable/blood/gibs/up,
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb/cave)
+"Ef" = (
+/mob/living/simple_animal/hostile/retaliate/shade,
+/turf/open/floor/hexstone,
+/area/rogue/under/tomb/indoors)
 "Eh" = (
 /obj/structure/closet/crate/chest/gold,
 /obj/item/gem/green,
@@ -2266,7 +2300,7 @@
 /area/rogue/under/tomb/indoors/royal)
 "Gy" = (
 /obj/structure/table/vtable,
-/obj/item/statue/gold,
+/obj/item/clothing/ring/silver/blortz,
 /turf/open/floor/churchbrick,
 /area/rogue/under/tomb/indoors/church)
 "GA" = (
@@ -2299,9 +2333,11 @@
 /turf/open/water/bath,
 /area/rogue/under/tomb)
 "GU" = (
-/mob/living/simple_animal/hostile/retaliate/troll/axe,
+/mob/living/simple_animal/hostile/retaliate/infernal/hellhound{
+	faction = list("Undead")
+	},
 /turf/open/floor/blocks,
-/area/rogue/under/tomb/cave)
+/area/rogue/under/tomb/indoors)
 "GX" = (
 /obj/structure/closet/crate/crafted_closet/dark,
 /obj/effect/spawner/map_spawner/loot/armor,
@@ -2651,10 +2687,8 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors)
 "Ls" = (
-/obj/machinery/light/fueled/oven/south{
-	pixel_y = 0
-	},
-/turf/closed/wall/mineral/decostone,
+/obj/machinery/light/fueled/oven/west,
+/turf/open/floor/tile/kitchen,
 /area/rogue/under/tomb/indoors)
 "Lt" = (
 /obj/structure/fluff/railing/border,
@@ -3417,27 +3451,9 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb/cave)
 "Wp" = (
-/obj/effect/mapping_helpers/floor_clothing_equipper,
-/obj/item/clothing/gloves/plate/rust,
-/obj/item/clothing/head/helmet/heavy/rust,
-/obj/item/clothing/shoes/boots/armor/light/rust,
-/obj/item/clothing/armor/plate/rust,
-/obj/item/clothing/pants/platelegs/rust,
-/obj/item/clothing/neck/chaincoif,
-/obj/item/clothing/armor/chainmail,
-/obj/item/weapon/shield/tower/metal,
-/obj/item/weapon/mace/steel,
-/obj/item/clothing/ring/silver/toper,
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	base_speed = 15;
-	base_constitution = 18;
-	base_endurance = 15;
-	base_strength = 14;
-	candodge = 0
-	},
-/obj/item/clothing/neck/psycross/silver,
-/turf/open/floor/churchbrick,
-/area/rogue/under/tomb/indoors/church)
+/mob/living/simple_animal/hostile/retaliate/shade,
+/turf/open/floor/tile/kitchen,
+/area/rogue/under/tomb/indoors)
 "Ws" = (
 /obj/effect/mapping_helpers/secret_door_creator{
 	redstone_id = "W4"
@@ -3543,6 +3559,10 @@
 /obj/effect/decal/cleanable/blood/gibs/limb,
 /turf/open/water/swamp/deep,
 /area/rogue/under/tomb/indoors)
+"XP" = (
+/mob/living/carbon/human/species/zizombie/npc/militiamen,
+/turf/open/floor/church,
+/area/rogue/under/tomb/indoors/royal)
 "XS" = (
 /obj/structure/bookcase/random,
 /obj/structure/spider/stickyweb/solo,
@@ -3837,8 +3857,8 @@ hr
 hr
 hr
 WU
-eo
-eo
+sJ
+sJ
 oM
 hr
 hr
@@ -4069,7 +4089,7 @@ Mi
 Mi
 GY
 cK
-GA
+xi
 xN
 xN
 xN
@@ -4141,8 +4161,8 @@ bx
 cE
 cE
 cE
-ss
 cE
+jc
 aF
 hW
 hW
@@ -4208,7 +4228,7 @@ Qr
 hr
 Mi
 Mi
-eo
+sJ
 ba
 ba
 XE
@@ -4255,7 +4275,7 @@ Qr
 hr
 Mi
 Mi
-eo
+sJ
 ba
 jm
 ba
@@ -4306,9 +4326,9 @@ WU
 ba
 ba
 ba
-jm
+Wp
 GB
-ba
+Ls
 kl
 zt
 hr
@@ -4356,7 +4376,7 @@ FT
 VV
 ba
 hr
-Ls
+hr
 Ir
 WU
 Yg
@@ -4376,7 +4396,7 @@ cE
 cE
 cE
 cE
-yS
+GU
 cE
 hr
 hW
@@ -4403,7 +4423,7 @@ ba
 IM
 ba
 hr
-Ls
+hr
 Ir
 hr
 ht
@@ -4445,10 +4465,10 @@ Mi
 Mi
 oM
 Js
+ss
 ba
 ba
 ba
-jm
 qp
 WU
 Ir
@@ -4582,8 +4602,8 @@ GG
 "}
 (20,1,1) = {"
 WU
-eo
-eo
+sJ
+sJ
 WU
 dJ
 dJ
@@ -4618,7 +4638,7 @@ GX
 am
 am
 ix
-am
+XP
 hr
 dJ
 dJ
@@ -4710,7 +4730,7 @@ CD
 Hi
 am
 Ar
-bZ
+Ar
 Ar
 Zd
 hr
@@ -4852,7 +4872,7 @@ uL
 zs
 Ar
 Ar
-bZ
+Ar
 am
 WU
 TF
@@ -4878,7 +4898,7 @@ cE
 Nz
 cE
 Zj
-Jv
+jc
 hr
 EF
 NK
@@ -4991,7 +5011,7 @@ hr
 hr
 Hi
 zM
-am
+ff
 am
 am
 EF
@@ -5076,7 +5096,7 @@ Ka
 LL
 Id
 EF
-Vz
+bZ
 Br
 ba
 Ea
@@ -5124,7 +5144,7 @@ BW
 fv
 Hi
 hr
-sk
+ba
 Qu
 NQ
 ba
@@ -5171,7 +5191,7 @@ HT
 qO
 EF
 hr
-sk
+ba
 ud
 FT
 Qu
@@ -5217,7 +5237,7 @@ Ll
 tJ
 xW
 EF
-eI
+As
 ba
 Hv
 Qu
@@ -5315,7 +5335,7 @@ ba
 ib
 Qu
 jb
-ba
+sk
 hr
 cE
 Ff
@@ -5438,7 +5458,7 @@ LB
 wz
 wz
 wz
-GU
+rp
 LB
 lE
 wz
@@ -5868,6 +5888,8 @@ La
 La
 La
 hr
+hr
+hr
 Zq
 Zq
 Zq
@@ -5875,10 +5897,8 @@ Zq
 Zq
 Zq
 Zq
-Zq
-Zq
-Zq
-Zq
+hr
+hr
 hr
 Qr
 Qr
@@ -5915,7 +5935,7 @@ La
 La
 La
 hr
-Zq
+hr
 Zq
 Zq
 Zq
@@ -5925,7 +5945,7 @@ Zq
 Zq
 Zq
 Zq
-Zq
+hr
 hr
 Qr
 Qr
@@ -6524,12 +6544,12 @@ tU
 tU
 MO
 ob
-jc
+mE
 Gy
 mE
 ZJ
 mE
-ZJ
+nf
 ob
 ef
 gS
@@ -6604,8 +6624,8 @@ pO
 "}
 (18,1,2) = {"
 hr
-Zq
-Zq
+hr
+hr
 Zq
 Zq
 Zq
@@ -6645,13 +6665,13 @@ pO
 ve
 ve
 ve
-ve
-ve
+pO
+pO
 pO
 "}
 (19,1,2) = {"
 hr
-Zq
+hr
 Zq
 Zq
 dJ
@@ -6693,7 +6713,7 @@ lV
 lV
 ve
 ve
-ve
+pO
 pO
 "}
 (20,1,2) = {"
@@ -6913,8 +6933,8 @@ ks
 ed
 bf
 bf
-FR
 bf
+Cv
 ed
 ed
 jR
@@ -6988,7 +7008,7 @@ gS
 NZ
 SF
 mE
-Wp
+eH
 DO
 mE
 JP
@@ -7027,7 +7047,7 @@ pO
 "}
 (27,1,2) = {"
 hr
-Zq
+hr
 Zq
 Zq
 Vg
@@ -7069,13 +7089,13 @@ Co
 Co
 ve
 ve
-ve
+pO
 pO
 "}
 (28,1,2) = {"
 hr
-Zq
-Zq
+hr
+hr
 Zq
 Zq
 Zq
@@ -7115,8 +7135,8 @@ bj
 ve
 ve
 ve
-ve
-ve
+pO
+pO
 pO
 "}
 (29,1,2) = {"
@@ -7138,7 +7158,7 @@ yj
 Mt
 Lm
 Gf
-tC
+Cs
 Gf
 Gf
 Gf
@@ -7395,7 +7415,7 @@ WG
 ed
 fT
 pL
-ed
+Ef
 ed
 ed
 Go
@@ -7426,7 +7446,7 @@ tC
 ml
 Gf
 Gf
-sJ
+tC
 tC
 tC
 tC
@@ -7472,7 +7492,7 @@ mK
 lb
 Po
 Zc
-eE
+AV
 eE
 HS
 Gf
@@ -7485,7 +7505,7 @@ dG
 ed
 ul
 yC
-yC
+ha
 ed
 fT
 ed
@@ -7795,7 +7815,7 @@ Et
 Fa
 Fa
 hr
-Zq
+hr
 Zq
 Zq
 Zq
@@ -7805,7 +7825,7 @@ Zq
 Zq
 Zq
 Zq
-Zq
+hr
 hr
 Vc
 VS
@@ -7842,6 +7862,8 @@ Fa
 Fa
 Fa
 hr
+hr
+hr
 Zq
 Zq
 Zq
@@ -7849,10 +7871,8 @@ Zq
 Zq
 Zq
 Zq
-Zq
-Zq
-Zq
-Zq
+hr
+hr
 hr
 ed
 ed

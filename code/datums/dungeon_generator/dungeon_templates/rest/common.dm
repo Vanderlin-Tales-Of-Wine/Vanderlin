@@ -14,17 +14,6 @@
 	east_offset = 4
 	west_offset = 4
 
-/datum/map_template/dungeon/rest/stingerpatch
-	mappath = "_maps/matthios_tomb/rest/stingerpatch.dmm"
-	id = "stingerpatch"
-	width = 10
-	height = 10
-
-	north_offset = 4
-	south_offset = 4
-	east_offset = 5
-	west_offset = 4
-
 /datum/map_template/dungeon/rest/Malphpiece1
 	mappath = "_maps/matthios_tomb/rest/Malphpiece1.dmm"
 	id = "Malphpiece1"

@@ -325,9 +325,7 @@
 /turf/open/floor/blocks/stonered,
 /area/rogue/under/tomb/indoors)
 "ls" = (
-/obj/structure/bars/passage/shutter/open{
-	redstone_id = "hctomb03trap"
-	},
+/obj/structure/plasticflaps,
 /turf/open/floor/metal,
 /area/rogue/under/tomb)
 "lt" = (
@@ -595,6 +593,16 @@
 /obj/item/kitchen/spoon/iron,
 /turf/open/floor/blocks/stonered,
 /area/rogue/under/tomb/indoors)
+"uW" = (
+/obj/structure/door/stone,
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/blocks/stonered/tiny,
+/area/rogue/under/tomb/indoors)
+"vd" = (
+/obj/structure/door/stone,
+/obj/effect/mapping_helpers/access/locker,
+/turf/open/floor/churchrough,
+/area/rogue/under/tomb/indoors)
 "vt" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/churchrough,
@@ -819,6 +827,10 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/churchmarble,
+/area/rogue/under/tomb/indoors)
+"Dr" = (
+/obj/structure/rousman_hole,
+/turf/open/floor/churchrough,
 /area/rogue/under/tomb/indoors)
 "Eg" = (
 /obj/machinery/light/fueled/torchholder/c,
@@ -1218,7 +1230,6 @@
 /obj/structure/fluff/railing/border{
 	dir = 6
 	},
-/mob/living/carbon/human/species/rousman/ambush,
 /obj/structure/fluff/walldeco/church/line{
 	dir = 8
 	},
@@ -1264,6 +1275,10 @@
 /obj/machinery/light/fueled/firebowl,
 /turf/open/floor/churchrough,
 /area/rogue/under/tomb/indoors)
+"Pq" = (
+/mob/living/carbon/human/species/rousman/ambush,
+/turf/open/floor/churchrough,
+/area/rogue/under/tomb/indoors)
 "Pt" = (
 /obj/structure/fluff/railing/border,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -1284,9 +1299,10 @@
 	},
 /area/rogue/under/tomb/cave/wet)
 "PJ" = (
-/mob/living/simple_animal/hostile/retaliate/spider/mutated,
-/turf/open/floor/churchrough,
-/area/rogue/under/tomb/cave/spider)
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/rousman_hole,
+/turf/open/floor/blocks/stonered/tiny,
+/area/rogue/under/tomb/indoors)
 "PR" = (
 /obj/structure/closet/crate/chest/gold,
 /obj/effect/spawner/map_spawner/loot/potion_vitals,
@@ -1491,7 +1507,7 @@
 /area/rogue/under/tomb/indoors)
 "Xz" = (
 /obj/effect/decal/cleanable/blood/old,
-/mob/living/simple_animal/hostile/retaliate/headless,
+/obj/structure/rousman_hole,
 /turf/open/floor/blocks/stonered,
 /area/rogue/under/tomb/indoors)
 "XJ" = (
@@ -1550,6 +1566,7 @@
 /area/rogue/under/tomb/cave/wet)
 "YY" = (
 /obj/structure/door/stone,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/churchrough,
 /area/rogue/under/tomb/cave/spider)
 "YZ" = (
@@ -1573,9 +1590,6 @@
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/item/clothing/pants/trou,
 /obj/structure/rack/shelf/notdense,
-/obj/item/weapon/polearm/eaglebeak{
-	pixel_y = 16
-	},
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/under/tomb/indoors)
 "ZZ" = (
@@ -1758,7 +1772,7 @@ ls
 ou
 ou
 ou
-ls
+ly
 HC
 bE
 QL
@@ -1790,7 +1804,7 @@ ly
 ou
 Sp
 ou
-ly
+ls
 HC
 GH
 QL
@@ -1818,11 +1832,11 @@ WO
 (8,1,1) = {"
 QL
 HC
-ls
+ly
 ou
 ou
 ou
-ls
+ly
 bE
 bE
 bE
@@ -1961,7 +1975,7 @@ Sh
 Qn
 xI
 wp
-PJ
+Sh
 ow
 YY
 Sh
@@ -2119,7 +2133,7 @@ us
 us
 VX
 jn
-vt
+jB
 CE
 Sh
 dl
@@ -2730,7 +2744,7 @@ aN
 wf
 my
 vS
-vS
+PJ
 Aw
 Aw
 ho
@@ -2761,8 +2775,8 @@ lD
 wf
 fc
 ho
-LO
-LO
+uW
+uW
 Rq
 EF
 dK
@@ -2851,7 +2865,7 @@ Sn
 yi
 Eu
 Eu
-yi
+Pq
 rN
 Lr
 Lr
@@ -2875,7 +2889,7 @@ WO
 (11,1,2) = {"
 ho
 Pb
-yi
+Dr
 fI
 ZJ
 ZJ
@@ -2945,15 +2959,15 @@ ho
 ho
 ho
 ho
-LO
+uW
 ho
 ho
 Ka
 lJ
 ho
-rN
+vd
 uB
-rN
+vd
 ho
 vS
 AL

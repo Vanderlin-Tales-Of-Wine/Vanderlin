@@ -14,9 +14,9 @@
 /turf/open/floor/dirt,
 /area/rogue/under/tomb)
 "aX" = (
-/obj/structure/closet/crate/coffin,
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
-/turf/open/floor/blocks,
+/obj/structure/chair/bench/church,
+/mob/living/carbon/human/species/zizombie/npc/peasant,
+/turf/open/floor/churchmarble,
 /area/rogue/under/tomb/indoors/church)
 "be" = (
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
@@ -46,9 +46,15 @@
 /obj/item/fishingrod,
 /turf/open/floor/dirt/road,
 /area/rogue/under/tomb/cave/wet)
+"bR" = (
+/mob/living/simple_animal/hostile/retaliate/infernal/hellhound{
+	faction = list("Undead")
+	},
+/turf/open/floor/concrete,
+/area/rogue/under/tomb/indoors/church)
 "bU" = (
 /obj/structure/chair/wood,
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/churchmarble,
 /area/rogue/under/tomb/indoors/church)
 "ca" = (
@@ -360,6 +366,10 @@
 	},
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb/cave)
+"lk" = (
+/mob/living/simple_animal/hostile/retaliate/shade,
+/turf/open/floor/churchmarble,
+/area/rogue/under/tomb/indoors/church)
 "lp" = (
 /turf/closed/wall/mineral/decostone/end,
 /area/rogue/under/tomb/indoors/church)
@@ -382,9 +392,12 @@
 /turf/open/floor/church,
 /area/rogue/under/tomb)
 "md" = (
-/obj/structure/chair/bench/church/r,
-/mob/living/carbon/human/species/skeleton/npc/peasant,
-/turf/open/floor/churchmarble,
+/obj/structure/fluff/railing/wood{
+	dir = 4;
+	pixel_x = 1
+	},
+/mob/living/simple_animal/hostile/skeleton/bow,
+/turf/open/floor/churchrough,
 /area/rogue/under/tomb/indoors/church)
 "me" = (
 /obj/effect/spawner/map_spawner/loot/weapon,
@@ -546,7 +559,6 @@
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 6
 	},
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/churchmarble,
 /area/rogue/under/tomb/indoors/church)
 "tv" = (
@@ -566,6 +578,10 @@
 /mob/living/simple_animal/hostile/retaliate/spider/mutated,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/cave)
+"uG" = (
+/mob/living/carbon/human/species/skeleton/npc/peasant,
+/turf/open/floor/blocks,
+/area/rogue/under/tomb/indoors/church)
 "uJ" = (
 /obj/structure/fluff/railing/wood,
 /obj/structure/fluff/railing/wood{
@@ -653,7 +669,6 @@
 "yc" = (
 /obj/effect/decal/cleanable/sigil/N,
 /obj/effect/decal/cleanable/blood,
-/obj/effect/spawner/map_spawner/loot/magic,
 /turf/open/floor/plasteel/maniac/damaged,
 /area/rogue/under/tomb/indoors/church)
 "ye" = (
@@ -698,8 +713,7 @@
 /turf/open/floor/churchmarble,
 /area/rogue/under/tomb/indoors/church)
 "Aa" = (
-/obj/effect/decal/cleanable/blood/old,
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/human/species/skeleton/npc/peasant,
 /turf/open/floor/churchmarble,
 /area/rogue/under/tomb/indoors/church)
 "AF" = (
@@ -743,6 +757,9 @@
 /area/rogue/under/tomb)
 "CJ" = (
 /obj/effect/decal/cleanable/blood/puddle,
+/mob/living/simple_animal/hostile/retaliate/infernal/hellhound{
+	faction = list("Undead")
+	},
 /turf/open/floor/concrete,
 /area/rogue/under/tomb/indoors/church)
 "CQ" = (
@@ -797,7 +814,7 @@
 /turf/open/floor/churchrough,
 /area/rogue/under/tomb/indoors/church)
 "Fk" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/human/species/zizombie/npc/peasant,
 /turf/open/floor/churchmarble,
 /area/rogue/under/tomb/indoors/church)
 "FC" = (
@@ -948,7 +965,7 @@
 /obj/structure/bed/mediocre,
 /obj/item/bedsheet/cloth,
 /obj/item/bedsheet/cloth,
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/simple_animal/hostile/retaliate/shade,
 /turf/open/floor/churchmarble,
 /area/rogue/under/tomb/indoors/church)
 "KF" = (
@@ -1092,7 +1109,8 @@
 	},
 /area/rogue/under/tomb)
 "PL" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/obj/structure/chair/bench/church/r,
+/mob/living/carbon/human/species/zizombie/npc/peasant,
 /turf/open/floor/churchmarble,
 /area/rogue/under/tomb/indoors/church)
 "PT" = (
@@ -1156,9 +1174,12 @@
 /obj/item/bedsheet/cloth,
 /turf/open/floor/churchmarble,
 /area/rogue/under/tomb/indoors/church)
+"Tc" = (
+/mob/living/carbon/human/species/skeleton/npc/warrior,
+/turf/open/floor/tile/masonic/spiral,
+/area/rogue/under/tomb/indoors/church)
 "Tm" = (
 /obj/effect/decal/cleanable/blood/tracks,
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/churchmarble,
 /area/rogue/under/tomb/indoors/church)
 "Tz" = (
@@ -1770,7 +1791,7 @@ KW
 JI
 NY
 ly
-NY
+aX
 JI
 JI
 vM
@@ -1801,7 +1822,7 @@ bU
 TQ
 JI
 qC
-Ne
+qC
 qC
 JI
 JI
@@ -1832,9 +1853,9 @@ nm
 JI
 wJ
 JI
-Ne
 qC
 Ne
+qC
 JI
 JI
 lp
@@ -1842,7 +1863,7 @@ uT
 tv
 vu
 pp
-pp
+bR
 nm
 px
 dM
@@ -1864,8 +1885,8 @@ nm
 JI
 JI
 JI
-md
 QX
+PL
 QX
 JI
 JI
@@ -1894,12 +1915,12 @@ cC
 Pi
 nm
 JI
+Aa
 JI
 JI
 JI
 JI
-JI
-JI
+lk
 JI
 Qt
 nm
@@ -1987,7 +2008,7 @@ wB
 uT
 nm
 xz
-PL
+JI
 nm
 ja
 JI
@@ -2018,11 +2039,11 @@ Oc
 wB
 nm
 ke
-JI
+Fk
 WA
 nm
-Fk
 JI
+Fk
 JI
 JI
 JI
@@ -2082,7 +2103,7 @@ wB
 wB
 nm
 zJ
-PL
+JI
 Dn
 nm
 JI
@@ -2129,8 +2150,8 @@ JI
 nm
 gq
 JI
-Aa
-JI
+fd
+Fk
 nm
 gw
 Be
@@ -2698,7 +2719,7 @@ uT
 nm
 Zv
 Zv
-Fh
+md
 Fh
 Fh
 Fh
@@ -2915,7 +2936,7 @@ MD
 MD
 nm
 Mh
-ri
+Tc
 mZ
 mZ
 oA
@@ -2924,7 +2945,7 @@ oA
 oA
 Ow
 nm
-JI
+Aa
 JI
 JI
 ho
@@ -2948,9 +2969,9 @@ MD
 nm
 cP
 ri
-aX
-aX
-mZ
+EP
+EP
+uG
 EP
 EP
 mZ
@@ -3021,7 +3042,7 @@ Dz
 gY
 nm
 PW
-mv
+JI
 Hu
 Hv
 ol
@@ -3144,7 +3165,7 @@ Dz
 gY
 Dz
 eK
-sk
+Hh
 sk
 Hh
 eK
@@ -3177,7 +3198,7 @@ gY
 Dz
 Dz
 kW
-Hh
+eK
 eK
 Dz
 Dz
@@ -3209,7 +3230,7 @@ gY
 Dz
 Dz
 Dz
-eK
+Dz
 gY
 Dz
 Dz

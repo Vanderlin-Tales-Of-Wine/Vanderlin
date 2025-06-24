@@ -13,7 +13,6 @@
 /turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors/magic)
 "aR" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/item/clothing/shoes/nobleboot,
 /obj/item/clothing/neck/gorget,
@@ -22,6 +21,8 @@
 /obj/item/clothing/pants/chainlegs,
 /obj/item/weapon/polearm/halberd,
 /obj/item/clothing/armor/medium/scale,
+/mob/living/carbon/human/species/zizombie/npc,
+/obj/item/clothing/ring/silver,
 /turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors)
 "aW" = (
@@ -49,10 +50,10 @@
 /turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors)
 "bC" = (
-/obj/structure/chair/wood/alt/chair3,
+/obj/effect/decal/cleanable/dirt/dust,
 /mob/living/carbon/human/species/skeleton/npc/peasant,
 /turf/open/floor/carpet,
-/area/rogue/under/tomb/indoors)
+/area/rogue/under/tomb/indoors/magic)
 "ch" = (
 /obj/structure/chair/wood/alt/chair3,
 /turf/open/floor/ruinedwood/turned/darker,
@@ -65,11 +66,9 @@
 /turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors/magic)
 "cp" = (
-/obj/item/clothing/ring/silver,
-/turf/open/floor/rooftop{
-	dir = 1
-	},
-/area/rogue/under/tomb)
+/mob/living/carbon/human/species/skeleton/npc/peasant,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/tomb/indoors)
 "cy" = (
 /turf/open/floor/rooftop,
 /area/rogue/under/tomb)
@@ -152,10 +151,10 @@
 /obj/structure/chair/wood/alt/chair_noble/red{
 	dir = 1
 	},
-/mob/living/carbon/human/species/skeleton/npc/ambush,
 /obj/machinery/light/fueled/wallfire/candle/blue{
 	pixel_y = -32
 	},
+/mob/living/carbon/human/species/skeleton/npc/peasant,
 /turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors)
 "gp" = (
@@ -178,7 +177,6 @@
 /area/rogue/under/tomb/indoors/magic)
 "gD" = (
 /obj/structure/table/wood/plain/alt,
-/mob/living/simple_animal/hostile/retaliate/wolf,
 /obj/effect/decal/cleanable/blood/old,
 /obj/item/clothing/pants/trou/leather{
 	pixel_y = -3;
@@ -211,6 +209,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 5
 	},
+/mob/living/carbon/human/species/zizombie/npc/peasant,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "hV" = (
@@ -240,7 +239,6 @@
 /turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors)
 "jv" = (
-/mob/living/simple_animal/hostile/retaliate/wolf,
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/under/tomb/indoors)
@@ -475,6 +473,12 @@
 /obj/structure/fermentation_keg/random/beer,
 /turf/open/floor/twig,
 /area/rogue/under/tomb/indoors)
+"rg" = (
+/mob/living/simple_animal/hostile/retaliate/poltergeist{
+	faction = list("Undead")
+	},
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/tomb/indoors)
 "rp" = (
 /obj/structure/bookcase/random/myths,
 /turf/open/floor/ruinedwood/spiral,
@@ -486,7 +490,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb)
 "sz" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/simple_animal/hostile/retaliate/shade,
 /turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors)
 "sF" = (
@@ -500,9 +504,15 @@
 	},
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/under/tomb/indoors)
+"sP" = (
+/obj/structure/chair/stool,
+/mob/living/carbon/human/species/skeleton/npc/peasant,
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/under/tomb/indoors)
 "ta" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/bonepile,
 /turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors/magic)
 "tc" = (
@@ -550,7 +560,6 @@
 /area/rogue/under/tomb/indoors)
 "us" = (
 /obj/structure/table/wood/reinforced_alt,
-/obj/structure/bonepile,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors/magic)
@@ -684,8 +693,8 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb/cave)
 "Ay" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
-/turf/open/floor/blocks/newstone/alt,
+/mob/living/simple_animal/hostile/retaliate/shade,
+/turf/open/floor/ruinedwood,
 /area/rogue/under/tomb/indoors)
 "AK" = (
 /turf/closed/wall/mineral/decowood,
@@ -737,8 +746,8 @@
 /turf/open/floor/ruinedwood,
 /area/rogue/under/tomb/indoors)
 "Cv" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
-/turf/open/floor/carpet,
+/mob/living/carbon/human/species/skeleton/npc/warrior,
+/turf/open/floor/tile/checker,
 /area/rogue/under/tomb/indoors)
 "Cy" = (
 /obj/structure/table/wood/plain/alt,
@@ -861,7 +870,7 @@
 "Hq" = (
 /obj/structure/chair/wood/alt/chair_noble,
 /obj/machinery/light/fueled/wallfire/candle/blue,
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/carbon/human/species/skeleton/npc/peasant,
 /turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors)
 "HG" = (
@@ -891,7 +900,6 @@
 /area/rogue/under/tomb/indoors)
 "Kz" = (
 /obj/structure/chair/wood/alt/chair_noble,
-/mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors)
 "KE" = (
@@ -940,9 +948,8 @@
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/under/tomb/indoors)
 "Mp" = (
-/obj/structure/chair/wood/alt/chair_noble,
-/mob/living/carbon/human/species/skeleton/npc/warrior,
-/turf/open/floor/carpet,
+/mob/living/carbon/human/species/skeleton/npc/peasant,
+/turf/open/floor/twig,
 /area/rogue/under/tomb/indoors)
 "Mv" = (
 /obj/machinery/light/fueled/wallfire/candle/blue{
@@ -998,8 +1005,8 @@
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/under/tomb/indoors)
 "NM" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
-/turf/open/floor/twig,
+/obj/structure/bonepile,
+/turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors)
 "OC" = (
 /obj/structure/closet/crate/chest/neu,
@@ -1020,8 +1027,10 @@
 /turf/open/floor/dirt/road,
 /area/rogue/under/tomb)
 "Ph" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
-/turf/open/floor/tile/checker,
+/mob/living/simple_animal/hostile/retaliate/poltergeist{
+	faction = list("Undead")
+	},
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "Pu" = (
 /obj/structure/table/wood/plain/alt,
@@ -1032,7 +1041,6 @@
 /turf/closed/mineral/bedrock,
 /area/rogue/under/tomb)
 "Qt" = (
-/obj/structure/bonepile,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /turf/open/floor/carpet,
@@ -1271,11 +1279,10 @@
 /turf/open/floor/tile/checker,
 /area/rogue/under/tomb/indoors)
 "YU" = (
-/obj/structure/bonepile,
 /turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors/magic)
 "Zj" = (
-/mob/living/carbon/human/species/rousman/npc,
+/mob/living/carbon/human/species/zizombie/npc/peasant,
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/under/tomb/indoors)
 "Zr" = (
@@ -1540,8 +1547,8 @@ VW
 Ww
 AK
 Kk
+Cv
 Kk
-Ph
 Up
 Kk
 Kk
@@ -1607,7 +1614,7 @@ YH
 YH
 YH
 wv
-Ay
+lN
 lN
 nz
 AK
@@ -1667,7 +1674,7 @@ XO
 AK
 AK
 wv
-bC
+Ge
 Jc
 gr
 wv
@@ -1764,7 +1771,7 @@ vP
 hV
 pv
 zU
-vv
+Ay
 vv
 tl
 RM
@@ -1799,8 +1806,8 @@ dn
 dn
 dn
 CJ
+Mp
 RM
-NM
 RM
 AK
 VW
@@ -1923,7 +1930,7 @@ dn
 dn
 dn
 dn
-dn
+rg
 uD
 pA
 TU
@@ -1948,7 +1955,7 @@ ga
 AK
 vv
 zU
-vv
+Ay
 vv
 Cp
 od
@@ -1982,7 +1989,7 @@ dn
 dn
 uD
 dn
-cB
+sP
 Tb
 Mm
 cB
@@ -1990,7 +1997,7 @@ dn
 ch
 dn
 AK
-Mp
+Kz
 Wf
 dE
 bz
@@ -2012,12 +2019,12 @@ ga
 AK
 Cp
 Cp
-hq
+Cp
 vv
 Cp
 NC
 ZU
-Cp
+hq
 GK
 QR
 vv
@@ -2534,7 +2541,7 @@ vO
 AK
 gp
 Ir
-sz
+Ir
 ie
 Qt
 ta
@@ -2566,7 +2573,7 @@ vO
 AK
 Fu
 Ir
-Ir
+sz
 ie
 ii
 GY
@@ -2602,7 +2609,7 @@ Ir
 ie
 ag
 Sr
-Sr
+bC
 fk
 cy
 sg
@@ -2660,7 +2667,7 @@ wr
 wr
 wr
 wP
-rT
+Ph
 rT
 rT
 ax
@@ -2841,7 +2848,7 @@ sg
 Qd
 Qd
 Qd
-cp
+vO
 wv
 AK
 cG
@@ -2877,7 +2884,7 @@ vO
 AK
 jK
 Ir
-sz
+Ir
 Ir
 mv
 mt
@@ -2907,8 +2914,8 @@ Qd
 Qd
 vO
 oz
-Ir
-Cv
+NM
+sz
 Ir
 Ir
 Ir
@@ -2975,7 +2982,7 @@ XV
 aR
 Ir
 GP
-Cv
+Ir
 Ir
 EL
 rT
@@ -3010,7 +3017,7 @@ GM
 XU
 vC
 AK
-rT
+cp
 rT
 rT
 oW

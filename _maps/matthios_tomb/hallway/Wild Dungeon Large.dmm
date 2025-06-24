@@ -178,7 +178,6 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/grass,
 /obj/structure/flora/grass,
-/mob/living/simple_animal/hostile/retaliate/wolf,
 /turf/open/floor/grass,
 /area/rogue/under/tomb/wilds)
 "td" = (
@@ -243,6 +242,14 @@
 /obj/structure/flora/grass/herb/euphrasia,
 /turf/open/floor/grass,
 /area/rogue/under/tomb/wilds)
+"BG" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/grass,
+/mob/living/simple_animal/hostile/retaliate/wolf{
+	faction = list("fae")
+	},
+/turf/open/floor/grass,
+/area/rogue/under/tomb/wilds)
 "BK" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/sparsegrass,
@@ -298,7 +305,10 @@
 /turf/open/floor/grass,
 /area/rogue/under/tomb/wilds)
 "Gm" = (
-/mob/living/simple_animal/hostile/retaliate/wolf,
+/obj/structure/flora/ausbushes/sparsegrass,
+/mob/living/simple_animal/hostile/retaliate/wolf{
+	faction = list("fae")
+	},
 /turf/open/floor/grass,
 /area/rogue/under/tomb/wilds)
 "GM" = (
@@ -370,9 +380,8 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb/wilds)
 "Mo" = (
-/obj/structure/flora/grass,
-/obj/structure/flora/grass,
-/mob/living/simple_animal/hostile/retaliate/wolf,
+/obj/structure/flora/ausbushes/pointybush,
+/mob/living/simple_animal/hostile/retaliate/fae/glimmerwing,
 /turf/open/floor/grass,
 /area/rogue/under/tomb/wilds)
 "Ms" = (
@@ -443,9 +452,8 @@
 /turf/open/floor/grass,
 /area/rogue/under/tomb/wilds)
 "TC" = (
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/ausbushes/fullgrass,
-/mob/living/simple_animal/hostile/retaliate/wolf,
+/obj/structure/flora/ausbushes/grassybush,
+/mob/living/simple_animal/hostile/retaliate/fae/sprite,
 /turf/open/floor/grass,
 /area/rogue/under/tomb/wilds)
 "TV" = (
@@ -476,6 +484,13 @@
 /obj/structure/flora/grass,
 /turf/open/floor/grass,
 /area/rogue/under/tomb/wilds)
+"UY" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/mob/living/simple_animal/hostile/retaliate/wolf{
+	faction = list("fae")
+	},
+/turf/open/floor/grass,
+/area/rogue/under/tomb/wilds)
 "VC" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/open/floor/grass,
@@ -487,9 +502,11 @@
 /turf/open/floor/grass,
 /area/rogue/under/tomb/wilds)
 "Wb" = (
-/obj/structure/flora/grass,
-/obj/structure/flora/ausbushes/sparsegrass,
-/mob/living/simple_animal/hostile/retaliate/wolf,
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/ausbushes/fullgrass,
+/mob/living/simple_animal/hostile/retaliate/wolf{
+	faction = list("fae")
+	},
 /turf/open/floor/grass,
 /area/rogue/under/tomb/wilds)
 "Xn" = (
@@ -601,7 +618,7 @@ rM
 Dx
 rM
 rM
-cr
+BG
 nx
 rM
 VJ
@@ -614,7 +631,7 @@ ly
 ly
 ly
 rM
-ZO
+TC
 nx
 li
 rM
@@ -658,7 +675,7 @@ pT
 pT
 rj
 nx
-Wb
+eA
 rM
 li
 rM
@@ -688,9 +705,9 @@ rj
 Dx
 Ho
 rM
-Gm
+XS
 UX
-Dx
+Gm
 pT
 QN
 li
@@ -728,7 +745,7 @@ rM
 aD
 ly
 pT
-td
+Mo
 BO
 ly
 ly
@@ -790,7 +807,7 @@ pT
 pT
 rM
 rM
-TC
+vd
 Dr
 cr
 rM
@@ -812,7 +829,7 @@ pT
 ly
 pT
 jx
-vd
+Wb
 rM
 li
 pT
@@ -885,10 +902,10 @@ UX
 Dx
 rM
 nx
+UY
 li
 li
-li
-Mo
+UX
 rM
 Iu
 li

@@ -20,9 +20,18 @@
 /obj/effect/decal/remains/bigrat,
 /turf/open/floor/metal,
 /area/rogue/under/tomb)
+"bj" = (
+/obj/structure/fluff/railing/fence{
+	dir = 8
+	},
+/turf/open/floor/cobble,
+/area/rogue/under/tomb)
 "bT" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/remains/bigrat,
+/obj/structure/fluff/railing/fence{
+	dir = 4
+	},
 /turf/open/floor/cobble,
 /area/rogue/under/tomb)
 "dZ" = (
@@ -30,8 +39,8 @@
 /turf/open/floor/cobble,
 /area/rogue/under/tomb)
 "eB" = (
-/obj/effect/decal/cleanable/blood/old,
-/obj/machinery/light/fueled/torchholder/l,
+/obj/effect/decal/cleanable/dirt,
+/mob/living/carbon/human/species/goblin/npc/cave,
 /turf/open/floor/cobble,
 /area/rogue/under/tomb)
 "gQ" = (
@@ -42,7 +51,7 @@
 /turf/open/floor/metal,
 /area/rogue/under/tomb)
 "it" = (
-/obj/structure/roguetent,
+/obj/structure/fluff/railing/fence,
 /turf/open/floor/cobble,
 /area/rogue/under/tomb)
 "jC" = (
@@ -50,16 +59,17 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/tomb)
 "ko" = (
-/mob/living/simple_animal/hostile/retaliate/troll/axe,
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor/metal,
+/obj/structure/fluff/walldeco/skullspike,
+/obj/structure/fluff/railing/fence{
+	dir = 1
+	},
+/turf/open/floor/cobble,
 /area/rogue/under/tomb)
 "kH" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/cobble,
 /area/rogue/under/tomb)
 "nf" = (
-/obj/structure/roguetent,
 /obj/effect/decal/cleanable/dirt/cobweb,
 /turf/open/floor/cobble,
 /area/rogue/under/tomb)
@@ -69,6 +79,15 @@
 /area/rogue/under/tomb)
 "pG" = (
 /obj/effect/decal/remains/human,
+/obj/structure/fluff/railing/fence{
+	dir = 8
+	},
+/turf/open/floor/cobble,
+/area/rogue/under/tomb)
+"pP" = (
+/obj/structure/fluff/railing/fence{
+	dir = 1
+	},
 /turf/open/floor/cobble,
 /area/rogue/under/tomb)
 "qf" = (
@@ -89,8 +108,8 @@
 /turf/open/floor/cobble,
 /area/rogue/under/tomb)
 "sI" = (
-/mob/living/carbon/human/species/goblin/npc/cave,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/fluff/railing/fence,
 /turf/open/floor/cobble,
 /area/rogue/under/tomb)
 "wV" = (
@@ -102,11 +121,12 @@
 /turf/open/floor/metal,
 /area/rogue/under/tomb)
 "ys" = (
-/obj/machinery/light/fueled/torchholder/r,
-/turf/open/floor/cobble,
+/mob/living/simple_animal/hostile/retaliate/troll/cave,
+/turf/open/floor/metal,
 /area/rogue/under/tomb)
 "yV" = (
 /obj/structure/door,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/tomb)
 "zd" = (
@@ -148,6 +168,12 @@
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/metal,
 /area/rogue/under/tomb)
+"Ej" = (
+/obj/structure/fluff/railing/fence{
+	dir = 4
+	},
+/turf/open/floor/cobble,
+/area/rogue/under/tomb)
 "Fq" = (
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/cobble,
@@ -162,6 +188,11 @@
 /area/rogue/under/tomb)
 "HK" = (
 /obj/effect/decal/cleanable/blood/splatter,
+/turf/open/floor/cobble,
+/area/rogue/under/tomb)
+"Jf" = (
+/obj/effect/decal/remains/human,
+/mob/living/carbon/human/species/goblin/npc/cave,
 /turf/open/floor/cobble,
 /area/rogue/under/tomb)
 "NV" = (
@@ -254,8 +285,8 @@ FU
 it
 OX
 aj
-Ck
-eB
+ko
+OX
 ss
 aZ
 aV
@@ -263,13 +294,13 @@ aV
 (4,1,1) = {"
 aV
 aZ
-pG
+Jf
 OX
 aj
 aj
 aj
 aj
-FU
+aj
 pw
 aZ
 aV
@@ -277,13 +308,13 @@ aV
 (5,1,1) = {"
 aV
 aZ
-it
-aj
-it
-aj
+Ej
+Ej
 aj
 aj
 aj
+Ej
+Ej
 bT
 aG
 aV
@@ -294,7 +325,7 @@ aj
 pw
 aj
 aj
-aj
+Vy
 kH
 kH
 OX
@@ -319,23 +350,23 @@ aj
 (8,1,1) = {"
 aV
 aG
-Vy
-aj
-Vy
+bj
+bj
+it
 pw
 Wd
 OX
 pG
-aj
+bj
 aZ
 aV
 "}
 (9,1,1) = {"
 aV
 aG
-aj
-wV
 Vy
+wV
+it
 aj
 Wd
 Ck
@@ -352,9 +383,9 @@ pw
 sI
 aj
 NV
+pP
 aj
-ys
-pw
+eB
 aG
 aV
 "}
@@ -449,7 +480,7 @@ jC
 zd
 qf
 hV
-ko
+gQ
 hV
 hV
 qf
@@ -477,7 +508,7 @@ zd
 zd
 Bt
 hV
-hV
+ys
 gQ
 yq
 Bt

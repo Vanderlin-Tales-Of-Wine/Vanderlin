@@ -94,15 +94,8 @@
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb/cave/wet)
 "hV" = (
-/obj/item/reagent_containers/glass/bucket/wooden{
-	pixel_y = 14;
-	pixel_x = -6
-	},
-/obj/item/reagent_containers/glass/carafe{
-	pixel_x = 8;
-	pixel_y = 10
-	},
-/turf/closed/wall/mineral/wood,
+/obj/item/weapon/thresher,
+/turf/open/floor/blocks,
 /area/rogue/under/tomb/indoors)
 "if" = (
 /turf/open/floor/carpet,
@@ -132,26 +125,6 @@
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/cave/wet)
 "qB" = (
-/obj/structure/closet/crate/chest/wicker,
-/obj/item/neuFarm/seed/wheat,
-/obj/item/neuFarm/seed/wheat,
-/obj/item/neuFarm/seed/wheat,
-/obj/item/neuFarm/seed/wheat,
-/obj/item/neuFarm/seed/wheat,
-/obj/item/neuFarm/seed/wheat,
-/obj/item/neuFarm/seed/wheat,
-/obj/item/neuFarm/seed/oat,
-/obj/item/neuFarm/seed/oat,
-/obj/item/neuFarm/seed/oat,
-/obj/item/neuFarm/seed/oat,
-/obj/item/neuFarm/seed/apple,
-/obj/item/neuFarm/seed/apple,
-/obj/item/neuFarm/seed/onion,
-/obj/item/neuFarm/seed/potato,
-/obj/item/neuFarm/seed/cabbage,
-/obj/item/neuFarm/seed/westleach,
-/obj/item/neuFarm/seed/westleach,
-/obj/item/neuFarm/seed/westleach,
 /obj/structure/fluff/railing/wood{
 	dir = 8;
 	pixel_y = -1
@@ -227,6 +200,14 @@
 "Dl" = (
 /obj/structure/rack/shelf,
 /obj/structure/bookcase/random_recipes,
+/obj/item/reagent_containers/glass/bucket/wooden{
+	pixel_y = 41;
+	pixel_x = -6
+	},
+/obj/item/reagent_containers/glass/carafe{
+	pixel_x = 7;
+	pixel_y = 39
+	},
 /turf/open/floor/wood,
 /area/rogue/under/tomb/indoors)
 "DI" = (
@@ -371,7 +352,7 @@ Mo
 fw
 YE
 av
-EE
+YE
 YE
 fw
 dz
@@ -405,7 +386,7 @@ KV
 Mo
 fw
 CP
-EE
+YE
 YE
 fw
 dz
@@ -451,7 +432,7 @@ YE
 tr
 tY
 za
-za
+hV
 za
 dn
 KV
@@ -721,7 +702,7 @@ gO
 dz
 gO
 gO
-hV
+La
 Dl
 ys
 if

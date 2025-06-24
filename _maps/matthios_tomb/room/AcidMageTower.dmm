@@ -96,7 +96,7 @@
 /turf/open/floor/tile/kitchen,
 /area/rogue/under/tomb/indoors/magic)
 "eO" = (
-/obj/structure/statue/bone/rib,
+/obj/effect/waterfall/acid,
 /turf/open/lava/acid,
 /area/rogue/under/tomb/cave/wet)
 "eS" = (
@@ -225,8 +225,10 @@
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb/cave/wet)
 "ka" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
-/turf/open/floor/ruinedwood/chevron,
+/obj/structure/fluff/railing/border{
+	dir = 10
+	},
+/turf/open/floor/carpet/red,
 /area/rogue/under/tomb/indoors/magic)
 "kj" = (
 /obj/effect/decal/cleanable/blood,
@@ -482,9 +484,16 @@
 /obj/item/rope/chain,
 /turf/open/floor/blocks,
 /area/rogue/under/tomb/indoors/magic)
+"sZ" = (
+/mob/living/simple_animal/hostile/retaliate/shade,
+/turf/open/floor/carpet/lord/left,
+/area/rogue/under/tomb/indoors/magic)
 "th" = (
 /obj/structure/table/stone_small,
 /obj/item/statue/gold,
+/obj/structure/fluff/railing/border{
+	dir = 8
+	},
 /turf/open/floor/carpet/red,
 /area/rogue/under/tomb/indoors/magic)
 "tl" = (
@@ -571,8 +580,8 @@
 /area/rogue/under/tomb/indoors/magic)
 "vt" = (
 /obj/structure/table/vtable/v2,
-/obj/effect/spawner/map_spawner/loot/magic,
 /obj/item/statue/silver,
+/obj/item/ingot/gold,
 /turf/open/floor/carpet,
 /area/rogue/under/tomb/indoors/magic)
 "vu" = (
@@ -643,6 +652,10 @@
 /obj/structure/curtain/bounty,
 /turf/open/floor/churchrough,
 /area/rogue/under/tomb/indoors/magic)
+"xP" = (
+/obj/structure/statue/bone/rib,
+/turf/open/floor/naturalstone,
+/area/rogue/under/tomb/cave/wet)
 "xS" = (
 /mob/living/carbon/human/species/skeleton/npc/peasant,
 /turf/open/floor/ruinedwood/chevron,
@@ -751,14 +764,13 @@
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 6
 	},
-/mob/living/simple_animal/hostile/haunt,
 /turf/open/floor/grass/cold,
 /area/rogue/under/tomb/indoors/magic)
 "Ci" = (
 /turf/closed/mineral/bedrock,
 /area/rogue/under/tomb/indoors/magic)
 "Ck" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/simple_animal/hostile/retaliate/shade,
 /turf/open/floor/blocks,
 /area/rogue/under/tomb/indoors/magic)
 "Cq" = (
@@ -814,10 +826,7 @@
 /turf/open/floor/churchbrick,
 /area/rogue/under/tomb/indoors/magic)
 "DH" = (
-/obj/structure/fluff/railing/border{
-	dir = 8
-	},
-/turf/open/floor/ruinedwood/spiral,
+/turf/open/transparent,
 /area/rogue/under/tomb/indoors/magic)
 "DJ" = (
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
@@ -883,6 +892,10 @@
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/cobble/alt,
 /area/rogue/under/tomb/cave/wet)
+"GH" = (
+/mob/living/simple_animal/hostile/retaliate/shade,
+/turf/open/floor/ruinedwood/chevron,
+/area/rogue/under/tomb/indoors/magic)
 "Hk" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/closed/wall/mineral/stonebrick,
@@ -900,10 +913,15 @@
 	},
 /turf/open/floor/tile,
 /area/rogue/under/tomb/indoors/magic)
+"HC" = (
+/obj/structure/flora/grass/herb/random,
+/mob/living/simple_animal/hostile/retaliate/shade,
+/turf/open/floor/grass/cold,
+/area/rogue/under/tomb/indoors/magic)
 "Ib" = (
-/obj/structure/statue/bone/skull/half,
-/turf/open/lava/acid,
-/area/rogue/under/tomb/cave/wet)
+/mob/living/simple_animal/hostile/retaliate/shade,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/tomb/indoors/magic)
 "Ie" = (
 /obj/machinery/light/fueled/firebowl/standing/blue,
 /turf/open/floor/naturalstone,
@@ -963,7 +981,7 @@
 /area/rogue/under/tomb/cave/wet)
 "Ll" = (
 /obj/structure/statue/bone/skull,
-/turf/open/lava/acid,
+/turf/open/floor/cobblerock/alt,
 /area/rogue/under/tomb/cave/wet)
 "LA" = (
 /obj/machinery/light/fueled/cauldron,
@@ -1178,6 +1196,10 @@
 "Rl" = (
 /turf/open/floor/tile,
 /area/rogue/under/tomb/indoors/magic)
+"Rm" = (
+/obj/structure/statue/bone/skull/half,
+/turf/open/floor/cobblerock/alt,
+/area/rogue/under/tomb/cave/wet)
 "Rv" = (
 /obj/machinery/artificer_table,
 /obj/effect/decal/cleanable/blood,
@@ -1209,7 +1231,7 @@
 /obj/structure/statue/bone/skull/half{
 	dir = 8
 	},
-/turf/open/lava/acid,
+/turf/open/floor/cobblerock/alt,
 /area/rogue/under/tomb/cave/wet)
 "Se" = (
 /obj/structure/bookcase/random,
@@ -1232,8 +1254,9 @@
 /turf/open/floor/churchmarble,
 /area/rogue/under/tomb/indoors/magic)
 "Te" = (
-/turf/open/transparent/openspace,
-/area/rogue/under/tomb/indoors/magic)
+/obj/structure/statue/bone/rib,
+/turf/open/floor/cobblerock/alt,
+/area/rogue/under/tomb/cave/wet)
 "Tf" = (
 /obj/structure/toilet,
 /obj/effect/decal/cleanable/blood/gibs/torso,
@@ -1364,6 +1387,7 @@
 	base_strength = 14;
 	candodge = 0
 	},
+/obj/item/clothing/ring/silver/blortz,
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/under/tomb/indoors/magic)
 "Yc" = (
@@ -1414,9 +1438,6 @@
 /turf/open/floor/churchbrick,
 /area/rogue/under/tomb/indoors/magic)
 "Zw" = (
-/obj/structure/fluff/railing/border{
-	dir = 10
-	},
 /obj/item/clothing/gloves/plate/rust,
 /obj/item/clothing/head/helmet/heavy/rust,
 /obj/item/clothing/shoes/boots/armor/light/rust,
@@ -1429,8 +1450,14 @@
 	base_constitution = 15;
 	candodge = 0
 	},
+/obj/structure/fluff/railing/border,
+/obj/item/clothing/ring/gold/saffira,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors/magic)
+"ZJ" = (
+/obj/structure/statue/bone/skull,
+/turf/open/floor/naturalstone,
+/area/rogue/under/tomb/cave/wet)
 "ZU" = (
 /obj/structure/trap/shock,
 /obj/effect/particle_effect/steam,
@@ -1472,8 +1499,8 @@ gl
 (2,1,1) = {"
 gl
 gl
-eO
-Pd
+At
+Te
 gl
 gl
 gl
@@ -1526,7 +1553,7 @@ gl
 gl
 FM
 At
-eO
+At
 gl
 gl
 At
@@ -1589,7 +1616,7 @@ Pd
 FM
 eY
 Pd
-FM
+xP
 At
 Qj
 nF
@@ -1632,15 +1659,15 @@ gl
 (7,1,1) = {"
 gl
 gl
-mG
-At
+gl
+eO
 Pd
 rz
 Pd
 At
 jk
-mG
-uh
+gl
+sn
 uh
 uh
 uh
@@ -1664,8 +1691,8 @@ gl
 (8,1,1) = {"
 gl
 gl
-mG
-At
+gl
+eO
 At
 uh
 uh
@@ -1698,7 +1725,7 @@ gl
 gl
 gl
 Pd
-Pd
+Rm
 uh
 TF
 TF
@@ -1730,7 +1757,7 @@ gl
 Pd
 FM
 FM
-Pd
+Sb
 uh
 TF
 Zm
@@ -1744,7 +1771,7 @@ nI
 TF
 TF
 TF
-Hs
+TF
 rv
 rM
 fL
@@ -1760,7 +1787,7 @@ gl
 (11,1,1) = {"
 gl
 At
-Ib
+At
 FM
 At
 uh
@@ -1776,8 +1803,8 @@ iR
 TF
 Vf
 Rl
-Rl
-eb
+Hs
+TF
 JE
 Zk
 Na
@@ -1792,7 +1819,7 @@ gl
 (12,1,1) = {"
 gl
 Pd
-Sb
+At
 At
 Ie
 uh
@@ -1873,7 +1900,7 @@ TF
 tS
 Rl
 pd
-Ox
+Rl
 Rl
 Rl
 TF
@@ -1907,7 +1934,7 @@ vd
 vd
 vd
 vd
-vd
+sZ
 Vo
 QZ
 Gh
@@ -2099,7 +2126,7 @@ qc
 Eg
 pn
 qg
-QL
+HC
 TF
 qc
 uh
@@ -2110,8 +2137,8 @@ gl
 gl
 "}
 (22,1,1) = {"
-mG
-At
+gl
+eO
 Pd
 At
 Qj
@@ -2145,9 +2172,9 @@ gl
 gl
 eY
 Pd
+eO
 At
-At
-mG
+gl
 sn
 TF
 Bk
@@ -2170,7 +2197,7 @@ uh
 At
 At
 At
-eO
+At
 gl
 "}
 (24,1,1) = {"
@@ -2212,7 +2239,7 @@ Ie
 Pd
 At
 Pd
-FM
+ZJ
 uh
 uh
 uh
@@ -2232,15 +2259,15 @@ FM
 FM
 Pd
 At
-Pd
+Te
 YL
 gl
 gl
 "}
 (26,1,1) = {"
 gl
-mG
-Ll
+gl
+eO
 At
 At
 At
@@ -2259,8 +2286,8 @@ uh
 Gx
 jJ
 gl
-mG
-At
+gl
+eO
 At
 At
 At
@@ -2291,8 +2318,8 @@ Pd
 eY
 gl
 gl
-mG
-Ll
+gl
+eO
 eY
 Pd
 Pd
@@ -2310,7 +2337,7 @@ YS
 YS
 At
 At
-Pd
+Te
 eY
 eY
 gl
@@ -2325,7 +2352,7 @@ gl
 gl
 gl
 gl
-Pd
+Ll
 Gx
 FM
 nF
@@ -2339,7 +2366,7 @@ gl
 gl
 gl
 gl
-mG
+gl
 eO
 jB
 FM
@@ -2673,7 +2700,7 @@ vK
 KV
 vK
 vK
-mf
+vK
 QY
 Tf
 Tt
@@ -2700,12 +2727,12 @@ TF
 TM
 vK
 vK
+Ib
 vK
-KV
 vK
 vK
 ei
-Te
+mf
 TF
 Hk
 rs
@@ -2768,7 +2795,7 @@ RW
 yz
 ey
 vK
-lx
+ka
 th
 lx
 lx
@@ -2828,8 +2855,8 @@ wY
 wY
 TF
 MY
-Ck
 yz
+Ck
 TF
 vK
 lx
@@ -2898,9 +2925,9 @@ TF
 vK
 vK
 vK
-KV
 vK
 vK
+Ib
 TF
 Cq
 jQ
@@ -2991,7 +3018,7 @@ TF
 Gg
 xS
 ky
-gK
+GH
 rs
 jH
 jH
@@ -3023,7 +3050,7 @@ TF
 iV
 gH
 Ya
-ka
+gK
 TF
 ZU
 ZU
@@ -3054,7 +3081,7 @@ eX
 Vx
 Vr
 CS
-ka
+gK
 gK
 TF
 AK

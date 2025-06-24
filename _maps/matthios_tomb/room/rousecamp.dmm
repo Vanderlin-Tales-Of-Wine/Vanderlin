@@ -135,7 +135,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb/cave/lava)
 "oW" = (
-/turf/closed/wall/mineral/stone/window,
+/turf/closed/wall/mineral/decorstone,
 /area/rogue/under/tomb/cave/lava)
 "pO" = (
 /turf/open/floor/churchmarble,
@@ -1779,7 +1779,7 @@ yp
 HQ
 yp
 NM
-NM
+HQ
 yp
 HQ
 yp

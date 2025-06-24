@@ -211,6 +211,11 @@
 /mob/living/simple_animal/hostile/retaliate/wolf,
 /turf/open/floor/grass/mixyel,
 /area/rogue/under/tomb/wilds)
+"VP" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/mob/living/simple_animal/hostile/retaliate/fae/sprite,
+/turf/open/floor/cobble/mossy,
+/area/rogue/under/tomb/wilds)
 "VW" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/open/floor/cobble/mossy,
@@ -464,7 +469,7 @@ PL
 IZ
 Lf
 hz
-VW
+VP
 yz
 yz
 wO

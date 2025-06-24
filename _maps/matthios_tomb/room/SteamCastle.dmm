@@ -129,10 +129,6 @@
 /obj/structure/spider/stickyweb,
 /turf/open/floor/herringbone,
 /area/rogue/under/tomb/indoors)
-"bF" = (
-/mob/living/carbon/human/species/orc/ambush,
-/turf/open/floor/metal/barograte,
-/area/rogue/under/tomb)
 "bL" = (
 /obj/structure/bed/inn/double,
 /obj/item/bedsheet/fabric_double,
@@ -214,10 +210,6 @@
 "cz" = (
 /obj/structure/trap/spike,
 /turf/open/floor/carpet/purple,
-/area/rogue/under/tomb/indoors)
-"cA" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
-/turf/open/floor/carpet/red,
 /area/rogue/under/tomb/indoors)
 "cC" = (
 /obj/structure/lever/hidden{
@@ -439,7 +431,7 @@
 /turf/open/floor/carpet/red,
 /area/rogue/under/tomb/indoors)
 "fn" = (
-/obj/structure/trap/fire,
+/obj/structure/trap/poison,
 /turf/open/floor/blocks,
 /area/rogue/under/tomb/indoors)
 "ft" = (
@@ -529,10 +521,6 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors)
-"gn" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
-/turf/open/floor/tile/masonic/inverted,
-/area/rogue/under/tomb/indoors)
 "gr" = (
 /obj/structure/rack/shelf/big,
 /obj/structure/spider/stickyweb,
@@ -617,9 +605,9 @@
 /turf/closed/wall/mineral/decostone,
 /area/rogue/under/tomb/indoors)
 "hu" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
-/turf/open/floor/tile/masonic/inverted,
-/area/rogue/under/tomb/indoors)
+/mob/living/carbon/human/species/zizombie/npc/GRENZEL,
+/turf/open/floor/cobblerock,
+/area/rogue/under/tomb/wilds)
 "hA" = (
 /obj/structure/fermentation_keg/random/water,
 /turf/open/floor/hexstone,
@@ -741,7 +729,7 @@
 /area/rogue/under/tomb/indoors/royal)
 "iy" = (
 /obj/structure/table/stone_small,
-/obj/effect/spawner/map_spawner/loot/magic,
+/obj/effect/spawner/map_spawner/loot/medium,
 /turf/open/floor/tile/masonic/single,
 /area/rogue/under/tomb/indoors/magic)
 "iA" = (
@@ -775,25 +763,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb/indoors/royal)
 "iT" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	base_strength = 15;
-	base_speed = 15;
-	base_constitution = 14;
-	base_endurance = 14;
-	base_fortune = 12;
-	candodge = 0;
-	real_name = "Undead Knight"
-	},
-/obj/effect/mapping_helpers/floor_clothing_equipper,
-/obj/item/weapon/shield/tower/buckleriron,
-/obj/item/weapon/sword/rapier/dec,
-/obj/item/clothing/ring/gold,
-/obj/item/clothing/cloak/half/guardsecond,
-/obj/item/clothing/gloves/plate,
-/obj/item/clothing/armor/plate,
-/obj/item/clothing/pants/platelegs,
-/obj/item/clothing/shoes/boots/armor,
-/obj/item/clothing/head/helmet/visored/hounskull,
+/mob/living/carbon/human/species/zizombie/npc/GRENZEL,
 /turf/open/floor/churchmarble,
 /area/rogue/under/tomb/indoors/royal)
 "iV" = (
@@ -876,10 +846,6 @@
 /obj/item/rope/chain,
 /obj/structure/trap/shock,
 /turf/open/floor/hexstone,
-/area/rogue/under/tomb/indoors)
-"jV" = (
-/mob/living/simple_animal/hostile/retaliate/troll/axe,
-/turf/open/floor/twig,
 /area/rogue/under/tomb/indoors)
 "ka" = (
 /obj/structure/fluff/railing/border{
@@ -974,6 +940,9 @@
 /area/rogue/under/tomb/indoors)
 "kU" = (
 /obj/structure/closet/crate/chest,
+/obj/effect/spawner/map_spawner/loot/medium,
+/obj/effect/spawner/map_spawner/loot/medium,
+/obj/item/statue/gold/loot,
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/under/tomb/indoors)
 "kV" = (
@@ -1076,7 +1045,7 @@
 "lT" = (
 /obj/structure/closet/crate/crafted_closet/dark,
 /obj/machinery/light/fueled/wallfire/candle,
-/obj/item/clothing/ring/silver,
+/obj/effect/spawner/map_spawner/loot/medium,
 /turf/open/floor/tile/masonic/inverted,
 /area/rogue/under/tomb/indoors)
 "lU" = (
@@ -1184,19 +1153,15 @@
 	},
 /turf/open/floor/carpet/lord/right,
 /area/rogue/under/tomb/indoors/royal)
-"mD" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
-/turf/open/floor/tile/kitchen,
-/area/rogue/under/tomb/indoors)
 "mE" = (
 /obj/structure/table/wood/plain,
 /obj/item/chair,
 /turf/open/floor/tile/masonic/inverted,
 /area/rogue/under/tomb/indoors)
 "mG" = (
-/mob/living/simple_animal/hostile/retaliate/saigabuck,
-/turf/open/floor/dirt,
-/area/rogue/under/tomb/wilds)
+/mob/living/carbon/human/species/zizombie/npc/peasant,
+/turf/open/floor/hexstone,
+/area/rogue/under/tomb/indoors)
 "mJ" = (
 /obj/structure/rack/shelf/biggest,
 /obj/effect/spawner/map_spawner/loot/medium,
@@ -1211,25 +1176,6 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/herringbone,
 /area/rogue/under/tomb/indoors)
-"mT" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	base_strength = 15;
-	base_speed = 15;
-	base_constitution = 14;
-	base_endurance = 14;
-	base_fortune = 12;
-	candodge = 0
-	},
-/obj/effect/mapping_helpers/floor_clothing_equipper,
-/obj/item/clothing/armor/plate/rust,
-/obj/item/clothing/gloves/plate/rust,
-/obj/item/clothing/pants/platelegs/rust,
-/obj/item/clothing/shoes/boots/armor/light/rust,
-/obj/item/clothing/neck/chaincoif,
-/obj/item/weapon/sword/rapier,
-/obj/item/weapon/shield/tower/buckleriron,
-/turf/open/floor/metal/barograte,
-/area/rogue/under/tomb)
 "mU" = (
 /obj/structure/trap/wall_projectile,
 /turf/open/floor/ruinedwood/spiral,
@@ -1252,10 +1198,6 @@
 /obj/item/clothing/ring/gold/blortz,
 /turf/open/floor/metal,
 /area/rogue/under/tomb)
-"nw" = (
-/mob/living/carbon/human/species/skeleton/npc/peasant,
-/turf/open/floor/cobble,
-/area/rogue/under/tomb/indoors)
 "ny" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
@@ -1373,6 +1315,7 @@
 	pixel_x = -2;
 	pixel_y = 31
 	},
+/mob/living/simple_animal/hostile/retaliate/shade,
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/under/tomb/indoors)
 "oD" = (
@@ -1434,10 +1377,9 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors)
 "pz" = (
-/obj/effect/decal/cleanable/blood,
-/mob/living/simple_animal/hostile/retaliate/troll/axe,
-/turf/open/floor/cobblerock,
-/area/rogue/under/tomb)
+/mob/living/carbon/human/species/zizombie/npc/militiamen,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/tomb/indoors)
 "pA" = (
 /obj/structure/trap/shock,
 /turf/open/water/bath,
@@ -1474,7 +1416,6 @@
 /area/rogue/under/tomb/indoors)
 "pR" = (
 /obj/structure/table/wood/plain,
-/obj/item/reagent_containers/glass/cup/golden,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/under/tomb/indoors)
 "pT" = (
@@ -1493,7 +1434,7 @@
 /turf/open/floor/tile/masonic/single,
 /area/rogue/under/tomb/indoors/magic)
 "qp" = (
-/obj/structure/trap/fire,
+/obj/structure/trap/poison,
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/under/tomb/indoors)
 "qs" = (
@@ -1665,10 +1606,6 @@
 "sd" = (
 /obj/structure/roguetent,
 /turf/open/floor/twig,
-/area/rogue/under/tomb/indoors)
-"se" = (
-/mob/living/simple_animal/hostile/skeleton/bow,
-/turf/open/floor/ruinedwood/darker,
 /area/rogue/under/tomb/indoors)
 "sk" = (
 /obj/structure/table/wood/plain,
@@ -1891,10 +1828,6 @@
 /obj/structure/roguetent/preopen,
 /turf/open/floor/twig,
 /area/rogue/under/tomb/indoors)
-"vA" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
-/turf/open/floor/naturalstone,
-/area/rogue/under/tomb)
 "vD" = (
 /obj/structure/chair/stool,
 /turf/open/floor/hexstone,
@@ -1923,10 +1856,6 @@
 /obj/structure/flora/grass/bush/wall/tall,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/wilds)
-"vT" = (
-/mob/living/carbon/human/species/orc/ambush,
-/turf/open/floor/tile/masonic/inverted,
-/area/rogue/under/tomb/indoors)
 "vX" = (
 /obj/structure/door/stone,
 /turf/open/floor/wood/nosmooth,
@@ -1959,9 +1888,9 @@
 /turf/open/floor/wood/nosmooth/saiga,
 /area/rogue/under/tomb/indoors)
 "ws" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
-/turf/open/floor/cobblerock,
-/area/rogue/under/tomb)
+/mob/living/simple_animal/hostile/retaliate/shade,
+/turf/open/floor/cobble,
+/area/rogue/under/tomb/wilds)
 "wt" = (
 /obj/item/alch/bonemeal,
 /obj/structure/fluff/railing/border{
@@ -2145,19 +2074,17 @@
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /turf/closed/wall/mineral/decostone,
 /area/rogue/under/tomb/indoors)
-"ya" = (
-/obj/structure/chair/stool,
-/mob/living/carbon/human/species/skeleton/npc/ambush,
-/turf/open/floor/cobblerock,
-/area/rogue/under/tomb)
 "yb" = (
 /obj/machinery/light/fueled/wallfire,
 /turf/closed/wall/mineral/decostone,
 /area/rogue/under/tomb/indoors)
 "yh" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
-/turf/open/floor/cobble,
-/area/rogue/under/tomb)
+/mob/living/simple_animal/hostile/retaliate/saiga,
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 6
+	},
+/turf/open/floor/dirt,
+/area/rogue/under/tomb/wilds)
 "yi" = (
 /mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/floor/ruinedwood/spiral,
@@ -2186,10 +2113,6 @@
 /obj/item/natural/rock,
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb/wilds)
-"yp" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
-/turf/open/floor/tile/bath,
-/area/rogue/under/tomb/indoors)
 "yv" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/blood,
@@ -2263,9 +2186,12 @@
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/wilds)
 "zp" = (
-/mob/living/carbon/human/species/orc/warlord/skilled,
-/turf/open/floor/metal/barograte,
-/area/rogue/under/tomb)
+/obj/structure/fluff/railing/border{
+	dir = 8
+	},
+/mob/living/simple_animal/hostile/skeleton/bow,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/tomb/indoors)
 "zu" = (
 /obj/structure/rack/shelf/biggest,
 /obj/effect/spawner/map_spawner/loot,
@@ -2340,6 +2266,7 @@
 /area/rogue/under/tomb/indoors)
 "Ai" = (
 /obj/structure/closet/crate/chest/crate,
+/obj/effect/spawner/map_spawner/loot/medium,
 /turf/open/floor/cobble,
 /area/rogue/under/tomb/indoors)
 "Al" = (
@@ -2442,9 +2369,9 @@
 /turf/open/floor/blocks,
 /area/rogue/under/tomb/indoors)
 "AX" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
-/turf/open/floor/naturalstone,
-/area/rogue/under/tomb)
+/mob/living/carbon/human/species/zizombie/npc/militiamen,
+/turf/open/floor/tile/masonic/inverted,
+/area/rogue/under/tomb/indoors)
 "AZ" = (
 /obj/structure/door/violet{
 	lockid = "CastleArti"
@@ -2520,23 +2447,7 @@
 /turf/open/floor/tile,
 /area/rogue/under/tomb/indoors/royal)
 "Bz" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	base_strength = 15;
-	base_speed = 15;
-	base_constitution = 14;
-	base_endurance = 14;
-	base_fortune = 12;
-	candodge = 0
-	},
-/obj/effect/mapping_helpers/floor_clothing_equipper,
-/obj/item/weapon/sword/khopesh,
-/obj/item/clothing/cloak/half/guard,
-/obj/item/weapon/shield/tower/hoplite,
-/obj/item/clothing/gloves/plate/rust,
-/obj/item/clothing/armor/cuirass/iron/rust,
-/obj/item/clothing/pants/platelegs/rust,
-/obj/item/clothing/shoes/boots/armor/light/rust,
-/obj/item/clothing/neck/chaincoif,
+/mob/living/simple_animal/hostile/retaliate/shade,
 /turf/open/floor/grass/red,
 /area/rogue/under/tomb/wilds)
 "BC" = (
@@ -2583,7 +2494,6 @@
 "Ca" = (
 /obj/effect/decal/remains/human,
 /obj/effect/decal/cleanable/blood,
-/mob/living/carbon/human/species/skeleton/npc/peasant,
 /turf/open/floor/herringbone,
 /area/rogue/under/tomb/indoors)
 "Cb" = (
@@ -2608,7 +2518,7 @@
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/under/tomb/indoors)
 "Cm" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/mob/living/carbon/human/species/zizombie/npc/GRENZEL,
 /turf/open/floor/carpet/red,
 /area/rogue/under/tomb/indoors)
 "Co" = (
@@ -2835,10 +2745,6 @@
 	},
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb/indoors/royal)
-"Fi" = (
-/mob/living/carbon/human/species/orc/marauder,
-/turf/open/floor/cobblerock,
-/area/rogue/under/tomb)
 "Fk" = (
 /obj/structure/table/wood/fancy/purple,
 /obj/machinery/light/fueled/wallfire/candle,
@@ -2872,27 +2778,6 @@
 /obj/item/natural/glass/shard,
 /turf/open/floor/wood/nosmooth,
 /area/rogue/under/tomb/indoors)
-"FS" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	base_strength = 15;
-	base_speed = 15;
-	base_constitution = 14;
-	base_endurance = 14;
-	base_fortune = 12;
-	candodge = 0
-	},
-/obj/effect/mapping_helpers/floor_clothing_equipper,
-/obj/item/clothing/gloves/plate/rust,
-/obj/item/clothing/head/helmet/heavy/rust,
-/obj/item/clothing/pants/platelegs/rust,
-/obj/item/clothing/shoes/boots/armor/light/rust,
-/obj/item/clothing/neck/chaincoif,
-/obj/item/clothing/armor/cuirass/iron/rust,
-/obj/item/weapon/sword/scimitar,
-/obj/item/weapon/shield/heater,
-/obj/item/clothing/cloak/half/guard,
-/turf/open/floor/cobblerock,
-/area/rogue/under/tomb/wilds)
 "FV" = (
 /obj/structure/fluff/railing/border,
 /obj/structure/fluff/railing/border{
@@ -3155,10 +3040,6 @@
 "Ie" = (
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors)
-"If" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/under/tomb/indoors)
 "Il" = (
 /obj/item/flashlight/flare/torch,
 /turf/open/floor/twig,
@@ -3302,7 +3183,6 @@
 /area/rogue/under/tomb/indoors)
 "Kb" = (
 /obj/item/kitchen/platter,
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors)
@@ -3363,11 +3243,6 @@
 /obj/machinery/light/fueled/campfire/densefire,
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb)
-"Li" = (
-/obj/effect/decal/cleanable/blood,
-/mob/living/carbon/human/species/skeleton/npc/ambush,
-/turf/open/floor/cobblerock,
-/area/rogue/under/tomb)
 "Lj" = (
 /turf/open/floor/metal/barograte,
 /area/rogue/under/tomb)
@@ -3385,28 +3260,6 @@
 /obj/structure/table/wood/fancy/black,
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/under/tomb/indoors)
-"Ls" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	base_strength = 15;
-	base_speed = 15;
-	base_constitution = 14;
-	base_endurance = 14;
-	base_fortune = 12;
-	candodge = 0;
-	real_name = "Undead Knight"
-	},
-/obj/effect/mapping_helpers/floor_clothing_equipper,
-/obj/item/clothing/ring/gold,
-/obj/item/clothing/cloak/half/guardsecond,
-/obj/item/clothing/neck/mercmedal/grenzelhoft,
-/obj/item/clothing/armor/plate/full,
-/obj/item/clothing/gloves/plate,
-/obj/item/clothing/pants/platelegs,
-/obj/item/clothing/shoes/boots/armor,
-/obj/item/clothing/head/helmet/heavy/decorated/bucket,
-/obj/item/weapon/sword/long/judgement,
-/turf/open/floor/churchmarble,
-/area/rogue/under/tomb/indoors/royal)
 "Lv" = (
 /obj/item/natural/stone,
 /turf/open/floor/naturalstone,
@@ -3465,10 +3318,6 @@
 	},
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb)
-"LP" = (
-/mob/living/carbon/human/species/goblin/npc/ambush,
-/turf/open/floor/cobblerock,
-/area/rogue/under/tomb)
 "LX" = (
 /turf/closed/mineral/bedrock,
 /area/rogue/under/tomb/indoors)
@@ -3500,10 +3349,6 @@
 /mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/tomb/indoors)
-"Ml" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
-/turf/open/floor/tile/bath,
-/area/rogue/under/tomb/indoors)
 "Mn" = (
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb/cave)
@@ -3528,7 +3373,6 @@
 /area/rogue/under/tomb/indoors/magic)
 "MW" = (
 /obj/structure/chair/bench/coucha/r,
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/under/tomb/indoors)
 "Nc" = (
@@ -3635,9 +3479,9 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb/wilds)
 "NN" = (
-/mob/living/simple_animal/hostile/retaliate/troll/axe,
-/turf/open/floor/cobble,
-/area/rogue/under/tomb)
+/mob/living/carbon/human/species/zizombie/npc/peasant,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/tomb/indoors)
 "NO" = (
 /obj/effect/decal/cleanable/blood/gibs/up,
 /turf/open/floor/cobble,
@@ -3767,8 +3611,8 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors)
 "Po" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/cave,
-/turf/open/floor/wood/nosmooth,
+/mob/living/carbon/human/species/goblin/npc/ambush/hell,
+/turf/open/floor/tile/masonic/inverted,
 /area/rogue/under/tomb/indoors)
 "Pr" = (
 /obj/structure/table/church/m,
@@ -3841,10 +3685,9 @@
 /turf/open/floor/metal/barograte,
 /area/rogue/under/tomb)
 "PW" = (
-/obj/effect/decal/cleanable/blood/gibs/old,
-/mob/living/carbon/human/species/orc/marauder,
-/turf/open/floor/cobblerock,
-/area/rogue/under/tomb)
+/mob/living/carbon/human/species/zizombie/npc/peasant,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/tomb/indoors)
 "PY" = (
 /obj/structure/table/stone_small,
 /obj/item/reagent_containers/glass/cup,
@@ -3905,7 +3748,6 @@
 /turf/open/floor/tile/masonic/inverted,
 /area/rogue/under/tomb/indoors)
 "QD" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/hell,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/blocks,
 /area/rogue/under/tomb/indoors)
@@ -4054,11 +3896,6 @@
 /obj/item/reagent_containers/glass/cup,
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors)
-"Sm" = (
-/mob/living/carbon/human/species/orc/marauder,
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor/cobble,
-/area/rogue/under/tomb/wilds)
 "Sn" = (
 /obj/structure/well/fountain,
 /turf/open/floor/cobblerock,
@@ -4240,9 +4077,11 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/tomb/wilds)
 "Uh" = (
-/mob/living/carbon/human/species/goblin/npc/ambush,
+/obj/structure/rack/shelf/biggest,
+/obj/structure/spider/stickyweb,
+/obj/item/statue/silver,
 /turf/open/floor/cobble,
-/area/rogue/under/tomb)
+/area/rogue/under/tomb/indoors)
 "Ui" = (
 /obj/structure/closet/crate/chest/crate,
 /obj/effect/spawner/map_spawner/loot/common,
@@ -4346,7 +4185,6 @@
 /obj/structure/fluff/railing/border{
 	dir = 6
 	},
-/mob/living/carbon/human/species/goblin/npc/ambush/hell,
 /turf/open/floor/tile/masonic/inverted,
 /area/rogue/under/tomb/indoors)
 "UW" = (
@@ -4374,18 +4212,6 @@
 	},
 /turf/open/floor/cobble,
 /area/rogue/under/tomb/wilds)
-"Vo" = (
-/mob/living/carbon/human/species/orc/warlord/skilled{
-	base_strength = 20;
-	base_constitution = 15;
-	base_endurance = 15;
-	base_speed = 15;
-	base_intelligence = 5;
-	base_perception = 8;
-	base_fortune = 9
-	},
-/turf/open/floor/cobble,
-/area/rogue/under/tomb)
 "Vs" = (
 /obj/effect/decal/remains/human,
 /obj/item/ammo_casing/caseless/arrow,
@@ -4399,10 +4225,6 @@
 /obj/effect/decal/cleanable/sigil/SE,
 /turf/open/floor/tile/masonic/single,
 /area/rogue/under/tomb/indoors/magic)
-"Vx" = (
-/obj/item/ingot/gold,
-/turf/open/floor/blocks,
-/area/rogue/under/tomb/indoors)
 "VB" = (
 /obj/structure/bars/pipe{
 	dir = 5;
@@ -4504,7 +4326,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 8
 	},
-/obj/structure/trap/fire,
+/obj/structure/trap/poison,
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/under/tomb/indoors)
 "WG" = (
@@ -4534,11 +4356,16 @@
 /obj/item/ore/gold,
 /obj/item/ore/gold,
 /obj/item/reagent_containers/glass/cup/golden,
+/obj/effect/decal/cleanable/blood/old,
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/wilds)
 "WR" = (
 /obj/structure/fluff/railing/border,
-/obj/structure/trap/fire,
+/obj/structure/trap/poison,
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/under/tomb/indoors)
 "WT" = (
@@ -4595,10 +4422,6 @@
 /obj/item/ammo_casing/caseless/arrow,
 /turf/open/floor/metal/barograte,
 /area/rogue/under/tomb)
-"Xz" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
-/turf/open/floor/naturalstone,
-/area/rogue/under/tomb)
 "XJ" = (
 /turf/closed/wall/mineral/stone/window,
 /area/rogue/under/tomb/indoors)
@@ -4615,34 +4438,15 @@
 	},
 /turf/open/floor/cobble,
 /area/rogue/under/tomb/wilds)
-"XP" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	base_strength = 15;
-	base_speed = 15;
-	base_constitution = 14;
-	base_endurance = 14;
-	base_fortune = 12;
-	candodge = 0
-	},
-/obj/effect/mapping_helpers/floor_clothing_equipper,
-/obj/item/clothing/armor/cuirass/iron/rust,
-/obj/item/weapon/shield/tower/hoplite,
-/obj/item/weapon/polearm/spear/hoplite/winged,
-/obj/item/clothing/gloves/plate/rust,
-/obj/item/clothing/pants/platelegs/rust,
-/obj/item/clothing/shoes/boots/armor/light/rust,
-/obj/item/clothing/neck/chaincoif,
-/turf/open/floor/cobblerock,
-/area/rogue/under/tomb/wilds)
 "XQ" = (
 /obj/machinery/light/fueled/wallfire/candle,
 /obj/structure/trap/chill,
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors)
 "XX" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/mob/living/simple_animal/hostile/retaliate/shade,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue/under/tomb)
+/area/rogue/under/tomb/indoors)
 "XY" = (
 /turf/closed/wall/mineral/decostone,
 /area/rogue/under/tomb)
@@ -4650,11 +4454,6 @@
 /mob/living/simple_animal/hostile/retaliate/saiga,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/wilds)
-"Yo" = (
-/obj/structure/rack/shelf/biggest,
-/obj/item/statue/silver,
-/turf/open/floor/cobble,
-/area/rogue/under/tomb/indoors)
 "Yp" = (
 /obj/structure/closet/crate/chest/crate,
 /obj/machinery/light/fueled/wallfire/candle,
@@ -4666,9 +4465,12 @@
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/under/tomb/indoors)
 "Yw" = (
-/mob/living/carbon/human/species/orc/warrior,
-/turf/open/floor/cobblerock,
-/area/rogue/under/tomb)
+/obj/structure/flora/grass/bush,
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 9
+	},
+/turf/open/floor/dirt,
+/area/rogue/under/tomb/wilds)
 "YB" = (
 /obj/item/chair/stool/bar,
 /obj/item/ammo_casing/caseless/arrow,
@@ -5302,7 +5104,7 @@ LX
 rk
 uV
 uV
-Va
+mG
 Ie
 yM
 yM
@@ -5358,7 +5160,7 @@ Zb
 LJ
 wL
 zG
-jV
+hj
 zG
 wL
 LJ
@@ -5384,7 +5186,7 @@ wn
 av
 Br
 Cy
-XP
+tY
 tY
 OO
 tY
@@ -5456,7 +5258,7 @@ wn
 CZ
 zc
 OO
-tY
+hu
 oQ
 tY
 OO
@@ -5642,7 +5444,7 @@ LJ
 TF
 Zb
 Bf
-Xz
+LJ
 Zb
 Zb
 lU
@@ -5678,7 +5480,7 @@ zo
 rk
 zk
 au
-Vx
+au
 rk
 rk
 rk
@@ -5711,7 +5513,7 @@ Hw
 Zb
 TF
 TF
-AX
+LJ
 Zb
 eU
 LJ
@@ -5861,7 +5663,7 @@ LJ
 Zb
 LJ
 YB
-ws
+Zb
 LJ
 Zb
 wL
@@ -5969,7 +5771,7 @@ rk
 Ne
 BL
 pT
-yi
+XX
 pT
 pT
 pT
@@ -6093,7 +5895,7 @@ Xf
 Xf
 rk
 zu
-Va
+mG
 Ie
 Ie
 wn
@@ -6121,9 +5923,9 @@ Qe
 Qe
 rk
 rk
+Uh
 Qv
-Qv
-Yo
+jc
 Qv
 wn
 Cb
@@ -6554,9 +6356,9 @@ OO
 OO
 Cb
 Cb
-Uh
-LP
-Fi
+TF
+Zb
+Zb
 mz
 Fo
 wn
@@ -6574,7 +6376,7 @@ LJ
 TF
 LJ
 TF
-yh
+TF
 Xb
 LJ
 TF
@@ -6627,9 +6429,9 @@ tY
 tY
 Zx
 iH
-pz
+Xw
 Xb
-Yw
+Zb
 Zb
 DY
 Gx
@@ -6688,8 +6490,8 @@ eg
 OO
 OO
 XO
-FS
-OO
+tY
+ws
 tY
 XO
 OO
@@ -6701,7 +6503,7 @@ TF
 TF
 mz
 On
-Vo
+TF
 Zb
 Zb
 PU
@@ -6709,8 +6511,8 @@ PU
 Gx
 uF
 UD
-mT
-zp
+Lj
+Lj
 Lj
 ft
 Lj
@@ -6771,9 +6573,9 @@ OO
 OO
 TF
 Xw
-NN
+TF
 kS
-Yw
+Zb
 mz
 TF
 Gx
@@ -6783,7 +6585,7 @@ uF
 Lj
 sv
 Lj
-bF
+Lj
 Lj
 Lj
 TF
@@ -6822,7 +6624,7 @@ Dq
 iw
 WL
 oh
-Ls
+iT
 WL
 oh
 WL
@@ -6842,9 +6644,9 @@ NM
 tY
 Cb
 Cb
-LP
-LP
-PW
+Zb
+Zb
+og
 Xb
 On
 Cb
@@ -6860,7 +6662,7 @@ EN
 EN
 Xb
 TF
-lU
+Zb
 Xv
 TF
 Zb
@@ -6932,7 +6734,7 @@ LE
 Zb
 IC
 Zb
-vA
+LJ
 GX
 Zb
 LJ
@@ -7003,14 +6805,14 @@ LE
 LE
 rz
 LJ
-JP
+LJ
 TF
 TF
 TF
 TS
 TF
 LJ
-Li
+Xw
 Xw
 wL
 EO
@@ -7089,7 +6891,7 @@ EO
 BY
 YD
 hj
-wZ
+hj
 YD
 EO
 wL
@@ -7203,7 +7005,7 @@ Gm
 rk
 QY
 nk
-nw
+QY
 QY
 Cb
 Di
@@ -7532,8 +7334,8 @@ Xf
 (39,1,1) = {"
 Xf
 UM
-zo
-Ya
+Yw
+yh
 Br
 Br
 Br
@@ -7541,7 +7343,7 @@ zc
 zc
 Br
 Ea
-mG
+zc
 Br
 Br
 zc
@@ -7588,7 +7390,7 @@ LJ
 Hk
 LJ
 LJ
-ya
+Er
 LJ
 wL
 hj
@@ -7610,14 +7412,14 @@ oQ
 zc
 Br
 FL
-Ya
+zc
 av
 oQ
 oQ
 Br
 Br
 Br
-Mf
+zc
 zc
 rk
 rk
@@ -7655,7 +7457,7 @@ Xf
 LJ
 LJ
 LJ
-LJ
+JP
 TF
 LJ
 Hw
@@ -7893,7 +7695,7 @@ Xf
 wn
 wn
 nE
-mD
+YQ
 YQ
 Pk
 vD
@@ -7978,7 +7780,7 @@ OO
 OO
 CC
 OO
-Sm
+eF
 OO
 CC
 CC
@@ -8762,7 +8564,7 @@ cR
 cR
 Cm
 cR
-cA
+cR
 cR
 mU
 wn
@@ -8933,7 +8735,7 @@ wn
 Cb
 Cb
 Ec
-Mi
+Jt
 CJ
 xq
 IR
@@ -9005,7 +8807,7 @@ wn
 Cb
 Cb
 Jt
-Jt
+NN
 Jt
 Ev
 Ev
@@ -9047,7 +8849,7 @@ LX
 rk
 WT
 cR
-cA
+cR
 cR
 cR
 cR
@@ -9124,7 +8926,7 @@ pT
 pT
 pT
 pT
-pT
+pz
 YP
 lw
 WM
@@ -9285,7 +9087,7 @@ HG
 wR
 pT
 pT
-pT
+PW
 pT
 pT
 pT
@@ -9358,7 +9160,7 @@ pT
 pT
 pT
 pT
-If
+pT
 pT
 pT
 vn
@@ -9437,7 +9239,7 @@ Cb
 Cb
 Cb
 Ev
-se
+Jt
 XJ
 lw
 lw
@@ -9849,7 +9651,7 @@ HN
 HN
 HN
 rk
-yp
+kx
 hi
 EX
 rk
@@ -9916,10 +9718,10 @@ au
 au
 rk
 bn
-HN
+AX
 bL
 dv
-hu
+HN
 NT
 kx
 pA
@@ -9943,7 +9745,7 @@ gH
 Jt
 nL
 CJ
-KJ
+zp
 xq
 Jt
 XJ
@@ -10056,7 +9858,7 @@ rk
 kf
 gT
 TT
-Po
+TT
 rk
 Jx
 Jx
@@ -10128,7 +9930,7 @@ rk
 Pd
 Ro
 xt
-mt
+Ro
 rk
 Jx
 Ri
@@ -10485,7 +10287,7 @@ Mn
 (30,1,2) = {"
 Xf
 rk
-Po
+TT
 FO
 TT
 TT
@@ -10809,7 +10611,7 @@ Jt
 Nc
 KJ
 KJ
-se
+Jt
 XJ
 lw
 lw
@@ -11003,7 +10805,7 @@ lw
 Ga
 PH
 PH
-XX
+PH
 rk
 pA
 pI
@@ -11151,7 +10953,7 @@ lw
 rk
 pA
 pA
-Ml
+kx
 co
 kx
 NT
@@ -11349,7 +11151,7 @@ Xf
 (42,1,2) = {"
 Xf
 wn
-HN
+Po
 HR
 HN
 HN
@@ -11495,7 +11297,7 @@ Xf
 wn
 pM
 sk
-gn
+HN
 ko
 HN
 HN
@@ -11566,7 +11368,7 @@ Xf
 Xf
 rk
 js
-vT
+HN
 HN
 SE
 Cd
@@ -11590,7 +11392,7 @@ Ma
 pT
 pT
 pT
-If
+pT
 pT
 rk
 wn

@@ -1,4 +1,9 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ak" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/mob/living/simple_animal/hostile/retaliate/infernal/imp,
+/turf/open/floor/wood,
+/area/rogue/under/tomb/indoors/rest)
 "au" = (
 /obj/structure/table/stone_small,
 /obj/item/pestle,
@@ -142,7 +147,7 @@
 /turf/open/floor/wood,
 /area/rogue/under/tomb/indoors/rest)
 "sk" = (
-/obj/structure/trap/bomb,
+/obj/structure/trap/mine,
 /turf/open/floor/carpet/red,
 /area/rogue/under/tomb/indoors)
 "tb" = (
@@ -150,6 +155,10 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/blocks,
 /area/rogue/under/tomb/indoors/rest)
+"tK" = (
+/mob/living/simple_animal/hostile/retaliate/infernal/imp,
+/turf/open/floor/dirt,
+/area/rogue/under/tomb)
 "ue" = (
 /mob/living/simple_animal/hostile/retaliate/trufflepig,
 /obj/item/clothing/shirt/undershirt/fancy{
@@ -160,7 +169,7 @@
 /area/rogue/under/tomb/indoors/rest)
 "uA" = (
 /obj/structure/trap/wall_projectile{
-	dir = 4
+	dir = 8
 	},
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb)
@@ -223,6 +232,11 @@
 	},
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb)
+"AJ" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/mob/living/simple_animal/hostile/retaliate/infernal/hellhound,
+/turf/open/floor/wood,
+/area/rogue/under/tomb/indoors/rest)
 "BZ" = (
 /obj/effect/decal/cobbleedge{
 	dir = 8
@@ -278,9 +292,17 @@
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/wood,
 /area/rogue/under/tomb/indoors/rest)
+"JF" = (
+/mob/living/simple_animal/hostile/retaliate/infernal/hellhound,
+/turf/open/floor/naturalstone,
+/area/rogue/under/tomb)
 "Kz" = (
 /turf/closed/wall/mineral/decostone,
 /area/rogue/under/tomb/indoors)
+"Lc" = (
+/mob/living/simple_animal/hostile/retaliate/infernal/imp,
+/turf/open/floor/dirt/road,
+/area/rogue/under/tomb)
 "LP" = (
 /obj/item/clothing/pants/skirt/random{
 	pixel_x = 8;
@@ -409,6 +431,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+/mob/living/simple_animal/hostile/retaliate/infernal/imp,
 /turf/open/floor/wood,
 /area/rogue/under/tomb/indoors/rest)
 "WJ" = (
@@ -518,7 +541,7 @@ oZ
 oZ
 oZ
 yk
-lA
+Lc
 Ya
 wk
 Ya
@@ -645,15 +668,15 @@ lA
 lA
 lA
 lA
-lA
+Lc
 Ya
 lA
 Ya
+JF
 Ya
 Ya
 Ya
-Ya
-yk
+tK
 lA
 oZ
 oZ
@@ -1196,7 +1219,7 @@ iE
 bm
 bm
 bm
-bm
+ak
 ke
 rX
 fv
@@ -1220,7 +1243,7 @@ qz
 bm
 hz
 Rb
-bm
+AJ
 fv
 Zv
 Zv

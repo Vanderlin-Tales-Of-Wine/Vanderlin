@@ -40,7 +40,6 @@
 /area/rogue/under/tomb/cave)
 "eU" = (
 /obj/effect/decal/cleanable/blood/drip,
-/obj/item/weapon/polearm/spear/billhook,
 /obj/item/clothing/head/crown/circlet/sleepless,
 /obj/effect/spawner/map_spawner/loot/coin/absurd,
 /obj/effect/spawner/map_spawner/loot/potion_vitals,
@@ -54,6 +53,7 @@
 	base_speed = 20;
 	name = "Level 1 Goblin"
 	},
+/obj/item/weapon/knife/scissors/steel,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/wilds)
 "ff" = (
@@ -74,8 +74,8 @@
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/cave)
 "jO" = (
-/mob/living/simple_animal/hostile/orc/orc_marauder,
-/turf/open/floor/snow/patchy,
+/mob/living/carbon/human/species/orc/tribal,
+/turf/open/floor/snow,
 /area/rogue/under/tomb/wilds)
 "kc" = (
 /obj/structure/fermentation_keg/random/water,
@@ -181,8 +181,8 @@
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/wilds)
 "yB" = (
-/obj/effect/spawner/map_spawner/loot/magic,
-/turf/open/floor/dirt,
+/mob/living/carbon/human/species/orc/tribal,
+/turf/open/floor/snow/patchy,
 /area/rogue/under/tomb/wilds)
 "yN" = (
 /obj/structure/fluff/railing/wood{
@@ -258,7 +258,6 @@
 "CK" = (
 /obj/structure/closet/crate/chest/wicker,
 /obj/item/flashlight/flare/torch/lantern/bronzelamptern,
-/obj/item/flashlight/flare/torch/lantern/bronzelamptern,
 /obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/indoors)
@@ -291,10 +290,6 @@
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/cave)
-"Ib" = (
-/obj/effect/spawner/map_spawner/loot/rare,
-/turf/open/floor/grass/cold,
-/area/rogue/under/tomb/wilds)
 "IS" = (
 /obj/machinery/light/fueled/firebowl,
 /turf/open/floor/dirt,
@@ -343,13 +338,9 @@
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/wilds)
-"Ne" = (
-/mob/living/simple_animal/hostile/orc/spear2,
-/turf/open/floor/snow/patchy,
-/area/rogue/under/tomb/wilds)
 "Op" = (
-/obj/effect/spawner/map_spawner/loot/rare,
-/turf/open/floor/dirt,
+/mob/living/carbon/human/species/orc/tribal,
+/turf/open/floor/grass/cold,
 /area/rogue/under/tomb/wilds)
 "Pa" = (
 /obj/structure/fluff/railing/wood,
@@ -418,7 +409,6 @@
 "Yd" = (
 /obj/structure/closet/crate/chest/wicker,
 /obj/machinery/light/fueled/wallfire/candle,
-/obj/item/gem/yellow,
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/indoors)
 "Ys" = (
@@ -809,7 +799,7 @@ UY
 Zo
 Zo
 Zo
-Ne
+on
 on
 Cd
 on
@@ -827,7 +817,7 @@ ae
 Zo
 on
 Cd
-jO
+on
 on
 Zo
 UY
@@ -842,7 +832,7 @@ UY
 Zo
 on
 on
-on
+yB
 on
 Zo
 Zo
@@ -891,7 +881,7 @@ ae
 ae
 Zo
 Zo
-Zo
+Op
 UY
 UY
 XD
@@ -1188,7 +1178,7 @@ mQ
 JS
 mQ
 EL
-yB
+mQ
 Fe
 Zo
 Zo
@@ -1215,7 +1205,7 @@ mQ
 Zo
 Zo
 MJ
-Ib
+Zo
 mQ
 mQ
 eU
@@ -1249,7 +1239,7 @@ Zo
 MJ
 Zo
 mQ
-Op
+mQ
 mQ
 zM
 Zo
@@ -2051,7 +2041,7 @@ Zo
 on
 on
 Zo
-Zo
+Op
 Zo
 Zo
 UY
@@ -2264,7 +2254,7 @@ XD
 XD
 XD
 UY
-UY
+jO
 UY
 UY
 UY

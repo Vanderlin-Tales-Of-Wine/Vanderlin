@@ -6,10 +6,7 @@
 	pixel_y = 8;
 	pixel_x = -5
 	},
-/obj/item/reagent_containers/glass/bottle/redwine{
-	pixel_y = 12;
-	pixel_x = 7
-	},
+/obj/item/reagent_containers/glass/bottle/elfblue,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/tomb/indoors)
 "aX" = (
@@ -27,10 +24,6 @@
 	},
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/tomb)
-"cL" = (
-/mob/living/carbon/human/species/goblin/npc/ambush/sea,
-/turf/open/floor/hexstone,
-/area/rogue/under/tomb/indoors)
 "cP" = (
 /obj/structure/table/wood/counter{
 	dir = 1
@@ -53,15 +46,11 @@
 /obj/structure/fermentation_keg/random/beer,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/tomb)
-"eo" = (
-/mob/living/carbon/human/species/orc/warrior,
-/turf/open/floor/hexstone,
-/area/rogue/under/tomb/indoors)
 "eN" = (
 /obj/structure/chair/bench/church/smallbench{
 	dir = 4
 	},
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/mob/living/carbon/human/species/zizombie/npc/peasant,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/tomb)
 "ff" = (
@@ -113,16 +102,11 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors)
 "iJ" = (
-/obj/item/ingot/iron,
-/obj/item/ingot/iron{
-	pixel_y = -2;
-	pixel_x = 12
+/obj/structure/chair/bench/church{
+	dir = 1
 	},
-/obj/item/ingot/iron{
-	pixel_y = 5;
-	pixel_x = 7
-	},
-/turf/open/floor/hexstone,
+/mob/living/carbon/human/species/zizombie/npc/peasant,
+/turf/open/floor/ruinedwood/darker,
 /area/rogue/under/tomb)
 "jk" = (
 /obj/structure/rack/shelf/biggest,
@@ -135,6 +119,7 @@
 /area/rogue/under/tomb)
 "kF" = (
 /obj/effect/decal/cleanable/blood/gibs,
+/mob/living/simple_animal/hostile/retaliate/infernal/hellhound,
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors)
 "kN" = (
@@ -166,11 +151,6 @@
 	name = "Weinerman"
 	},
 /turf/open/floor/hexstone,
-/area/rogue/under/tomb)
-"mT" = (
-/obj/structure/chair/bench/church/mid,
-/mob/living/carbon/human/species/skeleton/npc/peasant,
-/turf/open/floor/ruinedwood/darker,
 /area/rogue/under/tomb)
 "nb" = (
 /obj/machinery/light/fueled/torchholder/r,
@@ -252,7 +232,6 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/tomb)
 "sw" = (
-/mob/living/carbon/human/species/zizombie/npc/ambush,
 /obj/item/natural/poo,
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/hexstone,
@@ -263,7 +242,6 @@
 	dir = 1
 	},
 /obj/structure/chair/bench/church/mid,
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/tomb)
 "sE" = (
@@ -319,10 +297,15 @@
 /area/rogue/under/tomb)
 "xK" = (
 /obj/structure/rack/shelf/biggest,
-/obj/item/weapon/polearm/spear/billhook,
-/obj/item/weapon/polearm/spear/billhook{
-	pixel_y = -8
+/obj/item/ingot/iron{
+	pixel_y = 5;
+	pixel_x = 7
 	},
+/obj/item/ingot/iron{
+	pixel_y = -2;
+	pixel_x = 12
+	},
+/obj/item/ingot/iron,
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb)
 "xR" = (
@@ -381,8 +364,8 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors)
 "Do" = (
-/obj/machinery/light/fueled/torchholder/l,
-/mob/living/carbon/human/species/skeleton/npc/warrior,
+/obj/machinery/light/fueled/torchholder/r,
+/mob/living/simple_animal/hostile/retaliate/infernal/hellhound,
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors)
 "Dz" = (
@@ -410,13 +393,6 @@
 /obj/item/clothing/head/peaceflower,
 /mob/living/carbon/human/species/skeleton/npc/no_equipment,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
-/turf/open/floor/ruinedwood/darker,
-/area/rogue/under/tomb)
-"HE" = (
-/obj/structure/chair/bench/church/smallbench{
-	dir = 4
-	},
-/mob/living/carbon/human/species/skeleton/npc/peasant,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/tomb)
 "IJ" = (
@@ -449,7 +425,6 @@
 	dir = 10;
 	icon_state = "border"
 	},
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/tomb)
 "Jl" = (
@@ -526,7 +501,7 @@
 /area/rogue/under/tomb)
 "QJ" = (
 /obj/structure/chair/bench/church/mid,
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/mob/living/carbon/human/species/zizombie/npc/peasant,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/tomb)
 "QZ" = (
@@ -552,10 +527,6 @@
 /obj/structure/rack/shelf/big,
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb)
-"Wk" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior,
-/turf/open/floor/hexstone,
-/area/rogue/under/tomb/indoors)
 "Wt" = (
 /turf/open/floor/rooftop{
 	dir = 1
@@ -571,6 +542,7 @@
 /area/rogue/under/tomb/indoors)
 "XV" = (
 /obj/effect/decal/cleanable/blood/gibs/core,
+/mob/living/simple_animal/hostile/retaliate/infernal/watcher,
 /turf/open/floor/hexstone,
 /area/rogue/under/tomb/indoors)
 "Yc" = (
@@ -656,7 +628,7 @@ lW
 kN
 lW
 lW
-iJ
+lW
 Yv
 lW
 lW
@@ -770,7 +742,7 @@ lW
 lW
 gt
 vG
-cL
+vG
 hw
 Mg
 gt
@@ -790,7 +762,7 @@ lW
 lW
 lW
 gt
-Do
+hs
 kF
 Cw
 QZ
@@ -816,7 +788,7 @@ wY
 vG
 Xi
 vG
-eo
+vG
 vG
 Wv
 lW
@@ -838,7 +810,7 @@ sw
 pV
 XV
 sE
-eo
+vG
 vG
 Wv
 lW
@@ -857,11 +829,11 @@ lW
 lW
 gt
 nb
-Wk
+vG
 vG
 lR
 vG
-nb
+Do
 gt
 lW
 At
@@ -1144,7 +1116,7 @@ UQ
 zb
 zb
 gS
-HE
+Yc
 eN
 Yc
 sr
@@ -1239,7 +1211,7 @@ UQ
 UQ
 aY
 ZO
-ZO
+iJ
 gS
 gS
 gS
@@ -1283,7 +1255,7 @@ UQ
 UQ
 Bs
 QJ
-mT
+Zw
 gS
 gS
 gS

@@ -27,9 +27,6 @@
 /obj/effect/decal/cleanable/blood/drip,
 /turf/open/floor/naturalstone,
 /area/rogue/under/tomb/cave)
-"L" = (
-/turf/open/transparent/openspace,
-/area/rogue/under/tomb/cave)
 "Q" = (
 /turf/closed/wall/mineral/tent,
 /area/rogue/under/tomb/cave)
@@ -150,91 +147,91 @@ a
 (2,1,2) = {"
 a
 H
-L
+H
 H
 a
 "}
 (3,1,2) = {"
 a
 H
-L
+H
 H
 a
 "}
 (4,1,2) = {"
 a
 H
-L
+H
 H
 a
 "}
 (5,1,2) = {"
 a
 H
-L
+H
 H
 a
 "}
 (6,1,2) = {"
 a
 H
-L
+H
 z
 a
 "}
 (7,1,2) = {"
 a
 H
-L
+H
 H
 a
 "}
 (8,1,2) = {"
 a
 z
-L
+H
 H
 a
 "}
 (9,1,2) = {"
 a
 H
-L
+H
 H
 a
 "}
 (10,1,2) = {"
 a
 H
-L
+H
 H
 a
 "}
 (11,1,2) = {"
 a
 H
-L
+H
 H
 a
 "}
 (12,1,2) = {"
 a
 H
-L
+H
 H
 a
 "}
 (13,1,2) = {"
 a
 H
-L
+H
 H
 a
 "}
 (14,1,2) = {"
 a
 H
-L
+H
 H
 a
 "}

@@ -32,12 +32,7 @@
 /mob/living/carbon/human/species/goblin/npc/ambush/cave,
 /turf/open/floor/dirt/road,
 /area/rogue/under/tomb)
-"y" = (
-/obj/machinery/light/fueled/torchholder/l,
-/turf/open/floor/churchbrick,
-/area/rogue/under/tomb)
 "O" = (
-/obj/machinery/light/fueled/torchholder/r,
 /obj/structure/bonepile,
 /turf/open/floor/churchbrick,
 /area/rogue/under/tomb)
@@ -96,7 +91,7 @@ U
 k
 S
 a
-S
+a
 k
 "}
 (2,1,2) = {"
@@ -108,14 +103,14 @@ k
 "}
 (3,1,2) = {"
 a
-y
 a
-y
+a
+a
 a
 "}
 (4,1,2) = {"
 a
-S
+a
 a
 O
 a
@@ -129,8 +124,8 @@ k
 "}
 (6,1,2) = {"
 k
-y
 a
-y
+a
+a
 k
 "}

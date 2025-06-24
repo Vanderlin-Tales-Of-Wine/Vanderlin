@@ -241,6 +241,11 @@
 /obj/structure/flora/ausbushes/brflowers,
 /turf/open/floor/grass/red,
 /area/rogue/under/tomb/cave/lava)
+"oG" = (
+/obj/machinery/light/fueled/wallfire/candle/blue,
+/mob/living/carbon/human/species/zizombie/npc/peasant,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/tomb/indoors/magic)
 "oT" = (
 /obj/structure/flora/tree/burnt,
 /turf/open/floor/grass/red,
@@ -281,9 +286,9 @@
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/under/tomb/indoors)
 "qR" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
-/turf/open/floor/carpet/royalblack,
-/area/rogue/under/tomb/cave/lava)
+/mob/living/carbon/human/species/zizombie/npc/militiamen,
+/turf/open/floor/hexstone,
+/area/rogue/under/tomb/indoors)
 "sb" = (
 /obj/structure/fluff/railing/border{
 	dir = 9
@@ -466,7 +471,6 @@
 /obj/structure/fluff/railing/border{
 	dir = 6
 	},
-/mob/living/carbon/human/species/skeleton/npc/peasant,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/under/tomb/indoors)
 "Dx" = (
@@ -628,12 +632,9 @@
 /turf/open/floor/dirt,
 /area/rogue/under/tomb/cave/lava)
 "OX" = (
-/obj/structure/fluff/railing/border{
-	dir = 4
-	},
-/mob/living/carbon/human/species/skeleton/npc/ambush,
-/turf/open/floor/carpet/royalblack,
-/area/rogue/under/tomb/indoors/magic)
+/mob/living/simple_animal/hostile/retaliate/shade,
+/turf/open/floor/hexstone,
+/area/rogue/under/tomb/indoors)
 "Pc" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/flora/ausbushes/brflowers,
@@ -714,12 +715,9 @@
 /turf/open/floor/grass/red,
 /area/rogue/under/tomb/cave/lava)
 "Uv" = (
-/obj/machinery/light/fueled/wallfire/candle/blue{
-	pixel_y = -32
-	},
-/mob/living/carbon/human/species/skeleton/npc/peasant,
-/turf/open/floor/hexstone,
-/area/rogue/under/tomb/indoors)
+/mob/living/carbon/human/species/zizombie/npc/militiamen,
+/turf/open/floor/carpet/royalblack,
+/area/rogue/under/tomb/indoors/magic)
 "UI" = (
 /obj/machinery/light/fueled/oven/west,
 /obj/structure/closet/crate/chest,
@@ -1146,7 +1144,7 @@ ui
 zk
 ui
 SP
-SP
+OX
 Nd
 GA
 At
@@ -1306,7 +1304,7 @@ WS
 WS
 WS
 sb
-Uv
+TU
 GA
 GA
 At
@@ -1338,7 +1336,7 @@ ui
 oU
 ui
 SP
-SP
+qR
 SP
 GA
 gl
@@ -2133,10 +2131,10 @@ Tr
 Tr
 Jr
 Jr
-KC
+oG
 nD
 uG
-OX
+uG
 uG
 kb
 AH
@@ -2271,7 +2269,7 @@ AH
 Jr
 Jr
 sl
-qR
+HH
 nK
 Tr
 Tr
@@ -2299,7 +2297,7 @@ nt
 TC
 nt
 OE
-nt
+Uv
 nt
 Jr
 xk
