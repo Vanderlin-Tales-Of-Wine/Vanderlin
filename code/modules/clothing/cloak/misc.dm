@@ -310,6 +310,12 @@
 	inhand_mod = TRUE
 	allowed_race = list("human", "tiefling", "elf", "aasimar")
 
+/obj/item/clothing/cloak/faceless
+	name = "sash"
+	icon_state = "facelesssash" //Credit goes to Cre
+	item_state = "facelesssash"
+	desc = "A limp piece of fabric traditionally used to fasten bags that are too baggy, but in modern days has become more of a fashion statement than anything."
+
 /obj/item/clothing/cloak/half/duelcape
 	name = "duelist cape"
 	desc = "A cape that is designed for specific mercenaries from valoria."
