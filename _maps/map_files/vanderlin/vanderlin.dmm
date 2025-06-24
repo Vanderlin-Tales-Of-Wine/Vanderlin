@@ -17716,6 +17716,7 @@
 	pixel_x = 32
 	},
 /obj/item/storage/belt/pouch/coins/mid,
+/obj/item/reagent_containers/glass/bottle/strongpoison,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/manor)
 "kZN" = (
@@ -20155,6 +20156,7 @@
 /obj/item/storage/belt/leather,
 /obj/item/clothing/face/eyepatch/fake,
 /obj/item/clothing/shirt/undershirt/fancy,
+/obj/item/clothing/shoes/nobleboot/thighboots,
 /turf/open/floor/blocks/newstone,
 /area/rogue/indoors/town/manor)
 "mKJ" = (
