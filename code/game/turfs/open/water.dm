@@ -169,7 +169,7 @@
 	river_processes = TRUE
 	icon_state = "rock"
 	var/picked_dir = pick(viable_directions)
-	dir = GLOB.reverse_dir[picked_dir]
+	dir = REVERSE_DIR(picked_dir)
 	update_icon()
 	. = ..()
 
@@ -716,7 +716,7 @@
 		if((A.loc == src) && A.has_gravity())
 			if(!istype(get_step(src, dir), /turf/open/water))
 				var/list/viable_cardinals = list()
-				var/inverse = GLOB.reverse_dir[dir]
+				var/inverse = REVERSE_DIR(dir)
 				for(var/direction in GLOB.cardinals)
 					if(direction == inverse)
 						continue
